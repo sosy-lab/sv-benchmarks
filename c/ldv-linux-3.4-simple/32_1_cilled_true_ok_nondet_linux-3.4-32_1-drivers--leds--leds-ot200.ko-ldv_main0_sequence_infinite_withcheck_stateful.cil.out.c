@@ -1009,7 +1009,7 @@ struct __anonstruct_203 {
    int  : 0 ;
 };
 #line 1 "<compiler builtins>"
-long __builtin_expect(long val , long res ) ;
+long ldv__builtin_expect(long val , long res ) ;
 #line 32 "include/linux/spinlock_api_smp.h"
 extern unsigned long _raw_spin_lock_irqsave(raw_spinlock_t *lock )  __attribute__((__section__(".spinlock.text"))) ;
 #line 42
@@ -2104,7 +2104,7 @@ void ldv_check_final_state(void)
 }
 }
 #line 284 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/12605/dscv_tempdir/dscv/ri/32_1/drivers/leds/leds-ot200.c.common.c"
-long __builtin_expect(long val , long res ) 
+long ldv__builtin_expect(long val , long res ) 
 { 
 
   {

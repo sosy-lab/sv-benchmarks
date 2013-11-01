@@ -3909,7 +3909,7 @@ struct ubi_fm_eba {
 #line 1 "<compiler builtins>"
 void *__builtin_memcpy(void * , void const   * , unsigned long  ) ;
 #line 1
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 #line 7 "/work/ldvuser/exper_fp/inst/current/envs/linux-3.10-rc1.tar/linux-3.10-rc1/arch/x86/include/uapi/asm/swab.h"
 __inline static __u32 __arch_swab32(__u32 val ) 
 { 
@@ -4068,7 +4068,7 @@ __inline static long IS_ERR(void const   *ptr )
 
   {
 #line 34
-  tmp = __builtin_expect((unsigned long )ptr > 0xfffffffffffff000UL, 0L);
+  tmp = ldv__builtin_expect((unsigned long )ptr > 0xfffffffffffff000UL, 0L);
 #line 34
   return (tmp);
 }
@@ -4246,7 +4246,7 @@ __inline static int ubi_io_read_data(struct ubi_device  const  *ubi , void *buf 
 
   {
 #line 945
-  tmp___0 = __builtin_expect(offset < 0, 0L);
+  tmp___0 = ldv__builtin_expect(offset < 0, 0L);
 #line 945
   if (tmp___0 != 0L) {
 #line 945
@@ -4275,7 +4275,7 @@ __inline static int ubi_io_write_data(struct ubi_device *ubi , void const   *buf
 
   {
 #line 957
-  tmp___0 = __builtin_expect(offset < 0, 0L);
+  tmp___0 = ldv__builtin_expect(offset < 0, 0L);
 #line 957
   if (tmp___0 != 0L) {
 #line 957
@@ -4331,7 +4331,7 @@ int ubi_change_vtbl_record(struct ubi_device *ubi , int idx , struct ubi_vtbl_re
 
   {
 #line 174
-  tmp___0 = __builtin_expect(idx < 0, 0L);
+  tmp___0 = ldv__builtin_expect(idx < 0, 0L);
 #line 174
   if (tmp___0 != 0L) {
 #line 174
@@ -4343,7 +4343,7 @@ int ubi_change_vtbl_record(struct ubi_device *ubi , int idx , struct ubi_vtbl_re
     dump_stack();
   } else {
 #line 174
-    tmp___1 = __builtin_expect(ubi->vtbl_slots <= idx, 0L);
+    tmp___1 = ldv__builtin_expect(ubi->vtbl_slots <= idx, 0L);
 #line 174
     if (tmp___1 != 0L) {
 #line 174
@@ -4863,7 +4863,7 @@ static int create_vtbl(struct ubi_device *ubi , struct ubi_attach_info *ai , int
 #line 394
   descriptor.flags = 0U;
 #line 394
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 394
   if (tmp___0 != 0L) {
 #line 394
@@ -5018,7 +5018,7 @@ static struct ubi_vtbl_record *process_lvol(struct ubi_device *ubi , struct ubi_
 #line 495
   descriptor.flags = 0U;
 #line 495
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 495
   if (tmp___0 != 0L) {
 #line 495
@@ -5395,7 +5395,7 @@ static int init_volumes(struct ubi_device *ubi , struct ubi_attach_info  const  
 
   }
 #line 661
-  tmp___6 = __builtin_expect((unsigned long )ubi->volumes[i] != (unsigned long )((struct ubi_volume *)0),
+  tmp___6 = ldv__builtin_expect((unsigned long )ubi->volumes[i] != (unsigned long )((struct ubi_volume *)0),
                              0L);
 #line 661
   if (tmp___6 != 0L) {
@@ -5506,7 +5506,7 @@ static int init_volumes(struct ubi_device *ubi , struct ubi_attach_info  const  
 #line 727
   vol->ref_count = 1;
 #line 729
-  tmp___9 = __builtin_expect((unsigned long )ubi->volumes[i] != (unsigned long )((struct ubi_volume *)0),
+  tmp___9 = ldv__builtin_expect((unsigned long )ubi->volumes[i] != (unsigned long )((struct ubi_volume *)0),
                              0L);
 #line 729
   if (tmp___9 != 0L) {
@@ -5679,7 +5679,7 @@ static int check_attaching_info(struct ubi_device  const  *ubi , struct ubi_atta
 #line 830
   if (vol->reserved_pebs == 0) {
 #line 831
-    tmp___0 = __builtin_expect((int )ubi->vtbl_slots <= i, 0L);
+    tmp___0 = ldv__builtin_expect((int )ubi->vtbl_slots <= i, 0L);
 #line 831
     if (tmp___0 != 0L) {
 #line 831
@@ -6222,7 +6222,7 @@ static ssize_t vol_attribute_show(struct device *dev , struct device_attribute *
 #line 203
   vol->ref_count = vol->ref_count + -1;
 #line 204
-  tmp___0 = __builtin_expect(vol->ref_count < 0, 0L);
+  tmp___0 = ldv__builtin_expect(vol->ref_count < 0, 0L);
 #line 204
   if (tmp___0 != 0L) {
 #line 204
@@ -6435,7 +6435,7 @@ int ubi_create_volume(struct ubi_device *ubi , struct ubi_mkvol_req *req )
 #line 305
     descriptor.flags = 0U;
 #line 305
-    tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 305
     if (tmp___1 != 0L) {
 #line 305
@@ -6500,7 +6500,7 @@ int ubi_create_volume(struct ubi_device *ubi , struct ubi_mkvol_req *req )
 #line 320
   descriptor___0.flags = 0U;
 #line 320
-  tmp___3 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___3 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 320
   if (tmp___3 != 0L) {
 #line 320
@@ -6848,7 +6848,7 @@ int ubi_remove_volume(struct ubi_volume_desc *desc , int no_vtbl )
 #line 496
   descriptor.flags = 0U;
 #line 496
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 496
   if (tmp___0 != 0L) {
 #line 496
@@ -6860,7 +6860,7 @@ int ubi_remove_volume(struct ubi_volume_desc *desc , int no_vtbl )
 
   }
 #line 497
-  tmp___2 = __builtin_expect(desc->mode != 3, 0L);
+  tmp___2 = ldv__builtin_expect(desc->mode != 3, 0L);
 #line 497
   if (tmp___2 != 0L) {
 #line 497
@@ -6874,7 +6874,7 @@ int ubi_remove_volume(struct ubi_volume_desc *desc , int no_vtbl )
 
   }
 #line 498
-  tmp___4 = __builtin_expect((unsigned long )ubi->volumes[vol_id] != (unsigned long )vol,
+  tmp___4 = ldv__builtin_expect((unsigned long )ubi->volumes[vol_id] != (unsigned long )vol,
                              0L);
 #line 498
   if (tmp___4 != 0L) {
@@ -7034,7 +7034,7 @@ int ubi_resize_volume(struct ubi_volume_desc *desc , int reserved_pebs )
 #line 572
   descriptor.flags = 0U;
 #line 572
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 572
   if (tmp___0 != 0L) {
 #line 572
@@ -7384,7 +7384,7 @@ int ubi_add_volume(struct ubi_device *ubi , struct ubi_volume *vol )
 #line 725
   descriptor.flags = 0U;
 #line 725
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 725
   if (tmp___0 != 0L) {
 #line 725
@@ -7477,7 +7477,7 @@ void ubi_free_volume(struct ubi_device *ubi , struct ubi_volume *vol )
 #line 772
   descriptor.flags = 0U;
 #line 772
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 772
   if (tmp___0 != 0L) {
 #line 772
@@ -7963,14 +7963,14 @@ __inline static unsigned long copy_from_user(void *to , void const   *from , uns
 #line 61
   might_fault();
 #line 62
-  tmp___1 = __builtin_expect(sz == -1, 1L);
+  tmp___1 = ldv__builtin_expect(sz == -1, 1L);
 #line 62
   if (tmp___1 != 0L) {
 #line 63
     n = _copy_from_user(to, from, (unsigned int )n);
   } else {
 #line 62
-    tmp___2 = __builtin_expect((unsigned long )sz >= n, 1L);
+    tmp___2 = ldv__builtin_expect((unsigned long )sz >= n, 1L);
 #line 62
     if (tmp___2 != 0L) {
 #line 63
@@ -7979,7 +7979,7 @@ __inline static unsigned long copy_from_user(void *to , void const   *from , uns
 #line 66
       __ret_warn_on = 1;
 #line 66
-      tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+      tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 66
       if (tmp___0 != 0L) {
 #line 66
@@ -7989,7 +7989,7 @@ __inline static unsigned long copy_from_user(void *to , void const   *from , uns
 
       }
 #line 66
-      __builtin_expect(__ret_warn_on != 0, 0L);
+      ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
   }
 #line 68
@@ -8044,7 +8044,7 @@ static int set_update_marker(struct ubi_device *ubi , struct ubi_volume *vol )
 #line 146
   descriptor.flags = 0U;
 #line 146
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 146
   if (tmp___0 != 0L) {
 #line 146
@@ -8058,7 +8058,7 @@ static int set_update_marker(struct ubi_device *ubi , struct ubi_volume *vol )
 #line 148
   if ((unsigned int )*((unsigned char *)vol + 1480UL) != 0U) {
 #line 149
-    tmp___2 = __builtin_expect((unsigned int )(ubi->vtbl + (unsigned long )vol->vol_id)->upd_marker == 0U,
+    tmp___2 = ldv__builtin_expect((unsigned int )(ubi->vtbl + (unsigned long )vol->vol_id)->upd_marker == 0U,
                                0L);
 #line 149
     if (tmp___2 != 0L) {
@@ -8085,7 +8085,7 @@ static int set_update_marker(struct ubi_device *ubi , struct ubi_volume *vol )
 #line 150
     descriptor___0.flags = 0U;
 #line 150
-    tmp___4 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___4 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 150
     if (tmp___4 != 0L) {
 #line 150
@@ -8144,7 +8144,7 @@ static int clear_update_marker(struct ubi_device *ubi , struct ubi_volume *vol ,
 #line 180
   descriptor.flags = 0U;
 #line 180
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 180
   if (tmp___0 != 0L) {
 #line 180
@@ -8158,7 +8158,7 @@ static int clear_update_marker(struct ubi_device *ubi , struct ubi_volume *vol ,
 #line 182
   vtbl_rec = *(ubi->vtbl + (unsigned long )vol->vol_id);
 #line 183
-  tmp___2 = __builtin_expect((unsigned int )*((unsigned char *)vol + 1480UL) == 0U,
+  tmp___2 = ldv__builtin_expect((unsigned int )*((unsigned char *)vol + 1480UL) == 0U,
                              0L);
 #line 183
   if (tmp___2 != 0L) {
@@ -8171,7 +8171,7 @@ static int clear_update_marker(struct ubi_device *ubi , struct ubi_volume *vol ,
     dump_stack();
   } else {
 #line 183
-    tmp___3 = __builtin_expect((unsigned int )vtbl_rec.upd_marker == 0U, 0L);
+    tmp___3 = ldv__builtin_expect((unsigned int )vtbl_rec.upd_marker == 0U, 0L);
 #line 183
     if (tmp___3 != 0L) {
 #line 183
@@ -8247,7 +8247,7 @@ int ubi_start_update(struct ubi_device *ubi , struct ubi_volume *vol , long long
 #line 219
   descriptor.flags = 0U;
 #line 219
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 219
   if (tmp___0 != 0L) {
 #line 219
@@ -8259,7 +8259,7 @@ int ubi_start_update(struct ubi_device *ubi , struct ubi_volume *vol , long long
 
   }
 #line 220
-  tmp___2 = __builtin_expect((unsigned int )*((unsigned char *)vol + 1480UL) != 0U,
+  tmp___2 = ldv__builtin_expect((unsigned int )*((unsigned char *)vol + 1480UL) != 0U,
                              0L);
 #line 220
   if (tmp___2 != 0L) {
@@ -8272,7 +8272,7 @@ int ubi_start_update(struct ubi_device *ubi , struct ubi_volume *vol , long long
     dump_stack();
   } else {
 #line 220
-    tmp___3 = __builtin_expect((unsigned int )*((unsigned char *)vol + 1480UL) != 0U,
+    tmp___3 = ldv__builtin_expect((unsigned int )*((unsigned char *)vol + 1480UL) != 0U,
                                0L);
 #line 220
     if (tmp___3 != 0L) {
@@ -8384,7 +8384,7 @@ int ubi_start_leb_change(struct ubi_device *ubi , struct ubi_volume *vol , struc
 
   {
 #line 269
-  tmp___0 = __builtin_expect((unsigned int )*((unsigned char *)vol + 1480UL) != 0U,
+  tmp___0 = ldv__builtin_expect((unsigned int )*((unsigned char *)vol + 1480UL) != 0U,
                              0L);
 #line 269
   if (tmp___0 != 0L) {
@@ -8397,7 +8397,7 @@ int ubi_start_leb_change(struct ubi_device *ubi , struct ubi_volume *vol , struc
     dump_stack();
   } else {
 #line 269
-    tmp___1 = __builtin_expect((unsigned int )*((unsigned char *)vol + 1480UL) != 0U,
+    tmp___1 = ldv__builtin_expect((unsigned int )*((unsigned char *)vol + 1480UL) != 0U,
                                0L);
 #line 269
     if (tmp___1 != 0L) {
@@ -8425,7 +8425,7 @@ int ubi_start_leb_change(struct ubi_device *ubi , struct ubi_volume *vol , struc
 #line 271
   descriptor.flags = 0U;
 #line 271
-  tmp___3 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___3 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 271
   if (tmp___3 != 0L) {
 #line 271
@@ -8501,7 +8501,7 @@ static int write_leb(struct ubi_device *ubi , struct ubi_volume *vol , int lnum 
 #line 328
       descriptor.flags = 0U;
 #line 328
-      tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+      tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 328
       if (tmp___0 != 0L) {
 #line 328
@@ -8568,7 +8568,7 @@ int ubi_more_update_data(struct ubi_device *ubi , struct ubi_volume *vol , void 
 #line 368
   descriptor.flags = 0U;
 #line 368
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 368
   if (tmp___0 != 0L) {
 #line 368
@@ -8626,7 +8626,7 @@ int ubi_more_update_data(struct ubi_device *ubi , struct ubi_volume *vol , void 
 #line 400
       flush_len = offs + len;
 #line 406
-      tmp___4 = __builtin_expect(vol->usable_leb_size < flush_len, 0L);
+      tmp___4 = ldv__builtin_expect(vol->usable_leb_size < flush_len, 0L);
 #line 406
       if (tmp___4 != 0L) {
 #line 406
@@ -8716,7 +8716,7 @@ int ubi_more_update_data(struct ubi_device *ubi , struct ubi_volume *vol , void 
   }
   ldv_23652: 
 #line 447
-  tmp___7 = __builtin_expect(vol->upd_received > vol->upd_bytes, 0L);
+  tmp___7 = ldv__builtin_expect(vol->upd_received > vol->upd_bytes, 0L);
 #line 447
   if (tmp___7 != 0L) {
 #line 447
@@ -8789,7 +8789,7 @@ int ubi_more_leb_change_data(struct ubi_device *ubi , struct ubi_volume *vol , v
 #line 483
   descriptor.flags = 0U;
 #line 483
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 483
   if (tmp___0 != 0L) {
 #line 483
@@ -8851,7 +8851,7 @@ int ubi_more_leb_change_data(struct ubi_device *ubi , struct ubi_volume *vol , v
 
   }
 #line 510
-  tmp___3 = __builtin_expect(vol->upd_received > vol->upd_bytes, 0L);
+  tmp___3 = ldv__builtin_expect(vol->upd_received > vol->upd_bytes, 0L);
 #line 510
   if (tmp___3 != 0L) {
 #line 510
@@ -9426,7 +9426,7 @@ struct ubi_device *ubi_get_device(int ubi_num )
 #line 347
   if ((unsigned long )ubi != (unsigned long )((struct ubi_device *)0)) {
 #line 348
-    tmp___0 = __builtin_expect(ubi->ref_count < 0, 0L);
+    tmp___0 = ldv__builtin_expect(ubi->ref_count < 0, 0L);
 #line 348
     if (tmp___0 != 0L) {
 #line 348
@@ -9491,7 +9491,7 @@ struct ubi_device *ubi_get_by_major(int major )
 #line 384
   if ((unsigned long )ubi != (unsigned long )((struct ubi_device *)0) && ubi->cdev.dev >> 20 == (dev_t )major) {
 #line 385
-    tmp___0 = __builtin_expect(ubi->ref_count < 0, 0L);
+    tmp___0 = ldv__builtin_expect(ubi->ref_count < 0, 0L);
 #line 385
     if (tmp___0 != 0L) {
 #line 385
@@ -9929,7 +9929,7 @@ static int uif_init(struct ubi_device *ubi , int *ref )
 
   }
 #line 610
-  tmp___0 = __builtin_expect((dev & 1048575U) != 0U, 0L);
+  tmp___0 = ldv__builtin_expect((dev & 1048575U) != 0U, 0L);
 #line 610
   if (tmp___0 != 0L) {
 #line 610
@@ -9956,7 +9956,7 @@ static int uif_init(struct ubi_device *ubi , int *ref )
 #line 612
   descriptor.flags = 0U;
 #line 612
-  tmp___2 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___2 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 612
   if (tmp___2 != 0L) {
 #line 612
@@ -10212,7 +10212,7 @@ static int io_init(struct ubi_device *ubi , int max_beb_per1024 )
 #line 726
   descriptor.flags = 0U;
 #line 726
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 726
   if (tmp___0 != 0L) {
 #line 726
@@ -10236,7 +10236,7 @@ static int io_init(struct ubi_device *ubi , int max_beb_per1024 )
 #line 727
   descriptor___0.flags = 0U;
 #line 727
-  tmp___2 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___2 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 727
   if (tmp___2 != 0L) {
 #line 727
@@ -10285,7 +10285,7 @@ static int io_init(struct ubi_device *ubi , int max_beb_per1024 )
 #line 760
   if ((unsigned int )(ubi->mtd)->type == 3U) {
 #line 761
-    tmp___6 = __builtin_expect((ubi->mtd)->writesize != 1U, 0L);
+    tmp___6 = ldv__builtin_expect((ubi->mtd)->writesize != 1U, 0L);
 #line 761
     if (tmp___6 != 0L) {
 #line 761
@@ -10326,7 +10326,7 @@ static int io_init(struct ubi_device *ubi , int max_beb_per1024 )
 
   }
 #line 779
-  tmp___10 = __builtin_expect(ubi->hdrs_min_io_size <= 0, 0L);
+  tmp___10 = ldv__builtin_expect(ubi->hdrs_min_io_size <= 0, 0L);
 #line 779
   if (tmp___10 != 0L) {
 #line 779
@@ -10339,7 +10339,7 @@ static int io_init(struct ubi_device *ubi , int max_beb_per1024 )
 
   }
 #line 780
-  tmp___12 = __builtin_expect(ubi->hdrs_min_io_size > ubi->min_io_size, 0L);
+  tmp___12 = ldv__builtin_expect(ubi->hdrs_min_io_size > ubi->min_io_size, 0L);
 #line 780
   if (tmp___12 != 0L) {
 #line 780
@@ -10352,7 +10352,7 @@ static int io_init(struct ubi_device *ubi , int max_beb_per1024 )
 
   }
 #line 781
-  tmp___14 = __builtin_expect(ubi->min_io_size % ubi->hdrs_min_io_size != 0, 0L);
+  tmp___14 = ldv__builtin_expect(ubi->min_io_size % ubi->hdrs_min_io_size != 0, 0L);
 #line 781
   if (tmp___14 != 0L) {
 #line 781
@@ -10412,7 +10412,7 @@ static int io_init(struct ubi_device *ubi , int max_beb_per1024 )
 #line 800
   descriptor___1.flags = 0U;
 #line 800
-  tmp___18 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+  tmp___18 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 800
   if (tmp___18 != 0L) {
 #line 800
@@ -10436,7 +10436,7 @@ static int io_init(struct ubi_device *ubi , int max_beb_per1024 )
 #line 801
   descriptor___2.flags = 0U;
 #line 801
-  tmp___20 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+  tmp___20 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
 #line 801
   if (tmp___20 != 0L) {
 #line 801
@@ -10460,7 +10460,7 @@ static int io_init(struct ubi_device *ubi , int max_beb_per1024 )
 #line 802
   descriptor___3.flags = 0U;
 #line 802
-  tmp___22 = __builtin_expect((long )descriptor___3.flags & 1L, 0L);
+  tmp___22 = ldv__builtin_expect((long )descriptor___3.flags & 1L, 0L);
 #line 802
   if (tmp___22 != 0L) {
 #line 802
@@ -10484,7 +10484,7 @@ static int io_init(struct ubi_device *ubi , int max_beb_per1024 )
 #line 803
   descriptor___4.flags = 0U;
 #line 803
-  tmp___24 = __builtin_expect((long )descriptor___4.flags & 1L, 0L);
+  tmp___24 = ldv__builtin_expect((long )descriptor___4.flags & 1L, 0L);
 #line 803
   if (tmp___24 != 0L) {
 #line 803
@@ -10508,7 +10508,7 @@ static int io_init(struct ubi_device *ubi , int max_beb_per1024 )
 #line 804
   descriptor___5.flags = 0U;
 #line 804
-  tmp___26 = __builtin_expect((long )descriptor___5.flags & 1L, 0L);
+  tmp___26 = ldv__builtin_expect((long )descriptor___5.flags & 1L, 0L);
 #line 804
   if (tmp___26 != 0L) {
 #line 804
@@ -10550,7 +10550,7 @@ static int io_init(struct ubi_device *ubi , int max_beb_per1024 )
 #line 821
   descriptor___6.flags = 0U;
 #line 821
-  tmp___29 = __builtin_expect((long )descriptor___6.flags & 1L, 0L);
+  tmp___29 = ldv__builtin_expect((long )descriptor___6.flags & 1L, 0L);
 #line 821
   if (tmp___29 != 0L) {
 #line 821
@@ -10574,7 +10574,7 @@ static int io_init(struct ubi_device *ubi , int max_beb_per1024 )
 #line 822
   descriptor___7.flags = 0U;
 #line 822
-  tmp___31 = __builtin_expect((long )descriptor___7.flags & 1L, 0L);
+  tmp___31 = ldv__builtin_expect((long )descriptor___7.flags & 1L, 0L);
 #line 822
   if (tmp___31 != 0L) {
 #line 822
@@ -10598,7 +10598,7 @@ static int io_init(struct ubi_device *ubi , int max_beb_per1024 )
 #line 823
   descriptor___8.flags = 0U;
 #line 823
-  tmp___33 = __builtin_expect((long )descriptor___8.flags & 1L, 0L);
+  tmp___33 = ldv__builtin_expect((long )descriptor___8.flags & 1L, 0L);
 #line 823
   if (tmp___33 != 0L) {
 #line 823
@@ -10622,7 +10622,7 @@ static int io_init(struct ubi_device *ubi , int max_beb_per1024 )
 #line 824
   descriptor___9.flags = 0U;
 #line 824
-  tmp___35 = __builtin_expect((long )descriptor___9.flags & 1L, 0L);
+  tmp___35 = ldv__builtin_expect((long )descriptor___9.flags & 1L, 0L);
 #line 824
   if (tmp___35 != 0L) {
 #line 824
@@ -10674,7 +10674,7 @@ static int io_init(struct ubi_device *ubi , int max_beb_per1024 )
 #line 850
   descriptor___10.flags = 0U;
 #line 850
-  tmp___37 = __builtin_expect((long )descriptor___10.flags & 1L, 0L);
+  tmp___37 = ldv__builtin_expect((long )descriptor___10.flags & 1L, 0L);
 #line 850
   if (tmp___37 != 0L) {
 #line 850
@@ -11136,7 +11136,7 @@ int ubi_attach_mtd_dev(struct mtd_info *mtd , int ubi_num , int vid_hdr_offset ,
 #line 1139
   get_device(& ubi->dev);
 #line 1140
-  tmp___7 = __builtin_expect(ref == 0, 0L);
+  tmp___7 = ldv__builtin_expect(ref == 0, 0L);
 #line 1140
   if (tmp___7 != 0L) {
 #line 1140
@@ -11227,7 +11227,7 @@ int ubi_detach_mtd_dev(int ubi_num , int anyway )
 #line 1193
   spin_unlock(& ubi_devices_lock);
 #line 1195
-  tmp___0 = __builtin_expect(ubi->ubi_num != ubi_num, 0L);
+  tmp___0 = ldv__builtin_expect(ubi->ubi_num != ubi_num, 0L);
 #line 1195
   if (tmp___0 != 0L) {
 #line 1195
@@ -11754,7 +11754,7 @@ static int get_exclusive(struct ubi_volume_desc *desc )
 #line 151
   users = (vol->readers + vol->writers) + vol->exclusive;
 #line 152
-  tmp___0 = __builtin_expect(users <= 0, 0L);
+  tmp___0 = ldv__builtin_expect(users <= 0, 0L);
 #line 152
   if (tmp___0 != 0L) {
 #line 152
@@ -11809,7 +11809,7 @@ static void revoke_exclusive(struct ubi_volume_desc *desc , int mode )
 #line 176
   spin_lock(& (vol->ubi)->volumes_lock);
 #line 177
-  tmp___0 = __builtin_expect(vol->readers != 0, 0L);
+  tmp___0 = ldv__builtin_expect(vol->readers != 0, 0L);
 #line 177
   if (tmp___0 != 0L) {
 #line 177
@@ -11821,7 +11821,7 @@ static void revoke_exclusive(struct ubi_volume_desc *desc , int mode )
     dump_stack();
   } else {
 #line 177
-    tmp___1 = __builtin_expect(vol->writers != 0, 0L);
+    tmp___1 = ldv__builtin_expect(vol->writers != 0, 0L);
 #line 177
     if (tmp___1 != 0L) {
 #line 177
@@ -11836,7 +11836,7 @@ static void revoke_exclusive(struct ubi_volume_desc *desc , int mode )
     }
   }
 #line 178
-  tmp___3 = __builtin_expect(vol->exclusive != 1, 0L);
+  tmp___3 = ldv__builtin_expect(vol->exclusive != 1, 0L);
 #line 178
   if (tmp___3 != 0L) {
 #line 178
@@ -11848,7 +11848,7 @@ static void revoke_exclusive(struct ubi_volume_desc *desc , int mode )
     dump_stack();
   } else {
 #line 178
-    tmp___4 = __builtin_expect(desc->mode != 3, 0L);
+    tmp___4 = ldv__builtin_expect(desc->mode != 3, 0L);
 #line 178
     if (tmp___4 != 0L) {
 #line 178
@@ -11937,7 +11937,7 @@ static int vol_cdev_open(struct inode *inode , struct file *file )
 #line 205
   descriptor.flags = 0U;
 #line 205
-  tmp___2 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___2 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 205
   if (tmp___2 != 0L) {
 #line 205
@@ -11999,7 +11999,7 @@ static int vol_cdev_release(struct inode *inode , struct file *file )
 #line 221
   descriptor.flags = 0U;
 #line 221
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 221
   if (tmp___0 != 0L) {
 #line 221
@@ -12016,7 +12016,7 @@ static int vol_cdev_release(struct inode *inode , struct file *file )
     printk("\fUBI warning: %s: update of volume %d not finished, volume is damaged\n",
            "vol_cdev_release", vol->vol_id);
 #line 227
-    tmp___2 = __builtin_expect((unsigned int )*((unsigned char *)vol + 1480UL) != 0U,
+    tmp___2 = ldv__builtin_expect((unsigned int )*((unsigned char *)vol + 1480UL) != 0U,
                                0L);
 #line 227
     if (tmp___2 != 0L) {
@@ -12050,7 +12050,7 @@ static int vol_cdev_release(struct inode *inode , struct file *file )
 #line 231
     descriptor___0.flags = 0U;
 #line 231
-    tmp___4 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___4 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 231
     if (tmp___4 != 0L) {
 #line 231
@@ -12143,7 +12143,7 @@ static loff_t vol_cdev_llseek(struct file *file , loff_t offset , int origin )
 #line 273
   descriptor.flags = 0U;
 #line 273
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 273
   if (tmp___0 != 0L) {
 #line 273
@@ -12231,7 +12231,7 @@ static ssize_t vol_cdev_read(struct file *file , char *buf , size_t count , loff
 #line 304
   descriptor.flags = 0U;
 #line 304
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 304
   if (tmp___0 != 0L) {
 #line 304
@@ -12282,7 +12282,7 @@ static ssize_t vol_cdev_read(struct file *file , char *buf , size_t count , loff
 #line 319
     descriptor___0.flags = 0U;
 #line 319
-    tmp___2 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___2 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 319
     if (tmp___2 != 0L) {
 #line 319
@@ -12447,7 +12447,7 @@ static ssize_t vol_cdev_direct_write(struct file *file , char const   *buf , siz
 #line 384
   descriptor.flags = 0U;
 #line 384
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 384
   if (tmp___0 != 0L) {
 #line 384
@@ -12900,7 +12900,7 @@ static long vol_cdev_ioctl(struct file *file , unsigned int cmd , unsigned long 
 #line 601
   descriptor.flags = 0U;
 #line 601
-  tmp___4 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___4 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 601
   if (tmp___4 != 0L) {
 #line 601
@@ -13397,7 +13397,7 @@ static int rename_volumes(struct ubi_device *ubi , struct ubi_rnvol_req *req )
 #line 845
   descriptor.flags = 0U;
 #line 845
-  tmp___6 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___6 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 845
   if (tmp___6 != 0L) {
 #line 845
@@ -13541,7 +13541,7 @@ static int rename_volumes(struct ubi_device *ubi , struct ubi_rnvol_req *req )
 #line 903
   descriptor___0.flags = 0U;
 #line 903
-  tmp___13 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___13 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 903
   if (tmp___13 != 0L) {
 #line 903
@@ -13698,7 +13698,7 @@ static long ubi_cdev_ioctl(struct file *file , unsigned int cmd , unsigned long 
 #line 941
   descriptor.flags = 0U;
 #line 941
-  tmp___3 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___3 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 941
   if (tmp___3 != 0L) {
 #line 941
@@ -13801,7 +13801,7 @@ static long ubi_cdev_ioctl(struct file *file , unsigned int cmd , unsigned long 
 #line 970
   descriptor___0.flags = 0U;
 #line 970
-  tmp___6 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___6 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 970
   if (tmp___6 != 0L) {
 #line 970
@@ -13869,7 +13869,7 @@ static long ubi_cdev_ioctl(struct file *file , unsigned int cmd , unsigned long 
 #line 1002
   descriptor___1.flags = 0U;
 #line 1002
-  tmp___10 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+  tmp___10 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 1002
   if (tmp___10 != 0L) {
 #line 1002
@@ -13946,7 +13946,7 @@ static long ubi_cdev_ioctl(struct file *file , unsigned int cmd , unsigned long 
 #line 1034
   descriptor___2.flags = 0U;
 #line 1034
-  tmp___16 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+  tmp___16 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
 #line 1034
   if (tmp___16 != 0L) {
 #line 1034
@@ -14066,7 +14066,7 @@ static long ctrl_cdev_ioctl(struct file *file , unsigned int cmd , unsigned long
 #line 1078
   descriptor.flags = 0U;
 #line 1078
-  tmp___2 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___2 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1078
   if (tmp___2 != 0L) {
 #line 1078
@@ -14177,7 +14177,7 @@ static long ctrl_cdev_ioctl(struct file *file , unsigned int cmd , unsigned long
 #line 1119
   descriptor___0.flags = 0U;
 #line 1119
-  tmp___7 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___7 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 1119
   if (tmp___7 != 0L) {
 #line 1119
@@ -15025,7 +15025,7 @@ struct ubi_volume_desc *ubi_open_volume(int ubi_num , int vol_id , int mode )
 #line 221
   descriptor.flags = 0U;
 #line 221
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 221
   if (tmp___0 != 0L) {
 #line 221
@@ -15263,7 +15263,7 @@ struct ubi_volume_desc *ubi_open_volume_nm(int ubi_num , char const   *name , in
 #line 332
   descriptor.flags = 0U;
 #line 332
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 332
   if (tmp___0 != 0L) {
 #line 332
@@ -15404,7 +15404,7 @@ struct ubi_volume_desc *ubi_open_volume_path(char const   *pathname , int mode )
 #line 388
   descriptor.flags = 0U;
 #line 388
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 388
   if (tmp___0 != 0L) {
 #line 388
@@ -15500,7 +15500,7 @@ void ubi_close_volume(struct ubi_volume_desc *desc )
 #line 420
   descriptor.flags = 0U;
 #line 420
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 420
   if (tmp___0 != 0L) {
 #line 420
@@ -15579,7 +15579,7 @@ int ubi_leb_read(struct ubi_volume_desc *desc , int lnum , char *buf , int offse
 #line 478
   descriptor.flags = 0U;
 #line 478
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 478
   if (tmp___0 != 0L) {
 #line 478
@@ -15690,7 +15690,7 @@ int ubi_leb_write(struct ubi_volume_desc *desc , int lnum , void const   *buf , 
 #line 541
   descriptor.flags = 0U;
 #line 541
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 541
   if (tmp___0 != 0L) {
 #line 541
@@ -15773,7 +15773,7 @@ int ubi_leb_change(struct ubi_volume_desc *desc , int lnum , void const   *buf ,
 #line 586
   descriptor.flags = 0U;
 #line 586
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 586
   if (tmp___0 != 0L) {
 #line 586
@@ -15854,7 +15854,7 @@ int ubi_leb_erase(struct ubi_volume_desc *desc , int lnum )
 #line 626
   descriptor.flags = 0U;
 #line 626
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 626
   if (tmp___0 != 0L) {
 #line 626
@@ -15929,7 +15929,7 @@ int ubi_leb_unmap(struct ubi_volume_desc *desc , int lnum )
 #line 686
   descriptor.flags = 0U;
 #line 686
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 686
   if (tmp___0 != 0L) {
 #line 686
@@ -15995,7 +15995,7 @@ int ubi_leb_map(struct ubi_volume_desc *desc , int lnum )
 #line 722
   descriptor.flags = 0U;
 #line 722
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 722
   if (tmp___0 != 0L) {
 #line 722
@@ -16064,7 +16064,7 @@ int ubi_is_mapped(struct ubi_volume_desc *desc , int lnum )
 #line 760
   descriptor.flags = 0U;
 #line 760
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 760
   if (tmp___0 != 0L) {
 #line 760
@@ -16623,7 +16623,7 @@ static struct ubi_ltree_entry *ltree_add_entry(struct ubi_device *ubi , int vol_
       p = & (*p)->rb_right;
     } else {
 #line 265
-      tmp___2 = __builtin_expect(le1->lnum == lnum, 0L);
+      tmp___2 = ldv__builtin_expect(le1->lnum == lnum, 0L);
 #line 265
       if (tmp___2 != 0L) {
 #line 265
@@ -16710,7 +16710,7 @@ static void leb_read_unlock(struct ubi_device *ubi , int vol_id , int lnum )
 #line 315
   le->users = le->users + -1;
 #line 316
-  tmp___0 = __builtin_expect(le->users < 0, 0L);
+  tmp___0 = ldv__builtin_expect(le->users < 0, 0L);
 #line 316
   if (tmp___0 != 0L) {
 #line 316
@@ -16804,7 +16804,7 @@ static int leb_write_trylock(struct ubi_device *ubi , int vol_id , int lnum )
 #line 368
   le->users = le->users + -1;
 #line 369
-  tmp___3 = __builtin_expect(le->users < 0, 0L);
+  tmp___3 = ldv__builtin_expect(le->users < 0, 0L);
 #line 369
   if (tmp___3 != 0L) {
 #line 369
@@ -16847,7 +16847,7 @@ static void leb_write_unlock(struct ubi_device *ubi , int vol_id , int lnum )
 #line 391
   le->users = le->users + -1;
 #line 392
-  tmp___0 = __builtin_expect(le->users < 0, 0L);
+  tmp___0 = ldv__builtin_expect(le->users < 0, 0L);
 #line 392
   if (tmp___0 != 0L) {
 #line 392
@@ -16928,7 +16928,7 @@ int ubi_eba_unmap_leb(struct ubi_device *ubi , struct ubi_volume *vol , int lnum
 #line 428
   descriptor.flags = 0U;
 #line 428
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 428
   if (tmp___0 != 0L) {
 #line 428
@@ -17016,7 +17016,7 @@ int ubi_eba_read_leb(struct ubi_device *ubi , struct ubi_volume *vol , int lnum 
 #line 477
     descriptor.flags = 0U;
 #line 477
-    tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 477
     if (tmp___0 != 0L) {
 #line 477
@@ -17030,7 +17030,7 @@ int ubi_eba_read_leb(struct ubi_device *ubi , struct ubi_volume *vol , int lnum 
 #line 479
     leb_read_unlock(ubi, vol_id, lnum);
 #line 480
-    tmp___2 = __builtin_expect(vol->vol_type == 4, 0L);
+    tmp___2 = ldv__builtin_expect(vol->vol_type == 4, 0L);
 #line 480
     if (tmp___2 != 0L) {
 #line 480
@@ -17063,7 +17063,7 @@ int ubi_eba_read_leb(struct ubi_device *ubi , struct ubi_volume *vol , int lnum 
 #line 485
   descriptor___0.flags = 0U;
 #line 485
-  tmp___4 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___4 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 485
   if (tmp___4 != 0L) {
 #line 485
@@ -17128,7 +17128,7 @@ int ubi_eba_read_leb(struct ubi_device *ubi , struct ubi_volume *vol , int lnum 
 #line 522
     tmp___6 = __fswab32(vid_hdr->used_ebs);
 #line 522
-    tmp___7 = __builtin_expect((unsigned int )lnum >= tmp___6, 0L);
+    tmp___7 = ldv__builtin_expect((unsigned int )lnum >= tmp___6, 0L);
 #line 522
     if (tmp___7 != 0L) {
 #line 522
@@ -17144,7 +17144,7 @@ int ubi_eba_read_leb(struct ubi_device *ubi , struct ubi_volume *vol , int lnum 
 #line 523
     tmp___9 = __fswab32(vid_hdr->data_size);
 #line 523
-    tmp___10 = __builtin_expect((unsigned int )len != tmp___9, 0L);
+    tmp___10 = ldv__builtin_expect((unsigned int )len != tmp___9, 0L);
 #line 523
     if (tmp___10 != 0L) {
 #line 523
@@ -17477,7 +17477,7 @@ int ubi_eba_write_leb(struct ubi_device *ubi , struct ubi_volume *vol , int lnum
 #line 699
     descriptor.flags = 0U;
 #line 699
-    tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 699
     if (tmp___0 != 0L) {
 #line 699
@@ -17581,7 +17581,7 @@ int ubi_eba_write_leb(struct ubi_device *ubi , struct ubi_volume *vol , int lnum
 #line 740
   descriptor___0.flags = 0U;
 #line 740
-  tmp___8 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___8 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 740
   if (tmp___8 != 0L) {
 #line 740
@@ -17738,7 +17738,7 @@ int ubi_eba_write_leb_st(struct ubi_device *ubi , struct ubi_volume *vol , int l
     len = ((ubi->min_io_size + -1) + data_size) & - ubi->min_io_size;
   } else {
 #line 829
-    tmp___0 = __builtin_expect(((ubi->min_io_size + -1) & len) != 0, 0L);
+    tmp___0 = ldv__builtin_expect(((ubi->min_io_size + -1) & len) != 0, 0L);
 #line 829
     if (tmp___0 != 0L) {
 #line 829
@@ -17837,7 +17837,7 @@ int ubi_eba_write_leb_st(struct ubi_device *ubi , struct ubi_volume *vol , int l
 #line 861
   descriptor.flags = 0U;
 #line 861
-  tmp___11 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___11 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 861
   if (tmp___11 != 0L) {
 #line 861
@@ -17873,7 +17873,7 @@ int ubi_eba_write_leb_st(struct ubi_device *ubi , struct ubi_volume *vol , int l
 
   }
 #line 878
-  tmp___13 = __builtin_expect(*(vol->eba_tbl + (unsigned long )lnum) >= 0, 0L);
+  tmp___13 = ldv__builtin_expect(*(vol->eba_tbl + (unsigned long )lnum) >= 0, 0L);
 #line 878
   if (tmp___13 != 0L) {
 #line 878
@@ -18089,7 +18089,7 @@ int ubi_eba_atomic_leb_change(struct ubi_device *ubi , struct ubi_volume *vol , 
 #line 979
   descriptor.flags = 0U;
 #line 979
-  tmp___9 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___9 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 979
   if (tmp___9 != 0L) {
 #line 979
@@ -18278,7 +18278,7 @@ int ubi_eba_copy_leb(struct ubi_device *ubi , int from , int to , struct ubi_vid
 #line 1086
   descriptor.flags = 0U;
 #line 1086
-  tmp___2 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___2 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1086
   if (tmp___2 != 0L) {
 #line 1086
@@ -18328,7 +18328,7 @@ int ubi_eba_copy_leb(struct ubi_device *ubi , int from , int to , struct ubi_vid
 #line 1107
     descriptor___0.flags = 0U;
 #line 1107
-    tmp___6 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___6 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 1107
     if (tmp___6 != 0L) {
 #line 1107
@@ -18361,7 +18361,7 @@ int ubi_eba_copy_leb(struct ubi_device *ubi , int from , int to , struct ubi_vid
 #line 1128
     descriptor___1.flags = 0U;
 #line 1128
-    tmp___8 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___8 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 1128
     if (tmp___8 != 0L) {
 #line 1128
@@ -18392,7 +18392,7 @@ int ubi_eba_copy_leb(struct ubi_device *ubi , int from , int to , struct ubi_vid
 #line 1138
     descriptor___2.flags = 0U;
 #line 1138
-    tmp___10 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+    tmp___10 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
 #line 1138
     if (tmp___10 != 0L) {
 #line 1138
@@ -18425,7 +18425,7 @@ int ubi_eba_copy_leb(struct ubi_device *ubi , int from , int to , struct ubi_vid
 #line 1151
   descriptor___3.flags = 0U;
 #line 1151
-  tmp___12 = __builtin_expect((long )descriptor___3.flags & 1L, 0L);
+  tmp___12 = ldv__builtin_expect((long )descriptor___3.flags & 1L, 0L);
 #line 1151
   if (tmp___12 != 0L) {
 #line 1151
@@ -18618,7 +18618,7 @@ int ubi_eba_copy_leb(struct ubi_device *ubi , int from , int to , struct ubi_vid
 
   }
 #line 1250
-  tmp___21 = __builtin_expect(*(vol->eba_tbl + (unsigned long )lnum) != from, 0L);
+  tmp___21 = ldv__builtin_expect(*(vol->eba_tbl + (unsigned long )lnum) != from, 0L);
 #line 1250
   if (tmp___21 != 0L) {
 #line 1250
@@ -19026,7 +19026,7 @@ int ubi_eba_init(struct ubi_device *ubi , struct ubi_attach_info *ai )
 #line 1415
   descriptor.flags = 0U;
 #line 1415
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1415
   if (tmp___0 != 0L) {
 #line 1415
@@ -19227,7 +19227,7 @@ int ubi_eba_init(struct ubi_device *ubi , struct ubi_attach_info *ai )
 #line 1482
   descriptor___0.flags = 0U;
 #line 1482
-  tmp___4 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___4 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 1482
   if (tmp___4 != 0L) {
 #line 1482
@@ -19541,7 +19541,7 @@ __inline static int signal_pending(struct task_struct *p )
 #line 2385
   tmp = test_tsk_thread_flag(p, 2);
 #line 2385
-  tmp___0 = __builtin_expect(tmp != 0, 0L);
+  tmp___0 = ldv__builtin_expect(tmp != 0, 0L);
 #line 2385
   return ((int )tmp___0);
 }
@@ -19719,7 +19719,7 @@ int ubi_io_read(struct ubi_device  const  *ubi , void *buf , int pnum , int offs
 #line 220
   descriptor.flags = 0U;
 #line 220
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 220
   if (tmp___0 != 0L) {
 #line 220
@@ -19731,7 +19731,7 @@ int ubi_io_read(struct ubi_device  const  *ubi , void *buf , int pnum , int offs
 
   }
 #line 222
-  tmp___2 = __builtin_expect(pnum < 0, 0L);
+  tmp___2 = ldv__builtin_expect(pnum < 0, 0L);
 #line 222
   if (tmp___2 != 0L) {
 #line 222
@@ -19742,7 +19742,7 @@ int ubi_io_read(struct ubi_device  const  *ubi , void *buf , int pnum , int offs
     dump_stack();
   } else {
 #line 222
-    tmp___3 = __builtin_expect((int )ubi->peb_count <= pnum, 0L);
+    tmp___3 = ldv__builtin_expect((int )ubi->peb_count <= pnum, 0L);
 #line 222
     if (tmp___3 != 0L) {
 #line 222
@@ -19756,7 +19756,7 @@ int ubi_io_read(struct ubi_device  const  *ubi , void *buf , int pnum , int offs
     }
   }
 #line 223
-  tmp___5 = __builtin_expect(offset < 0, 0L);
+  tmp___5 = ldv__builtin_expect(offset < 0, 0L);
 #line 223
   if (tmp___5 != 0L) {
 #line 223
@@ -19767,7 +19767,7 @@ int ubi_io_read(struct ubi_device  const  *ubi , void *buf , int pnum , int offs
     dump_stack();
   } else {
 #line 223
-    tmp___6 = __builtin_expect(offset + len > (int )ubi->peb_size, 0L);
+    tmp___6 = ldv__builtin_expect(offset + len > (int )ubi->peb_size, 0L);
 #line 223
     if (tmp___6 != 0L) {
 #line 223
@@ -19781,7 +19781,7 @@ int ubi_io_read(struct ubi_device  const  *ubi , void *buf , int pnum , int offs
     }
   }
 #line 224
-  tmp___8 = __builtin_expect(len <= 0, 0L);
+  tmp___8 = ldv__builtin_expect(len <= 0, 0L);
 #line 224
   if (tmp___8 != 0L) {
 #line 224
@@ -19822,7 +19822,7 @@ int ubi_io_read(struct ubi_device  const  *ubi , void *buf , int pnum , int offs
 #line 267
       printk("\rUBI: fixable bit-flip detected at PEB %d\n", pnum);
 #line 268
-      tmp___11 = __builtin_expect((size_t )len != read, 0L);
+      tmp___11 = ldv__builtin_expect((size_t )len != read, 0L);
 #line 268
       if (tmp___11 != 0L) {
 #line 268
@@ -19882,7 +19882,7 @@ int ubi_io_read(struct ubi_device  const  *ubi , void *buf , int pnum , int offs
     }
   } else {
 #line 293
-    tmp___17 = __builtin_expect((size_t )len != read, 0L);
+    tmp___17 = ldv__builtin_expect((size_t )len != read, 0L);
 #line 293
     if (tmp___17 != 0L) {
 #line 293
@@ -19911,7 +19911,7 @@ int ubi_io_read(struct ubi_device  const  *ubi , void *buf , int pnum , int offs
 #line 296
       descriptor___0.flags = 0U;
 #line 296
-      tmp___19 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+      tmp___19 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 296
       if (tmp___19 != 0L) {
 #line 296
@@ -19971,7 +19971,7 @@ int ubi_io_write(struct ubi_device *ubi , void const   *buf , int pnum , int off
 #line 328
   descriptor.flags = 0U;
 #line 328
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 328
   if (tmp___0 != 0L) {
 #line 328
@@ -19983,7 +19983,7 @@ int ubi_io_write(struct ubi_device *ubi , void const   *buf , int pnum , int off
 
   }
 #line 330
-  tmp___2 = __builtin_expect(pnum < 0, 0L);
+  tmp___2 = ldv__builtin_expect(pnum < 0, 0L);
 #line 330
   if (tmp___2 != 0L) {
 #line 330
@@ -19994,7 +19994,7 @@ int ubi_io_write(struct ubi_device *ubi , void const   *buf , int pnum , int off
     dump_stack();
   } else {
 #line 330
-    tmp___3 = __builtin_expect(ubi->peb_count <= pnum, 0L);
+    tmp___3 = ldv__builtin_expect(ubi->peb_count <= pnum, 0L);
 #line 330
     if (tmp___3 != 0L) {
 #line 330
@@ -20008,7 +20008,7 @@ int ubi_io_write(struct ubi_device *ubi , void const   *buf , int pnum , int off
     }
   }
 #line 331
-  tmp___5 = __builtin_expect(offset < 0, 0L);
+  tmp___5 = ldv__builtin_expect(offset < 0, 0L);
 #line 331
   if (tmp___5 != 0L) {
 #line 331
@@ -20019,7 +20019,7 @@ int ubi_io_write(struct ubi_device *ubi , void const   *buf , int pnum , int off
     dump_stack();
   } else {
 #line 331
-    tmp___6 = __builtin_expect(offset + len > ubi->peb_size, 0L);
+    tmp___6 = ldv__builtin_expect(offset + len > ubi->peb_size, 0L);
 #line 331
     if (tmp___6 != 0L) {
 #line 331
@@ -20033,7 +20033,7 @@ int ubi_io_write(struct ubi_device *ubi , void const   *buf , int pnum , int off
     }
   }
 #line 332
-  tmp___8 = __builtin_expect(offset % ubi->hdrs_min_io_size != 0, 0L);
+  tmp___8 = ldv__builtin_expect(offset % ubi->hdrs_min_io_size != 0, 0L);
 #line 332
   if (tmp___8 != 0L) {
 #line 332
@@ -20046,7 +20046,7 @@ int ubi_io_write(struct ubi_device *ubi , void const   *buf , int pnum , int off
 
   }
 #line 333
-  tmp___10 = __builtin_expect(len <= 0, 0L);
+  tmp___10 = ldv__builtin_expect(len <= 0, 0L);
 #line 333
   if (tmp___10 != 0L) {
 #line 333
@@ -20057,7 +20057,7 @@ int ubi_io_write(struct ubi_device *ubi , void const   *buf , int pnum , int off
     dump_stack();
   } else {
 #line 333
-    tmp___11 = __builtin_expect(len % ubi->hdrs_min_io_size != 0, 0L);
+    tmp___11 = ldv__builtin_expect(len % ubi->hdrs_min_io_size != 0, 0L);
 #line 333
     if (tmp___11 != 0L) {
 #line 333
@@ -20149,7 +20149,7 @@ int ubi_io_write(struct ubi_device *ubi , void const   *buf , int pnum , int off
     ubi_dump_flash(ubi, pnum, offset, len);
   } else {
 #line 377
-    tmp___14 = __builtin_expect((size_t )len != written, 0L);
+    tmp___14 = ldv__builtin_expect((size_t )len != written, 0L);
 #line 377
     if (tmp___14 != 0L) {
 #line 377
@@ -20242,7 +20242,7 @@ static int do_sync_erase(struct ubi_device *ubi , int pnum )
 #line 424
   descriptor.flags = 0U;
 #line 424
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 424
   if (tmp___0 != 0L) {
 #line 424
@@ -20254,7 +20254,7 @@ static int do_sync_erase(struct ubi_device *ubi , int pnum )
 
   }
 #line 425
-  tmp___2 = __builtin_expect(pnum < 0, 0L);
+  tmp___2 = ldv__builtin_expect(pnum < 0, 0L);
 #line 425
   if (tmp___2 != 0L) {
 #line 425
@@ -20265,7 +20265,7 @@ static int do_sync_erase(struct ubi_device *ubi , int pnum )
     dump_stack();
   } else {
 #line 425
-    tmp___3 = __builtin_expect(ubi->peb_count <= pnum, 0L);
+    tmp___3 = ldv__builtin_expect(ubi->peb_count <= pnum, 0L);
 #line 425
     if (tmp___3 != 0L) {
 #line 425
@@ -20464,7 +20464,7 @@ static int torture_peb(struct ubi_device *ubi , int pnum )
 #line 502
   patt_count = 3;
 #line 503
-  tmp___0 = __builtin_expect(patt_count <= 0, 0L);
+  tmp___0 = ldv__builtin_expect(patt_count <= 0, 0L);
 #line 503
   if (tmp___0 != 0L) {
 #line 503
@@ -20665,7 +20665,7 @@ int ubi_io_sync_erase(struct ubi_device *ubi , int pnum , int torture )
 #line 665
   ret = 0;
 #line 667
-  tmp___0 = __builtin_expect(pnum < 0, 0L);
+  tmp___0 = ldv__builtin_expect(pnum < 0, 0L);
 #line 667
   if (tmp___0 != 0L) {
 #line 667
@@ -20677,7 +20677,7 @@ int ubi_io_sync_erase(struct ubi_device *ubi , int pnum , int torture )
     dump_stack();
   } else {
 #line 667
-    tmp___1 = __builtin_expect(ubi->peb_count <= pnum, 0L);
+    tmp___1 = ldv__builtin_expect(ubi->peb_count <= pnum, 0L);
 #line 667
     if (tmp___1 != 0L) {
 #line 667
@@ -20766,7 +20766,7 @@ int ubi_io_is_bad(struct ubi_device  const  *ubi , int pnum )
 #line 707
   mtd = ubi->mtd;
 #line 709
-  tmp___0 = __builtin_expect(pnum < 0, 0L);
+  tmp___0 = ldv__builtin_expect(pnum < 0, 0L);
 #line 709
   if (tmp___0 != 0L) {
 #line 709
@@ -20777,7 +20777,7 @@ int ubi_io_is_bad(struct ubi_device  const  *ubi , int pnum )
     dump_stack();
   } else {
 #line 709
-    tmp___1 = __builtin_expect((int )ubi->peb_count <= pnum, 0L);
+    tmp___1 = ldv__builtin_expect((int )ubi->peb_count <= pnum, 0L);
 #line 709
     if (tmp___1 != 0L) {
 #line 709
@@ -20815,7 +20815,7 @@ int ubi_io_is_bad(struct ubi_device  const  *ubi , int pnum )
 #line 719
       descriptor.flags = 0U;
 #line 719
-      tmp___3 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+      tmp___3 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 719
       if (tmp___3 != 0L) {
 #line 719
@@ -20851,7 +20851,7 @@ int ubi_io_mark_bad(struct ubi_device  const  *ubi , int pnum )
 #line 737
   mtd = ubi->mtd;
 #line 739
-  tmp___0 = __builtin_expect(pnum < 0, 0L);
+  tmp___0 = ldv__builtin_expect(pnum < 0, 0L);
 #line 739
   if (tmp___0 != 0L) {
 #line 739
@@ -20862,7 +20862,7 @@ int ubi_io_mark_bad(struct ubi_device  const  *ubi , int pnum )
     dump_stack();
   } else {
 #line 739
-    tmp___1 = __builtin_expect((int )ubi->peb_count <= pnum, 0L);
+    tmp___1 = ldv__builtin_expect((int )ubi->peb_count <= pnum, 0L);
 #line 739
     if (tmp___1 != 0L) {
 #line 739
@@ -21025,7 +21025,7 @@ int ubi_io_read_ec_hdr(struct ubi_device *ubi , int pnum , struct ubi_ec_hdr *ec
 #line 833
   descriptor.flags = 0U;
 #line 833
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 833
   if (tmp___0 != 0L) {
 #line 833
@@ -21037,7 +21037,7 @@ int ubi_io_read_ec_hdr(struct ubi_device *ubi , int pnum , struct ubi_ec_hdr *ec
 
   }
 #line 834
-  tmp___2 = __builtin_expect(pnum < 0, 0L);
+  tmp___2 = ldv__builtin_expect(pnum < 0, 0L);
 #line 834
   if (tmp___2 != 0L) {
 #line 834
@@ -21049,7 +21049,7 @@ int ubi_io_read_ec_hdr(struct ubi_device *ubi , int pnum , struct ubi_ec_hdr *ec
     dump_stack();
   } else {
 #line 834
-    tmp___3 = __builtin_expect(ubi->peb_count <= pnum, 0L);
+    tmp___3 = ldv__builtin_expect(ubi->peb_count <= pnum, 0L);
 #line 834
     if (tmp___3 != 0L) {
 #line 834
@@ -21125,7 +21125,7 @@ int ubi_io_read_ec_hdr(struct ubi_device *ubi , int pnum , struct ubi_ec_hdr *ec
 #line 867
       descriptor___0.flags = 0U;
 #line 867
-      tmp___8 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+      tmp___8 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 867
       if (tmp___8 != 0L) {
 #line 867
@@ -21170,7 +21170,7 @@ int ubi_io_read_ec_hdr(struct ubi_device *ubi , int pnum , struct ubi_ec_hdr *ec
 #line 884
     descriptor___1.flags = 0U;
 #line 884
-    tmp___11 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___11 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 884
     if (tmp___11 != 0L) {
 #line 884
@@ -21217,7 +21217,7 @@ int ubi_io_read_ec_hdr(struct ubi_device *ubi , int pnum , struct ubi_ec_hdr *ec
 #line 898
     descriptor___2.flags = 0U;
 #line 898
-    tmp___14 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+    tmp___14 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
 #line 898
     if (tmp___14 != 0L) {
 #line 898
@@ -21285,7 +21285,7 @@ int ubi_io_write_ec_hdr(struct ubi_device *ubi , int pnum , struct ubi_ec_hdr *e
 #line 942
   descriptor.flags = 0U;
 #line 942
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 942
   if (tmp___0 != 0L) {
 #line 942
@@ -21297,7 +21297,7 @@ int ubi_io_write_ec_hdr(struct ubi_device *ubi , int pnum , struct ubi_ec_hdr *e
 
   }
 #line 943
-  tmp___2 = __builtin_expect(pnum < 0, 0L);
+  tmp___2 = ldv__builtin_expect(pnum < 0, 0L);
 #line 943
   if (tmp___2 != 0L) {
 #line 943
@@ -21309,7 +21309,7 @@ int ubi_io_write_ec_hdr(struct ubi_device *ubi , int pnum , struct ubi_ec_hdr *e
     dump_stack();
   } else {
 #line 943
-    tmp___3 = __builtin_expect(ubi->peb_count <= pnum, 0L);
+    tmp___3 = ldv__builtin_expect(ubi->peb_count <= pnum, 0L);
 #line 943
     if (tmp___3 != 0L) {
 #line 943
@@ -21624,7 +21624,7 @@ int ubi_io_read_vid_hdr(struct ubi_device *ubi , int pnum , struct ubi_vid_hdr *
 #line 1104
   descriptor.flags = 0U;
 #line 1104
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1104
   if (tmp___0 != 0L) {
 #line 1104
@@ -21636,7 +21636,7 @@ int ubi_io_read_vid_hdr(struct ubi_device *ubi , int pnum , struct ubi_vid_hdr *
 
   }
 #line 1105
-  tmp___2 = __builtin_expect(pnum < 0, 0L);
+  tmp___2 = ldv__builtin_expect(pnum < 0, 0L);
 #line 1105
   if (tmp___2 != 0L) {
 #line 1105
@@ -21648,7 +21648,7 @@ int ubi_io_read_vid_hdr(struct ubi_device *ubi , int pnum , struct ubi_vid_hdr *
     dump_stack();
   } else {
 #line 1105
-    tmp___3 = __builtin_expect(ubi->peb_count <= pnum, 0L);
+    tmp___3 = ldv__builtin_expect(ubi->peb_count <= pnum, 0L);
 #line 1105
     if (tmp___3 != 0L) {
 #line 1105
@@ -21721,7 +21721,7 @@ int ubi_io_read_vid_hdr(struct ubi_device *ubi , int pnum , struct ubi_vid_hdr *
 #line 1122
       descriptor___0.flags = 0U;
 #line 1122
-      tmp___8 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+      tmp___8 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 1122
       if (tmp___8 != 0L) {
 #line 1122
@@ -21766,7 +21766,7 @@ int ubi_io_read_vid_hdr(struct ubi_device *ubi , int pnum , struct ubi_vid_hdr *
 #line 1135
     descriptor___1.flags = 0U;
 #line 1135
-    tmp___11 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___11 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 1135
     if (tmp___11 != 0L) {
 #line 1135
@@ -21813,7 +21813,7 @@ int ubi_io_read_vid_hdr(struct ubi_device *ubi , int pnum , struct ubi_vid_hdr *
 #line 1149
     descriptor___2.flags = 0U;
 #line 1149
-    tmp___14 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+    tmp___14 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
 #line 1149
     if (tmp___14 != 0L) {
 #line 1149
@@ -21879,7 +21879,7 @@ int ubi_io_write_vid_hdr(struct ubi_device *ubi , int pnum , struct ubi_vid_hdr 
 #line 1188
   descriptor.flags = 0U;
 #line 1188
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1188
   if (tmp___0 != 0L) {
 #line 1188
@@ -21891,7 +21891,7 @@ int ubi_io_write_vid_hdr(struct ubi_device *ubi , int pnum , struct ubi_vid_hdr 
 
   }
 #line 1189
-  tmp___2 = __builtin_expect(pnum < 0, 0L);
+  tmp___2 = ldv__builtin_expect(pnum < 0, 0L);
 #line 1189
   if (tmp___2 != 0L) {
 #line 1189
@@ -21903,7 +21903,7 @@ int ubi_io_write_vid_hdr(struct ubi_device *ubi , int pnum , struct ubi_vid_hdr 
     dump_stack();
   } else {
 #line 1189
-    tmp___3 = __builtin_expect(ubi->peb_count <= pnum, 0L);
+    tmp___3 = ldv__builtin_expect(ubi->peb_count <= pnum, 0L);
 #line 1189
     if (tmp___3 != 0L) {
 #line 1189
@@ -22686,7 +22686,7 @@ __inline static bool freezing(struct task_struct *p )
 #line 35
   tmp = atomic_read((atomic_t const   *)(& system_freezing_cnt));
 #line 35
-  tmp___0 = __builtin_expect(tmp == 0, 1L);
+  tmp___0 = ldv__builtin_expect(tmp == 0, 1L);
 #line 35
   if (tmp___0 != 0L) {
 #line 36
@@ -22727,7 +22727,7 @@ __inline static bool try_to_freeze(void)
     tmp___1 = 1;
   }
 #line 52
-  tmp___2 = __builtin_expect((long )tmp___1, 1L);
+  tmp___2 = ldv__builtin_expect((long )tmp___1, 1L);
 #line 52
   if (tmp___2 != 0L) {
 #line 53
@@ -22867,7 +22867,7 @@ static void wl_tree_add(struct ubi_wl_entry *e , struct rb_root *root )
     p = & (*p)->rb_right;
   } else {
 #line 290
-    tmp___0 = __builtin_expect(e->pnum == e1->pnum, 0L);
+    tmp___0 = ldv__builtin_expect(e->pnum == e1->pnum, 0L);
 #line 290
     if (tmp___0 != 0L) {
 #line 290
@@ -22946,7 +22946,7 @@ static int do_work(struct ubi_device *ubi )
 #line 332
   ubi->works_count = ubi->works_count + -1;
 #line 333
-  tmp___1 = __builtin_expect(ubi->works_count < 0, 0L);
+  tmp___1 = ldv__builtin_expect(ubi->works_count < 0, 0L);
 #line 333
   if (tmp___1 != 0L) {
 #line 333
@@ -23002,7 +23002,7 @@ static int produce_free_peb(struct ubi_device *ubi )
 #line 365
   descriptor.flags = 0U;
 #line 365
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 365
   if (tmp___0 != 0L) {
 #line 365
@@ -23061,7 +23061,7 @@ static int in_wl_tree(struct ubi_wl_entry *e , struct rb_root *root )
 #line 394
   if (e->pnum == e1->pnum) {
 #line 395
-    tmp___0 = __builtin_expect((unsigned long )e != (unsigned long )e1, 0L);
+    tmp___0 = ldv__builtin_expect((unsigned long )e != (unsigned long )e1, 0L);
 #line 395
     if (tmp___0 != 0L) {
 #line 395
@@ -23089,7 +23089,7 @@ static int in_wl_tree(struct ubi_wl_entry *e , struct rb_root *root )
     p = p->rb_right;
   } else {
 #line 404
-    tmp___2 = __builtin_expect(e->pnum == e1->pnum, 0L);
+    tmp___2 = ldv__builtin_expect(e->pnum == e1->pnum, 0L);
 #line 404
     if (tmp___2 != 0L) {
 #line 404
@@ -23145,7 +23145,7 @@ static void prot_queue_add(struct ubi_device *ubi , struct ubi_wl_entry *e )
 
   }
 #line 431
-  tmp___0 = __builtin_expect(pq_tail < 0, 0L);
+  tmp___0 = ldv__builtin_expect(pq_tail < 0, 0L);
 #line 431
   if (tmp___0 != 0L) {
 #line 431
@@ -23156,7 +23156,7 @@ static void prot_queue_add(struct ubi_device *ubi , struct ubi_wl_entry *e )
     dump_stack();
   } else {
 #line 431
-    tmp___1 = __builtin_expect(pq_tail > 9, 0L);
+    tmp___1 = ldv__builtin_expect(pq_tail > 9, 0L);
 #line 431
     if (tmp___1 != 0L) {
 #line 431
@@ -23185,7 +23185,7 @@ static void prot_queue_add(struct ubi_device *ubi , struct ubi_wl_entry *e )
 #line 433
   descriptor.flags = 0U;
 #line 433
-  tmp___3 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___3 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 433
   if (tmp___3 != 0L) {
 #line 433
@@ -23501,7 +23501,7 @@ static int __wl_get_peb(struct ubi_device *ubi )
 #line 598
       tmp___0 = list_empty((struct list_head  const  *)(& ubi->works));
 #line 598
-      tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+      tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
 #line 598
       if (tmp___1 != 0L) {
 #line 598
@@ -23563,7 +23563,7 @@ static int __wl_get_peb(struct ubi_device *ubi )
 #line 622
   descriptor.flags = 0U;
 #line 622
-  tmp___3 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___3 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 622
   if (tmp___3 != 0L) {
 #line 622
@@ -23840,7 +23840,7 @@ static int prot_queue_del(struct ubi_device *ubi , int pnum )
 #line 809
   descriptor.flags = 0U;
 #line 809
-  tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 809
   if (tmp___1 != 0L) {
 #line 809
@@ -23886,7 +23886,7 @@ static int sync_erase(struct ubi_device *ubi , struct ubi_wl_entry *e , int tort
 #line 829
   descriptor.flags = 0U;
 #line 829
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 829
   if (tmp___0 != 0L) {
 #line 829
@@ -23953,7 +23953,7 @@ static int sync_erase(struct ubi_device *ubi , struct ubi_wl_entry *e , int tort
 #line 855
   descriptor___0.flags = 0U;
 #line 855
-  tmp___3 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___3 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 855
   if (tmp___3 != 0L) {
 #line 855
@@ -24044,7 +24044,7 @@ static void serve_prot_queue(struct ubi_device *ubi )
 #line 895
   descriptor.flags = 0U;
 #line 895
-  tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 895
   if (tmp___1 != 0L) {
 #line 895
@@ -24101,7 +24101,7 @@ static void serve_prot_queue(struct ubi_device *ubi )
 
   }
 #line 914
-  tmp___4 = __builtin_expect(ubi->pq_head < 0, 0L);
+  tmp___4 = ldv__builtin_expect(ubi->pq_head < 0, 0L);
 #line 914
   if (tmp___4 != 0L) {
 #line 914
@@ -24113,7 +24113,7 @@ static void serve_prot_queue(struct ubi_device *ubi )
     dump_stack();
   } else {
 #line 914
-    tmp___5 = __builtin_expect(ubi->pq_head > 9, 0L);
+    tmp___5 = ldv__builtin_expect(ubi->pq_head > 9, 0L);
 #line 914
     if (tmp___5 != 0L) {
 #line 914
@@ -24146,7 +24146,7 @@ static void __schedule_ubi_work(struct ubi_device *ubi , struct ubi_work *wrk )
 #line 929
   list_add_tail(& wrk->list, & ubi->works);
 #line 930
-  tmp___0 = __builtin_expect(ubi->works_count < 0, 0L);
+  tmp___0 = ldv__builtin_expect(ubi->works_count < 0, 0L);
 #line 930
   if (tmp___0 != 0L) {
 #line 930
@@ -24226,7 +24226,7 @@ static int schedule_erase(struct ubi_device *ubi , struct ubi_wl_entry *e , int 
 
   {
 #line 982
-  tmp___0 = __builtin_expect((unsigned long )e == (unsigned long )((struct ubi_wl_entry *)0),
+  tmp___0 = ldv__builtin_expect((unsigned long )e == (unsigned long )((struct ubi_wl_entry *)0),
                              0L);
 #line 982
   if (tmp___0 != 0L) {
@@ -24242,7 +24242,7 @@ static int schedule_erase(struct ubi_device *ubi , struct ubi_wl_entry *e , int 
 #line 983
   tmp___2 = ubi_is_fm_block(ubi, e->pnum);
 #line 983
-  tmp___3 = __builtin_expect(tmp___2 != 0, 0L);
+  tmp___3 = ldv__builtin_expect(tmp___2 != 0, 0L);
 #line 983
   if (tmp___3 != 0L) {
 #line 983
@@ -24267,7 +24267,7 @@ static int schedule_erase(struct ubi_device *ubi , struct ubi_wl_entry *e , int 
 #line 985
   descriptor.flags = 0U;
 #line 985
-  tmp___5 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___5 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 985
   if (tmp___5 != 0L) {
 #line 985
@@ -24330,7 +24330,7 @@ static int do_sync_erase___0(struct ubi_device *ubi , struct ubi_wl_entry *e , i
 #line 1016
   descriptor.flags = 0U;
 #line 1016
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1016
   if (tmp___0 != 0L) {
 #line 1016
@@ -24400,7 +24400,7 @@ int ubi_wl_put_fm_peb(struct ubi_device *ubi , struct ubi_wl_entry *fm_e , int l
 #line 1047
   descriptor.flags = 0U;
 #line 1047
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1047
   if (tmp___0 != 0L) {
 #line 1047
@@ -24411,7 +24411,7 @@ int ubi_wl_put_fm_peb(struct ubi_device *ubi , struct ubi_wl_entry *fm_e , int l
 
   }
 #line 1049
-  tmp___2 = __builtin_expect(pnum < 0, 0L);
+  tmp___2 = ldv__builtin_expect(pnum < 0, 0L);
 #line 1049
   if (tmp___2 != 0L) {
 #line 1049
@@ -24425,7 +24425,7 @@ int ubi_wl_put_fm_peb(struct ubi_device *ubi , struct ubi_wl_entry *fm_e , int l
 
   }
 #line 1050
-  tmp___4 = __builtin_expect(ubi->peb_count <= pnum, 0L);
+  tmp___4 = ldv__builtin_expect(ubi->peb_count <= pnum, 0L);
 #line 1050
   if (tmp___4 != 0L) {
 #line 1050
@@ -24447,7 +24447,7 @@ int ubi_wl_put_fm_peb(struct ubi_device *ubi , struct ubi_wl_entry *fm_e , int l
 #line 1060
     e = fm_e;
 #line 1061
-    tmp___6 = __builtin_expect(e->ec < 0, 0L);
+    tmp___6 = ldv__builtin_expect(e->ec < 0, 0L);
 #line 1061
     if (tmp___6 != 0L) {
 #line 1061
@@ -24586,7 +24586,7 @@ static int wear_leveling_worker(struct ubi_device *ubi , struct ubi_work *wrk , 
 #line 1105
   spin_lock(& ubi->wl_lock);
 #line 1106
-  tmp___0 = __builtin_expect((unsigned long )ubi->move_from != (unsigned long )((struct ubi_wl_entry *)0),
+  tmp___0 = ldv__builtin_expect((unsigned long )ubi->move_from != (unsigned long )((struct ubi_wl_entry *)0),
                              0L);
 #line 1106
   if (tmp___0 != 0L) {
@@ -24599,7 +24599,7 @@ static int wear_leveling_worker(struct ubi_device *ubi , struct ubi_work *wrk , 
     dump_stack();
   } else {
 #line 1106
-    tmp___1 = __builtin_expect((unsigned long )ubi->move_to != (unsigned long )((struct ubi_wl_entry *)0),
+    tmp___1 = ldv__builtin_expect((unsigned long )ubi->move_to != (unsigned long )((struct ubi_wl_entry *)0),
                                0L);
 #line 1106
     if (tmp___1 != 0L) {
@@ -24615,7 +24615,7 @@ static int wear_leveling_worker(struct ubi_device *ubi , struct ubi_work *wrk , 
     }
   }
 #line 1107
-  tmp___3 = __builtin_expect(ubi->move_to_put != 0, 0L);
+  tmp___3 = ldv__builtin_expect(ubi->move_to_put != 0, 0L);
 #line 1107
   if (tmp___3 != 0L) {
 #line 1107
@@ -24643,7 +24643,7 @@ static int wear_leveling_worker(struct ubi_device *ubi , struct ubi_work *wrk , 
 #line 1121
     descriptor.flags = 0U;
 #line 1121
-    tmp___5 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___5 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1121
     if (tmp___5 != 0L) {
 #line 1121
@@ -24706,7 +24706,7 @@ static int wear_leveling_worker(struct ubi_device *ubi , struct ubi_work *wrk , 
 #line 1141
     descriptor___0.flags = 0U;
 #line 1141
-    tmp___8 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___8 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 1141
     if (tmp___8 != 0L) {
 #line 1141
@@ -24750,7 +24750,7 @@ static int wear_leveling_worker(struct ubi_device *ubi , struct ubi_work *wrk , 
 #line 1157
       descriptor___1.flags = 0U;
 #line 1157
-      tmp___11 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+      tmp___11 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 1157
       if (tmp___11 != 0L) {
 #line 1157
@@ -24783,7 +24783,7 @@ static int wear_leveling_worker(struct ubi_device *ubi , struct ubi_work *wrk , 
 #line 1163
     descriptor___2.flags = 0U;
 #line 1163
-    tmp___13 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+    tmp___13 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
 #line 1163
     if (tmp___13 != 0L) {
 #line 1163
@@ -24829,7 +24829,7 @@ static int wear_leveling_worker(struct ubi_device *ubi , struct ubi_work *wrk , 
 #line 1175
     descriptor___3.flags = 0U;
 #line 1175
-    tmp___16 = __builtin_expect((long )descriptor___3.flags & 1L, 0L);
+    tmp___16 = ldv__builtin_expect((long )descriptor___3.flags & 1L, 0L);
 #line 1175
     if (tmp___16 != 0L) {
 #line 1175
@@ -24866,7 +24866,7 @@ static int wear_leveling_worker(struct ubi_device *ubi , struct ubi_work *wrk , 
 #line 1206
       descriptor___4.flags = 0U;
 #line 1206
-      tmp___18 = __builtin_expect((long )descriptor___4.flags & 1L, 0L);
+      tmp___18 = ldv__builtin_expect((long )descriptor___4.flags & 1L, 0L);
 #line 1206
       if (tmp___18 != 0L) {
 #line 1206
@@ -24897,7 +24897,7 @@ static int wear_leveling_worker(struct ubi_device *ubi , struct ubi_work *wrk , 
 #line 1215
       descriptor___5.flags = 0U;
 #line 1215
-      tmp___20 = __builtin_expect((long )descriptor___5.flags & 1L, 0L);
+      tmp___20 = ldv__builtin_expect((long )descriptor___5.flags & 1L, 0L);
 #line 1215
       if (tmp___20 != 0L) {
 #line 1215
@@ -25066,7 +25066,7 @@ static int wear_leveling_worker(struct ubi_device *ubi , struct ubi_work *wrk , 
 #line 1307
     descriptor___6.flags = 0U;
 #line 1307
-    tmp___27 = __builtin_expect((long )descriptor___6.flags & 1L, 0L);
+    tmp___27 = ldv__builtin_expect((long )descriptor___6.flags & 1L, 0L);
 #line 1307
     if (tmp___27 != 0L) {
 #line 1307
@@ -25104,7 +25104,7 @@ static int wear_leveling_worker(struct ubi_device *ubi , struct ubi_work *wrk , 
 #line 1316
   descriptor___7.flags = 0U;
 #line 1316
-  tmp___29 = __builtin_expect((long )descriptor___7.flags & 1L, 0L);
+  tmp___29 = ldv__builtin_expect((long )descriptor___7.flags & 1L, 0L);
 #line 1316
   if (tmp___29 != 0L) {
 #line 1316
@@ -25134,7 +25134,7 @@ static int wear_leveling_worker(struct ubi_device *ubi , struct ubi_work *wrk , 
 #line 1327
     descriptor___8.flags = 0U;
 #line 1327
-    tmp___31 = __builtin_expect((long )descriptor___8.flags & 1L, 0L);
+    tmp___31 = ldv__builtin_expect((long )descriptor___8.flags & 1L, 0L);
 #line 1327
     if (tmp___31 != 0L) {
 #line 1327
@@ -25159,7 +25159,7 @@ static int wear_leveling_worker(struct ubi_device *ubi , struct ubi_work *wrk , 
 #line 1330
     descriptor___9.flags = 0U;
 #line 1330
-    tmp___33 = __builtin_expect((long )descriptor___9.flags & 1L, 0L);
+    tmp___33 = ldv__builtin_expect((long )descriptor___9.flags & 1L, 0L);
 #line 1330
     if (tmp___33 != 0L) {
 #line 1330
@@ -25194,7 +25194,7 @@ static int wear_leveling_worker(struct ubi_device *ubi , struct ubi_work *wrk , 
     wl_tree_add(e1, & ubi->used);
   }
 #line 1342
-  tmp___35 = __builtin_expect(ubi->move_to_put != 0, 0L);
+  tmp___35 = ldv__builtin_expect(ubi->move_to_put != 0, 0L);
 #line 1342
   if (tmp___35 != 0L) {
 #line 1342
@@ -25273,7 +25273,7 @@ static int wear_leveling_worker(struct ubi_device *ubi , struct ubi_work *wrk , 
 #line 1374
   ldv_mutex_unlock_175(& ubi->move_mutex);
 #line 1375
-  tmp___40 = __builtin_expect(err == 0, 0L);
+  tmp___40 = ldv__builtin_expect(err == 0, 0L);
 #line 1375
   if (tmp___40 != 0L) {
 #line 1375
@@ -25367,7 +25367,7 @@ static int ensure_wear_leveling(struct ubi_device *ubi , int nested )
 #line 1427
     descriptor.flags = 0U;
 #line 1427
-    tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1427
     if (tmp___1 != 0L) {
 #line 1427
@@ -25392,7 +25392,7 @@ static int ensure_wear_leveling(struct ubi_device *ubi , int nested )
 #line 1429
     descriptor___0.flags = 0U;
 #line 1429
-    tmp___3 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___3 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 1429
     if (tmp___3 != 0L) {
 #line 1429
@@ -25542,7 +25542,7 @@ static int erase_worker(struct ubi_device *ubi , struct ubi_work *wl_wrk , int c
 #line 1509
     descriptor.flags = 0U;
 #line 1509
-    tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1509
     if (tmp___0 != 0L) {
 #line 1509
@@ -25575,7 +25575,7 @@ static int erase_worker(struct ubi_device *ubi , struct ubi_work *wl_wrk , int c
 #line 1515
   descriptor___0.flags = 0U;
 #line 1515
-  tmp___2 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___2 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 1515
   if (tmp___2 != 0L) {
 #line 1515
@@ -25589,7 +25589,7 @@ static int erase_worker(struct ubi_device *ubi , struct ubi_work *wl_wrk , int c
 #line 1518
   tmp___4 = ubi_is_fm_block(ubi, e->pnum);
 #line 1518
-  tmp___5 = __builtin_expect(tmp___4 != 0, 0L);
+  tmp___5 = ldv__builtin_expect(tmp___4 != 0, 0L);
 #line 1518
   if (tmp___5 != 0L) {
 #line 1518
@@ -25801,7 +25801,7 @@ int ubi_wl_put_peb(struct ubi_device *ubi , int vol_id , int lnum , int pnum , i
 #line 1644
   descriptor.flags = 0U;
 #line 1644
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1644
   if (tmp___0 != 0L) {
 #line 1644
@@ -25812,7 +25812,7 @@ int ubi_wl_put_peb(struct ubi_device *ubi , int vol_id , int lnum , int pnum , i
 
   }
 #line 1645
-  tmp___2 = __builtin_expect(pnum < 0, 0L);
+  tmp___2 = ldv__builtin_expect(pnum < 0, 0L);
 #line 1645
   if (tmp___2 != 0L) {
 #line 1645
@@ -25825,7 +25825,7 @@ int ubi_wl_put_peb(struct ubi_device *ubi , int vol_id , int lnum , int pnum , i
 
   }
 #line 1646
-  tmp___4 = __builtin_expect(ubi->peb_count <= pnum, 0L);
+  tmp___4 = ldv__builtin_expect(ubi->peb_count <= pnum, 0L);
 #line 1646
   if (tmp___4 != 0L) {
 #line 1646
@@ -25857,7 +25857,7 @@ int ubi_wl_put_peb(struct ubi_device *ubi , int vol_id , int lnum , int pnum , i
 #line 1657
     descriptor___0.flags = 0U;
 #line 1657
-    tmp___6 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___6 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 1657
     if (tmp___6 != 0L) {
 #line 1657
@@ -25892,7 +25892,7 @@ int ubi_wl_put_peb(struct ubi_device *ubi , int vol_id , int lnum , int pnum , i
 #line 1674
     descriptor___1.flags = 0U;
 #line 1674
-    tmp___8 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___8 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 1674
     if (tmp___8 != 0L) {
 #line 1674
@@ -25904,7 +25904,7 @@ int ubi_wl_put_peb(struct ubi_device *ubi , int vol_id , int lnum , int pnum , i
 
     }
 #line 1675
-    tmp___10 = __builtin_expect(ubi->move_to_put != 0, 0L);
+    tmp___10 = ldv__builtin_expect(ubi->move_to_put != 0, 0L);
 #line 1675
     if (tmp___10 != 0L) {
 #line 1675
@@ -25953,7 +25953,7 @@ int ubi_wl_put_peb(struct ubi_device *ubi , int vol_id , int lnum , int pnum , i
 #line 1689
           ubi->erroneous_peb_count = ubi->erroneous_peb_count + -1;
 #line 1690
-          tmp___12 = __builtin_expect(ubi->erroneous_peb_count < 0, 0L);
+          tmp___12 = ldv__builtin_expect(ubi->erroneous_peb_count < 0, 0L);
 #line 1690
           if (tmp___12 != 0L) {
 #line 1690
@@ -26074,7 +26074,7 @@ int ubi_wl_scrub_peb(struct ubi_device *ubi , int pnum )
 #line 1748
     descriptor.flags = 0U;
 #line 1748
-    tmp___2 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___2 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1748
     if (tmp___2 != 0L) {
 #line 1748
@@ -26159,7 +26159,7 @@ int ubi_wl_flush(struct ubi_device *ubi , int vol_id , int lnum )
 #line 1799
   descriptor.flags = 0U;
 #line 1799
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1799
   if (tmp___0 != 0L) {
 #line 1799
@@ -26193,7 +26193,7 @@ int ubi_wl_flush(struct ubi_device *ubi , int vol_id , int lnum )
 #line 1812
     ubi->works_count = ubi->works_count + -1;
 #line 1813
-    tmp___2 = __builtin_expect(ubi->works_count < 0, 0L);
+    tmp___2 = ldv__builtin_expect(ubi->works_count < 0, 0L);
 #line 1813
     if (tmp___2 != 0L) {
 #line 1813
@@ -26490,7 +26490,7 @@ int ubi_thread(void *u )
 #line 1925
   descriptor.flags = 0U;
 #line 1925
-  tmp___11 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___11 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1925
   if (tmp___11 != 0L) {
 #line 1925
@@ -26529,7 +26529,7 @@ static void cancel_pending(struct ubi_device *ubi )
 #line 1941
   ubi->works_count = ubi->works_count + -1;
 #line 1942
-  tmp___0 = __builtin_expect(ubi->works_count < 0, 0L);
+  tmp___0 = ldv__builtin_expect(ubi->works_count < 0, 0L);
 #line 1942
   if (tmp___0 != 0L) {
 #line 1942
@@ -26725,7 +26725,7 @@ int ubi_wl_init(struct ubi_device *ubi , struct ubi_attach_info *ai )
 #line 1992
   tmp___6 = ubi_is_fm_block(ubi, e->pnum);
 #line 1992
-  tmp___7 = __builtin_expect(tmp___6 != 0, 0L);
+  tmp___7 = ldv__builtin_expect(tmp___6 != 0, 0L);
 #line 1992
   if (tmp___7 != 0L) {
 #line 1992
@@ -26796,7 +26796,7 @@ int ubi_wl_init(struct ubi_device *ubi , struct ubi_attach_info *ai )
 #line 2011
   e->ec = aeb->ec;
 #line 2012
-  tmp___11 = __builtin_expect(e->ec < 0, 0L);
+  tmp___11 = ldv__builtin_expect(e->ec < 0, 0L);
 #line 2012
   if (tmp___11 != 0L) {
 #line 2012
@@ -26811,7 +26811,7 @@ int ubi_wl_init(struct ubi_device *ubi , struct ubi_attach_info *ai )
 #line 2013
   tmp___13 = ubi_is_fm_block(ubi, e->pnum);
 #line 2013
-  tmp___14 = __builtin_expect(tmp___13 != 0, 0L);
+  tmp___14 = ldv__builtin_expect(tmp___13 != 0, 0L);
 #line 2013
   if (tmp___14 != 0L) {
 #line 2013
@@ -26910,7 +26910,7 @@ int ubi_wl_init(struct ubi_device *ubi , struct ubi_attach_info *ai )
 #line 2036
     descriptor.flags = 0U;
 #line 2036
-    tmp___17 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___17 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 2036
     if (tmp___17 != 0L) {
 #line 2036
@@ -26937,7 +26937,7 @@ int ubi_wl_init(struct ubi_device *ubi , struct ubi_attach_info *ai )
 #line 2040
     descriptor___0.flags = 0U;
 #line 2040
-    tmp___19 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___19 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 2040
     if (tmp___19 != 0L) {
 #line 2040
@@ -27006,7 +27006,7 @@ int ubi_wl_init(struct ubi_device *ubi , struct ubi_attach_info *ai )
 #line 2049
   descriptor___1.flags = 0U;
 #line 2049
-  tmp___21 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+  tmp___21 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 2049
   if (tmp___21 != 0L) {
 #line 2049
@@ -27020,7 +27020,7 @@ int ubi_wl_init(struct ubi_device *ubi , struct ubi_attach_info *ai )
 #line 2051
   if ((unsigned long )ubi->fm != (unsigned long )((struct ubi_fastmap_layout *)0)) {
 #line 2052
-    tmp___23 = __builtin_expect(ubi->good_peb_count != (ubi->fm)->used_blocks + found_pebs,
+    tmp___23 = ldv__builtin_expect(ubi->good_peb_count != (ubi->fm)->used_blocks + found_pebs,
                                 0L);
 #line 2052
     if (tmp___23 != 0L) {
@@ -27035,7 +27035,7 @@ int ubi_wl_init(struct ubi_device *ubi , struct ubi_attach_info *ai )
     }
   } else {
 #line 2055
-    tmp___25 = __builtin_expect(ubi->good_peb_count != found_pebs, 0L);
+    tmp___25 = ldv__builtin_expect(ubi->good_peb_count != found_pebs, 0L);
 #line 2055
     if (tmp___25 != 0L) {
 #line 2055
@@ -27181,7 +27181,7 @@ void ubi_wl_close(struct ubi_device *ubi )
 #line 2113
   descriptor.flags = 0U;
 #line 2113
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 2113
   if (tmp___0 != 0L) {
 #line 2113
@@ -27626,7 +27626,7 @@ static int add_to_list(struct ubi_attach_info *ai , int pnum , int vol_id , int 
 #line 212
     descriptor.flags = 0U;
 #line 212
-    tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 212
     if (tmp___0 != 0L) {
 #line 212
@@ -27653,7 +27653,7 @@ static int add_to_list(struct ubi_attach_info *ai , int pnum , int vol_id , int 
 #line 214
     descriptor___0.flags = 0U;
 #line 214
-    tmp___2 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___2 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 214
     if (tmp___2 != 0L) {
 #line 214
@@ -27680,7 +27680,7 @@ static int add_to_list(struct ubi_attach_info *ai , int pnum , int vol_id , int 
 #line 216
     descriptor___1.flags = 0U;
 #line 216
-    tmp___4 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___4 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 216
     if (tmp___4 != 0L) {
 #line 216
@@ -27755,7 +27755,7 @@ static int add_corrupted(struct ubi_attach_info *ai , int pnum , int ec )
 #line 251
   descriptor.flags = 0U;
 #line 251
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 251
   if (tmp___0 != 0L) {
 #line 251
@@ -27909,7 +27909,7 @@ static struct ubi_ainf_volume *add_volume(struct ubi_attach_info *ai , int vol_i
 #line 350
   tmp___0 = __fswab32(vid_hdr->vol_id);
 #line 350
-  tmp___1 = __builtin_expect((unsigned int )vol_id != tmp___0, 0L);
+  tmp___1 = ldv__builtin_expect((unsigned int )vol_id != tmp___0, 0L);
 #line 350
   if (tmp___1 != 0L) {
 #line 350
@@ -28016,7 +28016,7 @@ static struct ubi_ainf_volume *add_volume(struct ubi_attach_info *ai , int vol_i
 #line 385
   descriptor.flags = 0U;
 #line 385
-  tmp___8 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___8 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 385
   if (tmp___8 != 0L) {
 #line 385
@@ -28106,7 +28106,7 @@ int ubi_compare_lebs(struct ubi_device *ubi , struct ubi_ainf_peb  const  *aeb ,
 #line 445
       descriptor.flags = 0U;
 #line 445
-      tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+      tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 445
       if (tmp___1 != 0L) {
 #line 445
@@ -28138,7 +28138,7 @@ int ubi_compare_lebs(struct ubi_device *ubi , struct ubi_ainf_peb  const  *aeb ,
 #line 452
       descriptor___0.flags = 0U;
 #line 452
-      tmp___3 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+      tmp___3 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 452
       if (tmp___3 != 0L) {
 #line 452
@@ -28237,7 +28237,7 @@ int ubi_compare_lebs(struct ubi_device *ubi , struct ubi_ainf_peb  const  *aeb ,
 #line 491
     descriptor___1.flags = 0U;
 #line 491
-    tmp___8 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___8 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 491
     if (tmp___8 != 0L) {
 #line 491
@@ -28268,7 +28268,7 @@ int ubi_compare_lebs(struct ubi_device *ubi , struct ubi_ainf_peb  const  *aeb ,
 #line 497
     descriptor___2.flags = 0U;
 #line 497
-    tmp___10 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+    tmp___10 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
 #line 497
     if (tmp___10 != 0L) {
 #line 497
@@ -28301,7 +28301,7 @@ int ubi_compare_lebs(struct ubi_device *ubi , struct ubi_ainf_peb  const  *aeb ,
 #line 505
     descriptor___3.flags = 0U;
 #line 505
-    tmp___12 = __builtin_expect((long )descriptor___3.flags & 1L, 0L);
+    tmp___12 = ldv__builtin_expect((long )descriptor___3.flags & 1L, 0L);
 #line 505
     if (tmp___12 != 0L) {
 #line 505
@@ -28326,7 +28326,7 @@ int ubi_compare_lebs(struct ubi_device *ubi , struct ubi_ainf_peb  const  *aeb ,
 #line 507
     descriptor___4.flags = 0U;
 #line 507
-    tmp___14 = __builtin_expect((long )descriptor___4.flags & 1L, 0L);
+    tmp___14 = ldv__builtin_expect((long )descriptor___4.flags & 1L, 0L);
 #line 507
     if (tmp___14 != 0L) {
 #line 507
@@ -28408,7 +28408,7 @@ int ubi_add_to_av(struct ubi_device *ubi , struct ubi_attach_info *ai , int pnum
 #line 547
   descriptor.flags = 0U;
 #line 547
-  tmp___3 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___3 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 547
   if (tmp___3 != 0L) {
 #line 547
@@ -28478,7 +28478,7 @@ int ubi_add_to_av(struct ubi_device *ubi , struct ubi_attach_info *ai , int pnum
 #line 580
   descriptor___0.flags = 0U;
 #line 580
-  tmp___7 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___7 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 580
   if (tmp___7 != 0L) {
 #line 580
@@ -28696,7 +28696,7 @@ void ubi_remove_av(struct ubi_attach_info *ai , struct ubi_ainf_volume *av )
 #line 721
   descriptor.flags = 0U;
 #line 721
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 721
   if (tmp___0 != 0L) {
 #line 721
@@ -28836,7 +28836,7 @@ struct ubi_ainf_peb *ubi_early_get_peb(struct ubi_device *ubi , struct ubi_attac
 #line 802
     descriptor.flags = 0U;
 #line 802
-    tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 802
     if (tmp___0 != 0L) {
 #line 802
@@ -28896,7 +28896,7 @@ struct ubi_ainf_peb *ubi_early_get_peb(struct ubi_device *ubi , struct ubi_attac
 #line 822
   descriptor___0.flags = 0U;
 #line 822
-  tmp___3 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___3 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 822
   if (tmp___3 != 0L) {
 #line 822
@@ -29049,7 +29049,7 @@ static int scan_peb(struct ubi_device *ubi , struct ubi_attach_info *ai , int pn
 #line 909
   descriptor.flags = 0U;
 #line 909
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 909
   if (tmp___0 != 0L) {
 #line 909
@@ -29811,7 +29811,7 @@ static int scan_all(struct ubi_device *ubi , struct ubi_attach_info *ai , int st
 #line 1333
   descriptor.flags = 0U;
 #line 1333
-  tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1333
   if (tmp___1 != 0L) {
 #line 1333
@@ -30110,7 +30110,7 @@ static int scan_fast(struct ubi_device *ubi , struct ubi_attach_info *ai )
 #line 1420
   descriptor.flags = 0U;
 #line 1420
-  tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1420
   if (tmp___1 != 0L) {
 #line 1420
@@ -30315,7 +30315,7 @@ int ubi_attach(struct ubi_device *ubi , int force_scan )
 #line 1523
   descriptor.flags = 0U;
 #line 1523
-  tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1523
   if (tmp___1 != 0L) {
 #line 1523
@@ -31362,7 +31362,7 @@ int ubi_calc_data_len(struct ubi_device  const  *ubi , void const   *buf , int l
 
   {
 #line 127
-  tmp___0 = __builtin_expect((((int )ubi->min_io_size + -1) & length) != 0, 0L);
+  tmp___0 = ldv__builtin_expect((((int )ubi->min_io_size + -1) & length) != 0, 0L);
 #line 127
   if (tmp___0 != 0L) {
 #line 127
@@ -31664,7 +31664,7 @@ __inline static long IS_ERR_OR_NULL(void const   *ptr )
     tmp___0 = 1;
   } else {
 #line 39
-    tmp = __builtin_expect((unsigned long )ptr > 0xfffffffffffff000UL, 0L);
+    tmp = ldv__builtin_expect((unsigned long )ptr > 0xfffffffffffff000UL, 0L);
 #line 39
     if (tmp != 0L) {
 #line 39
@@ -32894,7 +32894,7 @@ static struct ubi_ainf_volume *add_vol(struct ubi_attach_info *ai , int vol_id ,
 #line 234
   descriptor.flags = 0U;
 #line 234
-  tmp___2 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___2 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 234
   if (tmp___2 != 0L) {
 #line 234
@@ -33040,7 +33040,7 @@ static int update_vol(struct ubi_device *ubi , struct ubi_attach_info *ai , stru
 #line 315
   if (aeb->pnum == new_aeb->pnum) {
 #line 316
-    tmp___2 = __builtin_expect(aeb->lnum != new_aeb->lnum, 0L);
+    tmp___2 = ldv__builtin_expect(aeb->lnum != new_aeb->lnum, 0L);
 #line 316
     if (tmp___2 != 0L) {
 #line 316
@@ -33112,7 +33112,7 @@ static int update_vol(struct ubi_device *ubi , struct ubi_attach_info *ai , stru
 #line 341
     descriptor.flags = 0U;
 #line 341
-    tmp___7 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___7 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 341
     if (tmp___7 != 0L) {
 #line 341
@@ -33147,7 +33147,7 @@ static int update_vol(struct ubi_device *ubi , struct ubi_attach_info *ai , stru
 #line 352
     descriptor___0.flags = 0U;
 #line 352
-    tmp___9 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___9 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 352
     if (tmp___9 != 0L) {
 #line 352
@@ -33305,7 +33305,7 @@ static int process_pool_aeb(struct ubi_device *ubi , struct ubi_attach_info *ai 
 #line 423
   tmp___4 = __fswab32(new_vh->vol_id);
 #line 423
-  tmp___5 = __builtin_expect(tmp___4 != (unsigned int )av->vol_id, 0L);
+  tmp___5 = ldv__builtin_expect(tmp___4 != (unsigned int )av->vol_id, 0L);
 #line 423
   if (tmp___5 != 0L) {
 #line 423
@@ -33465,7 +33465,7 @@ static int scan_pool(struct ubi_device *ubi , struct ubi_attach_info *ai , int *
 #line 489
   descriptor.flags = 0U;
 #line 489
-  tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 489
   if (tmp___1 != 0L) {
 #line 489
@@ -33558,7 +33558,7 @@ static int scan_pool(struct ubi_device *ubi , struct ubi_attach_info *ai , int *
 #line 526
     descriptor___0.flags = 0U;
 #line 526
-    tmp___8 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___8 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 526
     if (tmp___8 != 0L) {
 #line 526
@@ -33595,7 +33595,7 @@ static int scan_pool(struct ubi_device *ubi , struct ubi_attach_info *ai , int *
 #line 533
     descriptor___1.flags = 0U;
 #line 533
-    tmp___10 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___10 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 533
     if (tmp___10 != 0L) {
 #line 533
@@ -34486,7 +34486,7 @@ static int ubi_attach_fastmap(struct ubi_device *ubi , struct ubi_attach_info *a
 #line 852
   descriptor.flags = 0U;
 #line 852
-  tmp___40 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___40 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 852
   if (tmp___40 != 0L) {
 #line 852
@@ -34663,7 +34663,7 @@ static int ubi_attach_fastmap(struct ubi_device *ubi , struct ubi_attach_info *a
 #line 913
   __ret_warn_on = tmp___46 != (ubi->peb_count - ai->bad_peb_count) - fm->used_blocks;
 #line 913
-  tmp___47 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___47 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 913
   if (tmp___47 != 0L) {
 #line 913
@@ -34673,7 +34673,7 @@ static int ubi_attach_fastmap(struct ubi_device *ubi , struct ubi_attach_info *a
 
   }
 #line 913
-  tmp___48 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___48 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 913
   if (tmp___48 != 0L) {
 #line 915
@@ -35297,7 +35297,7 @@ static int ubi_write_fastmap(struct ubi_device *ubi , struct ubi_fastmap_layout 
 #line 1187
   fm_pos = fm_pos + 312UL;
 #line 1188
-  tmp___0 = __builtin_expect(ubi->fm_size < fm_pos, 0L);
+  tmp___0 = ldv__builtin_expect(ubi->fm_size < fm_pos, 0L);
 #line 1188
   if (tmp___0 != 0L) {
 #line 1188
@@ -35315,7 +35315,7 @@ static int ubi_write_fastmap(struct ubi_device *ubi , struct ubi_fastmap_layout 
 #line 1191
   fm_pos = fm_pos + 32UL;
 #line 1192
-  tmp___2 = __builtin_expect(ubi->fm_size < fm_pos, 0L);
+  tmp___2 = ldv__builtin_expect(ubi->fm_size < fm_pos, 0L);
 #line 1192
   if (tmp___2 != 0L) {
 #line 1192
@@ -35440,7 +35440,7 @@ static int ubi_write_fastmap(struct ubi_device *ubi , struct ubi_fastmap_layout 
 #line 1233
   fm_pos = fm_pos + 8UL;
 #line 1234
-  tmp___13 = __builtin_expect(ubi->fm_size < fm_pos, 0L);
+  tmp___13 = ldv__builtin_expect(ubi->fm_size < fm_pos, 0L);
 #line 1234
   if (tmp___13 != 0L) {
 #line 1234
@@ -35491,7 +35491,7 @@ static int ubi_write_fastmap(struct ubi_device *ubi , struct ubi_fastmap_layout 
 #line 1246
   fm_pos = fm_pos + 8UL;
 #line 1247
-  tmp___18 = __builtin_expect(ubi->fm_size < fm_pos, 0L);
+  tmp___18 = ldv__builtin_expect(ubi->fm_size < fm_pos, 0L);
 #line 1247
   if (tmp___18 != 0L) {
 #line 1247
@@ -35542,7 +35542,7 @@ static int ubi_write_fastmap(struct ubi_device *ubi , struct ubi_fastmap_layout 
 #line 1259
   fm_pos = fm_pos + 8UL;
 #line 1260
-  tmp___23 = __builtin_expect(ubi->fm_size < fm_pos, 0L);
+  tmp___23 = ldv__builtin_expect(ubi->fm_size < fm_pos, 0L);
 #line 1260
   if (tmp___23 != 0L) {
 #line 1260
@@ -35583,7 +35583,7 @@ static int ubi_write_fastmap(struct ubi_device *ubi , struct ubi_fastmap_layout 
 #line 1267
     wl_e = ubi_wrk->e;
 #line 1268
-    tmp___26 = __builtin_expect((unsigned long )wl_e == (unsigned long )((struct ubi_wl_entry *)0),
+    tmp___26 = ldv__builtin_expect((unsigned long )wl_e == (unsigned long )((struct ubi_wl_entry *)0),
                                 0L);
 #line 1268
     if (tmp___26 != 0L) {
@@ -35612,7 +35612,7 @@ static int ubi_write_fastmap(struct ubi_device *ubi , struct ubi_fastmap_layout 
 #line 1276
     fm_pos = fm_pos + 8UL;
 #line 1277
-    tmp___30 = __builtin_expect(ubi->fm_size < fm_pos, 0L);
+    tmp___30 = ldv__builtin_expect(ubi->fm_size < fm_pos, 0L);
 #line 1277
     if (tmp___30 != 0L) {
 #line 1277
@@ -35665,7 +35665,7 @@ static int ubi_write_fastmap(struct ubi_device *ubi , struct ubi_fastmap_layout 
 #line 1291
   fm_pos = fm_pos + 32UL;
 #line 1292
-  tmp___34 = __builtin_expect(ubi->fm_size < fm_pos, 0L);
+  tmp___34 = ldv__builtin_expect(ubi->fm_size < fm_pos, 0L);
 #line 1292
   if (tmp___34 != 0L) {
 #line 1292
@@ -35699,11 +35699,11 @@ static int ubi_write_fastmap(struct ubi_device *ubi , struct ubi_fastmap_layout 
 #line 1299
   fvh->last_eb_bytes = tmp___38;
 #line 1301
-  tmp___40 = __builtin_expect(vol->vol_type != 3, 0L);
+  tmp___40 = ldv__builtin_expect(vol->vol_type != 3, 0L);
 #line 1301
   if (tmp___40 != 0L) {
 #line 1301
-    tmp___41 = __builtin_expect(vol->vol_type != 4, 0L);
+    tmp___41 = ldv__builtin_expect(vol->vol_type != 4, 0L);
 #line 1301
     if (tmp___41 != 0L) {
 #line 1301
@@ -35724,7 +35724,7 @@ static int ubi_write_fastmap(struct ubi_device *ubi , struct ubi_fastmap_layout 
 #line 1305
   fm_pos = ((unsigned long )vol->reserved_pebs + 2UL) * 4UL + fm_pos;
 #line 1306
-  tmp___43 = __builtin_expect(ubi->fm_size < fm_pos, 0L);
+  tmp___43 = ldv__builtin_expect(ubi->fm_size < fm_pos, 0L);
 #line 1306
   if (tmp___43 != 0L) {
 #line 1306
@@ -35806,7 +35806,7 @@ static int ubi_write_fastmap(struct ubi_device *ubi , struct ubi_fastmap_layout 
 #line 1323
   descriptor.flags = 0U;
 #line 1323
-  tmp___51 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___51 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1323
   if (tmp___51 != 0L) {
 #line 1323
@@ -35887,7 +35887,7 @@ static int ubi_write_fastmap(struct ubi_device *ubi , struct ubi_fastmap_layout 
 #line 1342
   descriptor___0.flags = 0U;
 #line 1342
-  tmp___61 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___61 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 1342
   if (tmp___61 != 0L) {
 #line 1342
@@ -35951,7 +35951,7 @@ static int ubi_write_fastmap(struct ubi_device *ubi , struct ubi_fastmap_layout 
 
   }
 #line 1362
-  tmp___63 = __builtin_expect((unsigned long )new_fm == (unsigned long )((struct ubi_fastmap_layout *)0),
+  tmp___63 = ldv__builtin_expect((unsigned long )new_fm == (unsigned long )((struct ubi_fastmap_layout *)0),
                               0L);
 #line 1362
   if (tmp___63 != 0L) {
@@ -35980,7 +35980,7 @@ static int ubi_write_fastmap(struct ubi_device *ubi , struct ubi_fastmap_layout 
 #line 1365
   descriptor___1.flags = 0U;
 #line 1365
-  tmp___65 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+  tmp___65 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 1365
   if (tmp___65 != 0L) {
 #line 1365
@@ -36699,7 +36699,7 @@ __inline static void ldv_error(void)
 #line 25
 extern int __VERIFIER_nondet_int(void) ;
 #line 49 "/home/ldvuser/ldv/inst/kernel-rules/verifier/rcv.h"
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 

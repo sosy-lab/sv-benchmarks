@@ -4335,7 +4335,7 @@ typedef int ldv_func_ret_type___2;
 #line 2711 "/work/ldvuser/zakharov_benchmarks/bench/cpa/work/current--X--drivers/usb/host/ohci-hcd.ko--X--x1linux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/32_7a/drivers/usb/host/ohci-hcd.c.prepared"
 typedef int ldv_func_ret_type___9;
 #line 1 "<compiler builtins>"
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 #line 62 "/work/ldvuser/zakharov_benchmarks/bench/cpa/inst/current/envs/linux-3.8-rc1/linux-3.8-rc1/arch/x86/include/asm/bitops.h"
 __inline static void set_bit(unsigned int nr , unsigned long volatile   *addr ) 
 { 
@@ -4461,7 +4461,7 @@ __inline static unsigned long arch_local_save_flags(void)
 #line 825
   __eax = __eax;
 #line 825
-  tmp = __builtin_expect((unsigned long )pv_irq_ops.save_fl.func == (unsigned long )((void *)0),
+  tmp = ldv__builtin_expect((unsigned long )pv_irq_ops.save_fl.func == (unsigned long )((void *)0),
                          0L);
 #line 825
   if (tmp != 0L) {
@@ -4885,7 +4885,7 @@ __inline static struct dma_map_ops *get_dma_ops(struct device *dev )
 
   {
 #line 37
-  tmp = __builtin_expect((unsigned long )dev == (unsigned long )((struct device *)0),
+  tmp = ldv__builtin_expect((unsigned long )dev == (unsigned long )((struct device *)0),
                          0L);
 #line 37
   if (tmp != 0L || (unsigned long )dev->archdata.dma_ops == (unsigned long )((struct dma_map_ops *)0)) {
@@ -5024,7 +5024,7 @@ __inline static void dma_free_attrs(struct device *dev , size_t size , void *vad
 #line 166
   __ret_warn_on = tmp___0 != 0;
 #line 166
-  tmp___1 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___1 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 166
   if (tmp___1 != 0L) {
 #line 166
@@ -5034,7 +5034,7 @@ __inline static void dma_free_attrs(struct device *dev , size_t size , void *vad
 
   }
 #line 166
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 171
   debug_dma_free_coherent(dev, size, vaddr, bus);
 #line 172
@@ -5092,7 +5092,7 @@ __inline static __u16 usb_maxpacket(struct usb_device *udev , int pipe , int is_
 #line 1768
     __ret_warn_on = (pipe & 128) != 0;
 #line 1768
-    tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 1768
     if (tmp != 0L) {
 #line 1768
@@ -5101,14 +5101,14 @@ __inline static __u16 usb_maxpacket(struct usb_device *udev , int pipe , int is_
 
     }
 #line 1768
-    __builtin_expect(__ret_warn_on != 0, 0L);
+    ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 1769
     ep = udev->ep_out[epnum];
   } else {
 #line 1771
     __ret_warn_on___0 = (pipe & 128) == 0;
 #line 1771
-    tmp___0 = __builtin_expect(__ret_warn_on___0 != 0, 0L);
+    tmp___0 = ldv__builtin_expect(__ret_warn_on___0 != 0, 0L);
 #line 1771
     if (tmp___0 != 0L) {
 #line 1771
@@ -5117,7 +5117,7 @@ __inline static __u16 usb_maxpacket(struct usb_device *udev , int pipe , int is_
 
     }
 #line 1771
-    __builtin_expect(__ret_warn_on___0 != 0, 0L);
+    ldv__builtin_expect(__ret_warn_on___0 != 0, 0L);
 #line 1772
     ep = udev->ep_in[epnum];
   }
@@ -5558,7 +5558,7 @@ static int ohci_rh_suspend(struct ohci_hcd *ohci , int autostop )
 #line 55
   descriptor.flags = 1U;
 #line 55
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 55
   if (tmp___0 != 0L) {
 #line 55
@@ -5593,7 +5593,7 @@ static int ohci_rh_suspend(struct ohci_hcd *ohci , int autostop )
 #line 63
   descriptor___0.flags = 1U;
 #line 63
-  tmp___2 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___2 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 63
   if (tmp___2 != 0L) {
 #line 63
@@ -5622,7 +5622,7 @@ static int ohci_rh_suspend(struct ohci_hcd *ohci , int autostop )
 #line 67
     descriptor___1.flags = 1U;
 #line 67
-    tmp___4 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___4 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 67
     if (tmp___4 != 0L) {
 #line 67
@@ -5652,7 +5652,7 @@ static int ohci_rh_suspend(struct ohci_hcd *ohci , int autostop )
 #line 71
   descriptor___2.flags = 1U;
 #line 71
-  tmp___7 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+  tmp___7 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
 #line 71
   if (tmp___7 != 0L) {
 #line 71
@@ -5694,7 +5694,7 @@ static int ohci_rh_suspend(struct ohci_hcd *ohci , int autostop )
 #line 84
     descriptor___3.flags = 1U;
 #line 84
-    tmp___9 = __builtin_expect((long )descriptor___3.flags & 1L, 0L);
+    tmp___9 = ldv__builtin_expect((long )descriptor___3.flags & 1L, 0L);
 #line 84
     if (tmp___9 != 0L) {
 #line 84
@@ -5850,7 +5850,7 @@ static int ohci_rh_resume(struct ohci_hcd *ohci )
 #line 145
       descriptor.flags = 1U;
 #line 145
-      tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+      tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 145
       if (tmp___1 != 0L) {
 #line 145
@@ -5877,7 +5877,7 @@ static int ohci_rh_resume(struct ohci_hcd *ohci )
 #line 150
       descriptor___0.flags = 1U;
 #line 150
-      tmp___3 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+      tmp___3 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 150
       if (tmp___3 != 0L) {
 #line 150
@@ -5916,7 +5916,7 @@ static int ohci_rh_resume(struct ohci_hcd *ohci )
 #line 159
     descriptor___1.flags = 1U;
 #line 159
-    tmp___6 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___6 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 159
     if (tmp___6 != 0L) {
 #line 159
@@ -5951,7 +5951,7 @@ static int ohci_rh_resume(struct ohci_hcd *ohci )
 #line 164
     descriptor___2.flags = 1U;
 #line 164
-    tmp___9 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+    tmp___9 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
 #line 164
     if (tmp___9 != 0L) {
 #line 164
@@ -5986,7 +5986,7 @@ static int ohci_rh_resume(struct ohci_hcd *ohci )
 #line 169
     descriptor___3.flags = 1U;
 #line 169
-    tmp___11 = __builtin_expect((long )descriptor___3.flags & 1L, 0L);
+    tmp___11 = ldv__builtin_expect((long )descriptor___3.flags & 1L, 0L);
 #line 169
     if (tmp___11 != 0L) {
 #line 169
@@ -6015,7 +6015,7 @@ static int ohci_rh_resume(struct ohci_hcd *ohci )
 #line 173
     descriptor___4.flags = 1U;
 #line 173
-    tmp___13 = __builtin_expect((long )descriptor___4.flags & 1L, 0L);
+    tmp___13 = ldv__builtin_expect((long )descriptor___4.flags & 1L, 0L);
 #line 173
     if (tmp___13 != 0L) {
 #line 173
@@ -6207,7 +6207,7 @@ static int ohci_rh_resume(struct ohci_hcd *ohci )
 #line 270
     descriptor___5.flags = 1U;
 #line 270
-    tmp___19 = __builtin_expect((long )descriptor___5.flags & 1L, 0L);
+    tmp___19 = ldv__builtin_expect((long )descriptor___5.flags & 1L, 0L);
 #line 270
     if (tmp___19 != 0L) {
 #line 270
@@ -6255,7 +6255,7 @@ static int ohci_bus_suspend(struct usb_hcd *hcd )
 #line 287
   spin_lock_irq(& ohci->lock);
 #line 289
-  tmp___0 = __builtin_expect((hcd->flags & 1UL) == 0UL, 0L);
+  tmp___0 = ldv__builtin_expect((hcd->flags & 1UL) == 0UL, 0L);
 #line 289
   if (tmp___0 != 0L) {
 #line 290
@@ -6292,7 +6292,7 @@ static int ohci_bus_resume(struct usb_hcd *hcd )
 #line 305
   spin_lock_irq(& ohci->lock);
 #line 307
-  tmp___0 = __builtin_expect((hcd->flags & 1UL) == 0UL, 0L);
+  tmp___0 = ldv__builtin_expect((hcd->flags & 1UL) == 0UL, 0L);
 #line 307
   if (tmp___0 != 0L) {
 #line 308
@@ -6804,7 +6804,7 @@ __inline static int root_port_reset(struct ohci_hcd *ohci , unsigned int port )
 #line 631
     descriptor.flags = 1U;
 #line 631
-    tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 631
     if (tmp___1 != 0L) {
 #line 631
@@ -6899,7 +6899,7 @@ static int ohci_hub_control(struct usb_hcd *hcd , u16 typeReq , u16 wValue , u16
 #line 666
   retval = 0;
 #line 668
-  tmp___0 = __builtin_expect((hcd->flags & 1UL) == 0UL, 0L);
+  tmp___0 = ldv__builtin_expect((hcd->flags & 1UL) == 0UL, 0L);
 #line 668
   if (tmp___0 != 0L) {
 #line 669
@@ -7029,7 +7029,7 @@ static int ohci_hub_control(struct usb_hcd *hcd , u16 typeReq , u16 wValue , u16
 #line 737
     descriptor.flags = 1U;
 #line 737
-    tmp___15 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___15 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 737
     if (tmp___15 != 0L) {
 #line 737
@@ -7334,7 +7334,7 @@ static void ohci_dump_intr_mask(struct ohci_hcd *ohci , char *label , u32 mask ,
 #line 101
     descriptor.flags = 1U;
 #line 101
-    tmp___19 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___19 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 101
     if (tmp___19 != 0L) {
 #line 101
@@ -7460,7 +7460,7 @@ static void maybe_print_eds(struct ohci_hcd *ohci , char *label , u32 value , ch
 #line 124
       descriptor.flags = 1U;
 #line 124
-      tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+      tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 124
       if (tmp___1 != 0L) {
 #line 124
@@ -7623,7 +7623,7 @@ static void ohci_dump_status(struct ohci_hcd *controller , char **next , unsigne
 #line 159
     descriptor.flags = 1U;
 #line 159
-    tmp___6 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___6 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 159
     if (tmp___6 != 0L) {
 #line 159
@@ -7732,7 +7732,7 @@ static void ohci_dump_status(struct ohci_hcd *controller , char **next , unsigne
 #line 166
     descriptor___0.flags = 1U;
 #line 166
-    tmp___25 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___25 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 166
     if (tmp___25 != 0L) {
 #line 166
@@ -7864,7 +7864,7 @@ static void ohci_dump_status(struct ohci_hcd *controller , char **next , unsigne
 #line 181
     descriptor___1.flags = 1U;
 #line 181
-    tmp___36 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___36 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 181
     if (tmp___36 != 0L) {
 #line 181
@@ -8095,7 +8095,7 @@ static void ohci_dump_roothub(struct ohci_hcd *controller , int verbose , char *
 #line 256
       descriptor.flags = 1U;
 #line 256
-      tmp___11 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+      tmp___11 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 256
       if (tmp___11 != 0L) {
 #line 256
@@ -8176,7 +8176,7 @@ static void ohci_dump_roothub(struct ohci_hcd *controller , int verbose , char *
 #line 267
       descriptor___0.flags = 1U;
 #line 267
-      tmp___14 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+      tmp___14 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 267
       if (tmp___14 != 0L) {
 #line 267
@@ -8265,7 +8265,7 @@ static void ohci_dump_roothub(struct ohci_hcd *controller , int verbose , char *
 #line 274
       descriptor___1.flags = 1U;
 #line 274
-      tmp___29 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+      tmp___29 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 274
       if (tmp___29 != 0L) {
 #line 274
@@ -8459,7 +8459,7 @@ static void ohci_dump_roothub(struct ohci_hcd *controller , int verbose , char *
 #line 288
     descriptor___2.flags = 1U;
 #line 288
-    tmp___56 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+    tmp___56 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
 #line 288
     if (tmp___56 != 0L) {
 #line 288
@@ -8610,7 +8610,7 @@ static void ohci_dump(struct ohci_hcd *controller , int verbose )
 #line 294
   descriptor.flags = 1U;
 #line 294
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 294
   if (tmp___0 != 0L) {
 #line 294
@@ -8638,7 +8638,7 @@ static void ohci_dump(struct ohci_hcd *controller , int verbose )
 #line 299
     descriptor___0.flags = 1U;
 #line 299
-    tmp___3 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___3 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 299
     if (tmp___3 != 0L) {
 #line 299
@@ -9613,7 +9613,7 @@ __inline static void create_debug_files(struct ohci_hcd *ohci )
 #line 851
   descriptor.flags = 1U;
 #line 851
-  tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 851
   if (tmp___1 != 0L) {
 #line 851
@@ -9844,7 +9844,7 @@ static void td_free(struct ohci_hcd *hc , struct td *td )
 #line 111
       descriptor.flags = 1U;
 #line 111
-      tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+      tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 111
       if (tmp___0 != 0L) {
 #line 111
@@ -9967,7 +9967,7 @@ static void finish_urb(struct ohci_hcd *ohci , struct urb *urb , int status )
 #line 46
   urb_free_priv(ohci, (urb_priv_t *)urb->hcpriv);
 #line 47
-  tmp = __builtin_expect(status == -115, 1L);
+  tmp = ldv__builtin_expect(status == -115, 1L);
 #line 47
   if (tmp != 0L) {
 #line 48
@@ -10271,7 +10271,7 @@ static int ed_schedule(struct ohci_hcd *ohci , struct ed *ed )
 #line 192
     __ret_warn_on = (ohci->hc_control & 16U) != 0U;
 #line 192
-    tmp___2 = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp___2 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 192
     if (tmp___2 != 0L) {
 #line 192
@@ -10281,7 +10281,7 @@ static int ed_schedule(struct ohci_hcd *ohci , struct ed *ed )
 
     }
 #line 192
-    __builtin_expect(__ret_warn_on != 0, 0L);
+    ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 193
     _ohci_writel((struct ohci_hcd  const  *)ohci, (unsigned int const   )ed->dma,
                  & (ohci->regs)->ed_controlhead);
@@ -10317,7 +10317,7 @@ static int ed_schedule(struct ohci_hcd *ohci , struct ed *ed )
 #line 213
     __ret_warn_on___0 = (ohci->hc_control & 32U) != 0U;
 #line 213
-    tmp___3 = __builtin_expect(__ret_warn_on___0 != 0, 0L);
+    tmp___3 = ldv__builtin_expect(__ret_warn_on___0 != 0, 0L);
 #line 213
     if (tmp___3 != 0L) {
 #line 213
@@ -10327,7 +10327,7 @@ static int ed_schedule(struct ohci_hcd *ohci , struct ed *ed )
 
     }
 #line 213
-    __builtin_expect(__ret_warn_on___0 != 0, 0L);
+    ldv__builtin_expect(__ret_warn_on___0 != 0, 0L);
 #line 214
     _ohci_writel((struct ohci_hcd  const  *)ohci, (unsigned int const   )ed->dma,
                  & (ohci->regs)->ed_bulkhead);
@@ -10374,7 +10374,7 @@ static int ed_schedule(struct ohci_hcd *ohci , struct ed *ed )
 #line 236
     descriptor.flags = 1U;
 #line 236
-    tmp___5 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___5 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 236
     if (tmp___5 != 0L) {
 #line 236
@@ -11347,7 +11347,7 @@ static void ed_halted(struct ohci_hcd *ohci , struct td *td , int cc )
 #line 845
   descriptor.flags = 1U;
 #line 845
-  tmp___6 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___6 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 845
   if (tmp___6 != 0L) {
 #line 845
@@ -11509,7 +11509,7 @@ static void finish_unlinks(struct ohci_hcd *ohci , u16 tick )
   goto ldv_31659;
   ldv_31658: 
 #line 915
-  tmp___2 = __builtin_expect((unsigned int )ohci->rh_state == 2U, 1L);
+  tmp___2 = ldv__builtin_expect((unsigned int )ohci->rh_state == 2U, 1L);
 #line 915
   if (tmp___2 != 0L) {
 #line 916
@@ -12280,7 +12280,7 @@ static int ohci_urb_enqueue(struct usb_hcd *hcd , struct urb *urb , gfp_t mem_fl
 #line 289
     frame___0 = (int )ed->last_iso + (int )ed->interval;
 #line 292
-    tmp___6 = __builtin_expect((int )((short )((int )frame___0 - (int )next)) < 0,
+    tmp___6 = ldv__builtin_expect((int )((short )((int )frame___0 - (int )next)) < 0,
                                0L);
 #line 292
     if (tmp___6 != 0L) {
@@ -12837,7 +12837,7 @@ static int ohci_init(struct ohci_hcd *ohci )
 #line 596
       descriptor.flags = 1U;
 #line 596
-      tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+      tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 596
       if (tmp___1 != 0L) {
 #line 596
@@ -13001,7 +13001,7 @@ static int ohci_run(struct ohci_hcd *ohci )
 #line 666
       descriptor.flags = 1U;
 #line 666
-      tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+      tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 666
       if (tmp___1 != 0L) {
 #line 666
@@ -13148,7 +13148,7 @@ static int ohci_run(struct ohci_hcd *ohci )
 #line 753
         descriptor___0.flags = 1U;
 #line 753
-        tmp___5 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+        tmp___5 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 753
         if (tmp___5 != 0L) {
 #line 753
@@ -13339,7 +13339,7 @@ static irqreturn_t ohci_irq(struct usb_hcd *hcd )
 #line 844
     descriptor.flags = 1U;
 #line 844
-    tmp___2 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___2 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 844
     if (tmp___2 != 0L) {
 #line 844
@@ -13367,7 +13367,7 @@ static irqreturn_t ohci_irq(struct usb_hcd *hcd )
     return (0);
   } else {
 #line 853
-    tmp___4 = __builtin_expect((unsigned int )ohci->rh_state == 0U, 0L);
+    tmp___4 = ldv__builtin_expect((unsigned int )ohci->rh_state == 0U, 0L);
 #line 853
     if (tmp___4 != 0L) {
 #line 854
@@ -13647,7 +13647,7 @@ static int ohci_restart(struct ohci_hcd *ohci )
 #line 1015
     descriptor.flags = 1U;
 #line 1015
-    tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1015
     if (tmp___0 != 0L) {
 #line 1015
@@ -13706,7 +13706,7 @@ static int ohci_restart(struct ohci_hcd *ohci )
 #line 1033
   descriptor___0.flags = 1U;
 #line 1033
-  tmp___4 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___4 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 1033
   if (tmp___4 != 0L) {
 #line 1033
@@ -13815,7 +13815,7 @@ static int ohci_restart(struct ohci_hcd *ohci )
 #line 1060
   descriptor___1.flags = 1U;
 #line 1060
-  tmp___7 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+  tmp___7 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 1060
   if (tmp___7 != 0L) {
 #line 1060
@@ -13923,7 +13923,7 @@ static int ohci_resume(struct usb_hcd *hcd , bool hibernated )
 #line 1122
     descriptor.flags = 1U;
 #line 1122
-    tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1122
     if (tmp___1 != 0L) {
 #line 1122
@@ -14006,7 +14006,7 @@ static int ohci_quirk_amd756(struct usb_hcd *hcd )
 #line 41
   descriptor.flags = 1U;
 #line 41
-  tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 41
   if (tmp___1 != 0L) {
 #line 41
@@ -14049,7 +14049,7 @@ static int ohci_quirk_opti(struct usb_hcd *hcd )
 #line 55
   descriptor.flags = 1U;
 #line 55
-  tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 55
   if (tmp___1 != 0L) {
 #line 55
@@ -14103,7 +14103,7 @@ static int ohci_quirk_ns(struct usb_hcd *hcd )
 #line 75
     descriptor.flags = 1U;
 #line 75
-    tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 75
     if (tmp___1 != 0L) {
 #line 75
@@ -14151,7 +14151,7 @@ static int ohci_quirk_zfmicro(struct usb_hcd *hcd )
 #line 91
   descriptor.flags = 1U;
 #line 91
-  tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 91
   if (tmp___1 != 0L) {
 #line 91
@@ -14270,7 +14270,7 @@ static int ohci_quirk_nec(struct usb_hcd *hcd )
 #line 145
   descriptor.flags = 1U;
 #line 145
-  tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 145
   if (tmp___1 != 0L) {
 #line 145
@@ -14338,7 +14338,7 @@ static int ohci_quirk_amd700(struct usb_hcd *hcd )
 #line 169
     descriptor.flags = 1U;
 #line 169
-    tmp___2 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___2 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 169
     if (tmp___2 != 0L) {
 #line 169
@@ -14691,7 +14691,7 @@ static int ohci_platform_probe(struct platform_device *dev )
 #line 95
     __ret_warn_on = 1;
 #line 95
-    tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 95
     if (tmp != 0L) {
 #line 95
@@ -14701,7 +14701,7 @@ static int ohci_platform_probe(struct platform_device *dev )
 
     }
 #line 95
-    __builtin_expect(__ret_warn_on != 0, 0L);
+    ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 96
     return (-19);
   } else {
@@ -14956,7 +14956,7 @@ static int ohci_hcd_mod_init(void)
 #line 1266
   descriptor.flags = 1U;
 #line 1266
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1266
   if (tmp___0 != 0L) {
 #line 1266
@@ -16897,7 +16897,7 @@ __inline static void ldv_error(void)
 #line 25
 extern int __VERIFIER_nondet_int(void) ;
 #line 49 "/home/ldvuser/ldv_envgen2/kernel-rules/verifier/rcv.h"
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
   {

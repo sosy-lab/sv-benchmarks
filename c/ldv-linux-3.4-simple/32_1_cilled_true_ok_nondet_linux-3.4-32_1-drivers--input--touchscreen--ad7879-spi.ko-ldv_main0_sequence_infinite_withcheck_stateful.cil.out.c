@@ -3451,7 +3451,7 @@ struct ad7879_bus_ops {
    int (*write)(struct device *dev , u8 reg , u16 val ) ;
 };
 #line 1 "<compiler builtins>"
-long __builtin_expect(long val , long res ) ;
+long ldv__builtin_expect(long val , long res ) ;
 #line 49 "include/linux/dynamic_debug.h"
 extern int ( /* format attribute */  __dynamic_dev_dbg)(struct _ddebug *descriptor ,
                                                         struct device  const  *dev ,
@@ -3493,7 +3493,7 @@ __inline static long __attribute__((__warn_unused_result__))  IS_ERR(void const 
 #line 34
   __cil_tmp7 = (long )__cil_tmp6;
 #line 34
-  tmp = __builtin_expect(__cil_tmp7, 0L);
+  tmp = ldv__builtin_expect(__cil_tmp7, 0L);
   }
 #line 34
   return (tmp);
@@ -4234,7 +4234,7 @@ static int ad7879_spi_probe(struct spi_device *spi )
 #line 128
         __cil_tmp22 = (long )__cil_tmp21;
 #line 128
-        tmp___7 = __builtin_expect(__cil_tmp22, 0L);
+        tmp___7 = ldv__builtin_expect(__cil_tmp22, 0L);
         }
 #line 128
         if (tmp___7) {
@@ -4799,7 +4799,7 @@ void ldv_check_final_state(void)
 }
 }
 #line 414 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/4161/dscv_tempdir/dscv/ri/32_1/drivers/input/touchscreen/ad7879-spi.c.common.c"
-long __builtin_expect(long val , long res ) 
+long ldv__builtin_expect(long val , long res ) 
 { 
 
   {

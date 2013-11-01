@@ -5874,7 +5874,7 @@ struct com20020_dev_t {
 #line 117 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/9435/dscv_tempdir/dscv/ri/32_1/drivers/net/arcnet/com20020_cs.c.common.c"
 typedef struct com20020_dev_t com20020_dev_t;
 #line 1 "<compiler builtins>"
-long __builtin_expect(long val , long res ) ;
+long ldv__builtin_expect(long val , long res ) ;
 #line 49 "include/linux/dynamic_debug.h"
 extern int ( /* format attribute */  __dynamic_dev_dbg)(struct _ddebug *descriptor ,
                                                         struct device  const  *dev ,
@@ -6235,7 +6235,7 @@ static int com20020_probe(struct pcmcia_device *p_dev )
 #line 127
       __cil_tmp14 = (long )__cil_tmp13;
 #line 127
-      tmp___7 = __builtin_expect(__cil_tmp14, 0L);
+      tmp___7 = ldv__builtin_expect(__cil_tmp14, 0L);
       }
 #line 127
       if (tmp___7) {
@@ -6592,7 +6592,7 @@ static void com20020_detach(struct pcmcia_device *link )
 #line 168
       __cil_tmp18 = (long )__cil_tmp17;
 #line 168
-      tmp___7 = __builtin_expect(__cil_tmp18, 0L);
+      tmp___7 = ldv__builtin_expect(__cil_tmp18, 0L);
       }
 #line 168
       if (tmp___7) {
@@ -6643,7 +6643,7 @@ static void com20020_detach(struct pcmcia_device *link )
 #line 170
       __cil_tmp28 = (long )__cil_tmp27;
 #line 170
-      tmp___8 = __builtin_expect(__cil_tmp28, 0L);
+      tmp___8 = ldv__builtin_expect(__cil_tmp28, 0L);
       }
 #line 170
       if (tmp___8) {
@@ -6694,7 +6694,7 @@ static void com20020_detach(struct pcmcia_device *link )
 #line 172
       __cil_tmp38 = (long )__cil_tmp37;
 #line 172
-      tmp___9 = __builtin_expect(__cil_tmp38, 0L);
+      tmp___9 = ldv__builtin_expect(__cil_tmp38, 0L);
       }
 #line 172
       if (tmp___9) {
@@ -6776,7 +6776,7 @@ static void com20020_detach(struct pcmcia_device *link )
 #line 186
       __cil_tmp54 = (long )__cil_tmp53;
 #line 186
-      tmp___10 = __builtin_expect(__cil_tmp54, 0L);
+      tmp___10 = ldv__builtin_expect(__cil_tmp54, 0L);
       }
 #line 186
       if (tmp___10) {
@@ -6838,7 +6838,7 @@ static void com20020_detach(struct pcmcia_device *link )
 #line 192
           __cil_tmp66 = (long )__cil_tmp65;
 #line 192
-          tmp___11 = __builtin_expect(__cil_tmp66, 0L);
+          tmp___11 = ldv__builtin_expect(__cil_tmp66, 0L);
           }
 #line 192
           if (tmp___11) {
@@ -6896,7 +6896,7 @@ static void com20020_detach(struct pcmcia_device *link )
 #line 195
         __cil_tmp76 = (long )__cil_tmp75;
 #line 195
-        tmp___12 = __builtin_expect(__cil_tmp76, 0L);
+        tmp___12 = ldv__builtin_expect(__cil_tmp76, 0L);
         }
 #line 195
         if (tmp___12) {
@@ -7194,7 +7194,7 @@ static int com20020_config(struct pcmcia_device *link )
 #line 212
       __cil_tmp28 = (long )__cil_tmp27;
 #line 212
-      tmp___7 = __builtin_expect(__cil_tmp28, 0L);
+      tmp___7 = ldv__builtin_expect(__cil_tmp28, 0L);
       }
 #line 212
       if (tmp___7) {
@@ -7245,7 +7245,7 @@ static int com20020_config(struct pcmcia_device *link )
 #line 214
       __cil_tmp38 = (long )__cil_tmp37;
 #line 214
-      tmp___8 = __builtin_expect(__cil_tmp38, 0L);
+      tmp___8 = ldv__builtin_expect(__cil_tmp38, 0L);
       }
 #line 214
       if (tmp___8) {
@@ -7296,7 +7296,7 @@ static int com20020_config(struct pcmcia_device *link )
 #line 216
       __cil_tmp48 = (long )__cil_tmp47;
 #line 216
-      tmp___9 = __builtin_expect(__cil_tmp48, 0L);
+      tmp___9 = ldv__builtin_expect(__cil_tmp48, 0L);
       }
 #line 216
       if (tmp___9) {
@@ -7434,7 +7434,7 @@ static int com20020_config(struct pcmcia_device *link )
 #line 237
         __cil_tmp78 = (long )__cil_tmp77;
 #line 237
-        tmp___10 = __builtin_expect(__cil_tmp78, 0L);
+        tmp___10 = ldv__builtin_expect(__cil_tmp78, 0L);
         }
 #line 237
         if (tmp___10) {
@@ -7512,7 +7512,7 @@ static int com20020_config(struct pcmcia_device *link )
 #line 242
       __cil_tmp96 = (long )__cil_tmp95;
 #line 242
-      tmp___12 = __builtin_expect(__cil_tmp96, 0L);
+      tmp___12 = ldv__builtin_expect(__cil_tmp96, 0L);
       }
 #line 242
       if (tmp___12) {
@@ -7563,7 +7563,7 @@ static int com20020_config(struct pcmcia_device *link )
 #line 244
       __cil_tmp106 = (long )__cil_tmp105;
 #line 244
-      tmp___13 = __builtin_expect(__cil_tmp106, 0L);
+      tmp___13 = ldv__builtin_expect(__cil_tmp106, 0L);
       }
 #line 244
       if (tmp___13) {
@@ -7629,7 +7629,7 @@ static int com20020_config(struct pcmcia_device *link )
 #line 248
         __cil_tmp122 = (long )__cil_tmp121;
 #line 248
-        tmp___14 = __builtin_expect(__cil_tmp122, 0L);
+        tmp___14 = ldv__builtin_expect(__cil_tmp122, 0L);
         }
 #line 248
         if (tmp___14) {
@@ -7773,7 +7773,7 @@ static int com20020_config(struct pcmcia_device *link )
 #line 278
       __cil_tmp149 = (long )__cil_tmp148;
 #line 278
-      tmp___17 = __builtin_expect(__cil_tmp149, 0L);
+      tmp___17 = ldv__builtin_expect(__cil_tmp149, 0L);
       }
 #line 278
       if (tmp___17) {
@@ -7834,7 +7834,7 @@ static int com20020_config(struct pcmcia_device *link )
 #line 283
       __cil_tmp162 = (long )__cil_tmp161;
 #line 283
-      tmp___18 = __builtin_expect(__cil_tmp162, 0L);
+      tmp___18 = ldv__builtin_expect(__cil_tmp162, 0L);
       }
 #line 283
       if (tmp___18) {
@@ -7914,7 +7914,7 @@ static void com20020_release(struct pcmcia_device *link )
 #line 290
       __cil_tmp8 = (long )__cil_tmp7;
 #line 290
-      tmp___7 = __builtin_expect(__cil_tmp8, 0L);
+      tmp___7 = ldv__builtin_expect(__cil_tmp8, 0L);
       }
 #line 290
       if (tmp___7) {
@@ -8521,7 +8521,7 @@ void ldv_check_final_state(void)
 }
 }
 #line 569 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/9435/dscv_tempdir/dscv/ri/32_1/drivers/net/arcnet/com20020_cs.c.common.c"
-long __builtin_expect(long val , long res ) 
+long ldv__builtin_expect(long val , long res ) 
 { 
 
   {

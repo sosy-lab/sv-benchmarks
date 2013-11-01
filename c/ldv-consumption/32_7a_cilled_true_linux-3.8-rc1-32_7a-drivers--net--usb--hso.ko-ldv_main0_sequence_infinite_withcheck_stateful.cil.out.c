@@ -6321,7 +6321,7 @@ typedef int ldv_func_ret_type___4;
 #line 1 "<compiler builtins>"
 void *__builtin_memcpy(void * , void const   * , unsigned long  ) ;
 #line 1
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 #line 62 "/home/mikhail/launches/cpachecker-regression2/launcher-working-dir/ldv-manager-work-dir/inst/current/envs/linux-3.8-rc1/linux-3.8-rc1/arch/x86/include/asm/bitops.h"
 __inline static void set_bit(unsigned int nr , unsigned long volatile   *addr ) 
 { 
@@ -6484,7 +6484,7 @@ __inline static long IS_ERR(void const   *ptr )
 
   {
 #line 34
-  tmp = __builtin_expect((unsigned long )ptr > 0xfffffffffffff000UL, 0L);
+  tmp = ldv__builtin_expect((unsigned long )ptr > 0xfffffffffffff000UL, 0L);
 #line 34
   return (tmp);
 }
@@ -6753,7 +6753,7 @@ __inline static int signal_pending(struct task_struct *p )
 #line 2620
   tmp = test_tsk_thread_flag(p, 2);
 #line 2620
-  tmp___0 = __builtin_expect(tmp != 0, 0L);
+  tmp___0 = ldv__builtin_expect(tmp != 0, 0L);
 #line 2620
   return ((int )tmp___0);
 }
@@ -6785,7 +6785,7 @@ __inline static void kref_get(struct kref *kref )
 #line 42
   __ret_warn_on = tmp == 0;
 #line 42
-  tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 42
   if (tmp___0 != 0L) {
 #line 42
@@ -6794,7 +6794,7 @@ __inline static void kref_get(struct kref *kref )
 
   }
 #line 42
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 43
   atomic_inc(& kref->refcount);
 #line 44
@@ -6812,7 +6812,7 @@ __inline static int kref_sub(struct kref *kref , unsigned int count , void (*rel
 #line 67
   __ret_warn_on = (unsigned long )release == (unsigned long )((void (*)(struct kref * ))0);
 #line 67
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 67
   if (tmp != 0L) {
 #line 67
@@ -6821,7 +6821,7 @@ __inline static int kref_sub(struct kref *kref , unsigned int count , void (*rel
 
   }
 #line 67
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 69
   tmp___0 = atomic_sub_and_test((int )count, & kref->refcount);
 #line 69
@@ -7042,7 +7042,7 @@ __inline static void netif_tx_stop_queue(struct netdev_queue *dev_queue )
 #line 1880
   __ret_warn_on = (unsigned long )dev_queue == (unsigned long )((struct netdev_queue *)0);
 #line 1880
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 1880
   if (tmp != 0L) {
 #line 1880
@@ -7051,7 +7051,7 @@ __inline static void netif_tx_stop_queue(struct netdev_queue *dev_queue )
 
   }
 #line 1880
-  tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 1880
   if (tmp___0 != 0L) {
 #line 1881
@@ -9063,7 +9063,7 @@ static int hso_serial_open(struct tty_struct *tty , struct file *filp )
 #line 1322
     __ret_warn_on = 1;
 #line 1322
-    tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 1322
     if (tmp___0 != 0L) {
 #line 1322
@@ -9073,7 +9073,7 @@ static int hso_serial_open(struct tty_struct *tty , struct file *filp )
 
     }
 #line 1322
-    __builtin_expect(__ret_warn_on != 0, 0L);
+    ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 1323
     tty->driver_data = 0;
 #line 1324
@@ -10663,7 +10663,7 @@ static void hso_log_port(struct hso_device *hso_dev )
 #line 2153
   descriptor.flags = 0U;
 #line 2153
-  tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 2153
   if (tmp___1 != 0L) {
 #line 2153
@@ -12639,7 +12639,7 @@ static int hso_resume(struct usb_interface *iface )
 #line 3141
         descriptor.flags = 0U;
 #line 3141
-        tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+        tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 3141
         if (tmp___1 != 0L) {
 #line 3141
@@ -13801,7 +13801,7 @@ __inline static void ldv_error(void)
 #line 25
 extern int __VERIFIER_nondet_int(void) ;
 #line 49 "/home/mikhail/ldv/kernel-rules/verifier/rcv.h"
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 

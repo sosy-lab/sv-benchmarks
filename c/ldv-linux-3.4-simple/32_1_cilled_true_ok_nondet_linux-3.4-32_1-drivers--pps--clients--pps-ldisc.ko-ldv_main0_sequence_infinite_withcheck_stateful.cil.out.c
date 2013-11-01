@@ -3650,7 +3650,7 @@ struct module;
 #line 415
 struct tty_driver;
 #line 1 "<compiler builtins>"
-long __builtin_expect(long val , long res ) ;
+long ldv__builtin_expect(long val , long res ) ;
 #line 100 "include/linux/printk.h"
 extern int ( /* format attribute */  printk)(char const   *fmt  , ...) ;
 #line 49 "include/linux/dynamic_debug.h"
@@ -3760,7 +3760,7 @@ static void pps_tty_dcd_change(struct tty_struct *tty , unsigned int status , st
 #line 37
     __cil_tmp18 = (long )__cil_tmp17;
 #line 37
-    tmp___7 = __builtin_expect(__cil_tmp18, 0L);
+    tmp___7 = ldv__builtin_expect(__cil_tmp18, 0L);
     }
 #line 37
     if (tmp___7) {
@@ -3832,7 +3832,7 @@ static void pps_tty_dcd_change(struct tty_struct *tty , unsigned int status , st
 #line 43
       __cil_tmp25 = (long )__cil_tmp24;
 #line 43
-      tmp___10 = __builtin_expect(__cil_tmp25, 0L);
+      tmp___10 = ldv__builtin_expect(__cil_tmp25, 0L);
       }
 #line 43
       if (tmp___10) {
@@ -4591,7 +4591,7 @@ void ldv_check_final_state(void)
 }
 }
 #line 255 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/4610/dscv_tempdir/dscv/ri/32_1/drivers/pps/clients/pps-ldisc.c.common.c"
-long __builtin_expect(long val , long res ) 
+long ldv__builtin_expect(long val , long res ) 
 { 
 
   {

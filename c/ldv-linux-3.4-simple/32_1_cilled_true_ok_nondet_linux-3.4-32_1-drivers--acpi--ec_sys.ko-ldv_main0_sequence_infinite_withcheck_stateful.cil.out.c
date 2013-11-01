@@ -3048,7 +3048,7 @@ struct acpi_ec {
    spinlock_t curr_lock ;
 };
 #line 1 "<compiler builtins>"
-long __builtin_expect(long val , long res ) ;
+long ldv__builtin_expect(long val , long res ) ;
 #line 320 "include/linux/kernel.h"
 extern int ( /* format attribute */  sprintf)(char *buf , char const   *fmt  , ...) ;
 #line 152 "include/linux/mutex.h"
@@ -4026,7 +4026,7 @@ void ldv_check_final_state(void)
 }
 }
 #line 325 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/93/dscv_tempdir/dscv/ri/32_1/drivers/acpi/ec_sys.c.common.c"
-long __builtin_expect(long val , long res ) 
+long ldv__builtin_expect(long val , long res ) 
 { 
 
   {

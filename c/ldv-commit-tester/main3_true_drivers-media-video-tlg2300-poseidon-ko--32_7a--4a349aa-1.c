@@ -6047,7 +6047,7 @@ typedef int ldv_func_ret_type___2;
 #line 1 "<compiler builtins>"
 void *__builtin_memcpy(void * , void const   * , unsigned long  ) ;
 #line 1
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 #line 309 "/work/vladimir/commit-test/commit-test-work/task-002--linux-stable--dir/inst/current/envs/linux-stable-4a349aa-1/linux-stable-4a349aa-1/arch/x86/include/asm/bitops.h"
 __inline static int constant_test_bit(unsigned int nr , unsigned long const volatile   *addr ) 
 { 
@@ -9205,7 +9205,7 @@ static int vidioc_streamon(struct file *file , void *fh , enum v4l2_buf_type typ
 
   }
 #line 1316
-  tmp = __builtin_expect((unsigned int )front->type != (unsigned int )type, 0L);
+  tmp = ldv__builtin_expect((unsigned int )front->type != (unsigned int )type, 0L);
 #line 1316
   if (tmp != 0L) {
 #line 1317
@@ -9244,7 +9244,7 @@ static int vidioc_streamoff(struct file *file , void *fh , enum v4l2_buf_type ty
 
   }
 #line 1327
-  tmp = __builtin_expect((unsigned int )front->type != (unsigned int )type, 0L);
+  tmp = ldv__builtin_expect((unsigned int )front->type != (unsigned int )type, 0L);
 #line 1327
   if (tmp != 0L) {
 #line 1328
@@ -16847,7 +16847,7 @@ __inline static void ldv_error(void)
 #line 25
 extern int __VERIFIER_nondet_int(void) ;
 #line 49 "/work/vladimir/kernel-rules/verifier/rcv.h"
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 

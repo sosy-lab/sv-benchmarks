@@ -7237,7 +7237,7 @@ struct pctv452e_state {
 #line 1 "<compiler builtins>"
 
 #line 1
-long __builtin_expect(long val , long res ) ;
+long ldv__builtin_expect(long val , long res ) ;
 #line 100 "include/linux/printk.h"
 extern int ( /* format attribute */  printk)(char const   *fmt  , ...) ;
 #line 55 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/string_64.h"
@@ -8208,7 +8208,7 @@ static int tt3650_ci_msg(struct dvb_usb_device *d , u8 cmd , u8 *data , unsigned
 #line 112
     __cil_tmp27 = (long )tmp___7;
 #line 112
-    tmp___8 = __builtin_expect(__cil_tmp27, 0L);
+    tmp___8 = ldv__builtin_expect(__cil_tmp27, 0L);
     }
 #line 112
     if (tmp___8) {
@@ -8258,7 +8258,7 @@ static int tt3650_ci_msg(struct dvb_usb_device *d , u8 cmd , u8 *data , unsigned
 #line 113
     __cil_tmp31 = (long )__cil_tmp30;
 #line 113
-    tmp___9 = __builtin_expect(__cil_tmp31, 0L);
+    tmp___9 = ldv__builtin_expect(__cil_tmp31, 0L);
     }
 #line 113
     if (tmp___9) {
@@ -8308,7 +8308,7 @@ static int tt3650_ci_msg(struct dvb_usb_device *d , u8 cmd , u8 *data , unsigned
 #line 114
     __cil_tmp35 = (long )__cil_tmp34;
 #line 114
-    tmp___10 = __builtin_expect(__cil_tmp35, 0L);
+    tmp___10 = ldv__builtin_expect(__cil_tmp35, 0L);
     }
 #line 114
     if (tmp___10) {
@@ -13181,7 +13181,7 @@ void ldv_check_final_state(void)
 }
 }
 #line 2001 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/13522/dscv_tempdir/dscv/ri/32_1/drivers/media/dvb/dvb-usb/pctv452e.c.common.c"
-long __builtin_expect(long val , long res ) 
+long ldv__builtin_expect(long val , long res ) 
 { 
 
   {

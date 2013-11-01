@@ -6945,7 +6945,7 @@ typedef int ldv_func_ret_type___4;
 #line 1 "<compiler builtins>"
 void *__builtin_memcpy(void * , void const   * , unsigned long  ) ;
 #line 1
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 #line 11 "include/asm-generic/bitops/find.h"
 extern unsigned long find_next_bit(unsigned long const   * , unsigned long  , unsigned long  ) ;
 #line 35
@@ -7706,7 +7706,7 @@ __inline static struct sk_buff *__dev_alloc_skb(unsigned int length , gfp_t gfp_
 #line 1535
   skb = tmp;
 #line 1536
-  tmp___0 = __builtin_expect((unsigned long )skb != (unsigned long )((struct sk_buff *)0),
+  tmp___0 = ldv__builtin_expect((unsigned long )skb != (unsigned long )((struct sk_buff *)0),
                              1L);
 #line 1536
   if (tmp___0 != 0L) {
@@ -8412,7 +8412,7 @@ static void carl9170_flush(struct ar9170 *ar , bool drop_queued )
 #line 271
     __ret_warn_on = tmp == 0UL;
 #line 271
-    tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 271
     if (tmp___0 != 0L) {
 #line 271
@@ -8422,7 +8422,7 @@ static void carl9170_flush(struct ar9170 *ar , bool drop_queued )
 
     }
 #line 271
-    __builtin_expect(__ret_warn_on != 0, 0L);
+    ldv__builtin_expect(__ret_warn_on != 0, 0L);
   } else {
 
   }
@@ -9082,7 +9082,7 @@ void carl9170_restart(struct ar9170 *ar , enum carl9170_restart_reasons  const  
 #line 534
     descriptor.enabled = (char)0;
 #line 534
-    tmp = __builtin_expect((int )((signed char )descriptor.enabled) != 0, 0L);
+    tmp = ldv__builtin_expect((int )((signed char )descriptor.enabled) != 0, 0L);
 #line 534
     if (tmp != 0L) {
 #line 534
@@ -9103,7 +9103,7 @@ void carl9170_restart(struct ar9170 *ar , enum carl9170_restart_reasons  const  
 #line 542
   __ret_warn_on = (unsigned int )r == 0U;
 #line 542
-  tmp___1 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___1 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 542
   if (tmp___1 != 0L) {
 #line 542
@@ -9113,7 +9113,7 @@ void carl9170_restart(struct ar9170 *ar , enum carl9170_restart_reasons  const  
 
   }
 #line 542
-  tmp___2 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___2 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 543
   if (tmp___2 == 0L) {
 #line 544
@@ -9122,7 +9122,7 @@ void carl9170_restart(struct ar9170 *ar , enum carl9170_restart_reasons  const  
 #line 543
     __ret_warn_on___0 = (unsigned int )r > 10U;
 #line 543
-    tmp___3 = __builtin_expect(__ret_warn_on___0 != 0, 0L);
+    tmp___3 = ldv__builtin_expect(__ret_warn_on___0 != 0, 0L);
 #line 543
     if (tmp___3 != 0L) {
 #line 543
@@ -9132,7 +9132,7 @@ void carl9170_restart(struct ar9170 *ar , enum carl9170_restart_reasons  const  
 
     }
 #line 543
-    tmp___4 = __builtin_expect(__ret_warn_on___0 != 0, 0L);
+    tmp___4 = ldv__builtin_expect(__ret_warn_on___0 != 0, 0L);
 #line 543
     if (tmp___4 == 0L) {
 #line 544
@@ -9218,13 +9218,13 @@ static int carl9170_init_interface(struct ar9170 *ar , struct ieee80211_vif *vif
 #line 583
     __ret_warn_once = (unsigned int )ar->state > 2U;
 #line 583
-    tmp___1 = __builtin_expect(__ret_warn_once != 0, 0L);
+    tmp___1 = ldv__builtin_expect(__ret_warn_once != 0, 0L);
 #line 583
     if (tmp___1 != 0L) {
 #line 583
       __ret_warn_on = ! __warned;
 #line 583
-      tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+      tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 583
       if (tmp != 0L) {
 #line 583
@@ -9234,7 +9234,7 @@ static int carl9170_init_interface(struct ar9170 *ar , struct ieee80211_vif *vif
 
       }
 #line 583
-      tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+      tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 583
       if (tmp___0 != 0L) {
 #line 583
@@ -9246,7 +9246,7 @@ static int carl9170_init_interface(struct ar9170 *ar , struct ieee80211_vif *vif
 
     }
 #line 583
-    __builtin_expect(__ret_warn_once != 0, 0L);
+    ldv__builtin_expect(__ret_warn_once != 0, 0L);
 #line 584
     return (0);
   } else {
@@ -9379,7 +9379,7 @@ static int carl9170_op_add_interface(struct ieee80211_hw *hw , struct ieee80211_
 
   }
 #line 664
-  tmp = __builtin_expect(ar->vif_priv[vif_id].id != (unsigned int )vif_id, 0L);
+  tmp = ldv__builtin_expect(ar->vif_priv[vif_id].id != (unsigned int )vif_id, 0L);
 #line 664
   if (tmp != 0L) {
 #line 664
@@ -9519,13 +9519,13 @@ static void carl9170_op_remove_interface(struct ieee80211_hw *hw , struct ieee80
 #line 725
   __ret_warn_once = ! vif_priv->active;
 #line 725
-  tmp___1 = __builtin_expect(__ret_warn_once != 0, 0L);
+  tmp___1 = ldv__builtin_expect(__ret_warn_once != 0, 0L);
 #line 725
   if (tmp___1 != 0L) {
 #line 725
     __ret_warn_on = ! __warned;
 #line 725
-    tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 725
     if (tmp != 0L) {
 #line 725
@@ -9535,7 +9535,7 @@ static void carl9170_op_remove_interface(struct ieee80211_hw *hw , struct ieee80
 
     }
 #line 725
-    tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 725
     if (tmp___0 != 0L) {
 #line 725
@@ -9547,7 +9547,7 @@ static void carl9170_op_remove_interface(struct ieee80211_hw *hw , struct ieee80
 
   }
 #line 725
-  tmp___2 = __builtin_expect(__ret_warn_once != 0, 0L);
+  tmp___2 = ldv__builtin_expect(__ret_warn_once != 0, 0L);
 #line 725
   if (tmp___2 != 0L) {
 #line 726
@@ -9568,7 +9568,7 @@ static void carl9170_op_remove_interface(struct ieee80211_hw *hw , struct ieee80
 #line 736
   __ret_warn_on___0 = (int )vif_priv->enable_beacon;
 #line 736
-  tmp___3 = __builtin_expect(__ret_warn_on___0 != 0, 0L);
+  tmp___3 = ldv__builtin_expect(__ret_warn_on___0 != 0, 0L);
 #line 736
   if (tmp___3 != 0L) {
 #line 736
@@ -9578,7 +9578,7 @@ static void carl9170_op_remove_interface(struct ieee80211_hw *hw , struct ieee80
 
   }
 #line 736
-  __builtin_expect(__ret_warn_on___0 != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on___0 != 0, 0L);
 #line 737
   vif_priv->enable_beacon = 0;
 #line 738
@@ -9598,7 +9598,7 @@ static void carl9170_op_remove_interface(struct ieee80211_hw *hw , struct ieee80
 #line 745
       __ret_warn_on___1 = tmp___5 != 0;
 #line 745
-      tmp___6 = __builtin_expect(__ret_warn_on___1 != 0, 0L);
+      tmp___6 = ldv__builtin_expect(__ret_warn_on___1 != 0, 0L);
 #line 745
       if (tmp___6 != 0L) {
 #line 745
@@ -9608,7 +9608,7 @@ static void carl9170_op_remove_interface(struct ieee80211_hw *hw , struct ieee80
 
       }
 #line 745
-      __builtin_expect(__ret_warn_on___1 != 0, 0L);
+      ldv__builtin_expect(__ret_warn_on___1 != 0, 0L);
     } else {
 #line 748
       carl9170_set_operating_mode(ar);
@@ -9621,7 +9621,7 @@ static void carl9170_op_remove_interface(struct ieee80211_hw *hw , struct ieee80
 #line 753
     __ret_warn_on___2 = tmp___7 != 0;
 #line 753
-    tmp___8 = __builtin_expect(__ret_warn_on___2 != 0, 0L);
+    tmp___8 = ldv__builtin_expect(__ret_warn_on___2 != 0, 0L);
 #line 753
     if (tmp___8 != 0L) {
 #line 753
@@ -9631,7 +9631,7 @@ static void carl9170_op_remove_interface(struct ieee80211_hw *hw , struct ieee80
 
     }
 #line 753
-    __builtin_expect(__ret_warn_on___2 != 0, 0L);
+    ldv__builtin_expect(__ret_warn_on___2 != 0, 0L);
   }
 #line 756
   carl9170_update_beacon(ar, 0);
@@ -9758,13 +9758,13 @@ static void carl9170_ps_work(struct work_struct *work )
 #line 817
     __ret_warn_once = tmp != 0;
 #line 817
-    tmp___2 = __builtin_expect(__ret_warn_once != 0, 0L);
+    tmp___2 = ldv__builtin_expect(__ret_warn_once != 0, 0L);
 #line 817
     if (tmp___2 != 0L) {
 #line 817
       __ret_warn_on = ! __warned;
 #line 817
-      tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+      tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 817
       if (tmp___0 != 0L) {
 #line 817
@@ -9774,7 +9774,7 @@ static void carl9170_ps_work(struct work_struct *work )
 
       }
 #line 817
-      tmp___1 = __builtin_expect(__ret_warn_on != 0, 0L);
+      tmp___1 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 817
       if (tmp___1 != 0L) {
 #line 817
@@ -9786,7 +9786,7 @@ static void carl9170_ps_work(struct work_struct *work )
 
     }
 #line 817
-    __builtin_expect(__ret_warn_once != 0, 0L);
+    ldv__builtin_expect(__ret_warn_once != 0, 0L);
   } else {
 
   }
@@ -9975,7 +9975,7 @@ static void carl9170_op_configure_filter(struct ieee80211_hw *hw , unsigned int 
 #line 914
     __ret_warn_on = tmp != 0;
 #line 914
-    tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 914
     if (tmp___0 != 0L) {
 #line 914
@@ -9985,7 +9985,7 @@ static void carl9170_op_configure_filter(struct ieee80211_hw *hw , unsigned int 
 
     }
 #line 914
-    __builtin_expect(__ret_warn_on != 0, 0L);
+    ldv__builtin_expect(__ret_warn_on != 0, 0L);
   } else {
 
   }
@@ -9998,7 +9998,7 @@ static void carl9170_op_configure_filter(struct ieee80211_hw *hw , unsigned int 
 #line 920
     __ret_warn_on___0 = tmp___1 != 0;
 #line 920
-    tmp___2 = __builtin_expect(__ret_warn_on___0 != 0, 0L);
+    tmp___2 = ldv__builtin_expect(__ret_warn_on___0 != 0, 0L);
 #line 920
     if (tmp___2 != 0L) {
 #line 920
@@ -10008,7 +10008,7 @@ static void carl9170_op_configure_filter(struct ieee80211_hw *hw , unsigned int 
 
     }
 #line 920
-    __builtin_expect(__ret_warn_on___0 != 0, 0L);
+    ldv__builtin_expect(__ret_warn_on___0 != 0, 0L);
   } else {
 
   }
@@ -10051,7 +10051,7 @@ static void carl9170_op_configure_filter(struct ieee80211_hw *hw , unsigned int 
 #line 940
     __ret_warn_on___1 = tmp___3 != 0;
 #line 940
-    tmp___4 = __builtin_expect(__ret_warn_on___1 != 0, 0L);
+    tmp___4 = ldv__builtin_expect(__ret_warn_on___1 != 0, 0L);
 #line 940
     if (tmp___4 != 0L) {
 #line 940
@@ -10061,7 +10061,7 @@ static void carl9170_op_configure_filter(struct ieee80211_hw *hw , unsigned int 
 
     }
 #line 940
-    __builtin_expect(__ret_warn_on___1 != 0, 0L);
+    ldv__builtin_expect(__ret_warn_on___1 != 0, 0L);
   } else {
 
   }
@@ -10120,7 +10120,7 @@ static void carl9170_op_bss_info_changed(struct ieee80211_hw *hw , struct ieee80
 #line 961
   __ret_warn_on = (unsigned long )main_vif == (unsigned long )((struct ieee80211_vif *)0);
 #line 961
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 961
   if (tmp != 0L) {
 #line 961
@@ -10130,7 +10130,7 @@ static void carl9170_op_bss_info_changed(struct ieee80211_hw *hw , struct ieee80
 
   }
 #line 961
-  tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 961
   if (tmp___0 != 0L) {
 #line 962
@@ -10346,13 +10346,13 @@ static void carl9170_op_bss_info_changed(struct ieee80211_hw *hw , struct ieee80
 #line 1052
   __ret_warn_once = err != 0 && (unsigned int )ar->state > 2U;
 #line 1052
-  tmp___5 = __builtin_expect(__ret_warn_once != 0, 0L);
+  tmp___5 = ldv__builtin_expect(__ret_warn_once != 0, 0L);
 #line 1052
   if (tmp___5 != 0L) {
 #line 1052
     __ret_warn_on___0 = ! __warned___1;
 #line 1052
-    tmp___3 = __builtin_expect(__ret_warn_on___0 != 0, 0L);
+    tmp___3 = ldv__builtin_expect(__ret_warn_on___0 != 0, 0L);
 #line 1052
     if (tmp___3 != 0L) {
 #line 1052
@@ -10362,7 +10362,7 @@ static void carl9170_op_bss_info_changed(struct ieee80211_hw *hw , struct ieee80
 
     }
 #line 1052
-    tmp___4 = __builtin_expect(__ret_warn_on___0 != 0, 0L);
+    tmp___4 = ldv__builtin_expect(__ret_warn_on___0 != 0, 0L);
 #line 1052
     if (tmp___4 != 0L) {
 #line 1052
@@ -10374,7 +10374,7 @@ static void carl9170_op_bss_info_changed(struct ieee80211_hw *hw , struct ieee80
 
   }
 #line 1052
-  __builtin_expect(__ret_warn_once != 0, 0L);
+  ldv__builtin_expect(__ret_warn_once != 0, 0L);
 #line 1053
   ldv_mutex_unlock_24(& ar->mutex);
 #line 1054
@@ -10403,7 +10403,7 @@ static u64 carl9170_op_get_tsf(struct ieee80211_hw *hw )
 #line 1066
   __ret_warn_on = err != 0;
 #line 1066
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 1066
   if (tmp != 0L) {
 #line 1066
@@ -10413,7 +10413,7 @@ static u64 carl9170_op_get_tsf(struct ieee80211_hw *hw )
 
   }
 #line 1066
-  tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 1066
   if (tmp___0 != 0L) {
 #line 1067
@@ -11125,13 +11125,13 @@ static int carl9170_op_ampdu_action(struct ieee80211_hw *hw , struct ieee80211_v
 #line 1392
   __ret_warn_once = (unsigned long )tid_info == (unsigned long )((struct carl9170_sta_tid *)0);
 #line 1392
-  tmp___10 = __builtin_expect(__ret_warn_once != 0, 0L);
+  tmp___10 = ldv__builtin_expect(__ret_warn_once != 0, 0L);
 #line 1392
   if (tmp___10 != 0L) {
 #line 1392
     __ret_warn_on = ! __warned___2;
 #line 1392
-    tmp___8 = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp___8 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 1392
     if (tmp___8 != 0L) {
 #line 1392
@@ -11141,7 +11141,7 @@ static int carl9170_op_ampdu_action(struct ieee80211_hw *hw , struct ieee80211_v
 
     }
 #line 1392
-    tmp___9 = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp___9 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 1392
     if (tmp___9 != 0L) {
 #line 1392
@@ -11153,7 +11153,7 @@ static int carl9170_op_ampdu_action(struct ieee80211_hw *hw , struct ieee80211_v
 
   }
 #line 1392
-  tmp___11 = __builtin_expect(__ret_warn_once != 0, 0L);
+  tmp___11 = ldv__builtin_expect(__ret_warn_once != 0, 0L);
 #line 1392
   if (tmp___11 != 0L) {
 #line 1393
@@ -11716,7 +11716,7 @@ static int carl9170_parse_eeprom(struct ar9170 *ar )
 #line 1680
     __ret_warn_on = tx_streams == 0U || tx_streams > 4U;
 #line 1680
-    tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 1680
     if (tmp != 0L) {
 #line 1680
@@ -11726,7 +11726,7 @@ static int carl9170_parse_eeprom(struct ar9170 *ar )
 
     }
 #line 1680
-    __builtin_expect(__ret_warn_on != 0, 0L);
+    ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 1683
     tx_params = (tx_streams - 1U) << 2;
 #line 1686
@@ -11816,7 +11816,7 @@ int carl9170_register(struct ar9170 *ar )
 #line 1736
   __ret_warn_on = (unsigned long )ar->mem_bitmap != (unsigned long )((unsigned long *)0);
 #line 1736
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 1736
   if (tmp != 0L) {
 #line 1736
@@ -11826,7 +11826,7 @@ int carl9170_register(struct ar9170 *ar )
 
   }
 #line 1736
-  tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 1736
   if (tmp___0 != 0L) {
 #line 1737
@@ -12033,7 +12033,7 @@ void carl9170_free(struct ar9170 *ar )
 #line 1843
   __ret_warn_on = (int )ar->registered;
 #line 1843
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 1843
   if (tmp != 0L) {
 #line 1843
@@ -12043,11 +12043,11 @@ void carl9170_free(struct ar9170 *ar )
 
   }
 #line 1843
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 1844
   __ret_warn_on___0 = (unsigned int )ar->state != 0U;
 #line 1844
-  tmp___0 = __builtin_expect(__ret_warn_on___0 != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on___0 != 0, 0L);
 #line 1844
   if (tmp___0 != 0L) {
 #line 1844
@@ -12057,7 +12057,7 @@ void carl9170_free(struct ar9170 *ar )
 
   }
 #line 1844
-  __builtin_expect(__ret_warn_on___0 != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on___0 != 0, 0L);
 #line 1846
   kfree_skb(ar->rx_failover);
 #line 1847
@@ -12843,7 +12843,7 @@ __inline static long IS_ERR(void const   *ptr )
 
   {
 #line 34
-  tmp = __builtin_expect((unsigned long )ptr > 0xfffffffffffff000UL, 0L);
+  tmp = ldv__builtin_expect((unsigned long )ptr > 0xfffffffffffff000UL, 0L);
 #line 34
   return (tmp);
 }
@@ -13323,7 +13323,7 @@ static void carl9170_usb_submit_data_urb(struct ar9170 *ar )
 #line 169
   err = usb_submit_urb(urb, 32U);
 #line 170
-  tmp___1 = __builtin_expect(err != 0, 0L);
+  tmp___1 = ldv__builtin_expect(err != 0, 0L);
 #line 170
   if (tmp___1 != 0L) {
 #line 171
@@ -13346,7 +13346,7 @@ static void carl9170_usb_submit_data_urb(struct ar9170 *ar )
 #line 180
   usb_free_urb(urb);
 #line 182
-  tmp___2 = __builtin_expect(err == 0, 1L);
+  tmp___2 = ldv__builtin_expect(err == 0, 1L);
 #line 182
   if (tmp___2 != 0L) {
 #line 183
@@ -13387,13 +13387,13 @@ static void carl9170_usb_tx_data_complete(struct urb *urb )
 #line 193
   __ret_warn_once = (unsigned long )ar == (unsigned long )((struct ar9170 *)0);
 #line 193
-  tmp___3 = __builtin_expect(__ret_warn_once != 0, 0L);
+  tmp___3 = ldv__builtin_expect(__ret_warn_once != 0, 0L);
 #line 193
   if (tmp___3 != 0L) {
 #line 193
     __ret_warn_on = ! __warned;
 #line 193
-    tmp___1 = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp___1 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 193
     if (tmp___1 != 0L) {
 #line 193
@@ -13403,7 +13403,7 @@ static void carl9170_usb_tx_data_complete(struct urb *urb )
 
     }
 #line 193
-    tmp___2 = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp___2 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 193
     if (tmp___2 != 0L) {
 #line 193
@@ -13415,7 +13415,7 @@ static void carl9170_usb_tx_data_complete(struct urb *urb )
 
   }
 #line 193
-  tmp___4 = __builtin_expect(__ret_warn_once != 0, 0L);
+  tmp___4 = ldv__builtin_expect(__ret_warn_once != 0, 0L);
 #line 193
   if (tmp___4 != 0L) {
 #line 194
@@ -13459,7 +13459,7 @@ static void carl9170_usb_tx_data_complete(struct urb *urb )
   }
   ldv_40056: 
 #line 230
-  tmp___6 = __builtin_expect((unsigned int )ar->state > 2U, 1L);
+  tmp___6 = ldv__builtin_expect((unsigned int )ar->state > 2U, 1L);
 #line 230
   if (tmp___6 != 0L) {
 #line 231
@@ -13507,7 +13507,7 @@ static int carl9170_usb_submit_cmd_urb(struct ar9170 *ar )
 #line 251
   err = usb_submit_urb(urb, 32U);
 #line 252
-  tmp___0 = __builtin_expect(err != 0, 0L);
+  tmp___0 = ldv__builtin_expect(err != 0, 0L);
 #line 252
   if (tmp___0 != 0L) {
 #line 253
@@ -13544,13 +13544,13 @@ static void carl9170_usb_cmd_complete(struct urb *urb )
 #line 266
   __ret_warn_once = (unsigned long )ar == (unsigned long )((struct ar9170 *)0);
 #line 266
-  tmp___1 = __builtin_expect(__ret_warn_once != 0, 0L);
+  tmp___1 = ldv__builtin_expect(__ret_warn_once != 0, 0L);
 #line 266
   if (tmp___1 != 0L) {
 #line 266
     __ret_warn_on = ! __warned;
 #line 266
-    tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 266
     if (tmp != 0L) {
 #line 266
@@ -13560,7 +13560,7 @@ static void carl9170_usb_cmd_complete(struct urb *urb )
 
     }
 #line 266
-    tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 266
     if (tmp___0 != 0L) {
 #line 266
@@ -13572,7 +13572,7 @@ static void carl9170_usb_cmd_complete(struct urb *urb )
 
   }
 #line 266
-  tmp___2 = __builtin_expect(__ret_warn_once != 0, 0L);
+  tmp___2 = ldv__builtin_expect(__ret_warn_once != 0, 0L);
 #line 266
   if (tmp___2 != 0L) {
 #line 267
@@ -13649,13 +13649,13 @@ static void carl9170_usb_rx_irq_complete(struct urb *urb )
 #line 303
   __ret_warn_once = (unsigned long )ar == (unsigned long )((struct ar9170 *)0);
 #line 303
-  tmp___1 = __builtin_expect(__ret_warn_once != 0, 0L);
+  tmp___1 = ldv__builtin_expect(__ret_warn_once != 0, 0L);
 #line 303
   if (tmp___1 != 0L) {
 #line 303
     __ret_warn_on = ! __warned;
 #line 303
-    tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 303
     if (tmp != 0L) {
 #line 303
@@ -13665,7 +13665,7 @@ static void carl9170_usb_rx_irq_complete(struct urb *urb )
 
     }
 #line 303
-    tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 303
     if (tmp___0 != 0L) {
 #line 303
@@ -13677,7 +13677,7 @@ static void carl9170_usb_rx_irq_complete(struct urb *urb )
 
   }
 #line 303
-  tmp___2 = __builtin_expect(__ret_warn_once != 0, 0L);
+  tmp___2 = ldv__builtin_expect(__ret_warn_once != 0, 0L);
 #line 303
   if (tmp___2 != 0L) {
 #line 304
@@ -13709,7 +13709,7 @@ static void carl9170_usb_rx_irq_complete(struct urb *urb )
 #line 327
   tmp___3 = usb_submit_urb(urb, 32U);
 #line 327
-  tmp___4 = __builtin_expect(tmp___3 != 0, 0L);
+  tmp___4 = ldv__builtin_expect(tmp___3 != 0, 0L);
 #line 327
   if (tmp___4 != 0L) {
 #line 328
@@ -13750,7 +13750,7 @@ static int carl9170_usb_submit_rx_urb(struct ar9170 *ar , gfp_t gfp )
 #line 342
     err = usb_submit_urb(urb, gfp);
 #line 343
-    tmp = __builtin_expect(err != 0, 0L);
+    tmp = ldv__builtin_expect(err != 0, 0L);
 #line 343
     if (tmp != 0L) {
 #line 344
@@ -13928,13 +13928,13 @@ static void carl9170_usb_rx_complete(struct urb *urb )
 #line 418
   __ret_warn_once = (unsigned long )ar == (unsigned long )((struct ar9170 *)0);
 #line 418
-  tmp___1 = __builtin_expect(__ret_warn_once != 0, 0L);
+  tmp___1 = ldv__builtin_expect(__ret_warn_once != 0, 0L);
 #line 418
   if (tmp___1 != 0L) {
 #line 418
     __ret_warn_on = ! __warned;
 #line 418
-    tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 418
     if (tmp != 0L) {
 #line 418
@@ -13944,7 +13944,7 @@ static void carl9170_usb_rx_complete(struct urb *urb )
 
     }
 #line 418
-    tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 418
     if (tmp___0 != 0L) {
 #line 418
@@ -13956,7 +13956,7 @@ static void carl9170_usb_rx_complete(struct urb *urb )
 
   }
 #line 418
-  tmp___2 = __builtin_expect(__ret_warn_once != 0, 0L);
+  tmp___2 = ldv__builtin_expect(__ret_warn_once != 0, 0L);
 #line 418
   if (tmp___2 != 0L) {
 #line 419
@@ -13993,7 +13993,7 @@ static void carl9170_usb_rx_complete(struct urb *urb )
 #line 444
   err = carl9170_usb_submit_rx_urb(ar, 32U);
 #line 445
-  tmp___4 = __builtin_expect(err != 0, 0L);
+  tmp___4 = ldv__builtin_expect(err != 0, 0L);
 #line 445
   if (tmp___4 != 0L) {
 #line 452
@@ -14295,7 +14295,7 @@ int __carl9170_exec_cmd(struct ar9170 *ar , struct carl9170_cmd *cmd , bool cons
 #line 630
   __ret_warn_on = (unsigned int )cmd->hdr.ldv_39064.ldv_39062.len > 60U;
 #line 630
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 630
   if (tmp != 0L) {
 #line 630
@@ -14305,7 +14305,7 @@ int __carl9170_exec_cmd(struct ar9170 *ar , struct carl9170_cmd *cmd , bool cons
 
   }
 #line 630
-  tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 630
   if (tmp___0 != 0L) {
 #line 631
@@ -15088,7 +15088,7 @@ static void carl9170_usb_disconnect(struct usb_interface *intf )
 #line 1105
   __ret_warn_on = (unsigned long )ar == (unsigned long )((struct ar9170 *)0);
 #line 1105
-  tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 1105
   if (tmp___0 != 0L) {
 #line 1105
@@ -15098,7 +15098,7 @@ static void carl9170_usb_disconnect(struct usb_interface *intf )
 
   }
 #line 1105
-  tmp___1 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___1 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 1105
   if (tmp___1 != 0L) {
 #line 1106
@@ -17561,7 +17561,7 @@ int carl9170_mod_virtual_mac(struct ar9170 *ar , unsigned int const   id , u8 co
 #line 301
   __ret_warn_on = ar->fw.vif_num <= (unsigned int )id;
 #line 301
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 301
   if (tmp != 0L) {
 #line 301
@@ -17571,7 +17571,7 @@ int carl9170_mod_virtual_mac(struct ar9170 *ar , unsigned int const   id , u8 co
 
   }
 #line 301
-  tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 301
   if (tmp___0 != 0L) {
 #line 302
@@ -17763,7 +17763,7 @@ int carl9170_set_operating_mode(struct ar9170 *ar )
 #line 363
     __ret_warn_on = 1;
 #line 363
-    tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 363
     if (tmp != 0L) {
 #line 363
@@ -17773,7 +17773,7 @@ int carl9170_set_operating_mode(struct ar9170 *ar )
 
     }
 #line 363
-    __builtin_expect(__ret_warn_on != 0, 0L);
+    ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 364
     err = -95;
 #line 365
@@ -18032,7 +18032,7 @@ int carl9170_set_beacon_timers(struct ar9170 *ar )
 #line 423
       __ret_warn_on___0 = ar->beacon_enabled == 0U;
 #line 423
-      tmp___2 = __builtin_expect(__ret_warn_on___0 != 0, 0L);
+      tmp___2 = ldv__builtin_expect(__ret_warn_on___0 != 0, 0L);
 #line 423
       if (tmp___2 != 0L) {
 #line 423
@@ -18042,7 +18042,7 @@ int carl9170_set_beacon_timers(struct ar9170 *ar )
 
       }
 #line 423
-      tmp___3 = __builtin_expect(__ret_warn_on___0 != 0, 0L);
+      tmp___3 = ldv__builtin_expect(__ret_warn_on___0 != 0, 0L);
 #line 423
       if (tmp___3 == 0L) {
 #line 424
@@ -18066,13 +18066,13 @@ int carl9170_set_beacon_timers(struct ar9170 *ar )
 #line 439
         __ret_warn_once = 1;
 #line 439
-        tmp___1 = __builtin_expect(__ret_warn_once != 0, 0L);
+        tmp___1 = ldv__builtin_expect(__ret_warn_once != 0, 0L);
 #line 439
         if (tmp___1 != 0L) {
 #line 439
           __ret_warn_on = ! __warned;
 #line 439
-          tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+          tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 439
           if (tmp != 0L) {
 #line 439
@@ -18082,7 +18082,7 @@ int carl9170_set_beacon_timers(struct ar9170 *ar )
 
           }
 #line 439
-          tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+          tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 439
           if (tmp___0 != 0L) {
 #line 439
@@ -18094,7 +18094,7 @@ int carl9170_set_beacon_timers(struct ar9170 *ar )
 
         }
 #line 439
-        __builtin_expect(__ret_warn_once != 0, 0L);
+        ldv__builtin_expect(__ret_warn_once != 0, 0L);
 #line 440
         goto ldv_40029;
         }
@@ -20865,7 +20865,7 @@ static struct carl9170_phy_freq_params  const  *carl9170_get_hw_dyn_params(struc
 
   }
 #line 1070
-  tmp = __builtin_expect(chanidx > 48U, 0L);
+  tmp = ldv__builtin_expect(chanidx > 48U, 0L);
 #line 1070
   if (tmp != 0L) {
 #line 1070
@@ -20880,7 +20880,7 @@ static struct carl9170_phy_freq_params  const  *carl9170_get_hw_dyn_params(struc
 #line 1074
   __ret_warn_on = (int )((unsigned short )carl9170_phy_freq_params[chanidx].freq) != (int )freq;
 #line 1074
-  tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 1074
   if (tmp___0 != 0L) {
 #line 1074
@@ -20890,7 +20890,7 @@ static struct carl9170_phy_freq_params  const  *carl9170_get_hw_dyn_params(struc
 
   }
 #line 1074
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 1076
   return ((struct carl9170_phy_freq_params  const  *)(& carl9170_phy_freq_params[chanidx].params) + (unsigned long )bw);
 }
@@ -22754,11 +22754,11 @@ static void carl9170_led_set_brightness(struct led_classdev *led , enum led_brig
 
   }
 #line 143
-  tmp = __builtin_expect((unsigned int )ar->state > 1U, 1L);
+  tmp = ldv__builtin_expect((unsigned int )ar->state > 1U, 1L);
 #line 143
   if (tmp != 0L) {
 #line 143
-    tmp___0 = __builtin_expect(arl->toggled != 0U, 1L);
+    tmp___0 = ldv__builtin_expect(arl->toggled != 0U, 1L);
 #line 143
     if (tmp___0 != 0L) {
 #line 144
@@ -23888,7 +23888,7 @@ int carl9170_parse_firmware(struct ar9170 *ar )
 #line 428
   __ret_warn_on = (unsigned long )fw == (unsigned long )((struct firmware  const  *)0);
 #line 428
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 428
   if (tmp != 0L) {
 #line 428
@@ -23898,7 +23898,7 @@ int carl9170_parse_firmware(struct ar9170 *ar )
 
   }
 #line 428
-  tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 428
   if (tmp___0 != 0L) {
 #line 429
@@ -24335,7 +24335,7 @@ __inline static unsigned int __carl9170_get_queue(struct ar9170 *ar , unsigned i
 
   {
 #line 75
-  tmp = __builtin_expect(modparam_noht != 0, 0L);
+  tmp = ldv__builtin_expect(modparam_noht != 0, 0L);
 #line 75
   if (tmp != 0L) {
 #line 76
@@ -24457,13 +24457,13 @@ static struct ieee80211_sta *__carl9170_get_tx_sta(struct ar9170 *ar , struct sk
 #line 142
   __ret_warn_once = vif_id > 6U;
 #line 142
-  tmp___1 = __builtin_expect(__ret_warn_once != 0, 0L);
+  tmp___1 = ldv__builtin_expect(__ret_warn_once != 0, 0L);
 #line 142
   if (tmp___1 != 0L) {
 #line 142
     __ret_warn_on = ! __warned;
 #line 142
-    tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 142
     if (tmp != 0L) {
 #line 142
@@ -24473,7 +24473,7 @@ static struct ieee80211_sta *__carl9170_get_tx_sta(struct ar9170 *ar , struct sk
 
     }
 #line 142
-    tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 142
     if (tmp___0 != 0L) {
 #line 142
@@ -24485,7 +24485,7 @@ static struct ieee80211_sta *__carl9170_get_tx_sta(struct ar9170 *ar , struct sk
 
   }
 #line 142
-  tmp___2 = __builtin_expect(__ret_warn_once != 0, 0L);
+  tmp___2 = ldv__builtin_expect(__ret_warn_once != 0, 0L);
 #line 142
   if (tmp___2 != 0L) {
 #line 143
@@ -24517,7 +24517,7 @@ static struct ieee80211_sta *__carl9170_get_tx_sta(struct ar9170 *ar , struct sk
 #line 145
   vif = _________p1;
 #line 146
-  tmp___5 = __builtin_expect((unsigned long )vif == (unsigned long )((struct ieee80211_vif *)0),
+  tmp___5 = ldv__builtin_expect((unsigned long )vif == (unsigned long )((struct ieee80211_vif *)0),
                              0L);
 #line 146
   if (tmp___5 != 0L) {
@@ -24546,7 +24546,7 @@ static void carl9170_tx_ps_unblock(struct ar9170 *ar , struct sk_buff *skb )
 #line 168
   sta = __carl9170_get_tx_sta(ar, skb);
 #line 169
-  tmp = __builtin_expect((unsigned long )sta == (unsigned long )((struct ieee80211_sta *)0),
+  tmp = ldv__builtin_expect((unsigned long )sta == (unsigned long )((struct ieee80211_sta *)0),
                          0L);
 #line 169
   if (tmp != 0L) {
@@ -24688,7 +24688,7 @@ static int carl9170_alloc_dev_space(struct ar9170 *ar , struct sk_buff *skb )
 #line 223
   tmp = atomic_sub_return((int )chunks, & ar->mem_free_blocks);
 #line 223
-  tmp___0 = __builtin_expect(tmp < 0, 0L);
+  tmp___0 = ldv__builtin_expect(tmp < 0, 0L);
 #line 223
   if (tmp___0 != 0L) {
 #line 224
@@ -24705,7 +24705,7 @@ static int carl9170_alloc_dev_space(struct ar9170 *ar , struct sk_buff *skb )
 #line 230
   spin_unlock_bh(& ar->mem_lock);
 #line 232
-  tmp___1 = __builtin_expect(cookie < 0, 0L);
+  tmp___1 = ldv__builtin_expect(cookie < 0, 0L);
 #line 232
   if (tmp___1 != 0L) {
 #line 233
@@ -24755,13 +24755,13 @@ static void carl9170_release_dev_space(struct ar9170 *ar , struct sk_buff *skb )
 #line 273
   __ret_warn_once = cookie == 0;
 #line 273
-  tmp___1 = __builtin_expect(__ret_warn_once != 0, 0L);
+  tmp___1 = ldv__builtin_expect(__ret_warn_once != 0, 0L);
 #line 273
   if (tmp___1 != 0L) {
 #line 273
     __ret_warn_on = ! __warned;
 #line 273
-    tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 273
     if (tmp != 0L) {
 #line 273
@@ -24771,7 +24771,7 @@ static void carl9170_release_dev_space(struct ar9170 *ar , struct sk_buff *skb )
 
     }
 #line 273
-    tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 273
     if (tmp___0 != 0L) {
 #line 273
@@ -24783,9 +24783,9 @@ static void carl9170_release_dev_space(struct ar9170 *ar , struct sk_buff *skb )
 
   }
 #line 273
-  tmp___2 = __builtin_expect(__ret_warn_once != 0, 0L);
+  tmp___2 = ldv__builtin_expect(__ret_warn_once != 0, 0L);
 #line 273
-  tmp___3 = __builtin_expect(tmp___2 != 0L, 0L);
+  tmp___3 = ldv__builtin_expect(tmp___2 != 0L, 0L);
 #line 273
   if (tmp___3 != 0L) {
 #line 275
@@ -24794,13 +24794,13 @@ static void carl9170_release_dev_space(struct ar9170 *ar , struct sk_buff *skb )
 #line 273
     __ret_warn_once___0 = (unsigned int )cookie > ar->fw.mem_blocks;
 #line 273
-    tmp___6 = __builtin_expect(__ret_warn_once___0 != 0, 0L);
+    tmp___6 = ldv__builtin_expect(__ret_warn_once___0 != 0, 0L);
 #line 273
     if (tmp___6 != 0L) {
 #line 273
       __ret_warn_on___0 = ! __warned___0;
 #line 273
-      tmp___4 = __builtin_expect(__ret_warn_on___0 != 0, 0L);
+      tmp___4 = ldv__builtin_expect(__ret_warn_on___0 != 0, 0L);
 #line 273
       if (tmp___4 != 0L) {
 #line 273
@@ -24810,7 +24810,7 @@ static void carl9170_release_dev_space(struct ar9170 *ar , struct sk_buff *skb )
 
       }
 #line 273
-      tmp___5 = __builtin_expect(__ret_warn_on___0 != 0, 0L);
+      tmp___5 = ldv__builtin_expect(__ret_warn_on___0 != 0, 0L);
 #line 273
       if (tmp___5 != 0L) {
 #line 273
@@ -24822,9 +24822,9 @@ static void carl9170_release_dev_space(struct ar9170 *ar , struct sk_buff *skb )
 
     }
 #line 273
-    tmp___7 = __builtin_expect(__ret_warn_once___0 != 0, 0L);
+    tmp___7 = ldv__builtin_expect(__ret_warn_once___0 != 0, 0L);
 #line 273
-    tmp___8 = __builtin_expect(tmp___7 != 0L, 0L);
+    tmp___8 = ldv__builtin_expect(tmp___7 != 0L, 0L);
 #line 273
     if (tmp___8 != 0L) {
 #line 275
@@ -24885,13 +24885,13 @@ static void carl9170_tx_release(struct kref *ref )
 #line 299
   __ret_warn_once = (unsigned long )ar == (unsigned long )((struct ar9170 *)0);
 #line 299
-  tmp___1 = __builtin_expect(__ret_warn_once != 0, 0L);
+  tmp___1 = ldv__builtin_expect(__ret_warn_once != 0, 0L);
 #line 299
   if (tmp___1 != 0L) {
 #line 299
     __ret_warn_on = ! __warned;
 #line 299
-    tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 299
     if (tmp != 0L) {
 #line 299
@@ -24901,7 +24901,7 @@ static void carl9170_tx_release(struct kref *ref )
 
     }
 #line 299
-    tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 299
     if (tmp___0 != 0L) {
 #line 299
@@ -24913,7 +24913,7 @@ static void carl9170_tx_release(struct kref *ref )
 
   }
 #line 299
-  tmp___2 = __builtin_expect(__ret_warn_once != 0, 0L);
+  tmp___2 = ldv__builtin_expect(__ret_warn_once != 0, 0L);
 #line 299
   if (tmp___2 != 0L) {
 #line 300
@@ -25042,13 +25042,13 @@ static void carl9170_tx_shift_bm(struct ar9170 *ar , struct carl9170_sta_tid *ti
 #line 374
   __ret_warn_once = (unsigned int )off > 127U;
 #line 374
-  tmp___1 = __builtin_expect(__ret_warn_once != 0, 0L);
+  tmp___1 = ldv__builtin_expect(__ret_warn_once != 0, 0L);
 #line 374
   if (tmp___1 != 0L) {
 #line 374
     __ret_warn_on = ! __warned;
 #line 374
-    tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 374
     if (tmp != 0L) {
 #line 374
@@ -25058,7 +25058,7 @@ static void carl9170_tx_shift_bm(struct ar9170 *ar , struct carl9170_sta_tid *ti
 
     }
 #line 374
-    tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 374
     if (tmp___0 != 0L) {
 #line 374
@@ -25070,7 +25070,7 @@ static void carl9170_tx_shift_bm(struct ar9170 *ar , struct carl9170_sta_tid *ti
 
   }
 #line 374
-  tmp___2 = __builtin_expect(__ret_warn_once != 0, 0L);
+  tmp___2 = ldv__builtin_expect(__ret_warn_once != 0, 0L);
 #line 374
   if (tmp___2 != 0L) {
 #line 375
@@ -25083,13 +25083,13 @@ static void carl9170_tx_shift_bm(struct ar9170 *ar , struct carl9170_sta_tid *ti
 #line 383
   __ret_warn_once___0 = tmp___3 == 0;
 #line 383
-  tmp___6 = __builtin_expect(__ret_warn_once___0 != 0, 0L);
+  tmp___6 = ldv__builtin_expect(__ret_warn_once___0 != 0, 0L);
 #line 383
   if (tmp___6 != 0L) {
 #line 383
     __ret_warn_on___0 = ! __warned___0;
 #line 383
-    tmp___4 = __builtin_expect(__ret_warn_on___0 != 0, 0L);
+    tmp___4 = ldv__builtin_expect(__ret_warn_on___0 != 0, 0L);
 #line 383
     if (tmp___4 != 0L) {
 #line 383
@@ -25099,7 +25099,7 @@ static void carl9170_tx_shift_bm(struct ar9170 *ar , struct carl9170_sta_tid *ti
 
     }
 #line 383
-    tmp___5 = __builtin_expect(__ret_warn_on___0 != 0, 0L);
+    tmp___5 = ldv__builtin_expect(__ret_warn_on___0 != 0, 0L);
 #line 383
     if (tmp___5 != 0L) {
 #line 383
@@ -25111,19 +25111,19 @@ static void carl9170_tx_shift_bm(struct ar9170 *ar , struct carl9170_sta_tid *ti
 
   }
 #line 383
-  __builtin_expect(__ret_warn_once___0 != 0, 0L);
+  ldv__builtin_expect(__ret_warn_once___0 != 0, 0L);
 #line 385
   off = (unsigned int )((u16 )((int )tid_info->snx - (int )tid_info->bsn)) & 4095U;
 #line 386
   __ret_warn_once___1 = (unsigned int )off > 127U;
 #line 386
-  tmp___9 = __builtin_expect(__ret_warn_once___1 != 0, 0L);
+  tmp___9 = ldv__builtin_expect(__ret_warn_once___1 != 0, 0L);
 #line 386
   if (tmp___9 != 0L) {
 #line 386
     __ret_warn_on___1 = ! __warned___1;
 #line 386
-    tmp___7 = __builtin_expect(__ret_warn_on___1 != 0, 0L);
+    tmp___7 = ldv__builtin_expect(__ret_warn_on___1 != 0, 0L);
 #line 386
     if (tmp___7 != 0L) {
 #line 386
@@ -25133,7 +25133,7 @@ static void carl9170_tx_shift_bm(struct ar9170 *ar , struct carl9170_sta_tid *ti
 
     }
 #line 386
-    tmp___8 = __builtin_expect(__ret_warn_on___1 != 0, 0L);
+    tmp___8 = ldv__builtin_expect(__ret_warn_on___1 != 0, 0L);
 #line 386
     if (tmp___8 != 0L) {
 #line 386
@@ -25145,7 +25145,7 @@ static void carl9170_tx_shift_bm(struct ar9170 *ar , struct carl9170_sta_tid *ti
 
   }
 #line 386
-  tmp___10 = __builtin_expect(__ret_warn_once___1 != 0, 0L);
+  tmp___10 = ldv__builtin_expect(__ret_warn_once___1 != 0, 0L);
 #line 386
   if (tmp___10 != 0L) {
 #line 387
@@ -25211,7 +25211,7 @@ static void carl9170_tx_status_process_ampdu(struct ar9170 *ar , struct sk_buff 
 #line 415
   sta = __carl9170_get_tx_sta(ar, skb);
 #line 416
-  tmp = __builtin_expect((unsigned long )sta == (unsigned long )((struct ieee80211_sta *)0),
+  tmp = ldv__builtin_expect((unsigned long )sta == (unsigned long )((struct ieee80211_sta *)0),
                          0L);
 #line 416
   if (tmp != 0L) {
@@ -25259,7 +25259,7 @@ static void carl9170_tx_status_process_ampdu(struct ar9170 *ar , struct sk_buff 
 #line 426
   spin_lock_bh(& tid_info->lock);
 #line 427
-  tmp___4 = __builtin_expect((unsigned int )tid_info->state > 4U, 1L);
+  tmp___4 = ldv__builtin_expect((unsigned int )tid_info->state > 4U, 1L);
 #line 427
   if (tmp___4 != 0L) {
 #line 428
@@ -25654,7 +25654,7 @@ static void carl9170_tx_ampdu_timeout(struct ar9170 *ar )
 #line 609
   __ret_warn_on = (unsigned long )sta == (unsigned long )((struct ieee80211_sta *)0);
 #line 609
-  tmp___1 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___1 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 609
   if (tmp___1 != 0L) {
 #line 609
@@ -25664,7 +25664,7 @@ static void carl9170_tx_ampdu_timeout(struct ar9170 *ar )
 
   }
 #line 609
-  tmp___2 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___2 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 609
   if (tmp___2 != 0L) {
 #line 610
@@ -25815,7 +25815,7 @@ void carl9170_tx_process_status(struct ar9170 *ar , struct carl9170_rsp  const  
 #line 676
   __ret_warn_on = (unsigned int )((int )((unsigned int )((unsigned char )cmd->hdr.ldv_39064.ldv_39062.len) / 2U) + 1) < i;
 #line 676
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 676
   if (tmp != 0L) {
 #line 676
@@ -25825,7 +25825,7 @@ void carl9170_tx_process_status(struct ar9170 *ar , struct carl9170_rsp  const  
 
   }
 #line 676
-  tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 676
   if (tmp___0 != 0L) {
 #line 677
@@ -25931,7 +25931,7 @@ static __le32 carl9170_tx_physet(struct ar9170 *ar , struct ieee80211_tx_info *i
 #line 733
     r = r << 18;
 #line 734
-    tmp___0 = __builtin_expect((r & 4261675007U) != 0U, 0L);
+    tmp___0 = ldv__builtin_expect((r & 4261675007U) != 0U, 0L);
 #line 734
     if (tmp___0 != 0L) {
 #line 734
@@ -26038,7 +26038,7 @@ static bool carl9170_tx_rts_check(struct ar9170 *ar , struct ieee80211_tx_rate *
   }
   case 5U: 
 #line 815
-  tmp = __builtin_expect((long )(! multi), 1L);
+  tmp = ldv__builtin_expect((long )(! multi), 1L);
 #line 815
   if (tmp != 0L) {
 #line 816
@@ -26139,7 +26139,7 @@ static int carl9170_tx_prepare(struct ar9170 *ar , struct sk_buff *skb )
 #line 876
   len = (u16 )skb->len;
 #line 882
-  tmp___0 = __builtin_expect((unsigned long )info->ldv_36500.control.vif != (unsigned long )((struct ieee80211_vif *)0),
+  tmp___0 = ldv__builtin_expect((unsigned long )info->ldv_36500.control.vif != (unsigned long )((struct ieee80211_vif *)0),
                              1L);
 #line 882
   if (tmp___0 != 0L) {
@@ -26160,7 +26160,7 @@ static int carl9170_tx_prepare(struct ar9170 *ar , struct sk_buff *skb )
 #line 892
   txc->s.misc = ((unsigned int )txc->s.misc & 252U) | ((unsigned int )((u8 )hw_queue) & 3U);
 #line 894
-  tmp___2 = __builtin_expect((unsigned long )cvif != (unsigned long )((struct carl9170_vif_info *)0),
+  tmp___2 = ldv__builtin_expect((unsigned long )cvif != (unsigned long )((struct carl9170_vif_info *)0),
                              1L);
 #line 894
   if (tmp___2 != 0L) {
@@ -26170,7 +26170,7 @@ static int carl9170_tx_prepare(struct ar9170 *ar , struct sk_buff *skb )
 
   }
 #line 897
-  tmp___3 = __builtin_expect((info->flags & 32U) != 0U, 0L);
+  tmp___3 = ldv__builtin_expect((info->flags & 32U) != 0U, 0L);
 #line 897
   if (tmp___3 != 0L) {
 #line 898
@@ -26179,7 +26179,7 @@ static int carl9170_tx_prepare(struct ar9170 *ar , struct sk_buff *skb )
 
   }
 #line 900
-  tmp___4 = __builtin_expect((info->flags & 2U) != 0U, 0L);
+  tmp___4 = ldv__builtin_expect((info->flags & 2U) != 0U, 0L);
 #line 900
   if (tmp___4 != 0L) {
 #line 901
@@ -26190,7 +26190,7 @@ static int carl9170_tx_prepare(struct ar9170 *ar , struct sk_buff *skb )
 #line 903
   tmp___5 = ieee80211_is_probe_resp((int )hdr->frame_control);
 #line 903
-  tmp___6 = __builtin_expect(tmp___5 != 0, 0L);
+  tmp___6 = ldv__builtin_expect(tmp___5 != 0, 0L);
 #line 903
   if (tmp___6 != 0L) {
 #line 904
@@ -26205,7 +26205,7 @@ static int carl9170_tx_prepare(struct ar9170 *ar , struct sk_buff *skb )
 #line 911
   no_ack = (info->flags & 4U) != 0U;
 #line 912
-  tmp___7 = __builtin_expect((long )no_ack, 0L);
+  tmp___7 = ldv__builtin_expect((long )no_ack, 0L);
 #line 912
   if (tmp___7 != 0L) {
 #line 913
@@ -26235,7 +26235,7 @@ static int carl9170_tx_prepare(struct ar9170 *ar , struct sk_buff *skb )
 #line 928
     __ret_warn_on = 1;
 #line 928
-    tmp___8 = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp___8 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 928
     if (tmp___8 != 0L) {
 #line 928
@@ -26245,7 +26245,7 @@ static int carl9170_tx_prepare(struct ar9170 *ar , struct sk_buff *skb )
 
     }
 #line 928
-    __builtin_expect(__ret_warn_on != 0, 0L);
+    ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 929
     goto err_out;
     }
@@ -26258,7 +26258,7 @@ static int carl9170_tx_prepare(struct ar9170 *ar , struct sk_buff *skb )
 #line 934
   if ((int )ampdu) {
 #line 937
-    tmp___9 = __builtin_expect((unsigned long )sta == (unsigned long )((struct ieee80211_sta *)0),
+    tmp___9 = ldv__builtin_expect((unsigned long )sta == (unsigned long )((struct ieee80211_sta *)0),
                                0L);
 #line 937
     if (tmp___9 != 0L) {
@@ -26266,7 +26266,7 @@ static int carl9170_tx_prepare(struct ar9170 *ar , struct sk_buff *skb )
       goto err_out;
     } else {
 #line 937
-      tmp___10 = __builtin_expect((unsigned long )cvif == (unsigned long )((struct carl9170_vif_info *)0),
+      tmp___10 = ldv__builtin_expect((unsigned long )cvif == (unsigned long )((struct carl9170_vif_info *)0),
                                   0L);
 #line 937
       if (tmp___10 != 0L) {
@@ -26313,7 +26313,7 @@ static int carl9170_tx_prepare(struct ar9170 *ar , struct sk_buff *skb )
 #line 966
       __ret_warn_on___0 = ((int )txrate->flags & 8) == 0;
 #line 966
-      tmp___11 = __builtin_expect(__ret_warn_on___0 != 0, 0L);
+      tmp___11 = ldv__builtin_expect(__ret_warn_on___0 != 0, 0L);
 #line 966
       if (tmp___11 != 0L) {
 #line 966
@@ -26323,7 +26323,7 @@ static int carl9170_tx_prepare(struct ar9170 *ar , struct sk_buff *skb )
 
       }
 #line 966
-      tmp___12 = __builtin_expect(__ret_warn_on___0 != 0, 0L);
+      tmp___12 = ldv__builtin_expect(__ret_warn_on___0 != 0, 0L);
 #line 966
       if (tmp___12 != 0L) {
 #line 973
@@ -26617,13 +26617,13 @@ static void carl9170_tx_ampdu(struct ar9170 *ar )
 #line 1118
   __ret_warn_once = (unsigned long )tid_info == (unsigned long )((struct carl9170_sta_tid *)0);
 #line 1118
-  tmp___4 = __builtin_expect(__ret_warn_once != 0, 0L);
+  tmp___4 = ldv__builtin_expect(__ret_warn_once != 0, 0L);
 #line 1118
   if (tmp___4 != 0L) {
 #line 1118
     __ret_warn_on = ! __warned___0;
 #line 1118
-    tmp___2 = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp___2 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 1118
     if (tmp___2 != 0L) {
 #line 1118
@@ -26633,7 +26633,7 @@ static void carl9170_tx_ampdu(struct ar9170 *ar )
 
     }
 #line 1118
-    tmp___3 = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp___3 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 1118
     if (tmp___3 != 0L) {
 #line 1118
@@ -26645,7 +26645,7 @@ static void carl9170_tx_ampdu(struct ar9170 *ar )
 
   }
 #line 1118
-  tmp___5 = __builtin_expect(__ret_warn_once != 0, 0L);
+  tmp___5 = ldv__builtin_expect(__ret_warn_once != 0, 0L);
 #line 1118
   if (tmp___5 != 0L) {
 #line 1119
@@ -26705,7 +26705,7 @@ static void carl9170_tx_ampdu(struct ar9170 *ar )
 #line 1139
   seq = tid_info->snx;
 #line 1141
-  tmp___7 = __builtin_expect((int )tmpssn != (int )seq, 0L);
+  tmp___7 = ldv__builtin_expect((int )tmpssn != (int )seq, 0L);
 #line 1141
   if (tmp___7 != 0L) {
 #line 1142
@@ -26721,7 +26721,7 @@ static void carl9170_tx_ampdu(struct ar9170 *ar )
 #line 1149
   tmp___8 = carl9170_get_seq(skb);
 #line 1149
-  tmp___9 = __builtin_expect((int )tmp___8 != (int )seq, 0L);
+  tmp___9 = ldv__builtin_expect((int )tmp___8 != (int )seq, 0L);
 #line 1149
   if (tmp___9 != 0L) {
 #line 1150
@@ -26730,7 +26730,7 @@ static void carl9170_tx_ampdu(struct ar9170 *ar )
 
   }
 #line 1153
-  tmp___10 = __builtin_expect((((int )tid_info->snx - (int )tid_info->bsn) & 4095) >= (int )tid_info->max + -1,
+  tmp___10 = ldv__builtin_expect((((int )tid_info->snx - (int )tid_info->bsn) & 4095) >= (int )tid_info->max + -1,
                               0L);
 #line 1153
   if (tmp___10 != 0L) {
@@ -26906,7 +26906,7 @@ static struct sk_buff *carl9170_tx_pick_skb(struct ar9170 *ar , struct sk_buff_h
 #line 1216
   skb = skb_peek(queue);
 #line 1217
-  tmp = __builtin_expect((unsigned long )skb == (unsigned long )((struct sk_buff *)0),
+  tmp = ldv__builtin_expect((unsigned long )skb == (unsigned long )((struct sk_buff *)0),
                          0L);
 #line 1217
   if (tmp != 0L) {
@@ -26990,7 +26990,7 @@ static bool carl9170_tx_ps_drop(struct ar9170 *ar , struct sk_buff *skb )
 #line 1260
   sta_info = (struct carl9170_sta_info *)(& sta->drv_priv);
 #line 1261
-  tmp = __builtin_expect((long )sta_info->sleeping, 0L);
+  tmp = ldv__builtin_expect((long )sta_info->sleeping, 0L);
 #line 1261
   if (tmp != 0L) {
 #line 1264
@@ -27040,7 +27040,7 @@ static void carl9170_tx(struct ar9170 *ar )
 #line 1286
   ar->tx_schedule = 0;
 #line 1288
-  tmp = __builtin_expect((unsigned int )ar->state <= 2U, 0L);
+  tmp = ldv__builtin_expect((unsigned int )ar->state <= 2U, 0L);
 #line 1288
   if (tmp != 0L) {
 #line 1289
@@ -27061,7 +27061,7 @@ static void carl9170_tx(struct ar9170 *ar )
 #line 1295
   skb = carl9170_tx_pick_skb(ar, (struct sk_buff_head *)(& ar->tx_pending) + (unsigned long )i);
 #line 1296
-  tmp___0 = __builtin_expect((unsigned long )skb == (unsigned long )((struct sk_buff *)0),
+  tmp___0 = ldv__builtin_expect((unsigned long )skb == (unsigned long )((struct sk_buff *)0),
                              0L);
 #line 1296
   if (tmp___0 != 0L) {
@@ -27073,7 +27073,7 @@ static void carl9170_tx(struct ar9170 *ar )
 #line 1299
   tmp___1 = carl9170_tx_ps_drop(ar, skb);
 #line 1299
-  tmp___2 = __builtin_expect((long )tmp___1, 0L);
+  tmp___2 = ldv__builtin_expect((long )tmp___1, 0L);
 #line 1299
   if (tmp___2 != 0L) {
 #line 1300
@@ -27215,7 +27215,7 @@ static bool carl9170_tx_ampdu_queue(struct ar9170 *ar , struct ieee80211_sta *st
 #line 1353
   spin_lock_bh(& agg->lock);
 #line 1354
-  tmp___1 = __builtin_expect((unsigned int )agg->state <= 4U, 0L);
+  tmp___1 = ldv__builtin_expect((unsigned int )agg->state <= 4U, 0L);
 #line 1354
   if (tmp___1 != 0L) {
 #line 1355
@@ -27224,7 +27224,7 @@ static bool carl9170_tx_ampdu_queue(struct ar9170 *ar , struct ieee80211_sta *st
 
   }
 #line 1358
-  tmp___2 = __builtin_expect((((int )seq - (int )agg->bsn) & 4095) > 127, 0L);
+  tmp___2 = ldv__builtin_expect((((int )seq - (int )agg->bsn) & 4095) > 127, 0L);
 #line 1358
   if (tmp___2 != 0L) {
 #line 1359
@@ -27235,13 +27235,13 @@ static bool carl9170_tx_ampdu_queue(struct ar9170 *ar , struct ieee80211_sta *st
 #line 1361
   __ret_warn_once = (((int )seq - (int )agg->snx) & 4095) > 127;
 #line 1361
-  tmp___5 = __builtin_expect(__ret_warn_once != 0, 0L);
+  tmp___5 = ldv__builtin_expect(__ret_warn_once != 0, 0L);
 #line 1361
   if (tmp___5 != 0L) {
 #line 1361
     __ret_warn_on = ! __warned___0;
 #line 1361
-    tmp___3 = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp___3 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 1361
     if (tmp___3 != 0L) {
 #line 1361
@@ -27251,7 +27251,7 @@ static bool carl9170_tx_ampdu_queue(struct ar9170 *ar , struct ieee80211_sta *st
 
     }
 #line 1361
-    tmp___4 = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp___4 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 1361
     if (tmp___4 != 0L) {
 #line 1361
@@ -27263,7 +27263,7 @@ static bool carl9170_tx_ampdu_queue(struct ar9170 *ar , struct ieee80211_sta *st
 
   }
 #line 1361
-  tmp___6 = __builtin_expect(__ret_warn_once != 0, 0L);
+  tmp___6 = ldv__builtin_expect(__ret_warn_once != 0, 0L);
 #line 1361
   if (tmp___6 != 0L) {
 #line 1362
@@ -27278,13 +27278,13 @@ static bool carl9170_tx_ampdu_queue(struct ar9170 *ar , struct ieee80211_sta *st
 #line 1365
   __ret_warn_once___0 = tmp___7 != 0;
 #line 1365
-  tmp___10 = __builtin_expect(__ret_warn_once___0 != 0, 0L);
+  tmp___10 = ldv__builtin_expect(__ret_warn_once___0 != 0, 0L);
 #line 1365
   if (tmp___10 != 0L) {
 #line 1365
     __ret_warn_on___0 = ! __warned___1;
 #line 1365
-    tmp___8 = __builtin_expect(__ret_warn_on___0 != 0, 0L);
+    tmp___8 = ldv__builtin_expect(__ret_warn_on___0 != 0, 0L);
 #line 1365
     if (tmp___8 != 0L) {
 #line 1365
@@ -27294,7 +27294,7 @@ static bool carl9170_tx_ampdu_queue(struct ar9170 *ar , struct ieee80211_sta *st
 
     }
 #line 1365
-    tmp___9 = __builtin_expect(__ret_warn_on___0 != 0, 0L);
+    tmp___9 = ldv__builtin_expect(__ret_warn_on___0 != 0, 0L);
 #line 1365
     if (tmp___9 != 0L) {
 #line 1365
@@ -27306,7 +27306,7 @@ static bool carl9170_tx_ampdu_queue(struct ar9170 *ar , struct ieee80211_sta *st
 
   }
 #line 1365
-  tmp___11 = __builtin_expect(__ret_warn_once___0 != 0, 0L);
+  tmp___11 = ldv__builtin_expect(__ret_warn_once___0 != 0, 0L);
 #line 1365
   if (tmp___11 != 0L) {
 #line 1366
@@ -27315,7 +27315,7 @@ static bool carl9170_tx_ampdu_queue(struct ar9170 *ar , struct ieee80211_sta *st
 
   }
 #line 1368
-  tmp___12 = __builtin_expect((((int )seq - (int )agg->hsn) & 4095) <= 127, 1L);
+  tmp___12 = ldv__builtin_expect((((int )seq - (int )agg->hsn) & 4095) <= 127, 1L);
 #line 1368
   if (tmp___12 != 0L) {
 #line 1369
@@ -27357,7 +27357,7 @@ static bool carl9170_tx_ampdu_queue(struct ar9170 *ar , struct ieee80211_sta *st
   __skb_queue_head(& agg->queue, skb);
   queued: 
 #line 1386
-  tmp___15 = __builtin_expect((unsigned int )agg->state != 6U, 0L);
+  tmp___15 = ldv__builtin_expect((unsigned int )agg->state != 6U, 0L);
 #line 1386
   if (tmp___15 != 0L) {
 #line 1387
@@ -27416,7 +27416,7 @@ void carl9170_op_tx(struct ieee80211_hw *hw , struct sk_buff *skb )
 #line 1411
   ar = (struct ar9170 *)hw->priv;
 #line 1416
-  tmp = __builtin_expect((unsigned int )ar->state <= 2U, 0L);
+  tmp = ldv__builtin_expect((unsigned int )ar->state <= 2U, 0L);
 #line 1416
   if (tmp != 0L) {
 #line 1417
@@ -27431,7 +27431,7 @@ void carl9170_op_tx(struct ieee80211_hw *hw , struct sk_buff *skb )
 #line 1422
   tmp___0 = carl9170_tx_prepare(ar, skb);
 #line 1422
-  tmp___1 = __builtin_expect(tmp___0 != 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 != 0, 0L);
 #line 1422
   if (tmp___1 != 0L) {
 #line 1423
@@ -27677,7 +27677,7 @@ __inline static bool ieee80211_check_tim(struct ieee80211_tim_ie *tim , u8 tim_l
 
   {
 #line 1671
-  tmp = __builtin_expect((unsigned long )tim == (unsigned long )((struct ieee80211_tim_ie *)0),
+  tmp = ldv__builtin_expect((unsigned long )tim == (unsigned long )((struct ieee80211_tim_ie *)0),
                          0L);
 #line 1671
   if (tmp != 0L) {
@@ -27685,7 +27685,7 @@ __inline static bool ieee80211_check_tim(struct ieee80211_tim_ie *tim , u8 tim_l
     return (0);
   } else {
 #line 1671
-    tmp___0 = __builtin_expect((unsigned int )tim_len <= 3U, 0L);
+    tmp___0 = ldv__builtin_expect((unsigned int )tim_len <= 3U, 0L);
 #line 1671
     if (tmp___0 != 0L) {
 #line 1672
@@ -27985,7 +27985,7 @@ static void carl9170_cmd_callback(struct ar9170 *ar , u32 len , void *buffer )
 
   {
 #line 160
-  tmp = __builtin_expect((u32 )ar->readlen != len - 4U, 0L);
+  tmp = ldv__builtin_expect((u32 )ar->readlen != len - 4U, 0L);
 #line 160
   if (tmp != 0L) {
 #line 161
@@ -28067,7 +28067,7 @@ void carl9170_handle_command_response(struct ar9170 *ar , void *buf , u32 len )
 
   }
 #line 200
-  tmp___1 = __builtin_expect((u32 )cmd->hdr.ldv_39064.ldv_39062.len != len - 4U, 0L);
+  tmp___1 = ldv__builtin_expect((u32 )cmd->hdr.ldv_39064.ldv_39062.len != len - 4U, 0L);
 #line 200
   if (tmp___1 != 0L) {
 #line 201
@@ -28163,7 +28163,7 @@ void carl9170_handle_command_response(struct ar9170 *ar , void *buf , u32 len )
 #line 274
   descriptor.enabled = (char)0;
 #line 274
-  tmp___2 = __builtin_expect((int )((signed char )descriptor.enabled) != 0, 0L);
+  tmp___2 = ldv__builtin_expect((int )((signed char )descriptor.enabled) != 0, 0L);
 #line 274
   if (tmp___2 != 0L) {
 #line 274
@@ -28318,7 +28318,7 @@ static int carl9170_rx_mac_status(struct ar9170 *ar , struct ar9170_rx_head *hea
 #line 361
   error = (unsigned int )error & 131U;
 #line 368
-  tmp___1 = __builtin_expect((unsigned int )error != 0U, 0L);
+  tmp___1 = ldv__builtin_expect((unsigned int )error != 0U, 0L);
 #line 368
   if (tmp___1 != 0L) {
 #line 371
@@ -28340,7 +28340,7 @@ static int carl9170_rx_mac_status(struct ar9170 *ar , struct ar9170_rx_head *hea
 #line 372
       descriptor.enabled = (char)0;
 #line 372
-      tmp = __builtin_expect((int )((signed char )descriptor.enabled) != 0, 0L);
+      tmp = ldv__builtin_expect((int )((signed char )descriptor.enabled) != 0, 0L);
 #line 372
       if (tmp != 0L) {
 #line 372
@@ -28640,7 +28640,7 @@ static struct sk_buff *carl9170_rx_copy_data(u8 *buf , int len )
 #line 507
   skb = dev_alloc_skb((unsigned int )(len + reserved));
 #line 508
-  tmp___4 = __builtin_expect((unsigned long )skb != (unsigned long )((struct sk_buff *)0),
+  tmp___4 = ldv__builtin_expect((unsigned long )skb != (unsigned long )((struct sk_buff *)0),
                              1L);
 #line 508
   if (tmp___4 != 0L) {
@@ -28728,7 +28728,7 @@ static void carl9170_ps_beacon(struct ar9170 *ar , void *data , unsigned int len
 #line 546
   hdr = (struct ieee80211_hdr *)data;
 #line 552
-  tmp = __builtin_expect(((ar->hw)->conf.flags & 2U) == 0U, 1L);
+  tmp = ldv__builtin_expect(((ar->hw)->conf.flags & 2U) == 0U, 1L);
 #line 552
   if (tmp != 0L) {
 #line 553
@@ -28786,13 +28786,13 @@ static void carl9170_ps_beacon(struct ar9170 *ar , void *data , unsigned int len
 #line 580
   __ret_warn_once = (unsigned int )(ar->hw)->conf.ps_dtim_period == 0U;
 #line 580
-  tmp___4 = __builtin_expect(__ret_warn_once != 0, 0L);
+  tmp___4 = ldv__builtin_expect(__ret_warn_once != 0, 0L);
 #line 580
   if (tmp___4 != 0L) {
 #line 580
     __ret_warn_on = ! __warned;
 #line 580
-    tmp___2 = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp___2 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 580
     if (tmp___2 != 0L) {
 #line 580
@@ -28802,7 +28802,7 @@ static void carl9170_ps_beacon(struct ar9170 *ar , void *data , unsigned int len
 
     }
 #line 580
-    tmp___3 = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp___3 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 580
     if (tmp___3 != 0L) {
 #line 580
@@ -28814,7 +28814,7 @@ static void carl9170_ps_beacon(struct ar9170 *ar , void *data , unsigned int len
 
   }
 #line 580
-  tmp___5 = __builtin_expect(__ret_warn_once != 0, 0L);
+  tmp___5 = ldv__builtin_expect(__ret_warn_once != 0, 0L);
 #line 580
   if (tmp___5 == 0L) {
 #line 581
@@ -28955,7 +28955,7 @@ static void carl9170_handle_mpdu(struct ar9170 *ar , u8 *buf , int len )
 
   }
 #line 660
-  tmp = __builtin_expect((unsigned int )len <= 3U, 0L);
+  tmp = ldv__builtin_expect((unsigned int )len <= 3U, 0L);
 #line 660
   if (tmp != 0L) {
 #line 661
@@ -28973,7 +28973,7 @@ static void carl9170_handle_mpdu(struct ar9170 *ar , u8 *buf , int len )
   switch ((int )mac_status & 48) {
   case 32: 
 #line 670
-  tmp___1 = __builtin_expect((unsigned int )mpdu_len > 11U, 1L);
+  tmp___1 = ldv__builtin_expect((unsigned int )mpdu_len > 11U, 1L);
 #line 670
   if (tmp___1 != 0L) {
 #line 671
@@ -29011,7 +29011,7 @@ static void carl9170_handle_mpdu(struct ar9170 *ar , u8 *buf , int len )
   goto ldv_40202;
   case 16: 
 #line 705
-  tmp___3 = __builtin_expect((unsigned int )mpdu_len > 19U, 1L);
+  tmp___3 = ldv__builtin_expect((unsigned int )mpdu_len > 19U, 1L);
 #line 705
   if (tmp___3 != 0L) {
 #line 706
@@ -29033,7 +29033,7 @@ static void carl9170_handle_mpdu(struct ar9170 *ar , u8 *buf , int len )
   }
   case 48: 
 #line 719
-  tmp___5 = __builtin_expect((long )(! ar->rx_has_plcp), 0L);
+  tmp___5 = ldv__builtin_expect((long )(! ar->rx_has_plcp), 0L);
 #line 719
   if (tmp___5 != 0L) {
 #line 720
@@ -29081,7 +29081,7 @@ static void carl9170_handle_mpdu(struct ar9170 *ar , u8 *buf , int len )
   }
   ldv_40202: 
 #line 749
-  tmp___6 = __builtin_expect(mpdu_len <= 13, 0L);
+  tmp___6 = ldv__builtin_expect(mpdu_len <= 13, 0L);
 #line 749
   if (tmp___6 != 0L) {
 #line 750
@@ -29094,7 +29094,7 @@ static void carl9170_handle_mpdu(struct ar9170 *ar , u8 *buf , int len )
 #line 753
   tmp___7 = carl9170_rx_mac_status(ar, head, mac, & status);
 #line 753
-  tmp___8 = __builtin_expect(tmp___7 != 0, 0L);
+  tmp___8 = ldv__builtin_expect(tmp___7 != 0, 0L);
 #line 753
   if (tmp___8 != 0L) {
 #line 754
@@ -29182,7 +29182,7 @@ static void carl9170_rx_untie_cmds(struct ar9170 *ar , u8 const   *respbuf , uns
 #line 785
   i = ((int )cmd->hdr.ldv_39064.ldv_39062.len + 4) + i;
 #line 786
-  tmp = __builtin_expect((unsigned int )i > (unsigned int )resplen, 0L);
+  tmp = ldv__builtin_expect((unsigned int )i > (unsigned int )resplen, 0L);
 #line 786
   if (tmp != 0L) {
 #line 787
@@ -29202,7 +29202,7 @@ static void carl9170_rx_untie_cmds(struct ar9170 *ar , u8 const   *respbuf , uns
   }
   ldv_40218: 
 #line 792
-  tmp___1 = __builtin_expect((unsigned int )i != (unsigned int )resplen, 0L);
+  tmp___1 = ldv__builtin_expect((unsigned int )i != (unsigned int )resplen, 0L);
 #line 792
   if (tmp___1 != 0L) {
 #line 793
@@ -29252,7 +29252,7 @@ static void __carl9170_rx(struct ar9170 *ar , u8 *buf , unsigned int len )
 
   }
 #line 813
-  tmp = __builtin_expect(len <= 3U, 0L);
+  tmp = ldv__builtin_expect(len <= 3U, 0L);
 #line 813
   if (tmp != 0L) {
 #line 814
@@ -29597,14 +29597,14 @@ __inline static unsigned long copy_from_user(void *to , void const   *from , uns
 #line 52
   might_fault();
 #line 53
-  tmp___1 = __builtin_expect(sz == -1, 1L);
+  tmp___1 = ldv__builtin_expect(sz == -1, 1L);
 #line 53
   if (tmp___1 != 0L) {
 #line 54
     n = _copy_from_user(to, from, (unsigned int )n);
   } else {
 #line 53
-    tmp___2 = __builtin_expect((unsigned long )sz >= n, 1L);
+    tmp___2 = ldv__builtin_expect((unsigned long )sz >= n, 1L);
 #line 53
     if (tmp___2 != 0L) {
 #line 54
@@ -29613,7 +29613,7 @@ __inline static unsigned long copy_from_user(void *to , void const   *from , uns
 #line 57
       __ret_warn_on = 1;
 #line 57
-      tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+      tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 57
       if (tmp___0 != 0L) {
 #line 57
@@ -29623,7 +29623,7 @@ __inline static unsigned long copy_from_user(void *to , void const   *from , uns
 
       }
 #line 57
-      __builtin_expect(__ret_warn_on != 0, 0L);
+      ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
   }
 #line 59
@@ -29931,13 +29931,13 @@ static ssize_t carl9170_debugfs_read(struct file *file , char *userbuf , size_t 
 #line 133
   __ret_warn_once = dfops->read_bufsize != 0U && (unsigned long )res_buf != (unsigned long )buf;
 #line 133
-  tmp___3 = __builtin_expect(__ret_warn_once != 0, 0L);
+  tmp___3 = ldv__builtin_expect(__ret_warn_once != 0, 0L);
 #line 133
   if (tmp___3 != 0L) {
 #line 133
     __ret_warn_on = ! __warned;
 #line 133
-    tmp___1 = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp___1 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 133
     if (tmp___1 != 0L) {
 #line 133
@@ -29947,7 +29947,7 @@ static ssize_t carl9170_debugfs_read(struct file *file , char *userbuf , size_t 
 
     }
 #line 133
-    tmp___2 = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp___2 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 133
     if (tmp___2 != 0L) {
 #line 133
@@ -29959,7 +29959,7 @@ static ssize_t carl9170_debugfs_read(struct file *file , char *userbuf , size_t 
 
   }
 #line 133
-  __builtin_expect(__ret_warn_once != 0, 0L);
+  ldv__builtin_expect(__ret_warn_once != 0, 0L);
   out_free: 
 #line 136
   vfree((void const   *)res_buf);
@@ -32727,7 +32727,7 @@ __inline static void ldv_error(void)
 #line 25
 extern int __VERIFIER_nondet_int(void) ;
 #line 49 "/work/vladimir/kernel-rules/verifier/rcv.h"
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 

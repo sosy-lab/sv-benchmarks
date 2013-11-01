@@ -4784,7 +4784,7 @@ typedef int ldv_func_ret_type___2;
 #line 1 "<compiler builtins>"
 unsigned long __builtin_object_size(void * , int  ) ;
 #line 1
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 #line 100 "/work/ldvuser/zakharov_benchmarks/bench/cpa/inst/current/envs/linux-3.8-rc1/linux-3.8-rc1/arch/x86/include/asm/bitops.h"
 __inline static void clear_bit(int nr , unsigned long volatile   *addr ) 
 { 
@@ -4850,7 +4850,7 @@ __inline static unsigned long arch_local_save_flags(void)
 #line 825
   __eax = __eax;
 #line 825
-  tmp = __builtin_expect((unsigned long )pv_irq_ops.save_fl.func == (unsigned long )((void *)0),
+  tmp = ldv__builtin_expect((unsigned long )pv_irq_ops.save_fl.func == (unsigned long )((void *)0),
                          0L);
 #line 825
   if (tmp != 0L) {
@@ -4888,7 +4888,7 @@ __inline static long IS_ERR(void const   *ptr )
 
   {
 #line 34
-  tmp = __builtin_expect((unsigned long )ptr > 0xfffffffffffff000UL, 0L);
+  tmp = ldv__builtin_expect((unsigned long )ptr > 0xfffffffffffff000UL, 0L);
 #line 34
   return (tmp);
 }
@@ -5242,7 +5242,7 @@ __inline static struct page *sg_page(struct scatterlist *sg )
 
   {
 #line 98
-  tmp = __builtin_expect(sg->sg_magic != 2271560481UL, 0L);
+  tmp = ldv__builtin_expect(sg->sg_magic != 2271560481UL, 0L);
 #line 98
   if (tmp != 0L) {
 #line 98
@@ -5255,7 +5255,7 @@ __inline static struct page *sg_page(struct scatterlist *sg )
 
   }
 #line 99
-  tmp___0 = __builtin_expect((long )((int )sg->page_link) & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )((int )sg->page_link) & 1L, 0L);
 #line 99
   if (tmp___0 != 0L) {
 #line 99
@@ -5320,7 +5320,7 @@ __inline static struct dma_map_ops *get_dma_ops(struct device *dev )
 
   {
 #line 37
-  tmp = __builtin_expect((unsigned long )dev == (unsigned long )((struct device *)0),
+  tmp = ldv__builtin_expect((unsigned long )dev == (unsigned long )((struct device *)0),
                          0L);
 #line 37
   if (tmp != 0L || (unsigned long )dev->archdata.dma_ops == (unsigned long )((struct dma_map_ops *)0)) {
@@ -5353,7 +5353,7 @@ __inline static dma_addr_t dma_map_single_attrs(struct device *dev , void *ptr ,
 #line 19
   tmp___0 = valid_dma_direction((int )dir);
 #line 19
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
 #line 19
   if (tmp___1 != 0L) {
 #line 19
@@ -5396,7 +5396,7 @@ __inline static void dma_unmap_single_attrs(struct device *dev , dma_addr_t addr
 #line 36
   tmp___0 = valid_dma_direction((int )dir);
 #line 36
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
 #line 36
   if (tmp___1 != 0L) {
 #line 36
@@ -5446,7 +5446,7 @@ __inline static dma_addr_t dma_map_page(struct device *dev , struct page *page ,
 #line 79
   tmp___1 = valid_dma_direction((int )dir);
 #line 79
-  tmp___2 = __builtin_expect(tmp___1 == 0, 0L);
+  tmp___2 = ldv__builtin_expect(tmp___1 == 0, 0L);
 #line 79
   if (tmp___2 != 0L) {
 #line 79
@@ -5482,7 +5482,7 @@ __inline static void dma_unmap_page(struct device *dev , dma_addr_t addr , size_
 #line 91
   tmp___0 = valid_dma_direction((int )dir);
 #line 91
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
 #line 91
   if (tmp___1 != 0L) {
 #line 91
@@ -5639,7 +5639,7 @@ __inline static void dma_free_attrs(struct device *dev , size_t size , void *vad
 #line 166
   __ret_warn_on = tmp___0 != 0;
 #line 166
-  tmp___1 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___1 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 166
   if (tmp___1 != 0L) {
 #line 166
@@ -5649,7 +5649,7 @@ __inline static void dma_free_attrs(struct device *dev , size_t size , void *vad
 
   }
 #line 166
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 171
   debug_dma_free_coherent(dev, size, vaddr, bus);
 #line 172
@@ -5849,14 +5849,14 @@ __inline static unsigned long copy_from_user(void *to , void const   *from , uns
 #line 61
   might_fault();
 #line 62
-  tmp___1 = __builtin_expect(sz == -1, 1L);
+  tmp___1 = ldv__builtin_expect(sz == -1, 1L);
 #line 62
   if (tmp___1 != 0L) {
 #line 63
     n = _copy_from_user(to, from, (unsigned int )n);
   } else {
 #line 62
-    tmp___2 = __builtin_expect((unsigned long )sz >= n, 1L);
+    tmp___2 = ldv__builtin_expect((unsigned long )sz >= n, 1L);
 #line 62
     if (tmp___2 != 0L) {
 #line 63
@@ -5865,7 +5865,7 @@ __inline static unsigned long copy_from_user(void *to , void const   *from , uns
 #line 66
       __ret_warn_on = 1;
 #line 66
-      tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+      tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 66
       if (tmp___0 != 0L) {
 #line 66
@@ -5875,7 +5875,7 @@ __inline static unsigned long copy_from_user(void *to , void const   *from , uns
 
       }
 #line 66
-      __builtin_expect(__ret_warn_on != 0, 0L);
+      ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
   }
 #line 68
@@ -7721,7 +7721,7 @@ static void do_ida_request(struct request_queue *q )
 
   }
 #line 970
-  tmp = __builtin_expect((unsigned int )creq->nr_phys_segments > 32U, 0L);
+  tmp = ldv__builtin_expect((unsigned int )creq->nr_phys_segments > 32U, 0L);
 #line 970
   if (tmp != 0L) {
 #line 970
@@ -10311,7 +10311,7 @@ __inline static void ldv_error(void)
 #line 25
 extern int __VERIFIER_nondet_int(void) ;
 #line 49 "/home/ldvuser/ldv_envgen2/kernel-rules/verifier/rcv.h"
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
   {

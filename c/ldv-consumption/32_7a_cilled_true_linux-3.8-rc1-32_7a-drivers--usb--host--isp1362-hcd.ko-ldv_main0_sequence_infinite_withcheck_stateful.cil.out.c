@@ -4061,7 +4061,7 @@ typedef int ldv_func_ret_type___4;
 #line 1 "<compiler builtins>"
 void __builtin_prefetch(void const   *  , ...) ;
 #line 1
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 #line 127 "/home/mikhail/launches/cpachecker-regression2/launcher-working-dir/ldv-manager-work-dir/inst/current/envs/linux-3.8-rc1/linux-3.8-rc1/arch/x86/include/asm/bitops.h"
 __inline static void __clear_bit(int nr , unsigned long volatile   *addr ) 
 { 
@@ -4218,7 +4218,7 @@ __inline static unsigned long arch_local_save_flags(void)
 #line 825
   __eax = __eax;
 #line 825
-  tmp = __builtin_expect((unsigned long )pv_irq_ops.save_fl.func == (unsigned long )((void *)0),
+  tmp = ldv__builtin_expect((unsigned long )pv_irq_ops.save_fl.func == (unsigned long )((void *)0),
                          0L);
 #line 825
   if (tmp != 0L) {
@@ -4615,7 +4615,7 @@ __inline static __u16 usb_maxpacket(struct usb_device *udev , int pipe , int is_
 #line 1768
     __ret_warn_on = (pipe & 128) != 0;
 #line 1768
-    tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 1768
     if (tmp != 0L) {
 #line 1768
@@ -4624,14 +4624,14 @@ __inline static __u16 usb_maxpacket(struct usb_device *udev , int pipe , int is_
 
     }
 #line 1768
-    __builtin_expect(__ret_warn_on != 0, 0L);
+    ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 1769
     ep = udev->ep_out[epnum];
   } else {
 #line 1771
     __ret_warn_on___0 = (pipe & 128) == 0;
 #line 1771
-    tmp___0 = __builtin_expect(__ret_warn_on___0 != 0, 0L);
+    tmp___0 = ldv__builtin_expect(__ret_warn_on___0 != 0, 0L);
 #line 1771
     if (tmp___0 != 0L) {
 #line 1771
@@ -4640,7 +4640,7 @@ __inline static __u16 usb_maxpacket(struct usb_device *udev , int pipe , int is_
 
     }
 #line 1771
-    __builtin_expect(__ret_warn_on___0 != 0, 0L);
+    ldv__builtin_expect(__ret_warn_on___0 != 0, 0L);
 #line 1772
     ep = udev->ep_in[epnum];
   }
@@ -4962,11 +4962,11 @@ static void isp1362_write_addr(struct isp1362_hcd *isp1362_hcd , unsigned int co
 
   {
 #line 649
-  tmp = __builtin_expect(((unsigned int )reg & 128U) != 0U, 0L);
+  tmp = ldv__builtin_expect(((unsigned int )reg & 128U) != 0U, 0L);
 #line 649
   if (tmp != 0L) {
 #line 649
-    tmp___0 = __builtin_expect(((unsigned int )reg & 1024U) == 0U, 0L);
+    tmp___0 = ldv__builtin_expect(((unsigned int )reg & 1024U) == 0U, 0L);
 #line 649
     if (tmp___0 != 0L) {
 #line 649
@@ -4986,7 +4986,7 @@ static void isp1362_write_addr(struct isp1362_hcd *isp1362_hcd , unsigned int co
 #line 650
   tmp___1 = arch_irqs_disabled_flags(_flags);
 #line 650
-  tmp___2 = __builtin_expect(tmp___1 == 0, 0L);
+  tmp___2 = ldv__builtin_expect(tmp___1 == 0, 0L);
 #line 650
   if (tmp___2 != 0L) {
 #line 650
@@ -5017,7 +5017,7 @@ static void isp1362_write_data16(struct isp1362_hcd *isp1362_hcd , u16 val )
 #line 659
   tmp = arch_irqs_disabled_flags(_flags);
 #line 659
-  tmp___0 = __builtin_expect(tmp == 0, 0L);
+  tmp___0 = ldv__builtin_expect(tmp == 0, 0L);
 #line 659
   if (tmp___0 != 0L) {
 #line 659
@@ -5049,7 +5049,7 @@ static u16 isp1362_read_data16(struct isp1362_hcd *isp1362_hcd )
 #line 668
   tmp = arch_irqs_disabled_flags(_flags);
 #line 668
-  tmp___0 = __builtin_expect(tmp == 0, 0L);
+  tmp___0 = ldv__builtin_expect(tmp == 0, 0L);
 #line 668
   if (tmp___0 != 0L) {
 #line 668
@@ -5080,7 +5080,7 @@ static void isp1362_write_data32(struct isp1362_hcd *isp1362_hcd , u32 val )
 #line 677
   tmp = arch_irqs_disabled_flags(_flags);
 #line 677
-  tmp___0 = __builtin_expect(tmp == 0, 0L);
+  tmp___0 = ldv__builtin_expect(tmp == 0, 0L);
 #line 677
   if (tmp___0 != 0L) {
 #line 677
@@ -5116,7 +5116,7 @@ static u32 isp1362_read_data32(struct isp1362_hcd *isp1362_hcd )
 #line 693
   tmp = arch_irqs_disabled_flags(_flags);
 #line 693
-  tmp___0 = __builtin_expect(tmp == 0, 0L);
+  tmp___0 = ldv__builtin_expect(tmp == 0, 0L);
 #line 693
   if (tmp___0 != 0L) {
 #line 693
@@ -5165,7 +5165,7 @@ static void isp1362_read_fifo(struct isp1362_hcd *isp1362_hcd , void *buf , u16 
 #line 716
   tmp = arch_irqs_disabled_flags(_flags);
 #line 716
-  tmp___0 = __builtin_expect(tmp == 0, 0L);
+  tmp___0 = ldv__builtin_expect(tmp == 0, 0L);
 #line 716
   if (tmp___0 != 0L) {
 #line 716
@@ -5189,7 +5189,7 @@ static void isp1362_read_fifo(struct isp1362_hcd *isp1362_hcd , void *buf , u16 
 
   }
 #line 734
-  tmp___1 = __builtin_expect(((int )len & -2) != 0, 0L);
+  tmp___1 = ldv__builtin_expect(((int )len & -2) != 0, 0L);
 #line 734
   if (tmp___1 != 0L) {
 #line 734
@@ -5283,7 +5283,7 @@ static void isp1362_write_fifo(struct isp1362_hcd *isp1362_hcd , void *buf , u16
 #line 763
   tmp___1 = arch_irqs_disabled_flags(_flags);
 #line 763
-  tmp___2 = __builtin_expect(tmp___1 == 0, 0L);
+  tmp___2 = ldv__builtin_expect(tmp___1 == 0, 0L);
 #line 763
   if (tmp___2 != 0L) {
 #line 763
@@ -5307,7 +5307,7 @@ static void isp1362_write_fifo(struct isp1362_hcd *isp1362_hcd , void *buf , u16
 
   }
 #line 781
-  tmp___3 = __builtin_expect(((int )len & -2) != 0, 0L);
+  tmp___3 = ldv__builtin_expect(((int )len & -2) != 0, 0L);
 #line 781
   if (tmp___3 != 0L) {
 #line 781
@@ -5347,7 +5347,7 @@ static void isp1362_write_diraddr(struct isp1362_hcd *isp1362_hcd , u16 offset ,
 
   {
 #line 926
-  tmp = __builtin_expect((long )offset & 1L, 0L);
+  tmp = ldv__builtin_expect((long )offset & 1L, 0L);
 #line 926
   if (tmp != 0L) {
 #line 926
@@ -5360,7 +5360,7 @@ static void isp1362_write_diraddr(struct isp1362_hcd *isp1362_hcd , u16 offset ,
 
   }
 #line 927
-  tmp___0 = __builtin_expect((unsigned int )offset > 4095U, 0L);
+  tmp___0 = ldv__builtin_expect((unsigned int )offset > 4095U, 0L);
 #line 927
   if (tmp___0 != 0L) {
 #line 927
@@ -5373,7 +5373,7 @@ static void isp1362_write_diraddr(struct isp1362_hcd *isp1362_hcd , u16 offset ,
 
   }
 #line 928
-  tmp___1 = __builtin_expect((unsigned int )len > 4096U, 0L);
+  tmp___1 = ldv__builtin_expect((unsigned int )len > 4096U, 0L);
 #line 928
   if (tmp___1 != 0L) {
 #line 928
@@ -5386,7 +5386,7 @@ static void isp1362_write_diraddr(struct isp1362_hcd *isp1362_hcd , u16 offset ,
 
   }
 #line 929
-  tmp___2 = __builtin_expect((int )offset + (int )len > 4096, 0L);
+  tmp___2 = ldv__builtin_expect((int )offset + (int )len > 4096, 0L);
 #line 929
   if (tmp___2 != 0L) {
 #line 929
@@ -5401,7 +5401,7 @@ static void isp1362_write_diraddr(struct isp1362_hcd *isp1362_hcd , u16 offset ,
 #line 930
   len = (unsigned int )((u16 )((unsigned int )len + 1U)) & 65534U;
 #line 932
-  tmp___3 = __builtin_expect(((unsigned int )ISP1362_REG_HCDMACFG & 256U) != 0U, 0L);
+  tmp___3 = ldv__builtin_expect(((unsigned int )ISP1362_REG_HCDMACFG & 256U) != 0U, 0L);
 #line 932
   if (tmp___3 != 0L) {
 #line 932
@@ -5422,7 +5422,7 @@ static void isp1362_write_diraddr(struct isp1362_hcd *isp1362_hcd , u16 offset ,
 #line 932
   if (((int )__v & -129) != (int )__v) {
 #line 932
-    tmp___4 = __builtin_expect(((unsigned int )ISP1362_REG_HCDMACFG & 256U) != 0U,
+    tmp___4 = ldv__builtin_expect(((unsigned int )ISP1362_REG_HCDMACFG & 256U) != 0U,
                                0L);
 #line 932
     if (tmp___4 != 0L) {
@@ -5443,7 +5443,7 @@ static void isp1362_write_diraddr(struct isp1362_hcd *isp1362_hcd , u16 offset ,
 
   }
 #line 933
-  tmp___5 = __builtin_expect(((unsigned int )ISP1362_REG_HCDIRADDR & 256U) == 0U,
+  tmp___5 = ldv__builtin_expect(((unsigned int )ISP1362_REG_HCDIRADDR & 256U) == 0U,
                              0L);
 #line 933
   if (tmp___5 != 0L) {
@@ -5488,7 +5488,7 @@ static void isp1362_read_buffer(struct isp1362_hcd *isp1362_hcd , void *buf , u1
 
   {
 #line 939
-  tmp = __builtin_expect((long )offset & 1L, 0L);
+  tmp = ldv__builtin_expect((long )offset & 1L, 0L);
 #line 939
   if (tmp != 0L) {
 #line 939
@@ -5517,7 +5517,7 @@ static void isp1362_read_buffer(struct isp1362_hcd *isp1362_hcd , void *buf , u1
 #line 943
     descriptor.flags = 1U;
 #line 943
-    tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 943
     if (tmp___0 != 0L) {
 #line 943
@@ -5530,7 +5530,7 @@ static void isp1362_read_buffer(struct isp1362_hcd *isp1362_hcd , void *buf , u1
 
   }
 #line 946
-  tmp___1 = __builtin_expect(((unsigned int )ISP1362_REG_HCuPINT & 256U) != 0U, 0L);
+  tmp___1 = ldv__builtin_expect(((unsigned int )ISP1362_REG_HCuPINT & 256U) != 0U, 0L);
 #line 946
   if (tmp___1 != 0L) {
 #line 946
@@ -5547,7 +5547,7 @@ static void isp1362_read_buffer(struct isp1362_hcd *isp1362_hcd , void *buf , u1
 #line 946
   isp1362_write_data16(isp1362_hcd, 8);
 #line 947
-  tmp___2 = __builtin_expect(((unsigned int )ISP1362_REG_HCuPINT & 256U) != 0U, 0L);
+  tmp___2 = ldv__builtin_expect(((unsigned int )ISP1362_REG_HCuPINT & 256U) != 0U, 0L);
 #line 947
   if (tmp___2 != 0L) {
 #line 947
@@ -5566,7 +5566,7 @@ static void isp1362_read_buffer(struct isp1362_hcd *isp1362_hcd , void *buf , u1
 #line 947
   __ret_warn_on = ((int )__v & 8) != 0;
 #line 947
-  tmp___3 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___3 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 947
   if (tmp___3 != 0L) {
 #line 947
@@ -5576,13 +5576,13 @@ static void isp1362_read_buffer(struct isp1362_hcd *isp1362_hcd , void *buf , u1
 
   }
 #line 947
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 949
   isp1362_write_addr(isp1362_hcd, ISP1362_REG_HCDIRDATA);
 #line 951
   isp1362_read_fifo(isp1362_hcd, buf, (int )((u16 )len));
 #line 952
-  tmp___4 = __builtin_expect(((unsigned int )ISP1362_REG_HCuPINT & 256U) != 0U, 0L);
+  tmp___4 = ldv__builtin_expect(((unsigned int )ISP1362_REG_HCuPINT & 256U) != 0U, 0L);
 #line 952
   if (tmp___4 != 0L) {
 #line 952
@@ -5601,7 +5601,7 @@ static void isp1362_read_buffer(struct isp1362_hcd *isp1362_hcd , void *buf , u1
 #line 952
   __ret_warn_on___0 = ((int )__v___0 & 8) == 0;
 #line 952
-  tmp___5 = __builtin_expect(__ret_warn_on___0 != 0, 0L);
+  tmp___5 = ldv__builtin_expect(__ret_warn_on___0 != 0, 0L);
 #line 952
   if (tmp___5 != 0L) {
 #line 952
@@ -5611,9 +5611,9 @@ static void isp1362_read_buffer(struct isp1362_hcd *isp1362_hcd , void *buf , u1
 
   }
 #line 952
-  __builtin_expect(__ret_warn_on___0 != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on___0 != 0, 0L);
 #line 953
-  tmp___6 = __builtin_expect(((unsigned int )ISP1362_REG_HCuPINT & 256U) != 0U, 0L);
+  tmp___6 = ldv__builtin_expect(((unsigned int )ISP1362_REG_HCuPINT & 256U) != 0U, 0L);
 #line 953
   if (tmp___6 != 0L) {
 #line 953
@@ -5630,7 +5630,7 @@ static void isp1362_read_buffer(struct isp1362_hcd *isp1362_hcd , void *buf , u1
 #line 953
   isp1362_write_data16(isp1362_hcd, 8);
 #line 954
-  tmp___7 = __builtin_expect(((unsigned int )ISP1362_REG_HCuPINT & 256U) != 0U, 0L);
+  tmp___7 = ldv__builtin_expect(((unsigned int )ISP1362_REG_HCuPINT & 256U) != 0U, 0L);
 #line 954
   if (tmp___7 != 0L) {
 #line 954
@@ -5649,7 +5649,7 @@ static void isp1362_read_buffer(struct isp1362_hcd *isp1362_hcd , void *buf , u1
 #line 954
   __ret_warn_on___1 = ((int )__v___1 & 8) != 0;
 #line 954
-  tmp___8 = __builtin_expect(__ret_warn_on___1 != 0, 0L);
+  tmp___8 = ldv__builtin_expect(__ret_warn_on___1 != 0, 0L);
 #line 954
   if (tmp___8 != 0L) {
 #line 954
@@ -5659,7 +5659,7 @@ static void isp1362_read_buffer(struct isp1362_hcd *isp1362_hcd , void *buf , u1
 
   }
 #line 954
-  __builtin_expect(__ret_warn_on___1 != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on___1 != 0, 0L);
 #line 956
   return;
 }
@@ -5688,7 +5688,7 @@ static void isp1362_write_buffer(struct isp1362_hcd *isp1362_hcd , void *buf , u
 
   {
 #line 959
-  tmp = __builtin_expect((long )offset & 1L, 0L);
+  tmp = ldv__builtin_expect((long )offset & 1L, 0L);
 #line 959
   if (tmp != 0L) {
 #line 959
@@ -5717,7 +5717,7 @@ static void isp1362_write_buffer(struct isp1362_hcd *isp1362_hcd , void *buf , u
 #line 963
     descriptor.flags = 1U;
 #line 963
-    tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 963
     if (tmp___0 != 0L) {
 #line 963
@@ -5730,7 +5730,7 @@ static void isp1362_write_buffer(struct isp1362_hcd *isp1362_hcd , void *buf , u
 
   }
 #line 966
-  tmp___1 = __builtin_expect(((unsigned int )ISP1362_REG_HCuPINT & 256U) != 0U, 0L);
+  tmp___1 = ldv__builtin_expect(((unsigned int )ISP1362_REG_HCuPINT & 256U) != 0U, 0L);
 #line 966
   if (tmp___1 != 0L) {
 #line 966
@@ -5747,7 +5747,7 @@ static void isp1362_write_buffer(struct isp1362_hcd *isp1362_hcd , void *buf , u
 #line 966
   isp1362_write_data16(isp1362_hcd, 8);
 #line 967
-  tmp___2 = __builtin_expect(((unsigned int )ISP1362_REG_HCuPINT & 256U) != 0U, 0L);
+  tmp___2 = ldv__builtin_expect(((unsigned int )ISP1362_REG_HCuPINT & 256U) != 0U, 0L);
 #line 967
   if (tmp___2 != 0L) {
 #line 967
@@ -5766,7 +5766,7 @@ static void isp1362_write_buffer(struct isp1362_hcd *isp1362_hcd , void *buf , u
 #line 967
   __ret_warn_on = ((int )__v & 8) != 0;
 #line 967
-  tmp___3 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___3 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 967
   if (tmp___3 != 0L) {
 #line 967
@@ -5776,13 +5776,13 @@ static void isp1362_write_buffer(struct isp1362_hcd *isp1362_hcd , void *buf , u
 
   }
 #line 967
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 969
   isp1362_write_addr(isp1362_hcd, (unsigned int )ISP1362_REG_HCDIRDATA | 128U);
 #line 970
   isp1362_write_fifo(isp1362_hcd, buf, (int )((u16 )len));
 #line 972
-  tmp___4 = __builtin_expect(((unsigned int )ISP1362_REG_HCuPINT & 256U) != 0U, 0L);
+  tmp___4 = ldv__builtin_expect(((unsigned int )ISP1362_REG_HCuPINT & 256U) != 0U, 0L);
 #line 972
   if (tmp___4 != 0L) {
 #line 972
@@ -5801,7 +5801,7 @@ static void isp1362_write_buffer(struct isp1362_hcd *isp1362_hcd , void *buf , u
 #line 972
   __ret_warn_on___0 = ((int )__v___0 & 8) == 0;
 #line 972
-  tmp___5 = __builtin_expect(__ret_warn_on___0 != 0, 0L);
+  tmp___5 = ldv__builtin_expect(__ret_warn_on___0 != 0, 0L);
 #line 972
   if (tmp___5 != 0L) {
 #line 972
@@ -5811,9 +5811,9 @@ static void isp1362_write_buffer(struct isp1362_hcd *isp1362_hcd , void *buf , u
 
   }
 #line 972
-  __builtin_expect(__ret_warn_on___0 != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on___0 != 0, 0L);
 #line 973
-  tmp___6 = __builtin_expect(((unsigned int )ISP1362_REG_HCuPINT & 256U) != 0U, 0L);
+  tmp___6 = ldv__builtin_expect(((unsigned int )ISP1362_REG_HCuPINT & 256U) != 0U, 0L);
 #line 973
   if (tmp___6 != 0L) {
 #line 973
@@ -5830,7 +5830,7 @@ static void isp1362_write_buffer(struct isp1362_hcd *isp1362_hcd , void *buf , u
 #line 973
   isp1362_write_data16(isp1362_hcd, 8);
 #line 974
-  tmp___7 = __builtin_expect(((unsigned int )ISP1362_REG_HCuPINT & 256U) != 0U, 0L);
+  tmp___7 = ldv__builtin_expect(((unsigned int )ISP1362_REG_HCuPINT & 256U) != 0U, 0L);
 #line 974
   if (tmp___7 != 0L) {
 #line 974
@@ -5849,7 +5849,7 @@ static void isp1362_write_buffer(struct isp1362_hcd *isp1362_hcd , void *buf , u
 #line 974
   __ret_warn_on___1 = ((int )__v___1 & 8) != 0;
 #line 974
-  tmp___8 = __builtin_expect(__ret_warn_on___1 != 0, 0L);
+  tmp___8 = ldv__builtin_expect(__ret_warn_on___1 != 0, 0L);
 #line 974
   if (tmp___8 != 0L) {
 #line 974
@@ -5859,7 +5859,7 @@ static void isp1362_write_buffer(struct isp1362_hcd *isp1362_hcd , void *buf , u
 
   }
 #line 974
-  __builtin_expect(__ret_warn_on___1 != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on___1 != 0, 0L);
 #line 976
   return;
 }
@@ -5891,7 +5891,7 @@ __inline static void isp1362_enable_int(struct isp1362_hcd *isp1362_hcd , u16 ma
 #line 158
   if (((int )mask & ~ ((int )isp1362_hcd->irqenb)) != 0) {
 #line 159
-    tmp = __builtin_expect(((unsigned int )ISP1362_REG_HCuPINT & 256U) != 0U, 0L);
+    tmp = ldv__builtin_expect(((unsigned int )ISP1362_REG_HCuPINT & 256U) != 0U, 0L);
 #line 159
     if (tmp != 0L) {
 #line 159
@@ -5920,7 +5920,7 @@ __inline static void isp1362_enable_int(struct isp1362_hcd *isp1362_hcd , u16 ma
 
   }
 #line 163
-  tmp___0 = __builtin_expect(((unsigned int )ISP1362_REG_HCuPINTENB & 256U) != 0U,
+  tmp___0 = ldv__builtin_expect(((unsigned int )ISP1362_REG_HCuPINTENB & 256U) != 0U,
                              0L);
 #line 163
   if (tmp___0 != 0L) {
@@ -5991,7 +5991,7 @@ __inline static struct isp1362_ep_queue *get_ptd_queue(struct isp1362_hcd *isp13
 #line 184
       descriptor.flags = 1U;
 #line 184
-      tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+      tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 184
       if (tmp != 0L) {
 #line 184
@@ -6046,7 +6046,7 @@ __inline static int get_ptd_offset(struct isp1362_ep_queue *epq , u8 index )
 #line 201
     descriptor.flags = 1U;
 #line 201
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 201
     if (tmp != 0L) {
 #line 201
@@ -6120,7 +6120,7 @@ static int claim_ptd_buffers(struct isp1362_ep_queue *epq , struct isp1362_ep *e
 #line 224
   num_ptds = (int )((unsigned int )(((unsigned long )len + 7UL) / (unsigned long )epq->blk_size) + 1U);
 #line 227
-  tmp = __builtin_expect((int )epq->buf_size < (int )len, 0L);
+  tmp = ldv__builtin_expect((int )epq->buf_size < (int )len, 0L);
 #line 227
   if (tmp != 0L) {
 #line 227
@@ -6149,7 +6149,7 @@ static int claim_ptd_buffers(struct isp1362_ep_queue *epq , struct isp1362_ep *e
 
   }
 #line 235
-  tmp___0 = __builtin_expect(ep->num_ptds != 0, 0L);
+  tmp___0 = ldv__builtin_expect(ep->num_ptds != 0, 0L);
 #line 235
   if (tmp___0 != 0L) {
 #line 235
@@ -6188,7 +6188,7 @@ static int claim_ptd_buffers(struct isp1362_ep_queue *epq , struct isp1362_ep *e
 #line 242
     descriptor.flags = 1U;
 #line 242
-    tmp___2 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___2 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 242
     if (tmp___2 != 0L) {
 #line 242
@@ -6205,7 +6205,7 @@ static int claim_ptd_buffers(struct isp1362_ep_queue *epq , struct isp1362_ep *e
 #line 245
   __ret_warn_on = ptd_offset < 0;
 #line 245
-  tmp___3 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___3 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 245
   if (tmp___3 != 0L) {
 #line 245
@@ -6215,7 +6215,7 @@ static int claim_ptd_buffers(struct isp1362_ep_queue *epq , struct isp1362_ep *e
 
   }
 #line 245
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 246
   ep->ptd_offset = (s16 )ptd_offset;
 #line 247
@@ -6223,7 +6223,7 @@ static int claim_ptd_buffers(struct isp1362_ep_queue *epq , struct isp1362_ep *e
 #line 248
   epq->buf_avail = (int )epq->buf_avail - (int )((u8 )num_ptds);
 #line 249
-  tmp___4 = __builtin_expect((int )epq->buf_avail > (int )epq->buf_count, 0L);
+  tmp___4 = ldv__builtin_expect((int )epq->buf_avail > (int )epq->buf_count, 0L);
 #line 249
   if (tmp___4 != 0L) {
 #line 249
@@ -6254,7 +6254,7 @@ static int claim_ptd_buffers(struct isp1362_ep_queue *epq , struct isp1362_ep *e
 #line 252
     descriptor___0.flags = 1U;
 #line 252
-    tmp___5 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___5 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 252
     if (tmp___5 != 0L) {
 #line 252
@@ -6298,7 +6298,7 @@ __inline static void release_ptd_buffers(struct isp1362_ep_queue *epq , struct i
 
   }
 #line 268
-  tmp = __builtin_expect((int )epq->buf_count < last, 0L);
+  tmp = ldv__builtin_expect((int )epq->buf_count < last, 0L);
 #line 268
   if (tmp != 0L) {
 #line 268
@@ -6319,7 +6319,7 @@ __inline static void release_ptd_buffers(struct isp1362_ep_queue *epq , struct i
 #line 273
   epq->ptd_count = (u8 )((int )epq->ptd_count - 1);
 #line 275
-  tmp___0 = __builtin_expect((int )epq->buf_avail > (int )epq->buf_count, 0L);
+  tmp___0 = ldv__builtin_expect((int )epq->buf_avail > (int )epq->buf_count, 0L);
 #line 275
   if (tmp___0 != 0L) {
 #line 275
@@ -6332,7 +6332,7 @@ __inline static void release_ptd_buffers(struct isp1362_ep_queue *epq , struct i
 
   }
 #line 276
-  tmp___1 = __builtin_expect((int )epq->ptd_count > (int )epq->buf_count, 0L);
+  tmp___1 = ldv__builtin_expect((int )epq->ptd_count > (int )epq->buf_count, 0L);
 #line 276
   if (tmp___1 != 0L) {
 #line 276
@@ -6359,7 +6359,7 @@ __inline static void release_ptd_buffers(struct isp1362_ep_queue *epq , struct i
 #line 278
     descriptor.flags = 1U;
 #line 278
-    tmp___2 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___2 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 278
     if (tmp___2 != 0L) {
 #line 278
@@ -6387,7 +6387,7 @@ __inline static void release_ptd_buffers(struct isp1362_ep_queue *epq , struct i
 #line 281
     descriptor___0.flags = 1U;
 #line 281
-    tmp___3 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___3 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 281
     if (tmp___3 != 0L) {
 #line 281
@@ -6459,7 +6459,7 @@ static void prepare_ptd(struct isp1362_hcd *isp1362_hcd , struct urb *urb , stru
 #line 304
     descriptor.flags = 1U;
 #line 304
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 304
     if (tmp != 0L) {
 #line 304
@@ -6520,7 +6520,7 @@ static void prepare_ptd(struct isp1362_hcd *isp1362_hcd , struct urb *urb , stru
 #line 321
     descriptor___0.flags = 1U;
 #line 321
-    tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 321
     if (tmp___0 != 0L) {
 #line 321
@@ -6582,7 +6582,7 @@ static void prepare_ptd(struct isp1362_hcd *isp1362_hcd , struct urb *urb , stru
 #line 336
     descriptor___1.flags = 1U;
 #line 336
-    tmp___1 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 336
     if (tmp___1 != 0L) {
 #line 336
@@ -6618,7 +6618,7 @@ static void prepare_ptd(struct isp1362_hcd *isp1362_hcd , struct urb *urb , stru
 #line 343
     descriptor___2.flags = 1U;
 #line 343
-    tmp___2 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+    tmp___2 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
 #line 343
     if (tmp___2 != 0L) {
 #line 343
@@ -6655,7 +6655,7 @@ static void prepare_ptd(struct isp1362_hcd *isp1362_hcd , struct urb *urb , stru
 #line 351
     descriptor___3.flags = 1U;
 #line 351
-    tmp___3 = __builtin_expect((long )descriptor___3.flags & 1L, 0L);
+    tmp___3 = ldv__builtin_expect((long )descriptor___3.flags & 1L, 0L);
 #line 351
     if (tmp___3 != 0L) {
 #line 351
@@ -6743,7 +6743,7 @@ static void prepare_ptd(struct isp1362_hcd *isp1362_hcd , struct urb *urb , stru
 #line 376
     descriptor___4.flags = 1U;
 #line 376
-    tmp___6 = __builtin_expect((long )descriptor___4.flags & 1L, 0L);
+    tmp___6 = ldv__builtin_expect((long )descriptor___4.flags & 1L, 0L);
 #line 376
     if (tmp___6 != 0L) {
 #line 376
@@ -6772,7 +6772,7 @@ static void isp1362_write_ptd(struct isp1362_hcd *isp1362_hcd , struct isp1362_e
 #line 383
   len = ((int )ptd->len & 3072) >> 10 != 2 ? (int )ep->length : 0;
 #line 385
-  tmp = __builtin_expect((int )ep->ptd_offset < 0, 0L);
+  tmp = ldv__builtin_expect((int )ep->ptd_offset < 0, 0L);
 #line 385
   if (tmp != 0L) {
 #line 385
@@ -6822,7 +6822,7 @@ static void isp1362_read_ptd(struct isp1362_hcd *isp1362_hcd , struct isp1362_ep
 #line 403
   __ret_warn_on = tmp != 0;
 #line 403
-  tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 403
   if (tmp___0 != 0L) {
 #line 403
@@ -6832,9 +6832,9 @@ static void isp1362_read_ptd(struct isp1362_hcd *isp1362_hcd , struct isp1362_ep
 
   }
 #line 403
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 404
-  tmp___1 = __builtin_expect((int )ep->ptd_offset < 0, 0L);
+  tmp___1 = ldv__builtin_expect((int )ep->ptd_offset < 0, 0L);
 #line 404
   if (tmp___1 != 0L) {
 #line 404
@@ -6863,7 +6863,7 @@ static void isp1362_read_ptd(struct isp1362_hcd *isp1362_hcd , struct isp1362_ep
 #line 407
     descriptor.flags = 1U;
 #line 407
-    tmp___2 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___2 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 407
     if (tmp___2 != 0L) {
 #line 407
@@ -6897,7 +6897,7 @@ static void isp1362_read_ptd(struct isp1362_hcd *isp1362_hcd , struct isp1362_ep
 
   }
 #line 418
-  tmp___3 = __builtin_expect((int )ep->length < act_len, 0L);
+  tmp___3 = ldv__builtin_expect((int )ep->length < act_len, 0L);
 #line 418
   if (tmp___3 != 0L) {
 #line 418
@@ -6967,7 +6967,7 @@ static void remove_ptd(struct isp1362_hcd *isp1362_hcd , struct isp1362_ep *ep )
 #line 440
     descriptor.flags = 1U;
 #line 440
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 440
     if (tmp != 0L) {
 #line 440
@@ -6980,7 +6980,7 @@ static void remove_ptd(struct isp1362_hcd *isp1362_hcd , struct isp1362_ep *ep )
 
   }
 #line 441
-  tmp___0 = __builtin_expect((int )ep->ptd_offset < 0, 0L);
+  tmp___0 = ldv__builtin_expect((int )ep->ptd_offset < 0, 0L);
 #line 441
   if (tmp___0 != 0L) {
 #line 441
@@ -6995,7 +6995,7 @@ static void remove_ptd(struct isp1362_hcd *isp1362_hcd , struct isp1362_ep *ep )
 #line 443
   epq = get_ptd_queue(isp1362_hcd, (int )((u16 )ep->ptd_offset));
 #line 444
-  tmp___1 = __builtin_expect((unsigned long )epq == (unsigned long )((struct isp1362_ep_queue *)0),
+  tmp___1 = ldv__builtin_expect((unsigned long )epq == (unsigned long )((struct isp1362_ep_queue *)0),
                              0L);
 #line 444
   if (tmp___1 != 0L) {
@@ -7013,7 +7013,7 @@ static void remove_ptd(struct isp1362_hcd *isp1362_hcd , struct isp1362_ep *ep )
 #line 447
   __ret_warn_on = tmp___2 == 0;
 #line 447
-  tmp___3 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___3 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 447
   if (tmp___3 != 0L) {
 #line 447
@@ -7023,7 +7023,7 @@ static void remove_ptd(struct isp1362_hcd *isp1362_hcd , struct isp1362_ep *ep )
 
   }
 #line 447
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 448
   list_add_tail(& ep->remove_list, & isp1362_hcd->remove_list);
 #line 450
@@ -7052,7 +7052,7 @@ static void remove_ptd(struct isp1362_hcd *isp1362_hcd , struct isp1362_ep *ep )
 #line 457
     descriptor___0.flags = 1U;
 #line 457
-    tmp___4 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___4 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 457
     if (tmp___4 != 0L) {
 #line 457
@@ -7084,11 +7084,11 @@ static void remove_ptd(struct isp1362_hcd *isp1362_hcd , struct isp1362_ep *ep )
 #line 463
       descriptor___1.flags = 1U;
 #line 463
-      tmp___6 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+      tmp___6 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 463
       if (tmp___6 != 0L) {
 #line 463
-        tmp___5 = __builtin_expect(((unsigned int )ISP1362_REG_HCATLSKIP & 256U) == 0U,
+        tmp___5 = ldv__builtin_expect(((unsigned int )ISP1362_REG_HCATLSKIP & 256U) == 0U,
                                    0L);
 #line 463
         if (tmp___5 != 0L) {
@@ -7115,7 +7115,7 @@ static void remove_ptd(struct isp1362_hcd *isp1362_hcd , struct isp1362_ep *ep )
 
     }
 #line 465
-    tmp___7 = __builtin_expect(((unsigned int )ISP1362_REG_HCATLSKIP & 256U) == 0U,
+    tmp___7 = ldv__builtin_expect(((unsigned int )ISP1362_REG_HCATLSKIP & 256U) == 0U,
                                0L);
 #line 465
     if (tmp___7 != 0L) {
@@ -7135,7 +7135,7 @@ static void remove_ptd(struct isp1362_hcd *isp1362_hcd , struct isp1362_ep *ep )
 #line 466
     if (epq->skip_map == 0xffffffffffffffffUL) {
 #line 467
-      tmp___8 = __builtin_expect(((unsigned int )ISP1362_REG_HCBUFSTAT & 256U) != 0U,
+      tmp___8 = ldv__builtin_expect(((unsigned int )ISP1362_REG_HCBUFSTAT & 256U) != 0U,
                                  0L);
 #line 467
       if (tmp___8 != 0L) {
@@ -7157,7 +7157,7 @@ static void remove_ptd(struct isp1362_hcd *isp1362_hcd , struct isp1362_ep *ep )
 #line 467
       if (((int )__v___0 & -9) != (int )__v___0) {
 #line 467
-        tmp___9 = __builtin_expect(((unsigned int )ISP1362_REG_HCBUFSTAT & 256U) != 0U,
+        tmp___9 = ldv__builtin_expect(((unsigned int )ISP1362_REG_HCBUFSTAT & 256U) != 0U,
                                    0L);
 #line 467
         if (tmp___9 != 0L) {
@@ -7198,11 +7198,11 @@ static void remove_ptd(struct isp1362_hcd *isp1362_hcd , struct isp1362_ep *ep )
 #line 469
       descriptor___2.flags = 1U;
 #line 469
-      tmp___11 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+      tmp___11 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
 #line 469
       if (tmp___11 != 0L) {
 #line 469
-        tmp___10 = __builtin_expect(((unsigned int )ISP1362_REG_HCINTLSKIP & 256U) == 0U,
+        tmp___10 = ldv__builtin_expect(((unsigned int )ISP1362_REG_HCINTLSKIP & 256U) == 0U,
                                     0L);
 #line 469
         if (tmp___10 != 0L) {
@@ -7229,7 +7229,7 @@ static void remove_ptd(struct isp1362_hcd *isp1362_hcd , struct isp1362_ep *ep )
 
     }
 #line 471
-    tmp___12 = __builtin_expect(((unsigned int )ISP1362_REG_HCINTLSKIP & 256U) == 0U,
+    tmp___12 = ldv__builtin_expect(((unsigned int )ISP1362_REG_HCINTLSKIP & 256U) == 0U,
                                 0L);
 #line 471
     if (tmp___12 != 0L) {
@@ -7249,7 +7249,7 @@ static void remove_ptd(struct isp1362_hcd *isp1362_hcd , struct isp1362_ep *ep )
 #line 472
     if (epq->skip_map == 0xffffffffffffffffUL) {
 #line 473
-      tmp___13 = __builtin_expect(((unsigned int )ISP1362_REG_HCBUFSTAT & 256U) != 0U,
+      tmp___13 = ldv__builtin_expect(((unsigned int )ISP1362_REG_HCBUFSTAT & 256U) != 0U,
                                   0L);
 #line 473
       if (tmp___13 != 0L) {
@@ -7271,7 +7271,7 @@ static void remove_ptd(struct isp1362_hcd *isp1362_hcd , struct isp1362_ep *ep )
 #line 473
       if (((int )__v___3 & -5) != (int )__v___3) {
 #line 473
-        tmp___14 = __builtin_expect(((unsigned int )ISP1362_REG_HCBUFSTAT & 256U) != 0U,
+        tmp___14 = ldv__builtin_expect(((unsigned int )ISP1362_REG_HCBUFSTAT & 256U) != 0U,
                                     0L);
 #line 473
         if (tmp___14 != 0L) {
@@ -7373,7 +7373,7 @@ static void finish_request(struct isp1362_hcd *isp1362_hcd , struct isp1362_ep *
 #line 523
       descriptor.flags = 1U;
 #line 523
-      tmp___3 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+      tmp___3 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 523
       if (tmp___3 != 0L) {
 #line 523
@@ -7446,7 +7446,7 @@ static void postproc_ep(struct isp1362_hcd *isp1362_hcd , struct isp1362_ep *ep 
 #line 537
   tmp = list_empty((struct list_head  const  *)(& (ep->hep)->urb_list));
 #line 537
-  tmp___0 = __builtin_expect(tmp != 0, 0L);
+  tmp___0 = ldv__builtin_expect(tmp != 0, 0L);
 #line 537
   if (tmp___0 != 0L) {
 #line 537
@@ -7479,7 +7479,7 @@ static void postproc_ep(struct isp1362_hcd *isp1362_hcd , struct isp1362_ep *ep 
 #line 545
     descriptor.flags = 1U;
 #line 545
-    tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 545
     if (tmp___1 != 0L) {
 #line 545
@@ -7529,7 +7529,7 @@ static void postproc_ep(struct isp1362_hcd *isp1362_hcd , struct isp1362_ep *ep 
 #line 567
         descriptor___0.flags = 1U;
 #line 567
-        tmp___2 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+        tmp___2 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 567
         if (tmp___2 != 0L) {
 #line 567
@@ -7562,7 +7562,7 @@ static void postproc_ep(struct isp1362_hcd *isp1362_hcd , struct isp1362_ep *ep 
 #line 573
         descriptor___1.flags = 1U;
 #line 573
-        tmp___3 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+        tmp___3 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 573
         if (tmp___3 != 0L) {
 #line 573
@@ -7583,7 +7583,7 @@ static void postproc_ep(struct isp1362_hcd *isp1362_hcd , struct isp1362_ep *ep 
 #line 583
         ep->nextpid = 210U;
 #line 584
-        tmp___4 = __builtin_expect(urb->actual_length > urb->transfer_buffer_length,
+        tmp___4 = ldv__builtin_expect(urb->actual_length > urb->transfer_buffer_length,
                                    0L);
 #line 584
         if (tmp___4 != 0L) {
@@ -7638,7 +7638,7 @@ static void postproc_ep(struct isp1362_hcd *isp1362_hcd , struct isp1362_ep *ep 
 #line 600
         descriptor___2.flags = 1U;
 #line 600
-        tmp___5 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+        tmp___5 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
 #line 600
         if (tmp___5 != 0L) {
 #line 600
@@ -7670,7 +7670,7 @@ static void postproc_ep(struct isp1362_hcd *isp1362_hcd , struct isp1362_ep *ep 
 
   }
 #line 612
-  tmp___6 = __builtin_expect(((int )ptd->count & 1023) != (int )ep->length, 0L);
+  tmp___6 = ldv__builtin_expect(((int )ptd->count & 1023) != (int )ep->length, 0L);
 #line 612
   if (tmp___6 != 0L) {
 #line 612
@@ -7685,7 +7685,7 @@ static void postproc_ep(struct isp1362_hcd *isp1362_hcd , struct isp1362_ep *ep 
 #line 613
   urb->actual_length = urb->actual_length + (u32 )ep->length;
 #line 614
-  tmp___7 = __builtin_expect(urb->actual_length > urb->transfer_buffer_length, 0L);
+  tmp___7 = ldv__builtin_expect(urb->actual_length > urb->transfer_buffer_length, 0L);
 #line 614
   if (tmp___7 != 0L) {
 #line 614
@@ -7716,7 +7716,7 @@ static void postproc_ep(struct isp1362_hcd *isp1362_hcd , struct isp1362_ep *ep 
 #line 617
       descriptor___3.flags = 1U;
 #line 617
-      tmp___8 = __builtin_expect((long )descriptor___3.flags & 1L, 0L);
+      tmp___8 = ldv__builtin_expect((long )descriptor___3.flags & 1L, 0L);
 #line 617
       if (tmp___8 != 0L) {
 #line 617
@@ -7746,7 +7746,7 @@ static void postproc_ep(struct isp1362_hcd *isp1362_hcd , struct isp1362_ep *ep 
 #line 620
         descriptor___4.flags = 1U;
 #line 620
-        tmp___9 = __builtin_expect((long )descriptor___4.flags & 1L, 0L);
+        tmp___9 = ldv__builtin_expect((long )descriptor___4.flags & 1L, 0L);
 #line 620
         if (tmp___9 != 0L) {
 #line 620
@@ -7780,7 +7780,7 @@ static void postproc_ep(struct isp1362_hcd *isp1362_hcd , struct isp1362_ep *ep 
 #line 628
         descriptor___5.flags = 1U;
 #line 628
-        tmp___10 = __builtin_expect((long )descriptor___5.flags & 1L, 0L);
+        tmp___10 = ldv__builtin_expect((long )descriptor___5.flags & 1L, 0L);
 #line 628
         if (tmp___10 != 0L) {
 #line 628
@@ -7805,7 +7805,7 @@ static void postproc_ep(struct isp1362_hcd *isp1362_hcd , struct isp1362_ep *ep 
 #line 636
   len = (unsigned int )ptd->count & 1023U;
 #line 637
-  tmp___11 = __builtin_expect((int )ep->length < (int )len, 0L);
+  tmp___11 = ldv__builtin_expect((int )ep->length < (int )len, 0L);
 #line 637
   if (tmp___11 != 0L) {
 #line 637
@@ -7820,7 +7820,7 @@ static void postproc_ep(struct isp1362_hcd *isp1362_hcd , struct isp1362_ep *ep 
 #line 638
   urb->actual_length = urb->actual_length + (u32 )len;
 #line 639
-  tmp___12 = __builtin_expect(urb->actual_length > urb->transfer_buffer_length, 0L);
+  tmp___12 = ldv__builtin_expect(urb->actual_length > urb->transfer_buffer_length, 0L);
 #line 639
   if (tmp___12 != 0L) {
 #line 639
@@ -7851,7 +7851,7 @@ static void postproc_ep(struct isp1362_hcd *isp1362_hcd , struct isp1362_ep *ep 
 #line 644
       descriptor___6.flags = 1U;
 #line 644
-      tmp___13 = __builtin_expect((long )descriptor___6.flags & 1L, 0L);
+      tmp___13 = ldv__builtin_expect((long )descriptor___6.flags & 1L, 0L);
 #line 644
       if (tmp___13 != 0L) {
 #line 644
@@ -7881,7 +7881,7 @@ static void postproc_ep(struct isp1362_hcd *isp1362_hcd , struct isp1362_ep *ep 
 #line 647
         descriptor___7.flags = 1U;
 #line 647
-        tmp___14 = __builtin_expect((long )descriptor___7.flags & 1L, 0L);
+        tmp___14 = ldv__builtin_expect((long )descriptor___7.flags & 1L, 0L);
 #line 647
         if (tmp___14 != 0L) {
 #line 647
@@ -7913,7 +7913,7 @@ static void postproc_ep(struct isp1362_hcd *isp1362_hcd , struct isp1362_ep *ep 
 #line 653
         descriptor___8.flags = 1U;
 #line 653
-        tmp___15 = __builtin_expect((long )descriptor___8.flags & 1L, 0L);
+        tmp___15 = ldv__builtin_expect((long )descriptor___8.flags & 1L, 0L);
 #line 653
         if (tmp___15 != 0L) {
 #line 653
@@ -7968,7 +7968,7 @@ static void postproc_ep(struct isp1362_hcd *isp1362_hcd , struct isp1362_ep *ep 
 #line 671
     descriptor___9.flags = 1U;
 #line 671
-    tmp___16 = __builtin_expect((long )descriptor___9.flags & 1L, 0L);
+    tmp___16 = ldv__builtin_expect((long )descriptor___9.flags & 1L, 0L);
 #line 671
     if (tmp___16 != 0L) {
 #line 671
@@ -7983,7 +7983,7 @@ static void postproc_ep(struct isp1362_hcd *isp1362_hcd , struct isp1362_ep *ep 
 #line 673
   __ret_warn_on = urbstat != -115;
 #line 673
-  tmp___17 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___17 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 673
   if (tmp___17 != 0L) {
 #line 673
@@ -7993,7 +7993,7 @@ static void postproc_ep(struct isp1362_hcd *isp1362_hcd , struct isp1362_ep *ep 
 
   }
 #line 673
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 674
   urbstat = 0;
 #line 675
@@ -8027,7 +8027,7 @@ static void postproc_ep(struct isp1362_hcd *isp1362_hcd , struct isp1362_ep *ep 
 #line 683
       descriptor___10.flags = 1U;
 #line 683
-      tmp___18 = __builtin_expect((long )descriptor___10.flags & 1L, 0L);
+      tmp___18 = ldv__builtin_expect((long )descriptor___10.flags & 1L, 0L);
 #line 683
       if (tmp___18 != 0L) {
 #line 683
@@ -8100,7 +8100,7 @@ static void finish_unlinks(struct isp1362_hcd *isp1362_hcd )
 #line 697
   index = ep->ptd_index;
 #line 699
-  tmp___1 = __builtin_expect((unsigned long )epq == (unsigned long )((struct isp1362_ep_queue *)0),
+  tmp___1 = ldv__builtin_expect((unsigned long )epq == (unsigned long )((struct isp1362_ep_queue *)0),
                              0L);
 #line 699
   if (tmp___1 != 0L) {
@@ -8130,7 +8130,7 @@ static void finish_unlinks(struct isp1362_hcd *isp1362_hcd )
 #line 701
       descriptor.flags = 1U;
 #line 701
-      tmp___2 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+      tmp___2 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 701
       if (tmp___2 != 0L) {
 #line 701
@@ -8143,7 +8143,7 @@ static void finish_unlinks(struct isp1362_hcd *isp1362_hcd )
 
     }
 #line 702
-    tmp___3 = __builtin_expect(ep->num_ptds == 0, 0L);
+    tmp___3 = ldv__builtin_expect(ep->num_ptds == 0, 0L);
 #line 702
     if (tmp___3 != 0L) {
 #line 702
@@ -8167,7 +8167,7 @@ static void finish_unlinks(struct isp1362_hcd *isp1362_hcd )
 #line 706
     tmp___4 = list_empty((struct list_head  const  *)(& (ep->hep)->urb_list));
 #line 706
-    tmp___5 = __builtin_expect(tmp___4 != 0, 0L);
+    tmp___5 = ldv__builtin_expect(tmp___4 != 0, 0L);
 #line 706
     if (tmp___5 != 0L) {
 #line 706
@@ -8198,7 +8198,7 @@ static void finish_unlinks(struct isp1362_hcd *isp1362_hcd )
 #line 708
       descriptor___0.flags = 1U;
 #line 708
-      tmp___6 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+      tmp___6 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 708
       if (tmp___6 != 0L) {
 #line 708
@@ -8220,7 +8220,7 @@ static void finish_unlinks(struct isp1362_hcd *isp1362_hcd )
 #line 712
   __ret_warn_on = tmp___8 != 0;
 #line 712
-  tmp___9 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___9 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 712
   if (tmp___9 != 0L) {
 #line 712
@@ -8230,7 +8230,7 @@ static void finish_unlinks(struct isp1362_hcd *isp1362_hcd )
 
   }
 #line 712
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 713
   tmp___11 = list_empty((struct list_head  const  *)(& ep->active));
 #line 713
@@ -8252,7 +8252,7 @@ static void finish_unlinks(struct isp1362_hcd *isp1362_hcd )
 #line 715
       descriptor___1.flags = 1U;
 #line 715
-      tmp___10 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+      tmp___10 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 715
       if (tmp___10 != 0L) {
 #line 715
@@ -8284,7 +8284,7 @@ static void finish_unlinks(struct isp1362_hcd *isp1362_hcd )
 #line 718
     descriptor___2.flags = 1U;
 #line 718
-    tmp___12 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+    tmp___12 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
 #line 718
     if (tmp___12 != 0L) {
 #line 718
@@ -8326,7 +8326,7 @@ static void finish_unlinks(struct isp1362_hcd *isp1362_hcd )
 #line 720
     descriptor___3.flags = 1U;
 #line 720
-    tmp___13 = __builtin_expect((long )descriptor___3.flags & 1L, 0L);
+    tmp___13 = ldv__builtin_expect((long )descriptor___3.flags & 1L, 0L);
 #line 720
     if (tmp___13 != 0L) {
 #line 720
@@ -8357,7 +8357,7 @@ __inline static void enable_atl_transfers(struct isp1362_hcd *isp1362_hcd , int 
 #line 726
     if ((int )isp1362_hcd->atl_queue.ptd_count > count) {
 #line 727
-      tmp = __builtin_expect(((unsigned int )ISP1362_REG_HCATLDTC & 256U) != 0U, 0L);
+      tmp = ldv__builtin_expect(((unsigned int )ISP1362_REG_HCATLDTC & 256U) != 0U, 0L);
 #line 727
       if (tmp != 0L) {
 #line 727
@@ -8379,7 +8379,7 @@ __inline static void enable_atl_transfers(struct isp1362_hcd *isp1362_hcd , int 
 #line 728
     isp1362_enable_int(isp1362_hcd, 256);
 #line 729
-    tmp___0 = __builtin_expect(((unsigned int )ISP1362_REG_HCATLSKIP & 256U) == 0U,
+    tmp___0 = ldv__builtin_expect(((unsigned int )ISP1362_REG_HCATLSKIP & 256U) == 0U,
                                0L);
 #line 729
     if (tmp___0 != 0L) {
@@ -8397,7 +8397,7 @@ __inline static void enable_atl_transfers(struct isp1362_hcd *isp1362_hcd , int 
 #line 729
     isp1362_write_data32(isp1362_hcd, (unsigned int )isp1362_hcd->atl_queue.skip_map);
 #line 730
-    tmp___1 = __builtin_expect(((unsigned int )ISP1362_REG_HCBUFSTAT & 256U) != 0U,
+    tmp___1 = ldv__builtin_expect(((unsigned int )ISP1362_REG_HCBUFSTAT & 256U) != 0U,
                                0L);
 #line 730
     if (tmp___1 != 0L) {
@@ -8419,7 +8419,7 @@ __inline static void enable_atl_transfers(struct isp1362_hcd *isp1362_hcd , int 
 #line 730
     if (((unsigned int )__v | 8U) != (unsigned int )__v) {
 #line 730
-      tmp___2 = __builtin_expect(((unsigned int )ISP1362_REG_HCBUFSTAT & 256U) != 0U,
+      tmp___2 = ldv__builtin_expect(((unsigned int )ISP1362_REG_HCBUFSTAT & 256U) != 0U,
                                  0L);
 #line 730
       if (tmp___2 != 0L) {
@@ -8460,7 +8460,7 @@ __inline static void enable_intl_transfers(struct isp1362_hcd *isp1362_hcd )
 #line 737
   isp1362_enable_int(isp1362_hcd, 128);
 #line 738
-  tmp = __builtin_expect(((unsigned int )ISP1362_REG_HCBUFSTAT & 256U) != 0U, 0L);
+  tmp = ldv__builtin_expect(((unsigned int )ISP1362_REG_HCBUFSTAT & 256U) != 0U, 0L);
 #line 738
   if (tmp != 0L) {
 #line 738
@@ -8481,7 +8481,7 @@ __inline static void enable_intl_transfers(struct isp1362_hcd *isp1362_hcd )
 #line 738
   if (((unsigned int )__v | 4U) != (unsigned int )__v) {
 #line 738
-    tmp___0 = __builtin_expect(((unsigned int )ISP1362_REG_HCBUFSTAT & 256U) != 0U,
+    tmp___0 = ldv__builtin_expect(((unsigned int )ISP1362_REG_HCBUFSTAT & 256U) != 0U,
                                0L);
 #line 738
     if (tmp___0 != 0L) {
@@ -8502,7 +8502,7 @@ __inline static void enable_intl_transfers(struct isp1362_hcd *isp1362_hcd )
 
   }
 #line 739
-  tmp___1 = __builtin_expect(((unsigned int )ISP1362_REG_HCINTLSKIP & 256U) == 0U,
+  tmp___1 = ldv__builtin_expect(((unsigned int )ISP1362_REG_HCINTLSKIP & 256U) == 0U,
                              0L);
 #line 739
   if (tmp___1 != 0L) {
@@ -8535,7 +8535,7 @@ __inline static void enable_istl_transfers(struct isp1362_hcd *isp1362_hcd , int
 #line 744
   isp1362_enable_int(isp1362_hcd, flip != 0 ? 4 : 2);
 #line 745
-  tmp = __builtin_expect(((unsigned int )ISP1362_REG_HCBUFSTAT & 256U) != 0U, 0L);
+  tmp = ldv__builtin_expect(((unsigned int )ISP1362_REG_HCBUFSTAT & 256U) != 0U, 0L);
 #line 745
   if (tmp != 0L) {
 #line 745
@@ -8556,7 +8556,7 @@ __inline static void enable_istl_transfers(struct isp1362_hcd *isp1362_hcd , int
 #line 745
   if ((((int )__v | flip) != 0 ? 2 : 1) != (int )__v) {
 #line 745
-    tmp___0 = __builtin_expect(((unsigned int )ISP1362_REG_HCBUFSTAT & 256U) != 0U,
+    tmp___0 = ldv__builtin_expect(((unsigned int )ISP1362_REG_HCBUFSTAT & 256U) != 0U,
                                0L);
 #line 745
     if (tmp___0 != 0L) {
@@ -8619,7 +8619,7 @@ static int submit_req(struct isp1362_hcd *isp1362_hcd , struct urb *urb , struct
 #line 757
       descriptor.flags = 1U;
 #line 757
-      tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+      tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 757
       if (tmp != 0L) {
 #line 757
@@ -8652,7 +8652,7 @@ static int submit_req(struct isp1362_hcd *isp1362_hcd , struct urb *urb , struct
 #line 761
       descriptor___0.flags = 1U;
 #line 761
-      tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+      tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 761
       if (tmp___0 != 0L) {
 #line 761
@@ -8669,7 +8669,7 @@ static int submit_req(struct isp1362_hcd *isp1362_hcd , struct urb *urb , struct
     return (index);
   } else {
 #line 766
-    tmp___1 = __builtin_expect(index < 0, 0L);
+    tmp___1 = ldv__builtin_expect(index < 0, 0L);
 #line 766
     if (tmp___1 != 0L) {
 #line 766
@@ -8699,7 +8699,7 @@ static int submit_req(struct isp1362_hcd *isp1362_hcd , struct urb *urb , struct
 #line 768
     descriptor___1.flags = 1U;
 #line 768
-    tmp___2 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___2 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 768
     if (tmp___2 != 0L) {
 #line 768
@@ -8726,7 +8726,7 @@ static int submit_req(struct isp1362_hcd *isp1362_hcd , struct urb *urb , struct
 #line 770
     descriptor___2.flags = 1U;
 #line 770
-    tmp___3 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+    tmp___3 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
 #line 770
     if (tmp___3 != 0L) {
 #line 770
@@ -8800,7 +8800,7 @@ static void start_atl_transfers(struct isp1362_hcd *isp1362_hcd )
 #line 786
       descriptor.flags = 1U;
 #line 786
-      tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+      tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 786
       if (tmp != 0L) {
 #line 786
@@ -8827,7 +8827,7 @@ static void start_atl_transfers(struct isp1362_hcd *isp1362_hcd )
 #line 791
   tmp___1 = list_empty((struct list_head  const  *)(& (ep->hep)->urb_list));
 #line 791
-  tmp___2 = __builtin_expect(tmp___1 != 0, 0L);
+  tmp___2 = ldv__builtin_expect(tmp___1 != 0, 0L);
 #line 791
   if (tmp___2 != 0L) {
 #line 791
@@ -8862,7 +8862,7 @@ static void start_atl_transfers(struct isp1362_hcd *isp1362_hcd )
 #line 795
       descriptor___0.flags = 1U;
 #line 795
-      tmp___3 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+      tmp___3 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 795
       if (tmp___3 != 0L) {
 #line 795
@@ -8894,7 +8894,7 @@ static void start_atl_transfers(struct isp1362_hcd *isp1362_hcd )
 #line 799
     descriptor___1.flags = 1U;
 #line 799
-    tmp___5 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___5 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 799
     if (tmp___5 != 0L) {
 #line 799
@@ -8957,7 +8957,7 @@ static void start_atl_transfers(struct isp1362_hcd *isp1362_hcd )
 #line 818
       descriptor___2.flags = 1U;
 #line 818
-      tmp___6 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+      tmp___6 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
 #line 818
       if (tmp___6 != 0L) {
 #line 818
@@ -9002,7 +9002,7 @@ static void start_atl_transfers(struct isp1362_hcd *isp1362_hcd )
 #line 827
       descriptor___3.flags = 1U;
 #line 827
-      tmp___7 = __builtin_expect((long )descriptor___3.flags & 1L, 0L);
+      tmp___7 = ldv__builtin_expect((long )descriptor___3.flags & 1L, 0L);
 #line 827
       if (tmp___7 != 0L) {
 #line 827
@@ -9070,7 +9070,7 @@ static void start_intl_transfers(struct isp1362_hcd *isp1362_hcd )
 #line 838
       descriptor.flags = 1U;
 #line 838
-      tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+      tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 838
       if (tmp != 0L) {
 #line 838
@@ -9097,7 +9097,7 @@ static void start_intl_transfers(struct isp1362_hcd *isp1362_hcd )
 #line 843
   tmp___1 = list_empty((struct list_head  const  *)(& (ep->hep)->urb_list));
 #line 843
-  tmp___2 = __builtin_expect(tmp___1 != 0, 0L);
+  tmp___2 = ldv__builtin_expect(tmp___1 != 0, 0L);
 #line 843
   if (tmp___2 != 0L) {
 #line 843
@@ -9132,7 +9132,7 @@ static void start_intl_transfers(struct isp1362_hcd *isp1362_hcd )
 #line 847
       descriptor___0.flags = 1U;
 #line 847
-      tmp___3 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+      tmp___3 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 847
       if (tmp___3 != 0L) {
 #line 847
@@ -9164,7 +9164,7 @@ static void start_intl_transfers(struct isp1362_hcd *isp1362_hcd )
 #line 852
     descriptor___1.flags = 1U;
 #line 852
-    tmp___5 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___5 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 852
     if (tmp___5 != 0L) {
 #line 852
@@ -9225,7 +9225,7 @@ static void start_intl_transfers(struct isp1362_hcd *isp1362_hcd )
 #line 866
         descriptor___2.flags = 1U;
 #line 866
-        tmp___6 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+        tmp___6 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
 #line 866
         if (tmp___6 != 0L) {
 #line 866
@@ -9288,7 +9288,7 @@ __inline static int next_ptd(struct isp1362_ep_queue *epq , struct isp1362_ep *e
 #line 882
     descriptor.flags = 1U;
 #line 882
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 882
     if (tmp != 0L) {
 #line 882
@@ -9350,7 +9350,7 @@ static void start_iso_transfers(struct isp1362_hcd *isp1362_hcd )
 #line 895
   flip = (int )isp1362_hcd->istl_flip;
 #line 900
-  tmp___0 = __builtin_expect(((unsigned int )ISP1362_REG_HCFMNUM & 256U) == 0U, 0L);
+  tmp___0 = ldv__builtin_expect(((unsigned int )ISP1362_REG_HCFMNUM & 256U) == 0U, 0L);
 #line 900
   if (tmp___0 != 0L) {
 #line 900
@@ -9390,7 +9390,7 @@ static void start_iso_transfers(struct isp1362_hcd *isp1362_hcd )
 #line 905
       descriptor.flags = 1U;
 #line 905
-      tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+      tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 905
       if (tmp___1 != 0L) {
 #line 905
@@ -9432,7 +9432,7 @@ static void start_iso_transfers(struct isp1362_hcd *isp1362_hcd )
 #line 914
   tmp___4 = list_empty((struct list_head  const  *)(& (ep->hep)->urb_list));
 #line 914
-  tmp___5 = __builtin_expect(tmp___4 != 0, 0L);
+  tmp___5 = ldv__builtin_expect(tmp___4 != 0, 0L);
 #line 914
   if (tmp___5 != 0L) {
 #line 914
@@ -9465,7 +9465,7 @@ static void start_iso_transfers(struct isp1362_hcd *isp1362_hcd )
 #line 917
     descriptor___0.flags = 1U;
 #line 917
-    tmp___6 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___6 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 917
     if (tmp___6 != 0L) {
 #line 917
@@ -9585,7 +9585,7 @@ static void start_iso_transfers(struct isp1362_hcd *isp1362_hcd )
 
   }
 #line 964
-  tmp___7 = __builtin_expect(((unsigned int )ISP1362_REG_HCBUFSTAT & 256U) != 0U,
+  tmp___7 = ldv__builtin_expect(((unsigned int )ISP1362_REG_HCBUFSTAT & 256U) != 0U,
                              0L);
 #line 964
   if (tmp___7 != 0L) {
@@ -9667,7 +9667,7 @@ static void finish_transfers(struct isp1362_hcd *isp1362_hcd , unsigned long don
 #line 980
       descriptor.flags = 1U;
 #line 980
-      tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+      tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 980
       if (tmp___0 != 0L) {
 #line 980
@@ -9699,7 +9699,7 @@ static void finish_transfers(struct isp1362_hcd *isp1362_hcd , unsigned long don
 #line 984
     descriptor___0.flags = 1U;
 #line 984
-    tmp___2 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___2 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 984
     if (tmp___2 != 0L) {
 #line 984
@@ -9741,7 +9741,7 @@ static void finish_transfers(struct isp1362_hcd *isp1362_hcd , unsigned long don
 #line 990
     descriptor___1.flags = 1U;
 #line 990
-    tmp___3 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___3 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 990
     if (tmp___3 != 0L) {
 #line 990
@@ -9754,7 +9754,7 @@ static void finish_transfers(struct isp1362_hcd *isp1362_hcd , unsigned long don
 
   }
 #line 993
-  tmp___4 = __builtin_expect(index < 0, 0L);
+  tmp___4 = ldv__builtin_expect(index < 0, 0L);
 #line 993
   if (tmp___4 != 0L) {
 #line 993
@@ -9775,7 +9775,7 @@ static void finish_transfers(struct isp1362_hcd *isp1362_hcd , unsigned long don
 #line 996
     epq->free_ptd = index;
 #line 997
-    tmp___5 = __builtin_expect(ep->num_ptds == 0, 0L);
+    tmp___5 = ldv__builtin_expect(ep->num_ptds == 0, 0L);
 #line 997
     if (tmp___5 != 0L) {
 #line 997
@@ -9804,7 +9804,7 @@ static void finish_transfers(struct isp1362_hcd *isp1362_hcd , unsigned long don
 #line 1000
       descriptor___2.flags = 1U;
 #line 1000
-      tmp___6 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+      tmp___6 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
 #line 1000
       if (tmp___6 != 0L) {
 #line 1000
@@ -9837,7 +9837,7 @@ static void finish_transfers(struct isp1362_hcd *isp1362_hcd , unsigned long don
 #line 1004
         descriptor___3.flags = 1U;
 #line 1004
-        tmp___7 = __builtin_expect((long )descriptor___3.flags & 1L, 0L);
+        tmp___7 = ldv__builtin_expect((long )descriptor___3.flags & 1L, 0L);
 #line 1004
         if (tmp___7 != 0L) {
 #line 1004
@@ -9867,7 +9867,7 @@ static void finish_transfers(struct isp1362_hcd *isp1362_hcd , unsigned long don
 #line 1006
       descriptor___4.flags = 1U;
 #line 1006
-      tmp___9 = __builtin_expect((long )descriptor___4.flags & 1L, 0L);
+      tmp___9 = ldv__builtin_expect((long )descriptor___4.flags & 1L, 0L);
 #line 1006
       if (tmp___9 != 0L) {
 #line 1006
@@ -9960,7 +9960,7 @@ static void finish_iso_transfers(struct isp1362_hcd *isp1362_hcd , struct isp136
 #line 1025
       descriptor.flags = 1U;
 #line 1025
-      tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+      tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1025
       if (tmp___0 != 0L) {
 #line 1025
@@ -9992,7 +9992,7 @@ static void finish_iso_transfers(struct isp1362_hcd *isp1362_hcd , struct isp136
 #line 1029
     descriptor___0.flags = 1U;
 #line 1029
-    tmp___2 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___2 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 1029
     if (tmp___2 != 0L) {
 #line 1029
@@ -10032,7 +10032,7 @@ static void finish_iso_transfers(struct isp1362_hcd *isp1362_hcd , struct isp136
 #line 1033
     descriptor___1.flags = 1U;
 #line 1033
-    tmp___3 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___3 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 1033
     if (tmp___3 != 0L) {
 #line 1033
@@ -10061,7 +10061,7 @@ static void finish_iso_transfers(struct isp1362_hcd *isp1362_hcd , struct isp136
 #line 1036
     descriptor___2.flags = 1U;
 #line 1036
-    tmp___4 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+    tmp___4 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
 #line 1036
     if (tmp___4 != 0L) {
 #line 1036
@@ -10092,7 +10092,7 @@ static void finish_iso_transfers(struct isp1362_hcd *isp1362_hcd , struct isp136
 #line 1039
   __ret_warn_on = (unsigned int )epq->blk_size != 0U;
 #line 1039
-  tmp___5 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___5 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 1039
   if (tmp___5 != 0L) {
 #line 1039
@@ -10102,7 +10102,7 @@ static void finish_iso_transfers(struct isp1362_hcd *isp1362_hcd , struct isp136
 
   }
 #line 1039
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 1040
   atomic_dec(& epq->finishing);
 #line 1041
@@ -10239,7 +10239,7 @@ static irqreturn_t isp1362_irq(struct usb_hcd *hcd )
 #line 1052
   isp1362_hcd->irq_active = (unsigned char )((int )isp1362_hcd->irq_active + 1);
 #line 1052
-  tmp___1 = __builtin_expect((unsigned int )tmp___0 != 0U, 0L);
+  tmp___1 = ldv__builtin_expect((unsigned int )tmp___0 != 0U, 0L);
 #line 1052
   if (tmp___1 != 0L) {
 #line 1052
@@ -10252,7 +10252,7 @@ static irqreturn_t isp1362_irq(struct usb_hcd *hcd )
 
   }
 #line 1054
-  tmp___2 = __builtin_expect(((unsigned int )ISP1362_REG_HCuPINTENB & 256U) != 0U,
+  tmp___2 = ldv__builtin_expect(((unsigned int )ISP1362_REG_HCuPINTENB & 256U) != 0U,
                              0L);
 #line 1054
   if (tmp___2 != 0L) {
@@ -10270,7 +10270,7 @@ static irqreturn_t isp1362_irq(struct usb_hcd *hcd )
 #line 1054
   isp1362_write_data16(isp1362_hcd, 0);
 #line 1056
-  tmp___3 = __builtin_expect(((unsigned int )ISP1362_REG_HCuPINT & 256U) != 0U, 0L);
+  tmp___3 = ldv__builtin_expect(((unsigned int )ISP1362_REG_HCuPINT & 256U) != 0U, 0L);
 #line 1056
   if (tmp___3 != 0L) {
 #line 1056
@@ -10303,7 +10303,7 @@ static irqreturn_t isp1362_irq(struct usb_hcd *hcd )
 #line 1057
     descriptor.flags = 1U;
 #line 1057
-    tmp___4 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___4 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1057
     if (tmp___4 != 0L) {
 #line 1057
@@ -10318,7 +10318,7 @@ static irqreturn_t isp1362_irq(struct usb_hcd *hcd )
 #line 1060
   irqstat = (u16 )((int )isp1362_hcd->irqenb & (int )irqstat);
 #line 1061
-  tmp___5 = __builtin_expect(((unsigned int )ISP1362_REG_HCuPINT & 256U) != 0U, 0L);
+  tmp___5 = ldv__builtin_expect(((unsigned int )ISP1362_REG_HCuPINT & 256U) != 0U, 0L);
 #line 1061
   if (tmp___5 != 0L) {
 #line 1061
@@ -10361,7 +10361,7 @@ static irqreturn_t isp1362_irq(struct usb_hcd *hcd )
 #line 1069
       descriptor___0.flags = 1U;
 #line 1069
-      tmp___6 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+      tmp___6 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 1069
       if (tmp___6 != 0L) {
 #line 1069
@@ -10373,7 +10373,7 @@ static irqreturn_t isp1362_irq(struct usb_hcd *hcd )
 
     }
 #line 1070
-    tmp___7 = __builtin_expect(((unsigned int )ISP1362_REG_HCFMNUM & 256U) == 0U,
+    tmp___7 = ldv__builtin_expect(((unsigned int )ISP1362_REG_HCFMNUM & 256U) == 0U,
                                0L);
 #line 1070
     if (tmp___7 != 0L) {
@@ -10415,7 +10415,7 @@ static irqreturn_t isp1362_irq(struct usb_hcd *hcd )
 #line 1077
         isp1362_enable_int(isp1362_hcd, 256);
 #line 1078
-        tmp___9 = __builtin_expect(((unsigned int )ISP1362_REG_HCATLSKIP & 256U) == 0U,
+        tmp___9 = ldv__builtin_expect(((unsigned int )ISP1362_REG_HCATLSKIP & 256U) == 0U,
                                    0L);
 #line 1078
         if (tmp___9 != 0L) {
@@ -10433,7 +10433,7 @@ static irqreturn_t isp1362_irq(struct usb_hcd *hcd )
 #line 1078
         isp1362_write_data32(isp1362_hcd, (unsigned int )isp1362_hcd->atl_queue.skip_map);
 #line 1080
-        tmp___10 = __builtin_expect(((unsigned int )ISP1362_REG_HCBUFSTAT & 256U) != 0U,
+        tmp___10 = ldv__builtin_expect(((unsigned int )ISP1362_REG_HCBUFSTAT & 256U) != 0U,
                                     0L);
 #line 1080
         if (tmp___10 != 0L) {
@@ -10455,7 +10455,7 @@ static irqreturn_t isp1362_irq(struct usb_hcd *hcd )
 #line 1080
         if (((unsigned int )__v___1 | 8U) != (unsigned int )__v___1) {
 #line 1080
-          tmp___11 = __builtin_expect(((unsigned int )ISP1362_REG_HCBUFSTAT & 256U) != 0U,
+          tmp___11 = ldv__builtin_expect(((unsigned int )ISP1362_REG_HCBUFSTAT & 256U) != 0U,
                                       0L);
 #line 1080
           if (tmp___11 != 0L) {
@@ -10491,7 +10491,7 @@ static irqreturn_t isp1362_irq(struct usb_hcd *hcd )
 #line 1088
     svc_mask = (unsigned int )svc_mask & 65533U;
 #line 1089
-    tmp___14 = __builtin_expect(((unsigned int )ISP1362_REG_HCBUFSTAT & 256U) != 0U,
+    tmp___14 = ldv__builtin_expect(((unsigned int )ISP1362_REG_HCBUFSTAT & 256U) != 0U,
                                 0L);
 #line 1089
     if (tmp___14 != 0L) {
@@ -10513,7 +10513,7 @@ static irqreturn_t isp1362_irq(struct usb_hcd *hcd )
 #line 1089
     if (((int )__v___3 & -2) != (int )__v___3) {
 #line 1089
-      tmp___15 = __builtin_expect(((unsigned int )ISP1362_REG_HCBUFSTAT & 256U) != 0U,
+      tmp___15 = ldv__builtin_expect(((unsigned int )ISP1362_REG_HCBUFSTAT & 256U) != 0U,
                                   0L);
 #line 1089
       if (tmp___15 != 0L) {
@@ -10548,7 +10548,7 @@ static irqreturn_t isp1362_irq(struct usb_hcd *hcd )
 #line 1090
       descriptor___1.flags = 1U;
 #line 1090
-      tmp___16 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+      tmp___16 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 1090
       if (tmp___16 != 0L) {
 #line 1090
@@ -10562,7 +10562,7 @@ static irqreturn_t isp1362_irq(struct usb_hcd *hcd )
 #line 1091
     __ret_warn_on = (unsigned int )*((unsigned char *)isp1362_hcd + 312UL) != 0U;
 #line 1091
-    tmp___17 = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp___17 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 1091
     if (tmp___17 != 0L) {
 #line 1091
@@ -10572,9 +10572,9 @@ static irqreturn_t isp1362_irq(struct usb_hcd *hcd )
 
     }
 #line 1091
-    __builtin_expect(__ret_warn_on != 0, 0L);
+    ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 1092
-    tmp___18 = __builtin_expect(((unsigned int )ISP1362_REG_HCBUFSTAT & 256U) != 0U,
+    tmp___18 = ldv__builtin_expect(((unsigned int )ISP1362_REG_HCBUFSTAT & 256U) != 0U,
                                 0L);
 #line 1092
     if (tmp___18 != 0L) {
@@ -10594,7 +10594,7 @@ static irqreturn_t isp1362_irq(struct usb_hcd *hcd )
 #line 1092
     __ret_warn_on___0 = ((int )__v___5 & 32) != 0;
 #line 1092
-    tmp___19 = __builtin_expect(__ret_warn_on___0 != 0, 0L);
+    tmp___19 = ldv__builtin_expect(__ret_warn_on___0 != 0, 0L);
 #line 1092
     if (tmp___19 != 0L) {
 #line 1092
@@ -10604,9 +10604,9 @@ static irqreturn_t isp1362_irq(struct usb_hcd *hcd )
 
     }
 #line 1092
-    __builtin_expect(__ret_warn_on___0 != 0, 0L);
+    ldv__builtin_expect(__ret_warn_on___0 != 0, 0L);
 #line 1094
-    tmp___20 = __builtin_expect(((unsigned int )ISP1362_REG_HCBUFSTAT & 256U) != 0U,
+    tmp___20 = ldv__builtin_expect(((unsigned int )ISP1362_REG_HCBUFSTAT & 256U) != 0U,
                                 0L);
 #line 1094
     if (tmp___20 != 0L) {
@@ -10626,7 +10626,7 @@ static irqreturn_t isp1362_irq(struct usb_hcd *hcd )
 #line 1094
     __ret_warn_on___1 = ((int )__v___6 & 256) == 0;
 #line 1094
-    tmp___21 = __builtin_expect(__ret_warn_on___1 != 0, 0L);
+    tmp___21 = ldv__builtin_expect(__ret_warn_on___1 != 0, 0L);
 #line 1094
     if (tmp___21 != 0L) {
 #line 1094
@@ -10636,7 +10636,7 @@ static irqreturn_t isp1362_irq(struct usb_hcd *hcd )
 
     }
 #line 1094
-    __builtin_expect(__ret_warn_on___1 != 0, 0L);
+    ldv__builtin_expect(__ret_warn_on___1 != 0, 0L);
 #line 1096
     isp1362_hcd->irqenb = (unsigned int )isp1362_hcd->irqenb & 65533U;
   } else {
@@ -10651,7 +10651,7 @@ static irqreturn_t isp1362_irq(struct usb_hcd *hcd )
 #line 1102
     svc_mask = (unsigned int )svc_mask & 65531U;
 #line 1103
-    tmp___22 = __builtin_expect(((unsigned int )ISP1362_REG_HCBUFSTAT & 256U) != 0U,
+    tmp___22 = ldv__builtin_expect(((unsigned int )ISP1362_REG_HCBUFSTAT & 256U) != 0U,
                                 0L);
 #line 1103
     if (tmp___22 != 0L) {
@@ -10673,7 +10673,7 @@ static irqreturn_t isp1362_irq(struct usb_hcd *hcd )
 #line 1103
     if (((int )__v___7 & -3) != (int )__v___7) {
 #line 1103
-      tmp___23 = __builtin_expect(((unsigned int )ISP1362_REG_HCBUFSTAT & 256U) != 0U,
+      tmp___23 = ldv__builtin_expect(((unsigned int )ISP1362_REG_HCBUFSTAT & 256U) != 0U,
                                   0L);
 #line 1103
       if (tmp___23 != 0L) {
@@ -10708,7 +10708,7 @@ static irqreturn_t isp1362_irq(struct usb_hcd *hcd )
 #line 1104
       descriptor___2.flags = 1U;
 #line 1104
-      tmp___24 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+      tmp___24 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
 #line 1104
       if (tmp___24 != 0L) {
 #line 1104
@@ -10722,7 +10722,7 @@ static irqreturn_t isp1362_irq(struct usb_hcd *hcd )
 #line 1105
     __ret_warn_on___2 = (unsigned int )*((unsigned char *)isp1362_hcd + 312UL) == 0U;
 #line 1105
-    tmp___25 = __builtin_expect(__ret_warn_on___2 != 0, 0L);
+    tmp___25 = ldv__builtin_expect(__ret_warn_on___2 != 0, 0L);
 #line 1105
     if (tmp___25 != 0L) {
 #line 1105
@@ -10732,9 +10732,9 @@ static irqreturn_t isp1362_irq(struct usb_hcd *hcd )
 
     }
 #line 1105
-    __builtin_expect(__ret_warn_on___2 != 0, 0L);
+    ldv__builtin_expect(__ret_warn_on___2 != 0, 0L);
 #line 1106
-    tmp___26 = __builtin_expect(((unsigned int )ISP1362_REG_HCBUFSTAT & 256U) != 0U,
+    tmp___26 = ldv__builtin_expect(((unsigned int )ISP1362_REG_HCBUFSTAT & 256U) != 0U,
                                 0L);
 #line 1106
     if (tmp___26 != 0L) {
@@ -10754,7 +10754,7 @@ static irqreturn_t isp1362_irq(struct usb_hcd *hcd )
 #line 1106
     __ret_warn_on___3 = ((int )__v___9 & 64) != 0;
 #line 1106
-    tmp___27 = __builtin_expect(__ret_warn_on___3 != 0, 0L);
+    tmp___27 = ldv__builtin_expect(__ret_warn_on___3 != 0, 0L);
 #line 1106
     if (tmp___27 != 0L) {
 #line 1106
@@ -10764,9 +10764,9 @@ static irqreturn_t isp1362_irq(struct usb_hcd *hcd )
 
     }
 #line 1106
-    __builtin_expect(__ret_warn_on___3 != 0, 0L);
+    ldv__builtin_expect(__ret_warn_on___3 != 0, 0L);
 #line 1108
-    tmp___28 = __builtin_expect(((unsigned int )ISP1362_REG_HCBUFSTAT & 256U) != 0U,
+    tmp___28 = ldv__builtin_expect(((unsigned int )ISP1362_REG_HCBUFSTAT & 256U) != 0U,
                                 0L);
 #line 1108
     if (tmp___28 != 0L) {
@@ -10786,7 +10786,7 @@ static irqreturn_t isp1362_irq(struct usb_hcd *hcd )
 #line 1108
     __ret_warn_on___4 = ((int )__v___10 & 512) == 0;
 #line 1108
-    tmp___29 = __builtin_expect(__ret_warn_on___4 != 0, 0L);
+    tmp___29 = ldv__builtin_expect(__ret_warn_on___4 != 0, 0L);
 #line 1108
     if (tmp___29 != 0L) {
 #line 1108
@@ -10796,7 +10796,7 @@ static irqreturn_t isp1362_irq(struct usb_hcd *hcd )
 
     }
 #line 1108
-    __builtin_expect(__ret_warn_on___4 != 0, 0L);
+    ldv__builtin_expect(__ret_warn_on___4 != 0, 0L);
 #line 1110
     isp1362_hcd->irqenb = (unsigned int )isp1362_hcd->irqenb & 65531U;
   } else {
@@ -10807,7 +10807,7 @@ static irqreturn_t isp1362_irq(struct usb_hcd *hcd )
 #line 1114
     __ret_warn_on___5 = ((int )irqstat & 6) == 6;
 #line 1114
-    tmp___30 = __builtin_expect(__ret_warn_on___5 != 0, 0L);
+    tmp___30 = ldv__builtin_expect(__ret_warn_on___5 != 0, 0L);
 #line 1114
     if (tmp___30 != 0L) {
 #line 1114
@@ -10817,7 +10817,7 @@ static irqreturn_t isp1362_irq(struct usb_hcd *hcd )
 
     }
 #line 1114
-    __builtin_expect(__ret_warn_on___5 != 0, 0L);
+    ldv__builtin_expect(__ret_warn_on___5 != 0, 0L);
 #line 1116
     finish_iso_transfers(isp1362_hcd, (struct isp1362_ep_queue *)(& isp1362_hcd->istl_queue) + (unsigned long )isp1362_hcd->istl_flip);
 #line 1118
@@ -10830,7 +10830,7 @@ static irqreturn_t isp1362_irq(struct usb_hcd *hcd )
 #line 1122
   if (((int )irqstat & 128) != 0) {
 #line 1123
-    tmp___31 = __builtin_expect(((unsigned int )ISP1362_REG_HCINTLDONE & 256U) == 0U,
+    tmp___31 = ldv__builtin_expect(((unsigned int )ISP1362_REG_HCINTLDONE & 256U) == 0U,
                                 0L);
 #line 1123
     if (tmp___31 != 0L) {
@@ -10850,7 +10850,7 @@ static irqreturn_t isp1362_irq(struct usb_hcd *hcd )
 #line 1123
     done_map = __v___11;
 #line 1124
-    tmp___32 = __builtin_expect(((unsigned int )ISP1362_REG_HCINTLSKIP & 256U) == 0U,
+    tmp___32 = ldv__builtin_expect(((unsigned int )ISP1362_REG_HCINTLSKIP & 256U) == 0U,
                                 0L);
 #line 1124
     if (tmp___32 != 0L) {
@@ -10886,7 +10886,7 @@ static irqreturn_t isp1362_irq(struct usb_hcd *hcd )
 #line 1127
       descriptor___3.flags = 1U;
 #line 1127
-      tmp___33 = __builtin_expect((long )descriptor___3.flags & 1L, 0L);
+      tmp___33 = ldv__builtin_expect((long )descriptor___3.flags & 1L, 0L);
 #line 1127
       if (tmp___33 != 0L) {
 #line 1127
@@ -10900,7 +10900,7 @@ static irqreturn_t isp1362_irq(struct usb_hcd *hcd )
 #line 1129
     svc_mask = (unsigned int )svc_mask & 65407U;
 #line 1131
-    tmp___34 = __builtin_expect(((unsigned int )ISP1362_REG_HCINTLSKIP & 256U) == 0U,
+    tmp___34 = ldv__builtin_expect(((unsigned int )ISP1362_REG_HCINTLSKIP & 256U) == 0U,
                                 0L);
 #line 1131
     if (tmp___34 != 0L) {
@@ -10920,7 +10920,7 @@ static irqreturn_t isp1362_irq(struct usb_hcd *hcd )
 #line 1132
     if ((done_map | skip_map) == 4294967295U) {
 #line 1134
-      tmp___35 = __builtin_expect(((unsigned int )ISP1362_REG_HCBUFSTAT & 256U) != 0U,
+      tmp___35 = ldv__builtin_expect(((unsigned int )ISP1362_REG_HCBUFSTAT & 256U) != 0U,
                                   0L);
 #line 1134
       if (tmp___35 != 0L) {
@@ -10942,7 +10942,7 @@ static irqreturn_t isp1362_irq(struct usb_hcd *hcd )
 #line 1134
       if (((int )__v___13 & -5) != (int )__v___13) {
 #line 1134
-        tmp___36 = __builtin_expect(((unsigned int )ISP1362_REG_HCBUFSTAT & 256U) != 0U,
+        tmp___36 = ldv__builtin_expect(((unsigned int )ISP1362_REG_HCBUFSTAT & 256U) != 0U,
                                     0L);
 #line 1134
         if (tmp___36 != 0L) {
@@ -10970,7 +10970,7 @@ static irqreturn_t isp1362_irq(struct usb_hcd *hcd )
 #line 1137
     __ret_warn_on___6 = done_map == 0U;
 #line 1137
-    tmp___37 = __builtin_expect(__ret_warn_on___6 != 0, 0L);
+    tmp___37 = ldv__builtin_expect(__ret_warn_on___6 != 0, 0L);
 #line 1137
     if (tmp___37 != 0L) {
 #line 1137
@@ -10980,7 +10980,7 @@ static irqreturn_t isp1362_irq(struct usb_hcd *hcd )
 
     }
 #line 1137
-    __builtin_expect(__ret_warn_on___6 != 0, 0L);
+    ldv__builtin_expect(__ret_warn_on___6 != 0, 0L);
 #line 1138
     if (done_map != 0U) {
 #line 1139
@@ -10998,7 +10998,7 @@ static irqreturn_t isp1362_irq(struct usb_hcd *hcd )
 #line 1139
         descriptor___4.flags = 1U;
 #line 1139
-        tmp___38 = __builtin_expect((long )descriptor___4.flags & 1L, 0L);
+        tmp___38 = ldv__builtin_expect((long )descriptor___4.flags & 1L, 0L);
 #line 1139
         if (tmp___38 != 0L) {
 #line 1139
@@ -11023,7 +11023,7 @@ static irqreturn_t isp1362_irq(struct usb_hcd *hcd )
 #line 1145
   if (((int )irqstat & 256) != 0) {
 #line 1146
-    tmp___39 = __builtin_expect(((unsigned int )ISP1362_REG_HCATLDONE & 256U) == 0U,
+    tmp___39 = ldv__builtin_expect(((unsigned int )ISP1362_REG_HCATLDONE & 256U) == 0U,
                                 0L);
 #line 1146
     if (tmp___39 != 0L) {
@@ -11043,7 +11043,7 @@ static irqreturn_t isp1362_irq(struct usb_hcd *hcd )
 #line 1146
     done_map___0 = __v___15;
 #line 1147
-    tmp___40 = __builtin_expect(((unsigned int )ISP1362_REG_HCATLSKIP & 256U) == 0U,
+    tmp___40 = ldv__builtin_expect(((unsigned int )ISP1362_REG_HCATLSKIP & 256U) == 0U,
                                 0L);
 #line 1147
     if (tmp___40 != 0L) {
@@ -11079,7 +11079,7 @@ static irqreturn_t isp1362_irq(struct usb_hcd *hcd )
 #line 1150
       descriptor___5.flags = 1U;
 #line 1150
-      tmp___41 = __builtin_expect((long )descriptor___5.flags & 1L, 0L);
+      tmp___41 = ldv__builtin_expect((long )descriptor___5.flags & 1L, 0L);
 #line 1150
       if (tmp___41 != 0L) {
 #line 1150
@@ -11093,7 +11093,7 @@ static irqreturn_t isp1362_irq(struct usb_hcd *hcd )
 #line 1152
     svc_mask = (unsigned int )svc_mask & 65279U;
 #line 1154
-    tmp___42 = __builtin_expect(((unsigned int )ISP1362_REG_HCATLSKIP & 256U) == 0U,
+    tmp___42 = ldv__builtin_expect(((unsigned int )ISP1362_REG_HCATLSKIP & 256U) == 0U,
                                 0L);
 #line 1154
     if (tmp___42 != 0L) {
@@ -11113,7 +11113,7 @@ static irqreturn_t isp1362_irq(struct usb_hcd *hcd )
 #line 1155
     if ((done_map___0 | skip_map___0) == 4294967295U) {
 #line 1156
-      tmp___43 = __builtin_expect(((unsigned int )ISP1362_REG_HCBUFSTAT & 256U) != 0U,
+      tmp___43 = ldv__builtin_expect(((unsigned int )ISP1362_REG_HCBUFSTAT & 256U) != 0U,
                                   0L);
 #line 1156
       if (tmp___43 != 0L) {
@@ -11135,7 +11135,7 @@ static irqreturn_t isp1362_irq(struct usb_hcd *hcd )
 #line 1156
       if (((int )__v___17 & -9) != (int )__v___17) {
 #line 1156
-        tmp___44 = __builtin_expect(((unsigned int )ISP1362_REG_HCBUFSTAT & 256U) != 0U,
+        tmp___44 = ldv__builtin_expect(((unsigned int )ISP1362_REG_HCBUFSTAT & 256U) != 0U,
                                     0L);
 #line 1156
         if (tmp___44 != 0L) {
@@ -11175,7 +11175,7 @@ static irqreturn_t isp1362_irq(struct usb_hcd *hcd )
 #line 1158
         descriptor___6.flags = 1U;
 #line 1158
-        tmp___45 = __builtin_expect((long )descriptor___6.flags & 1L, 0L);
+        tmp___45 = ldv__builtin_expect((long )descriptor___6.flags & 1L, 0L);
 #line 1158
         if (tmp___45 != 0L) {
 #line 1158
@@ -11202,7 +11202,7 @@ static irqreturn_t isp1362_irq(struct usb_hcd *hcd )
 #line 1165
   if (((int )irqstat & 16) != 0) {
 #line 1166
-    tmp___46 = __builtin_expect(((unsigned int )ISP1362_REG_HCINTSTAT & 256U) == 0U,
+    tmp___46 = ldv__builtin_expect(((unsigned int )ISP1362_REG_HCINTSTAT & 256U) == 0U,
                                 0L);
 #line 1166
     if (tmp___46 != 0L) {
@@ -11240,7 +11240,7 @@ static irqreturn_t isp1362_irq(struct usb_hcd *hcd )
 #line 1170
       descriptor___7.flags = 1U;
 #line 1170
-      tmp___47 = __builtin_expect((long )descriptor___7.flags & 1L, 0L);
+      tmp___47 = ldv__builtin_expect((long )descriptor___7.flags & 1L, 0L);
 #line 1170
       if (tmp___47 != 0L) {
 #line 1170
@@ -11264,7 +11264,7 @@ static irqreturn_t isp1362_irq(struct usb_hcd *hcd )
 #line 1176
     if ((intstat & 64U) != 0U) {
 #line 1177
-      tmp___48 = __builtin_expect(((unsigned int )ISP1362_REG_HCRHSTATUS & 256U) == 0U,
+      tmp___48 = ldv__builtin_expect(((unsigned int )ISP1362_REG_HCRHSTATUS & 256U) == 0U,
                                   0L);
 #line 1177
       if (tmp___48 != 0L) {
@@ -11284,7 +11284,7 @@ static irqreturn_t isp1362_irq(struct usb_hcd *hcd )
 #line 1177
       isp1362_hcd->rhstatus = __v___20;
 #line 1178
-      tmp___49 = __builtin_expect(((unsigned int )ISP1362_REG_HCRHPORT1 & 256U) == 0U,
+      tmp___49 = ldv__builtin_expect(((unsigned int )ISP1362_REG_HCRHPORT1 & 256U) == 0U,
                                   0L);
 #line 1178
       if (tmp___49 != 0L) {
@@ -11304,7 +11304,7 @@ static irqreturn_t isp1362_irq(struct usb_hcd *hcd )
 #line 1178
       isp1362_hcd->rhport[0] = __v___21;
 #line 1179
-      tmp___50 = __builtin_expect(((unsigned int )ISP1362_REG_HCRHPORT2 & 256U) == 0U,
+      tmp___50 = ldv__builtin_expect(((unsigned int )ISP1362_REG_HCRHPORT2 & 256U) == 0U,
                                   0L);
 #line 1179
       if (tmp___50 != 0L) {
@@ -11347,11 +11347,11 @@ static irqreturn_t isp1362_irq(struct usb_hcd *hcd )
 #line 1183
           descriptor___8.flags = 1U;
 #line 1183
-          tmp___52 = __builtin_expect((long )descriptor___8.flags & 1L, 0L);
+          tmp___52 = ldv__builtin_expect((long )descriptor___8.flags & 1L, 0L);
 #line 1183
           if (tmp___52 != 0L) {
 #line 1183
-            tmp___51 = __builtin_expect(((unsigned int )ISP1362_REG_HCCONTROL & 256U) == 0U,
+            tmp___51 = ldv__builtin_expect(((unsigned int )ISP1362_REG_HCCONTROL & 256U) == 0U,
                                         0L);
 #line 1183
             if (tmp___51 != 0L) {
@@ -11390,11 +11390,11 @@ static irqreturn_t isp1362_irq(struct usb_hcd *hcd )
 #line 1183
           descriptor___9.flags = 1U;
 #line 1183
-          tmp___54 = __builtin_expect((long )descriptor___9.flags & 1L, 0L);
+          tmp___54 = ldv__builtin_expect((long )descriptor___9.flags & 1L, 0L);
 #line 1183
           if (tmp___54 != 0L) {
 #line 1183
-            tmp___53 = __builtin_expect(((unsigned int )ISP1362_REG_HCCONTROL & 256U) != 0U,
+            tmp___53 = ldv__builtin_expect(((unsigned int )ISP1362_REG_HCCONTROL & 256U) != 0U,
                                         0L);
 #line 1183
             if (tmp___53 != 0L) {
@@ -11429,7 +11429,7 @@ static irqreturn_t isp1362_irq(struct usb_hcd *hcd )
 
     }
 #line 1186
-    tmp___55 = __builtin_expect(((unsigned int )ISP1362_REG_HCINTSTAT & 256U) == 0U,
+    tmp___55 = ldv__builtin_expect(((unsigned int )ISP1362_REG_HCINTSTAT & 256U) == 0U,
                                 0L);
 #line 1186
     if (tmp___55 != 0L) {
@@ -11489,7 +11489,7 @@ static irqreturn_t isp1362_irq(struct usb_hcd *hcd )
 
   }
 #line 1210
-  tmp___56 = __builtin_expect(((unsigned int )ISP1362_REG_HCuPINTENB & 256U) != 0U,
+  tmp___56 = ldv__builtin_expect(((unsigned int )ISP1362_REG_HCuPINTENB & 256U) != 0U,
                               0L);
 #line 1210
   if (tmp___56 != 0L) {
@@ -11665,7 +11665,7 @@ static int isp1362_urb_enqueue(struct usb_hcd *hcd , struct urb *urb , gfp_t mem
 #line 1267
     descriptor.flags = 1U;
 #line 1267
-    tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1267
     if (tmp___0 != 0L) {
 #line 1267
@@ -11824,7 +11824,7 @@ static int isp1362_urb_enqueue(struct usb_hcd *hcd , struct urb *urb , gfp_t mem
 #line 1351
       descriptor___0.flags = 1U;
 #line 1351
-      tmp___7 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+      tmp___7 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 1351
       if (tmp___7 != 0L) {
 #line 1351
@@ -11870,7 +11870,7 @@ static int isp1362_urb_enqueue(struct usb_hcd *hcd , struct urb *urb , gfp_t mem
 #line 1370
   retval = 0;
 #line 1371
-  tmp___9 = __builtin_expect(((unsigned int )ISP1362_REG_HCFMNUM & 256U) == 0U, 0L);
+  tmp___9 = ldv__builtin_expect(((unsigned int )ISP1362_REG_HCFMNUM & 256U) == 0U, 0L);
 #line 1371
   if (tmp___9 != 0L) {
 #line 1371
@@ -11903,7 +11903,7 @@ static int isp1362_urb_enqueue(struct usb_hcd *hcd , struct urb *urb , gfp_t mem
 #line 1372
     descriptor___1.flags = 1U;
 #line 1372
-    tmp___10 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___10 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 1372
     if (tmp___10 != 0L) {
 #line 1372
@@ -11959,7 +11959,7 @@ static int isp1362_urb_enqueue(struct usb_hcd *hcd , struct urb *urb , gfp_t mem
 #line 1389
         descriptor___2.flags = 1U;
 #line 1389
-        tmp___11 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+        tmp___11 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
 #line 1389
         if (tmp___11 != 0L) {
 #line 1389
@@ -11989,7 +11989,7 @@ static int isp1362_urb_enqueue(struct usb_hcd *hcd , struct urb *urb , gfp_t mem
 #line 1392
         descriptor___3.flags = 1U;
 #line 1392
-        tmp___12 = __builtin_expect((long )descriptor___3.flags & 1L, 0L);
+        tmp___12 = ldv__builtin_expect((long )descriptor___3.flags & 1L, 0L);
 #line 1392
         if (tmp___12 != 0L) {
 #line 1392
@@ -12020,7 +12020,7 @@ static int isp1362_urb_enqueue(struct usb_hcd *hcd , struct urb *urb , gfp_t mem
 #line 1396
     descriptor___4.flags = 1U;
 #line 1396
-    tmp___13 = __builtin_expect((long )descriptor___4.flags & 1L, 0L);
+    tmp___13 = ldv__builtin_expect((long )descriptor___4.flags & 1L, 0L);
 #line 1396
     if (tmp___13 != 0L) {
 #line 1396
@@ -12047,7 +12047,7 @@ static int isp1362_urb_enqueue(struct usb_hcd *hcd , struct urb *urb , gfp_t mem
 #line 1398
     descriptor___5.flags = 1U;
 #line 1398
-    tmp___15 = __builtin_expect((long )descriptor___5.flags & 1L, 0L);
+    tmp___15 = ldv__builtin_expect((long )descriptor___5.flags & 1L, 0L);
 #line 1398
     if (tmp___15 != 0L) {
 #line 1398
@@ -12123,7 +12123,7 @@ static int isp1362_urb_enqueue(struct usb_hcd *hcd , struct urb *urb , gfp_t mem
 #line 1429
       descriptor___6.flags = 1U;
 #line 1429
-      tmp___16 = __builtin_expect((long )descriptor___6.flags & 1L, 0L);
+      tmp___16 = ldv__builtin_expect((long )descriptor___6.flags & 1L, 0L);
 #line 1429
       if (tmp___16 != 0L) {
 #line 1429
@@ -12186,7 +12186,7 @@ static int isp1362_urb_dequeue(struct usb_hcd *hcd , struct urb *urb , int statu
 #line 1441
     descriptor.flags = 1U;
 #line 1441
-    tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1441
     if (tmp___0 != 0L) {
 #line 1441
@@ -12246,7 +12246,7 @@ static int isp1362_urb_dequeue(struct usb_hcd *hcd , struct urb *urb , int statu
 #line 1460
           descriptor___0.flags = 1U;
 #line 1460
-          tmp___2 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+          tmp___2 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 1460
           if (tmp___2 != 0L) {
 #line 1460
@@ -12286,7 +12286,7 @@ static int isp1362_urb_dequeue(struct usb_hcd *hcd , struct urb *urb , int statu
 #line 1468
         descriptor___1.flags = 1U;
 #line 1468
-        tmp___4 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+        tmp___4 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 1468
         if (tmp___4 != 0L) {
 #line 1468
@@ -12316,7 +12316,7 @@ static int isp1362_urb_dequeue(struct usb_hcd *hcd , struct urb *urb , int statu
 #line 1472
       descriptor___2.flags = 1U;
 #line 1472
-      tmp___5 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+      tmp___5 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
 #line 1472
       if (tmp___5 != 0L) {
 #line 1472
@@ -12352,7 +12352,7 @@ static int isp1362_urb_dequeue(struct usb_hcd *hcd , struct urb *urb , int statu
 #line 1480
     descriptor___3.flags = 1U;
 #line 1480
-    tmp___6 = __builtin_expect((long )descriptor___3.flags & 1L, 0L);
+    tmp___6 = ldv__builtin_expect((long )descriptor___3.flags & 1L, 0L);
 #line 1480
     if (tmp___6 != 0L) {
 #line 1480
@@ -12408,7 +12408,7 @@ static void isp1362_endpoint_disable(struct usb_hcd *hcd , struct usb_host_endpo
 #line 1491
     descriptor.flags = 1U;
 #line 1491
-    tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1491
     if (tmp___0 != 0L) {
 #line 1491
@@ -12458,7 +12458,7 @@ static void isp1362_endpoint_disable(struct usb_hcd *hcd , struct usb_host_endpo
 #line 1497
           descriptor___0.flags = 1U;
 #line 1497
-          tmp___2 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+          tmp___2 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 1497
           if (tmp___2 != 0L) {
 #line 1497
@@ -12517,7 +12517,7 @@ static void isp1362_endpoint_disable(struct usb_hcd *hcd , struct usb_host_endpo
 #line 1508
     descriptor___1.flags = 1U;
 #line 1508
-    tmp___7 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___7 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 1508
     if (tmp___7 != 0L) {
 #line 1508
@@ -12560,7 +12560,7 @@ static int isp1362_get_frame(struct usb_hcd *hcd )
 #line 1521
   flags = _raw_spin_lock_irqsave(tmp___0);
 #line 1522
-  tmp___1 = __builtin_expect(((unsigned int )ISP1362_REG_HCFMNUM & 256U) == 0U, 0L);
+  tmp___1 = ldv__builtin_expect(((unsigned int )ISP1362_REG_HCFMNUM & 256U) == 0U, 0L);
 #line 1522
   if (tmp___1 != 0L) {
 #line 1522
@@ -12624,7 +12624,7 @@ static int isp1362_hub_status_data(struct usb_hcd *hcd , char *buf )
 #line 1545
   ports = (int )isp1362_hcd->rhdesca & 255;
 #line 1546
-  tmp___1 = __builtin_expect(ports > 2, 0L);
+  tmp___1 = ldv__builtin_expect(ports > 2, 0L);
 #line 1546
   if (tmp___1 != 0L) {
 #line 1546
@@ -12720,7 +12720,7 @@ static void isp1362_hub_descriptor(struct isp1362_hcd *isp1362_hcd , struct usb_
 #line 1577
     descriptor.flags = 1U;
 #line 1577
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1577
     if (tmp != 0L) {
 #line 1577
@@ -12756,7 +12756,7 @@ static void isp1362_hub_descriptor(struct isp1362_hcd *isp1362_hcd , struct usb_
 #line 1585
     descriptor___0.flags = 1U;
 #line 1585
-    tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 1585
     if (tmp___0 != 0L) {
 #line 1585
@@ -12789,7 +12789,7 @@ static void isp1362_hub_descriptor(struct isp1362_hcd *isp1362_hcd , struct usb_
 #line 1591
     descriptor___1.flags = 1U;
 #line 1591
-    tmp___1 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 1591
     if (tmp___1 != 0L) {
 #line 1591
@@ -12883,7 +12883,7 @@ static int isp1362_hub_control(struct usb_hcd *hcd , u16 typeReq , u16 wValue , 
 #line 1607
     descriptor.flags = 1U;
 #line 1607
-    tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1607
     if (tmp___1 != 0L) {
 #line 1607
@@ -12909,7 +12909,7 @@ static int isp1362_hub_control(struct usb_hcd *hcd , u16 typeReq , u16 wValue , 
 #line 1611
   flags = _raw_spin_lock_irqsave(tmp___2);
 #line 1612
-  tmp___3 = __builtin_expect(((unsigned int )ISP1362_REG_HCRHSTATUS & 256U) == 0U,
+  tmp___3 = ldv__builtin_expect(((unsigned int )ISP1362_REG_HCRHSTATUS & 256U) == 0U,
                              0L);
 #line 1612
   if (tmp___3 != 0L) {
@@ -12961,7 +12961,7 @@ static int isp1362_hub_control(struct usb_hcd *hcd , u16 typeReq , u16 wValue , 
 #line 1622
     descriptor___0.flags = 1U;
 #line 1622
-    tmp___4 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___4 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 1622
     if (tmp___4 != 0L) {
 #line 1622
@@ -13008,7 +13008,7 @@ static int isp1362_hub_control(struct usb_hcd *hcd , u16 typeReq , u16 wValue , 
 #line 1633
     descriptor___1.flags = 1U;
 #line 1633
-    tmp___5 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___5 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 1633
     if (tmp___5 != 0L) {
 #line 1633
@@ -13039,7 +13039,7 @@ static int isp1362_hub_control(struct usb_hcd *hcd , u16 typeReq , u16 wValue , 
 #line 1637
     descriptor___2.flags = 1U;
 #line 1637
-    tmp___6 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+    tmp___6 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
 #line 1637
     if (tmp___6 != 0L) {
 #line 1637
@@ -13099,7 +13099,7 @@ static int isp1362_hub_control(struct usb_hcd *hcd , u16 typeReq , u16 wValue , 
 #line 1642
     descriptor___3.flags = 1U;
 #line 1642
-    tmp___7 = __builtin_expect((long )descriptor___3.flags & 1L, 0L);
+    tmp___7 = ldv__builtin_expect((long )descriptor___3.flags & 1L, 0L);
 #line 1642
     if (tmp___7 != 0L) {
 #line 1642
@@ -13170,7 +13170,7 @@ static int isp1362_hub_control(struct usb_hcd *hcd , u16 typeReq , u16 wValue , 
 #line 1650
     descriptor___4.flags = 1U;
 #line 1650
-    tmp___8 = __builtin_expect((long )descriptor___4.flags & 1L, 0L);
+    tmp___8 = ldv__builtin_expect((long )descriptor___4.flags & 1L, 0L);
 #line 1650
     if (tmp___8 != 0L) {
 #line 1650
@@ -13298,7 +13298,7 @@ static int isp1362_hub_control(struct usb_hcd *hcd , u16 typeReq , u16 wValue , 
 #line 1693
   flags = _raw_spin_lock_irqsave(tmp___9);
 #line 1694
-  tmp___10 = __builtin_expect((((unsigned int )wIndex + (unsigned int )ISP1362_REG_HCRHPORT1) & 256U) == 0U,
+  tmp___10 = ldv__builtin_expect((((unsigned int )wIndex + (unsigned int )ISP1362_REG_HCRHPORT1) & 256U) == 0U,
                               0L);
 #line 1694
   if (tmp___10 != 0L) {
@@ -13316,7 +13316,7 @@ static int isp1362_hub_control(struct usb_hcd *hcd , u16 typeReq , u16 wValue , 
 #line 1694
   isp1362_write_data32(isp1362_hcd, tmp___0);
 #line 1696
-  tmp___11 = __builtin_expect((((unsigned int )wIndex + (unsigned int )ISP1362_REG_HCRHPORT1) & 256U) == 0U,
+  tmp___11 = ldv__builtin_expect((((unsigned int )wIndex + (unsigned int )ISP1362_REG_HCRHPORT1) & 256U) == 0U,
                               0L);
 #line 1696
   if (tmp___11 != 0L) {
@@ -13355,7 +13355,7 @@ static int isp1362_hub_control(struct usb_hcd *hcd , u16 typeReq , u16 wValue , 
 #line 1700
     descriptor___5.flags = 1U;
 #line 1700
-    tmp___12 = __builtin_expect((long )descriptor___5.flags & 1L, 0L);
+    tmp___12 = ldv__builtin_expect((long )descriptor___5.flags & 1L, 0L);
 #line 1700
     if (tmp___12 != 0L) {
 #line 1700
@@ -13390,7 +13390,7 @@ static int isp1362_hub_control(struct usb_hcd *hcd , u16 typeReq , u16 wValue , 
 #line 1707
   flags = _raw_spin_lock_irqsave(tmp___13);
 #line 1708
-  tmp___14 = __builtin_expect((((unsigned int )wIndex + (unsigned int )ISP1362_REG_HCRHPORT1) & 256U) == 0U,
+  tmp___14 = ldv__builtin_expect((((unsigned int )wIndex + (unsigned int )ISP1362_REG_HCRHPORT1) & 256U) == 0U,
                               0L);
 #line 1708
   if (tmp___14 != 0L) {
@@ -13408,7 +13408,7 @@ static int isp1362_hub_control(struct usb_hcd *hcd , u16 typeReq , u16 wValue , 
 #line 1708
   isp1362_write_data32(isp1362_hcd, 4U);
 #line 1710
-  tmp___15 = __builtin_expect((((unsigned int )wIndex + (unsigned int )ISP1362_REG_HCRHPORT1) & 256U) == 0U,
+  tmp___15 = ldv__builtin_expect((((unsigned int )wIndex + (unsigned int )ISP1362_REG_HCRHPORT1) & 256U) == 0U,
                               0L);
 #line 1710
   if (tmp___15 != 0L) {
@@ -13444,7 +13444,7 @@ static int isp1362_hub_control(struct usb_hcd *hcd , u16 typeReq , u16 wValue , 
 #line 1715
   flags = _raw_spin_lock_irqsave(tmp___16);
 #line 1716
-  tmp___17 = __builtin_expect((((unsigned int )wIndex + (unsigned int )ISP1362_REG_HCRHPORT1) & 256U) == 0U,
+  tmp___17 = ldv__builtin_expect((((unsigned int )wIndex + (unsigned int )ISP1362_REG_HCRHPORT1) & 256U) == 0U,
                               0L);
 #line 1716
   if (tmp___17 != 0L) {
@@ -13462,7 +13462,7 @@ static int isp1362_hub_control(struct usb_hcd *hcd , u16 typeReq , u16 wValue , 
 #line 1716
   isp1362_write_data32(isp1362_hcd, 256U);
 #line 1718
-  tmp___18 = __builtin_expect((((unsigned int )wIndex + (unsigned int )ISP1362_REG_HCRHPORT1) & 256U) == 0U,
+  tmp___18 = ldv__builtin_expect((((unsigned int )wIndex + (unsigned int )ISP1362_REG_HCRHPORT1) & 256U) == 0U,
                               0L);
 #line 1718
   if (tmp___18 != 0L) {
@@ -13506,7 +13506,7 @@ static int isp1362_hub_control(struct usb_hcd *hcd , u16 typeReq , u16 wValue , 
   ldv_30376: ;
   ldv_30370: 
 #line 1729
-  tmp___21 = __builtin_expect((((unsigned int )wIndex + (unsigned int )ISP1362_REG_HCRHPORT1) & 256U) == 0U,
+  tmp___21 = ldv__builtin_expect((((unsigned int )wIndex + (unsigned int )ISP1362_REG_HCRHPORT1) & 256U) == 0U,
                               0L);
 #line 1729
   if (tmp___21 != 0L) {
@@ -13545,7 +13545,7 @@ static int isp1362_hub_control(struct usb_hcd *hcd , u16 typeReq , u16 wValue , 
 
   }
 #line 1737
-  tmp___22 = __builtin_expect((((unsigned int )wIndex + (unsigned int )ISP1362_REG_HCRHPORT1) & 256U) == 0U,
+  tmp___22 = ldv__builtin_expect((((unsigned int )wIndex + (unsigned int )ISP1362_REG_HCRHPORT1) & 256U) == 0U,
                               0L);
 #line 1737
   if (tmp___22 != 0L) {
@@ -13580,7 +13580,7 @@ static int isp1362_hub_control(struct usb_hcd *hcd , u16 typeReq , u16 wValue , 
   }
   ldv_30371: 
 #line 1744
-  tmp___24 = __builtin_expect((((unsigned int )wIndex + (unsigned int )ISP1362_REG_HCRHPORT1) & 256U) == 0U,
+  tmp___24 = ldv__builtin_expect((((unsigned int )wIndex + (unsigned int )ISP1362_REG_HCRHPORT1) & 256U) == 0U,
                               0L);
 #line 1744
   if (tmp___24 != 0L) {
@@ -13723,7 +13723,7 @@ static int isp1362_bus_suspend(struct usb_hcd *hcd )
 #line 1773
   flags = _raw_spin_lock_irqsave(tmp___0);
 #line 1775
-  tmp___1 = __builtin_expect(((unsigned int )ISP1362_REG_HCCONTROL & 256U) == 0U,
+  tmp___1 = ldv__builtin_expect(((unsigned int )ISP1362_REG_HCCONTROL & 256U) == 0U,
                              0L);
 #line 1775
   if (tmp___1 != 0L) {
@@ -13760,7 +13760,7 @@ static int isp1362_bus_suspend(struct usb_hcd *hcd )
 #line 1778
     descriptor.flags = 1U;
 #line 1778
-    tmp___2 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___2 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1778
     if (tmp___2 != 0L) {
 #line 1778
@@ -13776,7 +13776,7 @@ static int isp1362_bus_suspend(struct usb_hcd *hcd )
 #line 1780
   isp1362_hcd->hc_control = isp1362_hcd->hc_control;
 #line 1781
-  tmp___3 = __builtin_expect(((unsigned int )ISP1362_REG_HCCONTROL & 256U) == 0U,
+  tmp___3 = ldv__builtin_expect(((unsigned int )ISP1362_REG_HCCONTROL & 256U) == 0U,
                              0L);
 #line 1781
   if (tmp___3 != 0L) {
@@ -13821,7 +13821,7 @@ static int isp1362_bus_suspend(struct usb_hcd *hcd )
 #line 1791
     descriptor___0.flags = 1U;
 #line 1791
-    tmp___4 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___4 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 1791
     if (tmp___4 != 0L) {
 #line 1791
@@ -13861,7 +13861,7 @@ static int isp1362_bus_suspend(struct usb_hcd *hcd )
         if (tmp___22 == 0) {
           _L: /* CIL Label */ 
 #line 1801
-          tmp___5 = __builtin_expect(((unsigned int )ISP1362_REG_HCATLSKIP & 256U) == 0U,
+          tmp___5 = ldv__builtin_expect(((unsigned int )ISP1362_REG_HCATLSKIP & 256U) == 0U,
                                      0L);
 #line 1801
           if (tmp___5 != 0L) {
@@ -13879,7 +13879,7 @@ static int isp1362_bus_suspend(struct usb_hcd *hcd )
 #line 1801
           isp1362_write_data32(isp1362_hcd, 4294967295U);
 #line 1802
-          tmp___6 = __builtin_expect(((unsigned int )ISP1362_REG_HCINTLSKIP & 256U) == 0U,
+          tmp___6 = ldv__builtin_expect(((unsigned int )ISP1362_REG_HCINTLSKIP & 256U) == 0U,
                                      0L);
 #line 1802
           if (tmp___6 != 0L) {
@@ -13897,7 +13897,7 @@ static int isp1362_bus_suspend(struct usb_hcd *hcd )
 #line 1802
           isp1362_write_data32(isp1362_hcd, 4294967295U);
 #line 1803
-          tmp___7 = __builtin_expect(((unsigned int )ISP1362_REG_HCBUFSTAT & 256U) != 0U,
+          tmp___7 = ldv__builtin_expect(((unsigned int )ISP1362_REG_HCBUFSTAT & 256U) != 0U,
                                      0L);
 #line 1803
           if (tmp___7 != 0L) {
@@ -13915,7 +13915,7 @@ static int isp1362_bus_suspend(struct usb_hcd *hcd )
 #line 1803
           isp1362_write_data16(isp1362_hcd, 0);
 #line 1804
-          tmp___8 = __builtin_expect(((unsigned int )ISP1362_REG_HCuPINTENB & 256U) != 0U,
+          tmp___8 = ldv__builtin_expect(((unsigned int )ISP1362_REG_HCuPINTENB & 256U) != 0U,
                                      0L);
 #line 1804
           if (tmp___8 != 0L) {
@@ -13933,7 +13933,7 @@ static int isp1362_bus_suspend(struct usb_hcd *hcd )
 #line 1804
           isp1362_write_data16(isp1362_hcd, 0);
 #line 1805
-          tmp___9 = __builtin_expect(((unsigned int )ISP1362_REG_HCINTSTAT & 256U) == 0U,
+          tmp___9 = ldv__builtin_expect(((unsigned int )ISP1362_REG_HCINTSTAT & 256U) == 0U,
                                      0L);
 #line 1805
           if (tmp___9 != 0L) {
@@ -13965,7 +13965,7 @@ static int isp1362_bus_suspend(struct usb_hcd *hcd )
 #line 1807
             descriptor___1.flags = 1U;
 #line 1807
-            tmp___10 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+            tmp___10 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 1807
             if (tmp___10 != 0L) {
 #line 1807
@@ -13987,7 +13987,7 @@ static int isp1362_bus_suspend(struct usb_hcd *hcd )
 #line 1811
           limit = limit + -250;
 #line 1812
-          tmp___11 = __builtin_expect(((unsigned int )ISP1362_REG_HCINTSTAT & 256U) == 0U,
+          tmp___11 = ldv__builtin_expect(((unsigned int )ISP1362_REG_HCINTSTAT & 256U) == 0U,
                                       0L);
 #line 1812
           if (tmp___11 != 0L) {
@@ -14040,7 +14040,7 @@ static int isp1362_bus_suspend(struct usb_hcd *hcd )
 
           }
 #line 1816
-          tmp___14 = __builtin_expect(((unsigned int )ISP1362_REG_HCuPINT & 256U) != 0U,
+          tmp___14 = ldv__builtin_expect(((unsigned int )ISP1362_REG_HCuPINT & 256U) != 0U,
                                       0L);
 #line 1816
           if (tmp___14 != 0L) {
@@ -14060,7 +14060,7 @@ static int isp1362_bus_suspend(struct usb_hcd *hcd )
 #line 1816
           if (((int )__v___2 & 256) != 0) {
 #line 1817
-            tmp___13 = __builtin_expect(((unsigned int )ISP1362_REG_HCATLDONE & 256U) == 0U,
+            tmp___13 = ldv__builtin_expect(((unsigned int )ISP1362_REG_HCATLDONE & 256U) == 0U,
                                         0L);
 #line 1817
             if (tmp___13 != 0L) {
@@ -14085,7 +14085,7 @@ static int isp1362_bus_suspend(struct usb_hcd *hcd )
 
           }
 #line 1820
-          tmp___16 = __builtin_expect(((unsigned int )ISP1362_REG_HCuPINT & 256U) != 0U,
+          tmp___16 = ldv__builtin_expect(((unsigned int )ISP1362_REG_HCuPINT & 256U) != 0U,
                                       0L);
 #line 1820
           if (tmp___16 != 0L) {
@@ -14105,7 +14105,7 @@ static int isp1362_bus_suspend(struct usb_hcd *hcd )
 #line 1820
           if (((int )__v___4 & 128) != 0) {
 #line 1821
-            tmp___15 = __builtin_expect(((unsigned int )ISP1362_REG_HCINTLDONE & 256U) == 0U,
+            tmp___15 = ldv__builtin_expect(((unsigned int )ISP1362_REG_HCINTLDONE & 256U) == 0U,
                                         0L);
 #line 1821
             if (tmp___15 != 0L) {
@@ -14130,7 +14130,7 @@ static int isp1362_bus_suspend(struct usb_hcd *hcd )
 
           }
 #line 1824
-          tmp___17 = __builtin_expect(((unsigned int )ISP1362_REG_HCuPINT & 256U) != 0U,
+          tmp___17 = ldv__builtin_expect(((unsigned int )ISP1362_REG_HCuPINT & 256U) != 0U,
                                       0L);
 #line 1824
           if (tmp___17 != 0L) {
@@ -14155,7 +14155,7 @@ static int isp1362_bus_suspend(struct usb_hcd *hcd )
 
           }
 #line 1826
-          tmp___18 = __builtin_expect(((unsigned int )ISP1362_REG_HCuPINT & 256U) != 0U,
+          tmp___18 = ldv__builtin_expect(((unsigned int )ISP1362_REG_HCuPINT & 256U) != 0U,
                                       0L);
 #line 1826
           if (tmp___18 != 0L) {
@@ -14200,11 +14200,11 @@ static int isp1362_bus_suspend(struct usb_hcd *hcd )
 #line 1829
     descriptor___2.flags = 1U;
 #line 1829
-    tmp___24 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+    tmp___24 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
 #line 1829
     if (tmp___24 != 0L) {
 #line 1829
-      tmp___23 = __builtin_expect(((unsigned int )ISP1362_REG_HCINTSTAT & 256U) == 0U,
+      tmp___23 = ldv__builtin_expect(((unsigned int )ISP1362_REG_HCINTSTAT & 256U) == 0U,
                                   0L);
 #line 1829
       if (tmp___23 != 0L) {
@@ -14231,7 +14231,7 @@ static int isp1362_bus_suspend(struct usb_hcd *hcd )
 
   }
 #line 1831
-  tmp___25 = __builtin_expect(((unsigned int )ISP1362_REG_HCINTSTAT & 256U) == 0U,
+  tmp___25 = ldv__builtin_expect(((unsigned int )ISP1362_REG_HCINTSTAT & 256U) == 0U,
                               0L);
 #line 1831
   if (tmp___25 != 0L) {
@@ -14247,7 +14247,7 @@ static int isp1362_bus_suspend(struct usb_hcd *hcd )
 #line 1831
   isp1362_write_addr(isp1362_hcd, (unsigned int )ISP1362_REG_HCINTSTAT | 128U);
 #line 1831
-  tmp___26 = __builtin_expect(((unsigned int )ISP1362_REG_HCINTSTAT & 256U) == 0U,
+  tmp___26 = ldv__builtin_expect(((unsigned int )ISP1362_REG_HCINTSTAT & 256U) == 0U,
                               0L);
 #line 1831
   if (tmp___26 != 0L) {
@@ -14285,11 +14285,11 @@ static int isp1362_bus_suspend(struct usb_hcd *hcd )
 #line 1836
       descriptor___3.flags = 1U;
 #line 1836
-      tmp___28 = __builtin_expect((long )descriptor___3.flags & 1L, 0L);
+      tmp___28 = ldv__builtin_expect((long )descriptor___3.flags & 1L, 0L);
 #line 1836
       if (tmp___28 != 0L) {
 #line 1836
-        tmp___27 = __builtin_expect(((unsigned int )ISP1362_REG_HCCONTROL & 256U) == 0U,
+        tmp___27 = ldv__builtin_expect(((unsigned int )ISP1362_REG_HCCONTROL & 256U) == 0U,
                                     0L);
 #line 1836
         if (tmp___27 != 0L) {
@@ -14328,11 +14328,11 @@ static int isp1362_bus_suspend(struct usb_hcd *hcd )
 #line 1836
       descriptor___4.flags = 1U;
 #line 1836
-      tmp___30 = __builtin_expect((long )descriptor___4.flags & 1L, 0L);
+      tmp___30 = ldv__builtin_expect((long )descriptor___4.flags & 1L, 0L);
 #line 1836
       if (tmp___30 != 0L) {
 #line 1836
-        tmp___29 = __builtin_expect(((unsigned int )ISP1362_REG_HCCONTROL & 256U) != 0U,
+        tmp___29 = ldv__builtin_expect(((unsigned int )ISP1362_REG_HCCONTROL & 256U) != 0U,
                                     0L);
 #line 1836
         if (tmp___29 != 0L) {
@@ -14362,7 +14362,7 @@ static int isp1362_bus_suspend(struct usb_hcd *hcd )
 
   }
 #line 1837
-  tmp___31 = __builtin_expect(((unsigned int )ISP1362_REG_HCCONTROL & 256U) == 0U,
+  tmp___31 = ldv__builtin_expect(((unsigned int )ISP1362_REG_HCCONTROL & 256U) == 0U,
                               0L);
 #line 1837
   if (tmp___31 != 0L) {
@@ -14396,11 +14396,11 @@ static int isp1362_bus_suspend(struct usb_hcd *hcd )
 #line 1838
       descriptor___5.flags = 1U;
 #line 1838
-      tmp___33 = __builtin_expect((long )descriptor___5.flags & 1L, 0L);
+      tmp___33 = ldv__builtin_expect((long )descriptor___5.flags & 1L, 0L);
 #line 1838
       if (tmp___33 != 0L) {
 #line 1838
-        tmp___32 = __builtin_expect(((unsigned int )ISP1362_REG_HCCONTROL & 256U) == 0U,
+        tmp___32 = ldv__builtin_expect(((unsigned int )ISP1362_REG_HCCONTROL & 256U) == 0U,
                                     0L);
 #line 1838
         if (tmp___32 != 0L) {
@@ -14439,11 +14439,11 @@ static int isp1362_bus_suspend(struct usb_hcd *hcd )
 #line 1838
       descriptor___6.flags = 1U;
 #line 1838
-      tmp___35 = __builtin_expect((long )descriptor___6.flags & 1L, 0L);
+      tmp___35 = ldv__builtin_expect((long )descriptor___6.flags & 1L, 0L);
 #line 1838
       if (tmp___35 != 0L) {
 #line 1838
-        tmp___34 = __builtin_expect(((unsigned int )ISP1362_REG_HCCONTROL & 256U) != 0U,
+        tmp___34 = ldv__builtin_expect(((unsigned int )ISP1362_REG_HCCONTROL & 256U) != 0U,
                                     0L);
 #line 1838
         if (tmp___34 != 0L) {
@@ -14473,7 +14473,7 @@ static int isp1362_bus_suspend(struct usb_hcd *hcd )
 
   }
 #line 1841
-  tmp___36 = __builtin_expect(((unsigned int )ISP1362_REG_HCCONTROL & 256U) == 0U,
+  tmp___36 = ldv__builtin_expect(((unsigned int )ISP1362_REG_HCCONTROL & 256U) == 0U,
                               0L);
 #line 1841
   if (tmp___36 != 0L) {
@@ -14524,11 +14524,11 @@ static int isp1362_bus_suspend(struct usb_hcd *hcd )
 #line 1855
       descriptor___7.flags = 1U;
 #line 1855
-      tmp___39 = __builtin_expect((long )descriptor___7.flags & 1L, 0L);
+      tmp___39 = ldv__builtin_expect((long )descriptor___7.flags & 1L, 0L);
 #line 1855
       if (tmp___39 != 0L) {
 #line 1855
-        tmp___38 = __builtin_expect(((unsigned int )ISP1362_REG_HCCONTROL & 256U) == 0U,
+        tmp___38 = ldv__builtin_expect(((unsigned int )ISP1362_REG_HCCONTROL & 256U) == 0U,
                                     0L);
 #line 1855
         if (tmp___38 != 0L) {
@@ -14633,7 +14633,7 @@ static int isp1362_bus_resume(struct usb_hcd *hcd )
 #line 1872
   flags = _raw_spin_lock_irqsave(tmp___0);
 #line 1873
-  tmp___1 = __builtin_expect(((unsigned int )ISP1362_REG_HCCONTROL & 256U) == 0U,
+  tmp___1 = ldv__builtin_expect(((unsigned int )ISP1362_REG_HCCONTROL & 256U) == 0U,
                              0L);
 #line 1873
   if (tmp___1 != 0L) {
@@ -14679,7 +14679,7 @@ static int isp1362_bus_resume(struct usb_hcd *hcd )
 #line 1881
       descriptor.flags = 1U;
 #line 1881
-      tmp___2 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+      tmp___2 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1881
       if (tmp___2 != 0L) {
 #line 1881
@@ -14695,7 +14695,7 @@ static int isp1362_bus_resume(struct usb_hcd *hcd )
 #line 1883
     isp1362_hcd->hc_control = isp1362_hcd->hc_control | 64U;
 #line 1884
-    tmp___3 = __builtin_expect(((unsigned int )ISP1362_REG_HCCONTROL & 256U) == 0U,
+    tmp___3 = ldv__builtin_expect(((unsigned int )ISP1362_REG_HCCONTROL & 256U) == 0U,
                                0L);
 #line 1884
     if (tmp___3 != 0L) {
@@ -14730,7 +14730,7 @@ static int isp1362_bus_resume(struct usb_hcd *hcd )
 #line 1888
       descriptor___0.flags = 1U;
 #line 1888
-      tmp___4 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+      tmp___4 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 1888
       if (tmp___4 != 0L) {
 #line 1888
@@ -14759,7 +14759,7 @@ static int isp1362_bus_resume(struct usb_hcd *hcd )
 #line 1891
       descriptor___1.flags = 1U;
 #line 1891
-      tmp___5 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+      tmp___5 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 1891
       if (tmp___5 != 0L) {
 #line 1891
@@ -14794,7 +14794,7 @@ static int isp1362_bus_resume(struct usb_hcd *hcd )
 #line 1896
       descriptor___2.flags = 1U;
 #line 1896
-      tmp___6 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+      tmp___6 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
 #line 1896
       if (tmp___6 != 0L) {
 #line 1896
@@ -14829,7 +14829,7 @@ static int isp1362_bus_resume(struct usb_hcd *hcd )
 #line 1901
       descriptor___3.flags = 1U;
 #line 1901
-      tmp___7 = __builtin_expect((long )descriptor___3.flags & 1L, 0L);
+      tmp___7 = ldv__builtin_expect((long )descriptor___3.flags & 1L, 0L);
 #line 1901
       if (tmp___7 != 0L) {
 #line 1901
@@ -14861,7 +14861,7 @@ static int isp1362_bus_resume(struct usb_hcd *hcd )
 #line 1907
   flags = _raw_spin_lock_irqsave(tmp___9);
 #line 1908
-  tmp___10 = __builtin_expect(((unsigned int )ISP1362_REG_HCRHDESCA & 256U) == 0U,
+  tmp___10 = ldv__builtin_expect(((unsigned int )ISP1362_REG_HCRHDESCA & 256U) == 0U,
                               0L);
 #line 1908
   if (tmp___10 != 0L) {
@@ -14884,7 +14884,7 @@ static int isp1362_bus_resume(struct usb_hcd *hcd )
   goto ldv_30521;
   ldv_30524: 
 #line 1910
-  tmp___11 = __builtin_expect((((unsigned int )ISP1362_REG_HCRHPORT1 + port) & 256U) == 0U,
+  tmp___11 = ldv__builtin_expect((((unsigned int )ISP1362_REG_HCRHPORT1 + port) & 256U) == 0U,
                               0L);
 #line 1910
   if (tmp___11 != 0L) {
@@ -14920,7 +14920,7 @@ static int isp1362_bus_resume(struct usb_hcd *hcd )
 #line 1914
       descriptor___4.flags = 1U;
 #line 1914
-      tmp___12 = __builtin_expect((long )descriptor___4.flags & 1L, 0L);
+      tmp___12 = ldv__builtin_expect((long )descriptor___4.flags & 1L, 0L);
 #line 1914
       if (tmp___12 != 0L) {
 #line 1914
@@ -14952,7 +14952,7 @@ static int isp1362_bus_resume(struct usb_hcd *hcd )
 #line 1917
     descriptor___5.flags = 1U;
 #line 1917
-    tmp___13 = __builtin_expect((long )descriptor___5.flags & 1L, 0L);
+    tmp___13 = ldv__builtin_expect((long )descriptor___5.flags & 1L, 0L);
 #line 1917
     if (tmp___13 != 0L) {
 #line 1917
@@ -14965,7 +14965,7 @@ static int isp1362_bus_resume(struct usb_hcd *hcd )
 
   }
 #line 1918
-  tmp___14 = __builtin_expect((((unsigned int )ISP1362_REG_HCRHPORT1 + port) & 256U) == 0U,
+  tmp___14 = ldv__builtin_expect((((unsigned int )ISP1362_REG_HCRHPORT1 + port) & 256U) == 0U,
                               0L);
 #line 1918
   if (tmp___14 != 0L) {
@@ -15040,11 +15040,11 @@ static int isp1362_bus_resume(struct usb_hcd *hcd )
 #line 1928
       descriptor___6.flags = 1U;
 #line 1928
-      tmp___19 = __builtin_expect((long )descriptor___6.flags & 1L, 0L);
+      tmp___19 = ldv__builtin_expect((long )descriptor___6.flags & 1L, 0L);
 #line 1928
       if (tmp___19 != 0L) {
 #line 1928
-        tmp___18 = __builtin_expect(((unsigned int )ISP1362_REG_HCCONTROL & 256U) == 0U,
+        tmp___18 = ldv__builtin_expect(((unsigned int )ISP1362_REG_HCCONTROL & 256U) == 0U,
                                     0L);
 #line 1928
         if (tmp___18 != 0L) {
@@ -15083,11 +15083,11 @@ static int isp1362_bus_resume(struct usb_hcd *hcd )
 #line 1928
       descriptor___7.flags = 1U;
 #line 1928
-      tmp___21 = __builtin_expect((long )descriptor___7.flags & 1L, 0L);
+      tmp___21 = ldv__builtin_expect((long )descriptor___7.flags & 1L, 0L);
 #line 1928
       if (tmp___21 != 0L) {
 #line 1928
-        tmp___20 = __builtin_expect(((unsigned int )ISP1362_REG_HCCONTROL & 256U) != 0U,
+        tmp___20 = ldv__builtin_expect(((unsigned int )ISP1362_REG_HCCONTROL & 256U) != 0U,
                                     0L);
 #line 1928
         if (tmp___20 != 0L) {
@@ -15117,7 +15117,7 @@ static int isp1362_bus_resume(struct usb_hcd *hcd )
 
   }
 #line 1929
-  tmp___22 = __builtin_expect(((unsigned int )ISP1362_REG_HCCONTROL & 256U) == 0U,
+  tmp___22 = ldv__builtin_expect(((unsigned int )ISP1362_REG_HCCONTROL & 256U) == 0U,
                               0L);
 #line 1929
   if (tmp___22 != 0L) {
@@ -15314,7 +15314,7 @@ static void dump_regs(struct seq_file *s , struct isp1362_hcd *isp1362_hcd )
 
   {
 #line 2015
-  tmp = __builtin_expect(((unsigned int )ISP1362_REG_HCREVISION & 256U) == 0U, 0L);
+  tmp = ldv__builtin_expect(((unsigned int )ISP1362_REG_HCREVISION & 256U) == 0U, 0L);
 #line 2015
   if (tmp != 0L) {
 #line 2015
@@ -15334,7 +15334,7 @@ static void dump_regs(struct seq_file *s , struct isp1362_hcd *isp1362_hcd )
   seq_printf(s, "HCREVISION [%02x] %08x\n", (unsigned int )ISP1362_REG_HCREVISION & 255U,
              __v);
 #line 2017
-  tmp___0 = __builtin_expect(((unsigned int )ISP1362_REG_HCCONTROL & 256U) == 0U,
+  tmp___0 = ldv__builtin_expect(((unsigned int )ISP1362_REG_HCCONTROL & 256U) == 0U,
                              0L);
 #line 2017
   if (tmp___0 != 0L) {
@@ -15355,7 +15355,7 @@ static void dump_regs(struct seq_file *s , struct isp1362_hcd *isp1362_hcd )
   seq_printf(s, "HCCONTROL  [%02x] %08x\n", (unsigned int )ISP1362_REG_HCCONTROL & 255U,
              __v___0);
 #line 2019
-  tmp___1 = __builtin_expect(((unsigned int )ISP1362_REG_HCCMDSTAT & 256U) == 0U,
+  tmp___1 = ldv__builtin_expect(((unsigned int )ISP1362_REG_HCCMDSTAT & 256U) == 0U,
                              0L);
 #line 2019
   if (tmp___1 != 0L) {
@@ -15376,7 +15376,7 @@ static void dump_regs(struct seq_file *s , struct isp1362_hcd *isp1362_hcd )
   seq_printf(s, "HCCMDSTAT  [%02x] %08x\n", (unsigned int )ISP1362_REG_HCCMDSTAT & 255U,
              __v___1);
 #line 2021
-  tmp___2 = __builtin_expect(((unsigned int )ISP1362_REG_HCINTSTAT & 256U) == 0U,
+  tmp___2 = ldv__builtin_expect(((unsigned int )ISP1362_REG_HCINTSTAT & 256U) == 0U,
                              0L);
 #line 2021
   if (tmp___2 != 0L) {
@@ -15397,7 +15397,7 @@ static void dump_regs(struct seq_file *s , struct isp1362_hcd *isp1362_hcd )
   seq_printf(s, "HCINTSTAT  [%02x] %08x\n", (unsigned int )ISP1362_REG_HCINTSTAT & 255U,
              __v___2);
 #line 2023
-  tmp___3 = __builtin_expect(((unsigned int )ISP1362_REG_HCINTENB & 256U) == 0U, 0L);
+  tmp___3 = ldv__builtin_expect(((unsigned int )ISP1362_REG_HCINTENB & 256U) == 0U, 0L);
 #line 2023
   if (tmp___3 != 0L) {
 #line 2023
@@ -15417,7 +15417,7 @@ static void dump_regs(struct seq_file *s , struct isp1362_hcd *isp1362_hcd )
   seq_printf(s, "HCINTENB   [%02x] %08x\n", (unsigned int )ISP1362_REG_HCINTENB & 255U,
              __v___3);
 #line 2025
-  tmp___4 = __builtin_expect(((unsigned int )ISP1362_REG_HCFMINTVL & 256U) == 0U,
+  tmp___4 = ldv__builtin_expect(((unsigned int )ISP1362_REG_HCFMINTVL & 256U) == 0U,
                              0L);
 #line 2025
   if (tmp___4 != 0L) {
@@ -15438,7 +15438,7 @@ static void dump_regs(struct seq_file *s , struct isp1362_hcd *isp1362_hcd )
   seq_printf(s, "HCFMINTVL  [%02x] %08x\n", (unsigned int )ISP1362_REG_HCFMINTVL & 255U,
              __v___4);
 #line 2027
-  tmp___5 = __builtin_expect(((unsigned int )ISP1362_REG_HCFMREM & 256U) == 0U, 0L);
+  tmp___5 = ldv__builtin_expect(((unsigned int )ISP1362_REG_HCFMREM & 256U) == 0U, 0L);
 #line 2027
   if (tmp___5 != 0L) {
 #line 2027
@@ -15458,7 +15458,7 @@ static void dump_regs(struct seq_file *s , struct isp1362_hcd *isp1362_hcd )
   seq_printf(s, "HCFMREM    [%02x] %08x\n", (unsigned int )ISP1362_REG_HCFMREM & 255U,
              __v___5);
 #line 2029
-  tmp___6 = __builtin_expect(((unsigned int )ISP1362_REG_HCFMNUM & 256U) == 0U, 0L);
+  tmp___6 = ldv__builtin_expect(((unsigned int )ISP1362_REG_HCFMNUM & 256U) == 0U, 0L);
 #line 2029
   if (tmp___6 != 0L) {
 #line 2029
@@ -15478,7 +15478,7 @@ static void dump_regs(struct seq_file *s , struct isp1362_hcd *isp1362_hcd )
   seq_printf(s, "HCFMNUM    [%02x] %08x\n", (unsigned int )ISP1362_REG_HCFMNUM & 255U,
              __v___6);
 #line 2031
-  tmp___7 = __builtin_expect(((unsigned int )ISP1362_REG_HCLSTHRESH & 256U) == 0U,
+  tmp___7 = ldv__builtin_expect(((unsigned int )ISP1362_REG_HCLSTHRESH & 256U) == 0U,
                              0L);
 #line 2031
   if (tmp___7 != 0L) {
@@ -15499,7 +15499,7 @@ static void dump_regs(struct seq_file *s , struct isp1362_hcd *isp1362_hcd )
   seq_printf(s, "HCLSTHRESH [%02x] %08x\n", (unsigned int )ISP1362_REG_HCLSTHRESH & 255U,
              __v___7);
 #line 2033
-  tmp___8 = __builtin_expect(((unsigned int )ISP1362_REG_HCRHDESCA & 256U) == 0U,
+  tmp___8 = ldv__builtin_expect(((unsigned int )ISP1362_REG_HCRHDESCA & 256U) == 0U,
                              0L);
 #line 2033
   if (tmp___8 != 0L) {
@@ -15520,7 +15520,7 @@ static void dump_regs(struct seq_file *s , struct isp1362_hcd *isp1362_hcd )
   seq_printf(s, "HCRHDESCA  [%02x] %08x\n", (unsigned int )ISP1362_REG_HCRHDESCA & 255U,
              __v___8);
 #line 2035
-  tmp___9 = __builtin_expect(((unsigned int )ISP1362_REG_HCRHDESCB & 256U) == 0U,
+  tmp___9 = ldv__builtin_expect(((unsigned int )ISP1362_REG_HCRHDESCB & 256U) == 0U,
                              0L);
 #line 2035
   if (tmp___9 != 0L) {
@@ -15541,7 +15541,7 @@ static void dump_regs(struct seq_file *s , struct isp1362_hcd *isp1362_hcd )
   seq_printf(s, "HCRHDESCB  [%02x] %08x\n", (unsigned int )ISP1362_REG_HCRHDESCB & 255U,
              __v___9);
 #line 2037
-  tmp___10 = __builtin_expect(((unsigned int )ISP1362_REG_HCRHSTATUS & 256U) == 0U,
+  tmp___10 = ldv__builtin_expect(((unsigned int )ISP1362_REG_HCRHSTATUS & 256U) == 0U,
                               0L);
 #line 2037
   if (tmp___10 != 0L) {
@@ -15562,7 +15562,7 @@ static void dump_regs(struct seq_file *s , struct isp1362_hcd *isp1362_hcd )
   seq_printf(s, "HCRHSTATUS [%02x] %08x\n", (unsigned int )ISP1362_REG_HCRHSTATUS & 255U,
              __v___10);
 #line 2039
-  tmp___11 = __builtin_expect(((unsigned int )ISP1362_REG_HCRHPORT1 & 256U) == 0U,
+  tmp___11 = ldv__builtin_expect(((unsigned int )ISP1362_REG_HCRHPORT1 & 256U) == 0U,
                               0L);
 #line 2039
   if (tmp___11 != 0L) {
@@ -15583,7 +15583,7 @@ static void dump_regs(struct seq_file *s , struct isp1362_hcd *isp1362_hcd )
   seq_printf(s, "HCRHPORT1  [%02x] %08x\n", (unsigned int )ISP1362_REG_HCRHPORT1 & 255U,
              __v___11);
 #line 2041
-  tmp___12 = __builtin_expect(((unsigned int )ISP1362_REG_HCRHPORT2 & 256U) == 0U,
+  tmp___12 = ldv__builtin_expect(((unsigned int )ISP1362_REG_HCRHPORT2 & 256U) == 0U,
                               0L);
 #line 2041
   if (tmp___12 != 0L) {
@@ -15606,7 +15606,7 @@ static void dump_regs(struct seq_file *s , struct isp1362_hcd *isp1362_hcd )
 #line 2042
   seq_printf(s, "\n");
 #line 2044
-  tmp___13 = __builtin_expect(((unsigned int )ISP1362_REG_HCHWCFG & 256U) != 0U, 0L);
+  tmp___13 = ldv__builtin_expect(((unsigned int )ISP1362_REG_HCHWCFG & 256U) != 0U, 0L);
 #line 2044
   if (tmp___13 != 0L) {
 #line 2044
@@ -15626,7 +15626,7 @@ static void dump_regs(struct seq_file *s , struct isp1362_hcd *isp1362_hcd )
   seq_printf(s, "HCHWCFG    [%02x]     %04x\n", (unsigned int )ISP1362_REG_HCHWCFG & 255U,
              (int )__v___13);
 #line 2046
-  tmp___14 = __builtin_expect(((unsigned int )ISP1362_REG_HCDMACFG & 256U) != 0U,
+  tmp___14 = ldv__builtin_expect(((unsigned int )ISP1362_REG_HCDMACFG & 256U) != 0U,
                               0L);
 #line 2046
   if (tmp___14 != 0L) {
@@ -15647,7 +15647,7 @@ static void dump_regs(struct seq_file *s , struct isp1362_hcd *isp1362_hcd )
   seq_printf(s, "HCDMACFG   [%02x]     %04x\n", (unsigned int )ISP1362_REG_HCDMACFG & 255U,
              (int )__v___14);
 #line 2048
-  tmp___15 = __builtin_expect(((unsigned int )ISP1362_REG_HCXFERCTR & 256U) != 0U,
+  tmp___15 = ldv__builtin_expect(((unsigned int )ISP1362_REG_HCXFERCTR & 256U) != 0U,
                               0L);
 #line 2048
   if (tmp___15 != 0L) {
@@ -15668,7 +15668,7 @@ static void dump_regs(struct seq_file *s , struct isp1362_hcd *isp1362_hcd )
   seq_printf(s, "HCXFERCTR  [%02x]     %04x\n", (unsigned int )ISP1362_REG_HCXFERCTR & 255U,
              (int )__v___15);
 #line 2050
-  tmp___16 = __builtin_expect(((unsigned int )ISP1362_REG_HCuPINT & 256U) != 0U, 0L);
+  tmp___16 = ldv__builtin_expect(((unsigned int )ISP1362_REG_HCuPINT & 256U) != 0U, 0L);
 #line 2050
   if (tmp___16 != 0L) {
 #line 2050
@@ -15688,7 +15688,7 @@ static void dump_regs(struct seq_file *s , struct isp1362_hcd *isp1362_hcd )
   seq_printf(s, "HCuPINT    [%02x]     %04x\n", (unsigned int )ISP1362_REG_HCuPINT & 255U,
              (int )__v___16);
 #line 2052
-  tmp___17 = __builtin_expect(((unsigned int )ISP1362_REG_HCuPINTENB & 256U) != 0U,
+  tmp___17 = ldv__builtin_expect(((unsigned int )ISP1362_REG_HCuPINTENB & 256U) != 0U,
                               0L);
 #line 2052
   if (tmp___17 != 0L) {
@@ -15709,7 +15709,7 @@ static void dump_regs(struct seq_file *s , struct isp1362_hcd *isp1362_hcd )
   seq_printf(s, "HCuPINTENB [%02x]     %04x\n", (unsigned int )ISP1362_REG_HCuPINTENB & 255U,
              (int )__v___17);
 #line 2054
-  tmp___18 = __builtin_expect(((unsigned int )ISP1362_REG_HCCHIPID & 256U) != 0U,
+  tmp___18 = ldv__builtin_expect(((unsigned int )ISP1362_REG_HCCHIPID & 256U) != 0U,
                               0L);
 #line 2054
   if (tmp___18 != 0L) {
@@ -15730,7 +15730,7 @@ static void dump_regs(struct seq_file *s , struct isp1362_hcd *isp1362_hcd )
   seq_printf(s, "HCCHIPID   [%02x]     %04x\n", (unsigned int )ISP1362_REG_HCCHIPID & 255U,
              (int )__v___18);
 #line 2056
-  tmp___19 = __builtin_expect(((unsigned int )ISP1362_REG_HCSCRATCH & 256U) != 0U,
+  tmp___19 = ldv__builtin_expect(((unsigned int )ISP1362_REG_HCSCRATCH & 256U) != 0U,
                               0L);
 #line 2056
   if (tmp___19 != 0L) {
@@ -15751,7 +15751,7 @@ static void dump_regs(struct seq_file *s , struct isp1362_hcd *isp1362_hcd )
   seq_printf(s, "HCSCRATCH  [%02x]     %04x\n", (unsigned int )ISP1362_REG_HCSCRATCH & 255U,
              (int )__v___19);
 #line 2058
-  tmp___20 = __builtin_expect(((unsigned int )ISP1362_REG_HCBUFSTAT & 256U) != 0U,
+  tmp___20 = ldv__builtin_expect(((unsigned int )ISP1362_REG_HCBUFSTAT & 256U) != 0U,
                               0L);
 #line 2058
   if (tmp___20 != 0L) {
@@ -15772,7 +15772,7 @@ static void dump_regs(struct seq_file *s , struct isp1362_hcd *isp1362_hcd )
   seq_printf(s, "HCBUFSTAT  [%02x]     %04x\n", (unsigned int )ISP1362_REG_HCBUFSTAT & 255U,
              (int )__v___20);
 #line 2060
-  tmp___21 = __builtin_expect(((unsigned int )ISP1362_REG_HCDIRADDR & 256U) == 0U,
+  tmp___21 = ldv__builtin_expect(((unsigned int )ISP1362_REG_HCDIRADDR & 256U) == 0U,
                               0L);
 #line 2060
   if (tmp___21 != 0L) {
@@ -15793,7 +15793,7 @@ static void dump_regs(struct seq_file *s , struct isp1362_hcd *isp1362_hcd )
   seq_printf(s, "HCDIRADDR  [%02x] %08x\n", (unsigned int )ISP1362_REG_HCDIRADDR & 255U,
              __v___21);
 #line 2066
-  tmp___22 = __builtin_expect(((unsigned int )ISP1362_REG_HCISTLBUFSZ & 256U) != 0U,
+  tmp___22 = ldv__builtin_expect(((unsigned int )ISP1362_REG_HCISTLBUFSZ & 256U) != 0U,
                               0L);
 #line 2066
   if (tmp___22 != 0L) {
@@ -15814,7 +15814,7 @@ static void dump_regs(struct seq_file *s , struct isp1362_hcd *isp1362_hcd )
   seq_printf(s, "HCISTLBUFSZ[%02x]     %04x\n", (unsigned int )ISP1362_REG_HCISTLBUFSZ & 255U,
              (int )__v___22);
 #line 2068
-  tmp___23 = __builtin_expect(((unsigned int )ISP1362_REG_HCISTLRATE & 256U) != 0U,
+  tmp___23 = ldv__builtin_expect(((unsigned int )ISP1362_REG_HCISTLRATE & 256U) != 0U,
                               0L);
 #line 2068
   if (tmp___23 != 0L) {
@@ -15837,7 +15837,7 @@ static void dump_regs(struct seq_file *s , struct isp1362_hcd *isp1362_hcd )
 #line 2069
   seq_printf(s, "\n");
 #line 2071
-  tmp___24 = __builtin_expect(((unsigned int )ISP1362_REG_HCINTLBUFSZ & 256U) != 0U,
+  tmp___24 = ldv__builtin_expect(((unsigned int )ISP1362_REG_HCINTLBUFSZ & 256U) != 0U,
                               0L);
 #line 2071
   if (tmp___24 != 0L) {
@@ -15858,7 +15858,7 @@ static void dump_regs(struct seq_file *s , struct isp1362_hcd *isp1362_hcd )
   seq_printf(s, "HCINTLBUFSZ[%02x]     %04x\n", (unsigned int )ISP1362_REG_HCINTLBUFSZ & 255U,
              (int )__v___24);
 #line 2073
-  tmp___25 = __builtin_expect(((unsigned int )ISP1362_REG_HCINTLBLKSZ & 256U) != 0U,
+  tmp___25 = ldv__builtin_expect(((unsigned int )ISP1362_REG_HCINTLBLKSZ & 256U) != 0U,
                               0L);
 #line 2073
   if (tmp___25 != 0L) {
@@ -15879,7 +15879,7 @@ static void dump_regs(struct seq_file *s , struct isp1362_hcd *isp1362_hcd )
   seq_printf(s, "HCINTLBLKSZ[%02x]     %04x\n", (unsigned int )ISP1362_REG_HCINTLBLKSZ & 255U,
              (int )__v___25);
 #line 2075
-  tmp___26 = __builtin_expect(((unsigned int )ISP1362_REG_HCINTLDONE & 256U) == 0U,
+  tmp___26 = ldv__builtin_expect(((unsigned int )ISP1362_REG_HCINTLDONE & 256U) == 0U,
                               0L);
 #line 2075
   if (tmp___26 != 0L) {
@@ -15900,7 +15900,7 @@ static void dump_regs(struct seq_file *s , struct isp1362_hcd *isp1362_hcd )
   seq_printf(s, "HCINTLDONE [%02x] %08x\n", (unsigned int )ISP1362_REG_HCINTLDONE & 255U,
              __v___26);
 #line 2077
-  tmp___27 = __builtin_expect(((unsigned int )ISP1362_REG_HCINTLSKIP & 256U) == 0U,
+  tmp___27 = ldv__builtin_expect(((unsigned int )ISP1362_REG_HCINTLSKIP & 256U) == 0U,
                               0L);
 #line 2077
   if (tmp___27 != 0L) {
@@ -15921,7 +15921,7 @@ static void dump_regs(struct seq_file *s , struct isp1362_hcd *isp1362_hcd )
   seq_printf(s, "HCINTLSKIP [%02x] %08x\n", (unsigned int )ISP1362_REG_HCINTLSKIP & 255U,
              __v___27);
 #line 2079
-  tmp___28 = __builtin_expect(((unsigned int )ISP1362_REG_HCINTLLAST & 256U) == 0U,
+  tmp___28 = ldv__builtin_expect(((unsigned int )ISP1362_REG_HCINTLLAST & 256U) == 0U,
                               0L);
 #line 2079
   if (tmp___28 != 0L) {
@@ -15942,7 +15942,7 @@ static void dump_regs(struct seq_file *s , struct isp1362_hcd *isp1362_hcd )
   seq_printf(s, "HCINTLLAST [%02x] %08x\n", (unsigned int )ISP1362_REG_HCINTLLAST & 255U,
              __v___28);
 #line 2081
-  tmp___29 = __builtin_expect(((unsigned int )ISP1362_REG_HCINTLCURR & 256U) != 0U,
+  tmp___29 = ldv__builtin_expect(((unsigned int )ISP1362_REG_HCINTLCURR & 256U) != 0U,
                               0L);
 #line 2081
   if (tmp___29 != 0L) {
@@ -15965,7 +15965,7 @@ static void dump_regs(struct seq_file *s , struct isp1362_hcd *isp1362_hcd )
 #line 2082
   seq_printf(s, "\n");
 #line 2084
-  tmp___30 = __builtin_expect(((unsigned int )ISP1362_REG_HCATLBUFSZ & 256U) != 0U,
+  tmp___30 = ldv__builtin_expect(((unsigned int )ISP1362_REG_HCATLBUFSZ & 256U) != 0U,
                               0L);
 #line 2084
   if (tmp___30 != 0L) {
@@ -15986,7 +15986,7 @@ static void dump_regs(struct seq_file *s , struct isp1362_hcd *isp1362_hcd )
   seq_printf(s, "HCATLBUFSZ [%02x]     %04x\n", (unsigned int )ISP1362_REG_HCATLBUFSZ & 255U,
              (int )__v___30);
 #line 2086
-  tmp___31 = __builtin_expect(((unsigned int )ISP1362_REG_HCATLBLKSZ & 256U) != 0U,
+  tmp___31 = ldv__builtin_expect(((unsigned int )ISP1362_REG_HCATLBLKSZ & 256U) != 0U,
                               0L);
 #line 2086
   if (tmp___31 != 0L) {
@@ -16007,7 +16007,7 @@ static void dump_regs(struct seq_file *s , struct isp1362_hcd *isp1362_hcd )
   seq_printf(s, "HCATLBLKSZ [%02x]     %04x\n", (unsigned int )ISP1362_REG_HCATLBLKSZ & 255U,
              (int )__v___31);
 #line 2092
-  tmp___32 = __builtin_expect(((unsigned int )ISP1362_REG_HCATLSKIP & 256U) == 0U,
+  tmp___32 = ldv__builtin_expect(((unsigned int )ISP1362_REG_HCATLSKIP & 256U) == 0U,
                               0L);
 #line 2092
   if (tmp___32 != 0L) {
@@ -16028,7 +16028,7 @@ static void dump_regs(struct seq_file *s , struct isp1362_hcd *isp1362_hcd )
   seq_printf(s, "HCATLSKIP  [%02x] %08x\n", (unsigned int )ISP1362_REG_HCATLSKIP & 255U,
              __v___32);
 #line 2094
-  tmp___33 = __builtin_expect(((unsigned int )ISP1362_REG_HCATLLAST & 256U) == 0U,
+  tmp___33 = ldv__builtin_expect(((unsigned int )ISP1362_REG_HCATLLAST & 256U) == 0U,
                               0L);
 #line 2094
   if (tmp___33 != 0L) {
@@ -16049,7 +16049,7 @@ static void dump_regs(struct seq_file *s , struct isp1362_hcd *isp1362_hcd )
   seq_printf(s, "HCATLLAST  [%02x] %08x\n", (unsigned int )ISP1362_REG_HCATLLAST & 255U,
              __v___33);
 #line 2096
-  tmp___34 = __builtin_expect(((unsigned int )ISP1362_REG_HCATLCURR & 256U) != 0U,
+  tmp___34 = ldv__builtin_expect(((unsigned int )ISP1362_REG_HCATLCURR & 256U) != 0U,
                               0L);
 #line 2096
   if (tmp___34 != 0L) {
@@ -16072,7 +16072,7 @@ static void dump_regs(struct seq_file *s , struct isp1362_hcd *isp1362_hcd )
 #line 2097
   seq_printf(s, "\n");
 #line 2099
-  tmp___35 = __builtin_expect(((unsigned int )ISP1362_REG_HCATLDTC & 256U) != 0U,
+  tmp___35 = ldv__builtin_expect(((unsigned int )ISP1362_REG_HCATLDTC & 256U) != 0U,
                               0L);
 #line 2099
   if (tmp___35 != 0L) {
@@ -16093,7 +16093,7 @@ static void dump_regs(struct seq_file *s , struct isp1362_hcd *isp1362_hcd )
   seq_printf(s, "HCATLDTC   [%02x]     %04x\n", (unsigned int )ISP1362_REG_HCATLDTC & 255U,
              (int )__v___35);
 #line 2101
-  tmp___36 = __builtin_expect(((unsigned int )ISP1362_REG_HCATLDTCTO & 256U) != 0U,
+  tmp___36 = ldv__builtin_expect(((unsigned int )ISP1362_REG_HCATLDTCTO & 256U) != 0U,
                               0L);
 #line 2101
   if (tmp___36 != 0L) {
@@ -16173,7 +16173,7 @@ static int proc_isp1362_show(struct seq_file *s , void *unused )
 #line 2126
   spin_lock_irq(& isp1362_hcd->lock);
 #line 2128
-  tmp___0 = __builtin_expect(((unsigned int )ISP1362_REG_HCuPINTENB & 256U) != 0U,
+  tmp___0 = ldv__builtin_expect(((unsigned int )ISP1362_REG_HCuPINTENB & 256U) != 0U,
                              0L);
 #line 2128
   if (tmp___0 != 0L) {
@@ -16193,7 +16193,7 @@ static int proc_isp1362_show(struct seq_file *s , void *unused )
 #line 2128
   dump_irq(s, (char *)"hc_irq_enable", (int )__v);
 #line 2129
-  tmp___1 = __builtin_expect(((unsigned int )ISP1362_REG_HCuPINT & 256U) != 0U, 0L);
+  tmp___1 = ldv__builtin_expect(((unsigned int )ISP1362_REG_HCuPINT & 256U) != 0U, 0L);
 #line 2129
   if (tmp___1 != 0L) {
 #line 2129
@@ -16212,7 +16212,7 @@ static int proc_isp1362_show(struct seq_file *s , void *unused )
 #line 2129
   dump_irq(s, (char *)"hc_irq_status", (int )__v___0);
 #line 2130
-  tmp___2 = __builtin_expect(((unsigned int )ISP1362_REG_HCINTENB & 256U) == 0U, 0L);
+  tmp___2 = ldv__builtin_expect(((unsigned int )ISP1362_REG_HCINTENB & 256U) == 0U, 0L);
 #line 2130
   if (tmp___2 != 0L) {
 #line 2130
@@ -16231,7 +16231,7 @@ static int proc_isp1362_show(struct seq_file *s , void *unused )
 #line 2130
   dump_int(s, (char *)"ohci_int_enable", __v___1);
 #line 2131
-  tmp___3 = __builtin_expect(((unsigned int )ISP1362_REG_HCINTSTAT & 256U) == 0U,
+  tmp___3 = ldv__builtin_expect(((unsigned int )ISP1362_REG_HCINTSTAT & 256U) == 0U,
                              0L);
 #line 2131
   if (tmp___3 != 0L) {
@@ -16251,7 +16251,7 @@ static int proc_isp1362_show(struct seq_file *s , void *unused )
 #line 2131
   dump_int(s, (char *)"ohci_int_status", __v___2);
 #line 2132
-  tmp___4 = __builtin_expect(((unsigned int )ISP1362_REG_HCCONTROL & 256U) == 0U,
+  tmp___4 = ldv__builtin_expect(((unsigned int )ISP1362_REG_HCCONTROL & 256U) == 0U,
                              0L);
 #line 2132
   if (tmp___4 != 0L) {
@@ -16523,7 +16523,7 @@ static void __isp1362_sw_reset(struct isp1362_hcd *isp1362_hcd )
 #line 2250
   tmp = 20;
 #line 2252
-  tmp___0 = __builtin_expect(((unsigned int )ISP1362_REG_HCSWRES & 256U) != 0U, 0L);
+  tmp___0 = ldv__builtin_expect(((unsigned int )ISP1362_REG_HCSWRES & 256U) != 0U, 0L);
 #line 2252
   if (tmp___0 != 0L) {
 #line 2252
@@ -16540,7 +16540,7 @@ static void __isp1362_sw_reset(struct isp1362_hcd *isp1362_hcd )
 #line 2252
   isp1362_write_data16(isp1362_hcd, 246);
 #line 2253
-  tmp___1 = __builtin_expect(((unsigned int )ISP1362_REG_HCCMDSTAT & 256U) == 0U,
+  tmp___1 = ldv__builtin_expect(((unsigned int )ISP1362_REG_HCCMDSTAT & 256U) == 0U,
                              0L);
 #line 2253
   if (tmp___1 != 0L) {
@@ -16587,7 +16587,7 @@ static void __isp1362_sw_reset(struct isp1362_hcd *isp1362_hcd )
 
   }
 #line 2256
-  tmp___3 = __builtin_expect(((unsigned int )ISP1362_REG_HCCMDSTAT & 256U) == 0U,
+  tmp___3 = ldv__builtin_expect(((unsigned int )ISP1362_REG_HCCMDSTAT & 256U) == 0U,
                              0L);
 #line 2256
   if (tmp___3 != 0L) {
@@ -16711,7 +16711,7 @@ static int isp1362_mem_config(struct usb_hcd *hcd )
 #line 2285
   __ret_warn_on = ((int )istl_size & 3) != 0;
 #line 2285
-  tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 2285
   if (tmp___0 != 0L) {
 #line 2285
@@ -16721,11 +16721,11 @@ static int isp1362_mem_config(struct usb_hcd *hcd )
 
   }
 #line 2285
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 2286
   __ret_warn_on___0 = ((int )atl_blksize & 3) != 0;
 #line 2286
-  tmp___1 = __builtin_expect(__ret_warn_on___0 != 0, 0L);
+  tmp___1 = ldv__builtin_expect(__ret_warn_on___0 != 0, 0L);
 #line 2286
   if (tmp___1 != 0L) {
 #line 2286
@@ -16735,11 +16735,11 @@ static int isp1362_mem_config(struct usb_hcd *hcd )
 
   }
 #line 2286
-  __builtin_expect(__ret_warn_on___0 != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on___0 != 0, 0L);
 #line 2287
   __ret_warn_on___1 = ((int )intl_blksize & 3) != 0;
 #line 2287
-  tmp___2 = __builtin_expect(__ret_warn_on___1 != 0, 0L);
+  tmp___2 = ldv__builtin_expect(__ret_warn_on___1 != 0, 0L);
 #line 2287
   if (tmp___2 != 0L) {
 #line 2287
@@ -16749,11 +16749,11 @@ static int isp1362_mem_config(struct usb_hcd *hcd )
 
   }
 #line 2287
-  __builtin_expect(__ret_warn_on___1 != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on___1 != 0, 0L);
 #line 2288
   __ret_warn_on___2 = (unsigned int )atl_blksize <= 7U;
 #line 2288
-  tmp___3 = __builtin_expect(__ret_warn_on___2 != 0, 0L);
+  tmp___3 = ldv__builtin_expect(__ret_warn_on___2 != 0, 0L);
 #line 2288
   if (tmp___3 != 0L) {
 #line 2288
@@ -16763,11 +16763,11 @@ static int isp1362_mem_config(struct usb_hcd *hcd )
 
   }
 #line 2288
-  __builtin_expect(__ret_warn_on___2 != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on___2 != 0, 0L);
 #line 2289
   __ret_warn_on___3 = (unsigned int )intl_blksize <= 7U;
 #line 2289
-  tmp___4 = __builtin_expect(__ret_warn_on___3 != 0, 0L);
+  tmp___4 = ldv__builtin_expect(__ret_warn_on___3 != 0, 0L);
 #line 2289
   if (tmp___4 != 0L) {
 #line 2289
@@ -16777,7 +16777,7 @@ static int isp1362_mem_config(struct usb_hcd *hcd )
 
   }
 #line 2289
-  __builtin_expect(__ret_warn_on___3 != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on___3 != 0, 0L);
 #line 2291
   if (0) {
 #line 2291
@@ -16861,7 +16861,7 @@ static int isp1362_mem_config(struct usb_hcd *hcd )
 #line 2324
     descriptor.flags = 1U;
 #line 2324
-    tmp___6 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___6 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 2324
     if (tmp___6 != 0L) {
 #line 2324
@@ -16885,7 +16885,7 @@ static int isp1362_mem_config(struct usb_hcd *hcd )
 
   }
 #line 2329
-  tmp___7 = __builtin_expect(((unsigned int )ISP1362_REG_HCISTLBUFSZ & 256U) != 0U,
+  tmp___7 = ldv__builtin_expect(((unsigned int )ISP1362_REG_HCISTLBUFSZ & 256U) != 0U,
                              0L);
 #line 2329
   if (tmp___7 != 0L) {
@@ -16917,7 +16917,7 @@ static int isp1362_mem_config(struct usb_hcd *hcd )
 #line 2337
   INIT_LIST_HEAD(& isp1362_hcd->intl_queue.active);
 #line 2339
-  tmp___8 = __builtin_expect(((unsigned int )ISP1362_REG_HCINTLBUFSZ & 256U) != 0U,
+  tmp___8 = ldv__builtin_expect(((unsigned int )ISP1362_REG_HCINTLBUFSZ & 256U) != 0U,
                              0L);
 #line 2339
   if (tmp___8 != 0L) {
@@ -16935,7 +16935,7 @@ static int isp1362_mem_config(struct usb_hcd *hcd )
 #line 2339
   isp1362_write_data16(isp1362_hcd, (int )isp1362_hcd->intl_queue.buf_size);
 #line 2341
-  tmp___9 = __builtin_expect(((unsigned int )ISP1362_REG_HCINTLBLKSZ & 256U) != 0U,
+  tmp___9 = ldv__builtin_expect(((unsigned int )ISP1362_REG_HCINTLBLKSZ & 256U) != 0U,
                              0L);
 #line 2341
   if (tmp___9 != 0L) {
@@ -16953,7 +16953,7 @@ static int isp1362_mem_config(struct usb_hcd *hcd )
 #line 2341
   isp1362_write_data16(isp1362_hcd, (int )((unsigned int )isp1362_hcd->intl_queue.blk_size - 8U));
 #line 2343
-  tmp___10 = __builtin_expect(((unsigned int )ISP1362_REG_HCINTLSKIP & 256U) == 0U,
+  tmp___10 = ldv__builtin_expect(((unsigned int )ISP1362_REG_HCINTLSKIP & 256U) == 0U,
                               0L);
 #line 2343
   if (tmp___10 != 0L) {
@@ -16971,7 +16971,7 @@ static int isp1362_mem_config(struct usb_hcd *hcd )
 #line 2343
   isp1362_write_data32(isp1362_hcd, 4294967295U);
 #line 2344
-  tmp___11 = __builtin_expect(((unsigned int )ISP1362_REG_HCINTLLAST & 256U) == 0U,
+  tmp___11 = ldv__builtin_expect(((unsigned int )ISP1362_REG_HCINTLLAST & 256U) == 0U,
                               0L);
 #line 2344
   if (tmp___11 != 0L) {
@@ -17003,7 +17003,7 @@ static int isp1362_mem_config(struct usb_hcd *hcd )
 #line 2353
   INIT_LIST_HEAD(& isp1362_hcd->atl_queue.active);
 #line 2355
-  tmp___12 = __builtin_expect(((unsigned int )ISP1362_REG_HCATLBUFSZ & 256U) != 0U,
+  tmp___12 = ldv__builtin_expect(((unsigned int )ISP1362_REG_HCATLBUFSZ & 256U) != 0U,
                               0L);
 #line 2355
   if (tmp___12 != 0L) {
@@ -17021,7 +17021,7 @@ static int isp1362_mem_config(struct usb_hcd *hcd )
 #line 2355
   isp1362_write_data16(isp1362_hcd, (int )isp1362_hcd->atl_queue.buf_size);
 #line 2357
-  tmp___13 = __builtin_expect(((unsigned int )ISP1362_REG_HCATLBLKSZ & 256U) != 0U,
+  tmp___13 = ldv__builtin_expect(((unsigned int )ISP1362_REG_HCATLBLKSZ & 256U) != 0U,
                               0L);
 #line 2357
   if (tmp___13 != 0L) {
@@ -17039,7 +17039,7 @@ static int isp1362_mem_config(struct usb_hcd *hcd )
 #line 2357
   isp1362_write_data16(isp1362_hcd, (int )((unsigned int )isp1362_hcd->atl_queue.blk_size - 8U));
 #line 2359
-  tmp___14 = __builtin_expect(((unsigned int )ISP1362_REG_HCATLSKIP & 256U) == 0U,
+  tmp___14 = ldv__builtin_expect(((unsigned int )ISP1362_REG_HCATLSKIP & 256U) == 0U,
                               0L);
 #line 2359
   if (tmp___14 != 0L) {
@@ -17057,7 +17057,7 @@ static int isp1362_mem_config(struct usb_hcd *hcd )
 #line 2359
   isp1362_write_data32(isp1362_hcd, 4294967295U);
 #line 2360
-  tmp___15 = __builtin_expect(((unsigned int )ISP1362_REG_HCATLLAST & 256U) == 0U,
+  tmp___15 = ldv__builtin_expect(((unsigned int )ISP1362_REG_HCATLLAST & 256U) == 0U,
                               0L);
 #line 2360
   if (tmp___15 != 0L) {
@@ -17093,7 +17093,7 @@ static int isp1362_mem_config(struct usb_hcd *hcd )
 #line 2367
     descriptor___0.flags = 1U;
 #line 2367
-    tmp___16 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___16 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 2367
     if (tmp___16 != 0L) {
 #line 2367
@@ -17122,7 +17122,7 @@ static int isp1362_mem_config(struct usb_hcd *hcd )
 #line 2372
     descriptor___1.flags = 1U;
 #line 2372
-    tmp___17 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___17 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 2372
     if (tmp___17 != 0L) {
 #line 2372
@@ -17185,7 +17185,7 @@ static int isp1362_hc_reset(struct usb_hcd *hcd )
 #line 2392
   descriptor.flags = 1U;
 #line 2392
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 2392
   if (tmp___0 != 0L) {
 #line 2392
@@ -17226,7 +17226,7 @@ static int isp1362_hc_reset(struct usb_hcd *hcd )
 #line 2406
   flags = _raw_spin_lock_irqsave(tmp___2);
 #line 2407
-  tmp___3 = __builtin_expect(((unsigned int )ISP1362_REG_HCuPINT & 256U) != 0U, 0L);
+  tmp___3 = ldv__builtin_expect(((unsigned int )ISP1362_REG_HCuPINT & 256U) != 0U, 0L);
 #line 2407
   if (tmp___3 != 0L) {
 #line 2407
@@ -17266,7 +17266,7 @@ static int isp1362_hc_reset(struct usb_hcd *hcd )
 #line 2413
   flags = _raw_spin_lock_irqsave(tmp___4);
 #line 2414
-  tmp___5 = __builtin_expect(((unsigned int )ISP1362_REG_HCuPINT & 256U) != 0U, 0L);
+  tmp___5 = ldv__builtin_expect(((unsigned int )ISP1362_REG_HCuPINT & 256U) != 0U, 0L);
 #line 2414
   if (tmp___5 != 0L) {
 #line 2414
@@ -17331,7 +17331,7 @@ static void isp1362_hc_stop(struct usb_hcd *hcd )
 #line 2429
   descriptor.flags = 1U;
 #line 2429
-  tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 2429
   if (tmp___1 != 0L) {
 #line 2429
@@ -17346,7 +17346,7 @@ static void isp1362_hc_stop(struct usb_hcd *hcd )
 #line 2433
   flags = _raw_spin_lock_irqsave(tmp___2);
 #line 2435
-  tmp___3 = __builtin_expect(((unsigned int )ISP1362_REG_HCuPINTENB & 256U) != 0U,
+  tmp___3 = ldv__builtin_expect(((unsigned int )ISP1362_REG_HCuPINTENB & 256U) != 0U,
                              0L);
 #line 2435
   if (tmp___3 != 0L) {
@@ -17364,7 +17364,7 @@ static void isp1362_hc_stop(struct usb_hcd *hcd )
 #line 2435
   isp1362_write_data16(isp1362_hcd, 0);
 #line 2438
-  tmp___4 = __builtin_expect(((unsigned int )ISP1362_REG_HCRHDESCA & 256U) == 0U,
+  tmp___4 = ldv__builtin_expect(((unsigned int )ISP1362_REG_HCRHDESCA & 256U) == 0U,
                              0L);
 #line 2438
   if (tmp___4 != 0L) {
@@ -17386,7 +17386,7 @@ static void isp1362_hc_stop(struct usb_hcd *hcd )
 #line 2439
   tmp___0 = tmp___0 & 4294966527U;
 #line 2440
-  tmp___5 = __builtin_expect(((unsigned int )ISP1362_REG_HCRHDESCA & 256U) == 0U,
+  tmp___5 = ldv__builtin_expect(((unsigned int )ISP1362_REG_HCRHDESCA & 256U) == 0U,
                              0L);
 #line 2440
   if (tmp___5 != 0L) {
@@ -17404,7 +17404,7 @@ static void isp1362_hc_stop(struct usb_hcd *hcd )
 #line 2440
   isp1362_write_data32(isp1362_hcd, tmp___0);
 #line 2441
-  tmp___6 = __builtin_expect(((unsigned int )ISP1362_REG_HCRHSTATUS & 256U) == 0U,
+  tmp___6 = ldv__builtin_expect(((unsigned int )ISP1362_REG_HCRHSTATUS & 256U) == 0U,
                              0L);
 #line 2441
   if (tmp___6 != 0L) {
@@ -17510,7 +17510,7 @@ static int isp1362_hc_start(struct usb_hcd *hcd )
 #line 2557
   descriptor.flags = 1U;
 #line 2557
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 2557
   if (tmp___0 != 0L) {
 #line 2557
@@ -17523,7 +17523,7 @@ static int isp1362_hc_start(struct usb_hcd *hcd )
 #line 2559
   flags = _raw_spin_lock_irqsave(tmp___1);
 #line 2560
-  tmp___2 = __builtin_expect(((unsigned int )ISP1362_REG_HCCHIPID & 256U) != 0U, 0L);
+  tmp___2 = ldv__builtin_expect(((unsigned int )ISP1362_REG_HCCHIPID & 256U) != 0U, 0L);
 #line 2560
   if (tmp___2 != 0L) {
 #line 2560
@@ -17557,7 +17557,7 @@ static int isp1362_hc_start(struct usb_hcd *hcd )
 #line 2573
   flags = _raw_spin_lock_irqsave(tmp___3);
 #line 2575
-  tmp___4 = __builtin_expect(((unsigned int )ISP1362_REG_HCuPINT & 256U) != 0U, 0L);
+  tmp___4 = ldv__builtin_expect(((unsigned int )ISP1362_REG_HCuPINT & 256U) != 0U, 0L);
 #line 2575
   if (tmp___4 != 0L) {
 #line 2575
@@ -17574,7 +17574,7 @@ static int isp1362_hc_start(struct usb_hcd *hcd )
 #line 2575
   isp1362_write_data16(isp1362_hcd, 255);
 #line 2576
-  tmp___5 = __builtin_expect(((unsigned int )ISP1362_REG_HCuPINTENB & 256U) != 0U,
+  tmp___5 = ldv__builtin_expect(((unsigned int )ISP1362_REG_HCuPINTENB & 256U) != 0U,
                              0L);
 #line 2576
   if (tmp___5 != 0L) {
@@ -17643,7 +17643,7 @@ static int isp1362_hc_start(struct usb_hcd *hcd )
 
   }
 #line 2595
-  tmp___6 = __builtin_expect(((unsigned int )ISP1362_REG_HCHWCFG & 256U) != 0U, 0L);
+  tmp___6 = ldv__builtin_expect(((unsigned int )ISP1362_REG_HCHWCFG & 256U) != 0U, 0L);
 #line 2595
   if (tmp___6 != 0L) {
 #line 2595
@@ -17676,11 +17676,11 @@ static int isp1362_hc_start(struct usb_hcd *hcd )
 #line 2596
       descriptor___0.flags = 1U;
 #line 2596
-      tmp___8 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+      tmp___8 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 2596
       if (tmp___8 != 0L) {
 #line 2596
-        tmp___7 = __builtin_expect(((unsigned int )ISP1362_REG_HCHWCFG & 256U) == 0U,
+        tmp___7 = ldv__builtin_expect(((unsigned int )ISP1362_REG_HCHWCFG & 256U) == 0U,
                                    0L);
 #line 2596
         if (tmp___7 != 0L) {
@@ -17719,11 +17719,11 @@ static int isp1362_hc_start(struct usb_hcd *hcd )
 #line 2596
       descriptor___1.flags = 1U;
 #line 2596
-      tmp___10 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+      tmp___10 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 2596
       if (tmp___10 != 0L) {
 #line 2596
-        tmp___9 = __builtin_expect(((unsigned int )ISP1362_REG_HCHWCFG & 256U) != 0U,
+        tmp___9 = ldv__builtin_expect(((unsigned int )ISP1362_REG_HCHWCFG & 256U) != 0U,
                                    0L);
 #line 2596
         if (tmp___9 != 0L) {
@@ -17753,7 +17753,7 @@ static int isp1362_hc_start(struct usb_hcd *hcd )
 
   }
 #line 2597
-  tmp___11 = __builtin_expect(((unsigned int )ISP1362_REG_HCDMACFG & 256U) != 0U,
+  tmp___11 = ldv__builtin_expect(((unsigned int )ISP1362_REG_HCDMACFG & 256U) != 0U,
                               0L);
 #line 2597
   if (tmp___11 != 0L) {
@@ -17810,7 +17810,7 @@ static int isp1362_hc_start(struct usb_hcd *hcd )
     isp1362_hcd->rhdesca = isp1362_hcd->rhdesca | 419430400U;
   }
 #line 2617
-  tmp___13 = __builtin_expect(((unsigned int )ISP1362_REG_HCRHDESCA & 256U) == 0U,
+  tmp___13 = ldv__builtin_expect(((unsigned int )ISP1362_REG_HCRHDESCA & 256U) == 0U,
                               0L);
 #line 2617
   if (tmp___13 != 0L) {
@@ -17828,7 +17828,7 @@ static int isp1362_hc_start(struct usb_hcd *hcd )
 #line 2617
   isp1362_write_data32(isp1362_hcd, isp1362_hcd->rhdesca & 4294965247U);
 #line 2618
-  tmp___14 = __builtin_expect(((unsigned int )ISP1362_REG_HCRHDESCA & 256U) == 0U,
+  tmp___14 = ldv__builtin_expect(((unsigned int )ISP1362_REG_HCRHDESCA & 256U) == 0U,
                               0L);
 #line 2618
   if (tmp___14 != 0L) {
@@ -17846,7 +17846,7 @@ static int isp1362_hc_start(struct usb_hcd *hcd )
 #line 2618
   isp1362_write_data32(isp1362_hcd, isp1362_hcd->rhdesca | 2048U);
 #line 2619
-  tmp___15 = __builtin_expect(((unsigned int )ISP1362_REG_HCRHDESCA & 256U) == 0U,
+  tmp___15 = ldv__builtin_expect(((unsigned int )ISP1362_REG_HCRHDESCA & 256U) == 0U,
                               0L);
 #line 2619
   if (tmp___15 != 0L) {
@@ -17868,7 +17868,7 @@ static int isp1362_hc_start(struct usb_hcd *hcd )
 #line 2621
   isp1362_hcd->rhdescb = 4294901760U;
 #line 2622
-  tmp___16 = __builtin_expect(((unsigned int )ISP1362_REG_HCRHDESCB & 256U) == 0U,
+  tmp___16 = ldv__builtin_expect(((unsigned int )ISP1362_REG_HCRHDESCB & 256U) == 0U,
                               0L);
 #line 2622
   if (tmp___16 != 0L) {
@@ -17886,7 +17886,7 @@ static int isp1362_hc_start(struct usb_hcd *hcd )
 #line 2622
   isp1362_write_data32(isp1362_hcd, isp1362_hcd->rhdescb);
 #line 2623
-  tmp___17 = __builtin_expect(((unsigned int )ISP1362_REG_HCRHDESCB & 256U) == 0U,
+  tmp___17 = ldv__builtin_expect(((unsigned int )ISP1362_REG_HCRHDESCB & 256U) == 0U,
                               0L);
 #line 2623
   if (tmp___17 != 0L) {
@@ -17906,7 +17906,7 @@ static int isp1362_hc_start(struct usb_hcd *hcd )
 #line 2623
   isp1362_hcd->rhdescb = __v___3;
 #line 2625
-  tmp___18 = __builtin_expect(((unsigned int )ISP1362_REG_HCFMINTVL & 256U) == 0U,
+  tmp___18 = ldv__builtin_expect(((unsigned int )ISP1362_REG_HCFMINTVL & 256U) == 0U,
                               0L);
 #line 2625
   if (tmp___18 != 0L) {
@@ -17924,7 +17924,7 @@ static int isp1362_hc_start(struct usb_hcd *hcd )
 #line 2625
   __v___4 = isp1362_read_data32(isp1362_hcd);
 #line 2626
-  tmp___19 = __builtin_expect(((unsigned int )ISP1362_REG_HCFMINTVL & 256U) == 0U,
+  tmp___19 = ldv__builtin_expect(((unsigned int )ISP1362_REG_HCFMINTVL & 256U) == 0U,
                               0L);
 #line 2626
   if (tmp___19 != 0L) {
@@ -17942,7 +17942,7 @@ static int isp1362_hc_start(struct usb_hcd *hcd )
 #line 2626
   isp1362_write_data32(isp1362_hcd, 662187743U);
 #line 2627
-  tmp___20 = __builtin_expect(((unsigned int )ISP1362_REG_HCLSTHRESH & 256U) == 0U,
+  tmp___20 = ldv__builtin_expect(((unsigned int )ISP1362_REG_HCLSTHRESH & 256U) == 0U,
                               0L);
 #line 2627
   if (tmp___20 != 0L) {
@@ -17976,7 +17976,7 @@ static int isp1362_hc_start(struct usb_hcd *hcd )
 #line 2638
   isp1362_hcd->irqenb = 48U;
 #line 2639
-  tmp___22 = __builtin_expect(((unsigned int )ISP1362_REG_HCINTENB & 256U) == 0U,
+  tmp___22 = ldv__builtin_expect(((unsigned int )ISP1362_REG_HCINTENB & 256U) == 0U,
                               0L);
 #line 2639
   if (tmp___22 != 0L) {
@@ -17994,7 +17994,7 @@ static int isp1362_hc_start(struct usb_hcd *hcd )
 #line 2639
   isp1362_write_data32(isp1362_hcd, isp1362_hcd->intenb);
 #line 2640
-  tmp___23 = __builtin_expect(((unsigned int )ISP1362_REG_HCuPINTENB & 256U) != 0U,
+  tmp___23 = ldv__builtin_expect(((unsigned int )ISP1362_REG_HCuPINTENB & 256U) != 0U,
                               0L);
 #line 2640
   if (tmp___23 != 0L) {
@@ -18012,7 +18012,7 @@ static int isp1362_hc_start(struct usb_hcd *hcd )
 #line 2640
   isp1362_write_data16(isp1362_hcd, (int )isp1362_hcd->irqenb);
 #line 2643
-  tmp___24 = __builtin_expect(((unsigned int )ISP1362_REG_HCCONTROL & 256U) == 0U,
+  tmp___24 = ldv__builtin_expect(((unsigned int )ISP1362_REG_HCCONTROL & 256U) == 0U,
                               0L);
 #line 2643
   if (tmp___24 != 0L) {
@@ -18030,7 +18030,7 @@ static int isp1362_hc_start(struct usb_hcd *hcd )
 #line 2643
   isp1362_write_data32(isp1362_hcd, isp1362_hcd->hc_control);
 #line 2645
-  tmp___25 = __builtin_expect(((unsigned int )ISP1362_REG_HCRHSTATUS & 256U) == 0U,
+  tmp___25 = ldv__builtin_expect(((unsigned int )ISP1362_REG_HCRHSTATUS & 256U) == 0U,
                               0L);
 #line 2645
   if (tmp___25 != 0L) {
@@ -18112,7 +18112,7 @@ static int isp1362_remove(struct platform_device *pdev )
 #line 2687
     descriptor.flags = 1U;
 #line 2687
-    tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 2687
     if (tmp___1 != 0L) {
 #line 2687
@@ -18140,7 +18140,7 @@ static int isp1362_remove(struct platform_device *pdev )
 #line 2690
     descriptor___0.flags = 1U;
 #line 2690
-    tmp___2 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___2 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 2690
     if (tmp___2 != 0L) {
 #line 2690
@@ -18169,7 +18169,7 @@ static int isp1362_remove(struct platform_device *pdev )
 #line 2694
     descriptor___1.flags = 1U;
 #line 2694
-    tmp___3 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___3 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 2694
     if (tmp___3 != 0L) {
 #line 2694
@@ -18200,7 +18200,7 @@ static int isp1362_remove(struct platform_device *pdev )
 #line 2699
     descriptor___2.flags = 1U;
 #line 2699
-    tmp___4 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+    tmp___4 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
 #line 2699
     if (tmp___4 != 0L) {
 #line 2699
@@ -18238,7 +18238,7 @@ static int isp1362_remove(struct platform_device *pdev )
 #line 2704
     descriptor___3.flags = 1U;
 #line 2704
-    tmp___6 = __builtin_expect((long )descriptor___3.flags & 1L, 0L);
+    tmp___6 = ldv__builtin_expect((long )descriptor___3.flags & 1L, 0L);
 #line 2704
     if (tmp___6 != 0L) {
 #line 2704
@@ -18274,7 +18274,7 @@ static int isp1362_remove(struct platform_device *pdev )
 #line 2708
     descriptor___4.flags = 1U;
 #line 2708
-    tmp___8 = __builtin_expect((long )descriptor___4.flags & 1L, 0L);
+    tmp___8 = ldv__builtin_expect((long )descriptor___4.flags & 1L, 0L);
 #line 2708
     if (tmp___8 != 0L) {
 #line 2708
@@ -18302,7 +18302,7 @@ static int isp1362_remove(struct platform_device *pdev )
 #line 2710
     descriptor___5.flags = 1U;
 #line 2710
-    tmp___9 = __builtin_expect((long )descriptor___5.flags & 1L, 0L);
+    tmp___9 = ldv__builtin_expect((long )descriptor___5.flags & 1L, 0L);
 #line 2710
     if (tmp___9 != 0L) {
 #line 2710
@@ -18411,7 +18411,7 @@ static int isp1362_probe(struct platform_device *pdev )
 #line 2750
       descriptor.flags = 1U;
 #line 2750
-      tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+      tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 2750
       if (tmp___0 != 0L) {
 #line 2750
@@ -18581,7 +18581,7 @@ static int isp1362_probe(struct platform_device *pdev )
 #line 2820
     descriptor___0.flags = 1U;
 #line 2820
-    tmp___8 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___8 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 2820
     if (tmp___8 != 0L) {
 #line 2820
@@ -18611,7 +18611,7 @@ static int isp1362_probe(struct platform_device *pdev )
 #line 2823
     descriptor___1.flags = 1U;
 #line 2823
-    tmp___9 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___9 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 2823
     if (tmp___9 != 0L) {
 #line 2823
@@ -18641,7 +18641,7 @@ static int isp1362_probe(struct platform_device *pdev )
 #line 2826
     descriptor___2.flags = 1U;
 #line 2826
-    tmp___10 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+    tmp___10 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
 #line 2826
     if (tmp___10 != 0L) {
 #line 2826
@@ -18673,7 +18673,7 @@ static int isp1362_probe(struct platform_device *pdev )
 #line 2829
     descriptor___3.flags = 1U;
 #line 2829
-    tmp___12 = __builtin_expect((long )descriptor___3.flags & 1L, 0L);
+    tmp___12 = ldv__builtin_expect((long )descriptor___3.flags & 1L, 0L);
 #line 2829
     if (tmp___12 != 0L) {
 #line 2829
@@ -18703,7 +18703,7 @@ static int isp1362_probe(struct platform_device *pdev )
 #line 2832
     descriptor___4.flags = 1U;
 #line 2832
-    tmp___13 = __builtin_expect((long )descriptor___4.flags & 1L, 0L);
+    tmp___13 = ldv__builtin_expect((long )descriptor___4.flags & 1L, 0L);
 #line 2832
     if (tmp___13 != 0L) {
 #line 2832
@@ -18770,7 +18770,7 @@ static int isp1362_suspend(struct platform_device *pdev , pm_message_t state )
 #line 2848
     descriptor.flags = 1U;
 #line 2848
-    tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 2848
     if (tmp___1 != 0L) {
 #line 2848
@@ -18798,7 +18798,7 @@ static int isp1362_suspend(struct platform_device *pdev , pm_message_t state )
 #line 2851
       descriptor___0.flags = 1U;
 #line 2851
-      tmp___2 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+      tmp___2 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 2851
       if (tmp___2 != 0L) {
 #line 2851
@@ -18827,7 +18827,7 @@ static int isp1362_suspend(struct platform_device *pdev , pm_message_t state )
 #line 2854
       descriptor___1.flags = 1U;
 #line 2854
-      tmp___3 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+      tmp___3 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 2854
       if (tmp___3 != 0L) {
 #line 2854
@@ -18843,7 +18843,7 @@ static int isp1362_suspend(struct platform_device *pdev , pm_message_t state )
 #line 2855
     flags = _raw_spin_lock_irqsave(tmp___4);
 #line 2856
-    tmp___5 = __builtin_expect(((unsigned int )ISP1362_REG_HCRHSTATUS & 256U) == 0U,
+    tmp___5 = ldv__builtin_expect(((unsigned int )ISP1362_REG_HCRHSTATUS & 256U) == 0U,
                                0L);
 #line 2856
     if (tmp___5 != 0L) {
@@ -18916,7 +18916,7 @@ static int isp1362_resume(struct platform_device *pdev )
 #line 2870
     descriptor.flags = 1U;
 #line 2870
-    tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 2870
     if (tmp___1 != 0L) {
 #line 2870
@@ -18944,7 +18944,7 @@ static int isp1362_resume(struct platform_device *pdev )
 #line 2873
       descriptor___0.flags = 1U;
 #line 2873
-      tmp___2 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+      tmp___2 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 2873
       if (tmp___2 != 0L) {
 #line 2873
@@ -18960,7 +18960,7 @@ static int isp1362_resume(struct platform_device *pdev )
 #line 2874
     flags = _raw_spin_lock_irqsave(tmp___3);
 #line 2875
-    tmp___4 = __builtin_expect(((unsigned int )ISP1362_REG_HCRHSTATUS & 256U) == 0U,
+    tmp___4 = ldv__builtin_expect(((unsigned int )ISP1362_REG_HCRHSTATUS & 256U) == 0U,
                                0L);
 #line 2875
     if (tmp___4 != 0L) {
@@ -19368,7 +19368,7 @@ __inline static void ldv_error(void)
 #line 25
 extern int __VERIFIER_nondet_int(void) ;
 #line 49 "/home/mikhail/ldv/kernel-rules/verifier/rcv.h"
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 

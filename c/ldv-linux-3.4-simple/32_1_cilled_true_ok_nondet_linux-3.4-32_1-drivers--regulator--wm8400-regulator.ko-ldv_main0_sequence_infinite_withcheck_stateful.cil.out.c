@@ -2666,7 +2666,7 @@ struct wm8400 {
    struct platform_device regulators[6] ;
 };
 #line 1 "<compiler builtins>"
-long __builtin_expect(long val , long res ) ;
+long ldv__builtin_expect(long val , long res ) ;
 #line 27 "include/linux/err.h"
 __inline static long __attribute__((__warn_unused_result__))  PTR_ERR(void const   *ptr )  __attribute__((__no_instrument_function__)) ;
 #line 27 "include/linux/err.h"
@@ -2702,7 +2702,7 @@ __inline static long __attribute__((__warn_unused_result__))  IS_ERR(void const 
 #line 34
   __cil_tmp7 = (long )__cil_tmp6;
 #line 34
-  tmp = __builtin_expect(__cil_tmp7, 0L);
+  tmp = ldv__builtin_expect(__cil_tmp7, 0L);
   }
 #line 34
   return (tmp);
@@ -3091,7 +3091,7 @@ static int wm8400_ldo_set_voltage(struct regulator_dev *dev , int min_uV , int m
 #line 86
       __cil_tmp25 = (long )__cil_tmp24;
 #line 86
-      tmp___8 = __builtin_expect(__cil_tmp25, 0L);
+      tmp___8 = ldv__builtin_expect(__cil_tmp25, 0L);
       }
 #line 86
       if (tmp___8) {
@@ -3173,7 +3173,7 @@ static int wm8400_ldo_set_voltage(struct regulator_dev *dev , int min_uV , int m
 #line 93
       __cil_tmp39 = (long )__cil_tmp38;
 #line 93
-      tmp___9 = __builtin_expect(__cil_tmp39, 0L);
+      tmp___9 = ldv__builtin_expect(__cil_tmp39, 0L);
       }
 #line 93
       if (tmp___9) {
@@ -3533,7 +3533,7 @@ static int wm8400_dcdc_set_voltage(struct regulator_dev *dev , int min_uV , int 
 #line 176
     __cil_tmp26 = (long )__cil_tmp25;
 #line 176
-    tmp___9 = __builtin_expect(__cil_tmp26, 0L);
+    tmp___9 = ldv__builtin_expect(__cil_tmp26, 0L);
     }
 #line 176
     if (tmp___9) {
@@ -4873,7 +4873,7 @@ void ldv_check_final_state(void)
 }
 }
 #line 832 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/4595/dscv_tempdir/dscv/ri/32_1/drivers/regulator/wm8400-regulator.c.common.c"
-long __builtin_expect(long val , long res ) 
+long ldv__builtin_expect(long val , long res ) 
 { 
 
   {

@@ -6134,7 +6134,7 @@ struct adummy_dev {
    struct list_head entry ;
 };
 #line 1 "<compiler builtins>"
-long __builtin_expect(long val , long res ) ;
+long ldv__builtin_expect(long val , long res ) ;
 #line 47 "include/linux/list.h"
 extern void __list_add(struct list_head *new , struct list_head *prev , struct list_head *next ) ;
 #line 60
@@ -7453,7 +7453,7 @@ void ldv_check_final_state(void)
 }
 }
 #line 431 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/17352/dscv_tempdir/dscv/ri/32_1/drivers/atm/adummy.c.common.c"
-long __builtin_expect(long val , long res ) 
+long ldv__builtin_expect(long val , long res ) 
 { 
 
   {

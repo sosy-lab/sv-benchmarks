@@ -6610,7 +6610,7 @@ void *__builtin_memcpy(void * , void const   * , unsigned long  ) ;
 #line 1
 unsigned long __builtin_object_size(void * , int  ) ;
 #line 1
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 #line 119 "include/linux/printk.h"
 extern int printk(char const   *  , ...) ;
 #line 197 "include/linux/kernel.h"
@@ -6670,7 +6670,7 @@ __inline static long IS_ERR(void const   *ptr )
 
   {
 #line 34
-  tmp = __builtin_expect((unsigned long )ptr > 0xfffffffffffff000UL, 0L);
+  tmp = ldv__builtin_expect((unsigned long )ptr > 0xfffffffffffff000UL, 0L);
 #line 34
   return (tmp);
 }
@@ -6844,14 +6844,14 @@ __inline static unsigned long copy_from_user(void *to , void const   *from , uns
 #line 61
   might_fault();
 #line 62
-  tmp___1 = __builtin_expect(sz == -1, 1L);
+  tmp___1 = ldv__builtin_expect(sz == -1, 1L);
 #line 62
   if (tmp___1 != 0L) {
 #line 63
     n = _copy_from_user(to, from, (unsigned int )n);
   } else {
 #line 62
-    tmp___2 = __builtin_expect((unsigned long )sz >= n, 1L);
+    tmp___2 = ldv__builtin_expect((unsigned long )sz >= n, 1L);
 #line 62
     if (tmp___2 != 0L) {
 #line 63
@@ -6860,7 +6860,7 @@ __inline static unsigned long copy_from_user(void *to , void const   *from , uns
 #line 66
       __ret_warn_on = 1;
 #line 66
-      tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+      tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 66
       if (tmp___0 != 0L) {
 #line 66
@@ -6870,7 +6870,7 @@ __inline static unsigned long copy_from_user(void *to , void const   *from , uns
 
       }
 #line 66
-      __builtin_expect(__ret_warn_on != 0, 0L);
+      ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
   }
 #line 68
@@ -8566,7 +8566,7 @@ __inline static int signal_pending(struct task_struct *p )
 #line 2620
   tmp = test_tsk_thread_flag(p, 2);
 #line 2620
-  tmp___0 = __builtin_expect(tmp != 0, 0L);
+  tmp___0 = ldv__builtin_expect(tmp != 0, 0L);
 #line 2620
   return ((int )tmp___0);
 }
@@ -9768,7 +9768,7 @@ static void dvb_dmxdev_delete_pids(struct dmxdev_filter *dmxdevfilter )
 #line 627
   tmp___0 = list_empty((struct list_head  const  *)(& dmxdevfilter->feed.ts));
 #line 627
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
 #line 627
   if (tmp___1 != 0L) {
 #line 627
@@ -19606,7 +19606,7 @@ __inline static bool freezing(struct task_struct *p )
 #line 30
   tmp = atomic_read((atomic_t const   *)(& system_freezing_cnt));
 #line 30
-  tmp___0 = __builtin_expect(tmp == 0, 1L);
+  tmp___0 = ldv__builtin_expect(tmp == 0, 1L);
 #line 30
   if (tmp___0 != 0L) {
 #line 31
@@ -19647,7 +19647,7 @@ __inline static bool try_to_freeze(void)
     tmp___1 = 1;
   }
 #line 47
-  tmp___2 = __builtin_expect((long )tmp___1, 1L);
+  tmp___2 = ldv__builtin_expect((long )tmp___1, 1L);
 #line 47
   if (tmp___2 != 0L) {
 #line 48
@@ -19793,7 +19793,7 @@ static void dvb_frontend_add_event(struct dvb_frontend *fe , fe_status_t status 
 #line 288
   descriptor.flags = 0U;
 #line 288
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 288
   if (tmp != 0L) {
 #line 288
@@ -19879,7 +19879,7 @@ static int dvb_frontend_get_event(struct dvb_frontend *fe , struct dvb_frontend_
 #line 318
   descriptor.flags = 0U;
 #line 318
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 318
   if (tmp != 0L) {
 #line 318
@@ -20034,7 +20034,7 @@ static void dvb_frontend_init(struct dvb_frontend *fe )
 #line 363
   descriptor.flags = 0U;
 #line 363
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 363
   if (tmp != 0L) {
 #line 363
@@ -20118,7 +20118,7 @@ static void dvb_frontend_swzigzag_update_delay(struct dvb_frontend_private *fepr
 #line 392
   descriptor.flags = 0U;
 #line 392
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 392
   if (tmp != 0L) {
 #line 392
@@ -20293,7 +20293,7 @@ static int dvb_frontend_swzigzag_autotune(struct dvb_frontend *fe , int check_wr
 #line 484
   descriptor.flags = 0U;
 #line 484
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 484
   if (tmp___0 != 0L) {
 #line 484
@@ -20682,7 +20682,7 @@ static int dvb_frontend_thread(void *data )
 #line 687
   descriptor.flags = 0U;
 #line 687
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 687
   if (tmp != 0L) {
 #line 687
@@ -20908,7 +20908,7 @@ static int dvb_frontend_thread(void *data )
 #line 733
     descriptor___0.flags = 0U;
 #line 733
-    tmp___17 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___17 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 733
     if (tmp___17 != 0L) {
 #line 733
@@ -20932,7 +20932,7 @@ static int dvb_frontend_thread(void *data )
 #line 736
       descriptor___1.flags = 0U;
 #line 736
-      tmp___18 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+      tmp___18 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 736
       if (tmp___18 != 0L) {
 #line 736
@@ -20975,7 +20975,7 @@ static int dvb_frontend_thread(void *data )
 #line 747
       descriptor___2.flags = 0U;
 #line 747
-      tmp___19 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+      tmp___19 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
 #line 747
       if (tmp___19 != 0L) {
 #line 747
@@ -21007,7 +21007,7 @@ static int dvb_frontend_thread(void *data )
 #line 753
     descriptor___3.flags = 0U;
 #line 753
-    tmp___20 = __builtin_expect((long )descriptor___3.flags & 1L, 0L);
+    tmp___20 = ldv__builtin_expect((long )descriptor___3.flags & 1L, 0L);
 #line 753
     if (tmp___20 != 0L) {
 #line 753
@@ -21034,7 +21034,7 @@ static int dvb_frontend_thread(void *data )
 #line 757
     descriptor___4.flags = 0U;
 #line 757
-    tmp___21 = __builtin_expect((long )descriptor___4.flags & 1L, 0L);
+    tmp___21 = ldv__builtin_expect((long )descriptor___4.flags & 1L, 0L);
 #line 757
     if (tmp___21 != 0L) {
 #line 757
@@ -21059,7 +21059,7 @@ static int dvb_frontend_thread(void *data )
 #line 759
       descriptor___5.flags = 0U;
 #line 759
-      tmp___22 = __builtin_expect((long )descriptor___5.flags & 1L, 0L);
+      tmp___22 = ldv__builtin_expect((long )descriptor___5.flags & 1L, 0L);
 #line 759
       if (tmp___22 != 0L) {
 #line 759
@@ -21134,7 +21134,7 @@ static int dvb_frontend_thread(void *data )
 #line 795
     descriptor___6.flags = 0U;
 #line 795
-    tmp___23 = __builtin_expect((long )descriptor___6.flags & 1L, 0L);
+    tmp___23 = ldv__builtin_expect((long )descriptor___6.flags & 1L, 0L);
 #line 795
     if (tmp___23 != 0L) {
 #line 795
@@ -21240,7 +21240,7 @@ static void dvb_frontend_stop(struct dvb_frontend *fe )
 #line 832
   descriptor.flags = 0U;
 #line 832
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 832
   if (tmp != 0L) {
 #line 832
@@ -21380,7 +21380,7 @@ static int dvb_frontend_start(struct dvb_frontend *fe )
 #line 901
   descriptor.flags = 0U;
 #line 901
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 901
   if (tmp != 0L) {
 #line 901
@@ -21597,7 +21597,7 @@ static int dvb_frontend_clear_cache(struct dvb_frontend *fe )
 #line 1003
   descriptor.flags = 0U;
 #line 1003
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1003
   if (tmp != 0L) {
 #line 1003
@@ -21798,7 +21798,7 @@ static void dtv_property_dump(struct dvb_frontend *fe , struct dtv_property *tvp
 #line 1143
   descriptor.flags = 0U;
 #line 1143
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1143
   if (tmp != 0L) {
 #line 1143
@@ -21822,7 +21822,7 @@ static void dtv_property_dump(struct dvb_frontend *fe , struct dtv_property *tvp
 #line 1147
     descriptor___0.flags = 0U;
 #line 1147
-    tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 1147
     if (tmp___0 != 0L) {
 #line 1147
@@ -21849,7 +21849,7 @@ static void dtv_property_dump(struct dvb_frontend *fe , struct dtv_property *tvp
 #line 1151
     descriptor___1.flags = 0U;
 #line 1151
-    tmp___1 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 1151
     if (tmp___1 != 0L) {
 #line 1151
@@ -21884,7 +21884,7 @@ static void dtv_property_dump(struct dvb_frontend *fe , struct dtv_property *tvp
 #line 1155
     descriptor___2.flags = 0U;
 #line 1155
-    tmp___2 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+    tmp___2 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
 #line 1155
     if (tmp___2 != 0L) {
 #line 1155
@@ -21935,7 +21935,7 @@ static int dtv_property_cache_sync(struct dvb_frontend *fe , struct dtv_frontend
 #line 1173
   descriptor.flags = 0U;
 #line 1173
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1173
   if (tmp___0 != 0L) {
 #line 1173
@@ -21964,7 +21964,7 @@ static int dtv_property_cache_sync(struct dvb_frontend *fe , struct dtv_frontend
 #line 1178
   descriptor___0.flags = 0U;
 #line 1178
-  tmp___1 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 1178
   if (tmp___1 != 0L) {
 #line 1178
@@ -21995,7 +21995,7 @@ static int dtv_property_cache_sync(struct dvb_frontend *fe , struct dtv_frontend
 #line 1184
   descriptor___1.flags = 0U;
 #line 1184
-  tmp___2 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+  tmp___2 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 1184
   if (tmp___2 != 0L) {
 #line 1184
@@ -22069,7 +22069,7 @@ static int dtv_property_cache_sync(struct dvb_frontend *fe , struct dtv_frontend
 #line 1217
   descriptor___2.flags = 0U;
 #line 1217
-  tmp___3 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+  tmp___3 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
 #line 1217
   if (tmp___3 != 0L) {
 #line 1217
@@ -22154,7 +22154,7 @@ static int dtv_property_legacy_params_sync(struct dvb_frontend *fe , struct dvb_
 #line 1254
   descriptor.flags = 0U;
 #line 1254
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1254
   if (tmp___0 != 0L) {
 #line 1254
@@ -22183,7 +22183,7 @@ static int dtv_property_legacy_params_sync(struct dvb_frontend *fe , struct dvb_
 #line 1259
   descriptor___0.flags = 0U;
 #line 1259
-  tmp___1 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 1259
   if (tmp___1 != 0L) {
 #line 1259
@@ -22214,7 +22214,7 @@ static int dtv_property_legacy_params_sync(struct dvb_frontend *fe , struct dvb_
 #line 1265
   descriptor___1.flags = 0U;
 #line 1265
-  tmp___2 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+  tmp___2 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 1265
   if (tmp___2 != 0L) {
 #line 1265
@@ -22289,7 +22289,7 @@ static int dtv_property_legacy_params_sync(struct dvb_frontend *fe , struct dvb_
 #line 1297
   descriptor___2.flags = 0U;
 #line 1297
-  tmp___3 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+  tmp___3 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
 #line 1297
   if (tmp___3 != 0L) {
 #line 1297
@@ -22320,7 +22320,7 @@ static int dtv_get_frontend(struct dvb_frontend *fe , struct dvb_frontend_parame
 #line 1320
     r = (*(fe->ops.get_frontend))(fe);
 #line 1321
-    tmp = __builtin_expect(r < 0, 0L);
+    tmp = ldv__builtin_expect(r < 0, 0L);
 #line 1321
     if (tmp != 0L) {
 #line 1322
@@ -22750,7 +22750,7 @@ static int set_delivery_system(struct dvb_frontend *fe , u32 desired_system )
 #line 1577
       descriptor.flags = 0U;
 #line 1577
-      tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+      tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1577
       if (tmp != 0L) {
 #line 1577
@@ -22803,7 +22803,7 @@ static int set_delivery_system(struct dvb_frontend *fe , u32 desired_system )
 #line 1597
     descriptor___0.flags = 0U;
 #line 1597
-    tmp___1 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 1597
     if (tmp___1 != 0L) {
 #line 1597
@@ -22856,7 +22856,7 @@ static int set_delivery_system(struct dvb_frontend *fe , u32 desired_system )
 #line 1620
       descriptor___1.flags = 0U;
 #line 1620
-      tmp___2 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+      tmp___2 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 1620
       if (tmp___2 != 0L) {
 #line 1620
@@ -22892,7 +22892,7 @@ static int set_delivery_system(struct dvb_frontend *fe , u32 desired_system )
 #line 1634
       descriptor___2.flags = 0U;
 #line 1634
-      tmp___3 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+      tmp___3 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
 #line 1634
       if (tmp___3 != 0L) {
 #line 1634
@@ -22944,7 +22944,7 @@ static int set_delivery_system(struct dvb_frontend *fe , u32 desired_system )
 #line 1650
       descriptor___3.flags = 0U;
 #line 1650
-      tmp___4 = __builtin_expect((long )descriptor___3.flags & 1L, 0L);
+      tmp___4 = ldv__builtin_expect((long )descriptor___3.flags & 1L, 0L);
 #line 1650
       if (tmp___4 != 0L) {
 #line 1650
@@ -23014,7 +23014,7 @@ static int set_delivery_system(struct dvb_frontend *fe , u32 desired_system )
 #line 1669
       descriptor___4.flags = 0U;
 #line 1669
-      tmp___10 = __builtin_expect((long )descriptor___4.flags & 1L, 0L);
+      tmp___10 = ldv__builtin_expect((long )descriptor___4.flags & 1L, 0L);
 #line 1669
       if (tmp___10 != 0L) {
 #line 1669
@@ -23045,7 +23045,7 @@ static int set_delivery_system(struct dvb_frontend *fe , u32 desired_system )
 #line 1687
   descriptor___5.flags = 0U;
 #line 1687
-  tmp___11 = __builtin_expect((long )descriptor___5.flags & 1L, 0L);
+  tmp___11 = ldv__builtin_expect((long )descriptor___5.flags & 1L, 0L);
 #line 1687
   if (tmp___11 != 0L) {
 #line 1687
@@ -23072,7 +23072,7 @@ static int set_delivery_system(struct dvb_frontend *fe , u32 desired_system )
 #line 1697
       descriptor___6.flags = 0U;
 #line 1697
-      tmp___12 = __builtin_expect((long )descriptor___6.flags & 1L, 0L);
+      tmp___12 = ldv__builtin_expect((long )descriptor___6.flags & 1L, 0L);
 #line 1697
       if (tmp___12 != 0L) {
 #line 1697
@@ -23143,7 +23143,7 @@ static int set_delivery_system(struct dvb_frontend *fe , u32 desired_system )
 #line 1718
   descriptor___7.flags = 0U;
 #line 1718
-  tmp___13 = __builtin_expect((long )descriptor___7.flags & 1L, 0L);
+  tmp___13 = ldv__builtin_expect((long )descriptor___7.flags & 1L, 0L);
 #line 1718
   if (tmp___13 != 0L) {
 #line 1718
@@ -23209,7 +23209,7 @@ static int dtv_property_process_set(struct dvb_frontend *fe , struct dtv_propert
 #line 1752
   descriptor.flags = 0U;
 #line 1752
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1752
   if (tmp != 0L) {
 #line 1752
@@ -23474,7 +23474,7 @@ static int dvb_frontend_ioctl(struct file *file , unsigned int cmd , void *parg 
 #line 1905
   descriptor.flags = 0U;
 #line 1905
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1905
   if (tmp != 0L) {
 #line 1905
@@ -23579,7 +23579,7 @@ static int dvb_frontend_ioctl_properties(struct file *file , unsigned int cmd , 
 #line 1941
   descriptor.flags = 0U;
 #line 1941
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1941
   if (tmp != 0L) {
 #line 1941
@@ -23605,7 +23605,7 @@ static int dvb_frontend_ioctl_properties(struct file *file , unsigned int cmd , 
 #line 1946
     descriptor___0.flags = 0U;
 #line 1946
-    tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 1946
     if (tmp___0 != 0L) {
 #line 1946
@@ -23628,7 +23628,7 @@ static int dvb_frontend_ioctl_properties(struct file *file , unsigned int cmd , 
 #line 1947
     descriptor___1.flags = 0U;
 #line 1947
-    tmp___1 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 1947
     if (tmp___1 != 0L) {
 #line 1947
@@ -23711,7 +23711,7 @@ static int dvb_frontend_ioctl_properties(struct file *file , unsigned int cmd , 
 #line 1973
       descriptor___2.flags = 0U;
 #line 1973
-      tmp___4 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+      tmp___4 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
 #line 1973
       if (tmp___4 != 0L) {
 #line 1973
@@ -23741,7 +23741,7 @@ static int dvb_frontend_ioctl_properties(struct file *file , unsigned int cmd , 
 #line 1979
     descriptor___3.flags = 0U;
 #line 1979
-    tmp___5 = __builtin_expect((long )descriptor___3.flags & 1L, 0L);
+    tmp___5 = ldv__builtin_expect((long )descriptor___3.flags & 1L, 0L);
 #line 1979
     if (tmp___5 != 0L) {
 #line 1979
@@ -23764,7 +23764,7 @@ static int dvb_frontend_ioctl_properties(struct file *file , unsigned int cmd , 
 #line 1980
     descriptor___4.flags = 0U;
 #line 1980
-    tmp___6 = __builtin_expect((long )descriptor___4.flags & 1L, 0L);
+    tmp___6 = ldv__builtin_expect((long )descriptor___4.flags & 1L, 0L);
 #line 1980
     if (tmp___6 != 0L) {
 #line 1980
@@ -24121,7 +24121,7 @@ static int dvb_frontend_ioctl_legacy(struct file *file , unsigned int cmd , void
 #line 2193
   descriptor.flags = 0U;
 #line 2193
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 2193
   if (tmp___0 != 0L) {
 #line 2193
@@ -24563,7 +24563,7 @@ static unsigned int dvb_frontend_poll(struct file *file , struct poll_table_stru
 #line 2404
   descriptor.flags = 0U;
 #line 2404
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 2404
   if (tmp != 0L) {
 #line 2404
@@ -24633,7 +24633,7 @@ static int dvb_frontend_open(struct inode *inode , struct file *file )
 #line 2422
   descriptor.flags = 0U;
 #line 2422
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 2422
   if (tmp != 0L) {
 #line 2422
@@ -24848,7 +24848,7 @@ static int dvb_frontend_release(struct inode *inode , struct file *file )
 #line 2517
   descriptor.flags = 0U;
 #line 2517
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 2517
   if (tmp != 0L) {
 #line 2517
@@ -24932,7 +24932,7 @@ int dvb_frontend_suspend(struct dvb_frontend *fe )
 #line 2553
   descriptor.flags = 0U;
 #line 2553
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 2553
   if (tmp != 0L) {
 #line 2553
@@ -24985,7 +24985,7 @@ int dvb_frontend_resume(struct dvb_frontend *fe )
 #line 2571
   descriptor.flags = 0U;
 #line 2571
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 2571
   if (tmp != 0L) {
 #line 2571
@@ -25090,7 +25090,7 @@ int dvb_register_frontend(struct dvb_adapter *dvb , struct dvb_frontend *fe )
 #line 2599
   descriptor.flags = 0U;
 #line 2599
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 2599
   if (tmp != 0L) {
 #line 2599
@@ -25174,7 +25174,7 @@ int dvb_unregister_frontend(struct dvb_frontend *fe )
 #line 2641
   descriptor.flags = 0U;
 #line 2641
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 2641
   if (tmp != 0L) {
 #line 2641
@@ -29624,13 +29624,13 @@ unsigned int intlog2(u32 value )
 
   {
 #line 153
-  tmp___0 = __builtin_expect(value == 0U, 0L);
+  tmp___0 = ldv__builtin_expect(value == 0U, 0L);
 #line 153
   if (tmp___0 != 0L) {
 #line 154
     __ret_warn_on = 1;
 #line 154
-    tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 154
     if (tmp != 0L) {
 #line 154
@@ -29640,7 +29640,7 @@ unsigned int intlog2(u32 value )
 
     }
 #line 154
-    __builtin_expect(__ret_warn_on != 0, 0L);
+    ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 155
     return (0U);
   } else {
@@ -29671,13 +29671,13 @@ unsigned int intlog10(u32 value )
 
   {
 #line 210
-  tmp___0 = __builtin_expect(value == 0U, 0L);
+  tmp___0 = ldv__builtin_expect(value == 0U, 0L);
 #line 210
   if (tmp___0 != 0L) {
 #line 211
     __ret_warn_on = 1;
 #line 211
-    tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 211
     if (tmp != 0L) {
 #line 211
@@ -29687,7 +29687,7 @@ unsigned int intlog10(u32 value )
 
     }
 #line 211
-    __builtin_expect(__ret_warn_on != 0, 0L);
+    ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 212
     return (0U);
   } else {
@@ -29745,7 +29745,7 @@ __inline static void ldv_error(void)
 #line 25
 extern int __VERIFIER_nondet_int(void) ;
 #line 49 "/home/mikhail/ldv/kernel-rules/verifier/rcv.h"
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 

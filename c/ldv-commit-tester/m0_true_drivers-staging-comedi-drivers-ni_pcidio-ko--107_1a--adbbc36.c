@@ -2693,7 +2693,7 @@ struct nidio96_private {
    spinlock_t mite_channel_lock ;
 };
 #line 1 "<compiler builtins>"
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 #line 3 "/work/vladimir/commit-test/commit-test-work/task-051--linux-stable--dir/work/current--X--drivers/staging/comedi/drivers/ni_pcidio.ko--X--defaultlinux-stable-adbbc36--X--107_1a--X--cpachecker/linux-stable-adbbc36/csd_deg_dscv/11/dscv_tempdir/dscv/ri/107_1a/drivers/staging/comedi/drivers/ni_pcidio.c.prepared"
 int ldv_module_license(void) ;
 #line 4
@@ -2773,7 +2773,7 @@ __inline static unsigned long arch_local_save_flags(void)
 #line 829
   __eax = __eax;
 #line 829
-  tmp = __builtin_expect((unsigned long )pv_irq_ops.save_fl.func == (unsigned long )((void *)0),
+  tmp = ldv__builtin_expect((unsigned long )pv_irq_ops.save_fl.func == (unsigned long )((void *)0),
                          0L);
 #line 829
   if (tmp != 0L) {
@@ -2952,7 +2952,7 @@ __inline static int need_resched(void)
 #line 2376
   tmp___0 = test_ti_thread_flag(tmp, 3);
 #line 2376
-  tmp___1 = __builtin_expect(tmp___0 != 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 != 0, 0L);
 #line 2376
   return ((int )tmp___1);
 }
@@ -2989,7 +2989,7 @@ __inline static void trace_kmalloc(unsigned long call_site , void const   *ptr ,
 
   {
 #line 45
-  tmp = __builtin_expect(__tracepoint_kmalloc.state != 0, 0L);
+  tmp = ldv__builtin_expect(__tracepoint_kmalloc.state != 0, 0L);
 #line 45
   if (tmp != 0L) {
 #line 45
@@ -3453,7 +3453,7 @@ __inline static struct dma_map_ops *get_dma_ops(struct device *dev )
 
   {
 #line 36
-  tmp = __builtin_expect((unsigned long )dev == (unsigned long )((struct device *)0),
+  tmp = ldv__builtin_expect((unsigned long )dev == (unsigned long )((struct device *)0),
                          0L);
 #line 36
   if (tmp != 0L || (unsigned long )dev->archdata.dma_ops == (unsigned long )((struct dma_map_ops *)0)) {
@@ -3488,7 +3488,7 @@ __inline static void dma_free_coherent(struct device *dev , size_t size , void *
 #line 147
   __ret_warn_on = tmp___0 != 0;
 #line 147
-  tmp___1 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___1 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 147
   if (tmp___1 != 0L) {
 #line 147
@@ -3498,7 +3498,7 @@ __inline static void dma_free_coherent(struct device *dev , size_t size , void *
 
   }
 #line 147
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 152
   debug_dma_free_coherent(dev, size, vaddr, bus);
 #line 153
@@ -3615,7 +3615,7 @@ __inline static void comedi_set_hw_dev(struct comedi_device *dev , struct device
 #line 403
     dev->hw_dev = get_device(dev->hw_dev);
 #line 404
-    tmp = __builtin_expect((unsigned long )dev->hw_dev == (unsigned long )((struct device *)0),
+    tmp = ldv__builtin_expect((unsigned long )dev->hw_dev == (unsigned long )((struct device *)0),
                            0L);
 #line 404
     if (tmp != 0L) {
@@ -3680,7 +3680,7 @@ __inline static void *comedi_aux_data(int *options , int n )
 
   }
 #line 455
-  tmp = __builtin_expect(n > 3, 0L);
+  tmp = ldv__builtin_expect(n > 3, 0L);
 #line 455
   if (tmp != 0L) {
 #line 455
@@ -3947,7 +3947,7 @@ static int ni_pcidio_request_di_mite_channel(struct comedi_device *dev )
 #line 435
   flags = _raw_spin_lock_irqsave(tmp);
 #line 436
-  tmp___0 = __builtin_expect((unsigned long )((struct nidio96_private *)dev->private)->di_mite_chan != (unsigned long )((struct mite_channel *)0),
+  tmp___0 = ldv__builtin_expect((unsigned long )((struct nidio96_private *)dev->private)->di_mite_chan != (unsigned long )((struct mite_channel *)0),
                              0L);
 #line 436
   if (tmp___0 != 0L) {
@@ -5635,7 +5635,7 @@ __inline static void ldv_error(void)
 }
 }
 #line 49 "/work/vladimir/kernel-rules/verifier/rcv.h"
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 

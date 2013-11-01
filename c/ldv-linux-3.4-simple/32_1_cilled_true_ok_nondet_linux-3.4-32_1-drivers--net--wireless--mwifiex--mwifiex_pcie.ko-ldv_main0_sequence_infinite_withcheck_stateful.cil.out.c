@@ -7228,7 +7228,7 @@ struct mwifiex_adapter {
 #line 1 "<compiler builtins>"
 
 #line 1
-long __builtin_expect(long val , long res ) ;
+long ldv__builtin_expect(long val , long res ) ;
 #line 61 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/page_64_types.h"
 extern unsigned long __phys_addr(unsigned long  ) ;
 #line 100 "include/linux/printk.h"
@@ -7997,7 +7997,7 @@ static bool mwifiex_pcie_ok_to_access_hw(struct mwifiex_adapter *adapter )
 #line 66
         __cil_tmp21 = (long )__cil_tmp20;
 #line 66
-        tmp___7 = __builtin_expect(__cil_tmp21, 0L);
+        tmp___7 = ldv__builtin_expect(__cil_tmp21, 0L);
         }
 #line 66
         if (tmp___7) {
@@ -8101,7 +8101,7 @@ static int mwifiex_pcie_probe(struct pci_dev *pdev , struct pci_device_id  const
 #line 86
     __cil_tmp12 = (long )__cil_tmp11;
 #line 86
-    tmp___7 = __builtin_expect(__cil_tmp12, 0L);
+    tmp___7 = ldv__builtin_expect(__cil_tmp12, 0L);
     }
 #line 86
     if (tmp___7) {
@@ -8966,7 +8966,7 @@ static int mwifiex_pm_wakeup_card(struct mwifiex_adapter *adapter )
 #line 296
       __cil_tmp12 = (long )__cil_tmp11;
 #line 296
-      tmp___8 = __builtin_expect(__cil_tmp12, 0L);
+      tmp___8 = ldv__builtin_expect(__cil_tmp12, 0L);
       }
 #line 296
       if (tmp___8) {
@@ -9054,7 +9054,7 @@ static int mwifiex_pm_wakeup_card(struct mwifiex_adapter *adapter )
 #line 304
       __cil_tmp33 = (long )__cil_tmp32;
 #line 304
-      tmp___10 = __builtin_expect(__cil_tmp33, 0L);
+      tmp___10 = ldv__builtin_expect(__cil_tmp33, 0L);
       }
 #line 304
       if (tmp___10) {
@@ -9136,7 +9136,7 @@ static int mwifiex_pm_wakeup_card_complete(struct mwifiex_adapter *adapter )
 #line 317
       __cil_tmp8 = (long )__cil_tmp7;
 #line 317
-      tmp___7 = __builtin_expect(__cil_tmp8, 0L);
+      tmp___7 = ldv__builtin_expect(__cil_tmp8, 0L);
       }
 #line 317
       if (tmp___7) {
@@ -9516,7 +9516,7 @@ static int mwifiex_pcie_create_txbd_ring(struct mwifiex_adapter *adapter )
 #line 383
       __cil_tmp31 = (long )__cil_tmp30;
 #line 383
-      tmp___7 = __builtin_expect(__cil_tmp31, 0L);
+      tmp___7 = ldv__builtin_expect(__cil_tmp31, 0L);
       }
 #line 383
       if (tmp___7) {
@@ -9635,7 +9635,7 @@ static int mwifiex_pcie_create_txbd_ring(struct mwifiex_adapter *adapter )
 #line 392
       __cil_tmp63 = (long )__cil_tmp62;
 #line 392
-      tmp___9 = __builtin_expect(__cil_tmp63, 0L);
+      tmp___9 = ldv__builtin_expect(__cil_tmp63, 0L);
       }
 #line 392
       if (tmp___9) {
@@ -9791,7 +9791,7 @@ static int mwifiex_pcie_create_txbd_ring(struct mwifiex_adapter *adapter )
 #line 413
         __cil_tmp106 = (long )__cil_tmp105;
 #line 413
-        tmp___10 = __builtin_expect(__cil_tmp106, 0L);
+        tmp___10 = ldv__builtin_expect(__cil_tmp106, 0L);
         }
 #line 413
         if (tmp___10) {
@@ -10371,7 +10371,7 @@ static int mwifiex_pcie_create_rxbd_ring(struct mwifiex_adapter *adapter )
 #line 471
       __cil_tmp31 = (long )__cil_tmp30;
 #line 471
-      tmp___7 = __builtin_expect(__cil_tmp31, 0L);
+      tmp___7 = ldv__builtin_expect(__cil_tmp31, 0L);
       }
 #line 471
       if (tmp___7) {
@@ -10490,7 +10490,7 @@ static int mwifiex_pcie_create_rxbd_ring(struct mwifiex_adapter *adapter )
 #line 481
       __cil_tmp63 = (long )__cil_tmp62;
 #line 481
-      tmp___9 = __builtin_expect(__cil_tmp63, 0L);
+      tmp___9 = ldv__builtin_expect(__cil_tmp63, 0L);
       }
 #line 481
       if (tmp___9) {
@@ -10646,7 +10646,7 @@ static int mwifiex_pcie_create_rxbd_ring(struct mwifiex_adapter *adapter )
 #line 504
         __cil_tmp106 = (long )__cil_tmp105;
 #line 504
-        tmp___10 = __builtin_expect(__cil_tmp106, 0L);
+        tmp___10 = ldv__builtin_expect(__cil_tmp106, 0L);
         }
 #line 504
         if (tmp___10) {
@@ -11226,7 +11226,7 @@ static int mwifiex_pcie_create_evtbd_ring(struct mwifiex_adapter *adapter )
 #line 565
       __cil_tmp31 = (long )__cil_tmp30;
 #line 565
-      tmp___7 = __builtin_expect(__cil_tmp31, 0L);
+      tmp___7 = ldv__builtin_expect(__cil_tmp31, 0L);
       }
 #line 565
       if (tmp___7) {
@@ -11345,7 +11345,7 @@ static int mwifiex_pcie_create_evtbd_ring(struct mwifiex_adapter *adapter )
 #line 575
       __cil_tmp63 = (long )__cil_tmp62;
 #line 575
-      tmp___9 = __builtin_expect(__cil_tmp63, 0L);
+      tmp___9 = ldv__builtin_expect(__cil_tmp63, 0L);
       }
 #line 575
       if (tmp___9) {
@@ -11501,7 +11501,7 @@ static int mwifiex_pcie_create_evtbd_ring(struct mwifiex_adapter *adapter )
 #line 598
         __cil_tmp106 = (long )__cil_tmp105;
 #line 598
-        tmp___10 = __builtin_expect(__cil_tmp106, 0L);
+        tmp___10 = ldv__builtin_expect(__cil_tmp106, 0L);
         }
 #line 598
         if (tmp___10) {
@@ -12161,7 +12161,7 @@ static int mwifiex_pcie_alloc_sleep_cookie_buf(struct mwifiex_adapter *adapter )
 #line 715
       __cil_tmp23 = (long )__cil_tmp22;
 #line 715
-      tmp___7 = __builtin_expect(__cil_tmp23, 0L);
+      tmp___7 = ldv__builtin_expect(__cil_tmp23, 0L);
       }
 #line 715
       if (tmp___7) {
@@ -12555,7 +12555,7 @@ static int mwifiex_pcie_send_data(struct mwifiex_adapter *adapter , struct sk_bu
 #line 767
       __cil_tmp35 = (long )__cil_tmp34;
 #line 767
-      tmp___10 = __builtin_expect(__cil_tmp35, 0L);
+      tmp___10 = ldv__builtin_expect(__cil_tmp35, 0L);
       }
 #line 767
       if (tmp___10) {
@@ -12908,7 +12908,7 @@ static int mwifiex_pcie_send_data(struct mwifiex_adapter *adapter , struct sk_bu
 #line 813
           __cil_tmp154 = (long )__cil_tmp153;
 #line 813
-          tmp___13 = __builtin_expect(__cil_tmp154, 0L);
+          tmp___13 = ldv__builtin_expect(__cil_tmp154, 0L);
           }
 #line 813
           if (tmp___13) {
@@ -12971,7 +12971,7 @@ static int mwifiex_pcie_send_data(struct mwifiex_adapter *adapter , struct sk_bu
 #line 817
           __cil_tmp169 = (long )__cil_tmp168;
 #line 817
-          tmp___14 = __builtin_expect(__cil_tmp169, 0L);
+          tmp___14 = ldv__builtin_expect(__cil_tmp169, 0L);
           }
 #line 817
           if (tmp___14) {
@@ -13357,7 +13357,7 @@ static int mwifiex_pcie_process_recv_data(struct mwifiex_adapter *adapter )
 #line 863
         __cil_tmp60 = (long )__cil_tmp59;
 #line 863
-        tmp___8 = __builtin_expect(__cil_tmp60, 0L);
+        tmp___8 = ldv__builtin_expect(__cil_tmp60, 0L);
         }
 #line 863
         if (tmp___8) {
@@ -13429,7 +13429,7 @@ static int mwifiex_pcie_process_recv_data(struct mwifiex_adapter *adapter )
 #line 868
           __cil_tmp77 = (long )__cil_tmp76;
 #line 868
-          tmp___9 = __builtin_expect(__cil_tmp77, 0L);
+          tmp___9 = ldv__builtin_expect(__cil_tmp77, 0L);
           }
 #line 868
           if (tmp___9) {
@@ -13564,7 +13564,7 @@ static int mwifiex_pcie_process_recv_data(struct mwifiex_adapter *adapter )
 #line 883
         __cil_tmp116 = (long )__cil_tmp115;
 #line 883
-        tmp___10 = __builtin_expect(__cil_tmp116, 0L);
+        tmp___10 = ldv__builtin_expect(__cil_tmp116, 0L);
         }
 #line 883
         if (tmp___10) {
@@ -13682,7 +13682,7 @@ static int mwifiex_pcie_process_recv_data(struct mwifiex_adapter *adapter )
 #line 902
         __cil_tmp142 = (long )__cil_tmp141;
 #line 902
-        tmp___13 = __builtin_expect(__cil_tmp142, 0L);
+        tmp___13 = ldv__builtin_expect(__cil_tmp142, 0L);
         }
 #line 902
         if (tmp___13) {
@@ -14790,7 +14790,7 @@ static int mwifiex_pcie_process_cmd_complete(struct mwifiex_adapter *adapter )
 #line 1085
       __cil_tmp29 = (long )__cil_tmp28;
 #line 1085
-      tmp___7 = __builtin_expect(__cil_tmp29, 0L);
+      tmp___7 = ldv__builtin_expect(__cil_tmp29, 0L);
       }
 #line 1085
       if (tmp___7) {
@@ -15337,7 +15337,7 @@ static int mwifiex_pcie_process_event_ready(struct mwifiex_adapter *adapter )
 #line 1156
         __cil_tmp32 = (long )__cil_tmp31;
 #line 1156
-        tmp___7 = __builtin_expect(__cil_tmp32, 0L);
+        tmp___7 = ldv__builtin_expect(__cil_tmp32, 0L);
         }
 #line 1156
         if (tmp___7) {
@@ -15396,7 +15396,7 @@ static int mwifiex_pcie_process_event_ready(struct mwifiex_adapter *adapter )
 #line 1162
         __cil_tmp42 = (long )__cil_tmp41;
 #line 1162
-        tmp___8 = __builtin_expect(__cil_tmp42, 0L);
+        tmp___8 = ldv__builtin_expect(__cil_tmp42, 0L);
         }
 #line 1162
         if (tmp___8) {
@@ -15475,7 +15475,7 @@ static int mwifiex_pcie_process_event_ready(struct mwifiex_adapter *adapter )
 #line 1173
       __cil_tmp56 = (long )__cil_tmp55;
 #line 1173
-      tmp___10 = __builtin_expect(__cil_tmp56, 0L);
+      tmp___10 = ldv__builtin_expect(__cil_tmp56, 0L);
       }
 #line 1173
       if (tmp___10) {
@@ -15587,7 +15587,7 @@ static int mwifiex_pcie_process_event_ready(struct mwifiex_adapter *adapter )
 #line 1183
           __cil_tmp90 = (long )__cil_tmp89;
 #line 1183
-          tmp___11 = __builtin_expect(__cil_tmp90, 0L);
+          tmp___11 = ldv__builtin_expect(__cil_tmp90, 0L);
           }
 #line 1183
           if (tmp___11) {
@@ -15765,7 +15765,7 @@ static int mwifiex_pcie_process_event_ready(struct mwifiex_adapter *adapter )
 #line 1200
           __cil_tmp146 = (long )__cil_tmp145;
 #line 1200
-          tmp___12 = __builtin_expect(__cil_tmp146, 0L);
+          tmp___12 = ldv__builtin_expect(__cil_tmp146, 0L);
           }
 #line 1200
           if (tmp___12) {
@@ -16186,7 +16186,7 @@ static int mwifiex_pcie_event_complete(struct mwifiex_adapter *adapter , struct 
 #line 1256
         __cil_tmp64 = (long )__cil_tmp63;
 #line 1256
-        tmp___8 = __builtin_expect(__cil_tmp64, 0L);
+        tmp___8 = ldv__builtin_expect(__cil_tmp64, 0L);
         }
 #line 1256
         if (tmp___8) {
@@ -16299,7 +16299,7 @@ static int mwifiex_pcie_event_complete(struct mwifiex_adapter *adapter , struct 
 #line 1267
       __cil_tmp98 = (long )__cil_tmp97;
 #line 1267
-      tmp___9 = __builtin_expect(__cil_tmp98, 0L);
+      tmp___9 = ldv__builtin_expect(__cil_tmp98, 0L);
       }
 #line 1267
       if (tmp___9) {
@@ -16390,7 +16390,7 @@ static int mwifiex_pcie_event_complete(struct mwifiex_adapter *adapter , struct 
 #line 1277
       __cil_tmp120 = (long )__cil_tmp119;
 #line 1277
-      tmp___11 = __builtin_expect(__cil_tmp120, 0L);
+      tmp___11 = ldv__builtin_expect(__cil_tmp120, 0L);
       }
 #line 1277
       if (tmp___11) {
@@ -16655,7 +16655,7 @@ static int mwifiex_prog_fw_w_helper(struct mwifiex_adapter *adapter , struct mwi
 #line 1312
       __cil_tmp37 = (long )__cil_tmp36;
 #line 1312
-      tmp___7 = __builtin_expect(__cil_tmp37, 0L);
+      tmp___7 = ldv__builtin_expect(__cil_tmp37, 0L);
       }
 #line 1312
       if (tmp___7) {
@@ -16928,7 +16928,7 @@ static int mwifiex_prog_fw_w_helper(struct mwifiex_adapter *adapter , struct mwi
 #line 1381
           __cil_tmp79 = (long )__cil_tmp78;
 #line 1381
-          tmp___9 = __builtin_expect(__cil_tmp79, 0L);
+          tmp___9 = ldv__builtin_expect(__cil_tmp79, 0L);
           }
 #line 1381
           if (tmp___9) {
@@ -17103,7 +17103,7 @@ static int mwifiex_prog_fw_w_helper(struct mwifiex_adapter *adapter , struct mwi
 #line 1416
       __cil_tmp117 = (long )__cil_tmp116;
 #line 1416
-      tmp___12 = __builtin_expect(__cil_tmp117, 0L);
+      tmp___12 = ldv__builtin_expect(__cil_tmp117, 0L);
       }
 #line 1416
       if (tmp___12) {
@@ -17268,7 +17268,7 @@ static int mwifiex_check_fw_status(struct mwifiex_adapter *adapter , u32 poll_nu
 #line 1445
       __cil_tmp30 = (long )__cil_tmp29;
 #line 1445
-      tmp___8 = __builtin_expect(__cil_tmp30, 0L);
+      tmp___8 = ldv__builtin_expect(__cil_tmp30, 0L);
       }
 #line 1445
       if (tmp___8) {
@@ -17868,7 +17868,7 @@ static irqreturn_t mwifiex_pcie_interrupt(int irq , void *context )
 #line 1557
       __cil_tmp15 = (long )__cil_tmp14;
 #line 1557
-      tmp___7 = __builtin_expect(__cil_tmp15, 0L);
+      tmp___7 = ldv__builtin_expect(__cil_tmp15, 0L);
       }
 #line 1557
       if (tmp___7) {
@@ -17931,7 +17931,7 @@ static irqreturn_t mwifiex_pcie_interrupt(int irq , void *context )
 #line 1563
         __cil_tmp25 = (long )__cil_tmp24;
 #line 1563
-        tmp___10 = __builtin_expect(__cil_tmp25, 0L);
+        tmp___10 = ldv__builtin_expect(__cil_tmp25, 0L);
         }
 #line 1563
         if (tmp___10) {
@@ -18403,7 +18403,7 @@ static int mwifiex_process_int_status(struct mwifiex_adapter *adapter )
 #line 1607
             __cil_tmp64 = (long )__cil_tmp63;
 #line 1607
-            tmp___8 = __builtin_expect(__cil_tmp64, 0L);
+            tmp___8 = ldv__builtin_expect(__cil_tmp64, 0L);
             }
 #line 1607
             if (tmp___8) {
@@ -18501,7 +18501,7 @@ static int mwifiex_process_int_status(struct mwifiex_adapter *adapter )
 #line 1613
           __cil_tmp90 = (long )__cil_tmp89;
 #line 1613
-          tmp___9 = __builtin_expect(__cil_tmp90, 0L);
+          tmp___9 = ldv__builtin_expect(__cil_tmp90, 0L);
           }
 #line 1613
           if (tmp___9) {
@@ -18600,7 +18600,7 @@ static int mwifiex_process_int_status(struct mwifiex_adapter *adapter )
 #line 1620
           __cil_tmp114 = (long )__cil_tmp113;
 #line 1620
-          tmp___10 = __builtin_expect(__cil_tmp114, 0L);
+          tmp___10 = ldv__builtin_expect(__cil_tmp114, 0L);
           }
 #line 1620
           if (tmp___10) {
@@ -18706,7 +18706,7 @@ static int mwifiex_process_int_status(struct mwifiex_adapter *adapter )
 #line 1629
             __cil_tmp140 = (long )__cil_tmp139;
 #line 1629
-            tmp___11 = __builtin_expect(__cil_tmp140, 0L);
+            tmp___11 = ldv__builtin_expect(__cil_tmp140, 0L);
             }
 #line 1629
             if (tmp___11) {
@@ -18914,7 +18914,7 @@ static int mwifiex_process_int_status(struct mwifiex_adapter *adapter )
 #line 1661
       __cil_tmp188 = (long )__cil_tmp187;
 #line 1661
-      tmp___15 = __builtin_expect(__cil_tmp188, 0L);
+      tmp___15 = ldv__builtin_expect(__cil_tmp188, 0L);
       }
 #line 1661
       if (tmp___15) {
@@ -19183,7 +19183,7 @@ static int mwifiex_pcie_init(struct mwifiex_adapter *adapter )
 #line 1719
       __cil_tmp16 = (long )__cil_tmp15;
 #line 1719
-      tmp___7 = __builtin_expect(__cil_tmp16, 0L);
+      tmp___7 = ldv__builtin_expect(__cil_tmp16, 0L);
       }
 #line 1719
       if (tmp___7) {
@@ -19404,7 +19404,7 @@ static int mwifiex_pcie_init(struct mwifiex_adapter *adapter )
 #line 1753
       __cil_tmp64 = (long )__cil_tmp63;
 #line 1753
-      tmp___8 = __builtin_expect(__cil_tmp64, 0L);
+      tmp___8 = ldv__builtin_expect(__cil_tmp64, 0L);
       }
 #line 1753
       if (tmp___8) {
@@ -19673,7 +19673,7 @@ static void mwifiex_pcie_cleanup(struct mwifiex_adapter *adapter )
 #line 1822
       __cil_tmp17 = (long )__cil_tmp16;
 #line 1822
-      tmp___7 = __builtin_expect(__cil_tmp17, 0L);
+      tmp___7 = ldv__builtin_expect(__cil_tmp17, 0L);
       }
 #line 1822
       if (tmp___7) {
@@ -19929,7 +19929,7 @@ static void mwifiex_unregister_dev(struct mwifiex_adapter *adapter )
 #line 1878
         __cil_tmp12 = (long )__cil_tmp11;
 #line 1878
-        tmp___7 = __builtin_expect(__cil_tmp12, 0L);
+        tmp___7 = ldv__builtin_expect(__cil_tmp12, 0L);
         }
 #line 1878
         if (tmp___7) {
@@ -20040,7 +20040,7 @@ static int mwifiex_pcie_init_module(void)
 #line 1913
     __cil_tmp9 = (long )__cil_tmp8;
 #line 1913
-    tmp___7 = __builtin_expect(__cil_tmp9, 0L);
+    tmp___7 = ldv__builtin_expect(__cil_tmp9, 0L);
     }
 #line 1913
     if (tmp___7) {
@@ -20089,7 +20089,7 @@ static int mwifiex_pcie_init_module(void)
 #line 1924
       __cil_tmp15 = (long )__cil_tmp14;
 #line 1924
-      tmp___8 = __builtin_expect(__cil_tmp15, 0L);
+      tmp___8 = ldv__builtin_expect(__cil_tmp15, 0L);
       }
 #line 1924
       if (tmp___8) {
@@ -20678,7 +20678,7 @@ void ldv_check_final_state(void)
 }
 }
 #line 2599 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/10020/dscv_tempdir/dscv/ri/32_1/drivers/net/wireless/mwifiex/pcie.c.common.c"
-long __builtin_expect(long val , long res ) 
+long ldv__builtin_expect(long val , long res ) 
 { 
 
   {

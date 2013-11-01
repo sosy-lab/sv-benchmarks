@@ -4256,7 +4256,7 @@ void *__builtin_memcpy(void * , void const   * , unsigned long  ) ;
 #line 1
 unsigned long __builtin_object_size(void * , int  ) ;
 #line 1
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 #line 33 "include/linux/export.h"
 extern struct module __this_module ;
 #line 197 "include/linux/kernel.h"
@@ -4501,13 +4501,13 @@ __inline static void kref_get(struct kref *kref )
 #line 46
   __ret_warn_once = tmp <= 1;
 #line 46
-  tmp___2 = __builtin_expect(__ret_warn_once != 0, 0L);
+  tmp___2 = ldv__builtin_expect(__ret_warn_once != 0, 0L);
 #line 46
   if (tmp___2 != 0L) {
 #line 46
     __ret_warn_on = ! __warned;
 #line 46
-    tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 46
     if (tmp___0 != 0L) {
 #line 46
@@ -4516,7 +4516,7 @@ __inline static void kref_get(struct kref *kref )
 
     }
 #line 46
-    tmp___1 = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp___1 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 46
     if (tmp___1 != 0L) {
 #line 46
@@ -4528,7 +4528,7 @@ __inline static void kref_get(struct kref *kref )
 
   }
 #line 46
-  __builtin_expect(__ret_warn_once != 0, 0L);
+  ldv__builtin_expect(__ret_warn_once != 0, 0L);
 #line 48
   return;
 }
@@ -4544,7 +4544,7 @@ __inline static int kref_sub(struct kref *kref , unsigned int count , void (*rel
 #line 70
   __ret_warn_on = (unsigned long )release == (unsigned long )((void (*)(struct kref * ))0);
 #line 70
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 70
   if (tmp != 0L) {
 #line 70
@@ -4553,7 +4553,7 @@ __inline static int kref_sub(struct kref *kref , unsigned int count , void (*rel
 
   }
 #line 70
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 72
   tmp___0 = atomic_sub_and_test((int )count, & kref->refcount);
 #line 72
@@ -4613,14 +4613,14 @@ __inline static unsigned long copy_from_user(void *to , void const   *from , uns
 #line 61
   might_fault();
 #line 62
-  tmp___1 = __builtin_expect(sz == -1, 1L);
+  tmp___1 = ldv__builtin_expect(sz == -1, 1L);
 #line 62
   if (tmp___1 != 0L) {
 #line 63
     n = _copy_from_user(to, from, (unsigned int )n);
   } else {
 #line 62
-    tmp___2 = __builtin_expect((unsigned long )sz >= n, 1L);
+    tmp___2 = ldv__builtin_expect((unsigned long )sz >= n, 1L);
 #line 62
     if (tmp___2 != 0L) {
 #line 63
@@ -4629,7 +4629,7 @@ __inline static unsigned long copy_from_user(void *to , void const   *from , uns
 #line 66
       __ret_warn_on = 1;
 #line 66
-      tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+      tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 66
       if (tmp___0 != 0L) {
 #line 66
@@ -4639,7 +4639,7 @@ __inline static unsigned long copy_from_user(void *to , void const   *from , uns
 
       }
 #line 66
-      __builtin_expect(__ret_warn_on != 0, 0L);
+      ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
   }
 #line 68
@@ -15679,7 +15679,7 @@ static int sisusbcon_switch(struct vc_data *c )
 #line 572
     descriptor.flags = 0U;
 #line 572
-    tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 572
     if (tmp___0 != 0L) {
 #line 572
@@ -18390,7 +18390,7 @@ __inline static void ldv_error(void)
 #line 25
 extern int __VERIFIER_nondet_int(void) ;
 #line 49 "/home/ldvuser/ldv/inst/kernel-rules/verifier/rcv.h"
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 

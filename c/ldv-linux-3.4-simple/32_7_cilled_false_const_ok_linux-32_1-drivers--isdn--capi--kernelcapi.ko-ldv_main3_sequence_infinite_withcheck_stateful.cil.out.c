@@ -3292,7 +3292,7 @@ enum kobj_ns_type;
 #line 1
 
 #line 1
-long __builtin_expect(long val , long res ) ;
+long ldv__builtin_expect(long val , long res ) ;
 #line 315 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/bitops.h"
 __inline static int variable_test_bit(int nr , unsigned long  volatile   *addr )  __attribute__((__no_instrument_function__)) ;
 #line 315 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/bitops.h"
@@ -3998,7 +3998,7 @@ __inline static unsigned long __attribute__((__warn_unused_result__))  copy_from
 #line 53
   __cil_tmp11 = (long )tmp___1;
 #line 53
-  tmp___2 = __builtin_expect(__cil_tmp11, 1L);
+  tmp___2 = ldv__builtin_expect(__cil_tmp11, 1L);
   }
 #line 53
   if (tmp___2) {
@@ -4019,7 +4019,7 @@ __inline static unsigned long __attribute__((__warn_unused_result__))  copy_from
 #line 57
     __cil_tmp15 = (long )__cil_tmp14;
 #line 57
-    tmp___0 = __builtin_expect(__cil_tmp15, 0L);
+    tmp___0 = ldv__builtin_expect(__cil_tmp15, 0L);
     }
 #line 57
     if (tmp___0) {
@@ -4041,7 +4041,7 @@ __inline static unsigned long __attribute__((__warn_unused_result__))  copy_from
 #line 57
     __cil_tmp19 = (long )__cil_tmp18;
 #line 57
-    __builtin_expect(__cil_tmp19, 0L);
+    ldv__builtin_expect(__cil_tmp19, 0L);
     }
   }
 #line 59
@@ -4272,7 +4272,7 @@ __inline static int signal_pending(struct task_struct *p )
 #line 2591
   __cil_tmp5 = (long )tmp___8;
 #line 2591
-  tmp___9 = __builtin_expect(__cil_tmp5, 0L);
+  tmp___9 = ldv__builtin_expect(__cil_tmp5, 0L);
   }
 #line 2591
   return ((int )tmp___9);
@@ -10841,7 +10841,7 @@ void ldv_check_final_state(void)
 }
 }
 #line 1480 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/3398/dscv_tempdir/dscv/ri/32_1/drivers/isdn/capi/kcapi.c.common.c"
-long __builtin_expect(long val , long res ) 
+long ldv__builtin_expect(long val , long res ) 
 { 
 
   {
@@ -16241,7 +16241,7 @@ static _cdebbuf *cdebbuf_alloc(void)
 #line 896
   __cil_tmp8 = (long )tmp___1;
 #line 896
-  tmp___2 = __builtin_expect(__cil_tmp8, 1L);
+  tmp___2 = ldv__builtin_expect(__cil_tmp8, 1L);
   }
 #line 896
   if (tmp___2) {
@@ -16359,7 +16359,7 @@ void cdebbuf_free(_cdebbuf *cdb )
 #line 923
   __cil_tmp9 = (long )__cil_tmp8;
 #line 923
-  tmp = __builtin_expect(__cil_tmp9, 1L);
+  tmp = ldv__builtin_expect(__cil_tmp9, 1L);
   }
 #line 923
   if (tmp) {
@@ -16382,7 +16382,7 @@ void cdebbuf_free(_cdebbuf *cdb )
 #line 927
   __cil_tmp13 = (long )__cil_tmp12;
 #line 927
-  tmp___0 = __builtin_expect(__cil_tmp13, 1L);
+  tmp___0 = ldv__builtin_expect(__cil_tmp13, 1L);
   }
 #line 927
   if (tmp___0) {
@@ -16509,7 +16509,7 @@ _cdebbuf *capi_message2str(unsigned char *msg )
 #line 949
   __cil_tmp14 = (long )__cil_tmp13;
 #line 949
-  tmp = __builtin_expect(__cil_tmp14, 0L);
+  tmp = ldv__builtin_expect(__cil_tmp14, 0L);
   }
 #line 949
   if (tmp) {
@@ -16536,7 +16536,7 @@ _cdebbuf *capi_message2str(unsigned char *msg )
 #line 951
   __cil_tmp21 = (long )__cil_tmp20;
 #line 951
-  tmp___1 = __builtin_expect(__cil_tmp21, 1L);
+  tmp___1 = ldv__builtin_expect(__cil_tmp21, 1L);
   }
 #line 951
   if (tmp___1) {
@@ -16560,7 +16560,7 @@ _cdebbuf *capi_message2str(unsigned char *msg )
 #line 955
   __cil_tmp25 = (long )__cil_tmp24;
 #line 955
-  tmp___2 = __builtin_expect(__cil_tmp25, 0L);
+  tmp___2 = ldv__builtin_expect(__cil_tmp25, 0L);
   }
 #line 955
   if (tmp___2) {
@@ -16719,7 +16719,7 @@ _cdebbuf *capi_message2str(unsigned char *msg )
 #line 973
   __cil_tmp86 = (long )__cil_tmp85;
 #line 973
-  tmp___5 = __builtin_expect(__cil_tmp86, 0L);
+  tmp___5 = ldv__builtin_expect(__cil_tmp86, 0L);
   }
 #line 973
   if (tmp___5) {

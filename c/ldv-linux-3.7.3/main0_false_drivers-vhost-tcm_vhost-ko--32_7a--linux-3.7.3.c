@@ -7734,7 +7734,7 @@ void *__builtin_memcpy(void * , void const   * , unsigned long  ) ;
 #line 1
 unsigned long __builtin_object_size(void * , int  ) ;
 #line 1
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 #line 62 "/work/vladimir/UFO/Work/test/inst/current/envs/linux-3.7.3/linux-3.7.3/arch/x86/include/asm/bitops.h"
 __inline static void set_bit(unsigned int nr , unsigned long volatile   *addr ) 
 { 
@@ -7924,7 +7924,7 @@ __inline static long IS_ERR(void const   *ptr )
 
   {
 #line 34
-  tmp = __builtin_expect((unsigned long )ptr > 0xfffffffffffff000UL, 0L);
+  tmp = ldv__builtin_expect((unsigned long )ptr > 0xfffffffffffff000UL, 0L);
 #line 34
   return (tmp);
 }
@@ -8551,7 +8551,7 @@ __inline static int kref_sub(struct kref *kref , unsigned int count , void (*rel
 #line 67
   __ret_warn_on = (unsigned long )release == (unsigned long )((void (*)(struct kref * ))0);
 #line 67
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 67
   if (tmp != 0L) {
 #line 67
@@ -8560,7 +8560,7 @@ __inline static int kref_sub(struct kref *kref , unsigned int count , void (*rel
 
   }
 #line 67
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 69
   tmp___0 = atomic_sub_and_test((int )count, & kref->refcount);
 #line 69
@@ -8611,7 +8611,7 @@ __inline static int need_resched(void)
 #line 2586
   tmp___0 = test_ti_thread_flag(tmp, 3);
 #line 2586
-  tmp___1 = __builtin_expect(tmp___0 != 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 != 0, 0L);
 #line 2586
   return ((int )tmp___1);
 }
@@ -8715,7 +8715,7 @@ __inline static void sg_assign_page(struct scatterlist *sg , struct page *page )
 #line 59
   page_link = sg->page_link & 3UL;
 #line 65
-  tmp = __builtin_expect(((unsigned long )page & 3UL) != 0UL, 0L);
+  tmp = ldv__builtin_expect(((unsigned long )page & 3UL) != 0UL, 0L);
 #line 65
   if (tmp != 0L) {
 #line 65
@@ -8728,7 +8728,7 @@ __inline static void sg_assign_page(struct scatterlist *sg , struct page *page )
 
   }
 #line 67
-  tmp___0 = __builtin_expect(sg->sg_magic != 2271560481UL, 0L);
+  tmp___0 = ldv__builtin_expect(sg->sg_magic != 2271560481UL, 0L);
 #line 67
   if (tmp___0 != 0L) {
 #line 67
@@ -8741,7 +8741,7 @@ __inline static void sg_assign_page(struct scatterlist *sg , struct page *page )
 
   }
 #line 68
-  tmp___1 = __builtin_expect((long )((int )sg->page_link) & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )((int )sg->page_link) & 1L, 0L);
 #line 68
   if (tmp___1 != 0L) {
 #line 68
@@ -8784,7 +8784,7 @@ __inline static struct page *sg_page(struct scatterlist *sg )
 
   {
 #line 98
-  tmp = __builtin_expect(sg->sg_magic != 2271560481UL, 0L);
+  tmp = ldv__builtin_expect(sg->sg_magic != 2271560481UL, 0L);
 #line 98
   if (tmp != 0L) {
 #line 98
@@ -8797,7 +8797,7 @@ __inline static struct page *sg_page(struct scatterlist *sg )
 
   }
 #line 99
-  tmp___0 = __builtin_expect((long )((int )sg->page_link) & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )((int )sg->page_link) & 1L, 0L);
 #line 99
   if (tmp___0 != 0L) {
 #line 99
@@ -8910,14 +8910,14 @@ __inline static unsigned long copy_from_user(void *to , void const   *from , uns
 #line 61
   might_fault();
 #line 62
-  tmp___1 = __builtin_expect(sz == -1, 1L);
+  tmp___1 = ldv__builtin_expect(sz == -1, 1L);
 #line 62
   if (tmp___1 != 0L) {
 #line 63
     n = _copy_from_user(to, from, (unsigned int )n);
   } else {
 #line 62
-    tmp___2 = __builtin_expect((unsigned long )sz >= n, 1L);
+    tmp___2 = ldv__builtin_expect((unsigned long )sz >= n, 1L);
 #line 62
     if (tmp___2 != 0L) {
 #line 63
@@ -8926,7 +8926,7 @@ __inline static unsigned long copy_from_user(void *to , void const   *from , uns
 #line 66
       __ret_warn_on = 1;
 #line 66
-      tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+      tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 66
       if (tmp___0 != 0L) {
 #line 66
@@ -8936,7 +8936,7 @@ __inline static unsigned long copy_from_user(void *to , void const   *from , uns
 
       }
 #line 66
-      __builtin_expect(__ret_warn_on != 0, 0L);
+      ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
   }
 #line 68
@@ -9011,7 +9011,7 @@ __inline static int __copy_from_user(void *dst , void const   *src , unsigned in
                        "=r" (*((u64 *)dst)): "m" (*((struct __large_struct *)src)),
                        "i" (10), "0" (ret));
 #line 103
-  tmp___0 = __builtin_expect(ret != 0, 0L);
+  tmp___0 = ldv__builtin_expect(ret != 0, 0L);
 #line 103
   if (tmp___0 != 0L) {
 #line 104
@@ -9031,7 +9031,7 @@ __inline static int __copy_from_user(void *dst , void const   *src , unsigned in
                        "=r" (*((u64 *)dst)): "m" (*((struct __large_struct *)src)),
                        "i" (16), "0" (ret));
 #line 112
-  tmp___1 = __builtin_expect(ret != 0, 0L);
+  tmp___1 = ldv__builtin_expect(ret != 0, 0L);
 #line 112
   if (tmp___1 != 0L) {
 #line 113
@@ -9102,7 +9102,7 @@ __inline static int __copy_to_user(void *dst , void const   *src , unsigned int 
   __asm__  volatile   ("661:\n\t.byte 0x66,0x66,0x90\n\n662:\n.pushsection .altinstructions,\"a\"\n .long 661b - .\n .long 6631f - .\n .word (9*32+20)\n .byte 662b-661b\n .byte 6641f-6631f\n.popsection\n.pushsection .discard,\"aw\",@progbits\n .byte 0xff + (6641f-6631f) - (662b-661b)\n.popsection\n.pushsection .altinstr_replacement, \"ax\"\n6631:\n\t.byte 0x0f,0x01,0xcb\n6641:\n\t.popsection\n1:\tmovq %1,%2\n2: 661:\n\t.byte 0x66,0x66,0x90\n\n662:\n.pushsection .altinstructions,\"a\"\n .long 661b - .\n .long 6631f - .\n .word (9*32+20)\n .byte 662b-661b\n .byte 6641f-6631f\n.popsection\n.pushsection .discard,\"aw\",@progbits\n .byte 0xff + (6641f-6631f) - (662b-661b)\n.popsection\n.pushsection .altinstr_replacement, \"ax\"\n6631:\n\t.byte 0x0f,0x01,0xca\n6641:\n\t.popsection\n.section .fixup,\"ax\"\n3:\tmov %3,%0\n\tjmp 2b\n.previous\n .pushsection \"__ex_table\",\"a\"\n .balign 8\n .long (1b) - .\n .long (3b) - .\n .popsection\n": "=r" (ret): "er" (*((u64 *)src)),
                        "m" (*((struct __large_struct *)dst)), "i" (10), "0" (ret));
 #line 147
-  tmp___0 = __builtin_expect(ret != 0, 0L);
+  tmp___0 = ldv__builtin_expect(ret != 0, 0L);
 #line 147
   if (tmp___0 != 0L) {
 #line 148
@@ -9122,7 +9122,7 @@ __inline static int __copy_to_user(void *dst , void const   *src , unsigned int 
   __asm__  volatile   ("661:\n\t.byte 0x66,0x66,0x90\n\n662:\n.pushsection .altinstructions,\"a\"\n .long 661b - .\n .long 6631f - .\n .word (9*32+20)\n .byte 662b-661b\n .byte 6641f-6631f\n.popsection\n.pushsection .discard,\"aw\",@progbits\n .byte 0xff + (6641f-6631f) - (662b-661b)\n.popsection\n.pushsection .altinstr_replacement, \"ax\"\n6631:\n\t.byte 0x0f,0x01,0xcb\n6641:\n\t.popsection\n1:\tmovq %1,%2\n2: 661:\n\t.byte 0x66,0x66,0x90\n\n662:\n.pushsection .altinstructions,\"a\"\n .long 661b - .\n .long 6631f - .\n .word (9*32+20)\n .byte 662b-661b\n .byte 6641f-6631f\n.popsection\n.pushsection .discard,\"aw\",@progbits\n .byte 0xff + (6641f-6631f) - (662b-661b)\n.popsection\n.pushsection .altinstr_replacement, \"ax\"\n6631:\n\t.byte 0x0f,0x01,0xca\n6641:\n\t.popsection\n.section .fixup,\"ax\"\n3:\tmov %3,%0\n\tjmp 2b\n.previous\n .pushsection \"__ex_table\",\"a\"\n .balign 8\n .long (1b) - .\n .long (3b) - .\n .popsection\n": "=r" (ret): "er" (*((u64 *)src)),
                        "m" (*((struct __large_struct *)dst)), "i" (16), "0" (ret));
 #line 156
-  tmp___1 = __builtin_expect(ret != 0, 0L);
+  tmp___1 = ldv__builtin_expect(ret != 0, 0L);
 #line 156
   if (tmp___1 != 0L) {
 #line 157
@@ -9567,7 +9567,7 @@ static void vhost_work_flush(struct vhost_dev *dev , struct vhost_work *work )
 #line 129
   spin_unlock_irq(& dev->work_lock);
 #line 130
-  tmp___2 = __builtin_expect(flushing < 0, 0L);
+  tmp___2 = ldv__builtin_expect(flushing < 0, 0L);
 #line 130
   if (tmp___2 != 0L) {
 #line 130
@@ -10429,7 +10429,7 @@ void vhost_dev_cleanup(struct vhost_dev *dev , bool locked )
 #line 482
   __ret_warn_on = tmp___1 == 0;
 #line 482
-  tmp___2 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___2 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 482
   if (tmp___2 != 0L) {
 #line 482
@@ -10439,7 +10439,7 @@ void vhost_dev_cleanup(struct vhost_dev *dev , bool locked )
 
   }
 #line 482
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 483
   if ((unsigned long )dev->worker != (unsigned long )((struct task_struct *)0)) {
 #line 484
@@ -10487,7 +10487,7 @@ static int log_access_ok(void *log_base , u64 addr , unsigned long sz )
   __asm__  ("add %3,%1 ; sbb %0,%0 ; cmp %1,%4 ; sbb $0,%0": "=&r" (flag), "=r" (roksum): "1" (log_base + a),
             "g" ((long )((sz + 32767UL) / 32768UL)), "rm" (tmp->addr_limit.seg));
 #line 501
-  tmp___0 = __builtin_expect(flag == 0UL, 1L);
+  tmp___0 = ldv__builtin_expect(flag == 0UL, 1L);
 #line 501
   return ((int )tmp___0);
 }
@@ -10527,7 +10527,7 @@ static int vq_memory_access_ok(void *log_base , struct vhost_memory *mem , int l
   __asm__  ("add %3,%1 ; sbb %0,%0 ; cmp %1,%4 ; sbb $0,%0": "=&r" (flag), "=r" (roksum): "1" ((void *)a),
             "g" ((long )m->memory_size), "rm" (tmp___0->addr_limit.seg));
 #line 519
-  tmp___1 = __builtin_expect(flag == 0UL, 1L);
+  tmp___1 = ldv__builtin_expect(flag == 0UL, 1L);
 #line 519
   if (tmp___1 == 0L) {
 #line 521
@@ -10639,7 +10639,7 @@ static int vq_access_ok(struct vhost_dev *d , unsigned int num , struct vring_de
   __asm__  ("add %3,%1 ; sbb %0,%0 ; cmp %1,%4 ; sbb $0,%0": "=&r" (flag), "=r" (roksum): "1" (desc),
             "g" ((long )((unsigned long )num * 16UL)), "rm" (tmp___0->addr_limit.seg));
 #line 559
-  tmp___1 = __builtin_expect(flag == 0UL, 1L);
+  tmp___1 = ldv__builtin_expect(flag == 0UL, 1L);
 #line 562
   if (tmp___1 != 0L) {
 #line 560
@@ -10648,7 +10648,7 @@ static int vq_access_ok(struct vhost_dev *d , unsigned int num , struct vring_de
     __asm__  ("add %3,%1 ; sbb %0,%0 ; cmp %1,%4 ; sbb $0,%0": "=&r" (flag___0), "=r" (roksum___0): "1" (avail),
               "g" ((long )(((unsigned long )num + 2UL) * 2UL + s)), "rm" (tmp___2->addr_limit.seg));
 #line 560
-    tmp___3 = __builtin_expect(flag___0 == 0UL, 1L);
+    tmp___3 = ldv__builtin_expect(flag___0 == 0UL, 1L);
 #line 562
     if (tmp___3 != 0L) {
 #line 562
@@ -10658,7 +10658,7 @@ static int vq_access_ok(struct vhost_dev *d , unsigned int num , struct vring_de
                 "=r" (roksum___1): "1" (used), "g" ((long )(((unsigned long )num * 8UL + s) + 4UL)),
                 "rm" (tmp___4->addr_limit.seg));
 #line 562
-      tmp___5 = __builtin_expect(flag___1 == 0UL, 1L);
+      tmp___5 = ldv__builtin_expect(flag___1 == 0UL, 1L);
 #line 562
       if (tmp___5 != 0L) {
 #line 562
@@ -11710,7 +11710,7 @@ static int set_bit_to_user(int nr , void *addr )
 
   }
 #line 944
-  tmp = __builtin_expect(r != 1, 0L);
+  tmp = ldv__builtin_expect(r != 1, 0L);
 #line 944
   if (tmp != 0L) {
 #line 944
@@ -11913,7 +11913,7 @@ static int vhost_update_used_flags(struct vhost_virtqueue *vq )
 
   }
 #line 1008
-  tmp = __builtin_expect((long )vq->log_used, 0L);
+  tmp = ldv__builtin_expect((long )vq->log_used, 0L);
 #line 1008
   if (tmp != 0L) {
 #line 1010
@@ -11990,7 +11990,7 @@ static int vhost_update_avail_event(struct vhost_virtqueue *vq , u16 avail_event
 
   }
 #line 1026
-  tmp = __builtin_expect((long )vq->log_used, 0L);
+  tmp = ldv__builtin_expect((long )vq->log_used, 0L);
 #line 1026
   if (tmp != 0L) {
 #line 1029
@@ -12130,7 +12130,7 @@ static int translate_desc(struct vhost_dev *dev , u64 addr , u32 len , struct io
   goto ldv_52849;
   ldv_52848: 
 #line 1068
-  tmp___1 = __builtin_expect(ret >= iov_size, 0L);
+  tmp___1 = ldv__builtin_expect(ret >= iov_size, 0L);
 #line 1068
   if (tmp___1 != 0L) {
 #line 1069
@@ -12143,7 +12143,7 @@ static int translate_desc(struct vhost_dev *dev , u64 addr , u32 len , struct io
 #line 1072
   reg = find_region(mem, addr, len);
 #line 1073
-  tmp___2 = __builtin_expect((unsigned long )reg == (unsigned long )((struct vhost_memory_region  const  *)0),
+  tmp___2 = ldv__builtin_expect((unsigned long )reg == (unsigned long )((struct vhost_memory_region  const  *)0),
                              0L);
 #line 1073
   if (tmp___2 != 0L) {
@@ -12250,7 +12250,7 @@ static int get_indirect(struct vhost_dev *dev , struct vhost_virtqueue *vq , str
 #line 1119
   found = 0U;
 #line 1123
-  tmp___0 = __builtin_expect((indirect->len & 15U) != 0U, 0L);
+  tmp___0 = ldv__builtin_expect((indirect->len & 15U) != 0U, 0L);
 #line 1123
   if (tmp___0 != 0L) {
 #line 1124
@@ -12266,7 +12266,7 @@ static int get_indirect(struct vhost_dev *dev , struct vhost_virtqueue *vq , str
 #line 1124
     descriptor.flags = 0U;
 #line 1124
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1124
     if (tmp != 0L) {
 #line 1124
@@ -12290,7 +12290,7 @@ static int get_indirect(struct vhost_dev *dev , struct vhost_virtqueue *vq , str
 #line 1131
   ret = translate_desc(dev, indirect->addr, indirect->len, vq->indirect, 1024);
 #line 1133
-  tmp___2 = __builtin_expect(ret < 0, 0L);
+  tmp___2 = ldv__builtin_expect(ret < 0, 0L);
 #line 1133
   if (tmp___2 != 0L) {
 #line 1134
@@ -12306,7 +12306,7 @@ static int get_indirect(struct vhost_dev *dev , struct vhost_virtqueue *vq , str
 #line 1134
     descriptor___0.flags = 0U;
 #line 1134
-    tmp___1 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 1134
     if (tmp___1 != 0L) {
 #line 1134
@@ -12330,7 +12330,7 @@ static int get_indirect(struct vhost_dev *dev , struct vhost_virtqueue *vq , str
 #line 1142
   count = indirect->len / 16U;
 #line 1145
-  tmp___4 = __builtin_expect(count > 65536U, 0L);
+  tmp___4 = ldv__builtin_expect(count > 65536U, 0L);
 #line 1145
   if (tmp___4 != 0L) {
 #line 1146
@@ -12346,7 +12346,7 @@ static int get_indirect(struct vhost_dev *dev , struct vhost_virtqueue *vq , str
 #line 1146
     descriptor___1.flags = 0U;
 #line 1146
-    tmp___3 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___3 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 1146
     if (tmp___3 != 0L) {
 #line 1146
@@ -12373,7 +12373,7 @@ static int get_indirect(struct vhost_dev *dev , struct vhost_virtqueue *vq , str
 #line 1153
   found = found + 1U;
 #line 1153
-  tmp___6 = __builtin_expect(found > count, 0L);
+  tmp___6 = ldv__builtin_expect(found > count, 0L);
 #line 1153
   if (tmp___6 != 0L) {
 #line 1154
@@ -12389,7 +12389,7 @@ static int get_indirect(struct vhost_dev *dev , struct vhost_virtqueue *vq , str
 #line 1154
     descriptor___2.flags = 0U;
 #line 1154
-    tmp___5 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+    tmp___5 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
 #line 1154
     if (tmp___5 != 0L) {
 #line 1154
@@ -12413,7 +12413,7 @@ static int get_indirect(struct vhost_dev *dev , struct vhost_virtqueue *vq , str
 #line 1159
   tmp___8 = memcpy_fromiovec((unsigned char *)(& desc), vq->indirect, 16);
 #line 1159
-  tmp___9 = __builtin_expect(tmp___8 != 0, 0L);
+  tmp___9 = ldv__builtin_expect(tmp___8 != 0, 0L);
 #line 1159
   if (tmp___9 != 0L) {
 #line 1161
@@ -12429,7 +12429,7 @@ static int get_indirect(struct vhost_dev *dev , struct vhost_virtqueue *vq , str
 #line 1161
     descriptor___3.flags = 0U;
 #line 1161
-    tmp___7 = __builtin_expect((long )descriptor___3.flags & 1L, 0L);
+    tmp___7 = ldv__builtin_expect((long )descriptor___3.flags & 1L, 0L);
 #line 1161
     if (tmp___7 != 0L) {
 #line 1161
@@ -12451,7 +12451,7 @@ static int get_indirect(struct vhost_dev *dev , struct vhost_virtqueue *vq , str
 
   }
 #line 1165
-  tmp___11 = __builtin_expect(((int )desc.flags & 4) != 0, 0L);
+  tmp___11 = ldv__builtin_expect(((int )desc.flags & 4) != 0, 0L);
 #line 1165
   if (tmp___11 != 0L) {
 #line 1166
@@ -12467,7 +12467,7 @@ static int get_indirect(struct vhost_dev *dev , struct vhost_virtqueue *vq , str
 #line 1166
     descriptor___4.flags = 0U;
 #line 1166
-    tmp___10 = __builtin_expect((long )descriptor___4.flags & 1L, 0L);
+    tmp___10 = ldv__builtin_expect((long )descriptor___4.flags & 1L, 0L);
 #line 1166
     if (tmp___10 != 0L) {
 #line 1166
@@ -12492,7 +12492,7 @@ static int get_indirect(struct vhost_dev *dev , struct vhost_virtqueue *vq , str
   ret = translate_desc(dev, desc.addr, desc.len, iov + (unsigned long )iov_count,
                        (int )(iov_size - iov_count));
 #line 1173
-  tmp___13 = __builtin_expect(ret < 0, 0L);
+  tmp___13 = ldv__builtin_expect(ret < 0, 0L);
 #line 1173
   if (tmp___13 != 0L) {
 #line 1174
@@ -12508,7 +12508,7 @@ static int get_indirect(struct vhost_dev *dev , struct vhost_virtqueue *vq , str
 #line 1174
     descriptor___5.flags = 0U;
 #line 1174
-    tmp___12 = __builtin_expect((long )descriptor___5.flags & 1L, 0L);
+    tmp___12 = ldv__builtin_expect((long )descriptor___5.flags & 1L, 0L);
 #line 1174
     if (tmp___12 != 0L) {
 #line 1174
@@ -12534,7 +12534,7 @@ static int get_indirect(struct vhost_dev *dev , struct vhost_virtqueue *vq , str
 #line 1180
     *in_num = *in_num + (unsigned int )ret;
 #line 1181
-    tmp___14 = __builtin_expect((unsigned long )log != (unsigned long )((struct vhost_log *)0),
+    tmp___14 = ldv__builtin_expect((unsigned long )log != (unsigned long )((struct vhost_log *)0),
                                 0L);
 #line 1181
     if (tmp___14 != 0L) {
@@ -12549,7 +12549,7 @@ static int get_indirect(struct vhost_dev *dev , struct vhost_virtqueue *vq , str
     }
   } else {
 #line 1189
-    tmp___16 = __builtin_expect(*in_num != 0U, 0L);
+    tmp___16 = ldv__builtin_expect(*in_num != 0U, 0L);
 #line 1189
     if (tmp___16 != 0L) {
 #line 1190
@@ -12565,7 +12565,7 @@ static int get_indirect(struct vhost_dev *dev , struct vhost_virtqueue *vq , str
 #line 1190
       descriptor___6.flags = 0U;
 #line 1190
-      tmp___15 = __builtin_expect((long )descriptor___6.flags & 1L, 0L);
+      tmp___15 = ldv__builtin_expect((long )descriptor___6.flags & 1L, 0L);
 #line 1190
       if (tmp___15 != 0L) {
 #line 1190
@@ -12703,7 +12703,7 @@ int vhost_get_vq_desc(struct vhost_dev *dev , struct vhost_virtqueue *vq , struc
 #line 1220
   vq->avail_idx = (unsigned short )__gu_val;
 #line 1220
-  tmp___1 = __builtin_expect(__gu_err != 0, 0L);
+  tmp___1 = ldv__builtin_expect(__gu_err != 0, 0L);
 #line 1220
   if (tmp___1 != 0L) {
 #line 1221
@@ -12719,7 +12719,7 @@ int vhost_get_vq_desc(struct vhost_dev *dev , struct vhost_virtqueue *vq , struc
 #line 1221
     descriptor.flags = 0U;
 #line 1221
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1221
     if (tmp != 0L) {
 #line 1221
@@ -12740,7 +12740,7 @@ int vhost_get_vq_desc(struct vhost_dev *dev , struct vhost_virtqueue *vq , struc
 
   }
 #line 1226
-  tmp___3 = __builtin_expect((unsigned int )((int )vq->avail_idx - (int )last_avail_idx) > vq->num,
+  tmp___3 = ldv__builtin_expect((unsigned int )((int )vq->avail_idx - (int )last_avail_idx) > vq->num,
                              0L);
 #line 1226
   if (tmp___3 != 0L) {
@@ -12757,7 +12757,7 @@ int vhost_get_vq_desc(struct vhost_dev *dev , struct vhost_virtqueue *vq , struc
 #line 1227
     descriptor___0.flags = 0U;
 #line 1227
-    tmp___2 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___2 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 1227
     if (tmp___2 != 0L) {
 #line 1227
@@ -12829,7 +12829,7 @@ int vhost_get_vq_desc(struct vhost_dev *dev , struct vhost_virtqueue *vq , struc
 #line 1241
   head = (unsigned int )((unsigned short )__gu_val___0);
 #line 1241
-  tmp___6 = __builtin_expect(__gu_err___0 != 0, 0L);
+  tmp___6 = ldv__builtin_expect(__gu_err___0 != 0, 0L);
 #line 1241
   if (tmp___6 != 0L) {
 #line 1243
@@ -12845,7 +12845,7 @@ int vhost_get_vq_desc(struct vhost_dev *dev , struct vhost_virtqueue *vq , struc
 #line 1243
     descriptor___1.flags = 0U;
 #line 1243
-    tmp___4 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___4 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 1243
     if (tmp___4 != 0L) {
 #line 1243
@@ -12867,7 +12867,7 @@ int vhost_get_vq_desc(struct vhost_dev *dev , struct vhost_virtqueue *vq , struc
 
   }
 #line 1250
-  tmp___8 = __builtin_expect(vq->num <= head, 0L);
+  tmp___8 = ldv__builtin_expect(vq->num <= head, 0L);
 #line 1250
   if (tmp___8 != 0L) {
 #line 1251
@@ -12883,7 +12883,7 @@ int vhost_get_vq_desc(struct vhost_dev *dev , struct vhost_virtqueue *vq , struc
 #line 1251
     descriptor___2.flags = 0U;
 #line 1251
-    tmp___7 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+    tmp___7 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
 #line 1251
     if (tmp___7 != 0L) {
 #line 1251
@@ -12911,7 +12911,7 @@ int vhost_get_vq_desc(struct vhost_dev *dev , struct vhost_virtqueue *vq , struc
 #line 1257
   *out_num = tmp___9;
 #line 1258
-  tmp___10 = __builtin_expect((unsigned long )log != (unsigned long )((struct vhost_log *)0),
+  tmp___10 = ldv__builtin_expect((unsigned long )log != (unsigned long )((struct vhost_log *)0),
                               0L);
 #line 1258
   if (tmp___10 != 0L) {
@@ -12926,7 +12926,7 @@ int vhost_get_vq_desc(struct vhost_dev *dev , struct vhost_virtqueue *vq , struc
 #line 1263
   iov_count = *in_num + *out_num;
 #line 1264
-  tmp___12 = __builtin_expect(vq->num <= i, 0L);
+  tmp___12 = ldv__builtin_expect(vq->num <= i, 0L);
 #line 1264
   if (tmp___12 != 0L) {
 #line 1265
@@ -12942,7 +12942,7 @@ int vhost_get_vq_desc(struct vhost_dev *dev , struct vhost_virtqueue *vq , struc
 #line 1265
     descriptor___3.flags = 0U;
 #line 1265
-    tmp___11 = __builtin_expect((long )descriptor___3.flags & 1L, 0L);
+    tmp___11 = ldv__builtin_expect((long )descriptor___3.flags & 1L, 0L);
 #line 1265
     if (tmp___11 != 0L) {
 #line 1265
@@ -12966,7 +12966,7 @@ int vhost_get_vq_desc(struct vhost_dev *dev , struct vhost_virtqueue *vq , struc
 #line 1269
   found = found + 1U;
 #line 1269
-  tmp___14 = __builtin_expect(found > vq->num, 0L);
+  tmp___14 = ldv__builtin_expect(found > vq->num, 0L);
 #line 1269
   if (tmp___14 != 0L) {
 #line 1270
@@ -12982,7 +12982,7 @@ int vhost_get_vq_desc(struct vhost_dev *dev , struct vhost_virtqueue *vq , struc
 #line 1270
     descriptor___4.flags = 0U;
 #line 1270
-    tmp___13 = __builtin_expect((long )descriptor___4.flags & 1L, 0L);
+    tmp___13 = ldv__builtin_expect((long )descriptor___4.flags & 1L, 0L);
 #line 1270
     if (tmp___13 != 0L) {
 #line 1270
@@ -13007,7 +13007,7 @@ int vhost_get_vq_desc(struct vhost_dev *dev , struct vhost_virtqueue *vq , struc
   ret = __copy_from_user((void *)(& desc), (void const   *)vq->desc + (unsigned long )i,
                          16U);
 #line 1276
-  tmp___16 = __builtin_expect(ret != 0, 0L);
+  tmp___16 = ldv__builtin_expect(ret != 0, 0L);
 #line 1276
   if (tmp___16 != 0L) {
 #line 1277
@@ -13023,7 +13023,7 @@ int vhost_get_vq_desc(struct vhost_dev *dev , struct vhost_virtqueue *vq , struc
 #line 1277
     descriptor___5.flags = 0U;
 #line 1277
-    tmp___15 = __builtin_expect((long )descriptor___5.flags & 1L, 0L);
+    tmp___15 = ldv__builtin_expect((long )descriptor___5.flags & 1L, 0L);
 #line 1277
     if (tmp___15 != 0L) {
 #line 1277
@@ -13049,7 +13049,7 @@ int vhost_get_vq_desc(struct vhost_dev *dev , struct vhost_virtqueue *vq , struc
 #line 1282
     ret = get_indirect(dev, vq, iov, iov_size, out_num, in_num, log, log_num, & desc);
 #line 1285
-    tmp___18 = __builtin_expect(ret < 0, 0L);
+    tmp___18 = ldv__builtin_expect(ret < 0, 0L);
 #line 1285
     if (tmp___18 != 0L) {
 #line 1286
@@ -13065,7 +13065,7 @@ int vhost_get_vq_desc(struct vhost_dev *dev , struct vhost_virtqueue *vq , struc
 #line 1286
       descriptor___6.flags = 0U;
 #line 1286
-      tmp___17 = __builtin_expect((long )descriptor___6.flags & 1L, 0L);
+      tmp___17 = ldv__builtin_expect((long )descriptor___6.flags & 1L, 0L);
 #line 1286
       if (tmp___17 != 0L) {
 #line 1286
@@ -13095,7 +13095,7 @@ int vhost_get_vq_desc(struct vhost_dev *dev , struct vhost_virtqueue *vq , struc
   ret = translate_desc(dev, desc.addr, desc.len, iov + (unsigned long )iov_count,
                        (int )(iov_size - iov_count));
 #line 1295
-  tmp___20 = __builtin_expect(ret < 0, 0L);
+  tmp___20 = ldv__builtin_expect(ret < 0, 0L);
 #line 1295
   if (tmp___20 != 0L) {
 #line 1296
@@ -13111,7 +13111,7 @@ int vhost_get_vq_desc(struct vhost_dev *dev , struct vhost_virtqueue *vq , struc
 #line 1296
     descriptor___7.flags = 0U;
 #line 1296
-    tmp___19 = __builtin_expect((long )descriptor___7.flags & 1L, 0L);
+    tmp___19 = ldv__builtin_expect((long )descriptor___7.flags & 1L, 0L);
 #line 1296
     if (tmp___19 != 0L) {
 #line 1296
@@ -13137,7 +13137,7 @@ int vhost_get_vq_desc(struct vhost_dev *dev , struct vhost_virtqueue *vq , struc
 #line 1303
     *in_num = *in_num + (unsigned int )ret;
 #line 1304
-    tmp___21 = __builtin_expect((unsigned long )log != (unsigned long )((struct vhost_log *)0),
+    tmp___21 = ldv__builtin_expect((unsigned long )log != (unsigned long )((struct vhost_log *)0),
                                 0L);
 #line 1304
     if (tmp___21 != 0L) {
@@ -13152,7 +13152,7 @@ int vhost_get_vq_desc(struct vhost_dev *dev , struct vhost_virtqueue *vq , struc
     }
   } else {
 #line 1312
-    tmp___23 = __builtin_expect(*in_num != 0U, 0L);
+    tmp___23 = ldv__builtin_expect(*in_num != 0U, 0L);
 #line 1312
     if (tmp___23 != 0L) {
 #line 1313
@@ -13168,7 +13168,7 @@ int vhost_get_vq_desc(struct vhost_dev *dev , struct vhost_virtqueue *vq , struc
 #line 1313
       descriptor___8.flags = 0U;
 #line 1313
-      tmp___22 = __builtin_expect((long )descriptor___8.flags & 1L, 0L);
+      tmp___22 = ldv__builtin_expect((long )descriptor___8.flags & 1L, 0L);
 #line 1313
       if (tmp___22 != 0L) {
 #line 1313
@@ -13205,7 +13205,7 @@ int vhost_get_vq_desc(struct vhost_dev *dev , struct vhost_virtqueue *vq , struc
 #line 1322
   vq->last_avail_idx = (u16 )((int )vq->last_avail_idx + 1);
 #line 1326
-  tmp___24 = __builtin_expect(((int )vq->used_flags & 1) == 0, 0L);
+  tmp___24 = ldv__builtin_expect(((int )vq->used_flags & 1) == 0, 0L);
 #line 1326
   if (tmp___24 != 0L) {
 #line 1326
@@ -13304,7 +13304,7 @@ int vhost_add_used(struct vhost_virtqueue *vq , unsigned int head , int len )
 #line 1346
     descriptor.flags = 0U;
 #line 1346
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1346
     if (tmp != 0L) {
 #line 1346
@@ -13376,7 +13376,7 @@ int vhost_add_used(struct vhost_virtqueue *vq , unsigned int head , int len )
 #line 1350
     descriptor___0.flags = 0U;
 #line 1350
-    tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 1350
     if (tmp___0 != 0L) {
 #line 1350
@@ -13450,7 +13450,7 @@ int vhost_add_used(struct vhost_virtqueue *vq , unsigned int head , int len )
 #line 1356
     descriptor___1.flags = 0U;
 #line 1356
-    tmp___1 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 1356
     if (tmp___1 != 0L) {
 #line 1356
@@ -13471,7 +13471,7 @@ int vhost_add_used(struct vhost_virtqueue *vq , unsigned int head , int len )
 
   }
 #line 1359
-  tmp___2 = __builtin_expect((long )vq->log_used, 0L);
+  tmp___2 = ldv__builtin_expect((long )vq->log_used, 0L);
 #line 1359
   if (tmp___2 != 0L) {
 #line 1361
@@ -13494,7 +13494,7 @@ int vhost_add_used(struct vhost_virtqueue *vq , unsigned int head , int len )
 #line 1374
   vq->last_used_idx = (u16 )((int )vq->last_used_idx + 1);
 #line 1379
-  tmp___3 = __builtin_expect((int )vq->last_used_idx == (int )vq->signalled_used,
+  tmp___3 = ldv__builtin_expect((int )vq->last_used_idx == (int )vq->signalled_used,
                              0L);
 #line 1379
   if (tmp___3 != 0L) {
@@ -13544,7 +13544,7 @@ static int __vhost_add_used_n(struct vhost_virtqueue *vq , struct vring_used_ele
 #line 1395
     descriptor.flags = 0U;
 #line 1395
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1395
     if (tmp != 0L) {
 #line 1395
@@ -13565,7 +13565,7 @@ static int __vhost_add_used_n(struct vhost_virtqueue *vq , struct vring_used_ele
 
   }
 #line 1398
-  tmp___1 = __builtin_expect((long )vq->log_used, 0L);
+  tmp___1 = ldv__builtin_expect((long )vq->log_used, 0L);
 #line 1398
   if (tmp___1 != 0L) {
 #line 1400
@@ -13585,7 +13585,7 @@ static int __vhost_add_used_n(struct vhost_virtqueue *vq , struct vring_used_ele
 #line 1408
   new = tmp___2;
 #line 1413
-  tmp___3 = __builtin_expect((int )new - (int )vq->signalled_used < (int )new - (int )old,
+  tmp___3 = ldv__builtin_expect((int )new - (int )vq->signalled_used < (int )new - (int )old,
                              0L);
 #line 1413
   if (tmp___3 != 0L) {
@@ -13686,7 +13686,7 @@ int vhost_add_used_n(struct vhost_virtqueue *vq , struct vring_used_elem *heads 
 #line 1439
     descriptor.flags = 0U;
 #line 1439
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1439
     if (tmp != 0L) {
 #line 1439
@@ -13707,7 +13707,7 @@ int vhost_add_used_n(struct vhost_virtqueue *vq , struct vring_used_elem *heads 
 
   }
 #line 1442
-  tmp___0 = __builtin_expect((long )vq->log_used, 0L);
+  tmp___0 = ldv__builtin_expect((long )vq->log_used, 0L);
 #line 1442
   if (tmp___0 != 0L) {
 #line 1444
@@ -13758,7 +13758,7 @@ static bool vhost_notify(struct vhost_dev *dev , struct vhost_virtqueue *vq )
 #line 1462
   if (tmp != 0) {
 #line 1462
-    tmp___0 = __builtin_expect((int )vq->avail_idx == (int )vq->last_avail_idx, 0L);
+    tmp___0 = ldv__builtin_expect((int )vq->avail_idx == (int )vq->last_avail_idx, 0L);
 #line 1462
     if (tmp___0 != 0L) {
 #line 1464
@@ -13829,7 +13829,7 @@ static bool vhost_notify(struct vhost_dev *dev , struct vhost_virtqueue *vq )
 #line 1469
       descriptor.flags = 0U;
 #line 1469
-      tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+      tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1469
       if (tmp___1 != 0L) {
 #line 1469
@@ -13867,7 +13867,7 @@ static bool vhost_notify(struct vhost_dev *dev , struct vhost_virtqueue *vq )
 #line 1477
   vq->signalled_used_valid = 1;
 #line 1479
-  tmp___5 = __builtin_expect((long )(! v), 0L);
+  tmp___5 = ldv__builtin_expect((long )(! v), 0L);
 #line 1479
   if (tmp___5 != 0L) {
 #line 1480
@@ -13923,7 +13923,7 @@ static bool vhost_notify(struct vhost_dev *dev , struct vhost_virtqueue *vq )
 #line 1483
     descriptor___0.flags = 0U;
 #line 1483
-    tmp___6 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___6 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 1483
     if (tmp___6 != 0L) {
 #line 1483
@@ -14050,7 +14050,7 @@ bool vhost_enable_notify(struct vhost_dev *dev , struct vhost_virtqueue *vq )
 #line 1527
       descriptor.flags = 0U;
 #line 1527
-      tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+      tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1527
       if (tmp != 0L) {
 #line 1527
@@ -14089,7 +14089,7 @@ bool vhost_enable_notify(struct vhost_dev *dev , struct vhost_virtqueue *vq )
 #line 1534
       descriptor___0.flags = 0U;
 #line 1534
-      tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+      tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 1534
       if (tmp___0 != 0L) {
 #line 1534
@@ -14172,7 +14172,7 @@ bool vhost_enable_notify(struct vhost_dev *dev , struct vhost_virtqueue *vq )
 #line 1544
     descriptor___1.flags = 0U;
 #line 1544
-    tmp___3 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___3 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 1544
     if (tmp___3 != 0L) {
 #line 1544
@@ -14236,7 +14236,7 @@ void vhost_disable_notify(struct vhost_dev *dev , struct vhost_virtqueue *vq )
 #line 1563
       descriptor.flags = 0U;
 #line 1563
-      tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+      tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1563
       if (tmp != 0L) {
 #line 1563
@@ -15034,7 +15034,7 @@ static void vhost_scsi_complete_cmd_work(struct vhost_work *work )
 #line 444
   descriptor.flags = 0U;
 #line 444
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 444
   if (tmp != 0L) {
 #line 444
@@ -15059,7 +15059,7 @@ static void vhost_scsi_complete_cmd_work(struct vhost_work *work )
 #line 454
   ret = copy_to_user((void *)tv_cmd->tvc_resp, (void const   *)(& v_rsp), 108U);
 #line 455
-  tmp___0 = __builtin_expect(ret == 0, 1L);
+  tmp___0 = ldv__builtin_expect(ret == 0, 1L);
 #line 455
   if (tmp___0 != 0L) {
 #line 456
@@ -15189,7 +15189,7 @@ static int vhost_scsi_map_to_sgl(struct scatterlist *sgl , unsigned int sgl_coun
 #line 521
   ret = get_user_pages_fast((unsigned long )ptr, 1, write, & page);
 #line 522
-  tmp = __builtin_expect(ret == 0, 0L);
+  tmp = ldv__builtin_expect(ret == 0, 0L);
 #line 522
   if (tmp != 0L) {
 #line 522
@@ -15313,7 +15313,7 @@ static int vhost_scsi_map_iov_to_sgl(struct tcm_vhost_cmd *tv_cmd , struct iovec
 #line 563
   descriptor.flags = 0U;
 #line 563
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 563
   if (tmp___0 != 0L) {
 #line 563
@@ -15341,7 +15341,7 @@ static int vhost_scsi_map_iov_to_sgl(struct tcm_vhost_cmd *tv_cmd , struct iovec
 #line 570
   descriptor___0.flags = 0U;
 #line 570
-  tmp___1 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 570
   if (tmp___1 != 0L) {
 #line 570
@@ -15526,7 +15526,7 @@ static void vhost_scsi_handle_vq(struct vhost_scsi *vs )
 #line 640
   tv_tpg = vs->vs_tpg;
 #line 641
-  tmp = __builtin_expect((unsigned long )tv_tpg == (unsigned long )((struct tcm_vhost_tpg *)0),
+  tmp = ldv__builtin_expect((unsigned long )tv_tpg == (unsigned long )((struct tcm_vhost_tpg *)0),
                          0L);
 #line 641
   if (tmp != 0L) {
@@ -15558,7 +15558,7 @@ static void vhost_scsi_handle_vq(struct vhost_scsi *vs )
 #line 653
   descriptor.flags = 0U;
 #line 653
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 653
   if (tmp___0 != 0L) {
 #line 653
@@ -15568,7 +15568,7 @@ static void vhost_scsi_handle_vq(struct vhost_scsi *vs )
 
   }
 #line 656
-  tmp___1 = __builtin_expect(head < 0, 0L);
+  tmp___1 = ldv__builtin_expect(head < 0, 0L);
 #line 656
   if (tmp___1 != 0L) {
 #line 657
@@ -15581,7 +15581,7 @@ static void vhost_scsi_handle_vq(struct vhost_scsi *vs )
 #line 660
     tmp___2 = vhost_enable_notify(& vs->dev, vq);
 #line 660
-    tmp___3 = __builtin_expect((long )tmp___2, 0L);
+    tmp___3 = ldv__builtin_expect((long )tmp___2, 0L);
 #line 660
     if (tmp___3 != 0L) {
 #line 661
@@ -15636,7 +15636,7 @@ static void vhost_scsi_handle_vq(struct vhost_scsi *vs )
 #line 681
     descriptor___0.flags = 0U;
 #line 681
-    tmp___4 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___4 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 681
     if (tmp___4 != 0L) {
 #line 681
@@ -15656,7 +15656,7 @@ static void vhost_scsi_handle_vq(struct vhost_scsi *vs )
     goto ldv_53424;
   }
 #line 690
-  tmp___6 = __builtin_expect(vq->iov[out].iov_len != 108UL, 0L);
+  tmp___6 = ldv__builtin_expect(vq->iov[out].iov_len != 108UL, 0L);
 #line 690
   if (tmp___6 != 0L) {
 #line 692
@@ -15672,7 +15672,7 @@ static void vhost_scsi_handle_vq(struct vhost_scsi *vs )
 #line 692
     descriptor___1.flags = 0U;
 #line 692
-    tmp___5 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___5 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 692
     if (tmp___5 != 0L) {
 #line 692
@@ -15694,7 +15694,7 @@ static void vhost_scsi_handle_vq(struct vhost_scsi *vs )
 
   }
 #line 697
-  tmp___8 = __builtin_expect(vq->iov[0].iov_len != 51UL, 0L);
+  tmp___8 = ldv__builtin_expect(vq->iov[0].iov_len != 51UL, 0L);
 #line 697
   if (tmp___8 != 0L) {
 #line 698
@@ -15710,7 +15710,7 @@ static void vhost_scsi_handle_vq(struct vhost_scsi *vs )
 #line 698
     descriptor___2.flags = 0U;
 #line 698
-    tmp___7 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+    tmp___7 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
 #line 698
     if (tmp___7 != 0L) {
 #line 698
@@ -15744,7 +15744,7 @@ static void vhost_scsi_handle_vq(struct vhost_scsi *vs )
 #line 702
   descriptor___3.flags = 0U;
 #line 702
-  tmp___9 = __builtin_expect((long )descriptor___3.flags & 1L, 0L);
+  tmp___9 = ldv__builtin_expect((long )descriptor___3.flags & 1L, 0L);
 #line 702
   if (tmp___9 != 0L) {
 #line 702
@@ -15756,7 +15756,7 @@ static void vhost_scsi_handle_vq(struct vhost_scsi *vs )
 #line 704
   ret = __copy_from_user((void *)(& v_req), (void const   *)vq->iov[0].iov_base, 51U);
 #line 706
-  tmp___11 = __builtin_expect(ret != 0, 0L);
+  tmp___11 = ldv__builtin_expect(ret != 0, 0L);
 #line 706
   if (tmp___11 != 0L) {
 #line 707
@@ -15772,7 +15772,7 @@ static void vhost_scsi_handle_vq(struct vhost_scsi *vs )
 #line 707
     descriptor___4.flags = 0U;
 #line 707
-    tmp___10 = __builtin_expect((long )descriptor___4.flags & 1L, 0L);
+    tmp___10 = ldv__builtin_expect((long )descriptor___4.flags & 1L, 0L);
 #line 707
     if (tmp___10 != 0L) {
 #line 707
@@ -15830,7 +15830,7 @@ static void vhost_scsi_handle_vq(struct vhost_scsi *vs )
 #line 718
     descriptor___5.flags = 0U;
 #line 718
-    tmp___13 = __builtin_expect((long )descriptor___5.flags & 1L, 0L);
+    tmp___13 = ldv__builtin_expect((long )descriptor___5.flags & 1L, 0L);
 #line 718
     if (tmp___13 != 0L) {
 #line 718
@@ -15866,7 +15866,7 @@ static void vhost_scsi_handle_vq(struct vhost_scsi *vs )
 #line 722
   descriptor___6.flags = 0U;
 #line 722
-  tmp___15 = __builtin_expect((long )descriptor___6.flags & 1L, 0L);
+  tmp___15 = ldv__builtin_expect((long )descriptor___6.flags & 1L, 0L);
 #line 722
   if (tmp___15 != 0L) {
 #line 722
@@ -15878,7 +15878,7 @@ static void vhost_scsi_handle_vq(struct vhost_scsi *vs )
 #line 725
   tv_cmd->tvc_vhost = vs;
 #line 727
-  tmp___17 = __builtin_expect(vq->iov[out].iov_len != 108UL, 0L);
+  tmp___17 = ldv__builtin_expect(vq->iov[out].iov_len != 108UL, 0L);
 #line 727
   if (tmp___17 != 0L) {
 #line 729
@@ -15894,7 +15894,7 @@ static void vhost_scsi_handle_vq(struct vhost_scsi *vs )
 #line 729
     descriptor___7.flags = 0U;
 #line 729
-    tmp___16 = __builtin_expect((long )descriptor___7.flags & 1L, 0L);
+    tmp___16 = ldv__builtin_expect((long )descriptor___7.flags & 1L, 0L);
 #line 729
     if (tmp___16 != 0L) {
 #line 729
@@ -15931,7 +15931,7 @@ static void vhost_scsi_handle_vq(struct vhost_scsi *vs )
 #line 748
   tmp___20 = scsi_command_size((unsigned char const   *)(& tv_cmd->tvc_cdb));
 #line 748
-  tmp___21 = __builtin_expect(tmp___20 > 32U, 0L);
+  tmp___21 = ldv__builtin_expect(tmp___20 > 32U, 0L);
 #line 748
   if (tmp___21 != 0L) {
 #line 750
@@ -15947,7 +15947,7 @@ static void vhost_scsi_handle_vq(struct vhost_scsi *vs )
 #line 750
     descriptor___8.flags = 0U;
 #line 750
-    tmp___19 = __builtin_expect((long )descriptor___8.flags & 1L, 0L);
+    tmp___19 = ldv__builtin_expect((long )descriptor___8.flags & 1L, 0L);
 #line 750
     if (tmp___19 != 0L) {
 #line 750
@@ -15985,7 +15985,7 @@ static void vhost_scsi_handle_vq(struct vhost_scsi *vs )
 #line 758
   descriptor___9.flags = 0U;
 #line 758
-  tmp___22 = __builtin_expect((long )descriptor___9.flags & 1L, 0L);
+  tmp___22 = ldv__builtin_expect((long )descriptor___9.flags & 1L, 0L);
 #line 758
   if (tmp___22 != 0L) {
 #line 758
@@ -16000,7 +16000,7 @@ static void vhost_scsi_handle_vq(struct vhost_scsi *vs )
     ret = vhost_scsi_map_iov_to_sgl(tv_cmd, (struct iovec *)(& vq->iov) + (unsigned long )data_first,
                                     data_num, data_direction == 1U);
 #line 765
-    tmp___24 = __builtin_expect(ret != 0, 0L);
+    tmp___24 = ldv__builtin_expect(ret != 0, 0L);
 #line 765
     if (tmp___24 != 0L) {
 #line 766
@@ -16016,7 +16016,7 @@ static void vhost_scsi_handle_vq(struct vhost_scsi *vs )
 #line 766
       descriptor___10.flags = 0U;
 #line 766
-      tmp___23 = __builtin_expect((long )descriptor___10.flags & 1L, 0L);
+      tmp___23 = ldv__builtin_expect((long )descriptor___10.flags & 1L, 0L);
 #line 766
       if (tmp___23 != 0L) {
 #line 766
@@ -16085,7 +16085,7 @@ static void vhost_scsi_ctl_handle_kick(struct vhost_work *work )
 #line 792
   descriptor.flags = 0U;
 #line 792
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 792
   if (tmp != 0L) {
 #line 792
@@ -16118,7 +16118,7 @@ static void vhost_scsi_evt_handle_kick(struct vhost_work *work )
 #line 797
   descriptor.flags = 0U;
 #line 797
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 797
   if (tmp != 0L) {
 #line 797
@@ -16881,7 +16881,7 @@ static int tcm_vhost_make_nexus(struct tcm_vhost_tpg *tv_tpg , char const   *nam
 #line 1163
     descriptor.flags = 0U;
 #line 1163
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1163
     if (tmp != 0L) {
 #line 1163
@@ -16946,7 +16946,7 @@ static int tcm_vhost_make_nexus(struct tcm_vhost_tpg *tv_tpg , char const   *nam
 #line 1192
     descriptor___0.flags = 0U;
 #line 1192
-    tmp___2 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___2 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 1192
     if (tmp___2 != 0L) {
 #line 1192
@@ -17046,7 +17046,7 @@ static int tcm_vhost_drop_nexus(struct tcm_vhost_tpg *tpg )
 #line 1244
   descriptor.flags = 0U;
 #line 1244
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1244
   if (tmp___0 != 0L) {
 #line 1244
@@ -17499,7 +17499,7 @@ static struct se_wwn *tcm_vhost_make_tport(struct target_fabric_configfs *tf , s
 #line 1476
   descriptor.flags = 0U;
 #line 1476
-  tmp___6 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___6 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1476
   if (tmp___6 != 0L) {
 #line 1476
@@ -17541,7 +17541,7 @@ static void tcm_vhost_drop_tport(struct se_wwn *wwn )
 #line 1487
   descriptor.flags = 0U;
 #line 1487
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1487
   if (tmp___0 != 0L) {
 #line 1487
@@ -17624,7 +17624,7 @@ static int tcm_vhost_register_configfs(void)
 #line 1559
   descriptor.flags = 0U;
 #line 1559
-  tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1559
   if (tmp___1 != 0L) {
 #line 1559
@@ -17698,7 +17698,7 @@ static int tcm_vhost_register_configfs(void)
 #line 1599
   descriptor___0.flags = 0U;
 #line 1599
-  tmp___4 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___4 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 1599
   if (tmp___4 != 0L) {
 #line 1599
@@ -17741,7 +17741,7 @@ static void tcm_vhost_deregister_configfs(void)
 #line 1610
   descriptor.flags = 0U;
 #line 1610
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1610
   if (tmp != 0L) {
 #line 1610
@@ -19183,7 +19183,7 @@ __inline static void ldv_error(void)
 #line 25
 extern int __VERIFIER_nondet_int(void) ;
 #line 49 "/work/vladimir/kernel-rules/verifier/rcv.h"
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 

@@ -3862,7 +3862,7 @@ struct speakup_info_t {
    int flushing ;
 };
 #line 1 "<compiler builtins>"
-long __builtin_expect(long val , long res ) ;
+long ldv__builtin_expect(long val , long res ) ;
 #line 61 "include/linux/miscdevice.h"
 extern int misc_register(struct miscdevice *misc ) ;
 #line 62
@@ -4232,7 +4232,7 @@ __inline static int signal_pending(struct task_struct *p )
 #line 2591
   __cil_tmp5 = (long )tmp___8;
 #line 2591
-  tmp___9 = __builtin_expect(__cil_tmp5, 0L);
+  tmp___9 = ldv__builtin_expect(__cil_tmp5, 0L);
   }
 #line 2591
   return ((int )tmp___9);
@@ -5917,7 +5917,7 @@ void ldv_check_final_state(void)
 }
 }
 #line 782 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/1177/dscv_tempdir/dscv/ri/32_1/drivers/staging/speakup/speakup_soft.c.common.c"
-long __builtin_expect(long val , long res ) 
+long ldv__builtin_expect(long val , long res ) 
 { 
 
   {

@@ -2281,7 +2281,7 @@ struct __anonstruct_229 {
    int  : 0 ;
 };
 #line 1 "<compiler builtins>"
-long __builtin_expect(long val , long res ) ;
+long ldv__builtin_expect(long val , long res ) ;
 #line 49 "include/linux/dynamic_debug.h"
 extern int ( /* format attribute */  __dynamic_dev_dbg)(struct _ddebug *descriptor ,
                                                         struct device  const  *dev ,
@@ -2321,7 +2321,7 @@ __inline static long __attribute__((__warn_unused_result__))  IS_ERR(void const 
 #line 34
   __cil_tmp7 = (long )__cil_tmp6;
 #line 34
-  tmp = __builtin_expect(__cil_tmp7, 0L);
+  tmp = ldv__builtin_expect(__cil_tmp7, 0L);
   }
 #line 34
   return (tmp);
@@ -3889,7 +3889,7 @@ static int v3020_read_time(struct device *dev , struct rtc_time *dt )
 #line 256
       __cil_tmp55 = (long )__cil_tmp54;
 #line 256
-      tmp___15 = __builtin_expect(__cil_tmp55, 0L);
+      tmp___15 = ldv__builtin_expect(__cil_tmp55, 0L);
       }
 #line 256
       if (tmp___15) {
@@ -3934,7 +3934,7 @@ static int v3020_read_time(struct device *dev , struct rtc_time *dt )
 #line 257
       __cil_tmp62 = (long )__cil_tmp61;
 #line 257
-      tmp___16 = __builtin_expect(__cil_tmp62, 0L);
+      tmp___16 = ldv__builtin_expect(__cil_tmp62, 0L);
       }
 #line 257
       if (tmp___16) {
@@ -3985,7 +3985,7 @@ static int v3020_read_time(struct device *dev , struct rtc_time *dt )
 #line 258
       __cil_tmp72 = (long )__cil_tmp71;
 #line 258
-      tmp___17 = __builtin_expect(__cil_tmp72, 0L);
+      tmp___17 = ldv__builtin_expect(__cil_tmp72, 0L);
       }
 #line 258
       if (tmp___17) {
@@ -4036,7 +4036,7 @@ static int v3020_read_time(struct device *dev , struct rtc_time *dt )
 #line 259
       __cil_tmp82 = (long )__cil_tmp81;
 #line 259
-      tmp___18 = __builtin_expect(__cil_tmp82, 0L);
+      tmp___18 = ldv__builtin_expect(__cil_tmp82, 0L);
       }
 #line 259
       if (tmp___18) {
@@ -4083,7 +4083,7 @@ static int v3020_read_time(struct device *dev , struct rtc_time *dt )
 #line 260
       __cil_tmp90 = (long )__cil_tmp89;
 #line 260
-      tmp___19 = __builtin_expect(__cil_tmp90, 0L);
+      tmp___19 = ldv__builtin_expect(__cil_tmp90, 0L);
       }
 #line 260
       if (tmp___19) {
@@ -4134,7 +4134,7 @@ static int v3020_read_time(struct device *dev , struct rtc_time *dt )
 #line 261
       __cil_tmp100 = (long )__cil_tmp99;
 #line 261
-      tmp___20 = __builtin_expect(__cil_tmp100, 0L);
+      tmp___20 = ldv__builtin_expect(__cil_tmp100, 0L);
       }
 #line 261
       if (tmp___20) {
@@ -4185,7 +4185,7 @@ static int v3020_read_time(struct device *dev , struct rtc_time *dt )
 #line 262
       __cil_tmp110 = (long )__cil_tmp109;
 #line 262
-      tmp___21 = __builtin_expect(__cil_tmp110, 0L);
+      tmp___21 = ldv__builtin_expect(__cil_tmp110, 0L);
       }
 #line 262
       if (tmp___21) {
@@ -4236,7 +4236,7 @@ static int v3020_read_time(struct device *dev , struct rtc_time *dt )
 #line 263
       __cil_tmp120 = (long )__cil_tmp119;
 #line 263
-      tmp___22 = __builtin_expect(__cil_tmp120, 0L);
+      tmp___22 = ldv__builtin_expect(__cil_tmp120, 0L);
       }
 #line 263
       if (tmp___22) {
@@ -4455,7 +4455,7 @@ static int v3020_set_time(struct device *dev , struct rtc_time *dt )
 #line 273
       __cil_tmp25 = (long )__cil_tmp24;
 #line 273
-      tmp___0 = __builtin_expect(__cil_tmp25, 0L);
+      tmp___0 = ldv__builtin_expect(__cil_tmp25, 0L);
       }
 #line 273
       if (tmp___0) {
@@ -4501,7 +4501,7 @@ static int v3020_set_time(struct device *dev , struct rtc_time *dt )
 #line 274
       __cil_tmp32 = (long )__cil_tmp31;
 #line 274
-      tmp___1 = __builtin_expect(__cil_tmp32, 0L);
+      tmp___1 = ldv__builtin_expect(__cil_tmp32, 0L);
       }
 #line 274
       if (tmp___1) {
@@ -4548,7 +4548,7 @@ static int v3020_set_time(struct device *dev , struct rtc_time *dt )
 #line 275
       __cil_tmp40 = (long )__cil_tmp39;
 #line 275
-      tmp___2 = __builtin_expect(__cil_tmp40, 0L);
+      tmp___2 = ldv__builtin_expect(__cil_tmp40, 0L);
       }
 #line 275
       if (tmp___2) {
@@ -4599,7 +4599,7 @@ static int v3020_set_time(struct device *dev , struct rtc_time *dt )
 #line 276
       __cil_tmp50 = (long )__cil_tmp49;
 #line 276
-      tmp___3 = __builtin_expect(__cil_tmp50, 0L);
+      tmp___3 = ldv__builtin_expect(__cil_tmp50, 0L);
       }
 #line 276
       if (tmp___3) {
@@ -4650,7 +4650,7 @@ static int v3020_set_time(struct device *dev , struct rtc_time *dt )
 #line 277
       __cil_tmp60 = (long )__cil_tmp59;
 #line 277
-      tmp___4 = __builtin_expect(__cil_tmp60, 0L);
+      tmp___4 = ldv__builtin_expect(__cil_tmp60, 0L);
       }
 #line 277
       if (tmp___4) {
@@ -4701,7 +4701,7 @@ static int v3020_set_time(struct device *dev , struct rtc_time *dt )
 #line 278
       __cil_tmp70 = (long )__cil_tmp69;
 #line 278
-      tmp___5 = __builtin_expect(__cil_tmp70, 0L);
+      tmp___5 = ldv__builtin_expect(__cil_tmp70, 0L);
       }
 #line 278
       if (tmp___5) {
@@ -4752,7 +4752,7 @@ static int v3020_set_time(struct device *dev , struct rtc_time *dt )
 #line 279
       __cil_tmp80 = (long )__cil_tmp79;
 #line 279
-      tmp___6 = __builtin_expect(__cil_tmp80, 0L);
+      tmp___6 = ldv__builtin_expect(__cil_tmp80, 0L);
       }
 #line 279
       if (tmp___6) {
@@ -5920,7 +5920,7 @@ void ldv_check_final_state(void)
 }
 }
 #line 882 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/6263/dscv_tempdir/dscv/ri/32_1/drivers/rtc/rtc-v3020.c.common.c"
-long __builtin_expect(long val , long res ) 
+long ldv__builtin_expect(long val , long res ) 
 { 
 
   {

@@ -4193,7 +4193,7 @@ struct mdata_req {
    int result ;
 };
 #line 1 "<compiler builtins>"
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 #line 62 "/home/zakharov/workspace/benchmarks/bench_1/inst/current/envs/linux-3.8-rc1/linux-3.8-rc1/arch/x86/include/asm/bitops.h"
 __inline static void set_bit(unsigned int nr , unsigned long volatile   *addr ) 
 { 
@@ -4499,7 +4499,7 @@ __inline static long IS_ERR(void const   *ptr )
 
   {
 #line 34
-  tmp = __builtin_expect((unsigned long )ptr > 0xfffffffffffff000UL, 0L);
+  tmp = ldv__builtin_expect((unsigned long )ptr > 0xfffffffffffff000UL, 0L);
 #line 34
   return (tmp);
 }
@@ -4944,7 +4944,7 @@ __inline static void dm_consecutive_chunk_count_inc(struct dm_exception *e )
 #line 155
   tmp = dm_consecutive_chunk_count(e);
 #line 155
-  tmp___0 = __builtin_expect(tmp == 0U, 0L);
+  tmp___0 = ldv__builtin_expect(tmp == 0U, 0L);
 #line 155
   if (tmp___0 != 0L) {
 #line 155
@@ -4969,7 +4969,7 @@ __inline static void dm_consecutive_chunk_count_dec(struct dm_exception *e )
 #line 160
   tmp = dm_consecutive_chunk_count(e);
 #line 160
-  tmp___0 = __builtin_expect(tmp == 0U, 0L);
+  tmp___0 = ldv__builtin_expect(tmp == 0U, 0L);
 #line 160
   if (tmp___0 != 0L) {
 #line 160
@@ -6471,7 +6471,7 @@ static void snapshot_merge_next_chunks(struct dm_snapshot *s )
 #line 936
   tmp = constant_test_bit(0U, (unsigned long const volatile   *)(& s->state_bits));
 #line 936
-  tmp___0 = __builtin_expect(tmp == 0, 0L);
+  tmp___0 = ldv__builtin_expect(tmp == 0, 0L);
 #line 936
   if (tmp___0 != 0L) {
 #line 936
@@ -6486,7 +6486,7 @@ static void snapshot_merge_next_chunks(struct dm_snapshot *s )
 #line 937
   tmp___1 = constant_test_bit(1U, (unsigned long const volatile   *)(& s->state_bits));
 #line 937
-  tmp___2 = __builtin_expect(tmp___1 != 0, 0L);
+  tmp___2 = ldv__builtin_expect(tmp___1 != 0, 0L);
 #line 937
   if (tmp___2 != 0L) {
 #line 938
@@ -7194,7 +7194,7 @@ static void snapshot_dtr(struct dm_target *ti )
 #line 1325
   tmp___0 = hlist_empty((struct hlist_head  const  *)(& s->tracked_chunk_hash) + (unsigned long )i);
 #line 1325
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
 #line 1325
   if (tmp___1 != 0L) {
 #line 1325
@@ -11913,7 +11913,7 @@ static struct disk_exception *get_exception(struct pstore *ps , uint32_t index )
 
   {
 #line 441
-  tmp = __builtin_expect(ps->exceptions_per_area <= index, 0L);
+  tmp = ldv__builtin_expect(ps->exceptions_per_area <= index, 0L);
 #line 441
   if (tmp != 0L) {
 #line 441
@@ -12513,7 +12513,7 @@ static int persistent_commit_merge(struct dm_exception_store *store , int nr_mer
 #line 797
   ps = tmp;
 #line 799
-  tmp___0 = __builtin_expect((uint32_t )nr_merged > ps->current_committed, 0L);
+  tmp___0 = ldv__builtin_expect((uint32_t )nr_merged > ps->current_committed, 0L);
 #line 799
   if (tmp___0 != 0L) {
 #line 799
@@ -13141,7 +13141,7 @@ __inline static void ldv_error(void)
 #line 25
 extern int __VERIFIER_nondet_int(void) ;
 #line 49 "/home/zakharov/workspace/instruments/ldv1/kernel-rules/verifier/rcv.h"
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
   {

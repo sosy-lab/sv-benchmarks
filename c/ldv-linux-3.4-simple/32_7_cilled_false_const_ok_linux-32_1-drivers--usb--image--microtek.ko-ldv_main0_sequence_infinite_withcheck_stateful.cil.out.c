@@ -5027,7 +5027,7 @@ struct mts_desc {
    struct mts_transfer_context context ;
 };
 #line 1 "<compiler builtins>"
-long __builtin_expect(long val , long res ) ;
+long ldv__builtin_expect(long val , long res ) ;
 #line 100 "include/linux/printk.h"
 extern int ( /* format attribute */  printk)(char    *fmt  , ...) ;
 #line 60 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/string_64.h"
@@ -5434,7 +5434,7 @@ __inline static struct page *sg_page(struct scatterlist *sg )
 #line 98
     __cil_tmp8 = (long )__cil_tmp7;
 #line 98
-    tmp___7 = __builtin_expect(__cil_tmp8, 0L);
+    tmp___7 = ldv__builtin_expect(__cil_tmp8, 0L);
     }
 #line 98
     if (tmp___7) {
@@ -5490,7 +5490,7 @@ __inline static struct page *sg_page(struct scatterlist *sg )
 #line 99
     __cil_tmp15 = (long )__cil_tmp14;
 #line 99
-    tmp___8 = __builtin_expect(__cil_tmp15, 0L);
+    tmp___8 = ldv__builtin_expect(__cil_tmp15, 0L);
     }
 #line 99
     if (tmp___8) {
@@ -6042,7 +6042,7 @@ __inline static void mts_int_submit_urb(struct urb *transfer , int pipe , void *
 #line 397
   __cil_tmp21 = (long )__cil_tmp20;
 #line 397
-  tmp___7 = __builtin_expect(__cil_tmp21, 0L);
+  tmp___7 = ldv__builtin_expect(__cil_tmp21, 0L);
   }
 #line 397
   if (tmp___7) {
@@ -6135,7 +6135,7 @@ static void mts_transfer_cleanup(struct urb *transfer )
 #line 410
   __cil_tmp16 = (long )__cil_tmp15;
 #line 410
-  tmp___7 = __builtin_expect(__cil_tmp16, 1L);
+  tmp___7 = ldv__builtin_expect(__cil_tmp16, 1L);
   }
 #line 410
   if (tmp___7) {
@@ -6496,7 +6496,7 @@ static void mts_data_done(struct urb *transfer )
 #line 447
     __cil_tmp30 = (long )__cil_tmp29;
 #line 447
-    tmp___8 = __builtin_expect(__cil_tmp30, 0L);
+    tmp___8 = ldv__builtin_expect(__cil_tmp30, 0L);
     }
 #line 447
     if (tmp___8) {
@@ -6627,7 +6627,7 @@ static void mts_command_done(struct urb *transfer )
 #line 461
   __cil_tmp15 = (long )__cil_tmp14;
 #line 461
-  tmp___7 = __builtin_expect(__cil_tmp15, 0L);
+  tmp___7 = ldv__builtin_expect(__cil_tmp15, 0L);
   }
 #line 461
   if (tmp___7) {
@@ -6893,7 +6893,7 @@ static void mts_do_sg(struct urb *transfer )
 #line 505
   __cil_tmp18 = (long )__cil_tmp17;
 #line 505
-  tmp___8 = __builtin_expect(__cil_tmp18, 0L);
+  tmp___8 = ldv__builtin_expect(__cil_tmp18, 0L);
   }
 #line 505
   if (tmp___8) {
@@ -7590,7 +7590,7 @@ static int mts_scsi_queuecommand_lck(struct scsi_cmnd *srb , void (*callback)(st
 #line 595
         __cil_tmp34 = (long )__cil_tmp33;
 #line 595
-        tmp___7 = __builtin_expect(__cil_tmp34, 1L);
+        tmp___7 = ldv__builtin_expect(__cil_tmp34, 1L);
         }
 #line 595
         if (tmp___7) {
@@ -7698,7 +7698,7 @@ static int mts_scsi_queuecommand_lck(struct scsi_cmnd *srb , void (*callback)(st
 #line 618
   __cil_tmp71 = (long )__cil_tmp70;
 #line 618
-  tmp___10 = __builtin_expect(__cil_tmp71, 0L);
+  tmp___10 = ldv__builtin_expect(__cil_tmp71, 0L);
   }
 #line 618
   if (tmp___10) {
@@ -7726,7 +7726,7 @@ static int mts_scsi_queuecommand_lck(struct scsi_cmnd *srb , void (*callback)(st
 #line 622
     __cil_tmp80 = (long )__cil_tmp79;
 #line 622
-    tmp___9 = __builtin_expect(__cil_tmp80, 1L);
+    tmp___9 = ldv__builtin_expect(__cil_tmp80, 1L);
     }
 #line 622
     if (tmp___9) {
@@ -9198,7 +9198,7 @@ void ldv_check_final_state(void)
 }
 }
 #line 1513 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/7795/dscv_tempdir/dscv/ri/32_1/drivers/usb/image/microtek.c.common.c"
-long __builtin_expect(long val , long res ) 
+long ldv__builtin_expect(long val , long res ) 
 { 
 
   {

@@ -8937,7 +8937,7 @@ enum hrtimer_restart;
 #line 1 "<compiler builtins>"
 void *__builtin_memcpy(void * , void const   * , unsigned long  ) ;
 #line 1
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 #line 62 "/home/zakharov/workspace/benchmarks/bench_1/inst/current/envs/linux-3.8-rc1/linux-3.8-rc1/arch/x86/include/asm/bitops.h"
 __inline static void set_bit(unsigned int nr , unsigned long volatile   *addr ) 
 { 
@@ -9063,7 +9063,7 @@ __inline static long IS_ERR(void const   *ptr )
 
   {
 #line 34
-  tmp = __builtin_expect((unsigned long )ptr > 0xfffffffffffff000UL, 0L);
+  tmp = ldv__builtin_expect((unsigned long )ptr > 0xfffffffffffff000UL, 0L);
 #line 34
   return (tmp);
 }
@@ -9474,7 +9474,7 @@ __inline static void kref_get(struct kref *kref )
 #line 42
   __ret_warn_on = tmp == 0;
 #line 42
-  tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 42
   if (tmp___0 != 0L) {
 #line 42
@@ -9483,7 +9483,7 @@ __inline static void kref_get(struct kref *kref )
 
   }
 #line 42
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 43
   atomic_inc(& kref->refcount);
 #line 44
@@ -9500,7 +9500,7 @@ __inline static int kref_sub(struct kref *kref , unsigned int count , void (*rel
 #line 67
   __ret_warn_on = (unsigned long )release == (unsigned long )((void (*)(struct kref * ))0);
 #line 67
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 67
   if (tmp != 0L) {
 #line 67
@@ -9509,7 +9509,7 @@ __inline static int kref_sub(struct kref *kref , unsigned int count , void (*rel
 
   }
 #line 67
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 69
   tmp___0 = atomic_sub_and_test((int )count, & kref->refcount);
 #line 69
@@ -10270,7 +10270,7 @@ __inline static int l2t_send(struct t3cdev *dev , struct sk_buff *skb , struct l
 
   {
 #line 125
-  tmp___0 = __builtin_expect((unsigned int )e->state == 0U, 1L);
+  tmp___0 = ldv__builtin_expect((unsigned int )e->state == 0U, 1L);
 #line 125
   if (tmp___0 != 0L) {
 #line 126
@@ -10530,7 +10530,7 @@ static void start_ep_timer(struct iwch_ep *ep )
 #line 175
   descriptor.flags = 1U;
 #line 175
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 175
   if (tmp != 0L) {
 #line 175
@@ -10555,7 +10555,7 @@ static void start_ep_timer(struct iwch_ep *ep )
 #line 177
     descriptor___0.flags = 1U;
 #line 177
-    tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 177
     if (tmp___0 != 0L) {
 #line 177
@@ -10580,7 +10580,7 @@ static void start_ep_timer(struct iwch_ep *ep )
 #line 180
     descriptor___1.flags = 1U;
 #line 180
-    tmp___2 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___2 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 180
     if (tmp___2 != 0L) {
 #line 180
@@ -10634,7 +10634,7 @@ static void stop_ep_timer(struct iwch_ep *ep )
 #line 189
   descriptor.flags = 1U;
 #line 189
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 189
   if (tmp != 0L) {
 #line 189
@@ -10649,7 +10649,7 @@ static void stop_ep_timer(struct iwch_ep *ep )
 #line 191
     __ret_warn_on = 1;
 #line 191
-    tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 191
     if (tmp___0 != 0L) {
 #line 191
@@ -10660,7 +10660,7 @@ static void stop_ep_timer(struct iwch_ep *ep )
 
     }
 #line 191
-    __builtin_expect(__ret_warn_on != 0, 0L);
+    ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 193
     return;
   } else {
@@ -10681,7 +10681,7 @@ static void stop_ep_timer(struct iwch_ep *ep )
 #line 196
   descriptor___0.flags = 1U;
 #line 196
-  tmp___3 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___3 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 196
   if (tmp___3 != 0L) {
 #line 196
@@ -10697,7 +10697,7 @@ static void stop_ep_timer(struct iwch_ep *ep )
 #line 196
   __ret_warn_on___0 = tmp___4 <= 0;
 #line 196
-  tmp___5 = __builtin_expect(__ret_warn_on___0 != 0, 0L);
+  tmp___5 = ldv__builtin_expect(__ret_warn_on___0 != 0, 0L);
 #line 196
   if (tmp___5 != 0L) {
 #line 196
@@ -10707,7 +10707,7 @@ static void stop_ep_timer(struct iwch_ep *ep )
 
   }
 #line 196
-  __builtin_expect(__ret_warn_on___0 != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on___0 != 0, 0L);
 #line 196
   kref_put(& ep->com.kref, & __free_ep);
 #line 197
@@ -10947,7 +10947,7 @@ static void set_emss(struct iwch_ep *ep , u16 opt )
 #line 290
   descriptor.flags = 1U;
 #line 290
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 290
   if (tmp != 0L) {
 #line 290
@@ -10985,7 +10985,7 @@ static void set_emss(struct iwch_ep *ep , u16 opt )
 #line 296
   descriptor___0.flags = 1U;
 #line 296
-  tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 296
   if (tmp___0 != 0L) {
 #line 296
@@ -11052,7 +11052,7 @@ static void state_set(struct iwch_ep_common *epc , enum iwch_ep_state new )
 #line 320
   descriptor.flags = 1U;
 #line 320
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 320
   if (tmp___0 != 0L) {
 #line 320
@@ -11109,7 +11109,7 @@ static void *alloc_ep(int size , gfp_t gfp )
 #line 336
   descriptor.flags = 1U;
 #line 336
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 336
   if (tmp___0 != 0L) {
 #line 336
@@ -11151,7 +11151,7 @@ void __free_ep(struct kref *kref )
 #line 345
   descriptor.flags = 1U;
 #line 345
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 345
   if (tmp___0 != 0L) {
 #line 345
@@ -11206,7 +11206,7 @@ static void release_ep_resources(struct iwch_ep *ep )
 #line 356
   descriptor.flags = 1U;
 #line 356
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 356
   if (tmp != 0L) {
 #line 356
@@ -11230,7 +11230,7 @@ static void release_ep_resources(struct iwch_ep *ep )
 #line 358
   descriptor___0.flags = 1U;
 #line 358
-  tmp___1 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 358
   if (tmp___1 != 0L) {
 #line 358
@@ -11246,7 +11246,7 @@ static void release_ep_resources(struct iwch_ep *ep )
 #line 358
   __ret_warn_on = tmp___2 <= 0;
 #line 358
-  tmp___3 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___3 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 358
   if (tmp___3 != 0L) {
 #line 358
@@ -11256,7 +11256,7 @@ static void release_ep_resources(struct iwch_ep *ep )
 
   }
 #line 358
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 358
   kref_put(& ep->com.kref, & __free_ep);
 #line 359
@@ -11408,7 +11408,7 @@ static void arp_failure_discard(struct t3cdev *dev , struct sk_buff *skb )
 #line 421
   descriptor.flags = 1U;
 #line 421
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 421
   if (tmp != 0L) {
 #line 421
@@ -11461,7 +11461,7 @@ static void abort_arp_failure(struct t3cdev *dev , struct sk_buff *skb )
 #line 442
   descriptor.flags = 1U;
 #line 442
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 442
   if (tmp___0 != 0L) {
 #line 442
@@ -11503,7 +11503,7 @@ static int send_halfclose(struct iwch_ep *ep , gfp_t gfp )
 #line 452
   descriptor.flags = 1U;
 #line 452
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 452
   if (tmp != 0L) {
 #line 452
@@ -11570,7 +11570,7 @@ static int send_abort(struct iwch_ep *ep , struct sk_buff *skb , gfp_t gfp )
 #line 471
   descriptor.flags = 1U;
 #line 471
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 471
   if (tmp != 0L) {
 #line 471
@@ -11648,7 +11648,7 @@ static int send_connect(struct iwch_ep *ep )
 #line 496
   descriptor.flags = 1U;
 #line 496
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 496
   if (tmp != 0L) {
 #line 496
@@ -11761,7 +11761,7 @@ static void send_mpa_req(struct iwch_ep *ep , struct sk_buff *skb )
 #line 540
   descriptor.flags = 1U;
 #line 540
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 540
   if (tmp != 0L) {
 #line 540
@@ -11773,7 +11773,7 @@ static void send_mpa_req(struct iwch_ep *ep , struct sk_buff *skb )
 #line 542
   tmp___0 = skb_cloned((struct sk_buff  const  *)skb);
 #line 542
-  tmp___1 = __builtin_expect(tmp___0 != 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 != 0, 0L);
 #line 542
   if (tmp___1 != 0L) {
 #line 542
@@ -11897,7 +11897,7 @@ static void send_mpa_req(struct iwch_ep *ep , struct sk_buff *skb )
 #line 584
   req->sndseq = tmp___10;
 #line 585
-  tmp___11 = __builtin_expect((unsigned long )ep->mpa_skb != (unsigned long )((struct sk_buff *)0),
+  tmp___11 = ldv__builtin_expect((unsigned long )ep->mpa_skb != (unsigned long )((struct sk_buff *)0),
                               0L);
 #line 585
   if (tmp___11 != 0L) {
@@ -11958,7 +11958,7 @@ static int send_mpa_reject(struct iwch_ep *ep , void const   *pdata , u8 plen )
 #line 600
   descriptor.flags = 1U;
 #line 600
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 600
   if (tmp != 0L) {
 #line 600
@@ -12049,7 +12049,7 @@ static int send_mpa_reject(struct iwch_ep *ep , void const   *pdata , u8 plen )
 #line 635
   req->sndseq = tmp___6;
 #line 636
-  tmp___7 = __builtin_expect((unsigned long )ep->mpa_skb != (unsigned long )((struct sk_buff *)0),
+  tmp___7 = ldv__builtin_expect((unsigned long )ep->mpa_skb != (unsigned long )((struct sk_buff *)0),
                              0L);
 #line 636
   if (tmp___7 != 0L) {
@@ -12108,7 +12108,7 @@ static int send_mpa_reply(struct iwch_ep *ep , void const   *pdata , u8 plen )
 #line 649
   descriptor.flags = 1U;
 #line 649
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 649
   if (tmp != 0L) {
 #line 649
@@ -12263,7 +12263,7 @@ static int act_establish(struct t3cdev *tdev , struct sk_buff *skb , void *ctx )
 #line 698
   descriptor.flags = 1U;
 #line 698
-  tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 698
   if (tmp___1 != 0L) {
 #line 698
@@ -12317,7 +12317,7 @@ static void abort_connection(struct iwch_ep *ep , struct sk_buff *skb , gfp_t gf
 #line 722
   descriptor.flags = 1U;
 #line 722
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 722
   if (tmp != 0L) {
 #line 722
@@ -12356,7 +12356,7 @@ static void close_complete_upcall(struct iwch_ep *ep )
 #line 731
   descriptor.flags = 1U;
 #line 731
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 731
   if (tmp != 0L) {
 #line 731
@@ -12384,7 +12384,7 @@ static void close_complete_upcall(struct iwch_ep *ep )
 #line 735
     descriptor___0.flags = 1U;
 #line 735
-    tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 735
     if (tmp___0 != 0L) {
 #line 735
@@ -12430,7 +12430,7 @@ static void peer_close_upcall(struct iwch_ep *ep )
 #line 748
   descriptor.flags = 1U;
 #line 748
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 748
   if (tmp != 0L) {
 #line 748
@@ -12458,7 +12458,7 @@ static void peer_close_upcall(struct iwch_ep *ep )
 #line 752
     descriptor___0.flags = 1U;
 #line 752
-    tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 752
     if (tmp___0 != 0L) {
 #line 752
@@ -12498,7 +12498,7 @@ static void peer_abort_upcall(struct iwch_ep *ep )
 #line 762
   descriptor.flags = 1U;
 #line 762
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 762
   if (tmp != 0L) {
 #line 762
@@ -12528,7 +12528,7 @@ static void peer_abort_upcall(struct iwch_ep *ep )
 #line 767
     descriptor___0.flags = 1U;
 #line 767
-    tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 767
     if (tmp___0 != 0L) {
 #line 767
@@ -12574,7 +12574,7 @@ static void connect_reply_upcall(struct iwch_ep *ep , int status )
 #line 780
   descriptor.flags = 1U;
 #line 780
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 780
   if (tmp != 0L) {
 #line 780
@@ -12617,7 +12617,7 @@ static void connect_reply_upcall(struct iwch_ep *ep , int status )
 #line 792
     descriptor___0.flags = 1U;
 #line 792
-    tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 792
     if (tmp___0 != 0L) {
 #line 792
@@ -12676,7 +12676,7 @@ static void connect_request_upcall(struct iwch_ep *ep )
 #line 807
   descriptor.flags = 1U;
 #line 807
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 807
   if (tmp != 0L) {
 #line 807
@@ -12720,7 +12720,7 @@ static void connect_request_upcall(struct iwch_ep *ep )
 #line 821
     descriptor___0.flags = 1U;
 #line 821
-    tmp___1 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 821
     if (tmp___1 != 0L) {
 #line 821
@@ -12751,7 +12751,7 @@ static void connect_request_upcall(struct iwch_ep *ep )
 #line 826
   descriptor___1.flags = 1U;
 #line 826
-  tmp___4 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+  tmp___4 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 826
   if (tmp___4 != 0L) {
 #line 826
@@ -12767,7 +12767,7 @@ static void connect_request_upcall(struct iwch_ep *ep )
 #line 826
   __ret_warn_on = tmp___5 <= 0;
 #line 826
-  tmp___6 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___6 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 826
   if (tmp___6 != 0L) {
 #line 826
@@ -12777,7 +12777,7 @@ static void connect_request_upcall(struct iwch_ep *ep )
 
   }
 #line 826
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 826
   kref_put(& (ep->parent_ep)->com.kref, & __free_ep);
 #line 827
@@ -12808,7 +12808,7 @@ static void established_upcall(struct iwch_ep *ep )
 #line 834
   descriptor.flags = 1U;
 #line 834
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 834
   if (tmp != 0L) {
 #line 834
@@ -12840,7 +12840,7 @@ static void established_upcall(struct iwch_ep *ep )
 #line 843
     descriptor___0.flags = 1U;
 #line 843
-    tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 843
     if (tmp___0 != 0L) {
 #line 843
@@ -12882,7 +12882,7 @@ static int update_rx_credits(struct iwch_ep *ep , u32 credits )
 #line 853
   descriptor.flags = 1U;
 #line 853
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 853
   if (tmp != 0L) {
 #line 853
@@ -12954,7 +12954,7 @@ static void process_mpa_reply(struct iwch_ep *ep , struct sk_buff *skb )
 #line 877
   descriptor.flags = 1U;
 #line 877
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 877
   if (tmp != 0L) {
 #line 877
@@ -13083,7 +13083,7 @@ static void process_mpa_reply(struct iwch_ep *ep , struct sk_buff *skb )
 #line 964
   descriptor___0.flags = 1U;
 #line 964
-  tmp___3 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___3 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 964
   if (tmp___3 != 0L) {
 #line 964
@@ -13170,7 +13170,7 @@ static void process_mpa_request(struct iwch_ep *ep , struct sk_buff *skb )
 #line 1002
   descriptor.flags = 1U;
 #line 1002
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1002
   if (tmp != 0L) {
 #line 1002
@@ -13212,7 +13212,7 @@ static void process_mpa_request(struct iwch_ep *ep , struct sk_buff *skb )
 #line 1022
   descriptor___0.flags = 1U;
 #line 1022
-  tmp___1 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 1022
   if (tmp___1 != 0L) {
 #line 1022
@@ -13247,7 +13247,7 @@ static void process_mpa_request(struct iwch_ep *ep , struct sk_buff *skb )
 #line 1037
   descriptor___1.flags = 1U;
 #line 1037
-  tmp___2 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+  tmp___2 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 1037
   if (tmp___2 != 0L) {
 #line 1037
@@ -13334,7 +13334,7 @@ static void process_mpa_request(struct iwch_ep *ep , struct sk_buff *skb )
 #line 1087
   descriptor___2.flags = 1U;
 #line 1087
-  tmp___5 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+  tmp___5 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
 #line 1087
   if (tmp___5 != 0L) {
 #line 1087
@@ -13390,7 +13390,7 @@ static int rx_data(struct t3cdev *tdev , struct sk_buff *skb , void *ctx )
 #line 1105
   descriptor.flags = 1U;
 #line 1105
-  tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1105
   if (tmp___1 != 0L) {
 #line 1105
@@ -13408,7 +13408,7 @@ static int rx_data(struct t3cdev *tdev , struct sk_buff *skb , void *ctx )
 #line 1111
   tmp___2 = __fswab32(hdr->seq);
 #line 1111
-  tmp___3 = __builtin_expect(ep->rcv_seq != tmp___2 + dlen, 0L);
+  tmp___3 = ldv__builtin_expect(ep->rcv_seq != tmp___2 + dlen, 0L);
 #line 1111
   if (tmp___3 != 0L) {
 #line 1111
@@ -13504,7 +13504,7 @@ static int tx_ack(struct t3cdev *tdev , struct sk_buff *skb , void *ctx )
 #line 1153
   descriptor.flags = 1U;
 #line 1153
-  tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1153
   if (tmp___1 != 0L) {
 #line 1153
@@ -13528,7 +13528,7 @@ static int tx_ack(struct t3cdev *tdev , struct sk_buff *skb , void *ctx )
 #line 1156
     descriptor___0.flags = 1U;
 #line 1156
-    tmp___3 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___3 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 1156
     if (tmp___3 != 0L) {
 #line 1156
@@ -13549,7 +13549,7 @@ static int tx_ack(struct t3cdev *tdev , struct sk_buff *skb , void *ctx )
 #line 1161
   flags = _raw_spin_lock_irqsave(tmp___4);
 #line 1162
-  tmp___5 = __builtin_expect(credits != 1U, 0L);
+  tmp___5 = ldv__builtin_expect(credits != 1U, 0L);
 #line 1162
   if (tmp___5 != 0L) {
 #line 1162
@@ -13578,7 +13578,7 @@ static int tx_ack(struct t3cdev *tdev , struct sk_buff *skb , void *ctx )
 #line 1165
     descriptor___1.flags = 1U;
 #line 1165
-    tmp___6 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___6 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 1165
     if (tmp___6 != 0L) {
 #line 1165
@@ -13602,7 +13602,7 @@ static int tx_ack(struct t3cdev *tdev , struct sk_buff *skb , void *ctx )
 #line 1168
       descriptor___2.flags = 1U;
 #line 1168
-      tmp___7 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+      tmp___7 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
 #line 1168
       if (tmp___7 != 0L) {
 #line 1168
@@ -13632,7 +13632,7 @@ static int tx_ack(struct t3cdev *tdev , struct sk_buff *skb , void *ctx )
 #line 1173
       descriptor___3.flags = 1U;
 #line 1173
-      tmp___8 = __builtin_expect((long )descriptor___3.flags & 1L, 0L);
+      tmp___8 = ldv__builtin_expect((long )descriptor___3.flags & 1L, 0L);
 #line 1173
       if (tmp___8 != 0L) {
 #line 1173
@@ -13665,7 +13665,7 @@ static int tx_ack(struct t3cdev *tdev , struct sk_buff *skb , void *ctx )
 #line 1181
     descriptor___4.flags = 1U;
 #line 1181
-    tmp___9 = __builtin_expect((long )descriptor___4.flags & 1L, 0L);
+    tmp___9 = ldv__builtin_expect((long )descriptor___4.flags & 1L, 0L);
 #line 1181
     if (tmp___9 != 0L) {
 #line 1181
@@ -13721,7 +13721,7 @@ static int abort_rpl(struct t3cdev *tdev , struct sk_buff *skb , void *ctx )
 #line 1198
   descriptor.flags = 1U;
 #line 1198
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1198
   if (tmp != 0L) {
 #line 1198
@@ -13730,7 +13730,7 @@ static int abort_rpl(struct t3cdev *tdev , struct sk_buff *skb , void *ctx )
 
   }
 #line 1199
-  tmp___0 = __builtin_expect((unsigned long )ep == (unsigned long )((struct iwch_ep *)0),
+  tmp___0 = ldv__builtin_expect((unsigned long )ep == (unsigned long )((struct iwch_ep *)0),
                              0L);
 #line 1199
   if (tmp___0 != 0L) {
@@ -13834,7 +13834,7 @@ static int act_open_rpl(struct t3cdev *tdev , struct sk_buff *skb , void *ctx )
 #line 1242
   descriptor.flags = 1U;
 #line 1242
-  tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1242
   if (tmp___1 != 0L) {
 #line 1242
@@ -13886,7 +13886,7 @@ static int act_open_rpl(struct t3cdev *tdev , struct sk_buff *skb , void *ctx )
 #line 1251
   descriptor___0.flags = 1U;
 #line 1251
-  tmp___6 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___6 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 1251
   if (tmp___6 != 0L) {
 #line 1251
@@ -13902,7 +13902,7 @@ static int act_open_rpl(struct t3cdev *tdev , struct sk_buff *skb , void *ctx )
 #line 1251
   __ret_warn_on = tmp___7 <= 0;
 #line 1251
-  tmp___8 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___8 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 1251
   if (tmp___8 != 0L) {
 #line 1251
@@ -13912,7 +13912,7 @@ static int act_open_rpl(struct t3cdev *tdev , struct sk_buff *skb , void *ctx )
 
   }
 #line 1251
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 1251
   kref_put(& ep->com.kref, & __free_ep);
 #line 1252
@@ -13944,7 +13944,7 @@ static int listen_start(struct iwch_listen_ep *ep )
 #line 1260
   descriptor.flags = 1U;
 #line 1260
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1260
   if (tmp != 0L) {
 #line 1260
@@ -14028,7 +14028,7 @@ static int pass_open_rpl(struct t3cdev *tdev , struct sk_buff *skb , void *ctx )
 #line 1288
   descriptor.flags = 1U;
 #line 1288
-  tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1288
   if (tmp___1 != 0L) {
 #line 1288
@@ -14073,7 +14073,7 @@ static int listen_stop(struct iwch_listen_ep *ep )
 #line 1302
   descriptor.flags = 1U;
 #line 1302
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1302
   if (tmp != 0L) {
 #line 1302
@@ -14140,7 +14140,7 @@ static int close_listsrv_rpl(struct t3cdev *tdev , struct sk_buff *skb , void *c
 #line 1322
   descriptor.flags = 1U;
 #line 1322
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1322
   if (tmp___0 != 0L) {
 #line 1322
@@ -14192,7 +14192,7 @@ static void accept_cr(struct iwch_ep *ep , __be32 peer_ip , struct sk_buff *skb 
 #line 1336
   descriptor.flags = 1U;
 #line 1336
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1336
   if (tmp != 0L) {
 #line 1336
@@ -14203,7 +14203,7 @@ static void accept_cr(struct iwch_ep *ep , __be32 peer_ip , struct sk_buff *skb 
 #line 1337
   tmp___0 = skb_cloned((struct sk_buff  const  *)skb);
 #line 1337
-  tmp___1 = __builtin_expect(tmp___0 != 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 != 0, 0L);
 #line 1337
   if (tmp___1 != 0L) {
 #line 1337
@@ -14290,7 +14290,7 @@ static void reject_cr(struct t3cdev *tdev , u32 hwtid , __be32 peer_ip , struct 
 #line 1370
   descriptor.flags = 1U;
 #line 1370
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1370
   if (tmp != 0L) {
 #line 1370
@@ -14302,7 +14302,7 @@ static void reject_cr(struct t3cdev *tdev , u32 hwtid , __be32 peer_ip , struct 
 #line 1372
   tmp___0 = skb_cloned((struct sk_buff  const  *)skb);
 #line 1372
-  tmp___1 = __builtin_expect(tmp___0 != 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 != 0, 0L);
 #line 1372
   if (tmp___1 != 0L) {
 #line 1372
@@ -14401,7 +14401,7 @@ static int pass_accept_req(struct t3cdev *tdev , struct sk_buff *skb , void *ctx
 #line 1405
   descriptor.flags = 1U;
 #line 1405
-  tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1405
   if (tmp___1 != 0L) {
 #line 1405
@@ -14515,7 +14515,7 @@ static int pass_accept_req(struct t3cdev *tdev , struct sk_buff *skb , void *ctx
 #line 1460
   descriptor___0.flags = 1U;
 #line 1460
-  tmp___8 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___8 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 1460
   if (tmp___8 != 0L) {
 #line 1460
@@ -14587,7 +14587,7 @@ static int pass_establish(struct t3cdev *tdev , struct sk_buff *skb , void *ctx 
 #line 1481
   descriptor.flags = 1U;
 #line 1481
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1481
   if (tmp___0 != 0L) {
 #line 1481
@@ -14652,7 +14652,7 @@ static int peer_close(struct t3cdev *tdev , struct sk_buff *skb , void *ctx )
 #line 1502
   descriptor.flags = 1U;
 #line 1502
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1502
   if (tmp != 0L) {
 #line 1502
@@ -14700,7 +14700,7 @@ static int peer_close(struct t3cdev *tdev , struct sk_buff *skb , void *ctx )
 #line 1525
   descriptor___0.flags = 1U;
 #line 1525
-  tmp___1 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 1525
   if (tmp___1 != 0L) {
 #line 1525
@@ -14732,7 +14732,7 @@ static int peer_close(struct t3cdev *tdev , struct sk_buff *skb , void *ctx )
 #line 1532
   descriptor___1.flags = 1U;
 #line 1532
-  tmp___2 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+  tmp___2 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 1532
   if (tmp___2 != 0L) {
 #line 1532
@@ -14888,7 +14888,7 @@ static int peer_abort(struct t3cdev *tdev , struct sk_buff *skb , void *ctx )
 #line 1597
     descriptor.flags = 1U;
 #line 1597
-    tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1597
     if (tmp___0 != 0L) {
 #line 1597
@@ -14930,7 +14930,7 @@ static int peer_abort(struct t3cdev *tdev , struct sk_buff *skb , void *ctx )
 #line 1612
   descriptor___0.flags = 1U;
 #line 1612
-  tmp___4 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___4 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 1612
   if (tmp___4 != 0L) {
 #line 1612
@@ -14974,7 +14974,7 @@ static int peer_abort(struct t3cdev *tdev , struct sk_buff *skb , void *ctx )
 #line 1626
   descriptor___1.flags = 1U;
 #line 1626
-  tmp___5 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+  tmp___5 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 1626
   if (tmp___5 != 0L) {
 #line 1626
@@ -15004,7 +15004,7 @@ static int peer_abort(struct t3cdev *tdev , struct sk_buff *skb , void *ctx )
 #line 1639
   descriptor___2.flags = 1U;
 #line 1639
-  tmp___6 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+  tmp___6 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
 #line 1639
   if (tmp___6 != 0L) {
 #line 1639
@@ -15058,7 +15058,7 @@ static int peer_abort(struct t3cdev *tdev , struct sk_buff *skb , void *ctx )
 #line 1662
   descriptor___3.flags = 1U;
 #line 1662
-  tmp___7 = __builtin_expect((long )descriptor___3.flags & 1L, 0L);
+  tmp___7 = ldv__builtin_expect((long )descriptor___3.flags & 1L, 0L);
 #line 1662
   if (tmp___7 != 0L) {
 #line 1662
@@ -15169,7 +15169,7 @@ static int close_con_rpl(struct t3cdev *tdev , struct sk_buff *skb , void *ctx )
 #line 1703
   descriptor.flags = 1U;
 #line 1703
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1703
   if (tmp != 0L) {
 #line 1703
@@ -15178,7 +15178,7 @@ static int close_con_rpl(struct t3cdev *tdev , struct sk_buff *skb , void *ctx )
 
   }
 #line 1704
-  tmp___0 = __builtin_expect((unsigned long )ep == (unsigned long )((struct iwch_ep *)0),
+  tmp___0 = ldv__builtin_expect((unsigned long )ep == (unsigned long )((struct iwch_ep *)0),
                              0L);
 #line 1704
   if (tmp___0 != 0L) {
@@ -15284,7 +15284,7 @@ static int terminate(struct t3cdev *tdev , struct sk_buff *skb , void *ctx )
 #line 1757
   descriptor.flags = 1U;
 #line 1757
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1757
   if (tmp___0 != 0L) {
 #line 1757
@@ -15307,7 +15307,7 @@ static int terminate(struct t3cdev *tdev , struct sk_buff *skb , void *ctx )
 #line 1759
   descriptor___0.flags = 1U;
 #line 1759
-  tmp___1 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 1759
   if (tmp___1 != 0L) {
 #line 1759
@@ -15356,7 +15356,7 @@ static int ec_status(struct t3cdev *tdev , struct sk_buff *skb , void *ctx )
 #line 1772
   descriptor.flags = 1U;
 #line 1772
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1772
   if (tmp___0 != 0L) {
 #line 1772
@@ -15424,7 +15424,7 @@ static void ep_timeout(unsigned long arg )
 #line 1797
   descriptor.flags = 1U;
 #line 1797
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1797
   if (tmp___0 != 0L) {
 #line 1797
@@ -15466,7 +15466,7 @@ static void ep_timeout(unsigned long arg )
 #line 1818
   __ret_warn_on = 1;
 #line 1818
-  tmp___1 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___1 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 1818
   if (tmp___1 != 0L) {
 #line 1818
@@ -15477,7 +15477,7 @@ static void ep_timeout(unsigned long arg )
 
   }
 #line 1818
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 1820
   abort = 0;
   }
@@ -15504,7 +15504,7 @@ static void ep_timeout(unsigned long arg )
 #line 1825
   descriptor___0.flags = 1U;
 #line 1825
-  tmp___3 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___3 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 1825
   if (tmp___3 != 0L) {
 #line 1825
@@ -15520,7 +15520,7 @@ static void ep_timeout(unsigned long arg )
 #line 1825
   __ret_warn_on___0 = tmp___4 <= 0;
 #line 1825
-  tmp___5 = __builtin_expect(__ret_warn_on___0 != 0, 0L);
+  tmp___5 = ldv__builtin_expect(__ret_warn_on___0 != 0, 0L);
 #line 1825
   if (tmp___5 != 0L) {
 #line 1825
@@ -15530,7 +15530,7 @@ static void ep_timeout(unsigned long arg )
 
   }
 #line 1825
-  __builtin_expect(__ret_warn_on___0 != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on___0 != 0, 0L);
 #line 1825
   kref_put(& ep->com.kref, & __free_ep);
 #line 1826
@@ -15578,7 +15578,7 @@ int iwch_reject_cr(struct iw_cm_id *cm_id , void const   *pdata , u8 pdata_len )
 #line 1832
   descriptor.flags = 1U;
 #line 1832
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1832
   if (tmp___0 != 0L) {
 #line 1832
@@ -15604,7 +15604,7 @@ int iwch_reject_cr(struct iw_cm_id *cm_id , void const   *pdata , u8 pdata_len )
 #line 1835
     descriptor___0.flags = 1U;
 #line 1835
-    tmp___2 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___2 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 1835
     if (tmp___2 != 0L) {
 #line 1835
@@ -15620,7 +15620,7 @@ int iwch_reject_cr(struct iw_cm_id *cm_id , void const   *pdata , u8 pdata_len )
 #line 1835
     __ret_warn_on = tmp___3 <= 0;
 #line 1835
-    tmp___4 = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp___4 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 1835
     if (tmp___4 != 0L) {
 #line 1835
@@ -15630,7 +15630,7 @@ int iwch_reject_cr(struct iw_cm_id *cm_id , void const   *pdata , u8 pdata_len )
 
     }
 #line 1835
-    __builtin_expect(__ret_warn_on != 0, 0L);
+    ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 1835
     kref_put(& ep->com.kref, & __free_ep);
 #line 1836
@@ -15641,7 +15641,7 @@ int iwch_reject_cr(struct iw_cm_id *cm_id , void const   *pdata , u8 pdata_len )
 #line 1838
   tmp___6 = state_read(& ep->com);
 #line 1838
-  tmp___7 = __builtin_expect((unsigned int )tmp___6 != 5U, 0L);
+  tmp___7 = ldv__builtin_expect((unsigned int )tmp___6 != 5U, 0L);
 #line 1838
   if (tmp___7 != 0L) {
 #line 1838
@@ -15676,7 +15676,7 @@ int iwch_reject_cr(struct iw_cm_id *cm_id , void const   *pdata , u8 pdata_len )
 #line 1845
   descriptor___1.flags = 1U;
 #line 1845
-  tmp___9 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+  tmp___9 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 1845
   if (tmp___9 != 0L) {
 #line 1845
@@ -15692,7 +15692,7 @@ int iwch_reject_cr(struct iw_cm_id *cm_id , void const   *pdata , u8 pdata_len )
 #line 1845
   __ret_warn_on___0 = tmp___10 <= 0;
 #line 1845
-  tmp___11 = __builtin_expect(__ret_warn_on___0 != 0, 0L);
+  tmp___11 = ldv__builtin_expect(__ret_warn_on___0 != 0, 0L);
 #line 1845
   if (tmp___11 != 0L) {
 #line 1845
@@ -15702,7 +15702,7 @@ int iwch_reject_cr(struct iw_cm_id *cm_id , void const   *pdata , u8 pdata_len )
 
   }
 #line 1845
-  __builtin_expect(__ret_warn_on___0 != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on___0 != 0, 0L);
 #line 1845
   kref_put(& ep->com.kref, & __free_ep);
 #line 1846
@@ -15770,7 +15770,7 @@ int iwch_accept_cr(struct iw_cm_id *cm_id , struct iw_cm_conn_param *conn_param 
 #line 1858
   descriptor.flags = 1U;
 #line 1858
-  tmp___2 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___2 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1858
   if (tmp___2 != 0L) {
 #line 1858
@@ -15793,7 +15793,7 @@ int iwch_accept_cr(struct iw_cm_id *cm_id , struct iw_cm_conn_param *conn_param 
 #line 1864
   tmp___4 = state_read(& ep->com);
 #line 1864
-  tmp___5 = __builtin_expect((unsigned int )tmp___4 != 5U, 0L);
+  tmp___5 = ldv__builtin_expect((unsigned int )tmp___4 != 5U, 0L);
 #line 1864
   if (tmp___5 != 0L) {
 #line 1864
@@ -15806,7 +15806,7 @@ int iwch_accept_cr(struct iw_cm_id *cm_id , struct iw_cm_conn_param *conn_param 
 
   }
 #line 1865
-  tmp___6 = __builtin_expect((unsigned long )qp == (unsigned long )((struct iwch_qp *)0),
+  tmp___6 = ldv__builtin_expect((unsigned long )qp == (unsigned long )((struct iwch_qp *)0),
                              0L);
 #line 1865
   if (tmp___6 != 0L) {
@@ -15860,7 +15860,7 @@ int iwch_accept_cr(struct iw_cm_id *cm_id , struct iw_cm_conn_param *conn_param 
 #line 1884
   descriptor___0.flags = 1U;
 #line 1884
-  tmp___7 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___7 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 1884
   if (tmp___7 != 0L) {
 #line 1884
@@ -15969,7 +15969,7 @@ int iwch_accept_cr(struct iw_cm_id *cm_id , struct iw_cm_conn_param *conn_param 
 #line 1921
   descriptor___1.flags = 1U;
 #line 1921
-  tmp___11 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+  tmp___11 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 1921
   if (tmp___11 != 0L) {
 #line 1921
@@ -15985,7 +15985,7 @@ int iwch_accept_cr(struct iw_cm_id *cm_id , struct iw_cm_conn_param *conn_param 
 #line 1921
   __ret_warn_on = tmp___12 <= 0;
 #line 1921
-  tmp___13 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___13 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 1921
   if (tmp___13 != 0L) {
 #line 1921
@@ -15995,7 +15995,7 @@ int iwch_accept_cr(struct iw_cm_id *cm_id , struct iw_cm_conn_param *conn_param 
 
   }
 #line 1921
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 1921
   kref_put(& ep->com.kref, & __free_ep);
 #line 1922
@@ -16021,7 +16021,7 @@ int iwch_accept_cr(struct iw_cm_id *cm_id , struct iw_cm_conn_param *conn_param 
 #line 1928
   descriptor___2.flags = 1U;
 #line 1928
-  tmp___15 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+  tmp___15 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
 #line 1928
   if (tmp___15 != 0L) {
 #line 1928
@@ -16037,7 +16037,7 @@ int iwch_accept_cr(struct iw_cm_id *cm_id , struct iw_cm_conn_param *conn_param 
 #line 1928
   __ret_warn_on___0 = tmp___16 <= 0;
 #line 1928
-  tmp___17 = __builtin_expect(__ret_warn_on___0 != 0, 0L);
+  tmp___17 = ldv__builtin_expect(__ret_warn_on___0 != 0, 0L);
 #line 1928
   if (tmp___17 != 0L) {
 #line 1928
@@ -16047,7 +16047,7 @@ int iwch_accept_cr(struct iw_cm_id *cm_id , struct iw_cm_conn_param *conn_param 
 
   }
 #line 1928
-  __builtin_expect(__ret_warn_on___0 != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on___0 != 0, 0L);
 #line 1928
   kref_put(& ep->com.kref, & __free_ep);
 #line 1929
@@ -16164,7 +16164,7 @@ int iwch_connect(struct iw_cm_id *cm_id , struct iw_cm_conn_param *conn_param )
 #line 1976
   ep->com.qp = get_qhp(h, conn_param->qpn);
 #line 1977
-  tmp___2 = __builtin_expect((unsigned long )ep->com.qp == (unsigned long )((struct iwch_qp *)0),
+  tmp___2 = ldv__builtin_expect((unsigned long )ep->com.qp == (unsigned long )((struct iwch_qp *)0),
                              0L);
 #line 1977
   if (tmp___2 != 0L) {
@@ -16190,7 +16190,7 @@ int iwch_connect(struct iw_cm_id *cm_id , struct iw_cm_conn_param *conn_param )
 #line 1978
   descriptor.flags = 1U;
 #line 1978
-  tmp___3 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___3 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1978
   if (tmp___3 != 0L) {
 #line 1978
@@ -16285,7 +16285,7 @@ int iwch_connect(struct iw_cm_id *cm_id , struct iw_cm_conn_param *conn_param )
 #line 2028
   descriptor___0.flags = 1U;
 #line 2028
-  tmp___6 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___6 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 2028
   if (tmp___6 != 0L) {
 #line 2028
@@ -16301,7 +16301,7 @@ int iwch_connect(struct iw_cm_id *cm_id , struct iw_cm_conn_param *conn_param )
 #line 2028
   __ret_warn_on = tmp___7 <= 0;
 #line 2028
-  tmp___8 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___8 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 2028
   if (tmp___8 != 0L) {
 #line 2028
@@ -16311,7 +16311,7 @@ int iwch_connect(struct iw_cm_id *cm_id , struct iw_cm_conn_param *conn_param )
 
   }
 #line 2028
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 2028
   kref_put(& ep->com.kref, & __free_ep);
   out: ;
@@ -16376,7 +16376,7 @@ int iwch_create_listen(struct iw_cm_id *cm_id , int backlog )
 #line 2048
   descriptor.flags = 1U;
 #line 2048
-  tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 2048
   if (tmp___1 != 0L) {
 #line 2048
@@ -16488,7 +16488,7 @@ int iwch_create_listen(struct iw_cm_id *cm_id , int backlog )
 #line 2081
   descriptor___0.flags = 1U;
 #line 2081
-  tmp___5 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___5 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 2081
   if (tmp___5 != 0L) {
 #line 2081
@@ -16504,7 +16504,7 @@ int iwch_create_listen(struct iw_cm_id *cm_id , int backlog )
 #line 2081
   __ret_warn_on = tmp___6 <= 0;
 #line 2081
-  tmp___7 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___7 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 2081
   if (tmp___7 != 0L) {
 #line 2081
@@ -16514,7 +16514,7 @@ int iwch_create_listen(struct iw_cm_id *cm_id , int backlog )
 
   }
 #line 2081
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 2081
   kref_put(& ep->com.kref, & __free_ep);
   fail1: ;
@@ -16557,7 +16557,7 @@ int iwch_destroy_listen(struct iw_cm_id *cm_id )
 #line 2092
   descriptor.flags = 1U;
 #line 2092
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 2092
   if (tmp___0 != 0L) {
 #line 2092
@@ -16641,7 +16641,7 @@ int iwch_destroy_listen(struct iw_cm_id *cm_id )
 #line 2106
   descriptor___0.flags = 1U;
 #line 2106
-  tmp___3 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___3 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 2106
   if (tmp___3 != 0L) {
 #line 2106
@@ -16657,7 +16657,7 @@ int iwch_destroy_listen(struct iw_cm_id *cm_id )
 #line 2106
   __ret_warn_on = tmp___4 <= 0;
 #line 2106
-  tmp___5 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___5 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 2106
   if (tmp___5 != 0L) {
 #line 2106
@@ -16667,7 +16667,7 @@ int iwch_destroy_listen(struct iw_cm_id *cm_id )
 
   }
 #line 2106
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 2106
   kref_put(& ep->com.kref, & __free_ep);
 #line 2107
@@ -16714,7 +16714,7 @@ int iwch_ep_disconnect(struct iwch_ep *ep , int abrupt , gfp_t gfp )
 #line 2121
   descriptor.flags = 1U;
 #line 2121
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 2121
   if (tmp___0 != 0L) {
 #line 2121
@@ -16801,7 +16801,7 @@ int iwch_ep_disconnect(struct iwch_ep *ep , int abrupt , gfp_t gfp )
 #line 2159
   descriptor___0.flags = 1U;
 #line 2159
-  tmp___3 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___3 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 2159
   if (tmp___3 != 0L) {
 #line 2159
@@ -16883,7 +16883,7 @@ int iwch_ep_redirect(void *ctx , struct dst_entry *old , struct dst_entry *new ,
 #line 2189
   descriptor.flags = 1U;
 #line 2189
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 2189
   if (tmp != 0L) {
 #line 2189
@@ -16999,7 +16999,7 @@ static void process_work(struct work_struct *work )
 #line 2238
   descriptor.flags = 1U;
 #line 2238
-  tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 2238
   if (tmp___1 != 0L) {
 #line 2238
@@ -17015,7 +17015,7 @@ static void process_work(struct work_struct *work )
 #line 2238
   __ret_warn_on = tmp___2 <= 0;
 #line 2238
-  tmp___3 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___3 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 2238
   if (tmp___3 != 0L) {
 #line 2238
@@ -17025,7 +17025,7 @@ static void process_work(struct work_struct *work )
 
   }
 #line 2238
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 2238
   kref_put(& ((struct iwch_ep_common *)ep)->kref, & __free_ep);
   ldv_50611: 
@@ -17071,7 +17071,7 @@ static int sched(struct t3cdev *tdev , struct sk_buff *skb , void *ctx )
 #line 2248
   descriptor.flags = 1U;
 #line 2248
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 2248
   if (tmp___0 != 0L) {
 #line 2248
@@ -17421,7 +17421,7 @@ static void post_qp_event(struct iwch_dev *rnicp , struct iwch_cq *chp , struct 
 #line 124
     descriptor.flags = 1U;
 #line 124
-    tmp___3 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___3 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 124
     if (tmp___3 != 0L) {
 #line 124
@@ -17612,7 +17612,7 @@ void iwch_ev_dispatch(struct cxio_rdev *rdev_p , struct sk_buff *skb )
 #line 200
         descriptor.flags = 1U;
 #line 200
-        tmp___5 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+        tmp___5 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 200
         if (tmp___5 != 0L) {
 #line 200
@@ -17637,7 +17637,7 @@ void iwch_ev_dispatch(struct cxio_rdev *rdev_p , struct sk_buff *skb )
 #line 204
         descriptor___0.flags = 1U;
 #line 204
-        tmp___6 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+        tmp___6 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 204
         if (tmp___6 != 0L) {
 #line 204
@@ -18047,7 +18047,7 @@ static int iwch_poll_cq_one(struct iwch_dev *rhp , struct iwch_cq *chp , struct 
 #line 130
     descriptor.flags = 1U;
 #line 130
-    tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 130
     if (tmp___0 != 0L) {
 #line 130
@@ -18095,7 +18095,7 @@ static int iwch_poll_cq_one(struct iwch_dev *rhp , struct iwch_cq *chp , struct 
 #line 146
   descriptor___0.flags = 1U;
 #line 146
-  tmp___7 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___7 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 146
   if (tmp___7 != 0L) {
 #line 146
@@ -18342,7 +18342,7 @@ int iwch_poll_cq(struct ib_cq *ibcq , int num_entries , struct ib_wc *wc )
 #line 280
   i = i + 1;
 #line 280
-  tmp___0 = __builtin_expect(i > 1000, 0L);
+  tmp___0 = ldv__builtin_expect(i > 1000, 0L);
 #line 280
   if (tmp___0 != 0L) {
 #line 280
@@ -19188,7 +19188,7 @@ static int iwch_sgl2pbl_map(struct iwch_dev *rhp , struct ib_sge *sg_list , u32 
 #line 270
     descriptor.flags = 1U;
 #line 270
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 270
     if (tmp != 0L) {
 #line 270
@@ -19216,7 +19216,7 @@ static int iwch_sgl2pbl_map(struct iwch_dev *rhp , struct ib_sge *sg_list , u32 
 #line 274
     descriptor___0.flags = 1U;
 #line 274
-    tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 274
     if (tmp___0 != 0L) {
 #line 274
@@ -19245,7 +19245,7 @@ static int iwch_sgl2pbl_map(struct iwch_dev *rhp , struct ib_sge *sg_list , u32 
 #line 278
     descriptor___1.flags = 1U;
 #line 278
-    tmp___1 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 278
     if (tmp___1 != 0L) {
 #line 278
@@ -19274,7 +19274,7 @@ static int iwch_sgl2pbl_map(struct iwch_dev *rhp , struct ib_sge *sg_list , u32 
 #line 283
     descriptor___2.flags = 1U;
 #line 283
-    tmp___2 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+    tmp___2 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
 #line 283
     if (tmp___2 != 0L) {
 #line 283
@@ -19303,7 +19303,7 @@ static int iwch_sgl2pbl_map(struct iwch_dev *rhp , struct ib_sge *sg_list , u32 
 #line 288
     descriptor___3.flags = 1U;
 #line 288
-    tmp___3 = __builtin_expect((long )descriptor___3.flags & 1L, 0L);
+    tmp___3 = ldv__builtin_expect((long )descriptor___3.flags & 1L, 0L);
 #line 288
     if (tmp___3 != 0L) {
 #line 288
@@ -19332,7 +19332,7 @@ static int iwch_sgl2pbl_map(struct iwch_dev *rhp , struct ib_sge *sg_list , u32 
 #line 293
     descriptor___4.flags = 1U;
 #line 293
-    tmp___4 = __builtin_expect((long )descriptor___4.flags & 1L, 0L);
+    tmp___4 = ldv__builtin_expect((long )descriptor___4.flags & 1L, 0L);
 #line 293
     if (tmp___4 != 0L) {
 #line 293
@@ -19760,7 +19760,7 @@ int iwch_post_send(struct ib_qp *ibqp , struct ib_send_wr *wr , struct ib_send_w
 #line 489
   descriptor.flags = 1U;
 #line 489
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 489
   if (tmp___0 != 0L) {
 #line 489
@@ -19818,7 +19818,7 @@ int iwch_post_send(struct ib_qp *ibqp , struct ib_send_wr *wr , struct ib_send_w
 #line 506
   descriptor___0.flags = 1U;
 #line 506
-  tmp___3 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___3 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 506
   if (tmp___3 != 0L) {
 #line 506
@@ -19968,7 +19968,7 @@ int iwch_post_receive(struct ib_qp *ibqp , struct ib_recv_wr *wr , struct ib_rec
 #line 570
   descriptor.flags = 1U;
 #line 570
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 570
   if (tmp___0 != 0L) {
 #line 570
@@ -20093,7 +20093,7 @@ int iwch_bind_mw(struct ib_qp *qp , struct ib_mw *mw , struct ib_mw_bind *mw_bin
 #line 622
   descriptor.flags = 1U;
 #line 622
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 622
   if (tmp___0 != 0L) {
 #line 622
@@ -20458,7 +20458,7 @@ int iwch_post_zb_read(struct iwch_ep *ep )
 #line 807
   descriptor.flags = 1U;
 #line 807
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 807
   if (tmp != 0L) {
 #line 807
@@ -20538,7 +20538,7 @@ int iwch_post_terminate(struct iwch_qp *qhp , struct respQ_msg_t *rsp_msg )
 #line 839
   descriptor.flags = 1U;
 #line 839
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 839
   if (tmp != 0L) {
 #line 839
@@ -20607,7 +20607,7 @@ static void __flush_qp(struct iwch_qp *qhp , struct iwch_cq *rchp , struct iwch_
 #line 872
   descriptor.flags = 1U;
 #line 872
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 872
   if (tmp != 0L) {
 #line 872
@@ -20782,7 +20782,7 @@ u16 iwch_rqes_posted(struct iwch_qp *qhp )
 #line 949
   descriptor.flags = 1U;
 #line 949
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 949
   if (tmp___0 != 0L) {
 #line 949
@@ -20884,7 +20884,7 @@ static int rdma_init(struct iwch_dev *rhp , struct iwch_qp *qhp , enum iwch_qp_a
 #line 996
   descriptor.flags = 1U;
 #line 996
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 996
   if (tmp != 0L) {
 #line 996
@@ -20909,7 +20909,7 @@ static int rdma_init(struct iwch_dev *rhp , struct iwch_qp *qhp , enum iwch_qp_a
 #line 1001
   descriptor___0.flags = 1U;
 #line 1001
-  tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 1001
   if (tmp___0 != 0L) {
 #line 1001
@@ -21000,7 +21000,7 @@ int iwch_modify_qp(struct iwch_dev *rhp , struct iwch_qp *qhp , enum iwch_qp_att
 #line 1019
   descriptor.flags = 1U;
 #line 1019
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1019
   if (tmp___0 != 0L) {
 #line 1019
@@ -21150,7 +21150,7 @@ int iwch_modify_qp(struct iwch_dev *rhp , struct iwch_qp *qhp , enum iwch_qp_att
 #line 1084
   descriptor___0.flags = 1U;
 #line 1084
-  tmp___3 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___3 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 1084
   if (tmp___3 != 0L) {
 #line 1084
@@ -21203,7 +21203,7 @@ int iwch_modify_qp(struct iwch_dev *rhp , struct iwch_qp *qhp , enum iwch_qp_att
 #line 1103
   tmp___5 = atomic_read((atomic_t const   *)(& (qhp->ep)->com.kref.refcount));
 #line 1103
-  tmp___6 = __builtin_expect(tmp___5 <= 1, 0L);
+  tmp___6 = ldv__builtin_expect(tmp___5 <= 1, 0L);
 #line 1103
   if (tmp___6 != 0L) {
 #line 1103
@@ -21238,7 +21238,7 @@ int iwch_modify_qp(struct iwch_dev *rhp , struct iwch_qp *qhp , enum iwch_qp_att
 #line 1109
     descriptor___1.flags = 1U;
 #line 1109
-    tmp___8 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___8 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 1109
     if (tmp___8 != 0L) {
 #line 1109
@@ -21299,7 +21299,7 @@ int iwch_modify_qp(struct iwch_dev *rhp , struct iwch_qp *qhp , enum iwch_qp_att
 #line 1125
     descriptor___2.flags = 1U;
 #line 1125
-    tmp___10 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+    tmp___10 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
 #line 1125
     if (tmp___10 != 0L) {
 #line 1125
@@ -21358,7 +21358,7 @@ int iwch_modify_qp(struct iwch_dev *rhp , struct iwch_qp *qhp , enum iwch_qp_att
 #line 1144
   descriptor___3.flags = 1U;
 #line 1144
-  tmp___12 = __builtin_expect((long )descriptor___3.flags & 1L, 0L);
+  tmp___12 = ldv__builtin_expect((long )descriptor___3.flags & 1L, 0L);
 #line 1144
   if (tmp___12 != 0L) {
 #line 1144
@@ -21374,7 +21374,7 @@ int iwch_modify_qp(struct iwch_dev *rhp , struct iwch_qp *qhp , enum iwch_qp_att
 #line 1144
   __ret_warn_on = tmp___13 <= 0;
 #line 1144
-  tmp___14 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___14 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 1144
   if (tmp___14 != 0L) {
 #line 1144
@@ -21384,7 +21384,7 @@ int iwch_modify_qp(struct iwch_dev *rhp , struct iwch_qp *qhp , enum iwch_qp_att
 
   }
 #line 1144
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 1144
   kref_put(& (qhp->ep)->com.kref, & __free_ep);
 #line 1145
@@ -21465,7 +21465,7 @@ int iwch_modify_qp(struct iwch_dev *rhp , struct iwch_qp *qhp , enum iwch_qp_att
 #line 1184
   descriptor___4.flags = 1U;
 #line 1184
-  tmp___15 = __builtin_expect((long )descriptor___4.flags & 1L, 0L);
+  tmp___15 = ldv__builtin_expect((long )descriptor___4.flags & 1L, 0L);
 #line 1184
   if (tmp___15 != 0L) {
 #line 1184
@@ -21487,7 +21487,7 @@ int iwch_modify_qp(struct iwch_dev *rhp , struct iwch_qp *qhp , enum iwch_qp_att
 #line 1193
   __wake_up(& qhp->wait, 3U, 1, 0);
 #line 1194
-  tmp___16 = __builtin_expect((unsigned long )ep == (unsigned long )((struct iwch_ep *)0),
+  tmp___16 = ldv__builtin_expect((unsigned long )ep == (unsigned long )((struct iwch_ep *)0),
                               0L);
 #line 1194
   if (tmp___16 != 0L) {
@@ -21529,7 +21529,7 @@ int iwch_modify_qp(struct iwch_dev *rhp , struct iwch_qp *qhp , enum iwch_qp_att
 #line 1209
     descriptor___5.flags = 1U;
 #line 1209
-    tmp___18 = __builtin_expect((long )descriptor___5.flags & 1L, 0L);
+    tmp___18 = ldv__builtin_expect((long )descriptor___5.flags & 1L, 0L);
 #line 1209
     if (tmp___18 != 0L) {
 #line 1209
@@ -21545,7 +21545,7 @@ int iwch_modify_qp(struct iwch_dev *rhp , struct iwch_qp *qhp , enum iwch_qp_att
 #line 1209
     __ret_warn_on___0 = tmp___19 <= 0;
 #line 1209
-    tmp___20 = __builtin_expect(__ret_warn_on___0 != 0, 0L);
+    tmp___20 = ldv__builtin_expect(__ret_warn_on___0 != 0, 0L);
 #line 1209
     if (tmp___20 != 0L) {
 #line 1209
@@ -21555,7 +21555,7 @@ int iwch_modify_qp(struct iwch_dev *rhp , struct iwch_qp *qhp , enum iwch_qp_att
 
     }
 #line 1209
-    __builtin_expect(__ret_warn_on___0 != 0, 0L);
+    ldv__builtin_expect(__ret_warn_on___0 != 0, 0L);
 #line 1209
     kref_put(& ep->com.kref, & __free_ep);
   } else {
@@ -21576,7 +21576,7 @@ int iwch_modify_qp(struct iwch_dev *rhp , struct iwch_qp *qhp , enum iwch_qp_att
 #line 1217
     descriptor___6.flags = 1U;
 #line 1217
-    tmp___22 = __builtin_expect((long )descriptor___6.flags & 1L, 0L);
+    tmp___22 = ldv__builtin_expect((long )descriptor___6.flags & 1L, 0L);
 #line 1217
     if (tmp___22 != 0L) {
 #line 1217
@@ -21592,7 +21592,7 @@ int iwch_modify_qp(struct iwch_dev *rhp , struct iwch_qp *qhp , enum iwch_qp_att
 #line 1217
     __ret_warn_on___1 = tmp___23 <= 0;
 #line 1217
-    tmp___24 = __builtin_expect(__ret_warn_on___1 != 0, 0L);
+    tmp___24 = ldv__builtin_expect(__ret_warn_on___1 != 0, 0L);
 #line 1217
     if (tmp___24 != 0L) {
 #line 1217
@@ -21602,7 +21602,7 @@ int iwch_modify_qp(struct iwch_dev *rhp , struct iwch_qp *qhp , enum iwch_qp_att
 
     }
 #line 1217
-    __builtin_expect(__ret_warn_on___1 != 0, 0L);
+    ldv__builtin_expect(__ret_warn_on___1 != 0, 0L);
 #line 1217
     kref_put(& ep->com.kref, & __free_ep);
   } else {
@@ -21621,7 +21621,7 @@ int iwch_modify_qp(struct iwch_dev *rhp , struct iwch_qp *qhp , enum iwch_qp_att
 #line 1219
   descriptor___7.flags = 1U;
 #line 1219
-  tmp___25 = __builtin_expect((long )descriptor___7.flags & 1L, 0L);
+  tmp___25 = ldv__builtin_expect((long )descriptor___7.flags & 1L, 0L);
 #line 1219
   if (tmp___25 != 0L) {
 #line 1219
@@ -21813,7 +21813,7 @@ __inline static int insert_handle(struct iwch_dev *rhp , struct idr *idr , void 
 #line 163
   ret = idr_get_new_above(idr, handle, (int )id, & newid);
 #line 164
-  tmp___0 = __builtin_expect((u32 )newid != id, 0L);
+  tmp___0 = ldv__builtin_expect((u32 )newid != id, 0L);
 #line 164
   if (tmp___0 != 0L) {
 #line 164
@@ -21889,7 +21889,7 @@ static int iwch_finish_mem_reg(struct iwch_mr *mhp , u32 stag )
 #line 111
   descriptor.flags = 1U;
 #line 111
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 111
   if (tmp___0 != 0L) {
 #line 111
@@ -22220,7 +22220,7 @@ int build_phys_page_list(struct ib_phys_buf *buffer_list , int num_phys_buf , u6
 #line 256
   descriptor.flags = 1U;
 #line 256
-  tmp___2 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___2 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 256
   if (tmp___2 != 0L) {
 #line 256
@@ -22544,14 +22544,14 @@ __inline static unsigned long copy_from_user(void *to , void const   *from , uns
 #line 61
   might_fault();
 #line 62
-  tmp___1 = __builtin_expect(sz == -1, 1L);
+  tmp___1 = ldv__builtin_expect(sz == -1, 1L);
 #line 62
   if (tmp___1 != 0L) {
 #line 63
     n = _copy_from_user(to, from, (unsigned int )n);
   } else {
 #line 62
-    tmp___2 = __builtin_expect((unsigned long )sz >= n, 1L);
+    tmp___2 = ldv__builtin_expect((unsigned long )sz >= n, 1L);
 #line 62
     if (tmp___2 != 0L) {
 #line 63
@@ -22560,7 +22560,7 @@ __inline static unsigned long copy_from_user(void *to , void const   *from , uns
 #line 66
       __ret_warn_on = 1;
 #line 66
-      tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+      tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 66
       if (tmp___0 != 0L) {
 #line 66
@@ -22570,7 +22570,7 @@ __inline static unsigned long copy_from_user(void *to , void const   *from , uns
 
       }
 #line 66
-      __builtin_expect(__ret_warn_on != 0, 0L);
+      ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
   }
 #line 68
@@ -22775,7 +22775,7 @@ __inline static int insert_handle___0(struct iwch_dev *rhp , struct idr *idr , v
 #line 163
   ret = idr_get_new_above(idr, handle, (int )id, & newid);
 #line 164
-  tmp___0 = __builtin_expect((u32 )newid != id, 0L);
+  tmp___0 = ldv__builtin_expect((u32 )newid != id, 0L);
 #line 164
   if (tmp___0 != 0L) {
 #line 164
@@ -22893,7 +22893,7 @@ __inline static struct iwch_mm_entry *remove_mmap(struct iwch_ucontext *ucontext
 #line 218
     descriptor.flags = 1U;
 #line 218
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 218
     if (tmp != 0L) {
 #line 218
@@ -22948,7 +22948,7 @@ __inline static void insert_mmap(struct iwch_ucontext *ucontext , struct iwch_mm
 #line 231
   descriptor.flags = 1U;
 #line 231
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 231
   if (tmp != 0L) {
 #line 231
@@ -23083,7 +23083,7 @@ static int iwch_dealloc_ucontext(struct ib_ucontext *context )
 #line 161
   descriptor.flags = 1U;
 #line 161
-  tmp___2 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___2 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 161
   if (tmp___2 != 0L) {
 #line 161
@@ -23158,7 +23158,7 @@ static struct ib_ucontext *iwch_alloc_ucontext(struct ib_device *ibdev , struct 
 #line 175
   descriptor.flags = 1U;
 #line 175
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 175
   if (tmp___0 != 0L) {
 #line 175
@@ -23217,7 +23217,7 @@ static int iwch_destroy_cq(struct ib_cq *ib_cq )
 #line 189
   descriptor.flags = 1U;
 #line 189
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 189
   if (tmp != 0L) {
 #line 189
@@ -23333,7 +23333,7 @@ static struct ib_cq *iwch_create_cq(struct ib_device *ibdev , int entries , int 
 #line 213
   descriptor.flags = 1U;
 #line 213
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 213
   if (tmp != 0L) {
 #line 213
@@ -23539,7 +23539,7 @@ static struct ib_cq *iwch_create_cq(struct ib_device *ibdev , int entries , int 
 #line 298
   descriptor___0.flags = 1U;
 #line 298
-  tmp___17 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___17 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 298
   if (tmp___17 != 0L) {
 #line 298
@@ -23656,7 +23656,7 @@ static int iwch_arm_cq(struct ib_cq *ibcq , enum ib_cq_notify_flags flags )
 #line 394
   descriptor.flags = 1U;
 #line 394
-  tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 394
   if (tmp___1 != 0L) {
 #line 394
@@ -23720,7 +23720,7 @@ static int iwch_mmap(struct ib_ucontext *context , struct vm_area_struct *vma )
 #line 415
   descriptor.flags = 1U;
 #line 415
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 415
   if (tmp != 0L) {
 #line 415
@@ -23815,7 +23815,7 @@ static int iwch_deallocate_pd(struct ib_pd *pd )
 #line 468
   descriptor.flags = 1U;
 #line 468
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 468
   if (tmp != 0L) {
 #line 468
@@ -23862,7 +23862,7 @@ static struct ib_pd *iwch_allocate_pd(struct ib_device *ibdev , struct ib_uconte
 #line 482
   descriptor.flags = 1U;
 #line 482
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 482
   if (tmp != 0L) {
 #line 482
@@ -23934,7 +23934,7 @@ static struct ib_pd *iwch_allocate_pd(struct ib_device *ibdev , struct ib_uconte
 #line 500
   descriptor___0.flags = 1U;
 #line 500
-  tmp___5 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___5 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 500
   if (tmp___5 != 0L) {
 #line 500
@@ -23972,7 +23972,7 @@ static int iwch_dereg_mr(struct ib_mr *ib_mr )
 #line 510
   descriptor.flags = 1U;
 #line 510
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 510
   if (tmp != 0L) {
 #line 510
@@ -24028,7 +24028,7 @@ static int iwch_dereg_mr(struct ib_mr *ib_mr )
 #line 526
   descriptor___0.flags = 1U;
 #line 526
-  tmp___1 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 526
   if (tmp___1 != 0L) {
 #line 526
@@ -24075,7 +24075,7 @@ static struct ib_mr *iwch_register_phys_mem(struct ib_pd *pd , struct ib_phys_bu
 #line 546
   descriptor.flags = 1U;
 #line 546
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 546
   if (tmp != 0L) {
 #line 546
@@ -24231,7 +24231,7 @@ static int iwch_reregister_phys_mem(struct ib_mr *mr , int mr_rereg_mask , struc
 #line 625
   descriptor.flags = 1U;
 #line 625
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 625
   if (tmp != 0L) {
 #line 625
@@ -24403,7 +24403,7 @@ static struct ib_mr *iwch_reg_user_mr(struct ib_pd *pd , u64 start , u64 length 
 #line 688
   descriptor.flags = 1U;
 #line 688
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 688
   if (tmp != 0L) {
 #line 688
@@ -24650,7 +24650,7 @@ static struct ib_mr *iwch_reg_user_mr(struct ib_pd *pd , u64 start , u64 length 
 #line 762
       descriptor___0.flags = 1U;
 #line 762
-      tmp___10 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+      tmp___10 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 762
       if (tmp___10 != 0L) {
 #line 762
@@ -24716,7 +24716,7 @@ static struct ib_mr *iwch_get_dma_mr(struct ib_pd *pd , int acc )
 #line 789
   descriptor.flags = 1U;
 #line 789
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 789
   if (tmp != 0L) {
 #line 789
@@ -24826,7 +24826,7 @@ static struct ib_mw *iwch_alloc_mw(struct ib_pd *pd )
 #line 831
   descriptor.flags = 1U;
 #line 831
-  tmp___4 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___4 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 831
   if (tmp___4 != 0L) {
 #line 831
@@ -24873,7 +24873,7 @@ static int iwch_dealloc_mw(struct ib_mw *mw )
 #line 847
   descriptor.flags = 1U;
 #line 847
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 847
   if (tmp != 0L) {
 #line 847
@@ -24981,7 +24981,7 @@ static struct ib_mr *iwch_alloc_fast_reg_mr(struct ib_pd *pd , int pbl_depth )
 #line 884
   descriptor.flags = 1U;
 #line 884
-  tmp___2 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___2 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 884
   if (tmp___2 != 0L) {
 #line 884
@@ -25189,7 +25189,7 @@ static int iwch_destroy_qp(struct ib_qp *ib_qp )
 #line 943
   descriptor.flags = 1U;
 #line 943
-  tmp___5 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___5 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 943
   if (tmp___5 != 0L) {
 #line 943
@@ -25271,7 +25271,7 @@ static struct ib_qp *iwch_create_qp(struct ib_pd *pd , struct ib_qp_init_attr *a
 #line 962
   descriptor.flags = 1U;
 #line 962
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 962
   if (tmp != 0L) {
 #line 962
@@ -25386,7 +25386,7 @@ static struct ib_qp *iwch_create_qp(struct ib_pd *pd , struct ib_qp_init_attr *a
 #line 1003
   descriptor___0.flags = 1U;
 #line 1003
-  tmp___11 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___11 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 1003
   if (tmp___11 != 0L) {
 #line 1003
@@ -25618,7 +25618,7 @@ static struct ib_qp *iwch_create_qp(struct ib_pd *pd , struct ib_qp_init_attr *a
 #line 1099
   descriptor___1.flags = 1U;
 #line 1099
-  tmp___29 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+  tmp___29 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 1099
   if (tmp___29 != 0L) {
 #line 1099
@@ -25663,7 +25663,7 @@ static int iwch_ib_modify_qp(struct ib_qp *ibqp , struct ib_qp_attr *attr , int 
 #line 1115
   descriptor.flags = 1U;
 #line 1115
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1115
   if (tmp != 0L) {
 #line 1115
@@ -25748,7 +25748,7 @@ void iwch_qp_add_ref(struct ib_qp *qp )
 #line 1148
   descriptor.flags = 1U;
 #line 1148
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1148
   if (tmp != 0L) {
 #line 1148
@@ -25787,7 +25787,7 @@ void iwch_qp_rem_ref(struct ib_qp *qp )
 #line 1154
   descriptor.flags = 1U;
 #line 1154
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1154
   if (tmp != 0L) {
 #line 1154
@@ -25834,7 +25834,7 @@ static struct ib_qp *iwch_get_qp(struct ib_device *dev , int qpn )
 #line 1161
   descriptor.flags = 1U;
 #line 1161
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1161
   if (tmp != 0L) {
 #line 1161
@@ -25870,7 +25870,7 @@ static int iwch_query_pkey(struct ib_device *ibdev , u8 port , u16 index , u16 *
 #line 1169
   descriptor.flags = 1U;
 #line 1169
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1169
   if (tmp != 0L) {
 #line 1169
@@ -25909,7 +25909,7 @@ static int iwch_query_gid(struct ib_device *ibdev , u8 port , int index , union 
 #line 1179
   descriptor.flags = 1U;
 #line 1179
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1179
   if (tmp != 0L) {
 #line 1179
@@ -25921,14 +25921,14 @@ static int iwch_query_gid(struct ib_device *ibdev , u8 port , int index , union 
 #line 1181
   dev = to_iwch_dev(ibdev);
 #line 1182
-  tmp___0 = __builtin_expect((unsigned int )port == 0U, 0L);
+  tmp___0 = ldv__builtin_expect((unsigned int )port == 0U, 0L);
 #line 1182
   if (tmp___0 != 0L) {
 #line 1182
     goto _L;
   } else {
 #line 1182
-    tmp___1 = __builtin_expect((unsigned int )port > 2U, 0L);
+    tmp___1 = ldv__builtin_expect((unsigned int )port > 2U, 0L);
 #line 1182
     if (tmp___1 != 0L) {
       _L: /* CIL Label */ 
@@ -26015,7 +26015,7 @@ static int iwch_query_device(struct ib_device *ibdev , struct ib_device_attr *pr
 #line 1214
   descriptor.flags = 1U;
 #line 1214
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1214
   if (tmp != 0L) {
 #line 1214
@@ -26106,7 +26106,7 @@ static int iwch_query_port(struct ib_device *ibdev , u8 port , struct ib_port_at
 #line 1249
   descriptor.flags = 1U;
 #line 1249
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1249
   if (tmp != 0L) {
 #line 1249
@@ -26222,7 +26222,7 @@ static ssize_t show_rev(struct device *dev , struct device_attribute *attr , cha
 #line 1301
   descriptor.flags = 1U;
 #line 1301
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1301
   if (tmp != 0L) {
 #line 1301
@@ -26266,7 +26266,7 @@ static ssize_t show_fw_ver(struct device *dev , struct device_attribute *attr , 
 #line 1312
   descriptor.flags = 1U;
 #line 1312
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1312
   if (tmp != 0L) {
 #line 1312
@@ -26312,7 +26312,7 @@ static ssize_t show_hca(struct device *dev , struct device_attribute *attr , cha
 #line 1325
   descriptor.flags = 1U;
 #line 1325
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1325
   if (tmp != 0L) {
 #line 1325
@@ -26354,7 +26354,7 @@ static ssize_t show_board(struct device *dev , struct device_attribute *attr , c
 #line 1335
   descriptor.flags = 1U;
 #line 1335
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1335
   if (tmp != 0L) {
 #line 1335
@@ -26391,7 +26391,7 @@ static int iwch_get_mib(struct ib_device *ibdev , union rdma_protocol_stats *sta
 #line 1347
   descriptor.flags = 1U;
 #line 1347
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1347
   if (tmp != 0L) {
 #line 1347
@@ -26510,7 +26510,7 @@ int iwch_register_device(struct iwch_dev *dev )
 #line 1412
   descriptor.flags = 1U;
 #line 1412
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1412
   if (tmp != 0L) {
 #line 1412
@@ -26731,7 +26731,7 @@ void iwch_unregister_device(struct iwch_dev *dev )
 #line 1521
   descriptor.flags = 1U;
 #line 1521
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1521
   if (tmp != 0L) {
 #line 1521
@@ -27162,7 +27162,7 @@ static void rnic_init(struct iwch_dev *rnicp )
 #line 169
   descriptor.flags = 1U;
 #line 169
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 169
   if (tmp != 0L) {
 #line 169
@@ -27279,7 +27279,7 @@ static void open_rnic_dev(struct t3cdev *tdev )
 #line 209
   descriptor.flags = 1U;
 #line 209
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 209
   if (tmp != 0L) {
 #line 209
@@ -27380,7 +27380,7 @@ static void close_rnic_dev(struct t3cdev *tdev )
 #line 246
   descriptor.flags = 1U;
 #line 246
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 246
   if (tmp___0 != 0L) {
 #line 246
@@ -27981,7 +27981,7 @@ __inline static unsigned long arch_local_save_flags(void)
 #line 825
   __eax = __eax;
 #line 825
-  tmp = __builtin_expect((unsigned long )pv_irq_ops.save_fl.func == (unsigned long )((void *)0),
+  tmp = ldv__builtin_expect((unsigned long )pv_irq_ops.save_fl.func == (unsigned long )((void *)0),
                          0L);
 #line 825
   if (tmp != 0L) {
@@ -28090,7 +28090,7 @@ __inline static int signal_pending(struct task_struct *p )
 #line 2620
   tmp = test_tsk_thread_flag(p, 2);
 #line 2620
-  tmp___0 = __builtin_expect(tmp != 0, 0L);
+  tmp___0 = ldv__builtin_expect(tmp != 0, 0L);
 #line 2620
   return ((int )tmp___0);
 }
@@ -28118,7 +28118,7 @@ __inline static struct dma_map_ops *get_dma_ops(struct device *dev )
 
   {
 #line 37
-  tmp = __builtin_expect((unsigned long )dev == (unsigned long )((struct device *)0),
+  tmp = ldv__builtin_expect((unsigned long )dev == (unsigned long )((struct device *)0),
                          0L);
 #line 37
   if (tmp != 0L || (unsigned long )dev->archdata.dma_ops == (unsigned long )((struct dma_map_ops *)0)) {
@@ -28257,7 +28257,7 @@ __inline static void dma_free_attrs(struct device *dev , size_t size , void *vad
 #line 166
   __ret_warn_on = tmp___0 != 0;
 #line 166
-  tmp___1 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___1 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 166
   if (tmp___1 != 0L) {
 #line 166
@@ -28267,7 +28267,7 @@ __inline static void dma_free_attrs(struct device *dev , size_t size , void *vad
 
   }
 #line 166
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 171
   debug_dma_free_coherent(dev, size, vaddr, bus);
 #line 172
@@ -28307,7 +28307,7 @@ __inline static unsigned char *__skb_put(struct sk_buff *skb , unsigned int len 
 #line 1348
   tmp___1 = skb_is_nonlinear((struct sk_buff  const  *)skb);
 #line 1348
-  tmp___2 = __builtin_expect((long )tmp___1, 0L);
+  tmp___2 = ldv__builtin_expect((long )tmp___1, 0L);
 #line 1348
   if (tmp___2 != 0L) {
 #line 1348
@@ -28951,7 +28951,7 @@ static int cxio_hal_clear_qp_ctx(struct cxio_rdev *rdev_p , u32 qpid )
 #line 203
     descriptor.flags = 1U;
 #line 203
-    tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 203
     if (tmp___0 != 0L) {
 #line 203
@@ -29155,7 +29155,7 @@ static u32 get_qpid(struct cxio_rdev *rdev_p , struct cxio_ucontext *uctx )
 #line 293
   descriptor.flags = 1U;
 #line 293
-  tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 293
   if (tmp___1 != 0L) {
 #line 293
@@ -29199,7 +29199,7 @@ static void put_qpid(struct cxio_rdev *rdev_p , u32 qpid , struct cxio_ucontext 
 #line 305
   descriptor.flags = 1U;
 #line 305
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 305
   if (tmp___0 != 0L) {
 #line 305
@@ -29380,7 +29380,7 @@ int cxio_create_qp(struct cxio_rdev *rdev_p , u32 kernel_domain , struct t3_wq *
 #line 369
   descriptor.flags = 1U;
 #line 369
-  tmp___2 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___2 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 369
   if (tmp___2 != 0L) {
 #line 369
@@ -29467,7 +29467,7 @@ static void insert_recv_cqe(struct t3_wq *wq , struct t3_cq *cq )
 #line 414
   descriptor.flags = 1U;
 #line 414
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 414
   if (tmp != 0L) {
 #line 414
@@ -29524,7 +29524,7 @@ int cxio_flush_rq(struct t3_wq *wq , struct t3_cq *cq , int count )
 #line 433
   descriptor.flags = 1U;
 #line 433
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 433
   if (tmp != 0L) {
 #line 433
@@ -29546,7 +29546,7 @@ int cxio_flush_rq(struct t3_wq *wq , struct t3_cq *cq , int count )
 #line 436
   descriptor___0.flags = 1U;
 #line 436
-  tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 436
   if (tmp___0 != 0L) {
 #line 436
@@ -29604,7 +29604,7 @@ static void insert_sq_cqe(struct t3_wq *wq , struct t3_cq *cq , struct t3_swsq *
 #line 451
   descriptor.flags = 1U;
 #line 451
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 451
   if (tmp != 0L) {
 #line 451
@@ -29702,7 +29702,7 @@ void cxio_flush_hw_cq(struct t3_cq *cq )
 #line 492
   descriptor.flags = 1U;
 #line 492
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 492
   if (tmp != 0L) {
 #line 492
@@ -29729,7 +29729,7 @@ void cxio_flush_hw_cq(struct t3_cq *cq )
 #line 495
   descriptor___0.flags = 1U;
 #line 495
-  tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 495
   if (tmp___0 != 0L) {
 #line 495
@@ -29939,7 +29939,7 @@ void cxio_count_scqes(struct t3_cq *cq , struct t3_wq *wq , int *count )
 #line 539
   descriptor.flags = 1U;
 #line 539
-  tmp___2 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___2 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 539
   if (tmp___2 != 0L) {
 #line 539
@@ -29981,7 +29981,7 @@ void cxio_count_rcqes(struct t3_cq *cq , struct t3_wq *wq , int *count )
 #line 548
   descriptor.flags = 1U;
 #line 548
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 548
   if (tmp != 0L) {
 #line 548
@@ -30052,7 +30052,7 @@ void cxio_count_rcqes(struct t3_cq *cq , struct t3_wq *wq , int *count )
 #line 557
   descriptor___0.flags = 1U;
 #line 557
-  tmp___4 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___4 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 557
   if (tmp___4 != 0L) {
 #line 557
@@ -30133,7 +30133,7 @@ static int cxio_hal_init_ctrl_qp(struct cxio_rdev *rdev_p )
 #line 584
     descriptor.flags = 1U;
 #line 584
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 584
     if (tmp != 0L) {
 #line 584
@@ -30163,7 +30163,7 @@ static int cxio_hal_init_ctrl_qp(struct cxio_rdev *rdev_p )
 #line 589
     descriptor___0.flags = 1U;
 #line 589
-    tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 589
     if (tmp___0 != 0L) {
 #line 589
@@ -30197,7 +30197,7 @@ static int cxio_hal_init_ctrl_qp(struct cxio_rdev *rdev_p )
 #line 599
     descriptor___1.flags = 1U;
 #line 599
-    tmp___2 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___2 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 599
     if (tmp___2 != 0L) {
 #line 599
@@ -30278,7 +30278,7 @@ static int cxio_hal_init_ctrl_qp(struct cxio_rdev *rdev_p )
 #line 634
   descriptor___2.flags = 1U;
 #line 634
-  tmp___7 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+  tmp___7 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
 #line 634
   if (tmp___7 != 0L) {
 #line 634
@@ -30369,7 +30369,7 @@ static int cxio_hal_ctrl_qp_write_mem(struct cxio_rdev *rdev_p , u32 addr , u32 
 #line 668
   descriptor.flags = 1U;
 #line 668
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 668
   if (tmp != 0L) {
 #line 668
@@ -30401,7 +30401,7 @@ static int cxio_hal_ctrl_qp_write_mem(struct cxio_rdev *rdev_p , u32 addr , u32 
 #line 675
     descriptor___0.flags = 1U;
 #line 675
-    tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 675
     if (tmp___0 != 0L) {
 #line 675
@@ -30478,7 +30478,7 @@ static int cxio_hal_ctrl_qp_write_mem(struct cxio_rdev *rdev_p , u32 addr , u32 
 #line 682
       descriptor___1.flags = 1U;
 #line 682
-      tmp___1 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+      tmp___1 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 682
       if (tmp___1 != 0L) {
 #line 682
@@ -30505,7 +30505,7 @@ static int cxio_hal_ctrl_qp_write_mem(struct cxio_rdev *rdev_p , u32 addr , u32 
 #line 686
     descriptor___2.flags = 1U;
 #line 686
-    tmp___5 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+    tmp___5 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
 #line 686
     if (tmp___5 != 0L) {
 #line 686
@@ -30553,7 +30553,7 @@ static int cxio_hal_ctrl_qp_write_mem(struct cxio_rdev *rdev_p , u32 addr , u32 
 #line 708
     descriptor___3.flags = 1U;
 #line 708
-    tmp___6 = __builtin_expect((long )descriptor___3.flags & 1L, 0L);
+    tmp___6 = ldv__builtin_expect((long )descriptor___3.flags & 1L, 0L);
 #line 708
     if (tmp___6 != 0L) {
 #line 708
@@ -30713,7 +30713,7 @@ static int __cxio_tpt_op(struct cxio_rdev *rdev_p , u32 reset_tpt_entry , u32 *s
 #line 780
   descriptor.flags = 1U;
 #line 780
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 780
   if (tmp___0 != 0L) {
 #line 780
@@ -30735,7 +30735,7 @@ static int __cxio_tpt_op(struct cxio_rdev *rdev_p , u32 reset_tpt_entry , u32 *s
 #line 789
     tpt.valid_stag_pdid = tmp___1;
 #line 793
-    tmp___2 = __builtin_expect((unsigned int )page_size > 27U, 0L);
+    tmp___2 = ldv__builtin_expect((unsigned int )page_size > 27U, 0L);
 #line 793
     if (tmp___2 != 0L) {
 #line 793
@@ -30910,7 +30910,7 @@ int cxio_write_pbl(struct cxio_rdev *rdev_p , __be64 *pbl , u32 pbl_addr , u32 p
 #line 832
   descriptor.flags = 1U;
 #line 832
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 832
   if (tmp != 0L) {
 #line 832
@@ -31128,7 +31128,7 @@ int cxio_rdma_init(struct cxio_rdev *rdev_p , struct t3_rdma_init_attr *attr )
 #line 902
   descriptor.flags = 1U;
 #line 902
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 902
   if (tmp___0 != 0L) {
 #line 902
@@ -31286,7 +31286,7 @@ static int cxio_hal_ev_handler(struct t3cdev *t3cdev_p , struct sk_buff *skb )
 #line 945
   descriptor.flags = 1U;
 #line 945
-  tmp___8 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___8 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 945
   if (tmp___8 != 0L) {
 #line 945
@@ -31329,7 +31329,7 @@ static int cxio_hal_ev_handler(struct t3cdev *t3cdev_p , struct sk_buff *skb )
 #line 951
   descriptor___0.flags = 1U;
 #line 951
-  tmp___15 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___15 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 951
   if (tmp___15 != 0L) {
 #line 951
@@ -31369,7 +31369,7 @@ static int cxio_hal_ev_handler(struct t3cdev *t3cdev_p , struct sk_buff *skb )
 #line 959
     descriptor___1.flags = 1U;
 #line 959
-    tmp___16 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___16 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 959
     if (tmp___16 != 0L) {
 #line 959
@@ -31498,7 +31498,7 @@ int cxio_rdev_open(struct cxio_rdev *rdev_p )
 #line 999
     descriptor.flags = 1U;
 #line 999
-    tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 999
     if (tmp___1 != 0L) {
 #line 999
@@ -31525,7 +31525,7 @@ int cxio_rdev_open(struct cxio_rdev *rdev_p )
 #line 1005
   descriptor___0.flags = 1U;
 #line 1005
-  tmp___3 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___3 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 1005
   if (tmp___3 != 0L) {
 #line 1005
@@ -31620,7 +31620,7 @@ int cxio_rdev_open(struct cxio_rdev *rdev_p )
 #line 1053
   descriptor___1.flags = 1U;
 #line 1053
-  tmp___8 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+  tmp___8 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 1053
   if (tmp___8 != 0L) {
 #line 1053
@@ -31646,7 +31646,7 @@ int cxio_rdev_open(struct cxio_rdev *rdev_p )
 #line 1060
   descriptor___2.flags = 1U;
 #line 1060
-  tmp___9 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+  tmp___9 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
 #line 1060
   if (tmp___9 != 0L) {
 #line 1060
@@ -31856,7 +31856,7 @@ static void flush_completed_wrs(struct t3_wq *wq , struct t3_cq *cq )
 #line 1151
     descriptor.flags = 1U;
 #line 1151
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1151
     if (tmp != 0L) {
 #line 1151
@@ -32031,7 +32031,7 @@ int cxio_poll_cq(struct t3_wq *wq , struct t3_cq *cq , struct t3_cqe *cqe , u8 *
 #line 1219
   descriptor.flags = 1U;
 #line 1219
-  tmp___6 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___6 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1219
   if (tmp___6 != 0L) {
 #line 1219
@@ -32209,13 +32209,13 @@ int cxio_poll_cq(struct t3_wq *wq , struct t3_cq *cq , struct t3_cqe *cqe , u8 *
       }
     }
 #line 1299
-    tmp___20 = __builtin_expect((unsigned int )*cqe_flushed == 0U, 0L);
+    tmp___20 = ldv__builtin_expect((unsigned int )*cqe_flushed == 0U, 0L);
 #line 1299
     if (tmp___20 != 0L) {
 #line 1299
       tmp___21 = __fswab32(hw_cqe->header);
 #line 1299
-      tmp___22 = __builtin_expect((tmp___21 & 2048U) == 0U, 0L);
+      tmp___22 = ldv__builtin_expect((tmp___21 & 2048U) == 0U, 0L);
 #line 1299
       if (tmp___22 != 0L) {
 #line 1299
@@ -32253,7 +32253,7 @@ int cxio_poll_cq(struct t3_wq *wq , struct t3_cq *cq , struct t3_cqe *cqe , u8 *
 #line 1321
     tmp___24 = __fswab32(hw_cqe->u.rcqe.msn);
 #line 1321
-    tmp___25 = __builtin_expect(tmp___24 != wq->rq_rptr + 1U, 0L);
+    tmp___25 = ldv__builtin_expect(tmp___24 != wq->rq_rptr + 1U, 0L);
 #line 1321
     if (tmp___25 != 0L) {
 #line 1322
@@ -32287,7 +32287,7 @@ int cxio_poll_cq(struct t3_wq *wq , struct t3_cq *cq , struct t3_cqe *cqe , u8 *
 #line 1343
     descriptor___0.flags = 1U;
 #line 1343
-    tmp___27 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___27 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 1343
     if (tmp___27 != 0L) {
 #line 1343
@@ -32331,7 +32331,7 @@ int cxio_poll_cq(struct t3_wq *wq , struct t3_cq *cq , struct t3_cqe *cqe , u8 *
 #line 1363
     descriptor___1.flags = 1U;
 #line 1363
-    tmp___29 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___29 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 1363
     if (tmp___29 != 0L) {
 #line 1363
@@ -32358,7 +32358,7 @@ int cxio_poll_cq(struct t3_wq *wq , struct t3_cq *cq , struct t3_cqe *cqe , u8 *
 #line 1368
     descriptor___2.flags = 1U;
 #line 1368
-    tmp___30 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+    tmp___30 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
 #line 1368
     if (tmp___30 != 0L) {
 #line 1368
@@ -32378,7 +32378,7 @@ int cxio_poll_cq(struct t3_wq *wq , struct t3_cq *cq , struct t3_cqe *cqe , u8 *
 
     }
 #line 1375
-    tmp___31 = __builtin_expect(wq->rq_rptr == wq->rq_wptr, 0L);
+    tmp___31 = ldv__builtin_expect(wq->rq_rptr == wq->rq_wptr, 0L);
 #line 1375
     if (tmp___31 != 0L) {
 #line 1375
@@ -32414,7 +32414,7 @@ int cxio_poll_cq(struct t3_wq *wq , struct t3_cq *cq , struct t3_cqe *cqe , u8 *
 #line 1387
     descriptor___3.flags = 1U;
 #line 1387
-    tmp___33 = __builtin_expect((long )descriptor___3.flags & 1L, 0L);
+    tmp___33 = ldv__builtin_expect((long )descriptor___3.flags & 1L, 0L);
 #line 1387
     if (tmp___33 != 0L) {
 #line 1387
@@ -32439,7 +32439,7 @@ int cxio_poll_cq(struct t3_wq *wq , struct t3_cq *cq , struct t3_cqe *cqe , u8 *
 #line 1391
     descriptor___4.flags = 1U;
 #line 1391
-    tmp___34 = __builtin_expect((long )descriptor___4.flags & 1L, 0L);
+    tmp___34 = ldv__builtin_expect((long )descriptor___4.flags & 1L, 0L);
 #line 1391
     if (tmp___34 != 0L) {
 #line 1391
@@ -33412,7 +33412,7 @@ static void cxio_hal_put_resource(struct kfifo *fifo , spinlock_t *lock , u32 en
 #line 253
   spin_unlock_irqrestore(lock, __flags);
 #line 253
-  tmp___3 = __builtin_expect(__ret == 0U, 0L);
+  tmp___3 = ldv__builtin_expect(__ret == 0U, 0L);
 #line 253
   if (tmp___3 != 0L) {
 #line 253
@@ -33475,7 +33475,7 @@ u32 cxio_hal_get_qpid(struct cxio_hal_resource *rscp )
 #line 272
   descriptor.flags = 1U;
 #line 272
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 272
   if (tmp___0 != 0L) {
 #line 272
@@ -33507,7 +33507,7 @@ void cxio_hal_put_qpid(struct cxio_hal_resource *rscp , u32 qpid )
 #line 278
   descriptor.flags = 1U;
 #line 278
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 278
   if (tmp != 0L) {
 #line 278
@@ -33633,7 +33633,7 @@ u32 cxio_hal_pblpool_alloc(struct cxio_rdev *rdev_p , int size )
 #line 320
   descriptor.flags = 1U;
 #line 320
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 320
   if (tmp___0 != 0L) {
 #line 320
@@ -33665,7 +33665,7 @@ void cxio_hal_pblpool_free(struct cxio_rdev *rdev_p , u32 addr , int size )
 #line 326
   descriptor.flags = 1U;
 #line 326
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 326
   if (tmp != 0L) {
 #line 326
@@ -33742,7 +33742,7 @@ int cxio_hal_pblpool_create(struct cxio_rdev *rdev_p )
 #line 345
     descriptor.flags = 1U;
 #line 345
-    tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 345
     if (tmp___0 != 0L) {
 #line 345
@@ -33777,7 +33777,7 @@ int cxio_hal_pblpool_create(struct cxio_rdev *rdev_p )
 #line 354
     descriptor___0.flags = 1U;
 #line 354
-    tmp___1 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 354
     if (tmp___1 != 0L) {
 #line 354
@@ -33839,7 +33839,7 @@ u32 cxio_hal_rqtpool_alloc(struct cxio_rdev *rdev_p , int size )
 #line 378
   descriptor.flags = 1U;
 #line 378
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 378
   if (tmp___0 != 0L) {
 #line 378
@@ -33871,7 +33871,7 @@ void cxio_hal_rqtpool_free(struct cxio_rdev *rdev_p , u32 addr , int size )
 #line 384
   descriptor.flags = 1U;
 #line 384
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 384
   if (tmp != 0L) {
 #line 384
@@ -34053,7 +34053,7 @@ __inline static void ldv_error(void)
 #line 25
 extern int __VERIFIER_nondet_int(void) ;
 #line 49 "/home/zakharov/workspace/instruments/ldv1/kernel-rules/verifier/rcv.h"
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
   {

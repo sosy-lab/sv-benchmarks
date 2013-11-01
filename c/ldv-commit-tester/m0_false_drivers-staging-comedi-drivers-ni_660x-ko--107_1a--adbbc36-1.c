@@ -1924,7 +1924,7 @@ struct ni_660x_private {
    unsigned short pfi_output_selects[40U] ;
 };
 #line 1 "<compiler builtins>"
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 #line 71 "include/linux/printk.h"
 extern int printk(char const   *  , ...) ;
 #line 69 "include/asm-generic/bug.h"
@@ -1981,7 +1981,7 @@ __inline static unsigned long arch_local_save_flags(void)
 #line 829
   __eax = __eax;
 #line 829
-  tmp = __builtin_expect((unsigned long )pv_irq_ops.save_fl.func == (unsigned long )((void *)0),
+  tmp = ldv__builtin_expect((unsigned long )pv_irq_ops.save_fl.func == (unsigned long )((void *)0),
                          0L);
 #line 829
   if (tmp != 0L) {
@@ -2119,7 +2119,7 @@ __inline static void trace_kmalloc(unsigned long call_site , void const   *ptr ,
 
   {
 #line 45
-  tmp = __builtin_expect(__tracepoint_kmalloc.state != 0, 0L);
+  tmp = ldv__builtin_expect(__tracepoint_kmalloc.state != 0, 0L);
 #line 45
   if (tmp != 0L) {
 #line 45
@@ -2559,7 +2559,7 @@ __inline static struct dma_map_ops *get_dma_ops(struct device *dev )
 
   {
 #line 36
-  tmp = __builtin_expect((unsigned long )dev == (unsigned long )((struct device *)0),
+  tmp = ldv__builtin_expect((unsigned long )dev == (unsigned long )((struct device *)0),
                          0L);
 #line 36
   if (tmp != 0L || (unsigned long )dev->archdata.dma_ops == (unsigned long )((struct dma_map_ops *)0)) {
@@ -2594,7 +2594,7 @@ __inline static void dma_free_coherent(struct device *dev , size_t size , void *
 #line 147
   __ret_warn_on = tmp___0 != 0;
 #line 147
-  tmp___1 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___1 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 147
   if (tmp___1 != 0L) {
 #line 147
@@ -2604,7 +2604,7 @@ __inline static void dma_free_coherent(struct device *dev , size_t size , void *
 
   }
 #line 147
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 152
   debug_dma_free_coherent(dev, size, vaddr, bus);
 #line 153
@@ -2721,7 +2721,7 @@ __inline static void comedi_set_hw_dev(struct comedi_device *dev , struct device
 #line 403
     dev->hw_dev = get_device(dev->hw_dev);
 #line 404
-    tmp = __builtin_expect((unsigned long )dev->hw_dev == (unsigned long )((struct device *)0),
+    tmp = ldv__builtin_expect((unsigned long )dev->hw_dev == (unsigned long )((struct device *)0),
                            0L);
 #line 404
     if (tmp != 0L) {
@@ -2917,7 +2917,7 @@ __inline static unsigned int IOConfigReg(unsigned int pfi_channel )
 #line 170
   reg = pfi_channel / 2U + 78U;
 #line 171
-  tmp = __builtin_expect(reg > 97U, 0L);
+  tmp = ldv__builtin_expect(reg > 97U, 0L);
 #line 171
   if (tmp != 0L) {
 #line 171
@@ -3115,7 +3115,7 @@ __inline static unsigned int dma_select_mask(unsigned int dma_channel )
 
   {
 #line 351
-  tmp = __builtin_expect(dma_channel > 3U, 0L);
+  tmp = ldv__builtin_expect(dma_channel > 3U, 0L);
 #line 351
   if (tmp != 0L) {
 #line 351
@@ -3138,7 +3138,7 @@ __inline static unsigned int dma_selection_counter(unsigned int counter_index )
 
   {
 #line 360
-  tmp = __builtin_expect(counter_index > 3U, 0L);
+  tmp = ldv__builtin_expect(counter_index > 3U, 0L);
 #line 360
   if (tmp != 0L) {
 #line 360
@@ -3162,7 +3162,7 @@ __inline static unsigned int dma_select_bits(unsigned int dma_channel , unsigned
 
   {
 #line 366
-  tmp = __builtin_expect(dma_channel > 3U, 0L);
+  tmp = ldv__builtin_expect(dma_channel > 3U, 0L);
 #line 366
   if (tmp != 0L) {
 #line 366
@@ -3187,7 +3187,7 @@ __inline static unsigned int dma_reset_bit(unsigned int dma_channel )
 
   {
 #line 372
-  tmp = __builtin_expect(dma_channel > 3U, 0L);
+  tmp = ldv__builtin_expect(dma_channel > 3U, 0L);
 #line 372
   if (tmp != 0L) {
 #line 372
@@ -3982,7 +3982,7 @@ static int ni_660x_request_mite_channel(struct comedi_device *dev , struct ni_gp
 #line 884
   flags = _raw_spin_lock_irqsave(tmp___0);
 #line 885
-  tmp___1 = __builtin_expect((unsigned long )counter->mite_chan != (unsigned long )((struct mite_channel *)0),
+  tmp___1 = ldv__builtin_expect((unsigned long )counter->mite_chan != (unsigned long )((struct mite_channel *)0),
                              0L);
 #line 885
   if (tmp___1 != 0L) {
@@ -5231,7 +5231,7 @@ static int ni_660x_set_pfi_routing(struct comedi_device *dev , unsigned int chan
 
   }
 #line 1361
-  tmp = __builtin_expect(chan > 39U, 0L);
+  tmp = ldv__builtin_expect(chan > 39U, 0L);
 #line 1361
   if (tmp != 0L) {
 #line 1361
@@ -5270,7 +5270,7 @@ static unsigned int ni_660x_get_pfi_routing(struct comedi_device *dev , unsigned
 
   {
 #line 1374
-  tmp = __builtin_expect(chan > 39U, 0L);
+  tmp = ldv__builtin_expect(chan > 39U, 0L);
 #line 1374
   if (tmp != 0L) {
 #line 1374
@@ -5503,7 +5503,7 @@ __inline static void ldv_error(void)
 }
 }
 #line 49 "/work/vladimir/kernel-rules/verifier/rcv.h"
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 

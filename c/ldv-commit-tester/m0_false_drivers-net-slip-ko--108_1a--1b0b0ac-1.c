@@ -5403,7 +5403,7 @@ typedef int ldv_func_ret_type___1;
 #line 1 "<compiler builtins>"
 void *__builtin_memcpy(void * , void const   * , unsigned long  ) ;
 #line 1
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 #line 20 "/work/vladimir/kernel-rules/verifier/rcv.h"
 __inline static void ldv_stop(void) 
 { 
@@ -5440,7 +5440,7 @@ __inline static int __VERIFIER_nondet_uint(void)
 }
 }
 #line 49 "/work/vladimir/kernel-rules/verifier/rcv.h"
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 
@@ -5863,7 +5863,7 @@ __inline static void netif_tx_stop_queue(struct netdev_queue *dev_queue )
 #line 1608
   __ret_warn_on = (unsigned long )dev_queue == (unsigned long )((struct netdev_queue *)0);
 #line 1608
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 1608
   if (tmp != 0L) {
 #line 1608
@@ -5872,7 +5872,7 @@ __inline static void netif_tx_stop_queue(struct netdev_queue *dev_queue )
 
   }
 #line 1608
-  tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 1608
   if (tmp___0 != 0L) {
 #line 1609

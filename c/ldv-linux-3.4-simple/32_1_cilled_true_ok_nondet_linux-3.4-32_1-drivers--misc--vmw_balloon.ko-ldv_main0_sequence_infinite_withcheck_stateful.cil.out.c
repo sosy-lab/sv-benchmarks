@@ -3112,7 +3112,7 @@ struct vmballoon {
    struct delayed_work dwork ;
 };
 #line 1 "<compiler builtins>"
-long __builtin_expect(long val , long res ) ;
+long ldv__builtin_expect(long val , long res ) ;
 #line 100 "include/linux/printk.h"
 extern int ( /* format attribute */  printk)(char const   *fmt  , ...) ;
 #line 44 "include/linux/dynamic_debug.h"
@@ -3155,7 +3155,7 @@ __inline static long __attribute__((__warn_unused_result__))  IS_ERR(void const 
 #line 34
   __cil_tmp7 = (long )__cil_tmp6;
 #line 34
-  tmp = __builtin_expect(__cil_tmp7, 0L);
+  tmp = ldv__builtin_expect(__cil_tmp7, 0L);
   }
 #line 34
   return (tmp);
@@ -3455,7 +3455,7 @@ static bool vmballoon_send_start(struct vmballoon *b )
 #line 234
     __cil_tmp20 = (long )__cil_tmp19;
 #line 234
-    tmp___7 = __builtin_expect(__cil_tmp20, 0L);
+    tmp___7 = ldv__builtin_expect(__cil_tmp20, 0L);
     }
 #line 234
     if (tmp___7) {
@@ -3622,7 +3622,7 @@ static bool vmballoon_send_guest_id(struct vmballoon *b )
 #line 271
     __cil_tmp21 = (long )__cil_tmp20;
 #line 271
-    tmp___8 = __builtin_expect(__cil_tmp21, 0L);
+    tmp___8 = ldv__builtin_expect(__cil_tmp21, 0L);
     }
 #line 271
     if (tmp___8) {
@@ -3790,7 +3790,7 @@ static bool vmballoon_send_get_target(struct vmballoon *b , u32 *new_target )
 #line 308
     __cil_tmp31 = (long )__cil_tmp30;
 #line 308
-    tmp___8 = __builtin_expect(__cil_tmp31, 0L);
+    tmp___8 = ldv__builtin_expect(__cil_tmp31, 0L);
     }
 #line 308
     if (tmp___8) {
@@ -3933,7 +3933,7 @@ static int vmballoon_send_lock_page(struct vmballoon *b , unsigned long pfn , un
 #line 334
     __cil_tmp25 = (long )__cil_tmp24;
 #line 334
-    tmp___8 = __builtin_expect(__cil_tmp25, 0L);
+    tmp___8 = ldv__builtin_expect(__cil_tmp25, 0L);
     }
 #line 334
     if (tmp___8) {
@@ -4074,7 +4074,7 @@ static bool vmballoon_send_unlock_page(struct vmballoon *b , unsigned long pfn )
 #line 358
     __cil_tmp24 = (long )__cil_tmp23;
 #line 358
-    tmp___8 = __builtin_expect(__cil_tmp24, 0L);
+    tmp___8 = ldv__builtin_expect(__cil_tmp24, 0L);
     }
 #line 358
     if (tmp___8) {
@@ -5109,7 +5109,7 @@ static void vmballoon_inflate(struct vmballoon *b )
 #line 517
     __cil_tmp22 = (long )__cil_tmp21;
 #line 517
-    tmp___7 = __builtin_expect(__cil_tmp22, 0L);
+    tmp___7 = ldv__builtin_expect(__cil_tmp22, 0L);
     }
 #line 517
     if (tmp___7) {
@@ -5188,7 +5188,7 @@ static void vmballoon_inflate(struct vmballoon *b )
 #line 542
     __cil_tmp44 = (long )__cil_tmp43;
 #line 542
-    tmp___8 = __builtin_expect(__cil_tmp44, 0L);
+    tmp___8 = ldv__builtin_expect(__cil_tmp44, 0L);
     }
 #line 542
     if (tmp___8) {
@@ -5576,7 +5576,7 @@ static void vmballoon_deflate(struct vmballoon *b )
 #line 623
     __cil_tmp26 = (long )__cil_tmp25;
 #line 623
-    tmp___7 = __builtin_expect(__cil_tmp26, 0L);
+    tmp___7 = ldv__builtin_expect(__cil_tmp26, 0L);
     }
 #line 623
     if (tmp___7) {
@@ -5671,7 +5671,7 @@ static void vmballoon_deflate(struct vmballoon *b )
 #line 628
     __cil_tmp54 = (long )__cil_tmp53;
 #line 628
-    tmp___9 = __builtin_expect(__cil_tmp54, 0L);
+    tmp___9 = ldv__builtin_expect(__cil_tmp54, 0L);
     }
 #line 628
     if (tmp___9) {
@@ -7065,7 +7065,7 @@ void ldv_check_final_state(void)
 }
 }
 #line 1206 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/4899/dscv_tempdir/dscv/ri/32_1/drivers/misc/vmw_balloon.c.common.c"
-long __builtin_expect(long val , long res ) 
+long ldv__builtin_expect(long val , long res ) 
 { 
 
   {

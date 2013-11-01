@@ -6077,7 +6077,7 @@ void *__builtin_memcpy(void * , void const   * , unsigned long  ) ;
 #line 1
 unsigned long __builtin_object_size(void * , int  ) ;
 #line 1
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 #line 62 "/work/vladimir/UFO/Work/test/inst/current/envs/linux-3.7.3/linux-3.7.3/arch/x86/include/asm/bitops.h"
 __inline static void set_bit(unsigned int nr , unsigned long volatile   *addr ) 
 { 
@@ -6233,7 +6233,7 @@ __inline static long IS_ERR(void const   *ptr )
 
   {
 #line 34
-  tmp = __builtin_expect((unsigned long )ptr > 0xfffffffffffff000UL, 0L);
+  tmp = ldv__builtin_expect((unsigned long )ptr > 0xfffffffffffff000UL, 0L);
 #line 34
   return (tmp);
 }
@@ -6739,7 +6739,7 @@ __inline static int kref_sub(struct kref *kref , unsigned int count , void (*rel
 #line 67
   __ret_warn_on = (unsigned long )release == (unsigned long )((void (*)(struct kref * ))0);
 #line 67
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 67
   if (tmp != 0L) {
 #line 67
@@ -6748,7 +6748,7 @@ __inline static int kref_sub(struct kref *kref , unsigned int count , void (*rel
 
   }
 #line 67
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 69
   tmp___0 = atomic_sub_and_test((int )count, & kref->refcount);
 #line 69
@@ -6852,14 +6852,14 @@ __inline static unsigned long copy_from_user(void *to , void const   *from , uns
 #line 61
   might_fault();
 #line 62
-  tmp___1 = __builtin_expect(sz == -1, 1L);
+  tmp___1 = ldv__builtin_expect(sz == -1, 1L);
 #line 62
   if (tmp___1 != 0L) {
 #line 63
     n = _copy_from_user(to, from, (unsigned int )n);
   } else {
 #line 62
-    tmp___2 = __builtin_expect((unsigned long )sz >= n, 1L);
+    tmp___2 = ldv__builtin_expect((unsigned long )sz >= n, 1L);
 #line 62
     if (tmp___2 != 0L) {
 #line 63
@@ -6868,7 +6868,7 @@ __inline static unsigned long copy_from_user(void *to , void const   *from , uns
 #line 66
       __ret_warn_on = 1;
 #line 66
-      tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+      tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 66
       if (tmp___0 != 0L) {
 #line 66
@@ -6878,7 +6878,7 @@ __inline static unsigned long copy_from_user(void *to , void const   *from , uns
 
       }
 #line 66
-      __builtin_expect(__ret_warn_on != 0, 0L);
+      ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
   }
 #line 68
@@ -6953,7 +6953,7 @@ __inline static int __copy_from_user(void *dst , void const   *src , unsigned in
                        "=r" (*((u64 *)dst)): "m" (*((struct __large_struct *)src)),
                        "i" (10), "0" (ret));
 #line 103
-  tmp___0 = __builtin_expect(ret != 0, 0L);
+  tmp___0 = ldv__builtin_expect(ret != 0, 0L);
 #line 103
   if (tmp___0 != 0L) {
 #line 104
@@ -6973,7 +6973,7 @@ __inline static int __copy_from_user(void *dst , void const   *src , unsigned in
                        "=r" (*((u64 *)dst)): "m" (*((struct __large_struct *)src)),
                        "i" (16), "0" (ret));
 #line 112
-  tmp___1 = __builtin_expect(ret != 0, 0L);
+  tmp___1 = ldv__builtin_expect(ret != 0, 0L);
 #line 112
   if (tmp___1 != 0L) {
 #line 113
@@ -7044,7 +7044,7 @@ __inline static int __copy_to_user(void *dst , void const   *src , unsigned int 
   __asm__  volatile   ("661:\n\t.byte 0x66,0x66,0x90\n\n662:\n.pushsection .altinstructions,\"a\"\n .long 661b - .\n .long 6631f - .\n .word (9*32+20)\n .byte 662b-661b\n .byte 6641f-6631f\n.popsection\n.pushsection .discard,\"aw\",@progbits\n .byte 0xff + (6641f-6631f) - (662b-661b)\n.popsection\n.pushsection .altinstr_replacement, \"ax\"\n6631:\n\t.byte 0x0f,0x01,0xcb\n6641:\n\t.popsection\n1:\tmovq %1,%2\n2: 661:\n\t.byte 0x66,0x66,0x90\n\n662:\n.pushsection .altinstructions,\"a\"\n .long 661b - .\n .long 6631f - .\n .word (9*32+20)\n .byte 662b-661b\n .byte 6641f-6631f\n.popsection\n.pushsection .discard,\"aw\",@progbits\n .byte 0xff + (6641f-6631f) - (662b-661b)\n.popsection\n.pushsection .altinstr_replacement, \"ax\"\n6631:\n\t.byte 0x0f,0x01,0xca\n6641:\n\t.popsection\n.section .fixup,\"ax\"\n3:\tmov %3,%0\n\tjmp 2b\n.previous\n .pushsection \"__ex_table\",\"a\"\n .balign 8\n .long (1b) - .\n .long (3b) - .\n .popsection\n": "=r" (ret): "er" (*((u64 *)src)),
                        "m" (*((struct __large_struct *)dst)), "i" (10), "0" (ret));
 #line 147
-  tmp___0 = __builtin_expect(ret != 0, 0L);
+  tmp___0 = ldv__builtin_expect(ret != 0, 0L);
 #line 147
   if (tmp___0 != 0L) {
 #line 148
@@ -7064,7 +7064,7 @@ __inline static int __copy_to_user(void *dst , void const   *src , unsigned int 
   __asm__  volatile   ("661:\n\t.byte 0x66,0x66,0x90\n\n662:\n.pushsection .altinstructions,\"a\"\n .long 661b - .\n .long 6631f - .\n .word (9*32+20)\n .byte 662b-661b\n .byte 6641f-6631f\n.popsection\n.pushsection .discard,\"aw\",@progbits\n .byte 0xff + (6641f-6631f) - (662b-661b)\n.popsection\n.pushsection .altinstr_replacement, \"ax\"\n6631:\n\t.byte 0x0f,0x01,0xcb\n6641:\n\t.popsection\n1:\tmovq %1,%2\n2: 661:\n\t.byte 0x66,0x66,0x90\n\n662:\n.pushsection .altinstructions,\"a\"\n .long 661b - .\n .long 6631f - .\n .word (9*32+20)\n .byte 662b-661b\n .byte 6641f-6631f\n.popsection\n.pushsection .discard,\"aw\",@progbits\n .byte 0xff + (6641f-6631f) - (662b-661b)\n.popsection\n.pushsection .altinstr_replacement, \"ax\"\n6631:\n\t.byte 0x0f,0x01,0xca\n6641:\n\t.popsection\n.section .fixup,\"ax\"\n3:\tmov %3,%0\n\tjmp 2b\n.previous\n .pushsection \"__ex_table\",\"a\"\n .balign 8\n .long (1b) - .\n .long (3b) - .\n .popsection\n": "=r" (ret): "er" (*((u64 *)src)),
                        "m" (*((struct __large_struct *)dst)), "i" (16), "0" (ret));
 #line 156
-  tmp___1 = __builtin_expect(ret != 0, 0L);
+  tmp___1 = ldv__builtin_expect(ret != 0, 0L);
 #line 156
   if (tmp___1 != 0L) {
 #line 157
@@ -7154,7 +7154,7 @@ __inline static int need_resched(void)
 #line 2586
   tmp___0 = test_ti_thread_flag(tmp, 3);
 #line 2586
-  tmp___1 = __builtin_expect(tmp___0 != 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 != 0, 0L);
 #line 2586
   return ((int )tmp___1);
 }
@@ -7467,7 +7467,7 @@ static void vhost_work_flush(struct vhost_dev *dev , struct vhost_work *work )
 #line 168
   spin_unlock_irq(& dev->work_lock);
 #line 169
-  tmp___2 = __builtin_expect(flushing < 0, 0L);
+  tmp___2 = ldv__builtin_expect(flushing < 0, 0L);
 #line 169
   if (tmp___2 != 0L) {
 #line 169
@@ -8329,7 +8329,7 @@ void vhost_dev_cleanup(struct vhost_dev *dev , bool locked )
 #line 521
   __ret_warn_on = tmp___1 == 0;
 #line 521
-  tmp___2 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___2 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 521
   if (tmp___2 != 0L) {
 #line 521
@@ -8339,7 +8339,7 @@ void vhost_dev_cleanup(struct vhost_dev *dev , bool locked )
 
   }
 #line 521
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 522
   if ((unsigned long )dev->worker != (unsigned long )((struct task_struct *)0)) {
 #line 523
@@ -8387,7 +8387,7 @@ static int log_access_ok(void *log_base , u64 addr , unsigned long sz )
   __asm__  ("add %3,%1 ; sbb %0,%0 ; cmp %1,%4 ; sbb $0,%0": "=&r" (flag), "=r" (roksum): "1" (log_base + a),
             "g" ((long )((sz + 32767UL) / 32768UL)), "rm" (tmp->addr_limit.seg));
 #line 540
-  tmp___0 = __builtin_expect(flag == 0UL, 1L);
+  tmp___0 = ldv__builtin_expect(flag == 0UL, 1L);
 #line 540
   return ((int )tmp___0);
 }
@@ -8427,7 +8427,7 @@ static int vq_memory_access_ok(void *log_base , struct vhost_memory *mem , int l
   __asm__  ("add %3,%1 ; sbb %0,%0 ; cmp %1,%4 ; sbb $0,%0": "=&r" (flag), "=r" (roksum): "1" ((void *)a),
             "g" ((long )m->memory_size), "rm" (tmp___0->addr_limit.seg));
 #line 558
-  tmp___1 = __builtin_expect(flag == 0UL, 1L);
+  tmp___1 = ldv__builtin_expect(flag == 0UL, 1L);
 #line 558
   if (tmp___1 == 0L) {
 #line 560
@@ -8539,7 +8539,7 @@ static int vq_access_ok(struct vhost_dev *d , unsigned int num , struct vring_de
   __asm__  ("add %3,%1 ; sbb %0,%0 ; cmp %1,%4 ; sbb $0,%0": "=&r" (flag), "=r" (roksum): "1" (desc),
             "g" ((long )((unsigned long )num * 16UL)), "rm" (tmp___0->addr_limit.seg));
 #line 598
-  tmp___1 = __builtin_expect(flag == 0UL, 1L);
+  tmp___1 = ldv__builtin_expect(flag == 0UL, 1L);
 #line 601
   if (tmp___1 != 0L) {
 #line 599
@@ -8548,7 +8548,7 @@ static int vq_access_ok(struct vhost_dev *d , unsigned int num , struct vring_de
     __asm__  ("add %3,%1 ; sbb %0,%0 ; cmp %1,%4 ; sbb $0,%0": "=&r" (flag___0), "=r" (roksum___0): "1" (avail),
               "g" ((long )(((unsigned long )num + 2UL) * 2UL + s)), "rm" (tmp___2->addr_limit.seg));
 #line 599
-    tmp___3 = __builtin_expect(flag___0 == 0UL, 1L);
+    tmp___3 = ldv__builtin_expect(flag___0 == 0UL, 1L);
 #line 601
     if (tmp___3 != 0L) {
 #line 601
@@ -8558,7 +8558,7 @@ static int vq_access_ok(struct vhost_dev *d , unsigned int num , struct vring_de
                 "=r" (roksum___1): "1" (used), "g" ((long )(((unsigned long )num * 8UL + s) + 4UL)),
                 "rm" (tmp___4->addr_limit.seg));
 #line 601
-      tmp___5 = __builtin_expect(flag___1 == 0UL, 1L);
+      tmp___5 = ldv__builtin_expect(flag___1 == 0UL, 1L);
 #line 601
       if (tmp___5 != 0L) {
 #line 601
@@ -9610,7 +9610,7 @@ static int set_bit_to_user(int nr , void *addr )
 
   }
 #line 983
-  tmp = __builtin_expect(r != 1, 0L);
+  tmp = ldv__builtin_expect(r != 1, 0L);
 #line 983
   if (tmp != 0L) {
 #line 983
@@ -9813,7 +9813,7 @@ static int vhost_update_used_flags(struct vhost_virtqueue *vq )
 
   }
 #line 1047
-  tmp = __builtin_expect((long )vq->log_used, 0L);
+  tmp = ldv__builtin_expect((long )vq->log_used, 0L);
 #line 1047
   if (tmp != 0L) {
 #line 1049
@@ -9890,7 +9890,7 @@ static int vhost_update_avail_event(struct vhost_virtqueue *vq , u16 avail_event
 
   }
 #line 1065
-  tmp = __builtin_expect((long )vq->log_used, 0L);
+  tmp = ldv__builtin_expect((long )vq->log_used, 0L);
 #line 1065
   if (tmp != 0L) {
 #line 1068
@@ -10030,7 +10030,7 @@ static int translate_desc(struct vhost_dev *dev , u64 addr , u32 len , struct io
   goto ldv_38150;
   ldv_38149: 
 #line 1107
-  tmp___1 = __builtin_expect(ret >= iov_size, 0L);
+  tmp___1 = ldv__builtin_expect(ret >= iov_size, 0L);
 #line 1107
   if (tmp___1 != 0L) {
 #line 1108
@@ -10043,7 +10043,7 @@ static int translate_desc(struct vhost_dev *dev , u64 addr , u32 len , struct io
 #line 1111
   reg = find_region(mem, addr, len);
 #line 1112
-  tmp___2 = __builtin_expect((unsigned long )reg == (unsigned long )((struct vhost_memory_region  const  *)0),
+  tmp___2 = ldv__builtin_expect((unsigned long )reg == (unsigned long )((struct vhost_memory_region  const  *)0),
                              0L);
 #line 1112
   if (tmp___2 != 0L) {
@@ -10150,7 +10150,7 @@ static int get_indirect(struct vhost_dev *dev , struct vhost_virtqueue *vq , str
 #line 1158
   found = 0U;
 #line 1162
-  tmp___0 = __builtin_expect((indirect->len & 15U) != 0U, 0L);
+  tmp___0 = ldv__builtin_expect((indirect->len & 15U) != 0U, 0L);
 #line 1162
   if (tmp___0 != 0L) {
 #line 1163
@@ -10166,7 +10166,7 @@ static int get_indirect(struct vhost_dev *dev , struct vhost_virtqueue *vq , str
 #line 1163
     descriptor.flags = 0U;
 #line 1163
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1163
     if (tmp != 0L) {
 #line 1163
@@ -10190,7 +10190,7 @@ static int get_indirect(struct vhost_dev *dev , struct vhost_virtqueue *vq , str
 #line 1170
   ret = translate_desc(dev, indirect->addr, indirect->len, vq->indirect, 1024);
 #line 1172
-  tmp___2 = __builtin_expect(ret < 0, 0L);
+  tmp___2 = ldv__builtin_expect(ret < 0, 0L);
 #line 1172
   if (tmp___2 != 0L) {
 #line 1173
@@ -10206,7 +10206,7 @@ static int get_indirect(struct vhost_dev *dev , struct vhost_virtqueue *vq , str
 #line 1173
     descriptor___0.flags = 0U;
 #line 1173
-    tmp___1 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 1173
     if (tmp___1 != 0L) {
 #line 1173
@@ -10230,7 +10230,7 @@ static int get_indirect(struct vhost_dev *dev , struct vhost_virtqueue *vq , str
 #line 1181
   count = indirect->len / 16U;
 #line 1184
-  tmp___4 = __builtin_expect(count > 65536U, 0L);
+  tmp___4 = ldv__builtin_expect(count > 65536U, 0L);
 #line 1184
   if (tmp___4 != 0L) {
 #line 1185
@@ -10246,7 +10246,7 @@ static int get_indirect(struct vhost_dev *dev , struct vhost_virtqueue *vq , str
 #line 1185
     descriptor___1.flags = 0U;
 #line 1185
-    tmp___3 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___3 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 1185
     if (tmp___3 != 0L) {
 #line 1185
@@ -10273,7 +10273,7 @@ static int get_indirect(struct vhost_dev *dev , struct vhost_virtqueue *vq , str
 #line 1192
   found = found + 1U;
 #line 1192
-  tmp___6 = __builtin_expect(found > count, 0L);
+  tmp___6 = ldv__builtin_expect(found > count, 0L);
 #line 1192
   if (tmp___6 != 0L) {
 #line 1193
@@ -10289,7 +10289,7 @@ static int get_indirect(struct vhost_dev *dev , struct vhost_virtqueue *vq , str
 #line 1193
     descriptor___2.flags = 0U;
 #line 1193
-    tmp___5 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+    tmp___5 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
 #line 1193
     if (tmp___5 != 0L) {
 #line 1193
@@ -10313,7 +10313,7 @@ static int get_indirect(struct vhost_dev *dev , struct vhost_virtqueue *vq , str
 #line 1198
   tmp___8 = memcpy_fromiovec((unsigned char *)(& desc), vq->indirect, 16);
 #line 1198
-  tmp___9 = __builtin_expect(tmp___8 != 0, 0L);
+  tmp___9 = ldv__builtin_expect(tmp___8 != 0, 0L);
 #line 1198
   if (tmp___9 != 0L) {
 #line 1200
@@ -10329,7 +10329,7 @@ static int get_indirect(struct vhost_dev *dev , struct vhost_virtqueue *vq , str
 #line 1200
     descriptor___3.flags = 0U;
 #line 1200
-    tmp___7 = __builtin_expect((long )descriptor___3.flags & 1L, 0L);
+    tmp___7 = ldv__builtin_expect((long )descriptor___3.flags & 1L, 0L);
 #line 1200
     if (tmp___7 != 0L) {
 #line 1200
@@ -10351,7 +10351,7 @@ static int get_indirect(struct vhost_dev *dev , struct vhost_virtqueue *vq , str
 
   }
 #line 1204
-  tmp___11 = __builtin_expect(((int )desc.flags & 4) != 0, 0L);
+  tmp___11 = ldv__builtin_expect(((int )desc.flags & 4) != 0, 0L);
 #line 1204
   if (tmp___11 != 0L) {
 #line 1205
@@ -10367,7 +10367,7 @@ static int get_indirect(struct vhost_dev *dev , struct vhost_virtqueue *vq , str
 #line 1205
     descriptor___4.flags = 0U;
 #line 1205
-    tmp___10 = __builtin_expect((long )descriptor___4.flags & 1L, 0L);
+    tmp___10 = ldv__builtin_expect((long )descriptor___4.flags & 1L, 0L);
 #line 1205
     if (tmp___10 != 0L) {
 #line 1205
@@ -10392,7 +10392,7 @@ static int get_indirect(struct vhost_dev *dev , struct vhost_virtqueue *vq , str
   ret = translate_desc(dev, desc.addr, desc.len, iov + (unsigned long )iov_count,
                        (int )(iov_size - iov_count));
 #line 1212
-  tmp___13 = __builtin_expect(ret < 0, 0L);
+  tmp___13 = ldv__builtin_expect(ret < 0, 0L);
 #line 1212
   if (tmp___13 != 0L) {
 #line 1213
@@ -10408,7 +10408,7 @@ static int get_indirect(struct vhost_dev *dev , struct vhost_virtqueue *vq , str
 #line 1213
     descriptor___5.flags = 0U;
 #line 1213
-    tmp___12 = __builtin_expect((long )descriptor___5.flags & 1L, 0L);
+    tmp___12 = ldv__builtin_expect((long )descriptor___5.flags & 1L, 0L);
 #line 1213
     if (tmp___12 != 0L) {
 #line 1213
@@ -10434,7 +10434,7 @@ static int get_indirect(struct vhost_dev *dev , struct vhost_virtqueue *vq , str
 #line 1219
     *in_num = *in_num + (unsigned int )ret;
 #line 1220
-    tmp___14 = __builtin_expect((unsigned long )log != (unsigned long )((struct vhost_log *)0),
+    tmp___14 = ldv__builtin_expect((unsigned long )log != (unsigned long )((struct vhost_log *)0),
                                 0L);
 #line 1220
     if (tmp___14 != 0L) {
@@ -10449,7 +10449,7 @@ static int get_indirect(struct vhost_dev *dev , struct vhost_virtqueue *vq , str
     }
   } else {
 #line 1228
-    tmp___16 = __builtin_expect(*in_num != 0U, 0L);
+    tmp___16 = ldv__builtin_expect(*in_num != 0U, 0L);
 #line 1228
     if (tmp___16 != 0L) {
 #line 1229
@@ -10465,7 +10465,7 @@ static int get_indirect(struct vhost_dev *dev , struct vhost_virtqueue *vq , str
 #line 1229
       descriptor___6.flags = 0U;
 #line 1229
-      tmp___15 = __builtin_expect((long )descriptor___6.flags & 1L, 0L);
+      tmp___15 = ldv__builtin_expect((long )descriptor___6.flags & 1L, 0L);
 #line 1229
       if (tmp___15 != 0L) {
 #line 1229
@@ -10603,7 +10603,7 @@ int vhost_get_vq_desc(struct vhost_dev *dev , struct vhost_virtqueue *vq , struc
 #line 1259
   vq->avail_idx = (unsigned short )__gu_val;
 #line 1259
-  tmp___1 = __builtin_expect(__gu_err != 0, 0L);
+  tmp___1 = ldv__builtin_expect(__gu_err != 0, 0L);
 #line 1259
   if (tmp___1 != 0L) {
 #line 1260
@@ -10619,7 +10619,7 @@ int vhost_get_vq_desc(struct vhost_dev *dev , struct vhost_virtqueue *vq , struc
 #line 1260
     descriptor.flags = 0U;
 #line 1260
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1260
     if (tmp != 0L) {
 #line 1260
@@ -10640,7 +10640,7 @@ int vhost_get_vq_desc(struct vhost_dev *dev , struct vhost_virtqueue *vq , struc
 
   }
 #line 1265
-  tmp___3 = __builtin_expect((unsigned int )((int )vq->avail_idx - (int )last_avail_idx) > vq->num,
+  tmp___3 = ldv__builtin_expect((unsigned int )((int )vq->avail_idx - (int )last_avail_idx) > vq->num,
                              0L);
 #line 1265
   if (tmp___3 != 0L) {
@@ -10657,7 +10657,7 @@ int vhost_get_vq_desc(struct vhost_dev *dev , struct vhost_virtqueue *vq , struc
 #line 1266
     descriptor___0.flags = 0U;
 #line 1266
-    tmp___2 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___2 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 1266
     if (tmp___2 != 0L) {
 #line 1266
@@ -10729,7 +10729,7 @@ int vhost_get_vq_desc(struct vhost_dev *dev , struct vhost_virtqueue *vq , struc
 #line 1280
   head = (unsigned int )((unsigned short )__gu_val___0);
 #line 1280
-  tmp___6 = __builtin_expect(__gu_err___0 != 0, 0L);
+  tmp___6 = ldv__builtin_expect(__gu_err___0 != 0, 0L);
 #line 1280
   if (tmp___6 != 0L) {
 #line 1282
@@ -10745,7 +10745,7 @@ int vhost_get_vq_desc(struct vhost_dev *dev , struct vhost_virtqueue *vq , struc
 #line 1282
     descriptor___1.flags = 0U;
 #line 1282
-    tmp___4 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___4 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 1282
     if (tmp___4 != 0L) {
 #line 1282
@@ -10767,7 +10767,7 @@ int vhost_get_vq_desc(struct vhost_dev *dev , struct vhost_virtqueue *vq , struc
 
   }
 #line 1289
-  tmp___8 = __builtin_expect(vq->num <= head, 0L);
+  tmp___8 = ldv__builtin_expect(vq->num <= head, 0L);
 #line 1289
   if (tmp___8 != 0L) {
 #line 1290
@@ -10783,7 +10783,7 @@ int vhost_get_vq_desc(struct vhost_dev *dev , struct vhost_virtqueue *vq , struc
 #line 1290
     descriptor___2.flags = 0U;
 #line 1290
-    tmp___7 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+    tmp___7 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
 #line 1290
     if (tmp___7 != 0L) {
 #line 1290
@@ -10811,7 +10811,7 @@ int vhost_get_vq_desc(struct vhost_dev *dev , struct vhost_virtqueue *vq , struc
 #line 1296
   *out_num = tmp___9;
 #line 1297
-  tmp___10 = __builtin_expect((unsigned long )log != (unsigned long )((struct vhost_log *)0),
+  tmp___10 = ldv__builtin_expect((unsigned long )log != (unsigned long )((struct vhost_log *)0),
                               0L);
 #line 1297
   if (tmp___10 != 0L) {
@@ -10826,7 +10826,7 @@ int vhost_get_vq_desc(struct vhost_dev *dev , struct vhost_virtqueue *vq , struc
 #line 1302
   iov_count = *in_num + *out_num;
 #line 1303
-  tmp___12 = __builtin_expect(vq->num <= i, 0L);
+  tmp___12 = ldv__builtin_expect(vq->num <= i, 0L);
 #line 1303
   if (tmp___12 != 0L) {
 #line 1304
@@ -10842,7 +10842,7 @@ int vhost_get_vq_desc(struct vhost_dev *dev , struct vhost_virtqueue *vq , struc
 #line 1304
     descriptor___3.flags = 0U;
 #line 1304
-    tmp___11 = __builtin_expect((long )descriptor___3.flags & 1L, 0L);
+    tmp___11 = ldv__builtin_expect((long )descriptor___3.flags & 1L, 0L);
 #line 1304
     if (tmp___11 != 0L) {
 #line 1304
@@ -10866,7 +10866,7 @@ int vhost_get_vq_desc(struct vhost_dev *dev , struct vhost_virtqueue *vq , struc
 #line 1308
   found = found + 1U;
 #line 1308
-  tmp___14 = __builtin_expect(found > vq->num, 0L);
+  tmp___14 = ldv__builtin_expect(found > vq->num, 0L);
 #line 1308
   if (tmp___14 != 0L) {
 #line 1309
@@ -10882,7 +10882,7 @@ int vhost_get_vq_desc(struct vhost_dev *dev , struct vhost_virtqueue *vq , struc
 #line 1309
     descriptor___4.flags = 0U;
 #line 1309
-    tmp___13 = __builtin_expect((long )descriptor___4.flags & 1L, 0L);
+    tmp___13 = ldv__builtin_expect((long )descriptor___4.flags & 1L, 0L);
 #line 1309
     if (tmp___13 != 0L) {
 #line 1309
@@ -10907,7 +10907,7 @@ int vhost_get_vq_desc(struct vhost_dev *dev , struct vhost_virtqueue *vq , struc
   ret = __copy_from_user((void *)(& desc), (void const   *)vq->desc + (unsigned long )i,
                          16U);
 #line 1315
-  tmp___16 = __builtin_expect(ret != 0, 0L);
+  tmp___16 = ldv__builtin_expect(ret != 0, 0L);
 #line 1315
   if (tmp___16 != 0L) {
 #line 1316
@@ -10923,7 +10923,7 @@ int vhost_get_vq_desc(struct vhost_dev *dev , struct vhost_virtqueue *vq , struc
 #line 1316
     descriptor___5.flags = 0U;
 #line 1316
-    tmp___15 = __builtin_expect((long )descriptor___5.flags & 1L, 0L);
+    tmp___15 = ldv__builtin_expect((long )descriptor___5.flags & 1L, 0L);
 #line 1316
     if (tmp___15 != 0L) {
 #line 1316
@@ -10949,7 +10949,7 @@ int vhost_get_vq_desc(struct vhost_dev *dev , struct vhost_virtqueue *vq , struc
 #line 1321
     ret = get_indirect(dev, vq, iov, iov_size, out_num, in_num, log, log_num, & desc);
 #line 1324
-    tmp___18 = __builtin_expect(ret < 0, 0L);
+    tmp___18 = ldv__builtin_expect(ret < 0, 0L);
 #line 1324
     if (tmp___18 != 0L) {
 #line 1325
@@ -10965,7 +10965,7 @@ int vhost_get_vq_desc(struct vhost_dev *dev , struct vhost_virtqueue *vq , struc
 #line 1325
       descriptor___6.flags = 0U;
 #line 1325
-      tmp___17 = __builtin_expect((long )descriptor___6.flags & 1L, 0L);
+      tmp___17 = ldv__builtin_expect((long )descriptor___6.flags & 1L, 0L);
 #line 1325
       if (tmp___17 != 0L) {
 #line 1325
@@ -10995,7 +10995,7 @@ int vhost_get_vq_desc(struct vhost_dev *dev , struct vhost_virtqueue *vq , struc
   ret = translate_desc(dev, desc.addr, desc.len, iov + (unsigned long )iov_count,
                        (int )(iov_size - iov_count));
 #line 1334
-  tmp___20 = __builtin_expect(ret < 0, 0L);
+  tmp___20 = ldv__builtin_expect(ret < 0, 0L);
 #line 1334
   if (tmp___20 != 0L) {
 #line 1335
@@ -11011,7 +11011,7 @@ int vhost_get_vq_desc(struct vhost_dev *dev , struct vhost_virtqueue *vq , struc
 #line 1335
     descriptor___7.flags = 0U;
 #line 1335
-    tmp___19 = __builtin_expect((long )descriptor___7.flags & 1L, 0L);
+    tmp___19 = ldv__builtin_expect((long )descriptor___7.flags & 1L, 0L);
 #line 1335
     if (tmp___19 != 0L) {
 #line 1335
@@ -11037,7 +11037,7 @@ int vhost_get_vq_desc(struct vhost_dev *dev , struct vhost_virtqueue *vq , struc
 #line 1342
     *in_num = *in_num + (unsigned int )ret;
 #line 1343
-    tmp___21 = __builtin_expect((unsigned long )log != (unsigned long )((struct vhost_log *)0),
+    tmp___21 = ldv__builtin_expect((unsigned long )log != (unsigned long )((struct vhost_log *)0),
                                 0L);
 #line 1343
     if (tmp___21 != 0L) {
@@ -11052,7 +11052,7 @@ int vhost_get_vq_desc(struct vhost_dev *dev , struct vhost_virtqueue *vq , struc
     }
   } else {
 #line 1351
-    tmp___23 = __builtin_expect(*in_num != 0U, 0L);
+    tmp___23 = ldv__builtin_expect(*in_num != 0U, 0L);
 #line 1351
     if (tmp___23 != 0L) {
 #line 1352
@@ -11068,7 +11068,7 @@ int vhost_get_vq_desc(struct vhost_dev *dev , struct vhost_virtqueue *vq , struc
 #line 1352
       descriptor___8.flags = 0U;
 #line 1352
-      tmp___22 = __builtin_expect((long )descriptor___8.flags & 1L, 0L);
+      tmp___22 = ldv__builtin_expect((long )descriptor___8.flags & 1L, 0L);
 #line 1352
       if (tmp___22 != 0L) {
 #line 1352
@@ -11105,7 +11105,7 @@ int vhost_get_vq_desc(struct vhost_dev *dev , struct vhost_virtqueue *vq , struc
 #line 1361
   vq->last_avail_idx = (u16 )((int )vq->last_avail_idx + 1);
 #line 1365
-  tmp___24 = __builtin_expect(((int )vq->used_flags & 1) == 0, 0L);
+  tmp___24 = ldv__builtin_expect(((int )vq->used_flags & 1) == 0, 0L);
 #line 1365
   if (tmp___24 != 0L) {
 #line 1365
@@ -11204,7 +11204,7 @@ int vhost_add_used(struct vhost_virtqueue *vq , unsigned int head , int len )
 #line 1385
     descriptor.flags = 0U;
 #line 1385
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1385
     if (tmp != 0L) {
 #line 1385
@@ -11276,7 +11276,7 @@ int vhost_add_used(struct vhost_virtqueue *vq , unsigned int head , int len )
 #line 1389
     descriptor___0.flags = 0U;
 #line 1389
-    tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 1389
     if (tmp___0 != 0L) {
 #line 1389
@@ -11350,7 +11350,7 @@ int vhost_add_used(struct vhost_virtqueue *vq , unsigned int head , int len )
 #line 1395
     descriptor___1.flags = 0U;
 #line 1395
-    tmp___1 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 1395
     if (tmp___1 != 0L) {
 #line 1395
@@ -11371,7 +11371,7 @@ int vhost_add_used(struct vhost_virtqueue *vq , unsigned int head , int len )
 
   }
 #line 1398
-  tmp___2 = __builtin_expect((long )vq->log_used, 0L);
+  tmp___2 = ldv__builtin_expect((long )vq->log_used, 0L);
 #line 1398
   if (tmp___2 != 0L) {
 #line 1400
@@ -11394,7 +11394,7 @@ int vhost_add_used(struct vhost_virtqueue *vq , unsigned int head , int len )
 #line 1413
   vq->last_used_idx = (u16 )((int )vq->last_used_idx + 1);
 #line 1418
-  tmp___3 = __builtin_expect((int )vq->last_used_idx == (int )vq->signalled_used,
+  tmp___3 = ldv__builtin_expect((int )vq->last_used_idx == (int )vq->signalled_used,
                              0L);
 #line 1418
   if (tmp___3 != 0L) {
@@ -11444,7 +11444,7 @@ static int __vhost_add_used_n(struct vhost_virtqueue *vq , struct vring_used_ele
 #line 1434
     descriptor.flags = 0U;
 #line 1434
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1434
     if (tmp != 0L) {
 #line 1434
@@ -11465,7 +11465,7 @@ static int __vhost_add_used_n(struct vhost_virtqueue *vq , struct vring_used_ele
 
   }
 #line 1437
-  tmp___1 = __builtin_expect((long )vq->log_used, 0L);
+  tmp___1 = ldv__builtin_expect((long )vq->log_used, 0L);
 #line 1437
   if (tmp___1 != 0L) {
 #line 1439
@@ -11485,7 +11485,7 @@ static int __vhost_add_used_n(struct vhost_virtqueue *vq , struct vring_used_ele
 #line 1447
   new = tmp___2;
 #line 1452
-  tmp___3 = __builtin_expect((int )new - (int )vq->signalled_used < (int )new - (int )old,
+  tmp___3 = ldv__builtin_expect((int )new - (int )vq->signalled_used < (int )new - (int )old,
                              0L);
 #line 1452
   if (tmp___3 != 0L) {
@@ -11586,7 +11586,7 @@ int vhost_add_used_n(struct vhost_virtqueue *vq , struct vring_used_elem *heads 
 #line 1478
     descriptor.flags = 0U;
 #line 1478
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1478
     if (tmp != 0L) {
 #line 1478
@@ -11607,7 +11607,7 @@ int vhost_add_used_n(struct vhost_virtqueue *vq , struct vring_used_elem *heads 
 
   }
 #line 1481
-  tmp___0 = __builtin_expect((long )vq->log_used, 0L);
+  tmp___0 = ldv__builtin_expect((long )vq->log_used, 0L);
 #line 1481
   if (tmp___0 != 0L) {
 #line 1483
@@ -11658,7 +11658,7 @@ static bool vhost_notify(struct vhost_dev *dev , struct vhost_virtqueue *vq )
 #line 1501
   if (tmp != 0) {
 #line 1501
-    tmp___0 = __builtin_expect((int )vq->avail_idx == (int )vq->last_avail_idx, 0L);
+    tmp___0 = ldv__builtin_expect((int )vq->avail_idx == (int )vq->last_avail_idx, 0L);
 #line 1501
     if (tmp___0 != 0L) {
 #line 1503
@@ -11729,7 +11729,7 @@ static bool vhost_notify(struct vhost_dev *dev , struct vhost_virtqueue *vq )
 #line 1508
       descriptor.flags = 0U;
 #line 1508
-      tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+      tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1508
       if (tmp___1 != 0L) {
 #line 1508
@@ -11767,7 +11767,7 @@ static bool vhost_notify(struct vhost_dev *dev , struct vhost_virtqueue *vq )
 #line 1516
   vq->signalled_used_valid = 1;
 #line 1518
-  tmp___5 = __builtin_expect((long )(! v), 0L);
+  tmp___5 = ldv__builtin_expect((long )(! v), 0L);
 #line 1518
   if (tmp___5 != 0L) {
 #line 1519
@@ -11823,7 +11823,7 @@ static bool vhost_notify(struct vhost_dev *dev , struct vhost_virtqueue *vq )
 #line 1522
     descriptor___0.flags = 0U;
 #line 1522
-    tmp___6 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___6 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 1522
     if (tmp___6 != 0L) {
 #line 1522
@@ -11950,7 +11950,7 @@ bool vhost_enable_notify(struct vhost_dev *dev , struct vhost_virtqueue *vq )
 #line 1566
       descriptor.flags = 0U;
 #line 1566
-      tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+      tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1566
       if (tmp != 0L) {
 #line 1566
@@ -11989,7 +11989,7 @@ bool vhost_enable_notify(struct vhost_dev *dev , struct vhost_virtqueue *vq )
 #line 1573
       descriptor___0.flags = 0U;
 #line 1573
-      tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+      tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 1573
       if (tmp___0 != 0L) {
 #line 1573
@@ -12072,7 +12072,7 @@ bool vhost_enable_notify(struct vhost_dev *dev , struct vhost_virtqueue *vq )
 #line 1583
     descriptor___1.flags = 0U;
 #line 1583
-    tmp___3 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___3 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 1583
     if (tmp___3 != 0L) {
 #line 1583
@@ -12136,7 +12136,7 @@ void vhost_disable_notify(struct vhost_dev *dev , struct vhost_virtqueue *vq )
 #line 1602
       descriptor.flags = 0U;
 #line 1602
-      tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+      tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1602
       if (tmp != 0L) {
 #line 1602
@@ -12725,7 +12725,7 @@ __inline static void kref_get(struct kref *kref )
 #line 42
   __ret_warn_on = tmp == 0;
 #line 42
-  tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 42
   if (tmp___0 != 0L) {
 #line 42
@@ -12734,7 +12734,7 @@ __inline static void kref_get(struct kref *kref )
 
   }
 #line 42
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 43
   atomic_inc(& kref->refcount);
 #line 44
@@ -12795,7 +12795,7 @@ static bool vhost_sock_zcopy(struct socket *sock )
 
   {
 #line 109
-  tmp = __builtin_expect(experimental_zcopytx != 0, 0L);
+  tmp = ldv__builtin_expect(experimental_zcopytx != 0, 0L);
 #line 109
   if (tmp != 0L) {
 #line 109
@@ -12918,7 +12918,7 @@ static void tx_poll_stop(struct vhost_net *net )
 
   {
 #line 154
-  tmp = __builtin_expect((unsigned int )net->tx_poll_state != 1U, 1L);
+  tmp = ldv__builtin_expect((unsigned int )net->tx_poll_state != 1U, 1L);
 #line 154
   if (tmp != 0L) {
 #line 155
@@ -12941,7 +12941,7 @@ static void tx_poll_start(struct vhost_net *net , struct socket *sock )
 
   {
 #line 163
-  tmp = __builtin_expect((unsigned int )net->tx_poll_state != 2U, 0L);
+  tmp = ldv__builtin_expect((unsigned int )net->tx_poll_state != 2U, 0L);
 #line 163
   if (tmp != 0L) {
 #line 164
@@ -13078,7 +13078,7 @@ static void handle_tx(struct vhost_net *net )
   head = vhost_get_vq_desc(& net->dev, vq, (struct iovec *)(& vq->iov), 1024U, & out,
                            & in, 0, 0);
 #line 222
-  tmp___0 = __builtin_expect(head < 0, 0L);
+  tmp___0 = ldv__builtin_expect(head < 0, 0L);
 #line 222
   if (tmp___0 != 0L) {
 #line 223
@@ -13102,11 +13102,11 @@ static void handle_tx(struct vhost_net *net )
 
     }
 #line 237
-    tmp___1 = __builtin_expect(vq->upend_idx >= vq->done_idx, 1L);
+    tmp___1 = ldv__builtin_expect(vq->upend_idx >= vq->done_idx, 1L);
 #line 237
     num_pends = tmp___1 != 0L ? vq->upend_idx - vq->done_idx : (vq->upend_idx + 1024) - vq->done_idx;
 #line 240
-    tmp___2 = __builtin_expect(num_pends > 128, 0L);
+    tmp___2 = ldv__builtin_expect(num_pends > 128, 0L);
 #line 240
     if (tmp___2 != 0L) {
 #line 241
@@ -13121,7 +13121,7 @@ static void handle_tx(struct vhost_net *net )
 #line 245
     tmp___3 = vhost_enable_notify(& net->dev, vq);
 #line 245
-    tmp___4 = __builtin_expect((long )tmp___3, 0L);
+    tmp___4 = ldv__builtin_expect((long )tmp___3, 0L);
 #line 245
     if (tmp___4 != 0L) {
 #line 246
@@ -13151,7 +13151,7 @@ static void handle_tx(struct vhost_net *net )
 #line 252
     descriptor.flags = 0U;
 #line 252
-    tmp___5 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___5 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 252
     if (tmp___5 != 0L) {
 #line 252
@@ -13196,7 +13196,7 @@ static void handle_tx(struct vhost_net *net )
 #line 262
     descriptor___0.flags = 0U;
 #line 262
-    tmp___8 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___8 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 262
     if (tmp___8 != 0L) {
 #line 262
@@ -13261,7 +13261,7 @@ static void handle_tx(struct vhost_net *net )
 #line 292
   err = (*((sock->ops)->sendmsg))(0, sock, & msg, len);
 #line 293
-  tmp___9 = __builtin_expect(err < 0, 0L);
+  tmp___9 = ldv__builtin_expect(err < 0, 0L);
 #line 293
   if (tmp___9 != 0L) {
 #line 294
@@ -13307,7 +13307,7 @@ static void handle_tx(struct vhost_net *net )
 #line 306
     descriptor___1.flags = 0U;
 #line 306
-    tmp___10 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___10 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 306
     if (tmp___10 != 0L) {
 #line 306
@@ -13330,7 +13330,7 @@ static void handle_tx(struct vhost_net *net )
 #line 312
   total_len = total_len + len;
 #line 313
-  tmp___11 = __builtin_expect(total_len > 524287UL, 0L);
+  tmp___11 = ldv__builtin_expect(total_len > 524287UL, 0L);
 #line 313
   if (tmp___11 != 0L) {
 #line 314
@@ -13369,7 +13369,7 @@ static int peek_head_len(struct sock *sk )
 #line 329
   head = skb_peek((struct sk_buff_head  const  *)(& sk->sk_receive_queue));
 #line 330
-  tmp___0 = __builtin_expect((unsigned long )head != (unsigned long )((struct sk_buff *)0),
+  tmp___0 = ldv__builtin_expect((unsigned long )head != (unsigned long )((struct sk_buff *)0),
                              1L);
 #line 330
   if (tmp___0 != 0L) {
@@ -13424,7 +13424,7 @@ static int get_rx_bufs(struct vhost_virtqueue *vq , struct vring_used_elem *head
   goto ldv_41790;
   ldv_41789: 
 #line 365
-  tmp = __builtin_expect(seg > 1023, 0L);
+  tmp = ldv__builtin_expect(seg > 1023, 0L);
 #line 365
   if (tmp != 0L) {
 #line 366
@@ -13449,14 +13449,14 @@ static int get_rx_bufs(struct vhost_virtqueue *vq , struct vring_used_elem *head
 
   }
 #line 376
-  tmp___2 = __builtin_expect(out != 0U, 0L);
+  tmp___2 = ldv__builtin_expect(out != 0U, 0L);
 #line 376
   if (tmp___2 != 0L) {
 #line 376
     goto _L;
   } else {
 #line 376
-    tmp___3 = __builtin_expect(in == 0U, 0L);
+    tmp___3 = ldv__builtin_expect(in == 0U, 0L);
 #line 376
     if (tmp___3 != 0L) {
       _L: /* CIL Label */ 
@@ -13473,7 +13473,7 @@ static int get_rx_bufs(struct vhost_virtqueue *vq , struct vring_used_elem *head
 #line 377
       descriptor.flags = 0U;
 #line 377
-      tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+      tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 377
       if (tmp___1 != 0L) {
 #line 377
@@ -13498,7 +13498,7 @@ static int get_rx_bufs(struct vhost_virtqueue *vq , struct vring_used_elem *head
     }
   }
 #line 382
-  tmp___4 = __builtin_expect((unsigned long )log != (unsigned long )((struct vhost_log *)0),
+  tmp___4 = ldv__builtin_expect((unsigned long )log != (unsigned long )((struct vhost_log *)0),
                              0L);
 #line 382
   if (tmp___4 != 0L) {
@@ -13535,7 +13535,7 @@ static int get_rx_bufs(struct vhost_virtqueue *vq , struct vring_used_elem *head
 #line 393
   *iovcount = (unsigned int )seg;
 #line 394
-  tmp___6 = __builtin_expect((unsigned long )log != (unsigned long )((struct vhost_log *)0),
+  tmp___6 = ldv__builtin_expect((unsigned long )log != (unsigned long )((struct vhost_log *)0),
                              0L);
 #line 394
   if (tmp___6 != 0L) {
@@ -13663,7 +13663,7 @@ static void handle_rx(struct vhost_net *net )
 #line 437
   tmp___0 = vhost_has_feature(& net->dev, 26);
 #line 437
-  tmp___1 = __builtin_expect(tmp___0 != 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 != 0, 0L);
 #line 437
   vq_log = tmp___1 != 0L ? vq->log : 0;
 #line 439
@@ -13676,13 +13676,13 @@ static void handle_rx(struct vhost_net *net )
 #line 443
   vhost_len = sock_len + vhost_hlen;
 #line 444
-  tmp___2 = __builtin_expect(mergeable != 0, 1L);
+  tmp___2 = ldv__builtin_expect(mergeable != 0, 1L);
 #line 444
   tmp___3 = get_rx_bufs(vq, vq->heads, (int )vhost_len, & in, vq_log, & log, tmp___2 != 0L ? 1024U : 1U);
 #line 444
   headcount = (s16 )tmp___3;
 #line 448
-  tmp___4 = __builtin_expect((int )headcount < 0, 0L);
+  tmp___4 = ldv__builtin_expect((int )headcount < 0, 0L);
 #line 448
   if (tmp___4 != 0L) {
 #line 449
@@ -13695,7 +13695,7 @@ static void handle_rx(struct vhost_net *net )
 #line 452
     tmp___5 = vhost_enable_notify(& net->dev, vq);
 #line 452
-    tmp___6 = __builtin_expect((long )tmp___5, 0L);
+    tmp___6 = ldv__builtin_expect((long )tmp___5, 0L);
 #line 452
     if (tmp___6 != 0L) {
 #line 455
@@ -13711,7 +13711,7 @@ static void handle_rx(struct vhost_net *net )
 
   }
 #line 463
-  tmp___7 = __builtin_expect(vhost_hlen != 0UL, 0L);
+  tmp___7 = ldv__builtin_expect(vhost_hlen != 0UL, 0L);
 #line 463
   if (tmp___7 != 0L) {
 #line 465
@@ -13727,7 +13727,7 @@ static void handle_rx(struct vhost_net *net )
 #line 471
   err = (*((sock->ops)->recvmsg))(0, sock, & msg, sock_len, 96);
 #line 476
-  tmp___9 = __builtin_expect((size_t )err != sock_len, 0L);
+  tmp___9 = ldv__builtin_expect((size_t )err != sock_len, 0L);
 #line 476
   if (tmp___9 != 0L) {
 #line 477
@@ -13743,7 +13743,7 @@ static void handle_rx(struct vhost_net *net )
 #line 477
     descriptor.flags = 0U;
 #line 477
-    tmp___8 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___8 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 477
     if (tmp___8 != 0L) {
 #line 477
@@ -13760,7 +13760,7 @@ static void handle_rx(struct vhost_net *net )
 
   }
 #line 482
-  tmp___11 = __builtin_expect(vhost_hlen != 0UL, 0L);
+  tmp___11 = ldv__builtin_expect(vhost_hlen != 0UL, 0L);
 #line 482
   if (tmp___11 != 0L) {
 #line 482
@@ -13781,7 +13781,7 @@ static void handle_rx(struct vhost_net *net )
 #line 485
       descriptor___0.flags = 0U;
 #line 485
-      tmp___10 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+      tmp___10 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 485
       if (tmp___10 != 0L) {
 #line 485
@@ -13806,7 +13806,7 @@ static void handle_rx(struct vhost_net *net )
 
   }
 #line 490
-  tmp___14 = __builtin_expect(mergeable != 0, 1L);
+  tmp___14 = ldv__builtin_expect(mergeable != 0, 1L);
 #line 490
   if (tmp___14 != 0L) {
 #line 490
@@ -13827,7 +13827,7 @@ static void handle_rx(struct vhost_net *net )
 #line 494
       descriptor___1.flags = 0U;
 #line 494
-      tmp___13 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+      tmp___13 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 494
       if (tmp___13 != 0L) {
 #line 494
@@ -13855,7 +13855,7 @@ static void handle_rx(struct vhost_net *net )
 #line 498
   vhost_add_used_and_signal_n(& net->dev, vq, vq->heads, (unsigned int )headcount);
 #line 500
-  tmp___16 = __builtin_expect((unsigned long )vq_log != (unsigned long )((struct vhost_log *)0),
+  tmp___16 = ldv__builtin_expect((unsigned long )vq_log != (unsigned long )((struct vhost_log *)0),
                               0L);
 #line 500
   if (tmp___16 != 0L) {
@@ -13867,7 +13867,7 @@ static void handle_rx(struct vhost_net *net )
 #line 502
   total_len = total_len + vhost_len;
 #line 503
-  tmp___17 = __builtin_expect(total_len > 524287UL, 0L);
+  tmp___17 = ldv__builtin_expect(total_len > 524287UL, 0L);
 #line 503
   if (tmp___17 != 0L) {
 #line 504
@@ -15521,7 +15521,7 @@ __inline static void ldv_error(void)
 #line 25
 extern int __VERIFIER_nondet_int(void) ;
 #line 49 "/work/vladimir/kernel-rules/verifier/rcv.h"
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 

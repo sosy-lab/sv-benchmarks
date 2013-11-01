@@ -7882,7 +7882,7 @@ enum hrtimer_restart;
 #line 1 "<compiler builtins>"
 unsigned long __builtin_object_size(void * , int  ) ;
 #line 1
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 #line 119 "include/linux/printk.h"
 extern int printk(char const   *  , ...) ;
 #line 197 "include/linux/kernel.h"
@@ -8035,14 +8035,14 @@ __inline static unsigned long copy_from_user(void *to , void const   *from , uns
 #line 61
   might_fault();
 #line 62
-  tmp___1 = __builtin_expect(sz == -1, 1L);
+  tmp___1 = ldv__builtin_expect(sz == -1, 1L);
 #line 62
   if (tmp___1 != 0L) {
 #line 63
     n = _copy_from_user(to, from, (unsigned int )n);
   } else {
 #line 62
-    tmp___2 = __builtin_expect((unsigned long )sz >= n, 1L);
+    tmp___2 = ldv__builtin_expect((unsigned long )sz >= n, 1L);
 #line 62
     if (tmp___2 != 0L) {
 #line 63
@@ -8051,7 +8051,7 @@ __inline static unsigned long copy_from_user(void *to , void const   *from , uns
 #line 66
       __ret_warn_on = 1;
 #line 66
-      tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+      tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 66
       if (tmp___0 != 0L) {
 #line 66
@@ -8061,7 +8061,7 @@ __inline static unsigned long copy_from_user(void *to , void const   *from , uns
 
       }
 #line 66
-      __builtin_expect(__ret_warn_on != 0, 0L);
+      ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
   }
 #line 68
@@ -9822,7 +9822,7 @@ __inline static long IS_ERR(void const   *ptr )
 
   {
 #line 34
-  tmp = __builtin_expect((unsigned long )ptr > 0xfffffffffffff000UL, 0L);
+  tmp = ldv__builtin_expect((unsigned long )ptr > 0xfffffffffffff000UL, 0L);
 #line 34
   return (tmp);
 }
@@ -12045,7 +12045,7 @@ static void read_bulk_callback(struct urb *urb )
 #line 80
   pLeader = (struct bcm_leader *)urb->transfer_buffer;
 #line 82
-  tmp = __builtin_expect((Adapter->msg_enable & 2048U) != 0U, 0L);
+  tmp = ldv__builtin_expect((Adapter->msg_enable & 2048U) != 0U, 0L);
 #line 82
   if (tmp != 0L) {
 #line 83
@@ -13584,7 +13584,7 @@ static void write_bulk_callback(struct urb *urb )
 #line 42
   Adapter = (struct bcm_mini_adapter *)tmp;
 #line 44
-  tmp___0 = __builtin_expect((Adapter->msg_enable & 1024U) != 0U, 0L);
+  tmp___0 = ldv__builtin_expect((Adapter->msg_enable & 1024U) != 0U, 0L);
 #line 44
   if (tmp___0 != 0L) {
 #line 45
@@ -22124,7 +22124,7 @@ __inline static int signal_pending(struct task_struct *p )
 #line 2620
   tmp = test_tsk_thread_flag(p, 2);
 #line 2620
-  tmp___0 = __builtin_expect(tmp != 0, 0L);
+  tmp___0 = ldv__builtin_expect(tmp != 0, 0L);
 #line 2620
   return ((int )tmp___0);
 }
@@ -23016,7 +23016,7 @@ __inline static void netif_tx_stop_queue(struct netdev_queue *dev_queue )
 #line 1880
   __ret_warn_on = (unsigned long )dev_queue == (unsigned long )((struct netdev_queue *)0);
 #line 1880
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 1880
   if (tmp != 0L) {
 #line 1880
@@ -23025,7 +23025,7 @@ __inline static void netif_tx_stop_queue(struct netdev_queue *dev_queue )
 
   }
 #line 1880
-  tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 1880
   if (tmp___0 != 0L) {
 #line 1881
@@ -32316,7 +32316,7 @@ static long bcm_char_ioctl(struct file *filp , UINT cmd , ULONG arg )
     __asm__  ("add %3,%1 ; sbb %0,%0 ; cmp %1,%4 ; sbb $0,%0": "=&r" (flag), "=r" (roksum): "1" (argp),
               "g" ((long )(cmd >> 16) & 16383L), "rm" (tmp->addr_limit.seg));
 #line 203
-    tmp___0 = __builtin_expect(flag == 0UL, 1L);
+    tmp___0 = ldv__builtin_expect(flag == 0UL, 1L);
 #line 203
     Status = tmp___0 == 0L;
   } else
@@ -32328,7 +32328,7 @@ static long bcm_char_ioctl(struct file *filp , UINT cmd , ULONG arg )
     __asm__  ("add %3,%1 ; sbb %0,%0 ; cmp %1,%4 ; sbb $0,%0": "=&r" (flag___0), "=r" (roksum___0): "1" (argp),
               "g" ((long )(cmd >> 16) & 16383L), "rm" (tmp___1->addr_limit.seg));
 #line 205
-    tmp___2 = __builtin_expect(flag___0 == 0UL, 1L);
+    tmp___2 = ldv__builtin_expect(flag___0 == 0UL, 1L);
 #line 205
     Status = tmp___2 == 0L;
   } else {
@@ -50682,7 +50682,7 @@ __inline static void ldv_error(void)
 #line 25
 extern int __VERIFIER_nondet_int(void) ;
 #line 49 "/home/mikhail/ldv/kernel-rules/verifier/rcv.h"
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 

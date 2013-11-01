@@ -4329,7 +4329,7 @@ struct spcp8x5_private {
    u8 line_status ;
 };
 #line 1 "<compiler builtins>"
-long __builtin_expect(long val , long res ) ;
+long ldv__builtin_expect(long val , long res ) ;
 #line 315 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/bitops.h"
 __inline static int variable_test_bit(int nr , unsigned long const volatile   *addr )  __attribute__((__no_instrument_function__)) ;
 #line 315 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/bitops.h"
@@ -4812,7 +4812,7 @@ __inline static int signal_pending(struct task_struct *p )
 #line 2591
   __cil_tmp5 = (long )tmp___8;
 #line 2591
-  tmp___9 = __builtin_expect(__cil_tmp5, 0L);
+  tmp___9 = ldv__builtin_expect(__cil_tmp5, 0L);
   }
 #line 2591
   return ((int )tmp___9);
@@ -5129,7 +5129,7 @@ static int spcp8x5_startup(struct usb_serial *serial )
 #line 192
       __cil_tmp29 = (long )__cil_tmp28;
 #line 192
-      tmp___7 = __builtin_expect(__cil_tmp29, 0L);
+      tmp___7 = ldv__builtin_expect(__cil_tmp29, 0L);
       }
 #line 192
       if (tmp___7) {
@@ -5500,7 +5500,7 @@ static int spcp8x5_set_ctrlLine(struct usb_device *dev , u8 value , enum spcp8x5
 #line 240
         __cil_tmp24 = (long )__cil_tmp23;
 #line 240
-        tmp___8 = __builtin_expect(__cil_tmp24, 0L);
+        tmp___8 = ldv__builtin_expect(__cil_tmp24, 0L);
         }
 #line 240
         if (tmp___8) {
@@ -5697,7 +5697,7 @@ static int spcp8x5_get_msr(struct usb_device *dev , u8 *status , enum spcp8x5_ty
 #line 268
         __cil_tmp32 = (long )__cil_tmp31;
 #line 268
-        tmp___9 = __builtin_expect(__cil_tmp32, 0L);
+        tmp___9 = ldv__builtin_expect(__cil_tmp32, 0L);
         }
 #line 268
         if (tmp___9) {
@@ -5752,7 +5752,7 @@ static int spcp8x5_get_msr(struct usb_device *dev , u8 *status , enum spcp8x5_ty
 #line 271
       __cil_tmp42 = (long )__cil_tmp41;
 #line 271
-      tmp___10 = __builtin_expect(__cil_tmp42, 0L);
+      tmp___10 = ldv__builtin_expect(__cil_tmp42, 0L);
       }
 #line 271
       if (tmp___10) {
@@ -5905,7 +5905,7 @@ static void spcp8x5_set_workMode(struct usb_device *dev , u16 value , u16 index 
 #line 293
       __cil_tmp22 = (long )__cil_tmp21;
 #line 293
-      tmp___8 = __builtin_expect(__cil_tmp22, 0L);
+      tmp___8 = ldv__builtin_expect(__cil_tmp22, 0L);
       }
 #line 293
       if (tmp___8) {
@@ -5963,7 +5963,7 @@ static void spcp8x5_set_workMode(struct usb_device *dev , u16 value , u16 index 
 #line 295
         __cil_tmp34 = (long )__cil_tmp33;
 #line 295
-        tmp___9 = __builtin_expect(__cil_tmp34, 0L);
+        tmp___9 = ldv__builtin_expect(__cil_tmp34, 0L);
         }
 #line 295
         if (tmp___9) {
@@ -7653,7 +7653,7 @@ static void spcp8x5_process_read_urb(struct urb *urb )
 #line 523
         __cil_tmp50 = (long )__cil_tmp49;
 #line 523
-        tmp___9 = __builtin_expect(__cil_tmp50, 0L);
+        tmp___9 = ldv__builtin_expect(__cil_tmp50, 0L);
         }
 #line 523
         if (tmp___9) {
@@ -9055,7 +9055,7 @@ void ldv_check_final_state(void)
 }
 }
 #line 2594 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/7558/dscv_tempdir/dscv/ri/32_1/drivers/usb/serial/spcp8x5.c.common.c"
-long __builtin_expect(long val , long res ) 
+long ldv__builtin_expect(long val , long res ) 
 { 
 
   {

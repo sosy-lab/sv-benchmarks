@@ -2490,7 +2490,7 @@ struct eeprom_93xx46_dev {
    int addrlen ;
 };
 #line 1 "<compiler builtins>"
-long __builtin_expect(long val , long res ) ;
+long ldv__builtin_expect(long val , long res ) ;
 #line 49 "include/linux/dynamic_debug.h"
 extern int ( /* format attribute */  __dynamic_dev_dbg)(struct _ddebug *descriptor ,
                                                         struct device  const  *dev ,
@@ -2949,7 +2949,7 @@ static ssize_t eeprom_93xx46_bin_read(struct file *filp , struct kobject *kobj ,
 #line 53
   __cil_tmp36 = (long )__cil_tmp35;
 #line 53
-  tmp___8 = __builtin_expect(__cil_tmp36, 0L);
+  tmp___8 = ldv__builtin_expect(__cil_tmp36, 0L);
   }
 #line 53
   if (tmp___8) {
@@ -3003,7 +3003,7 @@ static ssize_t eeprom_93xx46_bin_read(struct file *filp , struct kobject *kobj ,
 #line 57
   __cil_tmp53 = (long )__cil_tmp52;
 #line 57
-  tmp___9 = __builtin_expect(__cil_tmp53, 0L);
+  tmp___9 = ldv__builtin_expect(__cil_tmp53, 0L);
   }
 #line 57
   if (tmp___9) {
@@ -3090,7 +3090,7 @@ static ssize_t eeprom_93xx46_bin_read(struct file *filp , struct kobject *kobj ,
 #line 70
       __cil_tmp79 = (long )__cil_tmp78;
 #line 70
-      tmp___10 = __builtin_expect(__cil_tmp79, 0L);
+      tmp___10 = ldv__builtin_expect(__cil_tmp79, 0L);
       }
 #line 70
       if (tmp___10) {
@@ -3517,7 +3517,7 @@ static int eeprom_93xx46_ew(struct eeprom_93xx46_dev *edev , int is_on )
 #line 122
       __cil_tmp36 = (long )__cil_tmp35;
 #line 122
-      tmp___9 = __builtin_expect(__cil_tmp36, 0L);
+      tmp___9 = ldv__builtin_expect(__cil_tmp36, 0L);
       }
 #line 122
       if (tmp___9) {
@@ -3858,7 +3858,7 @@ static ssize_t eeprom_93xx46_write_word(struct eeprom_93xx46_dev *edev , char co
 #line 172
       __cil_tmp38 = (long )__cil_tmp37;
 #line 172
-      tmp___7 = __builtin_expect(__cil_tmp38, 0L);
+      tmp___7 = ldv__builtin_expect(__cil_tmp38, 0L);
       }
 #line 172
       if (tmp___7) {
@@ -4140,7 +4140,7 @@ static ssize_t eeprom_93xx46_bin_write(struct file *filp , struct kobject *kobj 
 #line 205
   __cil_tmp34 = (long )__cil_tmp33;
 #line 205
-  tmp___8 = __builtin_expect(__cil_tmp34, 0L);
+  tmp___8 = ldv__builtin_expect(__cil_tmp34, 0L);
   }
 #line 205
   if (tmp___8) {
@@ -4194,7 +4194,7 @@ static ssize_t eeprom_93xx46_bin_write(struct file *filp , struct kobject *kobj 
 #line 209
   __cil_tmp51 = (long )__cil_tmp50;
 #line 209
-  tmp___9 = __builtin_expect(__cil_tmp51, 0L);
+  tmp___9 = ldv__builtin_expect(__cil_tmp51, 0L);
   }
 #line 209
   if (tmp___9) {
@@ -5667,7 +5667,7 @@ void ldv_check_final_state(void)
 }
 }
 #line 527 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/4744/dscv_tempdir/dscv/ri/32_1/drivers/misc/eeprom/eeprom_93xx46.c.common.c"
-long __builtin_expect(long val , long res ) 
+long ldv__builtin_expect(long val , long res ) 
 { 
 
   {

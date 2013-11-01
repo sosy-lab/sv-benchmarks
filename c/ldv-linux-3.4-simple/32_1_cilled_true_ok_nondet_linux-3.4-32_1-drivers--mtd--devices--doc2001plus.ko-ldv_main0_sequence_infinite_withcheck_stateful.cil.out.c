@@ -2574,7 +2574,7 @@ struct DiskOnChip {
    struct mutex lock ;
 };
 #line 1 "<compiler builtins>"
-long __builtin_expect(long val , long res ) ;
+long ldv__builtin_expect(long val , long res ) ;
 #line 397 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/bitops.h"
 __inline static int ffs(int x )  __attribute__((__no_instrument_function__)) ;
 #line 397 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/bitops.h"
@@ -2791,7 +2791,7 @@ static int _DoC_WaitReady(void *docptr )
 #line 65
     __cil_tmp11 = (long )__cil_tmp10;
 #line 65
-    tmp___7 = __builtin_expect(__cil_tmp11, 0L);
+    tmp___7 = ldv__builtin_expect(__cil_tmp11, 0L);
     }
 #line 65
     if (tmp___7) {
@@ -2863,7 +2863,7 @@ static int _DoC_WaitReady(void *docptr )
 #line 72
       __cil_tmp21 = (long )__cil_tmp20;
 #line 72
-      tmp___9 = __builtin_expect(__cil_tmp21, 0L);
+      tmp___9 = ldv__builtin_expect(__cil_tmp21, 0L);
       }
 #line 72
       if (tmp___9) {
@@ -6227,7 +6227,7 @@ static int doc_read_oob(struct mtd_info *mtd , loff_t ofs , struct mtd_oob_ops *
 #line 821
     __cil_tmp39 = (long )__cil_tmp38;
 #line 821
-    tmp___7 = __builtin_expect(__cil_tmp39, 0L);
+    tmp___7 = ldv__builtin_expect(__cil_tmp39, 0L);
     }
 #line 821
     if (tmp___7) {
@@ -6769,7 +6769,7 @@ static int doc_write_oob(struct mtd_info *mtd , loff_t ofs , struct mtd_oob_ops 
 #line 906
     __cil_tmp45 = (long )__cil_tmp44;
 #line 906
-    tmp___7 = __builtin_expect(__cil_tmp45, 0L);
+    tmp___7 = ldv__builtin_expect(__cil_tmp45, 0L);
     }
 #line 906
     if (tmp___7) {
@@ -7936,7 +7936,7 @@ void ldv_check_final_state(void)
 }
 }
 #line 1198 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/5407/dscv_tempdir/dscv/ri/32_1/drivers/mtd/devices/doc2001plus.c.common.c"
-long __builtin_expect(long val , long res ) 
+long ldv__builtin_expect(long val , long res ) 
 { 
 
   {

@@ -4600,7 +4600,7 @@ struct qlogicfas408_priv {
    struct qlogicfas408_priv *next ;
 };
 #line 1 "<compiler builtins>"
-long __builtin_expect(long val , long res ) ;
+long ldv__builtin_expect(long val , long res ) ;
 #line 100 "include/linux/printk.h"
 extern int ( /* format attribute */  printk)(char const   *fmt  , ...) ;
 #line 651 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/processor.h"
@@ -4828,7 +4828,7 @@ __inline static struct page *sg_page(struct scatterlist *sg )
 #line 98
     __cil_tmp8 = (long )__cil_tmp7;
 #line 98
-    tmp___7 = __builtin_expect(__cil_tmp8, 0L);
+    tmp___7 = ldv__builtin_expect(__cil_tmp8, 0L);
     }
 #line 98
     if (tmp___7) {
@@ -4884,7 +4884,7 @@ __inline static struct page *sg_page(struct scatterlist *sg )
 #line 99
     __cil_tmp15 = (long )__cil_tmp14;
 #line 99
-    tmp___8 = __builtin_expect(__cil_tmp15, 0L);
+    tmp___8 = ldv__builtin_expect(__cil_tmp15, 0L);
     }
 #line 99
     if (tmp___8) {
@@ -8613,7 +8613,7 @@ void ldv_check_final_state(void)
 }
 }
 #line 779 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/969/dscv_tempdir/dscv/ri/32_1/drivers/scsi/qlogicfas408.c.common.c"
-long __builtin_expect(long val , long res ) 
+long ldv__builtin_expect(long val , long res ) 
 { 
 
   {

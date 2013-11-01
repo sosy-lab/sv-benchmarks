@@ -3707,7 +3707,7 @@ struct cypress {
    unsigned char port[2] ;
 };
 #line 1 "<compiler builtins>"
-long __builtin_expect(long val , long res ) ;
+long ldv__builtin_expect(long val , long res ) ;
 #line 49 "include/linux/dynamic_debug.h"
 extern int ( /* format attribute */  __dynamic_dev_dbg)(struct _ddebug *descriptor ,
                                                         struct device  const  *dev ,
@@ -4092,7 +4092,7 @@ static int vendor_command(struct cypress *dev , unsigned char request , unsigned
 #line 89
       __cil_tmp24 = (long )__cil_tmp23;
 #line 89
-      tmp___8 = __builtin_expect(__cil_tmp24, 0L);
+      tmp___8 = ldv__builtin_expect(__cil_tmp24, 0L);
       }
 #line 89
       if (tmp___8) {
@@ -4208,7 +4208,7 @@ static int vendor_command(struct cypress *dev , unsigned char request , unsigned
 #line 103
           __cil_tmp55 = (long )__cil_tmp54;
 #line 103
-          tmp___10 = __builtin_expect(__cil_tmp55, 0L);
+          tmp___10 = ldv__builtin_expect(__cil_tmp55, 0L);
           }
 #line 103
           if (tmp___10) {
@@ -4292,7 +4292,7 @@ static int vendor_command(struct cypress *dev , unsigned char request , unsigned
 #line 109
             __cil_tmp78 = (long )__cil_tmp77;
 #line 109
-            tmp___11 = __builtin_expect(__cil_tmp78, 0L);
+            tmp___11 = ldv__builtin_expect(__cil_tmp78, 0L);
             }
 #line 109
             if (tmp___11) {
@@ -4477,7 +4477,7 @@ static ssize_t write_port(struct device *dev , struct device_attribute *attr , c
 #line 132
       __cil_tmp30 = (long )__cil_tmp29;
 #line 132
-      tmp___8 = __builtin_expect(__cil_tmp30, 0L);
+      tmp___8 = ldv__builtin_expect(__cil_tmp30, 0L);
       }
 #line 132
       if (tmp___8) {
@@ -4585,7 +4585,7 @@ static ssize_t write_port(struct device *dev , struct device_attribute *attr , c
 #line 147
       __cil_tmp49 = (long )__cil_tmp48;
 #line 147
-      tmp___10 = __builtin_expect(__cil_tmp49, 0L);
+      tmp___10 = ldv__builtin_expect(__cil_tmp49, 0L);
       }
 #line 147
       if (tmp___10) {
@@ -4769,7 +4769,7 @@ static ssize_t read_port(struct device *dev , struct device_attribute *attr , ch
 #line 177
       __cil_tmp26 = (long )__cil_tmp25;
 #line 177
-      tmp___8 = __builtin_expect(__cil_tmp26, 0L);
+      tmp___8 = ldv__builtin_expect(__cil_tmp26, 0L);
       }
 #line 177
       if (tmp___8) {
@@ -4828,7 +4828,7 @@ static ssize_t read_port(struct device *dev , struct device_attribute *attr , ch
 #line 181
       __cil_tmp38 = (long )__cil_tmp37;
 #line 181
-      tmp___9 = __builtin_expect(__cil_tmp38, 0L);
+      tmp___9 = ldv__builtin_expect(__cil_tmp38, 0L);
       }
 #line 181
       if (tmp___9) {
@@ -5597,7 +5597,7 @@ void ldv_check_final_state(void)
 }
 }
 #line 472 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/7711/dscv_tempdir/dscv/ri/32_1/drivers/usb/misc/cypress_cy7c63.c.common.c"
-long __builtin_expect(long val , long res ) 
+long ldv__builtin_expect(long val , long res ) 
 { 
 
   {

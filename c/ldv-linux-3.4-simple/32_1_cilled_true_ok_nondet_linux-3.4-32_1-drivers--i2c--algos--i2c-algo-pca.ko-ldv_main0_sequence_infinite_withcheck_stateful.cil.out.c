@@ -2418,7 +2418,7 @@ struct i2c_algo_pca_data {
    unsigned int i2c_clock ;
 };
 #line 1 "<compiler builtins>"
-long __builtin_expect(long val , long res ) ;
+long ldv__builtin_expect(long val , long res ) ;
 #line 100 "include/linux/printk.h"
 extern int ( /* format attribute */  printk)(char const   *fmt  , ...) ;
 #line 49 "include/linux/dynamic_debug.h"
@@ -3438,7 +3438,7 @@ static int pca_xfer(struct i2c_adapter *i2c_adap , struct i2c_msg *msgs , int nu
 #line 199
           __cil_tmp44 = (long )__cil_tmp43;
 #line 199
-          tmp___7 = __builtin_expect(__cil_tmp44, 0L);
+          tmp___7 = ldv__builtin_expect(__cil_tmp44, 0L);
           }
 #line 199
           if (tmp___7) {
@@ -5664,7 +5664,7 @@ void ldv_check_final_state(void)
 }
 }
 #line 755 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/250/dscv_tempdir/dscv/ri/32_1/drivers/i2c/algos/i2c-algo-pca.c.common.c"
-long __builtin_expect(long val , long res ) 
+long ldv__builtin_expect(long val , long res ) 
 { 
 
   {

@@ -5008,7 +5008,7 @@ struct ixj_info_t {
 #line 22 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/2058/dscv_tempdir/dscv/ri/32_1/drivers/staging/telephony/ixj_pcmcia.c.common.c"
 typedef struct ixj_info_t ixj_info_t;
 #line 1 "<compiler builtins>"
-long __builtin_expect(long val , long res ) ;
+long ldv__builtin_expect(long val , long res ) ;
 #line 100 "include/linux/printk.h"
 extern int ( /* format attribute */  printk)(char const   *fmt  , ...) ;
 #line 49 "include/linux/dynamic_debug.h"
@@ -5145,7 +5145,7 @@ static int ixj_probe(struct pcmcia_device *p_dev )
 #line 33
       __cil_tmp9 = (long )__cil_tmp8;
 #line 33
-      tmp___7 = __builtin_expect(__cil_tmp9, 0L);
+      tmp___7 = ldv__builtin_expect(__cil_tmp9, 0L);
       }
 #line 33
       if (tmp___7) {
@@ -5252,7 +5252,7 @@ static void ixj_detach(struct pcmcia_device *link )
 #line 45
       __cil_tmp8 = (long )__cil_tmp7;
 #line 45
-      tmp___7 = __builtin_expect(__cil_tmp8, 0L);
+      tmp___7 = ldv__builtin_expect(__cil_tmp8, 0L);
       }
 #line 45
       if (tmp___7) {
@@ -5399,7 +5399,7 @@ static void ixj_get_serial(struct pcmcia_device *link , IXJ *j )
 #line 56
       __cil_tmp13 = (long )__cil_tmp12;
 #line 56
-      tmp___7 = __builtin_expect(__cil_tmp13, 0L);
+      tmp___7 = ldv__builtin_expect(__cil_tmp13, 0L);
       }
 #line 56
       if (tmp___7) {
@@ -6043,7 +6043,7 @@ static int ixj_config(struct pcmcia_device *link )
 #line 128
       __cil_tmp15 = (long )__cil_tmp14;
 #line 128
-      tmp___7 = __builtin_expect(__cil_tmp15, 0L);
+      tmp___7 = ldv__builtin_expect(__cil_tmp15, 0L);
       }
 #line 128
       if (tmp___7) {
@@ -6206,7 +6206,7 @@ static void ixj_cs_release(struct pcmcia_device *link )
 #line 156
       __cil_tmp12 = (long )__cil_tmp11;
 #line 156
-      tmp___7 = __builtin_expect(__cil_tmp12, 0L);
+      tmp___7 = ldv__builtin_expect(__cil_tmp12, 0L);
       }
 #line 156
       if (tmp___7) {
@@ -6661,7 +6661,7 @@ void ldv_check_final_state(void)
 }
 }
 #line 332 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/2058/dscv_tempdir/dscv/ri/32_1/drivers/staging/telephony/ixj_pcmcia.c.common.c"
-long __builtin_expect(long val , long res ) 
+long ldv__builtin_expect(long val , long res ) 
 { 
 
   {

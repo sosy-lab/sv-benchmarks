@@ -5782,7 +5782,7 @@ struct net_local {
 #line 1 "<compiler builtins>"
 
 #line 1
-long __builtin_expect(long val , long res ) ;
+long ldv__builtin_expect(long val , long res ) ;
 #line 100 "include/linux/printk.h"
 extern int ( /* format attribute */  printk)(char const   *fmt  , ...) ;
 #line 34 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/string_64.h"
@@ -7674,7 +7674,7 @@ static void abyss_detach(struct pci_dev *pdev )
 #line 436
     __cil_tmp8 = (long )__cil_tmp7;
 #line 436
-    tmp___8 = __builtin_expect(__cil_tmp8, 0L);
+    tmp___8 = ldv__builtin_expect(__cil_tmp8, 0L);
     }
 #line 436
     if (tmp___8) {
@@ -8156,7 +8156,7 @@ void ldv_check_final_state(void)
 }
 }
 #line 604 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/9688/dscv_tempdir/dscv/ri/32_1/drivers/net/tokenring/abyss.c.common.c"
-long __builtin_expect(long val , long res ) 
+long ldv__builtin_expect(long val , long res ) 
 { 
 
   {

@@ -3998,7 +3998,7 @@ struct tda18271_config {
 #line 1 "<compiler builtins>"
 void *__builtin_memcpy(void * , void const   * , unsigned long  ) ;
 #line 1
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 #line 34 "/home/mikhail/launches/cpachecker-regression2/launcher-working-dir/ldv-manager-work-dir/inst/current/envs/linux-3.8-rc1/linux-3.8-rc1/arch/x86/include/asm/string_64.h"
 extern void *__memcpy(void * , void const   * , size_t  ) ;
 #line 168 "include/linux/mutex.h"
@@ -5162,7 +5162,7 @@ int tda18271_lookup_pll_map(struct dvb_frontend *fe , enum tda18271_map_type map
 #line 1115
   ret = 0;
 #line 1117
-  tmp = __builtin_expect((unsigned long )priv->maps == (unsigned long )((struct tda18271_map_layout *)0),
+  tmp = ldv__builtin_expect((unsigned long )priv->maps == (unsigned long )((struct tda18271_map_layout *)0),
                          0L);
 #line 1117
   if (tmp != 0L) {
@@ -5278,7 +5278,7 @@ int tda18271_lookup_map(struct dvb_frontend *fe , enum tda18271_map_type map_typ
 #line 1166
   ret = 0;
 #line 1168
-  tmp = __builtin_expect((unsigned long )priv->maps == (unsigned long )((struct tda18271_map_layout *)0),
+  tmp = ldv__builtin_expect((unsigned long )priv->maps == (unsigned long )((struct tda18271_map_layout *)0),
                          0L);
 #line 1168
   if (tmp != 0L) {
@@ -6342,14 +6342,14 @@ static int __tda18271_write_regs(struct dvb_frontend *fe , int idx , int len , b
 #line 238
   ret = 1;
 #line 240
-  tmp = __builtin_expect(len == 0, 0L);
+  tmp = ldv__builtin_expect(len == 0, 0L);
 #line 240
   if (tmp != 0L) {
 #line 240
     goto _L;
   } else {
 #line 240
-    tmp___0 = __builtin_expect((unsigned int )(idx + len) > 40U, 0L);
+    tmp___0 = ldv__builtin_expect((unsigned int )(idx + len) > 40U, 0L);
 #line 240
     if (tmp___0 != 0L) {
       _L: /* CIL Label */ 
@@ -10947,7 +10947,7 @@ __inline static void ldv_error(void)
 #line 25
 extern int __VERIFIER_nondet_int(void) ;
 #line 49 "/home/mikhail/ldv/kernel-rules/verifier/rcv.h"
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 

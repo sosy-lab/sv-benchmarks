@@ -3952,7 +3952,7 @@ typedef int ldv_func_ret_type___2;
 #line 1 "<compiler builtins>"
 void *__builtin_memcpy(void * , void const   * , unsigned long  ) ;
 #line 1
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 #line 197 "/home/mikhail/launches/cpachecker-regression2/launcher-working-dir/ldv-manager-work-dir/inst/current/envs/linux-3.8-rc1/linux-3.8-rc1/arch/x86/include/asm/bitops.h"
 __inline static int test_and_set_bit(int nr , unsigned long volatile   *addr ) 
 { 
@@ -4055,7 +4055,7 @@ __inline static unsigned long arch_local_save_flags(void)
 #line 825
   __eax = __eax;
 #line 825
-  tmp = __builtin_expect((unsigned long )pv_irq_ops.save_fl.func == (unsigned long )((void *)0),
+  tmp = ldv__builtin_expect((unsigned long )pv_irq_ops.save_fl.func == (unsigned long )((void *)0),
                          0L);
 #line 825
   if (tmp != 0L) {
@@ -4100,7 +4100,7 @@ __inline static void arch_local_irq_restore(unsigned long f )
 #line 830
   __eax = __eax;
 #line 830
-  tmp = __builtin_expect((unsigned long )pv_irq_ops.restore_fl.func == (unsigned long )((void *)0),
+  tmp = ldv__builtin_expect((unsigned long )pv_irq_ops.restore_fl.func == (unsigned long )((void *)0),
                          0L);
 #line 830
   if (tmp != 0L) {
@@ -4143,7 +4143,7 @@ __inline static void arch_local_irq_disable(void)
 #line 835
   __eax = __eax;
 #line 835
-  tmp = __builtin_expect((unsigned long )pv_irq_ops.irq_disable.func == (unsigned long )((void *)0),
+  tmp = ldv__builtin_expect((unsigned long )pv_irq_ops.irq_disable.func == (unsigned long )((void *)0),
                          0L);
 #line 835
   if (tmp != 0L) {
@@ -4211,7 +4211,7 @@ __inline static long IS_ERR_OR_NULL(void const   *ptr )
     tmp___0 = 1;
   } else {
 #line 39
-    tmp = __builtin_expect((unsigned long )ptr > 0xfffffffffffff000UL, 0L);
+    tmp = ldv__builtin_expect((unsigned long )ptr > 0xfffffffffffff000UL, 0L);
 #line 39
     if (tmp != 0L) {
 #line 39
@@ -4593,7 +4593,7 @@ __inline static struct page *sg_page(struct scatterlist *sg )
 
   {
 #line 98
-  tmp = __builtin_expect(sg->sg_magic != 2271560481UL, 0L);
+  tmp = ldv__builtin_expect(sg->sg_magic != 2271560481UL, 0L);
 #line 98
   if (tmp != 0L) {
 #line 98
@@ -4606,7 +4606,7 @@ __inline static struct page *sg_page(struct scatterlist *sg )
 
   }
 #line 99
-  tmp___0 = __builtin_expect((long )((int )sg->page_link) & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )((int )sg->page_link) & 1L, 0L);
 #line 99
   if (tmp___0 != 0L) {
 #line 99
@@ -4694,7 +4694,7 @@ __inline static struct dma_map_ops *get_dma_ops(struct device *dev )
 
   {
 #line 37
-  tmp = __builtin_expect((unsigned long )dev == (unsigned long )((struct device *)0),
+  tmp = ldv__builtin_expect((unsigned long )dev == (unsigned long )((struct device *)0),
                          0L);
 #line 37
   if (tmp != 0L || (unsigned long )dev->archdata.dma_ops == (unsigned long )((struct dma_map_ops *)0)) {
@@ -4728,7 +4728,7 @@ __inline static dma_addr_t dma_map_single_attrs(struct device *dev , void *ptr ,
 #line 19
   tmp___0 = valid_dma_direction((int )dir);
 #line 19
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
 #line 19
   if (tmp___1 != 0L) {
 #line 19
@@ -4772,7 +4772,7 @@ __inline static void dma_unmap_single_attrs(struct device *dev , dma_addr_t addr
 #line 36
   tmp___0 = valid_dma_direction((int )dir);
 #line 36
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
 #line 36
   if (tmp___1 != 0L) {
 #line 36
@@ -4844,7 +4844,7 @@ __inline static int dma_map_sg_attrs(struct device *dev , struct scatterlist *sg
 #line 52
   tmp___1 = valid_dma_direction((int )dir);
 #line 52
-  tmp___2 = __builtin_expect(tmp___1 == 0, 0L);
+  tmp___2 = ldv__builtin_expect(tmp___1 == 0, 0L);
 #line 52
   if (tmp___2 != 0L) {
 #line 52
@@ -4882,7 +4882,7 @@ __inline static void dma_unmap_sg_attrs(struct device *dev , struct scatterlist 
 #line 65
   tmp___0 = valid_dma_direction((int )dir);
 #line 65
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
 #line 65
   if (tmp___1 != 0L) {
 #line 65
@@ -4927,7 +4927,7 @@ __inline static void dma_sync_single_for_device(struct device *dev , dma_addr_t 
 #line 115
   tmp___0 = valid_dma_direction((int )dir);
 #line 115
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
 #line 115
   if (tmp___1 != 0L) {
 #line 115
@@ -4972,7 +4972,7 @@ __inline static void dma_sync_sg_for_cpu(struct device *dev , struct scatterlist
 #line 155
   tmp___0 = valid_dma_direction((int )dir);
 #line 155
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
 #line 155
   if (tmp___1 != 0L) {
 #line 155
@@ -5137,7 +5137,7 @@ __inline static int signal_pending(struct task_struct *p )
 #line 2620
   tmp = test_tsk_thread_flag(p, 2);
 #line 2620
-  tmp___0 = __builtin_expect(tmp != 0, 0L);
+  tmp___0 = ldv__builtin_expect(tmp != 0, 0L);
 #line 2620
   return ((int )tmp___0);
 }
@@ -5418,7 +5418,7 @@ static void sdhci_dumpregs(struct sdhci_host *host )
 #line 105
   descriptor.flags = 0U;
 #line 105
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 105
   if (tmp___0 != 0L) {
 #line 105
@@ -5442,7 +5442,7 @@ static void sdhci_dumpregs(struct sdhci_host *host )
 #line 108
   descriptor___0.flags = 0U;
 #line 108
-  tmp___3 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___3 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 108
   if (tmp___3 != 0L) {
 #line 108
@@ -5468,7 +5468,7 @@ static void sdhci_dumpregs(struct sdhci_host *host )
 #line 111
   descriptor___1.flags = 0U;
 #line 111
-  tmp___6 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+  tmp___6 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 111
   if (tmp___6 != 0L) {
 #line 111
@@ -5494,7 +5494,7 @@ static void sdhci_dumpregs(struct sdhci_host *host )
 #line 114
   descriptor___2.flags = 0U;
 #line 114
-  tmp___9 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+  tmp___9 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
 #line 114
   if (tmp___9 != 0L) {
 #line 114
@@ -5520,7 +5520,7 @@ static void sdhci_dumpregs(struct sdhci_host *host )
 #line 117
   descriptor___3.flags = 0U;
 #line 117
-  tmp___12 = __builtin_expect((long )descriptor___3.flags & 1L, 0L);
+  tmp___12 = ldv__builtin_expect((long )descriptor___3.flags & 1L, 0L);
 #line 117
   if (tmp___12 != 0L) {
 #line 117
@@ -5546,7 +5546,7 @@ static void sdhci_dumpregs(struct sdhci_host *host )
 #line 120
   descriptor___4.flags = 0U;
 #line 120
-  tmp___15 = __builtin_expect((long )descriptor___4.flags & 1L, 0L);
+  tmp___15 = ldv__builtin_expect((long )descriptor___4.flags & 1L, 0L);
 #line 120
   if (tmp___15 != 0L) {
 #line 120
@@ -5572,7 +5572,7 @@ static void sdhci_dumpregs(struct sdhci_host *host )
 #line 123
   descriptor___5.flags = 0U;
 #line 123
-  tmp___18 = __builtin_expect((long )descriptor___5.flags & 1L, 0L);
+  tmp___18 = ldv__builtin_expect((long )descriptor___5.flags & 1L, 0L);
 #line 123
   if (tmp___18 != 0L) {
 #line 123
@@ -5598,7 +5598,7 @@ static void sdhci_dumpregs(struct sdhci_host *host )
 #line 126
   descriptor___6.flags = 0U;
 #line 126
-  tmp___21 = __builtin_expect((long )descriptor___6.flags & 1L, 0L);
+  tmp___21 = ldv__builtin_expect((long )descriptor___6.flags & 1L, 0L);
 #line 126
   if (tmp___21 != 0L) {
 #line 126
@@ -5624,7 +5624,7 @@ static void sdhci_dumpregs(struct sdhci_host *host )
 #line 129
   descriptor___7.flags = 0U;
 #line 129
-  tmp___24 = __builtin_expect((long )descriptor___7.flags & 1L, 0L);
+  tmp___24 = ldv__builtin_expect((long )descriptor___7.flags & 1L, 0L);
 #line 129
   if (tmp___24 != 0L) {
 #line 129
@@ -5650,7 +5650,7 @@ static void sdhci_dumpregs(struct sdhci_host *host )
 #line 132
   descriptor___8.flags = 0U;
 #line 132
-  tmp___27 = __builtin_expect((long )descriptor___8.flags & 1L, 0L);
+  tmp___27 = ldv__builtin_expect((long )descriptor___8.flags & 1L, 0L);
 #line 132
   if (tmp___27 != 0L) {
 #line 132
@@ -5676,7 +5676,7 @@ static void sdhci_dumpregs(struct sdhci_host *host )
 #line 135
   descriptor___9.flags = 0U;
 #line 135
-  tmp___30 = __builtin_expect((long )descriptor___9.flags & 1L, 0L);
+  tmp___30 = ldv__builtin_expect((long )descriptor___9.flags & 1L, 0L);
 #line 135
   if (tmp___30 != 0L) {
 #line 135
@@ -5702,7 +5702,7 @@ static void sdhci_dumpregs(struct sdhci_host *host )
 #line 138
   descriptor___10.flags = 0U;
 #line 138
-  tmp___33 = __builtin_expect((long )descriptor___10.flags & 1L, 0L);
+  tmp___33 = ldv__builtin_expect((long )descriptor___10.flags & 1L, 0L);
 #line 138
   if (tmp___33 != 0L) {
 #line 138
@@ -5728,7 +5728,7 @@ static void sdhci_dumpregs(struct sdhci_host *host )
 #line 141
   descriptor___11.flags = 0U;
 #line 141
-  tmp___35 = __builtin_expect((long )descriptor___11.flags & 1L, 0L);
+  tmp___35 = ldv__builtin_expect((long )descriptor___11.flags & 1L, 0L);
 #line 141
   if (tmp___35 != 0L) {
 #line 141
@@ -5753,7 +5753,7 @@ static void sdhci_dumpregs(struct sdhci_host *host )
 #line 145
     descriptor___12.flags = 0U;
 #line 145
-    tmp___38 = __builtin_expect((long )descriptor___12.flags & 1L, 0L);
+    tmp___38 = ldv__builtin_expect((long )descriptor___12.flags & 1L, 0L);
 #line 145
     if (tmp___38 != 0L) {
 #line 145
@@ -5782,7 +5782,7 @@ static void sdhci_dumpregs(struct sdhci_host *host )
 #line 149
   descriptor___13.flags = 0U;
 #line 149
-  tmp___39 = __builtin_expect((long )descriptor___13.flags & 1L, 0L);
+  tmp___39 = ldv__builtin_expect((long )descriptor___13.flags & 1L, 0L);
 #line 149
   if (tmp___39 != 0L) {
 #line 149
@@ -6197,7 +6197,7 @@ static void sdhci_read_block_pio(struct sdhci_host *host )
 #line 349
   descriptor.flags = 0U;
 #line 349
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 349
   if (tmp != 0L) {
 #line 349
@@ -6339,7 +6339,7 @@ static void sdhci_write_block_pio(struct sdhci_host *host )
 #line 394
   descriptor.flags = 0U;
 #line 394
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 394
   if (tmp != 0L) {
 #line 394
@@ -6463,7 +6463,7 @@ static void sdhci_transfer_pio(struct sdhci_host *host )
 
   {
 #line 437
-  tmp = __builtin_expect((unsigned long )host->data == (unsigned long )((struct mmc_data *)0),
+  tmp = ldv__builtin_expect((unsigned long )host->data == (unsigned long )((struct mmc_data *)0),
                          0L);
 #line 437
   if (tmp != 0L) {
@@ -6549,7 +6549,7 @@ static void sdhci_transfer_pio(struct sdhci_host *host )
 #line 470
   descriptor.flags = 0U;
 #line 470
-  tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 470
   if (tmp___1 != 0L) {
 #line 470
@@ -6677,7 +6677,7 @@ static int sdhci_adma_table_pre(struct sdhci_host *host , struct mmc_data *data 
 
   }
 #line 534
-  tmp___0 = __builtin_expect((host->align_addr & 3ULL) != 0ULL, 0L);
+  tmp___0 = ldv__builtin_expect((host->align_addr & 3ULL) != 0ULL, 0L);
 #line 534
   if (tmp___0 != 0L) {
 #line 534
@@ -6727,7 +6727,7 @@ static int sdhci_adma_table_pre(struct sdhci_host *host , struct mmc_data *data 
 #line 561
       __ret_warn_on = ((unsigned long )buffer & 0xfffffffffffff000UL) > 4093UL;
 #line 561
-      tmp___1 = __builtin_expect(__ret_warn_on != 0, 0L);
+      tmp___1 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 561
       if (tmp___1 != 0L) {
 #line 561
@@ -6737,7 +6737,7 @@ static int sdhci_adma_table_pre(struct sdhci_host *host , struct mmc_data *data 
 
       }
 #line 561
-      __builtin_expect(__ret_warn_on != 0, 0L);
+      ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 562
       __len = (size_t )offset;
 #line 562
@@ -6750,7 +6750,7 @@ static int sdhci_adma_table_pre(struct sdhci_host *host , struct mmc_data *data 
 #line 567
     sdhci_set_adma_desc(desc, (u32 )align_addr, offset, 33U);
 #line 569
-    tmp___2 = __builtin_expect(offset > 65536, 0L);
+    tmp___2 = ldv__builtin_expect(offset > 65536, 0L);
 #line 569
     if (tmp___2 != 0L) {
 #line 569
@@ -6776,7 +6776,7 @@ static int sdhci_adma_table_pre(struct sdhci_host *host , struct mmc_data *data 
 
   }
 #line 580
-  tmp___3 = __builtin_expect(len > 65536, 0L);
+  tmp___3 = ldv__builtin_expect(len > 65536, 0L);
 #line 580
   if (tmp___3 != 0L) {
 #line 580
@@ -6795,7 +6795,7 @@ static int sdhci_adma_table_pre(struct sdhci_host *host , struct mmc_data *data 
 #line 590
   __ret_warn_on___0 = (long )desc - (long )host->adma_desc > 1028L;
 #line 590
-  tmp___4 = __builtin_expect(__ret_warn_on___0 != 0, 0L);
+  tmp___4 = ldv__builtin_expect(__ret_warn_on___0 != 0, 0L);
 #line 590
   if (tmp___4 != 0L) {
 #line 590
@@ -6805,7 +6805,7 @@ static int sdhci_adma_table_pre(struct sdhci_host *host , struct mmc_data *data 
 
   }
 #line 590
-  __builtin_expect(__ret_warn_on___0 != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on___0 != 0, 0L);
 #line 546
   i = i + 1;
 #line 546
@@ -6854,7 +6854,7 @@ static int sdhci_adma_table_pre(struct sdhci_host *host , struct mmc_data *data 
 
   }
 #line 622
-  tmp___6 = __builtin_expect((host->adma_addr & 3ULL) != 0ULL, 0L);
+  tmp___6 = ldv__builtin_expect((host->adma_addr & 3ULL) != 0ULL, 0L);
 #line 622
   if (tmp___6 != 0L) {
 #line 622
@@ -6932,7 +6932,7 @@ static void sdhci_adma_table_post(struct sdhci_host *host , struct mmc_data *dat
 #line 669
       __ret_warn_on = ((unsigned long )buffer & 0xfffffffffffff000UL) > 4093UL;
 #line 669
-      tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+      tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 669
       if (tmp != 0L) {
 #line 669
@@ -6942,7 +6942,7 @@ static void sdhci_adma_table_post(struct sdhci_host *host , struct mmc_data *dat
 
       }
 #line 669
-      __builtin_expect(__ret_warn_on != 0, 0L);
+      ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 670
       __len = (size_t )size;
 #line 670
@@ -7062,7 +7062,7 @@ static u8 sdhci_calc_timeout(struct sdhci_host *host , struct mmc_command *cmd )
 #line 730
     descriptor.flags = 0U;
 #line 730
-    tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 730
     if (tmp___0 != 0L) {
 #line 730
@@ -7144,7 +7144,7 @@ static void sdhci_prepare_data(struct sdhci_host *host , struct mmc_command *cmd
 #line 756
   __ret_warn_on = (unsigned long )host->data != (unsigned long )((struct mmc_data *)0);
 #line 756
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 756
   if (tmp != 0L) {
 #line 756
@@ -7154,7 +7154,7 @@ static void sdhci_prepare_data(struct sdhci_host *host , struct mmc_command *cmd
 
   }
 #line 756
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 758
   if ((unsigned long )data != (unsigned long )((struct mmc_data *)0) || (cmd->flags & 8U) != 0U) {
 #line 759
@@ -7172,7 +7172,7 @@ static void sdhci_prepare_data(struct sdhci_host *host , struct mmc_command *cmd
 
   }
 #line 767
-  tmp___0 = __builtin_expect(data->blksz * data->blocks > 524288U, 0L);
+  tmp___0 = ldv__builtin_expect(data->blksz * data->blocks > 524288U, 0L);
 #line 767
   if (tmp___0 != 0L) {
 #line 767
@@ -7185,7 +7185,7 @@ static void sdhci_prepare_data(struct sdhci_host *host , struct mmc_command *cmd
 
   }
 #line 768
-  tmp___1 = __builtin_expect(data->blksz > (host->mmc)->max_blk_size, 0L);
+  tmp___1 = ldv__builtin_expect(data->blksz > (host->mmc)->max_blk_size, 0L);
 #line 768
   if (tmp___1 != 0L) {
 #line 768
@@ -7198,7 +7198,7 @@ static void sdhci_prepare_data(struct sdhci_host *host , struct mmc_command *cmd
 
   }
 #line 769
-  tmp___2 = __builtin_expect(data->blocks > 65535U, 0L);
+  tmp___2 = ldv__builtin_expect(data->blocks > 65535U, 0L);
 #line 769
   if (tmp___2 != 0L) {
 #line 769
@@ -7245,7 +7245,7 @@ static void sdhci_prepare_data(struct sdhci_host *host , struct mmc_command *cmd
 
     }
 #line 795
-    tmp___4 = __builtin_expect(broken != 0, 0L);
+    tmp___4 = ldv__builtin_expect(broken != 0, 0L);
 #line 795
     if (tmp___4 != 0L) {
 #line 796
@@ -7270,7 +7270,7 @@ static void sdhci_prepare_data(struct sdhci_host *host , struct mmc_command *cmd
 #line 798
         descriptor.flags = 0U;
 #line 798
-        tmp___3 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+        tmp___3 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 798
         if (tmp___3 != 0L) {
 #line 798
@@ -7327,7 +7327,7 @@ static void sdhci_prepare_data(struct sdhci_host *host , struct mmc_command *cmd
 
     }
 #line 830
-    tmp___6 = __builtin_expect(broken___0 != 0, 0L);
+    tmp___6 = ldv__builtin_expect(broken___0 != 0, 0L);
 #line 830
     if (tmp___6 != 0L) {
 #line 831
@@ -7352,7 +7352,7 @@ static void sdhci_prepare_data(struct sdhci_host *host , struct mmc_command *cmd
 #line 833
         descriptor___0.flags = 0U;
 #line 833
-        tmp___5 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+        tmp___5 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 833
         if (tmp___5 != 0L) {
 #line 833
@@ -7398,7 +7398,7 @@ static void sdhci_prepare_data(struct sdhci_host *host , struct mmc_command *cmd
 #line 850
         __ret_warn_on___0 = 1;
 #line 850
-        tmp___7 = __builtin_expect(__ret_warn_on___0 != 0, 0L);
+        tmp___7 = ldv__builtin_expect(__ret_warn_on___0 != 0, 0L);
 #line 850
         if (tmp___7 != 0L) {
 #line 850
@@ -7408,7 +7408,7 @@ static void sdhci_prepare_data(struct sdhci_host *host , struct mmc_command *cmd
 
         }
 #line 850
-        __builtin_expect(__ret_warn_on___0 != 0, 0L);
+        ldv__builtin_expect(__ret_warn_on___0 != 0, 0L);
 #line 851
         host->flags = host->flags & -5;
       } else {
@@ -7424,7 +7424,7 @@ static void sdhci_prepare_data(struct sdhci_host *host , struct mmc_command *cmd
 #line 869
         __ret_warn_on___1 = 1;
 #line 869
-        tmp___8 = __builtin_expect(__ret_warn_on___1 != 0, 0L);
+        tmp___8 = ldv__builtin_expect(__ret_warn_on___1 != 0, 0L);
 #line 869
         if (tmp___8 != 0L) {
 #line 869
@@ -7434,14 +7434,14 @@ static void sdhci_prepare_data(struct sdhci_host *host , struct mmc_command *cmd
 
         }
 #line 869
-        __builtin_expect(__ret_warn_on___1 != 0, 0L);
+        ldv__builtin_expect(__ret_warn_on___1 != 0, 0L);
 #line 870
         host->flags = host->flags & -5;
       } else {
 #line 872
         __ret_warn_on___2 = sg_cnt != 1;
 #line 872
-        tmp___9 = __builtin_expect(__ret_warn_on___2 != 0, 0L);
+        tmp___9 = ldv__builtin_expect(__ret_warn_on___2 != 0, 0L);
 #line 872
         if (tmp___9 != 0L) {
 #line 872
@@ -7451,7 +7451,7 @@ static void sdhci_prepare_data(struct sdhci_host *host , struct mmc_command *cmd
 
         }
 #line 872
-        __builtin_expect(__ret_warn_on___2 != 0, 0L);
+        ldv__builtin_expect(__ret_warn_on___2 != 0, 0L);
 #line 873
         sdhci_writel(host, (u32 )(data->sg)->dma_address, 0);
       }
@@ -7530,7 +7530,7 @@ static void sdhci_set_transfer_mode(struct sdhci_host *host , struct mmc_command
 #line 924
   __ret_warn_on = (unsigned long )host->data == (unsigned long )((struct mmc_data *)0);
 #line 924
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 924
   if (tmp != 0L) {
 #line 924
@@ -7540,7 +7540,7 @@ static void sdhci_set_transfer_mode(struct sdhci_host *host , struct mmc_command
 
   }
 #line 924
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 926
   mode = 2U;
 #line 927
@@ -7594,7 +7594,7 @@ static void sdhci_finish_data(struct sdhci_host *host )
 
   {
 #line 953
-  tmp = __builtin_expect((unsigned long )host->data == (unsigned long )((struct mmc_data *)0),
+  tmp = ldv__builtin_expect((unsigned long )host->data == (unsigned long )((struct mmc_data *)0),
                          0L);
 #line 953
   if (tmp != 0L) {
@@ -7672,7 +7672,7 @@ static void sdhci_send_command(struct sdhci_host *host , struct mmc_command *cmd
 #line 1009
   __ret_warn_on = (unsigned long )host->cmd != (unsigned long )((struct mmc_command *)0);
 #line 1009
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 1009
   if (tmp != 0L) {
 #line 1009
@@ -7682,7 +7682,7 @@ static void sdhci_send_command(struct sdhci_host *host , struct mmc_command *cmd
 
   }
 #line 1009
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 1012
   timeout = 10UL;
 #line 1014
@@ -7840,7 +7840,7 @@ static void sdhci_finish_command(struct sdhci_host *host )
 
   {
 #line 1080
-  tmp = __builtin_expect((unsigned long )host->cmd == (unsigned long )((struct mmc_command *)0),
+  tmp = ldv__builtin_expect((unsigned long )host->cmd == (unsigned long )((struct mmc_command *)0),
                          0L);
 #line 1080
   if (tmp != 0L) {
@@ -8305,7 +8305,7 @@ static void sdhci_request(struct mmc_host *mmc , struct mmc_request *mrq )
 #line 1303
   __ret_warn_on = (unsigned long )host->mrq != (unsigned long )((struct mmc_request *)0);
 #line 1303
-  tmp___1 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___1 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 1303
   if (tmp___1 != 0L) {
 #line 1303
@@ -8315,7 +8315,7 @@ static void sdhci_request(struct mmc_host *mmc , struct mmc_request *mrq )
 
   }
 #line 1303
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 1313
   if ((unsigned long )mrq->sbc == (unsigned long )((struct mmc_command *)0) && (host->flags & 64) != 0) {
 #line 1314
@@ -9759,7 +9759,7 @@ static void sdhci_cmd_irq(struct sdhci_host *host , u32 intmask )
 
   {
 #line 2198
-  tmp = __builtin_expect(intmask == 0U, 0L);
+  tmp = ldv__builtin_expect(intmask == 0U, 0L);
 #line 2198
   if (tmp != 0L) {
 #line 2198
@@ -9823,7 +9823,7 @@ static void sdhci_cmd_irq(struct sdhci_host *host , u32 intmask )
 #line 2232
       descriptor.flags = 0U;
 #line 2232
-      tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+      tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 2232
       if (tmp___1 != 0L) {
 #line 2232
@@ -9895,7 +9895,7 @@ static void sdhci_show_adma_error(struct sdhci_host *host )
 #line 2261
   descriptor.flags = 0U;
 #line 2261
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 2261
   if (tmp___0 != 0L) {
 #line 2261
@@ -9937,7 +9937,7 @@ static void sdhci_data_irq(struct sdhci_host *host , u32 intmask )
 
   {
 #line 2277
-  tmp = __builtin_expect(intmask == 0U, 0L);
+  tmp = ldv__builtin_expect(intmask == 0U, 0L);
 #line 2277
   if (tmp != 0L) {
 #line 2277
@@ -10077,7 +10077,7 @@ static void sdhci_data_irq(struct sdhci_host *host , u32 intmask )
 #line 2353
       descriptor.flags = 0U;
 #line 2353
-      tmp___5 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+      tmp___5 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 2353
       if (tmp___5 != 0L) {
 #line 2353
@@ -10179,7 +10179,7 @@ static irqreturn_t sdhci_irq(int irq , void *dev_id )
 #line 2399
   descriptor.flags = 0U;
 #line 2399
-  tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 2399
   if (tmp___1 != 0L) {
 #line 2399
@@ -10591,7 +10591,7 @@ struct sdhci_host *sdhci_alloc_host(struct device *dev , size_t priv_size )
 #line 2673
   __ret_warn_on = (unsigned long )dev == (unsigned long )((struct device *)0);
 #line 2673
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 2673
   if (tmp != 0L) {
 #line 2673
@@ -10601,7 +10601,7 @@ struct sdhci_host *sdhci_alloc_host(struct device *dev , size_t priv_size )
 
   }
 #line 2673
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 2675
   mmc = mmc_alloc_host((int )((unsigned int )priv_size + 1344U), dev);
 #line 2676
@@ -10688,7 +10688,7 @@ int sdhci_add_host(struct sdhci_host *host )
 #line 2695
   __ret_warn_on = (unsigned long )host == (unsigned long )((struct sdhci_host *)0);
 #line 2695
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 2695
   if (tmp != 0L) {
 #line 2695
@@ -10698,7 +10698,7 @@ int sdhci_add_host(struct sdhci_host *host )
 
   }
 #line 2695
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 2696
   if ((unsigned long )host == (unsigned long )((struct sdhci_host *)0)) {
 #line 2697
@@ -10785,7 +10785,7 @@ int sdhci_add_host(struct sdhci_host *host )
 #line 2728
     descriptor.flags = 0U;
 #line 2728
-    tmp___4 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___4 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 2728
     if (tmp___4 != 0L) {
 #line 2728
@@ -10813,7 +10813,7 @@ int sdhci_add_host(struct sdhci_host *host )
 #line 2734
     descriptor___0.flags = 0U;
 #line 2734
-    tmp___5 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___5 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 2734
     if (tmp___5 != 0L) {
 #line 2734
@@ -10849,7 +10849,7 @@ int sdhci_add_host(struct sdhci_host *host )
 #line 2744
     descriptor___1.flags = 0U;
 #line 2744
-    tmp___6 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___6 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 2744
     if (tmp___6 != 0L) {
 #line 2744
@@ -11051,7 +11051,7 @@ int sdhci_add_host(struct sdhci_host *host )
 #line 2868
     descriptor___2.flags = 0U;
 #line 2868
-    tmp___15 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+    tmp___15 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
 #line 2868
     if (tmp___15 != 0L) {
 #line 2868
@@ -11076,7 +11076,7 @@ int sdhci_add_host(struct sdhci_host *host )
 #line 2870
     descriptor___3.flags = 0U;
 #line 2870
-    tmp___17 = __builtin_expect((long )descriptor___3.flags & 1L, 0L);
+    tmp___17 = ldv__builtin_expect((long )descriptor___3.flags & 1L, 0L);
 #line 2870
     if (tmp___17 != 0L) {
 #line 2870
@@ -11927,7 +11927,7 @@ __inline static void ldv_error(void)
 #line 25
 extern int __VERIFIER_nondet_int(void) ;
 #line 49 "/home/mikhail/ldv/kernel-rules/verifier/rcv.h"
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 

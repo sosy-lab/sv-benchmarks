@@ -7626,7 +7626,7 @@ void ldv_mutex_unlock_14(struct mutex *ldv_func_arg1 )
 }
 }
 #line 1 "<compiler builtins>"
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 #line 119 "include/linux/printk.h"
 extern int printk(char const   *  , ...) ;
 #line 71 "include/asm-generic/bug.h"
@@ -7706,7 +7706,7 @@ __inline static int kref_sub(struct kref *kref , unsigned int count , void (*rel
 #line 67
   __ret_warn_on = (unsigned long )release == (unsigned long )((void (*)(struct kref * ))0);
 #line 67
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 67
   if (tmp != 0L) {
 #line 67
@@ -7715,7 +7715,7 @@ __inline static int kref_sub(struct kref *kref , unsigned int count , void (*rel
 
   }
 #line 67
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 69
   tmp___0 = atomic_sub_and_test((int )count, & kref->refcount);
 #line 69
@@ -10877,7 +10877,7 @@ int ast_cursor_init(struct drm_device *dev )
 #line 912
   ret = ast_bo_reserve(bo, 0);
 #line 913
-  tmp = __builtin_expect(ret != 0, 0L);
+  tmp = ldv__builtin_expect(ret != 0, 0L);
 #line 913
   if (tmp != 0L) {
 #line 914
@@ -14547,7 +14547,7 @@ int ast_mmap(struct file *filp , struct vm_area_struct *vma )
 
   {
 #line 531
-  tmp___0 = __builtin_expect((unsigned long long )vma->vm_pgoff <= 1048575ULL, 0L);
+  tmp___0 = ldv__builtin_expect((unsigned long long )vma->vm_pgoff <= 1048575ULL, 0L);
 #line 531
   if (tmp___0 != 0L) {
 #line 532
@@ -18645,7 +18645,7 @@ __inline static void ldv_error(void)
 #line 25
 extern int __VERIFIER_nondet_int(void) ;
 #line 49 "/home/ldvuser/ldv_envgen2/kernel-rules/verifier/rcv.h"
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
   {

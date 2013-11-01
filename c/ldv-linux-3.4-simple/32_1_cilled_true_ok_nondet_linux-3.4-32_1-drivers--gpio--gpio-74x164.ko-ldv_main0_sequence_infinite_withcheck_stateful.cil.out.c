@@ -2550,7 +2550,7 @@ struct gen_74x164_chip {
    u8 port_config ;
 };
 #line 1 "<compiler builtins>"
-long __builtin_expect(long val , long res ) ;
+long ldv__builtin_expect(long val , long res ) ;
 #line 24 "include/linux/list.h"
 __inline static void INIT_LIST_HEAD(struct list_head *list )  __attribute__((__no_instrument_function__)) ;
 #line 24 "include/linux/list.h"
@@ -3197,7 +3197,7 @@ static int gen_74x164_probe(struct spi_device *spi )
 #line 81
           __cil_tmp17 = (long )__cil_tmp16;
 #line 81
-          tmp___7 = __builtin_expect(__cil_tmp17, 0L);
+          tmp___7 = ldv__builtin_expect(__cil_tmp17, 0L);
           }
 #line 81
           if (tmp___7) {
@@ -3969,7 +3969,7 @@ void ldv_check_final_state(void)
 }
 }
 #line 304 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/5840/dscv_tempdir/dscv/ri/32_1/drivers/gpio/gpio-74x164.c.common.c"
-long __builtin_expect(long val , long res ) 
+long ldv__builtin_expect(long val , long res ) 
 { 
 
   {

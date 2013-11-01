@@ -4360,7 +4360,7 @@ typedef int ldv_func_ret_type___2;
 #line 1 "<compiler builtins>"
 void *__builtin_memcpy(void * , void const   * , unsigned long  ) ;
 #line 1
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 #line 119 "include/linux/printk.h"
 extern int printk(char const   *  , ...) ;
 #line 45 "include/linux/dynamic_debug.h"
@@ -4594,7 +4594,7 @@ __inline static void kref_get(struct kref *kref )
 #line 42
   __ret_warn_on = tmp == 0;
 #line 42
-  tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 42
   if (tmp___0 != 0L) {
 #line 42
@@ -4603,7 +4603,7 @@ __inline static void kref_get(struct kref *kref )
 
   }
 #line 42
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 43
   atomic_inc(& kref->refcount);
 #line 44
@@ -4621,7 +4621,7 @@ __inline static int kref_sub(struct kref *kref , unsigned int count , void (*rel
 #line 67
   __ret_warn_on = (unsigned long )release == (unsigned long )((void (*)(struct kref * ))0);
 #line 67
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 67
   if (tmp != 0L) {
 #line 67
@@ -4630,7 +4630,7 @@ __inline static int kref_sub(struct kref *kref , unsigned int count , void (*rel
 
   }
 #line 67
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 69
   tmp___0 = atomic_sub_and_test((int )count, & kref->refcount);
 #line 69
@@ -4935,7 +4935,7 @@ static int ufx_reg_read(struct ufx_data *dev , u32 index , u32 *data )
 #line 186
   buf = (u32 *)tmp;
 #line 189
-  tmp___0 = __builtin_expect((unsigned long )dev == (unsigned long )((struct ufx_data *)0),
+  tmp___0 = ldv__builtin_expect((unsigned long )dev == (unsigned long )((struct ufx_data *)0),
                              0L);
 #line 189
   if (tmp___0 != 0L) {
@@ -4965,7 +4965,7 @@ static int ufx_reg_read(struct ufx_data *dev , u32 index , u32 *data )
 #line 201
   kfree((void const   *)buf);
 #line 203
-  tmp___2 = __builtin_expect(ret < 0, 0L);
+  tmp___2 = ldv__builtin_expect(ret < 0, 0L);
 #line 203
   if (tmp___2 != 0L) {
 #line 204
@@ -4993,7 +4993,7 @@ static int ufx_reg_write(struct ufx_data *dev , u32 index , u32 data )
 #line 212
   buf = (u32 *)tmp;
 #line 215
-  tmp___0 = __builtin_expect((unsigned long )dev == (unsigned long )((struct ufx_data *)0),
+  tmp___0 = ldv__builtin_expect((unsigned long )dev == (unsigned long )((struct ufx_data *)0),
                              0L);
 #line 215
   if (tmp___0 != 0L) {
@@ -5023,7 +5023,7 @@ static int ufx_reg_write(struct ufx_data *dev , u32 index , u32 data )
 #line 228
   kfree((void const   *)buf);
 #line 230
-  tmp___2 = __builtin_expect(ret < 0, 0L);
+  tmp___2 = ldv__builtin_expect(ret < 0, 0L);
 #line 230
   if (tmp___2 != 0L) {
 #line 231
@@ -6265,7 +6265,7 @@ static int ufx_config_pix_clk(struct ufx_data *dev , u32 pixclock )
 #line 664
   descriptor.flags = 0U;
 #line 664
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 664
   if (tmp != 0L) {
 #line 664
@@ -6733,7 +6733,7 @@ static int ufx_ops_mmap(struct fb_info *info , struct vm_area_struct *vma )
 #line 830
   descriptor.flags = 0U;
 #line 830
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 830
   if (tmp != 0L) {
 #line 830
@@ -6803,7 +6803,7 @@ static void ufx_raw_rect(struct ufx_data *dev , u16 *cmd , int x , int y , int w
 #line 853
   packed_rect_len = (size_t )height * packed_line_len;
 #line 856
-  tmp = __builtin_expect((unsigned long )dev == (unsigned long )((struct ufx_data *)0),
+  tmp = ldv__builtin_expect((unsigned long )dev == (unsigned long )((struct ufx_data *)0),
                          0L);
 #line 856
   if (tmp != 0L) {
@@ -6817,7 +6817,7 @@ static void ufx_raw_rect(struct ufx_data *dev , u16 *cmd , int x , int y , int w
 
   }
 #line 857
-  tmp___0 = __builtin_expect((unsigned long )dev->info == (unsigned long )((struct fb_info *)0),
+  tmp___0 = ldv__builtin_expect((unsigned long )dev->info == (unsigned long )((struct fb_info *)0),
                              0L);
 #line 857
   if (tmp___0 != 0L) {
@@ -6931,7 +6931,7 @@ static int ufx_handle_damage(struct ufx_data *dev , int x , int y , int width , 
 
   }
 #line 910
-  tmp___1 = __builtin_expect(urb->transfer_buffer_length < (u32 )((width + 12) * 2),
+  tmp___1 = ldv__builtin_expect(urb->transfer_buffer_length < (u32 )((width + 12) * 2),
                              0L);
 #line 910
   if (tmp___1 != 0L) {
@@ -7137,7 +7137,7 @@ static void ufx_dpy_deferred_io(struct fb_info *info , struct list_head *pagelis
 #line 1015
   height = _min1 < _min2 ? _min1 : _min2;
 #line 1017
-  tmp___0 = __builtin_expect((__u32 )y >= (dev->info)->var.yres, 0L);
+  tmp___0 = ldv__builtin_expect((__u32 )y >= (dev->info)->var.yres, 0L);
 #line 1017
   if (tmp___0 != 0L) {
 #line 1017
@@ -7150,7 +7150,7 @@ static void ufx_dpy_deferred_io(struct fb_info *info , struct list_head *pagelis
 
   }
 #line 1018
-  tmp___1 = __builtin_expect((__u32 )(y + height) > (dev->info)->var.yres, 0L);
+  tmp___1 = ldv__builtin_expect((__u32 )(y + height) > (dev->info)->var.yres, 0L);
 #line 1018
   if (tmp___1 != 0L) {
 #line 1018
@@ -7368,7 +7368,7 @@ static int ufx_ops_open(struct fb_info *info , int user )
 #line 1136
   descriptor.flags = 0U;
 #line 1136
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1136
   if (tmp___0 != 0L) {
 #line 1136
@@ -7414,7 +7414,7 @@ static void ufx_free(struct kref *kref )
 #line 1155
   descriptor.flags = 0U;
 #line 1155
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1155
   if (tmp != 0L) {
 #line 1155
@@ -7506,7 +7506,7 @@ static void ufx_free_framebuffer_work(struct work_struct *work )
 #line 1191
   descriptor.flags = 0U;
 #line 1191
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1191
   if (tmp != 0L) {
 #line 1191
@@ -7566,7 +7566,7 @@ static int ufx_ops_release(struct fb_info *info , int user )
 #line 1217
   descriptor.flags = 0U;
 #line 1217
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1217
   if (tmp != 0L) {
 #line 1217
@@ -7607,7 +7607,7 @@ static int ufx_is_valid_mode(struct fb_videomode *mode , struct fb_info *info )
 #line 1231
     descriptor.flags = 0U;
 #line 1231
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1231
     if (tmp != 0L) {
 #line 1231
@@ -7636,7 +7636,7 @@ static int ufx_is_valid_mode(struct fb_videomode *mode , struct fb_info *info )
 #line 1237
     descriptor___0.flags = 0U;
 #line 1237
-    tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 1237
     if (tmp___0 != 0L) {
 #line 1237
@@ -7663,7 +7663,7 @@ static int ufx_is_valid_mode(struct fb_videomode *mode , struct fb_info *info )
 #line 1242
   descriptor___1.flags = 0U;
 #line 1242
-  tmp___1 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 1242
   if (tmp___1 != 0L) {
 #line 1242
@@ -7771,7 +7771,7 @@ static int ufx_ops_set_par(struct fb_info *info )
 #line 1286
   descriptor.flags = 0U;
 #line 1286
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1286
   if (tmp != 0L) {
 #line 1286
@@ -7874,7 +7874,7 @@ static int ufx_realloc_framebuffer(struct ufx_data *dev , struct fb_info *info )
 #line 1340
   descriptor.flags = 0U;
 #line 1340
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1340
   if (tmp != 0L) {
 #line 1340
@@ -8176,7 +8176,7 @@ static int ufx_read_edid(struct ufx_data *dev , u8 *edid , int edid_len )
 #line 1473
   edid_u32 = (u32 *)edid;
 #line 1475
-  tmp = __builtin_expect(edid_len != 128, 0L);
+  tmp = ldv__builtin_expect(edid_len != 128, 0L);
 #line 1475
   if (tmp != 0L) {
 #line 1475
@@ -8305,7 +8305,7 @@ static int ufx_read_edid(struct ufx_data *dev , u8 *edid , int edid_len )
 #line 1508
     descriptor.flags = 0U;
 #line 1508
-    tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1508
     if (tmp___1 != 0L) {
 #line 1508
@@ -8666,7 +8666,7 @@ static int ufx_usb_probe(struct usb_interface *interface , struct usb_device_id 
 #line 1666
   usbdev = interface_to_usbdev(interface);
 #line 1667
-  tmp = __builtin_expect((unsigned long )usbdev == (unsigned long )((struct usb_device *)0),
+  tmp = ldv__builtin_expect((unsigned long )usbdev == (unsigned long )((struct usb_device *)0),
                          0L);
 #line 1667
   if (tmp != 0L) {
@@ -8715,7 +8715,7 @@ static int ufx_usb_probe(struct usb_interface *interface , struct usb_device_id 
 #line 1683
   descriptor.flags = 0U;
 #line 1683
-  tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1683
   if (tmp___1 != 0L) {
 #line 1683
@@ -8737,7 +8737,7 @@ static int ufx_usb_probe(struct usb_interface *interface , struct usb_device_id 
 #line 1685
   descriptor___0.flags = 0U;
 #line 1685
-  tmp___2 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___2 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 1685
   if (tmp___2 != 0L) {
 #line 1685
@@ -8760,7 +8760,7 @@ static int ufx_usb_probe(struct usb_interface *interface , struct usb_device_id 
 #line 1688
   descriptor___1.flags = 0U;
 #line 1688
-  tmp___3 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+  tmp___3 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 1688
   if (tmp___3 != 0L) {
 #line 1688
@@ -8782,7 +8782,7 @@ static int ufx_usb_probe(struct usb_interface *interface , struct usb_device_id 
 #line 1689
   descriptor___2.flags = 0U;
 #line 1689
-  tmp___4 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+  tmp___4 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
 #line 1689
   if (tmp___4 != 0L) {
 #line 1689
@@ -8882,7 +8882,7 @@ static int ufx_usb_probe(struct usb_interface *interface , struct usb_device_id 
 #line 1725
   descriptor___3.flags = 0U;
 #line 1725
-  tmp___6 = __builtin_expect((long )descriptor___3.flags & 1L, 0L);
+  tmp___6 = ldv__builtin_expect((long )descriptor___3.flags & 1L, 0L);
 #line 1725
   if (tmp___6 != 0L) {
 #line 1725
@@ -8915,7 +8915,7 @@ static int ufx_usb_probe(struct usb_interface *interface , struct usb_device_id 
 #line 1729
   descriptor___4.flags = 0U;
 #line 1729
-  tmp___7 = __builtin_expect((long )descriptor___4.flags & 1L, 0L);
+  tmp___7 = ldv__builtin_expect((long )descriptor___4.flags & 1L, 0L);
 #line 1729
   if (tmp___7 != 0L) {
 #line 1729
@@ -8937,7 +8937,7 @@ static int ufx_usb_probe(struct usb_interface *interface , struct usb_device_id 
 #line 1731
   descriptor___5.flags = 0U;
 #line 1731
-  tmp___8 = __builtin_expect((long )descriptor___5.flags & 1L, 0L);
+  tmp___8 = ldv__builtin_expect((long )descriptor___5.flags & 1L, 0L);
 #line 1731
   if (tmp___8 != 0L) {
 #line 1731
@@ -8969,7 +8969,7 @@ static int ufx_usb_probe(struct usb_interface *interface , struct usb_device_id 
 #line 1735
   descriptor___6.flags = 0U;
 #line 1735
-  tmp___9 = __builtin_expect((long )descriptor___6.flags & 1L, 0L);
+  tmp___9 = ldv__builtin_expect((long )descriptor___6.flags & 1L, 0L);
 #line 1735
   if (tmp___9 != 0L) {
 #line 1735
@@ -9001,7 +9001,7 @@ static int ufx_usb_probe(struct usb_interface *interface , struct usb_device_id 
 #line 1739
   descriptor___7.flags = 0U;
 #line 1739
-  tmp___10 = __builtin_expect((long )descriptor___7.flags & 1L, 0L);
+  tmp___10 = ldv__builtin_expect((long )descriptor___7.flags & 1L, 0L);
 #line 1739
   if (tmp___10 != 0L) {
 #line 1739
@@ -9033,7 +9033,7 @@ static int ufx_usb_probe(struct usb_interface *interface , struct usb_device_id 
 #line 1743
   descriptor___8.flags = 0U;
 #line 1743
-  tmp___11 = __builtin_expect((long )descriptor___8.flags & 1L, 0L);
+  tmp___11 = ldv__builtin_expect((long )descriptor___8.flags & 1L, 0L);
 #line 1743
   if (tmp___11 != 0L) {
 #line 1743
@@ -9065,7 +9065,7 @@ static int ufx_usb_probe(struct usb_interface *interface , struct usb_device_id 
 #line 1747
   descriptor___9.flags = 0U;
 #line 1747
-  tmp___12 = __builtin_expect((long )descriptor___9.flags & 1L, 0L);
+  tmp___12 = ldv__builtin_expect((long )descriptor___9.flags & 1L, 0L);
 #line 1747
   if (tmp___12 != 0L) {
 #line 1747
@@ -9110,7 +9110,7 @@ static int ufx_usb_probe(struct usb_interface *interface , struct usb_device_id 
 #line 1757
   descriptor___10.flags = 0U;
 #line 1757
-  tmp___13 = __builtin_expect((long )descriptor___10.flags & 1L, 0L);
+  tmp___13 = ldv__builtin_expect((long )descriptor___10.flags & 1L, 0L);
 #line 1757
   if (tmp___13 != 0L) {
 #line 1757
@@ -9142,7 +9142,7 @@ static int ufx_usb_probe(struct usb_interface *interface , struct usb_device_id 
 #line 1761
   descriptor___11.flags = 0U;
 #line 1761
-  tmp___14 = __builtin_expect((long )descriptor___11.flags & 1L, 0L);
+  tmp___14 = ldv__builtin_expect((long )descriptor___11.flags & 1L, 0L);
 #line 1761
   if (tmp___14 != 0L) {
 #line 1761
@@ -9174,7 +9174,7 @@ static int ufx_usb_probe(struct usb_interface *interface , struct usb_device_id 
 #line 1765
   descriptor___12.flags = 0U;
 #line 1765
-  tmp___15 = __builtin_expect((long )descriptor___12.flags & 1L, 0L);
+  tmp___15 = ldv__builtin_expect((long )descriptor___12.flags & 1L, 0L);
 #line 1765
   if (tmp___15 != 0L) {
 #line 1765
@@ -9271,7 +9271,7 @@ static void ufx_usb_disconnect(struct usb_interface *interface )
 #line 1807
   descriptor.flags = 0U;
 #line 1807
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1807
   if (tmp___0 != 0L) {
 #line 1807
@@ -9381,7 +9381,7 @@ static void ufx_free_urb_list(struct ufx_data *dev )
 #line 1877
   descriptor.flags = 0U;
 #line 1877
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1877
   if (tmp != 0L) {
 #line 1877
@@ -9572,7 +9572,7 @@ static int ufx_alloc_urb_list(struct ufx_data *dev , int count , size_t size )
 #line 1954
   descriptor.flags = 0U;
 #line 1954
-  tmp___2 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___2 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1954
   if (tmp___2 != 0L) {
 #line 1954
@@ -9622,7 +9622,7 @@ static struct urb *ufx_get_urb(struct ufx_data *dev )
 #line 1978
   tmp___0 = list_empty((struct list_head  const  *)(& dev->urbs.list));
 #line 1978
-  tmp___1 = __builtin_expect(tmp___0 != 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 != 0, 0L);
 #line 1978
   if (tmp___1 != 0L) {
 #line 1978
@@ -9661,7 +9661,7 @@ static int ufx_submit_urb(struct ufx_data *dev , struct urb *urb , size_t len )
 
   {
 #line 1996
-  tmp = __builtin_expect(dev->urbs.size < len, 0L);
+  tmp = ldv__builtin_expect(dev->urbs.size < len, 0L);
 #line 1996
   if (tmp != 0L) {
 #line 1996
@@ -10085,7 +10085,7 @@ __inline static void ldv_error(void)
 #line 25
 extern int __VERIFIER_nondet_int(void) ;
 #line 49 "/home/mikhail/ldv/kernel-rules/verifier/rcv.h"
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 

@@ -2481,7 +2481,7 @@ struct amc6821_data {
 #line 2363 "/work/ldvuser/zakharov_benchmarks/bench/cpa/work/current--X--drivers/hwmon/amc6821.ko--X--x1linux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/32_7a/drivers/hwmon/amc6821.c.prepared"
 typedef int ldv_func_ret_type___2;
 #line 1 "<compiler builtins>"
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 #line 53 "include/linux/dynamic_debug.h"
 extern int __dynamic_dev_dbg(struct _ddebug * , struct device  const  * , char const   * 
                              , ...) ;
@@ -2517,7 +2517,7 @@ __inline static long IS_ERR(void const   *ptr )
 
   {
 #line 34
-  tmp = __builtin_expect((unsigned long )ptr > 0xfffffffffffff000UL, 0L);
+  tmp = ldv__builtin_expect((unsigned long )ptr > 0xfffffffffffff000UL, 0L);
 #line 34
   return (tmp);
 }
@@ -2962,7 +2962,7 @@ static ssize_t get_temp_alarm(struct device *dev , struct device_attribute *deva
 #line 365
   descriptor.flags = 1U;
 #line 365
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 365
   if (tmp___0 != 0L) {
 #line 365
@@ -3258,7 +3258,7 @@ static ssize_t get_temp_auto_point_temp(struct device *dev , struct device_attri
 #line 502
   descriptor.flags = 1U;
 #line 502
-  tmp___2 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___2 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 502
   if (tmp___2 != 0L) {
 #line 502
@@ -3436,7 +3436,7 @@ static ssize_t set_temp_auto_point_temp(struct device *dev , struct device_attri
 #line 571
   descriptor.flags = 1U;
 #line 571
-  tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 571
   if (tmp___1 != 0L) {
 #line 571
@@ -3516,7 +3516,7 @@ static ssize_t set_temp_auto_point_temp(struct device *dev , struct device_attri
 #line 611
   descriptor___0.flags = 1U;
 #line 611
-  tmp___9 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___9 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 611
   if (tmp___9 != 0L) {
 #line 611
@@ -4074,7 +4074,7 @@ static int amc6821_detect(struct i2c_client *client , struct i2c_board_info *inf
 #line 898
   descriptor.flags = 1U;
 #line 898
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 898
   if (tmp != 0L) {
 #line 898
@@ -4099,7 +4099,7 @@ static int amc6821_detect(struct i2c_client *client , struct i2c_board_info *inf
 #line 901
     descriptor___0.flags = 1U;
 #line 901
-    tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 901
     if (tmp___0 != 0L) {
 #line 901
@@ -4132,7 +4132,7 @@ static int amc6821_detect(struct i2c_client *client , struct i2c_board_info *inf
 #line 910
     descriptor___1.flags = 1U;
 #line 910
-    tmp___2 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___2 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 910
     if (tmp___2 != 0L) {
 #line 910
@@ -4165,7 +4165,7 @@ static int amc6821_detect(struct i2c_client *client , struct i2c_board_info *inf
 #line 923
     descriptor___2.flags = 1U;
 #line 923
-    tmp___3 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+    tmp___3 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
 #line 923
     if (tmp___3 != 0L) {
 #line 923
@@ -6716,7 +6716,7 @@ __inline static void ldv_error(void)
 #line 25
 extern int __VERIFIER_nondet_int(void) ;
 #line 49 "/home/ldvuser/ldv_envgen2/kernel-rules/verifier/rcv.h"
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
   {

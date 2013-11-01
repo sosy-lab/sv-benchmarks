@@ -6822,7 +6822,7 @@ struct __anonstruct_412 {
    int  : 0 ;
 };
 #line 1 "<compiler builtins>"
-long __builtin_expect(long val , long res ) ;
+long ldv__builtin_expect(long val , long res ) ;
 #line 49 "include/linux/dynamic_debug.h"
 extern int ( /* format attribute */  __dynamic_dev_dbg)(struct _ddebug *descriptor ,
                                                         struct device  const  *dev ,
@@ -6864,7 +6864,7 @@ __inline static long __attribute__((__warn_unused_result__))  IS_ERR(void const 
 #line 34
   __cil_tmp7 = (long )__cil_tmp6;
 #line 34
-  tmp = __builtin_expect(__cil_tmp7, 0L);
+  tmp = ldv__builtin_expect(__cil_tmp7, 0L);
   }
 #line 34
   return (tmp);
@@ -7076,7 +7076,7 @@ __inline static int __atomic_add_unless(atomic_t *v , int a , int u )
 #line 233
     __cil_tmp12 = (long )__cil_tmp11;
 #line 233
-    tmp = __builtin_expect(__cil_tmp12, 0L);
+    tmp = ldv__builtin_expect(__cil_tmp12, 0L);
     }
 #line 233
     if (tmp) {
@@ -7099,7 +7099,7 @@ __inline static int __atomic_add_unless(atomic_t *v , int a , int u )
 #line 236
     __cil_tmp17 = (long )__cil_tmp16;
 #line 236
-    tmp___0 = __builtin_expect(__cil_tmp17, 1L);
+    tmp___0 = ldv__builtin_expect(__cil_tmp17, 1L);
     }
 #line 236
     if (tmp___0) {
@@ -7563,7 +7563,7 @@ static void wl12xx_sdio_raw_read(struct device *child , int addr , void *buf , s
 #line 80
   __cil_tmp27 = (long )__cil_tmp26;
 #line 80
-  tmp___10 = __builtin_expect(__cil_tmp27, 0L);
+  tmp___10 = ldv__builtin_expect(__cil_tmp27, 0L);
   }
 #line 80
   if (tmp___10) {
@@ -7599,7 +7599,7 @@ static void wl12xx_sdio_raw_read(struct device *child , int addr , void *buf , s
 #line 82
         __cil_tmp36 = (long )__cil_tmp35;
 #line 82
-        tmp___8 = __builtin_expect(__cil_tmp36, 0L);
+        tmp___8 = ldv__builtin_expect(__cil_tmp36, 0L);
         }
 #line 82
         if (tmp___8) {
@@ -7680,7 +7680,7 @@ static void wl12xx_sdio_raw_read(struct device *child , int addr , void *buf , s
 #line 90
         __cil_tmp54 = (long )__cil_tmp53;
 #line 90
-        tmp___9 = __builtin_expect(__cil_tmp54, 0L);
+        tmp___9 = ldv__builtin_expect(__cil_tmp54, 0L);
         }
 #line 90
         if (tmp___9) {
@@ -7852,7 +7852,7 @@ static void wl12xx_sdio_raw_write(struct device *child , int addr , void *buf , 
 #line 109
   __cil_tmp27 = (long )__cil_tmp26;
 #line 109
-  tmp___10 = __builtin_expect(__cil_tmp27, 0L);
+  tmp___10 = ldv__builtin_expect(__cil_tmp27, 0L);
   }
 #line 109
   if (tmp___10) {
@@ -7890,7 +7890,7 @@ static void wl12xx_sdio_raw_write(struct device *child , int addr , void *buf , 
 #line 111
         __cil_tmp37 = (long )__cil_tmp36;
 #line 111
-        tmp___8 = __builtin_expect(__cil_tmp37, 0L);
+        tmp___8 = ldv__builtin_expect(__cil_tmp37, 0L);
         }
 #line 111
         if (tmp___8) {
@@ -7947,7 +7947,7 @@ static void wl12xx_sdio_raw_write(struct device *child , int addr , void *buf , 
 #line 114
         __cil_tmp49 = (long )__cil_tmp48;
 #line 114
-        tmp___9 = __builtin_expect(__cil_tmp49, 0L);
+        tmp___9 = ldv__builtin_expect(__cil_tmp49, 0L);
         }
 #line 114
         if (tmp___9) {
@@ -8531,7 +8531,7 @@ static int wl1271_probe(struct sdio_func *func , struct sdio_device_id  const  *
 #line 228
       __cil_tmp46 = (long )__cil_tmp45;
 #line 228
-      tmp___10 = __builtin_expect(__cil_tmp46, 0L);
+      tmp___10 = ldv__builtin_expect(__cil_tmp46, 0L);
       }
 #line 228
       if (tmp___10) {
@@ -8983,7 +8983,7 @@ static int wl1271_suspend(struct device *dev )
 #line 308
       __cil_tmp31 = (long )__cil_tmp30;
 #line 308
-      tmp___9 = __builtin_expect(__cil_tmp31, 0L);
+      tmp___9 = ldv__builtin_expect(__cil_tmp31, 0L);
       }
 #line 308
       if (tmp___9) {
@@ -9113,7 +9113,7 @@ static int wl1271_resume(struct device *dev )
 #line 335
       __cil_tmp8 = (long )__cil_tmp7;
 #line 335
-      tmp___7 = __builtin_expect(__cil_tmp8, 0L);
+      tmp___7 = ldv__builtin_expect(__cil_tmp8, 0L);
       }
 #line 335
       if (tmp___7) {
@@ -9758,7 +9758,7 @@ void ldv_check_final_state(void)
 }
 }
 #line 848 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/9905/dscv_tempdir/dscv/ri/32_1/drivers/net/wireless/wl12xx/sdio.c.common.c"
-long __builtin_expect(long val , long res ) 
+long ldv__builtin_expect(long val , long res ) 
 { 
 
   {

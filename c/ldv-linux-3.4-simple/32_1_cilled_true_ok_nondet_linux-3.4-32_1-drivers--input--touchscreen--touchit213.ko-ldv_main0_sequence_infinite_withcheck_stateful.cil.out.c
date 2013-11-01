@@ -2213,7 +2213,7 @@ struct touchit213 {
    char phys[32] ;
 };
 #line 1 "<compiler builtins>"
-long __builtin_expect(long val , long res ) ;
+long ldv__builtin_expect(long val , long res ) ;
 #line 44 "include/linux/dynamic_debug.h"
 extern int ( /* format attribute */  __dynamic_pr_debug)(struct _ddebug *descriptor ,
                                                          char const   *fmt  , ...) ;
@@ -2716,7 +2716,7 @@ static irqreturn_t touchit213_interrupt(struct serio *serio , unsigned char data
 #line 100
         __cil_tmp35 = (long )__cil_tmp34;
 #line 100
-        tmp___1 = __builtin_expect(__cil_tmp35, 0L);
+        tmp___1 = ldv__builtin_expect(__cil_tmp35, 0L);
         }
 #line 100
         if (tmp___1) {
@@ -3568,7 +3568,7 @@ void ldv_check_final_state(void)
 }
 }
 #line 475 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/4190/dscv_tempdir/dscv/ri/32_1/drivers/input/touchscreen/touchit213.c.common.c"
-long __builtin_expect(long val , long res ) 
+long ldv__builtin_expect(long val , long res ) 
 { 
 
   {

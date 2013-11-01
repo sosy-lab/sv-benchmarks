@@ -7219,7 +7219,7 @@ typedef int ldv_func_ret_type___11;
 #line 1 "<compiler builtins>"
 void *__builtin_memcpy(void * , void const   * , unsigned long  ) ;
 #line 1
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 #line 489 "/work/vladimir/UFO/Work/test/inst/current/envs/linux-3.7.3/linux-3.7.3/arch/x86/include/asm/bitops.h"
 __inline static int fls64(__u64 x ) 
 { 
@@ -7401,13 +7401,13 @@ __inline static unsigned int cpumask_check(unsigned int cpu )
 #line 108
   __ret_warn_once = (unsigned int )nr_cpu_ids <= cpu;
 #line 108
-  tmp___1 = __builtin_expect(__ret_warn_once != 0, 0L);
+  tmp___1 = ldv__builtin_expect(__ret_warn_once != 0, 0L);
 #line 108
   if (tmp___1 != 0L) {
 #line 108
     __ret_warn_on = ! __warned;
 #line 108
-    tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 108
     if (tmp != 0L) {
 #line 108
@@ -7416,7 +7416,7 @@ __inline static unsigned int cpumask_check(unsigned int cpu )
 
     }
 #line 108
-    tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 108
     if (tmp___0 != 0L) {
 #line 108
@@ -7428,7 +7428,7 @@ __inline static unsigned int cpumask_check(unsigned int cpu )
 
   }
 #line 108
-  __builtin_expect(__ret_warn_once != 0, 0L);
+  ldv__builtin_expect(__ret_warn_once != 0, 0L);
 #line 110
   return (cpu);
 }
@@ -7488,7 +7488,7 @@ __inline static unsigned long arch_local_save_flags(void)
 #line 827
   __eax = __eax;
 #line 827
-  tmp = __builtin_expect((unsigned long )pv_irq_ops.save_fl.func == (unsigned long )((void *)0),
+  tmp = ldv__builtin_expect((unsigned long )pv_irq_ops.save_fl.func == (unsigned long )((void *)0),
                          0L);
 #line 827
   if (tmp != 0L) {
@@ -7518,7 +7518,7 @@ __inline static long IS_ERR(void const   *ptr )
 
   {
 #line 34
-  tmp = __builtin_expect((unsigned long )ptr > 0xfffffffffffff000UL, 0L);
+  tmp = ldv__builtin_expect((unsigned long )ptr > 0xfffffffffffff000UL, 0L);
 #line 34
   return (tmp);
 }
@@ -7641,7 +7641,7 @@ __inline static int __atomic_add_unless(atomic_t *v , int a , int u )
   c = atomic_read((atomic_t const   *)v);
   ldv_5519: 
 #line 233
-  tmp = __builtin_expect(c == u, 0L);
+  tmp = ldv__builtin_expect(c == u, 0L);
 #line 233
   if (tmp != 0L) {
 #line 234
@@ -7652,7 +7652,7 @@ __inline static int __atomic_add_unless(atomic_t *v , int a , int u )
 #line 235
   old = atomic_cmpxchg(v, c, c + a);
 #line 236
-  tmp___0 = __builtin_expect(old == c, 1L);
+  tmp___0 = ldv__builtin_expect(old == c, 1L);
 #line 236
   if (tmp___0 != 0L) {
 #line 237
@@ -8053,7 +8053,7 @@ __inline static struct dma_map_ops *get_dma_ops(struct device *dev )
 
   {
 #line 37
-  tmp = __builtin_expect((unsigned long )dev == (unsigned long )((struct device *)0),
+  tmp = ldv__builtin_expect((unsigned long )dev == (unsigned long )((struct device *)0),
                          0L);
 #line 37
   if (tmp != 0L || (unsigned long )dev->archdata.dma_ops == (unsigned long )((struct dma_map_ops *)0)) {
@@ -8194,7 +8194,7 @@ __inline static void dma_free_attrs(struct device *dev , size_t size , void *vad
 #line 165
   __ret_warn_on = tmp___0 != 0;
 #line 165
-  tmp___1 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___1 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 165
   if (tmp___1 != 0L) {
 #line 165
@@ -8204,7 +8204,7 @@ __inline static void dma_free_attrs(struct device *dev , size_t size , void *vad
 
   }
 #line 165
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 170
   debug_dma_free_coherent(dev, size, vaddr, bus);
 #line 171
@@ -9369,7 +9369,7 @@ static void _base_display_reply_info(struct MPT2SAS_ADAPTER *ioc , u16 smid , u8
 #line 748
   mpi_reply = (MPI2DefaultReply_t *)tmp;
 #line 749
-  tmp___0 = __builtin_expect((unsigned long )mpi_reply == (unsigned long )((MPI2DefaultReply_t *)0),
+  tmp___0 = ldv__builtin_expect((unsigned long )mpi_reply == (unsigned long )((MPI2DefaultReply_t *)0),
                              0L);
 #line 749
   if (tmp___0 != 0L) {
@@ -9700,11 +9700,11 @@ static irqreturn_t _base_interrupt(int irq , void *bus_id )
 #line 986
     cb_idx = _base_get_cb_idx(ioc, (int )smid);
 #line 987
-    tmp___0 = __builtin_expect((unsigned int )cb_idx <= 15U, 1L);
+    tmp___0 = ldv__builtin_expect((unsigned int )cb_idx <= 15U, 1L);
 #line 987
     if (tmp___0 != 0L) {
 #line 987
-      tmp___1 = __builtin_expect((unsigned long )mpt_callbacks[(int )cb_idx] != (unsigned long )((MPT_CALLBACK )0),
+      tmp___1 = ldv__builtin_expect((unsigned long )mpt_callbacks[(int )cb_idx] != (unsigned long )((MPT_CALLBACK )0),
                                  1L);
 #line 987
       if (tmp___1 != 0L) {
@@ -15894,7 +15894,7 @@ int mpt2sas_base_hard_reset_handler(struct MPT2SAS_ADAPTER *ioc , int sleep_flag
 
   }
 #line 4636
-  tmp = __builtin_expect(sleep_flag == 0, 0L);
+  tmp = ldv__builtin_expect(sleep_flag == 0, 0L);
 #line 4636
   if (tmp != 0L) {
 #line 4636
@@ -18672,7 +18672,7 @@ __inline static void raid_set_level(struct raid_template *r , struct device *dev
 #line 74
   device = tmp;
 #line 74
-  tmp___0 = __builtin_expect((unsigned long )device == (unsigned long )((struct device *)0),
+  tmp___0 = ldv__builtin_expect((unsigned long )device == (unsigned long )((struct device *)0),
                              0L);
 #line 74
   if (tmp___0 != 0L) {
@@ -18711,7 +18711,7 @@ __inline static void raid_set_resync(struct raid_template *r , struct device *de
 #line 75
   device = tmp;
 #line 75
-  tmp___0 = __builtin_expect((unsigned long )device == (unsigned long )((struct device *)0),
+  tmp___0 = ldv__builtin_expect((unsigned long )device == (unsigned long )((struct device *)0),
                              0L);
 #line 75
   if (tmp___0 != 0L) {
@@ -18750,7 +18750,7 @@ __inline static void raid_set_state(struct raid_template *r , struct device *dev
 #line 76
   device = tmp;
 #line 76
-  tmp___0 = __builtin_expect((unsigned long )device == (unsigned long )((struct device *)0),
+  tmp___0 = ldv__builtin_expect((unsigned long )device == (unsigned long )((struct device *)0),
                              0L);
 #line 76
   if (tmp___0 != 0L) {
@@ -23867,7 +23867,7 @@ static u8 _scsih_sas_control_complete(struct MPT2SAS_ADAPTER *ioc , u16 smid , u
 #line 3249
   mpi_reply = (Mpi2SasIoUnitControlReply_t *)tmp;
 #line 3251
-  tmp___0 = __builtin_expect((unsigned long )mpi_reply != (unsigned long )((Mpi2SasIoUnitControlReply_t *)0),
+  tmp___0 = ldv__builtin_expect((unsigned long )mpi_reply != (unsigned long )((Mpi2SasIoUnitControlReply_t *)0),
                              1L);
 #line 3251
   if (tmp___0 != 0L) {
@@ -24008,7 +24008,7 @@ static u8 _scsih_tm_volume_tr_complete(struct MPT2SAS_ADAPTER *ioc , u16 smid , 
 
   }
 #line 3340
-  tmp___0 = __builtin_expect((unsigned long )mpi_reply == (unsigned long )((Mpi2SCSITaskManagementReply_t *)0),
+  tmp___0 = ldv__builtin_expect((unsigned long )mpi_reply == (unsigned long )((Mpi2SCSITaskManagementReply_t *)0),
                              0L);
 #line 3340
   if (tmp___0 != 0L) {
@@ -24121,7 +24121,7 @@ static u8 _scsih_tm_tr_complete(struct MPT2SAS_ADAPTER *ioc , u16 smid , u8 msix
 
   }
 #line 3407
-  tmp___0 = __builtin_expect((unsigned long )mpi_reply == (unsigned long )((Mpi2SCSITaskManagementReply_t *)0),
+  tmp___0 = ldv__builtin_expect((unsigned long )mpi_reply == (unsigned long )((Mpi2SCSITaskManagementReply_t *)0),
                              0L);
 #line 3407
   if (tmp___0 != 0L) {
@@ -24634,7 +24634,7 @@ static void _scsih_check_ir_config_unhide_events(struct MPT2SAS_ADAPTER *ioc , M
 #line 3690
     delayed_tr = (struct _tr_list *)tmp;
 #line 3691
-    tmp___0 = __builtin_expect((unsigned long )delayed_tr == (unsigned long )((struct _tr_list *)0),
+    tmp___0 = ldv__builtin_expect((unsigned long )delayed_tr == (unsigned long )((struct _tr_list *)0),
                                0L);
 #line 3691
     if (tmp___0 != 0L) {
@@ -25266,7 +25266,7 @@ static int _scsih_qcmd_lck(struct scsi_cmnd *scmd , void (*done)(struct scsi_cmn
 
   }
 #line 4108
-  tmp___4 = __builtin_expect((unsigned int )mpi_request->Function == 0U, 1L);
+  tmp___4 = ldv__builtin_expect((unsigned int )mpi_request->Function == 0U, 1L);
 #line 4108
   if (tmp___4 != 0L) {
 #line 4109
@@ -27069,7 +27069,7 @@ static void _scsih_check_device(struct MPT2SAS_ADAPTER *ioc , u16 handle )
 
   }
 #line 5212
-  tmp___2 = __builtin_expect((int )sas_device->handle != (int )handle, 0L);
+  tmp___2 = ldv__builtin_expect((int )sas_device->handle != (int )handle, 0L);
 #line 5212
   if (tmp___2 != 0L) {
 #line 5213
@@ -30722,7 +30722,7 @@ u8 mpt2sas_scsih_event_callback(struct MPT2SAS_ADAPTER *ioc , u8 msix_index , u3
 #line 7423
   mpi_reply = (Mpi2EventNotificationReply_t *)tmp;
 #line 7425
-  tmp___0 = __builtin_expect((unsigned long )mpi_reply == (unsigned long )((Mpi2EventNotificationReply_t *)0),
+  tmp___0 = ldv__builtin_expect((unsigned long )mpi_reply == (unsigned long )((Mpi2EventNotificationReply_t *)0),
                              0L);
 #line 7425
   if (tmp___0 != 0L) {
@@ -33004,7 +33004,7 @@ __inline static dma_addr_t dma_map_single_attrs(struct device *dev , void *ptr ,
 #line 19
   tmp___0 = valid_dma_direction((int )dir);
 #line 19
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
 #line 19
   if (tmp___1 != 0L) {
 #line 19
@@ -33048,7 +33048,7 @@ __inline static void dma_unmap_single_attrs(struct device *dev , dma_addr_t addr
 #line 36
   tmp___0 = valid_dma_direction((int )dir);
 #line 36
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
 #line 36
   if (tmp___1 != 0L) {
 #line 36
@@ -37028,14 +37028,14 @@ __inline static unsigned long copy_from_user(void *to , void const   *from , uns
 #line 61
   might_fault();
 #line 62
-  tmp___1 = __builtin_expect(sz == -1, 1L);
+  tmp___1 = ldv__builtin_expect(sz == -1, 1L);
 #line 62
   if (tmp___1 != 0L) {
 #line 63
     n = _copy_from_user(to, from, (unsigned int )n);
   } else {
 #line 62
-    tmp___2 = __builtin_expect((unsigned long )sz >= n, 1L);
+    tmp___2 = ldv__builtin_expect((unsigned long )sz >= n, 1L);
 #line 62
     if (tmp___2 != 0L) {
 #line 63
@@ -37044,7 +37044,7 @@ __inline static unsigned long copy_from_user(void *to , void const   *from , uns
 #line 66
       __ret_warn_on = 1;
 #line 66
-      tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+      tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 66
       if (tmp___0 != 0L) {
 #line 66
@@ -37054,7 +37054,7 @@ __inline static unsigned long copy_from_user(void *to , void const   *from , uns
 
       }
 #line 66
-      __builtin_expect(__ret_warn_on != 0, 0L);
+      ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
   }
 #line 68
@@ -38399,7 +38399,7 @@ static long _ctl_do_mpt_command(struct MPT2SAS_ADAPTER *ioc , struct mpt2_ioctl_
     data = (u8 *)(& smp_request->SGL);
   } else {
 #line 917
-    tmp___5 = __builtin_expect((unsigned long )data_out == (unsigned long )((void *)0),
+    tmp___5 = ldv__builtin_expect((unsigned long )data_out == (unsigned long )((void *)0),
                                0L);
 #line 917
     if (tmp___5 != 0L) {
@@ -42237,7 +42237,7 @@ __inline static void ldv_error(void)
 #line 25
 extern int __VERIFIER_nondet_int(void) ;
 #line 49 "/work/vladimir/kernel-rules/verifier/rcv.h"
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 

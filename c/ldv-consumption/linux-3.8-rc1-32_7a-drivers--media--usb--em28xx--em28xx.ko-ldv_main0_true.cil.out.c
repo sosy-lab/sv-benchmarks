@@ -6839,7 +6839,7 @@ struct mt9v011_platform_data {
 #line 1 "<compiler builtins>"
 void *__builtin_memcpy(void * , void const   * , unsigned long  ) ;
 #line 1
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 #line 33 "include/linux/export.h"
 extern struct module __this_module ;
 #line 62 "/work/ldvuser/exper_fp/inst/current/envs/linux-3.10-rc1.tar/linux-3.10-rc1/arch/x86/include/asm/bitops.h"
@@ -10368,7 +10368,7 @@ static int vidioc_enum_fmt_vid_cap(struct file *file , void *priv , struct v4l2_
 
   {
 #line 1554
-  tmp = __builtin_expect(f->index > 5U, 0L);
+  tmp = ldv__builtin_expect(f->index > 5U, 0L);
 #line 1554
   if (tmp != 0L) {
 #line 1555
@@ -10542,7 +10542,7 @@ static int radio_g_tuner(struct file *file , void *priv , struct v4l2_tuner *t )
 #line 1644
   dev = ((struct em28xx_fh *)priv)->dev;
 #line 1646
-  tmp = __builtin_expect(t->index != 0U, 0L);
+  tmp = ldv__builtin_expect(t->index != 0U, 0L);
 #line 1646
   if (tmp != 0L) {
 #line 1647
@@ -12329,14 +12329,14 @@ static int em2800_i2c_send_bytes(struct em28xx *dev , u8 addr , u8 *buf , u16 le
 
   }
 #line 122
-  tmp = __builtin_expect((unsigned int )len == 0U, 0L);
+  tmp = ldv__builtin_expect((unsigned int )len == 0U, 0L);
 #line 122
   if (tmp != 0L) {
 #line 122
     goto _L;
   } else {
 #line 122
-    tmp___0 = __builtin_expect((unsigned int )len > 4U, 0L);
+    tmp___0 = ldv__builtin_expect((unsigned int )len > 4U, 0L);
 #line 122
     if (tmp___0 != 0L) {
       _L: /* CIL Label */ 
@@ -13551,7 +13551,7 @@ static u32 functionality(struct i2c_adapter *i2c_adap )
 #line 860
   __ret_warn_on = 1;
 #line 860
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 860
   if (tmp != 0L) {
 #line 860
@@ -13561,7 +13561,7 @@ static u32 functionality(struct i2c_adapter *i2c_adap )
 
   }
 #line 860
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 861
   return (0U);
 }
@@ -13813,7 +13813,7 @@ int em28xx_i2c_register(struct em28xx *dev , unsigned int bus , enum em28xx_i2c_
 
   {
 #line 940
-  tmp = __builtin_expect((unsigned long )dev->em28xx_write_regs == (unsigned long )((int (*)(struct em28xx * ,
+  tmp = ldv__builtin_expect((unsigned long )dev->em28xx_write_regs == (unsigned long )((int (*)(struct em28xx * ,
                                                                                              u16  ,
                                                                                              char * ,
                                                                                              int  ))0),
@@ -13824,7 +13824,7 @@ int em28xx_i2c_register(struct em28xx *dev , unsigned int bus , enum em28xx_i2c_
     goto _L;
   } else {
 #line 940
-    tmp___0 = __builtin_expect((unsigned long )dev->em28xx_read_reg == (unsigned long )((int (*)(struct em28xx * ,
+    tmp___0 = ldv__builtin_expect((unsigned long )dev->em28xx_read_reg == (unsigned long )((int (*)(struct em28xx * ,
                                                                                                  u16  ))0),
                                0L);
 #line 940
@@ -13841,7 +13841,7 @@ int em28xx_i2c_register(struct em28xx *dev , unsigned int bus , enum em28xx_i2c_
     }
   }
 #line 941
-  tmp___1 = __builtin_expect((unsigned long )dev->em28xx_write_regs_req == (unsigned long )((int (*)(struct em28xx * ,
+  tmp___1 = ldv__builtin_expect((unsigned long )dev->em28xx_write_regs_req == (unsigned long )((int (*)(struct em28xx * ,
                                                                                                      u8  ,
                                                                                                      u16  ,
                                                                                                      char * ,
@@ -13853,7 +13853,7 @@ int em28xx_i2c_register(struct em28xx *dev , unsigned int bus , enum em28xx_i2c_
     goto _L___0;
   } else {
 #line 941
-    tmp___2 = __builtin_expect((unsigned long )dev->em28xx_read_reg_req == (unsigned long )((int (*)(struct em28xx * ,
+    tmp___2 = ldv__builtin_expect((unsigned long )dev->em28xx_read_reg_req == (unsigned long )((int (*)(struct em28xx * ,
                                                                                                      u8  ,
                                                                                                      u16  ))0),
                                0L);
@@ -18099,7 +18099,7 @@ __inline static unsigned long arch_local_save_flags(void)
 #line 824
   __eax = __eax;
 #line 824
-  tmp = __builtin_expect((unsigned long )pv_irq_ops.save_fl.func == (unsigned long )((void *)0),
+  tmp = ldv__builtin_expect((unsigned long )pv_irq_ops.save_fl.func == (unsigned long )((void *)0),
                          0L);
 #line 824
   if (tmp != 0L) {
@@ -22314,7 +22314,7 @@ __inline static void ldv_error(void)
 #line 25
 extern int __VERIFIER_nondet_int(void) ;
 #line 49 "/home/ldvuser/ldv/inst/kernel-rules/verifier/rcv.h"
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 

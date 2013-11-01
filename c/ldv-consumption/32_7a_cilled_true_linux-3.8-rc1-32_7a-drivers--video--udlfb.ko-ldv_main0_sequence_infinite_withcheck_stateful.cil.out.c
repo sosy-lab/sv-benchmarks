@@ -4449,7 +4449,7 @@ unsigned long __builtin_object_size(void * , int  ) ;
 #line 1
 void __builtin_prefetch(void const   *  , ...) ;
 #line 1
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 #line 46 "include/uapi/linux/swab.h"
 __inline static __u16 __fswab16(__u16 val ) 
 { 
@@ -4579,7 +4579,7 @@ __inline static u64 paravirt_read_tsc(void)
 #line 179
   __eax = __eax;
 #line 179
-  tmp = __builtin_expect((unsigned long )pv_cpu_ops.read_tsc == (unsigned long )((u64 (*)(void))0),
+  tmp = ldv__builtin_expect((unsigned long )pv_cpu_ops.read_tsc == (unsigned long )((u64 (*)(void))0),
                          0L);
 #line 179
   if (tmp != 0L) {
@@ -4808,7 +4808,7 @@ __inline static void kref_get(struct kref *kref )
 #line 42
   __ret_warn_on = tmp == 0;
 #line 42
-  tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 42
   if (tmp___0 != 0L) {
 #line 42
@@ -4817,7 +4817,7 @@ __inline static void kref_get(struct kref *kref )
 
   }
 #line 42
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 43
   atomic_inc(& kref->refcount);
 #line 44
@@ -4835,7 +4835,7 @@ __inline static int kref_sub(struct kref *kref , unsigned int count , void (*rel
 #line 67
   __ret_warn_on = (unsigned long )release == (unsigned long )((void (*)(struct kref * ))0);
 #line 67
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 67
   if (tmp != 0L) {
 #line 67
@@ -4844,7 +4844,7 @@ __inline static int kref_sub(struct kref *kref , unsigned int count , void (*rel
 
   }
 #line 67
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 69
   tmp___0 = atomic_sub_and_test((int )count, & kref->refcount);
 #line 69
@@ -4896,14 +4896,14 @@ __inline static unsigned long copy_from_user(void *to , void const   *from , uns
 #line 61
   might_fault();
 #line 62
-  tmp___1 = __builtin_expect(sz == -1, 1L);
+  tmp___1 = ldv__builtin_expect(sz == -1, 1L);
 #line 62
   if (tmp___1 != 0L) {
 #line 63
     n = _copy_from_user(to, from, (unsigned int )n);
   } else {
 #line 62
-    tmp___2 = __builtin_expect((unsigned long )sz >= n, 1L);
+    tmp___2 = ldv__builtin_expect((unsigned long )sz >= n, 1L);
 #line 62
     if (tmp___2 != 0L) {
 #line 63
@@ -4912,7 +4912,7 @@ __inline static unsigned long copy_from_user(void *to , void const   *from , uns
 #line 66
       __ret_warn_on = 1;
 #line 66
-      tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+      tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 66
       if (tmp___0 != 0L) {
 #line 66
@@ -4922,7 +4922,7 @@ __inline static unsigned long copy_from_user(void *to , void const   *from , uns
 
       }
 #line 66
-      __builtin_expect(__ret_warn_on != 0, 0L);
+      ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
   }
 #line 68
@@ -5818,12 +5818,12 @@ static void dlfb_compress_hline(uint16_t const   **pixel_start_ptr , uint16_t co
 #line 503
   pixel = pixel + 1;
 #line 505
-  tmp___8 = __builtin_expect((unsigned long )pixel < (unsigned long )cmd_pixel_end,
+  tmp___8 = ldv__builtin_expect((unsigned long )pixel < (unsigned long )cmd_pixel_end,
                              0L);
 #line 505
   if (tmp___8 != 0L) {
 #line 505
-    tmp___9 = __builtin_expect((int )((unsigned short )*pixel) == (int )((unsigned short )*repeating_pixel),
+    tmp___9 = ldv__builtin_expect((int )((unsigned short )*pixel) == (int )((unsigned short )*repeating_pixel),
                                0L);
 #line 505
     if (tmp___9 != 0L) {
@@ -8468,7 +8468,7 @@ static struct urb *dlfb_get_urb(struct dlfb_data *dev )
 #line 1974
   tmp___0 = list_empty((struct list_head  const  *)(& dev->urbs.list));
 #line 1974
-  tmp___1 = __builtin_expect(tmp___0 != 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 != 0, 0L);
 #line 1974
   if (tmp___1 != 0L) {
 #line 1974
@@ -8507,7 +8507,7 @@ static int dlfb_submit_urb(struct dlfb_data *dev , struct urb *urb , size_t len 
 
   {
 #line 1992
-  tmp = __builtin_expect(dev->urbs.size < len, 0L);
+  tmp = ldv__builtin_expect(dev->urbs.size < len, 0L);
 #line 1992
   if (tmp != 0L) {
 #line 1992
@@ -8957,7 +8957,7 @@ __inline static void ldv_error(void)
 #line 25
 extern int __VERIFIER_nondet_int(void) ;
 #line 49 "/home/mikhail/ldv/kernel-rules/verifier/rcv.h"
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 

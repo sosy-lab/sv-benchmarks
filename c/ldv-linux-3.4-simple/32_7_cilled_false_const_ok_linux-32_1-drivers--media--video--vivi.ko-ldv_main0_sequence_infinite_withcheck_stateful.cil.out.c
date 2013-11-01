@@ -4923,7 +4923,7 @@ struct __anonstruct_292 {
 #line 1 "<compiler builtins>"
 
 #line 1
-long __builtin_expect(long val , long res ) ;
+long ldv__builtin_expect(long val , long res ) ;
 #line 24 "include/linux/list.h"
 __inline static void INIT_LIST_HEAD(struct list_head *list )  __attribute__((__no_instrument_function__)) ;
 #line 24 "include/linux/list.h"
@@ -5165,7 +5165,7 @@ __inline static long __attribute__((__warn_unused_result__))  IS_ERR(void    *pt
 #line 34
   __cil_tmp7 = (long )__cil_tmp6;
 #line 34
-  tmp = __builtin_expect(__cil_tmp7, 0L);
+  tmp = ldv__builtin_expect(__cil_tmp7, 0L);
   }
 #line 34
   return (tmp);
@@ -5383,7 +5383,7 @@ __inline static bool freezing(struct task_struct *p )
 #line 30
   __cil_tmp7 = (long )tmp___8;
 #line 30
-  tmp___9 = __builtin_expect(__cil_tmp7, 1L);
+  tmp___9 = ldv__builtin_expect(__cil_tmp7, 1L);
   }
 #line 30
   if (tmp___9) {
@@ -5455,7 +5455,7 @@ __inline static bool try_to_freeze(void)
 #line 47
   __cil_tmp6 = (long )tmp___9;
 #line 47
-  tmp___10 = __builtin_expect(__cil_tmp6, 1L);
+  tmp___10 = ldv__builtin_expect(__cil_tmp6, 1L);
   }
 #line 47
   if (tmp___10) {
@@ -10011,7 +10011,7 @@ static int buffer_init(struct vb2_buffer *vb )
 #line 688
     __cil_tmp17 = (long )__cil_tmp16;
 #line 688
-    tmp___8 = __builtin_expect(__cil_tmp17, 0L);
+    tmp___8 = ldv__builtin_expect(__cil_tmp17, 0L);
     }
 #line 688
     if (tmp___8) {
@@ -10225,7 +10225,7 @@ static int buffer_prepare(struct vb2_buffer *vb )
 #line 713
     __cil_tmp40 = (long )__cil_tmp39;
 #line 713
-    tmp___8 = __builtin_expect(__cil_tmp40, 0L);
+    tmp___8 = ldv__builtin_expect(__cil_tmp40, 0L);
     }
 #line 713
     if (tmp___8) {
@@ -15020,7 +15020,7 @@ void ldv_check_final_state(void)
 }
 }
 #line 4238 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/15067/dscv_tempdir/dscv/ri/32_1/drivers/media/video/vivi.c.common.c"
-long __builtin_expect(long val , long res ) 
+long ldv__builtin_expect(long val , long res ) 
 { 
 
   {

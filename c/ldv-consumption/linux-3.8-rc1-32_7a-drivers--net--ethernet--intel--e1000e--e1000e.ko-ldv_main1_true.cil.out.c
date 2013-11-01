@@ -7290,7 +7290,7 @@ struct my_u1 {
 #line 255 "include/linux/timer.h"
 enum hrtimer_restart;
 #line 1 "<compiler builtins>"
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 #line 59 "include/linux/dynamic_debug.h"
 extern int __dynamic_netdev_dbg(struct _ddebug * , struct net_device  const  * , char const   * 
                                 , ...) ;
@@ -7744,7 +7744,7 @@ static s32 e1000_init_phy_params_82571(struct e1000_hw *hw )
 #line 151
     descriptor.flags = 0U;
 #line 151
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 151
     if (tmp != 0L) {
 #line 151
@@ -7814,7 +7814,7 @@ static s32 e1000_init_phy_params_82571(struct e1000_hw *hw )
 #line 177
     descriptor___0.flags = 0U;
 #line 177
-    tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 177
     if (tmp___0 != 0L) {
 #line 177
@@ -8087,7 +8087,7 @@ static s32 e1000_init_mac_params_82571(struct e1000_hw *hw )
 #line 368
       descriptor.flags = 0U;
 #line 368
-      tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+      tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 368
       if (tmp___0 != 0L) {
 #line 368
@@ -8366,7 +8366,7 @@ static s32 e1000_get_hw_semaphore_82571(struct e1000_hw *hw )
 #line 530
     descriptor.flags = 0U;
 #line 530
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 530
     if (tmp != 0L) {
 #line 530
@@ -8428,7 +8428,7 @@ static s32 e1000_get_hw_semaphore_82571(struct e1000_hw *hw )
 #line 548
     descriptor___0.flags = 0U;
 #line 548
-    tmp___1 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 548
     if (tmp___1 != 0L) {
 #line 548
@@ -8518,7 +8518,7 @@ static s32 e1000_get_hw_semaphore_82573(struct e1000_hw *hw )
 #line 598
     descriptor.flags = 0U;
 #line 598
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 598
     if (tmp != 0L) {
 #line 598
@@ -8901,7 +8901,7 @@ static s32 e1000_write_nvm_eewr_82571(struct e1000_hw *hw , u16 offset , u16 wor
 #line 885
     descriptor.flags = 0U;
 #line 885
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 885
     if (tmp != 0L) {
 #line 885
@@ -9008,7 +9008,7 @@ static s32 e1000_get_cfg_done_82571(struct e1000_hw *hw )
 #line 925
     descriptor.flags = 0U;
 #line 925
-    tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 925
     if (tmp___0 != 0L) {
 #line 925
@@ -9171,7 +9171,7 @@ static s32 e1000_reset_hw_82571(struct e1000_hw *hw )
 #line 1019
     descriptor.flags = 0U;
 #line 1019
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1019
     if (tmp != 0L) {
 #line 1019
@@ -9196,7 +9196,7 @@ static s32 e1000_reset_hw_82571(struct e1000_hw *hw )
 #line 1021
   descriptor___0.flags = 0U;
 #line 1021
-  tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 1021
   if (tmp___0 != 0L) {
 #line 1021
@@ -9252,7 +9252,7 @@ static s32 e1000_reset_hw_82571(struct e1000_hw *hw )
 #line 1047
     descriptor___1.flags = 0U;
 #line 1047
-    tmp___1 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 1047
     if (tmp___1 != 0L) {
 #line 1047
@@ -9279,7 +9279,7 @@ static s32 e1000_reset_hw_82571(struct e1000_hw *hw )
 #line 1051
   descriptor___2.flags = 0U;
 #line 1051
-  tmp___2 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+  tmp___2 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
 #line 1051
   if (tmp___2 != 0L) {
 #line 1051
@@ -9422,7 +9422,7 @@ static s32 e1000_init_hw_82571(struct e1000_hw *hw )
 #line 1140
     descriptor.flags = 0U;
 #line 1140
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1140
     if (tmp != 0L) {
 #line 1140
@@ -9447,7 +9447,7 @@ static s32 e1000_init_hw_82571(struct e1000_hw *hw )
 #line 1143
   descriptor___0.flags = 0U;
 #line 1143
-  tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 1143
   if (tmp___0 != 0L) {
 #line 1143
@@ -9482,7 +9482,7 @@ static s32 e1000_init_hw_82571(struct e1000_hw *hw )
 #line 1156
   descriptor___1.flags = 0U;
 #line 1156
-  tmp___2 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+  tmp___2 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 1156
   if (tmp___2 != 0L) {
 #line 1156
@@ -10058,7 +10058,7 @@ static s32 e1000_check_for_serdes_link_82571(struct e1000_hw *hw )
 #line 1586
       descriptor.flags = 0U;
 #line 1586
-      tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+      tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1586
       if (tmp != 0L) {
 #line 1586
@@ -10097,7 +10097,7 @@ static s32 e1000_check_for_serdes_link_82571(struct e1000_hw *hw )
 #line 1605
       descriptor___0.flags = 0U;
 #line 1605
-      tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+      tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 1605
       if (tmp___0 != 0L) {
 #line 1605
@@ -10132,7 +10132,7 @@ static s32 e1000_check_for_serdes_link_82571(struct e1000_hw *hw )
 #line 1620
         descriptor___1.flags = 0U;
 #line 1620
-        tmp___1 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+        tmp___1 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 1620
         if (tmp___1 != 0L) {
 #line 1620
@@ -10159,7 +10159,7 @@ static s32 e1000_check_for_serdes_link_82571(struct e1000_hw *hw )
 #line 1626
         descriptor___2.flags = 0U;
 #line 1626
-        tmp___2 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+        tmp___2 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
 #line 1626
         if (tmp___2 != 0L) {
 #line 1626
@@ -10193,7 +10193,7 @@ static s32 e1000_check_for_serdes_link_82571(struct e1000_hw *hw )
 #line 1640
         descriptor___3.flags = 0U;
 #line 1640
-        tmp___3 = __builtin_expect((long )descriptor___3.flags & 1L, 0L);
+        tmp___3 = ldv__builtin_expect((long )descriptor___3.flags & 1L, 0L);
 #line 1640
         if (tmp___3 != 0L) {
 #line 1640
@@ -10224,7 +10224,7 @@ static s32 e1000_check_for_serdes_link_82571(struct e1000_hw *hw )
 #line 1646
       descriptor___4.flags = 0U;
 #line 1646
-      tmp___4 = __builtin_expect((long )descriptor___4.flags & 1L, 0L);
+      tmp___4 = ldv__builtin_expect((long )descriptor___4.flags & 1L, 0L);
 #line 1646
       if (tmp___4 != 0L) {
 #line 1646
@@ -10259,7 +10259,7 @@ static s32 e1000_check_for_serdes_link_82571(struct e1000_hw *hw )
 #line 1661
     descriptor___5.flags = 0U;
 #line 1661
-    tmp___5 = __builtin_expect((long )descriptor___5.flags & 1L, 0L);
+    tmp___5 = ldv__builtin_expect((long )descriptor___5.flags & 1L, 0L);
 #line 1661
     if (tmp___5 != 0L) {
 #line 1661
@@ -10292,7 +10292,7 @@ static s32 e1000_check_for_serdes_link_82571(struct e1000_hw *hw )
 #line 1668
     descriptor___6.flags = 0U;
 #line 1668
-    tmp___6 = __builtin_expect((long )descriptor___6.flags & 1L, 0L);
+    tmp___6 = ldv__builtin_expect((long )descriptor___6.flags & 1L, 0L);
 #line 1668
     if (tmp___6 != 0L) {
 #line 1668
@@ -10337,7 +10337,7 @@ static s32 e1000_check_for_serdes_link_82571(struct e1000_hw *hw )
 #line 1685
       descriptor___7.flags = 0U;
 #line 1685
-      tmp___7 = __builtin_expect((long )descriptor___7.flags & 1L, 0L);
+      tmp___7 = ldv__builtin_expect((long )descriptor___7.flags & 1L, 0L);
 #line 1685
       if (tmp___7 != 0L) {
 #line 1685
@@ -10388,7 +10388,7 @@ static s32 e1000_check_for_serdes_link_82571(struct e1000_hw *hw )
 #line 1697
       descriptor___8.flags = 0U;
 #line 1697
-      tmp___8 = __builtin_expect((long )descriptor___8.flags & 1L, 0L);
+      tmp___8 = ldv__builtin_expect((long )descriptor___8.flags & 1L, 0L);
 #line 1697
       if (tmp___8 != 0L) {
 #line 1697
@@ -10430,7 +10430,7 @@ static s32 e1000_valid_led_default_82571(struct e1000_hw *hw , u16 *data )
 #line 1719
     descriptor.flags = 0U;
 #line 1719
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1719
     if (tmp != 0L) {
 #line 1719
@@ -11756,7 +11756,7 @@ static s32 e1000_init_phy_workarounds_pchlan(struct e1000_hw *hw )
 #line 285
     descriptor.flags = 0U;
 #line 285
-    tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 285
     if (tmp___0 != 0L) {
 #line 285
@@ -11840,7 +11840,7 @@ static s32 e1000_init_phy_workarounds_pchlan(struct e1000_hw *hw )
 #line 329
     descriptor___0.flags = 0U;
 #line 329
-    tmp___3 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___3 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 329
     if (tmp___3 != 0L) {
 #line 329
@@ -11867,7 +11867,7 @@ static s32 e1000_init_phy_workarounds_pchlan(struct e1000_hw *hw )
 #line 333
   descriptor___1.flags = 0U;
 #line 333
-  tmp___5 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+  tmp___5 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 333
   if (tmp___5 != 0L) {
 #line 333
@@ -12155,7 +12155,7 @@ static s32 e1000_init_phy_params_ich8lan(struct e1000_hw *hw )
 #line 503
       descriptor.flags = 0U;
 #line 503
-      tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+      tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 503
       if (tmp != 0L) {
 #line 503
@@ -12303,7 +12303,7 @@ static s32 e1000_init_nvm_params_ich8lan(struct e1000_hw *hw )
 #line 571
     descriptor.flags = 0U;
 #line 571
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 571
     if (tmp != 0L) {
 #line 571
@@ -12750,7 +12750,7 @@ static s32 e1000_platform_pm_pch_lpt(struct e1000_hw *hw , bool link )
 #line 912
       descriptor.flags = 0U;
 #line 912
-      tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+      tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 912
       if (tmp != 0L) {
 #line 912
@@ -12781,7 +12781,7 @@ static s32 e1000_platform_pm_pch_lpt(struct e1000_hw *hw , bool link )
 #line 918
       descriptor___0.flags = 0U;
 #line 918
-      tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+      tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 918
       if (tmp___0 != 0L) {
 #line 918
@@ -12846,7 +12846,7 @@ static s32 e1000_platform_pm_pch_lpt(struct e1000_hw *hw , bool link )
 #line 946
       descriptor___1.flags = 0U;
 #line 946
-      tmp___2 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+      tmp___2 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 946
       if (tmp___2 != 0L) {
 #line 946
@@ -13100,7 +13100,7 @@ static s32 e1000_check_for_copper_link_ich8lan(struct e1000_hw *hw )
 #line 1118
     descriptor.flags = 0U;
 #line 1118
-    tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1118
     if (tmp___0 != 0L) {
 #line 1118
@@ -13295,7 +13295,7 @@ static s32 e1000_acquire_swflag_ich8lan(struct e1000_hw *hw )
 #line 1217
     descriptor.flags = 0U;
 #line 1217
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1217
     if (tmp != 0L) {
 #line 1217
@@ -13373,7 +13373,7 @@ static s32 e1000_acquire_swflag_ich8lan(struct e1000_hw *hw )
 #line 1231
     descriptor___0.flags = 0U;
 #line 1231
-    tmp___2 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___2 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 1231
     if (tmp___2 != 0L) {
 #line 1231
@@ -13459,7 +13459,7 @@ static s32 e1000_acquire_swflag_ich8lan(struct e1000_hw *hw )
 #line 1251
     descriptor___1.flags = 0U;
 #line 1251
-    tmp___5 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___5 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 1251
     if (tmp___5 != 0L) {
 #line 1251
@@ -13524,7 +13524,7 @@ static void e1000_release_swflag_ich8lan(struct e1000_hw *hw )
 #line 1283
     descriptor.flags = 0U;
 #line 1283
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1283
     if (tmp != 0L) {
 #line 1283
@@ -13657,7 +13657,7 @@ static void e1000_rar_set_pch2lan(struct e1000_hw *hw , u8 *addr , u32 index )
 #line 1379
     descriptor.flags = 0U;
 #line 1379
-    tmp___2 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___2 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1379
     if (tmp___2 != 0L) {
 #line 1379
@@ -13686,7 +13686,7 @@ static void e1000_rar_set_pch2lan(struct e1000_hw *hw , u8 *addr , u32 index )
 #line 1384
   descriptor___0.flags = 0U;
 #line 1384
-  tmp___3 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___3 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 1384
   if (tmp___3 != 0L) {
 #line 1384
@@ -13813,7 +13813,7 @@ static void e1000_rar_set_pch_lpt(struct e1000_hw *hw , u8 *addr , u32 index )
 #line 1457
   descriptor.flags = 0U;
 #line 1457
-  tmp___2 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___2 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1457
   if (tmp___2 != 0L) {
 #line 1457
@@ -13903,7 +13903,7 @@ static s32 e1000_write_smbus_addr(struct e1000_hw *hw )
 #line 1511
       descriptor.flags = 0U;
 #line 1511
-      tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+      tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1511
       if (tmp___0 != 0L) {
 #line 1511
@@ -15194,7 +15194,7 @@ static void e1000_lan_init_done_ich8lan(struct e1000_hw *hw )
 #line 2274
     descriptor.flags = 0U;
 #line 2274
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 2274
     if (tmp != 0L) {
 #line 2274
@@ -15705,7 +15705,7 @@ static s32 e1000_valid_nvm_bank_detect_ich8lan(struct e1000_hw *hw , u32 *bank )
 #line 2603
   descriptor.flags = 0U;
 #line 2603
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 2603
   if (tmp != 0L) {
 #line 2603
@@ -15766,7 +15766,7 @@ static s32 e1000_valid_nvm_bank_detect_ich8lan(struct e1000_hw *hw , u32 *bank )
 #line 2632
   descriptor___0.flags = 0U;
 #line 2632
-  tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 2632
   if (tmp___0 != 0L) {
 #line 2632
@@ -15821,7 +15821,7 @@ static s32 e1000_read_nvm_ich8lan(struct e1000_hw *hw , u16 offset , u16 words ,
 #line 2658
     descriptor.flags = 0U;
 #line 2658
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 2658
     if (tmp != 0L) {
 #line 2658
@@ -15856,7 +15856,7 @@ static s32 e1000_read_nvm_ich8lan(struct e1000_hw *hw , u16 offset , u16 words ,
 #line 2667
     descriptor___0.flags = 0U;
 #line 2667
-    tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 2667
     if (tmp___0 != 0L) {
 #line 2667
@@ -15927,7 +15927,7 @@ static s32 e1000_read_nvm_ich8lan(struct e1000_hw *hw , u16 offset , u16 words ,
 #line 2692
     descriptor___1.flags = 0U;
 #line 2692
-    tmp___1 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 2692
     if (tmp___1 != 0L) {
 #line 2692
@@ -15974,7 +15974,7 @@ static s32 e1000_flash_cycle_init_ich8lan(struct e1000_hw *hw )
 #line 2713
     descriptor.flags = 0U;
 #line 2713
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 2713
     if (tmp != 0L) {
 #line 2713
@@ -16052,7 +16052,7 @@ static s32 e1000_flash_cycle_init_ich8lan(struct e1000_hw *hw )
 #line 2760
       descriptor___0.flags = 0U;
 #line 2760
-      tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+      tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 2760
       if (tmp___0 != 0L) {
 #line 2760
@@ -16252,7 +16252,7 @@ static s32 e1000_read_flash_data_ich8lan(struct e1000_hw *hw , u32 offset , u8 s
 #line 2907
       descriptor.flags = 0U;
 #line 2907
-      tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+      tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 2907
       if (tmp != 0L) {
 #line 2907
@@ -16314,7 +16314,7 @@ static s32 e1000_write_nvm_ich8lan(struct e1000_hw *hw , u16 offset , u16 words 
 #line 2934
     descriptor.flags = 0U;
 #line 2934
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 2934
     if (tmp != 0L) {
 #line 2934
@@ -16414,7 +16414,7 @@ static s32 e1000_update_nvm_checksum_ich8lan(struct e1000_hw *hw )
 #line 2984
     descriptor.flags = 0U;
 #line 2984
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 2984
     if (tmp != 0L) {
 #line 2984
@@ -16535,7 +16535,7 @@ static s32 e1000_update_nvm_checksum_ich8lan(struct e1000_hw *hw )
 #line 3051
     descriptor___0.flags = 0U;
 #line 3051
-    tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 3051
     if (tmp___0 != 0L) {
 #line 3051
@@ -16630,7 +16630,7 @@ static s32 e1000_update_nvm_checksum_ich8lan(struct e1000_hw *hw )
 #line 3101
     descriptor___1.flags = 0U;
 #line 3101
-    tmp___1 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 3101
     if (tmp___1 != 0L) {
 #line 3101
@@ -16844,7 +16844,7 @@ static s32 e1000_write_flash_data_ich8lan(struct e1000_hw *hw , u32 offset , u8 
 #line 3261
     descriptor.flags = 0U;
 #line 3261
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 3261
     if (tmp != 0L) {
 #line 3261
@@ -16927,7 +16927,7 @@ static s32 e1000_retry_write_flash_byte_ich8lan(struct e1000_hw *hw , u32 offset
 #line 3305
   descriptor.flags = 0U;
 #line 3305
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 3305
   if (tmp != 0L) {
 #line 3305
@@ -17133,7 +17133,7 @@ static s32 e1000_valid_led_default_ich8lan(struct e1000_hw *hw , u16 *data )
 #line 3435
     descriptor.flags = 0U;
 #line 3435
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 3435
     if (tmp != 0L) {
 #line 3435
@@ -17325,7 +17325,7 @@ static s32 e1000_reset_hw_ich8lan(struct e1000_hw *hw )
 #line 3561
     descriptor.flags = 0U;
 #line 3561
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 3561
     if (tmp != 0L) {
 #line 3561
@@ -17350,7 +17350,7 @@ static s32 e1000_reset_hw_ich8lan(struct e1000_hw *hw )
 #line 3563
   descriptor___0.flags = 0U;
 #line 3563
-  tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 3563
   if (tmp___0 != 0L) {
 #line 3563
@@ -17440,7 +17440,7 @@ static s32 e1000_reset_hw_ich8lan(struct e1000_hw *hw )
 #line 3613
   descriptor___1.flags = 0U;
 #line 3613
-  tmp___3 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+  tmp___3 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 3613
   if (tmp___3 != 0L) {
 #line 3613
@@ -17553,7 +17553,7 @@ static s32 e1000_init_hw_ich8lan(struct e1000_hw *hw )
 #line 3681
     descriptor.flags = 0U;
 #line 3681
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 3681
     if (tmp != 0L) {
 #line 3681
@@ -17580,7 +17580,7 @@ static s32 e1000_init_hw_ich8lan(struct e1000_hw *hw )
 #line 3687
   descriptor___0.flags = 0U;
 #line 3687
-  tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 3687
   if (tmp___0 != 0L) {
 #line 3687
@@ -17820,7 +17820,7 @@ static s32 e1000_setup_link_ich8lan(struct e1000_hw *hw )
 #line 3855
   descriptor.flags = 0U;
 #line 3855
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 3855
   if (tmp___0 != 0L) {
 #line 3855
@@ -18195,7 +18195,7 @@ void e1000e_set_kmrn_lock_loss_workaround_ich8lan(struct e1000_hw *hw , bool sta
 #line 4095
     descriptor.flags = 0U;
 #line 4095
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 4095
     if (tmp != 0L) {
 #line 4095
@@ -18504,7 +18504,7 @@ void e1000_resume_workarounds_pchlan(struct e1000_hw *hw )
 #line 4319
     descriptor.flags = 0U;
 #line 4319
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 4319
     if (tmp != 0L) {
 #line 4319
@@ -18537,7 +18537,7 @@ void e1000_resume_workarounds_pchlan(struct e1000_hw *hw )
 #line 4333
       descriptor___0.flags = 0U;
 #line 4333
-      tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+      tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 4333
       if (tmp___0 != 0L) {
 #line 4333
@@ -18602,7 +18602,7 @@ void e1000_resume_workarounds_pchlan(struct e1000_hw *hw )
 #line 4358
       descriptor___1.flags = 0U;
 #line 4358
-      tmp___2 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+      tmp___2 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 4358
       if (tmp___2 != 0L) {
 #line 4358
@@ -18872,7 +18872,7 @@ static s32 e1000_get_cfg_done_ich8lan(struct e1000_hw *hw )
 #line 4523
       descriptor.flags = 0U;
 #line 4523
-      tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+      tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 4523
       if (tmp != 0L) {
 #line 4523
@@ -18907,7 +18907,7 @@ static s32 e1000_get_cfg_done_ich8lan(struct e1000_hw *hw )
 #line 4533
     descriptor___0.flags = 0U;
 #line 4533
-    tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 4533
     if (tmp___0 != 0L) {
 #line 4533
@@ -18946,7 +18946,7 @@ static s32 e1000_get_cfg_done_ich8lan(struct e1000_hw *hw )
 #line 4544
       descriptor___1.flags = 0U;
 #line 4544
-      tmp___2 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+      tmp___2 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 4544
       if (tmp___2 != 0L) {
 #line 4544
@@ -20035,7 +20035,7 @@ static s32 e1000_acquire_swfw_sync_80003es2lan(struct e1000_hw *hw , u16 mask )
 #line 363
     descriptor.flags = 0U;
 #line 363
-    tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 363
     if (tmp___1 != 0L) {
 #line 363
@@ -20305,7 +20305,7 @@ static s32 e1000_get_cfg_done_80003es2lan(struct e1000_hw *hw )
 #line 572
     descriptor.flags = 0U;
 #line 572
-    tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 572
     if (tmp___0 != 0L) {
 #line 572
@@ -20368,7 +20368,7 @@ static s32 e1000_phy_force_speed_duplex_80003es2lan(struct e1000_hw *hw )
 #line 604
   descriptor.flags = 0U;
 #line 604
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 604
   if (tmp != 0L) {
 #line 604
@@ -20416,7 +20416,7 @@ static s32 e1000_phy_force_speed_duplex_80003es2lan(struct e1000_hw *hw )
 #line 622
     descriptor___0.flags = 0U;
 #line 622
-    tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 622
     if (tmp___0 != 0L) {
 #line 622
@@ -20578,7 +20578,7 @@ static s32 e1000_reset_hw_80003es2lan(struct e1000_hw *hw )
 #line 739
     descriptor.flags = 0U;
 #line 739
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 739
     if (tmp != 0L) {
 #line 739
@@ -20603,7 +20603,7 @@ static s32 e1000_reset_hw_80003es2lan(struct e1000_hw *hw )
 #line 741
   descriptor___0.flags = 0U;
 #line 741
-  tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 741
   if (tmp___0 != 0L) {
 #line 741
@@ -20646,7 +20646,7 @@ static s32 e1000_reset_hw_80003es2lan(struct e1000_hw *hw )
 #line 756
   descriptor___1.flags = 0U;
 #line 756
-  tmp___1 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 756
   if (tmp___1 != 0L) {
 #line 756
@@ -20721,7 +20721,7 @@ static s32 e1000_init_hw_80003es2lan(struct e1000_hw *hw )
 #line 799
     descriptor.flags = 0U;
 #line 799
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 799
     if (tmp != 0L) {
 #line 799
@@ -20746,7 +20746,7 @@ static s32 e1000_init_hw_80003es2lan(struct e1000_hw *hw )
 #line 802
   descriptor___0.flags = 0U;
 #line 802
-  tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 802
   if (tmp___0 != 0L) {
 #line 802
@@ -20772,7 +20772,7 @@ static s32 e1000_init_hw_80003es2lan(struct e1000_hw *hw )
 #line 809
   descriptor___1.flags = 0U;
 #line 809
-  tmp___1 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 809
   if (tmp___1 != 0L) {
 #line 809
@@ -21034,7 +21034,7 @@ static s32 e1000_copper_link_setup_gg82563_80003es2lan(struct e1000_hw *hw )
 #line 991
     descriptor.flags = 0U;
 #line 991
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 991
     if (tmp != 0L) {
 #line 991
@@ -22138,7 +22138,7 @@ void e1000e_init_rx_addrs(struct e1000_hw *hw , u16 rar_count )
 #line 182
   descriptor.flags = 0U;
 #line 182
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 182
   if (tmp___0 != 0L) {
 #line 182
@@ -22162,7 +22162,7 @@ void e1000e_init_rx_addrs(struct e1000_hw *hw , u16 rar_count )
 #line 187
   descriptor___0.flags = 0U;
 #line 187
-  tmp___1 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 187
   if (tmp___1 != 0L) {
 #line 187
@@ -22244,7 +22244,7 @@ s32 e1000_check_alt_mac_addr_generic(struct e1000_hw *hw )
 #line 222
     descriptor.flags = 0U;
 #line 222
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 222
     if (tmp != 0L) {
 #line 222
@@ -22296,7 +22296,7 @@ s32 e1000_check_alt_mac_addr_generic(struct e1000_hw *hw )
 #line 237
     descriptor___0.flags = 0U;
 #line 237
-    tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 237
     if (tmp___0 != 0L) {
 #line 237
@@ -22341,7 +22341,7 @@ s32 e1000_check_alt_mac_addr_generic(struct e1000_hw *hw )
 #line 247
     descriptor___1.flags = 0U;
 #line 247
-    tmp___1 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 247
     if (tmp___1 != 0L) {
 #line 247
@@ -22656,7 +22656,7 @@ s32 e1000e_check_for_copper_link(struct e1000_hw *hw )
 #line 504
     descriptor.flags = 0U;
 #line 504
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 504
     if (tmp != 0L) {
 #line 504
@@ -22720,7 +22720,7 @@ s32 e1000e_check_for_fiber_link(struct e1000_hw *hw )
 #line 542
     descriptor.flags = 0U;
 #line 542
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 542
     if (tmp != 0L) {
 #line 542
@@ -22754,7 +22754,7 @@ s32 e1000e_check_for_fiber_link(struct e1000_hw *hw )
 #line 555
       descriptor___0.flags = 0U;
 #line 555
-      tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+      tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 555
       if (tmp___0 != 0L) {
 #line 555
@@ -22784,7 +22784,7 @@ s32 e1000e_check_for_fiber_link(struct e1000_hw *hw )
 #line 564
     descriptor___1.flags = 0U;
 #line 564
-    tmp___1 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 564
     if (tmp___1 != 0L) {
 #line 564
@@ -22868,7 +22868,7 @@ s32 e1000e_check_for_serdes_link(struct e1000_hw *hw )
 #line 605
     descriptor.flags = 0U;
 #line 605
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 605
     if (tmp != 0L) {
 #line 605
@@ -22902,7 +22902,7 @@ s32 e1000e_check_for_serdes_link(struct e1000_hw *hw )
 #line 618
       descriptor___0.flags = 0U;
 #line 618
-      tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+      tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 618
       if (tmp___0 != 0L) {
 #line 618
@@ -22932,7 +22932,7 @@ s32 e1000e_check_for_serdes_link(struct e1000_hw *hw )
 #line 627
     descriptor___1.flags = 0U;
 #line 627
-    tmp___1 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 627
     if (tmp___1 != 0L) {
 #line 627
@@ -22975,7 +22975,7 @@ s32 e1000e_check_for_serdes_link(struct e1000_hw *hw )
 #line 643
           descriptor___2.flags = 0U;
 #line 643
-          tmp___2 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+          tmp___2 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
 #line 643
           if (tmp___2 != 0L) {
 #line 643
@@ -23003,7 +23003,7 @@ s32 e1000e_check_for_serdes_link(struct e1000_hw *hw )
 #line 647
         descriptor___3.flags = 0U;
 #line 647
-        tmp___3 = __builtin_expect((long )descriptor___3.flags & 1L, 0L);
+        tmp___3 = ldv__builtin_expect((long )descriptor___3.flags & 1L, 0L);
 #line 647
         if (tmp___3 != 0L) {
 #line 647
@@ -23048,7 +23048,7 @@ s32 e1000e_check_for_serdes_link(struct e1000_hw *hw )
 #line 660
           descriptor___4.flags = 0U;
 #line 660
-          tmp___5 = __builtin_expect((long )descriptor___4.flags & 1L, 0L);
+          tmp___5 = ldv__builtin_expect((long )descriptor___4.flags & 1L, 0L);
 #line 660
           if (tmp___5 != 0L) {
 #line 660
@@ -23073,7 +23073,7 @@ s32 e1000e_check_for_serdes_link(struct e1000_hw *hw )
 #line 663
           descriptor___5.flags = 0U;
 #line 663
-          tmp___6 = __builtin_expect((long )descriptor___5.flags & 1L, 0L);
+          tmp___6 = ldv__builtin_expect((long )descriptor___5.flags & 1L, 0L);
 #line 663
           if (tmp___6 != 0L) {
 #line 663
@@ -23099,7 +23099,7 @@ s32 e1000e_check_for_serdes_link(struct e1000_hw *hw )
 #line 667
         descriptor___6.flags = 0U;
 #line 667
-        tmp___7 = __builtin_expect((long )descriptor___6.flags & 1L, 0L);
+        tmp___7 = ldv__builtin_expect((long )descriptor___6.flags & 1L, 0L);
 #line 667
         if (tmp___7 != 0L) {
 #line 667
@@ -23125,7 +23125,7 @@ s32 e1000e_check_for_serdes_link(struct e1000_hw *hw )
 #line 671
       descriptor___7.flags = 0U;
 #line 671
-      tmp___8 = __builtin_expect((long )descriptor___7.flags & 1L, 0L);
+      tmp___8 = ldv__builtin_expect((long )descriptor___7.flags & 1L, 0L);
 #line 671
       if (tmp___8 != 0L) {
 #line 671
@@ -23168,7 +23168,7 @@ static s32 e1000_set_default_fc_generic(struct e1000_hw *hw )
 #line 701
     descriptor.flags = 0U;
 #line 701
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 701
     if (tmp != 0L) {
 #line 701
@@ -23254,7 +23254,7 @@ s32 e1000e_setup_link_generic(struct e1000_hw *hw )
 #line 749
   descriptor.flags = 0U;
 #line 749
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 749
   if (tmp___0 != 0L) {
 #line 749
@@ -23285,7 +23285,7 @@ s32 e1000e_setup_link_generic(struct e1000_hw *hw )
 #line 761
   descriptor___0.flags = 0U;
 #line 761
-  tmp___1 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 761
   if (tmp___1 != 0L) {
 #line 761
@@ -23355,7 +23355,7 @@ static s32 e1000_commit_fc_settings_generic(struct e1000_hw *hw )
 #line 827
   descriptor.flags = 0U;
 #line 827
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 827
   if (tmp != 0L) {
 #line 827
@@ -23435,7 +23435,7 @@ static s32 e1000_poll_fiber_serdes_link_generic(struct e1000_hw *hw )
 #line 864
     descriptor.flags = 0U;
 #line 864
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 864
     if (tmp != 0L) {
 #line 864
@@ -23463,7 +23463,7 @@ static s32 e1000_poll_fiber_serdes_link_generic(struct e1000_hw *hw )
 #line 873
       descriptor___0.flags = 0U;
 #line 873
-      tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+      tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 873
       if (tmp___0 != 0L) {
 #line 873
@@ -23495,7 +23495,7 @@ static s32 e1000_poll_fiber_serdes_link_generic(struct e1000_hw *hw )
 #line 879
     descriptor___1.flags = 0U;
 #line 879
-    tmp___1 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 879
     if (tmp___1 != 0L) {
 #line 879
@@ -23549,7 +23549,7 @@ s32 e1000e_setup_fiber_serdes_link(struct e1000_hw *hw )
 #line 914
   descriptor.flags = 0U;
 #line 914
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 914
   if (tmp != 0L) {
 #line 914
@@ -23589,7 +23589,7 @@ s32 e1000e_setup_fiber_serdes_link(struct e1000_hw *hw )
 #line 928
       descriptor___0.flags = 0U;
 #line 928
-      tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+      tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 928
       if (tmp___0 != 0L) {
 #line 928
@@ -23684,7 +23684,7 @@ s32 e1000e_force_mac_fc(struct e1000_hw *hw )
 #line 1022
   descriptor.flags = 0U;
 #line 1022
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1022
   if (tmp != 0L) {
 #line 1022
@@ -23733,7 +23733,7 @@ s32 e1000e_force_mac_fc(struct e1000_hw *hw )
 #line 1040
   descriptor___0.flags = 0U;
 #line 1040
-  tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 1040
   if (tmp___0 != 0L) {
 #line 1040
@@ -23836,7 +23836,7 @@ s32 e1000e_config_fc_after_link_up(struct e1000_hw *hw )
 #line 1081
     descriptor.flags = 0U;
 #line 1081
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1081
     if (tmp != 0L) {
 #line 1081
@@ -23885,7 +23885,7 @@ s32 e1000e_config_fc_after_link_up(struct e1000_hw *hw )
 #line 1103
       descriptor___0.flags = 0U;
 #line 1103
-      tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+      tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 1103
       if (tmp___0 != 0L) {
 #line 1103
@@ -23936,7 +23936,7 @@ s32 e1000e_config_fc_after_link_up(struct e1000_hw *hw )
 #line 1163
         descriptor___1.flags = 0U;
 #line 1163
-        tmp___1 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+        tmp___1 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 1163
         if (tmp___1 != 0L) {
 #line 1163
@@ -23961,7 +23961,7 @@ s32 e1000e_config_fc_after_link_up(struct e1000_hw *hw )
 #line 1166
         descriptor___2.flags = 0U;
 #line 1166
-        tmp___2 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+        tmp___2 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
 #line 1166
         if (tmp___2 != 0L) {
 #line 1166
@@ -23989,7 +23989,7 @@ s32 e1000e_config_fc_after_link_up(struct e1000_hw *hw )
 #line 1181
       descriptor___3.flags = 0U;
 #line 1181
-      tmp___3 = __builtin_expect((long )descriptor___3.flags & 1L, 0L);
+      tmp___3 = ldv__builtin_expect((long )descriptor___3.flags & 1L, 0L);
 #line 1181
       if (tmp___3 != 0L) {
 #line 1181
@@ -24016,7 +24016,7 @@ s32 e1000e_config_fc_after_link_up(struct e1000_hw *hw )
 #line 1195
       descriptor___4.flags = 0U;
 #line 1195
-      tmp___4 = __builtin_expect((long )descriptor___4.flags & 1L, 0L);
+      tmp___4 = ldv__builtin_expect((long )descriptor___4.flags & 1L, 0L);
 #line 1195
       if (tmp___4 != 0L) {
 #line 1195
@@ -24041,7 +24041,7 @@ s32 e1000e_config_fc_after_link_up(struct e1000_hw *hw )
 #line 1201
       descriptor___5.flags = 0U;
 #line 1201
-      tmp___5 = __builtin_expect((long )descriptor___5.flags & 1L, 0L);
+      tmp___5 = ldv__builtin_expect((long )descriptor___5.flags & 1L, 0L);
 #line 1201
       if (tmp___5 != 0L) {
 #line 1201
@@ -24068,7 +24068,7 @@ s32 e1000e_config_fc_after_link_up(struct e1000_hw *hw )
 #line 1210
       descriptor___6.flags = 0U;
 #line 1210
-      tmp___6 = __builtin_expect((long )descriptor___6.flags & 1L, 0L);
+      tmp___6 = ldv__builtin_expect((long )descriptor___6.flags & 1L, 0L);
 #line 1210
       if (tmp___6 != 0L) {
 #line 1210
@@ -24106,7 +24106,7 @@ s32 e1000e_config_fc_after_link_up(struct e1000_hw *hw )
 #line 1222
       descriptor___7.flags = 0U;
 #line 1222
-      tmp___7 = __builtin_expect((long )descriptor___7.flags & 1L, 0L);
+      tmp___7 = ldv__builtin_expect((long )descriptor___7.flags & 1L, 0L);
 #line 1222
       if (tmp___7 != 0L) {
 #line 1222
@@ -24142,7 +24142,7 @@ s32 e1000e_config_fc_after_link_up(struct e1000_hw *hw )
 #line 1240
       descriptor___8.flags = 0U;
 #line 1240
-      tmp___8 = __builtin_expect((long )descriptor___8.flags & 1L, 0L);
+      tmp___8 = ldv__builtin_expect((long )descriptor___8.flags & 1L, 0L);
 #line 1240
       if (tmp___8 != 0L) {
 #line 1240
@@ -24179,7 +24179,7 @@ s32 e1000e_config_fc_after_link_up(struct e1000_hw *hw )
 #line 1296
         descriptor___9.flags = 0U;
 #line 1296
-        tmp___9 = __builtin_expect((long )descriptor___9.flags & 1L, 0L);
+        tmp___9 = ldv__builtin_expect((long )descriptor___9.flags & 1L, 0L);
 #line 1296
         if (tmp___9 != 0L) {
 #line 1296
@@ -24204,7 +24204,7 @@ s32 e1000e_config_fc_after_link_up(struct e1000_hw *hw )
 #line 1299
         descriptor___10.flags = 0U;
 #line 1299
-        tmp___10 = __builtin_expect((long )descriptor___10.flags & 1L, 0L);
+        tmp___10 = ldv__builtin_expect((long )descriptor___10.flags & 1L, 0L);
 #line 1299
         if (tmp___10 != 0L) {
 #line 1299
@@ -24232,7 +24232,7 @@ s32 e1000e_config_fc_after_link_up(struct e1000_hw *hw )
 #line 1314
       descriptor___11.flags = 0U;
 #line 1314
-      tmp___11 = __builtin_expect((long )descriptor___11.flags & 1L, 0L);
+      tmp___11 = ldv__builtin_expect((long )descriptor___11.flags & 1L, 0L);
 #line 1314
       if (tmp___11 != 0L) {
 #line 1314
@@ -24259,7 +24259,7 @@ s32 e1000e_config_fc_after_link_up(struct e1000_hw *hw )
 #line 1328
       descriptor___12.flags = 0U;
 #line 1328
-      tmp___12 = __builtin_expect((long )descriptor___12.flags & 1L, 0L);
+      tmp___12 = ldv__builtin_expect((long )descriptor___12.flags & 1L, 0L);
 #line 1328
       if (tmp___12 != 0L) {
 #line 1328
@@ -24284,7 +24284,7 @@ s32 e1000e_config_fc_after_link_up(struct e1000_hw *hw )
 #line 1334
       descriptor___13.flags = 0U;
 #line 1334
-      tmp___13 = __builtin_expect((long )descriptor___13.flags & 1L, 0L);
+      tmp___13 = ldv__builtin_expect((long )descriptor___13.flags & 1L, 0L);
 #line 1334
       if (tmp___13 != 0L) {
 #line 1334
@@ -24317,7 +24317,7 @@ s32 e1000e_config_fc_after_link_up(struct e1000_hw *hw )
 #line 1346
       descriptor___14.flags = 0U;
 #line 1346
-      tmp___14 = __builtin_expect((long )descriptor___14.flags & 1L, 0L);
+      tmp___14 = ldv__builtin_expect((long )descriptor___14.flags & 1L, 0L);
 #line 1346
       if (tmp___14 != 0L) {
 #line 1346
@@ -24382,7 +24382,7 @@ s32 e1000e_get_speed_and_duplex_copper(struct e1000_hw *hw , u16 *speed , u16 *d
 #line 1381
   descriptor.flags = 0U;
 #line 1381
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1381
   if (tmp != 0L) {
 #line 1381
@@ -24467,7 +24467,7 @@ s32 e1000e_get_hw_semaphore(struct e1000_hw *hw )
 #line 1429
     descriptor.flags = 0U;
 #line 1429
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1429
     if (tmp != 0L) {
 #line 1429
@@ -24529,7 +24529,7 @@ s32 e1000e_get_hw_semaphore(struct e1000_hw *hw )
 #line 1448
     descriptor___0.flags = 0U;
 #line 1448
-    tmp___1 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 1448
     if (tmp___1 != 0L) {
 #line 1448
@@ -24614,7 +24614,7 @@ s32 e1000e_get_auto_rd_done(struct e1000_hw *hw )
 #line 1488
     descriptor.flags = 0U;
 #line 1488
-    tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1488
     if (tmp___0 != 0L) {
 #line 1488
@@ -24657,7 +24657,7 @@ s32 e1000e_valid_led_default(struct e1000_hw *hw , u16 *data )
 #line 1509
     descriptor.flags = 0U;
 #line 1509
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1509
     if (tmp != 0L) {
 #line 1509
@@ -25043,7 +25043,7 @@ s32 e1000e_disable_pcie_master(struct e1000_hw *hw )
 #line 1772
     descriptor.flags = 0U;
 #line 1772
-    tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1772
     if (tmp___0 != 0L) {
 #line 1772
@@ -25086,7 +25086,7 @@ void e1000e_reset_adaptive(struct e1000_hw *hw )
 #line 1790
     descriptor.flags = 0U;
 #line 1790
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1790
     if (tmp != 0L) {
 #line 1790
@@ -25143,7 +25143,7 @@ void e1000e_update_adaptive(struct e1000_hw *hw )
 #line 1816
     descriptor.flags = 0U;
 #line 1816
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1816
     if (tmp != 0L) {
 #line 1816
@@ -25355,7 +25355,7 @@ static s32 e1000_mng_enable_host_if(struct e1000_hw *hw )
 #line 108
     descriptor.flags = 0U;
 #line 108
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 108
     if (tmp != 0L) {
 #line 108
@@ -25386,7 +25386,7 @@ static s32 e1000_mng_enable_host_if(struct e1000_hw *hw )
 #line 115
     descriptor___0.flags = 0U;
 #line 115
-    tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 115
     if (tmp___0 != 0L) {
 #line 115
@@ -25466,7 +25466,7 @@ static s32 e1000_mng_enable_host_if(struct e1000_hw *hw )
 #line 127
     descriptor___1.flags = 0U;
 #line 127
-    tmp___2 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___2 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 127
     if (tmp___2 != 0L) {
 #line 127
@@ -26254,7 +26254,7 @@ s32 e1000e_acquire_nvm(struct e1000_hw *hw )
 #line 234
     descriptor.flags = 0U;
 #line 234
-    tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 234
     if (tmp___0 != 0L) {
 #line 234
@@ -26427,7 +26427,7 @@ static s32 e1000_ready_nvm_eeprom(struct e1000_hw *hw )
 #line 339
       descriptor.flags = 0U;
 #line 339
-      tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+      tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 339
       if (tmp___1 != 0L) {
 #line 339
@@ -26481,7 +26481,7 @@ s32 e1000e_read_nvm_eerd(struct e1000_hw *hw , u16 offset , u16 words , u16 *dat
 #line 367
     descriptor.flags = 0U;
 #line 367
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 367
     if (tmp != 0L) {
 #line 367
@@ -26565,7 +26565,7 @@ s32 e1000e_write_nvm_spi(struct e1000_hw *hw , u16 offset , u16 words , u16 *dat
 #line 409
     descriptor.flags = 0U;
 #line 409
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 409
     if (tmp != 0L) {
 #line 409
@@ -26711,7 +26711,7 @@ s32 e1000_read_pba_string_generic(struct e1000_hw *hw , u8 *pba_num , u32 pba_nu
 #line 483
     descriptor.flags = 0U;
 #line 483
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 483
     if (tmp != 0L) {
 #line 483
@@ -26742,7 +26742,7 @@ s32 e1000_read_pba_string_generic(struct e1000_hw *hw , u8 *pba_num , u32 pba_nu
 #line 489
     descriptor___0.flags = 0U;
 #line 489
-    tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 489
     if (tmp___0 != 0L) {
 #line 489
@@ -26773,7 +26773,7 @@ s32 e1000_read_pba_string_generic(struct e1000_hw *hw , u8 *pba_num , u32 pba_nu
 #line 495
     descriptor___1.flags = 0U;
 #line 495
-    tmp___1 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 495
     if (tmp___1 != 0L) {
 #line 495
@@ -26802,7 +26802,7 @@ s32 e1000_read_pba_string_generic(struct e1000_hw *hw , u8 *pba_num , u32 pba_nu
 #line 504
     descriptor___2.flags = 0U;
 #line 504
-    tmp___2 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+    tmp___2 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
 #line 504
     if (tmp___2 != 0L) {
 #line 504
@@ -26826,7 +26826,7 @@ s32 e1000_read_pba_string_generic(struct e1000_hw *hw , u8 *pba_num , u32 pba_nu
 #line 508
       descriptor___3.flags = 0U;
 #line 508
-      tmp___3 = __builtin_expect((long )descriptor___3.flags & 1L, 0L);
+      tmp___3 = ldv__builtin_expect((long )descriptor___3.flags & 1L, 0L);
 #line 508
       if (tmp___3 != 0L) {
 #line 508
@@ -26912,7 +26912,7 @@ s32 e1000_read_pba_string_generic(struct e1000_hw *hw , u8 *pba_num , u32 pba_nu
 #line 540
     descriptor___4.flags = 0U;
 #line 540
-    tmp___4 = __builtin_expect((long )descriptor___4.flags & 1L, 0L);
+    tmp___4 = ldv__builtin_expect((long )descriptor___4.flags & 1L, 0L);
 #line 540
     if (tmp___4 != 0L) {
 #line 540
@@ -26941,7 +26941,7 @@ s32 e1000_read_pba_string_generic(struct e1000_hw *hw , u8 *pba_num , u32 pba_nu
 #line 545
     descriptor___5.flags = 0U;
 #line 545
-    tmp___5 = __builtin_expect((long )descriptor___5.flags & 1L, 0L);
+    tmp___5 = ldv__builtin_expect((long )descriptor___5.flags & 1L, 0L);
 #line 545
     if (tmp___5 != 0L) {
 #line 545
@@ -26970,7 +26970,7 @@ s32 e1000_read_pba_string_generic(struct e1000_hw *hw , u8 *pba_num , u32 pba_nu
 #line 550
     descriptor___6.flags = 0U;
 #line 550
-    tmp___6 = __builtin_expect((long )descriptor___6.flags & 1L, 0L);
+    tmp___6 = ldv__builtin_expect((long )descriptor___6.flags & 1L, 0L);
 #line 550
     if (tmp___6 != 0L) {
 #line 550
@@ -27010,7 +27010,7 @@ s32 e1000_read_pba_string_generic(struct e1000_hw *hw , u8 *pba_num , u32 pba_nu
 #line 561
     descriptor___7.flags = 0U;
 #line 561
-    tmp___7 = __builtin_expect((long )descriptor___7.flags & 1L, 0L);
+    tmp___7 = ldv__builtin_expect((long )descriptor___7.flags & 1L, 0L);
 #line 561
     if (tmp___7 != 0L) {
 #line 561
@@ -27149,7 +27149,7 @@ s32 e1000e_validate_nvm_checksum_generic(struct e1000_hw *hw )
 #line 617
     descriptor.flags = 0U;
 #line 617
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 617
     if (tmp != 0L) {
 #line 617
@@ -27191,7 +27191,7 @@ s32 e1000e_validate_nvm_checksum_generic(struct e1000_hw *hw )
 #line 624
     descriptor___0.flags = 0U;
 #line 624
-    tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 624
     if (tmp___0 != 0L) {
 #line 624
@@ -27246,7 +27246,7 @@ s32 e1000e_update_nvm_checksum_generic(struct e1000_hw *hw )
 #line 648
     descriptor.flags = 0U;
 #line 648
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 648
     if (tmp != 0L) {
 #line 648
@@ -27291,7 +27291,7 @@ s32 e1000e_update_nvm_checksum_generic(struct e1000_hw *hw )
 #line 656
     descriptor___0.flags = 0U;
 #line 656
-    tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 656
     if (tmp___0 != 0L) {
 #line 656
@@ -27601,7 +27601,7 @@ s32 e1000e_read_phy_reg_mdic(struct e1000_hw *hw , u32 offset , u16 *data )
 #line 188
     descriptor.flags = 0U;
 #line 188
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 188
     if (tmp != 0L) {
 #line 188
@@ -27661,7 +27661,7 @@ s32 e1000e_read_phy_reg_mdic(struct e1000_hw *hw , u32 offset , u16 *data )
 #line 213
     descriptor___0.flags = 0U;
 #line 213
-    tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 213
     if (tmp___0 != 0L) {
 #line 213
@@ -27690,7 +27690,7 @@ s32 e1000e_read_phy_reg_mdic(struct e1000_hw *hw , u32 offset , u16 *data )
 #line 217
     descriptor___1.flags = 0U;
 #line 217
-    tmp___1 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 217
     if (tmp___1 != 0L) {
 #line 217
@@ -27719,7 +27719,7 @@ s32 e1000e_read_phy_reg_mdic(struct e1000_hw *hw , u32 offset , u16 *data )
 #line 221
     descriptor___2.flags = 0U;
 #line 221
-    tmp___2 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+    tmp___2 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
 #line 221
     if (tmp___2 != 0L) {
 #line 221
@@ -27782,7 +27782,7 @@ s32 e1000e_write_phy_reg_mdic(struct e1000_hw *hw , u32 offset , u16 data )
 #line 251
     descriptor.flags = 0U;
 #line 251
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 251
     if (tmp != 0L) {
 #line 251
@@ -27842,7 +27842,7 @@ s32 e1000e_write_phy_reg_mdic(struct e1000_hw *hw , u32 offset , u16 data )
 #line 277
     descriptor___0.flags = 0U;
 #line 277
-    tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 277
     if (tmp___0 != 0L) {
 #line 277
@@ -27871,7 +27871,7 @@ s32 e1000e_write_phy_reg_mdic(struct e1000_hw *hw , u32 offset , u16 data )
 #line 281
     descriptor___1.flags = 0U;
 #line 281
-    tmp___1 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 281
     if (tmp___1 != 0L) {
 #line 281
@@ -27900,7 +27900,7 @@ s32 e1000e_write_phy_reg_mdic(struct e1000_hw *hw , u32 offset , u16 data )
 #line 285
     descriptor___2.flags = 0U;
 #line 285
-    tmp___2 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+    tmp___2 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
 #line 285
     if (tmp___2 != 0L) {
 #line 285
@@ -27993,7 +27993,7 @@ s32 e1000_set_page_igp(struct e1000_hw *hw , u16 page )
 #line 362
   descriptor.flags = 0U;
 #line 362
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 362
   if (tmp != 0L) {
 #line 362
@@ -28537,7 +28537,7 @@ s32 e1000e_copper_link_setup_m88(struct e1000_hw *hw )
 #line 804
         descriptor.flags = 0U;
 #line 804
-        tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+        tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 804
         if (tmp != 0L) {
 #line 804
@@ -28647,7 +28647,7 @@ s32 e1000e_copper_link_setup_m88(struct e1000_hw *hw )
 #line 860
       descriptor___0.flags = 0U;
 #line 860
-      tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+      tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 860
       if (tmp___0 != 0L) {
 #line 860
@@ -28726,7 +28726,7 @@ s32 e1000e_copper_link_setup_igp(struct e1000_hw *hw )
 #line 896
     descriptor.flags = 0U;
 #line 896
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 896
     if (tmp != 0L) {
 #line 896
@@ -28762,7 +28762,7 @@ s32 e1000e_copper_link_setup_igp(struct e1000_hw *hw )
 #line 909
       descriptor___0.flags = 0U;
 #line 909
-      tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+      tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 909
       if (tmp___0 != 0L) {
 #line 909
@@ -28948,7 +28948,7 @@ static s32 e1000_phy_setup_autoneg(struct e1000_hw *hw )
 #line 1018
   descriptor.flags = 0U;
 #line 1018
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1018
   if (tmp != 0L) {
 #line 1018
@@ -28972,7 +28972,7 @@ static s32 e1000_phy_setup_autoneg(struct e1000_hw *hw )
 #line 1022
     descriptor___0.flags = 0U;
 #line 1022
-    tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 1022
     if (tmp___0 != 0L) {
 #line 1022
@@ -29001,7 +29001,7 @@ static s32 e1000_phy_setup_autoneg(struct e1000_hw *hw )
 #line 1028
     descriptor___1.flags = 0U;
 #line 1028
-    tmp___1 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 1028
     if (tmp___1 != 0L) {
 #line 1028
@@ -29030,7 +29030,7 @@ static s32 e1000_phy_setup_autoneg(struct e1000_hw *hw )
 #line 1034
     descriptor___2.flags = 0U;
 #line 1034
-    tmp___2 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+    tmp___2 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
 #line 1034
     if (tmp___2 != 0L) {
 #line 1034
@@ -29059,7 +29059,7 @@ static s32 e1000_phy_setup_autoneg(struct e1000_hw *hw )
 #line 1040
     descriptor___3.flags = 0U;
 #line 1040
-    tmp___3 = __builtin_expect((long )descriptor___3.flags & 1L, 0L);
+    tmp___3 = ldv__builtin_expect((long )descriptor___3.flags & 1L, 0L);
 #line 1040
     if (tmp___3 != 0L) {
 #line 1040
@@ -29088,7 +29088,7 @@ static s32 e1000_phy_setup_autoneg(struct e1000_hw *hw )
 #line 1046
     descriptor___4.flags = 0U;
 #line 1046
-    tmp___4 = __builtin_expect((long )descriptor___4.flags & 1L, 0L);
+    tmp___4 = ldv__builtin_expect((long )descriptor___4.flags & 1L, 0L);
 #line 1046
     if (tmp___4 != 0L) {
 #line 1046
@@ -29115,7 +29115,7 @@ static s32 e1000_phy_setup_autoneg(struct e1000_hw *hw )
 #line 1050
     descriptor___5.flags = 0U;
 #line 1050
-    tmp___5 = __builtin_expect((long )descriptor___5.flags & 1L, 0L);
+    tmp___5 = ldv__builtin_expect((long )descriptor___5.flags & 1L, 0L);
 #line 1050
     if (tmp___5 != 0L) {
 #line 1050
@@ -29167,7 +29167,7 @@ static s32 e1000_phy_setup_autoneg(struct e1000_hw *hw )
 #line 1107
   descriptor___6.flags = 0U;
 #line 1107
-  tmp___6 = __builtin_expect((long )descriptor___6.flags & 1L, 0L);
+  tmp___6 = ldv__builtin_expect((long )descriptor___6.flags & 1L, 0L);
 #line 1107
   if (tmp___6 != 0L) {
 #line 1107
@@ -29202,7 +29202,7 @@ static s32 e1000_phy_setup_autoneg(struct e1000_hw *hw )
 #line 1115
   descriptor___7.flags = 0U;
 #line 1115
-  tmp___7 = __builtin_expect((long )descriptor___7.flags & 1L, 0L);
+  tmp___7 = ldv__builtin_expect((long )descriptor___7.flags & 1L, 0L);
 #line 1115
   if (tmp___7 != 0L) {
 #line 1115
@@ -29262,7 +29262,7 @@ static s32 e1000_copper_link_autoneg(struct e1000_hw *hw )
 #line 1149
   descriptor.flags = 0U;
 #line 1149
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1149
   if (tmp != 0L) {
 #line 1149
@@ -29288,7 +29288,7 @@ static s32 e1000_copper_link_autoneg(struct e1000_hw *hw )
 #line 1152
     descriptor___0.flags = 0U;
 #line 1152
-    tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 1152
     if (tmp___0 != 0L) {
 #line 1152
@@ -29315,7 +29315,7 @@ static s32 e1000_copper_link_autoneg(struct e1000_hw *hw )
 #line 1155
   descriptor___1.flags = 0U;
 #line 1155
-  tmp___1 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 1155
   if (tmp___1 != 0L) {
 #line 1155
@@ -29363,7 +29363,7 @@ static s32 e1000_copper_link_autoneg(struct e1000_hw *hw )
 #line 1175
       descriptor___2.flags = 0U;
 #line 1175
-      tmp___2 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+      tmp___2 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
 #line 1175
       if (tmp___2 != 0L) {
 #line 1175
@@ -29426,7 +29426,7 @@ s32 e1000e_setup_copper_link(struct e1000_hw *hw )
 #line 1210
     descriptor.flags = 0U;
 #line 1210
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1210
     if (tmp != 0L) {
 #line 1210
@@ -29452,7 +29452,7 @@ s32 e1000e_setup_copper_link(struct e1000_hw *hw )
 #line 1213
       descriptor___0.flags = 0U;
 #line 1213
-      tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+      tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 1213
       if (tmp___0 != 0L) {
 #line 1213
@@ -29491,7 +29491,7 @@ s32 e1000e_setup_copper_link(struct e1000_hw *hw )
 #line 1227
     descriptor___1.flags = 0U;
 #line 1227
-    tmp___1 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 1227
     if (tmp___1 != 0L) {
 #line 1227
@@ -29518,7 +29518,7 @@ s32 e1000e_setup_copper_link(struct e1000_hw *hw )
 #line 1231
     descriptor___2.flags = 0U;
 #line 1231
-    tmp___2 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+    tmp___2 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
 #line 1231
     if (tmp___2 != 0L) {
 #line 1231
@@ -29604,7 +29604,7 @@ s32 e1000e_phy_force_speed_duplex_igp(struct e1000_hw *hw )
 #line 1276
   descriptor.flags = 0U;
 #line 1276
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1276
   if (tmp != 0L) {
 #line 1276
@@ -29630,7 +29630,7 @@ s32 e1000e_phy_force_speed_duplex_igp(struct e1000_hw *hw )
 #line 1281
     descriptor___0.flags = 0U;
 #line 1281
-    tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 1281
     if (tmp___0 != 0L) {
 #line 1281
@@ -29663,7 +29663,7 @@ s32 e1000e_phy_force_speed_duplex_igp(struct e1000_hw *hw )
 #line 1289
       descriptor___1.flags = 0U;
 #line 1289
-      tmp___1 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+      tmp___1 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 1289
       if (tmp___1 != 0L) {
 #line 1289
@@ -29734,7 +29734,7 @@ s32 e1000e_phy_force_speed_duplex_m88(struct e1000_hw *hw )
 #line 1328
   descriptor.flags = 0U;
 #line 1328
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1328
   if (tmp != 0L) {
 #line 1328
@@ -29792,7 +29792,7 @@ s32 e1000e_phy_force_speed_duplex_m88(struct e1000_hw *hw )
 #line 1348
     descriptor___0.flags = 0U;
 #line 1348
-    tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 1348
     if (tmp___0 != 0L) {
 #line 1348
@@ -29827,7 +29827,7 @@ s32 e1000e_phy_force_speed_duplex_m88(struct e1000_hw *hw )
 #line 1357
         descriptor___1.flags = 0U;
 #line 1357
-        tmp___1 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+        tmp___1 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 1357
         if (tmp___1 != 0L) {
 #line 1357
@@ -29987,7 +29987,7 @@ s32 e1000_phy_force_speed_duplex_ife(struct e1000_hw *hw )
 #line 1445
   descriptor.flags = 0U;
 #line 1445
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1445
   if (tmp != 0L) {
 #line 1445
@@ -30013,7 +30013,7 @@ s32 e1000_phy_force_speed_duplex_ife(struct e1000_hw *hw )
 #line 1450
     descriptor___0.flags = 0U;
 #line 1450
-    tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 1450
     if (tmp___0 != 0L) {
 #line 1450
@@ -30046,7 +30046,7 @@ s32 e1000_phy_force_speed_duplex_ife(struct e1000_hw *hw )
 #line 1458
       descriptor___1.flags = 0U;
 #line 1458
-      tmp___1 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+      tmp___1 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 1458
       if (tmp___1 != 0L) {
 #line 1458
@@ -30122,7 +30122,7 @@ void e1000e_phy_force_speed_duplex_setup(struct e1000_hw *hw , u16 *phy_ctrl )
 #line 1505
     descriptor.flags = 0U;
 #line 1505
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1505
     if (tmp != 0L) {
 #line 1505
@@ -30149,7 +30149,7 @@ void e1000e_phy_force_speed_duplex_setup(struct e1000_hw *hw , u16 *phy_ctrl )
 #line 1509
     descriptor___0.flags = 0U;
 #line 1509
-    tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 1509
     if (tmp___0 != 0L) {
 #line 1509
@@ -30180,7 +30180,7 @@ void e1000e_phy_force_speed_duplex_setup(struct e1000_hw *hw , u16 *phy_ctrl )
 #line 1517
     descriptor___1.flags = 0U;
 #line 1517
-    tmp___1 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 1517
     if (tmp___1 != 0L) {
 #line 1517
@@ -30207,7 +30207,7 @@ void e1000e_phy_force_speed_duplex_setup(struct e1000_hw *hw , u16 *phy_ctrl )
 #line 1521
     descriptor___2.flags = 0U;
 #line 1521
-    tmp___2 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+    tmp___2 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
 #line 1521
     if (tmp___2 != 0L) {
 #line 1521
@@ -30802,7 +30802,7 @@ s32 e1000e_get_phy_info_m88(struct e1000_hw *hw )
 #line 1947
     descriptor.flags = 0U;
 #line 1947
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1947
     if (tmp != 0L) {
 #line 1947
@@ -30840,7 +30840,7 @@ s32 e1000e_get_phy_info_m88(struct e1000_hw *hw )
 #line 1956
     descriptor___0.flags = 0U;
 #line 1956
-    tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 1956
     if (tmp___0 != 0L) {
 #line 1956
@@ -30958,7 +30958,7 @@ s32 e1000e_get_phy_info_igp(struct e1000_hw *hw )
 #line 2022
     descriptor.flags = 0U;
 #line 2022
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 2022
     if (tmp != 0L) {
 #line 2022
@@ -31067,7 +31067,7 @@ s32 e1000_get_phy_info_ife(struct e1000_hw *hw )
 #line 2080
     descriptor.flags = 0U;
 #line 2080
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 2080
     if (tmp != 0L) {
 #line 2080
@@ -31268,7 +31268,7 @@ s32 e1000e_phy_init_script_igp3(struct e1000_hw *hw )
 #line 2203
   descriptor.flags = 0U;
 #line 2203
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 2203
   if (tmp != 0L) {
 #line 2203
@@ -31771,7 +31771,7 @@ s32 e1000_enable_phy_wakeup_reg_access_bm(struct e1000_hw *hw , u16 *phy_reg )
 #line 2607
     descriptor.flags = 0U;
 #line 2607
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 2607
     if (tmp != 0L) {
 #line 2607
@@ -31802,7 +31802,7 @@ s32 e1000_enable_phy_wakeup_reg_access_bm(struct e1000_hw *hw , u16 *phy_reg )
 #line 2613
     descriptor___0.flags = 0U;
 #line 2613
-    tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 2613
     if (tmp___0 != 0L) {
 #line 2613
@@ -31839,7 +31839,7 @@ s32 e1000_enable_phy_wakeup_reg_access_bm(struct e1000_hw *hw , u16 *phy_reg )
 #line 2627
     descriptor___1.flags = 0U;
 #line 2627
-    tmp___1 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 2627
     if (tmp___1 != 0L) {
 #line 2627
@@ -31886,7 +31886,7 @@ s32 e1000_disable_phy_wakeup_reg_access_bm(struct e1000_hw *hw , u16 *phy_reg )
 #line 2656
     descriptor.flags = 0U;
 #line 2656
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 2656
     if (tmp != 0L) {
 #line 2656
@@ -31917,7 +31917,7 @@ s32 e1000_disable_phy_wakeup_reg_access_bm(struct e1000_hw *hw , u16 *phy_reg )
 #line 2663
     descriptor___0.flags = 0U;
 #line 2663
-    tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 2663
     if (tmp___0 != 0L) {
 #line 2663
@@ -31979,7 +31979,7 @@ static s32 e1000_access_phy_wakeup_reg_bm(struct e1000_hw *hw , u32 offset , u16
 #line 2705
       descriptor.flags = 0U;
 #line 2705
-      tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+      tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 2705
       if (tmp != 0L) {
 #line 2705
@@ -32014,7 +32014,7 @@ static s32 e1000_access_phy_wakeup_reg_bm(struct e1000_hw *hw , u32 offset , u16
 #line 2712
       descriptor___0.flags = 0U;
 #line 2712
-      tmp___1 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+      tmp___1 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 2712
       if (tmp___1 != 0L) {
 #line 2712
@@ -32044,7 +32044,7 @@ static s32 e1000_access_phy_wakeup_reg_bm(struct e1000_hw *hw , u32 offset , u16
 #line 2717
   descriptor___1.flags = 0U;
 #line 2717
-  tmp___2 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+  tmp___2 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 2717
   if (tmp___2 != 0L) {
 #line 2717
@@ -32070,7 +32070,7 @@ static s32 e1000_access_phy_wakeup_reg_bm(struct e1000_hw *hw , u32 offset , u16
 #line 2722
     descriptor___2.flags = 0U;
 #line 2722
-    tmp___3 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+    tmp___3 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
 #line 2722
     if (tmp___3 != 0L) {
 #line 2722
@@ -32107,7 +32107,7 @@ static s32 e1000_access_phy_wakeup_reg_bm(struct e1000_hw *hw , u32 offset , u16
 #line 2737
     descriptor___3.flags = 0U;
 #line 2737
-    tmp___4 = __builtin_expect((long )descriptor___3.flags & 1L, 0L);
+    tmp___4 = ldv__builtin_expect((long )descriptor___3.flags & 1L, 0L);
 #line 2737
     if (tmp___4 != 0L) {
 #line 2737
@@ -32266,7 +32266,7 @@ static s32 __e1000_read_phy_reg_hv(struct e1000_hw *hw , u32 offset , u16 *data 
 #line 2838
   descriptor.flags = 0U;
 #line 2838
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 2838
   if (tmp___0 != 0L) {
 #line 2838
@@ -32439,7 +32439,7 @@ static s32 __e1000_write_phy_reg_hv(struct e1000_hw *hw , u32 offset , u16 data 
 #line 2960
   descriptor.flags = 0U;
 #line 2960
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 2960
   if (tmp___0 != 0L) {
 #line 2960
@@ -32554,7 +32554,7 @@ static s32 e1000_access_phy_debug_regs_hv(struct e1000_hw *hw , u32 offset , u16
 #line 3059
     descriptor.flags = 0U;
 #line 3059
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 3059
     if (tmp != 0L) {
 #line 3059
@@ -32591,7 +32591,7 @@ static s32 e1000_access_phy_debug_regs_hv(struct e1000_hw *hw , u32 offset , u16
 #line 3070
     descriptor___0.flags = 0U;
 #line 3070
-    tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 3070
     if (tmp___0 != 0L) {
 #line 3070
@@ -32743,7 +32743,7 @@ s32 e1000_phy_force_speed_duplex_82577(struct e1000_hw *hw )
 #line 3173
     descriptor.flags = 0U;
 #line 3173
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 3173
     if (tmp != 0L) {
 #line 3173
@@ -32776,7 +32776,7 @@ s32 e1000_phy_force_speed_duplex_82577(struct e1000_hw *hw )
 #line 3181
       descriptor___0.flags = 0U;
 #line 3181
-      tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+      tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 3181
       if (tmp___0 != 0L) {
 #line 3181
@@ -32834,7 +32834,7 @@ s32 e1000_get_phy_info_82577(struct e1000_hw *hw )
 #line 3212
     descriptor.flags = 0U;
 #line 3212
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 3212
     if (tmp != 0L) {
 #line 3212
@@ -33861,7 +33861,7 @@ __inline static unsigned long arch_local_save_flags(void)
 #line 824
   __eax = __eax;
 #line 824
-  tmp = __builtin_expect((unsigned long )pv_irq_ops.save_fl.func == (unsigned long )((void *)0),
+  tmp = ldv__builtin_expect((unsigned long )pv_irq_ops.save_fl.func == (unsigned long )((void *)0),
                          0L);
 #line 824
   if (tmp != 0L) {
@@ -34057,7 +34057,7 @@ __inline static struct dma_map_ops *get_dma_ops(struct device *dev )
 
   {
 #line 37
-  tmp = __builtin_expect((unsigned long )dev == (unsigned long )((struct device *)0),
+  tmp = ldv__builtin_expect((unsigned long )dev == (unsigned long )((struct device *)0),
                          0L);
 #line 37
   if (tmp != 0L || (unsigned long )dev->archdata.dma_ops == (unsigned long )((struct dma_map_ops *)0)) {
@@ -34091,7 +34091,7 @@ __inline static dma_addr_t dma_map_single_attrs(struct device *dev , void *ptr ,
 #line 19
   tmp___0 = valid_dma_direction((int )dir);
 #line 19
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
 #line 19
   if (tmp___1 != 0L) {
 #line 19
@@ -34135,7 +34135,7 @@ __inline static void dma_unmap_single_attrs(struct device *dev , dma_addr_t addr
 #line 36
   tmp___0 = valid_dma_direction((int )dir);
 #line 36
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
 #line 36
   if (tmp___1 != 0L) {
 #line 36
@@ -34180,7 +34180,7 @@ __inline static void dma_sync_single_for_cpu(struct device *dev , dma_addr_t add
 #line 103
   tmp___0 = valid_dma_direction((int )dir);
 #line 103
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
 #line 103
   if (tmp___1 != 0L) {
 #line 103
@@ -34225,7 +34225,7 @@ __inline static void dma_sync_single_for_device(struct device *dev , dma_addr_t 
 #line 115
   tmp___0 = valid_dma_direction((int )dir);
 #line 115
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
 #line 115
   if (tmp___1 != 0L) {
 #line 115
@@ -34406,7 +34406,7 @@ __inline static void dma_free_attrs(struct device *dev , size_t size , void *vad
 #line 166
   __ret_warn_on = tmp___0 != 0;
 #line 166
-  tmp___1 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___1 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 166
   if (tmp___1 != 0L) {
 #line 166
@@ -34416,7 +34416,7 @@ __inline static void dma_free_attrs(struct device *dev , size_t size , void *vad
 
   }
 #line 166
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 171
   debug_dma_free_coherent(dev, size, vaddr, bus);
 #line 172
@@ -39665,7 +39665,7 @@ __inline static int __atomic_add_unless(atomic_t *v , int a , int u )
   c = atomic_read((atomic_t const   *)v);
   ldv_5576: 
 #line 217
-  tmp = __builtin_expect(c == u, 0L);
+  tmp = ldv__builtin_expect(c == u, 0L);
 #line 217
   if (tmp != 0L) {
 #line 218
@@ -39676,7 +39676,7 @@ __inline static int __atomic_add_unless(atomic_t *v , int a , int u )
 #line 219
   old = atomic_cmpxchg(v, c, c + a);
 #line 220
-  tmp___0 = __builtin_expect(old == c, 1L);
+  tmp___0 = ldv__builtin_expect(old == c, 1L);
 #line 220
   if (tmp___0 != 0L) {
 #line 221
@@ -40014,7 +40014,7 @@ __inline static struct page *compound_head(struct page *page )
 #line 364
   tmp = PageTail((struct page  const  *)page);
 #line 364
-  tmp___0 = __builtin_expect(tmp != 0, 0L);
+  tmp___0 = ldv__builtin_expect(tmp != 0, 0L);
 #line 364
   if (tmp___0 != 0L) {
 #line 365
@@ -40073,7 +40073,7 @@ __inline static dma_addr_t dma_map_single_attrs___0(struct device *dev , void *p
 #line 19
   tmp___0 = valid_dma_direction((int )dir);
 #line 19
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
 #line 19
   if (tmp___1 != 0L) {
 #line 19
@@ -40117,7 +40117,7 @@ __inline static void dma_unmap_single_attrs___0(struct device *dev , dma_addr_t 
 #line 36
   tmp___0 = valid_dma_direction((int )dir);
 #line 36
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
 #line 36
   if (tmp___1 != 0L) {
 #line 36
@@ -40168,7 +40168,7 @@ __inline static dma_addr_t dma_map_page(struct device *dev , struct page *page ,
 #line 79
   tmp___1 = valid_dma_direction((int )dir);
 #line 79
-  tmp___2 = __builtin_expect(tmp___1 == 0, 0L);
+  tmp___2 = ldv__builtin_expect(tmp___1 == 0, 0L);
 #line 79
   if (tmp___2 != 0L) {
 #line 79
@@ -40205,7 +40205,7 @@ __inline static void dma_unmap_page(struct device *dev , dma_addr_t addr , size_
 #line 91
   tmp___0 = valid_dma_direction((int )dir);
 #line 91
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
 #line 91
   if (tmp___1 != 0L) {
 #line 91
@@ -40250,7 +40250,7 @@ __inline static void dma_sync_single_for_cpu___0(struct device *dev , dma_addr_t
 #line 103
   tmp___0 = valid_dma_direction((int )dir);
 #line 103
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
 #line 103
   if (tmp___1 != 0L) {
 #line 103
@@ -40295,7 +40295,7 @@ __inline static void dma_sync_single_for_device___0(struct device *dev , dma_add
 #line 115
   tmp___0 = valid_dma_direction((int )dir);
 #line 115
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
 #line 115
   if (tmp___1 != 0L) {
 #line 115
@@ -40394,14 +40394,14 @@ __inline static unsigned long copy_from_user(void *to , void const   *from , uns
 #line 61
   might_fault();
 #line 62
-  tmp___1 = __builtin_expect(sz == -1, 1L);
+  tmp___1 = ldv__builtin_expect(sz == -1, 1L);
 #line 62
   if (tmp___1 != 0L) {
 #line 63
     n = _copy_from_user(to, from, (unsigned int )n);
   } else {
 #line 62
-    tmp___2 = __builtin_expect((unsigned long )sz >= n, 1L);
+    tmp___2 = ldv__builtin_expect((unsigned long )sz >= n, 1L);
 #line 62
     if (tmp___2 != 0L) {
 #line 63
@@ -40410,7 +40410,7 @@ __inline static unsigned long copy_from_user(void *to , void const   *from , uns
 #line 66
       __ret_warn_on = 1;
 #line 66
-      tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+      tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 66
       if (tmp___0 != 0L) {
 #line 66
@@ -40420,7 +40420,7 @@ __inline static unsigned long copy_from_user(void *to , void const   *from , uns
 
       }
 #line 66
-      __builtin_expect(__ret_warn_on != 0, 0L);
+      ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
   }
 #line 68
@@ -40516,7 +40516,7 @@ __inline static void dql_queued(struct dql *dql , unsigned int count )
 
   {
 #line 74
-  tmp = __builtin_expect(count > 268435455U, 0L);
+  tmp = ldv__builtin_expect(count > 268435455U, 0L);
 #line 74
   if (tmp != 0L) {
 #line 74
@@ -40802,7 +40802,7 @@ __inline static int pskb_may_pull(struct sk_buff *skb , unsigned int len )
 #line 1460
   tmp = skb_headlen((struct sk_buff  const  *)skb);
 #line 1460
-  tmp___0 = __builtin_expect(tmp >= len, 1L);
+  tmp___0 = ldv__builtin_expect(tmp >= len, 1L);
 #line 1460
   if (tmp___0 != 0L) {
 #line 1461
@@ -40811,7 +40811,7 @@ __inline static int pskb_may_pull(struct sk_buff *skb , unsigned int len )
 
   }
 #line 1462
-  tmp___1 = __builtin_expect(skb->len < len, 0L);
+  tmp___1 = ldv__builtin_expect(skb->len < len, 0L);
 #line 1462
   if (tmp___1 != 0L) {
 #line 1463
@@ -40929,13 +40929,13 @@ __inline static void __skb_trim(struct sk_buff *skb , unsigned int len )
 #line 1857
   tmp___0 = skb_is_nonlinear((struct sk_buff  const  *)skb);
 #line 1857
-  tmp___1 = __builtin_expect((long )tmp___0, 0L);
+  tmp___1 = ldv__builtin_expect((long )tmp___0, 0L);
 #line 1857
   if (tmp___1 != 0L) {
 #line 1858
     __ret_warn_on = 1;
 #line 1858
-    tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 1858
     if (tmp != 0L) {
 #line 1858
@@ -40944,7 +40944,7 @@ __inline static void __skb_trim(struct sk_buff *skb , unsigned int len )
 
     }
 #line 1858
-    __builtin_expect(__ret_warn_on != 0, 0L);
+    ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 1859
     return;
   } else {
@@ -41249,7 +41249,7 @@ __inline static void napi_enable(struct napi_struct *n )
 #line 472
   tmp = constant_test_bit(0U, (unsigned long const volatile   *)(& n->state));
 #line 472
-  tmp___0 = __builtin_expect(tmp == 0, 0L);
+  tmp___0 = ldv__builtin_expect(tmp == 0, 0L);
 #line 472
   if (tmp___0 != 0L) {
 #line 472
@@ -41415,7 +41415,7 @@ __inline static void netif_tx_stop_queue(struct netdev_queue *dev_queue )
 #line 1907
   __ret_warn_on = (unsigned long )dev_queue == (unsigned long )((struct netdev_queue *)0);
 #line 1907
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 1907
   if (tmp != 0L) {
 #line 1907
@@ -41424,7 +41424,7 @@ __inline static void netif_tx_stop_queue(struct netdev_queue *dev_queue )
 
   }
 #line 1907
-  tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 1907
   if (tmp___0 != 0L) {
 #line 1908
@@ -41495,7 +41495,7 @@ __inline static void netdev_tx_sent_queue(struct netdev_queue *dev_queue , unsig
 #line 1968
   tmp = dql_avail((struct dql  const  *)(& dev_queue->dql));
 #line 1968
-  tmp___0 = __builtin_expect(tmp >= 0, 1L);
+  tmp___0 = ldv__builtin_expect(tmp >= 0, 1L);
 #line 1968
   if (tmp___0 != 0L) {
 #line 1969
@@ -41510,7 +41510,7 @@ __inline static void netdev_tx_sent_queue(struct netdev_queue *dev_queue , unsig
 #line 1981
   tmp___1 = dql_avail((struct dql  const  *)(& dev_queue->dql));
 #line 1981
-  tmp___2 = __builtin_expect(tmp___1 >= 0, 0L);
+  tmp___2 = ldv__builtin_expect(tmp___1 >= 0, 0L);
 #line 1981
   if (tmp___2 != 0L) {
 #line 1982
@@ -41546,7 +41546,7 @@ __inline static void netdev_tx_completed_queue(struct netdev_queue *dev_queue , 
 
   {
 #line 1995
-  tmp = __builtin_expect(bytes == 0U, 0L);
+  tmp = ldv__builtin_expect(bytes == 0U, 0L);
 #line 1995
   if (tmp != 0L) {
 #line 1996
@@ -42690,13 +42690,13 @@ static void e1000e_update_rdt_wa(struct e1000_ring *rx_ring , unsigned int i )
 #line 647
   writel(i, (void volatile   *)rx_ring->tail);
 #line 649
-  tmp___1 = __builtin_expect(ret_val == 0, 0L);
+  tmp___1 = ldv__builtin_expect(ret_val == 0, 0L);
 #line 649
   if (tmp___1 != 0L) {
 #line 649
     tmp___2 = readl((void const volatile   *)rx_ring->tail);
 #line 649
-    tmp___3 = __builtin_expect(tmp___2 != i, 0L);
+    tmp___3 = ldv__builtin_expect(tmp___2 != i, 0L);
 #line 649
     if (tmp___3 != 0L) {
 #line 650
@@ -42744,13 +42744,13 @@ static void e1000e_update_tdt_wa(struct e1000_ring *tx_ring , unsigned int i )
 #line 663
   writel(i, (void volatile   *)tx_ring->tail);
 #line 665
-  tmp___1 = __builtin_expect(ret_val == 0, 0L);
+  tmp___1 = ldv__builtin_expect(ret_val == 0, 0L);
 #line 665
   if (tmp___1 != 0L) {
 #line 665
     tmp___2 = readl((void const volatile   *)tx_ring->tail);
 #line 665
-    tmp___3 = __builtin_expect(tmp___2 != i, 0L);
+    tmp___3 = ldv__builtin_expect(tmp___2 != i, 0L);
 #line 665
     if (tmp___3 != 0L) {
 #line 666
@@ -42851,7 +42851,7 @@ static void e1000_alloc_rx_buffers(struct e1000_ring *rx_ring , int cleaned_coun
 #line 718
   rx_desc->read.buffer_addr = buffer_info->dma;
 #line 720
-  tmp___0 = __builtin_expect((i & 15U) == 0U, 0L);
+  tmp___0 = ldv__builtin_expect((i & 15U) == 0U, 0L);
 #line 720
   if (tmp___0 != 0L) {
 #line 726
@@ -43028,7 +43028,7 @@ static void e1000_alloc_rx_buffers_ps(struct e1000_ring *rx_ring , int cleaned_c
 #line 818
   rx_desc->read.buffer_addr[0] = buffer_info->dma;
 #line 820
-  tmp___1 = __builtin_expect((i & 15U) == 0U, 0L);
+  tmp___1 = ldv__builtin_expect((i & 15U) == 0U, 0L);
 #line 820
   if (tmp___1 != 0L) {
 #line 826
@@ -43126,7 +43126,7 @@ static void e1000_alloc_jumbo_rx_buffers(struct e1000_ring *rx_ring , int cleane
 #line 871
   skb = __netdev_alloc_skb_ip_align(netdev, bufsz, gfp);
 #line 872
-  tmp = __builtin_expect((unsigned long )skb == (unsigned long )((struct sk_buff *)0),
+  tmp = ldv__builtin_expect((unsigned long )skb == (unsigned long )((struct sk_buff *)0),
                          0L);
 #line 872
   if (tmp != 0L) {
@@ -43145,7 +43145,7 @@ static void e1000_alloc_jumbo_rx_buffers(struct e1000_ring *rx_ring , int cleane
 #line 882
     buffer_info->ldv_41273.ldv_41272.page = alloc_pages(gfp, 0U);
 #line 883
-    tmp___0 = __builtin_expect((unsigned long )buffer_info->ldv_41273.ldv_41272.page == (unsigned long )((struct page *)0),
+    tmp___0 = ldv__builtin_expect((unsigned long )buffer_info->ldv_41273.ldv_41272.page == (unsigned long )((struct page *)0),
                                0L);
 #line 883
     if (tmp___0 != 0L) {
@@ -43185,7 +43185,7 @@ static void e1000_alloc_jumbo_rx_buffers(struct e1000_ring *rx_ring , int cleane
 #line 903
   i = i + 1U;
 #line 903
-  tmp___2 = __builtin_expect(i == rx_ring->count, 0L);
+  tmp___2 = ldv__builtin_expect(i == rx_ring->count, 0L);
 #line 903
   if (tmp___2 != 0L) {
 #line 904
@@ -43209,7 +43209,7 @@ static void e1000_alloc_jumbo_rx_buffers(struct e1000_ring *rx_ring , int cleane
   }
   ldv_48252: 
 #line 908
-  tmp___6 = __builtin_expect((unsigned int )rx_ring->next_to_use != i, 1L);
+  tmp___6 = ldv__builtin_expect((unsigned int )rx_ring->next_to_use != i, 1L);
 #line 908
   if (tmp___6 != 0L) {
 #line 909
@@ -43219,7 +43219,7 @@ static void e1000_alloc_jumbo_rx_buffers(struct e1000_ring *rx_ring , int cleane
 #line 910
     i = i - 1U;
 #line 910
-    tmp___5 = __builtin_expect(tmp___4 == 0U, 0L);
+    tmp___5 = ldv__builtin_expect(tmp___4 == 0U, 0L);
 #line 910
     if (tmp___5 != 0L) {
 #line 911
@@ -43360,7 +43360,7 @@ static bool e1000_clean_rx_irq(struct e1000_ring *rx_ring , int *work_done , int
 #line 987
   length = (u32 )rx_desc->wb.upper.length;
 #line 995
-  tmp = __builtin_expect((staterr & 2U) == 0U, 0L);
+  tmp = ldv__builtin_expect((staterr & 2U) == 0U, 0L);
 #line 995
   if (tmp != 0L) {
 #line 996
@@ -43383,7 +43383,7 @@ static bool e1000_clean_rx_irq(struct e1000_ring *rx_ring , int *work_done , int
 #line 1000
     descriptor.flags = 0U;
 #line 1000
-    tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1000
     if (tmp___0 != 0L) {
 #line 1000
@@ -43407,11 +43407,11 @@ static bool e1000_clean_rx_irq(struct e1000_ring *rx_ring , int *work_done , int
 
   }
 #line 1008
-  tmp___1 = __builtin_expect((staterr & 2533359616U) != 0U, 0L);
+  tmp___1 = ldv__builtin_expect((staterr & 2533359616U) != 0U, 0L);
 #line 1008
   if (tmp___1 != 0L) {
 #line 1008
-    tmp___2 = __builtin_expect((netdev->features & 8589934592ULL) == 0ULL, 0L);
+    tmp___2 = ldv__builtin_expect((netdev->features & 8589934592ULL) == 0ULL, 0L);
 #line 1008
     if (tmp___2 != 0L) {
 #line 1011
@@ -44036,7 +44036,7 @@ static bool e1000_clean_rx_irq_ps(struct e1000_ring *rx_ring , int *work_done , 
 #line 1363
     descriptor.flags = 0U;
 #line 1363
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1363
     if (tmp != 0L) {
 #line 1363
@@ -44060,11 +44060,11 @@ static bool e1000_clean_rx_irq_ps(struct e1000_ring *rx_ring , int *work_done , 
 
   }
 #line 1370
-  tmp___0 = __builtin_expect((staterr & 2533359616U) != 0U, 0L);
+  tmp___0 = ldv__builtin_expect((staterr & 2533359616U) != 0U, 0L);
 #line 1370
   if (tmp___0 != 0L) {
 #line 1370
-    tmp___1 = __builtin_expect((netdev->features & 8589934592ULL) == 0ULL, 0L);
+    tmp___1 = ldv__builtin_expect((netdev->features & 8589934592ULL) == 0ULL, 0L);
 #line 1370
     if (tmp___1 != 0L) {
 #line 1372
@@ -44094,7 +44094,7 @@ static bool e1000_clean_rx_irq_ps(struct e1000_ring *rx_ring , int *work_done , 
 #line 1379
     descriptor___0.flags = 0U;
 #line 1379
-    tmp___2 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___2 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 1379
     if (tmp___2 != 0L) {
 #line 1379
@@ -44392,15 +44392,15 @@ static bool e1000_clean_jumbo_rx_irq(struct e1000_ring *rx_ring , int *work_done
 #line 1562
   length = (u32 )rx_desc->wb.upper.length;
 #line 1565
-  tmp = __builtin_expect((staterr & 2U) != 0U, 0L);
+  tmp = ldv__builtin_expect((staterr & 2U) != 0U, 0L);
 #line 1565
   if (tmp != 0L) {
 #line 1565
-    tmp___0 = __builtin_expect((staterr & 2533359616U) != 0U, 0L);
+    tmp___0 = ldv__builtin_expect((staterr & 2533359616U) != 0U, 0L);
 #line 1565
     if (tmp___0 != 0L) {
 #line 1565
-      tmp___1 = __builtin_expect((netdev->features & 8589934592ULL) == 0ULL, 0L);
+      tmp___1 = ldv__builtin_expect((netdev->features & 8589934592ULL) == 0ULL, 0L);
 #line 1565
       if (tmp___1 != 0L) {
 #line 1565
@@ -44536,7 +44536,7 @@ static bool e1000_clean_jumbo_rx_irq(struct e1000_ring *rx_ring , int *work_done
 #line 1654
   rx_desc->wb.upper.status_error = rx_desc->wb.upper.status_error & 4294967040U;
 #line 1657
-  tmp___10 = __builtin_expect(cleaned_count > 15, 0L);
+  tmp___10 = ldv__builtin_expect(cleaned_count > 15, 0L);
 #line 1657
   if (tmp___10 != 0L) {
 #line 1658
@@ -46962,7 +46962,7 @@ static void e1000_setup_rctl(struct e1000_adapter *adapter )
 #line 3031
       descriptor.flags = 0U;
 #line 3031
-      tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+      tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 3031
       if (tmp != 0L) {
 #line 3031
@@ -48686,7 +48686,7 @@ static irqreturn_t e1000_intr_msi_test(int irq , void *data )
 #line 4169
   descriptor.flags = 0U;
 #line 4169
-  tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 4169
   if (tmp___1 != 0L) {
 #line 4169
@@ -48786,7 +48786,7 @@ static int e1000_test_msi_interrupt(struct e1000_adapter *adapter )
 #line 4237
     descriptor.flags = 0U;
 #line 4237
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 4237
     if (tmp != 0L) {
 #line 4237
@@ -49048,7 +49048,7 @@ static int e1000_close(struct net_device *netdev )
 #line 4413
   __ret_warn_on = tmp___2 != 0;
 #line 4413
-  tmp___3 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___3 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 4413
   if (tmp___3 != 0L) {
 #line 4413
@@ -49058,7 +49058,7 @@ static int e1000_close(struct net_device *netdev )
 
   }
 #line 4413
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 4415
   pm_runtime_get_sync(& pdev->dev);
 #line 4417
@@ -50506,7 +50506,7 @@ static bool e1000_tx_csum(struct e1000_ring *tx_ring , struct sk_buff *skb )
 #line 5199
   tmp___3 = net_ratelimit();
 #line 5199
-  tmp___4 = __builtin_expect(tmp___3 != 0, 0L);
+  tmp___4 = ldv__builtin_expect(tmp___3 != 0, 0L);
 #line 5199
   if (tmp___4 != 0L) {
 #line 5200
@@ -50870,7 +50870,7 @@ static void e1000_tx_queue(struct e1000_ring *tx_ring , int tx_flags , int count
 
   }
 #line 5353
-  tmp = __builtin_expect((tx_flags & 16) != 0, 0L);
+  tmp = ldv__builtin_expect((tx_flags & 16) != 0, 0L);
 #line 5353
   if (tmp != 0L) {
 #line 5354
@@ -50879,7 +50879,7 @@ static void e1000_tx_queue(struct e1000_ring *tx_ring , int tx_flags , int count
 
   }
 #line 5356
-  tmp___0 = __builtin_expect((tx_flags & 32) != 0, 0L);
+  tmp___0 = ldv__builtin_expect((tx_flags & 32) != 0, 0L);
 #line 5356
   if (tmp___0 != 0L) {
 #line 5357
@@ -50923,7 +50923,7 @@ static void e1000_tx_queue(struct e1000_ring *tx_ring , int tx_flags , int count
 #line 5376
   tx_desc->lower.data = tx_desc->lower.data | adapter->txd_cmd;
 #line 5379
-  tmp___1 = __builtin_expect((tx_flags & 16) != 0, 0L);
+  tmp___1 = ldv__builtin_expect((tx_flags & 16) != 0, 0L);
 #line 5379
   if (tmp___1 != 0L) {
 #line 5380
@@ -51055,7 +51055,7 @@ static int e1000_maybe_stop_tx(struct e1000_ring *tx_ring , int size )
 
   {
 #line 5465
-  tmp = __builtin_expect((unsigned int )size > tx_ring->count, 0L);
+  tmp = ldv__builtin_expect((unsigned int )size > tx_ring->count, 0L);
 #line 5465
   if (tmp != 0L) {
 #line 5465
@@ -51156,7 +51156,7 @@ static netdev_tx_t e1000_xmit_frame(struct sk_buff *skb , struct net_device *net
 
   }
 #line 5499
-  tmp___3 = __builtin_expect(skb->len <= 16U, 0L);
+  tmp___3 = ldv__builtin_expect(skb->len <= 16U, 0L);
 #line 5499
   if (tmp___3 != 0L) {
 #line 5500
@@ -51314,7 +51314,7 @@ static netdev_tx_t e1000_xmit_frame(struct sk_buff *skb , struct net_device *net
 
   }
 #line 5577
-  tmp___13 = __builtin_expect((int )((signed char )*((unsigned char *)skb + 178UL)) < 0,
+  tmp___13 = ldv__builtin_expect((int )((signed char )*((unsigned char *)skb + 178UL)) < 0,
                               0L);
 #line 5577
   if (tmp___13 != 0L) {
@@ -51330,12 +51330,12 @@ static netdev_tx_t e1000_xmit_frame(struct sk_buff *skb , struct net_device *net
 #line 5584
     tmp___16 = skb_end_pointer((struct sk_buff  const  *)skb);
 #line 5584
-    tmp___17 = __builtin_expect((long )((struct skb_shared_info *)tmp___16)->tx_flags & 1L,
+    tmp___17 = ldv__builtin_expect((long )((struct skb_shared_info *)tmp___16)->tx_flags & 1L,
                                 0L);
 #line 5584
     if (tmp___17 != 0L) {
 #line 5584
-      tmp___18 = __builtin_expect((unsigned long )adapter->tx_hwtstamp_skb == (unsigned long )((struct sk_buff *)0),
+      tmp___18 = ldv__builtin_expect((unsigned long )adapter->tx_hwtstamp_skb == (unsigned long )((struct sk_buff *)0),
                                   0L);
 #line 5584
       if (tmp___18 != 0L) {
@@ -51996,7 +51996,7 @@ static int __e1000_shutdown(struct pci_dev *pdev , bool runtime )
 #line 5973
     __ret_warn_on = tmp___3 != 0;
 #line 5973
-    tmp___4 = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp___4 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 5973
     if (tmp___4 != 0L) {
 #line 5973
@@ -52006,7 +52006,7 @@ static int __e1000_shutdown(struct pci_dev *pdev , bool runtime )
 
     }
 #line 5973
-    __builtin_expect(__ret_warn_on != 0, 0L);
+    ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 5974
     e1000e_down(adapter);
 #line 5975
@@ -54378,7 +54378,7 @@ __inline static long IS_ERR(void const   *ptr )
 
   {
 #line 34
-  tmp = __builtin_expect((unsigned long )ptr > 0xfffffffffffff000UL, 0L);
+  tmp = ldv__builtin_expect((unsigned long )ptr > 0xfffffffffffff000UL, 0L);
 #line 34
   return (tmp);
 }
@@ -54650,7 +54650,7 @@ static void e1000e_systim_overflow_work(struct work_struct *work )
 #line 223
   descriptor.flags = 0U;
 #line 223
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 223
   if (tmp != 0L) {
 #line 223
@@ -54978,7 +54978,7 @@ __inline static void ldv_error(void)
 #line 25
 extern int __VERIFIER_nondet_int(void) ;
 #line 49 "/home/ldvuser/ldv/inst/kernel-rules/verifier/rcv.h"
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 

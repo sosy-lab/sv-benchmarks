@@ -3797,7 +3797,7 @@ enum kobj_ns_type;
 #line 1 "<compiler builtins>"
 
 #line 1
-long __builtin_expect(long val , long res ) ;
+long ldv__builtin_expect(long val , long res ) ;
 #line 59 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/bitops.h"
 __inline static void ( __attribute__((__always_inline__)) set_bit)(unsigned int nr ,
                                                                    unsigned long volatile   *addr )  __attribute__((__no_instrument_function__)) ;
@@ -4948,7 +4948,7 @@ static void zram_free_page(struct zram *zram , size_t index )
 #line 141
   __cil_tmp16 = (long )__cil_tmp15;
 #line 141
-  tmp___8 = __builtin_expect(__cil_tmp16, 0L);
+  tmp___8 = ldv__builtin_expect(__cil_tmp16, 0L);
   }
 #line 141
   if (tmp___8) {
@@ -5008,7 +5008,7 @@ static void zram_free_page(struct zram *zram , size_t index )
 #line 153
   __cil_tmp27 = (long )tmp___10;
 #line 153
-  tmp___11 = __builtin_expect(__cil_tmp27, 0L);
+  tmp___11 = ldv__builtin_expect(__cil_tmp27, 0L);
   }
 #line 153
   if (tmp___11) {
@@ -5505,7 +5505,7 @@ static int zram_bvec_read(struct zram *zram , struct bio_vec *bvec , u32 index ,
 #line 224
   __cil_tmp38 = (long )__cil_tmp37;
 #line 224
-  tmp___9 = __builtin_expect(__cil_tmp38, 0L);
+  tmp___9 = ldv__builtin_expect(__cil_tmp38, 0L);
   }
 #line 224
   if (tmp___9) {
@@ -5527,7 +5527,7 @@ static int zram_bvec_read(struct zram *zram , struct bio_vec *bvec , u32 index ,
 #line 225
       __cil_tmp44 = (long )__cil_tmp43;
 #line 225
-      tmp___8 = __builtin_expect(__cil_tmp44, 0L);
+      tmp___8 = ldv__builtin_expect(__cil_tmp44, 0L);
       }
 #line 225
       if (tmp___8) {
@@ -5579,7 +5579,7 @@ static int zram_bvec_read(struct zram *zram , struct bio_vec *bvec , u32 index ,
 #line 232
   __cil_tmp50 = (long )tmp___11;
 #line 232
-  tmp___12 = __builtin_expect(__cil_tmp50, 0L);
+  tmp___12 = ldv__builtin_expect(__cil_tmp50, 0L);
   }
 #line 232
   if (tmp___12) {
@@ -5757,7 +5757,7 @@ static int zram_bvec_read(struct zram *zram , struct bio_vec *bvec , u32 index ,
 #line 267
   __cil_tmp90 = (long )__cil_tmp89;
 #line 267
-  tmp___19 = __builtin_expect(__cil_tmp90, 0L);
+  tmp___19 = ldv__builtin_expect(__cil_tmp90, 0L);
   }
 #line 267
   if (tmp___19) {
@@ -5943,7 +5943,7 @@ static int zram_read_before_write(struct zram *zram , char *mem , u32 index )
 #line 294
   __cil_tmp34 = (long )tmp___10;
 #line 294
-  tmp___11 = __builtin_expect(__cil_tmp34, 0L);
+  tmp___11 = ldv__builtin_expect(__cil_tmp34, 0L);
   }
 #line 294
   if (tmp___11) {
@@ -6037,7 +6037,7 @@ static int zram_read_before_write(struct zram *zram , char *mem , u32 index )
 #line 306
   __cil_tmp60 = (long )__cil_tmp59;
 #line 306
-  tmp___12 = __builtin_expect(__cil_tmp60, 0L);
+  tmp___12 = ldv__builtin_expect(__cil_tmp60, 0L);
   }
 #line 306
   if (tmp___12) {
@@ -6465,7 +6465,7 @@ static int zram_bvec_write(struct zram *zram , struct bio_vec *bvec , u32 index 
 #line 380
   __cil_tmp79 = (long )__cil_tmp78;
 #line 380
-  tmp___15 = __builtin_expect(__cil_tmp79, 0L);
+  tmp___15 = ldv__builtin_expect(__cil_tmp79, 0L);
   }
 #line 380
   if (tmp___15) {
@@ -6494,7 +6494,7 @@ static int zram_bvec_write(struct zram *zram , struct bio_vec *bvec , u32 index 
 #line 390
   __cil_tmp86 = (long )__cil_tmp85;
 #line 390
-  tmp___19 = __builtin_expect(__cil_tmp86, 0L);
+  tmp___19 = ldv__builtin_expect(__cil_tmp86, 0L);
   }
 #line 390
   if (tmp___19) {
@@ -6514,7 +6514,7 @@ static int zram_bvec_write(struct zram *zram , struct bio_vec *bvec , u32 index 
 #line 393
     __cil_tmp91 = (long )__cil_tmp90;
 #line 393
-    tmp___16 = __builtin_expect(__cil_tmp91, 0L);
+    tmp___16 = ldv__builtin_expect(__cil_tmp91, 0L);
     }
 #line 393
     if (tmp___16) {
@@ -6629,7 +6629,7 @@ static int zram_bvec_write(struct zram *zram , struct bio_vec *bvec , u32 index 
 #line 430
   __cil_tmp108 = (long )tmp___22;
 #line 430
-  tmp___23 = __builtin_expect(__cil_tmp108, 0L);
+  tmp___23 = ldv__builtin_expect(__cil_tmp108, 0L);
   }
 #line 430
   if (tmp___23) {
@@ -7351,7 +7351,7 @@ __inline static int valid_io_request(struct zram *zram , struct bio *bio )
 #line 539
   __cil_tmp21 = (long )tmp___7;
 #line 539
-  tmp___8 = __builtin_expect(__cil_tmp21, 0L);
+  tmp___8 = ldv__builtin_expect(__cil_tmp21, 0L);
   }
 #line 539
   if (tmp___8) {
@@ -7432,7 +7432,7 @@ static void zram_make_request(struct request_queue *queue , struct bio *bio )
 #line 558
   __cil_tmp17 = (long )__cil_tmp16;
 #line 558
-  tmp___7 = __builtin_expect(__cil_tmp17, 0L);
+  tmp___7 = ldv__builtin_expect(__cil_tmp17, 0L);
   }
 #line 558
   if (tmp___7) {
@@ -7474,7 +7474,7 @@ static void zram_make_request(struct request_queue *queue , struct bio *bio )
 #line 562
   __cil_tmp27 = (long )__cil_tmp26;
 #line 562
-  tmp___9 = __builtin_expect(__cil_tmp27, 0L);
+  tmp___9 = ldv__builtin_expect(__cil_tmp27, 0L);
   }
 #line 562
   if (tmp___9) {
@@ -7704,7 +7704,7 @@ void __zram_reset_device(struct zram *zram )
 #line 600
     __cil_tmp32 = (long )tmp___8;
 #line 600
-    tmp___9 = __builtin_expect(__cil_tmp32, 0L);
+    tmp___9 = ldv__builtin_expect(__cil_tmp32, 0L);
     }
 #line 600
     if (tmp___9) {
@@ -8113,7 +8113,7 @@ int zram_init_device(struct zram *zram )
 #line 677
     __cil_tmp62 = (long )__cil_tmp61;
 #line 677
-    tmp___9 = __builtin_expect(__cil_tmp62, 0L);
+    tmp___9 = ldv__builtin_expect(__cil_tmp62, 0L);
     }
 #line 677
     if (tmp___9) {
@@ -9141,7 +9141,7 @@ static void zram_exit(void)
 #line 853
     __cil_tmp16 = (long )__cil_tmp15;
 #line 853
-    tmp___7 = __builtin_expect(__cil_tmp16, 0L);
+    tmp___7 = ldv__builtin_expect(__cil_tmp16, 0L);
     }
 #line 853
     if (tmp___7) {
@@ -9546,7 +9546,7 @@ void ldv_check_final_state(void)
 }
 }
 #line 1017 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/1136/dscv_tempdir/dscv/ri/32_1/drivers/staging/zram/zram_drv.c.common.c"
-long __builtin_expect(long val , long res ) 
+long ldv__builtin_expect(long val , long res ) 
 { 
 
   {

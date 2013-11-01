@@ -3595,7 +3595,7 @@ struct spi_message {
    void *state ;
 };
 #line 1 "<compiler builtins>"
-long __builtin_expect(long val , long res ) ;
+long ldv__builtin_expect(long val , long res ) ;
 #line 24 "include/linux/list.h"
 __inline static void INIT_LIST_HEAD(struct list_head *list )  __attribute__((__no_instrument_function__)) ;
 #line 24 "include/linux/list.h"
@@ -3682,7 +3682,7 @@ __inline static long __attribute__((__warn_unused_result__))  IS_ERR(void const 
 #line 34
   __cil_tmp7 = (long )__cil_tmp6;
 #line 34
-  tmp = __builtin_expect(__cil_tmp7, 0L);
+  tmp = ldv__builtin_expect(__cil_tmp7, 0L);
   }
 #line 34
   return (tmp);
@@ -4128,7 +4128,7 @@ static int m41t94_set_time(struct device *dev , struct rtc_time *tm )
 #line 38
       __cil_tmp13 = (long )__cil_tmp12;
 #line 38
-      tmp___8 = __builtin_expect(__cil_tmp13, 0L);
+      tmp___8 = ldv__builtin_expect(__cil_tmp13, 0L);
       }
 #line 38
       if (tmp___8) {
@@ -4746,7 +4746,7 @@ static int m41t94_read_time(struct device *dev , struct rtc_time *tm )
 #line 97
       __cil_tmp93 = (long )__cil_tmp92;
 #line 97
-      tmp___24 = __builtin_expect(__cil_tmp93, 0L);
+      tmp___24 = ldv__builtin_expect(__cil_tmp93, 0L);
       }
 #line 97
       if (tmp___24) {
@@ -5395,7 +5395,7 @@ void ldv_check_final_state(void)
 }
 }
 #line 396 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/6240/dscv_tempdir/dscv/ri/32_1/drivers/rtc/rtc-m41t94.c.common.c"
-long __builtin_expect(long val , long res ) 
+long ldv__builtin_expect(long val , long res ) 
 { 
 
   {

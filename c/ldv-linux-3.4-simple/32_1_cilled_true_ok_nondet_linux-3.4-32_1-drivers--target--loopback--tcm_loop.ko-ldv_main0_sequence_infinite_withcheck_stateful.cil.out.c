@@ -8161,7 +8161,7 @@ struct tcm_loop_hba {
 #line 1 "<compiler builtins>"
 
 #line 1
-long __builtin_expect(long val , long res ) ;
+long ldv__builtin_expect(long val , long res ) ;
 #line 24 "include/linux/list.h"
 __inline static void INIT_LIST_HEAD(struct list_head *list )  __attribute__((__no_instrument_function__)) ;
 #line 24 "include/linux/list.h"
@@ -8373,7 +8373,7 @@ __inline static long __attribute__((__warn_unused_result__))  IS_ERR(void const 
 #line 34
   __cil_tmp7 = (long )__cil_tmp6;
 #line 34
-  tmp = __builtin_expect(__cil_tmp7, 0L);
+  tmp = ldv__builtin_expect(__cil_tmp7, 0L);
   }
 #line 34
   return (tmp);
@@ -8646,7 +8646,7 @@ __inline static struct page *sg_page(struct scatterlist *sg )
 #line 98
     __cil_tmp8 = (long )__cil_tmp7;
 #line 98
-    tmp = __builtin_expect(__cil_tmp8, 0L);
+    tmp = ldv__builtin_expect(__cil_tmp8, 0L);
     }
 #line 98
     if (tmp) {
@@ -8702,7 +8702,7 @@ __inline static struct page *sg_page(struct scatterlist *sg )
 #line 99
     __cil_tmp15 = (long )__cil_tmp14;
 #line 99
-    tmp___0 = __builtin_expect(__cil_tmp15, 0L);
+    tmp___0 = ldv__builtin_expect(__cil_tmp15, 0L);
     }
 #line 99
     if (tmp___0) {
@@ -10299,7 +10299,7 @@ static int tcm_loop_queuecommand(struct Scsi_Host *sh , struct scsi_cmnd *sc )
 #line 271
     __cil_tmp13 = (long )__cil_tmp12;
 #line 271
-    tmp___18 = __builtin_expect(__cil_tmp13, 0L);
+    tmp___18 = ldv__builtin_expect(__cil_tmp13, 0L);
     }
 #line 271
     if (tmp___18) {
@@ -11381,7 +11381,7 @@ static int tcm_loop_alloc_core_bus(void)
 #line 510
     __cil_tmp13 = (long )__cil_tmp12;
 #line 510
-    tmp___20 = __builtin_expect(__cil_tmp13, 0L);
+    tmp___20 = ldv__builtin_expect(__cil_tmp13, 0L);
     }
 #line 510
     if (tmp___20) {
@@ -11456,7 +11456,7 @@ static void tcm_loop_release_core_bus(void)
 #line 526
     __cil_tmp7 = (long )__cil_tmp6;
 #line 526
-    tmp___17 = __builtin_expect(__cil_tmp7, 0L);
+    tmp___17 = ldv__builtin_expect(__cil_tmp7, 0L);
     }
 #line 526
     if (tmp___17) {
@@ -12284,7 +12284,7 @@ static int tcm_loop_queue_data_in(struct se_cmd *se_cmd )
 #line 798
     __cil_tmp20 = (long )__cil_tmp19;
 #line 798
-    tmp___17 = __builtin_expect(__cil_tmp20, 0L);
+    tmp___17 = ldv__builtin_expect(__cil_tmp20, 0L);
     }
 #line 798
     if (tmp___17) {
@@ -12514,7 +12514,7 @@ static int tcm_loop_queue_status(struct se_cmd *se_cmd )
 #line 816
     __cil_tmp22 = (long )__cil_tmp21;
 #line 816
-    tmp___17 = __builtin_expect(__cil_tmp22, 0L);
+    tmp___17 = ldv__builtin_expect(__cil_tmp22, 0L);
     }
 #line 816
     if (tmp___17) {
@@ -12952,7 +12952,7 @@ static int tcm_loop_port_link(struct se_portal_group *se_tpg , struct se_lun *lu
 #line 894
     __cil_tmp33 = (long )__cil_tmp32;
 #line 894
-    tmp___17 = __builtin_expect(__cil_tmp33, 0L);
+    tmp___17 = ldv__builtin_expect(__cil_tmp33, 0L);
     }
 #line 894
     if (tmp___17) {
@@ -13121,7 +13121,7 @@ static void tcm_loop_port_unlink(struct se_portal_group *se_tpg , struct se_lun 
 #line 925
     __cil_tmp39 = (long )__cil_tmp38;
 #line 925
-    tmp___17 = __builtin_expect(__cil_tmp39, 0L);
+    tmp___17 = ldv__builtin_expect(__cil_tmp39, 0L);
     }
 #line 925
     if (tmp___17) {
@@ -13269,7 +13269,7 @@ static int tcm_loop_make_nexus(struct tcm_loop_tpg *tl_tpg , char const   *name 
 #line 942
       __cil_tmp25 = (long )__cil_tmp24;
 #line 942
-      tmp___17 = __builtin_expect(__cil_tmp25, 0L);
+      tmp___17 = ldv__builtin_expect(__cil_tmp25, 0L);
       }
 #line 942
       if (tmp___17) {
@@ -13455,7 +13455,7 @@ static int tcm_loop_make_nexus(struct tcm_loop_tpg *tl_tpg , char const   *name 
 #line 978
     __cil_tmp73 = (long )__cil_tmp72;
 #line 978
-    tmp___22 = __builtin_expect(__cil_tmp73, 0L);
+    tmp___22 = ldv__builtin_expect(__cil_tmp73, 0L);
     }
 #line 978
     if (tmp___22) {
@@ -13639,7 +13639,7 @@ static int tcm_loop_drop_nexus(struct tcm_loop_tpg *tpg )
 #line 1010
     __cil_tmp31 = (long )__cil_tmp30;
 #line 1010
-    tmp___20 = __builtin_expect(__cil_tmp31, 0L);
+    tmp___20 = ldv__builtin_expect(__cil_tmp31, 0L);
     }
 #line 1010
     if (tmp___20) {
@@ -14415,7 +14415,7 @@ struct se_portal_group *tcm_loop_make_naa_tpg(struct se_wwn *wwn , struct config
 #line 1169
     __cil_tmp46 = (long )__cil_tmp45;
 #line 1169
-    tmp___23 = __builtin_expect(__cil_tmp46, 0L);
+    tmp___23 = ldv__builtin_expect(__cil_tmp46, 0L);
     }
 #line 1169
     if (tmp___23) {
@@ -14563,7 +14563,7 @@ void tcm_loop_drop_naa_tpg(struct se_portal_group *se_tpg )
 #line 1199
     __cil_tmp29 = (long )__cil_tmp28;
 #line 1199
-    tmp___19 = __builtin_expect(__cil_tmp29, 0L);
+    tmp___19 = ldv__builtin_expect(__cil_tmp29, 0L);
     }
 #line 1199
     if (tmp___19) {
@@ -14787,7 +14787,7 @@ struct se_wwn *tcm_loop_make_scsi_hba(struct target_fabric_configfs *tf , struct
 #line 1268
     __cil_tmp31 = (long )__cil_tmp30;
 #line 1268
-    tmp___22 = __builtin_expect(__cil_tmp31, 0L);
+    tmp___22 = ldv__builtin_expect(__cil_tmp31, 0L);
     }
 #line 1268
     if (tmp___22) {
@@ -14912,7 +14912,7 @@ void tcm_loop_drop_scsi_hba(struct se_wwn *wwn )
 #line 1284
     __cil_tmp17 = (long )__cil_tmp16;
 #line 1284
-    tmp___17 = __builtin_expect(__cil_tmp17, 0L);
+    tmp___17 = ldv__builtin_expect(__cil_tmp17, 0L);
     }
 #line 1284
     if (tmp___17) {
@@ -15605,7 +15605,7 @@ static int tcm_loop_register_configfs(void)
 #line 1419
     __cil_tmp160 = (long )__cil_tmp159;
 #line 1419
-    tmp___19 = __builtin_expect(__cil_tmp160, 0L);
+    tmp___19 = ldv__builtin_expect(__cil_tmp160, 0L);
     }
 #line 1419
     if (tmp___19) {
@@ -15676,7 +15676,7 @@ static void tcm_loop_deregister_configfs(void)
 #line 1431
     __cil_tmp8 = (long )__cil_tmp7;
 #line 1431
-    tmp___17 = __builtin_expect(__cil_tmp8, 0L);
+    tmp___17 = ldv__builtin_expect(__cil_tmp8, 0L);
     }
 #line 1431
     if (tmp___17) {
@@ -15771,7 +15771,7 @@ static int tcm_loop_fabric_init(void)
 #line 1448
       __cil_tmp14 = (long )__cil_tmp13;
 #line 1448
-      tmp___17 = __builtin_expect(__cil_tmp14, 0L);
+      tmp___17 = ldv__builtin_expect(__cil_tmp14, 0L);
       }
 #line 1448
       if (tmp___17) {
@@ -16358,7 +16358,7 @@ void ldv_check_final_state(void)
 }
 }
 #line 1821 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/17463/dscv_tempdir/dscv/ri/32_1/drivers/target/loopback/tcm_loop.c.common.c"
-long __builtin_expect(long val , long res ) 
+long ldv__builtin_expect(long val , long res ) 
 { 
 
   {

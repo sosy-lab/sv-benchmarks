@@ -8103,7 +8103,7 @@ struct port_table_attribute {
 #line 1 "<compiler builtins>"
 void *__builtin_memcpy(void * , void const   * , unsigned long  ) ;
 #line 1
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 #line 7 "/home/mikhail/launches/cpachecker-regression2/launcher-working-dir/ldv-manager-work-dir/inst/current/envs/linux-3.8-rc1/linux-3.8-rc1/arch/x86/include/uapi/asm/swab.h"
 __inline static __u32 __arch_swab32(__u32 val ) 
 { 
@@ -8159,7 +8159,7 @@ __inline static long IS_ERR(void const   *ptr )
 
   {
 #line 34
-  tmp = __builtin_expect((unsigned long )ptr > 0xfffffffffffff000UL, 0L);
+  tmp = ldv__builtin_expect((unsigned long )ptr > 0xfffffffffffff000UL, 0L);
 #line 34
   return (tmp);
 }
@@ -9135,7 +9135,7 @@ __inline static struct dma_map_ops *get_dma_ops(struct device *dev )
 
   {
 #line 37
-  tmp = __builtin_expect((unsigned long )dev == (unsigned long )((struct device *)0),
+  tmp = ldv__builtin_expect((unsigned long )dev == (unsigned long )((struct device *)0),
                          0L);
 #line 37
   if (tmp != 0L || (unsigned long )dev->archdata.dma_ops == (unsigned long )((struct dma_map_ops *)0)) {
@@ -9164,7 +9164,7 @@ __inline static void dma_sync_single_for_cpu(struct device *dev , dma_addr_t add
 #line 103
   tmp___0 = valid_dma_direction((int )dir);
 #line 103
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
 #line 103
   if (tmp___1 != 0L) {
 #line 103
@@ -9332,14 +9332,14 @@ __inline static unsigned long copy_from_user(void *to , void const   *from , uns
 #line 61
   might_fault();
 #line 62
-  tmp___1 = __builtin_expect(sz == -1, 1L);
+  tmp___1 = ldv__builtin_expect(sz == -1, 1L);
 #line 62
   if (tmp___1 != 0L) {
 #line 63
     n = _copy_from_user(to, from, (unsigned int )n);
   } else {
 #line 62
-    tmp___2 = __builtin_expect((unsigned long )sz >= n, 1L);
+    tmp___2 = ldv__builtin_expect((unsigned long )sz >= n, 1L);
 #line 62
     if (tmp___2 != 0L) {
 #line 63
@@ -9348,7 +9348,7 @@ __inline static unsigned long copy_from_user(void *to , void const   *from , uns
 #line 66
       __ret_warn_on = 1;
 #line 66
-      tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+      tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 66
       if (tmp___0 != 0L) {
 #line 66
@@ -9358,7 +9358,7 @@ __inline static unsigned long copy_from_user(void *to , void const   *from , uns
 
       }
 #line 66
-      __builtin_expect(__ret_warn_on != 0, 0L);
+      ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
   }
 #line 68
@@ -10432,7 +10432,7 @@ static void dump_cqe(void *cqe )
 #line 542
   descriptor.flags = 0U;
 #line 542
-  tmp___7 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___7 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 542
   if (tmp___7 != 0L) {
 #line 542
@@ -10486,7 +10486,7 @@ static void mlx4_ib_handle_error_cqe(struct mlx4_err_cqe *cqe , struct ib_wc *wc
 #line 552
     descriptor.flags = 0U;
 #line 552
-    tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 552
     if (tmp___1 != 0L) {
 #line 552
@@ -10703,11 +10703,11 @@ static int mlx4_ib_poll_one(struct mlx4_ib_cq *cq , struct mlx4_ib_qp **cur_qp ,
 #line 674
   is_error = ((int )cqe->owner_sr_opcode & 31) == 30;
 #line 677
-  tmp = __builtin_expect(((int )cqe->owner_sr_opcode & 31) == 0, 0L);
+  tmp = ldv__builtin_expect(((int )cqe->owner_sr_opcode & 31) == 0, 0L);
 #line 677
   if (tmp != 0L) {
 #line 677
-    tmp___0 = __builtin_expect(is_send != 0, 0L);
+    tmp___0 = ldv__builtin_expect(is_send != 0, 0L);
 #line 677
     if (tmp___0 != 0L) {
 #line 679
@@ -10721,7 +10721,7 @@ static int mlx4_ib_poll_one(struct mlx4_ib_cq *cq , struct mlx4_ib_qp **cur_qp ,
 
   }
 #line 684
-  tmp___2 = __builtin_expect(((int )cqe->owner_sr_opcode & 31) == 22, 0L);
+  tmp___2 = ldv__builtin_expect(((int )cqe->owner_sr_opcode & 31) == 22, 0L);
 #line 684
   if (tmp___2 != 0L) {
 #line 685
@@ -10765,7 +10765,7 @@ static int mlx4_ib_poll_one(struct mlx4_ib_cq *cq , struct mlx4_ib_qp **cur_qp ,
 #line 706
       mqp = __mlx4_qp_lookup(tmp___4->dev, tmp___3);
 #line 708
-      tmp___6 = __builtin_expect((unsigned long )mqp == (unsigned long )((struct mlx4_qp *)0),
+      tmp___6 = ldv__builtin_expect((unsigned long )mqp == (unsigned long )((struct mlx4_qp *)0),
                                  0L);
 #line 708
       if (tmp___6 != 0L) {
@@ -10830,7 +10830,7 @@ static int mlx4_ib_poll_one(struct mlx4_ib_cq *cq , struct mlx4_ib_qp **cur_qp ,
     wq___0->tail = wq___0->tail + 1U;
   }
 #line 739
-  tmp___10 = __builtin_expect(is_error != 0, 0L);
+  tmp___10 = ldv__builtin_expect(is_error != 0, 0L);
 #line 739
   if (tmp___10 != 0L) {
 #line 740
@@ -11831,7 +11831,7 @@ __inline static dma_addr_t dma_map_single_attrs(struct device *dev , void *ptr ,
 #line 19
   tmp___0 = valid_dma_direction((int )dir);
 #line 19
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
 #line 19
   if (tmp___1 != 0L) {
 #line 19
@@ -11875,7 +11875,7 @@ __inline static void dma_unmap_single_attrs(struct device *dev , dma_addr_t addr
 #line 36
   tmp___0 = valid_dma_direction((int )dir);
 #line 36
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
 #line 36
   if (tmp___1 != 0L) {
 #line 36
@@ -11920,7 +11920,7 @@ __inline static void dma_sync_single_for_cpu___0(struct device *dev , dma_addr_t
 #line 103
   tmp___0 = valid_dma_direction((int )dir);
 #line 103
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
 #line 103
   if (tmp___1 != 0L) {
 #line 103
@@ -11965,7 +11965,7 @@ __inline static void dma_sync_single_for_device(struct device *dev , dma_addr_t 
 #line 115
   tmp___0 = valid_dma_direction((int )dir);
 #line 115
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
 #line 115
   if (tmp___1 != 0L) {
 #line 115
@@ -12697,7 +12697,7 @@ static void smp_snoop(struct ib_device *ibdev , u8 port_num , struct ib_mad *mad
 #line 322
     descriptor.flags = 0U;
 #line 322
-    tmp___5 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___5 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 322
     if (tmp___5 != 0L) {
 #line 322
@@ -12744,7 +12744,7 @@ static void smp_snoop(struct ib_device *ibdev , u8 port_num , struct ib_mad *mad
 #line 331
     descriptor___0.flags = 0U;
 #line 331
-    tmp___8 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___8 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 331
     if (tmp___8 != 0L) {
 #line 331
@@ -12884,7 +12884,7 @@ static void __propagate_pkey_ev(struct mlx4_ib_dev *dev , int port_num , int blo
 #line 386
     descriptor.flags = 0U;
 #line 386
-    tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 386
     if (tmp___1 != 0L) {
 #line 386
@@ -13576,7 +13576,7 @@ static int mlx4_ib_demux_mad(struct ib_device *ibdev , u8 port , struct ib_wc *w
 #line 684
     descriptor.flags = 0U;
 #line 684
-    tmp___2 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___2 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 684
     if (tmp___2 != 0L) {
 #line 684
@@ -13620,7 +13620,7 @@ static int mlx4_ib_demux_mad(struct ib_device *ibdev , u8 port , struct ib_wc *w
 #line 698
     descriptor___0.flags = 0U;
 #line 698
-    tmp___4 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___4 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 698
     if (tmp___4 != 0L) {
 #line 698
@@ -13681,7 +13681,7 @@ static int ib_process_mad(struct ib_device *ibdev , int mad_flags , u8 port_num 
 #line 712
     descriptor.flags = 0U;
 #line 712
-    tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 712
     if (tmp___0 != 0L) {
 #line 712
@@ -13709,7 +13709,7 @@ static int ib_process_mad(struct ib_device *ibdev , int mad_flags , u8 port_num 
 #line 721
       descriptor___0.flags = 0U;
 #line 721
-      tmp___3 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+      tmp___3 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 721
       if (tmp___3 != 0L) {
 #line 721
@@ -13735,7 +13735,7 @@ static int ib_process_mad(struct ib_device *ibdev , int mad_flags , u8 port_num 
 #line 724
       descriptor___1.flags = 0U;
 #line 724
-      tmp___6 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+      tmp___6 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 724
       if (tmp___6 != 0L) {
 #line 724
@@ -15361,7 +15361,7 @@ static void mlx4_ib_tunnel_comp_worker(struct work_struct *work )
 #line 1487
     descriptor.flags = 0U;
 #line 1487
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1487
     if (tmp != 0L) {
 #line 1487
@@ -15401,7 +15401,7 @@ static void mlx4_ib_tunnel_comp_worker(struct work_struct *work )
 #line 1503
     descriptor___0.flags = 0U;
 #line 1503
-    tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 1503
     if (tmp___0 != 0L) {
 #line 1503
@@ -15725,7 +15725,7 @@ static void mlx4_ib_sqp_comp_worker(struct work_struct *work )
 #line 1664
     descriptor.flags = 0U;
 #line 1664
-    tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1664
     if (tmp___0 != 0L) {
 #line 1664
@@ -22759,7 +22759,7 @@ __inline static unsigned long arch_local_save_flags(void)
 #line 825
   __eax = __eax;
 #line 825
-  tmp = __builtin_expect((unsigned long )pv_irq_ops.save_fl.func == (unsigned long )((void *)0),
+  tmp = ldv__builtin_expect((unsigned long )pv_irq_ops.save_fl.func == (unsigned long )((void *)0),
                          0L);
 #line 825
   if (tmp != 0L) {
@@ -22947,7 +22947,7 @@ __inline static void dma_free_attrs(struct device *dev , size_t size , void *vad
 #line 166
   __ret_warn_on = tmp___0 != 0;
 #line 166
-  tmp___1 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___1 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 166
   if (tmp___1 != 0L) {
 #line 166
@@ -22957,7 +22957,7 @@ __inline static void dma_free_attrs(struct device *dev , size_t size , void *vad
 
   }
 #line 166
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 171
   debug_dma_free_coherent(dev, size, vaddr, bus);
 #line 172
@@ -23535,7 +23535,7 @@ struct ib_fast_reg_page_list *mlx4_ib_alloc_fast_reg_page_list(struct ib_device 
 #line 309
   __ret_warn_on = (mfrpl->map & 63ULL) != 0ULL;
 #line 309
-  tmp___5 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___5 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 309
   if (tmp___5 != 0L) {
 #line 309
@@ -23545,7 +23545,7 @@ struct ib_fast_reg_page_list *mlx4_ib_alloc_fast_reg_page_list(struct ib_device 
 
   }
 #line 309
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 311
   return (& mfrpl->ibfrpl);
   err_free: 
@@ -23980,7 +23980,7 @@ __inline static dma_addr_t dma_map_single_attrs___0(struct device *dev , void *p
 #line 19
   tmp___0 = valid_dma_direction((int )dir);
 #line 19
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
 #line 19
   if (tmp___1 != 0L) {
 #line 19
@@ -24024,7 +24024,7 @@ __inline static void dma_unmap_single_attrs___0(struct device *dev , dma_addr_t 
 #line 36
   tmp___0 = valid_dma_direction((int )dir);
 #line 36
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
 #line 36
   if (tmp___1 != 0L) {
 #line 36
@@ -24069,7 +24069,7 @@ __inline static void dma_sync_single_for_device___0(struct device *dev , dma_add
 #line 115
   tmp___0 = valid_dma_direction((int )dir);
 #line 115
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
 #line 115
   if (tmp___1 != 0L) {
 #line 115
@@ -24606,7 +24606,7 @@ __inline static unsigned int pad_wraparound(struct mlx4_ib_qp *qp , int ind )
 #line 329
   s = (unsigned int )(qp->sq.wqe_cnt - ((qp->sq.wqe_cnt + -1) & ind));
 #line 330
-  tmp = __builtin_expect((unsigned int )qp->sq_max_wqes_per_wr > s, 0L);
+  tmp = ldv__builtin_expect((unsigned int )qp->sq_max_wqes_per_wr > s, 0L);
 #line 330
   if (tmp != 0L) {
 #line 331
@@ -27392,7 +27392,7 @@ int mlx4_ib_modify_qp(struct ib_qp *ibqp , struct ib_qp_attr *attr , int attr_ma
 #line 1627
     descriptor.flags = 0U;
 #line 1627
-    tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1627
     if (tmp___1 != 0L) {
 #line 1627
@@ -27422,7 +27422,7 @@ int mlx4_ib_modify_qp(struct ib_qp *ibqp , struct ib_qp_attr *attr , int attr_ma
 #line 1637
     descriptor___0.flags = 0U;
 #line 1637
-    tmp___3 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___3 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 1637
     if (tmp___3 != 0L) {
 #line 1637
@@ -27470,7 +27470,7 @@ int mlx4_ib_modify_qp(struct ib_qp *ibqp , struct ib_qp_attr *attr , int attr_ma
 #line 1652
       descriptor___1.flags = 0U;
 #line 1652
-      tmp___5 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+      tmp___5 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 1652
       if (tmp___5 != 0L) {
 #line 1652
@@ -27503,7 +27503,7 @@ int mlx4_ib_modify_qp(struct ib_qp *ibqp , struct ib_qp_attr *attr , int attr_ma
 #line 1662
     descriptor___2.flags = 0U;
 #line 1662
-    tmp___6 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+    tmp___6 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
 #line 1662
     if (tmp___6 != 0L) {
 #line 1662
@@ -27533,7 +27533,7 @@ int mlx4_ib_modify_qp(struct ib_qp *ibqp , struct ib_qp_attr *attr , int attr_ma
 #line 1671
     descriptor___3.flags = 0U;
 #line 1671
-    tmp___7 = __builtin_expect((long )descriptor___3.flags & 1L, 0L);
+    tmp___7 = ldv__builtin_expect((long )descriptor___3.flags & 1L, 0L);
 #line 1671
     if (tmp___7 != 0L) {
 #line 1671
@@ -28244,7 +28244,7 @@ static int mlx4_wq_overflow(struct mlx4_ib_wq *wq___0 , int nreq , struct ib_cq 
 #line 2005
   cur = wq___0->head - wq___0->tail;
 #line 2006
-  tmp = __builtin_expect(cur + (unsigned int )nreq < (unsigned int )wq___0->max_post,
+  tmp = ldv__builtin_expect(cur + (unsigned int )nreq < (unsigned int )wq___0->max_post,
                          1L);
 #line 2006
   if (tmp != 0L) {
@@ -28809,7 +28809,7 @@ static int build_lso_seg(struct mlx4_wqe_lso_seg *wqe , struct ib_send_wr *wr , 
 #line 2203
   halign = ((unsigned int )wr->wr.ud.hlen + 19U) & 4294967280U;
 #line 2205
-  tmp = __builtin_expect(halign > 64U, 0L);
+  tmp = ldv__builtin_expect(halign > 64U, 0L);
 #line 2205
   if (tmp != 0L) {
 #line 2206
@@ -28818,11 +28818,11 @@ static int build_lso_seg(struct mlx4_wqe_lso_seg *wqe , struct ib_send_wr *wr , 
 
   }
 #line 2208
-  tmp___0 = __builtin_expect((qp->flags & 1U) == 0U, 0L);
+  tmp___0 = ldv__builtin_expect((qp->flags & 1U) == 0U, 0L);
 #line 2208
   if (tmp___0 != 0L) {
 #line 2208
-    tmp___1 = __builtin_expect((unsigned int )wr->num_sge > (unsigned int )qp->sq.max_gs - (halign >> 4),
+    tmp___1 = ldv__builtin_expect((unsigned int )wr->num_sge > (unsigned int )qp->sq.max_gs - (halign >> 4),
                                0L);
 #line 2208
     if (tmp___1 != 0L) {
@@ -28973,7 +28973,7 @@ int mlx4_ib_post_send(struct ib_qp *ibqp , struct ib_send_wr *wr , struct ib_sen
 
   }
 #line 2276
-  tmp___2 = __builtin_expect(wr->num_sge > qp->sq.max_gs, 0L);
+  tmp___2 = ldv__builtin_expect(wr->num_sge > qp->sq.max_gs, 0L);
 #line 2276
   if (tmp___2 != 0L) {
 #line 2277
@@ -29079,7 +29079,7 @@ int mlx4_ib_post_send(struct ib_qp *ibqp , struct ib_send_wr *wr , struct ib_sen
 #line 2364
   err = build_sriov_qp0_header(tmp___3, wr, (void *)ctrl, & seglen);
 #line 2365
-  tmp___4 = __builtin_expect(err != 0, 0L);
+  tmp___4 = ldv__builtin_expect(err != 0, 0L);
 #line 2365
   if (tmp___4 != 0L) {
 #line 2366
@@ -29120,7 +29120,7 @@ int mlx4_ib_post_send(struct ib_qp *ibqp , struct ib_send_wr *wr , struct ib_sen
     err = build_lso_seg((struct mlx4_wqe_lso_seg *)wqe, wr, qp, & seglen, & lso_hdr_sz,
                         & blh);
 #line 2388
-    tmp___5 = __builtin_expect(err != 0, 0L);
+    tmp___5 = ldv__builtin_expect(err != 0, 0L);
 #line 2388
     if (tmp___5 != 0L) {
 #line 2389
@@ -29147,7 +29147,7 @@ int mlx4_ib_post_send(struct ib_qp *ibqp , struct ib_send_wr *wr , struct ib_sen
 #line 2399
   tmp___7 = mlx4_is_master(tmp___6->dev);
 #line 2399
-  tmp___8 = __builtin_expect(tmp___7 == 0, 0L);
+  tmp___8 = ldv__builtin_expect(tmp___7 == 0, 0L);
 #line 2399
   if (tmp___8 != 0L) {
 #line 2400
@@ -29164,7 +29164,7 @@ int mlx4_ib_post_send(struct ib_qp *ibqp , struct ib_send_wr *wr , struct ib_sen
 #line 2404
   err = build_sriov_qp0_header(tmp___9, wr, (void *)ctrl, & seglen);
 #line 2405
-  tmp___10 = __builtin_expect(err != 0, 0L);
+  tmp___10 = ldv__builtin_expect(err != 0, 0L);
 #line 2405
   if (tmp___10 != 0L) {
 #line 2406
@@ -29223,7 +29223,7 @@ int mlx4_ib_post_send(struct ib_qp *ibqp , struct ib_send_wr *wr , struct ib_sen
 #line 2439
   err = build_mlx_header(tmp___12, wr, (void *)ctrl, & seglen);
 #line 2440
-  tmp___13 = __builtin_expect(err != 0, 0L);
+  tmp___13 = ldv__builtin_expect(err != 0, 0L);
 #line 2440
   if (tmp___13 != 0L) {
 #line 2441
@@ -29251,14 +29251,14 @@ int mlx4_ib_post_send(struct ib_qp *ibqp , struct ib_send_wr *wr , struct ib_sen
 #line 2461
   size = (int )((unsigned int )wr->num_sge + (unsigned int )size);
 #line 2464
-  tmp___14 = __builtin_expect((unsigned int )qp->mlx4_ib_qp_type == 0U, 0L);
+  tmp___14 = ldv__builtin_expect((unsigned int )qp->mlx4_ib_qp_type == 0U, 0L);
 #line 2464
   if (tmp___14 != 0L) {
 #line 2464
     tmp___16 = 1;
   } else {
 #line 2464
-    tmp___15 = __builtin_expect((unsigned int )qp->mlx4_ib_qp_type == 1U, 0L);
+    tmp___15 = ldv__builtin_expect((unsigned int )qp->mlx4_ib_qp_type == 1U, 0L);
 #line 2464
     if (tmp___15 != 0L) {
 #line 2464
@@ -29276,7 +29276,7 @@ int mlx4_ib_post_send(struct ib_qp *ibqp , struct ib_send_wr *wr , struct ib_sen
     size = (int )((unsigned int )size + 1U);
   } else {
 #line 2464
-    tmp___17 = __builtin_expect(((unsigned int )qp->mlx4_ib_qp_type & 589824U) != 0U,
+    tmp___17 = ldv__builtin_expect(((unsigned int )qp->mlx4_ib_qp_type & 589824U) != 0U,
                                 0L);
 #line 2464
     if (tmp___17 != 0L) {
@@ -29356,7 +29356,7 @@ int mlx4_ib_post_send(struct ib_qp *ibqp , struct ib_send_wr *wr , struct ib_sen
 
   out: 
 #line 2521
-  tmp___19 = __builtin_expect(nreq != 0, 1L);
+  tmp___19 = ldv__builtin_expect(nreq != 0, 1L);
 #line 2521
   if (tmp___19 != 0L) {
 #line 2522
@@ -29439,7 +29439,7 @@ int mlx4_ib_post_recv(struct ib_qp *ibqp , struct ib_recv_wr *wr , struct ib_rec
 
   }
 #line 2574
-  tmp___2 = __builtin_expect(wr->num_sge > qp->rq.max_gs, 0L);
+  tmp___2 = ldv__builtin_expect(wr->num_sge > qp->rq.max_gs, 0L);
 #line 2574
   if (tmp___2 != 0L) {
 #line 2575
@@ -29525,7 +29525,7 @@ int mlx4_ib_post_recv(struct ib_qp *ibqp , struct ib_recv_wr *wr , struct ib_rec
 
   out: 
 #line 2612
-  tmp___7 = __builtin_expect(nreq != 0, 1L);
+  tmp___7 = ldv__builtin_expect(nreq != 0, 1L);
 #line 2612
   if (tmp___7 != 0L) {
 #line 2613
@@ -30719,7 +30719,7 @@ int mlx4_ib_post_srq_recv(struct ib_srq *ibsrq , struct ib_recv_wr *wr , struct 
   goto ldv_23371;
   ldv_23370: 
 #line 385
-  tmp___1 = __builtin_expect(wr->num_sge > srq->msrq.max_gs, 0L);
+  tmp___1 = ldv__builtin_expect(wr->num_sge > srq->msrq.max_gs, 0L);
 #line 385
   if (tmp___1 != 0L) {
 #line 386
@@ -30732,7 +30732,7 @@ int mlx4_ib_post_srq_recv(struct ib_srq *ibsrq , struct ib_recv_wr *wr , struct 
 
   }
 #line 391
-  tmp___2 = __builtin_expect(srq->head == srq->tail, 0L);
+  tmp___2 = ldv__builtin_expect(srq->head == srq->tail, 0L);
 #line 391
   if (tmp___2 != 0L) {
 #line 392
@@ -30809,7 +30809,7 @@ int mlx4_ib_post_srq_recv(struct ib_srq *ibsrq , struct ib_recv_wr *wr , struct 
   }
   ldv_23366: 
 #line 416
-  tmp___9 = __builtin_expect(nreq != 0, 1L);
+  tmp___9 = ldv__builtin_expect(nreq != 0, 1L);
 #line 416
   if (tmp___9 != 0L) {
 #line 417
@@ -34909,7 +34909,7 @@ static void sl_id_map_add(struct ib_device *ibdev , struct id_map_entry *new )
 #line 244
     descriptor.flags = 0U;
 #line 244
-    tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 244
     if (tmp___0 != 0L) {
 #line 244
@@ -35218,7 +35218,7 @@ int mlx4_ib_multiplex_cm_handler(struct ib_device *ibdev , int port , int slave_
 #line 369
     descriptor.flags = 0U;
 #line 369
-    tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 369
     if (tmp___1 != 0L) {
 #line 369
@@ -35300,7 +35300,7 @@ int mlx4_ib_demux_cm_handler(struct ib_device *ibdev , int port , int *slave , s
 #line 407
     descriptor.flags = 0U;
 #line 407
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 407
     if (tmp != 0L) {
 #line 407
@@ -35797,7 +35797,7 @@ void mlx4_ib_update_cache_on_guid_change(struct mlx4_ib_dev *dev , int block_num
 #line 147
   descriptor.flags = 0U;
 #line 147
-  tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 147
   if (tmp___1 != 0L) {
 #line 147
@@ -35832,7 +35832,7 @@ void mlx4_ib_update_cache_on_guid_change(struct mlx4_ib_dev *dev , int block_num
 #line 155
       descriptor___0.flags = 0U;
 #line 155
-      tmp___2 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+      tmp___2 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 155
       if (tmp___2 != 0L) {
 #line 155
@@ -35872,7 +35872,7 @@ void mlx4_ib_update_cache_on_guid_change(struct mlx4_ib_dev *dev , int block_num
 #line 164
     descriptor___1.flags = 0U;
 #line 164
-    tmp___3 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___3 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 164
     if (tmp___3 != 0L) {
 #line 164
@@ -35981,7 +35981,7 @@ void mlx4_ib_notify_slaves_on_guid_change(struct mlx4_ib_dev *dev , int block_nu
 #line 211
   descriptor.flags = 0U;
 #line 211
-  tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 211
   if (tmp___1 != 0L) {
 #line 211
@@ -36048,7 +36048,7 @@ void mlx4_ib_notify_slaves_on_guid_change(struct mlx4_ib_dev *dev , int block_nu
 #line 241
     descriptor___0.flags = 0U;
 #line 241
-    tmp___4 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___4 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 241
     if (tmp___4 != 0L) {
 #line 241
@@ -36073,7 +36073,7 @@ void mlx4_ib_notify_slaves_on_guid_change(struct mlx4_ib_dev *dev , int block_nu
 #line 245
       descriptor___1.flags = 0U;
 #line 245
-      tmp___5 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+      tmp___5 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 245
       if (tmp___5 != 0L) {
 #line 245
@@ -36103,7 +36103,7 @@ void mlx4_ib_notify_slaves_on_guid_change(struct mlx4_ib_dev *dev , int block_nu
 #line 254
     descriptor___2.flags = 0U;
 #line 254
-    tmp___6 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+    tmp___6 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
 #line 254
     if (tmp___6 != 0L) {
 #line 254
@@ -36188,7 +36188,7 @@ static void aliasguid_query_handler(int status , struct ib_sa_guidinfo_rec *guid
 #line 283
     descriptor.flags = 0U;
 #line 283
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 283
     if (tmp != 0L) {
 #line 283
@@ -36225,7 +36225,7 @@ static void aliasguid_query_handler(int status , struct ib_sa_guidinfo_rec *guid
 #line 294
   descriptor___0.flags = 0U;
 #line 294
-  tmp___1 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 294
   if (tmp___1 != 0L) {
 #line 294
@@ -36442,7 +36442,7 @@ static int set_guid_rec(struct ib_device *ibdev , u8 port , int index , struct m
 #line 425
     descriptor.flags = 0U;
 #line 425
-    tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 425
     if (tmp___0 != 0L) {
 #line 425
@@ -36471,7 +36471,7 @@ static int set_guid_rec(struct ib_device *ibdev , u8 port , int index , struct m
 #line 431
     descriptor___0.flags = 0U;
 #line 431
-    tmp___1 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 431
     if (tmp___1 != 0L) {
 #line 431
@@ -36564,7 +36564,7 @@ static int set_guid_rec(struct ib_device *ibdev , u8 port , int index , struct m
 #line 470
     descriptor___1.flags = 0U;
 #line 470
-    tmp___5 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___5 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 470
     if (tmp___5 != 0L) {
 #line 470
@@ -36650,7 +36650,7 @@ void mlx4_ib_invalidate_all_guid_record(struct mlx4_ib_dev *dev , int port )
 #line 505
   descriptor.flags = 0U;
 #line 505
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 505
   if (tmp != 0L) {
 #line 505
@@ -36897,7 +36897,7 @@ static void alias_guid_work(struct work_struct *work )
 #line 604
   descriptor.flags = 0U;
 #line 604
-  tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 604
   if (tmp___1 != 0L) {
 #line 604
@@ -36923,7 +36923,7 @@ static void alias_guid_work(struct work_struct *work )
 #line 607
     descriptor___0.flags = 0U;
 #line 607
-    tmp___2 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___2 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 607
     if (tmp___2 != 0L) {
 #line 607
@@ -39150,7 +39150,7 @@ __inline static void ldv_error(void)
 #line 25
 extern int __VERIFIER_nondet_int(void) ;
 #line 49 "/home/mikhail/ldv/kernel-rules/verifier/rcv.h"
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 

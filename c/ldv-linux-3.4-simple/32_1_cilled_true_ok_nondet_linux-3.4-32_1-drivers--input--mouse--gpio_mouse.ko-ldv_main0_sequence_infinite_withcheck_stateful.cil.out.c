@@ -2210,7 +2210,7 @@ struct gpio_mouse_platform_data {
    union __anonunion____missing_field_name_220 __annonCompField37 ;
 };
 #line 1 "<compiler builtins>"
-long __builtin_expect(long val , long res ) ;
+long ldv__builtin_expect(long val , long res ) ;
 #line 49 "include/linux/dynamic_debug.h"
 extern int ( /* format attribute */  __dynamic_dev_dbg)(struct _ddebug *descriptor ,
                                                         struct device  const  *dev ,
@@ -2989,7 +2989,7 @@ static int gpio_mouse_probe(struct platform_device *pdev )
 #line 84
             __cil_tmp40 = (long )__cil_tmp39;
 #line 84
-            tmp = __builtin_expect(__cil_tmp40, 0L);
+            tmp = ldv__builtin_expect(__cil_tmp40, 0L);
             }
 #line 84
             if (tmp) {
@@ -3242,7 +3242,7 @@ static int gpio_mouse_probe(struct platform_device *pdev )
 #line 132
       __cil_tmp93 = (long )__cil_tmp92;
 #line 132
-      tmp___3 = __builtin_expect(__cil_tmp93, 0L);
+      tmp___3 = ldv__builtin_expect(__cil_tmp93, 0L);
       }
 #line 132
       if (tmp___3) {
@@ -3896,7 +3896,7 @@ void ldv_check_final_state(void)
 }
 }
 #line 300 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/4045/dscv_tempdir/dscv/ri/32_1/drivers/input/mouse/gpio_mouse.c.common.c"
-long __builtin_expect(long val , long res ) 
+long ldv__builtin_expect(long val , long res ) 
 { 
 
   {

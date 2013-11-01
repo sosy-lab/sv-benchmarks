@@ -2792,7 +2792,7 @@ struct fwh_xxlock_thunk {
 #line 1 "<compiler builtins>"
 
 #line 1
-long __builtin_expect(long val , long res ) ;
+long ldv__builtin_expect(long val , long res ) ;
 #line 59 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/bitops.h"
 __inline static void ( __attribute__((__always_inline__)) set_bit)(unsigned int nr ,
                                                                    unsigned long volatile   *addr )  __attribute__((__no_instrument_function__)) ;
@@ -5399,7 +5399,7 @@ static int fwh_xxlock_oneblock(struct map_info *map , struct flchip *chip , unsi
 #line 37
       __cil_tmp20 = (long )__cil_tmp19;
 #line 37
-      tmp___7 = __builtin_expect(__cil_tmp20, 0L);
+      tmp___7 = ldv__builtin_expect(__cil_tmp20, 0L);
       }
 #line 37
       if (tmp___7) {
@@ -20377,7 +20377,7 @@ void ldv_check_final_state(void)
 }
 }
 #line 2841 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/5348/dscv_tempdir/dscv/ri/32_1/drivers/mtd/chips/cfi_cmdset_0001.c.common.c"
-long __builtin_expect(long val , long res ) 
+long ldv__builtin_expect(long val , long res ) 
 { 
 
   {

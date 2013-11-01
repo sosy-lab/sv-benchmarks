@@ -2477,7 +2477,7 @@ struct asb100_data {
 #line 3160 "/work/ldvuser/zakharov_benchmarks/bench/cpa/work/current--X--drivers/hwmon/asb100.ko--X--x1linux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/32_7a/drivers/hwmon/asb100.c.prepared"
 typedef int ldv_func_ret_type___2;
 #line 1 "<compiler builtins>"
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 #line 46 "include/uapi/linux/swab.h"
 __inline static __u16 __fswab16(__u16 val ) 
 { 
@@ -2537,7 +2537,7 @@ __inline static long IS_ERR(void const   *ptr )
 
   {
 #line 34
-  tmp = __builtin_expect((unsigned long )ptr > 0xfffffffffffff000UL, 0L);
+  tmp = ldv__builtin_expect((unsigned long )ptr > 0xfffffffffffff000UL, 0L);
 #line 34
   return (tmp);
 }
@@ -4412,7 +4412,7 @@ static int asb100_detect(struct i2c_client *client , struct i2c_board_info *info
 #line 861
     descriptor.flags = 1U;
 #line 861
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 861
     if (tmp != 0L) {
 #line 861
@@ -4444,7 +4444,7 @@ static int asb100_detect(struct i2c_client *client , struct i2c_board_info *info
 #line 874
     descriptor___0.flags = 1U;
 #line 874
-    tmp___1 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 874
     if (tmp___1 != 0L) {
 #line 874
@@ -4799,7 +4799,7 @@ static struct asb100_data *asb100_update_device(struct device *dev )
 #line 1067
     descriptor.flags = 1U;
 #line 1067
-    tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1067
     if (tmp___0 != 0L) {
 #line 1067
@@ -4933,7 +4933,7 @@ static struct asb100_data *asb100_update_device(struct device *dev )
 #line 1117
     descriptor___0.flags = 1U;
 #line 1117
-    tmp___14 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___14 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 1117
     if (tmp___14 != 0L) {
 #line 1117
@@ -8424,7 +8424,7 @@ __inline static void ldv_error(void)
 #line 25
 extern int __VERIFIER_nondet_int(void) ;
 #line 49 "/home/ldvuser/ldv_envgen2/kernel-rules/verifier/rcv.h"
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
   {

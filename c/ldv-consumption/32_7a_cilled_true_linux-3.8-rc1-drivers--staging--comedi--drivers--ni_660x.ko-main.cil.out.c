@@ -3990,7 +3990,7 @@ struct ni_660x_private {
 #line 1639 "/work/ldvuser/zakharov_benchmarks/bench/cpa/work/current--X--drivers/staging/comedi/drivers/ni_660x.ko--X--x1linux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/32_7a/drivers/staging/comedi/drivers/ni_660x.c.prepared"
 typedef int ldv_func_ret_type___2;
 #line 1 "<compiler builtins>"
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 #line 168 "include/linux/mutex.h"
 extern int mutex_trylock(struct mutex * ) ;
 #line 171
@@ -4323,7 +4323,7 @@ __inline static unsigned int IOConfigReg(unsigned int pfi_channel )
 #line 202
   reg = pfi_channel / 2U + 78U;
 #line 203
-  tmp = __builtin_expect(reg > 97U, 0L);
+  tmp = ldv__builtin_expect(reg > 97U, 0L);
 #line 203
   if (tmp != 0L) {
 #line 203
@@ -4514,7 +4514,7 @@ __inline static unsigned int dma_select_mask(unsigned int dma_channel )
 
   {
 #line 383
-  tmp = __builtin_expect(dma_channel > 3U, 0L);
+  tmp = ldv__builtin_expect(dma_channel > 3U, 0L);
 #line 383
   if (tmp != 0L) {
 #line 383
@@ -4536,7 +4536,7 @@ __inline static unsigned int dma_selection_counter(unsigned int counter_index )
 
   {
 #line 392
-  tmp = __builtin_expect(counter_index > 3U, 0L);
+  tmp = ldv__builtin_expect(counter_index > 3U, 0L);
 #line 392
   if (tmp != 0L) {
 #line 392
@@ -4559,7 +4559,7 @@ __inline static unsigned int dma_select_bits(unsigned int dma_channel , unsigned
 
   {
 #line 398
-  tmp = __builtin_expect(dma_channel > 3U, 0L);
+  tmp = ldv__builtin_expect(dma_channel > 3U, 0L);
 #line 398
   if (tmp != 0L) {
 #line 398
@@ -4583,7 +4583,7 @@ __inline static unsigned int dma_reset_bit(unsigned int dma_channel )
 
   {
 #line 404
-  tmp = __builtin_expect(dma_channel > 3U, 0L);
+  tmp = ldv__builtin_expect(dma_channel > 3U, 0L);
 #line 404
   if (tmp != 0L) {
 #line 404
@@ -5198,7 +5198,7 @@ static int ni_660x_request_mite_channel(struct comedi_device *dev , struct ni_gp
 #line 816
   flags = _raw_spin_lock_irqsave(tmp);
 #line 817
-  tmp___0 = __builtin_expect((unsigned long )counter->mite_chan != (unsigned long )((struct mite_channel *)0),
+  tmp___0 = ldv__builtin_expect((unsigned long )counter->mite_chan != (unsigned long )((struct mite_channel *)0),
                              0L);
 #line 817
   if (tmp___0 != 0L) {
@@ -6929,7 +6929,7 @@ __inline static void ldv_error(void)
 #line 25
 extern int __VERIFIER_nondet_int(void) ;
 #line 49 "/home/ldvuser/ldv_envgen2/kernel-rules/verifier/rcv.h"
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
   {

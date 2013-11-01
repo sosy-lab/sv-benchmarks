@@ -7340,7 +7340,7 @@ struct iwl_test {
    bool notify ;
 };
 #line 1 "<compiler builtins>"
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 #line 355 "/work/ldvuser/zakharov_benchmarks/bench/cpa/inst/current/envs/linux-3.8-rc1/linux-3.8-rc1/arch/x86/include/asm/paravirt_types.h"
 extern struct pv_irq_ops pv_irq_ops ;
 #line 88 "/work/ldvuser/zakharov_benchmarks/bench/cpa/inst/current/envs/linux-3.8-rc1/linux-3.8-rc1/arch/x86/include/asm/percpu.h"
@@ -7371,7 +7371,7 @@ __inline static unsigned long arch_local_save_flags(void)
 #line 825
   __eax = __eax;
 #line 825
-  tmp = __builtin_expect((unsigned long )pv_irq_ops.save_fl.func == (unsigned long )((void *)0),
+  tmp = ldv__builtin_expect((unsigned long )pv_irq_ops.save_fl.func == (unsigned long )((void *)0),
                          0L);
 #line 825
   if (tmp != 0L) {
@@ -7655,7 +7655,7 @@ __inline static bool static_key_false(struct static_key *key )
 #line 150
   tmp = atomic_read((atomic_t const   *)(& key->enabled));
 #line 150
-  tmp___0 = __builtin_expect(tmp != 0, 0L);
+  tmp___0 = ldv__builtin_expect(tmp != 0, 0L);
 #line 150
   if (tmp___0 > 0L) {
 #line 151
@@ -8171,13 +8171,13 @@ void iwl_set_bits_mask(struct iwl_trans *trans , u32 reg , u32 mask , u32 value 
 #line 162
   __ret_warn_once = (~ mask & value) != 0U;
 #line 162
-  tmp___1 = __builtin_expect(__ret_warn_once != 0, 0L);
+  tmp___1 = ldv__builtin_expect(__ret_warn_once != 0, 0L);
 #line 162
   if (tmp___1 != 0L) {
 #line 162
     __ret_warn_on = ! __warned;
 #line 162
-    tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 162
     if (tmp != 0L) {
 #line 162
@@ -8187,7 +8187,7 @@ void iwl_set_bits_mask(struct iwl_trans *trans , u32 reg , u32 mask , u32 value 
 
     }
 #line 162
-    tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 162
     if (tmp___0 != 0L) {
 #line 162
@@ -8199,7 +8199,7 @@ void iwl_set_bits_mask(struct iwl_trans *trans , u32 reg , u32 mask , u32 value 
 
   }
 #line 162
-  __builtin_expect(__ret_warn_once != 0, 0L);
+  ldv__builtin_expect(__ret_warn_once != 0, 0L);
 #line 165
   tmp___2 = spinlock_check(& trans->reg_lock);
 #line 165
@@ -8281,7 +8281,7 @@ int iwl_grab_nic_access_silent(struct iwl_trans *trans )
 #line 194
   __ret_warn_on = tmp___0;
 #line 194
-  tmp___1 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___1 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 194
   if (tmp___1 != 0L) {
 #line 194
@@ -8291,7 +8291,7 @@ int iwl_grab_nic_access_silent(struct iwl_trans *trans )
 
   }
 #line 194
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 197
   __iwl_set_bit(trans, 36U, 8U);
 #line 219
@@ -8329,7 +8329,7 @@ bool iwl_grab_nic_access(struct iwl_trans *trans )
 #line 234
   ret = tmp;
 #line 235
-  tmp___4 = __builtin_expect(ret != 0, 0L);
+  tmp___4 = ldv__builtin_expect(ret != 0, 0L);
 #line 235
   if (tmp___4 != 0L) {
 #line 236
@@ -8339,13 +8339,13 @@ bool iwl_grab_nic_access(struct iwl_trans *trans )
 #line 237
     __ret_warn_once = 1;
 #line 237
-    tmp___3 = __builtin_expect(__ret_warn_once != 0, 0L);
+    tmp___3 = ldv__builtin_expect(__ret_warn_once != 0, 0L);
 #line 237
     if (tmp___3 != 0L) {
 #line 237
       __ret_warn_on = ! __warned;
 #line 237
-      tmp___1 = __builtin_expect(__ret_warn_on != 0, 0L);
+      tmp___1 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 237
       if (tmp___1 != 0L) {
 #line 237
@@ -8356,7 +8356,7 @@ bool iwl_grab_nic_access(struct iwl_trans *trans )
 
       }
 #line 237
-      tmp___2 = __builtin_expect(__ret_warn_on != 0, 0L);
+      tmp___2 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 237
       if (tmp___2 != 0L) {
 #line 237
@@ -8368,7 +8368,7 @@ bool iwl_grab_nic_access(struct iwl_trans *trans )
 
     }
 #line 237
-    __builtin_expect(__ret_warn_once != 0, 0L);
+    ldv__builtin_expect(__ret_warn_once != 0, 0L);
 #line 239
     return (0);
   } else {
@@ -8405,7 +8405,7 @@ void iwl_release_nic_access(struct iwl_trans *trans )
 #line 248
   __ret_warn_on = tmp___0;
 #line 248
-  tmp___1 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___1 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 248
   if (tmp___1 != 0L) {
 #line 248
@@ -8415,7 +8415,7 @@ void iwl_release_nic_access(struct iwl_trans *trans )
 
   }
 #line 248
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 249
   __iwl_clear_bit(trans, 36U, 8U);
 #line 257
@@ -8462,7 +8462,7 @@ void iwl_write_direct32(struct iwl_trans *trans , u32 reg , u32 value )
 #line 281
   tmp___0 = iwl_grab_nic_access(trans);
 #line 281
-  tmp___1 = __builtin_expect((long )tmp___0, 1L);
+  tmp___1 = ldv__builtin_expect((long )tmp___0, 1L);
 #line 281
   if (tmp___1 != 0L) {
 #line 282
@@ -8580,7 +8580,7 @@ void iwl_write_prph(struct iwl_trans *trans , u32 ofs , u32 val )
 #line 337
   tmp___0 = iwl_grab_nic_access(trans);
 #line 337
-  tmp___1 = __builtin_expect((long )tmp___0, 1L);
+  tmp___1 = ldv__builtin_expect((long )tmp___0, 1L);
 #line 337
   if (tmp___1 != 0L) {
 #line 338
@@ -8612,7 +8612,7 @@ void iwl_set_bits_prph(struct iwl_trans *trans , u32 ofs , u32 mask )
 #line 350
   tmp___1 = iwl_grab_nic_access(trans);
 #line 350
-  tmp___2 = __builtin_expect((long )tmp___1, 1L);
+  tmp___2 = ldv__builtin_expect((long )tmp___1, 1L);
 #line 350
   if (tmp___2 != 0L) {
 #line 351
@@ -8646,7 +8646,7 @@ void iwl_set_bits_mask_prph(struct iwl_trans *trans , u32 ofs , u32 bits , u32 m
 #line 365
   tmp___1 = iwl_grab_nic_access(trans);
 #line 365
-  tmp___2 = __builtin_expect((long )tmp___1, 1L);
+  tmp___2 = ldv__builtin_expect((long )tmp___1, 1L);
 #line 365
   if (tmp___2 != 0L) {
 #line 366
@@ -8680,7 +8680,7 @@ void iwl_clear_bits_prph(struct iwl_trans *trans , u32 ofs , u32 mask )
 #line 380
   tmp___0 = iwl_grab_nic_access(trans);
 #line 380
-  tmp___1 = __builtin_expect((long )tmp___0, 1L);
+  tmp___1 = ldv__builtin_expect((long )tmp___0, 1L);
 #line 380
   if (tmp___1 != 0L) {
 #line 381
@@ -8717,7 +8717,7 @@ void _iwl_read_targ_mem_dwords(struct iwl_trans *trans , u32 addr , void *buf , 
 #line 397
   tmp___0 = iwl_grab_nic_access(trans);
 #line 397
-  tmp___1 = __builtin_expect((long )tmp___0, 1L);
+  tmp___1 = ldv__builtin_expect((long )tmp___0, 1L);
 #line 397
   if (tmp___1 != 0L) {
 #line 398
@@ -8786,7 +8786,7 @@ int _iwl_write_targ_mem_dwords(struct iwl_trans *trans , u32 addr , void const  
 #line 425
   tmp___0 = iwl_grab_nic_access(trans);
 #line 425
-  tmp___1 = __builtin_expect((long )tmp___0, 1L);
+  tmp___1 = ldv__builtin_expect((long )tmp___0, 1L);
 #line 425
   if (tmp___1 != 0L) {
 #line 426
@@ -9525,7 +9525,7 @@ static int iwl_store_ucode_sec(struct iwl_firmware_pieces *pieces , void const  
 #line 423
   __ret_warn_on = ((unsigned long )pieces == (unsigned long )((struct iwl_firmware_pieces *)0) || (unsigned long )data == (unsigned long )((void const   *)0)) || (unsigned int )type > 2U;
 #line 423
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 423
   if (tmp != 0L) {
 #line 423
@@ -9535,7 +9535,7 @@ static int iwl_store_ucode_sec(struct iwl_firmware_pieces *pieces , void const  
 
   }
 #line 423
-  tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 423
   if (tmp___0 != 0L) {
 #line 424
@@ -12728,7 +12728,7 @@ void __iwl_dbg(struct device *dev , u32 level , bool limit , char const   *funct
 #line 219
         descriptor.flags = 0U;
 #line 219
-        tmp___2 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+        tmp___2 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 219
         if (tmp___2 != 0L) {
 #line 219
@@ -13202,7 +13202,7 @@ void iwl_init_notification_wait(struct iwl_notif_wait_data *notif_wait , struct 
 #line 231
   __ret_warn_on = n_cmds > 5;
 #line 231
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 231
   if (tmp != 0L) {
 #line 231
@@ -13212,7 +13212,7 @@ void iwl_init_notification_wait(struct iwl_notif_wait_data *notif_wait , struct 
 
   }
 #line 231
-  tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 231
   if (tmp___0 != 0L) {
 #line 232
@@ -14565,7 +14565,7 @@ static u16 iwl_eeprom_query16(u8 const   *eeprom , size_t eeprom_size , int offs
 #line 293
   __ret_warn_on = (unsigned long )offset + 2UL > eeprom_size;
 #line 293
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 293
   if (tmp != 0L) {
 #line 293
@@ -14575,7 +14575,7 @@ static u16 iwl_eeprom_query16(u8 const   *eeprom , size_t eeprom_size , int offs
 
   }
 #line 293
-  tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 293
   if (tmp___0 != 0L) {
 #line 294
@@ -14651,7 +14651,7 @@ static u32 eeprom_indirect_address(u8 const   *eeprom , size_t eeprom_size , u32
 #line 340
   __ret_warn_on = 1;
 #line 340
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 340
   if (tmp != 0L) {
 #line 340
@@ -14661,7 +14661,7 @@ static u32 eeprom_indirect_address(u8 const   *eeprom , size_t eeprom_size , u32
 
   }
 #line 340
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 341
   goto ldv_41852;
   }
@@ -14687,7 +14687,7 @@ static u8 const   *iwl_eeprom_query_addr(u8 const   *eeprom , size_t eeprom_size
 #line 353
   __ret_warn_on = (size_t )address >= eeprom_size;
 #line 353
-  tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 353
   if (tmp___0 != 0L) {
 #line 353
@@ -14697,7 +14697,7 @@ static u8 const   *iwl_eeprom_query_addr(u8 const   *eeprom , size_t eeprom_size
 
   }
 #line 353
-  tmp___1 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___1 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 353
   if (tmp___1 != 0L) {
 #line 354
@@ -15084,7 +15084,7 @@ static void iwl_init_band_reference(struct iwl_cfg  const  *cfg , u8 const   *ee
 #line 605
   __ret_warn_on = 1;
 #line 605
-  tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 605
   if (tmp___0 != 0L) {
 #line 605
@@ -15094,7 +15094,7 @@ static void iwl_init_band_reference(struct iwl_cfg  const  *cfg , u8 const   *ee
 
   }
 #line 605
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   ldv_41954: ;
 #line 608
@@ -15678,7 +15678,7 @@ static void iwl_init_ht_hw_capab(struct iwl_cfg  const  *cfg , struct iwl_nvm_da
 #line 869
   __ret_warn_on = (max_bit_rate & -1024) != 0;
 #line 869
-  tmp___1 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___1 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 869
   if (tmp___1 != 0L) {
 #line 869
@@ -15688,7 +15688,7 @@ static void iwl_init_ht_hw_capab(struct iwl_cfg  const  *cfg , struct iwl_nvm_da
 
   }
 #line 869
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 870
   ht_info->mcs.rx_highest = (unsigned short )max_bit_rate;
 #line 873
@@ -15788,7 +15788,7 @@ struct iwl_nvm_data *iwl_parse_eeprom_data(struct device *dev , struct iwl_cfg  
 #line 921
   __ret_warn_on = (unsigned long )cfg == (unsigned long )((struct iwl_cfg  const  *)0) || (unsigned long )cfg->eeprom_params == (unsigned long )((struct iwl_eeprom_params  const  */* const  */)0);
 #line 921
-  tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 921
   if (tmp___0 != 0L) {
 #line 921
@@ -15798,7 +15798,7 @@ struct iwl_nvm_data *iwl_parse_eeprom_data(struct device *dev , struct iwl_cfg  
 
   }
 #line 921
-  tmp___1 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___1 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 921
   if (tmp___1 != 0L) {
 #line 922
@@ -16111,7 +16111,7 @@ __inline static long IS_ERR_OR_NULL(void const   *ptr )
     tmp___0 = 1;
   } else {
 #line 39
-    tmp = __builtin_expect((unsigned long )ptr > 0xfffffffffffff000UL, 0L);
+    tmp = ldv__builtin_expect((unsigned long )ptr > 0xfffffffffffff000UL, 0L);
 #line 39
     if (tmp != 0L) {
 #line 39
@@ -17591,7 +17591,7 @@ __inline static struct dma_map_ops *get_dma_ops(struct device *dev )
 
   {
 #line 37
-  tmp = __builtin_expect((unsigned long )dev == (unsigned long )((struct device *)0),
+  tmp = ldv__builtin_expect((unsigned long )dev == (unsigned long )((struct device *)0),
                          0L);
 #line 37
   if (tmp != 0L || (unsigned long )dev->archdata.dma_ops == (unsigned long )((struct dma_map_ops *)0)) {
@@ -17625,7 +17625,7 @@ __inline static dma_addr_t dma_map_page(struct device *dev , struct page *page ,
 #line 79
   tmp___1 = valid_dma_direction((int )dir);
 #line 79
-  tmp___2 = __builtin_expect(tmp___1 == 0, 0L);
+  tmp___2 = ldv__builtin_expect(tmp___1 == 0, 0L);
 #line 79
   if (tmp___2 != 0L) {
 #line 79
@@ -17661,7 +17661,7 @@ __inline static void dma_unmap_page(struct device *dev , dma_addr_t addr , size_
 #line 91
   tmp___0 = valid_dma_direction((int )dir);
 #line 91
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
 #line 91
   if (tmp___1 != 0L) {
 #line 91
@@ -17843,7 +17843,7 @@ __inline static void dma_free_attrs(struct device *dev , size_t size , void *vad
 #line 166
   __ret_warn_on = tmp___0 != 0;
 #line 166
-  tmp___1 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___1 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 166
   if (tmp___1 != 0L) {
 #line 166
@@ -17853,7 +17853,7 @@ __inline static void dma_free_attrs(struct device *dev , size_t size , void *vad
 
   }
 #line 166
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 171
   debug_dma_free_coherent(dev, size, vaddr, bus);
 #line 172
@@ -18840,12 +18840,12 @@ static void iwl_pcie_rxq_restock(struct iwl_trans *trans )
 #line 317
   rxb = rxq->queue[rxq->write];
 #line 318
-  tmp___1 = __builtin_expect((unsigned long )rxb != (unsigned long )((struct iwl_rx_mem_buffer *)0),
+  tmp___1 = ldv__builtin_expect((unsigned long )rxb != (unsigned long )((struct iwl_rx_mem_buffer *)0),
                              0L);
 #line 318
   if (tmp___1 != 0L) {
 #line 318
-    tmp___2 = __builtin_expect((unsigned long )rxb->page != (unsigned long )((struct page *)0),
+    tmp___2 = ldv__builtin_expect((unsigned long )rxb->page != (unsigned long )((struct page *)0),
                                0L);
 #line 318
     if (tmp___2 != 0L) {
@@ -19045,7 +19045,7 @@ static void iwl_pcie_rxq_alloc_rbs(struct iwl_trans *trans , gfp_t priority )
 #line 410
   spin_unlock_irqrestore(& rxq->lock, flags);
 #line 412
-  tmp___6 = __builtin_expect((unsigned long )rxb->page != (unsigned long )((struct page *)0),
+  tmp___6 = ldv__builtin_expect((unsigned long )rxb->page != (unsigned long )((struct page *)0),
                              0L);
 #line 412
   if (tmp___6 != 0L) {
@@ -19085,7 +19085,7 @@ static void iwl_pcie_rxq_alloc_rbs(struct iwl_trans *trans , gfp_t priority )
 
   }
 #line 428
-  tmp___9 = __builtin_expect((rxb->page_dma & 0xfffffff000000000ULL) != 0ULL, 0L);
+  tmp___9 = ldv__builtin_expect((rxb->page_dma & 0xfffffff000000000ULL) != 0ULL, 0L);
 #line 428
   if (tmp___9 != 0L) {
 #line 428
@@ -19098,7 +19098,7 @@ static void iwl_pcie_rxq_alloc_rbs(struct iwl_trans *trans , gfp_t priority )
 
   }
 #line 430
-  tmp___10 = __builtin_expect((rxb->page_dma & 255ULL) != 0ULL, 0L);
+  tmp___10 = ldv__builtin_expect((rxb->page_dma & 255ULL) != 0ULL, 0L);
 #line 430
   if (tmp___10 != 0L) {
 #line 430
@@ -19250,7 +19250,7 @@ static int iwl_pcie_rx_alloc(struct iwl_trans *trans )
 #line 508
   __ret_warn_on = (unsigned long )rxq->bd != (unsigned long )((__le32 *)0) || (unsigned long )rxq->rb_stts != (unsigned long )((struct iwl_rb_status *)0);
 #line 508
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 508
   if (tmp != 0L) {
 #line 508
@@ -19260,7 +19260,7 @@ static int iwl_pcie_rx_alloc(struct iwl_trans *trans )
 
   }
 #line 508
-  tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 508
   if (tmp___0 != 0L) {
 #line 509
@@ -19545,7 +19545,7 @@ static void iwl_pcie_rx_handle_rb(struct iwl_trans *trans , struct iwl_rx_mem_bu
 #line 667
   __ret_warn_on = (unsigned long )rxb == (unsigned long )((struct iwl_rx_mem_buffer *)0);
 #line 667
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 667
   if (tmp != 0L) {
 #line 667
@@ -19555,7 +19555,7 @@ static void iwl_pcie_rx_handle_rb(struct iwl_trans *trans , struct iwl_rx_mem_bu
 
   }
 #line 667
-  tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 667
   if (tmp___0 != 0L) {
 #line 668
@@ -19652,13 +19652,13 @@ static void iwl_pcie_rx_handle_rb(struct iwl_trans *trans , struct iwl_rx_mem_bu
 #line 726
     __ret_warn_once = (unsigned long )cmd == (unsigned long )((struct iwl_device_cmd *)0) && (ent->meta.flags & 4U) != 0U;
 #line 726
-    tmp___6 = __builtin_expect(__ret_warn_once != 0, 0L);
+    tmp___6 = ldv__builtin_expect(__ret_warn_once != 0, 0L);
 #line 726
     if (tmp___6 != 0L) {
 #line 726
       __ret_warn_on___0 = ! __warned;
 #line 726
-      tmp___4 = __builtin_expect(__ret_warn_on___0 != 0, 0L);
+      tmp___4 = ldv__builtin_expect(__ret_warn_on___0 != 0, 0L);
 #line 726
       if (tmp___4 != 0L) {
 #line 726
@@ -19668,7 +19668,7 @@ static void iwl_pcie_rx_handle_rb(struct iwl_trans *trans , struct iwl_rx_mem_bu
 
       }
 #line 726
-      tmp___5 = __builtin_expect(__ret_warn_on___0 != 0, 0L);
+      tmp___5 = ldv__builtin_expect(__ret_warn_on___0 != 0, 0L);
 #line 726
       if (tmp___5 != 0L) {
 #line 726
@@ -19680,7 +19680,7 @@ static void iwl_pcie_rx_handle_rb(struct iwl_trans *trans , struct iwl_rx_mem_bu
 
     }
 #line 726
-    __builtin_expect(__ret_warn_once != 0, 0L);
+    ldv__builtin_expect(__ret_warn_once != 0, 0L);
   } else {
 #line 728
     cmd = 0;
@@ -20263,7 +20263,7 @@ int iwl_pcie_alloc_ict(struct iwl_trans *trans )
 #line 1134
   __ret_warn_on = (trans_pcie->ict_tbl_dma & 4095ULL) != 0ULL;
 #line 1134
-  tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 1134
   if (tmp___0 != 0L) {
 #line 1134
@@ -20273,7 +20273,7 @@ int iwl_pcie_alloc_ict(struct iwl_trans *trans )
 
   }
 #line 1134
-  tmp___1 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___1 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 1134
   if (tmp___1 != 0L) {
 #line 1135
@@ -20409,7 +20409,7 @@ static irqreturn_t iwl_pcie_isr(int irq , void *data )
 #line 1206
   __ret_warn_on = tmp___0;
 #line 1206
-  tmp___1 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___1 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 1206
   if (tmp___1 != 0L) {
 #line 1206
@@ -20419,7 +20419,7 @@ static irqreturn_t iwl_pcie_isr(int irq , void *data )
 
   }
 #line 1206
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 1208
   trace_iwlwifi_dev_irq((struct device  const  *)trans->dev);
 #line 1214
@@ -20473,7 +20473,7 @@ static irqreturn_t iwl_pcie_isr(int irq , void *data )
 #line 1251
   trans_pcie->inta = trans_pcie->inta | inta;
 #line 1253
-  tmp___4 = __builtin_expect(inta != 0U, 1L);
+  tmp___4 = ldv__builtin_expect(inta != 0U, 1L);
 #line 1253
   if (tmp___4 != 0L) {
 #line 1254
@@ -20539,7 +20539,7 @@ irqreturn_t iwl_pcie_isr_ict(int irq , void *data )
 #line 1291
   flags = _raw_spin_lock_irqsave(tmp);
 #line 1296
-  tmp___1 = __builtin_expect((long )(! trans_pcie->use_ict), 0L);
+  tmp___1 = ldv__builtin_expect((long )(! trans_pcie->use_ict), 0L);
 #line 1296
   if (tmp___1 != 0L) {
 #line 1297
@@ -20621,7 +20621,7 @@ irqreturn_t iwl_pcie_isr_ict(int irq , void *data )
 #line 1358
   trans_pcie->inta = trans_pcie->inta | inta;
 #line 1361
-  tmp___3 = __builtin_expect(inta != 0U, 1L);
+  tmp___3 = ldv__builtin_expect(inta != 0U, 1L);
 #line 1361
   if (tmp___3 != 0L) {
 #line 1362
@@ -20874,13 +20874,13 @@ __inline static void get_page(struct page *page )
 #line 399
   tmp___1 = PageTail((struct page  const  *)page);
 #line 399
-  tmp___2 = __builtin_expect(tmp___1 != 0, 0L);
+  tmp___2 = ldv__builtin_expect(tmp___1 != 0, 0L);
 #line 399
   if (tmp___2 != 0L) {
 #line 400
     tmp = __get_page_tail(page);
 #line 400
-    tmp___0 = __builtin_expect((long )tmp, 1L);
+    tmp___0 = ldv__builtin_expect((long )tmp, 1L);
 #line 400
     if (tmp___0 != 0L) {
 #line 401
@@ -20894,7 +20894,7 @@ __inline static void get_page(struct page *page )
 #line 406
   tmp___3 = atomic_read((atomic_t const   *)(& page->ldv_9784.ldv_9783.ldv_9782._count));
 #line 406
-  tmp___4 = __builtin_expect(tmp___3 <= 0, 0L);
+  tmp___4 = ldv__builtin_expect(tmp___3 <= 0, 0L);
 #line 406
   if (tmp___4 != 0L) {
 #line 406
@@ -20939,7 +20939,7 @@ __inline static dma_addr_t dma_map_single_attrs(struct device *dev , void *ptr ,
 #line 19
   tmp___0 = valid_dma_direction((int )dir);
 #line 19
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
 #line 19
   if (tmp___1 != 0L) {
 #line 19
@@ -20982,7 +20982,7 @@ __inline static void dma_unmap_single_attrs(struct device *dev , dma_addr_t addr
 #line 36
   tmp___0 = valid_dma_direction((int )dir);
 #line 36
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
 #line 36
   if (tmp___1 != 0L) {
 #line 36
@@ -21026,7 +21026,7 @@ __inline static void dma_sync_single_for_cpu(struct device *dev , dma_addr_t add
 #line 103
   tmp___0 = valid_dma_direction((int )dir);
 #line 103
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
 #line 103
   if (tmp___1 != 0L) {
 #line 103
@@ -21070,7 +21070,7 @@ __inline static void dma_sync_single_for_device(struct device *dev , dma_addr_t 
 #line 115
   tmp___0 = valid_dma_direction((int )dir);
 #line 115
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
 #line 115
   if (tmp___1 != 0L) {
 #line 115
@@ -21205,13 +21205,13 @@ __inline static unsigned int SCD_QUEUE_WRPTR(unsigned int chnl )
 #line 238
   __ret_warn_once = chnl > 31U;
 #line 238
-  tmp___1 = __builtin_expect(__ret_warn_once != 0, 0L);
+  tmp___1 = ldv__builtin_expect(__ret_warn_once != 0, 0L);
 #line 238
   if (tmp___1 != 0L) {
 #line 238
     __ret_warn_on = ! __warned;
 #line 238
-    tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 238
     if (tmp != 0L) {
 #line 238
@@ -21220,7 +21220,7 @@ __inline static unsigned int SCD_QUEUE_WRPTR(unsigned int chnl )
 
     }
 #line 238
-    tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 238
     if (tmp___0 != 0L) {
 #line 238
@@ -21232,7 +21232,7 @@ __inline static unsigned int SCD_QUEUE_WRPTR(unsigned int chnl )
 
   }
 #line 238
-  __builtin_expect(__ret_warn_once != 0, 0L);
+  ldv__builtin_expect(__ret_warn_once != 0, 0L);
 #line 239
   return ((chnl + 2624397U) * 4U);
 }
@@ -21257,13 +21257,13 @@ __inline static unsigned int SCD_QUEUE_RDPTR(unsigned int chnl )
 #line 246
   __ret_warn_once = chnl > 31U;
 #line 246
-  tmp___1 = __builtin_expect(__ret_warn_once != 0, 0L);
+  tmp___1 = ldv__builtin_expect(__ret_warn_once != 0, 0L);
 #line 246
   if (tmp___1 != 0L) {
 #line 246
     __ret_warn_on = ! __warned;
 #line 246
-    tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 246
     if (tmp != 0L) {
 #line 246
@@ -21272,7 +21272,7 @@ __inline static unsigned int SCD_QUEUE_RDPTR(unsigned int chnl )
 
     }
 #line 246
-    tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 246
     if (tmp___0 != 0L) {
 #line 246
@@ -21284,7 +21284,7 @@ __inline static unsigned int SCD_QUEUE_RDPTR(unsigned int chnl )
 
   }
 #line 246
-  __builtin_expect(__ret_warn_once != 0, 0L);
+  ldv__builtin_expect(__ret_warn_once != 0, 0L);
 #line 247
   return ((chnl + 2624409U) * 4U);
 }
@@ -21309,13 +21309,13 @@ __inline static unsigned int SCD_QUEUE_STATUS_BITS(unsigned int chnl )
 #line 254
   __ret_warn_once = chnl > 31U;
 #line 254
-  tmp___1 = __builtin_expect(__ret_warn_once != 0, 0L);
+  tmp___1 = ldv__builtin_expect(__ret_warn_once != 0, 0L);
 #line 254
   if (tmp___1 != 0L) {
 #line 254
     __ret_warn_on = ! __warned;
 #line 254
-    tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 254
     if (tmp != 0L) {
 #line 254
@@ -21324,7 +21324,7 @@ __inline static unsigned int SCD_QUEUE_STATUS_BITS(unsigned int chnl )
 
     }
 #line 254
-    tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 254
     if (tmp___0 != 0L) {
 #line 254
@@ -21336,7 +21336,7 @@ __inline static unsigned int SCD_QUEUE_STATUS_BITS(unsigned int chnl )
 
   }
 #line 254
-  __builtin_expect(__ret_warn_once != 0, 0L);
+  ldv__builtin_expect(__ret_warn_once != 0, 0L);
 #line 255
   return ((chnl + 2624461U) * 4U);
 }
@@ -21382,13 +21382,13 @@ __inline static void iwl_trans_txq_enable(struct iwl_trans *trans , int queue , 
 #line 616
   __ret_warn_once = (unsigned int )trans->state != 1U;
 #line 616
-  tmp___1 = __builtin_expect(__ret_warn_once != 0, 0L);
+  tmp___1 = ldv__builtin_expect(__ret_warn_once != 0, 0L);
 #line 616
   if (tmp___1 != 0L) {
 #line 616
     __ret_warn_on = ! __warned;
 #line 616
-    tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 616
     if (tmp != 0L) {
 #line 616
@@ -21398,7 +21398,7 @@ __inline static void iwl_trans_txq_enable(struct iwl_trans *trans , int queue , 
 
     }
 #line 616
-    tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 616
     if (tmp___0 != 0L) {
 #line 616
@@ -21410,7 +21410,7 @@ __inline static void iwl_trans_txq_enable(struct iwl_trans *trans , int queue , 
 
   }
 #line 616
-  __builtin_expect(__ret_warn_once != 0, 0L);
+  ldv__builtin_expect(__ret_warn_once != 0, 0L);
 #line 619
   (*((trans->ops)->txq_enable))(trans, queue, fifo, sta_id, tid, frame_limit, (int )ssn);
 #line 620
@@ -21924,13 +21924,13 @@ __inline static unsigned int FH_MEM_CBBC_QUEUE(unsigned int chnl )
 #line 127
   __ret_warn_once = chnl > 31U;
 #line 127
-  tmp___1 = __builtin_expect(__ret_warn_once != 0, 0L);
+  tmp___1 = ldv__builtin_expect(__ret_warn_once != 0, 0L);
 #line 127
   if (tmp___1 != 0L) {
 #line 127
     __ret_warn_on = ! __warned;
 #line 127
-    tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 127
     if (tmp != 0L) {
 #line 127
@@ -21939,7 +21939,7 @@ __inline static unsigned int FH_MEM_CBBC_QUEUE(unsigned int chnl )
 
     }
 #line 127
-    tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 127
     if (tmp___0 != 0L) {
 #line 127
@@ -21951,7 +21951,7 @@ __inline static unsigned int FH_MEM_CBBC_QUEUE(unsigned int chnl )
 
   }
 #line 127
-  __builtin_expect(__ret_warn_once != 0, 0L);
+  ldv__builtin_expect(__ret_warn_once != 0, 0L);
 #line 128
   return ((chnl + 1716U) * 4U);
 }
@@ -22139,7 +22139,7 @@ static int iwl_queue_init(struct iwl_queue *q , int count , int slots_num , u32 
 #line 181
   __ret_warn_on = tmp___0;
 #line 181
-  tmp___1 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___1 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 181
   if (tmp___1 != 0L) {
 #line 181
@@ -22149,7 +22149,7 @@ static int iwl_queue_init(struct iwl_queue *q , int count , int slots_num , u32 
 
   }
 #line 181
-  tmp___2 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___2 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 181
   if (tmp___2 != 0L) {
 #line 182
@@ -22170,7 +22170,7 @@ static int iwl_queue_init(struct iwl_queue *q , int count , int slots_num , u32 
 #line 186
   __ret_warn_on___0 = tmp___4;
 #line 186
-  tmp___5 = __builtin_expect(__ret_warn_on___0 != 0, 0L);
+  tmp___5 = ldv__builtin_expect(__ret_warn_on___0 != 0, 0L);
 #line 186
   if (tmp___5 != 0L) {
 #line 186
@@ -22180,7 +22180,7 @@ static int iwl_queue_init(struct iwl_queue *q , int count , int slots_num , u32 
 
   }
 #line 186
-  tmp___6 = __builtin_expect(__ret_warn_on___0 != 0, 0L);
+  tmp___6 = ldv__builtin_expect(__ret_warn_on___0 != 0, 0L);
 #line 186
   if (tmp___6 != 0L) {
 #line 187
@@ -22225,7 +22225,7 @@ static int iwl_pcie_alloc_dma_ptr(struct iwl_trans *trans , struct iwl_dma_ptr *
 #line 206
   __ret_warn_on = (unsigned long )ptr->addr != (unsigned long )((void *)0);
 #line 206
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 206
   if (tmp != 0L) {
 #line 206
@@ -22235,7 +22235,7 @@ static int iwl_pcie_alloc_dma_ptr(struct iwl_trans *trans , struct iwl_dma_ptr *
 
   }
 #line 206
-  tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 206
   if (tmp___0 != 0L) {
 #line 207
@@ -22264,7 +22264,7 @@ static void iwl_pcie_free_dma_ptr(struct iwl_trans *trans , struct iwl_dma_ptr *
 
   {
 #line 220
-  tmp = __builtin_expect((unsigned long )ptr->addr == (unsigned long )((void *)0),
+  tmp = ldv__builtin_expect((unsigned long )ptr->addr == (unsigned long )((void *)0),
                          0L);
 #line 220
   if (tmp != 0L) {
@@ -22488,7 +22488,7 @@ static void iwl_pcie_txq_update_byte_cnt_tbl(struct iwl_trans *trans , struct iw
 #line 311
   __ret_warn_on = (unsigned int )len > 4095U || write_ptr > 255;
 #line 311
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 311
   if (tmp != 0L) {
 #line 311
@@ -22498,7 +22498,7 @@ static void iwl_pcie_txq_update_byte_cnt_tbl(struct iwl_trans *trans , struct iw
 
   }
 #line 311
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 313
   sta_id = tx_cmd->sta_id;
 #line 314
@@ -22565,7 +22565,7 @@ static void iwl_pcie_txq_inval_byte_cnt_tbl(struct iwl_trans *trans , struct iwl
 #line 350
   __ret_warn_on = read_ptr > 255;
 #line 350
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 350
   if (tmp != 0L) {
 #line 350
@@ -22575,7 +22575,7 @@ static void iwl_pcie_txq_inval_byte_cnt_tbl(struct iwl_trans *trans , struct iwl
 
   }
 #line 350
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 352
   if ((int )trans_pcie->cmd_queue != txq_id) {
 #line 353
@@ -22817,7 +22817,7 @@ static void iwl_pcie_txq_free_tfd(struct iwl_trans *trans , struct iwl_txq *txq 
 #line 500
   __ret_warn_on = tmp___1;
 #line 500
-  tmp___2 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___2 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 500
   if (tmp___2 != 0L) {
 #line 500
@@ -22827,7 +22827,7 @@ static void iwl_pcie_txq_free_tfd(struct iwl_trans *trans , struct iwl_txq *txq 
 
   }
 #line 500
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 503
   iwl_pcie_tfd_unmap(trans, & (txq->entries + (unsigned long )idx)->meta, tfd_tmp + (unsigned long )rd_ptr,
                      dma_dir);
@@ -22894,7 +22894,7 @@ static int iwl_pcie_txq_build_tfd(struct iwl_trans *trans , struct iwl_txq *txq 
 #line 546
   __ret_warn_on = (addr & 0xfffffff000000000ULL) != 0ULL;
 #line 546
-  tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 546
   if (tmp___0 != 0L) {
 #line 546
@@ -22904,7 +22904,7 @@ static int iwl_pcie_txq_build_tfd(struct iwl_trans *trans , struct iwl_txq *txq 
 
   }
 #line 546
-  tmp___1 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___1 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 546
   if (tmp___1 != 0L) {
 #line 547
@@ -22913,7 +22913,7 @@ static int iwl_pcie_txq_build_tfd(struct iwl_trans *trans , struct iwl_txq *txq 
 
   }
 #line 549
-  tmp___2 = __builtin_expect((addr & 0xfffffff000000000ULL) != 0ULL, 0L);
+  tmp___2 = ldv__builtin_expect((addr & 0xfffffff000000000ULL) != 0ULL, 0L);
 #line 549
   if (tmp___2 != 0L) {
 #line 550
@@ -22949,7 +22949,7 @@ static int iwl_pcie_txq_alloc(struct iwl_trans *trans , struct iwl_txq *txq , in
 #line 566
   __ret_warn_on = (unsigned long )txq->entries != (unsigned long )((struct iwl_pcie_txq_entry *)0) || (unsigned long )txq->tfds != (unsigned long )((struct iwl_tfd *)0);
 #line 566
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 566
   if (tmp != 0L) {
 #line 566
@@ -22959,7 +22959,7 @@ static int iwl_pcie_txq_alloc(struct iwl_trans *trans , struct iwl_txq *txq , in
 
   }
 #line 566
-  tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 566
   if (tmp___0 != 0L) {
 #line 567
@@ -23176,7 +23176,7 @@ static void iwl_pcie_txq_free(struct iwl_trans *trans , int txq_id )
 #line 686
   __ret_warn_on = (unsigned long )txq == (unsigned long )((struct iwl_txq *)0);
 #line 686
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 686
   if (tmp != 0L) {
 #line 686
@@ -23186,7 +23186,7 @@ static void iwl_pcie_txq_free(struct iwl_trans *trans , int txq_id )
 
   }
 #line 686
-  tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 686
   if (tmp___0 != 0L) {
 #line 687
@@ -23280,7 +23280,7 @@ void iwl_pcie_tx_start(struct iwl_trans *trans , u32 scd_base_addr )
 #line 740
   __ret_warn_on = scd_base_addr != 0U && trans_pcie->scd_base_addr != scd_base_addr;
 #line 740
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 740
   if (tmp != 0L) {
 #line 740
@@ -23290,7 +23290,7 @@ void iwl_pcie_tx_start(struct iwl_trans *trans , u32 scd_base_addr )
 
   }
 #line 740
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 743
   a = trans_pcie->scd_base_addr + 1536U;
 #line 745
@@ -23529,7 +23529,7 @@ static int iwl_pcie_tx_alloc(struct iwl_trans *trans )
 #line 871
   __ret_warn_on = (unsigned long )trans_pcie->txq != (unsigned long )((struct iwl_txq *)0);
 #line 871
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 871
   if (tmp != 0L) {
 #line 871
@@ -23539,7 +23539,7 @@ static int iwl_pcie_tx_alloc(struct iwl_trans *trans )
 
   }
 #line 871
-  tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 871
   if (tmp___0 != 0L) {
 #line 872
@@ -23785,7 +23785,7 @@ void iwl_trans_pcie_reclaim(struct iwl_trans *trans , int txq_id , int ssn , str
 #line 993
   __ret_warn_on = (int )trans_pcie->cmd_queue == txq_id;
 #line 993
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 993
   if (tmp != 0L) {
 #line 993
@@ -23795,7 +23795,7 @@ void iwl_trans_pcie_reclaim(struct iwl_trans *trans , int txq_id , int ssn , str
 
   }
 #line 993
-  tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 993
   if (tmp___0 != 0L) {
 #line 994
@@ -23843,7 +23843,7 @@ void iwl_trans_pcie_reclaim(struct iwl_trans *trans , int txq_id , int ssn , str
 #line 1016
   __ret_warn_on___0 = tmp___3 == 0;
 #line 1016
-  tmp___4 = __builtin_expect(__ret_warn_on___0 != 0, 0L);
+  tmp___4 = ldv__builtin_expect(__ret_warn_on___0 != 0, 0L);
 #line 1016
   if (tmp___4 != 0L) {
 #line 1016
@@ -23853,7 +23853,7 @@ void iwl_trans_pcie_reclaim(struct iwl_trans *trans , int txq_id , int ssn , str
 
   }
 #line 1016
-  tmp___5 = __builtin_expect(__ret_warn_on___0 != 0, 0L);
+  tmp___5 = ldv__builtin_expect(__ret_warn_on___0 != 0, 0L);
 #line 1016
   if (tmp___5 != 0L) {
 #line 1017
@@ -23867,13 +23867,13 @@ void iwl_trans_pcie_reclaim(struct iwl_trans *trans , int txq_id , int ssn , str
 #line 1023
   __ret_warn_once = (unsigned long )(txq->entries + (unsigned long )txq->q.read_ptr)->skb == (unsigned long )((struct sk_buff *)0);
 #line 1023
-  tmp___8 = __builtin_expect(__ret_warn_once != 0, 0L);
+  tmp___8 = ldv__builtin_expect(__ret_warn_once != 0, 0L);
 #line 1023
   if (tmp___8 != 0L) {
 #line 1023
     __ret_warn_on___1 = ! __warned;
 #line 1023
-    tmp___6 = __builtin_expect(__ret_warn_on___1 != 0, 0L);
+    tmp___6 = ldv__builtin_expect(__ret_warn_on___1 != 0, 0L);
 #line 1023
     if (tmp___6 != 0L) {
 #line 1023
@@ -23883,7 +23883,7 @@ void iwl_trans_pcie_reclaim(struct iwl_trans *trans , int txq_id , int ssn , str
 
     }
 #line 1023
-    tmp___7 = __builtin_expect(__ret_warn_on___1 != 0, 0L);
+    tmp___7 = ldv__builtin_expect(__ret_warn_on___1 != 0, 0L);
 #line 1023
     if (tmp___7 != 0L) {
 #line 1023
@@ -23895,7 +23895,7 @@ void iwl_trans_pcie_reclaim(struct iwl_trans *trans , int txq_id , int ssn , str
 
   }
 #line 1023
-  tmp___9 = __builtin_expect(__ret_warn_once != 0, 0L);
+  tmp___9 = ldv__builtin_expect(__ret_warn_once != 0, 0L);
 #line 1023
   if (tmp___9 != 0L) {
 #line 1024
@@ -23984,7 +23984,7 @@ static void iwl_pcie_cmdq_reclaim(struct iwl_trans *trans , int txq_id , int idx
 #line 1057
   __ret_warn_on = tmp___0;
 #line 1057
-  tmp___1 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___1 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 1057
   if (tmp___1 != 0L) {
 #line 1057
@@ -23994,7 +23994,7 @@ static void iwl_pcie_cmdq_reclaim(struct iwl_trans *trans , int txq_id , int idx
 
   }
 #line 1057
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 1059
   if (q->n_bd <= idx) {
 #line 1060
@@ -24129,13 +24129,13 @@ void iwl_trans_pcie_txq_enable(struct iwl_trans *trans , int txq_id , int fifo ,
 #line 1122
     __ret_warn_once = 1;
 #line 1122
-    tmp___1 = __builtin_expect(__ret_warn_once != 0, 0L);
+    tmp___1 = ldv__builtin_expect(__ret_warn_once != 0, 0L);
 #line 1122
     if (tmp___1 != 0L) {
 #line 1122
       __ret_warn_on = ! __warned;
 #line 1122
-      tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+      tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 1122
       if (tmp != 0L) {
 #line 1122
@@ -24145,7 +24145,7 @@ void iwl_trans_pcie_txq_enable(struct iwl_trans *trans , int txq_id , int fifo ,
 
       }
 #line 1122
-      tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+      tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 1122
       if (tmp___0 != 0L) {
 #line 1122
@@ -24157,7 +24157,7 @@ void iwl_trans_pcie_txq_enable(struct iwl_trans *trans , int txq_id , int fifo ,
 
     }
 #line 1122
-    __builtin_expect(__ret_warn_once != 0, 0L);
+    ldv__builtin_expect(__ret_warn_once != 0, 0L);
   } else {
 
   }
@@ -24242,13 +24242,13 @@ void iwl_trans_pcie_txq_disable(struct iwl_trans *trans , int txq_id )
 #line 1186
     __ret_warn_once = 1;
 #line 1186
-    tmp___1 = __builtin_expect(__ret_warn_once != 0, 0L);
+    tmp___1 = ldv__builtin_expect(__ret_warn_once != 0, 0L);
 #line 1186
     if (tmp___1 != 0L) {
 #line 1186
       __ret_warn_on = ! __warned;
 #line 1186
-      tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+      tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 1186
       if (tmp != 0L) {
 #line 1186
@@ -24258,7 +24258,7 @@ void iwl_trans_pcie_txq_disable(struct iwl_trans *trans , int txq_id )
 
       }
 #line 1186
-      tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+      tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 1186
       if (tmp___0 != 0L) {
 #line 1186
@@ -24270,7 +24270,7 @@ void iwl_trans_pcie_txq_disable(struct iwl_trans *trans , int txq_id )
 
     }
 #line 1186
-    __builtin_expect(__ret_warn_once != 0, 0L);
+    ldv__builtin_expect(__ret_warn_once != 0, 0L);
 #line 1187
     return;
   } else {
@@ -24377,7 +24377,7 @@ static int iwl_pcie_enqueue_hcmd(struct iwl_trans *trans , struct iwl_host_cmd *
 #line 1238
     __ret_warn_on = ((int )cmd->dataflags[i] & 2) != 0;
 #line 1238
-    tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 1238
     if (tmp != 0L) {
 #line 1238
@@ -24387,7 +24387,7 @@ static int iwl_pcie_enqueue_hcmd(struct iwl_trans *trans , struct iwl_host_cmd *
 
     }
 #line 1238
-    tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 1238
     if (tmp___0 != 0L) {
 #line 1239
@@ -24405,7 +24405,7 @@ static int iwl_pcie_enqueue_hcmd(struct iwl_trans *trans , struct iwl_host_cmd *
 #line 1250
     __ret_warn_on___0 = (unsigned long )dup_buf != (unsigned long )((void *)0);
 #line 1250
-    tmp___1 = __builtin_expect(__ret_warn_on___0 != 0, 0L);
+    tmp___1 = ldv__builtin_expect(__ret_warn_on___0 != 0, 0L);
 #line 1250
     if (tmp___1 != 0L) {
 #line 1250
@@ -24415,7 +24415,7 @@ static int iwl_pcie_enqueue_hcmd(struct iwl_trans *trans , struct iwl_host_cmd *
 
     }
 #line 1250
-    tmp___2 = __builtin_expect(__ret_warn_on___0 != 0, 0L);
+    tmp___2 = ldv__builtin_expect(__ret_warn_on___0 != 0, 0L);
 #line 1250
     if (tmp___2 != 0L) {
 #line 1251
@@ -24438,7 +24438,7 @@ static int iwl_pcie_enqueue_hcmd(struct iwl_trans *trans , struct iwl_host_cmd *
 #line 1261
     __ret_warn_on___1 = (int )had_nocopy;
 #line 1261
-    tmp___3 = __builtin_expect(__ret_warn_on___1 != 0, 0L);
+    tmp___3 = ldv__builtin_expect(__ret_warn_on___1 != 0, 0L);
 #line 1261
     if (tmp___3 != 0L) {
 #line 1261
@@ -24448,7 +24448,7 @@ static int iwl_pcie_enqueue_hcmd(struct iwl_trans *trans , struct iwl_host_cmd *
 
     }
 #line 1261
-    tmp___4 = __builtin_expect(__ret_warn_on___1 != 0, 0L);
+    tmp___4 = ldv__builtin_expect(__ret_warn_on___1 != 0, 0L);
 #line 1261
     if (tmp___4 != 0L) {
 #line 1262
@@ -24479,7 +24479,7 @@ static int iwl_pcie_enqueue_hcmd(struct iwl_trans *trans , struct iwl_host_cmd *
 #line 1276
   __ret_warn_on___2 = (unsigned int )copy_size > 324U;
 #line 1276
-  tmp___6 = __builtin_expect(__ret_warn_on___2 != 0, 0L);
+  tmp___6 = ldv__builtin_expect(__ret_warn_on___2 != 0, 0L);
 #line 1276
   if (tmp___6 != 0L) {
 #line 1276
@@ -24492,7 +24492,7 @@ static int iwl_pcie_enqueue_hcmd(struct iwl_trans *trans , struct iwl_host_cmd *
 
   }
 #line 1276
-  tmp___7 = __builtin_expect(__ret_warn_on___2 != 0, 0L);
+  tmp___7 = ldv__builtin_expect(__ret_warn_on___2 != 0, 0L);
 #line 1276
   if (tmp___7 != 0L) {
 #line 1279
@@ -24596,13 +24596,13 @@ static int iwl_pcie_enqueue_hcmd(struct iwl_trans *trans , struct iwl_host_cmd *
 #line 1322
   __ret_warn_once = (unsigned long )(txq->entries + (unsigned long )idx)->copy_cmd != (unsigned long )((struct iwl_device_cmd *)0);
 #line 1322
-  tmp___13 = __builtin_expect(__ret_warn_once != 0, 0L);
+  tmp___13 = ldv__builtin_expect(__ret_warn_once != 0, 0L);
 #line 1322
   if (tmp___13 != 0L) {
 #line 1322
     __ret_warn_on___3 = ! __warned;
 #line 1322
-    tmp___11 = __builtin_expect(__ret_warn_on___3 != 0, 0L);
+    tmp___11 = ldv__builtin_expect(__ret_warn_on___3 != 0, 0L);
 #line 1322
     if (tmp___11 != 0L) {
 #line 1322
@@ -24612,7 +24612,7 @@ static int iwl_pcie_enqueue_hcmd(struct iwl_trans *trans , struct iwl_host_cmd *
 
     }
 #line 1322
-    tmp___12 = __builtin_expect(__ret_warn_on___3 != 0, 0L);
+    tmp___12 = ldv__builtin_expect(__ret_warn_on___3 != 0, 0L);
 #line 1322
     if (tmp___12 != 0L) {
 #line 1322
@@ -24624,7 +24624,7 @@ static int iwl_pcie_enqueue_hcmd(struct iwl_trans *trans , struct iwl_host_cmd *
 
   }
 #line 1322
-  __builtin_expect(__ret_warn_once != 0, 0L);
+  ldv__builtin_expect(__ret_warn_once != 0, 0L);
 #line 1330
   if ((cmd->flags & 4U) != 0U) {
 #line 1331
@@ -24632,7 +24632,7 @@ static int iwl_pcie_enqueue_hcmd(struct iwl_trans *trans , struct iwl_host_cmd *
 #line 1331
     (txq->entries + (unsigned long )idx)->copy_cmd = (struct iwl_device_cmd *)tmp___14;
 #line 1333
-    tmp___15 = __builtin_expect((unsigned long )(txq->entries + (unsigned long )idx)->copy_cmd == (unsigned long )((struct iwl_device_cmd *)0),
+    tmp___15 = ldv__builtin_expect((unsigned long )(txq->entries + (unsigned long )idx)->copy_cmd == (unsigned long )((struct iwl_device_cmd *)0),
                                 0L);
 #line 1333
     if (tmp___15 != 0L) {
@@ -24658,7 +24658,7 @@ static int iwl_pcie_enqueue_hcmd(struct iwl_trans *trans , struct iwl_host_cmd *
 #line 1347
   tmp___17 = dma_mapping_error(trans->dev, phys_addr);
 #line 1347
-  tmp___18 = __builtin_expect(tmp___17 != 0, 0L);
+  tmp___18 = ldv__builtin_expect(tmp___17 != 0, 0L);
 #line 1347
   if (tmp___18 != 0L) {
 #line 1348
@@ -24739,13 +24739,13 @@ static int iwl_pcie_enqueue_hcmd(struct iwl_trans *trans , struct iwl_host_cmd *
 #line 1381
   __ret_warn_once___0 = (unsigned long )(txq->entries + (unsigned long )idx)->free_buf != (unsigned long )((void const   *)0);
 #line 1381
-  tmp___22 = __builtin_expect(__ret_warn_once___0 != 0, 0L);
+  tmp___22 = ldv__builtin_expect(__ret_warn_once___0 != 0, 0L);
 #line 1381
   if (tmp___22 != 0L) {
 #line 1381
     __ret_warn_on___4 = ! __warned___0;
 #line 1381
-    tmp___20 = __builtin_expect(__ret_warn_on___4 != 0, 0L);
+    tmp___20 = ldv__builtin_expect(__ret_warn_on___4 != 0, 0L);
 #line 1381
     if (tmp___20 != 0L) {
 #line 1381
@@ -24755,7 +24755,7 @@ static int iwl_pcie_enqueue_hcmd(struct iwl_trans *trans , struct iwl_host_cmd *
 
     }
 #line 1381
-    tmp___21 = __builtin_expect(__ret_warn_on___4 != 0, 0L);
+    tmp___21 = ldv__builtin_expect(__ret_warn_on___4 != 0, 0L);
 #line 1381
     if (tmp___21 != 0L) {
 #line 1381
@@ -24767,7 +24767,7 @@ static int iwl_pcie_enqueue_hcmd(struct iwl_trans *trans , struct iwl_host_cmd *
 
   }
 #line 1381
-  tmp___23 = __builtin_expect(__ret_warn_once___0 != 0, 0L);
+  tmp___23 = ldv__builtin_expect(__ret_warn_once___0 != 0, 0L);
 #line 1381
   if (tmp___23 != 0L) {
 #line 1382
@@ -24850,7 +24850,7 @@ void iwl_pcie_hcmd_complete(struct iwl_trans *trans , struct iwl_rx_cmd_buffer *
 #line 1432
   __ret_warn_on = (int )trans_pcie->cmd_queue != txq_id;
 #line 1432
-  tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 1432
   if (tmp___0 != 0L) {
 #line 1432
@@ -24862,7 +24862,7 @@ void iwl_pcie_hcmd_complete(struct iwl_trans *trans , struct iwl_rx_cmd_buffer *
 
   }
 #line 1432
-  tmp___1 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___1 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 1432
   if (tmp___1 != 0L) {
 #line 1437
@@ -24953,7 +24953,7 @@ static int iwl_pcie_send_hcmd_async(struct iwl_trans *trans , struct iwl_host_cm
 #line 1487
   __ret_warn_on = (cmd->flags & 2U) != 0U;
 #line 1487
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 1487
   if (tmp != 0L) {
 #line 1487
@@ -24963,7 +24963,7 @@ static int iwl_pcie_send_hcmd_async(struct iwl_trans *trans , struct iwl_host_cm
 
   }
 #line 1487
-  tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 1487
   if (tmp___0 != 0L) {
 #line 1488
@@ -25031,7 +25031,7 @@ static int iwl_pcie_send_hcmd_sync(struct iwl_trans *trans , struct iwl_host_cmd
 #line 1510
   __ret_warn_on = tmp___1 != 0;
 #line 1510
-  tmp___2 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___2 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 1510
   if (tmp___2 != 0L) {
 #line 1510
@@ -25041,7 +25041,7 @@ static int iwl_pcie_send_hcmd_sync(struct iwl_trans *trans , struct iwl_host_cmd
 
   }
 #line 1510
-  tmp___3 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___3 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 1510
   if (tmp___3 != 0L) {
 #line 1512
@@ -25336,19 +25336,19 @@ int iwl_trans_pcie_tx(struct iwl_trans *trans , struct sk_buff *skb , struct iwl
 #line 1638
   tmp___3 = variable_test_bit(txq_id, (unsigned long const volatile   *)(& trans_pcie->queue_used));
 #line 1638
-  tmp___4 = __builtin_expect(tmp___3 == 0, 0L);
+  tmp___4 = ldv__builtin_expect(tmp___3 == 0, 0L);
 #line 1638
   if (tmp___4 != 0L) {
 #line 1639
     __ret_warn_once = 1;
 #line 1639
-    tmp___2 = __builtin_expect(__ret_warn_once != 0, 0L);
+    tmp___2 = ldv__builtin_expect(__ret_warn_once != 0, 0L);
 #line 1639
     if (tmp___2 != 0L) {
 #line 1639
       __ret_warn_on = ! __warned;
 #line 1639
-      tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+      tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 1639
       if (tmp___0 != 0L) {
 #line 1639
@@ -25358,7 +25358,7 @@ int iwl_trans_pcie_tx(struct iwl_trans *trans , struct sk_buff *skb , struct iwl
 
       }
 #line 1639
-      tmp___1 = __builtin_expect(__ret_warn_on != 0, 0L);
+      tmp___1 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 1639
       if (tmp___1 != 0L) {
 #line 1639
@@ -25370,7 +25370,7 @@ int iwl_trans_pcie_tx(struct iwl_trans *trans , struct sk_buff *skb , struct iwl
 
     }
 #line 1639
-    __builtin_expect(__ret_warn_once != 0, 0L);
+    ldv__builtin_expect(__ret_warn_once != 0, 0L);
 #line 1640
     return (-22);
   } else {
@@ -25385,13 +25385,13 @@ int iwl_trans_pcie_tx(struct iwl_trans *trans , struct sk_buff *skb , struct iwl
 #line 1652
   __ret_warn_once___0 = (int )((unsigned long )tmp___5 >> txq_id) & 1 && ((int )wifi_seq & 255) != q->write_ptr;
 #line 1652
-  tmp___8 = __builtin_expect(__ret_warn_once___0 != 0, 0L);
+  tmp___8 = ldv__builtin_expect(__ret_warn_once___0 != 0, 0L);
 #line 1652
   if (tmp___8 != 0L) {
 #line 1652
     __ret_warn_on___0 = ! __warned___0;
 #line 1652
-    tmp___6 = __builtin_expect(__ret_warn_on___0 != 0, 0L);
+    tmp___6 = ldv__builtin_expect(__ret_warn_on___0 != 0, 0L);
 #line 1652
     if (tmp___6 != 0L) {
 #line 1652
@@ -25402,7 +25402,7 @@ int iwl_trans_pcie_tx(struct iwl_trans *trans , struct sk_buff *skb , struct iwl
 
     }
 #line 1652
-    tmp___7 = __builtin_expect(__ret_warn_on___0 != 0, 0L);
+    tmp___7 = ldv__builtin_expect(__ret_warn_on___0 != 0, 0L);
 #line 1652
     if (tmp___7 != 0L) {
 #line 1652
@@ -25414,7 +25414,7 @@ int iwl_trans_pcie_tx(struct iwl_trans *trans , struct sk_buff *skb , struct iwl
 
   }
 #line 1652
-  __builtin_expect(__ret_warn_once___0 != 0, 0L);
+  ldv__builtin_expect(__ret_warn_once___0 != 0, 0L);
 #line 1659
   (txq->entries + (unsigned long )q->write_ptr)->skb = skb;
 #line 1660
@@ -25442,7 +25442,7 @@ int iwl_trans_pcie_tx(struct iwl_trans *trans , struct sk_buff *skb , struct iwl
 #line 1692
   tmp___9 = dma_mapping_error(trans->dev, txcmd_phys);
 #line 1692
-  tmp___10 = __builtin_expect(tmp___9 != 0, 0L);
+  tmp___10 = ldv__builtin_expect(tmp___9 != 0, 0L);
 #line 1692
   if (tmp___10 != 0L) {
 #line 1693
@@ -25476,7 +25476,7 @@ int iwl_trans_pcie_tx(struct iwl_trans *trans , struct sk_buff *skb , struct iwl
 #line 1710
     tmp___12 = dma_mapping_error(trans->dev, phys_addr);
 #line 1710
-    tmp___13 = __builtin_expect(tmp___12 != 0, 0L);
+    tmp___13 = ldv__builtin_expect(tmp___12 != 0, 0L);
 #line 1710
     if (tmp___13 != 0L) {
 #line 1711
@@ -26000,14 +26000,14 @@ __inline static unsigned long copy_from_user(void *to , void const   *from , uns
 #line 61
   might_fault();
 #line 62
-  tmp___1 = __builtin_expect(sz == -1, 1L);
+  tmp___1 = ldv__builtin_expect(sz == -1, 1L);
 #line 62
   if (tmp___1 != 0L) {
 #line 63
     n = _copy_from_user(to, from, (unsigned int )n);
   } else {
 #line 62
-    tmp___2 = __builtin_expect((unsigned long )sz >= n, 1L);
+    tmp___2 = ldv__builtin_expect((unsigned long )sz >= n, 1L);
 #line 62
     if (tmp___2 != 0L) {
 #line 63
@@ -26016,7 +26016,7 @@ __inline static unsigned long copy_from_user(void *to , void const   *from , uns
 #line 66
       __ret_warn_on = 1;
 #line 66
-      tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+      tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 66
       if (tmp___0 != 0L) {
 #line 66
@@ -26026,7 +26026,7 @@ __inline static unsigned long copy_from_user(void *to , void const   *from , uns
 
       }
 #line 66
-      __builtin_expect(__ret_warn_on != 0, 0L);
+      ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
   }
 #line 68
@@ -27260,7 +27260,7 @@ static void iwl_trans_pcie_configure(struct iwl_trans *trans , struct iwl_trans_
 #line 777
   __ret_warn_on = (int )trans_cfg->n_no_reclaim_cmds > 6;
 #line 777
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 777
   if (tmp != 0L) {
 #line 777
@@ -27270,7 +27270,7 @@ static void iwl_trans_pcie_configure(struct iwl_trans *trans , struct iwl_trans_
 
   }
 #line 777
-  tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 777
   if (tmp___0 != 0L) {
 #line 778
@@ -31047,13 +31047,13 @@ static enum print_line_t ftrace_raw_output_iwlwifi_dev_ioread32(struct trace_ite
 #line 85
     __ret_warn_once = 1;
 #line 85
-    tmp___1 = __builtin_expect(__ret_warn_once != 0, 0L);
+    tmp___1 = ldv__builtin_expect(__ret_warn_once != 0, 0L);
 #line 85
     if (tmp___1 != 0L) {
 #line 85
       __ret_warn_on = ! __warned;
 #line 85
-      tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+      tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 85
       if (tmp != 0L) {
 #line 85
@@ -31062,7 +31062,7 @@ static enum print_line_t ftrace_raw_output_iwlwifi_dev_ioread32(struct trace_ite
 
       }
 #line 85
-      tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+      tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 85
       if (tmp___0 != 0L) {
 #line 85
@@ -31074,7 +31074,7 @@ static enum print_line_t ftrace_raw_output_iwlwifi_dev_ioread32(struct trace_ite
 
     }
 #line 85
-    __builtin_expect(__ret_warn_once != 0, 0L);
+    ldv__builtin_expect(__ret_warn_once != 0, 0L);
 #line 85
     return (2);
   } else {
@@ -31138,13 +31138,13 @@ static enum print_line_t ftrace_raw_output_iwlwifi_dev_iowrite8(struct trace_ite
 #line 102
     __ret_warn_once = 1;
 #line 102
-    tmp___1 = __builtin_expect(__ret_warn_once != 0, 0L);
+    tmp___1 = ldv__builtin_expect(__ret_warn_once != 0, 0L);
 #line 102
     if (tmp___1 != 0L) {
 #line 102
       __ret_warn_on = ! __warned;
 #line 102
-      tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+      tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 102
       if (tmp != 0L) {
 #line 102
@@ -31153,7 +31153,7 @@ static enum print_line_t ftrace_raw_output_iwlwifi_dev_iowrite8(struct trace_ite
 
       }
 #line 102
-      tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+      tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 102
       if (tmp___0 != 0L) {
 #line 102
@@ -31165,7 +31165,7 @@ static enum print_line_t ftrace_raw_output_iwlwifi_dev_iowrite8(struct trace_ite
 
     }
 #line 102
-    __builtin_expect(__ret_warn_once != 0, 0L);
+    ldv__builtin_expect(__ret_warn_once != 0, 0L);
 #line 102
     return (2);
   } else {
@@ -31229,13 +31229,13 @@ static enum print_line_t ftrace_raw_output_iwlwifi_dev_iowrite32(struct trace_it
 #line 119
     __ret_warn_once = 1;
 #line 119
-    tmp___1 = __builtin_expect(__ret_warn_once != 0, 0L);
+    tmp___1 = ldv__builtin_expect(__ret_warn_once != 0, 0L);
 #line 119
     if (tmp___1 != 0L) {
 #line 119
       __ret_warn_on = ! __warned;
 #line 119
-      tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+      tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 119
       if (tmp != 0L) {
 #line 119
@@ -31244,7 +31244,7 @@ static enum print_line_t ftrace_raw_output_iwlwifi_dev_iowrite32(struct trace_it
 
       }
 #line 119
-      tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+      tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 119
       if (tmp___0 != 0L) {
 #line 119
@@ -31256,7 +31256,7 @@ static enum print_line_t ftrace_raw_output_iwlwifi_dev_iowrite32(struct trace_it
 
     }
 #line 119
-    __builtin_expect(__ret_warn_once != 0, 0L);
+    ldv__builtin_expect(__ret_warn_once != 0, 0L);
 #line 119
     return (2);
   } else {
@@ -31321,13 +31321,13 @@ static enum print_line_t ftrace_raw_output_iwlwifi_dev_iowrite_prph32(struct tra
 #line 136
     __ret_warn_once = 1;
 #line 136
-    tmp___1 = __builtin_expect(__ret_warn_once != 0, 0L);
+    tmp___1 = ldv__builtin_expect(__ret_warn_once != 0, 0L);
 #line 136
     if (tmp___1 != 0L) {
 #line 136
       __ret_warn_on = ! __warned;
 #line 136
-      tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+      tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 136
       if (tmp != 0L) {
 #line 136
@@ -31336,7 +31336,7 @@ static enum print_line_t ftrace_raw_output_iwlwifi_dev_iowrite_prph32(struct tra
 
       }
 #line 136
-      tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+      tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 136
       if (tmp___0 != 0L) {
 #line 136
@@ -31348,7 +31348,7 @@ static enum print_line_t ftrace_raw_output_iwlwifi_dev_iowrite_prph32(struct tra
 
     }
 #line 136
-    __builtin_expect(__ret_warn_once != 0, 0L);
+    ldv__builtin_expect(__ret_warn_once != 0, 0L);
 #line 136
     return (2);
   } else {
@@ -31412,13 +31412,13 @@ static enum print_line_t ftrace_raw_output_iwlwifi_dev_ioread_prph32(struct trac
 #line 153
     __ret_warn_once = 1;
 #line 153
-    tmp___1 = __builtin_expect(__ret_warn_once != 0, 0L);
+    tmp___1 = ldv__builtin_expect(__ret_warn_once != 0, 0L);
 #line 153
     if (tmp___1 != 0L) {
 #line 153
       __ret_warn_on = ! __warned;
 #line 153
-      tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+      tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 153
       if (tmp != 0L) {
 #line 153
@@ -31427,7 +31427,7 @@ static enum print_line_t ftrace_raw_output_iwlwifi_dev_ioread_prph32(struct trac
 
       }
 #line 153
-      tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+      tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 153
       if (tmp___0 != 0L) {
 #line 153
@@ -31439,7 +31439,7 @@ static enum print_line_t ftrace_raw_output_iwlwifi_dev_ioread_prph32(struct trac
 
     }
 #line 153
-    __builtin_expect(__ret_warn_once != 0, 0L);
+    ldv__builtin_expect(__ret_warn_once != 0, 0L);
 #line 153
     return (2);
   } else {
@@ -31503,13 +31503,13 @@ static enum print_line_t ftrace_raw_output_iwlwifi_dev_irq(struct trace_iterator
 #line 170
     __ret_warn_once = 1;
 #line 170
-    tmp___1 = __builtin_expect(__ret_warn_once != 0, 0L);
+    tmp___1 = ldv__builtin_expect(__ret_warn_once != 0, 0L);
 #line 170
     if (tmp___1 != 0L) {
 #line 170
       __ret_warn_on = ! __warned;
 #line 170
-      tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+      tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 170
       if (tmp != 0L) {
 #line 170
@@ -31518,7 +31518,7 @@ static enum print_line_t ftrace_raw_output_iwlwifi_dev_irq(struct trace_iterator
 
       }
 #line 170
-      tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+      tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 170
       if (tmp___0 != 0L) {
 #line 170
@@ -31530,7 +31530,7 @@ static enum print_line_t ftrace_raw_output_iwlwifi_dev_irq(struct trace_iterator
 
     }
 #line 170
-    __builtin_expect(__ret_warn_once != 0, 0L);
+    ldv__builtin_expect(__ret_warn_once != 0, 0L);
 #line 170
     return (2);
   } else {
@@ -31593,13 +31593,13 @@ static enum print_line_t ftrace_raw_output_iwlwifi_dev_ict_read(struct trace_ite
 #line 183
     __ret_warn_once = 1;
 #line 183
-    tmp___1 = __builtin_expect(__ret_warn_once != 0, 0L);
+    tmp___1 = ldv__builtin_expect(__ret_warn_once != 0, 0L);
 #line 183
     if (tmp___1 != 0L) {
 #line 183
       __ret_warn_on = ! __warned;
 #line 183
-      tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+      tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 183
       if (tmp != 0L) {
 #line 183
@@ -31608,7 +31608,7 @@ static enum print_line_t ftrace_raw_output_iwlwifi_dev_ict_read(struct trace_ite
 
       }
 #line 183
-      tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+      tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 183
       if (tmp___0 != 0L) {
 #line 183
@@ -31620,7 +31620,7 @@ static enum print_line_t ftrace_raw_output_iwlwifi_dev_ict_read(struct trace_ite
 
     }
 #line 183
-    __builtin_expect(__ret_warn_once != 0, 0L);
+    ldv__builtin_expect(__ret_warn_once != 0, 0L);
 #line 183
     return (2);
   } else {
@@ -31685,13 +31685,13 @@ static enum print_line_t ftrace_raw_output_iwlwifi_dev_ucode_cont_event(struct t
 #line 203
     __ret_warn_once = 1;
 #line 203
-    tmp___1 = __builtin_expect(__ret_warn_once != 0, 0L);
+    tmp___1 = ldv__builtin_expect(__ret_warn_once != 0, 0L);
 #line 203
     if (tmp___1 != 0L) {
 #line 203
       __ret_warn_on = ! __warned;
 #line 203
-      tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+      tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 203
       if (tmp != 0L) {
 #line 203
@@ -31700,7 +31700,7 @@ static enum print_line_t ftrace_raw_output_iwlwifi_dev_ucode_cont_event(struct t
 
       }
 #line 203
-      tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+      tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 203
       if (tmp___0 != 0L) {
 #line 203
@@ -31712,7 +31712,7 @@ static enum print_line_t ftrace_raw_output_iwlwifi_dev_ucode_cont_event(struct t
 
     }
 #line 203
-    __builtin_expect(__ret_warn_once != 0, 0L);
+    ldv__builtin_expect(__ret_warn_once != 0, 0L);
 #line 203
     return (2);
   } else {
@@ -31777,13 +31777,13 @@ static enum print_line_t ftrace_raw_output_iwlwifi_dev_ucode_wrap_event(struct t
 #line 223
     __ret_warn_once = 1;
 #line 223
-    tmp___1 = __builtin_expect(__ret_warn_once != 0, 0L);
+    tmp___1 = ldv__builtin_expect(__ret_warn_once != 0, 0L);
 #line 223
     if (tmp___1 != 0L) {
 #line 223
       __ret_warn_on = ! __warned;
 #line 223
-      tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+      tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 223
       if (tmp != 0L) {
 #line 223
@@ -31792,7 +31792,7 @@ static enum print_line_t ftrace_raw_output_iwlwifi_dev_ucode_wrap_event(struct t
 
       }
 #line 223
-      tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+      tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 223
       if (tmp___0 != 0L) {
 #line 223
@@ -31804,7 +31804,7 @@ static enum print_line_t ftrace_raw_output_iwlwifi_dev_ucode_wrap_event(struct t
 
     }
 #line 223
-    __builtin_expect(__ret_warn_once != 0, 0L);
+    ldv__builtin_expect(__ret_warn_once != 0, 0L);
 #line 223
     return (2);
   } else {
@@ -31868,13 +31868,13 @@ static enum print_line_t ftrace_raw_output_iwlwifi_msg_event(struct trace_iterat
 #line 249
     __ret_warn_once = 1;
 #line 249
-    tmp___1 = __builtin_expect(__ret_warn_once != 0, 0L);
+    tmp___1 = ldv__builtin_expect(__ret_warn_once != 0, 0L);
 #line 249
     if (tmp___1 != 0L) {
 #line 249
       __ret_warn_on = ! __warned;
 #line 249
-      tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+      tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 249
       if (tmp != 0L) {
 #line 249
@@ -31883,7 +31883,7 @@ static enum print_line_t ftrace_raw_output_iwlwifi_msg_event(struct trace_iterat
 
       }
 #line 249
-      tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+      tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 249
       if (tmp___0 != 0L) {
 #line 249
@@ -31895,7 +31895,7 @@ static enum print_line_t ftrace_raw_output_iwlwifi_msg_event(struct trace_iterat
 
     }
 #line 249
-    __builtin_expect(__ret_warn_once != 0, 0L);
+    ldv__builtin_expect(__ret_warn_once != 0, 0L);
 #line 249
     return (2);
   } else {
@@ -31958,13 +31958,13 @@ static enum print_line_t ftrace_raw_output_iwlwifi_dbg(struct trace_iterator *it
 #line 283
     __ret_warn_once = 1;
 #line 283
-    tmp___1 = __builtin_expect(__ret_warn_once != 0, 0L);
+    tmp___1 = ldv__builtin_expect(__ret_warn_once != 0, 0L);
 #line 283
     if (tmp___1 != 0L) {
 #line 283
       __ret_warn_on = ! __warned;
 #line 283
-      tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+      tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 283
       if (tmp != 0L) {
 #line 283
@@ -31973,7 +31973,7 @@ static enum print_line_t ftrace_raw_output_iwlwifi_dbg(struct trace_iterator *it
 
       }
 #line 283
-      tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+      tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 283
       if (tmp___0 != 0L) {
 #line 283
@@ -31985,7 +31985,7 @@ static enum print_line_t ftrace_raw_output_iwlwifi_dbg(struct trace_iterator *it
 
     }
 #line 283
-    __builtin_expect(__ret_warn_once != 0, 0L);
+    ldv__builtin_expect(__ret_warn_once != 0, 0L);
 #line 283
     return (2);
   } else {
@@ -32048,13 +32048,13 @@ static enum print_line_t ftrace_raw_output_iwlwifi_dev_tx_data(struct trace_iter
 #line 307
     __ret_warn_once = 1;
 #line 307
-    tmp___1 = __builtin_expect(__ret_warn_once != 0, 0L);
+    tmp___1 = ldv__builtin_expect(__ret_warn_once != 0, 0L);
 #line 307
     if (tmp___1 != 0L) {
 #line 307
       __ret_warn_on = ! __warned;
 #line 307
-      tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+      tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 307
       if (tmp != 0L) {
 #line 307
@@ -32063,7 +32063,7 @@ static enum print_line_t ftrace_raw_output_iwlwifi_dev_tx_data(struct trace_iter
 
       }
 #line 307
-      tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+      tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 307
       if (tmp___0 != 0L) {
 #line 307
@@ -32075,7 +32075,7 @@ static enum print_line_t ftrace_raw_output_iwlwifi_dev_tx_data(struct trace_iter
 
     }
 #line 307
-    __builtin_expect(__ret_warn_once != 0, 0L);
+    ldv__builtin_expect(__ret_warn_once != 0, 0L);
 #line 307
     return (2);
   } else {
@@ -32138,13 +32138,13 @@ static enum print_line_t ftrace_raw_output_iwlwifi_dev_rx_data(struct trace_iter
 #line 325
     __ret_warn_once = 1;
 #line 325
-    tmp___1 = __builtin_expect(__ret_warn_once != 0, 0L);
+    tmp___1 = ldv__builtin_expect(__ret_warn_once != 0, 0L);
 #line 325
     if (tmp___1 != 0L) {
 #line 325
       __ret_warn_on = ! __warned;
 #line 325
-      tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+      tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 325
       if (tmp != 0L) {
 #line 325
@@ -32153,7 +32153,7 @@ static enum print_line_t ftrace_raw_output_iwlwifi_dev_rx_data(struct trace_iter
 
       }
 #line 325
-      tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+      tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 325
       if (tmp___0 != 0L) {
 #line 325
@@ -32165,7 +32165,7 @@ static enum print_line_t ftrace_raw_output_iwlwifi_dev_rx_data(struct trace_iter
 
     }
 #line 325
-    __builtin_expect(__ret_warn_once != 0, 0L);
+    ldv__builtin_expect(__ret_warn_once != 0, 0L);
 #line 325
     return (2);
   } else {
@@ -32229,13 +32229,13 @@ static enum print_line_t ftrace_raw_output_iwlwifi_dev_hcmd(struct trace_iterato
 #line 349
     __ret_warn_once = 1;
 #line 349
-    tmp___1 = __builtin_expect(__ret_warn_once != 0, 0L);
+    tmp___1 = ldv__builtin_expect(__ret_warn_once != 0, 0L);
 #line 349
     if (tmp___1 != 0L) {
 #line 349
       __ret_warn_on = ! __warned;
 #line 349
-      tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+      tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 349
       if (tmp != 0L) {
 #line 349
@@ -32244,7 +32244,7 @@ static enum print_line_t ftrace_raw_output_iwlwifi_dev_hcmd(struct trace_iterato
 
       }
 #line 349
-      tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+      tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 349
       if (tmp___0 != 0L) {
 #line 349
@@ -32256,7 +32256,7 @@ static enum print_line_t ftrace_raw_output_iwlwifi_dev_hcmd(struct trace_iterato
 
     }
 #line 349
-    __builtin_expect(__ret_warn_once != 0, 0L);
+    ldv__builtin_expect(__ret_warn_once != 0, 0L);
 #line 349
     return (2);
   } else {
@@ -32329,13 +32329,13 @@ static enum print_line_t ftrace_raw_output_iwlwifi_dev_rx(struct trace_iterator 
 #line 381
     __ret_warn_once = 1;
 #line 381
-    tmp___1 = __builtin_expect(__ret_warn_once != 0, 0L);
+    tmp___1 = ldv__builtin_expect(__ret_warn_once != 0, 0L);
 #line 381
     if (tmp___1 != 0L) {
 #line 381
       __ret_warn_on = ! __warned;
 #line 381
-      tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+      tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 381
       if (tmp != 0L) {
 #line 381
@@ -32344,7 +32344,7 @@ static enum print_line_t ftrace_raw_output_iwlwifi_dev_rx(struct trace_iterator 
 
       }
 #line 381
-      tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+      tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 381
       if (tmp___0 != 0L) {
 #line 381
@@ -32356,7 +32356,7 @@ static enum print_line_t ftrace_raw_output_iwlwifi_dev_rx(struct trace_iterator 
 
     }
 #line 381
-    __builtin_expect(__ret_warn_once != 0, 0L);
+    ldv__builtin_expect(__ret_warn_once != 0, 0L);
 #line 381
     return (2);
   } else {
@@ -32420,13 +32420,13 @@ static enum print_line_t ftrace_raw_output_iwlwifi_dev_tx(struct trace_iterator 
 #line 398
     __ret_warn_once = 1;
 #line 398
-    tmp___1 = __builtin_expect(__ret_warn_once != 0, 0L);
+    tmp___1 = ldv__builtin_expect(__ret_warn_once != 0, 0L);
 #line 398
     if (tmp___1 != 0L) {
 #line 398
       __ret_warn_on = ! __warned;
 #line 398
-      tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+      tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 398
       if (tmp != 0L) {
 #line 398
@@ -32435,7 +32435,7 @@ static enum print_line_t ftrace_raw_output_iwlwifi_dev_tx(struct trace_iterator 
 
       }
 #line 398
-      tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+      tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 398
       if (tmp___0 != 0L) {
 #line 398
@@ -32447,7 +32447,7 @@ static enum print_line_t ftrace_raw_output_iwlwifi_dev_tx(struct trace_iterator 
 
     }
 #line 398
-    __builtin_expect(__ret_warn_once != 0, 0L);
+    ldv__builtin_expect(__ret_warn_once != 0, 0L);
 #line 398
     return (2);
   } else {
@@ -32512,13 +32512,13 @@ static enum print_line_t ftrace_raw_output_iwlwifi_dev_ucode_error(struct trace_
 #line 431
     __ret_warn_once = 1;
 #line 431
-    tmp___1 = __builtin_expect(__ret_warn_once != 0, 0L);
+    tmp___1 = ldv__builtin_expect(__ret_warn_once != 0, 0L);
 #line 431
     if (tmp___1 != 0L) {
 #line 431
       __ret_warn_on = ! __warned;
 #line 431
-      tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+      tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 431
       if (tmp != 0L) {
 #line 431
@@ -32527,7 +32527,7 @@ static enum print_line_t ftrace_raw_output_iwlwifi_dev_ucode_error(struct trace_
 
       }
 #line 431
-      tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+      tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 431
       if (tmp___0 != 0L) {
 #line 431
@@ -32539,7 +32539,7 @@ static enum print_line_t ftrace_raw_output_iwlwifi_dev_ucode_error(struct trace_
 
     }
 #line 431
-    __builtin_expect(__ret_warn_once != 0, 0L);
+    ldv__builtin_expect(__ret_warn_once != 0, 0L);
 #line 431
     return (2);
   } else {
@@ -32607,13 +32607,13 @@ static enum print_line_t ftrace_raw_output_iwlwifi_dev_ucode_event(struct trace_
 #line 491
     __ret_warn_once = 1;
 #line 491
-    tmp___1 = __builtin_expect(__ret_warn_once != 0, 0L);
+    tmp___1 = ldv__builtin_expect(__ret_warn_once != 0, 0L);
 #line 491
     if (tmp___1 != 0L) {
 #line 491
       __ret_warn_on = ! __warned;
 #line 491
-      tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+      tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 491
       if (tmp != 0L) {
 #line 491
@@ -32622,7 +32622,7 @@ static enum print_line_t ftrace_raw_output_iwlwifi_dev_ucode_event(struct trace_
 
       }
 #line 491
-      tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+      tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 491
       if (tmp___0 != 0L) {
 #line 491
@@ -32634,7 +32634,7 @@ static enum print_line_t ftrace_raw_output_iwlwifi_dev_ucode_event(struct trace_
 
     }
 #line 491
-    __builtin_expect(__ret_warn_once != 0, 0L);
+    ldv__builtin_expect(__ret_warn_once != 0, 0L);
 #line 491
     return (2);
   } else {
@@ -36957,7 +36957,7 @@ __inline static void ldv_error(void)
 #line 25
 extern int __VERIFIER_nondet_int(void) ;
 #line 49 "/home/ldvuser/ldv_envgen2/kernel-rules/verifier/rcv.h"
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
   {

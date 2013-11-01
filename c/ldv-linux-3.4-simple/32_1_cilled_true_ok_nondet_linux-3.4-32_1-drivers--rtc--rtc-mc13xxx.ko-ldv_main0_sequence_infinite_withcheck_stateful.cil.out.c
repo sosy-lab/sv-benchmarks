@@ -2211,7 +2211,7 @@ struct mc13xxx_rtc {
    int valid ;
 };
 #line 1 "<compiler builtins>"
-long __builtin_expect(long val , long res ) ;
+long ldv__builtin_expect(long val , long res ) ;
 #line 49 "include/linux/dynamic_debug.h"
 extern int ( /* format attribute */  __dynamic_dev_dbg)(struct _ddebug *descriptor ,
                                                         struct device  const  *dev ,
@@ -2251,7 +2251,7 @@ __inline static long __attribute__((__warn_unused_result__))  IS_ERR(void const 
 #line 34
   __cil_tmp7 = (long )__cil_tmp6;
 #line 34
-  tmp = __builtin_expect(__cil_tmp7, 0L);
+  tmp = ldv__builtin_expect(__cil_tmp7, 0L);
   }
 #line 34
   return (tmp);
@@ -2623,7 +2623,7 @@ static int mc13xxx_rtc_read_time(struct device *dev , struct rtc_time *tm )
 #line 76
   __cil_tmp25 = (long )__cil_tmp24;
 #line 76
-  tmp___0 = __builtin_expect(__cil_tmp25, 0L);
+  tmp___0 = ldv__builtin_expect(__cil_tmp25, 0L);
   }
 #line 76
   if (tmp___0) {
@@ -2648,7 +2648,7 @@ static int mc13xxx_rtc_read_time(struct device *dev , struct rtc_time *tm )
 #line 80
   __cil_tmp31 = (long )__cil_tmp30;
 #line 80
-  tmp___1 = __builtin_expect(__cil_tmp31, 0L);
+  tmp___1 = ldv__builtin_expect(__cil_tmp31, 0L);
   }
 #line 80
   if (tmp___1) {
@@ -2884,7 +2884,7 @@ static int mc13xxx_rtc_set_mmss(struct device *dev , unsigned long secs )
 #line 124
   __cil_tmp27 = (long )__cil_tmp26;
 #line 124
-  tmp___0 = __builtin_expect(__cil_tmp27, 0L);
+  tmp___0 = ldv__builtin_expect(__cil_tmp27, 0L);
   }
 #line 124
   if (tmp___0) {
@@ -2918,7 +2918,7 @@ static int mc13xxx_rtc_set_mmss(struct device *dev , unsigned long secs )
 #line 130
     __cil_tmp36 = (long )__cil_tmp35;
 #line 130
-    tmp___1 = __builtin_expect(__cil_tmp36, 0L);
+    tmp___1 = ldv__builtin_expect(__cil_tmp36, 0L);
     }
 #line 130
     if (tmp___1) {
@@ -2949,7 +2949,7 @@ static int mc13xxx_rtc_set_mmss(struct device *dev , unsigned long secs )
 #line 139
   __cil_tmp43 = (long )__cil_tmp42;
 #line 139
-  tmp___2 = __builtin_expect(__cil_tmp43, 0L);
+  tmp___2 = ldv__builtin_expect(__cil_tmp43, 0L);
   }
 #line 139
   if (tmp___2) {
@@ -2974,7 +2974,7 @@ static int mc13xxx_rtc_set_mmss(struct device *dev , unsigned long secs )
 #line 143
   __cil_tmp49 = (long )__cil_tmp48;
 #line 143
-  tmp___3 = __builtin_expect(__cil_tmp49, 0L);
+  tmp___3 = ldv__builtin_expect(__cil_tmp49, 0L);
   }
 #line 143
   if (tmp___3) {
@@ -2999,7 +2999,7 @@ static int mc13xxx_rtc_set_mmss(struct device *dev , unsigned long secs )
 #line 147
   __cil_tmp55 = (long )__cil_tmp54;
 #line 147
-  tmp___4 = __builtin_expect(__cil_tmp55, 0L);
+  tmp___4 = ldv__builtin_expect(__cil_tmp55, 0L);
   }
 #line 147
   if (tmp___4) {
@@ -3035,7 +3035,7 @@ static int mc13xxx_rtc_set_mmss(struct device *dev , unsigned long secs )
 #line 154
     __cil_tmp65 = (long )__cil_tmp64;
 #line 154
-    tmp___5 = __builtin_expect(__cil_tmp65, 0L);
+    tmp___5 = ldv__builtin_expect(__cil_tmp65, 0L);
     }
 #line 154
     if (tmp___5) {
@@ -3064,7 +3064,7 @@ static int mc13xxx_rtc_set_mmss(struct device *dev , unsigned long secs )
 #line 159
   __cil_tmp71 = (long )__cil_tmp70;
 #line 159
-  tmp___6 = __builtin_expect(__cil_tmp71, 0L);
+  tmp___6 = ldv__builtin_expect(__cil_tmp71, 0L);
   }
 #line 159
   if (tmp___6) {
@@ -3201,7 +3201,7 @@ static int mc13xxx_rtc_read_alarm(struct device *dev , struct rtc_wkalrm *alarm 
 #line 182
   __cil_tmp23 = (long )__cil_tmp22;
 #line 182
-  tmp___0 = __builtin_expect(__cil_tmp23, 0L);
+  tmp___0 = ldv__builtin_expect(__cil_tmp23, 0L);
   }
 #line 182
   if (tmp___0) {
@@ -3241,7 +3241,7 @@ static int mc13xxx_rtc_read_alarm(struct device *dev , struct rtc_wkalrm *alarm 
 #line 190
   __cil_tmp31 = (long )__cil_tmp30;
 #line 190
-  tmp___1 = __builtin_expect(__cil_tmp31, 0L);
+  tmp___1 = ldv__builtin_expect(__cil_tmp31, 0L);
   }
 #line 190
   if (tmp___1) {
@@ -3340,7 +3340,7 @@ static int mc13xxx_rtc_read_alarm(struct device *dev , struct rtc_wkalrm *alarm 
 #line 208
       __cil_tmp58 = (long )__cil_tmp57;
 #line 208
-      tmp___2 = __builtin_expect(__cil_tmp58, 0L);
+      tmp___2 = ldv__builtin_expect(__cil_tmp58, 0L);
       }
 #line 208
       if (tmp___2) {
@@ -3478,7 +3478,7 @@ static int mc13xxx_rtc_set_alarm(struct device *dev , struct rtc_wkalrm *alarm )
 #line 224
   __cil_tmp26 = (long )__cil_tmp25;
 #line 224
-  tmp___0 = __builtin_expect(__cil_tmp26, 0L);
+  tmp___0 = ldv__builtin_expect(__cil_tmp26, 0L);
   }
 #line 224
   if (tmp___0) {
@@ -3503,7 +3503,7 @@ static int mc13xxx_rtc_set_alarm(struct device *dev , struct rtc_wkalrm *alarm )
 #line 228
   __cil_tmp32 = (long )__cil_tmp31;
 #line 228
-  tmp___1 = __builtin_expect(__cil_tmp32, 0L);
+  tmp___1 = ldv__builtin_expect(__cil_tmp32, 0L);
   }
 #line 228
   if (tmp___1) {
@@ -3528,7 +3528,7 @@ static int mc13xxx_rtc_set_alarm(struct device *dev , struct rtc_wkalrm *alarm )
 #line 232
   __cil_tmp38 = (long )__cil_tmp37;
 #line 232
-  tmp___2 = __builtin_expect(__cil_tmp38, 0L);
+  tmp___2 = ldv__builtin_expect(__cil_tmp38, 0L);
   }
 #line 232
   if (tmp___2) {
@@ -3559,7 +3559,7 @@ static int mc13xxx_rtc_set_alarm(struct device *dev , struct rtc_wkalrm *alarm )
 #line 235
       __cil_tmp44 = (long )__cil_tmp43;
 #line 235
-      tmp___4 = __builtin_expect(__cil_tmp44, 0L);
+      tmp___4 = ldv__builtin_expect(__cil_tmp44, 0L);
       }
 #line 235
       if (tmp___4) {
@@ -3609,7 +3609,7 @@ static int mc13xxx_rtc_set_alarm(struct device *dev , struct rtc_wkalrm *alarm )
 #line 240
   __cil_tmp52 = (long )__cil_tmp51;
 #line 240
-  tmp___5 = __builtin_expect(__cil_tmp52, 0L);
+  tmp___5 = ldv__builtin_expect(__cil_tmp52, 0L);
   }
 #line 240
   if (tmp___5) {
@@ -3650,7 +3650,7 @@ static int mc13xxx_rtc_set_alarm(struct device *dev , struct rtc_wkalrm *alarm )
 #line 247
   __cil_tmp64 = (long )__cil_tmp63;
 #line 247
-  tmp___6 = __builtin_expect(__cil_tmp64, 0L);
+  tmp___6 = ldv__builtin_expect(__cil_tmp64, 0L);
   }
 #line 247
   if (tmp___6) {
@@ -3739,7 +3739,7 @@ static irqreturn_t mc13xxx_rtc_alarm_handler(int irq , void *dev )
 #line 263
       __cil_tmp13 = (long )__cil_tmp12;
 #line 263
-      tmp = __builtin_expect(__cil_tmp13, 0L);
+      tmp = ldv__builtin_expect(__cil_tmp13, 0L);
       }
 #line 263
       if (tmp) {
@@ -3833,7 +3833,7 @@ static irqreturn_t mc13xxx_rtc_update_handler(int irq , void *dev )
 #line 277
       __cil_tmp13 = (long )__cil_tmp12;
 #line 277
-      tmp = __builtin_expect(__cil_tmp13, 0L);
+      tmp = ldv__builtin_expect(__cil_tmp13, 0L);
       }
 #line 277
       if (tmp) {
@@ -3950,7 +3950,7 @@ static irqreturn_t mc13xxx_rtc_reset_handler(int irq , void *dev )
 #line 305
       __cil_tmp13 = (long )__cil_tmp12;
 #line 305
-      tmp = __builtin_expect(__cil_tmp13, 0L);
+      tmp = ldv__builtin_expect(__cil_tmp13, 0L);
       }
 #line 305
       if (tmp) {
@@ -4827,7 +4827,7 @@ void ldv_check_final_state(void)
 }
 }
 #line 813 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/6246/dscv_tempdir/dscv/ri/32_1/drivers/rtc/rtc-mc13xxx.c.common.c"
-long __builtin_expect(long val , long res ) 
+long ldv__builtin_expect(long val , long res ) 
 { 
 
   {

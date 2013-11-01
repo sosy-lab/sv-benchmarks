@@ -3796,7 +3796,7 @@ struct ioapic {
    u32 gsi_base ;
 };
 #line 1 "<compiler builtins>"
-long __builtin_expect(long val , long res ) ;
+long ldv__builtin_expect(long val , long res ) ;
 #line 152 "include/linux/mutex.h"
 void mutex_lock(struct mutex *lock ) ;
 #line 153
@@ -4601,7 +4601,7 @@ void ldv_check_final_state(void)
 }
 }
 #line 255 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/17434/dscv_tempdir/dscv/ri/32_1/drivers/pci/ioapic.c.common.c"
-long __builtin_expect(long val , long res ) 
+long ldv__builtin_expect(long val , long res ) 
 { 
 
   {

@@ -6665,7 +6665,7 @@ struct ff_device {
 #line 1 "<compiler builtins>"
 void *__builtin_memcpy(void * , void const   * , unsigned long  ) ;
 #line 1
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 #line 324 "/work/ldvuser/zakharov_benchmarks/bench/cpa/inst/current/envs/linux-3.8-rc1/linux-3.8-rc1/arch/x86/include/asm/bitops.h"
 __inline static int variable_test_bit(int nr , unsigned long const volatile   *addr ) 
 { int oldbit ;
@@ -7231,7 +7231,7 @@ static int avc_write(struct firedtv *fdtv )
   goto ldv_40596;
   ldv_40595: 
 #line 296
-  tmp = __builtin_expect(avc_debug != 0, 0L);
+  tmp = ldv__builtin_expect(avc_debug != 0, 0L);
 #line 296
   if (tmp != 0L) {
 #line 297
@@ -7342,7 +7342,7 @@ int avc_recv(struct firedtv *fdtv , void *data , size_t length )
 #line 332
   r = (struct avc_response_frame *)data;
 #line 334
-  tmp = __builtin_expect(avc_debug != 0, 0L);
+  tmp = ldv__builtin_expect(avc_debug != 0, 0L);
 #line 334
   if (tmp != 0L) {
 #line 335
@@ -8960,7 +8960,7 @@ int avc_ca_pmt(struct firedtv *fdtv , char *msg , int length )
 #line 1151
   r = (struct avc_response_frame *)(& fdtv->avc_data);
 #line 1161
-  tmp = __builtin_expect((avc_debug & 16384) != 0, 0L);
+  tmp = ldv__builtin_expect((avc_debug & 16384) != 0, 0L);
 #line 1161
   if (tmp != 0L) {
 #line 1162
@@ -12000,7 +12000,7 @@ __inline static long IS_ERR(void const   *ptr )
 
   {
 #line 34
-  tmp = __builtin_expect((unsigned long )ptr > 0xfffffffffffff000UL, 0L);
+  tmp = ldv__builtin_expect((unsigned long )ptr > 0xfffffffffffff000UL, 0L);
 #line 34
   return (tmp);
 }
@@ -12333,7 +12333,7 @@ static void handle_iso(struct fw_iso_context *context , u32 cycle , size_t heade
 #line 163
   length = (int )(tmp >> 16);
 #line 164
-  tmp___0 = __builtin_expect(length > 1024, 0L);
+  tmp___0 = ldv__builtin_expect(length > 1024, 0L);
 #line 164
   if (tmp___0 != 0L) {
 #line 165
@@ -12369,7 +12369,7 @@ static void handle_iso(struct fw_iso_context *context , u32 cycle , size_t heade
 #line 177
   err = queue_iso(ctx, i);
 #line 178
-  tmp___1 = __builtin_expect(err != 0, 0L);
+  tmp___1 = ldv__builtin_expect(err != 0, 0L);
 #line 178
   if (tmp___1 != 0L) {
 #line 179
@@ -13592,7 +13592,7 @@ __inline static void ldv_error(void)
 #line 25
 extern int __VERIFIER_nondet_int(void) ;
 #line 49 "/home/ldvuser/ldv_envgen2/kernel-rules/verifier/rcv.h"
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
   {

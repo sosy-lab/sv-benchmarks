@@ -2486,7 +2486,7 @@ struct w83792d_data {
 #line 5844 "/work/ldvuser/zakharov_benchmarks/bench/cpa/work/current--X--drivers/hwmon/w83792d.ko--X--x1linux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/32_7a/drivers/hwmon/w83792d.c.prepared"
 typedef int ldv_func_ret_type___2;
 #line 1 "<compiler builtins>"
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 #line 53 "include/linux/dynamic_debug.h"
 extern int __dynamic_dev_dbg(struct _ddebug * , struct device  const  * , char const   * 
                              , ...) ;
@@ -2535,7 +2535,7 @@ __inline static long IS_ERR(void const   *ptr )
 
   {
 #line 34
-  tmp = __builtin_expect((unsigned long )ptr > 0xfffffffffffff000UL, 0L);
+  tmp = ldv__builtin_expect((unsigned long )ptr > 0xfffffffffffff000UL, 0L);
 #line 34
   return (tmp);
 }
@@ -5793,7 +5793,7 @@ static struct w83792d_data *w83792d_update_device(struct device *dev )
 #line 1675
     descriptor.flags = 1U;
 #line 1675
-    tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1675
     if (tmp___0 != 0L) {
 #line 1675
@@ -6157,7 +6157,7 @@ static void w83792d_print_debug(struct w83792d_data *data , struct device *dev )
 #line 1791
   descriptor.flags = 1U;
 #line 1791
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1791
   if (tmp != 0L) {
 #line 1791
@@ -6178,7 +6178,7 @@ static void w83792d_print_debug(struct w83792d_data *data , struct device *dev )
 #line 1792
   descriptor___0.flags = 1U;
 #line 1792
-  tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 1792
   if (tmp___0 != 0L) {
 #line 1792
@@ -6204,7 +6204,7 @@ static void w83792d_print_debug(struct w83792d_data *data , struct device *dev )
 #line 1794
   descriptor___1.flags = 1U;
 #line 1794
-  tmp___1 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 1794
   if (tmp___1 != 0L) {
 #line 1794
@@ -6226,7 +6226,7 @@ static void w83792d_print_debug(struct w83792d_data *data , struct device *dev )
 #line 1795
   descriptor___2.flags = 1U;
 #line 1795
-  tmp___2 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+  tmp___2 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
 #line 1795
   if (tmp___2 != 0L) {
 #line 1795
@@ -6248,7 +6248,7 @@ static void w83792d_print_debug(struct w83792d_data *data , struct device *dev )
 #line 1796
   descriptor___3.flags = 1U;
 #line 1796
-  tmp___3 = __builtin_expect((long )descriptor___3.flags & 1L, 0L);
+  tmp___3 = ldv__builtin_expect((long )descriptor___3.flags & 1L, 0L);
 #line 1796
   if (tmp___3 != 0L) {
 #line 1796
@@ -6282,7 +6282,7 @@ static void w83792d_print_debug(struct w83792d_data *data , struct device *dev )
 #line 1798
   descriptor___4.flags = 1U;
 #line 1798
-  tmp___4 = __builtin_expect((long )descriptor___4.flags & 1L, 0L);
+  tmp___4 = ldv__builtin_expect((long )descriptor___4.flags & 1L, 0L);
 #line 1798
   if (tmp___4 != 0L) {
 #line 1798
@@ -6304,7 +6304,7 @@ static void w83792d_print_debug(struct w83792d_data *data , struct device *dev )
 #line 1799
   descriptor___5.flags = 1U;
 #line 1799
-  tmp___5 = __builtin_expect((long )descriptor___5.flags & 1L, 0L);
+  tmp___5 = ldv__builtin_expect((long )descriptor___5.flags & 1L, 0L);
 #line 1799
   if (tmp___5 != 0L) {
 #line 1799
@@ -6326,7 +6326,7 @@ static void w83792d_print_debug(struct w83792d_data *data , struct device *dev )
 #line 1800
   descriptor___6.flags = 1U;
 #line 1800
-  tmp___6 = __builtin_expect((long )descriptor___6.flags & 1L, 0L);
+  tmp___6 = ldv__builtin_expect((long )descriptor___6.flags & 1L, 0L);
 #line 1800
   if (tmp___6 != 0L) {
 #line 1800
@@ -6352,7 +6352,7 @@ static void w83792d_print_debug(struct w83792d_data *data , struct device *dev )
 #line 1802
   descriptor___7.flags = 1U;
 #line 1802
-  tmp___7 = __builtin_expect((long )descriptor___7.flags & 1L, 0L);
+  tmp___7 = ldv__builtin_expect((long )descriptor___7.flags & 1L, 0L);
 #line 1802
   if (tmp___7 != 0L) {
 #line 1802
@@ -6374,7 +6374,7 @@ static void w83792d_print_debug(struct w83792d_data *data , struct device *dev )
 #line 1803
   descriptor___8.flags = 1U;
 #line 1803
-  tmp___8 = __builtin_expect((long )descriptor___8.flags & 1L, 0L);
+  tmp___8 = ldv__builtin_expect((long )descriptor___8.flags & 1L, 0L);
 #line 1803
   if (tmp___8 != 0L) {
 #line 1803
@@ -6396,7 +6396,7 @@ static void w83792d_print_debug(struct w83792d_data *data , struct device *dev )
 #line 1804
   descriptor___9.flags = 1U;
 #line 1804
-  tmp___9 = __builtin_expect((long )descriptor___9.flags & 1L, 0L);
+  tmp___9 = ldv__builtin_expect((long )descriptor___9.flags & 1L, 0L);
 #line 1804
   if (tmp___9 != 0L) {
 #line 1804
@@ -6430,7 +6430,7 @@ static void w83792d_print_debug(struct w83792d_data *data , struct device *dev )
 #line 1806
   descriptor___10.flags = 1U;
 #line 1806
-  tmp___10 = __builtin_expect((long )descriptor___10.flags & 1L, 0L);
+  tmp___10 = ldv__builtin_expect((long )descriptor___10.flags & 1L, 0L);
 #line 1806
   if (tmp___10 != 0L) {
 #line 1806
@@ -6456,7 +6456,7 @@ static void w83792d_print_debug(struct w83792d_data *data , struct device *dev )
 #line 1808
   descriptor___11.flags = 1U;
 #line 1808
-  tmp___11 = __builtin_expect((long )descriptor___11.flags & 1L, 0L);
+  tmp___11 = ldv__builtin_expect((long )descriptor___11.flags & 1L, 0L);
 #line 1808
   if (tmp___11 != 0L) {
 #line 1808
@@ -6500,7 +6500,7 @@ static void w83792d_print_debug(struct w83792d_data *data , struct device *dev )
 #line 1812
   descriptor___12.flags = 1U;
 #line 1812
-  tmp___12 = __builtin_expect((long )descriptor___12.flags & 1L, 0L);
+  tmp___12 = ldv__builtin_expect((long )descriptor___12.flags & 1L, 0L);
 #line 1812
   if (tmp___12 != 0L) {
 #line 1812
@@ -6551,7 +6551,7 @@ static void w83792d_print_debug(struct w83792d_data *data , struct device *dev )
 #line 1818
   descriptor___13.flags = 1U;
 #line 1818
-  tmp___13 = __builtin_expect((long )descriptor___13.flags & 1L, 0L);
+  tmp___13 = ldv__builtin_expect((long )descriptor___13.flags & 1L, 0L);
 #line 1818
   if (tmp___13 != 0L) {
 #line 1818
@@ -6585,7 +6585,7 @@ static void w83792d_print_debug(struct w83792d_data *data , struct device *dev )
 #line 1820
   descriptor___14.flags = 1U;
 #line 1820
-  tmp___14 = __builtin_expect((long )descriptor___14.flags & 1L, 0L);
+  tmp___14 = ldv__builtin_expect((long )descriptor___14.flags & 1L, 0L);
 #line 1820
   if (tmp___14 != 0L) {
 #line 1820
@@ -6606,7 +6606,7 @@ static void w83792d_print_debug(struct w83792d_data *data , struct device *dev )
 #line 1821
   descriptor___15.flags = 1U;
 #line 1821
-  tmp___15 = __builtin_expect((long )descriptor___15.flags & 1L, 0L);
+  tmp___15 = ldv__builtin_expect((long )descriptor___15.flags & 1L, 0L);
 #line 1821
   if (tmp___15 != 0L) {
 #line 1821
@@ -13227,7 +13227,7 @@ __inline static void ldv_error(void)
 #line 25
 extern int __VERIFIER_nondet_int(void) ;
 #line 49 "/home/ldvuser/ldv_envgen2/kernel-rules/verifier/rcv.h"
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
   {

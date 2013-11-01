@@ -4414,7 +4414,7 @@ struct fsck_data {
    struct rb_root inodes ;
 };
 #line 1 "<compiler builtins>"
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 #line 318 "/home/mikhail/launches/cpachecker-regression/launcher-working-dir/ldv-manager-work-dir/inst/current/envs/linux-3.8-rc1/linux-3.8-rc1/arch/x86/include/asm/bitops.h"
 __inline static int constant_test_bit(unsigned int nr , unsigned long const volatile   *addr ) 
 { 
@@ -4747,7 +4747,7 @@ static int shrink_tnc(struct ubifs_info *c , int nr , int age , int *contention 
 #line 195
   tmp___1 = mutex_is_locked(& c->umount_mutex);
 #line 195
-  tmp___2 = __builtin_expect(tmp___1 == 0, 0L);
+  tmp___2 = ldv__builtin_expect(tmp___1 == 0, 0L);
 #line 195
   if (tmp___2 != 0L) {
 #line 195
@@ -4762,7 +4762,7 @@ static int shrink_tnc(struct ubifs_info *c , int nr , int age , int *contention 
 #line 196
   tmp___4 = mutex_is_locked(& c->tnc_mutex);
 #line 196
-  tmp___5 = __builtin_expect(tmp___4 == 0, 0L);
+  tmp___5 = ldv__builtin_expect(tmp___4 == 0, 0L);
 #line 196
   if (tmp___5 != 0L) {
 #line 196
@@ -4830,7 +4830,7 @@ static int shrink_tnc(struct ubifs_info *c , int nr , int age , int *contention 
 #line 250
         tmp___9 = atomic_long_read(& c->clean_zn_cnt);
 #line 250
-        tmp___10 = __builtin_expect(tmp___9 < 0L, 0L);
+        tmp___10 = ldv__builtin_expect(tmp___9 < 0L, 0L);
 #line 250
         if (tmp___10 != 0L) {
 #line 250
@@ -4855,7 +4855,7 @@ static int shrink_tnc(struct ubifs_info *c , int nr , int age , int *contention 
     }
   }
 #line 255
-  tmp___12 = __builtin_expect((unsigned long )c->zroot.ldv_26076.znode == (unsigned long )((struct ubifs_znode *)0),
+  tmp___12 = ldv__builtin_expect((unsigned long )c->zroot.ldv_26076.znode == (unsigned long )((struct ubifs_znode *)0),
                               0L);
 #line 255
   if (tmp___12 != 0L) {
@@ -5169,7 +5169,7 @@ int ubifs_shrinker(struct shrinker *shrink , struct shrink_control *sc )
 #line 420
     descriptor.flags = 0U;
 #line 420
-    tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 420
     if (tmp___1 != 0L) {
 #line 420
@@ -5209,7 +5209,7 @@ int ubifs_shrinker(struct shrinker *shrink , struct shrink_control *sc )
 #line 428
   descriptor___0.flags = 0U;
 #line 428
-  tmp___4 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___4 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 428
   if (tmp___4 != 0L) {
 #line 428
@@ -5244,7 +5244,7 @@ int ubifs_shrinker(struct shrinker *shrink , struct shrink_control *sc )
 #line 433
   descriptor___1.flags = 0U;
 #line 433
-  tmp___7 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+  tmp___7 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 433
   if (tmp___7 != 0L) {
 #line 433
@@ -5274,7 +5274,7 @@ int ubifs_shrinker(struct shrinker *shrink , struct shrink_control *sc )
 #line 437
     descriptor___2.flags = 0U;
 #line 437
-    tmp___10 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+    tmp___10 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
 #line 437
     if (tmp___10 != 0L) {
 #line 437
@@ -5304,7 +5304,7 @@ int ubifs_shrinker(struct shrinker *shrink , struct shrink_control *sc )
 #line 442
   descriptor___3.flags = 0U;
 #line 442
-  tmp___12 = __builtin_expect((long )descriptor___3.flags & 1L, 0L);
+  tmp___12 = ldv__builtin_expect((long )descriptor___3.flags & 1L, 0L);
 #line 442
   if (tmp___12 != 0L) {
 #line 442
@@ -5925,7 +5925,7 @@ __inline static void dent_key_init(struct ubifs_info  const  *c , union ubifs_ke
 #line 156
   hash = tmp;
 #line 158
-  tmp___1 = __builtin_expect((hash & 3758096384U) != 0U, 0L);
+  tmp___1 = ldv__builtin_expect((hash & 3758096384U) != 0U, 0L);
 #line 158
   if (tmp___1 != 0L) {
 #line 158
@@ -5963,7 +5963,7 @@ __inline static void dent_key_init_flash(struct ubifs_info  const  *c , void *k 
 #line 191
   hash = tmp;
 #line 193
-  tmp___1 = __builtin_expect((hash & 3758096384U) != 0U, 0L);
+  tmp___1 = ldv__builtin_expect((hash & 3758096384U) != 0U, 0L);
 #line 193
   if (tmp___1 != 0L) {
 #line 193
@@ -6001,7 +6001,7 @@ __inline static void xent_key_init(struct ubifs_info  const  *c , union ubifs_ke
 #line 224
   hash = tmp;
 #line 226
-  tmp___1 = __builtin_expect((hash & 3758096384U) != 0U, 0L);
+  tmp___1 = ldv__builtin_expect((hash & 3758096384U) != 0U, 0L);
 #line 226
   if (tmp___1 != 0L) {
 #line 226
@@ -6030,7 +6030,7 @@ __inline static void data_key_init(struct ubifs_info  const  *c , union ubifs_ke
 
   {
 #line 275
-  tmp___0 = __builtin_expect((block & 3758096384U) != 0U, 0L);
+  tmp___0 = ldv__builtin_expect((block & 3758096384U) != 0U, 0L);
 #line 275
   if (tmp___0 != 0L) {
 #line 275
@@ -6190,7 +6190,7 @@ static int reserve_space(struct ubifs_info *c , int jhead , int len )
 #line 237
   wbuf = & (c->jheads + (unsigned long )jhead)->wbuf;
 #line 244
-  tmp___0 = __builtin_expect((long )*((unsigned char *)c + 4080UL) & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )*((unsigned char *)c + 4080UL) & 1L, 0L);
 #line 244
   if (tmp___0 != 0L) {
 #line 244
@@ -6201,7 +6201,7 @@ static int reserve_space(struct ubifs_info *c , int jhead , int len )
     dump_stack();
   } else {
 #line 244
-    tmp___1 = __builtin_expect((unsigned int )*((unsigned char *)c + 4080UL) != 0U,
+    tmp___1 = ldv__builtin_expect((unsigned int )*((unsigned char *)c + 4080UL) != 0U,
                                0L);
 #line 244
     if (tmp___1 != 0L) {
@@ -6270,7 +6270,7 @@ static int reserve_space(struct ubifs_info *c , int jhead , int len )
 #line 275
   descriptor.flags = 0U;
 #line 275
-  tmp___4 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___4 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 275
   if (tmp___4 != 0L) {
 #line 275
@@ -6311,7 +6311,7 @@ static int reserve_space(struct ubifs_info *c , int jhead , int len )
 #line 290
     descriptor___0.flags = 0U;
 #line 290
-    tmp___7 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___7 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 290
     if (tmp___7 != 0L) {
 #line 290
@@ -6343,7 +6343,7 @@ static int reserve_space(struct ubifs_info *c , int jhead , int len )
 #line 293
       descriptor___1.flags = 0U;
 #line 293
-      tmp___9 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+      tmp___9 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 293
       if (tmp___9 != 0L) {
 #line 293
@@ -6372,7 +6372,7 @@ static int reserve_space(struct ubifs_info *c , int jhead , int len )
 #line 297
     descriptor___2.flags = 0U;
 #line 297
-    tmp___12 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+    tmp___12 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
 #line 297
     if (tmp___12 != 0L) {
 #line 297
@@ -6403,7 +6403,7 @@ static int reserve_space(struct ubifs_info *c , int jhead , int len )
 #line 302
   descriptor___3.flags = 0U;
 #line 302
-  tmp___15 = __builtin_expect((long )descriptor___3.flags & 1L, 0L);
+  tmp___15 = ldv__builtin_expect((long )descriptor___3.flags & 1L, 0L);
 #line 302
   if (tmp___15 != 0L) {
 #line 302
@@ -6433,7 +6433,7 @@ static int reserve_space(struct ubifs_info *c , int jhead , int len )
 #line 311
     descriptor___4.flags = 0U;
 #line 311
-    tmp___17 = __builtin_expect((long )descriptor___4.flags & 1L, 0L);
+    tmp___17 = ldv__builtin_expect((long )descriptor___4.flags & 1L, 0L);
 #line 311
     if (tmp___17 != 0L) {
 #line 311
@@ -6497,7 +6497,7 @@ static int reserve_space(struct ubifs_info *c , int jhead , int len )
   return (err);
   out_return: 
 #line 348
-  tmp___19 = __builtin_expect(err >= 0, 0L);
+  tmp___19 = ldv__builtin_expect(err >= 0, 0L);
 #line 348
   if (tmp___19 != 0L) {
 #line 348
@@ -6541,7 +6541,7 @@ static int write_node(struct ubifs_info *c , int jhead , void *node , int len , 
 #line 377
   wbuf = & (c->jheads + (unsigned long )jhead)->wbuf;
 #line 379
-  tmp___0 = __builtin_expect(jhead == 0, 0L);
+  tmp___0 = ldv__builtin_expect(jhead == 0, 0L);
 #line 379
   if (tmp___0 != 0L) {
 #line 379
@@ -6570,7 +6570,7 @@ static int write_node(struct ubifs_info *c , int jhead , void *node , int len , 
 #line 384
   descriptor.flags = 0U;
 #line 384
-  tmp___3 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___3 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 384
   if (tmp___3 != 0L) {
 #line 384
@@ -6608,7 +6608,7 @@ static int write_head(struct ubifs_info *c , int jhead , void *buf , int len , i
 #line 409
   wbuf = & (c->jheads + (unsigned long )jhead)->wbuf;
 #line 411
-  tmp___0 = __builtin_expect(jhead == 0, 0L);
+  tmp___0 = ldv__builtin_expect(jhead == 0, 0L);
 #line 411
   if (tmp___0 != 0L) {
 #line 411
@@ -6637,7 +6637,7 @@ static int write_head(struct ubifs_info *c , int jhead , void *buf , int len , i
 #line 415
   descriptor.flags = 0U;
 #line 415
-  tmp___3 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___3 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 415
   if (tmp___3 != 0L) {
 #line 415
@@ -6727,7 +6727,7 @@ static int make_reservation(struct ubifs_info *c , int jhead , int len )
 #line 461
       descriptor.flags = 0U;
 #line 461
-      tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+      tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 461
       if (tmp___0 != 0L) {
 #line 461
@@ -6788,7 +6788,7 @@ static int make_reservation(struct ubifs_info *c , int jhead , int len )
 #line 492
   descriptor___0.flags = 0U;
 #line 492
-  tmp___5 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___5 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 492
   if (tmp___5 != 0L) {
 #line 492
@@ -7065,7 +7065,7 @@ int ubifs_jnl_update(struct ubifs_info *c , struct inode  const  *dir , struct q
 #line 673
   descriptor.flags = 0U;
 #line 673
-  tmp___2 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___2 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 673
   if (tmp___2 != 0L) {
 #line 673
@@ -7078,7 +7078,7 @@ int ubifs_jnl_update(struct ubifs_info *c , struct inode  const  *dir , struct q
 
   }
 #line 675
-  tmp___4 = __builtin_expect(dir_ui->data_len != 0, 0L);
+  tmp___4 = ldv__builtin_expect(dir_ui->data_len != 0, 0L);
 #line 675
   if (tmp___4 != 0L) {
 #line 675
@@ -7094,7 +7094,7 @@ int ubifs_jnl_update(struct ubifs_info *c , struct inode  const  *dir , struct q
 #line 676
   tmp___6 = mutex_is_locked(& dir_ui->ui_mutex);
 #line 676
-  tmp___7 = __builtin_expect(tmp___6 == 0, 0L);
+  tmp___7 = ldv__builtin_expect(tmp___6 == 0, 0L);
 #line 676
   if (tmp___7 != 0L) {
 #line 676
@@ -7373,7 +7373,7 @@ int ubifs_jnl_write_data(struct ubifs_info *c , struct inode  const  *inode , un
 #line 819
   descriptor.flags = 0U;
 #line 819
-  tmp___4 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___4 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 819
   if (tmp___4 != 0L) {
 #line 819
@@ -7392,7 +7392,7 @@ int ubifs_jnl_write_data(struct ubifs_info *c , struct inode  const  *inode , un
 
   }
 #line 821
-  tmp___6 = __builtin_expect(len > 4096, 0L);
+  tmp___6 = ldv__builtin_expect(len > 4096, 0L);
 #line 821
   if (tmp___6 != 0L) {
 #line 821
@@ -7441,7 +7441,7 @@ int ubifs_jnl_write_data(struct ubifs_info *c , struct inode  const  *inode , un
 #line 849
   ubifs_compress(buf, len, (void *)(& data->data), & out_len, & compr_type);
 #line 850
-  tmp___9 = __builtin_expect(out_len > 4096, 0L);
+  tmp___9 = ldv__builtin_expect(out_len > 4096, 0L);
 #line 850
   if (tmp___9 != 0L) {
 #line 850
@@ -7566,7 +7566,7 @@ int ubifs_jnl_write_inode(struct ubifs_info *c , struct inode  const  *inode )
 #line 906
   descriptor.flags = 0U;
 #line 906
-  tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 906
   if (tmp___1 != 0L) {
 #line 906
@@ -7698,7 +7698,7 @@ int ubifs_jnl_delete_inode(struct ubifs_info *c , struct inode  const  *inode )
 #line 998
   ui = tmp;
 #line 1000
-  tmp___1 = __builtin_expect((unsigned int )inode->ldv_13285.i_nlink != 0U, 0L);
+  tmp___1 = ldv__builtin_expect((unsigned int )inode->ldv_13285.i_nlink != 0U, 0L);
 #line 1000
   if (tmp___1 != 0L) {
 #line 1000
@@ -7829,7 +7829,7 @@ int ubifs_jnl_rename(struct ubifs_info *c , struct inode  const  *old_dir , stru
 #line 1055
   descriptor.flags = 0U;
 #line 1055
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1055
   if (tmp___0 != 0L) {
 #line 1055
@@ -7845,7 +7845,7 @@ int ubifs_jnl_rename(struct ubifs_info *c , struct inode  const  *old_dir , stru
 #line 1059
   tmp___2 = ubifs_inode(old_dir);
 #line 1059
-  tmp___3 = __builtin_expect(tmp___2->data_len != 0, 0L);
+  tmp___3 = ldv__builtin_expect(tmp___2->data_len != 0, 0L);
 #line 1059
   if (tmp___3 != 0L) {
 #line 1059
@@ -7861,7 +7861,7 @@ int ubifs_jnl_rename(struct ubifs_info *c , struct inode  const  *old_dir , stru
 #line 1060
   tmp___5 = ubifs_inode(new_dir);
 #line 1060
-  tmp___6 = __builtin_expect(tmp___5->data_len != 0, 0L);
+  tmp___6 = ldv__builtin_expect(tmp___5->data_len != 0, 0L);
 #line 1060
   if (tmp___6 != 0L) {
 #line 1060
@@ -7879,7 +7879,7 @@ int ubifs_jnl_rename(struct ubifs_info *c , struct inode  const  *old_dir , stru
 #line 1061
   tmp___9 = mutex_is_locked(& tmp___8->ui_mutex);
 #line 1061
-  tmp___10 = __builtin_expect(tmp___9 == 0, 0L);
+  tmp___10 = ldv__builtin_expect(tmp___9 == 0, 0L);
 #line 1061
   if (tmp___10 != 0L) {
 #line 1061
@@ -7897,7 +7897,7 @@ int ubifs_jnl_rename(struct ubifs_info *c , struct inode  const  *old_dir , stru
 #line 1062
   tmp___13 = mutex_is_locked(& tmp___12->ui_mutex);
 #line 1062
-  tmp___14 = __builtin_expect(tmp___13 == 0, 0L);
+  tmp___14 = ldv__builtin_expect(tmp___13 == 0, 0L);
 #line 1062
   if (tmp___14 != 0L) {
 #line 1062
@@ -7921,7 +7921,7 @@ int ubifs_jnl_rename(struct ubifs_info *c , struct inode  const  *old_dir , stru
 #line 1068
     tmp___16 = mutex_is_locked(& new_ui->ui_mutex);
 #line 1068
-    tmp___17 = __builtin_expect(tmp___16 == 0, 0L);
+    tmp___17 = ldv__builtin_expect(tmp___16 == 0, 0L);
 #line 1068
     if (tmp___17 != 0L) {
 #line 1068
@@ -8273,7 +8273,7 @@ static int recomp_data_node(struct ubifs_data_node *dn , int *new_len )
 #line 1236
   ubifs_compress((void const   *)buf, *new_len, (void *)(& dn->data), & out_len, & compr_type);
 #line 1237
-  tmp___0 = __builtin_expect(out_len > 4096, 0L);
+  tmp___0 = ldv__builtin_expect(out_len > 4096, 0L);
 #line 1237
   if (tmp___0 != 0L) {
 #line 1237
@@ -8362,7 +8362,7 @@ int ubifs_jnl_truncate(struct ubifs_info *c , struct inode  const  *inode , loff
 #line 1273
   descriptor.flags = 0U;
 #line 1273
-  tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1273
   if (tmp___1 != 0L) {
 #line 1273
@@ -8374,7 +8374,7 @@ int ubifs_jnl_truncate(struct ubifs_info *c , struct inode  const  *inode , loff
 
   }
 #line 1275
-  tmp___3 = __builtin_expect(ui->data_len != 0, 0L);
+  tmp___3 = ldv__builtin_expect(ui->data_len != 0, 0L);
 #line 1275
   if (tmp___3 != 0L) {
 #line 1275
@@ -8388,7 +8388,7 @@ int ubifs_jnl_truncate(struct ubifs_info *c , struct inode  const  *inode , loff
 
   }
 #line 1276
-  tmp___5 = __builtin_expect(((int )inode->i_mode & 61440) != 32768, 0L);
+  tmp___5 = ldv__builtin_expect(((int )inode->i_mode & 61440) != 32768, 0L);
 #line 1276
   if (tmp___5 != 0L) {
 #line 1276
@@ -8404,7 +8404,7 @@ int ubifs_jnl_truncate(struct ubifs_info *c , struct inode  const  *inode , loff
 #line 1277
   tmp___7 = mutex_is_locked(& ui->ui_mutex);
 #line 1277
-  tmp___8 = __builtin_expect(tmp___7 == 0, 0L);
+  tmp___8 = ldv__builtin_expect(tmp___7 == 0, 0L);
 #line 1277
   if (tmp___8 != 0L) {
 #line 1277
@@ -8465,7 +8465,7 @@ int ubifs_jnl_truncate(struct ubifs_info *c , struct inode  const  *inode , loff
 #line 1298
     descriptor___0.flags = 0U;
 #line 1298
-    tmp___12 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___12 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 1298
     if (tmp___12 != 0L) {
 #line 1298
@@ -8707,7 +8707,7 @@ int ubifs_jnl_delete_xattr(struct ubifs_info *c , struct inode  const  *host , s
 #line 1412
   descriptor.flags = 0U;
 #line 1412
-  tmp___2 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___2 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1412
   if (tmp___2 != 0L) {
 #line 1412
@@ -8721,7 +8721,7 @@ int ubifs_jnl_delete_xattr(struct ubifs_info *c , struct inode  const  *host , s
 
   }
 #line 1415
-  tmp___4 = __builtin_expect((unsigned int )inode->ldv_13285.i_nlink != 0U, 0L);
+  tmp___4 = ldv__builtin_expect((unsigned int )inode->ldv_13285.i_nlink != 0U, 0L);
 #line 1415
   if (tmp___4 != 0L) {
 #line 1415
@@ -8737,7 +8737,7 @@ int ubifs_jnl_delete_xattr(struct ubifs_info *c , struct inode  const  *host , s
 #line 1416
   tmp___6 = mutex_is_locked(& host_ui->ui_mutex);
 #line 1416
-  tmp___7 = __builtin_expect(tmp___6 == 0, 0L);
+  tmp___7 = ldv__builtin_expect(tmp___6 == 0, 0L);
 #line 1416
   if (tmp___7 != 0L) {
 #line 1416
@@ -8955,7 +8955,7 @@ int ubifs_jnl_change_xattr(struct ubifs_info *c , struct inode  const  *inode , 
 #line 1524
   descriptor.flags = 0U;
 #line 1524
-  tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1524
   if (tmp___1 != 0L) {
 #line 1524
@@ -8967,7 +8967,7 @@ int ubifs_jnl_change_xattr(struct ubifs_info *c , struct inode  const  *inode , 
 
   }
 #line 1525
-  tmp___3 = __builtin_expect((unsigned int )host->ldv_13285.i_nlink == 0U, 0L);
+  tmp___3 = ldv__builtin_expect((unsigned int )host->ldv_13285.i_nlink == 0U, 0L);
 #line 1525
   if (tmp___3 != 0L) {
 #line 1525
@@ -8981,7 +8981,7 @@ int ubifs_jnl_change_xattr(struct ubifs_info *c , struct inode  const  *inode , 
 
   }
 #line 1526
-  tmp___5 = __builtin_expect((unsigned int )inode->ldv_13285.i_nlink == 0U, 0L);
+  tmp___5 = ldv__builtin_expect((unsigned int )inode->ldv_13285.i_nlink == 0U, 0L);
 #line 1526
   if (tmp___5 != 0L) {
 #line 1526
@@ -8997,7 +8997,7 @@ int ubifs_jnl_change_xattr(struct ubifs_info *c , struct inode  const  *inode , 
 #line 1527
   tmp___7 = mutex_is_locked(& host_ui->ui_mutex);
 #line 1527
-  tmp___8 = __builtin_expect(tmp___7 == 0, 0L);
+  tmp___8 = ldv__builtin_expect(tmp___7 == 0, 0L);
 #line 1527
   if (tmp___8 != 0L) {
 #line 1527
@@ -9967,7 +9967,7 @@ __inline static int trylock_page(struct page *page )
 #line 342
   tmp = test_and_set_bit_lock(0, (unsigned long volatile   *)(& page->flags));
 #line 342
-  tmp___0 = __builtin_expect(tmp == 0, 1L);
+  tmp___0 = ldv__builtin_expect(tmp == 0, 1L);
 #line 342
   return ((int )tmp___0);
 }
@@ -10117,7 +10117,7 @@ static int read_block(struct inode *inode , void *addr , unsigned int block , st
 #line 194
   tmp___0 = ubifs_inode((struct inode  const  *)inode);
 #line 194
-  tmp___1 = __builtin_expect(dn->ch.sqnum <= tmp___0->creat_sqnum, 0L);
+  tmp___1 = ldv__builtin_expect(dn->ch.sqnum <= tmp___0->creat_sqnum, 0L);
 #line 194
   if (tmp___1 != 0L) {
 #line 194
@@ -10225,7 +10225,7 @@ static int do_readpage(struct page *page )
 #line 233
   descriptor.flags = 0U;
 #line 233
-  tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 233
   if (tmp___1 != 0L) {
 #line 233
@@ -10240,7 +10240,7 @@ static int do_readpage(struct page *page )
 #line 235
   tmp___3 = PageChecked((struct page  const  *)page);
 #line 235
-  tmp___4 = __builtin_expect(tmp___3 != 0, 0L);
+  tmp___4 = ldv__builtin_expect(tmp___3 != 0, 0L);
 #line 235
   if (tmp___4 != 0L) {
 #line 235
@@ -10255,7 +10255,7 @@ static int do_readpage(struct page *page )
 #line 236
   tmp___6 = PagePrivate((struct page  const  *)page);
 #line 236
-  tmp___7 = __builtin_expect(tmp___6 != 0, 0L);
+  tmp___7 = ldv__builtin_expect(tmp___6 != 0, 0L);
 #line 236
   if (tmp___7 != 0L) {
 #line 236
@@ -10373,7 +10373,7 @@ static int do_readpage(struct page *page )
 #line 286
       descriptor___0.flags = 0U;
 #line 286
-      tmp___10 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+      tmp___10 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 286
       if (tmp___10 != 0L) {
 #line 286
@@ -10572,7 +10572,7 @@ static int write_begin_slow(struct address_space *mapping , loff_t pos , unsigne
 #line 351
   descriptor.flags = 0U;
 #line 351
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 351
   if (tmp___0 != 0L) {
 #line 351
@@ -10593,7 +10593,7 @@ static int write_begin_slow(struct address_space *mapping , loff_t pos , unsigne
 #line 366
   err = ubifs_budget_space(c, & req);
 #line 367
-  tmp___1 = __builtin_expect(err != 0, 0L);
+  tmp___1 = ldv__builtin_expect(err != 0, 0L);
 #line 367
   if (tmp___1 != 0L) {
 #line 368
@@ -10604,7 +10604,7 @@ static int write_begin_slow(struct address_space *mapping , loff_t pos , unsigne
 #line 370
   page = grab_cache_page_write_begin(mapping, index, flags);
 #line 371
-  tmp___2 = __builtin_expect((unsigned long )page == (unsigned long )((struct page *)0),
+  tmp___2 = ldv__builtin_expect((unsigned long )page == (unsigned long )((struct page *)0),
                              0L);
 #line 371
   if (tmp___2 != 0L) {
@@ -10827,7 +10827,7 @@ static int ubifs_write_begin(struct file *file , struct address_space *mapping ,
 #line 555
   tmp___1 = ubifs_inode((struct inode  const  *)inode);
 #line 555
-  tmp___2 = __builtin_expect(tmp___1->ui_size != inode->i_size, 0L);
+  tmp___2 = ldv__builtin_expect(tmp___1->ui_size != inode->i_size, 0L);
 #line 555
   if (tmp___2 != 0L) {
 #line 555
@@ -10841,7 +10841,7 @@ static int ubifs_write_begin(struct file *file , struct address_space *mapping ,
 
   }
 #line 556
-  tmp___4 = __builtin_expect((long )*((unsigned char *)c + 4080UL) & 1L, 0L);
+  tmp___4 = ldv__builtin_expect((long )*((unsigned char *)c + 4080UL) & 1L, 0L);
 #line 556
   if (tmp___4 != 0L) {
 #line 556
@@ -10853,7 +10853,7 @@ static int ubifs_write_begin(struct file *file , struct address_space *mapping ,
     dump_stack();
   } else {
 #line 556
-    tmp___5 = __builtin_expect((unsigned int )*((unsigned char *)c + 4080UL) != 0U,
+    tmp___5 = ldv__builtin_expect((unsigned int )*((unsigned char *)c + 4080UL) != 0U,
                                0L);
 #line 556
     if (tmp___5 != 0L) {
@@ -10869,7 +10869,7 @@ static int ubifs_write_begin(struct file *file , struct address_space *mapping ,
     }
   }
 #line 558
-  tmp___6 = __builtin_expect((unsigned int )*((unsigned char *)c + 4080UL) != 0U,
+  tmp___6 = ldv__builtin_expect((unsigned int )*((unsigned char *)c + 4080UL) != 0U,
                              0L);
 #line 558
   if (tmp___6 != 0L) {
@@ -10881,7 +10881,7 @@ static int ubifs_write_begin(struct file *file , struct address_space *mapping ,
 #line 562
   page = grab_cache_page_write_begin(mapping, index, flags);
 #line 563
-  tmp___7 = __builtin_expect((unsigned long )page == (unsigned long )((struct page *)0),
+  tmp___7 = ldv__builtin_expect((unsigned long )page == (unsigned long )((struct page *)0),
                              0L);
 #line 563
   if (tmp___7 != 0L) {
@@ -10925,11 +10925,11 @@ static int ubifs_write_begin(struct file *file , struct address_space *mapping ,
 #line 593
   err = allocate_budget(c, page, ui, appending);
 #line 594
-  tmp___15 = __builtin_expect(err != 0, 0L);
+  tmp___15 = ldv__builtin_expect(err != 0, 0L);
 #line 594
   if (tmp___15 != 0L) {
 #line 595
-    tmp___10 = __builtin_expect(err != -28, 0L);
+    tmp___10 = ldv__builtin_expect(err != -28, 0L);
 #line 595
     if (tmp___10 != 0L) {
 #line 595
@@ -10956,7 +10956,7 @@ static int ubifs_write_begin(struct file *file , struct address_space *mapping ,
 #line 612
       tmp___12 = mutex_is_locked(& ui->ui_mutex);
 #line 612
-      tmp___13 = __builtin_expect(tmp___12 == 0, 0L);
+      tmp___13 = ldv__builtin_expect(tmp___12 == 0, 0L);
 #line 612
       if (tmp___13 != 0L) {
 #line 612
@@ -11085,7 +11085,7 @@ static int ubifs_write_end(struct file *file , struct address_space *mapping , l
 #line 668
   descriptor.flags = 0U;
 #line 668
-  tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 668
   if (tmp___1 != 0L) {
 #line 668
@@ -11098,11 +11098,11 @@ static int ubifs_write_end(struct file *file , struct address_space *mapping , l
 
   }
 #line 671
-  tmp___5 = __builtin_expect(copied < len, 0L);
+  tmp___5 = ldv__builtin_expect(copied < len, 0L);
 #line 671
   if (tmp___5 != 0L) {
 #line 671
-    tmp___6 = __builtin_expect(len == 4096U, 0L);
+    tmp___6 = ldv__builtin_expect(len == 4096U, 0L);
 #line 671
     if (tmp___6 != 0L) {
 #line 681
@@ -11118,7 +11118,7 @@ static int ubifs_write_end(struct file *file , struct address_space *mapping , l
 #line 681
       descriptor___0.flags = 0U;
 #line 681
-      tmp___3 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+      tmp___3 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 681
       if (tmp___3 != 0L) {
 #line 681
@@ -11169,7 +11169,7 @@ static int ubifs_write_end(struct file *file , struct address_space *mapping , l
 #line 709
     tmp___9 = mutex_is_locked(& ui->ui_mutex);
 #line 709
-    tmp___10 = __builtin_expect(tmp___9 == 0, 0L);
+    tmp___10 = ldv__builtin_expect(tmp___9 == 0, 0L);
 #line 709
     if (tmp___10 != 0L) {
 #line 709
@@ -11261,7 +11261,7 @@ static int populate_page(struct ubifs_info *c , struct page *page , struct bu_in
 #line 738
   descriptor.flags = 0U;
 #line 738
-  tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 738
   if (tmp___1 != 0L) {
 #line 738
@@ -11309,7 +11309,7 @@ static int populate_page(struct ubifs_info *c , struct page *page , struct bu_in
 #line 762
       tmp___3 = ubifs_inode((struct inode  const  *)inode);
 #line 762
-      tmp___4 = __builtin_expect(dn->ch.sqnum <= tmp___3->creat_sqnum, 0L);
+      tmp___4 = ldv__builtin_expect(dn->ch.sqnum <= tmp___3->creat_sqnum, 0L);
 #line 762
       if (tmp___4 != 0L) {
 #line 762
@@ -11422,7 +11422,7 @@ static int populate_page(struct ubifs_info *c , struct page *page , struct bu_in
 #line 804
     descriptor___0.flags = 0U;
 #line 804
-    tmp___8 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___8 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 804
     if (tmp___8 != 0L) {
 #line 804
@@ -11538,7 +11538,7 @@ static int ubifs_do_bulk_read(struct ubifs_info *c , struct bu_info *bu , struct
 #line 870
       bu->buf_len = (bu->zbranch[bu->cnt + -1].offs + bu->zbranch[bu->cnt + -1].len) - bu->zbranch[0].offs;
 #line 873
-      tmp___1 = __builtin_expect(bu->buf_len <= 0, 0L);
+      tmp___1 = ldv__builtin_expect(bu->buf_len <= 0, 0L);
 #line 873
       if (tmp___1 != 0L) {
 #line 873
@@ -11552,7 +11552,7 @@ static int ubifs_do_bulk_read(struct ubifs_info *c , struct bu_info *bu , struct
 
       }
 #line 874
-      tmp___3 = __builtin_expect(bu->buf_len > c->leb_size, 0L);
+      tmp___3 = ldv__builtin_expect(bu->buf_len > c->leb_size, 0L);
 #line 874
       if (tmp___3 != 0L) {
 #line 874
@@ -11945,7 +11945,7 @@ static int do_writepage(struct page *page , int len )
 #line 1055
   tmp___1 = PagePrivate((struct page  const  *)page);
 #line 1055
-  tmp___2 = __builtin_expect(tmp___1 == 0, 0L);
+  tmp___2 = ldv__builtin_expect(tmp___1 == 0, 0L);
 #line 1055
   if (tmp___2 != 0L) {
 #line 1055
@@ -12033,7 +12033,7 @@ static int ubifs_writepage(struct page *page , struct writeback_control *wbc )
 #line 1126
   descriptor.flags = 0U;
 #line 1126
-  tmp___2 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___2 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1126
   if (tmp___2 != 0L) {
 #line 1126
@@ -12048,7 +12048,7 @@ static int ubifs_writepage(struct page *page , struct writeback_control *wbc )
 #line 1128
   tmp___4 = PagePrivate((struct page  const  *)page);
 #line 1128
-  tmp___5 = __builtin_expect(tmp___4 == 0, 0L);
+  tmp___5 = ldv__builtin_expect(tmp___4 == 0, 0L);
 #line 1128
   if (tmp___5 != 0L) {
 #line 1128
@@ -12260,7 +12260,7 @@ static int do_truncation(struct ubifs_info *c , struct inode *inode , struct iat
 #line 1231
   descriptor.flags = 0U;
 #line 1231
-  tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1231
   if (tmp___1 != 0L) {
 #line 1231
@@ -12317,7 +12317,7 @@ static int do_truncation(struct ubifs_info *c , struct inode *inode , struct iat
 #line 1273
         tmp___3 = PagePrivate((struct page  const  *)page);
 #line 1273
-        tmp___4 = __builtin_expect(tmp___3 == 0, 0L);
+        tmp___4 = ldv__builtin_expect(tmp___3 == 0, 0L);
 #line 1273
         if (tmp___4 != 0L) {
 #line 1273
@@ -12461,7 +12461,7 @@ static int do_setattr(struct ubifs_info *c , struct inode *inode , struct iattr 
 #line 1342
     descriptor.flags = 0U;
 #line 1342
-    tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1342
     if (tmp___1 != 0L) {
 #line 1342
@@ -12552,7 +12552,7 @@ int ubifs_setattr(struct dentry *dentry , struct iattr *attr )
 #line 1380
   descriptor.flags = 0U;
 #line 1380
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1380
   if (tmp___0 != 0L) {
 #line 1380
@@ -12611,7 +12611,7 @@ static void ubifs_invalidatepage(struct page *page , unsigned long offset )
 #line 1404
   tmp___0 = PagePrivate((struct page  const  *)page);
 #line 1404
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
 #line 1404
   if (tmp___1 != 0L) {
 #line 1404
@@ -12696,7 +12696,7 @@ int ubifs_fsync(struct file *file , loff_t start , loff_t end , int datasync )
 #line 1433
   descriptor.flags = 0U;
 #line 1433
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1433
   if (tmp___0 != 0L) {
 #line 1433
@@ -12905,7 +12905,7 @@ static int ubifs_set_page_dirty(struct page *page )
 #line 1535
   ret = __set_page_dirty_nobuffers(page);
 #line 1540
-  tmp___0 = __builtin_expect(ret != 0, 0L);
+  tmp___0 = ldv__builtin_expect(ret != 0, 0L);
 #line 1540
   if (tmp___0 != 0L) {
 #line 1540
@@ -12944,7 +12944,7 @@ static int ubifs_releasepage(struct page *page , gfp_t unused_gfp_flags )
 #line 1552
   tmp___1 = PagePrivate((struct page  const  *)page);
 #line 1552
-  tmp___2 = __builtin_expect(tmp___1 == 0, 0L);
+  tmp___2 = ldv__builtin_expect(tmp___1 == 0, 0L);
 #line 1552
   if (tmp___2 != 0L) {
 #line 1552
@@ -13054,7 +13054,7 @@ static int ubifs_vm_page_mkwrite(struct vm_area_struct *vma , struct vm_fault *v
 #line 1573
   descriptor.flags = 0U;
 #line 1573
-  tmp___2 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___2 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1573
   if (tmp___2 != 0L) {
 #line 1573
@@ -13069,7 +13069,7 @@ static int ubifs_vm_page_mkwrite(struct vm_area_struct *vma , struct vm_fault *v
 
   }
 #line 1575
-  tmp___4 = __builtin_expect((long )*((unsigned char *)c + 4080UL) & 1L, 0L);
+  tmp___4 = ldv__builtin_expect((long )*((unsigned char *)c + 4080UL) & 1L, 0L);
 #line 1575
   if (tmp___4 != 0L) {
 #line 1575
@@ -13081,7 +13081,7 @@ static int ubifs_vm_page_mkwrite(struct vm_area_struct *vma , struct vm_fault *v
     dump_stack();
   } else {
 #line 1575
-    tmp___5 = __builtin_expect((unsigned int )*((unsigned char *)c + 4080UL) != 0U,
+    tmp___5 = ldv__builtin_expect((unsigned int )*((unsigned char *)c + 4080UL) != 0U,
                                0L);
 #line 1575
     if (tmp___5 != 0L) {
@@ -13097,7 +13097,7 @@ static int ubifs_vm_page_mkwrite(struct vm_area_struct *vma , struct vm_fault *v
     }
   }
 #line 1577
-  tmp___6 = __builtin_expect((unsigned int )*((unsigned char *)c + 4080UL) != 0U,
+  tmp___6 = ldv__builtin_expect((unsigned int )*((unsigned char *)c + 4080UL) != 0U,
                              0L);
 #line 1577
   if (tmp___6 != 0L) {
@@ -13118,7 +13118,7 @@ static int ubifs_vm_page_mkwrite(struct vm_area_struct *vma , struct vm_fault *v
 #line 1606
   err = ubifs_budget_space(c, & req);
 #line 1607
-  tmp___8 = __builtin_expect(err != 0, 0L);
+  tmp___8 = ldv__builtin_expect(err != 0, 0L);
 #line 1607
   if (tmp___8 != 0L) {
 #line 1608
@@ -13139,7 +13139,7 @@ static int ubifs_vm_page_mkwrite(struct vm_area_struct *vma , struct vm_fault *v
 #line 1614
   lock_page(page);
 #line 1615
-  tmp___9 = __builtin_expect((unsigned long )page->mapping != (unsigned long )inode->i_mapping,
+  tmp___9 = ldv__builtin_expect((unsigned long )page->mapping != (unsigned long )inode->i_mapping,
                              0L);
 #line 1615
   if (tmp___9 != 0L) {
@@ -13153,7 +13153,7 @@ static int ubifs_vm_page_mkwrite(struct vm_area_struct *vma , struct vm_fault *v
 #line 1615
     tmp___11 = i_size_read((struct inode  const  *)inode);
 #line 1615
-    tmp___12 = __builtin_expect(tmp___10 > tmp___11, 0L);
+    tmp___12 = ldv__builtin_expect(tmp___10 > tmp___11, 0L);
 #line 1615
     if (tmp___12 != 0L) {
 #line 1618
@@ -13900,7 +13900,7 @@ __inline static long IS_ERR(void const   *ptr )
 
   {
 #line 34
-  tmp = __builtin_expect((unsigned long )ptr > 0xfffffffffffff000UL, 0L);
+  tmp = ldv__builtin_expect((unsigned long )ptr > 0xfffffffffffff000UL, 0L);
 #line 34
   return (tmp);
 }
@@ -14141,7 +14141,7 @@ __inline static void dent_key_init_hash(struct ubifs_info  const  *c , union ubi
 
   {
 #line 175
-  tmp___0 = __builtin_expect((hash & 3758096384U) != 0U, 0L);
+  tmp___0 = ldv__builtin_expect((hash & 3758096384U) != 0U, 0L);
 #line 175
   if (tmp___0 != 0L) {
 #line 175
@@ -14466,7 +14466,7 @@ static struct dentry *ubifs_lookup(struct inode *dir , struct dentry *dentry , u
 #line 315
   descriptor.flags = 0U;
 #line 315
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 315
   if (tmp___0 != 0L) {
 #line 315
@@ -14521,7 +14521,7 @@ static struct dentry *ubifs_lookup(struct inode *dir , struct dentry *dentry , u
 #line 330
       descriptor___0.flags = 0U;
 #line 330
-      tmp___5 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+      tmp___5 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 330
       if (tmp___5 != 0L) {
 #line 330
@@ -14660,7 +14660,7 @@ static int ubifs_create(struct inode *dir , struct dentry *dentry , umode_t mode
 #line 383
   descriptor.flags = 0U;
 #line 383
-  tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 383
   if (tmp___1 != 0L) {
 #line 383
@@ -14854,7 +14854,7 @@ static int ubifs_readdir(struct file *file , void *dirent , int (*filldir)(void 
 #line 478
   descriptor.flags = 0U;
 #line 478
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 478
   if (tmp___0 != 0L) {
 #line 478
@@ -14875,7 +14875,7 @@ static int ubifs_readdir(struct file *file , void *dirent , int (*filldir)(void 
 #line 488
   if (file->f_pos == 0LL) {
 #line 489
-    tmp___2 = __builtin_expect((unsigned long )file->private_data != (unsigned long )((void *)0),
+    tmp___2 = ldv__builtin_expect((unsigned long )file->private_data != (unsigned long )((void *)0),
                                0L);
 #line 489
     if (tmp___2 != 0L) {
@@ -14906,7 +14906,7 @@ static int ubifs_readdir(struct file *file , void *dirent , int (*filldir)(void 
 #line 496
   if (file->f_pos == 1LL) {
 #line 497
-    tmp___4 = __builtin_expect((unsigned long )file->private_data != (unsigned long )((void *)0),
+    tmp___4 = ldv__builtin_expect((unsigned long )file->private_data != (unsigned long )((void *)0),
                                0L);
 #line 497
     if (tmp___4 != 0L) {
@@ -15005,7 +15005,7 @@ static int ubifs_readdir(struct file *file , void *dirent , int (*filldir)(void 
 #line 535
   descriptor___0.flags = 0U;
 #line 535
-  tmp___14 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___14 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 535
   if (tmp___14 != 0L) {
 #line 535
@@ -15021,7 +15021,7 @@ static int ubifs_readdir(struct file *file , void *dirent , int (*filldir)(void 
 #line 538
   tmp___16 = ubifs_inode((struct inode  const  *)dir);
 #line 538
-  tmp___17 = __builtin_expect(dent->ch.sqnum <= tmp___16->creat_sqnum, 0L);
+  tmp___17 = ldv__builtin_expect(dent->ch.sqnum <= tmp___16->creat_sqnum, 0L);
 #line 538
   if (tmp___17 != 0L) {
 #line 538
@@ -15249,7 +15249,7 @@ static int ubifs_link(struct dentry *old_dentry , struct inode *dir , struct den
 #line 633
   descriptor.flags = 0U;
 #line 633
-  tmp___2 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___2 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 633
   if (tmp___2 != 0L) {
 #line 633
@@ -15264,7 +15264,7 @@ static int ubifs_link(struct dentry *old_dentry , struct inode *dir , struct den
 #line 636
   tmp___4 = mutex_is_locked(& dir->i_mutex);
 #line 636
-  tmp___5 = __builtin_expect(tmp___4 == 0, 0L);
+  tmp___5 = ldv__builtin_expect(tmp___4 == 0, 0L);
 #line 636
   if (tmp___5 != 0L) {
 #line 636
@@ -15279,7 +15279,7 @@ static int ubifs_link(struct dentry *old_dentry , struct inode *dir , struct den
 #line 637
   tmp___7 = mutex_is_locked(& inode->i_mutex);
 #line 637
-  tmp___8 = __builtin_expect(tmp___7 == 0, 0L);
+  tmp___8 = ldv__builtin_expect(tmp___7 == 0, 0L);
 #line 637
   if (tmp___8 != 0L) {
 #line 637
@@ -15440,7 +15440,7 @@ static int ubifs_unlink(struct inode *dir , struct dentry *dentry )
 #line 690
   descriptor.flags = 0U;
 #line 690
-  tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 690
   if (tmp___1 != 0L) {
 #line 690
@@ -15455,7 +15455,7 @@ static int ubifs_unlink(struct inode *dir , struct dentry *dentry )
 #line 693
   tmp___3 = mutex_is_locked(& dir->i_mutex);
 #line 693
-  tmp___4 = __builtin_expect(tmp___3 == 0, 0L);
+  tmp___4 = ldv__builtin_expect(tmp___3 == 0, 0L);
 #line 693
   if (tmp___4 != 0L) {
 #line 693
@@ -15470,7 +15470,7 @@ static int ubifs_unlink(struct inode *dir , struct dentry *dentry )
 #line 694
   tmp___6 = mutex_is_locked(& inode->i_mutex);
 #line 694
-  tmp___7 = __builtin_expect(tmp___6 == 0, 0L);
+  tmp___7 = ldv__builtin_expect(tmp___6 == 0, 0L);
 #line 694
   if (tmp___7 != 0L) {
 #line 694
@@ -15692,7 +15692,7 @@ static int ubifs_rmdir(struct inode *dir , struct dentry *dentry )
 #line 780
   descriptor.flags = 0U;
 #line 780
-  tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 780
   if (tmp___1 != 0L) {
 #line 780
@@ -15707,7 +15707,7 @@ static int ubifs_rmdir(struct inode *dir , struct dentry *dentry )
 #line 782
   tmp___3 = mutex_is_locked(& dir->i_mutex);
 #line 782
-  tmp___4 = __builtin_expect(tmp___3 == 0, 0L);
+  tmp___4 = ldv__builtin_expect(tmp___3 == 0, 0L);
 #line 782
   if (tmp___4 != 0L) {
 #line 782
@@ -15722,7 +15722,7 @@ static int ubifs_rmdir(struct inode *dir , struct dentry *dentry )
 #line 783
   tmp___6 = mutex_is_locked(& inode->i_mutex);
 #line 783
-  tmp___7 = __builtin_expect(tmp___6 == 0, 0L);
+  tmp___7 = ldv__builtin_expect(tmp___6 == 0, 0L);
 #line 783
   if (tmp___7 != 0L) {
 #line 783
@@ -15893,7 +15893,7 @@ static int ubifs_mkdir(struct inode *dir , struct dentry *dentry , umode_t mode 
 #line 840
   descriptor.flags = 0U;
 #line 840
-  tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 840
   if (tmp___1 != 0L) {
 #line 840
@@ -16067,7 +16067,7 @@ static int ubifs_mknod(struct inode *dir , struct dentry *dentry , umode_t mode 
 #line 902
   descriptor.flags = 0U;
 #line 902
-  tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 902
   if (tmp___1 != 0L) {
 #line 902
@@ -16276,7 +16276,7 @@ static int ubifs_symlink(struct inode *dir , struct dentry *dentry , char const 
 #line 977
   descriptor.flags = 0U;
 #line 977
-  tmp___2 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___2 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 977
   if (tmp___2 != 0L) {
 #line 977
@@ -16597,7 +16597,7 @@ static int ubifs_rename(struct inode *old_dir , struct dentry *old_dentry , stru
 #line 1103
   descriptor.flags = 0U;
 #line 1103
-  tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1103
   if (tmp___1 != 0L) {
 #line 1103
@@ -16613,7 +16613,7 @@ static int ubifs_rename(struct inode *old_dir , struct dentry *old_dentry , stru
 #line 1107
   tmp___3 = mutex_is_locked(& old_dir->i_mutex);
 #line 1107
-  tmp___4 = __builtin_expect(tmp___3 == 0, 0L);
+  tmp___4 = ldv__builtin_expect(tmp___3 == 0, 0L);
 #line 1107
   if (tmp___4 != 0L) {
 #line 1107
@@ -16628,7 +16628,7 @@ static int ubifs_rename(struct inode *old_dir , struct dentry *old_dentry , stru
 #line 1108
   tmp___6 = mutex_is_locked(& new_dir->i_mutex);
 #line 1108
-  tmp___7 = __builtin_expect(tmp___6 == 0, 0L);
+  tmp___7 = ldv__builtin_expect(tmp___6 == 0, 0L);
 #line 1108
   if (tmp___7 != 0L) {
 #line 1108
@@ -16645,7 +16645,7 @@ static int ubifs_rename(struct inode *old_dir , struct dentry *old_dentry , stru
 #line 1110
     tmp___9 = mutex_is_locked(& new_inode___0->i_mutex);
 #line 1110
-    tmp___10 = __builtin_expect(tmp___9 == 0, 0L);
+    tmp___10 = ldv__builtin_expect(tmp___9 == 0, 0L);
 #line 1110
     if (tmp___10 != 0L) {
 #line 1110
@@ -18026,7 +18026,7 @@ __inline static int ubifs_compr_present(int compr_type )
 
   {
 #line 114
-  tmp___0 = __builtin_expect(compr_type < 0, 0L);
+  tmp___0 = ldv__builtin_expect(compr_type < 0, 0L);
 #line 114
   if (tmp___0 != 0L) {
 #line 114
@@ -18038,7 +18038,7 @@ __inline static int ubifs_compr_present(int compr_type )
     dump_stack();
   } else {
 #line 114
-    tmp___1 = __builtin_expect(compr_type > 2, 0L);
+    tmp___1 = ldv__builtin_expect(compr_type > 2, 0L);
 #line 114
     if (tmp___1 != 0L) {
 #line 114
@@ -18065,7 +18065,7 @@ __inline static char const   *ubifs_compr_name(int compr_type )
 
   {
 #line 126
-  tmp___0 = __builtin_expect(compr_type < 0, 0L);
+  tmp___0 = ldv__builtin_expect(compr_type < 0, 0L);
 #line 126
   if (tmp___0 != 0L) {
 #line 126
@@ -18077,7 +18077,7 @@ __inline static char const   *ubifs_compr_name(int compr_type )
     dump_stack();
   } else {
 #line 126
-    tmp___1 = __builtin_expect(compr_type > 2, 0L);
+    tmp___1 = ldv__builtin_expect(compr_type > 2, 0L);
 #line 126
     if (tmp___1 != 0L) {
 #line 126
@@ -18265,7 +18265,7 @@ struct inode *ubifs_iget(struct super_block *sb , unsigned long inum )
 #line 229
   descriptor.flags = 0U;
 #line 229
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 229
   if (tmp___0 != 0L) {
 #line 229
@@ -18664,7 +18664,7 @@ static int ubifs_write_inode(struct inode *inode , struct writeback_control *wbc
 #line 416
   ui = tmp;
 #line 418
-  tmp___1 = __builtin_expect((unsigned int )*((unsigned char *)ui + 1060UL) != 0U,
+  tmp___1 = ldv__builtin_expect((unsigned int )*((unsigned char *)ui + 1060UL) != 0U,
                              0L);
 #line 418
   if (tmp___1 != 0L) {
@@ -18711,7 +18711,7 @@ static int ubifs_write_inode(struct inode *inode , struct writeback_control *wbc
 #line 439
   descriptor.flags = 0U;
 #line 439
-  tmp___4 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___4 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 439
   if (tmp___4 != 0L) {
 #line 439
@@ -18795,7 +18795,7 @@ static void ubifs_evict_inode(struct inode *inode )
 #line 470
   descriptor.flags = 0U;
 #line 470
-  tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 470
   if (tmp___1 != 0L) {
 #line 470
@@ -18809,7 +18809,7 @@ static void ubifs_evict_inode(struct inode *inode )
 #line 471
   tmp___3 = atomic_read((atomic_t const   *)(& inode->i_count));
 #line 471
-  tmp___4 = __builtin_expect(tmp___3 != 0, 0L);
+  tmp___4 = ldv__builtin_expect(tmp___3 != 0, 0L);
 #line 471
   if (tmp___4 != 0L) {
 #line 471
@@ -18900,7 +18900,7 @@ static void ubifs_dirty_inode(struct inode *inode , int flags )
 #line 507
   tmp___1 = mutex_is_locked(& ui->ui_mutex);
 #line 507
-  tmp___2 = __builtin_expect(tmp___1 == 0, 0L);
+  tmp___2 = ldv__builtin_expect(tmp___1 == 0, 0L);
 #line 507
   if (tmp___2 != 0L) {
 #line 507
@@ -18930,7 +18930,7 @@ static void ubifs_dirty_inode(struct inode *inode , int flags )
 #line 510
     descriptor.flags = 0U;
 #line 510
-    tmp___4 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___4 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 510
     if (tmp___4 != 0L) {
 #line 510
@@ -18983,7 +18983,7 @@ static int ubifs_statfs(struct dentry *dentry , struct kstatfs *buf )
 #line 521
   descriptor.flags = 0U;
 #line 521
-  tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 521
   if (tmp___1 != 0L) {
 #line 521
@@ -19021,7 +19021,7 @@ static int ubifs_statfs(struct dentry *dentry , struct kstatfs *buf )
 #line 536
   buf->f_fsid.val[1] = (int )(*(uuid + 1UL) ^ *(uuid + 3UL));
 #line 537
-  tmp___3 = __builtin_expect(buf->f_bfree > (u64 )c->block_cnt, 0L);
+  tmp___3 = ldv__builtin_expect(buf->f_bfree > (u64 )c->block_cnt, 0L);
 #line 537
   if (tmp___3 != 0L) {
 #line 537
@@ -19774,7 +19774,7 @@ static int check_volume_empty(struct ubifs_info *c )
 #line 1032
   err = ubifs_is_mapped((struct ubifs_info  const  *)c, lnum);
 #line 1033
-  tmp = __builtin_expect(err < 0, 0L);
+  tmp = ldv__builtin_expect(err < 0, 0L);
 #line 1033
   if (tmp != 0L) {
 #line 1034
@@ -20088,7 +20088,7 @@ static void bu_init(struct ubifs_info *c )
 
   {
 #line 1232
-  tmp___0 = __builtin_expect((unsigned int )*((unsigned char *)c + 2048UL) == 0U,
+  tmp___0 = ldv__builtin_expect((unsigned int )*((unsigned char *)c + 2048UL) == 0U,
                              0L);
 #line 1232
   if (tmp___0 != 0L) {
@@ -20149,7 +20149,7 @@ static int check_free_space(struct ubifs_info *c )
 
   {
 #line 1263
-  tmp___0 = __builtin_expect(c->dark_wm <= 0, 0L);
+  tmp___0 = ldv__builtin_expect(c->dark_wm <= 0, 0L);
 #line 1263
   if (tmp___0 != 0L) {
 #line 1263
@@ -20718,7 +20718,7 @@ static int mount_ubifs(struct ubifs_info *c )
 #line 1512
       printk("\rUBIFS: recovery completed\n");
 #line 1518
-      tmp___9 = __builtin_expect(c->lst.taken_empty_lebs <= 0, 0L);
+      tmp___9 = ldv__builtin_expect(c->lst.taken_empty_lebs <= 0, 0L);
 #line 1518
       if (tmp___9 != 0L) {
 #line 1518
@@ -20734,7 +20734,7 @@ static int mount_ubifs(struct ubifs_info *c )
     }
   } else {
 #line 1521
-    tmp___11 = __builtin_expect(c->lst.taken_empty_lebs <= 0, 0L);
+    tmp___11 = ldv__builtin_expect(c->lst.taken_empty_lebs <= 0, 0L);
 #line 1521
     if (tmp___11 != 0L) {
 #line 1521
@@ -20800,7 +20800,7 @@ static int mount_ubifs(struct ubifs_info *c )
 #line 1551
   descriptor.flags = 0U;
 #line 1551
-  tmp___14 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___14 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1551
   if (tmp___14 != 0L) {
 #line 1551
@@ -20826,7 +20826,7 @@ static int mount_ubifs(struct ubifs_info *c )
 #line 1552
   descriptor___0.flags = 0U;
 #line 1552
-  tmp___16 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___16 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 1552
   if (tmp___16 != 0L) {
 #line 1552
@@ -20850,7 +20850,7 @@ static int mount_ubifs(struct ubifs_info *c )
 #line 1554
   descriptor___1.flags = 0U;
 #line 1554
-  tmp___18 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+  tmp___18 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 1554
   if (tmp___18 != 0L) {
 #line 1554
@@ -20874,7 +20874,7 @@ static int mount_ubifs(struct ubifs_info *c )
 #line 1556
   descriptor___2.flags = 0U;
 #line 1556
-  tmp___20 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+  tmp___20 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
 #line 1556
   if (tmp___20 != 0L) {
 #line 1556
@@ -20898,7 +20898,7 @@ static int mount_ubifs(struct ubifs_info *c )
 #line 1558
   descriptor___3.flags = 0U;
 #line 1558
-  tmp___22 = __builtin_expect((long )descriptor___3.flags & 1L, 0L);
+  tmp___22 = ldv__builtin_expect((long )descriptor___3.flags & 1L, 0L);
 #line 1558
   if (tmp___22 != 0L) {
 #line 1558
@@ -20922,7 +20922,7 @@ static int mount_ubifs(struct ubifs_info *c )
 #line 1560
   descriptor___4.flags = 0U;
 #line 1560
-  tmp___24 = __builtin_expect((long )descriptor___4.flags & 1L, 0L);
+  tmp___24 = ldv__builtin_expect((long )descriptor___4.flags & 1L, 0L);
 #line 1560
   if (tmp___24 != 0L) {
 #line 1560
@@ -20946,7 +20946,7 @@ static int mount_ubifs(struct ubifs_info *c )
 #line 1562
   descriptor___5.flags = 0U;
 #line 1562
-  tmp___26 = __builtin_expect((long )descriptor___5.flags & 1L, 0L);
+  tmp___26 = ldv__builtin_expect((long )descriptor___5.flags & 1L, 0L);
 #line 1562
   if (tmp___26 != 0L) {
 #line 1562
@@ -20970,7 +20970,7 @@ static int mount_ubifs(struct ubifs_info *c )
 #line 1563
   descriptor___6.flags = 0U;
 #line 1563
-  tmp___28 = __builtin_expect((long )descriptor___6.flags & 1L, 0L);
+  tmp___28 = ldv__builtin_expect((long )descriptor___6.flags & 1L, 0L);
 #line 1563
   if (tmp___28 != 0L) {
 #line 1563
@@ -20994,7 +20994,7 @@ static int mount_ubifs(struct ubifs_info *c )
 #line 1566
   descriptor___7.flags = 0U;
 #line 1566
-  tmp___30 = __builtin_expect((long )descriptor___7.flags & 1L, 0L);
+  tmp___30 = ldv__builtin_expect((long )descriptor___7.flags & 1L, 0L);
 #line 1566
   if (tmp___30 != 0L) {
 #line 1566
@@ -21018,7 +21018,7 @@ static int mount_ubifs(struct ubifs_info *c )
 #line 1567
   descriptor___8.flags = 0U;
 #line 1567
-  tmp___32 = __builtin_expect((long )descriptor___8.flags & 1L, 0L);
+  tmp___32 = ldv__builtin_expect((long )descriptor___8.flags & 1L, 0L);
 #line 1567
   if (tmp___32 != 0L) {
 #line 1567
@@ -21042,7 +21042,7 @@ static int mount_ubifs(struct ubifs_info *c )
 #line 1568
   descriptor___9.flags = 0U;
 #line 1568
-  tmp___34 = __builtin_expect((long )descriptor___9.flags & 1L, 0L);
+  tmp___34 = ldv__builtin_expect((long )descriptor___9.flags & 1L, 0L);
 #line 1568
   if (tmp___34 != 0L) {
 #line 1568
@@ -21066,7 +21066,7 @@ static int mount_ubifs(struct ubifs_info *c )
 #line 1569
   descriptor___10.flags = 0U;
 #line 1569
-  tmp___36 = __builtin_expect((long )descriptor___10.flags & 1L, 0L);
+  tmp___36 = ldv__builtin_expect((long )descriptor___10.flags & 1L, 0L);
 #line 1569
   if (tmp___36 != 0L) {
 #line 1569
@@ -21090,7 +21090,7 @@ static int mount_ubifs(struct ubifs_info *c )
 #line 1570
   descriptor___11.flags = 0U;
 #line 1570
-  tmp___38 = __builtin_expect((long )descriptor___11.flags & 1L, 0L);
+  tmp___38 = ldv__builtin_expect((long )descriptor___11.flags & 1L, 0L);
 #line 1570
   if (tmp___38 != 0L) {
 #line 1570
@@ -21114,7 +21114,7 @@ static int mount_ubifs(struct ubifs_info *c )
 #line 1571
   descriptor___12.flags = 0U;
 #line 1571
-  tmp___40 = __builtin_expect((long )descriptor___12.flags & 1L, 0L);
+  tmp___40 = ldv__builtin_expect((long )descriptor___12.flags & 1L, 0L);
 #line 1571
   if (tmp___40 != 0L) {
 #line 1571
@@ -21138,7 +21138,7 @@ static int mount_ubifs(struct ubifs_info *c )
 #line 1573
   descriptor___13.flags = 0U;
 #line 1573
-  tmp___42 = __builtin_expect((long )descriptor___13.flags & 1L, 0L);
+  tmp___42 = ldv__builtin_expect((long )descriptor___13.flags & 1L, 0L);
 #line 1573
   if (tmp___42 != 0L) {
 #line 1573
@@ -21162,7 +21162,7 @@ static int mount_ubifs(struct ubifs_info *c )
 #line 1575
   descriptor___14.flags = 0U;
 #line 1575
-  tmp___44 = __builtin_expect((long )descriptor___14.flags & 1L, 0L);
+  tmp___44 = ldv__builtin_expect((long )descriptor___14.flags & 1L, 0L);
 #line 1575
   if (tmp___44 != 0L) {
 #line 1575
@@ -21186,7 +21186,7 @@ static int mount_ubifs(struct ubifs_info *c )
 #line 1577
   descriptor___15.flags = 0U;
 #line 1577
-  tmp___47 = __builtin_expect((long )descriptor___15.flags & 1L, 0L);
+  tmp___47 = ldv__builtin_expect((long )descriptor___15.flags & 1L, 0L);
 #line 1577
   if (tmp___47 != 0L) {
 #line 1577
@@ -21212,7 +21212,7 @@ static int mount_ubifs(struct ubifs_info *c )
 #line 1580
   descriptor___16.flags = 0U;
 #line 1580
-  tmp___49 = __builtin_expect((long )descriptor___16.flags & 1L, 0L);
+  tmp___49 = ldv__builtin_expect((long )descriptor___16.flags & 1L, 0L);
 #line 1580
   if (tmp___49 != 0L) {
 #line 1580
@@ -21236,7 +21236,7 @@ static int mount_ubifs(struct ubifs_info *c )
 #line 1581
   descriptor___17.flags = 0U;
 #line 1581
-  tmp___51 = __builtin_expect((long )descriptor___17.flags & 1L, 0L);
+  tmp___51 = ldv__builtin_expect((long )descriptor___17.flags & 1L, 0L);
 #line 1581
   if (tmp___51 != 0L) {
 #line 1581
@@ -21260,7 +21260,7 @@ static int mount_ubifs(struct ubifs_info *c )
 #line 1582
   descriptor___18.flags = 0U;
 #line 1582
-  tmp___53 = __builtin_expect((long )descriptor___18.flags & 1L, 0L);
+  tmp___53 = ldv__builtin_expect((long )descriptor___18.flags & 1L, 0L);
 #line 1582
   if (tmp___53 != 0L) {
 #line 1582
@@ -21286,7 +21286,7 @@ static int mount_ubifs(struct ubifs_info *c )
 #line 1584
   descriptor___19.flags = 0U;
 #line 1584
-  tmp___55 = __builtin_expect((long )descriptor___19.flags & 1L, 0L);
+  tmp___55 = ldv__builtin_expect((long )descriptor___19.flags & 1L, 0L);
 #line 1584
   if (tmp___55 != 0L) {
 #line 1584
@@ -21310,7 +21310,7 @@ static int mount_ubifs(struct ubifs_info *c )
 #line 1586
   descriptor___20.flags = 0U;
 #line 1586
-  tmp___57 = __builtin_expect((long )descriptor___20.flags & 1L, 0L);
+  tmp___57 = ldv__builtin_expect((long )descriptor___20.flags & 1L, 0L);
 #line 1586
   if (tmp___57 != 0L) {
 #line 1586
@@ -21334,7 +21334,7 @@ static int mount_ubifs(struct ubifs_info *c )
 #line 1589
   descriptor___21.flags = 0U;
 #line 1589
-  tmp___59 = __builtin_expect((long )descriptor___21.flags & 1L, 0L);
+  tmp___59 = ldv__builtin_expect((long )descriptor___21.flags & 1L, 0L);
 #line 1589
   if (tmp___59 != 0L) {
 #line 1589
@@ -21358,7 +21358,7 @@ static int mount_ubifs(struct ubifs_info *c )
 #line 1592
   descriptor___22.flags = 0U;
 #line 1592
-  tmp___61 = __builtin_expect((long )descriptor___22.flags & 1L, 0L);
+  tmp___61 = ldv__builtin_expect((long )descriptor___22.flags & 1L, 0L);
 #line 1592
   if (tmp___61 != 0L) {
 #line 1592
@@ -21382,7 +21382,7 @@ static int mount_ubifs(struct ubifs_info *c )
 #line 1594
   descriptor___23.flags = 0U;
 #line 1594
-  tmp___63 = __builtin_expect((long )descriptor___23.flags & 1L, 0L);
+  tmp___63 = ldv__builtin_expect((long )descriptor___23.flags & 1L, 0L);
 #line 1594
   if (tmp___63 != 0L) {
 #line 1594
@@ -21406,7 +21406,7 @@ static int mount_ubifs(struct ubifs_info *c )
 #line 1595
   descriptor___24.flags = 0U;
 #line 1595
-  tmp___65 = __builtin_expect((long )descriptor___24.flags & 1L, 0L);
+  tmp___65 = ldv__builtin_expect((long )descriptor___24.flags & 1L, 0L);
 #line 1595
   if (tmp___65 != 0L) {
 #line 1595
@@ -21491,7 +21491,7 @@ static void ubifs_umount(struct ubifs_info *c )
 #line 1639
   descriptor.flags = 0U;
 #line 1639
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1639
   if (tmp___0 != 0L) {
 #line 1639
@@ -21673,7 +21673,7 @@ static int ubifs_remount_rw(struct ubifs_info *c )
     }
   } else {
 #line 1726
-    tmp___3 = __builtin_expect(c->tot_orphans != 0, 0L);
+    tmp___3 = ldv__builtin_expect(c->tot_orphans != 0, 0L);
 #line 1726
     if (tmp___3 != 0L) {
 #line 1726
@@ -21827,7 +21827,7 @@ static int ubifs_remount_rw(struct ubifs_info *c )
 #line 1787
   descriptor.flags = 0U;
 #line 1787
-  tmp___8 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___8 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1787
   if (tmp___8 != 0L) {
 #line 1787
@@ -21916,7 +21916,7 @@ static void ubifs_remount_ro(struct ubifs_info *c )
 
   {
 #line 1846
-  tmp___0 = __builtin_expect((unsigned int )*((unsigned char *)c + 5528UL) != 0U,
+  tmp___0 = ldv__builtin_expect((unsigned int )*((unsigned char *)c + 5528UL) != 0U,
                              0L);
 #line 1846
   if (tmp___0 != 0L) {
@@ -21931,7 +21931,7 @@ static void ubifs_remount_ro(struct ubifs_info *c )
 
   }
 #line 1847
-  tmp___2 = __builtin_expect((unsigned int )*((unsigned char *)c + 4080UL) != 0U,
+  tmp___2 = ldv__builtin_expect((unsigned int )*((unsigned char *)c + 4080UL) != 0U,
                              0L);
 #line 1847
   if (tmp___2 != 0L) {
@@ -22043,7 +22043,7 @@ static void ubifs_put_super(struct super_block *sb )
 #line 1894
   if ((unsigned int )*((unsigned char *)c + 4080UL) == 0U) {
 #line 1895
-    tmp___0 = __builtin_expect(c->bi.idx_growth != 0LL, 0L);
+    tmp___0 = ldv__builtin_expect(c->bi.idx_growth != 0LL, 0L);
 #line 1895
     if (tmp___0 != 0L) {
 #line 1895
@@ -22057,7 +22057,7 @@ static void ubifs_put_super(struct super_block *sb )
 
     }
 #line 1896
-    tmp___2 = __builtin_expect(c->bi.dd_growth != 0LL, 0L);
+    tmp___2 = ldv__builtin_expect(c->bi.dd_growth != 0LL, 0L);
 #line 1896
     if (tmp___2 != 0L) {
 #line 1896
@@ -22071,7 +22071,7 @@ static void ubifs_put_super(struct super_block *sb )
 
     }
 #line 1897
-    tmp___4 = __builtin_expect(c->bi.data_growth != 0LL, 0L);
+    tmp___4 = ldv__builtin_expect(c->bi.data_growth != 0LL, 0L);
 #line 1897
     if (tmp___4 != 0L) {
 #line 1897
@@ -22203,7 +22203,7 @@ static int ubifs_remount_fs(struct super_block *sb , int *flags , char *data )
 #line 1963
   descriptor.flags = 0U;
 #line 1963
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1963
   if (tmp___0 != 0L) {
 #line 1963
@@ -22292,7 +22292,7 @@ static int ubifs_remount_fs(struct super_block *sb , int *flags , char *data )
 #line 1994
     descriptor___0.flags = 0U;
 #line 1994
-    tmp___3 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___3 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 1994
     if (tmp___3 != 0L) {
 #line 1994
@@ -22309,7 +22309,7 @@ static int ubifs_remount_fs(struct super_block *sb , int *flags , char *data )
     c->bu.buf = 0;
   }
 #line 1999
-  tmp___5 = __builtin_expect(c->lst.taken_empty_lebs <= 0, 0L);
+  tmp___5 = ldv__builtin_expect(c->lst.taken_empty_lebs <= 0, 0L);
 #line 1999
   if (tmp___5 != 0L) {
 #line 1999
@@ -22669,7 +22669,7 @@ static int ubifs_fill_super(struct super_block *sb , void *data , int silent )
 #line 2173
   if (err != 0) {
 #line 2174
-    tmp___5 = __builtin_expect(err >= 0, 0L);
+    tmp___5 = ldv__builtin_expect(err >= 0, 0L);
 #line 2174
     if (tmp___5 != 0L) {
 #line 2174
@@ -22802,7 +22802,7 @@ static struct dentry *ubifs_mount(struct file_system_type *fs_type , int flags ,
 #line 2226
   descriptor.flags = 0U;
 #line 2226
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 2226
   if (tmp___0 != 0L) {
 #line 2226
@@ -22857,7 +22857,7 @@ static struct dentry *ubifs_mount(struct file_system_type *fs_type , int flags ,
 #line 2246
   descriptor___0.flags = 0U;
 #line 2246
-  tmp___6 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___6 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 2246
   if (tmp___6 != 0L) {
 #line 2246
@@ -22904,7 +22904,7 @@ static struct dentry *ubifs_mount(struct file_system_type *fs_type , int flags ,
 #line 2259
     descriptor___1.flags = 0U;
 #line 2259
-    tmp___10 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___10 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 2259
     if (tmp___10 != 0L) {
 #line 2259
@@ -23008,7 +23008,7 @@ static void ubifs_exit(void)
 #line 2406
   tmp___0 = list_empty((struct list_head  const  *)(& ubifs_infos));
 #line 2406
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
 #line 2406
   if (tmp___1 != 0L) {
 #line 2406
@@ -23023,7 +23023,7 @@ static void ubifs_exit(void)
 #line 2407
   tmp___3 = atomic_long_read(& ubifs_clean_zn_cnt);
 #line 2407
-  tmp___4 = __builtin_expect(tmp___3 != 0L, 0L);
+  tmp___4 = ldv__builtin_expect(tmp___3 != 0L, 0L);
 #line 2407
   if (tmp___4 != 0L) {
 #line 2407
@@ -23558,7 +23558,7 @@ __inline static void ubifs_release_lprops(struct ubifs_info *c )
 #line 280
   tmp___0 = mutex_is_locked(& c->lp_mutex);
 #line 280
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
 #line 280
   if (tmp___1 != 0L) {
 #line 280
@@ -23572,7 +23572,7 @@ __inline static void ubifs_release_lprops(struct ubifs_info *c )
 
   }
 #line 281
-  tmp___3 = __builtin_expect(c->lst.empty_lebs < 0, 0L);
+  tmp___3 = ldv__builtin_expect(c->lst.empty_lebs < 0, 0L);
 #line 281
   if (tmp___3 != 0L) {
 #line 281
@@ -23584,7 +23584,7 @@ __inline static void ubifs_release_lprops(struct ubifs_info *c )
     dump_stack();
   } else {
 #line 281
-    tmp___4 = __builtin_expect(c->lst.empty_lebs > c->main_lebs, 0L);
+    tmp___4 = ldv__builtin_expect(c->lst.empty_lebs > c->main_lebs, 0L);
 #line 281
     if (tmp___4 != 0L) {
 #line 281
@@ -23632,7 +23632,7 @@ __inline static uint32_t key_mask_hash(uint32_t hash )
 #line 50
   hash = hash & 536870911U;
 #line 51
-  tmp = __builtin_expect(hash <= 2U, 0L);
+  tmp = ldv__builtin_expect(hash <= 2U, 0L);
 #line 51
   if (tmp != 0L) {
 #line 52
@@ -23877,7 +23877,7 @@ static int create_default_filesystem(struct ubifs_info *c )
 #line 271
   descriptor.flags = 0U;
 #line 271
-  tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 271
   if (tmp___1 != 0L) {
 #line 271
@@ -23995,7 +23995,7 @@ static int create_default_filesystem(struct ubifs_info *c )
 #line 321
   descriptor___0.flags = 0U;
 #line 321
-  tmp___5 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___5 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 321
   if (tmp___5 != 0L) {
 #line 321
@@ -24130,7 +24130,7 @@ static int create_default_filesystem(struct ubifs_info *c )
 #line 383
   descriptor___1.flags = 0U;
 #line 383
-  tmp___11 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+  tmp___11 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 383
   if (tmp___11 != 0L) {
 #line 383
@@ -24199,7 +24199,7 @@ static int create_default_filesystem(struct ubifs_info *c )
 #line 406
   descriptor___2.flags = 0U;
 #line 406
-  tmp___14 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+  tmp___14 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
 #line 406
   if (tmp___14 != 0L) {
 #line 406
@@ -24283,7 +24283,7 @@ static int create_default_filesystem(struct ubifs_info *c )
 #line 438
   descriptor___3.flags = 0U;
 #line 438
-  tmp___18 = __builtin_expect((long )descriptor___3.flags & 1L, 0L);
+  tmp___18 = ldv__builtin_expect((long )descriptor___3.flags & 1L, 0L);
 #line 438
   if (tmp___18 != 0L) {
 #line 438
@@ -24663,11 +24663,11 @@ int ubifs_read_superblock(struct ubifs_info *c )
 #line 665
   if (c->fmt_version > 4) {
 #line 666
-    tmp___2 = __builtin_expect((long )*((unsigned char *)c + 4080UL) & 1L, 0L);
+    tmp___2 = ldv__builtin_expect((long )*((unsigned char *)c + 4080UL) & 1L, 0L);
 #line 666
     if (tmp___2 != 0L) {
 #line 666
-      tmp___3 = __builtin_expect((unsigned int )*((unsigned char *)c + 4080UL) == 0U,
+      tmp___3 = ldv__builtin_expect((unsigned int )*((unsigned char *)c + 4080UL) == 0U,
                                  0L);
 #line 666
       if (tmp___3 != 0L) {
@@ -24838,7 +24838,7 @@ int ubifs_read_superblock(struct ubifs_info *c )
 #line 746
       descriptor.flags = 0U;
 #line 746
-      tmp___8 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+      tmp___8 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 746
       if (tmp___8 != 0L) {
 #line 746
@@ -24863,7 +24863,7 @@ int ubifs_read_superblock(struct ubifs_info *c )
 #line 749
       descriptor___0.flags = 0U;
 #line 749
-      tmp___10 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+      tmp___10 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 749
       if (tmp___10 != 0L) {
 #line 749
@@ -24939,7 +24939,7 @@ static int fixup_leb(struct ubifs_info *c , int lnum , int len )
 
   {
 #line 790
-  tmp___0 = __builtin_expect(len < 0, 0L);
+  tmp___0 = ldv__builtin_expect(len < 0, 0L);
 #line 790
   if (tmp___0 != 0L) {
 #line 790
@@ -24952,7 +24952,7 @@ static int fixup_leb(struct ubifs_info *c , int lnum , int len )
 
   }
 #line 791
-  tmp___2 = __builtin_expect(len % c->min_io_size != 0, 0L);
+  tmp___2 = ldv__builtin_expect(len % c->min_io_size != 0, 0L);
 #line 791
   if (tmp___2 != 0L) {
 #line 791
@@ -24965,7 +24965,7 @@ static int fixup_leb(struct ubifs_info *c , int lnum , int len )
 
   }
 #line 792
-  tmp___4 = __builtin_expect(c->leb_size <= len, 0L);
+  tmp___4 = ldv__builtin_expect(c->leb_size <= len, 0L);
 #line 792
   if (tmp___4 != 0L) {
 #line 792
@@ -24992,7 +24992,7 @@ static int fixup_leb(struct ubifs_info *c , int lnum , int len )
 #line 795
     descriptor.flags = 0U;
 #line 795
-    tmp___6 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___6 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 795
     if (tmp___6 != 0L) {
 #line 795
@@ -25023,7 +25023,7 @@ static int fixup_leb(struct ubifs_info *c , int lnum , int len )
 #line 799
   descriptor___0.flags = 0U;
 #line 799
-  tmp___9 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___9 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 799
   if (tmp___9 != 0L) {
 #line 799
@@ -25242,7 +25242,7 @@ int ubifs_fixup_free_space(struct ubifs_info *c )
 
   {
 #line 902
-  tmp___0 = __builtin_expect((unsigned int )*((unsigned char *)c + 2048UL) == 0U,
+  tmp___0 = ldv__builtin_expect((unsigned int )*((unsigned char *)c + 2048UL) == 0U,
                              0L);
 #line 902
   if (tmp___0 != 0L) {
@@ -25257,7 +25257,7 @@ int ubifs_fixup_free_space(struct ubifs_info *c )
 
   }
 #line 903
-  tmp___2 = __builtin_expect((unsigned int )*((unsigned char *)c + 4080UL) != 0U,
+  tmp___2 = ldv__builtin_expect((unsigned int )*((unsigned char *)c + 4080UL) != 0U,
                              0L);
 #line 903
   if (tmp___2 != 0L) {
@@ -25473,7 +25473,7 @@ __inline static ktime_t ktime_set(long const   secs , unsigned long const   nsec
 
   {
 #line 77
-  tmp = __builtin_expect((long long )secs > 9223372035LL, 0L);
+  tmp = ldv__builtin_expect((long long )secs > 9223372035LL, 0L);
 #line 77
   if (tmp != 0L) {
 #line 78
@@ -25643,7 +25643,7 @@ int ubifs_leb_write(struct ubifs_info *c , int lnum , void const   *buf , int of
 
   {
 #line 241
-  tmp___0 = __builtin_expect((long )*((unsigned char *)c + 4080UL) & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )*((unsigned char *)c + 4080UL) & 1L, 0L);
 #line 241
   if (tmp___0 != 0L) {
 #line 241
@@ -25655,7 +25655,7 @@ int ubifs_leb_write(struct ubifs_info *c , int lnum , void const   *buf , int of
     dump_stack();
   } else {
 #line 241
-    tmp___1 = __builtin_expect((unsigned int )*((unsigned char *)c + 4080UL) != 0U,
+    tmp___1 = ldv__builtin_expect((unsigned int )*((unsigned char *)c + 4080UL) != 0U,
                                0L);
 #line 241
     if (tmp___1 != 0L) {
@@ -25717,7 +25717,7 @@ int ubifs_leb_change(struct ubifs_info *c , int lnum , void const   *buf , int l
 
   {
 #line 261
-  tmp___0 = __builtin_expect((long )*((unsigned char *)c + 4080UL) & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )*((unsigned char *)c + 4080UL) & 1L, 0L);
 #line 261
   if (tmp___0 != 0L) {
 #line 261
@@ -25729,7 +25729,7 @@ int ubifs_leb_change(struct ubifs_info *c , int lnum , void const   *buf , int l
     dump_stack();
   } else {
 #line 261
-    tmp___1 = __builtin_expect((unsigned int )*((unsigned char *)c + 4080UL) != 0U,
+    tmp___1 = ldv__builtin_expect((unsigned int )*((unsigned char *)c + 4080UL) != 0U,
                                0L);
 #line 261
     if (tmp___1 != 0L) {
@@ -25791,7 +25791,7 @@ int ubifs_leb_unmap(struct ubifs_info *c , int lnum )
 
   {
 #line 281
-  tmp___0 = __builtin_expect((long )*((unsigned char *)c + 4080UL) & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )*((unsigned char *)c + 4080UL) & 1L, 0L);
 #line 281
   if (tmp___0 != 0L) {
 #line 281
@@ -25803,7 +25803,7 @@ int ubifs_leb_unmap(struct ubifs_info *c , int lnum )
     dump_stack();
   } else {
 #line 281
-    tmp___1 = __builtin_expect((unsigned int )*((unsigned char *)c + 4080UL) != 0U,
+    tmp___1 = ldv__builtin_expect((unsigned int )*((unsigned char *)c + 4080UL) != 0U,
                                0L);
 #line 281
     if (tmp___1 != 0L) {
@@ -25865,7 +25865,7 @@ int ubifs_leb_map(struct ubifs_info *c , int lnum )
 
   {
 #line 300
-  tmp___0 = __builtin_expect((long )*((unsigned char *)c + 4080UL) & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )*((unsigned char *)c + 4080UL) & 1L, 0L);
 #line 300
   if (tmp___0 != 0L) {
 #line 300
@@ -25876,7 +25876,7 @@ int ubifs_leb_map(struct ubifs_info *c , int lnum )
     dump_stack();
   } else {
 #line 300
-    tmp___1 = __builtin_expect((unsigned int )*((unsigned char *)c + 4080UL) != 0U,
+    tmp___1 = ldv__builtin_expect((unsigned int )*((unsigned char *)c + 4080UL) != 0U,
                                0L);
 #line 300
     if (tmp___1 != 0L) {
@@ -25982,14 +25982,14 @@ int ubifs_check_node(struct ubifs_info  const  *c , void const   *buf , int lnum
 #line 361
   ch = (struct ubifs_ch  const  *)buf;
 #line 363
-  tmp___0 = __builtin_expect(lnum < 0, 0L);
+  tmp___0 = ldv__builtin_expect(lnum < 0, 0L);
 #line 363
   if (tmp___0 != 0L) {
 #line 363
     tmp___2 = 1;
   } else {
 #line 363
-    tmp___1 = __builtin_expect((int )c->leb_cnt <= lnum, 0L);
+    tmp___1 = ldv__builtin_expect((int )c->leb_cnt <= lnum, 0L);
 #line 363
     if (tmp___1 != 0L) {
 #line 363
@@ -26010,7 +26010,7 @@ int ubifs_check_node(struct ubifs_info  const  *c , void const   *buf , int lnum
     dump_stack();
   } else {
 #line 363
-    tmp___3 = __builtin_expect(offs < 0, 0L);
+    tmp___3 = ldv__builtin_expect(offs < 0, 0L);
 #line 363
     if (tmp___3 != 0L) {
 #line 363
@@ -26025,7 +26025,7 @@ int ubifs_check_node(struct ubifs_info  const  *c , void const   *buf , int lnum
     }
   }
 #line 364
-  tmp___5 = __builtin_expect((offs & 7) != 0, 0L);
+  tmp___5 = ldv__builtin_expect((offs & 7) != 0, 0L);
 #line 364
   if (tmp___5 != 0L) {
 #line 364
@@ -26037,7 +26037,7 @@ int ubifs_check_node(struct ubifs_info  const  *c , void const   *buf , int lnum
     dump_stack();
   } else {
 #line 364
-    tmp___6 = __builtin_expect((int )c->leb_size <= offs, 0L);
+    tmp___6 = ldv__builtin_expect((int )c->leb_size <= offs, 0L);
 #line 364
     if (tmp___6 != 0L) {
 #line 364
@@ -26192,7 +26192,7 @@ void ubifs_pad(struct ubifs_info  const  *c , void *buf , int pad )
 
   {
 #line 441
-  tmp___0 = __builtin_expect(pad < 0, 0L);
+  tmp___0 = ldv__builtin_expect(pad < 0, 0L);
 #line 441
   if (tmp___0 != 0L) {
 #line 441
@@ -26203,7 +26203,7 @@ void ubifs_pad(struct ubifs_info  const  *c , void *buf , int pad )
     dump_stack();
   } else {
 #line 441
-    tmp___1 = __builtin_expect((pad & 7) != 0, 0L);
+    tmp___1 = ldv__builtin_expect((pad & 7) != 0, 0L);
 #line 441
     if (tmp___1 != 0L) {
 #line 441
@@ -26278,7 +26278,7 @@ static unsigned long long next_sqnum(struct ubifs_info *c )
 #line 473
   spin_unlock(& c->cnt_lock);
 #line 475
-  tmp___1 = __builtin_expect(sqnum > 0xfffffffeffffffffULL, 0L);
+  tmp___1 = ldv__builtin_expect(sqnum > 0xfffffffeffffffffULL, 0L);
 #line 475
   if (tmp___1 != 0L) {
 #line 476
@@ -26324,7 +26324,7 @@ void ubifs_prepare_node(struct ubifs_info *c , void *node , int len , int pad )
 #line 502
   sqnum = tmp;
 #line 504
-  tmp___1 = __builtin_expect((unsigned int )len <= 23U, 0L);
+  tmp___1 = ldv__builtin_expect((unsigned int )len <= 23U, 0L);
 #line 504
   if (tmp___1 != 0L) {
 #line 504
@@ -26389,7 +26389,7 @@ void ubifs_prep_grp_node(struct ubifs_info *c , void *node , int len , int last 
 #line 535
   sqnum = tmp;
 #line 537
-  tmp___1 = __builtin_expect((unsigned int )len <= 23U, 0L);
+  tmp___1 = ldv__builtin_expect((unsigned int )len <= 23U, 0L);
 #line 537
   if (tmp___1 != 0L) {
 #line 537
@@ -26458,7 +26458,7 @@ static enum hrtimer_restart wbuf_timer_callback_nolock(struct hrtimer *timer )
 #line 561
   descriptor.flags = 0U;
 #line 561
-  tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 561
   if (tmp___1 != 0L) {
 #line 561
@@ -26498,7 +26498,7 @@ static void new_wbuf_timer_nolock(struct ubifs_wbuf *wbuf )
 #line 574
   tmp___0 = hrtimer_active((struct hrtimer  const  *)(& wbuf->timer));
 #line 574
-  tmp___1 = __builtin_expect(tmp___0 != 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 != 0, 0L);
 #line 574
   if (tmp___1 != 0L) {
 #line 574
@@ -26531,7 +26531,7 @@ static void new_wbuf_timer_nolock(struct ubifs_wbuf *wbuf )
 #line 578
   descriptor.flags = 0U;
 #line 578
-  tmp___6 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___6 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 578
   if (tmp___6 != 0L) {
 #line 578
@@ -26628,7 +26628,7 @@ int ubifs_wbuf_sync_nolock(struct ubifs_wbuf *wbuf )
 #line 622
   descriptor.flags = 0U;
 #line 622
-  tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 622
   if (tmp___1 != 0L) {
 #line 622
@@ -26642,7 +26642,7 @@ int ubifs_wbuf_sync_nolock(struct ubifs_wbuf *wbuf )
 
   }
 #line 624
-  tmp___3 = __builtin_expect((wbuf->avail & 7) != 0, 0L);
+  tmp___3 = ldv__builtin_expect((wbuf->avail & 7) != 0, 0L);
 #line 624
   if (tmp___3 != 0L) {
 #line 624
@@ -26656,7 +26656,7 @@ int ubifs_wbuf_sync_nolock(struct ubifs_wbuf *wbuf )
 
   }
 #line 625
-  tmp___5 = __builtin_expect(wbuf->offs + wbuf->size > c->leb_size, 0L);
+  tmp___5 = ldv__builtin_expect(wbuf->offs + wbuf->size > c->leb_size, 0L);
 #line 625
   if (tmp___5 != 0L) {
 #line 625
@@ -26670,7 +26670,7 @@ int ubifs_wbuf_sync_nolock(struct ubifs_wbuf *wbuf )
 
   }
 #line 626
-  tmp___7 = __builtin_expect(wbuf->size < c->min_io_size, 0L);
+  tmp___7 = ldv__builtin_expect(wbuf->size < c->min_io_size, 0L);
 #line 626
   if (tmp___7 != 0L) {
 #line 626
@@ -26684,7 +26684,7 @@ int ubifs_wbuf_sync_nolock(struct ubifs_wbuf *wbuf )
 
   }
 #line 627
-  tmp___9 = __builtin_expect(wbuf->size > c->max_write_size, 0L);
+  tmp___9 = ldv__builtin_expect(wbuf->size > c->max_write_size, 0L);
 #line 627
   if (tmp___9 != 0L) {
 #line 627
@@ -26698,7 +26698,7 @@ int ubifs_wbuf_sync_nolock(struct ubifs_wbuf *wbuf )
 
   }
 #line 628
-  tmp___11 = __builtin_expect(wbuf->size % c->min_io_size != 0, 0L);
+  tmp___11 = ldv__builtin_expect(wbuf->size % c->min_io_size != 0, 0L);
 #line 628
   if (tmp___11 != 0L) {
 #line 628
@@ -26712,7 +26712,7 @@ int ubifs_wbuf_sync_nolock(struct ubifs_wbuf *wbuf )
 
   }
 #line 629
-  tmp___13 = __builtin_expect((long )*((unsigned char *)c + 4080UL) & 1L, 0L);
+  tmp___13 = ldv__builtin_expect((long )*((unsigned char *)c + 4080UL) & 1L, 0L);
 #line 629
   if (tmp___13 != 0L) {
 #line 629
@@ -26724,7 +26724,7 @@ int ubifs_wbuf_sync_nolock(struct ubifs_wbuf *wbuf )
     dump_stack();
   } else {
 #line 629
-    tmp___14 = __builtin_expect((unsigned int )*((unsigned char *)c + 4080UL) != 0U,
+    tmp___14 = ldv__builtin_expect((unsigned int )*((unsigned char *)c + 4080UL) != 0U,
                                 0L);
 #line 629
     if (tmp___14 != 0L) {
@@ -26742,7 +26742,7 @@ int ubifs_wbuf_sync_nolock(struct ubifs_wbuf *wbuf )
 #line 630
   if (c->leb_size - wbuf->offs >= c->max_write_size) {
 #line 631
-    tmp___16 = __builtin_expect((wbuf->offs + wbuf->size) % c->max_write_size != 0,
+    tmp___16 = ldv__builtin_expect((wbuf->offs + wbuf->size) % c->max_write_size != 0,
                                 0L);
 #line 631
     if (tmp___16 != 0L) {
@@ -26863,7 +26863,7 @@ int ubifs_wbuf_seek_nolock(struct ubifs_wbuf *wbuf , int lnum , int offs )
 #line 691
   descriptor.flags = 0U;
 #line 691
-  tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 691
   if (tmp___1 != 0L) {
 #line 691
@@ -26877,7 +26877,7 @@ int ubifs_wbuf_seek_nolock(struct ubifs_wbuf *wbuf , int lnum , int offs )
 
   }
 #line 692
-  tmp___3 = __builtin_expect(lnum < 0, 0L);
+  tmp___3 = ldv__builtin_expect(lnum < 0, 0L);
 #line 692
   if (tmp___3 != 0L) {
 #line 692
@@ -26889,7 +26889,7 @@ int ubifs_wbuf_seek_nolock(struct ubifs_wbuf *wbuf , int lnum , int offs )
     dump_stack();
   } else {
 #line 692
-    tmp___4 = __builtin_expect((int )c->leb_cnt <= lnum, 0L);
+    tmp___4 = ldv__builtin_expect((int )c->leb_cnt <= lnum, 0L);
 #line 692
     if (tmp___4 != 0L) {
 #line 692
@@ -26904,7 +26904,7 @@ int ubifs_wbuf_seek_nolock(struct ubifs_wbuf *wbuf , int lnum , int offs )
     }
   }
 #line 693
-  tmp___6 = __builtin_expect(offs < 0, 0L);
+  tmp___6 = ldv__builtin_expect(offs < 0, 0L);
 #line 693
   if (tmp___6 != 0L) {
 #line 693
@@ -26916,7 +26916,7 @@ int ubifs_wbuf_seek_nolock(struct ubifs_wbuf *wbuf , int lnum , int offs )
     dump_stack();
   } else {
 #line 693
-    tmp___7 = __builtin_expect((int )c->leb_size < offs, 0L);
+    tmp___7 = ldv__builtin_expect((int )c->leb_size < offs, 0L);
 #line 693
     if (tmp___7 != 0L) {
 #line 693
@@ -26931,7 +26931,7 @@ int ubifs_wbuf_seek_nolock(struct ubifs_wbuf *wbuf , int lnum , int offs )
     }
   }
 #line 694
-  tmp___9 = __builtin_expect(offs % (int )c->min_io_size != 0, 0L);
+  tmp___9 = ldv__builtin_expect(offs % (int )c->min_io_size != 0, 0L);
 #line 694
   if (tmp___9 != 0L) {
 #line 694
@@ -26943,7 +26943,7 @@ int ubifs_wbuf_seek_nolock(struct ubifs_wbuf *wbuf , int lnum , int offs )
     dump_stack();
   } else {
 #line 694
-    tmp___10 = __builtin_expect((offs & 7) != 0, 0L);
+    tmp___10 = ldv__builtin_expect((offs & 7) != 0, 0L);
 #line 694
     if (tmp___10 != 0L) {
 #line 694
@@ -26958,7 +26958,7 @@ int ubifs_wbuf_seek_nolock(struct ubifs_wbuf *wbuf , int lnum , int offs )
     }
   }
 #line 695
-  tmp___12 = __builtin_expect(wbuf->lnum == lnum, 0L);
+  tmp___12 = ldv__builtin_expect(wbuf->lnum == lnum, 0L);
 #line 695
   if (tmp___12 != 0L) {
 #line 695
@@ -26972,7 +26972,7 @@ int ubifs_wbuf_seek_nolock(struct ubifs_wbuf *wbuf , int lnum , int offs )
 
   }
 #line 696
-  tmp___14 = __builtin_expect(wbuf->used != 0, 0L);
+  tmp___14 = ldv__builtin_expect(wbuf->used != 0, 0L);
 #line 696
   if (tmp___14 != 0L) {
 #line 696
@@ -27032,7 +27032,7 @@ int ubifs_bg_wbufs_sync(struct ubifs_info *c )
 
   {
 #line 726
-  tmp___0 = __builtin_expect((long )*((unsigned char *)c + 4080UL) & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )*((unsigned char *)c + 4080UL) & 1L, 0L);
 #line 726
   if (tmp___0 != 0L) {
 #line 726
@@ -27044,7 +27044,7 @@ int ubifs_bg_wbufs_sync(struct ubifs_info *c )
     dump_stack();
   } else {
 #line 726
-    tmp___1 = __builtin_expect((unsigned int )*((unsigned char *)c + 4080UL) != 0U,
+    tmp___1 = ldv__builtin_expect((unsigned int )*((unsigned char *)c + 4080UL) != 0U,
                                0L);
 #line 726
     if (tmp___1 != 0L) {
@@ -27090,7 +27090,7 @@ int ubifs_bg_wbufs_sync(struct ubifs_info *c )
 #line 736
   descriptor.flags = 0U;
 #line 736
-  tmp___3 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___3 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 736
   if (tmp___3 != 0L) {
 #line 736
@@ -27277,7 +27277,7 @@ int ubifs_wbuf_write_nolock(struct ubifs_wbuf *wbuf , void *buf , int len )
 #line 799
   descriptor.flags = 0U;
 #line 799
-  tmp___2 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___2 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 799
   if (tmp___2 != 0L) {
 #line 799
@@ -27293,14 +27293,14 @@ int ubifs_wbuf_write_nolock(struct ubifs_wbuf *wbuf , void *buf , int len )
 
   }
 #line 802
-  tmp___4 = __builtin_expect(len <= 0, 0L);
+  tmp___4 = ldv__builtin_expect(len <= 0, 0L);
 #line 802
   if (tmp___4 != 0L) {
 #line 802
     tmp___6 = 1;
   } else {
 #line 802
-    tmp___5 = __builtin_expect(wbuf->lnum < 0, 0L);
+    tmp___5 = ldv__builtin_expect(wbuf->lnum < 0, 0L);
 #line 802
     if (tmp___5 != 0L) {
 #line 802
@@ -27321,7 +27321,7 @@ int ubifs_wbuf_write_nolock(struct ubifs_wbuf *wbuf , void *buf , int len )
     dump_stack();
   } else {
 #line 802
-    tmp___7 = __builtin_expect(wbuf->lnum >= c->leb_cnt, 0L);
+    tmp___7 = ldv__builtin_expect(wbuf->lnum >= c->leb_cnt, 0L);
 #line 802
     if (tmp___7 != 0L) {
 #line 802
@@ -27336,7 +27336,7 @@ int ubifs_wbuf_write_nolock(struct ubifs_wbuf *wbuf , void *buf , int len )
     }
   }
 #line 803
-  tmp___9 = __builtin_expect(wbuf->offs < 0, 0L);
+  tmp___9 = ldv__builtin_expect(wbuf->offs < 0, 0L);
 #line 803
   if (tmp___9 != 0L) {
 #line 803
@@ -27348,7 +27348,7 @@ int ubifs_wbuf_write_nolock(struct ubifs_wbuf *wbuf , void *buf , int len )
     dump_stack();
   } else {
 #line 803
-    tmp___10 = __builtin_expect(wbuf->offs % c->min_io_size != 0, 0L);
+    tmp___10 = ldv__builtin_expect(wbuf->offs % c->min_io_size != 0, 0L);
 #line 803
     if (tmp___10 != 0L) {
 #line 803
@@ -27363,7 +27363,7 @@ int ubifs_wbuf_write_nolock(struct ubifs_wbuf *wbuf , void *buf , int len )
     }
   }
 #line 804
-  tmp___12 = __builtin_expect((wbuf->offs & 7) != 0, 0L);
+  tmp___12 = ldv__builtin_expect((wbuf->offs & 7) != 0, 0L);
 #line 804
   if (tmp___12 != 0L) {
 #line 804
@@ -27375,7 +27375,7 @@ int ubifs_wbuf_write_nolock(struct ubifs_wbuf *wbuf , void *buf , int len )
     dump_stack();
   } else {
 #line 804
-    tmp___13 = __builtin_expect(wbuf->offs > c->leb_size, 0L);
+    tmp___13 = ldv__builtin_expect(wbuf->offs > c->leb_size, 0L);
 #line 804
     if (tmp___13 != 0L) {
 #line 804
@@ -27390,7 +27390,7 @@ int ubifs_wbuf_write_nolock(struct ubifs_wbuf *wbuf , void *buf , int len )
     }
   }
 #line 805
-  tmp___15 = __builtin_expect(wbuf->avail <= 0, 0L);
+  tmp___15 = ldv__builtin_expect(wbuf->avail <= 0, 0L);
 #line 805
   if (tmp___15 != 0L) {
 #line 805
@@ -27402,7 +27402,7 @@ int ubifs_wbuf_write_nolock(struct ubifs_wbuf *wbuf , void *buf , int len )
     dump_stack();
   } else {
 #line 805
-    tmp___16 = __builtin_expect(wbuf->avail > wbuf->size, 0L);
+    tmp___16 = ldv__builtin_expect(wbuf->avail > wbuf->size, 0L);
 #line 805
     if (tmp___16 != 0L) {
 #line 805
@@ -27417,7 +27417,7 @@ int ubifs_wbuf_write_nolock(struct ubifs_wbuf *wbuf , void *buf , int len )
     }
   }
 #line 806
-  tmp___18 = __builtin_expect(wbuf->size < c->min_io_size, 0L);
+  tmp___18 = ldv__builtin_expect(wbuf->size < c->min_io_size, 0L);
 #line 806
   if (tmp___18 != 0L) {
 #line 806
@@ -27431,7 +27431,7 @@ int ubifs_wbuf_write_nolock(struct ubifs_wbuf *wbuf , void *buf , int len )
 
   }
 #line 807
-  tmp___20 = __builtin_expect(wbuf->size > c->max_write_size, 0L);
+  tmp___20 = ldv__builtin_expect(wbuf->size > c->max_write_size, 0L);
 #line 807
   if (tmp___20 != 0L) {
 #line 807
@@ -27445,7 +27445,7 @@ int ubifs_wbuf_write_nolock(struct ubifs_wbuf *wbuf , void *buf , int len )
 
   }
 #line 808
-  tmp___22 = __builtin_expect(wbuf->size % c->min_io_size != 0, 0L);
+  tmp___22 = ldv__builtin_expect(wbuf->size % c->min_io_size != 0, 0L);
 #line 808
   if (tmp___22 != 0L) {
 #line 808
@@ -27461,7 +27461,7 @@ int ubifs_wbuf_write_nolock(struct ubifs_wbuf *wbuf , void *buf , int len )
 #line 809
   tmp___24 = mutex_is_locked(& wbuf->io_mutex);
 #line 809
-  tmp___25 = __builtin_expect(tmp___24 == 0, 0L);
+  tmp___25 = ldv__builtin_expect(tmp___24 == 0, 0L);
 #line 809
   if (tmp___25 != 0L) {
 #line 809
@@ -27475,7 +27475,7 @@ int ubifs_wbuf_write_nolock(struct ubifs_wbuf *wbuf , void *buf , int len )
 
   }
 #line 810
-  tmp___27 = __builtin_expect((long )*((unsigned char *)c + 4080UL) & 1L, 0L);
+  tmp___27 = ldv__builtin_expect((long )*((unsigned char *)c + 4080UL) & 1L, 0L);
 #line 810
   if (tmp___27 != 0L) {
 #line 810
@@ -27487,7 +27487,7 @@ int ubifs_wbuf_write_nolock(struct ubifs_wbuf *wbuf , void *buf , int len )
     dump_stack();
   } else {
 #line 810
-    tmp___28 = __builtin_expect((unsigned int )*((unsigned char *)c + 4080UL) != 0U,
+    tmp___28 = ldv__builtin_expect((unsigned int )*((unsigned char *)c + 4080UL) != 0U,
                                 0L);
 #line 810
     if (tmp___28 != 0L) {
@@ -27503,7 +27503,7 @@ int ubifs_wbuf_write_nolock(struct ubifs_wbuf *wbuf , void *buf , int len )
     }
   }
 #line 811
-  tmp___30 = __builtin_expect((unsigned int )*((unsigned char *)c + 2048UL) != 0U,
+  tmp___30 = ldv__builtin_expect((unsigned int )*((unsigned char *)c + 2048UL) != 0U,
                               0L);
 #line 811
   if (tmp___30 != 0L) {
@@ -27520,7 +27520,7 @@ int ubifs_wbuf_write_nolock(struct ubifs_wbuf *wbuf , void *buf , int len )
 #line 812
   if (c->leb_size - wbuf->offs >= c->max_write_size) {
 #line 813
-    tmp___32 = __builtin_expect((wbuf->offs + wbuf->size) % c->max_write_size != 0,
+    tmp___32 = ldv__builtin_expect((wbuf->offs + wbuf->size) % c->max_write_size != 0,
                                 0L);
 #line 813
     if (tmp___32 != 0L) {
@@ -27577,7 +27577,7 @@ int ubifs_wbuf_write_nolock(struct ubifs_wbuf *wbuf , void *buf , int len )
 #line 833
       descriptor___0.flags = 0U;
 #line 833
-      tmp___35 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+      tmp___35 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 833
       if (tmp___35 != 0L) {
 #line 833
@@ -27652,7 +27652,7 @@ int ubifs_wbuf_write_nolock(struct ubifs_wbuf *wbuf , void *buf , int len )
 #line 868
     descriptor___1.flags = 0U;
 #line 868
-    tmp___38 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___38 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 868
     if (tmp___38 != 0L) {
 #line 868
@@ -27703,7 +27703,7 @@ int ubifs_wbuf_write_nolock(struct ubifs_wbuf *wbuf , void *buf , int len )
 #line 888
     descriptor___2.flags = 0U;
 #line 888
-    tmp___40 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+    tmp___40 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
 #line 888
     if (tmp___40 != 0L) {
 #line 888
@@ -27753,7 +27753,7 @@ int ubifs_wbuf_write_nolock(struct ubifs_wbuf *wbuf , void *buf , int len )
 #line 910
     descriptor___3.flags = 0U;
 #line 910
-    tmp___42 = __builtin_expect((long )descriptor___3.flags & 1L, 0L);
+    tmp___42 = ldv__builtin_expect((long )descriptor___3.flags & 1L, 0L);
 #line 910
     if (tmp___42 != 0L) {
 #line 910
@@ -27896,7 +27896,7 @@ int ubifs_write_node(struct ubifs_info *c , void *buf , int len , int lnum , int
 #line 982
   descriptor.flags = 0U;
 #line 982
-  tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 982
   if (tmp___1 != 0L) {
 #line 982
@@ -27910,14 +27910,14 @@ int ubifs_write_node(struct ubifs_info *c , void *buf , int len , int lnum , int
 
   }
 #line 985
-  tmp___3 = __builtin_expect(lnum < 0, 0L);
+  tmp___3 = ldv__builtin_expect(lnum < 0, 0L);
 #line 985
   if (tmp___3 != 0L) {
 #line 985
     tmp___5 = 1;
   } else {
 #line 985
-    tmp___4 = __builtin_expect(c->leb_cnt <= lnum, 0L);
+    tmp___4 = ldv__builtin_expect(c->leb_cnt <= lnum, 0L);
 #line 985
     if (tmp___4 != 0L) {
 #line 985
@@ -27938,7 +27938,7 @@ int ubifs_write_node(struct ubifs_info *c , void *buf , int len , int lnum , int
     dump_stack();
   } else {
 #line 985
-    tmp___6 = __builtin_expect(offs < 0, 0L);
+    tmp___6 = ldv__builtin_expect(offs < 0, 0L);
 #line 985
     if (tmp___6 != 0L) {
 #line 985
@@ -27953,7 +27953,7 @@ int ubifs_write_node(struct ubifs_info *c , void *buf , int len , int lnum , int
     }
   }
 #line 986
-  tmp___8 = __builtin_expect(offs % c->min_io_size != 0, 0L);
+  tmp___8 = ldv__builtin_expect(offs % c->min_io_size != 0, 0L);
 #line 986
   if (tmp___8 != 0L) {
 #line 986
@@ -27965,7 +27965,7 @@ int ubifs_write_node(struct ubifs_info *c , void *buf , int len , int lnum , int
     dump_stack();
   } else {
 #line 986
-    tmp___9 = __builtin_expect(c->leb_size <= offs, 0L);
+    tmp___9 = ldv__builtin_expect(c->leb_size <= offs, 0L);
 #line 986
     if (tmp___9 != 0L) {
 #line 986
@@ -27980,7 +27980,7 @@ int ubifs_write_node(struct ubifs_info *c , void *buf , int len , int lnum , int
     }
   }
 #line 987
-  tmp___11 = __builtin_expect((long )*((unsigned char *)c + 4080UL) & 1L, 0L);
+  tmp___11 = ldv__builtin_expect((long )*((unsigned char *)c + 4080UL) & 1L, 0L);
 #line 987
   if (tmp___11 != 0L) {
 #line 987
@@ -27992,7 +27992,7 @@ int ubifs_write_node(struct ubifs_info *c , void *buf , int len , int lnum , int
     dump_stack();
   } else {
 #line 987
-    tmp___12 = __builtin_expect((unsigned int )*((unsigned char *)c + 4080UL) != 0U,
+    tmp___12 = ldv__builtin_expect((unsigned int )*((unsigned char *)c + 4080UL) != 0U,
                                 0L);
 #line 987
     if (tmp___12 != 0L) {
@@ -28008,7 +28008,7 @@ int ubifs_write_node(struct ubifs_info *c , void *buf , int len , int lnum , int
     }
   }
 #line 988
-  tmp___14 = __builtin_expect((unsigned int )*((unsigned char *)c + 2048UL) != 0U,
+  tmp___14 = ldv__builtin_expect((unsigned int )*((unsigned char *)c + 2048UL) != 0U,
                               0L);
 #line 988
   if (tmp___14 != 0L) {
@@ -28097,7 +28097,7 @@ int ubifs_read_node_wbuf(struct ubifs_wbuf *wbuf , void *buf , int type , int le
 #line 1023
   descriptor.flags = 0U;
 #line 1023
-  tmp___2 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___2 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1023
   if (tmp___2 != 0L) {
 #line 1023
@@ -28113,7 +28113,7 @@ int ubifs_read_node_wbuf(struct ubifs_wbuf *wbuf , void *buf , int type , int le
 
   }
 #line 1025
-  tmp___4 = __builtin_expect((unsigned long )wbuf == (unsigned long )((struct ubifs_wbuf *)0),
+  tmp___4 = ldv__builtin_expect((unsigned long )wbuf == (unsigned long )((struct ubifs_wbuf *)0),
                              0L);
 #line 1025
   if (tmp___4 != 0L) {
@@ -28121,7 +28121,7 @@ int ubifs_read_node_wbuf(struct ubifs_wbuf *wbuf , void *buf , int type , int le
     tmp___6 = 1;
   } else {
 #line 1025
-    tmp___5 = __builtin_expect(lnum < 0, 0L);
+    tmp___5 = ldv__builtin_expect(lnum < 0, 0L);
 #line 1025
     if (tmp___5 != 0L) {
 #line 1025
@@ -28137,7 +28137,7 @@ int ubifs_read_node_wbuf(struct ubifs_wbuf *wbuf , void *buf , int type , int le
     tmp___8 = 1;
   } else {
 #line 1025
-    tmp___7 = __builtin_expect((int )c->leb_cnt <= lnum, 0L);
+    tmp___7 = ldv__builtin_expect((int )c->leb_cnt <= lnum, 0L);
 #line 1025
     if (tmp___7 != 0L) {
 #line 1025
@@ -28158,7 +28158,7 @@ int ubifs_read_node_wbuf(struct ubifs_wbuf *wbuf , void *buf , int type , int le
     dump_stack();
   } else {
 #line 1025
-    tmp___9 = __builtin_expect(offs < 0, 0L);
+    tmp___9 = ldv__builtin_expect(offs < 0, 0L);
 #line 1025
     if (tmp___9 != 0L) {
 #line 1025
@@ -28173,7 +28173,7 @@ int ubifs_read_node_wbuf(struct ubifs_wbuf *wbuf , void *buf , int type , int le
     }
   }
 #line 1026
-  tmp___11 = __builtin_expect((offs & 7) != 0, 0L);
+  tmp___11 = ldv__builtin_expect((offs & 7) != 0, 0L);
 #line 1026
   if (tmp___11 != 0L) {
 #line 1026
@@ -28185,7 +28185,7 @@ int ubifs_read_node_wbuf(struct ubifs_wbuf *wbuf , void *buf , int type , int le
     dump_stack();
   } else {
 #line 1026
-    tmp___12 = __builtin_expect((int )c->leb_size <= offs, 0L);
+    tmp___12 = ldv__builtin_expect((int )c->leb_size <= offs, 0L);
 #line 1026
     if (tmp___12 != 0L) {
 #line 1026
@@ -28200,7 +28200,7 @@ int ubifs_read_node_wbuf(struct ubifs_wbuf *wbuf , void *buf , int type , int le
     }
   }
 #line 1027
-  tmp___14 = __builtin_expect(type < 0, 0L);
+  tmp___14 = ldv__builtin_expect(type < 0, 0L);
 #line 1027
   if (tmp___14 != 0L) {
 #line 1027
@@ -28212,7 +28212,7 @@ int ubifs_read_node_wbuf(struct ubifs_wbuf *wbuf , void *buf , int type , int le
     dump_stack();
   } else {
 #line 1027
-    tmp___15 = __builtin_expect(type > 11, 0L);
+    tmp___15 = ldv__builtin_expect(type > 11, 0L);
 #line 1027
     if (tmp___15 != 0L) {
 #line 1027
@@ -28374,7 +28374,7 @@ int ubifs_read_node(struct ubifs_info  const  *c , void *buf , int type , int le
 #line 1099
   descriptor.flags = 0U;
 #line 1099
-  tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1099
   if (tmp___1 != 0L) {
 #line 1099
@@ -28388,14 +28388,14 @@ int ubifs_read_node(struct ubifs_info  const  *c , void *buf , int type , int le
 
   }
 #line 1100
-  tmp___3 = __builtin_expect(lnum < 0, 0L);
+  tmp___3 = ldv__builtin_expect(lnum < 0, 0L);
 #line 1100
   if (tmp___3 != 0L) {
 #line 1100
     tmp___5 = 1;
   } else {
 #line 1100
-    tmp___4 = __builtin_expect((int )c->leb_cnt <= lnum, 0L);
+    tmp___4 = ldv__builtin_expect((int )c->leb_cnt <= lnum, 0L);
 #line 1100
     if (tmp___4 != 0L) {
 #line 1100
@@ -28416,7 +28416,7 @@ int ubifs_read_node(struct ubifs_info  const  *c , void *buf , int type , int le
     dump_stack();
   } else {
 #line 1100
-    tmp___6 = __builtin_expect(offs < 0, 0L);
+    tmp___6 = ldv__builtin_expect(offs < 0, 0L);
 #line 1100
     if (tmp___6 != 0L) {
 #line 1100
@@ -28431,7 +28431,7 @@ int ubifs_read_node(struct ubifs_info  const  *c , void *buf , int type , int le
     }
   }
 #line 1101
-  tmp___8 = __builtin_expect((unsigned int )len <= 23U, 0L);
+  tmp___8 = ldv__builtin_expect((unsigned int )len <= 23U, 0L);
 #line 1101
   if (tmp___8 != 0L) {
 #line 1101
@@ -28443,7 +28443,7 @@ int ubifs_read_node(struct ubifs_info  const  *c , void *buf , int type , int le
     dump_stack();
   } else {
 #line 1101
-    tmp___9 = __builtin_expect(offs + len > (int )c->leb_size, 0L);
+    tmp___9 = ldv__builtin_expect(offs + len > (int )c->leb_size, 0L);
 #line 1101
     if (tmp___9 != 0L) {
 #line 1101
@@ -28458,7 +28458,7 @@ int ubifs_read_node(struct ubifs_info  const  *c , void *buf , int type , int le
     }
   }
 #line 1102
-  tmp___11 = __builtin_expect((offs & 7) != 0, 0L);
+  tmp___11 = ldv__builtin_expect((offs & 7) != 0, 0L);
 #line 1102
   if (tmp___11 != 0L) {
 #line 1102
@@ -28470,7 +28470,7 @@ int ubifs_read_node(struct ubifs_info  const  *c , void *buf , int type , int le
     dump_stack();
   } else {
 #line 1102
-    tmp___12 = __builtin_expect((int )c->leb_size <= offs, 0L);
+    tmp___12 = ldv__builtin_expect((int )c->leb_size <= offs, 0L);
 #line 1102
     if (tmp___12 != 0L) {
 #line 1102
@@ -28485,7 +28485,7 @@ int ubifs_read_node(struct ubifs_info  const  *c , void *buf , int type , int le
     }
   }
 #line 1103
-  tmp___14 = __builtin_expect(type < 0, 0L);
+  tmp___14 = ldv__builtin_expect(type < 0, 0L);
 #line 1103
   if (tmp___14 != 0L) {
 #line 1103
@@ -28497,7 +28497,7 @@ int ubifs_read_node(struct ubifs_info  const  *c , void *buf , int type , int le
     dump_stack();
   } else {
 #line 1103
-    tmp___15 = __builtin_expect(type > 11, 0L);
+    tmp___15 = ldv__builtin_expect(type > 11, 0L);
 #line 1103
     if (tmp___15 != 0L) {
 #line 1103
@@ -29372,7 +29372,7 @@ static int insert_old_idx(struct ubifs_info *c , int lnum , int offs )
 #line 202
   old_idx = (struct ubifs_old_idx *)tmp;
 #line 203
-  tmp___0 = __builtin_expect((unsigned long )old_idx == (unsigned long )((struct ubifs_old_idx *)0),
+  tmp___0 = ldv__builtin_expect((unsigned long )old_idx == (unsigned long )((struct ubifs_old_idx *)0),
                              0L);
 #line 203
   if (tmp___0 != 0L) {
@@ -29621,7 +29621,7 @@ static struct ubifs_znode *copy_znode(struct ubifs_info *c , struct ubifs_znode 
 #line 337
   zn = (struct ubifs_znode *)tmp;
 #line 338
-  tmp___1 = __builtin_expect((unsigned long )zn == (unsigned long )((struct ubifs_znode *)0),
+  tmp___1 = ldv__builtin_expect((unsigned long )zn == (unsigned long )((struct ubifs_znode *)0),
                              0L);
 #line 338
   if (tmp___1 != 0L) {
@@ -29645,7 +29645,7 @@ static struct ubifs_znode *copy_znode(struct ubifs_info *c , struct ubifs_znode 
 #line 346
   tmp___3 = ubifs_zn_obsolete((struct ubifs_znode  const  *)znode);
 #line 346
-  tmp___4 = __builtin_expect(tmp___3 != 0, 0L);
+  tmp___4 = ldv__builtin_expect(tmp___3 != 0, 0L);
 #line 346
   if (tmp___4 != 0L) {
 #line 346
@@ -29747,7 +29747,7 @@ static struct ubifs_znode *dirty_cow_znode(struct ubifs_info *c , struct ubifs_z
 #line 400
       err = add_idx_dirt(c, zbr->lnum, zbr->len);
 #line 401
-      tmp___0 = __builtin_expect(err != 0, 0L);
+      tmp___0 = ldv__builtin_expect(err != 0, 0L);
 #line 401
       if (tmp___0 != 0L) {
 #line 402
@@ -29781,7 +29781,7 @@ static struct ubifs_znode *dirty_cow_znode(struct ubifs_info *c , struct ubifs_z
 #line 412
     err = insert_old_idx(c, zbr->lnum, zbr->offs);
 #line 413
-    tmp___5 = __builtin_expect(err != 0, 0L);
+    tmp___5 = ldv__builtin_expect(err != 0, 0L);
 #line 413
     if (tmp___5 != 0L) {
 #line 414
@@ -29806,7 +29806,7 @@ static struct ubifs_znode *dirty_cow_znode(struct ubifs_info *c , struct ubifs_z
 #line 422
   zbr->len = 0;
 #line 424
-  tmp___7 = __builtin_expect(err != 0, 0L);
+  tmp___7 = ldv__builtin_expect(err != 0, 0L);
 #line 424
   if (tmp___7 != 0L) {
 #line 425
@@ -29838,7 +29838,7 @@ static int lnc_add(struct ubifs_info *c , struct ubifs_zbranch *zbr , void const
 #line 454
   dent = (struct ubifs_dent_node  const  *)node;
 #line 456
-  tmp___0 = __builtin_expect((unsigned long )zbr->ldv_26076.leaf != (unsigned long )((void *)0),
+  tmp___0 = ldv__builtin_expect((unsigned long )zbr->ldv_26076.leaf != (unsigned long )((void *)0),
                              0L);
 #line 456
   if (tmp___0 != 0L) {
@@ -29852,7 +29852,7 @@ static int lnc_add(struct ubifs_info *c , struct ubifs_zbranch *zbr , void const
 
   }
 #line 457
-  tmp___2 = __builtin_expect(zbr->len == 0, 0L);
+  tmp___2 = ldv__builtin_expect(zbr->len == 0, 0L);
 #line 457
   if (tmp___2 != 0L) {
 #line 457
@@ -29867,7 +29867,7 @@ static int lnc_add(struct ubifs_info *c , struct ubifs_zbranch *zbr , void const
 #line 458
   tmp___4 = is_hash_key((struct ubifs_info  const  *)c, (union ubifs_key  const  *)(& zbr->key));
 #line 458
-  tmp___5 = __builtin_expect(tmp___4 == 0, 0L);
+  tmp___5 = ldv__builtin_expect(tmp___4 == 0, 0L);
 #line 458
   if (tmp___5 != 0L) {
 #line 458
@@ -29918,7 +29918,7 @@ static int lnc_add_directly(struct ubifs_info *c , struct ubifs_zbranch *zbr , v
 
   {
 #line 490
-  tmp___0 = __builtin_expect((unsigned long )zbr->ldv_26076.leaf != (unsigned long )((void *)0),
+  tmp___0 = ldv__builtin_expect((unsigned long )zbr->ldv_26076.leaf != (unsigned long )((void *)0),
                              0L);
 #line 490
   if (tmp___0 != 0L) {
@@ -29933,7 +29933,7 @@ static int lnc_add_directly(struct ubifs_info *c , struct ubifs_zbranch *zbr , v
 
   }
 #line 491
-  tmp___2 = __builtin_expect(zbr->len == 0, 0L);
+  tmp___2 = ldv__builtin_expect(zbr->len == 0, 0L);
 #line 491
   if (tmp___2 != 0L) {
 #line 491
@@ -30002,7 +30002,7 @@ static int tnc_read_node_nm(struct ubifs_info *c , struct ubifs_zbranch *zbr , v
 #line 533
   tmp___0 = is_hash_key((struct ubifs_info  const  *)c, (union ubifs_key  const  *)(& zbr->key));
 #line 533
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
 #line 533
   if (tmp___1 != 0L) {
 #line 533
@@ -30018,7 +30018,7 @@ static int tnc_read_node_nm(struct ubifs_info *c , struct ubifs_zbranch *zbr , v
 #line 535
   if ((unsigned long )zbr->ldv_26076.leaf != (unsigned long )((void *)0)) {
 #line 537
-    tmp___3 = __builtin_expect(zbr->len == 0, 0L);
+    tmp___3 = ldv__builtin_expect(zbr->len == 0, 0L);
 #line 537
     if (tmp___3 != 0L) {
 #line 537
@@ -30086,7 +30086,7 @@ static int try_read_node(struct ubifs_info  const  *c , void *buf , int type , i
 #line 582
   descriptor.flags = 0U;
 #line 582
-  tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 582
   if (tmp___1 != 0L) {
 #line 582
@@ -30192,7 +30192,7 @@ static int fallible_read_node(struct ubifs_info *c , union ubifs_key  const  *ke
 #line 628
   descriptor.flags = 0U;
 #line 628
-  tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 628
   if (tmp___1 != 0L) {
 #line 628
@@ -30244,7 +30244,7 @@ static int fallible_read_node(struct ubifs_info *c , union ubifs_key  const  *ke
 #line 642
     descriptor___0.flags = 0U;
 #line 642
-    tmp___6 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___6 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 642
     if (tmp___6 != 0L) {
 #line 642
@@ -30592,7 +30592,7 @@ static int resolve_collision(struct ubifs_info *c , union ubifs_key  const  *key
   err = matches_name(c, (struct ubifs_zbranch *)(& (*zn)->zbranch) + (unsigned long )*n,
                      nm);
 #line 834
-  tmp = __builtin_expect(err < 0, 0L);
+  tmp = ldv__builtin_expect(err < 0, 0L);
 #line 834
   if (tmp != 0L) {
 #line 835
@@ -30615,7 +30615,7 @@ static int resolve_collision(struct ubifs_info *c , union ubifs_key  const  *key
 #line 843
     if (err == -2) {
 #line 844
-      tmp___1 = __builtin_expect(*n != 0, 0L);
+      tmp___1 = ldv__builtin_expect(*n != 0, 0L);
 #line 844
       if (tmp___1 != 0L) {
 #line 844
@@ -30673,7 +30673,7 @@ static int resolve_collision(struct ubifs_info *c , union ubifs_key  const  *key
 
         }
 #line 889
-        tmp___4 = __builtin_expect(*n != 0, 0L);
+        tmp___4 = ldv__builtin_expect(*n != 0, 0L);
 #line 889
         if (tmp___4 != 0L) {
 #line 889
@@ -30721,7 +30721,7 @@ static int resolve_collision(struct ubifs_info *c , union ubifs_key  const  *key
 
     }
 #line 901
-    tmp___7 = __builtin_expect(err != 2, 0L);
+    tmp___7 = ldv__builtin_expect(err != 2, 0L);
 #line 901
     if (tmp___7 != 0L) {
 #line 901
@@ -30797,7 +30797,7 @@ static int resolve_collision(struct ubifs_info *c , union ubifs_key  const  *key
 
     }
 #line 925
-    tmp___10 = __builtin_expect(err != 0, 0L);
+    tmp___10 = ldv__builtin_expect(err != 0, 0L);
 #line 925
     if (tmp___10 != 0L) {
 #line 925
@@ -30861,7 +30861,7 @@ static int fallible_matches_name(struct ubifs_info *c , struct ubifs_zbranch *zb
 
     }
 #line 966
-    tmp___1 = __builtin_expect(err != 1, 0L);
+    tmp___1 = ldv__builtin_expect(err != 1, 0L);
 #line 966
     if (tmp___1 != 0L) {
 #line 966
@@ -30967,7 +30967,7 @@ static int fallible_resolve_collision(struct ubifs_info *c , union ubifs_key  co
   cmp = fallible_matches_name(c, (struct ubifs_zbranch *)(& znode->zbranch) + (unsigned long )nn,
                               nm);
 #line 1024
-  tmp = __builtin_expect(cmp < 0, 0L);
+  tmp = ldv__builtin_expect(cmp < 0, 0L);
 #line 1024
   if (tmp != 0L) {
 #line 1025
@@ -31006,7 +31006,7 @@ static int fallible_resolve_collision(struct ubifs_info *c , union ubifs_key  co
 #line 1044
     if (err == -2) {
 #line 1045
-      tmp___1 = __builtin_expect(*n != 0, 0L);
+      tmp___1 = ldv__builtin_expect(*n != 0, 0L);
 #line 1045
       if (tmp___1 != 0L) {
 #line 1045
@@ -31064,7 +31064,7 @@ static int fallible_resolve_collision(struct ubifs_info *c , union ubifs_key  co
 
         }
 #line 1062
-        tmp___4 = __builtin_expect(*n != 0, 0L);
+        tmp___4 = ldv__builtin_expect(*n != 0, 0L);
 #line 1062
         if (tmp___4 != 0L) {
 #line 1062
@@ -31233,7 +31233,7 @@ static int fallible_resolve_collision(struct ubifs_info *c , union ubifs_key  co
 #line 1118
   descriptor.flags = 0U;
 #line 1118
-  tmp___9 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___9 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1118
   if (tmp___9 != 0L) {
 #line 1118
@@ -31430,7 +31430,7 @@ static struct ubifs_znode *dirty_cow_bottom_up(struct ubifs_info *c , struct ubi
 #line 1220
   p = 0;
 #line 1222
-  tmp___0 = __builtin_expect((unsigned long )c->zroot.ldv_26076.znode == (unsigned long )((struct ubifs_znode *)0),
+  tmp___0 = ldv__builtin_expect((unsigned long )c->zroot.ldv_26076.znode == (unsigned long )((struct ubifs_znode *)0),
                              0L);
 #line 1222
   if (tmp___0 != 0L) {
@@ -31445,7 +31445,7 @@ static struct ubifs_znode *dirty_cow_bottom_up(struct ubifs_info *c , struct ubi
 
   }
 #line 1223
-  tmp___2 = __builtin_expect((unsigned long )znode == (unsigned long )((struct ubifs_znode *)0),
+  tmp___2 = ldv__builtin_expect((unsigned long )znode == (unsigned long )((struct ubifs_znode *)0),
                              0L);
 #line 1223
   if (tmp___2 != 0L) {
@@ -31496,7 +31496,7 @@ static struct ubifs_znode *dirty_cow_bottom_up(struct ubifs_info *c , struct ubi
 #line 1240
     n = znode->iip;
 #line 1241
-    tmp___6 = __builtin_expect((c->zroot.ldv_26076.znode)->level <= p, 0L);
+    tmp___6 = ldv__builtin_expect((c->zroot.ldv_26076.znode)->level <= p, 0L);
 #line 1241
     if (tmp___6 != 0L) {
 #line 1241
@@ -31543,7 +31543,7 @@ static struct ubifs_znode *dirty_cow_bottom_up(struct ubifs_info *c , struct ubi
 #line 1254
   if ((unsigned long )zp != (unsigned long )((struct ubifs_znode *)0)) {
 #line 1255
-    tmp___10 = __builtin_expect(*(path + ((unsigned long )p + 0xffffffffffffffffUL)) < 0,
+    tmp___10 = ldv__builtin_expect(*(path + ((unsigned long )p + 0xffffffffffffffffUL)) < 0,
                                 0L);
 #line 1255
     if (tmp___10 != 0L) {
@@ -31558,7 +31558,7 @@ static struct ubifs_znode *dirty_cow_bottom_up(struct ubifs_info *c , struct ubi
 
     }
 #line 1256
-    tmp___12 = __builtin_expect(*(path + ((unsigned long )p + 0xffffffffffffffffUL)) >= zp->child_cnt,
+    tmp___12 = ldv__builtin_expect(*(path + ((unsigned long )p + 0xffffffffffffffffUL)) >= zp->child_cnt,
                                 0L);
 #line 1256
     if (tmp___12 != 0L) {
@@ -31580,7 +31580,7 @@ static struct ubifs_znode *dirty_cow_bottom_up(struct ubifs_info *c , struct ubi
     znode = dirty_cow_znode(c, zbr);
   } else {
 #line 1260
-    tmp___14 = __builtin_expect((unsigned long )c->zroot.ldv_26076.znode != (unsigned long )znode,
+    tmp___14 = ldv__builtin_expect((unsigned long )c->zroot.ldv_26076.znode != (unsigned long )znode,
                                 0L);
 #line 1260
     if (tmp___14 != 0L) {
@@ -31607,7 +31607,7 @@ static struct ubifs_znode *dirty_cow_bottom_up(struct ubifs_info *c , struct ubi
 
   }
 #line 1265
-  tmp___17 = __builtin_expect(*(path + ((unsigned long )p + 0xffffffffffffffffUL)) < 0,
+  tmp___17 = ldv__builtin_expect(*(path + ((unsigned long )p + 0xffffffffffffffffUL)) < 0,
                               0L);
 #line 1265
   if (tmp___17 != 0L) {
@@ -31622,7 +31622,7 @@ static struct ubifs_znode *dirty_cow_bottom_up(struct ubifs_info *c , struct ubi
 
   }
 #line 1266
-  tmp___19 = __builtin_expect(*(path + ((unsigned long )p + 0xffffffffffffffffUL)) >= znode->child_cnt,
+  tmp___19 = ldv__builtin_expect(*(path + ((unsigned long )p + 0xffffffffffffffffUL)) >= znode->child_cnt,
                               0L);
 #line 1266
   if (tmp___19 != 0L) {
@@ -31702,7 +31702,7 @@ int ubifs_lookup_level0(struct ubifs_info *c , union ubifs_key  const  *key , st
 #line 1302
   descriptor.flags = 0U;
 #line 1302
-  tmp___2 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___2 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1302
   if (tmp___2 != 0L) {
 #line 1302
@@ -31719,7 +31719,7 @@ int ubifs_lookup_level0(struct ubifs_info *c , union ubifs_key  const  *key , st
 #line 1303
   tmp___4 = key_type((struct ubifs_info  const  *)c, key);
 #line 1303
-  tmp___5 = __builtin_expect(tmp___4 > 3, 0L);
+  tmp___5 = ldv__builtin_expect(tmp___4 > 3, 0L);
 #line 1303
   if (tmp___5 != 0L) {
 #line 1303
@@ -31735,7 +31735,7 @@ int ubifs_lookup_level0(struct ubifs_info *c , union ubifs_key  const  *key , st
 #line 1305
   znode = c->zroot.ldv_26076.znode;
 #line 1306
-  tmp___8 = __builtin_expect((unsigned long )znode == (unsigned long )((struct ubifs_znode *)0),
+  tmp___8 = ldv__builtin_expect((unsigned long )znode == (unsigned long )((struct ubifs_znode *)0),
                              0L);
 #line 1306
   if (tmp___8 != 0L) {
@@ -31835,7 +31835,7 @@ int ubifs_lookup_level0(struct ubifs_info *c , union ubifs_key  const  *key , st
 #line 1340
       descriptor___0.flags = 0U;
 #line 1340
-      tmp___12 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+      tmp___12 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 1340
       if (tmp___12 != 0L) {
 #line 1340
@@ -31869,7 +31869,7 @@ int ubifs_lookup_level0(struct ubifs_info *c , union ubifs_key  const  *key , st
 #line 1389
     descriptor___1.flags = 0U;
 #line 1389
-    tmp___15 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___15 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 1389
     if (tmp___15 != 0L) {
 #line 1389
@@ -31888,7 +31888,7 @@ int ubifs_lookup_level0(struct ubifs_info *c , union ubifs_key  const  *key , st
 
   }
 #line 1393
-  tmp___16 = __builtin_expect(err < 0, 0L);
+  tmp___16 = ldv__builtin_expect(err < 0, 0L);
 #line 1393
   if (tmp___16 != 0L) {
 #line 1394
@@ -31913,7 +31913,7 @@ int ubifs_lookup_level0(struct ubifs_info *c , union ubifs_key  const  *key , st
 #line 1396
     descriptor___2.flags = 0U;
 #line 1396
-    tmp___18 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+    tmp___18 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
 #line 1396
     if (tmp___18 != 0L) {
 #line 1396
@@ -31944,7 +31944,7 @@ int ubifs_lookup_level0(struct ubifs_info *c , union ubifs_key  const  *key , st
 #line 1401
   descriptor___3.flags = 0U;
 #line 1401
-  tmp___21 = __builtin_expect((long )descriptor___3.flags & 1L, 0L);
+  tmp___21 = ldv__builtin_expect((long )descriptor___3.flags & 1L, 0L);
 #line 1401
   if (tmp___21 != 0L) {
 #line 1401
@@ -32024,7 +32024,7 @@ static int lookup_level0_dirty(struct ubifs_info *c , union ubifs_key  const  *k
 #line 1438
   descriptor.flags = 0U;
 #line 1438
-  tmp___2 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___2 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1438
   if (tmp___2 != 0L) {
 #line 1438
@@ -32041,7 +32041,7 @@ static int lookup_level0_dirty(struct ubifs_info *c , union ubifs_key  const  *k
 #line 1440
   znode = c->zroot.ldv_26076.znode;
 #line 1441
-  tmp___5 = __builtin_expect((unsigned long )znode == (unsigned long )((struct ubifs_znode *)0),
+  tmp___5 = ldv__builtin_expect((unsigned long )znode == (unsigned long )((struct ubifs_znode *)0),
                              0L);
 #line 1441
   if (tmp___5 != 0L) {
@@ -32178,7 +32178,7 @@ static int lookup_level0_dirty(struct ubifs_info *c , union ubifs_key  const  *k
 #line 1484
       descriptor___0.flags = 0U;
 #line 1484
-      tmp___15 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+      tmp___15 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 1484
       if (tmp___15 != 0L) {
 #line 1484
@@ -32214,7 +32214,7 @@ static int lookup_level0_dirty(struct ubifs_info *c , union ubifs_key  const  *k
 #line 1495
     descriptor___1.flags = 0U;
 #line 1495
-    tmp___18 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___18 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 1495
     if (tmp___18 != 0L) {
 #line 1495
@@ -32231,7 +32231,7 @@ static int lookup_level0_dirty(struct ubifs_info *c , union ubifs_key  const  *k
 
   }
 #line 1498
-  tmp___19 = __builtin_expect(err < 0, 0L);
+  tmp___19 = ldv__builtin_expect(err < 0, 0L);
 #line 1498
   if (tmp___19 != 0L) {
 #line 1499
@@ -32258,7 +32258,7 @@ static int lookup_level0_dirty(struct ubifs_info *c , union ubifs_key  const  *k
 #line 1502
     descriptor___2.flags = 0U;
 #line 1502
-    tmp___21 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+    tmp___21 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
 #line 1502
     if (tmp___21 != 0L) {
 #line 1502
@@ -32314,7 +32314,7 @@ static int lookup_level0_dirty(struct ubifs_info *c , union ubifs_key  const  *k
 #line 1512
   descriptor___3.flags = 0U;
 #line 1512
-  tmp___27 = __builtin_expect((long )descriptor___3.flags & 1L, 0L);
+  tmp___27 = ldv__builtin_expect((long )descriptor___3.flags & 1L, 0L);
 #line 1512
   if (tmp___27 != 0L) {
 #line 1512
@@ -32801,7 +32801,7 @@ static int read_wbuf(struct ubifs_wbuf *wbuf , void *buf , int len , int lnum , 
 #line 1778
   descriptor.flags = 0U;
 #line 1778
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1778
   if (tmp___0 != 0L) {
 #line 1778
@@ -32813,7 +32813,7 @@ static int read_wbuf(struct ubifs_wbuf *wbuf , void *buf , int len , int lnum , 
 
   }
 #line 1779
-  tmp___2 = __builtin_expect((unsigned long )wbuf == (unsigned long )((struct ubifs_wbuf *)0),
+  tmp___2 = ldv__builtin_expect((unsigned long )wbuf == (unsigned long )((struct ubifs_wbuf *)0),
                              0L);
 #line 1779
   if (tmp___2 != 0L) {
@@ -32821,7 +32821,7 @@ static int read_wbuf(struct ubifs_wbuf *wbuf , void *buf , int len , int lnum , 
     tmp___4 = 1;
   } else {
 #line 1779
-    tmp___3 = __builtin_expect(lnum < 0, 0L);
+    tmp___3 = ldv__builtin_expect(lnum < 0, 0L);
 #line 1779
     if (tmp___3 != 0L) {
 #line 1779
@@ -32837,7 +32837,7 @@ static int read_wbuf(struct ubifs_wbuf *wbuf , void *buf , int len , int lnum , 
     tmp___6 = 1;
   } else {
 #line 1779
-    tmp___5 = __builtin_expect((int )c->leb_cnt <= lnum, 0L);
+    tmp___5 = ldv__builtin_expect((int )c->leb_cnt <= lnum, 0L);
 #line 1779
     if (tmp___5 != 0L) {
 #line 1779
@@ -32857,7 +32857,7 @@ static int read_wbuf(struct ubifs_wbuf *wbuf , void *buf , int len , int lnum , 
     dump_stack();
   } else {
 #line 1779
-    tmp___7 = __builtin_expect(offs < 0, 0L);
+    tmp___7 = ldv__builtin_expect(offs < 0, 0L);
 #line 1779
     if (tmp___7 != 0L) {
 #line 1779
@@ -32871,7 +32871,7 @@ static int read_wbuf(struct ubifs_wbuf *wbuf , void *buf , int len , int lnum , 
     }
   }
 #line 1780
-  tmp___9 = __builtin_expect((offs & 7) != 0, 0L);
+  tmp___9 = ldv__builtin_expect((offs & 7) != 0, 0L);
 #line 1780
   if (tmp___9 != 0L) {
 #line 1780
@@ -32882,7 +32882,7 @@ static int read_wbuf(struct ubifs_wbuf *wbuf , void *buf , int len , int lnum , 
     dump_stack();
   } else {
 #line 1780
-    tmp___10 = __builtin_expect((int )c->leb_size <= offs, 0L);
+    tmp___10 = ldv__builtin_expect((int )c->leb_size <= offs, 0L);
 #line 1780
     if (tmp___10 != 0L) {
 #line 1780
@@ -32896,7 +32896,7 @@ static int read_wbuf(struct ubifs_wbuf *wbuf , void *buf , int len , int lnum , 
     }
   }
 #line 1781
-  tmp___12 = __builtin_expect(offs + len > (int )c->leb_size, 0L);
+  tmp___12 = ldv__builtin_expect(offs + len > (int )c->leb_size, 0L);
 #line 1781
   if (tmp___12 != 0L) {
 #line 1781
@@ -33045,7 +33045,7 @@ static int validate_data_node(struct ubifs_info *c , void *buf , struct ubifs_zb
 #line 1845
     descriptor.flags = 0U;
 #line 1845
-    tmp___5 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___5 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1845
     if (tmp___5 != 0L) {
 #line 1845
@@ -33072,7 +33072,7 @@ static int validate_data_node(struct ubifs_info *c , void *buf , struct ubifs_zb
 #line 1846
     descriptor___0.flags = 0U;
 #line 1846
-    tmp___8 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___8 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 1846
     if (tmp___8 != 0L) {
 #line 1846
@@ -33192,7 +33192,7 @@ int ubifs_tnc_bulk_read(struct ubifs_info *c , struct bu_info *bu )
 #line 1899
     descriptor.flags = 0U;
 #line 1899
-    tmp___4 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___4 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1899
     if (tmp___4 != 0L) {
 #line 1899
@@ -33278,7 +33278,7 @@ static int do_lookup_nm(struct ubifs_info *c , union ubifs_key  const  *key , vo
 #line 1934
   descriptor.flags = 0U;
 #line 1934
-  tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1934
   if (tmp___1 != 0L) {
 #line 1934
@@ -33313,7 +33313,7 @@ static int do_lookup_nm(struct ubifs_info *c , union ubifs_key  const  *key , vo
 
   }
 #line 1945
-  tmp___3 = __builtin_expect(n < 0, 0L);
+  tmp___3 = ldv__builtin_expect(n < 0, 0L);
 #line 1945
   if (tmp___3 != 0L) {
 #line 1945
@@ -33340,7 +33340,7 @@ static int do_lookup_nm(struct ubifs_info *c , union ubifs_key  const  *key , vo
 #line 1948
   descriptor___0.flags = 0U;
 #line 1948
-  tmp___5 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___5 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 1948
   if (tmp___5 != 0L) {
 #line 1948
@@ -33352,7 +33352,7 @@ static int do_lookup_nm(struct ubifs_info *c , union ubifs_key  const  *key , vo
 
   }
 #line 1949
-  tmp___6 = __builtin_expect(err < 0, 0L);
+  tmp___6 = ldv__builtin_expect(err < 0, 0L);
 #line 1949
   if (tmp___6 != 0L) {
 #line 1950
@@ -33436,7 +33436,7 @@ static void correct_parent_keys(struct ubifs_info  const  *c , struct ubifs_znod
 
   {
 #line 2015
-  tmp___0 = __builtin_expect((unsigned long )znode->parent == (unsigned long )((struct ubifs_znode *)0),
+  tmp___0 = ldv__builtin_expect((unsigned long )znode->parent == (unsigned long )((struct ubifs_znode *)0),
                              0L);
 #line 2015
   if (tmp___0 != 0L) {
@@ -33451,7 +33451,7 @@ static void correct_parent_keys(struct ubifs_info  const  *c , struct ubifs_znod
 
   }
 #line 2016
-  tmp___2 = __builtin_expect(znode->iip != 0, 0L);
+  tmp___2 = ldv__builtin_expect(znode->iip != 0, 0L);
 #line 2016
   if (tmp___2 != 0L) {
 #line 2016
@@ -33514,7 +33514,7 @@ static void insert_zbranch(struct ubifs_znode *znode , struct ubifs_zbranch  con
 #line 2047
   tmp___0 = ubifs_zn_dirty((struct ubifs_znode  const  *)znode);
 #line 2047
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
 #line 2047
   if (tmp___1 != 0L) {
 #line 2047
@@ -33654,7 +33654,7 @@ static int tnc_insert(struct ubifs_info *c , struct ubifs_znode *znode , struct 
 #line 2099
   key = & zbr->key;
 #line 2101
-  tmp___0 = __builtin_expect(n < 0, 0L);
+  tmp___0 = ldv__builtin_expect(n < 0, 0L);
 #line 2101
   if (tmp___0 != 0L) {
 #line 2101
@@ -33665,7 +33665,7 @@ static int tnc_insert(struct ubifs_info *c , struct ubifs_znode *znode , struct 
     dump_stack();
   } else {
 #line 2101
-    tmp___1 = __builtin_expect(c->fanout < n, 0L);
+    tmp___1 = ldv__builtin_expect(c->fanout < n, 0L);
 #line 2101
     if (tmp___1 != 0L) {
 #line 2101
@@ -33684,7 +33684,7 @@ static int tnc_insert(struct ubifs_info *c , struct ubifs_znode *znode , struct 
 #line 2106
   if (znode->child_cnt < c->fanout) {
 #line 2107
-    tmp___3 = __builtin_expect(c->fanout == n, 0L);
+    tmp___3 = ldv__builtin_expect(c->fanout == n, 0L);
 #line 2107
     if (tmp___3 != 0L) {
 #line 2107
@@ -33709,7 +33709,7 @@ static int tnc_insert(struct ubifs_info *c , struct ubifs_znode *znode , struct 
 #line 2108
     descriptor.flags = 0U;
 #line 2108
-    tmp___6 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___6 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 2108
     if (tmp___6 != 0L) {
 #line 2108
@@ -33750,7 +33750,7 @@ static int tnc_insert(struct ubifs_info *c , struct ubifs_znode *znode , struct 
 #line 2123
   descriptor___0.flags = 0U;
 #line 2123
-  tmp___9 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___9 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 2123
   if (tmp___9 != 0L) {
 #line 2123
@@ -33943,7 +33943,7 @@ static int tnc_insert(struct ubifs_info *c , struct ubifs_znode *znode , struct 
 #line 2203
   descriptor___1.flags = 0U;
 #line 2203
-  tmp___22 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+  tmp___22 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 2203
   if (tmp___22 != 0L) {
 #line 2203
@@ -33998,7 +33998,7 @@ static int tnc_insert(struct ubifs_info *c , struct ubifs_znode *znode , struct 
 #line 2217
   descriptor___2.flags = 0U;
 #line 2217
-  tmp___25 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+  tmp___25 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
 #line 2217
   if (tmp___25 != 0L) {
 #line 2217
@@ -34055,7 +34055,7 @@ static int tnc_insert(struct ubifs_info *c , struct ubifs_znode *znode , struct 
 #line 2241
   descriptor___3.flags = 0U;
 #line 2241
-  tmp___27 = __builtin_expect((long )descriptor___3.flags & 1L, 0L);
+  tmp___27 = ldv__builtin_expect((long )descriptor___3.flags & 1L, 0L);
 #line 2241
   if (tmp___27 != 0L) {
 #line 2241
@@ -34153,7 +34153,7 @@ int ubifs_tnc_add(struct ubifs_info *c , union ubifs_key  const  *key , int lnum
 #line 2293
   descriptor.flags = 0U;
 #line 2293
-  tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 2293
   if (tmp___1 != 0L) {
 #line 2293
@@ -34255,7 +34255,7 @@ int ubifs_tnc_replace(struct ubifs_info *c , union ubifs_key  const  *key , int 
 #line 2342
   descriptor.flags = 0U;
 #line 2342
-  tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 2342
   if (tmp___1 != 0L) {
 #line 2342
@@ -34327,7 +34327,7 @@ int ubifs_tnc_replace(struct ubifs_info *c , union ubifs_key  const  *key , int 
 #line 2366
         descriptor___0.flags = 0U;
 #line 2366
-        tmp___3 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+        tmp___3 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 2366
         if (tmp___3 != 0L) {
 #line 2366
@@ -34470,7 +34470,7 @@ int ubifs_tnc_add_nm(struct ubifs_info *c , union ubifs_key  const  *key , int l
 #line 2425
   descriptor.flags = 0U;
 #line 2425
-  tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 2425
   if (tmp___1 != 0L) {
 #line 2425
@@ -34519,7 +34519,7 @@ int ubifs_tnc_add_nm(struct ubifs_info *c , union ubifs_key  const  *key , int l
 #line 2439
     descriptor___0.flags = 0U;
 #line 2439
-    tmp___3 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___3 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 2439
     if (tmp___3 != 0L) {
 #line 2439
@@ -34692,7 +34692,7 @@ static int tnc_delete(struct ubifs_info *c , struct ubifs_znode *znode , int n )
 
   {
 #line 2517
-  tmp___0 = __builtin_expect(znode->level != 0, 0L);
+  tmp___0 = ldv__builtin_expect(znode->level != 0, 0L);
 #line 2517
   if (tmp___0 != 0L) {
 #line 2517
@@ -34705,7 +34705,7 @@ static int tnc_delete(struct ubifs_info *c , struct ubifs_znode *znode , int n )
 
   }
 #line 2518
-  tmp___2 = __builtin_expect(n < 0, 0L);
+  tmp___2 = ldv__builtin_expect(n < 0, 0L);
 #line 2518
   if (tmp___2 != 0L) {
 #line 2518
@@ -34716,7 +34716,7 @@ static int tnc_delete(struct ubifs_info *c , struct ubifs_znode *znode , int n )
     dump_stack();
   } else {
 #line 2518
-    tmp___3 = __builtin_expect(c->fanout <= n, 0L);
+    tmp___3 = ldv__builtin_expect(c->fanout <= n, 0L);
 #line 2518
     if (tmp___3 != 0L) {
 #line 2518
@@ -34742,7 +34742,7 @@ static int tnc_delete(struct ubifs_info *c , struct ubifs_znode *znode , int n )
 #line 2519
   descriptor.flags = 0U;
 #line 2519
-  tmp___6 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___6 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 2519
   if (tmp___6 != 0L) {
 #line 2519
@@ -34801,7 +34801,7 @@ static int tnc_delete(struct ubifs_info *c , struct ubifs_znode *znode , int n )
 #line 2544
   tmp___8 = ubifs_zn_obsolete((struct ubifs_znode  const  *)znode);
 #line 2544
-  tmp___9 = __builtin_expect(tmp___8 != 0, 0L);
+  tmp___9 = ldv__builtin_expect(tmp___8 != 0, 0L);
 #line 2544
   if (tmp___9 != 0L) {
 #line 2544
@@ -34816,7 +34816,7 @@ static int tnc_delete(struct ubifs_info *c , struct ubifs_znode *znode , int n )
 #line 2545
   tmp___11 = ubifs_zn_dirty((struct ubifs_znode  const  *)znode);
 #line 2545
-  tmp___12 = __builtin_expect(tmp___11 == 0, 0L);
+  tmp___12 = ldv__builtin_expect(tmp___11 == 0, 0L);
 #line 2545
   if (tmp___12 != 0L) {
 #line 2545
@@ -34867,7 +34867,7 @@ static int tnc_delete(struct ubifs_info *c , struct ubifs_znode *znode , int n )
 #line 2566
   znode->child_cnt = znode->child_cnt + -1;
 #line 2567
-  tmp___14 = __builtin_expect(znode->level == 0, 0L);
+  tmp___14 = ldv__builtin_expect(znode->level == 0, 0L);
 #line 2567
   if (tmp___14 != 0L) {
 #line 2567
@@ -34968,7 +34968,7 @@ static int tnc_delete(struct ubifs_info *c , struct ubifs_znode *znode , int n )
 #line 2600
     tmp___20 = ubifs_zn_obsolete((struct ubifs_znode  const  *)zp);
 #line 2600
-    tmp___21 = __builtin_expect(tmp___20 != 0, 0L);
+    tmp___21 = ldv__builtin_expect(tmp___20 != 0, 0L);
 #line 2600
     if (tmp___21 != 0L) {
 #line 2600
@@ -34983,7 +34983,7 @@ static int tnc_delete(struct ubifs_info *c , struct ubifs_znode *znode , int n )
 #line 2601
     tmp___23 = ubifs_zn_dirty((struct ubifs_znode  const  *)zp);
 #line 2601
-    tmp___24 = __builtin_expect(tmp___23 == 0, 0L);
+    tmp___24 = ldv__builtin_expect(tmp___23 == 0, 0L);
 #line 2601
     if (tmp___24 != 0L) {
 #line 2601
@@ -35056,7 +35056,7 @@ int ubifs_tnc_remove(struct ubifs_info *c , union ubifs_key  const  *key )
 #line 2629
   descriptor.flags = 0U;
 #line 2629
-  tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 2629
   if (tmp___1 != 0L) {
 #line 2629
@@ -35136,7 +35136,7 @@ int ubifs_tnc_remove_nm(struct ubifs_info *c , union ubifs_key  const  *key , st
 #line 2660
   descriptor.flags = 0U;
 #line 2660
-  tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 2660
   if (tmp___1 != 0L) {
 #line 2660
@@ -35182,7 +35182,7 @@ int ubifs_tnc_remove_nm(struct ubifs_info *c , union ubifs_key  const  *key , st
 #line 2671
     descriptor___0.flags = 0U;
 #line 2671
-    tmp___3 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___3 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 2671
     if (tmp___3 != 0L) {
 #line 2671
@@ -35429,7 +35429,7 @@ int ubifs_tnc_remove_range(struct ubifs_info *c , union ubifs_key *from_key , un
 #line 2775
   descriptor.flags = 0U;
 #line 2775
-  tmp___6 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___6 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 2775
   if (tmp___6 != 0L) {
 #line 2775
@@ -35547,7 +35547,7 @@ int ubifs_tnc_remove_ino(struct ubifs_info *c , ino_t inum )
 #line 2811
   descriptor.flags = 0U;
 #line 2811
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 2811
   if (tmp___0 != 0L) {
 #line 2811
@@ -35598,7 +35598,7 @@ int ubifs_tnc_remove_ino(struct ubifs_info *c , ino_t inum )
 #line 2831
   descriptor___0.flags = 0U;
 #line 2831
-  tmp___4 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___4 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 2831
   if (tmp___4 != 0L) {
 #line 2831
@@ -35712,7 +35712,7 @@ struct ubifs_dent_node *ubifs_tnc_next_ent(struct ubifs_info *c , union ubifs_ke
 #line 2895
   descriptor.flags = 0U;
 #line 2895
-  tmp___2 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___2 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 2895
   if (tmp___2 != 0L) {
 #line 2895
@@ -35730,7 +35730,7 @@ struct ubifs_dent_node *ubifs_tnc_next_ent(struct ubifs_info *c , union ubifs_ke
 #line 2896
   tmp___4 = is_hash_key((struct ubifs_info  const  *)c, (union ubifs_key  const  *)key);
 #line 2896
-  tmp___5 = __builtin_expect(tmp___4 == 0, 0L);
+  tmp___5 = ldv__builtin_expect(tmp___4 == 0, 0L);
 #line 2896
   if (tmp___5 != 0L) {
 #line 2896
@@ -35748,7 +35748,7 @@ struct ubifs_dent_node *ubifs_tnc_next_ent(struct ubifs_info *c , union ubifs_ke
 #line 2899
   err = ubifs_lookup_level0(c, (union ubifs_key  const  *)key, & znode, & n);
 #line 2900
-  tmp___6 = __builtin_expect(err < 0, 0L);
+  tmp___6 = ldv__builtin_expect(err < 0, 0L);
 #line 2900
   if (tmp___6 != 0L) {
 #line 2901
@@ -35775,7 +35775,7 @@ struct ubifs_dent_node *ubifs_tnc_next_ent(struct ubifs_info *c , union ubifs_ke
 #line 2907
       descriptor___0.flags = 0U;
 #line 2907
-      tmp___8 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+      tmp___8 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 2907
       if (tmp___8 != 0L) {
 #line 2907
@@ -35787,7 +35787,7 @@ struct ubifs_dent_node *ubifs_tnc_next_ent(struct ubifs_info *c , union ubifs_ke
 
       }
 #line 2909
-      tmp___9 = __builtin_expect(err < 0, 0L);
+      tmp___9 = ldv__builtin_expect(err < 0, 0L);
 #line 2909
       if (tmp___9 != 0L) {
 #line 2910
@@ -35801,7 +35801,7 @@ struct ubifs_dent_node *ubifs_tnc_next_ent(struct ubifs_info *c , union ubifs_ke
 #line 2914
     err = tnc_next(c, & znode, & n);
 #line 2915
-    tmp___10 = __builtin_expect(err != 0, 0L);
+    tmp___10 = ldv__builtin_expect(err != 0, 0L);
 #line 2915
     if (tmp___10 != 0L) {
 #line 2916
@@ -35831,7 +35831,7 @@ struct ubifs_dent_node *ubifs_tnc_next_ent(struct ubifs_info *c , union ubifs_ke
 #line 2936
   dent = (struct ubifs_dent_node *)tmp___11;
 #line 2937
-  tmp___12 = __builtin_expect((unsigned long )dent == (unsigned long )((struct ubifs_dent_node *)0),
+  tmp___12 = ldv__builtin_expect((unsigned long )dent == (unsigned long )((struct ubifs_dent_node *)0),
                               0L);
 #line 2937
   if (tmp___12 != 0L) {
@@ -35870,7 +35870,7 @@ struct ubifs_dent_node *ubifs_tnc_next_ent(struct ubifs_info *c , union ubifs_ke
 #line 2953
   err = tnc_read_node_nm(c, zbr, (void *)dent);
 #line 2954
-  tmp___16 = __builtin_expect(err != 0, 0L);
+  tmp___16 = ldv__builtin_expect(err != 0, 0L);
 #line 2954
   if (tmp___16 != 0L) {
 #line 2955
@@ -35912,7 +35912,7 @@ static void tnc_destroy_cnext(struct ubifs_info *c )
 
   }
 #line 2979
-  tmp___0 = __builtin_expect(c->cmt_state != 5, 0L);
+  tmp___0 = ldv__builtin_expect(c->cmt_state != 5, 0L);
 #line 2979
   if (tmp___0 != 0L) {
 #line 2979
@@ -36156,7 +36156,7 @@ static struct ubifs_znode *lookup_znode(struct ubifs_info *c , union ubifs_key *
 #line 3114
   tmp___0 = key_type((struct ubifs_info  const  *)c, (union ubifs_key  const  *)key);
 #line 3114
-  tmp___1 = __builtin_expect(tmp___0 > 3, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 > 3, 0L);
 #line 3114
   if (tmp___1 != 0L) {
 #line 3114
@@ -36237,7 +36237,7 @@ static struct ubifs_znode *lookup_znode(struct ubifs_info *c , union ubifs_key *
     ubifs_search_zbranch((struct ubifs_info  const  *)c, (struct ubifs_znode  const  *)znode,
                          (union ubifs_key  const  *)key, & n);
 #line 3153
-    tmp___6 = __builtin_expect(n < 0, 0L);
+    tmp___6 = ldv__builtin_expect(n < 0, 0L);
 #line 3153
     if (tmp___6 != 0L) {
 #line 3153
@@ -36614,7 +36614,7 @@ int ubifs_tnc_has_node(struct ubifs_info *c , union ubifs_key *key , int level ,
       err = 1;
     } else {
 #line 3350
-      tmp = __builtin_expect(err != 0, 0L);
+      tmp = ldv__builtin_expect(err != 0, 0L);
 #line 3350
       if (tmp != 0L) {
 #line 3350
@@ -36778,7 +36778,7 @@ int dbg_check_inode_size(struct ubifs_info *c , struct inode  const  *inode , lo
 
   }
 #line 3445
-  tmp___1 = __builtin_expect(err != 0, 0L);
+  tmp___1 = ldv__builtin_expect(err != 0, 0L);
 #line 3445
   if (tmp___1 != 0L) {
 #line 3445
@@ -37940,7 +37940,7 @@ int ubifs_read_master(struct ubifs_info *c )
 #line 443
     descriptor.flags = 0U;
 #line 443
-    tmp___2 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___2 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 443
     if (tmp___2 != 0L) {
 #line 443
@@ -37996,7 +37996,7 @@ int ubifs_write_master(struct ubifs_info *c )
 
   {
 #line 483
-  tmp___0 = __builtin_expect((long )*((unsigned char *)c + 4080UL) & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )*((unsigned char *)c + 4080UL) & 1L, 0L);
 #line 483
   if (tmp___0 != 0L) {
 #line 483
@@ -38008,7 +38008,7 @@ int ubifs_write_master(struct ubifs_info *c )
     dump_stack();
   } else {
 #line 483
-    tmp___1 = __builtin_expect((unsigned int )*((unsigned char *)c + 4080UL) != 0U,
+    tmp___1 = ldv__builtin_expect((unsigned int )*((unsigned char *)c + 4080UL) != 0U,
                                0L);
 #line 483
     if (tmp___1 != 0L) {
@@ -38287,7 +38287,7 @@ static int scan_padding_bytes(void *buf , int len )
 #line 164
   descriptor.flags = 0U;
 #line 164
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 164
   if (tmp___0 != 0L) {
 #line 164
@@ -38341,7 +38341,7 @@ static int scan_padding_bytes(void *buf , int len )
 #line 172
   descriptor___0.flags = 0U;
 #line 172
-  tmp___3 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___3 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 172
   if (tmp___3 != 0L) {
 #line 172
@@ -38400,7 +38400,7 @@ int ubifs_scan_a_node(struct ubifs_info  const  *c , void *buf , int len , int l
 #line 197
     descriptor.flags = 0U;
 #line 197
-    tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 197
     if (tmp___0 != 0L) {
 #line 197
@@ -38445,7 +38445,7 @@ int ubifs_scan_a_node(struct ubifs_info  const  *c , void *buf , int len , int l
 #line 207
   descriptor___0.flags = 0U;
 #line 207
-  tmp___4 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___4 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 207
   if (tmp___4 != 0L) {
 #line 207
@@ -38524,7 +38524,7 @@ int ubifs_scan_a_node(struct ubifs_info  const  *c , void *buf , int len , int l
 #line 237
     descriptor___1.flags = 0U;
 #line 237
-    tmp___9 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___9 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 237
     if (tmp___9 != 0L) {
 #line 237
@@ -38572,7 +38572,7 @@ struct ubifs_scan_leb *ubifs_start_scan(struct ubifs_info  const  *c , int lnum 
 #line 261
   descriptor.flags = 0U;
 #line 261
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 261
   if (tmp___0 != 0L) {
 #line 261
@@ -38659,7 +38659,7 @@ void ubifs_end_scan(struct ubifs_info  const  *c , struct ubifs_scan_leb *sleb ,
 #line 298
   descriptor.flags = 0U;
 #line 298
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 298
   if (tmp___0 != 0L) {
 #line 298
@@ -38671,7 +38671,7 @@ void ubifs_end_scan(struct ubifs_info  const  *c , struct ubifs_scan_leb *sleb ,
 
   }
 #line 299
-  tmp___2 = __builtin_expect(offs % (int )c->min_io_size != 0, 0L);
+  tmp___2 = ldv__builtin_expect(offs % (int )c->min_io_size != 0, 0L);
 #line 299
   if (tmp___2 != 0L) {
 #line 299
@@ -38843,7 +38843,7 @@ struct ubifs_scan_leb *ubifs_scan(struct ubifs_info  const  *c , int lnum , int 
 #line 401
   descriptor.flags = 0U;
 #line 401
-  tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 401
   if (tmp___1 != 0L) {
 #line 401
@@ -39276,7 +39276,7 @@ __inline static void ubifs_release_lprops___0(struct ubifs_info *c )
 #line 280
   tmp___0 = mutex_is_locked(& c->lp_mutex);
 #line 280
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
 #line 280
   if (tmp___1 != 0L) {
 #line 280
@@ -39290,7 +39290,7 @@ __inline static void ubifs_release_lprops___0(struct ubifs_info *c )
 
   }
 #line 281
-  tmp___3 = __builtin_expect(c->lst.empty_lebs < 0, 0L);
+  tmp___3 = ldv__builtin_expect(c->lst.empty_lebs < 0, 0L);
 #line 281
   if (tmp___3 != 0L) {
 #line 281
@@ -39302,7 +39302,7 @@ __inline static void ubifs_release_lprops___0(struct ubifs_info *c )
     dump_stack();
   } else {
 #line 281
-    tmp___4 = __builtin_expect(c->lst.empty_lebs > c->main_lebs, 0L);
+    tmp___4 = ldv__builtin_expect(c->lst.empty_lebs > c->main_lebs, 0L);
 #line 281
     if (tmp___4 != 0L) {
 #line 281
@@ -39412,7 +39412,7 @@ static int set_bud_lprops(struct ubifs_info *c , struct bud_entry *b )
 #line 250
     descriptor.flags = 0U;
 #line 250
-    tmp___3 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___3 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 250
     if (tmp___3 != 0L) {
 #line 250
@@ -39436,7 +39436,7 @@ static int set_bud_lprops(struct ubifs_info *c , struct bud_entry *b )
 #line 252
     descriptor___0.flags = 0U;
 #line 252
-    tmp___5 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___5 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 252
     if (tmp___5 != 0L) {
 #line 252
@@ -39464,7 +39464,7 @@ static int set_bud_lprops(struct ubifs_info *c , struct bud_entry *b )
 #line 263
       descriptor___1.flags = 0U;
 #line 263
-      tmp___7 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+      tmp___7 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 263
       if (tmp___7 != 0L) {
 #line 263
@@ -39618,7 +39618,7 @@ static int apply_replay_entry(struct ubifs_info *c , struct replay_entry *r )
 #line 342
   descriptor.flags = 0U;
 #line 342
-  tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 342
   if (tmp___1 != 0L) {
 #line 342
@@ -39732,7 +39732,7 @@ static int replay_entries_cmp(void *priv , struct list_head *a , struct list_hea
 #line 405
   rb = (struct replay_entry *)__mptr___0 + 0xffffffffffffffe8UL;
 #line 406
-  tmp___0 = __builtin_expect(ra->sqnum == rb->sqnum, 0L);
+  tmp___0 = ldv__builtin_expect(ra->sqnum == rb->sqnum, 0L);
 #line 406
   if (tmp___0 != 0L) {
 #line 406
@@ -39887,7 +39887,7 @@ static int insert_node(struct ubifs_info *c , int lnum , int offs , int len , un
 #line 482
   descriptor.flags = 0U;
 #line 482
-  tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 482
   if (tmp___1 != 0L) {
 #line 482
@@ -39982,7 +39982,7 @@ static int insert_dent(struct ubifs_info *c , int lnum , int offs , int len , un
 #line 530
   descriptor.flags = 0U;
 #line 530
-  tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 530
   if (tmp___1 != 0L) {
 #line 530
@@ -40252,7 +40252,7 @@ static int replay_bud(struct ubifs_info *c , struct bud_entry *b )
 #line 667
   descriptor.flags = 0U;
 #line 667
-  tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 667
   if (tmp___1 != 0L) {
 #line 667
@@ -40423,7 +40423,7 @@ static int replay_bud(struct ubifs_info *c , struct bud_entry *b )
 #line 793
   tmp___9 = ubifs_search_bud(c, lnum);
 #line 793
-  tmp___10 = __builtin_expect((unsigned long )tmp___9 == (unsigned long )((struct ubifs_bud *)0),
+  tmp___10 = ldv__builtin_expect((unsigned long )tmp___9 == (unsigned long )((struct ubifs_bud *)0),
                               0L);
 #line 793
   if (tmp___10 != 0L) {
@@ -40437,7 +40437,7 @@ static int replay_bud(struct ubifs_info *c , struct bud_entry *b )
 
   }
 #line 794
-  tmp___12 = __builtin_expect(sleb->endpt - offs < used, 0L);
+  tmp___12 = ldv__builtin_expect(sleb->endpt - offs < used, 0L);
 #line 794
   if (tmp___12 != 0L) {
 #line 794
@@ -40450,7 +40450,7 @@ static int replay_bud(struct ubifs_info *c , struct bud_entry *b )
 
   }
 #line 795
-  tmp___14 = __builtin_expect(sleb->endpt % c->min_io_size != 0, 0L);
+  tmp___14 = ldv__builtin_expect(sleb->endpt % c->min_io_size != 0, 0L);
 #line 795
   if (tmp___14 != 0L) {
 #line 795
@@ -40479,7 +40479,7 @@ static int replay_bud(struct ubifs_info *c , struct bud_entry *b )
 #line 799
   descriptor___0.flags = 0U;
 #line 799
-  tmp___16 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___16 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 799
   if (tmp___16 != 0L) {
 #line 799
@@ -40540,7 +40540,7 @@ static int replay_buds(struct ubifs_info *c )
 
   }
 #line 831
-  tmp___0 = __builtin_expect(b->sqnum <= prev_sqnum, 0L);
+  tmp___0 = ldv__builtin_expect(b->sqnum <= prev_sqnum, 0L);
 #line 831
   if (tmp___0 != 0L) {
 #line 831
@@ -40631,7 +40631,7 @@ static int add_replay_bud(struct ubifs_info *c , int lnum , int offs , int jhead
 #line 870
   descriptor.flags = 0U;
 #line 870
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 870
   if (tmp___0 != 0L) {
 #line 870
@@ -40777,7 +40777,7 @@ static int replay_log_leb(struct ubifs_info *c , int lnum , int offs , void *sbu
 #line 952
   descriptor.flags = 0U;
 #line 952
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 952
   if (tmp___0 != 0L) {
 #line 952
@@ -40877,7 +40877,7 @@ static int replay_log_leb(struct ubifs_info *c , int lnum , int offs , void *sbu
 #line 996
     descriptor___0.flags = 0U;
 #line 996
-    tmp___9 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___9 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 996
     if (tmp___9 != 0L) {
 #line 996
@@ -41166,7 +41166,7 @@ int ubifs_replay_journal(struct ubifs_info *c )
 #line 1144
   descriptor.flags = 0U;
 #line 1144
-  tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1144
   if (tmp___1 != 0L) {
 #line 1144
@@ -41246,11 +41246,11 @@ int ubifs_replay_journal(struct ubifs_info *c )
 #line 1177
   c->bi.uncommitted_idx = c->bi.uncommitted_idx * (long long )c->max_idx_node_sz;
 #line 1179
-  tmp___5 = __builtin_expect(c->bud_bytes > c->max_bud_bytes, 0L);
+  tmp___5 = ldv__builtin_expect(c->bud_bytes > c->max_bud_bytes, 0L);
 #line 1179
   if (tmp___5 != 0L) {
 #line 1179
-    tmp___6 = __builtin_expect((unsigned int )*((unsigned char *)c + 5528UL) == 0U,
+    tmp___6 = ldv__builtin_expect((unsigned int )*((unsigned char *)c + 5528UL) == 0U,
                                0L);
 #line 1179
     if (tmp___6 != 0L) {
@@ -41280,7 +41280,7 @@ int ubifs_replay_journal(struct ubifs_info *c )
 #line 1180
   descriptor___0.flags = 0U;
 #line 1180
-  tmp___8 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___8 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 1180
   if (tmp___8 != 0L) {
 #line 1180
@@ -41652,7 +41652,7 @@ void ubifs_add_bud(struct ubifs_info *c , struct ubifs_bud *bud )
 #line 249
   b = (struct ubifs_bud *)__mptr + 0xffffffffffffffe0UL;
 #line 250
-  tmp___0 = __builtin_expect(bud->lnum == b->lnum, 0L);
+  tmp___0 = ldv__builtin_expect(bud->lnum == b->lnum, 0L);
 #line 250
   if (tmp___0 != 0L) {
 #line 250
@@ -41692,7 +41692,7 @@ void ubifs_add_bud(struct ubifs_info *c , struct ubifs_bud *bud )
     list_add_tail(& bud->list, & jhead->buds_list);
   } else {
 #line 263
-    tmp___2 = __builtin_expect((unsigned int )*((unsigned char *)c + 5528UL) == 0U,
+    tmp___2 = ldv__builtin_expect((unsigned int )*((unsigned char *)c + 5528UL) == 0U,
                                0L);
 #line 263
     if (tmp___2 != 0L) {
@@ -41705,7 +41705,7 @@ void ubifs_add_bud(struct ubifs_info *c , struct ubifs_bud *bud )
       dump_stack();
     } else {
 #line 263
-      tmp___3 = __builtin_expect((unsigned int )*((unsigned char *)c + 4080UL) == 0U,
+      tmp___3 = ldv__builtin_expect((unsigned int )*((unsigned char *)c + 4080UL) == 0U,
                                  0L);
 #line 263
       if (tmp___3 != 0L) {
@@ -41736,7 +41736,7 @@ void ubifs_add_bud(struct ubifs_info *c , struct ubifs_bud *bud )
 #line 273
   descriptor.flags = 0U;
 #line 273
-  tmp___6 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___6 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 273
   if (tmp___6 != 0L) {
 #line 273
@@ -41809,7 +41809,7 @@ int ubifs_add_bud_to_log(struct ubifs_info *c , int jhead , int lnum , int offs 
 #line 306
   ldv_mutex_lock_417(& c->log_mutex);
 #line 307
-  tmp___2 = __builtin_expect((long )*((unsigned char *)c + 4080UL) & 1L, 0L);
+  tmp___2 = ldv__builtin_expect((long )*((unsigned char *)c + 4080UL) & 1L, 0L);
 #line 307
   if (tmp___2 != 0L) {
 #line 307
@@ -41821,7 +41821,7 @@ int ubifs_add_bud_to_log(struct ubifs_info *c , int jhead , int lnum , int offs 
     dump_stack();
   } else {
 #line 307
-    tmp___3 = __builtin_expect((unsigned int )*((unsigned char *)c + 4080UL) != 0U,
+    tmp___3 = ldv__builtin_expect((unsigned int )*((unsigned char *)c + 4080UL) != 0U,
                                0L);
 #line 307
     if (tmp___3 != 0L) {
@@ -41862,7 +41862,7 @@ int ubifs_add_bud_to_log(struct ubifs_info *c , int jhead , int lnum , int offs 
 #line 315
     descriptor.flags = 0U;
 #line 315
-    tmp___6 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___6 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 315
     if (tmp___6 != 0L) {
 #line 315
@@ -41899,7 +41899,7 @@ int ubifs_add_bud_to_log(struct ubifs_info *c , int jhead , int lnum , int offs 
 #line 332
     descriptor___0.flags = 0U;
 #line 332
-    tmp___9 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___9 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 332
     if (tmp___9 != 0L) {
 #line 332
@@ -41934,7 +41934,7 @@ int ubifs_add_bud_to_log(struct ubifs_info *c , int jhead , int lnum , int offs 
 #line 346
     descriptor___1.flags = 0U;
 #line 346
-    tmp___11 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___11 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 346
     if (tmp___11 != 0L) {
 #line 346
@@ -42014,7 +42014,7 @@ int ubifs_add_bud_to_log(struct ubifs_info *c , int jhead , int lnum , int offs 
 #line 385
   descriptor___2.flags = 0U;
 #line 385
-  tmp___13 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+  tmp___13 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
 #line 385
   if (tmp___13 != 0L) {
 #line 385
@@ -42079,7 +42079,7 @@ static void remove_buds(struct ubifs_info *c )
 #line 418
   tmp___0 = list_empty((struct list_head  const  *)(& c->old_buds));
 #line 418
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
 #line 418
   if (tmp___1 != 0L) {
 #line 418
@@ -42127,7 +42127,7 @@ static void remove_buds(struct ubifs_info *c )
 #line 437
     descriptor.flags = 0U;
 #line 437
-    tmp___4 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___4 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 437
     if (tmp___4 != 0L) {
 #line 437
@@ -42159,7 +42159,7 @@ static void remove_buds(struct ubifs_info *c )
 #line 443
     descriptor___0.flags = 0U;
 #line 443
-    tmp___7 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___7 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 443
     if (tmp___7 != 0L) {
 #line 443
@@ -42277,7 +42277,7 @@ int ubifs_log_start_commit(struct ubifs_info *c , int *ltail_lnum )
 #line 509
   descriptor.flags = 0U;
 #line 509
-  tmp___2 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___2 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 509
   if (tmp___2 != 0L) {
 #line 509
@@ -42355,7 +42355,7 @@ int ubifs_log_start_commit(struct ubifs_info *c , int *ltail_lnum )
 #line 537
   descriptor___0.flags = 0U;
 #line 537
-  tmp___4 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___4 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 537
   if (tmp___4 != 0L) {
 #line 537
@@ -42423,7 +42423,7 @@ int ubifs_log_end_commit(struct ubifs_info *c , int ltail_lnum )
 #line 584
   descriptor.flags = 0U;
 #line 584
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 584
   if (tmp___0 != 0L) {
 #line 584
@@ -42517,7 +42517,7 @@ int ubifs_log_post_commit(struct ubifs_info *c , int old_ltail_lnum )
 #line 634
   descriptor.flags = 0U;
 #line 634
-  tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 634
   if (tmp___1 != 0L) {
 #line 634
@@ -42780,7 +42780,7 @@ int ubifs_consolidate_log(struct ubifs_info *c )
 #line 768
   descriptor.flags = 0U;
 #line 768
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 768
   if (tmp___0 != 0L) {
 #line 768
@@ -42981,7 +42981,7 @@ int ubifs_consolidate_log(struct ubifs_info *c )
 #line 839
   descriptor___0.flags = 0U;
 #line 839
-  tmp___5 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___5 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 839
   if (tmp___5 != 0L) {
 #line 839
@@ -43350,7 +43350,7 @@ __inline static bool freezing(struct task_struct *p )
 #line 30
   tmp = atomic_read((atomic_t const   *)(& system_freezing_cnt));
 #line 30
-  tmp___0 = __builtin_expect(tmp == 0, 1L);
+  tmp___0 = ldv__builtin_expect(tmp == 0, 1L);
 #line 30
   if (tmp___0 != 0L) {
 #line 31
@@ -43391,7 +43391,7 @@ __inline static bool try_to_freeze(void)
     tmp___1 = 1;
   }
 #line 47
-  tmp___2 = __builtin_expect((long )tmp___1, 1L);
+  tmp___2 = ldv__builtin_expect((long )tmp___1, 1L);
 #line 47
   if (tmp___2 != 0L) {
 #line 48
@@ -43513,7 +43513,7 @@ static int nothing_to_commit(struct ubifs_info *c )
 #line 213
   tmp___2 = atomic_long_read(& c->dirty_zn_cnt);
 #line 213
-  tmp___3 = __builtin_expect(tmp___2 != 0L, 0L);
+  tmp___3 = ldv__builtin_expect(tmp___2 != 0L, 0L);
 #line 213
   if (tmp___3 != 0L) {
 #line 213
@@ -43527,7 +43527,7 @@ static int nothing_to_commit(struct ubifs_info *c )
 
   }
 #line 214
-  tmp___5 = __builtin_expect(c->dirty_pn_cnt != 0, 0L);
+  tmp___5 = ldv__builtin_expect(c->dirty_pn_cnt != 0, 0L);
 #line 214
   if (tmp___5 != 0L) {
 #line 214
@@ -43541,7 +43541,7 @@ static int nothing_to_commit(struct ubifs_info *c )
 
   }
 #line 215
-  tmp___7 = __builtin_expect(c->dirty_nn_cnt != 0, 0L);
+  tmp___7 = ldv__builtin_expect(c->dirty_nn_cnt != 0, 0L);
 #line 215
   if (tmp___7 != 0L) {
 #line 215
@@ -43593,7 +43593,7 @@ static int do_commit(struct ubifs_info *c )
 #line 234
   descriptor.flags = 0U;
 #line 234
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 234
   if (tmp___0 != 0L) {
 #line 234
@@ -43604,7 +43604,7 @@ static int do_commit(struct ubifs_info *c )
 
   }
 #line 235
-  tmp___2 = __builtin_expect((long )*((unsigned char *)c + 4080UL) & 1L, 0L);
+  tmp___2 = ldv__builtin_expect((long )*((unsigned char *)c + 4080UL) & 1L, 0L);
 #line 235
   if (tmp___2 != 0L) {
 #line 235
@@ -43615,7 +43615,7 @@ static int do_commit(struct ubifs_info *c )
     dump_stack();
   } else {
 #line 235
-    tmp___3 = __builtin_expect((unsigned int )*((unsigned char *)c + 4080UL) != 0U,
+    tmp___3 = ldv__builtin_expect((unsigned int )*((unsigned char *)c + 4080UL) != 0U,
                                0L);
 #line 235
     if (tmp___3 != 0L) {
@@ -43898,7 +43898,7 @@ static int do_commit(struct ubifs_info *c )
 #line 344
   descriptor___0.flags = 0U;
 #line 344
-  tmp___6 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___6 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 344
   if (tmp___6 != 0L) {
 #line 344
@@ -44154,7 +44154,7 @@ void ubifs_commit_required(struct ubifs_info *c )
 #line 467
   descriptor.flags = 0U;
 #line 467
-  tmp___2 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___2 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 467
   if (tmp___2 != 0L) {
 #line 467
@@ -44187,7 +44187,7 @@ void ubifs_commit_required(struct ubifs_info *c )
 #line 472
   descriptor___0.flags = 0U;
 #line 472
-  tmp___6 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___6 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 472
   if (tmp___6 != 0L) {
 #line 472
@@ -44246,7 +44246,7 @@ void ubifs_request_bg_commit(struct ubifs_info *c )
 #line 495
     descriptor.flags = 0U;
 #line 495
-    tmp___2 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___2 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 495
     if (tmp___2 != 0L) {
 #line 495
@@ -44303,7 +44303,7 @@ static int wait_for_commit(struct ubifs_info *c )
 #line 512
   descriptor.flags = 0U;
 #line 512
-  tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 512
   if (tmp___1 != 0L) {
 #line 512
@@ -44366,7 +44366,7 @@ static int wait_for_commit(struct ubifs_info *c )
 #line 523
   descriptor___0.flags = 0U;
 #line 523
-  tmp___5 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___5 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 523
   if (tmp___5 != 0L) {
 #line 523
@@ -44506,7 +44506,7 @@ int ubifs_gc_should_commit(struct ubifs_info *c )
 #line 608
     descriptor.flags = 0U;
 #line 608
-    tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 608
     if (tmp___0 != 0L) {
 #line 608
@@ -44533,7 +44533,7 @@ int ubifs_gc_should_commit(struct ubifs_info *c )
 #line 611
     descriptor___0.flags = 0U;
 #line 611
-    tmp___2 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___2 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 611
     if (tmp___2 != 0L) {
 #line 611
@@ -45256,7 +45256,7 @@ __inline static void ubifs_release_lprops___1(struct ubifs_info *c )
 #line 280
   tmp___0 = mutex_is_locked(& c->lp_mutex);
 #line 280
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
 #line 280
   if (tmp___1 != 0L) {
 #line 280
@@ -45270,7 +45270,7 @@ __inline static void ubifs_release_lprops___1(struct ubifs_info *c )
 
   }
 #line 281
-  tmp___3 = __builtin_expect(c->lst.empty_lebs < 0, 0L);
+  tmp___3 = ldv__builtin_expect(c->lst.empty_lebs < 0, 0L);
 #line 281
   if (tmp___3 != 0L) {
 #line 281
@@ -45282,7 +45282,7 @@ __inline static void ubifs_release_lprops___1(struct ubifs_info *c )
     dump_stack();
   } else {
 #line 281
-    tmp___4 = __builtin_expect(c->lst.empty_lebs > c->main_lebs, 0L);
+    tmp___4 = ldv__builtin_expect(c->lst.empty_lebs > c->main_lebs, 0L);
 #line 281
     if (tmp___4 != 0L) {
 #line 281
@@ -45330,7 +45330,7 @@ static int switch_gc_head(struct ubifs_info *c )
 #line 203
   wbuf = & (c->jheads)->wbuf;
 #line 205
-  tmp___0 = __builtin_expect(gc_lnum == -1, 0L);
+  tmp___0 = ldv__builtin_expect(gc_lnum == -1, 0L);
 #line 205
   if (tmp___0 != 0L) {
 #line 205
@@ -45356,7 +45356,7 @@ static int switch_gc_head(struct ubifs_info *c )
 #line 206
   descriptor.flags = 0U;
 #line 206
-  tmp___2 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___2 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 206
   if (tmp___2 != 0L) {
 #line 206
@@ -45463,7 +45463,7 @@ static int data_nodes_cmp(void *priv , struct list_head *a , struct list_head *b
 #line 257
   tmp___0 = key_type((struct ubifs_info  const  *)c, (union ubifs_key  const  *)(& sa->key));
 #line 257
-  tmp___1 = __builtin_expect(tmp___0 != 1, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 != 1, 0L);
 #line 257
   if (tmp___1 != 0L) {
 #line 257
@@ -45479,7 +45479,7 @@ static int data_nodes_cmp(void *priv , struct list_head *a , struct list_head *b
 #line 258
   tmp___3 = key_type((struct ubifs_info  const  *)c, (union ubifs_key  const  *)(& sb->key));
 #line 258
-  tmp___4 = __builtin_expect(tmp___3 != 1, 0L);
+  tmp___4 = ldv__builtin_expect(tmp___3 != 1, 0L);
 #line 258
   if (tmp___4 != 0L) {
 #line 258
@@ -45493,7 +45493,7 @@ static int data_nodes_cmp(void *priv , struct list_head *a , struct list_head *b
 
   }
 #line 259
-  tmp___6 = __builtin_expect(sa->type != 1, 0L);
+  tmp___6 = ldv__builtin_expect(sa->type != 1, 0L);
 #line 259
   if (tmp___6 != 0L) {
 #line 259
@@ -45507,7 +45507,7 @@ static int data_nodes_cmp(void *priv , struct list_head *a , struct list_head *b
 
   }
 #line 260
-  tmp___8 = __builtin_expect(sb->type != 1, 0L);
+  tmp___8 = ldv__builtin_expect(sb->type != 1, 0L);
 #line 260
   if (tmp___8 != 0L) {
 #line 260
@@ -45618,7 +45618,7 @@ static int nondata_nodes_cmp(void *priv , struct list_head *a , struct list_head
 #line 301
   tmp___0 = key_type((struct ubifs_info  const  *)c, (union ubifs_key  const  *)(& sa->key));
 #line 301
-  tmp___1 = __builtin_expect(tmp___0 == 1, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 1, 0L);
 #line 301
   if (tmp___1 != 0L) {
 #line 301
@@ -45632,7 +45632,7 @@ static int nondata_nodes_cmp(void *priv , struct list_head *a , struct list_head
 #line 301
     tmp___2 = key_type((struct ubifs_info  const  *)c, (union ubifs_key  const  *)(& sb->key));
 #line 301
-    tmp___3 = __builtin_expect(tmp___2 == 1, 0L);
+    tmp___3 = ldv__builtin_expect(tmp___2 == 1, 0L);
 #line 301
     if (tmp___3 != 0L) {
 #line 301
@@ -45647,7 +45647,7 @@ static int nondata_nodes_cmp(void *priv , struct list_head *a , struct list_head
     }
   }
 #line 303
-  tmp___5 = __builtin_expect(sa->type == 1, 0L);
+  tmp___5 = ldv__builtin_expect(sa->type == 1, 0L);
 #line 303
   if (tmp___5 != 0L) {
 #line 303
@@ -45659,7 +45659,7 @@ static int nondata_nodes_cmp(void *priv , struct list_head *a , struct list_head
     dump_stack();
   } else {
 #line 303
-    tmp___6 = __builtin_expect(sb->type == 1, 0L);
+    tmp___6 = ldv__builtin_expect(sb->type == 1, 0L);
 #line 303
     if (tmp___6 != 0L) {
 #line 303
@@ -45697,13 +45697,13 @@ static int nondata_nodes_cmp(void *priv , struct list_head *a , struct list_head
 #line 315
   tmp___8 = key_type((struct ubifs_info  const  *)c, (union ubifs_key  const  *)(& sa->key));
 #line 315
-  tmp___9 = __builtin_expect(tmp___8 != 2, 0L);
+  tmp___9 = ldv__builtin_expect(tmp___8 != 2, 0L);
 #line 315
   if (tmp___9 != 0L) {
 #line 315
     tmp___10 = key_type((struct ubifs_info  const  *)c, (union ubifs_key  const  *)(& sa->key));
 #line 315
-    tmp___11 = __builtin_expect(tmp___10 != 3, 0L);
+    tmp___11 = ldv__builtin_expect(tmp___10 != 3, 0L);
 #line 315
     if (tmp___11 != 0L) {
 #line 315
@@ -45722,13 +45722,13 @@ static int nondata_nodes_cmp(void *priv , struct list_head *a , struct list_head
 #line 317
   tmp___13 = key_type((struct ubifs_info  const  *)c, (union ubifs_key  const  *)(& sb->key));
 #line 317
-  tmp___14 = __builtin_expect(tmp___13 != 2, 0L);
+  tmp___14 = ldv__builtin_expect(tmp___13 != 2, 0L);
 #line 317
   if (tmp___14 != 0L) {
 #line 317
     tmp___15 = key_type((struct ubifs_info  const  *)c, (union ubifs_key  const  *)(& sb->key));
 #line 317
-    tmp___16 = __builtin_expect(tmp___15 != 3, 0L);
+    tmp___16 = ldv__builtin_expect(tmp___15 != 3, 0L);
 #line 317
     if (tmp___16 != 0L) {
 #line 317
@@ -45745,11 +45745,11 @@ static int nondata_nodes_cmp(void *priv , struct list_head *a , struct list_head
 
   }
 #line 319
-  tmp___18 = __builtin_expect(sa->type != 2, 0L);
+  tmp___18 = ldv__builtin_expect(sa->type != 2, 0L);
 #line 319
   if (tmp___18 != 0L) {
 #line 319
-    tmp___19 = __builtin_expect(sa->type != 3, 0L);
+    tmp___19 = ldv__builtin_expect(sa->type != 3, 0L);
 #line 319
     if (tmp___19 != 0L) {
 #line 319
@@ -45766,11 +45766,11 @@ static int nondata_nodes_cmp(void *priv , struct list_head *a , struct list_head
 
   }
 #line 321
-  tmp___21 = __builtin_expect(sb->type != 2, 0L);
+  tmp___21 = ldv__builtin_expect(sb->type != 2, 0L);
 #line 321
   if (tmp___21 != 0L) {
 #line 321
-    tmp___22 = __builtin_expect(sb->type != 3, 0L);
+    tmp___22 = ldv__builtin_expect(sb->type != 3, 0L);
 #line 321
     if (tmp___22 != 0L) {
 #line 321
@@ -45866,11 +45866,11 @@ static int sort_nodes(struct ubifs_info *c , struct ubifs_scan_leb *sleb , struc
   goto ldv_27579;
   ldv_27578: 
 #line 376
-  tmp___1 = __builtin_expect(snod->type != 0, 0L);
+  tmp___1 = ldv__builtin_expect(snod->type != 0, 0L);
 #line 376
   if (tmp___1 != 0L) {
 #line 376
-    tmp___2 = __builtin_expect(snod->type != 1, 0L);
+    tmp___2 = ldv__builtin_expect(snod->type != 1, 0L);
 #line 376
     if (tmp___2 != 0L) {
 #line 376
@@ -45886,7 +45886,7 @@ static int sort_nodes(struct ubifs_info *c , struct ubifs_scan_leb *sleb , struc
 #line 376
   if (tmp___3 != 0) {
 #line 376
-    tmp___4 = __builtin_expect(snod->type != 2, 0L);
+    tmp___4 = ldv__builtin_expect(snod->type != 2, 0L);
 #line 376
     if (tmp___4 != 0L) {
 #line 376
@@ -45902,7 +45902,7 @@ static int sort_nodes(struct ubifs_info *c , struct ubifs_scan_leb *sleb , struc
 #line 376
   if (tmp___5 != 0) {
 #line 376
-    tmp___6 = __builtin_expect(snod->type != 3, 0L);
+    tmp___6 = ldv__builtin_expect(snod->type != 3, 0L);
 #line 376
     if (tmp___6 != 0L) {
 #line 376
@@ -45918,7 +45918,7 @@ static int sort_nodes(struct ubifs_info *c , struct ubifs_scan_leb *sleb , struc
 #line 376
   if (tmp___7 != 0) {
 #line 376
-    tmp___8 = __builtin_expect(snod->type != 4, 0L);
+    tmp___8 = ldv__builtin_expect(snod->type != 4, 0L);
 #line 376
     if (tmp___8 != 0L) {
 #line 376
@@ -45947,13 +45947,13 @@ static int sort_nodes(struct ubifs_info *c , struct ubifs_scan_leb *sleb , struc
 #line 392
   tmp___10 = key_type((struct ubifs_info  const  *)c, (union ubifs_key  const  *)(& snod->key));
 #line 392
-  tmp___11 = __builtin_expect(tmp___10 != 1, 0L);
+  tmp___11 = ldv__builtin_expect(tmp___10 != 1, 0L);
 #line 392
   if (tmp___11 != 0L) {
 #line 392
     tmp___12 = key_type((struct ubifs_info  const  *)c, (union ubifs_key  const  *)(& snod->key));
 #line 392
-    tmp___13 = __builtin_expect(tmp___12 != 0, 0L);
+    tmp___13 = ldv__builtin_expect(tmp___12 != 0, 0L);
 #line 392
     if (tmp___13 != 0L) {
 #line 392
@@ -45971,7 +45971,7 @@ static int sort_nodes(struct ubifs_info *c , struct ubifs_scan_leb *sleb , struc
 #line 392
     tmp___15 = key_type((struct ubifs_info  const  *)c, (union ubifs_key  const  *)(& snod->key));
 #line 392
-    tmp___16 = __builtin_expect(tmp___15 != 2, 0L);
+    tmp___16 = ldv__builtin_expect(tmp___15 != 2, 0L);
 #line 392
     if (tmp___16 != 0L) {
 #line 392
@@ -45989,7 +45989,7 @@ static int sort_nodes(struct ubifs_info *c , struct ubifs_scan_leb *sleb , struc
 #line 392
     tmp___18 = key_type((struct ubifs_info  const  *)c, (union ubifs_key  const  *)(& snod->key));
 #line 392
-    tmp___19 = __builtin_expect(tmp___18 != 3, 0L);
+    tmp___19 = ldv__builtin_expect(tmp___18 != 3, 0L);
 #line 392
     if (tmp___19 != 0L) {
 #line 392
@@ -46408,11 +46408,11 @@ int ubifs_garbage_collect_leb(struct ubifs_info *c , struct ubifs_lprops *lp )
 #line 593
   lnum = lp->lnum;
 #line 595
-  tmp___0 = __builtin_expect(c->gc_lnum == -1, 0L);
+  tmp___0 = ldv__builtin_expect(c->gc_lnum == -1, 0L);
 #line 595
   if (tmp___0 != 0L) {
 #line 595
-    tmp___1 = __builtin_expect(wbuf->offs + wbuf->used != 0, 0L);
+    tmp___1 = ldv__builtin_expect(wbuf->offs + wbuf->used != 0, 0L);
 #line 595
     if (tmp___1 != 0L) {
 #line 595
@@ -46428,7 +46428,7 @@ int ubifs_garbage_collect_leb(struct ubifs_info *c , struct ubifs_lprops *lp )
 #line 595
   if (tmp___2 != 0) {
 #line 595
-    tmp___3 = __builtin_expect((unsigned int )*((unsigned char *)c + 5528UL) == 0U,
+    tmp___3 = ldv__builtin_expect((unsigned int )*((unsigned char *)c + 5528UL) == 0U,
                                0L);
 #line 595
     if (tmp___3 != 0L) {
@@ -46446,7 +46446,7 @@ int ubifs_garbage_collect_leb(struct ubifs_info *c , struct ubifs_lprops *lp )
 
   }
 #line 597
-  tmp___5 = __builtin_expect(c->gc_lnum == lnum, 0L);
+  tmp___5 = ldv__builtin_expect(c->gc_lnum == lnum, 0L);
 #line 597
   if (tmp___5 != 0L) {
 #line 597
@@ -46460,7 +46460,7 @@ int ubifs_garbage_collect_leb(struct ubifs_info *c , struct ubifs_lprops *lp )
 
   }
 #line 598
-  tmp___7 = __builtin_expect(wbuf->lnum == lnum, 0L);
+  tmp___7 = ldv__builtin_expect(wbuf->lnum == lnum, 0L);
 #line 598
   if (tmp___7 != 0L) {
 #line 598
@@ -46488,7 +46488,7 @@ int ubifs_garbage_collect_leb(struct ubifs_info *c , struct ubifs_lprops *lp )
 #line 602
     descriptor.flags = 0U;
 #line 602
-    tmp___9 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___9 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 602
     if (tmp___9 != 0L) {
 #line 602
@@ -46500,7 +46500,7 @@ int ubifs_garbage_collect_leb(struct ubifs_info *c , struct ubifs_lprops *lp )
 
     }
 #line 603
-    tmp___11 = __builtin_expect((lp->flags & 32) != 0, 0L);
+    tmp___11 = ldv__builtin_expect((lp->flags & 32) != 0, 0L);
 #line 603
     if (tmp___11 != 0L) {
 #line 603
@@ -46575,7 +46575,7 @@ int ubifs_garbage_collect_leb(struct ubifs_info *c , struct ubifs_lprops *lp )
 #line 639
   tmp___15 = list_empty((struct list_head  const  *)(& sleb->nodes));
 #line 639
-  tmp___16 = __builtin_expect(tmp___15 != 0, 0L);
+  tmp___16 = ldv__builtin_expect(tmp___15 != 0, 0L);
 #line 639
   if (tmp___16 != 0L) {
 #line 639
@@ -46607,7 +46607,7 @@ int ubifs_garbage_collect_leb(struct ubifs_info *c , struct ubifs_lprops *lp )
 #line 645
     descriptor___0.flags = 0U;
 #line 645
-    tmp___18 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___18 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 645
     if (tmp___18 != 0L) {
 #line 645
@@ -46630,7 +46630,7 @@ int ubifs_garbage_collect_leb(struct ubifs_info *c , struct ubifs_lprops *lp )
 #line 649
     level = (int )idx->level;
 #line 651
-    tmp___20 = __builtin_expect(snod->type != 9, 0L);
+    tmp___20 = ldv__builtin_expect(snod->type != 9, 0L);
 #line 651
     if (tmp___20 != 0L) {
 #line 651
@@ -46712,7 +46712,7 @@ int ubifs_garbage_collect_leb(struct ubifs_info *c , struct ubifs_lprops *lp )
 #line 681
     descriptor___1.flags = 0U;
 #line 681
-    tmp___24 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___24 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 681
     if (tmp___24 != 0L) {
 #line 681
@@ -46877,7 +46877,7 @@ int ubifs_garbage_collect(struct ubifs_info *c , int anyway )
 #line 773
   tmp___0 = down_write_trylock(& c->commit_sem);
 #line 773
-  tmp___1 = __builtin_expect(tmp___0 != 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 != 0, 0L);
 #line 773
   if (tmp___1 != 0L) {
 #line 773
@@ -46895,7 +46895,7 @@ int ubifs_garbage_collect(struct ubifs_info *c , int anyway )
 
   }
 #line 774
-  tmp___3 = __builtin_expect((long )*((unsigned char *)c + 4080UL) & 1L, 0L);
+  tmp___3 = ldv__builtin_expect((long )*((unsigned char *)c + 4080UL) & 1L, 0L);
 #line 774
   if (tmp___3 != 0L) {
 #line 774
@@ -46907,7 +46907,7 @@ int ubifs_garbage_collect(struct ubifs_info *c , int anyway )
     dump_stack();
   } else {
 #line 774
-    tmp___4 = __builtin_expect((unsigned int )*((unsigned char *)c + 4080UL) != 0U,
+    tmp___4 = ldv__builtin_expect((unsigned int )*((unsigned char *)c + 4080UL) != 0U,
                                0L);
 #line 774
     if (tmp___4 != 0L) {
@@ -46943,7 +46943,7 @@ int ubifs_garbage_collect(struct ubifs_info *c , int anyway )
 
   }
 #line 787
-  tmp___7 = __builtin_expect(wbuf->used != 0, 0L);
+  tmp___7 = ldv__builtin_expect(wbuf->used != 0, 0L);
 #line 787
   if (tmp___7 != 0L) {
 #line 787
@@ -46996,7 +46996,7 @@ int ubifs_garbage_collect(struct ubifs_info *c , int anyway )
 #line 806
       descriptor.flags = 0U;
 #line 806
-      tmp___10 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+      tmp___10 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 806
       if (tmp___10 != 0L) {
 #line 806
@@ -47034,7 +47034,7 @@ int ubifs_garbage_collect(struct ubifs_info *c , int anyway )
 #line 817
     descriptor___0.flags = 0U;
 #line 817
-    tmp___13 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___13 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 817
     if (tmp___13 != 0L) {
 #line 817
@@ -47071,7 +47071,7 @@ int ubifs_garbage_collect(struct ubifs_info *c , int anyway )
 #line 832
       descriptor___1.flags = 0U;
 #line 832
-      tmp___15 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+      tmp___15 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 832
       if (tmp___15 != 0L) {
 #line 832
@@ -47103,7 +47103,7 @@ int ubifs_garbage_collect(struct ubifs_info *c , int anyway )
 #line 836
   descriptor___2.flags = 0U;
 #line 836
-  tmp___17 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+  tmp___17 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
 #line 836
   if (tmp___17 != 0L) {
 #line 836
@@ -47164,7 +47164,7 @@ int ubifs_garbage_collect(struct ubifs_info *c , int anyway )
 #line 863
     descriptor___3.flags = 0U;
 #line 863
-    tmp___19 = __builtin_expect((long )descriptor___3.flags & 1L, 0L);
+    tmp___19 = ldv__builtin_expect((long )descriptor___3.flags & 1L, 0L);
 #line 863
     if (tmp___19 != 0L) {
 #line 863
@@ -47197,7 +47197,7 @@ int ubifs_garbage_collect(struct ubifs_info *c , int anyway )
 #line 875
     descriptor___4.flags = 0U;
 #line 875
-    tmp___21 = __builtin_expect((long )descriptor___4.flags & 1L, 0L);
+    tmp___21 = ldv__builtin_expect((long )descriptor___4.flags & 1L, 0L);
 #line 875
     if (tmp___21 != 0L) {
 #line 875
@@ -47214,7 +47214,7 @@ int ubifs_garbage_collect(struct ubifs_info *c , int anyway )
 
   }
 #line 879
-  tmp___23 = __builtin_expect(ret != 2, 0L);
+  tmp___23 = ldv__builtin_expect(ret != 2, 0L);
 #line 879
   if (tmp___23 != 0L) {
 #line 879
@@ -47242,7 +47242,7 @@ int ubifs_garbage_collect(struct ubifs_info *c , int anyway )
 #line 881
   descriptor___5.flags = 0U;
 #line 881
-  tmp___25 = __builtin_expect((long )descriptor___5.flags & 1L, 0L);
+  tmp___25 = ldv__builtin_expect((long )descriptor___5.flags & 1L, 0L);
 #line 881
   if (tmp___25 != 0L) {
 #line 881
@@ -47282,7 +47282,7 @@ int ubifs_garbage_collect(struct ubifs_info *c , int anyway )
 #line 892
   descriptor___6.flags = 0U;
 #line 892
-  tmp___27 = __builtin_expect((long )descriptor___6.flags & 1L, 0L);
+  tmp___27 = ldv__builtin_expect((long )descriptor___6.flags & 1L, 0L);
 #line 892
   if (tmp___27 != 0L) {
 #line 892
@@ -47308,7 +47308,7 @@ int ubifs_garbage_collect(struct ubifs_info *c , int anyway )
 #line 911
     descriptor___7.flags = 0U;
 #line 911
-    tmp___29 = __builtin_expect((long )descriptor___7.flags & 1L, 0L);
+    tmp___29 = ldv__builtin_expect((long )descriptor___7.flags & 1L, 0L);
 #line 911
     if (tmp___29 != 0L) {
 #line 911
@@ -47345,7 +47345,7 @@ int ubifs_garbage_collect(struct ubifs_info *c , int anyway )
 #line 918
   descriptor___8.flags = 0U;
 #line 918
-  tmp___31 = __builtin_expect((long )descriptor___8.flags & 1L, 0L);
+  tmp___31 = ldv__builtin_expect((long )descriptor___8.flags & 1L, 0L);
 #line 918
   if (tmp___31 != 0L) {
 #line 918
@@ -47381,7 +47381,7 @@ int ubifs_garbage_collect(struct ubifs_info *c , int anyway )
 #line 922
       descriptor___9.flags = 0U;
 #line 922
-      tmp___33 = __builtin_expect((long )descriptor___9.flags & 1L, 0L);
+      tmp___33 = ldv__builtin_expect((long )descriptor___9.flags & 1L, 0L);
 #line 922
       if (tmp___33 != 0L) {
 #line 922
@@ -47427,7 +47427,7 @@ int ubifs_garbage_collect(struct ubifs_info *c , int anyway )
   return (ret);
   out: 
 #line 939
-  tmp___36 = __builtin_expect(ret >= 0, 0L);
+  tmp___36 = ldv__builtin_expect(ret >= 0, 0L);
 #line 939
   if (tmp___36 != 0L) {
 #line 939
@@ -47441,7 +47441,7 @@ int ubifs_garbage_collect(struct ubifs_info *c , int anyway )
 
   }
 #line 940
-  tmp___38 = __builtin_expect(ret == -28, 0L);
+  tmp___38 = ldv__builtin_expect(ret == -28, 0L);
 #line 940
   if (tmp___38 != 0L) {
 #line 940
@@ -47453,7 +47453,7 @@ int ubifs_garbage_collect(struct ubifs_info *c , int anyway )
     dump_stack();
   } else {
 #line 940
-    tmp___39 = __builtin_expect(ret == -11, 0L);
+    tmp___39 = ldv__builtin_expect(ret == -11, 0L);
 #line 940
     if (tmp___39 != 0L) {
 #line 940
@@ -47543,7 +47543,7 @@ int ubifs_gc_start_commit(struct ubifs_info *c )
 
   }
 #line 979
-  tmp___2 = __builtin_expect(((int )lp->flags & 16) != 0, 0L);
+  tmp___2 = ldv__builtin_expect(((int )lp->flags & 16) != 0, 0L);
 #line 979
   if (tmp___2 != 0L) {
 #line 979
@@ -47557,7 +47557,7 @@ int ubifs_gc_start_commit(struct ubifs_info *c )
 
   }
 #line 980
-  tmp___4 = __builtin_expect(((int )lp->flags & 32) != 0, 0L);
+  tmp___4 = ldv__builtin_expect(((int )lp->flags & 32) != 0, 0L);
 #line 980
   if (tmp___4 != 0L) {
 #line 980
@@ -47595,7 +47595,7 @@ int ubifs_gc_start_commit(struct ubifs_info *c )
 
   }
 #line 989
-  tmp___8 = __builtin_expect(((int )lp->flags & 16) != 0, 0L);
+  tmp___8 = ldv__builtin_expect(((int )lp->flags & 16) != 0, 0L);
 #line 989
   if (tmp___8 != 0L) {
 #line 989
@@ -47609,7 +47609,7 @@ int ubifs_gc_start_commit(struct ubifs_info *c )
 
   }
 #line 990
-  tmp___10 = __builtin_expect(((int )lp->flags & 32) != 0, 0L);
+  tmp___10 = ldv__builtin_expect(((int )lp->flags & 32) != 0, 0L);
 #line 990
   if (tmp___10 != 0L) {
 #line 990
@@ -47684,7 +47684,7 @@ int ubifs_gc_start_commit(struct ubifs_info *c )
 
   }
 #line 1011
-  tmp___15 = __builtin_expect(((int )lp->flags & 16) != 0, 0L);
+  tmp___15 = ldv__builtin_expect(((int )lp->flags & 16) != 0, 0L);
 #line 1011
   if (tmp___15 != 0L) {
 #line 1011
@@ -47698,7 +47698,7 @@ int ubifs_gc_start_commit(struct ubifs_info *c )
 
   }
 #line 1012
-  tmp___17 = __builtin_expect(((int )lp->flags & 32) == 0, 0L);
+  tmp___17 = ldv__builtin_expect(((int )lp->flags & 32) == 0, 0L);
 #line 1012
   if (tmp___17 != 0L) {
 #line 1012
@@ -47731,7 +47731,7 @@ int ubifs_gc_start_commit(struct ubifs_info *c )
 
   }
 #line 1021
-  tmp___21 = __builtin_expect(((int )lp->flags & 16) == 0, 0L);
+  tmp___21 = ldv__builtin_expect(((int )lp->flags & 16) == 0, 0L);
 #line 1021
   if (tmp___21 != 0L) {
 #line 1021
@@ -47745,7 +47745,7 @@ int ubifs_gc_start_commit(struct ubifs_info *c )
 
   }
 #line 1022
-  tmp___23 = __builtin_expect(((int )lp->flags & 32) != 0, 0L);
+  tmp___23 = ldv__builtin_expect(((int )lp->flags & 32) != 0, 0L);
 #line 1022
   if (tmp___23 != 0L) {
 #line 1022
@@ -47821,7 +47821,7 @@ int ubifs_gc_end_commit(struct ubifs_info *c )
 #line 1048
     descriptor.flags = 0U;
 #line 1048
-    tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1048
     if (tmp___1 != 0L) {
 #line 1048
@@ -48267,7 +48267,7 @@ int ubifs_add_orphan(struct ubifs_info *c , ino_t inum )
 #line 223
   descriptor.flags = 0U;
 #line 223
-  tmp___2 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___2 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 223
   if (tmp___2 != 0L) {
 #line 223
@@ -48338,7 +48338,7 @@ void ubifs_delete_orphan(struct ubifs_info *c , ino_t inum )
 #line 250
       descriptor.flags = 0U;
 #line 250
-      tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+      tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 250
       if (tmp___0 != 0L) {
 #line 250
@@ -48375,7 +48375,7 @@ void ubifs_delete_orphan(struct ubifs_info *c , ino_t inum )
 #line 258
       descriptor___0.flags = 0U;
 #line 258
-      tmp___2 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+      tmp___2 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 258
       if (tmp___2 != 0L) {
 #line 258
@@ -48423,7 +48423,7 @@ void ubifs_delete_orphan(struct ubifs_info *c , ino_t inum )
 #line 271
     descriptor___1.flags = 0U;
 #line 271
-    tmp___4 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___4 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 271
     if (tmp___4 != 0L) {
 #line 271
@@ -48484,7 +48484,7 @@ int ubifs_orphan_start_commit(struct ubifs_info *c )
   goto ldv_27529;
   ldv_27528: 
 #line 293
-  tmp___0 = __builtin_expect(orphan->new == 0, 0L);
+  tmp___0 = ldv__builtin_expect(orphan->new == 0, 0L);
 #line 293
   if (tmp___0 != 0L) {
 #line 293
@@ -48534,7 +48534,7 @@ int ubifs_orphan_start_commit(struct ubifs_info *c )
 #line 301
   descriptor.flags = 0U;
 #line 301
-  tmp___2 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___2 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 301
   if (tmp___2 != 0L) {
 #line 301
@@ -48614,7 +48614,7 @@ static int do_write_orph_node(struct ubifs_info *c , int len , int atomic )
 #line 362
   if (atomic != 0) {
 #line 363
-    tmp___0 = __builtin_expect(c->ohead_offs != 0, 0L);
+    tmp___0 = ldv__builtin_expect(c->ohead_offs != 0, 0L);
 #line 363
     if (tmp___0 != 0L) {
 #line 363
@@ -48680,7 +48680,7 @@ static int write_orph_node(struct ubifs_info *c , int atomic )
 
   {
 #line 395
-  tmp___0 = __builtin_expect(c->cmt_orphans <= 0, 0L);
+  tmp___0 = ldv__builtin_expect(c->cmt_orphans <= 0, 0L);
 #line 395
   if (tmp___0 != 0L) {
 #line 395
@@ -48730,7 +48730,7 @@ static int write_orph_node(struct ubifs_info *c , int atomic )
 #line 413
   len = (int )((unsigned int )((unsigned long )cnt + 4UL) * 8U);
 #line 414
-  tmp___3 = __builtin_expect((unsigned long )c->orph_buf == (unsigned long )((void *)0),
+  tmp___3 = ldv__builtin_expect((unsigned long )c->orph_buf == (unsigned long )((void *)0),
                              0L);
 #line 414
   if (tmp___3 != 0L) {
@@ -48790,7 +48790,7 @@ static int write_orph_node(struct ubifs_info *c , int atomic )
     orph->cmt_no = c->cmt_no | 0x8000000000000000ULL;
   }
 #line 433
-  tmp___5 = __builtin_expect(c->ohead_offs + len > c->leb_size, 0L);
+  tmp___5 = ldv__builtin_expect(c->ohead_offs + len > c->leb_size, 0L);
 #line 433
   if (tmp___5 != 0L) {
 #line 433
@@ -48804,7 +48804,7 @@ static int write_orph_node(struct ubifs_info *c , int atomic )
 
   }
 #line 434
-  tmp___7 = __builtin_expect(c->ohead_lnum < c->orph_first, 0L);
+  tmp___7 = ldv__builtin_expect(c->ohead_lnum < c->orph_first, 0L);
 #line 434
   if (tmp___7 != 0L) {
 #line 434
@@ -48818,7 +48818,7 @@ static int write_orph_node(struct ubifs_info *c , int atomic )
 
   }
 #line 435
-  tmp___9 = __builtin_expect(c->ohead_lnum > c->orph_last, 0L);
+  tmp___9 = ldv__builtin_expect(c->ohead_lnum > c->orph_last, 0L);
 #line 435
   if (tmp___9 != 0L) {
 #line 435
@@ -48945,7 +48945,7 @@ static int consolidate(struct ubifs_info *c )
 #line 489
   descriptor.flags = 0U;
 #line 489
-  tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 489
   if (tmp___1 != 0L) {
 #line 489
@@ -48998,7 +48998,7 @@ static int consolidate(struct ubifs_info *c )
 #line 504
     *last = 0;
 #line 505
-    tmp___3 = __builtin_expect(c->tot_orphans - c->new_orphans != cnt, 0L);
+    tmp___3 = ldv__builtin_expect(c->tot_orphans - c->new_orphans != cnt, 0L);
 #line 505
     if (tmp___3 != 0L) {
 #line 505
@@ -49044,7 +49044,7 @@ static int commit_orphans(struct ubifs_info *c )
 #line 530
   atomic = 0;
 #line 532
-  tmp___0 = __builtin_expect(c->cmt_orphans <= 0, 0L);
+  tmp___0 = ldv__builtin_expect(c->cmt_orphans <= 0, 0L);
 #line 532
   if (tmp___0 != 0L) {
 #line 532
@@ -49105,7 +49105,7 @@ static void erase_deleted(struct ubifs_info *c )
 #line 562
   dnext = orphan->dnext;
 #line 563
-  tmp___0 = __builtin_expect(orphan->new != 0, 0L);
+  tmp___0 = ldv__builtin_expect(orphan->new != 0, 0L);
 #line 563
   if (tmp___0 != 0L) {
 #line 563
@@ -49136,7 +49136,7 @@ static void erase_deleted(struct ubifs_info *c )
 #line 567
   descriptor.flags = 0U;
 #line 567
-  tmp___2 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___2 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 567
   if (tmp___2 != 0L) {
 #line 567
@@ -49320,7 +49320,7 @@ static int insert_dead_orphan(struct ubifs_info *c , ino_t inum )
 #line 655
   descriptor.flags = 0U;
 #line 655
-  tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 655
   if (tmp___1 != 0L) {
 #line 655
@@ -49425,7 +49425,7 @@ static int do_kill_orphans(struct ubifs_info *c , struct ubifs_scan_leb *sleb , 
 #line 716
     descriptor.flags = 0U;
 #line 716
-    tmp___2 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___2 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 716
     if (tmp___2 != 0L) {
 #line 716
@@ -49472,7 +49472,7 @@ static int do_kill_orphans(struct ubifs_info *c , struct ubifs_scan_leb *sleb , 
 #line 727
   descriptor___0.flags = 0U;
 #line 727
-  tmp___4 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___4 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 727
   if (tmp___4 != 0L) {
 #line 727
@@ -49528,7 +49528,7 @@ static int do_kill_orphans(struct ubifs_info *c , struct ubifs_scan_leb *sleb , 
 #line 739
     descriptor___1.flags = 0U;
 #line 739
-    tmp___6 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___6 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 739
     if (tmp___6 != 0L) {
 #line 739
@@ -49610,7 +49610,7 @@ static int kill_orphans(struct ubifs_info *c )
 #line 768
     descriptor.flags = 0U;
 #line 768
-    tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 768
     if (tmp___0 != 0L) {
 #line 768
@@ -49643,7 +49643,7 @@ static int kill_orphans(struct ubifs_info *c )
 #line 785
   descriptor___0.flags = 0U;
 #line 785
-  tmp___2 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___2 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 785
   if (tmp___2 != 0L) {
 #line 785
@@ -50347,7 +50347,7 @@ static int dbg_check_orphans(struct ubifs_info *c )
 #line 1077
   descriptor.flags = 0U;
 #line 1077
-  tmp___5 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___5 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1077
   if (tmp___5 != 0L) {
 #line 1077
@@ -50371,7 +50371,7 @@ static int dbg_check_orphans(struct ubifs_info *c )
 #line 1078
   descriptor___0.flags = 0U;
 #line 1078
-  tmp___7 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___7 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 1078
   if (tmp___7 != 0L) {
 #line 1078
@@ -50395,7 +50395,7 @@ static int dbg_check_orphans(struct ubifs_info *c )
 #line 1079
   descriptor___1.flags = 0U;
 #line 1079
-  tmp___9 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+  tmp___9 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 1079
   if (tmp___9 != 0L) {
 #line 1079
@@ -50633,7 +50633,7 @@ static int run_gc(struct ubifs_info *c )
 #line 209
   descriptor.flags = 0U;
 #line 209
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 209
   if (tmp___0 != 0L) {
 #line 209
@@ -50713,7 +50713,7 @@ static int make_free_space(struct ubifs_info *c )
 #line 262
   descriptor.flags = 0U;
 #line 262
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 262
   if (tmp___0 != 0L) {
 #line 262
@@ -50748,7 +50748,7 @@ static int make_free_space(struct ubifs_info *c )
 #line 269
   descriptor___0.flags = 0U;
 #line 269
-  tmp___2 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___2 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 269
   if (tmp___2 != 0L) {
 #line 269
@@ -50772,7 +50772,7 @@ static int make_free_space(struct ubifs_info *c )
 #line 272
   descriptor___1.flags = 0U;
 #line 272
-  tmp___4 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+  tmp___4 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 272
   if (tmp___4 != 0L) {
 #line 272
@@ -50811,7 +50811,7 @@ static int make_free_space(struct ubifs_info *c )
 #line 281
   descriptor___2.flags = 0U;
 #line 281
-  tmp___6 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+  tmp___6 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
 #line 281
   if (tmp___6 != 0L) {
 #line 281
@@ -51004,7 +51004,7 @@ static int do_budget_space(struct ubifs_info *c )
 #line 461
   lebs = ((c->lst.empty_lebs + c->freeable_cnt) + c->idx_gc_cnt) - c->lst.taken_empty_lebs;
 #line 463
-  tmp___1 = __builtin_expect(rsvd_idx_lebs > lebs, 0L);
+  tmp___1 = ldv__builtin_expect(rsvd_idx_lebs > lebs, 0L);
 #line 463
   if (tmp___1 != 0L) {
 #line 464
@@ -51020,7 +51020,7 @@ static int do_budget_space(struct ubifs_info *c )
 #line 464
     descriptor.flags = 0U;
 #line 464
-    tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 464
     if (tmp___0 != 0L) {
 #line 464
@@ -51041,7 +51041,7 @@ static int do_budget_space(struct ubifs_info *c )
 #line 470
   outstanding = c->bi.data_growth + c->bi.dd_growth;
 #line 472
-  tmp___4 = __builtin_expect(available < outstanding, 0L);
+  tmp___4 = ldv__builtin_expect(available < outstanding, 0L);
 #line 472
   if (tmp___4 != 0L) {
 #line 473
@@ -51057,7 +51057,7 @@ static int do_budget_space(struct ubifs_info *c )
 #line 473
     descriptor___0.flags = 0U;
 #line 473
-    tmp___3 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___3 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 473
     if (tmp___3 != 0L) {
 #line 473
@@ -51226,7 +51226,7 @@ int ubifs_budget_space(struct ubifs_info *c , struct ubifs_budget_req *req )
 #line 560
   retried = 0;
 #line 562
-  tmp___0 = __builtin_expect((int )req->new_page > 1, 0L);
+  tmp___0 = ldv__builtin_expect((int )req->new_page > 1, 0L);
 #line 562
   if (tmp___0 != 0L) {
 #line 562
@@ -51240,7 +51240,7 @@ int ubifs_budget_space(struct ubifs_info *c , struct ubifs_budget_req *req )
 
   }
 #line 563
-  tmp___2 = __builtin_expect((int )req->dirtied_page > 1, 0L);
+  tmp___2 = ldv__builtin_expect((int )req->dirtied_page > 1, 0L);
 #line 563
   if (tmp___2 != 0L) {
 #line 563
@@ -51254,7 +51254,7 @@ int ubifs_budget_space(struct ubifs_info *c , struct ubifs_budget_req *req )
 
   }
 #line 564
-  tmp___4 = __builtin_expect((int )req->new_dent > 1, 0L);
+  tmp___4 = ldv__builtin_expect((int )req->new_dent > 1, 0L);
 #line 564
   if (tmp___4 != 0L) {
 #line 564
@@ -51268,7 +51268,7 @@ int ubifs_budget_space(struct ubifs_info *c , struct ubifs_budget_req *req )
 
   }
 #line 565
-  tmp___6 = __builtin_expect((int )req->mod_dent > 1, 0L);
+  tmp___6 = ldv__builtin_expect((int )req->mod_dent > 1, 0L);
 #line 565
   if (tmp___6 != 0L) {
 #line 565
@@ -51282,7 +51282,7 @@ int ubifs_budget_space(struct ubifs_info *c , struct ubifs_budget_req *req )
 
   }
 #line 566
-  tmp___8 = __builtin_expect((int )req->new_ino > 1, 0L);
+  tmp___8 = ldv__builtin_expect((int )req->new_ino > 1, 0L);
 #line 566
   if (tmp___8 != 0L) {
 #line 566
@@ -51296,7 +51296,7 @@ int ubifs_budget_space(struct ubifs_info *c , struct ubifs_budget_req *req )
 
   }
 #line 567
-  tmp___10 = __builtin_expect((int )req->new_ino_d > 4096, 0L);
+  tmp___10 = ldv__builtin_expect((int )req->new_ino_d > 4096, 0L);
 #line 567
   if (tmp___10 != 0L) {
 #line 567
@@ -51310,7 +51310,7 @@ int ubifs_budget_space(struct ubifs_info *c , struct ubifs_budget_req *req )
 
   }
 #line 568
-  tmp___12 = __builtin_expect((int )req->dirtied_ino > 4, 0L);
+  tmp___12 = ldv__builtin_expect((int )req->dirtied_ino > 4, 0L);
 #line 568
   if (tmp___12 != 0L) {
 #line 568
@@ -51324,7 +51324,7 @@ int ubifs_budget_space(struct ubifs_info *c , struct ubifs_budget_req *req )
 
   }
 #line 569
-  tmp___14 = __builtin_expect((int )req->dirtied_ino_d > 16384, 0L);
+  tmp___14 = ldv__builtin_expect((int )req->dirtied_ino_d > 16384, 0L);
 #line 569
   if (tmp___14 != 0L) {
 #line 569
@@ -51338,7 +51338,7 @@ int ubifs_budget_space(struct ubifs_info *c , struct ubifs_budget_req *req )
 
   }
 #line 570
-  tmp___16 = __builtin_expect(((int )req->new_ino_d & 7) != 0, 0L);
+  tmp___16 = ldv__builtin_expect(((int )req->new_ino_d & 7) != 0, 0L);
 #line 570
   if (tmp___16 != 0L) {
 #line 570
@@ -51352,7 +51352,7 @@ int ubifs_budget_space(struct ubifs_info *c , struct ubifs_budget_req *req )
 
   }
 #line 571
-  tmp___18 = __builtin_expect(((int )req->dirtied_ino_d & 7) != 0, 0L);
+  tmp___18 = ldv__builtin_expect(((int )req->dirtied_ino_d & 7) != 0, 0L);
 #line 571
   if (tmp___18 != 0L) {
 #line 571
@@ -51382,7 +51382,7 @@ int ubifs_budget_space(struct ubifs_info *c , struct ubifs_budget_req *req )
 #line 580
   spin_lock(& c->space_lock);
 #line 581
-  tmp___20 = __builtin_expect(c->bi.idx_growth < 0LL, 0L);
+  tmp___20 = ldv__builtin_expect(c->bi.idx_growth < 0LL, 0L);
 #line 581
   if (tmp___20 != 0L) {
 #line 581
@@ -51396,7 +51396,7 @@ int ubifs_budget_space(struct ubifs_info *c , struct ubifs_budget_req *req )
 
   }
 #line 582
-  tmp___22 = __builtin_expect(c->bi.data_growth < 0LL, 0L);
+  tmp___22 = ldv__builtin_expect(c->bi.data_growth < 0LL, 0L);
 #line 582
   if (tmp___22 != 0L) {
 #line 582
@@ -51410,7 +51410,7 @@ int ubifs_budget_space(struct ubifs_info *c , struct ubifs_budget_req *req )
 
   }
 #line 583
-  tmp___24 = __builtin_expect(c->bi.dd_growth < 0LL, 0L);
+  tmp___24 = ldv__builtin_expect(c->bi.dd_growth < 0LL, 0L);
 #line 583
   if (tmp___24 != 0L) {
 #line 583
@@ -51424,7 +51424,7 @@ int ubifs_budget_space(struct ubifs_info *c , struct ubifs_budget_req *req )
 
   }
 #line 585
-  tmp___27 = __builtin_expect((long )*((unsigned char *)c + 4284UL) & 1L, 0L);
+  tmp___27 = ldv__builtin_expect((long )*((unsigned char *)c + 4284UL) & 1L, 0L);
 #line 585
   if (tmp___27 != 0L) {
 #line 585
@@ -51450,7 +51450,7 @@ int ubifs_budget_space(struct ubifs_info *c , struct ubifs_budget_req *req )
 #line 586
         descriptor.flags = 0U;
 #line 586
-        tmp___26 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+        tmp___26 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 586
         if (tmp___26 != 0L) {
 #line 586
@@ -51481,7 +51481,7 @@ int ubifs_budget_space(struct ubifs_info *c , struct ubifs_budget_req *req )
 #line 595
   err = do_budget_space(c);
 #line 596
-  tmp___29 = __builtin_expect(err == 0, 1L);
+  tmp___29 = ldv__builtin_expect(err == 0, 1L);
 #line 596
   if (tmp___29 != 0L) {
 #line 597
@@ -51520,7 +51520,7 @@ int ubifs_budget_space(struct ubifs_info *c , struct ubifs_budget_req *req )
 #line 611
     descriptor___0.flags = 0U;
 #line 611
-    tmp___31 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___31 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 611
     if (tmp___31 != 0L) {
 #line 611
@@ -51558,7 +51558,7 @@ int ubifs_budget_space(struct ubifs_info *c , struct ubifs_budget_req *req )
 #line 618
     descriptor___1.flags = 0U;
 #line 618
-    tmp___33 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___33 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 618
     if (tmp___33 != 0L) {
 #line 618
@@ -51591,7 +51591,7 @@ int ubifs_budget_space(struct ubifs_info *c , struct ubifs_budget_req *req )
 #line 623
       descriptor___2.flags = 0U;
 #line 623
-      tmp___35 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+      tmp___35 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
 #line 623
       if (tmp___35 != 0L) {
 #line 623
@@ -51620,7 +51620,7 @@ int ubifs_budget_space(struct ubifs_info *c , struct ubifs_budget_req *req )
 #line 626
     descriptor___3.flags = 0U;
 #line 626
-    tmp___37 = __builtin_expect((long )descriptor___3.flags & 1L, 0L);
+    tmp___37 = ldv__builtin_expect((long )descriptor___3.flags & 1L, 0L);
 #line 626
     if (tmp___37 != 0L) {
 #line 626
@@ -51702,7 +51702,7 @@ void ubifs_release_budget(struct ubifs_info *c , struct ubifs_budget_req *req )
 
   {
 #line 649
-  tmp___0 = __builtin_expect((int )req->new_page > 1, 0L);
+  tmp___0 = ldv__builtin_expect((int )req->new_page > 1, 0L);
 #line 649
   if (tmp___0 != 0L) {
 #line 649
@@ -51716,7 +51716,7 @@ void ubifs_release_budget(struct ubifs_info *c , struct ubifs_budget_req *req )
 
   }
 #line 650
-  tmp___2 = __builtin_expect((int )req->dirtied_page > 1, 0L);
+  tmp___2 = ldv__builtin_expect((int )req->dirtied_page > 1, 0L);
 #line 650
   if (tmp___2 != 0L) {
 #line 650
@@ -51730,7 +51730,7 @@ void ubifs_release_budget(struct ubifs_info *c , struct ubifs_budget_req *req )
 
   }
 #line 651
-  tmp___4 = __builtin_expect((int )req->new_dent > 1, 0L);
+  tmp___4 = ldv__builtin_expect((int )req->new_dent > 1, 0L);
 #line 651
   if (tmp___4 != 0L) {
 #line 651
@@ -51744,7 +51744,7 @@ void ubifs_release_budget(struct ubifs_info *c , struct ubifs_budget_req *req )
 
   }
 #line 652
-  tmp___6 = __builtin_expect((int )req->mod_dent > 1, 0L);
+  tmp___6 = ldv__builtin_expect((int )req->mod_dent > 1, 0L);
 #line 652
   if (tmp___6 != 0L) {
 #line 652
@@ -51758,7 +51758,7 @@ void ubifs_release_budget(struct ubifs_info *c , struct ubifs_budget_req *req )
 
   }
 #line 653
-  tmp___8 = __builtin_expect((int )req->new_ino > 1, 0L);
+  tmp___8 = ldv__builtin_expect((int )req->new_ino > 1, 0L);
 #line 653
   if (tmp___8 != 0L) {
 #line 653
@@ -51772,7 +51772,7 @@ void ubifs_release_budget(struct ubifs_info *c , struct ubifs_budget_req *req )
 
   }
 #line 654
-  tmp___10 = __builtin_expect((int )req->new_ino_d > 4096, 0L);
+  tmp___10 = ldv__builtin_expect((int )req->new_ino_d > 4096, 0L);
 #line 654
   if (tmp___10 != 0L) {
 #line 654
@@ -51786,7 +51786,7 @@ void ubifs_release_budget(struct ubifs_info *c , struct ubifs_budget_req *req )
 
   }
 #line 655
-  tmp___12 = __builtin_expect((int )req->dirtied_ino > 4, 0L);
+  tmp___12 = ldv__builtin_expect((int )req->dirtied_ino > 4, 0L);
 #line 655
   if (tmp___12 != 0L) {
 #line 655
@@ -51800,7 +51800,7 @@ void ubifs_release_budget(struct ubifs_info *c , struct ubifs_budget_req *req )
 
   }
 #line 656
-  tmp___14 = __builtin_expect((int )req->dirtied_ino_d > 16384, 0L);
+  tmp___14 = ldv__builtin_expect((int )req->dirtied_ino_d > 16384, 0L);
 #line 656
   if (tmp___14 != 0L) {
 #line 656
@@ -51814,7 +51814,7 @@ void ubifs_release_budget(struct ubifs_info *c , struct ubifs_budget_req *req )
 
   }
 #line 657
-  tmp___16 = __builtin_expect(((int )req->new_ino_d & 7) != 0, 0L);
+  tmp___16 = ldv__builtin_expect(((int )req->new_ino_d & 7) != 0, 0L);
 #line 657
   if (tmp___16 != 0L) {
 #line 657
@@ -51828,7 +51828,7 @@ void ubifs_release_budget(struct ubifs_info *c , struct ubifs_budget_req *req )
 
   }
 #line 658
-  tmp___18 = __builtin_expect(((int )req->dirtied_ino_d & 7) != 0, 0L);
+  tmp___18 = ldv__builtin_expect(((int )req->dirtied_ino_d & 7) != 0, 0L);
 #line 658
   if (tmp___18 != 0L) {
 #line 658
@@ -51844,7 +51844,7 @@ void ubifs_release_budget(struct ubifs_info *c , struct ubifs_budget_req *req )
 #line 659
   if ((unsigned int )*((unsigned char *)req + 0UL) == 0U) {
 #line 660
-    tmp___20 = __builtin_expect(req->idx_growth < 0, 0L);
+    tmp___20 = ldv__builtin_expect(req->idx_growth < 0, 0L);
 #line 660
     if (tmp___20 != 0L) {
 #line 660
@@ -51858,7 +51858,7 @@ void ubifs_release_budget(struct ubifs_info *c , struct ubifs_budget_req *req )
 
     }
 #line 661
-    tmp___22 = __builtin_expect(req->data_growth < 0, 0L);
+    tmp___22 = ldv__builtin_expect(req->data_growth < 0, 0L);
 #line 661
     if (tmp___22 != 0L) {
 #line 661
@@ -51872,7 +51872,7 @@ void ubifs_release_budget(struct ubifs_info *c , struct ubifs_budget_req *req )
 
     }
 #line 662
-    tmp___24 = __builtin_expect(req->dd_growth < 0, 0L);
+    tmp___24 = ldv__builtin_expect(req->dd_growth < 0, 0L);
 #line 662
     if (tmp___24 != 0L) {
 #line 662
@@ -51927,7 +51927,7 @@ void ubifs_release_budget(struct ubifs_info *c , struct ubifs_budget_req *req )
 #line 682
   c->bi.min_idx_lebs = ubifs_calc_min_idx_lebs(c);
 #line 684
-  tmp___27 = __builtin_expect(c->bi.idx_growth < 0LL, 0L);
+  tmp___27 = ldv__builtin_expect(c->bi.idx_growth < 0LL, 0L);
 #line 684
   if (tmp___27 != 0L) {
 #line 684
@@ -51941,7 +51941,7 @@ void ubifs_release_budget(struct ubifs_info *c , struct ubifs_budget_req *req )
 
   }
 #line 685
-  tmp___29 = __builtin_expect(c->bi.data_growth < 0LL, 0L);
+  tmp___29 = ldv__builtin_expect(c->bi.data_growth < 0LL, 0L);
 #line 685
   if (tmp___29 != 0L) {
 #line 685
@@ -51955,7 +51955,7 @@ void ubifs_release_budget(struct ubifs_info *c , struct ubifs_budget_req *req )
 
   }
 #line 686
-  tmp___31 = __builtin_expect(c->bi.dd_growth < 0LL, 0L);
+  tmp___31 = ldv__builtin_expect(c->bi.dd_growth < 0LL, 0L);
 #line 686
   if (tmp___31 != 0L) {
 #line 686
@@ -51969,7 +51969,7 @@ void ubifs_release_budget(struct ubifs_info *c , struct ubifs_budget_req *req )
 
   }
 #line 687
-  tmp___33 = __builtin_expect(c->bi.min_idx_lebs >= c->main_lebs, 0L);
+  tmp___33 = ldv__builtin_expect(c->bi.min_idx_lebs >= c->main_lebs, 0L);
 #line 687
   if (tmp___33 != 0L) {
 #line 687
@@ -51983,7 +51983,7 @@ void ubifs_release_budget(struct ubifs_info *c , struct ubifs_budget_req *req )
 
   }
 #line 688
-  tmp___35 = __builtin_expect((c->bi.idx_growth & 7LL) != 0LL, 0L);
+  tmp___35 = ldv__builtin_expect((c->bi.idx_growth & 7LL) != 0LL, 0L);
 #line 688
   if (tmp___35 != 0L) {
 #line 688
@@ -51997,7 +51997,7 @@ void ubifs_release_budget(struct ubifs_info *c , struct ubifs_budget_req *req )
 
   }
 #line 689
-  tmp___37 = __builtin_expect((c->bi.data_growth & 7LL) != 0LL, 0L);
+  tmp___37 = ldv__builtin_expect((c->bi.data_growth & 7LL) != 0LL, 0L);
 #line 689
   if (tmp___37 != 0L) {
 #line 689
@@ -52011,7 +52011,7 @@ void ubifs_release_budget(struct ubifs_info *c , struct ubifs_budget_req *req )
 
   }
 #line 690
-  tmp___39 = __builtin_expect((c->bi.dd_growth & 7LL) != 0LL, 0L);
+  tmp___39 = ldv__builtin_expect((c->bi.dd_growth & 7LL) != 0LL, 0L);
 #line 690
   if (tmp___39 != 0L) {
 #line 690
@@ -52109,7 +52109,7 @@ long long ubifs_get_free_space_nolock(struct ubifs_info *c )
 #line 803
   tmp___0 = ubifs_calc_min_idx_lebs(c);
 #line 803
-  tmp___1 = __builtin_expect(c->bi.min_idx_lebs != tmp___0, 0L);
+  tmp___1 = ldv__builtin_expect(c->bi.min_idx_lebs != tmp___0, 0L);
 #line 803
   if (tmp___1 != 0L) {
 #line 803
@@ -52341,7 +52341,7 @@ __inline static void ubifs_release_lprops___2(struct ubifs_info *c )
 #line 280
   tmp___0 = mutex_is_locked(& c->lp_mutex);
 #line 280
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
 #line 280
   if (tmp___1 != 0L) {
 #line 280
@@ -52355,7 +52355,7 @@ __inline static void ubifs_release_lprops___2(struct ubifs_info *c )
 
   }
 #line 281
-  tmp___3 = __builtin_expect(c->lst.empty_lebs < 0, 0L);
+  tmp___3 = ldv__builtin_expect(c->lst.empty_lebs < 0, 0L);
 #line 281
   if (tmp___3 != 0L) {
 #line 281
@@ -52367,7 +52367,7 @@ __inline static void ubifs_release_lprops___2(struct ubifs_info *c )
     dump_stack();
   } else {
 #line 281
-    tmp___4 = __builtin_expect(c->lst.empty_lebs > c->main_lebs, 0L);
+    tmp___4 = ldv__builtin_expect(c->lst.empty_lebs > c->main_lebs, 0L);
 #line 281
     if (tmp___4 != 0L) {
 #line 281
@@ -52664,7 +52664,7 @@ static struct ubifs_lprops  const  *scan_for_dirty(struct ubifs_info *c , int mi
 
   }
 #line 305
-  tmp___2 = __builtin_expect(data.lnum < c->main_first, 0L);
+  tmp___2 = ldv__builtin_expect(data.lnum < c->main_first, 0L);
 #line 305
   if (tmp___2 != 0L) {
 #line 305
@@ -52676,7 +52676,7 @@ static struct ubifs_lprops  const  *scan_for_dirty(struct ubifs_info *c , int mi
     dump_stack();
   } else {
 #line 305
-    tmp___3 = __builtin_expect(data.lnum >= c->leb_cnt, 0L);
+    tmp___3 = ldv__builtin_expect(data.lnum >= c->leb_cnt, 0L);
 #line 305
     if (tmp___3 != 0L) {
 #line 305
@@ -52706,7 +52706,7 @@ static struct ubifs_lprops  const  *scan_for_dirty(struct ubifs_info *c , int mi
 
   }
 #line 310
-  tmp___7 = __builtin_expect((int )lprops->lnum != data.lnum, 0L);
+  tmp___7 = ldv__builtin_expect((int )lprops->lnum != data.lnum, 0L);
 #line 310
   if (tmp___7 != 0L) {
 #line 310
@@ -52720,7 +52720,7 @@ static struct ubifs_lprops  const  *scan_for_dirty(struct ubifs_info *c , int mi
 
   }
 #line 311
-  tmp___9 = __builtin_expect((int )lprops->free + (int )lprops->dirty < min_space,
+  tmp___9 = ldv__builtin_expect((int )lprops->free + (int )lprops->dirty < min_space,
                              0L);
 #line 311
   if (tmp___9 != 0L) {
@@ -52735,18 +52735,18 @@ static struct ubifs_lprops  const  *scan_for_dirty(struct ubifs_info *c , int mi
 
   }
 #line 312
-  tmp___11 = __builtin_expect((int )lprops->dirty < c->dead_wm, 0L);
+  tmp___11 = ldv__builtin_expect((int )lprops->dirty < c->dead_wm, 0L);
 #line 312
   if (tmp___11 != 0L) {
 #line 312
-    tmp___12 = __builtin_expect(pick_free == 0, 0L);
+    tmp___12 = ldv__builtin_expect(pick_free == 0, 0L);
 #line 312
     if (tmp___12 != 0L) {
 #line 312
       tmp___14 = 1;
     } else {
 #line 312
-      tmp___13 = __builtin_expect((int )lprops->free + (int )lprops->dirty != c->leb_size,
+      tmp___13 = ldv__builtin_expect((int )lprops->free + (int )lprops->dirty != c->leb_size,
                                   0L);
 #line 312
       if (tmp___13 != 0L) {
@@ -52773,7 +52773,7 @@ static struct ubifs_lprops  const  *scan_for_dirty(struct ubifs_info *c , int mi
 
   }
 #line 315
-  tmp___16 = __builtin_expect(((int )lprops->flags & 16) != 0, 0L);
+  tmp___16 = ldv__builtin_expect(((int )lprops->flags & 16) != 0, 0L);
 #line 315
   if (tmp___16 != 0L) {
 #line 315
@@ -52787,11 +52787,11 @@ static struct ubifs_lprops  const  *scan_for_dirty(struct ubifs_info *c , int mi
 
   }
 #line 316
-  tmp___18 = __builtin_expect(exclude_index != 0, 0L);
+  tmp___18 = ldv__builtin_expect(exclude_index != 0, 0L);
 #line 316
   if (tmp___18 != 0L) {
 #line 316
-    tmp___19 = __builtin_expect(((int )lprops->flags & 32) != 0, 0L);
+    tmp___19 = ldv__builtin_expect(((int )lprops->flags & 32) != 0, 0L);
 #line 316
     if (tmp___19 != 0L) {
 #line 316
@@ -52962,7 +52962,7 @@ int ubifs_find_dirty_leb(struct ubifs_info *c , struct ubifs_lprops *ret_lp , in
 #line 436
   if ((unsigned long )lp != (unsigned long )((struct ubifs_lprops  const  *)0)) {
 #line 437
-    tmp___0 = __builtin_expect((int )lp->free + (int )lp->dirty < c->dead_wm, 0L);
+    tmp___0 = ldv__builtin_expect((int )lp->free + (int )lp->dirty < c->dead_wm, 0L);
 #line 437
     if (tmp___0 != 0L) {
 #line 437
@@ -52993,7 +52993,7 @@ int ubifs_find_dirty_leb(struct ubifs_info *c , struct ubifs_lprops *ret_lp , in
 #line 442
   descriptor.flags = 0U;
 #line 442
-  tmp___2 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___2 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 442
   if (tmp___2 != 0L) {
 #line 442
@@ -53020,18 +53020,18 @@ int ubifs_find_dirty_leb(struct ubifs_info *c , struct ubifs_lprops *ret_lp , in
 
   }
 #line 448
-  tmp___6 = __builtin_expect((int )lp->dirty < c->dead_wm, 0L);
+  tmp___6 = ldv__builtin_expect((int )lp->dirty < c->dead_wm, 0L);
 #line 448
   if (tmp___6 != 0L) {
 #line 448
-    tmp___7 = __builtin_expect(pick_free == 0, 0L);
+    tmp___7 = ldv__builtin_expect(pick_free == 0, 0L);
 #line 448
     if (tmp___7 != 0L) {
 #line 448
       tmp___9 = 1;
     } else {
 #line 448
-      tmp___8 = __builtin_expect((int )lp->free + (int )lp->dirty != c->leb_size,
+      tmp___8 = ldv__builtin_expect((int )lp->free + (int )lp->dirty != c->leb_size,
                                  0L);
 #line 448
       if (tmp___8 != 0L) {
@@ -53071,7 +53071,7 @@ int ubifs_find_dirty_leb(struct ubifs_info *c , struct ubifs_lprops *ret_lp , in
 #line 452
   descriptor___0.flags = 0U;
 #line 452
-  tmp___11 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___11 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 452
   if (tmp___11 != 0L) {
 #line 452
@@ -53347,7 +53347,7 @@ static struct ubifs_lprops  const  *do_find_free_space(struct ubifs_info *c , in
 
   }
 #line 584
-  tmp___2 = __builtin_expect(data.lnum < c->main_first, 0L);
+  tmp___2 = ldv__builtin_expect(data.lnum < c->main_first, 0L);
 #line 584
   if (tmp___2 != 0L) {
 #line 584
@@ -53359,7 +53359,7 @@ static struct ubifs_lprops  const  *do_find_free_space(struct ubifs_info *c , in
     dump_stack();
   } else {
 #line 584
-    tmp___3 = __builtin_expect(data.lnum >= c->leb_cnt, 0L);
+    tmp___3 = ldv__builtin_expect(data.lnum >= c->leb_cnt, 0L);
 #line 584
     if (tmp___3 != 0L) {
 #line 584
@@ -53389,7 +53389,7 @@ static struct ubifs_lprops  const  *do_find_free_space(struct ubifs_info *c , in
 
   }
 #line 589
-  tmp___7 = __builtin_expect((int )lprops->lnum != data.lnum, 0L);
+  tmp___7 = ldv__builtin_expect((int )lprops->lnum != data.lnum, 0L);
 #line 589
   if (tmp___7 != 0L) {
 #line 589
@@ -53403,7 +53403,7 @@ static struct ubifs_lprops  const  *do_find_free_space(struct ubifs_info *c , in
 
   }
 #line 590
-  tmp___9 = __builtin_expect((int )lprops->free < min_space, 0L);
+  tmp___9 = ldv__builtin_expect((int )lprops->free < min_space, 0L);
 #line 590
   if (tmp___9 != 0L) {
 #line 590
@@ -53417,7 +53417,7 @@ static struct ubifs_lprops  const  *do_find_free_space(struct ubifs_info *c , in
 
   }
 #line 591
-  tmp___11 = __builtin_expect(((int )lprops->flags & 16) != 0, 0L);
+  tmp___11 = ldv__builtin_expect(((int )lprops->flags & 16) != 0, 0L);
 #line 591
   if (tmp___11 != 0L) {
 #line 591
@@ -53431,7 +53431,7 @@ static struct ubifs_lprops  const  *do_find_free_space(struct ubifs_info *c , in
 
   }
 #line 592
-  tmp___13 = __builtin_expect(((int )lprops->flags & 32) != 0, 0L);
+  tmp___13 = ldv__builtin_expect(((int )lprops->flags & 32) != 0, 0L);
 #line 592
   if (tmp___13 != 0L) {
 #line 592
@@ -53487,7 +53487,7 @@ int ubifs_find_free_space(struct ubifs_info *c , int min_space , int *offs , int
 #line 618
   descriptor.flags = 0U;
 #line 618
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 618
   if (tmp___0 != 0L) {
 #line 618
@@ -53604,7 +53604,7 @@ int ubifs_find_free_space(struct ubifs_info *c , int min_space , int *offs , int
 #line 695
   descriptor___0.flags = 0U;
 #line 695
-  tmp___6 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___6 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 695
   if (tmp___6 != 0L) {
 #line 695
@@ -53616,7 +53616,7 @@ int ubifs_find_free_space(struct ubifs_info *c , int min_space , int *offs , int
 
   }
 #line 696
-  tmp___8 = __builtin_expect(*offs > c->leb_size - min_space, 0L);
+  tmp___8 = ldv__builtin_expect(*offs > c->leb_size - min_space, 0L);
 #line 696
   if (tmp___8 != 0L) {
 #line 696
@@ -53738,7 +53738,7 @@ static struct ubifs_lprops  const  *scan_for_leb_for_idx(struct ubifs_info *c )
 
   }
 #line 764
-  tmp___1 = __builtin_expect(data.lnum < c->main_first, 0L);
+  tmp___1 = ldv__builtin_expect(data.lnum < c->main_first, 0L);
 #line 764
   if (tmp___1 != 0L) {
 #line 764
@@ -53750,7 +53750,7 @@ static struct ubifs_lprops  const  *scan_for_leb_for_idx(struct ubifs_info *c )
     dump_stack();
   } else {
 #line 764
-    tmp___2 = __builtin_expect(data.lnum >= c->leb_cnt, 0L);
+    tmp___2 = ldv__builtin_expect(data.lnum >= c->leb_cnt, 0L);
 #line 764
     if (tmp___2 != 0L) {
 #line 764
@@ -53778,7 +53778,7 @@ static struct ubifs_lprops  const  *scan_for_leb_for_idx(struct ubifs_info *c )
 
   }
 #line 769
-  tmp___5 = __builtin_expect(lprops->lnum != data.lnum, 0L);
+  tmp___5 = ldv__builtin_expect(lprops->lnum != data.lnum, 0L);
 #line 769
   if (tmp___5 != 0L) {
 #line 769
@@ -53792,7 +53792,7 @@ static struct ubifs_lprops  const  *scan_for_leb_for_idx(struct ubifs_info *c )
 
   }
 #line 770
-  tmp___7 = __builtin_expect(lprops->free + lprops->dirty != c->leb_size, 0L);
+  tmp___7 = ldv__builtin_expect(lprops->free + lprops->dirty != c->leb_size, 0L);
 #line 770
   if (tmp___7 != 0L) {
 #line 770
@@ -53806,7 +53806,7 @@ static struct ubifs_lprops  const  *scan_for_leb_for_idx(struct ubifs_info *c )
 
   }
 #line 771
-  tmp___9 = __builtin_expect((lprops->flags & 16) != 0, 0L);
+  tmp___9 = ldv__builtin_expect((lprops->flags & 16) != 0, 0L);
 #line 771
   if (tmp___9 != 0L) {
 #line 771
@@ -53820,7 +53820,7 @@ static struct ubifs_lprops  const  *scan_for_leb_for_idx(struct ubifs_info *c )
 
   }
 #line 772
-  tmp___11 = __builtin_expect((lprops->flags & 32) != 0, 0L);
+  tmp___11 = ldv__builtin_expect((lprops->flags & 32) != 0, 0L);
 #line 772
   if (tmp___11 != 0L) {
 #line 772
@@ -53870,7 +53870,7 @@ int ubifs_find_free_leb_for_idx(struct ubifs_info *c )
 #line 810
       if (c->in_a_category_cnt != c->main_lebs || c->lst.empty_lebs - c->lst.taken_empty_lebs > 0) {
 #line 812
-        tmp___0 = __builtin_expect(c->freeable_cnt != 0, 0L);
+        tmp___0 = ldv__builtin_expect(c->freeable_cnt != 0, 0L);
 #line 812
         if (tmp___0 != 0L) {
 #line 812
@@ -53931,7 +53931,7 @@ int ubifs_find_free_leb_for_idx(struct ubifs_info *c )
 #line 829
   descriptor.flags = 0U;
 #line 829
-  tmp___4 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___4 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 829
   if (tmp___4 != 0L) {
 #line 829
@@ -54052,7 +54052,7 @@ int ubifs_save_dirty_idx_lnums(struct ubifs_info *c )
 #line 899
   descriptor.flags = 0U;
 #line 899
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 899
   if (tmp___0 != 0L) {
 #line 899
@@ -54078,7 +54078,7 @@ int ubifs_save_dirty_idx_lnums(struct ubifs_info *c )
 #line 901
     descriptor___0.flags = 0U;
 #line 901
-    tmp___2 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___2 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 901
     if (tmp___2 != 0L) {
 #line 901
@@ -54310,7 +54310,7 @@ static int find_dirty_idx_leb(struct ubifs_info *c )
   }
   found: 
 #line 992
-  tmp___0 = __builtin_expect(data.lnum < c->main_first, 0L);
+  tmp___0 = ldv__builtin_expect(data.lnum < c->main_first, 0L);
 #line 992
   if (tmp___0 != 0L) {
 #line 992
@@ -54322,7 +54322,7 @@ static int find_dirty_idx_leb(struct ubifs_info *c )
     dump_stack();
   } else {
 #line 992
-    tmp___1 = __builtin_expect(data.lnum >= c->leb_cnt, 0L);
+    tmp___1 = ldv__builtin_expect(data.lnum >= c->leb_cnt, 0L);
 #line 992
     if (tmp___1 != 0L) {
 #line 992
@@ -54354,7 +54354,7 @@ static int find_dirty_idx_leb(struct ubifs_info *c )
 
   }
 #line 997
-  tmp___6 = __builtin_expect((int )lprops->lnum != data.lnum, 0L);
+  tmp___6 = ldv__builtin_expect((int )lprops->lnum != data.lnum, 0L);
 #line 997
   if (tmp___6 != 0L) {
 #line 997
@@ -54368,7 +54368,7 @@ static int find_dirty_idx_leb(struct ubifs_info *c )
 
   }
 #line 998
-  tmp___8 = __builtin_expect((int )lprops->free + (int )lprops->dirty < c->min_idx_node_sz,
+  tmp___8 = ldv__builtin_expect((int )lprops->free + (int )lprops->dirty < c->min_idx_node_sz,
                              0L);
 #line 998
   if (tmp___8 != 0L) {
@@ -54383,7 +54383,7 @@ static int find_dirty_idx_leb(struct ubifs_info *c )
 
   }
 #line 999
-  tmp___10 = __builtin_expect(((int )lprops->flags & 16) != 0, 0L);
+  tmp___10 = ldv__builtin_expect(((int )lprops->flags & 16) != 0, 0L);
 #line 999
   if (tmp___10 != 0L) {
 #line 999
@@ -54397,7 +54397,7 @@ static int find_dirty_idx_leb(struct ubifs_info *c )
 
   }
 #line 1000
-  tmp___12 = __builtin_expect(((int )lprops->flags & 32) == 0, 0L);
+  tmp___12 = ldv__builtin_expect(((int )lprops->flags & 32) == 0, 0L);
 #line 1000
   if (tmp___12 != 0L) {
 #line 1000
@@ -54423,7 +54423,7 @@ static int find_dirty_idx_leb(struct ubifs_info *c )
 #line 1002
   descriptor.flags = 0U;
 #line 1002
-  tmp___14 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___14 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1002
   if (tmp___14 != 0L) {
 #line 1002
@@ -54520,7 +54520,7 @@ static int get_idx_gc_leb(struct ubifs_info *c )
 #line 1037
   descriptor.flags = 0U;
 #line 1037
-  tmp___5 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___5 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1037
   if (tmp___5 != 0L) {
 #line 1037
@@ -54620,7 +54620,7 @@ static int find_dirtiest_idx_leb(struct ubifs_info *c )
 #line 1067
   descriptor.flags = 0U;
 #line 1067
-  tmp___5 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___5 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1067
   if (tmp___5 != 0L) {
 #line 1067
@@ -54632,7 +54632,7 @@ static int find_dirtiest_idx_leb(struct ubifs_info *c )
 
   }
 #line 1069
-  tmp___7 = __builtin_expect(((int )lp->flags & 16) == 0, 0L);
+  tmp___7 = ldv__builtin_expect(((int )lp->flags & 16) == 0, 0L);
 #line 1069
   if (tmp___7 != 0L) {
 #line 1069
@@ -54646,7 +54646,7 @@ static int find_dirtiest_idx_leb(struct ubifs_info *c )
 
   }
 #line 1070
-  tmp___9 = __builtin_expect(((int )lp->flags & 32) == 0, 0L);
+  tmp___9 = ldv__builtin_expect(((int )lp->flags & 32) == 0, 0L);
 #line 1070
   if (tmp___9 != 0L) {
 #line 1070
@@ -54949,7 +54949,7 @@ static int make_idx_node(struct ubifs_info *c , struct ubifs_idx_node *idx , str
 #line 207
   tmp___2 = ubifs_zn_dirty((struct ubifs_znode  const  *)znode);
 #line 207
-  tmp___3 = __builtin_expect(tmp___2 == 0, 0L);
+  tmp___3 = ldv__builtin_expect(tmp___2 == 0, 0L);
 #line 207
   if (tmp___3 != 0L) {
 #line 207
@@ -54964,7 +54964,7 @@ static int make_idx_node(struct ubifs_info *c , struct ubifs_idx_node *idx , str
 #line 208
   tmp___5 = ubifs_zn_cow((struct ubifs_znode  const  *)znode);
 #line 208
-  tmp___6 = __builtin_expect(tmp___5 == 0, 0L);
+  tmp___6 = ldv__builtin_expect(tmp___5 == 0, 0L);
 #line 208
   if (tmp___6 != 0L) {
 #line 208
@@ -55010,7 +55010,7 @@ static int fill_gap(struct ubifs_info *c , int lnum , int gap_start , int gap_en
 
   {
 #line 235
-  tmp___0 = __builtin_expect((gap_start & 7) != 0, 0L);
+  tmp___0 = ldv__builtin_expect((gap_start & 7) != 0, 0L);
 #line 235
   if (tmp___0 != 0L) {
 #line 235
@@ -55023,7 +55023,7 @@ static int fill_gap(struct ubifs_info *c , int lnum , int gap_start , int gap_en
 
   }
 #line 236
-  tmp___2 = __builtin_expect((gap_end & 7) != 0, 0L);
+  tmp___2 = ldv__builtin_expect((gap_end & 7) != 0, 0L);
 #line 236
   if (tmp___2 != 0L) {
 #line 236
@@ -55036,7 +55036,7 @@ static int fill_gap(struct ubifs_info *c , int lnum , int gap_start , int gap_en
 
   }
 #line 237
-  tmp___4 = __builtin_expect(gap_end < gap_start, 0L);
+  tmp___4 = ldv__builtin_expect(gap_end < gap_start, 0L);
 #line 237
   if (tmp___4 != 0L) {
 #line 237
@@ -55073,7 +55073,7 @@ static int fill_gap(struct ubifs_info *c , int lnum , int gap_start , int gap_en
 #line 248
     alen = (len + 7) & -8;
 #line 251
-    tmp___6 = __builtin_expect(alen > gap_remains, 0L);
+    tmp___6 = ldv__builtin_expect(alen > gap_remains, 0L);
 #line 251
     if (tmp___6 != 0L) {
 #line 251
@@ -55146,7 +55146,7 @@ static int fill_gap(struct ubifs_info *c , int lnum , int gap_start , int gap_en
 #line 272
   descriptor.flags = 0U;
 #line 272
-  tmp___8 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___8 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 272
   if (tmp___8 != 0L) {
 #line 272
@@ -55317,7 +55317,7 @@ static int layout_leb_in_gaps(struct ubifs_info *c , int *p )
 #line 364
   descriptor.flags = 0U;
 #line 364
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 364
   if (tmp___0 != 0L) {
 #line 364
@@ -55353,7 +55353,7 @@ static int layout_leb_in_gaps(struct ubifs_info *c , int *p )
   goto ldv_27651;
   ldv_27650: 
 #line 379
-  tmp___4 = __builtin_expect(snod->type != 9, 0L);
+  tmp___4 = ldv__builtin_expect(snod->type != 9, 0L);
 #line 379
   if (tmp___4 != 0L) {
 #line 379
@@ -55458,7 +55458,7 @@ static int layout_leb_in_gaps(struct ubifs_info *c , int *p )
 #line 421
     descriptor___0.flags = 0U;
 #line 421
-    tmp___7 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___7 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 421
     if (tmp___7 != 0L) {
 #line 421
@@ -55528,7 +55528,7 @@ static int layout_leb_in_gaps(struct ubifs_info *c , int *p )
 #line 445
   descriptor___1.flags = 0U;
 #line 445
-  tmp___9 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+  tmp___9 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 445
   if (tmp___9 != 0L) {
 #line 445
@@ -55597,7 +55597,7 @@ static int layout_in_gaps(struct ubifs_info *c , int cnt )
 #line 484
   descriptor.flags = 0U;
 #line 484
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 484
   if (tmp___0 != 0L) {
 #line 484
@@ -55623,7 +55623,7 @@ static int layout_in_gaps(struct ubifs_info *c , int cnt )
   p = c->gap_lebs;
   ldv_27673: 
 #line 492
-  tmp___3 = __builtin_expect((unsigned long )(c->gap_lebs + (unsigned long )c->lst.idx_lebs * 4UL) <= (unsigned long )p,
+  tmp___3 = ldv__builtin_expect((unsigned long )(c->gap_lebs + (unsigned long )c->lst.idx_lebs * 4UL) <= (unsigned long )p,
                              0L);
 #line 492
   if (tmp___3 != 0L) {
@@ -55695,7 +55695,7 @@ static int layout_in_gaps(struct ubifs_info *c , int cnt )
 #line 517
   descriptor___0.flags = 0U;
 #line 517
-  tmp___7 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___7 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 517
   if (tmp___7 != 0L) {
 #line 517
@@ -56151,7 +56151,7 @@ static int get_znodes_to_commit(struct ubifs_info *c )
 #line 754
     descriptor.flags = 0U;
 #line 754
-    tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 754
     if (tmp___1 != 0L) {
 #line 754
@@ -56173,7 +56173,7 @@ static int get_znodes_to_commit(struct ubifs_info *c )
 #line 759
   tmp___3 = ubifs_zn_cow((struct ubifs_znode  const  *)znode);
 #line 759
-  tmp___4 = __builtin_expect(tmp___3 != 0, 0L);
+  tmp___4 = ldv__builtin_expect(tmp___3 != 0, 0L);
 #line 759
   if (tmp___4 != 0L) {
 #line 759
@@ -56223,7 +56223,7 @@ static int get_znodes_to_commit(struct ubifs_info *c )
 #line 771
   descriptor___0.flags = 0U;
 #line 771
-  tmp___6 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___6 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 771
   if (tmp___6 != 0L) {
 #line 771
@@ -56237,7 +56237,7 @@ static int get_znodes_to_commit(struct ubifs_info *c )
 #line 772
   tmp___8 = atomic_long_read(& c->dirty_zn_cnt);
 #line 772
-  tmp___9 = __builtin_expect((long )cnt != tmp___8, 0L);
+  tmp___9 = ldv__builtin_expect((long )cnt != tmp___8, 0L);
 #line 772
   if (tmp___9 != 0L) {
 #line 772
@@ -56291,7 +56291,7 @@ static int alloc_idx_lebs(struct ubifs_info *c , int cnt )
 #line 792
   descriptor.flags = 0U;
 #line 792
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 792
   if (tmp___0 != 0L) {
 #line 792
@@ -56353,7 +56353,7 @@ static int alloc_idx_lebs(struct ubifs_info *c , int cnt )
 #line 803
   descriptor___0.flags = 0U;
 #line 803
-  tmp___4 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___4 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 803
   if (tmp___4 != 0L) {
 #line 803
@@ -56428,7 +56428,7 @@ static int free_unused_idx_lebs(struct ubifs_info *c )
 #line 825
   descriptor.flags = 0U;
 #line 825
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 825
   if (tmp___0 != 0L) {
 #line 825
@@ -56546,7 +56546,7 @@ int ubifs_tnc_start_commit(struct ubifs_info *c , struct ubifs_zbranch *zroot )
 #line 880
     tmp___0 = atomic_long_read(& c->dirty_zn_cnt);
 #line 880
-    tmp___1 = __builtin_expect(tmp___0 != 0L, 0L);
+    tmp___1 = ldv__builtin_expect(tmp___0 != 0L, 0L);
 #line 880
     if (tmp___1 != 0L) {
 #line 880
@@ -56597,7 +56597,7 @@ int ubifs_tnc_start_commit(struct ubifs_info *c , struct ubifs_zbranch *zroot )
 #line 901
   tmp___3 = ubifs_calc_min_idx_lebs(c);
 #line 901
-  tmp___4 = __builtin_expect(c->bi.min_idx_lebs != tmp___3, 0L);
+  tmp___4 = ldv__builtin_expect(c->bi.min_idx_lebs != tmp___3, 0L);
 #line 901
   if (tmp___4 != 0L) {
 #line 901
@@ -56633,7 +56633,7 @@ int ubifs_tnc_start_commit(struct ubifs_info *c , struct ubifs_zbranch *zroot )
 #line 908
   descriptor.flags = 0U;
 #line 908
-  tmp___6 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___6 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 908
   if (tmp___6 != 0L) {
 #line 908
@@ -56657,7 +56657,7 @@ int ubifs_tnc_start_commit(struct ubifs_info *c , struct ubifs_zbranch *zroot )
 #line 909
   descriptor___0.flags = 0U;
 #line 909
-  tmp___8 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___8 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 909
   if (tmp___8 != 0L) {
 #line 909
@@ -56859,7 +56859,7 @@ static int write_index(struct ubifs_info *c )
 #line 1005
   tmp___4 = ubifs_zn_dirty((struct ubifs_znode  const  *)znode);
 #line 1005
-  tmp___5 = __builtin_expect(tmp___4 == 0, 0L);
+  tmp___5 = ldv__builtin_expect(tmp___4 == 0, 0L);
 #line 1005
   if (tmp___5 != 0L) {
 #line 1005
@@ -56874,7 +56874,7 @@ static int write_index(struct ubifs_info *c )
 #line 1006
   tmp___7 = ubifs_zn_cow((struct ubifs_znode  const  *)znode);
 #line 1006
-  tmp___8 = __builtin_expect(tmp___7 == 0, 0L);
+  tmp___8 = ldv__builtin_expect(tmp___7 == 0, 0L);
 #line 1006
   if (tmp___8 != 0L) {
 #line 1006
@@ -57071,7 +57071,7 @@ static int return_gap_lebs(struct ubifs_info *c )
 #line 1144
   descriptor.flags = 0U;
 #line 1144
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1144
   if (tmp___0 != 0L) {
 #line 1144
@@ -57162,7 +57162,7 @@ int ubifs_tnc_end_commit(struct ubifs_info *c )
 #line 1180
   descriptor.flags = 0U;
 #line 1180
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1180
   if (tmp___0 != 0L) {
 #line 1180
@@ -57590,7 +57590,7 @@ void ubifs_compress(void const   *in_buf , int in_len , void *out_buf , int *out
 
   }
 #line 234
-  tmp___0 = __builtin_expect(err != 0, 0L);
+  tmp___0 = ldv__builtin_expect(err != 0, 0L);
 #line 234
   if (tmp___0 != 0L) {
 #line 235
@@ -57642,7 +57642,7 @@ int ubifs_decompress(void const   *in_buf , int in_len , void *out_buf , int *ou
 
   {
 #line 273
-  tmp___0 = __builtin_expect(compr_type < 0, 0L);
+  tmp___0 = ldv__builtin_expect(compr_type < 0, 0L);
 #line 273
   if (tmp___0 != 0L) {
 #line 274
@@ -57654,7 +57654,7 @@ int ubifs_decompress(void const   *in_buf , int in_len , void *out_buf , int *ou
     return (-22);
   } else {
 #line 273
-    tmp___1 = __builtin_expect(compr_type > 2, 0L);
+    tmp___1 = ldv__builtin_expect(compr_type > 2, 0L);
 #line 273
     if (tmp___1 != 0L) {
 #line 274
@@ -57671,7 +57671,7 @@ int ubifs_decompress(void const   *in_buf , int in_len , void *out_buf , int *ou
 #line 278
   compr = ubifs_compressors[compr_type];
 #line 280
-  tmp___3 = __builtin_expect((unsigned long )compr->capi_name == (unsigned long )((char const   *)0),
+  tmp___3 = ldv__builtin_expect((unsigned long )compr->capi_name == (unsigned long )((char const   *)0),
                              0L);
 #line 280
   if (tmp___3 != 0L) {
@@ -58414,7 +58414,7 @@ static void pack_bits(uint8_t **addr , int *pos , uint32_t val , int nrbits )
 #line 355
   b = *pos;
 #line 357
-  tmp___0 = __builtin_expect(nrbits <= 0, 0L);
+  tmp___0 = ldv__builtin_expect(nrbits <= 0, 0L);
 #line 357
   if (tmp___0 != 0L) {
 #line 357
@@ -58427,7 +58427,7 @@ static void pack_bits(uint8_t **addr , int *pos , uint32_t val , int nrbits )
 
   }
 #line 358
-  tmp___2 = __builtin_expect(nrbits > 32, 0L);
+  tmp___2 = ldv__builtin_expect(nrbits > 32, 0L);
 #line 358
   if (tmp___2 != 0L) {
 #line 358
@@ -58440,7 +58440,7 @@ static void pack_bits(uint8_t **addr , int *pos , uint32_t val , int nrbits )
 
   }
 #line 359
-  tmp___4 = __builtin_expect(*pos < 0, 0L);
+  tmp___4 = ldv__builtin_expect(*pos < 0, 0L);
 #line 359
   if (tmp___4 != 0L) {
 #line 359
@@ -58453,7 +58453,7 @@ static void pack_bits(uint8_t **addr , int *pos , uint32_t val , int nrbits )
 
   }
 #line 360
-  tmp___6 = __builtin_expect(*pos > 7, 0L);
+  tmp___6 = ldv__builtin_expect(*pos > 7, 0L);
 #line 360
   if (tmp___6 != 0L) {
 #line 360
@@ -58466,11 +58466,11 @@ static void pack_bits(uint8_t **addr , int *pos , uint32_t val , int nrbits )
 
   }
 #line 361
-  tmp___8 = __builtin_expect(val >> nrbits != 0U, 0L);
+  tmp___8 = ldv__builtin_expect(val >> nrbits != 0U, 0L);
 #line 361
   if (tmp___8 != 0L) {
 #line 361
-    tmp___9 = __builtin_expect(nrbits != 32, 0L);
+    tmp___9 = ldv__builtin_expect(nrbits != 32, 0L);
 #line 361
     if (tmp___9 != 0L) {
 #line 361
@@ -58621,7 +58621,7 @@ uint32_t ubifs_unpack_bits(uint8_t **addr , int *pos , int nrbits )
 #line 408
   bytes = ((nrbits + b) + 7) >> 3;
 #line 410
-  tmp___0 = __builtin_expect(nrbits <= 0, 0L);
+  tmp___0 = ldv__builtin_expect(nrbits <= 0, 0L);
 #line 410
   if (tmp___0 != 0L) {
 #line 410
@@ -58635,7 +58635,7 @@ uint32_t ubifs_unpack_bits(uint8_t **addr , int *pos , int nrbits )
 
   }
 #line 411
-  tmp___2 = __builtin_expect(nrbits > 32, 0L);
+  tmp___2 = ldv__builtin_expect(nrbits > 32, 0L);
 #line 411
   if (tmp___2 != 0L) {
 #line 411
@@ -58649,7 +58649,7 @@ uint32_t ubifs_unpack_bits(uint8_t **addr , int *pos , int nrbits )
 
   }
 #line 412
-  tmp___4 = __builtin_expect(*pos < 0, 0L);
+  tmp___4 = ldv__builtin_expect(*pos < 0, 0L);
 #line 412
   if (tmp___4 != 0L) {
 #line 412
@@ -58663,7 +58663,7 @@ uint32_t ubifs_unpack_bits(uint8_t **addr , int *pos , int nrbits )
 
   }
 #line 413
-  tmp___6 = __builtin_expect(*pos > 7, 0L);
+  tmp___6 = ldv__builtin_expect(*pos > 7, 0L);
 #line 413
   if (tmp___6 != 0L) {
 #line 413
@@ -58745,11 +58745,11 @@ uint32_t ubifs_unpack_bits(uint8_t **addr , int *pos , int nrbits )
 #line 458
   *pos = b;
 #line 459
-  tmp___8 = __builtin_expect(val >> nrbits != 0U, 0L);
+  tmp___8 = ldv__builtin_expect(val >> nrbits != 0U, 0L);
 #line 459
   if (tmp___8 != 0L) {
 #line 459
-    tmp___9 = __builtin_expect(nrbits - b != 32, 0L);
+    tmp___9 = ldv__builtin_expect(nrbits - b != 32, 0L);
 #line 459
     if (tmp___9 != 0L) {
 #line 459
@@ -59014,7 +59014,7 @@ void ubifs_add_lpt_dirt(struct ubifs_info *c , int lnum , int dirty )
 #line 585
   descriptor.flags = 0U;
 #line 585
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 585
   if (tmp___0 != 0L) {
 #line 585
@@ -59026,7 +59026,7 @@ void ubifs_add_lpt_dirt(struct ubifs_info *c , int lnum , int dirty )
 
   }
 #line 587
-  tmp___2 = __builtin_expect(c->lpt_first > lnum, 0L);
+  tmp___2 = ldv__builtin_expect(c->lpt_first > lnum, 0L);
 #line 587
   if (tmp___2 != 0L) {
 #line 587
@@ -59038,7 +59038,7 @@ void ubifs_add_lpt_dirt(struct ubifs_info *c , int lnum , int dirty )
     dump_stack();
   } else {
 #line 587
-    tmp___3 = __builtin_expect(c->lpt_last < lnum, 0L);
+    tmp___3 = ldv__builtin_expect(c->lpt_last < lnum, 0L);
 #line 587
     if (tmp___3 != 0L) {
 #line 587
@@ -59082,7 +59082,7 @@ static void set_ltab(struct ubifs_info *c , int lnum , int free , int dirty )
 #line 600
   descriptor.flags = 0U;
 #line 600
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 600
   if (tmp___0 != 0L) {
 #line 600
@@ -59096,7 +59096,7 @@ static void set_ltab(struct ubifs_info *c , int lnum , int free , int dirty )
 
   }
 #line 603
-  tmp___2 = __builtin_expect(c->lpt_first > lnum, 0L);
+  tmp___2 = ldv__builtin_expect(c->lpt_first > lnum, 0L);
 #line 603
   if (tmp___2 != 0L) {
 #line 603
@@ -59107,7 +59107,7 @@ static void set_ltab(struct ubifs_info *c , int lnum , int free , int dirty )
     dump_stack();
   } else {
 #line 603
-    tmp___3 = __builtin_expect(c->lpt_last < lnum, 0L);
+    tmp___3 = ldv__builtin_expect(c->lpt_last < lnum, 0L);
 #line 603
     if (tmp___3 != 0L) {
 #line 603
@@ -59422,7 +59422,7 @@ int ubifs_create_dflt_lpt(struct ubifs_info *c , int *main_lebs , int lpt_first 
 
   }
 #line 760
-  tmp___4 = __builtin_expect((unsigned long )c->ltab != (unsigned long )((struct ubifs_lpt_lprops *)0),
+  tmp___4 = ldv__builtin_expect((unsigned long )c->ltab != (unsigned long )((struct ubifs_lpt_lprops *)0),
                              0L);
 #line 760
   if (tmp___4 != 0L) {
@@ -59867,7 +59867,7 @@ int ubifs_create_dflt_lpt(struct ubifs_info *c , int *main_lebs , int lpt_first 
 #line 952
   descriptor.flags = 0U;
 #line 952
-  tmp___11 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___11 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 952
   if (tmp___11 != 0L) {
 #line 952
@@ -59891,7 +59891,7 @@ int ubifs_create_dflt_lpt(struct ubifs_info *c , int *main_lebs , int lpt_first 
 #line 953
   descriptor___0.flags = 0U;
 #line 953
-  tmp___13 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___13 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 953
   if (tmp___13 != 0L) {
 #line 953
@@ -59915,7 +59915,7 @@ int ubifs_create_dflt_lpt(struct ubifs_info *c , int *main_lebs , int lpt_first 
 #line 954
   descriptor___1.flags = 0U;
 #line 954
-  tmp___15 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+  tmp___15 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 954
   if (tmp___15 != 0L) {
 #line 954
@@ -59939,7 +59939,7 @@ int ubifs_create_dflt_lpt(struct ubifs_info *c , int *main_lebs , int lpt_first 
 #line 955
   descriptor___2.flags = 0U;
 #line 955
-  tmp___17 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+  tmp___17 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
 #line 955
   if (tmp___17 != 0L) {
 #line 955
@@ -59963,7 +59963,7 @@ int ubifs_create_dflt_lpt(struct ubifs_info *c , int *main_lebs , int lpt_first 
 #line 956
   descriptor___3.flags = 0U;
 #line 956
-  tmp___19 = __builtin_expect((long )descriptor___3.flags & 1L, 0L);
+  tmp___19 = ldv__builtin_expect((long )descriptor___3.flags & 1L, 0L);
 #line 956
   if (tmp___19 != 0L) {
 #line 956
@@ -59987,7 +59987,7 @@ int ubifs_create_dflt_lpt(struct ubifs_info *c , int *main_lebs , int lpt_first 
 #line 957
   descriptor___4.flags = 0U;
 #line 957
-  tmp___21 = __builtin_expect((long )descriptor___4.flags & 1L, 0L);
+  tmp___21 = ldv__builtin_expect((long )descriptor___4.flags & 1L, 0L);
 #line 957
   if (tmp___21 != 0L) {
 #line 957
@@ -60011,7 +60011,7 @@ int ubifs_create_dflt_lpt(struct ubifs_info *c , int *main_lebs , int lpt_first 
 #line 958
   descriptor___5.flags = 0U;
 #line 958
-  tmp___23 = __builtin_expect((long )descriptor___5.flags & 1L, 0L);
+  tmp___23 = ldv__builtin_expect((long )descriptor___5.flags & 1L, 0L);
 #line 958
   if (tmp___23 != 0L) {
 #line 958
@@ -60035,7 +60035,7 @@ int ubifs_create_dflt_lpt(struct ubifs_info *c , int *main_lebs , int lpt_first 
 #line 959
   descriptor___6.flags = 0U;
 #line 959
-  tmp___25 = __builtin_expect((long )descriptor___6.flags & 1L, 0L);
+  tmp___25 = ldv__builtin_expect((long )descriptor___6.flags & 1L, 0L);
 #line 959
   if (tmp___25 != 0L) {
 #line 959
@@ -60059,7 +60059,7 @@ int ubifs_create_dflt_lpt(struct ubifs_info *c , int *main_lebs , int lpt_first 
 #line 960
   descriptor___7.flags = 0U;
 #line 960
-  tmp___27 = __builtin_expect((long )descriptor___7.flags & 1L, 0L);
+  tmp___27 = ldv__builtin_expect((long )descriptor___7.flags & 1L, 0L);
 #line 960
   if (tmp___27 != 0L) {
 #line 960
@@ -60083,7 +60083,7 @@ int ubifs_create_dflt_lpt(struct ubifs_info *c , int *main_lebs , int lpt_first 
 #line 961
   descriptor___8.flags = 0U;
 #line 961
-  tmp___29 = __builtin_expect((long )descriptor___8.flags & 1L, 0L);
+  tmp___29 = ldv__builtin_expect((long )descriptor___8.flags & 1L, 0L);
 #line 961
   if (tmp___29 != 0L) {
 #line 961
@@ -60107,7 +60107,7 @@ int ubifs_create_dflt_lpt(struct ubifs_info *c , int *main_lebs , int lpt_first 
 #line 962
   descriptor___9.flags = 0U;
 #line 962
-  tmp___31 = __builtin_expect((long )descriptor___9.flags & 1L, 0L);
+  tmp___31 = ldv__builtin_expect((long )descriptor___9.flags & 1L, 0L);
 #line 962
   if (tmp___31 != 0L) {
 #line 962
@@ -60131,7 +60131,7 @@ int ubifs_create_dflt_lpt(struct ubifs_info *c , int *main_lebs , int lpt_first 
 #line 963
   descriptor___10.flags = 0U;
 #line 963
-  tmp___33 = __builtin_expect((long )descriptor___10.flags & 1L, 0L);
+  tmp___33 = ldv__builtin_expect((long )descriptor___10.flags & 1L, 0L);
 #line 963
   if (tmp___33 != 0L) {
 #line 963
@@ -60155,7 +60155,7 @@ int ubifs_create_dflt_lpt(struct ubifs_info *c , int *main_lebs , int lpt_first 
 #line 964
   descriptor___11.flags = 0U;
 #line 964
-  tmp___35 = __builtin_expect((long )descriptor___11.flags & 1L, 0L);
+  tmp___35 = ldv__builtin_expect((long )descriptor___11.flags & 1L, 0L);
 #line 964
   if (tmp___35 != 0L) {
 #line 964
@@ -60179,7 +60179,7 @@ int ubifs_create_dflt_lpt(struct ubifs_info *c , int *main_lebs , int lpt_first 
 #line 965
   descriptor___12.flags = 0U;
 #line 965
-  tmp___37 = __builtin_expect((long )descriptor___12.flags & 1L, 0L);
+  tmp___37 = ldv__builtin_expect((long )descriptor___12.flags & 1L, 0L);
 #line 965
   if (tmp___37 != 0L) {
 #line 965
@@ -60203,7 +60203,7 @@ int ubifs_create_dflt_lpt(struct ubifs_info *c , int *main_lebs , int lpt_first 
 #line 966
   descriptor___13.flags = 0U;
 #line 966
-  tmp___39 = __builtin_expect((long )descriptor___13.flags & 1L, 0L);
+  tmp___39 = ldv__builtin_expect((long )descriptor___13.flags & 1L, 0L);
 #line 966
   if (tmp___39 != 0L) {
 #line 966
@@ -60227,7 +60227,7 @@ int ubifs_create_dflt_lpt(struct ubifs_info *c , int *main_lebs , int lpt_first 
 #line 967
   descriptor___14.flags = 0U;
 #line 967
-  tmp___41 = __builtin_expect((long )descriptor___14.flags & 1L, 0L);
+  tmp___41 = ldv__builtin_expect((long )descriptor___14.flags & 1L, 0L);
 #line 967
   if (tmp___41 != 0L) {
 #line 967
@@ -60253,7 +60253,7 @@ int ubifs_create_dflt_lpt(struct ubifs_info *c , int *main_lebs , int lpt_first 
 #line 969
     descriptor___15.flags = 0U;
 #line 969
-    tmp___43 = __builtin_expect((long )descriptor___15.flags & 1L, 0L);
+    tmp___43 = ldv__builtin_expect((long )descriptor___15.flags & 1L, 0L);
 #line 969
     if (tmp___43 != 0L) {
 #line 969
@@ -61504,7 +61504,7 @@ struct ubifs_lprops *ubifs_lpt_lookup(struct ubifs_info *c , int lnum )
 #line 1591
   descriptor.flags = 0U;
 #line 1591
-  tmp___5 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___5 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1591
   if (tmp___5 != 0L) {
 #line 1591
@@ -61563,7 +61563,7 @@ static struct ubifs_nnode *dirty_cow_nnode(struct ubifs_info *c , struct ubifs_n
 #line 1620
   n = (struct ubifs_nnode *)tmp___1;
 #line 1621
-  tmp___3 = __builtin_expect((unsigned long )n == (unsigned long )((struct ubifs_nnode *)0),
+  tmp___3 = ldv__builtin_expect((unsigned long )n == (unsigned long )((struct ubifs_nnode *)0),
                              0L);
 #line 1621
   if (tmp___3 != 0L) {
@@ -61617,7 +61617,7 @@ static struct ubifs_nnode *dirty_cow_nnode(struct ubifs_info *c , struct ubifs_n
 #line 1637
   tmp___5 = constant_test_bit(1U, (unsigned long const volatile   *)(& nnode->flags));
 #line 1637
-  tmp___6 = __builtin_expect(tmp___5 != 0, 0L);
+  tmp___6 = ldv__builtin_expect(tmp___5 != 0, 0L);
 #line 1637
   if (tmp___6 != 0L) {
 #line 1637
@@ -61689,7 +61689,7 @@ static struct ubifs_pnode *dirty_cow_pnode(struct ubifs_info *c , struct ubifs_p
 #line 1671
   p = (struct ubifs_pnode *)tmp___1;
 #line 1672
-  tmp___3 = __builtin_expect((unsigned long )p == (unsigned long )((struct ubifs_pnode *)0),
+  tmp___3 = ldv__builtin_expect((unsigned long )p == (unsigned long )((struct ubifs_pnode *)0),
                              0L);
 #line 1672
   if (tmp___3 != 0L) {
@@ -61721,7 +61721,7 @@ static struct ubifs_pnode *dirty_cow_pnode(struct ubifs_info *c , struct ubifs_p
 #line 1681
   tmp___5 = constant_test_bit(1U, (unsigned long const volatile   *)(& pnode->flags));
 #line 1681
-  tmp___6 = __builtin_expect(tmp___5 != 0, 0L);
+  tmp___6 = ldv__builtin_expect(tmp___5 != 0, 0L);
 #line 1681
   if (tmp___6 != 0L) {
 #line 1681
@@ -61900,7 +61900,7 @@ struct ubifs_lprops *ubifs_lpt_lookup_dirty(struct ubifs_info *c , int lnum )
 #line 1734
   descriptor.flags = 0U;
 #line 1734
-  tmp___11 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___11 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1734
   if (tmp___11 != 0L) {
 #line 1734
@@ -61915,7 +61915,7 @@ struct ubifs_lprops *ubifs_lpt_lookup_dirty(struct ubifs_info *c , int lnum )
 #line 1737
   tmp___13 = constant_test_bit(0U, (unsigned long const volatile   *)(& pnode->flags));
 #line 1737
-  tmp___14 = __builtin_expect(tmp___13 == 0, 0L);
+  tmp___14 = ldv__builtin_expect(tmp___13 == 0, 0L);
 #line 1737
   if (tmp___14 != 0L) {
 #line 1737
@@ -62088,7 +62088,7 @@ static int lpt_init_rd(struct ubifs_info *c )
 #line 1779
   descriptor.flags = 0U;
 #line 1779
-  tmp___3 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___3 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1779
   if (tmp___3 != 0L) {
 #line 1779
@@ -62112,7 +62112,7 @@ static int lpt_init_rd(struct ubifs_info *c )
 #line 1780
   descriptor___0.flags = 0U;
 #line 1780
-  tmp___5 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___5 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 1780
   if (tmp___5 != 0L) {
 #line 1780
@@ -62136,7 +62136,7 @@ static int lpt_init_rd(struct ubifs_info *c )
 #line 1781
   descriptor___1.flags = 0U;
 #line 1781
-  tmp___7 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+  tmp___7 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 1781
   if (tmp___7 != 0L) {
 #line 1781
@@ -62160,7 +62160,7 @@ static int lpt_init_rd(struct ubifs_info *c )
 #line 1782
   descriptor___2.flags = 0U;
 #line 1782
-  tmp___9 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+  tmp___9 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
 #line 1782
   if (tmp___9 != 0L) {
 #line 1782
@@ -62184,7 +62184,7 @@ static int lpt_init_rd(struct ubifs_info *c )
 #line 1783
   descriptor___3.flags = 0U;
 #line 1783
-  tmp___11 = __builtin_expect((long )descriptor___3.flags & 1L, 0L);
+  tmp___11 = ldv__builtin_expect((long )descriptor___3.flags & 1L, 0L);
 #line 1783
   if (tmp___11 != 0L) {
 #line 1783
@@ -62208,7 +62208,7 @@ static int lpt_init_rd(struct ubifs_info *c )
 #line 1784
   descriptor___4.flags = 0U;
 #line 1784
-  tmp___13 = __builtin_expect((long )descriptor___4.flags & 1L, 0L);
+  tmp___13 = ldv__builtin_expect((long )descriptor___4.flags & 1L, 0L);
 #line 1784
   if (tmp___13 != 0L) {
 #line 1784
@@ -62232,7 +62232,7 @@ static int lpt_init_rd(struct ubifs_info *c )
 #line 1785
   descriptor___5.flags = 0U;
 #line 1785
-  tmp___15 = __builtin_expect((long )descriptor___5.flags & 1L, 0L);
+  tmp___15 = ldv__builtin_expect((long )descriptor___5.flags & 1L, 0L);
 #line 1785
   if (tmp___15 != 0L) {
 #line 1785
@@ -62256,7 +62256,7 @@ static int lpt_init_rd(struct ubifs_info *c )
 #line 1786
   descriptor___6.flags = 0U;
 #line 1786
-  tmp___17 = __builtin_expect((long )descriptor___6.flags & 1L, 0L);
+  tmp___17 = ldv__builtin_expect((long )descriptor___6.flags & 1L, 0L);
 #line 1786
   if (tmp___17 != 0L) {
 #line 1786
@@ -62280,7 +62280,7 @@ static int lpt_init_rd(struct ubifs_info *c )
 #line 1787
   descriptor___7.flags = 0U;
 #line 1787
-  tmp___19 = __builtin_expect((long )descriptor___7.flags & 1L, 0L);
+  tmp___19 = ldv__builtin_expect((long )descriptor___7.flags & 1L, 0L);
 #line 1787
   if (tmp___19 != 0L) {
 #line 1787
@@ -62304,7 +62304,7 @@ static int lpt_init_rd(struct ubifs_info *c )
 #line 1788
   descriptor___8.flags = 0U;
 #line 1788
-  tmp___21 = __builtin_expect((long )descriptor___8.flags & 1L, 0L);
+  tmp___21 = ldv__builtin_expect((long )descriptor___8.flags & 1L, 0L);
 #line 1788
   if (tmp___21 != 0L) {
 #line 1788
@@ -62328,7 +62328,7 @@ static int lpt_init_rd(struct ubifs_info *c )
 #line 1789
   descriptor___9.flags = 0U;
 #line 1789
-  tmp___23 = __builtin_expect((long )descriptor___9.flags & 1L, 0L);
+  tmp___23 = ldv__builtin_expect((long )descriptor___9.flags & 1L, 0L);
 #line 1789
   if (tmp___23 != 0L) {
 #line 1789
@@ -62352,7 +62352,7 @@ static int lpt_init_rd(struct ubifs_info *c )
 #line 1790
   descriptor___10.flags = 0U;
 #line 1790
-  tmp___25 = __builtin_expect((long )descriptor___10.flags & 1L, 0L);
+  tmp___25 = ldv__builtin_expect((long )descriptor___10.flags & 1L, 0L);
 #line 1790
   if (tmp___25 != 0L) {
 #line 1790
@@ -62376,7 +62376,7 @@ static int lpt_init_rd(struct ubifs_info *c )
 #line 1791
   descriptor___11.flags = 0U;
 #line 1791
-  tmp___27 = __builtin_expect((long )descriptor___11.flags & 1L, 0L);
+  tmp___27 = ldv__builtin_expect((long )descriptor___11.flags & 1L, 0L);
 #line 1791
   if (tmp___27 != 0L) {
 #line 1791
@@ -62400,7 +62400,7 @@ static int lpt_init_rd(struct ubifs_info *c )
 #line 1792
   descriptor___12.flags = 0U;
 #line 1792
-  tmp___29 = __builtin_expect((long )descriptor___12.flags & 1L, 0L);
+  tmp___29 = ldv__builtin_expect((long )descriptor___12.flags & 1L, 0L);
 #line 1792
   if (tmp___29 != 0L) {
 #line 1792
@@ -62424,7 +62424,7 @@ static int lpt_init_rd(struct ubifs_info *c )
 #line 1793
   descriptor___13.flags = 0U;
 #line 1793
-  tmp___31 = __builtin_expect((long )descriptor___13.flags & 1L, 0L);
+  tmp___31 = ldv__builtin_expect((long )descriptor___13.flags & 1L, 0L);
 #line 1793
   if (tmp___31 != 0L) {
 #line 1793
@@ -62448,7 +62448,7 @@ static int lpt_init_rd(struct ubifs_info *c )
 #line 1794
   descriptor___14.flags = 0U;
 #line 1794
-  tmp___33 = __builtin_expect((long )descriptor___14.flags & 1L, 0L);
+  tmp___33 = ldv__builtin_expect((long )descriptor___14.flags & 1L, 0L);
 #line 1794
   if (tmp___33 != 0L) {
 #line 1794
@@ -62474,7 +62474,7 @@ static int lpt_init_rd(struct ubifs_info *c )
 #line 1796
     descriptor___15.flags = 0U;
 #line 1796
-    tmp___35 = __builtin_expect((long )descriptor___15.flags & 1L, 0L);
+    tmp___35 = ldv__builtin_expect((long )descriptor___15.flags & 1L, 0L);
 #line 1796
     if (tmp___35 != 0L) {
 #line 1796
@@ -62817,7 +62817,7 @@ static struct ubifs_pnode *scan_get_pnode(struct ubifs_info *c , struct lpt_scan
 
   } else {
 #line 2009
-    tmp___0 = __builtin_expect(branch->lnum < c->lpt_first, 0L);
+    tmp___0 = ldv__builtin_expect(branch->lnum < c->lpt_first, 0L);
 #line 2009
     if (tmp___0 != 0L) {
 #line 2009
@@ -62829,7 +62829,7 @@ static struct ubifs_pnode *scan_get_pnode(struct ubifs_info *c , struct lpt_scan
       dump_stack();
     } else {
 #line 2009
-      tmp___1 = __builtin_expect(branch->lnum > c->lpt_last, 0L);
+      tmp___1 = ldv__builtin_expect(branch->lnum > c->lpt_last, 0L);
 #line 2009
       if (tmp___1 != 0L) {
 #line 2009
@@ -62844,7 +62844,7 @@ static struct ubifs_pnode *scan_get_pnode(struct ubifs_info *c , struct lpt_scan
       }
     }
 #line 2011
-    tmp___3 = __builtin_expect(branch->offs < 0, 0L);
+    tmp___3 = ldv__builtin_expect(branch->offs < 0, 0L);
 #line 2011
     if (tmp___3 != 0L) {
 #line 2011
@@ -62856,7 +62856,7 @@ static struct ubifs_pnode *scan_get_pnode(struct ubifs_info *c , struct lpt_scan
       dump_stack();
     } else {
 #line 2011
-      tmp___4 = __builtin_expect(branch->offs >= c->leb_size, 0L);
+      tmp___4 = ldv__builtin_expect(branch->offs >= c->leb_size, 0L);
 #line 2011
       if (tmp___4 != 0L) {
 #line 2011
@@ -62983,7 +62983,7 @@ int ubifs_lpt_scan_nolock(struct ubifs_info *c , int start_lnum , int end_lnum ,
 
   }
 #line 2055
-  tmp___0 = __builtin_expect(c->main_first > start_lnum, 0L);
+  tmp___0 = ldv__builtin_expect(c->main_first > start_lnum, 0L);
 #line 2055
   if (tmp___0 != 0L) {
 #line 2055
@@ -62995,7 +62995,7 @@ int ubifs_lpt_scan_nolock(struct ubifs_info *c , int start_lnum , int end_lnum ,
     dump_stack();
   } else {
 #line 2055
-    tmp___1 = __builtin_expect(c->leb_cnt <= start_lnum, 0L);
+    tmp___1 = ldv__builtin_expect(c->leb_cnt <= start_lnum, 0L);
 #line 2055
     if (tmp___1 != 0L) {
 #line 2055
@@ -63010,7 +63010,7 @@ int ubifs_lpt_scan_nolock(struct ubifs_info *c , int start_lnum , int end_lnum ,
     }
   }
 #line 2056
-  tmp___3 = __builtin_expect(c->main_first > end_lnum, 0L);
+  tmp___3 = ldv__builtin_expect(c->main_first > end_lnum, 0L);
 #line 2056
   if (tmp___3 != 0L) {
 #line 2056
@@ -63022,7 +63022,7 @@ int ubifs_lpt_scan_nolock(struct ubifs_info *c , int start_lnum , int end_lnum ,
     dump_stack();
   } else {
 #line 2056
-    tmp___4 = __builtin_expect(c->leb_cnt <= end_lnum, 0L);
+    tmp___4 = ldv__builtin_expect(c->leb_cnt <= end_lnum, 0L);
 #line 2056
     if (tmp___4 != 0L) {
 #line 2056
@@ -63293,7 +63293,7 @@ int ubifs_lpt_scan_nolock(struct ubifs_info *c , int start_lnum , int end_lnum ,
 #line 2175
   h = h + -1;
 #line 2176
-  tmp___13 = __builtin_expect(h < 0, 0L);
+  tmp___13 = ldv__builtin_expect(h < 0, 0L);
 #line 2176
   if (tmp___13 != 0L) {
 #line 2176
@@ -63677,7 +63677,7 @@ int dbg_check_lpt_nodes(struct ubifs_info *c , struct ubifs_cnode *cnode , int r
   goto ldv_28175;
   ldv_28177: 
 #line 2353
-  tmp___1 = __builtin_expect(row < 0, 0L);
+  tmp___1 = ldv__builtin_expect(row < 0, 0L);
 #line 2353
   if (tmp___1 != 0L) {
 #line 2353
@@ -63980,7 +63980,7 @@ __inline static void ubifs_release_lprops___3(struct ubifs_info *c )
 #line 280
   tmp___0 = mutex_is_locked(& c->lp_mutex);
 #line 280
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
 #line 280
   if (tmp___1 != 0L) {
 #line 280
@@ -63994,7 +63994,7 @@ __inline static void ubifs_release_lprops___3(struct ubifs_info *c )
 
   }
 #line 281
-  tmp___3 = __builtin_expect(c->lst.empty_lebs < 0, 0L);
+  tmp___3 = ldv__builtin_expect(c->lst.empty_lebs < 0, 0L);
 #line 281
   if (tmp___3 != 0L) {
 #line 281
@@ -64006,7 +64006,7 @@ __inline static void ubifs_release_lprops___3(struct ubifs_info *c )
     dump_stack();
   } else {
 #line 281
-    tmp___4 = __builtin_expect(c->lst.empty_lebs > c->main_lebs, 0L);
+    tmp___4 = ldv__builtin_expect(c->lst.empty_lebs > c->main_lebs, 0L);
 #line 281
     if (tmp___4 != 0L) {
 #line 281
@@ -64264,7 +64264,7 @@ static int add_to_lpt_heap(struct ubifs_info *c , struct ubifs_lprops *lprops , 
 #line 308
     cpos = (int )(((unsigned int )((unsigned long )lprops >> 4) & (unsigned int )b) + (unsigned int )b);
 #line 309
-    tmp___0 = __builtin_expect(cpos < b, 0L);
+    tmp___0 = ldv__builtin_expect(cpos < b, 0L);
 #line 309
     if (tmp___0 != 0L) {
 #line 309
@@ -64278,7 +64278,7 @@ static int add_to_lpt_heap(struct ubifs_info *c , struct ubifs_lprops *lprops , 
 
     }
 #line 310
-    tmp___2 = __builtin_expect(cpos > 255, 0L);
+    tmp___2 = ldv__builtin_expect(cpos > 255, 0L);
 #line 310
     if (tmp___2 != 0L) {
 #line 310
@@ -64292,7 +64292,7 @@ static int add_to_lpt_heap(struct ubifs_info *c , struct ubifs_lprops *lprops , 
 
     }
 #line 311
-    tmp___4 = __builtin_expect(heap->cnt <= cpos, 0L);
+    tmp___4 = ldv__builtin_expect(heap->cnt <= cpos, 0L);
 #line 311
     if (tmp___4 != 0L) {
 #line 311
@@ -64372,7 +64372,7 @@ static void remove_from_lpt_heap(struct ubifs_info *c , struct ubifs_lprops *lpr
 #line 351
   heap = (struct ubifs_lpt_heap *)(& c->lpt_heap) + ((unsigned long )cat + 0xffffffffffffffffUL);
 #line 352
-  tmp___0 = __builtin_expect(hpos < 0, 0L);
+  tmp___0 = ldv__builtin_expect(hpos < 0, 0L);
 #line 352
   if (tmp___0 != 0L) {
 #line 352
@@ -64384,7 +64384,7 @@ static void remove_from_lpt_heap(struct ubifs_info *c , struct ubifs_lprops *lpr
     dump_stack();
   } else {
 #line 352
-    tmp___1 = __builtin_expect(heap->cnt <= hpos, 0L);
+    tmp___1 = ldv__builtin_expect(heap->cnt <= hpos, 0L);
 #line 352
     if (tmp___1 != 0L) {
 #line 352
@@ -64399,7 +64399,7 @@ static void remove_from_lpt_heap(struct ubifs_info *c , struct ubifs_lprops *lpr
     }
   }
 #line 353
-  tmp___3 = __builtin_expect((unsigned long )*(heap->arr + (unsigned long )hpos) != (unsigned long )lprops,
+  tmp___3 = ldv__builtin_expect((unsigned long )*(heap->arr + (unsigned long )hpos) != (unsigned long )lprops,
                              0L);
 #line 353
   if (tmp___3 != 0L) {
@@ -64514,7 +64514,7 @@ void ubifs_add_to_cat(struct ubifs_info *c , struct ubifs_lprops *lprops , int c
 #line 425
   c->in_a_category_cnt = c->in_a_category_cnt + 1;
 #line 426
-  tmp___2 = __builtin_expect(c->in_a_category_cnt > c->main_lebs, 0L);
+  tmp___2 = ldv__builtin_expect(c->in_a_category_cnt > c->main_lebs, 0L);
 #line 426
   if (tmp___2 != 0L) {
 #line 426
@@ -64558,7 +64558,7 @@ static void ubifs_remove_from_cat(struct ubifs_info *c , struct ubifs_lprops *lp
 #line 447
   c->freeable_cnt = c->freeable_cnt + -1;
 #line 448
-  tmp___0 = __builtin_expect(c->freeable_cnt < 0, 0L);
+  tmp___0 = ldv__builtin_expect(c->freeable_cnt < 0, 0L);
 #line 448
   if (tmp___0 != 0L) {
 #line 448
@@ -64577,7 +64577,7 @@ static void ubifs_remove_from_cat(struct ubifs_info *c , struct ubifs_lprops *lp
 #line 453
   tmp___2 = list_empty((struct list_head  const  *)(& lprops->ldv_25977.list));
 #line 453
-  tmp___3 = __builtin_expect(tmp___2 != 0, 0L);
+  tmp___3 = ldv__builtin_expect(tmp___2 != 0, 0L);
 #line 453
   if (tmp___3 != 0L) {
 #line 453
@@ -64607,7 +64607,7 @@ static void ubifs_remove_from_cat(struct ubifs_info *c , struct ubifs_lprops *lp
 #line 460
   c->in_a_category_cnt = c->in_a_category_cnt + -1;
 #line 461
-  tmp___6 = __builtin_expect(c->in_a_category_cnt < 0, 0L);
+  tmp___6 = ldv__builtin_expect(c->in_a_category_cnt < 0, 0L);
 #line 461
   if (tmp___6 != 0L) {
 #line 461
@@ -64713,7 +64713,7 @@ int ubifs_categorize_lprops(struct ubifs_info  const  *c , struct ubifs_lprops  
 #line 535
   if ((int )lprops->free == (int )c->leb_size) {
 #line 536
-    tmp___0 = __builtin_expect(((int )lprops->flags & 32) != 0, 0L);
+    tmp___0 = ldv__builtin_expect(((int )lprops->flags & 32) != 0, 0L);
 #line 536
     if (tmp___0 != 0L) {
 #line 536
@@ -64819,7 +64819,7 @@ int ubifs_calc_dark(struct ubifs_info  const  *c , int spc )
 
   {
 #line 602
-  tmp___0 = __builtin_expect((spc & 7) != 0, 0L);
+  tmp___0 = ldv__builtin_expect((spc & 7) != 0, 0L);
 #line 602
   if (tmp___0 != 0L) {
 #line 602
@@ -64954,7 +64954,7 @@ struct ubifs_lprops  const  *ubifs_change_lp(struct ubifs_info *c , struct ubifs
 #line 664
   descriptor.flags = 0U;
 #line 664
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 664
   if (tmp___0 != 0L) {
 #line 664
@@ -64968,7 +64968,7 @@ struct ubifs_lprops  const  *ubifs_change_lp(struct ubifs_info *c , struct ubifs
 #line 667
   tmp___2 = mutex_is_locked(& c->lp_mutex);
 #line 667
-  tmp___3 = __builtin_expect(tmp___2 == 0, 0L);
+  tmp___3 = ldv__builtin_expect(tmp___2 == 0, 0L);
 #line 667
   if (tmp___3 != 0L) {
 #line 667
@@ -64982,7 +64982,7 @@ struct ubifs_lprops  const  *ubifs_change_lp(struct ubifs_info *c , struct ubifs
 
   }
 #line 668
-  tmp___5 = __builtin_expect(c->lst.empty_lebs < 0, 0L);
+  tmp___5 = ldv__builtin_expect(c->lst.empty_lebs < 0, 0L);
 #line 668
   if (tmp___5 != 0L) {
 #line 668
@@ -64994,7 +64994,7 @@ struct ubifs_lprops  const  *ubifs_change_lp(struct ubifs_info *c , struct ubifs
     dump_stack();
   } else {
 #line 668
-    tmp___6 = __builtin_expect(c->lst.empty_lebs > c->main_lebs, 0L);
+    tmp___6 = ldv__builtin_expect(c->lst.empty_lebs > c->main_lebs, 0L);
 #line 668
     if (tmp___6 != 0L) {
 #line 668
@@ -65009,7 +65009,7 @@ struct ubifs_lprops  const  *ubifs_change_lp(struct ubifs_info *c , struct ubifs
     }
   }
 #line 670
-  tmp___8 = __builtin_expect(c->freeable_cnt < 0, 0L);
+  tmp___8 = ldv__builtin_expect(c->freeable_cnt < 0, 0L);
 #line 670
   if (tmp___8 != 0L) {
 #line 670
@@ -65023,7 +65023,7 @@ struct ubifs_lprops  const  *ubifs_change_lp(struct ubifs_info *c , struct ubifs
 
   }
 #line 671
-  tmp___10 = __builtin_expect(c->freeable_cnt > c->main_lebs, 0L);
+  tmp___10 = ldv__builtin_expect(c->freeable_cnt > c->main_lebs, 0L);
 #line 671
   if (tmp___10 != 0L) {
 #line 671
@@ -65037,7 +65037,7 @@ struct ubifs_lprops  const  *ubifs_change_lp(struct ubifs_info *c , struct ubifs
 
   }
 #line 672
-  tmp___12 = __builtin_expect(c->lst.taken_empty_lebs < 0, 0L);
+  tmp___12 = ldv__builtin_expect(c->lst.taken_empty_lebs < 0, 0L);
 #line 672
   if (tmp___12 != 0L) {
 #line 672
@@ -65051,7 +65051,7 @@ struct ubifs_lprops  const  *ubifs_change_lp(struct ubifs_info *c , struct ubifs
 
   }
 #line 673
-  tmp___14 = __builtin_expect(c->lst.taken_empty_lebs > c->lst.empty_lebs, 0L);
+  tmp___14 = ldv__builtin_expect(c->lst.taken_empty_lebs > c->lst.empty_lebs, 0L);
 #line 673
   if (tmp___14 != 0L) {
 #line 673
@@ -65065,7 +65065,7 @@ struct ubifs_lprops  const  *ubifs_change_lp(struct ubifs_info *c , struct ubifs
 
   }
 #line 674
-  tmp___16 = __builtin_expect((c->lst.total_free & 7LL) != 0LL, 0L);
+  tmp___16 = ldv__builtin_expect((c->lst.total_free & 7LL) != 0LL, 0L);
 #line 674
   if (tmp___16 != 0L) {
 #line 674
@@ -65077,7 +65077,7 @@ struct ubifs_lprops  const  *ubifs_change_lp(struct ubifs_info *c , struct ubifs
     dump_stack();
   } else {
 #line 674
-    tmp___17 = __builtin_expect((c->lst.total_dirty & 7LL) != 0LL, 0L);
+    tmp___17 = ldv__builtin_expect((c->lst.total_dirty & 7LL) != 0LL, 0L);
 #line 674
     if (tmp___17 != 0L) {
 #line 674
@@ -65092,7 +65092,7 @@ struct ubifs_lprops  const  *ubifs_change_lp(struct ubifs_info *c , struct ubifs
     }
   }
 #line 675
-  tmp___19 = __builtin_expect((c->lst.total_dead & 7LL) != 0LL, 0L);
+  tmp___19 = ldv__builtin_expect((c->lst.total_dead & 7LL) != 0LL, 0L);
 #line 675
   if (tmp___19 != 0L) {
 #line 675
@@ -65104,7 +65104,7 @@ struct ubifs_lprops  const  *ubifs_change_lp(struct ubifs_info *c , struct ubifs
     dump_stack();
   } else {
 #line 675
-    tmp___20 = __builtin_expect((c->lst.total_dark & 7LL) != 0LL, 0L);
+    tmp___20 = ldv__builtin_expect((c->lst.total_dark & 7LL) != 0LL, 0L);
 #line 675
     if (tmp___20 != 0L) {
 #line 675
@@ -65119,7 +65119,7 @@ struct ubifs_lprops  const  *ubifs_change_lp(struct ubifs_info *c , struct ubifs
     }
   }
 #line 676
-  tmp___22 = __builtin_expect((c->lst.total_used & 7LL) != 0LL, 0L);
+  tmp___22 = ldv__builtin_expect((c->lst.total_used & 7LL) != 0LL, 0L);
 #line 676
   if (tmp___22 != 0L) {
 #line 676
@@ -65133,11 +65133,11 @@ struct ubifs_lprops  const  *ubifs_change_lp(struct ubifs_info *c , struct ubifs
 
   }
 #line 677
-  tmp___24 = __builtin_expect(free != -2147483647, 0L);
+  tmp___24 = ldv__builtin_expect(free != -2147483647, 0L);
 #line 677
   if (tmp___24 != 0L) {
 #line 677
-    tmp___25 = __builtin_expect(free < 0, 0L);
+    tmp___25 = ldv__builtin_expect(free < 0, 0L);
 #line 677
     if (tmp___25 != 0L) {
 #line 677
@@ -65154,11 +65154,11 @@ struct ubifs_lprops  const  *ubifs_change_lp(struct ubifs_info *c , struct ubifs
 
   }
 #line 678
-  tmp___27 = __builtin_expect(dirty != -2147483647, 0L);
+  tmp___27 = ldv__builtin_expect(dirty != -2147483647, 0L);
 #line 678
   if (tmp___27 != 0L) {
 #line 678
-    tmp___28 = __builtin_expect(dirty < 0, 0L);
+    tmp___28 = ldv__builtin_expect(dirty < 0, 0L);
 #line 678
     if (tmp___28 != 0L) {
 #line 678
@@ -65193,7 +65193,7 @@ struct ubifs_lprops  const  *ubifs_change_lp(struct ubifs_info *c , struct ubifs
 #line 685
     tmp___31 = ubifs_lpt_lookup_dirty(c, lprops->lnum);
 #line 685
-    tmp___32 = __builtin_expect((unsigned long )tmp___31 != (unsigned long )lprops,
+    tmp___32 = ldv__builtin_expect((unsigned long )tmp___31 != (unsigned long )lprops,
                                 0L);
 #line 685
     if (tmp___32 != 0L) {
@@ -65209,7 +65209,7 @@ struct ubifs_lprops  const  *ubifs_change_lp(struct ubifs_info *c , struct ubifs
     }
   }
 #line 687
-  tmp___35 = __builtin_expect((lprops->free & 7) != 0, 0L);
+  tmp___35 = ldv__builtin_expect((lprops->free & 7) != 0, 0L);
 #line 687
   if (tmp___35 != 0L) {
 #line 687
@@ -65221,7 +65221,7 @@ struct ubifs_lprops  const  *ubifs_change_lp(struct ubifs_info *c , struct ubifs
     dump_stack();
   } else {
 #line 687
-    tmp___36 = __builtin_expect((lprops->dirty & 7) != 0, 0L);
+    tmp___36 = ldv__builtin_expect((lprops->dirty & 7) != 0, 0L);
 #line 687
     if (tmp___36 != 0L) {
 #line 687
@@ -65596,7 +65596,7 @@ struct ubifs_lprops  const  *ubifs_fast_find_free(struct ubifs_info *c )
 #line 892
   tmp___0 = mutex_is_locked(& c->lp_mutex);
 #line 892
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
 #line 892
   if (tmp___1 != 0L) {
 #line 892
@@ -65621,7 +65621,7 @@ struct ubifs_lprops  const  *ubifs_fast_find_free(struct ubifs_info *c )
 #line 898
   lprops = *(heap->arr);
 #line 899
-  tmp___3 = __builtin_expect((lprops->flags & 16) != 0, 0L);
+  tmp___3 = ldv__builtin_expect((lprops->flags & 16) != 0, 0L);
 #line 899
   if (tmp___3 != 0L) {
 #line 899
@@ -65635,7 +65635,7 @@ struct ubifs_lprops  const  *ubifs_fast_find_free(struct ubifs_info *c )
 
   }
 #line 900
-  tmp___5 = __builtin_expect((lprops->flags & 32) != 0, 0L);
+  tmp___5 = ldv__builtin_expect((lprops->flags & 32) != 0, 0L);
 #line 900
   if (tmp___5 != 0L) {
 #line 900
@@ -65672,7 +65672,7 @@ struct ubifs_lprops  const  *ubifs_fast_find_empty(struct ubifs_info *c )
 #line 915
   tmp___0 = mutex_is_locked(& c->lp_mutex);
 #line 915
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
 #line 915
   if (tmp___1 != 0L) {
 #line 915
@@ -65699,7 +65699,7 @@ struct ubifs_lprops  const  *ubifs_fast_find_empty(struct ubifs_info *c )
 #line 920
   lprops = (struct ubifs_lprops *)__mptr + 0xfffffffffffffff0UL;
 #line 921
-  tmp___4 = __builtin_expect((lprops->flags & 16) != 0, 0L);
+  tmp___4 = ldv__builtin_expect((lprops->flags & 16) != 0, 0L);
 #line 921
   if (tmp___4 != 0L) {
 #line 921
@@ -65713,7 +65713,7 @@ struct ubifs_lprops  const  *ubifs_fast_find_empty(struct ubifs_info *c )
 
   }
 #line 922
-  tmp___6 = __builtin_expect((lprops->flags & 32) != 0, 0L);
+  tmp___6 = ldv__builtin_expect((lprops->flags & 32) != 0, 0L);
 #line 922
   if (tmp___6 != 0L) {
 #line 922
@@ -65727,7 +65727,7 @@ struct ubifs_lprops  const  *ubifs_fast_find_empty(struct ubifs_info *c )
 
   }
 #line 923
-  tmp___8 = __builtin_expect(lprops->free != c->leb_size, 0L);
+  tmp___8 = ldv__builtin_expect(lprops->free != c->leb_size, 0L);
 #line 923
   if (tmp___8 != 0L) {
 #line 923
@@ -65766,7 +65766,7 @@ struct ubifs_lprops  const  *ubifs_fast_find_freeable(struct ubifs_info *c )
 #line 938
   tmp___0 = mutex_is_locked(& c->lp_mutex);
 #line 938
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
 #line 938
   if (tmp___1 != 0L) {
 #line 938
@@ -65793,7 +65793,7 @@ struct ubifs_lprops  const  *ubifs_fast_find_freeable(struct ubifs_info *c )
 #line 943
   lprops = (struct ubifs_lprops *)__mptr + 0xfffffffffffffff0UL;
 #line 944
-  tmp___4 = __builtin_expect((lprops->flags & 16) != 0, 0L);
+  tmp___4 = ldv__builtin_expect((lprops->flags & 16) != 0, 0L);
 #line 944
   if (tmp___4 != 0L) {
 #line 944
@@ -65807,7 +65807,7 @@ struct ubifs_lprops  const  *ubifs_fast_find_freeable(struct ubifs_info *c )
 
   }
 #line 945
-  tmp___6 = __builtin_expect((lprops->flags & 32) != 0, 0L);
+  tmp___6 = ldv__builtin_expect((lprops->flags & 32) != 0, 0L);
 #line 945
   if (tmp___6 != 0L) {
 #line 945
@@ -65821,7 +65821,7 @@ struct ubifs_lprops  const  *ubifs_fast_find_freeable(struct ubifs_info *c )
 
   }
 #line 946
-  tmp___8 = __builtin_expect(lprops->free + lprops->dirty != c->leb_size, 0L);
+  tmp___8 = ldv__builtin_expect(lprops->free + lprops->dirty != c->leb_size, 0L);
 #line 946
   if (tmp___8 != 0L) {
 #line 946
@@ -65835,7 +65835,7 @@ struct ubifs_lprops  const  *ubifs_fast_find_freeable(struct ubifs_info *c )
 
   }
 #line 947
-  tmp___10 = __builtin_expect(c->freeable_cnt <= 0, 0L);
+  tmp___10 = ldv__builtin_expect(c->freeable_cnt <= 0, 0L);
 #line 947
   if (tmp___10 != 0L) {
 #line 947
@@ -65872,7 +65872,7 @@ struct ubifs_lprops  const  *ubifs_fast_find_frdi_idx(struct ubifs_info *c )
 #line 962
   tmp___0 = mutex_is_locked(& c->lp_mutex);
 #line 962
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
 #line 962
   if (tmp___1 != 0L) {
 #line 962
@@ -65899,7 +65899,7 @@ struct ubifs_lprops  const  *ubifs_fast_find_frdi_idx(struct ubifs_info *c )
 #line 967
   lprops = (struct ubifs_lprops *)__mptr + 0xfffffffffffffff0UL;
 #line 968
-  tmp___4 = __builtin_expect((lprops->flags & 16) != 0, 0L);
+  tmp___4 = ldv__builtin_expect((lprops->flags & 16) != 0, 0L);
 #line 968
   if (tmp___4 != 0L) {
 #line 968
@@ -65913,7 +65913,7 @@ struct ubifs_lprops  const  *ubifs_fast_find_frdi_idx(struct ubifs_info *c )
 
   }
 #line 969
-  tmp___6 = __builtin_expect((lprops->flags & 32) == 0, 0L);
+  tmp___6 = ldv__builtin_expect((lprops->flags & 32) == 0, 0L);
 #line 969
   if (tmp___6 != 0L) {
 #line 969
@@ -65927,7 +65927,7 @@ struct ubifs_lprops  const  *ubifs_fast_find_frdi_idx(struct ubifs_info *c )
 
   }
 #line 970
-  tmp___8 = __builtin_expect(lprops->free + lprops->dirty != c->leb_size, 0L);
+  tmp___8 = ldv__builtin_expect(lprops->free + lprops->dirty != c->leb_size, 0L);
 #line 970
   if (tmp___8 != 0L) {
 #line 970
@@ -67343,7 +67343,7 @@ static int get_master_node(struct ubifs_info  const  *c , int lnum , void **pbuf
 #line 283
       descriptor.flags = 0U;
 #line 283
-      tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+      tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 283
       if (tmp___0 != 0L) {
 #line 283
@@ -67393,7 +67393,7 @@ static int get_master_node(struct ubifs_info  const  *c , int lnum , void **pbuf
 #line 294
       descriptor___0.flags = 0U;
 #line 294
-      tmp___2 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+      tmp___2 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 294
       if (tmp___2 != 0L) {
 #line 294
@@ -67479,7 +67479,7 @@ static int write_rcvrd_mst_node(struct ubifs_info *c , struct ubifs_mst_node *ms
 #line 329
   descriptor.flags = 0U;
 #line 329
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 329
   if (tmp___0 != 0L) {
 #line 329
@@ -67577,7 +67577,7 @@ int ubifs_recover_master_node(struct ubifs_info *c )
 #line 362
   descriptor.flags = 0U;
 #line 362
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 362
   if (tmp___0 != 0L) {
 #line 362
@@ -67624,7 +67624,7 @@ int ubifs_recover_master_node(struct ubifs_info *c )
 #line 380
       descriptor___0.flags = 0U;
 #line 380
-      tmp___2 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+      tmp___2 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 380
       if (tmp___2 != 0L) {
 #line 380
@@ -67898,7 +67898,7 @@ static void clean_buf(struct ubifs_info  const  *c , void **buf , int lnum , int
 #line 565
   descriptor.flags = 0U;
 #line 565
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 565
   if (tmp___0 != 0L) {
 #line 565
@@ -67910,7 +67910,7 @@ static void clean_buf(struct ubifs_info  const  *c , void **buf , int lnum , int
 
   }
 #line 567
-  tmp___2 = __builtin_expect((*offs & 7) != 0, 0L);
+  tmp___2 = ldv__builtin_expect((*offs & 7) != 0, 0L);
 #line 567
   if (tmp___2 != 0L) {
 #line 567
@@ -67990,7 +67990,7 @@ static int no_more_nodes(struct ubifs_info  const  *c , void *buf , int len , in
 #line 604
     descriptor.flags = 0U;
 #line 604
-    tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 604
     if (tmp___1 != 0L) {
 #line 604
@@ -68030,7 +68030,7 @@ static int no_more_nodes(struct ubifs_info  const  *c , void *buf , int len , in
 #line 612
   descriptor___0.flags = 0U;
 #line 612
-  tmp___5 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___5 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 612
   if (tmp___5 != 0L) {
 #line 612
@@ -68099,7 +68099,7 @@ static int fix_unclean_leb(struct ubifs_info *c , struct ubifs_scan_leb *sleb , 
 #line 640
     descriptor.flags = 0U;
 #line 640
-    tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 640
     if (tmp___1 != 0L) {
 #line 640
@@ -68141,7 +68141,7 @@ static int fix_unclean_leb(struct ubifs_info *c , struct ubifs_scan_leb *sleb , 
 #line 652
     descriptor___0.flags = 0U;
 #line 652
-    tmp___4 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___4 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 652
     if (tmp___4 != 0L) {
 #line 652
@@ -68253,7 +68253,7 @@ static void drop_last_group(struct ubifs_scan_leb *sleb , int *offs )
 #line 705
   descriptor.flags = 0U;
 #line 705
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 705
   if (tmp___0 != 0L) {
 #line 705
@@ -68319,7 +68319,7 @@ static void drop_last_node(struct ubifs_scan_leb *sleb , int *offs )
 #line 731
     descriptor.flags = 0U;
 #line 731
-    tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 731
     if (tmp___0 != 0L) {
 #line 731
@@ -68407,7 +68407,7 @@ struct ubifs_scan_leb *ubifs_recover_leb(struct ubifs_info *c , int lnum , int o
 #line 762
   descriptor.flags = 0U;
 #line 762
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 762
   if (tmp___0 != 0L) {
 #line 762
@@ -68430,7 +68430,7 @@ struct ubifs_scan_leb *ubifs_recover_leb(struct ubifs_info *c , int lnum , int o
 
   }
 #line 768
-  tmp___3 = __builtin_expect(len <= 7, 0L);
+  tmp___3 = ldv__builtin_expect(len <= 7, 0L);
 #line 768
   if (tmp___3 != 0L) {
 #line 768
@@ -68459,7 +68459,7 @@ struct ubifs_scan_leb *ubifs_recover_leb(struct ubifs_info *c , int lnum , int o
 #line 770
   descriptor___0.flags = 0U;
 #line 770
-  tmp___5 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___5 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 770
   if (tmp___5 != 0L) {
 #line 770
@@ -68523,7 +68523,7 @@ struct ubifs_scan_leb *ubifs_recover_leb(struct ubifs_info *c , int lnum , int o
 #line 801
     descriptor___1.flags = 0U;
 #line 801
-    tmp___7 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___7 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 801
     if (tmp___7 != 0L) {
 #line 801
@@ -68718,7 +68718,7 @@ static int get_cs_sqnum(struct ubifs_info *c , int lnum , int offs , unsigned lo
 #line 937
   descriptor.flags = 0U;
 #line 937
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 937
   if (tmp___0 != 0L) {
 #line 937
@@ -68810,7 +68810,7 @@ static int get_cs_sqnum(struct ubifs_info *c , int lnum , int offs , unsigned lo
 #line 963
   descriptor___0.flags = 0U;
 #line 963
-  tmp___6 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___6 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 963
   if (tmp___6 != 0L) {
 #line 963
@@ -68872,7 +68872,7 @@ struct ubifs_scan_leb *ubifs_recover_log_leb(struct ubifs_info *c , int lnum , i
 #line 994
   descriptor.flags = 0U;
 #line 994
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 994
   if (tmp___0 != 0L) {
 #line 994
@@ -69015,7 +69015,7 @@ static int recover_head(struct ubifs_info *c , int lnum , int offs , void *sbuf 
 #line 1057
       descriptor.flags = 0U;
 #line 1057
-      tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+      tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1057
       if (tmp___0 != 0L) {
 #line 1057
@@ -69072,12 +69072,12 @@ int ubifs_recover_inl_heads(struct ubifs_info *c , void *sbuf )
 
   {
 #line 1090
-  tmp___0 = __builtin_expect((unsigned int )*((unsigned char *)c + 4080UL) != 0U,
+  tmp___0 = ldv__builtin_expect((unsigned int )*((unsigned char *)c + 4080UL) != 0U,
                              0L);
 #line 1090
   if (tmp___0 != 0L) {
 #line 1090
-    tmp___1 = __builtin_expect((unsigned int )*((unsigned char *)c + 5528UL) == 0U,
+    tmp___1 = ldv__builtin_expect((unsigned int )*((unsigned char *)c + 5528UL) == 0U,
                                0L);
 #line 1090
     if (tmp___1 != 0L) {
@@ -69107,7 +69107,7 @@ int ubifs_recover_inl_heads(struct ubifs_info *c , void *sbuf )
 #line 1092
   descriptor.flags = 0U;
 #line 1092
-  tmp___3 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___3 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1092
   if (tmp___3 != 0L) {
 #line 1092
@@ -69140,7 +69140,7 @@ int ubifs_recover_inl_heads(struct ubifs_info *c , void *sbuf )
 #line 1097
   descriptor___0.flags = 0U;
 #line 1097
-  tmp___5 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___5 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 1097
   if (tmp___5 != 0L) {
 #line 1097
@@ -69210,7 +69210,7 @@ static int clean_an_unclean_leb(struct ubifs_info *c , struct ubifs_unclean_leb 
 #line 1123
   descriptor.flags = 0U;
 #line 1123
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1123
   if (tmp___0 != 0L) {
 #line 1123
@@ -69359,7 +69359,7 @@ static int clean_an_unclean_leb(struct ubifs_info *c , struct ubifs_unclean_leb 
 #line 1197
   descriptor___0.flags = 0U;
 #line 1197
-  tmp___3 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___3 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 1197
   if (tmp___3 != 0L) {
 #line 1197
@@ -69399,7 +69399,7 @@ int ubifs_clean_lebs(struct ubifs_info *c , void *sbuf )
 #line 1215
   descriptor.flags = 0U;
 #line 1215
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1215
   if (tmp___0 != 0L) {
 #line 1215
@@ -69498,7 +69498,7 @@ static int grab_empty_leb(struct ubifs_info *c )
 #line 1273
   descriptor.flags = 0U;
 #line 1273
-  tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1273
   if (tmp___1 != 0L) {
 #line 1273
@@ -69564,7 +69564,7 @@ int ubifs_rcvry_gc_commit(struct ubifs_info *c )
 #line 1302
   descriptor.flags = 0U;
 #line 1302
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1302
   if (tmp___0 != 0L) {
 #line 1302
@@ -69610,7 +69610,7 @@ int ubifs_rcvry_gc_commit(struct ubifs_info *c )
 #line 1313
     descriptor___0.flags = 0U;
 #line 1313
-    tmp___3 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___3 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 1313
     if (tmp___3 != 0L) {
 #line 1313
@@ -69629,7 +69629,7 @@ int ubifs_rcvry_gc_commit(struct ubifs_info *c )
 
   }
 #line 1317
-  tmp___6 = __builtin_expect((lp.flags & 32) != 0, 0L);
+  tmp___6 = ldv__builtin_expect((lp.flags & 32) != 0, 0L);
 #line 1317
   if (tmp___6 != 0L) {
 #line 1317
@@ -69643,7 +69643,7 @@ int ubifs_rcvry_gc_commit(struct ubifs_info *c )
 
   }
 #line 1318
-  tmp___8 = __builtin_expect(lp.free + lp.dirty < wbuf->offs, 0L);
+  tmp___8 = ldv__builtin_expect(lp.free + lp.dirty < wbuf->offs, 0L);
 #line 1318
   if (tmp___8 != 0L) {
 #line 1318
@@ -69669,7 +69669,7 @@ int ubifs_rcvry_gc_commit(struct ubifs_info *c )
 #line 1324
   descriptor___1.flags = 0U;
 #line 1324
-  tmp___10 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+  tmp___10 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 1324
   if (tmp___10 != 0L) {
 #line 1324
@@ -69702,7 +69702,7 @@ int ubifs_rcvry_gc_commit(struct ubifs_info *c )
 #line 1329
   descriptor___2.flags = 0U;
 #line 1329
-  tmp___12 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+  tmp___12 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
 #line 1329
   if (tmp___12 != 0L) {
 #line 1329
@@ -69755,7 +69755,7 @@ int ubifs_rcvry_gc_commit(struct ubifs_info *c )
 
   }
 #line 1346
-  tmp___16 = __builtin_expect(err != 2, 0L);
+  tmp___16 = ldv__builtin_expect(err != 2, 0L);
 #line 1346
   if (tmp___16 != 0L) {
 #line 1346
@@ -69797,7 +69797,7 @@ int ubifs_rcvry_gc_commit(struct ubifs_info *c )
 #line 1354
   descriptor___3.flags = 0U;
 #line 1354
-  tmp___18 = __builtin_expect((long )descriptor___3.flags & 1L, 0L);
+  tmp___18 = ldv__builtin_expect((long )descriptor___3.flags & 1L, 0L);
 #line 1354
   if (tmp___18 != 0L) {
 #line 1354
@@ -70214,7 +70214,7 @@ static int fix_size_in_place(struct ubifs_info *c , struct size_entry *e )
 #line 1597
   descriptor.flags = 0U;
 #line 1597
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1597
   if (tmp___0 != 0L) {
 #line 1597
@@ -70300,7 +70300,7 @@ int ubifs_recover_size(struct ubifs_info *c )
 #line 1634
       descriptor.flags = 0U;
 #line 1634
-      tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+      tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1634
       if (tmp___1 != 0L) {
 #line 1634
@@ -70336,7 +70336,7 @@ int ubifs_recover_size(struct ubifs_info *c )
 #line 1648
     if ((unsigned int )*((unsigned char *)c + 4080UL) != 0U) {
 #line 1653
-      tmp___3 = __builtin_expect((unsigned long )e->inode != (unsigned long )((struct inode *)0),
+      tmp___3 = ldv__builtin_expect((unsigned long )e->inode != (unsigned long )((struct inode *)0),
                                  0L);
 #line 1653
       if (tmp___3 != 0L) {
@@ -70380,7 +70380,7 @@ int ubifs_recover_size(struct ubifs_info *c )
 #line 1661
         descriptor___0.flags = 0U;
 #line 1661
-        tmp___7 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+        tmp___7 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 1661
         if (tmp___7 != 0L) {
 #line 1661
@@ -70938,7 +70938,7 @@ long ubifs_ioctl(struct file *file , unsigned int cmd , unsigned long arg )
 #line 276
   descriptor.flags = 0U;
 #line 276
-  tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 276
   if (tmp___1 != 0L) {
 #line 276
@@ -71078,7 +71078,7 @@ long ubifs_ioctl(struct file *file , unsigned int cmd , unsigned long arg )
 #line 299
   descriptor___0.flags = 0U;
 #line 299
-  tmp___5 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___5 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 299
   if (tmp___5 != 0L) {
 #line 299
@@ -71396,7 +71396,7 @@ static struct ubifs_cnode *first_dirty_cnode(struct ubifs_nnode *nnode )
 
   {
 #line 163
-  tmp___0 = __builtin_expect((unsigned long )nnode == (unsigned long )((struct ubifs_nnode *)0),
+  tmp___0 = ldv__builtin_expect((unsigned long )nnode == (unsigned long )((struct ubifs_nnode *)0),
                              0L);
 #line 163
   if (tmp___0 != 0L) {
@@ -71479,7 +71479,7 @@ static struct ubifs_cnode *next_dirty_cnode(struct ubifs_cnode *cnode )
 
   {
 #line 196
-  tmp___0 = __builtin_expect((unsigned long )cnode == (unsigned long )((struct ubifs_cnode *)0),
+  tmp___0 = ldv__builtin_expect((unsigned long )cnode == (unsigned long )((struct ubifs_cnode *)0),
                              0L);
 #line 196
   if (tmp___0 != 0L) {
@@ -71602,7 +71602,7 @@ static int get_cnodes_to_commit(struct ubifs_info *c )
 #line 235
   tmp___1 = constant_test_bit(2U, (unsigned long const volatile   *)(& cnode->flags));
 #line 235
-  tmp___2 = __builtin_expect(tmp___1 != 0, 0L);
+  tmp___2 = ldv__builtin_expect(tmp___1 != 0, 0L);
 #line 235
   if (tmp___2 != 0L) {
 #line 235
@@ -71650,7 +71650,7 @@ static int get_cnodes_to_commit(struct ubifs_info *c )
 #line 246
   descriptor.flags = 0U;
 #line 246
-  tmp___4 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___4 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 246
   if (tmp___4 != 0L) {
 #line 246
@@ -71674,7 +71674,7 @@ static int get_cnodes_to_commit(struct ubifs_info *c )
 #line 247
   descriptor___0.flags = 0U;
 #line 247
-  tmp___6 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___6 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 247
   if (tmp___6 != 0L) {
 #line 247
@@ -71686,7 +71686,7 @@ static int get_cnodes_to_commit(struct ubifs_info *c )
 
   }
 #line 248
-  tmp___8 = __builtin_expect(c->dirty_nn_cnt + c->dirty_pn_cnt != cnt, 0L);
+  tmp___8 = ldv__builtin_expect(c->dirty_nn_cnt + c->dirty_pn_cnt != cnt, 0L);
 #line 248
   if (tmp___8 != 0L) {
 #line 248
@@ -71727,7 +71727,7 @@ static void upd_ltab(struct ubifs_info *c , int lnum , int free , int dirty )
 #line 261
   descriptor.flags = 0U;
 #line 261
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 261
   if (tmp___0 != 0L) {
 #line 261
@@ -71741,7 +71741,7 @@ static void upd_ltab(struct ubifs_info *c , int lnum , int free , int dirty )
 
   }
 #line 264
-  tmp___2 = __builtin_expect(c->lpt_first > lnum, 0L);
+  tmp___2 = ldv__builtin_expect(c->lpt_first > lnum, 0L);
 #line 264
   if (tmp___2 != 0L) {
 #line 264
@@ -71752,7 +71752,7 @@ static void upd_ltab(struct ubifs_info *c , int lnum , int free , int dirty )
     dump_stack();
   } else {
 #line 264
-    tmp___3 = __builtin_expect(c->lpt_last < lnum, 0L);
+    tmp___3 = ldv__builtin_expect(c->lpt_last < lnum, 0L);
 #line 264
     if (tmp___3 != 0L) {
 #line 264
@@ -71968,7 +71968,7 @@ static int layout_cnodes(struct ubifs_info *c )
 #line 359
   offs = 0;
 #line 360
-  tmp___0 = __builtin_expect(c->lpt_first > lnum, 0L);
+  tmp___0 = ldv__builtin_expect(c->lpt_first > lnum, 0L);
 #line 360
   if (tmp___0 != 0L) {
 #line 360
@@ -71979,7 +71979,7 @@ static int layout_cnodes(struct ubifs_info *c )
     dump_stack();
   } else {
 #line 360
-    tmp___1 = __builtin_expect(c->lpt_last < lnum, 0L);
+    tmp___1 = ldv__builtin_expect(c->lpt_last < lnum, 0L);
 #line 360
     if (tmp___1 != 0L) {
 #line 360
@@ -72086,7 +72086,7 @@ static int layout_cnodes(struct ubifs_info *c )
 #line 402
       offs = 0;
 #line 403
-      tmp___3 = __builtin_expect(c->lpt_first > lnum, 0L);
+      tmp___3 = ldv__builtin_expect(c->lpt_first > lnum, 0L);
 #line 403
       if (tmp___3 != 0L) {
 #line 403
@@ -72098,7 +72098,7 @@ static int layout_cnodes(struct ubifs_info *c )
         dump_stack();
       } else {
 #line 403
-        tmp___4 = __builtin_expect(c->lpt_last < lnum, 0L);
+        tmp___4 = ldv__builtin_expect(c->lpt_last < lnum, 0L);
 #line 403
         if (tmp___4 != 0L) {
 #line 403
@@ -72150,7 +72150,7 @@ static int layout_cnodes(struct ubifs_info *c )
 #line 422
       offs = 0;
 #line 423
-      tmp___6 = __builtin_expect(c->lpt_first > lnum, 0L);
+      tmp___6 = ldv__builtin_expect(c->lpt_first > lnum, 0L);
 #line 423
       if (tmp___6 != 0L) {
 #line 423
@@ -72162,7 +72162,7 @@ static int layout_cnodes(struct ubifs_info *c )
         dump_stack();
       } else {
 #line 423
-        tmp___7 = __builtin_expect(c->lpt_last < lnum, 0L);
+        tmp___7 = ldv__builtin_expect(c->lpt_last < lnum, 0L);
 #line 423
         if (tmp___7 != 0L) {
 #line 423
@@ -72439,7 +72439,7 @@ static int write_cnodes(struct ubifs_info *c )
 #line 546
   offs = from;
 #line 547
-  tmp___0 = __builtin_expect(c->lpt_first > lnum, 0L);
+  tmp___0 = ldv__builtin_expect(c->lpt_first > lnum, 0L);
 #line 547
   if (tmp___0 != 0L) {
 #line 547
@@ -72450,7 +72450,7 @@ static int write_cnodes(struct ubifs_info *c )
     dump_stack();
   } else {
 #line 547
-    tmp___1 = __builtin_expect(c->lpt_last < lnum, 0L);
+    tmp___1 = ldv__builtin_expect(c->lpt_last < lnum, 0L);
 #line 547
     if (tmp___1 != 0L) {
 #line 547
@@ -72580,7 +72580,7 @@ static int write_cnodes(struct ubifs_info *c )
 #line 603
       offs = from;
 #line 604
-      tmp___3 = __builtin_expect(c->lpt_first > lnum, 0L);
+      tmp___3 = ldv__builtin_expect(c->lpt_first > lnum, 0L);
 #line 604
       if (tmp___3 != 0L) {
 #line 604
@@ -72592,7 +72592,7 @@ static int write_cnodes(struct ubifs_info *c )
         dump_stack();
       } else {
 #line 604
-        tmp___4 = __builtin_expect(c->lpt_last < lnum, 0L);
+        tmp___4 = ldv__builtin_expect(c->lpt_last < lnum, 0L);
 #line 604
         if (tmp___4 != 0L) {
 #line 604
@@ -72665,7 +72665,7 @@ static int write_cnodes(struct ubifs_info *c )
 #line 629
       offs = from;
 #line 630
-      tmp___6 = __builtin_expect(c->lpt_first > lnum, 0L);
+      tmp___6 = ldv__builtin_expect(c->lpt_first > lnum, 0L);
 #line 630
       if (tmp___6 != 0L) {
 #line 630
@@ -72677,7 +72677,7 @@ static int write_cnodes(struct ubifs_info *c )
         dump_stack();
       } else {
 #line 630
-        tmp___7 = __builtin_expect(c->lpt_last < lnum, 0L);
+        tmp___7 = ldv__builtin_expect(c->lpt_last < lnum, 0L);
 #line 630
         if (tmp___7 != 0L) {
 #line 630
@@ -72758,7 +72758,7 @@ static int write_cnodes(struct ubifs_info *c )
 #line 658
   descriptor.flags = 0U;
 #line 658
-  tmp___9 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___9 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 658
   if (tmp___9 != 0L) {
 #line 658
@@ -72782,7 +72782,7 @@ static int write_cnodes(struct ubifs_info *c )
 #line 659
   descriptor___0.flags = 0U;
 #line 659
-  tmp___11 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___11 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 659
   if (tmp___11 != 0L) {
 #line 659
@@ -72806,7 +72806,7 @@ static int write_cnodes(struct ubifs_info *c )
 #line 660
   descriptor___1.flags = 0U;
 #line 660
-  tmp___13 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+  tmp___13 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 660
   if (tmp___13 != 0L) {
 #line 660
@@ -72832,7 +72832,7 @@ static int write_cnodes(struct ubifs_info *c )
 #line 662
     descriptor___2.flags = 0U;
 #line 662
-    tmp___15 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+    tmp___15 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
 #line 662
     if (tmp___15 != 0L) {
 #line 662
@@ -73329,7 +73329,7 @@ static void lpt_tgc_start(struct ubifs_info *c )
 #line 884
     descriptor.flags = 0U;
 #line 884
-    tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 884
     if (tmp___0 != 0L) {
 #line 884
@@ -73400,7 +73400,7 @@ static int lpt_tgc_end(struct ubifs_info *c )
 #line 908
     descriptor.flags = 0U;
 #line 908
-    tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 908
     if (tmp___0 != 0L) {
 #line 908
@@ -73457,7 +73457,7 @@ static void populate_lsave(struct ubifs_info *c )
 #line 929
   cnt = 0;
 #line 931
-  tmp___0 = __builtin_expect((unsigned int )*((unsigned char *)c + 2048UL) == 0U,
+  tmp___0 = ldv__builtin_expect((unsigned int )*((unsigned char *)c + 2048UL) == 0U,
                              0L);
 #line 931
   if (tmp___0 != 0L) {
@@ -74142,7 +74142,7 @@ static int lpt_gc_lnum(struct ubifs_info *c , int lnum )
 #line 1274
   descriptor.flags = 0U;
 #line 1274
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1274
   if (tmp___0 != 0L) {
 #line 1274
@@ -74193,7 +74193,7 @@ static int lpt_gc_lnum(struct ubifs_info *c , int lnum )
 #line 1294
   offs = c->leb_size - len;
 #line 1295
-  tmp___3 = __builtin_expect(node_len == 0, 0L);
+  tmp___3 = ldv__builtin_expect(node_len == 0, 0L);
 #line 1295
   if (tmp___3 != 0L) {
 #line 1295
@@ -74252,7 +74252,7 @@ static int lpt_gc(struct ubifs_info *c )
   goto ldv_27956;
   ldv_27955: 
 #line 1320
-  tmp___0 = __builtin_expect((long )*((unsigned char *)(c->ltab + (unsigned long )i) + 8UL) & 1L,
+  tmp___0 = ldv__builtin_expect((long )*((unsigned char *)(c->ltab + (unsigned long )i) + 8UL) & 1L,
                              0L);
 #line 1320
   if (tmp___0 != 0L) {
@@ -74339,7 +74339,7 @@ int ubifs_lpt_start_commit(struct ubifs_info *c )
 #line 1349
   descriptor.flags = 0U;
 #line 1349
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1349
   if (tmp___0 != 0L) {
 #line 1349
@@ -74420,7 +74420,7 @@ int ubifs_lpt_start_commit(struct ubifs_info *c )
 #line 1379
     descriptor___0.flags = 0U;
 #line 1379
-    tmp___3 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___3 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 1379
     if (tmp___3 != 0L) {
 #line 1379
@@ -74471,7 +74471,7 @@ int ubifs_lpt_start_commit(struct ubifs_info *c )
 #line 1395
   cnt = get_cnodes_to_commit(c);
 #line 1396
-  tmp___6 = __builtin_expect(cnt == 0, 0L);
+  tmp___6 = ldv__builtin_expect(cnt == 0, 0L);
 #line 1396
   if (tmp___6 != 0L) {
 #line 1396
@@ -74573,7 +74573,7 @@ int ubifs_lpt_end_commit(struct ubifs_info *c )
 #line 1447
   descriptor.flags = 0U;
 #line 1447
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1447
   if (tmp___0 != 0L) {
 #line 1447
@@ -75280,7 +75280,7 @@ static int dbg_check_ltab_lnum(struct ubifs_info *c , int lnum )
 #line 1766
   descriptor.flags = 0U;
 #line 1766
-  tmp___2 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___2 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1766
   if (tmp___2 != 0L) {
 #line 1766
@@ -75507,7 +75507,7 @@ int dbg_check_ltab(struct ubifs_info *c )
 #line 1854
   descriptor.flags = 0U;
 #line 1854
-  tmp___4 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___4 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1854
   if (tmp___4 != 0L) {
 #line 1854
@@ -76602,7 +76602,7 @@ struct ubifs_znode *ubifs_tnc_levelorder_next(struct ubifs_znode *zr , struct ub
 #line 162
   level_search = 0;
 #line 165
-  tmp___0 = __builtin_expect((unsigned long )zr == (unsigned long )((struct ubifs_znode *)0),
+  tmp___0 = ldv__builtin_expect((unsigned long )zr == (unsigned long )((struct ubifs_znode *)0),
                              0L);
 #line 165
   if (tmp___0 != 0L) {
@@ -76617,7 +76617,7 @@ struct ubifs_znode *ubifs_tnc_levelorder_next(struct ubifs_znode *zr , struct ub
 
   }
 #line 167
-  tmp___1 = __builtin_expect((unsigned long )znode == (unsigned long )((struct ubifs_znode *)0),
+  tmp___1 = ldv__builtin_expect((unsigned long )znode == (unsigned long )((struct ubifs_znode *)0),
                              0L);
 #line 167
   if (tmp___1 != 0L) {
@@ -76627,7 +76627,7 @@ struct ubifs_znode *ubifs_tnc_levelorder_next(struct ubifs_znode *zr , struct ub
 
   }
 #line 170
-  tmp___3 = __builtin_expect((unsigned long )znode == (unsigned long )zr, 0L);
+  tmp___3 = ldv__builtin_expect((unsigned long )znode == (unsigned long )zr, 0L);
 #line 170
   if (tmp___3 != 0L) {
 #line 171
@@ -76650,7 +76650,7 @@ struct ubifs_znode *ubifs_tnc_levelorder_next(struct ubifs_znode *zr , struct ub
   iip = znode->iip;
   ldv_27502: 
 #line 180
-  tmp___5 = __builtin_expect(znode->level > zr->level, 0L);
+  tmp___5 = ldv__builtin_expect(znode->level > zr->level, 0L);
 #line 180
   if (tmp___5 != 0L) {
 #line 180
@@ -76679,12 +76679,12 @@ struct ubifs_znode *ubifs_tnc_levelorder_next(struct ubifs_znode *zr , struct ub
 
   }
 #line 191
-  tmp___8 = __builtin_expect((unsigned long )znode->parent == (unsigned long )zr,
+  tmp___8 = ldv__builtin_expect((unsigned long )znode->parent == (unsigned long )zr,
                              0L);
 #line 191
   if (tmp___8 != 0L) {
 #line 191
-    tmp___9 = __builtin_expect((znode->parent)->child_cnt <= iip, 0L);
+    tmp___9 = ldv__builtin_expect((znode->parent)->child_cnt <= iip, 0L);
 #line 191
     if (tmp___9 != 0L) {
 #line 194
@@ -76703,7 +76703,7 @@ struct ubifs_znode *ubifs_tnc_levelorder_next(struct ubifs_znode *zr , struct ub
 #line 206
       znode = ubifs_tnc_find_child(zr, 0);
 #line 207
-      tmp___7 = __builtin_expect((unsigned long )znode == (unsigned long )((struct ubifs_znode *)0),
+      tmp___7 = ldv__builtin_expect((unsigned long )znode == (unsigned long )((struct ubifs_znode *)0),
                                  0L);
 #line 207
       if (tmp___7 != 0L) {
@@ -76762,7 +76762,7 @@ struct ubifs_znode *ubifs_tnc_levelorder_next(struct ubifs_znode *zr , struct ub
 #line 232
   if ((unsigned long )zn != (unsigned long )((struct ubifs_znode *)0)) {
 #line 233
-    tmp___11 = __builtin_expect(zn->level < 0, 0L);
+    tmp___11 = ldv__builtin_expect(zn->level < 0, 0L);
 #line 233
     if (tmp___11 != 0L) {
 #line 233
@@ -76821,7 +76821,7 @@ int ubifs_search_zbranch(struct ubifs_info  const  *c , struct ubifs_znode  cons
 #line 260
   zbr = (struct ubifs_zbranch  const  *)(& znode->zbranch);
 #line 262
-  tmp___0 = __builtin_expect(end <= beg, 0L);
+  tmp___0 = ldv__builtin_expect(end <= beg, 0L);
 #line 262
   if (tmp___0 != 0L) {
 #line 262
@@ -76867,7 +76867,7 @@ int ubifs_search_zbranch(struct ubifs_info  const  *c , struct ubifs_znode  cons
 #line 277
   *n = end + -1;
 #line 280
-  tmp___2 = __builtin_expect(*n < -1, 0L);
+  tmp___2 = ldv__builtin_expect(*n < -1, 0L);
 #line 280
   if (tmp___2 != 0L) {
 #line 280
@@ -76879,7 +76879,7 @@ int ubifs_search_zbranch(struct ubifs_info  const  *c , struct ubifs_znode  cons
     dump_stack();
   } else {
 #line 280
-    tmp___3 = __builtin_expect(*n >= (int )znode->child_cnt, 0L);
+    tmp___3 = ldv__builtin_expect(*n >= (int )znode->child_cnt, 0L);
 #line 280
     if (tmp___3 != 0L) {
 #line 280
@@ -76898,7 +76898,7 @@ int ubifs_search_zbranch(struct ubifs_info  const  *c , struct ubifs_znode  cons
 #line 282
     tmp___8 = keys_cmp(c, key, & zbr->key);
 #line 282
-    tmp___9 = __builtin_expect(tmp___8 >= 0, 0L);
+    tmp___9 = ldv__builtin_expect(tmp___8 >= 0, 0L);
 #line 282
     if (tmp___9 != 0L) {
 #line 282
@@ -76912,7 +76912,7 @@ int ubifs_search_zbranch(struct ubifs_info  const  *c , struct ubifs_znode  cons
 #line 284
       tmp___6 = keys_cmp(c, key, & (zbr + (unsigned long )*n)->key);
 #line 284
-      tmp___7 = __builtin_expect(tmp___6 <= 0, 0L);
+      tmp___7 = ldv__builtin_expect(tmp___6 <= 0, 0L);
 #line 284
       if (tmp___7 != 0L) {
 #line 284
@@ -76934,7 +76934,7 @@ int ubifs_search_zbranch(struct ubifs_info  const  *c , struct ubifs_znode  cons
 #line 286
     tmp___11 = keys_cmp(c, key, & (zbr + ((unsigned long )*n + 1UL))->key);
 #line 286
-    tmp___12 = __builtin_expect(tmp___11 >= 0, 0L);
+    tmp___12 = ldv__builtin_expect(tmp___11 >= 0, 0L);
 #line 286
     if (tmp___12 != 0L) {
 #line 286
@@ -76962,7 +76962,7 @@ struct ubifs_znode *ubifs_tnc_postorder_first(struct ubifs_znode *znode )
 
   {
 #line 300
-  tmp = __builtin_expect((unsigned long )znode == (unsigned long )((struct ubifs_znode *)0),
+  tmp = ldv__builtin_expect((unsigned long )znode == (unsigned long )((struct ubifs_znode *)0),
                          0L);
 #line 300
   if (tmp != 0L) {
@@ -77009,7 +77009,7 @@ struct ubifs_znode *ubifs_tnc_postorder_next(struct ubifs_znode *znode )
 
   {
 #line 326
-  tmp___0 = __builtin_expect((unsigned long )znode == (unsigned long )((struct ubifs_znode *)0),
+  tmp___0 = ldv__builtin_expect((unsigned long )znode == (unsigned long )((struct ubifs_znode *)0),
                              0L);
 #line 326
   if (tmp___0 != 0L) {
@@ -77024,7 +77024,7 @@ struct ubifs_znode *ubifs_tnc_postorder_next(struct ubifs_znode *znode )
 
   }
 #line 327
-  tmp___1 = __builtin_expect((unsigned long )znode->parent == (unsigned long )((struct ubifs_znode *)0),
+  tmp___1 = ldv__builtin_expect((unsigned long )znode->parent == (unsigned long )((struct ubifs_znode *)0),
                              0L);
 #line 327
   if (tmp___1 != 0L) {
@@ -77068,7 +77068,7 @@ long ubifs_destroy_tnc_subtree(struct ubifs_znode *znode )
 #line 350
   clean_freed = 0L;
 #line 353
-  tmp___1 = __builtin_expect((unsigned long )zn == (unsigned long )((struct ubifs_znode *)0),
+  tmp___1 = ldv__builtin_expect((unsigned long )zn == (unsigned long )((struct ubifs_znode *)0),
                              0L);
 #line 353
   if (tmp___1 != 0L) {
@@ -77225,7 +77225,7 @@ static int read_znode(struct ubifs_info *c , int lnum , int offs , int len , str
 #line 411
   descriptor.flags = 0U;
 #line 411
-  tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 411
   if (tmp___1 != 0L) {
 #line 411
@@ -77462,7 +77462,7 @@ struct ubifs_znode *ubifs_load_znode(struct ubifs_info *c , struct ubifs_zbranch
 
   {
 #line 532
-  tmp___0 = __builtin_expect((unsigned long )zbr->ldv_26076.znode != (unsigned long )((struct ubifs_znode *)0),
+  tmp___0 = ldv__builtin_expect((unsigned long )zbr->ldv_26076.znode != (unsigned long )((struct ubifs_znode *)0),
                              0L);
 #line 532
   if (tmp___0 != 0L) {
@@ -77581,7 +77581,7 @@ int ubifs_tnc_read_node(struct ubifs_info *c , struct ubifs_zbranch *zbr , void 
 #line 597
     descriptor.flags = 0U;
 #line 597
-    tmp___2 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___2 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 597
     if (tmp___2 != 0L) {
 #line 597
@@ -77625,7 +77625,7 @@ int ubifs_tnc_read_node(struct ubifs_info *c , struct ubifs_zbranch *zbr , void 
 #line 606
     descriptor___0.flags = 0U;
 #line 606
-    tmp___6 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___6 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 606
     if (tmp___6 != 0L) {
 #line 606
@@ -77652,7 +77652,7 @@ int ubifs_tnc_read_node(struct ubifs_info *c , struct ubifs_zbranch *zbr , void 
 #line 607
     descriptor___1.flags = 0U;
 #line 607
-    tmp___9 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___9 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 607
     if (tmp___9 != 0L) {
 #line 607
@@ -78050,7 +78050,7 @@ static int change_xattr(struct ubifs_info *c , struct inode *host , struct inode
 #line 317
   req.dd_growth = 0;
 #line 320
-  tmp___2 = __builtin_expect((loff_t )ui->data_len != inode->i_size, 0L);
+  tmp___2 = ldv__builtin_expect((loff_t )ui->data_len != inode->i_size, 0L);
 #line 320
   if (tmp___2 != 0L) {
 #line 320
@@ -78299,7 +78299,7 @@ int ubifs_setxattr(struct dentry *dentry , char const   *name , void const   *va
 #line 426
   descriptor.flags = 0U;
 #line 426
-  tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 426
   if (tmp___1 != 0L) {
 #line 426
@@ -78314,7 +78314,7 @@ int ubifs_setxattr(struct dentry *dentry , char const   *name , void const   *va
 #line 428
   tmp___3 = mutex_is_locked(& host->i_mutex);
 #line 428
-  tmp___4 = __builtin_expect(tmp___3 == 0, 0L);
+  tmp___4 = ldv__builtin_expect(tmp___3 == 0, 0L);
 #line 428
   if (tmp___4 != 0L) {
 #line 428
@@ -78468,7 +78468,7 @@ ssize_t ubifs_getxattr(struct dentry *dentry , char const   *name , void *buf , 
 #line 490
   descriptor.flags = 0U;
 #line 490
-  tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 490
   if (tmp___1 != 0L) {
 #line 490
@@ -78536,7 +78536,7 @@ ssize_t ubifs_getxattr(struct dentry *dentry , char const   *name , void *buf , 
 #line 515
   ui = ubifs_inode((struct inode  const  *)inode);
 #line 516
-  tmp___6 = __builtin_expect(inode->i_size != (loff_t )ui->data_len, 0L);
+  tmp___6 = ldv__builtin_expect(inode->i_size != (loff_t )ui->data_len, 0L);
 #line 516
   if (tmp___6 != 0L) {
 #line 516
@@ -78552,7 +78552,7 @@ ssize_t ubifs_getxattr(struct dentry *dentry , char const   *name , void *buf , 
 #line 517
   tmp___8 = ubifs_inode((struct inode  const  *)host);
 #line 517
-  tmp___9 = __builtin_expect(tmp___8->xattr_size <= (unsigned int )ui->data_len, 0L);
+  tmp___9 = ldv__builtin_expect(tmp___8->xattr_size <= (unsigned int )ui->data_len, 0L);
 #line 517
   if (tmp___9 != 0L) {
 #line 517
@@ -78660,7 +78660,7 @@ ssize_t ubifs_listxattr(struct dentry *dentry , char *buffer , size_t size )
 #line 549
   descriptor.flags = 0U;
 #line 549
-  tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 549
   if (tmp___1 != 0L) {
 #line 549
@@ -78713,7 +78713,7 @@ ssize_t ubifs_listxattr(struct dentry *dentry , char *buffer , size_t size )
 #line 576
   type = check_namespace((struct qstr  const  *)(& nm));
 #line 577
-  tmp___4 = __builtin_expect(type < 0, 0L);
+  tmp___4 = ldv__builtin_expect(type < 0, 0L);
 #line 577
   if (tmp___4 != 0L) {
 #line 578
@@ -78772,7 +78772,7 @@ ssize_t ubifs_listxattr(struct dentry *dentry , char *buffer , size_t size )
 
   }
 #line 599
-  tmp___8 = __builtin_expect((size_t )written > size, 0L);
+  tmp___8 = ldv__builtin_expect((size_t )written > size, 0L);
 #line 599
   if (tmp___8 != 0L) {
 #line 599
@@ -78838,7 +78838,7 @@ static int remove_xattr(struct ubifs_info *c , struct inode *host , struct inode
 #line 609
   req.dd_growth = 0;
 #line 612
-  tmp___2 = __builtin_expect((loff_t )ui->data_len != inode->i_size, 0L);
+  tmp___2 = ldv__builtin_expect((loff_t )ui->data_len != inode->i_size, 0L);
 #line 612
   if (tmp___2 != 0L) {
 #line 612
@@ -78953,7 +78953,7 @@ int ubifs_removexattr(struct dentry *dentry , char const   *name )
 #line 652
   descriptor.flags = 0U;
 #line 652
-  tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 652
   if (tmp___1 != 0L) {
 #line 652
@@ -78968,7 +78968,7 @@ int ubifs_removexattr(struct dentry *dentry , char const   *name )
 #line 654
   tmp___3 = mutex_is_locked(& host->i_mutex);
 #line 654
-  tmp___4 = __builtin_expect(tmp___3 == 0, 0L);
+  tmp___4 = ldv__builtin_expect(tmp___3 == 0, 0L);
 #line 654
   if (tmp___4 != 0L) {
 #line 654
@@ -79035,7 +79035,7 @@ int ubifs_removexattr(struct dentry *dentry , char const   *name )
 
   }
 #line 678
-  tmp___9 = __builtin_expect((unsigned int )inode->ldv_13285.i_nlink != 1U, 0L);
+  tmp___9 = ldv__builtin_expect((unsigned int )inode->ldv_13285.i_nlink != 1U, 0L);
 #line 678
   if (tmp___9 != 0L) {
 #line 678
@@ -79366,7 +79366,7 @@ __inline static long IS_ERR_OR_NULL(void const   *ptr )
     tmp___0 = 1;
   } else {
 #line 39
-    tmp = __builtin_expect((unsigned long )ptr > 0xfffffffffffff000UL, 0L);
+    tmp = ldv__builtin_expect((unsigned long )ptr > 0xfffffffffffff000UL, 0L);
 #line 39
     if (tmp != 0L) {
 #line 39
@@ -79450,14 +79450,14 @@ __inline static unsigned long copy_from_user(void *to , void const   *from , uns
 #line 61
   might_fault();
 #line 62
-  tmp___1 = __builtin_expect(sz == -1, 1L);
+  tmp___1 = ldv__builtin_expect(sz == -1, 1L);
 #line 62
   if (tmp___1 != 0L) {
 #line 63
     n = _copy_from_user(to, from, (unsigned int )n);
   } else {
 #line 62
-    tmp___2 = __builtin_expect((unsigned long )sz >= n, 1L);
+    tmp___2 = ldv__builtin_expect((unsigned long )sz >= n, 1L);
 #line 62
     if (tmp___2 != 0L) {
 #line 63
@@ -79466,7 +79466,7 @@ __inline static unsigned long copy_from_user(void *to , void const   *from , uns
 #line 66
       __ret_warn_on = 1;
 #line 66
-      tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+      tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 66
       if (tmp___0 != 0L) {
 #line 66
@@ -79476,7 +79476,7 @@ __inline static unsigned long copy_from_user(void *to , void const   *from , uns
 
       }
 #line 66
-      __builtin_expect(__ret_warn_on != 0, 0L);
+      ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
   }
 #line 68
@@ -79731,7 +79731,7 @@ char const   *dbg_snprintf_key(struct ubifs_info  const  *c , union ubifs_key  c
     len = len - tmp___15;
   }
 #line 256
-  tmp___17 = __builtin_expect(len <= 0, 0L);
+  tmp___17 = ldv__builtin_expect(len <= 0, 0L);
 #line 256
   if (tmp___17 != 0L) {
 #line 256
@@ -80004,7 +80004,7 @@ void ubifs_dump_inode(struct ubifs_info *c , struct inode  const  *inode )
 #line 398
   tmp___4 = mutex_is_locked(& c->tnc_mutex);
 #line 398
-  tmp___5 = __builtin_expect(tmp___4 != 0, 0L);
+  tmp___5 = ldv__builtin_expect(tmp___4 != 0, 0L);
 #line 398
   if (tmp___5 != 0L) {
 #line 398
@@ -81765,7 +81765,7 @@ static int dbg_check_key_order(struct ubifs_info *c , struct ubifs_zbranch *zbr1
   tmp___0 = keys_cmp((struct ubifs_info  const  *)c, (union ubifs_key  const  *)(& zbr1->key),
                      (union ubifs_key  const  *)(& zbr2->key));
 #line 1300
-  tmp___1 = __builtin_expect(tmp___0 != 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 != 0, 0L);
 #line 1300
   if (tmp___1 != 0L) {
 #line 1300
@@ -82348,7 +82348,7 @@ int dbg_check_tnc(struct ubifs_info *c , int extra )
 #line 1596
   tmp___1 = mutex_is_locked(& c->tnc_mutex);
 #line 1596
-  tmp___2 = __builtin_expect(tmp___1 == 0, 0L);
+  tmp___2 = ldv__builtin_expect(tmp___1 == 0, 0L);
 #line 1596
   if (tmp___2 != 0L) {
 #line 1596
@@ -84160,7 +84160,7 @@ static int power_cut_emulated(struct ubifs_info *c , int lnum , int write )
 #line 2590
   tmp___0 = dbg_is_chk_gen((struct ubifs_info  const  *)c);
 #line 2590
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
 #line 2590
   if (tmp___1 != 0L) {
 #line 2590
@@ -85944,7 +85944,7 @@ __inline static void ldv_error(void)
 #line 25
 extern int __VERIFIER_nondet_int(void) ;
 #line 49 "/home/mikhail/ldv/kernel-rules/verifier/rcv.h"
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 

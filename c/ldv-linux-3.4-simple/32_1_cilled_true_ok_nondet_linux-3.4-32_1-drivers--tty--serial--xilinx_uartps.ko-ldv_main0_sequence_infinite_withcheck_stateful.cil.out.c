@@ -3847,7 +3847,7 @@ struct module {
    unsigned int num_ctors ;
 };
 #line 1 "<compiler builtins>"
-long __builtin_expect(long val , long res ) ;
+long ldv__builtin_expect(long val , long res ) ;
 #line 138 "include/linux/ioport.h"
 extern struct resource iomem_resource ;
 #line 181
@@ -8240,7 +8240,7 @@ void ldv_check_final_state(void)
 }
 }
 #line 5238 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/16497/dscv_tempdir/dscv/ri/32_1/drivers/tty/serial/xilinx_uartps.c.common.c"
-long __builtin_expect(long val , long res ) 
+long ldv__builtin_expect(long val , long res ) 
 { 
 
   {

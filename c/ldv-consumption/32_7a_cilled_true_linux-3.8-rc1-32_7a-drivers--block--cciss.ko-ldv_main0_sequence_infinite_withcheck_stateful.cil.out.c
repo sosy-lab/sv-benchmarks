@@ -5258,7 +5258,7 @@ void *__builtin_memcpy(void * , void const   * , unsigned long  ) ;
 #line 1
 unsigned long __builtin_object_size(void * , int  ) ;
 #line 1
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 #line 100 "/home/mikhail/launches/cpachecker-regression2/launcher-working-dir/ldv-manager-work-dir/inst/current/envs/linux-3.8-rc1/linux-3.8-rc1/arch/x86/include/asm/bitops.h"
 __inline static void clear_bit(int nr , unsigned long volatile   *addr ) 
 { 
@@ -5501,7 +5501,7 @@ __inline static unsigned long arch_local_save_flags(void)
 #line 825
   __eax = __eax;
 #line 825
-  tmp = __builtin_expect((unsigned long )pv_irq_ops.save_fl.func == (unsigned long )((void *)0),
+  tmp = ldv__builtin_expect((unsigned long )pv_irq_ops.save_fl.func == (unsigned long )((void *)0),
                          0L);
 #line 825
   if (tmp != 0L) {
@@ -5551,7 +5551,7 @@ __inline static long IS_ERR(void const   *ptr )
 
   {
 #line 34
-  tmp = __builtin_expect((unsigned long )ptr > 0xfffffffffffff000UL, 0L);
+  tmp = ldv__builtin_expect((unsigned long )ptr > 0xfffffffffffff000UL, 0L);
 #line 34
   return (tmp);
 }
@@ -5844,14 +5844,14 @@ __inline static unsigned long copy_from_user(void *to , void const   *from , uns
 #line 61
   might_fault();
 #line 62
-  tmp___1 = __builtin_expect(sz == -1, 1L);
+  tmp___1 = ldv__builtin_expect(sz == -1, 1L);
 #line 62
   if (tmp___1 != 0L) {
 #line 63
     n = _copy_from_user(to, from, (unsigned int )n);
   } else {
 #line 62
-    tmp___2 = __builtin_expect((unsigned long )sz >= n, 1L);
+    tmp___2 = ldv__builtin_expect((unsigned long )sz >= n, 1L);
 #line 62
     if (tmp___2 != 0L) {
 #line 63
@@ -5860,7 +5860,7 @@ __inline static unsigned long copy_from_user(void *to , void const   *from , uns
 #line 66
       __ret_warn_on = 1;
 #line 66
-      tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+      tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 66
       if (tmp___0 != 0L) {
 #line 66
@@ -5870,7 +5870,7 @@ __inline static unsigned long copy_from_user(void *to , void const   *from , uns
 
       }
 #line 66
-      __builtin_expect(__ret_warn_on != 0, 0L);
+      ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
   }
 #line 68
@@ -6099,7 +6099,7 @@ __inline static struct page *sg_page(struct scatterlist *sg )
 
   {
 #line 98
-  tmp = __builtin_expect(sg->sg_magic != 2271560481UL, 0L);
+  tmp = ldv__builtin_expect(sg->sg_magic != 2271560481UL, 0L);
 #line 98
   if (tmp != 0L) {
 #line 98
@@ -6112,7 +6112,7 @@ __inline static struct page *sg_page(struct scatterlist *sg )
 
   }
 #line 99
-  tmp___0 = __builtin_expect((long )((int )sg->page_link) & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )((int )sg->page_link) & 1L, 0L);
 #line 99
   if (tmp___0 != 0L) {
 #line 99
@@ -6183,7 +6183,7 @@ __inline static struct dma_map_ops *get_dma_ops(struct device *dev )
 
   {
 #line 37
-  tmp = __builtin_expect((unsigned long )dev == (unsigned long )((struct device *)0),
+  tmp = ldv__builtin_expect((unsigned long )dev == (unsigned long )((struct device *)0),
                          0L);
 #line 37
   if (tmp != 0L || (unsigned long )dev->archdata.dma_ops == (unsigned long )((struct dma_map_ops *)0)) {
@@ -6217,7 +6217,7 @@ __inline static dma_addr_t dma_map_single_attrs(struct device *dev , void *ptr ,
 #line 19
   tmp___0 = valid_dma_direction((int )dir);
 #line 19
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
 #line 19
   if (tmp___1 != 0L) {
 #line 19
@@ -6261,7 +6261,7 @@ __inline static void dma_unmap_single_attrs(struct device *dev , dma_addr_t addr
 #line 36
   tmp___0 = valid_dma_direction((int )dir);
 #line 36
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
 #line 36
   if (tmp___1 != 0L) {
 #line 36
@@ -6312,7 +6312,7 @@ __inline static dma_addr_t dma_map_page(struct device *dev , struct page *page ,
 #line 79
   tmp___1 = valid_dma_direction((int )dir);
 #line 79
-  tmp___2 = __builtin_expect(tmp___1 == 0, 0L);
+  tmp___2 = ldv__builtin_expect(tmp___1 == 0, 0L);
 #line 79
   if (tmp___2 != 0L) {
 #line 79
@@ -6349,7 +6349,7 @@ __inline static void dma_unmap_page(struct device *dev , dma_addr_t addr , size_
 #line 91
   tmp___0 = valid_dma_direction((int )dir);
 #line 91
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
 #line 91
   if (tmp___1 != 0L) {
 #line 91
@@ -6506,7 +6506,7 @@ __inline static void dma_free_attrs(struct device *dev , size_t size , void *vad
 #line 166
   __ret_warn_on = tmp___0 != 0;
 #line 166
-  tmp___1 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___1 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 166
   if (tmp___1 != 0L) {
 #line 166
@@ -6516,7 +6516,7 @@ __inline static void dma_free_attrs(struct device *dev , size_t size , void *vad
 
   }
 #line 166
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 171
   debug_dma_free_coherent(dev, size, vaddr, bus);
 #line 172
@@ -7304,7 +7304,7 @@ static void set_performant_mode(ctlr_info_t *h , CommandList_struct *c )
 
   {
 #line 303
-  tmp = __builtin_expect((h->transMethod & 4UL) != 0UL, 1L);
+  tmp = ldv__builtin_expect((h->transMethod & 4UL) != 0UL, 1L);
 #line 303
   if (tmp != 0L) {
 #line 304
@@ -7342,7 +7342,7 @@ __inline static void removeQ(CommandList_struct *c )
 #line 325
   __ret_warn_on = tmp != 0;
 #line 325
-  tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 325
   if (tmp___0 != 0L) {
 #line 325
@@ -7352,7 +7352,7 @@ __inline static void removeQ(CommandList_struct *c )
 
   }
 #line 325
-  tmp___1 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___1 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 325
   if (tmp___1 != 0L) {
 #line 326
@@ -11795,7 +11795,7 @@ static void cciss_scatter_gather(ctlr_info_t *h , CommandList_struct *c , struct
 #line 1373
   tmp = scsi_sg_count(cmd);
 #line 1373
-  tmp___0 = __builtin_expect(tmp > (unsigned int )h->maxsgentries, 0L);
+  tmp___0 = ldv__builtin_expect(tmp > (unsigned int )h->maxsgentries, 0L);
 #line 1373
   if (tmp___0 != 0L) {
 #line 1373
@@ -11976,7 +11976,7 @@ static int cciss_scsi_queue_command_lck(struct scsi_cmnd *cmd , void (*done)(str
 #line 1470
   memset((void *)(& c->Request.CDB), 0, 16UL);
 #line 1471
-  tmp___0 = __builtin_expect((unsigned int )cmd->cmd_len > 16U, 0L);
+  tmp___0 = ldv__builtin_expect((unsigned int )cmd->cmd_len > 16U, 0L);
 #line 1471
   if (tmp___0 != 0L) {
 #line 1471
@@ -13712,7 +13712,7 @@ static int cciss_open(struct block_device *bdev , fmode_t mode )
 #line 1139
   descriptor.flags = 0U;
 #line 1139
-  tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1139
   if (tmp___1 != 0L) {
 #line 1139
@@ -13822,7 +13822,7 @@ static int cciss_release(struct gendisk *disk , fmode_t mode )
 #line 1191
   descriptor.flags = 0U;
 #line 1191
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1191
   if (tmp != 0L) {
 #line 1191
@@ -15426,7 +15426,7 @@ static int cciss_ioctl(struct block_device *bdev , fmode_t mode , unsigned int c
 #line 1761
   descriptor.flags = 0U;
 #line 1761
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1761
   if (tmp___0 != 0L) {
 #line 1761
@@ -15686,7 +15686,7 @@ static void cciss_softirq_done(struct request *rq )
 #line 1897
   descriptor.flags = 0U;
 #line 1897
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1897
   if (tmp != 0L) {
 #line 1897
@@ -18224,7 +18224,7 @@ __inline static u32 cciss_tag_discard_error_bits(ctlr_info_t *h , u32 tag )
 
   {
 #line 3321
-  tmp = __builtin_expect((h->transMethod & 4UL) != 0UL, 1L);
+  tmp = ldv__builtin_expect((h->transMethod & 4UL) != 0UL, 1L);
 #line 3321
   if (tmp != 0L) {
 #line 3322
@@ -18319,7 +18319,7 @@ static void do_cciss_request(struct request_queue *q )
 
   }
 #line 3359
-  tmp = __builtin_expect((int )creq->nr_phys_segments > h->maxsgentries, 0L);
+  tmp = ldv__builtin_expect((int )creq->nr_phys_segments > h->maxsgentries, 0L);
 #line 3359
   if (tmp != 0L) {
 #line 3359
@@ -18396,7 +18396,7 @@ static void do_cciss_request(struct request_queue *q )
 #line 3391
   descriptor.flags = 0U;
 #line 3391
-  tmp___2 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___2 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 3391
   if (tmp___2 != 0L) {
 #line 3391
@@ -18497,7 +18497,7 @@ static void do_cciss_request(struct request_queue *q )
 #line 3432
   descriptor___0.flags = 0U;
 #line 3432
-  tmp___5 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___5 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 3432
   if (tmp___5 != 0L) {
 #line 3432
@@ -18522,7 +18522,7 @@ static void do_cciss_request(struct request_queue *q )
 #line 3441
   set_performant_mode(h, c);
 #line 3443
-  tmp___15 = __builtin_expect((unsigned int )creq->cmd_type == 1U, 1L);
+  tmp___15 = ldv__builtin_expect((unsigned int )creq->cmd_type == 1U, 1L);
 #line 3443
   if (tmp___15 != 0L) {
 #line 3444
@@ -18708,7 +18708,7 @@ __inline static int bad_tag(ctlr_info_t *h , u32 tag_index , u32 raw_tag )
 
   {
 #line 3518
-  tmp = __builtin_expect((u32 )h->nr_cmds <= tag_index, 0L);
+  tmp = ldv__builtin_expect((u32 )h->nr_cmds <= tag_index, 0L);
 #line 3518
   if (tmp != 0L) {
 #line 3519
@@ -18732,7 +18732,7 @@ __inline static void finish_cmd(ctlr_info_t *h , CommandList_struct *c , u32 raw
 #line 3528
   removeQ(c);
 #line 3529
-  tmp = __builtin_expect(c->cmd_type == 0, 1L);
+  tmp = ldv__builtin_expect(c->cmd_type == 0, 1L);
 #line 3529
   if (tmp != 0L) {
 #line 3530
@@ -18763,7 +18763,7 @@ __inline static u32 next_command(ctlr_info_t *h )
 
   {
 #line 3543
-  tmp___0 = __builtin_expect((h->transMethod & 4UL) == 0UL, 0L);
+  tmp___0 = ldv__builtin_expect((h->transMethod & 4UL) == 0UL, 0L);
 #line 3543
   if (tmp___0 != 0L) {
 #line 3544
@@ -18895,7 +18895,7 @@ static int ignore_bogus_interrupt(ctlr_info_t *h )
 
   {
 #line 3600
-  tmp = __builtin_expect(reset_devices == 0U, 1L);
+  tmp = ldv__builtin_expect(reset_devices == 0U, 1L);
 #line 3600
   if (tmp != 0L) {
 #line 3601
@@ -18904,7 +18904,7 @@ static int ignore_bogus_interrupt(ctlr_info_t *h )
 
   }
 #line 3603
-  tmp___0 = __builtin_expect(h->interrupts_enabled != 0, 1L);
+  tmp___0 = ldv__builtin_expect(h->interrupts_enabled != 0, 1L);
 #line 3603
   if (tmp___0 != 0L) {
 #line 3604
@@ -19527,7 +19527,7 @@ static void print_cfg_table(ctlr_info_t *h )
 #line 3877
   descriptor.flags = 0U;
 #line 3877
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 3877
   if (tmp != 0L) {
 #line 3877
@@ -19548,7 +19548,7 @@ static void print_cfg_table(ctlr_info_t *h )
 #line 3878
   descriptor___0.flags = 0U;
 #line 3878
-  tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 3878
   if (tmp___0 != 0L) {
 #line 3878
@@ -19591,7 +19591,7 @@ static void print_cfg_table(ctlr_info_t *h )
 #line 3882
   descriptor___1.flags = 0U;
 #line 3882
-  tmp___2 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+  tmp___2 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 3882
   if (tmp___2 != 0L) {
 #line 3882
@@ -19613,7 +19613,7 @@ static void print_cfg_table(ctlr_info_t *h )
 #line 3883
   descriptor___2.flags = 0U;
 #line 3883
-  tmp___4 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+  tmp___4 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
 #line 3883
   if (tmp___4 != 0L) {
 #line 3883
@@ -19637,7 +19637,7 @@ static void print_cfg_table(ctlr_info_t *h )
 #line 3885
   descriptor___3.flags = 0U;
 #line 3885
-  tmp___6 = __builtin_expect((long )descriptor___3.flags & 1L, 0L);
+  tmp___6 = ldv__builtin_expect((long )descriptor___3.flags & 1L, 0L);
 #line 3885
   if (tmp___6 != 0L) {
 #line 3885
@@ -19661,7 +19661,7 @@ static void print_cfg_table(ctlr_info_t *h )
 #line 3887
   descriptor___4.flags = 0U;
 #line 3887
-  tmp___8 = __builtin_expect((long )descriptor___4.flags & 1L, 0L);
+  tmp___8 = ldv__builtin_expect((long )descriptor___4.flags & 1L, 0L);
 #line 3887
   if (tmp___8 != 0L) {
 #line 3887
@@ -19685,7 +19685,7 @@ static void print_cfg_table(ctlr_info_t *h )
 #line 3889
   descriptor___5.flags = 0U;
 #line 3889
-  tmp___10 = __builtin_expect((long )descriptor___5.flags & 1L, 0L);
+  tmp___10 = ldv__builtin_expect((long )descriptor___5.flags & 1L, 0L);
 #line 3889
   if (tmp___10 != 0L) {
 #line 3889
@@ -19709,7 +19709,7 @@ static void print_cfg_table(ctlr_info_t *h )
 #line 3891
   descriptor___6.flags = 0U;
 #line 3891
-  tmp___12 = __builtin_expect((long )descriptor___6.flags & 1L, 0L);
+  tmp___12 = ldv__builtin_expect((long )descriptor___6.flags & 1L, 0L);
 #line 3891
   if (tmp___12 != 0L) {
 #line 3891
@@ -19733,7 +19733,7 @@ static void print_cfg_table(ctlr_info_t *h )
 #line 3893
   descriptor___7.flags = 0U;
 #line 3893
-  tmp___14 = __builtin_expect((long )descriptor___7.flags & 1L, 0L);
+  tmp___14 = ldv__builtin_expect((long )descriptor___7.flags & 1L, 0L);
 #line 3893
   if (tmp___14 != 0L) {
 #line 3893
@@ -19757,7 +19757,7 @@ static void print_cfg_table(ctlr_info_t *h )
 #line 3895
   descriptor___8.flags = 0U;
 #line 3895
-  tmp___16 = __builtin_expect((long )descriptor___8.flags & 1L, 0L);
+  tmp___16 = ldv__builtin_expect((long )descriptor___8.flags & 1L, 0L);
 #line 3895
   if (tmp___16 != 0L) {
 #line 3895
@@ -19781,7 +19781,7 @@ static void print_cfg_table(ctlr_info_t *h )
 #line 3897
   descriptor___9.flags = 0U;
 #line 3897
-  tmp___18 = __builtin_expect((long )descriptor___9.flags & 1L, 0L);
+  tmp___18 = ldv__builtin_expect((long )descriptor___9.flags & 1L, 0L);
 #line 3897
   if (tmp___18 != 0L) {
 #line 3897
@@ -19826,7 +19826,7 @@ static void print_cfg_table(ctlr_info_t *h )
 #line 3902
   descriptor___10.flags = 0U;
 #line 3902
-  tmp___20 = __builtin_expect((long )descriptor___10.flags & 1L, 0L);
+  tmp___20 = ldv__builtin_expect((long )descriptor___10.flags & 1L, 0L);
 #line 3902
   if (tmp___20 != 0L) {
 #line 3902
@@ -19848,7 +19848,7 @@ static void print_cfg_table(ctlr_info_t *h )
 #line 3903
   descriptor___11.flags = 0U;
 #line 3903
-  tmp___22 = __builtin_expect((long )descriptor___11.flags & 1L, 0L);
+  tmp___22 = ldv__builtin_expect((long )descriptor___11.flags & 1L, 0L);
 #line 3903
   if (tmp___22 != 0L) {
 #line 3903
@@ -20152,7 +20152,7 @@ static void cciss_put_controller_into_performant_mode(ctlr_info_t *h )
 #line 4066
   descriptor.flags = 0U;
 #line 4066
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 4066
   if (tmp != 0L) {
 #line 4066
@@ -20182,7 +20182,7 @@ static void cciss_put_controller_into_performant_mode(ctlr_info_t *h )
 #line 4073
   descriptor___0.flags = 0U;
 #line 4073
-  tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 4073
   if (tmp___0 != 0L) {
 #line 4073
@@ -20411,7 +20411,7 @@ static int cciss_pci_find_memory_BAR(struct pci_dev *pdev , unsigned long *memor
 #line 4202
     descriptor.flags = 0U;
 #line 4202
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 4202
     if (tmp != 0L) {
 #line 4202
@@ -20802,7 +20802,7 @@ static int cciss_pci_init(ctlr_info_t *h )
 #line 4394
   descriptor.flags = 0U;
 #line 4394
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 4394
   if (tmp___0 != 0L) {
 #line 4394
@@ -20824,7 +20824,7 @@ static int cciss_pci_init(ctlr_info_t *h )
 #line 4395
   descriptor___0.flags = 0U;
 #line 4395
-  tmp___1 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 4395
   if (tmp___1 != 0L) {
 #line 4395
@@ -23497,7 +23497,7 @@ __inline static void ldv_error(void)
 #line 25
 extern int __VERIFIER_nondet_int(void) ;
 #line 49 "/home/mikhail/ldv/kernel-rules/verifier/rcv.h"
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 

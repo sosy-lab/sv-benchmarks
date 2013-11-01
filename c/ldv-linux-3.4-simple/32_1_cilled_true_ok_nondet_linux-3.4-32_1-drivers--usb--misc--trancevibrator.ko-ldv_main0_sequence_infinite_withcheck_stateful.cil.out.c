@@ -3707,7 +3707,7 @@ struct trancevibrator {
    unsigned int speed ;
 };
 #line 1 "<compiler builtins>"
-long __builtin_expect(long val , long res ) ;
+long ldv__builtin_expect(long val , long res ) ;
 #line 49 "include/linux/dynamic_debug.h"
 extern int ( /* format attribute */  __dynamic_dev_dbg)(struct _ddebug *descriptor ,
                                                         struct device  const  *dev ,
@@ -4145,7 +4145,7 @@ static ssize_t set_speed(struct device *dev , struct device_attribute *attr , ch
 #line 74
       __cil_tmp35 = (long )__cil_tmp34;
 #line 74
-      tmp___9 = __builtin_expect(__cil_tmp35, 0L);
+      tmp___9 = ldv__builtin_expect(__cil_tmp35, 0L);
       }
 #line 74
       if (tmp___9) {
@@ -4253,7 +4253,7 @@ static ssize_t set_speed(struct device *dev , struct device_attribute *attr , ch
 #line 84
         __cil_tmp68 = (long )__cil_tmp67;
 #line 84
-        tmp___11 = __builtin_expect(__cil_tmp68, 0L);
+        tmp___11 = ldv__builtin_expect(__cil_tmp68, 0L);
         }
 #line 84
         if (tmp___11) {
@@ -4880,7 +4880,7 @@ void ldv_check_final_state(void)
 }
 }
 #line 301 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/7722/dscv_tempdir/dscv/ri/32_1/drivers/usb/misc/trancevibrator.c.common.c"
-long __builtin_expect(long val , long res ) 
+long ldv__builtin_expect(long val , long res ) 
 { 
 
   {

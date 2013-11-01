@@ -7381,7 +7381,7 @@ typedef int ldv_func_ret_type___7;
 #line 1 "<compiler builtins>"
 void *__builtin_memcpy(void * , void const   * , unsigned long  ) ;
 #line 1
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 #line 33 "include/linux/export.h"
 extern struct module __this_module ;
 #line 197 "/work/ldvuser/exper_fp/inst/current/envs/linux-3.10-rc1.tar/linux-3.10-rc1/arch/x86/include/asm/bitops.h"
@@ -7584,7 +7584,7 @@ __inline static unsigned long arch_local_save_flags(void)
 #line 824
   __eax = __eax;
 #line 824
-  tmp = __builtin_expect((unsigned long )pv_irq_ops.save_fl.func == (unsigned long )((void *)0),
+  tmp = ldv__builtin_expect((unsigned long )pv_irq_ops.save_fl.func == (unsigned long )((void *)0),
                          0L);
 #line 824
   if (tmp != 0L) {
@@ -8304,7 +8304,7 @@ __inline static struct dma_map_ops *get_dma_ops(struct device *dev )
 
   {
 #line 37
-  tmp = __builtin_expect((unsigned long )dev == (unsigned long )((struct device *)0),
+  tmp = ldv__builtin_expect((unsigned long )dev == (unsigned long )((struct device *)0),
                          0L);
 #line 37
   if (tmp != 0L || (unsigned long )dev->archdata.dma_ops == (unsigned long )((struct dma_map_ops *)0)) {
@@ -8338,7 +8338,7 @@ __inline static dma_addr_t dma_map_single_attrs(struct device *dev , void *ptr ,
 #line 19
   tmp___0 = valid_dma_direction((int )dir);
 #line 19
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
 #line 19
   if (tmp___1 != 0L) {
 #line 19
@@ -8382,7 +8382,7 @@ __inline static void dma_unmap_single_attrs(struct device *dev , dma_addr_t addr
 #line 36
   tmp___0 = valid_dma_direction((int )dir);
 #line 36
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
 #line 36
   if (tmp___1 != 0L) {
 #line 36
@@ -8563,7 +8563,7 @@ __inline static void dma_free_attrs(struct device *dev , size_t size , void *vad
 #line 166
   __ret_warn_on = tmp___0 != 0;
 #line 166
-  tmp___1 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___1 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 166
   if (tmp___1 != 0L) {
 #line 166
@@ -8573,7 +8573,7 @@ __inline static void dma_free_attrs(struct device *dev , size_t size , void *vad
 
   }
 #line 166
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 171
   debug_dma_free_coherent(dev, size, vaddr, bus);
 #line 172
@@ -8924,7 +8924,7 @@ __inline static enum nl80211_channel_type cfg80211_get_chandef_type(struct cfg80
 #line 370
   __ret_warn_on = 1;
 #line 370
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 370
   if (tmp != 0L) {
 #line 370
@@ -8933,7 +8933,7 @@ __inline static enum nl80211_channel_type cfg80211_get_chandef_type(struct cfg80
 
   }
 #line 370
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 371
   return (0);
   }
@@ -11100,7 +11100,7 @@ static int mwl8k_tx_wait_empty(struct ieee80211_hw *hw )
 #line 1608
     __ret_warn_on = priv->pending_tx_pkts != 0;
 #line 1608
-    tmp___3 = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp___3 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 1608
     if (tmp___3 != 0L) {
 #line 1608
@@ -11110,7 +11110,7 @@ static int mwl8k_tx_wait_empty(struct ieee80211_hw *hw )
 
     }
 #line 1608
-    __builtin_expect(__ret_warn_on != 0, 0L);
+    ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 1609
     if (retry != 0) {
 #line 1610
@@ -11172,7 +11172,7 @@ static int mwl8k_tid_queue_mapping(u8 tid )
 
   {
 #line 1645
-  tmp = __builtin_expect((unsigned int )tid > 7U, 0L);
+  tmp = ldv__builtin_expect((unsigned int )tid > 7U, 0L);
 #line 1645
   if (tmp != 0L) {
 #line 1645
@@ -11266,7 +11266,7 @@ static int mwl8k_txq_reclaim(struct ieee80211_hw *hw , int index , int limit , i
 #line 1711
   txq->head = (tx + 1) % 128;
 #line 1712
-  tmp = __builtin_expect(txq->len == 0U, 0L);
+  tmp = ldv__builtin_expect(txq->len == 0U, 0L);
 #line 1712
   if (tmp != 0L) {
 #line 1712
@@ -11291,7 +11291,7 @@ static int mwl8k_txq_reclaim(struct ieee80211_hw *hw , int index , int limit , i
 #line 1719
   *(txq->skb + (unsigned long )tx) = 0;
 #line 1721
-  tmp___0 = __builtin_expect((unsigned long )skb == (unsigned long )((struct sk_buff *)0),
+  tmp___0 = ldv__builtin_expect((unsigned long )skb == (unsigned long )((struct sk_buff *)0),
                              0L);
 #line 1721
   if (tmp___0 != 0L) {
@@ -11329,7 +11329,7 @@ static int mwl8k_txq_reclaim(struct ieee80211_hw *hw , int index , int limit , i
 #line 1738
       sta_info = (struct mwl8k_sta *)(& sta->drv_priv);
 #line 1739
-      tmp___1 = __builtin_expect((unsigned long )sta_info == (unsigned long )((struct mwl8k_sta *)0),
+      tmp___1 = ldv__builtin_expect((unsigned long )sta_info == (unsigned long )((struct mwl8k_sta *)0),
                                  0L);
 #line 1739
       if (tmp___1 != 0L) {
@@ -11589,7 +11589,7 @@ __inline static bool mwl8k_ampdu_allowed(struct ieee80211_sta *sta , u8 tid )
 #line 1865
   sta_info = (struct mwl8k_sta *)(& sta->drv_priv);
 #line 1868
-  tmp = __builtin_expect((unsigned int )tid > 7U, 0L);
+  tmp = ldv__builtin_expect((unsigned int )tid > 7U, 0L);
 #line 1868
   if (tmp != 0L) {
 #line 1868
@@ -11618,7 +11618,7 @@ __inline static void mwl8k_tx_count_packet(struct ieee80211_sta *sta , u8 tid )
 #line 1877
   sta_info = (struct mwl8k_sta *)(& sta->drv_priv);
 #line 1880
-  tmp = __builtin_expect((unsigned int )tid > 7U, 0L);
+  tmp = ldv__builtin_expect((unsigned int )tid > 7U, 0L);
 #line 1880
   if (tmp != 0L) {
 #line 1880
@@ -11823,11 +11823,11 @@ static void mwl8k_txq_xmit(struct ieee80211_hw *hw , int index , struct ieee8021
 #line 1984
   tmp___6 = ieee80211_is_action((int )wh->frame_control);
 #line 1984
-  tmp___7 = __builtin_expect(tmp___6 != 0, 0L);
+  tmp___7 = ldv__builtin_expect(tmp___6 != 0, 0L);
 #line 1984
   if (tmp___7 != 0L) {
 #line 1984
-    tmp___8 = __builtin_expect((unsigned int )mgmt->u.action.category == 3U, 0L);
+    tmp___8 = ldv__builtin_expect((unsigned int )mgmt->u.action.category == 3U, 0L);
 #line 1984
     if (tmp___8 != 0L) {
 #line 1984
@@ -11843,7 +11843,7 @@ static void mwl8k_txq_xmit(struct ieee80211_hw *hw , int index , struct ieee8021
 #line 1984
   if (tmp___9 != 0) {
 #line 1984
-    tmp___10 = __builtin_expect((unsigned int )mgmt->u.action.u.addba_req.action_code == 0U,
+    tmp___10 = ldv__builtin_expect((unsigned int )mgmt->u.action.u.addba_req.action_code == 0U,
                                 0L);
 #line 1984
     if (tmp___10 != 0L) {
@@ -11860,7 +11860,7 @@ static void mwl8k_txq_xmit(struct ieee80211_hw *hw , int index , struct ieee8021
 #line 1984
   if (tmp___11 != 0) {
 #line 1984
-    tmp___12 = __builtin_expect((long )priv->ap_fw, 0L);
+    tmp___12 = ldv__builtin_expect((long )priv->ap_fw, 0L);
 #line 1984
     if (tmp___12 != 0L) {
 #line 1988
@@ -11898,7 +11898,7 @@ static void mwl8k_txq_xmit(struct ieee80211_hw *hw , int index , struct ieee8021
 #line 2003
           __ret_warn_on = ((int )qos & 96) == 0;
 #line 2003
-          tmp___13 = __builtin_expect(__ret_warn_on != 0, 0L);
+          tmp___13 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 2003
           if (tmp___13 != 0L) {
 #line 2003
@@ -11908,7 +11908,7 @@ static void mwl8k_txq_xmit(struct ieee80211_hw *hw , int index , struct ieee8021
 
           }
 #line 2003
-          __builtin_expect(__ret_warn_on != 0, 0L);
+          ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 2004
           txpriority = ((int )stream->idx + 5) % 8;
 #line 2006
@@ -12024,7 +12024,7 @@ static void mwl8k_txq_xmit(struct ieee80211_hw *hw , int index , struct ieee8021
 
   }
 #line 2098
-  tmp___17 = __builtin_expect((unsigned long )*(txq->skb + (unsigned long )txq->tail) != (unsigned long )((struct sk_buff *)0),
+  tmp___17 = ldv__builtin_expect((unsigned long )*(txq->skb + (unsigned long )txq->tail) != (unsigned long )((struct sk_buff *)0),
                               0L);
 #line 2098
   if (tmp___17 != 0L) {
@@ -12254,7 +12254,7 @@ static int mwl8k_post_cmd(struct ieee80211_hw *hw , struct mwl8k_cmd_pkt *cmd )
 #line 2222
   descriptor.flags = 0U;
 #line 2222
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 2222
   if (tmp___0 != 0L) {
 #line 2222
@@ -16775,7 +16775,7 @@ static int mwl8k_conf_tx(struct ieee80211_hw *hw , struct ieee80211_vif *vif , u
 #line 5259
   if (rc == 0) {
 #line 5260
-    tmp = __builtin_expect((unsigned int )queue > 3U, 0L);
+    tmp = ldv__builtin_expect((unsigned int )queue > 3U, 0L);
 #line 5260
     if (tmp != 0L) {
 #line 5260
@@ -17023,7 +17023,7 @@ static int mwl8k_ampdu_action(struct ieee80211_hw *hw , struct ieee80211_vif *vi
   goto ldv_46829;
   case 6U: 
 #line 5408
-  tmp = __builtin_expect((unsigned long )stream == (unsigned long )((struct mwl8k_ampdu_stream *)0),
+  tmp = ldv__builtin_expect((unsigned long )stream == (unsigned long )((struct mwl8k_ampdu_stream *)0),
                          0L);
 #line 5408
   if (tmp != 0L) {
@@ -17037,7 +17037,7 @@ static int mwl8k_ampdu_action(struct ieee80211_hw *hw , struct ieee80211_vif *vi
 
   }
 #line 5409
-  tmp___0 = __builtin_expect((unsigned int )stream->state != 2U, 0L);
+  tmp___0 = ldv__builtin_expect((unsigned int )stream->state != 2U, 0L);
 #line 5409
   if (tmp___0 != 0L) {
 #line 5409
@@ -18784,7 +18784,7 @@ __inline static void ldv_error(void)
 #line 25
 extern int __VERIFIER_nondet_int(void) ;
 #line 49 "/home/ldvuser/ldv/inst/kernel-rules/verifier/rcv.h"
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 

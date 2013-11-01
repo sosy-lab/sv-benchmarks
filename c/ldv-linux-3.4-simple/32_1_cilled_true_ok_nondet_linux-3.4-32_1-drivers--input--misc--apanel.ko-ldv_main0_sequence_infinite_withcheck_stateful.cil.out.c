@@ -3725,7 +3725,7 @@ struct apanel {
    struct led_classdev mail_led ;
 };
 #line 1 "<compiler builtins>"
-long __builtin_expect(long val , long res ) ;
+long ldv__builtin_expect(long val , long res ) ;
 #line 59 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/bitops.h"
 __inline static void ( __attribute__((__always_inline__)) set_bit)(unsigned int nr ,
                                                                    unsigned long volatile   *addr )  __attribute__((__no_instrument_function__)) ;
@@ -3994,7 +3994,7 @@ static void report_key(struct input_dev *input , unsigned int keycode )
 #line 74
     __cil_tmp9 = (long )__cil_tmp8;
 #line 74
-    tmp___7 = __builtin_expect(__cil_tmp9, 0L);
+    tmp___7 = ldv__builtin_expect(__cil_tmp9, 0L);
     }
 #line 74
     if (tmp___7) {
@@ -4171,7 +4171,7 @@ static void apanel_poll(struct input_polled_dev *ipdev )
 #line 108
       __cil_tmp30 = (long )__cil_tmp29;
 #line 108
-      tmp___8 = __builtin_expect(__cil_tmp30, 0L);
+      tmp___8 = ldv__builtin_expect(__cil_tmp30, 0L);
       }
 #line 108
       if (tmp___8) {
@@ -5917,7 +5917,7 @@ void ldv_check_final_state(void)
 }
 }
 #line 496 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/4001/dscv_tempdir/dscv/ri/32_1/drivers/input/misc/apanel.c.common.c"
-long __builtin_expect(long val , long res ) 
+long ldv__builtin_expect(long val , long res ) 
 { 
 
   {

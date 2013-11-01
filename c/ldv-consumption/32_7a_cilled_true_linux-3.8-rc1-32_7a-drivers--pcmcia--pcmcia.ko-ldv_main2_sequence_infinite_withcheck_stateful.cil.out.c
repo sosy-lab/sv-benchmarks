@@ -6020,7 +6020,7 @@ struct pcmcia_loop_get {
 #line 1 "<compiler builtins>"
 void *__builtin_memcpy(void * , void const   * , unsigned long  ) ;
 #line 1
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 #line 119 "include/linux/printk.h"
 extern int printk(char const   *  , ...) ;
 #line 45 "include/linux/dynamic_debug.h"
@@ -6324,7 +6324,7 @@ __inline static void kref_get(struct kref *kref )
 #line 42
   __ret_warn_on = tmp == 0;
 #line 42
-  tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 42
   if (tmp___0 != 0L) {
 #line 42
@@ -6333,7 +6333,7 @@ __inline static void kref_get(struct kref *kref )
 
   }
 #line 42
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 43
   atomic_inc(& kref->refcount);
 #line 44
@@ -6351,7 +6351,7 @@ __inline static int kref_sub(struct kref *kref , unsigned int count , void (*rel
 #line 67
   __ret_warn_on = (unsigned long )release == (unsigned long )((void (*)(struct kref * ))0);
 #line 67
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 67
   if (tmp != 0L) {
 #line 67
@@ -6360,7 +6360,7 @@ __inline static int kref_sub(struct kref *kref , unsigned int count , void (*rel
 
   }
 #line 67
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 69
   tmp___0 = atomic_sub_and_test((int )count, & kref->refcount);
 #line 69
@@ -6861,7 +6861,7 @@ int pcmcia_register_driver(struct pcmcia_driver *driver )
 #line 236
   descriptor.flags = 0U;
 #line 236
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 236
   if (tmp != 0L) {
 #line 236
@@ -6911,7 +6911,7 @@ void pcmcia_unregister_driver(struct pcmcia_driver *driver )
 #line 256
   descriptor.flags = 0U;
 #line 256
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 256
   if (tmp != 0L) {
 #line 256
@@ -6994,7 +6994,7 @@ static void pcmcia_release_function(struct kref *ref )
 #line 284
   descriptor.flags = 0U;
 #line 284
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 284
   if (tmp != 0L) {
 #line 284
@@ -7035,7 +7035,7 @@ static void pcmcia_release_dev(struct device *dev )
 #line 292
   descriptor.flags = 0U;
 #line 292
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 292
   if (tmp != 0L) {
 #line 292
@@ -7130,7 +7130,7 @@ static int pcmcia_device_probe(struct device *dev )
 #line 318
   descriptor.flags = 0U;
 #line 318
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 318
   if (tmp != 0L) {
 #line 318
@@ -7187,7 +7187,7 @@ static int pcmcia_device_probe(struct device *dev )
 #line 332
     descriptor___0.flags = 0U;
 #line 332
-    tmp___2 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___2 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 332
     if (tmp___2 != 0L) {
 #line 332
@@ -7221,7 +7221,7 @@ static int pcmcia_device_probe(struct device *dev )
 #line 343
     descriptor___1.flags = 0U;
 #line 343
-    tmp___3 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___3 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 343
     if (tmp___3 != 0L) {
 #line 343
@@ -7248,7 +7248,7 @@ static int pcmcia_device_probe(struct device *dev )
 #line 347
   descriptor___2.flags = 0U;
 #line 347
-  tmp___4 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+  tmp___4 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
 #line 347
   if (tmp___4 != 0L) {
 #line 347
@@ -7271,7 +7271,7 @@ static int pcmcia_device_probe(struct device *dev )
 #line 349
   descriptor___3.flags = 0U;
 #line 349
-  tmp___5 = __builtin_expect((long )descriptor___3.flags & 1L, 0L);
+  tmp___5 = ldv__builtin_expect((long )descriptor___3.flags & 1L, 0L);
 #line 349
   if (tmp___5 != 0L) {
 #line 349
@@ -7339,7 +7339,7 @@ static void pcmcia_card_remove(struct pcmcia_socket *s , struct pcmcia_device *l
 #line 377
   descriptor.flags = 0U;
 #line 377
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 377
   if (tmp___0 != 0L) {
 #line 377
@@ -7397,7 +7397,7 @@ static void pcmcia_card_remove(struct pcmcia_socket *s , struct pcmcia_device *l
 #line 397
   descriptor___0.flags = 0U;
 #line 397
-  tmp___1 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 397
   if (tmp___1 != 0L) {
 #line 397
@@ -7460,7 +7460,7 @@ static int pcmcia_device_remove(struct device *dev )
 #line 413
   descriptor.flags = 0U;
 #line 413
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 413
   if (tmp != 0L) {
 #line 413
@@ -7626,7 +7626,7 @@ static int pcmcia_device_query(struct pcmcia_device *p_dev )
 #line 494
       descriptor.flags = 0U;
 #line 494
-      tmp___2 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+      tmp___2 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 494
       if (tmp___2 != 0L) {
 #line 494
@@ -7763,7 +7763,7 @@ static struct pcmcia_device *pcmcia_device_add(struct pcmcia_socket *s , unsigne
 #line 547
   descriptor.flags = 0U;
 #line 547
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 547
   if (tmp != 0L) {
 #line 547
@@ -7856,7 +7856,7 @@ static struct pcmcia_device *pcmcia_device_add(struct pcmcia_socket *s , unsigne
 #line 580
   descriptor___0.flags = 0U;
 #line 580
-  tmp___4 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___4 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 580
   if (tmp___4 != 0L) {
 #line 580
@@ -7923,7 +7923,7 @@ static struct pcmcia_device *pcmcia_device_add(struct pcmcia_socket *s , unsigne
 #line 605
     descriptor___1.flags = 0U;
 #line 605
-    tmp___6 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___6 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 605
     if (tmp___6 != 0L) {
 #line 605
@@ -8121,7 +8121,7 @@ static int pcmcia_card_add(struct pcmcia_socket *s )
 #line 669
     descriptor.flags = 0U;
 #line 669
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 669
     if (tmp != 0L) {
 #line 669
@@ -8153,7 +8153,7 @@ static int pcmcia_card_add(struct pcmcia_socket *s )
 #line 676
     descriptor___0.flags = 0U;
 #line 676
-    tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 676
     if (tmp___0 != 0L) {
 #line 676
@@ -8187,7 +8187,7 @@ static int pcmcia_card_add(struct pcmcia_socket *s )
 #line 685
     descriptor___1.flags = 0U;
 #line 685
-    tmp___2 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___2 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 685
     if (tmp___2 != 0L) {
 #line 685
@@ -8262,7 +8262,7 @@ static int pcmcia_requery_callback(struct device *dev , void *_data___0 )
 #line 706
     descriptor.flags = 0U;
 #line 706
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 706
     if (tmp != 0L) {
 #line 706
@@ -8397,7 +8397,7 @@ static int pcmcia_load_firmware(struct pcmcia_device *dev , char *filename )
 #line 788
   descriptor.flags = 0U;
 #line 788
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 788
   if (tmp != 0L) {
 #line 788
@@ -8618,7 +8618,7 @@ __inline static int pcmcia_devmatch(struct pcmcia_device *dev , struct pcmcia_de
 #line 884
     descriptor.flags = 0U;
 #line 884
-    tmp___3 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___3 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 884
     if (tmp___3 != 0L) {
 #line 884
@@ -8686,7 +8686,7 @@ __inline static int pcmcia_devmatch(struct pcmcia_device *dev , struct pcmcia_de
 #line 914
       descriptor___0.flags = 0U;
 #line 914
-      tmp___4 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+      tmp___4 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 914
       if (tmp___4 != 0L) {
 #line 914
@@ -8718,7 +8718,7 @@ __inline static int pcmcia_devmatch(struct pcmcia_device *dev , struct pcmcia_de
 #line 921
     descriptor___1.flags = 0U;
 #line 921
-    tmp___5 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___5 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 921
     if (tmp___5 != 0L) {
 #line 921
@@ -8837,7 +8837,7 @@ static int pcmcia_bus_match(struct device *dev , struct device_driver *drv )
 #line 950
   descriptor.flags = 0U;
 #line 950
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 950
   if (tmp != 0L) {
 #line 950
@@ -8863,7 +8863,7 @@ static int pcmcia_bus_match(struct device *dev , struct device_driver *drv )
 #line 952
     descriptor___0.flags = 0U;
 #line 952
-    tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 952
     if (tmp___0 != 0L) {
 #line 952
@@ -8909,7 +8909,7 @@ static int pcmcia_bus_match(struct device *dev , struct device_driver *drv )
 #line 960
   descriptor___1.flags = 0U;
 #line 960
-  tmp___2 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+  tmp___2 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 960
   if (tmp___2 != 0L) {
 #line 960
@@ -8935,7 +8935,7 @@ static int pcmcia_bus_match(struct device *dev , struct device_driver *drv )
 #line 962
     descriptor___2.flags = 0U;
 #line 962
-    tmp___3 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+    tmp___3 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
 #line 962
     if (tmp___3 != 0L) {
 #line 962
@@ -9629,7 +9629,7 @@ static int pcmcia_dev_suspend(struct device *dev , pm_message_t state )
 #line 1172
   descriptor.flags = 0U;
 #line 1172
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1172
   if (tmp != 0L) {
 #line 1172
@@ -9691,7 +9691,7 @@ static int pcmcia_dev_suspend(struct device *dev , pm_message_t state )
 #line 1195
     descriptor___0.flags = 0U;
 #line 1195
-    tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 1195
     if (tmp___0 != 0L) {
 #line 1195
@@ -9759,7 +9759,7 @@ static int pcmcia_dev_resume(struct device *dev )
 #line 1218
   descriptor.flags = 0U;
 #line 1218
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1218
   if (tmp != 0L) {
 #line 1218
@@ -9798,7 +9798,7 @@ static int pcmcia_dev_resume(struct device *dev )
 #line 1227
     descriptor___0.flags = 0U;
 #line 1227
-    tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 1227
     if (tmp___0 != 0L) {
 #line 1227
@@ -9905,7 +9905,7 @@ static int pcmcia_bus_resume(struct pcmcia_socket *skt )
 #line 1267
   descriptor.flags = 0U;
 #line 1267
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1267
   if (tmp != 0L) {
 #line 1267
@@ -9941,7 +9941,7 @@ static int pcmcia_bus_suspend(struct pcmcia_socket *skt )
 #line 1274
   descriptor.flags = 0U;
 #line 1274
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1274
   if (tmp != 0L) {
 #line 1274
@@ -10039,7 +10039,7 @@ static int pcmcia_bus_early_resume(struct pcmcia_socket *skt )
 #line 1315
   descriptor.flags = 0U;
 #line 1315
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1315
   if (tmp___0 != 0L) {
 #line 1315
@@ -11537,7 +11537,7 @@ static void release_io_space(struct pcmcia_socket *s , struct resource *res )
 #line 116
   descriptor.flags = 0U;
 #line 116
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 116
   if (tmp___0 != 0L) {
 #line 116
@@ -11645,7 +11645,7 @@ static int alloc_io_space(struct pcmcia_socket *s , struct resource *res , unsig
 #line 157
   descriptor.flags = 0U;
 #line 157
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 157
   if (tmp != 0L) {
 #line 157
@@ -11673,7 +11673,7 @@ static int alloc_io_space(struct pcmcia_socket *s , struct resource *res , unsig
 #line 163
       descriptor___0.flags = 0U;
 #line 163
-      tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+      tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 163
       if (tmp___0 != 0L) {
 #line 163
@@ -11717,7 +11717,7 @@ static int alloc_io_space(struct pcmcia_socket *s , struct resource *res , unsig
 #line 170
     descriptor___1.flags = 0U;
 #line 170
-    tmp___1 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 170
     if (tmp___1 != 0L) {
 #line 170
@@ -11748,7 +11748,7 @@ static int alloc_io_space(struct pcmcia_socket *s , struct resource *res , unsig
 #line 177
     descriptor___2.flags = 0U;
 #line 177
-    tmp___2 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+    tmp___2 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
 #line 177
     if (tmp___2 != 0L) {
 #line 177
@@ -11798,7 +11798,7 @@ static int alloc_io_space(struct pcmcia_socket *s , struct resource *res , unsig
 #line 193
   descriptor___3.flags = 0U;
 #line 193
-  tmp___3 = __builtin_expect((long )descriptor___3.flags & 1L, 0L);
+  tmp___3 = ldv__builtin_expect((long )descriptor___3.flags & 1L, 0L);
 #line 193
   if (tmp___3 != 0L) {
 #line 193
@@ -11847,7 +11847,7 @@ static int pcmcia_access_config(struct pcmcia_device *p_dev , off_t where , u8 *
 #line 223
     descriptor.flags = 0U;
 #line 223
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 223
     if (tmp != 0L) {
 #line 223
@@ -11979,7 +11979,7 @@ int pcmcia_fixup_iowidth(struct pcmcia_device *p_dev )
 #line 313
   descriptor.flags = 0U;
 #line 313
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 313
   if (tmp != 0L) {
 #line 313
@@ -12002,7 +12002,7 @@ int pcmcia_fixup_iowidth(struct pcmcia_device *p_dev )
 #line 317
     descriptor___0.flags = 0U;
 #line 317
-    tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 317
     if (tmp___0 != 0L) {
 #line 317
@@ -12115,7 +12115,7 @@ int pcmcia_fixup_vpp(struct pcmcia_device *p_dev , unsigned char new_vpp )
 #line 361
   descriptor.flags = 0U;
 #line 361
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 361
   if (tmp != 0L) {
 #line 361
@@ -12139,7 +12139,7 @@ int pcmcia_fixup_vpp(struct pcmcia_device *p_dev , unsigned char new_vpp )
 #line 365
     descriptor___0.flags = 0U;
 #line 365
-    tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 365
     if (tmp___0 != 0L) {
 #line 365
@@ -12352,7 +12352,7 @@ int pcmcia_release_window(struct pcmcia_device *p_dev , struct resource *res )
 #line 485
   descriptor.flags = 0U;
 #line 485
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 485
   if (tmp != 0L) {
 #line 485
@@ -12389,7 +12389,7 @@ int pcmcia_release_window(struct pcmcia_device *p_dev , struct resource *res )
 #line 495
     descriptor___0.flags = 0U;
 #line 495
-    tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 495
     if (tmp___0 != 0L) {
 #line 495
@@ -12509,7 +12509,7 @@ int pcmcia_enable_device(struct pcmcia_device *p_dev )
 #line 550
     descriptor.flags = 0U;
 #line 550
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 550
     if (tmp != 0L) {
 #line 550
@@ -12608,7 +12608,7 @@ int pcmcia_enable_device(struct pcmcia_device *p_dev )
 #line 588
   descriptor___0.flags = 0U;
 #line 588
-  tmp___1 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 588
   if (tmp___1 != 0L) {
 #line 588
@@ -12636,7 +12636,7 @@ int pcmcia_enable_device(struct pcmcia_device *p_dev )
 #line 597
     descriptor___1.flags = 0U;
 #line 597
-    tmp___3 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___3 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 597
     if (tmp___3 != 0L) {
 #line 597
@@ -12667,7 +12667,7 @@ int pcmcia_enable_device(struct pcmcia_device *p_dev )
 #line 602
     descriptor___2.flags = 0U;
 #line 602
-    tmp___5 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+    tmp___5 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
 #line 602
     if (tmp___5 != 0L) {
 #line 602
@@ -12879,7 +12879,7 @@ int pcmcia_request_io(struct pcmcia_device *p_dev )
 #line 685
   descriptor.flags = 0U;
 #line 685
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 685
   if (tmp != 0L) {
 #line 685
@@ -12903,7 +12903,7 @@ int pcmcia_request_io(struct pcmcia_device *p_dev )
 #line 689
     descriptor___0.flags = 0U;
 #line 689
-    tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 689
     if (tmp___0 != 0L) {
 #line 689
@@ -12932,7 +12932,7 @@ int pcmcia_request_io(struct pcmcia_device *p_dev )
 #line 694
     descriptor___1.flags = 0U;
 #line 694
-    tmp___1 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 694
     if (tmp___1 != 0L) {
 #line 694
@@ -12961,7 +12961,7 @@ int pcmcia_request_io(struct pcmcia_device *p_dev )
 #line 698
     descriptor___2.flags = 0U;
 #line 698
-    tmp___2 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+    tmp___2 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
 #line 698
     if (tmp___2 != 0L) {
 #line 698
@@ -13026,7 +13026,7 @@ int pcmcia_request_io(struct pcmcia_device *p_dev )
 #line 724
   descriptor___3.flags = 0U;
 #line 724
-  tmp___4 = __builtin_expect((long )descriptor___3.flags & 1L, 0L);
+  tmp___4 = ldv__builtin_expect((long )descriptor___3.flags & 1L, 0L);
 #line 724
   if (tmp___4 != 0L) {
 #line 724
@@ -13233,7 +13233,7 @@ int pcmcia_request_window(struct pcmcia_device *p_dev , struct resource *res , u
 #line 933
   descriptor.flags = 0U;
 #line 933
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 933
   if (tmp != 0L) {
 #line 933
@@ -13257,7 +13257,7 @@ int pcmcia_request_window(struct pcmcia_device *p_dev , struct resource *res , u
 #line 936
     descriptor___0.flags = 0U;
 #line 936
-    tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 936
     if (tmp___0 != 0L) {
 #line 936
@@ -13295,7 +13295,7 @@ int pcmcia_request_window(struct pcmcia_device *p_dev , struct resource *res , u
 #line 945
     descriptor___1.flags = 0U;
 #line 945
-    tmp___1 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 945
     if (tmp___1 != 0L) {
 #line 945
@@ -13324,7 +13324,7 @@ int pcmcia_request_window(struct pcmcia_device *p_dev , struct resource *res , u
 #line 950
     descriptor___2.flags = 0U;
 #line 950
-    tmp___2 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+    tmp___2 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
 #line 950
     if (tmp___2 != 0L) {
 #line 950
@@ -13385,7 +13385,7 @@ int pcmcia_request_window(struct pcmcia_device *p_dev , struct resource *res , u
 #line 962
     descriptor___3.flags = 0U;
 #line 962
-    tmp___3 = __builtin_expect((long )descriptor___3.flags & 1L, 0L);
+    tmp___3 = ldv__builtin_expect((long )descriptor___3.flags & 1L, 0L);
 #line 962
     if (tmp___3 != 0L) {
 #line 962
@@ -13423,7 +13423,7 @@ int pcmcia_request_window(struct pcmcia_device *p_dev , struct resource *res , u
 #line 973
       descriptor___4.flags = 0U;
 #line 973
-      tmp___4 = __builtin_expect((long )descriptor___4.flags & 1L, 0L);
+      tmp___4 = ldv__builtin_expect((long )descriptor___4.flags & 1L, 0L);
 #line 973
       if (tmp___4 != 0L) {
 #line 973
@@ -13469,7 +13469,7 @@ int pcmcia_request_window(struct pcmcia_device *p_dev , struct resource *res , u
 #line 987
     descriptor___5.flags = 0U;
 #line 987
-    tmp___5 = __builtin_expect((long )descriptor___5.flags & 1L, 0L);
+    tmp___5 = ldv__builtin_expect((long )descriptor___5.flags & 1L, 0L);
 #line 987
     if (tmp___5 != 0L) {
 #line 987
@@ -13523,7 +13523,7 @@ int pcmcia_request_window(struct pcmcia_device *p_dev , struct resource *res , u
 #line 1007
   descriptor___6.flags = 0U;
 #line 1007
-  tmp___7 = __builtin_expect((long )descriptor___6.flags & 1L, 0L);
+  tmp___7 = ldv__builtin_expect((long )descriptor___6.flags & 1L, 0L);
 #line 1007
   if (tmp___7 != 0L) {
 #line 1007
@@ -13560,7 +13560,7 @@ void pcmcia_disable_device(struct pcmcia_device *p_dev )
 #line 1032
   descriptor.flags = 0U;
 #line 1032
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1032
   if (tmp != 0L) {
 #line 1032
@@ -14397,7 +14397,7 @@ int pcmcia_read_cis_mem(struct pcmcia_socket *s , int attr , u_int addr , u_int 
 #line 190
   descriptor.flags = 0U;
 #line 190
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 190
   if (tmp != 0L) {
 #line 190
@@ -14436,7 +14436,7 @@ int pcmcia_read_cis_mem(struct pcmcia_socket *s , int attr , u_int addr , u_int 
 #line 204
       descriptor___0.flags = 0U;
 #line 204
-      tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+      tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 204
       if (tmp___0 != 0L) {
 #line 204
@@ -14497,7 +14497,7 @@ int pcmcia_read_cis_mem(struct pcmcia_socket *s , int attr , u_int addr , u_int 
 #line 220
       descriptor___1.flags = 0U;
 #line 220
-      tmp___1 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+      tmp___1 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 220
       if (tmp___1 != 0L) {
 #line 220
@@ -14544,7 +14544,7 @@ int pcmcia_read_cis_mem(struct pcmcia_socket *s , int attr , u_int addr , u_int 
 #line 234
       descriptor___2.flags = 0U;
 #line 234
-      tmp___2 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+      tmp___2 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
 #line 234
       if (tmp___2 != 0L) {
 #line 234
@@ -14617,7 +14617,7 @@ int pcmcia_read_cis_mem(struct pcmcia_socket *s , int attr , u_int addr , u_int 
 #line 249
   descriptor___3.flags = 0U;
 #line 249
-  tmp___3 = __builtin_expect((long )descriptor___3.flags & 1L, 0L);
+  tmp___3 = ldv__builtin_expect((long )descriptor___3.flags & 1L, 0L);
 #line 249
   if (tmp___3 != 0L) {
 #line 249
@@ -14665,7 +14665,7 @@ int pcmcia_write_cis_mem(struct pcmcia_socket *s , int attr , u_int addr , u_int
 #line 268
   descriptor.flags = 0U;
 #line 268
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 268
   if (tmp != 0L) {
 #line 268
@@ -14704,7 +14704,7 @@ int pcmcia_write_cis_mem(struct pcmcia_socket *s , int attr , u_int addr , u_int
 #line 283
       descriptor___0.flags = 0U;
 #line 283
-      tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+      tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 283
       if (tmp___0 != 0L) {
 #line 283
@@ -14783,7 +14783,7 @@ int pcmcia_write_cis_mem(struct pcmcia_socket *s , int attr , u_int addr , u_int
 #line 308
       descriptor___1.flags = 0U;
 #line 308
-      tmp___1 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+      tmp___1 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 308
       if (tmp___1 != 0L) {
 #line 308
@@ -15596,7 +15596,7 @@ int pccard_get_next_tuple(struct pcmcia_socket *s , unsigned int function , tupl
 #line 671
     descriptor.flags = 0U;
 #line 671
-    tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 671
     if (tmp___0 != 0L) {
 #line 671
@@ -17412,7 +17412,7 @@ int pcmcia_parse_tuple(tuple_t *tuple , cisparse_t *parse )
 #line 1405
     descriptor.flags = 0U;
 #line 1405
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1405
     if (tmp != 0L) {
 #line 1405
@@ -17466,7 +17466,7 @@ int pccard_validate_cis(struct pcmcia_socket *s , unsigned int *info )
 #line 1435
     __ret_warn_on = 1;
 #line 1435
-    tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 1435
     if (tmp != 0L) {
 #line 1435
@@ -17476,7 +17476,7 @@ int pccard_validate_cis(struct pcmcia_socket *s , unsigned int *info )
 
     }
 #line 1435
-    __builtin_expect(__ret_warn_on != 0, 0L);
+    ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 1436
     return (-22);
   } else {
@@ -18630,7 +18630,7 @@ static int pcmcia_do_loop_config(tuple_t *tuple , cisparse_t *parse , void *priv
 #line 214
   descriptor.flags = 0U;
 #line 214
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 214
   if (tmp != 0L) {
 #line 214
@@ -18798,7 +18798,7 @@ static int pcmcia_do_loop_config(tuple_t *tuple , cisparse_t *parse , void *priv
 #line 290
   descriptor___0.flags = 0U;
 #line 290
-  tmp___4 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___4 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 290
   if (tmp___4 != 0L) {
 #line 290
@@ -18928,7 +18928,7 @@ static int pcmcia_do_get_tuple(struct pcmcia_device *p_dev , tuple_t *tuple , vo
 #line 411
     descriptor.flags = 0U;
 #line 411
-    tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 411
     if (tmp___0 != 0L) {
 #line 411
@@ -19188,7 +19188,7 @@ __inline static void ldv_error(void)
 #line 25
 extern int __VERIFIER_nondet_int(void) ;
 #line 49 "/home/mikhail/ldv/kernel-rules/verifier/rcv.h"
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 

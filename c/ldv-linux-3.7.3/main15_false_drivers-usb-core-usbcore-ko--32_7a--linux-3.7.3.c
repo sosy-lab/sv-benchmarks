@@ -4946,7 +4946,7 @@ struct acpi_bus_type {
    int (*find_bridge)(struct device * , acpi_handle ** ) ;
 };
 #line 1 "<compiler builtins>"
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 #line 119 "include/linux/printk.h"
 extern int printk(char const   *  , ...) ;
 #line 328 "include/linux/kernel.h"
@@ -5798,7 +5798,7 @@ struct usb_device *usb_alloc_dev(struct usb_device *parent , struct usb_bus *bus
 #line 503
   dev->can_submit = 1U;
 #line 513
-  tmp___5 = __builtin_expect((unsigned long )parent == (unsigned long )((struct usb_device *)0),
+  tmp___5 = ldv__builtin_expect((unsigned long )parent == (unsigned long )((struct usb_device *)0),
                              0L);
 #line 513
   if (tmp___5 != 0L) {
@@ -6874,7 +6874,7 @@ __inline static long IS_ERR(void const   *ptr )
 
   {
 #line 34
-  tmp = __builtin_expect((unsigned long )ptr > 0xfffffffffffff000UL, 0L);
+  tmp = ldv__builtin_expect((unsigned long )ptr > 0xfffffffffffff000UL, 0L);
 #line 34
   return (tmp);
 }
@@ -7103,7 +7103,7 @@ __inline static void kref_get(struct kref *kref )
 #line 42
   __ret_warn_on = tmp == 0;
 #line 42
-  tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 42
   if (tmp___0 != 0L) {
 #line 42
@@ -7112,7 +7112,7 @@ __inline static void kref_get(struct kref *kref )
 
   }
 #line 42
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 43
   atomic_inc(& kref->refcount);
 #line 44
@@ -7130,7 +7130,7 @@ __inline static int kref_sub(struct kref *kref , unsigned int count , void (*rel
 #line 67
   __ret_warn_on = (unsigned long )release == (unsigned long )((void (*)(struct kref * ))0);
 #line 67
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 67
   if (tmp != 0L) {
 #line 67
@@ -7139,7 +7139,7 @@ __inline static int kref_sub(struct kref *kref , unsigned int count , void (*rel
 
   }
 #line 67
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 69
   tmp___0 = atomic_sub_and_test((int )count, & kref->refcount);
 #line 69
@@ -7193,7 +7193,7 @@ __inline static int signal_pending(struct task_struct *p )
 #line 2561
   tmp = test_tsk_thread_flag(p, 2);
 #line 2561
-  tmp___0 = __builtin_expect(tmp != 0, 0L);
+  tmp___0 = ldv__builtin_expect(tmp != 0, 0L);
 #line 2561
   return ((int )tmp___0);
 }
@@ -7600,7 +7600,7 @@ __inline static __u16 usb_maxpacket(struct usb_device *udev , int pipe , int is_
 #line 1744
     __ret_warn_on = (pipe & 128) != 0;
 #line 1744
-    tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 1744
     if (tmp != 0L) {
 #line 1744
@@ -7609,14 +7609,14 @@ __inline static __u16 usb_maxpacket(struct usb_device *udev , int pipe , int is_
 
     }
 #line 1744
-    __builtin_expect(__ret_warn_on != 0, 0L);
+    ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 1745
     ep = udev->ep_out[epnum];
   } else {
 #line 1747
     __ret_warn_on___0 = (pipe & 128) == 0;
 #line 1747
-    tmp___0 = __builtin_expect(__ret_warn_on___0 != 0, 0L);
+    tmp___0 = ldv__builtin_expect(__ret_warn_on___0 != 0, 0L);
 #line 1747
     if (tmp___0 != 0L) {
 #line 1747
@@ -7625,7 +7625,7 @@ __inline static __u16 usb_maxpacket(struct usb_device *udev , int pipe , int is_
 
     }
 #line 1747
-    __builtin_expect(__ret_warn_on___0 != 0, 0L);
+    ldv__builtin_expect(__ret_warn_on___0 != 0, 0L);
 #line 1748
     ep = udev->ep_in[epnum];
   }
@@ -7725,7 +7725,7 @@ __inline static bool freezing(struct task_struct *p )
 #line 30
   tmp = atomic_read((atomic_t const   *)(& system_freezing_cnt));
 #line 30
-  tmp___0 = __builtin_expect(tmp == 0, 1L);
+  tmp___0 = ldv__builtin_expect(tmp == 0, 1L);
 #line 30
   if (tmp___0 != 0L) {
 #line 31
@@ -7766,7 +7766,7 @@ __inline static bool try_to_freeze(void)
     tmp___1 = 1;
   }
 #line 47
-  tmp___2 = __builtin_expect((long )tmp___1, 1L);
+  tmp___2 = ldv__builtin_expect((long )tmp___1, 1L);
 #line 47
   if (tmp___2 != 0L) {
 #line 48
@@ -8288,7 +8288,7 @@ static void set_port_led(struct usb_hub *hub , int port1 , int selector )
 #line 576
     descriptor.flags = 1U;
 #line 576
-    tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 576
     if (tmp___0 != 0L) {
 #line 576
@@ -8706,7 +8706,7 @@ static void hub_irq(struct urb *urb )
 #line 785
   descriptor.flags = 1U;
 #line 785
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 785
   if (tmp != 0L) {
 #line 785
@@ -8991,7 +8991,7 @@ static unsigned int hub_power_on(struct usb_hub *hub , bool do_delay )
 #line 942
     descriptor.flags = 1U;
 #line 942
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 942
     if (tmp != 0L) {
 #line 942
@@ -9013,7 +9013,7 @@ static unsigned int hub_power_on(struct usb_hub *hub , bool do_delay )
 #line 944
     descriptor___0.flags = 1U;
 #line 944
-    tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 944
     if (tmp___0 != 0L) {
 #line 944
@@ -9244,7 +9244,7 @@ static void hub_port_logical_disconnect(struct usb_hub *hub , int port1 )
 #line 1057
   descriptor.flags = 1U;
 #line 1057
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1057
   if (tmp != 0L) {
 #line 1057
@@ -9449,7 +9449,7 @@ static void hub_activate(struct usb_hub *hub , enum hub_activation_type type )
 #line 1202
     descriptor.flags = 1U;
 #line 1202
-    tmp___2 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___2 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1202
     if (tmp___2 != 0L) {
 #line 1202
@@ -10035,7 +10035,7 @@ static int hub_configure(struct usb_hub *hub , struct usb_endpoint_descriptor *e
 #line 1507
       descriptor.flags = 1U;
 #line 1507
-      tmp___3 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+      tmp___3 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1507
       if (tmp___3 != 0L) {
 #line 1507
@@ -10063,7 +10063,7 @@ static int hub_configure(struct usb_hub *hub , struct usb_endpoint_descriptor *e
 #line 1509
     descriptor___0.flags = 1U;
 #line 1509
-    tmp___4 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___4 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 1509
     if (tmp___4 != 0L) {
 #line 1509
@@ -10088,7 +10088,7 @@ static int hub_configure(struct usb_hub *hub , struct usb_endpoint_descriptor *e
 #line 1513
   descriptor___1.flags = 1U;
 #line 1513
-  tmp___6 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+  tmp___6 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 1513
   if (tmp___6 != 0L) {
 #line 1513
@@ -10112,7 +10112,7 @@ static int hub_configure(struct usb_hub *hub , struct usb_endpoint_descriptor *e
 #line 1516
   descriptor___2.flags = 1U;
 #line 1516
-  tmp___7 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+  tmp___7 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
 #line 1516
   if (tmp___7 != 0L) {
 #line 1516
@@ -10137,7 +10137,7 @@ static int hub_configure(struct usb_hub *hub , struct usb_endpoint_descriptor *e
 #line 1520
   descriptor___3.flags = 1U;
 #line 1520
-  tmp___8 = __builtin_expect((long )descriptor___3.flags & 1L, 0L);
+  tmp___8 = ldv__builtin_expect((long )descriptor___3.flags & 1L, 0L);
 #line 1520
   if (tmp___8 != 0L) {
 #line 1520
@@ -10165,7 +10165,7 @@ static int hub_configure(struct usb_hub *hub , struct usb_endpoint_descriptor *e
 #line 1526
   descriptor___4.flags = 1U;
 #line 1526
-  tmp___9 = __builtin_expect((long )descriptor___4.flags & 1L, 0L);
+  tmp___9 = ldv__builtin_expect((long )descriptor___4.flags & 1L, 0L);
 #line 1526
   if (tmp___9 != 0L) {
 #line 1526
@@ -10189,7 +10189,7 @@ static int hub_configure(struct usb_hub *hub , struct usb_endpoint_descriptor *e
 #line 1529
   descriptor___5.flags = 1U;
 #line 1529
-  tmp___10 = __builtin_expect((long )descriptor___5.flags & 1L, 0L);
+  tmp___10 = ldv__builtin_expect((long )descriptor___5.flags & 1L, 0L);
 #line 1529
   if (tmp___10 != 0L) {
 #line 1529
@@ -10214,7 +10214,7 @@ static int hub_configure(struct usb_hub *hub , struct usb_endpoint_descriptor *e
 #line 1533
   descriptor___6.flags = 1U;
 #line 1533
-  tmp___11 = __builtin_expect((long )descriptor___6.flags & 1L, 0L);
+  tmp___11 = ldv__builtin_expect((long )descriptor___6.flags & 1L, 0L);
 #line 1533
   if (tmp___11 != 0L) {
 #line 1533
@@ -10264,7 +10264,7 @@ static int hub_configure(struct usb_hub *hub , struct usb_endpoint_descriptor *e
 #line 1544
   descriptor___7.flags = 1U;
 #line 1544
-  tmp___12 = __builtin_expect((long )descriptor___7.flags & 1L, 0L);
+  tmp___12 = ldv__builtin_expect((long )descriptor___7.flags & 1L, 0L);
 #line 1544
   if (tmp___12 != 0L) {
 #line 1544
@@ -10294,7 +10294,7 @@ static int hub_configure(struct usb_hub *hub , struct usb_endpoint_descriptor *e
 #line 1550
     descriptor___8.flags = 1U;
 #line 1550
-    tmp___13 = __builtin_expect((long )descriptor___8.flags & 1L, 0L);
+    tmp___13 = ldv__builtin_expect((long )descriptor___8.flags & 1L, 0L);
 #line 1550
     if (tmp___13 != 0L) {
 #line 1550
@@ -10329,7 +10329,7 @@ static int hub_configure(struct usb_hub *hub , struct usb_endpoint_descriptor *e
 #line 1561
   descriptor___9.flags = 1U;
 #line 1561
-  tmp___14 = __builtin_expect((long )descriptor___9.flags & 1L, 0L);
+  tmp___14 = ldv__builtin_expect((long )descriptor___9.flags & 1L, 0L);
 #line 1561
   if (tmp___14 != 0L) {
 #line 1561
@@ -10362,7 +10362,7 @@ static int hub_configure(struct usb_hub *hub , struct usb_endpoint_descriptor *e
 #line 1571
     descriptor___10.flags = 1U;
 #line 1571
-    tmp___15 = __builtin_expect((long )descriptor___10.flags & 1L, 0L);
+    tmp___15 = ldv__builtin_expect((long )descriptor___10.flags & 1L, 0L);
 #line 1571
     if (tmp___15 != 0L) {
 #line 1571
@@ -10392,7 +10392,7 @@ static int hub_configure(struct usb_hub *hub , struct usb_endpoint_descriptor *e
 #line 1578
   descriptor___11.flags = 1U;
 #line 1578
-  tmp___16 = __builtin_expect((long )descriptor___11.flags & 1L, 0L);
+  tmp___16 = ldv__builtin_expect((long )descriptor___11.flags & 1L, 0L);
 #line 1578
   if (tmp___16 != 0L) {
 #line 1578
@@ -10419,7 +10419,7 @@ static int hub_configure(struct usb_hub *hub , struct usb_endpoint_descriptor *e
 #line 1584
   descriptor___12.flags = 1U;
 #line 1584
-  tmp___17 = __builtin_expect((long )descriptor___12.flags & 1L, 0L);
+  tmp___17 = ldv__builtin_expect((long )descriptor___12.flags & 1L, 0L);
 #line 1584
   if (tmp___17 != 0L) {
 #line 1584
@@ -10446,7 +10446,7 @@ static int hub_configure(struct usb_hub *hub , struct usb_endpoint_descriptor *e
 #line 1590
   descriptor___13.flags = 1U;
 #line 1590
-  tmp___18 = __builtin_expect((long )descriptor___13.flags & 1L, 0L);
+  tmp___18 = ldv__builtin_expect((long )descriptor___13.flags & 1L, 0L);
 #line 1590
   if (tmp___18 != 0L) {
 #line 1590
@@ -10476,7 +10476,7 @@ static int hub_configure(struct usb_hub *hub , struct usb_endpoint_descriptor *e
 #line 1599
     descriptor___14.flags = 1U;
 #line 1599
-    tmp___19 = __builtin_expect((long )descriptor___14.flags & 1L, 0L);
+    tmp___19 = ldv__builtin_expect((long )descriptor___14.flags & 1L, 0L);
 #line 1599
     if (tmp___19 != 0L) {
 #line 1599
@@ -10500,7 +10500,7 @@ static int hub_configure(struct usb_hub *hub , struct usb_endpoint_descriptor *e
 #line 1602
   descriptor___15.flags = 1U;
 #line 1602
-  tmp___20 = __builtin_expect((long )descriptor___15.flags & 1L, 0L);
+  tmp___20 = ldv__builtin_expect((long )descriptor___15.flags & 1L, 0L);
 #line 1602
   if (tmp___20 != 0L) {
 #line 1602
@@ -10548,7 +10548,7 @@ static int hub_configure(struct usb_hub *hub , struct usb_endpoint_descriptor *e
 #line 1622
     descriptor___16.flags = 1U;
 #line 1622
-    tmp___21 = __builtin_expect((long )descriptor___16.flags & 1L, 0L);
+    tmp___21 = ldv__builtin_expect((long )descriptor___16.flags & 1L, 0L);
 #line 1622
     if (tmp___21 != 0L) {
 #line 1622
@@ -10594,7 +10594,7 @@ static int hub_configure(struct usb_hub *hub , struct usb_endpoint_descriptor *e
 #line 1641
     descriptor___17.flags = 1U;
 #line 1641
-    tmp___22 = __builtin_expect((long )descriptor___17.flags & 1L, 0L);
+    tmp___22 = ldv__builtin_expect((long )descriptor___17.flags & 1L, 0L);
 #line 1641
     if (tmp___22 != 0L) {
 #line 1641
@@ -10653,7 +10653,7 @@ static int hub_configure(struct usb_hub *hub , struct usb_endpoint_descriptor *e
 #line 1665
     descriptor___18.flags = 1U;
 #line 1665
-    tmp___23 = __builtin_expect((long )descriptor___18.flags & 1L, 0L);
+    tmp___23 = ldv__builtin_expect((long )descriptor___18.flags & 1L, 0L);
 #line 1665
     if (tmp___23 != 0L) {
 #line 1665
@@ -10680,7 +10680,7 @@ static int hub_configure(struct usb_hub *hub , struct usb_endpoint_descriptor *e
 #line 1670
     descriptor___19.flags = 1U;
 #line 1670
-    tmp___24 = __builtin_expect((long )descriptor___19.flags & 1L, 0L);
+    tmp___24 = ldv__builtin_expect((long )descriptor___19.flags & 1L, 0L);
 #line 1670
     if (tmp___24 != 0L) {
 #line 1670
@@ -10966,7 +10966,7 @@ static int hub_probe(struct usb_interface *intf , struct usb_device_id  const  *
 #line 1810
     descriptor.flags = 1U;
 #line 1810
-    tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1810
     if (tmp___1 != 0L) {
 #line 1810
@@ -11401,7 +11401,7 @@ static void choose_devnum(struct usb_device *udev )
 #line 2054
     tmp = variable_test_bit(devnum, (unsigned long const volatile   *)(& bus->devmap.devicemap));
 #line 2054
-    tmp___0 = __builtin_expect(tmp != 0, 0L);
+    tmp___0 = ldv__builtin_expect(tmp != 0, 0L);
 #line 2054
     if (tmp___0 != 0L) {
 #line 2054
@@ -11563,7 +11563,7 @@ void usb_disconnect(struct usb_device **pdev )
 #line 2137
   descriptor.flags = 1U;
 #line 2137
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 2137
   if (tmp___0 != 0L) {
 #line 2137
@@ -11836,7 +11836,7 @@ static int usb_enumerate_device_otg(struct usb_device *udev )
 #line 2260
         descriptor.flags = 1U;
 #line 2260
-        tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+        tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 2260
         if (tmp___1 != 0L) {
 #line 2260
@@ -12033,7 +12033,7 @@ int usb_new_device(struct usb_device *udev )
 #line 2395
   descriptor.flags = 1U;
 #line 2395
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 2395
   if (tmp != 0L) {
 #line 2395
@@ -12370,7 +12370,7 @@ static int hub_port_wait_reset(struct usb_hub *hub , int port1 , struct usb_devi
 #line 2625
       descriptor.flags = 1U;
 #line 2625
-      tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+      tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 2625
       if (tmp != 0L) {
 #line 2625
@@ -12482,7 +12482,7 @@ static int hub_port_wait_reset(struct usb_hub *hub , int port1 , struct usb_devi
 #line 2670
   descriptor___0.flags = 1U;
 #line 2670
-  tmp___4 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___4 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 2670
   if (tmp___4 != 0L) {
 #line 2670
@@ -12626,7 +12626,7 @@ static int hub_port_reset(struct usb_hub *hub , int port1 , struct usb_device *u
 #line 2747
       descriptor.flags = 1U;
 #line 2747
-      tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+      tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 2747
       if (tmp___0 != 0L) {
 #line 2747
@@ -12661,7 +12661,7 @@ static int hub_port_reset(struct usb_hub *hub , int port1 , struct usb_device *u
 #line 2758
   descriptor___0.flags = 1U;
 #line 2758
-  tmp___1 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 2758
   if (tmp___1 != 0L) {
 #line 2758
@@ -12832,7 +12832,7 @@ static int check_port_resume_type(struct usb_device *udev , struct usb_hub *hub 
 #line 2836
     descriptor.flags = 1U;
 #line 2836
-    tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 2836
     if (tmp___1 != 0L) {
 #line 2836
@@ -13053,7 +13053,7 @@ int usb_port_suspend(struct usb_device *udev , pm_message_t msg )
 #line 2980
       descriptor.flags = 1U;
 #line 2980
-      tmp___3 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+      tmp___3 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 2980
       if (tmp___3 != 0L) {
 #line 2980
@@ -13131,7 +13131,7 @@ int usb_port_suspend(struct usb_device *udev , pm_message_t msg )
 #line 3012
     descriptor___0.flags = 1U;
 #line 3012
-    tmp___7 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___7 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 3012
     if (tmp___7 != 0L) {
 #line 3012
@@ -13181,7 +13181,7 @@ int usb_port_suspend(struct usb_device *udev , pm_message_t msg )
 #line 3035
     descriptor___1.flags = 1U;
 #line 3035
-    tmp___9 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___9 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 3035
     if (tmp___9 != 0L) {
 #line 3035
@@ -13235,7 +13235,7 @@ static int finish_port_resume(struct usb_device *udev )
 #line 3062
   descriptor.flags = 1U;
 #line 3062
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 3062
   if (tmp != 0L) {
 #line 3062
@@ -13282,7 +13282,7 @@ static int finish_port_resume(struct usb_device *udev )
 #line 3095
       descriptor___0.flags = 1U;
 #line 3095
-      tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+      tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 3095
       if (tmp___0 != 0L) {
 #line 3095
@@ -13316,7 +13316,7 @@ static int finish_port_resume(struct usb_device *udev )
 #line 3102
     descriptor___1.flags = 1U;
 #line 3102
-    tmp___1 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 3102
     if (tmp___1 != 0L) {
 #line 3102
@@ -13349,7 +13349,7 @@ static int finish_port_resume(struct usb_device *udev )
 #line 3121
         descriptor___2.flags = 1U;
 #line 3121
-        tmp___3 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+        tmp___3 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
 #line 3121
         if (tmp___3 != 0L) {
 #line 3121
@@ -13442,7 +13442,7 @@ int usb_port_resume(struct usb_device *udev , pm_message_t msg )
 #line 3189
     descriptor.flags = 1U;
 #line 3189
-    tmp___2 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___2 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 3189
     if (tmp___2 != 0L) {
 #line 3189
@@ -13465,7 +13465,7 @@ int usb_port_resume(struct usb_device *udev , pm_message_t msg )
 #line 3193
     descriptor___0.flags = 1U;
 #line 3193
-    tmp___3 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___3 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 3193
     if (tmp___3 != 0L) {
 #line 3193
@@ -13533,7 +13533,7 @@ int usb_port_resume(struct usb_device *udev , pm_message_t msg )
 #line 3227
     descriptor___1.flags = 1U;
 #line 3227
-    tmp___5 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___5 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 3227
     if (tmp___5 != 0L) {
 #line 3227
@@ -13586,7 +13586,7 @@ int usb_remote_wakeup(struct usb_device *udev )
 #line 3248
     descriptor.flags = 1U;
 #line 3248
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 3248
     if (tmp != 0L) {
 #line 3248
@@ -13700,7 +13700,7 @@ static int hub_suspend(struct usb_interface *intf , pm_message_t msg )
 #line 3322
   descriptor.flags = 1U;
 #line 3322
-  tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 3322
   if (tmp___1 != 0L) {
 #line 3322
@@ -13741,7 +13741,7 @@ static int hub_resume(struct usb_interface *intf )
 #line 3333
   descriptor.flags = 1U;
 #line 3333
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 3333
   if (tmp___0 != 0L) {
 #line 3333
@@ -13782,7 +13782,7 @@ static int hub_reset_resume(struct usb_interface *intf )
 #line 3342
   descriptor.flags = 1U;
 #line 3342
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 3342
   if (tmp___0 != 0L) {
 #line 3342
@@ -13851,7 +13851,7 @@ static int usb_req_set_sel(struct usb_device *udev , enum usb3_link_state state 
 #line 3410
     descriptor.flags = 1U;
 #line 3410
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 3410
     if (tmp != 0L) {
 #line 3410
@@ -13970,7 +13970,7 @@ static int usb_set_device_initiated_lpm(struct usb_device *udev , enum usb3_link
 #line 3479
     descriptor.flags = 1U;
 #line 3479
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 3479
     if (tmp != 0L) {
 #line 3479
@@ -14443,7 +14443,7 @@ static int hub_port_debounce(struct usb_hub *hub , int port1 )
 #line 3857
   descriptor.flags = 1U;
 #line 3857
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 3857
   if (tmp != 0L) {
 #line 3857
@@ -14671,7 +14671,7 @@ static int hub_port_init(struct usb_hub *hub , struct usb_device *udev , int por
 #line 3956
     descriptor.flags = 1U;
 #line 3956
-    tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 3956
     if (tmp___0 != 0L) {
 #line 3956
@@ -14863,7 +14863,7 @@ static int hub_port_init(struct usb_hub *hub , struct usb_device *udev , int por
 #line 4073
       descriptor___0.flags = 1U;
 #line 4073
-      tmp___2 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+      tmp___2 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 4073
       if (tmp___2 != 0L) {
 #line 4073
@@ -15049,7 +15049,7 @@ static int hub_port_init(struct usb_hub *hub , struct usb_device *udev , int por
 #line 4167
       descriptor___1.flags = 1U;
 #line 4167
-      tmp___3 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+      tmp___3 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 4167
       if (tmp___3 != 0L) {
 #line 4167
@@ -15311,7 +15311,7 @@ static void hub_port_connect_change(struct usb_hub *hub , int port1 , u16 portst
 #line 4287
   descriptor.flags = 1U;
 #line 4287
-  tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 4287
   if (tmp___1 != 0L) {
 #line 4287
@@ -15547,7 +15547,7 @@ static void hub_port_connect_change(struct usb_hub *hub , int port1 , u16 portst
 #line 4431
       descriptor___0.flags = 1U;
 #line 4431
-      tmp___7 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+      tmp___7 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 4431
       if (tmp___7 != 0L) {
 #line 4431
@@ -15649,7 +15649,7 @@ static void hub_port_connect_change(struct usb_hub *hub , int port1 , u16 portst
 #line 4487
     descriptor___1.flags = 1U;
 #line 4487
-    tmp___9 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___9 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 4487
     if (tmp___9 != 0L) {
 #line 4487
@@ -15802,7 +15802,7 @@ static int hub_handle_remote_wakeup(struct usb_hub *hub , unsigned int port , u1
 #line 4548
   descriptor.flags = 1U;
 #line 4548
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 4548
   if (tmp___0 != 0L) {
 #line 4548
@@ -15918,7 +15918,7 @@ static void hub_events(void)
 #line 4592
   descriptor.flags = 1U;
 #line 4592
-  tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 4592
   if (tmp___1 != 0L) {
 #line 4592
@@ -15931,7 +15931,7 @@ static void hub_events(void)
 #line 4602
   device_lock(& hdev->dev);
 #line 4603
-  tmp___2 = __builtin_expect((unsigned int )*((unsigned char *)hub + 476UL) != 0U,
+  tmp___2 = ldv__builtin_expect((unsigned int )*((unsigned char *)hub + 476UL) != 0U,
                              0L);
 #line 4603
   if (tmp___2 != 0L) {
@@ -15968,7 +15968,7 @@ static void hub_events(void)
 #line 4616
     descriptor___0.flags = 1U;
 #line 4616
-    tmp___3 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___3 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 4616
     if (tmp___3 != 0L) {
 #line 4616
@@ -16004,7 +16004,7 @@ static void hub_events(void)
 #line 4625
     descriptor___1.flags = 1U;
 #line 4625
-    tmp___4 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___4 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 4625
     if (tmp___4 != 0L) {
 #line 4625
@@ -16030,7 +16030,7 @@ static void hub_events(void)
 #line 4630
       descriptor___2.flags = 1U;
 #line 4630
-      tmp___5 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+      tmp___5 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
 #line 4630
       if (tmp___5 != 0L) {
 #line 4630
@@ -16113,7 +16113,7 @@ static void hub_events(void)
 #line 4662
       descriptor___3.flags = 1U;
 #line 4662
-      tmp___8 = __builtin_expect((long )descriptor___3.flags & 1L, 0L);
+      tmp___8 = ldv__builtin_expect((long )descriptor___3.flags & 1L, 0L);
 #line 4662
       if (tmp___8 != 0L) {
 #line 4662
@@ -16166,7 +16166,7 @@ static void hub_events(void)
 #line 4695
     descriptor___4.flags = 1U;
 #line 4695
-    tmp___10 = __builtin_expect((long )descriptor___4.flags & 1L, 0L);
+    tmp___10 = ldv__builtin_expect((long )descriptor___4.flags & 1L, 0L);
 #line 4695
     if (tmp___10 != 0L) {
 #line 4695
@@ -16209,7 +16209,7 @@ static void hub_events(void)
 #line 4708
     descriptor___5.flags = 1U;
 #line 4708
-    tmp___11 = __builtin_expect((long )descriptor___5.flags & 1L, 0L);
+    tmp___11 = ldv__builtin_expect((long )descriptor___5.flags & 1L, 0L);
 #line 4708
     if (tmp___11 != 0L) {
 #line 4708
@@ -16242,7 +16242,7 @@ static void hub_events(void)
 #line 4716
       descriptor___6.flags = 1U;
 #line 4716
-      tmp___12 = __builtin_expect((long )descriptor___6.flags & 1L, 0L);
+      tmp___12 = ldv__builtin_expect((long )descriptor___6.flags & 1L, 0L);
 #line 4716
       if (tmp___12 != 0L) {
 #line 4716
@@ -16292,7 +16292,7 @@ static void hub_events(void)
 #line 4740
     descriptor___7.flags = 1U;
 #line 4740
-    tmp___14 = __builtin_expect((long )descriptor___7.flags & 1L, 0L);
+    tmp___14 = ldv__builtin_expect((long )descriptor___7.flags & 1L, 0L);
 #line 4740
     if (tmp___14 != 0L) {
 #line 4740
@@ -16361,7 +16361,7 @@ static void hub_events(void)
 #line 4760
         descriptor___8.flags = 1U;
 #line 4760
-        tmp___16 = __builtin_expect((long )descriptor___8.flags & 1L, 0L);
+        tmp___16 = ldv__builtin_expect((long )descriptor___8.flags & 1L, 0L);
 #line 4760
         if (tmp___16 != 0L) {
 #line 4760
@@ -16399,7 +16399,7 @@ static void hub_events(void)
 #line 4772
         descriptor___9.flags = 1U;
 #line 4772
-        tmp___17 = __builtin_expect((long )descriptor___9.flags & 1L, 0L);
+        tmp___17 = ldv__builtin_expect((long )descriptor___9.flags & 1L, 0L);
 #line 4772
         if (tmp___17 != 0L) {
 #line 4772
@@ -16655,7 +16655,7 @@ static int hub_thread(void *__unused )
 #line 4814
   descriptor.flags = 1U;
 #line 4814
-  tmp___17 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___17 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 4814
   if (tmp___17 != 0L) {
 #line 4814
@@ -16865,7 +16865,7 @@ static int descriptors_changed(struct usb_device *udev , struct usb_device_descr
 #line 4916
     descriptor.flags = 1U;
 #line 4916
-    tmp___2 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___2 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 4916
     if (tmp___2 != 0L) {
 #line 4916
@@ -16899,7 +16899,7 @@ static int descriptors_changed(struct usb_device *udev , struct usb_device_descr
 #line 4923
     descriptor___0.flags = 1U;
 #line 4923
-    tmp___3 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___3 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 4923
     if (tmp___3 != 0L) {
 #line 4923
@@ -16945,7 +16945,7 @@ static int descriptors_changed(struct usb_device *udev , struct usb_device_descr
 #line 4936
       descriptor___1.flags = 1U;
 #line 4936
-      tmp___5 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+      tmp___5 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 4936
       if (tmp___5 != 0L) {
 #line 4936
@@ -16974,7 +16974,7 @@ static int descriptors_changed(struct usb_device *udev , struct usb_device_descr
 #line 4940
         descriptor___2.flags = 1U;
 #line 4940
-        tmp___6 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+        tmp___6 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
 #line 4940
         if (tmp___6 != 0L) {
 #line 4940
@@ -17047,7 +17047,7 @@ static int usb_reset_and_verify_device(struct usb_device *udev )
 #line 4990
     descriptor___0.flags = 1U;
 #line 4990
-    tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 4990
     if (tmp___0 != 0L) {
 #line 4990
@@ -17076,7 +17076,7 @@ static int usb_reset_and_verify_device(struct usb_device *udev )
 #line 4997
     descriptor___1.flags = 1U;
 #line 4997
-    tmp___1 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 4997
     if (tmp___1 != 0L) {
 #line 4997
@@ -17307,7 +17307,7 @@ int usb_reset_device(struct usb_device *udev )
 #line 5144
     descriptor.flags = 1U;
 #line 5144
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 5144
     if (tmp != 0L) {
 #line 5144
@@ -18116,7 +18116,7 @@ __inline static unsigned long arch_local_save_flags(void)
 #line 827
   __eax = __eax;
 #line 827
-  tmp = __builtin_expect((unsigned long )pv_irq_ops.save_fl.func == (unsigned long )((void *)0),
+  tmp = ldv__builtin_expect((unsigned long )pv_irq_ops.save_fl.func == (unsigned long )((void *)0),
                          0L);
 #line 827
   if (tmp != 0L) {
@@ -18161,7 +18161,7 @@ __inline static void arch_local_irq_restore(unsigned long f )
 #line 832
   __eax = __eax;
 #line 832
-  tmp = __builtin_expect((unsigned long )pv_irq_ops.restore_fl.func == (unsigned long )((void *)0),
+  tmp = ldv__builtin_expect((unsigned long )pv_irq_ops.restore_fl.func == (unsigned long )((void *)0),
                          0L);
 #line 832
   if (tmp != 0L) {
@@ -18204,7 +18204,7 @@ __inline static void arch_local_irq_disable(void)
 #line 837
   __eax = __eax;
 #line 837
-  tmp = __builtin_expect((unsigned long )pv_irq_ops.irq_disable.func == (unsigned long )((void *)0),
+  tmp = ldv__builtin_expect((unsigned long )pv_irq_ops.irq_disable.func == (unsigned long )((void *)0),
                          0L);
 #line 837
   if (tmp != 0L) {
@@ -18466,7 +18466,7 @@ __inline static struct page *sg_page(struct scatterlist *sg )
 
   {
 #line 98
-  tmp = __builtin_expect(sg->sg_magic != 2271560481UL, 0L);
+  tmp = ldv__builtin_expect(sg->sg_magic != 2271560481UL, 0L);
 #line 98
   if (tmp != 0L) {
 #line 98
@@ -18479,7 +18479,7 @@ __inline static struct page *sg_page(struct scatterlist *sg )
 
   }
 #line 99
-  tmp___0 = __builtin_expect((long )((int )sg->page_link) & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )((int )sg->page_link) & 1L, 0L);
 #line 99
   if (tmp___0 != 0L) {
 #line 99
@@ -18552,7 +18552,7 @@ __inline static struct dma_map_ops *get_dma_ops(struct device *dev )
 
   {
 #line 37
-  tmp = __builtin_expect((unsigned long )dev == (unsigned long )((struct device *)0),
+  tmp = ldv__builtin_expect((unsigned long )dev == (unsigned long )((struct device *)0),
                          0L);
 #line 37
   if (tmp != 0L || (unsigned long )dev->archdata.dma_ops == (unsigned long )((struct dma_map_ops *)0)) {
@@ -18586,7 +18586,7 @@ __inline static dma_addr_t dma_map_single_attrs(struct device *dev , void *ptr ,
 #line 19
   tmp___0 = valid_dma_direction((int )dir);
 #line 19
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
 #line 19
   if (tmp___1 != 0L) {
 #line 19
@@ -18630,7 +18630,7 @@ __inline static void dma_unmap_single_attrs(struct device *dev , dma_addr_t addr
 #line 36
   tmp___0 = valid_dma_direction((int )dir);
 #line 36
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
 #line 36
   if (tmp___1 != 0L) {
 #line 36
@@ -18702,7 +18702,7 @@ __inline static int dma_map_sg_attrs(struct device *dev , struct scatterlist *sg
 #line 52
   tmp___1 = valid_dma_direction((int )dir);
 #line 52
-  tmp___2 = __builtin_expect(tmp___1 == 0, 0L);
+  tmp___2 = ldv__builtin_expect(tmp___1 == 0, 0L);
 #line 52
   if (tmp___2 != 0L) {
 #line 52
@@ -18740,7 +18740,7 @@ __inline static void dma_unmap_sg_attrs(struct device *dev , struct scatterlist 
 #line 65
   tmp___0 = valid_dma_direction((int )dir);
 #line 65
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
 #line 65
   if (tmp___1 != 0L) {
 #line 65
@@ -18791,7 +18791,7 @@ __inline static dma_addr_t dma_map_page(struct device *dev , struct page *page ,
 #line 79
   tmp___1 = valid_dma_direction((int )dir);
 #line 79
-  tmp___2 = __builtin_expect(tmp___1 == 0, 0L);
+  tmp___2 = ldv__builtin_expect(tmp___1 == 0, 0L);
 #line 79
   if (tmp___2 != 0L) {
 #line 79
@@ -18828,7 +18828,7 @@ __inline static void dma_unmap_page(struct device *dev , dma_addr_t addr , size_
 #line 91
   tmp___0 = valid_dma_direction((int )dir);
 #line 91
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
 #line 91
   if (tmp___1 != 0L) {
 #line 91
@@ -19655,7 +19655,7 @@ static int rh_call_control(struct usb_hcd *hcd , struct urb *urb )
 #line 679
   descriptor.flags = 1U;
 #line 679
-  tmp___2 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___2 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 679
   if (tmp___2 != 0L) {
 #line 679
@@ -19688,7 +19688,7 @@ static int rh_call_control(struct usb_hcd *hcd , struct urb *urb )
 #line 695
   descriptor___0.flags = 1U;
 #line 695
-  tmp___3 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___3 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 695
   if (tmp___3 != 0L) {
 #line 695
@@ -19748,7 +19748,7 @@ static int rh_call_control(struct usb_hcd *hcd , struct urb *urb )
 #line 727
       descriptor___1.flags = 1U;
 #line 727
-      tmp___4 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+      tmp___4 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 727
       if (tmp___4 != 0L) {
 #line 727
@@ -19834,7 +19834,7 @@ void usb_hcd_poll_rh_status(struct usb_hcd *hcd )
 
   {
 #line 793
-  tmp = __builtin_expect((unsigned int )*((unsigned char *)hcd + 408UL) == 0U, 0L);
+  tmp = ldv__builtin_expect((unsigned int )*((unsigned char *)hcd + 408UL) == 0U, 0L);
 #line 793
   if (tmp != 0L) {
 #line 794
@@ -19945,7 +19945,7 @@ static int rh_queue_status(struct usb_hcd *hcd , struct urb *urb )
 #line 847
     descriptor.flags = 1U;
 #line 847
-    tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 847
     if (tmp___0 != 0L) {
 #line 847
@@ -20325,7 +20325,7 @@ static int register_root_hub(struct usb_hcd *hcd )
 #line 1092
     descriptor.flags = 1U;
 #line 1092
-    tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1092
     if (tmp___0 != 0L) {
 #line 1092
@@ -20362,7 +20362,7 @@ static int register_root_hub(struct usb_hcd *hcd )
 #line 1100
       descriptor___0.flags = 1U;
 #line 1100
-      tmp___2 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+      tmp___2 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 1100
       if (tmp___2 != 0L) {
 #line 1100
@@ -20472,7 +20472,7 @@ long usb_calc_bus_time(int speed , int is_input , int isoc , int bytecount )
 #line 1167
   descriptor.flags = 1U;
 #line 1167
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1167
   if (tmp___0 != 0L) {
 #line 1167
@@ -20502,7 +20502,7 @@ int usb_hcd_link_urb_to_ep(struct usb_hcd *hcd , struct urb *urb )
 #line 1204
   tmp = atomic_read((atomic_t const   *)(& urb->reject));
 #line 1204
-  tmp___0 = __builtin_expect(tmp != 0, 0L);
+  tmp___0 = ldv__builtin_expect(tmp != 0, 0L);
 #line 1204
   if (tmp___0 != 0L) {
 #line 1205
@@ -20513,7 +20513,7 @@ int usb_hcd_link_urb_to_ep(struct usb_hcd *hcd , struct urb *urb )
 
   }
 #line 1209
-  tmp___1 = __builtin_expect((urb->ep)->enabled == 0, 0L);
+  tmp___1 = ldv__builtin_expect((urb->ep)->enabled == 0, 0L);
 #line 1209
   if (tmp___1 != 0L) {
 #line 1210
@@ -20524,7 +20524,7 @@ int usb_hcd_link_urb_to_ep(struct usb_hcd *hcd , struct urb *urb )
 
   }
 #line 1214
-  tmp___2 = __builtin_expect((unsigned int )*((unsigned char *)urb->dev + 1596UL) == 0U,
+  tmp___2 = ldv__builtin_expect((unsigned int )*((unsigned char *)urb->dev + 1596UL) == 0U,
                              0L);
 #line 1214
   if (tmp___2 != 0L) {
@@ -20641,13 +20641,13 @@ static int hcd_alloc_coherent(struct usb_bus *bus , gfp_t mem_flags , dma_addr_t
 #line 1337
     __ret_warn_once = 1;
 #line 1337
-    tmp___1 = __builtin_expect(__ret_warn_once != 0, 0L);
+    tmp___1 = ldv__builtin_expect(__ret_warn_once != 0, 0L);
 #line 1337
     if (tmp___1 != 0L) {
 #line 1337
       __ret_warn_on = ! __warned;
 #line 1337
-      tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+      tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 1337
       if (tmp != 0L) {
 #line 1337
@@ -20657,7 +20657,7 @@ static int hcd_alloc_coherent(struct usb_bus *bus , gfp_t mem_flags , dma_addr_t
 
       }
 #line 1337
-      tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+      tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 1337
       if (tmp___0 != 0L) {
 #line 1337
@@ -20669,7 +20669,7 @@ static int hcd_alloc_coherent(struct usb_bus *bus , gfp_t mem_flags , dma_addr_t
 
     }
 #line 1337
-    __builtin_expect(__ret_warn_once != 0, 0L);
+    ldv__builtin_expect(__ret_warn_once != 0, 0L);
 #line 1338
     return (-14);
   } else {
@@ -20964,7 +20964,7 @@ int usb_hcd_map_urb_for_dma(struct usb_hcd *hcd , struct urb *urb , gfp_t mem_fl
 #line 1499
           __ret_warn_on = 1;
 #line 1499
-          tmp___2 = __builtin_expect(__ret_warn_on != 0, 0L);
+          tmp___2 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 1499
           if (tmp___2 != 0L) {
 #line 1499
@@ -20974,7 +20974,7 @@ int usb_hcd_map_urb_for_dma(struct usb_hcd *hcd , struct urb *urb , gfp_t mem_fl
 
           }
 #line 1499
-          __builtin_expect(__ret_warn_on != 0, 0L);
+          ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 1500
           return (-22);
         } else {
@@ -21100,13 +21100,13 @@ int usb_hcd_submit_urb(struct urb *urb , gfp_t mem_flags )
 #line 1591
     status = map_urb_for_dma(hcd, urb, mem_flags);
 #line 1592
-    tmp___1 = __builtin_expect(status == 0, 1L);
+    tmp___1 = ldv__builtin_expect(status == 0, 1L);
 #line 1592
     if (tmp___1 != 0L) {
 #line 1593
       status = (*((hcd->driver)->urb_enqueue))(hcd, urb, mem_flags);
 #line 1594
-      tmp___0 = __builtin_expect(status != 0, 0L);
+      tmp___0 = ldv__builtin_expect(status != 0, 0L);
 #line 1594
       if (tmp___0 != 0L) {
 #line 1595
@@ -21119,7 +21119,7 @@ int usb_hcd_submit_urb(struct urb *urb , gfp_t mem_flags )
     }
   }
 #line 1599
-  tmp___4 = __builtin_expect(status != 0, 0L);
+  tmp___4 = ldv__builtin_expect(status != 0, 0L);
 #line 1599
   if (tmp___4 != 0L) {
 #line 1600
@@ -21233,7 +21233,7 @@ int usb_hcd_unlink_urb(struct urb *urb , int status )
 #line 1667
     descriptor.flags = 1U;
 #line 1667
-    tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1667
     if (tmp___1 != 0L) {
 #line 1667
@@ -21264,18 +21264,18 @@ void usb_hcd_giveback_urb(struct usb_hcd *hcd , struct urb *urb , int status )
 #line 1693
   urb->hcpriv = 0;
 #line 1694
-  tmp___3 = __builtin_expect(urb->unlinked != 0, 0L);
+  tmp___3 = ldv__builtin_expect(urb->unlinked != 0, 0L);
 #line 1694
   if (tmp___3 != 0L) {
 #line 1695
     status = urb->unlinked;
   } else {
 #line 1696
-    tmp = __builtin_expect((long )((int )urb->transfer_flags) & 1L, 0L);
+    tmp = ldv__builtin_expect((long )((int )urb->transfer_flags) & 1L, 0L);
 #line 1696
     if (tmp != 0L) {
 #line 1696
-      tmp___0 = __builtin_expect(urb->actual_length < urb->transfer_buffer_length,
+      tmp___0 = ldv__builtin_expect(urb->actual_length < urb->transfer_buffer_length,
                                  0L);
 #line 1696
       if (tmp___0 != 0L) {
@@ -21292,7 +21292,7 @@ void usb_hcd_giveback_urb(struct usb_hcd *hcd , struct urb *urb , int status )
 #line 1696
     if (tmp___1 != 0) {
 #line 1696
-      tmp___2 = __builtin_expect(status == 0, 0L);
+      tmp___2 = ldv__builtin_expect(status == 0, 0L);
 #line 1696
       if (tmp___2 != 0L) {
 #line 1699
@@ -21319,7 +21319,7 @@ void usb_hcd_giveback_urb(struct usb_hcd *hcd , struct urb *urb , int status )
 #line 1709
   tmp___4 = atomic_read((atomic_t const   *)(& urb->reject));
 #line 1709
-  tmp___5 = __builtin_expect(tmp___4 != 0, 0L);
+  tmp___5 = ldv__builtin_expect(tmp___4 != 0, 0L);
 #line 1709
   if (tmp___5 != 0L) {
 #line 1710
@@ -21401,7 +21401,7 @@ void usb_hcd_flush_endpoint(struct usb_device *udev , struct usb_host_endpoint *
 #line 1746
   descriptor.flags = 1U;
 #line 1746
-  tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1746
   if (tmp___1 != 0L) {
 #line 1746
@@ -22054,7 +22054,7 @@ int hcd_bus_suspend(struct usb_device *rhdev , pm_message_t msg )
 #line 2074
   descriptor.flags = 1U;
 #line 2074
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 2074
   if (tmp != 0L) {
 #line 2074
@@ -22078,7 +22078,7 @@ int hcd_bus_suspend(struct usb_device *rhdev , pm_message_t msg )
 #line 2078
     descriptor___0.flags = 1U;
 #line 2078
-    tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 2078
     if (tmp___0 != 0L) {
 #line 2078
@@ -22129,7 +22129,7 @@ int hcd_bus_suspend(struct usb_device *rhdev , pm_message_t msg )
 #line 2099
         descriptor___1.flags = 1U;
 #line 2099
-        tmp___1 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+        tmp___1 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 2099
         if (tmp___1 != 0L) {
 #line 2099
@@ -22177,7 +22177,7 @@ int hcd_bus_suspend(struct usb_device *rhdev , pm_message_t msg )
 #line 2111
     descriptor___2.flags = 1U;
 #line 2111
-    tmp___2 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+    tmp___2 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
 #line 2111
     if (tmp___2 != 0L) {
 #line 2111
@@ -22225,7 +22225,7 @@ int hcd_bus_resume(struct usb_device *rhdev , pm_message_t msg )
 #line 2123
   descriptor.flags = 1U;
 #line 2123
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 2123
   if (tmp != 0L) {
 #line 2123
@@ -22249,7 +22249,7 @@ int hcd_bus_resume(struct usb_device *rhdev , pm_message_t msg )
 #line 2126
     descriptor___0.flags = 1U;
 #line 2126
-    tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 2126
     if (tmp___0 != 0L) {
 #line 2126
@@ -22318,7 +22318,7 @@ int hcd_bus_resume(struct usb_device *rhdev , pm_message_t msg )
 #line 2151
     descriptor___1.flags = 1U;
 #line 2151
-    tmp___1 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 2151
     if (tmp___1 != 0L) {
 #line 2151
@@ -22444,14 +22444,14 @@ irqreturn_t usb_hcd_irq(int irq , void *__hcd )
 #line 2257
   trace_hardirqs_off();
 #line 2259
-  tmp___0 = __builtin_expect((hcd->flags & 64UL) != 0UL, 0L);
+  tmp___0 = ldv__builtin_expect((hcd->flags & 64UL) != 0UL, 0L);
 #line 2259
   if (tmp___0 != 0L) {
 #line 2260
     rc = IRQ_NONE;
   } else {
 #line 2259
-    tmp___1 = __builtin_expect((hcd->flags & 1UL) == 0UL, 0L);
+    tmp___1 = ldv__builtin_expect((hcd->flags & 1UL) == 0UL, 0L);
 #line 2259
     if (tmp___1 != 0L) {
 #line 2260
@@ -22578,7 +22578,7 @@ struct usb_hcd *usb_create_shared_hcd(struct hc_driver  const  *driver , struct 
 #line 2341
     descriptor.flags = 1U;
 #line 2341
-    tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 2341
     if (tmp___0 != 0L) {
 #line 2341
@@ -22614,7 +22614,7 @@ struct usb_hcd *usb_create_shared_hcd(struct hc_driver  const  *driver , struct 
 #line 2349
       descriptor___0.flags = 1U;
 #line 2349
-      tmp___2 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+      tmp___2 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 2349
       if (tmp___2 != 0L) {
 #line 2349
@@ -22873,7 +22873,7 @@ int usb_add_hcd(struct usb_hcd *hcd , unsigned int irqnum , unsigned long irqfla
 #line 2518
     descriptor.flags = 1U;
 #line 2518
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 2518
     if (tmp != 0L) {
 #line 2518
@@ -22978,7 +22978,7 @@ int usb_add_hcd(struct usb_hcd *hcd , unsigned int irqnum , unsigned long irqfla
 #line 2571
       descriptor___0.flags = 1U;
 #line 2571
-      tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+      tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 2571
       if (tmp___0 != 0L) {
 #line 2571
@@ -23162,7 +23162,7 @@ void usb_remove_hcd(struct usb_hcd *hcd )
 #line 2669
   descriptor.flags = 1U;
 #line 2669
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 2669
   if (tmp != 0L) {
 #line 2669
@@ -23910,7 +23910,7 @@ void usb_anchor_urb(struct urb *urb , struct usb_anchor *anchor )
 #line 225
   urb->anchor = anchor;
 #line 227
-  tmp___0 = __builtin_expect((long )*((unsigned char *)anchor + 176UL) & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )*((unsigned char *)anchor + 176UL) & 1L, 0L);
 #line 227
   if (tmp___0 != 0L) {
 #line 228
@@ -23979,7 +23979,7 @@ void usb_unanchor_urb(struct urb *urb )
 #line 263
   flags = _raw_spin_lock_irqsave(tmp);
 #line 269
-  tmp___0 = __builtin_expect((unsigned long )urb->anchor == (unsigned long )anchor,
+  tmp___0 = ldv__builtin_expect((unsigned long )urb->anchor == (unsigned long )anchor,
                              1L);
 #line 269
   if (tmp___0 != 0L) {
@@ -24103,7 +24103,7 @@ int usb_submit_urb(struct urb *urb , gfp_t mem_flags )
 #line 450
     descriptor.flags = 1U;
 #line 450
-    tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 450
     if (tmp___0 != 0L) {
 #line 450
@@ -24205,7 +24205,7 @@ int usb_submit_urb(struct urb *urb , gfp_t mem_flags )
 #line 508
     __ret_warn_on = 1;
 #line 508
-    tmp___2 = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp___2 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 508
     if (tmp___2 != 0L) {
 #line 508
@@ -24218,7 +24218,7 @@ int usb_submit_urb(struct urb *urb , gfp_t mem_flags )
 
     }
 #line 508
-    __builtin_expect(__ret_warn_on != 0, 0L);
+    ldv__builtin_expect(__ret_warn_on != 0, 0L);
   } else {
 
   }
@@ -24261,7 +24261,7 @@ int usb_submit_urb(struct urb *urb , gfp_t mem_flags )
 #line 534
     __ret_warn_on___0 = 1;
 #line 534
-    tmp___4 = __builtin_expect(__ret_warn_on___0 != 0, 0L);
+    tmp___4 = ldv__builtin_expect(__ret_warn_on___0 != 0, 0L);
 #line 534
     if (tmp___4 != 0L) {
 #line 534
@@ -24274,7 +24274,7 @@ int usb_submit_urb(struct urb *urb , gfp_t mem_flags )
 
     }
 #line 534
-    __builtin_expect(__ret_warn_on___0 != 0, 0L);
+    ldv__builtin_expect(__ret_warn_on___0 != 0, 0L);
   } else {
 
   }
@@ -25222,7 +25222,7 @@ __inline static struct page *sg_page___0(struct scatterlist *sg )
 
   {
 #line 98
-  tmp = __builtin_expect(sg->sg_magic != 2271560481UL, 0L);
+  tmp = ldv__builtin_expect(sg->sg_magic != 2271560481UL, 0L);
 #line 98
   if (tmp != 0L) {
 #line 98
@@ -25235,7 +25235,7 @@ __inline static struct page *sg_page___0(struct scatterlist *sg )
 
   }
 #line 99
-  tmp___0 = __builtin_expect((long )((int )sg->page_link) & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )((int )sg->page_link) & 1L, 0L);
 #line 99
   if (tmp___0 != 0L) {
 #line 99
@@ -25396,7 +25396,7 @@ static int usb_start_wait_urb(struct urb *urb , int timeout , int *actual_length
 #line 149
   retval = usb_submit_urb(urb, 16U);
 #line 150
-  tmp = __builtin_expect(retval != 0, 0L);
+  tmp = ldv__builtin_expect(retval != 0, 0L);
 #line 150
   if (tmp != 0L) {
 #line 151
@@ -25435,7 +25435,7 @@ static int usb_start_wait_urb(struct urb *urb , int timeout , int *actual_length
 #line 158
     descriptor.flags = 1U;
 #line 158
-    tmp___4 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___4 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 158
     if (tmp___4 != 0L) {
 #line 158
@@ -26008,7 +26008,7 @@ void usb_sg_wait(struct usb_sg_request *io )
 #line 639
   descriptor.flags = 1U;
 #line 639
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 639
   if (tmp != 0L) {
 #line 639
@@ -26404,7 +26404,7 @@ static int usb_get_langid(struct usb_device *dev , unsigned char *tbuf )
 #line 884
   descriptor.flags = 1U;
 #line 884
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 884
   if (tmp != 0L) {
 #line 884
@@ -26495,7 +26495,7 @@ int usb_string(struct usb_device *dev , int index , char *buf , size_t size )
 #line 934
     descriptor.flags = 1U;
 #line 934
-    tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 934
     if (tmp___0 != 0L) {
 #line 934
@@ -26956,7 +26956,7 @@ void usb_disable_device(struct usb_device *dev , int skip_ep0 )
 #line 1258
     descriptor.flags = 1U;
 #line 1258
-    tmp___2 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___2 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1258
     if (tmp___2 != 0L) {
 #line 1258
@@ -27030,7 +27030,7 @@ void usb_disable_device(struct usb_device *dev , int skip_ep0 )
 #line 1278
   descriptor___0.flags = 1U;
 #line 1278
-  tmp___3 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___3 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 1278
   if (tmp___3 != 0L) {
 #line 1278
@@ -27227,7 +27227,7 @@ int usb_set_interface(struct usb_device *dev , int interface , int alternate )
 #line 1389
     descriptor.flags = 1U;
 #line 1389
-    tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1389
     if (tmp___0 != 0L) {
 #line 1389
@@ -27318,7 +27318,7 @@ int usb_set_interface(struct usb_device *dev , int interface , int alternate )
 #line 1435
     descriptor___0.flags = 1U;
 #line 1435
-    tmp___3 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___3 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 1435
     if (tmp___3 != 0L) {
 #line 1435
@@ -28182,7 +28182,7 @@ int usb_set_configuration(struct usb_device *dev , int configuration )
 #line 1997
   descriptor.flags = 1U;
 #line 1997
-  tmp___5 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___5 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1997
   if (tmp___5 != 0L) {
 #line 1997
@@ -28872,7 +28872,7 @@ __inline static int __atomic_add_unless(atomic_t *v , int a , int u )
   c = atomic_read((atomic_t const   *)v);
   ldv_5519: 
 #line 233
-  tmp = __builtin_expect(c == u, 0L);
+  tmp = ldv__builtin_expect(c == u, 0L);
 #line 233
   if (tmp != 0L) {
 #line 234
@@ -28883,7 +28883,7 @@ __inline static int __atomic_add_unless(atomic_t *v , int a , int u )
 #line 235
   old = atomic_cmpxchg(v, c, c + a);
 #line 236
-  tmp___0 = __builtin_expect(old == c, 1L);
+  tmp___0 = ldv__builtin_expect(old == c, 1L);
 #line 236
   if (tmp___0 != 0L) {
 #line 237
@@ -29573,7 +29573,7 @@ static int usb_probe_device(struct device *dev )
 #line 332
   descriptor.flags = 1U;
 #line 332
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 332
   if (tmp != 0L) {
 #line 332
@@ -29692,7 +29692,7 @@ static int usb_probe_interface(struct device *dev )
 #line 384
   descriptor.flags = 1U;
 #line 384
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 384
   if (tmp___0 != 0L) {
 #line 384
@@ -29749,7 +29749,7 @@ static int usb_probe_interface(struct device *dev )
 #line 402
   descriptor___0.flags = 1U;
 #line 402
-  tmp___2 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___2 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 402
   if (tmp___2 != 0L) {
 #line 402
@@ -30410,7 +30410,7 @@ static int usb_uevent(struct device *dev , struct kobj_uevent_env *env )
 #line 906
     descriptor.flags = 1U;
 #line 906
-    tmp___2 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___2 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 906
     if (tmp___2 != 0L) {
 #line 906
@@ -30440,7 +30440,7 @@ static int usb_uevent(struct device *dev , struct kobj_uevent_env *env )
 #line 910
     descriptor___0.flags = 1U;
 #line 910
-    tmp___4 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___4 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 910
     if (tmp___4 != 0L) {
 #line 910
@@ -30655,7 +30655,7 @@ void usb_forced_unbind_intf(struct usb_interface *intf )
 #line 1084
   descriptor.flags = 1U;
 #line 1084
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1084
   if (tmp != 0L) {
 #line 1084
@@ -31681,7 +31681,7 @@ static int autosuspend_check(struct usb_device *udev )
 #line 1828
       descriptor.flags = 1U;
 #line 1828
-      tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+      tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1828
       if (tmp___0 != 0L) {
 #line 1828
@@ -32556,7 +32556,7 @@ static int usb_parse_endpoint(struct device *ddev , int cfgno , int inum , int a
 #line 373
     descriptor.flags = 1U;
 #line 373
-    tmp___6 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___6 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 373
     if (tmp___6 != 0L) {
 #line 373
@@ -32759,7 +32759,7 @@ static int usb_parse_interface(struct device *ddev , int cfgno , struct usb_host
 #line 452
     descriptor.flags = 1U;
 #line 452
-    tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 452
     if (tmp___0 != 0L) {
 #line 452
@@ -33229,7 +33229,7 @@ static int usb_parse_configuration(struct usb_device *dev , int cfgidx , struct 
 #line 676
     descriptor.flags = 1U;
 #line 676
-    tmp___3 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___3 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 676
     if (tmp___3 != 0L) {
 #line 676
@@ -34447,7 +34447,7 @@ int usb_register_dev(struct usb_interface *intf , struct usb_class_driver *class
 #line 282
   descriptor.flags = 1U;
 #line 282
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 282
   if (tmp != 0L) {
 #line 282
@@ -34562,7 +34562,7 @@ void usb_deregister_dev(struct usb_interface *intf , struct usb_class_driver *cl
 #line 338
   descriptor.flags = 1U;
 #line 338
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 338
   if (tmp != 0L) {
 #line 338
@@ -34982,7 +34982,7 @@ __inline static void dma_free_attrs(struct device *dev , size_t size , void *vad
 #line 165
   __ret_warn_on = tmp___0 != 0;
 #line 165
-  tmp___1 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___1 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 165
   if (tmp___1 != 0L) {
 #line 165
@@ -34992,7 +34992,7 @@ __inline static void dma_free_attrs(struct device *dev , size_t size , void *vad
 
   }
 #line 165
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 170
   debug_dma_free_coherent(dev, size, vaddr, bus);
 #line 171
@@ -38674,14 +38674,14 @@ __inline static unsigned long copy_from_user(void *to , void const   *from , uns
 #line 61
   might_fault();
 #line 62
-  tmp___1 = __builtin_expect(sz == -1, 1L);
+  tmp___1 = ldv__builtin_expect(sz == -1, 1L);
 #line 62
   if (tmp___1 != 0L) {
 #line 63
     n = _copy_from_user(to, from, (unsigned int )n);
   } else {
 #line 62
-    tmp___2 = __builtin_expect((unsigned long )sz >= n, 1L);
+    tmp___2 = ldv__builtin_expect((unsigned long )sz >= n, 1L);
 #line 62
     if (tmp___2 != 0L) {
 #line 63
@@ -38690,7 +38690,7 @@ __inline static unsigned long copy_from_user(void *to , void const   *from , uns
 #line 66
       __ret_warn_on = 1;
 #line 66
-      tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+      tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 66
       if (tmp___0 != 0L) {
 #line 66
@@ -38700,7 +38700,7 @@ __inline static unsigned long copy_from_user(void *to , void const   *from , uns
 
       }
 #line 66
-      __builtin_expect(__ret_warn_on != 0, 0L);
+      ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
   }
 #line 68
@@ -38782,7 +38782,7 @@ __inline static void __validate_creds(struct cred  const  *cred , char const   *
 #line 186
   tmp = creds_are_invalid(cred);
 #line 186
-  tmp___0 = __builtin_expect((long )tmp, 0L);
+  tmp___0 = ldv__builtin_expect((long )tmp, 0L);
 #line 186
   if (tmp___0 != 0L) {
 #line 187
@@ -38926,7 +38926,7 @@ __inline static void sg_assign_page(struct scatterlist *sg , struct page *page )
 #line 59
   page_link = sg->page_link & 3UL;
 #line 65
-  tmp = __builtin_expect(((unsigned long )page & 3UL) != 0UL, 0L);
+  tmp = ldv__builtin_expect(((unsigned long )page & 3UL) != 0UL, 0L);
 #line 65
   if (tmp != 0L) {
 #line 65
@@ -38939,7 +38939,7 @@ __inline static void sg_assign_page(struct scatterlist *sg , struct page *page )
 
   }
 #line 67
-  tmp___0 = __builtin_expect(sg->sg_magic != 2271560481UL, 0L);
+  tmp___0 = ldv__builtin_expect(sg->sg_magic != 2271560481UL, 0L);
 #line 67
   if (tmp___0 != 0L) {
 #line 67
@@ -38952,7 +38952,7 @@ __inline static void sg_assign_page(struct scatterlist *sg , struct page *page )
 
   }
 #line 68
-  tmp___1 = __builtin_expect((long )((int )sg->page_link) & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )((int )sg->page_link) & 1L, 0L);
 #line 68
   if (tmp___1 != 0L) {
 #line 68
@@ -38995,7 +38995,7 @@ __inline static struct page *sg_page___1(struct scatterlist *sg )
 
   {
 #line 98
-  tmp = __builtin_expect(sg->sg_magic != 2271560481UL, 0L);
+  tmp = ldv__builtin_expect(sg->sg_magic != 2271560481UL, 0L);
 #line 98
   if (tmp != 0L) {
 #line 98
@@ -39008,7 +39008,7 @@ __inline static struct page *sg_page___1(struct scatterlist *sg )
 
   }
 #line 99
-  tmp___0 = __builtin_expect((long )((int )sg->page_link) & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )((int )sg->page_link) & 1L, 0L);
 #line 99
   if (tmp___0 != 0L) {
 #line 99
@@ -40079,7 +40079,7 @@ static void driver_disconnect(struct usb_interface *intf )
 
   }
 #line 693
-  tmp___0 = __builtin_expect(ifnum <= 63U, 1L);
+  tmp___0 = ldv__builtin_expect(ifnum <= 63U, 1L);
 #line 693
   if (tmp___0 != 0L) {
 #line 694
@@ -40799,7 +40799,7 @@ static int proc_control(struct dev_state *ps , void *arg )
       __asm__  ("add %3,%1 ; sbb %0,%0 ; cmp %1,%4 ; sbb $0,%0": "=&r" (flag), "=r" (roksum): "1" (ctrl.data),
                 "g" ((long )ctrl.wLength), "rm" (tmp___4->addr_limit.seg));
 #line 999
-      tmp___5 = __builtin_expect(flag == 0UL, 1L);
+      tmp___5 = ldv__builtin_expect(flag == 0UL, 1L);
 #line 999
       if (tmp___5 == 0L) {
 #line 1001
@@ -41043,7 +41043,7 @@ static int proc_bulk(struct dev_state *ps , void *arg )
       __asm__  ("add %3,%1 ; sbb %0,%0 ; cmp %1,%4 ; sbb $0,%0": "=&r" (flag), "=r" (roksum): "1" (bulk.data),
                 "g" ((long )len1), "rm" (tmp___4->addr_limit.seg));
 #line 1087
-      tmp___5 = __builtin_expect(flag == 0UL, 1L);
+      tmp___5 = ldv__builtin_expect(flag == 0UL, 1L);
 #line 1087
       if (tmp___5 == 0L) {
 #line 1088
@@ -41863,7 +41863,7 @@ static int proc_do_submiturb(struct dev_state *ps , struct usbdevfs_urb *uurb , 
     __asm__  ("add %3,%1 ; sbb %0,%0 ; cmp %1,%4 ; sbb $0,%0": "=&r" (flag), "=r" (roksum): "1" (uurb->buffer),
               "g" ((long )uurb->buffer_length), "rm" (tmp___13->addr_limit.seg));
 #line 1404
-    tmp___14 = __builtin_expect(flag == 0UL, 1L);
+    tmp___14 = ldv__builtin_expect(flag == 0UL, 1L);
 #line 1404
     if (tmp___14 == 0L) {
 #line 1406
@@ -43351,7 +43351,7 @@ static int get_urb32(struct usbdevfs_urb *kurb , struct usbdevfs_urb32 *uurb )
   __asm__  ("add %3,%1 ; sbb %0,%0 ; cmp %1,%4 ; sbb $0,%0": "=&r" (flag), "=r" (roksum): "1" (uurb),
             "g" (44L), "rm" (tmp->addr_limit.seg));
 #line 1754
-  tmp___0 = __builtin_expect(flag == 0UL, 1L);
+  tmp___0 = ldv__builtin_expect(flag == 0UL, 1L);
 #line 1764
   if (tmp___0 == 0L) {
 #line 1765
@@ -44605,7 +44605,7 @@ static int proc_ioctl(struct dev_state *ps , struct usbdevfs_ioctl *ctl )
 #line 1923
         descriptor.flags = 1U;
 #line 1923
-        tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+        tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1923
         if (tmp___1 != 0L) {
 #line 1923
@@ -44741,7 +44741,7 @@ static int proc_ioctl_compat(struct dev_state *ps , compat_uptr_t arg )
   __asm__  ("add %3,%1 ; sbb %0,%0 ; cmp %1,%4 ; sbb $0,%0": "=&r" (flag), "=r" (roksum): "1" (uioc),
             "g" (12L), "rm" (tmp___0->addr_limit.seg));
 #line 1978
-  tmp___1 = __builtin_expect(flag == 0UL, 1L);
+  tmp___1 = ldv__builtin_expect(flag == 0UL, 1L);
 #line 1981
   if (tmp___1 == 0L) {
 #line 1982
@@ -45178,7 +45178,7 @@ static int proc_disconnect_claim(struct dev_state *ps , void *arg )
 #line 2053
     descriptor.flags = 1U;
 #line 2053
-    tmp___2 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___2 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 2053
     if (tmp___2 != 0L) {
 #line 2053
@@ -46776,7 +46776,7 @@ int usb_choose_configuration(struct usb_device *udev )
 #line 240
     descriptor.flags = 1U;
 #line 240
-    tmp___3 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___3 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 240
     if (tmp___3 != 0L) {
 #line 240
@@ -47442,7 +47442,7 @@ void usb_detect_quirks(struct usb_device *udev )
 #line 296
     descriptor.flags = 1U;
 #line 296
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 296
     if (tmp != 0L) {
 #line 296
@@ -47495,7 +47495,7 @@ void usb_detect_interface_quirks(struct usb_device *udev )
 #line 323
   descriptor.flags = 1U;
 #line 323
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 323
   if (tmp != 0L) {
 #line 323
@@ -48803,7 +48803,7 @@ static ssize_t usb_device_read(struct file *file , char *buf , size_t nbytes , l
   __asm__  ("add %3,%1 ; sbb %0,%0 ; cmp %1,%4 ; sbb $0,%0": "=&r" (flag), "=r" (roksum): "1" (buf),
             "g" ((long )nbytes), "rm" (tmp->addr_limit.seg));
 #line 715
-  tmp___0 = __builtin_expect(flag == 0UL, 1L);
+  tmp___0 = ldv__builtin_expect(flag == 0UL, 1L);
 #line 715
   if (tmp___0 == 0L) {
 #line 716
@@ -49292,7 +49292,7 @@ __inline static void arch_local_irq_enable(void)
 #line 842
   __eax = __eax;
 #line 842
-  tmp = __builtin_expect((unsigned long )pv_irq_ops.irq_enable.func == (unsigned long )((void *)0),
+  tmp = ldv__builtin_expect((unsigned long )pv_irq_ops.irq_enable.func == (unsigned long )((void *)0),
                          0L);
 #line 842
   if (tmp != 0L) {
@@ -49484,7 +49484,7 @@ static void companion_common(struct pci_dev *pdev , struct usb_hcd *hcd , enum c
 #line 184
     descriptor.flags = 1U;
 #line 184
-    tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 184
     if (tmp___1 != 0L) {
 #line 184
@@ -49516,7 +49516,7 @@ static void companion_common(struct pci_dev *pdev , struct usb_hcd *hcd , enum c
 #line 193
     descriptor___0.flags = 1U;
 #line 193
-    tmp___3 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___3 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 193
     if (tmp___3 != 0L) {
 #line 193
@@ -49730,7 +49730,7 @@ int usb_hcd_pci_probe(struct pci_dev *dev , struct pci_device_id  const  *id )
 #line 309
       descriptor.flags = 1U;
 #line 309
-      tmp___3 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+      tmp___3 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 309
       if (tmp___3 != 0L) {
 #line 309
@@ -49762,7 +49762,7 @@ int usb_hcd_pci_probe(struct pci_dev *dev , struct pci_device_id  const  *id )
 #line 315
       descriptor___0.flags = 1U;
 #line 315
-      tmp___5 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+      tmp___5 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 315
       if (tmp___5 != 0L) {
 #line 315
@@ -49832,7 +49832,7 @@ int usb_hcd_pci_probe(struct pci_dev *dev , struct pci_device_id  const  *id )
 #line 336
       descriptor___1.flags = 1U;
 #line 336
-      tmp___7 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+      tmp___7 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 336
       if (tmp___7 != 0L) {
 #line 336
@@ -50173,7 +50173,7 @@ static int resume_common(struct device *dev , int event )
 #line 544
     descriptor.flags = 1U;
 #line 544
-    tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 544
     if (tmp___0 != 0L) {
 #line 544
@@ -50307,7 +50307,7 @@ static int hcd_pci_suspend_noirq(struct device *dev )
 #line 598
   descriptor.flags = 1U;
 #line 598
-  tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 598
   if (tmp___1 != 0L) {
 #line 598
@@ -50335,7 +50335,7 @@ static int hcd_pci_suspend_noirq(struct device *dev )
 #line 605
     descriptor___0.flags = 1U;
 #line 605
-    tmp___2 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___2 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 605
     if (tmp___2 != 0L) {
 #line 605
@@ -50361,7 +50361,7 @@ static int hcd_pci_suspend_noirq(struct device *dev )
 #line 608
     descriptor___1.flags = 1U;
 #line 608
-    tmp___4 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___4 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 608
     if (tmp___4 != 0L) {
 #line 608
@@ -50461,7 +50461,7 @@ static int hcd_pci_runtime_suspend(struct device *dev )
 #line 659
   descriptor.flags = 1U;
 #line 659
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 659
   if (tmp != 0L) {
 #line 659
@@ -50502,7 +50502,7 @@ static int hcd_pci_runtime_resume(struct device *dev )
 #line 669
   descriptor.flags = 1U;
 #line 669
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 669
   if (tmp != 0L) {
 #line 669
@@ -50962,7 +50962,7 @@ int usb_acpi_set_power_state(struct usb_device *hdev , int index , bool enable )
 #line 171
     descriptor.flags = 1U;
 #line 171
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 171
     if (tmp != 0L) {
 #line 171
@@ -50985,7 +50985,7 @@ int usb_acpi_set_power_state(struct usb_device *hdev , int index , bool enable )
 #line 174
     descriptor___0.flags = 1U;
 #line 174
-    tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 174
     if (tmp___0 != 0L) {
 #line 174
@@ -51447,7 +51447,7 @@ __inline static void ldv_error(void)
 #line 25
 extern int __VERIFIER_nondet_int(void) ;
 #line 49 "/work/vladimir/kernel-rules/verifier/rcv.h"
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 

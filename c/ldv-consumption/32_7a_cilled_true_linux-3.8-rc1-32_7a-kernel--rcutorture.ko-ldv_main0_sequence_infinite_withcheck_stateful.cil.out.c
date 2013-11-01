@@ -2188,7 +2188,7 @@ typedef int ldv_func_ret_type___4;
 #line 10985 "/home/mikhail/launches/cpachecker-regression2/launcher-working-dir/ldv-manager-work-dir/work/current--X--kernel/rcutorture.ko--X--regression-testlinux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/32_7a/kernel/rcutorture.c.prepared"
 typedef int ldv_func_ret_type___8;
 #line 1 "<compiler builtins>"
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 #line 100 "/home/mikhail/launches/cpachecker-regression2/launcher-working-dir/ldv-manager-work-dir/inst/current/envs/linux-3.8-rc1/linux-3.8-rc1/arch/x86/include/asm/bitops.h"
 __inline static void clear_bit(int nr , unsigned long volatile   *addr ) 
 { 
@@ -2406,13 +2406,13 @@ __inline static unsigned int cpumask_check(unsigned int cpu )
 #line 108
   __ret_warn_once = (unsigned int )nr_cpu_ids <= cpu;
 #line 108
-  tmp___1 = __builtin_expect(__ret_warn_once != 0, 0L);
+  tmp___1 = ldv__builtin_expect(__ret_warn_once != 0, 0L);
 #line 108
   if (tmp___1 != 0L) {
 #line 108
     __ret_warn_on = ! __warned;
 #line 108
-    tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 108
     if (tmp != 0L) {
 #line 108
@@ -2421,7 +2421,7 @@ __inline static unsigned int cpumask_check(unsigned int cpu )
 
     }
 #line 108
-    tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 108
     if (tmp___0 != 0L) {
 #line 108
@@ -2433,7 +2433,7 @@ __inline static unsigned int cpumask_check(unsigned int cpu )
 
   }
 #line 108
-  __builtin_expect(__ret_warn_once != 0, 0L);
+  ldv__builtin_expect(__ret_warn_once != 0, 0L);
 #line 110
   return (cpu);
 }
@@ -2523,7 +2523,7 @@ __inline static unsigned long arch_local_save_flags(void)
 #line 825
   __eax = __eax;
 #line 825
-  tmp = __builtin_expect((unsigned long )pv_irq_ops.save_fl.func == (unsigned long )((void *)0),
+  tmp = ldv__builtin_expect((unsigned long )pv_irq_ops.save_fl.func == (unsigned long )((void *)0),
                          0L);
 #line 825
   if (tmp != 0L) {
@@ -2568,7 +2568,7 @@ __inline static void arch_local_irq_restore(unsigned long f )
 #line 830
   __eax = __eax;
 #line 830
-  tmp = __builtin_expect((unsigned long )pv_irq_ops.restore_fl.func == (unsigned long )((void *)0),
+  tmp = ldv__builtin_expect((unsigned long )pv_irq_ops.restore_fl.func == (unsigned long )((void *)0),
                          0L);
 #line 830
   if (tmp != 0L) {
@@ -2611,7 +2611,7 @@ __inline static void arch_local_irq_disable(void)
 #line 835
   __eax = __eax;
 #line 835
-  tmp = __builtin_expect((unsigned long )pv_irq_ops.irq_disable.func == (unsigned long )((void *)0),
+  tmp = ldv__builtin_expect((unsigned long )pv_irq_ops.irq_disable.func == (unsigned long )((void *)0),
                          0L);
 #line 835
   if (tmp != 0L) {
@@ -2663,7 +2663,7 @@ __inline static long IS_ERR(void const   *ptr )
 
   {
 #line 34
-  tmp = __builtin_expect((unsigned long )ptr > 0xfffffffffffff000UL, 0L);
+  tmp = ldv__builtin_expect((unsigned long )ptr > 0xfffffffffffff000UL, 0L);
 #line 34
   return (tmp);
 }
@@ -7353,13 +7353,13 @@ static int rcu_torture_printk(char *page )
 #line 1265
     __ret_warn_once = 1;
 #line 1265
-    tmp___17 = __builtin_expect(__ret_warn_once != 0, 0L);
+    tmp___17 = ldv__builtin_expect(__ret_warn_once != 0, 0L);
 #line 1265
     if (tmp___17 != 0L) {
 #line 1265
       __ret_warn_on = ! __warned;
 #line 1265
-      tmp___15 = __builtin_expect(__ret_warn_on != 0, 0L);
+      tmp___15 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 1265
       if (tmp___15 != 0L) {
 #line 1265
@@ -7369,7 +7369,7 @@ static int rcu_torture_printk(char *page )
 
       }
 #line 1265
-      tmp___16 = __builtin_expect(__ret_warn_on != 0, 0L);
+      tmp___16 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 1265
       if (tmp___16 != 0L) {
 #line 1265
@@ -7381,7 +7381,7 @@ static int rcu_torture_printk(char *page )
 
     }
 #line 1265
-    __builtin_expect(__ret_warn_once != 0, 0L);
+    ldv__builtin_expect(__ret_warn_once != 0, 0L);
   } else {
 
   }
@@ -8061,7 +8061,7 @@ static int rcu_torture_onoff(void *arg )
 #line 1536
   __ret_warn_on = maxcpu < 0;
 #line 1536
-  tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 1536
   if (tmp___0 != 0L) {
 #line 1536
@@ -8071,7 +8071,7 @@ static int rcu_torture_onoff(void *arg )
 
   }
 #line 1536
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 1537
   if (onoff_holdoff > 0) {
 #line 1538
@@ -8903,13 +8903,13 @@ static int rcu_torture_barrier(void *arg )
 #line 1763
     __ret_warn_once = 1;
 #line 1763
-    tmp___7 = __builtin_expect(__ret_warn_once != 0, 0L);
+    tmp___7 = ldv__builtin_expect(__ret_warn_once != 0, 0L);
 #line 1763
     if (tmp___7 != 0L) {
 #line 1763
       __ret_warn_on = ! __warned;
 #line 1763
-      tmp___5 = __builtin_expect(__ret_warn_on != 0, 0L);
+      tmp___5 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 1763
       if (tmp___5 != 0L) {
 #line 1763
@@ -8919,7 +8919,7 @@ static int rcu_torture_barrier(void *arg )
 
       }
 #line 1763
-      tmp___6 = __builtin_expect(__ret_warn_on != 0, 0L);
+      tmp___6 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 1763
       if (tmp___6 != 0L) {
 #line 1763
@@ -8931,7 +8931,7 @@ static int rcu_torture_barrier(void *arg )
 
     }
 #line 1763
-    __builtin_expect(__ret_warn_once != 0, 0L);
+    ldv__builtin_expect(__ret_warn_once != 0, 0L);
   } else {
 
   }
@@ -10266,7 +10266,7 @@ static int rcu_torture_init(void)
 #line 2174
     tmp___34 = variable_test_bit((int )tmp___33, (unsigned long const volatile   *)(& cpu_online_mask->bits));
 #line 2174
-    tmp___35 = __builtin_expect(tmp___34 == 0, 0L);
+    tmp___35 = ldv__builtin_expect(tmp___34 == 0, 0L);
 #line 2174
     if (tmp___35 != 0L) {
 #line 2175
@@ -11479,7 +11479,7 @@ __inline static void ldv_error(void)
 #line 25
 extern int __VERIFIER_nondet_int(void) ;
 #line 49 "/home/mikhail/ldv/kernel-rules/verifier/rcv.h"
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 

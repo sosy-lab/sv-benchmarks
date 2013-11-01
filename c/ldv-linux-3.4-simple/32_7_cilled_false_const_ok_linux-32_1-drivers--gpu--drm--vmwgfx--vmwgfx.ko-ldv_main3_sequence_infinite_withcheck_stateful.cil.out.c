@@ -7160,7 +7160,7 @@ struct __anonstruct_cmd_431___0 {
 #line 1
 
 #line 1
-long __builtin_expect(long val , long res ) ;
+long ldv__builtin_expect(long val , long res ) ;
 #line 100 "include/linux/printk.h"
 extern int ( /* format attribute */  printk)(char    *fmt  , ...) ;
 #line 147 "include/linux/kernel.h"
@@ -7396,7 +7396,7 @@ __inline static void kref_get(struct kref *kref )
 #line 41
   __cil_tmp10 = (long )__cil_tmp9;
 #line 41
-  tmp___1 = __builtin_expect(__cil_tmp10, 0L);
+  tmp___1 = ldv__builtin_expect(__cil_tmp10, 0L);
   }
 #line 41
   if (tmp___1) {
@@ -7417,7 +7417,7 @@ __inline static void kref_get(struct kref *kref )
 #line 41
   __cil_tmp14 = (long )__cil_tmp13;
 #line 41
-  __builtin_expect(__cil_tmp14, 0L);
+  ldv__builtin_expect(__cil_tmp14, 0L);
 #line 42
   __cil_tmp15 = (atomic_t *)kref;
 #line 42
@@ -7491,7 +7491,7 @@ __inline static unsigned long __attribute__((__warn_unused_result__))  copy_from
 #line 53
   __cil_tmp11 = (long )tmp___1;
 #line 53
-  tmp___2 = __builtin_expect(__cil_tmp11, 1L);
+  tmp___2 = ldv__builtin_expect(__cil_tmp11, 1L);
   }
 #line 53
   if (tmp___2) {
@@ -7512,7 +7512,7 @@ __inline static unsigned long __attribute__((__warn_unused_result__))  copy_from
 #line 57
     __cil_tmp15 = (long )__cil_tmp14;
 #line 57
-    tmp___0 = __builtin_expect(__cil_tmp15, 0L);
+    tmp___0 = ldv__builtin_expect(__cil_tmp15, 0L);
     }
 #line 57
     if (tmp___0) {
@@ -7534,7 +7534,7 @@ __inline static unsigned long __attribute__((__warn_unused_result__))  copy_from
 #line 57
     __cil_tmp19 = (long )__cil_tmp18;
 #line 57
-    __builtin_expect(__cil_tmp19, 0L);
+    ldv__builtin_expect(__cil_tmp19, 0L);
     }
   }
 #line 59
@@ -7966,7 +7966,7 @@ static int vmw_bo_to_validate_list(struct vmw_sw_context *sw_context , struct tt
 #line 82
   __cil_tmp15 = (long )__cil_tmp14;
 #line 82
-  tmp___7 = __builtin_expect(__cil_tmp15, 0L);
+  tmp___7 = ldv__builtin_expect(__cil_tmp15, 0L);
   }
 #line 82
   if (tmp___7) {
@@ -8005,7 +8005,7 @@ static int vmw_bo_to_validate_list(struct vmw_sw_context *sw_context , struct tt
 #line 89
   __cil_tmp26 = (long )__cil_tmp25;
 #line 89
-  tmp___8 = __builtin_expect(__cil_tmp26, 0L);
+  tmp___8 = ldv__builtin_expect(__cil_tmp26, 0L);
   }
 #line 89
   if (tmp___8) {
@@ -8190,7 +8190,7 @@ static int vmw_cmd_cid_check(struct vmw_private *dev_priv , struct vmw_sw_contex
 #line 119
   __cil_tmp24 = (long )tmp___7;
 #line 119
-  tmp___8 = __builtin_expect(__cil_tmp24, 1L);
+  tmp___8 = ldv__builtin_expect(__cil_tmp24, 1L);
   }
 #line 119
   if (tmp___8) {
@@ -8225,7 +8225,7 @@ static int vmw_cmd_cid_check(struct vmw_private *dev_priv , struct vmw_sw_contex
 #line 124
   __cil_tmp35 = (long )__cil_tmp34;
 #line 124
-  tmp___9 = __builtin_expect(__cil_tmp35, 0L);
+  tmp___9 = ldv__builtin_expect(__cil_tmp35, 0L);
   }
 #line 124
   if (tmp___9) {
@@ -8376,7 +8376,7 @@ static int vmw_cmd_sid_check(struct vmw_private *dev_priv , struct vmw_sw_contex
 #line 149
   __cil_tmp18 = (long )tmp___7;
 #line 149
-  tmp___8 = __builtin_expect(__cil_tmp18, 1L);
+  tmp___8 = ldv__builtin_expect(__cil_tmp18, 1L);
   }
 #line 149
   if (tmp___8) {
@@ -8411,7 +8411,7 @@ static int vmw_cmd_sid_check(struct vmw_private *dev_priv , struct vmw_sw_contex
 #line 158
   __cil_tmp28 = (long )__cil_tmp27;
 #line 158
-  tmp___9 = __builtin_expect(__cil_tmp28, 0L);
+  tmp___9 = ldv__builtin_expect(__cil_tmp28, 0L);
   }
 #line 158
   if (tmp___9) {
@@ -8445,7 +8445,7 @@ static int vmw_cmd_sid_check(struct vmw_private *dev_priv , struct vmw_sw_contex
 #line 167
   __cil_tmp36 = (long )__cil_tmp35;
 #line 167
-  tmp___10 = __builtin_expect(__cil_tmp36, 0L);
+  tmp___10 = ldv__builtin_expect(__cil_tmp36, 0L);
   }
 #line 167
   if (tmp___10) {
@@ -8553,7 +8553,7 @@ static int vmw_cmd_set_render_target_check(struct vmw_private *dev_priv , struct
 #line 197
   __cil_tmp11 = (long )__cil_tmp10;
 #line 197
-  tmp___7 = __builtin_expect(__cil_tmp11, 0L);
+  tmp___7 = ldv__builtin_expect(__cil_tmp11, 0L);
   }
 #line 197
   if (tmp___7) {
@@ -8650,7 +8650,7 @@ static int vmw_cmd_surface_copy_check(struct vmw_private *dev_priv , struct vmw_
 #line 217
   __cil_tmp20 = (long )__cil_tmp19;
 #line 217
-  tmp___7 = __builtin_expect(__cil_tmp20, 0L);
+  tmp___7 = ldv__builtin_expect(__cil_tmp20, 0L);
   }
 #line 217
   if (tmp___7) {
@@ -8733,7 +8733,7 @@ static int vmw_cmd_stretch_blt_check(struct vmw_private *dev_priv , struct vmw_s
 #line 234
   __cil_tmp20 = (long )__cil_tmp19;
 #line 234
-  tmp___7 = __builtin_expect(__cil_tmp20, 0L);
+  tmp___7 = ldv__builtin_expect(__cil_tmp20, 0L);
   }
 #line 234
   if (tmp___7) {
@@ -8813,7 +8813,7 @@ static int vmw_cmd_blt_surf_screen_check(struct vmw_private *dev_priv , struct v
 #line 250
   __cil_tmp19 = (long )__cil_tmp18;
 #line 250
-  tmp___7 = __builtin_expect(__cil_tmp19, 0L);
+  tmp___7 = ldv__builtin_expect(__cil_tmp19, 0L);
   }
 #line 250
   if (tmp___7) {
@@ -8898,7 +8898,7 @@ static int vmw_cmd_present_check(struct vmw_private *dev_priv , struct vmw_sw_co
 #line 270
   __cil_tmp19 = (long )__cil_tmp18;
 #line 270
-  tmp___7 = __builtin_expect(__cil_tmp19, 0L);
+  tmp___7 = ldv__builtin_expect(__cil_tmp19, 0L);
   }
 #line 270
   if (tmp___7) {
@@ -9059,7 +9059,7 @@ static int vmw_query_bo_switch_prepare(struct vmw_private *dev_priv , uint32_t c
 #line 303
   __cil_tmp27 = (long )__cil_tmp26;
 #line 303
-  tmp___12 = __builtin_expect(__cil_tmp27, 0L);
+  tmp___12 = ldv__builtin_expect(__cil_tmp27, 0L);
   }
 #line 303
   if (tmp___12) {
@@ -9079,7 +9079,7 @@ static int vmw_query_bo_switch_prepare(struct vmw_private *dev_priv , uint32_t c
 #line 305
     __cil_tmp34 = (long )__cil_tmp33;
 #line 305
-    tmp___7 = __builtin_expect(__cil_tmp34, 0L);
+    tmp___7 = ldv__builtin_expect(__cil_tmp34, 0L);
     }
 #line 305
     if (tmp___7) {
@@ -9114,7 +9114,7 @@ static int vmw_query_bo_switch_prepare(struct vmw_private *dev_priv , uint32_t c
 #line 310
     __cil_tmp44 = (long )__cil_tmp43;
 #line 310
-    tmp___10 = __builtin_expect(__cil_tmp44, 0L);
+    tmp___10 = ldv__builtin_expect(__cil_tmp44, 0L);
     }
 #line 310
     if (tmp___10) {
@@ -9138,7 +9138,7 @@ static int vmw_query_bo_switch_prepare(struct vmw_private *dev_priv , uint32_t c
 #line 311
         __cil_tmp51 = (long )__cil_tmp50;
 #line 311
-        tmp___8 = __builtin_expect(__cil_tmp51, 0L);
+        tmp___8 = ldv__builtin_expect(__cil_tmp51, 0L);
         }
 #line 311
         if (tmp___8) {
@@ -9206,7 +9206,7 @@ static int vmw_query_bo_switch_prepare(struct vmw_private *dev_priv , uint32_t c
 #line 318
       __cil_tmp63 = (long )__cil_tmp62;
 #line 318
-      tmp___9 = __builtin_expect(__cil_tmp63, 0L);
+      tmp___9 = ldv__builtin_expect(__cil_tmp63, 0L);
       }
 #line 318
       if (tmp___9) {
@@ -9248,7 +9248,7 @@ static int vmw_query_bo_switch_prepare(struct vmw_private *dev_priv , uint32_t c
 #line 327
     __cil_tmp75 = (long )__cil_tmp74;
 #line 327
-    tmp___11 = __builtin_expect(__cil_tmp75, 0L);
+    tmp___11 = ldv__builtin_expect(__cil_tmp75, 0L);
     }
 #line 327
     if (tmp___11) {
@@ -9292,7 +9292,7 @@ static int vmw_query_bo_switch_prepare(struct vmw_private *dev_priv , uint32_t c
 #line 332
   __cil_tmp81 = (long )tmp___13;
 #line 332
-  tmp___14 = __builtin_expect(__cil_tmp81, 0L);
+  tmp___14 = ldv__builtin_expect(__cil_tmp81, 0L);
   }
 #line 332
   if (tmp___14) {
@@ -9384,7 +9384,7 @@ static int vmw_query_bo_switch_prepare(struct vmw_private *dev_priv , uint32_t c
 #line 351
     __cil_tmp109 = (long )__cil_tmp108;
 #line 351
-    tmp___16 = __builtin_expect(__cil_tmp109, 0L);
+    tmp___16 = ldv__builtin_expect(__cil_tmp109, 0L);
     }
 #line 351
     if (tmp___16) {
@@ -9619,7 +9619,7 @@ static void vmw_query_bo_switch_commit(struct vmw_private *dev_priv , struct vmw
 #line 392
       __cil_tmp48 = (long )tmp___8;
 #line 392
-      tmp___9 = __builtin_expect(__cil_tmp48, 0L);
+      tmp___9 = ldv__builtin_expect(__cil_tmp48, 0L);
       }
 #line 392
       if (tmp___9) {
@@ -9675,7 +9675,7 @@ static void vmw_query_bo_switch_commit(struct vmw_private *dev_priv , struct vmw
 #line 396
     __cil_tmp56 = (long )__cil_tmp55;
 #line 396
-    tmp___10 = __builtin_expect(__cil_tmp56, 0L);
+    tmp___10 = ldv__builtin_expect(__cil_tmp56, 0L);
     }
 #line 396
     if (tmp___10) {
@@ -9961,7 +9961,7 @@ static int vmw_translate_guest_ptr(struct vmw_private *dev_priv , struct vmw_sw_
 #line 452
   __cil_tmp22 = (long )__cil_tmp21;
 #line 452
-  tmp___7 = __builtin_expect(__cil_tmp22, 0L);
+  tmp___7 = ldv__builtin_expect(__cil_tmp22, 0L);
   }
 #line 452
   if (tmp___7) {
@@ -9996,7 +9996,7 @@ static int vmw_translate_guest_ptr(struct vmw_private *dev_priv , struct vmw_sw_
 #line 458
   __cil_tmp31 = (long )__cil_tmp30;
 #line 458
-  tmp___8 = __builtin_expect(__cil_tmp31, 0L);
+  tmp___8 = ldv__builtin_expect(__cil_tmp31, 0L);
   }
 #line 458
   if (tmp___8) {
@@ -10061,7 +10061,7 @@ static int vmw_translate_guest_ptr(struct vmw_private *dev_priv , struct vmw_sw_
 #line 470
   __cil_tmp50 = (long )__cil_tmp49;
 #line 470
-  tmp___10 = __builtin_expect(__cil_tmp50, 0L);
+  tmp___10 = ldv__builtin_expect(__cil_tmp50, 0L);
   }
 #line 470
   if (tmp___10) {
@@ -10149,7 +10149,7 @@ static int vmw_cmd_end_query(struct vmw_private *dev_priv , struct vmw_sw_contex
 #line 495
   __cil_tmp18 = (long )__cil_tmp17;
 #line 495
-  tmp___7 = __builtin_expect(__cil_tmp18, 0L);
+  tmp___7 = ldv__builtin_expect(__cil_tmp18, 0L);
   }
 #line 495
   if (tmp___7) {
@@ -10178,7 +10178,7 @@ static int vmw_cmd_end_query(struct vmw_private *dev_priv , struct vmw_sw_contex
 #line 501
   __cil_tmp26 = (long )__cil_tmp25;
 #line 501
-  tmp___8 = __builtin_expect(__cil_tmp26, 0L);
+  tmp___8 = ldv__builtin_expect(__cil_tmp26, 0L);
   }
 #line 501
   if (tmp___8) {
@@ -10274,7 +10274,7 @@ static int vmw_cmd_wait_query(struct vmw_private *dev_priv , struct vmw_sw_conte
 #line 525
   __cil_tmp20 = (long )__cil_tmp19;
 #line 525
-  tmp___7 = __builtin_expect(__cil_tmp20, 0L);
+  tmp___7 = ldv__builtin_expect(__cil_tmp20, 0L);
   }
 #line 525
   if (tmp___7) {
@@ -10303,7 +10303,7 @@ static int vmw_cmd_wait_query(struct vmw_private *dev_priv , struct vmw_sw_conte
 #line 531
   __cil_tmp28 = (long )__cil_tmp27;
 #line 531
-  tmp___8 = __builtin_expect(__cil_tmp28, 0L);
+  tmp___8 = ldv__builtin_expect(__cil_tmp28, 0L);
   }
 #line 531
   if (tmp___8) {
@@ -10457,7 +10457,7 @@ static int vmw_cmd_dma(struct vmw_private *dev_priv , struct vmw_sw_context *sw_
 #line 566
   __cil_tmp28 = (long )__cil_tmp27;
 #line 566
-  tmp___7 = __builtin_expect(__cil_tmp28, 0L);
+  tmp___7 = ldv__builtin_expect(__cil_tmp28, 0L);
   }
 #line 566
   if (tmp___7) {
@@ -10517,7 +10517,7 @@ static int vmw_cmd_dma(struct vmw_private *dev_priv , struct vmw_sw_context *sw_
 #line 578
   __cil_tmp43 = (long )__cil_tmp42;
 #line 578
-  tmp___8 = __builtin_expect(__cil_tmp43, 0L);
+  tmp___8 = ldv__builtin_expect(__cil_tmp43, 0L);
   }
 #line 578
   if (tmp___8) {
@@ -10700,7 +10700,7 @@ static int vmw_cmd_draw(struct vmw_private *dev_priv , struct vmw_sw_context *sw
 #line 620
   __cil_tmp21 = (long )__cil_tmp20;
 #line 620
-  tmp___7 = __builtin_expect(__cil_tmp21, 0L);
+  tmp___7 = ldv__builtin_expect(__cil_tmp21, 0L);
   }
 #line 620
   if (tmp___7) {
@@ -10755,7 +10755,7 @@ static int vmw_cmd_draw(struct vmw_private *dev_priv , struct vmw_sw_context *sw
 #line 626
   __cil_tmp40 = (long )__cil_tmp39;
 #line 626
-  tmp___8 = __builtin_expect(__cil_tmp40, 0L);
+  tmp___8 = ldv__builtin_expect(__cil_tmp40, 0L);
   }
 #line 626
   if (tmp___8) {
@@ -10809,7 +10809,7 @@ static int vmw_cmd_draw(struct vmw_private *dev_priv , struct vmw_sw_context *sw
 #line 634
     __cil_tmp51 = (long )__cil_tmp50;
 #line 634
-    tmp___9 = __builtin_expect(__cil_tmp51, 0L);
+    tmp___9 = ldv__builtin_expect(__cil_tmp51, 0L);
     }
 #line 634
     if (tmp___9) {
@@ -10871,7 +10871,7 @@ static int vmw_cmd_draw(struct vmw_private *dev_priv , struct vmw_sw_context *sw
 #line 640
   __cil_tmp72 = (long )__cil_tmp71;
 #line 640
-  tmp___10 = __builtin_expect(__cil_tmp72, 0L);
+  tmp___10 = ldv__builtin_expect(__cil_tmp72, 0L);
   }
 #line 640
   if (tmp___10) {
@@ -10927,7 +10927,7 @@ static int vmw_cmd_draw(struct vmw_private *dev_priv , struct vmw_sw_context *sw
 #line 649
     __cil_tmp83 = (long )__cil_tmp82;
 #line 649
-    tmp___11 = __builtin_expect(__cil_tmp83, 0L);
+    tmp___11 = ldv__builtin_expect(__cil_tmp83, 0L);
     }
 #line 649
     if (tmp___11) {
@@ -11022,7 +11022,7 @@ static int vmw_cmd_tex_state(struct vmw_private *dev_priv , struct vmw_sw_contex
 #line 672
   __cil_tmp22 = (long )__cil_tmp21;
 #line 672
-  tmp___7 = __builtin_expect(__cil_tmp22, 0L);
+  tmp___7 = ldv__builtin_expect(__cil_tmp22, 0L);
   }
 #line 672
   if (tmp___7) {
@@ -11066,7 +11066,7 @@ static int vmw_cmd_tex_state(struct vmw_private *dev_priv , struct vmw_sw_contex
 #line 676
     __cil_tmp32 = (long )__cil_tmp31;
 #line 676
-    tmp___8 = __builtin_expect(__cil_tmp32, 1L);
+    tmp___8 = ldv__builtin_expect(__cil_tmp32, 1L);
     }
 #line 676
     if (tmp___8) {
@@ -11093,7 +11093,7 @@ static int vmw_cmd_tex_state(struct vmw_private *dev_priv , struct vmw_sw_contex
 #line 681
     __cil_tmp39 = (long )__cil_tmp38;
 #line 681
-    tmp___9 = __builtin_expect(__cil_tmp39, 0L);
+    tmp___9 = ldv__builtin_expect(__cil_tmp39, 0L);
     }
 #line 681
     if (tmp___9) {
@@ -11148,7 +11148,7 @@ static int vmw_cmd_check_define_gmrfb(struct vmw_private *dev_priv , struct vmw_
 #line 703
   __cil_tmp14 = (long )__cil_tmp13;
 #line 703
-  tmp___7 = __builtin_expect(__cil_tmp14, 0L);
+  tmp___7 = ldv__builtin_expect(__cil_tmp14, 0L);
   }
 #line 703
   if (tmp___7) {
@@ -11293,7 +11293,7 @@ static int vmw_cmd_check_not_3d(struct vmw_private *dev_priv , struct vmw_sw_con
 #line 743
   __cil_tmp22 = (long )__cil_tmp21;
 #line 743
-  tmp___7 = __builtin_expect(__cil_tmp22, 0L);
+  tmp___7 = ldv__builtin_expect(__cil_tmp22, 0L);
   }
 #line 743
   if (tmp___7) {
@@ -11394,7 +11394,7 @@ static int vmw_cmd_check(struct vmw_private *dev_priv , struct vmw_sw_context *s
 #line 807
   __cil_tmp19 = (long )__cil_tmp18;
 #line 807
-  tmp___8 = __builtin_expect(__cil_tmp19, 0L);
+  tmp___8 = ldv__builtin_expect(__cil_tmp19, 0L);
   }
 #line 807
   if (tmp___8) {
@@ -11435,7 +11435,7 @@ static int vmw_cmd_check(struct vmw_private *dev_priv , struct vmw_sw_context *s
 #line 815
   __cil_tmp29 = (long )__cil_tmp28;
 #line 815
-  tmp___9 = __builtin_expect(__cil_tmp29, 0L);
+  tmp___9 = ldv__builtin_expect(__cil_tmp29, 0L);
   }
 #line 815
   if (tmp___9) {
@@ -11454,7 +11454,7 @@ static int vmw_cmd_check(struct vmw_private *dev_priv , struct vmw_sw_context *s
 #line 818
   __cil_tmp33 = (long )__cil_tmp32;
 #line 818
-  tmp___10 = __builtin_expect(__cil_tmp33, 0L);
+  tmp___10 = ldv__builtin_expect(__cil_tmp33, 0L);
   }
 #line 818
   if (tmp___10) {
@@ -11481,7 +11481,7 @@ static int vmw_cmd_check(struct vmw_private *dev_priv , struct vmw_sw_context *s
 #line 822
   __cil_tmp40 = (long )__cil_tmp39;
 #line 822
-  tmp___11 = __builtin_expect(__cil_tmp40, 0L);
+  tmp___11 = ldv__builtin_expect(__cil_tmp40, 0L);
   }
 #line 822
   if (tmp___11) {
@@ -11565,7 +11565,7 @@ static int vmw_cmd_check_all(struct vmw_private *dev_priv , struct vmw_sw_contex
 #line 843
     __cil_tmp15 = (long )__cil_tmp14;
 #line 843
-    tmp___7 = __builtin_expect(__cil_tmp15, 0L);
+    tmp___7 = ldv__builtin_expect(__cil_tmp15, 0L);
     }
 #line 843
     if (tmp___7) {
@@ -11609,7 +11609,7 @@ static int vmw_cmd_check_all(struct vmw_private *dev_priv , struct vmw_sw_contex
 #line 849
   __cil_tmp28 = (long )__cil_tmp27;
 #line 849
-  tmp___8 = __builtin_expect(__cil_tmp28, 0L);
+  tmp___8 = ldv__builtin_expect(__cil_tmp28, 0L);
   }
 #line 849
   if (tmp___8) {
@@ -12058,7 +12058,7 @@ static void vmw_clear_validations(struct vmw_sw_context *sw_context )
 #line 897
     __cil_tmp57 = (long )__cil_tmp56;
 #line 897
-    tmp___7 = __builtin_expect(__cil_tmp57, 0L);
+    tmp___7 = ldv__builtin_expect(__cil_tmp57, 0L);
     }
 #line 897
     if (tmp___7) {
@@ -12343,7 +12343,7 @@ static int vmw_validate_single_buffer(struct vmw_private *dev_priv , struct ttm_
 #line 933
   __cil_tmp21 = (long )tmp___7;
 #line 933
-  tmp___8 = __builtin_expect(__cil_tmp21, 1L);
+  tmp___8 = ldv__builtin_expect(__cil_tmp21, 1L);
   }
 #line 933
   if (tmp___8) {
@@ -12467,7 +12467,7 @@ static int vmw_validate_buffers(struct vmw_private *dev_priv , struct vmw_sw_con
 #line 955
     __cil_tmp28 = (long )__cil_tmp27;
 #line 955
-    tmp___7 = __builtin_expect(__cil_tmp28, 0L);
+    tmp___7 = ldv__builtin_expect(__cil_tmp28, 0L);
     }
 #line 955
     if (tmp___7) {
@@ -12578,7 +12578,7 @@ static int vmw_resize_cmd_bounce(struct vmw_sw_context *sw_context , uint32_t si
 #line 964
   __cil_tmp11 = (long )__cil_tmp10;
 #line 964
-  tmp___7 = __builtin_expect(__cil_tmp11, 1L);
+  tmp___7 = ldv__builtin_expect(__cil_tmp11, 1L);
   }
 #line 964
   if (tmp___7) {
@@ -12836,7 +12836,7 @@ int vmw_execbuf_fence_commands(struct drm_file *file_priv , struct vmw_private *
 #line 1011
     __cil_tmp19 = (long )tmp___7;
 #line 1011
-    tmp___8 = __builtin_expect(__cil_tmp19, 0L);
+    tmp___8 = ldv__builtin_expect(__cil_tmp19, 0L);
     }
 #line 1011
     if (tmp___8) {
@@ -12884,7 +12884,7 @@ int vmw_execbuf_fence_commands(struct drm_file *file_priv , struct vmw_private *
 #line 1014
   __cil_tmp23 = (long )__cil_tmp22;
 #line 1014
-  tmp___9 = __builtin_expect(__cil_tmp23, 0L);
+  tmp___9 = ldv__builtin_expect(__cil_tmp23, 0L);
   }
 #line 1014
   if (tmp___9) {
@@ -12960,7 +12960,7 @@ int vmw_execbuf_fence_commands(struct drm_file *file_priv , struct vmw_private *
 #line 1029
   __cil_tmp39 = (long )tmp___10;
 #line 1029
-  tmp___11 = __builtin_expect(__cil_tmp39, 0L);
+  tmp___11 = ldv__builtin_expect(__cil_tmp39, 0L);
   }
 #line 1029
   if (tmp___11) {
@@ -13087,7 +13087,7 @@ void vmw_execbuf_copy_fence_user(struct vmw_private *dev_priv , struct vmw_fpriv
 #line 1076
       __cil_tmp21 = (long )__cil_tmp20;
 #line 1076
-      tmp___7 = __builtin_expect(__cil_tmp21, 0L);
+      tmp___7 = ldv__builtin_expect(__cil_tmp21, 0L);
       }
 #line 1076
       if (tmp___7) {
@@ -13174,7 +13174,7 @@ void vmw_execbuf_copy_fence_user(struct vmw_private *dev_priv , struct vmw_fpriv
 #line 1096
   __cil_tmp38 = (long )__cil_tmp37;
 #line 1096
-  tmp___8 = __builtin_expect(__cil_tmp38, 0L);
+  tmp___8 = ldv__builtin_expect(__cil_tmp38, 0L);
   }
 #line 1096
   if (tmp___8) {
@@ -13428,7 +13428,7 @@ int vmw_execbuf_process(struct drm_file *file_priv , struct vmw_private *dev_pri
 #line 1122
   __cil_tmp40 = (long )__cil_tmp39;
 #line 1122
-  tmp___7 = __builtin_expect(__cil_tmp40, 0L);
+  tmp___7 = ldv__builtin_expect(__cil_tmp40, 0L);
   }
 #line 1122
   if (tmp___7) {
@@ -13464,7 +13464,7 @@ int vmw_execbuf_process(struct drm_file *file_priv , struct vmw_private *dev_pri
 #line 1129
     __cil_tmp49 = (long )__cil_tmp48;
 #line 1129
-    tmp___8 = __builtin_expect(__cil_tmp49, 0L);
+    tmp___8 = ldv__builtin_expect(__cil_tmp49, 0L);
     }
 #line 1129
     if (tmp___8) {
@@ -13499,7 +13499,7 @@ int vmw_execbuf_process(struct drm_file *file_priv , struct vmw_private *dev_pri
 #line 1136
     __cil_tmp59 = (long )__cil_tmp58;
 #line 1136
-    tmp___10 = __builtin_expect(__cil_tmp59, 0L);
+    tmp___10 = ldv__builtin_expect(__cil_tmp59, 0L);
     }
 #line 1136
     if (tmp___10) {
@@ -13649,7 +13649,7 @@ int vmw_execbuf_process(struct drm_file *file_priv , struct vmw_private *dev_pri
 #line 1161
   __cil_tmp108 = (long )__cil_tmp107;
 #line 1161
-  tmp___12 = __builtin_expect(__cil_tmp108, 0L);
+  tmp___12 = ldv__builtin_expect(__cil_tmp108, 0L);
   }
 #line 1161
   if (tmp___12) {
@@ -13676,7 +13676,7 @@ int vmw_execbuf_process(struct drm_file *file_priv , struct vmw_private *dev_pri
 #line 1165
   __cil_tmp115 = (long )__cil_tmp114;
 #line 1165
-  tmp___13 = __builtin_expect(__cil_tmp115, 0L);
+  tmp___13 = ldv__builtin_expect(__cil_tmp115, 0L);
   }
 #line 1165
   if (tmp___13) {
@@ -13697,7 +13697,7 @@ int vmw_execbuf_process(struct drm_file *file_priv , struct vmw_private *dev_pri
 #line 1169
   __cil_tmp119 = (long )__cil_tmp118;
 #line 1169
-  tmp___14 = __builtin_expect(__cil_tmp119, 0L);
+  tmp___14 = ldv__builtin_expect(__cil_tmp119, 0L);
   }
 #line 1169
   if (tmp___14) {
@@ -13734,7 +13734,7 @@ int vmw_execbuf_process(struct drm_file *file_priv , struct vmw_private *dev_pri
 #line 1178
     __cil_tmp128 = (long )__cil_tmp127;
 #line 1178
-    tmp___15 = __builtin_expect(__cil_tmp128, 0L);
+    tmp___15 = ldv__builtin_expect(__cil_tmp128, 0L);
     }
 #line 1178
     if (tmp___15) {
@@ -13764,7 +13764,7 @@ int vmw_execbuf_process(struct drm_file *file_priv , struct vmw_private *dev_pri
 #line 1183
   __cil_tmp135 = (long )__cil_tmp134;
 #line 1183
-  tmp___16 = __builtin_expect(__cil_tmp135, 0L);
+  tmp___16 = ldv__builtin_expect(__cil_tmp135, 0L);
   }
 #line 1183
   if (tmp___16) {
@@ -13859,7 +13859,7 @@ int vmw_execbuf_process(struct drm_file *file_priv , struct vmw_private *dev_pri
 #line 1213
   __cil_tmp154 = (long )__cil_tmp153;
 #line 1213
-  tmp___20 = __builtin_expect(__cil_tmp154, 0L);
+  tmp___20 = ldv__builtin_expect(__cil_tmp154, 0L);
   }
 #line 1213
   if (tmp___20) {
@@ -13894,7 +13894,7 @@ int vmw_execbuf_process(struct drm_file *file_priv , struct vmw_private *dev_pri
 #line 1216
     __cil_tmp166 = (long )__cil_tmp165;
 #line 1216
-    tmp___19 = __builtin_expect(__cil_tmp166, 1L);
+    tmp___19 = ldv__builtin_expect(__cil_tmp166, 1L);
     }
 #line 1216
     if (tmp___19) {
@@ -14229,7 +14229,7 @@ void vmw_execbuf_release_pinned_bo(struct vmw_private *dev_priv , bool only_on_c
 #line 1306
   __cil_tmp41 = (long )__cil_tmp40;
 #line 1306
-  tmp___7 = __builtin_expect(__cil_tmp41, 0L);
+  tmp___7 = ldv__builtin_expect(__cil_tmp41, 0L);
   }
 #line 1306
   if (tmp___7) {
@@ -14260,7 +14260,7 @@ void vmw_execbuf_release_pinned_bo(struct vmw_private *dev_priv , bool only_on_c
 #line 1312
   __cil_tmp48 = (long )__cil_tmp47;
 #line 1312
-  tmp___8 = __builtin_expect(__cil_tmp48, 0L);
+  tmp___8 = ldv__builtin_expect(__cil_tmp48, 0L);
   }
 #line 1312
   if (tmp___8) {
@@ -14477,7 +14477,7 @@ int vmw_execbuf_ioctl(struct drm_device *dev , void *data , struct drm_file *fil
 #line 1357
   __cil_tmp22 = (long )__cil_tmp21;
 #line 1357
-  tmp___9 = __builtin_expect(__cil_tmp22, 0L);
+  tmp___9 = ldv__builtin_expect(__cil_tmp22, 0L);
   }
 #line 1357
   if (tmp___9) {
@@ -14508,7 +14508,7 @@ int vmw_execbuf_ioctl(struct drm_device *dev , void *data , struct drm_file *fil
 #line 1365
   __cil_tmp28 = (long )__cil_tmp27;
 #line 1365
-  tmp___10 = __builtin_expect(__cil_tmp28, 0L);
+  tmp___10 = ldv__builtin_expect(__cil_tmp28, 0L);
   }
 #line 1365
   if (tmp___10) {
@@ -14568,7 +14568,7 @@ int vmw_execbuf_ioctl(struct drm_device *dev , void *data , struct drm_file *fil
 #line 1374
   __cil_tmp51 = (long )__cil_tmp50;
 #line 1374
-  tmp___11 = __builtin_expect(__cil_tmp51, 0L);
+  tmp___11 = ldv__builtin_expect(__cil_tmp51, 0L);
   }
 #line 1374
   if (tmp___11) {
@@ -14786,7 +14786,7 @@ void ldv_check_final_state(void)
 }
 }
 #line 1386 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/6447/dscv_tempdir/dscv/ri/32_1/drivers/gpu/drm/vmwgfx/vmwgfx_execbuf.c.common.c"
-long __builtin_expect(long val , long res ) 
+long ldv__builtin_expect(long val , long res ) 
 { 
 
   {
@@ -15265,7 +15265,7 @@ static int vmw_gmr2_bind(struct vmw_private *dev_priv , struct page **pages , un
 #line 48
   __cil_tmp33 = (long )__cil_tmp32;
 #line 48
-  tmp___8 = __builtin_expect(__cil_tmp33, 0L);
+  tmp___8 = ldv__builtin_expect(__cil_tmp33, 0L);
   }
 #line 48
   if (tmp___8) {
@@ -15490,7 +15490,7 @@ static void vmw_gmr2_unbind(struct vmw_private *dev_priv , int gmr_id )
 #line 90
   __cil_tmp18 = (long )__cil_tmp17;
 #line 90
-  tmp___8 = __builtin_expect(__cil_tmp18, 0L);
+  tmp___8 = ldv__builtin_expect(__cil_tmp18, 0L);
   }
 #line 90
   if (tmp___8) {
@@ -15693,7 +15693,7 @@ static int vmw_gmr_build_descriptors(struct list_head *desc_pages , struct page 
 #line 123
     __cil_tmp30 = (long )__cil_tmp29;
 #line 123
-    tmp___12 = __builtin_expect(__cil_tmp30, 1L);
+    tmp___12 = ldv__builtin_expect(__cil_tmp30, 1L);
     }
 #line 123
     if (tmp___12) {
@@ -15720,7 +15720,7 @@ static int vmw_gmr_build_descriptors(struct list_head *desc_pages , struct page 
 #line 125
     __cil_tmp37 = (long )__cil_tmp36;
 #line 125
-    tmp___7 = __builtin_expect(__cil_tmp37, 0L);
+    tmp___7 = ldv__builtin_expect(__cil_tmp37, 0L);
     }
 #line 125
     if (tmp___7) {
@@ -15755,7 +15755,7 @@ static int vmw_gmr_build_descriptors(struct list_head *desc_pages , struct page 
 #line 137
     __cil_tmp47 = (long )__cil_tmp46;
 #line 137
-    tmp___8 = __builtin_expect(__cil_tmp47, 1L);
+    tmp___8 = ldv__builtin_expect(__cil_tmp47, 1L);
     }
 #line 137
     if (tmp___8) {
@@ -15809,7 +15809,7 @@ static int vmw_gmr_build_descriptors(struct list_head *desc_pages , struct page 
 #line 146
       __cil_tmp55 = (long )__cil_tmp54;
 #line 146
-      tmp___11 = __builtin_expect(__cil_tmp55, 1L);
+      tmp___11 = ldv__builtin_expect(__cil_tmp55, 1L);
       }
 #line 146
       if (tmp___11) {
@@ -15909,7 +15909,7 @@ static int vmw_gmr_build_descriptors(struct list_head *desc_pages , struct page 
 #line 171
   __cil_tmp77 = (long )__cil_tmp76;
 #line 171
-  tmp___13 = __builtin_expect(__cil_tmp77, 1L);
+  tmp___13 = ldv__builtin_expect(__cil_tmp77, 1L);
   }
 #line 171
   if (tmp___13) {
@@ -16253,7 +16253,7 @@ static void vmw_gmr_fire_descriptors(struct vmw_private *dev_priv , int gmr_id ,
 #line 198
   __cil_tmp10 = (long )tmp___8;
 #line 198
-  tmp___9 = __builtin_expect(__cil_tmp10, 0L);
+  tmp___9 = ldv__builtin_expect(__cil_tmp10, 0L);
   }
 #line 198
   if (tmp___9) {
@@ -16437,7 +16437,7 @@ int vmw_gmr_bind(struct vmw_private *dev_priv , struct page **pages , unsigned l
 #line 244
   __cil_tmp18 = (long )__cil_tmp17;
 #line 244
-  tmp___8 = __builtin_expect(__cil_tmp18, 1L);
+  tmp___8 = ldv__builtin_expect(__cil_tmp18, 1L);
   }
 #line 244
   if (tmp___8) {
@@ -16468,7 +16468,7 @@ int vmw_gmr_bind(struct vmw_private *dev_priv , struct page **pages , unsigned l
 #line 247
   __cil_tmp26 = (long )__cil_tmp25;
 #line 247
-  tmp___9 = __builtin_expect(__cil_tmp26, 0L);
+  tmp___9 = ldv__builtin_expect(__cil_tmp26, 0L);
   }
 #line 247
   if (tmp___9) {
@@ -16512,7 +16512,7 @@ int vmw_gmr_bind(struct vmw_private *dev_priv , struct page **pages , unsigned l
 #line 257
   __cil_tmp34 = (long )__cil_tmp33;
 #line 257
-  tmp___11 = __builtin_expect(__cil_tmp34, 0L);
+  tmp___11 = ldv__builtin_expect(__cil_tmp34, 0L);
   }
 #line 257
   if (tmp___11) {
@@ -16567,7 +16567,7 @@ void vmw_gmr_unbind(struct vmw_private *dev_priv , int gmr_id )
 #line 269
   __cil_tmp10 = (long )__cil_tmp9;
 #line 269
-  tmp___7 = __builtin_expect(__cil_tmp10, 1L);
+  tmp___7 = ldv__builtin_expect(__cil_tmp10, 1L);
   }
 #line 269
   if (tmp___7) {
@@ -17422,7 +17422,7 @@ int vmw_cursor_update_image(struct vmw_private *dev_priv , u32 *image , u32 widt
 #line 103
   __cil_tmp23 = (long )__cil_tmp22;
 #line 103
-  tmp___8 = __builtin_expect(__cil_tmp23, 0L);
+  tmp___8 = ldv__builtin_expect(__cil_tmp23, 0L);
   }
 #line 103
   if (tmp___8) {
@@ -17570,7 +17570,7 @@ int vmw_cursor_update_dmabuf(struct vmw_private *dev_priv , struct vmw_dma_buffe
 #line 140
   __cil_tmp29 = (long )__cil_tmp28;
 #line 140
-  tmp___7 = __builtin_expect(__cil_tmp29, 0L);
+  tmp___7 = ldv__builtin_expect(__cil_tmp29, 0L);
   }
 #line 140
   if (tmp___7) {
@@ -17597,7 +17597,7 @@ int vmw_cursor_update_dmabuf(struct vmw_private *dev_priv , struct vmw_dma_buffe
 #line 146
   __cil_tmp34 = (long )__cil_tmp33;
 #line 146
-  tmp___8 = __builtin_expect(__cil_tmp34, 0L);
+  tmp___8 = ldv__builtin_expect(__cil_tmp34, 0L);
   }
 #line 146
   if (tmp___8) {
@@ -19664,7 +19664,7 @@ void vmw_kms_cursor_snoop(struct vmw_surface *srf , struct ttm_object_file *tfil
 #line 313
   __cil_tmp374 = (long )__cil_tmp373;
 #line 313
-  tmp___7 = __builtin_expect(__cil_tmp374, 0L);
+  tmp___7 = ldv__builtin_expect(__cil_tmp374, 0L);
   }
 #line 313
   if (tmp___7) {
@@ -19689,7 +19689,7 @@ void vmw_kms_cursor_snoop(struct vmw_surface *srf , struct ttm_object_file *tfil
 #line 319
   __cil_tmp378 = (long )__cil_tmp377;
 #line 319
-  tmp___8 = __builtin_expect(__cil_tmp378, 0L);
+  tmp___8 = ldv__builtin_expect(__cil_tmp378, 0L);
   }
 #line 319
   if (tmp___8) {
@@ -20773,7 +20773,7 @@ static int do_surface_dirty_sou(struct vmw_private *dev_priv , struct drm_file *
 #line 452
     __cil_tmp99 = (long )tmp___9;
 #line 452
-    tmp___10 = __builtin_expect(__cil_tmp99, 0L);
+    tmp___10 = ldv__builtin_expect(__cil_tmp99, 0L);
     }
 #line 452
     if (tmp___10) {
@@ -20833,7 +20833,7 @@ static int do_surface_dirty_sou(struct vmw_private *dev_priv , struct drm_file *
 #line 455
   __cil_tmp108 = (long )__cil_tmp107;
 #line 455
-  tmp___12 = __builtin_expect(__cil_tmp108, 0L);
+  tmp___12 = ldv__builtin_expect(__cil_tmp108, 0L);
   }
 #line 455
   if (tmp___12) {
@@ -20872,7 +20872,7 @@ static int do_surface_dirty_sou(struct vmw_private *dev_priv , struct drm_file *
 #line 462
   __cil_tmp117 = (long )__cil_tmp116;
 #line 462
-  tmp___14 = __builtin_expect(__cil_tmp117, 0L);
+  tmp___14 = ldv__builtin_expect(__cil_tmp117, 0L);
   }
 #line 462
   if (tmp___14) {
@@ -21440,7 +21440,7 @@ static int do_surface_dirty_sou(struct vmw_private *dev_priv , struct drm_file *
 #line 557
     __cil_tmp271 = (long )__cil_tmp270;
 #line 557
-    tmp___19 = __builtin_expect(__cil_tmp271, 0L);
+    tmp___19 = ldv__builtin_expect(__cil_tmp271, 0L);
     }
 #line 557
     if (tmp___19) {
@@ -21592,7 +21592,7 @@ int vmw_framebuffer_surface_dirty(struct drm_framebuffer *framebuffer , struct d
 #line 582
   __cil_tmp38 = (long )__cil_tmp37;
 #line 582
-  tmp___9 = __builtin_expect(__cil_tmp38, 0L);
+  tmp___9 = ldv__builtin_expect(__cil_tmp38, 0L);
   }
 #line 582
   if (tmp___9) {
@@ -21632,7 +21632,7 @@ int vmw_framebuffer_surface_dirty(struct drm_framebuffer *framebuffer , struct d
 #line 590
   __cil_tmp47 = (long )__cil_tmp46;
 #line 590
-  tmp___10 = __builtin_expect(__cil_tmp47, 0L);
+  tmp___10 = ldv__builtin_expect(__cil_tmp47, 0L);
   }
 #line 590
   if (tmp___10) {
@@ -21906,7 +21906,7 @@ static int vmw_kms_new_framebuffer_surface(struct vmw_private *dev_priv , struct
 #line 641
   __cil_tmp32 = (long )__cil_tmp31;
 #line 641
-  tmp___8 = __builtin_expect(__cil_tmp32, 0L);
+  tmp___8 = ldv__builtin_expect(__cil_tmp32, 0L);
   }
 #line 641
   if (tmp___8) {
@@ -22031,7 +22031,7 @@ static int vmw_kms_new_framebuffer_surface(struct vmw_private *dev_priv , struct
 #line 644
   __cil_tmp68 = (long )tmp___9;
 #line 644
-  tmp___10 = __builtin_expect(__cil_tmp68, 0L);
+  tmp___10 = ldv__builtin_expect(__cil_tmp68, 0L);
   }
 #line 644
   if (tmp___10) {
@@ -22143,7 +22143,7 @@ static int vmw_kms_new_framebuffer_surface(struct vmw_private *dev_priv , struct
 #line 675
   __cil_tmp82 = (long )__cil_tmp81;
 #line 675
-  tmp___11 = __builtin_expect(__cil_tmp82, 0L);
+  tmp___11 = ldv__builtin_expect(__cil_tmp82, 0L);
   }
 #line 675
   if (tmp___11) {
@@ -22521,7 +22521,7 @@ static int do_dmabuf_dirty_ldu(struct vmw_private *dev_priv , struct vmw_framebu
 #line 762
   __cil_tmp21 = (long )__cil_tmp20;
 #line 762
-  tmp___8 = __builtin_expect(__cil_tmp21, 0L);
+  tmp___8 = ldv__builtin_expect(__cil_tmp21, 0L);
   }
 #line 762
   if (tmp___8) {
@@ -22762,7 +22762,7 @@ static int do_dmabuf_define_gmrfb(struct drm_file *file_priv , struct vmw_privat
 #line 802
   __cil_tmp20 = (long )__cil_tmp19;
 #line 802
-  tmp___8 = __builtin_expect(__cil_tmp20, 0L);
+  tmp___8 = ldv__builtin_expect(__cil_tmp20, 0L);
   }
 #line 802
   if (tmp___8) {
@@ -23112,7 +23112,7 @@ static int do_dmabuf_dirty_sou(struct drm_file *file_priv , struct vmw_private *
 #line 844
   __cil_tmp50 = (long )__cil_tmp49;
 #line 844
-  tmp___7 = __builtin_expect(__cil_tmp50, 0L);
+  tmp___7 = ldv__builtin_expect(__cil_tmp50, 0L);
   }
 #line 844
   if (tmp___7) {
@@ -23145,7 +23145,7 @@ static int do_dmabuf_dirty_sou(struct drm_file *file_priv , struct vmw_private *
 #line 849
   __cil_tmp58 = (long )__cil_tmp57;
 #line 849
-  tmp___9 = __builtin_expect(__cil_tmp58, 0L);
+  tmp___9 = ldv__builtin_expect(__cil_tmp58, 0L);
   }
 #line 849
   if (tmp___9) {
@@ -23683,7 +23683,7 @@ static int do_dmabuf_dirty_sou(struct drm_file *file_priv , struct vmw_private *
 #line 911
     __cil_tmp209 = (long )__cil_tmp208;
 #line 911
-    tmp___15 = __builtin_expect(__cil_tmp209, 0L);
+    tmp___15 = ldv__builtin_expect(__cil_tmp209, 0L);
     }
 #line 911
     if (tmp___15) {
@@ -23805,7 +23805,7 @@ int vmw_framebuffer_dmabuf_dirty(struct drm_framebuffer *framebuffer , struct dr
 #line 934
   __cil_tmp31 = (long )__cil_tmp30;
 #line 934
-  tmp___9 = __builtin_expect(__cil_tmp31, 0L);
+  tmp___9 = ldv__builtin_expect(__cil_tmp31, 0L);
   }
 #line 934
   if (tmp___9) {
@@ -23981,7 +23981,7 @@ static int vmw_framebuffer_dmabuf_pin(struct vmw_framebuffer *vfb )
 #line 979
     __cil_tmp22 = (long )__cil_tmp21;
 #line 979
-    tmp___8 = __builtin_expect(__cil_tmp22, 0L);
+    tmp___8 = ldv__builtin_expect(__cil_tmp22, 0L);
     }
 #line 979
     if (tmp___8) {
@@ -24047,7 +24047,7 @@ static int vmw_framebuffer_dmabuf_pin(struct vmw_framebuffer *vfb )
 #line 987
   __cil_tmp32 = (long )__cil_tmp31;
 #line 987
-  tmp___9 = __builtin_expect(__cil_tmp32, 0L);
+  tmp___9 = ldv__builtin_expect(__cil_tmp32, 0L);
   }
 #line 987
   if (tmp___9) {
@@ -24069,7 +24069,7 @@ static int vmw_framebuffer_dmabuf_pin(struct vmw_framebuffer *vfb )
 #line 987
   __cil_tmp36 = (long )__cil_tmp35;
 #line 987
-  __builtin_expect(__cil_tmp36, 0L);
+  ldv__builtin_expect(__cil_tmp36, 0L);
   }
 #line 989
   return (0);
@@ -24165,7 +24165,7 @@ static int vmw_framebuffer_dmabuf_unpin(struct vmw_framebuffer *vfb )
 #line 999
     __cil_tmp26 = (long )__cil_tmp25;
 #line 999
-    tmp___8 = __builtin_expect(__cil_tmp26, 0L);
+    tmp___8 = ldv__builtin_expect(__cil_tmp26, 0L);
     }
 #line 999
     if (tmp___8) {
@@ -24187,7 +24187,7 @@ static int vmw_framebuffer_dmabuf_unpin(struct vmw_framebuffer *vfb )
 #line 999
     __cil_tmp30 = (long )__cil_tmp29;
 #line 999
-    __builtin_expect(__cil_tmp30, 0L);
+    ldv__builtin_expect(__cil_tmp30, 0L);
     }
 #line 1000
     return (0);
@@ -24376,7 +24376,7 @@ static int vmw_kms_new_framebuffer_dmabuf(struct vmw_private *dev_priv , struct 
 #line 1019
   __cil_tmp31 = (long )__cil_tmp30;
 #line 1019
-  tmp___7 = __builtin_expect(__cil_tmp31, 0L);
+  tmp___7 = ldv__builtin_expect(__cil_tmp31, 0L);
   }
 #line 1019
   if (tmp___7) {
@@ -24961,7 +24961,7 @@ static struct drm_framebuffer *vmw_kms_fb_create(struct drm_device *dev , struct
 #line 1139
   __cil_tmp66 = (long )__cil_tmp65;
 #line 1139
-  tmp___12 = __builtin_expect(__cil_tmp66, 0L);
+  tmp___12 = ldv__builtin_expect(__cil_tmp66, 0L);
   }
 #line 1139
   if (tmp___12) {
@@ -25595,7 +25595,7 @@ int vmw_kms_present(struct vmw_private *dev_priv , struct drm_file *file_priv , 
 #line 1216
     __cil_tmp106 = (long )__cil_tmp105;
 #line 1216
-    tmp___9 = __builtin_expect(__cil_tmp106, 0L);
+    tmp___9 = ldv__builtin_expect(__cil_tmp106, 0L);
     }
 #line 1216
     if (tmp___9) {
@@ -25652,7 +25652,7 @@ int vmw_kms_present(struct vmw_private *dev_priv , struct drm_file *file_priv , 
 #line 1217
     __cil_tmp107 = (long )tmp___10;
 #line 1217
-    tmp___11 = __builtin_expect(__cil_tmp107, 0L);
+    tmp___11 = ldv__builtin_expect(__cil_tmp107, 0L);
     }
 #line 1217
     if (tmp___11) {
@@ -25712,7 +25712,7 @@ int vmw_kms_present(struct vmw_private *dev_priv , struct drm_file *file_priv , 
 #line 1220
   __cil_tmp116 = (long )__cil_tmp115;
 #line 1220
-  tmp___13 = __builtin_expect(__cil_tmp116, 0L);
+  tmp___13 = ldv__builtin_expect(__cil_tmp116, 0L);
   }
 #line 1220
   if (tmp___13) {
@@ -25751,7 +25751,7 @@ int vmw_kms_present(struct vmw_private *dev_priv , struct drm_file *file_priv , 
 #line 1227
   __cil_tmp125 = (long )__cil_tmp124;
 #line 1227
-  tmp___15 = __builtin_expect(__cil_tmp125, 0L);
+  tmp___15 = ldv__builtin_expect(__cil_tmp125, 0L);
   }
 #line 1227
   if (tmp___15) {
@@ -26355,7 +26355,7 @@ int vmw_kms_present(struct vmw_private *dev_priv , struct drm_file *file_priv , 
 #line 1311
     __cil_tmp309 = (long )__cil_tmp308;
 #line 1311
-    tmp___20 = __builtin_expect(__cil_tmp309, 0L);
+    tmp___20 = ldv__builtin_expect(__cil_tmp309, 0L);
     }
 #line 1311
     if (tmp___20) {
@@ -26896,7 +26896,7 @@ int vmw_kms_readback(struct vmw_private *dev_priv , struct drm_file *file_priv ,
 #line 1353
     __cil_tmp111 = (long )__cil_tmp110;
 #line 1353
-    tmp___8 = __builtin_expect(__cil_tmp111, 0L);
+    tmp___8 = ldv__builtin_expect(__cil_tmp111, 0L);
     }
 #line 1353
     if (tmp___8) {
@@ -26953,7 +26953,7 @@ int vmw_kms_readback(struct vmw_private *dev_priv , struct drm_file *file_priv ,
 #line 1354
     __cil_tmp112 = (long )tmp___9;
 #line 1354
-    tmp___10 = __builtin_expect(__cil_tmp112, 0L);
+    tmp___10 = ldv__builtin_expect(__cil_tmp112, 0L);
     }
 #line 1354
     if (tmp___10) {
@@ -27019,7 +27019,7 @@ int vmw_kms_readback(struct vmw_private *dev_priv , struct drm_file *file_priv ,
 #line 1359
   __cil_tmp123 = (long )__cil_tmp122;
 #line 1359
-  tmp___12 = __builtin_expect(__cil_tmp123, 0L);
+  tmp___12 = ldv__builtin_expect(__cil_tmp123, 0L);
   }
 #line 1359
   if (tmp___12) {
@@ -30976,7 +30976,7 @@ int vmw_kms_update_layout_ioctl(struct drm_device *dev , void *data , struct drm
 #line 1992
   __cil_tmp31 = (long )__cil_tmp30;
 #line 1992
-  tmp___9 = __builtin_expect(__cil_tmp31, 0L);
+  tmp___9 = ldv__builtin_expect(__cil_tmp31, 0L);
   }
 #line 1992
   if (tmp___9) {
@@ -31042,7 +31042,7 @@ int vmw_kms_update_layout_ioctl(struct drm_device *dev , void *data , struct drm
 #line 2004
   __cil_tmp45 = (long )__cil_tmp44;
 #line 2004
-  tmp___11 = __builtin_expect(__cil_tmp45, 0L);
+  tmp___11 = ldv__builtin_expect(__cil_tmp45, 0L);
   }
 #line 2004
   if (tmp___11) {
@@ -31083,7 +31083,7 @@ int vmw_kms_update_layout_ioctl(struct drm_device *dev , void *data , struct drm
 #line 2011
   __cil_tmp56 = (long )__cil_tmp55;
 #line 2011
-  tmp___13 = __builtin_expect(__cil_tmp56, 0L);
+  tmp___13 = ldv__builtin_expect(__cil_tmp56, 0L);
   }
 #line 2011
   if (tmp___13) {
@@ -32128,7 +32128,7 @@ static void vmw_dummy_query_bo_prepare(struct vmw_private *dev_priv )
 #line 261
   __cil_tmp29 = (long )__cil_tmp28;
 #line 261
-  tmp___7 = __builtin_expect(__cil_tmp29, 0L);
+  tmp___7 = ldv__builtin_expect(__cil_tmp29, 0L);
   }
 #line 261
   if (tmp___7) {
@@ -32160,7 +32160,7 @@ static void vmw_dummy_query_bo_prepare(struct vmw_private *dev_priv )
 #line 266
   __cil_tmp37 = (long )__cil_tmp36;
 #line 266
-  tmp___9 = __builtin_expect(__cil_tmp37, 1L);
+  tmp___9 = ldv__builtin_expect(__cil_tmp37, 1L);
   }
 #line 266
   if (tmp___9) {
@@ -32289,7 +32289,7 @@ static int vmw_request_device(struct vmw_private *dev_priv )
 #line 305
   __cil_tmp11 = (long )__cil_tmp10;
 #line 305
-  tmp___7 = __builtin_expect(__cil_tmp11, 0L);
+  tmp___7 = ldv__builtin_expect(__cil_tmp11, 0L);
   }
 #line 305
   if (tmp___7) {
@@ -32322,7 +32322,7 @@ static int vmw_request_device(struct vmw_private *dev_priv )
 #line 311
   __cil_tmp18 = (long )__cil_tmp17;
 #line 311
-  tmp___8 = __builtin_expect(__cil_tmp18, 0L);
+  tmp___8 = ldv__builtin_expect(__cil_tmp18, 0L);
   }
 #line 311
   if (tmp___8) {
@@ -32410,7 +32410,7 @@ static void vmw_release_device(struct vmw_private *dev_priv )
 #line 330
     __cil_tmp12 = (long )__cil_tmp11;
 #line 330
-    tmp___7 = __builtin_expect(__cil_tmp12, 0L);
+    tmp___7 = ldv__builtin_expect(__cil_tmp12, 0L);
     }
 #line 330
     if (tmp___7) {
@@ -32558,7 +32558,7 @@ int vmw_3d_resource_inc(struct vmw_private *dev_priv , bool unhide_svga )
 #line 349
   __cil_tmp19 = (long )tmp___10;
 #line 349
-  tmp___11 = __builtin_expect(__cil_tmp19, 0L);
+  tmp___11 = ldv__builtin_expect(__cil_tmp19, 0L);
   }
 #line 349
   if (tmp___11) {
@@ -32574,7 +32574,7 @@ int vmw_3d_resource_inc(struct vmw_private *dev_priv , bool unhide_svga )
 #line 351
     __cil_tmp23 = (long )__cil_tmp22;
 #line 351
-    tmp___7 = __builtin_expect(__cil_tmp23, 0L);
+    tmp___7 = ldv__builtin_expect(__cil_tmp23, 0L);
     }
 #line 351
     if (tmp___7) {
@@ -32717,7 +32717,7 @@ void vmw_3d_resource_dec(struct vmw_private *dev_priv , bool hide_svga )
 #line 379
   __cil_tmp19 = (long )tmp___8;
 #line 379
-  tmp___9 = __builtin_expect(__cil_tmp19, 0L);
+  tmp___9 = ldv__builtin_expect(__cil_tmp19, 0L);
   }
 #line 379
   if (tmp___9) {
@@ -32787,7 +32787,7 @@ void vmw_3d_resource_dec(struct vmw_private *dev_priv , bool hide_svga )
 #line 392
     __cil_tmp36 = (long )__cil_tmp35;
 #line 392
-    tmp___10 = __builtin_expect(__cil_tmp36, 0L);
+    tmp___10 = ldv__builtin_expect(__cil_tmp36, 0L);
     }
 #line 392
     if (tmp___10) {
@@ -33370,7 +33370,7 @@ static int vmw_driver_load(struct drm_device *dev , unsigned long chipset )
 #line 437
   __cil_tmp30 = (long )__cil_tmp29;
 #line 437
-  tmp___8 = __builtin_expect(__cil_tmp30, 0L);
+  tmp___8 = ldv__builtin_expect(__cil_tmp30, 0L);
   }
 #line 437
   if (tmp___8) {
@@ -33964,7 +33964,7 @@ static int vmw_driver_load(struct drm_device *dev , unsigned long chipset )
 #line 532
   __cil_tmp203 = (long )__cil_tmp202;
 #line 532
-  tmp___9 = __builtin_expect(__cil_tmp203, 0L);
+  tmp___9 = ldv__builtin_expect(__cil_tmp203, 0L);
   }
 #line 532
   if (tmp___9) {
@@ -34032,7 +34032,7 @@ static int vmw_driver_load(struct drm_device *dev , unsigned long chipset )
 #line 545
   __cil_tmp227 = (long )__cil_tmp226;
 #line 545
-  tmp___10 = __builtin_expect(__cil_tmp227, 0L);
+  tmp___10 = ldv__builtin_expect(__cil_tmp227, 0L);
   }
 #line 545
   if (tmp___10) {
@@ -34069,7 +34069,7 @@ static int vmw_driver_load(struct drm_device *dev , unsigned long chipset )
 #line 552
   __cil_tmp237 = (long )__cil_tmp236;
 #line 552
-  tmp___11 = __builtin_expect(__cil_tmp237, 0L);
+  tmp___11 = ldv__builtin_expect(__cil_tmp237, 0L);
   }
 #line 552
   if (tmp___11) {
@@ -34185,7 +34185,7 @@ static int vmw_driver_load(struct drm_device *dev , unsigned long chipset )
 #line 571
   __cil_tmp276 = (long )__cil_tmp275;
 #line 571
-  tmp___14 = __builtin_expect(__cil_tmp276, 0L);
+  tmp___14 = ldv__builtin_expect(__cil_tmp276, 0L);
   }
 #line 571
   if (tmp___14) {
@@ -34286,7 +34286,7 @@ static int vmw_driver_load(struct drm_device *dev , unsigned long chipset )
 #line 589
   __cil_tmp301 = (long )__cil_tmp300;
 #line 589
-  tmp___16 = __builtin_expect(__cil_tmp301, 0L);
+  tmp___16 = ldv__builtin_expect(__cil_tmp301, 0L);
   }
 #line 589
   if (tmp___16) {
@@ -34352,7 +34352,7 @@ static int vmw_driver_load(struct drm_device *dev , unsigned long chipset )
 #line 607
     __cil_tmp318 = (long )__cil_tmp317;
 #line 607
-    tmp___17 = __builtin_expect(__cil_tmp318, 0L);
+    tmp___17 = ldv__builtin_expect(__cil_tmp318, 0L);
     }
 #line 607
     if (tmp___17) {
@@ -34397,7 +34397,7 @@ static int vmw_driver_load(struct drm_device *dev , unsigned long chipset )
 #line 614
   __cil_tmp330 = (long )__cil_tmp329;
 #line 614
-  tmp___18 = __builtin_expect(__cil_tmp330, 0L);
+  tmp___18 = ldv__builtin_expect(__cil_tmp330, 0L);
   }
 #line 614
   if (tmp___18) {
@@ -34420,7 +34420,7 @@ static int vmw_driver_load(struct drm_device *dev , unsigned long chipset )
 #line 619
   __cil_tmp335 = (long )__cil_tmp334;
 #line 619
-  tmp___19 = __builtin_expect(__cil_tmp335, 0L);
+  tmp___19 = ldv__builtin_expect(__cil_tmp335, 0L);
   }
 #line 619
   if (tmp___19) {
@@ -34443,7 +34443,7 @@ static int vmw_driver_load(struct drm_device *dev , unsigned long chipset )
 #line 625
   __cil_tmp339 = (long )__cil_tmp338;
 #line 625
-  tmp___20 = __builtin_expect(__cil_tmp339, 0L);
+  tmp___20 = ldv__builtin_expect(__cil_tmp339, 0L);
   }
 #line 625
   if (tmp___20) {
@@ -34513,7 +34513,7 @@ static int vmw_driver_load(struct drm_device *dev , unsigned long chipset )
 #line 644
     __cil_tmp349 = (long )__cil_tmp348;
 #line 644
-    tmp___24 = __builtin_expect(__cil_tmp349, 0L);
+    tmp___24 = ldv__builtin_expect(__cil_tmp349, 0L);
     }
 #line 644
     if (tmp___24) {
@@ -35234,7 +35234,7 @@ static int vmw_driver_open(struct drm_device *dev , struct drm_file *file_priv )
 #line 764
   __cil_tmp17 = (long )__cil_tmp16;
 #line 764
-  tmp___9 = __builtin_expect(__cil_tmp17, 0L);
+  tmp___9 = ldv__builtin_expect(__cil_tmp17, 0L);
   }
 #line 764
   if (tmp___9) {
@@ -35285,7 +35285,7 @@ static int vmw_driver_open(struct drm_device *dev , struct drm_file *file_priv )
 #line 769
   __cil_tmp35 = (long )__cil_tmp34;
 #line 769
-  tmp___10 = __builtin_expect(__cil_tmp35, 0L);
+  tmp___10 = ldv__builtin_expect(__cil_tmp35, 0L);
   }
 #line 769
   if (tmp___10) {
@@ -35324,7 +35324,7 @@ static int vmw_driver_open(struct drm_device *dev , struct drm_file *file_priv )
 #line 774
   __cil_tmp48 = (long )__cil_tmp47;
 #line 774
-  tmp___11 = __builtin_expect(__cil_tmp48, 0L);
+  tmp___11 = ldv__builtin_expect(__cil_tmp48, 0L);
   }
 #line 774
   if (tmp___11) {
@@ -35491,7 +35491,7 @@ static long vmw_unlocked_ioctl(struct file *filp , unsigned int cmd , unsigned l
 #line 801
         __cil_tmp38 = (long )__cil_tmp37;
 #line 801
-        tmp___7 = __builtin_expect(__cil_tmp38, 0L);
+        tmp___7 = ldv__builtin_expect(__cil_tmp38, 0L);
         }
 #line 801
         if (tmp___7) {
@@ -35770,7 +35770,7 @@ static void vmw_lastclose(struct drm_device *dev )
 #line 844
     __cil_tmp57 = (long )__cil_tmp56;
 #line 844
-    tmp___8 = __builtin_expect(__cil_tmp57, 0L);
+    tmp___8 = ldv__builtin_expect(__cil_tmp57, 0L);
     }
 #line 844
     if (tmp___8) {
@@ -35792,7 +35792,7 @@ static void vmw_lastclose(struct drm_device *dev )
 #line 844
     __cil_tmp61 = (long )__cil_tmp60;
 #line 844
-    __builtin_expect(__cil_tmp61, 0L);
+    ldv__builtin_expect(__cil_tmp61, 0L);
 #line 841
     __cil_tmp62 = (unsigned long )crtc;
 #line 841
@@ -35913,7 +35913,7 @@ static int vmw_master_create(struct drm_device *dev , struct drm_master *master 
 #line 862
   __cil_tmp12 = (long )__cil_tmp11;
 #line 862
-  tmp___8 = __builtin_expect(__cil_tmp12, 0L);
+  tmp___8 = ldv__builtin_expect(__cil_tmp12, 0L);
   }
 #line 862
   if (tmp___8) {
@@ -36114,7 +36114,7 @@ static int vmw_master_set(struct drm_device *dev , struct drm_file *file_priv , 
 #line 894
     __cil_tmp29 = (long )__cil_tmp28;
 #line 894
-    tmp___10 = __builtin_expect(__cil_tmp29, 0L);
+    tmp___10 = ldv__builtin_expect(__cil_tmp29, 0L);
     }
 #line 894
     if (tmp___10) {
@@ -36177,7 +36177,7 @@ static int vmw_master_set(struct drm_device *dev , struct drm_file *file_priv , 
 #line 903
       __cil_tmp45 = (long )__cil_tmp44;
 #line 903
-      tmp___11 = __builtin_expect(__cil_tmp45, 0L);
+      tmp___11 = ldv__builtin_expect(__cil_tmp45, 0L);
       }
 #line 903
       if (tmp___11) {
@@ -36235,7 +36235,7 @@ static int vmw_master_set(struct drm_device *dev , struct drm_file *file_priv , 
 #line 905
     __cil_tmp54 = (long )__cil_tmp53;
 #line 905
-    tmp___12 = __builtin_expect(__cil_tmp54, 0L);
+    tmp___12 = ldv__builtin_expect(__cil_tmp54, 0L);
     }
 #line 905
     if (tmp___12) {
@@ -36264,7 +36264,7 @@ static int vmw_master_set(struct drm_device *dev , struct drm_file *file_priv , 
 #line 910
     __cil_tmp61 = (long )__cil_tmp60;
 #line 910
-    tmp___13 = __builtin_expect(__cil_tmp61, 0L);
+    tmp___13 = ldv__builtin_expect(__cil_tmp61, 0L);
     }
 #line 910
     if (tmp___13) {
@@ -36328,7 +36328,7 @@ static int vmw_master_set(struct drm_device *dev , struct drm_file *file_priv , 
 #line 921
       __cil_tmp77 = (long )__cil_tmp76;
 #line 921
-      tmp___14 = __builtin_expect(__cil_tmp77, 0L);
+      tmp___14 = ldv__builtin_expect(__cil_tmp77, 0L);
       }
 #line 921
       if (tmp___14) {
@@ -36544,7 +36544,7 @@ static void vmw_master_drop(struct drm_device *dev , struct drm_file *file_priv 
 #line 958
   __cil_tmp29 = (long )__cil_tmp28;
 #line 958
-  tmp___10 = __builtin_expect(__cil_tmp29, 0L);
+  tmp___10 = ldv__builtin_expect(__cil_tmp29, 0L);
   }
 #line 958
   if (tmp___10) {
@@ -36590,7 +36590,7 @@ static void vmw_master_drop(struct drm_device *dev , struct drm_file *file_priv 
 #line 967
     __cil_tmp40 = (long )__cil_tmp39;
 #line 967
-    tmp___11 = __builtin_expect(__cil_tmp40, 0L);
+    tmp___11 = ldv__builtin_expect(__cil_tmp40, 0L);
     }
 #line 967
     if (tmp___11) {
@@ -38701,7 +38701,7 @@ static int vmw_fb_set_par(struct fb_info *info )
 #line 187
   __cil_tmp52 = (long )__cil_tmp51;
 #line 187
-  tmp___9 = __builtin_expect(__cil_tmp52, 0L);
+  tmp___9 = ldv__builtin_expect(__cil_tmp52, 0L);
   }
 #line 187
   if (tmp___9) {
@@ -38723,7 +38723,7 @@ static int vmw_fb_set_par(struct fb_info *info )
 #line 187
   __cil_tmp56 = (long )__cil_tmp55;
 #line 187
-  __builtin_expect(__cil_tmp56, 0L);
+  ldv__builtin_expect(__cil_tmp56, 0L);
   }
 #line 189
   return (0);
@@ -39274,7 +39274,7 @@ static void vmw_fb_dirty_flush(struct vmw_fb_par *par )
 #line 248
   __cil_tmp134 = (long )__cil_tmp133;
 #line 248
-  tmp___13 = __builtin_expect(__cil_tmp134, 0L);
+  tmp___13 = ldv__builtin_expect(__cil_tmp134, 0L);
   }
 #line 248
   if (tmp___13) {
@@ -40314,7 +40314,7 @@ static int vmw_fb_create_bo(struct vmw_private *vmw_priv___0 , size_t size , str
 #line 383
   __cil_tmp24 = (long )__cil_tmp23;
 #line 383
-  tmp___7 = __builtin_expect(__cil_tmp24, 0L);
+  tmp___7 = ldv__builtin_expect(__cil_tmp24, 0L);
   }
 #line 383
   if (tmp___7) {
@@ -40350,7 +40350,7 @@ static int vmw_fb_create_bo(struct vmw_private *vmw_priv___0 , size_t size , str
 #line 394
   __cil_tmp29 = (long )__cil_tmp28;
 #line 394
-  tmp___9 = __builtin_expect(__cil_tmp29, 0L);
+  tmp___9 = ldv__builtin_expect(__cil_tmp29, 0L);
   }
 #line 394
   if (tmp___9) {
@@ -40978,7 +40978,7 @@ int vmw_fb_init(struct vmw_private *vmw_priv___0 )
 #line 452
   __cil_tmp109 = (long )__cil_tmp108;
 #line 452
-  tmp___11 = __builtin_expect(__cil_tmp109, 0L);
+  tmp___11 = ldv__builtin_expect(__cil_tmp109, 0L);
   }
 #line 452
   if (tmp___11) {
@@ -41009,7 +41009,7 @@ int vmw_fb_init(struct vmw_private *vmw_priv___0 )
 #line 458
   __cil_tmp117 = (long )__cil_tmp116;
 #line 458
-  tmp___12 = __builtin_expect(__cil_tmp117, 0L);
+  tmp___12 = ldv__builtin_expect(__cil_tmp117, 0L);
   }
 #line 458
   if (tmp___12) {
@@ -41058,7 +41058,7 @@ int vmw_fb_init(struct vmw_private *vmw_priv___0 )
 #line 465
   __cil_tmp135 = (long )__cil_tmp134;
 #line 465
-  tmp___13 = __builtin_expect(__cil_tmp135, 0L);
+  tmp___13 = ldv__builtin_expect(__cil_tmp135, 0L);
   }
 #line 465
   if (tmp___13) {
@@ -41558,7 +41558,7 @@ int vmw_fb_init(struct vmw_private *vmw_priv___0 )
 #line 536
   __cil_tmp311 = (long )__cil_tmp310;
 #line 536
-  tmp___16 = __builtin_expect(__cil_tmp311, 0L);
+  tmp___16 = ldv__builtin_expect(__cil_tmp311, 0L);
   }
 #line 536
   if (tmp___16) {
@@ -42041,7 +42041,7 @@ int vmw_fb_on(struct vmw_private *vmw_priv___0 )
 #line 630
   __cil_tmp35 = (long )__cil_tmp34;
 #line 630
-  tmp___7 = __builtin_expect(__cil_tmp35, 0L);
+  tmp___7 = ldv__builtin_expect(__cil_tmp35, 0L);
   }
 #line 630
   if (tmp___7) {
@@ -42100,7 +42100,7 @@ int vmw_fb_on(struct vmw_private *vmw_priv___0 )
 #line 639
     __cil_tmp53 = (long )__cil_tmp52;
 #line 639
-    tmp___8 = __builtin_expect(__cil_tmp53, 0L);
+    tmp___8 = ldv__builtin_expect(__cil_tmp53, 0L);
     }
 #line 639
     if (tmp___8) {
@@ -42751,7 +42751,7 @@ int vmw_get_cap_3d_ioctl(struct drm_device *dev , void *data , struct drm_file *
 #line 93
   __cil_tmp23 = (long )__cil_tmp22;
 #line 93
-  tmp___8 = __builtin_expect(__cil_tmp23, 0L);
+  tmp___8 = ldv__builtin_expect(__cil_tmp23, 0L);
   }
 #line 93
   if (tmp___8) {
@@ -42807,7 +42807,7 @@ int vmw_get_cap_3d_ioctl(struct drm_device *dev , void *data , struct drm_file *
 #line 104
   __cil_tmp37 = (long )__cil_tmp36;
 #line 104
-  tmp___9 = __builtin_expect(__cil_tmp37, 0L);
+  tmp___9 = ldv__builtin_expect(__cil_tmp37, 0L);
   }
 #line 104
   if (tmp___9) {
@@ -42852,7 +42852,7 @@ int vmw_get_cap_3d_ioctl(struct drm_device *dev , void *data , struct drm_file *
 #line 115
   __cil_tmp48 = (long )__cil_tmp47;
 #line 115
-  tmp___10 = __builtin_expect(__cil_tmp48, 0L);
+  tmp___10 = ldv__builtin_expect(__cil_tmp48, 0L);
   }
 #line 115
   if (tmp___10) {
@@ -43019,7 +43019,7 @@ int vmw_present_ioctl(struct drm_device *dev , void *data , struct drm_file *fil
 #line 140
   __cil_tmp40 = (long )__cil_tmp39;
 #line 140
-  tmp___10 = __builtin_expect(__cil_tmp40, 0L);
+  tmp___10 = ldv__builtin_expect(__cil_tmp40, 0L);
   }
 #line 140
   if (tmp___10) {
@@ -43123,7 +43123,7 @@ int vmw_present_ioctl(struct drm_device *dev , void *data , struct drm_file *fil
 #line 164
   __cil_tmp58 = (long )__cil_tmp57;
 #line 164
-  tmp___13 = __builtin_expect(__cil_tmp58, 0L);
+  tmp___13 = ldv__builtin_expect(__cil_tmp58, 0L);
   }
 #line 164
   if (tmp___13) {
@@ -43201,7 +43201,7 @@ int vmw_present_ioctl(struct drm_device *dev , void *data , struct drm_file *fil
 #line 178
   __cil_tmp78 = (long )__cil_tmp77;
 #line 178
-  tmp___14 = __builtin_expect(__cil_tmp78, 0L);
+  tmp___14 = ldv__builtin_expect(__cil_tmp78, 0L);
   }
 #line 178
   if (tmp___14) {
@@ -43429,7 +43429,7 @@ int vmw_present_readback_ioctl(struct drm_device *dev , void *data , struct drm_
 #line 226
   __cil_tmp40 = (long )__cil_tmp39;
 #line 226
-  tmp___9 = __builtin_expect(__cil_tmp40, 0L);
+  tmp___9 = ldv__builtin_expect(__cil_tmp40, 0L);
   }
 #line 226
   if (tmp___9) {
@@ -43533,7 +43533,7 @@ int vmw_present_readback_ioctl(struct drm_device *dev , void *data , struct drm_
 #line 250
   __cil_tmp58 = (long )__cil_tmp57;
 #line 250
-  tmp___12 = __builtin_expect(__cil_tmp58, 0L);
+  tmp___12 = ldv__builtin_expect(__cil_tmp58, 0L);
   }
 #line 250
   if (tmp___12) {
@@ -43632,7 +43632,7 @@ int vmw_present_readback_ioctl(struct drm_device *dev , void *data , struct drm_
 #line 270
   __cil_tmp81 = (long )__cil_tmp80;
 #line 270
-  tmp___13 = __builtin_expect(__cil_tmp81, 0L);
+  tmp___13 = ldv__builtin_expect(__cil_tmp81, 0L);
   }
 #line 270
   if (tmp___13) {
@@ -43867,7 +43867,7 @@ __inline static int kref_sub(struct kref *kref , unsigned int count , void (*rel
 #line 66
   __cil_tmp14 = (long )__cil_tmp13;
 #line 66
-  tmp = __builtin_expect(__cil_tmp14, 0L);
+  tmp = ldv__builtin_expect(__cil_tmp14, 0L);
   }
 #line 66
   if (tmp) {
@@ -43888,7 +43888,7 @@ __inline static int kref_sub(struct kref *kref , unsigned int count , void (*rel
 #line 66
   __cil_tmp18 = (long )__cil_tmp17;
 #line 66
-  __builtin_expect(__cil_tmp18, 0L);
+  ldv__builtin_expect(__cil_tmp18, 0L);
 #line 68
   __cil_tmp19 = (int )count;
 #line 68
@@ -44343,7 +44343,7 @@ static void vmw_resource_release(struct kref *kref )
 #line 127
   __cil_tmp42 = (long )__cil_tmp41;
 #line 127
-  tmp___7 = __builtin_expect(__cil_tmp42, 1L);
+  tmp___7 = ldv__builtin_expect(__cil_tmp42, 1L);
   }
 #line 127
   if (tmp___7) {
@@ -44524,7 +44524,7 @@ static int vmw_resource_alloc_id(struct vmw_private *dev_priv , struct vmw_resou
 #line 167
     __cil_tmp14 = (long )__cil_tmp13;
 #line 167
-    tmp___7 = __builtin_expect(__cil_tmp14, 0L);
+    tmp___7 = ldv__builtin_expect(__cil_tmp14, 0L);
     }
 #line 167
     if (tmp___7) {
@@ -44586,7 +44586,7 @@ static int vmw_resource_alloc_id(struct vmw_private *dev_priv , struct vmw_resou
 #line 170
     __cil_tmp18 = (long )tmp___9;
 #line 170
-    tmp___10 = __builtin_expect(__cil_tmp18, 0L);
+    tmp___10 = ldv__builtin_expect(__cil_tmp18, 0L);
     }
 #line 170
     if (tmp___10) {
@@ -44910,7 +44910,7 @@ struct vmw_resource *vmw_resource_lookup(struct vmw_private *dev_priv , struct i
 #line 246
   __cil_tmp24 = (long )__cil_tmp23;
 #line 246
-  tmp___8 = __builtin_expect(__cil_tmp24, 0L);
+  tmp___8 = ldv__builtin_expect(__cil_tmp24, 0L);
   }
 #line 246
   if (tmp___8) {
@@ -45000,7 +45000,7 @@ static void vmw_hw_context_destroy(struct vmw_resource *res )
 #line 269
   __cil_tmp20 = (long )__cil_tmp19;
 #line 269
-  tmp___8 = __builtin_expect(__cil_tmp20, 0L);
+  tmp___8 = ldv__builtin_expect(__cil_tmp20, 0L);
   }
 #line 269
   if (tmp___8) {
@@ -45143,7 +45143,7 @@ static int vmw_context_init(struct vmw_private *dev_priv , struct vmw_resource *
 #line 297
   __cil_tmp22 = (long )__cil_tmp21;
 #line 297
-  tmp___7 = __builtin_expect(__cil_tmp22, 0L);
+  tmp___7 = ldv__builtin_expect(__cil_tmp22, 0L);
   }
 #line 297
   if (tmp___7) {
@@ -45176,7 +45176,7 @@ static int vmw_context_init(struct vmw_private *dev_priv , struct vmw_resource *
 #line 302
   __cil_tmp31 = (long )__cil_tmp30;
 #line 302
-  tmp___8 = __builtin_expect(__cil_tmp31, 0L);
+  tmp___8 = ldv__builtin_expect(__cil_tmp31, 0L);
   }
 #line 302
   if (tmp___8) {
@@ -45213,7 +45213,7 @@ static int vmw_context_init(struct vmw_private *dev_priv , struct vmw_resource *
 #line 309
   __cil_tmp39 = (long )__cil_tmp38;
 #line 309
-  tmp___10 = __builtin_expect(__cil_tmp39, 0L);
+  tmp___10 = ldv__builtin_expect(__cil_tmp39, 0L);
   }
 #line 309
   if (tmp___10) {
@@ -45347,7 +45347,7 @@ struct vmw_resource *vmw_context_alloc(struct vmw_private *dev_priv )
 #line 337
   __cil_tmp13 = (long )__cil_tmp12;
 #line 337
-  tmp___8 = __builtin_expect(__cil_tmp13, 0L);
+  tmp___8 = ldv__builtin_expect(__cil_tmp13, 0L);
   }
 #line 337
   if (tmp___8) {
@@ -45601,7 +45601,7 @@ int vmw_context_destroy_ioctl(struct drm_device *dev , void *data , struct drm_f
 #line 386
   __cil_tmp29 = (long )__cil_tmp28;
 #line 386
-  tmp___9 = __builtin_expect(__cil_tmp29, 0L);
+  tmp___9 = ldv__builtin_expect(__cil_tmp29, 0L);
   }
 #line 386
   if (tmp___9) {
@@ -45842,7 +45842,7 @@ int vmw_context_define_ioctl(struct drm_device *dev , void *data , struct drm_fi
 #line 424
   __cil_tmp33 = (long )__cil_tmp32;
 #line 424
-  tmp___12 = __builtin_expect(__cil_tmp33, 0L);
+  tmp___12 = ldv__builtin_expect(__cil_tmp33, 0L);
   }
 #line 424
   if (tmp___12) {
@@ -45873,7 +45873,7 @@ int vmw_context_define_ioctl(struct drm_device *dev , void *data , struct drm_fi
 #line 428
   __cil_tmp40 = (long )__cil_tmp39;
 #line 428
-  tmp___13 = __builtin_expect(__cil_tmp40, 0L);
+  tmp___13 = ldv__builtin_expect(__cil_tmp40, 0L);
   }
 #line 428
   if (tmp___13) {
@@ -45900,7 +45900,7 @@ int vmw_context_define_ioctl(struct drm_device *dev , void *data , struct drm_fi
 #line 434
   __cil_tmp46 = (long )__cil_tmp45;
 #line 434
-  tmp___15 = __builtin_expect(__cil_tmp46, 0L);
+  tmp___15 = ldv__builtin_expect(__cil_tmp46, 0L);
   }
 #line 434
   if (tmp___15) {
@@ -45938,7 +45938,7 @@ int vmw_context_define_ioctl(struct drm_device *dev , void *data , struct drm_fi
 #line 442
   __cil_tmp53 = (long )__cil_tmp52;
 #line 442
-  tmp___18 = __builtin_expect(__cil_tmp53, 0L);
+  tmp___18 = ldv__builtin_expect(__cil_tmp53, 0L);
   }
 #line 442
   if (tmp___18) {
@@ -45997,7 +45997,7 @@ int vmw_context_define_ioctl(struct drm_device *dev , void *data , struct drm_fi
 #line 458
   __cil_tmp69 = (long )__cil_tmp68;
 #line 458
-  tmp___19 = __builtin_expect(__cil_tmp69, 0L);
+  tmp___19 = ldv__builtin_expect(__cil_tmp69, 0L);
   }
 #line 458
   if (tmp___19) {
@@ -46039,7 +46039,7 @@ int vmw_context_define_ioctl(struct drm_device *dev , void *data , struct drm_fi
 #line 465
   __cil_tmp82 = (long )__cil_tmp81;
 #line 465
-  tmp___20 = __builtin_expect(__cil_tmp82, 0L);
+  tmp___20 = ldv__builtin_expect(__cil_tmp82, 0L);
   }
 #line 465
   if (tmp___20) {
@@ -47265,7 +47265,7 @@ static void vmw_hw_surface_destroy(struct vmw_resource *res )
 #line 761
     __cil_tmp20 = (long )__cil_tmp19;
 #line 761
-    tmp___8 = __builtin_expect(__cil_tmp20, 0L);
+    tmp___8 = ldv__builtin_expect(__cil_tmp20, 0L);
     }
 #line 761
     if (tmp___8) {
@@ -47619,7 +47619,7 @@ int vmw_surface_do_validate(struct vmw_private *dev_priv , struct vmw_surface *s
 #line 822
   __cil_tmp28 = (long )__cil_tmp27;
 #line 822
-  tmp___7 = __builtin_expect(__cil_tmp28, 1L);
+  tmp___7 = ldv__builtin_expect(__cil_tmp28, 1L);
   }
 #line 822
   if (tmp___7) {
@@ -47658,7 +47658,7 @@ int vmw_surface_do_validate(struct vmw_private *dev_priv , struct vmw_surface *s
 #line 825
   __cil_tmp42 = (long )__cil_tmp41;
 #line 825
-  tmp___8 = __builtin_expect(__cil_tmp42, 0L);
+  tmp___8 = ldv__builtin_expect(__cil_tmp42, 0L);
   }
 #line 825
   if (tmp___8) {
@@ -47708,7 +47708,7 @@ int vmw_surface_do_validate(struct vmw_private *dev_priv , struct vmw_surface *s
 #line 840
     __cil_tmp55 = (long )__cil_tmp54;
 #line 840
-    tmp___9 = __builtin_expect(__cil_tmp55, 0L);
+    tmp___9 = ldv__builtin_expect(__cil_tmp55, 0L);
     }
 #line 840
     if (tmp___9) {
@@ -47742,7 +47742,7 @@ int vmw_surface_do_validate(struct vmw_private *dev_priv , struct vmw_surface *s
 #line 845
     __cil_tmp65 = (long )__cil_tmp64;
 #line 845
-    tmp___10 = __builtin_expect(__cil_tmp65, 0L);
+    tmp___10 = ldv__builtin_expect(__cil_tmp65, 0L);
     }
 #line 845
     if (tmp___10) {
@@ -47767,7 +47767,7 @@ int vmw_surface_do_validate(struct vmw_private *dev_priv , struct vmw_surface *s
 #line 854
   __cil_tmp69 = (long )__cil_tmp68;
 #line 854
-  tmp___11 = __builtin_expect(__cil_tmp69, 0L);
+  tmp___11 = ldv__builtin_expect(__cil_tmp69, 0L);
   }
 #line 854
   if (tmp___11) {
@@ -47796,7 +47796,7 @@ int vmw_surface_do_validate(struct vmw_private *dev_priv , struct vmw_surface *s
 #line 858
   __cil_tmp76 = (long )__cil_tmp75;
 #line 858
-  tmp___12 = __builtin_expect(__cil_tmp76, 0L);
+  tmp___12 = ldv__builtin_expect(__cil_tmp76, 0L);
   }
 #line 858
   if (tmp___12) {
@@ -47852,7 +47852,7 @@ int vmw_surface_do_validate(struct vmw_private *dev_priv , struct vmw_surface *s
 #line 873
   __cil_tmp87 = (long )__cil_tmp86;
 #line 873
-  tmp___15 = __builtin_expect(__cil_tmp87, 0L);
+  tmp___15 = ldv__builtin_expect(__cil_tmp87, 0L);
   }
 #line 873
   if (tmp___15) {
@@ -47961,7 +47961,7 @@ int vmw_surface_do_validate(struct vmw_private *dev_priv , struct vmw_surface *s
 #line 901
     __cil_tmp117 = (long )__cil_tmp116;
 #line 901
-    tmp___17 = __builtin_expect(__cil_tmp117, 1L);
+    tmp___17 = ldv__builtin_expect(__cil_tmp117, 1L);
     }
 #line 901
     if (tmp___17) {
@@ -48203,7 +48203,7 @@ int vmw_surface_evict(struct vmw_private *dev_priv , struct vmw_surface *srf )
 #line 948
     __cil_tmp27 = (long )__cil_tmp26;
 #line 948
-    tmp___7 = __builtin_expect(__cil_tmp27, 0L);
+    tmp___7 = ldv__builtin_expect(__cil_tmp27, 0L);
     }
 #line 948
     if (tmp___7) {
@@ -48287,7 +48287,7 @@ int vmw_surface_evict(struct vmw_private *dev_priv , struct vmw_surface *srf )
 #line 959
     __cil_tmp47 = (long )__cil_tmp46;
 #line 959
-    tmp___8 = __builtin_expect(__cil_tmp47, 0L);
+    tmp___8 = ldv__builtin_expect(__cil_tmp47, 0L);
     }
 #line 959
     if (tmp___8) {
@@ -48334,7 +48334,7 @@ int vmw_surface_evict(struct vmw_private *dev_priv , struct vmw_surface *srf )
 #line 973
   __cil_tmp58 = (long )__cil_tmp57;
 #line 973
-  tmp___9 = __builtin_expect(__cil_tmp58, 0L);
+  tmp___9 = ldv__builtin_expect(__cil_tmp58, 0L);
   }
 #line 973
   if (tmp___9) {
@@ -48368,7 +48368,7 @@ int vmw_surface_evict(struct vmw_private *dev_priv , struct vmw_surface *srf )
 #line 978
   __cil_tmp68 = (long )__cil_tmp67;
 #line 978
-  tmp___10 = __builtin_expect(__cil_tmp68, 0L);
+  tmp___10 = ldv__builtin_expect(__cil_tmp68, 0L);
   }
 #line 978
   if (tmp___10) {
@@ -48405,7 +48405,7 @@ int vmw_surface_evict(struct vmw_private *dev_priv , struct vmw_surface *srf )
 #line 988
   __cil_tmp76 = (long )__cil_tmp75;
 #line 988
-  tmp___14 = __builtin_expect(__cil_tmp76, 0L);
+  tmp___14 = ldv__builtin_expect(__cil_tmp76, 0L);
   }
 #line 988
   if (tmp___14) {
@@ -48514,7 +48514,7 @@ int vmw_surface_evict(struct vmw_private *dev_priv , struct vmw_surface *srf )
 #line 1014
   __cil_tmp113 = (long )__cil_tmp112;
 #line 1014
-  tmp___16 = __builtin_expect(__cil_tmp113, 1L);
+  tmp___16 = ldv__builtin_expect(__cil_tmp113, 1L);
   }
 #line 1014
   if (tmp___16) {
@@ -48687,7 +48687,7 @@ int vmw_surface_validate(struct vmw_private *dev_priv , struct vmw_surface *srf 
 #line 1062
     __cil_tmp22 = (long )__cil_tmp21;
 #line 1062
-    tmp___7 = __builtin_expect(__cil_tmp22, 1L);
+    tmp___7 = ldv__builtin_expect(__cil_tmp22, 1L);
     }
 #line 1062
     if (tmp___7) {
@@ -48826,7 +48826,7 @@ int vmw_surface_validate(struct vmw_private *dev_priv , struct vmw_surface *srf 
 #line 1086
   __cil_tmp59 = (long )tmp___9;
 #line 1086
-  tmp___10 = __builtin_expect(__cil_tmp59, 0L);
+  tmp___10 = ldv__builtin_expect(__cil_tmp59, 0L);
   }
 #line 1086
   if (tmp___10) {
@@ -48961,7 +48961,7 @@ int vmw_surface_init(struct vmw_private *dev_priv , struct vmw_surface *srf , vo
 #line 1118
     __cil_tmp14 = (long )__cil_tmp13;
 #line 1118
-    tmp___7 = __builtin_expect(__cil_tmp14, 0L);
+    tmp___7 = ldv__builtin_expect(__cil_tmp14, 0L);
     }
 #line 1118
     if (tmp___7) {
@@ -49028,7 +49028,7 @@ int vmw_surface_init(struct vmw_private *dev_priv , struct vmw_surface *srf , vo
 #line 1124
   __cil_tmp26 = (long )__cil_tmp25;
 #line 1124
-  tmp___8 = __builtin_expect(__cil_tmp26, 0L);
+  tmp___8 = ldv__builtin_expect(__cil_tmp26, 0L);
   }
 #line 1124
   if (tmp___8) {
@@ -49390,7 +49390,7 @@ void vmw_resource_unreserve(struct list_head *list )
 #line 1179
     __cil_tmp39 = (long )__cil_tmp38;
 #line 1179
-    tmp___7 = __builtin_expect(__cil_tmp39, 0L);
+    tmp___7 = ldv__builtin_expect(__cil_tmp39, 0L);
     }
 #line 1179
     if (tmp___7) {
@@ -49536,7 +49536,7 @@ int vmw_user_lookup_handle(struct vmw_private *dev_priv , struct ttm_object_file
 #line 1206
     __cil_tmp9 = (long )tmp___7;
 #line 1206
-    tmp___8 = __builtin_expect(__cil_tmp9, 0L);
+    tmp___8 = ldv__builtin_expect(__cil_tmp9, 0L);
     }
 #line 1206
     if (tmp___8) {
@@ -49680,7 +49680,7 @@ int vmw_user_surface_lookup_handle(struct vmw_private *dev_priv , struct ttm_obj
 #line 1228
   __cil_tmp22 = (long )__cil_tmp21;
 #line 1228
-  tmp___7 = __builtin_expect(__cil_tmp22, 0L);
+  tmp___7 = ldv__builtin_expect(__cil_tmp22, 0L);
   }
 #line 1228
   if (tmp___7) {
@@ -49711,7 +49711,7 @@ int vmw_user_surface_lookup_handle(struct vmw_private *dev_priv , struct ttm_obj
 #line 1231
   __cil_tmp32 = (long )__cil_tmp31;
 #line 1231
-  tmp___8 = __builtin_expect(__cil_tmp32, 0L);
+  tmp___8 = ldv__builtin_expect(__cil_tmp32, 0L);
   }
 #line 1231
   if (tmp___8) {
@@ -50292,7 +50292,7 @@ int vmw_surface_define_ioctl(struct drm_device *dev , void *data , struct drm_fi
 #line 1302
   __cil_tmp58 = (long )__cil_tmp57;
 #line 1302
-  tmp___12 = __builtin_expect(__cil_tmp58, 0L);
+  tmp___12 = ldv__builtin_expect(__cil_tmp58, 0L);
   }
 #line 1302
   if (tmp___12) {
@@ -50386,7 +50386,7 @@ int vmw_surface_define_ioctl(struct drm_device *dev , void *data , struct drm_fi
 #line 1320
   __cil_tmp79 = (long )__cil_tmp78;
 #line 1320
-  tmp___15 = __builtin_expect(__cil_tmp79, 0L);
+  tmp___15 = ldv__builtin_expect(__cil_tmp79, 0L);
   }
 #line 1320
   if (tmp___15) {
@@ -50415,7 +50415,7 @@ int vmw_surface_define_ioctl(struct drm_device *dev , void *data , struct drm_fi
 #line 1325
   __cil_tmp86 = (long )__cil_tmp85;
 #line 1325
-  tmp___17 = __builtin_expect(__cil_tmp86, 0L);
+  tmp___17 = ldv__builtin_expect(__cil_tmp86, 0L);
   }
 #line 1325
   if (tmp___17) {
@@ -50453,7 +50453,7 @@ int vmw_surface_define_ioctl(struct drm_device *dev , void *data , struct drm_fi
 #line 1333
   __cil_tmp93 = (long )__cil_tmp92;
 #line 1333
-  tmp___19 = __builtin_expect(__cil_tmp93, 0L);
+  tmp___19 = ldv__builtin_expect(__cil_tmp93, 0L);
   }
 #line 1333
   if (tmp___19) {
@@ -50624,7 +50624,7 @@ int vmw_surface_define_ioctl(struct drm_device *dev , void *data , struct drm_fi
 #line 1351
   __cil_tmp155 = (long )__cil_tmp154;
 #line 1351
-  tmp___21 = __builtin_expect(__cil_tmp155, 0L);
+  tmp___21 = ldv__builtin_expect(__cil_tmp155, 0L);
   }
 #line 1351
   if (tmp___21) {
@@ -50675,7 +50675,7 @@ int vmw_surface_define_ioctl(struct drm_device *dev , void *data , struct drm_fi
 #line 1357
   __cil_tmp172 = (long )__cil_tmp171;
 #line 1357
-  tmp___23 = __builtin_expect(__cil_tmp172, 0L);
+  tmp___23 = ldv__builtin_expect(__cil_tmp172, 0L);
   }
 #line 1357
   if (tmp___23) {
@@ -50730,7 +50730,7 @@ int vmw_surface_define_ioctl(struct drm_device *dev , void *data , struct drm_fi
 #line 1367
   __cil_tmp190 = (long )__cil_tmp189;
 #line 1367
-  tmp___25 = __builtin_expect(__cil_tmp190, 0L);
+  tmp___25 = ldv__builtin_expect(__cil_tmp190, 0L);
   }
 #line 1367
   if (tmp___25) {
@@ -51084,7 +51084,7 @@ int vmw_surface_define_ioctl(struct drm_device *dev , void *data , struct drm_fi
 #line 1422
   __cil_tmp294 = (long )__cil_tmp293;
 #line 1422
-  tmp___27 = __builtin_expect(__cil_tmp294, 0L);
+  tmp___27 = ldv__builtin_expect(__cil_tmp294, 0L);
   }
 #line 1422
   if (tmp___27) {
@@ -51128,7 +51128,7 @@ int vmw_surface_define_ioctl(struct drm_device *dev , void *data , struct drm_fi
 #line 1430
   __cil_tmp308 = (long )__cil_tmp307;
 #line 1430
-  tmp___28 = __builtin_expect(__cil_tmp308, 0L);
+  tmp___28 = ldv__builtin_expect(__cil_tmp308, 0L);
   }
 #line 1430
   if (tmp___28) {
@@ -51391,7 +51391,7 @@ int vmw_surface_reference_ioctl(struct drm_device *dev , void *data , struct drm
 #line 1472
   __cil_tmp34 = (long )__cil_tmp33;
 #line 1472
-  tmp___8 = __builtin_expect(__cil_tmp34, 0L);
+  tmp___8 = ldv__builtin_expect(__cil_tmp34, 0L);
   }
 #line 1472
   if (tmp___8) {
@@ -51426,7 +51426,7 @@ int vmw_surface_reference_ioctl(struct drm_device *dev , void *data , struct drm
 #line 1477
   __cil_tmp44 = (long )__cil_tmp43;
 #line 1477
-  tmp___9 = __builtin_expect(__cil_tmp44, 0L);
+  tmp___9 = ldv__builtin_expect(__cil_tmp44, 0L);
   }
 #line 1477
   if (tmp___9) {
@@ -51479,7 +51479,7 @@ int vmw_surface_reference_ioctl(struct drm_device *dev , void *data , struct drm
 #line 1484
   __cil_tmp61 = (long )__cil_tmp60;
 #line 1484
-  tmp___10 = __builtin_expect(__cil_tmp61, 0L);
+  tmp___10 = ldv__builtin_expect(__cil_tmp61, 0L);
   }
 #line 1484
   if (tmp___10) {
@@ -51621,7 +51621,7 @@ int vmw_surface_reference_ioctl(struct drm_device *dev , void *data , struct drm
 #line 1498
   __cil_tmp110 = (long )__cil_tmp109;
 #line 1498
-  tmp___11 = __builtin_expect(__cil_tmp110, 0L);
+  tmp___11 = ldv__builtin_expect(__cil_tmp110, 0L);
   }
 #line 1498
   if (tmp___11) {
@@ -51718,7 +51718,7 @@ int vmw_surface_check(struct vmw_private *dev_priv , struct ttm_object_file *tfi
 #line 1520
   __cil_tmp20 = (long )__cil_tmp19;
 #line 1520
-  tmp___7 = __builtin_expect(__cil_tmp20, 0L);
+  tmp___7 = ldv__builtin_expect(__cil_tmp20, 0L);
   }
 #line 1520
   if (tmp___7) {
@@ -51749,7 +51749,7 @@ int vmw_surface_check(struct vmw_private *dev_priv , struct ttm_object_file *tfi
 #line 1523
   __cil_tmp30 = (long )__cil_tmp29;
 #line 1523
-  tmp___8 = __builtin_expect(__cil_tmp30, 0L);
+  tmp___8 = ldv__builtin_expect(__cil_tmp30, 0L);
   }
 #line 1523
   if (tmp___8) {
@@ -51858,7 +51858,7 @@ int vmw_dmabuf_init(struct vmw_private *dev_priv , struct vmw_dma_buffer *vmw_bo
 #line 1560
     __cil_tmp14 = (long )__cil_tmp13;
 #line 1560
-    tmp___7 = __builtin_expect(__cil_tmp14, 0L);
+    tmp___7 = ldv__builtin_expect(__cil_tmp14, 0L);
     }
 #line 1560
     if (tmp___7) {
@@ -51997,7 +51997,7 @@ static void vmw_user_dmabuf_release(struct ttm_base_object **p_base )
 #line 1589
   __cil_tmp14 = (long )__cil_tmp13;
 #line 1589
-  tmp___7 = __builtin_expect(__cil_tmp14, 0L);
+  tmp___7 = ldv__builtin_expect(__cil_tmp14, 0L);
   }
 #line 1589
   if (tmp___7) {
@@ -52160,7 +52160,7 @@ int vmw_dmabuf_alloc_ioctl(struct drm_device *dev , void *data , struct drm_file
 #line 1611
   __cil_tmp29 = (long )__cil_tmp28;
 #line 1611
-  tmp___11 = __builtin_expect(__cil_tmp29, 0L);
+  tmp___11 = ldv__builtin_expect(__cil_tmp29, 0L);
   }
 #line 1611
   if (tmp___11) {
@@ -52185,7 +52185,7 @@ int vmw_dmabuf_alloc_ioctl(struct drm_device *dev , void *data , struct drm_file
 #line 1615
   __cil_tmp35 = (long )__cil_tmp34;
 #line 1615
-  tmp___12 = __builtin_expect(__cil_tmp35, 0L);
+  tmp___12 = ldv__builtin_expect(__cil_tmp35, 0L);
   }
 #line 1615
   if (tmp___12) {
@@ -52225,7 +52225,7 @@ int vmw_dmabuf_alloc_ioctl(struct drm_device *dev , void *data , struct drm_file
 #line 1623
   __cil_tmp46 = (long )__cil_tmp45;
 #line 1623
-  tmp___13 = __builtin_expect(__cil_tmp46, 0L);
+  tmp___13 = ldv__builtin_expect(__cil_tmp46, 0L);
   }
 #line 1623
   if (tmp___13) {
@@ -52275,7 +52275,7 @@ int vmw_dmabuf_alloc_ioctl(struct drm_device *dev , void *data , struct drm_file
 #line 1632
   __cil_tmp62 = (long )__cil_tmp61;
 #line 1632
-  tmp___15 = __builtin_expect(__cil_tmp62, 0L);
+  tmp___15 = ldv__builtin_expect(__cil_tmp62, 0L);
   }
 #line 1632
   if (tmp___15) {
@@ -52421,7 +52421,7 @@ uint32_t vmw_dmabuf_validate_node(struct ttm_buffer_object *bo , uint32_t cur_va
 #line 1665
   __cil_tmp11 = (long )__cil_tmp10;
 #line 1665
-  tmp___8 = __builtin_expect(__cil_tmp11, 1L);
+  tmp___8 = ldv__builtin_expect(__cil_tmp11, 1L);
   }
 #line 1665
   if (tmp___8) {
@@ -52543,7 +52543,7 @@ int vmw_user_dmabuf_lookup(struct ttm_object_file *tfile , uint32_t handle , str
 #line 1688
   __cil_tmp18 = (long )__cil_tmp17;
 #line 1688
-  tmp___7 = __builtin_expect(__cil_tmp18, 0L);
+  tmp___7 = ldv__builtin_expect(__cil_tmp18, 0L);
   }
 #line 1688
   if (tmp___7) {
@@ -52580,7 +52580,7 @@ int vmw_user_dmabuf_lookup(struct ttm_object_file *tfile , uint32_t handle , str
 #line 1694
   __cil_tmp29 = (long )__cil_tmp28;
 #line 1694
-  tmp___8 = __builtin_expect(__cil_tmp29, 0L);
+  tmp___8 = ldv__builtin_expect(__cil_tmp29, 0L);
   }
 #line 1694
   if (tmp___8) {
@@ -52710,7 +52710,7 @@ static void vmw_stream_destroy(struct vmw_resource *res )
 #line 1723
   __cil_tmp22 = (long )__cil_tmp21;
 #line 1723
-  tmp___7 = __builtin_expect(__cil_tmp22, 0L);
+  tmp___7 = ldv__builtin_expect(__cil_tmp22, 0L);
   }
 #line 1723
   if (tmp___7) {
@@ -52732,7 +52732,7 @@ static void vmw_stream_destroy(struct vmw_resource *res )
 #line 1723
   __cil_tmp26 = (long )__cil_tmp25;
 #line 1723
-  __builtin_expect(__cil_tmp26, 0L);
+  ldv__builtin_expect(__cil_tmp26, 0L);
   }
 #line 1724
   return;
@@ -52804,7 +52804,7 @@ static int vmw_stream_init(struct vmw_private *dev_priv , struct vmw_stream *str
 #line 1736
   __cil_tmp20 = (long )__cil_tmp19;
 #line 1736
-  tmp___7 = __builtin_expect(__cil_tmp20, 0L);
+  tmp___7 = ldv__builtin_expect(__cil_tmp20, 0L);
   }
 #line 1736
   if (tmp___7) {
@@ -53088,7 +53088,7 @@ int vmw_stream_unref_ioctl(struct drm_device *dev , void *data , struct drm_file
 #line 1798
   __cil_tmp30 = (long )__cil_tmp29;
 #line 1798
-  tmp___9 = __builtin_expect(__cil_tmp30, 0L);
+  tmp___9 = ldv__builtin_expect(__cil_tmp30, 0L);
   }
 #line 1798
   if (tmp___9) {
@@ -53315,7 +53315,7 @@ int vmw_stream_claim_ioctl(struct drm_device *dev , void *data , struct drm_file
 #line 1835
   __cil_tmp33 = (long )__cil_tmp32;
 #line 1835
-  tmp___12 = __builtin_expect(__cil_tmp33, 0L);
+  tmp___12 = ldv__builtin_expect(__cil_tmp33, 0L);
   }
 #line 1835
   if (tmp___12) {
@@ -53346,7 +53346,7 @@ int vmw_stream_claim_ioctl(struct drm_device *dev , void *data , struct drm_file
 #line 1839
   __cil_tmp40 = (long )__cil_tmp39;
 #line 1839
-  tmp___13 = __builtin_expect(__cil_tmp40, 0L);
+  tmp___13 = ldv__builtin_expect(__cil_tmp40, 0L);
   }
 #line 1839
   if (tmp___13) {
@@ -53373,7 +53373,7 @@ int vmw_stream_claim_ioctl(struct drm_device *dev , void *data , struct drm_file
 #line 1845
   __cil_tmp46 = (long )__cil_tmp45;
 #line 1845
-  tmp___15 = __builtin_expect(__cil_tmp46, 0L);
+  tmp___15 = ldv__builtin_expect(__cil_tmp46, 0L);
   }
 #line 1845
   if (tmp___15) {
@@ -53411,7 +53411,7 @@ int vmw_stream_claim_ioctl(struct drm_device *dev , void *data , struct drm_file
 #line 1854
   __cil_tmp53 = (long )__cil_tmp52;
 #line 1854
-  tmp___18 = __builtin_expect(__cil_tmp53, 0L);
+  tmp___18 = ldv__builtin_expect(__cil_tmp53, 0L);
   }
 #line 1854
   if (tmp___18) {
@@ -53472,7 +53472,7 @@ int vmw_stream_claim_ioctl(struct drm_device *dev , void *data , struct drm_file
 #line 1870
   __cil_tmp70 = (long )__cil_tmp69;
 #line 1870
-  tmp___19 = __builtin_expect(__cil_tmp70, 0L);
+  tmp___19 = ldv__builtin_expect(__cil_tmp70, 0L);
   }
 #line 1870
   if (tmp___19) {
@@ -53512,7 +53512,7 @@ int vmw_stream_claim_ioctl(struct drm_device *dev , void *data , struct drm_file
 #line 1877
   __cil_tmp82 = (long )__cil_tmp81;
 #line 1877
-  tmp___20 = __builtin_expect(__cil_tmp82, 0L);
+  tmp___20 = ldv__builtin_expect(__cil_tmp82, 0L);
   }
 #line 1877
   if (tmp___20) {
@@ -53638,7 +53638,7 @@ int vmw_user_stream_lookup(struct vmw_private *dev_priv , struct ttm_object_file
 #line 1899
   __cil_tmp24 = (long )__cil_tmp23;
 #line 1899
-  tmp___7 = __builtin_expect(__cil_tmp24, 0L);
+  tmp___7 = ldv__builtin_expect(__cil_tmp24, 0L);
   }
 #line 1899
   if (tmp___7) {
@@ -55230,7 +55230,7 @@ __inline static int signal_pending(struct task_struct *p )
 #line 2591
   __cil_tmp5 = (long )tmp___8;
 #line 2591
-  tmp___9 = __builtin_expect(__cil_tmp5, 0L);
+  tmp___9 = ldv__builtin_expect(__cil_tmp5, 0L);
   }
 #line 2591
   return ((int )tmp___9);
@@ -55607,7 +55607,7 @@ int vmw_fifo_init(struct vmw_private *dev_priv , struct vmw_fifo_state *fifo )
 #line 88
   __cil_tmp31 = (long )__cil_tmp30;
 #line 88
-  tmp___8 = __builtin_expect(__cil_tmp31, 0L);
+  tmp___8 = ldv__builtin_expect(__cil_tmp31, 0L);
   }
 #line 88
   if (tmp___8) {
@@ -55934,7 +55934,7 @@ void vmw_fifo_ping_host(struct vmw_private *dev_priv , uint32_t reason )
 #line 152
   __cil_tmp14 = (long )tmp___8;
 #line 152
-  tmp___9 = __builtin_expect(__cil_tmp14, 0L);
+  tmp___9 = ldv__builtin_expect(__cil_tmp14, 0L);
   }
 #line 152
   if (tmp___9) {
@@ -56146,7 +56146,7 @@ void vmw_fifo_release(struct vmw_private *dev_priv , struct vmw_fifo_state *fifo
 #line 181
   __cil_tmp41 = (long )__cil_tmp40;
 #line 181
-  tmp___8 = __builtin_expect(__cil_tmp41, 1L);
+  tmp___8 = ldv__builtin_expect(__cil_tmp41, 1L);
   }
 #line 181
   if (tmp___8) {
@@ -56195,7 +56195,7 @@ void vmw_fifo_release(struct vmw_private *dev_priv , struct vmw_fifo_state *fifo
 #line 186
   __cil_tmp58 = (long )__cil_tmp57;
 #line 186
-  tmp___9 = __builtin_expect(__cil_tmp58, 1L);
+  tmp___9 = ldv__builtin_expect(__cil_tmp58, 1L);
   }
 #line 186
   if (tmp___9) {
@@ -56628,7 +56628,7 @@ static int vmw_fifo_wait(struct vmw_private *dev_priv , uint32_t bytes , bool in
 #line 243
   __cil_tmp33 = (long )tmp___8;
 #line 243
-  tmp___9 = __builtin_expect(__cil_tmp33, 1L);
+  tmp___9 = ldv__builtin_expect(__cil_tmp33, 1L);
   }
 #line 243
   if (tmp___9) {
@@ -56999,7 +56999,7 @@ static int vmw_fifo_wait(struct vmw_private *dev_priv , uint32_t bytes , bool in
 #line 271
   __cil_tmp98 = (long )__cil_tmp97;
 #line 271
-  tmp___22 = __builtin_expect(__cil_tmp98, 0L);
+  tmp___22 = ldv__builtin_expect(__cil_tmp98, 0L);
   }
 #line 271
   if (tmp___22) {
@@ -57016,7 +57016,7 @@ static int vmw_fifo_wait(struct vmw_private *dev_priv , uint32_t bytes , bool in
 #line 273
     __cil_tmp102 = (long )__cil_tmp101;
 #line 273
-    tmp___21 = __builtin_expect(__cil_tmp102, 1L);
+    tmp___21 = ldv__builtin_expect(__cil_tmp102, 1L);
     }
 #line 273
     if (tmp___21) {
@@ -57293,7 +57293,7 @@ void *vmw_fifo_reserve(struct vmw_private *dev_priv , uint32_t bytes )
 #line 313
   __cil_tmp46 = (long )__cil_tmp45;
 #line 313
-  tmp___7 = __builtin_expect(__cil_tmp46, 0L);
+  tmp___7 = ldv__builtin_expect(__cil_tmp46, 0L);
   }
 #line 313
   if (tmp___7) {
@@ -57318,7 +57318,7 @@ void *vmw_fifo_reserve(struct vmw_private *dev_priv , uint32_t bytes )
 #line 316
     __cil_tmp51 = (long )__cil_tmp50;
 #line 316
-    tmp___8 = __builtin_expect(__cil_tmp51, 0L);
+    tmp___8 = ldv__builtin_expect(__cil_tmp51, 0L);
     }
 #line 316
     if (tmp___8) {
@@ -57380,7 +57380,7 @@ void *vmw_fifo_reserve(struct vmw_private *dev_priv , uint32_t bytes )
 #line 317
     __cil_tmp61 = (long )__cil_tmp60;
 #line 317
-    tmp___9 = __builtin_expect(__cil_tmp61, 0L);
+    tmp___9 = ldv__builtin_expect(__cil_tmp61, 0L);
     }
 #line 317
     if (tmp___9) {
@@ -57470,7 +57470,7 @@ void *vmw_fifo_reserve(struct vmw_private *dev_priv , uint32_t bytes )
 #line 327
       __cil_tmp66 = (long )tmp___13;
 #line 327
-      tmp___14 = __builtin_expect(__cil_tmp66, 1L);
+      tmp___14 = ldv__builtin_expect(__cil_tmp66, 1L);
       }
 #line 327
       if (tmp___14) {
@@ -57497,7 +57497,7 @@ void *vmw_fifo_reserve(struct vmw_private *dev_priv , uint32_t bytes )
 #line 334
           __cil_tmp71 = (long )__cil_tmp70;
 #line 334
-          tmp___11 = __builtin_expect(__cil_tmp71, 0L);
+          tmp___11 = ldv__builtin_expect(__cil_tmp71, 0L);
           }
 #line 334
           if (tmp___11) {
@@ -57524,7 +57524,7 @@ void *vmw_fifo_reserve(struct vmw_private *dev_priv , uint32_t bytes )
 #line 341
       __cil_tmp76 = (long )__cil_tmp75;
 #line 341
-      tmp___16 = __builtin_expect(__cil_tmp76, 1L);
+      tmp___16 = ldv__builtin_expect(__cil_tmp76, 1L);
       }
 #line 341
       if (tmp___16) {
@@ -57545,7 +57545,7 @@ void *vmw_fifo_reserve(struct vmw_private *dev_priv , uint32_t bytes )
 #line 346
         __cil_tmp81 = (long )__cil_tmp80;
 #line 346
-        tmp___15 = __builtin_expect(__cil_tmp81, 0L);
+        tmp___15 = ldv__builtin_expect(__cil_tmp81, 0L);
         }
 #line 346
         if (tmp___15) {
@@ -57913,7 +57913,7 @@ static void vmw_fifo_slow_copy(struct vmw_fifo_state *fifo_state , __le32 *fifo_
 #line 413
     __cil_tmp30 = (long )__cil_tmp29;
 #line 413
-    tmp___9 = __builtin_expect(__cil_tmp30, 0L);
+    tmp___9 = ldv__builtin_expect(__cil_tmp30, 0L);
     }
 #line 413
     if (tmp___9) {
@@ -58086,7 +58086,7 @@ void vmw_fifo_commit(struct vmw_private *dev_priv , uint32_t bytes )
 #line 431
     __cil_tmp34 = (long )__cil_tmp33;
 #line 431
-    tmp___10 = __builtin_expect(__cil_tmp34, 0L);
+    tmp___10 = ldv__builtin_expect(__cil_tmp34, 0L);
     }
 #line 431
     if (tmp___10) {
@@ -58140,7 +58140,7 @@ void vmw_fifo_commit(struct vmw_private *dev_priv , uint32_t bytes )
 #line 432
     __cil_tmp40 = (long )__cil_tmp39;
 #line 432
-    tmp___11 = __builtin_expect(__cil_tmp40, 0L);
+    tmp___11 = ldv__builtin_expect(__cil_tmp40, 0L);
     }
 #line 432
     if (tmp___11) {
@@ -58402,7 +58402,7 @@ int vmw_fifo_send_fence(struct vmw_private *dev_priv , uint32_t *seqno )
 #line 477
   __cil_tmp20 = (long )__cil_tmp19;
 #line 477
-  tmp___8 = __builtin_expect(__cil_tmp20, 0L);
+  tmp___8 = ldv__builtin_expect(__cil_tmp20, 0L);
   }
 #line 477
   if (tmp___8) {
@@ -58610,7 +58610,7 @@ int vmw_fifo_emit_dummy_query(struct vmw_private *dev_priv , uint32_t cid )
 #line 547
   __cil_tmp16 = (long )__cil_tmp15;
 #line 547
-  tmp___8 = __builtin_expect(__cil_tmp16, 0L);
+  tmp___8 = ldv__builtin_expect(__cil_tmp16, 0L);
   }
 #line 547
   if (tmp___8) {
@@ -58837,7 +58837,7 @@ irqreturn_t vmw_irq_handler(int irq , void *arg )
 #line 44
   __cil_tmp25 = (long )__cil_tmp24;
 #line 44
-  tmp___8 = __builtin_expect(__cil_tmp25, 1L);
+  tmp___8 = ldv__builtin_expect(__cil_tmp25, 1L);
   }
 #line 44
   if (tmp___8) {
@@ -59097,7 +59097,7 @@ bool vmw_seqno_passed(struct vmw_private *dev_priv , uint32_t seqno )
 #line 93
   __cil_tmp18 = (long )__cil_tmp17;
 #line 93
-  tmp___7 = __builtin_expect(__cil_tmp18, 1L);
+  tmp___7 = ldv__builtin_expect(__cil_tmp18, 1L);
   }
 #line 93
   if (tmp___7) {
@@ -59136,7 +59136,7 @@ bool vmw_seqno_passed(struct vmw_private *dev_priv , uint32_t seqno )
 #line 98
   __cil_tmp30 = (long )__cil_tmp29;
 #line 98
-  tmp___8 = __builtin_expect(__cil_tmp30, 1L);
+  tmp___8 = ldv__builtin_expect(__cil_tmp30, 1L);
   }
 #line 98
   if (tmp___8) {
@@ -60257,7 +60257,7 @@ int vmw_wait_seqno(struct vmw_private *dev_priv , bool lazy , uint32_t seqno , b
 #line 253
   __cil_tmp39 = (long )__cil_tmp38;
 #line 253
-  tmp___7 = __builtin_expect(__cil_tmp39, 1L);
+  tmp___7 = ldv__builtin_expect(__cil_tmp39, 1L);
   }
 #line 253
   if (tmp___7) {
@@ -60282,7 +60282,7 @@ int vmw_wait_seqno(struct vmw_private *dev_priv , bool lazy , uint32_t seqno , b
 #line 256
   __cil_tmp40 = (long )tmp___9;
 #line 256
-  tmp___10 = __builtin_expect(__cil_tmp40, 1L);
+  tmp___10 = ldv__builtin_expect(__cil_tmp40, 1L);
   }
 #line 256
   if (tmp___10) {
@@ -60581,7 +60581,7 @@ int vmw_wait_seqno(struct vmw_private *dev_priv , bool lazy , uint32_t seqno , b
 #line 284
   __cil_tmp83 = (long )__cil_tmp82;
 #line 284
-  tmp___22 = __builtin_expect(__cil_tmp83, 0L);
+  tmp___22 = ldv__builtin_expect(__cil_tmp83, 0L);
   }
 #line 284
   if (tmp___22) {
@@ -60598,7 +60598,7 @@ int vmw_wait_seqno(struct vmw_private *dev_priv , bool lazy , uint32_t seqno , b
 #line 286
     __cil_tmp87 = (long )__cil_tmp86;
 #line 286
-    tmp___21 = __builtin_expect(__cil_tmp87, 1L);
+    tmp___21 = ldv__builtin_expect(__cil_tmp87, 1L);
     }
 #line 286
     if (tmp___21) {
@@ -61705,7 +61705,7 @@ static int vmw_ldu_commit_list(struct vmw_private *dev_priv )
 #line 130
     __cil_tmp200 = (long )__cil_tmp199;
 #line 130
-    tmp___12 = __builtin_expect(__cil_tmp200, 0L);
+    tmp___12 = ldv__builtin_expect(__cil_tmp200, 0L);
     }
 #line 130
     if (tmp___12) {
@@ -62011,7 +62011,7 @@ static int vmw_ldu_del_active(struct vmw_private *vmw_priv___0 , struct vmw_lega
 #line 166
       __cil_tmp29 = (long )__cil_tmp28;
 #line 166
-      tmp___8 = __builtin_expect(__cil_tmp29, 0L);
+      tmp___8 = ldv__builtin_expect(__cil_tmp29, 0L);
       }
 #line 166
       if (tmp___8) {
@@ -62239,7 +62239,7 @@ static int vmw_ldu_add_active(struct vmw_private *vmw_priv___0 , struct vmw_lega
 #line 183
     __cil_tmp19 = (long )tmp___7;
 #line 183
-    tmp___8 = __builtin_expect(__cil_tmp19, 0L);
+    tmp___8 = ldv__builtin_expect(__cil_tmp19, 0L);
     }
 #line 183
     if (tmp___8) {
@@ -63823,7 +63823,7 @@ int vmw_kms_close_legacy_display_system(struct vmw_private *dev_priv )
 #line 440
     __cil_tmp16 = (long )tmp___8;
 #line 440
-    tmp___9 = __builtin_expect(__cil_tmp16, 0L);
+    tmp___9 = ldv__builtin_expect(__cil_tmp16, 0L);
     }
 #line 440
     if (tmp___9) {
@@ -64037,7 +64037,7 @@ int vmw_mmap(struct file *filp , struct vm_area_struct *vma )
 #line 36
   __cil_tmp13 = (long )__cil_tmp12;
 #line 36
-  tmp___7 = __builtin_expect(__cil_tmp13, 0L);
+  tmp___7 = ldv__builtin_expect(__cil_tmp13, 0L);
   }
 #line 36
   if (tmp___7) {
@@ -64213,7 +64213,7 @@ int vmw_ttm_global_init(struct vmw_private *dev_priv )
 #line 69
   __cil_tmp17 = (long )__cil_tmp16;
 #line 69
-  tmp___7 = __builtin_expect(__cil_tmp17, 0L);
+  tmp___7 = ldv__builtin_expect(__cil_tmp17, 0L);
   }
 #line 69
   if (tmp___7) {
@@ -64280,7 +64280,7 @@ int vmw_ttm_global_init(struct vmw_private *dev_priv )
 #line 83
   __cil_tmp36 = (long )__cil_tmp35;
 #line 83
-  tmp___8 = __builtin_expect(__cil_tmp36, 0L);
+  tmp___8 = ldv__builtin_expect(__cil_tmp36, 0L);
   }
 #line 83
   if (tmp___8) {
@@ -65094,7 +65094,7 @@ static int vmw_overlay_send_stop(struct vmw_private *dev_priv , uint32_t stream_
 #line 205
         __cil_tmp15 = (long )__cil_tmp14;
 #line 205
-        tmp___8 = __builtin_expect(__cil_tmp15, 0L);
+        tmp___8 = ldv__builtin_expect(__cil_tmp15, 0L);
         }
 #line 205
         if (tmp___8) {
@@ -65366,7 +65366,7 @@ static int vmw_overlay_stop(struct vmw_private *dev_priv , uint32_t stream_id , 
 #line 276
         __cil_tmp24 = (long )__cil_tmp23;
 #line 276
-        tmp___7 = __builtin_expect(__cil_tmp24, 0L);
+        tmp___7 = ldv__builtin_expect(__cil_tmp24, 0L);
         }
 #line 276
         if (tmp___7) {
@@ -65599,7 +65599,7 @@ static int vmw_overlay_update_stream(struct vmw_private *dev_priv , struct vmw_d
 #line 326
           __cil_tmp36 = (long )__cil_tmp35;
 #line 326
-          tmp___8 = __builtin_expect(__cil_tmp36, 0L);
+          tmp___8 = ldv__builtin_expect(__cil_tmp36, 0L);
           }
 #line 326
           if (tmp___8) {
@@ -65687,7 +65687,7 @@ static int vmw_overlay_update_stream(struct vmw_private *dev_priv , struct vmw_d
 #line 343
       __cil_tmp40 = (long )tmp___10;
 #line 343
-      tmp___11 = __builtin_expect(__cil_tmp40, 0L);
+      tmp___11 = ldv__builtin_expect(__cil_tmp40, 0L);
       }
 #line 343
       if (tmp___11) {
@@ -65867,7 +65867,7 @@ int vmw_overlay_stop_all(struct vmw_private *dev_priv )
 #line 380
     __cil_tmp23 = (long )__cil_tmp22;
 #line 380
-    tmp___7 = __builtin_expect(__cil_tmp23, 0L);
+    tmp___7 = ldv__builtin_expect(__cil_tmp23, 0L);
     }
 #line 380
     if (tmp___7) {
@@ -65889,7 +65889,7 @@ int vmw_overlay_stop_all(struct vmw_private *dev_priv )
 #line 380
     __cil_tmp27 = (long )__cil_tmp26;
 #line 380
-    __builtin_expect(__cil_tmp27, 0L);
+    ldv__builtin_expect(__cil_tmp27, 0L);
     }
     __Cont: /* CIL Label */ 
 #line 374
@@ -66134,7 +66134,7 @@ int vmw_overlay_pause_all(struct vmw_private *dev_priv )
 #line 444
     __cil_tmp22 = (long )__cil_tmp21;
 #line 444
-    tmp___7 = __builtin_expect(__cil_tmp22, 0L);
+    tmp___7 = ldv__builtin_expect(__cil_tmp22, 0L);
     }
 #line 444
     if (tmp___7) {
@@ -66156,7 +66156,7 @@ int vmw_overlay_pause_all(struct vmw_private *dev_priv )
 #line 444
     __cil_tmp26 = (long )__cil_tmp25;
 #line 444
-    __builtin_expect(__cil_tmp26, 0L);
+    ldv__builtin_expect(__cil_tmp26, 0L);
 #line 439
     i = i + 1;
     }
@@ -66601,7 +66601,7 @@ int vmw_overlay_unref(struct vmw_private *dev_priv , uint32_t stream_id )
 #line 549
     __cil_tmp12 = (long )__cil_tmp11;
 #line 549
-    tmp___7 = __builtin_expect(__cil_tmp12, 0L);
+    tmp___7 = ldv__builtin_expect(__cil_tmp12, 0L);
     }
 #line 549
     if (tmp___7) {
@@ -66674,7 +66674,7 @@ int vmw_overlay_unref(struct vmw_private *dev_priv , uint32_t stream_id )
 #line 556
   __cil_tmp24 = (long )__cil_tmp23;
 #line 556
-  tmp___8 = __builtin_expect(__cil_tmp24, 0L);
+  tmp___8 = ldv__builtin_expect(__cil_tmp24, 0L);
   }
 #line 556
   if (tmp___8) {
@@ -66696,7 +66696,7 @@ int vmw_overlay_unref(struct vmw_private *dev_priv , uint32_t stream_id )
 #line 556
   __cil_tmp28 = (long )__cil_tmp27;
 #line 556
-  __builtin_expect(__cil_tmp28, 0L);
+  ldv__builtin_expect(__cil_tmp28, 0L);
 #line 557
   __cil_tmp29 = (bool )0;
 #line 557
@@ -67019,7 +67019,7 @@ int vmw_overlay_close(struct vmw_private *dev_priv )
 #line 610
   __cil_tmp19 = (long )__cil_tmp18;
 #line 610
-  tmp___7 = __builtin_expect(__cil_tmp19, 0L);
+  tmp___7 = ldv__builtin_expect(__cil_tmp19, 0L);
   }
 #line 610
   if (tmp___7) {
@@ -67041,7 +67041,7 @@ int vmw_overlay_close(struct vmw_private *dev_priv )
 #line 610
   __cil_tmp23 = (long )__cil_tmp22;
 #line 610
-  __builtin_expect(__cil_tmp23, 0L);
+  ldv__builtin_expect(__cil_tmp23, 0L);
 #line 612
   __cil_tmp24 = (unsigned long )dev_priv;
 #line 612
@@ -67422,7 +67422,7 @@ int vmw_marker_push(struct vmw_marker_queue *queue , uint32_t seqno )
 #line 61
   __cil_tmp9 = (long )__cil_tmp8;
 #line 61
-  tmp___8 = __builtin_expect(__cil_tmp9, 0L);
+  tmp___8 = ldv__builtin_expect(__cil_tmp9, 0L);
   }
 #line 61
   if (tmp___8) {
@@ -68086,7 +68086,7 @@ int vmw_wait_lag(struct vmw_private *dev_priv , struct vmw_marker_queue *queue ,
 #line 165
     __cil_tmp37 = (long )__cil_tmp36;
 #line 165
-    tmp___9 = __builtin_expect(__cil_tmp37, 0L);
+    tmp___9 = ldv__builtin_expect(__cil_tmp37, 0L);
     }
 #line 165
     if (tmp___9) {
@@ -68275,7 +68275,7 @@ static int vmw_gmrid_man_get_node(struct ttm_mem_type_manager *man , struct ttm_
 #line 63
     __cil_tmp41 = (long )__cil_tmp40;
 #line 63
-    tmp___7 = __builtin_expect(__cil_tmp41, 0L);
+    tmp___7 = ldv__builtin_expect(__cil_tmp41, 0L);
     }
 #line 63
     if (tmp___7) {
@@ -68318,7 +68318,7 @@ static int vmw_gmrid_man_get_node(struct ttm_mem_type_manager *man , struct ttm_
 #line 69
     __cil_tmp46 = (long )tmp___9;
 #line 69
-    tmp___10 = __builtin_expect(__cil_tmp46, 0L);
+    tmp___10 = ldv__builtin_expect(__cil_tmp46, 0L);
     }
 #line 69
     if (tmp___10) {
@@ -68375,7 +68375,7 @@ static int vmw_gmrid_man_get_node(struct ttm_mem_type_manager *man , struct ttm_
 #line 76
     __cil_tmp57 = (long )tmp___11;
 #line 76
-    tmp___12 = __builtin_expect(__cil_tmp57, 0L);
+    tmp___12 = ldv__builtin_expect(__cil_tmp57, 0L);
     }
 #line 76
     if (tmp___12) {
@@ -68420,7 +68420,7 @@ static int vmw_gmrid_man_get_node(struct ttm_mem_type_manager *man , struct ttm_
 #line 83
   __cil_tmp66 = (long )__cil_tmp65;
 #line 83
-  tmp___13 = __builtin_expect(__cil_tmp66, 1L);
+  tmp___13 = ldv__builtin_expect(__cil_tmp66, 1L);
   }
 #line 83
   if (tmp___13) {
@@ -68667,7 +68667,7 @@ static int vmw_gmrid_man_init(struct ttm_mem_type_manager *man , unsigned long p
 #line 124
   __cil_tmp20 = (long )__cil_tmp19;
 #line 124
-  tmp___8 = __builtin_expect(__cil_tmp20, 0L);
+  tmp___8 = ldv__builtin_expect(__cil_tmp20, 0L);
   }
 #line 124
   if (tmp___8) {
@@ -69434,7 +69434,7 @@ struct vmw_fence_manager *vmw_fence_manager_init(struct vmw_private *dev_priv )
 #line 175
   __cil_tmp15 = (long )__cil_tmp14;
 #line 175
-  tmp___8 = __builtin_expect(__cil_tmp15, 0L);
+  tmp___8 = ldv__builtin_expect(__cil_tmp15, 0L);
   }
 #line 175
   if (tmp___8) {
@@ -69764,7 +69764,7 @@ void vmw_fence_manager_takedown(struct vmw_fence_manager *fman )
 #line 205
     __cil_tmp31 = (long )__cil_tmp30;
 #line 205
-    tmp___11 = __builtin_expect(__cil_tmp31, 0L);
+    tmp___11 = ldv__builtin_expect(__cil_tmp31, 0L);
     }
 #line 205
     if (tmp___11) {
@@ -69968,7 +69968,7 @@ static int vmw_fence_obj_init(struct vmw_fence_manager *fman , struct vmw_fence_
 #line 229
   __cil_tmp38 = (long )__cil_tmp37;
 #line 229
-  tmp___8 = __builtin_expect(__cil_tmp38, 0L);
+  tmp___8 = ldv__builtin_expect(__cil_tmp38, 0L);
   }
 #line 229
   if (tmp___8) {
@@ -70048,7 +70048,7 @@ struct vmw_fence_obj *vmw_fence_obj_reference(struct vmw_fence_obj *fence )
 #line 244
   __cil_tmp9 = (long )__cil_tmp8;
 #line 244
-  tmp___7 = __builtin_expect(__cil_tmp9, 0L);
+  tmp___7 = ldv__builtin_expect(__cil_tmp9, 0L);
   }
 #line 244
   if (tmp___7) {
@@ -70119,7 +70119,7 @@ void vmw_fence_obj_unreference(struct vmw_fence_obj **fence_p )
 #line 263
   __cil_tmp14 = (long )__cil_tmp13;
 #line 263
-  tmp___7 = __builtin_expect(__cil_tmp14, 0L);
+  tmp___7 = ldv__builtin_expect(__cil_tmp14, 0L);
   }
 #line 263
   if (tmp___7) {
@@ -70172,7 +70172,7 @@ void vmw_fence_obj_unreference(struct vmw_fence_obj **fence_p )
 #line 269
     __cil_tmp23 = (long )tmp___9;
 #line 269
-    tmp___10 = __builtin_expect(__cil_tmp23, 0L);
+    tmp___10 = ldv__builtin_expect(__cil_tmp23, 0L);
     }
 #line 269
     if (tmp___10) {
@@ -70530,7 +70530,7 @@ static bool vmw_fence_goal_new_locked(struct vmw_fence_manager *fman , u32 passe
 #line 317
   __cil_tmp17 = (long )__cil_tmp16;
 #line 317
-  tmp___7 = __builtin_expect(__cil_tmp17, 1L);
+  tmp___7 = ldv__builtin_expect(__cil_tmp17, 1L);
   }
 #line 317
   if (tmp___7) {
@@ -70573,7 +70573,7 @@ static bool vmw_fence_goal_new_locked(struct vmw_fence_manager *fman , u32 passe
 #line 322
   __cil_tmp31 = (long )__cil_tmp30;
 #line 322
-  tmp___8 = __builtin_expect(__cil_tmp31, 1L);
+  tmp___8 = ldv__builtin_expect(__cil_tmp31, 1L);
   }
 #line 322
   if (tmp___8) {
@@ -70839,7 +70839,7 @@ static bool vmw_fence_goal_check_locked(struct vmw_fence_obj *fence )
 #line 364
   __cil_tmp30 = (long )tmp___7;
 #line 364
-  tmp___8 = __builtin_expect(__cil_tmp30, 1L);
+  tmp___8 = ldv__builtin_expect(__cil_tmp30, 1L);
   }
 #line 364
   if (tmp___8) {
@@ -71246,7 +71246,7 @@ void vmw_fences_update(struct vmw_fence_manager *fman )
 #line 411
   __cil_tmp99 = (long )__cil_tmp98;
 #line 411
-  tmp___9 = __builtin_expect(__cil_tmp99, 0L);
+  tmp___9 = ldv__builtin_expect(__cil_tmp99, 0L);
   }
 #line 411
   if (tmp___9) {
@@ -71543,7 +71543,7 @@ int vmw_fence_obj_wait(struct vmw_fence_obj *fence , uint32_t flags , bool lazy 
 #line 452
   __cil_tmp30 = (long )tmp___8;
 #line 452
-  tmp___9 = __builtin_expect(__cil_tmp30, 1L);
+  tmp___9 = ldv__builtin_expect(__cil_tmp30, 1L);
   }
 #line 452
   if (tmp___9) {
@@ -71792,7 +71792,7 @@ int vmw_fence_obj_wait(struct vmw_fence_obj *fence , uint32_t flags , bool lazy 
 #line 471
   __cil_tmp63 = (long )__cil_tmp62;
 #line 471
-  tmp___19 = __builtin_expect(__cil_tmp63, 0L);
+  tmp___19 = ldv__builtin_expect(__cil_tmp63, 0L);
   }
 #line 471
   if (tmp___19) {
@@ -71809,7 +71809,7 @@ int vmw_fence_obj_wait(struct vmw_fence_obj *fence , uint32_t flags , bool lazy 
 #line 473
     __cil_tmp67 = (long )__cil_tmp66;
 #line 473
-    tmp___18 = __builtin_expect(__cil_tmp67, 1L);
+    tmp___18 = ldv__builtin_expect(__cil_tmp67, 1L);
     }
 #line 473
     if (tmp___18) {
@@ -71982,7 +71982,7 @@ int vmw_fence_create(struct vmw_fence_manager *fman , uint32_t seqno , uint32_t 
 #line 509
   __cil_tmp25 = (long )__cil_tmp24;
 #line 509
-  tmp___8 = __builtin_expect(__cil_tmp25, 0L);
+  tmp___8 = ldv__builtin_expect(__cil_tmp25, 0L);
   }
 #line 509
   if (tmp___8) {
@@ -72011,7 +72011,7 @@ int vmw_fence_create(struct vmw_fence_manager *fman , uint32_t seqno , uint32_t 
 #line 513
   __cil_tmp32 = (long )__cil_tmp31;
 #line 513
-  tmp___10 = __builtin_expect(__cil_tmp32, 0L);
+  tmp___10 = ldv__builtin_expect(__cil_tmp32, 0L);
   }
 #line 513
   if (tmp___10) {
@@ -72034,7 +72034,7 @@ int vmw_fence_create(struct vmw_fence_manager *fman , uint32_t seqno , uint32_t 
 #line 520
   __cil_tmp36 = (long )__cil_tmp35;
 #line 520
-  tmp___11 = __builtin_expect(__cil_tmp36, 0L);
+  tmp___11 = ldv__builtin_expect(__cil_tmp36, 0L);
   }
 #line 520
   if (tmp___11) {
@@ -72318,7 +72318,7 @@ int vmw_user_fence_create(struct drm_file *file_priv , struct vmw_fence_manager 
 #line 579
   __cil_tmp33 = (long )__cil_tmp32;
 #line 579
-  tmp___10 = __builtin_expect(__cil_tmp33, 0L);
+  tmp___10 = ldv__builtin_expect(__cil_tmp33, 0L);
   }
 #line 579
   if (tmp___10) {
@@ -72347,7 +72347,7 @@ int vmw_user_fence_create(struct drm_file *file_priv , struct vmw_fence_manager 
 #line 583
   __cil_tmp40 = (long )__cil_tmp39;
 #line 583
-  tmp___12 = __builtin_expect(__cil_tmp40, 0L);
+  tmp___12 = ldv__builtin_expect(__cil_tmp40, 0L);
   }
 #line 583
   if (tmp___12) {
@@ -72376,7 +72376,7 @@ int vmw_user_fence_create(struct drm_file *file_priv , struct vmw_fence_manager 
 #line 590
   __cil_tmp47 = (long )__cil_tmp46;
 #line 590
-  tmp___13 = __builtin_expect(__cil_tmp47, 0L);
+  tmp___13 = ldv__builtin_expect(__cil_tmp47, 0L);
   }
 #line 590
   if (tmp___13) {
@@ -72424,7 +72424,7 @@ int vmw_user_fence_create(struct drm_file *file_priv , struct vmw_fence_manager 
 #line 605
   __cil_tmp61 = (long )__cil_tmp60;
 #line 605
-  tmp___14 = __builtin_expect(__cil_tmp61, 0L);
+  tmp___14 = ldv__builtin_expect(__cil_tmp61, 0L);
   }
 #line 605
   if (tmp___14) {
@@ -72681,7 +72681,7 @@ void vmw_fence_fifo_down(struct vmw_fence_manager *fman )
 #line 654
     __cil_tmp47 = (long )__cil_tmp46;
 #line 654
-    tmp___8 = __builtin_expect(__cil_tmp47, 0L);
+    tmp___8 = ldv__builtin_expect(__cil_tmp47, 0L);
     }
 #line 654
     if (tmp___8) {
@@ -72770,7 +72770,7 @@ void vmw_fence_fifo_down(struct vmw_fence_manager *fman )
 #line 666
       __cil_tmp70 = (long )tmp___10;
 #line 666
-      tmp___11 = __builtin_expect(__cil_tmp70, 0L);
+      tmp___11 = ldv__builtin_expect(__cil_tmp70, 0L);
       }
 #line 666
       if (tmp___11) {
@@ -73062,7 +73062,7 @@ int vmw_fence_obj_wait_ioctl(struct drm_device *dev , void *data , struct drm_fi
 #line 708
   __cil_tmp48 = (long )__cil_tmp47;
 #line 708
-  tmp___8 = __builtin_expect(__cil_tmp48, 0L);
+  tmp___8 = ldv__builtin_expect(__cil_tmp48, 0L);
   }
 #line 708
   if (tmp___8) {
@@ -73320,7 +73320,7 @@ int vmw_fence_obj_signaled_ioctl(struct drm_device *dev , void *data , struct dr
 #line 753
   __cil_tmp27 = (long )__cil_tmp26;
 #line 753
-  tmp___9 = __builtin_expect(__cil_tmp27, 0L);
+  tmp___9 = ldv__builtin_expect(__cil_tmp27, 0L);
   }
 #line 753
   if (tmp___9) {
@@ -73745,7 +73745,7 @@ static void vmw_event_fence_action_seq_passed(struct vmw_fence_action *action )
 #line 845
   __cil_tmp29 = (long )__cil_tmp28;
 #line 845
-  tmp___7 = __builtin_expect(__cil_tmp29, 0L);
+  tmp___7 = ldv__builtin_expect(__cil_tmp29, 0L);
   }
 #line 845
   if (tmp___7) {
@@ -73812,7 +73812,7 @@ static void vmw_event_fence_action_seq_passed(struct vmw_fence_action *action )
 #line 851
   __cil_tmp44 = (long )__cil_tmp43;
 #line 851
-  tmp___9 = __builtin_expect(__cil_tmp44, 1L);
+  tmp___9 = ldv__builtin_expect(__cil_tmp44, 1L);
   }
 #line 851
   if (tmp___9) {
@@ -74351,7 +74351,7 @@ int vmw_event_fence_action_queue(struct drm_file *file_priv , struct vmw_fence_o
 #line 968
   __cil_tmp25 = (long )__cil_tmp24;
 #line 968
-  tmp___9 = __builtin_expect(__cil_tmp25, 0L);
+  tmp___9 = ldv__builtin_expect(__cil_tmp25, 0L);
   }
 #line 968
   if (tmp___9) {
@@ -74668,7 +74668,7 @@ int vmw_event_fence_action_create(struct drm_file *file_priv , struct vmw_fence_
 #line 1010
   __cil_tmp38 = (long )__cil_tmp37;
 #line 1010
-  tmp___8 = __builtin_expect(__cil_tmp38, 1L);
+  tmp___8 = ldv__builtin_expect(__cil_tmp38, 1L);
   }
 #line 1010
   if (tmp___8) {
@@ -74709,7 +74709,7 @@ int vmw_event_fence_action_create(struct drm_file *file_priv , struct vmw_fence_
 #line 1015
   __cil_tmp52 = (long )__cil_tmp51;
 #line 1015
-  tmp___9 = __builtin_expect(__cil_tmp52, 0L);
+  tmp___9 = ldv__builtin_expect(__cil_tmp52, 0L);
   }
 #line 1015
   if (tmp___9) {
@@ -74742,7 +74742,7 @@ int vmw_event_fence_action_create(struct drm_file *file_priv , struct vmw_fence_
 #line 1022
   __cil_tmp59 = (long )__cil_tmp58;
 #line 1022
-  tmp___11 = __builtin_expect(__cil_tmp59, 0L);
+  tmp___11 = ldv__builtin_expect(__cil_tmp59, 0L);
   }
 #line 1022
   if (tmp___11) {
@@ -75136,7 +75136,7 @@ int vmw_fence_event_ioctl(struct drm_device *dev , void *data , struct drm_file 
 #line 1085
     __cil_tmp45 = (long )__cil_tmp44;
 #line 1085
-    tmp___10 = __builtin_expect(__cil_tmp45, 0L);
+    tmp___10 = ldv__builtin_expect(__cil_tmp45, 0L);
     }
 #line 1085
     if (tmp___10) {
@@ -75225,7 +75225,7 @@ int vmw_fence_event_ioctl(struct drm_device *dev , void *data , struct drm_file 
 #line 1100
       __cil_tmp75 = (long )__cil_tmp74;
 #line 1100
-      tmp___11 = __builtin_expect(__cil_tmp75, 0L);
+      tmp___11 = ldv__builtin_expect(__cil_tmp75, 0L);
       }
 #line 1100
       if (tmp___11) {
@@ -75295,7 +75295,7 @@ int vmw_fence_event_ioctl(struct drm_device *dev , void *data , struct drm_file 
 #line 1118
     __cil_tmp89 = (long )__cil_tmp88;
 #line 1118
-    tmp___13 = __builtin_expect(__cil_tmp89, 0L);
+    tmp___13 = ldv__builtin_expect(__cil_tmp89, 0L);
     }
 #line 1118
     if (tmp___13) {
@@ -75336,7 +75336,7 @@ int vmw_fence_event_ioctl(struct drm_device *dev , void *data , struct drm_file 
 #line 1124
     __cil_tmp98 = (long )__cil_tmp97;
 #line 1124
-    tmp___14 = __builtin_expect(__cil_tmp98, 0L);
+    tmp___14 = ldv__builtin_expect(__cil_tmp98, 0L);
     }
 #line 1124
     if (tmp___14) {
@@ -75440,7 +75440,7 @@ int vmw_fence_event_ioctl(struct drm_device *dev , void *data , struct drm_file 
 #line 1137
   __cil_tmp123 = (long )__cil_tmp122;
 #line 1137
-  tmp___15 = __builtin_expect(__cil_tmp123, 0L);
+  tmp___15 = ldv__builtin_expect(__cil_tmp123, 0L);
   }
 #line 1137
   if (tmp___15) {
@@ -75571,7 +75571,7 @@ int vmw_dmabuf_to_placement(struct vmw_private *dev_priv , struct vmw_dma_buffer
 #line 60
   __cil_tmp16 = (long )__cil_tmp15;
 #line 60
-  tmp___7 = __builtin_expect(__cil_tmp16, 0L);
+  tmp___7 = ldv__builtin_expect(__cil_tmp16, 0L);
   }
 #line 60
   if (tmp___7) {
@@ -75604,7 +75604,7 @@ int vmw_dmabuf_to_placement(struct vmw_private *dev_priv , struct vmw_dma_buffer
 #line 66
   __cil_tmp25 = (long )__cil_tmp24;
 #line 66
-  tmp___8 = __builtin_expect(__cil_tmp25, 0L);
+  tmp___8 = ldv__builtin_expect(__cil_tmp25, 0L);
   }
 #line 66
   if (tmp___8) {
@@ -75693,7 +75693,7 @@ int vmw_dmabuf_to_vram_or_gmr(struct vmw_private *dev_priv , struct vmw_dma_buff
 #line 104
   __cil_tmp18 = (long )__cil_tmp17;
 #line 104
-  tmp___7 = __builtin_expect(__cil_tmp18, 0L);
+  tmp___7 = ldv__builtin_expect(__cil_tmp18, 0L);
   }
 #line 104
   if (tmp___7) {
@@ -75733,7 +75733,7 @@ int vmw_dmabuf_to_vram_or_gmr(struct vmw_private *dev_priv , struct vmw_dma_buff
 #line 111
   __cil_tmp27 = (long )__cil_tmp26;
 #line 111
-  tmp___8 = __builtin_expect(__cil_tmp27, 0L);
+  tmp___8 = ldv__builtin_expect(__cil_tmp27, 0L);
   }
 #line 111
   if (tmp___8) {
@@ -75766,7 +75766,7 @@ int vmw_dmabuf_to_vram_or_gmr(struct vmw_private *dev_priv , struct vmw_dma_buff
 #line 127
   __cil_tmp33 = (long )__cil_tmp32;
 #line 127
-  tmp___9 = __builtin_expect(__cil_tmp33, 1L);
+  tmp___9 = ldv__builtin_expect(__cil_tmp33, 1L);
   }
 #line 127
   if (tmp___9) {
@@ -75954,7 +75954,7 @@ int vmw_dmabuf_to_start_of_vram(struct vmw_private *dev_priv , struct vmw_dma_bu
 #line 213
   __cil_tmp28 = (long )__cil_tmp27;
 #line 213
-  tmp___7 = __builtin_expect(__cil_tmp28, 0L);
+  tmp___7 = ldv__builtin_expect(__cil_tmp28, 0L);
   }
 #line 213
   if (tmp___7) {
@@ -75994,7 +75994,7 @@ int vmw_dmabuf_to_start_of_vram(struct vmw_private *dev_priv , struct vmw_dma_bu
 #line 220
   __cil_tmp37 = (long )__cil_tmp36;
 #line 220
-  tmp___8 = __builtin_expect(__cil_tmp37, 0L);
+  tmp___8 = ldv__builtin_expect(__cil_tmp37, 0L);
   }
 #line 220
   if (tmp___8) {
@@ -76104,7 +76104,7 @@ int vmw_dmabuf_to_start_of_vram(struct vmw_private *dev_priv , struct vmw_dma_bu
 #line 233
   __cil_tmp63 = (long )__cil_tmp62;
 #line 233
-  tmp___10 = __builtin_expect(__cil_tmp63, 0L);
+  tmp___10 = ldv__builtin_expect(__cil_tmp63, 0L);
   }
 #line 233
   if (tmp___10) {
@@ -76126,7 +76126,7 @@ int vmw_dmabuf_to_start_of_vram(struct vmw_private *dev_priv , struct vmw_dma_bu
 #line 233
   __cil_tmp67 = (long )__cil_tmp66;
 #line 233
-  __builtin_expect(__cil_tmp67, 0L);
+  ldv__builtin_expect(__cil_tmp67, 0L);
 #line 235
   ttm_bo_unreserve(bo);
   }
@@ -76305,7 +76305,7 @@ void vmw_bo_pin(struct ttm_buffer_object *bo , bool pin )
 #line 307
     __cil_tmp21 = (long )tmp___8;
 #line 307
-    tmp___9 = __builtin_expect(__cil_tmp21, 0L);
+    tmp___9 = ldv__builtin_expect(__cil_tmp21, 0L);
     }
 #line 307
     if (tmp___9) {
@@ -76369,7 +76369,7 @@ void vmw_bo_pin(struct ttm_buffer_object *bo , bool pin )
 #line 308
     __cil_tmp24 = (long )tmp___10;
 #line 308
-    tmp___11 = __builtin_expect(__cil_tmp24, 0L);
+    tmp___11 = ldv__builtin_expect(__cil_tmp24, 0L);
     }
 #line 308
     if (tmp___11) {
@@ -76490,7 +76490,7 @@ void vmw_bo_pin(struct ttm_buffer_object *bo , bool pin )
 #line 321
     __cil_tmp46 = (long )tmp___12;
 #line 321
-    tmp___13 = __builtin_expect(__cil_tmp46, 0L);
+    tmp___13 = ldv__builtin_expect(__cil_tmp46, 0L);
     }
 #line 321
     if (tmp___13) {
@@ -76710,7 +76710,7 @@ static void vmw_sou_add_active(struct vmw_private *vmw_priv___0 , struct vmw_scr
 #line 92
     __cil_tmp12 = (long )tmp___7;
 #line 92
-    tmp___8 = __builtin_expect(__cil_tmp12, 0L);
+    tmp___8 = ldv__builtin_expect(__cil_tmp12, 0L);
     }
 #line 92
     if (tmp___8) {
@@ -76911,7 +76911,7 @@ static int vmw_sou_fifo_create(struct vmw_private *dev_priv , struct vmw_screen_
 #line 118
     __cil_tmp18 = (long )__cil_tmp17;
 #line 118
-    tmp___7 = __builtin_expect(__cil_tmp18, 0L);
+    tmp___7 = ldv__builtin_expect(__cil_tmp18, 0L);
     }
 #line 118
     if (tmp___7) {
@@ -76971,7 +76971,7 @@ static int vmw_sou_fifo_create(struct vmw_private *dev_priv , struct vmw_screen_
 #line 123
   __cil_tmp26 = (long )__cil_tmp25;
 #line 123
-  tmp___9 = __builtin_expect(__cil_tmp26, 0L);
+  tmp___9 = ldv__builtin_expect(__cil_tmp26, 0L);
   }
 #line 123
   if (tmp___9) {
@@ -77243,7 +77243,7 @@ static int vmw_sou_fifo_destroy(struct vmw_private *dev_priv , struct vmw_screen
 #line 172
   __cil_tmp16 = (long )__cil_tmp15;
 #line 172
-  tmp___7 = __builtin_expect(__cil_tmp16, 0L);
+  tmp___7 = ldv__builtin_expect(__cil_tmp16, 0L);
   }
 #line 172
   if (tmp___7) {
@@ -77276,7 +77276,7 @@ static int vmw_sou_fifo_destroy(struct vmw_private *dev_priv , struct vmw_screen
 #line 178
   __cil_tmp24 = (long )__cil_tmp23;
 #line 178
-  tmp___9 = __builtin_expect(__cil_tmp24, 0L);
+  tmp___9 = ldv__builtin_expect(__cil_tmp24, 0L);
   }
 #line 178
   if (tmp___9) {
@@ -77332,7 +77332,7 @@ static int vmw_sou_fifo_destroy(struct vmw_private *dev_priv , struct vmw_screen
 #line 191
   __cil_tmp39 = (long )__cil_tmp38;
 #line 191
-  tmp___10 = __builtin_expect(__cil_tmp39, 0L);
+  tmp___10 = ldv__builtin_expect(__cil_tmp39, 0L);
   }
 #line 191
   if (tmp___10) {
@@ -77399,7 +77399,7 @@ static void vmw_sou_backing_free(struct vmw_private *dev_priv , struct vmw_scree
 #line 207
   __cil_tmp14 = (long )__cil_tmp13;
 #line 207
-  tmp___7 = __builtin_expect(__cil_tmp14, 0L);
+  tmp___7 = ldv__builtin_expect(__cil_tmp14, 0L);
   }
 #line 207
   if (tmp___7) {
@@ -77539,7 +77539,7 @@ static int vmw_sou_backing_alloc(struct vmw_private *dev_priv , struct vmw_scree
 #line 232
   __cil_tmp24 = (long )__cil_tmp23;
 #line 232
-  tmp___8 = __builtin_expect(__cil_tmp24, 0L);
+  tmp___8 = ldv__builtin_expect(__cil_tmp24, 0L);
   }
 #line 232
   if (tmp___8) {
@@ -77573,7 +77573,7 @@ static int vmw_sou_backing_alloc(struct vmw_private *dev_priv , struct vmw_scree
 #line 244
   __cil_tmp32 = (long )__cil_tmp31;
 #line 244
-  tmp___9 = __builtin_expect(__cil_tmp32, 0L);
+  tmp___9 = ldv__builtin_expect(__cil_tmp32, 0L);
   }
 #line 244
   if (tmp___9) {
@@ -78145,7 +78145,7 @@ static int vmw_sou_crtc_set_config(struct drm_mode_set *set )
 #line 306
         __cil_tmp106 = (long )__cil_tmp105;
 #line 306
-        tmp___7 = __builtin_expect(__cil_tmp106, 0L);
+        tmp___7 = ldv__builtin_expect(__cil_tmp106, 0L);
         }
 #line 306
         if (tmp___7) {
@@ -78341,7 +78341,7 @@ static int vmw_sou_crtc_set_config(struct drm_mode_set *set )
 #line 343
       __cil_tmp163 = (long )__cil_tmp162;
 #line 343
-      tmp___8 = __builtin_expect(__cil_tmp163, 0L);
+      tmp___8 = ldv__builtin_expect(__cil_tmp163, 0L);
       }
 #line 343
       if (tmp___8) {
@@ -78399,7 +78399,7 @@ static int vmw_sou_crtc_set_config(struct drm_mode_set *set )
 #line 353
     __cil_tmp178 = (long )__cil_tmp177;
 #line 353
-    tmp___9 = __builtin_expect(__cil_tmp178, 0L);
+    tmp___9 = ldv__builtin_expect(__cil_tmp178, 0L);
     }
 #line 353
     if (tmp___9) {
@@ -78436,7 +78436,7 @@ static int vmw_sou_crtc_set_config(struct drm_mode_set *set )
 #line 358
   __cil_tmp188 = (long )__cil_tmp187;
 #line 358
-  tmp___10 = __builtin_expect(__cil_tmp188, 0L);
+  tmp___10 = ldv__builtin_expect(__cil_tmp188, 0L);
   }
 #line 358
   if (tmp___10) {
@@ -79000,7 +79000,7 @@ int vmw_kms_init_screen_object_display(struct vmw_private *dev_priv )
 #line 497
   __cil_tmp28 = (long )__cil_tmp27;
 #line 497
-  tmp___8 = __builtin_expect(__cil_tmp28, 0L);
+  tmp___8 = ldv__builtin_expect(__cil_tmp28, 0L);
   }
 #line 497
   if (tmp___8) {
@@ -79043,7 +79043,7 @@ int vmw_kms_init_screen_object_display(struct vmw_private *dev_priv )
 #line 504
   __cil_tmp41 = (long )__cil_tmp40;
 #line 504
-  tmp___9 = __builtin_expect(__cil_tmp41, 0L);
+  tmp___9 = ldv__builtin_expect(__cil_tmp41, 0L);
   }
 #line 504
   if (tmp___9) {
@@ -79064,7 +79064,7 @@ int vmw_kms_init_screen_object_display(struct vmw_private *dev_priv )
 #line 508
   __cil_tmp45 = (long )__cil_tmp44;
 #line 508
-  tmp___10 = __builtin_expect(__cil_tmp45, 0L);
+  tmp___10 = ldv__builtin_expect(__cil_tmp45, 0L);
   }
 #line 508
   if (tmp___10) {
@@ -79330,7 +79330,7 @@ void vmw_kms_screen_object_update_implicit_fb(struct vmw_private *dev_priv , str
 #line 568
     __cil_tmp19 = (long )__cil_tmp18;
 #line 568
-    tmp___7 = __builtin_expect(__cil_tmp19, 0L);
+    tmp___7 = ldv__builtin_expect(__cil_tmp19, 0L);
     }
 #line 568
     if (tmp___7) {

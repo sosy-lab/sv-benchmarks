@@ -7600,7 +7600,7 @@ void *__builtin_memcpy(void * , void const   * , unsigned long  ) ;
 #line 1
 unsigned long __builtin_object_size(void * , int  ) ;
 #line 1
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 #line 119 "include/linux/printk.h"
 extern int printk(char const   *  , ...) ;
 #line 177
@@ -7828,7 +7828,7 @@ __inline static void kref_get(struct kref *kref )
 #line 42
   __ret_warn_on = tmp == 0;
 #line 42
-  tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 42
   if (tmp___0 != 0L) {
 #line 42
@@ -7837,7 +7837,7 @@ __inline static void kref_get(struct kref *kref )
 
   }
 #line 42
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 43
   atomic_inc(& kref->refcount);
 #line 44
@@ -7889,14 +7889,14 @@ __inline static unsigned long copy_from_user(void *to , void const   *from , uns
 #line 61
   might_fault();
 #line 62
-  tmp___1 = __builtin_expect(sz == -1, 1L);
+  tmp___1 = ldv__builtin_expect(sz == -1, 1L);
 #line 62
   if (tmp___1 != 0L) {
 #line 63
     n = _copy_from_user(to, from, (unsigned int )n);
   } else {
 #line 62
-    tmp___2 = __builtin_expect((unsigned long )sz >= n, 1L);
+    tmp___2 = ldv__builtin_expect((unsigned long )sz >= n, 1L);
 #line 62
     if (tmp___2 != 0L) {
 #line 63
@@ -7905,7 +7905,7 @@ __inline static unsigned long copy_from_user(void *to , void const   *from , uns
 #line 66
       __ret_warn_on = 1;
 #line 66
-      tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+      tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 66
       if (tmp___0 != 0L) {
 #line 66
@@ -7915,7 +7915,7 @@ __inline static unsigned long copy_from_user(void *to , void const   *from , uns
 
       }
 #line 66
-      __builtin_expect(__ret_warn_on != 0, 0L);
+      ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
   }
 #line 68
@@ -8181,7 +8181,7 @@ static int vmw_resource_val_add(struct vmw_sw_context *sw_context , struct vmw_r
 #line 266
   tmp___0 = drm_ht_find_item(& sw_context->res_ht, (unsigned long )res, & hash);
 #line 266
-  tmp___1 = __builtin_expect(tmp___0 == 0, 1L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 1L);
 #line 266
   if (tmp___1 != 0L) {
 #line 268
@@ -8191,7 +8191,7 @@ static int vmw_resource_val_add(struct vmw_sw_context *sw_context , struct vmw_r
 #line 269
     node->first_usage = 0;
 #line 270
-    tmp = __builtin_expect((unsigned long )p_node != (unsigned long )((struct vmw_resource_val_node **)0),
+    tmp = ldv__builtin_expect((unsigned long )p_node != (unsigned long )((struct vmw_resource_val_node **)0),
                            0L);
 #line 270
     if (tmp != 0L) {
@@ -8210,7 +8210,7 @@ static int vmw_resource_val_add(struct vmw_sw_context *sw_context , struct vmw_r
 #line 275
   node = (struct vmw_resource_val_node *)tmp___2;
 #line 276
-  tmp___3 = __builtin_expect((unsigned long )node == (unsigned long )((struct vmw_resource_val_node *)0),
+  tmp___3 = ldv__builtin_expect((unsigned long )node == (unsigned long )((struct vmw_resource_val_node *)0),
                              0L);
 #line 276
   if (tmp___3 != 0L) {
@@ -8226,7 +8226,7 @@ static int vmw_resource_val_add(struct vmw_sw_context *sw_context , struct vmw_r
 #line 283
   ret = drm_ht_insert_item(& sw_context->res_ht, & node->hash);
 #line 284
-  tmp___4 = __builtin_expect(ret != 0, 0L);
+  tmp___4 = ldv__builtin_expect(ret != 0, 0L);
 #line 284
   if (tmp___4 != 0L) {
 #line 285
@@ -8245,7 +8245,7 @@ static int vmw_resource_val_add(struct vmw_sw_context *sw_context , struct vmw_r
 #line 292
   node->first_usage = 1;
 #line 294
-  tmp___5 = __builtin_expect((unsigned long )p_node != (unsigned long )((struct vmw_resource_val_node **)0),
+  tmp___5 = ldv__builtin_expect((unsigned long )p_node != (unsigned long )((struct vmw_resource_val_node **)0),
                              0L);
 #line 294
   if (tmp___5 != 0L) {
@@ -8271,7 +8271,7 @@ static int vmw_resource_relocation_add(struct list_head *list , struct vmw_resou
 #line 314
   rel = (struct vmw_resource_relocation *)tmp;
 #line 315
-  tmp___0 = __builtin_expect((unsigned long )rel == (unsigned long )((struct vmw_resource_relocation *)0),
+  tmp___0 = ldv__builtin_expect((unsigned long )rel == (unsigned long )((struct vmw_resource_relocation *)0),
                              0L);
 #line 315
   if (tmp___0 != 0L) {
@@ -8422,7 +8422,7 @@ static int vmw_bo_to_validate_list(struct vmw_sw_context *sw_context , struct tt
 #line 395
   tmp___1 = drm_ht_find_item(& sw_context->res_ht, (unsigned long )bo, & hash);
 #line 395
-  tmp___2 = __builtin_expect(tmp___1 == 0, 1L);
+  tmp___2 = ldv__builtin_expect(tmp___1 == 0, 1L);
 #line 395
   if (tmp___2 != 0L) {
 #line 397
@@ -8437,7 +8437,7 @@ static int vmw_bo_to_validate_list(struct vmw_sw_context *sw_context , struct tt
 #line 402
     val_node = sw_context->cur_val_buf;
 #line 403
-    tmp = __builtin_expect(val_node > 2047U, 0L);
+    tmp = ldv__builtin_expect(val_node > 2047U, 0L);
 #line 403
     if (tmp != 0L) {
 #line 404
@@ -8454,7 +8454,7 @@ static int vmw_bo_to_validate_list(struct vmw_sw_context *sw_context , struct tt
 #line 410
     ret = drm_ht_insert_item(& sw_context->res_ht, & vval_buf->hash);
 #line 411
-    tmp___0 = __builtin_expect(ret != 0, 0L);
+    tmp___0 = ldv__builtin_expect(ret != 0, 0L);
 #line 411
     if (tmp___0 != 0L) {
 #line 412
@@ -8512,7 +8512,7 @@ static int vmw_resources_reserve(struct vmw_sw_context *sw_context )
 #line 449
   ret = vmw_resource_reserve(res, (int )val->no_buffer_needed);
 #line 450
-  tmp = __builtin_expect(ret != 0, 0L);
+  tmp = ldv__builtin_expect(ret != 0, 0L);
 #line 450
   if (tmp != 0L) {
 #line 451
@@ -8527,7 +8527,7 @@ static int vmw_resources_reserve(struct vmw_sw_context *sw_context )
 #line 456
     ret = vmw_bo_to_validate_list(sw_context, bo, 0);
 #line 459
-    tmp___0 = __builtin_expect(ret != 0, 0L);
+    tmp___0 = ldv__builtin_expect(ret != 0, 0L);
 #line 459
     if (tmp___0 != 0L) {
 #line 460
@@ -8578,7 +8578,7 @@ static int vmw_resources_validate(struct vmw_sw_context *sw_context )
 #line 483
   ret = vmw_resource_validate(res);
 #line 484
-  tmp = __builtin_expect(ret != 0, 0L);
+  tmp = ldv__builtin_expect(ret != 0, 0L);
 #line 484
   if (tmp != 0L) {
 #line 485
@@ -8639,11 +8639,11 @@ static int vmw_cmd_res_check(struct vmw_private *dev_priv , struct vmw_sw_contex
 
   }
 #line 525
-  tmp___0 = __builtin_expect((long )rcache->valid, 1L);
+  tmp___0 = ldv__builtin_expect((long )rcache->valid, 1L);
 #line 525
   if (tmp___0 != 0L) {
 #line 525
-    tmp___1 = __builtin_expect(*id == rcache->handle, 1L);
+    tmp___1 = ldv__builtin_expect(*id == rcache->handle, 1L);
 #line 525
     if (tmp___1 != 0L) {
 #line 526
@@ -8671,7 +8671,7 @@ static int vmw_cmd_res_check(struct vmw_private *dev_priv , struct vmw_sw_contex
   ret = vmw_user_resource_lookup_handle(dev_priv, sw_context->tfile, *id, converter,
                                         & res);
 #line 542
-  tmp___2 = __builtin_expect(ret != 0, 0L);
+  tmp___2 = ldv__builtin_expect(ret != 0, 0L);
 #line 542
   if (tmp___2 != 0L) {
 #line 543
@@ -8693,7 +8693,7 @@ static int vmw_cmd_res_check(struct vmw_private *dev_priv , struct vmw_sw_contex
   ret = vmw_resource_relocation_add(& sw_context->res_relocations, (struct vmw_resource  const  *)res,
                                     (unsigned long )(((long )id - (long )sw_context->buf_start) / 4L));
 #line 556
-  tmp___3 = __builtin_expect(ret != 0, 0L);
+  tmp___3 = ldv__builtin_expect(ret != 0, 0L);
 #line 556
   if (tmp___3 != 0L) {
 #line 557
@@ -8704,7 +8704,7 @@ static int vmw_cmd_res_check(struct vmw_private *dev_priv , struct vmw_sw_contex
 #line 559
   ret = vmw_resource_val_add(sw_context, res, & node);
 #line 560
-  tmp___4 = __builtin_expect(ret != 0, 0L);
+  tmp___4 = ldv__builtin_expect(ret != 0, 0L);
 #line 560
   if (tmp___4 != 0L) {
 #line 561
@@ -8727,7 +8727,7 @@ static int vmw_cmd_res_check(struct vmw_private *dev_priv , struct vmw_sw_contex
   return (0);
   out_no_reloc: 
 #line 570
-  tmp___5 = __builtin_expect((unsigned long )sw_context->error_resource != (unsigned long )((struct vmw_resource *)0),
+  tmp___5 = ldv__builtin_expect((unsigned long )sw_context->error_resource != (unsigned long )((struct vmw_resource *)0),
                              0L);
 #line 570
   if (tmp___5 != 0L) {
@@ -8777,7 +8777,7 @@ static int vmw_cmd_set_render_target_check(struct vmw_private *dev_priv , struct
 #line 610
   ret = vmw_cmd_cid_check(dev_priv, sw_context, header);
 #line 611
-  tmp = __builtin_expect(ret != 0, 0L);
+  tmp = ldv__builtin_expect(ret != 0, 0L);
 #line 611
   if (tmp != 0L) {
 #line 612
@@ -8814,7 +8814,7 @@ static int vmw_cmd_surface_copy_check(struct vmw_private *dev_priv , struct vmw_
   ret = vmw_cmd_res_check(dev_priv, sw_context, 1, user_surface_converter, & cmd->body.src.sid,
                           0);
 #line 635
-  tmp = __builtin_expect(ret != 0, 0L);
+  tmp = ldv__builtin_expect(ret != 0, 0L);
 #line 635
   if (tmp != 0L) {
 #line 636
@@ -8847,7 +8847,7 @@ static int vmw_cmd_stretch_blt_check(struct vmw_private *dev_priv , struct vmw_s
   ret = vmw_cmd_res_check(dev_priv, sw_context, 1, user_surface_converter, & cmd->body.src.sid,
                           0);
 #line 656
-  tmp = __builtin_expect(ret != 0, 0L);
+  tmp = ldv__builtin_expect(ret != 0, 0L);
 #line 656
   if (tmp != 0L) {
 #line 657
@@ -8876,7 +8876,7 @@ static int vmw_cmd_blt_surf_screen_check(struct vmw_private *dev_priv , struct v
 #line 672
   cmd = (struct vmw_sid_cmd___2 *)__mptr;
 #line 674
-  tmp = __builtin_expect((long )(! sw_context->kernel), 0L);
+  tmp = ldv__builtin_expect((long )(! sw_context->kernel), 0L);
 #line 674
   if (tmp != 0L) {
 #line 675
@@ -8908,7 +8908,7 @@ static int vmw_cmd_present_check(struct vmw_private *dev_priv , struct vmw_sw_co
 #line 694
   cmd = (struct vmw_sid_cmd___3 *)__mptr;
 #line 696
-  tmp = __builtin_expect((long )(! sw_context->kernel), 0L);
+  tmp = ldv__builtin_expect((long )(! sw_context->kernel), 0L);
 #line 696
   if (tmp != 0L) {
 #line 697
@@ -8941,7 +8941,7 @@ static int vmw_query_bo_switch_prepare(struct vmw_private *dev_priv , struct ttm
 #line 723
   ctx_entry = (struct vmw_res_cache_entry *)(& sw_context->res_cache);
 #line 727
-  tmp = __builtin_expect((long )(! ctx_entry->valid), 0L);
+  tmp = ldv__builtin_expect((long )(! ctx_entry->valid), 0L);
 #line 727
   if (tmp != 0L) {
 #line 727
@@ -8956,12 +8956,12 @@ static int vmw_query_bo_switch_prepare(struct vmw_private *dev_priv , struct ttm
 #line 728
   sw_context->last_query_ctx = ctx_entry->res;
 #line 730
-  tmp___4 = __builtin_expect((unsigned long )sw_context->cur_query_bo != (unsigned long )new_query_bo,
+  tmp___4 = ldv__builtin_expect((unsigned long )sw_context->cur_query_bo != (unsigned long )new_query_bo,
                              0L);
 #line 730
   if (tmp___4 != 0L) {
 #line 732
-    tmp___0 = __builtin_expect(new_query_bo->num_pages > 4UL, 0L);
+    tmp___0 = ldv__builtin_expect(new_query_bo->num_pages > 4UL, 0L);
 #line 732
     if (tmp___0 != 0L) {
 #line 733
@@ -8972,7 +8972,7 @@ static int vmw_query_bo_switch_prepare(struct vmw_private *dev_priv , struct ttm
 
     }
 #line 737
-    tmp___2 = __builtin_expect((unsigned long )sw_context->cur_query_bo != (unsigned long )((struct ttm_buffer_object *)0),
+    tmp___2 = ldv__builtin_expect((unsigned long )sw_context->cur_query_bo != (unsigned long )((struct ttm_buffer_object *)0),
                                0L);
 #line 737
     if (tmp___2 != 0L) {
@@ -8981,7 +8981,7 @@ static int vmw_query_bo_switch_prepare(struct vmw_private *dev_priv , struct ttm
 #line 739
       ret = vmw_bo_to_validate_list(sw_context, sw_context->cur_query_bo, 0);
 #line 742
-      tmp___1 = __builtin_expect(ret != 0, 0L);
+      tmp___1 = ldv__builtin_expect(ret != 0, 0L);
 #line 742
       if (tmp___1 != 0L) {
 #line 743
@@ -8997,7 +8997,7 @@ static int vmw_query_bo_switch_prepare(struct vmw_private *dev_priv , struct ttm
 #line 747
     ret = vmw_bo_to_validate_list(sw_context, dev_priv->dummy_query_bo, 0);
 #line 750
-    tmp___3 = __builtin_expect(ret != 0, 0L);
+    tmp___3 = ldv__builtin_expect(ret != 0, 0L);
 #line 750
     if (tmp___3 != 0L) {
 #line 751
@@ -9027,7 +9027,7 @@ static void vmw_query_bo_switch_commit(struct vmw_private *dev_priv , struct vmw
 #line 785
     ctx_entry = (struct vmw_res_cache_entry *)(& sw_context->res_cache);
 #line 790
-    tmp = __builtin_expect((long )(! ctx_entry->valid), 0L);
+    tmp = ldv__builtin_expect((long )(! ctx_entry->valid), 0L);
 #line 790
     if (tmp != 0L) {
 #line 790
@@ -9044,7 +9044,7 @@ static void vmw_query_bo_switch_commit(struct vmw_private *dev_priv , struct vmw
 #line 793
     ret = vmw_fifo_emit_dummy_query(dev_priv, (uint32_t )ctx->id);
 #line 795
-    tmp___0 = __builtin_expect(ret != 0, 0L);
+    tmp___0 = ldv__builtin_expect(ret != 0, 0L);
 #line 795
     if (tmp___0 != 0L) {
 #line 796
@@ -9075,7 +9075,7 @@ static void vmw_query_bo_switch_commit(struct vmw_private *dev_priv , struct vmw
 #line 815
       dev_priv->dummy_query_bo_pinned = 1;
 #line 817
-      tmp___1 = __builtin_expect((unsigned long )sw_context->last_query_ctx == (unsigned long )((struct vmw_resource *)0),
+      tmp___1 = ldv__builtin_expect((unsigned long )sw_context->last_query_ctx == (unsigned long )((struct vmw_resource *)0),
                                  0L);
 #line 817
       if (tmp___1 != 0L) {
@@ -9125,7 +9125,7 @@ static int vmw_translate_guest_ptr(struct vmw_private *dev_priv , struct vmw_sw_
 #line 856
   ret = vmw_user_dmabuf_lookup(sw_context->tfile, handle, & vmw_bo);
 #line 857
-  tmp = __builtin_expect(ret != 0, 0L);
+  tmp = ldv__builtin_expect(ret != 0, 0L);
 #line 857
   if (tmp != 0L) {
 #line 858
@@ -9138,7 +9138,7 @@ static int vmw_translate_guest_ptr(struct vmw_private *dev_priv , struct vmw_sw_
 #line 861
   bo = & vmw_bo->base;
 #line 863
-  tmp___0 = __builtin_expect(sw_context->cur_reloc > 2047U, 0L);
+  tmp___0 = ldv__builtin_expect(sw_context->cur_reloc > 2047U, 0L);
 #line 863
   if (tmp___0 != 0L) {
 #line 864
@@ -9161,7 +9161,7 @@ static int vmw_translate_guest_ptr(struct vmw_private *dev_priv , struct vmw_sw_
 #line 873
   ret = vmw_bo_to_validate_list(sw_context, bo, & reloc->index);
 #line 874
-  tmp___2 = __builtin_expect(ret != 0, 0L);
+  tmp___2 = ldv__builtin_expect(ret != 0, 0L);
 #line 874
   if (tmp___2 != 0L) {
 #line 875
@@ -9219,7 +9219,7 @@ static int vmw_cmd_end_query(struct vmw_private *dev_priv , struct vmw_sw_contex
 #line 929
   ret = vmw_cmd_cid_check(dev_priv, sw_context, header);
 #line 930
-  tmp = __builtin_expect(ret != 0, 0L);
+  tmp = ldv__builtin_expect(ret != 0, 0L);
 #line 930
   if (tmp != 0L) {
 #line 931
@@ -9230,7 +9230,7 @@ static int vmw_cmd_end_query(struct vmw_private *dev_priv , struct vmw_sw_contex
 #line 933
   ret = vmw_translate_guest_ptr(dev_priv, sw_context, & cmd->q.guestResult, & vmw_bo);
 #line 936
-  tmp___0 = __builtin_expect(ret != 0, 0L);
+  tmp___0 = ldv__builtin_expect(ret != 0, 0L);
 #line 936
   if (tmp___0 != 0L) {
 #line 937
@@ -9264,7 +9264,7 @@ static int vmw_cmd_wait_query(struct vmw_private *dev_priv , struct vmw_sw_conte
 #line 964
   ret = vmw_cmd_cid_check(dev_priv, sw_context, header);
 #line 965
-  tmp = __builtin_expect(ret != 0, 0L);
+  tmp = ldv__builtin_expect(ret != 0, 0L);
 #line 965
   if (tmp != 0L) {
 #line 966
@@ -9275,7 +9275,7 @@ static int vmw_cmd_wait_query(struct vmw_private *dev_priv , struct vmw_sw_conte
 #line 968
   ret = vmw_translate_guest_ptr(dev_priv, sw_context, & cmd->q.guestResult, & vmw_bo);
 #line 971
-  tmp___0 = __builtin_expect(ret != 0, 0L);
+  tmp___0 = ldv__builtin_expect(ret != 0, 0L);
 #line 971
   if (tmp___0 != 0L) {
 #line 972
@@ -9313,7 +9313,7 @@ static int vmw_cmd_dma(struct vmw_private *dev_priv , struct vmw_sw_context *sw_
 #line 991
   ret = vmw_translate_guest_ptr(dev_priv, sw_context, & cmd->dma.guest.ptr, & vmw_bo);
 #line 994
-  tmp = __builtin_expect(ret != 0, 0L);
+  tmp = ldv__builtin_expect(ret != 0, 0L);
 #line 994
   if (tmp != 0L) {
 #line 995
@@ -9325,11 +9325,11 @@ static int vmw_cmd_dma(struct vmw_private *dev_priv , struct vmw_sw_context *sw_
   ret = vmw_cmd_res_check(dev_priv, sw_context, 1, user_surface_converter, & cmd->dma.host.sid,
                           0);
 #line 1000
-  tmp___1 = __builtin_expect(ret != 0, 0L);
+  tmp___1 = ldv__builtin_expect(ret != 0, 0L);
 #line 1000
   if (tmp___1 != 0L) {
 #line 1001
-    tmp___0 = __builtin_expect(ret != -512, 0L);
+    tmp___0 = ldv__builtin_expect(ret != -512, 0L);
 #line 1001
     if (tmp___0 != 0L) {
 #line 1002
@@ -9375,7 +9375,7 @@ static int vmw_cmd_draw(struct vmw_private *dev_priv , struct vmw_sw_context *sw
 #line 1030
   ret = vmw_cmd_cid_check(dev_priv, sw_context, header);
 #line 1031
-  tmp = __builtin_expect(ret != 0, 0L);
+  tmp = ldv__builtin_expect(ret != 0, 0L);
 #line 1031
   if (tmp != 0L) {
 #line 1032
@@ -9390,7 +9390,7 @@ static int vmw_cmd_draw(struct vmw_private *dev_priv , struct vmw_sw_context *sw
 #line 1035
   maxnum = (uint32_t )(((unsigned long )header->size - 12UL) / 36UL);
 #line 1037
-  tmp___0 = __builtin_expect(cmd->body.numVertexDecls > maxnum, 0L);
+  tmp___0 = ldv__builtin_expect(cmd->body.numVertexDecls > maxnum, 0L);
 #line 1037
   if (tmp___0 != 0L) {
 #line 1038
@@ -9409,7 +9409,7 @@ static int vmw_cmd_draw(struct vmw_private *dev_priv , struct vmw_sw_context *sw
   ret = vmw_cmd_res_check(dev_priv, sw_context, 1, user_surface_converter, & decl->array.surfaceId,
                           0);
 #line 1046
-  tmp___1 = __builtin_expect(ret != 0, 0L);
+  tmp___1 = ldv__builtin_expect(ret != 0, 0L);
 #line 1046
   if (tmp___1 != 0L) {
 #line 1047
@@ -9434,7 +9434,7 @@ static int vmw_cmd_draw(struct vmw_private *dev_priv , struct vmw_sw_context *sw
 #line 1050
   maxnum = (uint32_t )((((unsigned long )header->size - (unsigned long )cmd->body.numVertexDecls * 36UL) - 12UL) / 28UL);
 #line 1052
-  tmp___2 = __builtin_expect(cmd->body.numRanges > maxnum, 0L);
+  tmp___2 = ldv__builtin_expect(cmd->body.numRanges > maxnum, 0L);
 #line 1052
   if (tmp___2 != 0L) {
 #line 1053
@@ -9455,7 +9455,7 @@ static int vmw_cmd_draw(struct vmw_private *dev_priv , struct vmw_sw_context *sw
   ret = vmw_cmd_res_check(dev_priv, sw_context, 1, user_surface_converter, & range->indexArray.surfaceId,
                           0);
 #line 1062
-  tmp___3 = __builtin_expect(ret != 0, 0L);
+  tmp___3 = ldv__builtin_expect(ret != 0, 0L);
 #line 1062
   if (tmp___3 != 0L) {
 #line 1063
@@ -9499,7 +9499,7 @@ static int vmw_cmd_tex_state(struct vmw_private *dev_priv , struct vmw_sw_contex
 #line 1084
   ret = vmw_cmd_cid_check(dev_priv, sw_context, header);
 #line 1085
-  tmp = __builtin_expect(ret != 0, 0L);
+  tmp = ldv__builtin_expect(ret != 0, 0L);
 #line 1085
   if (tmp != 0L) {
 #line 1086
@@ -9511,7 +9511,7 @@ static int vmw_cmd_tex_state(struct vmw_private *dev_priv , struct vmw_sw_contex
   goto ldv_40919;
   ldv_40918: 
 #line 1089
-  tmp___0 = __builtin_expect((unsigned int )cur_state->name != 1U, 1L);
+  tmp___0 = ldv__builtin_expect((unsigned int )cur_state->name != 1U, 1L);
 #line 1089
   if (tmp___0 != 0L) {
 #line 1090
@@ -9523,7 +9523,7 @@ static int vmw_cmd_tex_state(struct vmw_private *dev_priv , struct vmw_sw_contex
   ret = vmw_cmd_res_check(dev_priv, sw_context, 1, user_surface_converter, & cur_state->ldv_7545.value,
                           0);
 #line 1095
-  tmp___1 = __builtin_expect(ret != 0, 0L);
+  tmp___1 = ldv__builtin_expect(ret != 0, 0L);
 #line 1095
   if (tmp___1 != 0L) {
 #line 1096
@@ -9562,7 +9562,7 @@ static int vmw_cmd_check_define_gmrfb(struct vmw_private *dev_priv , struct vmw_
 #line 1114
   ret = vmw_translate_guest_ptr(dev_priv, sw_context, & cmd->body.ptr, & vmw_bo);
 #line 1117
-  tmp = __builtin_expect(ret != 0, 0L);
+  tmp = ldv__builtin_expect(ret != 0, 0L);
 #line 1117
   if (tmp != 0L) {
 #line 1118
@@ -9592,7 +9592,7 @@ static int vmw_cmd_set_shader(struct vmw_private *dev_priv , struct vmw_sw_conte
 #line 1146
   ret = vmw_cmd_cid_check(dev_priv, sw_context, header);
 #line 1147
-  tmp = __builtin_expect(ret != 0, 0L);
+  tmp = ldv__builtin_expect(ret != 0, 0L);
 #line 1147
   if (tmp != 0L) {
 #line 1148
@@ -9657,7 +9657,7 @@ static int vmw_cmd_check_not_3d(struct vmw_private *dev_priv , struct vmw_sw_con
 
   }
 #line 1185
-  tmp = __builtin_expect((long )(! sw_context->kernel), 0L);
+  tmp = ldv__builtin_expect((long )(! sw_context->kernel), 0L);
 #line 1185
   if (tmp != 0L) {
 #line 1186
@@ -9715,7 +9715,7 @@ static int vmw_cmd_check(struct vmw_private *dev_priv , struct vmw_sw_context *s
 #line 1251
   cmd_id = *((uint32_t *)buf);
 #line 1253
-  tmp___0 = __builtin_expect(cmd_id <= 42U, 0L);
+  tmp___0 = ldv__builtin_expect(cmd_id <= 42U, 0L);
 #line 1253
   if (tmp___0 != 0L) {
 #line 1254
@@ -9732,7 +9732,7 @@ static int vmw_cmd_check(struct vmw_private *dev_priv , struct vmw_sw_context *s
 #line 1260
   cmd_id = cmd_id - 1040U;
 #line 1261
-  tmp___1 = __builtin_expect(*size > size_remaining, 0L);
+  tmp___1 = ldv__builtin_expect(*size > size_remaining, 0L);
 #line 1261
   if (tmp___1 != 0L) {
 #line 1262
@@ -9741,7 +9741,7 @@ static int vmw_cmd_check(struct vmw_private *dev_priv , struct vmw_sw_context *s
 
   }
 #line 1264
-  tmp___2 = __builtin_expect(cmd_id > 41U, 0L);
+  tmp___2 = ldv__builtin_expect(cmd_id > 41U, 0L);
 #line 1264
   if (tmp___2 != 0L) {
 #line 1265
@@ -9752,7 +9752,7 @@ static int vmw_cmd_check(struct vmw_private *dev_priv , struct vmw_sw_context *s
 #line 1267
   ret = (*(vmw_cmd_funcs[cmd_id]))(dev_priv, sw_context, header);
 #line 1268
-  tmp___3 = __builtin_expect(ret != 0, 0L);
+  tmp___3 = ldv__builtin_expect(ret != 0, 0L);
 #line 1268
   if (tmp___3 != 0L) {
 #line 1269
@@ -9790,7 +9790,7 @@ static int vmw_cmd_check_all(struct vmw_private *dev_priv , struct vmw_sw_contex
 #line 1290
   ret = vmw_cmd_check(dev_priv, sw_context, buf, & size);
 #line 1291
-  tmp = __builtin_expect(ret != 0, 0L);
+  tmp = ldv__builtin_expect(ret != 0, 0L);
 #line 1291
   if (tmp != 0L) {
 #line 1292
@@ -9813,7 +9813,7 @@ static int vmw_cmd_check_all(struct vmw_private *dev_priv , struct vmw_sw_contex
   }
   ldv_40986: 
 #line 1297
-  tmp___0 = __builtin_expect(cur_size != 0, 0L);
+  tmp___0 = ldv__builtin_expect(cur_size != 0, 0L);
 #line 1297
   if (tmp___0 != 0L) {
 #line 1298
@@ -9993,7 +9993,7 @@ static void vmw_clear_validations(struct vmw_sw_context *sw_context )
   }
   ldv_41034: 
 #line 1372
-  tmp = __builtin_expect(sw_context->cur_val_buf != 0U, 0L);
+  tmp = ldv__builtin_expect(sw_context->cur_val_buf != 0U, 0L);
 #line 1372
   if (tmp != 0L) {
 #line 1372
@@ -10049,14 +10049,14 @@ static int vmw_validate_single_buffer(struct vmw_private *dev_priv , struct ttm_
 #line 1400
   ret = ttm_bo_validate(bo, & vmw_vram_gmr_placement, 1, 0);
 #line 1401
-  tmp = __builtin_expect(ret == 0, 1L);
+  tmp = ldv__builtin_expect(ret == 0, 1L);
 #line 1401
   if (tmp != 0L) {
 #line 1402
     return (ret);
   } else {
 #line 1401
-    tmp___0 = __builtin_expect(ret == -512, 1L);
+    tmp___0 = ldv__builtin_expect(ret == -512, 1L);
 #line 1401
     if (tmp___0 != 0L) {
 #line 1402
@@ -10092,7 +10092,7 @@ static int vmw_validate_buffers(struct vmw_private *dev_priv , struct vmw_sw_con
 #line 1422
   ret = vmw_validate_single_buffer(dev_priv, entry->base.bo);
 #line 1423
-  tmp = __builtin_expect(ret != 0, 0L);
+  tmp = ldv__builtin_expect(ret != 0, 0L);
 #line 1423
   if (tmp != 0L) {
 #line 1424
@@ -10125,7 +10125,7 @@ static int vmw_resize_cmd_bounce(struct vmw_sw_context *sw_context , uint32_t si
 
   {
 #line 1432
-  tmp = __builtin_expect(sw_context->cmd_bounce_size >= size, 1L);
+  tmp = ldv__builtin_expect(sw_context->cmd_bounce_size >= size, 1L);
 #line 1432
   if (tmp != 0L) {
 #line 1433
@@ -10197,12 +10197,12 @@ int vmw_execbuf_fence_commands(struct drm_file *file_priv , struct vmw_private *
 #line 1476
   synced = 0;
 #line 1479
-  tmp = __builtin_expect((unsigned long )p_handle != (unsigned long )((uint32_t *)0),
+  tmp = ldv__builtin_expect((unsigned long )p_handle != (unsigned long )((uint32_t *)0),
                          0L);
 #line 1479
   if (tmp != 0L) {
 #line 1479
-    tmp___0 = __builtin_expect((unsigned long )file_priv == (unsigned long )((struct drm_file *)0),
+    tmp___0 = ldv__builtin_expect((unsigned long )file_priv == (unsigned long )((struct drm_file *)0),
                                0L);
 #line 1479
     if (tmp___0 != 0L) {
@@ -10221,7 +10221,7 @@ int vmw_execbuf_fence_commands(struct drm_file *file_priv , struct vmw_private *
 #line 1481
   ret = vmw_fifo_send_fence(dev_priv, & sequence);
 #line 1482
-  tmp___1 = __builtin_expect(ret != 0, 0L);
+  tmp___1 = ldv__builtin_expect(ret != 0, 0L);
 #line 1482
   if (tmp___1 != 0L) {
 #line 1483
@@ -10241,11 +10241,11 @@ int vmw_execbuf_fence_commands(struct drm_file *file_priv , struct vmw_private *
     ret = vmw_fence_create(dev_priv->fman, sequence, 1U, p_fence);
   }
 #line 1497
-  tmp___2 = __builtin_expect(ret != 0, 0L);
+  tmp___2 = ldv__builtin_expect(ret != 0, 0L);
 #line 1497
   if (tmp___2 != 0L) {
 #line 1497
-    tmp___3 = __builtin_expect((long )(! synced), 0L);
+    tmp___3 = ldv__builtin_expect((long )(! synced), 0L);
 #line 1497
     if (tmp___3 != 0L) {
 #line 1498
@@ -10285,7 +10285,7 @@ void vmw_execbuf_copy_fence_user(struct vmw_private *dev_priv , struct vmw_fpriv
 #line 1543
   if (ret == 0) {
 #line 1544
-    tmp = __builtin_expect((unsigned long )fence == (unsigned long )((struct vmw_fence_obj *)0),
+    tmp = ldv__builtin_expect((unsigned long )fence == (unsigned long )((struct vmw_fence_obj *)0),
                            0L);
 #line 1544
     if (tmp != 0L) {
@@ -10312,7 +10312,7 @@ void vmw_execbuf_copy_fence_user(struct vmw_private *dev_priv , struct vmw_fpriv
 #line 1557
   ret = copy_to_user((void *)user_fence_rep, (void const   *)(& fence_rep), 24U);
 #line 1564
-  tmp___0 = __builtin_expect(ret != 0, 0L);
+  tmp___0 = ldv__builtin_expect(ret != 0, 0L);
 #line 1564
   if (tmp___0 != 0L && fence_rep.error == 0) {
 #line 1565
@@ -10373,7 +10373,7 @@ int vmw_execbuf_process(struct drm_file *file_priv , struct vmw_private *dev_pri
 #line 1591
   ret = ldv_mutex_lock_interruptible_15(& dev_priv->cmdbuf_mutex);
 #line 1592
-  tmp = __builtin_expect(ret != 0, 0L);
+  tmp = ldv__builtin_expect(ret != 0, 0L);
 #line 1592
   if (tmp != 0L) {
 #line 1593
@@ -10388,7 +10388,7 @@ int vmw_execbuf_process(struct drm_file *file_priv , struct vmw_private *dev_pri
 #line 1598
     ret = vmw_resize_cmd_bounce(sw_context, command_size);
 #line 1599
-    tmp___0 = __builtin_expect(ret != 0, 0L);
+    tmp___0 = ldv__builtin_expect(ret != 0, 0L);
 #line 1599
     if (tmp___0 != 0L) {
 #line 1600
@@ -10402,7 +10402,7 @@ int vmw_execbuf_process(struct drm_file *file_priv , struct vmw_private *dev_pri
 #line 1603
     ret = (int )tmp___1;
 #line 1606
-    tmp___2 = __builtin_expect(ret != 0, 0L);
+    tmp___2 = ldv__builtin_expect(ret != 0, 0L);
 #line 1606
     if (tmp___2 != 0L) {
 #line 1607
@@ -10449,7 +10449,7 @@ int vmw_execbuf_process(struct drm_file *file_priv , struct vmw_private *dev_pri
 #line 1627
     ret = drm_ht_create(& sw_context->res_ht, 12U);
 #line 1628
-    tmp___4 = __builtin_expect(ret != 0, 0L);
+    tmp___4 = ldv__builtin_expect(ret != 0, 0L);
 #line 1628
     if (tmp___4 != 0L) {
 #line 1629
@@ -10467,7 +10467,7 @@ int vmw_execbuf_process(struct drm_file *file_priv , struct vmw_private *dev_pri
 #line 1634
   ret = vmw_cmd_check_all(dev_priv, sw_context, kernel_commands, command_size);
 #line 1636
-  tmp___5 = __builtin_expect(ret != 0, 0L);
+  tmp___5 = ldv__builtin_expect(ret != 0, 0L);
 #line 1636
   if (tmp___5 != 0L) {
 #line 1637
@@ -10478,7 +10478,7 @@ int vmw_execbuf_process(struct drm_file *file_priv , struct vmw_private *dev_pri
 #line 1639
   ret = vmw_resources_reserve(sw_context);
 #line 1640
-  tmp___6 = __builtin_expect(ret != 0, 0L);
+  tmp___6 = ldv__builtin_expect(ret != 0, 0L);
 #line 1640
   if (tmp___6 != 0L) {
 #line 1641
@@ -10489,7 +10489,7 @@ int vmw_execbuf_process(struct drm_file *file_priv , struct vmw_private *dev_pri
 #line 1643
   ret = ttm_eu_reserve_buffers(& sw_context->validate_nodes);
 #line 1644
-  tmp___7 = __builtin_expect(ret != 0, 0L);
+  tmp___7 = ldv__builtin_expect(ret != 0, 0L);
 #line 1644
   if (tmp___7 != 0L) {
 #line 1645
@@ -10500,7 +10500,7 @@ int vmw_execbuf_process(struct drm_file *file_priv , struct vmw_private *dev_pri
 #line 1647
   ret = vmw_validate_buffers(dev_priv, sw_context);
 #line 1648
-  tmp___8 = __builtin_expect(ret != 0, 0L);
+  tmp___8 = ldv__builtin_expect(ret != 0, 0L);
 #line 1648
   if (tmp___8 != 0L) {
 #line 1649
@@ -10511,7 +10511,7 @@ int vmw_execbuf_process(struct drm_file *file_priv , struct vmw_private *dev_pri
 #line 1651
   ret = vmw_resources_validate(sw_context);
 #line 1652
-  tmp___9 = __builtin_expect(ret != 0, 0L);
+  tmp___9 = ldv__builtin_expect(ret != 0, 0L);
 #line 1652
   if (tmp___9 != 0L) {
 #line 1653
@@ -10524,7 +10524,7 @@ int vmw_execbuf_process(struct drm_file *file_priv , struct vmw_private *dev_pri
 #line 1656
     ret = vmw_wait_lag(dev_priv, & dev_priv->fifo.marker_queue, (uint32_t )throttle_us);
 #line 1659
-    tmp___10 = __builtin_expect(ret != 0, 0L);
+    tmp___10 = ldv__builtin_expect(ret != 0, 0L);
 #line 1659
     if (tmp___10 != 0L) {
 #line 1660
@@ -10538,7 +10538,7 @@ int vmw_execbuf_process(struct drm_file *file_priv , struct vmw_private *dev_pri
 #line 1663
   cmd = vmw_fifo_reserve(dev_priv, command_size);
 #line 1664
-  tmp___11 = __builtin_expect((unsigned long )cmd == (unsigned long )((void *)0),
+  tmp___11 = ldv__builtin_expect((unsigned long )cmd == (unsigned long )((void *)0),
                               0L);
 #line 1664
   if (tmp___11 != 0L) {
@@ -10587,12 +10587,12 @@ int vmw_execbuf_process(struct drm_file *file_priv , struct vmw_private *dev_pri
 #line 1692
   ttm_eu_fence_buffer_objects(& sw_context->validate_nodes, (void *)fence);
 #line 1695
-  tmp___13 = __builtin_expect((unsigned long )dev_priv->pinned_bo != (unsigned long )((struct ttm_buffer_object *)0),
+  tmp___13 = ldv__builtin_expect((unsigned long )dev_priv->pinned_bo != (unsigned long )((struct ttm_buffer_object *)0),
                               0L);
 #line 1695
   if (tmp___13 != 0L) {
 #line 1695
-    tmp___14 = __builtin_expect(dev_priv->query_cid_valid == 0U, 0L);
+    tmp___14 = ldv__builtin_expect(dev_priv->query_cid_valid == 0U, 0L);
 #line 1695
     if (tmp___14 != 0L) {
 #line 1697
@@ -10610,7 +10610,7 @@ int vmw_execbuf_process(struct drm_file *file_priv , struct vmw_private *dev_pri
 #line 1700
   vmw_execbuf_copy_fence_user(dev_priv, tmp___15, ret, user_fence_rep, fence, handle);
 #line 1704
-  tmp___17 = __builtin_expect((unsigned long )out_fence != (unsigned long )((struct vmw_fence_obj **)0),
+  tmp___17 = ldv__builtin_expect((unsigned long )out_fence != (unsigned long )((struct vmw_fence_obj **)0),
                               0L);
 #line 1704
   if (tmp___17 != 0L) {
@@ -10620,7 +10620,7 @@ int vmw_execbuf_process(struct drm_file *file_priv , struct vmw_private *dev_pri
     fence = 0;
   } else {
 #line 1707
-    tmp___16 = __builtin_expect((unsigned long )fence != (unsigned long )((struct vmw_fence_obj *)0),
+    tmp___16 = ldv__builtin_expect((unsigned long )fence != (unsigned long )((struct vmw_fence_obj *)0),
                                 1L);
 #line 1707
     if (tmp___16 != 0L) {
@@ -10650,12 +10650,12 @@ int vmw_execbuf_process(struct drm_file *file_priv , struct vmw_private *dev_pri
 #line 1727
   vmw_clear_validations(sw_context);
 #line 1728
-  tmp___18 = __builtin_expect((unsigned long )dev_priv->pinned_bo != (unsigned long )((struct ttm_buffer_object *)0),
+  tmp___18 = ldv__builtin_expect((unsigned long )dev_priv->pinned_bo != (unsigned long )((struct ttm_buffer_object *)0),
                               0L);
 #line 1728
   if (tmp___18 != 0L) {
 #line 1728
-    tmp___19 = __builtin_expect(dev_priv->query_cid_valid == 0U, 0L);
+    tmp___19 = ldv__builtin_expect(dev_priv->query_cid_valid == 0U, 0L);
 #line 1728
     if (tmp___19 != 0L) {
 #line 1730
@@ -10678,7 +10678,7 @@ int vmw_execbuf_process(struct drm_file *file_priv , struct vmw_private *dev_pri
 #line 1741
   vmw_resource_list_unreference(& resource_list);
 #line 1742
-  tmp___20 = __builtin_expect((unsigned long )error_resource != (unsigned long )((struct vmw_resource *)0),
+  tmp___20 = ldv__builtin_expect((unsigned long )error_resource != (unsigned long )((struct vmw_resource *)0),
                               0L);
 #line 1742
   if (tmp___20 != 0L) {
@@ -10756,7 +10756,7 @@ void __vmw_execbuf_release_pinned_bo(struct vmw_private *dev_priv , struct vmw_f
   }
   ldv_41129: 
 #line 1815
-  tmp = __builtin_expect(ret != 0, 0L);
+  tmp = ldv__builtin_expect(ret != 0, 0L);
 #line 1815
   if (tmp != 0L) {
 #line 1816
@@ -10769,7 +10769,7 @@ void __vmw_execbuf_release_pinned_bo(struct vmw_private *dev_priv , struct vmw_f
 #line 1820
   if (dev_priv->query_cid_valid != 0U) {
 #line 1821
-    tmp___0 = __builtin_expect((unsigned long )fence != (unsigned long )((struct vmw_fence_obj *)0),
+    tmp___0 = ldv__builtin_expect((unsigned long )fence != (unsigned long )((struct vmw_fence_obj *)0),
                                0L);
 #line 1821
     if (tmp___0 != 0L) {
@@ -10785,7 +10785,7 @@ void __vmw_execbuf_release_pinned_bo(struct vmw_private *dev_priv , struct vmw_f
 #line 1822
     ret = vmw_fifo_emit_dummy_query(dev_priv, dev_priv->query_cid);
 #line 1823
-    tmp___1 = __builtin_expect(ret != 0, 0L);
+    tmp___1 = ldv__builtin_expect(ret != 0, 0L);
 #line 1823
     if (tmp___1 != 0L) {
 #line 1824
@@ -10891,7 +10891,7 @@ int vmw_execbuf_ioctl(struct drm_device *dev , void *data , struct drm_file *fil
 #line 1890
   vmaster = tmp___0;
 #line 1900
-  tmp___1 = __builtin_expect(arg->version != 1U, 0L);
+  tmp___1 = ldv__builtin_expect(arg->version != 1U, 0L);
 #line 1900
   if (tmp___1 != 0L) {
 #line 1901
@@ -10906,7 +10906,7 @@ int vmw_execbuf_ioctl(struct drm_device *dev , void *data , struct drm_file *fil
 #line 1907
   ret = ttm_read_lock(& vmaster->lock, 1);
 #line 1908
-  tmp___2 = __builtin_expect(ret != 0, 0L);
+  tmp___2 = ldv__builtin_expect(ret != 0, 0L);
 #line 1908
   if (tmp___2 != 0L) {
 #line 1909
@@ -10919,7 +10919,7 @@ int vmw_execbuf_ioctl(struct drm_device *dev , void *data , struct drm_file *fil
                             (uint64_t )arg->throttle_us, (struct drm_vmw_fence_rep *)arg->fence_rep,
                             0);
 #line 1917
-  tmp___3 = __builtin_expect(ret != 0, 0L);
+  tmp___3 = ldv__builtin_expect(ret != 0, 0L);
 #line 1917
   if (tmp___3 != 0L) {
 #line 1918
@@ -11422,7 +11422,7 @@ static int vmw_gmr2_bind(struct vmw_private *dev_priv , struct page **pages , un
 #line 199
   cmd_orig = cmd;
 #line 200
-  tmp___0 = __builtin_expect((unsigned long )cmd == (unsigned long )((uint32_t *)0),
+  tmp___0 = ldv__builtin_expect((unsigned long )cmd == (unsigned long )((uint32_t *)0),
                              0L);
 #line 200
   if (tmp___0 != 0L) {
@@ -11529,7 +11529,7 @@ static void vmw_gmr2_unbind(struct vmw_private *dev_priv , int gmr_id )
 #line 241
   cmd = (uint32_t *)tmp;
 #line 242
-  tmp___0 = __builtin_expect((unsigned long )cmd == (unsigned long )((uint32_t *)0),
+  tmp___0 = ldv__builtin_expect((unsigned long )cmd == (unsigned long )((uint32_t *)0),
                              0L);
 #line 242
   if (tmp___0 != 0L) {
@@ -11601,7 +11601,7 @@ static int vmw_gmr_build_descriptors(struct list_head *desc_pages , struct page 
 #line 276
   page = alloc_pages(2U, 0U);
 #line 277
-  tmp = __builtin_expect((unsigned long )page == (unsigned long )((struct page *)0),
+  tmp = ldv__builtin_expect((unsigned long )page == (unsigned long )((struct page *)0),
                          0L);
 #line 277
   if (tmp != 0L) {
@@ -11615,7 +11615,7 @@ static int vmw_gmr_build_descriptors(struct list_head *desc_pages , struct page 
 #line 282
   list_add_tail(& page->ldv_21253.lru, desc_pages);
 #line 289
-  tmp___0 = __builtin_expect((unsigned long )page_virtual != (unsigned long )((struct svga_guest_mem_descriptor *)0),
+  tmp___0 = ldv__builtin_expect((unsigned long )page_virtual != (unsigned long )((struct svga_guest_mem_descriptor *)0),
                              1L);
 #line 289
   if (tmp___0 != 0L) {
@@ -11668,7 +11668,7 @@ static int vmw_gmr_build_descriptors(struct list_head *desc_pages , struct page 
   pages = pages + 1;
   ldv_40637: 
 #line 298
-  tmp___3 = __builtin_expect(num_pages != 0UL, 1L);
+  tmp___3 = ldv__builtin_expect(num_pages != 0UL, 1L);
 #line 298
   if (tmp___3 != 0L) {
 #line 299
@@ -11686,7 +11686,7 @@ static int vmw_gmr_build_descriptors(struct list_head *desc_pages , struct page 
   desc_virtual->num_pages = 0U;
   ldv_40639: 
 #line 275
-  tmp___4 = __builtin_expect(num_pages != 0UL, 1L);
+  tmp___4 = ldv__builtin_expect(num_pages != 0UL, 1L);
 #line 275
   if (tmp___4 != 0L) {
 #line 276
@@ -11697,7 +11697,7 @@ static int vmw_gmr_build_descriptors(struct list_head *desc_pages , struct page 
   }
   ldv_40640: 
 #line 323
-  tmp___5 = __builtin_expect((unsigned long )page_virtual != (unsigned long )((struct svga_guest_mem_descriptor *)0),
+  tmp___5 = ldv__builtin_expect((unsigned long )page_virtual != (unsigned long )((struct svga_guest_mem_descriptor *)0),
                              1L);
 #line 323
   if (tmp___5 != 0L) {
@@ -11799,7 +11799,7 @@ static void vmw_gmr_fire_descriptors(struct vmw_private *dev_priv , int gmr_id ,
 #line 350
   tmp = list_empty((struct list_head  const  *)desc_pages);
 #line 350
-  tmp___0 = __builtin_expect(tmp != 0, 0L);
+  tmp___0 = ldv__builtin_expect(tmp != 0, 0L);
 #line 350
   if (tmp___0 != 0L) {
 #line 351
@@ -11889,7 +11889,7 @@ int vmw_gmr_bind(struct vmw_private *dev_priv , struct page **pages , unsigned l
 
   {
 #line 396
-  tmp___0 = __builtin_expect((dev_priv->capabilities & 4194304U) != 0U, 1L);
+  tmp___0 = ldv__builtin_expect((dev_priv->capabilities & 4194304U) != 0U, 1L);
 #line 396
   if (tmp___0 != 0L) {
 #line 397
@@ -11900,7 +11900,7 @@ int vmw_gmr_bind(struct vmw_private *dev_priv , struct page **pages , unsigned l
 
   }
 #line 399
-  tmp___1 = __builtin_expect((dev_priv->capabilities & 1048576U) == 0U, 0L);
+  tmp___1 = ldv__builtin_expect((dev_priv->capabilities & 1048576U) == 0U, 0L);
 #line 399
   if (tmp___1 != 0L) {
 #line 400
@@ -11922,7 +11922,7 @@ int vmw_gmr_bind(struct vmw_private *dev_priv , struct page **pages , unsigned l
 #line 408
   ret = vmw_gmr_build_descriptors(& desc_pages, pages, num_pages);
 #line 409
-  tmp___3 = __builtin_expect(ret != 0, 0L);
+  tmp___3 = ldv__builtin_expect(ret != 0, 0L);
 #line 409
   if (tmp___3 != 0L) {
 #line 410
@@ -11944,7 +11944,7 @@ void vmw_gmr_unbind(struct vmw_private *dev_priv , int gmr_id )
 
   {
 #line 421
-  tmp = __builtin_expect((dev_priv->capabilities & 4194304U) != 0U, 1L);
+  tmp = ldv__builtin_expect((dev_priv->capabilities & 4194304U) != 0U, 1L);
 #line 421
   if (tmp != 0L) {
 #line 422
@@ -12766,7 +12766,7 @@ int vmw_cursor_update_image(struct vmw_private *dev_priv , u32 *image , u32 widt
 #line 254
   cmd = (struct __anonstruct_293 *)tmp;
 #line 255
-  tmp___0 = __builtin_expect((unsigned long )cmd == (unsigned long )((struct __anonstruct_cmd_291___0 *)0),
+  tmp___0 = ldv__builtin_expect((unsigned long )cmd == (unsigned long )((struct __anonstruct_cmd_291___0 *)0),
                              0L);
 #line 255
   if (tmp___0 != 0L) {
@@ -12821,7 +12821,7 @@ int vmw_cursor_update_dmabuf(struct vmw_private *dev_priv , struct vmw_dma_buffe
 #line 291
   ret = ttm_bo_reserve(& dmabuf->base, 1, 0, 0, 0U);
 #line 292
-  tmp = __builtin_expect(ret != 0, 0L);
+  tmp = ldv__builtin_expect(ret != 0, 0L);
 #line 292
   if (tmp != 0L) {
 #line 293
@@ -12834,7 +12834,7 @@ int vmw_cursor_update_dmabuf(struct vmw_private *dev_priv , struct vmw_dma_buffe
 #line 297
   ret = ttm_bo_kmap(& dmabuf->base, kmap_offset, kmap_num, & map);
 #line 298
-  tmp___0 = __builtin_expect(ret != 0, 0L);
+  tmp___0 = ldv__builtin_expect(ret != 0, 0L);
 #line 298
   if (tmp___0 != 0L) {
 #line 299
@@ -13098,7 +13098,7 @@ void vmw_kms_cursor_snoop(struct vmw_surface *srf , struct ttm_object_file *tfil
 #line 464
   ret = ttm_bo_reserve(bo, 1, 0, 0, 0U);
 #line 465
-  tmp = __builtin_expect(ret != 0, 0L);
+  tmp = ldv__builtin_expect(ret != 0, 0L);
 #line 465
   if (tmp != 0L) {
 #line 466
@@ -13111,7 +13111,7 @@ void vmw_kms_cursor_snoop(struct vmw_surface *srf , struct ttm_object_file *tfil
 #line 470
   ret = ttm_bo_kmap(bo, kmap_offset, kmap_num, & map);
 #line 471
-  tmp___0 = __builtin_expect(ret != 0, 0L);
+  tmp___0 = ldv__builtin_expect(ret != 0, 0L);
 #line 471
   if (tmp___0 != 0L) {
 #line 472
@@ -13370,7 +13370,7 @@ static int do_surface_dirty_sou(struct vmw_private *dev_priv , struct drm_file *
   }
   ldv_41064: 
 #line 604
-  tmp___1 = __builtin_expect((unsigned long )clips == (unsigned long )((struct drm_clip_rect *)0),
+  tmp___1 = ldv__builtin_expect((unsigned long )clips == (unsigned long )((struct drm_clip_rect *)0),
                              0L);
 #line 604
   if (tmp___1 != 0L) {
@@ -13378,7 +13378,7 @@ static int do_surface_dirty_sou(struct vmw_private *dev_priv , struct drm_file *
     goto _L;
   } else {
 #line 604
-    tmp___2 = __builtin_expect(num_clips == 0U, 0L);
+    tmp___2 = ldv__builtin_expect(num_clips == 0U, 0L);
 #line 604
     if (tmp___2 != 0L) {
       _L: /* CIL Label */ 
@@ -13397,7 +13397,7 @@ static int do_surface_dirty_sou(struct vmw_private *dev_priv , struct drm_file *
 #line 606
   tmp = (struct drm_clip_rect *)tmp___3;
 #line 607
-  tmp___4 = __builtin_expect((unsigned long )tmp == (unsigned long )((struct drm_clip_rect *)0),
+  tmp___4 = ldv__builtin_expect((unsigned long )tmp == (unsigned long )((struct drm_clip_rect *)0),
                              0L);
 #line 607
   if (tmp___4 != 0L) {
@@ -13415,7 +13415,7 @@ static int do_surface_dirty_sou(struct vmw_private *dev_priv , struct drm_file *
 #line 613
   cmd = (struct __anonstruct_297 *)tmp___5;
 #line 614
-  tmp___6 = __builtin_expect((unsigned long )cmd == (unsigned long )((struct __anonstruct_cmd_295 *)0),
+  tmp___6 = ldv__builtin_expect((unsigned long )cmd == (unsigned long )((struct __anonstruct_cmd_295 *)0),
                              0L);
 #line 614
   if (tmp___6 != 0L) {
@@ -13622,7 +13622,7 @@ static int do_surface_dirty_sou(struct vmw_private *dev_priv , struct drm_file *
   ret = vmw_execbuf_process(file_priv, dev_priv, 0, (void *)cmd, (uint32_t )fifo_size,
                             0ULL, 0, out_fence);
 #line 708
-  tmp___11 = __builtin_expect(ret != 0, 0L);
+  tmp___11 = ldv__builtin_expect(ret != 0, 0L);
 #line 708
   if (tmp___11 != 0L) {
 #line 709
@@ -13684,7 +13684,7 @@ int vmw_framebuffer_surface_dirty(struct drm_framebuffer *framebuffer , struct d
 #line 731
   inc = 1;
 #line 733
-  tmp___1 = __builtin_expect((unsigned long )vfbs->master != (unsigned long )file_priv->master,
+  tmp___1 = ldv__builtin_expect((unsigned long )vfbs->master != (unsigned long )file_priv->master,
                              0L);
 #line 733
   if (tmp___1 != 0L) {
@@ -13703,7 +13703,7 @@ int vmw_framebuffer_surface_dirty(struct drm_framebuffer *framebuffer , struct d
 #line 740
   ret = ttm_read_lock(& vmaster->lock, 1);
 #line 741
-  tmp___2 = __builtin_expect(ret != 0, 0L);
+  tmp___2 = ldv__builtin_expect(ret != 0, 0L);
 #line 741
   if (tmp___2 != 0L) {
 #line 742
@@ -13784,7 +13784,7 @@ static int vmw_kms_new_framebuffer_surface(struct vmw_private *dev_priv , struct
 
   }
 #line 792
-  tmp___0 = __builtin_expect((long )(! surface->scanout), 0L);
+  tmp___0 = ldv__builtin_expect((long )(! surface->scanout), 0L);
 #line 792
   if (tmp___0 != 0L) {
 #line 793
@@ -13793,14 +13793,14 @@ static int vmw_kms_new_framebuffer_surface(struct vmw_private *dev_priv , struct
 
   }
 #line 795
-  tmp___1 = __builtin_expect(surface->mip_levels[0] != 1U, 0L);
+  tmp___1 = ldv__builtin_expect(surface->mip_levels[0] != 1U, 0L);
 #line 795
   if (tmp___1 != 0L) {
 #line 795
     tmp___3 = 1;
   } else {
 #line 795
-    tmp___2 = __builtin_expect(surface->num_sizes != 1U, 0L);
+    tmp___2 = ldv__builtin_expect(surface->num_sizes != 1U, 0L);
 #line 795
     if (tmp___2 != 0L) {
 #line 795
@@ -13816,7 +13816,7 @@ static int vmw_kms_new_framebuffer_surface(struct vmw_private *dev_priv , struct
     tmp___5 = 1;
   } else {
 #line 795
-    tmp___4 = __builtin_expect((surface->sizes)->width < (uint32_t )mode_cmd->width,
+    tmp___4 = ldv__builtin_expect((surface->sizes)->width < (uint32_t )mode_cmd->width,
                                0L);
 #line 795
     if (tmp___4 != 0L) {
@@ -13833,7 +13833,7 @@ static int vmw_kms_new_framebuffer_surface(struct vmw_private *dev_priv , struct
     tmp___7 = 1;
   } else {
 #line 795
-    tmp___6 = __builtin_expect((surface->sizes)->height < (uint32_t )mode_cmd->height,
+    tmp___6 = ldv__builtin_expect((surface->sizes)->height < (uint32_t )mode_cmd->height,
                                0L);
 #line 795
     if (tmp___6 != 0L) {
@@ -13852,7 +13852,7 @@ static int vmw_kms_new_framebuffer_surface(struct vmw_private *dev_priv , struct
     return (-22);
   } else {
 #line 795
-    tmp___8 = __builtin_expect((surface->sizes)->depth != 1U, 0L);
+    tmp___8 = ldv__builtin_expect((surface->sizes)->depth != 1U, 0L);
 #line 795
     if (tmp___8 != 0L) {
 #line 800
@@ -13898,7 +13898,7 @@ static int vmw_kms_new_framebuffer_surface(struct vmw_private *dev_priv , struct
   }
   ldv_41124: 
 #line 826
-  tmp___9 = __builtin_expect(surface->format != (unsigned int )format, 0L);
+  tmp___9 = ldv__builtin_expect(surface->format != (unsigned int )format, 0L);
 #line 826
   if (tmp___9 != 0L) {
 #line 827
@@ -14019,7 +14019,7 @@ static int do_dmabuf_dirty_ldu(struct vmw_private *dev_priv , struct vmw_framebu
 #line 912
   cmd = (struct __anonstruct_301 *)tmp;
 #line 913
-  tmp___0 = __builtin_expect((unsigned long )cmd == (unsigned long )((struct __anonstruct_cmd_299 *)0),
+  tmp___0 = ldv__builtin_expect((unsigned long )cmd == (unsigned long )((struct __anonstruct_cmd_299 *)0),
                              0L);
 #line 913
   if (tmp___0 != 0L) {
@@ -14094,7 +14094,7 @@ static int do_dmabuf_define_gmrfb(struct drm_file *file_priv , struct vmw_privat
 #line 952
   cmd = (struct __anonstruct_305 *)tmp;
 #line 953
-  tmp___0 = __builtin_expect((unsigned long )cmd == (unsigned long )((struct __anonstruct_cmd_303 *)0),
+  tmp___0 = ldv__builtin_expect((unsigned long )cmd == (unsigned long )((struct __anonstruct_cmd_303 *)0),
                              0L);
 #line 953
   if (tmp___0 != 0L) {
@@ -14177,7 +14177,7 @@ static int do_dmabuf_dirty_sou(struct drm_file *file_priv , struct vmw_private *
 #line 994
   ret = do_dmabuf_define_gmrfb(file_priv, dev_priv, framebuffer);
 #line 995
-  tmp = __builtin_expect(ret != 0, 0L);
+  tmp = ldv__builtin_expect(ret != 0, 0L);
 #line 995
   if (tmp != 0L) {
 #line 996
@@ -14192,7 +14192,7 @@ static int do_dmabuf_dirty_sou(struct drm_file *file_priv , struct vmw_private *
 #line 999
   blits = (struct __anonstruct_309 *)tmp___0;
 #line 1000
-  tmp___1 = __builtin_expect((unsigned long )blits == (unsigned long )((struct __anonstruct_blits_307 *)0),
+  tmp___1 = ldv__builtin_expect((unsigned long )blits == (unsigned long )((struct __anonstruct_blits_307 *)0),
                              0L);
 #line 1000
   if (tmp___1 != 0L) {
@@ -14382,7 +14382,7 @@ static int do_dmabuf_dirty_sou(struct drm_file *file_priv , struct vmw_private *
   ret = vmw_execbuf_process(file_priv, dev_priv, 0, (void *)blits, (uint32_t )fifo_size,
                             0ULL, 0, out_fence);
 #line 1062
-  tmp___7 = __builtin_expect(ret != 0, 0L);
+  tmp___7 = ldv__builtin_expect(ret != 0, 0L);
 #line 1062
   if (tmp___7 != 0L) {
 #line 1063
@@ -14442,7 +14442,7 @@ int vmw_framebuffer_dmabuf_dirty(struct drm_framebuffer *framebuffer , struct dr
 #line 1084
   ret = ttm_read_lock(& vmaster->lock, 1);
 #line 1085
-  tmp___1 = __builtin_expect(ret != 0, 0L);
+  tmp___1 = ldv__builtin_expect(ret != 0, 0L);
 #line 1085
   if (tmp___1 != 0L) {
 #line 1086
@@ -14513,7 +14513,7 @@ static int vmw_framebuffer_dmabuf_pin(struct vmw_framebuffer *vfb )
 #line 1126
   vfbd = (struct vmw_framebuffer_dmabuf *)__mptr;
 #line 1130
-  tmp___0 = __builtin_expect((unsigned long )dev_priv->sou_priv != (unsigned long )((struct vmw_screen_object_display *)0),
+  tmp___0 = ldv__builtin_expect((unsigned long )dev_priv->sou_priv != (unsigned long )((struct vmw_screen_object_display *)0),
                              0L);
 #line 1130
   if (tmp___0 != 0L) {
@@ -14535,7 +14535,7 @@ static int vmw_framebuffer_dmabuf_pin(struct vmw_framebuffer *vfb )
 #line 1138
   __ret_warn_on = ret != 0;
 #line 1138
-  tmp___1 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___1 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 1138
   if (tmp___1 != 0L) {
 #line 1138
@@ -14545,7 +14545,7 @@ static int vmw_framebuffer_dmabuf_pin(struct vmw_framebuffer *vfb )
 
   }
 #line 1138
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 1140
   return (0);
 }
@@ -14574,7 +14574,7 @@ static int vmw_framebuffer_dmabuf_unpin(struct vmw_framebuffer *vfb )
 #line 1150
     __ret_warn_on = (unsigned long )vfbd->buffer == (unsigned long )((struct vmw_dma_buffer *)0);
 #line 1150
-    tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 1150
     if (tmp___0 != 0L) {
 #line 1150
@@ -14584,7 +14584,7 @@ static int vmw_framebuffer_dmabuf_unpin(struct vmw_framebuffer *vfb )
 
     }
 #line 1150
-    __builtin_expect(__ret_warn_on != 0, 0L);
+    ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 1151
     return (0);
   } else {
@@ -14613,7 +14613,7 @@ static int vmw_kms_new_framebuffer_dmabuf(struct vmw_private *dev_priv , struct 
 #line 1169
   requested_size = (unsigned int )mode_cmd->height * (unsigned int )mode_cmd->pitch;
 #line 1170
-  tmp = __builtin_expect((unsigned long )requested_size > dmabuf->base.num_pages * 4096UL,
+  tmp = ldv__builtin_expect((unsigned long )requested_size > dmabuf->base.num_pages * 4096UL,
                          0L);
 #line 1170
   if (tmp != 0L) {
@@ -14808,7 +14808,7 @@ static struct drm_framebuffer *vmw_kms_fb_create(struct drm_device *dev , struct
 #line 1289
   user_obj = ttm_base_object_lookup(tfile, mode_cmd.handle);
 #line 1290
-  tmp___5 = __builtin_expect((unsigned long )user_obj == (unsigned long )((struct ttm_base_object *)0),
+  tmp___5 = ldv__builtin_expect((unsigned long )user_obj == (unsigned long )((struct ttm_base_object *)0),
                              0L);
 #line 1290
   if (tmp___5 != 0L) {
@@ -14971,7 +14971,7 @@ int vmw_kms_present(struct vmw_private *dev_priv , struct drm_file *file_priv , 
   }
   ldv_41347: 
 #line 1367
-  tmp___1 = __builtin_expect((unsigned long )surface == (unsigned long )((struct vmw_surface *)0),
+  tmp___1 = ldv__builtin_expect((unsigned long )surface == (unsigned long )((struct vmw_surface *)0),
                              0L);
 #line 1367
   if (tmp___1 != 0L) {
@@ -14985,7 +14985,7 @@ int vmw_kms_present(struct vmw_private *dev_priv , struct drm_file *file_priv , 
 
   }
 #line 1368
-  tmp___2 = __builtin_expect((unsigned long )clips == (unsigned long )((struct drm_vmw_rect *)0),
+  tmp___2 = ldv__builtin_expect((unsigned long )clips == (unsigned long )((struct drm_vmw_rect *)0),
                              0L);
 #line 1368
   if (tmp___2 != 0L) {
@@ -14993,7 +14993,7 @@ int vmw_kms_present(struct vmw_private *dev_priv , struct drm_file *file_priv , 
     goto _L;
   } else {
 #line 1368
-    tmp___3 = __builtin_expect(num_clips == 0U, 0L);
+    tmp___3 = ldv__builtin_expect(num_clips == 0U, 0L);
 #line 1368
     if (tmp___3 != 0L) {
       _L: /* CIL Label */ 
@@ -15012,7 +15012,7 @@ int vmw_kms_present(struct vmw_private *dev_priv , struct drm_file *file_priv , 
 #line 1370
   tmp = (struct drm_clip_rect *)tmp___4;
 #line 1371
-  tmp___5 = __builtin_expect((unsigned long )tmp == (unsigned long )((struct drm_clip_rect *)0),
+  tmp___5 = ldv__builtin_expect((unsigned long )tmp == (unsigned long )((struct drm_clip_rect *)0),
                              0L);
 #line 1371
   if (tmp___5 != 0L) {
@@ -15030,7 +15030,7 @@ int vmw_kms_present(struct vmw_private *dev_priv , struct drm_file *file_priv , 
 #line 1377
   cmd = (struct __anonstruct_313 *)tmp___6;
 #line 1378
-  tmp___7 = __builtin_expect((unsigned long )cmd == (unsigned long )((struct __anonstruct_cmd_311 *)0),
+  tmp___7 = ldv__builtin_expect((unsigned long )cmd == (unsigned long )((struct __anonstruct_cmd_311 *)0),
                              0L);
 #line 1378
   if (tmp___7 != 0L) {
@@ -15222,7 +15222,7 @@ int vmw_kms_present(struct vmw_private *dev_priv , struct drm_file *file_priv , 
   ret = vmw_execbuf_process(file_priv, dev_priv, 0, (void *)cmd, (uint32_t )fifo_size,
                             0ULL, 0, 0);
 #line 1462
-  tmp___12 = __builtin_expect(ret != 0, 0L);
+  tmp___12 = ldv__builtin_expect(ret != 0, 0L);
 #line 1462
   if (tmp___12 != 0L) {
 #line 1463
@@ -15345,7 +15345,7 @@ int vmw_kms_readback(struct vmw_private *dev_priv , struct drm_file *file_priv ,
   }
   ldv_41414: 
 #line 1504
-  tmp___0 = __builtin_expect((unsigned long )dmabuf == (unsigned long )((struct vmw_dma_buffer *)0),
+  tmp___0 = ldv__builtin_expect((unsigned long )dmabuf == (unsigned long )((struct vmw_dma_buffer *)0),
                              0L);
 #line 1504
   if (tmp___0 != 0L) {
@@ -15359,7 +15359,7 @@ int vmw_kms_readback(struct vmw_private *dev_priv , struct drm_file *file_priv ,
 
   }
 #line 1505
-  tmp___1 = __builtin_expect((unsigned long )clips == (unsigned long )((struct drm_vmw_rect *)0),
+  tmp___1 = ldv__builtin_expect((unsigned long )clips == (unsigned long )((struct drm_vmw_rect *)0),
                              0L);
 #line 1505
   if (tmp___1 != 0L) {
@@ -15367,7 +15367,7 @@ int vmw_kms_readback(struct vmw_private *dev_priv , struct drm_file *file_priv ,
     goto _L;
   } else {
 #line 1505
-    tmp___2 = __builtin_expect(num_clips == 0U, 0L);
+    tmp___2 = ldv__builtin_expect(num_clips == 0U, 0L);
 #line 1505
     if (tmp___2 != 0L) {
       _L: /* CIL Label */ 
@@ -15388,7 +15388,7 @@ int vmw_kms_readback(struct vmw_private *dev_priv , struct drm_file *file_priv ,
 #line 1509
   cmd = (struct __anonstruct_319 *)tmp___3;
 #line 1510
-  tmp___4 = __builtin_expect((unsigned long )cmd == (unsigned long )((struct __anonstruct_cmd_315 *)0),
+  tmp___4 = ldv__builtin_expect((unsigned long )cmd == (unsigned long )((struct __anonstruct_cmd_315 *)0),
                              0L);
 #line 1510
   if (tmp___4 != 0L) {
@@ -16657,7 +16657,7 @@ int vmw_kms_update_layout_ioctl(struct drm_device *dev , void *data , struct drm
 #line 2146
   ret = ttm_read_lock(& vmaster->lock, 1);
 #line 2147
-  tmp___1 = __builtin_expect(ret != 0, 0L);
+  tmp___1 = ldv__builtin_expect(ret != 0, 0L);
 #line 2147
   if (tmp___1 != 0L) {
 #line 2148
@@ -16689,7 +16689,7 @@ int vmw_kms_update_layout_ioctl(struct drm_device *dev , void *data , struct drm
 #line 2157
   rects = (struct drm_vmw_rect *)tmp___2;
 #line 2159
-  tmp___3 = __builtin_expect((unsigned long )rects == (unsigned long )((struct drm_vmw_rect *)0),
+  tmp___3 = ldv__builtin_expect((unsigned long )rects == (unsigned long )((struct drm_vmw_rect *)0),
                              0L);
 #line 2159
   if (tmp___3 != 0L) {
@@ -16707,7 +16707,7 @@ int vmw_kms_update_layout_ioctl(struct drm_device *dev , void *data , struct drm
 #line 2165
   ret = (int )tmp___4;
 #line 2166
-  tmp___5 = __builtin_expect(ret != 0, 0L);
+  tmp___5 = ldv__builtin_expect(ret != 0, 0L);
 #line 2166
   if (tmp___5 != 0L) {
 #line 2167
@@ -17964,7 +17964,7 @@ static void vmw_dummy_query_bo_prepare(struct vmw_private *dev_priv )
 #line 413
   spin_unlock(& bdev->fence_lock);
 #line 414
-  tmp = __builtin_expect(ret != 0, 0L);
+  tmp = ldv__builtin_expect(ret != 0, 0L);
 #line 414
   if (tmp != 0L) {
 #line 415
@@ -17975,7 +17975,7 @@ static void vmw_dummy_query_bo_prepare(struct vmw_private *dev_priv )
 #line 418
   ret = ttm_bo_kmap(bo, 0UL, 1UL, & map);
 #line 419
-  tmp___1 = __builtin_expect(ret == 0, 1L);
+  tmp___1 = ldv__builtin_expect(ret == 0, 1L);
 #line 419
   if (tmp___1 != 0L) {
 #line 420
@@ -18022,7 +18022,7 @@ static int vmw_request_device(struct vmw_private *dev_priv )
 #line 457
   ret = vmw_fifo_init(dev_priv, & dev_priv->fifo);
 #line 458
-  tmp = __builtin_expect(ret != 0, 0L);
+  tmp = ldv__builtin_expect(ret != 0, 0L);
 #line 458
   if (tmp != 0L) {
 #line 459
@@ -18037,7 +18037,7 @@ static int vmw_request_device(struct vmw_private *dev_priv )
 #line 463
   ret = vmw_dummy_query_bo_create(dev_priv);
 #line 464
-  tmp___0 = __builtin_expect(ret != 0, 0L);
+  tmp___0 = ldv__builtin_expect(ret != 0, 0L);
 #line 464
   if (tmp___0 != 0L) {
 #line 465
@@ -18064,7 +18064,7 @@ static void vmw_release_device(struct vmw_private *dev_priv )
 
   {
 #line 483
-  tmp = __builtin_expect((unsigned long )dev_priv->pinned_bo != (unsigned long )((struct ttm_buffer_object *)0),
+  tmp = ldv__builtin_expect((unsigned long )dev_priv->pinned_bo != (unsigned long )((struct ttm_buffer_object *)0),
                          0L);
 #line 483
   if (tmp != 0L) {
@@ -18105,13 +18105,13 @@ int vmw_3d_resource_inc(struct vmw_private *dev_priv , bool unhide_svga )
 #line 502
   dev_priv->num_3d_resources = dev_priv->num_3d_resources + 1U;
 #line 502
-  tmp___2 = __builtin_expect(tmp___1 == 0U, 0L);
+  tmp___2 = ldv__builtin_expect(tmp___1 == 0U, 0L);
 #line 502
   if (tmp___2 != 0L) {
 #line 503
     ret = vmw_request_device(dev_priv);
 #line 504
-    tmp = __builtin_expect(ret != 0, 0L);
+    tmp = ldv__builtin_expect(ret != 0, 0L);
 #line 504
     if (tmp != 0L) {
 #line 505
@@ -18152,7 +18152,7 @@ void vmw_3d_resource_dec(struct vmw_private *dev_priv , bool hide_svga )
 #line 532
   dev_priv->num_3d_resources = dev_priv->num_3d_resources - 1U;
 #line 532
-  tmp___0 = __builtin_expect(dev_priv->num_3d_resources == 0U, 0L);
+  tmp___0 = ldv__builtin_expect(dev_priv->num_3d_resources == 0U, 0L);
 #line 532
   if (tmp___0 != 0L) {
 #line 533
@@ -18176,7 +18176,7 @@ void vmw_3d_resource_dec(struct vmw_private *dev_priv , bool hide_svga )
 #line 543
   ldv_mutex_unlock_150(& dev_priv->release_mutex);
 #line 545
-  tmp___1 = __builtin_expect(n3d < 0, 0L);
+  tmp___1 = ldv__builtin_expect(n3d < 0, 0L);
 #line 545
   if (tmp___1 != 0L) {
 #line 545
@@ -18288,7 +18288,7 @@ static int vmw_driver_load(struct drm_device *dev , unsigned long chipset )
 #line 590
   dev_priv = (struct vmw_private *)tmp;
 #line 591
-  tmp___0 = __builtin_expect((unsigned long )dev_priv == (unsigned long )((struct vmw_private *)0),
+  tmp___0 = ldv__builtin_expect((unsigned long )dev_priv == (unsigned long )((struct vmw_private *)0),
                              0L);
 #line 591
   if (tmp___0 != 0L) {
@@ -18437,7 +18437,7 @@ static int vmw_driver_load(struct drm_device *dev , unsigned long chipset )
 #line 687
   ret = vmw_ttm_global_init(dev_priv);
 #line 688
-  tmp___1 = __builtin_expect(ret != 0, 0L);
+  tmp___1 = ldv__builtin_expect(ret != 0, 0L);
 #line 688
   if (tmp___1 != 0L) {
 #line 689
@@ -18455,7 +18455,7 @@ static int vmw_driver_load(struct drm_device *dev , unsigned long chipset )
   ret = ttm_bo_device_init(& dev_priv->bdev, (struct ttm_bo_global *)dev_priv->bo_global_ref.ref.object,
                            & vmw_bo_driver, 1048576ULL, 0);
 #line 701
-  tmp___2 = __builtin_expect(ret != 0, 0L);
+  tmp___2 = ldv__builtin_expect(ret != 0, 0L);
 #line 701
   if (tmp___2 != 0L) {
 #line 702
@@ -18468,7 +18468,7 @@ static int vmw_driver_load(struct drm_device *dev , unsigned long chipset )
 #line 706
   ret = ttm_bo_init_mm(& dev_priv->bdev, 2U, (unsigned long )(dev_priv->vram_size >> 12));
 #line 708
-  tmp___3 = __builtin_expect(ret != 0, 0L);
+  tmp___3 = ldv__builtin_expect(ret != 0, 0L);
 #line 708
   if (tmp___3 != 0L) {
 #line 709
@@ -18499,7 +18499,7 @@ static int vmw_driver_load(struct drm_device *dev , unsigned long chipset )
 #line 724
   dev_priv->mmio_virt = (__le32 *)tmp___5;
 #line 727
-  tmp___6 = __builtin_expect((unsigned long )dev_priv->mmio_virt == (unsigned long )((__le32 *)0),
+  tmp___6 = ldv__builtin_expect((unsigned long )dev_priv->mmio_virt == (unsigned long )((__le32 *)0),
                              0L);
 #line 727
   if (tmp___6 != 0L) {
@@ -18542,7 +18542,7 @@ static int vmw_driver_load(struct drm_device *dev , unsigned long chipset )
   dev_priv->tdev = ttm_object_device_init((struct ttm_mem_global *)dev_priv->mem_global_ref.object,
                                           12U);
 #line 745
-  tmp___9 = __builtin_expect((unsigned long )dev_priv->tdev == (unsigned long )((struct ttm_object_device *)0),
+  tmp___9 = ldv__builtin_expect((unsigned long )dev_priv->tdev == (unsigned long )((struct ttm_object_device *)0),
                              0L);
 #line 745
   if (tmp___9 != 0L) {
@@ -18568,7 +18568,7 @@ static int vmw_driver_load(struct drm_device *dev , unsigned long chipset )
 #line 762
     ret = pci_request_region(dev->pdev, 2, "vmwgfx stealth probe");
 #line 763
-    tmp___10 = __builtin_expect(ret != 0, 0L);
+    tmp___10 = ldv__builtin_expect(ret != 0, 0L);
 #line 763
     if (tmp___10 != 0L) {
 #line 764
@@ -18600,7 +18600,7 @@ static int vmw_driver_load(struct drm_device *dev , unsigned long chipset )
 #line 777
   dev_priv->fman = vmw_fence_manager_init(dev_priv);
 #line 778
-  tmp___11 = __builtin_expect((unsigned long )dev_priv->fman == (unsigned long )((struct vmw_fence_manager *)0),
+  tmp___11 = ldv__builtin_expect((unsigned long )dev_priv->fman == (unsigned long )((struct vmw_fence_manager *)0),
                               0L);
 #line 778
   if (tmp___11 != 0L) {
@@ -18614,7 +18614,7 @@ static int vmw_driver_load(struct drm_device *dev , unsigned long chipset )
 #line 784
   ret = vmw_kms_init(dev_priv);
 #line 785
-  tmp___12 = __builtin_expect(ret != 0, 0L);
+  tmp___12 = ldv__builtin_expect(ret != 0, 0L);
 #line 785
   if (tmp___12 != 0L) {
 #line 786
@@ -18629,7 +18629,7 @@ static int vmw_driver_load(struct drm_device *dev , unsigned long chipset )
 #line 790
     ret = vmw_3d_resource_inc(dev_priv, 1);
 #line 791
-    tmp___13 = __builtin_expect(ret != 0, 0L);
+    tmp___13 = ldv__builtin_expect(ret != 0, 0L);
 #line 791
     if (tmp___13 != 0L) {
 #line 792
@@ -18896,7 +18896,7 @@ static int vmw_driver_open(struct drm_device *dev , struct drm_file *file_priv )
 #line 908
   vmw_fp = (struct vmw_fpriv *)tmp___0;
 #line 909
-  tmp___1 = __builtin_expect((unsigned long )vmw_fp == (unsigned long )((struct vmw_fpriv *)0),
+  tmp___1 = ldv__builtin_expect((unsigned long )vmw_fp == (unsigned long )((struct vmw_fpriv *)0),
                              0L);
 #line 909
   if (tmp___1 != 0L) {
@@ -18910,7 +18910,7 @@ static int vmw_driver_open(struct drm_device *dev , struct drm_file *file_priv )
 #line 913
   vmw_fp->tfile = ttm_object_file_init(dev_priv->tdev, 10U);
 #line 914
-  tmp___2 = __builtin_expect((unsigned long )vmw_fp->tfile == (unsigned long )((struct ttm_object_file *)0),
+  tmp___2 = ldv__builtin_expect((unsigned long )vmw_fp->tfile == (unsigned long )((struct ttm_object_file *)0),
                              0L);
 #line 914
   if (tmp___2 != 0L) {
@@ -18953,7 +18953,7 @@ static long vmw_unlocked_ioctl(struct file *filp , unsigned int cmd , unsigned l
 #line 940
     ioctl = (struct drm_ioctl_desc *)(& vmw_ioctls) + (unsigned long )(nr - 64U);
 #line 943
-    tmp = __builtin_expect(ioctl->cmd_drv != cmd, 0L);
+    tmp = ldv__builtin_expect(ioctl->cmd_drv != cmd, 0L);
 #line 943
     if (tmp != 0L) {
 #line 944
@@ -19040,7 +19040,7 @@ static void vmw_lastclose(struct drm_device *dev )
 #line 986
   __ret_warn_on = ret != 0;
 #line 986
-  tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 986
   if (tmp___0 != 0L) {
 #line 986
@@ -19050,7 +19050,7 @@ static void vmw_lastclose(struct drm_device *dev )
 
   }
 #line 986
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 983
   __mptr___0 = (struct list_head  const  *)crtc->head.next;
 #line 983
@@ -19096,7 +19096,7 @@ static int vmw_master_create(struct drm_device *dev , struct drm_master *master 
 #line 1003
   vmaster = (struct vmw_master *)tmp;
 #line 1004
-  tmp___0 = __builtin_expect((unsigned long )vmaster == (unsigned long )((struct vmw_master *)0),
+  tmp___0 = ldv__builtin_expect((unsigned long )vmaster == (unsigned long )((struct vmw_master *)0),
                              0L);
 #line 1004
   if (tmp___0 != 0L) {
@@ -19171,7 +19171,7 @@ static int vmw_master_set(struct drm_device *dev , struct drm_file *file_priv , 
 #line 1035
     ret = vmw_3d_resource_inc(dev_priv, 1);
 #line 1036
-    tmp___2 = __builtin_expect(ret != 0, 0L);
+    tmp___2 = ldv__builtin_expect(ret != 0, 0L);
 #line 1036
     if (tmp___2 != 0L) {
 #line 1037
@@ -19193,7 +19193,7 @@ static int vmw_master_set(struct drm_device *dev , struct drm_file *file_priv , 
 #line 1044
   if ((unsigned long )active != (unsigned long )((struct vmw_master *)0)) {
 #line 1045
-    tmp___3 = __builtin_expect((unsigned long )(& dev_priv->fbdev_master) != (unsigned long )active,
+    tmp___3 = ldv__builtin_expect((unsigned long )(& dev_priv->fbdev_master) != (unsigned long )active,
                                0L);
 #line 1045
     if (tmp___3 != 0L) {
@@ -19209,7 +19209,7 @@ static int vmw_master_set(struct drm_device *dev , struct drm_file *file_priv , 
 #line 1046
     ret = ttm_vt_lock(& active->lock, 0, vmw_fp->tfile);
 #line 1047
-    tmp___4 = __builtin_expect(ret != 0, 0L);
+    tmp___4 = ldv__builtin_expect(ret != 0, 0L);
 #line 1047
     if (tmp___4 != 0L) {
 #line 1048
@@ -19222,7 +19222,7 @@ static int vmw_master_set(struct drm_device *dev , struct drm_file *file_priv , 
 #line 1051
     ret = ttm_bo_evict_mm(& dev_priv->bdev, 2U);
 #line 1052
-    tmp___5 = __builtin_expect(ret != 0, 0L);
+    tmp___5 = ldv__builtin_expect(ret != 0, 0L);
 #line 1052
     if (tmp___5 != 0L) {
 #line 1053
@@ -19242,7 +19242,7 @@ static int vmw_master_set(struct drm_device *dev , struct drm_file *file_priv , 
 #line 1062
     ttm_vt_unlock(& vmaster->lock);
 #line 1063
-    tmp___6 = __builtin_expect((unsigned long )vmw_fp->locked_master != (unsigned long )file_priv->master,
+    tmp___6 = ldv__builtin_expect((unsigned long )vmw_fp->locked_master != (unsigned long )file_priv->master,
                                0L);
 #line 1063
     if (tmp___6 != 0L) {
@@ -19317,7 +19317,7 @@ static void vmw_master_drop(struct drm_device *dev , struct drm_file *file_priv 
 #line 1098
   vmw_execbuf_release_pinned_bo(dev_priv);
 #line 1100
-  tmp___2 = __builtin_expect(ret != 0, 0L);
+  tmp___2 = ldv__builtin_expect(ret != 0, 0L);
 #line 1100
   if (tmp___2 != 0L) {
 #line 1101
@@ -19334,7 +19334,7 @@ static void vmw_master_drop(struct drm_device *dev , struct drm_file *file_priv 
 #line 1108
     ret = ttm_bo_evict_mm(& dev_priv->bdev, 2U);
 #line 1109
-    tmp___3 = __builtin_expect(ret != 0, 0L);
+    tmp___3 = ldv__builtin_expect(ret != 0, 0L);
 #line 1109
     if (tmp___3 != 0L) {
 #line 1110
@@ -21766,7 +21766,7 @@ static int vmw_fb_set_par(struct fb_info *info )
 #line 339
   __ret_warn_on = tmp != 0U;
 #line 339
-  tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 339
   if (tmp___0 != 0L) {
 #line 339
@@ -21776,7 +21776,7 @@ static int vmw_fb_set_par(struct fb_info *info )
 
   }
 #line 339
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 341
   return (0);
 }
@@ -21944,7 +21944,7 @@ static void vmw_fb_dirty_flush(struct vmw_fb_par *par )
 #line 399
   cmd = (struct __anonstruct_294___0 *)tmp___4;
 #line 400
-  tmp___5 = __builtin_expect((unsigned long )cmd == (unsigned long )((struct __anonstruct_cmd_292 *)0),
+  tmp___5 = ldv__builtin_expect((unsigned long )cmd == (unsigned long )((struct __anonstruct_cmd_292 *)0),
                              0L);
 #line 400
   if (tmp___5 != 0L) {
@@ -22227,7 +22227,7 @@ static int vmw_fb_create_bo(struct vmw_private *vmw_priv___0 , size_t size , str
 #line 534
   ret = ttm_write_lock(& vmw_priv___0->fbdev_master.lock, 0);
 #line 535
-  tmp = __builtin_expect(ret != 0, 0L);
+  tmp = ldv__builtin_expect(ret != 0, 0L);
 #line 535
   if (tmp != 0L) {
 #line 536
@@ -22249,7 +22249,7 @@ static int vmw_fb_create_bo(struct vmw_private *vmw_priv___0 , size_t size , str
 #line 542
   ret = vmw_dmabuf_init(vmw_priv___0, vmw_bo, size, & ne_placement, 0, & vmw_dmabuf_bo_free);
 #line 546
-  tmp___1 = __builtin_expect(ret != 0, 0L);
+  tmp___1 = ldv__builtin_expect(ret != 0, 0L);
 #line 546
   if (tmp___1 != 0L) {
 #line 547
@@ -22402,7 +22402,7 @@ int vmw_fb_init(struct vmw_private *vmw_priv___0 )
 #line 603
   par->vmalloc = vmalloc((unsigned long )fb_size);
 #line 604
-  tmp___3 = __builtin_expect((unsigned long )par->vmalloc == (unsigned long )((void *)0),
+  tmp___3 = ldv__builtin_expect((unsigned long )par->vmalloc == (unsigned long )((void *)0),
                              0L);
 #line 604
   if (tmp___3 != 0L) {
@@ -22416,7 +22416,7 @@ int vmw_fb_init(struct vmw_private *vmw_priv___0 )
 #line 609
   ret = vmw_fb_create_bo(vmw_priv___0, (size_t )fb_size, & par->vmw_bo);
 #line 610
-  tmp___4 = __builtin_expect(ret != 0, 0L);
+  tmp___4 = ldv__builtin_expect(ret != 0, 0L);
 #line 610
   if (tmp___4 != 0L) {
 #line 611
@@ -22427,7 +22427,7 @@ int vmw_fb_init(struct vmw_private *vmw_priv___0 )
 #line 613
   ret = ttm_bo_kmap(& (par->vmw_bo)->base, 0UL, (par->vmw_bo)->base.num_pages, & par->map);
 #line 617
-  tmp___5 = __builtin_expect(ret != 0, 0L);
+  tmp___5 = ldv__builtin_expect(ret != 0, 0L);
 #line 617
   if (tmp___5 != 0L) {
 #line 618
@@ -22548,7 +22548,7 @@ int vmw_fb_init(struct vmw_private *vmw_priv___0 )
 #line 687
   ret = register_framebuffer(info);
 #line 688
-  tmp___8 = __builtin_expect(ret != 0, 0L);
+  tmp___8 = ldv__builtin_expect(ret != 0, 0L);
 #line 688
   if (tmp___8 != 0L) {
 #line 689
@@ -22690,7 +22690,7 @@ int vmw_fb_on(struct vmw_private *vmw_priv___0 )
 #line 781
   ret = vmw_dmabuf_to_start_of_vram(vmw_priv___0, par->vmw_bo, 1, 0);
 #line 782
-  tmp = __builtin_expect(ret != 0, 0L);
+  tmp = ldv__builtin_expect(ret != 0, 0L);
 #line 782
   if (tmp != 0L) {
 #line 783
@@ -22703,7 +22703,7 @@ int vmw_fb_on(struct vmw_private *vmw_priv___0 )
 #line 787
   ret = ttm_bo_kmap(& (par->vmw_bo)->base, 0UL, (par->vmw_bo)->base.num_pages, & par->map);
 #line 791
-  tmp___0 = __builtin_expect(ret != 0, 0L);
+  tmp___0 = ldv__builtin_expect(ret != 0, 0L);
 #line 791
   if (tmp___0 != 0L) {
 #line 791
@@ -23270,7 +23270,7 @@ int vmw_get_cap_3d_ioctl(struct drm_device *dev , void *data , struct drm_file *
 #line 241
   buffer = (void *)arg->buffer;
 #line 245
-  tmp___0 = __builtin_expect(arg->pad64 != 0U, 0L);
+  tmp___0 = ldv__builtin_expect(arg->pad64 != 0U, 0L);
 #line 245
   if (tmp___0 != 0L) {
 #line 246
@@ -23292,7 +23292,7 @@ int vmw_get_cap_3d_ioctl(struct drm_device *dev , void *data , struct drm_file *
 #line 255
   bounce = vmalloc((unsigned long )size);
 #line 256
-  tmp___1 = __builtin_expect((unsigned long )bounce == (unsigned long )((void *)0),
+  tmp___1 = ldv__builtin_expect((unsigned long )bounce == (unsigned long )((void *)0),
                              0L);
 #line 256
   if (tmp___1 != 0L) {
@@ -23319,7 +23319,7 @@ int vmw_get_cap_3d_ioctl(struct drm_device *dev , void *data , struct drm_file *
 #line 267
   vfree((void const   *)bounce);
 #line 269
-  tmp___2 = __builtin_expect(ret != 0, 0L);
+  tmp___2 = ldv__builtin_expect(ret != 0, 0L);
 #line 269
   if (tmp___2 != 0L) {
 #line 270
@@ -23378,7 +23378,7 @@ int vmw_present_ioctl(struct drm_device *dev , void *data , struct drm_file *fil
 #line 293
   clips_ptr = (struct drm_vmw_rect *)arg->clips_ptr;
 #line 295
-  tmp___2 = __builtin_expect(num_clips == 0U, 0L);
+  tmp___2 = ldv__builtin_expect(num_clips == 0U, 0L);
 #line 295
   if (tmp___2 != 0L) {
 #line 296
@@ -23430,7 +23430,7 @@ int vmw_present_ioctl(struct drm_device *dev , void *data , struct drm_file *fil
 #line 318
   ret = ldv_mutex_lock_interruptible_237(& dev->mode_config.mutex);
 #line 319
-  tmp___5 = __builtin_expect(ret != 0, 0L);
+  tmp___5 = ldv__builtin_expect(ret != 0, 0L);
 #line 319
   if (tmp___5 != 0L) {
 #line 320
@@ -23462,7 +23462,7 @@ int vmw_present_ioctl(struct drm_device *dev , void *data , struct drm_file *fil
 #line 332
   ret = ttm_read_lock(& vmaster->lock, 1);
 #line 333
-  tmp___6 = __builtin_expect(ret != 0, 0L);
+  tmp___6 = ldv__builtin_expect(ret != 0, 0L);
 #line 333
   if (tmp___6 != 0L) {
 #line 334
@@ -23545,7 +23545,7 @@ int vmw_present_readback_ioctl(struct drm_device *dev , void *data , struct drm_
 #line 381
   clips_ptr = (struct drm_vmw_rect *)arg->clips_ptr;
 #line 383
-  tmp___1 = __builtin_expect(num_clips == 0U, 0L);
+  tmp___1 = ldv__builtin_expect(num_clips == 0U, 0L);
 #line 383
   if (tmp___1 != 0L) {
 #line 384
@@ -23597,7 +23597,7 @@ int vmw_present_readback_ioctl(struct drm_device *dev , void *data , struct drm_
 #line 406
   ret = ldv_mutex_lock_interruptible_239(& dev->mode_config.mutex);
 #line 407
-  tmp___4 = __builtin_expect(ret != 0, 0L);
+  tmp___4 = ldv__builtin_expect(ret != 0, 0L);
 #line 407
   if (tmp___4 != 0L) {
 #line 408
@@ -23640,7 +23640,7 @@ int vmw_present_readback_ioctl(struct drm_device *dev , void *data , struct drm_
 #line 426
   ret = ttm_read_lock(& vmaster->lock, 1);
 #line 427
-  tmp___5 = __builtin_expect(ret != 0, 0L);
+  tmp___5 = ldv__builtin_expect(ret != 0, 0L);
 #line 427
   if (tmp___5 != 0L) {
 #line 428
@@ -24036,7 +24036,7 @@ __inline static int kref_sub(struct kref *kref , unsigned int count , void (*rel
 #line 67
   __ret_warn_on = (unsigned long )release == (unsigned long )((void (*)(struct kref * ))0);
 #line 67
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 67
   if (tmp != 0L) {
 #line 67
@@ -24045,7 +24045,7 @@ __inline static int kref_sub(struct kref *kref , unsigned int count , void (*rel
 
   }
 #line 67
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 69
   tmp___0 = atomic_sub_and_test((int )count, & kref->refcount);
 #line 69
@@ -24262,7 +24262,7 @@ static void vmw_resource_release(struct kref *kref )
 
   }
 #line 290
-  tmp___0 = __builtin_expect((unsigned long )res->hw_destroy != (unsigned long )((void (*)(struct vmw_resource * ))0),
+  tmp___0 = ldv__builtin_expect((unsigned long )res->hw_destroy != (unsigned long )((void (*)(struct vmw_resource * ))0),
                              1L);
 #line 290
   if (tmp___0 != 0L) {
@@ -24331,7 +24331,7 @@ int vmw_resource_alloc_id(struct vmw_resource *res )
 #line 329
   idr = (struct idr *)(& dev_priv->res_idr) + (unsigned long )(res->func)->res_type;
 #line 331
-  tmp = __builtin_expect(res->id != -1, 0L);
+  tmp = ldv__builtin_expect(res->id != -1, 0L);
 #line 331
   if (tmp != 0L) {
 #line 331
@@ -24347,7 +24347,7 @@ int vmw_resource_alloc_id(struct vmw_resource *res )
 #line 334
   tmp___0 = idr_pre_get(idr, 208U);
 #line 334
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
 #line 334
   if (tmp___1 != 0L) {
 #line 335
@@ -24462,7 +24462,7 @@ struct vmw_resource *vmw_resource_lookup(struct vmw_private *dev_priv , struct i
 #line 415
   _raw_read_unlock(& dev_priv->resource_lock);
 #line 417
-  tmp___0 = __builtin_expect((unsigned long )res == (unsigned long )((struct vmw_resource *)0),
+  tmp___0 = ldv__builtin_expect((unsigned long )res == (unsigned long )((struct vmw_resource *)0),
                              0L);
 #line 417
   if (tmp___0 != 0L) {
@@ -24491,7 +24491,7 @@ int vmw_user_resource_lookup_handle(struct vmw_private *dev_priv , struct ttm_ob
 #line 448
   base = ttm_base_object_lookup(tfile, handle);
 #line 449
-  tmp = __builtin_expect((unsigned long )base == (unsigned long )((struct ttm_base_object *)0),
+  tmp = ldv__builtin_expect((unsigned long )base == (unsigned long )((struct ttm_base_object *)0),
                          0L);
 #line 449
   if (tmp != 0L) {
@@ -24501,7 +24501,7 @@ int vmw_user_resource_lookup_handle(struct vmw_private *dev_priv , struct ttm_ob
 
   }
 #line 452
-  tmp___0 = __builtin_expect((unsigned int )base->object_type != (unsigned int )converter->object_type,
+  tmp___0 = ldv__builtin_expect((unsigned int )base->object_type != (unsigned int )converter->object_type,
                              0L);
 #line 452
   if (tmp___0 != 0L) {
@@ -24548,7 +24548,7 @@ int vmw_user_lookup_handle(struct vmw_private *dev_priv , struct ttm_object_file
 
   {
 #line 489
-  tmp = __builtin_expect((unsigned long )*out_surf != (unsigned long )((struct vmw_surface *)0),
+  tmp = ldv__builtin_expect((unsigned long )*out_surf != (unsigned long )((struct vmw_surface *)0),
                          0L);
 #line 489
   if (tmp != 0L) {
@@ -24556,7 +24556,7 @@ int vmw_user_lookup_handle(struct vmw_private *dev_priv , struct ttm_object_file
     goto _L;
   } else {
 #line 489
-    tmp___0 = __builtin_expect((unsigned long )*out_buf != (unsigned long )((struct vmw_dma_buffer *)0),
+    tmp___0 = ldv__builtin_expect((unsigned long )*out_buf != (unsigned long )((struct vmw_dma_buffer *)0),
                                0L);
 #line 489
     if (tmp___0 != 0L) {
@@ -24620,7 +24620,7 @@ int vmw_dmabuf_init(struct vmw_private *dev_priv , struct vmw_dma_buffer *vmw_bo
 #line 520
   bdev = & dev_priv->bdev;
 #line 524
-  tmp = __builtin_expect((unsigned long )bo_free == (unsigned long )((void (*)(struct ttm_buffer_object * ))0),
+  tmp = ldv__builtin_expect((unsigned long )bo_free == (unsigned long )((void (*)(struct ttm_buffer_object * ))0),
                          0L);
 #line 524
   if (tmp != 0L) {
@@ -24676,7 +24676,7 @@ static void vmw_user_dmabuf_release(struct ttm_base_object **p_base )
 #line 551
   *p_base = 0;
 #line 553
-  tmp = __builtin_expect((unsigned long )base == (unsigned long )((struct ttm_base_object *)0),
+  tmp = ldv__builtin_expect((unsigned long )base == (unsigned long )((struct ttm_base_object *)0),
                          0L);
 #line 553
   if (tmp != 0L) {
@@ -24714,7 +24714,7 @@ int vmw_user_dmabuf_alloc(struct vmw_private *dev_priv , struct ttm_object_file 
 #line 584
   user_bo = (struct vmw_user_dma_buffer *)tmp___0;
 #line 585
-  tmp___1 = __builtin_expect((unsigned long )user_bo == (unsigned long )((struct vmw_user_dma_buffer *)0),
+  tmp___1 = ldv__builtin_expect((unsigned long )user_bo == (unsigned long )((struct vmw_user_dma_buffer *)0),
                              0L);
 #line 585
   if (tmp___1 != 0L) {
@@ -24729,7 +24729,7 @@ int vmw_user_dmabuf_alloc(struct vmw_private *dev_priv , struct ttm_object_file 
   ret = vmw_dmabuf_init(dev_priv, & user_bo->dma, (size_t )size, & vmw_vram_sys_placement,
                         1, & vmw_user_dmabuf_destroy);
 #line 593
-  tmp___2 = __builtin_expect(ret != 0, 0L);
+  tmp___2 = ldv__builtin_expect(ret != 0, 0L);
 #line 593
   if (tmp___2 != 0L) {
 #line 594
@@ -24743,7 +24743,7 @@ int vmw_user_dmabuf_alloc(struct vmw_private *dev_priv , struct ttm_object_file 
   ret = ttm_base_object_init(tfile, & user_bo->base, (int )shareable, 1, & vmw_user_dmabuf_release,
                              0);
 #line 602
-  tmp___3 = __builtin_expect(ret != 0, 0L);
+  tmp___3 = ldv__builtin_expect(ret != 0, 0L);
 #line 602
   if (tmp___3 != 0L) {
 #line 603
@@ -24770,7 +24770,7 @@ int vmw_user_dmabuf_verify_access(struct ttm_buffer_object *bo , struct ttm_obje
 
   {
 #line 626
-  tmp = __builtin_expect((unsigned long )bo->destroy != (unsigned long )(& vmw_user_dmabuf_destroy),
+  tmp = ldv__builtin_expect((unsigned long )bo->destroy != (unsigned long )(& vmw_user_dmabuf_destroy),
                          0L);
 #line 626
   if (tmp != 0L) {
@@ -24827,7 +24827,7 @@ int vmw_dmabuf_alloc_ioctl(struct drm_device *dev , void *data , struct drm_file
 #line 647
   ret = ttm_read_lock(& vmaster->lock, 1);
 #line 648
-  tmp___1 = __builtin_expect(ret != 0, 0L);
+  tmp___1 = ldv__builtin_expect(ret != 0, 0L);
 #line 648
   if (tmp___1 != 0L) {
 #line 649
@@ -24840,7 +24840,7 @@ int vmw_dmabuf_alloc_ioctl(struct drm_device *dev , void *data , struct drm_file
 #line 651
   ret = vmw_user_dmabuf_alloc(dev_priv, tmp___2->tfile, req->size, 0, & handle, & dma_buf);
 #line 653
-  tmp___3 = __builtin_expect(ret != 0, 0L);
+  tmp___3 = ldv__builtin_expect(ret != 0, 0L);
 #line 653
   if (tmp___3 != 0L) {
 #line 654
@@ -24894,7 +24894,7 @@ int vmw_user_dmabuf_lookup(struct ttm_object_file *tfile , uint32_t handle , str
 #line 686
   base = ttm_base_object_lookup(tfile, handle);
 #line 687
-  tmp = __builtin_expect((unsigned long )base == (unsigned long )((struct ttm_base_object *)0),
+  tmp = ldv__builtin_expect((unsigned long )base == (unsigned long )((struct ttm_base_object *)0),
                          0L);
 #line 687
   if (tmp != 0L) {
@@ -24906,7 +24906,7 @@ int vmw_user_dmabuf_lookup(struct ttm_object_file *tfile , uint32_t handle , str
 
   }
 #line 693
-  tmp___0 = __builtin_expect((unsigned int )base->object_type != 1U, 0L);
+  tmp___0 = ldv__builtin_expect((unsigned int )base->object_type != 1U, 0L);
 #line 693
   if (tmp___0 != 0L) {
 #line 694
@@ -24979,7 +24979,7 @@ static void vmw_stream_destroy(struct vmw_resource *res )
 #line 734
   __ret_warn_on = ret != 0;
 #line 734
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 734
   if (tmp != 0L) {
 #line 734
@@ -24989,7 +24989,7 @@ static void vmw_stream_destroy(struct vmw_resource *res )
 
   }
 #line 734
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 736
   return;
 }
@@ -25007,7 +25007,7 @@ static int vmw_stream_init(struct vmw_private *dev_priv , struct vmw_stream *str
 #line 744
   ret = vmw_resource_init(dev_priv, res, 0, res_free, & vmw_stream_func);
 #line 747
-  tmp = __builtin_expect(ret != 0, 0L);
+  tmp = ldv__builtin_expect(ret != 0, 0L);
 #line 747
   if (tmp != 0L) {
 #line 748
@@ -25122,7 +25122,7 @@ int vmw_stream_unref_ioctl(struct drm_device *dev , void *data , struct drm_file
 #line 806
   res = vmw_resource_lookup(dev_priv, idr, (int )arg->stream_id);
 #line 807
-  tmp___1 = __builtin_expect((unsigned long )res == (unsigned long )((struct vmw_resource *)0),
+  tmp___1 = ldv__builtin_expect((unsigned long )res == (unsigned long )((struct vmw_resource *)0),
                              0L);
 #line 807
   if (tmp___1 != 0L) {
@@ -25202,7 +25202,7 @@ int vmw_stream_claim_ioctl(struct drm_device *dev , void *data , struct drm_file
 #line 836
   vmaster = tmp___2;
 #line 844
-  tmp___4 = __builtin_expect(vmw_user_stream_size == 0ULL, 0L);
+  tmp___4 = ldv__builtin_expect(vmw_user_stream_size == 0ULL, 0L);
 #line 844
   if (tmp___4 != 0L) {
 #line 845
@@ -25215,7 +25215,7 @@ int vmw_stream_claim_ioctl(struct drm_device *dev , void *data , struct drm_file
 #line 847
   ret = ttm_read_lock(& vmaster->lock, 1);
 #line 848
-  tmp___5 = __builtin_expect(ret != 0, 0L);
+  tmp___5 = ldv__builtin_expect(ret != 0, 0L);
 #line 848
   if (tmp___5 != 0L) {
 #line 849
@@ -25228,7 +25228,7 @@ int vmw_stream_claim_ioctl(struct drm_device *dev , void *data , struct drm_file
 #line 851
   ret = ttm_mem_global_alloc(tmp___6, vmw_user_stream_size, 0, 1);
 #line 854
-  tmp___7 = __builtin_expect(ret != 0, 0L);
+  tmp___7 = ldv__builtin_expect(ret != 0, 0L);
 #line 854
   if (tmp___7 != 0L) {
 #line 855
@@ -25248,7 +25248,7 @@ int vmw_stream_claim_ioctl(struct drm_device *dev , void *data , struct drm_file
 #line 862
   stream = (struct vmw_user_stream *)tmp___8;
 #line 863
-  tmp___10 = __builtin_expect((unsigned long )stream == (unsigned long )((struct vmw_user_stream *)0),
+  tmp___10 = ldv__builtin_expect((unsigned long )stream == (unsigned long )((struct vmw_user_stream *)0),
                               0L);
 #line 863
   if (tmp___10 != 0L) {
@@ -25272,7 +25272,7 @@ int vmw_stream_claim_ioctl(struct drm_device *dev , void *data , struct drm_file
 #line 878
   ret = vmw_stream_init(dev_priv, & stream->stream, & vmw_user_stream_free);
 #line 879
-  tmp___11 = __builtin_expect(ret != 0, 0L);
+  tmp___11 = ldv__builtin_expect(ret != 0, 0L);
 #line 879
   if (tmp___11 != 0L) {
 #line 880
@@ -25286,7 +25286,7 @@ int vmw_stream_claim_ioctl(struct drm_device *dev , void *data , struct drm_file
   ret = ttm_base_object_init(tfile, & stream->base, 0, 258, & vmw_user_stream_base_release,
                              0);
 #line 886
-  tmp___12 = __builtin_expect(ret != 0, 0L);
+  tmp___12 = ldv__builtin_expect(ret != 0, 0L);
 #line 886
   if (tmp___12 != 0L) {
 #line 887
@@ -25321,7 +25321,7 @@ int vmw_user_stream_lookup(struct vmw_private *dev_priv , struct ttm_object_file
 #line 907
   res = vmw_resource_lookup(dev_priv, (struct idr *)(& dev_priv->res_idr) + 2UL, (int )*inout_id);
 #line 909
-  tmp = __builtin_expect((unsigned long )res == (unsigned long )((struct vmw_resource *)0),
+  tmp = ldv__builtin_expect((unsigned long )res == (unsigned long )((struct vmw_resource *)0),
                          0L);
 #line 909
   if (tmp != 0L) {
@@ -25431,7 +25431,7 @@ int vmw_dumb_create(struct drm_file *file_priv , struct drm_device *dev , struct
   ret = ttm_base_object_init(tmp___3->tfile, & vmw_user_bo->base, 0, 1, & vmw_user_dmabuf_release,
                              0);
 #line 967
-  tmp___4 = __builtin_expect(ret != 0, 0L);
+  tmp___4 = ldv__builtin_expect(ret != 0, 0L);
 #line 967
   if (tmp___4 != 0L) {
 #line 968
@@ -25510,12 +25510,12 @@ static int vmw_resource_buf_alloc(struct vmw_resource *res , bool interruptible 
 #line 1014
   size = (res->backup_size + 4095UL) & 0xfffffffffffff000UL;
 #line 1019
-  tmp___0 = __builtin_expect((unsigned long )res->backup != (unsigned long )((struct vmw_dma_buffer *)0),
+  tmp___0 = ldv__builtin_expect((unsigned long )res->backup != (unsigned long )((struct vmw_dma_buffer *)0),
                              1L);
 #line 1019
   if (tmp___0 != 0L) {
 #line 1020
-    tmp = __builtin_expect((res->backup)->base.num_pages * 4096UL < size, 0L);
+    tmp = ldv__builtin_expect((res->backup)->base.num_pages * 4096UL < size, 0L);
 #line 1020
     if (tmp != 0L) {
 #line 1020
@@ -25537,7 +25537,7 @@ static int vmw_resource_buf_alloc(struct vmw_resource *res , bool interruptible 
 #line 1024
   backup = (struct vmw_dma_buffer *)tmp___1;
 #line 1025
-  tmp___2 = __builtin_expect((unsigned long )backup == (unsigned long )((struct vmw_dma_buffer *)0),
+  tmp___2 = ldv__builtin_expect((unsigned long )backup == (unsigned long )((struct vmw_dma_buffer *)0),
                              0L);
 #line 1025
   if (tmp___2 != 0L) {
@@ -25550,7 +25550,7 @@ static int vmw_resource_buf_alloc(struct vmw_resource *res , bool interruptible 
   ret = vmw_dmabuf_init(res->dev_priv, backup, res->backup_size, (res->func)->backup_placement,
                         (int )interruptible, & vmw_dmabuf_bo_free);
 #line 1032
-  tmp___3 = __builtin_expect(ret != 0, 0L);
+  tmp___3 = ldv__builtin_expect(ret != 0, 0L);
 #line 1032
   if (tmp___3 != 0L) {
 #line 1033
@@ -25580,13 +25580,13 @@ static int vmw_resource_do_validate(struct vmw_resource *res , struct ttm_valida
 #line 1056
   func = res->func;
 #line 1058
-  tmp___0 = __builtin_expect(res->id == -1, 0L);
+  tmp___0 = ldv__builtin_expect(res->id == -1, 0L);
 #line 1058
   if (tmp___0 != 0L) {
 #line 1059
     ret = (*(func->create))(res);
 #line 1060
-    tmp = __builtin_expect(ret != 0, 0L);
+    tmp = ldv__builtin_expect(ret != 0, 0L);
 #line 1060
     if (tmp != 0L) {
 #line 1061
@@ -25626,7 +25626,7 @@ static int vmw_resource_do_validate(struct vmw_resource *res , struct ttm_valida
 #line 1068
       ret = (*(func->bind))(res, val_buf);
 #line 1069
-      tmp___1 = __builtin_expect(ret != 0, 0L);
+      tmp___1 = ldv__builtin_expect(ret != 0, 0L);
 #line 1069
       if (tmp___1 != 0L) {
 #line 1070
@@ -25687,7 +25687,7 @@ void vmw_resource_unreserve(struct vmw_resource *res , struct vmw_dma_buffer *ne
 #line 1115
       tmp___0 = atomic_read((atomic_t const   *)(& (res->backup)->base.reserved));
 #line 1115
-      tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+      tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
 #line 1115
       if (tmp___1 != 0L) {
 #line 1115
@@ -25711,7 +25711,7 @@ void vmw_resource_unreserve(struct vmw_resource *res , struct vmw_dma_buffer *ne
 #line 1121
     tmp___2 = atomic_read((atomic_t const   *)(& new_backup->base.reserved));
 #line 1121
-    tmp___3 = __builtin_expect(tmp___2 == 0, 0L);
+    tmp___3 = ldv__builtin_expect(tmp___2 == 0, 0L);
 #line 1121
     if (tmp___3 != 0L) {
 #line 1121
@@ -25767,14 +25767,14 @@ int vmw_resource_check_buffer(struct vmw_resource *res , bool interruptible , st
 #line 1152
   backup_dirty = 0;
 #line 1155
-  tmp___0 = __builtin_expect((unsigned long )res->backup == (unsigned long )((struct vmw_dma_buffer *)0),
+  tmp___0 = ldv__builtin_expect((unsigned long )res->backup == (unsigned long )((struct vmw_dma_buffer *)0),
                              0L);
 #line 1155
   if (tmp___0 != 0L) {
 #line 1156
     ret = vmw_resource_buf_alloc(res, (int )interruptible);
 #line 1157
-    tmp = __builtin_expect(ret != 0, 0L);
+    tmp = ldv__builtin_expect(ret != 0, 0L);
 #line 1157
     if (tmp != 0L) {
 #line 1158
@@ -25794,7 +25794,7 @@ int vmw_resource_check_buffer(struct vmw_resource *res , bool interruptible , st
 #line 1164
   ret = ttm_eu_reserve_buffers(& val_list);
 #line 1165
-  tmp___1 = __builtin_expect(ret != 0, 0L);
+  tmp___1 = ldv__builtin_expect(ret != 0, 0L);
 #line 1165
   if (tmp___1 != 0L) {
 #line 1166
@@ -25821,7 +25821,7 @@ int vmw_resource_check_buffer(struct vmw_resource *res , bool interruptible , st
 #line 1172
   ret = ttm_bo_validate(& (res->backup)->base, (res->func)->backup_placement, 1, 0);
 #line 1176
-  tmp___3 = __builtin_expect(ret != 0, 0L);
+  tmp___3 = ldv__builtin_expect(ret != 0, 0L);
 #line 1176
   if (tmp___3 != 0L) {
 #line 1177
@@ -25868,7 +25868,7 @@ int vmw_resource_reserve(struct vmw_resource *res , bool no_backup )
 #line 1212
     ret = vmw_resource_buf_alloc(res, 1);
 #line 1213
-    tmp = __builtin_expect(ret != 0, 0L);
+    tmp = ldv__builtin_expect(ret != 0, 0L);
 #line 1213
     if (tmp != 0L) {
 #line 1214
@@ -25890,7 +25890,7 @@ void vmw_resource_backoff_reservation(struct ttm_validate_buffer *val_buf )
 
   {
 #line 1230
-  tmp = __builtin_expect((unsigned long )val_buf->bo == (unsigned long )((struct ttm_buffer_object *)0),
+  tmp = ldv__builtin_expect((unsigned long )val_buf->bo == (unsigned long )((struct ttm_buffer_object *)0),
                          1L);
 #line 1230
   if (tmp != 0L) {
@@ -25929,7 +25929,7 @@ int vmw_resource_do_evict(struct vmw_resource *res )
 #line 1248
   func = res->func;
 #line 1251
-  tmp = __builtin_expect((long )(! ((_Bool )func->may_evict)), 0L);
+  tmp = ldv__builtin_expect((long )(! ((_Bool )func->may_evict)), 0L);
 #line 1251
   if (tmp != 0L) {
 #line 1251
@@ -25946,7 +25946,7 @@ int vmw_resource_do_evict(struct vmw_resource *res )
 #line 1254
   ret = vmw_resource_check_buffer(res, 1, & val_buf);
 #line 1255
-  tmp___0 = __builtin_expect(ret != 0, 0L);
+  tmp___0 = ldv__builtin_expect(ret != 0, 0L);
 #line 1255
   if (tmp___0 != 0L) {
 #line 1256
@@ -25955,14 +25955,14 @@ int vmw_resource_do_evict(struct vmw_resource *res )
 
   }
 #line 1258
-  tmp___2 = __builtin_expect((unsigned long )func->unbind != (unsigned long )((int (*/* const  */)(struct vmw_resource * ,
+  tmp___2 = ldv__builtin_expect((unsigned long )func->unbind != (unsigned long )((int (*/* const  */)(struct vmw_resource * ,
                                                                                                    bool  ,
                                                                                                    struct ttm_validate_buffer * ))0),
                              0L);
 #line 1258
   if (tmp___2 != 0L) {
 #line 1258
-    tmp___3 = __builtin_expect((long )(! ((_Bool )func->needs_backup)), 0L);
+    tmp___3 = ldv__builtin_expect((long )(! ((_Bool )func->needs_backup)), 0L);
 #line 1258
     if (tmp___3 != 0L) {
 #line 1258
@@ -25971,7 +25971,7 @@ int vmw_resource_do_evict(struct vmw_resource *res )
 #line 1258
       tmp___4 = list_empty((struct list_head  const  *)(& res->mob_head));
 #line 1258
-      tmp___5 = __builtin_expect(tmp___4 == 0, 0L);
+      tmp___5 = ldv__builtin_expect(tmp___4 == 0, 0L);
 #line 1258
       if (tmp___5 != 0L) {
 #line 1258
@@ -25986,7 +25986,7 @@ int vmw_resource_do_evict(struct vmw_resource *res )
 #line 1260
       ret = (*(func->unbind))(res, (int )res->res_dirty, & val_buf);
 #line 1261
-      tmp___1 = __builtin_expect(ret != 0, 0L);
+      tmp___1 = ldv__builtin_expect(ret != 0, 0L);
 #line 1261
       if (tmp___1 != 0L) {
 #line 1262
@@ -26034,7 +26034,7 @@ int vmw_resource_validate(struct vmw_resource *res )
 #line 1291
   lru_list = (struct list_head *)(& dev_priv->res_lru) + (unsigned long )(res->func)->res_type;
 #line 1294
-  tmp = __builtin_expect((long )(! ((_Bool )(res->func)->may_evict)), 1L);
+  tmp = ldv__builtin_expect((long )(! ((_Bool )(res->func)->may_evict)), 1L);
 #line 1294
   if (tmp != 0L) {
 #line 1295
@@ -26055,7 +26055,7 @@ int vmw_resource_validate(struct vmw_resource *res )
 #line 1301
   ret = vmw_resource_do_validate(res, & val_buf);
 #line 1302
-  tmp___0 = __builtin_expect(ret != -16, 1L);
+  tmp___0 = ldv__builtin_expect(ret != -16, 1L);
 #line 1302
   if (tmp___0 != 0L) {
 #line 1303
@@ -26097,7 +26097,7 @@ int vmw_resource_validate(struct vmw_resource *res )
   goto ldv_40967;
   ldv_40963: 
 #line 1324
-  tmp___2 = __builtin_expect(ret != 0, 0L);
+  tmp___2 = ldv__builtin_expect(ret != 0, 0L);
 #line 1324
   if (tmp___2 != 0L) {
 #line 1325
@@ -27589,7 +27589,7 @@ __inline static int signal_pending(struct task_struct *p )
 #line 2620
   tmp = test_tsk_thread_flag(p, 2);
 #line 2620
-  tmp___0 = __builtin_expect(tmp != 0, 0L);
+  tmp___0 = ldv__builtin_expect(tmp != 0, 0L);
 #line 2620
   return ((int )tmp___0);
 }
@@ -27717,7 +27717,7 @@ int vmw_fifo_init(struct vmw_private *dev_priv , struct vmw_fifo_state *fifo )
 #line 239
   fifo->static_buffer = (__le32 *)tmp;
 #line 240
-  tmp___0 = __builtin_expect((unsigned long )fifo->static_buffer == (unsigned long )((__le32 *)0),
+  tmp___0 = ldv__builtin_expect((unsigned long )fifo->static_buffer == (unsigned long )((__le32 *)0),
                              0L);
 #line 240
   if (tmp___0 != 0L) {
@@ -27828,7 +27828,7 @@ void vmw_fifo_ping_host(struct vmw_private *dev_priv , uint32_t reason )
 #line 304
   tmp = ioread32((void *)fifo_mem + 290U);
 #line 304
-  tmp___0 = __builtin_expect(tmp == 0U, 0L);
+  tmp___0 = ldv__builtin_expect(tmp == 0U, 0L);
 #line 304
   if (tmp___0 != 0L) {
 #line 305
@@ -27886,7 +27886,7 @@ void vmw_fifo_release(struct vmw_private *dev_priv , struct vmw_fifo_state *fifo
 #line 331
   vmw_marker_queue_takedown(& fifo->marker_queue);
 #line 333
-  tmp___0 = __builtin_expect((unsigned long )fifo->static_buffer != (unsigned long )((__le32 *)0),
+  tmp___0 = ldv__builtin_expect((unsigned long )fifo->static_buffer != (unsigned long )((__le32 *)0),
                              1L);
 #line 333
   if (tmp___0 != 0L) {
@@ -27898,7 +27898,7 @@ void vmw_fifo_release(struct vmw_private *dev_priv , struct vmw_fifo_state *fifo
 
   }
 #line 338
-  tmp___1 = __builtin_expect((unsigned long )fifo->dynamic_buffer != (unsigned long )((__le32 *)0),
+  tmp___1 = ldv__builtin_expect((unsigned long )fifo->dynamic_buffer != (unsigned long )((__le32 *)0),
                              1L);
 #line 338
   if (tmp___1 != 0L) {
@@ -28096,7 +28096,7 @@ static int vmw_fifo_wait(struct vmw_private *dev_priv , uint32_t bytes , bool in
     tmp___0 = 1;
   }
 #line 395
-  tmp___1 = __builtin_expect((long )tmp___0, 1L);
+  tmp___1 = ldv__builtin_expect((long )tmp___0, 1L);
 #line 395
   if (tmp___1 != 0L) {
 #line 396
@@ -28273,14 +28273,14 @@ static int vmw_fifo_wait(struct vmw_private *dev_priv , uint32_t bytes , bool in
     ret = __ret___0;
   }
 #line 423
-  tmp___16 = __builtin_expect(ret == 0L, 0L);
+  tmp___16 = ldv__builtin_expect(ret == 0L, 0L);
 #line 423
   if (tmp___16 != 0L) {
 #line 424
     ret = -16L;
   } else {
 #line 425
-    tmp___15 = __builtin_expect(ret > 0L, 1L);
+    tmp___15 = ldv__builtin_expect(ret > 0L, 1L);
 #line 425
     if (tmp___15 != 0L) {
 #line 426
@@ -28356,7 +28356,7 @@ void *vmw_fifo_reserve(struct vmw_private *dev_priv , uint32_t bytes )
 #line 463
   next_cmd = ioread32((void *)fifo_mem + 2U);
 #line 465
-  tmp = __builtin_expect(max - min <= bytes, 0L);
+  tmp = ldv__builtin_expect(max - min <= bytes, 0L);
 #line 465
   if (tmp != 0L) {
 #line 466
@@ -28365,7 +28365,7 @@ void *vmw_fifo_reserve(struct vmw_private *dev_priv , uint32_t bytes )
 
   }
 #line 468
-  tmp___0 = __builtin_expect(fifo_state->reserved_size != 0UL, 0L);
+  tmp___0 = ldv__builtin_expect(fifo_state->reserved_size != 0UL, 0L);
 #line 468
   if (tmp___0 != 0L) {
 #line 468
@@ -28378,7 +28378,7 @@ void *vmw_fifo_reserve(struct vmw_private *dev_priv , uint32_t bytes )
 
   }
 #line 469
-  tmp___1 = __builtin_expect((unsigned long )fifo_state->dynamic_buffer != (unsigned long )((__le32 *)0),
+  tmp___1 = ldv__builtin_expect((unsigned long )fifo_state->dynamic_buffer != (unsigned long )((__le32 *)0),
                              0L);
 #line 469
   if (tmp___1 != 0L) {
@@ -28405,18 +28405,18 @@ void *vmw_fifo_reserve(struct vmw_private *dev_priv , uint32_t bytes )
 #line 478
   if (next_cmd >= stop) {
 #line 479
-    tmp___5 = __builtin_expect(next_cmd + bytes < max, 1L);
+    tmp___5 = ldv__builtin_expect(next_cmd + bytes < max, 1L);
 #line 479
     if (tmp___5 != 0L) {
 #line 481
       reserve_in_place = 1;
     } else {
 #line 479
-      tmp___6 = __builtin_expect(next_cmd + bytes == max, 1L);
+      tmp___6 = ldv__builtin_expect(next_cmd + bytes == max, 1L);
 #line 479
       if (tmp___6 != 0L) {
 #line 479
-        tmp___7 = __builtin_expect(stop > min, 1L);
+        tmp___7 = ldv__builtin_expect(stop > min, 1L);
 #line 479
         if (tmp___7 != 0L) {
 #line 479
@@ -28441,7 +28441,7 @@ void *vmw_fifo_reserve(struct vmw_private *dev_priv , uint32_t bytes )
 #line 484
           ret = vmw_fifo_wait(dev_priv, bytes, 0, 750UL);
 #line 486
-          tmp___3 = __builtin_expect(ret != 0, 0L);
+          tmp___3 = ldv__builtin_expect(ret != 0, 0L);
 #line 486
           if (tmp___3 != 0L) {
 #line 487
@@ -28457,7 +28457,7 @@ void *vmw_fifo_reserve(struct vmw_private *dev_priv , uint32_t bytes )
     }
   } else {
 #line 493
-    tmp___10 = __builtin_expect(next_cmd + bytes < stop, 1L);
+    tmp___10 = ldv__builtin_expect(next_cmd + bytes < stop, 1L);
 #line 493
     if (tmp___10 != 0L) {
 #line 494
@@ -28466,7 +28466,7 @@ void *vmw_fifo_reserve(struct vmw_private *dev_priv , uint32_t bytes )
 #line 496
       ret = vmw_fifo_wait(dev_priv, bytes, 0, 750UL);
 #line 498
-      tmp___9 = __builtin_expect(ret != 0, 0L);
+      tmp___9 = ldv__builtin_expect(ret != 0, 0L);
 #line 498
       if (tmp___9 != 0L) {
 #line 499
@@ -28608,7 +28608,7 @@ static void vmw_fifo_slow_copy(struct vmw_fifo_state *fifo_state , __le32 *fifo_
 #line 564
   next_cmd = next_cmd + 4U;
 #line 565
-  tmp___1 = __builtin_expect(next_cmd == max, 0L);
+  tmp___1 = ldv__builtin_expect(next_cmd == max, 0L);
 #line 565
   if (tmp___1 != 0L) {
 #line 566
@@ -28672,7 +28672,7 @@ void vmw_fifo_commit(struct vmw_private *dev_priv , uint32_t bytes )
 #line 581
   reserveable = (fifo_state->capabilities & 64U) != 0U;
 #line 583
-  tmp___2 = __builtin_expect((bytes & 3U) != 0U, 0L);
+  tmp___2 = ldv__builtin_expect((bytes & 3U) != 0U, 0L);
 #line 583
   if (tmp___2 != 0L) {
 #line 583
@@ -28685,7 +28685,7 @@ void vmw_fifo_commit(struct vmw_private *dev_priv , uint32_t bytes )
 
   }
 #line 584
-  tmp___3 = __builtin_expect((unsigned long )bytes > fifo_state->reserved_size, 0L);
+  tmp___3 = ldv__builtin_expect((unsigned long )bytes > fifo_state->reserved_size, 0L);
 #line 584
   if (tmp___3 != 0L) {
 #line 584
@@ -28781,7 +28781,7 @@ int vmw_fifo_send_fence(struct vmw_private *dev_priv , uint32_t *seqno )
 #line 628
   fm = vmw_fifo_reserve(dev_priv, bytes);
 #line 629
-  tmp___0 = __builtin_expect((unsigned long )fm == (unsigned long )((void *)0), 0L);
+  tmp___0 = ldv__builtin_expect((unsigned long )fm == (unsigned long )((void *)0), 0L);
 #line 629
   if (tmp___0 != 0L) {
 #line 630
@@ -28852,7 +28852,7 @@ int vmw_fifo_emit_dummy_query(struct vmw_private *dev_priv , uint32_t cid )
 #line 697
   cmd = (struct __anonstruct_293___0 *)tmp;
 #line 699
-  tmp___0 = __builtin_expect((unsigned long )cmd == (unsigned long )((struct __anonstruct_cmd_291___1 *)0),
+  tmp___0 = ldv__builtin_expect((unsigned long )cmd == (unsigned long )((struct __anonstruct_cmd_291___1 *)0),
                              0L);
 #line 699
   if (tmp___0 != 0L) {
@@ -29346,7 +29346,7 @@ irqreturn_t vmw_irq_handler(int irq , void *arg )
 #line 194
   spin_unlock(& dev_priv->irq_lock);
 #line 196
-  tmp___0 = __builtin_expect(status != 0U, 1L);
+  tmp___0 = ldv__builtin_expect(status != 0U, 1L);
 #line 196
   if (tmp___0 != 0L) {
 #line 197
@@ -29435,7 +29435,7 @@ bool vmw_seqno_passed(struct vmw_private *dev_priv , uint32_t seqno )
 
   {
 #line 245
-  tmp = __builtin_expect(dev_priv->last_read_seqno - seqno <= 16777215U, 1L);
+  tmp = ldv__builtin_expect(dev_priv->last_read_seqno - seqno <= 16777215U, 1L);
 #line 245
   if (tmp != 0L) {
 #line 246
@@ -29448,7 +29448,7 @@ bool vmw_seqno_passed(struct vmw_private *dev_priv , uint32_t seqno )
 #line 249
   vmw_update_seqno(dev_priv, fifo_state);
 #line 250
-  tmp___0 = __builtin_expect(dev_priv->last_read_seqno - seqno <= 16777215U, 1L);
+  tmp___0 = ldv__builtin_expect(dev_priv->last_read_seqno - seqno <= 16777215U, 1L);
 #line 250
   if (tmp___0 != 0L) {
 #line 251
@@ -29806,7 +29806,7 @@ int vmw_wait_seqno(struct vmw_private *dev_priv , bool lazy , uint32_t seqno , b
 #line 403
   fifo = & dev_priv->fifo;
 #line 405
-  tmp = __builtin_expect(dev_priv->last_read_seqno - seqno <= 16777215U, 1L);
+  tmp = ldv__builtin_expect(dev_priv->last_read_seqno - seqno <= 16777215U, 1L);
 #line 405
   if (tmp != 0L) {
 #line 406
@@ -29817,7 +29817,7 @@ int vmw_wait_seqno(struct vmw_private *dev_priv , bool lazy , uint32_t seqno , b
 #line 408
   tmp___0 = vmw_seqno_passed(dev_priv, seqno);
 #line 408
-  tmp___1 = __builtin_expect((long )tmp___0, 1L);
+  tmp___1 = ldv__builtin_expect((long )tmp___0, 1L);
 #line 408
   if (tmp___1 != 0L) {
 #line 409
@@ -29986,14 +29986,14 @@ int vmw_wait_seqno(struct vmw_private *dev_priv , bool lazy , uint32_t seqno , b
 #line 434
   vmw_seqno_waiter_remove(dev_priv);
 #line 436
-  tmp___15 = __builtin_expect(ret == 0L, 0L);
+  tmp___15 = ldv__builtin_expect(ret == 0L, 0L);
 #line 436
   if (tmp___15 != 0L) {
 #line 437
     ret = -16L;
   } else {
 #line 438
-    tmp___14 = __builtin_expect(ret > 0L, 1L);
+    tmp___14 = ldv__builtin_expect(ret > 0L, 1L);
 #line 438
     if (tmp___14 != 0L) {
 #line 439
@@ -30684,7 +30684,7 @@ static int vmw_ldu_commit_list(struct vmw_private *dev_priv )
   }
   ldv_40852: 
 #line 282
-  tmp___4 = __builtin_expect((unsigned int )i != lds->num_active, 0L);
+  tmp___4 = ldv__builtin_expect((unsigned int )i != lds->num_active, 0L);
 #line 282
   if (tmp___4 != 0L) {
 #line 282
@@ -30770,7 +30770,7 @@ static int vmw_ldu_del_active(struct vmw_private *vmw_priv___0 , struct vmw_lega
 #line 317
   if (ld->num_active == 0U) {
 #line 318
-    tmp___0 = __builtin_expect((unsigned long )ld->fb == (unsigned long )((struct vmw_framebuffer *)0),
+    tmp___0 = ldv__builtin_expect((unsigned long )ld->fb == (unsigned long )((struct vmw_framebuffer *)0),
                                0L);
 #line 318
     if (tmp___0 != 0L) {
@@ -30815,11 +30815,11 @@ static int vmw_ldu_add_active(struct vmw_private *vmw_priv___0 , struct vmw_lega
 #line 331
   ld = vmw_priv___0->ldu_priv;
 #line 335
-  tmp = __builtin_expect(ld->num_active == 0U, 0L);
+  tmp = ldv__builtin_expect(ld->num_active == 0U, 0L);
 #line 335
   if (tmp != 0L) {
 #line 335
-    tmp___0 = __builtin_expect((unsigned long )ld->fb != (unsigned long )((struct vmw_framebuffer *)0),
+    tmp___0 = ldv__builtin_expect((unsigned long )ld->fb != (unsigned long )((struct vmw_framebuffer *)0),
                                0L);
 #line 335
     if (tmp___0 != 0L) {
@@ -31287,7 +31287,7 @@ int vmw_kms_close_legacy_display_system(struct vmw_private *dev_priv )
 #line 592
   tmp = list_empty((struct list_head  const  *)(& (dev_priv->ldu_priv)->active));
 #line 592
-  tmp___0 = __builtin_expect(tmp == 0, 0L);
+  tmp___0 = ldv__builtin_expect(tmp == 0, 0L);
 #line 592
   if (tmp___0 != 0L) {
 #line 592
@@ -31986,7 +31986,7 @@ int vmw_mmap(struct file *filp , struct vm_area_struct *vma )
 
   {
 #line 188
-  tmp = __builtin_expect(vma->vm_pgoff <= 1048575UL, 0L);
+  tmp = ldv__builtin_expect(vma->vm_pgoff <= 1048575UL, 0L);
 #line 188
   if (tmp != 0L) {
 #line 189
@@ -32051,7 +32051,7 @@ int vmw_ttm_global_init(struct vmw_private *dev_priv )
 #line 220
   ret = drm_global_item_ref(global_ref);
 #line 221
-  tmp = __builtin_expect(ret != 0, 0L);
+  tmp = ldv__builtin_expect(ret != 0, 0L);
 #line 221
   if (tmp != 0L) {
 #line 222
@@ -32076,7 +32076,7 @@ int vmw_ttm_global_init(struct vmw_private *dev_priv )
 #line 233
   ret = drm_global_item_ref(global_ref);
 #line 235
-  tmp___0 = __builtin_expect(ret != 0, 0L);
+  tmp___0 = ldv__builtin_expect(ret != 0, 0L);
 #line 235
   if (tmp___0 != 0L) {
 #line 236
@@ -32550,7 +32550,7 @@ static int vmw_overlay_send_stop(struct vmw_private *dev_priv , uint32_t stream_
     return (ret);
   } else {
 #line 358
-    tmp___0 = __builtin_expect(ret != 0, 0L);
+    tmp___0 = ldv__builtin_expect(ret != 0, 0L);
 #line 358
     if (tmp___0 != 0L) {
 #line 358
@@ -32655,7 +32655,7 @@ static int vmw_overlay_stop(struct vmw_private *dev_priv , uint32_t stream_id , 
       return (ret);
     } else {
 #line 429
-      tmp = __builtin_expect(ret != 0, 0L);
+      tmp = ldv__builtin_expect(ret != 0, 0L);
 #line 429
       if (tmp != 0L) {
 #line 429
@@ -32743,7 +32743,7 @@ static int vmw_overlay_update_stream(struct vmw_private *dev_priv , struct vmw_d
       stream->saved = *arg;
     } else {
 #line 479
-      tmp___0 = __builtin_expect((long )(! interruptible), 0L);
+      tmp___0 = ldv__builtin_expect((long )(! interruptible), 0L);
 #line 479
       if (tmp___0 != 0L) {
 #line 479
@@ -32777,7 +32777,7 @@ static int vmw_overlay_update_stream(struct vmw_private *dev_priv , struct vmw_d
 #line 496
     tmp___1 = vmw_overlay_move_buffer(dev_priv, buf, 0, 0);
 #line 496
-    tmp___2 = __builtin_expect(tmp___1 != 0, 0L);
+    tmp___2 = ldv__builtin_expect(tmp___1 != 0, 0L);
 #line 496
     if (tmp___2 != 0L) {
 #line 496
@@ -32849,7 +32849,7 @@ int vmw_overlay_stop_all(struct vmw_private *dev_priv )
 #line 533
   __ret_warn_on = ret != 0;
 #line 533
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 533
   if (tmp != 0L) {
 #line 533
@@ -32859,7 +32859,7 @@ int vmw_overlay_stop_all(struct vmw_private *dev_priv )
 
   }
 #line 533
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
   ldv_40794: 
 #line 527
   i = i + 1;
@@ -32979,7 +32979,7 @@ int vmw_overlay_pause_all(struct vmw_private *dev_priv )
 #line 597
   __ret_warn_on = ret != 0;
 #line 597
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 597
   if (tmp != 0L) {
 #line 597
@@ -32989,7 +32989,7 @@ int vmw_overlay_pause_all(struct vmw_private *dev_priv )
 
   }
 #line 597
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 592
   i = i + 1;
   ldv_40822: ;
@@ -33259,7 +33259,7 @@ int vmw_overlay_unref(struct vmw_private *dev_priv , uint32_t stream_id )
 #line 708
   overlay = dev_priv->overlay_priv;
 #line 710
-  tmp = __builtin_expect(stream_id != 0U, 0L);
+  tmp = ldv__builtin_expect(stream_id != 0U, 0L);
 #line 710
   if (tmp != 0L) {
 #line 710
@@ -33283,7 +33283,7 @@ int vmw_overlay_unref(struct vmw_private *dev_priv , uint32_t stream_id )
 #line 717
   __ret_warn_on = ! overlay->stream[stream_id].claimed;
 #line 717
-  tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 717
   if (tmp___0 != 0L) {
 #line 717
@@ -33293,7 +33293,7 @@ int vmw_overlay_unref(struct vmw_private *dev_priv , uint32_t stream_id )
 
   }
 #line 717
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 718
   vmw_overlay_stop(dev_priv, stream_id, 0, 0);
 #line 719
@@ -33410,7 +33410,7 @@ int vmw_overlay_close(struct vmw_private *dev_priv )
 #line 765
   __ret_warn_on = (int )forgotten_buffer;
 #line 765
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 765
   if (tmp != 0L) {
 #line 765
@@ -33420,7 +33420,7 @@ int vmw_overlay_close(struct vmw_private *dev_priv )
 
   }
 #line 765
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 767
   dev_priv->overlay_priv = 0;
 #line 768
@@ -33957,7 +33957,7 @@ int vmw_marker_push(struct vmw_marker_queue *queue , uint32_t seqno )
 #line 211
   marker = (struct vmw_marker *)tmp;
 #line 213
-  tmp___0 = __builtin_expect((unsigned long )marker == (unsigned long )((struct vmw_marker *)0),
+  tmp___0 = ldv__builtin_expect((unsigned long )marker == (unsigned long )((struct vmw_marker *)0),
                              0L);
 #line 213
   if (tmp___0 != 0L) {
@@ -34174,7 +34174,7 @@ int vmw_wait_lag(struct vmw_private *dev_priv , struct vmw_marker_queue *queue ,
 #line 314
   ret = vmw_wait_seqno(dev_priv, 0, seqno, 1, 750UL);
 #line 317
-  tmp___1 = __builtin_expect(ret != 0, 0L);
+  tmp___1 = ldv__builtin_expect(ret != 0, 0L);
 #line 317
   if (tmp___1 != 0L) {
 #line 318
@@ -34461,7 +34461,7 @@ static int vmw_gmrid_man_get_node(struct ttm_mem_type_manager *man , struct ttm_
 #line 214
     gman->used_gmr_pages = gman->used_gmr_pages + (uint32_t )bo->num_pages;
 #line 215
-    tmp = __builtin_expect(gman->used_gmr_pages > gman->max_gmr_pages, 0L);
+    tmp = ldv__builtin_expect(gman->used_gmr_pages > gman->max_gmr_pages, 0L);
 #line 215
     if (tmp != 0L) {
 #line 216
@@ -34478,7 +34478,7 @@ static int vmw_gmrid_man_get_node(struct ttm_mem_type_manager *man , struct ttm_
 #line 221
   tmp___0 = ida_pre_get(& gman->gmr_ida, 208U);
 #line 221
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
 #line 221
   if (tmp___1 != 0L) {
 #line 222
@@ -34493,11 +34493,11 @@ static int vmw_gmrid_man_get_node(struct ttm_mem_type_manager *man , struct ttm_
 #line 227
   ret = ida_get_new(& gman->gmr_ida, & id);
 #line 228
-  tmp___2 = __builtin_expect(ret == 0, 0L);
+  tmp___2 = ldv__builtin_expect(ret == 0, 0L);
 #line 228
   if (tmp___2 != 0L) {
 #line 228
-    tmp___3 = __builtin_expect((uint32_t )id >= gman->max_gmr_ids, 0L);
+    tmp___3 = ldv__builtin_expect((uint32_t )id >= gman->max_gmr_ids, 0L);
 #line 228
     if (tmp___3 != 0L) {
 #line 229
@@ -34522,7 +34522,7 @@ static int vmw_gmrid_man_get_node(struct ttm_mem_type_manager *man , struct ttm_
   }
   ldv_40589: 
 #line 235
-  tmp___4 = __builtin_expect(ret == 0, 1L);
+  tmp___4 = ldv__builtin_expect(ret == 0, 1L);
 #line 235
   if (tmp___4 != 0L) {
 #line 236
@@ -34596,7 +34596,7 @@ static int vmw_gmrid_man_init(struct ttm_mem_type_manager *man , unsigned long p
 #line 273
   gman = (struct vmwgfx_gmrid_man *)tmp;
 #line 276
-  tmp___0 = __builtin_expect((unsigned long )gman == (unsigned long )((struct vmwgfx_gmrid_man *)0),
+  tmp___0 = ldv__builtin_expect((unsigned long )gman == (unsigned long )((struct vmwgfx_gmrid_man *)0),
                              0L);
 #line 276
   if (tmp___0 != 0L) {
@@ -35280,7 +35280,7 @@ struct vmw_fence_manager *vmw_fence_manager_init(struct vmw_private *dev_priv )
 #line 325
   fman = (struct vmw_fence_manager *)tmp;
 #line 327
-  tmp___0 = __builtin_expect((unsigned long )fman == (unsigned long )((struct vmw_fence_manager *)0),
+  tmp___0 = ldv__builtin_expect((unsigned long )fman == (unsigned long )((struct vmw_fence_manager *)0),
                              0L);
 #line 327
   if (tmp___0 != 0L) {
@@ -35371,7 +35371,7 @@ void vmw_fence_manager_takedown(struct vmw_fence_manager *fman )
 #line 355
   spin_unlock_irqrestore(& fman->lock, irq_flags);
 #line 357
-  tmp___3 = __builtin_expect((long )(! lists_empty), 0L);
+  tmp___3 = ldv__builtin_expect((long )(! lists_empty), 0L);
 #line 357
   if (tmp___3 != 0L) {
 #line 357
@@ -35423,7 +35423,7 @@ static int vmw_fence_obj_init(struct vmw_fence_manager *fman , struct vmw_fence_
 #line 380
   irq_flags = _raw_spin_lock_irqsave(tmp);
 #line 381
-  tmp___0 = __builtin_expect((long )fman->fifo_down, 0L);
+  tmp___0 = ldv__builtin_expect((long )fman->fifo_down, 0L);
 #line 381
   if (tmp___0 != 0L) {
 #line 382
@@ -35452,7 +35452,7 @@ struct vmw_fence_obj *vmw_fence_obj_reference(struct vmw_fence_obj *fence )
 
   {
 #line 396
-  tmp = __builtin_expect((unsigned long )fence == (unsigned long )((struct vmw_fence_obj *)0),
+  tmp = ldv__builtin_expect((unsigned long )fence == (unsigned long )((struct vmw_fence_obj *)0),
                          0L);
 #line 396
   if (tmp != 0L) {
@@ -35479,7 +35479,7 @@ void vmw_fence_obj_unreference(struct vmw_fence_obj **fence_p )
 #line 412
   fence = *fence_p;
 #line 415
-  tmp = __builtin_expect((unsigned long )fence == (unsigned long )((struct vmw_fence_obj *)0),
+  tmp = ldv__builtin_expect((unsigned long )fence == (unsigned long )((struct vmw_fence_obj *)0),
                          0L);
 #line 415
   if (tmp != 0L) {
@@ -35497,7 +35497,7 @@ void vmw_fence_obj_unreference(struct vmw_fence_obj **fence_p )
 #line 421
   tmp___0 = atomic_read((atomic_t const   *)(& fence->kref.refcount));
 #line 421
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
 #line 421
   if (tmp___1 != 0L) {
 #line 421
@@ -35583,7 +35583,7 @@ static bool vmw_fence_goal_new_locked(struct vmw_fence_manager *fman , u32 passe
 
   {
 #line 469
-  tmp = __builtin_expect((long )(! fman->seqno_valid), 1L);
+  tmp = ldv__builtin_expect((long )(! fman->seqno_valid), 1L);
 #line 469
   if (tmp != 0L) {
 #line 470
@@ -35596,7 +35596,7 @@ static bool vmw_fence_goal_new_locked(struct vmw_fence_manager *fman , u32 passe
 #line 473
   goal_seqno = ioread32((void *)fifo_mem + 289U);
 #line 474
-  tmp___0 = __builtin_expect((int )(passed_seqno - goal_seqno) < 0, 1L);
+  tmp___0 = ldv__builtin_expect((int )(passed_seqno - goal_seqno) < 0, 1L);
 #line 474
   if (tmp___0 != 0L) {
 #line 475
@@ -35664,11 +35664,11 @@ static bool vmw_fence_goal_check_locked(struct vmw_fence_obj *fence )
 #line 515
   goal_seqno = ioread32((void *)fifo_mem + 289U);
 #line 516
-  tmp = __builtin_expect((long )(fence->fman)->seqno_valid, 1L);
+  tmp = ldv__builtin_expect((long )(fence->fman)->seqno_valid, 1L);
 #line 516
   if (tmp != 0L) {
 #line 516
-    tmp___0 = __builtin_expect((int )(goal_seqno - fence->seqno) >= 0, 1L);
+    tmp___0 = ldv__builtin_expect((int )(goal_seqno - fence->seqno) >= 0, 1L);
 #line 516
     if (tmp___0 != 0L) {
 #line 518
@@ -35773,7 +35773,7 @@ void vmw_fences_update(struct vmw_fence_manager *fman )
 #line 555
   spin_unlock_irqrestore(& fman->lock, flags);
 #line 563
-  tmp___1 = __builtin_expect((long )needs_rerun, 0L);
+  tmp___1 = ldv__builtin_expect((long )needs_rerun, 0L);
 #line 563
   if (tmp___1 != 0L) {
 #line 564
@@ -35871,7 +35871,7 @@ int vmw_fence_obj_wait(struct vmw_fence_obj *fence , uint32_t flags , bool lazy 
 #line 604
   tmp = vmw_fence_obj_signaled(fence, flags);
 #line 604
-  tmp___0 = __builtin_expect((long )tmp, 1L);
+  tmp___0 = ldv__builtin_expect((long )tmp, 1L);
 #line 604
   if (tmp___0 != 0L) {
 #line 605
@@ -36020,14 +36020,14 @@ int vmw_fence_obj_wait(struct vmw_fence_obj *fence , uint32_t flags , bool lazy 
 #line 621
   vmw_seqno_waiter_remove(dev_priv);
 #line 623
-  tmp___12 = __builtin_expect(ret == 0L, 0L);
+  tmp___12 = ldv__builtin_expect(ret == 0L, 0L);
 #line 623
   if (tmp___12 != 0L) {
 #line 624
     ret = -16L;
   } else {
 #line 625
-    tmp___11 = __builtin_expect(ret > 0L, 1L);
+    tmp___11 = ldv__builtin_expect(ret > 0L, 1L);
 #line 625
     if (tmp___11 != 0L) {
 #line 626
@@ -36091,7 +36091,7 @@ int vmw_fence_create(struct vmw_fence_manager *fman , uint32_t seqno , uint32_t 
 #line 659
   ret = ttm_mem_global_alloc(mem_glob, (uint64_t )fman->fence_size, 0, 0);
 #line 661
-  tmp___0 = __builtin_expect(ret != 0, 0L);
+  tmp___0 = ldv__builtin_expect(ret != 0, 0L);
 #line 661
   if (tmp___0 != 0L) {
 #line 662
@@ -36104,7 +36104,7 @@ int vmw_fence_create(struct vmw_fence_manager *fman , uint32_t seqno , uint32_t 
 #line 664
   fence = (struct vmw_fence_obj *)tmp___1;
 #line 665
-  tmp___2 = __builtin_expect((unsigned long )fence == (unsigned long )((struct vmw_fence_obj *)0),
+  tmp___2 = ldv__builtin_expect((unsigned long )fence == (unsigned long )((struct vmw_fence_obj *)0),
                              0L);
 #line 665
   if (tmp___2 != 0L) {
@@ -36118,7 +36118,7 @@ int vmw_fence_create(struct vmw_fence_manager *fman , uint32_t seqno , uint32_t 
 #line 670
   ret = vmw_fence_obj_init(fman, fence, seqno, mask, & vmw_fence_destroy);
 #line 672
-  tmp___3 = __builtin_expect(ret != 0, 0L);
+  tmp___3 = ldv__builtin_expect(ret != 0, 0L);
 #line 672
   if (tmp___3 != 0L) {
 #line 673
@@ -36217,7 +36217,7 @@ int vmw_user_fence_create(struct drm_file *file_priv , struct vmw_fence_manager 
 #line 729
   ret = ttm_mem_global_alloc(mem_glob, (uint64_t )fman->user_fence_size, 0, 0);
 #line 731
-  tmp___2 = __builtin_expect(ret != 0, 0L);
+  tmp___2 = ldv__builtin_expect(ret != 0, 0L);
 #line 731
   if (tmp___2 != 0L) {
 #line 732
@@ -36230,7 +36230,7 @@ int vmw_user_fence_create(struct drm_file *file_priv , struct vmw_fence_manager 
 #line 734
   ufence = (struct vmw_user_fence *)tmp___3;
 #line 735
-  tmp___4 = __builtin_expect((unsigned long )ufence == (unsigned long )((struct vmw_user_fence *)0),
+  tmp___4 = ldv__builtin_expect((unsigned long )ufence == (unsigned long )((struct vmw_user_fence *)0),
                              0L);
 #line 735
   if (tmp___4 != 0L) {
@@ -36244,7 +36244,7 @@ int vmw_user_fence_create(struct drm_file *file_priv , struct vmw_fence_manager 
 #line 740
   ret = vmw_fence_obj_init(fman, & ufence->fence, seqno, mask, & vmw_user_fence_destroy);
 #line 742
-  tmp___5 = __builtin_expect(ret != 0, 0L);
+  tmp___5 = ldv__builtin_expect(ret != 0, 0L);
 #line 742
   if (tmp___5 != 0L) {
 #line 743
@@ -36260,7 +36260,7 @@ int vmw_user_fence_create(struct drm_file *file_priv , struct vmw_fence_manager 
   ret = ttm_base_object_init(tfile, & ufence->base, 0, 259, & vmw_user_fence_base_release,
                              0);
 #line 757
-  tmp___6 = __builtin_expect(ret != 0, 0L);
+  tmp___6 = ldv__builtin_expect(ret != 0, 0L);
 #line 757
   if (tmp___6 != 0L) {
 #line 761
@@ -36322,7 +36322,7 @@ void vmw_fence_fifo_down(struct vmw_fence_manager *fman )
 #line 802
   ret = vmw_fence_obj_wait(fence, fence->signal_mask, 0, 0, 1250UL);
 #line 806
-  tmp___0 = __builtin_expect(ret != 0, 0L);
+  tmp___0 = ldv__builtin_expect(ret != 0, 0L);
 #line 806
   if (tmp___0 != 0L) {
 #line 807
@@ -36345,7 +36345,7 @@ void vmw_fence_fifo_down(struct vmw_fence_manager *fman )
 #line 818
   tmp___1 = list_empty((struct list_head  const  *)(& fence->head));
 #line 818
-  tmp___2 = __builtin_expect(tmp___1 == 0, 0L);
+  tmp___2 = ldv__builtin_expect(tmp___1 == 0, 0L);
 #line 818
   if (tmp___2 != 0L) {
 #line 818
@@ -36433,7 +36433,7 @@ int vmw_fence_obj_wait_ioctl(struct drm_device *dev , void *data , struct drm_fi
 #line 859
   base = ttm_base_object_lookup(tfile, arg->handle);
 #line 860
-  tmp___0 = __builtin_expect((unsigned long )base == (unsigned long )((struct ttm_base_object *)0),
+  tmp___0 = ldv__builtin_expect((unsigned long )base == (unsigned long )((struct ttm_base_object *)0),
                              0L);
 #line 860
   if (tmp___0 != 0L) {
@@ -36515,7 +36515,7 @@ int vmw_fence_obj_signaled_ioctl(struct drm_device *dev , void *data , struct dr
 #line 904
   base = ttm_base_object_lookup(tfile, arg->handle);
 #line 905
-  tmp___1 = __builtin_expect((unsigned long )base == (unsigned long )((struct ttm_base_object *)0),
+  tmp___1 = ldv__builtin_expect((unsigned long )base == (unsigned long )((struct ttm_base_object *)0),
                              0L);
 #line 905
   if (tmp___1 != 0L) {
@@ -36637,7 +36637,7 @@ static void vmw_event_fence_action_seq_passed(struct vmw_fence_action *action )
 #line 993
   event = eaction->event;
 #line 997
-  tmp = __builtin_expect((unsigned long )event == (unsigned long )((struct drm_pending_event *)0),
+  tmp = ldv__builtin_expect((unsigned long )event == (unsigned long )((struct drm_pending_event *)0),
                          0L);
 #line 997
   if (tmp != 0L) {
@@ -36653,7 +36653,7 @@ static void vmw_event_fence_action_seq_passed(struct vmw_fence_action *action )
 #line 1001
   irq_flags = _raw_spin_lock_irqsave(tmp___0);
 #line 1003
-  tmp___1 = __builtin_expect((unsigned long )eaction->tv_sec != (unsigned long )((uint32_t *)0),
+  tmp___1 = ldv__builtin_expect((unsigned long )eaction->tv_sec != (unsigned long )((uint32_t *)0),
                              1L);
 #line 1003
   if (tmp___1 != 0L) {
@@ -36795,7 +36795,7 @@ int vmw_event_fence_action_queue(struct drm_file *file_priv , struct vmw_fence_o
 #line 1119
   eaction = (struct vmw_event_fence_action *)tmp___0;
 #line 1120
-  tmp___1 = __builtin_expect((unsigned long )eaction == (unsigned long )((struct vmw_event_fence_action *)0),
+  tmp___1 = ldv__builtin_expect((unsigned long )eaction == (unsigned long )((struct vmw_event_fence_action *)0),
                              0L);
 #line 1120
   if (tmp___1 != 0L) {
@@ -36864,7 +36864,7 @@ int vmw_event_fence_action_create(struct drm_file *file_priv , struct vmw_fence_
     ret = 0;
   }
 #line 1162
-  tmp___0 = __builtin_expect(ret == 0, 1L);
+  tmp___0 = ldv__builtin_expect(ret == 0, 1L);
 #line 1162
   if (tmp___0 != 0L) {
 #line 1163
@@ -36875,7 +36875,7 @@ int vmw_event_fence_action_create(struct drm_file *file_priv , struct vmw_fence_
 #line 1165
   spin_unlock_irqrestore(& dev->event_lock, irq_flags);
 #line 1167
-  tmp___1 = __builtin_expect(ret != 0, 0L);
+  tmp___1 = ldv__builtin_expect(ret != 0, 0L);
 #line 1167
   if (tmp___1 != 0L) {
 #line 1168
@@ -36890,7 +36890,7 @@ int vmw_event_fence_action_create(struct drm_file *file_priv , struct vmw_fence_
 #line 1173
   event = (struct vmw_event_fence_pending *)tmp___2;
 #line 1174
-  tmp___3 = __builtin_expect((unsigned long )event == (unsigned long )((struct vmw_event_fence_pending *)0),
+  tmp___3 = ldv__builtin_expect((unsigned long )event == (unsigned long )((struct vmw_event_fence_pending *)0),
                              0L);
 #line 1174
   if (tmp___3 != 0L) {
@@ -36993,7 +36993,7 @@ int vmw_fence_event_ioctl(struct drm_device *dev , void *data , struct drm_file 
 #line 1234
     base = tmp___1;
 #line 1237
-    tmp___2 = __builtin_expect((unsigned long )base == (unsigned long )((struct ttm_base_object *)0),
+    tmp___2 = ldv__builtin_expect((unsigned long )base == (unsigned long )((struct ttm_base_object *)0),
                                0L);
 #line 1237
     if (tmp___2 != 0L) {
@@ -37016,7 +37016,7 @@ int vmw_fence_event_ioctl(struct drm_device *dev , void *data , struct drm_file 
 #line 1250
       ret = ttm_ref_object_add(vmw_fp->tfile, base, 0, & existed);
 #line 1252
-      tmp___3 = __builtin_expect(ret != 0, 0L);
+      tmp___3 = ldv__builtin_expect(ret != 0, 0L);
 #line 1252
       if (tmp___3 != 0L) {
 #line 1253
@@ -37049,7 +37049,7 @@ int vmw_fence_event_ioctl(struct drm_device *dev , void *data , struct drm_file 
 #line 1266
     ret = vmw_execbuf_fence_commands(file_priv, dev_priv, & fence, tmp___4);
 #line 1270
-    tmp___5 = __builtin_expect(ret != 0, 0L);
+    tmp___5 = ldv__builtin_expect(ret != 0, 0L);
 #line 1270
     if (tmp___5 != 0L) {
 #line 1271
@@ -37063,7 +37063,7 @@ int vmw_fence_event_ioctl(struct drm_device *dev , void *data , struct drm_file 
 
   }
 #line 1276
-  tmp___6 = __builtin_expect((unsigned long )fence == (unsigned long )((struct vmw_fence_obj *)0),
+  tmp___6 = ldv__builtin_expect((unsigned long )fence == (unsigned long )((struct vmw_fence_obj *)0),
                              0L);
 #line 1276
   if (tmp___6 != 0L) {
@@ -37087,7 +37087,7 @@ int vmw_fence_event_ioctl(struct drm_device *dev , void *data , struct drm_file 
                                         1);
   }
 #line 1289
-  tmp___7 = __builtin_expect(ret != 0, 0L);
+  tmp___7 = ldv__builtin_expect(ret != 0, 0L);
 #line 1289
   if (tmp___7 != 0L) {
 #line 1290
@@ -37424,7 +37424,7 @@ int vmw_dmabuf_to_placement(struct vmw_private *dev_priv , struct vmw_dma_buffer
 #line 211
   ret = ttm_write_lock(& vmaster->lock, (int )interruptible);
 #line 212
-  tmp = __builtin_expect(ret != 0, 0L);
+  tmp = ldv__builtin_expect(ret != 0, 0L);
 #line 212
   if (tmp != 0L) {
 #line 213
@@ -37437,7 +37437,7 @@ int vmw_dmabuf_to_placement(struct vmw_private *dev_priv , struct vmw_dma_buffer
 #line 217
   ret = ttm_bo_reserve(bo, (int )interruptible, 0, 0, 0U);
 #line 218
-  tmp___0 = __builtin_expect(ret != 0, 0L);
+  tmp___0 = ldv__builtin_expect(ret != 0, 0L);
 #line 218
   if (tmp___0 != 0L) {
 #line 219
@@ -37475,7 +37475,7 @@ int vmw_dmabuf_to_vram_or_gmr(struct vmw_private *dev_priv , struct vmw_dma_buff
 #line 255
   ret = ttm_write_lock(& vmaster->lock, (int )interruptible);
 #line 256
-  tmp = __builtin_expect(ret != 0, 0L);
+  tmp = ldv__builtin_expect(ret != 0, 0L);
 #line 256
   if (tmp != 0L) {
 #line 257
@@ -37493,7 +37493,7 @@ int vmw_dmabuf_to_vram_or_gmr(struct vmw_private *dev_priv , struct vmw_dma_buff
 #line 262
   ret = ttm_bo_reserve(bo, (int )interruptible, 0, 0, 0U);
 #line 263
-  tmp___0 = __builtin_expect(ret != 0, 0L);
+  tmp___0 = ldv__builtin_expect(ret != 0, 0L);
 #line 263
   if (tmp___0 != 0L) {
 #line 264
@@ -37512,7 +37512,7 @@ int vmw_dmabuf_to_vram_or_gmr(struct vmw_private *dev_priv , struct vmw_dma_buff
 #line 278
   ret = ttm_bo_validate(bo, placement, (int )interruptible, 0);
 #line 279
-  tmp___1 = __builtin_expect(ret == 0, 1L);
+  tmp___1 = ldv__builtin_expect(ret == 0, 1L);
 #line 279
   if (tmp___1 != 0L || ret == -512) {
 #line 280
@@ -37593,7 +37593,7 @@ int vmw_dmabuf_to_start_of_vram(struct vmw_private *dev_priv , struct vmw_dma_bu
 #line 364
   ret = ttm_write_lock(& vmaster->lock, (int )interruptible);
 #line 365
-  tmp = __builtin_expect(ret != 0, 0L);
+  tmp = ldv__builtin_expect(ret != 0, 0L);
 #line 365
   if (tmp != 0L) {
 #line 366
@@ -37611,7 +37611,7 @@ int vmw_dmabuf_to_start_of_vram(struct vmw_private *dev_priv , struct vmw_dma_bu
 #line 370
   ret = ttm_bo_reserve(bo, (int )interruptible, 0, 0, 0U);
 #line 371
-  tmp___0 = __builtin_expect(ret != 0, 0L);
+  tmp___0 = ldv__builtin_expect(ret != 0, 0L);
 #line 371
   if (tmp___0 != 0L) {
 #line 372
@@ -37631,7 +37631,7 @@ int vmw_dmabuf_to_start_of_vram(struct vmw_private *dev_priv , struct vmw_dma_bu
 #line 383
   __ret_warn_on = ret == 0 && bo->offset != 0UL;
 #line 383
-  tmp___1 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___1 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 383
   if (tmp___1 != 0L) {
 #line 383
@@ -37641,7 +37641,7 @@ int vmw_dmabuf_to_start_of_vram(struct vmw_private *dev_priv , struct vmw_dma_bu
 
   }
 #line 383
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 385
   ttm_bo_unreserve(bo);
   err_unlock: 
@@ -37711,7 +37711,7 @@ void vmw_bo_pin(struct ttm_buffer_object *bo , bool pin )
     tmp___0 = 1;
   }
 #line 457
-  tmp___1 = __builtin_expect((long )tmp___0, 0L);
+  tmp___1 = ldv__builtin_expect((long )tmp___0, 0L);
 #line 457
   if (tmp___1 != 0L) {
 #line 457
@@ -37724,11 +37724,11 @@ void vmw_bo_pin(struct ttm_buffer_object *bo , bool pin )
 
   }
 #line 458
-  tmp___2 = __builtin_expect(old_mem_type != 2U, 0L);
+  tmp___2 = ldv__builtin_expect(old_mem_type != 2U, 0L);
 #line 458
   if (tmp___2 != 0L) {
 #line 458
-    tmp___3 = __builtin_expect(old_mem_type != 3U, 0L);
+    tmp___3 = ldv__builtin_expect(old_mem_type != 3U, 0L);
 #line 458
     if (tmp___3 != 0L) {
 #line 458
@@ -37761,14 +37761,14 @@ void vmw_bo_pin(struct ttm_buffer_object *bo , bool pin )
 #line 469
   ret = ttm_bo_validate(bo, & placement, 0, 1);
 #line 471
-  tmp___4 = __builtin_expect(ret != 0, 0L);
+  tmp___4 = ldv__builtin_expect(ret != 0, 0L);
 #line 471
   if (tmp___4 != 0L) {
 #line 471
     goto _L;
   } else {
 #line 471
-    tmp___5 = __builtin_expect(bo->mem.mem_type != old_mem_type, 0L);
+    tmp___5 = ldv__builtin_expect(bo->mem.mem_type != old_mem_type, 0L);
 #line 471
     if (tmp___5 != 0L) {
       _L: /* CIL Label */ 
@@ -38066,11 +38066,11 @@ static void vmw_sou_add_active(struct vmw_private *vmw_priv___0 , struct vmw_scr
 #line 242
   ld = vmw_priv___0->sou_priv;
 #line 244
-  tmp = __builtin_expect(ld->num_implicit == 0U, 0L);
+  tmp = ldv__builtin_expect(ld->num_implicit == 0U, 0L);
 #line 244
   if (tmp != 0L) {
 #line 244
-    tmp___0 = __builtin_expect((unsigned long )ld->implicit_fb != (unsigned long )((struct vmw_framebuffer *)0),
+    tmp___0 = ldv__builtin_expect((unsigned long )ld->implicit_fb != (unsigned long )((struct vmw_framebuffer *)0),
                                0L);
 #line 244
     if (tmp___0 != 0L) {
@@ -38112,7 +38112,7 @@ static int vmw_sou_fifo_create(struct vmw_private *dev_priv , struct vmw_screen_
 
   {
 #line 270
-  tmp = __builtin_expect((unsigned long )sou->buffer == (unsigned long )((struct vmw_dma_buffer *)0),
+  tmp = ldv__builtin_expect((unsigned long )sou->buffer == (unsigned long )((struct vmw_dma_buffer *)0),
                          0L);
 #line 270
   if (tmp != 0L) {
@@ -38132,7 +38132,7 @@ static int vmw_sou_fifo_create(struct vmw_private *dev_priv , struct vmw_screen_
 #line 273
   cmd = (struct __anonstruct_297___0 *)tmp___0;
 #line 275
-  tmp___1 = __builtin_expect((unsigned long )cmd == (unsigned long )((struct __anonstruct_cmd_293 *)0),
+  tmp___1 = ldv__builtin_expect((unsigned long )cmd == (unsigned long )((struct __anonstruct_cmd_293 *)0),
                              0L);
 #line 275
   if (tmp___1 != 0L) {
@@ -38200,7 +38200,7 @@ static int vmw_sou_fifo_destroy(struct vmw_private *dev_priv , struct vmw_screen
 
   {
 #line 324
-  tmp = __builtin_expect((long )(! sou->defined), 0L);
+  tmp = ldv__builtin_expect((long )(! sou->defined), 0L);
 #line 324
   if (tmp != 0L) {
 #line 325
@@ -38215,7 +38215,7 @@ static int vmw_sou_fifo_destroy(struct vmw_private *dev_priv , struct vmw_screen
 #line 328
   cmd = (struct __anonstruct_306 *)tmp___0;
 #line 330
-  tmp___1 = __builtin_expect((unsigned long )cmd == (unsigned long )((struct __anonstruct_cmd_302 *)0),
+  tmp___1 = ldv__builtin_expect((unsigned long )cmd == (unsigned long )((struct __anonstruct_cmd_302 *)0),
                              0L);
 #line 330
   if (tmp___1 != 0L) {
@@ -38237,7 +38237,7 @@ static int vmw_sou_fifo_destroy(struct vmw_private *dev_priv , struct vmw_screen
 #line 342
   ret = vmw_fallback_wait(dev_priv, 0, 1, 0U, 0, 750UL);
 #line 343
-  tmp___2 = __builtin_expect(ret != 0, 0L);
+  tmp___2 = ldv__builtin_expect(ret != 0, 0L);
 #line 343
   if (tmp___2 != 0L) {
 #line 344
@@ -38257,7 +38257,7 @@ static void vmw_sou_backing_free(struct vmw_private *dev_priv , struct vmw_scree
 
   {
 #line 359
-  tmp = __builtin_expect((unsigned long )sou->buffer == (unsigned long )((struct vmw_dma_buffer *)0),
+  tmp = ldv__builtin_expect((unsigned long )sou->buffer == (unsigned long )((struct vmw_dma_buffer *)0),
                          0L);
 #line 359
   if (tmp != 0L) {
@@ -38306,7 +38306,7 @@ static int vmw_sou_backing_alloc(struct vmw_private *dev_priv , struct vmw_scree
 #line 383
   sou->buffer = (struct vmw_dma_buffer *)tmp;
 #line 384
-  tmp___0 = __builtin_expect((unsigned long )sou->buffer == (unsigned long )((struct vmw_dma_buffer *)0),
+  tmp___0 = ldv__builtin_expect((unsigned long )sou->buffer == (unsigned long )((struct vmw_dma_buffer *)0),
                              0L);
 #line 384
   if (tmp___0 != 0L) {
@@ -38322,7 +38322,7 @@ static int vmw_sou_backing_alloc(struct vmw_private *dev_priv , struct vmw_scree
 #line 394
   vmw_overlay_resume_all(dev_priv);
 #line 396
-  tmp___1 = __builtin_expect(ret != 0, 0L);
+  tmp___1 = ldv__builtin_expect(ret != 0, 0L);
 #line 396
   if (tmp___1 != 0L) {
 #line 397
@@ -38426,7 +38426,7 @@ static int vmw_sou_crtc_set_config(struct drm_mode_set *set )
 #line 456
     ret = vmw_sou_fifo_destroy(dev_priv, sou);
 #line 458
-    tmp = __builtin_expect(ret != 0, 0L);
+    tmp = ldv__builtin_expect(ret != 0, 0L);
 #line 458
     if (tmp != 0L) {
 #line 459
@@ -38473,7 +38473,7 @@ static int vmw_sou_crtc_set_config(struct drm_mode_set *set )
 #line 493
     ret = vmw_sou_fifo_destroy(dev_priv, sou);
 #line 495
-    tmp___0 = __builtin_expect(ret != 0, 0L);
+    tmp___0 = ldv__builtin_expect(ret != 0, 0L);
 #line 495
     if (tmp___0 != 0L) {
 #line 496
@@ -38493,7 +38493,7 @@ static int vmw_sou_crtc_set_config(struct drm_mode_set *set )
 #line 504
     ret = vmw_sou_backing_alloc(dev_priv, sou, size);
 #line 505
-    tmp___1 = __builtin_expect(ret != 0, 0L);
+    tmp___1 = ldv__builtin_expect(ret != 0, 0L);
 #line 505
     if (tmp___1 != 0L) {
 #line 506
@@ -38507,7 +38507,7 @@ static int vmw_sou_crtc_set_config(struct drm_mode_set *set )
 #line 509
   ret = vmw_sou_fifo_create(dev_priv, sou, set->x, set->y, mode);
 #line 510
-  tmp___2 = __builtin_expect(ret != 0, 0L);
+  tmp___2 = ldv__builtin_expect(ret != 0, 0L);
 #line 510
   if (tmp___2 != 0L) {
 #line 518
@@ -38696,7 +38696,7 @@ int vmw_kms_init_screen_object_display(struct vmw_private *dev_priv )
 #line 648
   dev_priv->sou_priv = (struct vmw_screen_object_display *)tmp;
 #line 649
-  tmp___0 = __builtin_expect((unsigned long )dev_priv->sou_priv == (unsigned long )((struct vmw_screen_object_display *)0),
+  tmp___0 = ldv__builtin_expect((unsigned long )dev_priv->sou_priv == (unsigned long )((struct vmw_screen_object_display *)0),
                              0L);
 #line 649
   if (tmp___0 != 0L) {
@@ -38712,7 +38712,7 @@ int vmw_kms_init_screen_object_display(struct vmw_private *dev_priv )
 #line 655
   ret = drm_vblank_init(dev, 8);
 #line 656
-  tmp___1 = __builtin_expect(ret != 0, 0L);
+  tmp___1 = ldv__builtin_expect(ret != 0, 0L);
 #line 656
   if (tmp___1 != 0L) {
 #line 657
@@ -38723,7 +38723,7 @@ int vmw_kms_init_screen_object_display(struct vmw_private *dev_priv )
 #line 659
   ret = drm_mode_create_dirty_info_property(dev);
 #line 660
-  tmp___2 = __builtin_expect(ret != 0, 0L);
+  tmp___2 = ldv__builtin_expect(ret != 0, 0L);
 #line 660
   if (tmp___2 != 0L) {
 #line 661
@@ -38830,7 +38830,7 @@ void vmw_kms_screen_object_update_implicit_fb(struct vmw_private *dev_priv , str
 #line 718
   sou = (struct vmw_screen_object_unit *)__mptr;
 #line 720
-  tmp = __builtin_expect((long )(! sou->base.is_implicit), 0L);
+  tmp = ldv__builtin_expect((long )(! sou->base.is_implicit), 0L);
 #line 720
   if (tmp != 0L) {
 #line 720
@@ -39564,7 +39564,7 @@ static void vmw_hw_context_destroy(struct vmw_resource *res )
 #line 233
   cmd = (struct __anonstruct_293___1 *)tmp;
 #line 234
-  tmp___0 = __builtin_expect((unsigned long )cmd == (unsigned long )((struct __anonstruct_cmd_291___2 *)0),
+  tmp___0 = ldv__builtin_expect((unsigned long )cmd == (unsigned long )((struct __anonstruct_cmd_291___2 *)0),
                              0L);
 #line 234
   if (tmp___0 != 0L) {
@@ -39603,7 +39603,7 @@ static int vmw_context_init(struct vmw_private *dev_priv , struct vmw_resource *
 #line 259
   ret = vmw_resource_init(dev_priv, res, 0, res_free, & vmw_legacy_context_func);
 #line 262
-  tmp = __builtin_expect(ret != 0, 0L);
+  tmp = ldv__builtin_expect(ret != 0, 0L);
 #line 262
   if (tmp != 0L) {
 #line 263
@@ -39614,7 +39614,7 @@ static int vmw_context_init(struct vmw_private *dev_priv , struct vmw_resource *
 
   }
 #line 267
-  tmp___0 = __builtin_expect(res->id > 255, 0L);
+  tmp___0 = ldv__builtin_expect(res->id > 255, 0L);
 #line 267
   if (tmp___0 != 0L) {
 #line 268
@@ -39631,7 +39631,7 @@ static int vmw_context_init(struct vmw_private *dev_priv , struct vmw_resource *
 #line 273
   cmd = (struct __anonstruct_297___1 *)tmp___1;
 #line 274
-  tmp___2 = __builtin_expect((unsigned long )cmd == (unsigned long )((struct __anonstruct_cmd_295___0 *)0),
+  tmp___2 = ldv__builtin_expect((unsigned long )cmd == (unsigned long )((struct __anonstruct_cmd_295___0 *)0),
                              0L);
 #line 274
   if (tmp___2 != 0L) {
@@ -39685,7 +39685,7 @@ struct vmw_resource *vmw_context_alloc(struct vmw_private *dev_priv )
 #line 299
   res = (struct vmw_resource *)tmp;
 #line 302
-  tmp___0 = __builtin_expect((unsigned long )res == (unsigned long )((struct vmw_resource *)0),
+  tmp___0 = ldv__builtin_expect((unsigned long )res == (unsigned long )((struct vmw_resource *)0),
                              0L);
 #line 302
   if (tmp___0 != 0L) {
@@ -39827,7 +39827,7 @@ int vmw_context_define_ioctl(struct drm_device *dev , void *data , struct drm_fi
 #line 365
   vmaster = tmp___2;
 #line 374
-  tmp___4 = __builtin_expect(vmw_user_context_size == 0ULL, 0L);
+  tmp___4 = ldv__builtin_expect(vmw_user_context_size == 0ULL, 0L);
 #line 374
   if (tmp___4 != 0L) {
 #line 375
@@ -39840,7 +39840,7 @@ int vmw_context_define_ioctl(struct drm_device *dev , void *data , struct drm_fi
 #line 377
   ret = ttm_read_lock(& vmaster->lock, 1);
 #line 378
-  tmp___5 = __builtin_expect(ret != 0, 0L);
+  tmp___5 = ldv__builtin_expect(ret != 0, 0L);
 #line 378
   if (tmp___5 != 0L) {
 #line 379
@@ -39853,7 +39853,7 @@ int vmw_context_define_ioctl(struct drm_device *dev , void *data , struct drm_fi
 #line 381
   ret = ttm_mem_global_alloc(tmp___6, vmw_user_context_size, 0, 1);
 #line 384
-  tmp___7 = __builtin_expect(ret != 0, 0L);
+  tmp___7 = ldv__builtin_expect(ret != 0, 0L);
 #line 384
   if (tmp___7 != 0L) {
 #line 385
@@ -39873,7 +39873,7 @@ int vmw_context_define_ioctl(struct drm_device *dev , void *data , struct drm_fi
 #line 391
   ctx = (struct vmw_user_context *)tmp___8;
 #line 392
-  tmp___10 = __builtin_expect((unsigned long )ctx == (unsigned long )((struct vmw_user_context *)0),
+  tmp___10 = ldv__builtin_expect((unsigned long )ctx == (unsigned long )((struct vmw_user_context *)0),
                               0L);
 #line 392
   if (tmp___10 != 0L) {
@@ -39897,7 +39897,7 @@ int vmw_context_define_ioctl(struct drm_device *dev , void *data , struct drm_fi
 #line 407
   ret = vmw_context_init(dev_priv, res, & vmw_user_context_free);
 #line 408
-  tmp___11 = __builtin_expect(ret != 0, 0L);
+  tmp___11 = ldv__builtin_expect(ret != 0, 0L);
 #line 408
   if (tmp___11 != 0L) {
 #line 409
@@ -39911,7 +39911,7 @@ int vmw_context_define_ioctl(struct drm_device *dev , void *data , struct drm_fi
   ret = ttm_base_object_init(tfile, & ctx->base, 0, 256, & vmw_user_context_base_release,
                              0);
 #line 415
-  tmp___12 = __builtin_expect(ret != 0, 0L);
+  tmp___12 = ldv__builtin_expect(ret != 0, 0L);
 #line 415
   if (tmp___12 != 0L) {
 #line 416
@@ -40915,7 +40915,7 @@ static void vmw_hw_surface_destroy(struct vmw_resource *res )
 #line 449
     cmd = vmw_fifo_reserve(dev_priv, tmp);
 #line 450
-    tmp___0 = __builtin_expect((unsigned long )cmd == (unsigned long )((void *)0),
+    tmp___0 = ldv__builtin_expect((unsigned long )cmd == (unsigned long )((void *)0),
                                0L);
 #line 450
     if (tmp___0 != 0L) {
@@ -40967,7 +40967,7 @@ static int vmw_legacy_srf_create(struct vmw_resource *res )
 #line 488
   dev_priv = res->dev_priv;
 #line 494
-  tmp = __builtin_expect(res->id != -1, 1L);
+  tmp = ldv__builtin_expect(res->id != -1, 1L);
 #line 494
   if (tmp != 0L) {
 #line 495
@@ -40978,7 +40978,7 @@ static int vmw_legacy_srf_create(struct vmw_resource *res )
 #line 497
   srf = vmw_res_to_srf(res);
 #line 498
-  tmp___0 = __builtin_expect((unsigned long )dev_priv->used_memory_size + res->backup_size >= (unsigned long )dev_priv->memory_size,
+  tmp___0 = ldv__builtin_expect((unsigned long )dev_priv->used_memory_size + res->backup_size >= (unsigned long )dev_priv->memory_size,
                              0L);
 #line 498
   if (tmp___0 != 0L) {
@@ -40990,7 +40990,7 @@ static int vmw_legacy_srf_create(struct vmw_resource *res )
 #line 506
   ret = vmw_resource_alloc_id(res);
 #line 507
-  tmp___1 = __builtin_expect(ret != 0, 0L);
+  tmp___1 = ldv__builtin_expect(ret != 0, 0L);
 #line 507
   if (tmp___1 != 0L) {
 #line 508
@@ -41001,7 +41001,7 @@ static int vmw_legacy_srf_create(struct vmw_resource *res )
 
   }
 #line 512
-  tmp___2 = __builtin_expect(res->id > 32767, 0L);
+  tmp___2 = ldv__builtin_expect(res->id > 32767, 0L);
 #line 512
   if (tmp___2 != 0L) {
 #line 513
@@ -41018,7 +41018,7 @@ static int vmw_legacy_srf_create(struct vmw_resource *res )
 #line 522
   cmd = (uint8_t *)tmp___3;
 #line 523
-  tmp___4 = __builtin_expect((unsigned long )cmd == (unsigned long )((uint8_t *)0),
+  tmp___4 = ldv__builtin_expect((unsigned long )cmd == (unsigned long )((uint8_t *)0),
                              0L);
 #line 523
   if (tmp___4 != 0L) {
@@ -41070,7 +41070,7 @@ static int vmw_legacy_srf_dma(struct vmw_resource *res , struct ttm_validate_buf
 #line 570
   dev_priv = res->dev_priv;
 #line 572
-  tmp___0 = __builtin_expect((unsigned long )val_buf->bo == (unsigned long )((struct ttm_buffer_object *)0),
+  tmp___0 = ldv__builtin_expect((unsigned long )val_buf->bo == (unsigned long )((struct ttm_buffer_object *)0),
                              0L);
 #line 572
   if (tmp___0 != 0L) {
@@ -41090,7 +41090,7 @@ static int vmw_legacy_srf_dma(struct vmw_resource *res , struct ttm_validate_buf
 #line 575
   cmd = (uint8_t *)tmp___1;
 #line 576
-  tmp___2 = __builtin_expect((unsigned long )cmd == (unsigned long )((uint8_t *)0),
+  tmp___2 = ldv__builtin_expect((unsigned long )cmd == (unsigned long )((uint8_t *)0),
                              0L);
 #line 576
   if (tmp___2 != 0L) {
@@ -41112,7 +41112,7 @@ static int vmw_legacy_srf_dma(struct vmw_resource *res , struct ttm_validate_buf
 #line 593
   vmw_fence_single_bo(val_buf->bo, fence);
 #line 595
-  tmp___3 = __builtin_expect((unsigned long )fence != (unsigned long )((struct vmw_fence_obj *)0),
+  tmp___3 = ldv__builtin_expect((unsigned long )fence != (unsigned long )((struct vmw_fence_obj *)0),
                              1L);
 #line 595
   if (tmp___3 != 0L) {
@@ -41150,7 +41150,7 @@ static int vmw_legacy_srf_unbind(struct vmw_resource *res , bool readback , stru
 
   {
 #line 638
-  tmp___0 = __builtin_expect((long )readback, 0L);
+  tmp___0 = ldv__builtin_expect((long )readback, 0L);
 #line 638
   if (tmp___0 != 0L) {
 #line 639
@@ -41177,7 +41177,7 @@ static int vmw_legacy_srf_destroy(struct vmw_resource *res )
 #line 652
   dev_priv = res->dev_priv;
 #line 656
-  tmp = __builtin_expect(res->id == -1, 0L);
+  tmp = ldv__builtin_expect(res->id == -1, 0L);
 #line 656
   if (tmp != 0L) {
 #line 656
@@ -41196,7 +41196,7 @@ static int vmw_legacy_srf_destroy(struct vmw_resource *res )
 #line 663
   cmd = (uint8_t *)tmp___0;
 #line 664
-  tmp___1 = __builtin_expect((unsigned long )cmd == (unsigned long )((uint8_t *)0),
+  tmp___1 = ldv__builtin_expect((unsigned long )cmd == (unsigned long )((uint8_t *)0),
                              0L);
 #line 664
   if (tmp___1 != 0L) {
@@ -41231,7 +41231,7 @@ static int vmw_surface_init(struct vmw_private *dev_priv , struct vmw_surface *s
 #line 702
   res = & srf->res;
 #line 704
-  tmp = __builtin_expect((unsigned long )res_free == (unsigned long )((void (*)(struct vmw_resource * ))0),
+  tmp = ldv__builtin_expect((unsigned long )res_free == (unsigned long )((void (*)(struct vmw_resource * ))0),
                          0L);
 #line 704
   if (tmp != 0L) {
@@ -41249,7 +41249,7 @@ static int vmw_surface_init(struct vmw_private *dev_priv , struct vmw_surface *s
 #line 706
   ret = vmw_resource_init(dev_priv, res, 1, res_free, & vmw_legacy_surface_func);
 #line 709
-  tmp___0 = __builtin_expect(ret != 0, 0L);
+  tmp___0 = ldv__builtin_expect(ret != 0, 0L);
 #line 709
   if (tmp___0 != 0L) {
 #line 710
@@ -41432,7 +41432,7 @@ int vmw_surface_define_ioctl(struct drm_device *dev , void *data , struct drm_fi
 #line 825
   vmaster = tmp___2;
 #line 828
-  tmp___4 = __builtin_expect(vmw_user_surface_size == 0ULL, 0L);
+  tmp___4 = ldv__builtin_expect(vmw_user_surface_size == 0ULL, 0L);
 #line 828
   if (tmp___4 != 0L) {
 #line 829
@@ -41479,7 +41479,7 @@ int vmw_surface_define_ioctl(struct drm_device *dev , void *data , struct drm_fi
 #line 845
   desc = svga3dsurface_get_desc((SVGA3dSurfaceFormat )req->format);
 #line 846
-  tmp___7 = __builtin_expect((unsigned int )desc->block_desc == 0U, 0L);
+  tmp___7 = ldv__builtin_expect((unsigned int )desc->block_desc == 0U, 0L);
 #line 846
   if (tmp___7 != 0L) {
 #line 847
@@ -41492,7 +41492,7 @@ int vmw_surface_define_ioctl(struct drm_device *dev , void *data , struct drm_fi
 #line 851
   ret = ttm_read_lock(& vmaster->lock, 1);
 #line 852
-  tmp___8 = __builtin_expect(ret != 0, 0L);
+  tmp___8 = ldv__builtin_expect(ret != 0, 0L);
 #line 852
   if (tmp___8 != 0L) {
 #line 853
@@ -41505,7 +41505,7 @@ int vmw_surface_define_ioctl(struct drm_device *dev , void *data , struct drm_fi
 #line 855
   ret = ttm_mem_global_alloc(tmp___9, (uint64_t )size, 0, 1);
 #line 857
-  tmp___10 = __builtin_expect(ret != 0, 0L);
+  tmp___10 = ldv__builtin_expect(ret != 0, 0L);
 #line 857
   if (tmp___10 != 0L) {
 #line 858
@@ -41525,7 +41525,7 @@ int vmw_surface_define_ioctl(struct drm_device *dev , void *data , struct drm_fi
 #line 864
   user_srf = (struct vmw_user_surface *)tmp___11;
 #line 865
-  tmp___12 = __builtin_expect((unsigned long )user_srf == (unsigned long )((struct vmw_user_surface *)0),
+  tmp___12 = ldv__builtin_expect((unsigned long )user_srf == (unsigned long )((struct vmw_user_surface *)0),
                               0L);
 #line 865
   if (tmp___12 != 0L) {
@@ -41567,7 +41567,7 @@ int vmw_surface_define_ioctl(struct drm_device *dev , void *data , struct drm_fi
 #line 881
   srf->sizes = (struct drm_vmw_size *)tmp___13;
 #line 882
-  tmp___14 = __builtin_expect((unsigned long )srf->sizes == (unsigned long )((struct drm_vmw_size *)0),
+  tmp___14 = ldv__builtin_expect((unsigned long )srf->sizes == (unsigned long )((struct drm_vmw_size *)0),
                               0L);
 #line 882
   if (tmp___14 != 0L) {
@@ -41583,7 +41583,7 @@ int vmw_surface_define_ioctl(struct drm_device *dev , void *data , struct drm_fi
 #line 886
   srf->offsets = (struct vmw_surface_offset *)tmp___15;
 #line 888
-  tmp___16 = __builtin_expect((unsigned long )srf->sizes == (unsigned long )((struct drm_vmw_size *)0),
+  tmp___16 = ldv__builtin_expect((unsigned long )srf->sizes == (unsigned long )((struct drm_vmw_size *)0),
                               0L);
 #line 888
   if (tmp___16 != 0L) {
@@ -41601,7 +41601,7 @@ int vmw_surface_define_ioctl(struct drm_device *dev , void *data , struct drm_fi
 #line 896
   ret = (int )tmp___17;
 #line 898
-  tmp___18 = __builtin_expect(ret != 0, 0L);
+  tmp___18 = ldv__builtin_expect(ret != 0, 0L);
 #line 898
   if (tmp___18 != 0L) {
 #line 899
@@ -41709,7 +41709,7 @@ int vmw_surface_define_ioctl(struct drm_device *dev , void *data , struct drm_fi
 #line 954
   ret = vmw_surface_init(dev_priv, srf, & vmw_user_surface_free);
 #line 955
-  tmp___22 = __builtin_expect(ret != 0, 0L);
+  tmp___22 = ldv__builtin_expect(ret != 0, 0L);
 #line 955
   if (tmp___22 != 0L) {
 #line 956
@@ -41723,7 +41723,7 @@ int vmw_surface_define_ioctl(struct drm_device *dev , void *data , struct drm_fi
   ret = ttm_base_object_init(tfile, & user_srf->base, req->shareable != 0, 257, & vmw_user_surface_base_release,
                              0);
 #line 963
-  tmp___23 = __builtin_expect(ret != 0, 0L);
+  tmp___23 = ldv__builtin_expect(ret != 0, 0L);
 #line 963
   if (tmp___23 != 0L) {
 #line 964
@@ -41800,7 +41800,7 @@ int vmw_surface_reference_ioctl(struct drm_device *dev , void *data , struct drm
 #line 1009
   base = ttm_base_object_lookup(tfile, (uint32_t )req->sid);
 #line 1010
-  tmp___0 = __builtin_expect((unsigned long )base == (unsigned long )((struct ttm_base_object *)0),
+  tmp___0 = ldv__builtin_expect((unsigned long )base == (unsigned long )((struct ttm_base_object *)0),
                              0L);
 #line 1010
   if (tmp___0 != 0L) {
@@ -41812,7 +41812,7 @@ int vmw_surface_reference_ioctl(struct drm_device *dev , void *data , struct drm
 
   }
 #line 1015
-  tmp___1 = __builtin_expect((unsigned int )base->object_type != 257U, 0L);
+  tmp___1 = ldv__builtin_expect((unsigned int )base->object_type != 257U, 0L);
 #line 1015
   if (tmp___1 != 0L) {
 #line 1016
@@ -41829,7 +41829,7 @@ int vmw_surface_reference_ioctl(struct drm_device *dev , void *data , struct drm
 #line 1021
   ret = ttm_ref_object_add(tfile, & user_srf->base, 0, 0);
 #line 1022
-  tmp___2 = __builtin_expect(ret != 0, 0L);
+  tmp___2 = ldv__builtin_expect(ret != 0, 0L);
 #line 1022
   if (tmp___2 != 0L) {
 #line 1023
@@ -41865,7 +41865,7 @@ int vmw_surface_reference_ioctl(struct drm_device *dev , void *data , struct drm
 
   }
 #line 1036
-  tmp___3 = __builtin_expect(ret != 0, 0L);
+  tmp___3 = ldv__builtin_expect(ret != 0, 0L);
 #line 1036
   if (tmp___3 != 0L) {
 #line 1037
@@ -42231,7 +42231,7 @@ __inline static void ldv_error(void)
 #line 25
 extern int __VERIFIER_nondet_int(void) ;
 #line 49 "/home/zakharov/workspace/instruments/ldv/kernel-rules/verifier/rcv.h"
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
   {

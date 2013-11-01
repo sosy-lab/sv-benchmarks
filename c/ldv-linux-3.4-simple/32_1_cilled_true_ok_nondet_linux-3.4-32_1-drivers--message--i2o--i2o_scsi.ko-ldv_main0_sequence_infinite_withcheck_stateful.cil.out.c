@@ -4958,7 +4958,7 @@ struct i2o_scsi_host {
 #line 1 "<compiler builtins>"
 
 #line 1
-long __builtin_expect(long val , long res ) ;
+long ldv__builtin_expect(long val , long res ) ;
 #line 100 "include/linux/printk.h"
 extern int ( /* format attribute */  printk)(char const   *fmt  , ...) ;
 #line 34 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/string_64.h"
@@ -5009,7 +5009,7 @@ __inline static long __attribute__((__warn_unused_result__))  IS_ERR(void const 
 #line 34
   __cil_tmp7 = (long )__cil_tmp6;
 #line 34
-  tmp = __builtin_expect(__cil_tmp7, 0L);
+  tmp = ldv__builtin_expect(__cil_tmp7, 0L);
   }
 #line 34
   return (tmp);
@@ -5281,7 +5281,7 @@ __inline static struct i2o_message *i2o_msg_get(struct i2o_controller *c )
 #line 846
   __cil_tmp26 = (long )__cil_tmp25;
 #line 846
-  tmp___11 = __builtin_expect(__cil_tmp26, 0L);
+  tmp___11 = ldv__builtin_expect(__cil_tmp26, 0L);
   }
 #line 846
   if (tmp___11) {
@@ -7171,7 +7171,7 @@ static int i2o_scsi_reply(struct i2o_controller *c , u32 m , struct i2o_message 
 #line 353
   __cil_tmp25 = (long )__cil_tmp24;
 #line 353
-  tmp___8 = __builtin_expect(__cil_tmp25, 0L);
+  tmp___8 = ldv__builtin_expect(__cil_tmp25, 0L);
   }
 #line 353
   if (tmp___8) {
@@ -7767,7 +7767,7 @@ static int i2o_scsi_queuecommand_lck(struct scsi_cmnd *SCpnt , void (*done)(stru
 #line 534
   __cil_tmp34 = (long )__cil_tmp33;
 #line 534
-  tmp___7 = __builtin_expect(__cil_tmp34, 0L);
+  tmp___7 = ldv__builtin_expect(__cil_tmp34, 0L);
   }
 #line 534
   if (tmp___7) {
@@ -8985,7 +8985,7 @@ void ldv_check_final_state(void)
 }
 }
 #line 1442 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/1078/dscv_tempdir/dscv/ri/32_1/drivers/message/i2o/i2o_scsi.c.common.c"
-long __builtin_expect(long val , long res ) 
+long ldv__builtin_expect(long val , long res ) 
 { 
 
   {

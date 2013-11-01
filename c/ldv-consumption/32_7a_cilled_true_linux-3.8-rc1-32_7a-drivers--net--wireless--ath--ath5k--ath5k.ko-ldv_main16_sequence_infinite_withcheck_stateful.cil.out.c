@@ -15169,7 +15169,7 @@ void ldv_mutex_unlock_49(struct mutex *ldv_func_arg1 )
 }
 }
 #line 1 "<compiler builtins>"
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 #line 55 "/home/mikhail/launches/cpachecker-regression2/launcher-working-dir/ldv-manager-work-dir/inst/current/envs/linux-3.8-rc1/linux-3.8-rc1/arch/x86/include/asm/string_64.h"
 extern void *memset(void * , int  , size_t  ) ;
 #line 71 "include/asm-generic/bug.h"
@@ -15225,7 +15225,7 @@ static int ath5k_hw_setup_2word_tx_desc(struct ath5k_hw *ah , struct ath5k_desc 
 #line 122
   tx_ctl = & desc->ud.ds_tx5210.tx_ctl;
 #line 130
-  tmp___1 = __builtin_expect(tx_tries0 == 0U, 0L);
+  tmp___1 = ldv__builtin_expect(tx_tries0 == 0U, 0L);
 #line 130
   if (tmp___1 != 0L) {
 #line 131
@@ -15240,7 +15240,7 @@ static int ath5k_hw_setup_2word_tx_desc(struct ath5k_hw *ah , struct ath5k_desc 
 #line 132
     __ret_warn_on = 1;
 #line 132
-    tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 132
     if (tmp___0 != 0L) {
 #line 132
@@ -15250,14 +15250,14 @@ static int ath5k_hw_setup_2word_tx_desc(struct ath5k_hw *ah , struct ath5k_desc 
 
     }
 #line 132
-    __builtin_expect(__ret_warn_on != 0, 0L);
+    ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 133
     return (-22);
   } else {
 
   }
 #line 135
-  tmp___4 = __builtin_expect(tx_rate0 == 0U, 0L);
+  tmp___4 = ldv__builtin_expect(tx_rate0 == 0U, 0L);
 #line 135
   if (tmp___4 != 0L) {
 #line 136
@@ -15272,7 +15272,7 @@ static int ath5k_hw_setup_2word_tx_desc(struct ath5k_hw *ah , struct ath5k_desc 
 #line 137
     __ret_warn_on___0 = 1;
 #line 137
-    tmp___3 = __builtin_expect(__ret_warn_on___0 != 0, 0L);
+    tmp___3 = ldv__builtin_expect(__ret_warn_on___0 != 0, 0L);
 #line 137
     if (tmp___3 != 0L) {
 #line 137
@@ -15282,7 +15282,7 @@ static int ath5k_hw_setup_2word_tx_desc(struct ath5k_hw *ah , struct ath5k_desc 
 
     }
 #line 137
-    __builtin_expect(__ret_warn_on___0 != 0, 0L);
+    ldv__builtin_expect(__ret_warn_on___0 != 0, 0L);
 #line 138
     return (-22);
   } else {
@@ -15460,7 +15460,7 @@ static int ath5k_hw_setup_4word_tx_desc(struct ath5k_hw *ah , struct ath5k_desc 
 #line 293
   tx_ctl = & desc->ud.ds_tx5212.tx_ctl;
 #line 301
-  tmp___1 = __builtin_expect(tx_tries0 == 0U, 0L);
+  tmp___1 = ldv__builtin_expect(tx_tries0 == 0U, 0L);
 #line 301
   if (tmp___1 != 0L) {
 #line 302
@@ -15475,7 +15475,7 @@ static int ath5k_hw_setup_4word_tx_desc(struct ath5k_hw *ah , struct ath5k_desc 
 #line 303
     __ret_warn_on = 1;
 #line 303
-    tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 303
     if (tmp___0 != 0L) {
 #line 303
@@ -15485,14 +15485,14 @@ static int ath5k_hw_setup_4word_tx_desc(struct ath5k_hw *ah , struct ath5k_desc 
 
     }
 #line 303
-    __builtin_expect(__ret_warn_on != 0, 0L);
+    ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 304
     return (-22);
   } else {
 
   }
 #line 306
-  tmp___4 = __builtin_expect(tx_rate0 == 0U, 0L);
+  tmp___4 = ldv__builtin_expect(tx_rate0 == 0U, 0L);
 #line 306
   if (tmp___4 != 0L) {
 #line 307
@@ -15507,7 +15507,7 @@ static int ath5k_hw_setup_4word_tx_desc(struct ath5k_hw *ah , struct ath5k_desc 
 #line 308
     __ret_warn_on___0 = 1;
 #line 308
-    tmp___3 = __builtin_expect(__ret_warn_on___0 != 0, 0L);
+    tmp___3 = ldv__builtin_expect(__ret_warn_on___0 != 0, 0L);
 #line 308
     if (tmp___3 != 0L) {
 #line 308
@@ -15517,7 +15517,7 @@ static int ath5k_hw_setup_4word_tx_desc(struct ath5k_hw *ah , struct ath5k_desc 
 
     }
 #line 308
-    __builtin_expect(__ret_warn_on___0 != 0, 0L);
+    ldv__builtin_expect(__ret_warn_on___0 != 0, 0L);
 #line 309
     return (-22);
   } else {
@@ -15679,11 +15679,11 @@ int ath5k_hw_setup_mrr_tx_desc(struct ath5k_hw *ah , struct ath5k_desc *desc , u
 
   }
 #line 428
-  tmp___1 = __builtin_expect(tx_rate1 == 0U, 0L);
+  tmp___1 = ldv__builtin_expect(tx_rate1 == 0U, 0L);
 #line 428
   if (tmp___1 != 0L) {
 #line 428
-    tmp___2 = __builtin_expect(tx_tries1 != 0U, 0L);
+    tmp___2 = ldv__builtin_expect(tx_tries1 != 0U, 0L);
 #line 428
     if (tmp___2 != 0L) {
 #line 428
@@ -15702,11 +15702,11 @@ int ath5k_hw_setup_mrr_tx_desc(struct ath5k_hw *ah , struct ath5k_desc *desc , u
     tmp___7 = 1;
   } else {
 #line 428
-    tmp___4 = __builtin_expect(tx_rate2 == 0U, 0L);
+    tmp___4 = ldv__builtin_expect(tx_rate2 == 0U, 0L);
 #line 428
     if (tmp___4 != 0L) {
 #line 428
-      tmp___5 = __builtin_expect(tx_tries2 != 0U, 0L);
+      tmp___5 = ldv__builtin_expect(tx_tries2 != 0U, 0L);
 #line 428
       if (tmp___5 != 0L) {
 #line 428
@@ -15734,11 +15734,11 @@ int ath5k_hw_setup_mrr_tx_desc(struct ath5k_hw *ah , struct ath5k_desc *desc , u
     goto _L;
   } else {
 #line 428
-    tmp___8 = __builtin_expect(tx_rate3 == 0U, 0L);
+    tmp___8 = ldv__builtin_expect(tx_rate3 == 0U, 0L);
 #line 428
     if (tmp___8 != 0L) {
 #line 428
-      tmp___9 = __builtin_expect(tx_tries3 != 0U, 0L);
+      tmp___9 = ldv__builtin_expect(tx_tries3 != 0U, 0L);
 #line 428
       if (tmp___9 != 0L) {
 #line 428
@@ -15766,7 +15766,7 @@ int ath5k_hw_setup_mrr_tx_desc(struct ath5k_hw *ah , struct ath5k_desc *desc , u
 #line 432
       __ret_warn_on = 1;
 #line 432
-      tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+      tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 432
       if (tmp___0 != 0L) {
 #line 432
@@ -15776,7 +15776,7 @@ int ath5k_hw_setup_mrr_tx_desc(struct ath5k_hw *ah , struct ath5k_desc *desc , u
 
       }
 #line 432
-      __builtin_expect(__ret_warn_on != 0, 0L);
+      ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 433
       return (-22);
     } else {
@@ -15834,7 +15834,7 @@ static int ath5k_hw_proc_2word_tx_status(struct ath5k_hw *ah , struct ath5k_desc
 #line 479
   tx_status = & desc->ud.ds_tx5210.tx_stat;
 #line 482
-  tmp = __builtin_expect((tx_status->tx_status_1 & 1U) == 0U, 0L);
+  tmp = ldv__builtin_expect((tx_status->tx_status_1 & 1U) == 0U, 0L);
 #line 482
   if (tmp != 0L) {
 #line 483
@@ -15903,7 +15903,7 @@ static int ath5k_hw_proc_4word_tx_status(struct ath5k_hw *ah , struct ath5k_desc
 #line 534
   txstat1 = *((u32 volatile   *)(& tx_status->tx_status_1));
 #line 537
-  tmp = __builtin_expect((txstat1 & 1U) == 0U, 0L);
+  tmp = ldv__builtin_expect((txstat1 & 1U) == 0U, 0L);
 #line 537
   if (tmp != 0L) {
 #line 538
@@ -15972,7 +15972,7 @@ int ath5k_hw_setup_rx_desc(struct ath5k_hw *ah , struct ath5k_desc *desc , u32 s
 #line 605
   memset((void *)(& desc->ud.ds_rx), 0, 16UL);
 #line 607
-  tmp = __builtin_expect((size & 4294963200U) != 0U, 0L);
+  tmp = ldv__builtin_expect((size & 4294963200U) != 0U, 0L);
 #line 607
   if (tmp != 0L) {
 #line 608
@@ -16004,7 +16004,7 @@ static int ath5k_hw_proc_5210_rx_status(struct ath5k_hw *ah , struct ath5k_desc 
 #line 638
   rx_status = & desc->ud.ds_rx.rx_stat;
 #line 641
-  tmp = __builtin_expect((rx_status->rx_status_1 & 1U) == 0U, 0L);
+  tmp = ldv__builtin_expect((rx_status->rx_status_1 & 1U) == 0U, 0L);
 #line 641
   if (tmp != 0L) {
 #line 643
@@ -16094,7 +16094,7 @@ static int ath5k_hw_proc_5212_rx_status(struct ath5k_hw *ah , struct ath5k_desc 
 #line 734
   rxstat1 = *((u32 volatile   *)(& rx_status->rx_status_1));
 #line 737
-  tmp = __builtin_expect((rxstat1 & 1U) == 0U, 0L);
+  tmp = ldv__builtin_expect((rxstat1 & 1U) == 0U, 0L);
 #line 737
   if (tmp != 0L) {
 #line 738
@@ -16404,13 +16404,13 @@ static int ath5k_hw_stop_rx_dma(struct ath5k_hw *ah )
 #line 104
   if (i == 0U) {
 #line 105
-    tmp___0 = __builtin_expect((ah->debug.level & 2048U) != 0U, 0L);
+    tmp___0 = ldv__builtin_expect((ah->debug.level & 2048U) != 0U, 0L);
 #line 105
     if (tmp___0 != 0L) {
 #line 105
       tmp___1 = net_ratelimit();
 #line 105
-      tmp___2 = __builtin_expect(tmp___1 != 0, 0L);
+      tmp___2 = ldv__builtin_expect(tmp___1 != 0, 0L);
 #line 105
       if (tmp___2 != 0L) {
 #line 105
@@ -16455,13 +16455,13 @@ int ath5k_hw_set_rxdp(struct ath5k_hw *ah , u32 phys_addr )
 #line 131
   if ((tmp___2 & 4U) != 0U) {
 #line 132
-    tmp = __builtin_expect((ah->debug.level & 2048U) != 0U, 0L);
+    tmp = ldv__builtin_expect((ah->debug.level & 2048U) != 0U, 0L);
 #line 132
     if (tmp != 0L) {
 #line 132
       tmp___0 = net_ratelimit();
 #line 132
-      tmp___1 = __builtin_expect(tmp___0 != 0, 0L);
+      tmp___1 = ldv__builtin_expect(tmp___0 != 0, 0L);
 #line 132
       if (tmp___1 != 0L) {
 #line 132
@@ -16665,13 +16665,13 @@ static int ath5k_hw_stop_tx_dma(struct ath5k_hw *ah , unsigned int queue )
 #line 273
     if ((tmp___4 & (u32 )(1 << (int )queue)) != 0U) {
 #line 274
-      tmp___1 = __builtin_expect((ah->debug.level & 2048U) != 0U, 0L);
+      tmp___1 = ldv__builtin_expect((ah->debug.level & 2048U) != 0U, 0L);
 #line 274
       if (tmp___1 != 0L) {
 #line 274
         tmp___2 = net_ratelimit();
 #line 274
-        tmp___3 = __builtin_expect(tmp___2 != 0, 0L);
+        tmp___3 = ldv__builtin_expect(tmp___2 != 0, 0L);
 #line 274
         if (tmp___3 != 0L) {
 #line 274
@@ -16748,13 +16748,13 @@ static int ath5k_hw_stop_tx_dma(struct ath5k_hw *ah , unsigned int queue )
 #line 325
       if (pending != 0U) {
 #line 326
-        tmp___11 = __builtin_expect((ah->debug.level & 2048U) != 0U, 0L);
+        tmp___11 = ldv__builtin_expect((ah->debug.level & 2048U) != 0U, 0L);
 #line 326
         if (tmp___11 != 0L) {
 #line 326
           tmp___12 = net_ratelimit();
 #line 326
-          tmp___13 = __builtin_expect(tmp___12 != 0, 0L);
+          tmp___13 = ldv__builtin_expect(tmp___12 != 0, 0L);
 #line 326
           if (tmp___13 != 0L) {
 #line 326
@@ -16781,13 +16781,13 @@ static int ath5k_hw_stop_tx_dma(struct ath5k_hw *ah , unsigned int queue )
 #line 339
     if (pending != 0U) {
 #line 340
-      tmp___15 = __builtin_expect((ah->debug.level & 2048U) != 0U, 0L);
+      tmp___15 = ldv__builtin_expect((ah->debug.level & 2048U) != 0U, 0L);
 #line 340
       if (tmp___15 != 0L) {
 #line 340
         tmp___16 = net_ratelimit();
 #line 340
-        tmp___17 = __builtin_expect(tmp___16 != 0, 0L);
+        tmp___17 = ldv__builtin_expect(tmp___16 != 0, 0L);
 #line 340
         if (tmp___17 != 0L) {
 #line 340
@@ -16823,13 +16823,13 @@ int ath5k_hw_stop_beacon_queue(struct ath5k_hw *ah , unsigned int queue )
 #line 363
   if (ret != 0) {
 #line 364
-    tmp = __builtin_expect((ah->debug.level & 2048U) != 0U, 0L);
+    tmp = ldv__builtin_expect((ah->debug.level & 2048U) != 0U, 0L);
 #line 364
     if (tmp != 0L) {
 #line 364
       tmp___0 = net_ratelimit();
 #line 364
-      tmp___1 = __builtin_expect(tmp___0 != 0, 0L);
+      tmp___1 = ldv__builtin_expect(tmp___0 != 0, 0L);
 #line 364
       if (tmp___1 != 0L) {
 #line 364
@@ -17049,7 +17049,7 @@ int ath5k_hw_get_isr(struct ath5k_hw *ah , enum ath5k_int *interrupt_mask )
 #line 570
     isr = ath5k_hw_reg_read(ah, 28);
 #line 571
-    tmp = __builtin_expect(isr == 4294967295U, 0L);
+    tmp = ldv__builtin_expect(isr == 4294967295U, 0L);
 #line 571
     if (tmp != 0L) {
 #line 572
@@ -17062,7 +17062,7 @@ int ath5k_hw_get_isr(struct ath5k_hw *ah , enum ath5k_int *interrupt_mask )
 #line 580
     *interrupt_mask = (enum ath5k_int )(((u32 )ah->ah_imr & isr) & 2164785151U);
 #line 583
-    tmp___0 = __builtin_expect((isr & 7340032U) != 0U, 0L);
+    tmp___0 = ldv__builtin_expect((isr & 7340032U) != 0U, 0L);
 #line 583
     if (tmp___0 != 0L) {
 #line 585
@@ -17090,7 +17090,7 @@ int ath5k_hw_get_isr(struct ath5k_hw *ah , enum ath5k_int *interrupt_mask )
 #line 606
     pisr = ath5k_hw_reg_read(ah, 128);
 #line 607
-    tmp___1 = __builtin_expect(pisr == 4294967295U, 0L);
+    tmp___1 = ldv__builtin_expect(pisr == 4294967295U, 0L);
 #line 607
     if (tmp___1 != 0L) {
 #line 608
@@ -17211,7 +17211,7 @@ int ath5k_hw_get_isr(struct ath5k_hw *ah , enum ath5k_int *interrupt_mask )
 
     }
 #line 726
-    tmp___2 = __builtin_expect((pisr & 524288U) != 0U, 0L);
+    tmp___2 = ldv__builtin_expect((pisr & 524288U) != 0U, 0L);
 #line 726
     if (tmp___2 != 0L) {
 #line 727
@@ -17220,7 +17220,7 @@ int ath5k_hw_get_isr(struct ath5k_hw *ah , enum ath5k_int *interrupt_mask )
 
     }
 #line 730
-    tmp___3 = __builtin_expect((pisr & 1048576U) != 0U, 0L);
+    tmp___3 = ldv__builtin_expect((pisr & 1048576U) != 0U, 0L);
 #line 730
     if (tmp___3 != 0L) {
 #line 731
@@ -17229,7 +17229,7 @@ int ath5k_hw_get_isr(struct ath5k_hw *ah , enum ath5k_int *interrupt_mask )
 
     }
 #line 734
-    tmp___4 = __builtin_expect((pisr & 33554432U) != 0U, 0L);
+    tmp___4 = ldv__builtin_expect((pisr & 33554432U) != 0U, 0L);
 #line 734
     if (tmp___4 != 0L) {
 #line 735
@@ -17240,7 +17240,7 @@ int ath5k_hw_get_isr(struct ath5k_hw *ah , enum ath5k_int *interrupt_mask )
 
     }
 #line 741
-    tmp___5 = __builtin_expect((pisr & 67108864U) != 0U, 0L);
+    tmp___5 = ldv__builtin_expect((pisr & 67108864U) != 0U, 0L);
 #line 741
     if (tmp___5 != 0L) {
 #line 742
@@ -17251,7 +17251,7 @@ int ath5k_hw_get_isr(struct ath5k_hw *ah , enum ath5k_int *interrupt_mask )
 
     }
 #line 748
-    tmp___6 = __builtin_expect((pisr & 134217728U) != 0U, 0L);
+    tmp___6 = ldv__builtin_expect((pisr & 134217728U) != 0U, 0L);
 #line 748
     if (tmp___6 != 0L) {
 #line 749
@@ -17265,13 +17265,13 @@ int ath5k_hw_get_isr(struct ath5k_hw *ah , enum ath5k_int *interrupt_mask )
     data = pisr;
   }
 #line 761
-  tmp___7 = __builtin_expect((unsigned int )*interrupt_mask == 0U, 0L);
+  tmp___7 = ldv__builtin_expect((unsigned int )*interrupt_mask == 0U, 0L);
 #line 761
   if (tmp___7 != 0L) {
 #line 761
     tmp___8 = net_ratelimit();
 #line 761
-    tmp___9 = __builtin_expect(tmp___8 != 0, 0L);
+    tmp___9 = ldv__builtin_expect(tmp___8 != 0, 0L);
 #line 761
     if (tmp___9 != 0L) {
 #line 762
@@ -17761,7 +17761,7 @@ void ath5k_hw_release_tx_queue(struct ath5k_hw *ah , unsigned int queue )
 #line 127
   __ret_warn_on = (unsigned int )ah->ah_capabilities.cap_queues.q_tx_num <= queue;
 #line 127
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 127
   if (tmp != 0L) {
 #line 127
@@ -17771,7 +17771,7 @@ void ath5k_hw_release_tx_queue(struct ath5k_hw *ah , unsigned int queue )
 
   }
 #line 127
-  tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 127
   if (tmp___0 != 0L) {
 #line 128
@@ -18636,7 +18636,7 @@ __inline static unsigned long arch_local_save_flags(void)
 #line 825
   __eax = __eax;
 #line 825
-  tmp = __builtin_expect((unsigned long )pv_irq_ops.save_fl.func == (unsigned long )((void *)0),
+  tmp = ldv__builtin_expect((unsigned long )pv_irq_ops.save_fl.func == (unsigned long )((void *)0),
                          0L);
 #line 825
   if (tmp != 0L) {
@@ -18681,7 +18681,7 @@ __inline static void arch_local_irq_restore(unsigned long f )
 #line 830
   __eax = __eax;
 #line 830
-  tmp = __builtin_expect((unsigned long )pv_irq_ops.restore_fl.func == (unsigned long )((void *)0),
+  tmp = ldv__builtin_expect((unsigned long )pv_irq_ops.restore_fl.func == (unsigned long )((void *)0),
                          0L);
 #line 830
   if (tmp != 0L) {
@@ -18724,7 +18724,7 @@ __inline static void arch_local_irq_disable(void)
 #line 835
   __eax = __eax;
 #line 835
-  tmp = __builtin_expect((unsigned long )pv_irq_ops.irq_disable.func == (unsigned long )((void *)0),
+  tmp = ldv__builtin_expect((unsigned long )pv_irq_ops.irq_disable.func == (unsigned long )((void *)0),
                          0L);
 #line 835
   if (tmp != 0L) {
@@ -19513,7 +19513,7 @@ u64 ath5k_hw_get_tsf64(struct ath5k_hw *ah )
 #line 622
   __ret_warn_on = i == 10;
 #line 622
-  tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 622
   if (tmp___0 != 0L) {
 #line 622
@@ -19523,7 +19523,7 @@ u64 ath5k_hw_get_tsf64(struct ath5k_hw *ah )
 
   }
 #line 622
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 624
   return (((unsigned long long )tsf_upper1 << 32) | (unsigned long long )tsf_lower);
 }
@@ -19792,13 +19792,13 @@ int ath5k_hw_set_opmode(struct ath5k_hw *ah , enum nl80211_iftype op_mode )
 #line 906
   common = tmp;
 #line 909
-  tmp___0 = __builtin_expect((ah->debug.level & 4U) != 0U, 0L);
+  tmp___0 = ldv__builtin_expect((ah->debug.level & 4U) != 0U, 0L);
 #line 909
   if (tmp___0 != 0L) {
 #line 909
     tmp___1 = net_ratelimit();
 #line 909
-    tmp___2 = __builtin_expect(tmp___1 != 0, 0L);
+    tmp___2 = ldv__builtin_expect(tmp___1 != 0, 0L);
 #line 909
     if (tmp___2 != 0L) {
 #line 909
@@ -21426,14 +21426,14 @@ __inline static int ath5k_hw_write_ofdm_timings(struct ath5k_hw *ah , struct iee
 
   {
 #line 323
-  tmp = __builtin_expect((unsigned int )ah->ah_version != 2U, 0L);
+  tmp = ldv__builtin_expect((unsigned int )ah->ah_version != 2U, 0L);
 #line 323
   if (tmp != 0L) {
 #line 323
     goto _L;
   } else {
 #line 323
-    tmp___0 = __builtin_expect((unsigned int )channel->hw_value == 1U, 0L);
+    tmp___0 = ldv__builtin_expect((unsigned int )channel->hw_value == 1U, 0L);
 #line 323
     if (tmp___0 != 0L) {
       _L: /* CIL Label */ 
@@ -21869,13 +21869,13 @@ static s8 ath5k_hw_rf_gainf_adjust(struct ath5k_hw *ah )
   }
   done: 
 #line 695
-  tmp = __builtin_expect((ah->debug.level & 32U) != 0U, 0L);
+  tmp = ldv__builtin_expect((ah->debug.level & 32U) != 0U, 0L);
 #line 695
   if (tmp != 0L) {
 #line 695
     tmp___0 = net_ratelimit();
 #line 695
-    tmp___1 = __builtin_expect(tmp___0 != 0, 0L);
+    tmp___1 = ldv__builtin_expect(tmp___0 != 0, 0L);
 #line 695
     if (tmp___1 != 0L) {
 #line 695
@@ -23020,13 +23020,13 @@ static s16 ath5k_hw_get_median_noise_floor(struct ath5k_hw *ah )
   goto ldv_43497;
   ldv_43496: 
 #line 1614
-  tmp___0 = __builtin_expect((ah->debug.level & 32U) != 0U, 0L);
+  tmp___0 = ldv__builtin_expect((ah->debug.level & 32U) != 0U, 0L);
 #line 1614
   if (tmp___0 != 0L) {
 #line 1614
     tmp___1 = net_ratelimit();
 #line 1614
-    tmp___2 = __builtin_expect(tmp___1 != 0, 0L);
+    tmp___2 = ldv__builtin_expect(tmp___1 != 0, 0L);
 #line 1614
     if (tmp___2 != 0L) {
 #line 1614
@@ -23085,13 +23085,13 @@ void ath5k_hw_update_noise_floor(struct ath5k_hw *ah )
 #line 1637
   if ((tmp___2 & 2U) != 0U) {
 #line 1638
-    tmp = __builtin_expect((ah->debug.level & 32U) != 0U, 0L);
+    tmp = ldv__builtin_expect((ah->debug.level & 32U) != 0U, 0L);
 #line 1638
     if (tmp != 0L) {
 #line 1638
       tmp___0 = net_ratelimit();
 #line 1638
-      tmp___1 = __builtin_expect(tmp___0 != 0, 0L);
+      tmp___1 = ldv__builtin_expect(tmp___0 != 0, 0L);
 #line 1638
       if (tmp___1 != 0L) {
 #line 1638
@@ -23123,13 +23123,13 @@ void ath5k_hw_update_noise_floor(struct ath5k_hw *ah )
 #line 1652
   if ((int )nf > (int )threshold) {
 #line 1653
-    tmp___5 = __builtin_expect((ah->debug.level & 32U) != 0U, 0L);
+    tmp___5 = ldv__builtin_expect((ah->debug.level & 32U) != 0U, 0L);
 #line 1653
     if (tmp___5 != 0L) {
 #line 1653
       tmp___6 = net_ratelimit();
 #line 1653
-      tmp___7 = __builtin_expect(tmp___6 != 0, 0L);
+      tmp___7 = ldv__builtin_expect(tmp___6 != 0, 0L);
 #line 1653
       if (tmp___7 != 0L) {
 #line 1653
@@ -23177,13 +23177,13 @@ void ath5k_hw_update_noise_floor(struct ath5k_hw *ah )
 #line 1690
   ah->ah_cal_mask = (unsigned int )ah->ah_cal_mask & 251U;
 #line 1692
-  tmp___11 = __builtin_expect((ah->debug.level & 32U) != 0U, 0L);
+  tmp___11 = ldv__builtin_expect((ah->debug.level & 32U) != 0U, 0L);
 #line 1692
   if (tmp___11 != 0L) {
 #line 1692
     tmp___12 = net_ratelimit();
 #line 1692
-    tmp___13 = __builtin_expect(tmp___12 != 0, 0L);
+    tmp___13 = ldv__builtin_expect(tmp___12 != 0, 0L);
 #line 1692
     if (tmp___13 != 0L) {
 #line 1692
@@ -23363,7 +23363,7 @@ static int ath5k_hw_rf511x_iq_calibrate(struct ath5k_hw *ah )
 #line 1816
     if ((tmp___0 & 65536U) != 0U) {
 #line 1817
-      tmp = __builtin_expect((ah->debug.level & 32U) != 0U, 0L);
+      tmp = ldv__builtin_expect((ah->debug.level & 32U) != 0U, 0L);
 #line 1817
       if (tmp != 0L) {
 #line 1817
@@ -23392,7 +23392,7 @@ static int ath5k_hw_rf511x_iq_calibrate(struct ath5k_hw *ah )
 #line 1829
   q_pwr = ath5k_hw_reg_read(ah, 39956);
 #line 1830
-  tmp___2 = __builtin_expect((ah->debug.level & 32U) != 0U, 0L);
+  tmp___2 = ldv__builtin_expect((ah->debug.level & 32U) != 0U, 0L);
 #line 1830
   if (tmp___2 != 0L) {
 #line 1830
@@ -23467,7 +23467,7 @@ static int ath5k_hw_rf511x_iq_calibrate(struct ath5k_hw *ah )
 #line 1858
   q_coff = __max___0 < __val___0 ? __max___0 : __val___0;
 #line 1860
-  tmp___3 = __builtin_expect((ah->debug.level & 32U) != 0U, 0L);
+  tmp___3 = ldv__builtin_expect((ah->debug.level & 32U) != 0U, 0L);
 #line 1860
   if (tmp___3 != 0L) {
 #line 1860
@@ -23523,7 +23523,7 @@ int ath5k_hw_phy_calibrate(struct ath5k_hw *ah , struct ieee80211_channel *chann
 #line 1897
   if (ret != 0) {
 #line 1898
-    tmp___0 = __builtin_expect((ah->debug.level & 32U) != 0U, 0L);
+    tmp___0 = ldv__builtin_expect((ah->debug.level & 32U) != 0U, 0L);
 #line 1898
     if (tmp___0 != 0L) {
 #line 1898
@@ -25919,13 +25919,13 @@ int ath5k_hw_set_txpower_limit(struct ath5k_hw *ah , u8 txpower )
 
   {
 #line 3771
-  tmp = __builtin_expect((ah->debug.level & 64U) != 0U, 0L);
+  tmp = ldv__builtin_expect((ah->debug.level & 64U) != 0U, 0L);
 #line 3771
   if (tmp != 0L) {
 #line 3771
     tmp___0 = net_ratelimit();
 #line 3771
-    tmp___1 = __builtin_expect(tmp___0 != 0, 0L);
+    tmp___1 = ldv__builtin_expect(tmp___0 != 0, 0L);
 #line 3771
     if (tmp___1 != 0L) {
 #line 3771
@@ -27771,13 +27771,13 @@ int ath5k_hw_reset(struct ath5k_hw *ah , enum nl80211_iftype op_mode , struct ie
 #line 1218
   if (ret != 0 && (int )fast) {
 #line 1219
-    tmp = __builtin_expect((long )((int )ah->debug.level) & 1L, 0L);
+    tmp = ldv__builtin_expect((long )((int )ah->debug.level) & 1L, 0L);
 #line 1219
     if (tmp != 0L) {
 #line 1219
       tmp___0 = net_ratelimit();
 #line 1219
-      tmp___1 = __builtin_expect(tmp___0 != 0, 0L);
+      tmp___1 = ldv__builtin_expect(tmp___0 != 0, 0L);
 #line 1219
       if (tmp___1 != 0L) {
 #line 1219
@@ -27862,13 +27862,13 @@ int ath5k_hw_reset(struct ath5k_hw *ah , enum nl80211_iftype op_mode , struct ie
 #line 1257
     if (ret != 0) {
 #line 1258
-      tmp___5 = __builtin_expect((long )((int )ah->debug.level) & 1L, 0L);
+      tmp___5 = ldv__builtin_expect((long )((int )ah->debug.level) & 1L, 0L);
 #line 1258
       if (tmp___5 != 0L) {
 #line 1258
         tmp___6 = net_ratelimit();
 #line 1258
-        tmp___7 = __builtin_expect(tmp___6 != 0, 0L);
+        tmp___7 = ldv__builtin_expect(tmp___6 != 0, 0L);
 #line 1258
         if (tmp___7 != 0L) {
 #line 1258
@@ -27884,13 +27884,13 @@ int ath5k_hw_reset(struct ath5k_hw *ah , enum nl80211_iftype op_mode , struct ie
       ret = 0;
     } else {
 #line 1264
-      tmp___8 = __builtin_expect((long )((int )ah->debug.level) & 1L, 0L);
+      tmp___8 = ldv__builtin_expect((long )((int )ah->debug.level) & 1L, 0L);
 #line 1264
       if (tmp___8 != 0L) {
 #line 1264
         tmp___9 = net_ratelimit();
 #line 1264
-        tmp___10 = __builtin_expect(tmp___9 != 0, 0L);
+        tmp___10 = ldv__builtin_expect(tmp___9 != 0, 0L);
 #line 1264
         if (tmp___10 != 0L) {
 #line 1264
@@ -29019,7 +29019,7 @@ __inline static long IS_ERR(void const   *ptr )
 
   {
 #line 34
-  tmp = __builtin_expect((unsigned long )ptr > 0xfffffffffffff000UL, 0L);
+  tmp = ldv__builtin_expect((unsigned long )ptr > 0xfffffffffffff000UL, 0L);
 #line 34
   return (tmp);
 }
@@ -29364,7 +29364,7 @@ __inline static bool static_key_false(struct static_key *key )
 #line 150
   tmp = atomic_read((atomic_t const   *)(& key->enabled));
 #line 150
-  tmp___0 = __builtin_expect(tmp != 0, 0L);
+  tmp___0 = ldv__builtin_expect(tmp != 0, 0L);
 #line 150
   if (tmp___0 > 0L) {
 #line 151
@@ -29448,7 +29448,7 @@ __inline static struct dma_map_ops *get_dma_ops(struct device *dev )
 
   {
 #line 37
-  tmp = __builtin_expect((unsigned long )dev == (unsigned long )((struct device *)0),
+  tmp = ldv__builtin_expect((unsigned long )dev == (unsigned long )((struct device *)0),
                          0L);
 #line 37
   if (tmp != 0L || (unsigned long )dev->archdata.dma_ops == (unsigned long )((struct dma_map_ops *)0)) {
@@ -29482,7 +29482,7 @@ __inline static dma_addr_t dma_map_single_attrs(struct device *dev , void *ptr ,
 #line 19
   tmp___0 = valid_dma_direction((int )dir);
 #line 19
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
 #line 19
   if (tmp___1 != 0L) {
 #line 19
@@ -29526,7 +29526,7 @@ __inline static void dma_unmap_single_attrs(struct device *dev , dma_addr_t addr
 #line 36
   tmp___0 = valid_dma_direction((int )dir);
 #line 36
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
 #line 36
   if (tmp___1 != 0L) {
 #line 36
@@ -29707,7 +29707,7 @@ __inline static void dma_free_attrs(struct device *dev , size_t size , void *vad
 #line 166
   __ret_warn_on = tmp___0 != 0;
 #line 166
-  tmp___1 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___1 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 166
   if (tmp___1 != 0L) {
 #line 166
@@ -29717,7 +29717,7 @@ __inline static void dma_free_attrs(struct device *dev , size_t size , void *vad
 
   }
 #line 166
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 171
   debug_dma_free_coherent(dev, size, vaddr, bus);
 #line 172
@@ -30027,13 +30027,13 @@ __inline static struct ieee80211_rate *ieee80211_get_tx_rate(struct ieee80211_hw
 #line 1554
   __ret_warn_once = (int )((signed char )c->ldv_41394.control.ldv_41377.ldv_41375.rates[0].idx) < 0;
 #line 1554
-  tmp___1 = __builtin_expect(__ret_warn_once != 0, 0L);
+  tmp___1 = ldv__builtin_expect(__ret_warn_once != 0, 0L);
 #line 1554
   if (tmp___1 != 0L) {
 #line 1554
     __ret_warn_on = ! __warned;
 #line 1554
-    tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 1554
     if (tmp != 0L) {
 #line 1554
@@ -30042,7 +30042,7 @@ __inline static struct ieee80211_rate *ieee80211_get_tx_rate(struct ieee80211_hw
 
     }
 #line 1554
-    tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 1554
     if (tmp___0 != 0L) {
 #line 1554
@@ -30054,7 +30054,7 @@ __inline static struct ieee80211_rate *ieee80211_get_tx_rate(struct ieee80211_hw
 
   }
 #line 1554
-  tmp___2 = __builtin_expect(__ret_warn_once != 0, 0L);
+  tmp___2 = ldv__builtin_expect(__ret_warn_once != 0, 0L);
 #line 1554
   if (tmp___2 != 0L) {
 #line 1555
@@ -31087,13 +31087,13 @@ int ath5k_chan_set(struct ath5k_hw *ah , struct ieee80211_channel *chan )
 
   {
 #line 470
-  tmp = __builtin_expect((long )((int )ah->debug.level) & 1L, 0L);
+  tmp = ldv__builtin_expect((long )((int )ah->debug.level) & 1L, 0L);
 #line 470
   if (tmp != 0L) {
 #line 470
     tmp___0 = net_ratelimit();
 #line 470
-    tmp___1 = __builtin_expect(tmp___0 != 0, 0L);
+    tmp___1 = ldv__builtin_expect(tmp___0 != 0, 0L);
 #line 470
     if (tmp___1 != 0L) {
 #line 470
@@ -31284,13 +31284,13 @@ void ath5k_update_bssid_mask_and_opmode(struct ath5k_hw *ah , struct ieee80211_v
 #line 556
   ath5k_hw_set_opmode(ah, ah->opmode);
 #line 557
-  tmp___1 = __builtin_expect((ah->debug.level & 4U) != 0U, 0L);
+  tmp___1 = ldv__builtin_expect((ah->debug.level & 4U) != 0U, 0L);
 #line 557
   if (tmp___1 != 0L) {
 #line 557
     tmp___2 = net_ratelimit();
 #line 557
-    tmp___3 = __builtin_expect(tmp___2 != 0, 0L);
+    tmp___3 = ldv__builtin_expect(tmp___2 != 0, 0L);
 #line 557
     if (tmp___3 != 0L) {
 #line 557
@@ -31331,13 +31331,13 @@ void ath5k_update_bssid_mask_and_opmode(struct ath5k_hw *ah , struct ieee80211_v
 #line 576
   ath5k_hw_set_rx_filter(ah, rfilt);
 #line 577
-  tmp___4 = __builtin_expect((ah->debug.level & 4U) != 0U, 0L);
+  tmp___4 = ldv__builtin_expect((ah->debug.level & 4U) != 0U, 0L);
 #line 577
   if (tmp___4 != 0L) {
 #line 577
     tmp___5 = net_ratelimit();
 #line 577
-    tmp___6 = __builtin_expect(tmp___5 != 0, 0L);
+    tmp___6 = ldv__builtin_expect(tmp___5 != 0, 0L);
 #line 577
     if (tmp___6 != 0L) {
 #line 577
@@ -31368,7 +31368,7 @@ __inline static int ath5k_hw_to_driver_rix(struct ath5k_hw *ah , int hw_rix )
 #line 586
   __ret_warn_on = hw_rix < 0 || hw_rix > 31;
 #line 586
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 586
   if (tmp != 0L) {
 #line 586
@@ -31378,7 +31378,7 @@ __inline static int ath5k_hw_to_driver_rix(struct ath5k_hw *ah , int hw_rix )
 
   }
 #line 586
-  tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 586
   if (tmp___0 != 0L) {
 #line 588
@@ -31391,7 +31391,7 @@ __inline static int ath5k_hw_to_driver_rix(struct ath5k_hw *ah , int hw_rix )
 #line 591
   __ret_warn_on___0 = rix < 0;
 #line 591
-  tmp___1 = __builtin_expect(__ret_warn_on___0 != 0, 0L);
+  tmp___1 = ldv__builtin_expect(__ret_warn_on___0 != 0, 0L);
 #line 591
   if (tmp___1 != 0L) {
 #line 591
@@ -31401,7 +31401,7 @@ __inline static int ath5k_hw_to_driver_rix(struct ath5k_hw *ah , int hw_rix )
 
   }
 #line 591
-  tmp___2 = __builtin_expect(__ret_warn_on___0 != 0, 0L);
+  tmp___2 = ldv__builtin_expect(__ret_warn_on___0 != 0, 0L);
 #line 591
   if (tmp___2 != 0L) {
 #line 592
@@ -31454,7 +31454,7 @@ static struct sk_buff *ath5k_rx_skb_alloc(struct ath5k_hw *ah , dma_addr_t *skb_
 #line 625
   tmp___2 = dma_mapping_error(ah->dev, *skb_addr);
 #line 625
-  tmp___3 = __builtin_expect(tmp___2 != 0, 0L);
+  tmp___3 = ldv__builtin_expect(tmp___2 != 0, 0L);
 #line 625
   if (tmp___3 != 0L) {
 #line 626
@@ -31842,13 +31842,13 @@ static int ath5k_desc_alloc(struct ath5k_hw *ah )
 #line 832
   da = ah->desc_daddr;
 #line 833
-  tmp___1 = __builtin_expect(ah->debug.level != 0U, 0L);
+  tmp___1 = ldv__builtin_expect(ah->debug.level != 0U, 0L);
 #line 833
   if (tmp___1 != 0L) {
 #line 833
     tmp___2 = net_ratelimit();
 #line 833
-    tmp___3 = __builtin_expect(tmp___2 != 0, 0L);
+    tmp___3 = ldv__builtin_expect(tmp___2 != 0, 0L);
 #line 833
     if (tmp___3 != 0L) {
 #line 833
@@ -31993,7 +31993,7 @@ void ath5k_txbuf_free_skb(struct ath5k_hw *ah , struct ath5k_buf *bf )
 
   {
 #line 879
-  tmp = __builtin_expect((unsigned long )bf == (unsigned long )((struct ath5k_buf *)0),
+  tmp = ldv__builtin_expect((unsigned long )bf == (unsigned long )((struct ath5k_buf *)0),
                          0L);
 #line 879
   if (tmp != 0L) {
@@ -32040,7 +32040,7 @@ void ath5k_rxbuf_free_skb(struct ath5k_hw *ah , struct ath5k_buf *bf )
 #line 893
   common = tmp;
 #line 895
-  tmp___0 = __builtin_expect((unsigned long )bf == (unsigned long )((struct ath5k_buf *)0),
+  tmp___0 = ldv__builtin_expect((unsigned long )bf == (unsigned long )((struct ath5k_buf *)0),
                              0L);
 #line 895
   if (tmp___0 != 0L) {
@@ -32311,13 +32311,13 @@ static int ath5k_beaconq_config(struct ath5k_hw *ah )
 
   }
 #line 1028
-  tmp = __builtin_expect((ah->debug.level & 16U) != 0U, 0L);
+  tmp = ldv__builtin_expect((ah->debug.level & 16U) != 0U, 0L);
 #line 1028
   if (tmp != 0L) {
 #line 1028
     tmp___0 = net_ratelimit();
 #line 1028
-    tmp___1 = __builtin_expect(tmp___0 != 0, 0L);
+    tmp___1 = ldv__builtin_expect(tmp___0 != 0, 0L);
 #line 1028
     if (tmp___1 != 0L) {
 #line 1028
@@ -32536,13 +32536,13 @@ static int ath5k_rx_start(struct ath5k_hw *ah )
 #line 1125
   common->rx_bufsize = (u32 )((((int )__y + 2351) / (int )__y) * (int )__y);
 #line 1127
-  tmp___0 = __builtin_expect((long )((int )ah->debug.level) & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )((int )ah->debug.level) & 1L, 0L);
 #line 1127
   if (tmp___0 != 0L) {
 #line 1127
     tmp___1 = net_ratelimit();
 #line 1127
-    tmp___2 = __builtin_expect(tmp___1 != 0, 0L);
+    tmp___2 = ldv__builtin_expect(tmp___1 != 0, 0L);
 #line 1127
     if (tmp___2 != 0L) {
 #line 1127
@@ -32714,7 +32714,7 @@ static void ath5k_check_ibss_tsf(struct ath5k_hw *ah , struct sk_buff *skb , str
 #line 1217
       hw_tu = (unsigned int )(tsf >> 10);
 #line 1219
-      tmp___0 = __builtin_expect((ah->debug.level & 16U) != 0U, 0L);
+      tmp___0 = ldv__builtin_expect((ah->debug.level & 16U) != 0U, 0L);
 #line 1219
       if (tmp___0 != 0L) {
 #line 1219
@@ -32727,7 +32727,7 @@ static void ath5k_check_ibss_tsf(struct ath5k_hw *ah , struct sk_buff *skb , str
 #line 1237
       if (rxs->mactime < bc_tstamp) {
 #line 1238
-        tmp___1 = __builtin_expect((ah->debug.level & 16U) != 0U, 0L);
+        tmp___1 = ldv__builtin_expect((ah->debug.level & 16U) != 0U, 0L);
 #line 1238
         if (tmp___1 != 0L) {
 #line 1238
@@ -32763,7 +32763,7 @@ static void ath5k_check_ibss_tsf(struct ath5k_hw *ah , struct sk_buff *skb , str
 #line 1258
         ath5k_beacon_update_timers(ah, bc_tstamp);
 #line 1259
-        tmp___2 = __builtin_expect((ah->debug.level & 16U) != 0U, 0L);
+        tmp___2 = ldv__builtin_expect((ah->debug.level & 16U) != 0U, 0L);
 #line 1259
         if (tmp___2 != 0L) {
 #line 1259
@@ -32957,7 +32957,7 @@ static void ath5k_receive_frame(struct ath5k_hw *ah , struct sk_buff *skb , stru
 #line 1359
   rxs->flag = 0U;
 #line 1360
-  tmp = __builtin_expect(((int )rs->rs_status & 16) != 0, 0L);
+  tmp = ldv__builtin_expect(((int )rs->rs_status & 16) != 0, 0L);
 #line 1360
   if (tmp != 0L) {
 #line 1361
@@ -33029,7 +33029,7 @@ static bool ath5k_receive_frame_ok(struct ath5k_hw *ah , struct ath5k_rx_status 
 #line 1414
   ah->stats.rx_bytes_count = ah->stats.rx_bytes_count + (unsigned int )rs->rs_datalen;
 #line 1416
-  tmp = __builtin_expect((unsigned int )rs->rs_status != 0U, 0L);
+  tmp = ldv__builtin_expect((unsigned int )rs->rs_status != 0U, 0L);
 #line 1416
   if (tmp != 0L) {
 #line 1417
@@ -33096,7 +33096,7 @@ static bool ath5k_receive_frame_ok(struct ath5k_hw *ah , struct ath5k_rx_status 
 
   }
 #line 1453
-  tmp___0 = __builtin_expect((unsigned int )rs->rs_more != 0U, 0L);
+  tmp___0 = ldv__builtin_expect((unsigned int )rs->rs_more != 0U, 0L);
 #line 1453
   if (tmp___0 != 0L) {
 #line 1454
@@ -33221,7 +33221,7 @@ static void ath5k_tasklet_rx(unsigned long data )
 #line 1494
   bf = (struct ath5k_buf *)__mptr;
 #line 1495
-  tmp___2 = __builtin_expect((unsigned long )bf->skb == (unsigned long )((struct sk_buff *)0),
+  tmp___2 = ldv__builtin_expect((unsigned long )bf->skb == (unsigned long )((struct sk_buff *)0),
                              0L);
 #line 1495
   if (tmp___2 != 0L) {
@@ -33250,14 +33250,14 @@ static void ath5k_tasklet_rx(unsigned long data )
 #line 1503
   ret = (*(ah->ah_proc_rx_desc))(ah, ds, & rs);
 #line 1504
-  tmp___6 = __builtin_expect(ret == -115, 0L);
+  tmp___6 = ldv__builtin_expect(ret == -115, 0L);
 #line 1504
   if (tmp___6 != 0L) {
 #line 1505
     goto ldv_46835;
   } else {
 #line 1506
-    tmp___5 = __builtin_expect(ret != 0, 0L);
+    tmp___5 = ldv__builtin_expect(ret != 0, 0L);
 #line 1506
     if (tmp___5 != 0L) {
 #line 1507
@@ -33499,7 +33499,7 @@ static void ath5k_tx_frame_completed(struct ath5k_hw *ah , struct sk_buff *skb ,
 #line 1629
   info->ldv_41394.status.rates[(int )ts->ts_final_idx + 1].idx = -1;
 #line 1631
-  tmp = __builtin_expect((unsigned int )ts->ts_status != 0U, 0L);
+  tmp = ldv__builtin_expect((unsigned int )ts->ts_status != 0U, 0L);
 #line 1631
   if (tmp != 0L) {
 #line 1632
@@ -33611,14 +33611,14 @@ static void ath5k_tx_processq(struct ath5k_hw *ah , struct ath5k_txq *txq )
 #line 1682
     ret = (*(ah->ah_proc_tx_desc))(ah, ds, & ts);
 #line 1683
-    tmp___1 = __builtin_expect(ret == -115, 0L);
+    tmp___1 = ldv__builtin_expect(ret == -115, 0L);
 #line 1683
     if (tmp___1 != 0L) {
 #line 1684
       goto ldv_46885;
     } else {
 #line 1685
-      tmp___0 = __builtin_expect(ret != 0, 0L);
+      tmp___0 = ldv__builtin_expect(ret != 0, 0L);
 #line 1685
       if (tmp___0 != 0L) {
 #line 1686
@@ -33766,13 +33766,13 @@ static int ath5k_beacon_setup(struct ath5k_hw *ah , struct ath5k_buf *bf )
   bf->skbaddr = dma_map_single_attrs(ah->dev, (void *)skb->data, (size_t )skb->len,
                                      1, 0);
 #line 1754
-  tmp___0 = __builtin_expect((ah->debug.level & 16U) != 0U, 0L);
+  tmp___0 = ldv__builtin_expect((ah->debug.level & 16U) != 0U, 0L);
 #line 1754
   if (tmp___0 != 0L) {
 #line 1754
     tmp___1 = net_ratelimit();
 #line 1754
-    tmp___2 = __builtin_expect(tmp___1 != 0, 0L);
+    tmp___2 = ldv__builtin_expect(tmp___1 != 0, 0L);
 #line 1754
     if (tmp___2 != 0L) {
 #line 1754
@@ -33872,7 +33872,7 @@ int ath5k_beacon_update(struct ieee80211_hw *hw , struct ieee80211_vif *vif )
 #line 1832
   __ret_warn_on = (unsigned long )vif == (unsigned long )((struct ieee80211_vif *)0);
 #line 1832
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 1832
   if (tmp != 0L) {
 #line 1832
@@ -33882,7 +33882,7 @@ int ath5k_beacon_update(struct ieee80211_hw *hw , struct ieee80211_vif *vif )
 
   }
 #line 1832
-  tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 1832
   if (tmp___0 != 0L) {
 #line 1833
@@ -33961,7 +33961,7 @@ static void ath5k_beacon_send(struct ath5k_hw *ah )
 
   {
 #line 1869
-  tmp = __builtin_expect((ah->debug.level & 16U) != 0U, 0L);
+  tmp = ldv__builtin_expect((ah->debug.level & 16U) != 0U, 0L);
 #line 1869
   if (tmp != 0L) {
 #line 1869
@@ -33973,19 +33973,19 @@ static void ath5k_beacon_send(struct ath5k_hw *ah )
 #line 1878
   tmp___9 = ath5k_hw_num_tx_pending(ah, ah->bhalq);
 #line 1878
-  tmp___10 = __builtin_expect(tmp___9 != 0U, 0L);
+  tmp___10 = ldv__builtin_expect(tmp___9 != 0U, 0L);
 #line 1878
   if (tmp___10 != 0L) {
 #line 1879
     ah->bmisscount = ah->bmisscount + 1U;
 #line 1880
-    tmp___0 = __builtin_expect((ah->debug.level & 16U) != 0U, 0L);
+    tmp___0 = ldv__builtin_expect((ah->debug.level & 16U) != 0U, 0L);
 #line 1880
     if (tmp___0 != 0L) {
 #line 1880
       tmp___1 = net_ratelimit();
 #line 1880
-      tmp___2 = __builtin_expect(tmp___1 != 0, 0L);
+      tmp___2 = ldv__builtin_expect(tmp___1 != 0, 0L);
 #line 1880
       if (tmp___2 != 0L) {
 #line 1880
@@ -34000,13 +34000,13 @@ static void ath5k_beacon_send(struct ath5k_hw *ah )
 #line 1882
     if (ah->bmisscount > 10U) {
 #line 1883
-      tmp___3 = __builtin_expect((ah->debug.level & 16U) != 0U, 0L);
+      tmp___3 = ldv__builtin_expect((ah->debug.level & 16U) != 0U, 0L);
 #line 1883
       if (tmp___3 != 0L) {
 #line 1883
         tmp___4 = net_ratelimit();
 #line 1883
-        tmp___5 = __builtin_expect(tmp___4 != 0, 0L);
+        tmp___5 = ldv__builtin_expect(tmp___4 != 0, 0L);
 #line 1883
         if (tmp___5 != 0L) {
 #line 1883
@@ -34019,13 +34019,13 @@ static void ath5k_beacon_send(struct ath5k_hw *ah )
 
       }
 #line 1886
-      tmp___6 = __builtin_expect((long )((int )ah->debug.level) & 1L, 0L);
+      tmp___6 = ldv__builtin_expect((long )((int )ah->debug.level) & 1L, 0L);
 #line 1886
       if (tmp___6 != 0L) {
 #line 1886
         tmp___7 = net_ratelimit();
 #line 1886
-        tmp___8 = __builtin_expect(tmp___7 != 0, 0L);
+        tmp___8 = ldv__builtin_expect(tmp___7 != 0, 0L);
 #line 1886
         if (tmp___8 != 0L) {
 #line 1886
@@ -34048,17 +34048,17 @@ static void ath5k_beacon_send(struct ath5k_hw *ah )
 
   }
 #line 1892
-  tmp___14 = __builtin_expect(ah->bmisscount != 0U, 0L);
+  tmp___14 = ldv__builtin_expect(ah->bmisscount != 0U, 0L);
 #line 1892
   if (tmp___14 != 0L) {
 #line 1893
-    tmp___11 = __builtin_expect((ah->debug.level & 16U) != 0U, 0L);
+    tmp___11 = ldv__builtin_expect((ah->debug.level & 16U) != 0U, 0L);
 #line 1893
     if (tmp___11 != 0L) {
 #line 1893
       tmp___12 = net_ratelimit();
 #line 1893
-      tmp___13 = __builtin_expect(tmp___12 != 0, 0L);
+      tmp___13 = ldv__builtin_expect(tmp___12 != 0, 0L);
 #line 1893
       if (tmp___13 != 0L) {
 #line 1893
@@ -34088,13 +34088,13 @@ static void ath5k_beacon_send(struct ath5k_hw *ah )
 #line 1905
     vif = ah->bslot[(slot + 1) % 4];
 #line 1906
-    tmp___16 = __builtin_expect((ah->debug.level & 16U) != 0U, 0L);
+    tmp___16 = ldv__builtin_expect((ah->debug.level & 16U) != 0U, 0L);
 #line 1906
     if (tmp___16 != 0L) {
 #line 1906
       tmp___17 = net_ratelimit();
 #line 1906
-      tmp___18 = __builtin_expect(tmp___17 != 0, 0L);
+      tmp___18 = ldv__builtin_expect(tmp___17 != 0, 0L);
 #line 1906
       if (tmp___18 != 0L) {
 #line 1906
@@ -34124,7 +34124,7 @@ static void ath5k_beacon_send(struct ath5k_hw *ah )
 #line 1923
   tmp___20 = ath5k_hw_stop_beacon_queue(ah, ah->bhalq);
 #line 1923
-  tmp___21 = __builtin_expect(tmp___20 != 0, 0L);
+  tmp___21 = ldv__builtin_expect(tmp___20 != 0, 0L);
 #line 1923
   if (tmp___21 != 0L) {
 #line 1924
@@ -34155,7 +34155,7 @@ static void ath5k_beacon_send(struct ath5k_hw *ah )
 
   }
 #line 1936
-  tmp___23 = __builtin_expect((unsigned long )bf->skb == (unsigned long )((struct sk_buff *)0),
+  tmp___23 = ldv__builtin_expect((unsigned long )bf->skb == (unsigned long )((struct sk_buff *)0),
                               0L);
 #line 1936
   if (tmp___23 != 0L) {
@@ -34163,7 +34163,7 @@ static void ath5k_beacon_send(struct ath5k_hw *ah )
     tmp___25 = 1;
   } else {
 #line 1936
-    tmp___24 = __builtin_expect((unsigned int )ah->opmode == 2U, 0L);
+    tmp___24 = ldv__builtin_expect((unsigned int )ah->opmode == 2U, 0L);
 #line 1936
     if (tmp___24 != 0L) {
 #line 1936
@@ -34179,7 +34179,7 @@ static void ath5k_beacon_send(struct ath5k_hw *ah )
     goto _L;
   } else {
 #line 1936
-    tmp___26 = __builtin_expect((unsigned int )ah->opmode == 6U, 0L);
+    tmp___26 = ldv__builtin_expect((unsigned int )ah->opmode == 6U, 0L);
 #line 1936
     if (tmp___26 != 0L) {
       _L: /* CIL Label */ 
@@ -34206,13 +34206,13 @@ static void ath5k_beacon_send(struct ath5k_hw *ah )
 #line 1945
   ath5k_hw_start_tx_dma(ah, ah->bhalq);
 #line 1946
-  tmp___27 = __builtin_expect((ah->debug.level & 16U) != 0U, 0L);
+  tmp___27 = ldv__builtin_expect((ah->debug.level & 16U) != 0U, 0L);
 #line 1946
   if (tmp___27 != 0L) {
 #line 1946
     tmp___28 = net_ratelimit();
 #line 1946
-    tmp___29 = __builtin_expect(tmp___28 != 0, 0L);
+    tmp___29 = ldv__builtin_expect(tmp___28 != 0, 0L);
 #line 1946
     if (tmp___29 != 0L) {
 #line 1946
@@ -34304,7 +34304,7 @@ void ath5k_beacon_update_timers(struct ath5k_hw *ah , u64 bc_tsf )
 #line 1992
   __ret_warn_on = intval == 0U;
 #line 1992
-  tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 1992
   if (tmp___0 != 0L) {
 #line 1992
@@ -34314,7 +34314,7 @@ void ath5k_beacon_update_timers(struct ath5k_hw *ah , u64 bc_tsf )
 
   }
 #line 1992
-  tmp___1 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___1 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 1992
   if (tmp___1 != 0L) {
 #line 1993
@@ -34345,7 +34345,7 @@ void ath5k_beacon_update_timers(struct ath5k_hw *ah , u64 bc_tsf )
 #line 2020
   if (bc_tsf > hw_tsf) {
 #line 2028
-    tmp___2 = __builtin_expect((ah->debug.level & 16U) != 0U, 0L);
+    tmp___2 = ldv__builtin_expect((ah->debug.level & 16U) != 0U, 0L);
 #line 2028
     if (tmp___2 != 0L) {
 #line 2028
@@ -34371,7 +34371,7 @@ void ath5k_beacon_update_timers(struct ath5k_hw *ah , u64 bc_tsf )
 #line 2052
   if (bc_tsf == 0xffffffffffffffffULL) {
 #line 2053
-    tmp___5 = __builtin_expect((ah->debug.level & 16U) != 0U, 0L);
+    tmp___5 = ldv__builtin_expect((ah->debug.level & 16U) != 0U, 0L);
 #line 2053
     if (tmp___5 != 0L) {
 #line 2053
@@ -34381,7 +34381,7 @@ void ath5k_beacon_update_timers(struct ath5k_hw *ah , u64 bc_tsf )
 #line 2055
     if (bc_tsf == 0ULL) {
 #line 2056
-      tmp___4 = __builtin_expect((ah->debug.level & 16U) != 0U, 0L);
+      tmp___4 = ldv__builtin_expect((ah->debug.level & 16U) != 0U, 0L);
 #line 2056
       if (tmp___4 != 0L) {
 #line 2056
@@ -34389,7 +34389,7 @@ void ath5k_beacon_update_timers(struct ath5k_hw *ah , u64 bc_tsf )
                       "ath5k_beacon_update_timers", 2057);
       } else {
 #line 2059
-        tmp___3 = __builtin_expect((ah->debug.level & 16U) != 0U, 0L);
+        tmp___3 = ldv__builtin_expect((ah->debug.level & 16U) != 0U, 0L);
 #line 2059
         if (tmp___3 != 0L) {
 #line 2059
@@ -34406,7 +34406,7 @@ void ath5k_beacon_update_timers(struct ath5k_hw *ah , u64 bc_tsf )
 
   }
 #line 2062
-  tmp___6 = __builtin_expect((ah->debug.level & 16U) != 0U, 0L);
+  tmp___6 = ldv__builtin_expect((ah->debug.level & 16U) != 0U, 0L);
 #line 2062
   if (tmp___6 != 0L) {
 #line 2062
@@ -34417,7 +34417,7 @@ void ath5k_beacon_update_timers(struct ath5k_hw *ah , u64 bc_tsf )
 
   }
 #line 2066
-  tmp___7 = __builtin_expect((ah->debug.level & 16U) != 0U, 0L);
+  tmp___7 = ldv__builtin_expect((ah->debug.level & 16U) != 0U, 0L);
 #line 2066
   if (tmp___7 != 0L) {
 #line 2066
@@ -34498,13 +34498,13 @@ static void ath5k_tasklet_beacon(unsigned long data )
 #line 2128
     ah->nexttbtt = ah->nexttbtt + ah->bintval;
 #line 2129
-    tmp___0 = __builtin_expect((ah->debug.level & 16U) != 0U, 0L);
+    tmp___0 = ldv__builtin_expect((ah->debug.level & 16U) != 0U, 0L);
 #line 2129
     if (tmp___0 != 0L) {
 #line 2129
       tmp___1 = net_ratelimit();
 #line 2129
-      tmp___2 = __builtin_expect(tmp___1 != 0, 0L);
+      tmp___2 = ldv__builtin_expect(tmp___1 != 0, 0L);
 #line 2129
       if (tmp___2 != 0L) {
 #line 2129
@@ -34626,7 +34626,7 @@ static irqreturn_t ath5k_intr(int irq , void *dev_id )
 #line 2212
   tmp = constant_test_bit(0U, (unsigned long const volatile   *)(& ah->status));
 #line 2212
-  tmp___0 = __builtin_expect(tmp != 0, 0L);
+  tmp___0 = ldv__builtin_expect(tmp != 0, 0L);
 #line 2212
   if (tmp___0 != 0L) {
 #line 2215
@@ -34635,7 +34635,7 @@ static irqreturn_t ath5k_intr(int irq , void *dev_id )
 #line 2212
     tmp___1 = ath5k_get_bus_type(ah);
 #line 2212
-    tmp___2 = __builtin_expect((unsigned int )tmp___1 != 1U, 0L);
+    tmp___2 = ldv__builtin_expect((unsigned int )tmp___1 != 1U, 0L);
 #line 2212
     if (tmp___2 != 0L) {
 #line 2212
@@ -34649,7 +34649,7 @@ static irqreturn_t ath5k_intr(int irq , void *dev_id )
         tmp___4 = 1;
       }
 #line 2212
-      tmp___5 = __builtin_expect((long )tmp___4, 0L);
+      tmp___5 = ldv__builtin_expect((long )tmp___4, 0L);
 #line 2212
       if (tmp___5 != 0L) {
 #line 2212
@@ -34674,13 +34674,13 @@ static irqreturn_t ath5k_intr(int irq , void *dev_id )
 #line 2219
   ath5k_hw_get_isr(ah, & status);
 #line 2221
-  tmp___7 = __builtin_expect((ah->debug.level & 2U) != 0U, 0L);
+  tmp___7 = ldv__builtin_expect((ah->debug.level & 2U) != 0U, 0L);
 #line 2221
   if (tmp___7 != 0L) {
 #line 2221
     tmp___8 = net_ratelimit();
 #line 2221
-    tmp___9 = __builtin_expect(tmp___8 != 0, 0L);
+    tmp___9 = ldv__builtin_expect(tmp___8 != 0, 0L);
 #line 2221
     if (tmp___9 != 0L) {
 #line 2221
@@ -34693,17 +34693,17 @@ static irqreturn_t ath5k_intr(int irq , void *dev_id )
 
   }
 #line 2231
-  tmp___17 = __builtin_expect(((unsigned int )status & 524288U) != 0U, 0L);
+  tmp___17 = ldv__builtin_expect(((unsigned int )status & 524288U) != 0U, 0L);
 #line 2231
   if (tmp___17 != 0L) {
 #line 2233
-    tmp___10 = __builtin_expect((long )((int )ah->debug.level) & 1L, 0L);
+    tmp___10 = ldv__builtin_expect((long )((int )ah->debug.level) & 1L, 0L);
 #line 2233
     if (tmp___10 != 0L) {
 #line 2233
       tmp___11 = net_ratelimit();
 #line 2233
-      tmp___12 = __builtin_expect(tmp___11 != 0, 0L);
+      tmp___12 = ldv__builtin_expect(tmp___11 != 0, 0L);
 #line 2233
       if (tmp___12 != 0L) {
 #line 2233
@@ -34719,7 +34719,7 @@ static irqreturn_t ath5k_intr(int irq , void *dev_id )
     ieee80211_queue_work(ah->hw, & ah->reset_work);
   } else {
 #line 2244
-    tmp___16 = __builtin_expect(((unsigned int )status & 32U) != 0U, 0L);
+    tmp___16 = ldv__builtin_expect(((unsigned int )status & 32U) != 0U, 0L);
 #line 2244
     if (tmp___16 != 0L) {
 #line 2252
@@ -34727,13 +34727,13 @@ static irqreturn_t ath5k_intr(int irq , void *dev_id )
 #line 2254
       if (ah->ah_mac_srev <= 79U) {
 #line 2255
-        tmp___13 = __builtin_expect((long )((int )ah->debug.level) & 1L, 0L);
+        tmp___13 = ldv__builtin_expect((long )((int )ah->debug.level) & 1L, 0L);
 #line 2255
         if (tmp___13 != 0L) {
 #line 2255
           tmp___14 = net_ratelimit();
 #line 2255
-          tmp___15 = __builtin_expect(tmp___14 != 0, 0L);
+          tmp___15 = ldv__builtin_expect(tmp___14 != 0, 0L);
 #line 2255
           if (tmp___15 != 0L) {
 #line 2255
@@ -34842,7 +34842,7 @@ static irqreturn_t ath5k_intr(int irq , void *dev_id )
 
   }
 #line 2324
-  tmp___21 = __builtin_expect(counter == 0U, 0L);
+  tmp___21 = ldv__builtin_expect(counter == 0U, 0L);
 #line 2324
   if (tmp___21 != 0L) {
 #line 2325
@@ -34898,13 +34898,13 @@ static void ath5k_calibrate_work(struct work_struct *work )
 #line 2348
     ah->ah_cal_mask = (u8 )((unsigned int )ah->ah_cal_mask | 1U);
 #line 2350
-    tmp___0 = __builtin_expect((ah->debug.level & 32U) != 0U, 0L);
+    tmp___0 = ldv__builtin_expect((ah->debug.level & 32U) != 0U, 0L);
 #line 2350
     if (tmp___0 != 0L) {
 #line 2350
       tmp___1 = net_ratelimit();
 #line 2350
-      tmp___2 = __builtin_expect(tmp___1 != 0, 0L);
+      tmp___2 = ldv__builtin_expect(tmp___1 != 0, 0L);
 #line 2350
       if (tmp___2 != 0L) {
 #line 2350
@@ -34921,13 +34921,13 @@ static void ath5k_calibrate_work(struct work_struct *work )
 #line 2353
     if ((unsigned int )tmp___6 == 3U) {
 #line 2358
-      tmp___3 = __builtin_expect((long )((int )ah->debug.level) & 1L, 0L);
+      tmp___3 = ldv__builtin_expect((long )((int )ah->debug.level) & 1L, 0L);
 #line 2358
       if (tmp___3 != 0L) {
 #line 2358
         tmp___4 = net_ratelimit();
 #line 2358
-        tmp___5 = __builtin_expect(tmp___4 != 0, 0L);
+        tmp___5 = ldv__builtin_expect(tmp___4 != 0, 0L);
 #line 2358
         if (tmp___5 != 0L) {
 #line 2358
@@ -34949,13 +34949,13 @@ static void ath5k_calibrate_work(struct work_struct *work )
     ah->ah_cal_mask = (u8 )((unsigned int )ah->ah_cal_mask | 2U);
   }
 #line 2366
-  tmp___8 = __builtin_expect((ah->debug.level & 32U) != 0U, 0L);
+  tmp___8 = ldv__builtin_expect((ah->debug.level & 32U) != 0U, 0L);
 #line 2366
   if (tmp___8 != 0L) {
 #line 2366
     tmp___9 = net_ratelimit();
 #line 2366
-    tmp___10 = __builtin_expect(tmp___9 != 0, 0L);
+    tmp___10 = ldv__builtin_expect(tmp___9 != 0, 0L);
 #line 2366
     if (tmp___10 != 0L) {
 #line 2366
@@ -35063,13 +35063,13 @@ static void ath5k_tx_complete_poll_work(struct work_struct *work )
 #line 2410
       if ((int )txq->txq_poll_mark) {
 #line 2411
-        tmp = __builtin_expect((ah->debug.level & 8U) != 0U, 0L);
+        tmp = ldv__builtin_expect((ah->debug.level & 8U) != 0U, 0L);
 #line 2411
         if (tmp != 0L) {
 #line 2411
           tmp___0 = net_ratelimit();
 #line 2411
-          tmp___1 = __builtin_expect(tmp___0 != 0, 0L);
+          tmp___1 = ldv__builtin_expect(tmp___0 != 0, 0L);
 #line 2411
           if (tmp___1 != 0L) {
 #line 2411
@@ -35115,13 +35115,13 @@ static void ath5k_tx_complete_poll_work(struct work_struct *work )
 #line 2426
   if ((int )needreset) {
 #line 2427
-    tmp___2 = __builtin_expect((long )((int )ah->debug.level) & 1L, 0L);
+    tmp___2 = ldv__builtin_expect((long )((int )ah->debug.level) & 1L, 0L);
 #line 2427
     if (tmp___2 != 0L) {
 #line 2427
       tmp___3 = net_ratelimit();
 #line 2427
-      tmp___4 = __builtin_expect(tmp___3 != 0, 0L);
+      tmp___4 = ldv__builtin_expect(tmp___3 != 0, 0L);
 #line 2427
       if (tmp___4 != 0L) {
 #line 2427
@@ -35384,13 +35384,13 @@ static int ath5k_stop_locked(struct ath5k_hw *ah )
 
   {
 #line 2617
-  tmp___0 = __builtin_expect((long )((int )ah->debug.level) & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )((int )ah->debug.level) & 1L, 0L);
 #line 2617
   if (tmp___0 != 0L) {
 #line 2617
     tmp___1 = net_ratelimit();
 #line 2617
-    tmp___2 = __builtin_expect(tmp___1 != 0, 0L);
+    tmp___2 = ldv__builtin_expect(tmp___1 != 0, 0L);
 #line 2617
     if (tmp___2 != 0L) {
 #line 2617
@@ -35454,13 +35454,13 @@ int ath5k_start(struct ieee80211_hw *hw )
 #line 2656
   ldv_mutex_lock_164(& ah->lock);
 #line 2658
-  tmp___0 = __builtin_expect((long )((int )ah->debug.level) & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )((int )ah->debug.level) & 1L, 0L);
 #line 2658
   if (tmp___0 != 0L) {
 #line 2658
     tmp___1 = net_ratelimit();
 #line 2658
-    tmp___2 = __builtin_expect(tmp___1 != 0, 0L);
+    tmp___2 = ldv__builtin_expect(tmp___1 != 0, 0L);
 #line 2658
     if (tmp___2 != 0L) {
 #line 2658
@@ -35593,13 +35593,13 @@ void ath5k_stop(struct ieee80211_hw *hw )
 #line 2760
       ret = ath5k_hw_on_hold(ah);
 #line 2762
-      tmp = __builtin_expect((long )((int )ah->debug.level) & 1L, 0L);
+      tmp = ldv__builtin_expect((long )((int )ah->debug.level) & 1L, 0L);
 #line 2762
       if (tmp != 0L) {
 #line 2762
         tmp___0 = net_ratelimit();
 #line 2762
-        tmp___1 = __builtin_expect(tmp___0 != 0, 0L);
+        tmp___1 = ldv__builtin_expect(tmp___0 != 0, 0L);
 #line 2762
         if (tmp___1 != 0L) {
 #line 2762
@@ -35659,13 +35659,13 @@ static int ath5k_reset(struct ath5k_hw *ah , struct ieee80211_channel *chan , bo
 #line 2787
   common = tmp;
 #line 2791
-  tmp___0 = __builtin_expect((long )((int )ah->debug.level) & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )((int )ah->debug.level) & 1L, 0L);
 #line 2791
   if (tmp___0 != 0L) {
 #line 2791
     tmp___1 = net_ratelimit();
 #line 2791
-    tmp___2 = __builtin_expect(tmp___1 != 0, 0L);
+    tmp___2 = ldv__builtin_expect(tmp___1 != 0, 0L);
 #line 2791
     if (tmp___2 != 0L) {
 #line 2791
@@ -37069,13 +37069,13 @@ __inline static void ath5k_rfkill_disable(struct ath5k_hw *ah )
 
   {
 #line 72
-  tmp = __builtin_expect(ah->debug.level != 0U, 0L);
+  tmp = ldv__builtin_expect(ah->debug.level != 0U, 0L);
 #line 72
   if (tmp != 0L) {
 #line 72
     tmp___0 = net_ratelimit();
 #line 72
-    tmp___1 = __builtin_expect(tmp___0 != 0, 0L);
+    tmp___1 = ldv__builtin_expect(tmp___0 != 0, 0L);
 #line 72
     if (tmp___1 != 0L) {
 #line 72
@@ -37104,13 +37104,13 @@ __inline static void ath5k_rfkill_enable(struct ath5k_hw *ah )
 
   {
 #line 81
-  tmp = __builtin_expect(ah->debug.level != 0U, 0L);
+  tmp = ldv__builtin_expect(ah->debug.level != 0U, 0L);
 #line 81
   if (tmp != 0L) {
 #line 81
     tmp___0 = net_ratelimit();
 #line 81
-    tmp___1 = __builtin_expect(tmp___0 != 0, 0L);
+    tmp___1 = ldv__builtin_expect(tmp___0 != 0, 0L);
 #line 81
     if (tmp___1 != 0L) {
 #line 81
@@ -37434,7 +37434,7 @@ void ath5k_ani_set_noise_immunity_level(struct ath5k_hw *ah , int level )
 #line 131
   ah->ani_state.noise_imm_level = level;
 #line 132
-  tmp___4 = __builtin_expect((ah->debug.level & 8192U) != 0U, 0L);
+  tmp___4 = ldv__builtin_expect((ah->debug.level & 8192U) != 0U, 0L);
 #line 132
   if (tmp___4 != 0L) {
 #line 132
@@ -37497,7 +37497,7 @@ void ath5k_ani_set_spur_immunity_level(struct ath5k_hw *ah , int level )
 #line 156
   ah->ani_state.spur_level = level;
 #line 157
-  tmp___1 = __builtin_expect((ah->debug.level & 8192U) != 0U, 0L);
+  tmp___1 = ldv__builtin_expect((ah->debug.level & 8192U) != 0U, 0L);
 #line 157
   if (tmp___1 != 0L) {
 #line 157
@@ -37550,7 +37550,7 @@ void ath5k_ani_set_firstep_level(struct ath5k_hw *ah , int level )
 #line 178
   ah->ani_state.firstep_level = level;
 #line 179
-  tmp___1 = __builtin_expect((ah->debug.level & 8192U) != 0U, 0L);
+  tmp___1 = ldv__builtin_expect((ah->debug.level & 8192U) != 0U, 0L);
 #line 179
   if (tmp___1 != 0L) {
 #line 179
@@ -37652,7 +37652,7 @@ void ath5k_ani_set_ofdm_weak_signal_detection(struct ath5k_hw *ah , bool on )
 #line 217
   ah->ani_state.ofdm_weak_sig = on;
 #line 218
-  tmp___7 = __builtin_expect((ah->debug.level & 8192U) != 0U, 0L);
+  tmp___7 = ldv__builtin_expect((ah->debug.level & 8192U) != 0U, 0L);
 #line 218
   if (tmp___7 != 0L) {
 #line 218
@@ -37684,7 +37684,7 @@ void ath5k_ani_set_cck_weak_signal_detection(struct ath5k_hw *ah , bool on )
 #line 233
   ah->ani_state.cck_weak_sig = on;
 #line 234
-  tmp___0 = __builtin_expect((ah->debug.level & 8192U) != 0U, 0L);
+  tmp___0 = ldv__builtin_expect((ah->debug.level & 8192U) != 0U, 0L);
 #line 234
   if (tmp___0 != 0L) {
 #line 234
@@ -37714,7 +37714,7 @@ static void ath5k_ani_raise_immunity(struct ath5k_hw *ah , struct ath5k_ani_stat
 #line 257
   rssi = (int )tmp;
 #line 259
-  tmp___0 = __builtin_expect((ah->debug.level & 8192U) != 0U, 0L);
+  tmp___0 = ldv__builtin_expect((ah->debug.level & 8192U) != 0U, 0L);
 #line 259
   if (tmp___0 != 0L) {
 #line 259
@@ -37758,7 +37758,7 @@ static void ath5k_ani_raise_immunity(struct ath5k_hw *ah , struct ath5k_ani_stat
 #line 288
   if (rssi > 40) {
 #line 289
-    tmp___1 = __builtin_expect((ah->debug.level & 8192U) != 0U, 0L);
+    tmp___1 = ldv__builtin_expect((ah->debug.level & 8192U) != 0U, 0L);
 #line 289
     if (tmp___1 != 0L) {
 #line 289
@@ -37791,7 +37791,7 @@ static void ath5k_ani_raise_immunity(struct ath5k_hw *ah , struct ath5k_ani_stat
 #line 303
   if (rssi > 7) {
 #line 306
-    tmp___2 = __builtin_expect((ah->debug.level & 8192U) != 0U, 0L);
+    tmp___2 = ldv__builtin_expect((ah->debug.level & 8192U) != 0U, 0L);
 #line 306
     if (tmp___2 != 0L) {
 #line 306
@@ -37820,7 +37820,7 @@ static void ath5k_ani_raise_immunity(struct ath5k_hw *ah , struct ath5k_ani_stat
 #line 313
   if ((unsigned int )(ah->ah_current_channel)->band == 0U) {
 #line 316
-    tmp___3 = __builtin_expect((ah->debug.level & 8192U) != 0U, 0L);
+    tmp___3 = ldv__builtin_expect((ah->debug.level & 8192U) != 0U, 0L);
 #line 316
     if (tmp___3 != 0L) {
 #line 316
@@ -37865,7 +37865,7 @@ static void ath5k_ani_lower_immunity(struct ath5k_hw *ah , struct ath5k_ani_stat
 #line 343
   rssi = (int )tmp;
 #line 345
-  tmp___0 = __builtin_expect((ah->debug.level & 8192U) != 0U, 0L);
+  tmp___0 = ldv__builtin_expect((ah->debug.level & 8192U) != 0U, 0L);
 #line 345
   if (tmp___0 != 0L) {
 #line 345
@@ -38096,7 +38096,7 @@ void ath5k_ani_calibration(struct ath5k_hw *ah )
 #line 525
   cck_low = (int )((as->listen_time * 100U) / 1000U);
 #line 527
-  tmp = __builtin_expect((ah->debug.level & 8192U) != 0U, 0L);
+  tmp = ldv__builtin_expect((ah->debug.level & 8192U) != 0U, 0L);
 #line 527
   if (tmp != 0L) {
 #line 527
@@ -38106,7 +38106,7 @@ void ath5k_ani_calibration(struct ath5k_hw *ah )
 
   }
 #line 529
-  tmp___0 = __builtin_expect((ah->debug.level & 8192U) != 0U, 0L);
+  tmp___0 = ldv__builtin_expect((ah->debug.level & 8192U) != 0U, 0L);
 #line 529
   if (tmp___0 != 0L) {
 #line 529
@@ -38128,7 +38128,7 @@ void ath5k_ani_calibration(struct ath5k_hw *ah )
 #line 539
   if (as->listen_time > 500U) {
 #line 542
-    tmp___1 = __builtin_expect((ah->debug.level & 8192U) != 0U, 0L);
+    tmp___1 = ldv__builtin_expect((ah->debug.level & 8192U) != 0U, 0L);
 #line 542
     if (tmp___1 != 0L) {
 #line 542
@@ -38332,7 +38332,7 @@ void ath5k_ani_init(struct ath5k_hw *ah , enum ath5k_ani_mode mode )
 #line 697
   if ((unsigned int )mode == 0U) {
 #line 698
-    tmp___3 = __builtin_expect((ah->debug.level & 8192U) != 0U, 0L);
+    tmp___3 = ldv__builtin_expect((ah->debug.level & 8192U) != 0U, 0L);
 #line 698
     if (tmp___3 != 0L) {
 #line 698
@@ -38342,7 +38342,7 @@ void ath5k_ani_init(struct ath5k_hw *ah , enum ath5k_ani_mode mode )
 #line 699
     if ((unsigned int )mode == 1U) {
 #line 700
-      tmp___0 = __builtin_expect((ah->debug.level & 8192U) != 0U, 0L);
+      tmp___0 = ldv__builtin_expect((ah->debug.level & 8192U) != 0U, 0L);
 #line 700
       if (tmp___0 != 0L) {
 #line 700
@@ -38365,7 +38365,7 @@ void ath5k_ani_init(struct ath5k_hw *ah , enum ath5k_ani_mode mode )
 #line 707
     if ((unsigned int )mode == 2U) {
 #line 708
-      tmp___1 = __builtin_expect((ah->debug.level & 8192U) != 0U, 0L);
+      tmp___1 = ldv__builtin_expect((ah->debug.level & 8192U) != 0U, 0L);
 #line 708
       if (tmp___1 != 0L) {
 #line 708
@@ -38388,7 +38388,7 @@ void ath5k_ani_init(struct ath5k_hw *ah , enum ath5k_ani_mode mode )
 #line 717
     if ((unsigned int )mode == 3U) {
 #line 718
-      tmp___2 = __builtin_expect((ah->debug.level & 8192U) != 0U, 0L);
+      tmp___2 = ldv__builtin_expect((ah->debug.level & 8192U) != 0U, 0L);
 #line 718
       if (tmp___2 != 0L) {
 #line 718
@@ -39332,7 +39332,7 @@ static void ath5k_tx(struct ieee80211_hw *hw , struct ieee80211_tx_control *cont
 #line 96
   __ret_warn_on = (int )((unsigned short )ah->ah_capabilities.cap_queues.q_tx_num) <= (int )qnum;
 #line 96
-  tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 96
   if (tmp___0 != 0L) {
 #line 96
@@ -39342,7 +39342,7 @@ static void ath5k_tx(struct ieee80211_hw *hw , struct ieee80211_tx_control *cont
 
   }
 #line 96
-  tmp___1 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___1 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 96
   if (tmp___1 != 0L) {
 #line 97
@@ -39429,13 +39429,13 @@ static int ath5k_add_interface(struct ieee80211_hw *hw , struct ieee80211_vif *v
 #line 145
   ah->nvifs = (u16 )((int )ah->nvifs + 1);
 #line 146
-  tmp___0 = __builtin_expect((ah->debug.level & 4U) != 0U, 0L);
+  tmp___0 = ldv__builtin_expect((ah->debug.level & 4U) != 0U, 0L);
 #line 146
   if (tmp___0 != 0L) {
 #line 146
     tmp___1 = net_ratelimit();
 #line 146
-    tmp___2 = __builtin_expect(tmp___1 != 0, 0L);
+    tmp___2 = ldv__builtin_expect(tmp___1 != 0, 0L);
 #line 146
     if (tmp___2 != 0L) {
 #line 146
@@ -39454,7 +39454,7 @@ static int ath5k_add_interface(struct ieee80211_hw *hw , struct ieee80211_vif *v
 #line 154
     __ret_warn_on = tmp___3 != 0;
 #line 154
-    tmp___4 = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp___4 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 154
     if (tmp___4 != 0L) {
 #line 154
@@ -39464,7 +39464,7 @@ static int ath5k_add_interface(struct ieee80211_hw *hw , struct ieee80211_vif *v
 
     }
 #line 154
-    __builtin_expect(__ret_warn_on != 0, 0L);
+    ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 155
     __mptr = (struct list_head  const  *)ah->bcbuf.next;
 #line 155
@@ -39499,7 +39499,7 @@ static int ath5k_add_interface(struct ieee80211_hw *hw , struct ieee80211_vif *v
     }
     ldv_43029: 
 #line 166
-    tmp___5 = __builtin_expect((unsigned long )ah->bslot[avf->bslot] != (unsigned long )((struct ieee80211_vif *)0),
+    tmp___5 = ldv__builtin_expect((unsigned long )ah->bslot[avf->bslot] != (unsigned long )((struct ieee80211_vif *)0),
                                0L);
 #line 166
     if (tmp___5 != 0L) {
@@ -39794,13 +39794,13 @@ static void ath5k_bss_info_changed(struct ieee80211_hw *hw , struct ieee80211_vi
 #line 324
     if ((int )bss_conf->assoc) {
 #line 325
-      tmp___1 = __builtin_expect(ah->debug.level != 0U, 0L);
+      tmp___1 = ldv__builtin_expect(ah->debug.level != 0U, 0L);
 #line 325
       if (tmp___1 != 0L) {
 #line 325
         tmp___2 = net_ratelimit();
 #line 325
-        tmp___3 = __builtin_expect(tmp___2 != 0, 0L);
+        tmp___3 = ldv__builtin_expect(tmp___2 != 0, 0L);
 #line 325
         if (tmp___3 != 0L) {
 #line 325
@@ -40099,7 +40099,7 @@ static int ath5k_set_key(struct ieee80211_hw *hw , enum set_key_cmd cmd , struct
 #line 546
   __ret_warn_on = 1;
 #line 546
-  tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 546
   if (tmp___0 != 0L) {
 #line 546
@@ -40109,7 +40109,7 @@ static int ath5k_set_key(struct ieee80211_hw *hw , enum set_key_cmd cmd , struct
 
   }
 #line 546
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 547
   return (-22);
   }
@@ -40259,13 +40259,13 @@ static int ath5k_conf_tx(struct ieee80211_hw *hw , struct ieee80211_vif *vif , u
 #line 633
   qi.tqi_burst_time = (u32 )((int )params->txop * 32);
 #line 635
-  tmp = __builtin_expect(ah->debug.level != 0U, 0L);
+  tmp = ldv__builtin_expect(ah->debug.level != 0U, 0L);
 #line 635
   if (tmp != 0L) {
 #line 635
     tmp___0 = net_ratelimit();
 #line 635
-    tmp___1 = __builtin_expect(tmp___0 != 0, 0L);
+    tmp___1 = ldv__builtin_expect(tmp___0 != 0, 0L);
 #line 635
     if (tmp___1 != 0L) {
 #line 635
@@ -41220,14 +41220,14 @@ __inline static unsigned long copy_from_user(void *to , void const   *from , uns
 #line 61
   might_fault();
 #line 62
-  tmp___1 = __builtin_expect(sz == -1, 1L);
+  tmp___1 = ldv__builtin_expect(sz == -1, 1L);
 #line 62
   if (tmp___1 != 0L) {
 #line 63
     n = _copy_from_user(to, from, (unsigned int )n);
   } else {
 #line 62
-    tmp___2 = __builtin_expect((unsigned long )sz >= n, 1L);
+    tmp___2 = ldv__builtin_expect((unsigned long )sz >= n, 1L);
 #line 62
     if (tmp___2 != 0L) {
 #line 63
@@ -41236,7 +41236,7 @@ __inline static unsigned long copy_from_user(void *to , void const   *from , uns
 #line 66
       __ret_warn_on = 1;
 #line 66
-      tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+      tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 66
       if (tmp___0 != 0L) {
 #line 66
@@ -41246,7 +41246,7 @@ __inline static unsigned long copy_from_user(void *to , void const   *from , uns
 
       }
 #line 66
-      __builtin_expect(__ret_warn_on != 0, 0L);
+      ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
   }
 #line 68
@@ -41578,13 +41578,13 @@ static ssize_t write_file_reset(struct file *file , char const   *userbuf , size
 #line 308
   ah = (struct ath5k_hw *)file->private_data;
 #line 309
-  tmp = __builtin_expect((long )((int )ah->debug.level) & 1L, 0L);
+  tmp = ldv__builtin_expect((long )((int )ah->debug.level) & 1L, 0L);
 #line 309
   if (tmp != 0L) {
 #line 309
     tmp___0 = net_ratelimit();
 #line 309
-    tmp___1 = __builtin_expect(tmp___0 != 0, 0L);
+    tmp___1 = ldv__builtin_expect(tmp___0 != 0, 0L);
 #line 309
     if (tmp___1 != 0L) {
 #line 309
@@ -43031,7 +43031,7 @@ void ath5k_debug_dump_bands(struct ath5k_hw *ah )
 
   {
 #line 963
-  tmp = __builtin_expect((ah->debug.level & 1024U) == 0U, 1L);
+  tmp = ldv__builtin_expect((ah->debug.level & 1024U) == 0U, 1L);
 #line 963
   if (tmp != 0L) {
 #line 964
@@ -43040,7 +43040,7 @@ void ath5k_debug_dump_bands(struct ath5k_hw *ah )
 
   }
 #line 966
-  tmp___0 = __builtin_expect((unsigned long )(& ah->sbands) == (unsigned long )((struct ieee80211_supported_band (*)[3U])0),
+  tmp___0 = ldv__builtin_expect((unsigned long )(& ah->sbands) == (unsigned long )((struct ieee80211_supported_band (*)[3U])0),
                              0L);
 #line 966
   if (tmp___0 != 0L) {
@@ -43191,7 +43191,7 @@ void ath5k_debug_printrxbuffs(struct ath5k_hw *ah )
 #line 1023
   rs.rs_more = (unsigned char)0;
 #line 1026
-  tmp = __builtin_expect((ah->debug.level & 16384U) == 0U, 1L);
+  tmp = ldv__builtin_expect((ah->debug.level & 16384U) == 0U, 1L);
 #line 1026
   if (tmp != 0L) {
 #line 1027
@@ -43274,7 +43274,7 @@ void ath5k_debug_printtxbuf(struct ath5k_hw *ah , struct ath5k_buf *bf )
 #line 1047
   ts.ts_antenna = (unsigned char)0;
 #line 1050
-  tmp = __builtin_expect((ah->debug.level & 16384U) == 0U, 1L);
+  tmp = ldv__builtin_expect((ah->debug.level & 16384U) == 0U, 1L);
 #line 1050
   if (tmp != 0L) {
 #line 1051
@@ -44649,7 +44649,7 @@ __inline static void ldv_error(void)
 #line 25
 extern int __VERIFIER_nondet_int(void) ;
 #line 49 "/home/mikhail/ldv/kernel-rules/verifier/rcv.h"
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 

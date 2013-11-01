@@ -5141,7 +5141,7 @@ void ldv_mutex_unlock_6(struct mutex *ldv_func_arg1 )
 }
 }
 #line 1 "<compiler builtins>"
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 #line 119 "include/linux/printk.h"
 extern int printk(char const   *  , ...) ;
 #line 27 "include/linux/err.h"
@@ -5161,7 +5161,7 @@ __inline static long IS_ERR(void const   *ptr )
 
   {
 #line 34
-  tmp = __builtin_expect((unsigned long )ptr > 0xfffffffffffff000UL, 0L);
+  tmp = ldv__builtin_expect((unsigned long )ptr > 0xfffffffffffff000UL, 0L);
 #line 34
   return (tmp);
 }
@@ -6714,7 +6714,7 @@ void hfs_bnode_unhash(struct hfs_bnode *node )
 
   }
 #line 372
-  tmp___1 = __builtin_expect((unsigned long )*p == (unsigned long )((struct hfs_bnode *)0),
+  tmp___1 = ldv__builtin_expect((unsigned long )*p == (unsigned long )((struct hfs_bnode *)0),
                              0L);
 #line 372
   if (tmp___1 != 0L) {
@@ -7040,7 +7040,7 @@ struct hfs_bnode *hfs_bnode_create(struct hfs_btree *tree , u32 num )
 #line 479
   spin_unlock(& tree->hash_lock);
 #line 480
-  tmp = __builtin_expect((unsigned long )node != (unsigned long )((struct hfs_bnode *)0),
+  tmp = ldv__builtin_expect((unsigned long )node != (unsigned long )((struct hfs_bnode *)0),
                          0L);
 #line 480
   if (tmp != 0L) {
@@ -7159,7 +7159,7 @@ void hfs_bnode_put(struct hfs_bnode *node )
 #line 523
     tmp___0 = atomic_read((atomic_t const   *)(& node->refcnt));
 #line 523
-    tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+    tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
 #line 523
     if (tmp___1 != 0L) {
 #line 523
@@ -8603,7 +8603,7 @@ struct hfs_btree *hfs_btree_open(struct super_block *sb , u32 id , int (*keycmp)
 
   }
 #line 103
-  tmp___0 = __builtin_expect(((tree->inode)->i_state & 8UL) == 0UL, 0L);
+  tmp___0 = ldv__builtin_expect(((tree->inode)->i_state & 8UL) == 0UL, 0L);
 #line 103
   if (tmp___0 != 0L) {
 #line 103
@@ -12801,7 +12801,7 @@ static int hfs_write_begin(struct file *file , struct address_space *mapping , l
   ret = cont_write_begin(file, mapping, pos, len, flags, pagep, fsdata, & hfs_get_block,
                          & ((struct hfs_inode_info *)__mptr + 0xfffffffffffffed0UL)->phys_size);
 #line 122
-  tmp = __builtin_expect(ret != 0, 0L);
+  tmp = ldv__builtin_expect(ret != 0, 0L);
 #line 122
   if (tmp != 0L) {
 #line 123
@@ -13000,11 +13000,11 @@ static ssize_t hfs_direct_IO(int rw , struct kiocb *iocb , struct iovec  const  
 #line 198
   ret = blockdev_direct_IO(rw, iocb, inode, iov, offset, nr_segs, & hfs_get_block);
 #line 205
-  tmp___1 = __builtin_expect((long )rw & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )rw & 1L, 0L);
 #line 205
   if (tmp___1 != 0L) {
 #line 205
-    tmp___2 = __builtin_expect(ret < 0L, 0L);
+    tmp___2 = ldv__builtin_expect(ret < 0L, 0L);
 #line 205
     if (tmp___2 != 0L) {
 #line 206
@@ -15140,7 +15140,7 @@ __inline static int trylock_buffer(struct buffer_head *bh )
 #line 328
   tmp = test_and_set_bit_lock(2, (unsigned long volatile   *)(& bh->b_state));
 #line 328
-  tmp___0 = __builtin_expect(tmp == 0, 1L);
+  tmp___0 = ldv__builtin_expect(tmp == 0, 1L);
 #line 328
   return ((int )tmp___0);
 }
@@ -15312,7 +15312,7 @@ int hfs_mdb_get(struct super_block *sb )
 #line 150
   __bh = sb_bread(sb, __block);
 #line 150
-  tmp___0 = __builtin_expect((unsigned long )__bh != (unsigned long )((struct buffer_head *)0),
+  tmp___0 = ldv__builtin_expect((unsigned long )__bh != (unsigned long )((struct buffer_head *)0),
                              1L);
 #line 150
   if (tmp___0 != 0L) {
@@ -15439,7 +15439,7 @@ int hfs_mdb_get(struct super_block *sb )
 #line 188
   __bh___0 = sb_bread(sb, __block___0);
 #line 188
-  tmp___5 = __builtin_expect((unsigned long )__bh___0 != (unsigned long )((struct buffer_head *)0),
+  tmp___5 = ldv__builtin_expect((unsigned long )__bh___0 != (unsigned long )((struct buffer_head *)0),
                              1L);
 #line 188
   if (tmp___5 != 0L) {
@@ -15527,7 +15527,7 @@ int hfs_mdb_get(struct super_block *sb )
 #line 218
   __bh___1 = sb_bread(sb, __block___1);
 #line 218
-  tmp___15 = __builtin_expect((unsigned long )__bh___1 != (unsigned long )((struct buffer_head *)0),
+  tmp___15 = ldv__builtin_expect((unsigned long )__bh___1 != (unsigned long )((struct buffer_head *)0),
                               1L);
 #line 218
   if (tmp___15 != 0L) {
@@ -16080,7 +16080,7 @@ int hfs_part_find(struct super_block *sb , sector_t *part_start , sector_t *part
 #line 129
   __bh = sb_bread(sb, __block);
 #line 129
-  tmp = __builtin_expect((unsigned long )__bh != (unsigned long )((struct buffer_head *)0),
+  tmp = ldv__builtin_expect((unsigned long )__bh != (unsigned long )((struct buffer_head *)0),
                          1L);
 #line 129
   if (tmp != 0L) {
@@ -16190,7 +16190,7 @@ int hfs_part_find(struct super_block *sb , sector_t *part_start , sector_t *part
 #line 168
   __bh___0 = sb_bread(sb, __block___0);
 #line 168
-  tmp___7 = __builtin_expect((unsigned long )__bh___0 != (unsigned long )((struct buffer_head *)0),
+  tmp___7 = ldv__builtin_expect((unsigned long )__bh___0 != (unsigned long )((struct buffer_head *)0),
                              1L);
 #line 168
   if (tmp___7 != 0L) {
@@ -18508,7 +18508,7 @@ __inline static void ldv_error(void)
 #line 25
 extern int __VERIFIER_nondet_int(void) ;
 #line 49 "/home/mikhail/ldv/kernel-rules/verifier/rcv.h"
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 

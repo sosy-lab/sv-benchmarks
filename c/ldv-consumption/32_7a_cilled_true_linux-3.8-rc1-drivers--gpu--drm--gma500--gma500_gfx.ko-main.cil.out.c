@@ -7501,7 +7501,7 @@ struct hdmi_i2c_dev {
    int buf_offset ;
 };
 #line 1 "<compiler builtins>"
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 #line 658 "/work/ldvuser/zakharov_benchmarks/bench/cpa/inst/current/envs/linux-3.8-rc1/linux-3.8-rc1/arch/x86/include/asm/processor.h"
 __inline static void rep_nop(void) 
 { 
@@ -8036,7 +8036,7 @@ void psbfb_copyarea(struct fb_info *info , struct fb_copyarea  const  *region )
 
   {
 #line 448
-  tmp = __builtin_expect(info->state != 0U, 0L);
+  tmp = ldv__builtin_expect(info->state != 0U, 0L);
 #line 448
   if (tmp != 0L) {
 #line 449
@@ -8677,7 +8677,7 @@ __inline static int kref_sub(struct kref *kref , unsigned int count , void (*rel
 #line 67
   __ret_warn_on = (unsigned long )release == (unsigned long )((void (*)(struct kref * ))0);
 #line 67
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 67
   if (tmp != 0L) {
 #line 67
@@ -8686,7 +8686,7 @@ __inline static int kref_sub(struct kref *kref , unsigned int count , void (*rel
 
   }
 #line 67
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 69
   tmp___0 = atomic_sub_and_test((int )count, & kref->refcount);
 #line 69
@@ -9063,18 +9063,18 @@ static int psbfb_vm_fault(struct vm_area_struct *vma , struct vm_fault *vmf )
 #line 279
   ret = vm_insert_mixed(vma, address, pfn);
 #line 280
-  tmp___0 = __builtin_expect(ret == -16, 0L);
+  tmp___0 = ldv__builtin_expect(ret == -16, 0L);
 #line 280
   if (tmp___0 != 0L) {
 #line 281
     goto ldv_39207;
   } else {
 #line 280
-    tmp___1 = __builtin_expect(ret != 0, 0L);
+    tmp___1 = ldv__builtin_expect(ret != 0, 0L);
 #line 280
     if (tmp___1 != 0L) {
 #line 280
-      tmp___2 = __builtin_expect(i > 0, 0L);
+      tmp___2 = ldv__builtin_expect(i > 0, 0L);
 #line 280
       if (tmp___2 != 0L) {
 #line 280
@@ -9093,7 +9093,7 @@ static int psbfb_vm_fault(struct vm_area_struct *vma , struct vm_fault *vmf )
       goto ldv_39207;
     } else {
 #line 282
-      tmp = __builtin_expect(ret != 0, 0L);
+      tmp = ldv__builtin_expect(ret != 0, 0L);
 #line 282
       if (tmp != 0L) {
 #line 283
@@ -9565,7 +9565,7 @@ static int psbfb_create(struct psb_fbdev *fbdev , struct drm_fb_helper_surface_s
 #line 622
   descriptor.flags = 0U;
 #line 622
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 622
   if (tmp != 0L) {
 #line 622
@@ -9899,7 +9899,7 @@ static void psb_user_framebuffer_destroy(struct drm_framebuffer *fb )
 #line 822
   __ret_warn_on = (int )r->stolen;
 #line 822
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 822
   if (tmp != 0L) {
 #line 822
@@ -9909,7 +9909,7 @@ static void psb_user_framebuffer_destroy(struct drm_framebuffer *fb )
 
   }
 #line 822
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 825
   __mptr___0 = (struct list_head  const  *)dev->mode_config.crtc_list.next;
 #line 825
@@ -11825,7 +11825,7 @@ __inline static long IS_ERR(void const   *ptr )
 
   {
 #line 34
-  tmp = __builtin_expect((unsigned long )ptr > 0xfffffffffffff000UL, 0L);
+  tmp = ldv__builtin_expect((unsigned long )ptr > 0xfffffffffffff000UL, 0L);
 #line 34
   return (tmp);
 }
@@ -11962,7 +11962,7 @@ __inline static uint32_t psb_gtt_mask_pte(uint32_t pfn , int type )
 #line 183
   mask = 1U;
 #line 187
-  tmp = __builtin_expect((pfn & 4293918720U) != 0U, 0L);
+  tmp = ldv__builtin_expect((pfn & 4293918720U) != 0U, 0L);
 #line 187
   if (tmp != 0L) {
 #line 187
@@ -12032,7 +12032,7 @@ static int psb_gtt_insert(struct drm_device *dev , struct gtt_range *r )
 #line 234
     __ret_warn_on = 1;
 #line 234
-    tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 234
     if (tmp != 0L) {
 #line 234
@@ -12042,7 +12042,7 @@ static int psb_gtt_insert(struct drm_device *dev , struct gtt_range *r )
 
     }
 #line 234
-    __builtin_expect(__ret_warn_on != 0, 0L);
+    ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 235
     return (-22);
   } else {
@@ -12051,7 +12051,7 @@ static int psb_gtt_insert(struct drm_device *dev , struct gtt_range *r )
 #line 238
   __ret_warn_on___0 = (int )r->stolen;
 #line 238
-  tmp___0 = __builtin_expect(__ret_warn_on___0 != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on___0 != 0, 0L);
 #line 238
   if (tmp___0 != 0L) {
 #line 238
@@ -12061,7 +12061,7 @@ static int psb_gtt_insert(struct drm_device *dev , struct gtt_range *r )
 
   }
 #line 238
-  __builtin_expect(__ret_warn_on___0 != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on___0 != 0, 0L);
 #line 240
   gtt_slot = psb_gtt_entry(dev, r);
 #line 241
@@ -12142,7 +12142,7 @@ static void psb_gtt_remove(struct drm_device *dev , struct gtt_range *r )
 #line 277
   __ret_warn_on = (int )r->stolen;
 #line 277
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 277
   if (tmp != 0L) {
 #line 277
@@ -12152,7 +12152,7 @@ static void psb_gtt_remove(struct drm_device *dev , struct gtt_range *r )
 
   }
 #line 277
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 279
   gtt_slot = psb_gtt_entry(dev, r);
 #line 280
@@ -12205,7 +12205,7 @@ void psb_gtt_roll(struct drm_device *dev , struct gtt_range *r , int roll )
 #line 305
     __ret_warn_on = 1;
 #line 305
-    tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 305
     if (tmp != 0L) {
 #line 305
@@ -12215,7 +12215,7 @@ void psb_gtt_roll(struct drm_device *dev , struct gtt_range *r , int roll )
 
     }
 #line 305
-    __builtin_expect(__ret_warn_on != 0, 0L);
+    ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 306
     return;
   } else {
@@ -12310,7 +12310,7 @@ static int psb_gtt_attach_pages(struct gtt_range *gt )
 #line 345
   __ret_warn_on = (unsigned long )gt->pages != (unsigned long )((struct page **)0);
 #line 345
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 345
   if (tmp != 0L) {
 #line 345
@@ -12320,7 +12320,7 @@ static int psb_gtt_attach_pages(struct gtt_range *gt )
 
   }
 #line 345
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 348
   inode = ((gt->gem.filp)->f_path.dentry)->d_inode;
 #line 349
@@ -12500,7 +12500,7 @@ void psb_gtt_unpin(struct gtt_range *gt )
 #line 445
   __ret_warn_on = gt->in_gart == 0;
 #line 445
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 445
   if (tmp != 0L) {
 #line 445
@@ -12510,7 +12510,7 @@ void psb_gtt_unpin(struct gtt_range *gt )
 
   }
 #line 445
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 447
   gt->in_gart = gt->in_gart - 1;
 #line 448
@@ -12614,7 +12614,7 @@ void psb_gtt_free_range(struct drm_device *dev , struct gtt_range *gt )
 #line 526
   __ret_warn_on = gt->in_gart != 0 && ! gt->stolen;
 #line 526
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 526
   if (tmp != 0L) {
 #line 526
@@ -12624,7 +12624,7 @@ void psb_gtt_free_range(struct drm_device *dev , struct gtt_range *gt )
 
   }
 #line 526
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 527
   release_resource(& gt->resource);
 #line 528
@@ -12762,7 +12762,7 @@ int psb_gtt_init(struct drm_device *dev , int resume )
 #line 599
     descriptor.flags = 0U;
 #line 599
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 599
     if (tmp != 0L) {
 #line 599
@@ -12804,7 +12804,7 @@ int psb_gtt_init(struct drm_device *dev , int resume )
 #line 614
     descriptor___0.flags = 0U;
 #line 614
-    tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 614
     if (tmp___0 != 0L) {
 #line 614
@@ -12848,7 +12848,7 @@ int psb_gtt_init(struct drm_device *dev , int resume )
 #line 634
   descriptor___1.flags = 0U;
 #line 634
-  tmp___1 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 634
   if (tmp___1 != 0L) {
 #line 634
@@ -12921,7 +12921,7 @@ int psb_gtt_init(struct drm_device *dev , int resume )
 #line 672
   descriptor___2.flags = 0U;
 #line 672
-  tmp___4 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+  tmp___4 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
 #line 672
   if (tmp___4 != 0L) {
 #line 672
@@ -13702,7 +13702,7 @@ static void parse_lfp_panel_data(struct drm_psb_private *dev_priv , struct bdb_h
 #line 419
     descriptor.flags = 0U;
 #line 419
-    tmp___2 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___2 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 419
     if (tmp___2 != 0L) {
 #line 419
@@ -16679,7 +16679,7 @@ __inline static void __cpuid(unsigned int *eax , unsigned int *ebx , unsigned in
 #line 32
   __eax = __eax;
 #line 32
-  tmp = __builtin_expect((unsigned long )pv_cpu_ops.cpuid == (unsigned long )((void (*)(unsigned int * ,
+  tmp = ldv__builtin_expect((unsigned long )pv_cpu_ops.cpuid == (unsigned long )((void (*)(unsigned int * ,
                                                                                         unsigned int * ,
                                                                                         unsigned int * ,
                                                                                         unsigned int * ))0),
@@ -19262,7 +19262,7 @@ void gma_power_end(struct drm_device *dev )
 #line 435
   __ret_warn_on = dev_priv->display_count < 0;
 #line 435
-  tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 435
   if (tmp___0 != 0L) {
 #line 435
@@ -19272,7 +19272,7 @@ void gma_power_end(struct drm_device *dev )
 
   }
 #line 435
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 436
   spin_unlock_irqrestore(& power_ctrl_lock, flags);
 #line 437
@@ -20385,7 +20385,7 @@ static int psb_gamma_ioctl(struct drm_device *dev , void *data , struct drm_file
 #line 585
     descriptor.flags = 0U;
 #line 585
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 585
     if (tmp != 0L) {
 #line 585
@@ -20565,7 +20565,7 @@ static int psb_mode_operation_ioctl(struct drm_device *dev , void *data , struct
 #line 676
   descriptor.flags = 0U;
 #line 676
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 676
   if (tmp != 0L) {
 #line 676
@@ -23337,7 +23337,7 @@ static int psb_intel_pipe_set_base(struct drm_crtc *crtc , int x , int y , struc
 #line 498
     descriptor.flags = 0U;
 #line 498
-    tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 498
     if (tmp___1 != 0L) {
 #line 498
@@ -24396,7 +24396,7 @@ static int psb_intel_crtc_cursor_set(struct drm_crtc *crtc , struct drm_file *fi
 #line 1113
     descriptor.flags = 0U;
 #line 1113
-    tmp___2 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___2 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1113
     if (tmp___2 != 0L) {
 #line 1113
@@ -24433,7 +24433,7 @@ static int psb_intel_crtc_cursor_set(struct drm_crtc *crtc , struct drm_file *fi
 #line 1122
     descriptor___0.flags = 0U;
 #line 1122
-    tmp___3 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___3 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 1122
     if (tmp___3 != 0L) {
 #line 1122
@@ -25146,14 +25146,14 @@ void psb_intel_crtc_init(struct drm_device *dev , int pipe , struct psb_intel_mo
 #line 1498
   psb_intel_crtc->mode_set.crtc = & psb_intel_crtc->base;
 #line 1499
-  tmp___1 = __builtin_expect((unsigned int )pipe > 2U, 0L);
+  tmp___1 = ldv__builtin_expect((unsigned int )pipe > 2U, 0L);
 #line 1499
   if (tmp___1 != 0L) {
 #line 1499
     goto _L;
   } else {
 #line 1499
-    tmp___2 = __builtin_expect((unsigned long )dev_priv->plane_to_crtc_mapping[psb_intel_crtc->plane] != (unsigned long )((struct drm_crtc *)0),
+    tmp___2 = ldv__builtin_expect((unsigned long )dev_priv->plane_to_crtc_mapping[psb_intel_crtc->plane] != (unsigned long )((struct drm_crtc *)0),
                                0L);
 #line 1499
     if (tmp___2 != 0L) {
@@ -26038,7 +26038,7 @@ static int psb_lvds_i2c_set_brightness(struct drm_device *dev , unsigned int lev
 #line 273
     descriptor.flags = 0U;
 #line 273
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 273
     if (tmp != 0L) {
 #line 273
@@ -26071,7 +26071,7 @@ static int psb_lvds_pwm_set_brightness(struct drm_device *dev , int level )
 #line 292
   max_pwm_blc = psb_intel_lvds_get_max_backlight(dev);
 #line 295
-  tmp = __builtin_expect(max_pwm_blc == 0U, 0L);
+  tmp = ldv__builtin_expect(max_pwm_blc == 0U, 0L);
 #line 295
   if (tmp != 0L) {
 #line 295
@@ -26125,7 +26125,7 @@ void psb_intel_lvds_set_brightness(struct drm_device *dev , int level )
 #line 321
   descriptor.flags = 0U;
 #line 321
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 321
   if (tmp != 0L) {
 #line 321
@@ -26349,7 +26349,7 @@ static void psb_intel_lvds_save(struct drm_connector *connector )
 #line 441
   descriptor.flags = 0U;
 #line 441
-  tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 441
   if (tmp___1 != 0L) {
 #line 441
@@ -26397,7 +26397,7 @@ static void psb_intel_lvds_restore(struct drm_connector *connector )
 #line 459
   descriptor.flags = 0U;
 #line 459
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 459
   if (tmp___0 != 0L) {
 #line 459
@@ -36849,7 +36849,7 @@ static void mid_get_fuse_settings(struct drm_device *dev )
 #line 192
     __ret_warn_on = 1;
 #line 192
-    tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 192
     if (tmp___0 != 0L) {
 #line 192
@@ -36859,7 +36859,7 @@ static void mid_get_fuse_settings(struct drm_device *dev )
 
     }
 #line 192
-    __builtin_expect(__ret_warn_on != 0, 0L);
+    ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 193
     return;
   } else {
@@ -36917,7 +36917,7 @@ static void mid_get_fuse_settings(struct drm_device *dev )
 #line 221
   descriptor.flags = 0U;
 #line 221
-  tmp___2 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___2 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 221
   if (tmp___2 != 0L) {
 #line 221
@@ -36968,7 +36968,7 @@ static void mid_get_fuse_settings(struct drm_device *dev )
 #line 241
   descriptor___0.flags = 0U;
 #line 241
-  tmp___3 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___3 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 241
   if (tmp___3 != 0L) {
 #line 241
@@ -37005,7 +37005,7 @@ static void mid_get_pci_revID(struct drm_psb_private *dev_priv )
 #line 254
     __ret_warn_on = 1;
 #line 254
-    tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 254
     if (tmp___0 != 0L) {
 #line 254
@@ -37015,7 +37015,7 @@ static void mid_get_pci_revID(struct drm_psb_private *dev_priv )
 
     }
 #line 254
-    __builtin_expect(__ret_warn_on != 0, 0L);
+    ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 255
     return;
   } else {
@@ -37040,7 +37040,7 @@ static void mid_get_pci_revID(struct drm_psb_private *dev_priv )
 #line 260
   descriptor.flags = 0U;
 #line 260
-  tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 260
   if (tmp___1 != 0L) {
 #line 260
@@ -37331,7 +37331,7 @@ static void mid_get_vbt_data(struct drm_psb_private *dev_priv )
 #line 435
   descriptor.flags = 0U;
 #line 435
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 435
   if (tmp___0 != 0L) {
 #line 435
@@ -37385,7 +37385,7 @@ static void mid_get_vbt_data(struct drm_psb_private *dev_priv )
 #line 451
   descriptor___0.flags = 0U;
 #line 451
-  tmp___3 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___3 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 451
   if (tmp___3 != 0L) {
 #line 451
@@ -38536,7 +38536,7 @@ static int cdv_save_display_registers(struct drm_device *dev )
 #line 413
   descriptor.flags = 0U;
 #line 413
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 413
   if (tmp != 0L) {
 #line 413
@@ -42198,7 +42198,7 @@ static int cdv_intel_pipe_set_base(struct drm_crtc *crtc , int x , int y , struc
 #line 792
   descriptor.flags = 0U;
 #line 792
-  tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 792
   if (tmp___1 != 0L) {
 #line 792
@@ -43243,7 +43243,7 @@ static void cdv_intel_crtc_save(struct drm_crtc *crtc )
 #line 1442
     descriptor.flags = 0U;
 #line 1442
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1442
     if (tmp != 0L) {
 #line 1442
@@ -43379,7 +43379,7 @@ static void cdv_intel_crtc_restore(struct drm_crtc *crtc )
 #line 1504
     descriptor.flags = 0U;
 #line 1504
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1504
     if (tmp != 0L) {
 #line 1504
@@ -43632,7 +43632,7 @@ static int cdv_intel_crtc_cursor_set(struct drm_crtc *crtc , struct drm_file *fi
 #line 1636
     descriptor.flags = 0U;
 #line 1636
-    tmp___2 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___2 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1636
     if (tmp___2 != 0L) {
 #line 1636
@@ -43669,7 +43669,7 @@ static int cdv_intel_crtc_cursor_set(struct drm_crtc *crtc , struct drm_file *fi
 #line 1645
     descriptor___0.flags = 0U;
 #line 1645
-    tmp___3 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___3 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 1645
     if (tmp___3 != 0L) {
 #line 1645
@@ -52586,7 +52586,7 @@ static void mrstPrintPll(char *prefix , struct oaktrail_clock_t *clock )
 #line 264
   descriptor.flags = 0U;
 #line 264
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 264
   if (tmp != 0L) {
 #line 264
@@ -52693,7 +52693,7 @@ static bool mrstFindBestPLL(struct drm_crtc *crtc , int target , int refclk , st
 #line 296
   descriptor.flags = 0U;
 #line 296
-  tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 296
   if (tmp___1 != 0L) {
 #line 296
@@ -53183,7 +53183,7 @@ static int oaktrail_crtc_mode_set(struct drm_crtc *crtc , struct drm_display_mod
 #line 572
     descriptor.flags = 0U;
 #line 572
-    tmp___3 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___3 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 572
     if (tmp___3 != 0L) {
 #line 572
@@ -53205,7 +53205,7 @@ static int oaktrail_crtc_mode_set(struct drm_crtc *crtc , struct drm_display_mod
 #line 574
     descriptor___0.flags = 0U;
 #line 574
-    tmp___4 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___4 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 574
     if (tmp___4 != 0L) {
 #line 574
@@ -53353,7 +53353,7 @@ static int oaktrail_pipe_set_base(struct drm_crtc *crtc , int x , int y , struct
 #line 664
     descriptor.flags = 0U;
 #line 664
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 664
     if (tmp != 0L) {
 #line 664
@@ -54452,7 +54452,7 @@ void oaktrail_lvds_init(struct drm_device *dev , struct psb_intel_mode_device *m
 #line 580
   descriptor.flags = 0U;
 #line 580
-  tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 580
   if (tmp___1 != 0L) {
 #line 580
@@ -57563,7 +57563,7 @@ __inline static void ldv_error(void)
 #line 25
 extern int __VERIFIER_nondet_int(void) ;
 #line 49 "/home/ldvuser/ldv_envgen2/kernel-rules/verifier/rcv.h"
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
   {

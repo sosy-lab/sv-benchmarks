@@ -3443,7 +3443,7 @@ struct tpm_chip {
    void (*release)(struct device * ) ;
 };
 #line 1 "<compiler builtins>"
-long __builtin_expect(long val , long res ) ;
+long ldv__builtin_expect(long val , long res ) ;
 #line 137 "include/linux/ioport.h"
 extern struct resource ioport_resource ;
 #line 181
@@ -5178,7 +5178,7 @@ static int init_nsc(void)
 #line 347
       __cil_tmp74 = (long )__cil_tmp73;
 #line 347
-      tmp___12 = __builtin_expect(__cil_tmp74, 0L);
+      tmp___12 = ldv__builtin_expect(__cil_tmp74, 0L);
       }
 #line 347
       if (tmp___12) {
@@ -5229,7 +5229,7 @@ static int init_nsc(void)
 #line 348
       __cil_tmp84 = (long )__cil_tmp83;
 #line 348
-      tmp___16 = __builtin_expect(__cil_tmp84, 0L);
+      tmp___16 = ldv__builtin_expect(__cil_tmp84, 0L);
       }
 #line 348
       if (tmp___16) {
@@ -5287,7 +5287,7 @@ static int init_nsc(void)
 #line 352
       __cil_tmp94 = (long )__cil_tmp93;
 #line 352
-      tmp___21 = __builtin_expect(__cil_tmp94, 0L);
+      tmp___21 = ldv__builtin_expect(__cil_tmp94, 0L);
       }
 #line 352
       if (tmp___21) {
@@ -5347,7 +5347,7 @@ static int init_nsc(void)
 #line 356
       __cil_tmp104 = (long )__cil_tmp103;
 #line 356
-      tmp___24 = __builtin_expect(__cil_tmp104, 0L);
+      tmp___24 = ldv__builtin_expect(__cil_tmp104, 0L);
       }
 #line 356
       if (tmp___24) {
@@ -5406,7 +5406,7 @@ static int init_nsc(void)
 #line 358
       __cil_tmp116 = (long )__cil_tmp115;
 #line 358
-      tmp___27 = __builtin_expect(__cil_tmp116, 0L);
+      tmp___27 = ldv__builtin_expect(__cil_tmp116, 0L);
       }
 #line 358
       if (tmp___27) {
@@ -5465,7 +5465,7 @@ static int init_nsc(void)
 #line 360
       __cil_tmp128 = (long )__cil_tmp127;
 #line 360
-      tmp___29 = __builtin_expect(__cil_tmp128, 0L);
+      tmp___29 = ldv__builtin_expect(__cil_tmp128, 0L);
       }
 #line 360
       if (tmp___29) {
@@ -5519,7 +5519,7 @@ static int init_nsc(void)
 #line 362
       __cil_tmp138 = (long )__cil_tmp137;
 #line 362
-      tmp___31 = __builtin_expect(__cil_tmp138, 0L);
+      tmp___31 = ldv__builtin_expect(__cil_tmp138, 0L);
       }
 #line 362
       if (tmp___31) {
@@ -5573,7 +5573,7 @@ static int init_nsc(void)
 #line 364
       __cil_tmp148 = (long )__cil_tmp147;
 #line 364
-      tmp___34 = __builtin_expect(__cil_tmp148, 0L);
+      tmp___34 = ldv__builtin_expect(__cil_tmp148, 0L);
       }
 #line 364
       if (tmp___34) {
@@ -5629,7 +5629,7 @@ static int init_nsc(void)
 #line 367
       __cil_tmp158 = (long )__cil_tmp157;
 #line 367
-      tmp___45 = __builtin_expect(__cil_tmp158, 0L);
+      tmp___45 = ldv__builtin_expect(__cil_tmp158, 0L);
       }
 #line 367
       if (tmp___45) {
@@ -6214,7 +6214,7 @@ void ldv_check_final_state(void)
 }
 }
 #line 637 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/16612/dscv_tempdir/dscv/ri/32_1/drivers/char/tpm/tpm_nsc.c.common.c"
-long __builtin_expect(long val , long res ) 
+long ldv__builtin_expect(long val , long res ) 
 { 
 
   {

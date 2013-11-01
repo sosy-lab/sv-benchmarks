@@ -3767,7 +3767,7 @@ struct i7300_pvt {
 #line 1376 "/work/ldvuser/zakharov_benchmarks/bench/cpa/work/current--X--drivers/edac/i7300_edac.ko--X--x1linux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/32_7a/drivers/edac/i7300_edac.c.prepared"
 typedef int ldv_func_ret_type___2;
 #line 1 "<compiler builtins>"
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 #line 35 "include/asm-generic/bitops/find.h"
 extern unsigned long find_first_bit(unsigned long const   * , unsigned long  ) ;
 #line 119 "include/linux/printk.h"
@@ -4013,7 +4013,7 @@ static char const   *get_err_from_table(char const   **table , int size , int po
 
   {
 #line 373
-  tmp = __builtin_expect(pos >= size, 0L);
+  tmp = ldv__builtin_expect(pos >= size, 0L);
 #line 373
   if (tmp != 0L) {
 #line 374
@@ -4022,7 +4022,7 @@ static char const   *get_err_from_table(char const   **table , int size , int po
 
   }
 #line 376
-  tmp___0 = __builtin_expect((unsigned long )*(table + (unsigned long )pos) == (unsigned long )((char const   *)0),
+  tmp___0 = ldv__builtin_expect((unsigned long )*(table + (unsigned long )pos) == (unsigned long )((char const   *)0),
                              0L);
 #line 376
   if (tmp___0 != 0L) {
@@ -4056,7 +4056,7 @@ static void i7300_process_error_global(struct mem_ctl_info *mci )
   pci_read_config_dword((struct pci_dev  const  *)pvt->pci_dev_16_2_fsb_err_regs,
                         72, & error_reg);
 #line 404
-  tmp___0 = __builtin_expect(error_reg != 0U, 0L);
+  tmp___0 = ldv__builtin_expect(error_reg != 0U, 0L);
 #line 404
   if (tmp___0 != 0L) {
 #line 405
@@ -4081,7 +4081,7 @@ static void i7300_process_error_global(struct mem_ctl_info *mci )
   pci_read_config_dword((struct pci_dev  const  *)pvt->pci_dev_16_2_fsb_err_regs,
                         64, & error_reg);
 #line 420
-  tmp___2 = __builtin_expect(error_reg != 0U, 0L);
+  tmp___2 = ldv__builtin_expect(error_reg != 0U, 0L);
 #line 420
   if (tmp___2 != 0L) {
 #line 421
@@ -4150,7 +4150,7 @@ static void i7300_process_fbd_error(struct mem_ctl_info *mci )
   pci_read_config_dword((struct pci_dev  const  *)pvt->pci_dev_16_1_fsb_addr_map,
                         152, & error_reg);
 #line 463
-  tmp___1 = __builtin_expect((error_reg & 4194311U) != 0U, 0L);
+  tmp___1 = ldv__builtin_expect((error_reg & 4194311U) != 0U, 0L);
 #line 463
   if (tmp___1 != 0L) {
 #line 464
@@ -4203,7 +4203,7 @@ static void i7300_process_fbd_error(struct mem_ctl_info *mci )
   pci_read_config_dword((struct pci_dev  const  *)pvt->pci_dev_16_1_fsb_addr_map,
                         160, & error_reg);
 #line 499
-  tmp___4 = __builtin_expect((error_reg & 31977471U) != 0U, 0L);
+  tmp___4 = ldv__builtin_expect((error_reg & 31977471U) != 0U, 0L);
 #line 499
   if (tmp___4 != 0L) {
 #line 500
@@ -5825,7 +5825,7 @@ __inline static void ldv_error(void)
 #line 25
 extern int __VERIFIER_nondet_int(void) ;
 #line 49 "/home/ldvuser/ldv_envgen2/kernel-rules/verifier/rcv.h"
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
   {

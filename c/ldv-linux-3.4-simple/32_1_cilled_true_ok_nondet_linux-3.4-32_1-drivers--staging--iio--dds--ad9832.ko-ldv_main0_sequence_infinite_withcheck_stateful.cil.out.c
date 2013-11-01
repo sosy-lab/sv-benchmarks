@@ -2680,7 +2680,7 @@ struct ad9832_platform_data {
    unsigned short phase3 ;
 };
 #line 1 "<compiler builtins>"
-long __builtin_expect(long val , long res ) ;
+long ldv__builtin_expect(long val , long res ) ;
 #line 24 "include/linux/list.h"
 __inline static void INIT_LIST_HEAD(struct list_head *list )  __attribute__((__no_instrument_function__)) ;
 #line 24 "include/linux/list.h"
@@ -2839,7 +2839,7 @@ __inline static long __attribute__((__warn_unused_result__))  IS_ERR(void const 
 #line 34
   __cil_tmp7 = (long )__cil_tmp6;
 #line 34
-  tmp = __builtin_expect(__cil_tmp7, 0L);
+  tmp = ldv__builtin_expect(__cil_tmp7, 0L);
   }
 #line 34
   return (tmp);
@@ -4660,7 +4660,7 @@ static int ad9832_probe(struct spi_device *spi )
 #line 214
         __cil_tmp23 = (long )__cil_tmp22;
 #line 214
-        tmp___7 = __builtin_expect(__cil_tmp23, 0L);
+        tmp___7 = ldv__builtin_expect(__cil_tmp23, 0L);
         }
 #line 214
         if (tmp___7) {
@@ -5947,7 +5947,7 @@ void ldv_check_final_state(void)
 }
 }
 #line 475 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/1860/dscv_tempdir/dscv/ri/32_1/drivers/staging/iio/dds/ad9832.c.common.c"
-long __builtin_expect(long val , long res ) 
+long ldv__builtin_expect(long val , long res ) 
 { 
 
   {

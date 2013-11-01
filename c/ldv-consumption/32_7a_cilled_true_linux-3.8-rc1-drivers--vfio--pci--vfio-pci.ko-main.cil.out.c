@@ -2620,7 +2620,7 @@ struct perm_bits {
 #line 1 "<compiler builtins>"
 unsigned long __builtin_object_size(void * , int  ) ;
 #line 1
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 #line 119 "include/linux/printk.h"
 extern int printk(char const   *  , ...) ;
 #line 45 "include/linux/dynamic_debug.h"
@@ -2646,7 +2646,7 @@ __inline static long IS_ERR(void const   *ptr )
 
   {
 #line 34
-  tmp = __builtin_expect((unsigned long )ptr > 0xfffffffffffff000UL, 0L);
+  tmp = ldv__builtin_expect((unsigned long )ptr > 0xfffffffffffff000UL, 0L);
 #line 34
   return (tmp);
 }
@@ -2829,14 +2829,14 @@ __inline static unsigned long copy_from_user(void *to , void const   *from , uns
 #line 61
   might_fault();
 #line 62
-  tmp___1 = __builtin_expect(sz == -1, 1L);
+  tmp___1 = ldv__builtin_expect(sz == -1, 1L);
 #line 62
   if (tmp___1 != 0L) {
 #line 63
     n = _copy_from_user(to, from, (unsigned int )n);
   } else {
 #line 62
-    tmp___2 = __builtin_expect((unsigned long )sz >= n, 1L);
+    tmp___2 = ldv__builtin_expect((unsigned long )sz >= n, 1L);
 #line 62
     if (tmp___2 != 0L) {
 #line 63
@@ -2845,7 +2845,7 @@ __inline static unsigned long copy_from_user(void *to , void const   *from , uns
 #line 66
       __ret_warn_on = 1;
 #line 66
-      tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+      tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 66
       if (tmp___0 != 0L) {
 #line 66
@@ -2855,7 +2855,7 @@ __inline static unsigned long copy_from_user(void *to , void const   *from , uns
 
       }
 #line 66
-      __builtin_expect(__ret_warn_on != 0, 0L);
+      ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
   }
 #line 68
@@ -3083,7 +3083,7 @@ static int vfio_pci_enable(struct vfio_pci_device *vdev )
 #line 92
     descriptor.flags = 0U;
 #line 92
-    tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 92
     if (tmp___1 != 0L) {
 #line 92
@@ -3111,7 +3111,7 @@ static int vfio_pci_enable(struct vfio_pci_device *vdev )
 
   }
 #line 102
-  tmp___2 = __builtin_expect((long )(! nointxmask), 1L);
+  tmp___2 = ldv__builtin_expect((long )(! nointxmask), 1L);
 #line 102
   if (tmp___2 != 0L) {
 #line 103
@@ -5110,11 +5110,11 @@ static void vfio_send_intx_eventfd(struct vfio_pci_device *vdev , void *unused )
 
   {
 #line 284
-  tmp = __builtin_expect(vdev->irq_type == 0, 1L);
+  tmp = ldv__builtin_expect(vdev->irq_type == 0, 1L);
 #line 284
   if (tmp != 0L) {
 #line 284
-    tmp___0 = __builtin_expect((long )(! vdev->virq_disabled), 1L);
+    tmp___0 = ldv__builtin_expect((long )(! vdev->virq_disabled), 1L);
 #line 284
     if (tmp___0 != 0L) {
 #line 285
@@ -5144,7 +5144,7 @@ void vfio_pci_intx_mask(struct vfio_pci_device *vdev )
 #line 293
   flags = _raw_spin_lock_irqsave(tmp);
 #line 301
-  tmp___0 = __builtin_expect(vdev->irq_type != 0, 0L);
+  tmp___0 = ldv__builtin_expect(vdev->irq_type != 0, 0L);
 #line 301
   if (tmp___0 != 0L) {
 #line 302
@@ -5196,7 +5196,7 @@ int vfio_pci_intx_unmask_handler(struct vfio_pci_device *vdev , void *unused )
 #line 332
   flags = _raw_spin_lock_irqsave(tmp);
 #line 338
-  tmp___2 = __builtin_expect(vdev->irq_type != 0, 0L);
+  tmp___2 = ldv__builtin_expect(vdev->irq_type != 0, 0L);
 #line 338
   if (tmp___2 != 0L) {
 #line 339
@@ -8965,7 +8965,7 @@ static int vfio_cap_init(struct vfio_pci_device *vdev )
   goto ldv_23636;
   ldv_23635: 
 #line 1235
-  tmp___0 = __builtin_expect((unsigned int )*(map + (unsigned long )(((int )pos + i) / 4)) == 255U,
+  tmp___0 = ldv__builtin_expect((unsigned int )*(map + (unsigned long )(((int )pos + i) / 4)) == 255U,
                              1L);
 #line 1235
   if (tmp___0 != 0L) {
@@ -9156,7 +9156,7 @@ static int vfio_ecap_init(struct vfio_pci_device *vdev )
   goto ldv_23661;
   ldv_23660: 
 #line 1319
-  tmp___0 = __builtin_expect((unsigned int )*(map + (unsigned long )(((int )epos + i) / 4)) == 255U,
+  tmp___0 = ldv__builtin_expect((unsigned int )*(map + (unsigned long )(((int )epos + i) / 4)) == 255U,
                              1L);
 #line 1319
   if (tmp___0 != 0L) {
@@ -9444,7 +9444,7 @@ static ssize_t vfio_config_do_rw(struct vfio_pci_device *vdev , char *buf , size
 #line 1496
     __ret_warn_on = (unsigned int )cap_id > 27U;
 #line 1496
-    tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 1496
     if (tmp___0 != 0L) {
 #line 1496
@@ -9454,7 +9454,7 @@ static ssize_t vfio_config_do_rw(struct vfio_pci_device *vdev , char *buf , size
 
     }
 #line 1496
-    __builtin_expect(__ret_warn_on != 0, 0L);
+    ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 1498
     perm = (struct perm_bits *)(& ecap_perms) + (unsigned long )cap_id;
 #line 1499
@@ -9463,7 +9463,7 @@ static ssize_t vfio_config_do_rw(struct vfio_pci_device *vdev , char *buf , size
 #line 1502
     __ret_warn_on___0 = (unsigned int )cap_id > 19U;
 #line 1502
-    tmp___1 = __builtin_expect(__ret_warn_on___0 != 0, 0L);
+    tmp___1 = ldv__builtin_expect(__ret_warn_on___0 != 0, 0L);
 #line 1502
     if (tmp___1 != 0L) {
 #line 1502
@@ -9473,7 +9473,7 @@ static ssize_t vfio_config_do_rw(struct vfio_pci_device *vdev , char *buf , size
 
     }
 #line 1502
-    __builtin_expect(__ret_warn_on___0 != 0, 0L);
+    ldv__builtin_expect(__ret_warn_on___0 != 0, 0L);
 #line 1504
     perm = (struct perm_bits *)(& cap_perms) + (unsigned long )cap_id;
 #line 1506
@@ -9494,7 +9494,7 @@ static ssize_t vfio_config_do_rw(struct vfio_pci_device *vdev , char *buf , size
 #line 1513
   __ret_warn_on___1 = cap_start == 0 && (unsigned int )cap_id != 0U;
 #line 1513
-  tmp___2 = __builtin_expect(__ret_warn_on___1 != 0, 0L);
+  tmp___2 = ldv__builtin_expect(__ret_warn_on___1 != 0, 0L);
 #line 1513
   if (tmp___2 != 0L) {
 #line 1513
@@ -9504,11 +9504,11 @@ static ssize_t vfio_config_do_rw(struct vfio_pci_device *vdev , char *buf , size
 
   }
 #line 1513
-  __builtin_expect(__ret_warn_on___1 != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on___1 != 0, 0L);
 #line 1514
   __ret_warn_on___2 = (loff_t )cap_start > *ppos;
 #line 1514
-  tmp___3 = __builtin_expect(__ret_warn_on___2 != 0, 0L);
+  tmp___3 = ldv__builtin_expect(__ret_warn_on___2 != 0, 0L);
 #line 1514
   if (tmp___3 != 0L) {
 #line 1514
@@ -9518,7 +9518,7 @@ static ssize_t vfio_config_do_rw(struct vfio_pci_device *vdev , char *buf , size
 
   }
 #line 1514
-  __builtin_expect(__ret_warn_on___2 != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on___2 != 0, 0L);
 #line 1516
   offset = (int )((unsigned int )*ppos - (unsigned int )cap_start);
 #line 1518
@@ -9736,7 +9736,7 @@ __inline static void ldv_error(void)
 #line 25
 extern int __VERIFIER_nondet_int(void) ;
 #line 49 "/home/ldvuser/ldv_envgen2/kernel-rules/verifier/rcv.h"
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
   {

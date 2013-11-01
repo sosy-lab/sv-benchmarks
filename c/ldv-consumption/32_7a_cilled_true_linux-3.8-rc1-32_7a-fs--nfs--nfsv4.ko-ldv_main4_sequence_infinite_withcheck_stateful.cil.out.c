@@ -9351,7 +9351,7 @@ enum hrtimer_restart;
 #line 1 "<compiler builtins>"
 void *__builtin_memcpy(void * , void const   * , unsigned long  ) ;
 #line 1
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 #line 62 "/home/mikhail/launches/cpachecker-regression2/launcher-working-dir/ldv-manager-work-dir/inst/current/envs/linux-3.8-rc1/linux-3.8-rc1/arch/x86/include/asm/bitops.h"
 __inline static void set_bit(unsigned int nr , unsigned long volatile   *addr ) 
 { 
@@ -9574,7 +9574,7 @@ __inline static long IS_ERR(void const   *ptr )
 
   {
 #line 34
-  tmp = __builtin_expect((unsigned long )ptr > 0xfffffffffffff000UL, 0L);
+  tmp = ldv__builtin_expect((unsigned long )ptr > 0xfffffffffffff000UL, 0L);
 #line 34
   return (tmp);
 }
@@ -9710,7 +9710,7 @@ __inline static int __atomic_add_unless(atomic_t *v , int a , int u )
   c = atomic_read((atomic_t const   *)v);
   ldv_5523: 
 #line 217
-  tmp = __builtin_expect(c == u, 0L);
+  tmp = ldv__builtin_expect(c == u, 0L);
 #line 217
   if (tmp != 0L) {
 #line 218
@@ -9721,7 +9721,7 @@ __inline static int __atomic_add_unless(atomic_t *v , int a , int u )
 #line 219
   old = atomic_cmpxchg(v, c, c + a);
 #line 220
-  tmp___0 = __builtin_expect(old == c, 1L);
+  tmp___0 = ldv__builtin_expect(old == c, 1L);
 #line 220
   if (tmp___0 != 0L) {
 #line 221
@@ -10173,7 +10173,7 @@ __inline static void kref_get(struct kref *kref )
 #line 42
   __ret_warn_on = tmp == 0;
 #line 42
-  tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 42
   if (tmp___0 != 0L) {
 #line 42
@@ -10182,7 +10182,7 @@ __inline static void kref_get(struct kref *kref )
 
   }
 #line 42
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 43
   atomic_inc(& kref->refcount);
 #line 44
@@ -10200,7 +10200,7 @@ __inline static int kref_sub(struct kref *kref , unsigned int count , void (*rel
 #line 67
   __ret_warn_on = (unsigned long )release == (unsigned long )((void (*)(struct kref * ))0);
 #line 67
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 67
   if (tmp != 0L) {
 #line 67
@@ -10209,7 +10209,7 @@ __inline static int kref_sub(struct kref *kref , unsigned int count , void (*rel
 
   }
 #line 67
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 69
   tmp___0 = atomic_sub_and_test((int )count, & kref->refcount);
 #line 69
@@ -10469,7 +10469,7 @@ __inline static int signal_pending(struct task_struct *p )
 #line 2620
   tmp = test_tsk_thread_flag(p, 2);
 #line 2620
-  tmp___0 = __builtin_expect(tmp != 0, 0L);
+  tmp___0 = ldv__builtin_expect(tmp != 0, 0L);
 #line 2620
   return ((int )tmp___0);
 }
@@ -10484,7 +10484,7 @@ __inline static int __fatal_signal_pending(struct task_struct *p )
 #line 2625
   tmp = sigismember(& p->pending.signal, 9);
 #line 2625
-  tmp___0 = __builtin_expect(tmp != 0, 0L);
+  tmp___0 = ldv__builtin_expect(tmp != 0, 0L);
 #line 2625
   return ((int )tmp___0);
 }
@@ -10805,7 +10805,7 @@ __inline static bool freezing(struct task_struct *p )
 #line 30
   tmp = atomic_read((atomic_t const   *)(& system_freezing_cnt));
 #line 30
-  tmp___0 = __builtin_expect(tmp == 0, 1L);
+  tmp___0 = ldv__builtin_expect(tmp == 0, 1L);
 #line 30
   if (tmp___0 != 0L) {
 #line 31
@@ -10846,7 +10846,7 @@ __inline static bool try_to_freeze(void)
     tmp___1 = 1;
   }
 #line 47
-  tmp___2 = __builtin_expect((long )tmp___1, 1L);
+  tmp___2 = ldv__builtin_expect((long )tmp___1, 1L);
 #line 47
   if (tmp___2 != 0L) {
 #line 48
@@ -11679,14 +11679,14 @@ __inline static void *net_generic(struct net  const  *net , int id )
 #line 40
   ng = _________p1;
 #line 41
-  tmp___1 = __builtin_expect(id == 0, 0L);
+  tmp___1 = ldv__builtin_expect(id == 0, 0L);
 #line 41
   if (tmp___1 != 0L) {
 #line 41
     goto _L;
   } else {
 #line 41
-    tmp___2 = __builtin_expect((unsigned int )id > ng->len, 0L);
+    tmp___2 = ldv__builtin_expect((unsigned int )id > ng->len, 0L);
 #line 41
     if (tmp___2 != 0L) {
       _L: /* CIL Label */ 
@@ -11705,7 +11705,7 @@ __inline static void *net_generic(struct net  const  *net , int id )
 #line 43
   rcu_read_unlock();
 #line 45
-  tmp___3 = __builtin_expect((unsigned long )ptr == (unsigned long )((void *)0), 0L);
+  tmp___3 = ldv__builtin_expect((unsigned long )ptr == (unsigned long )((void *)0), 0L);
 #line 45
   if (tmp___3 != 0L) {
 #line 45
@@ -11827,7 +11827,7 @@ static int nfs4_map_errors(int err )
   return (-13);
   default: 
 #line 173
-  tmp = __builtin_expect((nfs_debug & 16U) != 0U, 0L);
+  tmp = ldv__builtin_expect((nfs_debug & 16U) != 0U, 0L);
 #line 173
   if (tmp != 0L) {
 #line 173
@@ -12202,7 +12202,7 @@ static int nfs4_handle_exception(struct nfs_server *server , int errorcode , str
   case -10076: ;
   case -10063: 
 #line 385
-  tmp___0 = __builtin_expect((nfs_debug & 16U) != 0U, 0L);
+  tmp___0 = ldv__builtin_expect((nfs_debug & 16U) != 0U, 0L);
 #line 385
   if (tmp___0 != 0L) {
 #line 385
@@ -12323,7 +12323,7 @@ static void nfs41_sequence_free_slot(struct nfs4_sequence_res *res )
 #line 451
   if ((unsigned long )res->sr_slot == (unsigned long )((struct nfs4_slot *)0)) {
 #line 454
-    tmp = __builtin_expect((nfs_debug & 16U) != 0U, 0L);
+    tmp = ldv__builtin_expect((nfs_debug & 16U) != 0U, 0L);
 #line 454
     if (tmp != 0L) {
 #line 454
@@ -12450,7 +12450,7 @@ static int nfs41_sequence_done(struct rpc_task *task , struct nfs4_sequence_res 
   goto out;
   case -10008: 
 #line 528
-  tmp = __builtin_expect((nfs_debug & 16U) != 0U, 0L);
+  tmp = ldv__builtin_expect((nfs_debug & 16U) != 0U, 0L);
 #line 528
   if (tmp != 0L) {
 #line 528
@@ -12497,7 +12497,7 @@ static int nfs41_sequence_done(struct rpc_task *task , struct nfs4_sequence_res 
   ldv_51061: ;
   out: 
 #line 566
-  tmp___0 = __builtin_expect((nfs_debug & 16U) != 0U, 0L);
+  tmp___0 = ldv__builtin_expect((nfs_debug & 16U) != 0U, 0L);
 #line 566
   if (tmp___0 != 0L) {
 #line 566
@@ -12612,7 +12612,7 @@ int nfs41_setup_sequence(struct nfs4_session *session , struct nfs4_sequence_arg
 
   {
 #line 614
-  tmp = __builtin_expect((nfs_debug & 16U) != 0U, 0L);
+  tmp = ldv__builtin_expect((nfs_debug & 16U) != 0U, 0L);
 #line 614
   if (tmp != 0L) {
 #line 614
@@ -12638,7 +12638,7 @@ int nfs41_setup_sequence(struct nfs4_session *session , struct nfs4_sequence_arg
 #line 624
   if (tmp___1 != 0 && (unsigned int )*((unsigned char *)args + 8UL) == 0U) {
 #line 627
-    tmp___0 = __builtin_expect((nfs_debug & 16U) != 0U, 0L);
+    tmp___0 = ldv__builtin_expect((nfs_debug & 16U) != 0U, 0L);
 #line 627
     if (tmp___0 != 0L) {
 #line 627
@@ -12667,7 +12667,7 @@ int nfs41_setup_sequence(struct nfs4_session *session , struct nfs4_sequence_arg
 
     }
 #line 636
-    tmp___3 = __builtin_expect((nfs_debug & 16U) != 0U, 0L);
+    tmp___3 = ldv__builtin_expect((nfs_debug & 16U) != 0U, 0L);
 #line 636
     if (tmp___3 != 0L) {
 #line 636
@@ -12685,7 +12685,7 @@ int nfs41_setup_sequence(struct nfs4_session *session , struct nfs4_sequence_arg
 #line 641
   args->sa_slot = slot;
 #line 643
-  tmp___5 = __builtin_expect((nfs_debug & 16U) != 0U, 0L);
+  tmp___5 = ldv__builtin_expect((nfs_debug & 16U) != 0U, 0L);
 #line 643
   if (tmp___5 != 0L) {
 #line 643
@@ -12749,7 +12749,7 @@ int nfs4_setup_sequence(struct nfs_server  const  *server , struct nfs4_sequence
 
   }
 #line 682
-  tmp___0 = __builtin_expect((nfs_debug & 16U) != 0U, 0L);
+  tmp___0 = ldv__builtin_expect((nfs_debug & 16U) != 0U, 0L);
 #line 682
   if (tmp___0 != 0L) {
 #line 682
@@ -12762,7 +12762,7 @@ int nfs4_setup_sequence(struct nfs_server  const  *server , struct nfs4_sequence
   ret = nfs41_setup_sequence(session, args, res, task);
   out: 
 #line 688
-  tmp___1 = __builtin_expect((nfs_debug & 16U) != 0U, 0L);
+  tmp___1 = ldv__builtin_expect((nfs_debug & 16U) != 0U, 0L);
 #line 688
   if (tmp___1 != 0L) {
 #line 688
@@ -12790,7 +12790,7 @@ static void nfs41_call_sync_prepare(struct rpc_task *task , void *calldata )
 #line 701
   session = tmp;
 #line 703
-  tmp___0 = __builtin_expect((nfs_debug & 16U) != 0U, 0L);
+  tmp___0 = ldv__builtin_expect((nfs_debug & 16U) != 0U, 0L);
 #line 703
   if (tmp___0 != 0L) {
 #line 703
@@ -15503,7 +15503,7 @@ static int _nfs4_do_open(struct inode *dir , struct dentry *dentry , fmode_t fmo
 #line 1929
   if ((unsigned long )sp == (unsigned long )((struct nfs4_state_owner *)0)) {
 #line 1930
-    tmp___0 = __builtin_expect((nfs_debug & 16U) != 0U, 0L);
+    tmp___0 = ldv__builtin_expect((nfs_debug & 16U) != 0U, 0L);
 #line 1930
     if (tmp___0 != 0L) {
 #line 1930
@@ -16063,7 +16063,7 @@ static void nfs4_close_done(struct rpc_task *task , void *data )
 #line 2171
   server = tmp;
 #line 2173
-  tmp___0 = __builtin_expect((nfs_debug & 16U) != 0U, 0L);
+  tmp___0 = ldv__builtin_expect((nfs_debug & 16U) != 0U, 0L);
 #line 2173
   if (tmp___0 != 0L) {
 #line 2173
@@ -16126,7 +16126,7 @@ static void nfs4_close_done(struct rpc_task *task , void *data )
 #line 2200
   nfs_refresh_inode(calldata->inode, calldata->res.fattr);
 #line 2201
-  tmp___3 = __builtin_expect((nfs_debug & 16U) != 0U, 0L);
+  tmp___3 = ldv__builtin_expect((nfs_debug & 16U) != 0U, 0L);
 #line 2201
   if (tmp___3 != 0L) {
 #line 2201
@@ -16166,7 +16166,7 @@ static void nfs4_close_prepare(struct rpc_task *task , void *data )
 #line 2209
   call_close = 0;
 #line 2211
-  tmp = __builtin_expect((nfs_debug & 16U) != 0U, 0L);
+  tmp = ldv__builtin_expect((nfs_debug & 16U) != 0U, 0L);
 #line 2211
   if (tmp != 0L) {
 #line 2211
@@ -16276,7 +16276,7 @@ static void nfs4_close_prepare(struct rpc_task *task , void *data )
   }
   out: 
 #line 2255
-  tmp___8 = __builtin_expect((nfs_debug & 16U) != 0U, 0L);
+  tmp___8 = ldv__builtin_expect((nfs_debug & 16U) != 0U, 0L);
 #line 2255
   if (tmp___8 != 0L) {
 #line 2255
@@ -16945,7 +16945,7 @@ static int nfs4_proc_get_root(struct nfs_server *server , struct nfs_fh *mntfh ,
 #line 2540
   if (error < 0) {
 #line 2541
-    tmp = __builtin_expect((nfs_debug & 16U) != 0U, 0L);
+    tmp = ldv__builtin_expect((nfs_debug & 16U) != 0U, 0L);
 #line 2541
     if (tmp != 0L) {
 #line 2541
@@ -16963,7 +16963,7 @@ static int nfs4_proc_get_root(struct nfs_server *server , struct nfs_fh *mntfh ,
 #line 2546
   if (error < 0) {
 #line 2547
-    tmp___0 = __builtin_expect((nfs_debug & 16U) != 0U, 0L);
+    tmp___0 = ldv__builtin_expect((nfs_debug & 16U) != 0U, 0L);
 #line 2547
     if (tmp___0 != 0L) {
 #line 2547
@@ -17061,7 +17061,7 @@ static int nfs4_get_referral(struct rpc_clnt *client , struct inode *dir , struc
 #line 2582
   if (tmp___2 != 0) {
 #line 2583
-    tmp___0 = __builtin_expect((nfs_debug & 16U) != 0U, 0L);
+    tmp___0 = ldv__builtin_expect((nfs_debug & 16U) != 0U, 0L);
 #line 2583
     if (tmp___0 != 0L) {
 #line 2583
@@ -17326,7 +17326,7 @@ static int _nfs4_proc_lookup(struct rpc_clnt *clnt , struct inode *dir , struct 
 #line 2711
   nfs_fattr_init(fattr);
 #line 2713
-  tmp___1 = __builtin_expect((nfs_debug & 16U) != 0U, 0L);
+  tmp___1 = ldv__builtin_expect((nfs_debug & 16U) != 0U, 0L);
 #line 2713
   if (tmp___1 != 0L) {
 #line 2713
@@ -17337,7 +17337,7 @@ static int _nfs4_proc_lookup(struct rpc_clnt *clnt , struct inode *dir , struct 
 #line 2714
   status = nfs4_call_sync(clnt, server, & msg, & args.seq_args, & res.seq_res, 0);
 #line 2715
-  tmp___2 = __builtin_expect((nfs_debug & 16U) != 0U, 0L);
+  tmp___2 = ldv__builtin_expect((nfs_debug & 16U) != 0U, 0L);
 #line 2715
   if (tmp___2 != 0L) {
 #line 2715
@@ -18687,7 +18687,7 @@ static int _nfs4_proc_readdir(struct dentry *dentry , struct rpc_cred *cred , u6
 #line 3265
   msg.rpc_cred = cred;
 #line 3273
-  tmp___1 = __builtin_expect((nfs_debug & 16U) != 0U, 0L);
+  tmp___1 = ldv__builtin_expect((nfs_debug & 16U) != 0U, 0L);
 #line 3273
   if (tmp___1 != 0L) {
 #line 3273
@@ -18735,7 +18735,7 @@ static int _nfs4_proc_readdir(struct dentry *dentry , struct rpc_cred *cred , u6
 #line 3285
   nfs_invalidate_atime(dir);
 #line 3287
-  tmp___7 = __builtin_expect((nfs_debug & 16U) != 0U, 0L);
+  tmp___7 = ldv__builtin_expect((nfs_debug & 16U) != 0U, 0L);
 #line 3287
   if (tmp___7 != 0L) {
 #line 3287
@@ -19231,7 +19231,7 @@ static int nfs4_read_done(struct rpc_task *task , struct nfs_read_data *data )
 
   {
 #line 3496
-  tmp = __builtin_expect((nfs_debug & 16U) != 0U, 0L);
+  tmp = ldv__builtin_expect((nfs_debug & 16U) != 0U, 0L);
 #line 3496
   if (tmp != 0L) {
 #line 3496
@@ -20106,7 +20106,7 @@ static ssize_t __nfs4_get_acl_uncached(struct inode *inode , void *buf , size_t 
 #line 3863
   args.acl_pgbase = 0U;
 #line 3865
-  tmp___1 = __builtin_expect((nfs_debug & 16U) != 0U, 0L);
+  tmp___1 = ldv__builtin_expect((nfs_debug & 16U) != 0U, 0L);
 #line 3865
   if (tmp___1 != 0L) {
 #line 3865
@@ -20517,7 +20517,7 @@ static int nfs4_async_handle_error(struct rpc_task *task , struct nfs_server  co
   case -10076: ;
   case -10063: 
 #line 4025
-  tmp = __builtin_expect((nfs_debug & 16U) != 0U, 0L);
+  tmp = ldv__builtin_expect((nfs_debug & 16U) != 0U, 0L);
 #line 4025
   if (tmp != 0L) {
 #line 4025
@@ -21116,7 +21116,7 @@ int nfs4_proc_setclientid(struct nfs_client *clp , u32 program , unsigned short 
 #line 4147
   setclientid.sc_uaddr_len = (unsigned int )tmp___2;
 #line 4151
-  tmp___3 = __builtin_expect((nfs_debug & 16U) != 0U, 0L);
+  tmp___3 = ldv__builtin_expect((nfs_debug & 16U) != 0U, 0L);
 #line 4151
   if (tmp___3 != 0L) {
 #line 4151
@@ -21129,7 +21129,7 @@ int nfs4_proc_setclientid(struct nfs_client *clp , u32 program , unsigned short 
   status = rpc_call_sync(clp->cl_rpcclient, (struct rpc_message  const  *)(& msg),
                          4096);
 #line 4155
-  tmp___4 = __builtin_expect((nfs_debug & 16U) != 0U, 0L);
+  tmp___4 = ldv__builtin_expect((nfs_debug & 16U) != 0U, 0L);
 #line 4155
   if (tmp___4 != 0L) {
 #line 4155
@@ -21162,7 +21162,7 @@ int nfs4_proc_setclientid_confirm(struct nfs_client *clp , struct nfs4_setclient
 #line 4172
   msg.rpc_cred = cred;
 #line 4181
-  tmp = __builtin_expect((nfs_debug & 16U) != 0U, 0L);
+  tmp = ldv__builtin_expect((nfs_debug & 16U) != 0U, 0L);
 #line 4181
   if (tmp != 0L) {
 #line 4181
@@ -21190,7 +21190,7 @@ int nfs4_proc_setclientid_confirm(struct nfs_client *clp , struct nfs4_setclient
 
   }
 #line 4192
-  tmp___0 = __builtin_expect((nfs_debug & 16U) != 0U, 0L);
+  tmp___0 = ldv__builtin_expect((nfs_debug & 16U) != 0U, 0L);
 #line 4192
   if (tmp___0 != 0L) {
 #line 4192
@@ -22116,7 +22116,7 @@ static void nfs4_lock_prepare(struct rpc_task *task , void *calldata )
 #line 4635
   state = (data->lsp)->ls_state;
 #line 4637
-  tmp = __builtin_expect((nfs_debug & 16U) != 0U, 0L);
+  tmp = ldv__builtin_expect((nfs_debug & 16U) != 0U, 0L);
 #line 4637
   if (tmp != 0L) {
 #line 4637
@@ -22172,7 +22172,7 @@ static void nfs4_lock_prepare(struct rpc_task *task , void *calldata )
 #line 4658
   nfs_release_seqid(data->arg.lock_seqid);
 #line 4659
-  tmp___3 = __builtin_expect((nfs_debug & 16U) != 0U, 0L);
+  tmp___3 = ldv__builtin_expect((nfs_debug & 16U) != 0U, 0L);
 #line 4659
   if (tmp___3 != 0L) {
 #line 4659
@@ -22197,7 +22197,7 @@ static void nfs4_lock_done(struct rpc_task *task , void *calldata )
 #line 4664
   data = (struct nfs4_lockdata *)calldata;
 #line 4666
-  tmp = __builtin_expect((nfs_debug & 16U) != 0U, 0L);
+  tmp = ldv__builtin_expect((nfs_debug & 16U) != 0U, 0L);
 #line 4666
   if (tmp != 0L) {
 #line 4666
@@ -22244,7 +22244,7 @@ static void nfs4_lock_done(struct rpc_task *task , void *calldata )
   }
   out: 
 #line 4684
-  tmp___2 = __builtin_expect((nfs_debug & 16U) != 0U, 0L);
+  tmp___2 = ldv__builtin_expect((nfs_debug & 16U) != 0U, 0L);
 #line 4684
   if (tmp___2 != 0L) {
 #line 4684
@@ -22270,7 +22270,7 @@ static void nfs4_lock_release(void *calldata )
 #line 4689
   data = (struct nfs4_lockdata *)calldata;
 #line 4691
-  tmp = __builtin_expect((nfs_debug & 16U) != 0U, 0L);
+  tmp = ldv__builtin_expect((nfs_debug & 16U) != 0U, 0L);
 #line 4691
   if (tmp != 0L) {
 #line 4691
@@ -22294,7 +22294,7 @@ static void nfs4_lock_release(void *calldata )
 
     }
 #line 4699
-    tmp___1 = __builtin_expect((nfs_debug & 16U) != 0U, 0L);
+    tmp___1 = ldv__builtin_expect((nfs_debug & 16U) != 0U, 0L);
 #line 4699
     if (tmp___1 != 0L) {
 #line 4699
@@ -22313,7 +22313,7 @@ static void nfs4_lock_release(void *calldata )
 #line 4704
   kfree((void const   *)data);
 #line 4705
-  tmp___2 = __builtin_expect((nfs_debug & 16U) != 0U, 0L);
+  tmp___2 = ldv__builtin_expect((nfs_debug & 16U) != 0U, 0L);
 #line 4705
   if (tmp___2 != 0L) {
 #line 4705
@@ -22413,7 +22413,7 @@ static int _nfs4_do_setlk(struct nfs4_state *state , int cmd , struct file_lock 
 #line 4739
   task_setup_data.priority = (signed char)0;
 #line 4748
-  tmp___0 = __builtin_expect((nfs_debug & 16U) != 0U, 0L);
+  tmp___0 = ldv__builtin_expect((nfs_debug & 16U) != 0U, 0L);
 #line 4748
   if (tmp___0 != 0L) {
 #line 4748
@@ -22495,7 +22495,7 @@ static int _nfs4_do_setlk(struct nfs4_state *state , int cmd , struct file_lock 
 #line 4776
   rpc_put_task(task);
 #line 4777
-  tmp___4 = __builtin_expect((nfs_debug & 16U) != 0U, 0L);
+  tmp___4 = ldv__builtin_expect((nfs_debug & 16U) != 0U, 0L);
 #line 4777
   if (tmp___4 != 0L) {
 #line 4777
@@ -23355,7 +23355,7 @@ static int _nfs4_proc_fs_locations(struct rpc_clnt *client , struct inode *dir ,
 #line 5157
   msg.rpc_cred = 0;
 #line 5164
-  tmp___2 = __builtin_expect((nfs_debug & 16U) != 0U, 0L);
+  tmp___2 = ldv__builtin_expect((nfs_debug & 16U) != 0U, 0L);
 #line 5164
   if (tmp___2 != 0L) {
 #line 5164
@@ -23382,7 +23382,7 @@ static int _nfs4_proc_fs_locations(struct rpc_clnt *client , struct inode *dir ,
 #line 5176
   status = nfs4_call_sync(client, server, & msg, & args.seq_args, & res.seq_res, 0);
 #line 5177
-  tmp___4 = __builtin_expect((nfs_debug & 16U) != 0U, 0L);
+  tmp___4 = ldv__builtin_expect((nfs_debug & 16U) != 0U, 0L);
 #line 5177
   if (tmp___4 != 0L) {
 #line 5177
@@ -23480,7 +23480,7 @@ static int _nfs4_proc_secinfo(struct inode *dir , struct qstr  const  *name , st
 #line 5206
   msg.rpc_cred = 0;
 #line 5212
-  tmp___0 = __builtin_expect((nfs_debug & 16U) != 0U, 0L);
+  tmp___0 = ldv__builtin_expect((nfs_debug & 16U) != 0U, 0L);
 #line 5212
   if (tmp___0 != 0L) {
 #line 5212
@@ -23496,7 +23496,7 @@ static int _nfs4_proc_secinfo(struct inode *dir , struct qstr  const  *name , st
   status = nfs4_call_sync(tmp___2->client, tmp___1, & msg, & args.seq_args, & res.seq_res,
                           0);
 #line 5214
-  tmp___3 = __builtin_expect((nfs_debug & 16U) != 0U, 0L);
+  tmp___3 = ldv__builtin_expect((nfs_debug & 16U) != 0U, 0L);
 #line 5214
   if (tmp___3 != 0L) {
 #line 5214
@@ -23628,7 +23628,7 @@ int nfs4_proc_bind_conn_to_session(struct nfs_client *clp , struct rpc_cred *cre
 #line 5272
   msg.rpc_cred = cred;
 #line 5280
-  tmp = __builtin_expect((nfs_debug & 16U) != 0U, 0L);
+  tmp = ldv__builtin_expect((nfs_debug & 16U) != 0U, 0L);
 #line 5280
   if (tmp != 0L) {
 #line 5280
@@ -23641,7 +23641,7 @@ int nfs4_proc_bind_conn_to_session(struct nfs_client *clp , struct rpc_cred *cre
 #line 5282
   res.session = (struct nfs4_session *)tmp___0;
 #line 5283
-  tmp___1 = __builtin_expect((unsigned long )res.session == (unsigned long )((struct nfs4_session *)0),
+  tmp___1 = ldv__builtin_expect((unsigned long )res.session == (unsigned long )((struct nfs4_session *)0),
                              0L);
 #line 5283
   if (tmp___1 != 0L) {
@@ -23663,7 +23663,7 @@ int nfs4_proc_bind_conn_to_session(struct nfs_client *clp , struct rpc_cred *cre
 #line 5290
     if (tmp___3 != 0) {
 #line 5292
-      tmp___2 = __builtin_expect((nfs_debug & 16U) != 0U, 0L);
+      tmp___2 = ldv__builtin_expect((nfs_debug & 16U) != 0U, 0L);
 #line 5292
       if (tmp___2 != 0L) {
 #line 5292
@@ -23681,7 +23681,7 @@ int nfs4_proc_bind_conn_to_session(struct nfs_client *clp , struct rpc_cred *cre
 #line 5296
     if (res.dir != 3U) {
 #line 5297
-      tmp___4 = __builtin_expect((nfs_debug & 16U) != 0U, 0L);
+      tmp___4 = ldv__builtin_expect((nfs_debug & 16U) != 0U, 0L);
 #line 5297
       if (tmp___4 != 0L) {
 #line 5297
@@ -23699,7 +23699,7 @@ int nfs4_proc_bind_conn_to_session(struct nfs_client *clp , struct rpc_cred *cre
 #line 5302
     if ((int )res.use_conn_in_rdma_mode) {
 #line 5303
-      tmp___5 = __builtin_expect((nfs_debug & 16U) != 0U, 0L);
+      tmp___5 = ldv__builtin_expect((nfs_debug & 16U) != 0U, 0L);
 #line 5303
       if (tmp___5 != 0L) {
 #line 5303
@@ -23722,7 +23722,7 @@ int nfs4_proc_bind_conn_to_session(struct nfs_client *clp , struct rpc_cred *cre
   kfree((void const   *)res.session);
   out: 
 #line 5312
-  tmp___6 = __builtin_expect((nfs_debug & 16U) != 0U, 0L);
+  tmp___6 = ldv__builtin_expect((nfs_debug & 16U) != 0U, 0L);
 #line 5312
   if (tmp___6 != 0L) {
 #line 5312
@@ -23886,7 +23886,7 @@ int nfs4_proc_exchange_id(struct nfs_client *clp , struct rpc_cred *cred )
   args.id_len = nfs4_init_uniform_client_string((struct nfs_client  const  *)clp,
                                                 (char *)(& args.id), 48UL);
 #line 5348
-  tmp = __builtin_expect((nfs_debug & 16U) != 0U, 0L);
+  tmp = ldv__builtin_expect((nfs_debug & 16U) != 0U, 0L);
 #line 5348
   if (tmp != 0L) {
 #line 5348
@@ -23900,7 +23900,7 @@ int nfs4_proc_exchange_id(struct nfs_client *clp , struct rpc_cred *cred )
 #line 5352
   res.server_owner = (struct nfs41_server_owner *)tmp___0;
 #line 5354
-  tmp___1 = __builtin_expect((unsigned long )res.server_owner == (unsigned long )((struct nfs41_server_owner *)0),
+  tmp___1 = ldv__builtin_expect((unsigned long )res.server_owner == (unsigned long )((struct nfs41_server_owner *)0),
                              0L);
 #line 5354
   if (tmp___1 != 0L) {
@@ -23916,7 +23916,7 @@ int nfs4_proc_exchange_id(struct nfs_client *clp , struct rpc_cred *cred )
 #line 5359
   res.server_scope = (struct nfs41_server_scope *)tmp___2;
 #line 5361
-  tmp___3 = __builtin_expect((unsigned long )res.server_scope == (unsigned long )((struct nfs41_server_scope *)0),
+  tmp___3 = ldv__builtin_expect((unsigned long )res.server_scope == (unsigned long )((struct nfs41_server_scope *)0),
                              0L);
 #line 5361
   if (tmp___3 != 0L) {
@@ -23932,7 +23932,7 @@ int nfs4_proc_exchange_id(struct nfs_client *clp , struct rpc_cred *cred )
 #line 5366
   res.impl_id = (struct nfs41_impl_id *)tmp___4;
 #line 5367
-  tmp___5 = __builtin_expect((unsigned long )res.impl_id == (unsigned long )((struct nfs41_impl_id *)0),
+  tmp___5 = ldv__builtin_expect((unsigned long )res.impl_id == (unsigned long )((struct nfs41_impl_id *)0),
                              0L);
 #line 5367
   if (tmp___5 != 0L) {
@@ -23991,7 +23991,7 @@ int nfs4_proc_exchange_id(struct nfs_client *clp , struct rpc_cred *cred )
 #line 5390
       if (tmp___8) {
 #line 5393
-        tmp___6 = __builtin_expect((nfs_debug & 16U) != 0U, 0L);
+        tmp___6 = ldv__builtin_expect((nfs_debug & 16U) != 0U, 0L);
 #line 5393
         if (tmp___6 != 0L) {
 #line 5393
@@ -24034,7 +24034,7 @@ int nfs4_proc_exchange_id(struct nfs_client *clp , struct rpc_cred *cred )
 #line 5412
   if ((unsigned long )clp->cl_implid != (unsigned long )((struct nfs41_impl_id *)0)) {
 #line 5413
-    tmp___9 = __builtin_expect((nfs_debug & 16U) != 0U, 0L);
+    tmp___9 = ldv__builtin_expect((nfs_debug & 16U) != 0U, 0L);
 #line 5413
     if (tmp___9 != 0L) {
 #line 5413
@@ -24048,7 +24048,7 @@ int nfs4_proc_exchange_id(struct nfs_client *clp , struct rpc_cred *cred )
 
   }
 #line 5418
-  tmp___10 = __builtin_expect((nfs_debug & 16U) != 0U, 0L);
+  tmp___10 = ldv__builtin_expect((nfs_debug & 16U) != 0U, 0L);
 #line 5418
   if (tmp___10 != 0L) {
 #line 5418
@@ -24082,7 +24082,7 @@ static int _nfs4_proc_destroy_clientid(struct nfs_client *clp , struct rpc_cred 
 #line 5433
   if (status != 0) {
 #line 5434
-    tmp = __builtin_expect((nfs_debug & 16U) != 0U, 0L);
+    tmp = ldv__builtin_expect((nfs_debug & 16U) != 0U, 0L);
 #line 5434
     if (tmp != 0L) {
 #line 5434
@@ -24204,7 +24204,7 @@ static void nfs4_get_lease_time_prepare(struct rpc_task *task , void *calldata )
 #line 5492
   data = (struct nfs4_get_lease_time_data *)calldata;
 #line 5495
-  tmp = __builtin_expect((nfs_debug & 16U) != 0U, 0L);
+  tmp = ldv__builtin_expect((nfs_debug & 16U) != 0U, 0L);
 #line 5495
   if (tmp != 0L) {
 #line 5495
@@ -24216,7 +24216,7 @@ static void nfs4_get_lease_time_prepare(struct rpc_task *task , void *calldata )
   nfs41_setup_sequence((data->clp)->cl_session, & (data->args)->la_seq_args, & (data->res)->lr_seq_res,
                        task);
 #line 5502
-  tmp___0 = __builtin_expect((nfs_debug & 16U) != 0U, 0L);
+  tmp___0 = ldv__builtin_expect((nfs_debug & 16U) != 0U, 0L);
 #line 5502
   if (tmp___0 != 0L) {
 #line 5502
@@ -24241,7 +24241,7 @@ static void nfs4_get_lease_time_done(struct rpc_task *task , void *calldata )
 #line 5511
   data = (struct nfs4_get_lease_time_data *)calldata;
 #line 5514
-  tmp = __builtin_expect((nfs_debug & 16U) != 0U, 0L);
+  tmp = ldv__builtin_expect((nfs_debug & 16U) != 0U, 0L);
 #line 5514
   if (tmp != 0L) {
 #line 5514
@@ -24263,7 +24263,7 @@ static void nfs4_get_lease_time_done(struct rpc_task *task , void *calldata )
   case -10008: ;
   case -10013: 
 #line 5520
-  tmp___1 = __builtin_expect((nfs_debug & 16U) != 0U, 0L);
+  tmp___1 = ldv__builtin_expect((nfs_debug & 16U) != 0U, 0L);
 #line 5520
   if (tmp___1 != 0L) {
 #line 5520
@@ -24282,7 +24282,7 @@ static void nfs4_get_lease_time_done(struct rpc_task *task , void *calldata )
   return;
   }
 #line 5528
-  tmp___2 = __builtin_expect((nfs_debug & 16U) != 0U, 0L);
+  tmp___2 = ldv__builtin_expect((nfs_debug & 16U) != 0U, 0L);
 #line 5528
   if (tmp___2 != 0L) {
 #line 5528
@@ -24361,7 +24361,7 @@ int nfs4_proc_get_lease_time(struct nfs_client *clp , struct nfs_fsinfo *fsinfo 
 #line 5563
   nfs4_set_sequence_privileged(& args.la_seq_args);
 #line 5564
-  tmp = __builtin_expect((nfs_debug & 16U) != 0U, 0L);
+  tmp = ldv__builtin_expect((nfs_debug & 16U) != 0U, 0L);
 #line 5564
   if (tmp != 0L) {
 #line 5564
@@ -24386,7 +24386,7 @@ int nfs4_proc_get_lease_time(struct nfs_client *clp , struct nfs_fsinfo *fsinfo 
     rpc_put_task(task);
   }
 #line 5573
-  tmp___2 = __builtin_expect((nfs_debug & 16U) != 0U, 0L);
+  tmp___2 = ldv__builtin_expect((nfs_debug & 16U) != 0U, 0L);
 #line 5573
   if (tmp___2 != 0L) {
 #line 5573
@@ -24437,7 +24437,7 @@ static void nfs4_init_channel_attrs(struct nfs41_create_session_args *args )
 #line 5601
   args->fc_attrs.max_reqs = (u32 )max_session_slots;
 #line 5603
-  tmp = __builtin_expect((nfs_debug & 16U) != 0U, 0L);
+  tmp = ldv__builtin_expect((nfs_debug & 16U) != 0U, 0L);
 #line 5603
   if (tmp != 0L) {
 #line 5603
@@ -24458,7 +24458,7 @@ static void nfs4_init_channel_attrs(struct nfs41_create_session_args *args )
 #line 5614
   args->bc_attrs.max_reqs = 1U;
 #line 5616
-  tmp___0 = __builtin_expect((nfs_debug & 16U) != 0U, 0L);
+  tmp___0 = ldv__builtin_expect((nfs_debug & 16U) != 0U, 0L);
 #line 5616
   if (tmp___0 != 0L) {
 #line 5616
@@ -24672,7 +24672,7 @@ int nfs4_proc_create_session(struct nfs_client *clp , struct rpc_cred *cred )
 #line 5719
   session = clp->cl_session;
 #line 5721
-  tmp = __builtin_expect((nfs_debug & 16U) != 0U, 0L);
+  tmp = ldv__builtin_expect((nfs_debug & 16U) != 0U, 0L);
 #line 5721
   if (tmp != 0L) {
 #line 5721
@@ -24692,7 +24692,7 @@ int nfs4_proc_create_session(struct nfs_client *clp , struct rpc_cred *cred )
 #line 5728
   status = nfs4_setup_session_slot_tables(session);
 #line 5729
-  tmp___0 = __builtin_expect((nfs_debug & 16U) != 0U, 0L);
+  tmp___0 = ldv__builtin_expect((nfs_debug & 16U) != 0U, 0L);
 #line 5729
   if (tmp___0 != 0L) {
 #line 5729
@@ -24710,7 +24710,7 @@ int nfs4_proc_create_session(struct nfs_client *clp , struct rpc_cred *cred )
 #line 5733
   ptr = (unsigned int *)(& session->sess_id.data);
 #line 5734
-  tmp___1 = __builtin_expect((nfs_debug & 16U) != 0U, 0L);
+  tmp___1 = ldv__builtin_expect((nfs_debug & 16U) != 0U, 0L);
 #line 5734
   if (tmp___1 != 0L) {
 #line 5734
@@ -24721,7 +24721,7 @@ int nfs4_proc_create_session(struct nfs_client *clp , struct rpc_cred *cred )
   }
   out: 
 #line 5737
-  tmp___2 = __builtin_expect((nfs_debug & 16U) != 0U, 0L);
+  tmp___2 = ldv__builtin_expect((nfs_debug & 16U) != 0U, 0L);
 #line 5737
   if (tmp___2 != 0L) {
 #line 5737
@@ -24754,7 +24754,7 @@ int nfs4_proc_destroy_session(struct nfs4_session *session , struct rpc_cred *cr
 #line 5753
   status = 0;
 #line 5755
-  tmp = __builtin_expect((nfs_debug & 16U) != 0U, 0L);
+  tmp = ldv__builtin_expect((nfs_debug & 16U) != 0U, 0L);
 #line 5755
   if (tmp != 0L) {
 #line 5755
@@ -24775,7 +24775,7 @@ int nfs4_proc_destroy_session(struct nfs4_session *session , struct rpc_cred *cr
 #line 5763
   if (status != 0) {
 #line 5764
-    tmp___0 = __builtin_expect((nfs_debug & 16U) != 0U, 0L);
+    tmp___0 = ldv__builtin_expect((nfs_debug & 16U) != 0U, 0L);
 #line 5764
     if (tmp___0 != 0L) {
 #line 5764
@@ -24788,7 +24788,7 @@ int nfs4_proc_destroy_session(struct nfs4_session *session , struct rpc_cred *cr
 
   }
 #line 5767
-  tmp___1 = __builtin_expect((nfs_debug & 16U) != 0U, 0L);
+  tmp___1 = ldv__builtin_expect((nfs_debug & 16U) != 0U, 0L);
 #line 5767
   if (tmp___1 != 0L) {
 #line 5767
@@ -24879,7 +24879,7 @@ static void nfs41_sequence_call_done(struct rpc_task *task , void *data )
 #line 5811
   if (task->tk_status < 0) {
 #line 5812
-    tmp___0 = __builtin_expect((nfs_debug & 16U) != 0U, 0L);
+    tmp___0 = ldv__builtin_expect((nfs_debug & 16U) != 0U, 0L);
 #line 5812
     if (tmp___0 != 0L) {
 #line 5812
@@ -24911,7 +24911,7 @@ static void nfs41_sequence_call_done(struct rpc_task *task , void *data )
 
   }
 #line 5821
-  tmp___3 = __builtin_expect((nfs_debug & 16U) != 0U, 0L);
+  tmp___3 = ldv__builtin_expect((nfs_debug & 16U) != 0U, 0L);
 #line 5821
   if (tmp___3 != 0L) {
 #line 5821
@@ -24921,7 +24921,7 @@ static void nfs41_sequence_call_done(struct rpc_task *task , void *data )
   }
   out: 
 #line 5823
-  tmp___4 = __builtin_expect((nfs_debug & 16U) != 0U, 0L);
+  tmp___4 = ldv__builtin_expect((nfs_debug & 16U) != 0U, 0L);
 #line 5823
   if (tmp___4 != 0L) {
 #line 5823
@@ -25080,7 +25080,7 @@ static int nfs41_proc_async_sequence(struct nfs_client *clp , struct rpc_cred *c
     rpc_put_task_async(task);
   }
 #line 5891
-  tmp___1 = __builtin_expect((nfs_debug & 16U) != 0U, 0L);
+  tmp___1 = ldv__builtin_expect((nfs_debug & 16U) != 0U, 0L);
 #line 5891
   if (tmp___1 != 0L) {
 #line 5891
@@ -25140,7 +25140,7 @@ static int nfs4_proc_sequence(struct nfs_client *clp , struct rpc_cred *cred )
   rpc_put_task(task);
   out: 
 #line 5915
-  tmp___1 = __builtin_expect((nfs_debug & 16U) != 0U, 0L);
+  tmp___1 = ldv__builtin_expect((nfs_debug & 16U) != 0U, 0L);
 #line 5915
   if (tmp___1 != 0L) {
 #line 5915
@@ -25214,7 +25214,7 @@ static void nfs4_reclaim_complete_done(struct rpc_task *task , void *data )
 #line 5957
   res = & calldata->res.seq_res;
 #line 5959
-  tmp = __builtin_expect((nfs_debug & 16U) != 0U, 0L);
+  tmp = ldv__builtin_expect((nfs_debug & 16U) != 0U, 0L);
 #line 5959
   if (tmp != 0L) {
 #line 5959
@@ -25243,7 +25243,7 @@ static void nfs4_reclaim_complete_done(struct rpc_task *task , void *data )
 
   }
 #line 5967
-  tmp___2 = __builtin_expect((nfs_debug & 16U) != 0U, 0L);
+  tmp___2 = ldv__builtin_expect((nfs_debug & 16U) != 0U, 0L);
 #line 5967
   if (tmp___2 != 0L) {
 #line 5967
@@ -25313,7 +25313,7 @@ static int nfs41_proc_reclaim_complete(struct nfs_client *clp )
 #line 5999
   status = -12;
 #line 6001
-  tmp = __builtin_expect((nfs_debug & 16U) != 0U, 0L);
+  tmp = ldv__builtin_expect((nfs_debug & 16U) != 0U, 0L);
 #line 6001
   if (tmp != 0L) {
 #line 6001
@@ -25376,7 +25376,7 @@ static int nfs41_proc_reclaim_complete(struct nfs_client *clp )
   return (0);
   out: 
 #line 6024
-  tmp___3 = __builtin_expect((nfs_debug & 16U) != 0U, 0L);
+  tmp___3 = ldv__builtin_expect((nfs_debug & 16U) != 0U, 0L);
 #line 6024
   if (tmp___3 != 0L) {
 #line 6024
@@ -25413,7 +25413,7 @@ static void nfs4_layoutget_prepare(struct rpc_task *task , void *calldata )
 #line 6033
   session = tmp___0;
 #line 6035
-  tmp___1 = __builtin_expect((nfs_debug & 16U) != 0U, 0L);
+  tmp___1 = ldv__builtin_expect((nfs_debug & 16U) != 0U, 0L);
 #line 6035
   if (tmp___1 != 0L) {
 #line 6035
@@ -25475,7 +25475,7 @@ static void nfs4_layoutget_done(struct rpc_task *task , void *calldata )
 #line 6057
   state = 0;
 #line 6059
-  tmp___0 = __builtin_expect((nfs_debug & 16U) != 0U, 0L);
+  tmp___0 = ldv__builtin_expect((nfs_debug & 16U) != 0U, 0L);
 #line 6059
   if (tmp___0 != 0L) {
 #line 6059
@@ -25552,7 +25552,7 @@ static void nfs4_layoutget_done(struct rpc_task *task , void *calldata )
   }
   out: 
 #line 6092
-  tmp___5 = __builtin_expect((nfs_debug & 16U) != 0U, 0L);
+  tmp___5 = ldv__builtin_expect((nfs_debug & 16U) != 0U, 0L);
 #line 6092
   if (tmp___5 != 0L) {
 #line 6092
@@ -25640,7 +25640,7 @@ static struct page **nfs4_alloc_pages(size_t size , gfp_t gfp_flags )
 #line 6122
   if ((unsigned long )pages == (unsigned long )((struct page **)0)) {
 #line 6123
-    tmp___0 = __builtin_expect((nfs_debug & 16U) != 0U, 0L);
+    tmp___0 = ldv__builtin_expect((nfs_debug & 16U) != 0U, 0L);
 #line 6123
     if (tmp___0 != 0L) {
 #line 6123
@@ -25663,7 +25663,7 @@ static struct page **nfs4_alloc_pages(size_t size , gfp_t gfp_flags )
 #line 6129
   if ((unsigned long )*(pages + (unsigned long )i) == (unsigned long )((struct page *)0)) {
 #line 6130
-    tmp___1 = __builtin_expect((nfs_debug & 16U) != 0U, 0L);
+    tmp___1 = ldv__builtin_expect((nfs_debug & 16U) != 0U, 0L);
 #line 6130
     if (tmp___1 != 0L) {
 #line 6130
@@ -25716,7 +25716,7 @@ static void nfs4_layoutget_release(void *calldata )
 #line 6143
   max_pages = tmp___0;
 #line 6145
-  tmp___1 = __builtin_expect((nfs_debug & 16U) != 0U, 0L);
+  tmp___1 = ldv__builtin_expect((nfs_debug & 16U) != 0U, 0L);
 #line 6145
   if (tmp___1 != 0L) {
 #line 6145
@@ -25731,7 +25731,7 @@ static void nfs4_layoutget_release(void *calldata )
 #line 6148
   kfree((void const   *)calldata);
 #line 6149
-  tmp___2 = __builtin_expect((nfs_debug & 16U) != 0U, 0L);
+  tmp___2 = ldv__builtin_expect((nfs_debug & 16U) != 0U, 0L);
 #line 6149
   if (tmp___2 != 0L) {
 #line 6149
@@ -25802,7 +25802,7 @@ struct pnfs_layout_segment *nfs4_proc_layoutget(struct nfs4_layoutget *lgp , gfp
 #line 6177
   status = 0;
 #line 6179
-  tmp___1 = __builtin_expect((nfs_debug & 16U) != 0U, 0L);
+  tmp___1 = ldv__builtin_expect((nfs_debug & 16U) != 0U, 0L);
 #line 6179
   if (tmp___1 != 0L) {
 #line 6179
@@ -25863,7 +25863,7 @@ struct pnfs_layout_segment *nfs4_proc_layoutget(struct nfs4_layoutget *lgp , gfp
 #line 6199
   rpc_put_task(task);
 #line 6200
-  tmp___5 = __builtin_expect((nfs_debug & 16U) != 0U, 0L);
+  tmp___5 = ldv__builtin_expect((nfs_debug & 16U) != 0U, 0L);
 #line 6200
   if (tmp___5 != 0L) {
 #line 6200
@@ -25894,7 +25894,7 @@ static void nfs4_layoutreturn_prepare(struct rpc_task *task , void *calldata )
 #line 6209
   lrp = (struct nfs4_layoutreturn *)calldata;
 #line 6211
-  tmp = __builtin_expect((nfs_debug & 16U) != 0U, 0L);
+  tmp = ldv__builtin_expect((nfs_debug & 16U) != 0U, 0L);
 #line 6211
   if (tmp != 0L) {
 #line 6211
@@ -25923,7 +25923,7 @@ static void nfs4_layoutreturn_done(struct rpc_task *task , void *calldata )
 #line 6220
   lrp = (struct nfs4_layoutreturn *)calldata;
 #line 6223
-  tmp = __builtin_expect((nfs_debug & 16U) != 0U, 0L);
+  tmp = ldv__builtin_expect((nfs_debug & 16U) != 0U, 0L);
 #line 6223
   if (tmp != 0L) {
 #line 6223
@@ -25954,7 +25954,7 @@ static void nfs4_layoutreturn_done(struct rpc_task *task , void *calldata )
 
   }
 #line 6233
-  tmp___2 = __builtin_expect((nfs_debug & 16U) != 0U, 0L);
+  tmp___2 = ldv__builtin_expect((nfs_debug & 16U) != 0U, 0L);
 #line 6233
   if (tmp___2 != 0L) {
 #line 6233
@@ -25980,7 +25980,7 @@ static void nfs4_layoutreturn_release(void *calldata )
 #line 6239
   lo = lrp->args.layout;
 #line 6241
-  tmp = __builtin_expect((nfs_debug & 16U) != 0U, 0L);
+  tmp = ldv__builtin_expect((nfs_debug & 16U) != 0U, 0L);
 #line 6241
   if (tmp != 0L) {
 #line 6241
@@ -26006,7 +26006,7 @@ static void nfs4_layoutreturn_release(void *calldata )
 #line 6248
   kfree((void const   *)calldata);
 #line 6249
-  tmp___0 = __builtin_expect((nfs_debug & 16U) != 0U, 0L);
+  tmp___0 = ldv__builtin_expect((nfs_debug & 16U) != 0U, 0L);
 #line 6249
   if (tmp___0 != 0L) {
 #line 6249
@@ -26058,7 +26058,7 @@ int nfs4_proc_layoutreturn(struct nfs4_layoutreturn *lrp )
 #line 6266
   task_setup_data.priority = (signed char)0;
 #line 6274
-  tmp = __builtin_expect((nfs_debug & 16U) != 0U, 0L);
+  tmp = ldv__builtin_expect((nfs_debug & 16U) != 0U, 0L);
 #line 6274
   if (tmp != 0L) {
 #line 6274
@@ -26084,7 +26084,7 @@ int nfs4_proc_layoutreturn(struct nfs4_layoutreturn *lrp )
 #line 6279
   status = task->tk_status;
 #line 6280
-  tmp___2 = __builtin_expect((nfs_debug & 16U) != 0U, 0L);
+  tmp___2 = ldv__builtin_expect((nfs_debug & 16U) != 0U, 0L);
 #line 6280
   if (tmp___2 != 0L) {
 #line 6280
@@ -26143,7 +26143,7 @@ static int _nfs4_getdevicelist(struct nfs_server *server , struct nfs_fh  const 
 #line 6299
   msg.rpc_cred = 0;
 #line 6306
-  tmp = __builtin_expect((nfs_debug & 16U) != 0U, 0L);
+  tmp = ldv__builtin_expect((nfs_debug & 16U) != 0U, 0L);
 #line 6306
   if (tmp != 0L) {
 #line 6306
@@ -26155,7 +26155,7 @@ static int _nfs4_getdevicelist(struct nfs_server *server , struct nfs_fh  const 
   status = nfs4_call_sync(server->client, server, & msg, & args.seq_args, & res.seq_res,
                           0);
 #line 6309
-  tmp___0 = __builtin_expect((nfs_debug & 16U) != 0U, 0L);
+  tmp___0 = ldv__builtin_expect((nfs_debug & 16U) != 0U, 0L);
 #line 6309
   if (tmp___0 != 0L) {
 #line 6309
@@ -26198,7 +26198,7 @@ int nfs4_proc_getdevicelist(struct nfs_server *server , struct nfs_fh  const  *f
 
   }
 #line 6326
-  tmp___0 = __builtin_expect((nfs_debug & 16U) != 0U, 0L);
+  tmp___0 = ldv__builtin_expect((nfs_debug & 16U) != 0U, 0L);
 #line 6326
   if (tmp___0 != 0L) {
 #line 6326
@@ -26252,7 +26252,7 @@ static int _nfs4_proc_getdeviceinfo(struct nfs_server *server , struct pnfs_devi
 #line 6342
   msg.rpc_cred = 0;
 #line 6349
-  tmp = __builtin_expect((nfs_debug & 16U) != 0U, 0L);
+  tmp = ldv__builtin_expect((nfs_debug & 16U) != 0U, 0L);
 #line 6349
   if (tmp != 0L) {
 #line 6349
@@ -26264,7 +26264,7 @@ static int _nfs4_proc_getdeviceinfo(struct nfs_server *server , struct pnfs_devi
   status = nfs4_call_sync(server->client, server, & msg, & args.seq_args, & res.seq_res,
                           0);
 #line 6351
-  tmp___0 = __builtin_expect((nfs_debug & 16U) != 0U, 0L);
+  tmp___0 = ldv__builtin_expect((nfs_debug & 16U) != 0U, 0L);
 #line 6351
   if (tmp___0 != 0L) {
 #line 6351
@@ -26510,7 +26510,7 @@ int nfs4_proc_layoutcommit(struct nfs4_layoutcommit_data *data , bool sync )
 #line 6457
   status = 0;
 #line 6459
-  tmp___0 = __builtin_expect((nfs_debug & 16U) != 0U, 0L);
+  tmp___0 = ldv__builtin_expect((nfs_debug & 16U) != 0U, 0L);
 #line 6459
   if (tmp___0 != 0L) {
 #line 6459
@@ -26554,7 +26554,7 @@ int nfs4_proc_layoutcommit(struct nfs4_layoutcommit_data *data , bool sync )
   status = task->tk_status;
   out: 
 #line 6476
-  tmp___3 = __builtin_expect((nfs_debug & 16U) != 0U, 0L);
+  tmp___3 = ldv__builtin_expect((nfs_debug & 16U) != 0U, 0L);
 #line 6476
   if (tmp___3 != 0L) {
 #line 6476
@@ -26755,7 +26755,7 @@ static int _nfs41_test_stateid(struct nfs_server *server , nfs4_stateid *stateid
 #line 6568
   msg.rpc_cred = 0;
 #line 6574
-  tmp = __builtin_expect((nfs_debug & 16U) != 0U, 0L);
+  tmp = ldv__builtin_expect((nfs_debug & 16U) != 0U, 0L);
 #line 6574
   if (tmp != 0L) {
 #line 6574
@@ -26773,7 +26773,7 @@ static int _nfs41_test_stateid(struct nfs_server *server , nfs4_stateid *stateid
 #line 6579
   if (status != 0) {
 #line 6580
-    tmp___0 = __builtin_expect((nfs_debug & 16U) != 0U, 0L);
+    tmp___0 = ldv__builtin_expect((nfs_debug & 16U) != 0U, 0L);
 #line 6580
     if (tmp___0 != 0L) {
 #line 6580
@@ -26787,7 +26787,7 @@ static int _nfs41_test_stateid(struct nfs_server *server , nfs4_stateid *stateid
 
   }
 #line 6583
-  tmp___1 = __builtin_expect((nfs_debug & 16U) != 0U, 0L);
+  tmp___1 = ldv__builtin_expect((nfs_debug & 16U) != 0U, 0L);
 #line 6583
   if (tmp___1 != 0L) {
 #line 6583
@@ -26866,7 +26866,7 @@ static int _nfs4_free_stateid(struct nfs_server *server , nfs4_stateid *stateid 
 #line 6616
   msg.rpc_cred = 0;
 #line 6623
-  tmp = __builtin_expect((nfs_debug & 16U) != 0U, 0L);
+  tmp = ldv__builtin_expect((nfs_debug & 16U) != 0U, 0L);
 #line 6623
   if (tmp != 0L) {
 #line 6623
@@ -26882,7 +26882,7 @@ static int _nfs4_free_stateid(struct nfs_server *server , nfs4_stateid *stateid 
   status = nfs4_call_sync_sequence(server->client, server, & msg, & args.seq_args,
                                    & res.seq_res);
 #line 6628
-  tmp___0 = __builtin_expect((nfs_debug & 16U) != 0U, 0L);
+  tmp___0 = ldv__builtin_expect((nfs_debug & 16U) != 0U, 0L);
 #line 6628
   if (tmp___0 != 0L) {
 #line 6628
@@ -28301,14 +28301,14 @@ __inline static void *net_generic___0(struct net  const  *net , int id )
 #line 40
   ng = _________p1;
 #line 41
-  tmp___1 = __builtin_expect(id == 0, 0L);
+  tmp___1 = ldv__builtin_expect(id == 0, 0L);
 #line 41
   if (tmp___1 != 0L) {
 #line 41
     goto _L;
   } else {
 #line 41
-    tmp___2 = __builtin_expect((unsigned int )id > ng->len, 0L);
+    tmp___2 = ldv__builtin_expect((unsigned int )id > ng->len, 0L);
 #line 41
     if (tmp___2 != 0L) {
       _L: /* CIL Label */ 
@@ -28327,7 +28327,7 @@ __inline static void *net_generic___0(struct net  const  *net , int id )
 #line 43
   rcu_read_unlock();
 #line 45
-  tmp___3 = __builtin_expect((unsigned long )ptr == (unsigned long )((void *)0), 0L);
+  tmp___3 = ldv__builtin_expect((unsigned long )ptr == (unsigned long )((void *)0), 0L);
 #line 45
   if (tmp___3 != 0L) {
 #line 45
@@ -28368,7 +28368,7 @@ static __be32 *reserve_space(struct xdr_stream *xdr , size_t nbytes )
 #line 951
   p = tmp;
 #line 952
-  tmp___0 = __builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0), 0L);
+  tmp___0 = ldv__builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0), 0L);
 #line 952
   if (tmp___0 != 0L) {
 #line 952
@@ -28478,13 +28478,13 @@ static void encode_compound_hdr(struct xdr_stream *xdr , struct rpc_rqst *req , 
 #line 1006
   __ret_warn_once = hdr->taglen != 0U;
 #line 1006
-  tmp___1 = __builtin_expect(__ret_warn_once != 0, 0L);
+  tmp___1 = ldv__builtin_expect(__ret_warn_once != 0, 0L);
 #line 1006
   if (tmp___1 != 0L) {
 #line 1006
     __ret_warn_on = ! __warned;
 #line 1006
-    tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 1006
     if (tmp != 0L) {
 #line 1006
@@ -28494,7 +28494,7 @@ static void encode_compound_hdr(struct xdr_stream *xdr , struct rpc_rqst *req , 
 
     }
 #line 1006
-    tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 1006
     if (tmp___0 != 0L) {
 #line 1006
@@ -28506,7 +28506,7 @@ static void encode_compound_hdr(struct xdr_stream *xdr , struct rpc_rqst *req , 
 
   }
 #line 1006
-  __builtin_expect(__ret_warn_once != 0, 0L);
+  ldv__builtin_expect(__ret_warn_once != 0, 0L);
 #line 1007
   encode_string(xdr, hdr->taglen, (char const   *)hdr->tag);
 #line 1008
@@ -28561,13 +28561,13 @@ static void encode_nops(struct compound_hdr *hdr )
 #line 1025
   __ret_warn_once = hdr->nops > 8U;
 #line 1025
-  tmp___1 = __builtin_expect(__ret_warn_once != 0, 0L);
+  tmp___1 = ldv__builtin_expect(__ret_warn_once != 0, 0L);
 #line 1025
   if (tmp___1 != 0L) {
 #line 1025
     __ret_warn_on = ! __warned;
 #line 1025
-    tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 1025
     if (tmp != 0L) {
 #line 1025
@@ -28577,7 +28577,7 @@ static void encode_nops(struct compound_hdr *hdr )
 
     }
 #line 1025
-    tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 1025
     if (tmp___0 != 0L) {
 #line 1025
@@ -28589,7 +28589,7 @@ static void encode_nops(struct compound_hdr *hdr )
 
   }
 #line 1025
-  __builtin_expect(__ret_warn_once != 0, 0L);
+  ldv__builtin_expect(__ret_warn_once != 0, 0L);
 #line 1026
   tmp___2 = __fswab32(hdr->nops);
 #line 1026
@@ -28692,7 +28692,7 @@ static void encode_attrs(struct xdr_stream *xdr , struct iattr  const  *iap , st
 #line 1067
     if (owner_namelen < 0) {
 #line 1068
-      tmp = __builtin_expect((nfs_debug & 32U) != 0U, 0L);
+      tmp = ldv__builtin_expect((nfs_debug & 32U) != 0U, 0L);
 #line 1068
       if (tmp != 0L) {
 #line 1068
@@ -28720,7 +28720,7 @@ static void encode_attrs(struct xdr_stream *xdr , struct iattr  const  *iap , st
 #line 1079
     if (owner_grouplen < 0) {
 #line 1080
-      tmp___0 = __builtin_expect((nfs_debug & 32U) != 0U, 0L);
+      tmp___0 = ldv__builtin_expect((nfs_debug & 32U) != 0U, 0L);
 #line 1080
       if (tmp___0 != 0L) {
 #line 1080
@@ -30077,7 +30077,7 @@ static void encode_readdir(struct xdr_stream *xdr , struct nfs4_readdir_arg  con
                              __len);
   }
 #line 1641
-  tmp___7 = __builtin_expect((nfs_debug & 32U) != 0U, 0L);
+  tmp___7 = ldv__builtin_expect((nfs_debug & 32U) != 0U, 0L);
 #line 1641
   if (tmp___7 != 0L) {
 #line 1641
@@ -30757,7 +30757,7 @@ static void encode_sequence(struct xdr_stream *xdr , struct nfs4_sequence_args  
 #line 1914
   encode_op_hdr(xdr, 53, 11U, hdr);
 #line 1919
-  tmp = __builtin_expect((nfs_debug & 32U) != 0U, 0L);
+  tmp = ldv__builtin_expect((nfs_debug & 32U) != 0U, 0L);
 #line 1919
   if (tmp != 0L) {
 #line 1919
@@ -30951,7 +30951,7 @@ static void encode_layoutget(struct xdr_stream *xdr , struct nfs4_layoutget_args
 #line 1988
   encode_uint32(xdr, args->maxcount);
 #line 1990
-  tmp___4 = __builtin_expect((nfs_debug & 32U) != 0U, 0L);
+  tmp___4 = ldv__builtin_expect((nfs_debug & 32U) != 0U, 0L);
 #line 1990
   if (tmp___4 != 0L) {
 #line 1990
@@ -30983,7 +30983,7 @@ static int encode_layoutcommit(struct xdr_stream *xdr , struct inode *inode , st
 
   {
 #line 2007
-  tmp___0 = __builtin_expect((nfs_debug & 32U) != 0U, 0L);
+  tmp___0 = ldv__builtin_expect((nfs_debug & 32U) != 0U, 0L);
 #line 2007
   if (tmp___0 != 0L) {
 #line 2007
@@ -31948,7 +31948,7 @@ static void nfs4_xdr_enc_readdir(struct rpc_rqst *req , struct xdr_stream *xdr ,
   xdr_inline_pages(& req->rq_rcv_buf, hdr.replen << 2, args->pages, args->pgbase,
                    args->count);
 #line 2455
-  tmp___0 = __builtin_expect((nfs_debug & 32U) != 0U, 0L);
+  tmp___0 = ldv__builtin_expect((nfs_debug & 32U) != 0U, 0L);
 #line 2455
   if (tmp___0 != 0L) {
 #line 2455
@@ -33173,7 +33173,7 @@ static void print_overflow_msg(char const   *func , struct xdr_stream  const  *x
 
   {
 #line 3037
-  tmp = __builtin_expect((nfs_debug & 32U) != 0U, 0L);
+  tmp = ldv__builtin_expect((nfs_debug & 32U) != 0U, 0L);
 #line 3037
   if (tmp != 0L) {
 #line 3037
@@ -33197,7 +33197,7 @@ static int decode_opaque_inline(struct xdr_stream *xdr , unsigned int *len , cha
 #line 3046
   p = xdr_inline_decode(xdr, 4UL);
 #line 3047
-  tmp = __builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0), 0L);
+  tmp = ldv__builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0), 0L);
 #line 3047
   if (tmp != 0L) {
 #line 3048
@@ -33210,7 +33210,7 @@ static int decode_opaque_inline(struct xdr_stream *xdr , unsigned int *len , cha
 #line 3050
   p = xdr_inline_decode(xdr, (size_t )*len);
 #line 3051
-  tmp___0 = __builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0), 0L);
+  tmp___0 = ldv__builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0), 0L);
 #line 3051
   if (tmp___0 != 0L) {
 #line 3052
@@ -33244,7 +33244,7 @@ static int decode_compound_hdr(struct xdr_stream *xdr , struct compound_hdr *hdr
 #line 3064
   p = xdr_inline_decode(xdr, 8UL);
 #line 3065
-  tmp = __builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0), 0L);
+  tmp = ldv__builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0), 0L);
 #line 3065
   if (tmp != 0L) {
 #line 3066
@@ -33265,7 +33265,7 @@ static int decode_compound_hdr(struct xdr_stream *xdr , struct compound_hdr *hdr
 #line 3070
   p = xdr_inline_decode(xdr, (size_t )(hdr->taglen + 4U));
 #line 3071
-  tmp___2 = __builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0), 0L);
+  tmp___2 = ldv__builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0), 0L);
 #line 3071
   if (tmp___2 != 0L) {
 #line 3072
@@ -33280,7 +33280,7 @@ static int decode_compound_hdr(struct xdr_stream *xdr , struct compound_hdr *hdr
 #line 3075
   hdr->nops = __be32_to_cpup((__be32 const   *)p);
 #line 3076
-  tmp___4 = __builtin_expect(hdr->nops == 0U, 0L);
+  tmp___4 = ldv__builtin_expect(hdr->nops == 0U, 0L);
 #line 3076
   if (tmp___4 != 0L) {
 #line 3077
@@ -33315,7 +33315,7 @@ static int decode_op_hdr(struct xdr_stream *xdr , enum nfs_opnum4 expected )
 #line 3090
   p = xdr_inline_decode(xdr, 8UL);
 #line 3091
-  tmp = __builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0), 0L);
+  tmp = ldv__builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0), 0L);
 #line 3091
   if (tmp != 0L) {
 #line 3092
@@ -33332,7 +33332,7 @@ static int decode_op_hdr(struct xdr_stream *xdr , enum nfs_opnum4 expected )
 #line 3094
   if (opnum != (uint32_t )expected) {
 #line 3095
-    tmp___1 = __builtin_expect((nfs_debug & 32U) != 0U, 0L);
+    tmp___1 = ldv__builtin_expect((nfs_debug & 32U) != 0U, 0L);
 #line 3095
     if (tmp___1 != 0L) {
 #line 3095
@@ -33381,7 +33381,7 @@ static int decode_ace(struct xdr_stream *xdr , void *ace , struct nfs_client *cl
 #line 3116
   p = xdr_inline_decode(xdr, 12UL);
 #line 3117
-  tmp___0 = __builtin_expect((unsigned long )p != (unsigned long )((__be32 *)0), 1L);
+  tmp___0 = ldv__builtin_expect((unsigned long )p != (unsigned long )((__be32 *)0), 1L);
 #line 3117
   if (tmp___0 != 0L) {
 #line 3118
@@ -33413,7 +33413,7 @@ static int decode_attr_bitmap(struct xdr_stream *xdr , uint32_t *bitmap )
 #line 3128
   p = xdr_inline_decode(xdr, 4UL);
 #line 3129
-  tmp = __builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0), 0L);
+  tmp = ldv__builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0), 0L);
 #line 3129
   if (tmp != 0L) {
 #line 3130
@@ -33436,7 +33436,7 @@ static int decode_attr_bitmap(struct xdr_stream *xdr , uint32_t *bitmap )
 #line 3134
   p = xdr_inline_decode(xdr, (size_t )(bmlen << 2));
 #line 3135
-  tmp___2 = __builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0), 0L);
+  tmp___2 = ldv__builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0), 0L);
 #line 3135
   if (tmp___2 != 0L) {
 #line 3136
@@ -33492,7 +33492,7 @@ static int decode_attr_length(struct xdr_stream *xdr , uint32_t *attrlen , unsig
 #line 3155
   p = xdr_inline_decode(xdr, 4UL);
 #line 3156
-  tmp = __builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0), 0L);
+  tmp = ldv__builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0), 0L);
 #line 3156
   if (tmp != 0L) {
 #line 3157
@@ -33525,13 +33525,13 @@ static int decode_attr_supported(struct xdr_stream *xdr , uint32_t *bitmap , uin
 
   {
 #line 3168
-  tmp___2 = __builtin_expect((long )((int )*bitmap) & 1L, 1L);
+  tmp___2 = ldv__builtin_expect((long )((int )*bitmap) & 1L, 1L);
 #line 3168
   if (tmp___2 != 0L) {
 #line 3170
     ret = decode_attr_bitmap(xdr, bitmask);
 #line 3171
-    tmp = __builtin_expect(ret < 0, 0L);
+    tmp = ldv__builtin_expect(ret < 0, 0L);
 #line 3171
     if (tmp != 0L) {
 #line 3172
@@ -33554,7 +33554,7 @@ static int decode_attr_supported(struct xdr_stream *xdr , uint32_t *bitmap , uin
     *bitmask = tmp___0;
   }
 #line 3176
-  tmp___3 = __builtin_expect((nfs_debug & 32U) != 0U, 0L);
+  tmp___3 = ldv__builtin_expect((nfs_debug & 32U) != 0U, 0L);
 #line 3176
   if (tmp___3 != 0L) {
 #line 3176
@@ -33584,7 +33584,7 @@ static int decode_attr_type(struct xdr_stream *xdr , uint32_t *bitmap , uint32_t
 #line 3186
   *type = 0U;
 #line 3187
-  tmp = __builtin_expect((long )((int )*bitmap) & 1L, 0L);
+  tmp = ldv__builtin_expect((long )((int )*bitmap) & 1L, 0L);
 #line 3187
   if (tmp != 0L) {
 #line 3188
@@ -33593,13 +33593,13 @@ static int decode_attr_type(struct xdr_stream *xdr , uint32_t *bitmap , uint32_t
 
   }
 #line 3189
-  tmp___2 = __builtin_expect(((unsigned long )*bitmap & 2UL) != 0UL, 1L);
+  tmp___2 = ldv__builtin_expect(((unsigned long )*bitmap & 2UL) != 0UL, 1L);
 #line 3189
   if (tmp___2 != 0L) {
 #line 3190
     p = xdr_inline_decode(xdr, 4UL);
 #line 3191
-    tmp___0 = __builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0),
+    tmp___0 = ldv__builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0),
                                0L);
 #line 3191
     if (tmp___0 != 0L) {
@@ -33613,7 +33613,7 @@ static int decode_attr_type(struct xdr_stream *xdr , uint32_t *bitmap , uint32_t
 #line 3194
     if (*type == 0U || *type > 9U) {
 #line 3195
-      tmp___1 = __builtin_expect((nfs_debug & 32U) != 0U, 0L);
+      tmp___1 = ldv__builtin_expect((nfs_debug & 32U) != 0U, 0L);
 #line 3195
       if (tmp___1 != 0L) {
 #line 3195
@@ -33634,7 +33634,7 @@ static int decode_attr_type(struct xdr_stream *xdr , uint32_t *bitmap , uint32_t
 
   }
 #line 3201
-  tmp___3 = __builtin_expect((nfs_debug & 32U) != 0U, 0L);
+  tmp___3 = ldv__builtin_expect((nfs_debug & 32U) != 0U, 0L);
 #line 3201
   if (tmp___3 != 0L) {
 #line 3201
@@ -33665,7 +33665,7 @@ static int decode_attr_fh_expire_type(struct xdr_stream *xdr , uint32_t *bitmap 
 #line 3213
   *type = 0U;
 #line 3214
-  tmp = __builtin_expect(((unsigned long )*bitmap & 3UL) != 0UL, 0L);
+  tmp = ldv__builtin_expect(((unsigned long )*bitmap & 3UL) != 0UL, 0L);
 #line 3214
   if (tmp != 0L) {
 #line 3215
@@ -33674,13 +33674,13 @@ static int decode_attr_fh_expire_type(struct xdr_stream *xdr , uint32_t *bitmap 
 
   }
 #line 3216
-  tmp___1 = __builtin_expect(((unsigned long )*bitmap & 4UL) != 0UL, 1L);
+  tmp___1 = ldv__builtin_expect(((unsigned long )*bitmap & 4UL) != 0UL, 1L);
 #line 3216
   if (tmp___1 != 0L) {
 #line 3217
     p = xdr_inline_decode(xdr, 4UL);
 #line 3218
-    tmp___0 = __builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0),
+    tmp___0 = ldv__builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0),
                                0L);
 #line 3218
     if (tmp___0 != 0L) {
@@ -33697,7 +33697,7 @@ static int decode_attr_fh_expire_type(struct xdr_stream *xdr , uint32_t *bitmap 
 
   }
 #line 3223
-  tmp___2 = __builtin_expect((nfs_debug & 32U) != 0U, 0L);
+  tmp___2 = ldv__builtin_expect((nfs_debug & 32U) != 0U, 0L);
 #line 3223
   if (tmp___2 != 0L) {
 #line 3223
@@ -33730,7 +33730,7 @@ static int decode_attr_change(struct xdr_stream *xdr , uint32_t *bitmap , uint64
 #line 3235
   *change = 0ULL;
 #line 3236
-  tmp = __builtin_expect(((unsigned long )*bitmap & 7UL) != 0UL, 0L);
+  tmp = ldv__builtin_expect(((unsigned long )*bitmap & 7UL) != 0UL, 0L);
 #line 3236
   if (tmp != 0L) {
 #line 3237
@@ -33739,13 +33739,13 @@ static int decode_attr_change(struct xdr_stream *xdr , uint32_t *bitmap , uint64
 
   }
 #line 3238
-  tmp___1 = __builtin_expect(((unsigned long )*bitmap & 8UL) != 0UL, 1L);
+  tmp___1 = ldv__builtin_expect(((unsigned long )*bitmap & 8UL) != 0UL, 1L);
 #line 3238
   if (tmp___1 != 0L) {
 #line 3239
     p = xdr_inline_decode(xdr, 8UL);
 #line 3240
-    tmp___0 = __builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0),
+    tmp___0 = ldv__builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0),
                                0L);
 #line 3240
     if (tmp___0 != 0L) {
@@ -33764,7 +33764,7 @@ static int decode_attr_change(struct xdr_stream *xdr , uint32_t *bitmap , uint64
 
   }
 #line 3246
-  tmp___2 = __builtin_expect((nfs_debug & 32U) != 0U, 0L);
+  tmp___2 = ldv__builtin_expect((nfs_debug & 32U) != 0U, 0L);
 #line 3246
   if (tmp___2 != 0L) {
 #line 3246
@@ -33797,7 +33797,7 @@ static int decode_attr_size(struct xdr_stream *xdr , uint32_t *bitmap , uint64_t
 #line 3259
   *size = 0ULL;
 #line 3260
-  tmp = __builtin_expect(((unsigned long )*bitmap & 15UL) != 0UL, 0L);
+  tmp = ldv__builtin_expect(((unsigned long )*bitmap & 15UL) != 0UL, 0L);
 #line 3260
   if (tmp != 0L) {
 #line 3261
@@ -33806,13 +33806,13 @@ static int decode_attr_size(struct xdr_stream *xdr , uint32_t *bitmap , uint64_t
 
   }
 #line 3262
-  tmp___1 = __builtin_expect(((unsigned long )*bitmap & 16UL) != 0UL, 1L);
+  tmp___1 = ldv__builtin_expect(((unsigned long )*bitmap & 16UL) != 0UL, 1L);
 #line 3262
   if (tmp___1 != 0L) {
 #line 3263
     p = xdr_inline_decode(xdr, 8UL);
 #line 3264
-    tmp___0 = __builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0),
+    tmp___0 = ldv__builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0),
                                0L);
 #line 3264
     if (tmp___0 != 0L) {
@@ -33831,7 +33831,7 @@ static int decode_attr_size(struct xdr_stream *xdr , uint32_t *bitmap , uint64_t
 
   }
 #line 3270
-  tmp___2 = __builtin_expect((nfs_debug & 32U) != 0U, 0L);
+  tmp___2 = ldv__builtin_expect((nfs_debug & 32U) != 0U, 0L);
 #line 3270
   if (tmp___2 != 0L) {
 #line 3270
@@ -33861,7 +33861,7 @@ static int decode_attr_link_support(struct xdr_stream *xdr , uint32_t *bitmap , 
 #line 3281
   *res = 0U;
 #line 3282
-  tmp = __builtin_expect(((unsigned long )*bitmap & 31UL) != 0UL, 0L);
+  tmp = ldv__builtin_expect(((unsigned long )*bitmap & 31UL) != 0UL, 0L);
 #line 3282
   if (tmp != 0L) {
 #line 3283
@@ -33870,13 +33870,13 @@ static int decode_attr_link_support(struct xdr_stream *xdr , uint32_t *bitmap , 
 
   }
 #line 3284
-  tmp___1 = __builtin_expect(((unsigned long )*bitmap & 32UL) != 0UL, 1L);
+  tmp___1 = ldv__builtin_expect(((unsigned long )*bitmap & 32UL) != 0UL, 1L);
 #line 3284
   if (tmp___1 != 0L) {
 #line 3285
     p = xdr_inline_decode(xdr, 4UL);
 #line 3286
-    tmp___0 = __builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0),
+    tmp___0 = ldv__builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0),
                                0L);
 #line 3286
     if (tmp___0 != 0L) {
@@ -33893,7 +33893,7 @@ static int decode_attr_link_support(struct xdr_stream *xdr , uint32_t *bitmap , 
 
   }
 #line 3291
-  tmp___2 = __builtin_expect((nfs_debug & 32U) != 0U, 0L);
+  tmp___2 = ldv__builtin_expect((nfs_debug & 32U) != 0U, 0L);
 #line 3291
   if (tmp___2 != 0L) {
 #line 3291
@@ -33924,7 +33924,7 @@ static int decode_attr_symlink_support(struct xdr_stream *xdr , uint32_t *bitmap
 #line 3302
   *res = 0U;
 #line 3303
-  tmp = __builtin_expect(((unsigned long )*bitmap & 63UL) != 0UL, 0L);
+  tmp = ldv__builtin_expect(((unsigned long )*bitmap & 63UL) != 0UL, 0L);
 #line 3303
   if (tmp != 0L) {
 #line 3304
@@ -33933,13 +33933,13 @@ static int decode_attr_symlink_support(struct xdr_stream *xdr , uint32_t *bitmap
 
   }
 #line 3305
-  tmp___1 = __builtin_expect(((unsigned long )*bitmap & 64UL) != 0UL, 1L);
+  tmp___1 = ldv__builtin_expect(((unsigned long )*bitmap & 64UL) != 0UL, 1L);
 #line 3305
   if (tmp___1 != 0L) {
 #line 3306
     p = xdr_inline_decode(xdr, 4UL);
 #line 3307
-    tmp___0 = __builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0),
+    tmp___0 = ldv__builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0),
                                0L);
 #line 3307
     if (tmp___0 != 0L) {
@@ -33956,7 +33956,7 @@ static int decode_attr_symlink_support(struct xdr_stream *xdr , uint32_t *bitmap
 
   }
 #line 3312
-  tmp___2 = __builtin_expect((nfs_debug & 32U) != 0U, 0L);
+  tmp___2 = ldv__builtin_expect((nfs_debug & 32U) != 0U, 0L);
 #line 3312
   if (tmp___2 != 0L) {
 #line 3312
@@ -33991,7 +33991,7 @@ static int decode_attr_fsid(struct xdr_stream *xdr , uint32_t *bitmap , struct n
 #line 3325
   fsid->minor = 0ULL;
 #line 3326
-  tmp = __builtin_expect(((unsigned long )*bitmap & 255UL) != 0UL, 0L);
+  tmp = ldv__builtin_expect(((unsigned long )*bitmap & 255UL) != 0UL, 0L);
 #line 3326
   if (tmp != 0L) {
 #line 3327
@@ -34000,13 +34000,13 @@ static int decode_attr_fsid(struct xdr_stream *xdr , uint32_t *bitmap , struct n
 
   }
 #line 3328
-  tmp___1 = __builtin_expect(((unsigned long )*bitmap & 256UL) != 0UL, 1L);
+  tmp___1 = ldv__builtin_expect(((unsigned long )*bitmap & 256UL) != 0UL, 1L);
 #line 3328
   if (tmp___1 != 0L) {
 #line 3329
     p = xdr_inline_decode(xdr, 16UL);
 #line 3330
-    tmp___0 = __builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0),
+    tmp___0 = ldv__builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0),
                                0L);
 #line 3330
     if (tmp___0 != 0L) {
@@ -34027,7 +34027,7 @@ static int decode_attr_fsid(struct xdr_stream *xdr , uint32_t *bitmap , struct n
 
   }
 #line 3337
-  tmp___2 = __builtin_expect((nfs_debug & 32U) != 0U, 0L);
+  tmp___2 = ldv__builtin_expect((nfs_debug & 32U) != 0U, 0L);
 #line 3337
   if (tmp___2 != 0L) {
 #line 3337
@@ -34057,7 +34057,7 @@ static int decode_attr_lease_time(struct xdr_stream *xdr , uint32_t *bitmap , ui
 #line 3350
   *res = 60U;
 #line 3351
-  tmp = __builtin_expect(((unsigned long )*bitmap & 1023UL) != 0UL, 0L);
+  tmp = ldv__builtin_expect(((unsigned long )*bitmap & 1023UL) != 0UL, 0L);
 #line 3351
   if (tmp != 0L) {
 #line 3352
@@ -34066,13 +34066,13 @@ static int decode_attr_lease_time(struct xdr_stream *xdr , uint32_t *bitmap , ui
 
   }
 #line 3353
-  tmp___1 = __builtin_expect(((unsigned long )*bitmap & 1024UL) != 0UL, 1L);
+  tmp___1 = ldv__builtin_expect(((unsigned long )*bitmap & 1024UL) != 0UL, 1L);
 #line 3353
   if (tmp___1 != 0L) {
 #line 3354
     p = xdr_inline_decode(xdr, 4UL);
 #line 3355
-    tmp___0 = __builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0),
+    tmp___0 = ldv__builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0),
                                0L);
 #line 3355
     if (tmp___0 != 0L) {
@@ -34089,7 +34089,7 @@ static int decode_attr_lease_time(struct xdr_stream *xdr , uint32_t *bitmap , ui
 
   }
 #line 3360
-  tmp___2 = __builtin_expect((nfs_debug & 32U) != 0U, 0L);
+  tmp___2 = ldv__builtin_expect((nfs_debug & 32U) != 0U, 0L);
 #line 3360
   if (tmp___2 != 0L) {
 #line 3360
@@ -34117,7 +34117,7 @@ static int decode_attr_error(struct xdr_stream *xdr , uint32_t *bitmap , int32_t
 
   {
 #line 3371
-  tmp = __builtin_expect(((unsigned long )*bitmap & 2047UL) != 0UL, 0L);
+  tmp = ldv__builtin_expect(((unsigned long )*bitmap & 2047UL) != 0UL, 0L);
 #line 3371
   if (tmp != 0L) {
 #line 3372
@@ -34126,13 +34126,13 @@ static int decode_attr_error(struct xdr_stream *xdr , uint32_t *bitmap , int32_t
 
   }
 #line 3373
-  tmp___2 = __builtin_expect(((unsigned long )*bitmap & 2048UL) != 0UL, 1L);
+  tmp___2 = ldv__builtin_expect(((unsigned long )*bitmap & 2048UL) != 0UL, 1L);
 #line 3373
   if (tmp___2 != 0L) {
 #line 3374
     p = xdr_inline_decode(xdr, 4UL);
 #line 3375
-    tmp___0 = __builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0),
+    tmp___0 = ldv__builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0),
                                0L);
 #line 3375
     if (tmp___0 != 0L) {
@@ -34181,7 +34181,7 @@ static int decode_attr_filehandle(struct xdr_stream *xdr , uint32_t *bitmap , st
 
   }
 #line 3394
-  tmp = __builtin_expect(((unsigned long )*bitmap & 524287UL) != 0UL, 0L);
+  tmp = ldv__builtin_expect(((unsigned long )*bitmap & 524287UL) != 0UL, 0L);
 #line 3394
   if (tmp != 0L) {
 #line 3395
@@ -34190,13 +34190,13 @@ static int decode_attr_filehandle(struct xdr_stream *xdr , uint32_t *bitmap , st
 
   }
 #line 3396
-  tmp___3 = __builtin_expect(((unsigned long )*bitmap & 524288UL) != 0UL, 1L);
+  tmp___3 = ldv__builtin_expect(((unsigned long )*bitmap & 524288UL) != 0UL, 1L);
 #line 3396
   if (tmp___3 != 0L) {
 #line 3397
     p = xdr_inline_decode(xdr, 4UL);
 #line 3398
-    tmp___0 = __builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0),
+    tmp___0 = ldv__builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0),
                                0L);
 #line 3398
     if (tmp___0 != 0L) {
@@ -34219,7 +34219,7 @@ static int decode_attr_filehandle(struct xdr_stream *xdr , uint32_t *bitmap , st
 #line 3403
     p = xdr_inline_decode(xdr, (size_t )len);
 #line 3404
-    tmp___2 = __builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0),
+    tmp___2 = ldv__builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0),
                                0L);
 #line 3404
     if (tmp___2 != 0L) {
@@ -34266,7 +34266,7 @@ static int decode_attr_aclsupport(struct xdr_stream *xdr , uint32_t *bitmap , ui
 #line 3422
   *res = 3U;
 #line 3423
-  tmp = __builtin_expect(((unsigned long )*bitmap & 8191UL) != 0UL, 0L);
+  tmp = ldv__builtin_expect(((unsigned long )*bitmap & 8191UL) != 0UL, 0L);
 #line 3423
   if (tmp != 0L) {
 #line 3424
@@ -34275,13 +34275,13 @@ static int decode_attr_aclsupport(struct xdr_stream *xdr , uint32_t *bitmap , ui
 
   }
 #line 3425
-  tmp___1 = __builtin_expect(((unsigned long )*bitmap & 8192UL) != 0UL, 1L);
+  tmp___1 = ldv__builtin_expect(((unsigned long )*bitmap & 8192UL) != 0UL, 1L);
 #line 3425
   if (tmp___1 != 0L) {
 #line 3426
     p = xdr_inline_decode(xdr, 4UL);
 #line 3427
-    tmp___0 = __builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0),
+    tmp___0 = ldv__builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0),
                                0L);
 #line 3427
     if (tmp___0 != 0L) {
@@ -34298,7 +34298,7 @@ static int decode_attr_aclsupport(struct xdr_stream *xdr , uint32_t *bitmap , ui
 
   }
 #line 3432
-  tmp___2 = __builtin_expect((nfs_debug & 32U) != 0U, 0L);
+  tmp___2 = ldv__builtin_expect((nfs_debug & 32U) != 0U, 0L);
 #line 3432
   if (tmp___2 != 0L) {
 #line 3432
@@ -34331,7 +34331,7 @@ static int decode_attr_fileid(struct xdr_stream *xdr , uint32_t *bitmap , uint64
 #line 3444
   *fileid = 0ULL;
 #line 3445
-  tmp = __builtin_expect(((unsigned long )*bitmap & 1048575UL) != 0UL, 0L);
+  tmp = ldv__builtin_expect(((unsigned long )*bitmap & 1048575UL) != 0UL, 0L);
 #line 3445
   if (tmp != 0L) {
 #line 3446
@@ -34340,13 +34340,13 @@ static int decode_attr_fileid(struct xdr_stream *xdr , uint32_t *bitmap , uint64
 
   }
 #line 3447
-  tmp___1 = __builtin_expect(((unsigned long )*bitmap & 1048576UL) != 0UL, 1L);
+  tmp___1 = ldv__builtin_expect(((unsigned long )*bitmap & 1048576UL) != 0UL, 1L);
 #line 3447
   if (tmp___1 != 0L) {
 #line 3448
     p = xdr_inline_decode(xdr, 8UL);
 #line 3449
-    tmp___0 = __builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0),
+    tmp___0 = ldv__builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0),
                                0L);
 #line 3449
     if (tmp___0 != 0L) {
@@ -34365,7 +34365,7 @@ static int decode_attr_fileid(struct xdr_stream *xdr , uint32_t *bitmap , uint64
 
   }
 #line 3455
-  tmp___2 = __builtin_expect((nfs_debug & 32U) != 0U, 0L);
+  tmp___2 = ldv__builtin_expect((nfs_debug & 32U) != 0U, 0L);
 #line 3455
   if (tmp___2 != 0L) {
 #line 3455
@@ -34399,7 +34399,7 @@ static int decode_attr_mounted_on_fileid(struct xdr_stream *xdr , uint32_t *bitm
 #line 3467
   *fileid = 0ULL;
 #line 3468
-  tmp = __builtin_expect(((unsigned long )*(bitmap + 1UL) & 8388607UL) != 0UL, 0L);
+  tmp = ldv__builtin_expect(((unsigned long )*(bitmap + 1UL) & 8388607UL) != 0UL, 0L);
 #line 3468
   if (tmp != 0L) {
 #line 3469
@@ -34408,14 +34408,14 @@ static int decode_attr_mounted_on_fileid(struct xdr_stream *xdr , uint32_t *bitm
 
   }
 #line 3470
-  tmp___1 = __builtin_expect(((unsigned long )*(bitmap + 1UL) & 8388608UL) != 0UL,
+  tmp___1 = ldv__builtin_expect(((unsigned long )*(bitmap + 1UL) & 8388608UL) != 0UL,
                              1L);
 #line 3470
   if (tmp___1 != 0L) {
 #line 3471
     p = xdr_inline_decode(xdr, 8UL);
 #line 3472
-    tmp___0 = __builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0),
+    tmp___0 = ldv__builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0),
                                0L);
 #line 3472
     if (tmp___0 != 0L) {
@@ -34434,7 +34434,7 @@ static int decode_attr_mounted_on_fileid(struct xdr_stream *xdr , uint32_t *bitm
 
   }
 #line 3478
-  tmp___2 = __builtin_expect((nfs_debug & 32U) != 0U, 0L);
+  tmp___2 = ldv__builtin_expect((nfs_debug & 32U) != 0U, 0L);
 #line 3478
   if (tmp___2 != 0L) {
 #line 3478
@@ -34467,7 +34467,7 @@ static int decode_attr_files_avail(struct xdr_stream *xdr , uint32_t *bitmap , u
 #line 3490
   *res = 0ULL;
 #line 3491
-  tmp = __builtin_expect(((unsigned long )*bitmap & 2097151UL) != 0UL, 0L);
+  tmp = ldv__builtin_expect(((unsigned long )*bitmap & 2097151UL) != 0UL, 0L);
 #line 3491
   if (tmp != 0L) {
 #line 3492
@@ -34476,13 +34476,13 @@ static int decode_attr_files_avail(struct xdr_stream *xdr , uint32_t *bitmap , u
 
   }
 #line 3493
-  tmp___1 = __builtin_expect(((unsigned long )*bitmap & 2097152UL) != 0UL, 1L);
+  tmp___1 = ldv__builtin_expect(((unsigned long )*bitmap & 2097152UL) != 0UL, 1L);
 #line 3493
   if (tmp___1 != 0L) {
 #line 3494
     p = xdr_inline_decode(xdr, 8UL);
 #line 3495
-    tmp___0 = __builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0),
+    tmp___0 = ldv__builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0),
                                0L);
 #line 3495
     if (tmp___0 != 0L) {
@@ -34499,7 +34499,7 @@ static int decode_attr_files_avail(struct xdr_stream *xdr , uint32_t *bitmap , u
 
   }
 #line 3500
-  tmp___2 = __builtin_expect((nfs_debug & 32U) != 0U, 0L);
+  tmp___2 = ldv__builtin_expect((nfs_debug & 32U) != 0U, 0L);
 #line 3500
   if (tmp___2 != 0L) {
 #line 3500
@@ -34532,7 +34532,7 @@ static int decode_attr_files_free(struct xdr_stream *xdr , uint32_t *bitmap , ui
 #line 3512
   *res = 0ULL;
 #line 3513
-  tmp = __builtin_expect(((unsigned long )*bitmap & 4194303UL) != 0UL, 0L);
+  tmp = ldv__builtin_expect(((unsigned long )*bitmap & 4194303UL) != 0UL, 0L);
 #line 3513
   if (tmp != 0L) {
 #line 3514
@@ -34541,13 +34541,13 @@ static int decode_attr_files_free(struct xdr_stream *xdr , uint32_t *bitmap , ui
 
   }
 #line 3515
-  tmp___1 = __builtin_expect(((unsigned long )*bitmap & 4194304UL) != 0UL, 1L);
+  tmp___1 = ldv__builtin_expect(((unsigned long )*bitmap & 4194304UL) != 0UL, 1L);
 #line 3515
   if (tmp___1 != 0L) {
 #line 3516
     p = xdr_inline_decode(xdr, 8UL);
 #line 3517
-    tmp___0 = __builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0),
+    tmp___0 = ldv__builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0),
                                0L);
 #line 3517
     if (tmp___0 != 0L) {
@@ -34564,7 +34564,7 @@ static int decode_attr_files_free(struct xdr_stream *xdr , uint32_t *bitmap , ui
 
   }
 #line 3522
-  tmp___2 = __builtin_expect((nfs_debug & 32U) != 0U, 0L);
+  tmp___2 = ldv__builtin_expect((nfs_debug & 32U) != 0U, 0L);
 #line 3522
   if (tmp___2 != 0L) {
 #line 3522
@@ -34597,7 +34597,7 @@ static int decode_attr_files_total(struct xdr_stream *xdr , uint32_t *bitmap , u
 #line 3534
   *res = 0ULL;
 #line 3535
-  tmp = __builtin_expect(((unsigned long )*bitmap & 8388607UL) != 0UL, 0L);
+  tmp = ldv__builtin_expect(((unsigned long )*bitmap & 8388607UL) != 0UL, 0L);
 #line 3535
   if (tmp != 0L) {
 #line 3536
@@ -34606,13 +34606,13 @@ static int decode_attr_files_total(struct xdr_stream *xdr , uint32_t *bitmap , u
 
   }
 #line 3537
-  tmp___1 = __builtin_expect(((unsigned long )*bitmap & 8388608UL) != 0UL, 1L);
+  tmp___1 = ldv__builtin_expect(((unsigned long )*bitmap & 8388608UL) != 0UL, 1L);
 #line 3537
   if (tmp___1 != 0L) {
 #line 3538
     p = xdr_inline_decode(xdr, 8UL);
 #line 3539
-    tmp___0 = __builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0),
+    tmp___0 = ldv__builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0),
                                0L);
 #line 3539
     if (tmp___0 != 0L) {
@@ -34629,7 +34629,7 @@ static int decode_attr_files_total(struct xdr_stream *xdr , uint32_t *bitmap , u
 
   }
 #line 3544
-  tmp___2 = __builtin_expect((nfs_debug & 32U) != 0U, 0L);
+  tmp___2 = ldv__builtin_expect((nfs_debug & 32U) != 0U, 0L);
 #line 3544
   if (tmp___2 != 0L) {
 #line 3544
@@ -34667,7 +34667,7 @@ static int decode_pathname(struct xdr_stream *xdr , struct nfs4_pathname *path )
 #line 3557
   p = xdr_inline_decode(xdr, 4UL);
 #line 3558
-  tmp = __builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0), 0L);
+  tmp = ldv__builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0), 0L);
 #line 3558
   if (tmp != 0L) {
 #line 3559
@@ -34685,7 +34685,7 @@ static int decode_pathname(struct xdr_stream *xdr , struct nfs4_pathname *path )
 
   }
 #line 3563
-  tmp___0 = __builtin_expect((nfs_debug & 32U) != 0U, 0L);
+  tmp___0 = ldv__builtin_expect((nfs_debug & 32U) != 0U, 0L);
 #line 3563
   if (tmp___0 != 0L) {
 #line 3563
@@ -34703,7 +34703,7 @@ static int decode_pathname(struct xdr_stream *xdr , struct nfs4_pathname *path )
 #line 3567
   status = decode_opaque_inline(xdr, & component->len, & component->data);
 #line 3568
-  tmp___1 = __builtin_expect(status != 0, 0L);
+  tmp___1 = ldv__builtin_expect(status != 0, 0L);
 #line 3568
   if (tmp___1 != 0L) {
 #line 3569
@@ -34712,7 +34712,7 @@ static int decode_pathname(struct xdr_stream *xdr , struct nfs4_pathname *path )
 
   }
 #line 3570
-  tmp___2 = __builtin_expect((nfs_debug & 32U) != 0U, 0L);
+  tmp___2 = ldv__builtin_expect((nfs_debug & 32U) != 0U, 0L);
 #line 3570
   if (tmp___2 != 0L) {
 #line 3571
@@ -34727,7 +34727,7 @@ static int decode_pathname(struct xdr_stream *xdr , struct nfs4_pathname *path )
     path->ncomponents = path->ncomponents + 1U;
   } else {
 #line 3577
-    tmp___3 = __builtin_expect((nfs_debug & 32U) != 0U, 0L);
+    tmp___3 = ldv__builtin_expect((nfs_debug & 32U) != 0U, 0L);
 #line 3577
     if (tmp___3 != 0L) {
 #line 3577
@@ -34758,7 +34758,7 @@ static int decode_pathname(struct xdr_stream *xdr , struct nfs4_pathname *path )
 #line 3587
   path->components[0].data = 0;
 #line 3588
-  tmp___4 = __builtin_expect((nfs_debug & 32U) != 0U, 0L);
+  tmp___4 = ldv__builtin_expect((nfs_debug & 32U) != 0U, 0L);
 #line 3588
   if (tmp___4 != 0L) {
 #line 3588
@@ -34770,7 +34770,7 @@ static int decode_pathname(struct xdr_stream *xdr , struct nfs4_pathname *path )
   goto out;
   out_eio: 
 #line 3591
-  tmp___5 = __builtin_expect((nfs_debug & 32U) != 0U, 0L);
+  tmp___5 = ldv__builtin_expect((nfs_debug & 32U) != 0U, 0L);
 #line 3591
   if (tmp___5 != 0L) {
 #line 3591
@@ -34821,7 +34821,7 @@ static int decode_attr_fs_locations(struct xdr_stream *xdr , uint32_t *bitmap , 
 #line 3603
   status = -5;
 #line 3605
-  tmp = __builtin_expect(((unsigned long )*bitmap & 16777215UL) != 0UL, 0L);
+  tmp = ldv__builtin_expect(((unsigned long )*bitmap & 16777215UL) != 0UL, 0L);
 #line 3605
   if (tmp != 0L) {
 #line 3606
@@ -34832,7 +34832,7 @@ static int decode_attr_fs_locations(struct xdr_stream *xdr , uint32_t *bitmap , 
 #line 3607
   status = 0;
 #line 3608
-  tmp___0 = __builtin_expect(((unsigned long )*bitmap & 16777216UL) == 0UL, 0L);
+  tmp___0 = ldv__builtin_expect(((unsigned long )*bitmap & 16777216UL) == 0UL, 0L);
 #line 3608
   if (tmp___0 != 0L) {
 #line 3609
@@ -34843,7 +34843,7 @@ static int decode_attr_fs_locations(struct xdr_stream *xdr , uint32_t *bitmap , 
 #line 3610
   status = -5;
 #line 3612
-  tmp___1 = __builtin_expect((unsigned long )res == (unsigned long )((struct nfs4_fs_locations *)0),
+  tmp___1 = ldv__builtin_expect((unsigned long )res == (unsigned long )((struct nfs4_fs_locations *)0),
                              0L);
 #line 3612
   if (tmp___1 != 0L) {
@@ -34853,7 +34853,7 @@ static int decode_attr_fs_locations(struct xdr_stream *xdr , uint32_t *bitmap , 
 
   }
 #line 3614
-  tmp___2 = __builtin_expect((nfs_debug & 32U) != 0U, 0L);
+  tmp___2 = ldv__builtin_expect((nfs_debug & 32U) != 0U, 0L);
 #line 3614
   if (tmp___2 != 0L) {
 #line 3614
@@ -34864,7 +34864,7 @@ static int decode_attr_fs_locations(struct xdr_stream *xdr , uint32_t *bitmap , 
 #line 3615
   status = decode_pathname(xdr, & res->fs_path);
 #line 3616
-  tmp___3 = __builtin_expect(status != 0, 0L);
+  tmp___3 = ldv__builtin_expect(status != 0, 0L);
 #line 3616
   if (tmp___3 != 0L) {
 #line 3617
@@ -34875,7 +34875,7 @@ static int decode_attr_fs_locations(struct xdr_stream *xdr , uint32_t *bitmap , 
 #line 3618
   p = xdr_inline_decode(xdr, 4UL);
 #line 3619
-  tmp___4 = __builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0), 0L);
+  tmp___4 = ldv__builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0), 0L);
 #line 3619
   if (tmp___4 != 0L) {
 #line 3620
@@ -34904,7 +34904,7 @@ static int decode_attr_fs_locations(struct xdr_stream *xdr , uint32_t *bitmap , 
 #line 3629
   p = xdr_inline_decode(xdr, 4UL);
 #line 3630
-  tmp___6 = __builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0), 0L);
+  tmp___6 = ldv__builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0), 0L);
 #line 3630
   if (tmp___6 != 0L) {
 #line 3631
@@ -34917,7 +34917,7 @@ static int decode_attr_fs_locations(struct xdr_stream *xdr , uint32_t *bitmap , 
 #line 3634
   loc->nservers = 0U;
 #line 3635
-  tmp___7 = __builtin_expect((nfs_debug & 32U) != 0U, 0L);
+  tmp___7 = ldv__builtin_expect((nfs_debug & 32U) != 0U, 0L);
 #line 3635
   if (tmp___7 != 0L) {
 #line 3635
@@ -34933,7 +34933,7 @@ static int decode_attr_fs_locations(struct xdr_stream *xdr , uint32_t *bitmap , 
 #line 3638
   status = decode_opaque_inline(xdr, & server->len, & server->data);
 #line 3639
-  tmp___8 = __builtin_expect(status != 0, 0L);
+  tmp___8 = ldv__builtin_expect(status != 0, 0L);
 #line 3639
   if (tmp___8 != 0L) {
 #line 3640
@@ -34942,7 +34942,7 @@ static int decode_attr_fs_locations(struct xdr_stream *xdr , uint32_t *bitmap , 
 
   }
 #line 3641
-  tmp___9 = __builtin_expect((nfs_debug & 32U) != 0U, 0L);
+  tmp___9 = ldv__builtin_expect((nfs_debug & 32U) != 0U, 0L);
 #line 3641
   if (tmp___9 != 0L) {
 #line 3641
@@ -34956,7 +34956,7 @@ static int decode_attr_fs_locations(struct xdr_stream *xdr , uint32_t *bitmap , 
     loc->nservers = loc->nservers + 1U;
   } else {
 #line 3646
-    tmp___10 = __builtin_expect((nfs_debug & 32U) != 0U, 0L);
+    tmp___10 = ldv__builtin_expect((nfs_debug & 32U) != 0U, 0L);
 #line 3646
     if (tmp___10 != 0L) {
 #line 3646
@@ -34973,7 +34973,7 @@ static int decode_attr_fs_locations(struct xdr_stream *xdr , uint32_t *bitmap , 
 #line 3654
     status = decode_opaque_inline(xdr, & len, & data);
 #line 3655
-    tmp___11 = __builtin_expect(status != 0, 0L);
+    tmp___11 = ldv__builtin_expect(status != 0, 0L);
 #line 3655
     if (tmp___11 != 0L) {
 #line 3656
@@ -35004,7 +35004,7 @@ static int decode_attr_fs_locations(struct xdr_stream *xdr , uint32_t *bitmap , 
 #line 3660
   status = decode_pathname(xdr, & loc->rootpath);
 #line 3661
-  tmp___12 = __builtin_expect(status != 0, 0L);
+  tmp___12 = ldv__builtin_expect(status != 0, 0L);
 #line 3661
   if (tmp___12 != 0L) {
 #line 3662
@@ -35037,7 +35037,7 @@ static int decode_attr_fs_locations(struct xdr_stream *xdr , uint32_t *bitmap , 
   }
   out: 
 #line 3669
-  tmp___13 = __builtin_expect((nfs_debug & 32U) != 0U, 0L);
+  tmp___13 = ldv__builtin_expect((nfs_debug & 32U) != 0U, 0L);
 #line 3669
   if (tmp___13 != 0L) {
 #line 3669
@@ -35074,7 +35074,7 @@ static int decode_attr_maxfilesize(struct xdr_stream *xdr , uint32_t *bitmap , u
 #line 3683
   *res = 0ULL;
 #line 3684
-  tmp = __builtin_expect(((unsigned long )*bitmap & 134217727UL) != 0UL, 0L);
+  tmp = ldv__builtin_expect(((unsigned long )*bitmap & 134217727UL) != 0UL, 0L);
 #line 3684
   if (tmp != 0L) {
 #line 3685
@@ -35083,13 +35083,13 @@ static int decode_attr_maxfilesize(struct xdr_stream *xdr , uint32_t *bitmap , u
 
   }
 #line 3686
-  tmp___1 = __builtin_expect(((unsigned long )*bitmap & 134217728UL) != 0UL, 1L);
+  tmp___1 = ldv__builtin_expect(((unsigned long )*bitmap & 134217728UL) != 0UL, 1L);
 #line 3686
   if (tmp___1 != 0L) {
 #line 3687
     p = xdr_inline_decode(xdr, 8UL);
 #line 3688
-    tmp___0 = __builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0),
+    tmp___0 = ldv__builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0),
                                0L);
 #line 3688
     if (tmp___0 != 0L) {
@@ -35106,7 +35106,7 @@ static int decode_attr_maxfilesize(struct xdr_stream *xdr , uint32_t *bitmap , u
 
   }
 #line 3693
-  tmp___2 = __builtin_expect((nfs_debug & 32U) != 0U, 0L);
+  tmp___2 = ldv__builtin_expect((nfs_debug & 32U) != 0U, 0L);
 #line 3693
   if (tmp___2 != 0L) {
 #line 3693
@@ -35139,7 +35139,7 @@ static int decode_attr_maxlink(struct xdr_stream *xdr , uint32_t *bitmap , uint3
 #line 3705
   *maxlink = 1U;
 #line 3706
-  tmp = __builtin_expect(((unsigned long )*bitmap & 268435455UL) != 0UL, 0L);
+  tmp = ldv__builtin_expect(((unsigned long )*bitmap & 268435455UL) != 0UL, 0L);
 #line 3706
   if (tmp != 0L) {
 #line 3707
@@ -35148,13 +35148,13 @@ static int decode_attr_maxlink(struct xdr_stream *xdr , uint32_t *bitmap , uint3
 
   }
 #line 3708
-  tmp___1 = __builtin_expect(((unsigned long )*bitmap & 268435456UL) != 0UL, 1L);
+  tmp___1 = ldv__builtin_expect(((unsigned long )*bitmap & 268435456UL) != 0UL, 1L);
 #line 3708
   if (tmp___1 != 0L) {
 #line 3709
     p = xdr_inline_decode(xdr, 4UL);
 #line 3710
-    tmp___0 = __builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0),
+    tmp___0 = ldv__builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0),
                                0L);
 #line 3710
     if (tmp___0 != 0L) {
@@ -35171,7 +35171,7 @@ static int decode_attr_maxlink(struct xdr_stream *xdr , uint32_t *bitmap , uint3
 
   }
 #line 3715
-  tmp___2 = __builtin_expect((nfs_debug & 32U) != 0U, 0L);
+  tmp___2 = ldv__builtin_expect((nfs_debug & 32U) != 0U, 0L);
 #line 3715
   if (tmp___2 != 0L) {
 #line 3715
@@ -35204,7 +35204,7 @@ static int decode_attr_maxname(struct xdr_stream *xdr , uint32_t *bitmap , uint3
 #line 3727
   *maxname = 1024U;
 #line 3728
-  tmp = __builtin_expect(((unsigned long )*bitmap & 536870911UL) != 0UL, 0L);
+  tmp = ldv__builtin_expect(((unsigned long )*bitmap & 536870911UL) != 0UL, 0L);
 #line 3728
   if (tmp != 0L) {
 #line 3729
@@ -35213,13 +35213,13 @@ static int decode_attr_maxname(struct xdr_stream *xdr , uint32_t *bitmap , uint3
 
   }
 #line 3730
-  tmp___1 = __builtin_expect(((unsigned long )*bitmap & 536870912UL) != 0UL, 1L);
+  tmp___1 = ldv__builtin_expect(((unsigned long )*bitmap & 536870912UL) != 0UL, 1L);
 #line 3730
   if (tmp___1 != 0L) {
 #line 3731
     p = xdr_inline_decode(xdr, 4UL);
 #line 3732
-    tmp___0 = __builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0),
+    tmp___0 = ldv__builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0),
                                0L);
 #line 3732
     if (tmp___0 != 0L) {
@@ -35236,7 +35236,7 @@ static int decode_attr_maxname(struct xdr_stream *xdr , uint32_t *bitmap , uint3
 
   }
 #line 3737
-  tmp___2 = __builtin_expect((nfs_debug & 32U) != 0U, 0L);
+  tmp___2 = ldv__builtin_expect((nfs_debug & 32U) != 0U, 0L);
 #line 3737
   if (tmp___2 != 0L) {
 #line 3737
@@ -35270,7 +35270,7 @@ static int decode_attr_maxread(struct xdr_stream *xdr , uint32_t *bitmap , uint3
 #line 3749
   *res = 1024U;
 #line 3750
-  tmp = __builtin_expect(((unsigned long )*bitmap & 1073741823UL) != 0UL, 0L);
+  tmp = ldv__builtin_expect(((unsigned long )*bitmap & 1073741823UL) != 0UL, 0L);
 #line 3750
   if (tmp != 0L) {
 #line 3751
@@ -35279,13 +35279,13 @@ static int decode_attr_maxread(struct xdr_stream *xdr , uint32_t *bitmap , uint3
 
   }
 #line 3752
-  tmp___1 = __builtin_expect(((unsigned long )*bitmap & 1073741824UL) != 0UL, 1L);
+  tmp___1 = ldv__builtin_expect(((unsigned long )*bitmap & 1073741824UL) != 0UL, 1L);
 #line 3752
   if (tmp___1 != 0L) {
 #line 3754
     p = xdr_inline_decode(xdr, 8UL);
 #line 3755
-    tmp___0 = __builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0),
+    tmp___0 = ldv__builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0),
                                0L);
 #line 3755
     if (tmp___0 != 0L) {
@@ -35311,7 +35311,7 @@ static int decode_attr_maxread(struct xdr_stream *xdr , uint32_t *bitmap , uint3
 
   }
 #line 3763
-  tmp___2 = __builtin_expect((nfs_debug & 32U) != 0U, 0L);
+  tmp___2 = ldv__builtin_expect((nfs_debug & 32U) != 0U, 0L);
 #line 3763
   if (tmp___2 != 0L) {
 #line 3763
@@ -35345,7 +35345,7 @@ static int decode_attr_maxwrite(struct xdr_stream *xdr , uint32_t *bitmap , uint
 #line 3775
   *res = 1024U;
 #line 3776
-  tmp = __builtin_expect(((unsigned long )*bitmap & 2147483647UL) != 0UL, 0L);
+  tmp = ldv__builtin_expect(((unsigned long )*bitmap & 2147483647UL) != 0UL, 0L);
 #line 3776
   if (tmp != 0L) {
 #line 3777
@@ -35354,13 +35354,13 @@ static int decode_attr_maxwrite(struct xdr_stream *xdr , uint32_t *bitmap , uint
 
   }
 #line 3778
-  tmp___1 = __builtin_expect((int )*bitmap < 0, 1L);
+  tmp___1 = ldv__builtin_expect((int )*bitmap < 0, 1L);
 #line 3778
   if (tmp___1 != 0L) {
 #line 3780
     p = xdr_inline_decode(xdr, 8UL);
 #line 3781
-    tmp___0 = __builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0),
+    tmp___0 = ldv__builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0),
                                0L);
 #line 3781
     if (tmp___0 != 0L) {
@@ -35386,7 +35386,7 @@ static int decode_attr_maxwrite(struct xdr_stream *xdr , uint32_t *bitmap , uint
 
   }
 #line 3789
-  tmp___2 = __builtin_expect((nfs_debug & 32U) != 0U, 0L);
+  tmp___2 = ldv__builtin_expect((nfs_debug & 32U) != 0U, 0L);
 #line 3789
   if (tmp___2 != 0L) {
 #line 3789
@@ -35420,7 +35420,7 @@ static int decode_attr_mode(struct xdr_stream *xdr , uint32_t *bitmap , umode_t 
 #line 3802
   *mode = 0U;
 #line 3803
-  tmp___0 = __builtin_expect((long )((int )*(bitmap + 1UL)) & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )((int )*(bitmap + 1UL)) & 1L, 0L);
 #line 3803
   if (tmp___0 != 0L) {
 #line 3804
@@ -35429,13 +35429,13 @@ static int decode_attr_mode(struct xdr_stream *xdr , uint32_t *bitmap , umode_t 
 
   }
 #line 3805
-  tmp___2 = __builtin_expect(((unsigned long )*(bitmap + 1UL) & 2UL) != 0UL, 1L);
+  tmp___2 = ldv__builtin_expect(((unsigned long )*(bitmap + 1UL) & 2UL) != 0UL, 1L);
 #line 3805
   if (tmp___2 != 0L) {
 #line 3806
     p = xdr_inline_decode(xdr, 4UL);
 #line 3807
-    tmp___1 = __builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0),
+    tmp___1 = ldv__builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0),
                                0L);
 #line 3807
     if (tmp___1 != 0L) {
@@ -35456,7 +35456,7 @@ static int decode_attr_mode(struct xdr_stream *xdr , uint32_t *bitmap , umode_t 
 
   }
 #line 3814
-  tmp___3 = __builtin_expect((nfs_debug & 32U) != 0U, 0L);
+  tmp___3 = ldv__builtin_expect((nfs_debug & 32U) != 0U, 0L);
 #line 3814
   if (tmp___3 != 0L) {
 #line 3814
@@ -35489,7 +35489,7 @@ static int decode_attr_nlink(struct xdr_stream *xdr , uint32_t *bitmap , uint32_
 #line 3826
   *nlink = 1U;
 #line 3827
-  tmp = __builtin_expect(((unsigned long )*(bitmap + 1UL) & 7UL) != 0UL, 0L);
+  tmp = ldv__builtin_expect(((unsigned long )*(bitmap + 1UL) & 7UL) != 0UL, 0L);
 #line 3827
   if (tmp != 0L) {
 #line 3828
@@ -35498,13 +35498,13 @@ static int decode_attr_nlink(struct xdr_stream *xdr , uint32_t *bitmap , uint32_
 
   }
 #line 3829
-  tmp___1 = __builtin_expect(((unsigned long )*(bitmap + 1UL) & 8UL) != 0UL, 1L);
+  tmp___1 = ldv__builtin_expect(((unsigned long )*(bitmap + 1UL) & 8UL) != 0UL, 1L);
 #line 3829
   if (tmp___1 != 0L) {
 #line 3830
     p = xdr_inline_decode(xdr, 4UL);
 #line 3831
-    tmp___0 = __builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0),
+    tmp___0 = ldv__builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0),
                                0L);
 #line 3831
     if (tmp___0 != 0L) {
@@ -35523,7 +35523,7 @@ static int decode_attr_nlink(struct xdr_stream *xdr , uint32_t *bitmap , uint32_
 
   }
 #line 3837
-  tmp___2 = __builtin_expect((nfs_debug & 32U) != 0U, 0L);
+  tmp___2 = ldv__builtin_expect((nfs_debug & 32U) != 0U, 0L);
 #line 3837
   if (tmp___2 != 0L) {
 #line 3837
@@ -35563,7 +35563,7 @@ static int decode_attr_owner(struct xdr_stream *xdr , uint32_t *bitmap , struct 
 #line 3852
   *uid = 4294967294U;
 #line 3853
-  tmp = __builtin_expect(((unsigned long )*(bitmap + 1UL) & 15UL) != 0UL, 0L);
+  tmp = ldv__builtin_expect(((unsigned long )*(bitmap + 1UL) & 15UL) != 0UL, 0L);
 #line 3853
   if (tmp != 0L) {
 #line 3854
@@ -35572,13 +35572,13 @@ static int decode_attr_owner(struct xdr_stream *xdr , uint32_t *bitmap , struct 
 
   }
 #line 3855
-  tmp___6 = __builtin_expect(((unsigned long )*(bitmap + 1UL) & 16UL) != 0UL, 1L);
+  tmp___6 = ldv__builtin_expect(((unsigned long )*(bitmap + 1UL) & 16UL) != 0UL, 1L);
 #line 3855
   if (tmp___6 != 0L) {
 #line 3856
     p = xdr_inline_decode(xdr, 4UL);
 #line 3857
-    tmp___0 = __builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0),
+    tmp___0 = ldv__builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0),
                                0L);
 #line 3857
     if (tmp___0 != 0L) {
@@ -35592,7 +35592,7 @@ static int decode_attr_owner(struct xdr_stream *xdr , uint32_t *bitmap , struct 
 #line 3860
     p = xdr_inline_decode(xdr, (size_t )len);
 #line 3861
-    tmp___1 = __builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0),
+    tmp___1 = ldv__builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0),
                                0L);
 #line 3861
     if (tmp___1 != 0L) {
@@ -35627,14 +35627,14 @@ static int decode_attr_owner(struct xdr_stream *xdr , uint32_t *bitmap , struct 
         ret = 8;
       } else {
 #line 3873
-        tmp___4 = __builtin_expect((nfs_debug & 32U) != 0U, 0L);
+        tmp___4 = ldv__builtin_expect((nfs_debug & 32U) != 0U, 0L);
 #line 3873
         if (tmp___4 != 0L) {
 #line 3873
           printk("\001d%s: nfs_map_name_to_uid failed!\n", "decode_attr_owner");
         } else {
 #line 3876
-          tmp___3 = __builtin_expect((nfs_debug & 32U) != 0U, 0L);
+          tmp___3 = ldv__builtin_expect((nfs_debug & 32U) != 0U, 0L);
 #line 3876
           if (tmp___3 != 0L) {
 #line 3876
@@ -35653,7 +35653,7 @@ static int decode_attr_owner(struct xdr_stream *xdr , uint32_t *bitmap , struct 
 
   }
 #line 3880
-  tmp___7 = __builtin_expect((nfs_debug & 32U) != 0U, 0L);
+  tmp___7 = ldv__builtin_expect((nfs_debug & 32U) != 0U, 0L);
 #line 3880
   if (tmp___7 != 0L) {
 #line 3880
@@ -35693,7 +35693,7 @@ static int decode_attr_group(struct xdr_stream *xdr , uint32_t *bitmap , struct 
 #line 3895
   *gid = 4294967294U;
 #line 3896
-  tmp = __builtin_expect(((unsigned long )*(bitmap + 1UL) & 31UL) != 0UL, 0L);
+  tmp = ldv__builtin_expect(((unsigned long )*(bitmap + 1UL) & 31UL) != 0UL, 0L);
 #line 3896
   if (tmp != 0L) {
 #line 3897
@@ -35702,13 +35702,13 @@ static int decode_attr_group(struct xdr_stream *xdr , uint32_t *bitmap , struct 
 
   }
 #line 3898
-  tmp___6 = __builtin_expect(((unsigned long )*(bitmap + 1UL) & 32UL) != 0UL, 1L);
+  tmp___6 = ldv__builtin_expect(((unsigned long )*(bitmap + 1UL) & 32UL) != 0UL, 1L);
 #line 3898
   if (tmp___6 != 0L) {
 #line 3899
     p = xdr_inline_decode(xdr, 4UL);
 #line 3900
-    tmp___0 = __builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0),
+    tmp___0 = ldv__builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0),
                                0L);
 #line 3900
     if (tmp___0 != 0L) {
@@ -35722,7 +35722,7 @@ static int decode_attr_group(struct xdr_stream *xdr , uint32_t *bitmap , struct 
 #line 3903
     p = xdr_inline_decode(xdr, (size_t )len);
 #line 3904
-    tmp___1 = __builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0),
+    tmp___1 = ldv__builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0),
                                0L);
 #line 3904
     if (tmp___1 != 0L) {
@@ -35757,14 +35757,14 @@ static int decode_attr_group(struct xdr_stream *xdr , uint32_t *bitmap , struct 
         ret = 16;
       } else {
 #line 3916
-        tmp___4 = __builtin_expect((nfs_debug & 32U) != 0U, 0L);
+        tmp___4 = ldv__builtin_expect((nfs_debug & 32U) != 0U, 0L);
 #line 3916
         if (tmp___4 != 0L) {
 #line 3916
           printk("\001d%s: nfs_map_group_to_gid failed!\n", "decode_attr_group");
         } else {
 #line 3919
-          tmp___3 = __builtin_expect((nfs_debug & 32U) != 0U, 0L);
+          tmp___3 = ldv__builtin_expect((nfs_debug & 32U) != 0U, 0L);
 #line 3919
           if (tmp___3 != 0L) {
 #line 3919
@@ -35783,7 +35783,7 @@ static int decode_attr_group(struct xdr_stream *xdr , uint32_t *bitmap , struct 
 
   }
 #line 3923
-  tmp___7 = __builtin_expect((nfs_debug & 32U) != 0U, 0L);
+  tmp___7 = ldv__builtin_expect((nfs_debug & 32U) != 0U, 0L);
 #line 3923
   if (tmp___7 != 0L) {
 #line 3923
@@ -35824,7 +35824,7 @@ static int decode_attr_rdev(struct xdr_stream *xdr , uint32_t *bitmap , dev_t *r
 #line 3936
   *rdev = 0U;
 #line 3937
-  tmp = __builtin_expect(((unsigned long )*(bitmap + 1UL) & 511UL) != 0UL, 0L);
+  tmp = ldv__builtin_expect(((unsigned long )*(bitmap + 1UL) & 511UL) != 0UL, 0L);
 #line 3937
   if (tmp != 0L) {
 #line 3938
@@ -35833,13 +35833,13 @@ static int decode_attr_rdev(struct xdr_stream *xdr , uint32_t *bitmap , dev_t *r
 
   }
 #line 3939
-  tmp___3 = __builtin_expect(((unsigned long )*(bitmap + 1UL) & 512UL) != 0UL, 1L);
+  tmp___3 = ldv__builtin_expect(((unsigned long )*(bitmap + 1UL) & 512UL) != 0UL, 1L);
 #line 3939
   if (tmp___3 != 0L) {
 #line 3942
     p = xdr_inline_decode(xdr, 8UL);
 #line 3943
-    tmp___1 = __builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0),
+    tmp___1 = ldv__builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0),
                                0L);
 #line 3943
     if (tmp___1 != 0L) {
@@ -35873,7 +35873,7 @@ static int decode_attr_rdev(struct xdr_stream *xdr , uint32_t *bitmap , dev_t *r
 
   }
 #line 3953
-  tmp___4 = __builtin_expect((nfs_debug & 32U) != 0U, 0L);
+  tmp___4 = ldv__builtin_expect((nfs_debug & 32U) != 0U, 0L);
 #line 3953
   if (tmp___4 != 0L) {
 #line 3953
@@ -35906,7 +35906,7 @@ static int decode_attr_space_avail(struct xdr_stream *xdr , uint32_t *bitmap , u
 #line 3965
   *res = 0ULL;
 #line 3966
-  tmp = __builtin_expect(((unsigned long )*(bitmap + 1UL) & 1023UL) != 0UL, 0L);
+  tmp = ldv__builtin_expect(((unsigned long )*(bitmap + 1UL) & 1023UL) != 0UL, 0L);
 #line 3966
   if (tmp != 0L) {
 #line 3967
@@ -35915,13 +35915,13 @@ static int decode_attr_space_avail(struct xdr_stream *xdr , uint32_t *bitmap , u
 
   }
 #line 3968
-  tmp___1 = __builtin_expect(((unsigned long )*(bitmap + 1UL) & 1024UL) != 0UL, 1L);
+  tmp___1 = ldv__builtin_expect(((unsigned long )*(bitmap + 1UL) & 1024UL) != 0UL, 1L);
 #line 3968
   if (tmp___1 != 0L) {
 #line 3969
     p = xdr_inline_decode(xdr, 8UL);
 #line 3970
-    tmp___0 = __builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0),
+    tmp___0 = ldv__builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0),
                                0L);
 #line 3970
     if (tmp___0 != 0L) {
@@ -35938,7 +35938,7 @@ static int decode_attr_space_avail(struct xdr_stream *xdr , uint32_t *bitmap , u
 
   }
 #line 3975
-  tmp___2 = __builtin_expect((nfs_debug & 32U) != 0U, 0L);
+  tmp___2 = ldv__builtin_expect((nfs_debug & 32U) != 0U, 0L);
 #line 3975
   if (tmp___2 != 0L) {
 #line 3975
@@ -35971,7 +35971,7 @@ static int decode_attr_space_free(struct xdr_stream *xdr , uint32_t *bitmap , ui
 #line 3987
   *res = 0ULL;
 #line 3988
-  tmp = __builtin_expect(((unsigned long )*(bitmap + 1UL) & 2047UL) != 0UL, 0L);
+  tmp = ldv__builtin_expect(((unsigned long )*(bitmap + 1UL) & 2047UL) != 0UL, 0L);
 #line 3988
   if (tmp != 0L) {
 #line 3989
@@ -35980,13 +35980,13 @@ static int decode_attr_space_free(struct xdr_stream *xdr , uint32_t *bitmap , ui
 
   }
 #line 3990
-  tmp___1 = __builtin_expect(((unsigned long )*(bitmap + 1UL) & 2048UL) != 0UL, 1L);
+  tmp___1 = ldv__builtin_expect(((unsigned long )*(bitmap + 1UL) & 2048UL) != 0UL, 1L);
 #line 3990
   if (tmp___1 != 0L) {
 #line 3991
     p = xdr_inline_decode(xdr, 8UL);
 #line 3992
-    tmp___0 = __builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0),
+    tmp___0 = ldv__builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0),
                                0L);
 #line 3992
     if (tmp___0 != 0L) {
@@ -36003,7 +36003,7 @@ static int decode_attr_space_free(struct xdr_stream *xdr , uint32_t *bitmap , ui
 
   }
 #line 3997
-  tmp___2 = __builtin_expect((nfs_debug & 32U) != 0U, 0L);
+  tmp___2 = ldv__builtin_expect((nfs_debug & 32U) != 0U, 0L);
 #line 3997
   if (tmp___2 != 0L) {
 #line 3997
@@ -36036,7 +36036,7 @@ static int decode_attr_space_total(struct xdr_stream *xdr , uint32_t *bitmap , u
 #line 4009
   *res = 0ULL;
 #line 4010
-  tmp = __builtin_expect(((unsigned long )*(bitmap + 1UL) & 4095UL) != 0UL, 0L);
+  tmp = ldv__builtin_expect(((unsigned long )*(bitmap + 1UL) & 4095UL) != 0UL, 0L);
 #line 4010
   if (tmp != 0L) {
 #line 4011
@@ -36045,13 +36045,13 @@ static int decode_attr_space_total(struct xdr_stream *xdr , uint32_t *bitmap , u
 
   }
 #line 4012
-  tmp___1 = __builtin_expect(((unsigned long )*(bitmap + 1UL) & 4096UL) != 0UL, 1L);
+  tmp___1 = ldv__builtin_expect(((unsigned long )*(bitmap + 1UL) & 4096UL) != 0UL, 1L);
 #line 4012
   if (tmp___1 != 0L) {
 #line 4013
     p = xdr_inline_decode(xdr, 8UL);
 #line 4014
-    tmp___0 = __builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0),
+    tmp___0 = ldv__builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0),
                                0L);
 #line 4014
     if (tmp___0 != 0L) {
@@ -36068,7 +36068,7 @@ static int decode_attr_space_total(struct xdr_stream *xdr , uint32_t *bitmap , u
 
   }
 #line 4019
-  tmp___2 = __builtin_expect((nfs_debug & 32U) != 0U, 0L);
+  tmp___2 = ldv__builtin_expect((nfs_debug & 32U) != 0U, 0L);
 #line 4019
   if (tmp___2 != 0L) {
 #line 4019
@@ -36101,7 +36101,7 @@ static int decode_attr_space_used(struct xdr_stream *xdr , uint32_t *bitmap , ui
 #line 4031
   *used = 0ULL;
 #line 4032
-  tmp = __builtin_expect(((unsigned long )*(bitmap + 1UL) & 8191UL) != 0UL, 0L);
+  tmp = ldv__builtin_expect(((unsigned long )*(bitmap + 1UL) & 8191UL) != 0UL, 0L);
 #line 4032
   if (tmp != 0L) {
 #line 4033
@@ -36110,13 +36110,13 @@ static int decode_attr_space_used(struct xdr_stream *xdr , uint32_t *bitmap , ui
 
   }
 #line 4034
-  tmp___1 = __builtin_expect(((unsigned long )*(bitmap + 1UL) & 8192UL) != 0UL, 1L);
+  tmp___1 = ldv__builtin_expect(((unsigned long )*(bitmap + 1UL) & 8192UL) != 0UL, 1L);
 #line 4034
   if (tmp___1 != 0L) {
 #line 4035
     p = xdr_inline_decode(xdr, 8UL);
 #line 4036
-    tmp___0 = __builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0),
+    tmp___0 = ldv__builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0),
                                0L);
 #line 4036
     if (tmp___0 != 0L) {
@@ -36135,7 +36135,7 @@ static int decode_attr_space_used(struct xdr_stream *xdr , uint32_t *bitmap , ui
 
   }
 #line 4042
-  tmp___2 = __builtin_expect((nfs_debug & 32U) != 0U, 0L);
+  tmp___2 = ldv__builtin_expect((nfs_debug & 32U) != 0U, 0L);
 #line 4042
   if (tmp___2 != 0L) {
 #line 4042
@@ -36164,7 +36164,7 @@ static int decode_attr_time(struct xdr_stream *xdr , struct timespec *time )
 #line 4056
   p = xdr_inline_decode(xdr, 12UL);
 #line 4057
-  tmp = __builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0), 0L);
+  tmp = ldv__builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0), 0L);
 #line 4057
   if (tmp != 0L) {
 #line 4058
@@ -36205,7 +36205,7 @@ static int decode_attr_time_access(struct xdr_stream *xdr , uint32_t *bitmap , s
 #line 4074
   time->tv_nsec = 0L;
 #line 4075
-  tmp = __builtin_expect(((unsigned long )*(bitmap + 1UL) & 32767UL) != 0UL, 0L);
+  tmp = ldv__builtin_expect(((unsigned long )*(bitmap + 1UL) & 32767UL) != 0UL, 0L);
 #line 4075
   if (tmp != 0L) {
 #line 4076
@@ -36214,7 +36214,7 @@ static int decode_attr_time_access(struct xdr_stream *xdr , uint32_t *bitmap , s
 
   }
 #line 4077
-  tmp___0 = __builtin_expect(((unsigned long )*(bitmap + 1UL) & 32768UL) != 0UL, 1L);
+  tmp___0 = ldv__builtin_expect(((unsigned long )*(bitmap + 1UL) & 32768UL) != 0UL, 1L);
 #line 4077
   if (tmp___0 != 0L) {
 #line 4078
@@ -36232,7 +36232,7 @@ static int decode_attr_time_access(struct xdr_stream *xdr , uint32_t *bitmap , s
 
   }
 #line 4083
-  tmp___1 = __builtin_expect((nfs_debug & 32U) != 0U, 0L);
+  tmp___1 = ldv__builtin_expect((nfs_debug & 32U) != 0U, 0L);
 #line 4083
   if (tmp___1 != 0L) {
 #line 4083
@@ -36260,7 +36260,7 @@ static int decode_attr_time_metadata(struct xdr_stream *xdr , uint32_t *bitmap ,
 #line 4092
   time->tv_nsec = 0L;
 #line 4093
-  tmp = __builtin_expect(((unsigned long )*(bitmap + 1UL) & 1048575UL) != 0UL, 0L);
+  tmp = ldv__builtin_expect(((unsigned long )*(bitmap + 1UL) & 1048575UL) != 0UL, 0L);
 #line 4093
   if (tmp != 0L) {
 #line 4094
@@ -36269,7 +36269,7 @@ static int decode_attr_time_metadata(struct xdr_stream *xdr , uint32_t *bitmap ,
 
   }
 #line 4095
-  tmp___0 = __builtin_expect(((unsigned long )*(bitmap + 1UL) & 1048576UL) != 0UL,
+  tmp___0 = ldv__builtin_expect(((unsigned long )*(bitmap + 1UL) & 1048576UL) != 0UL,
                              1L);
 #line 4095
   if (tmp___0 != 0L) {
@@ -36288,7 +36288,7 @@ static int decode_attr_time_metadata(struct xdr_stream *xdr , uint32_t *bitmap ,
 
   }
 #line 4101
-  tmp___1 = __builtin_expect((nfs_debug & 32U) != 0U, 0L);
+  tmp___1 = ldv__builtin_expect((nfs_debug & 32U) != 0U, 0L);
 #line 4101
   if (tmp___1 != 0L) {
 #line 4101
@@ -36316,7 +36316,7 @@ static int decode_attr_time_delta(struct xdr_stream *xdr , uint32_t *bitmap , st
 #line 4111
   time->tv_nsec = 0L;
 #line 4112
-  tmp = __builtin_expect(((unsigned long )*(bitmap + 1UL) & 524287UL) != 0UL, 0L);
+  tmp = ldv__builtin_expect(((unsigned long )*(bitmap + 1UL) & 524287UL) != 0UL, 0L);
 #line 4112
   if (tmp != 0L) {
 #line 4113
@@ -36325,7 +36325,7 @@ static int decode_attr_time_delta(struct xdr_stream *xdr , uint32_t *bitmap , st
 
   }
 #line 4114
-  tmp___0 = __builtin_expect(((unsigned long )*(bitmap + 1UL) & 524288UL) != 0UL,
+  tmp___0 = ldv__builtin_expect(((unsigned long )*(bitmap + 1UL) & 524288UL) != 0UL,
                              1L);
 #line 4114
   if (tmp___0 != 0L) {
@@ -36337,7 +36337,7 @@ static int decode_attr_time_delta(struct xdr_stream *xdr , uint32_t *bitmap , st
 
   }
 #line 4118
-  tmp___1 = __builtin_expect((nfs_debug & 32U) != 0U, 0L);
+  tmp___1 = ldv__builtin_expect((nfs_debug & 32U) != 0U, 0L);
 #line 4118
   if (tmp___1 != 0L) {
 #line 4118
@@ -36366,7 +36366,7 @@ static int decode_attr_time_modify(struct xdr_stream *xdr , uint32_t *bitmap , s
 #line 4128
   time->tv_nsec = 0L;
 #line 4129
-  tmp = __builtin_expect(((unsigned long )*(bitmap + 1UL) & 2097151UL) != 0UL, 0L);
+  tmp = ldv__builtin_expect(((unsigned long )*(bitmap + 1UL) & 2097151UL) != 0UL, 0L);
 #line 4129
   if (tmp != 0L) {
 #line 4130
@@ -36375,7 +36375,7 @@ static int decode_attr_time_modify(struct xdr_stream *xdr , uint32_t *bitmap , s
 
   }
 #line 4131
-  tmp___0 = __builtin_expect(((unsigned long )*(bitmap + 1UL) & 2097152UL) != 0UL,
+  tmp___0 = ldv__builtin_expect(((unsigned long )*(bitmap + 1UL) & 2097152UL) != 0UL,
                              1L);
 #line 4131
   if (tmp___0 != 0L) {
@@ -36394,7 +36394,7 @@ static int decode_attr_time_modify(struct xdr_stream *xdr , uint32_t *bitmap , s
 
   }
 #line 4137
-  tmp___1 = __builtin_expect((nfs_debug & 32U) != 0U, 0L);
+  tmp___1 = ldv__builtin_expect((nfs_debug & 32U) != 0U, 0L);
 #line 4137
   if (tmp___1 != 0L) {
 #line 4137
@@ -36423,11 +36423,11 @@ static int verify_attr_len(struct xdr_stream *xdr , unsigned int savep , uint32_
 #line 4144
   nwords = (tmp - savep) >> 2;
 #line 4146
-  tmp___1 = __builtin_expect(attrwords != nwords, 0L);
+  tmp___1 = ldv__builtin_expect(attrwords != nwords, 0L);
 #line 4146
   if (tmp___1 != 0L) {
 #line 4147
-    tmp___0 = __builtin_expect((nfs_debug & 32U) != 0U, 0L);
+    tmp___0 = ldv__builtin_expect((nfs_debug & 32U) != 0U, 0L);
 #line 4147
     if (tmp___0 != 0L) {
 #line 4147
@@ -36456,7 +36456,7 @@ static int decode_change_info(struct xdr_stream *xdr , struct nfs4_change_info *
 #line 4162
   p = xdr_inline_decode(xdr, 20UL);
 #line 4163
-  tmp = __builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0), 0L);
+  tmp = ldv__builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0), 0L);
 #line 4163
   if (tmp != 0L) {
 #line 4164
@@ -36506,7 +36506,7 @@ static int decode_access(struct xdr_stream *xdr , u32 *supported , u32 *access )
 #line 4183
   p = xdr_inline_decode(xdr, 8UL);
 #line 4184
-  tmp = __builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0), 0L);
+  tmp = ldv__builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0), 0L);
 #line 4184
   if (tmp != 0L) {
 #line 4185
@@ -36547,7 +36547,7 @@ static int decode_opaque_fixed(struct xdr_stream *xdr , void *buf , size_t len )
 #line 4200
   p = xdr_inline_decode(xdr, len);
 #line 4201
-  tmp = __builtin_expect((unsigned long )p != (unsigned long )((__be32 *)0), 1L);
+  tmp = ldv__builtin_expect((unsigned long )p != (unsigned long )((__be32 *)0), 1L);
 #line 4201
   if (tmp != 0L) {
 #line 4202
@@ -36677,7 +36677,7 @@ static int decode_create(struct xdr_stream *xdr , struct nfs4_change_info *cinfo
 #line 4257
   p = xdr_inline_decode(xdr, 4UL);
 #line 4258
-  tmp = __builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0), 0L);
+  tmp = ldv__builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0), 0L);
 #line 4258
   if (tmp != 0L) {
 #line 4259
@@ -36690,7 +36690,7 @@ static int decode_create(struct xdr_stream *xdr , struct nfs4_change_info *cinfo
 #line 4261
   p = xdr_inline_decode(xdr, (size_t )(bmlen << 2));
 #line 4262
-  tmp___0 = __builtin_expect((unsigned long )p != (unsigned long )((__be32 *)0), 1L);
+  tmp___0 = ldv__builtin_expect((unsigned long )p != (unsigned long )((__be32 *)0), 1L);
 #line 4262
   if (tmp___0 != 0L) {
 #line 4263
@@ -36810,7 +36810,7 @@ static int decode_server_caps(struct xdr_stream *xdr , struct nfs4_server_caps_r
   status = verify_attr_len(xdr, savep, attrlen);
   xdr_error: 
 #line 4294
-  tmp___0 = __builtin_expect((nfs_debug & 32U) != 0U, 0L);
+  tmp___0 = ldv__builtin_expect((nfs_debug & 32U) != 0U, 0L);
 #line 4294
   if (tmp___0 != 0L) {
 #line 4294
@@ -36936,7 +36936,7 @@ static int decode_statfs(struct xdr_stream *xdr , struct nfs_fsstat *fsstat )
   status = verify_attr_len(xdr, savep, attrlen);
   xdr_error: 
 #line 4326
-  tmp___0 = __builtin_expect((nfs_debug & 32U) != 0U, 0L);
+  tmp___0 = ldv__builtin_expect((nfs_debug & 32U) != 0U, 0L);
 #line 4326
   if (tmp___0 != 0L) {
 #line 4326
@@ -37026,7 +37026,7 @@ static int decode_pathconf(struct xdr_stream *xdr , struct nfs_pathconf *pathcon
   status = verify_attr_len(xdr, savep, attrlen);
   xdr_error: 
 #line 4350
-  tmp___0 = __builtin_expect((nfs_debug & 32U) != 0U, 0L);
+  tmp___0 = ldv__builtin_expect((nfs_debug & 32U) != 0U, 0L);
 #line 4350
   if (tmp___0 != 0L) {
 #line 4350
@@ -37050,13 +37050,13 @@ static int decode_threshold_hint(struct xdr_stream *xdr , uint32_t *bitmap , uin
 #line 4361
   *res = 0ULL;
 #line 4362
-  tmp___0 = __builtin_expect((*bitmap & hint_bit) != 0U, 1L);
+  tmp___0 = ldv__builtin_expect((*bitmap & hint_bit) != 0U, 1L);
 #line 4362
   if (tmp___0 != 0L) {
 #line 4363
     p = xdr_inline_decode(xdr, 8UL);
 #line 4364
-    tmp = __builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0), 0L);
+    tmp = ldv__builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0), 0L);
 #line 4364
     if (tmp != 0L) {
 #line 4365
@@ -37113,7 +37113,7 @@ static int decode_first_threshold_item4(struct xdr_stream *xdr , struct nfs4_thr
 #line 4383
   p = xdr_inline_decode(xdr, 4UL);
 #line 4384
-  tmp___0 = __builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0), 0L);
+  tmp___0 = ldv__builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0), 0L);
 #line 4384
   if (tmp___0 != 0L) {
 #line 4385
@@ -37184,7 +37184,7 @@ static int decode_first_threshold_item4(struct xdr_stream *xdr , struct nfs4_thr
 #line 4416
   res->bm = bitmap[0];
 #line 4418
-  tmp___1 = __builtin_expect((nfs_debug & 32U) != 0U, 0L);
+  tmp___1 = ldv__builtin_expect((nfs_debug & 32U) != 0U, 0L);
 #line 4418
   if (tmp___1 != 0L) {
 #line 4418
@@ -37195,7 +37195,7 @@ static int decode_first_threshold_item4(struct xdr_stream *xdr , struct nfs4_thr
   }
   xdr_error: 
 #line 4422
-  tmp___2 = __builtin_expect((nfs_debug & 32U) != 0U, 0L);
+  tmp___2 = ldv__builtin_expect((nfs_debug & 32U) != 0U, 0L);
 #line 4422
   if (tmp___2 != 0L) {
 #line 4422
@@ -37221,7 +37221,7 @@ static int decode_attr_mdsthreshold(struct xdr_stream *xdr , uint32_t *bitmap , 
 #line 4434
   status = 0;
 #line 4437
-  tmp = __builtin_expect(((unsigned long )*(bitmap + 2UL) & 15UL) != 0UL, 0L);
+  tmp = ldv__builtin_expect(((unsigned long )*(bitmap + 2UL) & 15UL) != 0UL, 0L);
 #line 4437
   if (tmp != 0L) {
 #line 4438
@@ -37232,7 +37232,7 @@ static int decode_attr_mdsthreshold(struct xdr_stream *xdr , uint32_t *bitmap , 
 #line 4439
   if (((unsigned long )*(bitmap + 2UL) & 16UL) != 0UL) {
 #line 4441
-    tmp___0 = __builtin_expect((unsigned long )res == (unsigned long )((struct nfs4_threshold *)0),
+    tmp___0 = ldv__builtin_expect((unsigned long )res == (unsigned long )((struct nfs4_threshold *)0),
                                0L);
 #line 4441
     if (tmp___0 != 0L) {
@@ -37244,7 +37244,7 @@ static int decode_attr_mdsthreshold(struct xdr_stream *xdr , uint32_t *bitmap , 
 #line 4443
     p = xdr_inline_decode(xdr, 4UL);
 #line 4444
-    tmp___1 = __builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0),
+    tmp___1 = ldv__builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0),
                                0L);
 #line 4444
     if (tmp___1 != 0L) {
@@ -37522,7 +37522,7 @@ static int decode_getfattr_attrs(struct xdr_stream *xdr , uint32_t *bitmap , str
   }
   xdr_error: 
 #line 4574
-  tmp = __builtin_expect((nfs_debug & 32U) != 0U, 0L);
+  tmp = ldv__builtin_expect((nfs_debug & 32U) != 0U, 0L);
 #line 4574
   if (tmp != 0L) {
 #line 4574
@@ -37605,7 +37605,7 @@ static int decode_getfattr_generic(struct xdr_stream *xdr , struct nfs_fattr *fa
   status = verify_attr_len(xdr, savep, attrlen);
   xdr_error: 
 #line 4605
-  tmp___0 = __builtin_expect((nfs_debug & 32U) != 0U, 0L);
+  tmp___0 = ldv__builtin_expect((nfs_debug & 32U) != 0U, 0L);
 #line 4605
   if (tmp___0 != 0L) {
 #line 4605
@@ -37646,7 +37646,7 @@ static int decode_first_pnfs_layout_type(struct xdr_stream *xdr , uint32_t *layo
 #line 4625
   p = tmp;
 #line 4626
-  tmp___0 = __builtin_expect((unsigned long )p == (unsigned long )((uint32_t *)0),
+  tmp___0 = ldv__builtin_expect((unsigned long )p == (unsigned long )((uint32_t *)0),
                              0L);
 #line 4626
   if (tmp___0 != 0L) {
@@ -37681,7 +37681,7 @@ static int decode_first_pnfs_layout_type(struct xdr_stream *xdr , uint32_t *layo
 #line 4640
   p = tmp___2;
 #line 4641
-  tmp___3 = __builtin_expect((unsigned long )p == (unsigned long )((uint32_t *)0),
+  tmp___3 = ldv__builtin_expect((unsigned long )p == (unsigned long )((uint32_t *)0),
                              0L);
 #line 4641
   if (tmp___3 != 0L) {
@@ -37712,7 +37712,7 @@ static int decode_attr_pnfstype(struct xdr_stream *xdr , uint32_t *bitmap , uint
 #line 4657
   status = 0;
 #line 4659
-  tmp = __builtin_expect((nfs_debug & 32U) != 0U, 0L);
+  tmp = ldv__builtin_expect((nfs_debug & 32U) != 0U, 0L);
 #line 4659
   if (tmp != 0L) {
 #line 4659
@@ -37721,7 +37721,7 @@ static int decode_attr_pnfstype(struct xdr_stream *xdr , uint32_t *bitmap , uint
 
   }
 #line 4660
-  tmp___0 = __builtin_expect(((unsigned long )*(bitmap + 1UL) & 1073741823UL) != 0UL,
+  tmp___0 = ldv__builtin_expect(((unsigned long )*(bitmap + 1UL) & 1073741823UL) != 0UL,
                              0L);
 #line 4660
   if (tmp___0 != 0L) {
@@ -37754,7 +37754,7 @@ static int decode_attr_layout_blksize(struct xdr_stream *xdr , uint32_t *bitmap 
 
   {
 #line 4678
-  tmp = __builtin_expect((nfs_debug & 32U) != 0U, 0L);
+  tmp = ldv__builtin_expect((nfs_debug & 32U) != 0U, 0L);
 #line 4678
   if (tmp != 0L) {
 #line 4678
@@ -37769,7 +37769,7 @@ static int decode_attr_layout_blksize(struct xdr_stream *xdr , uint32_t *bitmap 
 #line 4681
     p = xdr_inline_decode(xdr, 4UL);
 #line 4682
-    tmp___0 = __builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0),
+    tmp___0 = ldv__builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0),
                                0L);
 #line 4682
     if (tmp___0 != 0L) {
@@ -37911,7 +37911,7 @@ static int decode_fsinfo(struct xdr_stream *xdr , struct nfs_fsinfo *fsinfo )
   status = verify_attr_len(xdr, savep, attrlen);
   xdr_error: 
 #line 4729
-  tmp___1 = __builtin_expect((nfs_debug & 32U) != 0U, 0L);
+  tmp___1 = ldv__builtin_expect((nfs_debug & 32U) != 0U, 0L);
 #line 4729
   if (tmp___1 != 0L) {
 #line 4729
@@ -37949,7 +37949,7 @@ static int decode_getfh(struct xdr_stream *xdr , struct nfs_fh *fh )
 #line 4746
   p = xdr_inline_decode(xdr, 4UL);
 #line 4747
-  tmp = __builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0), 0L);
+  tmp = ldv__builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0), 0L);
 #line 4747
   if (tmp != 0L) {
 #line 4748
@@ -37971,7 +37971,7 @@ static int decode_getfh(struct xdr_stream *xdr , struct nfs_fh *fh )
 #line 4753
   p = xdr_inline_decode(xdr, (size_t )len);
 #line 4754
-  tmp___0 = __builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0), 0L);
+  tmp___0 = ldv__builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0), 0L);
 #line 4754
   if (tmp___0 != 0L) {
 #line 4755
@@ -38031,7 +38031,7 @@ static int decode_lock_denied(struct xdr_stream *xdr , struct file_lock *fl )
 #line 4782
   p = xdr_inline_decode(xdr, 32UL);
 #line 4783
-  tmp = __builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0), 0L);
+  tmp = ldv__builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0), 0L);
 #line 4783
   if (tmp != 0L) {
 #line 4784
@@ -38083,7 +38083,7 @@ static int decode_lock_denied(struct xdr_stream *xdr , struct file_lock *fl )
 #line 4800
   p = xdr_inline_decode(xdr, (size_t )namelen);
 #line 4801
-  tmp___1 = __builtin_expect((unsigned long )p != (unsigned long )((__be32 *)0), 1L);
+  tmp___1 = ldv__builtin_expect((unsigned long )p != (unsigned long )((__be32 *)0), 1L);
 #line 4801
   if (tmp___1 != 0L) {
 #line 4802
@@ -38119,7 +38119,7 @@ static int decode_lock(struct xdr_stream *xdr , struct nfs_lock_res *res )
 #line 4816
     status = decode_stateid(xdr, & res->stateid);
 #line 4817
-    tmp = __builtin_expect(status != 0, 0L);
+    tmp = ldv__builtin_expect(status != 0, 0L);
 #line 4817
     if (tmp != 0L) {
 #line 4818
@@ -38236,7 +38236,7 @@ static int decode_space_limit(struct xdr_stream *xdr , u64 *maxsize )
 #line 4865
   p = xdr_inline_decode(xdr, 12UL);
 #line 4866
-  tmp = __builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0), 0L);
+  tmp = ldv__builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0), 0L);
 #line 4866
   if (tmp != 0L) {
 #line 4867
@@ -38295,7 +38295,7 @@ static int decode_delegation(struct xdr_stream *xdr , struct nfs_openres *res )
 #line 4890
   p = xdr_inline_decode(xdr, 4UL);
 #line 4891
-  tmp = __builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0), 0L);
+  tmp = ldv__builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0), 0L);
 #line 4891
   if (tmp != 0L) {
 #line 4892
@@ -38317,7 +38317,7 @@ static int decode_delegation(struct xdr_stream *xdr , struct nfs_openres *res )
 #line 4898
   status = decode_stateid(xdr, & res->delegation);
 #line 4899
-  tmp___0 = __builtin_expect(status != 0, 0L);
+  tmp___0 = ldv__builtin_expect(status != 0, 0L);
 #line 4899
   if (tmp___0 != 0L) {
 #line 4900
@@ -38328,7 +38328,7 @@ static int decode_delegation(struct xdr_stream *xdr , struct nfs_openres *res )
 #line 4901
   p = xdr_inline_decode(xdr, 4UL);
 #line 4902
-  tmp___1 = __builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0), 0L);
+  tmp___1 = ldv__builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0), 0L);
 #line 4902
   if (tmp___1 != 0L) {
 #line 4903
@@ -38406,7 +38406,7 @@ static int decode_open(struct xdr_stream *xdr , struct nfs_openres *res )
 
   }
 #line 4932
-  tmp = __builtin_expect(status != 0, 0L);
+  tmp = ldv__builtin_expect(status != 0, 0L);
 #line 4932
   if (tmp != 0L) {
 #line 4933
@@ -38419,7 +38419,7 @@ static int decode_open(struct xdr_stream *xdr , struct nfs_openres *res )
 #line 4937
   p = xdr_inline_decode(xdr, 8UL);
 #line 4938
-  tmp___0 = __builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0), 0L);
+  tmp___0 = ldv__builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0), 0L);
 #line 4938
   if (tmp___0 != 0L) {
 #line 4939
@@ -38445,7 +38445,7 @@ static int decode_open(struct xdr_stream *xdr , struct nfs_openres *res )
 #line 4945
   p = xdr_inline_decode(xdr, (size_t )(bmlen << 2));
 #line 4946
-  tmp___2 = __builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0), 0L);
+  tmp___2 = ldv__builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0), 0L);
 #line 4946
   if (tmp___2 != 0L) {
 #line 4947
@@ -38502,7 +38502,7 @@ static int decode_open(struct xdr_stream *xdr , struct nfs_openres *res )
   return (tmp___4);
   xdr_error: 
 #line 4956
-  tmp___5 = __builtin_expect((nfs_debug & 32U) != 0U, 0L);
+  tmp___5 = ldv__builtin_expect((nfs_debug & 32U) != 0U, 0L);
 #line 4956
   if (tmp___5 != 0L) {
 #line 4956
@@ -38620,7 +38620,7 @@ static int decode_read(struct xdr_stream *xdr , struct rpc_rqst *req , struct nf
 #line 5006
   p = xdr_inline_decode(xdr, 8UL);
 #line 5007
-  tmp = __builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0), 0L);
+  tmp = ldv__builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0), 0L);
 #line 5007
   if (tmp != 0L) {
 #line 5008
@@ -38641,7 +38641,7 @@ static int decode_read(struct xdr_stream *xdr , struct rpc_rqst *req , struct nf
 #line 5012
   if (count > recvd) {
 #line 5013
-    tmp___1 = __builtin_expect((nfs_debug & 32U) != 0U, 0L);
+    tmp___1 = ldv__builtin_expect((nfs_debug & 32U) != 0U, 0L);
 #line 5013
     if (tmp___1 != 0L) {
 #line 5013
@@ -38692,7 +38692,7 @@ static int decode_readdir(struct xdr_stream *xdr , struct rpc_rqst *req , struct
 
   }
 #line 5034
-  tmp = __builtin_expect(status != 0, 0L);
+  tmp = ldv__builtin_expect(status != 0, 0L);
 #line 5034
   if (tmp != 0L) {
 #line 5035
@@ -38713,7 +38713,7 @@ static int decode_readdir(struct xdr_stream *xdr , struct rpc_rqst *req , struct
                              __len);
   }
 #line 5037
-  tmp___0 = __builtin_expect((nfs_debug & 32U) != 0U, 0L);
+  tmp___0 = ldv__builtin_expect((nfs_debug & 32U) != 0U, 0L);
 #line 5037
   if (tmp___0 != 0L) {
 #line 5037
@@ -38754,7 +38754,7 @@ static int decode_readlink(struct xdr_stream *xdr , struct rpc_rqst *req )
 #line 5054
   p = xdr_inline_decode(xdr, 4UL);
 #line 5055
-  tmp = __builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0), 0L);
+  tmp = ldv__builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0), 0L);
 #line 5055
   if (tmp != 0L) {
 #line 5056
@@ -38767,7 +38767,7 @@ static int decode_readlink(struct xdr_stream *xdr , struct rpc_rqst *req )
 #line 5058
   if (rcvbuf->page_len <= len || len == 0U) {
 #line 5059
-    tmp___0 = __builtin_expect((nfs_debug & 32U) != 0U, 0L);
+    tmp___0 = ldv__builtin_expect((nfs_debug & 32U) != 0U, 0L);
 #line 5059
     if (tmp___0 != 0L) {
 #line 5059
@@ -38785,7 +38785,7 @@ static int decode_readlink(struct xdr_stream *xdr , struct rpc_rqst *req )
 #line 5063
   if (recvd < len) {
 #line 5064
-    tmp___1 = __builtin_expect((nfs_debug & 32U) != 0U, 0L);
+    tmp___1 = ldv__builtin_expect((nfs_debug & 32U) != 0U, 0L);
 #line 5064
     if (tmp___1 != 0L) {
 #line 5064
@@ -38955,7 +38955,7 @@ static int decode_getacl(struct xdr_stream *xdr , struct rpc_rqst *req , struct 
 
   }
 #line 5143
-  tmp___0 = __builtin_expect(((unsigned long )bitmap[0] & 4095UL) != 0UL, 0L);
+  tmp___0 = ldv__builtin_expect(((unsigned long )bitmap[0] & 4095UL) != 0UL, 0L);
 #line 5143
   if (tmp___0 != 0L) {
 #line 5144
@@ -38964,7 +38964,7 @@ static int decode_getacl(struct xdr_stream *xdr , struct rpc_rqst *req , struct 
 
   }
 #line 5145
-  tmp___3 = __builtin_expect(((unsigned long )bitmap[0] & 4096UL) != 0UL, 1L);
+  tmp___3 = ldv__builtin_expect(((unsigned long )bitmap[0] & 4096UL) != 0UL, 1L);
 #line 5145
   if (tmp___3 != 0L) {
 #line 5150
@@ -38978,7 +38978,7 @@ static int decode_getacl(struct xdr_stream *xdr , struct rpc_rqst *req , struct 
 #line 5156
       res->acl_flags = res->acl_flags | 1;
 #line 5157
-      tmp___2 = __builtin_expect((nfs_debug & 32U) != 0U, 0L);
+      tmp___2 = ldv__builtin_expect((nfs_debug & 32U) != 0U, 0L);
 #line 5157
       if (tmp___2 != 0L) {
 #line 5157
@@ -39032,7 +39032,7 @@ static int decode_setattr(struct xdr_stream *xdr )
 #line 5182
   p = xdr_inline_decode(xdr, 4UL);
 #line 5183
-  tmp = __builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0), 0L);
+  tmp = ldv__builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0), 0L);
 #line 5183
   if (tmp != 0L) {
 #line 5184
@@ -39045,7 +39045,7 @@ static int decode_setattr(struct xdr_stream *xdr )
 #line 5186
   p = xdr_inline_decode(xdr, (size_t )(bmlen << 2));
 #line 5187
-  tmp___0 = __builtin_expect((unsigned long )p != (unsigned long )((__be32 *)0), 1L);
+  tmp___0 = ldv__builtin_expect((unsigned long )p != (unsigned long )((__be32 *)0), 1L);
 #line 5187
   if (tmp___0 != 0L) {
 #line 5188
@@ -39084,7 +39084,7 @@ static int decode_setclientid(struct xdr_stream *xdr , struct nfs4_setclientid_r
 #line 5200
   p = xdr_inline_decode(xdr, 8UL);
 #line 5201
-  tmp = __builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0), 0L);
+  tmp = ldv__builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0), 0L);
 #line 5201
   if (tmp != 0L) {
 #line 5202
@@ -39101,7 +39101,7 @@ static int decode_setclientid(struct xdr_stream *xdr , struct nfs4_setclientid_r
 #line 5204
   if (opnum != 35U) {
 #line 5205
-    tmp___1 = __builtin_expect((nfs_debug & 32U) != 0U, 0L);
+    tmp___1 = ldv__builtin_expect((nfs_debug & 32U) != 0U, 0L);
 #line 5205
     if (tmp___1 != 0L) {
 #line 5205
@@ -39123,7 +39123,7 @@ static int decode_setclientid(struct xdr_stream *xdr , struct nfs4_setclientid_r
 #line 5211
     p = xdr_inline_decode(xdr, 16UL);
 #line 5212
-    tmp___3 = __builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0),
+    tmp___3 = ldv__builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0),
                                0L);
 #line 5212
     if (tmp___3 != 0L) {
@@ -39150,7 +39150,7 @@ static int decode_setclientid(struct xdr_stream *xdr , struct nfs4_setclientid_r
 #line 5220
     p = xdr_inline_decode(xdr, 4UL);
 #line 5221
-    tmp___4 = __builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0),
+    tmp___4 = ldv__builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0),
                                0L);
 #line 5221
     if (tmp___4 != 0L) {
@@ -39164,7 +39164,7 @@ static int decode_setclientid(struct xdr_stream *xdr , struct nfs4_setclientid_r
 #line 5224
     p = xdr_inline_decode(xdr, (size_t )len);
 #line 5225
-    tmp___5 = __builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0),
+    tmp___5 = ldv__builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0),
                                0L);
 #line 5225
     if (tmp___5 != 0L) {
@@ -39176,7 +39176,7 @@ static int decode_setclientid(struct xdr_stream *xdr , struct nfs4_setclientid_r
 #line 5229
     p = xdr_inline_decode(xdr, 4UL);
 #line 5230
-    tmp___6 = __builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0),
+    tmp___6 = ldv__builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0),
                                0L);
 #line 5230
     if (tmp___6 != 0L) {
@@ -39190,7 +39190,7 @@ static int decode_setclientid(struct xdr_stream *xdr , struct nfs4_setclientid_r
 #line 5233
     p = xdr_inline_decode(xdr, (size_t )len);
 #line 5234
-    tmp___7 = __builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0),
+    tmp___7 = ldv__builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0),
                                0L);
 #line 5234
     if (tmp___7 != 0L) {
@@ -39252,7 +39252,7 @@ static int decode_write(struct xdr_stream *xdr , struct nfs_writeres *res )
 #line 5260
   p = xdr_inline_decode(xdr, 8UL);
 #line 5261
-  tmp = __builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0), 0L);
+  tmp = ldv__builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0), 0L);
 #line 5261
   if (tmp != 0L) {
 #line 5262
@@ -39312,7 +39312,7 @@ static int decode_secinfo_gss(struct xdr_stream *xdr , struct nfs4_secinfo_flavo
 #line 5280
   p = xdr_inline_decode(xdr, 4UL);
 #line 5281
-  tmp = __builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0), 0L);
+  tmp = ldv__builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0), 0L);
 #line 5281
   if (tmp != 0L) {
 #line 5282
@@ -39332,7 +39332,7 @@ static int decode_secinfo_gss(struct xdr_stream *xdr , struct nfs4_secinfo_flavo
 #line 5287
   p = xdr_inline_decode(xdr, (size_t )flavor->gss.sec_oid4.len);
 #line 5288
-  tmp___0 = __builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0), 0L);
+  tmp___0 = ldv__builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0), 0L);
 #line 5288
   if (tmp___0 != 0L) {
 #line 5289
@@ -39348,7 +39348,7 @@ static int decode_secinfo_gss(struct xdr_stream *xdr , struct nfs4_secinfo_flavo
 #line 5292
   p = xdr_inline_decode(xdr, 8UL);
 #line 5293
-  tmp___1 = __builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0), 0L);
+  tmp___1 = ldv__builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0), 0L);
 #line 5293
   if (tmp___1 != 0L) {
 #line 5294
@@ -39392,7 +39392,7 @@ static int decode_secinfo_common(struct xdr_stream *xdr , struct nfs4_secinfo_re
 #line 5314
   p = xdr_inline_decode(xdr, 4UL);
 #line 5315
-  tmp = __builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0), 0L);
+  tmp = ldv__builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0), 0L);
 #line 5315
   if (tmp != 0L) {
 #line 5316
@@ -39423,7 +39423,7 @@ static int decode_secinfo_common(struct xdr_stream *xdr , struct nfs4_secinfo_re
 #line 5326
   p = xdr_inline_decode(xdr, 4UL);
 #line 5327
-  tmp___1 = __builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0), 0L);
+  tmp___1 = ldv__builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0), 0L);
 #line 5327
   if (tmp___1 != 0L) {
 #line 5328
@@ -39568,7 +39568,7 @@ static int decode_exchange_id(struct xdr_stream *xdr , struct nfs41_exchange_id_
 #line 5377
   p = xdr_inline_decode(xdr, 8UL);
 #line 5378
-  tmp = __builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0), 0L);
+  tmp = ldv__builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0), 0L);
 #line 5378
   if (tmp != 0L) {
 #line 5379
@@ -39581,7 +39581,7 @@ static int decode_exchange_id(struct xdr_stream *xdr , struct nfs41_exchange_id_
 #line 5381
   p = xdr_inline_decode(xdr, 12UL);
 #line 5382
-  tmp___0 = __builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0), 0L);
+  tmp___0 = ldv__builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0), 0L);
 #line 5382
   if (tmp___0 != 0L) {
 #line 5383
@@ -39613,7 +39613,7 @@ static int decode_exchange_id(struct xdr_stream *xdr , struct nfs41_exchange_id_
 #line 5393
   p = xdr_inline_decode(xdr, 8UL);
 #line 5394
-  tmp___3 = __builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0), 0L);
+  tmp___3 = ldv__builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0), 0L);
 #line 5394
   if (tmp___3 != 0L) {
 #line 5395
@@ -39626,7 +39626,7 @@ static int decode_exchange_id(struct xdr_stream *xdr , struct nfs41_exchange_id_
 #line 5399
   status = decode_opaque_inline(xdr, & dummy, & dummy_str);
 #line 5400
-  tmp___4 = __builtin_expect(status != 0, 0L);
+  tmp___4 = ldv__builtin_expect(status != 0, 0L);
 #line 5400
   if (tmp___4 != 0L) {
 #line 5401
@@ -39635,7 +39635,7 @@ static int decode_exchange_id(struct xdr_stream *xdr , struct nfs41_exchange_id_
 
   }
 #line 5402
-  tmp___5 = __builtin_expect(dummy > 1024U, 0L);
+  tmp___5 = ldv__builtin_expect(dummy > 1024U, 0L);
 #line 5402
   if (tmp___5 != 0L) {
 #line 5403
@@ -39653,7 +39653,7 @@ static int decode_exchange_id(struct xdr_stream *xdr , struct nfs41_exchange_id_
 #line 5408
   status = decode_opaque_inline(xdr, & dummy, & dummy_str);
 #line 5409
-  tmp___6 = __builtin_expect(status != 0, 0L);
+  tmp___6 = ldv__builtin_expect(status != 0, 0L);
 #line 5409
   if (tmp___6 != 0L) {
 #line 5410
@@ -39662,7 +39662,7 @@ static int decode_exchange_id(struct xdr_stream *xdr , struct nfs41_exchange_id_
 
   }
 #line 5411
-  tmp___7 = __builtin_expect(dummy > 1024U, 0L);
+  tmp___7 = ldv__builtin_expect(dummy > 1024U, 0L);
 #line 5411
   if (tmp___7 != 0L) {
 #line 5412
@@ -39680,7 +39680,7 @@ static int decode_exchange_id(struct xdr_stream *xdr , struct nfs41_exchange_id_
 #line 5417
   p = xdr_inline_decode(xdr, 4UL);
 #line 5418
-  tmp___8 = __builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0), 0L);
+  tmp___8 = ldv__builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0), 0L);
 #line 5418
   if (tmp___8 != 0L) {
 #line 5419
@@ -39699,7 +39699,7 @@ static int decode_exchange_id(struct xdr_stream *xdr , struct nfs41_exchange_id_
 #line 5424
     status = decode_opaque_inline(xdr, & dummy, & dummy_str);
 #line 5425
-    tmp___10 = __builtin_expect(status != 0, 0L);
+    tmp___10 = ldv__builtin_expect(status != 0, 0L);
 #line 5425
     if (tmp___10 != 0L) {
 #line 5426
@@ -39708,7 +39708,7 @@ static int decode_exchange_id(struct xdr_stream *xdr , struct nfs41_exchange_id_
 
     }
 #line 5427
-    tmp___11 = __builtin_expect(dummy > 1024U, 0L);
+    tmp___11 = ldv__builtin_expect(dummy > 1024U, 0L);
 #line 5427
     if (tmp___11 != 0L) {
 #line 5428
@@ -39724,7 +39724,7 @@ static int decode_exchange_id(struct xdr_stream *xdr , struct nfs41_exchange_id_
 #line 5432
     status = decode_opaque_inline(xdr, & dummy, & dummy_str);
 #line 5433
-    tmp___12 = __builtin_expect(status != 0, 0L);
+    tmp___12 = ldv__builtin_expect(status != 0, 0L);
 #line 5433
     if (tmp___12 != 0L) {
 #line 5434
@@ -39733,7 +39733,7 @@ static int decode_exchange_id(struct xdr_stream *xdr , struct nfs41_exchange_id_
 
     }
 #line 5435
-    tmp___13 = __builtin_expect(dummy > 1024U, 0L);
+    tmp___13 = ldv__builtin_expect(dummy > 1024U, 0L);
 #line 5435
     if (tmp___13 != 0L) {
 #line 5436
@@ -39749,7 +39749,7 @@ static int decode_exchange_id(struct xdr_stream *xdr , struct nfs41_exchange_id_
 #line 5440
     p = xdr_inline_decode(xdr, 12UL);
 #line 5441
-    tmp___14 = __builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0),
+    tmp___14 = ldv__builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0),
                                 0L);
 #line 5441
     if (tmp___14 != 0L) {
@@ -39794,7 +39794,7 @@ static int decode_chan_attrs(struct xdr_stream *xdr , struct nfs4_channel_attrs 
 #line 5460
   p = xdr_inline_decode(xdr, 28UL);
 #line 5461
-  tmp = __builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0), 0L);
+  tmp = ldv__builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0), 0L);
 #line 5461
   if (tmp != 0L) {
 #line 5462
@@ -39848,7 +39848,7 @@ static int decode_chan_attrs(struct xdr_stream *xdr , struct nfs4_channel_attrs 
 #line 5471
   nr_attrs = __be32_to_cpup((__be32 const   *)p);
 #line 5472
-  tmp___6 = __builtin_expect(nr_attrs > 1U, 0L);
+  tmp___6 = ldv__builtin_expect(nr_attrs > 1U, 0L);
 #line 5472
   if (tmp___6 != 0L) {
 #line 5473
@@ -39864,7 +39864,7 @@ static int decode_chan_attrs(struct xdr_stream *xdr , struct nfs4_channel_attrs 
 #line 5478
     p = xdr_inline_decode(xdr, 4UL);
 #line 5479
-    tmp___7 = __builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0),
+    tmp___7 = ldv__builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0),
                                0L);
 #line 5479
     if (tmp___7 != 0L) {
@@ -39918,7 +39918,7 @@ static int decode_bind_conn_to_session(struct xdr_stream *xdr , struct nfs41_bin
 
   }
 #line 5502
-  tmp = __builtin_expect(status != 0, 0L);
+  tmp = ldv__builtin_expect(status != 0, 0L);
 #line 5502
   if (tmp != 0L) {
 #line 5503
@@ -39929,7 +39929,7 @@ static int decode_bind_conn_to_session(struct xdr_stream *xdr , struct nfs41_bin
 #line 5506
   p = xdr_inline_decode(xdr, 8UL);
 #line 5507
-  tmp___0 = __builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0), 0L);
+  tmp___0 = ldv__builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0), 0L);
 #line 5507
   if (tmp___0 != 0L) {
 #line 5508
@@ -39995,7 +39995,7 @@ static int decode_create_session(struct xdr_stream *xdr , struct nfs41_create_se
 
   }
 #line 5535
-  tmp = __builtin_expect(status != 0, 0L);
+  tmp = ldv__builtin_expect(status != 0, 0L);
 #line 5535
   if (tmp != 0L) {
 #line 5536
@@ -40006,7 +40006,7 @@ static int decode_create_session(struct xdr_stream *xdr , struct nfs41_create_se
 #line 5539
   p = xdr_inline_decode(xdr, 8UL);
 #line 5540
-  tmp___0 = __builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0), 0L);
+  tmp___0 = ldv__builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0), 0L);
 #line 5540
   if (tmp___0 != 0L) {
 #line 5541
@@ -40114,7 +40114,7 @@ static int decode_sequence(struct xdr_stream *xdr , struct nfs4_sequence_res *re
 
   }
 #line 5588
-  tmp = __builtin_expect(status != 0, 0L);
+  tmp = ldv__builtin_expect(status != 0, 0L);
 #line 5588
   if (tmp != 0L) {
 #line 5589
@@ -40132,7 +40132,7 @@ static int decode_sequence(struct xdr_stream *xdr , struct nfs4_sequence_res *re
 #line 5598
   if (tmp___1 != 0) {
 #line 5600
-    tmp___0 = __builtin_expect((nfs_debug & 32U) != 0U, 0L);
+    tmp___0 = ldv__builtin_expect((nfs_debug & 32U) != 0U, 0L);
 #line 5600
     if (tmp___0 != 0L) {
 #line 5600
@@ -40148,7 +40148,7 @@ static int decode_sequence(struct xdr_stream *xdr , struct nfs4_sequence_res *re
 #line 5604
   p = xdr_inline_decode(xdr, 20UL);
 #line 5605
-  tmp___2 = __builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0), 0L);
+  tmp___2 = ldv__builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0), 0L);
 #line 5605
   if (tmp___2 != 0L) {
 #line 5606
@@ -40165,7 +40165,7 @@ static int decode_sequence(struct xdr_stream *xdr , struct nfs4_sequence_res *re
 #line 5610
   if ((res->sr_slot)->seq_nr != dummy) {
 #line 5611
-    tmp___4 = __builtin_expect((nfs_debug & 32U) != 0U, 0L);
+    tmp___4 = ldv__builtin_expect((nfs_debug & 32U) != 0U, 0L);
 #line 5611
     if (tmp___4 != 0L) {
 #line 5611
@@ -40187,7 +40187,7 @@ static int decode_sequence(struct xdr_stream *xdr , struct nfs4_sequence_res *re
 #line 5616
   if ((res->sr_slot)->slot_nr != dummy) {
 #line 5617
-    tmp___6 = __builtin_expect((nfs_debug & 32U) != 0U, 0L);
+    tmp___6 = ldv__builtin_expect((nfs_debug & 32U) != 0U, 0L);
 #line 5617
     if (tmp___6 != 0L) {
 #line 5617
@@ -40254,7 +40254,7 @@ static int decode_getdevicelist(struct xdr_stream *xdr , struct pnfs_devicelist 
 #line 5654
   p = xdr_inline_decode(xdr, 20UL);
 #line 5655
-  tmp = __builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0), 0L);
+  tmp = ldv__builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0), 0L);
 #line 5655
   if (tmp != 0L) {
 #line 5656
@@ -40269,7 +40269,7 @@ static int decode_getdevicelist(struct xdr_stream *xdr , struct pnfs_devicelist 
 #line 5664
   res->num_devs = __be32_to_cpup((__be32 const   *)p);
 #line 5666
-  tmp___0 = __builtin_expect((nfs_debug & 32U) != 0U, 0L);
+  tmp___0 = ldv__builtin_expect((nfs_debug & 32U) != 0U, 0L);
 #line 5666
   if (tmp___0 != 0L) {
 #line 5666
@@ -40289,7 +40289,7 @@ static int decode_getdevicelist(struct xdr_stream *xdr , struct pnfs_devicelist 
 #line 5674
   p = xdr_inline_decode(xdr, (size_t )(res->num_devs * 16U + 4U));
 #line 5676
-  tmp___1 = __builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0), 0L);
+  tmp___1 = ldv__builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0), 0L);
 #line 5676
   if (tmp___1 != 0L) {
 #line 5677
@@ -40354,7 +40354,7 @@ static int decode_getdeviceinfo(struct xdr_stream *xdr , struct pnfs_device *pde
 #line 5698
       p = xdr_inline_decode(xdr, 4UL);
 #line 5699
-      tmp = __builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0), 0L);
+      tmp = ldv__builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0), 0L);
 #line 5699
       if (tmp != 0L) {
 #line 5700
@@ -40365,7 +40365,7 @@ static int decode_getdeviceinfo(struct xdr_stream *xdr , struct pnfs_device *pde
 #line 5701
       pdev->mincount = __be32_to_cpup((__be32 const   *)p);
 #line 5702
-      tmp___0 = __builtin_expect((nfs_debug & 32U) != 0U, 0L);
+      tmp___0 = ldv__builtin_expect((nfs_debug & 32U) != 0U, 0L);
 #line 5702
       if (tmp___0 != 0L) {
 #line 5702
@@ -40385,7 +40385,7 @@ static int decode_getdeviceinfo(struct xdr_stream *xdr , struct pnfs_device *pde
 #line 5708
   p = xdr_inline_decode(xdr, 8UL);
 #line 5709
-  tmp___1 = __builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0), 0L);
+  tmp___1 = ldv__builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0), 0L);
 #line 5709
   if (tmp___1 != 0L) {
 #line 5710
@@ -40402,7 +40402,7 @@ static int decode_getdeviceinfo(struct xdr_stream *xdr , struct pnfs_device *pde
 #line 5712
   if (pdev->layout_type != type) {
 #line 5713
-    tmp___3 = __builtin_expect((nfs_debug & 32U) != 0U, 0L);
+    tmp___3 = ldv__builtin_expect((nfs_debug & 32U) != 0U, 0L);
 #line 5713
     if (tmp___3 != 0L) {
 #line 5713
@@ -40430,7 +40430,7 @@ static int decode_getdeviceinfo(struct xdr_stream *xdr , struct pnfs_device *pde
 #line 5727
   p = xdr_inline_decode(xdr, 4UL);
 #line 5728
-  tmp___5 = __builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0), 0L);
+  tmp___5 = ldv__builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0), 0L);
 #line 5728
   if (tmp___5 != 0L) {
 #line 5729
@@ -40445,7 +40445,7 @@ static int decode_getdeviceinfo(struct xdr_stream *xdr , struct pnfs_device *pde
 #line 5734
     p = xdr_inline_decode(xdr, (size_t )(len * 4U));
 #line 5735
-    tmp___6 = __builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0),
+    tmp___6 = ldv__builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0),
                                0L);
 #line 5735
     if (tmp___6 != 0L) {
@@ -40464,7 +40464,7 @@ static int decode_getdeviceinfo(struct xdr_stream *xdr , struct pnfs_device *pde
 #line 5738
     if (tmp___8 != 0U) {
 #line 5739
-      tmp___7 = __builtin_expect((nfs_debug & 32U) != 0U, 0L);
+      tmp___7 = ldv__builtin_expect((nfs_debug & 32U) != 0U, 0L);
 #line 5739
       if (tmp___7 != 0L) {
 #line 5739
@@ -40532,7 +40532,7 @@ static int decode_layoutget(struct xdr_stream *xdr , struct rpc_rqst *req , stru
 #line 5762
   p = xdr_inline_decode(xdr, 4UL);
 #line 5763
-  tmp = __builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0), 0L);
+  tmp = ldv__builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0), 0L);
 #line 5763
   if (tmp != 0L) {
 #line 5764
@@ -40547,7 +40547,7 @@ static int decode_layoutget(struct xdr_stream *xdr , struct rpc_rqst *req , stru
 #line 5767
   p = xdr_inline_decode(xdr, 4UL);
 #line 5768
-  tmp___0 = __builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0), 0L);
+  tmp___0 = ldv__builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0), 0L);
 #line 5768
   if (tmp___0 != 0L) {
 #line 5769
@@ -40560,7 +40560,7 @@ static int decode_layoutget(struct xdr_stream *xdr , struct rpc_rqst *req , stru
 #line 5771
   if (layout_count == 0U) {
 #line 5772
-    tmp___1 = __builtin_expect((nfs_debug & 32U) != 0U, 0L);
+    tmp___1 = ldv__builtin_expect((nfs_debug & 32U) != 0U, 0L);
 #line 5772
     if (tmp___1 != 0L) {
 #line 5772
@@ -40576,7 +40576,7 @@ static int decode_layoutget(struct xdr_stream *xdr , struct rpc_rqst *req , stru
 #line 5777
   p = xdr_inline_decode(xdr, 28UL);
 #line 5778
-  tmp___2 = __builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0), 0L);
+  tmp___2 = ldv__builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0), 0L);
 #line 5778
   if (tmp___2 != 0L) {
 #line 5779
@@ -40603,7 +40603,7 @@ static int decode_layoutget(struct xdr_stream *xdr , struct rpc_rqst *req , stru
 #line 5784
   (res->layoutp)->len = __be32_to_cpup((__be32 const   *)p);
 #line 5786
-  tmp___5 = __builtin_expect((nfs_debug & 32U) != 0U, 0L);
+  tmp___5 = ldv__builtin_expect((nfs_debug & 32U) != 0U, 0L);
 #line 5786
   if (tmp___5 != 0L) {
 #line 5786
@@ -40618,7 +40618,7 @@ static int decode_layoutget(struct xdr_stream *xdr , struct rpc_rqst *req , stru
 #line 5795
   if ((res->layoutp)->len > recvd) {
 #line 5796
-    tmp___6 = __builtin_expect((nfs_debug & 32U) != 0U, 0L);
+    tmp___6 = ldv__builtin_expect((nfs_debug & 32U) != 0U, 0L);
 #line 5796
     if (tmp___6 != 0L) {
 #line 5796
@@ -40635,7 +40635,7 @@ static int decode_layoutget(struct xdr_stream *xdr , struct rpc_rqst *req , stru
 #line 5802
   if (layout_count > 1U) {
 #line 5808
-    tmp___7 = __builtin_expect((nfs_debug & 32U) != 0U, 0L);
+    tmp___7 = ldv__builtin_expect((nfs_debug & 32U) != 0U, 0L);
 #line 5808
     if (tmp___7 != 0L) {
 #line 5808
@@ -40676,7 +40676,7 @@ static int decode_layoutreturn(struct xdr_stream *xdr , struct nfs4_layoutreturn
 #line 5827
   p = xdr_inline_decode(xdr, 4UL);
 #line 5828
-  tmp = __builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0), 0L);
+  tmp = ldv__builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0), 0L);
 #line 5828
   if (tmp != 0L) {
 #line 5829
@@ -40726,7 +40726,7 @@ static int decode_layoutcommit(struct xdr_stream *xdr , struct rpc_rqst *req , s
 #line 5852
   p = xdr_inline_decode(xdr, 4UL);
 #line 5853
-  tmp = __builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0), 0L);
+  tmp = ldv__builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0), 0L);
 #line 5853
   if (tmp != 0L) {
 #line 5854
@@ -40741,7 +40741,7 @@ static int decode_layoutcommit(struct xdr_stream *xdr , struct rpc_rqst *req , s
 #line 5859
     p = xdr_inline_decode(xdr, 8UL);
 #line 5860
-    tmp___0 = __builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0),
+    tmp___0 = ldv__builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0),
                                0L);
 #line 5860
     if (tmp___0 != 0L) {
@@ -40787,7 +40787,7 @@ static int decode_test_stateid(struct xdr_stream *xdr , struct nfs41_test_statei
 #line 5880
   p = xdr_inline_decode(xdr, 4UL);
 #line 5881
-  tmp = __builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0), 0L);
+  tmp = ldv__builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0), 0L);
 #line 5881
   if (tmp != 0L) {
 #line 5882
@@ -40813,7 +40813,7 @@ static int decode_test_stateid(struct xdr_stream *xdr , struct nfs41_test_statei
 #line 5887
   p = xdr_inline_decode(xdr, 4UL);
 #line 5888
-  tmp___2 = __builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0), 0L);
+  tmp___2 = ldv__builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0), 0L);
 #line 5888
   if (tmp___2 != 0L) {
 #line 5889
@@ -40858,7 +40858,7 @@ static int decode_free_stateid(struct xdr_stream *xdr , struct nfs41_free_statei
 #line 5909
   p = xdr_inline_decode(xdr, 4UL);
 #line 5910
-  tmp = __builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0), 0L);
+  tmp = ldv__builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0), 0L);
 #line 5910
   if (tmp != 0L) {
 #line 5911
@@ -42716,7 +42716,7 @@ static int nfs4_xdr_dec_getdevicelist(struct rpc_rqst *rqstp , struct xdr_stream
 
   {
 #line 6957
-  tmp = __builtin_expect((nfs_debug & 32U) != 0U, 0L);
+  tmp = ldv__builtin_expect((nfs_debug & 32U) != 0U, 0L);
 #line 6957
   if (tmp != 0L) {
 #line 6957
@@ -43075,7 +43075,7 @@ int nfs4_decode_dirent(struct xdr_stream *xdr , struct nfs_entry *entry , int pl
 #line 7156
   p = tmp___0;
 #line 7157
-  tmp___1 = __builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0), 0L);
+  tmp___1 = ldv__builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0), 0L);
 #line 7157
   if (tmp___1 != 0L) {
 #line 7158
@@ -43088,7 +43088,7 @@ int nfs4_decode_dirent(struct xdr_stream *xdr , struct nfs_entry *entry , int pl
 #line 7160
     p = xdr_inline_decode(xdr, 4UL);
 #line 7161
-    tmp___2 = __builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0),
+    tmp___2 = ldv__builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0),
                                0L);
 #line 7161
     if (tmp___2 != 0L) {
@@ -43114,7 +43114,7 @@ int nfs4_decode_dirent(struct xdr_stream *xdr , struct nfs_entry *entry , int pl
 #line 7169
   p = xdr_inline_decode(xdr, 12UL);
 #line 7170
-  tmp___3 = __builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0), 0L);
+  tmp___3 = ldv__builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0), 0L);
 #line 7170
   if (tmp___3 != 0L) {
 #line 7171
@@ -43131,7 +43131,7 @@ int nfs4_decode_dirent(struct xdr_stream *xdr , struct nfs_entry *entry , int pl
 #line 7176
   p = xdr_inline_decode(xdr, (size_t )entry->len);
 #line 7177
-  tmp___4 = __builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0), 0L);
+  tmp___4 = ldv__builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0), 0L);
 #line 7177
   if (tmp___4 != 0L) {
 #line 7178
@@ -44070,7 +44070,7 @@ __inline static unsigned int read_seqbegin(seqlock_t const   *sl )
 #line 89
   ret = *((unsigned int const volatile   *)(& sl->sequence));
 #line 90
-  tmp = __builtin_expect((long )((int )ret) & 1L, 0L);
+  tmp = ldv__builtin_expect((long )((int )ret) & 1L, 0L);
 #line 90
   if (tmp != 0L) {
 #line 91
@@ -44095,7 +44095,7 @@ __inline static int read_seqretry(seqlock_t const   *sl , unsigned int start )
 #line 106
   __asm__  volatile   ("": : : "memory");
 #line 108
-  tmp = __builtin_expect((unsigned int )sl->sequence != start, 0L);
+  tmp = ldv__builtin_expect((unsigned int )sl->sequence != start, 0L);
 #line 108
   return ((int )tmp);
 }
@@ -44375,14 +44375,14 @@ __inline static void *net_generic___1(struct net  const  *net , int id )
 #line 40
   ng = _________p1;
 #line 41
-  tmp___1 = __builtin_expect(id == 0, 0L);
+  tmp___1 = ldv__builtin_expect(id == 0, 0L);
 #line 41
   if (tmp___1 != 0L) {
 #line 41
     goto _L;
   } else {
 #line 41
-    tmp___2 = __builtin_expect((unsigned int )id > ng->len, 0L);
+    tmp___2 = ldv__builtin_expect((unsigned int )id > ng->len, 0L);
 #line 41
     if (tmp___2 != 0L) {
       _L: /* CIL Label */ 
@@ -44401,7 +44401,7 @@ __inline static void *net_generic___1(struct net  const  *net , int id )
 #line 43
   rcu_read_unlock___1();
 #line 45
-  tmp___3 = __builtin_expect((unsigned long )ptr == (unsigned long )((void *)0), 0L);
+  tmp___3 = ldv__builtin_expect((unsigned long )ptr == (unsigned long )((void *)0), 0L);
 #line 45
   if (tmp___3 != 0L) {
 #line 45
@@ -46930,7 +46930,7 @@ void nfs4_schedule_lease_recovery(struct nfs_client *clp )
 
   }
 #line 1271
-  tmp___0 = __builtin_expect((nfs_debug & 16384U) != 0U, 0L);
+  tmp___0 = ldv__builtin_expect((nfs_debug & 16384U) != 0U, 0L);
 #line 1271
   if (tmp___0 != 0L) {
 #line 1271
@@ -47043,7 +47043,7 @@ static void nfs40_handle_cb_pathdown(struct nfs_client *clp )
 #line 1322
   nfs_expire_all_delegations(clp);
 #line 1323
-  tmp = __builtin_expect((nfs_debug & 16384U) != 0U, 0L);
+  tmp = ldv__builtin_expect((nfs_debug & 16384U) != 0U, 0L);
 #line 1323
   if (tmp != 0L) {
 #line 1323
@@ -47127,7 +47127,7 @@ void nfs4_schedule_stateid_recovery(struct nfs_server  const  *server , struct n
 #line 1360
   nfs4_state_mark_reclaim_nograce(clp, state);
 #line 1361
-  tmp = __builtin_expect((nfs_debug & 16384U) != 0U, 0L);
+  tmp = ldv__builtin_expect((nfs_debug & 16384U) != 0U, 0L);
 #line 1361
   if (tmp != 0L) {
 #line 1361
@@ -48041,7 +48041,7 @@ static int nfs4_recovery_handle_error(struct nfs_client *clp , int error )
   goto ldv_50940;
   default: 
 #line 1689
-  tmp = __builtin_expect((nfs_debug & 16384U) != 0U, 0L);
+  tmp = ldv__builtin_expect((nfs_debug & 16384U) != 0U, 0L);
 #line 1689
   if (tmp != 0L) {
 #line 1689
@@ -48055,7 +48055,7 @@ static int nfs4_recovery_handle_error(struct nfs_client *clp , int error )
   }
   ldv_50940: 
 #line 1693
-  tmp___0 = __builtin_expect((nfs_debug & 16384U) != 0U, 0L);
+  tmp___0 = ldv__builtin_expect((nfs_debug & 16384U) != 0U, 0L);
 #line 1693
   if (tmp___0 != 0L) {
 #line 1693
@@ -48331,7 +48331,7 @@ static int nfs4_handle_reclaim_lease_error(struct nfs_client *clp , int status )
 
   }
 #line 1801
-  tmp___0 = __builtin_expect((nfs_debug & 16384U) != 0U, 0L);
+  tmp___0 = ldv__builtin_expect((nfs_debug & 16384U) != 0U, 0L);
 #line 1801
   if (tmp___0 != 0L) {
 #line 1801
@@ -48345,7 +48345,7 @@ static int nfs4_handle_reclaim_lease_error(struct nfs_client *clp , int status )
   case -10027: ;
   default: 
 #line 1807
-  tmp___1 = __builtin_expect((nfs_debug & 16384U) != 0U, 0L);
+  tmp___1 = ldv__builtin_expect((nfs_debug & 16384U) != 0U, 0L);
 #line 1807
   if (tmp___1 != 0L) {
 #line 1807
@@ -48361,7 +48361,7 @@ static int nfs4_handle_reclaim_lease_error(struct nfs_client *clp , int status )
 #line 1811
   set_bit(2U, (unsigned long volatile   *)(& clp->cl_state));
 #line 1812
-  tmp___2 = __builtin_expect((nfs_debug & 16384U) != 0U, 0L);
+  tmp___2 = ldv__builtin_expect((nfs_debug & 16384U) != 0U, 0L);
 #line 1812
   if (tmp___2 != 0L) {
 #line 1812
@@ -48509,7 +48509,7 @@ int nfs4_discover_server_trunking(struct nfs_client *clp , struct nfs_client **r
 #line 1884
   ops = (clp->cl_mvops)->reboot_recovery_ops;
 #line 1891
-  tmp = __builtin_expect((nfs_debug & 16384U) != 0U, 0L);
+  tmp = ldv__builtin_expect((nfs_debug & 16384U) != 0U, 0L);
 #line 1891
   if (tmp != 0L) {
 #line 1891
@@ -48588,7 +48588,7 @@ int nfs4_discover_server_trunking(struct nfs_client *clp , struct nfs_client **r
 #line 1929
   ssleep(1U);
 #line 1930
-  tmp___1 = __builtin_expect((nfs_debug & 16384U) != 0U, 0L);
+  tmp___1 = ldv__builtin_expect((nfs_debug & 16384U) != 0U, 0L);
 #line 1930
   if (tmp___1 != 0L) {
 #line 1930
@@ -48665,7 +48665,7 @@ int nfs4_discover_server_trunking(struct nfs_client *clp , struct nfs_client **r
   kfree((void const   *)flavors);
   out: 
 #line 1966
-  tmp___6 = __builtin_expect((nfs_debug & 16384U) != 0U, 0L);
+  tmp___6 = ldv__builtin_expect((nfs_debug & 16384U) != 0U, 0L);
 #line 1966
   if (tmp___6 != 0L) {
 #line 1966
@@ -48759,7 +48759,7 @@ static void nfs4_reset_all_state(struct nfs_client *clp )
 #line 2008
     nfs4_state_start_reclaim_nograce(clp);
 #line 2009
-    tmp = __builtin_expect((nfs_debug & 16384U) != 0U, 0L);
+    tmp = ldv__builtin_expect((nfs_debug & 16384U) != 0U, 0L);
 #line 2009
     if (tmp != 0L) {
 #line 2009
@@ -48791,7 +48791,7 @@ static void nfs41_handle_server_reboot(struct nfs_client *clp )
 #line 2018
     nfs4_state_start_reclaim_reboot(clp);
 #line 2019
-    tmp = __builtin_expect((nfs_debug & 16384U) != 0U, 0L);
+    tmp = ldv__builtin_expect((nfs_debug & 16384U) != 0U, 0L);
 #line 2019
     if (tmp != 0L) {
 #line 2019
@@ -48817,7 +48817,7 @@ static void nfs41_handle_state_revoked(struct nfs_client *clp )
 #line 2027
   nfs4_reset_all_state(clp);
 #line 2028
-  tmp = __builtin_expect((nfs_debug & 16384U) != 0U, 0L);
+  tmp = ldv__builtin_expect((nfs_debug & 16384U) != 0U, 0L);
 #line 2028
   if (tmp != 0L) {
 #line 2028
@@ -48839,7 +48839,7 @@ static void nfs41_handle_recallable_state_revoked(struct nfs_client *clp )
 #line 2034
   nfs_expire_all_delegations(clp);
 #line 2035
-  tmp = __builtin_expect((nfs_debug & 16384U) != 0U, 0L);
+  tmp = ldv__builtin_expect((nfs_debug & 16384U) != 0U, 0L);
 #line 2035
   if (tmp != 0L) {
 #line 2035
@@ -48871,7 +48871,7 @@ static void nfs41_handle_backchannel_fault(struct nfs_client *clp )
 
   }
 #line 2044
-  tmp___0 = __builtin_expect((nfs_debug & 16384U) != 0U, 0L);
+  tmp___0 = ldv__builtin_expect((nfs_debug & 16384U) != 0U, 0L);
 #line 2044
   if (tmp___0 != 0L) {
 #line 2044
@@ -48917,7 +48917,7 @@ void nfs41_handle_sequence_flag_errors(struct nfs_client *clp , u32 flags )
 
   }
 #line 2060
-  tmp = __builtin_expect((nfs_debug & 16384U) != 0U, 0L);
+  tmp = ldv__builtin_expect((nfs_debug & 16384U) != 0U, 0L);
 #line 2060
   if (tmp != 0L) {
 #line 2060
@@ -49004,7 +49004,7 @@ static int nfs4_reset_session(struct nfs_client *clp )
 #line 2097
   if (status != 0) {
 #line 2098
-    tmp___0 = __builtin_expect((nfs_debug & 16384U) != 0U, 0L);
+    tmp___0 = ldv__builtin_expect((nfs_debug & 16384U) != 0U, 0L);
 #line 2098
     if (tmp___0 != 0L) {
 #line 2098
@@ -49023,7 +49023,7 @@ static int nfs4_reset_session(struct nfs_client *clp )
 #line 2103
   nfs41_finish_session_reset(clp);
 #line 2104
-  tmp___1 = __builtin_expect((nfs_debug & 16384U) != 0U, 0L);
+  tmp___1 = ldv__builtin_expect((nfs_debug & 16384U) != 0U, 0L);
 #line 2104
   if (tmp___1 != 0L) {
 #line 2104
@@ -49082,7 +49082,7 @@ static int nfs4_bind_conn_to_session(struct nfs_client *clp )
   switch (ret) {
   case 0: 
 #line 2127
-  tmp___0 = __builtin_expect((nfs_debug & 16384U) != 0U, 0L);
+  tmp___0 = ldv__builtin_expect((nfs_debug & 16384U) != 0U, 0L);
 #line 2127
   if (tmp___0 != 0L) {
 #line 2127
@@ -49709,7 +49709,7 @@ void nfs4_renew_state(struct work_struct *work )
 #line 128
   ops = (clp->cl_mvops)->state_renewal_ops;
 #line 129
-  tmp = __builtin_expect((nfs_debug & 16384U) != 0U, 0L);
+  tmp = ldv__builtin_expect((nfs_debug & 16384U) != 0U, 0L);
 #line 129
   if (tmp != 0L) {
 #line 129
@@ -49779,7 +49779,7 @@ void nfs4_renew_state(struct work_struct *work )
     }
   } else {
 #line 160
-    tmp___2 = __builtin_expect((nfs_debug & 16384U) != 0U, 0L);
+    tmp___2 = ldv__builtin_expect((nfs_debug & 16384U) != 0U, 0L);
 #line 160
     if (tmp___2 != 0L) {
 #line 160
@@ -49797,7 +49797,7 @@ void nfs4_renew_state(struct work_struct *work )
   nfs_expire_unreferenced_delegations(clp);
   out: 
 #line 168
-  tmp___3 = __builtin_expect((nfs_debug & 16384U) != 0U, 0L);
+  tmp___3 = ldv__builtin_expect((nfs_debug & 16384U) != 0U, 0L);
 #line 168
   if (tmp___3 != 0L) {
 #line 168
@@ -49828,7 +49828,7 @@ void nfs4_schedule_state_renewal(struct nfs_client *clp )
 
   }
 #line 181
-  tmp = __builtin_expect((nfs_debug & 16384U) != 0U, 0L);
+  tmp = ldv__builtin_expect((nfs_debug & 16384U) != 0U, 0L);
 #line 181
   if (tmp != 0L) {
 #line 181
@@ -50502,7 +50502,7 @@ struct dentry *nfs4_try_mount(int flags , char const   *dev_name___0 , struct nf
 #line 315
   data = mount_info->parsed;
 #line 317
-  tmp = __builtin_expect((nfs_debug & 1024U) != 0U, 0L);
+  tmp = ldv__builtin_expect((nfs_debug & 1024U) != 0U, 0L);
 #line 317
   if (tmp != 0L) {
 #line 317
@@ -50521,7 +50521,7 @@ struct dentry *nfs4_try_mount(int flags , char const   *dev_name___0 , struct nf
 #line 325
   res = nfs_follow_remote_path(root_mnt, (char const   *)export_path);
 #line 327
-  tmp___5 = __builtin_expect((nfs_debug & 1024U) != 0U, 0L);
+  tmp___5 = ldv__builtin_expect((nfs_debug & 1024U) != 0U, 0L);
 #line 327
   if (tmp___5 != 0L) {
 #line 327
@@ -50576,7 +50576,7 @@ static struct dentry *nfs4_remote_referral_mount(struct file_system_type *fs_typ
 #line 343
   mntroot = (struct dentry *)tmp;
 #line 345
-  tmp___0 = __builtin_expect((long )((int )nfs_debug) & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )((int )nfs_debug) & 1L, 0L);
 #line 345
   if (tmp___0 != 0L) {
 #line 345
@@ -50636,7 +50636,7 @@ static struct dentry *nfs4_referral_mount(struct file_system_type *fs_type , int
 #line 370
   data = (struct nfs_clone_mount *)raw_data;
 #line 375
-  tmp = __builtin_expect((long )((int )nfs_debug) & 1L, 0L);
+  tmp = ldv__builtin_expect((long )((int )nfs_debug) & 1L, 0L);
 #line 375
   if (tmp != 0L) {
 #line 375
@@ -50656,7 +50656,7 @@ static struct dentry *nfs4_referral_mount(struct file_system_type *fs_type , int
 #line 384
   res = nfs_follow_remote_path(root_mnt, (char const   *)export_path);
 #line 385
-  tmp___5 = __builtin_expect((long )((int )nfs_debug) & 1L, 0L);
+  tmp___5 = ldv__builtin_expect((long )((int )nfs_debug) & 1L, 0L);
 #line 385
   if (tmp___5 != 0L) {
 #line 385
@@ -51047,7 +51047,7 @@ static int nfs4_file_open(struct inode *inode , struct file *filp )
 #line 84
   openflags = filp->f_flags;
 #line 97
-  tmp = __builtin_expect((nfs_debug & 64U) != 0U, 0L);
+  tmp = ldv__builtin_expect((nfs_debug & 64U) != 0U, 0L);
 #line 97
   if (tmp != 0L) {
 #line 97
@@ -52089,7 +52089,7 @@ int nfs_inode_set_delegation(struct inode *inode , struct rpc_cred *cred , struc
 
     }
 #line 325
-    tmp___5 = __builtin_expect((nfs_debug & 64U) != 0U, 0L);
+    tmp___5 = ldv__builtin_expect((nfs_debug & 64U) != 0U, 0L);
 #line 325
     if (tmp___5 != 0L) {
 #line 325
@@ -53798,7 +53798,7 @@ __inline static long IS_ERR_OR_NULL(void const   *ptr )
     tmp___0 = 1;
   } else {
 #line 39
-    tmp = __builtin_expect((unsigned long )ptr > 0xfffffffffffff000UL, 0L);
+    tmp = ldv__builtin_expect((unsigned long )ptr > 0xfffffffffffff000UL, 0L);
 #line 39
     if (tmp != 0L) {
 #line 39
@@ -54023,14 +54023,14 @@ __inline static unsigned long copy_from_user(void *to , void const   *from , uns
 #line 61
   might_fault();
 #line 62
-  tmp___1 = __builtin_expect(sz == -1, 1L);
+  tmp___1 = ldv__builtin_expect(sz == -1, 1L);
 #line 62
   if (tmp___1 != 0L) {
 #line 63
     n = _copy_from_user(to, from, (unsigned int )n);
   } else {
 #line 62
-    tmp___2 = __builtin_expect((unsigned long )sz >= n, 1L);
+    tmp___2 = ldv__builtin_expect((unsigned long )sz >= n, 1L);
 #line 62
     if (tmp___2 != 0L) {
 #line 63
@@ -54039,7 +54039,7 @@ __inline static unsigned long copy_from_user(void *to , void const   *from , uns
 #line 66
       __ret_warn_on = 1;
 #line 66
-      tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+      tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 66
       if (tmp___0 != 0L) {
 #line 66
@@ -54049,7 +54049,7 @@ __inline static unsigned long copy_from_user(void *to , void const   *from , uns
 
       }
 #line 66
-      __builtin_expect(__ret_warn_on != 0, 0L);
+      ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
   }
 #line 68
@@ -54131,7 +54131,7 @@ __inline static void __validate_creds(struct cred  const  *cred , char const   *
 #line 173
   tmp = creds_are_invalid(cred);
 #line 173
-  tmp___0 = __builtin_expect((long )tmp, 0L);
+  tmp___0 = ldv__builtin_expect((long )tmp, 0L);
 #line 173
   if (tmp___0 != 0L) {
 #line 174
@@ -54231,14 +54231,14 @@ __inline static void *net_generic___2(struct net  const  *net , int id )
 #line 40
   ng = _________p1;
 #line 41
-  tmp___1 = __builtin_expect(id == 0, 0L);
+  tmp___1 = ldv__builtin_expect(id == 0, 0L);
 #line 41
   if (tmp___1 != 0L) {
 #line 41
     goto _L;
   } else {
 #line 41
-    tmp___2 = __builtin_expect((unsigned int )id > ng->len, 0L);
+    tmp___2 = ldv__builtin_expect((unsigned int )id > ng->len, 0L);
 #line 41
     if (tmp___2 != 0L) {
       _L: /* CIL Label */ 
@@ -54257,7 +54257,7 @@ __inline static void *net_generic___2(struct net  const  *net , int id )
 #line 43
   rcu_read_unlock___3();
 #line 45
-  tmp___3 = __builtin_expect((unsigned long )ptr == (unsigned long )((void *)0), 0L);
+  tmp___3 = ldv__builtin_expect((unsigned long )ptr == (unsigned long )((void *)0), 0L);
 #line 45
   if (tmp___3 != 0L) {
 #line 45
@@ -55402,13 +55402,13 @@ static bool nfs_idmap_prepare_pipe_upcall(struct idmap *idmap , struct idmap_leg
 #line 727
     __ret_warn_once = 1;
 #line 727
-    tmp___1 = __builtin_expect(__ret_warn_once != 0, 0L);
+    tmp___1 = ldv__builtin_expect(__ret_warn_once != 0, 0L);
 #line 727
     if (tmp___1 != 0L) {
 #line 727
       __ret_warn_on = ! __warned;
 #line 727
-      tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+      tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 727
       if (tmp != 0L) {
 #line 727
@@ -55418,7 +55418,7 @@ static bool nfs_idmap_prepare_pipe_upcall(struct idmap *idmap , struct idmap_leg
 
       }
 #line 727
-      tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+      tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 727
       if (tmp___0 != 0L) {
 #line 727
@@ -55430,7 +55430,7 @@ static bool nfs_idmap_prepare_pipe_upcall(struct idmap *idmap , struct idmap_leg
 
     }
 #line 727
-    __builtin_expect(__ret_warn_once != 0, 0L);
+    ldv__builtin_expect(__ret_warn_once != 0, 0L);
 #line 728
     return (0);
   } else {
@@ -56434,14 +56434,14 @@ __inline static void *net_generic___3(struct net  const  *net , int id )
 #line 40
   ng = _________p1;
 #line 41
-  tmp___1 = __builtin_expect(id == 0, 0L);
+  tmp___1 = ldv__builtin_expect(id == 0, 0L);
 #line 41
   if (tmp___1 != 0L) {
 #line 41
     goto _L;
   } else {
 #line 41
-    tmp___2 = __builtin_expect((unsigned int )id > ng->len, 0L);
+    tmp___2 = ldv__builtin_expect((unsigned int )id > ng->len, 0L);
 #line 41
     if (tmp___2 != 0L) {
       _L: /* CIL Label */ 
@@ -56460,7 +56460,7 @@ __inline static void *net_generic___3(struct net  const  *net , int id )
 #line 43
   rcu_read_unlock___4();
 #line 45
-  tmp___3 = __builtin_expect((unsigned long )ptr == (unsigned long )((void *)0), 0L);
+  tmp___3 = ldv__builtin_expect((unsigned long )ptr == (unsigned long )((void *)0), 0L);
 #line 45
   if (tmp___3 != 0L) {
 #line 45
@@ -56512,7 +56512,7 @@ static int nfs4_callback_up_net(struct svc_serv *serv , struct net *net )
 #line 115
   nn->nfs_callback_tcpport = (unsigned short )ret;
 #line 116
-  tmp___0 = __builtin_expect((nfs_debug & 256U) != 0U, 0L);
+  tmp___0 = ldv__builtin_expect((nfs_debug & 256U) != 0U, 0L);
 #line 116
   if (tmp___0 != 0L) {
 #line 116
@@ -56529,7 +56529,7 @@ static int nfs4_callback_up_net(struct svc_serv *serv , struct net *net )
 #line 122
     nn->nfs_callback_tcpport6 = (unsigned short )ret;
 #line 123
-    tmp___1 = __builtin_expect((nfs_debug & 256U) != 0U, 0L);
+    tmp___1 = ldv__builtin_expect((nfs_debug & 256U) != 0U, 0L);
 #line 123
     if (tmp___1 != 0L) {
 #line 123
@@ -56682,7 +56682,7 @@ static int nfs41_callback_svc(void *vrqstp )
 #line 198
     spin_unlock_bh(& serv->sv_cb_lock);
 #line 199
-    tmp___0 = __builtin_expect((nfs_debug & 256U) != 0U, 0L);
+    tmp___0 = ldv__builtin_expect((nfs_debug & 256U) != 0U, 0L);
 #line 199
     if (tmp___0 != 0L) {
 #line 199
@@ -56693,7 +56693,7 @@ static int nfs41_callback_svc(void *vrqstp )
 #line 200
     error = bc_svc_process(serv, req, rqstp);
 #line 201
-    tmp___1 = __builtin_expect((nfs_debug & 256U) != 0U, 0L);
+    tmp___1 = ldv__builtin_expect((nfs_debug & 256U) != 0U, 0L);
 #line 201
     if (tmp___1 != 0L) {
 #line 201
@@ -56768,7 +56768,7 @@ static struct svc_rqst *nfs41_callback_up(struct svc_serv *serv )
 
   }
 #line 228
-  tmp___4 = __builtin_expect((nfs_debug & 256U) != 0U, 0L);
+  tmp___4 = ldv__builtin_expect((nfs_debug & 256U) != 0U, 0L);
 #line 228
   if (tmp___4 != 0L) {
 #line 228
@@ -56922,7 +56922,7 @@ static int nfs_callback_start_svc(int minorversion , struct rpc_xprt *xprt , str
 
   }
 #line 310
-  tmp___5 = __builtin_expect((nfs_debug & 256U) != 0U, 0L);
+  tmp___5 = ldv__builtin_expect((nfs_debug & 256U) != 0U, 0L);
 #line 310
   if (tmp___5 != 0L) {
 #line 310
@@ -56956,7 +56956,7 @@ static void nfs_callback_down_net(u32 minorversion , struct svc_serv *serv , str
 
   }
 #line 321
-  tmp___0 = __builtin_expect((nfs_debug & 256U) != 0U, 0L);
+  tmp___0 = ldv__builtin_expect((nfs_debug & 256U) != 0U, 0L);
 #line 321
   if (tmp___0 != 0L) {
 #line 321
@@ -56997,7 +56997,7 @@ static int nfs_callback_up_net(int minorversion , struct svc_serv *serv , struct
 
   }
 #line 333
-  tmp___1 = __builtin_expect((nfs_debug & 256U) != 0U, 0L);
+  tmp___1 = ldv__builtin_expect((nfs_debug & 256U) != 0U, 0L);
 #line 333
   if (tmp___1 != 0L) {
 #line 333
@@ -57053,7 +57053,7 @@ static int nfs_callback_up_net(int minorversion , struct svc_serv *serv , struct
   svc_rpcb_cleanup(serv, net);
   err_bind: 
 #line 364
-  tmp___2 = __builtin_expect((nfs_debug & 256U) != 0U, 0L);
+  tmp___2 = ldv__builtin_expect((nfs_debug & 256U) != 0U, 0L);
 #line 364
   if (tmp___2 != 0L) {
 #line 364
@@ -57109,7 +57109,7 @@ static struct svc_serv *nfs_callback_create_svc(int minorversion )
 #line 402
   serv->sv_maxconn = 1024U;
 #line 403
-  tmp___0 = __builtin_expect((nfs_debug & 256U) != 0U, 0L);
+  tmp___0 = ldv__builtin_expect((nfs_debug & 256U) != 0U, 0L);
 #line 403
   if (tmp___0 != 0L) {
 #line 403
@@ -57186,7 +57186,7 @@ int nfs_callback_up(u32 minorversion , struct rpc_xprt *xprt )
 #line 447
   nfs_callback_down_net(minorversion, serv, net);
 #line 448
-  tmp___1 = __builtin_expect((nfs_debug & 256U) != 0U, 0L);
+  tmp___1 = ldv__builtin_expect((nfs_debug & 256U) != 0U, 0L);
 #line 448
   if (tmp___1 != 0L) {
 #line 448
@@ -57219,7 +57219,7 @@ void nfs_callback_down(int minorversion , struct net *net )
 #line 463
     kthread_stop(cb_info->task);
 #line 464
-    tmp = __builtin_expect((nfs_debug & 256U) != 0U, 0L);
+    tmp = ldv__builtin_expect((nfs_debug & 256U) != 0U, 0L);
 #line 464
     if (tmp != 0L) {
 #line 464
@@ -57230,7 +57230,7 @@ void nfs_callback_down(int minorversion , struct net *net )
 #line 465
     svc_exit_thread(cb_info->rqst);
 #line 466
-    tmp___0 = __builtin_expect((nfs_debug & 256U) != 0U, 0L);
+    tmp___0 = ldv__builtin_expect((nfs_debug & 256U) != 0U, 0L);
 #line 466
     if (tmp___0 != 0L) {
 #line 466
@@ -57687,7 +57687,7 @@ static __be32 *read_buf(struct xdr_stream *xdr , int nbytes )
 #line 141
   p = xdr_inline_decode(xdr, (size_t )nbytes);
 #line 142
-  tmp = __builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0), 0L);
+  tmp = ldv__builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0), 0L);
 #line 142
   if (tmp != 0L) {
 #line 143
@@ -57711,7 +57711,7 @@ static __be32 decode_string(struct xdr_stream *xdr , unsigned int *len , char co
 #line 151
   p = read_buf(xdr, 4);
 #line 152
-  tmp = __builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0), 0L);
+  tmp = ldv__builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0), 0L);
 #line 152
   if (tmp != 0L) {
 #line 153
@@ -57728,7 +57728,7 @@ static __be32 decode_string(struct xdr_stream *xdr , unsigned int *len , char co
 #line 157
     p = read_buf(xdr, (int )*len);
 #line 158
-    tmp___1 = __builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0),
+    tmp___1 = ldv__builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0),
                                0L);
 #line 158
     if (tmp___1 != 0L) {
@@ -57761,7 +57761,7 @@ static __be32 decode_fh(struct xdr_stream *xdr , struct nfs_fh *fh )
 #line 171
   p = read_buf(xdr, 4);
 #line 172
-  tmp = __builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0), 0L);
+  tmp = ldv__builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0), 0L);
 #line 172
   if (tmp != 0L) {
 #line 173
@@ -57783,7 +57783,7 @@ static __be32 decode_fh(struct xdr_stream *xdr , struct nfs_fh *fh )
 #line 177
   p = read_buf(xdr, (int )fh->size);
 #line 178
-  tmp___1 = __builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0), 0L);
+  tmp___1 = ldv__builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0), 0L);
 #line 178
   if (tmp___1 != 0L) {
 #line 179
@@ -57818,7 +57818,7 @@ static __be32 decode_bitmap(struct xdr_stream *xdr , uint32_t *bitmap )
 #line 190
   p = read_buf(xdr, 4);
 #line 191
-  tmp = __builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0), 0L);
+  tmp = ldv__builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0), 0L);
 #line 191
   if (tmp != 0L) {
 #line 192
@@ -57833,7 +57833,7 @@ static __be32 decode_bitmap(struct xdr_stream *xdr , uint32_t *bitmap )
 #line 194
   p = read_buf(xdr, (int )(attrlen << 2));
 #line 195
-  tmp___1 = __builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0), 0L);
+  tmp___1 = ldv__builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0), 0L);
 #line 195
   if (tmp___1 != 0L) {
 #line 196
@@ -57842,7 +57842,7 @@ static __be32 decode_bitmap(struct xdr_stream *xdr , uint32_t *bitmap )
 
   }
 #line 197
-  tmp___4 = __builtin_expect(attrlen != 0U, 1L);
+  tmp___4 = ldv__builtin_expect(attrlen != 0U, 1L);
 #line 197
   if (tmp___4 != 0L) {
 #line 198
@@ -57881,7 +57881,7 @@ static __be32 decode_stateid___0(struct xdr_stream *xdr , nfs4_stateid *stateid 
 #line 208
   p = read_buf(xdr, 16);
 #line 209
-  tmp = __builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0), 0L);
+  tmp = ldv__builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0), 0L);
 #line 209
   if (tmp != 0L) {
 #line 210
@@ -57923,7 +57923,7 @@ static __be32 decode_compound_hdr_arg(struct xdr_stream *xdr , struct cb_compoun
 #line 220
   status = decode_string(xdr, & hdr->taglen, & hdr->tag);
 #line 221
-  tmp = __builtin_expect(status != 0U, 0L);
+  tmp = ldv__builtin_expect(status != 0U, 0L);
 #line 221
   if (tmp != 0L) {
 #line 222
@@ -57944,7 +57944,7 @@ static __be32 decode_compound_hdr_arg(struct xdr_stream *xdr , struct cb_compoun
 #line 229
   p = read_buf(xdr, 12);
 #line 230
-  tmp___0 = __builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0), 0L);
+  tmp___0 = ldv__builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0), 0L);
 #line 230
   if (tmp___0 != 0L) {
 #line 231
@@ -58019,7 +58019,7 @@ static __be32 decode_compound_hdr_arg(struct xdr_stream *xdr , struct cb_compoun
 #line 242
   hdr->nops = tmp___6;
 #line 243
-  tmp___7 = __builtin_expect((nfs_debug & 256U) != 0U, 0L);
+  tmp___7 = ldv__builtin_expect((nfs_debug & 256U) != 0U, 0L);
 #line 243
   if (tmp___7 != 0L) {
 #line 243
@@ -58043,7 +58043,7 @@ static __be32 decode_op_hdr___0(struct xdr_stream *xdr , unsigned int *op )
 #line 251
   p = read_buf(xdr, 4);
 #line 252
-  tmp = __builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0), 0L);
+  tmp = ldv__builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0), 0L);
 #line 252
   if (tmp != 0L) {
 #line 253
@@ -58072,7 +58072,7 @@ static __be32 decode_getattr_args(struct svc_rqst *rqstp , struct xdr_stream *xd
 #line 262
   status = decode_fh(xdr, & args->fh);
 #line 263
-  tmp = __builtin_expect(status != 0U, 0L);
+  tmp = ldv__builtin_expect(status != 0U, 0L);
 #line 263
   if (tmp != 0L) {
 #line 264
@@ -58086,7 +58086,7 @@ static __be32 decode_getattr_args(struct svc_rqst *rqstp , struct xdr_stream *xd
   status = decode_bitmap(xdr, (uint32_t *)(& args->bitmap));
   out: 
 #line 268
-  tmp___1 = __builtin_expect((nfs_debug & 256U) != 0U, 0L);
+  tmp___1 = ldv__builtin_expect((nfs_debug & 256U) != 0U, 0L);
 #line 268
   if (tmp___1 != 0L) {
 #line 268
@@ -58118,7 +58118,7 @@ static __be32 decode_recall_args(struct svc_rqst *rqstp , struct xdr_stream *xdr
 #line 278
   status = decode_stateid___0(xdr, & args->stateid);
 #line 279
-  tmp = __builtin_expect(status != 0U, 0L);
+  tmp = ldv__builtin_expect(status != 0U, 0L);
 #line 279
   if (tmp != 0L) {
 #line 280
@@ -58129,7 +58129,7 @@ static __be32 decode_recall_args(struct svc_rqst *rqstp , struct xdr_stream *xdr
 #line 281
   p = read_buf(xdr, 4);
 #line 282
-  tmp___0 = __builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0), 0L);
+  tmp___0 = ldv__builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0), 0L);
 #line 282
   if (tmp___0 != 0L) {
 #line 283
@@ -58147,7 +58147,7 @@ static __be32 decode_recall_args(struct svc_rqst *rqstp , struct xdr_stream *xdr
   status = decode_fh(xdr, & args->fh);
   out: 
 #line 289
-  tmp___3 = __builtin_expect((nfs_debug & 256U) != 0U, 0L);
+  tmp___3 = ldv__builtin_expect((nfs_debug & 256U) != 0U, 0L);
 #line 289
   if (tmp___3 != 0L) {
 #line 289
@@ -58193,7 +58193,7 @@ static __be32 decode_layoutrecall_args(struct svc_rqst *rqstp , struct xdr_strea
 #line 304
   p = read_buf(xdr, 16);
 #line 305
-  tmp = __builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0), 0L);
+  tmp = ldv__builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0), 0L);
 #line 305
   if (tmp != 0L) {
 #line 306
@@ -58242,7 +58242,7 @@ static __be32 decode_layoutrecall_args(struct svc_rqst *rqstp , struct xdr_strea
 #line 320
     status = decode_fh(xdr, & args->ldv_48220.ldv_48218.cbl_fh);
 #line 321
-    tmp___8 = __builtin_expect(status != 0U, 0L);
+    tmp___8 = ldv__builtin_expect(status != 0U, 0L);
 #line 321
     if (tmp___8 != 0L) {
 #line 322
@@ -58253,7 +58253,7 @@ static __be32 decode_layoutrecall_args(struct svc_rqst *rqstp , struct xdr_strea
 #line 324
     p = read_buf(xdr, 16);
 #line 325
-    tmp___9 = __builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0),
+    tmp___9 = ldv__builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0),
                                0L);
 #line 325
     if (tmp___9 != 0L) {
@@ -58271,7 +58271,7 @@ static __be32 decode_layoutrecall_args(struct svc_rqst *rqstp , struct xdr_strea
 #line 331
     status = decode_stateid___0(xdr, & args->ldv_48220.ldv_48218.cbl_stateid);
 #line 332
-    tmp___10 = __builtin_expect(status != 0U, 0L);
+    tmp___10 = ldv__builtin_expect(status != 0U, 0L);
 #line 332
     if (tmp___10 != 0L) {
 #line 333
@@ -58285,7 +58285,7 @@ static __be32 decode_layoutrecall_args(struct svc_rqst *rqstp , struct xdr_strea
 #line 335
     p = read_buf(xdr, 16);
 #line 336
-    tmp___11 = __builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0),
+    tmp___11 = ldv__builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0),
                                 0L);
 #line 336
     if (tmp___11 != 0L) {
@@ -58311,7 +58311,7 @@ static __be32 decode_layoutrecall_args(struct svc_rqst *rqstp , struct xdr_strea
 
   }
 #line 346
-  tmp___12 = __builtin_expect((nfs_debug & 256U) != 0U, 0L);
+  tmp___12 = ldv__builtin_expect((nfs_debug & 256U) != 0U, 0L);
 #line 346
   if (tmp___12 != 0L) {
 #line 346
@@ -58322,7 +58322,7 @@ static __be32 decode_layoutrecall_args(struct svc_rqst *rqstp , struct xdr_strea
   }
   out: 
 #line 351
-  tmp___14 = __builtin_expect((nfs_debug & 256U) != 0U, 0L);
+  tmp___14 = ldv__builtin_expect((nfs_debug & 256U) != 0U, 0L);
 #line 351
   if (tmp___14 != 0L) {
 #line 351
@@ -58376,7 +58376,7 @@ static __be32 decode_devicenotify_args(struct svc_rqst *rqstp , struct xdr_strea
 #line 367
   p = read_buf(xdr, 4);
 #line 368
-  tmp___0 = __builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0), 0L);
+  tmp___0 = ldv__builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0), 0L);
 #line 368
   if (tmp___0 != 0L) {
 #line 369
@@ -58433,7 +58433,7 @@ static __be32 decode_devicenotify_args(struct svc_rqst *rqstp , struct xdr_strea
 #line 390
   p = read_buf(xdr, 32);
 #line 391
-  tmp___4 = __builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0), 0L);
+  tmp___4 = ldv__builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0), 0L);
 #line 391
   if (tmp___4 != 0L) {
 #line 392
@@ -58520,7 +58520,7 @@ static __be32 decode_devicenotify_args(struct svc_rqst *rqstp , struct xdr_strea
 #line 421
     p = read_buf(xdr, 4);
 #line 422
-    tmp___13 = __builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0),
+    tmp___13 = ldv__builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0),
                                 0L);
 #line 422
     if (tmp___13 != 0L) {
@@ -58546,7 +58546,7 @@ static __be32 decode_devicenotify_args(struct svc_rqst *rqstp , struct xdr_strea
 #line 431
   args->ndevs = args->ndevs + 1;
 #line 433
-  tmp___16 = __builtin_expect((nfs_debug & 256U) != 0U, 0L);
+  tmp___16 = ldv__builtin_expect((nfs_debug & 256U) != 0U, 0L);
 #line 433
   if (tmp___16 != 0L) {
 #line 433
@@ -58568,7 +58568,7 @@ static __be32 decode_devicenotify_args(struct svc_rqst *rqstp , struct xdr_strea
 
   out: 
 #line 438
-  tmp___18 = __builtin_expect((nfs_debug & 256U) != 0U, 0L);
+  tmp___18 = ldv__builtin_expect((nfs_debug & 256U) != 0U, 0L);
 #line 438
   if (tmp___18 != 0L) {
 #line 438
@@ -58603,7 +58603,7 @@ static __be32 decode_sessionid___0(struct xdr_stream *xdr , struct nfs4_sessioni
 #line 452
   p = read_buf(xdr, len);
 #line 453
-  tmp = __builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0), 0L);
+  tmp = ldv__builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0), 0L);
 #line 453
   if (tmp != 0L) {
 #line 454
@@ -58651,7 +58651,7 @@ static __be32 decode_rc_list(struct xdr_stream *xdr , struct referring_call_list
 #line 472
   p = read_buf(xdr, 4);
 #line 473
-  tmp = __builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0), 0L);
+  tmp = ldv__builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0), 0L);
 #line 473
   if (tmp != 0L) {
 #line 474
@@ -58672,7 +58672,7 @@ static __be32 decode_rc_list(struct xdr_stream *xdr , struct referring_call_list
 #line 478
     p = read_buf(xdr, (int )(rc_list->rcl_nrefcalls * 8U));
 #line 480
-    tmp___2 = __builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0),
+    tmp___2 = ldv__builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0),
                                0L);
 #line 480
     if (tmp___2 != 0L) {
@@ -58686,7 +58686,7 @@ static __be32 decode_rc_list(struct xdr_stream *xdr , struct referring_call_list
 #line 482
     rc_list->rcl_refcalls = (struct referring_call *)tmp___3;
 #line 485
-    tmp___4 = __builtin_expect((unsigned long )rc_list->rcl_refcalls == (unsigned long )((struct referring_call *)0),
+    tmp___4 = ldv__builtin_expect((unsigned long )rc_list->rcl_refcalls == (unsigned long )((struct referring_call *)0),
                                0L);
 #line 485
     if (tmp___4 != 0L) {
@@ -58776,7 +58776,7 @@ static __be32 decode_cb_sequence_args(struct svc_rqst *rqstp , struct xdr_stream
 #line 511
   p = read_buf(xdr, 20);
 #line 512
-  tmp = __builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0), 0L);
+  tmp = ldv__builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0), 0L);
 #line 512
   if (tmp != 0L) {
 #line 513
@@ -58835,7 +58835,7 @@ static __be32 decode_cb_sequence_args(struct svc_rqst *rqstp , struct xdr_stream
 #line 523
     args->csa_rclists = (struct referring_call_list *)tmp___10;
 #line 526
-    tmp___11 = __builtin_expect((unsigned long )args->csa_rclists == (unsigned long )((struct referring_call_list *)0),
+    tmp___11 = ldv__builtin_expect((unsigned long )args->csa_rclists == (unsigned long )((struct referring_call_list *)0),
                                 0L);
 #line 526
     if (tmp___11 != 0L) {
@@ -58875,7 +58875,7 @@ static __be32 decode_cb_sequence_args(struct svc_rqst *rqstp , struct xdr_stream
 #line 535
   status = 0U;
 #line 537
-  tmp___12 = __builtin_expect((nfs_debug & 256U) != 0U, 0L);
+  tmp___12 = ldv__builtin_expect((nfs_debug & 256U) != 0U, 0L);
 #line 537
   if (tmp___12 != 0L) {
 #line 537
@@ -58889,7 +58889,7 @@ static __be32 decode_cb_sequence_args(struct svc_rqst *rqstp , struct xdr_stream
   }
   out: 
 #line 548
-  tmp___14 = __builtin_expect((nfs_debug & 256U) != 0U, 0L);
+  tmp___14 = ldv__builtin_expect((nfs_debug & 256U) != 0U, 0L);
 #line 548
   if (tmp___14 != 0L) {
 #line 548
@@ -58943,7 +58943,7 @@ static __be32 decode_recallany_args(struct svc_rqst *rqstp , struct xdr_stream *
 #line 566
   p = read_buf(xdr, 4);
 #line 567
-  tmp = __builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0), 0L);
+  tmp = ldv__builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0), 0L);
 #line 567
   if (tmp != 0L) {
 #line 568
@@ -58962,7 +58962,7 @@ static __be32 decode_recallany_args(struct svc_rqst *rqstp , struct xdr_stream *
 #line 570
   status = decode_bitmap(xdr, (uint32_t *)(& bitmap));
 #line 571
-  tmp___2 = __builtin_expect(status != 0U, 0L);
+  tmp___2 = ldv__builtin_expect(status != 0U, 0L);
 #line 571
   if (tmp___2 != 0L) {
 #line 572
@@ -58991,7 +58991,7 @@ static __be32 decode_recallslot_args(struct svc_rqst *rqstp , struct xdr_stream 
 #line 585
   p = read_buf(xdr, 4);
 #line 586
-  tmp = __builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0), 0L);
+  tmp = ldv__builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0), 0L);
 #line 586
   if (tmp != 0L) {
 #line 587
@@ -59021,7 +59021,7 @@ static __be32 encode_string___0(struct xdr_stream *xdr , unsigned int len , char
 #line 598
   p = xdr_reserve_space(xdr, (size_t )(len + 4U));
 #line 599
-  tmp = __builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0), 0L);
+  tmp = ldv__builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0), 0L);
 #line 599
   if (tmp != 0L) {
 #line 600
@@ -59067,7 +59067,7 @@ static __be32 encode_attr_bitmap(struct xdr_stream *xdr , uint32_t const   *bitm
 #line 615
     p = xdr_reserve_space(xdr, 16UL);
 #line 616
-    tmp___1 = __builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0),
+    tmp___1 = ldv__builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0),
                                0L);
 #line 616
     if (tmp___1 != 0L) {
@@ -59100,7 +59100,7 @@ static __be32 encode_attr_bitmap(struct xdr_stream *xdr , uint32_t const   *bitm
 #line 622
     p = xdr_reserve_space(xdr, 12UL);
 #line 623
-    tmp___5 = __builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0),
+    tmp___5 = ldv__builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0),
                                0L);
 #line 623
     if (tmp___5 != 0L) {
@@ -59125,7 +59125,7 @@ static __be32 encode_attr_bitmap(struct xdr_stream *xdr , uint32_t const   *bitm
 #line 628
     p = xdr_reserve_space(xdr, 8UL);
 #line 629
-    tmp___8 = __builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0),
+    tmp___8 = ldv__builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0),
                                0L);
 #line 629
     if (tmp___8 != 0L) {
@@ -59165,7 +59165,7 @@ static __be32 encode_attr_change(struct xdr_stream *xdr , uint32_t const   *bitm
 #line 643
   p = xdr_reserve_space(xdr, 8UL);
 #line 644
-  tmp = __builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0), 0L);
+  tmp = ldv__builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0), 0L);
 #line 644
   if (tmp != 0L) {
 #line 645
@@ -59197,7 +59197,7 @@ static __be32 encode_attr_size(struct xdr_stream *xdr , uint32_t const   *bitmap
 #line 656
   p = xdr_reserve_space(xdr, 8UL);
 #line 657
-  tmp = __builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0), 0L);
+  tmp = ldv__builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0), 0L);
 #line 657
   if (tmp != 0L) {
 #line 658
@@ -59222,7 +59222,7 @@ static __be32 encode_attr_time(struct xdr_stream *xdr , struct timespec  const  
 #line 667
   p = xdr_reserve_space(xdr, 12UL);
 #line 668
-  tmp = __builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0), 0L);
+  tmp = ldv__builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0), 0L);
 #line 668
   if (tmp != 0L) {
 #line 669
@@ -59292,7 +59292,7 @@ static __be32 encode_compound_hdr_res(struct xdr_stream *xdr , struct cb_compoun
 #line 693
   hdr->status = xdr_reserve_space(xdr, 4UL);
 #line 694
-  tmp = __builtin_expect((unsigned long )hdr->status == (unsigned long )((__be32 *)0),
+  tmp = ldv__builtin_expect((unsigned long )hdr->status == (unsigned long )((__be32 *)0),
                          0L);
 #line 694
   if (tmp != 0L) {
@@ -59304,7 +59304,7 @@ static __be32 encode_compound_hdr_res(struct xdr_stream *xdr , struct cb_compoun
 #line 696
   status = encode_string___0(xdr, hdr->taglen, hdr->tag);
 #line 697
-  tmp___0 = __builtin_expect(status != 0U, 0L);
+  tmp___0 = ldv__builtin_expect(status != 0U, 0L);
 #line 697
   if (tmp___0 != 0L) {
 #line 698
@@ -59315,7 +59315,7 @@ static __be32 encode_compound_hdr_res(struct xdr_stream *xdr , struct cb_compoun
 #line 699
   hdr->nops = xdr_reserve_space(xdr, 4UL);
 #line 700
-  tmp___1 = __builtin_expect((unsigned long )hdr->nops == (unsigned long )((__be32 *)0),
+  tmp___1 = ldv__builtin_expect((unsigned long )hdr->nops == (unsigned long )((__be32 *)0),
                              0L);
 #line 700
   if (tmp___1 != 0L) {
@@ -59340,7 +59340,7 @@ static __be32 encode_op_hdr___0(struct xdr_stream *xdr , uint32_t op , __be32 re
 #line 709
   p = xdr_reserve_space(xdr, 8UL);
 #line 710
-  tmp = __builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0), 0L);
+  tmp = ldv__builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0), 0L);
 #line 710
   if (tmp != 0L) {
 #line 711
@@ -59383,7 +59383,7 @@ static __be32 encode_getattr_res(struct svc_rqst *rqstp , struct xdr_stream *xdr
 #line 720
   status = res->status;
 #line 722
-  tmp = __builtin_expect(status != 0U, 0L);
+  tmp = ldv__builtin_expect(status != 0U, 0L);
 #line 722
   if (tmp != 0L) {
 #line 723
@@ -59394,7 +59394,7 @@ static __be32 encode_getattr_res(struct svc_rqst *rqstp , struct xdr_stream *xdr
 #line 724
   status = encode_attr_bitmap(xdr, (uint32_t const   *)(& res->bitmap), & savep);
 #line 725
-  tmp___0 = __builtin_expect(status != 0U, 0L);
+  tmp___0 = ldv__builtin_expect(status != 0U, 0L);
 #line 725
   if (tmp___0 != 0L) {
 #line 726
@@ -59405,7 +59405,7 @@ static __be32 encode_getattr_res(struct svc_rqst *rqstp , struct xdr_stream *xdr
 #line 727
   status = encode_attr_change(xdr, (uint32_t const   *)(& res->bitmap), res->change_attr);
 #line 728
-  tmp___1 = __builtin_expect(status != 0U, 0L);
+  tmp___1 = ldv__builtin_expect(status != 0U, 0L);
 #line 728
   if (tmp___1 != 0L) {
 #line 729
@@ -59416,7 +59416,7 @@ static __be32 encode_getattr_res(struct svc_rqst *rqstp , struct xdr_stream *xdr
 #line 730
   status = encode_attr_size(xdr, (uint32_t const   *)(& res->bitmap), res->size);
 #line 731
-  tmp___2 = __builtin_expect(status != 0U, 0L);
+  tmp___2 = ldv__builtin_expect(status != 0U, 0L);
 #line 731
   if (tmp___2 != 0L) {
 #line 732
@@ -59427,7 +59427,7 @@ static __be32 encode_getattr_res(struct svc_rqst *rqstp , struct xdr_stream *xdr
 #line 733
   status = encode_attr_ctime(xdr, (uint32_t const   *)(& res->bitmap), & res->ctime);
 #line 734
-  tmp___3 = __builtin_expect(status != 0U, 0L);
+  tmp___3 = ldv__builtin_expect(status != 0U, 0L);
 #line 734
   if (tmp___3 != 0L) {
 #line 735
@@ -59443,7 +59443,7 @@ static __be32 encode_getattr_res(struct svc_rqst *rqstp , struct xdr_stream *xdr
   *savep = tmp___4;
   out: 
 #line 739
-  tmp___6 = __builtin_expect((nfs_debug & 256U) != 0U, 0L);
+  tmp___6 = ldv__builtin_expect((nfs_debug & 256U) != 0U, 0L);
 #line 739
   if (tmp___6 != 0L) {
 #line 739
@@ -59472,7 +59472,7 @@ static __be32 encode_sessionid(struct xdr_stream *xdr , struct nfs4_sessionid  c
 #line 751
   p = xdr_reserve_space(xdr, (size_t )len);
 #line 752
-  tmp = __builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0), 0L);
+  tmp = ldv__builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0), 0L);
 #line 752
   if (tmp != 0L) {
 #line 753
@@ -59511,7 +59511,7 @@ static __be32 encode_cb_sequence_res(struct svc_rqst *rqstp , struct xdr_stream 
 #line 764
   status = res->csr_status;
 #line 766
-  tmp = __builtin_expect(status != 0U, 0L);
+  tmp = ldv__builtin_expect(status != 0U, 0L);
 #line 766
   if (tmp != 0L) {
 #line 767
@@ -59524,7 +59524,7 @@ static __be32 encode_cb_sequence_res(struct svc_rqst *rqstp , struct xdr_stream 
 #line 771
   p = xdr_reserve_space(xdr, 16UL);
 #line 772
-  tmp___0 = __builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0), 0L);
+  tmp___0 = ldv__builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0), 0L);
 #line 772
   if (tmp___0 != 0L) {
 #line 773
@@ -59566,7 +59566,7 @@ static __be32 encode_cb_sequence_res(struct svc_rqst *rqstp , struct xdr_stream 
   *tmp___7 = tmp___8;
   out: 
 #line 780
-  tmp___10 = __builtin_expect((nfs_debug & 256U) != 0U, 0L);
+  tmp___10 = ldv__builtin_expect((nfs_debug & 256U) != 0U, 0L);
 #line 780
   if (tmp___10 != 0L) {
 #line 780
@@ -59716,7 +59716,7 @@ static __be32 process_op(uint32_t minorversion , int nop , struct svc_rqst *rqst
 #line 874
   op = (struct callback_op *)(& callback_ops);
 #line 880
-  tmp = __builtin_expect((nfs_debug & 256U) != 0U, 0L);
+  tmp = ldv__builtin_expect((nfs_debug & 256U) != 0U, 0L);
 #line 880
   if (tmp != 0L) {
 #line 880
@@ -59727,7 +59727,7 @@ static __be32 process_op(uint32_t minorversion , int nop , struct svc_rqst *rqst
 #line 881
   status = decode_op_hdr___0(xdr_in, & op_nr);
 #line 882
-  tmp___0 = __builtin_expect(status != 0U, 0L);
+  tmp___0 = ldv__builtin_expect(status != 0U, 0L);
 #line 882
   if (tmp___0 != 0L) {
 #line 883
@@ -59736,7 +59736,7 @@ static __be32 process_op(uint32_t minorversion , int nop , struct svc_rqst *rqst
 
   }
 #line 885
-  tmp___1 = __builtin_expect((nfs_debug & 256U) != 0U, 0L);
+  tmp___1 = ldv__builtin_expect((nfs_debug & 256U) != 0U, 0L);
 #line 885
   if (tmp___1 != 0L) {
 #line 885
@@ -59787,7 +59787,7 @@ static __be32 process_op(uint32_t minorversion , int nop , struct svc_rqst *rqst
 #line 902
     status = (*(op->decode_args))(rqstp, xdr_in, argp);
 #line 903
-    tmp___4 = __builtin_expect(status == 0U, 1L);
+    tmp___4 = ldv__builtin_expect(status == 0U, 1L);
 #line 903
     if (tmp___4 != 0L) {
 #line 904
@@ -59803,7 +59803,7 @@ static __be32 process_op(uint32_t minorversion , int nop , struct svc_rqst *rqst
 #line 909
   res = encode_op_hdr___0(xdr_out, op_nr, status);
 #line 910
-  tmp___5 = __builtin_expect(res != 0U, 0L);
+  tmp___5 = ldv__builtin_expect(res != 0U, 0L);
 #line 910
   if (tmp___5 != 0L) {
 #line 911
@@ -59821,7 +59821,7 @@ static __be32 process_op(uint32_t minorversion , int nop , struct svc_rqst *rqst
 
   }
 #line 914
-  tmp___7 = __builtin_expect((nfs_debug & 256U) != 0U, 0L);
+  tmp___7 = ldv__builtin_expect((nfs_debug & 256U) != 0U, 0L);
 #line 914
   if (tmp___7 != 0L) {
 #line 914
@@ -59884,7 +59884,7 @@ static __be32 nfs4_callback_compound(struct svc_rqst *rqstp , void *argp , void 
 #line 933
   nops = 0U;
 #line 935
-  tmp = __builtin_expect((nfs_debug & 256U) != 0U, 0L);
+  tmp = ldv__builtin_expect((nfs_debug & 256U) != 0U, 0L);
 #line 935
   if (tmp != 0L) {
 #line 935
@@ -59959,7 +59959,7 @@ static __be32 nfs4_callback_compound(struct svc_rqst *rqstp , void *argp , void 
 
   }
 #line 965
-  tmp___2 = __builtin_expect(status == 707461120U, 0L);
+  tmp___2 = ldv__builtin_expect(status == 707461120U, 0L);
 #line 965
   if (tmp___2 != 0L) {
 #line 966
@@ -59980,7 +59980,7 @@ static __be32 nfs4_callback_compound(struct svc_rqst *rqstp , void *argp , void 
 #line 973
   nfs_put_client(cps.clp);
 #line 974
-  tmp___5 = __builtin_expect((nfs_debug & 256U) != 0U, 0L);
+  tmp___5 = ldv__builtin_expect((nfs_debug & 256U) != 0U, 0L);
 #line 974
   if (tmp___5 != 0L) {
 #line 974
@@ -60396,7 +60396,7 @@ __be32 nfs4_callback_getattr(struct cb_getattrargs *args , struct cb_getattrres 
 #line 100
   res->status = 287768576U;
 #line 102
-  tmp___1 = __builtin_expect((nfs_debug & 256U) != 0U, 0L);
+  tmp___1 = ldv__builtin_expect((nfs_debug & 256U) != 0U, 0L);
 #line 102
   if (tmp___1 != 0L) {
 #line 102
@@ -60483,7 +60483,7 @@ __be32 nfs4_callback_getattr(struct cb_getattrargs *args , struct cb_getattrres 
   iput(inode);
   out: 
 #line 128
-  tmp___6 = __builtin_expect((nfs_debug & 256U) != 0U, 0L);
+  tmp___6 = ldv__builtin_expect((nfs_debug & 256U) != 0U, 0L);
 #line 128
   if (tmp___6 != 0L) {
 #line 128
@@ -60519,7 +60519,7 @@ __be32 nfs4_callback_recall(struct cb_recallargs *args , void *dummy , struct cb
 
   }
 #line 142
-  tmp___0 = __builtin_expect((nfs_debug & 256U) != 0U, 0L);
+  tmp___0 = ldv__builtin_expect((nfs_debug & 256U) != 0U, 0L);
 #line 142
   if (tmp___0 != 0L) {
 #line 142
@@ -60567,7 +60567,7 @@ __be32 nfs4_callback_recall(struct cb_recallargs *args , void *dummy , struct cb
   iput(inode);
   out: 
 #line 162
-  tmp___3 = __builtin_expect((nfs_debug & 256U) != 0U, 0L);
+  tmp___3 = ldv__builtin_expect((nfs_debug & 256U) != 0U, 0L);
 #line 162
   if (tmp___3 != 0L) {
 #line 162
@@ -61029,7 +61029,7 @@ static u32 do_callback_layoutrecall(struct nfs_client *clp , struct cb_layoutrec
 
   {
 #line 311
-  tmp = __builtin_expect((nfs_debug & 256U) != 0U, 0L);
+  tmp = ldv__builtin_expect((nfs_debug & 256U) != 0U, 0L);
 #line 311
   if (tmp != 0L) {
 #line 311
@@ -61046,7 +61046,7 @@ static u32 do_callback_layoutrecall(struct nfs_client *clp , struct cb_layoutrec
     res = initiate_bulk_draining(clp, args);
   }
 #line 316
-  tmp___0 = __builtin_expect((nfs_debug & 256U) != 0U, 0L);
+  tmp___0 = ldv__builtin_expect((nfs_debug & 256U) != 0U, 0L);
 #line 316
   if (tmp___0 != 0L) {
 #line 316
@@ -61069,7 +61069,7 @@ __be32 nfs4_callback_layoutrecall(struct cb_layoutrecallargs *args , void *dummy
 
   {
 #line 326
-  tmp = __builtin_expect((nfs_debug & 256U) != 0U, 0L);
+  tmp = ldv__builtin_expect((nfs_debug & 256U) != 0U, 0L);
 #line 326
   if (tmp != 0L) {
 #line 326
@@ -61086,7 +61086,7 @@ __be32 nfs4_callback_layoutrecall(struct cb_layoutrecallargs *args , void *dummy
     res = 10071U;
   }
 #line 333
-  tmp___0 = __builtin_expect((nfs_debug & 256U) != 0U, 0L);
+  tmp___0 = ldv__builtin_expect((nfs_debug & 256U) != 0U, 0L);
 #line 333
   if (tmp___0 != 0L) {
 #line 333
@@ -61149,7 +61149,7 @@ __be32 nfs4_callback_devicenotify(struct cb_devicenotifyargs *args , void *dummy
 #line 354
   server = 0;
 #line 356
-  tmp = __builtin_expect((nfs_debug & 256U) != 0U, 0L);
+  tmp = ldv__builtin_expect((nfs_debug & 256U) != 0U, 0L);
 #line 356
   if (tmp != 0L) {
 #line 356
@@ -61234,7 +61234,7 @@ __be32 nfs4_callback_devicenotify(struct cb_devicenotifyargs *args , void *dummy
 #line 375
     rcu_read_unlock___5();
 #line 376
-    tmp___2 = __builtin_expect((nfs_debug & 256U) != 0U, 0L);
+    tmp___2 = ldv__builtin_expect((nfs_debug & 256U) != 0U, 0L);
 #line 376
     if (tmp___2 != 0L) {
 #line 376
@@ -61252,7 +61252,7 @@ __be32 nfs4_callback_devicenotify(struct cb_devicenotifyargs *args , void *dummy
 #line 382
   if (dev->cbd_notify_type == 2U) {
 #line 383
-    tmp___3 = __builtin_expect((nfs_debug & 256U) != 0U, 0L);
+    tmp___3 = ldv__builtin_expect((nfs_debug & 256U) != 0U, 0L);
 #line 383
     if (tmp___3 != 0L) {
 #line 383
@@ -61283,7 +61283,7 @@ __be32 nfs4_callback_devicenotify(struct cb_devicenotifyargs *args , void *dummy
 #line 389
   kfree((void const   *)args->devs);
 #line 390
-  tmp___5 = __builtin_expect((nfs_debug & 256U) != 0U, 0L);
+  tmp___5 = ldv__builtin_expect((nfs_debug & 256U) != 0U, 0L);
 #line 390
   if (tmp___5 != 0L) {
 #line 390
@@ -61308,7 +61308,7 @@ static __be32 validate_seqid(struct nfs4_slot_table *tbl , struct cb_sequencearg
 
   {
 #line 413
-  tmp = __builtin_expect((nfs_debug & 256U) != 0U, 0L);
+  tmp = ldv__builtin_expect((nfs_debug & 256U) != 0U, 0L);
 #line 413
   if (tmp != 0L) {
 #line 413
@@ -61327,7 +61327,7 @@ static __be32 validate_seqid(struct nfs4_slot_table *tbl , struct cb_sequencearg
 #line 419
   slot = tbl->slots + (unsigned long )args->csa_slotid;
 #line 420
-  tmp___0 = __builtin_expect((nfs_debug & 256U) != 0U, 0L);
+  tmp___0 = ldv__builtin_expect((nfs_debug & 256U) != 0U, 0L);
 #line 420
   if (tmp___0 != 0L) {
 #line 420
@@ -61336,7 +61336,7 @@ static __be32 validate_seqid(struct nfs4_slot_table *tbl , struct cb_sequencearg
 
   }
 #line 423
-  tmp___1 = __builtin_expect(args->csa_sequenceid == slot->seq_nr + 1U, 1L);
+  tmp___1 = ldv__builtin_expect(args->csa_sequenceid == slot->seq_nr + 1U, 1L);
 #line 423
   if (tmp___1 != 0L) {
 #line 424
@@ -61349,7 +61349,7 @@ static __be32 validate_seqid(struct nfs4_slot_table *tbl , struct cb_sequencearg
 #line 429
   if (args->csa_sequenceid == slot->seq_nr) {
 #line 430
-    tmp___2 = __builtin_expect((nfs_debug & 256U) != 0U, 0L);
+    tmp___2 = ldv__builtin_expect((nfs_debug & 256U) != 0U, 0L);
 #line 430
     if (tmp___2 != 0L) {
 #line 430
@@ -61436,7 +61436,7 @@ static bool referring_call_exists(struct nfs_client *clp , uint32_t nrclists , s
 #line 485
   ref = rclist->rcl_refcalls + (unsigned long )j;
 #line 487
-  tmp___0 = __builtin_expect((nfs_debug & 256U) != 0U, 0L);
+  tmp___0 = ldv__builtin_expect((nfs_debug & 256U) != 0U, 0L);
 #line 487
   if (tmp___0 != 0L) {
 #line 487
@@ -61623,7 +61623,7 @@ __be32 nfs4_callback_sequence(struct cb_sequenceargs *args , struct cb_sequencer
     res->csr_status = status;
   }
 #line 573
-  tmp___4 = __builtin_expect((nfs_debug & 256U) != 0U, 0L);
+  tmp___4 = ldv__builtin_expect((nfs_debug & 256U) != 0U, 0L);
 #line 573
   if (tmp___4 != 0L) {
 #line 573
@@ -61678,7 +61678,7 @@ __be32 nfs4_callback_recallany(struct cb_recallanyargs *args , void *dummy , str
 
   }
 #line 594
-  tmp___0 = __builtin_expect((nfs_debug & 256U) != 0U, 0L);
+  tmp___0 = ldv__builtin_expect((nfs_debug & 256U) != 0U, 0L);
 #line 594
   if (tmp___0 != 0L) {
 #line 594
@@ -61749,7 +61749,7 @@ __be32 nfs4_callback_recallany(struct cb_recallanyargs *args , void *dummy , str
   }
   out: 
 #line 614
-  tmp___7 = __builtin_expect((nfs_debug & 256U) != 0U, 0L);
+  tmp___7 = ldv__builtin_expect((nfs_debug & 256U) != 0U, 0L);
 #line 614
   if (tmp___7 != 0L) {
 #line 614
@@ -61784,7 +61784,7 @@ __be32 nfs4_callback_recallslot(struct cb_recallslotargs *args , void *dummy , s
 
   }
 #line 629
-  tmp___0 = __builtin_expect((nfs_debug & 256U) != 0U, 0L);
+  tmp___0 = ldv__builtin_expect((nfs_debug & 256U) != 0U, 0L);
 #line 629
   if (tmp___0 != 0L) {
 #line 629
@@ -61809,7 +61809,7 @@ __be32 nfs4_callback_recallslot(struct cb_recallslotargs *args , void *dummy , s
   nfs41_server_notify_target_slotid_update(cps->clp);
   out: 
 #line 640
-  tmp___2 = __builtin_expect((nfs_debug & 256U) != 0U, 0L);
+  tmp___2 = ldv__builtin_expect((nfs_debug & 256U) != 0U, 0L);
 #line 640
   if (tmp___2 != 0L) {
 #line 640
@@ -62247,7 +62247,7 @@ static int nfs4_validate_fspath(struct dentry *dentry , struct nfs4_fs_locations
 #line 176
   if (tmp___7 != 0) {
 #line 177
-    tmp___5 = __builtin_expect((long )((int )nfs_debug) & 1L, 0L);
+    tmp___5 = ldv__builtin_expect((long )((int )nfs_debug) & 1L, 0L);
 #line 177
     if (tmp___5 != 0L) {
 #line 177
@@ -62626,7 +62626,7 @@ static struct vfsmount *nfs_follow_referral(struct dentry *dentry , struct nfs4_
 
   }
 #line 343
-  tmp___1 = __builtin_expect((long )((int )nfs_debug) & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )((int )nfs_debug) & 1L, 0L);
 #line 343
   if (tmp___1 != 0L) {
 #line 343
@@ -62713,7 +62713,7 @@ static struct vfsmount *nfs_follow_referral(struct dentry *dentry , struct nfs4_
 #line 375
   free_pages((unsigned long )page2, 0U);
 #line 376
-  tmp___6 = __builtin_expect((long )((int )nfs_debug) & 1L, 0L);
+  tmp___6 = ldv__builtin_expect((long )((int )nfs_debug) & 1L, 0L);
 #line 376
   if (tmp___6 != 0L) {
 #line 376
@@ -62748,7 +62748,7 @@ static struct vfsmount *nfs_do_refmount(struct rpc_clnt *client , struct dentry 
 #line 389
   fs_locations = 0;
 #line 394
-  tmp___0 = __builtin_expect((long )((int )nfs_debug) & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )((int )nfs_debug) & 1L, 0L);
 #line 394
   if (tmp___0 != 0L) {
 #line 394
@@ -62783,7 +62783,7 @@ static struct vfsmount *nfs_do_refmount(struct rpc_clnt *client , struct dentry 
 #line 407
   parent = dget_parent(dentry);
 #line 408
-  tmp___3 = __builtin_expect((long )((int )nfs_debug) & 1L, 0L);
+  tmp___3 = ldv__builtin_expect((long )((int )nfs_debug) & 1L, 0L);
 #line 408
   if (tmp___3 != 0L) {
 #line 408
@@ -62813,7 +62813,7 @@ static struct vfsmount *nfs_do_refmount(struct rpc_clnt *client , struct dentry 
   kfree((void const   *)fs_locations);
   out: 
 #line 423
-  tmp___4 = __builtin_expect((long )((int )nfs_debug) & 1L, 0L);
+  tmp___4 = ldv__builtin_expect((long )((int )nfs_debug) & 1L, 0L);
 #line 423
   if (tmp___4 != 0L) {
 #line 423
@@ -63046,7 +63046,7 @@ int nfs4_get_rootfh(struct nfs_server *server , struct nfs_fh *mntfh )
 #line 78
   ret = -12;
 #line 80
-  tmp = __builtin_expect((nfs_debug & 512U) != 0U, 0L);
+  tmp = ldv__builtin_expect((nfs_debug & 512U) != 0U, 0L);
 #line 80
   if (tmp != 0L) {
 #line 80
@@ -63068,7 +63068,7 @@ int nfs4_get_rootfh(struct nfs_server *server , struct nfs_fh *mntfh )
 #line 88
   if (ret < 0) {
 #line 89
-    tmp___0 = __builtin_expect((nfs_debug & 512U) != 0U, 0L);
+    tmp___0 = ldv__builtin_expect((nfs_debug & 512U) != 0U, 0L);
 #line 89
     if (tmp___0 != 0L) {
 #line 89
@@ -63119,7 +63119,7 @@ int nfs4_get_rootfh(struct nfs_server *server , struct nfs_fh *mntfh )
 #line 110
   nfs_free_fattr((struct nfs_fattr  const  *)fsinfo.fattr);
 #line 111
-  tmp___1 = __builtin_expect((nfs_debug & 512U) != 0U, 0L);
+  tmp___1 = ldv__builtin_expect((nfs_debug & 512U) != 0U, 0L);
 #line 111
   if (tmp___1 != 0L) {
 #line 111
@@ -63597,14 +63597,14 @@ __inline static void *net_generic___4(struct net  const  *net , int id )
 #line 40
   ng = _________p1;
 #line 41
-  tmp___1 = __builtin_expect(id == 0, 0L);
+  tmp___1 = ldv__builtin_expect(id == 0, 0L);
 #line 41
   if (tmp___1 != 0L) {
 #line 41
     goto _L;
   } else {
 #line 41
-    tmp___2 = __builtin_expect((unsigned int )id > ng->len, 0L);
+    tmp___2 = ldv__builtin_expect((unsigned int )id > ng->len, 0L);
 #line 41
     if (tmp___2 != 0L) {
       _L: /* CIL Label */ 
@@ -63623,7 +63623,7 @@ __inline static void *net_generic___4(struct net  const  *net , int id )
 #line 43
   rcu_read_unlock___6();
 #line 45
-  tmp___3 = __builtin_expect((unsigned long )ptr == (unsigned long )((void *)0), 0L);
+  tmp___3 = ldv__builtin_expect((unsigned long )ptr == (unsigned long )((void *)0), 0L);
 #line 45
   if (tmp___3 != 0L) {
 #line 45
@@ -63909,7 +63909,7 @@ static int nfs4_init_callback(struct nfs_client *clp )
 #line 196
     if (error < 0) {
 #line 197
-      tmp___1 = __builtin_expect((nfs_debug & 512U) != 0U, 0L);
+      tmp___1 = ldv__builtin_expect((nfs_debug & 512U) != 0U, 0L);
 #line 197
       if (tmp___1 != 0L) {
 #line 197
@@ -63985,7 +63985,7 @@ struct nfs_client *nfs4_init_client(struct nfs_client *clp , struct rpc_timeout 
 #line 256
   if (clp->cl_cons_state == 0) {
 #line 258
-    tmp = __builtin_expect((nfs_debug & 512U) != 0U, 0L);
+    tmp = ldv__builtin_expect((nfs_debug & 512U) != 0U, 0L);
 #line 258
     if (tmp != 0L) {
 #line 258
@@ -64047,7 +64047,7 @@ struct nfs_client *nfs4_init_client(struct nfs_client *clp , struct rpc_timeout 
 #line 286
   if (error < 0) {
 #line 287
-    tmp___1 = __builtin_expect((nfs_debug & 512U) != 0U, 0L);
+    tmp___1 = ldv__builtin_expect((nfs_debug & 512U) != 0U, 0L);
 #line 287
     if (tmp___1 != 0L) {
 #line 287
@@ -64111,7 +64111,7 @@ struct nfs_client *nfs4_init_client(struct nfs_client *clp , struct rpc_timeout 
 #line 314
   nfs_put_client(clp);
 #line 315
-  tmp___3 = __builtin_expect((nfs_debug & 512U) != 0U, 0L);
+  tmp___3 = ldv__builtin_expect((nfs_debug & 512U) != 0U, 0L);
 #line 315
   if (tmp___3 != 0L) {
 #line 315
@@ -64148,7 +64148,7 @@ static void nfs4_swap_callback_idents(struct nfs_client *keep , struct nfs_clien
 
   }
 #line 336
-  tmp___0 = __builtin_expect((nfs_debug & 512U) != 0U, 0L);
+  tmp___0 = ldv__builtin_expect((nfs_debug & 512U) != 0U, 0L);
 #line 336
   if (tmp___0 != 0L) {
 #line 336
@@ -64271,7 +64271,7 @@ int nfs40_walk_client_list(struct nfs_client *new , struct nfs_client **result ,
 #line 405
     *result = pos;
 #line 406
-    tmp___1 = __builtin_expect((nfs_debug & 512U) != 0U, 0L);
+    tmp___1 = ldv__builtin_expect((nfs_debug & 512U) != 0U, 0L);
 #line 406
     if (tmp___1 != 0L) {
 #line 406
@@ -64292,7 +64292,7 @@ int nfs40_walk_client_list(struct nfs_client *new , struct nfs_client **result ,
 #line 411
     nfs_put_client(pos);
 #line 412
-    tmp___2 = __builtin_expect((nfs_debug & 512U) != 0U, 0L);
+    tmp___2 = ldv__builtin_expect((nfs_debug & 512U) != 0U, 0L);
 #line 412
     if (tmp___2 != 0L) {
 #line 412
@@ -64351,7 +64351,7 @@ static bool nfs4_match_clientids(struct nfs_client *a , struct nfs_client *b )
 #line 441
   if (a->cl_clientid != b->cl_clientid) {
 #line 442
-    tmp = __builtin_expect((nfs_debug & 512U) != 0U, 0L);
+    tmp = ldv__builtin_expect((nfs_debug & 512U) != 0U, 0L);
 #line 442
     if (tmp != 0L) {
 #line 442
@@ -64366,7 +64366,7 @@ static bool nfs4_match_clientids(struct nfs_client *a , struct nfs_client *b )
 
   }
 #line 446
-  tmp___0 = __builtin_expect((nfs_debug & 512U) != 0U, 0L);
+  tmp___0 = ldv__builtin_expect((nfs_debug & 512U) != 0U, 0L);
 #line 446
   if (tmp___0 != 0L) {
 #line 446
@@ -64397,7 +64397,7 @@ static bool nfs4_match_serverowners(struct nfs_client *a , struct nfs_client *b 
 #line 460
   if (o1->minor_id != o2->minor_id) {
 #line 461
-    tmp = __builtin_expect((nfs_debug & 512U) != 0U, 0L);
+    tmp = ldv__builtin_expect((nfs_debug & 512U) != 0U, 0L);
 #line 461
     if (tmp != 0L) {
 #line 461
@@ -64428,7 +64428,7 @@ static bool nfs4_match_serverowners(struct nfs_client *a , struct nfs_client *b 
 
   }
 #line 471
-  tmp___1 = __builtin_expect((nfs_debug & 512U) != 0U, 0L);
+  tmp___1 = ldv__builtin_expect((nfs_debug & 512U) != 0U, 0L);
 #line 471
   if (tmp___1 != 0L) {
 #line 471
@@ -64440,7 +64440,7 @@ static bool nfs4_match_serverowners(struct nfs_client *a , struct nfs_client *b 
   return (1);
   out_major_mismatch: 
 #line 475
-  tmp___2 = __builtin_expect((nfs_debug & 512U) != 0U, 0L);
+  tmp___2 = ldv__builtin_expect((nfs_debug & 512U) != 0U, 0L);
 #line 475
   if (tmp___2 != 0L) {
 #line 475
@@ -64582,7 +64582,7 @@ int nfs41_walk_client_list(struct nfs_client *new , struct nfs_client **result ,
 #line 540
   spin_unlock(& nn->nfs_client_lock);
 #line 541
-  tmp___5 = __builtin_expect((nfs_debug & 512U) != 0U, 0L);
+  tmp___5 = ldv__builtin_expect((nfs_debug & 512U) != 0U, 0L);
 #line 541
   if (tmp___5 != 0L) {
 #line 541
@@ -64829,7 +64829,7 @@ static int nfs4_set_client(struct nfs_server *server , char const   *hostname , 
 #line 670
   cl_init.net = net;
 #line 682
-  tmp = __builtin_expect((nfs_debug & 512U) != 0U, 0L);
+  tmp = ldv__builtin_expect((nfs_debug & 512U) != 0U, 0L);
 #line 682
   if (tmp != 0L) {
 #line 682
@@ -64865,7 +64865,7 @@ static int nfs4_set_client(struct nfs_server *server , char const   *hostname , 
 #line 703
   server->nfs_client = clp;
 #line 704
-  tmp___2 = __builtin_expect((nfs_debug & 512U) != 0U, 0L);
+  tmp___2 = ldv__builtin_expect((nfs_debug & 512U) != 0U, 0L);
 #line 704
   if (tmp___2 != 0L) {
 #line 704
@@ -64877,7 +64877,7 @@ static int nfs4_set_client(struct nfs_server *server , char const   *hostname , 
   return (0);
   error: 
 #line 707
-  tmp___3 = __builtin_expect((nfs_debug & 512U) != 0U, 0L);
+  tmp___3 = ldv__builtin_expect((nfs_debug & 512U) != 0U, 0L);
 #line 707
   if (tmp___3 != 0L) {
 #line 707
@@ -64922,7 +64922,7 @@ struct nfs_client *nfs4_set_ds_client(struct nfs_client *mds_clp , struct sockad
   clp = nfs_get_client((struct nfs_client_initdata  const  *)(& cl_init), (struct rpc_timeout  const  *)(& ds_timeout),
                        (char const   *)(& mds_clp->cl_ipaddr), ((mds_clp->cl_rpcclient)->cl_auth)->au_flavor);
 #line 745
-  tmp = __builtin_expect((nfs_debug & 512U) != 0U, 0L);
+  tmp = ldv__builtin_expect((nfs_debug & 512U) != 0U, 0L);
 #line 745
   if (tmp != 0L) {
 #line 745
@@ -65023,7 +65023,7 @@ static int nfs4_server_common_setup(struct nfs_server *server , struct nfs_fh *m
 
   }
 #line 799
-  tmp___0 = __builtin_expect((nfs_debug & 512U) != 0U, 0L);
+  tmp___0 = ldv__builtin_expect((nfs_debug & 512U) != 0U, 0L);
 #line 799
   if (tmp___0 != 0L) {
 #line 799
@@ -65032,7 +65032,7 @@ static int nfs4_server_common_setup(struct nfs_server *server , struct nfs_fh *m
 
   }
 #line 802
-  tmp___1 = __builtin_expect((nfs_debug & 512U) != 0U, 0L);
+  tmp___1 = ldv__builtin_expect((nfs_debug & 512U) != 0U, 0L);
 #line 802
   if (tmp___1 != 0L) {
 #line 802
@@ -65083,7 +65083,7 @@ static int nfs4_init_server(struct nfs_server *server , struct nfs_parsed_mount_
 
   {
 #line 830
-  tmp = __builtin_expect((nfs_debug & 512U) != 0U, 0L);
+  tmp = ldv__builtin_expect((nfs_debug & 512U) != 0U, 0L);
 #line 830
   if (tmp != 0L) {
 #line 830
@@ -65160,7 +65160,7 @@ static int nfs4_init_server(struct nfs_server *server , struct nfs_parsed_mount_
                                     data->auth_flavors[0]);
   error: 
 #line 879
-  tmp___2 = __builtin_expect((nfs_debug & 512U) != 0U, 0L);
+  tmp___2 = ldv__builtin_expect((nfs_debug & 512U) != 0U, 0L);
 #line 879
   if (tmp___2 != 0L) {
 #line 879
@@ -65185,7 +65185,7 @@ struct nfs_server *nfs4_create_server(struct nfs_mount_info *mount_info , struct
 
   {
 #line 895
-  tmp = __builtin_expect((nfs_debug & 512U) != 0U, 0L);
+  tmp = ldv__builtin_expect((nfs_debug & 512U) != 0U, 0L);
 #line 895
   if (tmp != 0L) {
 #line 895
@@ -65223,7 +65223,7 @@ struct nfs_server *nfs4_create_server(struct nfs_mount_info *mount_info , struct
 
   }
 #line 910
-  tmp___1 = __builtin_expect((nfs_debug & 512U) != 0U, 0L);
+  tmp___1 = ldv__builtin_expect((nfs_debug & 512U) != 0U, 0L);
 #line 910
   if (tmp___1 != 0L) {
 #line 910
@@ -65237,7 +65237,7 @@ struct nfs_server *nfs4_create_server(struct nfs_mount_info *mount_info , struct
 #line 914
   nfs_free_server(server);
 #line 915
-  tmp___2 = __builtin_expect((nfs_debug & 512U) != 0U, 0L);
+  tmp___2 = ldv__builtin_expect((nfs_debug & 512U) != 0U, 0L);
 #line 915
   if (tmp___2 != 0L) {
 #line 915
@@ -65267,7 +65267,7 @@ struct nfs_server *nfs4_create_referral_server(struct nfs_clone_mount *data , st
 
   {
 #line 929
-  tmp = __builtin_expect((nfs_debug & 512U) != 0U, 0L);
+  tmp = ldv__builtin_expect((nfs_debug & 512U) != 0U, 0L);
 #line 929
   if (tmp != 0L) {
 #line 929
@@ -65327,7 +65327,7 @@ struct nfs_server *nfs4_create_referral_server(struct nfs_clone_mount *data , st
 
   }
 #line 964
-  tmp___2 = __builtin_expect((nfs_debug & 512U) != 0U, 0L);
+  tmp___2 = ldv__builtin_expect((nfs_debug & 512U) != 0U, 0L);
 #line 964
   if (tmp___2 != 0L) {
 #line 964
@@ -65341,7 +65341,7 @@ struct nfs_server *nfs4_create_referral_server(struct nfs_clone_mount *data , st
 #line 968
   nfs_free_server(server);
 #line 969
-  tmp___3 = __builtin_expect((nfs_debug & 512U) != 0U, 0L);
+  tmp___3 = ldv__builtin_expect((nfs_debug & 512U) != 0U, 0L);
 #line 969
   if (tmp___3 != 0L) {
 #line 969
@@ -65830,7 +65830,7 @@ void nfs4_free_slot(struct nfs4_slot_table *tbl , struct nfs4_slot *slot )
 
   }
 #line 142
-  tmp___0 = __builtin_expect((nfs_debug & 16384U) != 0U, 0L);
+  tmp___0 = ldv__builtin_expect((nfs_debug & 16384U) != 0U, 0L);
 #line 142
   if (tmp___0 != 0L) {
 #line 142
@@ -65936,7 +65936,7 @@ struct nfs4_slot *nfs4_alloc_slot(struct nfs4_slot_table *tbl )
 #line 193
   ret = (struct nfs4_slot *)tmp;
 #line 196
-  tmp___0 = __builtin_expect((nfs_debug & 16384U) != 0U, 0L);
+  tmp___0 = ldv__builtin_expect((nfs_debug & 16384U) != 0U, 0L);
 #line 196
   if (tmp___0 != 0L) {
 #line 196
@@ -65980,7 +65980,7 @@ struct nfs4_slot *nfs4_alloc_slot(struct nfs4_slot_table *tbl )
   ret->generation = tbl->generation;
   out: 
 #line 212
-  tmp___4 = __builtin_expect((nfs_debug & 16384U) != 0U, 0L);
+  tmp___4 = ldv__builtin_expect((nfs_debug & 16384U) != 0U, 0L);
 #line 212
   if (tmp___4 != 0L) {
 #line 212
@@ -66078,7 +66078,7 @@ static int nfs4_realloc_slot_table(struct nfs4_slot_table *tbl , u32 max_reqs , 
 
   {
 #line 257
-  tmp = __builtin_expect((nfs_debug & 16384U) != 0U, 0L);
+  tmp = ldv__builtin_expect((nfs_debug & 16384U) != 0U, 0L);
 #line 257
   if (tmp != 0L) {
 #line 257
@@ -66110,7 +66110,7 @@ static int nfs4_realloc_slot_table(struct nfs4_slot_table *tbl , u32 max_reqs , 
 #line 269
   spin_unlock(& tbl->slot_tbl_lock);
 #line 271
-  tmp___0 = __builtin_expect((nfs_debug & 16384U) != 0U, 0L);
+  tmp___0 = ldv__builtin_expect((nfs_debug & 16384U) != 0U, 0L);
 #line 271
   if (tmp___0 != 0L) {
 #line 271
@@ -66121,7 +66121,7 @@ static int nfs4_realloc_slot_table(struct nfs4_slot_table *tbl , u32 max_reqs , 
   }
   out: 
 #line 274
-  tmp___1 = __builtin_expect((nfs_debug & 16384U) != 0U, 0L);
+  tmp___1 = ldv__builtin_expect((nfs_debug & 16384U) != 0U, 0L);
 #line 274
   if (tmp___1 != 0L) {
 #line 274
@@ -66570,7 +66570,7 @@ int nfs4_setup_session_slot_tables(struct nfs4_session *ses )
 
   {
 #line 457
-  tmp = __builtin_expect((nfs_debug & 16384U) != 0U, 0L);
+  tmp = ldv__builtin_expect((nfs_debug & 16384U) != 0U, 0L);
 #line 457
   if (tmp != 0L) {
 #line 457
@@ -66714,7 +66714,7 @@ void nfs4_destroy_session(struct nfs4_session *session )
 #line 514
   rcu_read_unlock();
 #line 515
-  tmp___1 = __builtin_expect((nfs_debug & 16384U) != 0U, 0L);
+  tmp___1 = ldv__builtin_expect((nfs_debug & 16384U) != 0U, 0L);
 #line 515
   if (tmp___1 != 0L) {
 #line 515
@@ -67839,7 +67839,7 @@ static struct pnfs_layoutdriver_type *find_pnfs_driver_locked(u32 id )
   local = 0;
   out: 
 #line 127
-  tmp = __builtin_expect((nfs_debug & 4096U) != 0U, 0L);
+  tmp = ldv__builtin_expect((nfs_debug & 4096U) != 0U, 0L);
 #line 127
   if (tmp != 0L) {
 #line 127
@@ -67880,7 +67880,7 @@ static struct pnfs_layoutdriver_type *find_pnfs_driver(u32 id )
 #line 138
     if (tmp___1) {
 #line 139
-      tmp = __builtin_expect((nfs_debug & 4096U) != 0U, 0L);
+      tmp = ldv__builtin_expect((nfs_debug & 4096U) != 0U, 0L);
 #line 139
       if (tmp != 0L) {
 #line 139
@@ -67978,7 +67978,7 @@ void set_pnfs_layoutdriver(struct nfs_server *server , struct nfs_fh  const  *mn
 #line 184
     if ((unsigned long )ld_type == (unsigned long )((struct pnfs_layoutdriver_type *)0)) {
 #line 185
-      tmp = __builtin_expect((nfs_debug & 4096U) != 0U, 0L);
+      tmp = ldv__builtin_expect((nfs_debug & 4096U) != 0U, 0L);
 #line 185
       if (tmp != 0L) {
 #line 185
@@ -68020,7 +68020,7 @@ void set_pnfs_layoutdriver(struct nfs_server *server , struct nfs_fh  const  *mn
 #line 199
   atomic_inc(& (server->nfs_client)->cl_mds_count);
 #line 201
-  tmp___1 = __builtin_expect((nfs_debug & 4096U) != 0U, 0L);
+  tmp___1 = ldv__builtin_expect((nfs_debug & 4096U) != 0U, 0L);
 #line 201
   if (tmp___1 != 0L) {
 #line 201
@@ -68032,7 +68032,7 @@ void set_pnfs_layoutdriver(struct nfs_server *server , struct nfs_fh  const  *mn
   return;
   out_no_driver: 
 #line 205
-  tmp___2 = __builtin_expect((nfs_debug & 4096U) != 0U, 0L);
+  tmp___2 = ldv__builtin_expect((nfs_debug & 4096U) != 0U, 0L);
 #line 205
   if (tmp___2 != 0L) {
 #line 205
@@ -68087,7 +68087,7 @@ int pnfs_register_layoutdriver(struct pnfs_layoutdriver_type *ld_type )
 #line 229
     status = 0;
 #line 230
-    tmp___0 = __builtin_expect((nfs_debug & 4096U) != 0U, 0L);
+    tmp___0 = ldv__builtin_expect((nfs_debug & 4096U) != 0U, 0L);
 #line 230
     if (tmp___0 != 0L) {
 #line 230
@@ -68114,7 +68114,7 @@ void pnfs_unregister_layoutdriver(struct pnfs_layoutdriver_type *ld_type )
 
   {
 #line 245
-  tmp = __builtin_expect((nfs_debug & 4096U) != 0U, 0L);
+  tmp = ldv__builtin_expect((nfs_debug & 4096U) != 0U, 0L);
 #line 245
   if (tmp != 0L) {
 #line 245
@@ -68212,7 +68212,7 @@ static void pnfs_detach_layout_hdr(struct pnfs_layout_hdr *lo )
 #line 290
   nfsi = tmp;
 #line 291
-  tmp___0 = __builtin_expect((nfs_debug & 4096U) != 0U, 0L);
+  tmp___0 = ldv__builtin_expect((nfs_debug & 4096U) != 0U, 0L);
 #line 291
   if (tmp___0 != 0L) {
 #line 291
@@ -68341,7 +68341,7 @@ static void pnfs_layout_io_set_failed(struct pnfs_layout_hdr *lo , u32 iomode )
 #line 347
   pnfs_free_lseg_list(& head);
 #line 348
-  tmp___0 = __builtin_expect((nfs_debug & 4096U) != 0U, 0L);
+  tmp___0 = ldv__builtin_expect((nfs_debug & 4096U) != 0U, 0L);
 #line 348
   if (tmp___0 != 0L) {
 #line 348
@@ -68451,7 +68451,7 @@ static void pnfs_layout_remove_lseg(struct pnfs_layout_hdr *lo , struct pnfs_lay
 #line 394
   __ret_warn_on = tmp != 0;
 #line 394
-  tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 394
   if (tmp___0 != 0L) {
 #line 394
@@ -68461,7 +68461,7 @@ static void pnfs_layout_remove_lseg(struct pnfs_layout_hdr *lo , struct pnfs_lay
 
   }
 #line 394
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 395
   list_del_init(& lseg->pls_list);
 #line 397
@@ -68502,7 +68502,7 @@ void pnfs_put_lseg(struct pnfs_layout_segment *lseg )
 
   }
 #line 412
-  tmp___1 = __builtin_expect((nfs_debug & 4096U) != 0U, 0L);
+  tmp___1 = ldv__builtin_expect((nfs_debug & 4096U) != 0U, 0L);
 #line 412
   if (tmp___1 != 0L) {
 #line 412
@@ -68649,7 +68649,7 @@ static int mark_lseg_invalid(struct pnfs_layout_segment *lseg , struct list_head
 #line 490
   if (tmp___2 != 0) {
 #line 495
-    tmp___0 = __builtin_expect((nfs_debug & 4096U) != 0U, 0L);
+    tmp___0 = ldv__builtin_expect((nfs_debug & 4096U) != 0U, 0L);
 #line 495
     if (tmp___0 != 0L) {
 #line 495
@@ -68703,7 +68703,7 @@ int pnfs_mark_matching_lsegs_invalid(struct pnfs_layout_hdr *lo , struct list_he
 #line 515
   removed = 0;
 #line 517
-  tmp = __builtin_expect((nfs_debug & 4096U) != 0U, 0L);
+  tmp = ldv__builtin_expect((nfs_debug & 4096U) != 0U, 0L);
 #line 517
   if (tmp != 0L) {
 #line 517
@@ -68742,7 +68742,7 @@ int pnfs_mark_matching_lsegs_invalid(struct pnfs_layout_hdr *lo , struct list_he
     if ((int )tmp___3) {
       _L: /* CIL Label */ 
 #line 524
-      tmp___1 = __builtin_expect((nfs_debug & 4096U) != 0U, 0L);
+      tmp___1 = ldv__builtin_expect((nfs_debug & 4096U) != 0U, 0L);
 #line 524
       if (tmp___1 != 0L) {
 #line 524
@@ -68776,7 +68776,7 @@ int pnfs_mark_matching_lsegs_invalid(struct pnfs_layout_hdr *lo , struct list_he
 
   }
 #line 531
-  tmp___4 = __builtin_expect((nfs_debug & 4096U) != 0U, 0L);
+  tmp___4 = ldv__builtin_expect((nfs_debug & 4096U) != 0U, 0L);
 #line 531
   if (tmp___4 != 0L) {
 #line 531
@@ -68984,7 +68984,7 @@ void pnfs_destroy_all_layouts(struct nfs_client *clp )
 #line 596
   lo = (struct pnfs_layout_hdr *)__mptr___1 + 0xfffffffffffffff8UL;
 #line 598
-  tmp___2 = __builtin_expect((nfs_debug & 4096U) != 0U, 0L);
+  tmp___2 = ldv__builtin_expect((nfs_debug & 4096U) != 0U, 0L);
 #line 598
   if (tmp___2 != 0L) {
 #line 598
@@ -69188,7 +69188,7 @@ int pnfs_choose_layoutget_stateid(nfs4_stateid *dst , struct pnfs_layout_hdr *lo
 #line 662
   status = 0;
 #line 664
-  tmp = __builtin_expect((nfs_debug & 4096U) != 0U, 0L);
+  tmp = ldv__builtin_expect((nfs_debug & 4096U) != 0U, 0L);
 #line 664
   if (tmp != 0L) {
 #line 664
@@ -69234,7 +69234,7 @@ int pnfs_choose_layoutget_stateid(nfs4_stateid *dst , struct pnfs_layout_hdr *lo
 #line 677
   spin_unlock(& (lo->plh_inode)->i_lock);
 #line 678
-  tmp___4 = __builtin_expect((nfs_debug & 4096U) != 0U, 0L);
+  tmp___4 = ldv__builtin_expect((nfs_debug & 4096U) != 0U, 0L);
 #line 678
   if (tmp___4 != 0L) {
 #line 678
@@ -69269,7 +69269,7 @@ static struct pnfs_layout_segment *send_layoutget(struct pnfs_layout_hdr *lo , s
 #line 695
   server = tmp;
 #line 699
-  tmp___0 = __builtin_expect((nfs_debug & 4096U) != 0U, 0L);
+  tmp___0 = ldv__builtin_expect((nfs_debug & 4096U) != 0U, 0L);
 #line 699
   if (tmp___0 != 0L) {
 #line 699
@@ -69374,7 +69374,7 @@ int _pnfs_return_layout(struct inode *ino )
 #line 750
   status = 0;
 #line 752
-  tmp___0 = __builtin_expect((nfs_debug & 4096U) != 0U, 0L);
+  tmp___0 = ldv__builtin_expect((nfs_debug & 4096U) != 0U, 0L);
 #line 752
   if (tmp___0 != 0L) {
 #line 752
@@ -69391,7 +69391,7 @@ int _pnfs_return_layout(struct inode *ino )
 #line 757
     spin_unlock(& ino->i_lock);
 #line 758
-    tmp___1 = __builtin_expect((nfs_debug & 4096U) != 0U, 0L);
+    tmp___1 = ldv__builtin_expect((nfs_debug & 4096U) != 0U, 0L);
 #line 758
     if (tmp___1 != 0L) {
 #line 758
@@ -69419,7 +69419,7 @@ int _pnfs_return_layout(struct inode *ino )
 #line 769
     pnfs_put_layout_hdr(lo);
 #line 770
-    tmp___2 = __builtin_expect((nfs_debug & 4096U) != 0U, 0L);
+    tmp___2 = ldv__builtin_expect((nfs_debug & 4096U) != 0U, 0L);
 #line 770
     if (tmp___2 != 0L) {
 #line 770
@@ -69443,7 +69443,7 @@ int _pnfs_return_layout(struct inode *ino )
 #line 777
   __ret_warn_on = tmp___3 != 0;
 #line 777
-  tmp___4 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___4 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 777
   if (tmp___4 != 0L) {
 #line 777
@@ -69453,13 +69453,13 @@ int _pnfs_return_layout(struct inode *ino )
 
   }
 #line 777
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 779
   tmp___5 = kzalloc(136UL, 208U);
 #line 779
   lrp = (struct nfs4_layoutreturn *)tmp___5;
 #line 780
-  tmp___6 = __builtin_expect((unsigned long )lrp == (unsigned long )((struct nfs4_layoutreturn *)0),
+  tmp___6 = ldv__builtin_expect((unsigned long )lrp == (unsigned long )((struct nfs4_layoutreturn *)0),
                              0L);
 #line 780
   if (tmp___6 != 0L) {
@@ -69496,7 +69496,7 @@ int _pnfs_return_layout(struct inode *ino )
   status = nfs4_proc_layoutreturn(lrp);
   out: 
 #line 797
-  tmp___9 = __builtin_expect((nfs_debug & 4096U) != 0U, 0L);
+  tmp___9 = ldv__builtin_expect((nfs_debug & 4096U) != 0U, 0L);
 #line 797
   if (tmp___9 != 0L) {
 #line 797
@@ -69802,7 +69802,7 @@ static void pnfs_layout_insert_lseg(struct pnfs_layout_hdr *lo , struct pnfs_lay
 
   {
 #line 916
-  tmp = __builtin_expect((nfs_debug & 4096U) != 0U, 0L);
+  tmp = ldv__builtin_expect((nfs_debug & 4096U) != 0U, 0L);
 #line 916
   if (tmp != 0L) {
 #line 916
@@ -69829,7 +69829,7 @@ static void pnfs_layout_insert_lseg(struct pnfs_layout_hdr *lo , struct pnfs_lay
 #line 921
   list_add_tail(& lseg->pls_list, & lp->pls_list);
 #line 922
-  tmp___1 = __builtin_expect((nfs_debug & 4096U) != 0U, 0L);
+  tmp___1 = ldv__builtin_expect((nfs_debug & 4096U) != 0U, 0L);
 #line 922
   if (tmp___1 != 0L) {
 #line 922
@@ -69858,7 +69858,7 @@ static void pnfs_layout_insert_lseg(struct pnfs_layout_hdr *lo , struct pnfs_lay
 #line 931
   list_add_tail(& lseg->pls_list, & lo->plh_segs);
 #line 932
-  tmp___2 = __builtin_expect((nfs_debug & 4096U) != 0U, 0L);
+  tmp___2 = ldv__builtin_expect((nfs_debug & 4096U) != 0U, 0L);
 #line 932
   if (tmp___2 != 0L) {
 #line 932
@@ -69872,7 +69872,7 @@ static void pnfs_layout_insert_lseg(struct pnfs_layout_hdr *lo , struct pnfs_lay
 #line 937
   pnfs_get_layout_hdr(lo);
 #line 939
-  tmp___3 = __builtin_expect((nfs_debug & 4096U) != 0U, 0L);
+  tmp___3 = ldv__builtin_expect((nfs_debug & 4096U) != 0U, 0L);
 #line 939
   if (tmp___3 != 0L) {
 #line 939
@@ -69934,7 +69934,7 @@ static struct pnfs_layout_hdr *pnfs_find_alloc_layout(struct inode *ino , struct
 #line 967
   new = 0;
 #line 969
-  tmp___0 = __builtin_expect((nfs_debug & 4096U) != 0U, 0L);
+  tmp___0 = ldv__builtin_expect((nfs_debug & 4096U) != 0U, 0L);
 #line 969
   if (tmp___0 != 0L) {
 #line 969
@@ -69956,7 +69956,7 @@ static struct pnfs_layout_hdr *pnfs_find_alloc_layout(struct inode *ino , struct
 #line 975
   spin_lock(& ino->i_lock);
 #line 977
-  tmp___1 = __builtin_expect((unsigned long )nfsi->layout == (unsigned long )((struct pnfs_layout_hdr *)0),
+  tmp___1 = ldv__builtin_expect((unsigned long )nfsi->layout == (unsigned long )((struct pnfs_layout_hdr *)0),
                              1L);
 #line 977
   if (tmp___1 != 0L) {
@@ -70030,7 +70030,7 @@ static struct pnfs_layout_segment *pnfs_find_lseg(struct pnfs_layout_hdr *lo , s
 #line 1022
   ret = 0;
 #line 1024
-  tmp = __builtin_expect((nfs_debug & 4096U) != 0U, 0L);
+  tmp = ldv__builtin_expect((nfs_debug & 4096U) != 0U, 0L);
 #line 1024
   if (tmp != 0L) {
 #line 1024
@@ -70084,7 +70084,7 @@ static struct pnfs_layout_segment *pnfs_find_lseg(struct pnfs_layout_hdr *lo , s
   }
   ldv_49835: 
 #line 1036
-  tmp___4 = __builtin_expect((nfs_debug & 4096U) != 0U, 0L);
+  tmp___4 = ldv__builtin_expect((nfs_debug & 4096U) != 0U, 0L);
 #line 1036
   if (tmp___4 != 0L) {
 #line 1036
@@ -70156,7 +70156,7 @@ static bool pnfs_within_mdsthreshold(struct nfs_open_context *ctx , struct inode
 
   }
 #line 1071
-  tmp___1 = __builtin_expect((nfs_debug & 4096U) != 0U, 0L);
+  tmp___1 = ldv__builtin_expect((nfs_debug & 4096U) != 0U, 0L);
 #line 1071
   if (tmp___1 != 0L) {
 #line 1071
@@ -70171,7 +70171,7 @@ static bool pnfs_within_mdsthreshold(struct nfs_open_context *ctx , struct inode
 #line 1076
   if ((int )t->bm & 1) {
 #line 1077
-    tmp___2 = __builtin_expect((nfs_debug & 4096U) != 0U, 0L);
+    tmp___2 = ldv__builtin_expect((nfs_debug & 4096U) != 0U, 0L);
 #line 1077
     if (tmp___2 != 0L) {
 #line 1077
@@ -70194,7 +70194,7 @@ static bool pnfs_within_mdsthreshold(struct nfs_open_context *ctx , struct inode
 #line 1082
   if (((unsigned long )t->bm & 4UL) != 0UL) {
 #line 1083
-    tmp___3 = __builtin_expect((nfs_debug & 4096U) != 0U, 0L);
+    tmp___3 = ldv__builtin_expect((nfs_debug & 4096U) != 0U, 0L);
 #line 1083
     if (tmp___3 != 0L) {
 #line 1083
@@ -70220,7 +70220,7 @@ static bool pnfs_within_mdsthreshold(struct nfs_open_context *ctx , struct inode
 #line 1091
   if (((unsigned long )t->bm & 2UL) != 0UL) {
 #line 1092
-    tmp___4 = __builtin_expect((nfs_debug & 4096U) != 0U, 0L);
+    tmp___4 = ldv__builtin_expect((nfs_debug & 4096U) != 0U, 0L);
 #line 1092
     if (tmp___4 != 0L) {
 #line 1092
@@ -70243,7 +70243,7 @@ static bool pnfs_within_mdsthreshold(struct nfs_open_context *ctx , struct inode
 #line 1097
   if (((unsigned long )t->bm & 8UL) != 0UL) {
 #line 1098
-    tmp___5 = __builtin_expect((nfs_debug & 4096U) != 0U, 0L);
+    tmp___5 = ldv__builtin_expect((nfs_debug & 4096U) != 0U, 0L);
 #line 1098
     if (tmp___5 != 0L) {
 #line 1098
@@ -70285,7 +70285,7 @@ static bool pnfs_within_mdsthreshold(struct nfs_open_context *ctx , struct inode
 
   }
 #line 1112
-  tmp___6 = __builtin_expect((nfs_debug & 4096U) != 0U, 0L);
+  tmp___6 = ldv__builtin_expect((nfs_debug & 4096U) != 0U, 0L);
 #line 1112
   if (tmp___6 != 0L) {
 #line 1112
@@ -70377,7 +70377,7 @@ struct pnfs_layout_segment *pnfs_update_layout(struct inode *ino , struct nfs_op
 #line 1154
   if (tmp___4 != 0) {
 #line 1155
-    tmp___3 = __builtin_expect((nfs_debug & 4096U) != 0U, 0L);
+    tmp___3 = ldv__builtin_expect((nfs_debug & 4096U) != 0U, 0L);
 #line 1155
     if (tmp___3 != 0L) {
 #line 1155
@@ -70468,7 +70468,7 @@ struct pnfs_layout_segment *pnfs_update_layout(struct inode *ino , struct nfs_op
   pnfs_put_layout_hdr(lo);
   out: 
 #line 1198
-  tmp___9 = __builtin_expect((nfs_debug & 4096U) != 0U, 0L);
+  tmp___9 = ldv__builtin_expect((nfs_debug & 4096U) != 0U, 0L);
 #line 1198
   if (tmp___9 != 0L) {
 #line 1198
@@ -70547,7 +70547,7 @@ struct pnfs_layout_segment *pnfs_layout_process(struct nfs4_layoutget *lgp )
         status = (int )tmp___1;
       }
 #line 1229
-      tmp___2 = __builtin_expect((nfs_debug & 4096U) != 0U, 0L);
+      tmp___2 = ldv__builtin_expect((nfs_debug & 4096U) != 0U, 0L);
 #line 1229
       if (tmp___2 != 0L) {
 #line 1229
@@ -70569,7 +70569,7 @@ struct pnfs_layout_segment *pnfs_layout_process(struct nfs4_layoutget *lgp )
 #line 1235
   if (tmp___5 != 0) {
 #line 1236
-    tmp___4 = __builtin_expect((nfs_debug & 4096U) != 0U, 0L);
+    tmp___4 = ldv__builtin_expect((nfs_debug & 4096U) != 0U, 0L);
 #line 1236
     if (tmp___4 != 0L) {
 #line 1236
@@ -70595,7 +70595,7 @@ struct pnfs_layout_segment *pnfs_layout_process(struct nfs4_layoutget *lgp )
     if ((int )tmp___8) {
       _L___0: /* CIL Label */ 
 #line 1242
-      tmp___6 = __builtin_expect((nfs_debug & 4096U) != 0U, 0L);
+      tmp___6 = ldv__builtin_expect((nfs_debug & 4096U) != 0U, 0L);
 #line 1242
       if (tmp___6 != 0L) {
 #line 1242
@@ -70671,13 +70671,13 @@ void pnfs_generic_pg_init_read(struct nfs_pageio_descriptor *pgio , struct nfs_p
 #line 1276
   __ret_warn_once = (unsigned long )pgio->pg_lseg != (unsigned long )((struct pnfs_layout_segment *)0);
 #line 1276
-  tmp___1 = __builtin_expect(__ret_warn_once != 0, 0L);
+  tmp___1 = ldv__builtin_expect(__ret_warn_once != 0, 0L);
 #line 1276
   if (tmp___1 != 0L) {
 #line 1276
     __ret_warn_on = ! __warned;
 #line 1276
-    tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 1276
     if (tmp != 0L) {
 #line 1276
@@ -70687,7 +70687,7 @@ void pnfs_generic_pg_init_read(struct nfs_pageio_descriptor *pgio , struct nfs_p
 
     }
 #line 1276
-    tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 1276
     if (tmp___0 != 0L) {
 #line 1276
@@ -70699,7 +70699,7 @@ void pnfs_generic_pg_init_read(struct nfs_pageio_descriptor *pgio , struct nfs_p
 
   }
 #line 1276
-  __builtin_expect(__ret_warn_once != 0, 0L);
+  ldv__builtin_expect(__ret_warn_once != 0, 0L);
 #line 1278
   if (req->wb_offset != req->wb_pgbase) {
 #line 1279
@@ -70755,13 +70755,13 @@ void pnfs_generic_pg_init_write(struct nfs_pageio_descriptor *pgio , struct nfs_
 #line 1305
   __ret_warn_once = (unsigned long )pgio->pg_lseg != (unsigned long )((struct pnfs_layout_segment *)0);
 #line 1305
-  tmp___1 = __builtin_expect(__ret_warn_once != 0, 0L);
+  tmp___1 = ldv__builtin_expect(__ret_warn_once != 0, 0L);
 #line 1305
   if (tmp___1 != 0L) {
 #line 1305
     __ret_warn_on = ! __warned;
 #line 1305
-    tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 1305
     if (tmp != 0L) {
 #line 1305
@@ -70771,7 +70771,7 @@ void pnfs_generic_pg_init_write(struct nfs_pageio_descriptor *pgio , struct nfs_
 
     }
 #line 1305
-    tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 1305
     if (tmp___0 != 0L) {
 #line 1305
@@ -70783,7 +70783,7 @@ void pnfs_generic_pg_init_write(struct nfs_pageio_descriptor *pgio , struct nfs_
 
   }
 #line 1305
-  __builtin_expect(__ret_warn_once != 0, 0L);
+  ldv__builtin_expect(__ret_warn_once != 0, 0L);
 #line 1307
   if (req->wb_offset != req->wb_pgbase) {
 #line 1308
@@ -70967,7 +70967,7 @@ static void pnfs_ld_handle_write_error(struct nfs_write_data *data )
 #line 1409
   hdr = data->header;
 #line 1411
-  tmp = __builtin_expect((nfs_debug & 4096U) != 0U, 0L);
+  tmp = ldv__builtin_expect((nfs_debug & 4096U) != 0U, 0L);
 #line 1411
   if (tmp != 0L) {
 #line 1411
@@ -71080,7 +71080,7 @@ static enum pnfs_try_status pnfs_try_to_write_data(struct nfs_write_data *wdata 
 #line 1464
   hdr->mds_ops = call_ops;
 #line 1466
-  tmp___0 = __builtin_expect((nfs_debug & 4096U) != 0U, 0L);
+  tmp___0 = ldv__builtin_expect((nfs_debug & 4096U) != 0U, 0L);
 #line 1466
   if (tmp___0 != 0L) {
 #line 1466
@@ -71099,7 +71099,7 @@ static enum pnfs_try_status pnfs_try_to_write_data(struct nfs_write_data *wdata 
 
   }
 #line 1471
-  tmp___1 = __builtin_expect((nfs_debug & 4096U) != 0U, 0L);
+  tmp___1 = ldv__builtin_expect((nfs_debug & 4096U) != 0U, 0L);
 #line 1471
   if (tmp___1 != 0L) {
 #line 1471
@@ -71310,7 +71310,7 @@ static void pnfs_ld_handle_read_error(struct nfs_read_data *data )
 #line 1561
   hdr = data->header;
 #line 1563
-  tmp = __builtin_expect((nfs_debug & 4096U) != 0U, 0L);
+  tmp = ldv__builtin_expect((nfs_debug & 4096U) != 0U, 0L);
 #line 1563
   if (tmp != 0L) {
 #line 1563
@@ -71355,7 +71355,7 @@ void pnfs_ld_read_done(struct nfs_read_data *data )
 #line 1580
   hdr = data->header;
 #line 1582
-  tmp = __builtin_expect(hdr->pnfs_error == 0, 1L);
+  tmp = ldv__builtin_expect(hdr->pnfs_error == 0, 1L);
 #line 1582
   if (tmp != 0L) {
 #line 1583
@@ -71424,7 +71424,7 @@ static enum pnfs_try_status pnfs_try_to_read_data(struct nfs_read_data *rdata , 
 #line 1618
   hdr->mds_ops = call_ops;
 #line 1620
-  tmp___0 = __builtin_expect((nfs_debug & 4096U) != 0U, 0L);
+  tmp___0 = ldv__builtin_expect((nfs_debug & 4096U) != 0U, 0L);
 #line 1620
   if (tmp___0 != 0L) {
 #line 1620
@@ -71443,7 +71443,7 @@ static enum pnfs_try_status pnfs_try_to_read_data(struct nfs_read_data *rdata , 
 
   }
 #line 1626
-  tmp___1 = __builtin_expect((nfs_debug & 4096U) != 0U, 0L);
+  tmp___1 = ldv__builtin_expect((nfs_debug & 4096U) != 0U, 0L);
 #line 1626
   if (tmp___1 != 0L) {
 #line 1626
@@ -71680,7 +71680,7 @@ void pnfs_set_layoutcommit(struct nfs_write_data *wdata )
 #line 1720
     mark_as_dirty = 1;
 #line 1721
-    tmp___0 = __builtin_expect((nfs_debug & 4096U) != 0U, 0L);
+    tmp___0 = ldv__builtin_expect((nfs_debug & 4096U) != 0U, 0L);
 #line 1721
     if (tmp___0 != 0L) {
 #line 1721
@@ -71711,7 +71711,7 @@ void pnfs_set_layoutcommit(struct nfs_write_data *wdata )
 #line 1730
   spin_unlock(& inode->i_lock);
 #line 1731
-  tmp___3 = __builtin_expect((nfs_debug & 4096U) != 0U, 0L);
+  tmp___3 = ldv__builtin_expect((nfs_debug & 4096U) != 0U, 0L);
 #line 1731
   if (tmp___3 != 0L) {
 #line 1731
@@ -71779,7 +71779,7 @@ int pnfs_layoutcommit_inode(struct inode *inode , bool sync )
 #line 1763
   status = 0;
 #line 1765
-  tmp___0 = __builtin_expect((nfs_debug & 4096U) != 0U, 0L);
+  tmp___0 = ldv__builtin_expect((nfs_debug & 4096U) != 0U, 0L);
 #line 1765
   if (tmp___0 != 0L) {
 #line 1765
@@ -71902,7 +71902,7 @@ int pnfs_layoutcommit_inode(struct inode *inode , bool sync )
 
   }
 #line 1820
-  tmp___8 = __builtin_expect((nfs_debug & 4096U) != 0U, 0L);
+  tmp___8 = ldv__builtin_expect((nfs_debug & 4096U) != 0U, 0L);
 #line 1820
   if (tmp___8 != 0L) {
 #line 1820
@@ -71934,7 +71934,7 @@ struct nfs4_threshold *pnfs_mdsthreshold_alloc(void)
 #line 1832
   if ((unsigned long )thp == (unsigned long )((struct nfs4_threshold *)0)) {
 #line 1833
-    tmp___0 = __builtin_expect((nfs_debug & 4096U) != 0U, 0L);
+    tmp___0 = ldv__builtin_expect((nfs_debug & 4096U) != 0U, 0L);
 #line 1833
     if (tmp___0 != 0L) {
 #line 1833
@@ -72445,7 +72445,7 @@ void nfs4_print_deviceid(struct nfs4_deviceid  const  *id )
 #line 115
   p = (u32 *)id;
 #line 117
-  tmp = __builtin_expect((nfs_debug & 4096U) != 0U, 0L);
+  tmp = ldv__builtin_expect((nfs_debug & 4096U) != 0U, 0L);
 #line 117
   if (tmp != 0L) {
 #line 117
@@ -73180,7 +73180,7 @@ __inline static void ldv_error(void)
 #line 25
 extern int __VERIFIER_nondet_int(void) ;
 #line 49 "/home/mikhail/ldv/kernel-rules/verifier/rcv.h"
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 

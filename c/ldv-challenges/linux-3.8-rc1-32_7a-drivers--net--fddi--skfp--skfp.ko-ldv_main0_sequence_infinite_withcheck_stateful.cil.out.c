@@ -6680,7 +6680,7 @@ void *__builtin_memcpy(void * , void const   * , unsigned long  ) ;
 #line 1
 unsigned long __builtin_object_size(void * , int  ) ;
 #line 1
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 #line 33 "include/linux/export.h"
 extern struct module __this_module ;
 #line 62 "/work/ldvuser/exper_fp/inst/current/envs/linux-3.10-rc1.tar/linux-3.10-rc1/arch/x86/include/asm/bitops.h"
@@ -6758,7 +6758,7 @@ __inline static unsigned long arch_local_save_flags(void)
 #line 824
   __eax = __eax;
 #line 824
-  tmp = __builtin_expect((unsigned long )pv_irq_ops.save_fl.func == (unsigned long )((void *)0),
+  tmp = ldv__builtin_expect((unsigned long )pv_irq_ops.save_fl.func == (unsigned long )((void *)0),
                          0L);
 #line 824
   if (tmp != 0L) {
@@ -6921,14 +6921,14 @@ __inline static unsigned long copy_from_user(void *to , void const   *from , uns
 #line 61
   might_fault();
 #line 62
-  tmp___1 = __builtin_expect(sz == -1, 1L);
+  tmp___1 = ldv__builtin_expect(sz == -1, 1L);
 #line 62
   if (tmp___1 != 0L) {
 #line 63
     n = _copy_from_user(to, from, (unsigned int )n);
   } else {
 #line 62
-    tmp___2 = __builtin_expect((unsigned long )sz >= n, 1L);
+    tmp___2 = ldv__builtin_expect((unsigned long )sz >= n, 1L);
 #line 62
     if (tmp___2 != 0L) {
 #line 63
@@ -6937,7 +6937,7 @@ __inline static unsigned long copy_from_user(void *to , void const   *from , uns
 #line 66
       __ret_warn_on = 1;
 #line 66
-      tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+      tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 66
       if (tmp___0 != 0L) {
 #line 66
@@ -6947,7 +6947,7 @@ __inline static unsigned long copy_from_user(void *to , void const   *from , uns
 
       }
 #line 66
-      __builtin_expect(__ret_warn_on != 0, 0L);
+      ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
   }
 #line 68
@@ -7056,7 +7056,7 @@ __inline static struct dma_map_ops *get_dma_ops(struct device *dev )
 
   {
 #line 37
-  tmp = __builtin_expect((unsigned long )dev == (unsigned long )((struct device *)0),
+  tmp = ldv__builtin_expect((unsigned long )dev == (unsigned long )((struct device *)0),
                          0L);
 #line 37
   if (tmp != 0L || (unsigned long )dev->archdata.dma_ops == (unsigned long )((struct dma_map_ops *)0)) {
@@ -7090,7 +7090,7 @@ __inline static dma_addr_t dma_map_single_attrs(struct device *dev , void *ptr ,
 #line 19
   tmp___0 = valid_dma_direction((int )dir);
 #line 19
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
 #line 19
   if (tmp___1 != 0L) {
 #line 19
@@ -7134,7 +7134,7 @@ __inline static void dma_unmap_single_attrs(struct device *dev , dma_addr_t addr
 #line 36
   tmp___0 = valid_dma_direction((int )dir);
 #line 36
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
 #line 36
   if (tmp___1 != 0L) {
 #line 36
@@ -7287,7 +7287,7 @@ __inline static void dma_free_attrs(struct device *dev , size_t size , void *vad
 #line 166
   __ret_warn_on = tmp___0 != 0;
 #line 166
-  tmp___1 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___1 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 166
   if (tmp___1 != 0L) {
 #line 166
@@ -7297,7 +7297,7 @@ __inline static void dma_free_attrs(struct device *dev , size_t size , void *vad
 
   }
 #line 166
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 171
   debug_dma_free_coherent(dev, size, vaddr, bus);
 #line 172
@@ -7546,7 +7546,7 @@ __inline static void netif_tx_stop_queue(struct netdev_queue *dev_queue )
 #line 1907
   __ret_warn_on = (unsigned long )dev_queue == (unsigned long )((struct netdev_queue *)0);
 #line 1907
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 1907
   if (tmp != 0L) {
 #line 1907
@@ -7555,7 +7555,7 @@ __inline static void netif_tx_stop_queue(struct netdev_queue *dev_queue )
 
   }
 #line 1907
-  tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 1907
   if (tmp___0 != 0L) {
 #line 1908
@@ -7739,7 +7739,7 @@ static int skfp_init_one(struct pci_dev *pdev , struct pci_device_id  const  *en
 #line 236
   descriptor.flags = 0U;
 #line 236
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 236
   if (tmp != 0L) {
 #line 236
@@ -8000,7 +8000,7 @@ static int skfp_driver_init(struct net_device *dev )
 #line 412
   descriptor.flags = 0U;
 #line 412
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 412
   if (tmp___0 != 0L) {
 #line 412
@@ -8049,7 +8049,7 @@ static int skfp_driver_init(struct net_device *dev )
 #line 432
   descriptor___0.flags = 0U;
 #line 432
-  tmp___3 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___3 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 432
   if (tmp___3 != 0L) {
 #line 432
@@ -8099,7 +8099,7 @@ static int skfp_driver_init(struct net_device *dev )
 #line 456
   descriptor___1.flags = 0U;
 #line 456
-  tmp___4 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+  tmp___4 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 456
   if (tmp___4 != 0L) {
 #line 456
@@ -8124,7 +8124,7 @@ static int skfp_driver_init(struct net_device *dev )
 #line 458
     descriptor___2.flags = 0U;
 #line 458
-    tmp___5 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+    tmp___5 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
 #line 458
     if (tmp___5 != 0L) {
 #line 458
@@ -8152,7 +8152,7 @@ static int skfp_driver_init(struct net_device *dev )
 #line 462
   descriptor___3.flags = 0U;
 #line 462
-  tmp___7 = __builtin_expect((long )descriptor___3.flags & 1L, 0L);
+  tmp___7 = ldv__builtin_expect((long )descriptor___3.flags & 1L, 0L);
 #line 462
   if (tmp___7 != 0L) {
 #line 462
@@ -8228,7 +8228,7 @@ static int skfp_open(struct net_device *dev )
 #line 512
   descriptor.flags = 0U;
 #line 512
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 512
   if (tmp___0 != 0L) {
 #line 512
@@ -8462,7 +8462,7 @@ static void skfp_ctl_set_multicast_list_wo_lock(struct net_device *dev )
 #line 883
     descriptor.flags = 0U;
 #line 883
-    tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 883
     if (tmp___0 != 0L) {
 #line 883
@@ -8486,7 +8486,7 @@ static void skfp_ctl_set_multicast_list_wo_lock(struct net_device *dev )
 #line 888
     descriptor___0.flags = 0U;
 #line 888
-    tmp___1 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 888
     if (tmp___1 != 0L) {
 #line 888
@@ -8515,7 +8515,7 @@ static void skfp_ctl_set_multicast_list_wo_lock(struct net_device *dev )
 #line 896
       descriptor___1.flags = 0U;
 #line 896
-      tmp___2 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+      tmp___2 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 896
       if (tmp___2 != 0L) {
 #line 896
@@ -8550,7 +8550,7 @@ static void skfp_ctl_set_multicast_list_wo_lock(struct net_device *dev )
 #line 907
         descriptor___2.flags = 0U;
 #line 907
-        tmp___3 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+        tmp___3 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
 #line 907
         if (tmp___3 != 0L) {
 #line 907
@@ -8587,7 +8587,7 @@ static void skfp_ctl_set_multicast_list_wo_lock(struct net_device *dev )
 #line 914
         descriptor___3.flags = 0U;
 #line 914
-        tmp___4 = __builtin_expect((long )descriptor___3.flags & 1L, 0L);
+        tmp___4 = ldv__builtin_expect((long )descriptor___3.flags & 1L, 0L);
 #line 914
         if (tmp___4 != 0L) {
 #line 914
@@ -8610,7 +8610,7 @@ static void skfp_ctl_set_multicast_list_wo_lock(struct net_device *dev )
 #line 918
       descriptor___4.flags = 0U;
 #line 918
-      tmp___5 = __builtin_expect((long )descriptor___4.flags & 1L, 0L);
+      tmp___5 = ldv__builtin_expect((long )descriptor___4.flags & 1L, 0L);
 #line 918
       if (tmp___5 != 0L) {
 #line 918
@@ -8779,7 +8779,7 @@ static netdev_tx_t skfp_send_pkt(struct sk_buff *skb , struct net_device *dev )
 #line 1072
   descriptor.flags = 0U;
 #line 1072
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1072
   if (tmp___0 != 0L) {
 #line 1072
@@ -8867,7 +8867,7 @@ static void send_queued_packets(struct s_smc *smc )
 #line 1141
   descriptor.flags = 0U;
 #line 1141
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1141
   if (tmp != 0L) {
 #line 1141
@@ -8893,7 +8893,7 @@ static void send_queued_packets(struct s_smc *smc )
 #line 1147
     descriptor___0.flags = 0U;
 #line 1147
-    tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 1147
     if (tmp___0 != 0L) {
 #line 1147
@@ -8950,7 +8950,7 @@ static void send_queued_packets(struct s_smc *smc )
 #line 1178
       descriptor___1.flags = 0U;
 #line 1178
-      tmp___2 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+      tmp___2 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 1178
       if (tmp___2 != 0L) {
 #line 1178
@@ -8974,7 +8974,7 @@ static void send_queued_packets(struct s_smc *smc )
 #line 1180
       descriptor___2.flags = 0U;
 #line 1180
-      tmp___3 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+      tmp___3 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
 #line 1180
       if (tmp___3 != 0L) {
 #line 1180
@@ -8996,7 +8996,7 @@ static void send_queued_packets(struct s_smc *smc )
 #line 1182
       descriptor___3.flags = 0U;
 #line 1182
-      tmp___4 = __builtin_expect((long )descriptor___3.flags & 1L, 0L);
+      tmp___4 = ldv__builtin_expect((long )descriptor___3.flags & 1L, 0L);
 #line 1182
       if (tmp___4 != 0L) {
 #line 1182
@@ -9110,7 +9110,7 @@ static void ResetAdapter(struct s_smc *smc )
 #line 1259
   descriptor.flags = 0U;
 #line 1259
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1259
   if (tmp != 0L) {
 #line 1259
@@ -9161,7 +9161,7 @@ void llc_restart_tx(struct s_smc *smc )
 #line 1305
   descriptor.flags = 0U;
 #line 1305
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1305
   if (tmp != 0L) {
 #line 1305
@@ -9208,7 +9208,7 @@ void *mac_drv_get_space(struct s_smc *smc , unsigned int size )
 #line 1335
   descriptor.flags = 0U;
 #line 1335
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1335
   if (tmp != 0L) {
 #line 1335
@@ -9242,7 +9242,7 @@ void *mac_drv_get_space(struct s_smc *smc , unsigned int size )
 #line 1344
   descriptor___0.flags = 0U;
 #line 1344
-  tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 1344
   if (tmp___0 != 0L) {
 #line 1344
@@ -9263,7 +9263,7 @@ void *mac_drv_get_space(struct s_smc *smc , unsigned int size )
 #line 1345
   descriptor___1.flags = 0U;
 #line 1345
-  tmp___1 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 1345
   if (tmp___1 != 0L) {
 #line 1345
@@ -9284,7 +9284,7 @@ void *mac_drv_get_space(struct s_smc *smc , unsigned int size )
 #line 1346
   descriptor___2.flags = 0U;
 #line 1346
-  tmp___2 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+  tmp___2 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
 #line 1346
   if (tmp___2 != 0L) {
 #line 1346
@@ -9323,7 +9323,7 @@ void *mac_drv_get_desc_mem(struct s_smc *smc , unsigned int size )
 #line 1376
   descriptor.flags = 0U;
 #line 1376
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1376
   if (tmp != 0L) {
 #line 1376
@@ -9352,7 +9352,7 @@ void *mac_drv_get_desc_mem(struct s_smc *smc , unsigned int size )
 #line 1385
   descriptor___0.flags = 0U;
 #line 1385
-  tmp___1 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 1385
   if (tmp___1 != 0L) {
 #line 1385
@@ -9373,7 +9373,7 @@ void *mac_drv_get_desc_mem(struct s_smc *smc , unsigned int size )
 #line 1386
   descriptor___1.flags = 0U;
 #line 1386
-  tmp___2 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+  tmp___2 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 1386
   if (tmp___2 != 0L) {
 #line 1386
@@ -9473,7 +9473,7 @@ void mac_drv_tx_complete(struct s_smc *smc , struct s_smt_fp_txd  volatile  *txd
 #line 1520
   descriptor.flags = 0U;
 #line 1520
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1520
   if (tmp != 0L) {
 #line 1520
@@ -9498,7 +9498,7 @@ void mac_drv_tx_complete(struct s_smc *smc , struct s_smt_fp_txd  volatile  *txd
 #line 1524
     descriptor___0.flags = 0U;
 #line 1524
-    tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 1524
     if (tmp___0 != 0L) {
 #line 1524
@@ -9536,7 +9536,7 @@ void mac_drv_tx_complete(struct s_smc *smc , struct s_smt_fp_txd  volatile  *txd
 #line 1540
   descriptor___1.flags = 0U;
 #line 1540
-  tmp___1 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 1540
   if (tmp___1 != 0L) {
 #line 1540
@@ -9585,7 +9585,7 @@ void mac_drv_rx_complete(struct s_smc *smc , struct s_smt_fp_rxd  volatile  *rxd
 #line 1607
   descriptor.flags = 0U;
 #line 1607
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1607
   if (tmp != 0L) {
 #line 1607
@@ -9619,7 +9619,7 @@ void mac_drv_rx_complete(struct s_smc *smc , struct s_smt_fp_rxd  volatile  *rxd
 #line 1616
     descriptor___0.flags = 0U;
 #line 1616
-    tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 1616
     if (tmp___0 != 0L) {
 #line 1616
@@ -9654,7 +9654,7 @@ void mac_drv_rx_complete(struct s_smc *smc , struct s_smt_fp_rxd  volatile  *rxd
 #line 1646
     descriptor___1.flags = 0U;
 #line 1646
-    tmp___1 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 1646
     if (tmp___1 != 0L) {
 #line 1646
@@ -9753,7 +9753,7 @@ void mac_drv_rx_complete(struct s_smc *smc , struct s_smt_fp_rxd  volatile  *rxd
 #line 1691
   descriptor___2.flags = 0U;
 #line 1691
-  tmp___3 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+  tmp___3 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
 #line 1691
   if (tmp___3 != 0L) {
 #line 1691
@@ -9820,7 +9820,7 @@ void mac_drv_requeue_rxd(struct s_smc *smc , struct s_smt_fp_rxd  volatile  *rxd
 #line 1740
     descriptor.flags = 0U;
 #line 1740
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1740
     if (tmp != 0L) {
 #line 1740
@@ -9859,7 +9859,7 @@ void mac_drv_requeue_rxd(struct s_smc *smc , struct s_smt_fp_rxd  volatile  *rxd
 #line 1755
       descriptor___0.flags = 0U;
 #line 1755
-      tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+      tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 1755
       if (tmp___0 != 0L) {
 #line 1755
@@ -9936,7 +9936,7 @@ void mac_drv_fill_rxd(struct s_smc *smc )
 #line 1802
   descriptor.flags = 0U;
 #line 1802
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1802
   if (tmp != 0L) {
 #line 1802
@@ -9962,7 +9962,7 @@ void mac_drv_fill_rxd(struct s_smc *smc )
 #line 1810
   descriptor___0.flags = 0U;
 #line 1810
-  tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 1810
   if (tmp___0 != 0L) {
 #line 1810
@@ -10003,7 +10003,7 @@ void mac_drv_fill_rxd(struct s_smc *smc )
 #line 1830
     descriptor___1.flags = 0U;
 #line 1830
-    tmp___2 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___2 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 1830
     if (tmp___2 != 0L) {
 #line 1830
@@ -10041,7 +10041,7 @@ void mac_drv_fill_rxd(struct s_smc *smc )
 #line 1841
   descriptor___2.flags = 0U;
 #line 1841
-  tmp___3 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+  tmp___3 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
 #line 1841
   if (tmp___3 != 0L) {
 #line 1841
@@ -10076,7 +10076,7 @@ void mac_drv_clear_rxd(struct s_smc *smc , struct s_smt_fp_rxd  volatile  *rxd ,
 #line 1867
   descriptor.flags = 0U;
 #line 1867
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1867
   if (tmp != 0L) {
 #line 1867
@@ -10155,7 +10155,7 @@ int mac_drv_rx_init(struct s_smc *smc , int len , int fc , char *look_ahead , in
 #line 1923
   descriptor.flags = 0U;
 #line 1923
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1923
   if (tmp != 0L) {
 #line 1923
@@ -10178,7 +10178,7 @@ int mac_drv_rx_init(struct s_smc *smc , int len , int fc , char *look_ahead , in
 #line 1928
     descriptor___0.flags = 0U;
 #line 1928
-    tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 1928
     if (tmp___0 != 0L) {
 #line 1928
@@ -10199,7 +10199,7 @@ int mac_drv_rx_init(struct s_smc *smc , int len , int fc , char *look_ahead , in
 #line 1929
     descriptor___1.flags = 0U;
 #line 1929
-    tmp___1 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 1929
     if (tmp___1 != 0L) {
 #line 1929
@@ -10230,7 +10230,7 @@ int mac_drv_rx_init(struct s_smc *smc , int len , int fc , char *look_ahead , in
 #line 1935
     descriptor___2.flags = 0U;
 #line 1935
-    tmp___2 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+    tmp___2 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
 #line 1935
     if (tmp___2 != 0L) {
 #line 1935
@@ -10321,7 +10321,7 @@ void ring_status_indication(struct s_smc *smc , u_long status )
 #line 1985
   descriptor.flags = 0U;
 #line 1985
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1985
   if (tmp != 0L) {
 #line 1985
@@ -10344,7 +10344,7 @@ void ring_status_indication(struct s_smc *smc , u_long status )
 #line 1987
     descriptor___0.flags = 0U;
 #line 1987
-    tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 1987
     if (tmp___0 != 0L) {
 #line 1987
@@ -10370,7 +10370,7 @@ void ring_status_indication(struct s_smc *smc , u_long status )
 #line 1989
     descriptor___1.flags = 0U;
 #line 1989
-    tmp___1 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 1989
     if (tmp___1 != 0L) {
 #line 1989
@@ -10396,7 +10396,7 @@ void ring_status_indication(struct s_smc *smc , u_long status )
 #line 1991
     descriptor___2.flags = 0U;
 #line 1991
-    tmp___2 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+    tmp___2 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
 #line 1991
     if (tmp___2 != 0L) {
 #line 1991
@@ -10422,7 +10422,7 @@ void ring_status_indication(struct s_smc *smc , u_long status )
 #line 1993
     descriptor___3.flags = 0U;
 #line 1993
-    tmp___3 = __builtin_expect((long )descriptor___3.flags & 1L, 0L);
+    tmp___3 = ldv__builtin_expect((long )descriptor___3.flags & 1L, 0L);
 #line 1993
     if (tmp___3 != 0L) {
 #line 1993
@@ -10448,7 +10448,7 @@ void ring_status_indication(struct s_smc *smc , u_long status )
 #line 1995
     descriptor___4.flags = 0U;
 #line 1995
-    tmp___4 = __builtin_expect((long )descriptor___4.flags & 1L, 0L);
+    tmp___4 = ldv__builtin_expect((long )descriptor___4.flags & 1L, 0L);
 #line 1995
     if (tmp___4 != 0L) {
 #line 1995
@@ -10474,7 +10474,7 @@ void ring_status_indication(struct s_smc *smc , u_long status )
 #line 1997
     descriptor___5.flags = 0U;
 #line 1997
-    tmp___5 = __builtin_expect((long )descriptor___5.flags & 1L, 0L);
+    tmp___5 = ldv__builtin_expect((long )descriptor___5.flags & 1L, 0L);
 #line 1997
     if (tmp___5 != 0L) {
 #line 1997
@@ -10500,7 +10500,7 @@ void ring_status_indication(struct s_smc *smc , u_long status )
 #line 1999
     descriptor___6.flags = 0U;
 #line 1999
-    tmp___6 = __builtin_expect((long )descriptor___6.flags & 1L, 0L);
+    tmp___6 = ldv__builtin_expect((long )descriptor___6.flags & 1L, 0L);
 #line 1999
     if (tmp___6 != 0L) {
 #line 1999
@@ -10526,7 +10526,7 @@ void ring_status_indication(struct s_smc *smc , u_long status )
 #line 2001
     descriptor___7.flags = 0U;
 #line 2001
-    tmp___7 = __builtin_expect((long )descriptor___7.flags & 1L, 0L);
+    tmp___7 = ldv__builtin_expect((long )descriptor___7.flags & 1L, 0L);
 #line 2001
     if (tmp___7 != 0L) {
 #line 2001
@@ -10552,7 +10552,7 @@ void ring_status_indication(struct s_smc *smc , u_long status )
 #line 2003
     descriptor___8.flags = 0U;
 #line 2003
-    tmp___8 = __builtin_expect((long )descriptor___8.flags & 1L, 0L);
+    tmp___8 = ldv__builtin_expect((long )descriptor___8.flags & 1L, 0L);
 #line 2003
     if (tmp___8 != 0L) {
 #line 2003
@@ -10578,7 +10578,7 @@ void ring_status_indication(struct s_smc *smc , u_long status )
 #line 2005
     descriptor___9.flags = 0U;
 #line 2005
-    tmp___9 = __builtin_expect((long )descriptor___9.flags & 1L, 0L);
+    tmp___9 = ldv__builtin_expect((long )descriptor___9.flags & 1L, 0L);
 #line 2005
     if (tmp___9 != 0L) {
 #line 2005
@@ -10604,7 +10604,7 @@ void ring_status_indication(struct s_smc *smc , u_long status )
 #line 2007
     descriptor___10.flags = 0U;
 #line 2007
-    tmp___10 = __builtin_expect((long )descriptor___10.flags & 1L, 0L);
+    tmp___10 = ldv__builtin_expect((long )descriptor___10.flags & 1L, 0L);
 #line 2007
     if (tmp___10 != 0L) {
 #line 2007
@@ -10630,7 +10630,7 @@ void ring_status_indication(struct s_smc *smc , u_long status )
 #line 2009
     descriptor___11.flags = 0U;
 #line 2009
-    tmp___11 = __builtin_expect((long )descriptor___11.flags & 1L, 0L);
+    tmp___11 = ldv__builtin_expect((long )descriptor___11.flags & 1L, 0L);
 #line 2009
     if (tmp___11 != 0L) {
 #line 2009
@@ -10656,7 +10656,7 @@ void ring_status_indication(struct s_smc *smc , u_long status )
 #line 2011
     descriptor___12.flags = 0U;
 #line 2011
-    tmp___12 = __builtin_expect((long )descriptor___12.flags & 1L, 0L);
+    tmp___12 = ldv__builtin_expect((long )descriptor___12.flags & 1L, 0L);
 #line 2011
     if (tmp___12 != 0L) {
 #line 2011
@@ -10682,7 +10682,7 @@ void ring_status_indication(struct s_smc *smc , u_long status )
 #line 2013
     descriptor___13.flags = 0U;
 #line 2013
-    tmp___13 = __builtin_expect((long )descriptor___13.flags & 1L, 0L);
+    tmp___13 = ldv__builtin_expect((long )descriptor___13.flags & 1L, 0L);
 #line 2013
     if (tmp___13 != 0L) {
 #line 2013
@@ -10708,7 +10708,7 @@ void ring_status_indication(struct s_smc *smc , u_long status )
 #line 2015
     descriptor___14.flags = 0U;
 #line 2015
-    tmp___14 = __builtin_expect((long )descriptor___14.flags & 1L, 0L);
+    tmp___14 = ldv__builtin_expect((long )descriptor___14.flags & 1L, 0L);
 #line 2015
     if (tmp___14 != 0L) {
 #line 2015
@@ -10734,7 +10734,7 @@ void ring_status_indication(struct s_smc *smc , u_long status )
 #line 2017
     descriptor___15.flags = 0U;
 #line 2017
-    tmp___15 = __builtin_expect((long )descriptor___15.flags & 1L, 0L);
+    tmp___15 = ldv__builtin_expect((long )descriptor___15.flags & 1L, 0L);
 #line 2017
     if (tmp___15 != 0L) {
 #line 2017
@@ -10758,7 +10758,7 @@ void ring_status_indication(struct s_smc *smc , u_long status )
 #line 2018
   descriptor___16.flags = 0U;
 #line 2018
-  tmp___16 = __builtin_expect((long )descriptor___16.flags & 1L, 0L);
+  tmp___16 = ldv__builtin_expect((long )descriptor___16.flags & 1L, 0L);
 #line 2018
   if (tmp___16 != 0L) {
 #line 2018
@@ -10806,7 +10806,7 @@ void smt_stat_counter(struct s_smc *smc , int stat )
 #line 2061
   descriptor.flags = 0U;
 #line 2061
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 2061
   if (tmp != 0L) {
 #line 2061
@@ -10830,7 +10830,7 @@ void smt_stat_counter(struct s_smc *smc , int stat )
 #line 2064
   descriptor___0.flags = 0U;
 #line 2064
-  tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 2064
   if (tmp___0 != 0L) {
 #line 2064
@@ -10854,7 +10854,7 @@ void smt_stat_counter(struct s_smc *smc , int stat )
 #line 2067
   descriptor___1.flags = 0U;
 #line 2067
-  tmp___1 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 2067
   if (tmp___1 != 0L) {
 #line 2067
@@ -10880,7 +10880,7 @@ void smt_stat_counter(struct s_smc *smc , int stat )
 #line 2071
   descriptor___2.flags = 0U;
 #line 2071
-  tmp___2 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+  tmp___2 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
 #line 2071
   if (tmp___2 != 0L) {
 #line 2071
@@ -10946,7 +10946,7 @@ void drv_reset_indication(struct s_smc *smc )
 #line 2260
   descriptor.flags = 0U;
 #line 2260
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 2260
   if (tmp != 0L) {
 #line 2260
@@ -29793,7 +29793,7 @@ __inline static void ldv_error(void)
 #line 25
 extern int __VERIFIER_nondet_int(void) ;
 #line 49 "/home/ldvuser/ldv/inst/kernel-rules/verifier/rcv.h"
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 

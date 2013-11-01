@@ -441,7 +441,7 @@ struct test_node {
    u32 augmented ;
 };
 #line 1 "<compiler builtins>"
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 #line 119 "include/linux/printk.h"
 extern int printk(char const   *  , ...) ;
 #line 354 "/home/mikhail/launches/cpachecker-regression2/launcher-working-dir/ldv-manager-work-dir/inst/current/envs/linux-3.8-rc1/linux-3.8-rc1/arch/x86/include/asm/paravirt_types.h"
@@ -471,7 +471,7 @@ __inline static u64 paravirt_read_tsc(void)
 #line 179
   __eax = __eax;
 #line 179
-  tmp = __builtin_expect((unsigned long )pv_cpu_ops.read_tsc == (unsigned long )((u64 (*)(void))0),
+  tmp = ldv__builtin_expect((unsigned long )pv_cpu_ops.read_tsc == (unsigned long )((u64 (*)(void))0),
                          0L);
 #line 179
   if (tmp != 0L) {
@@ -1228,13 +1228,13 @@ static void check(int nr_nodes )
 #line 142
   __ret_warn_once = node->key < prev_key;
 #line 142
-  tmp___1 = __builtin_expect(__ret_warn_once != 0, 0L);
+  tmp___1 = ldv__builtin_expect(__ret_warn_once != 0, 0L);
 #line 142
   if (tmp___1 != 0L) {
 #line 142
     __ret_warn_on = ! __warned;
 #line 142
-    tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 142
     if (tmp != 0L) {
 #line 142
@@ -1244,7 +1244,7 @@ static void check(int nr_nodes )
 
     }
 #line 142
-    tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 142
     if (tmp___0 != 0L) {
 #line 142
@@ -1256,7 +1256,7 @@ static void check(int nr_nodes )
 
   }
 #line 142
-  __builtin_expect(__ret_warn_once != 0, 0L);
+  ldv__builtin_expect(__ret_warn_once != 0, 0L);
 #line 143
   tmp___2 = is_red(rb);
 #line 143
@@ -1284,13 +1284,13 @@ static void check(int nr_nodes )
 #line 143
   __ret_warn_once___0 = tmp___4;
 #line 143
-  tmp___7 = __builtin_expect(__ret_warn_once___0 != 0, 0L);
+  tmp___7 = ldv__builtin_expect(__ret_warn_once___0 != 0, 0L);
 #line 143
   if (tmp___7 != 0L) {
 #line 143
     __ret_warn_on___0 = ! __warned___0;
 #line 143
-    tmp___5 = __builtin_expect(__ret_warn_on___0 != 0, 0L);
+    tmp___5 = ldv__builtin_expect(__ret_warn_on___0 != 0, 0L);
 #line 143
     if (tmp___5 != 0L) {
 #line 143
@@ -1300,7 +1300,7 @@ static void check(int nr_nodes )
 
     }
 #line 143
-    tmp___6 = __builtin_expect(__ret_warn_on___0 != 0, 0L);
+    tmp___6 = ldv__builtin_expect(__ret_warn_on___0 != 0, 0L);
 #line 143
     if (tmp___6 != 0L) {
 #line 143
@@ -1312,7 +1312,7 @@ static void check(int nr_nodes )
 
   }
 #line 143
-  __builtin_expect(__ret_warn_once___0 != 0, 0L);
+  ldv__builtin_expect(__ret_warn_once___0 != 0, 0L);
 #line 145
   if (count == 0) {
 #line 146
@@ -1337,13 +1337,13 @@ static void check(int nr_nodes )
 #line 148
     __ret_warn_once___1 = tmp___9;
 #line 148
-    tmp___12 = __builtin_expect(__ret_warn_once___1 != 0, 0L);
+    tmp___12 = ldv__builtin_expect(__ret_warn_once___1 != 0, 0L);
 #line 148
     if (tmp___12 != 0L) {
 #line 148
       __ret_warn_on___1 = ! __warned___1;
 #line 148
-      tmp___10 = __builtin_expect(__ret_warn_on___1 != 0, 0L);
+      tmp___10 = ldv__builtin_expect(__ret_warn_on___1 != 0, 0L);
 #line 148
       if (tmp___10 != 0L) {
 #line 148
@@ -1353,7 +1353,7 @@ static void check(int nr_nodes )
 
       }
 #line 148
-      tmp___11 = __builtin_expect(__ret_warn_on___1 != 0, 0L);
+      tmp___11 = ldv__builtin_expect(__ret_warn_on___1 != 0, 0L);
 #line 148
       if (tmp___11 != 0L) {
 #line 148
@@ -1365,7 +1365,7 @@ static void check(int nr_nodes )
 
     }
 #line 148
-    __builtin_expect(__ret_warn_once___1 != 0, 0L);
+    ldv__builtin_expect(__ret_warn_once___1 != 0, 0L);
   }
 #line 150
   prev_key = node->key;
@@ -1384,13 +1384,13 @@ static void check(int nr_nodes )
 #line 153
   __ret_warn_once___2 = count != nr_nodes;
 #line 153
-  tmp___15 = __builtin_expect(__ret_warn_once___2 != 0, 0L);
+  tmp___15 = ldv__builtin_expect(__ret_warn_once___2 != 0, 0L);
 #line 153
   if (tmp___15 != 0L) {
 #line 153
     __ret_warn_on___2 = ! __warned___2;
 #line 153
-    tmp___13 = __builtin_expect(__ret_warn_on___2 != 0, 0L);
+    tmp___13 = ldv__builtin_expect(__ret_warn_on___2 != 0, 0L);
 #line 153
     if (tmp___13 != 0L) {
 #line 153
@@ -1400,7 +1400,7 @@ static void check(int nr_nodes )
 
     }
 #line 153
-    tmp___14 = __builtin_expect(__ret_warn_on___2 != 0, 0L);
+    tmp___14 = ldv__builtin_expect(__ret_warn_on___2 != 0, 0L);
 #line 153
     if (tmp___14 != 0L) {
 #line 153
@@ -1412,7 +1412,7 @@ static void check(int nr_nodes )
 
   }
 #line 153
-  __builtin_expect(__ret_warn_once___2 != 0, 0L);
+  ldv__builtin_expect(__ret_warn_once___2 != 0, 0L);
 #line 155
   return;
 }
@@ -1448,13 +1448,13 @@ static void check_augmented(int nr_nodes )
 #line 163
   __ret_warn_once = node->augmented != tmp;
 #line 163
-  tmp___2 = __builtin_expect(__ret_warn_once != 0, 0L);
+  tmp___2 = ldv__builtin_expect(__ret_warn_once != 0, 0L);
 #line 163
   if (tmp___2 != 0L) {
 #line 163
     __ret_warn_on = ! __warned;
 #line 163
-    tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 163
     if (tmp___0 != 0L) {
 #line 163
@@ -1464,7 +1464,7 @@ static void check_augmented(int nr_nodes )
 
     }
 #line 163
-    tmp___1 = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp___1 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 163
     if (tmp___1 != 0L) {
 #line 163
@@ -1476,7 +1476,7 @@ static void check_augmented(int nr_nodes )
 
   }
 #line 163
-  __builtin_expect(__ret_warn_once != 0, 0L);
+  ldv__builtin_expect(__ret_warn_once != 0, 0L);
 #line 161
   rb = rb_next((struct rb_node  const  *)rb);
   ldv_14517: ;
@@ -1872,7 +1872,7 @@ __inline static void ldv_error(void)
 #line 25
 extern int __VERIFIER_nondet_int(void) ;
 #line 49 "/home/mikhail/ldv/kernel-rules/verifier/rcv.h"
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 

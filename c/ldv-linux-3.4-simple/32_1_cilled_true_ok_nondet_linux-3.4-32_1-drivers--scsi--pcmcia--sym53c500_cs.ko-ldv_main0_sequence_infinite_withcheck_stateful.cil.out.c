@@ -4972,7 +4972,7 @@ struct sym53c500_data {
    int fast_pio ;
 };
 #line 1 "<compiler builtins>"
-long __builtin_expect(long val , long res ) ;
+long ldv__builtin_expect(long val , long res ) ;
 #line 100 "include/linux/printk.h"
 extern int ( /* format attribute */  printk)(char const   *fmt  , ...) ;
 #line 49 "include/linux/dynamic_debug.h"
@@ -5304,7 +5304,7 @@ __inline static struct page *sg_page(struct scatterlist *sg )
 #line 98
     __cil_tmp8 = (long )__cil_tmp7;
 #line 98
-    tmp___7 = __builtin_expect(__cil_tmp8, 0L);
+    tmp___7 = ldv__builtin_expect(__cil_tmp8, 0L);
     }
 #line 98
     if (tmp___7) {
@@ -5360,7 +5360,7 @@ __inline static struct page *sg_page(struct scatterlist *sg )
 #line 99
     __cil_tmp15 = (long )__cil_tmp14;
 #line 99
-    tmp___8 = __builtin_expect(__cil_tmp15, 0L);
+    tmp___8 = ldv__builtin_expect(__cil_tmp15, 0L);
     }
 #line 99
     if (tmp___8) {
@@ -7057,7 +7057,7 @@ static void SYM53C500_release(struct pcmcia_device *link )
 #line 515
       __cil_tmp15 = (long )__cil_tmp14;
 #line 515
-      tmp___7 = __builtin_expect(__cil_tmp15, 0L);
+      tmp___7 = ldv__builtin_expect(__cil_tmp15, 0L);
       }
 #line 515
       if (tmp___7) {
@@ -8160,7 +8160,7 @@ static int SYM53C500_config(struct pcmcia_device *link )
 #line 711
       __cil_tmp20 = (long )__cil_tmp19;
 #line 711
-      tmp___7 = __builtin_expect(__cil_tmp20, 0L);
+      tmp___7 = ldv__builtin_expect(__cil_tmp20, 0L);
       }
 #line 711
       if (tmp___7) {
@@ -9021,7 +9021,7 @@ static void SYM53C500_detach(struct pcmcia_device *link )
 #line 839
       __cil_tmp8 = (long )__cil_tmp7;
 #line 839
-      tmp___7 = __builtin_expect(__cil_tmp8, 0L);
+      tmp___7 = ldv__builtin_expect(__cil_tmp8, 0L);
       }
 #line 839
       if (tmp___7) {
@@ -9127,7 +9127,7 @@ static int SYM53C500_probe(struct pcmcia_device *link )
 #line 852
       __cil_tmp11 = (long )__cil_tmp10;
 #line 852
-      tmp___7 = __builtin_expect(__cil_tmp11, 0L);
+      tmp___7 = ldv__builtin_expect(__cil_tmp11, 0L);
       }
 #line 852
       if (tmp___7) {
@@ -9760,7 +9760,7 @@ void ldv_check_final_state(void)
 }
 }
 #line 2863 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/404/dscv_tempdir/dscv/ri/32_1/drivers/scsi/pcmcia/sym53c500_cs.c.common.c"
-long __builtin_expect(long val , long res ) 
+long ldv__builtin_expect(long val , long res ) 
 { 
 
   {

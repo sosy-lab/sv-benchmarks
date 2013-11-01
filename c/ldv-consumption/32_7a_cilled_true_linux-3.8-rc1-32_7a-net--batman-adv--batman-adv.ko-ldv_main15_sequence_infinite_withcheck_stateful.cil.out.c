@@ -6698,7 +6698,7 @@ struct batadv_recvlist_node {
 #line 1 "<compiler builtins>"
 void *__builtin_memcpy(void * , void const   * , unsigned long  ) ;
 #line 1
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 #line 62 "/home/mikhail/launches/cpachecker-regression2/launcher-working-dir/ldv-manager-work-dir/inst/current/envs/linux-3.8-rc1/linux-3.8-rc1/arch/x86/include/asm/bitops.h"
 __inline static void set_bit(unsigned int nr , unsigned long volatile   *addr ) 
 { 
@@ -6966,7 +6966,7 @@ __inline static int __atomic_add_unless(atomic_t *v , int a , int u )
   c = atomic_read((atomic_t const   *)v);
   ldv_5523: 
 #line 217
-  tmp = __builtin_expect(c == u, 0L);
+  tmp = ldv__builtin_expect(c == u, 0L);
 #line 217
   if (tmp != 0L) {
 #line 218
@@ -6977,7 +6977,7 @@ __inline static int __atomic_add_unless(atomic_t *v , int a , int u )
 #line 219
   old = atomic_cmpxchg(v, c, c + a);
 #line 220
-  tmp___0 = __builtin_expect(old == c, 1L);
+  tmp___0 = ldv__builtin_expect(old == c, 1L);
 #line 220
   if (tmp___0 != 0L) {
 #line 221
@@ -10958,7 +10958,7 @@ __inline static int pskb_may_pull(struct sk_buff *skb , unsigned int len )
 #line 1393
   tmp = skb_headlen((struct sk_buff  const  *)skb);
 #line 1393
-  tmp___0 = __builtin_expect(tmp >= len, 1L);
+  tmp___0 = ldv__builtin_expect(tmp >= len, 1L);
 #line 1393
   if (tmp___0 != 0L) {
 #line 1394
@@ -10967,7 +10967,7 @@ __inline static int pskb_may_pull(struct sk_buff *skb , unsigned int len )
 
   }
 #line 1395
-  tmp___1 = __builtin_expect(skb->len < len, 0L);
+  tmp___1 = ldv__builtin_expect(skb->len < len, 0L);
 #line 1395
   if (tmp___1 != 0L) {
 #line 1396
@@ -12278,7 +12278,7 @@ static struct batadv_backbone_gw *batadv_bla_get_backbone_gw(struct batadv_priv 
   hash_added = batadv_hash_add(bat_priv->bla.backbone_hash, & batadv_compare_backbone_gw,
                                & batadv_choose_claim, (void const   *)entry, & entry->hash_entry);
 #line 437
-  tmp___1 = __builtin_expect(hash_added != 0, 0L);
+  tmp___1 = ldv__builtin_expect(hash_added != 0, 0L);
 #line 437
   if (tmp___1 != 0L) {
 #line 439
@@ -12328,7 +12328,7 @@ static void batadv_bla_update_own_backbone_gw(struct batadv_priv *bat_priv , str
   backbone_gw = batadv_bla_get_backbone_gw(bat_priv, (primary_if->net_dev)->dev_addr,
                                            (int )vid, 1);
 #line 476
-  tmp = __builtin_expect((unsigned long )backbone_gw == (unsigned long )((struct batadv_backbone_gw *)0),
+  tmp = ldv__builtin_expect((unsigned long )backbone_gw == (unsigned long )((struct batadv_backbone_gw *)0),
                          0L);
 #line 476
   if (tmp != 0L) {
@@ -12623,7 +12623,7 @@ static void batadv_bla_add_claim(struct batadv_priv *bat_priv , uint8_t const   
     hash_added = batadv_hash_add(bat_priv->bla.claim_hash, & batadv_compare_claim,
                                  & batadv_choose_claim, (void const   *)claim, & claim->hash_entry);
 #line 615
-    tmp___1 = __builtin_expect(hash_added != 0, 0L);
+    tmp___1 = ldv__builtin_expect(hash_added != 0, 0L);
 #line 615
     if (tmp___1 != 0L) {
 #line 617
@@ -12760,7 +12760,7 @@ static int batadv_handle_announce(struct batadv_priv *bat_priv , uint8_t *an_add
 #line 683
   backbone_gw = batadv_bla_get_backbone_gw(bat_priv, backbone_addr, (int )vid, 0);
 #line 686
-  tmp___0 = __builtin_expect((unsigned long )backbone_gw == (unsigned long )((struct batadv_backbone_gw *)0),
+  tmp___0 = ldv__builtin_expect((unsigned long )backbone_gw == (unsigned long )((struct batadv_backbone_gw *)0),
                              0L);
 #line 686
   if (tmp___0 != 0L) {
@@ -12925,7 +12925,7 @@ static int batadv_handle_claim(struct batadv_priv *bat_priv , struct batadv_hard
 #line 782
   backbone_gw = batadv_bla_get_backbone_gw(bat_priv, backbone_addr, (int )vid, 0);
 #line 785
-  tmp = __builtin_expect((unsigned long )backbone_gw == (unsigned long )((struct batadv_backbone_gw *)0),
+  tmp = ldv__builtin_expect((unsigned long )backbone_gw == (unsigned long )((struct batadv_backbone_gw *)0),
                          0L);
 #line 785
   if (tmp != 0L) {
@@ -13126,7 +13126,7 @@ static int batadv_bla_process_claim(struct batadv_priv *bat_priv , struct batadv
 #line 919
   tmp___5 = pskb_may_pull(skb, (unsigned int )(tmp___4 + headlen));
 #line 919
-  tmp___6 = __builtin_expect(tmp___5 == 0, 0L);
+  tmp___6 = ldv__builtin_expect(tmp___5 == 0, 0L);
 #line 919
   if (tmp___6 != 0L) {
 #line 920
@@ -14428,7 +14428,7 @@ int batadv_bla_rx(struct batadv_priv *bat_priv , struct sk_buff *skb , short vid
 #line 1490
   tmp___2 = atomic_read((atomic_t const   *)(& bat_priv->bla.num_requests));
 #line 1490
-  tmp___3 = __builtin_expect(tmp___2 != 0, 0L);
+  tmp___3 = ldv__builtin_expect(tmp___2 != 0, 0L);
 #line 1490
   if (tmp___3 != 0L) {
 #line 1492
@@ -14584,7 +14584,7 @@ int batadv_bla_tx(struct batadv_priv *bat_priv , struct sk_buff *skb , short vid
 #line 1589
   tmp___3 = atomic_read((atomic_t const   *)(& bat_priv->bla.num_requests));
 #line 1589
-  tmp___4 = __builtin_expect(tmp___3 != 0, 0L);
+  tmp___4 = ldv__builtin_expect(tmp___3 != 0, 0L);
 #line 1589
   if (tmp___4 != 0L) {
 #line 1591
@@ -15189,7 +15189,7 @@ __inline static int signal_pending(struct task_struct *p )
 #line 2620
   tmp = test_tsk_thread_flag(p, 2);
 #line 2620
-  tmp___0 = __builtin_expect(tmp != 0, 0L);
+  tmp___0 = ldv__builtin_expect(tmp != 0, 0L);
 #line 2620
   return ((int )tmp___0);
 }
@@ -15481,7 +15481,7 @@ static ssize_t batadv_log_read(struct file *file , char *buf , size_t count , lo
   __asm__  ("add %3,%1 ; sbb %0,%0 ; cmp %1,%4 ; sbb $0,%0": "=&r" (flag), "=r" (roksum): "1" (buf),
             "g" ((long )count), "rm" (tmp___0->addr_limit.seg));
 #line 172
-  tmp___1 = __builtin_expect(flag == 0UL, 1L);
+  tmp___1 = ldv__builtin_expect(flag == 0UL, 1L);
 #line 172
   if (tmp___1 == 0L) {
 #line 173
@@ -17429,7 +17429,7 @@ static void batadv_dat_entry_add(struct batadv_priv *bat_priv , __be32 ip , uint
   hash_added = batadv_hash_add___0(bat_priv->dat.hash, & batadv_compare_dat, & batadv_hash_dat,
                                    (void const   *)(& dat_entry->ip), & dat_entry->hash_entry);
 #line 333
-  tmp___2 = __builtin_expect(hash_added != 0, 0L);
+  tmp___2 = ldv__builtin_expect(hash_added != 0, 0L);
 #line 333
   if (tmp___2 != 0L) {
 #line 335
@@ -18316,7 +18316,7 @@ static uint16_t batadv_arp_get_type(struct batadv_priv *bat_priv , struct sk_buf
 #line 775
   tmp = pskb_may_pull(skb, (unsigned int )(hdr_size + 14));
 #line 775
-  tmp___0 = __builtin_expect(tmp == 0, 0L);
+  tmp___0 = ldv__builtin_expect(tmp == 0, 0L);
 #line 775
   if (tmp___0 != 0L) {
 #line 776
@@ -18338,7 +18338,7 @@ static uint16_t batadv_arp_get_type(struct batadv_priv *bat_priv , struct sk_buf
 #line 784
   tmp___2 = pskb_may_pull(skb, (unsigned int )((hdr_size + 14) + tmp___1));
 #line 784
-  tmp___3 = __builtin_expect(tmp___2 == 0, 0L);
+  tmp___3 = ldv__builtin_expect(tmp___2 == 0, 0L);
 #line 784
   if (tmp___3 != 0L) {
 #line 786
@@ -22214,7 +22214,7 @@ static bool batadv_is_on_batman_iface(struct net_device  const  *net_dev )
 #line 124
   __ret_warn_on = (unsigned long )parent_dev == (unsigned long )((struct net_device *)0);
 #line 124
-  tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 124
   if (tmp___0 != 0L) {
 #line 124
@@ -22224,7 +22224,7 @@ static bool batadv_is_on_batman_iface(struct net_device  const  *net_dev )
 
   }
 #line 124
-  tmp___1 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___1 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 124
   if (tmp___1 != 0L) {
 #line 125
@@ -22458,7 +22458,7 @@ static void batadv_primary_if_select(struct batadv_priv *bat_priv , struct batad
 #line 204
   tmp = rtnl_is_locked();
 #line 204
-  tmp___0 = __builtin_expect(tmp == 0, 0L);
+  tmp___0 = ldv__builtin_expect(tmp == 0, 0L);
 #line 204
   if (tmp___0 != 0L) {
 #line 204
@@ -23299,7 +23299,7 @@ static struct batadv_hard_iface *batadv_hardif_add_interface(struct net_device *
 #line 498
   tmp = rtnl_is_locked();
 #line 498
-  tmp___0 = __builtin_expect(tmp == 0, 0L);
+  tmp___0 = ldv__builtin_expect(tmp == 0, 0L);
 #line 498
   if (tmp___0 != 0L) {
 #line 498
@@ -23384,7 +23384,7 @@ static void batadv_hardif_remove_interface(struct batadv_hard_iface *hard_iface 
 #line 543
   tmp = rtnl_is_locked();
 #line 543
-  tmp___0 = __builtin_expect(tmp == 0, 0L);
+  tmp___0 = ldv__builtin_expect(tmp == 0, 0L);
 #line 543
   if (tmp___0 != 0L) {
 #line 543
@@ -24100,14 +24100,14 @@ __inline static unsigned long copy_from_user(void *to , void const   *from , uns
 #line 61
   might_fault();
 #line 62
-  tmp___1 = __builtin_expect(sz == -1, 1L);
+  tmp___1 = ldv__builtin_expect(sz == -1, 1L);
 #line 62
   if (tmp___1 != 0L) {
 #line 63
     n = _copy_from_user(to, from, (unsigned int )n);
   } else {
 #line 62
-    tmp___2 = __builtin_expect((unsigned long )sz >= n, 1L);
+    tmp___2 = ldv__builtin_expect((unsigned long )sz >= n, 1L);
 #line 62
     if (tmp___2 != 0L) {
 #line 63
@@ -24116,7 +24116,7 @@ __inline static unsigned long copy_from_user(void *to , void const   *from , uns
 #line 66
       __ret_warn_on = 1;
 #line 66
-      tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+      tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 66
       if (tmp___0 != 0L) {
 #line 66
@@ -24126,7 +24126,7 @@ __inline static unsigned long copy_from_user(void *to , void const   *from , uns
 
       }
 #line 66
-      __builtin_expect(__ret_warn_on != 0, 0L);
+      ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
   }
 #line 68
@@ -24523,7 +24523,7 @@ static ssize_t batadv_socket_read(struct file *file , char *buf , size_t count ,
   __asm__  ("add %3,%1 ; sbb %0,%0 ; cmp %1,%4 ; sbb $0,%0": "=&r" (flag), "=r" (roksum): "1" (buf),
             "g" ((long )count), "rm" (tmp->addr_limit.seg));
 #line 154
-  tmp___0 = __builtin_expect(flag == 0UL, 1L);
+  tmp___0 = ldv__builtin_expect(flag == 0UL, 1L);
 #line 154
   if (tmp___0 == 0L) {
 #line 155
@@ -25505,7 +25505,7 @@ __inline static struct sk_buff *skb_share_check(struct sk_buff *skb , gfp_t pri 
 #line 863
     nskb = tmp;
 #line 865
-    tmp___0 = __builtin_expect((unsigned long )nskb != (unsigned long )((struct sk_buff *)0),
+    tmp___0 = ldv__builtin_expect((unsigned long )nskb != (unsigned long )((struct sk_buff *)0),
                                1L);
 #line 865
     if (tmp___0 != 0L) {
@@ -26063,7 +26063,7 @@ int batadv_batman_skb_recv(struct sk_buff *skb , struct net_device *dev , struct
 #line 286
   tmp = pskb_may_pull(skb, 2U);
 #line 286
-  tmp___0 = __builtin_expect(tmp == 0, 0L);
+  tmp___0 = ldv__builtin_expect(tmp == 0, 0L);
 #line 286
   if (tmp___0 != 0L) {
 #line 287
@@ -26072,7 +26072,7 @@ int batadv_batman_skb_recv(struct sk_buff *skb , struct net_device *dev , struct
 
   }
 #line 290
-  tmp___1 = __builtin_expect((unsigned int )skb->mac_len != 14U, 0L);
+  tmp___1 = ldv__builtin_expect((unsigned int )skb->mac_len != 14U, 0L);
 #line 290
   if (tmp___1 != 0L) {
 #line 291
@@ -26081,7 +26081,7 @@ int batadv_batman_skb_recv(struct sk_buff *skb , struct net_device *dev , struct
 #line 290
     tmp___2 = skb_mac_header((struct sk_buff  const  *)skb);
 #line 290
-    tmp___3 = __builtin_expect((unsigned long )tmp___2 == (unsigned long )((unsigned char *)0),
+    tmp___3 = ldv__builtin_expect((unsigned long )tmp___2 == (unsigned long )((unsigned char *)0),
                                0L);
 #line 290
     if (tmp___3 != 0L) {
@@ -29510,7 +29510,7 @@ bool batadv_check_management_packet(struct sk_buff *skb , struct batadv_hard_ifa
 #line 290
   tmp = pskb_may_pull(skb, (unsigned int )header_len);
 #line 290
-  tmp___0 = __builtin_expect(tmp == 0, 0L);
+  tmp___0 = ldv__builtin_expect(tmp == 0, 0L);
 #line 290
   if (tmp___0 != 0L) {
 #line 291
@@ -29728,7 +29728,7 @@ static int batadv_recv_icmp_ttl_exceeded(struct batadv_priv *bat_priv , struct s
 #line 374
     descriptor.flags = 0U;
 #line 374
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 374
     if (tmp != 0L) {
 #line 374
@@ -29872,7 +29872,7 @@ int batadv_recv_icmp_packet(struct sk_buff *skb , struct batadv_hard_iface *recv
 #line 426
   tmp___0 = pskb_may_pull(skb, (unsigned int )hdr_size);
 #line 426
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
 #line 426
   if (tmp___1 != 0L) {
 #line 427
@@ -30280,7 +30280,7 @@ static int batadv_check_unicast_packet(struct sk_buff *skb , int hdr_size )
 #line 591
   tmp = pskb_may_pull(skb, (unsigned int )hdr_size);
 #line 591
-  tmp___0 = __builtin_expect(tmp == 0, 0L);
+  tmp___0 = ldv__builtin_expect(tmp == 0, 0L);
 #line 591
   if (tmp___0 != 0L) {
 #line 592
@@ -30450,7 +30450,7 @@ int batadv_recv_tt_query(struct sk_buff *skb , struct batadv_hard_iface *recv_if
 #line 666
     tmp___9 = skb_headlen((struct sk_buff  const  *)skb);
 #line 666
-    tmp___10 = __builtin_expect((size_t )tmp___9 < packet_size, 0L);
+    tmp___10 = ldv__builtin_expect((size_t )tmp___9 < packet_size, 0L);
 #line 666
     if (tmp___10 != 0L) {
 #line 667
@@ -30766,7 +30766,7 @@ static int batadv_route_unicast_packet(struct sk_buff *skb , struct batadv_hard_
 #line 835
     descriptor.flags = 0U;
 #line 835
-    tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 835
     if (tmp___1 != 0L) {
 #line 835
@@ -31456,7 +31456,7 @@ int batadv_recv_bcast_packet(struct sk_buff *skb , struct batadv_hard_iface *rec
 #line 1177
   tmp___0 = pskb_may_pull(skb, (unsigned int )hdr_size);
 #line 1177
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
 #line 1177
   if (tmp___1 != 0L) {
 #line 1178
@@ -31668,7 +31668,7 @@ int batadv_recv_vis_packet(struct sk_buff *skb , struct batadv_hard_iface *recv_
 #line 1276
   tmp___1 = pskb_may_pull(skb, (unsigned int )hdr_size);
 #line 1276
-  tmp___2 = __builtin_expect(tmp___1 == 0, 0L);
+  tmp___2 = ldv__builtin_expect(tmp___1 == 0, 0L);
 #line 1276
   if (tmp___2 != 0L) {
 #line 1277
@@ -31925,7 +31925,7 @@ int batadv_send_skb_packet(struct sk_buff *skb , struct batadv_hard_iface *hard_
 
   }
 #line 78
-  tmp = __builtin_expect((unsigned long )hard_iface->net_dev == (unsigned long )((struct net_device *)0),
+  tmp = ldv__builtin_expect((unsigned long )hard_iface->net_dev == (unsigned long )((struct net_device *)0),
                          0L);
 #line 78
   if (tmp != 0L) {
@@ -32716,13 +32716,13 @@ __inline static unsigned int cpumask_check(unsigned int cpu )
 #line 108
   __ret_warn_once = (unsigned int )nr_cpu_ids <= cpu;
 #line 108
-  tmp___1 = __builtin_expect(__ret_warn_once != 0, 0L);
+  tmp___1 = ldv__builtin_expect(__ret_warn_once != 0, 0L);
 #line 108
   if (tmp___1 != 0L) {
 #line 108
     __ret_warn_on = ! __warned;
 #line 108
-    tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 108
     if (tmp != 0L) {
 #line 108
@@ -32731,7 +32731,7 @@ __inline static unsigned int cpumask_check(unsigned int cpu )
 
     }
 #line 108
-    tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 108
     if (tmp___0 != 0L) {
 #line 108
@@ -32743,7 +32743,7 @@ __inline static unsigned int cpumask_check(unsigned int cpu )
 
   }
 #line 108
-  __builtin_expect(__ret_warn_once != 0, 0L);
+  ldv__builtin_expect(__ret_warn_once != 0, 0L);
 #line 110
   return (cpu);
 }
@@ -32942,7 +32942,7 @@ __inline static void netif_tx_stop_queue(struct netdev_queue *dev_queue )
 #line 1880
   __ret_warn_on = (unsigned long )dev_queue == (unsigned long )((struct netdev_queue *)0);
 #line 1880
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 1880
   if (tmp != 0L) {
 #line 1880
@@ -32951,7 +32951,7 @@ __inline static void netif_tx_stop_queue(struct netdev_queue *dev_queue )
 
   }
 #line 1880
-  tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 1880
   if (tmp___0 != 0L) {
 #line 1881
@@ -33748,7 +33748,7 @@ void batadv_interface_rx(struct net_device *soft_iface , struct sk_buff *skb , s
 #line 366
   tmp___4 = pskb_may_pull(skb, 14U);
 #line 366
-  tmp___5 = __builtin_expect(tmp___4 == 0, 0L);
+  tmp___5 = ldv__builtin_expect(tmp___4 == 0, 0L);
 #line 366
   if (tmp___5 != 0L) {
 #line 367
@@ -37840,7 +37840,7 @@ void batadv_tt_local_add(struct net_device *soft_iface , uint8_t const   *addr ,
   hash_added = batadv_hash_add___2(bat_priv->tt.local_hash, & batadv_compare_tt, & batadv_choose_orig___4,
                                    (void const   *)(& tt_local->common), & tt_local->common.hash_entry);
 #line 360
-  tmp___7 = __builtin_expect(hash_added != 0, 0L);
+  tmp___7 = ldv__builtin_expect(hash_added != 0, 0L);
 #line 360
   if (tmp___7 != 0L) {
 #line 362
@@ -38898,7 +38898,7 @@ int batadv_tt_global_add(struct batadv_priv *bat_priv , struct batadv_orig_node 
                                      & batadv_choose_orig___4, (void const   *)common,
                                      & common->hash_entry);
 #line 863
-    tmp___0 = __builtin_expect(hash_added != 0, 0L);
+    tmp___0 = ldv__builtin_expect(hash_added != 0, 0L);
 #line 863
     if (tmp___0 != 0L) {
 #line 865
@@ -43519,7 +43519,7 @@ int batadv_frag_reassemble_skb(struct sk_buff *skb , struct batadv_priv *bat_pri
 #line 232
       descriptor.flags = 0U;
 #line 232
-      tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+      tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 232
       if (tmp != 0L) {
 #line 232
@@ -44197,7 +44197,7 @@ __inline static void kref_get(struct kref *kref )
 #line 42
   __ret_warn_on = tmp == 0;
 #line 42
-  tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 42
   if (tmp___0 != 0L) {
 #line 42
@@ -44206,7 +44206,7 @@ __inline static void kref_get(struct kref *kref )
 
   }
 #line 42
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 43
   atomic_inc(& kref->refcount);
 #line 44
@@ -44224,7 +44224,7 @@ __inline static int kref_sub(struct kref *kref , unsigned int count , void (*rel
 #line 67
   __ret_warn_on = (unsigned long )release == (unsigned long )((void (*)(struct kref * ))0);
 #line 67
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 67
   if (tmp != 0L) {
 #line 67
@@ -44233,7 +44233,7 @@ __inline static int kref_sub(struct kref *kref , unsigned int count , void (*rel
 
   }
 #line 67
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 69
   tmp___0 = atomic_sub_and_test((int )count, & kref->refcount);
 #line 69
@@ -46584,7 +46584,7 @@ static void batadv_send_vis_packet(struct batadv_priv *bat_priv , struct batadv_
 #line 810
     descriptor.flags = 0U;
 #line 810
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 810
     if (tmp != 0L) {
 #line 810
@@ -47044,7 +47044,7 @@ __inline static void ldv_error(void)
 #line 25
 extern int __VERIFIER_nondet_int(void) ;
 #line 49 "/home/mikhail/ldv/kernel-rules/verifier/rcv.h"
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 

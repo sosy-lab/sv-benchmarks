@@ -3814,7 +3814,7 @@ struct i2c_diolan_u2c {
    int ocount ;
 };
 #line 1 "<compiler builtins>"
-long __builtin_expect(long val , long res ) ;
+long ldv__builtin_expect(long val , long res ) ;
 #line 49 "include/linux/dynamic_debug.h"
 extern int ( /* format attribute */  __dynamic_dev_dbg)(struct _ddebug *descriptor ,
                                                         struct device  const  *dev ,
@@ -6316,7 +6316,7 @@ static int diolan_u2c_probe(struct usb_interface *interface , struct usb_device_
 #line 490
       __cil_tmp75 = (long )__cil_tmp74;
 #line 490
-      tmp___9 = __builtin_expect(__cil_tmp75, 0L);
+      tmp___9 = ldv__builtin_expect(__cil_tmp75, 0L);
       }
 #line 490
       if (tmp___9) {
@@ -6430,7 +6430,7 @@ static void diolan_u2c_disconnect(struct usb_interface *interface )
 #line 509
       __cil_tmp14 = (long )__cil_tmp13;
 #line 509
-      tmp___8 = __builtin_expect(__cil_tmp14, 0L);
+      tmp___8 = ldv__builtin_expect(__cil_tmp14, 0L);
       }
 #line 509
       if (tmp___8) {
@@ -6926,7 +6926,7 @@ void ldv_check_final_state(void)
 }
 }
 #line 1109 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/290/dscv_tempdir/dscv/ri/32_1/drivers/i2c/busses/i2c-diolan-u2c.c.common.c"
-long __builtin_expect(long val , long res ) 
+long ldv__builtin_expect(long val , long res ) 
 { 
 
   {

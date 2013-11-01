@@ -5412,7 +5412,7 @@ struct __anonstruct_356 {
    int  : 0 ;
 };
 #line 1 "<compiler builtins>"
-long __builtin_expect(long val , long res ) ;
+long ldv__builtin_expect(long val , long res ) ;
 #line 152 "include/linux/mutex.h"
 void mutex_lock(struct mutex *lock ) ;
 #line 153
@@ -5586,7 +5586,7 @@ static bool ab_transmit(struct team *team , struct sk_buff *skb )
 #line 45
   __cil_tmp22 = (long )__cil_tmp21;
 #line 45
-  tmp___16 = __builtin_expect(__cil_tmp22, 0L);
+  tmp___16 = ldv__builtin_expect(__cil_tmp22, 0L);
   }
 #line 45
   if (tmp___16) {
@@ -6430,7 +6430,7 @@ void ldv_check_final_state(void)
 }
 }
 #line 334 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/9679/dscv_tempdir/dscv/ri/32_1/drivers/net/team/team_mode_activebackup.c.common.c"
-long __builtin_expect(long val , long res ) 
+long ldv__builtin_expect(long val , long res ) 
 { 
 
   {

@@ -5794,7 +5794,7 @@ struct driver_info {
    unsigned long data ;
 };
 #line 1 "<compiler builtins>"
-long __builtin_expect(long val , long res ) ;
+long ldv__builtin_expect(long val , long res ) ;
 #line 55 "include/linux/dynamic_debug.h"
 extern int ( /* format attribute */  __dynamic_netdev_dbg)(struct _ddebug *descriptor ,
                                                            struct net_device  const  *dev ,
@@ -6031,7 +6031,7 @@ static int pl_reset(struct usbnet *dev )
 #line 106
             __cil_tmp21 = (long )__cil_tmp20;
 #line 106
-            tmp___7 = __builtin_expect(__cil_tmp21, 0L);
+            tmp___7 = ldv__builtin_expect(__cil_tmp21, 0L);
             }
 #line 106
             if (tmp___7) {
@@ -6481,7 +6481,7 @@ void ldv_check_final_state(void)
 }
 }
 #line 284 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/9624/dscv_tempdir/dscv/ri/32_1/drivers/net/usb/plusb.c.common.c"
-long __builtin_expect(long val , long res ) 
+long ldv__builtin_expect(long val , long res ) 
 { 
 
   {

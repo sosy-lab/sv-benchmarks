@@ -5588,7 +5588,7 @@ typedef int ldv_func_ret_type___4;
 #line 1 "<compiler builtins>"
 void *__builtin_memcpy(void * , void const   * , unsigned long  ) ;
 #line 1
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 #line 62 "/home/mikhail/launches/cpachecker-regression/launcher-working-dir/ldv-manager-work-dir/inst/current/envs/linux-3.8-rc1/linux-3.8-rc1/arch/x86/include/asm/bitops.h"
 __inline static void set_bit(unsigned int nr , unsigned long volatile   *addr ) 
 { 
@@ -5817,7 +5817,7 @@ __inline static ktime_t ktime_set(long const   secs , unsigned long const   nsec
 
   {
 #line 77
-  tmp = __builtin_expect((long long )secs > 9223372035LL, 0L);
+  tmp = ldv__builtin_expect((long long )secs > 9223372035LL, 0L);
 #line 77
   if (tmp != 0L) {
 #line 78
@@ -6053,7 +6053,7 @@ __inline static void netif_tx_stop_queue(struct netdev_queue *dev_queue )
 #line 1880
   __ret_warn_on = (unsigned long )dev_queue == (unsigned long )((struct netdev_queue *)0);
 #line 1880
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 1880
   if (tmp != 0L) {
 #line 1880
@@ -6062,7 +6062,7 @@ __inline static void netif_tx_stop_queue(struct netdev_queue *dev_queue )
 
   }
 #line 1880
-  tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 1880
   if (tmp___0 != 0L) {
 #line 1881
@@ -6121,14 +6121,14 @@ __inline static int can_dropped_invalid_skb(struct net_device *dev , struct sk_b
 #line 73
   if ((unsigned int )skb->protocol == 3072U) {
 #line 74
-    tmp___1 = __builtin_expect(skb->len != 16U, 0L);
+    tmp___1 = ldv__builtin_expect(skb->len != 16U, 0L);
 #line 74
     if (tmp___1 != 0L) {
 #line 76
       goto inval_skb;
     } else {
 #line 74
-      tmp___2 = __builtin_expect((unsigned int )((unsigned char )cfd->len) > 8U, 0L);
+      tmp___2 = ldv__builtin_expect((unsigned int )((unsigned char )cfd->len) > 8U, 0L);
 #line 74
       if (tmp___2 != 0L) {
 #line 76
@@ -6137,14 +6137,14 @@ __inline static int can_dropped_invalid_skb(struct net_device *dev , struct sk_b
 #line 77
       if ((unsigned int )skb->protocol == 3328U) {
 #line 78
-        tmp = __builtin_expect(skb->len != 72U, 0L);
+        tmp = ldv__builtin_expect(skb->len != 72U, 0L);
 #line 78
         if (tmp != 0L) {
 #line 80
           goto inval_skb;
         } else {
 #line 78
-          tmp___0 = __builtin_expect((unsigned int )((unsigned char )cfd->len) > 64U,
+          tmp___0 = ldv__builtin_expect((unsigned int )((unsigned char )cfd->len) > 64U,
                                      0L);
 #line 78
           if (tmp___0 != 0L) {
@@ -8784,7 +8784,7 @@ __inline static int signal_pending(struct task_struct *p )
 #line 2620
   tmp = test_tsk_thread_flag(p, 2);
 #line 2620
-  tmp___0 = __builtin_expect(tmp != 0, 0L);
+  tmp___0 = ldv__builtin_expect(tmp != 0, 0L);
 #line 2620
   return ((int )tmp___0);
 }
@@ -9048,7 +9048,7 @@ int softing_load_fw(char const   *file , struct softing *card , uint8_t *dpram ,
 #line 191
   descriptor.flags = 1U;
 #line 191
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 191
   if (tmp != 0L) {
 #line 191
@@ -9265,7 +9265,7 @@ int softing_load_app_fw(char const   *file , struct softing *card )
 #line 277
   descriptor.flags = 1U;
 #line 277
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 277
   if (tmp != 0L) {
 #line 277
@@ -9670,7 +9670,7 @@ ktime_t softing_raw2ktime(struct softing *card , u32 raw )
   tmp = __constr_expr_3;
   ldv_37745: 
 #line 444
-  tmp___1 = __builtin_expect(tmp.tv64 > now.tv64, 0L);
+  tmp___1 = ldv__builtin_expect(tmp.tv64 > now.tv64, 0L);
 #line 444
   if (tmp___1 != 0L) {
 #line 445
@@ -10408,7 +10408,7 @@ __inline static void ldv_error(void)
 #line 25
 extern int __VERIFIER_nondet_int(void) ;
 #line 49 "/home/mikhail/ldv/kernel-rules/verifier/rcv.h"
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 

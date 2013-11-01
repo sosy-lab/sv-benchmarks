@@ -1838,7 +1838,7 @@ enum uv_memprotect {
     UV_MEMPROT_ALLOW_RW = 2
 } ;
 #line 1 "<compiler builtins>"
-long __builtin_expect(long val , long res ) ;
+long ldv__builtin_expect(long val , long res ) ;
 #line 115 "include/linux/mutex.h"
 extern void __mutex_init(struct mutex *lock , char const   *name , struct lock_class_key *key ) ;
 #line 152
@@ -3148,7 +3148,7 @@ void ldv_check_final_state(void)
 }
 }
 #line 382 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/4757/dscv_tempdir/dscv/ri/32_1/drivers/misc/sgi-xp/xp_main.c.common.c"
-long __builtin_expect(long val , long res ) 
+long ldv__builtin_expect(long val , long res ) 
 { 
 
   {
@@ -3991,7 +3991,7 @@ static enum xp_retval xp_remote_mmr_read(unsigned long dst_gpa , unsigned long c
 #line 51
     __cil_tmp14 = (long )tmp___1;
 #line 51
-    tmp___2 = __builtin_expect(__cil_tmp14, 0L);
+    tmp___2 = ldv__builtin_expect(__cil_tmp14, 0L);
     }
 #line 51
     if (tmp___2) {
@@ -4041,7 +4041,7 @@ static enum xp_retval xp_remote_mmr_read(unsigned long dst_gpa , unsigned long c
 #line 52
     __cil_tmp18 = (long )__cil_tmp17;
 #line 52
-    tmp___3 = __builtin_expect(__cil_tmp18, 0L);
+    tmp___3 = ldv__builtin_expect(__cil_tmp18, 0L);
     }
 #line 52
     if (tmp___3) {
@@ -4337,7 +4337,7 @@ enum xp_retval xp_init_uv(void)
 #line 151
     __cil_tmp4 = (long )tmp___0;
 #line 151
-    tmp___1 = __builtin_expect(__cil_tmp4, 0L);
+    tmp___1 = ldv__builtin_expect(__cil_tmp4, 0L);
     }
 #line 151
     if (tmp___1) {
@@ -4441,7 +4441,7 @@ void xp_exit_uv(void)
 #line 170
     __cil_tmp4 = (long )tmp___0;
 #line 170
-    tmp___1 = __builtin_expect(__cil_tmp4, 0L);
+    tmp___1 = ldv__builtin_expect(__cil_tmp4, 0L);
     }
 #line 170
     if (tmp___1) {

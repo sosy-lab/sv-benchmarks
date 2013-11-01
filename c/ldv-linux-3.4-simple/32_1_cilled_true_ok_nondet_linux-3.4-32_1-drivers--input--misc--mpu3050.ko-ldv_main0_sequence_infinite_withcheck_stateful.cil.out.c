@@ -3743,7 +3743,7 @@ struct mpu3050_sensor {
    struct input_dev *idev ;
 };
 #line 1 "<compiler builtins>"
-long __builtin_expect(long val , long res ) ;
+long ldv__builtin_expect(long val , long res ) ;
 #line 82 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/bitops.h"
 __inline static void __set_bit(int nr , unsigned long volatile   *addr )  __attribute__((__no_instrument_function__)) ;
 #line 82 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/bitops.h"
@@ -4359,7 +4359,7 @@ static void mpu3050_read_xyz(struct i2c_client *client , struct axis_data *coord
 #line 168
       __cil_tmp33 = (long )__cil_tmp32;
 #line 168
-      tmp___10 = __builtin_expect(__cil_tmp33, 0L);
+      tmp___10 = ldv__builtin_expect(__cil_tmp33, 0L);
       }
 #line 168
       if (tmp___10) {
@@ -5824,7 +5824,7 @@ void ldv_check_final_state(void)
 }
 }
 #line 839 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/4015/dscv_tempdir/dscv/ri/32_1/drivers/input/misc/mpu3050.c.common.c"
-long __builtin_expect(long val , long res ) 
+long ldv__builtin_expect(long val , long res ) 
 { 
 
   {

@@ -4124,7 +4124,7 @@ struct lcd_device {
    struct device dev ;
 };
 #line 1 "<compiler builtins>"
-long __builtin_expect(long val , long res ) ;
+long ldv__builtin_expect(long val , long res ) ;
 #line 100 "include/linux/printk.h"
 extern int ( /* format attribute */  printk)(char const   *fmt  , ...) ;
 #line 44 "include/linux/dynamic_debug.h"
@@ -4229,7 +4229,7 @@ __inline static long __attribute__((__warn_unused_result__))  IS_ERR(void const 
 #line 34
   __cil_tmp7 = (long )__cil_tmp6;
 #line 34
-  tmp = __builtin_expect(__cil_tmp7, 0L);
+  tmp = ldv__builtin_expect(__cil_tmp7, 0L);
   }
 #line 34
   return (tmp);
@@ -4922,7 +4922,7 @@ static ssize_t lcd_store_power(struct device *dev , struct device_attribute *att
 #line 110
         __cil_tmp32 = (long )__cil_tmp31;
 #line 110
-        tmp___7 = __builtin_expect(__cil_tmp32, 0L);
+        tmp___7 = ldv__builtin_expect(__cil_tmp32, 0L);
         }
 #line 110
         if (tmp___7) {
@@ -5246,7 +5246,7 @@ static ssize_t lcd_store_contrast(struct device *dev , struct device_attribute *
 #line 146
         __cil_tmp32 = (long )__cil_tmp31;
 #line 146
-        tmp___7 = __builtin_expect(__cil_tmp32, 0L);
+        tmp___7 = ldv__builtin_expect(__cil_tmp32, 0L);
         }
 #line 146
         if (tmp___7) {
@@ -5491,7 +5491,7 @@ struct lcd_device *lcd_device_register(char const   *name , struct device *paren
 #line 195
     __cil_tmp17 = (long )__cil_tmp16;
 #line 195
-    tmp___7 = __builtin_expect(__cil_tmp17, 0L);
+    tmp___7 = ldv__builtin_expect(__cil_tmp17, 0L);
     }
 #line 195
     if (tmp___7) {
@@ -6169,7 +6169,7 @@ void ldv_check_final_state(void)
 }
 }
 #line 368 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/16921/dscv_tempdir/dscv/ri/32_1/drivers/video/backlight/lcd.c.common.c"
-long __builtin_expect(long val , long res ) 
+long ldv__builtin_expect(long val , long res ) 
 { 
 
   {

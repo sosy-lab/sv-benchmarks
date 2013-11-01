@@ -3250,7 +3250,7 @@ void ldv_mutex_unlock_7(struct mutex *ldv_func_arg1 )
 }
 }
 #line 1 "<compiler builtins>"
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 #line 119 "include/linux/printk.h"
 extern int printk(char const   *  , ...) ;
 #line 53 "include/linux/dynamic_debug.h"
@@ -3668,7 +3668,7 @@ static int readable(struct pcmcia_socket *s , struct resource *res , unsigned in
 #line 325
     descriptor.flags = 0U;
 #line 325
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 325
     if (tmp != 0L) {
 #line 325
@@ -3863,7 +3863,7 @@ static int do_validate_mem(struct pcmcia_socket *s , unsigned long base , unsign
 #line 426
   descriptor.flags = 0U;
 #line 426
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 426
   if (tmp___0 != 0L) {
 #line 426
@@ -6107,7 +6107,7 @@ __inline static void ldv_error(void)
 #line 25
 extern int __VERIFIER_nondet_int(void) ;
 #line 49 "/home/zakharov/workspace/instruments/ldv/kernel-rules/verifier/rcv.h"
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
   {

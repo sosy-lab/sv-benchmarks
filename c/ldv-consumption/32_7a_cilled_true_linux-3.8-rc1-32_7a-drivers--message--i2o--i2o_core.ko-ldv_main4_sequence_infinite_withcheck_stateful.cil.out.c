@@ -3073,7 +3073,7 @@ struct pv_irq_ops {
 #line 1 "<compiler builtins>"
 void *__builtin_memcpy(void * , void const   * , unsigned long  ) ;
 #line 1
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 #line 119 "include/linux/printk.h"
 extern int printk(char const   *  , ...) ;
 #line 358 "include/linux/kernel.h"
@@ -3141,7 +3141,7 @@ __inline static long IS_ERR(void const   *ptr )
 
   {
 #line 34
-  tmp = __builtin_expect((unsigned long )ptr > 0xfffffffffffff000UL, 0L);
+  tmp = ldv__builtin_expect((unsigned long )ptr > 0xfffffffffffff000UL, 0L);
 #line 34
   return (tmp);
 }
@@ -3387,7 +3387,7 @@ __inline static struct dma_map_ops *get_dma_ops(struct device *dev )
 
   {
 #line 37
-  tmp = __builtin_expect((unsigned long )dev == (unsigned long )((struct device *)0),
+  tmp = ldv__builtin_expect((unsigned long )dev == (unsigned long )((struct device *)0),
                          0L);
 #line 37
   if (tmp != 0L || (unsigned long )dev->archdata.dma_ops == (unsigned long )((struct dma_map_ops *)0)) {
@@ -3421,7 +3421,7 @@ __inline static dma_addr_t dma_map_single_attrs(struct device *dev , void *ptr ,
 #line 19
   tmp___0 = valid_dma_direction((int )dir);
 #line 19
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
 #line 19
   if (tmp___1 != 0L) {
 #line 19
@@ -3465,7 +3465,7 @@ __inline static void dma_unmap_single_attrs(struct device *dev , dma_addr_t addr
 #line 36
   tmp___0 = valid_dma_direction((int )dir);
 #line 36
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
 #line 36
   if (tmp___1 != 0L) {
 #line 36
@@ -3592,7 +3592,7 @@ __inline static struct i2o_message *i2o_msg_get(struct i2o_controller *c )
 #line 845
   mmsg->mfa = readl((void const volatile   *)c->in_port);
 #line 846
-  tmp___3 = __builtin_expect((unsigned long )mmsg->mfa >= c->in_queue.len, 0L);
+  tmp___3 = ldv__builtin_expect((unsigned long )mmsg->mfa >= c->in_queue.len, 0L);
 #line 846
   if (tmp___3 != 0L) {
 #line 847
@@ -3847,7 +3847,7 @@ u32 i2o_cntxt_list_add(struct i2o_controller *c , void *ptr )
 #line 162
   tmp___1 = atomic_inc_and_test(& c->context_list_counter);
 #line 162
-  tmp___2 = __builtin_expect(tmp___1 != 0, 0L);
+  tmp___2 = ldv__builtin_expect(tmp___1 != 0, 0L);
 #line 162
   if (tmp___2 != 0L) {
 #line 163
@@ -5098,7 +5098,7 @@ static int i2o_systab_build(void)
 #line 916
   tmp___0 = i2o_status_get(c);
 #line 916
-  tmp___1 = __builtin_expect(tmp___0 != 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 != 0, 0L);
 #line 916
   if (tmp___1 != 0L) {
 #line 917
@@ -5945,14 +5945,14 @@ __inline static struct i2o_message *i2o_msg_out_to_virt(struct i2o_controller *c
 
   {
 #line 801
-  tmp = __builtin_expect((dma_addr_t )m < c->out_queue.phys, 0L);
+  tmp = ldv__builtin_expect((dma_addr_t )m < c->out_queue.phys, 0L);
 #line 801
   if (tmp != 0L) {
 #line 801
     goto _L;
   } else {
 #line 801
-    tmp___0 = __builtin_expect((unsigned long long )m >= c->out_queue.phys + (unsigned long long )c->out_queue.len,
+    tmp___0 = ldv__builtin_expect((unsigned long long )m >= c->out_queue.phys + (unsigned long long )c->out_queue.len,
                                0L);
 #line 801
     if (tmp___0 != 0L) {
@@ -6295,7 +6295,7 @@ int i2o_driver_dispatch(struct i2o_controller *c , u32 m )
 #line 237
   context = msg->u.s.icntxt;
 #line 240
-  tmp___0 = __builtin_expect(context >= i2o_max_drivers, 0L);
+  tmp___0 = ldv__builtin_expect(context >= i2o_max_drivers, 0L);
 #line 240
   if (tmp___0 != 0L) {
 #line 241
@@ -6315,7 +6315,7 @@ int i2o_driver_dispatch(struct i2o_controller *c , u32 m )
 #line 248
   spin_unlock_irqrestore(& i2o_drivers_lock, flags);
 #line 250
-  tmp___2 = __builtin_expect((unsigned long )drv == (unsigned long )((struct i2o_driver *)0),
+  tmp___2 = ldv__builtin_expect((unsigned long )drv == (unsigned long )((struct i2o_driver *)0),
                              0L);
 #line 250
   if (tmp___2 != 0L) {
@@ -6417,7 +6417,7 @@ int i2o_driver_dispatch(struct i2o_controller *c , u32 m )
 
   }
 #line 290
-  tmp___5 = __builtin_expect((unsigned long )drv->reply == (unsigned long )((int (*)(struct i2o_controller * ,
+  tmp___5 = ldv__builtin_expect((unsigned long )drv->reply == (unsigned long )((int (*)(struct i2o_controller * ,
                                                                                      u32  ,
                                                                                      struct i2o_message * ))0),
                              0L);
@@ -6954,7 +6954,7 @@ int i2o_device_claim(struct i2o_device *dev )
 #line 115
     descriptor.flags = 0U;
 #line 115
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 115
     if (tmp != 0L) {
 #line 115
@@ -6976,7 +6976,7 @@ int i2o_device_claim(struct i2o_device *dev )
 #line 118
     descriptor___0.flags = 0U;
 #line 118
-    tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 118
     if (tmp___0 != 0L) {
 #line 118
@@ -7049,7 +7049,7 @@ int i2o_device_claim_release(struct i2o_device *dev )
 #line 160
     descriptor.flags = 0U;
 #line 160
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 160
     if (tmp != 0L) {
 #line 160
@@ -7072,7 +7072,7 @@ int i2o_device_claim_release(struct i2o_device *dev )
 #line 163
     descriptor___0.flags = 0U;
 #line 163
-    tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 163
     if (tmp___0 != 0L) {
 #line 163
@@ -7115,7 +7115,7 @@ static void i2o_device_release(struct device *dev )
 #line 182
   descriptor.flags = 0U;
 #line 182
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 182
   if (tmp___0 != 0L) {
 #line 182
@@ -7385,7 +7385,7 @@ static int i2o_device_add(struct i2o_controller *c , i2o_lct_entry *entry )
 #line 329
   descriptor.flags = 0U;
 #line 329
-  tmp___3 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___3 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 329
   if (tmp___3 != 0L) {
 #line 329
@@ -7631,7 +7631,7 @@ int i2o_device_parse_lct(struct i2o_controller *c )
 #line 425
   descriptor.flags = 0U;
 #line 425
-  tmp___5 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___5 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 425
   if (tmp___5 != 0L) {
 #line 425
@@ -9538,7 +9538,7 @@ static irqreturn_t i2o_pci_interrupt(int irq , void *dev_id )
 #line 292
     m = readl((void const volatile   *)c->out_port);
 #line 293
-    tmp = __builtin_expect(m == 4294967295U, 0L);
+    tmp = ldv__builtin_expect(m == 4294967295U, 0L);
 #line 293
     if (tmp != 0L) {
 #line 294
@@ -10214,7 +10214,7 @@ __inline static int signal_pending(struct task_struct *p )
 #line 2620
   tmp = test_tsk_thread_flag(p, 2);
 #line 2620
-  tmp___0 = __builtin_expect(tmp != 0, 0L);
+  tmp___0 = ldv__builtin_expect(tmp != 0, 0L);
 #line 2620
   return ((int )tmp___0);
 }
@@ -10499,7 +10499,7 @@ static int i2o_msg_post_wait_complete(struct i2o_controller *c , u32 m , struct 
 #line 300
       descriptor.flags = 0U;
 #line 300
-      tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+      tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 300
       if (tmp___1 != 0L) {
 #line 300
@@ -10847,7 +10847,7 @@ static int i2o_exec_reply(struct i2o_controller *c , u32 m , struct i2o_message 
 #line 539
     descriptor.flags = 0U;
 #line 539
-    tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 539
     if (tmp___0 != 0L) {
 #line 539
@@ -10909,7 +10909,7 @@ static void i2o_exec_event(struct work_struct *work )
 #line 574
   evt = (struct i2o_event *)__mptr;
 #line 576
-  tmp = __builtin_expect((unsigned long )evt->i2o_dev != (unsigned long )((struct i2o_device *)0),
+  tmp = ldv__builtin_expect((unsigned long )evt->i2o_dev != (unsigned long )((struct i2o_device *)0),
                          1L);
 #line 579
   kfree((void const   *)evt);
@@ -11320,7 +11320,7 @@ __inline static unsigned long arch_local_save_flags(void)
 #line 825
   __eax = __eax;
 #line 825
-  tmp = __builtin_expect((unsigned long )pv_irq_ops.save_fl.func == (unsigned long )((void *)0),
+  tmp = ldv__builtin_expect((unsigned long )pv_irq_ops.save_fl.func == (unsigned long )((void *)0),
                          0L);
 #line 825
   if (tmp != 0L) {
@@ -11396,7 +11396,7 @@ __inline static struct page *sg_page(struct scatterlist *sg )
 
   {
 #line 98
-  tmp = __builtin_expect(sg->sg_magic != 2271560481UL, 0L);
+  tmp = ldv__builtin_expect(sg->sg_magic != 2271560481UL, 0L);
 #line 98
   if (tmp != 0L) {
 #line 98
@@ -11409,7 +11409,7 @@ __inline static struct page *sg_page(struct scatterlist *sg )
 
   }
 #line 99
-  tmp___0 = __builtin_expect((long )((int )sg->page_link) & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )((int )sg->page_link) & 1L, 0L);
 #line 99
   if (tmp___0 != 0L) {
 #line 99
@@ -11486,7 +11486,7 @@ __inline static dma_addr_t dma_map_single_attrs___0(struct device *dev , void *p
 #line 19
   tmp___0 = valid_dma_direction((int )dir);
 #line 19
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
 #line 19
   if (tmp___1 != 0L) {
 #line 19
@@ -11556,7 +11556,7 @@ __inline static int dma_map_sg_attrs(struct device *dev , struct scatterlist *sg
 #line 52
   tmp___1 = valid_dma_direction((int )dir);
 #line 52
-  tmp___2 = __builtin_expect(tmp___1 == 0, 0L);
+  tmp___2 = ldv__builtin_expect(tmp___1 == 0, 0L);
 #line 52
   if (tmp___2 != 0L) {
 #line 52
@@ -11729,7 +11729,7 @@ __inline static void dma_free_attrs(struct device *dev , size_t size , void *vad
 #line 166
   __ret_warn_on = tmp___0 != 0;
 #line 166
-  tmp___1 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___1 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 166
   if (tmp___1 != 0L) {
 #line 166
@@ -11739,7 +11739,7 @@ __inline static void dma_free_attrs(struct device *dev , size_t size , void *vad
 
   }
 #line 166
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 171
   debug_dma_free_coherent(dev, size, vaddr, bus);
 #line 172
@@ -12339,7 +12339,7 @@ __inline static void ldv_error(void)
 #line 25
 extern int __VERIFIER_nondet_int(void) ;
 #line 49 "/home/mikhail/ldv/kernel-rules/verifier/rcv.h"
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 

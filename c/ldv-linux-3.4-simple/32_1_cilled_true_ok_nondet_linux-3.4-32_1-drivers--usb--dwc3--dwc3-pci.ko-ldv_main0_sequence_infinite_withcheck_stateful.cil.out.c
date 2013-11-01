@@ -2556,7 +2556,7 @@ struct __anonstruct_234 {
    int  : 0 ;
 };
 #line 1 "<compiler builtins>"
-long __builtin_expect(long val , long res ) ;
+long ldv__builtin_expect(long val , long res ) ;
 #line 55 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/string_64.h"
 extern void *memset(void *s , int c , size_t n ) ;
 #line 152 "include/linux/mutex.h"
@@ -3563,7 +3563,7 @@ void ldv_check_final_state(void)
 }
 }
 #line 294 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/7680/dscv_tempdir/dscv/ri/32_1/drivers/usb/dwc3/dwc3-pci.c.common.c"
-long __builtin_expect(long val , long res ) 
+long ldv__builtin_expect(long val , long res ) 
 { 
 
   {

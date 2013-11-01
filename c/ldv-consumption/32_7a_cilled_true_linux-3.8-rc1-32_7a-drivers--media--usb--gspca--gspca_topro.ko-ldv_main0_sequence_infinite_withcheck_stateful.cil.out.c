@@ -46955,7 +46955,7 @@ void ldv_mutex_unlock_9(struct mutex *ldv_func_arg1 )
 }
 }
 #line 1 "<compiler builtins>"
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 #line 10 "/home/mikhail/ldv/kernel-rules/verifier/rcv.h"
 __inline static void ldv_error(void)  __attribute__((__no_instrument_function__)) ;
 #line 10 "/home/mikhail/ldv/kernel-rules/verifier/rcv.h"
@@ -46972,7 +46972,7 @@ __inline static void ldv_error(void)
 #line 25
 extern int __VERIFIER_nondet_int(void) ;
 #line 49 "/home/mikhail/ldv/kernel-rules/verifier/rcv.h"
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 

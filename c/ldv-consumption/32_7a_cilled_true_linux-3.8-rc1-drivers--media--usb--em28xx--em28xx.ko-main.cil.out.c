@@ -8620,7 +8620,7 @@ enum hrtimer_restart;
 #line 1 "<compiler builtins>"
 void *__builtin_memcpy(void * , void const   * , unsigned long  ) ;
 #line 1
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 #line 318 "/home/zakharov/workspace/benchmarks/bench_1/inst/current/envs/linux-3.8-rc1/linux-3.8-rc1/arch/x86/include/asm/bitops.h"
 __inline static int constant_test_bit(unsigned int nr , unsigned long const volatile   *addr ) 
 { 
@@ -10756,7 +10756,7 @@ static void res_free(struct em28xx_fh *fh , unsigned int bits )
 #line 969
   dev = fh->dev;
 #line 971
-  tmp = __builtin_expect((fh->resources & bits) != bits, 0L);
+  tmp = ldv__builtin_expect((fh->resources & bits) != bits, 0L);
 #line 971
   if (tmp != 0L) {
 #line 971
@@ -12320,11 +12320,11 @@ static int vidioc_s_frequency(struct file *file , void *priv , struct v4l2_frequ
 
   }
 #line 1644
-  tmp = __builtin_expect(fh->radio == 0, 0L);
+  tmp = ldv__builtin_expect(fh->radio == 0, 0L);
 #line 1644
   if (tmp != 0L) {
 #line 1644
-    tmp___0 = __builtin_expect(f->type != 2U, 0L);
+    tmp___0 = ldv__builtin_expect(f->type != 2U, 0L);
 #line 1644
     if (tmp___0 != 0L) {
 #line 1645
@@ -12336,11 +12336,11 @@ static int vidioc_s_frequency(struct file *file , void *priv , struct v4l2_frequ
 
   }
 #line 1646
-  tmp___1 = __builtin_expect(fh->radio == 1, 0L);
+  tmp___1 = ldv__builtin_expect(fh->radio == 1, 0L);
 #line 1646
   if (tmp___1 != 0L) {
 #line 1646
-    tmp___2 = __builtin_expect(f->type != 1U, 0L);
+    tmp___2 = ldv__builtin_expect(f->type != 1U, 0L);
 #line 1646
     if (tmp___2 != 0L) {
 #line 1647
@@ -12779,7 +12779,7 @@ static int vidioc_streamon(struct file *file , void *priv , enum v4l2_buf_type t
 
   }
 #line 1795
-  tmp = __builtin_expect((unsigned int )fh->type != (unsigned int )type, 0L);
+  tmp = ldv__builtin_expect((unsigned int )fh->type != (unsigned int )type, 0L);
 #line 1795
   if (tmp != 0L) {
 #line 1796
@@ -12800,7 +12800,7 @@ static int vidioc_streamon(struct file *file , void *priv , enum v4l2_buf_type t
 #line 1801
   tmp___1 = res_get(fh, (unsigned int )tmp___0);
 #line 1801
-  tmp___2 = __builtin_expect(tmp___1 == 0, 0L);
+  tmp___2 = ldv__builtin_expect(tmp___1 == 0, 0L);
 #line 1801
   if (tmp___2 != 0L) {
 #line 1802
@@ -12951,7 +12951,7 @@ static int vidioc_enum_fmt_vid_cap(struct file *file , void *priv , struct v4l2_
 
   {
 #line 1877
-  tmp = __builtin_expect(f->index > 5U, 0L);
+  tmp = ldv__builtin_expect(f->index > 5U, 0L);
 #line 1877
   if (tmp != 0L) {
 #line 1878
@@ -13448,7 +13448,7 @@ static int radio_g_tuner(struct file *file , void *priv , struct v4l2_tuner *t )
 #line 2120
   dev = ((struct em28xx_fh *)priv)->dev;
 #line 2122
-  tmp = __builtin_expect(t->index != 0U, 0L);
+  tmp = ldv__builtin_expect(t->index != 0U, 0L);
 #line 2122
   if (tmp != 0L) {
 #line 2123
@@ -13519,7 +13519,7 @@ static int radio_g_audio(struct file *file , void *priv , struct v4l2_audio *a )
 
   {
 #line 2146
-  tmp = __builtin_expect(a->index != 0U, 0L);
+  tmp = ldv__builtin_expect(a->index != 0U, 0L);
 #line 2146
   if (tmp != 0L) {
 #line 2147
@@ -16214,14 +16214,14 @@ static int em2800_i2c_send_max4(struct em28xx *dev , unsigned char addr , char *
 
   {
 #line 139
-  tmp = __builtin_expect(len <= 0, 0L);
+  tmp = ldv__builtin_expect(len <= 0, 0L);
 #line 139
   if (tmp != 0L) {
 #line 139
     goto _L;
   } else {
 #line 139
-    tmp___0 = __builtin_expect(len > 4, 0L);
+    tmp___0 = ldv__builtin_expect(len > 4, 0L);
 #line 139
     if (tmp___0 != 0L) {
       _L: /* CIL Label */ 
@@ -17321,7 +17321,7 @@ int em28xx_i2c_register(struct em28xx *dev )
 
   {
 #line 605
-  tmp = __builtin_expect((unsigned long )dev->em28xx_write_regs == (unsigned long )((int (*)(struct em28xx * ,
+  tmp = ldv__builtin_expect((unsigned long )dev->em28xx_write_regs == (unsigned long )((int (*)(struct em28xx * ,
                                                                                              u16  ,
                                                                                              char * ,
                                                                                              int  ))0),
@@ -17332,7 +17332,7 @@ int em28xx_i2c_register(struct em28xx *dev )
     goto _L;
   } else {
 #line 605
-    tmp___0 = __builtin_expect((unsigned long )dev->em28xx_read_reg == (unsigned long )((int (*)(struct em28xx * ,
+    tmp___0 = ldv__builtin_expect((unsigned long )dev->em28xx_read_reg == (unsigned long )((int (*)(struct em28xx * ,
                                                                                                  u16  ))0),
                                0L);
 #line 605
@@ -17349,7 +17349,7 @@ int em28xx_i2c_register(struct em28xx *dev )
     }
   }
 #line 606
-  tmp___1 = __builtin_expect((unsigned long )dev->em28xx_write_regs_req == (unsigned long )((int (*)(struct em28xx * ,
+  tmp___1 = ldv__builtin_expect((unsigned long )dev->em28xx_write_regs_req == (unsigned long )((int (*)(struct em28xx * ,
                                                                                                      u8  ,
                                                                                                      u16  ,
                                                                                                      char * ,
@@ -17361,7 +17361,7 @@ int em28xx_i2c_register(struct em28xx *dev )
     goto _L___0;
   } else {
 #line 606
-    tmp___2 = __builtin_expect((unsigned long )dev->em28xx_read_reg_req == (unsigned long )((int (*)(struct em28xx * ,
+    tmp___2 = ldv__builtin_expect((unsigned long )dev->em28xx_read_reg_req == (unsigned long )((int (*)(struct em28xx * ,
                                                                                                      u8  ,
                                                                                                      u16  ))0),
                                0L);
@@ -21984,7 +21984,7 @@ __inline static unsigned long arch_local_save_flags(void)
 #line 825
   __eax = __eax;
 #line 825
-  tmp = __builtin_expect((unsigned long )pv_irq_ops.save_fl.func == (unsigned long )((void *)0),
+  tmp = ldv__builtin_expect((unsigned long )pv_irq_ops.save_fl.func == (unsigned long )((void *)0),
                          0L);
 #line 825
   if (tmp != 0L) {
@@ -25263,7 +25263,7 @@ __inline static void ldv_error(void)
 #line 25
 extern int __VERIFIER_nondet_int(void) ;
 #line 49 "/home/zakharov/workspace/instruments/ldv1/kernel-rules/verifier/rcv.h"
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
   {

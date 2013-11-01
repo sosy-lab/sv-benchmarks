@@ -4332,7 +4332,7 @@ typedef int ldv_func_ret_type___2;
 #line 1 "<compiler builtins>"
 void *__builtin_memcpy(void * , void const   * , unsigned long  ) ;
 #line 1
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 #line 119 "include/linux/printk.h"
 extern int printk(char const   *  , ...) ;
 #line 53 "include/linux/dynamic_debug.h"
@@ -4593,7 +4593,7 @@ __inline static void kref_get(struct kref *kref )
 #line 42
   __ret_warn_on = tmp == 0;
 #line 42
-  tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 42
   if (tmp___0 != 0L) {
 #line 42
@@ -4602,7 +4602,7 @@ __inline static void kref_get(struct kref *kref )
 
   }
 #line 42
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 43
   atomic_inc(& kref->refcount);
 #line 44
@@ -4620,7 +4620,7 @@ __inline static int kref_sub(struct kref *kref , unsigned int count , void (*rel
 #line 67
   __ret_warn_on = (unsigned long )release == (unsigned long )((void (*)(struct kref * ))0);
 #line 67
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 67
   if (tmp != 0L) {
 #line 67
@@ -4629,7 +4629,7 @@ __inline static int kref_sub(struct kref *kref , unsigned int count , void (*rel
 
   }
 #line 67
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 69
   tmp___0 = atomic_sub_and_test((int )count, & kref->refcount);
 #line 69
@@ -6926,7 +6926,7 @@ static int vub300_usb_bulk_msg(struct vub300_mmc_host *vub300 , unsigned int pip
 #line 1469
   retval = usb_submit_urb(vub300->urb, 208U);
 #line 1470
-  tmp = __builtin_expect(retval != 0, 0L);
+  tmp = ldv__builtin_expect(retval != 0, 0L);
 #line 1470
   if (tmp != 0L) {
 #line 1471
@@ -7572,7 +7572,7 @@ static void vub300_cmndwork_thread(struct work_struct *work )
 #line 1808
     init_completion(& vub300->command_complete);
 #line 1809
-    tmp = __builtin_expect((int )((signed char )vub300->vub_name[0]) != 0, 1L);
+    tmp = ldv__builtin_expect((int )((signed char )vub300->vub_name[0]) != 0, 1L);
 #line 1809
     if ((tmp != 0L || (unsigned long )(vub300->mmc)->card == (unsigned long )((struct mmc_card *)0)) || (((vub300->mmc)->card)->state & 1U) == 0U) {
 
@@ -8052,7 +8052,7 @@ static void __set_clock_speed(struct vub300_mmc_host *vub300 , u8 *buf , struct 
 #line 2056
     descriptor.flags = 0U;
 #line 2056
-    tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 2056
     if (tmp___0 != 0L) {
 #line 2056
@@ -9818,7 +9818,7 @@ __inline static void ldv_error(void)
 #line 25
 extern int __VERIFIER_nondet_int(void) ;
 #line 49 "/home/mikhail/ldv/kernel-rules/verifier/rcv.h"
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 

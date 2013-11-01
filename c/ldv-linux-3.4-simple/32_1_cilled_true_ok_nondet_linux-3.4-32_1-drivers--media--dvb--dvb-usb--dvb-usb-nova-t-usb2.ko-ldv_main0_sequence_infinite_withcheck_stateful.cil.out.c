@@ -7173,7 +7173,7 @@ struct __anonstruct_383 {
    int  : 0 ;
 };
 #line 1 "<compiler builtins>"
-long __builtin_expect(long val , long res ) ;
+long ldv__builtin_expect(long val , long res ) ;
 #line 100 "include/linux/printk.h"
 extern int ( /* format attribute */  printk)(char const   *fmt  , ...) ;
 #line 152 "include/linux/mutex.h"
@@ -8729,7 +8729,7 @@ void ldv_check_final_state(void)
 }
 }
 #line 388 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/13509/dscv_tempdir/dscv/ri/32_1/drivers/media/dvb/dvb-usb/nova-t-usb2.c.common.c"
-long __builtin_expect(long val , long res ) 
+long ldv__builtin_expect(long val , long res ) 
 { 
 
   {

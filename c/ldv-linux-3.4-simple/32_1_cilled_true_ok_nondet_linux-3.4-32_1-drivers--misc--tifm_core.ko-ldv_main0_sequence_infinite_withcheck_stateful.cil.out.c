@@ -1623,7 +1623,7 @@ struct module {
    unsigned int num_ctors ;
 };
 #line 1 "<compiler builtins>"
-long __builtin_expect(long val , long res ) ;
+long ldv__builtin_expect(long val , long res ) ;
 #line 100 "include/linux/printk.h"
 extern int ( /* format attribute */  printk)(char const   *fmt  , ...) ;
 #line 320 "include/linux/kernel.h"
@@ -1853,7 +1853,7 @@ __inline static struct page *sg_page(struct scatterlist *sg )
 #line 98
     __cil_tmp8 = (long )__cil_tmp7;
 #line 98
-    tmp = __builtin_expect(__cil_tmp8, 0L);
+    tmp = ldv__builtin_expect(__cil_tmp8, 0L);
     }
 #line 98
     if (tmp) {
@@ -1909,7 +1909,7 @@ __inline static struct page *sg_page(struct scatterlist *sg )
 #line 99
     __cil_tmp15 = (long )__cil_tmp14;
 #line 99
-    tmp___0 = __builtin_expect(__cil_tmp15, 0L);
+    tmp___0 = ldv__builtin_expect(__cil_tmp15, 0L);
     }
 #line 99
     if (tmp___0) {
@@ -2069,7 +2069,7 @@ __inline static struct dma_map_ops *get_dma_ops(struct device *dev )
 #line 36
   __cil_tmp6 = (long )__cil_tmp5;
 #line 36
-  tmp = __builtin_expect(__cil_tmp6, 0L);
+  tmp = ldv__builtin_expect(__cil_tmp6, 0L);
   }
 #line 36
   if (tmp) {
@@ -2194,7 +2194,7 @@ __inline static int dma_map_sg_attrs(struct device *dev , struct scatterlist *sg
 #line 52
     __cil_tmp19 = (long )tmp___2;
 #line 52
-    tmp___3 = __builtin_expect(__cil_tmp19, 0L);
+    tmp___3 = ldv__builtin_expect(__cil_tmp19, 0L);
     }
 #line 52
     if (tmp___3) {
@@ -2301,7 +2301,7 @@ __inline static void dma_unmap_sg_attrs(struct device *dev , struct scatterlist 
 #line 65
     __cil_tmp12 = (long )tmp___1;
 #line 65
-    tmp___2 = __builtin_expect(__cil_tmp12, 0L);
+    tmp___2 = ldv__builtin_expect(__cil_tmp12, 0L);
     }
 #line 65
     if (tmp___2) {
@@ -5191,7 +5191,7 @@ void ldv_check_final_state(void)
 }
 }
 #line 765 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/4897/dscv_tempdir/dscv/ri/32_1/drivers/misc/tifm_core.c.common.c"
-long __builtin_expect(long val , long res ) 
+long ldv__builtin_expect(long val , long res ) 
 { 
 
   {

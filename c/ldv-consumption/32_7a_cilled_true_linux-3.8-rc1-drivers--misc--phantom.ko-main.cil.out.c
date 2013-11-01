@@ -3617,7 +3617,7 @@ void *__builtin_memcpy(void * , void const   * , unsigned long  ) ;
 #line 1
 unsigned long __builtin_object_size(void * , int  ) ;
 #line 1
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 #line 119 "include/linux/printk.h"
 extern int printk(char const   *  , ...) ;
 #line 45 "include/linux/dynamic_debug.h"
@@ -3645,7 +3645,7 @@ __inline static long IS_ERR(void const   *ptr )
 
   {
 #line 34
-  tmp = __builtin_expect((unsigned long )ptr > 0xfffffffffffff000UL, 0L);
+  tmp = ldv__builtin_expect((unsigned long )ptr > 0xfffffffffffff000UL, 0L);
 #line 34
   return (tmp);
 }
@@ -3945,14 +3945,14 @@ __inline static unsigned long copy_from_user(void *to , void const   *from , uns
 #line 61
   might_fault();
 #line 62
-  tmp___1 = __builtin_expect(sz == -1, 1L);
+  tmp___1 = ldv__builtin_expect(sz == -1, 1L);
 #line 62
   if (tmp___1 != 0L) {
 #line 63
     n = _copy_from_user(to, from, (unsigned int )n);
   } else {
 #line 62
-    tmp___2 = __builtin_expect((unsigned long )sz >= n, 1L);
+    tmp___2 = ldv__builtin_expect((unsigned long )sz >= n, 1L);
 #line 62
     if (tmp___2 != 0L) {
 #line 63
@@ -3961,7 +3961,7 @@ __inline static unsigned long copy_from_user(void *to , void const   *from , uns
 #line 66
       __ret_warn_on = 1;
 #line 66
-      tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+      tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 66
       if (tmp___0 != 0L) {
 #line 66
@@ -3971,7 +3971,7 @@ __inline static unsigned long copy_from_user(void *to , void const   *from , uns
 
       }
 #line 66
-      __builtin_expect(__ret_warn_on != 0, 0L);
+      ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
   }
 #line 68
@@ -4070,7 +4070,7 @@ static int phantom_status(struct phantom_device *dev , unsigned long newstat )
 #line 123
   descriptor.flags = 0U;
 #line 123
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 123
   if (tmp != 0L) {
 #line 123
@@ -4198,7 +4198,7 @@ static long phantom_ioctl(struct file *file , unsigned int cmd , unsigned long a
 #line 170
   descriptor.flags = 0U;
 #line 170
-  tmp___2 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___2 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 170
   if (tmp___2 != 0L) {
 #line 170
@@ -4256,7 +4256,7 @@ static long phantom_ioctl(struct file *file , unsigned int cmd , unsigned long a
 #line 191
   descriptor___0.flags = 0U;
 #line 191
-  tmp___4 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___4 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 191
   if (tmp___4 != 0L) {
 #line 191
@@ -4395,7 +4395,7 @@ static long phantom_ioctl(struct file *file , unsigned int cmd , unsigned long a
 #line 226
   descriptor___1.flags = 0U;
 #line 226
-  tmp___11 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+  tmp___11 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 226
   if (tmp___11 != 0L) {
 #line 226
@@ -4542,7 +4542,7 @@ static int phantom_open(struct inode *inode , struct file *file )
 #line 288
   __ret_warn_on = (dev->status & 2UL) != 0UL;
 #line 288
-  tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 288
   if (tmp___0 != 0L) {
 #line 288
@@ -4552,7 +4552,7 @@ static int phantom_open(struct inode *inode , struct file *file )
 
   }
 #line 288
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 290
   file->private_data = (void *)dev;
 #line 292
@@ -4618,7 +4618,7 @@ static unsigned int phantom_poll(struct file *file , poll_table *wait )
 #line 319
   descriptor.flags = 0U;
 #line 319
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 319
   if (tmp___0 != 0L) {
 #line 319
@@ -4658,7 +4658,7 @@ static unsigned int phantom_poll(struct file *file , poll_table *wait )
 #line 327
   descriptor___0.flags = 0U;
 #line 327
-  tmp___3 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___3 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 327
   if (tmp___3 != 0L) {
 #line 327
@@ -5206,7 +5206,7 @@ static void phantom_exit(void)
 #line 617
   descriptor.flags = 0U;
 #line 617
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 617
   if (tmp != 0L) {
 #line 617
@@ -5857,7 +5857,7 @@ __inline static void ldv_error(void)
 #line 25
 extern int __VERIFIER_nondet_int(void) ;
 #line 49 "/home/ldvuser/ldv_envgen2/kernel-rules/verifier/rcv.h"
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
   {

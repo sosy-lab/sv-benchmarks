@@ -4573,7 +4573,7 @@ void *__builtin_memcpy(void * , void const   * , unsigned long  ) ;
 #line 1
 unsigned long __builtin_object_size(void * , int  ) ;
 #line 1
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 #line 33 "include/linux/export.h"
 extern struct module __this_module ;
 #line 62 "/work/ldvuser/exper_fp/inst/current/envs/linux-3.10-rc1.tar/linux-3.10-rc1/arch/x86/include/asm/bitops.h"
@@ -4825,13 +4825,13 @@ __inline static unsigned int cpumask_check(unsigned int cpu )
 #line 108
   __ret_warn_once = (unsigned int )nr_cpu_ids <= cpu;
 #line 108
-  tmp___1 = __builtin_expect(__ret_warn_once != 0, 0L);
+  tmp___1 = ldv__builtin_expect(__ret_warn_once != 0, 0L);
 #line 108
   if (tmp___1 != 0L) {
 #line 108
     __ret_warn_on = ! __warned;
 #line 108
-    tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 108
     if (tmp != 0L) {
 #line 108
@@ -4840,7 +4840,7 @@ __inline static unsigned int cpumask_check(unsigned int cpu )
 
     }
 #line 108
-    tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 108
     if (tmp___0 != 0L) {
 #line 108
@@ -4852,7 +4852,7 @@ __inline static unsigned int cpumask_check(unsigned int cpu )
 
   }
 #line 108
-  __builtin_expect(__ret_warn_once != 0, 0L);
+  ldv__builtin_expect(__ret_warn_once != 0, 0L);
 #line 110
   return (cpu);
 }
@@ -4904,7 +4904,7 @@ __inline static long IS_ERR(void const   *ptr )
 
   {
 #line 34
-  tmp = __builtin_expect((unsigned long )ptr > 0xfffffffffffff000UL, 0L);
+  tmp = ldv__builtin_expect((unsigned long )ptr > 0xfffffffffffff000UL, 0L);
 #line 34
   return (tmp);
 }
@@ -5281,7 +5281,7 @@ __inline static unsigned int __read_seqcount_begin(seqcount_t const   *s )
 #line 64
   ret = *((unsigned int const volatile   *)(& s->sequence));
 #line 65
-  tmp = __builtin_expect((long )((int )ret) & 1L, 0L);
+  tmp = ldv__builtin_expect((long )((int )ret) & 1L, 0L);
 #line 65
   if (tmp != 0L) {
 #line 66
@@ -5319,7 +5319,7 @@ __inline static int __read_seqcount_retry(seqcount_t const   *s , unsigned int s
 
   {
 #line 125
-  tmp = __builtin_expect((unsigned int )s->sequence != start, 0L);
+  tmp = ldv__builtin_expect((unsigned int )s->sequence != start, 0L);
 #line 125
   return ((int )tmp);
 }
@@ -5776,7 +5776,7 @@ __inline static int signal_pending(struct task_struct *p )
 #line 2385
   tmp = test_tsk_thread_flag(p, 2);
 #line 2385
-  tmp___0 = __builtin_expect(tmp != 0, 0L);
+  tmp___0 = ldv__builtin_expect(tmp != 0, 0L);
 #line 2385
   return ((int )tmp___0);
 }
@@ -5912,7 +5912,7 @@ __inline static struct gendisk *part_to_disk(struct hd_struct *part )
 
   {
 #line 207
-  tmp = __builtin_expect((unsigned long )part != (unsigned long )((struct hd_struct *)0),
+  tmp = ldv__builtin_expect((unsigned long )part != (unsigned long )((struct hd_struct *)0),
                          1L);
 #line 207
   if (tmp != 0L) {
@@ -5998,14 +5998,14 @@ __inline static unsigned long copy_from_user(void *to , void const   *from , uns
 #line 61
   might_fault();
 #line 62
-  tmp___1 = __builtin_expect(sz == -1, 1L);
+  tmp___1 = ldv__builtin_expect(sz == -1, 1L);
 #line 62
   if (tmp___1 != 0L) {
 #line 63
     n = _copy_from_user(to, from, (unsigned int )n);
   } else {
 #line 62
-    tmp___2 = __builtin_expect((unsigned long )sz >= n, 1L);
+    tmp___2 = ldv__builtin_expect((unsigned long )sz >= n, 1L);
 #line 62
     if (tmp___2 != 0L) {
 #line 63
@@ -6014,7 +6014,7 @@ __inline static unsigned long copy_from_user(void *to , void const   *from , uns
 #line 66
       __ret_warn_on = 1;
 #line 66
-      tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+      tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 66
       if (tmp___0 != 0L) {
 #line 66
@@ -6024,7 +6024,7 @@ __inline static unsigned long copy_from_user(void *to , void const   *from , uns
 
       }
 #line 66
-      __builtin_expect(__ret_warn_on != 0, 0L);
+      ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
   }
 #line 68
@@ -6746,7 +6746,7 @@ static void md_make_request(struct request_queue *q , struct bio *bio )
 #line 360
   if (mddev->ro == 1) {
 #line 360
-    tmp = __builtin_expect(rw == 1, 0L);
+    tmp = ldv__builtin_expect(rw == 1, 0L);
 #line 360
     if (tmp != 0L) {
 #line 361
@@ -7030,7 +7030,7 @@ void mddev_suspend(struct mddev *mddev )
 
   {
 #line 406
-  tmp = __builtin_expect(mddev->suspended != 0, 0L);
+  tmp = ldv__builtin_expect(mddev->suspended != 0, 0L);
 #line 406
   if (tmp != 0L) {
 #line 406
@@ -8260,7 +8260,7 @@ static void super_written(struct bio *bio , int error )
 #line 823
       __ret_warn_on = tmp___0 != 0;
 #line 823
-      tmp___1 = __builtin_expect(__ret_warn_on != 0, 0L);
+      tmp___1 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 823
       if (tmp___1 != 0L) {
 #line 823
@@ -8270,7 +8270,7 @@ static void super_written(struct bio *bio , int error )
 
       }
 #line 823
-      __builtin_expect(__ret_warn_on != 0, 0L);
+      ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 824
       md_error(mddev, rdev);
     } else {
@@ -10549,7 +10549,7 @@ static void sync_super(struct mddev *mddev , struct md_rdev *rdev )
 
   }
 #line 2021
-  tmp = __builtin_expect((unsigned int )mddev->major_version > 1U, 0L);
+  tmp = ldv__builtin_expect((unsigned int )mddev->major_version > 1U, 0L);
 #line 2021
   if (tmp != 0L) {
 #line 2021
@@ -11915,7 +11915,7 @@ static void md_update_sb(struct mddev *mddev , int force_change )
 #line 2561
   descriptor.flags = 0U;
 #line 2561
-  tmp___5 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___5 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 2561
   if (tmp___5 != 0L) {
 #line 2561
@@ -11961,7 +11961,7 @@ static void md_update_sb(struct mddev *mddev , int force_change )
 #line 2576
     descriptor___0.flags = 0U;
 #line 2576
-    tmp___7 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___7 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 2576
     if (tmp___7 != 0L) {
 #line 2576
@@ -12002,7 +12002,7 @@ static void md_update_sb(struct mddev *mddev , int force_change )
 #line 2589
       descriptor___1.flags = 0U;
 #line 2589
-      tmp___9 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+      tmp___9 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 2589
       if (tmp___9 != 0L) {
 #line 2589
@@ -12026,7 +12026,7 @@ static void md_update_sb(struct mddev *mddev , int force_change )
 #line 2592
       descriptor___2.flags = 0U;
 #line 2592
-      tmp___10 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+      tmp___10 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
 #line 2592
       if (tmp___10 != 0L) {
 #line 2592
@@ -17663,13 +17663,13 @@ int md_run(struct mddev *mddev )
 #line 5143
       __ret_warn_once = mddev->external_size == 0;
 #line 5143
-      tmp___10 = __builtin_expect(__ret_warn_once != 0, 0L);
+      tmp___10 = ldv__builtin_expect(__ret_warn_once != 0, 0L);
 #line 5143
       if (tmp___10 != 0L) {
 #line 5143
         __ret_warn_on = ! __warned;
 #line 5143
-        tmp___8 = __builtin_expect(__ret_warn_on != 0, 0L);
+        tmp___8 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 5143
         if (tmp___8 != 0L) {
 #line 5143
@@ -17680,7 +17680,7 @@ int md_run(struct mddev *mddev )
 
         }
 #line 5143
-        tmp___9 = __builtin_expect(__ret_warn_on != 0, 0L);
+        tmp___9 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 5143
         if (tmp___9 != 0L) {
 #line 5143
@@ -17692,7 +17692,7 @@ int md_run(struct mddev *mddev )
 
       }
 #line 5143
-      __builtin_expect(__ret_warn_once != 0, 0L);
+      ldv__builtin_expect(__ret_warn_once != 0, 0L);
 #line 5145
       tmp___11 = (*((mddev->pers)->size))(mddev, 0UL, 0);
 #line 5145
@@ -19543,7 +19543,7 @@ void md_set_array_sectors(struct mddev *mddev , sector_t array_sectors )
 #line 6167
   __ret_warn_on = tmp == 0;
 #line 6167
-  tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 6167
   if (tmp___0 != 0L) {
 #line 6167
@@ -19553,7 +19553,7 @@ void md_set_array_sectors(struct mddev *mddev , sector_t array_sectors )
 
   }
 #line 6167
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 6169
   if (mddev->external_size != 0) {
 #line 6170
@@ -20554,7 +20554,7 @@ static int md_open(struct block_device *bdev , fmode_t mode )
 
   }
 #line 6710
-  tmp___0 = __builtin_expect((unsigned long )(bdev->bd_disk)->private_data != (unsigned long )((void *)mddev),
+  tmp___0 = ldv__builtin_expect((unsigned long )(bdev->bd_disk)->private_data != (unsigned long )((void *)mddev),
                              0L);
 #line 6710
   if (tmp___0 != 0L) {
@@ -20599,7 +20599,7 @@ static void md_release(struct gendisk *disk , fmode_t mode )
 #line 6726
   mddev = (struct mddev *)disk->private_data;
 #line 6728
-  tmp = __builtin_expect((unsigned long )mddev == (unsigned long )((struct mddev *)0),
+  tmp = ldv__builtin_expect((unsigned long )mddev == (unsigned long )((struct mddev *)0),
                          0L);
 #line 6728
   if (tmp != 0L) {
@@ -20844,7 +20844,7 @@ void md_wakeup_thread(struct md_thread *thread )
 #line 6805
     descriptor.flags = 0U;
 #line 6805
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 6805
     if (tmp != 0L) {
 #line 6805
@@ -20960,7 +20960,7 @@ void md_unregister_thread(struct md_thread **threadp )
 #line 6841
   descriptor.flags = 0U;
 #line 6841
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 6841
   if (tmp___0 != 0L) {
 #line 6841
@@ -22011,7 +22011,7 @@ void md_write_start(struct mddev *mddev , struct bio *bi )
 
   }
 #line 7286
-  tmp = __builtin_expect(mddev->ro == 1, 0L);
+  tmp = ldv__builtin_expect(mddev->ro == 1, 0L);
 #line 7286
   if (tmp != 0L) {
 #line 7286
@@ -25062,7 +25062,7 @@ static void md_geninit(void)
 #line 8565
   descriptor.flags = 0U;
 #line 8565
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 8565
   if (tmp != 0L) {
 #line 8565
@@ -26286,13 +26286,13 @@ __inline static void get_page(struct page *page )
 #line 404
   tmp___1 = PageTail((struct page  const  *)page);
 #line 404
-  tmp___2 = __builtin_expect(tmp___1 != 0, 0L);
+  tmp___2 = ldv__builtin_expect(tmp___1 != 0, 0L);
 #line 404
   if (tmp___2 != 0L) {
 #line 405
     tmp = __get_page_tail(page);
 #line 405
-    tmp___0 = __builtin_expect((long )tmp, 1L);
+    tmp___0 = ldv__builtin_expect((long )tmp, 1L);
 #line 405
     if (tmp___0 != 0L) {
 #line 406
@@ -26306,7 +26306,7 @@ __inline static void get_page(struct page *page )
 #line 411
   tmp___3 = atomic_read((atomic_t const   *)(& page->ldv_8768.ldv_8767.ldv_8766._count));
 #line 411
-  tmp___4 = __builtin_expect(tmp___3 <= 0, 0L);
+  tmp___4 = ldv__builtin_expect(tmp___3 <= 0, 0L);
 #line 411
   if (tmp___4 != 0L) {
 #line 411
@@ -26522,7 +26522,7 @@ static int bitmap_checkpage(struct bitmap_counts *bitmap , unsigned long page , 
 #line 135
     descriptor.flags = 0U;
 #line 135
-    tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 135
     if (tmp___0 != 0L) {
 #line 135
@@ -26923,7 +26923,7 @@ static void write_page(struct bitmap *bitmap , struct page *page , int wait )
 #line 330
     tmp___0 = PagePrivate((struct page  const  *)page);
 #line 330
-    tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+    tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
 #line 330
     if (tmp___1 != 0L) {
 #line 330
@@ -27086,7 +27086,7 @@ static void free_buffers(struct page *page )
 #line 373
   tmp___0 = PagePrivate((struct page  const  *)page);
 #line 373
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
 #line 373
   if (tmp___1 != 0L) {
 #line 373
@@ -27162,7 +27162,7 @@ static int read_page(struct file *file , unsigned long index , struct bitmap *bi
 #line 400
   descriptor.flags = 0U;
 #line 400
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 400
   if (tmp___0 != 0L) {
 #line 400
@@ -27454,7 +27454,7 @@ static int bitmap_new_disk_sb(struct bitmap *bitmap )
 #line 540
   chunksize = (bitmap->mddev)->bitmap_info.chunksize;
 #line 541
-  tmp___0 = __builtin_expect(chunksize == 0UL, 0L);
+  tmp___0 = ldv__builtin_expect(chunksize == 0UL, 0L);
 #line 541
   if (tmp___0 != 0L) {
 #line 541
@@ -28172,7 +28172,7 @@ static void bitmap_file_set_bit(struct bitmap *bitmap , sector_t block )
 #line 907
   descriptor.flags = 0U;
 #line 907
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 907
   if (tmp___0 != 0L) {
 #line 907
@@ -29031,7 +29031,7 @@ int bitmap_startwrite(struct bitmap *bitmap , sector_t offset , unsigned long se
 #line 1333
     descriptor.flags = 0U;
 #line 1333
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1333
     if (tmp != 0L) {
 #line 1333
@@ -29059,7 +29059,7 @@ int bitmap_startwrite(struct bitmap *bitmap , sector_t offset , unsigned long se
 
   }
 #line 1348
-  tmp___1 = __builtin_expect(((int )*bmc & 16383) == 16383, 0L);
+  tmp___1 = ldv__builtin_expect(((int )*bmc & 16383) == 16383, 0L);
 #line 1348
   if (tmp___1 != 0L) {
 #line 1349
@@ -29170,7 +29170,7 @@ void bitmap_endwrite(struct bitmap *bitmap , sector_t offset , unsigned long sec
 #line 1393
     descriptor.flags = 0U;
 #line 1393
-    tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1393
     if (tmp___1 != 0L) {
 #line 1393
@@ -29843,12 +29843,12 @@ int bitmap_create(struct mddev *mddev )
 #line 1694
   bm = 0;
 #line 1698
-  tmp = __builtin_expect((unsigned long )file != (unsigned long )((struct file *)0),
+  tmp = ldv__builtin_expect((unsigned long )file != (unsigned long )((struct file *)0),
                          0L);
 #line 1698
   if (tmp != 0L) {
 #line 1698
-    tmp___0 = __builtin_expect(mddev->bitmap_info.offset != 0LL, 0L);
+    tmp___0 = ldv__builtin_expect(mddev->bitmap_info.offset != 0LL, 0L);
 #line 1698
     if (tmp___0 != 0L) {
 #line 1698
@@ -31303,7 +31303,7 @@ __inline static void ldv_error(void)
 #line 25
 extern int __VERIFIER_nondet_int(void) ;
 #line 49 "/home/ldvuser/ldv/inst/kernel-rules/verifier/rcv.h"
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 

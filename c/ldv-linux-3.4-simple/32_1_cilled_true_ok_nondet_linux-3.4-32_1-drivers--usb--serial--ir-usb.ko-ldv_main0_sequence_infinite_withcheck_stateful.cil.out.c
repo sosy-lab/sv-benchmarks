@@ -4235,7 +4235,7 @@ struct __anonstruct_259 {
    int  : 0 ;
 };
 #line 1 "<compiler builtins>"
-long __builtin_expect(long val , long res ) ;
+long ldv__builtin_expect(long val , long res ) ;
 #line 100 "include/linux/printk.h"
 extern int ( /* format attribute */  printk)(char const   *fmt  , ...) ;
 #line 32 "include/linux/spinlock_api_smp.h"
@@ -7155,7 +7155,7 @@ void ldv_check_final_state(void)
 }
 }
 #line 735 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/7536/dscv_tempdir/dscv/ri/32_1/drivers/usb/serial/ir-usb.c.common.c"
-long __builtin_expect(long val , long res ) 
+long ldv__builtin_expect(long val , long res ) 
 { 
 
   {

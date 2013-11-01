@@ -2424,7 +2424,7 @@ typedef int ldv_func_ret_type___4;
 #line 1264 "/work/ldvuser/zakharov_benchmarks/bench/cpa/work/current--X--drivers/misc/pch_phub.ko--X--x1linux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/32_7a/drivers/misc/pch_phub.c.prepared"
 typedef int ldv_func_ret_type___7;
 #line 1 "<compiler builtins>"
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 #line 53 "include/linux/dynamic_debug.h"
 extern int __dynamic_dev_dbg(struct _ddebug * , struct device  const  * , char const   * 
                              , ...) ;
@@ -2683,7 +2683,7 @@ static void pch_phub_save_reg_conf(struct pci_dev *pdev )
 #line 226
   descriptor.flags = 0U;
 #line 226
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 226
   if (tmp___0 != 0L) {
 #line 226
@@ -2716,7 +2716,7 @@ static void pch_phub_save_reg_conf(struct pci_dev *pdev )
 #line 252
   descriptor___0.flags = 0U;
 #line 252
-  tmp___1 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 252
   if (tmp___1 != 0L) {
 #line 252
@@ -2803,7 +2803,7 @@ static void pch_phub_restore_reg_conf(struct pci_dev *pdev )
 #line 287
   descriptor.flags = 0U;
 #line 287
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 287
   if (tmp___0 != 0L) {
 #line 287
@@ -2836,7 +2836,7 @@ static void pch_phub_restore_reg_conf(struct pci_dev *pdev )
 #line 313
   descriptor___0.flags = 0U;
 #line 313
-  tmp___1 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 313
   if (tmp___1 != 0L) {
 #line 313
@@ -3666,7 +3666,7 @@ static int pch_phub_probe(struct pci_dev *pdev , struct pci_device_id  const  *i
 #line 726
   descriptor.flags = 0U;
 #line 726
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 726
   if (tmp___0 != 0L) {
 #line 726
@@ -3700,7 +3700,7 @@ static int pch_phub_probe(struct pci_dev *pdev , struct pci_device_id  const  *i
 #line 735
   descriptor___0.flags = 0U;
 #line 735
-  tmp___1 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 735
   if (tmp___1 != 0L) {
 #line 735
@@ -3735,7 +3735,7 @@ static int pch_phub_probe(struct pci_dev *pdev , struct pci_device_id  const  *i
 #line 746
   descriptor___1.flags = 0U;
 #line 746
-  tmp___2 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+  tmp___2 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 746
   if (tmp___2 != 0L) {
 #line 746
@@ -4574,7 +4574,7 @@ __inline static void ldv_error(void)
 #line 25
 extern int __VERIFIER_nondet_int(void) ;
 #line 49 "/home/ldvuser/ldv_envgen2/kernel-rules/verifier/rcv.h"
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
   {

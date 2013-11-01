@@ -2550,7 +2550,7 @@ struct mc33880 {
    struct spi_device *spi ;
 };
 #line 1 "<compiler builtins>"
-long __builtin_expect(long val , long res ) ;
+long ldv__builtin_expect(long val , long res ) ;
 #line 24 "include/linux/list.h"
 __inline static void INIT_LIST_HEAD(struct list_head *list )  __attribute__((__no_instrument_function__)) ;
 #line 24 "include/linux/list.h"
@@ -3110,7 +3110,7 @@ static int mc33880_probe(struct spi_device *spi )
 #line 92
           __cil_tmp17 = (long )__cil_tmp16;
 #line 92
-          tmp___7 = __builtin_expect(__cil_tmp17, 0L);
+          tmp___7 = ldv__builtin_expect(__cil_tmp17, 0L);
           }
 #line 92
           if (tmp___7) {
@@ -3830,7 +3830,7 @@ void ldv_check_final_state(void)
 }
 }
 #line 352 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/5850/dscv_tempdir/dscv/ri/32_1/drivers/gpio/gpio-mc33880.c.common.c"
-long __builtin_expect(long val , long res ) 
+long ldv__builtin_expect(long val , long res ) 
 { 
 
   {

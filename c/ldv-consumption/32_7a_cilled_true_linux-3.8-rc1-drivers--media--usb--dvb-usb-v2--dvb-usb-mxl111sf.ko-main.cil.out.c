@@ -7245,7 +7245,7 @@ void *__builtin_memcpy(void * , void const   * , unsigned long  ) ;
 #line 1
 void *__builtin_alloca(unsigned long  ) ;
 #line 1
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 #line 119 "include/linux/printk.h"
 extern int printk(char const   *  , ...) ;
 #line 45 "include/linux/dynamic_debug.h"
@@ -7447,7 +7447,7 @@ int mxl111sf_ctrl_msg(struct dvb_usb_device *d , u8 cmd , u8 *wbuf , int wlen , 
 #line 129
   descriptor.flags = 0U;
 #line 129
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 129
   if (tmp___0 != 0L) {
 #line 129
@@ -7548,7 +7548,7 @@ int mxl111sf_read_reg(struct mxl111sf_state *state , u8 addr , u8 *data )
 #line 167
   descriptor.flags = 0U;
 #line 167
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 167
   if (tmp != 0L) {
 #line 167
@@ -7587,7 +7587,7 @@ int mxl111sf_write_reg(struct mxl111sf_state *state , u8 addr , u8 data )
 #line 177
   descriptor.flags = 0U;
 #line 177
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 177
   if (tmp != 0L) {
 #line 177
@@ -7915,7 +7915,7 @@ static int mxl111sf_adap_fe_init(struct dvb_frontend *fe )
 #line 334
   descriptor.flags = 0U;
 #line 334
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 334
   if (tmp != 0L) {
 #line 334
@@ -8099,7 +8099,7 @@ static int mxl111sf_adap_fe_sleep(struct dvb_frontend *fe )
 #line 390
   descriptor.flags = 0U;
 #line 390
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 390
   if (tmp != 0L) {
 #line 390
@@ -8159,7 +8159,7 @@ static int mxl111sf_ep6_streaming_ctrl(struct dvb_frontend *fe , int onoff )
 #line 408
   descriptor.flags = 0U;
 #line 408
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 408
   if (tmp != 0L) {
 #line 408
@@ -8232,7 +8232,7 @@ static int mxl111sf_ep5_streaming_ctrl(struct dvb_frontend *fe , int onoff )
 #line 432
   descriptor.flags = 0U;
 #line 432
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 432
   if (tmp != 0L) {
 #line 432
@@ -8337,7 +8337,7 @@ static int mxl111sf_ep4_streaming_ctrl(struct dvb_frontend *fe , int onoff )
 #line 458
   descriptor.flags = 0U;
 #line 458
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 458
   if (tmp != 0L) {
 #line 458
@@ -8417,7 +8417,7 @@ static int mxl111sf_lgdt3305_frontend_attach(struct dvb_usb_adapter *adap , u8 f
 #line 488
   descriptor.flags = 0U;
 #line 488
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 488
   if (tmp != 0L) {
 #line 488
@@ -8707,7 +8707,7 @@ static int mxl111sf_lg2160_frontend_attach(struct dvb_usb_adapter *adap , u8 fe_
 #line 559
   descriptor.flags = 0U;
 #line 559
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 559
   if (tmp != 0L) {
 #line 559
@@ -9067,7 +9067,7 @@ static int mxl111sf_lg2161_frontend_attach(struct dvb_usb_adapter *adap , u8 fe_
 #line 644
   descriptor.flags = 0U;
 #line 644
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 644
   if (tmp != 0L) {
 #line 644
@@ -9434,7 +9434,7 @@ static int mxl111sf_lg2161_ep6_frontend_attach(struct dvb_usb_adapter *adap , u8
 #line 731
   descriptor.flags = 0U;
 #line 731
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 731
   if (tmp != 0L) {
 #line 731
@@ -9792,7 +9792,7 @@ static int mxl111sf_attach_demod(struct dvb_usb_adapter *adap , u8 fe_id )
 #line 806
   descriptor.flags = 0U;
 #line 806
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 806
   if (tmp != 0L) {
 #line 806
@@ -10112,7 +10112,7 @@ static int mxl111sf_attach_tuner(struct dvb_usb_adapter *adap )
 #line 932
   descriptor.flags = 0U;
 #line 932
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 932
   if (tmp != 0L) {
 #line 932
@@ -10384,7 +10384,7 @@ static int mxl111sf_frontend_attach_atsc_mh(struct dvb_usb_adapter *adap )
 #line 1014
   descriptor.flags = 0U;
 #line 1014
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1014
   if (tmp != 0L) {
 #line 1014
@@ -10443,7 +10443,7 @@ static int mxl111sf_frontend_attach_mercury(struct dvb_usb_adapter *adap )
 #line 1034
   descriptor.flags = 0U;
 #line 1034
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1034
   if (tmp != 0L) {
 #line 1034
@@ -10502,7 +10502,7 @@ static int mxl111sf_frontend_attach_mercury_mh(struct dvb_usb_adapter *adap )
 #line 1054
   descriptor.flags = 0U;
 #line 1054
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1054
   if (tmp != 0L) {
 #line 1054
@@ -10551,7 +10551,7 @@ static void mxl111sf_stream_config_bulk(struct usb_data_stream_properties *strea
 #line 1070
   descriptor.flags = 0U;
 #line 1070
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1070
   if (tmp != 0L) {
 #line 1070
@@ -10592,7 +10592,7 @@ static void mxl111sf_stream_config_isoc(struct usb_data_stream_properties *strea
 #line 1080
   descriptor.flags = 0U;
 #line 1080
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1080
   if (tmp != 0L) {
 #line 1080
@@ -10637,7 +10637,7 @@ static int mxl111sf_get_stream_config_dvbt(struct dvb_frontend *fe , u8 *ts_type
 #line 1099
   descriptor.flags = 0U;
 #line 1099
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1099
   if (tmp != 0L) {
 #line 1099
@@ -10698,7 +10698,7 @@ static int mxl111sf_get_stream_config_atsc(struct dvb_frontend *fe , u8 *ts_type
 #line 1140
   descriptor.flags = 0U;
 #line 1140
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1140
   if (tmp != 0L) {
 #line 1140
@@ -10758,7 +10758,7 @@ static int mxl111sf_get_stream_config_mh(struct dvb_frontend *fe , u8 *ts_type ,
 #line 1181
   descriptor.flags = 0U;
 #line 1181
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1181
   if (tmp != 0L) {
 #line 1181
@@ -10819,7 +10819,7 @@ static int mxl111sf_get_stream_config_atsc_mh(struct dvb_frontend *fe , u8 *ts_t
 #line 1222
   descriptor.flags = 0U;
 #line 1222
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1222
   if (tmp != 0L) {
 #line 1222
@@ -10895,7 +10895,7 @@ static int mxl111sf_streaming_ctrl_atsc_mh(struct dvb_frontend *fe , int onoff )
 #line 1248
   descriptor.flags = 0U;
 #line 1248
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1248
   if (tmp != 0L) {
 #line 1248
@@ -10969,7 +10969,7 @@ static int mxl111sf_get_stream_config_mercury(struct dvb_frontend *fe , u8 *ts_t
 #line 1292
   descriptor.flags = 0U;
 #line 1292
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1292
   if (tmp != 0L) {
 #line 1292
@@ -11059,7 +11059,7 @@ static int mxl111sf_streaming_ctrl_mercury(struct dvb_frontend *fe , int onoff )
 #line 1324
   descriptor.flags = 0U;
 #line 1324
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1324
   if (tmp != 0L) {
 #line 1324
@@ -11140,7 +11140,7 @@ static int mxl111sf_get_stream_config_mercury_mh(struct dvb_frontend *fe , u8 *t
 #line 1370
   descriptor.flags = 0U;
 #line 1370
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1370
   if (tmp != 0L) {
 #line 1370
@@ -11216,7 +11216,7 @@ static int mxl111sf_streaming_ctrl_mercury_mh(struct dvb_frontend *fe , int onof
 #line 1396
   descriptor.flags = 0U;
 #line 1396
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1396
   if (tmp != 0L) {
 #line 1396
@@ -17943,7 +17943,7 @@ __inline static void ldv_error(void)
 #line 25
 extern int __VERIFIER_nondet_int(void) ;
 #line 49 "/home/zakharov/workspace/instruments/ldv1/kernel-rules/verifier/rcv.h"
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
   {

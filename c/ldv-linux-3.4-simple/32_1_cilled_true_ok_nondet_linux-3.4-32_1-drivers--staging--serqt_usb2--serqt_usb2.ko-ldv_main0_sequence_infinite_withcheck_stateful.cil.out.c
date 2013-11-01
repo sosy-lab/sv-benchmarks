@@ -4368,7 +4368,7 @@ struct quatech_port {
 #line 1 "<compiler builtins>"
 
 #line 1
-long __builtin_expect(long val , long res ) ;
+long ldv__builtin_expect(long val , long res ) ;
 #line 315 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/bitops.h"
 __inline static int variable_test_bit(int nr , unsigned long const volatile   *addr )  __attribute__((__no_instrument_function__)) ;
 #line 315 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/bitops.h"
@@ -4811,7 +4811,7 @@ __inline static int signal_pending(struct task_struct *p )
 #line 2591
   __cil_tmp5 = (long )tmp___8;
 #line 2591
-  tmp___9 = __builtin_expect(__cil_tmp5, 0L);
+  tmp___9 = ldv__builtin_expect(__cil_tmp5, 0L);
   }
 #line 2591
   return ((int )tmp___9);
@@ -14044,7 +14044,7 @@ void ldv_check_final_state(void)
 }
 }
 #line 4708 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/1659/dscv_tempdir/dscv/ri/32_1/drivers/staging/serqt_usb2/serqt_usb2.c.common.c"
-long __builtin_expect(long val , long res ) 
+long ldv__builtin_expect(long val , long res ) 
 { 
 
   {

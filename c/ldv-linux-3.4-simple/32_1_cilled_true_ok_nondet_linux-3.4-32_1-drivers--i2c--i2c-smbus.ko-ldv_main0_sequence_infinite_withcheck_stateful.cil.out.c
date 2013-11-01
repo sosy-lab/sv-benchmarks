@@ -2569,7 +2569,7 @@ struct alert_data {
    u8 flag : 1 ;
 };
 #line 1 "<compiler builtins>"
-long __builtin_expect(long val , long res ) ;
+long ldv__builtin_expect(long val , long res ) ;
 #line 49 "include/linux/dynamic_debug.h"
 extern int ( /* format attribute */  __dynamic_dev_dbg)(struct _ddebug *descriptor ,
                                                         struct device  const  *dev ,
@@ -3012,7 +3012,7 @@ static int smbus_do_alert(struct device *dev , void *addrp )
 #line 67
         __cil_tmp41 = (long )__cil_tmp40;
 #line 67
-        tmp___8 = __builtin_expect(__cil_tmp41, 0L);
+        tmp___8 = ldv__builtin_expect(__cil_tmp41, 0L);
         }
 #line 67
         if (tmp___8) {
@@ -3234,7 +3234,7 @@ static void smbus_alert(struct work_struct *work )
 #line 111
         __cil_tmp39 = (long )__cil_tmp38;
 #line 111
-        tmp___7 = __builtin_expect(__cil_tmp39, 0L);
+        tmp___7 = ldv__builtin_expect(__cil_tmp39, 0L);
         }
 #line 111
         if (tmp___7) {
@@ -4469,7 +4469,7 @@ void ldv_check_final_state(void)
 }
 }
 #line 440 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/391/dscv_tempdir/dscv/ri/32_1/drivers/i2c/i2c-smbus.c.common.c"
-long __builtin_expect(long val , long res ) 
+long ldv__builtin_expect(long val , long res ) 
 { 
 
   {

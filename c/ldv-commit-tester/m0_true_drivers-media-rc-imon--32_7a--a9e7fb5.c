@@ -3790,7 +3790,7 @@ void *__builtin_memcpy(void * , void const   * , unsigned long  ) ;
 #line 1
 unsigned long __builtin_object_size(void * , int  ) ;
 #line 1
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 #line 82 "/work/vladimir/commit-test/commit-test-work/task-003--linux-stable--dir/inst/current/envs/linux-stable-a9e7fb5/linux-stable-a9e7fb5/arch/x86/include/asm/bitops.h"
 __inline static void __set_bit(int nr , unsigned long volatile   *addr ) 
 { 
@@ -4160,14 +4160,14 @@ __inline static unsigned long copy_from_user(void *to , void const   *from , uns
 #line 53
   might_fault();
 #line 54
-  tmp___1 = __builtin_expect(sz == -1, 1L);
+  tmp___1 = ldv__builtin_expect(sz == -1, 1L);
 #line 54
   if (tmp___1 != 0L) {
 #line 55
     n = _copy_from_user(to, from, (unsigned int )n);
   } else {
 #line 54
-    tmp___2 = __builtin_expect((unsigned long )sz >= n, 1L);
+    tmp___2 = ldv__builtin_expect((unsigned long )sz >= n, 1L);
 #line 54
     if (tmp___2 != 0L) {
 #line 55
@@ -4176,7 +4176,7 @@ __inline static unsigned long copy_from_user(void *to , void const   *from , uns
 #line 58
       __ret_warn_on = 1;
 #line 58
-      tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+      tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 58
       if (tmp___0 != 0L) {
 #line 58
@@ -4186,7 +4186,7 @@ __inline static unsigned long copy_from_user(void *to , void const   *from , uns
 
       }
 #line 58
-      __builtin_expect(__ret_warn_on != 0, 0L);
+      ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
   }
 #line 60
@@ -4673,7 +4673,7 @@ static void free_imon_context(struct imon_context *ictx )
 #line 389
   descriptor.enabled = (char)0;
 #line 389
-  tmp = __builtin_expect((int )((signed char )descriptor.enabled) != 0, 0L);
+  tmp = ldv__builtin_expect((int )((signed char )descriptor.enabled) != 0, 0L);
 #line 389
   if (tmp != 0L) {
 #line 389
@@ -4772,7 +4772,7 @@ static int display_open(struct inode *inode , struct file *file )
 #line 432
     descriptor.enabled = (char)0;
 #line 432
-    tmp___1 = __builtin_expect((int )((signed char )descriptor.enabled) != 0, 0L);
+    tmp___1 = ldv__builtin_expect((int )((signed char )descriptor.enabled) != 0, 0L);
 #line 432
     if (tmp___1 != 0L) {
 #line 432
@@ -4847,7 +4847,7 @@ static int display_close(struct inode *inode , struct file *file )
 #line 468
     descriptor.enabled = (char)0;
 #line 468
-    tmp = __builtin_expect((int )((signed char )descriptor.enabled) != 0, 0L);
+    tmp = ldv__builtin_expect((int )((signed char )descriptor.enabled) != 0, 0L);
 #line 468
     if (tmp != 0L) {
 #line 468
@@ -5737,7 +5737,7 @@ static ssize_t lcd_write(struct file *file , char const   *buf , size_t n_bytes 
 #line 968
     descriptor.enabled = (char)0;
 #line 968
-    tmp___0 = __builtin_expect((int )((signed char )descriptor.enabled) != 0, 0L);
+    tmp___0 = ldv__builtin_expect((int )((signed char )descriptor.enabled) != 0, 0L);
 #line 968
     if (tmp___0 != 0L) {
 #line 968
@@ -5883,7 +5883,7 @@ static int imon_ir_change_protocol(struct rc_dev *rc , u64 rc_type )
 #line 1042
   descriptor.enabled = (char)0;
 #line 1042
-  tmp = __builtin_expect((int )((signed char )descriptor.enabled) != 0, 0L);
+  tmp = ldv__builtin_expect((int )((signed char )descriptor.enabled) != 0, 0L);
 #line 1042
   if (tmp != 0L) {
 #line 1042
@@ -5912,7 +5912,7 @@ static int imon_ir_change_protocol(struct rc_dev *rc , u64 rc_type )
 #line 1047
   descriptor___0.enabled = (char)0;
 #line 1047
-  tmp___0 = __builtin_expect((int )((signed char )descriptor___0.enabled) != 0, 0L);
+  tmp___0 = ldv__builtin_expect((int )((signed char )descriptor___0.enabled) != 0, 0L);
 #line 1047
   if (tmp___0 != 0L) {
 #line 1047
@@ -5937,7 +5937,7 @@ static int imon_ir_change_protocol(struct rc_dev *rc , u64 rc_type )
 #line 1049
     descriptor___1.enabled = (char)0;
 #line 1049
-    tmp___1 = __builtin_expect((int )((signed char )descriptor___1.enabled) != 0,
+    tmp___1 = ldv__builtin_expect((int )((signed char )descriptor___1.enabled) != 0,
                                0L);
 #line 1049
     if (tmp___1 != 0L) {
@@ -5973,7 +5973,7 @@ static int imon_ir_change_protocol(struct rc_dev *rc , u64 rc_type )
 #line 1057
     descriptor___2.enabled = (char)0;
 #line 1057
-    tmp___2 = __builtin_expect((int )((signed char )descriptor___2.enabled) != 0,
+    tmp___2 = ldv__builtin_expect((int )((signed char )descriptor___2.enabled) != 0,
                                0L);
 #line 1057
     if (tmp___2 != 0L) {
@@ -6431,7 +6431,7 @@ static bool imon_mouse_event(struct imon_context *ictx , unsigned char *buf , in
 #line 1292
     descriptor.enabled = (char)0;
 #line 1292
-    tmp___0 = __builtin_expect((int )((signed char )descriptor.enabled) != 0, 0L);
+    tmp___0 = ldv__builtin_expect((int )((signed char )descriptor.enabled) != 0, 0L);
 #line 1292
     if (tmp___0 != 0L) {
 #line 1292
@@ -6920,7 +6920,7 @@ static void imon_incoming_packet(struct imon_context *ictx , struct urb *urb , i
 #line 1555
       descriptor.enabled = (char)0;
 #line 1555
-      tmp___2 = __builtin_expect((int )((signed char )descriptor.enabled) != 0, 0L);
+      tmp___2 = ldv__builtin_expect((int )((signed char )descriptor.enabled) != 0, 0L);
 #line 1555
       if (tmp___2 != 0L) {
 #line 1555
@@ -6950,7 +6950,7 @@ static void imon_incoming_packet(struct imon_context *ictx , struct urb *urb , i
 #line 1561
       descriptor___0.enabled = (char)0;
 #line 1561
-      tmp___3 = __builtin_expect((int )((signed char )descriptor___0.enabled) != 0,
+      tmp___3 = ldv__builtin_expect((int )((signed char )descriptor___0.enabled) != 0,
                                  0L);
 #line 1561
       if (tmp___3 != 0L) {
@@ -7741,7 +7741,7 @@ static bool imon_find_endpoints(struct imon_context *ictx , struct usb_host_inte
 #line 2042
     descriptor.enabled = (char)0;
 #line 2042
-    tmp = __builtin_expect((int )((signed char )descriptor.enabled) != 0, 0L);
+    tmp = ldv__builtin_expect((int )((signed char )descriptor.enabled) != 0, 0L);
 #line 2042
     if (tmp != 0L) {
 #line 2042
@@ -7772,7 +7772,7 @@ static bool imon_find_endpoints(struct imon_context *ictx , struct usb_host_inte
 #line 2048
     descriptor___0.enabled = (char)0;
 #line 2048
-    tmp___0 = __builtin_expect((int )((signed char )descriptor___0.enabled) != 0,
+    tmp___0 = ldv__builtin_expect((int )((signed char )descriptor___0.enabled) != 0,
                                0L);
 #line 2048
     if (tmp___0 != 0L) {
@@ -7827,7 +7827,7 @@ static bool imon_find_endpoints(struct imon_context *ictx , struct usb_host_inte
 #line 2070
     descriptor___1.enabled = (char)0;
 #line 2070
-    tmp___1 = __builtin_expect((int )((signed char )descriptor___1.enabled) != 0,
+    tmp___1 = ldv__builtin_expect((int )((signed char )descriptor___1.enabled) != 0,
                                0L);
 #line 2070
     if (tmp___1 != 0L) {
@@ -7859,7 +7859,7 @@ static bool imon_find_endpoints(struct imon_context *ictx , struct usb_host_inte
 #line 2081
     descriptor___2.enabled = (char)0;
 #line 2081
-    tmp___2 = __builtin_expect((int )((signed char )descriptor___2.enabled) != 0,
+    tmp___2 = ldv__builtin_expect((int )((signed char )descriptor___2.enabled) != 0,
                                0L);
 #line 2081
     if (tmp___2 != 0L) {
@@ -7891,7 +7891,7 @@ static bool imon_find_endpoints(struct imon_context *ictx , struct usb_host_inte
 #line 2090
     descriptor___3.enabled = (char)0;
 #line 2090
-    tmp___3 = __builtin_expect((int )((signed char )descriptor___3.enabled) != 0,
+    tmp___3 = ldv__builtin_expect((int )((signed char )descriptor___3.enabled) != 0,
                                0L);
 #line 2090
     if (tmp___3 != 0L) {
@@ -8249,7 +8249,7 @@ static void imon_init_display(struct imon_context *ictx , struct usb_interface *
 #line 2271
   descriptor.enabled = (char)0;
 #line 2271
-  tmp = __builtin_expect((int )((signed char )descriptor.enabled) != 0, 0L);
+  tmp = ldv__builtin_expect((int )((signed char )descriptor.enabled) != 0, 0L);
 #line 2271
   if (tmp != 0L) {
 #line 2271
@@ -8348,7 +8348,7 @@ static int imon_probe(struct usb_interface *interface , struct usb_device_id  co
 #line 2314
   descriptor.enabled = (char)0;
 #line 2314
-  tmp___0 = __builtin_expect((int )((signed char )descriptor.enabled) != 0, 0L);
+  tmp___0 = ldv__builtin_expect((int )((signed char )descriptor.enabled) != 0, 0L);
 #line 2314
   if (tmp___0 != 0L) {
 #line 2314
@@ -8557,7 +8557,7 @@ static void imon_disconnect(struct usb_interface *interface )
 #line 2438
   descriptor.enabled = (char)0;
 #line 2438
-  tmp___0 = __builtin_expect((int )((signed char )descriptor.enabled) != 0, 0L);
+  tmp___0 = ldv__builtin_expect((int )((signed char )descriptor.enabled) != 0, 0L);
 #line 2438
   if (tmp___0 != 0L) {
 #line 2438
@@ -9452,7 +9452,7 @@ __inline static void ldv_error(void)
 #line 25
 extern int __VERIFIER_nondet_int(void) ;
 #line 49 "/work/vladimir/kernel-rules/verifier/rcv.h"
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 

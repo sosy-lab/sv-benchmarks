@@ -2834,7 +2834,7 @@ struct max1586_data {
    struct regulator_dev *rdev[0] ;
 };
 #line 1 "<compiler builtins>"
-long __builtin_expect(long val , long res ) ;
+long ldv__builtin_expect(long val , long res ) ;
 #line 49 "include/linux/dynamic_debug.h"
 extern int ( /* format attribute */  __dynamic_dev_dbg)(struct _ddebug *descriptor ,
                                                         struct device  const  *dev ,
@@ -2874,7 +2874,7 @@ __inline static long __attribute__((__warn_unused_result__))  IS_ERR(void const 
 #line 34
   __cil_tmp7 = (long )__cil_tmp6;
 #line 34
-  tmp = __builtin_expect(__cil_tmp7, 0L);
+  tmp = ldv__builtin_expect(__cil_tmp7, 0L);
   }
 #line 34
   return (tmp);
@@ -3253,7 +3253,7 @@ static int max1586_v3_set(struct regulator_dev *rdev , int min_uV , int max_uV ,
 #line 85
       __cil_tmp49 = (long )__cil_tmp48;
 #line 85
-      tmp___10 = __builtin_expect(__cil_tmp49, 0L);
+      tmp___10 = ldv__builtin_expect(__cil_tmp49, 0L);
       }
 #line 85
       if (tmp___10) {
@@ -3478,7 +3478,7 @@ static int max1586_v6_set(struct regulator_dev *rdev , int min_uV , int max_uV ,
 #line 137
       __cil_tmp18 = (long )__cil_tmp17;
 #line 137
-      tmp___10 = __builtin_expect(__cil_tmp18, 0L);
+      tmp___10 = ldv__builtin_expect(__cil_tmp18, 0L);
       }
 #line 137
       if (tmp___10) {
@@ -4609,7 +4609,7 @@ void ldv_check_final_state(void)
 }
 }
 #line 617 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/4574/dscv_tempdir/dscv/ri/32_1/drivers/regulator/max1586.c.common.c"
-long __builtin_expect(long val , long res ) 
+long ldv__builtin_expect(long val , long res ) 
 { 
 
   {

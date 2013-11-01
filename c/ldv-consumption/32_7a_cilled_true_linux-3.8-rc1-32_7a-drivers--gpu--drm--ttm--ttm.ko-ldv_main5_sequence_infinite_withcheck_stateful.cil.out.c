@@ -4181,7 +4181,7 @@ struct ttm_pool_manager___0 {
    struct kobject kobj ;
 };
 #line 1 "<compiler builtins>"
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 #line 119 "include/linux/printk.h"
 extern int printk(char const   *  , ...) ;
 #line 169 "include/linux/mutex.h"
@@ -4263,7 +4263,7 @@ static int ttm_agp_bind(struct ttm_tt *ttm , struct ttm_mem_reg *bo_mem )
 #line 107
   mem = agp_allocate_memory(agp_be->bridge, ttm->num_pages, 65536U);
 #line 108
-  tmp = __builtin_expect((unsigned long )mem == (unsigned long )((struct agp_memory *)0),
+  tmp = ldv__builtin_expect((unsigned long )mem == (unsigned long )((struct agp_memory *)0),
                          0L);
 #line 108
   if (tmp != 0L) {
@@ -4969,7 +4969,7 @@ static void ttm_shrink(struct ttm_mem_global *glob , bool from_wq , uint64_t ext
 #line 275
   spin_lock(& glob->lock);
 #line 276
-  tmp = __builtin_expect(ret != 0, 0L);
+  tmp = ldv__builtin_expect(ret != 0, 0L);
 #line 276
   if (tmp != 0L) {
 #line 277
@@ -5029,7 +5029,7 @@ static int ttm_mem_init_kernel_zone(struct ttm_mem_global *glob , struct sysinfo
 #line 296
   zone = (struct ttm_mem_zone *)tmp;
 #line 300
-  tmp___0 = __builtin_expect((unsigned long )zone == (unsigned long )((struct ttm_mem_zone *)0),
+  tmp___0 = ldv__builtin_expect((unsigned long )zone == (unsigned long )((struct ttm_mem_zone *)0),
                              0L);
 #line 300
   if (tmp___0 != 0L) {
@@ -5062,7 +5062,7 @@ static int ttm_mem_init_kernel_zone(struct ttm_mem_global *glob , struct sysinfo
   ret = kobject_init_and_add(& zone->kobj, & ttm_mem_zone_kobj_type, & glob->kobj,
                              zone->name);
 #line 316
-  tmp___1 = __builtin_expect(ret != 0, 0L);
+  tmp___1 = ldv__builtin_expect(ret != 0, 0L);
 #line 316
   if (tmp___1 != 0L) {
 #line 317
@@ -5099,7 +5099,7 @@ static int ttm_mem_init_dma32_zone(struct ttm_mem_global *glob , struct sysinfo 
 #line 363
   zone = (struct ttm_mem_zone *)tmp;
 #line 367
-  tmp___0 = __builtin_expect((unsigned long )zone == (unsigned long )((struct ttm_mem_zone *)0),
+  tmp___0 = ldv__builtin_expect((unsigned long )zone == (unsigned long )((struct ttm_mem_zone *)0),
                              0L);
 #line 367
   if (tmp___0 != 0L) {
@@ -5143,7 +5143,7 @@ static int ttm_mem_init_dma32_zone(struct ttm_mem_global *glob , struct sysinfo 
   ret = kobject_init_and_add(& zone->kobj, & ttm_mem_zone_kobj_type, & glob->kobj,
                              zone->name);
 #line 399
-  tmp___1 = __builtin_expect(ret != 0, 0L);
+  tmp___1 = ldv__builtin_expect(ret != 0, 0L);
 #line 399
   if (tmp___1 != 0L) {
 #line 400
@@ -5209,7 +5209,7 @@ int ttm_mem_global_init(struct ttm_mem_global *glob )
 #line 418
   ret = kobject_init_and_add(& glob->kobj, & ttm_mem_glob_kobj_type, tmp___0, "memory_accounting");
 #line 420
-  tmp___1 = __builtin_expect(ret != 0, 0L);
+  tmp___1 = ldv__builtin_expect(ret != 0, 0L);
 #line 420
   if (tmp___1 != 0L) {
 #line 421
@@ -5224,7 +5224,7 @@ int ttm_mem_global_init(struct ttm_mem_global *glob )
 #line 427
   ret = ttm_mem_init_kernel_zone(glob, (struct sysinfo  const  *)(& si));
 #line 428
-  tmp___2 = __builtin_expect(ret != 0, 0L);
+  tmp___2 = ldv__builtin_expect(ret != 0, 0L);
 #line 428
   if (tmp___2 != 0L) {
 #line 429
@@ -5235,7 +5235,7 @@ int ttm_mem_global_init(struct ttm_mem_global *glob )
 #line 435
   ret = ttm_mem_init_dma32_zone(glob, (struct sysinfo  const  *)(& si));
 #line 436
-  tmp___3 = __builtin_expect(ret != 0, 0L);
+  tmp___3 = ldv__builtin_expect(ret != 0, 0L);
 #line 436
   if (tmp___3 != 0L) {
 #line 437
@@ -5365,7 +5365,7 @@ static void ttm_check_swapping(struct ttm_mem_global *glob )
 #line 490
   spin_unlock(& glob->lock);
 #line 492
-  tmp = __builtin_expect((long )needs_swapping, 0L);
+  tmp = ldv__builtin_expect((long )needs_swapping, 0L);
 #line 492
   if (tmp != 0L) {
 #line 493
@@ -5554,7 +5554,7 @@ static int ttm_mem_global_alloc_zone(struct ttm_mem_global *glob , struct ttm_me
 #line 574
   count = count - 1;
 #line 574
-  tmp___0 = __builtin_expect(tmp == 0, 0L);
+  tmp___0 = ldv__builtin_expect(tmp == 0, 0L);
 #line 574
   if (tmp___0 != 0L) {
 #line 575
@@ -5568,7 +5568,7 @@ static int ttm_mem_global_alloc_zone(struct ttm_mem_global *glob , struct ttm_me
 #line 568
   tmp___1 = ttm_mem_global_reserve(glob, single_zone, memory, 1);
 #line 568
-  tmp___2 = __builtin_expect(tmp___1 != 0, 0L);
+  tmp___2 = ldv__builtin_expect(tmp___1 != 0, 0L);
 #line 568
   if (tmp___2 != 0L) {
 #line 569
@@ -5795,7 +5795,7 @@ __inline static long IS_ERR(void const   *ptr )
 
   {
 #line 34
-  tmp = __builtin_expect((unsigned long )ptr > 0xfffffffffffff000UL, 0L);
+  tmp = ldv__builtin_expect((unsigned long )ptr > 0xfffffffffffff000UL, 0L);
 #line 34
   return (tmp);
 }
@@ -6263,14 +6263,14 @@ static int ttm_tt_set_caching(struct ttm_tt *ttm , enum ttm_caching_state c_stat
 #line 170
   cur_page = *(ttm->pages + (unsigned long )i);
 #line 171
-  tmp___0 = __builtin_expect((unsigned long )cur_page != (unsigned long )((struct page *)0),
+  tmp___0 = ldv__builtin_expect((unsigned long )cur_page != (unsigned long )((struct page *)0),
                              1L);
 #line 171
   if (tmp___0 != 0L) {
 #line 172
     ret = ttm_tt_set_page_caching(cur_page, ttm->caching_state, c_state);
 #line 175
-    tmp = __builtin_expect(ret != 0, 0L);
+    tmp = ldv__builtin_expect(ret != 0, 0L);
 #line 175
     if (tmp != 0L) {
 #line 176
@@ -6304,7 +6304,7 @@ static int ttm_tt_set_caching(struct ttm_tt *ttm , enum ttm_caching_state c_stat
 #line 186
   cur_page = *(ttm->pages + (unsigned long )j);
 #line 187
-  tmp___1 = __builtin_expect((unsigned long )cur_page != (unsigned long )((struct page *)0),
+  tmp___1 = ldv__builtin_expect((unsigned long )cur_page != (unsigned long )((struct page *)0),
                              1L);
 #line 187
   if (tmp___1 != 0L) {
@@ -6362,7 +6362,7 @@ void ttm_tt_destroy(struct ttm_tt *ttm )
 
   {
 #line 213
-  tmp = __builtin_expect((unsigned long )ttm == (unsigned long )((struct ttm_tt *)0),
+  tmp = ldv__builtin_expect((unsigned long )ttm == (unsigned long )((struct ttm_tt *)0),
                          0L);
 #line 213
   if (tmp != 0L) {
@@ -6379,7 +6379,7 @@ void ttm_tt_destroy(struct ttm_tt *ttm )
 
   }
 #line 220
-  tmp___0 = __builtin_expect((unsigned long )ttm->pages != (unsigned long )((struct page **)0),
+  tmp___0 = ldv__builtin_expect((unsigned long )ttm->pages != (unsigned long )((struct page **)0),
                              1L);
 #line 220
   if (tmp___0 != 0L) {
@@ -6533,7 +6533,7 @@ void ttm_tt_unbind(struct ttm_tt *ttm )
 #line 304
     ret = (*((ttm->func)->unbind))(ttm);
 #line 305
-    tmp = __builtin_expect(ret != 0, 0L);
+    tmp = ldv__builtin_expect(ret != 0, 0L);
 #line 305
     if (tmp != 0L) {
 #line 305
@@ -6589,7 +6589,7 @@ int ttm_tt_bind(struct ttm_tt *ttm , struct ttm_mem_reg *bo_mem )
 #line 324
   ret = (*((ttm->func)->bind))(ttm, bo_mem);
 #line 325
-  tmp = __builtin_expect(ret != 0, 0L);
+  tmp = ldv__builtin_expect(ret != 0, 0L);
 #line 325
   if (tmp != 0L) {
 #line 326
@@ -6623,7 +6623,7 @@ int ttm_tt_swapin(struct ttm_tt *ttm )
 #line 343
   swap_storage = ttm->swap_storage;
 #line 344
-  tmp = __builtin_expect((unsigned long )swap_storage == (unsigned long )((struct file *)0),
+  tmp = ldv__builtin_expect((unsigned long )swap_storage == (unsigned long )((struct file *)0),
                          0L);
 #line 344
   if (tmp != 0L) {
@@ -6661,7 +6661,7 @@ int ttm_tt_swapin(struct ttm_tt *ttm )
 #line 354
   to_page = *(ttm->pages + (unsigned long )i);
 #line 355
-  tmp___2 = __builtin_expect((unsigned long )to_page == (unsigned long )((struct page *)0),
+  tmp___2 = ldv__builtin_expect((unsigned long )to_page == (unsigned long )((struct page *)0),
                              0L);
 #line 355
   if (tmp___2 != 0L) {
@@ -6727,11 +6727,11 @@ int ttm_tt_swapout(struct ttm_tt *ttm , struct file *persistent_swap_storage )
 #line 379
   ret = -12;
 #line 381
-  tmp = __builtin_expect((unsigned int )ttm->state != 1U, 0L);
+  tmp = ldv__builtin_expect((unsigned int )ttm->state != 1U, 0L);
 #line 381
   if (tmp != 0L) {
 #line 381
-    tmp___0 = __builtin_expect((unsigned int )ttm->state != 2U, 0L);
+    tmp___0 = ldv__builtin_expect((unsigned int )ttm->state != 2U, 0L);
 #line 381
     if (tmp___0 != 0L) {
 #line 381
@@ -6747,7 +6747,7 @@ int ttm_tt_swapout(struct ttm_tt *ttm , struct file *persistent_swap_storage )
 
   }
 #line 382
-  tmp___1 = __builtin_expect((unsigned int )ttm->caching_state != 2U, 0L);
+  tmp___1 = ldv__builtin_expect((unsigned int )ttm->caching_state != 2U, 0L);
 #line 382
   if (tmp___1 != 0L) {
 #line 382
@@ -6766,7 +6766,7 @@ int ttm_tt_swapout(struct ttm_tt *ttm , struct file *persistent_swap_storage )
 #line 388
     tmp___3 = IS_ERR((void const   *)swap_storage);
 #line 388
-    tmp___4 = __builtin_expect(tmp___3 != 0L, 0L);
+    tmp___4 = ldv__builtin_expect(tmp___3 != 0L, 0L);
 #line 388
     if (tmp___4 != 0L) {
 #line 389
@@ -6792,7 +6792,7 @@ int ttm_tt_swapout(struct ttm_tt *ttm , struct file *persistent_swap_storage )
 #line 398
   from_page = *(ttm->pages + (unsigned long )i);
 #line 399
-  tmp___5 = __builtin_expect((unsigned long )from_page == (unsigned long )((struct page *)0),
+  tmp___5 = ldv__builtin_expect((unsigned long )from_page == (unsigned long )((struct page *)0),
                              0L);
 #line 399
   if (tmp___5 != 0L) {
@@ -6806,7 +6806,7 @@ int ttm_tt_swapout(struct ttm_tt *ttm , struct file *persistent_swap_storage )
 #line 402
   tmp___7 = IS_ERR((void const   *)to_page);
 #line 402
-  tmp___8 = __builtin_expect(tmp___7 != 0L, 0L);
+  tmp___8 = ldv__builtin_expect(tmp___7 != 0L, 0L);
 #line 402
   if (tmp___8 != 0L) {
 #line 403
@@ -7184,7 +7184,7 @@ __inline static void kref_get(struct kref *kref )
 #line 42
   __ret_warn_on = tmp == 0;
 #line 42
-  tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 42
   if (tmp___0 != 0L) {
 #line 42
@@ -7193,7 +7193,7 @@ __inline static void kref_get(struct kref *kref )
 
   }
 #line 42
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 43
   atomic_inc(& kref->refcount);
 #line 44
@@ -7211,7 +7211,7 @@ __inline static int kref_sub(struct kref *kref , unsigned int count , void (*rel
 #line 67
   __ret_warn_on = (unsigned long )release == (unsigned long )((void (*)(struct kref * ))0);
 #line 67
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 67
   if (tmp != 0L) {
 #line 67
@@ -7220,7 +7220,7 @@ __inline static int kref_sub(struct kref *kref , unsigned int count , void (*rel
 
   }
 #line 67
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 69
   tmp___0 = atomic_sub_and_test((int )count, & kref->refcount);
 #line 69
@@ -7431,7 +7431,7 @@ __inline static void ttm_mem_unregister_shrink(struct ttm_mem_global *glob , str
 #line 140
   spin_lock(& glob->lock);
 #line 141
-  tmp = __builtin_expect((unsigned long )glob->shrink != (unsigned long )shrink, 0L);
+  tmp = ldv__builtin_expect((unsigned long )glob->shrink != (unsigned long )shrink, 0L);
 #line 141
   if (tmp != 0L) {
 #line 141
@@ -7576,7 +7576,7 @@ __inline static int signal_pending(struct task_struct *p )
 #line 2620
   tmp = test_tsk_thread_flag(p, 2);
 #line 2620
-  tmp___0 = __builtin_expect(tmp != 0, 0L);
+  tmp___0 = ldv__builtin_expect(tmp != 0, 0L);
 #line 2620
   return ((int )tmp___0);
 }
@@ -7774,7 +7774,7 @@ static void ttm_bo_release_list(struct kref *list_kref )
 #line 190
   tmp = atomic_read((atomic_t const   *)(& bo->list_kref.refcount));
 #line 190
-  tmp___0 = __builtin_expect(tmp != 0, 0L);
+  tmp___0 = ldv__builtin_expect(tmp != 0, 0L);
 #line 190
   if (tmp___0 != 0L) {
 #line 190
@@ -7789,7 +7789,7 @@ static void ttm_bo_release_list(struct kref *list_kref )
 #line 191
   tmp___1 = atomic_read((atomic_t const   *)(& bo->kref.refcount));
 #line 191
-  tmp___2 = __builtin_expect(tmp___1 != 0, 0L);
+  tmp___2 = ldv__builtin_expect(tmp___1 != 0, 0L);
 #line 191
   if (tmp___2 != 0L) {
 #line 191
@@ -7804,7 +7804,7 @@ static void ttm_bo_release_list(struct kref *list_kref )
 #line 192
   tmp___3 = atomic_read((atomic_t const   *)(& bo->cpu_writers));
 #line 192
-  tmp___4 = __builtin_expect(tmp___3 != 0, 0L);
+  tmp___4 = ldv__builtin_expect(tmp___3 != 0, 0L);
 #line 192
   if (tmp___4 != 0L) {
 #line 192
@@ -7817,7 +7817,7 @@ static void ttm_bo_release_list(struct kref *list_kref )
 
   }
 #line 193
-  tmp___5 = __builtin_expect((unsigned long )bo->sync_obj != (unsigned long )((void *)0),
+  tmp___5 = ldv__builtin_expect((unsigned long )bo->sync_obj != (unsigned long )((void *)0),
                              0L);
 #line 193
   if (tmp___5 != 0L) {
@@ -7831,7 +7831,7 @@ static void ttm_bo_release_list(struct kref *list_kref )
 
   }
 #line 194
-  tmp___6 = __builtin_expect((unsigned long )bo->mem.mm_node != (unsigned long )((void *)0),
+  tmp___6 = ldv__builtin_expect((unsigned long )bo->mem.mm_node != (unsigned long )((void *)0),
                              0L);
 #line 194
   if (tmp___6 != 0L) {
@@ -7847,7 +7847,7 @@ static void ttm_bo_release_list(struct kref *list_kref )
 #line 195
   tmp___7 = list_empty((struct list_head  const  *)(& bo->lru));
 #line 195
-  tmp___8 = __builtin_expect(tmp___7 == 0, 0L);
+  tmp___8 = ldv__builtin_expect(tmp___7 == 0, 0L);
 #line 195
   if (tmp___8 != 0L) {
 #line 195
@@ -7862,7 +7862,7 @@ static void ttm_bo_release_list(struct kref *list_kref )
 #line 196
   tmp___9 = list_empty((struct list_head  const  *)(& bo->ddestroy));
 #line 196
-  tmp___10 = __builtin_expect(tmp___9 == 0, 0L);
+  tmp___10 = ldv__builtin_expect(tmp___9 == 0, 0L);
 #line 196
   if (tmp___10 != 0L) {
 #line 196
@@ -8072,7 +8072,7 @@ void ttm_bo_add_to_lru(struct ttm_buffer_object *bo )
     tmp___0 = 1;
   }
 #line 226
-  tmp___1 = __builtin_expect((long )tmp___0, 0L);
+  tmp___1 = ldv__builtin_expect((long )tmp___0, 0L);
 #line 226
   if (tmp___1 != 0L) {
 #line 226
@@ -8089,7 +8089,7 @@ void ttm_bo_add_to_lru(struct ttm_buffer_object *bo )
 #line 230
     tmp___2 = list_empty((struct list_head  const  *)(& bo->lru));
 #line 230
-    tmp___3 = __builtin_expect(tmp___2 == 0, 0L);
+    tmp___3 = ldv__builtin_expect(tmp___2 == 0, 0L);
 #line 230
     if (tmp___3 != 0L) {
 #line 230
@@ -8182,7 +8182,7 @@ int ttm_bo_reserve_locked(struct ttm_buffer_object *bo , bool interruptible , bo
 #line 275
   if ((int )use_sequence && (int )bo->seq_valid) {
 #line 279
-    tmp = __builtin_expect(bo->val_seq == sequence, 0L);
+    tmp = ldv__builtin_expect(bo->val_seq == sequence, 0L);
 #line 279
     if (tmp != 0L) {
 #line 280
@@ -8191,7 +8191,7 @@ int ttm_bo_reserve_locked(struct ttm_buffer_object *bo , bool interruptible , bo
 
     }
 #line 285
-    tmp___0 = __builtin_expect((int )(sequence - bo->val_seq) >= 0, 0L);
+    tmp___0 = ldv__builtin_expect((int )(sequence - bo->val_seq) >= 0, 0L);
 #line 285
     if (tmp___0 != 0L) {
 #line 286
@@ -8216,7 +8216,7 @@ int ttm_bo_reserve_locked(struct ttm_buffer_object *bo , bool interruptible , bo
 #line 294
   spin_lock(& glob->lru_lock);
 #line 296
-  tmp___1 = __builtin_expect(ret != 0, 0L);
+  tmp___1 = ldv__builtin_expect(ret != 0, 0L);
 #line 296
   if (tmp___1 != 0L) {
 #line 297
@@ -8228,7 +8228,7 @@ int ttm_bo_reserve_locked(struct ttm_buffer_object *bo , bool interruptible , bo
 #line 271
   tmp___2 = atomic_read((atomic_t const   *)(& bo->reserved));
 #line 271
-  tmp___3 = __builtin_expect(tmp___2 != 0, 0L);
+  tmp___3 = ldv__builtin_expect(tmp___2 != 0, 0L);
 #line 271
   if (tmp___3 != 0L) {
 #line 272
@@ -8241,14 +8241,14 @@ int ttm_bo_reserve_locked(struct ttm_buffer_object *bo , bool interruptible , bo
 #line 301
   if ((int )use_sequence) {
 #line 306
-    tmp___4 = __builtin_expect((int )(bo->val_seq - sequence) >= 0, 0L);
+    tmp___4 = ldv__builtin_expect((int )(bo->val_seq - sequence) >= 0, 0L);
 #line 306
     if (tmp___4 != 0L) {
 #line 308
       __wake_up(& bo->event_queue, 3U, 0, 0);
     } else {
 #line 306
-      tmp___5 = __builtin_expect((long )(! bo->seq_valid), 0L);
+      tmp___5 = ldv__builtin_expect((long )(! bo->seq_valid), 0L);
 #line 306
       if (tmp___5 != 0L) {
 #line 308
@@ -8315,7 +8315,7 @@ int ttm_bo_reserve(struct ttm_buffer_object *bo , bool interruptible , bool no_w
   ret = ttm_bo_reserve_locked(bo, (int )interruptible, (int )no_wait, (int )use_sequence,
                               sequence);
 #line 343
-  tmp = __builtin_expect(ret == 0, 1L);
+  tmp = ldv__builtin_expect(ret == 0, 1L);
 #line 343
   if (tmp != 0L) {
 #line 344
@@ -8408,7 +8408,7 @@ static int ttm_bo_add_ttm(struct ttm_buffer_object *bo , bool zero_alloc )
   bo->ttm = (*((bdev->driver)->ttm_tt_create))(bdev, bo->num_pages << 12, page_flags,
                                                glob->dummy_read_page);
 #line 392
-  tmp = __builtin_expect((unsigned long )bo->ttm == (unsigned long )((struct ttm_tt *)0),
+  tmp = ldv__builtin_expect((unsigned long )bo->ttm == (unsigned long )((struct ttm_tt *)0),
                          0L);
 #line 392
   if (tmp != 0L) {
@@ -8424,7 +8424,7 @@ static int ttm_bo_add_ttm(struct ttm_buffer_object *bo , bool zero_alloc )
   bo->ttm = (*((bdev->driver)->ttm_tt_create))(bdev, bo->num_pages << 12, page_flags | 256U,
                                                glob->dummy_read_page);
 #line 399
-  tmp___0 = __builtin_expect((unsigned long )bo->ttm == (unsigned long )((struct ttm_tt *)0),
+  tmp___0 = ldv__builtin_expect((unsigned long )bo->ttm == (unsigned long )((struct ttm_tt *)0),
                              0L);
 #line 399
   if (tmp___0 != 0L) {
@@ -8490,7 +8490,7 @@ static int ttm_bo_handle_move_mem(struct ttm_buffer_object *bo , struct ttm_mem_
 #line 428
     ret = ttm_mem_io_lock(old_man, 1);
 #line 429
-    tmp___1 = __builtin_expect(ret != 0, 0L);
+    tmp___1 = ldv__builtin_expect(ret != 0, 0L);
 #line 429
     if (tmp___1 != 0L) {
 #line 430
@@ -8838,7 +8838,7 @@ static int ttm_bo_cleanup_refs_and_unlock(struct ttm_buffer_object *bo , bool in
 #line 648
     __ret_warn_on = ret != 0;
 #line 648
-    tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 648
     if (tmp != 0L) {
 #line 648
@@ -8848,7 +8848,7 @@ static int ttm_bo_cleanup_refs_and_unlock(struct ttm_buffer_object *bo , bool in
 
     }
 #line 648
-    __builtin_expect(__ret_warn_on != 0, 0L);
+    ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 649
     spin_unlock(& bdev->fence_lock);
 #line 650
@@ -8889,7 +8889,7 @@ static int ttm_bo_cleanup_refs_and_unlock(struct ttm_buffer_object *bo , bool in
 #line 671
     tmp___0 = list_empty((struct list_head  const  *)(& bo->ddestroy));
 #line 671
-    tmp___1 = __builtin_expect(tmp___0 != 0, 0L);
+    tmp___1 = ldv__builtin_expect(tmp___0 != 0, 0L);
 #line 671
     if (tmp___1 != 0L) {
 #line 672
@@ -9067,7 +9067,7 @@ static void ttm_bo_release(struct kref *kref )
 #line 762
   _raw_write_lock(& bdev->vm_lock);
 #line 763
-  tmp = __builtin_expect((unsigned long )bo->vm_node != (unsigned long )((struct drm_mm_node *)0),
+  tmp = ldv__builtin_expect((unsigned long )bo->vm_node != (unsigned long )((struct drm_mm_node *)0),
                          1L);
 #line 763
   if (tmp != 0L) {
@@ -9165,7 +9165,7 @@ static int ttm_bo_evict(struct ttm_buffer_object *bo , bool interruptible , bool
 #line 809
   spin_unlock(& bdev->fence_lock);
 #line 811
-  tmp = __builtin_expect(ret != 0, 0L);
+  tmp = ldv__builtin_expect(ret != 0, 0L);
 #line 811
   if (tmp != 0L) {
 #line 812
@@ -9191,7 +9191,7 @@ static int ttm_bo_evict(struct ttm_buffer_object *bo , bool interruptible , bool
     tmp___1 = 1;
   }
 #line 818
-  tmp___2 = __builtin_expect((long )tmp___1, 0L);
+  tmp___2 = ldv__builtin_expect((long )tmp___1, 0L);
 #line 818
   if (tmp___2 != 0L) {
 #line 818
@@ -9345,7 +9345,7 @@ static int ttm_mem_evict_first(struct ttm_bo_device *bdev , uint32_t mem_type , 
 #line 886
   spin_unlock(& glob->lru_lock);
 #line 888
-  tmp___0 = __builtin_expect(ret != 0, 0L);
+  tmp___0 = ldv__builtin_expect(ret != 0, 0L);
 #line 888
   if (tmp___0 != 0L) {
 #line 888
@@ -9408,7 +9408,7 @@ static int ttm_bo_mem_force_space(struct ttm_buffer_object *bo , uint32_t mem_ty
 #line 924
   ret = (*((man->func)->get_node))(man, bo, placement, mem);
 #line 925
-  tmp = __builtin_expect(ret != 0, 0L);
+  tmp = ldv__builtin_expect(ret != 0, 0L);
 #line 925
   if (tmp != 0L) {
 #line 926
@@ -9426,7 +9426,7 @@ static int ttm_bo_mem_force_space(struct ttm_buffer_object *bo , uint32_t mem_ty
 #line 929
   ret = ttm_mem_evict_first(bdev, mem_type, (int )interruptible, (int )no_wait_gpu);
 #line 931
-  tmp___0 = __builtin_expect(ret != 0, 0L);
+  tmp___0 = ldv__builtin_expect(ret != 0, 0L);
 #line 931
   if (tmp___0 != 0L) {
 #line 932
@@ -9603,7 +9603,7 @@ int ttm_bo_mem_space(struct ttm_buffer_object *bo , struct ttm_placement *placem
 #line 1037
     ret = (*((man->func)->get_node))(man, bo, placement, mem);
 #line 1038
-    tmp = __builtin_expect(ret != 0, 0L);
+    tmp = ldv__builtin_expect(ret != 0, 0L);
 #line 1038
     if (tmp != 0L) {
 #line 1039
@@ -9773,7 +9773,7 @@ int ttm_bo_move_buffer(struct ttm_buffer_object *bo , struct ttm_placement *plac
     tmp___0 = 1;
   }
 #line 1108
-  tmp___1 = __builtin_expect((long )tmp___0, 0L);
+  tmp___1 = ldv__builtin_expect((long )tmp___0, 0L);
 #line 1108
   if (tmp___1 != 0L) {
 #line 1108
@@ -9892,7 +9892,7 @@ int ttm_bo_validate(struct ttm_buffer_object *bo , struct ttm_placement *placeme
     tmp___0 = 1;
   }
 #line 1167
-  tmp___1 = __builtin_expect((long )tmp___0, 0L);
+  tmp___1 = ldv__builtin_expect((long )tmp___0, 0L);
 #line 1167
   if (tmp___1 != 0L) {
 #line 1167
@@ -9962,14 +9962,14 @@ int ttm_bo_check_placement(struct ttm_buffer_object *bo , struct ttm_placement *
 
   {
 #line 1205
-  tmp = __builtin_expect(placement->fpfn != 0U, 0L);
+  tmp = ldv__builtin_expect(placement->fpfn != 0U, 0L);
 #line 1205
   if (tmp != 0L) {
 #line 1205
     tmp___1 = 1;
   } else {
 #line 1205
-    tmp___0 = __builtin_expect(placement->lpfn != 0U, 0L);
+    tmp___0 = ldv__builtin_expect(placement->lpfn != 0U, 0L);
 #line 1205
     if (tmp___0 != 0L) {
 #line 1205
@@ -9982,7 +9982,7 @@ int ttm_bo_check_placement(struct ttm_buffer_object *bo , struct ttm_placement *
 #line 1205
   if (tmp___1 != 0) {
 #line 1205
-    tmp___2 = __builtin_expect(bo->mem.num_pages > (unsigned long )(placement->lpfn - placement->fpfn),
+    tmp___2 = ldv__builtin_expect(bo->mem.num_pages > (unsigned long )(placement->lpfn - placement->fpfn),
                                0L);
 #line 1205
     if (tmp___2 != 0L) {
@@ -10118,7 +10118,7 @@ int ttm_bo_init(struct ttm_bo_device *bdev , struct ttm_buffer_object *bo , unsi
 #line 1277
   ret = ttm_bo_check_placement(bo, placement);
 #line 1278
-  tmp = __builtin_expect(ret != 0, 0L);
+  tmp = ldv__builtin_expect(ret != 0, 0L);
 #line 1278
   if (tmp != 0L) {
 #line 1279
@@ -10236,7 +10236,7 @@ int ttm_bo_create(struct ttm_bo_device *bdev , unsigned long size , enum ttm_bo_
 #line 1349
   bo = (struct ttm_buffer_object *)tmp;
 #line 1350
-  tmp___0 = __builtin_expect((unsigned long )bo == (unsigned long )((struct ttm_buffer_object *)0),
+  tmp___0 = ldv__builtin_expect((unsigned long )bo == (unsigned long )((struct ttm_buffer_object *)0),
                              0L);
 #line 1350
   if (tmp___0 != 0L) {
@@ -10251,7 +10251,7 @@ int ttm_bo_create(struct ttm_bo_device *bdev , unsigned long size , enum ttm_bo_
   ret = ttm_bo_init(bdev, bo, size, type, placement, page_alignment, (int )interruptible,
                     persistent_swap_storage, acc_size, 0, 0);
 #line 1357
-  tmp___1 = __builtin_expect(ret == 0, 1L);
+  tmp___1 = ldv__builtin_expect(ret == 0, 1L);
 #line 1357
   if (tmp___1 != 0L) {
 #line 1358
@@ -10411,7 +10411,7 @@ int ttm_bo_init_mm(struct ttm_bo_device *bdev , unsigned int type , unsigned lon
 #line 1444
   ret = -22;
 #line 1447
-  tmp = __builtin_expect(type > 7U, 0L);
+  tmp = ldv__builtin_expect(type > 7U, 0L);
 #line 1447
   if (tmp != 0L) {
 #line 1447
@@ -10426,7 +10426,7 @@ int ttm_bo_init_mm(struct ttm_bo_device *bdev , unsigned int type , unsigned lon
 #line 1448
   man = (struct ttm_mem_type_manager *)(& bdev->man) + (unsigned long )type;
 #line 1449
-  tmp___0 = __builtin_expect((long )man->has_type, 0L);
+  tmp___0 = ldv__builtin_expect((long )man->has_type, 0L);
 #line 1449
   if (tmp___0 != 0L) {
 #line 1449
@@ -10555,7 +10555,7 @@ int ttm_bo_global_init(struct drm_global_reference *ref )
 #line 1505
   glob->dummy_read_page = alloc_pages(32772U, 0U);
 #line 1507
-  tmp = __builtin_expect((unsigned long )glob->dummy_read_page == (unsigned long )((struct page *)0),
+  tmp = ldv__builtin_expect((unsigned long )glob->dummy_read_page == (unsigned long )((struct page *)0),
                          0L);
 #line 1507
   if (tmp != 0L) {
@@ -10575,7 +10575,7 @@ int ttm_bo_global_init(struct drm_global_reference *ref )
 #line 1516
   ret = ttm_mem_register_shrink(glob->mem_glob, & glob->shrink);
 #line 1517
-  tmp___0 = __builtin_expect(ret != 0, 0L);
+  tmp___0 = ldv__builtin_expect(ret != 0, 0L);
 #line 1517
   if (tmp___0 != 0L) {
 #line 1518
@@ -10592,7 +10592,7 @@ int ttm_bo_global_init(struct drm_global_reference *ref )
 #line 1524
   ret = kobject_init_and_add(& glob->kobj, & ttm_bo_glob_kobj_type, tmp___1, "buffer_objects");
 #line 1526
-  tmp___2 = __builtin_expect(ret != 0, 0L);
+  tmp___2 = ldv__builtin_expect(ret != 0, 0L);
 #line 1526
   if (tmp___2 != 0L) {
 #line 1527
@@ -10708,7 +10708,7 @@ int ttm_bo_device_release(struct ttm_bo_device *bdev )
 #line 1575
   tmp___4 = drm_mm_clean(& bdev->addr_space_mm);
 #line 1575
-  tmp___5 = __builtin_expect(tmp___4 == 0, 0L);
+  tmp___5 = ldv__builtin_expect(tmp___4 == 0, 0L);
 #line 1575
   if (tmp___5 != 0L) {
 #line 1575
@@ -10756,7 +10756,7 @@ int ttm_bo_device_init(struct ttm_bo_device *bdev , struct ttm_bo_global *glob ,
 #line 1601
   ret = ttm_bo_init_mm(bdev, 0U, 0UL);
 #line 1602
-  tmp = __builtin_expect(ret != 0, 0L);
+  tmp = ldv__builtin_expect(ret != 0, 0L);
 #line 1602
   if (tmp != 0L) {
 #line 1603
@@ -10771,7 +10771,7 @@ int ttm_bo_device_init(struct ttm_bo_device *bdev , struct ttm_bo_global *glob ,
 #line 1606
   ret = drm_mm_init(& bdev->addr_space_mm, (unsigned long )file_page_offset, 268435456UL);
 #line 1607
-  tmp___0 = __builtin_expect(ret != 0, 0L);
+  tmp___0 = ldv__builtin_expect(ret != 0, 0L);
 #line 1607
   if (tmp___0 != 0L) {
 #line 1608
@@ -10997,7 +10997,7 @@ static int ttm_bo_setup_vm(struct ttm_buffer_object *bo )
 #line 1717
   ret = drm_mm_pre_get(& bdev->addr_space_mm);
 #line 1718
-  tmp = __builtin_expect(ret != 0, 0L);
+  tmp = ldv__builtin_expect(ret != 0, 0L);
 #line 1718
   if (tmp != 0L) {
 #line 1719
@@ -11011,7 +11011,7 @@ static int ttm_bo_setup_vm(struct ttm_buffer_object *bo )
   bo->vm_node = drm_mm_search_free((struct drm_mm  const  *)(& bdev->addr_space_mm),
                                    bo->mem.num_pages, 0U, 0);
 #line 1725
-  tmp___0 = __builtin_expect((unsigned long )bo->vm_node == (unsigned long )((struct drm_mm_node *)0),
+  tmp___0 = ldv__builtin_expect((unsigned long )bo->vm_node == (unsigned long )((struct drm_mm_node *)0),
                              0L);
 #line 1725
   if (tmp___0 != 0L) {
@@ -11025,7 +11025,7 @@ static int ttm_bo_setup_vm(struct ttm_buffer_object *bo )
 #line 1730
   bo->vm_node = drm_mm_get_block_atomic(bo->vm_node, bo->mem.num_pages, 0U);
 #line 1733
-  tmp___1 = __builtin_expect((unsigned long )bo->vm_node == (unsigned long )((struct drm_mm_node *)0),
+  tmp___1 = ldv__builtin_expect((unsigned long )bo->vm_node == (unsigned long )((struct drm_mm_node *)0),
                              0L);
 #line 1733
   if (tmp___1 != 0L) {
@@ -11073,7 +11073,7 @@ int ttm_bo_wait(struct ttm_buffer_object *bo , bool lazy , bool interruptible , 
 #line 1754
   ret = 0;
 #line 1756
-  tmp = __builtin_expect((unsigned long )bo->sync_obj == (unsigned long )((void *)0),
+  tmp = ldv__builtin_expect((unsigned long )bo->sync_obj == (unsigned long )((void *)0),
                          1L);
 #line 1756
   if (tmp != 0L) {
@@ -11120,7 +11120,7 @@ int ttm_bo_wait(struct ttm_buffer_object *bo , bool lazy , bool interruptible , 
 #line 1776
   ret = (*(driver->sync_obj_wait))(sync_obj, (int )lazy, (int )interruptible);
 #line 1778
-  tmp___1 = __builtin_expect(ret != 0, 0L);
+  tmp___1 = ldv__builtin_expect(ret != 0, 0L);
 #line 1778
   if (tmp___1 != 0L) {
 #line 1779
@@ -11135,7 +11135,7 @@ int ttm_bo_wait(struct ttm_buffer_object *bo , bool lazy , bool interruptible , 
 #line 1783
   spin_lock(& bdev->fence_lock);
 #line 1784
-  tmp___2 = __builtin_expect((unsigned long )bo->sync_obj == (unsigned long )sync_obj,
+  tmp___2 = ldv__builtin_expect((unsigned long )bo->sync_obj == (unsigned long )sync_obj,
                              1L);
 #line 1784
   if (tmp___2 != 0L) {
@@ -11190,7 +11190,7 @@ int ttm_bo_synccpu_write_grab(struct ttm_buffer_object *bo , bool no_wait )
 #line 1812
   ret = ttm_bo_reserve(bo, 1, (int )no_wait, 0, 0U);
 #line 1813
-  tmp = __builtin_expect(ret != 0, 0L);
+  tmp = ldv__builtin_expect(ret != 0, 0L);
 #line 1813
   if (tmp != 0L) {
 #line 1814
@@ -11205,7 +11205,7 @@ int ttm_bo_synccpu_write_grab(struct ttm_buffer_object *bo , bool no_wait )
 #line 1817
   spin_unlock(& bdev->fence_lock);
 #line 1818
-  tmp___0 = __builtin_expect(ret == 0, 1L);
+  tmp___0 = ldv__builtin_expect(ret == 0, 1L);
 #line 1818
   if (tmp___0 != 0L) {
 #line 1819
@@ -11324,7 +11324,7 @@ static int ttm_bo_swapout(struct ttm_mem_shrink *shrink )
 #line 1876
   spin_unlock(& (bo->bdev)->fence_lock);
 #line 1878
-  tmp___0 = __builtin_expect(ret != 0, 0L);
+  tmp___0 = ldv__builtin_expect(ret != 0, 0L);
 #line 1878
   if (tmp___0 != 0L) {
 #line 1879
@@ -11345,7 +11345,7 @@ static int ttm_bo_swapout(struct ttm_mem_shrink *shrink )
 #line 1889
     ret = ttm_bo_handle_move_mem(bo, & evict_mem, 1, 0, 0);
 #line 1891
-    tmp___1 = __builtin_expect(ret != 0, 0L);
+    tmp___1 = ldv__builtin_expect(ret != 0, 0L);
 #line 1891
     if (tmp___1 != 0L) {
 #line 1892
@@ -11818,7 +11818,7 @@ int ttm_bo_move_ttm(struct ttm_buffer_object *bo , bool evict , bool no_wait_gpu
 #line 108
   ret = ttm_tt_set_placement_caching(ttm, new_mem->placement);
 #line 109
-  tmp = __builtin_expect(ret != 0, 0L);
+  tmp = ldv__builtin_expect(ret != 0, 0L);
 #line 109
   if (tmp != 0L) {
 #line 110
@@ -11831,7 +11831,7 @@ int ttm_bo_move_ttm(struct ttm_buffer_object *bo , bool evict , bool no_wait_gpu
 #line 113
     ret = ttm_tt_bind(ttm, new_mem);
 #line 114
-    tmp___0 = __builtin_expect(ret != 0, 0L);
+    tmp___0 = ldv__builtin_expect(ret != 0, 0L);
 #line 114
     if (tmp___0 != 0L) {
 #line 115
@@ -11858,7 +11858,7 @@ int ttm_mem_io_lock(struct ttm_mem_type_manager *man , bool interruptible )
 
   {
 #line 127
-  tmp = __builtin_expect((long )man->io_reserve_fastpath, 1L);
+  tmp = ldv__builtin_expect((long )man->io_reserve_fastpath, 1L);
 #line 127
   if (tmp != 0L) {
 #line 128
@@ -11888,7 +11888,7 @@ void ttm_mem_io_unlock(struct ttm_mem_type_manager *man )
 
   {
 #line 139
-  tmp = __builtin_expect((long )man->io_reserve_fastpath, 1L);
+  tmp = ldv__builtin_expect((long )man->io_reserve_fastpath, 1L);
 #line 139
   if (tmp != 0L) {
 #line 140
@@ -11960,7 +11960,7 @@ static int ttm_mem_io_reserve(struct ttm_bo_device *bdev , struct ttm_mem_reg *m
 
   }
 #line 169
-  tmp___0 = __builtin_expect((long )man->io_reserve_fastpath, 1L);
+  tmp___0 = ldv__builtin_expect((long )man->io_reserve_fastpath, 1L);
 #line 169
   if (tmp___0 != 0L) {
 #line 170
@@ -12016,7 +12016,7 @@ static void ttm_mem_io_free(struct ttm_bo_device *bdev , struct ttm_mem_reg *mem
 #line 188
   man = (struct ttm_mem_type_manager *)(& bdev->man) + (unsigned long )mem->mem_type;
 #line 190
-  tmp = __builtin_expect((long )man->io_reserve_fastpath, 1L);
+  tmp = ldv__builtin_expect((long )man->io_reserve_fastpath, 1L);
 #line 190
   if (tmp != 0L) {
 #line 191
@@ -12067,7 +12067,7 @@ int ttm_mem_io_reserve_vm(struct ttm_buffer_object *bo )
 #line 209
     ret = ttm_mem_io_reserve(bo->bdev, mem);
 #line 210
-    tmp = __builtin_expect(ret != 0, 0L);
+    tmp = ldv__builtin_expect(ret != 0, 0L);
 #line 210
     if (tmp != 0L) {
 #line 211
@@ -12644,7 +12644,7 @@ static int ttm_bo_kmap_ttm(struct ttm_buffer_object *bo , unsigned long start_pa
 #line 558
   ttm = bo->ttm;
 #line 561
-  tmp = __builtin_expect((unsigned long )ttm == (unsigned long )((struct ttm_tt *)0),
+  tmp = ldv__builtin_expect((unsigned long )ttm == (unsigned long )((struct ttm_tt *)0),
                          0L);
 #line 561
   if (tmp != 0L) {
@@ -12722,7 +12722,7 @@ int ttm_bo_kmap(struct ttm_buffer_object *bo , unsigned long start_page , unsign
 #line 602
   tmp = list_empty((struct list_head  const  *)(& bo->swap));
 #line 602
-  tmp___0 = __builtin_expect(tmp == 0, 0L);
+  tmp___0 = ldv__builtin_expect(tmp == 0, 0L);
 #line 602
   if (tmp___0 != 0L) {
 #line 602
@@ -13121,7 +13121,7 @@ __inline static int __atomic_add_unless(atomic_t *v , int a , int u )
   c = atomic_read((atomic_t const   *)v);
   ldv_5523: 
 #line 217
-  tmp = __builtin_expect(c == u, 0L);
+  tmp = ldv__builtin_expect(c == u, 0L);
 #line 217
   if (tmp != 0L) {
 #line 218
@@ -13132,7 +13132,7 @@ __inline static int __atomic_add_unless(atomic_t *v , int a , int u )
 #line 219
   old = atomic_cmpxchg(v, c, c + a);
 #line 220
-  tmp___0 = __builtin_expect(old == c, 1L);
+  tmp___0 = ldv__builtin_expect(old == c, 1L);
 #line 220
   if (tmp___0 != 0L) {
 #line 221
@@ -13290,14 +13290,14 @@ __inline static unsigned long copy_from_user(void *to , void const   *from , uns
 #line 61
   might_fault();
 #line 62
-  tmp___1 = __builtin_expect(sz == -1, 1L);
+  tmp___1 = ldv__builtin_expect(sz == -1, 1L);
 #line 62
   if (tmp___1 != 0L) {
 #line 63
     n = _copy_from_user(to, from, (unsigned int )n);
   } else {
 #line 62
-    tmp___2 = __builtin_expect((unsigned long )sz >= n, 1L);
+    tmp___2 = ldv__builtin_expect((unsigned long )sz >= n, 1L);
 #line 62
     if (tmp___2 != 0L) {
 #line 63
@@ -13306,7 +13306,7 @@ __inline static unsigned long copy_from_user(void *to , void const   *from , uns
 #line 66
       __ret_warn_on = 1;
 #line 66
-      tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+      tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 66
       if (tmp___0 != 0L) {
 #line 66
@@ -13316,7 +13316,7 @@ __inline static unsigned long copy_from_user(void *to , void const   *from , uns
 
       }
 #line 66
-      __builtin_expect(__ret_warn_on != 0, 0L);
+      ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
   }
 #line 68
@@ -13383,7 +13383,7 @@ static struct ttm_buffer_object *ttm_bo_vm_lookup_rb(struct ttm_bo_device *bdev 
   }
   ldv_21985: 
 #line 100
-  tmp = __builtin_expect((unsigned long )cur != (unsigned long )((struct rb_node *)0),
+  tmp = ldv__builtin_expect((unsigned long )cur != (unsigned long )((struct rb_node *)0),
                          1L);
 #line 100
   if (tmp != 0L) {
@@ -13394,7 +13394,7 @@ static struct ttm_buffer_object *ttm_bo_vm_lookup_rb(struct ttm_bo_device *bdev 
   }
   ldv_21983: 
 #line 112
-  tmp___0 = __builtin_expect((unsigned long )best_bo == (unsigned long )((struct ttm_buffer_object *)0),
+  tmp___0 = ldv__builtin_expect((unsigned long )best_bo == (unsigned long )((struct ttm_buffer_object *)0),
                              0L);
 #line 112
   if (tmp___0 != 0L) {
@@ -13404,7 +13404,7 @@ static struct ttm_buffer_object *ttm_bo_vm_lookup_rb(struct ttm_bo_device *bdev 
 
   }
 #line 115
-  tmp___1 = __builtin_expect((best_bo->vm_node)->start + best_bo->num_pages < page_start + num_pages,
+  tmp___1 = ldv__builtin_expect((best_bo->vm_node)->start + best_bo->num_pages < page_start + num_pages,
                              0L);
 #line 115
   if (tmp___1 != 0L) {
@@ -13469,7 +13469,7 @@ static int ttm_bo_vm_fault(struct vm_area_struct *vma , struct vm_fault *vmf )
 #line 145
   ret = ttm_bo_reserve(bo, 1, 1, 0, 0U);
 #line 146
-  tmp___0 = __builtin_expect(ret != 0, 0L);
+  tmp___0 = ldv__builtin_expect(ret != 0, 0L);
 #line 146
   if (tmp___0 != 0L) {
 #line 147
@@ -13526,7 +13526,7 @@ static int ttm_bo_vm_fault(struct vm_area_struct *vma , struct vm_fault *vmf )
 #line 176
     spin_unlock(& bdev->fence_lock);
 #line 177
-    tmp___2 = __builtin_expect(ret != 0, 0L);
+    tmp___2 = ldv__builtin_expect(ret != 0, 0L);
 #line 177
     if (tmp___2 != 0L) {
 #line 178
@@ -13543,7 +13543,7 @@ static int ttm_bo_vm_fault(struct vm_area_struct *vma , struct vm_fault *vmf )
 #line 185
   ret = ttm_mem_io_lock(man, 1);
 #line 186
-  tmp___4 = __builtin_expect(ret != 0, 0L);
+  tmp___4 = ldv__builtin_expect(ret != 0, 0L);
 #line 186
   if (tmp___4 != 0L) {
 #line 187
@@ -13556,7 +13556,7 @@ static int ttm_bo_vm_fault(struct vm_area_struct *vma , struct vm_fault *vmf )
 #line 190
   ret = ttm_mem_io_reserve_vm(bo);
 #line 191
-  tmp___5 = __builtin_expect(ret != 0, 0L);
+  tmp___5 = ldv__builtin_expect(ret != 0, 0L);
 #line 191
   if (tmp___5 != 0L) {
 #line 192
@@ -13571,7 +13571,7 @@ static int ttm_bo_vm_fault(struct vm_area_struct *vma , struct vm_fault *vmf )
 #line 198
   page_last = (((vma->vm_end - vma->vm_start) >> 12) + (bo->vm_node)->start) - vma->vm_pgoff;
 #line 201
-  tmp___6 = __builtin_expect(bo->num_pages <= page_offset, 0L);
+  tmp___6 = ldv__builtin_expect(bo->num_pages <= page_offset, 0L);
 #line 201
   if (tmp___6 != 0L) {
 #line 202
@@ -13625,12 +13625,12 @@ static int ttm_bo_vm_fault(struct vm_area_struct *vma , struct vm_fault *vmf )
 #line 243
     page = *(ttm->pages + page_offset);
 #line 244
-    tmp___11 = __builtin_expect((unsigned long )page == (unsigned long )((struct page *)0),
+    tmp___11 = ldv__builtin_expect((unsigned long )page == (unsigned long )((struct page *)0),
                                 0L);
 #line 244
     if (tmp___11 != 0L) {
 #line 244
-      tmp___12 = __builtin_expect(i == 0, 0L);
+      tmp___12 = ldv__builtin_expect(i == 0, 0L);
 #line 244
       if (tmp___12 != 0L) {
 #line 245
@@ -13644,7 +13644,7 @@ static int ttm_bo_vm_fault(struct vm_area_struct *vma , struct vm_fault *vmf )
     } else {
       _L: /* CIL Label */ 
 #line 247
-      tmp___10 = __builtin_expect((unsigned long )page == (unsigned long )((struct page *)0),
+      tmp___10 = ldv__builtin_expect((unsigned long )page == (unsigned long )((struct page *)0),
                                   0L);
 #line 247
       if (tmp___10 != 0L) {
@@ -13660,18 +13660,18 @@ static int ttm_bo_vm_fault(struct vm_area_struct *vma , struct vm_fault *vmf )
 #line 253
   ret = vm_insert_mixed(vma, address, pfn);
 #line 259
-  tmp___14 = __builtin_expect(ret == -16, 0L);
+  tmp___14 = ldv__builtin_expect(ret == -16, 0L);
 #line 259
   if (tmp___14 != 0L) {
 #line 260
     goto ldv_22009;
   } else {
 #line 259
-    tmp___15 = __builtin_expect(ret != 0, 0L);
+    tmp___15 = ldv__builtin_expect(ret != 0, 0L);
 #line 259
     if (tmp___15 != 0L) {
 #line 259
-      tmp___16 = __builtin_expect(i > 0, 0L);
+      tmp___16 = ldv__builtin_expect(i > 0, 0L);
 #line 259
       if (tmp___16 != 0L) {
 #line 259
@@ -13690,7 +13690,7 @@ static int ttm_bo_vm_fault(struct vm_area_struct *vma , struct vm_fault *vmf )
       goto ldv_22009;
     } else {
 #line 261
-      tmp___13 = __builtin_expect(ret != 0, 0L);
+      tmp___13 = ldv__builtin_expect(ret != 0, 0L);
 #line 261
       if (tmp___13 != 0L) {
 #line 262
@@ -13707,7 +13707,7 @@ static int ttm_bo_vm_fault(struct vm_area_struct *vma , struct vm_fault *vmf )
 #line 268
   page_offset = page_offset + 1UL;
 #line 268
-  tmp___18 = __builtin_expect(page_offset >= page_last, 0L);
+  tmp___18 = ldv__builtin_expect(page_offset >= page_last, 0L);
 #line 268
   if (tmp___18 != 0L) {
 #line 269
@@ -13788,7 +13788,7 @@ int ttm_bo_mmap(struct file *filp , struct vm_area_struct *vma , struct ttm_bo_d
 #line 308
   bo = ttm_bo_vm_lookup_rb(bdev, vma->vm_pgoff, (vma->vm_end - vma->vm_start) >> 12);
 #line 310
-  tmp = __builtin_expect((unsigned long )bo != (unsigned long )((struct ttm_buffer_object *)0),
+  tmp = ldv__builtin_expect((unsigned long )bo != (unsigned long )((struct ttm_buffer_object *)0),
                          1L);
 #line 310
   if (tmp != 0L) {
@@ -13807,7 +13807,7 @@ int ttm_bo_mmap(struct file *filp , struct vm_area_struct *vma , struct ttm_bo_d
 #line 312
   _raw_read_unlock(& bdev->vm_lock);
 #line 314
-  tmp___1 = __builtin_expect((unsigned long )bo == (unsigned long )((struct ttm_buffer_object *)0),
+  tmp___1 = ldv__builtin_expect((unsigned long )bo == (unsigned long )((struct ttm_buffer_object *)0),
                              0L);
 #line 314
   if (tmp___1 != 0L) {
@@ -13821,7 +13821,7 @@ int ttm_bo_mmap(struct file *filp , struct vm_area_struct *vma , struct ttm_bo_d
 #line 319
   driver = (bo->bdev)->driver;
 #line 320
-  tmp___2 = __builtin_expect((unsigned long )driver->verify_access == (unsigned long )((int (*)(struct ttm_buffer_object * ,
+  tmp___2 = ldv__builtin_expect((unsigned long )driver->verify_access == (unsigned long )((int (*)(struct ttm_buffer_object * ,
                                                                                                 struct file * ))0),
                              0L);
 #line 320
@@ -13836,7 +13836,7 @@ int ttm_bo_mmap(struct file *filp , struct vm_area_struct *vma , struct ttm_bo_d
 #line 324
   ret = (*(driver->verify_access))(bo, filp);
 #line 325
-  tmp___3 = __builtin_expect(ret != 0, 0L);
+  tmp___3 = ldv__builtin_expect(ret != 0, 0L);
 #line 325
   if (tmp___3 != 0L) {
 #line 326
@@ -13921,7 +13921,7 @@ ssize_t ttm_bo_io(struct ttm_bo_device *bdev , struct file *filp , char const   
 #line 376
   bo = ttm_bo_vm_lookup_rb(bdev, dev_offset, 1UL);
 #line 377
-  tmp = __builtin_expect((unsigned long )bo != (unsigned long )((struct ttm_buffer_object *)0),
+  tmp = ldv__builtin_expect((unsigned long )bo != (unsigned long )((struct ttm_buffer_object *)0),
                          1L);
 #line 377
   if (tmp != 0L) {
@@ -13933,7 +13933,7 @@ ssize_t ttm_bo_io(struct ttm_bo_device *bdev , struct file *filp , char const   
 #line 379
   _raw_read_unlock(& bdev->vm_lock);
 #line 381
-  tmp___0 = __builtin_expect((unsigned long )bo == (unsigned long )((struct ttm_buffer_object *)0),
+  tmp___0 = ldv__builtin_expect((unsigned long )bo == (unsigned long )((struct ttm_buffer_object *)0),
                              0L);
 #line 381
   if (tmp___0 != 0L) {
@@ -13945,7 +13945,7 @@ ssize_t ttm_bo_io(struct ttm_bo_device *bdev , struct file *filp , char const   
 #line 384
   driver = (bo->bdev)->driver;
 #line 385
-  tmp___1 = __builtin_expect((unsigned long )driver->verify_access == (unsigned long )((int (*)(struct ttm_buffer_object * ,
+  tmp___1 = ldv__builtin_expect((unsigned long )driver->verify_access == (unsigned long )((int (*)(struct ttm_buffer_object * ,
                                                                                                 struct file * ))0),
                              0L);
 #line 385
@@ -13960,7 +13960,7 @@ ssize_t ttm_bo_io(struct ttm_bo_device *bdev , struct file *filp , char const   
 #line 390
   ret = (*(driver->verify_access))(bo, filp);
 #line 391
-  tmp___2 = __builtin_expect(ret != 0, 0L);
+  tmp___2 = ldv__builtin_expect(ret != 0, 0L);
 #line 391
   if (tmp___2 != 0L) {
 #line 392
@@ -13971,7 +13971,7 @@ ssize_t ttm_bo_io(struct ttm_bo_device *bdev , struct file *filp , char const   
 #line 394
   kmap_offset = dev_offset - (bo->vm_node)->start;
 #line 395
-  tmp___3 = __builtin_expect(bo->num_pages <= kmap_offset, 0L);
+  tmp___3 = ldv__builtin_expect(bo->num_pages <= kmap_offset, 0L);
 #line 395
   if (tmp___3 != 0L) {
 #line 396
@@ -14018,7 +14018,7 @@ ssize_t ttm_bo_io(struct ttm_bo_device *bdev , struct file *filp , char const   
 #line 421
   ret = ttm_bo_kmap(bo, kmap_offset, kmap_num, & map);
 #line 422
-  tmp___4 = __builtin_expect(ret != 0, 0L);
+  tmp___4 = ldv__builtin_expect(ret != 0, 0L);
 #line 422
   if (tmp___4 != 0L) {
 #line 423
@@ -14051,7 +14051,7 @@ ssize_t ttm_bo_io(struct ttm_bo_device *bdev , struct file *filp , char const   
 #line 437
   ttm_bo_unref(& bo);
 #line 439
-  tmp___7 = __builtin_expect(ret != 0, 0L);
+  tmp___7 = ldv__builtin_expect(ret != 0, 0L);
 #line 439
   if (tmp___7 != 0L) {
 #line 440
@@ -14096,7 +14096,7 @@ ssize_t ttm_bo_fbdev_io(struct ttm_buffer_object *bo , char const   *wbuf , char
 #line 465
   kmap_offset = (unsigned long )(*f_pos >> 12);
 #line 466
-  tmp = __builtin_expect(bo->num_pages <= kmap_offset, 0L);
+  tmp = ldv__builtin_expect(bo->num_pages <= kmap_offset, 0L);
 #line 466
   if (tmp != 0L) {
 #line 467
@@ -14139,7 +14139,7 @@ ssize_t ttm_bo_fbdev_io(struct ttm_buffer_object *bo , char const   *wbuf , char
 #line 489
   ret = ttm_bo_kmap(bo, kmap_offset, kmap_num, & map);
 #line 490
-  tmp___0 = __builtin_expect(ret != 0, 0L);
+  tmp___0 = ldv__builtin_expect(ret != 0, 0L);
 #line 490
   if (tmp___0 != 0L) {
 #line 491
@@ -14172,7 +14172,7 @@ ssize_t ttm_bo_fbdev_io(struct ttm_buffer_object *bo , char const   *wbuf , char
 #line 505
   ttm_bo_unref(& bo);
 #line 507
-  tmp___3 = __builtin_expect(ret != 0, 0L);
+  tmp___3 = ldv__builtin_expect(ret != 0, 0L);
 #line 507
   if (tmp___3 != 0L) {
 #line 508
@@ -14394,7 +14394,7 @@ struct kobject *ttm_get_kobj(void)
 #line 108
   kobj = & ttm_drm_class_device.kobj;
 #line 109
-  tmp = __builtin_expect((unsigned long )kobj == (unsigned long )((struct kobject *)0),
+  tmp = ldv__builtin_expect((unsigned long )kobj == (unsigned long )((struct kobject *)0),
                          0L);
 #line 109
   if (tmp != 0L) {
@@ -14422,7 +14422,7 @@ static int ttm_init(void)
 #line 117
   ret = dev_set_name(& ttm_drm_class_device, "ttm");
 #line 118
-  tmp = __builtin_expect(ret != 0, 0L);
+  tmp = ldv__builtin_expect(ret != 0, 0L);
 #line 118
   if (tmp != 0L) {
 #line 119
@@ -14435,7 +14435,7 @@ static int ttm_init(void)
 #line 122
   ret = drm_class_device_register(& ttm_drm_class_device);
 #line 123
-  tmp___0 = __builtin_expect(ret != 0, 0L);
+  tmp___0 = ldv__builtin_expect(ret != 0, 0L);
 #line 123
   if (tmp___0 != 0L) {
 #line 124
@@ -14968,7 +14968,7 @@ int ttm_base_object_init(struct ttm_object_file *tfile , struct ttm_base_object 
 #line 212
   spin_unlock(& tdev->object_lock);
 #line 213
-  tmp = __builtin_expect(ret != 0, 0L);
+  tmp = ldv__builtin_expect(ret != 0, 0L);
 #line 213
   if (tmp != 0L) {
 #line 214
@@ -14979,7 +14979,7 @@ int ttm_base_object_init(struct ttm_object_file *tfile , struct ttm_base_object 
 #line 216
   ret = ttm_ref_object_add(tfile, base, 0, 0);
 #line 217
-  tmp___0 = __builtin_expect(ret != 0, 0L);
+  tmp___0 = ldv__builtin_expect(ret != 0, 0L);
 #line 217
   if (tmp___0 != 0L) {
 #line 218
@@ -15072,7 +15072,7 @@ struct ttm_base_object *ttm_base_object_lookup(struct ttm_object_file *tfile , u
 #line 273
   ret = drm_ht_find_item(& tdev->object_hash, (unsigned long )key, & hash);
 #line 275
-  tmp___0 = __builtin_expect(ret == 0, 1L);
+  tmp___0 = ldv__builtin_expect(ret == 0, 1L);
 #line 275
   if (tmp___0 != 0L) {
 #line 276
@@ -15089,7 +15089,7 @@ struct ttm_base_object *ttm_base_object_lookup(struct ttm_object_file *tfile , u
 #line 279
   rcu_read_unlock();
 #line 281
-  tmp___1 = __builtin_expect(ret != 0, 0L);
+  tmp___1 = ldv__builtin_expect(ret != 0, 0L);
 #line 281
   if (tmp___1 != 0L) {
 #line 282
@@ -15169,7 +15169,7 @@ int ttm_ref_object_add(struct ttm_object_file *tfile , struct ttm_base_object *b
 #line 319
   ret = ttm_mem_global_alloc(mem_glob, 64ULL, 0, 0);
 #line 321
-  tmp = __builtin_expect(ret != 0, 0L);
+  tmp = ldv__builtin_expect(ret != 0, 0L);
 #line 321
   if (tmp != 0L) {
 #line 322
@@ -15182,7 +15182,7 @@ int ttm_ref_object_add(struct ttm_object_file *tfile , struct ttm_base_object *b
 #line 323
   ref = (struct ttm_ref_object *)tmp___0;
 #line 324
-  tmp___1 = __builtin_expect((unsigned long )ref == (unsigned long )((struct ttm_ref_object *)0),
+  tmp___1 = ldv__builtin_expect((unsigned long )ref == (unsigned long )((struct ttm_ref_object *)0),
                              0L);
 #line 324
   if (tmp___1 != 0L) {
@@ -15208,7 +15208,7 @@ int ttm_ref_object_add(struct ttm_object_file *tfile , struct ttm_base_object *b
 #line 336
   ret = drm_ht_insert_item(ht, & ref->hash);
 #line 338
-  tmp___2 = __builtin_expect(ret == 0, 1L);
+  tmp___2 = ldv__builtin_expect(ret == 0, 1L);
 #line 338
   if (tmp___2 != 0L) {
 #line 339
@@ -15232,7 +15232,7 @@ int ttm_ref_object_add(struct ttm_object_file *tfile , struct ttm_base_object *b
 #line 347
   _raw_write_unlock(& tfile->lock);
 #line 348
-  tmp___3 = __builtin_expect(ret != -22, 0L);
+  tmp___3 = ldv__builtin_expect(ret != -22, 0L);
 #line 348
   if (tmp___3 != 0L) {
 #line 348
@@ -15329,7 +15329,7 @@ int ttm_ref_object_base_unref(struct ttm_object_file *tfile , unsigned long key 
 #line 390
   ret = drm_ht_find_item(ht, key, & hash);
 #line 391
-  tmp = __builtin_expect(ret != 0, 0L);
+  tmp = ldv__builtin_expect(ret != 0, 0L);
 #line 391
   if (tmp != 0L) {
 #line 392
@@ -15433,7 +15433,7 @@ struct ttm_object_file *ttm_object_file_init(struct ttm_object_device *tdev , un
 #line 436
   j = 0U;
 #line 439
-  tmp___0 = __builtin_expect((unsigned long )tfile == (unsigned long )((struct ttm_object_file *)0),
+  tmp___0 = ldv__builtin_expect((unsigned long )tfile == (unsigned long )((struct ttm_object_file *)0),
                              0L);
 #line 439
   if (tmp___0 != 0L) {
@@ -15521,7 +15521,7 @@ struct ttm_object_device *ttm_object_device_init(struct ttm_mem_global *mem_glob
 #line 470
   tdev = (struct ttm_object_device *)tmp;
 #line 473
-  tmp___0 = __builtin_expect((unsigned long )tdev == (unsigned long )((struct ttm_object_device *)0),
+  tmp___0 = ldv__builtin_expect((unsigned long )tdev == (unsigned long )((struct ttm_object_device *)0),
                              0L);
 #line 473
   if (tmp___0 != 0L) {
@@ -15542,7 +15542,7 @@ struct ttm_object_device *ttm_object_device_init(struct ttm_mem_global *mem_glob
 #line 479
   ret = drm_ht_create(& tdev->object_hash, hash_order);
 #line 481
-  tmp___1 = __builtin_expect(ret == 0, 1L);
+  tmp___1 = ldv__builtin_expect(ret == 0, 1L);
 #line 481
   if (tmp___1 != 0L) {
 #line 482
@@ -15697,7 +15697,7 @@ static bool __ttm_read_lock(struct ttm_lock *lock )
 #line 116
   spin_lock(& lock->lock);
 #line 117
-  tmp___0 = __builtin_expect((long )lock->kill_takers, 0L);
+  tmp___0 = ldv__builtin_expect((long )lock->kill_takers, 0L);
 #line 117
   if (tmp___0 != 0L) {
 #line 118
@@ -15876,7 +15876,7 @@ static bool __ttm_read_trylock(struct ttm_lock *lock , bool *locked )
 #line 149
   spin_lock(& lock->lock);
 #line 150
-  tmp___0 = __builtin_expect((long )lock->kill_takers, 0L);
+  tmp___0 = ldv__builtin_expect((long )lock->kill_takers, 0L);
 #line 150
   if (tmp___0 != 0L) {
 #line 151
@@ -16047,11 +16047,11 @@ int ttm_read_trylock(struct ttm_lock *lock , bool interruptible )
     ldv_20617: ;
   }
 #line 178
-  tmp___9 = __builtin_expect(ret != 0, 0L);
+  tmp___9 = ldv__builtin_expect(ret != 0, 0L);
 #line 178
   if (tmp___9 != 0L) {
 #line 179
-    tmp___8 = __builtin_expect((long )locked, 0L);
+    tmp___8 = ldv__builtin_expect((long )locked, 0L);
 #line 179
     if (tmp___8 != 0L) {
 #line 179
@@ -16103,7 +16103,7 @@ static bool __ttm_write_lock(struct ttm_lock *lock )
 #line 199
   spin_lock(& lock->lock);
 #line 200
-  tmp___0 = __builtin_expect((long )lock->kill_takers, 0L);
+  tmp___0 = ldv__builtin_expect((long )lock->kill_takers, 0L);
 #line 200
   if (tmp___0 != 0L) {
 #line 201
@@ -16225,7 +16225,7 @@ int ttm_write_lock(struct ttm_lock *lock , bool interruptible )
 #line 221
     ret = __ret;
 #line 223
-    tmp___5 = __builtin_expect(ret != 0, 0L);
+    tmp___5 = ldv__builtin_expect(ret != 0, 0L);
 #line 223
     if (tmp___5 != 0L) {
 #line 224
@@ -16316,7 +16316,7 @@ static int __ttm_vt_unlock(struct ttm_lock *lock )
 #line 248
   spin_lock(& lock->lock);
 #line 249
-  tmp = __builtin_expect((lock->flags & 8U) == 0U, 0L);
+  tmp = ldv__builtin_expect((lock->flags & 8U) == 0U, 0L);
 #line 249
   if (tmp != 0L) {
 #line 250
@@ -16355,7 +16355,7 @@ static void ttm_vt_lock_remove(struct ttm_base_object **p_base )
 #line 265
   ret = __ttm_vt_unlock(lock);
 #line 266
-  tmp = __builtin_expect(ret != 0, 0L);
+  tmp = ldv__builtin_expect(ret != 0, 0L);
 #line 266
   if (tmp != 0L) {
 #line 266
@@ -16489,7 +16489,7 @@ int ttm_vt_lock(struct ttm_lock *lock , bool interruptible , struct ttm_object_f
 #line 292
     ret = __ret;
 #line 294
-    tmp___5 = __builtin_expect(ret != 0, 0L);
+    tmp___5 = ldv__builtin_expect(ret != 0, 0L);
 #line 294
     if (tmp___5 != 0L) {
 #line 295
@@ -16917,7 +16917,7 @@ static int ttm_eu_wait_unreserved_locked(struct list_head *list , struct ttm_buf
 #line 141
   spin_lock(& glob->lru_lock);
 #line 142
-  tmp = __builtin_expect(ret != 0, 0L);
+  tmp = ldv__builtin_expect(ret != 0, 0L);
 #line 142
   if (tmp != 0L) {
 #line 143
@@ -17054,7 +17054,7 @@ int ttm_eu_reserve_buffers(struct list_head *list )
 #line 208
   ret = ttm_eu_wait_unreserved_locked(list, bo);
 #line 209
-  tmp___1 = __builtin_expect(ret != 0, 0L);
+  tmp___1 = ldv__builtin_expect(ret != 0, 0L);
 #line 209
   if (tmp___1 != 0L) {
 #line 210
@@ -17078,7 +17078,7 @@ int ttm_eu_reserve_buffers(struct list_head *list )
 #line 219
   ret = ttm_bo_wait_unreserved(bo, 1);
 #line 220
-  tmp___2 = __builtin_expect(ret != 0, 0L);
+  tmp___2 = ldv__builtin_expect(ret != 0, 0L);
 #line 220
   if (tmp___2 != 0L) {
 #line 221
@@ -17104,7 +17104,7 @@ int ttm_eu_reserve_buffers(struct list_head *list )
 #line 231
   tmp___3 = atomic_read((atomic_t const   *)(& bo->cpu_writers));
 #line 231
-  tmp___4 = __builtin_expect(tmp___3 > 0, 0L);
+  tmp___4 = ldv__builtin_expect(tmp___3 > 0, 0L);
 #line 231
   if (tmp___4 != 0L) {
 #line 232
@@ -17603,7 +17603,7 @@ __inline static struct page *compound_head(struct page *page )
 #line 359
   tmp = PageTail((struct page  const  *)page);
 #line 359
-  tmp___0 = __builtin_expect(tmp != 0, 0L);
+  tmp___0 = ldv__builtin_expect(tmp != 0, 0L);
 #line 359
   if (tmp___0 != 0L) {
 #line 360
@@ -18018,7 +18018,7 @@ static int ttm_page_pool_free(struct ttm_page_pool *pool , unsigned int nr_free 
 #line 387
     ttm_pages_put(pages_to_free, freed_pages);
 #line 388
-    tmp___2 = __builtin_expect(nr_free != 4294967295U, 1L);
+    tmp___2 = ldv__builtin_expect(nr_free != 4294967295U, 1L);
 #line 388
     if (tmp___2 != 0L) {
 #line 389
@@ -18965,7 +18965,7 @@ int ttm_page_alloc_init(struct ttm_mem_global *glob , unsigned int max_pages )
 #line 844
   __ret_warn_on = (unsigned long )_manager != (unsigned long )((struct ttm_pool_manager *)0);
 #line 844
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 844
   if (tmp != 0L) {
 #line 844
@@ -18975,7 +18975,7 @@ int ttm_page_alloc_init(struct ttm_mem_global *glob , unsigned int max_pages )
 
   }
 #line 844
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 846
   printk("\016[TTM] Initializing pool allocator\n");
 #line 848
@@ -19002,7 +19002,7 @@ int ttm_page_alloc_init(struct ttm_mem_global *glob , unsigned int max_pages )
   ret = kobject_init_and_add(& _manager->kobj, & ttm_pool_kobj_type, & glob->kobj,
                              "pool");
 #line 866
-  tmp___1 = __builtin_expect(ret != 0, 0L);
+  tmp___1 = ldv__builtin_expect(ret != 0, 0L);
 #line 866
   if (tmp___1 != 0L) {
 #line 867
@@ -19096,7 +19096,7 @@ int ttm_pool_populate(struct ttm_tt *ttm )
   ret = ttm_mem_global_alloc_page(mem_glob, *(ttm->pages + (unsigned long )i), 0,
                                   0);
 #line 911
-  tmp = __builtin_expect(ret != 0, 0L);
+  tmp = ldv__builtin_expect(ret != 0, 0L);
 #line 911
   if (tmp != 0L) {
 #line 912
@@ -19117,13 +19117,13 @@ int ttm_pool_populate(struct ttm_tt *ttm )
 
   }
 #line 917
-  tmp___1 = __builtin_expect((ttm->page_flags & 16U) != 0U, 0L);
+  tmp___1 = ldv__builtin_expect((ttm->page_flags & 16U) != 0U, 0L);
 #line 917
   if (tmp___1 != 0L) {
 #line 918
     ret = ttm_tt_swapin(ttm);
 #line 919
-    tmp___0 = __builtin_expect(ret != 0, 0L);
+    tmp___0 = ldv__builtin_expect(ret != 0, 0L);
 #line 919
     if (tmp___0 != 0L) {
 #line 920
@@ -19430,7 +19430,7 @@ static int ttm_bo_man_get_node(struct ttm_mem_type_manager *man , struct ttm_buf
 #line 112
   ret = drm_mm_pre_get(mm);
 #line 113
-  tmp = __builtin_expect(ret != 0, 0L);
+  tmp = ldv__builtin_expect(ret != 0, 0L);
 #line 113
   if (tmp != 0L) {
 #line 114
@@ -19445,7 +19445,7 @@ static int ttm_bo_man_get_node(struct ttm_mem_type_manager *man , struct ttm_buf
                                      mem->page_alignment, (unsigned long )placement->fpfn,
                                      lpfn, 1);
 #line 120
-  tmp___0 = __builtin_expect((unsigned long )node == (unsigned long )((struct drm_mm_node *)0),
+  tmp___0 = ldv__builtin_expect((unsigned long )node == (unsigned long )((struct drm_mm_node *)0),
                              0L);
 #line 120
   if (tmp___0 != 0L) {
@@ -19707,7 +19707,7 @@ __inline static unsigned long arch_local_save_flags(void)
 #line 825
   __eax = __eax;
 #line 825
-  tmp = __builtin_expect((unsigned long )pv_irq_ops.save_fl.func == (unsigned long )((void *)0),
+  tmp = ldv__builtin_expect((unsigned long )pv_irq_ops.save_fl.func == (unsigned long )((void *)0),
                          0L);
 #line 825
   if (tmp != 0L) {
@@ -19753,7 +19753,7 @@ __inline static long IS_ERR_OR_NULL(void const   *ptr )
     tmp___0 = 1;
   } else {
 #line 39
-    tmp = __builtin_expect((unsigned long )ptr > 0xfffffffffffff000UL, 0L);
+    tmp = ldv__builtin_expect((unsigned long )ptr > 0xfffffffffffff000UL, 0L);
 #line 39
     if (tmp != 0L) {
 #line 39
@@ -19887,7 +19887,7 @@ __inline static struct dma_map_ops *get_dma_ops(struct device *dev )
 
   {
 #line 37
-  tmp = __builtin_expect((unsigned long )dev == (unsigned long )((struct device *)0),
+  tmp = ldv__builtin_expect((unsigned long )dev == (unsigned long )((struct device *)0),
                          0L);
 #line 37
   if (tmp != 0L || (unsigned long )dev->archdata.dma_ops == (unsigned long )((struct dma_map_ops *)0)) {
@@ -20024,7 +20024,7 @@ __inline static void dma_free_attrs(struct device *dev , size_t size , void *vad
 #line 166
   __ret_warn_on = tmp___0 != 0;
 #line 166
-  tmp___1 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___1 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 166
   if (tmp___1 != 0L) {
 #line 166
@@ -20034,7 +20034,7 @@ __inline static void dma_free_attrs(struct device *dev , size_t size , void *vad
 
   }
 #line 166
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 171
   debug_dma_free_coherent(dev, size, vaddr, bus);
 #line 172
@@ -20531,7 +20531,7 @@ static unsigned int ttm_dma_page_pool_free(struct dma_pool *pool , unsigned int 
 #line 515
     INIT_LIST_HEAD(& d_pages);
 #line 517
-    tmp___3 = __builtin_expect(nr_free != 4294967295U, 1L);
+    tmp___3 = ldv__builtin_expect(nr_free != 4294967295U, 1L);
 #line 517
     if (tmp___3 != 0L) {
 #line 518
@@ -20687,7 +20687,7 @@ static void ttm_dma_free_pool(struct device *dev , enum pool_type type )
 #line 581
   __ret_warn_on = pool->npages_in_use + pool->npages_free != 0U;
 #line 581
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 581
   if (tmp != 0L) {
 #line 581
@@ -20697,7 +20697,7 @@ static void ttm_dma_free_pool(struct device *dev , enum pool_type type )
 
   }
 #line 581
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 586
   list_del(& pool->pools);
 #line 587
@@ -21141,7 +21141,7 @@ static int ttm_dma_pool_alloc_new_pages(struct dma_pool *pool , struct list_head
 #line 774
     descriptor.flags = 0U;
 #line 774
-    tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 774
     if (tmp___1 != 0L) {
 #line 774
@@ -21463,7 +21463,7 @@ int ttm_dma_populate(struct ttm_dma_tt *ttm_dma , struct device *dev )
   ret = ttm_mem_global_alloc_page(mem_glob, *(ttm->pages + (unsigned long )i), 0,
                                   0);
 #line 950
-  tmp___0 = __builtin_expect(ret != 0, 0L);
+  tmp___0 = ldv__builtin_expect(ret != 0, 0L);
 #line 950
   if (tmp___0 != 0L) {
 #line 951
@@ -21484,13 +21484,13 @@ int ttm_dma_populate(struct ttm_dma_tt *ttm_dma , struct device *dev )
 
   }
 #line 956
-  tmp___2 = __builtin_expect((ttm->page_flags & 16U) != 0U, 0L);
+  tmp___2 = ldv__builtin_expect((ttm->page_flags & 16U) != 0U, 0L);
 #line 956
   if (tmp___2 != 0L) {
 #line 957
     ret = ttm_tt_swapin(ttm);
 #line 958
-    tmp___1 = __builtin_expect(ret != 0, 0L);
+    tmp___1 = ldv__builtin_expect(ret != 0, 0L);
 #line 958
     if (tmp___1 != 0L) {
 #line 959
@@ -21830,7 +21830,7 @@ static int ttm_dma_pool_mm_shrink(struct shrinker *shrink , struct shrink_contro
 #line 1080
   descriptor.flags = 0U;
 #line 1080
-  tmp___2 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___2 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1080
   if (tmp___2 != 0L) {
 #line 1080
@@ -21908,7 +21908,7 @@ int ttm_dma_page_alloc_init(struct ttm_mem_global *glob , unsigned int max_pages
 #line 1105
   __ret_warn_on = (unsigned long )_manager___0 != (unsigned long )((struct ttm_pool_manager___0 *)0);
 #line 1105
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 1105
   if (tmp != 0L) {
 #line 1105
@@ -21918,7 +21918,7 @@ int ttm_dma_page_alloc_init(struct ttm_mem_global *glob , unsigned int max_pages
 
   }
 #line 1105
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 1107
   printk("\016[TTM] Initializing DMA pool allocator\n");
 #line 1109
@@ -21946,7 +21946,7 @@ int ttm_dma_page_alloc_init(struct ttm_mem_global *glob , unsigned int max_pages
   ret = kobject_init_and_add(& _manager___0->kobj, & ttm_pool_kobj_type___0, & glob->kobj,
                              "dma_pool");
 #line 1123
-  tmp___1 = __builtin_expect(ret != 0, 0L);
+  tmp___1 = ldv__builtin_expect(ret != 0, 0L);
 #line 1123
   if (tmp___1 != 0L) {
 #line 1124
@@ -22009,7 +22009,7 @@ void ttm_dma_page_alloc_fini(void)
 #line 1141
   descriptor.flags = 0U;
 #line 1141
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1141
   if (tmp___0 != 0L) {
 #line 1141
@@ -22025,7 +22025,7 @@ void ttm_dma_page_alloc_fini(void)
 #line 1143
   __ret_warn_on = tmp___1 != 0;
 #line 1143
-  tmp___2 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___2 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 1143
   if (tmp___2 != 0L) {
 #line 1143
@@ -22035,7 +22035,7 @@ void ttm_dma_page_alloc_fini(void)
 
   }
 #line 1143
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 1145
   ttm_dma_free_pool(p->dev, (p->pool)->type);
 #line 1140
@@ -22443,7 +22443,7 @@ __inline static void ldv_error(void)
 #line 25
 extern int __VERIFIER_nondet_int(void) ;
 #line 49 "/home/mikhail/ldv/kernel-rules/verifier/rcv.h"
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 

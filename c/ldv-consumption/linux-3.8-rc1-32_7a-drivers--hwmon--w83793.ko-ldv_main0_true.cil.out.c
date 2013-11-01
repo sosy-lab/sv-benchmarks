@@ -3379,7 +3379,7 @@ typedef int ldv_func_ret_type___2;
 #line 5374 "/work/ldvuser/exper_fp/work/current--X--drivers--X--defaultlinux-3.10-rc1.tar--X--32_7a--X--cpachecker/linux-3.10-rc1.tar/csd_deg_dscv/6420/dscv_tempdir/dscv/ri/32_7a/drivers/hwmon/w83793.c.prepared"
 typedef int ldv_func_ret_type___39;
 #line 1 "<compiler builtins>"
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 #line 33 "include/linux/export.h"
 extern struct module __this_module ;
 #line 100 "/work/ldvuser/exper_fp/inst/current/envs/linux-3.10-rc1.tar/linux-3.10-rc1/arch/x86/include/asm/bitops.h"
@@ -3494,7 +3494,7 @@ __inline static long IS_ERR(void const   *ptr )
 
   {
 #line 34
-  tmp = __builtin_expect((unsigned long )ptr > 0xfffffffffffff000UL, 0L);
+  tmp = ldv__builtin_expect((unsigned long )ptr > 0xfffffffffffff000UL, 0L);
 #line 34
   return (tmp);
 }
@@ -3744,13 +3744,13 @@ __inline static void kref_get(struct kref *kref )
 #line 46
   __ret_warn_once = tmp <= 1;
 #line 46
-  tmp___2 = __builtin_expect(__ret_warn_once != 0, 0L);
+  tmp___2 = ldv__builtin_expect(__ret_warn_once != 0, 0L);
 #line 46
   if (tmp___2 != 0L) {
 #line 46
     __ret_warn_on = ! __warned;
 #line 46
-    tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 46
     if (tmp___0 != 0L) {
 #line 46
@@ -3759,7 +3759,7 @@ __inline static void kref_get(struct kref *kref )
 
     }
 #line 46
-    tmp___1 = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp___1 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 46
     if (tmp___1 != 0L) {
 #line 46
@@ -3771,7 +3771,7 @@ __inline static void kref_get(struct kref *kref )
 
   }
 #line 46
-  __builtin_expect(__ret_warn_once != 0, 0L);
+  ldv__builtin_expect(__ret_warn_once != 0, 0L);
 #line 48
   return;
 }
@@ -3787,7 +3787,7 @@ __inline static int kref_sub(struct kref *kref , unsigned int count , void (*rel
 #line 70
   __ret_warn_on = (unsigned long )release == (unsigned long )((void (*)(struct kref * ))0);
 #line 70
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 70
   if (tmp != 0L) {
 #line 70
@@ -3796,7 +3796,7 @@ __inline static int kref_sub(struct kref *kref , unsigned int count , void (*rel
 
   }
 #line 70
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 72
   tmp___0 = atomic_sub_and_test((int )count, & kref->refcount);
 #line 72
@@ -7715,7 +7715,7 @@ static int w83793_detect(struct i2c_client *client , struct i2c_board_info *info
 #line 1694
     descriptor.flags = 1U;
 #line 1694
-    tmp___2 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___2 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1694
     if (tmp___2 != 0L) {
 #line 1694
@@ -7747,7 +7747,7 @@ static int w83793_detect(struct i2c_client *client , struct i2c_board_info *info
 #line 1705
       descriptor___0.flags = 1U;
 #line 1705
-      tmp___4 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+      tmp___4 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 1705
       if (tmp___4 != 0L) {
 #line 1705
@@ -10077,7 +10077,7 @@ __inline static void ldv_error(void)
 #line 25
 extern int __VERIFIER_nondet_int(void) ;
 #line 49 "/home/ldvuser/ldv/inst/kernel-rules/verifier/rcv.h"
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 

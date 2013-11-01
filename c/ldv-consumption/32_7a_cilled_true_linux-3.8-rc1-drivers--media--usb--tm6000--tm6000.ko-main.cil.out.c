@@ -11812,7 +11812,7 @@ void ldv_mutex_unlock_83(struct mutex *ldv_func_arg1 )
 }
 }
 #line 1 "<compiler builtins>"
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 #line 318 "/work/ldvuser/zakharov_benchmarks/bench/cpa/inst/current/envs/linux-3.8-rc1/linux-3.8-rc1/arch/x86/include/asm/bitops.h"
 __inline static int constant_test_bit(unsigned int nr , unsigned long const volatile   *addr ) 
 { 
@@ -12093,7 +12093,7 @@ __inline static __u16 usb_maxpacket(struct usb_device *udev , int pipe , int is_
 #line 1768
     __ret_warn_on = (pipe & 128) != 0;
 #line 1768
-    tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 1768
     if (tmp != 0L) {
 #line 1768
@@ -12102,14 +12102,14 @@ __inline static __u16 usb_maxpacket(struct usb_device *udev , int pipe , int is_
 
     }
 #line 1768
-    __builtin_expect(__ret_warn_on != 0, 0L);
+    ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 1769
     ep = udev->ep_out[epnum];
   } else {
 #line 1771
     __ret_warn_on___0 = (pipe & 128) == 0;
 #line 1771
-    tmp___0 = __builtin_expect(__ret_warn_on___0 != 0, 0L);
+    tmp___0 = ldv__builtin_expect(__ret_warn_on___0 != 0, 0L);
 #line 1771
     if (tmp___0 != 0L) {
 #line 1771
@@ -12118,7 +12118,7 @@ __inline static __u16 usb_maxpacket(struct usb_device *udev , int pipe , int is_
 
     }
 #line 1771
-    __builtin_expect(__ret_warn_on___0 != 0, 0L);
+    ldv__builtin_expect(__ret_warn_on___0 != 0, 0L);
 #line 1772
     ep = udev->ep_in[epnum];
   }
@@ -13558,7 +13558,7 @@ static int buffer_prepare(struct videobuf_queue *vq , struct videobuf_buffer *vb
 #line 835
   rc = 0;
 #line 837
-  tmp = __builtin_expect((unsigned long )fh->fmt == (unsigned long )((struct tm6000_fmt *)0),
+  tmp = ldv__builtin_expect((unsigned long )fh->fmt == (unsigned long )((struct tm6000_fmt *)0),
                          0L);
 #line 837
   if (tmp != 0L) {
@@ -13809,7 +13809,7 @@ static int vidioc_enum_fmt_vid_cap(struct file *file , void *priv , struct v4l2_
 
   {
 #line 984
-  tmp = __builtin_expect(f->index > 2U, 0L);
+  tmp = ldv__builtin_expect(f->index > 2U, 0L);
 #line 984
   if (tmp != 0L) {
 #line 985
@@ -14466,7 +14466,7 @@ static int vidioc_g_tuner(struct file *file , void *priv , struct v4l2_tuner *t 
 #line 1318
   dev = fh->dev;
 #line 1320
-  tmp = __builtin_expect(dev->tuner_type == -1, 0L);
+  tmp = ldv__builtin_expect(dev->tuner_type == -1, 0L);
 #line 1320
   if (tmp != 0L) {
 #line 1321
@@ -14611,7 +14611,7 @@ static int vidioc_g_frequency(struct file *file , void *priv , struct v4l2_frequ
 #line 1361
   dev = fh->dev;
 #line 1363
-  tmp = __builtin_expect(dev->tuner_type == -1, 0L);
+  tmp = ldv__builtin_expect(dev->tuner_type == -1, 0L);
 #line 1363
   if (tmp != 0L) {
 #line 1364
@@ -14678,7 +14678,7 @@ static int vidioc_s_frequency(struct file *file , void *priv , struct v4l2_frequ
 #line 1378
   dev = fh->dev;
 #line 1380
-  tmp = __builtin_expect(dev->tuner_type == -1, 0L);
+  tmp = ldv__builtin_expect(dev->tuner_type == -1, 0L);
 #line 1380
   if (tmp != 0L) {
 #line 1381
@@ -14687,7 +14687,7 @@ static int vidioc_s_frequency(struct file *file , void *priv , struct v4l2_frequ
 
   }
 #line 1382
-  tmp___0 = __builtin_expect(f->tuner != 0U, 0L);
+  tmp___0 = ldv__builtin_expect(f->tuner != 0U, 0L);
 #line 1382
   if (tmp___0 != 0L) {
 #line 1383
@@ -19254,7 +19254,7 @@ __inline static void ldv_error(void)
 #line 25
 extern int __VERIFIER_nondet_int(void) ;
 #line 49 "/home/ldvuser/ldv_envgen2/kernel-rules/verifier/rcv.h"
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
   {

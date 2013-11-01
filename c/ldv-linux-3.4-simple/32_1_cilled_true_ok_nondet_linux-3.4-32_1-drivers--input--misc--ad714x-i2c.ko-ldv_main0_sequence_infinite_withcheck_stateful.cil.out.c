@@ -3463,7 +3463,7 @@ struct ad714x_chip {
    __be16 xfer_buf[16]  __attribute__((__aligned__((1) <<  (6) ))) ;
 };
 #line 1 "<compiler builtins>"
-long __builtin_expect(long val , long res ) ;
+long ldv__builtin_expect(long val , long res ) ;
 #line 46 "include/linux/swab.h"
 __inline static __u16 __fswab16(__u16 val )  __attribute__((__no_instrument_function__,
 __const__)) ;
@@ -3533,7 +3533,7 @@ __inline static long __attribute__((__warn_unused_result__))  IS_ERR(void const 
 #line 34
   __cil_tmp7 = (long )__cil_tmp6;
 #line 34
-  tmp = __builtin_expect(__cil_tmp7, 0L);
+  tmp = ldv__builtin_expect(__cil_tmp7, 0L);
   }
 #line 34
   return (tmp);
@@ -3873,7 +3873,7 @@ static int ad714x_i2c_write(struct ad714x_chip *chip , unsigned short reg , unsi
 #line 42
   __cil_tmp43 = (long )__cil_tmp42;
 #line 42
-  tmp___9 = __builtin_expect(__cil_tmp43, 0L);
+  tmp___9 = ldv__builtin_expect(__cil_tmp43, 0L);
   }
 #line 42
   if (tmp___9) {
@@ -4059,7 +4059,7 @@ static int ad714x_i2c_read(struct ad714x_chip *chip , unsigned short reg , unsig
 #line 65
   __cil_tmp49 = (long )__cil_tmp48;
 #line 65
-  tmp___8 = __builtin_expect(__cil_tmp49, 0L);
+  tmp___8 = ldv__builtin_expect(__cil_tmp49, 0L);
   }
 #line 65
   if (tmp___8) {
@@ -4668,7 +4668,7 @@ void ldv_check_final_state(void)
 }
 }
 #line 244 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/3995/dscv_tempdir/dscv/ri/32_1/drivers/input/misc/ad714x-i2c.c.common.c"
-long __builtin_expect(long val , long res ) 
+long ldv__builtin_expect(long val , long res ) 
 { 
 
   {

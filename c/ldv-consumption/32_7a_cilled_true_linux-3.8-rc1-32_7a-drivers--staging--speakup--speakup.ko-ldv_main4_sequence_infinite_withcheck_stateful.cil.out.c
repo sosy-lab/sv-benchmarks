@@ -5057,7 +5057,7 @@ void ldv_mutex_unlock_5(struct mutex *ldv_func_arg1 )
 #line 1 "<compiler builtins>"
 unsigned long __builtin_object_size(void * , int  ) ;
 #line 1
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 #line 119 "include/linux/printk.h"
 extern int printk(char const   *  , ...) ;
 #line 197 "include/linux/kernel.h"
@@ -5100,14 +5100,14 @@ __inline static unsigned long copy_from_user(void *to , void const   *from , uns
 #line 61
   might_fault();
 #line 62
-  tmp___1 = __builtin_expect(sz == -1, 1L);
+  tmp___1 = ldv__builtin_expect(sz == -1, 1L);
 #line 62
   if (tmp___1 != 0L) {
 #line 63
     n = _copy_from_user(to, from, (unsigned int )n);
   } else {
 #line 62
-    tmp___2 = __builtin_expect((unsigned long )sz >= n, 1L);
+    tmp___2 = ldv__builtin_expect((unsigned long )sz >= n, 1L);
 #line 62
     if (tmp___2 != 0L) {
 #line 63
@@ -5116,7 +5116,7 @@ __inline static unsigned long copy_from_user(void *to , void const   *from , uns
 #line 66
       __ret_warn_on = 1;
 #line 66
-      tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+      tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 66
       if (tmp___0 != 0L) {
 #line 66
@@ -5126,7 +5126,7 @@ __inline static unsigned long copy_from_user(void *to , void const   *from , uns
 
       }
 #line 66
-      __builtin_expect(__ret_warn_on != 0, 0L);
+      ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
   }
 #line 68
@@ -6390,7 +6390,7 @@ __inline static unsigned long arch_local_save_flags(void)
 #line 825
   __eax = __eax;
 #line 825
-  tmp = __builtin_expect((unsigned long )pv_irq_ops.save_fl.func == (unsigned long )((void *)0),
+  tmp = ldv__builtin_expect((unsigned long )pv_irq_ops.save_fl.func == (unsigned long )((void *)0),
                          0L);
 #line 825
   if (tmp != 0L) {
@@ -6435,7 +6435,7 @@ __inline static void arch_local_irq_restore(unsigned long f )
 #line 830
   __eax = __eax;
 #line 830
-  tmp = __builtin_expect((unsigned long )pv_irq_ops.restore_fl.func == (unsigned long )((void *)0),
+  tmp = ldv__builtin_expect((unsigned long )pv_irq_ops.restore_fl.func == (unsigned long )((void *)0),
                          0L);
 #line 830
   if (tmp != 0L) {
@@ -6478,7 +6478,7 @@ __inline static void arch_local_irq_disable(void)
 #line 835
   __eax = __eax;
 #line 835
-  tmp = __builtin_expect((unsigned long )pv_irq_ops.irq_disable.func == (unsigned long )((void *)0),
+  tmp = ldv__builtin_expect((unsigned long )pv_irq_ops.irq_disable.func == (unsigned long )((void *)0),
                          0L);
 #line 835
   if (tmp != 0L) {
@@ -7245,7 +7245,7 @@ __inline static long IS_ERR(void const   *ptr )
 
   {
 #line 34
-  tmp = __builtin_expect((unsigned long )ptr > 0xfffffffffffff000UL, 0L);
+  tmp = ldv__builtin_expect((unsigned long )ptr > 0xfffffffffffff000UL, 0L);
 #line 34
   return (tmp);
 }
@@ -15814,7 +15814,7 @@ static ssize_t message_show(struct kobject *kobj , struct kobj_attribute *attr ,
 #line 855
   group = tmp;
 #line 858
-  tmp___0 = __builtin_expect((unsigned long )group == (unsigned long )((struct msg_group_t *)0),
+  tmp___0 = ldv__builtin_expect((unsigned long )group == (unsigned long )((struct msg_group_t *)0),
                              0L);
 #line 858
   if (tmp___0 != 0L) {
@@ -15856,7 +15856,7 @@ static ssize_t message_store(struct kobject *kobj , struct kobj_attribute *attr 
 #line 869
   group = tmp;
 #line 871
-  tmp___0 = __builtin_expect((unsigned long )group == (unsigned long )((struct msg_group_t *)0),
+  tmp___0 = ldv__builtin_expect((unsigned long )group == (unsigned long )((struct msg_group_t *)0),
                              0L);
 #line 871
   if (tmp___0 != 0L) {
@@ -19564,7 +19564,7 @@ void speakup_register_var(struct var_t *var )
     tmp = tmp + 1U;
   }
 #line 131
-  tmp___0 = __builtin_expect((unsigned long )var == (unsigned long )((struct var_t *)0),
+  tmp___0 = ldv__builtin_expect((unsigned long )var == (unsigned long )((struct var_t *)0),
                              0L);
 #line 131
   if (tmp___0 != 0L) {
@@ -19572,7 +19572,7 @@ void speakup_register_var(struct var_t *var )
     goto _L;
   } else {
 #line 131
-    tmp___1 = __builtin_expect((unsigned int )var->var_id > 39U, 0L);
+    tmp___1 = ldv__builtin_expect((unsigned int )var->var_id > 39U, 0L);
 #line 131
     if (tmp___1 != 0L) {
       _L: /* CIL Label */ 
@@ -19654,7 +19654,7 @@ void speakup_unregister_var(enum var_id_t var_id )
 
   {
 #line 160
-  tmp = __builtin_expect((unsigned int )var_id > 39U, 0L);
+  tmp = ldv__builtin_expect((unsigned int )var_id > 39U, 0L);
 #line 160
   if (tmp != 0L) {
 #line 160
@@ -19751,7 +19751,7 @@ struct var_t *get_var(enum var_id_t var_id )
 
   {
 #line 195
-  tmp = __builtin_expect((unsigned int )var_id > 39U, 0L);
+  tmp = ldv__builtin_expect((unsigned int )var_id > 39U, 0L);
 #line 195
   if (tmp != 0L) {
 #line 195
@@ -19764,7 +19764,7 @@ struct var_t *get_var(enum var_id_t var_id )
 
   }
 #line 196
-  tmp___0 = __builtin_expect((unsigned long )var_ptrs[(unsigned int )var_id] == (unsigned long )((struct st_var_header *)0),
+  tmp___0 = ldv__builtin_expect((unsigned long )var_ptrs[(unsigned int )var_id] == (unsigned long )((struct st_var_header *)0),
                              0L);
 #line 196
   if (tmp___0 != 0L) {
@@ -20703,7 +20703,7 @@ __inline static void ldv_error(void)
 #line 25
 extern int __VERIFIER_nondet_int(void) ;
 #line 49 "/home/mikhail/ldv/kernel-rules/verifier/rcv.h"
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 

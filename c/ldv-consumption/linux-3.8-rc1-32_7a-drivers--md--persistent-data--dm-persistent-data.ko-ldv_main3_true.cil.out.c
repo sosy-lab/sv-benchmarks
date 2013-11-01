@@ -4116,7 +4116,7 @@ enum hrtimer_restart;
 #line 1 "<compiler builtins>"
 void *__builtin_memcpy(void * , void const   * , unsigned long  ) ;
 #line 1
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 #line 123 "include/linux/printk.h"
 extern int printk(char const   *  , ...) ;
 #line 34 "/work/ldvuser/exper_fp/inst/current/envs/linux-3.10-rc1.tar/linux-3.10-rc1/arch/x86/include/asm/string_64.h"
@@ -4448,7 +4448,7 @@ static void fill_ablock(struct dm_array_info *info , struct array_block *ab , vo
 #line 204
   vt = & info->value_type;
 #line 206
-  tmp = __builtin_expect(ab->max_entries < new_nr, 0L);
+  tmp = ldv__builtin_expect(ab->max_entries < new_nr, 0L);
 #line 206
   if (tmp != 0L) {
 #line 206
@@ -4461,7 +4461,7 @@ static void fill_ablock(struct dm_array_info *info , struct array_block *ab , vo
 
   }
 #line 207
-  tmp___0 = __builtin_expect(ab->nr_entries > new_nr, 0L);
+  tmp___0 = ldv__builtin_expect(ab->nr_entries > new_nr, 0L);
 #line 207
   if (tmp___0 != 0L) {
 #line 207
@@ -4523,7 +4523,7 @@ static void trim_ablock(struct dm_array_info *info , struct array_block *ab , un
 #line 228
   vt = & info->value_type;
 #line 230
-  tmp = __builtin_expect(ab->max_entries < new_nr, 0L);
+  tmp = ldv__builtin_expect(ab->max_entries < new_nr, 0L);
 #line 230
   if (tmp != 0L) {
 #line 230
@@ -4536,7 +4536,7 @@ static void trim_ablock(struct dm_array_info *info , struct array_block *ab , un
 
   }
 #line 231
-  tmp___0 = __builtin_expect(ab->nr_entries < new_nr, 0L);
+  tmp___0 = ldv__builtin_expect(ab->nr_entries < new_nr, 0L);
 #line 231
   if (tmp___0 != 0L) {
 #line 231
@@ -6192,7 +6192,7 @@ __inline static long IS_ERR(void const   *ptr )
 
   {
 #line 34
-  tmp = __builtin_expect((unsigned long )ptr > 0xfffffffffffff000UL, 0L);
+  tmp = ldv__builtin_expect((unsigned long )ptr > 0xfffffffffffff000UL, 0L);
 #line 34
   return (tmp);
 }
@@ -6408,7 +6408,7 @@ static unsigned int __find_holder(struct block_lock *lock , struct task_struct *
   }
   ldv_29577: 
 #line 87
-  tmp = __builtin_expect(i == 4U, 0L);
+  tmp = ldv__builtin_expect(i == 4U, 0L);
 #line 87
   if (tmp != 0L) {
 #line 87
@@ -6680,7 +6680,7 @@ static void __wake_many(struct block_lock *lock )
 
   {
 #line 182
-  tmp___0 = __builtin_expect(lock->count < 0, 0L);
+  tmp___0 = ldv__builtin_expect(lock->count < 0, 0L);
 #line 182
   if (tmp___0 != 0L) {
 #line 182
@@ -6935,7 +6935,7 @@ static void bl_up_read(struct block_lock *lock )
 #line 275
   spin_lock(& lock->lock);
 #line 276
-  tmp = __builtin_expect(lock->count <= 0, 0L);
+  tmp = ldv__builtin_expect(lock->count <= 0, 0L);
 #line 276
   if (tmp != 0L) {
 #line 276
@@ -7280,7 +7280,7 @@ static int dm_bm_validate_buffer(struct dm_block_manager *bm , struct dm_buffer 
 
   {
 #line 449
-  tmp___6 = __builtin_expect((unsigned long )aux->validator == (unsigned long )((struct dm_block_validator *)0),
+  tmp___6 = ldv__builtin_expect((unsigned long )aux->validator == (unsigned long )((struct dm_block_validator *)0),
                              0L);
 #line 449
   if (tmp___6 != 0L) {
@@ -7296,7 +7296,7 @@ static int dm_bm_validate_buffer(struct dm_block_manager *bm , struct dm_buffer 
 #line 453
     r = (*(v->check))(v, (struct dm_block *)buf, (size_t )tmp);
 #line 454
-    tmp___2 = __builtin_expect(r != 0, 0L);
+    tmp___2 = ldv__builtin_expect(r != 0, 0L);
 #line 454
     if (tmp___2 != 0L) {
 #line 455
@@ -7320,7 +7320,7 @@ static int dm_bm_validate_buffer(struct dm_block_manager *bm , struct dm_buffer 
     aux->validator = v;
   } else {
 #line 461
-    tmp___5 = __builtin_expect((unsigned long )aux->validator != (unsigned long )v,
+    tmp___5 = ldv__builtin_expect((unsigned long )aux->validator != (unsigned long )v,
                                0L);
 #line 461
     if (tmp___5 != 0L) {
@@ -7371,7 +7371,7 @@ int dm_bm_read_lock(struct dm_block_manager *bm , dm_block_t b , struct dm_block
 #line 480
   tmp___0 = IS_ERR((void const   *)p);
 #line 480
-  tmp___1 = __builtin_expect(tmp___0 != 0L, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 != 0L, 0L);
 #line 480
   if (tmp___1 != 0L) {
 #line 481
@@ -7390,7 +7390,7 @@ int dm_bm_read_lock(struct dm_block_manager *bm , dm_block_t b , struct dm_block
 #line 484
   r = bl_down_read(& aux->lock);
 #line 485
-  tmp___5 = __builtin_expect(r != 0, 0L);
+  tmp___5 = ldv__builtin_expect(r != 0, 0L);
 #line 485
   if (tmp___5 != 0L) {
 #line 486
@@ -7411,7 +7411,7 @@ int dm_bm_read_lock(struct dm_block_manager *bm , dm_block_t b , struct dm_block
 #line 493
   r = dm_bm_validate_buffer(bm, tmp___6, aux, v);
 #line 494
-  tmp___8 = __builtin_expect(r != 0, 0L);
+  tmp___8 = ldv__builtin_expect(r != 0, 0L);
 #line 494
   if (tmp___8 != 0L) {
 #line 495
@@ -7459,7 +7459,7 @@ int dm_bm_write_lock(struct dm_block_manager *bm , dm_block_t b , struct dm_bloc
 #line 516
   tmp___0 = IS_ERR((void const   *)p);
 #line 516
-  tmp___1 = __builtin_expect(tmp___0 != 0L, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 != 0L, 0L);
 #line 516
   if (tmp___1 != 0L) {
 #line 517
@@ -7497,7 +7497,7 @@ int dm_bm_write_lock(struct dm_block_manager *bm , dm_block_t b , struct dm_bloc
 #line 529
   r = dm_bm_validate_buffer(bm, tmp___5, aux, v);
 #line 530
-  tmp___7 = __builtin_expect(r != 0, 0L);
+  tmp___7 = ldv__builtin_expect(r != 0, 0L);
 #line 530
   if (tmp___7 != 0L) {
 #line 531
@@ -7539,7 +7539,7 @@ int dm_bm_read_try_lock(struct dm_block_manager *bm , dm_block_t b , struct dm_b
 #line 549
   tmp___0 = IS_ERR((void const   *)p);
 #line 549
-  tmp___1 = __builtin_expect(tmp___0 != 0L, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 != 0L, 0L);
 #line 549
   if (tmp___1 != 0L) {
 #line 550
@@ -7550,7 +7550,7 @@ int dm_bm_read_try_lock(struct dm_block_manager *bm , dm_block_t b , struct dm_b
 
   }
 #line 551
-  tmp___2 = __builtin_expect((unsigned long )p == (unsigned long )((void *)0), 0L);
+  tmp___2 = ldv__builtin_expect((unsigned long )p == (unsigned long )((void *)0), 0L);
 #line 551
   if (tmp___2 != 0L) {
 #line 552
@@ -7586,7 +7586,7 @@ int dm_bm_read_try_lock(struct dm_block_manager *bm , dm_block_t b , struct dm_b
 #line 563
   r = dm_bm_validate_buffer(bm, tmp___6, aux, v);
 #line 564
-  tmp___8 = __builtin_expect(r != 0, 0L);
+  tmp___8 = ldv__builtin_expect(r != 0, 0L);
 #line 564
   if (tmp___8 != 0L) {
 #line 565
@@ -7632,7 +7632,7 @@ int dm_bm_write_lock_zero(struct dm_block_manager *bm , dm_block_t b , struct dm
 #line 585
   tmp___0 = IS_ERR((void const   *)p);
 #line 585
-  tmp___1 = __builtin_expect(tmp___0 != 0L, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 != 0L, 0L);
 #line 585
   if (tmp___1 != 0L) {
 #line 586
@@ -7727,7 +7727,7 @@ int dm_bm_flush_and_unlock(struct dm_block_manager *bm , struct dm_block *superb
 #line 629
   r = dm_bufio_write_dirty_buffers(bm->bufio);
 #line 630
-  tmp = __builtin_expect(r != 0, 0L);
+  tmp = ldv__builtin_expect(r != 0, 0L);
 #line 630
   if (tmp != 0L) {
 #line 631
@@ -9790,7 +9790,7 @@ static int sm_disk_new_block(struct dm_space_map *sm , dm_block_t *b )
 #line 202
   if (r == 0) {
 #line 203
-    tmp = __builtin_expect((unsigned int )ev != 1U, 0L);
+    tmp = ldv__builtin_expect((unsigned int )ev != 1U, 0L);
 #line 203
     if (tmp != 0L) {
 #line 203
@@ -12608,7 +12608,7 @@ void dm_tm_inc(struct dm_transaction_manager *tm , dm_block_t b )
 
   {
 #line 311
-  tmp = __builtin_expect(tm->is_clone != 0, 0L);
+  tmp = ldv__builtin_expect(tm->is_clone != 0, 0L);
 #line 311
   if (tmp != 0L) {
 #line 311
@@ -12633,7 +12633,7 @@ void dm_tm_dec(struct dm_transaction_manager *tm , dm_block_t b )
 
   {
 #line 322
-  tmp = __builtin_expect(tm->is_clone != 0, 0L);
+  tmp = ldv__builtin_expect(tm->is_clone != 0, 0L);
 #line 322
   if (tmp != 0L) {
 #line 322
@@ -14516,7 +14516,7 @@ int dm_btree_walk(struct dm_btree_info *info , dm_block_t root , int (*fn)(void 
 
   {
 #line 876
-  tmp = __builtin_expect(info->levels > 1U, 0L);
+  tmp = ldv__builtin_expect(info->levels > 1U, 0L);
 #line 876
   if (tmp != 0L) {
 #line 876
@@ -14653,7 +14653,7 @@ static void node_shift(struct btree_node *n , int shift___0 )
 #line 86
     shift___0 = - shift___0;
 #line 87
-    tmp = __builtin_expect((uint32_t )shift___0 > nr_entries, 0L);
+    tmp = ldv__builtin_expect((uint32_t )shift___0 > nr_entries, 0L);
 #line 87
     if (tmp != 0L) {
 #line 87
@@ -14670,7 +14670,7 @@ static void node_shift(struct btree_node *n , int shift___0 )
 #line 88
     tmp___1 = value_ptr(n, (uint32_t )shift___0);
 #line 88
-    tmp___2 = __builtin_expect((unsigned long )((void *)tmp___0) >= (unsigned long )tmp___1,
+    tmp___2 = ldv__builtin_expect((unsigned long )((void *)tmp___0) >= (unsigned long )tmp___1,
                                0L);
 #line 88
     if (tmp___2 != 0L) {
@@ -14697,7 +14697,7 @@ static void node_shift(struct btree_node *n , int shift___0 )
     memmove(tmp___6, (void const   *)tmp___5, (size_t )((nr_entries - (uint32_t )shift___0) * value_size));
   } else {
 #line 96
-    tmp___7 = __builtin_expect(nr_entries + (uint32_t )shift___0 > n->header.max_entries,
+    tmp___7 = ldv__builtin_expect(nr_entries + (uint32_t )shift___0 > n->header.max_entries,
                                0L);
 #line 96
     if (tmp___7 != 0L) {
@@ -14758,7 +14758,7 @@ static void node_copy(struct btree_node *left , struct btree_node *right , int s
 #line 109
   value_size = left->header.value_size;
 #line 110
-  tmp = __builtin_expect(right->header.value_size != value_size, 0L);
+  tmp = ldv__builtin_expect(right->header.value_size != value_size, 0L);
 #line 110
   if (tmp != 0L) {
 #line 110
@@ -14775,7 +14775,7 @@ static void node_copy(struct btree_node *left , struct btree_node *right , int s
 #line 113
     shift___0 = - shift___0;
 #line 114
-    tmp___0 = __builtin_expect(nr_left + (uint32_t )shift___0 > left->header.max_entries,
+    tmp___0 = ldv__builtin_expect(nr_left + (uint32_t )shift___0 > left->header.max_entries,
                                0L);
 #line 114
     if (tmp___0 != 0L) {
@@ -14806,7 +14806,7 @@ static void node_copy(struct btree_node *left , struct btree_node *right , int s
     __ret___0 = __builtin_memcpy(tmp___8, (void const   *)tmp___7, __len___0);
   } else {
 #line 122
-    tmp___9 = __builtin_expect((__le32 )shift___0 > right->header.max_entries, 0L);
+    tmp___9 = ldv__builtin_expect((__le32 )shift___0 > right->header.max_entries, 0L);
 #line 122
     if (tmp___9 != 0L) {
 #line 122
@@ -14859,7 +14859,7 @@ static void delete_at(struct btree_node *n , unsigned int index )
 #line 139
   value_size = n->header.value_size;
 #line 140
-  tmp = __builtin_expect(index >= nr_entries, 0L);
+  tmp = ldv__builtin_expect(index >= nr_entries, 0L);
 #line 140
   if (tmp != 0L) {
 #line 140
@@ -14981,7 +14981,7 @@ static void shift(struct btree_node *left , struct btree_node *right , int count
 #line 202
   r_max_entries = right->header.max_entries;
 #line 204
-  tmp = __builtin_expect(max_entries != r_max_entries, 0L);
+  tmp = ldv__builtin_expect(max_entries != r_max_entries, 0L);
 #line 204
   if (tmp != 0L) {
 #line 204
@@ -14994,7 +14994,7 @@ static void shift(struct btree_node *left , struct btree_node *right , int count
 
   }
 #line 205
-  tmp___0 = __builtin_expect(nr_left - (uint32_t )count > max_entries, 0L);
+  tmp___0 = ldv__builtin_expect(nr_left - (uint32_t )count > max_entries, 0L);
 #line 205
   if (tmp___0 != 0L) {
 #line 205
@@ -15007,7 +15007,7 @@ static void shift(struct btree_node *left , struct btree_node *right , int count
 
   }
 #line 206
-  tmp___1 = __builtin_expect(nr_right + (uint32_t )count > max_entries, 0L);
+  tmp___1 = ldv__builtin_expect(nr_right + (uint32_t )count > max_entries, 0L);
 #line 206
   if (tmp___1 != 0L) {
 #line 206
@@ -15183,7 +15183,7 @@ static void delete_center_node(struct dm_btree_info *info , struct btree_node *p
 #line 296
   shift___0 = _min1 < _min2 ? _min1 : _min2;
 #line 298
-  tmp = __builtin_expect(nr_left + shift___0 > max_entries, 0L);
+  tmp = ldv__builtin_expect(nr_left + shift___0 > max_entries, 0L);
 #line 298
   if (tmp != 0L) {
 #line 298
@@ -15204,7 +15204,7 @@ static void delete_center_node(struct dm_btree_info *info , struct btree_node *p
 #line 303
     shift___0 = nr_center - shift___0;
 #line 304
-    tmp___0 = __builtin_expect(nr_right + shift___0 > max_entries, 0L);
+    tmp___0 = ldv__builtin_expect(nr_right + shift___0 > max_entries, 0L);
 #line 304
     if (tmp___0 != 0L) {
 #line 304
@@ -15262,7 +15262,7 @@ static void redistribute3(struct dm_btree_info *info , struct btree_node *parent
 #line 328
   target = ((nr_left + nr_center) + nr_right) / 3U;
 #line 329
-  tmp = __builtin_expect(target > max_entries, 0L);
+  tmp = ldv__builtin_expect(target > max_entries, 0L);
 #line 329
   if (tmp != 0L) {
 #line 329
@@ -15359,7 +15359,7 @@ static void __rebalance3(struct dm_btree_info *info , struct btree_node *parent 
 #line 374
   threshold = tmp * 4U + 1U;
 #line 376
-  tmp___0 = __builtin_expect(left->header.max_entries != center->header.max_entries,
+  tmp___0 = ldv__builtin_expect(left->header.max_entries != center->header.max_entries,
                              0L);
 #line 376
   if (tmp___0 != 0L) {
@@ -15373,7 +15373,7 @@ static void __rebalance3(struct dm_btree_info *info , struct btree_node *parent 
 
   }
 #line 377
-  tmp___1 = __builtin_expect(center->header.max_entries != right->header.max_entries,
+  tmp___1 = ldv__builtin_expect(center->header.max_entries != right->header.max_entries,
                              0L);
 #line 377
   if (tmp___1 != 0L) {
@@ -15843,14 +15843,14 @@ int dm_btree_remove(struct dm_btree_info *info , dm_block_t root , uint64_t *key
 
   }
 #line 602
-  tmp___1 = __builtin_expect(index < 0, 0L);
+  tmp___1 = ldv__builtin_expect(index < 0, 0L);
 #line 602
   if (tmp___1 != 0L) {
 #line 602
     goto _L;
   } else {
 #line 602
-    tmp___2 = __builtin_expect((__le32 )index >= n->header.nr_entries, 0L);
+    tmp___2 = ldv__builtin_expect((__le32 )index >= n->header.nr_entries, 0L);
 #line 602
     if (tmp___2 != 0L) {
       _L: /* CIL Label */ 
@@ -16051,7 +16051,7 @@ static void node_prepare_for_write(struct dm_block_validator *v , struct dm_bloc
 #line 58
   tmp___0 = node_check(v, b, 4096UL);
 #line 58
-  tmp___1 = __builtin_expect(tmp___0 != 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 != 0, 0L);
 #line 58
   if (tmp___1 != 0L) {
 #line 58
@@ -16353,7 +16353,7 @@ void ro_pop(struct ro_spine *s )
 
   {
 #line 193
-  tmp = __builtin_expect(s->count == 0, 0L);
+  tmp = ldv__builtin_expect(s->count == 0, 0L);
 #line 193
   if (tmp != 0L) {
 #line 193
@@ -16382,7 +16382,7 @@ struct btree_node *ro_node(struct ro_spine *s )
 
   {
 #line 202
-  tmp = __builtin_expect(s->count == 0, 0L);
+  tmp = ldv__builtin_expect(s->count == 0, 0L);
 #line 202
   if (tmp != 0L) {
 #line 202
@@ -16509,7 +16509,7 @@ struct dm_block *shadow_current(struct shadow_spine *s )
 
   {
 #line 255
-  tmp = __builtin_expect(s->count == 0, 0L);
+  tmp = ldv__builtin_expect(s->count == 0, 0L);
 #line 255
   if (tmp != 0L) {
 #line 255
@@ -16532,7 +16532,7 @@ struct dm_block *shadow_parent(struct shadow_spine *s )
 
   {
 #line 262
-  tmp = __builtin_expect(s->count != 2, 0L);
+  tmp = ldv__builtin_expect(s->count != 2, 0L);
 #line 262
   if (tmp != 0L) {
 #line 262
@@ -16719,7 +16719,7 @@ __inline static void ldv_error(void)
 #line 25
 extern int __VERIFIER_nondet_int(void) ;
 #line 49 "/home/ldvuser/ldv/inst/kernel-rules/verifier/rcv.h"
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 

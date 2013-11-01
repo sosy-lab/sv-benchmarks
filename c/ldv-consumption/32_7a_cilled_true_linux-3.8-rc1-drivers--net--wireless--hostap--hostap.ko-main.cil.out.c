@@ -10418,7 +10418,7 @@ void ldv_mutex_unlock_21(struct mutex *ldv_func_arg1 )
 }
 }
 #line 1 "<compiler builtins>"
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 #line 358 "include/linux/kernel.h"
 extern int sprintf(char * , char const   *  , ...) ;
 #line 24 "include/linux/list.h"
@@ -10700,7 +10700,7 @@ __inline static char *iwe_stream_add_event(struct iw_request_info *info , char *
 #line 520
   event_len = iwe_stream_event_len_adjust(info, event_len);
 #line 523
-  tmp___0 = __builtin_expect((unsigned long )(stream + (unsigned long )event_len) < (unsigned long )ends,
+  tmp___0 = ldv__builtin_expect((unsigned long )(stream + (unsigned long )event_len) < (unsigned long )ends,
                              1L);
 #line 523
   if (tmp___0 != 0L) {
@@ -10761,7 +10761,7 @@ __inline static char *iwe_stream_add_point(struct iw_request_info *info , char *
 #line 545
   lcp_len = tmp___1;
 #line 548
-  tmp___2 = __builtin_expect((unsigned long )(stream + (unsigned long )event_len) < (unsigned long )ends,
+  tmp___2 = ldv__builtin_expect((unsigned long )(stream + (unsigned long )event_len) < (unsigned long )ends,
                              1L);
 #line 548
   if (tmp___2 != 0L) {
@@ -18594,7 +18594,7 @@ __inline static int signal_pending(struct task_struct *p )
 #line 2620
   tmp = test_tsk_thread_flag(p, 2);
 #line 2620
-  tmp___0 = __builtin_expect(tmp != 0, 0L);
+  tmp___0 = ldv__builtin_expect(tmp != 0, 0L);
 #line 2620
   return ((int )tmp___0);
 }
@@ -18620,14 +18620,14 @@ __inline static unsigned long copy_from_user(void *to , void const   *from , uns
 #line 61
   might_fault();
 #line 62
-  tmp___1 = __builtin_expect(sz == -1, 1L);
+  tmp___1 = ldv__builtin_expect(sz == -1, 1L);
 #line 62
   if (tmp___1 != 0L) {
 #line 63
     n = _copy_from_user(to, from, (unsigned int )n);
   } else {
 #line 62
-    tmp___2 = __builtin_expect((unsigned long )sz >= n, 1L);
+    tmp___2 = ldv__builtin_expect((unsigned long )sz >= n, 1L);
 #line 62
     if (tmp___2 != 0L) {
 #line 63
@@ -18636,7 +18636,7 @@ __inline static unsigned long copy_from_user(void *to , void const   *from , uns
 #line 66
       __ret_warn_on = 1;
 #line 66
-      tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+      tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 66
       if (tmp___0 != 0L) {
 #line 66
@@ -18646,7 +18646,7 @@ __inline static unsigned long copy_from_user(void *to , void const   *from , uns
 
       }
 #line 66
-      __builtin_expect(__ret_warn_on != 0, 0L);
+      ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
   }
 #line 68
@@ -18713,7 +18713,7 @@ __inline static char *iwe_stream_add_value(struct iw_request_info *info , char *
 #line 573
   event_len = (int )((unsigned int )event_len - 8U);
 #line 576
-  tmp___0 = __builtin_expect((unsigned long )(value + (unsigned long )event_len) < (unsigned long )ends,
+  tmp___0 = ldv__builtin_expect((unsigned long )(value + (unsigned long )event_len) < (unsigned long )ends,
                              1L);
 #line 576
   if (tmp___0 != 0L) {
@@ -26095,7 +26095,7 @@ __inline static void netif_tx_stop_queue(struct netdev_queue *dev_queue )
 #line 1880
   __ret_warn_on = (unsigned long )dev_queue == (unsigned long )((struct netdev_queue *)0);
 #line 1880
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 1880
   if (tmp != 0L) {
 #line 1880
@@ -26104,7 +26104,7 @@ __inline static void netif_tx_stop_queue(struct netdev_queue *dev_queue )
 
   }
 #line 1880
-  tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 1880
   if (tmp___0 != 0L) {
 #line 1881
@@ -30716,7 +30716,7 @@ __inline static void ldv_error(void)
 #line 25
 extern int __VERIFIER_nondet_int(void) ;
 #line 49 "/home/ldvuser/ldv_envgen2/kernel-rules/verifier/rcv.h"
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
   {

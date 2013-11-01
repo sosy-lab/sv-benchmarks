@@ -1379,7 +1379,7 @@ struct __anonstruct_225 {
    int  : 0 ;
 };
 #line 1 "<compiler builtins>"
-long __builtin_expect(long val , long res ) ;
+long ldv__builtin_expect(long val , long res ) ;
 #line 49 "include/linux/dynamic_debug.h"
 extern int ( /* format attribute */  __dynamic_dev_dbg)(struct _ddebug *descriptor ,
                                                         struct device  const  *dev ,
@@ -1928,7 +1928,7 @@ static void wm831x_battey_apply_config(struct wm831x *wm831x , struct chg_map *m
 #line 213
         __cil_tmp26 = (long )__cil_tmp25;
 #line 213
-        tmp = __builtin_expect(__cil_tmp26, 0L);
+        tmp = ldv__builtin_expect(__cil_tmp26, 0L);
         }
 #line 213
         if (tmp) {
@@ -2829,7 +2829,7 @@ static irqreturn_t wm831x_bat_irq(int irq , void *data )
 #line 450
       __cil_tmp11 = (long )__cil_tmp10;
 #line 450
-      tmp = __builtin_expect(__cil_tmp11, 0L);
+      tmp = ldv__builtin_expect(__cil_tmp11, 0L);
       }
 #line 450
       if (tmp) {
@@ -2974,7 +2974,7 @@ static irqreturn_t wm831x_pwr_src_irq(int irq , void *data )
 #line 482
       __cil_tmp11 = (long )__cil_tmp10;
 #line 482
-      tmp = __builtin_expect(__cil_tmp11, 0L);
+      tmp = ldv__builtin_expect(__cil_tmp11, 0L);
       }
 #line 482
       if (tmp) {
@@ -4521,7 +4521,7 @@ void ldv_check_final_state(void)
 }
 }
 #line 846 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/1060/dscv_tempdir/dscv/ri/32_1/drivers/power/wm831x_power.c.common.c"
-long __builtin_expect(long val , long res ) 
+long ldv__builtin_expect(long val , long res ) 
 { 
 
   {

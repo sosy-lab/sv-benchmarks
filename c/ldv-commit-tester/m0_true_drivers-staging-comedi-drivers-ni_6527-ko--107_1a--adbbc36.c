@@ -1662,7 +1662,7 @@ struct ni6527_private {
    unsigned int filter_enable ;
 };
 #line 1 "<compiler builtins>"
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 #line 3 "/work/vladimir/commit-test/commit-test-work/task-043--linux-stable--dir/work/current--X--drivers/staging/comedi/drivers/ni_6527.ko--X--defaultlinux-stable-adbbc36--X--107_1a--X--cpachecker/linux-stable-adbbc36/csd_deg_dscv/11/dscv_tempdir/dscv/ri/107_1a/drivers/staging/comedi/drivers/ni_6527.c.prepared"
 int ldv_module_license(void) ;
 #line 4
@@ -1785,7 +1785,7 @@ __inline static void trace_kmalloc(unsigned long call_site , void const   *ptr ,
 
   {
 #line 45
-  tmp = __builtin_expect(__tracepoint_kmalloc.state != 0, 0L);
+  tmp = ldv__builtin_expect(__tracepoint_kmalloc.state != 0, 0L);
 #line 45
   if (tmp != 0L) {
 #line 45
@@ -3194,7 +3194,7 @@ __inline static void ldv_error(void)
 }
 }
 #line 49 "/work/vladimir/kernel-rules/verifier/rcv.h"
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 

@@ -3708,7 +3708,7 @@ struct usb_cytherm {
    int brightness ;
 };
 #line 1 "<compiler builtins>"
-long __builtin_expect(long val , long res ) ;
+long ldv__builtin_expect(long val , long res ) ;
 #line 49 "include/linux/dynamic_debug.h"
 extern int ( /* format attribute */  __dynamic_dev_dbg)(struct _ddebug *descriptor ,
                                                         struct device  const  *dev ,
@@ -4283,7 +4283,7 @@ static ssize_t set_brightness(struct device *dev , struct device_attribute *attr
 #line 122
         __cil_tmp53 = (long )__cil_tmp52;
 #line 122
-        tmp___10 = __builtin_expect(__cil_tmp53, 0L);
+        tmp___10 = ldv__builtin_expect(__cil_tmp53, 0L);
         }
 #line 122
         if (tmp___10) {
@@ -4350,7 +4350,7 @@ static ssize_t set_brightness(struct device *dev , struct device_attribute *attr
 #line 127
         __cil_tmp66 = (long )__cil_tmp65;
 #line 127
-        tmp___11 = __builtin_expect(__cil_tmp66, 0L);
+        tmp___11 = ldv__builtin_expect(__cil_tmp66, 0L);
         }
 #line 127
         if (tmp___11) {
@@ -4558,7 +4558,7 @@ static ssize_t show_temp(struct device *dev , struct device_attribute *attr , ch
 #line 161
         __cil_tmp37 = (long )__cil_tmp36;
 #line 161
-        tmp___9 = __builtin_expect(__cil_tmp37, 0L);
+        tmp___9 = ldv__builtin_expect(__cil_tmp37, 0L);
         }
 #line 161
         if (tmp___9) {
@@ -4631,7 +4631,7 @@ static ssize_t show_temp(struct device *dev , struct device_attribute *attr , ch
 #line 167
         __cil_tmp52 = (long )__cil_tmp51;
 #line 167
-        tmp___10 = __builtin_expect(__cil_tmp52, 0L);
+        tmp___10 = ldv__builtin_expect(__cil_tmp52, 0L);
         }
 #line 167
         if (tmp___10) {
@@ -4848,7 +4848,7 @@ static ssize_t show_button(struct device *dev , struct device_attribute *attr , 
 #line 205
         __cil_tmp34 = (long )__cil_tmp33;
 #line 205
-        tmp___9 = __builtin_expect(__cil_tmp34, 0L);
+        tmp___9 = ldv__builtin_expect(__cil_tmp34, 0L);
         }
 #line 205
         if (tmp___9) {
@@ -5056,7 +5056,7 @@ static ssize_t show_port0(struct device *dev , struct device_attribute *attr , c
 #line 242
         __cil_tmp33 = (long )__cil_tmp32;
 #line 242
-        tmp___9 = __builtin_expect(__cil_tmp33, 0L);
+        tmp___9 = ldv__builtin_expect(__cil_tmp33, 0L);
         }
 #line 242
         if (tmp___9) {
@@ -5268,7 +5268,7 @@ static ssize_t set_port0(struct device *dev , struct device_attribute *attr , ch
 #line 277
         __cil_tmp38 = (long )__cil_tmp37;
 #line 277
-        tmp___11 = __builtin_expect(__cil_tmp38, 0L);
+        tmp___11 = ldv__builtin_expect(__cil_tmp38, 0L);
         }
 #line 277
         if (tmp___11) {
@@ -5446,7 +5446,7 @@ static ssize_t show_port1(struct device *dev , struct device_attribute *attr , c
 #line 302
         __cil_tmp33 = (long )__cil_tmp32;
 #line 302
-        tmp___9 = __builtin_expect(__cil_tmp33, 0L);
+        tmp___9 = ldv__builtin_expect(__cil_tmp33, 0L);
         }
 #line 302
         if (tmp___9) {
@@ -5658,7 +5658,7 @@ static ssize_t set_port1(struct device *dev , struct device_attribute *attr , ch
 #line 337
         __cil_tmp38 = (long )__cil_tmp37;
 #line 337
-        tmp___11 = __builtin_expect(__cil_tmp38, 0L);
+        tmp___11 = ldv__builtin_expect(__cil_tmp38, 0L);
         }
 #line 337
         if (tmp___11) {
@@ -6531,7 +6531,7 @@ void ldv_check_final_state(void)
 }
 }
 #line 625 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/7712/dscv_tempdir/dscv/ri/32_1/drivers/usb/misc/cytherm.c.common.c"
-long __builtin_expect(long val , long res ) 
+long ldv__builtin_expect(long val , long res ) 
 { 
 
   {

@@ -2468,7 +2468,7 @@ struct stub_chip {
    u16 words[256] ;
 };
 #line 1 "<compiler builtins>"
-long __builtin_expect(long val , long res ) ;
+long ldv__builtin_expect(long val , long res ) ;
 #line 100 "include/linux/printk.h"
 extern int ( /* format attribute */  printk)(char const   *fmt  , ...) ;
 #line 49 "include/linux/dynamic_debug.h"
@@ -3085,7 +3085,7 @@ static s32 stub_xfer(struct i2c_adapter *adap , u16 addr , unsigned short flags 
 #line 75
           __cil_tmp36 = (long )__cil_tmp35;
 #line 75
-          tmp___7 = __builtin_expect(__cil_tmp36, 0L);
+          tmp___7 = ldv__builtin_expect(__cil_tmp36, 0L);
           }
 #line 75
           if (tmp___7) {
@@ -3151,7 +3151,7 @@ static s32 stub_xfer(struct i2c_adapter *adap , u16 addr , unsigned short flags 
 #line 82
             __cil_tmp48 = (long )__cil_tmp47;
 #line 82
-            tmp___8 = __builtin_expect(__cil_tmp48, 0L);
+            tmp___8 = ldv__builtin_expect(__cil_tmp48, 0L);
             }
 #line 82
             if (tmp___8) {
@@ -3234,7 +3234,7 @@ static s32 stub_xfer(struct i2c_adapter *adap , u16 addr , unsigned short flags 
 #line 87
             __cil_tmp70 = (long )__cil_tmp69;
 #line 87
-            tmp___10 = __builtin_expect(__cil_tmp70, 0L);
+            tmp___10 = ldv__builtin_expect(__cil_tmp70, 0L);
             }
 #line 87
             if (tmp___10) {
@@ -3356,7 +3356,7 @@ static s32 stub_xfer(struct i2c_adapter *adap , u16 addr , unsigned short flags 
 #line 99
             __cil_tmp108 = (long )__cil_tmp107;
 #line 99
-            tmp___11 = __builtin_expect(__cil_tmp108, 0L);
+            tmp___11 = ldv__builtin_expect(__cil_tmp108, 0L);
             }
 #line 99
             if (tmp___11) {
@@ -3433,7 +3433,7 @@ static s32 stub_xfer(struct i2c_adapter *adap , u16 addr , unsigned short flags 
 #line 104
             __cil_tmp129 = (long )__cil_tmp128;
 #line 104
-            tmp___12 = __builtin_expect(__cil_tmp129, 0L);
+            tmp___12 = ldv__builtin_expect(__cil_tmp129, 0L);
             }
 #line 104
             if (tmp___12) {
@@ -3521,7 +3521,7 @@ static s32 stub_xfer(struct i2c_adapter *adap , u16 addr , unsigned short flags 
 #line 116
             __cil_tmp150 = (long )__cil_tmp149;
 #line 116
-            tmp___13 = __builtin_expect(__cil_tmp150, 0L);
+            tmp___13 = ldv__builtin_expect(__cil_tmp150, 0L);
             }
 #line 116
             if (tmp___13) {
@@ -3592,7 +3592,7 @@ static s32 stub_xfer(struct i2c_adapter *adap , u16 addr , unsigned short flags 
 #line 121
             __cil_tmp168 = (long )__cil_tmp167;
 #line 121
-            tmp___14 = __builtin_expect(__cil_tmp168, 0L);
+            tmp___14 = ldv__builtin_expect(__cil_tmp168, 0L);
             }
 #line 121
             if (tmp___14) {
@@ -3772,7 +3772,7 @@ static s32 stub_xfer(struct i2c_adapter *adap , u16 addr , unsigned short flags 
 #line 136
             __cil_tmp225 = (long )__cil_tmp224;
 #line 136
-            tmp___15 = __builtin_expect(__cil_tmp225, 0L);
+            tmp___15 = ldv__builtin_expect(__cil_tmp225, 0L);
             }
 #line 136
             if (tmp___15) {
@@ -3877,7 +3877,7 @@ static s32 stub_xfer(struct i2c_adapter *adap , u16 addr , unsigned short flags 
 #line 144
             __cil_tmp251 = (long )__cil_tmp250;
 #line 144
-            tmp___16 = __builtin_expect(__cil_tmp251, 0L);
+            tmp___16 = ldv__builtin_expect(__cil_tmp251, 0L);
             }
 #line 144
             if (tmp___16) {
@@ -3940,7 +3940,7 @@ static s32 stub_xfer(struct i2c_adapter *adap , u16 addr , unsigned short flags 
 #line 153
           __cil_tmp263 = (long )__cil_tmp262;
 #line 153
-          tmp___17 = __builtin_expect(__cil_tmp263, 0L);
+          tmp___17 = ldv__builtin_expect(__cil_tmp263, 0L);
           }
 #line 153
           if (tmp___17) {
@@ -4643,7 +4643,7 @@ void ldv_check_final_state(void)
 }
 }
 #line 408 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/308/dscv_tempdir/dscv/ri/32_1/drivers/i2c/busses/i2c-stub.c.common.c"
-long __builtin_expect(long val , long res ) 
+long ldv__builtin_expect(long val , long res ) 
 { 
 
   {

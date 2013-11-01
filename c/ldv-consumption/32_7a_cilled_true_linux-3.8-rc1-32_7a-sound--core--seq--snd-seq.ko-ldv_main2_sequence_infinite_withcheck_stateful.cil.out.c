@@ -4250,7 +4250,7 @@ void __builtin_va_end(__builtin_va_list  ) ;
 #line 1
 unsigned long __builtin_object_size(void * , int  ) ;
 #line 1
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 #line 1
 void __builtin_va_start(__builtin_va_list  ) ;
 #line 324 "/home/mikhail/launches/cpachecker-regression2/launcher-working-dir/ldv-manager-work-dir/inst/current/envs/linux-3.8-rc1/linux-3.8-rc1/arch/x86/include/asm/bitops.h"
@@ -4329,7 +4329,7 @@ __inline static long IS_ERR(void const   *ptr )
 
   {
 #line 34
-  tmp = __builtin_expect((unsigned long )ptr > 0xfffffffffffff000UL, 0L);
+  tmp = ldv__builtin_expect((unsigned long )ptr > 0xfffffffffffff000UL, 0L);
 #line 34
   return (tmp);
 }
@@ -4627,14 +4627,14 @@ __inline static unsigned long copy_from_user(void *to , void const   *from , uns
 #line 61
   might_fault();
 #line 62
-  tmp___1 = __builtin_expect(sz == -1, 1L);
+  tmp___1 = ldv__builtin_expect(sz == -1, 1L);
 #line 62
   if (tmp___1 != 0L) {
 #line 63
     n = _copy_from_user(to, from, (unsigned int )n);
   } else {
 #line 62
-    tmp___2 = __builtin_expect((unsigned long )sz >= n, 1L);
+    tmp___2 = ldv__builtin_expect((unsigned long )sz >= n, 1L);
 #line 62
     if (tmp___2 != 0L) {
 #line 63
@@ -4643,7 +4643,7 @@ __inline static unsigned long copy_from_user(void *to , void const   *from , uns
 #line 66
       __ret_warn_on = 1;
 #line 66
-      tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+      tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 66
       if (tmp___0 != 0L) {
 #line 66
@@ -4653,7 +4653,7 @@ __inline static unsigned long copy_from_user(void *to , void const   *from , uns
 
       }
 #line 66
-      __builtin_expect(__ret_warn_on != 0, 0L);
+      ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
   }
 #line 68
@@ -5517,7 +5517,7 @@ static ssize_t snd_seq_read(struct file *file , char *buf , size_t count , loff_
   __asm__  ("add %3,%1 ; sbb %0,%0 ; cmp %1,%4 ; sbb $0,%0": "=&r" (flag), "=r" (roksum): "1" (buf),
             "g" ((long )count), "rm" (tmp___0->addr_limit.seg));
 #line 473
-  tmp___1 = __builtin_expect(flag == 0UL, 1L);
+  tmp___1 = ldv__builtin_expect(flag == 0UL, 1L);
 #line 473
   if (tmp___1 == 0L) {
 #line 474
@@ -5528,7 +5528,7 @@ static ssize_t snd_seq_read(struct file *file , char *buf , size_t count , loff_
 #line 477
   __ret_warn_on = (unsigned long )client == (unsigned long )((struct snd_seq_client *)0);
 #line 477
-  tmp___2 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___2 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 477
   if (tmp___2 != 0L) {
 #line 477
@@ -5538,7 +5538,7 @@ static ssize_t snd_seq_read(struct file *file , char *buf , size_t count , loff_
 
   }
 #line 477
-  tmp___3 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___3 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 477
   if (tmp___3 != 0L) {
 #line 478
@@ -6104,7 +6104,7 @@ int snd_seq_dispatch_event(struct snd_seq_event_cell *cell , int atomic , int ho
 #line 900
   __ret_warn_on = (unsigned long )cell == (unsigned long )((struct snd_seq_event_cell *)0);
 #line 900
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 900
   if (tmp != 0L) {
 #line 900
@@ -6114,7 +6114,7 @@ int snd_seq_dispatch_event(struct snd_seq_event_cell *cell , int atomic , int ho
 
   }
 #line 900
-  tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 900
   if (tmp___0 != 0L) {
 #line 901
@@ -6370,7 +6370,7 @@ static ssize_t snd_seq_write(struct file *file , char const   *buf , size_t coun
 #line 1070
   __ret_warn_on = (unsigned long )client == (unsigned long )((struct snd_seq_client *)0);
 #line 1070
-  tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 1070
   if (tmp___0 != 0L) {
 #line 1070
@@ -6380,7 +6380,7 @@ static ssize_t snd_seq_write(struct file *file , char const   *buf , size_t coun
 
   }
 #line 1070
-  tmp___1 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___1 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 1070
   if (tmp___1 != 0L) {
 #line 1071
@@ -6542,7 +6542,7 @@ static unsigned int snd_seq_poll(struct file *file , poll_table *wait )
 #line 1153
   __ret_warn_on = (unsigned long )client == (unsigned long )((struct snd_seq_client *)0);
 #line 1153
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 1153
   if (tmp != 0L) {
 #line 1153
@@ -6552,7 +6552,7 @@ static unsigned int snd_seq_poll(struct file *file , poll_table *wait )
 
   }
 #line 1153
-  tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 1153
   if (tmp___0 != 0L) {
 #line 1154
@@ -8823,7 +8823,7 @@ static long snd_seq_ioctl(struct file *file , unsigned int cmd , unsigned long a
 #line 2273
   __ret_warn_on = (unsigned long )client == (unsigned long )((struct snd_seq_client *)0);
 #line 2273
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 2273
   if (tmp != 0L) {
 #line 2273
@@ -8833,7 +8833,7 @@ static long snd_seq_ioctl(struct file *file , unsigned int cmd , unsigned long a
 
   }
 #line 2273
-  tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 2273
   if (tmp___0 != 0L) {
 #line 2274
@@ -9104,7 +9104,7 @@ static long snd_seq_ioctl_compat(struct file *file , unsigned int cmd , unsigned
 #line 95
   __ret_warn_on = (unsigned long )client == (unsigned long )((struct snd_seq_client *)0);
 #line 95
-  tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 95
   if (tmp___0 != 0L) {
 #line 95
@@ -9114,7 +9114,7 @@ static long snd_seq_ioctl_compat(struct file *file , unsigned int cmd , unsigned
 
   }
 #line 95
-  tmp___1 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___1 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 95
   if (tmp___1 != 0L) {
 #line 96
@@ -9202,7 +9202,7 @@ int snd_seq_create_kernel_client(struct snd_card *card , int client_index , char
 #line 2295
   __ret_warn_on = ((unsigned long )tmp->preempt_count & 134217472UL) != 0UL;
 #line 2295
-  tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 2295
   if (tmp___0 != 0L) {
 #line 2295
@@ -9212,7 +9212,7 @@ int snd_seq_create_kernel_client(struct snd_card *card , int client_index , char
 
   }
 #line 2295
-  tmp___1 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___1 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 2295
   if (tmp___1 != 0L) {
 #line 2296
@@ -9305,7 +9305,7 @@ int snd_seq_delete_kernel_client(int client )
 #line 2345
   __ret_warn_on = ((unsigned long )tmp->preempt_count & 134217472UL) != 0UL;
 #line 2345
-  tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 2345
   if (tmp___0 != 0L) {
 #line 2345
@@ -9315,7 +9315,7 @@ int snd_seq_delete_kernel_client(int client )
 
   }
 #line 2345
-  tmp___1 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___1 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 2345
   if (tmp___1 != 0L) {
 #line 2346
@@ -9355,7 +9355,7 @@ static int kernel_client_enqueue(int client , struct snd_seq_event *ev , struct 
 #line 2369
   __ret_warn_on = (unsigned long )ev == (unsigned long )((struct snd_seq_event *)0);
 #line 2369
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 2369
   if (tmp != 0L) {
 #line 2369
@@ -9365,7 +9365,7 @@ static int kernel_client_enqueue(int client , struct snd_seq_event *ev , struct 
 
   }
 #line 2369
-  tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 2369
   if (tmp___0 != 0L) {
 #line 2370
@@ -9462,7 +9462,7 @@ int snd_seq_kernel_client_dispatch(int client , struct snd_seq_event *ev , int a
 #line 2436
   __ret_warn_on = (unsigned long )ev == (unsigned long )((struct snd_seq_event *)0);
 #line 2436
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 2436
   if (tmp != 0L) {
 #line 2436
@@ -9472,7 +9472,7 @@ int snd_seq_kernel_client_dispatch(int client , struct snd_seq_event *ev , int a
 
   }
 #line 2436
-  tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 2436
   if (tmp___0 != 0L) {
 #line 2437
@@ -10539,7 +10539,7 @@ __inline static int signal_pending(struct task_struct *p )
 #line 2620
   tmp = test_tsk_thread_flag(p, 2);
 #line 2620
-  tmp___0 = __builtin_expect(tmp != 0, 0L);
+  tmp___0 = ldv__builtin_expect(tmp != 0, 0L);
 #line 2620
   return ((int )tmp___0);
 }
@@ -10883,7 +10883,7 @@ void snd_seq_cell_free(struct snd_seq_event_cell *cell )
 #line 254
   __ret_warn_on = (unsigned long )cell == (unsigned long )((struct snd_seq_event_cell *)0);
 #line 254
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 254
   if (tmp != 0L) {
 #line 254
@@ -10893,7 +10893,7 @@ void snd_seq_cell_free(struct snd_seq_event_cell *cell )
 
   }
 #line 254
-  tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 254
   if (tmp___0 != 0L) {
 #line 255
@@ -10906,7 +10906,7 @@ void snd_seq_cell_free(struct snd_seq_event_cell *cell )
 #line 257
   __ret_warn_on___0 = (unsigned long )pool == (unsigned long )((struct snd_seq_pool *)0);
 #line 257
-  tmp___1 = __builtin_expect(__ret_warn_on___0 != 0, 0L);
+  tmp___1 = ldv__builtin_expect(__ret_warn_on___0 != 0, 0L);
 #line 257
   if (tmp___1 != 0L) {
 #line 257
@@ -10916,7 +10916,7 @@ void snd_seq_cell_free(struct snd_seq_event_cell *cell )
 
   }
 #line 257
-  tmp___2 = __builtin_expect(__ret_warn_on___0 != 0, 0L);
+  tmp___2 = ldv__builtin_expect(__ret_warn_on___0 != 0, 0L);
 #line 257
   if (tmp___2 != 0L) {
 #line 258
@@ -11353,7 +11353,7 @@ int snd_seq_pool_init(struct snd_seq_pool *pool )
 #line 447
   __ret_warn_on = (unsigned long )pool == (unsigned long )((struct snd_seq_pool *)0);
 #line 447
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 447
   if (tmp != 0L) {
 #line 447
@@ -11363,7 +11363,7 @@ int snd_seq_pool_init(struct snd_seq_pool *pool )
 
   }
 #line 447
-  tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 447
   if (tmp___0 != 0L) {
 #line 448
@@ -11455,7 +11455,7 @@ int snd_seq_pool_done(struct snd_seq_pool *pool )
 #line 484
   __ret_warn_on = (unsigned long )pool == (unsigned long )((struct snd_seq_pool *)0);
 #line 484
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 484
   if (tmp != 0L) {
 #line 484
@@ -11465,7 +11465,7 @@ int snd_seq_pool_done(struct snd_seq_pool *pool )
 
   }
 #line 484
-  tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 484
   if (tmp___0 != 0L) {
 #line 485
@@ -12484,7 +12484,7 @@ int snd_seq_enqueue_event(struct snd_seq_event_cell *cell , int atomic , int hop
 #line 381
   __ret_warn_on = (unsigned long )cell == (unsigned long )((struct snd_seq_event_cell *)0);
 #line 381
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 381
   if (tmp != 0L) {
 #line 381
@@ -12494,7 +12494,7 @@ int snd_seq_enqueue_event(struct snd_seq_event_cell *cell , int atomic , int hop
 
   }
 #line 381
-  tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 381
   if (tmp___0 != 0L) {
 #line 382
@@ -13289,7 +13289,7 @@ int snd_seq_control_queue(struct snd_seq_event *ev , int atomic , int hop )
 #line 799
   __ret_warn_on = (unsigned long )ev == (unsigned long )((struct snd_seq_event *)0);
 #line 799
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 799
   if (tmp != 0L) {
 #line 799
@@ -13299,7 +13299,7 @@ int snd_seq_control_queue(struct snd_seq_event *ev , int atomic , int hop )
 
   }
 #line 799
-  tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 799
   if (tmp___0 != 0L) {
 #line 800
@@ -13626,7 +13626,7 @@ void snd_seq_fifo_delete(struct snd_seq_fifo **fifo )
 #line 131
   __ret_warn_on = (unsigned long )fifo == (unsigned long )((struct snd_seq_fifo **)0);
 #line 131
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 131
   if (tmp != 0L) {
 #line 131
@@ -13636,7 +13636,7 @@ void snd_seq_fifo_delete(struct snd_seq_fifo **fifo )
 
   }
 #line 131
-  tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 131
   if (tmp___0 != 0L) {
 #line 132
@@ -13649,7 +13649,7 @@ void snd_seq_fifo_delete(struct snd_seq_fifo **fifo )
 #line 134
   __ret_warn_on___0 = (unsigned long )f == (unsigned long )((struct snd_seq_fifo *)0);
 #line 134
-  tmp___1 = __builtin_expect(__ret_warn_on___0 != 0, 0L);
+  tmp___1 = ldv__builtin_expect(__ret_warn_on___0 != 0, 0L);
 #line 134
   if (tmp___1 != 0L) {
 #line 134
@@ -13659,7 +13659,7 @@ void snd_seq_fifo_delete(struct snd_seq_fifo **fifo )
 
   }
 #line 134
-  tmp___2 = __builtin_expect(__ret_warn_on___0 != 0, 0L);
+  tmp___2 = ldv__builtin_expect(__ret_warn_on___0 != 0, 0L);
 #line 134
   if (tmp___2 != 0L) {
 #line 135
@@ -13751,7 +13751,7 @@ int snd_seq_fifo_event_in(struct snd_seq_fifo *f , struct snd_seq_event *event )
 #line 184
   __ret_warn_on = (unsigned long )f == (unsigned long )((struct snd_seq_fifo *)0);
 #line 184
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 184
   if (tmp != 0L) {
 #line 184
@@ -13761,7 +13761,7 @@ int snd_seq_fifo_event_in(struct snd_seq_fifo *f , struct snd_seq_event *event )
 
   }
 #line 184
-  tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 184
   if (tmp___0 != 0L) {
 #line 185
@@ -13882,7 +13882,7 @@ int snd_seq_fifo_cell_out(struct snd_seq_fifo *f , struct snd_seq_event_cell **c
 #line 243
   __ret_warn_on = (unsigned long )f == (unsigned long )((struct snd_seq_fifo *)0);
 #line 243
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 243
   if (tmp != 0L) {
 #line 243
@@ -13892,7 +13892,7 @@ int snd_seq_fifo_cell_out(struct snd_seq_fifo *f , struct snd_seq_event_cell **c
 
   }
 #line 243
-  tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 243
   if (tmp___0 != 0L) {
 #line 244
@@ -14063,7 +14063,7 @@ int snd_seq_fifo_resize(struct snd_seq_fifo *f , int poolsize )
 #line 303
   __ret_warn_on = (unsigned long )f == (unsigned long )((struct snd_seq_fifo *)0) || (unsigned long )f->pool == (unsigned long )((struct snd_seq_pool *)0);
 #line 303
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 303
   if (tmp != 0L) {
 #line 303
@@ -14073,7 +14073,7 @@ int snd_seq_fifo_resize(struct snd_seq_fifo *f , int poolsize )
 
   }
 #line 303
-  tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 303
   if (tmp___0 != 0L) {
 #line 304
@@ -14413,7 +14413,7 @@ int snd_seq_prioq_cell_in(struct snd_seq_prioq *f , struct snd_seq_event_cell *c
 #line 219
   __ret_warn_on = (unsigned long )f == (unsigned long )((struct snd_seq_prioq *)0) || (unsigned long )cell == (unsigned long )((struct snd_seq_event_cell *)0);
 #line 219
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 219
   if (tmp != 0L) {
 #line 219
@@ -14423,7 +14423,7 @@ int snd_seq_prioq_cell_in(struct snd_seq_prioq *f , struct snd_seq_event_cell *c
 
   }
 #line 219
-  tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 219
   if (tmp___0 != 0L) {
 #line 220
@@ -15421,7 +15421,7 @@ int snd_seq_timer_set_tempo(struct snd_seq_timer *tmr , int tempo )
 #line 238
   __ret_warn_on = (unsigned long )tmr == (unsigned long )((struct snd_seq_timer *)0);
 #line 238
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 238
   if (tmp != 0L) {
 #line 238
@@ -15431,7 +15431,7 @@ int snd_seq_timer_set_tempo(struct snd_seq_timer *tmr , int tempo )
 
   }
 #line 238
-  tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 238
   if (tmp___0 != 0L) {
 #line 239
@@ -15478,7 +15478,7 @@ int snd_seq_timer_set_ppq(struct snd_seq_timer *tmr , int ppq )
 #line 256
   __ret_warn_on = (unsigned long )tmr == (unsigned long )((struct snd_seq_timer *)0);
 #line 256
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 256
   if (tmp != 0L) {
 #line 256
@@ -15488,7 +15488,7 @@ int snd_seq_timer_set_ppq(struct snd_seq_timer *tmr , int ppq )
 
   }
 #line 256
-  tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 256
   if (tmp___0 != 0L) {
 #line 257
@@ -15542,7 +15542,7 @@ int snd_seq_timer_set_position_tick(struct snd_seq_timer *tmr , snd_seq_tick_tim
 #line 281
   __ret_warn_on = (unsigned long )tmr == (unsigned long )((struct snd_seq_timer *)0);
 #line 281
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 281
   if (tmp != 0L) {
 #line 281
@@ -15552,7 +15552,7 @@ int snd_seq_timer_set_position_tick(struct snd_seq_timer *tmr , snd_seq_tick_tim
 
   }
 #line 281
-  tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 281
   if (tmp___0 != 0L) {
 #line 282
@@ -15587,7 +15587,7 @@ int snd_seq_timer_set_position_time(struct snd_seq_timer *tmr , snd_seq_real_tim
 #line 297
   __ret_warn_on = (unsigned long )tmr == (unsigned long )((struct snd_seq_timer *)0);
 #line 297
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 297
   if (tmp != 0L) {
 #line 297
@@ -15597,7 +15597,7 @@ int snd_seq_timer_set_position_time(struct snd_seq_timer *tmr , snd_seq_real_tim
 
   }
 #line 297
-  tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 297
   if (tmp___0 != 0L) {
 #line 298
@@ -15632,7 +15632,7 @@ int snd_seq_timer_set_skew(struct snd_seq_timer *tmr , unsigned int skew , unsig
 #line 313
   __ret_warn_on = (unsigned long )tmr == (unsigned long )((struct snd_seq_timer *)0);
 #line 313
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 313
   if (tmp != 0L) {
 #line 313
@@ -15642,7 +15642,7 @@ int snd_seq_timer_set_skew(struct snd_seq_timer *tmr , unsigned int skew , unsig
 
   }
 #line 313
-  tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 313
   if (tmp___0 != 0L) {
 #line 314
@@ -15690,7 +15690,7 @@ int snd_seq_timer_open(struct snd_seq_queue *q )
 #line 335
   __ret_warn_on = (unsigned long )tmr == (unsigned long )((struct snd_seq_timer *)0);
 #line 335
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 335
   if (tmp != 0L) {
 #line 335
@@ -15700,7 +15700,7 @@ int snd_seq_timer_open(struct snd_seq_queue *q )
 
   }
 #line 335
-  tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 335
   if (tmp___0 != 0L) {
 #line 336
@@ -15791,7 +15791,7 @@ int snd_seq_timer_close(struct snd_seq_queue *q )
 #line 373
   __ret_warn_on = (unsigned long )tmr == (unsigned long )((struct snd_seq_timer *)0);
 #line 373
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 373
   if (tmp != 0L) {
 #line 373
@@ -15801,7 +15801,7 @@ int snd_seq_timer_close(struct snd_seq_queue *q )
 
   }
 #line 373
-  tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 373
   if (tmp___0 != 0L) {
 #line 374
@@ -15868,7 +15868,7 @@ static int initialize_timer(struct snd_seq_timer *tmr )
 #line 400
   __ret_warn_on = (unsigned long )t == (unsigned long )((struct snd_timer *)0);
 #line 400
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 400
   if (tmp != 0L) {
 #line 400
@@ -15878,7 +15878,7 @@ static int initialize_timer(struct snd_seq_timer *tmr )
 
   }
 #line 400
-  tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 400
   if (tmp___0 != 0L) {
 #line 401
@@ -16805,7 +16805,7 @@ struct snd_seq_client_port *snd_seq_create_port(struct snd_seq_client *client , 
 #line 197
   __ret_warn_on = (unsigned long )client == (unsigned long )((struct snd_seq_client *)0);
 #line 197
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 197
   if (tmp != 0L) {
 #line 197
@@ -16815,7 +16815,7 @@ struct snd_seq_client_port *snd_seq_create_port(struct snd_seq_client *client , 
 
   }
 #line 197
-  tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 197
   if (tmp___0 != 0L) {
 #line 198
@@ -17077,7 +17077,7 @@ static int port_delete(struct snd_seq_client *client , struct snd_seq_client_por
 #line 336
   __ret_warn_on = port->c_src.count != 0U;
 #line 336
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 336
   if (tmp != 0L) {
 #line 336
@@ -17087,11 +17087,11 @@ static int port_delete(struct snd_seq_client *client , struct snd_seq_client_por
 
   }
 #line 336
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 337
   __ret_warn_on___0 = port->c_dest.count != 0U;
 #line 337
-  tmp___0 = __builtin_expect(__ret_warn_on___0 != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on___0 != 0, 0L);
 #line 337
   if (tmp___0 != 0L) {
 #line 337
@@ -17101,7 +17101,7 @@ static int port_delete(struct snd_seq_client *client , struct snd_seq_client_por
 
   }
 #line 337
-  __builtin_expect(__ret_warn_on___0 != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on___0 != 0, 0L);
 #line 339
   kfree((void const   *)port);
 #line 340
@@ -17255,7 +17255,7 @@ int snd_seq_set_port_info(struct snd_seq_client_port *port , struct snd_seq_port
 #line 404
   __ret_warn_on = (unsigned long )port == (unsigned long )((struct snd_seq_client_port *)0) || (unsigned long )info == (unsigned long )((struct snd_seq_port_info *)0);
 #line 404
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 404
   if (tmp != 0L) {
 #line 404
@@ -17265,7 +17265,7 @@ int snd_seq_set_port_info(struct snd_seq_client_port *port , struct snd_seq_port
 
   }
 #line 404
-  tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 404
   if (tmp___0 != 0L) {
 #line 405
@@ -17311,7 +17311,7 @@ int snd_seq_get_port_info(struct snd_seq_client_port *port , struct snd_seq_port
 #line 434
   __ret_warn_on = (unsigned long )port == (unsigned long )((struct snd_seq_client_port *)0) || (unsigned long )info == (unsigned long )((struct snd_seq_port_info *)0);
 #line 434
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 434
   if (tmp != 0L) {
 #line 434
@@ -17321,7 +17321,7 @@ int snd_seq_get_port_info(struct snd_seq_client_port *port , struct snd_seq_port
 
   }
 #line 434
-  tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 434
   if (tmp___0 != 0L) {
 #line 435
@@ -18267,7 +18267,7 @@ __inline static void ldv_error(void)
 #line 25
 extern int __VERIFIER_nondet_int(void) ;
 #line 49 "/home/mikhail/ldv/kernel-rules/verifier/rcv.h"
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 

@@ -4794,7 +4794,7 @@ enum hrtimer_restart;
 #line 24 "include/linux/sysfs.h"
 enum kobj_ns_type;
 #line 1 "<compiler builtins>"
-long __builtin_expect(long val , long res ) ;
+long ldv__builtin_expect(long val , long res ) ;
 #line 59 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/bitops.h"
 __inline static void ( __attribute__((__always_inline__)) set_bit)(unsigned int nr ,
                                                                    unsigned long volatile   *addr )  __attribute__((__no_instrument_function__)) ;
@@ -7969,7 +7969,7 @@ void ldv_check_final_state(void)
 }
 }
 #line 1036 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/7655/dscv_tempdir/dscv/ri/32_1/drivers/usb/storage/scsiglue.c.common.c"
-long __builtin_expect(long val , long res ) 
+long ldv__builtin_expect(long val , long res ) 
 { 
 
   {
@@ -8108,7 +8108,7 @@ __inline static struct page *sg_page(struct scatterlist *sg )
 #line 98
     __cil_tmp8 = (long )__cil_tmp7;
 #line 98
-    tmp = __builtin_expect(__cil_tmp8, 0L);
+    tmp = ldv__builtin_expect(__cil_tmp8, 0L);
     }
 #line 98
     if (tmp) {
@@ -8164,7 +8164,7 @@ __inline static struct page *sg_page(struct scatterlist *sg )
 #line 99
     __cil_tmp15 = (long )__cil_tmp14;
 #line 99
-    tmp___0 = __builtin_expect(__cil_tmp15, 0L);
+    tmp___0 = ldv__builtin_expect(__cil_tmp15, 0L);
     }
 #line 99
     if (tmp___0) {
@@ -9313,7 +9313,7 @@ __inline static int signal_pending(struct task_struct *p )
 #line 2591
   __cil_tmp5 = (long )tmp___8;
 #line 2591
-  tmp___9 = __builtin_expect(__cil_tmp5, 0L);
+  tmp___9 = ldv__builtin_expect(__cil_tmp5, 0L);
   }
 #line 2591
   return ((int )tmp___9);
@@ -9782,7 +9782,7 @@ __inline static __u16 usb_maxpacket(struct usb_device *udev , int pipe , int is_
 #line 1608
     __cil_tmp17 = (long )__cil_tmp16;
 #line 1608
-    tmp___7 = __builtin_expect(__cil_tmp17, 0L);
+    tmp___7 = ldv__builtin_expect(__cil_tmp17, 0L);
     }
 #line 1608
     if (tmp___7) {
@@ -9803,7 +9803,7 @@ __inline static __u16 usb_maxpacket(struct usb_device *udev , int pipe , int is_
 #line 1608
     __cil_tmp21 = (long )__cil_tmp20;
 #line 1608
-    __builtin_expect(__cil_tmp21, 0L);
+    ldv__builtin_expect(__cil_tmp21, 0L);
 #line 1609
     __cil_tmp22 = epnum * 8UL;
 #line 1609
@@ -9832,7 +9832,7 @@ __inline static __u16 usb_maxpacket(struct usb_device *udev , int pipe , int is_
 #line 1611
     __cil_tmp31 = (long )__cil_tmp30;
 #line 1611
-    tmp___8 = __builtin_expect(__cil_tmp31, 0L);
+    tmp___8 = ldv__builtin_expect(__cil_tmp31, 0L);
     }
 #line 1611
     if (tmp___8) {
@@ -9853,7 +9853,7 @@ __inline static __u16 usb_maxpacket(struct usb_device *udev , int pipe , int is_
 #line 1611
     __cil_tmp35 = (long )__cil_tmp34;
 #line 1611
-    __builtin_expect(__cil_tmp35, 0L);
+    ldv__builtin_expect(__cil_tmp35, 0L);
 #line 1612
     __cil_tmp36 = epnum * 8UL;
 #line 1612
@@ -12568,7 +12568,7 @@ void usb_stor_invoke_transport(struct scsi_cmnd *srb , struct us_data *us )
 #line 668
   __cil_tmp85 = (long )tmp___9;
 #line 668
-  tmp___10 = __builtin_expect(__cil_tmp85, 0L);
+  tmp___10 = ldv__builtin_expect(__cil_tmp85, 0L);
   }
 #line 668
   if (tmp___10) {
@@ -13310,7 +13310,7 @@ void usb_stor_invoke_transport(struct scsi_cmnd *srb , struct us_data *us )
 #line 835
   __cil_tmp297 = (long )tmp___19;
 #line 835
-  tmp___20 = __builtin_expect(__cil_tmp297, 0L);
+  tmp___20 = ldv__builtin_expect(__cil_tmp297, 0L);
   }
 #line 835
   if (tmp___20) {
@@ -14578,7 +14578,7 @@ int usb_stor_Bulk_transport(struct scsi_cmnd *srb , struct us_data *us )
 #line 1066
   __cil_tmp40 = (long )__cil_tmp39;
 #line 1066
-  tmp___8 = __builtin_expect(__cil_tmp40, 0L);
+  tmp___8 = ldv__builtin_expect(__cil_tmp40, 0L);
   }
 #line 1066
   if (tmp___8) {
@@ -14859,7 +14859,7 @@ int usb_stor_Bulk_transport(struct scsi_cmnd *srb , struct us_data *us )
 #line 1104
   __cil_tmp147 = (long )__cil_tmp146;
 #line 1104
-  tmp___9 = __builtin_expect(__cil_tmp147, 0L);
+  tmp___9 = ldv__builtin_expect(__cil_tmp147, 0L);
   }
 #line 1104
   if (tmp___9) {
@@ -16125,7 +16125,7 @@ __inline static long __attribute__((__warn_unused_result__))  IS_ERR(void    *pt
 #line 34
   __cil_tmp7 = (long )__cil_tmp6;
 #line 34
-  tmp = __builtin_expect(__cil_tmp7, 0L);
+  tmp = ldv__builtin_expect(__cil_tmp7, 0L);
   }
 #line 34
   return (tmp);
@@ -21751,7 +21751,7 @@ static void usb_stor_scan_dwork(struct work_struct *work )
 #line 870
       __cil_tmp26 = (long )__cil_tmp25;
 #line 870
-      tmp___7 = __builtin_expect(__cil_tmp26, 0L);
+      tmp___7 = ldv__builtin_expect(__cil_tmp26, 0L);
       }
 #line 870
       if (tmp___7) {
@@ -21850,7 +21850,7 @@ static void usb_stor_scan_dwork(struct work_struct *work )
 #line 879
       __cil_tmp45 = (long )__cil_tmp44;
 #line 879
-      tmp___10 = __builtin_expect(__cil_tmp45, 0L);
+      tmp___10 = ldv__builtin_expect(__cil_tmp45, 0L);
       }
 #line 879
       if (tmp___10) {
@@ -22575,7 +22575,7 @@ int usb_stor_probe2(struct us_data *us )
 #line 1008
         __cil_tmp63 = (long )__cil_tmp62;
 #line 1008
-        tmp___9 = __builtin_expect(__cil_tmp63, 0L);
+        tmp___9 = ldv__builtin_expect(__cil_tmp63, 0L);
         }
 #line 1008
         if (tmp___9) {

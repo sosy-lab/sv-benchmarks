@@ -5656,7 +5656,7 @@ typedef int ldv_func_ret_type___6;
 #line 1 "<compiler builtins>"
 void *__builtin_memcpy(void * , void const   * , unsigned long  ) ;
 #line 1
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 #line 62 "/work/ldvuser/zakharov_benchmarks/bench/cpa/inst/current/envs/linux-3.8-rc1/linux-3.8-rc1/arch/x86/include/asm/bitops.h"
 __inline static void set_bit(unsigned int nr , unsigned long volatile   *addr ) 
 { 
@@ -5747,7 +5747,7 @@ __inline static unsigned long arch_local_save_flags(void)
 #line 825
   __eax = __eax;
 #line 825
-  tmp = __builtin_expect((unsigned long )pv_irq_ops.save_fl.func == (unsigned long )((void *)0),
+  tmp = ldv__builtin_expect((unsigned long )pv_irq_ops.save_fl.func == (unsigned long )((void *)0),
                          0L);
 #line 825
   if (tmp != 0L) {
@@ -5791,7 +5791,7 @@ __inline static void arch_local_irq_restore(unsigned long f )
 #line 830
   __eax = __eax;
 #line 830
-  tmp = __builtin_expect((unsigned long )pv_irq_ops.restore_fl.func == (unsigned long )((void *)0),
+  tmp = ldv__builtin_expect((unsigned long )pv_irq_ops.restore_fl.func == (unsigned long )((void *)0),
                          0L);
 #line 830
   if (tmp != 0L) {
@@ -5833,7 +5833,7 @@ __inline static void arch_local_irq_disable(void)
 #line 835
   __eax = __eax;
 #line 835
-  tmp = __builtin_expect((unsigned long )pv_irq_ops.irq_disable.func == (unsigned long )((void *)0),
+  tmp = ldv__builtin_expect((unsigned long )pv_irq_ops.irq_disable.func == (unsigned long )((void *)0),
                          0L);
 #line 835
   if (tmp != 0L) {
@@ -6260,7 +6260,7 @@ __inline static struct dma_map_ops *get_dma_ops(struct device *dev )
 
   {
 #line 37
-  tmp = __builtin_expect((unsigned long )dev == (unsigned long )((struct device *)0),
+  tmp = ldv__builtin_expect((unsigned long )dev == (unsigned long )((struct device *)0),
                          0L);
 #line 37
   if (tmp != 0L || (unsigned long )dev->archdata.dma_ops == (unsigned long )((struct dma_map_ops *)0)) {
@@ -6293,7 +6293,7 @@ __inline static dma_addr_t dma_map_single_attrs(struct device *dev , void *ptr ,
 #line 19
   tmp___0 = valid_dma_direction((int )dir);
 #line 19
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
 #line 19
   if (tmp___1 != 0L) {
 #line 19
@@ -6336,7 +6336,7 @@ __inline static void dma_unmap_single_attrs(struct device *dev , dma_addr_t addr
 #line 36
   tmp___0 = valid_dma_direction((int )dir);
 #line 36
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
 #line 36
   if (tmp___1 != 0L) {
 #line 36
@@ -6380,7 +6380,7 @@ __inline static void dma_sync_single_for_cpu(struct device *dev , dma_addr_t add
 #line 103
   tmp___0 = valid_dma_direction((int )dir);
 #line 103
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
 #line 103
   if (tmp___1 != 0L) {
 #line 103
@@ -6424,7 +6424,7 @@ __inline static void dma_sync_single_for_device(struct device *dev , dma_addr_t 
 #line 115
   tmp___0 = valid_dma_direction((int )dir);
 #line 115
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
 #line 115
   if (tmp___1 != 0L) {
 #line 115
@@ -6579,7 +6579,7 @@ __inline static void dma_free_attrs(struct device *dev , size_t size , void *vad
 #line 166
   __ret_warn_on = tmp___0 != 0;
 #line 166
-  tmp___1 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___1 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 166
   if (tmp___1 != 0L) {
 #line 166
@@ -6589,7 +6589,7 @@ __inline static void dma_free_attrs(struct device *dev , size_t size , void *vad
 
   }
 #line 166
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 171
   debug_dma_free_coherent(dev, size, vaddr, bus);
 #line 172
@@ -7001,7 +7001,7 @@ __inline static void netif_tx_stop_queue(struct netdev_queue *dev_queue )
 #line 1880
   __ret_warn_on = (unsigned long )dev_queue == (unsigned long )((struct netdev_queue *)0);
 #line 1880
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 1880
   if (tmp != 0L) {
 #line 1880
@@ -7010,7 +7010,7 @@ __inline static void netif_tx_stop_queue(struct netdev_queue *dev_queue )
 
   }
 #line 1880
-  tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 1880
   if (tmp___0 != 0L) {
 #line 1881
@@ -8539,7 +8539,7 @@ static int vortex_probe1(struct device *gendev , void *ioaddr , int irq , int ch
 #line 1411
     descriptor.flags = 0U;
 #line 1411
-    tmp___12 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___12 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1411
     if (tmp___12 != 0L) {
 #line 1411
@@ -9247,7 +9247,7 @@ static int vortex_up(struct net_device *dev )
 #line 1659
     descriptor.flags = 0U;
 #line 1659
-    tmp___6 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___6 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1659
     if (tmp___6 != 0L) {
 #line 1659
@@ -9278,7 +9278,7 @@ static int vortex_up(struct net_device *dev )
 #line 1665
     descriptor___0.flags = 0U;
 #line 1665
-    tmp___7 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___7 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 1665
     if (tmp___7 != 0L) {
 #line 1665
@@ -9329,7 +9329,7 @@ static int vortex_up(struct net_device *dev )
 #line 1689
     descriptor___1.flags = 0U;
 #line 1689
-    tmp___9 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___9 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 1689
     if (tmp___9 != 0L) {
 #line 1689
@@ -9656,7 +9656,7 @@ static int vortex_open(struct net_device *dev )
 #line 1793
       descriptor.flags = 0U;
 #line 1793
-      tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+      tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1793
       if (tmp___1 != 0L) {
 #line 1793
@@ -9853,7 +9853,7 @@ static void vortex_timer(unsigned long data )
 #line 1849
     descriptor.flags = 0U;
 #line 1849
-    tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1849
     if (tmp___0 != 0L) {
 #line 1849
@@ -9875,7 +9875,7 @@ static void vortex_timer(unsigned long data )
 #line 1851
     descriptor___0.flags = 0U;
 #line 1851
-    tmp___1 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 1851
     if (tmp___1 != 0L) {
 #line 1851
@@ -9916,7 +9916,7 @@ static void vortex_timer(unsigned long data )
 #line 1861
       descriptor___1.flags = 0U;
 #line 1861
-      tmp___3 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+      tmp___3 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 1861
       if (tmp___3 != 0L) {
 #line 1861
@@ -9947,7 +9947,7 @@ static void vortex_timer(unsigned long data )
 #line 1866
       descriptor___2.flags = 0U;
 #line 1866
-      tmp___4 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+      tmp___4 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
 #line 1866
       if (tmp___4 != 0L) {
 #line 1866
@@ -9987,7 +9987,7 @@ static void vortex_timer(unsigned long data )
 #line 1879
     descriptor___3.flags = 0U;
 #line 1879
-    tmp___5 = __builtin_expect((long )descriptor___3.flags & 1L, 0L);
+    tmp___5 = ldv__builtin_expect((long )descriptor___3.flags & 1L, 0L);
 #line 1879
     if (tmp___5 != 0L) {
 #line 1879
@@ -10069,7 +10069,7 @@ static void vortex_timer(unsigned long data )
 #line 1901
         descriptor___4.flags = 0U;
 #line 1901
-        tmp___8 = __builtin_expect((long )descriptor___4.flags & 1L, 0L);
+        tmp___8 = ldv__builtin_expect((long )descriptor___4.flags & 1L, 0L);
 #line 1901
         if (tmp___8 != 0L) {
 #line 1901
@@ -10097,7 +10097,7 @@ static void vortex_timer(unsigned long data )
 #line 1905
         descriptor___5.flags = 0U;
 #line 1905
-        tmp___9 = __builtin_expect((long )descriptor___5.flags & 1L, 0L);
+        tmp___9 = ldv__builtin_expect((long )descriptor___5.flags & 1L, 0L);
 #line 1905
         if (tmp___9 != 0L) {
 #line 1905
@@ -10146,7 +10146,7 @@ static void vortex_timer(unsigned long data )
 #line 1921
       descriptor___6.flags = 0U;
 #line 1921
-      tmp___11 = __builtin_expect((long )descriptor___6.flags & 1L, 0L);
+      tmp___11 = ldv__builtin_expect((long )descriptor___6.flags & 1L, 0L);
 #line 1921
       if (tmp___11 != 0L) {
 #line 1921
@@ -10178,7 +10178,7 @@ static void vortex_timer(unsigned long data )
 #line 1929
     descriptor___7.flags = 0U;
 #line 1929
-    tmp___12 = __builtin_expect((long )descriptor___7.flags & 1L, 0L);
+    tmp___12 = ldv__builtin_expect((long )descriptor___7.flags & 1L, 0L);
 #line 1929
     if (tmp___12 != 0L) {
 #line 1929
@@ -10319,7 +10319,7 @@ static void vortex_tx_timeout(struct net_device *dev )
 #line 1979
     descriptor.flags = 0U;
 #line 1979
-    tmp___9 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___9 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1979
     if (tmp___9 != 0L) {
 #line 1979
@@ -10497,7 +10497,7 @@ static void vortex_error(struct net_device *dev , int status )
 #line 2047
       descriptor.flags = 0U;
 #line 2047
-      tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+      tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 2047
       if (tmp___1 != 0L) {
 #line 2047
@@ -10720,7 +10720,7 @@ static netdev_tx_t vortex_start_xmit(struct sk_buff *skb , struct net_device *de
 #line 2149
       descriptor.flags = 0U;
 #line 2149
-      tmp___3 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+      tmp___3 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 2149
       if (tmp___3 != 0L) {
 #line 2149
@@ -10849,7 +10849,7 @@ static netdev_tx_t boomerang_start_xmit(struct sk_buff *skb , struct net_device 
 #line 2175
     descriptor.flags = 0U;
 #line 2175
-    tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 2175
     if (tmp___0 != 0L) {
 #line 2175
@@ -10870,7 +10870,7 @@ static netdev_tx_t boomerang_start_xmit(struct sk_buff *skb , struct net_device 
 #line 2176
     descriptor___0.flags = 0U;
 #line 2176
-    tmp___1 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 2176
     if (tmp___1 != 0L) {
 #line 2176
@@ -11134,7 +11134,7 @@ static irqreturn_t vortex_interrupt(int irq , void *dev_id )
 #line 2287
     descriptor.flags = 0U;
 #line 2287
-    tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 2287
     if (tmp___1 != 0L) {
 #line 2287
@@ -11185,7 +11185,7 @@ static irqreturn_t vortex_interrupt(int irq , void *dev_id )
 #line 2302
     descriptor___0.flags = 0U;
 #line 2302
-    tmp___3 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___3 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 2302
     if (tmp___3 != 0L) {
 #line 2302
@@ -11219,7 +11219,7 @@ static irqreturn_t vortex_interrupt(int irq , void *dev_id )
 #line 2310
     descriptor___1.flags = 0U;
 #line 2310
-    tmp___4 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___4 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 2310
     if (tmp___4 != 0L) {
 #line 2310
@@ -11255,7 +11255,7 @@ static irqreturn_t vortex_interrupt(int irq , void *dev_id )
 #line 2317
       descriptor___2.flags = 0U;
 #line 2317
-      tmp___5 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+      tmp___5 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
 #line 2317
       if (tmp___5 != 0L) {
 #line 2317
@@ -11416,7 +11416,7 @@ static irqreturn_t vortex_interrupt(int irq , void *dev_id )
 #line 2374
     descriptor___3.flags = 0U;
 #line 2374
-    tmp___12 = __builtin_expect((long )descriptor___3.flags & 1L, 0L);
+    tmp___12 = ldv__builtin_expect((long )descriptor___3.flags & 1L, 0L);
 #line 2374
     if (tmp___12 != 0L) {
 #line 2374
@@ -11507,7 +11507,7 @@ static irqreturn_t boomerang_interrupt(int irq , void *dev_id )
 #line 2408
     descriptor.flags = 0U;
 #line 2408
-    tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 2408
     if (tmp___1 != 0L) {
 #line 2408
@@ -11542,7 +11542,7 @@ static irqreturn_t boomerang_interrupt(int irq , void *dev_id )
 #line 2415
       descriptor___0.flags = 0U;
 #line 2415
-      tmp___2 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+      tmp___2 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 2415
       if (tmp___2 != 0L) {
 #line 2415
@@ -11582,7 +11582,7 @@ static irqreturn_t boomerang_interrupt(int irq , void *dev_id )
 #line 2425
     descriptor___1.flags = 0U;
 #line 2425
-    tmp___4 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___4 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 2425
     if (tmp___4 != 0L) {
 #line 2425
@@ -11612,7 +11612,7 @@ static irqreturn_t boomerang_interrupt(int irq , void *dev_id )
 #line 2429
     descriptor___2.flags = 0U;
 #line 2429
-    tmp___5 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+    tmp___5 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
 #line 2429
     if (tmp___5 != 0L) {
 #line 2429
@@ -11643,7 +11643,7 @@ static irqreturn_t boomerang_interrupt(int irq , void *dev_id )
 #line 2434
       descriptor___3.flags = 0U;
 #line 2434
-      tmp___6 = __builtin_expect((long )descriptor___3.flags & 1L, 0L);
+      tmp___6 = ldv__builtin_expect((long )descriptor___3.flags & 1L, 0L);
 #line 2434
       if (tmp___6 != 0L) {
 #line 2434
@@ -11742,7 +11742,7 @@ static irqreturn_t boomerang_interrupt(int irq , void *dev_id )
 #line 2469
       descriptor___4.flags = 0U;
 #line 2469
-      tmp___11 = __builtin_expect((long )descriptor___4.flags & 1L, 0L);
+      tmp___11 = ldv__builtin_expect((long )descriptor___4.flags & 1L, 0L);
 #line 2469
       if (tmp___11 != 0L) {
 #line 2469
@@ -11782,7 +11782,7 @@ static irqreturn_t boomerang_interrupt(int irq , void *dev_id )
 #line 2477
         descriptor___5.flags = 0U;
 #line 2477
-        tmp___12 = __builtin_expect((long )descriptor___5.flags & 1L, 0L);
+        tmp___12 = ldv__builtin_expect((long )descriptor___5.flags & 1L, 0L);
 #line 2477
         if (tmp___12 != 0L) {
 #line 2477
@@ -11880,7 +11880,7 @@ static irqreturn_t boomerang_interrupt(int irq , void *dev_id )
 #line 2508
     descriptor___6.flags = 0U;
 #line 2508
-    tmp___15 = __builtin_expect((long )descriptor___6.flags & 1L, 0L);
+    tmp___15 = ldv__builtin_expect((long )descriptor___6.flags & 1L, 0L);
 #line 2508
     if (tmp___15 != 0L) {
 #line 2508
@@ -11957,7 +11957,7 @@ static int vortex_rx(struct net_device *dev )
 #line 2524
     descriptor.flags = 0U;
 #line 2524
-    tmp___2 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___2 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 2524
     if (tmp___2 != 0L) {
 #line 2524
@@ -11997,7 +11997,7 @@ static int vortex_rx(struct net_device *dev )
 #line 2530
       descriptor___0.flags = 0U;
 #line 2530
-      tmp___4 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+      tmp___4 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 2530
       if (tmp___4 != 0L) {
 #line 2530
@@ -12065,7 +12065,7 @@ static int vortex_rx(struct net_device *dev )
 #line 2544
       descriptor___1.flags = 0U;
 #line 2544
-      tmp___5 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+      tmp___5 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 2544
       if (tmp___5 != 0L) {
 #line 2544
@@ -12297,7 +12297,7 @@ static int boomerang_rx(struct net_device *dev )
 #line 2594
     descriptor.flags = 0U;
 #line 2594
-    tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 2594
     if (tmp___1 != 0L) {
 #line 2594
@@ -12341,7 +12341,7 @@ static int boomerang_rx(struct net_device *dev )
 #line 2602
       descriptor___0.flags = 0U;
 #line 2602
-      tmp___2 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+      tmp___2 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 2602
       if (tmp___2 != 0L) {
 #line 2602
@@ -12409,7 +12409,7 @@ static int boomerang_rx(struct net_device *dev )
 #line 2616
       descriptor___1.flags = 0U;
 #line 2616
-      tmp___3 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+      tmp___3 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 2616
       if (tmp___3 != 0L) {
 #line 2616
@@ -12666,7 +12666,7 @@ static void rx_oom_timer(unsigned long arg )
 #line 2694
     descriptor.flags = 0U;
 #line 2694
-    tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 2694
     if (tmp___1 != 0L) {
 #line 2694
@@ -12852,7 +12852,7 @@ static int vortex_close(struct net_device *dev )
 #line 2751
     descriptor.flags = 0U;
 #line 2751
-    tmp___3 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___3 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 2751
     if (tmp___3 != 0L) {
 #line 2751
@@ -12878,7 +12878,7 @@ static int vortex_close(struct net_device *dev )
 #line 2753
     descriptor___0.flags = 0U;
 #line 2753
-    tmp___4 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___4 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 2753
     if (tmp___4 != 0L) {
 #line 2753
@@ -13380,7 +13380,7 @@ static void vortex_get_strings(struct net_device *dev , u32 stringset , u8 *data
 #line 2962
   __ret_warn_on = 1;
 #line 2962
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 2962
   if (tmp != 0L) {
 #line 2962
@@ -13390,7 +13390,7 @@ static void vortex_get_strings(struct net_device *dev , u32 stringset , u8 *data
 
   }
 #line 2962
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 2963
   goto ldv_41561;
   }
@@ -16158,7 +16158,7 @@ __inline static void ldv_error(void)
 #line 25
 extern int __VERIFIER_nondet_int(void) ;
 #line 49 "/home/ldvuser/ldv_envgen2/kernel-rules/verifier/rcv.h"
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
   {

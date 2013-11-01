@@ -2504,7 +2504,7 @@ struct task_struct {
 #line 1681
 struct pid_namespace;
 #line 1 "<compiler builtins>"
-long __builtin_expect(long val , long res ) ;
+long ldv__builtin_expect(long val , long res ) ;
 #line 100 "include/linux/printk.h"
 extern int ( /* format attribute */  printk)(char const   *fmt  , ...) ;
 #line 147 "include/linux/kernel.h"
@@ -2548,7 +2548,7 @@ __inline static long __attribute__((__warn_unused_result__))  IS_ERR(void const 
 #line 34
   __cil_tmp7 = (long )__cil_tmp6;
 #line 34
-  tmp = __builtin_expect(__cil_tmp7, 0L);
+  tmp = ldv__builtin_expect(__cil_tmp7, 0L);
   }
 #line 34
   return (tmp);
@@ -3042,7 +3042,7 @@ static int write_eraseblock(int ebnum )
 #line 125
   __cil_tmp22 = (long )tmp___8;
 #line 125
-  tmp___9 = __builtin_expect(__cil_tmp22, 0L);
+  tmp___9 = ldv__builtin_expect(__cil_tmp22, 0L);
   }
 #line 125
   if (tmp___9) {
@@ -3128,7 +3128,7 @@ static int write_eraseblock(int ebnum )
 #line 139
   __cil_tmp35 = (long )tmp___11;
 #line 139
-  tmp___12 = __builtin_expect(__cil_tmp35, 0L);
+  tmp___12 = ldv__builtin_expect(__cil_tmp35, 0L);
   }
 #line 139
   if (tmp___12) {
@@ -3320,7 +3320,7 @@ static int write_eraseblock2(int ebnum )
 #line 163
     __cil_tmp33 = (long )tmp___8;
 #line 163
-    tmp___9 = __builtin_expect(__cil_tmp33, 0L);
+    tmp___9 = ldv__builtin_expect(__cil_tmp33, 0L);
     }
 #line 163
     if (tmp___9) {
@@ -3561,7 +3561,7 @@ static int verify_eraseblock(int ebnum )
 #line 200
   __cil_tmp30 = (long )tmp___9;
 #line 200
-  tmp___10 = __builtin_expect(__cil_tmp30, 0L);
+  tmp___10 = ldv__builtin_expect(__cil_tmp30, 0L);
   }
 #line 200
   if (tmp___10) {
@@ -3633,7 +3633,7 @@ static int verify_eraseblock(int ebnum )
 #line 211
   __cil_tmp37 = (long )tmp___12;
 #line 211
-  tmp___13 = __builtin_expect(__cil_tmp37, 0L);
+  tmp___13 = ldv__builtin_expect(__cil_tmp37, 0L);
   }
 #line 211
   if (tmp___13) {
@@ -3700,7 +3700,7 @@ static int verify_eraseblock(int ebnum )
 #line 227
   __cil_tmp45 = (long )tmp___16;
 #line 227
-  tmp___17 = __builtin_expect(__cil_tmp45, 0L);
+  tmp___17 = ldv__builtin_expect(__cil_tmp45, 0L);
   }
 #line 227
   if (tmp___17) {
@@ -3772,7 +3772,7 @@ static int verify_eraseblock(int ebnum )
 #line 238
   __cil_tmp52 = (long )tmp___19;
 #line 238
-  tmp___20 = __builtin_expect(__cil_tmp52, 0L);
+  tmp___20 = ldv__builtin_expect(__cil_tmp52, 0L);
   }
 #line 238
   if (tmp___20) {
@@ -3955,7 +3955,7 @@ static int verify_eraseblock2(int ebnum )
 #line 264
     __cil_tmp38 = (long )tmp___9;
 #line 264
-    tmp___10 = __builtin_expect(__cil_tmp38, 0L);
+    tmp___10 = ldv__builtin_expect(__cil_tmp38, 0L);
     }
 #line 264
     if (tmp___10) {
@@ -4031,7 +4031,7 @@ static int verify_eraseblock2(int ebnum )
 #line 275
     __cil_tmp47 = (long )tmp___12;
 #line 275
-    tmp___13 = __builtin_expect(__cil_tmp47, 0L);
+    tmp___13 = ldv__builtin_expect(__cil_tmp47, 0L);
     }
 #line 275
     if (tmp___13) {
@@ -4183,7 +4183,7 @@ static int verify_eraseblock_ff(int ebnum )
 #line 297
     __cil_tmp30 = (long )tmp___9;
 #line 297
-    tmp___10 = __builtin_expect(__cil_tmp30, 0L);
+    tmp___10 = ldv__builtin_expect(__cil_tmp30, 0L);
     }
 #line 297
     if (tmp___10) {
@@ -4255,7 +4255,7 @@ static int verify_eraseblock_ff(int ebnum )
 #line 308
     __cil_tmp37 = (long )tmp___12;
 #line 308
-    tmp___13 = __builtin_expect(__cil_tmp37, 0L);
+    tmp___13 = ldv__builtin_expect(__cil_tmp37, 0L);
     }
 #line 308
     if (tmp___13) {
@@ -4880,7 +4880,7 @@ static int mtd_subpagetest_init(void)
 #line 439
     __cil_tmp66 = (long )__cil_tmp65;
 #line 439
-    tmp___12 = __builtin_expect(__cil_tmp66, 0L);
+    tmp___12 = ldv__builtin_expect(__cil_tmp66, 0L);
     }
 #line 439
     if (tmp___12) {
@@ -4963,7 +4963,7 @@ static int mtd_subpagetest_init(void)
 #line 453
     __cil_tmp73 = (long )__cil_tmp72;
 #line 453
-    tmp___13 = __builtin_expect(__cil_tmp73, 0L);
+    tmp___13 = ldv__builtin_expect(__cil_tmp73, 0L);
     }
 #line 453
     if (tmp___13) {
@@ -5068,7 +5068,7 @@ static int mtd_subpagetest_init(void)
 #line 476
     __cil_tmp80 = (long )__cil_tmp79;
 #line 476
-    tmp___14 = __builtin_expect(__cil_tmp80, 0L);
+    tmp___14 = ldv__builtin_expect(__cil_tmp80, 0L);
     }
 #line 476
     if (tmp___14) {
@@ -5151,7 +5151,7 @@ static int mtd_subpagetest_init(void)
 #line 491
     __cil_tmp87 = (long )__cil_tmp86;
 #line 491
-    tmp___15 = __builtin_expect(__cil_tmp87, 0L);
+    tmp___15 = ldv__builtin_expect(__cil_tmp87, 0L);
     }
 #line 491
     if (tmp___15) {
@@ -5586,7 +5586,7 @@ void ldv_check_final_state(void)
 }
 }
 #line 628 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/5477/dscv_tempdir/dscv/ri/32_1/drivers/mtd/tests/mtd_subpagetest.c.common.c"
-long __builtin_expect(long val , long res ) 
+long ldv__builtin_expect(long val , long res ) 
 { 
 
   {

@@ -7534,7 +7534,7 @@ void ldv_mutex_unlock_10(struct mutex *ldv_func_arg1 )
 }
 }
 #line 1 "<compiler builtins>"
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 #line 406 "/work/ldvuser/zakharov_benchmarks/bench/cpa/inst/current/envs/linux-3.8-rc1/linux-3.8-rc1/arch/x86/include/asm/bitops.h"
 __inline static int ffs(int x ) 
 { int r ;
@@ -7742,7 +7742,7 @@ __inline static long IS_ERR(void const   *ptr )
 
   {
 #line 34
-  tmp = __builtin_expect((unsigned long )ptr > 0xfffffffffffff000UL, 0L);
+  tmp = ldv__builtin_expect((unsigned long )ptr > 0xfffffffffffff000UL, 0L);
 #line 34
   return (tmp);
 }
@@ -8687,7 +8687,7 @@ static int mthca_cmd_wait(struct mthca_dev *dev , u64 in_param , u64 *out_param 
 #line 542
   spin_lock(& dev->cmd.context_lock);
 #line 543
-  tmp = __builtin_expect(dev->cmd.free_head < 0, 0L);
+  tmp = ldv__builtin_expect(dev->cmd.free_head < 0, 0L);
 #line 543
   if (tmp != 0L) {
 #line 543
@@ -17506,7 +17506,7 @@ __inline static unsigned long arch_local_save_flags(void)
 #line 825
   __eax = __eax;
 #line 825
-  tmp = __builtin_expect((unsigned long )pv_irq_ops.save_fl.func == (unsigned long )((void *)0),
+  tmp = ldv__builtin_expect((unsigned long )pv_irq_ops.save_fl.func == (unsigned long )((void *)0),
                          0L);
 #line 825
   if (tmp != 0L) {
@@ -17590,7 +17590,7 @@ __inline static struct dma_map_ops *get_dma_ops(struct device *dev )
 
   {
 #line 37
-  tmp = __builtin_expect((unsigned long )dev == (unsigned long )((struct device *)0),
+  tmp = ldv__builtin_expect((unsigned long )dev == (unsigned long )((struct device *)0),
                          0L);
 #line 37
   if (tmp != 0L || (unsigned long )dev->archdata.dma_ops == (unsigned long )((struct dma_map_ops *)0)) {
@@ -17729,7 +17729,7 @@ __inline static void dma_free_attrs(struct device *dev , size_t size , void *vad
 #line 166
   __ret_warn_on = tmp___0 != 0;
 #line 166
-  tmp___1 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___1 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 166
   if (tmp___1 != 0L) {
 #line 166
@@ -17739,7 +17739,7 @@ __inline static void dma_free_attrs(struct device *dev , size_t size , void *vad
 
   }
 #line 166
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 171
   debug_dma_free_coherent(dev, size, vaddr, bus);
 #line 172
@@ -18029,7 +18029,7 @@ void mthca_array_clear(struct mthca_array *array , int index )
 #line 276
     descriptor.flags = 0U;
 #line 276
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 276
     if (tmp != 0L) {
 #line 276
@@ -18556,7 +18556,7 @@ __inline static dma_addr_t dma_map_page(struct device *dev , struct page *page ,
 #line 79
   tmp___1 = valid_dma_direction((int )dir);
 #line 79
-  tmp___2 = __builtin_expect(tmp___1 == 0, 0L);
+  tmp___2 = ldv__builtin_expect(tmp___1 == 0, 0L);
 #line 79
   if (tmp___2 != 0L) {
 #line 79
@@ -18592,7 +18592,7 @@ __inline static void dma_unmap_page(struct device *dev , dma_addr_t addr , size_
 #line 91
   tmp___0 = valid_dma_direction((int )dir);
 #line 91
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
 #line 91
   if (tmp___1 != 0L) {
 #line 91
@@ -19106,7 +19106,7 @@ static int mthca_eq_int(struct mthca_dev *dev , struct mthca_eq *eq )
 #line 485
   set_ci = set_ci + 1;
 #line 494
-  tmp___15 = __builtin_expect(set_ci > 127, 0L);
+  tmp___15 = ldv__builtin_expect(set_ci > 127, 0L);
 #line 494
   if (tmp___15 != 0L) {
 #line 499
@@ -21486,7 +21486,7 @@ __inline static int mthca_poll_one(struct mthca_dev *dev , struct mthca_cq *cq ,
 #line 675
     wqe_index = wqe___0 >> wq->wqe_shift;
 #line 681
-    tmp___9 = __builtin_expect(wqe_index < 0, 0L);
+    tmp___9 = ldv__builtin_expect(wqe_index < 0, 0L);
 #line 681
     if (tmp___9 != 0L) {
 #line 682
@@ -21662,7 +21662,7 @@ __inline static int mthca_poll_one(struct mthca_dev *dev , struct mthca_cq *cq ,
   entry->status = 0;
   out: 
 #line 773
-  tmp___18 = __builtin_expect(free_cqe != 0, 1L);
+  tmp___18 = ldv__builtin_expect(free_cqe != 0, 1L);
 #line 773
   if (tmp___18 != 0L) {
 #line 774
@@ -21757,11 +21757,11 @@ int mthca_poll_cq(struct ib_cq *ibcq , int num_entries , struct ib_wc *entry )
 
   }
 #line 816
-  tmp___5 = __builtin_expect(err == -11, 0L);
+  tmp___5 = ldv__builtin_expect(err == -11, 0L);
 #line 816
   if (tmp___5 != 0L) {
 #line 816
-    tmp___6 = __builtin_expect((unsigned long )cq->resize_buf != (unsigned long )((struct mthca_cq_resize *)0),
+    tmp___6 = ldv__builtin_expect((unsigned long )cq->resize_buf != (unsigned long )((struct mthca_cq_resize *)0),
                                0L);
 #line 816
     if (tmp___6 != 0L) {
@@ -21778,7 +21778,7 @@ int mthca_poll_cq(struct ib_cq *ibcq , int num_entries , struct ib_wc *entry )
 #line 816
   if (tmp___7 != 0) {
 #line 816
-    tmp___8 = __builtin_expect((unsigned int )(cq->resize_buf)->state == 1U, 0L);
+    tmp___8 = ldv__builtin_expect((unsigned int )(cq->resize_buf)->state == 1U, 0L);
 #line 816
     if (tmp___8 != 0L) {
 #line 825
@@ -22631,7 +22631,7 @@ __inline static void dma_sync_single_for_cpu(struct device *dev , dma_addr_t add
 #line 103
   tmp___0 = valid_dma_direction((int )dir);
 #line 103
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
 #line 103
   if (tmp___1 != 0L) {
 #line 103
@@ -22675,7 +22675,7 @@ __inline static void dma_sync_single_for_device(struct device *dev , dma_addr_t 
 #line 115
   tmp___0 = valid_dma_direction((int )dir);
 #line 115
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
 #line 115
   if (tmp___1 != 0L) {
 #line 115
@@ -23342,7 +23342,7 @@ static void mthca_arbel_write_mtt_seg(struct mthca_dev *dev , struct mthca_mtt *
 #line 456
   s = (int )((unsigned int )start_index * 8U);
 #line 459
-  tmp = __builtin_expect((unsigned long )s / 4096UL != (((unsigned long )s + (unsigned long )list_len * 8UL) - 1UL) / 4096UL,
+  tmp = ldv__builtin_expect((unsigned long )s / 4096UL != (((unsigned long )s + (unsigned long )list_len * 8UL) - 1UL) / 4096UL,
                          0L);
 #line 459
   if (tmp != 0L) {
@@ -23356,7 +23356,7 @@ static void mthca_arbel_write_mtt_seg(struct mthca_dev *dev , struct mthca_mtt *
 
   }
 #line 461
-  tmp___0 = __builtin_expect(s % dev->limits.mtt_seg_size != 0, 0L);
+  tmp___0 = ldv__builtin_expect(s % dev->limits.mtt_seg_size != 0, 0L);
 #line 461
   if (tmp___0 != 0L) {
 #line 461
@@ -23374,7 +23374,7 @@ static void mthca_arbel_write_mtt_seg(struct mthca_dev *dev , struct mthca_mtt *
 #line 463
   mtts = (__be64 *)tmp___1;
 #line 466
-  tmp___2 = __builtin_expect((unsigned long )mtts == (unsigned long )((__be64 *)0),
+  tmp___2 = ldv__builtin_expect((unsigned long )mtts == (unsigned long )((__be64 *)0),
                              0L);
 #line 466
   if (tmp___2 != 0L) {
@@ -23606,7 +23606,7 @@ int mthca_mr_alloc(struct mthca_dev *dev , u32 pd , int buffer_size_shift , u64 
 #line 558
   __ret_warn_on = buffer_size_shift > 31;
 #line 558
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 558
   if (tmp != 0L) {
 #line 558
@@ -23616,7 +23616,7 @@ int mthca_mr_alloc(struct mthca_dev *dev , u32 pd , int buffer_size_shift , u64 
 
   }
 #line 558
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 560
   key = mthca_alloc(& dev->mr_table.mpt_alloc);
 #line 561
@@ -23977,7 +23977,7 @@ int mthca_fmr_alloc(struct mthca_dev *dev , u32 pd , u32 access , struct mthca_f
 #line 721
     mr->mem.arbel.mpt = (struct mthca_mpt_entry *)tmp___1;
 #line 722
-    tmp___2 = __builtin_expect((unsigned long )mr->mem.arbel.mpt == (unsigned long )((struct mthca_mpt_entry *)0),
+    tmp___2 = ldv__builtin_expect((unsigned long )mr->mem.arbel.mpt == (unsigned long )((struct mthca_mpt_entry *)0),
                                0L);
 #line 722
     if (tmp___2 != 0L) {
@@ -24021,7 +24021,7 @@ int mthca_fmr_alloc(struct mthca_dev *dev , u32 pd , u32 access , struct mthca_f
 #line 736
     mr->mem.arbel.mtts = (__be64 *)tmp___6;
 #line 739
-    tmp___7 = __builtin_expect((unsigned long )mr->mem.arbel.mtts == (unsigned long )((__be64 *)0),
+    tmp___7 = ldv__builtin_expect((unsigned long )mr->mem.arbel.mtts == (unsigned long )((__be64 *)0),
                                0L);
 #line 739
     if (tmp___7 != 0L) {
@@ -27898,7 +27898,7 @@ __inline static int mthca_wq_overflow(struct mthca_wq *wq , int nreq , struct ib
 #line 1670
   cur = wq->head - wq->tail;
 #line 1671
-  tmp = __builtin_expect(cur + (unsigned int )nreq < (unsigned int )wq->max, 1L);
+  tmp = ldv__builtin_expect(cur + (unsigned int )nreq < (unsigned int )wq->max, 1L);
 #line 1671
   if (tmp != 0L) {
 #line 1672
@@ -28349,7 +28349,7 @@ int mthca_tavor_post_send(struct ib_qp *ibqp , struct ib_send_wr *wr , struct ib
 #line 1896
   ind = ind + 1;
 #line 1897
-  tmp___10 = __builtin_expect(qp->sq.max <= ind, 0L);
+  tmp___10 = ldv__builtin_expect(qp->sq.max <= ind, 0L);
 #line 1897
   if (tmp___10 != 0L) {
 #line 1898
@@ -28373,7 +28373,7 @@ int mthca_tavor_post_send(struct ib_qp *ibqp , struct ib_send_wr *wr , struct ib
   ldv_27028: ;
   out: 
 #line 1902
-  tmp___11 = __builtin_expect(nreq != 0, 1L);
+  tmp___11 = ldv__builtin_expect(nreq != 0, 1L);
 #line 1902
   if (tmp___11 != 0L) {
 #line 1903
@@ -28474,7 +28474,7 @@ int mthca_tavor_post_receive(struct ib_qp *ibqp , struct ib_recv_wr *wr , struct
 #line 1972
   size = 1;
 #line 1974
-  tmp___3 = __builtin_expect(wr->num_sge > qp->rq.max_gs, 0L);
+  tmp___3 = ldv__builtin_expect(wr->num_sge > qp->rq.max_gs, 0L);
 #line 1974
   if (tmp___3 != 0L) {
 #line 1975
@@ -28525,7 +28525,7 @@ int mthca_tavor_post_receive(struct ib_qp *ibqp , struct ib_recv_wr *wr , struct
 #line 1994
   ind = ind + 1;
 #line 1995
-  tmp___5 = __builtin_expect(qp->rq.max <= ind, 0L);
+  tmp___5 = ldv__builtin_expect(qp->rq.max <= ind, 0L);
 #line 1995
   if (tmp___5 != 0L) {
 #line 1996
@@ -28536,7 +28536,7 @@ int mthca_tavor_post_receive(struct ib_qp *ibqp , struct ib_recv_wr *wr , struct
 #line 1998
   nreq = nreq + 1;
 #line 1999
-  tmp___6 = __builtin_expect(nreq == 256, 0L);
+  tmp___6 = ldv__builtin_expect(nreq == 256, 0L);
 #line 1999
   if (tmp___6 != 0L) {
 #line 2000
@@ -28567,7 +28567,7 @@ int mthca_tavor_post_receive(struct ib_qp *ibqp , struct ib_recv_wr *wr , struct
   ldv_27054: ;
   out: 
 #line 2014
-  tmp___7 = __builtin_expect(nreq != 0, 1L);
+  tmp___7 = ldv__builtin_expect(nreq != 0, 1L);
 #line 2014
   if (tmp___7 != 0L) {
 #line 2015
@@ -28652,7 +28652,7 @@ int mthca_arbel_post_send(struct ib_qp *ibqp , struct ib_send_wr *wr , struct ib
   goto ldv_27100;
   ldv_27099: 
 #line 2067
-  tmp___3 = __builtin_expect(nreq == 255, 0L);
+  tmp___3 = ldv__builtin_expect(nreq == 255, 0L);
 #line 2067
   if (tmp___3 != 0L) {
 #line 2068
@@ -28924,7 +28924,7 @@ int mthca_arbel_post_send(struct ib_qp *ibqp , struct ib_send_wr *wr , struct ib
 #line 2237
   ind = ind + 1;
 #line 2238
-  tmp___12 = __builtin_expect(qp->sq.max <= ind, 0L);
+  tmp___12 = ldv__builtin_expect(qp->sq.max <= ind, 0L);
 #line 2238
   if (tmp___12 != 0L) {
 #line 2239
@@ -28948,7 +28948,7 @@ int mthca_arbel_post_send(struct ib_qp *ibqp , struct ib_send_wr *wr , struct ib
   ldv_27101: ;
   out: 
 #line 2243
-  tmp___14 = __builtin_expect(nreq != 0, 1L);
+  tmp___14 = ldv__builtin_expect(nreq != 0, 1L);
 #line 2243
   if (tmp___14 != 0L) {
 #line 2244
@@ -29040,7 +29040,7 @@ int mthca_arbel_post_receive(struct ib_qp *ibqp , struct ib_recv_wr *wr , struct
 #line 2308
   wqe = wqe + 16UL;
 #line 2310
-  tmp___3 = __builtin_expect(wr->num_sge > qp->rq.max_gs, 0L);
+  tmp___3 = ldv__builtin_expect(wr->num_sge > qp->rq.max_gs, 0L);
 #line 2310
   if (tmp___3 != 0L) {
 #line 2311
@@ -29085,7 +29085,7 @@ int mthca_arbel_post_receive(struct ib_qp *ibqp , struct ib_recv_wr *wr , struct
 #line 2326
   ind = ind + 1;
 #line 2327
-  tmp___4 = __builtin_expect(qp->rq.max <= ind, 0L);
+  tmp___4 = ldv__builtin_expect(qp->rq.max <= ind, 0L);
 #line 2327
   if (tmp___4 != 0L) {
 #line 2328
@@ -29109,7 +29109,7 @@ int mthca_arbel_post_receive(struct ib_qp *ibqp , struct ib_recv_wr *wr , struct
   ldv_27124: ;
   out: 
 #line 2331
-  tmp___6 = __builtin_expect(nreq != 0, 1L);
+  tmp___6 = ldv__builtin_expect(nreq != 0, 1L);
 #line 2331
   if (tmp___6 != 0L) {
 #line 2332
@@ -30594,7 +30594,7 @@ int mthca_multicast_attach(struct ib_qp *ibqp , union ib_gid *gid , u16 lid )
 #line 324
   if ((err != 0 && link != 0) && index != -1) {
 #line 325
-    tmp___7 = __builtin_expect(dev->limits.num_mgms > index, 0L);
+    tmp___7 = ldv__builtin_expect(dev->limits.num_mgms > index, 0L);
 #line 325
     if (tmp___7 != 0L) {
 #line 325
@@ -30794,7 +30794,7 @@ int mthca_multicast_detach(struct ib_qp *ibqp , union ib_gid *gid , u16 lid )
 #line 404
     if (amgm_index_to_free != 0) {
 #line 405
-      tmp___4 = __builtin_expect(dev->limits.num_mgms > amgm_index_to_free, 0L);
+      tmp___4 = ldv__builtin_expect(dev->limits.num_mgms > amgm_index_to_free, 0L);
 #line 405
       if (tmp___4 != 0L) {
 #line 405
@@ -30845,7 +30845,7 @@ int mthca_multicast_detach(struct ib_qp *ibqp , union ib_gid *gid , u16 lid )
 
     }
 #line 424
-    tmp___7 = __builtin_expect(dev->limits.num_mgms > index, 0L);
+    tmp___7 = ldv__builtin_expect(dev->limits.num_mgms > index, 0L);
 #line 424
     if (tmp___7 != 0L) {
 #line 424
@@ -31905,14 +31905,14 @@ __inline static unsigned long copy_from_user(void *to , void const   *from , uns
 #line 61
   might_fault();
 #line 62
-  tmp___1 = __builtin_expect(sz == -1, 1L);
+  tmp___1 = ldv__builtin_expect(sz == -1, 1L);
 #line 62
   if (tmp___1 != 0L) {
 #line 63
     n = _copy_from_user(to, from, (unsigned int )n);
   } else {
 #line 62
-    tmp___2 = __builtin_expect((unsigned long )sz >= n, 1L);
+    tmp___2 = ldv__builtin_expect((unsigned long )sz >= n, 1L);
 #line 62
     if (tmp___2 != 0L) {
 #line 63
@@ -31921,7 +31921,7 @@ __inline static unsigned long copy_from_user(void *to , void const   *from , uns
 #line 66
       __ret_warn_on = 1;
 #line 66
-      tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+      tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 66
       if (tmp___0 != 0L) {
 #line 66
@@ -31931,7 +31931,7 @@ __inline static unsigned long copy_from_user(void *to , void const   *from , uns
 
       }
 #line 66
-      __builtin_expect(__ret_warn_on != 0, 0L);
+      ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
   }
 #line 68
@@ -35677,7 +35677,7 @@ __inline static void sg_assign_page(struct scatterlist *sg , struct page *page )
 #line 59
   page_link = sg->page_link & 3UL;
 #line 65
-  tmp = __builtin_expect(((unsigned long )page & 3UL) != 0UL, 0L);
+  tmp = ldv__builtin_expect(((unsigned long )page & 3UL) != 0UL, 0L);
 #line 65
   if (tmp != 0L) {
 #line 65
@@ -35690,7 +35690,7 @@ __inline static void sg_assign_page(struct scatterlist *sg , struct page *page )
 
   }
 #line 67
-  tmp___0 = __builtin_expect(sg->sg_magic != 2271560481UL, 0L);
+  tmp___0 = ldv__builtin_expect(sg->sg_magic != 2271560481UL, 0L);
 #line 67
   if (tmp___0 != 0L) {
 #line 67
@@ -35703,7 +35703,7 @@ __inline static void sg_assign_page(struct scatterlist *sg , struct page *page )
 
   }
 #line 68
-  tmp___1 = __builtin_expect((long )((int )sg->page_link) & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )((int )sg->page_link) & 1L, 0L);
 #line 68
   if (tmp___1 != 0L) {
 #line 68
@@ -35744,7 +35744,7 @@ __inline static struct page *sg_page(struct scatterlist *sg )
 
   {
 #line 98
-  tmp = __builtin_expect(sg->sg_magic != 2271560481UL, 0L);
+  tmp = ldv__builtin_expect(sg->sg_magic != 2271560481UL, 0L);
 #line 98
   if (tmp != 0L) {
 #line 98
@@ -35757,7 +35757,7 @@ __inline static struct page *sg_page(struct scatterlist *sg )
 
   }
 #line 99
-  tmp___0 = __builtin_expect((long )((int )sg->page_link) & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )((int )sg->page_link) & 1L, 0L);
 #line 99
   if (tmp___0 != 0L) {
 #line 99
@@ -35858,7 +35858,7 @@ __inline static int dma_map_sg_attrs(struct device *dev , struct scatterlist *sg
 #line 52
   tmp___1 = valid_dma_direction((int )dir);
 #line 52
-  tmp___2 = __builtin_expect(tmp___1 == 0, 0L);
+  tmp___2 = ldv__builtin_expect(tmp___1 == 0, 0L);
 #line 52
   if (tmp___2 != 0L) {
 #line 52
@@ -35895,7 +35895,7 @@ __inline static void dma_unmap_sg_attrs(struct device *dev , struct scatterlist 
 #line 65
   tmp___0 = valid_dma_direction((int )dir);
 #line 65
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
 #line 65
   if (tmp___1 != 0L) {
 #line 65
@@ -36142,7 +36142,7 @@ static int mthca_alloc_icm_coherent(struct device *dev , struct scatterlist *mem
 #line 251
   sg_set_buf(mem, (void const   *)buf, (unsigned int )(4096UL << order));
 #line 252
-  tmp___0 = __builtin_expect(mem->offset != 0U, 0L);
+  tmp___0 = ldv__builtin_expect(mem->offset != 0U, 0L);
 #line 252
   if (tmp___0 != 0L) {
 #line 252
@@ -36176,11 +36176,11 @@ struct mthca_icm *mthca_alloc_icm(struct mthca_dev *dev , int npages , gfp_t gfp
 #line 261
   chunk = 0;
 #line 266
-  tmp = __builtin_expect(coherent != 0, 0L);
+  tmp = ldv__builtin_expect(coherent != 0, 0L);
 #line 266
   if (tmp != 0L) {
 #line 266
-    tmp___0 = __builtin_expect((gfp_mask & 2U) != 0U, 0L);
+    tmp___0 = ldv__builtin_expect((gfp_mask & 2U) != 0U, 0L);
 #line 266
     if (tmp___0 != 0L) {
 #line 266
@@ -38898,7 +38898,7 @@ int mthca_tavor_post_srq_recv(struct ib_srq *ibsrq , struct ib_recv_wr *wr , str
 #line 617
   next_ind = *tmp___2;
 #line 619
-  tmp___3 = __builtin_expect(next_ind < 0, 0L);
+  tmp___3 = ldv__builtin_expect(next_ind < 0, 0L);
 #line 619
   if (tmp___3 != 0L) {
 #line 620
@@ -38921,7 +38921,7 @@ int mthca_tavor_post_srq_recv(struct ib_srq *ibsrq , struct ib_recv_wr *wr , str
 #line 632
   wqe = wqe + 16UL;
 #line 634
-  tmp___4 = __builtin_expect(wr->num_sge > srq->max_gs, 0L);
+  tmp___4 = ldv__builtin_expect(wr->num_sge > srq->max_gs, 0L);
 #line 634
   if (tmp___4 != 0L) {
 #line 635
@@ -38972,7 +38972,7 @@ int mthca_tavor_post_srq_recv(struct ib_srq *ibsrq , struct ib_recv_wr *wr , str
 #line 655
   nreq = nreq + 1;
 #line 656
-  tmp___5 = __builtin_expect(nreq == 256, 0L);
+  tmp___5 = ldv__builtin_expect(nreq == 256, 0L);
 #line 656
   if (tmp___5 != 0L) {
 #line 657
@@ -39000,7 +39000,7 @@ int mthca_tavor_post_srq_recv(struct ib_srq *ibsrq , struct ib_recv_wr *wr , str
   }
   ldv_26609: 
 #line 673
-  tmp___6 = __builtin_expect(nreq != 0, 1L);
+  tmp___6 = ldv__builtin_expect(nreq != 0, 1L);
 #line 673
   if (tmp___6 != 0L) {
 #line 678
@@ -39068,7 +39068,7 @@ int mthca_arbel_post_srq_recv(struct ib_srq *ibsrq , struct ib_recv_wr *wr , str
 #line 713
   next_ind = *tmp___2;
 #line 715
-  tmp___3 = __builtin_expect(next_ind < 0, 0L);
+  tmp___3 = ldv__builtin_expect(next_ind < 0, 0L);
 #line 715
   if (tmp___3 != 0L) {
 #line 716
@@ -39087,7 +39087,7 @@ int mthca_arbel_post_srq_recv(struct ib_srq *ibsrq , struct ib_recv_wr *wr , str
 #line 725
   wqe = wqe + 16UL;
 #line 727
-  tmp___4 = __builtin_expect(wr->num_sge > srq->max_gs, 0L);
+  tmp___4 = ldv__builtin_expect(wr->num_sge > srq->max_gs, 0L);
 #line 727
   if (tmp___4 != 0L) {
 #line 728
@@ -39146,7 +39146,7 @@ int mthca_arbel_post_srq_recv(struct ib_srq *ibsrq , struct ib_recv_wr *wr , str
   }
   ldv_26632: 
 #line 745
-  tmp___6 = __builtin_expect(nreq != 0, 1L);
+  tmp___6 = ldv__builtin_expect(nreq != 0, 1L);
 #line 745
   if (tmp___6 != 0L) {
 #line 746
@@ -39956,7 +39956,7 @@ __inline static void ldv_error(void)
 #line 25
 extern int __VERIFIER_nondet_int(void) ;
 #line 49 "/home/ldvuser/ldv_envgen2/kernel-rules/verifier/rcv.h"
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
   {

@@ -2159,7 +2159,7 @@ struct rtc_plat_data {
    spinlock_t lock ;
 };
 #line 1 "<compiler builtins>"
-long __builtin_expect(long val , long res ) ;
+long ldv__builtin_expect(long val , long res ) ;
 #line 6 "include/linux/bcd.h"
 extern unsigned int bcd2bin(unsigned char val )  __attribute__((__const__)) ;
 #line 7
@@ -2199,7 +2199,7 @@ __inline static long __attribute__((__warn_unused_result__))  IS_ERR(void const 
 #line 34
   __cil_tmp7 = (long )__cil_tmp6;
 #line 34
-  tmp = __builtin_expect(__cil_tmp7, 0L);
+  tmp = ldv__builtin_expect(__cil_tmp7, 0L);
   }
 #line 34
   return (tmp);
@@ -4108,7 +4108,7 @@ static irqreturn_t stk17ta8_rtc_interrupt(int irq , void *dev_id )
 #line 218
     __cil_tmp27 = (long )__cil_tmp26;
 #line 218
-    tmp___1 = __builtin_expect(__cil_tmp27, 1L);
+    tmp___1 = ldv__builtin_expect(__cil_tmp27, 1L);
     }
 #line 218
     if (tmp___1) {
@@ -5611,7 +5611,7 @@ void ldv_check_final_state(void)
 }
 }
 #line 1201 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/6261/dscv_tempdir/dscv/ri/32_1/drivers/rtc/rtc-stk17ta8.c.common.c"
-long __builtin_expect(long val , long res ) 
+long ldv__builtin_expect(long val , long res ) 
 { 
 
   {

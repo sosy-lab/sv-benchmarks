@@ -950,7 +950,7 @@ struct w1_master {
    u32 seq ;
 };
 #line 1 "<compiler builtins>"
-long __builtin_expect(long val , long res ) ;
+long ldv__builtin_expect(long val , long res ) ;
 #line 49 "include/linux/dynamic_debug.h"
 extern int ( /* format attribute */  __dynamic_dev_dbg)(struct _ddebug *descriptor ,
                                                         struct device  const  *dev ,
@@ -1224,7 +1224,7 @@ static int _read_reg(struct w1_slave *sl , u8 address , unsigned char *buf )
 #line 49
       __cil_tmp14 = (long )__cil_tmp13;
 #line 49
-      tmp = __builtin_expect(__cil_tmp14, 0L);
+      tmp = ldv__builtin_expect(__cil_tmp14, 0L);
       }
 #line 49
       if (tmp) {
@@ -1301,7 +1301,7 @@ static int _read_reg(struct w1_slave *sl , u8 address , unsigned char *buf )
 #line 57
       __cil_tmp31 = (long )__cil_tmp30;
 #line 57
-      tmp___0 = __builtin_expect(__cil_tmp31, 0L);
+      tmp___0 = ldv__builtin_expect(__cil_tmp31, 0L);
       }
 #line 57
       if (tmp___0) {
@@ -1437,7 +1437,7 @@ static int _read_reg(struct w1_slave *sl , u8 address , unsigned char *buf )
 #line 71
       __cil_tmp69 = (long )__cil_tmp68;
 #line 71
-      tmp___2 = __builtin_expect(__cil_tmp69, 0L);
+      tmp___2 = ldv__builtin_expect(__cil_tmp69, 0L);
       }
 #line 71
       if (tmp___2) {
@@ -1522,7 +1522,7 @@ static ssize_t w1_f29_read_state(struct file *filp , struct kobject *kobj , stru
 #line 80
       __cil_tmp16 = (long )__cil_tmp15;
 #line 80
-      tmp___0 = __builtin_expect(__cil_tmp16, 0L);
+      tmp___0 = ldv__builtin_expect(__cil_tmp16, 0L);
       }
 #line 80
       if (tmp___0) {
@@ -1636,7 +1636,7 @@ static ssize_t w1_f29_read_output(struct file *filp , struct kobject *kobj , str
 #line 93
       __cil_tmp16 = (long )__cil_tmp15;
 #line 93
-      tmp___0 = __builtin_expect(__cil_tmp16, 0L);
+      tmp___0 = ldv__builtin_expect(__cil_tmp16, 0L);
       }
 #line 93
       if (tmp___0) {
@@ -1750,7 +1750,7 @@ static ssize_t w1_f29_read_activity(struct file *filp , struct kobject *kobj , s
 #line 107
       __cil_tmp16 = (long )__cil_tmp15;
 #line 107
-      tmp___0 = __builtin_expect(__cil_tmp16, 0L);
+      tmp___0 = ldv__builtin_expect(__cil_tmp16, 0L);
       }
 #line 107
       if (tmp___0) {
@@ -1866,7 +1866,7 @@ static ssize_t w1_f29_read_cond_search_mask(struct file *filp , struct kobject *
 #line 121
       __cil_tmp16 = (long )__cil_tmp15;
 #line 121
-      tmp___0 = __builtin_expect(__cil_tmp16, 0L);
+      tmp___0 = ldv__builtin_expect(__cil_tmp16, 0L);
       }
 #line 121
       if (tmp___0) {
@@ -2189,7 +2189,7 @@ static ssize_t w1_f29_write_output(struct file *filp , struct kobject *kobj , st
 #line 168
       __cil_tmp25 = (long )__cil_tmp24;
 #line 168
-      tmp___0 = __builtin_expect(__cil_tmp25, 0L);
+      tmp___0 = ldv__builtin_expect(__cil_tmp25, 0L);
       }
 #line 168
       if (tmp___0) {
@@ -2256,7 +2256,7 @@ static ssize_t w1_f29_write_output(struct file *filp , struct kobject *kobj , st
 #line 170
       __cil_tmp41 = (long )__cil_tmp40;
 #line 170
-      tmp___1 = __builtin_expect(__cil_tmp41, 0L);
+      tmp___1 = ldv__builtin_expect(__cil_tmp41, 0L);
       }
 #line 170
       if (tmp___1) {
@@ -2480,7 +2480,7 @@ static ssize_t w1_f29_write_output(struct file *filp , struct kobject *kobj , st
 #line 205
           __cil_tmp100 = (long )__cil_tmp99;
 #line 205
-          tmp___4 = __builtin_expect(__cil_tmp100, 0L);
+          tmp___4 = ldv__builtin_expect(__cil_tmp100, 0L);
           }
 #line 205
           if (tmp___4) {
@@ -2558,7 +2558,7 @@ static ssize_t w1_f29_write_output(struct file *filp , struct kobject *kobj , st
 #line 212
       __cil_tmp116 = (long )__cil_tmp115;
 #line 212
-      tmp___7 = __builtin_expect(__cil_tmp116, 0L);
+      tmp___7 = ldv__builtin_expect(__cil_tmp116, 0L);
       }
 #line 212
       if (tmp___7) {
@@ -3624,7 +3624,7 @@ void ldv_check_final_state(void)
 }
 }
 #line 630 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/12354/dscv_tempdir/dscv/ri/32_1/drivers/w1/slaves/w1_ds2408.c.common.c"
-long __builtin_expect(long val , long res ) 
+long ldv__builtin_expect(long val , long res ) 
 { 
 
   {

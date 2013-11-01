@@ -4108,7 +4108,7 @@ struct xpc_notify_mq_msg_uv {
    unsigned long payload ;
 };
 #line 1 "<compiler builtins>"
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 #line 324 "/work/ldvuser/zakharov_benchmarks/bench/cpa/inst/current/envs/linux-3.8-rc1/linux-3.8-rc1/arch/x86/include/asm/bitops.h"
 __inline static int variable_test_bit(int nr , unsigned long const volatile   *addr ) 
 { int oldbit ;
@@ -4205,7 +4205,7 @@ __inline static long IS_ERR(void const   *ptr )
 
   {
 #line 34
-  tmp = __builtin_expect((unsigned long )ptr > 0xfffffffffffff000UL, 0L);
+  tmp = ldv__builtin_expect((unsigned long )ptr > 0xfffffffffffff000UL, 0L);
 #line 34
   return (tmp);
 }
@@ -4379,7 +4379,7 @@ __inline static int __atomic_add_unless(atomic_t *v , int a , int u )
   c = atomic_read((atomic_t const   *)v);
   ldv_5523: 
 #line 217
-  tmp = __builtin_expect(c == u, 0L);
+  tmp = ldv__builtin_expect(c == u, 0L);
 #line 217
   if (tmp != 0L) {
 #line 218
@@ -4390,7 +4390,7 @@ __inline static int __atomic_add_unless(atomic_t *v , int a , int u )
 #line 219
   old = atomic_cmpxchg(v, c, c + a);
 #line 220
-  tmp___0 = __builtin_expect(old == c, 1L);
+  tmp___0 = ldv__builtin_expect(old == c, 1L);
 #line 220
   if (tmp___0 != 0L) {
 #line 221
@@ -4646,7 +4646,7 @@ __inline static int signal_pending(struct task_struct *p )
 #line 2620
   tmp = test_tsk_thread_flag(p, 2);
 #line 2620
-  tmp___0 = __builtin_expect(tmp != 0, 0L);
+  tmp___0 = ldv__builtin_expect(tmp != 0, 0L);
 #line 2620
   return ((int )tmp___0);
 }
@@ -5164,7 +5164,7 @@ static int xpc_hb_checker(void *ignore )
 #line 326
   descriptor.flags = 0U;
 #line 326
-  tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 326
   if (tmp___1 != 0L) {
 #line 326
@@ -5191,7 +5191,7 @@ static int xpc_hb_checker(void *ignore )
 #line 336
     descriptor___0.flags = 0U;
 #line 336
-    tmp___2 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___2 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 336
     if (tmp___2 != 0L) {
 #line 336
@@ -5221,7 +5221,7 @@ static int xpc_hb_checker(void *ignore )
 #line 350
     descriptor___1.flags = 0U;
 #line 350
-    tmp___3 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___3 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 350
     if (tmp___3 != 0L) {
 #line 350
@@ -5311,7 +5311,7 @@ static int xpc_hb_checker(void *ignore )
 #line 365
   descriptor___2.flags = 0U;
 #line 365
-  tmp___7 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+  tmp___7 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
 #line 365
   if (tmp___7 != 0L) {
 #line 365
@@ -5346,7 +5346,7 @@ static int xpc_initiate_discovery(void *ignore )
 #line 382
   descriptor.flags = 0U;
 #line 382
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 382
   if (tmp != 0L) {
 #line 382
@@ -5806,7 +5806,7 @@ static int xpc_activating(void *__partid )
 #line 617
   descriptor.flags = 0U;
 #line 617
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 617
   if (tmp___0 != 0L) {
 #line 617
@@ -5968,7 +5968,7 @@ void xpc_activate_kthreads(struct xpc_channel *ch , int needed )
 #line 684
     descriptor.flags = 0U;
 #line 684
-    tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 684
     if (tmp___1 != 0L) {
 #line 684
@@ -6016,7 +6016,7 @@ void xpc_activate_kthreads(struct xpc_channel *ch , int needed )
 #line 700
   descriptor___0.flags = 0U;
 #line 700
-  tmp___2 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___2 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 700
   if (tmp___2 != 0L) {
 #line 700
@@ -6091,7 +6091,7 @@ static void xpc_kthread_waitmsgs(struct xpc_partition *part , struct xpc_channel
 #line 730
   descriptor.flags = 0U;
 #line 730
-  tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 730
   if (tmp___1 != 0L) {
 #line 730
@@ -6215,7 +6215,7 @@ static int xpc_kthread_start(void *args )
 #line 754
   descriptor.flags = 0U;
 #line 754
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 754
   if (tmp != 0L) {
 #line 754
@@ -6322,7 +6322,7 @@ static int xpc_kthread_start(void *args )
 #line 814
   descriptor___0.flags = 0U;
 #line 814
-  tmp___7 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___7 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 814
   if (tmp___7 != 0L) {
 #line 814
@@ -6375,7 +6375,7 @@ void xpc_create_kthreads(struct xpc_channel *ch , int needed , int ignore_discon
 #line 852
     if (tmp___2 == 0) {
 #line 854
-      tmp = __builtin_expect((ch->flags & 524288U) == 0U, 0L);
+      tmp = ldv__builtin_expect((ch->flags & 524288U) == 0U, 0L);
 #line 854
       if (tmp != 0L) {
 #line 854
@@ -7900,7 +7900,7 @@ static void xpc_process_openclose_chctl_flags(struct xpc_partition *part , int c
 #line 264
     descriptor.flags = 0U;
 #line 264
-    tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 264
     if (tmp___0 != 0L) {
 #line 264
@@ -8002,7 +8002,7 @@ static void xpc_process_openclose_chctl_flags(struct xpc_partition *part , int c
 #line 339
     descriptor___0.flags = 0U;
 #line 339
-    tmp___1 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 339
     if (tmp___1 != 0L) {
 #line 339
@@ -8063,7 +8063,7 @@ static void xpc_process_openclose_chctl_flags(struct xpc_partition *part , int c
 #line 372
     descriptor___1.flags = 0U;
 #line 372
-    tmp___2 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___2 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 372
     if (tmp___2 != 0L) {
 #line 372
@@ -8143,7 +8143,7 @@ static void xpc_process_openclose_chctl_flags(struct xpc_partition *part , int c
 #line 424
     descriptor___2.flags = 0U;
 #line 424
-    tmp___3 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+    tmp___3 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
 #line 424
     if (tmp___3 != 0L) {
 #line 424
@@ -8197,7 +8197,7 @@ static void xpc_process_openclose_chctl_flags(struct xpc_partition *part , int c
 #line 462
       descriptor___3.flags = 0U;
 #line 462
-      tmp___4 = __builtin_expect((long )descriptor___3.flags & 1L, 0L);
+      tmp___4 = ldv__builtin_expect((long )descriptor___3.flags & 1L, 0L);
 #line 462
       if (tmp___4 != 0L) {
 #line 462
@@ -8227,7 +8227,7 @@ static void xpc_process_openclose_chctl_flags(struct xpc_partition *part , int c
 #line 471
       descriptor___4.flags = 0U;
 #line 471
-      tmp___5 = __builtin_expect((long )descriptor___4.flags & 1L, 0L);
+      tmp___5 = ldv__builtin_expect((long )descriptor___4.flags & 1L, 0L);
 #line 471
       if (tmp___5 != 0L) {
 #line 471
@@ -8262,7 +8262,7 @@ static void xpc_process_openclose_chctl_flags(struct xpc_partition *part , int c
 #line 485
     descriptor___5.flags = 0U;
 #line 485
-    tmp___6 = __builtin_expect((long )descriptor___5.flags & 1L, 0L);
+    tmp___6 = ldv__builtin_expect((long )descriptor___5.flags & 1L, 0L);
 #line 485
     if (tmp___6 != 0L) {
 #line 485
@@ -8520,7 +8520,7 @@ void xpc_partition_going_down(struct xpc_partition *part , enum xp_retval reason
 #line 677
   descriptor.flags = 0U;
 #line 677
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 677
   if (tmp != 0L) {
 #line 677
@@ -8646,7 +8646,7 @@ void xpc_connected_callout(struct xpc_channel *ch )
 #line 739
     descriptor.flags = 0U;
 #line 739
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 739
     if (tmp != 0L) {
 #line 739
@@ -8671,7 +8671,7 @@ void xpc_connected_callout(struct xpc_channel *ch )
 #line 745
     descriptor___0.flags = 0U;
 #line 745
-    tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 745
     if (tmp___0 != 0L) {
 #line 745
@@ -8785,7 +8785,7 @@ void xpc_disconnect_channel(int const   line , struct xpc_channel *ch , enum xp_
 #line 822
   descriptor.flags = 0U;
 #line 822
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 822
   if (tmp != 0L) {
 #line 822
@@ -8868,7 +8868,7 @@ void xpc_disconnect_callout(struct xpc_channel *ch , enum xp_retval reason )
 #line 867
     descriptor.flags = 0U;
 #line 867
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 867
     if (tmp != 0L) {
 #line 867
@@ -8892,7 +8892,7 @@ void xpc_disconnect_callout(struct xpc_channel *ch , enum xp_retval reason )
 #line 872
     descriptor___0.flags = 0U;
 #line 872
-    tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 872
     if (tmp___0 != 0L) {
 #line 872
@@ -8973,7 +8973,7 @@ enum xp_retval xpc_initiate_send(short partid , int ch_number , u32 flags , void
 #line 932
   descriptor.flags = 0U;
 #line 932
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 932
   if (tmp != 0L) {
 #line 932
@@ -9030,7 +9030,7 @@ enum xp_retval xpc_initiate_send_notify(short partid , int ch_number , u32 flags
 #line 983
   descriptor.flags = 0U;
 #line 983
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 983
   if (tmp != 0L) {
 #line 983
@@ -9089,7 +9089,7 @@ void xpc_deliver_payload(struct xpc_channel *ch )
 #line 1020
       descriptor.flags = 0U;
 #line 1020
-      tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+      tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1020
       if (tmp != 0L) {
 #line 1020
@@ -9113,7 +9113,7 @@ void xpc_deliver_payload(struct xpc_channel *ch )
 #line 1028
       descriptor___0.flags = 0U;
 #line 1028
-      tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+      tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 1028
       if (tmp___0 != 0L) {
 #line 1028
@@ -9497,7 +9497,7 @@ static unsigned long xpc_get_rsvd_page_pa(int nasid )
 #line 143
   descriptor.flags = 0U;
 #line 143
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 143
   if (tmp != 0L) {
 #line 143
@@ -9560,7 +9560,7 @@ static unsigned long xpc_get_rsvd_page_pa(int nasid )
 #line 170
     descriptor___0.flags = 0U;
 #line 170
-    tmp___1 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 170
     if (tmp___1 != 0L) {
 #line 170
@@ -9599,7 +9599,7 @@ static unsigned long xpc_get_rsvd_page_pa(int nasid )
 #line 180
   descriptor___1.flags = 0U;
 #line 180
-  tmp___2 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+  tmp___2 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 180
   if (tmp___2 != 0L) {
 #line 180
@@ -9809,7 +9809,7 @@ int xpc_setup_rsvd_page(void)
 
   }
 #line 212
-  tmp___3 = __builtin_expect((int )rp->SAL_partid != (int )xp_partition_id, 0L);
+  tmp___3 = ldv__builtin_expect((int )rp->SAL_partid != (int )xp_partition_id, 0L);
 #line 212
   if (tmp___3 != 0L) {
 #line 212
@@ -10060,7 +10060,7 @@ enum xp_retval xpc_mark_partition_active(struct xpc_partition *part )
 #line 373
   descriptor.flags = 0U;
 #line 373
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 373
   if (tmp != 0L) {
 #line 373
@@ -10168,7 +10168,7 @@ void xpc_deactivate_partition(int const   line , struct xpc_partition *part , en
 #line 430
   descriptor.flags = 0U;
 #line 430
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 430
   if (tmp___0 != 0L) {
 #line 430
@@ -10205,7 +10205,7 @@ void xpc_mark_partition_inactive(struct xpc_partition *part )
 #line 444
   descriptor.flags = 0U;
 #line 444
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 444
   if (tmp != 0L) {
 #line 444
@@ -10338,7 +10338,7 @@ void xpc_discovery(void)
 #line 520
   descriptor.flags = 0U;
 #line 520
-  tmp___2 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___2 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 520
   if (tmp___2 != 0L) {
 #line 520
@@ -10372,7 +10372,7 @@ void xpc_discovery(void)
 #line 528
   descriptor___0.flags = 0U;
 #line 528
-  tmp___3 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___3 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 528
   if (tmp___3 != 0L) {
 #line 528
@@ -10398,7 +10398,7 @@ void xpc_discovery(void)
 #line 531
     descriptor___1.flags = 0U;
 #line 531
-    tmp___4 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___4 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 531
     if (tmp___4 != 0L) {
 #line 531
@@ -10429,7 +10429,7 @@ void xpc_discovery(void)
 #line 538
     descriptor___2.flags = 0U;
 #line 538
-    tmp___6 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+    tmp___6 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
 #line 538
     if (tmp___6 != 0L) {
 #line 538
@@ -10460,7 +10460,7 @@ void xpc_discovery(void)
 #line 545
     descriptor___3.flags = 0U;
 #line 545
-    tmp___8 = __builtin_expect((long )descriptor___3.flags & 1L, 0L);
+    tmp___8 = ldv__builtin_expect((long )descriptor___3.flags & 1L, 0L);
 #line 545
     if (tmp___8 != 0L) {
 #line 545
@@ -10491,7 +10491,7 @@ void xpc_discovery(void)
 #line 556
     descriptor___4.flags = 0U;
 #line 556
-    tmp___10 = __builtin_expect((long )descriptor___4.flags & 1L, 0L);
+    tmp___10 = ldv__builtin_expect((long )descriptor___4.flags & 1L, 0L);
 #line 556
     if (tmp___10 != 0L) {
 #line 556
@@ -10728,13 +10728,13 @@ __inline static unsigned int cpumask_check(unsigned int cpu )
 #line 108
   __ret_warn_once = (unsigned int )nr_cpu_ids <= cpu;
 #line 108
-  tmp___1 = __builtin_expect(__ret_warn_once != 0, 0L);
+  tmp___1 = ldv__builtin_expect(__ret_warn_once != 0, 0L);
 #line 108
   if (tmp___1 != 0L) {
 #line 108
     __ret_warn_on = ! __warned;
 #line 108
-    tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 108
     if (tmp != 0L) {
 #line 108
@@ -10743,7 +10743,7 @@ __inline static unsigned int cpumask_check(unsigned int cpu )
 
     }
 #line 108
-    tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 108
     if (tmp___0 != 0L) {
 #line 108
@@ -10755,7 +10755,7 @@ __inline static unsigned int cpumask_check(unsigned int cpu )
 
   }
 #line 108
-  __builtin_expect(__ret_warn_once != 0, 0L);
+  ldv__builtin_expect(__ret_warn_once != 0, 0L);
 #line 110
   return (cpu);
 }
@@ -10913,7 +10913,7 @@ __inline static int gfp_zonelist(gfp_t flags )
 
   {
 #line 272
-  tmp = __builtin_expect((flags & 262144U) != 0U, 0L);
+  tmp = ldv__builtin_expect((flags & 262144U) != 0U, 0L);
 #line 272
   if (tmp != 0L) {
 #line 273
@@ -10962,14 +10962,14 @@ __inline static struct page *alloc_pages_exact_node(int nid , gfp_t gfp_mask , u
 
   {
 #line 323
-  tmp = __builtin_expect(nid < 0, 0L);
+  tmp = ldv__builtin_expect(nid < 0, 0L);
 #line 323
   if (tmp != 0L) {
 #line 323
     tmp___1 = 1;
   } else {
 #line 323
-    tmp___0 = __builtin_expect(nid > 1023, 0L);
+    tmp___0 = ldv__builtin_expect(nid > 1023, 0L);
 #line 323
     if (tmp___0 != 0L) {
 #line 323
@@ -10987,7 +10987,7 @@ __inline static struct page *alloc_pages_exact_node(int nid , gfp_t gfp_mask , u
 #line 323
     tmp___2 = node_state(nid, 1);
 #line 323
-    tmp___3 = __builtin_expect(tmp___2 == 0, 0L);
+    tmp___3 = ldv__builtin_expect(tmp___2 == 0, 0L);
 #line 323
     if (tmp___3 != 0L) {
       _L: /* CIL Label */ 
@@ -11390,7 +11390,7 @@ static void xpc_gru_mq_watchlist_free_uv(struct xpc_gru_mq_uv *mq )
 #line 250
   ret = uv_bios_mq_watchlist_free(mmr_pnode, mq->watchlist_num);
 #line 251
-  tmp___0 = __builtin_expect(ret != 0, 0L);
+  tmp___0 = ldv__builtin_expect(ret != 0, 0L);
 #line 251
   if (tmp___0 != 0L) {
 #line 251
@@ -11596,7 +11596,7 @@ static void xpc_destroy_gru_mq_uv(struct xpc_gru_mq_uv *mq )
 #line 371
   ret = (int )tmp___0;
 #line 372
-  tmp___1 = __builtin_expect(ret != 0, 0L);
+  tmp___1 = ldv__builtin_expect(ret != 0, 0L);
 #line 372
   if (tmp___1 != 0L) {
 #line 372
@@ -11662,7 +11662,7 @@ static enum xp_retval xpc_send_gru_msg(struct gru_message_queue_desc *gru_mq_des
 #line 402
     descriptor.flags = 0U;
 #line 402
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 402
     if (tmp != 0L) {
 #line 402
@@ -11688,7 +11688,7 @@ static enum xp_retval xpc_send_gru_msg(struct gru_message_queue_desc *gru_mq_des
 #line 408
     descriptor___0.flags = 0U;
 #line 408
-    tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 408
     if (tmp___0 != 0L) {
 #line 408
@@ -11744,7 +11744,7 @@ static void xpc_process_activate_IRQ_rcvd_uv(void)
 #line 440
   xpc_activate_IRQ_rcvd = xpc_activate_IRQ_rcvd - 1;
 #line 441
-  tmp___0 = __builtin_expect(xpc_activate_IRQ_rcvd < 0, 0L);
+  tmp___0 = ldv__builtin_expect(xpc_activate_IRQ_rcvd < 0, 0L);
 #line 441
   if (tmp___0 != 0L) {
 #line 441
@@ -12342,7 +12342,7 @@ static void xpc_send_activate_IRQ_part_uv(struct xpc_partition *part , void *msg
 #line 788
   ret = xpc_send_activate_IRQ_uv(part, msg, msg_size, msg_type);
 #line 789
-  tmp = __builtin_expect((unsigned int )ret != 0U, 0L);
+  tmp = ldv__builtin_expect((unsigned int )ret != 0U, 0L);
 #line 789
   if (tmp != 0L) {
 #line 790
@@ -12368,7 +12368,7 @@ static void xpc_send_activate_IRQ_ch_uv(struct xpc_channel *ch , unsigned long *
 #line 800
   ret = xpc_send_activate_IRQ_uv(part, msg, msg_size, msg_type);
 #line 801
-  tmp___0 = __builtin_expect((unsigned int )ret != 0U, 0L);
+  tmp___0 = ldv__builtin_expect((unsigned int )ret != 0U, 0L);
 #line 801
   if (tmp___0 != 0L) {
 #line 802
@@ -12717,7 +12717,7 @@ static void *xpc_get_fifo_entry_uv(struct xpc_fifo_head_uv *head )
 #line 1031
     head->n_entries = head->n_entries - 1;
 #line 1032
-    tmp___0 = __builtin_expect(head->n_entries < 0, 0L);
+    tmp___0 = ldv__builtin_expect(head->n_entries < 0, 0L);
 #line 1032
     if (tmp___0 != 0L) {
 #line 1032
@@ -12846,7 +12846,7 @@ static enum xp_retval xpc_make_first_contact_uv(struct xpc_partition *part )
 #line 1108
   descriptor.flags = 0U;
 #line 1108
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1108
   if (tmp != 0L) {
 #line 1108
@@ -13493,7 +13493,7 @@ static void xpc_notify_sender_uv(struct xpc_channel *ch , struct xpc_send_msg_sl
 #line 1430
       descriptor.flags = 0U;
 #line 1430
-      tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+      tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1430
       if (tmp != 0L) {
 #line 1430
@@ -13517,7 +13517,7 @@ static void xpc_notify_sender_uv(struct xpc_channel *ch , struct xpc_send_msg_sl
 #line 1436
       descriptor___0.flags = 0U;
 #line 1436
-      tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+      tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 1436
       if (tmp___0 != 0L) {
 #line 1436
@@ -13548,7 +13548,7 @@ static void xpc_handle_notify_mq_ack_uv(struct xpc_channel *ch , struct xpc_noti
 #line 1449
   msg_slot = ch->sn.uv.send_msg_slots + (unsigned long )entry;
 #line 1451
-  tmp = __builtin_expect(msg_slot->msg_slot_number != msg->hdr.msg_slot_number, 0L);
+  tmp = ldv__builtin_expect(msg_slot->msg_slot_number != msg->hdr.msg_slot_number, 0L);
 #line 1451
   if (tmp != 0L) {
 #line 1451
@@ -13598,7 +13598,7 @@ static void xpc_handle_notify_mq_msg_uv(struct xpc_partition *part , struct xpc_
 #line 1469
   ch_number = (int )msg->hdr.ch_number;
 #line 1471
-  tmp___0 = __builtin_expect((int )part->nchannels <= ch_number, 0L);
+  tmp___0 = ldv__builtin_expect((int )part->nchannels <= ch_number, 0L);
 #line 1471
   if (tmp___0 != 0L) {
 #line 1472
@@ -13657,7 +13657,7 @@ static void xpc_handle_notify_mq_msg_uv(struct xpc_partition *part , struct xpc_
 #line 1506
   msg_slot = (struct xpc_notify_mq_msg_uv *)ch_uv->recv_msg_slots + (unsigned long )((msg->hdr.msg_slot_number % (unsigned int )ch->remote_nentries) * (unsigned int )ch->entry_size);
 #line 1509
-  tmp___1 = __builtin_expect((unsigned int )msg_slot->hdr.size != 0U, 0L);
+  tmp___1 = ldv__builtin_expect((unsigned int )msg_slot->hdr.size != 0U, 0L);
 #line 1509
   if (tmp___1 != 0L) {
 #line 1509
@@ -15393,7 +15393,7 @@ __inline static void ldv_error(void)
 #line 25
 extern int __VERIFIER_nondet_int(void) ;
 #line 49 "/home/ldvuser/ldv_envgen2/kernel-rules/verifier/rcv.h"
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
   {

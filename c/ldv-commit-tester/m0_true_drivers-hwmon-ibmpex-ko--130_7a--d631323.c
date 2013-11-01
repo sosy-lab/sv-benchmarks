@@ -3223,7 +3223,7 @@ int ldv_device_create_file_7(struct device *ldv_func_arg1 , struct device_attrib
 }
 }
 #line 1 "<compiler builtins>"
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 #line 10 "/work/vladimir/kernel-rules/verifier/rcv.h"
 __inline static void ldv_error(void) 
 { 
@@ -3236,7 +3236,7 @@ __inline static void ldv_error(void)
 }
 }
 #line 49 "/work/vladimir/kernel-rules/verifier/rcv.h"
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 

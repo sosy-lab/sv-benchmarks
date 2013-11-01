@@ -3509,7 +3509,7 @@ struct videobuf_dma_contig_memory {
 #line 1055 "/home/mikhail/launches/cpachecker-regression2/launcher-working-dir/ldv-manager-work-dir/work/current--X--drivers/media/v4l2-core/videobuf-dma-contig.ko--X--regression-testlinux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/32_7a/drivers/media/v4l2-core/videobuf-dma-contig.c.prepared"
 typedef int ldv_func_ret_type___2;
 #line 1 "<compiler builtins>"
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 #line 119 "include/linux/printk.h"
 extern int printk(char const   *  , ...) ;
 #line 53 "include/linux/dynamic_debug.h"
@@ -3585,7 +3585,7 @@ __inline static unsigned long arch_local_save_flags(void)
 #line 825
   __eax = __eax;
 #line 825
-  tmp = __builtin_expect((unsigned long )pv_irq_ops.save_fl.func == (unsigned long )((void *)0),
+  tmp = ldv__builtin_expect((unsigned long )pv_irq_ops.save_fl.func == (unsigned long )((void *)0),
                          0L);
 #line 825
   if (tmp != 0L) {
@@ -3737,7 +3737,7 @@ __inline static struct dma_map_ops *get_dma_ops(struct device *dev )
 
   {
 #line 37
-  tmp = __builtin_expect((unsigned long )dev == (unsigned long )((struct device *)0),
+  tmp = ldv__builtin_expect((unsigned long )dev == (unsigned long )((struct device *)0),
                          0L);
 #line 37
   if (tmp != 0L || (unsigned long )dev->archdata.dma_ops == (unsigned long )((struct dma_map_ops *)0)) {
@@ -3771,7 +3771,7 @@ __inline static dma_addr_t dma_map_single_attrs(struct device *dev , void *ptr ,
 #line 19
   tmp___0 = valid_dma_direction((int )dir);
 #line 19
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
 #line 19
   if (tmp___1 != 0L) {
 #line 19
@@ -3815,7 +3815,7 @@ __inline static void dma_unmap_single_attrs(struct device *dev , dma_addr_t addr
 #line 36
   tmp___0 = valid_dma_direction((int )dir);
 #line 36
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
 #line 36
   if (tmp___1 != 0L) {
 #line 36
@@ -3860,7 +3860,7 @@ __inline static void dma_sync_single_for_cpu(struct device *dev , dma_addr_t add
 #line 103
   tmp___0 = valid_dma_direction((int )dir);
 #line 103
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
 #line 103
   if (tmp___1 != 0L) {
 #line 103
@@ -4041,7 +4041,7 @@ __inline static void dma_free_attrs(struct device *dev , size_t size , void *vad
 #line 166
   __ret_warn_on = tmp___0 != 0;
 #line 166
-  tmp___1 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___1 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 166
   if (tmp___1 != 0L) {
 #line 166
@@ -4051,7 +4051,7 @@ __inline static void dma_free_attrs(struct device *dev , size_t size , void *vad
 
   }
 #line 166
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 171
   debug_dma_free_coherent(dev, size, vaddr, bus);
 #line 172
@@ -4213,7 +4213,7 @@ static int __videobuf_dc_alloc(struct device *dev , struct videobuf_dma_contig_m
 #line 112
   descriptor.flags = 0U;
 #line 112
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 112
   if (tmp != 0L) {
 #line 112
@@ -4278,7 +4278,7 @@ static void videobuf_vm_open(struct vm_area_struct *vma )
 #line 136
   descriptor.flags = 0U;
 #line 136
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 136
   if (tmp != 0L) {
 #line 136
@@ -4326,7 +4326,7 @@ static void videobuf_vm_close(struct vm_area_struct *vma )
 #line 148
   descriptor.flags = 0U;
 #line 148
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 148
   if (tmp != 0L) {
 #line 148
@@ -4352,7 +4352,7 @@ static void videobuf_vm_close(struct vm_area_struct *vma )
 #line 155
     descriptor___0.flags = 0U;
 #line 155
-    tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 155
     if (tmp___0 != 0L) {
 #line 155
@@ -4394,7 +4394,7 @@ static void videobuf_vm_close(struct vm_area_struct *vma )
 #line 170
     if ((unsigned long )mem != (unsigned long )((struct videobuf_dma_contig_memory *)0)) {
 #line 177
-      tmp___1 = __builtin_expect(mem->magic != 120826977U, 0L);
+      tmp___1 = ldv__builtin_expect(mem->magic != 120826977U, 0L);
 #line 177
       if (tmp___1 != 0L) {
 #line 177
@@ -4421,7 +4421,7 @@ static void videobuf_vm_close(struct vm_area_struct *vma )
 #line 182
       descriptor___1.flags = 0U;
 #line 182
-      tmp___2 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+      tmp___2 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 182
       if (tmp___2 != 0L) {
 #line 182
@@ -4649,7 +4649,7 @@ static void *__videobuf_to_vaddr(struct videobuf_buffer *buf )
 #line 305
   mem = (struct videobuf_dma_contig_memory *)buf->priv;
 #line 307
-  tmp = __builtin_expect((unsigned long )mem == (unsigned long )((struct videobuf_dma_contig_memory *)0),
+  tmp = ldv__builtin_expect((unsigned long )mem == (unsigned long )((struct videobuf_dma_contig_memory *)0),
                          0L);
 #line 307
   if (tmp != 0L) {
@@ -4663,7 +4663,7 @@ static void *__videobuf_to_vaddr(struct videobuf_buffer *buf )
 
   }
 #line 308
-  tmp___0 = __builtin_expect(mem->magic != 120826977U, 0L);
+  tmp___0 = ldv__builtin_expect(mem->magic != 120826977U, 0L);
 #line 308
   if (tmp___0 != 0L) {
 #line 308
@@ -4701,7 +4701,7 @@ static int __videobuf_iolock(struct videobuf_queue *q , struct videobuf_buffer *
 #line 317
   mem = (struct videobuf_dma_contig_memory *)vb->priv;
 #line 319
-  tmp = __builtin_expect((unsigned long )mem == (unsigned long )((struct videobuf_dma_contig_memory *)0),
+  tmp = ldv__builtin_expect((unsigned long )mem == (unsigned long )((struct videobuf_dma_contig_memory *)0),
                          0L);
 #line 319
   if (tmp != 0L) {
@@ -4715,7 +4715,7 @@ static int __videobuf_iolock(struct videobuf_queue *q , struct videobuf_buffer *
 
   }
 #line 320
-  tmp___0 = __builtin_expect(mem->magic != 120826977U, 0L);
+  tmp___0 = ldv__builtin_expect(mem->magic != 120826977U, 0L);
 #line 320
   if (tmp___0 != 0L) {
 #line 320
@@ -4745,7 +4745,7 @@ static int __videobuf_iolock(struct videobuf_queue *q , struct videobuf_buffer *
 #line 324
   descriptor.flags = 0U;
 #line 324
-  tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 324
   if (tmp___1 != 0L) {
 #line 324
@@ -4779,7 +4779,7 @@ static int __videobuf_iolock(struct videobuf_queue *q , struct videobuf_buffer *
 #line 333
   descriptor___0.flags = 0U;
 #line 333
-  tmp___2 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___2 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 333
   if (tmp___2 != 0L) {
 #line 333
@@ -4824,7 +4824,7 @@ static int __videobuf_iolock(struct videobuf_queue *q , struct videobuf_buffer *
 #line 346
   descriptor___1.flags = 0U;
 #line 346
-  tmp___5 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+  tmp___5 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 346
   if (tmp___5 != 0L) {
 #line 346
@@ -4852,7 +4852,7 @@ static int __videobuf_sync(struct videobuf_queue *q , struct videobuf_buffer *bu
 #line 356
   mem = (struct videobuf_dma_contig_memory *)buf->priv;
 #line 357
-  tmp = __builtin_expect((unsigned long )mem == (unsigned long )((struct videobuf_dma_contig_memory *)0),
+  tmp = ldv__builtin_expect((unsigned long )mem == (unsigned long )((struct videobuf_dma_contig_memory *)0),
                          0L);
 #line 357
   if (tmp != 0L) {
@@ -4866,7 +4866,7 @@ static int __videobuf_sync(struct videobuf_queue *q , struct videobuf_buffer *bu
 
   }
 #line 358
-  tmp___0 = __builtin_expect(mem->magic != 120826977U, 0L);
+  tmp___0 = ldv__builtin_expect(mem->magic != 120826977U, 0L);
 #line 358
   if (tmp___0 != 0L) {
 #line 358
@@ -4924,7 +4924,7 @@ static int __videobuf_mmap_mapper(struct videobuf_queue *q , struct videobuf_buf
 #line 377
   descriptor.flags = 0U;
 #line 377
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 377
   if (tmp != 0L) {
 #line 377
@@ -4952,7 +4952,7 @@ static int __videobuf_mmap_mapper(struct videobuf_queue *q , struct videobuf_buf
 #line 389
   mem = (struct videobuf_dma_contig_memory *)buf->priv;
 #line 390
-  tmp___1 = __builtin_expect((unsigned long )mem == (unsigned long )((struct videobuf_dma_contig_memory *)0),
+  tmp___1 = ldv__builtin_expect((unsigned long )mem == (unsigned long )((struct videobuf_dma_contig_memory *)0),
                              0L);
 #line 390
   if (tmp___1 != 0L) {
@@ -4966,7 +4966,7 @@ static int __videobuf_mmap_mapper(struct videobuf_queue *q , struct videobuf_buf
 
   }
 #line 391
-  tmp___2 = __builtin_expect(mem->magic != 120826977U, 0L);
+  tmp___2 = ldv__builtin_expect(mem->magic != 120826977U, 0L);
 #line 391
   if (tmp___2 != 0L) {
 #line 391
@@ -5097,7 +5097,7 @@ static int __videobuf_mmap_mapper(struct videobuf_queue *q , struct videobuf_buf
 #line 445
   descriptor___0.flags = 0U;
 #line 445
-  tmp___5 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___5 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 445
   if (tmp___5 != 0L) {
 #line 445
@@ -5167,7 +5167,7 @@ dma_addr_t videobuf_to_dma_contig(struct videobuf_buffer *buf )
 #line 506
   mem = (struct videobuf_dma_contig_memory *)buf->priv;
 #line 508
-  tmp = __builtin_expect((unsigned long )mem == (unsigned long )((struct videobuf_dma_contig_memory *)0),
+  tmp = ldv__builtin_expect((unsigned long )mem == (unsigned long )((struct videobuf_dma_contig_memory *)0),
                          0L);
 #line 508
   if (tmp != 0L) {
@@ -5181,7 +5181,7 @@ dma_addr_t videobuf_to_dma_contig(struct videobuf_buffer *buf )
 
   }
 #line 509
-  tmp___0 = __builtin_expect(mem->magic != 120826977U, 0L);
+  tmp___0 = ldv__builtin_expect(mem->magic != 120826977U, 0L);
 #line 509
   if (tmp___0 != 0L) {
 #line 509
@@ -5223,7 +5223,7 @@ void videobuf_dma_contig_free(struct videobuf_queue *q , struct videobuf_buffer 
 
   }
 #line 532
-  tmp = __builtin_expect(mem->magic != 120826977U, 0L);
+  tmp = ldv__builtin_expect(mem->magic != 120826977U, 0L);
 #line 532
   if (tmp != 0L) {
 #line 532
@@ -5559,7 +5559,7 @@ __inline static void ldv_error(void)
 #line 25
 extern int __VERIFIER_nondet_int(void) ;
 #line 49 "/home/mikhail/ldv/kernel-rules/verifier/rcv.h"
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 

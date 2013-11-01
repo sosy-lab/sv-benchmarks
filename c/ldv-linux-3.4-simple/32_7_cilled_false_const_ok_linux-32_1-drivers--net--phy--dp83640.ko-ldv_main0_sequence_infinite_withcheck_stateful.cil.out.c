@@ -5615,7 +5615,7 @@ struct __anonstruct_358 {
 #line 1 "<compiler builtins>"
 
 #line 1
-long __builtin_expect(long val , long res ) ;
+long ldv__builtin_expect(long val , long res ) ;
 #line 46 "include/linux/swab.h"
 __inline static __u16 __fswab16(__u16 val )  __attribute__((__no_instrument_function__)) ;
 
@@ -5773,7 +5773,7 @@ __inline static long __attribute__((__warn_unused_result__))  IS_ERR(void    *pt
 #line 34
   __cil_tmp7 = (long )__cil_tmp6;
 #line 34
-  tmp = __builtin_expect(__cil_tmp7, 0L);
+  tmp = ldv__builtin_expect(__cil_tmp7, 0L);
   }
 #line 34
   return (tmp);
@@ -6078,7 +6078,7 @@ __inline static unsigned long __attribute__((__warn_unused_result__))  copy_from
 #line 53
   __cil_tmp11 = (long )tmp___9;
 #line 53
-  tmp___10 = __builtin_expect(__cil_tmp11, 1L);
+  tmp___10 = ldv__builtin_expect(__cil_tmp11, 1L);
   }
 #line 53
   if (tmp___10) {
@@ -6099,7 +6099,7 @@ __inline static unsigned long __attribute__((__warn_unused_result__))  copy_from
 #line 57
     __cil_tmp15 = (long )__cil_tmp14;
 #line 57
-    tmp___8 = __builtin_expect(__cil_tmp15, 0L);
+    tmp___8 = ldv__builtin_expect(__cil_tmp15, 0L);
     }
 #line 57
     if (tmp___8) {
@@ -6121,7 +6121,7 @@ __inline static unsigned long __attribute__((__warn_unused_result__))  copy_from
 #line 57
     __cil_tmp19 = (long )__cil_tmp18;
 #line 57
-    __builtin_expect(__cil_tmp19, 0L);
+    ldv__builtin_expect(__cil_tmp19, 0L);
     }
   }
 #line 59
@@ -9972,7 +9972,7 @@ static void decode_rxts(struct dp83640_private *dp83640 , struct phy_rxts *phy_r
 #line 690
       __cil_tmp23 = (long )__cil_tmp22;
 #line 690
-      tmp___8 = __builtin_expect(__cil_tmp23, 0L);
+      tmp___8 = ldv__builtin_expect(__cil_tmp23, 0L);
       }
 #line 690
       if (tmp___8) {
@@ -10101,7 +10101,7 @@ static void decode_txts(struct dp83640_private *dp83640 , struct phy_txts *phy_t
 #line 713
       __cil_tmp15 = (long )__cil_tmp14;
 #line 713
-      tmp___7 = __builtin_expect(__cil_tmp15, 0L);
+      tmp___7 = ldv__builtin_expect(__cil_tmp15, 0L);
       }
 #line 713
       if (tmp___7) {
@@ -10642,7 +10642,7 @@ static int match(struct sk_buff *skb , unsigned int type , struct rxts *rxts )
 #line 830
   __cil_tmp31 = (long )__cil_tmp30;
 #line 830
-  tmp___8 = __builtin_expect(__cil_tmp31, 0L);
+  tmp___8 = ldv__builtin_expect(__cil_tmp31, 0L);
   }
 #line 830
   if (tmp___8) {
@@ -13862,7 +13862,7 @@ void ldv_check_final_state(void)
 }
 }
 #line 1740 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/9660/dscv_tempdir/dscv/ri/32_1/drivers/net/phy/dp83640.c.common.c"
-long __builtin_expect(long val , long res ) 
+long ldv__builtin_expect(long val , long res ) 
 { 
 
   {

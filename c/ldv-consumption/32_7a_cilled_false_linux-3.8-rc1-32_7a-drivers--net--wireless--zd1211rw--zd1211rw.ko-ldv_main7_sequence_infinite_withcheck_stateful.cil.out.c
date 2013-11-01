@@ -6869,7 +6869,7 @@ struct rx_length_info {
    __le16 tag ;
 };
 #line 1 "<compiler builtins>"
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 #line 177 "include/linux/printk.h"
 extern void dump_stack(void) ;
 #line 45 "include/linux/dynamic_debug.h"
@@ -7162,7 +7162,7 @@ __inline static int zd_ioread16v_locked(struct zd_chip *chip , u16 *values , zd_
 #line 813
   tmp___0 = mutex_is_locked(& chip->mutex);
 #line 813
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
 #line 813
   if (tmp___1 != 0L) {
 #line 813
@@ -7178,7 +7178,7 @@ __inline static int zd_ioread16v_locked(struct zd_chip *chip , u16 *values , zd_
 #line 813
     descriptor.flags = 1U;
 #line 813
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 813
     if (tmp != 0L) {
 #line 813
@@ -7211,7 +7211,7 @@ __inline static int zd_ioread16_locked(struct zd_chip *chip , u16 *value , zd_ad
 #line 820
   tmp___0 = mutex_is_locked(& chip->mutex);
 #line 820
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
 #line 820
   if (tmp___1 != 0L) {
 #line 820
@@ -7227,7 +7227,7 @@ __inline static int zd_ioread16_locked(struct zd_chip *chip , u16 *value , zd_ad
 #line 820
     descriptor.flags = 1U;
 #line 820
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 820
     if (tmp != 0L) {
 #line 820
@@ -7276,7 +7276,7 @@ __inline static int zd_iowrite16_locked(struct zd_chip *chip , u16 value , zd_ad
 #line 838
   tmp___0 = mutex_is_locked(& chip->mutex);
 #line 838
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
 #line 838
   if (tmp___1 != 0L) {
 #line 838
@@ -7292,7 +7292,7 @@ __inline static int zd_iowrite16_locked(struct zd_chip *chip , u16 value , zd_ad
 #line 838
     descriptor.flags = 1U;
 #line 838
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 838
     if (tmp != 0L) {
 #line 838
@@ -7356,7 +7356,7 @@ __inline static int zd_rfwrite_locked(struct zd_chip *chip , u32 value , u8 bits
 #line 867
   tmp___0 = mutex_is_locked(& chip->mutex);
 #line 867
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
 #line 867
   if (tmp___1 != 0L) {
 #line 867
@@ -7372,7 +7372,7 @@ __inline static int zd_rfwrite_locked(struct zd_chip *chip , u32 value , u8 bits
 #line 867
     descriptor.flags = 1U;
 #line 867
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 867
     if (tmp != 0L) {
 #line 867
@@ -7531,7 +7531,7 @@ void zd_chip_clear(struct zd_chip *chip )
 #line 86
   tmp___0 = mutex_is_locked(& chip->mutex);
 #line 86
-  tmp___1 = __builtin_expect(tmp___0 != 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 != 0, 0L);
 #line 86
   if (tmp___1 != 0L) {
 #line 86
@@ -7547,7 +7547,7 @@ void zd_chip_clear(struct zd_chip *chip )
 #line 86
     descriptor.flags = 1U;
 #line 86
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 86
     if (tmp != 0L) {
 #line 86
@@ -7708,7 +7708,7 @@ int zd_ioread32v_locked(struct zd_chip *chip , u32 *values , zd_addr_t const   *
 #line 158
   count16 = count * 2U;
 #line 159
-  tmp = __builtin_expect((unsigned long )count16 * 2UL > 28UL, 0L);
+  tmp = ldv__builtin_expect((unsigned long )count16 * 2UL > 28UL, 0L);
 #line 159
   if (tmp != 0L) {
 #line 159
@@ -7721,7 +7721,7 @@ int zd_ioread32v_locked(struct zd_chip *chip , u32 *values , zd_addr_t const   *
 
   }
 #line 160
-  tmp___0 = __builtin_expect((unsigned long )count16 * 2UL > 28UL, 0L);
+  tmp___0 = ldv__builtin_expect((unsigned long )count16 * 2UL > 28UL, 0L);
 #line 160
   if (tmp___0 != 0L) {
 #line 160
@@ -7809,7 +7809,7 @@ static int _zd_iowrite32v_async_locked(struct zd_chip *chip , struct zd_ioreq32 
 #line 194
   tmp___0 = mutex_is_locked(& chip->mutex);
 #line 194
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
 #line 194
   if (tmp___1 != 0L) {
 #line 194
@@ -7825,7 +7825,7 @@ static int _zd_iowrite32v_async_locked(struct zd_chip *chip , struct zd_ioreq32 
 #line 194
     descriptor.flags = 1U;
 #line 194
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 194
     if (tmp != 0L) {
 #line 194
@@ -7856,7 +7856,7 @@ static int _zd_iowrite32v_async_locked(struct zd_chip *chip , struct zd_ioreq32 
 #line 201
   count16 = count * 2U;
 #line 202
-  tmp___2 = __builtin_expect((unsigned long )count16 * 4UL > 56UL, 0L);
+  tmp___2 = ldv__builtin_expect((unsigned long )count16 * 4UL > 56UL, 0L);
 #line 202
   if (tmp___2 != 0L) {
 #line 202
@@ -7954,7 +7954,7 @@ int zd_iowrite16a_locked(struct zd_chip *chip , struct zd_ioreq16  const  *ioreq
 #line 243
   tmp___0 = mutex_is_locked(& chip->mutex);
 #line 243
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
 #line 243
   if (tmp___1 != 0L) {
 #line 243
@@ -7970,7 +7970,7 @@ int zd_iowrite16a_locked(struct zd_chip *chip , struct zd_ioreq16  const  *ioreq
 #line 243
     descriptor.flags = 1U;
 #line 243
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 243
     if (tmp != 0L) {
 #line 243
@@ -8254,7 +8254,7 @@ static int read_pod(struct zd_chip *chip , u8 *rf_type )
 #line 375
   tmp___0 = mutex_is_locked(& chip->mutex);
 #line 375
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
 #line 375
   if (tmp___1 != 0L) {
 #line 375
@@ -8270,7 +8270,7 @@ static int read_pod(struct zd_chip *chip , u8 *rf_type )
 #line 375
     descriptor.flags = 1U;
 #line 375
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 375
     if (tmp != 0L) {
 #line 375
@@ -8481,7 +8481,7 @@ static int read_values(struct zd_chip *chip , u8 *values , size_t count , zd_add
 #line 488
   tmp___0 = mutex_is_locked(& chip->mutex);
 #line 488
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
 #line 488
   if (tmp___1 != 0L) {
 #line 488
@@ -8497,7 +8497,7 @@ static int read_values(struct zd_chip *chip , u8 *values , size_t count , zd_add
 #line 488
     descriptor.flags = 1U;
 #line 488
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 488
     if (tmp != 0L) {
 #line 488
@@ -8698,7 +8698,7 @@ int zd_chip_lock_phy_regs(struct zd_chip *chip )
 #line 563
   tmp___1 = mutex_is_locked(& chip->mutex);
 #line 563
-  tmp___2 = __builtin_expect(tmp___1 == 0, 0L);
+  tmp___2 = ldv__builtin_expect(tmp___1 == 0, 0L);
 #line 563
   if (tmp___2 != 0L) {
 #line 563
@@ -8714,7 +8714,7 @@ int zd_chip_lock_phy_regs(struct zd_chip *chip )
 #line 563
     descriptor.flags = 1U;
 #line 563
-    tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 563
     if (tmp___0 != 0L) {
 #line 563
@@ -8770,7 +8770,7 @@ int zd_chip_unlock_phy_regs(struct zd_chip *chip )
 #line 583
   tmp___1 = mutex_is_locked(& chip->mutex);
 #line 583
-  tmp___2 = __builtin_expect(tmp___1 == 0, 0L);
+  tmp___2 = ldv__builtin_expect(tmp___1 == 0, 0L);
 #line 583
   if (tmp___2 != 0L) {
 #line 583
@@ -8786,7 +8786,7 @@ int zd_chip_unlock_phy_regs(struct zd_chip *chip )
 #line 583
     descriptor.flags = 1U;
 #line 583
-    tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 583
     if (tmp___0 != 0L) {
 #line 583
@@ -8874,7 +8874,7 @@ static int patch_6m_band_edge(struct zd_chip *chip , u8 channel )
 #line 623
   tmp___0 = mutex_is_locked(& chip->mutex);
 #line 623
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
 #line 623
   if (tmp___1 != 0L) {
 #line 623
@@ -8890,7 +8890,7 @@ static int patch_6m_band_edge(struct zd_chip *chip , u8 channel )
 #line 623
     descriptor.flags = 1U;
 #line 623
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 623
     if (tmp != 0L) {
 #line 623
@@ -10350,7 +10350,7 @@ static int zd1211_hw_init_hmac(struct zd_chip *chip )
 #line 827
   tmp___0 = mutex_is_locked(& chip->mutex);
 #line 827
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
 #line 827
   if (tmp___1 != 0L) {
 #line 827
@@ -10366,7 +10366,7 @@ static int zd1211_hw_init_hmac(struct zd_chip *chip )
 #line 827
     descriptor.flags = 1U;
 #line 827
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 827
     if (tmp != 0L) {
 #line 827
@@ -10439,7 +10439,7 @@ static int zd1211b_hw_init_hmac(struct zd_chip *chip )
 #line 846
   tmp___0 = mutex_is_locked(& chip->mutex);
 #line 846
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
 #line 846
   if (tmp___1 != 0L) {
 #line 846
@@ -10455,7 +10455,7 @@ static int zd1211b_hw_init_hmac(struct zd_chip *chip )
 #line 846
     descriptor.flags = 1U;
 #line 846
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 846
     if (tmp != 0L) {
 #line 846
@@ -10573,7 +10573,7 @@ static int hw_init_hmac(struct zd_chip *chip )
 #line 876
   tmp___0 = mutex_is_locked(& chip->mutex);
 #line 876
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
 #line 876
   if (tmp___1 != 0L) {
 #line 876
@@ -10589,7 +10589,7 @@ static int hw_init_hmac(struct zd_chip *chip )
 #line 876
     descriptor.flags = 1U;
 #line 876
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 876
     if (tmp != 0L) {
 #line 876
@@ -10733,7 +10733,7 @@ static int set_beacon_interval(struct zd_chip *chip , u16 interval , u8 dtim_per
 #line 941
   tmp___0 = mutex_is_locked(& chip->mutex);
 #line 941
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
 #line 941
   if (tmp___1 != 0L) {
 #line 941
@@ -10749,7 +10749,7 @@ static int set_beacon_interval(struct zd_chip *chip , u16 interval , u8 dtim_per
 #line 941
     descriptor.flags = 1U;
 #line 941
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 941
     if (tmp != 0L) {
 #line 941
@@ -10851,7 +10851,7 @@ static int hw_init(struct zd_chip *chip )
 #line 988
   tmp___0 = mutex_is_locked(& chip->mutex);
 #line 988
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
 #line 988
   if (tmp___1 != 0L) {
 #line 988
@@ -10867,7 +10867,7 @@ static int hw_init(struct zd_chip *chip )
 #line 988
     descriptor.flags = 1U;
 #line 988
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 988
     if (tmp != 0L) {
 #line 988
@@ -11077,7 +11077,7 @@ static int set_mandatory_rates(struct zd_chip *chip , int gmode )
 #line 1086
   tmp___0 = mutex_is_locked(& chip->mutex);
 #line 1086
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
 #line 1086
   if (tmp___1 != 0L) {
 #line 1086
@@ -11093,7 +11093,7 @@ static int set_mandatory_rates(struct zd_chip *chip , int gmode )
 #line 1086
     descriptor.flags = 1U;
 #line 1086
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1086
     if (tmp != 0L) {
 #line 1086
@@ -11208,7 +11208,7 @@ static int read_fw_regs_offset(struct zd_chip *chip )
 #line 1147
   tmp___0 = mutex_is_locked(& chip->mutex);
 #line 1147
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
 #line 1147
   if (tmp___1 != 0L) {
 #line 1147
@@ -11224,7 +11224,7 @@ static int read_fw_regs_offset(struct zd_chip *chip )
 #line 1147
     descriptor.flags = 1U;
 #line 1147
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1147
     if (tmp != 0L) {
 #line 1147
@@ -11572,7 +11572,7 @@ static int patch_cck_gain(struct zd_chip *chip )
 #line 1306
   tmp___1 = mutex_is_locked(& chip->mutex);
 #line 1306
-  tmp___2 = __builtin_expect(tmp___1 == 0, 0L);
+  tmp___2 = ldv__builtin_expect(tmp___1 == 0, 0L);
 #line 1306
   if (tmp___2 != 0L) {
 #line 1306
@@ -11588,7 +11588,7 @@ static int patch_cck_gain(struct zd_chip *chip )
 #line 1306
     descriptor.flags = 1U;
 #line 1306
-    tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1306
     if (tmp___0 != 0L) {
 #line 1306
@@ -12068,7 +12068,7 @@ int zd_rfwrite_cr_locked(struct zd_chip *chip , u32 value )
 #line 1551
   tmp___0 = mutex_is_locked(& chip->mutex);
 #line 1551
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
 #line 1551
   if (tmp___1 != 0L) {
 #line 1551
@@ -12084,7 +12084,7 @@ int zd_rfwrite_cr_locked(struct zd_chip *chip , u32 value )
 #line 1551
     descriptor.flags = 1U;
 #line 1551
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1551
     if (tmp != 0L) {
 #line 1551
@@ -13037,7 +13037,7 @@ __inline static int arch_spin_is_locked(struct arch_spinlock *lock )
 #line 718
   __eax = __eax;
 #line 718
-  tmp = __builtin_expect((unsigned long )pv_lock_ops.spin_is_locked == (unsigned long )((int (*)(struct arch_spinlock * ))0),
+  tmp = ldv__builtin_expect((unsigned long )pv_lock_ops.spin_is_locked == (unsigned long )((int (*)(struct arch_spinlock * ))0),
                          0L);
 #line 718
   if (tmp != 0L) {
@@ -13085,7 +13085,7 @@ __inline static unsigned long arch_local_save_flags(void)
 #line 825
   __eax = __eax;
 #line 825
-  tmp = __builtin_expect((unsigned long )pv_irq_ops.save_fl.func == (unsigned long )((void *)0),
+  tmp = ldv__builtin_expect((unsigned long )pv_irq_ops.save_fl.func == (unsigned long )((void *)0),
                          0L);
 #line 825
   if (tmp != 0L) {
@@ -13687,13 +13687,13 @@ __inline static struct ieee80211_rate *ieee80211_get_tx_rate(struct ieee80211_hw
 #line 1554
   __ret_warn_once = (int )((signed char )c->ldv_42006.control.ldv_41988.ldv_41986.rates[0].idx) < 0;
 #line 1554
-  tmp___1 = __builtin_expect(__ret_warn_once != 0, 0L);
+  tmp___1 = ldv__builtin_expect(__ret_warn_once != 0, 0L);
 #line 1554
   if (tmp___1 != 0L) {
 #line 1554
     __ret_warn_on = ! __warned;
 #line 1554
-    tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 1554
     if (tmp != 0L) {
 #line 1554
@@ -13702,7 +13702,7 @@ __inline static struct ieee80211_rate *ieee80211_get_tx_rate(struct ieee80211_hw
 
     }
 #line 1554
-    tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 1554
     if (tmp___0 != 0L) {
 #line 1554
@@ -13714,7 +13714,7 @@ __inline static struct ieee80211_rate *ieee80211_get_tx_rate(struct ieee80211_hw
 
   }
 #line 1554
-  tmp___2 = __builtin_expect(__ret_warn_once != 0, 0L);
+  tmp___2 = ldv__builtin_expect(__ret_warn_once != 0, 0L);
 #line 1554
   if (tmp___2 != 0L) {
 #line 1555
@@ -14014,7 +14014,7 @@ static int zd_check_signal(struct ieee80211_hw *hw , int signal )
 #line 207
   __cond = (bool )(signal < 0 || signal > 100);
 #line 207
-  tmp___0 = __builtin_expect((long )__cond, 0L);
+  tmp___0 = ldv__builtin_expect((long )__cond, 0L);
 #line 207
   if (tmp___0 != 0L) {
 #line 207
@@ -14113,7 +14113,7 @@ int zd_mac_init_hw(struct ieee80211_hw *hw )
 #line 249
   tmp___1 = arch_irqs_disabled_flags(_flags);
 #line 249
-  tmp___2 = __builtin_expect(tmp___1 != 0, 0L);
+  tmp___2 = ldv__builtin_expect(tmp___1 != 0, 0L);
 #line 249
   if (tmp___2 != 0L) {
 #line 249
@@ -14129,7 +14129,7 @@ int zd_mac_init_hw(struct ieee80211_hw *hw )
 #line 249
     descriptor.flags = 1U;
 #line 249
-    tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 249
     if (tmp___0 != 0L) {
 #line 249
@@ -14206,7 +14206,7 @@ void zd_mac_clear(struct zd_mac *mac )
 #line 279
   tmp___0 = spin_is_locked(& mac->lock);
 #line 279
-  tmp___1 = __builtin_expect(tmp___0 != 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 != 0, 0L);
 #line 279
   if (tmp___1 != 0L) {
 #line 279
@@ -14222,7 +14222,7 @@ void zd_mac_clear(struct zd_mac *mac )
 #line 279
     descriptor.flags = 1U;
 #line 279
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 279
     if (tmp != 0L) {
 #line 279
@@ -14651,14 +14651,14 @@ static void zd_mac_tx_status(struct ieee80211_hw *hw , struct sk_buff *skb , int
 #line 509
   first_idx = (int )info->ldv_42006.status.rates[0].idx;
 #line 510
-  tmp___1 = __builtin_expect(first_idx < 0, 0L);
+  tmp___1 = ldv__builtin_expect(first_idx < 0, 0L);
 #line 510
   if (tmp___1 != 0L) {
 #line 510
     goto _L;
   } else {
 #line 510
-    tmp___2 = __builtin_expect((unsigned int )first_idx > 11U, 0L);
+    tmp___2 = ldv__builtin_expect((unsigned int )first_idx > 11U, 0L);
 #line 510
     if (tmp___2 != 0L) {
       _L: /* CIL Label */ 
@@ -14675,7 +14675,7 @@ static void zd_mac_tx_status(struct ieee80211_hw *hw , struct sk_buff *skb , int
 #line 510
       descriptor.flags = 1U;
 #line 510
-      tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+      tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 510
       if (tmp___0 != 0L) {
 #line 510
@@ -14693,14 +14693,14 @@ static void zd_mac_tx_status(struct ieee80211_hw *hw , struct sk_buff *skb , int
 #line 511
   retries = (struct tx_retry_rate  const  *)(& zd_retry_rates) + (unsigned long )first_idx;
 #line 512
-  tmp___4 = __builtin_expect(retry <= 0, 0L);
+  tmp___4 = ldv__builtin_expect(retry <= 0, 0L);
 #line 512
   if (tmp___4 != 0L) {
 #line 512
     goto _L___0;
   } else {
 #line 512
-    tmp___5 = __builtin_expect((int )retries->count < retry, 0L);
+    tmp___5 = ldv__builtin_expect((int )retries->count < retry, 0L);
 #line 512
     if (tmp___5 != 0L) {
       _L___0: /* CIL Label */ 
@@ -14717,7 +14717,7 @@ static void zd_mac_tx_status(struct ieee80211_hw *hw , struct sk_buff *skb , int
 #line 512
       descriptor___0.flags = 1U;
 #line 512
-      tmp___3 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+      tmp___3 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 512
       if (tmp___3 != 0L) {
 #line 512
@@ -14874,7 +14874,7 @@ void zd_mac_tx_failed(struct urb *urb )
   tmp___3 = memcmp((void const   *)(& tx_hdr->addr1), (void const   *)(& tx_status->mac),
                    6UL);
 #line 576
-  tmp___4 = __builtin_expect(tmp___3 != 0, 0L);
+  tmp___4 = ldv__builtin_expect(tmp___3 != 0, 0L);
 #line 576
   if (tmp___4 != 0L) {
 #line 577
@@ -14887,14 +14887,14 @@ void zd_mac_tx_failed(struct urb *urb )
 #line 583
   first_idx = (int )info->ldv_42006.status.rates[0].idx;
 #line 584
-  tmp___6 = __builtin_expect(first_idx < 0, 0L);
+  tmp___6 = ldv__builtin_expect(first_idx < 0, 0L);
 #line 584
   if (tmp___6 != 0L) {
 #line 584
     goto _L;
   } else {
 #line 584
-    tmp___7 = __builtin_expect((unsigned int )first_idx > 11U, 0L);
+    tmp___7 = ldv__builtin_expect((unsigned int )first_idx > 11U, 0L);
 #line 584
     if (tmp___7 != 0L) {
       _L: /* CIL Label */ 
@@ -14911,7 +14911,7 @@ void zd_mac_tx_failed(struct urb *urb )
 #line 584
       descriptor.flags = 1U;
 #line 584
-      tmp___5 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+      tmp___5 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 584
       if (tmp___5 != 0L) {
 #line 584
@@ -15026,14 +15026,14 @@ void zd_mac_tx_to_dev(struct sk_buff *skb , int error )
 #line 631
   skb_pull(skb, 11U);
 #line 632
-  tmp___3 = __builtin_expect(error != 0, 0L);
+  tmp___3 = ldv__builtin_expect(error != 0, 0L);
 #line 632
   if (tmp___3 != 0L) {
 #line 637
     ieee80211_tx_status_irqsafe(hw, skb);
   } else {
 #line 632
-    tmp___4 = __builtin_expect((info->flags & 4U) != 0U, 0L);
+    tmp___4 = ldv__builtin_expect((info->flags & 4U) != 0U, 0L);
 #line 632
     if (tmp___4 != 0L) {
 #line 637
@@ -15245,7 +15245,7 @@ static void zd_mac_free_cur_beacon_locked(struct zd_mac *mac )
 #line 744
   tmp___0 = mutex_is_locked(& mac->chip.mutex);
 #line 744
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
 #line 744
   if (tmp___1 != 0L) {
 #line 744
@@ -15261,7 +15261,7 @@ static void zd_mac_free_cur_beacon_locked(struct zd_mac *mac )
 #line 744
     descriptor.flags = 1U;
 #line 744
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 744
     if (tmp != 0L) {
 #line 744
@@ -15497,7 +15497,7 @@ static int zd_mac_config_beacon(struct ieee80211_hw *hw , struct sk_buff *beacon
 
   }
 #line 836
-  tmp___5 = __builtin_expect(req_pos != num_cmds, 0L);
+  tmp___5 = ldv__builtin_expect(req_pos != num_cmds, 0L);
 #line 836
   if (tmp___5 != 0L) {
 #line 836
@@ -15634,7 +15634,7 @@ static int fill_ctrlset(struct zd_mac *mac , struct sk_buff *skb )
 #line 915
   info = tmp___0;
 #line 917
-  tmp___2 = __builtin_expect(frag_len > 65535U, 0L);
+  tmp___2 = ldv__builtin_expect(frag_len > 65535U, 0L);
 #line 917
   if (tmp___2 != 0L) {
 #line 917
@@ -15650,7 +15650,7 @@ static int fill_ctrlset(struct zd_mac *mac , struct sk_buff *skb )
 #line 917
     descriptor.flags = 1U;
 #line 917
-    tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 917
     if (tmp___1 != 0L) {
 #line 917
@@ -15691,7 +15691,7 @@ static int fill_ctrlset(struct zd_mac *mac , struct sk_buff *skb )
 #line 937
   packet_length = frag_len + 21U;
 #line 938
-  tmp___5 = __builtin_expect(packet_length > 65535U, 0L);
+  tmp___5 = ldv__builtin_expect(packet_length > 65535U, 0L);
 #line 938
   if (tmp___5 != 0L) {
 #line 938
@@ -15707,7 +15707,7 @@ static int fill_ctrlset(struct zd_mac *mac , struct sk_buff *skb )
 #line 938
     descriptor___0.flags = 1U;
 #line 938
-    tmp___4 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___4 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 938
     if (tmp___4 != 0L) {
 #line 938
@@ -15861,7 +15861,7 @@ static int filter_ack(struct ieee80211_hw *hw , struct ieee80211_hdr *rx_hdr , s
   tmp___3 = memcmp((void const   *)(& tx_hdr->addr2), (void const   *)(& rx_hdr->addr1),
                    6UL);
 #line 1041
-  tmp___4 = __builtin_expect(tmp___3 == 0, 1L);
+  tmp___4 = ldv__builtin_expect(tmp___3 == 0, 1L);
 #line 1041
   if (tmp___4 != 0L) {
 #line 1043
@@ -21560,7 +21560,7 @@ int zd_rf_init_hw(struct zd_rf *rf , u8 type )
 #line 116
   tmp___1 = mutex_is_locked(& chip->mutex);
 #line 116
-  tmp___2 = __builtin_expect(tmp___1 == 0, 0L);
+  tmp___2 = ldv__builtin_expect(tmp___1 == 0, 0L);
 #line 116
   if (tmp___2 != 0L) {
 #line 116
@@ -21576,7 +21576,7 @@ int zd_rf_init_hw(struct zd_rf *rf , u8 type )
 #line 116
     descriptor.flags = 1U;
 #line 116
-    tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 116
     if (tmp___0 != 0L) {
 #line 116
@@ -21691,7 +21691,7 @@ int zd_rf_set_channel(struct zd_rf *rf , u8 channel )
 #line 163
   tmp___1 = mutex_is_locked(& tmp___0->mutex);
 #line 163
-  tmp___2 = __builtin_expect(tmp___1 == 0, 0L);
+  tmp___2 = ldv__builtin_expect(tmp___1 == 0, 0L);
 #line 163
   if (tmp___2 != 0L) {
 #line 163
@@ -21707,7 +21707,7 @@ int zd_rf_set_channel(struct zd_rf *rf , u8 channel )
 #line 163
     descriptor.flags = 1U;
 #line 163
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 163
     if (tmp != 0L) {
 #line 163
@@ -21773,7 +21773,7 @@ int zd_switch_radio_on(struct zd_rf *rf )
 #line 181
   tmp___1 = mutex_is_locked(& chip->mutex);
 #line 181
-  tmp___2 = __builtin_expect(tmp___1 == 0, 0L);
+  tmp___2 = ldv__builtin_expect(tmp___1 == 0, 0L);
 #line 181
   if (tmp___2 != 0L) {
 #line 181
@@ -21789,7 +21789,7 @@ int zd_switch_radio_on(struct zd_rf *rf )
 #line 181
     descriptor.flags = 1U;
 #line 181
-    tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 181
     if (tmp___0 != 0L) {
 #line 181
@@ -21847,7 +21847,7 @@ int zd_switch_radio_off(struct zd_rf *rf )
 #line 198
   tmp___1 = mutex_is_locked(& chip->mutex);
 #line 198
-  tmp___2 = __builtin_expect(tmp___1 == 0, 0L);
+  tmp___2 = ldv__builtin_expect(tmp___1 == 0, 0L);
 #line 198
   if (tmp___2 != 0L) {
 #line 198
@@ -21863,7 +21863,7 @@ int zd_switch_radio_off(struct zd_rf *rf )
 #line 198
     descriptor.flags = 1U;
 #line 198
-    tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 198
     if (tmp___0 != 0L) {
 #line 198
@@ -23234,7 +23234,7 @@ __inline static void handle_regs_int(struct urb *urb )
 #line 433
   tmp___0 = current_thread_info();
 #line 433
-  tmp___1 = __builtin_expect(((unsigned long )tmp___0->preempt_count & 134217472UL) == 0UL,
+  tmp___1 = ldv__builtin_expect(((unsigned long )tmp___0->preempt_count & 134217472UL) == 0UL,
                              0L);
 #line 433
   if (tmp___1 != 0L) {
@@ -23251,7 +23251,7 @@ __inline static void handle_regs_int(struct urb *urb )
 #line 433
     descriptor.flags = 1U;
 #line 433
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 433
     if (tmp != 0L) {
 #line 433
@@ -23559,7 +23559,7 @@ int zd_usb_enable_int(struct zd_usb *usb )
 #line 582
   tmp___1 = arch_irqs_disabled_flags(_flags);
 #line 582
-  tmp___2 = __builtin_expect(tmp___1 != 0, 0L);
+  tmp___2 = ldv__builtin_expect(tmp___1 != 0, 0L);
 #line 582
   if (tmp___2 != 0L) {
 #line 582
@@ -23575,7 +23575,7 @@ int zd_usb_enable_int(struct zd_usb *usb )
 #line 582
     descriptor.flags = 1U;
 #line 582
-    tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 582
     if (tmp___0 != 0L) {
 #line 582
@@ -23868,7 +23868,7 @@ static void rx_urb_complete(struct urb *urb )
     dev_printk("\017", (struct device  const  *)(& (urb->dev)->dev), "%s() *** first fragment ***\n",
                "rx_urb_complete");
 #line 737
-    tmp___0 = __builtin_expect(length > 9600U, 0L);
+    tmp___0 = ldv__builtin_expect(length > 9600U, 0L);
 #line 737
     if (tmp___0 != 0L) {
 #line 737
@@ -23884,7 +23884,7 @@ static void rx_urb_complete(struct urb *urb )
 #line 737
       descriptor.flags = 1U;
 #line 737
-      tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+      tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 737
       if (tmp != 0L) {
 #line 737
@@ -23918,7 +23918,7 @@ static void rx_urb_complete(struct urb *urb )
 #line 746
   if (rx->fragment_length != 0U) {
 #line 748
-    tmp___2 = __builtin_expect(rx->fragment_length + length > 9600U, 0L);
+    tmp___2 = ldv__builtin_expect(rx->fragment_length + length > 9600U, 0L);
 #line 748
     if (tmp___2 != 0L) {
 #line 748
@@ -23934,7 +23934,7 @@ static void rx_urb_complete(struct urb *urb )
 #line 748
       descriptor___0.flags = 1U;
 #line 748
-      tmp___1 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+      tmp___1 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 748
       if (tmp___1 != 0L) {
 #line 748
@@ -24111,7 +24111,7 @@ static int __zd_usb_enable_rx(struct zd_usb *usb )
 #line 818
   tmp___1 = arch_irqs_disabled_flags(_flags);
 #line 818
-  tmp___2 = __builtin_expect(tmp___1 != 0, 0L);
+  tmp___2 = ldv__builtin_expect(tmp___1 != 0, 0L);
 #line 818
   if (tmp___2 != 0L) {
 #line 818
@@ -24127,7 +24127,7 @@ static int __zd_usb_enable_rx(struct zd_usb *usb )
 #line 818
     descriptor.flags = 1U;
 #line 818
-    tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 818
     if (tmp___0 != 0L) {
 #line 818
@@ -24421,7 +24421,7 @@ void zd_usb_disable_tx(struct zd_usb *usb )
 #line 945
   __ret_warn_on = tmp___0 == 0;
 #line 945
-  tmp___1 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___1 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 945
   if (tmp___1 != 0L) {
 #line 945
@@ -24431,11 +24431,11 @@ void zd_usb_disable_tx(struct zd_usb *usb )
 
   }
 #line 945
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 946
   __ret_warn_on___0 = tx->submitted_urbs != 0;
 #line 946
-  tmp___2 = __builtin_expect(__ret_warn_on___0 != 0, 0L);
+  tmp___2 = ldv__builtin_expect(__ret_warn_on___0 != 0, 0L);
 #line 946
   if (tmp___2 != 0L) {
 #line 946
@@ -24445,7 +24445,7 @@ void zd_usb_disable_tx(struct zd_usb *usb )
 
   }
 #line 946
-  __builtin_expect(__ret_warn_on___0 != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on___0 != 0, 0L);
 #line 947
   tx->submitted_urbs = 0;
 #line 948
@@ -25014,7 +25014,7 @@ __inline static void init_usb_rx(struct zd_usb *usb )
     rx->usb_packet_size = 64U;
   }
 #line 1232
-  tmp___1 = __builtin_expect(rx->fragment_length != 0U, 0L);
+  tmp___1 = ldv__builtin_expect(rx->fragment_length != 0U, 0L);
 #line 1232
   if (tmp___1 != 0L) {
 #line 1232
@@ -25030,7 +25030,7 @@ __inline static void init_usb_rx(struct zd_usb *usb )
 #line 1232
     descriptor.flags = 1U;
 #line 1232
-    tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1232
     if (tmp___0 != 0L) {
 #line 1232
@@ -25601,7 +25601,7 @@ static void disconnect(struct usb_interface *intf )
 #line 1495
   descriptor.flags = 1U;
 #line 1495
-  tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1495
   if (tmp___1 != 0L) {
 #line 1495
@@ -25672,7 +25672,7 @@ static void zd_usb_resume(struct zd_usb *usb )
 #line 1518
       descriptor.flags = 1U;
 #line 1518
-      tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+      tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1518
       if (tmp___1 != 0L) {
 #line 1518
@@ -25825,7 +25825,7 @@ static int usb_init(void)
 #line 1593
   descriptor.flags = 1U;
 #line 1593
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1593
   if (tmp != 0L) {
 #line 1593
@@ -25874,7 +25874,7 @@ static int usb_init(void)
 #line 1609
   descriptor___0.flags = 1U;
 #line 1609
-  tmp___1 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 1609
   if (tmp___1 != 0L) {
 #line 1609
@@ -25906,7 +25906,7 @@ static void usb_exit(void)
 #line 1615
   descriptor.flags = 1U;
 #line 1615
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1615
   if (tmp != 0L) {
 #line 1615
@@ -26255,7 +26255,7 @@ int zd_usb_ioread16v(struct zd_usb *usb , u16 *values , zd_addr_t const   *addre
 #line 1780
   tmp___3 = mutex_is_locked(& tmp___2->mutex);
 #line 1780
-  tmp___4 = __builtin_expect(tmp___3 == 0, 0L);
+  tmp___4 = ldv__builtin_expect(tmp___3 == 0, 0L);
 #line 1780
   if (tmp___4 != 0L) {
 #line 1780
@@ -26271,7 +26271,7 @@ int zd_usb_ioread16v(struct zd_usb *usb , u16 *values , zd_addr_t const   *addre
 #line 1780
     descriptor.flags = 1U;
 #line 1780
-    tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1780
     if (tmp___1 != 0L) {
 #line 1780
@@ -26286,7 +26286,7 @@ int zd_usb_ioread16v(struct zd_usb *usb , u16 *values , zd_addr_t const   *addre
 
   }
 #line 1783
-  tmp___5 = __builtin_expect(((unsigned long )count + 1UL) * 2UL > 64UL, 0L);
+  tmp___5 = ldv__builtin_expect(((unsigned long )count + 1UL) * 2UL > 64UL, 0L);
 #line 1783
   if (tmp___5 != 0L) {
 #line 1783
@@ -26487,7 +26487,7 @@ void zd_usb_iowrite16v_async_start(struct zd_usb *usb )
 #line 1872
   tmp___0 = usb_anchor_empty(& usb->submitted_cmds);
 #line 1872
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
 #line 1872
   if (tmp___1 != 0L) {
 #line 1872
@@ -26503,7 +26503,7 @@ void zd_usb_iowrite16v_async_start(struct zd_usb *usb )
 #line 1872
     descriptor.flags = 1U;
 #line 1872
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1872
     if (tmp != 0L) {
 #line 1872
@@ -26518,7 +26518,7 @@ void zd_usb_iowrite16v_async_start(struct zd_usb *usb )
 
   }
 #line 1873
-  tmp___3 = __builtin_expect((unsigned long )usb->urb_async_waiting != (unsigned long )((struct urb *)0),
+  tmp___3 = ldv__builtin_expect((unsigned long )usb->urb_async_waiting != (unsigned long )((struct urb *)0),
                              0L);
 #line 1873
   if (tmp___3 != 0L) {
@@ -26535,7 +26535,7 @@ void zd_usb_iowrite16v_async_start(struct zd_usb *usb )
 #line 1873
     descriptor___0.flags = 1U;
 #line 1873
-    tmp___2 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___2 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 1873
     if (tmp___2 != 0L) {
 #line 1873
@@ -26550,7 +26550,7 @@ void zd_usb_iowrite16v_async_start(struct zd_usb *usb )
 
   }
 #line 1874
-  tmp___5 = __builtin_expect((unsigned int )*((unsigned char *)usb + 11268UL) != 0U,
+  tmp___5 = ldv__builtin_expect((unsigned int )*((unsigned char *)usb + 11268UL) != 0U,
                              0L);
 #line 1874
   if (tmp___5 != 0L) {
@@ -26567,7 +26567,7 @@ void zd_usb_iowrite16v_async_start(struct zd_usb *usb )
 #line 1874
     descriptor___1.flags = 1U;
 #line 1874
-    tmp___4 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___4 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 1874
     if (tmp___4 != 0L) {
 #line 1874
@@ -26586,7 +26586,7 @@ void zd_usb_iowrite16v_async_start(struct zd_usb *usb )
 #line 1876
   tmp___8 = mutex_is_locked(& tmp___7->mutex);
 #line 1876
-  tmp___9 = __builtin_expect(tmp___8 == 0, 0L);
+  tmp___9 = ldv__builtin_expect(tmp___8 == 0, 0L);
 #line 1876
   if (tmp___9 != 0L) {
 #line 1876
@@ -26602,7 +26602,7 @@ void zd_usb_iowrite16v_async_start(struct zd_usb *usb )
 #line 1876
     descriptor___2.flags = 1U;
 #line 1876
-    tmp___6 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+    tmp___6 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
 #line 1876
     if (tmp___6 != 0L) {
 #line 1876
@@ -26646,7 +26646,7 @@ int zd_usb_iowrite16v_async_end(struct zd_usb *usb , unsigned int timeout )
 #line 1887
   tmp___1 = mutex_is_locked(& tmp___0->mutex);
 #line 1887
-  tmp___2 = __builtin_expect(tmp___1 == 0, 0L);
+  tmp___2 = ldv__builtin_expect(tmp___1 == 0, 0L);
 #line 1887
   if (tmp___2 != 0L) {
 #line 1887
@@ -26662,7 +26662,7 @@ int zd_usb_iowrite16v_async_end(struct zd_usb *usb , unsigned int timeout )
 #line 1887
     descriptor.flags = 1U;
 #line 1887
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1887
     if (tmp != 0L) {
 #line 1887
@@ -26677,7 +26677,7 @@ int zd_usb_iowrite16v_async_end(struct zd_usb *usb , unsigned int timeout )
 
   }
 #line 1888
-  tmp___4 = __builtin_expect((unsigned int )*((unsigned char *)usb + 11268UL) == 0U,
+  tmp___4 = ldv__builtin_expect((unsigned int )*((unsigned char *)usb + 11268UL) == 0U,
                              0L);
 #line 1888
   if (tmp___4 != 0L) {
@@ -26694,7 +26694,7 @@ int zd_usb_iowrite16v_async_end(struct zd_usb *usb , unsigned int timeout )
 #line 1888
     descriptor___0.flags = 1U;
 #line 1888
-    tmp___3 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___3 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 1888
     if (tmp___3 != 0L) {
 #line 1888
@@ -26794,7 +26794,7 @@ int zd_usb_iowrite16v_async(struct zd_usb *usb , struct zd_ioreq16  const  *iore
 #line 1929
   tmp___1 = mutex_is_locked(& tmp___0->mutex);
 #line 1929
-  tmp___2 = __builtin_expect(tmp___1 == 0, 0L);
+  tmp___2 = ldv__builtin_expect(tmp___1 == 0, 0L);
 #line 1929
   if (tmp___2 != 0L) {
 #line 1929
@@ -26810,7 +26810,7 @@ int zd_usb_iowrite16v_async(struct zd_usb *usb , struct zd_ioreq16  const  *iore
 #line 1929
     descriptor.flags = 1U;
 #line 1929
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1929
     if (tmp != 0L) {
 #line 1929
@@ -26825,7 +26825,7 @@ int zd_usb_iowrite16v_async(struct zd_usb *usb , struct zd_ioreq16  const  *iore
 
   }
 #line 1930
-  tmp___4 = __builtin_expect((unsigned int )*((unsigned char *)usb + 11268UL) == 0U,
+  tmp___4 = ldv__builtin_expect((unsigned int )*((unsigned char *)usb + 11268UL) == 0U,
                              0L);
 #line 1930
   if (tmp___4 != 0L) {
@@ -26842,7 +26842,7 @@ int zd_usb_iowrite16v_async(struct zd_usb *usb , struct zd_ioreq16  const  *iore
 #line 1930
     descriptor___0.flags = 1U;
 #line 1930
-    tmp___3 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___3 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 1930
     if (tmp___3 != 0L) {
 #line 1930
@@ -27098,7 +27098,7 @@ int zd_usb_rfwrite(struct zd_usb *usb , u32 value , u8 bits )
 #line 2062
   tmp___2 = mutex_is_locked(& tmp___1->mutex);
 #line 2062
-  tmp___3 = __builtin_expect(tmp___2 == 0, 0L);
+  tmp___3 = ldv__builtin_expect(tmp___2 == 0, 0L);
 #line 2062
   if (tmp___3 != 0L) {
 #line 2062
@@ -27114,7 +27114,7 @@ int zd_usb_rfwrite(struct zd_usb *usb , u32 value , u8 bits )
 #line 2062
     descriptor.flags = 1U;
 #line 2062
-    tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 2062
     if (tmp___0 != 0L) {
 #line 2062
@@ -27129,7 +27129,7 @@ int zd_usb_rfwrite(struct zd_usb *usb , u32 value , u8 bits )
 
   }
 #line 2066
-  tmp___4 = __builtin_expect(((unsigned long )bits + 3UL) * 2UL > 64UL, 0L);
+  tmp___4 = ldv__builtin_expect(((unsigned long )bits + 3UL) * 2UL > 64UL, 0L);
 #line 2066
   if (tmp___4 != 0L) {
 #line 2066
@@ -27573,7 +27573,7 @@ __inline static void ldv_error(void)
 #line 25
 extern int __VERIFIER_nondet_int(void) ;
 #line 49 "/home/mikhail/ldv/kernel-rules/verifier/rcv.h"
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 

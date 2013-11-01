@@ -2249,7 +2249,7 @@ struct w8001 {
 #line 1 "<compiler builtins>"
 
 #line 1
-long __builtin_expect(long val , long res ) ;
+long ldv__builtin_expect(long val , long res ) ;
 #line 82 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/bitops.h"
 __inline static void __set_bit(int nr , unsigned long volatile   *addr )  __attribute__((__no_instrument_function__)) ;
 #line 82 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/bitops.h"
@@ -4481,7 +4481,7 @@ static irqreturn_t w8001_interrupt(struct serio *serio , unsigned char data , un
 #line 294
         __cil_tmp34 = (long )__cil_tmp33;
 #line 294
-        tmp___2 = __builtin_expect(__cil_tmp34, 0L);
+        tmp___2 = ldv__builtin_expect(__cil_tmp34, 0L);
         }
 #line 294
         if (tmp___2) {
@@ -4641,7 +4641,7 @@ static irqreturn_t w8001_interrupt(struct serio *serio , unsigned char data , un
 #line 318
     __cil_tmp77 = (long )__cil_tmp76;
 #line 318
-    tmp___3 = __builtin_expect(__cil_tmp77, 0L);
+    tmp___3 = ldv__builtin_expect(__cil_tmp77, 0L);
     }
 #line 318
     if (tmp___3) {
@@ -6527,7 +6527,7 @@ void ldv_check_final_state(void)
 }
 }
 #line 945 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/4199/dscv_tempdir/dscv/ri/32_1/drivers/input/touchscreen/wacom_w8001.c.common.c"
-long __builtin_expect(long val , long res ) 
+long ldv__builtin_expect(long val , long res ) 
 { 
 
   {

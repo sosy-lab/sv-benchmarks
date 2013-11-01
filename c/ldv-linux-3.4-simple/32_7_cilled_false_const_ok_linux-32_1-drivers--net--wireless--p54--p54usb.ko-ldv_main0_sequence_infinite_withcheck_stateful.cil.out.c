@@ -6427,7 +6427,7 @@ struct __anonstruct_p54u_fwlist_402 {
 #line 1 "<compiler builtins>"
 
 #line 1
-long __builtin_expect(long val , long res ) ;
+long ldv__builtin_expect(long val , long res ) ;
 #line 10 "include/asm-generic/delay.h"
 extern void ___udelay(unsigned long xloops ) ;
 #line 34 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/string_64.h"
@@ -7195,7 +7195,7 @@ __inline static struct sk_buff *__dev_alloc_skb(unsigned int length , gfp_t gfp_
 #line 1683
   __cil_tmp24 = (long )__cil_tmp23;
 #line 1683
-  tmp___10 = __builtin_expect(__cil_tmp24, 1L);
+  tmp___10 = ldv__builtin_expect(__cil_tmp24, 1L);
   }
 #line 1683
   if (tmp___10) {
@@ -7750,7 +7750,7 @@ static void p54u_rx_cb(struct urb *urb )
 #line 149
   __cil_tmp33 = (long )__cil_tmp32;
 #line 149
-  tmp___7 = __builtin_expect(__cil_tmp33, 0L);
+  tmp___7 = ldv__builtin_expect(__cil_tmp33, 0L);
   }
 #line 149
   if (tmp___7) {
@@ -7853,7 +7853,7 @@ static void p54u_rx_cb(struct urb *urb )
 #line 165
     __cil_tmp59 = (long )__cil_tmp58;
 #line 165
-    tmp___8 = __builtin_expect(__cil_tmp59, 0L);
+    tmp___8 = ldv__builtin_expect(__cil_tmp59, 0L);
     }
 #line 165
     if (tmp___8) {
@@ -14450,7 +14450,7 @@ static int p54u_resume(struct usb_interface *intf )
 #line 1039
   __cil_tmp15 = (long )tmp___8;
 #line 1039
-  tmp___9 = __builtin_expect(__cil_tmp15, 0L);
+  tmp___9 = ldv__builtin_expect(__cil_tmp15, 0L);
   }
 #line 1039
   if (tmp___9) {
@@ -15019,7 +15019,7 @@ void ldv_check_final_state(void)
 }
 }
 #line 1589 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/10324/dscv_tempdir/dscv/ri/32_1/drivers/net/wireless/p54/p54usb.c.common.c"
-long __builtin_expect(long val , long res ) 
+long ldv__builtin_expect(long val , long res ) 
 { 
 
   {

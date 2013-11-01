@@ -4827,7 +4827,7 @@ enum kobj_ns_type;
 #line 1 "<compiler builtins>"
 
 #line 1
-long __builtin_expect(long val , long res ) ;
+long ldv__builtin_expect(long val , long res ) ;
 #line 59 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/bitops.h"
 __inline static void ( __attribute__((__always_inline__)) set_bit)(unsigned int nr ,
                                                                    unsigned long volatile   *addr )  __attribute__((__no_instrument_function__)) ;
@@ -5068,7 +5068,7 @@ __inline static long __attribute__((__warn_unused_result__))  IS_ERR(void    *pt
 #line 34
   __cil_tmp7 = (long )__cil_tmp6;
 #line 34
-  tmp = __builtin_expect(__cil_tmp7, 0L);
+  tmp = ldv__builtin_expect(__cil_tmp7, 0L);
   }
 #line 34
   return (tmp);
@@ -5291,7 +5291,7 @@ __inline static int signal_pending(struct task_struct *p )
 #line 2591
   __cil_tmp5 = (long )tmp___8;
 #line 2591
-  tmp___9 = __builtin_expect(__cil_tmp5, 0L);
+  tmp___9 = ldv__builtin_expect(__cil_tmp5, 0L);
   }
 #line 2591
   return ((int )tmp___9);
@@ -5331,7 +5331,7 @@ __inline static bool freezing(struct task_struct *p )
 #line 30
   __cil_tmp7 = (long )tmp___8;
 #line 30
-  tmp___9 = __builtin_expect(__cil_tmp7, 1L);
+  tmp___9 = ldv__builtin_expect(__cil_tmp7, 1L);
   }
 #line 30
   if (tmp___9) {
@@ -5403,7 +5403,7 @@ __inline static bool try_to_freeze(void)
 #line 47
   __cil_tmp6 = (long )tmp___9;
 #line 47
-  tmp___10 = __builtin_expect(__cil_tmp6, 1L);
+  tmp___10 = ldv__builtin_expect(__cil_tmp6, 1L);
   }
 #line 47
   if (tmp___10) {
@@ -10083,7 +10083,7 @@ void ldv_check_final_state(void)
 }
 }
 #line 1039 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/1133/dscv_tempdir/dscv/ri/32_1/drivers/staging/keucr/usb.c.common.c"
-long __builtin_expect(long val , long res ) 
+long ldv__builtin_expect(long val , long res ) 
 { 
 
   {
@@ -10212,7 +10212,7 @@ __inline static struct page *sg_page(struct scatterlist *sg )
 #line 98
     __cil_tmp8 = (long )__cil_tmp7;
 #line 98
-    tmp = __builtin_expect(__cil_tmp8, 0L);
+    tmp = ldv__builtin_expect(__cil_tmp8, 0L);
     }
 #line 98
     if (tmp) {
@@ -10268,7 +10268,7 @@ __inline static struct page *sg_page(struct scatterlist *sg )
 #line 99
     __cil_tmp15 = (long )__cil_tmp14;
 #line 99
-    tmp___0 = __builtin_expect(__cil_tmp15, 0L);
+    tmp___0 = ldv__builtin_expect(__cil_tmp15, 0L);
     }
 #line 99
     if (tmp___0) {
@@ -16228,7 +16228,7 @@ int usb_stor_Bulk_transport(struct scsi_cmnd *srb , struct us_data *us )
 #line 593
   __cil_tmp39 = (long )__cil_tmp38;
 #line 593
-  tmp___8 = __builtin_expect(__cil_tmp39, 0L);
+  tmp___8 = ldv__builtin_expect(__cil_tmp39, 0L);
   }
 #line 593
   if (tmp___8) {
@@ -16453,7 +16453,7 @@ int usb_stor_Bulk_transport(struct scsi_cmnd *srb , struct us_data *us )
 #line 625
   __cil_tmp121 = (long )__cil_tmp120;
 #line 625
-  tmp___9 = __builtin_expect(__cil_tmp121, 0L);
+  tmp___9 = ldv__builtin_expect(__cil_tmp121, 0L);
   }
 #line 625
   if (tmp___9) {

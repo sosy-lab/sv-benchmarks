@@ -3257,7 +3257,7 @@ unsigned long __builtin_object_size(void * , int  ) ;
 #line 1
 void __builtin_prefetch(void const   *  , ...) ;
 #line 1
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 #line 2 "/work/vladimir/commit-test/commit-test-work/task-040--linux-stable--dir/work/current--X--drivers/usb/gadget/g_printer.ko--X--defaultlinux-stable-2b9ec6c-1--X--106_1a--X--cpachecker/linux-stable-2b9ec6c-1/csd_deg_dscv/25/dscv_tempdir/dscv/ri/106_1a/drivers/usb/gadget/printer.c.prepared"
 long ldv_is_err(void const   *ptr ) ;
 #line 5
@@ -3597,7 +3597,7 @@ __inline static int signal_pending(struct task_struct *p )
 #line 2313
   tmp = test_tsk_thread_flag(p, 2);
 #line 2313
-  tmp___0 = __builtin_expect(tmp != 0, 0L);
+  tmp___0 = ldv__builtin_expect(tmp != 0, 0L);
 #line 2313
   return ((int )tmp___0);
 }
@@ -3632,7 +3632,7 @@ __inline static void trace_kmalloc(unsigned long call_site , void const   *ptr ,
 
   {
 #line 45
-  tmp___1 = __builtin_expect(__tracepoint_kmalloc.state != 0, 0L);
+  tmp___1 = ldv__builtin_expect(__tracepoint_kmalloc.state != 0, 0L);
 #line 45
   if (tmp___1 != 0L) {
 #line 45
@@ -3992,14 +3992,14 @@ __inline static unsigned long copy_from_user(void *to , void const   *from , uns
 #line 53
   might_fault();
 #line 54
-  tmp___1 = __builtin_expect(sz == -1, 1L);
+  tmp___1 = ldv__builtin_expect(sz == -1, 1L);
 #line 54
   if (tmp___1 != 0L) {
 #line 55
     n = _copy_from_user(to, from, (unsigned int )n);
   } else {
 #line 54
-    tmp___2 = __builtin_expect((unsigned long )sz >= n, 1L);
+    tmp___2 = ldv__builtin_expect((unsigned long )sz >= n, 1L);
 #line 54
     if (tmp___2 != 0L) {
 #line 55
@@ -4008,7 +4008,7 @@ __inline static unsigned long copy_from_user(void *to , void const   *from , uns
 #line 58
       __ret_warn_on = 1;
 #line 58
-      tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+      tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 58
       if (tmp___0 != 0L) {
 #line 58
@@ -4018,7 +4018,7 @@ __inline static unsigned long copy_from_user(void *to , void const   *from , uns
 
       }
 #line 58
-      __builtin_expect(__ret_warn_on != 0, 0L);
+      ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
   }
 #line 60
@@ -4309,7 +4309,7 @@ static int utf8_to_utf16le(char const   *s , __le16 *cp , unsigned int len )
   goto ldv_22320;
   ldv_22319: 
 #line 34
-  tmp___2 = __builtin_expect((int )((signed char )c) < 0, 0L);
+  tmp___2 = ldv__builtin_expect((int )((signed char )c) < 0, 0L);
 #line 34
   if (tmp___2 != 0L) {
 #line 37
@@ -5265,7 +5265,7 @@ static void tx_complete(struct usb_ep *ep , struct usb_request *req )
 #line 484
   tmp = list_empty((struct list_head  const  *)(& dev->tx_reqs_active));
 #line 484
-  tmp___0 = __builtin_expect(tmp != 0, 1L);
+  tmp___0 = ldv__builtin_expect(tmp != 0, 1L);
 #line 484
   if (tmp___0 != 0L) {
 #line 485
@@ -5393,7 +5393,7 @@ static void setup_rx_reqs(struct printer_dev *dev )
 #line 543
   tmp = list_empty((struct list_head  const  *)(& dev->rx_reqs));
 #line 543
-  tmp___0 = __builtin_expect(tmp == 0, 1L);
+  tmp___0 = ldv__builtin_expect(tmp == 0, 1L);
 #line 543
   if (tmp___0 != 0L) {
 #line 545
@@ -5478,7 +5478,7 @@ static ssize_t printer_read(struct file *fd , char *buf , size_t len , loff_t *p
 #line 614
     tmp___8 = list_empty((struct list_head  const  *)(& dev->rx_buffers));
 #line 614
-    tmp___9 = __builtin_expect(tmp___8 != 0, 1L);
+    tmp___9 = ldv__builtin_expect(tmp___8 != 0, 1L);
 #line 614
     if (tmp___9 != 0L) {
 #line 617
@@ -5497,7 +5497,7 @@ static ssize_t printer_read(struct file *fd , char *buf , size_t len , loff_t *p
 #line 629
       tmp___5 = list_empty((struct list_head  const  *)(& dev->rx_buffers));
 #line 629
-      tmp___6 = __builtin_expect(tmp___5 == 0, 1L);
+      tmp___6 = ldv__builtin_expect(tmp___5 == 0, 1L);
 #line 629
       if (tmp___6 == 0L) {
 #line 629
@@ -5518,7 +5518,7 @@ static ssize_t printer_read(struct file *fd , char *buf , size_t len , loff_t *p
 #line 629
         tmp___1 = list_empty((struct list_head  const  *)(& dev->rx_buffers));
 #line 629
-        tmp___2 = __builtin_expect(tmp___1 == 0, 1L);
+        tmp___2 = ldv__builtin_expect(tmp___1 == 0, 1L);
 #line 629
         if (tmp___2 != 0L) {
 #line 629
@@ -5652,7 +5652,7 @@ static ssize_t printer_read(struct file *fd , char *buf , size_t len , loff_t *p
 #line 635
     tmp___12 = list_empty((struct list_head  const  *)(& dev->rx_buffers));
 #line 635
-    tmp___13 = __builtin_expect(tmp___12 == 0, 1L);
+    tmp___13 = ldv__builtin_expect(tmp___12 == 0, 1L);
 #line 635
     if (tmp___13 != 0L) {
       _L: /* CIL Label */ 
@@ -5746,7 +5746,7 @@ static ssize_t printer_write(struct file *fd , char const   *buf , size_t len , 
 #line 727
   tmp___8 = list_empty((struct list_head  const  *)(& dev->tx_reqs));
 #line 727
-  tmp___9 = __builtin_expect(tmp___8 != 0, 1L);
+  tmp___9 = ldv__builtin_expect(tmp___8 != 0, 1L);
 #line 727
   if (tmp___9 != 0L) {
 #line 729
@@ -5765,7 +5765,7 @@ static ssize_t printer_write(struct file *fd , char const   *buf , size_t len , 
 #line 741
     tmp___5 = list_empty((struct list_head  const  *)(& dev->tx_reqs));
 #line 741
-    tmp___6 = __builtin_expect(tmp___5 == 0, 1L);
+    tmp___6 = ldv__builtin_expect(tmp___5 == 0, 1L);
 #line 741
     if (tmp___6 == 0L) {
 #line 741
@@ -5786,7 +5786,7 @@ static ssize_t printer_write(struct file *fd , char const   *buf , size_t len , 
 #line 741
       tmp___1 = list_empty((struct list_head  const  *)(& dev->tx_reqs));
 #line 741
-      tmp___2 = __builtin_expect(tmp___1 == 0, 1L);
+      tmp___2 = ldv__builtin_expect(tmp___1 == 0, 1L);
 #line 741
       if (tmp___2 != 0L) {
 #line 741
@@ -5915,7 +5915,7 @@ static ssize_t printer_write(struct file *fd , char const   *buf , size_t len , 
 #line 746
   tmp___13 = list_empty((struct list_head  const  *)(& dev->tx_reqs));
 #line 746
-  tmp___14 = __builtin_expect(tmp___13 == 0, 1L);
+  tmp___14 = ldv__builtin_expect(tmp___13 == 0, 1L);
 #line 746
   if (tmp___14 != 0L && len != 0UL) {
 #line 748
@@ -5968,7 +5968,7 @@ static int printer_fsync(struct file *fd , int datasync )
 #line 824
   tmp___0 = list_empty((struct list_head  const  *)(& dev->tx_reqs));
 #line 824
-  tmp___1 = __builtin_expect(tmp___0 != 0, 1L);
+  tmp___1 = ldv__builtin_expect(tmp___0 != 0, 1L);
 #line 824
   tx_list_empty = (int )tmp___1;
 #line 825
@@ -5980,7 +5980,7 @@ static int printer_fsync(struct file *fd , int datasync )
 #line 829
     tmp___7 = list_empty((struct list_head  const  *)(& dev->tx_reqs_active));
 #line 829
-    tmp___8 = __builtin_expect(tmp___7 != 0, 1L);
+    tmp___8 = ldv__builtin_expect(tmp___7 != 0, 1L);
 #line 829
     if (tmp___8 == 0L) {
 #line 829
@@ -6001,7 +6001,7 @@ static int printer_fsync(struct file *fd , int datasync )
 #line 829
       tmp___3 = list_empty((struct list_head  const  *)(& dev->tx_reqs_active));
 #line 829
-      tmp___4 = __builtin_expect(tmp___3 != 0, 1L);
+      tmp___4 = ldv__builtin_expect(tmp___3 != 0, 1L);
 #line 829
       if (tmp___4 != 0L) {
 #line 829
@@ -6084,7 +6084,7 @@ static unsigned int printer_poll(struct file *fd , poll_table *wait )
 #line 853
   tmp___1 = list_empty((struct list_head  const  *)(& dev->tx_reqs));
 #line 853
-  tmp___2 = __builtin_expect(tmp___1 == 0, 1L);
+  tmp___2 = ldv__builtin_expect(tmp___1 == 0, 1L);
 #line 853
   if (tmp___2 != 0L) {
 #line 854
@@ -6093,7 +6093,7 @@ static unsigned int printer_poll(struct file *fd , poll_table *wait )
 
   }
 #line 856
-  tmp___3 = __builtin_expect(dev->current_rx_bytes != 0UL, 1L);
+  tmp___3 = ldv__builtin_expect(dev->current_rx_bytes != 0UL, 1L);
 #line 856
   if (tmp___3 != 0L) {
 #line 858
@@ -6102,7 +6102,7 @@ static unsigned int printer_poll(struct file *fd , poll_table *wait )
 #line 856
     tmp___4 = list_empty((struct list_head  const  *)(& dev->rx_buffers));
 #line 856
-    tmp___5 = __builtin_expect(tmp___4 == 0, 1L);
+    tmp___5 = ldv__builtin_expect(tmp___4 == 0, 1L);
 #line 856
     if (tmp___5 != 0L) {
 #line 858
@@ -6519,7 +6519,7 @@ static void printer_soft_reset(struct printer_dev *dev )
 #line 1104
   tmp___1 = list_empty((struct list_head  const  *)(& dev->rx_buffers));
 #line 1104
-  tmp___2 = __builtin_expect(tmp___1 == 0, 1L);
+  tmp___2 = ldv__builtin_expect(tmp___1 == 0, 1L);
 #line 1104
   if (tmp___2 != 0L) {
 #line 1106
@@ -6543,7 +6543,7 @@ static void printer_soft_reset(struct printer_dev *dev )
 #line 1111
   tmp___3 = list_empty((struct list_head  const  *)(& dev->rx_reqs_active));
 #line 1111
-  tmp___4 = __builtin_expect(tmp___3 == 0, 1L);
+  tmp___4 = ldv__builtin_expect(tmp___3 == 0, 1L);
 #line 1111
   if (tmp___4 != 0L) {
 #line 1113
@@ -6567,7 +6567,7 @@ static void printer_soft_reset(struct printer_dev *dev )
 #line 1118
   tmp___5 = list_empty((struct list_head  const  *)(& dev->tx_reqs_active));
 #line 1118
-  tmp___6 = __builtin_expect(tmp___5 == 0, 1L);
+  tmp___6 = ldv__builtin_expect(tmp___5 == 0, 1L);
 #line 1118
   if (tmp___6 != 0L) {
 #line 1120
@@ -6980,7 +6980,7 @@ static void printer_unbind(struct usb_gadget *gadget )
 #line 1333
   __ret_warn_on = tmp___0 == 0;
 #line 1333
-  tmp___1 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___1 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 1333
   if (tmp___1 != 0L) {
 #line 1333
@@ -6990,13 +6990,13 @@ static void printer_unbind(struct usb_gadget *gadget )
 
   }
 #line 1333
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 1334
   tmp___2 = list_empty((struct list_head  const  *)(& dev->rx_reqs_active));
 #line 1334
   __ret_warn_on___0 = tmp___2 == 0;
 #line 1334
-  tmp___3 = __builtin_expect(__ret_warn_on___0 != 0, 0L);
+  tmp___3 = ldv__builtin_expect(__ret_warn_on___0 != 0, 0L);
 #line 1334
   if (tmp___3 != 0L) {
 #line 1334
@@ -7006,7 +7006,7 @@ static void printer_unbind(struct usb_gadget *gadget )
 
   }
 #line 1334
-  __builtin_expect(__ret_warn_on___0 != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on___0 != 0, 0L);
 #line 1337
   goto ldv_22921;
   ldv_22920: 
@@ -7978,7 +7978,7 @@ __inline static int __VERIFIER_nondet_uint(void)
 }
 }
 #line 49 "/work/vladimir/kernel-rules/verifier/rcv.h"
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 

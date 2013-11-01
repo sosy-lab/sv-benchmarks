@@ -2932,7 +2932,7 @@ struct local_info_t {
 #line 70 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/3634/dscv_tempdir/dscv/ri/32_1/drivers/isdn/hisax/elsa_cs.c.common.c"
 typedef struct local_info_t local_info_t;
 #line 1 "<compiler builtins>"
-long __builtin_expect(long val , long res ) ;
+long ldv__builtin_expect(long val , long res ) ;
 #line 100 "include/linux/printk.h"
 extern int ( /* format attribute */  printk)(char const   *fmt  , ...) ;
 #line 49 "include/linux/dynamic_debug.h"
@@ -3141,7 +3141,7 @@ static int elsa_cs_probe(struct pcmcia_device *link )
 #line 80
       __cil_tmp11 = (long )__cil_tmp10;
 #line 80
-      tmp___7 = __builtin_expect(__cil_tmp11, 0L);
+      tmp___7 = ldv__builtin_expect(__cil_tmp11, 0L);
       }
 #line 80
       if (tmp___7) {
@@ -3267,7 +3267,7 @@ static void elsa_cs_detach(struct pcmcia_device *link )
 #line 98
       __cil_tmp12 = (long )__cil_tmp11;
 #line 98
-      tmp___7 = __builtin_expect(__cil_tmp12, 0L);
+      tmp___7 = ldv__builtin_expect(__cil_tmp12, 0L);
       }
 #line 98
       if (tmp___7) {
@@ -3660,7 +3660,7 @@ static int elsa_cs_config(struct pcmcia_device *link )
 #line 135
       __cil_tmp10 = (long )__cil_tmp9;
 #line 135
-      tmp___7 = __builtin_expect(__cil_tmp10, 0L);
+      tmp___7 = ldv__builtin_expect(__cil_tmp10, 0L);
       }
 #line 135
       if (tmp___7) {
@@ -3910,7 +3910,7 @@ static void elsa_cs_release(struct pcmcia_device *link )
 #line 173
       __cil_tmp12 = (long )__cil_tmp11;
 #line 173
-      tmp___7 = __builtin_expect(__cil_tmp12, 0L);
+      tmp___7 = ldv__builtin_expect(__cil_tmp12, 0L);
       }
 #line 173
       if (tmp___7) {
@@ -4462,7 +4462,7 @@ void ldv_check_final_state(void)
 }
 }
 #line 393 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/3634/dscv_tempdir/dscv/ri/32_1/drivers/isdn/hisax/elsa_cs.c.common.c"
-long __builtin_expect(long val , long res ) 
+long ldv__builtin_expect(long val , long res ) 
 { 
 
   {

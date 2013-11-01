@@ -5349,7 +5349,7 @@ struct __anonstruct_222 {
    dma_addr_t dma ;
 };
 #line 1 "<compiler builtins>"
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 #line 324 "/work/ldvuser/exper_fp/inst/current/envs/linux-3.10-rc1.tar/linux-3.10-rc1/arch/x86/include/asm/bitops.h"
 __inline static int variable_test_bit(int nr , unsigned long const volatile   *addr ) 
 { 
@@ -5560,7 +5560,7 @@ __inline static int signal_pending(struct task_struct *p )
 #line 2385
   tmp = test_tsk_thread_flag(p, 2);
 #line 2385
-  tmp___0 = __builtin_expect(tmp != 0, 0L);
+  tmp___0 = ldv__builtin_expect(tmp != 0, 0L);
 #line 2385
   return ((int )tmp___0);
 }
@@ -5881,7 +5881,7 @@ static int saa7146_i2c_reset(struct saa7146_dev *dev )
 #line 175
       descriptor.flags = 0U;
 #line 175
-      tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+      tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 175
       if (tmp___0 != 0L) {
 #line 175
@@ -5926,7 +5926,7 @@ static int saa7146_i2c_reset(struct saa7146_dev *dev )
 #line 193
       descriptor___0.flags = 0U;
 #line 193
-      tmp___1 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+      tmp___1 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 193
       if (tmp___1 != 0L) {
 #line 193
@@ -5978,7 +5978,7 @@ static int saa7146_i2c_reset(struct saa7146_dev *dev )
 #line 216
       descriptor___1.flags = 0U;
 #line 216
-      tmp___2 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+      tmp___2 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 216
       if (tmp___2 != 0L) {
 #line 216
@@ -6052,7 +6052,7 @@ static int saa7146_i2c_writeout(struct saa7146_dev *dev , __le32 *dword , int sh
 #line 233
     descriptor.flags = 0U;
 #line 233
-    tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 233
     if (tmp___0 != 0L) {
 #line 233
@@ -6257,7 +6257,7 @@ static int saa7146_i2c_writeout(struct saa7146_dev *dev , __le32 *dword , int sh
 #line 310
         descriptor___0.flags = 0U;
 #line 310
-        tmp___5 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+        tmp___5 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 310
         if (tmp___5 != 0L) {
 #line 310
@@ -6289,7 +6289,7 @@ static int saa7146_i2c_writeout(struct saa7146_dev *dev , __le32 *dword , int sh
 #line 313
         descriptor___1.flags = 0U;
 #line 313
-        tmp___6 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+        tmp___6 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 313
         if (tmp___6 != 0L) {
 #line 313
@@ -6321,7 +6321,7 @@ static int saa7146_i2c_writeout(struct saa7146_dev *dev , __le32 *dword , int sh
 #line 316
         descriptor___2.flags = 0U;
 #line 316
-        tmp___7 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+        tmp___7 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
 #line 316
         if (tmp___7 != 0L) {
 #line 316
@@ -6353,7 +6353,7 @@ static int saa7146_i2c_writeout(struct saa7146_dev *dev , __le32 *dword , int sh
 #line 319
         descriptor___3.flags = 0U;
 #line 319
-        tmp___8 = __builtin_expect((long )descriptor___3.flags & 1L, 0L);
+        tmp___8 = ldv__builtin_expect((long )descriptor___3.flags & 1L, 0L);
 #line 319
         if (tmp___8 != 0L) {
 #line 319
@@ -6385,7 +6385,7 @@ static int saa7146_i2c_writeout(struct saa7146_dev *dev , __le32 *dword , int sh
 #line 322
         descriptor___4.flags = 0U;
 #line 322
-        tmp___9 = __builtin_expect((long )descriptor___4.flags & 1L, 0L);
+        tmp___9 = ldv__builtin_expect((long )descriptor___4.flags & 1L, 0L);
 #line 322
         if (tmp___9 != 0L) {
 #line 322
@@ -6417,7 +6417,7 @@ static int saa7146_i2c_writeout(struct saa7146_dev *dev , __le32 *dword , int sh
 #line 327
         descriptor___5.flags = 0U;
 #line 327
-        tmp___10 = __builtin_expect((long )descriptor___5.flags & 1L, 0L);
+        tmp___10 = ldv__builtin_expect((long )descriptor___5.flags & 1L, 0L);
 #line 327
         if (tmp___10 != 0L) {
 #line 327
@@ -6456,7 +6456,7 @@ static int saa7146_i2c_writeout(struct saa7146_dev *dev , __le32 *dword , int sh
 #line 337
     descriptor___6.flags = 0U;
 #line 337
-    tmp___11 = __builtin_expect((long )descriptor___6.flags & 1L, 0L);
+    tmp___11 = ldv__builtin_expect((long )descriptor___6.flags & 1L, 0L);
 #line 337
     if (tmp___11 != 0L) {
 #line 337
@@ -6537,7 +6537,7 @@ static int saa7146_i2c_transfer(struct saa7146_dev *dev , struct i2c_msg  const 
 #line 352
     descriptor.flags = 0U;
 #line 352
-    tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 352
     if (tmp___0 != 0L) {
 #line 352
@@ -6597,7 +6597,7 @@ static int saa7146_i2c_transfer(struct saa7146_dev *dev , struct i2c_msg  const 
 #line 369
       descriptor___0.flags = 0U;
 #line 369
-      tmp___1 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+      tmp___1 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 369
       if (tmp___1 != 0L) {
 #line 369
@@ -6645,7 +6645,7 @@ static int saa7146_i2c_transfer(struct saa7146_dev *dev , struct i2c_msg  const 
 #line 389
       descriptor___1.flags = 0U;
 #line 389
-      tmp___2 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+      tmp___2 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 389
       if (tmp___2 != 0L) {
 #line 389
@@ -6728,7 +6728,7 @@ static int saa7146_i2c_transfer(struct saa7146_dev *dev , struct i2c_msg  const 
 #line 409
       descriptor___2.flags = 0U;
 #line 409
-      tmp___4 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+      tmp___4 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
 #line 409
       if (tmp___4 != 0L) {
 #line 409
@@ -6762,7 +6762,7 @@ static int saa7146_i2c_transfer(struct saa7146_dev *dev , struct i2c_msg  const 
 #line 415
     descriptor___3.flags = 0U;
 #line 415
-    tmp___6 = __builtin_expect((long )descriptor___3.flags & 1L, 0L);
+    tmp___6 = ldv__builtin_expect((long )descriptor___3.flags & 1L, 0L);
 #line 415
     if (tmp___6 != 0L) {
 #line 415
@@ -6848,7 +6848,7 @@ int saa7146_i2c_adapter_prepare(struct saa7146_dev *dev , struct i2c_adapter *i2
 #line 453
     descriptor.flags = 0U;
 #line 453
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 453
     if (tmp != 0L) {
 #line 453
@@ -7153,7 +7153,7 @@ __inline static unsigned long arch_local_save_flags(void)
 #line 824
   __eax = __eax;
 #line 824
-  tmp = __builtin_expect((unsigned long )pv_irq_ops.save_fl.func == (unsigned long )((void *)0),
+  tmp = ldv__builtin_expect((unsigned long )pv_irq_ops.save_fl.func == (unsigned long )((void *)0),
                          0L);
 #line 824
   if (tmp != 0L) {
@@ -7337,7 +7337,7 @@ __inline static void sg_assign_page(struct scatterlist *sg , struct page *page )
 #line 59
   page_link = sg->page_link & 3UL;
 #line 65
-  tmp = __builtin_expect(((unsigned long )page & 3UL) != 0UL, 0L);
+  tmp = ldv__builtin_expect(((unsigned long )page & 3UL) != 0UL, 0L);
 #line 65
   if (tmp != 0L) {
 #line 65
@@ -7350,7 +7350,7 @@ __inline static void sg_assign_page(struct scatterlist *sg , struct page *page )
 
   }
 #line 67
-  tmp___0 = __builtin_expect(sg->sg_magic != 2271560481UL, 0L);
+  tmp___0 = ldv__builtin_expect(sg->sg_magic != 2271560481UL, 0L);
 #line 67
   if (tmp___0 != 0L) {
 #line 67
@@ -7363,7 +7363,7 @@ __inline static void sg_assign_page(struct scatterlist *sg , struct page *page )
 
   }
 #line 68
-  tmp___1 = __builtin_expect((long )((int )sg->page_link) & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )((int )sg->page_link) & 1L, 0L);
 #line 68
   if (tmp___1 != 0L) {
 #line 68
@@ -7406,7 +7406,7 @@ __inline static struct page *sg_page(struct scatterlist *sg )
 
   {
 #line 98
-  tmp = __builtin_expect(sg->sg_magic != 2271560481UL, 0L);
+  tmp = ldv__builtin_expect(sg->sg_magic != 2271560481UL, 0L);
 #line 98
   if (tmp != 0L) {
 #line 98
@@ -7419,7 +7419,7 @@ __inline static struct page *sg_page(struct scatterlist *sg )
 
   }
 #line 99
-  tmp___0 = __builtin_expect((long )((int )sg->page_link) & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )((int )sg->page_link) & 1L, 0L);
 #line 99
   if (tmp___0 != 0L) {
 #line 99
@@ -7504,7 +7504,7 @@ __inline static struct dma_map_ops *get_dma_ops(struct device *dev )
 
   {
 #line 37
-  tmp = __builtin_expect((unsigned long )dev == (unsigned long )((struct device *)0),
+  tmp = ldv__builtin_expect((unsigned long )dev == (unsigned long )((struct device *)0),
                          0L);
 #line 37
   if (tmp != 0L || (unsigned long )dev->archdata.dma_ops == (unsigned long )((struct dma_map_ops *)0)) {
@@ -7560,7 +7560,7 @@ __inline static int dma_map_sg_attrs(struct device *dev , struct scatterlist *sg
 #line 52
   tmp___1 = valid_dma_direction((int )dir);
 #line 52
-  tmp___2 = __builtin_expect(tmp___1 == 0, 0L);
+  tmp___2 = ldv__builtin_expect(tmp___1 == 0, 0L);
 #line 52
   if (tmp___2 != 0L) {
 #line 52
@@ -7598,7 +7598,7 @@ __inline static void dma_unmap_sg_attrs(struct device *dev , struct scatterlist 
 #line 65
   tmp___0 = valid_dma_direction((int )dir);
 #line 65
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
 #line 65
   if (tmp___1 != 0L) {
 #line 65
@@ -7751,7 +7751,7 @@ __inline static void dma_free_attrs(struct device *dev , size_t size , void *vad
 #line 166
   __ret_warn_on = tmp___0 != 0;
 #line 166
-  tmp___1 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___1 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 166
   if (tmp___1 != 0L) {
 #line 166
@@ -7761,7 +7761,7 @@ __inline static void dma_free_attrs(struct device *dev , size_t size , void *vad
 
   }
 #line 166
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 171
   debug_dma_free_coherent(dev, size, vaddr, bus);
 #line 172
@@ -7908,7 +7908,7 @@ void saa7146_setgpio(struct saa7146_dev *dev , int port , u32 data )
 #line 97
   value = 0U;
 #line 99
-  tmp = __builtin_expect(port > 3, 0L);
+  tmp = ldv__builtin_expect(port > 3, 0L);
 #line 99
   if (tmp != 0L) {
 #line 99
@@ -8012,7 +8012,7 @@ __inline static int saa7146_wait_for_debi_done_sleep(struct saa7146_dev *dev , u
 #line 136
       descriptor.flags = 0U;
 #line 136
-      tmp___3 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+      tmp___3 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 136
       if (tmp___3 != 0L) {
 #line 136
@@ -8118,7 +8118,7 @@ __inline static int saa7146_wait_for_debi_done_busyloop(struct saa7146_dev *dev 
 #line 171
       descriptor.flags = 0U;
 #line 171
-      tmp___2 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+      tmp___2 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 171
       if (tmp___2 != 0L) {
 #line 171
@@ -8207,7 +8207,7 @@ static struct scatterlist *vmalloc_to_sg(unsigned char *virt , int nr_pages )
 #line 210
   tmp___0 = PageHighMem((struct page  const  *)pg);
 #line 210
-  tmp___1 = __builtin_expect(tmp___0 != 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 != 0, 0L);
 #line 210
   if (tmp___1 != 0L) {
 #line 210
@@ -8420,7 +8420,7 @@ int saa7146_pgtable_build_single(struct pci_dev *pci , struct saa7146_pgtable *p
 #line 298
   nr_pages = 0;
 #line 301
-  tmp = __builtin_expect(sglen == 0, 0L);
+  tmp = ldv__builtin_expect(sglen == 0, 0L);
 #line 301
   if (tmp != 0L) {
 #line 301
@@ -8433,7 +8433,7 @@ int saa7146_pgtable_build_single(struct pci_dev *pci , struct saa7146_pgtable *p
 
   }
 #line 302
-  tmp___0 = __builtin_expect(list->offset > 4096U, 0L);
+  tmp___0 = ldv__builtin_expect(list->offset > 4096U, 0L);
 #line 302
   if (tmp___0 != 0L) {
 #line 302
@@ -8579,7 +8579,7 @@ static irqreturn_t interrupt_hw(int irq , void *dev_id )
 #line 363
       descriptor.flags = 0U;
 #line 363
-      tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+      tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 363
       if (tmp != 0L) {
 #line 363
@@ -8726,7 +8726,7 @@ static int saa7146_init_one(struct pci_dev *pci , struct pci_device_id  const  *
 #line 414
     descriptor.flags = 0U;
 #line 414
-    tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 414
     if (tmp___0 != 0L) {
 #line 414
@@ -8887,7 +8887,7 @@ static int saa7146_init_one(struct pci_dev *pci , struct pci_device_id  const  *
 #line 516
         descriptor___0.flags = 0U;
 #line 516
-        tmp___5 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+        tmp___5 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 516
         if (tmp___5 != 0L) {
 #line 516
@@ -8926,7 +8926,7 @@ static int saa7146_init_one(struct pci_dev *pci , struct pci_device_id  const  *
 #line 521
       descriptor___1.flags = 0U;
 #line 521
-      tmp___7 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+      tmp___7 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 521
       if (tmp___7 != 0L) {
 #line 521
@@ -9032,7 +9032,7 @@ static void saa7146_remove_one(struct pci_dev *pdev )
 #line 571
     descriptor.flags = 0U;
 #line 571
-    tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 571
     if (tmp___1 != 0L) {
 #line 571
@@ -9108,7 +9108,7 @@ int saa7146_register_extension(struct saa7146_extension *ext )
 #line 601
     descriptor.flags = 0U;
 #line 601
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 601
     if (tmp != 0L) {
 #line 601
@@ -9158,7 +9158,7 @@ int saa7146_unregister_extension(struct saa7146_extension *ext )
 #line 614
     descriptor.flags = 0U;
 #line 614
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 614
     if (tmp != 0L) {
 #line 614
@@ -9298,7 +9298,7 @@ __inline static void ldv_error(void)
 #line 25
 extern int __VERIFIER_nondet_int(void) ;
 #line 49 "/home/ldvuser/ldv/inst/kernel-rules/verifier/rcv.h"
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 

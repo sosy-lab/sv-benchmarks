@@ -3229,7 +3229,7 @@ struct snd_mixer_oss_assign_table {
    int index ;
 };
 #line 1 "<compiler builtins>"
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 #line 370 "/home/mikhail/launches/cpachecker-regression2/launcher-working-dir/ldv-manager-work-dir/inst/current/envs/linux-3.8-rc1/linux-3.8-rc1/arch/x86/include/asm/bitops.h"
 __inline static unsigned long ffz(unsigned long word ) 
 { 
@@ -4095,7 +4095,7 @@ static int snd_mixer_oss_get_volume(struct snd_mixer_oss_file *fmixer , int slot
 #line 314
   __ret_warn_on = left < 0 || left > 100;
 #line 314
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 314
   if (tmp != 0L) {
 #line 314
@@ -4105,7 +4105,7 @@ static int snd_mixer_oss_get_volume(struct snd_mixer_oss_file *fmixer , int slot
 
   }
 #line 314
-  tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 314
   if (tmp___0 != 0L) {
 #line 315
@@ -4116,7 +4116,7 @@ static int snd_mixer_oss_get_volume(struct snd_mixer_oss_file *fmixer , int slot
 #line 316
   __ret_warn_on___0 = right < 0 || right > 100;
 #line 316
-  tmp___1 = __builtin_expect(__ret_warn_on___0 != 0, 0L);
+  tmp___1 = ldv__builtin_expect(__ret_warn_on___0 != 0, 0L);
 #line 316
   if (tmp___1 != 0L) {
 #line 316
@@ -4126,7 +4126,7 @@ static int snd_mixer_oss_get_volume(struct snd_mixer_oss_file *fmixer , int slot
 
   }
 #line 316
-  tmp___2 = __builtin_expect(__ret_warn_on___0 != 0, 0L);
+  tmp___2 = ldv__builtin_expect(__ret_warn_on___0 != 0, 0L);
 #line 316
   if (tmp___2 != 0L) {
 #line 317
@@ -4267,7 +4267,7 @@ static int snd_mixer_oss_ioctl1(struct snd_mixer_oss_file *fmixer , unsigned int
 #line 357
   __ret_warn_on = (unsigned long )fmixer == (unsigned long )((struct snd_mixer_oss_file *)0);
 #line 357
-  tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 357
   if (tmp___0 != 0L) {
 #line 357
@@ -4277,7 +4277,7 @@ static int snd_mixer_oss_ioctl1(struct snd_mixer_oss_file *fmixer , unsigned int
 
   }
 #line 357
-  tmp___1 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___1 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 357
   if (tmp___1 != 0L) {
 #line 358
@@ -4896,7 +4896,7 @@ int snd_mixer_oss_ioctl_card(struct snd_card *card , unsigned int cmd , unsigned
 #line 428
   __ret_warn_on = (unsigned long )card == (unsigned long )((struct snd_card *)0);
 #line 428
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 428
   if (tmp != 0L) {
 #line 428
@@ -4906,7 +4906,7 @@ int snd_mixer_oss_ioctl_card(struct snd_card *card , unsigned int cmd , unsigned
 
   }
 #line 428
-  tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 428
   if (tmp___0 != 0L) {
 #line 429
@@ -7053,7 +7053,7 @@ static int snd_mixer_oss_free1(void *private )
 #line 1369
   __ret_warn_on = (unsigned long )card->mixer_oss != (unsigned long )mixer;
 #line 1369
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 1369
   if (tmp != 0L) {
 #line 1369
@@ -7063,7 +7063,7 @@ static int snd_mixer_oss_free1(void *private )
 
   }
 #line 1369
-  tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 1369
   if (tmp___0 != 0L) {
 #line 1370
@@ -7600,7 +7600,7 @@ __inline static void ldv_error(void)
 #line 25
 extern int __VERIFIER_nondet_int(void) ;
 #line 49 "/home/mikhail/ldv/kernel-rules/verifier/rcv.h"
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 

@@ -1010,7 +1010,7 @@ struct w1_f23_data {
 #line 1 "<compiler builtins>"
 
 #line 1
-long __builtin_expect(long val , long res ) ;
+long ldv__builtin_expect(long val , long res ) ;
 #line 60 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/string_64.h"
 extern int memcmp(void const   *cs , void const   *ct , unsigned long count ) ;
 #line 152 "include/linux/mutex.h"
@@ -2785,7 +2785,7 @@ void ldv_check_final_state(void)
 }
 }
 #line 854 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/12357/dscv_tempdir/dscv/ri/32_1/drivers/w1/slaves/w1_ds2433.c.common.c"
-long __builtin_expect(long val , long res ) 
+long ldv__builtin_expect(long val , long res ) 
 { 
 
   {

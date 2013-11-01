@@ -5680,7 +5680,7 @@ struct __anonstruct_uaddr_369 {
 #line 1
 
 #line 1
-long __builtin_expect(long val , long res ) ;
+long ldv__builtin_expect(long val , long res ) ;
 #line 14 "include/linux/file.h"
 extern void fput(struct file * ) ;
 #line 24 "include/linux/list.h"
@@ -5995,7 +5995,7 @@ __inline static long __attribute__((__warn_unused_result__))  IS_ERR(void    *pt
 #line 34
   __cil_tmp7 = (long )__cil_tmp6;
 #line 34
-  tmp = __builtin_expect(__cil_tmp7, 0L);
+  tmp = ldv__builtin_expect(__cil_tmp7, 0L);
   }
 #line 34
   return (tmp);
@@ -6661,7 +6661,7 @@ __inline static int kref_sub(struct kref *kref , unsigned int count , void (*rel
 #line 66
   __cil_tmp14 = (long )__cil_tmp13;
 #line 66
-  tmp = __builtin_expect(__cil_tmp14, 0L);
+  tmp = ldv__builtin_expect(__cil_tmp14, 0L);
   }
 #line 66
   if (tmp) {
@@ -6682,7 +6682,7 @@ __inline static int kref_sub(struct kref *kref , unsigned int count , void (*rel
 #line 66
   __cil_tmp18 = (long )__cil_tmp17;
 #line 66
-  __builtin_expect(__cil_tmp18, 0L);
+  ldv__builtin_expect(__cil_tmp18, 0L);
 #line 68
   __cil_tmp19 = (int )count;
 #line 68
@@ -6902,7 +6902,7 @@ __inline static unsigned long __attribute__((__warn_unused_result__))  copy_from
 #line 53
   __cil_tmp11 = (long )tmp___1;
 #line 53
-  tmp___2 = __builtin_expect(__cil_tmp11, 1L);
+  tmp___2 = ldv__builtin_expect(__cil_tmp11, 1L);
   }
 #line 53
   if (tmp___2) {
@@ -6923,7 +6923,7 @@ __inline static unsigned long __attribute__((__warn_unused_result__))  copy_from
 #line 57
     __cil_tmp15 = (long )__cil_tmp14;
 #line 57
-    tmp___0 = __builtin_expect(__cil_tmp15, 0L);
+    tmp___0 = ldv__builtin_expect(__cil_tmp15, 0L);
     }
 #line 57
     if (tmp___0) {
@@ -6945,7 +6945,7 @@ __inline static unsigned long __attribute__((__warn_unused_result__))  copy_from
 #line 57
     __cil_tmp19 = (long )__cil_tmp18;
 #line 57
-    __builtin_expect(__cil_tmp19, 0L);
+    ldv__builtin_expect(__cil_tmp19, 0L);
     }
   }
 #line 59
@@ -7290,7 +7290,7 @@ __inline static int __attribute__((__warn_unused_result__))  ( __attribute__((__
 #line 94
       __cil_tmp28 = (long )__cil_tmp27;
 #line 94
-      tmp___0 = __builtin_expect(__cil_tmp28, 0L);
+      tmp___0 = ldv__builtin_expect(__cil_tmp28, 0L);
       }
 #line 94
       if (tmp___0) {
@@ -7394,7 +7394,7 @@ __inline static int __attribute__((__warn_unused_result__))  ( __attribute__((__
 #line 103
       __cil_tmp41 = (long )__cil_tmp40;
 #line 103
-      tmp___1 = __builtin_expect(__cil_tmp41, 0L);
+      tmp___1 = ldv__builtin_expect(__cil_tmp41, 0L);
       }
 #line 103
       if (tmp___1) {
@@ -7739,7 +7739,7 @@ __inline static int __attribute__((__warn_unused_result__))  ( __attribute__((__
 #line 138
       __cil_tmp26 = (long )__cil_tmp25;
 #line 138
-      tmp___0 = __builtin_expect(__cil_tmp26, 0L);
+      tmp___0 = ldv__builtin_expect(__cil_tmp26, 0L);
       }
 #line 138
       if (tmp___0) {
@@ -7827,7 +7827,7 @@ __inline static int __attribute__((__warn_unused_result__))  ( __attribute__((__
 #line 147
       __cil_tmp37 = (long )__cil_tmp36;
 #line 147
-      tmp___1 = __builtin_expect(__cil_tmp37, 0L);
+      tmp___1 = ldv__builtin_expect(__cil_tmp37, 0L);
       }
 #line 147
       if (tmp___1) {
@@ -8086,7 +8086,7 @@ __inline static int need_resched(void)
 #line 2616
   __cil_tmp5 = (long )tmp___9;
 #line 2616
-  tmp___10 = __builtin_expect(__cil_tmp5, 0L);
+  tmp___10 = ldv__builtin_expect(__cil_tmp5, 0L);
   }
 #line 2616
   return ((int )tmp___10);
@@ -8856,7 +8856,7 @@ static void vhost_work_flush(struct vhost_dev *dev , struct vhost_work *work )
 #line 130
     __cil_tmp53 = (long )__cil_tmp52;
 #line 130
-    tmp___10 = __builtin_expect(__cil_tmp53, 0L);
+    tmp___10 = ldv__builtin_expect(__cil_tmp53, 0L);
     }
 #line 130
     if (tmp___10) {
@@ -11736,7 +11736,7 @@ void vhost_dev_cleanup(struct vhost_dev *dev , bool locked )
 #line 480
   __cil_tmp148 = (long )__cil_tmp147;
 #line 480
-  tmp___9 = __builtin_expect(__cil_tmp148, 0L);
+  tmp___9 = ldv__builtin_expect(__cil_tmp148, 0L);
   }
 #line 480
   if (tmp___9) {
@@ -11758,7 +11758,7 @@ void vhost_dev_cleanup(struct vhost_dev *dev , bool locked )
 #line 480
   __cil_tmp152 = (long )__cil_tmp151;
 #line 480
-  __builtin_expect(__cil_tmp152, 0L);
+  ldv__builtin_expect(__cil_tmp152, 0L);
   }
   {
 #line 481
@@ -11910,7 +11910,7 @@ static int log_access_ok(void *log_base , u64 addr , unsigned long sz )
 #line 499
   __cil_tmp23 = (long )tmp___8;
 #line 499
-  tmp___9 = __builtin_expect(__cil_tmp23, 1L);
+  tmp___9 = ldv__builtin_expect(__cil_tmp23, 1L);
   }
 #line 499
   return ((int )tmp___9);
@@ -12040,7 +12040,7 @@ static int vq_memory_access_ok(void *log_base , struct vhost_memory *mem , int l
 #line 517
       __cil_tmp31 = (long )tmp___9;
 #line 517
-      tmp___10 = __builtin_expect(__cil_tmp31, 1L);
+      tmp___10 = ldv__builtin_expect(__cil_tmp31, 1L);
       }
 #line 517
       if (tmp___10) {
@@ -12316,7 +12316,7 @@ static int vq_access_ok(struct vhost_dev *d , unsigned int num , struct vring_de
 #line 557
   __cil_tmp30 = (long )tmp___11;
 #line 557
-  tmp___12 = __builtin_expect(__cil_tmp30, 1L);
+  tmp___12 = ldv__builtin_expect(__cil_tmp30, 1L);
   }
 #line 560
   if (tmp___12) {
@@ -12351,7 +12351,7 @@ static int vq_access_ok(struct vhost_dev *d , unsigned int num , struct vring_de
 #line 558
     __cil_tmp37 = (long )tmp___14;
 #line 558
-    tmp___15 = __builtin_expect(__cil_tmp37, 1L);
+    tmp___15 = ldv__builtin_expect(__cil_tmp37, 1L);
     }
 #line 560
     if (tmp___15) {
@@ -12386,7 +12386,7 @@ static int vq_access_ok(struct vhost_dev *d , unsigned int num , struct vring_de
 #line 560
       __cil_tmp44 = (long )tmp___17;
 #line 560
-      tmp___18 = __builtin_expect(__cil_tmp44, 1L);
+      tmp___18 = ldv__builtin_expect(__cil_tmp44, 1L);
       }
 #line 560
       if (tmp___18) {
@@ -15261,7 +15261,7 @@ static int set_bit_to_user(int nr , void *addr )
 #line 942
     __cil_tmp17 = (long )__cil_tmp16;
 #line 942
-    tmp___7 = __builtin_expect(__cil_tmp17, 0L);
+    tmp___7 = ldv__builtin_expect(__cil_tmp17, 0L);
     }
 #line 942
     if (tmp___7) {
@@ -15907,7 +15907,7 @@ static int vhost_update_used_flags(struct vhost_virtqueue *vq )
 #line 1006
   __cil_tmp38 = (long )__cil_tmp37;
 #line 1006
-  tmp___7 = __builtin_expect(__cil_tmp38, 0L);
+  tmp___7 = ldv__builtin_expect(__cil_tmp38, 0L);
   }
 #line 1006
   if (tmp___7) {
@@ -16386,7 +16386,7 @@ static int vhost_update_avail_event(struct vhost_virtqueue *vq , u16 avail_event
 #line 1024
   __cil_tmp71 = (long )__cil_tmp70;
 #line 1024
-  tmp___7 = __builtin_expect(__cil_tmp71, 0L);
+  tmp___7 = ldv__builtin_expect(__cil_tmp71, 0L);
   }
 #line 1024
   if (tmp___7) {
@@ -16788,7 +16788,7 @@ static int translate_desc(struct vhost_dev *dev , u64 addr , u32 len , struct io
 #line 1066
     __cil_tmp25 = (long )__cil_tmp24;
 #line 1066
-    tmp___7 = __builtin_expect(__cil_tmp25, 0L);
+    tmp___7 = ldv__builtin_expect(__cil_tmp25, 0L);
     }
 #line 1066
     if (tmp___7) {
@@ -16811,7 +16811,7 @@ static int translate_desc(struct vhost_dev *dev , u64 addr , u32 len , struct io
 #line 1071
     __cil_tmp29 = (long )__cil_tmp28;
 #line 1071
-    tmp___8 = __builtin_expect(__cil_tmp29, 0L);
+    tmp___8 = ldv__builtin_expect(__cil_tmp29, 0L);
     }
 #line 1071
     if (tmp___8) {
@@ -17239,7 +17239,7 @@ static int get_indirect(struct vhost_dev *dev , struct vhost_virtqueue *vq , str
 #line 1121
   __cil_tmp43 = (long )__cil_tmp42;
 #line 1121
-  tmp___8 = __builtin_expect(__cil_tmp43, 0L);
+  tmp___8 = ldv__builtin_expect(__cil_tmp43, 0L);
   }
 #line 1121
   if (tmp___8) {
@@ -17265,7 +17265,7 @@ static int get_indirect(struct vhost_dev *dev , struct vhost_virtqueue *vq , str
 #line 1122
         __cil_tmp49 = (long )__cil_tmp48;
 #line 1122
-        tmp___7 = __builtin_expect(__cil_tmp49, 0L);
+        tmp___7 = ldv__builtin_expect(__cil_tmp49, 0L);
         }
 #line 1122
         if (tmp___7) {
@@ -17347,7 +17347,7 @@ static int get_indirect(struct vhost_dev *dev , struct vhost_virtqueue *vq , str
 #line 1131
   __cil_tmp69 = (long )__cil_tmp68;
 #line 1131
-  tmp___10 = __builtin_expect(__cil_tmp69, 0L);
+  tmp___10 = ldv__builtin_expect(__cil_tmp69, 0L);
   }
 #line 1131
   if (tmp___10) {
@@ -17373,7 +17373,7 @@ static int get_indirect(struct vhost_dev *dev , struct vhost_virtqueue *vq , str
 #line 1132
         __cil_tmp75 = (long )__cil_tmp74;
 #line 1132
-        tmp___9 = __builtin_expect(__cil_tmp75, 0L);
+        tmp___9 = ldv__builtin_expect(__cil_tmp75, 0L);
         }
 #line 1132
         if (tmp___9) {
@@ -17452,7 +17452,7 @@ static int get_indirect(struct vhost_dev *dev , struct vhost_virtqueue *vq , str
 #line 1143
   __cil_tmp89 = (long )__cil_tmp88;
 #line 1143
-  tmp___12 = __builtin_expect(__cil_tmp89, 0L);
+  tmp___12 = ldv__builtin_expect(__cil_tmp89, 0L);
   }
 #line 1143
   if (tmp___12) {
@@ -17478,7 +17478,7 @@ static int get_indirect(struct vhost_dev *dev , struct vhost_virtqueue *vq , str
 #line 1144
         __cil_tmp95 = (long )__cil_tmp94;
 #line 1144
-        tmp___11 = __builtin_expect(__cil_tmp95, 0L);
+        tmp___11 = ldv__builtin_expect(__cil_tmp95, 0L);
         }
 #line 1144
         if (tmp___11) {
@@ -17556,7 +17556,7 @@ static int get_indirect(struct vhost_dev *dev , struct vhost_virtqueue *vq , str
 #line 1151
     __cil_tmp106 = (long )tmp___14;
 #line 1151
-    tmp___15 = __builtin_expect(__cil_tmp106, 0L);
+    tmp___15 = ldv__builtin_expect(__cil_tmp106, 0L);
     }
 #line 1151
     if (tmp___15) {
@@ -17582,7 +17582,7 @@ static int get_indirect(struct vhost_dev *dev , struct vhost_virtqueue *vq , str
 #line 1152
           __cil_tmp112 = (long )__cil_tmp111;
 #line 1152
-          tmp___13 = __builtin_expect(__cil_tmp112, 0L);
+          tmp___13 = ldv__builtin_expect(__cil_tmp112, 0L);
           }
 #line 1152
           if (tmp___13) {
@@ -17656,7 +17656,7 @@ static int get_indirect(struct vhost_dev *dev , struct vhost_virtqueue *vq , str
 #line 1157
     __cil_tmp123 = (long )tmp___18;
 #line 1157
-    tmp___19 = __builtin_expect(__cil_tmp123, 0L);
+    tmp___19 = ldv__builtin_expect(__cil_tmp123, 0L);
     }
 #line 1157
     if (tmp___19) {
@@ -17682,7 +17682,7 @@ static int get_indirect(struct vhost_dev *dev , struct vhost_virtqueue *vq , str
 #line 1159
           __cil_tmp129 = (long )__cil_tmp128;
 #line 1159
-          tmp___16 = __builtin_expect(__cil_tmp129, 0L);
+          tmp___16 = ldv__builtin_expect(__cil_tmp129, 0L);
           }
 #line 1159
           if (tmp___16) {
@@ -17756,7 +17756,7 @@ static int get_indirect(struct vhost_dev *dev , struct vhost_virtqueue *vq , str
 #line 1163
     __cil_tmp146 = (long )__cil_tmp145;
 #line 1163
-    tmp___21 = __builtin_expect(__cil_tmp146, 0L);
+    tmp___21 = ldv__builtin_expect(__cil_tmp146, 0L);
     }
 #line 1163
     if (tmp___21) {
@@ -17782,7 +17782,7 @@ static int get_indirect(struct vhost_dev *dev , struct vhost_virtqueue *vq , str
 #line 1164
           __cil_tmp152 = (long )__cil_tmp151;
 #line 1164
-          tmp___20 = __builtin_expect(__cil_tmp152, 0L);
+          tmp___20 = ldv__builtin_expect(__cil_tmp152, 0L);
           }
 #line 1164
           if (tmp___20) {
@@ -17866,7 +17866,7 @@ static int get_indirect(struct vhost_dev *dev , struct vhost_virtqueue *vq , str
 #line 1171
     __cil_tmp173 = (long )__cil_tmp172;
 #line 1171
-    tmp___23 = __builtin_expect(__cil_tmp173, 0L);
+    tmp___23 = ldv__builtin_expect(__cil_tmp173, 0L);
     }
 #line 1171
     if (tmp___23) {
@@ -17892,7 +17892,7 @@ static int get_indirect(struct vhost_dev *dev , struct vhost_virtqueue *vq , str
 #line 1172
           __cil_tmp179 = (long )__cil_tmp178;
 #line 1172
-          tmp___22 = __builtin_expect(__cil_tmp179, 0L);
+          tmp___22 = ldv__builtin_expect(__cil_tmp179, 0L);
           }
 #line 1172
           if (tmp___22) {
@@ -17963,7 +17963,7 @@ static int get_indirect(struct vhost_dev *dev , struct vhost_virtqueue *vq , str
 #line 1179
       __cil_tmp192 = (long )__cil_tmp191;
 #line 1179
-      tmp___24 = __builtin_expect(__cil_tmp192, 0L);
+      tmp___24 = ldv__builtin_expect(__cil_tmp192, 0L);
       }
 #line 1179
       if (tmp___24) {
@@ -18007,7 +18007,7 @@ static int get_indirect(struct vhost_dev *dev , struct vhost_virtqueue *vq , str
 #line 1187
       __cil_tmp206 = (long )__cil_tmp205;
 #line 1187
-      tmp___26 = __builtin_expect(__cil_tmp206, 0L);
+      tmp___26 = ldv__builtin_expect(__cil_tmp206, 0L);
       }
 #line 1187
       if (tmp___26) {
@@ -18033,7 +18033,7 @@ static int get_indirect(struct vhost_dev *dev , struct vhost_virtqueue *vq , str
 #line 1188
             __cil_tmp212 = (long )__cil_tmp211;
 #line 1188
-            tmp___25 = __builtin_expect(__cil_tmp212, 0L);
+            tmp___25 = ldv__builtin_expect(__cil_tmp212, 0L);
             }
 #line 1188
             if (tmp___25) {
@@ -18816,7 +18816,7 @@ int vhost_get_vq_desc(struct vhost_dev *dev , struct vhost_virtqueue *vq , struc
 #line 1218
   __cil_tmp81 = (long )tmp___9;
 #line 1218
-  tmp___10 = __builtin_expect(__cil_tmp81, 0L);
+  tmp___10 = ldv__builtin_expect(__cil_tmp81, 0L);
   }
 #line 1218
   if (tmp___10) {
@@ -18842,7 +18842,7 @@ int vhost_get_vq_desc(struct vhost_dev *dev , struct vhost_virtqueue *vq , struc
 #line 1219
         __cil_tmp87 = (long )__cil_tmp86;
 #line 1219
-        tmp___7 = __builtin_expect(__cil_tmp87, 0L);
+        tmp___7 = ldv__builtin_expect(__cil_tmp87, 0L);
         }
 #line 1219
         if (tmp___7) {
@@ -18934,7 +18934,7 @@ int vhost_get_vq_desc(struct vhost_dev *dev , struct vhost_virtqueue *vq , struc
 #line 1224
   __cil_tmp113 = (long )__cil_tmp112;
 #line 1224
-  tmp___12 = __builtin_expect(__cil_tmp113, 0L);
+  tmp___12 = ldv__builtin_expect(__cil_tmp113, 0L);
   }
 #line 1224
   if (tmp___12) {
@@ -18960,7 +18960,7 @@ int vhost_get_vq_desc(struct vhost_dev *dev , struct vhost_virtqueue *vq , struc
 #line 1225
         __cil_tmp119 = (long )__cil_tmp118;
 #line 1225
-        tmp___11 = __builtin_expect(__cil_tmp119, 0L);
+        tmp___11 = ldv__builtin_expect(__cil_tmp119, 0L);
         }
 #line 1225
         if (tmp___11) {
@@ -19363,7 +19363,7 @@ int vhost_get_vq_desc(struct vhost_dev *dev , struct vhost_virtqueue *vq , struc
 #line 1239
   __cil_tmp195 = (long )tmp___15;
 #line 1239
-  tmp___16 = __builtin_expect(__cil_tmp195, 0L);
+  tmp___16 = ldv__builtin_expect(__cil_tmp195, 0L);
   }
 #line 1239
   if (tmp___16) {
@@ -19389,7 +19389,7 @@ int vhost_get_vq_desc(struct vhost_dev *dev , struct vhost_virtqueue *vq , struc
 #line 1241
         __cil_tmp201 = (long )__cil_tmp200;
 #line 1241
-        tmp___13 = __builtin_expect(__cil_tmp201, 0L);
+        tmp___13 = ldv__builtin_expect(__cil_tmp201, 0L);
         }
 #line 1241
         if (tmp___13) {
@@ -19481,7 +19481,7 @@ int vhost_get_vq_desc(struct vhost_dev *dev , struct vhost_virtqueue *vq , struc
 #line 1248
   __cil_tmp227 = (long )__cil_tmp226;
 #line 1248
-  tmp___18 = __builtin_expect(__cil_tmp227, 0L);
+  tmp___18 = ldv__builtin_expect(__cil_tmp227, 0L);
   }
 #line 1248
   if (tmp___18) {
@@ -19507,7 +19507,7 @@ int vhost_get_vq_desc(struct vhost_dev *dev , struct vhost_virtqueue *vq , struc
 #line 1249
         __cil_tmp233 = (long )__cil_tmp232;
 #line 1249
-        tmp___17 = __builtin_expect(__cil_tmp233, 0L);
+        tmp___17 = ldv__builtin_expect(__cil_tmp233, 0L);
         }
 #line 1249
         if (tmp___17) {
@@ -19575,7 +19575,7 @@ int vhost_get_vq_desc(struct vhost_dev *dev , struct vhost_virtqueue *vq , struc
 #line 1256
   __cil_tmp244 = (long )__cil_tmp243;
 #line 1256
-  tmp___20 = __builtin_expect(__cil_tmp244, 0L);
+  tmp___20 = ldv__builtin_expect(__cil_tmp244, 0L);
   }
 #line 1256
   if (tmp___20) {
@@ -19612,7 +19612,7 @@ int vhost_get_vq_desc(struct vhost_dev *dev , struct vhost_virtqueue *vq , struc
 #line 1262
     __cil_tmp253 = (long )__cil_tmp252;
 #line 1262
-    tmp___22 = __builtin_expect(__cil_tmp253, 0L);
+    tmp___22 = ldv__builtin_expect(__cil_tmp253, 0L);
     }
 #line 1262
     if (tmp___22) {
@@ -19638,7 +19638,7 @@ int vhost_get_vq_desc(struct vhost_dev *dev , struct vhost_virtqueue *vq , struc
 #line 1263
           __cil_tmp259 = (long )__cil_tmp258;
 #line 1263
-          tmp___21 = __builtin_expect(__cil_tmp259, 0L);
+          tmp___21 = ldv__builtin_expect(__cil_tmp259, 0L);
           }
 #line 1263
           if (tmp___21) {
@@ -19714,7 +19714,7 @@ int vhost_get_vq_desc(struct vhost_dev *dev , struct vhost_virtqueue *vq , struc
 #line 1267
     __cil_tmp271 = (long )tmp___24;
 #line 1267
-    tmp___25 = __builtin_expect(__cil_tmp271, 0L);
+    tmp___25 = ldv__builtin_expect(__cil_tmp271, 0L);
     }
 #line 1267
     if (tmp___25) {
@@ -19740,7 +19740,7 @@ int vhost_get_vq_desc(struct vhost_dev *dev , struct vhost_virtqueue *vq , struc
 #line 1268
           __cil_tmp277 = (long )__cil_tmp276;
 #line 1268
-          tmp___23 = __builtin_expect(__cil_tmp277, 0L);
+          tmp___23 = ldv__builtin_expect(__cil_tmp277, 0L);
           }
 #line 1268
           if (tmp___23) {
@@ -19818,7 +19818,7 @@ int vhost_get_vq_desc(struct vhost_dev *dev , struct vhost_virtqueue *vq , struc
 #line 1274
     __cil_tmp295 = (long )__cil_tmp294;
 #line 1274
-    tmp___27 = __builtin_expect(__cil_tmp295, 0L);
+    tmp___27 = ldv__builtin_expect(__cil_tmp295, 0L);
     }
 #line 1274
     if (tmp___27) {
@@ -19844,7 +19844,7 @@ int vhost_get_vq_desc(struct vhost_dev *dev , struct vhost_virtqueue *vq , struc
 #line 1275
           __cil_tmp301 = (long )__cil_tmp300;
 #line 1275
-          tmp___26 = __builtin_expect(__cil_tmp301, 0L);
+          tmp___26 = ldv__builtin_expect(__cil_tmp301, 0L);
           }
 #line 1275
           if (tmp___26) {
@@ -19921,7 +19921,7 @@ int vhost_get_vq_desc(struct vhost_dev *dev , struct vhost_virtqueue *vq , struc
 #line 1283
       __cil_tmp317 = (long )__cil_tmp316;
 #line 1283
-      tmp___29 = __builtin_expect(__cil_tmp317, 0L);
+      tmp___29 = ldv__builtin_expect(__cil_tmp317, 0L);
       }
 #line 1283
       if (tmp___29) {
@@ -19947,7 +19947,7 @@ int vhost_get_vq_desc(struct vhost_dev *dev , struct vhost_virtqueue *vq , struc
 #line 1284
             __cil_tmp323 = (long )__cil_tmp322;
 #line 1284
-            tmp___28 = __builtin_expect(__cil_tmp323, 0L);
+            tmp___28 = ldv__builtin_expect(__cil_tmp323, 0L);
             }
 #line 1284
             if (tmp___28) {
@@ -20027,7 +20027,7 @@ int vhost_get_vq_desc(struct vhost_dev *dev , struct vhost_virtqueue *vq , struc
 #line 1293
     __cil_tmp339 = (long )__cil_tmp338;
 #line 1293
-    tmp___31 = __builtin_expect(__cil_tmp339, 0L);
+    tmp___31 = ldv__builtin_expect(__cil_tmp339, 0L);
     }
 #line 1293
     if (tmp___31) {
@@ -20053,7 +20053,7 @@ int vhost_get_vq_desc(struct vhost_dev *dev , struct vhost_virtqueue *vq , struc
 #line 1294
           __cil_tmp345 = (long )__cil_tmp344;
 #line 1294
-          tmp___30 = __builtin_expect(__cil_tmp345, 0L);
+          tmp___30 = ldv__builtin_expect(__cil_tmp345, 0L);
           }
 #line 1294
           if (tmp___30) {
@@ -20124,7 +20124,7 @@ int vhost_get_vq_desc(struct vhost_dev *dev , struct vhost_virtqueue *vq , struc
 #line 1302
       __cil_tmp358 = (long )__cil_tmp357;
 #line 1302
-      tmp___32 = __builtin_expect(__cil_tmp358, 0L);
+      tmp___32 = ldv__builtin_expect(__cil_tmp358, 0L);
       }
 #line 1302
       if (tmp___32) {
@@ -20168,7 +20168,7 @@ int vhost_get_vq_desc(struct vhost_dev *dev , struct vhost_virtqueue *vq , struc
 #line 1310
       __cil_tmp372 = (long )__cil_tmp371;
 #line 1310
-      tmp___34 = __builtin_expect(__cil_tmp372, 0L);
+      tmp___34 = ldv__builtin_expect(__cil_tmp372, 0L);
       }
 #line 1310
       if (tmp___34) {
@@ -20194,7 +20194,7 @@ int vhost_get_vq_desc(struct vhost_dev *dev , struct vhost_virtqueue *vq , struc
 #line 1311
             __cil_tmp378 = (long )__cil_tmp377;
 #line 1311
-            tmp___33 = __builtin_expect(__cil_tmp378, 0L);
+            tmp___33 = ldv__builtin_expect(__cil_tmp378, 0L);
             }
 #line 1311
             if (tmp___33) {
@@ -20305,7 +20305,7 @@ int vhost_get_vq_desc(struct vhost_dev *dev , struct vhost_virtqueue *vq , struc
 #line 1324
     __cil_tmp401 = (long )__cil_tmp400;
 #line 1324
-    tmp___35 = __builtin_expect(__cil_tmp401, 0L);
+    tmp___35 = ldv__builtin_expect(__cil_tmp401, 0L);
     }
 #line 1324
     if (tmp___35) {
@@ -20812,7 +20812,7 @@ int vhost_add_used(struct vhost_virtqueue *vq , unsigned int head , int len )
 #line 1344
         __cil_tmp41 = (long )__cil_tmp40;
 #line 1344
-        tmp___7 = __builtin_expect(__cil_tmp41, 0L);
+        tmp___7 = ldv__builtin_expect(__cil_tmp41, 0L);
         }
 #line 1344
         if (tmp___7) {
@@ -21073,7 +21073,7 @@ int vhost_add_used(struct vhost_virtqueue *vq , unsigned int head , int len )
 #line 1348
         __cil_tmp68 = (long )__cil_tmp67;
 #line 1348
-        tmp___8 = __builtin_expect(__cil_tmp68, 0L);
+        tmp___8 = ldv__builtin_expect(__cil_tmp68, 0L);
         }
 #line 1348
         if (tmp___8) {
@@ -21400,7 +21400,7 @@ int vhost_add_used(struct vhost_virtqueue *vq , unsigned int head , int len )
 #line 1354
         __cil_tmp127 = (long )__cil_tmp126;
 #line 1354
-        tmp___9 = __builtin_expect(__cil_tmp127, 0L);
+        tmp___9 = ldv__builtin_expect(__cil_tmp127, 0L);
         }
 #line 1354
         if (tmp___9) {
@@ -21461,7 +21461,7 @@ int vhost_add_used(struct vhost_virtqueue *vq , unsigned int head , int len )
 #line 1357
   __cil_tmp138 = (long )__cil_tmp137;
 #line 1357
-  tmp___10 = __builtin_expect(__cil_tmp138, 0L);
+  tmp___10 = ldv__builtin_expect(__cil_tmp138, 0L);
   }
 #line 1357
   if (tmp___10) {
@@ -21597,7 +21597,7 @@ int vhost_add_used(struct vhost_virtqueue *vq , unsigned int head , int len )
 #line 1377
   __cil_tmp191 = (long )__cil_tmp190;
 #line 1377
-  tmp___11 = __builtin_expect(__cil_tmp191, 0L);
+  tmp___11 = ldv__builtin_expect(__cil_tmp191, 0L);
   }
 #line 1377
   if (tmp___11) {
@@ -21792,7 +21792,7 @@ static int __vhost_add_used_n(struct vhost_virtqueue *vq , struct vring_used_ele
 #line 1393
         __cil_tmp39 = (long )__cil_tmp38;
 #line 1393
-        tmp___7 = __builtin_expect(__cil_tmp39, 0L);
+        tmp___7 = ldv__builtin_expect(__cil_tmp39, 0L);
         }
 #line 1393
         if (tmp___7) {
@@ -21853,7 +21853,7 @@ static int __vhost_add_used_n(struct vhost_virtqueue *vq , struct vring_used_ele
 #line 1396
   __cil_tmp50 = (long )__cil_tmp49;
 #line 1396
-  tmp___9 = __builtin_expect(__cil_tmp50, 0L);
+  tmp___9 = ldv__builtin_expect(__cil_tmp50, 0L);
   }
 #line 1396
   if (tmp___9) {
@@ -21962,7 +21962,7 @@ static int __vhost_add_used_n(struct vhost_virtqueue *vq , struct vring_used_ele
 #line 1411
   __cil_tmp93 = (long )__cil_tmp92;
 #line 1411
-  tmp___11 = __builtin_expect(__cil_tmp93, 0L);
+  tmp___11 = ldv__builtin_expect(__cil_tmp93, 0L);
   }
 #line 1411
   if (tmp___11) {
@@ -22280,7 +22280,7 @@ int vhost_add_used_n(struct vhost_virtqueue *vq , struct vring_used_elem *heads 
 #line 1437
         __cil_tmp59 = (long )__cil_tmp58;
 #line 1437
-        tmp___7 = __builtin_expect(__cil_tmp59, 0L);
+        tmp___7 = ldv__builtin_expect(__cil_tmp59, 0L);
         }
 #line 1437
         if (tmp___7) {
@@ -22341,7 +22341,7 @@ int vhost_add_used_n(struct vhost_virtqueue *vq , struct vring_used_elem *heads 
 #line 1440
   __cil_tmp70 = (long )__cil_tmp69;
 #line 1440
-  tmp___8 = __builtin_expect(__cil_tmp70, 0L);
+  tmp___8 = ldv__builtin_expect(__cil_tmp70, 0L);
   }
 #line 1440
   if (tmp___8) {
@@ -22592,7 +22592,7 @@ static bool vhost_notify(struct vhost_dev *dev , struct vhost_virtqueue *vq )
 #line 1460
     __cil_tmp32 = (long )__cil_tmp31;
 #line 1460
-    tmp___8 = __builtin_expect(__cil_tmp32, 0L);
+    tmp___8 = ldv__builtin_expect(__cil_tmp32, 0L);
     }
 #line 1460
     if (tmp___8) {
@@ -22866,7 +22866,7 @@ static bool vhost_notify(struct vhost_dev *dev , struct vhost_virtqueue *vq )
 #line 1467
           __cil_tmp58 = (long )__cil_tmp57;
 #line 1467
-          tmp___9 = __builtin_expect(__cil_tmp58, 0L);
+          tmp___9 = ldv__builtin_expect(__cil_tmp58, 0L);
           }
 #line 1467
           if (tmp___9) {
@@ -22966,7 +22966,7 @@ static bool vhost_notify(struct vhost_dev *dev , struct vhost_virtqueue *vq )
 #line 1477
   __cil_tmp80 = (long )__cil_tmp79;
 #line 1477
-  tmp___13 = __builtin_expect(__cil_tmp80, 0L);
+  tmp___13 = ldv__builtin_expect(__cil_tmp80, 0L);
   }
 #line 1477
   if (tmp___13) {
@@ -23165,7 +23165,7 @@ static bool vhost_notify(struct vhost_dev *dev , struct vhost_virtqueue *vq )
 #line 1481
         __cil_tmp136 = (long )__cil_tmp135;
 #line 1481
-        tmp___14 = __builtin_expect(__cil_tmp136, 0L);
+        tmp___14 = ldv__builtin_expect(__cil_tmp136, 0L);
         }
 #line 1481
         if (tmp___14) {
@@ -23500,7 +23500,7 @@ bool vhost_enable_notify(struct vhost_dev *dev , struct vhost_virtqueue *vq )
 #line 1532
           __cil_tmp32 = (long )__cil_tmp31;
 #line 1532
-          tmp___8 = __builtin_expect(__cil_tmp32, 0L);
+          tmp___8 = ldv__builtin_expect(__cil_tmp32, 0L);
           }
 #line 1532
           if (tmp___8) {
@@ -23601,7 +23601,7 @@ bool vhost_enable_notify(struct vhost_dev *dev , struct vhost_virtqueue *vq )
 #line 1525
           __cil_tmp55 = (long )__cil_tmp54;
 #line 1525
-          tmp___7 = __builtin_expect(__cil_tmp55, 0L);
+          tmp___7 = ldv__builtin_expect(__cil_tmp55, 0L);
           }
 #line 1525
           if (tmp___7) {
@@ -23932,7 +23932,7 @@ bool vhost_enable_notify(struct vhost_dev *dev , struct vhost_virtqueue *vq )
 #line 1542
         __cil_tmp98 = (long )__cil_tmp97;
 #line 1542
-        tmp___11 = __builtin_expect(__cil_tmp98, 0L);
+        tmp___11 = ldv__builtin_expect(__cil_tmp98, 0L);
         }
 #line 1542
         if (tmp___11) {
@@ -24116,7 +24116,7 @@ void vhost_disable_notify(struct vhost_dev *dev , struct vhost_virtqueue *vq )
 #line 1561
           __cil_tmp22 = (long )__cil_tmp21;
 #line 1561
-          tmp___7 = __builtin_expect(__cil_tmp22, 0L);
+          tmp___7 = ldv__builtin_expect(__cil_tmp22, 0L);
           }
 #line 1561
           if (tmp___7) {
@@ -24724,7 +24724,7 @@ void ldv_check_final_state(void)
 }
 }
 #line 1613 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/51/dscv_tempdir/dscv/ri/32_1/drivers/vhost/vhost.c.common.c"
-long __builtin_expect(long val , long res ) 
+long ldv__builtin_expect(long val , long res ) 
 { 
 
   {
@@ -24868,7 +24868,7 @@ __inline static void kref_get(struct kref *kref )
 #line 41
   __cil_tmp10 = (long )__cil_tmp9;
 #line 41
-  tmp___9 = __builtin_expect(__cil_tmp10, 0L);
+  tmp___9 = ldv__builtin_expect(__cil_tmp10, 0L);
   }
 #line 41
   if (tmp___9) {
@@ -24889,7 +24889,7 @@ __inline static void kref_get(struct kref *kref )
 #line 41
   __cil_tmp14 = (long )__cil_tmp13;
 #line 41
-  __builtin_expect(__cil_tmp14, 0L);
+  ldv__builtin_expect(__cil_tmp14, 0L);
 #line 42
   __cil_tmp15 = (atomic_t *)kref;
 #line 42
@@ -25062,7 +25062,7 @@ static bool vhost_sock_zcopy(struct socket *sock )
 #line 70
   __cil_tmp9 = (long )__cil_tmp8;
 #line 70
-  tmp___7 = __builtin_expect(__cil_tmp9, 0L);
+  tmp___7 = ldv__builtin_expect(__cil_tmp9, 0L);
   }
 #line 70
   if (tmp___7) {
@@ -25360,7 +25360,7 @@ static void tx_poll_stop(struct vhost_net *net )
 #line 115
   __cil_tmp10 = (long )__cil_tmp9;
 #line 115
-  tmp___7 = __builtin_expect(__cil_tmp10, 1L);
+  tmp___7 = ldv__builtin_expect(__cil_tmp10, 1L);
   }
 #line 115
   if (tmp___7) {
@@ -25437,7 +25437,7 @@ static void tx_poll_start(struct vhost_net *net , struct socket *sock )
 #line 124
   __cil_tmp11 = (long )__cil_tmp10;
 #line 124
-  tmp___7 = __builtin_expect(__cil_tmp11, 0L);
+  tmp___7 = ldv__builtin_expect(__cil_tmp11, 0L);
   }
 #line 124
   if (tmp___7) {
@@ -26054,7 +26054,7 @@ static void handle_tx(struct vhost_net *net )
 #line 183
     __cil_tmp101 = (long )__cil_tmp100;
 #line 183
-    tmp___7 = __builtin_expect(__cil_tmp101, 0L);
+    tmp___7 = ldv__builtin_expect(__cil_tmp101, 0L);
     }
 #line 183
     if (tmp___7) {
@@ -26153,7 +26153,7 @@ static void handle_tx(struct vhost_net *net )
 #line 198
       __cil_tmp134 = (long )__cil_tmp133;
 #line 198
-      tmp___9 = __builtin_expect(__cil_tmp134, 1L);
+      tmp___9 = ldv__builtin_expect(__cil_tmp134, 1L);
       }
 #line 198
       if (tmp___9) {
@@ -26199,7 +26199,7 @@ static void handle_tx(struct vhost_net *net )
 #line 201
       __cil_tmp151 = (long )__cil_tmp150;
 #line 201
-      tmp___10 = __builtin_expect(__cil_tmp151, 0L);
+      tmp___10 = ldv__builtin_expect(__cil_tmp151, 0L);
       }
 #line 201
       if (tmp___10) {
@@ -26240,7 +26240,7 @@ static void handle_tx(struct vhost_net *net )
 #line 206
       __cil_tmp157 = (long )tmp___12;
 #line 206
-      tmp___13 = __builtin_expect(__cil_tmp157, 0L);
+      tmp___13 = ldv__builtin_expect(__cil_tmp157, 0L);
       }
 #line 206
       if (tmp___13) {
@@ -26288,7 +26288,7 @@ static void handle_tx(struct vhost_net *net )
 #line 213
           __cil_tmp165 = (long )__cil_tmp164;
 #line 213
-          tmp___14 = __builtin_expect(__cil_tmp165, 0L);
+          tmp___14 = ldv__builtin_expect(__cil_tmp165, 0L);
           }
 #line 213
           if (tmp___14) {
@@ -26429,7 +26429,7 @@ static void handle_tx(struct vhost_net *net )
 #line 223
           __cil_tmp205 = (long )__cil_tmp204;
 #line 223
-          tmp___17 = __builtin_expect(__cil_tmp205, 0L);
+          tmp___17 = ldv__builtin_expect(__cil_tmp205, 0L);
           }
 #line 223
           if (tmp___17) {
@@ -26670,7 +26670,7 @@ static void handle_tx(struct vhost_net *net )
 #line 254
     __cil_tmp282 = (long )__cil_tmp281;
 #line 254
-    tmp___18 = __builtin_expect(__cil_tmp282, 0L);
+    tmp___18 = ldv__builtin_expect(__cil_tmp282, 0L);
     }
 #line 254
     if (tmp___18) {
@@ -26740,7 +26740,7 @@ static void handle_tx(struct vhost_net *net )
 #line 266
         __cil_tmp297 = (long )__cil_tmp296;
 #line 266
-        tmp___19 = __builtin_expect(__cil_tmp297, 0L);
+        tmp___19 = ldv__builtin_expect(__cil_tmp297, 0L);
         }
 #line 266
         if (tmp___19) {
@@ -26786,7 +26786,7 @@ static void handle_tx(struct vhost_net *net )
 #line 271
     __cil_tmp303 = (long )__cil_tmp302;
 #line 271
-    tmp___20 = __builtin_expect(__cil_tmp303, 0L);
+    tmp___20 = ldv__builtin_expect(__cil_tmp303, 0L);
     }
 #line 271
     if (tmp___20) {
@@ -26906,7 +26906,7 @@ static int peek_head_len(struct sock *sk )
 #line 288
   __cil_tmp19 = (long )__cil_tmp18;
 #line 288
-  tmp___8 = __builtin_expect(__cil_tmp19, 1L);
+  tmp___8 = ldv__builtin_expect(__cil_tmp19, 1L);
   }
 #line 288
   if (tmp___8) {
@@ -27103,7 +27103,7 @@ static int get_rx_bufs(struct vhost_virtqueue *vq , struct vring_used_elem *head
 #line 323
     __cil_tmp27 = (long )__cil_tmp26;
 #line 323
-    tmp___7 = __builtin_expect(__cil_tmp27, 0L);
+    tmp___7 = ldv__builtin_expect(__cil_tmp27, 0L);
     }
 #line 323
     if (tmp___7) {
@@ -27190,7 +27190,7 @@ static int get_rx_bufs(struct vhost_virtqueue *vq , struct vring_used_elem *head
 #line 334
     __cil_tmp46 = (long )tmp___10;
 #line 334
-    tmp___11 = __builtin_expect(__cil_tmp46, 0L);
+    tmp___11 = ldv__builtin_expect(__cil_tmp46, 0L);
     }
 #line 334
     if (tmp___11) {
@@ -27216,7 +27216,7 @@ static int get_rx_bufs(struct vhost_virtqueue *vq , struct vring_used_elem *head
 #line 335
           __cil_tmp52 = (long )__cil_tmp51;
 #line 335
-          tmp___9 = __builtin_expect(__cil_tmp52, 0L);
+          tmp___9 = ldv__builtin_expect(__cil_tmp52, 0L);
           }
 #line 335
           if (tmp___9) {
@@ -27282,7 +27282,7 @@ static int get_rx_bufs(struct vhost_virtqueue *vq , struct vring_used_elem *head
 #line 340
     __cil_tmp64 = (long )__cil_tmp63;
 #line 340
-    tmp___12 = __builtin_expect(__cil_tmp64, 0L);
+    tmp___12 = ldv__builtin_expect(__cil_tmp64, 0L);
     }
 #line 340
     if (tmp___12) {
@@ -27398,7 +27398,7 @@ static int get_rx_bufs(struct vhost_virtqueue *vq , struct vring_used_elem *head
 #line 352
   __cil_tmp105 = (long )__cil_tmp104;
 #line 352
-  tmp___14 = __builtin_expect(__cil_tmp105, 0L);
+  tmp___14 = ldv__builtin_expect(__cil_tmp105, 0L);
   }
 #line 352
   if (tmp___14) {
@@ -27854,7 +27854,7 @@ static void handle_rx(struct vhost_net *net )
 #line 394
   __cil_tmp86 = (long )tmp___11;
 #line 394
-  tmp___12 = __builtin_expect(__cil_tmp86, 0L);
+  tmp___12 = ldv__builtin_expect(__cil_tmp86, 0L);
   }
 #line 394
   if (tmp___12) {
@@ -27911,7 +27911,7 @@ static void handle_rx(struct vhost_net *net )
 #line 401
     __cil_tmp96 = (long )__cil_tmp95;
 #line 401
-    tmp___15 = __builtin_expect(__cil_tmp96, 1L);
+    tmp___15 = ldv__builtin_expect(__cil_tmp96, 1L);
     }
 #line 401
     if (tmp___15) {
@@ -27950,7 +27950,7 @@ static void handle_rx(struct vhost_net *net )
 #line 405
     __cil_tmp108 = (long )__cil_tmp107;
 #line 405
-    tmp___16 = __builtin_expect(__cil_tmp108, 0L);
+    tmp___16 = ldv__builtin_expect(__cil_tmp108, 0L);
     }
 #line 405
     if (tmp___16) {
@@ -27984,7 +27984,7 @@ static void handle_rx(struct vhost_net *net )
 #line 409
       __cil_tmp112 = (long )tmp___18;
 #line 409
-      tmp___19 = __builtin_expect(__cil_tmp112, 0L);
+      tmp___19 = ldv__builtin_expect(__cil_tmp112, 0L);
       }
 #line 409
       if (tmp___19) {
@@ -28013,7 +28013,7 @@ static void handle_rx(struct vhost_net *net )
 #line 420
     __cil_tmp116 = (long )__cil_tmp115;
 #line 420
-    tmp___20 = __builtin_expect(__cil_tmp116, 0L);
+    tmp___20 = ldv__builtin_expect(__cil_tmp116, 0L);
     }
 #line 420
     if (tmp___20) {
@@ -28123,7 +28123,7 @@ static void handle_rx(struct vhost_net *net )
 #line 433
     __cil_tmp160 = (long )__cil_tmp159;
 #line 433
-    tmp___22 = __builtin_expect(__cil_tmp160, 0L);
+    tmp___22 = ldv__builtin_expect(__cil_tmp160, 0L);
     }
 #line 433
     if (tmp___22) {
@@ -28145,7 +28145,7 @@ static void handle_rx(struct vhost_net *net )
 #line 434
         __cil_tmp166 = (long )__cil_tmp165;
 #line 434
-        tmp___21 = __builtin_expect(__cil_tmp166, 0L);
+        tmp___21 = ldv__builtin_expect(__cil_tmp166, 0L);
         }
 #line 434
         if (tmp___21) {
@@ -28183,7 +28183,7 @@ static void handle_rx(struct vhost_net *net )
 #line 439
     __cil_tmp171 = (long )__cil_tmp170;
 #line 439
-    tmp___24 = __builtin_expect(__cil_tmp171, 0L);
+    tmp___24 = ldv__builtin_expect(__cil_tmp171, 0L);
     }
 #line 439
     if (tmp___24) {
@@ -28231,7 +28231,7 @@ static void handle_rx(struct vhost_net *net )
 #line 442
             __cil_tmp185 = (long )__cil_tmp184;
 #line 442
-            tmp___23 = __builtin_expect(__cil_tmp185, 0L);
+            tmp___23 = ldv__builtin_expect(__cil_tmp185, 0L);
             }
 #line 442
             if (tmp___23) {
@@ -28300,7 +28300,7 @@ static void handle_rx(struct vhost_net *net )
 #line 447
     __cil_tmp198 = (long )__cil_tmp197;
 #line 447
-    tmp___27 = __builtin_expect(__cil_tmp198, 1L);
+    tmp___27 = ldv__builtin_expect(__cil_tmp198, 1L);
     }
 #line 447
     if (tmp___27) {
@@ -28360,7 +28360,7 @@ static void handle_rx(struct vhost_net *net )
 #line 451
             __cil_tmp218 = (long )__cil_tmp217;
 #line 451
-            tmp___26 = __builtin_expect(__cil_tmp218, 0L);
+            tmp___26 = ldv__builtin_expect(__cil_tmp218, 0L);
             }
 #line 451
             if (tmp___26) {
@@ -28442,7 +28442,7 @@ static void handle_rx(struct vhost_net *net )
 #line 457
     __cil_tmp235 = (long )__cil_tmp234;
 #line 457
-    tmp___29 = __builtin_expect(__cil_tmp235, 0L);
+    tmp___29 = ldv__builtin_expect(__cil_tmp235, 0L);
     }
 #line 457
     if (tmp___29) {
@@ -28471,7 +28471,7 @@ static void handle_rx(struct vhost_net *net )
 #line 460
     __cil_tmp242 = (long )__cil_tmp241;
 #line 460
-    tmp___30 = __builtin_expect(__cil_tmp242, 0L);
+    tmp___30 = ldv__builtin_expect(__cil_tmp242, 0L);
     }
 #line 460
     if (tmp___30) {

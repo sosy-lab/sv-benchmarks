@@ -8281,7 +8281,7 @@ struct be_wrbq_create_resp {
 #line 1 "<compiler builtins>"
 void *__builtin_memcpy(void * , void const   * , unsigned long  ) ;
 #line 1
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 #line 119 "include/linux/printk.h"
 extern int printk(char const   *  , ...) ;
 #line 358 "include/linux/kernel.h"
@@ -8321,7 +8321,7 @@ __inline static unsigned long arch_local_save_flags(void)
 #line 825
   __eax = __eax;
 #line 825
-  tmp = __builtin_expect((unsigned long )pv_irq_ops.save_fl.func == (unsigned long )((void *)0),
+  tmp = ldv__builtin_expect((unsigned long )pv_irq_ops.save_fl.func == (unsigned long )((void *)0),
                          0L);
 #line 825
   if (tmp != 0L) {
@@ -8508,7 +8508,7 @@ __inline static struct dma_map_ops *get_dma_ops(struct device *dev )
 
   {
 #line 37
-  tmp = __builtin_expect((unsigned long )dev == (unsigned long )((struct device *)0),
+  tmp = ldv__builtin_expect((unsigned long )dev == (unsigned long )((struct device *)0),
                          0L);
 #line 37
   if (tmp != 0L || (unsigned long )dev->archdata.dma_ops == (unsigned long )((struct dma_map_ops *)0)) {
@@ -8645,7 +8645,7 @@ __inline static void dma_free_attrs(struct device *dev , size_t size , void *vad
 #line 166
   __ret_warn_on = tmp___0 != 0;
 #line 166
-  tmp___1 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___1 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 166
   if (tmp___1 != 0L) {
 #line 166
@@ -8655,7 +8655,7 @@ __inline static void dma_free_attrs(struct device *dev , size_t size , void *vad
 
   }
 #line 166
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 171
   debug_dma_free_coherent(dev, size, vaddr, bus);
 #line 172
@@ -9820,7 +9820,7 @@ static int be2iscsi_get_if_param(struct beiscsi_hba *phba , struct iscsi_iface *
 #line 594
   __ret_warn_on = 1;
 #line 594
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 594
   if (tmp != 0L) {
 #line 594
@@ -9830,7 +9830,7 @@ static int be2iscsi_get_if_param(struct beiscsi_hba *phba , struct iscsi_iface *
 
   }
 #line 594
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   ldv_47984: ;
 #line 597
@@ -11838,7 +11838,7 @@ __inline static int signal_pending(struct task_struct *p )
 #line 2620
   tmp = test_tsk_thread_flag(p, 2);
 #line 2620
-  tmp___0 = __builtin_expect(tmp != 0, 0L);
+  tmp___0 = ldv__builtin_expect(tmp != 0, 0L);
 #line 2620
   return ((int )tmp___0);
 }
@@ -11926,7 +11926,7 @@ __inline static dma_addr_t dma_map_single_attrs(struct device *dev , void *ptr ,
 #line 19
   tmp___0 = valid_dma_direction((int )dir);
 #line 19
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
 #line 19
   if (tmp___1 != 0L) {
 #line 19
@@ -11970,7 +11970,7 @@ __inline static void dma_unmap_single_attrs(struct device *dev , dma_addr_t addr
 #line 36
   tmp___0 = valid_dma_direction((int )dir);
 #line 36
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
 #line 36
   if (tmp___1 != 0L) {
 #line 36
@@ -12292,7 +12292,7 @@ __inline static u32 MODULO(u16 val , u16 limit )
 #line 50
   __ret_warn_on = ((int )limit & ((int )limit + -1)) != 0;
 #line 50
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 50
   if (tmp != 0L) {
 #line 50
@@ -12302,7 +12302,7 @@ __inline static u32 MODULO(u16 val , u16 limit )
 
   }
 #line 50
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 51
   return ((u32 )((int )val & ((int )limit + -1)));
 }
@@ -14207,7 +14207,7 @@ static unsigned int beiscsi_process_async_pdu(struct beiscsi_conn *beiscsi_conn 
 #line 1087
   __ret_warn_on = (unsigned long )pbuffer == (unsigned long )((void *)0);
 #line 1087
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 1087
   if (tmp != 0L) {
 #line 1087
@@ -14217,11 +14217,11 @@ static unsigned int beiscsi_process_async_pdu(struct beiscsi_conn *beiscsi_conn 
 
   }
 #line 1087
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 1088
   __ret_warn_on___0 = buf_len != 48UL;
 #line 1088
-  tmp___0 = __builtin_expect(__ret_warn_on___0 != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on___0 != 0, 0L);
 #line 1088
   if (tmp___0 != 0L) {
 #line 1088
@@ -14231,7 +14231,7 @@ static unsigned int beiscsi_process_async_pdu(struct beiscsi_conn *beiscsi_conn 
 
   }
 #line 1088
-  __builtin_expect(__ret_warn_on___0 != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on___0 != 0, 0L);
 #line 1089
   log_value = phba->attr_log_enable;
 #line 1089
@@ -15282,7 +15282,7 @@ static struct async_pdu_handle *hwi_get_async_handle(struct beiscsi_hba *phba , 
 #line 1640
   __ret_warn_on = tmp___3 != 0;
 #line 1640
-  tmp___4 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___4 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 1640
   if (tmp___4 != 0L) {
 #line 1640
@@ -15292,7 +15292,7 @@ static struct async_pdu_handle *hwi_get_async_handle(struct beiscsi_hba *phba , 
 
   }
 #line 1640
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 1641
   __mptr = (struct list_head  const  *)pbusy_list->next;
 #line 1641
@@ -15323,7 +15323,7 @@ static struct async_pdu_handle *hwi_get_async_handle(struct beiscsi_hba *phba , 
 #line 1646
   __ret_warn_on___0 = (unsigned long )pasync_handle == (unsigned long )((struct async_pdu_handle *)0);
 #line 1646
-  tmp___5 = __builtin_expect(__ret_warn_on___0 != 0, 0L);
+  tmp___5 = ldv__builtin_expect(__ret_warn_on___0 != 0, 0L);
 #line 1646
   if (tmp___5 != 0L) {
 #line 1646
@@ -15333,7 +15333,7 @@ static struct async_pdu_handle *hwi_get_async_handle(struct beiscsi_hba *phba , 
 
   }
 #line 1646
-  __builtin_expect(__ret_warn_on___0 != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on___0 != 0, 0L);
 #line 1648
   pasync_handle->cri = (int )((unsigned short )beiscsi_conn->beiscsi_conn_cid) - (int )((unsigned short )phba->fw_config.iscsi_cid_start);
 #line 1650
@@ -15400,7 +15400,7 @@ static unsigned int hwi_update_async_writables(struct beiscsi_hba *phba , struct
 #line 1683
     __ret_warn_on = tmp != 0;
 #line 1683
-    tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 1683
     if (tmp___0 != 0L) {
 #line 1683
@@ -15410,7 +15410,7 @@ static unsigned int hwi_update_async_writables(struct beiscsi_hba *phba , struct
 
     }
 #line 1683
-    __builtin_expect(__ret_warn_on != 0, 0L);
+    ldv__builtin_expect(__ret_warn_on != 0, 0L);
   } else {
 
   }
@@ -15425,7 +15425,7 @@ static unsigned int hwi_update_async_writables(struct beiscsi_hba *phba , struct
 #line 1689
     __ret_warn_on___0 = (unsigned long )pasync_handle == (unsigned long )((struct async_pdu_handle *)0);
 #line 1689
-    tmp___1 = __builtin_expect(__ret_warn_on___0 != 0, 0L);
+    tmp___1 = ldv__builtin_expect(__ret_warn_on___0 != 0, 0L);
 #line 1689
     if (tmp___1 != 0L) {
 #line 1689
@@ -15435,7 +15435,7 @@ static unsigned int hwi_update_async_writables(struct beiscsi_hba *phba , struct
 
     }
 #line 1689
-    __builtin_expect(__ret_warn_on___0 != 0, 0L);
+    ldv__builtin_expect(__ret_warn_on___0 != 0, 0L);
 #line 1690
     pasync_handle->consumed = 1U;
   } else {
@@ -15467,7 +15467,7 @@ static unsigned int hwi_update_async_writables(struct beiscsi_hba *phba , struct
 #line 1701
     __ret_warn_on___1 = 1;
 #line 1701
-    tmp___3 = __builtin_expect(__ret_warn_on___1 != 0, 0L);
+    tmp___3 = ldv__builtin_expect(__ret_warn_on___1 != 0, 0L);
 #line 1701
     if (tmp___3 != 0L) {
 #line 1701
@@ -15477,7 +15477,7 @@ static unsigned int hwi_update_async_writables(struct beiscsi_hba *phba , struct
 
     }
 #line 1701
-    __builtin_expect(__ret_warn_on___1 != 0, 0L);
+    ldv__builtin_expect(__ret_warn_on___1 != 0, 0L);
   } else {
 
   }
@@ -15656,7 +15656,7 @@ static void hwi_post_async_buffers(struct beiscsi_hba *phba , unsigned int is_he
 #line 1795
     __ret_warn_on = (unsigned long )pasync_handle == (unsigned long )((struct async_pdu_handle *)0);
 #line 1795
-    tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 1795
     if (tmp != 0L) {
 #line 1795
@@ -15666,7 +15666,7 @@ static void hwi_post_async_buffers(struct beiscsi_hba *phba , unsigned int is_he
 
     }
 #line 1795
-    __builtin_expect(__ret_warn_on != 0, 0L);
+    ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 1796
     pasync_handle->consumed = 0U;
 #line 1798
@@ -15754,7 +15754,7 @@ static void hwi_flush_default_pdu_buffer(struct beiscsi_hba *phba , struct beisc
   pasync_handle = hwi_get_async_handle(phba, beiscsi_conn, pasync_ctx, pdpdu_cqe,
                                        & cq_index);
 #line 1849
-  tmp = __builtin_expect((unsigned int )pasync_handle->is_header != 0U, 0L);
+  tmp = ldv__builtin_expect((unsigned int )pasync_handle->is_header != 0U, 0L);
 #line 1849
   if (tmp != 0L) {
 #line 1849
@@ -18023,7 +18023,7 @@ static int be_sgl_create_contiguous(void *virtual_address , u64 physical_address
 #line 2976
   __ret_warn_on = (unsigned long )virtual_address == (unsigned long )((void *)0);
 #line 2976
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 2976
   if (tmp != 0L) {
 #line 2976
@@ -18033,11 +18033,11 @@ static int be_sgl_create_contiguous(void *virtual_address , u64 physical_address
 
   }
 #line 2976
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 2977
   __ret_warn_on___0 = physical_address == 0ULL;
 #line 2977
-  tmp___0 = __builtin_expect(__ret_warn_on___0 != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on___0 != 0, 0L);
 #line 2977
   if (tmp___0 != 0L) {
 #line 2977
@@ -18047,11 +18047,11 @@ static int be_sgl_create_contiguous(void *virtual_address , u64 physical_address
 
   }
 #line 2977
-  __builtin_expect(__ret_warn_on___0 != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on___0 != 0, 0L);
 #line 2978
   __ret_warn_on___1 = length == 0U;
 #line 2978
-  tmp___1 = __builtin_expect(__ret_warn_on___1 != 0, 0L);
+  tmp___1 = ldv__builtin_expect(__ret_warn_on___1 != 0, 0L);
 #line 2978
   if (tmp___1 != 0L) {
 #line 2978
@@ -18061,11 +18061,11 @@ static int be_sgl_create_contiguous(void *virtual_address , u64 physical_address
 
   }
 #line 2978
-  __builtin_expect(__ret_warn_on___1 != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on___1 != 0, 0L);
 #line 2979
   __ret_warn_on___2 = (unsigned long )sgl == (unsigned long )((struct be_dma_mem *)0);
 #line 2979
-  tmp___2 = __builtin_expect(__ret_warn_on___2 != 0, 0L);
+  tmp___2 = ldv__builtin_expect(__ret_warn_on___2 != 0, 0L);
 #line 2979
   if (tmp___2 != 0L) {
 #line 2979
@@ -18075,7 +18075,7 @@ static int be_sgl_create_contiguous(void *virtual_address , u64 physical_address
 
   }
 #line 2979
-  __builtin_expect(__ret_warn_on___2 != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on___2 != 0, 0L);
 #line 2981
   sgl->va = virtual_address;
 #line 2982
@@ -26140,7 +26140,7 @@ __inline static bool be_mcc_compl_is_new(struct be_mcc_compl *compl )
 #line 272
     __ret_warn_on = (int )compl->flags >= 0;
 #line 272
-    tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 272
     if (tmp != 0L) {
 #line 272
@@ -26150,7 +26150,7 @@ __inline static bool be_mcc_compl_is_new(struct be_mcc_compl *compl )
 
     }
 #line 272
-    __builtin_expect(__ret_warn_on != 0, 0L);
+    ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 273
     return (1);
   } else {
@@ -27007,7 +27007,7 @@ struct be_mcc_wrb *wrb_from_mccq(struct beiscsi_hba *phba )
 #line 716
   tmp = atomic_read((atomic_t const   *)(& mccq->used));
 #line 716
-  tmp___0 = __builtin_expect(tmp >= (int )mccq->len, 0L);
+  tmp___0 = ldv__builtin_expect(tmp >= (int )mccq->len, 0L);
 #line 716
   if (tmp___0 != 0L) {
 #line 716
@@ -28110,7 +28110,7 @@ __inline static void ldv_error(void)
 #line 25
 extern int __VERIFIER_nondet_int(void) ;
 #line 49 "/home/mikhail/ldv/kernel-rules/verifier/rcv.h"
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 

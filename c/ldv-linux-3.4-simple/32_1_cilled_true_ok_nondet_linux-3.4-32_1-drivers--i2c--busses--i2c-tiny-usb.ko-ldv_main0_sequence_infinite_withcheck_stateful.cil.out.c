@@ -3808,7 +3808,7 @@ struct i2c_tiny_usb {
    struct i2c_adapter adapter ;
 };
 #line 1 "<compiler builtins>"
-long __builtin_expect(long val , long res ) ;
+long ldv__builtin_expect(long val , long res ) ;
 #line 49 "include/linux/dynamic_debug.h"
 extern int ( /* format attribute */  __dynamic_dev_dbg)(struct _ddebug *descriptor ,
                                                         struct device  const  *dev ,
@@ -4227,7 +4227,7 @@ static int usb_xfer(struct i2c_adapter *adapter , struct i2c_msg *msgs , int num
 #line 62
       __cil_tmp20 = (long )__cil_tmp19;
 #line 62
-      tmp___7 = __builtin_expect(__cil_tmp20, 0L);
+      tmp___7 = ldv__builtin_expect(__cil_tmp20, 0L);
       }
 #line 62
       if (tmp___7) {
@@ -4316,7 +4316,7 @@ static int usb_xfer(struct i2c_adapter *adapter , struct i2c_msg *msgs , int num
 #line 75
         __cil_tmp32 = (long )__cil_tmp31;
 #line 75
-        tmp___9 = __builtin_expect(__cil_tmp32, 0L);
+        tmp___9 = ldv__builtin_expect(__cil_tmp32, 0L);
         }
 #line 75
         if (tmp___9) {
@@ -4567,7 +4567,7 @@ static int usb_xfer(struct i2c_adapter *adapter , struct i2c_msg *msgs , int num
 #line 107
         __cil_tmp109 = (long )__cil_tmp108;
 #line 107
-        tmp___13 = __builtin_expect(__cil_tmp109, 0L);
+        tmp___13 = ldv__builtin_expect(__cil_tmp109, 0L);
         }
 #line 107
         if (tmp___13) {
@@ -4990,7 +4990,7 @@ static int i2c_tiny_usb_probe(struct usb_interface *interface , struct usb_devic
 #line 194
       __cil_tmp15 = (long )__cil_tmp14;
 #line 194
-      tmp___7 = __builtin_expect(__cil_tmp15, 0L);
+      tmp___7 = ldv__builtin_expect(__cil_tmp15, 0L);
       }
 #line 194
       if (tmp___7) {
@@ -5348,7 +5348,7 @@ static void i2c_tiny_usb_disconnect(struct usb_interface *interface )
 #line 256
       __cil_tmp14 = (long )__cil_tmp13;
 #line 256
-      tmp___8 = __builtin_expect(__cil_tmp14, 0L);
+      tmp___8 = ldv__builtin_expect(__cil_tmp14, 0L);
       }
 #line 256
       if (tmp___8) {
@@ -5843,7 +5843,7 @@ void ldv_check_final_state(void)
 }
 }
 #line 538 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/310/dscv_tempdir/dscv/ri/32_1/drivers/i2c/busses/i2c-tiny-usb.c.common.c"
-long __builtin_expect(long val , long res ) 
+long ldv__builtin_expect(long val , long res ) 
 { 
 
   {

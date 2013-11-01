@@ -2203,7 +2203,7 @@ struct tr {
    char phys[32] ;
 };
 #line 1 "<compiler builtins>"
-long __builtin_expect(long val , long res ) ;
+long ldv__builtin_expect(long val , long res ) ;
 #line 322 "include/linux/kernel.h"
 extern int ( /* format attribute */  snprintf)(char *buf , size_t size , char const   *fmt 
                                                , ...) ;
@@ -3489,7 +3489,7 @@ void ldv_check_final_state(void)
 }
 }
 #line 443 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/4191/dscv_tempdir/dscv/ri/32_1/drivers/input/touchscreen/touchright.c.common.c"
-long __builtin_expect(long val , long res ) 
+long ldv__builtin_expect(long val , long res ) 
 { 
 
   {

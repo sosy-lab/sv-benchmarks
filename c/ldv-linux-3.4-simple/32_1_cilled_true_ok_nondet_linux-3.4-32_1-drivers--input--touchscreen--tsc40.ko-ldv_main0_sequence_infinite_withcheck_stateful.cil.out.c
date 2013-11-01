@@ -2212,7 +2212,7 @@ struct tsc_ser {
    char phys[32] ;
 };
 #line 1 "<compiler builtins>"
-long __builtin_expect(long val , long res ) ;
+long ldv__builtin_expect(long val , long res ) ;
 #line 82 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/bitops.h"
 __inline static void __set_bit(int nr , unsigned long volatile   *addr )  __attribute__((__no_instrument_function__)) ;
 #line 82 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/bitops.h"
@@ -2690,7 +2690,7 @@ static irqreturn_t tsc_interrupt(struct serio *serio , unsigned char data , unsi
 #line 52
     __cil_tmp31 = (long )__cil_tmp30;
 #line 52
-    tmp___2 = __builtin_expect(__cil_tmp31, 0L);
+    tmp___2 = ldv__builtin_expect(__cil_tmp31, 0L);
     }
 #line 52
     if (tmp___2) {
@@ -2716,7 +2716,7 @@ static irqreturn_t tsc_interrupt(struct serio *serio , unsigned char data , unsi
 #line 53
           __cil_tmp37 = (long )__cil_tmp36;
 #line 53
-          tmp___1 = __builtin_expect(__cil_tmp37, 0L);
+          tmp___1 = ldv__builtin_expect(__cil_tmp37, 0L);
           }
 #line 53
           if (tmp___1) {
@@ -2795,7 +2795,7 @@ static irqreturn_t tsc_interrupt(struct serio *serio , unsigned char data , unsi
 #line 65
     __cil_tmp53 = (long )__cil_tmp52;
 #line 65
-    tmp___4 = __builtin_expect(__cil_tmp53, 0L);
+    tmp___4 = ldv__builtin_expect(__cil_tmp53, 0L);
     }
 #line 65
     if (tmp___4) {
@@ -2821,7 +2821,7 @@ static irqreturn_t tsc_interrupt(struct serio *serio , unsigned char data , unsi
 #line 66
           __cil_tmp59 = (long )__cil_tmp58;
 #line 66
-          tmp___3 = __builtin_expect(__cil_tmp59, 0L);
+          tmp___3 = ldv__builtin_expect(__cil_tmp59, 0L);
           }
 #line 66
           if (tmp___3) {
@@ -3669,7 +3669,7 @@ void ldv_check_final_state(void)
 }
 }
 #line 389 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/4196/dscv_tempdir/dscv/ri/32_1/drivers/input/touchscreen/tsc40.c.common.c"
-long __builtin_expect(long val , long res ) 
+long ldv__builtin_expect(long val , long res ) 
 { 
 
   {

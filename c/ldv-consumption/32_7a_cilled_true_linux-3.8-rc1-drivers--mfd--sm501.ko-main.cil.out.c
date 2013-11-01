@@ -4156,7 +4156,7 @@ typedef int ldv_func_ret_type___2;
 #line 2197 "/work/ldvuser/zakharov_benchmarks/bench/cpa/work/current--X--drivers/mfd/sm501.ko--X--x1linux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/32_7a/drivers/mfd/sm501.c.prepared"
 typedef int ldv_func_ret_type___11;
 #line 1 "<compiler builtins>"
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 #line 119 "include/linux/printk.h"
 extern int printk(char const   *  , ...) ;
 #line 53 "include/linux/dynamic_debug.h"
@@ -4568,7 +4568,7 @@ int sm501_misc_control(struct device *dev , unsigned long set , unsigned long cl
 #line 319
     descriptor.flags = 0U;
 #line 319
-    tmp___2 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___2 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 319
     if (tmp___2 != 0L) {
 #line 319
@@ -4683,7 +4683,7 @@ int sm501_unit_power(struct device *dev , unsigned int unit , unsigned int to )
 #line 384
   descriptor.flags = 0U;
 #line 384
-  tmp___3 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___3 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 384
   if (tmp___3 != 0L) {
 #line 384
@@ -4780,7 +4780,7 @@ int sm501_unit_power(struct device *dev , unsigned int unit , unsigned int to )
 #line 426
   descriptor___0.flags = 0U;
 #line 426
-  tmp___5 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___5 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 426
   if (tmp___5 != 0L) {
 #line 426
@@ -5212,7 +5212,7 @@ unsigned long sm501_set_clock(struct device *dev , int clksrc , unsigned long re
 #line 670
   descriptor.flags = 0U;
 #line 670
-  tmp___9 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___9 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 670
   if (tmp___9 != 0L) {
 #line 670
@@ -5409,7 +5409,7 @@ static int sm501_register_device(struct sm501_devdata *sm , struct platform_devi
 #line 796
     descriptor.flags = 0U;
 #line 796
-    tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 796
     if (tmp___0 != 0L) {
 #line 796
@@ -5749,7 +5749,7 @@ static void sm501_gpio_set(struct gpio_chip *chip , unsigned int offset , int va
 #line 981
   descriptor.flags = 0U;
 #line 981
-  tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 981
   if (tmp___1 != 0L) {
 #line 981
@@ -5829,7 +5829,7 @@ static int sm501_gpio_input(struct gpio_chip *chip , unsigned int offset )
 #line 1006
   descriptor.flags = 0U;
 #line 1006
-  tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1006
   if (tmp___1 != 0L) {
 #line 1006
@@ -5905,7 +5905,7 @@ static int sm501_gpio_output(struct gpio_chip *chip , unsigned int offset , int 
 #line 1033
   descriptor.flags = 0U;
 #line 1033
-  tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1033
   if (tmp___1 != 0L) {
 #line 1033
@@ -6039,7 +6039,7 @@ static int sm501_register_gpio(struct sm501_devdata *sm )
 #line 1100
   descriptor.flags = 0U;
 #line 1100
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1100
   if (tmp___0 != 0L) {
 #line 1100
@@ -6689,7 +6689,7 @@ static void sm501_set_power(struct sm501_devdata *sm , int on )
 #line 1516
       descriptor.flags = 0U;
 #line 1516
-      tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+      tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1516
       if (tmp != 0L) {
 #line 1516
@@ -6722,7 +6722,7 @@ static void sm501_set_power(struct sm501_devdata *sm , int on )
 #line 1522
     descriptor___0.flags = 0U;
 #line 1522
-    tmp___1 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 1522
     if (tmp___1 != 0L) {
 #line 1522
@@ -7738,7 +7738,7 @@ __inline static void ldv_error(void)
 #line 25
 extern int __VERIFIER_nondet_int(void) ;
 #line 49 "/home/ldvuser/ldv_envgen2/kernel-rules/verifier/rcv.h"
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
   {

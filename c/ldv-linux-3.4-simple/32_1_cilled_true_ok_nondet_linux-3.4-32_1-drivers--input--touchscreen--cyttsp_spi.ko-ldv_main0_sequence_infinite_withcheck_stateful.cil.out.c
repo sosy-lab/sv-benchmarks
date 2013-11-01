@@ -3770,7 +3770,7 @@ struct spi_message {
 #line 1 "<compiler builtins>"
 
 #line 1
-long __builtin_expect(long val , long res ) ;
+long ldv__builtin_expect(long val , long res ) ;
 #line 49 "include/linux/dynamic_debug.h"
 extern int ( /* format attribute */  __dynamic_dev_dbg)(struct _ddebug *descriptor ,
                                                         struct device  const  *dev ,
@@ -3810,7 +3810,7 @@ __inline static long __attribute__((__warn_unused_result__))  IS_ERR(void const 
 #line 34
   __cil_tmp7 = (long )__cil_tmp6;
 #line 34
-  tmp = __builtin_expect(__cil_tmp7, 0L);
+  tmp = ldv__builtin_expect(__cil_tmp7, 0L);
   }
 #line 34
   return (tmp);
@@ -4457,7 +4457,7 @@ static int cyttsp_spi_xfer(struct cyttsp *ts , u8 op , u8 reg , u8 *buf , int le
 #line 105
         __cil_tmp82 = (long )__cil_tmp81;
 #line 105
-        tmp___8 = __builtin_expect(__cil_tmp82, 0L);
+        tmp___8 = ldv__builtin_expect(__cil_tmp82, 0L);
         }
 #line 105
         if (tmp___8) {
@@ -4540,7 +4540,7 @@ static int cyttsp_spi_xfer(struct cyttsp *ts , u8 op , u8 reg , u8 *buf , int le
 #line 118
           __cil_tmp101 = (long )__cil_tmp100;
 #line 118
-          tmp___9 = __builtin_expect(__cil_tmp101, 0L);
+          tmp___9 = ldv__builtin_expect(__cil_tmp101, 0L);
           }
 #line 118
           if (tmp___9) {
@@ -4603,7 +4603,7 @@ static int cyttsp_spi_xfer(struct cyttsp *ts , u8 op , u8 reg , u8 *buf , int le
 #line 121
             __cil_tmp110 = (long )__cil_tmp109;
 #line 121
-            tmp___10 = __builtin_expect(__cil_tmp110, 0L);
+            tmp___10 = ldv__builtin_expect(__cil_tmp110, 0L);
             }
 #line 121
             if (tmp___10) {
@@ -4675,7 +4675,7 @@ static int cyttsp_spi_xfer(struct cyttsp *ts , u8 op , u8 reg , u8 *buf , int le
 #line 124
             __cil_tmp121 = (long )__cil_tmp120;
 #line 124
-            tmp___11 = __builtin_expect(__cil_tmp121, 0L);
+            tmp___11 = ldv__builtin_expect(__cil_tmp121, 0L);
             }
 #line 124
             if (tmp___11) {
@@ -5348,7 +5348,7 @@ void ldv_check_final_state(void)
 }
 }
 #line 427 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/4170/dscv_tempdir/dscv/ri/32_1/drivers/input/touchscreen/cyttsp_spi.c.common.c"
-long __builtin_expect(long val , long res ) 
+long ldv__builtin_expect(long val , long res ) 
 { 
 
   {

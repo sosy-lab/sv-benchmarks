@@ -1824,7 +1824,7 @@ struct exception_table_entry {
 #line 25 "include/linux/io.h"
 struct device;
 #line 1 "<compiler builtins>"
-long __builtin_expect(long val , long res ) ;
+long ldv__builtin_expect(long val , long res ) ;
 #line 100 "include/linux/printk.h"
 extern int ( /* format attribute */  printk)(char const   *fmt  , ...) ;
 #line 147 "include/linux/kernel.h"
@@ -3293,7 +3293,7 @@ void ldv_check_final_state(void)
 }
 }
 #line 509 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/16416/dscv_tempdir/dscv/ri/32_1/drivers/watchdog/sbc_epx_c3.c.common.c"
-long __builtin_expect(long val , long res ) 
+long ldv__builtin_expect(long val , long res ) 
 { 
 
   {

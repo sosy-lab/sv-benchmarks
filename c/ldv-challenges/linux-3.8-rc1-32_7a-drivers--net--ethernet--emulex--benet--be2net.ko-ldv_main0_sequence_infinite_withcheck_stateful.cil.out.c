@@ -8130,7 +8130,7 @@ void *__builtin_memcpy(void * , void const   * , unsigned long  ) ;
 #line 1
 void __builtin_prefetch(void const   *  , ...) ;
 #line 1
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 #line 33 "include/linux/export.h"
 extern struct module __this_module ;
 #line 62 "/work/ldvuser/exper_fp/inst/current/envs/linux-3.10-rc1.tar/linux-3.10-rc1/arch/x86/include/asm/bitops.h"
@@ -8332,7 +8332,7 @@ __inline static unsigned long arch_local_save_flags(void)
 #line 824
   __eax = __eax;
 #line 824
-  tmp = __builtin_expect((unsigned long )pv_irq_ops.save_fl.func == (unsigned long )((void *)0),
+  tmp = ldv__builtin_expect((unsigned long )pv_irq_ops.save_fl.func == (unsigned long )((void *)0),
                          0L);
 #line 824
   if (tmp != 0L) {
@@ -8727,13 +8727,13 @@ __inline static void get_page(struct page *page )
 #line 404
   tmp___1 = PageTail((struct page  const  *)page);
 #line 404
-  tmp___2 = __builtin_expect(tmp___1 != 0, 0L);
+  tmp___2 = ldv__builtin_expect(tmp___1 != 0, 0L);
 #line 404
   if (tmp___2 != 0L) {
 #line 405
     tmp = __get_page_tail(page);
 #line 405
-    tmp___0 = __builtin_expect((long )tmp, 1L);
+    tmp___0 = ldv__builtin_expect((long )tmp, 1L);
 #line 405
     if (tmp___0 != 0L) {
 #line 406
@@ -8747,7 +8747,7 @@ __inline static void get_page(struct page *page )
 #line 411
   tmp___3 = atomic_read((atomic_t const   *)(& page->ldv_16917.ldv_16916.ldv_16915._count));
 #line 411
-  tmp___4 = __builtin_expect(tmp___3 <= 0, 0L);
+  tmp___4 = ldv__builtin_expect(tmp___3 <= 0, 0L);
 #line 411
   if (tmp___4 != 0L) {
 #line 411
@@ -8865,7 +8865,7 @@ __inline static struct dma_map_ops *get_dma_ops(struct device *dev )
 
   {
 #line 37
-  tmp = __builtin_expect((unsigned long )dev == (unsigned long )((struct device *)0),
+  tmp = ldv__builtin_expect((unsigned long )dev == (unsigned long )((struct device *)0),
                          0L);
 #line 37
   if (tmp != 0L || (unsigned long )dev->archdata.dma_ops == (unsigned long )((struct dma_map_ops *)0)) {
@@ -8899,7 +8899,7 @@ __inline static dma_addr_t dma_map_single_attrs(struct device *dev , void *ptr ,
 #line 19
   tmp___0 = valid_dma_direction((int )dir);
 #line 19
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
 #line 19
   if (tmp___1 != 0L) {
 #line 19
@@ -8943,7 +8943,7 @@ __inline static void dma_unmap_single_attrs(struct device *dev , dma_addr_t addr
 #line 36
   tmp___0 = valid_dma_direction((int )dir);
 #line 36
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
 #line 36
   if (tmp___1 != 0L) {
 #line 36
@@ -8994,7 +8994,7 @@ __inline static dma_addr_t dma_map_page(struct device *dev , struct page *page ,
 #line 79
   tmp___1 = valid_dma_direction((int )dir);
 #line 79
-  tmp___2 = __builtin_expect(tmp___1 == 0, 0L);
+  tmp___2 = ldv__builtin_expect(tmp___1 == 0, 0L);
 #line 79
   if (tmp___2 != 0L) {
 #line 79
@@ -9031,7 +9031,7 @@ __inline static void dma_unmap_page(struct device *dev , dma_addr_t addr , size_
 #line 91
   tmp___0 = valid_dma_direction((int )dir);
 #line 91
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
 #line 91
   if (tmp___1 != 0L) {
 #line 91
@@ -9216,7 +9216,7 @@ __inline static void dma_free_attrs(struct device *dev , size_t size , void *vad
 #line 166
   __ret_warn_on = tmp___0 != 0;
 #line 166
-  tmp___1 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___1 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 166
   if (tmp___1 != 0L) {
 #line 166
@@ -9226,7 +9226,7 @@ __inline static void dma_free_attrs(struct device *dev , size_t size , void *vad
 
   }
 #line 166
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 171
   debug_dma_free_coherent(dev, size, vaddr, bus);
 #line 172
@@ -9431,7 +9431,7 @@ __inline static struct sk_buff *skb_share_check(struct sk_buff *skb , gfp_t pri 
 #line 928
     nskb = tmp;
 #line 930
-    tmp___0 = __builtin_expect((unsigned long )nskb != (unsigned long )((struct sk_buff *)0),
+    tmp___0 = ldv__builtin_expect((unsigned long )nskb != (unsigned long )((struct sk_buff *)0),
                                1L);
 #line 930
     if (tmp___0 != 0L) {
@@ -9532,13 +9532,13 @@ __inline static void __skb_trim(struct sk_buff *skb , unsigned int len )
 #line 1857
   tmp___0 = skb_is_nonlinear((struct sk_buff  const  *)skb);
 #line 1857
-  tmp___1 = __builtin_expect((long )tmp___0, 0L);
+  tmp___1 = ldv__builtin_expect((long )tmp___0, 0L);
 #line 1857
   if (tmp___1 != 0L) {
 #line 1858
     __ret_warn_on = 1;
 #line 1858
-    tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 1858
     if (tmp != 0L) {
 #line 1858
@@ -9547,7 +9547,7 @@ __inline static void __skb_trim(struct sk_buff *skb , unsigned int len )
 
     }
 #line 1858
-    __builtin_expect(__ret_warn_on != 0, 0L);
+    ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 1859
     return;
   } else {
@@ -9969,7 +9969,7 @@ __inline static void napi_enable(struct napi_struct *n )
 #line 472
   tmp = constant_test_bit(0U, (unsigned long const volatile   *)(& n->state));
 #line 472
-  tmp___0 = __builtin_expect(tmp == 0, 0L);
+  tmp___0 = ldv__builtin_expect(tmp == 0, 0L);
 #line 472
   if (tmp___0 != 0L) {
 #line 472
@@ -10077,7 +10077,7 @@ __inline static void netif_tx_stop_queue(struct netdev_queue *dev_queue )
 #line 1907
   __ret_warn_on = (unsigned long )dev_queue == (unsigned long )((struct netdev_queue *)0);
 #line 1907
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 1907
   if (tmp != 0L) {
 #line 1907
@@ -10086,7 +10086,7 @@ __inline static void netif_tx_stop_queue(struct netdev_queue *dev_queue )
 
   }
 #line 1907
-  tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 1907
   if (tmp___0 != 0L) {
 #line 1908
@@ -10908,7 +10908,7 @@ __inline static u32 MODULO(u16 val , u16 limit )
 
   {
 #line 136
-  tmp = __builtin_expect(((int )limit & ((int )limit + -1)) != 0, 0L);
+  tmp = ldv__builtin_expect(((int )limit & ((int )limit + -1)) != 0, 0L);
 #line 136
   if (tmp != 0L) {
 #line 136
@@ -12436,7 +12436,7 @@ static u32 wrb_cnt_for_skb(struct be_adapter *adapter , struct sk_buff *skb , bo
     *dummy = 1;
   }
 #line 666
-  tmp___0 = __builtin_expect(cnt > 30, 0L);
+  tmp___0 = ldv__builtin_expect(cnt > 30, 0L);
 #line 666
   if (tmp___0 != 0L) {
 #line 666
@@ -12835,7 +12835,7 @@ static struct sk_buff *be_insert_vlan_in_pkt(struct be_adapter *adapter , struct
 #line 819
   skb = skb_share_check(skb, 32U);
 #line 820
-  tmp = __builtin_expect((unsigned long )skb == (unsigned long )((struct sk_buff *)0),
+  tmp = ldv__builtin_expect((unsigned long )skb == (unsigned long )((struct sk_buff *)0),
                          0L);
 #line 820
   if (tmp != 0L) {
@@ -12886,7 +12886,7 @@ static struct sk_buff *be_insert_vlan_in_pkt(struct be_adapter *adapter , struct
 #line 838
     skb = __vlan_put_tag(skb, 129, (int )vlan_tag);
 #line 839
-    tmp___1 = __builtin_expect((unsigned long )skb == (unsigned long )((struct sk_buff *)0),
+    tmp___1 = ldv__builtin_expect((unsigned long )skb == (unsigned long )((struct sk_buff *)0),
                                0L);
 #line 839
     if (tmp___1 != 0L) {
@@ -12907,7 +12907,7 @@ static struct sk_buff *be_insert_vlan_in_pkt(struct be_adapter *adapter , struct
 #line 848
     skb = __vlan_put_tag(skb, 129, (int )vlan_tag);
 #line 849
-    tmp___2 = __builtin_expect((unsigned long )skb == (unsigned long )((struct sk_buff *)0),
+    tmp___2 = ldv__builtin_expect((unsigned long )skb == (unsigned long )((struct sk_buff *)0),
                                0L);
 #line 849
     if (tmp___2 != 0L) {
@@ -13105,7 +13105,7 @@ static netdev_tx_t be_xmit(struct sk_buff *skb , struct net_device *netdev )
 #line 928
     skb = be_insert_vlan_in_pkt(adapter, skb, & skip_hw_vlan);
 #line 929
-    tmp___4 = __builtin_expect((unsigned long )skb == (unsigned long )((struct sk_buff *)0),
+    tmp___4 = ldv__builtin_expect((unsigned long )skb == (unsigned long )((struct sk_buff *)0),
                                0L);
 #line 929
     if (tmp___4 != 0L) {
@@ -13120,18 +13120,18 @@ static netdev_tx_t be_xmit(struct sk_buff *skb , struct net_device *netdev )
 #line 937
   tmp___5 = be_ipv6_tx_stall_chk(adapter, skb);
 #line 937
-  tmp___6 = __builtin_expect(tmp___5 != 0, 0L);
+  tmp___6 = ldv__builtin_expect(tmp___5 != 0, 0L);
 #line 937
   if (tmp___6 != 0L) {
 #line 937
-    tmp___7 = __builtin_expect((unsigned int )adapter->pvid != 0U, 0L);
+    tmp___7 = ldv__builtin_expect((unsigned int )adapter->pvid != 0U, 0L);
 #line 937
     if (tmp___7 != 0L) {
 #line 937
       tmp___9 = 1;
     } else {
 #line 937
-      tmp___8 = __builtin_expect((unsigned int )adapter->qnq_vid != 0U, 0L);
+      tmp___8 = ldv__builtin_expect((unsigned int )adapter->qnq_vid != 0U, 0L);
 #line 937
       if (tmp___8 != 0L) {
 #line 937
@@ -13158,7 +13158,7 @@ static netdev_tx_t be_xmit(struct sk_buff *skb , struct net_device *netdev )
 #line 937
     tmp___11 = qnq_async_evt_rcvd(adapter);
 #line 937
-    tmp___12 = __builtin_expect(tmp___11 == 0, 0L);
+    tmp___12 = ldv__builtin_expect(tmp___11 == 0, 0L);
 #line 937
     if (tmp___12 != 0L) {
 #line 940
@@ -13180,7 +13180,7 @@ static netdev_tx_t be_xmit(struct sk_buff *skb , struct net_device *netdev )
 #line 950
       skb = be_insert_vlan_in_pkt(adapter, skb, & skip_hw_vlan);
 #line 951
-      tmp___13 = __builtin_expect((unsigned long )skb == (unsigned long )((struct sk_buff *)0),
+      tmp___13 = ldv__builtin_expect((unsigned long )skb == (unsigned long )((struct sk_buff *)0),
                                   0L);
 #line 951
       if (tmp___13 != 0L) {
@@ -13208,7 +13208,7 @@ static netdev_tx_t be_xmit(struct sk_buff *skb , struct net_device *netdev )
 #line 960
     gso_segs = (int )((struct skb_shared_info *)tmp___17)->gso_segs;
 #line 963
-    tmp___18 = __builtin_expect((unsigned long )txo->sent_skb_list[start] != (unsigned long )((struct sk_buff *)0),
+    tmp___18 = ldv__builtin_expect((unsigned long )txo->sent_skb_list[start] != (unsigned long )((struct sk_buff *)0),
                                 0L);
 #line 963
     if (tmp___18 != 0L) {
@@ -14104,7 +14104,7 @@ static struct be_rx_page_info *get_rx_page_info(struct be_rx_obj *rxo , u16 frag
 #line 1391
   rx_page_info = (struct be_rx_page_info *)(& rxo->page_info_tbl) + (unsigned long )frag_idx;
 #line 1392
-  tmp = __builtin_expect((unsigned long )rx_page_info->page == (unsigned long )((struct page *)0),
+  tmp = ldv__builtin_expect((unsigned long )rx_page_info->page == (unsigned long )((struct page *)0),
                          0L);
 #line 1392
   if (tmp != 0L) {
@@ -14269,7 +14269,7 @@ static void skb_fill_rx_data(struct be_rx_obj *rxo , struct sk_buff *skb , struc
 #line 1462
   if ((int )rxcp->pkt_size <= (int )rx_frag_size) {
 #line 1463
-    tmp___3 = __builtin_expect((unsigned int )rxcp->num_rcvd != 1U, 0L);
+    tmp___3 = ldv__builtin_expect((unsigned int )rxcp->num_rcvd != 1U, 0L);
 #line 1463
     if (tmp___3 != 0L) {
 #line 1463
@@ -14356,7 +14356,7 @@ static void skb_fill_rx_data(struct be_rx_obj *rxo , struct sk_buff *skb , struc
 
   }
 #line 1495
-  tmp___8 = __builtin_expect((unsigned int )j > 17U, 0L);
+  tmp___8 = ldv__builtin_expect((unsigned int )j > 17U, 0L);
 #line 1495
   if (tmp___8 != 0L) {
 #line 1495
@@ -14391,7 +14391,7 @@ static void be_rx_compl_process(struct be_rx_obj *rxo , struct be_rx_compl_info 
 #line 1506
   skb = netdev_alloc_skb_ip_align(netdev, 128U);
 #line 1507
-  tmp = __builtin_expect((unsigned long )skb == (unsigned long )((struct sk_buff *)0),
+  tmp = ldv__builtin_expect((unsigned long )skb == (unsigned long )((struct sk_buff *)0),
                          0L);
 #line 1507
   if (tmp != 0L) {
@@ -14407,13 +14407,13 @@ static void be_rx_compl_process(struct be_rx_obj *rxo , struct be_rx_compl_info 
 #line 1513
   skb_fill_rx_data(rxo, skb, rxcp);
 #line 1515
-  tmp___0 = __builtin_expect((netdev->features & 536870912ULL) != 0ULL, 1L);
+  tmp___0 = ldv__builtin_expect((netdev->features & 536870912ULL) != 0ULL, 1L);
 #line 1515
   if (tmp___0 != 0L) {
 #line 1515
     tmp___1 = csum_passed(rxcp);
 #line 1515
-    tmp___2 = __builtin_expect((long )tmp___1, 1L);
+    tmp___2 = ldv__builtin_expect((long )tmp___1, 1L);
 #line 1515
     if (tmp___2 != 0L) {
 #line 1516
@@ -14547,7 +14547,7 @@ void be_rx_compl_process_gro(struct be_rx_obj *rxo , struct napi_struct *napi , 
 
   }
 #line 1572
-  tmp___2 = __builtin_expect((unsigned int )j > 17U, 0L);
+  tmp___2 = ldv__builtin_expect((unsigned int )j > 17U, 0L);
 #line 1572
   if (tmp___2 != 0L) {
 #line 1572
@@ -14995,7 +14995,7 @@ static void be_post_rx_frags(struct be_rx_obj *rxo , gfp_t gfp )
 #line 1718
     pagep = be_alloc_pages(adapter->big_page_size, gfp);
 #line 1719
-    tmp = __builtin_expect((unsigned long )pagep == (unsigned long )((struct page *)0),
+    tmp = ldv__builtin_expect((unsigned long )pagep == (unsigned long )((struct page *)0),
                            0L);
 #line 1719
     if (tmp != 0L) {
@@ -15145,7 +15145,7 @@ static u16 be_tx_compl_process(struct be_adapter *adapter , struct be_tx_obj *tx
 #line 1789
   sent_skb = *(sent_skbs + (unsigned long )txq->tail);
 #line 1790
-  tmp = __builtin_expect((unsigned long )sent_skb == (unsigned long )((struct sk_buff *)0),
+  tmp = ldv__builtin_expect((unsigned long )sent_skb == (unsigned long )((struct sk_buff *)0),
                          0L);
 #line 1790
   if (tmp != 0L) {
@@ -15398,7 +15398,7 @@ static void be_rx_cq_clean(struct be_rx_obj *rxo )
 #line 1886
   tmp___4 = atomic_read((atomic_t const   *)(& rxq->used));
 #line 1886
-  tmp___5 = __builtin_expect(tmp___4 != 0, 0L);
+  tmp___5 = ldv__builtin_expect(tmp___4 != 0, 0L);
 #line 1886
   if (tmp___5 != 0L) {
 #line 1886
@@ -16292,7 +16292,7 @@ static int be_process_rx(struct be_rx_obj *rxo , struct napi_struct *napi , int 
 
   }
 #line 2236
-  tmp = __builtin_expect((unsigned int )rxcp->num_rcvd == 0U, 0L);
+  tmp = ldv__builtin_expect((unsigned int )rxcp->num_rcvd == 0U, 0L);
 #line 2236
   if (tmp != 0L) {
 #line 2237
@@ -16301,7 +16301,7 @@ static int be_process_rx(struct be_rx_obj *rxo , struct napi_struct *napi , int 
 
   }
 #line 2240
-  tmp___0 = __builtin_expect((unsigned int )rxcp->pkt_size == 0U, 0L);
+  tmp___0 = ldv__builtin_expect((unsigned int )rxcp->pkt_size == 0U, 0L);
 #line 2240
   if (tmp___0 != 0L) {
 #line 2241
@@ -16312,15 +16312,15 @@ static int be_process_rx(struct be_rx_obj *rxo , struct napi_struct *napi , int 
 
   }
 #line 2248
-  tmp___1 = __builtin_expect((u32 )rxcp->port != adapter->port_num, 0L);
+  tmp___1 = ldv__builtin_expect((u32 )rxcp->port != adapter->port_num, 0L);
 #line 2248
   if (tmp___1 != 0L) {
 #line 2248
-    tmp___2 = __builtin_expect((unsigned int )(adapter->pdev)->device != 57888U, 0L);
+    tmp___2 = ldv__builtin_expect((unsigned int )(adapter->pdev)->device != 57888U, 0L);
 #line 2248
     if (tmp___2 != 0L) {
 #line 2248
-      tmp___3 = __builtin_expect((unsigned int )(adapter->pdev)->device != 57896U,
+      tmp___3 = ldv__builtin_expect((unsigned int )(adapter->pdev)->device != 57896U,
                                  0L);
 #line 2248
       if (tmp___3 != 0L) {
@@ -22125,7 +22125,7 @@ __inline static u32 MODULO___0(u16 val , u16 limit )
 
   {
 #line 136
-  tmp = __builtin_expect(((int )limit & ((int )limit + -1)) != 0, 0L);
+  tmp = ldv__builtin_expect(((int )limit & ((int )limit + -1)) != 0, 0L);
 #line 136
   if (tmp != 0L) {
 #line 136
@@ -32082,7 +32082,7 @@ __inline static void ldv_error(void)
 #line 25
 extern int __VERIFIER_nondet_int(void) ;
 #line 49 "/home/ldvuser/ldv/inst/kernel-rules/verifier/rcv.h"
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 

@@ -2599,7 +2599,7 @@ struct module {
    unsigned int num_ctors ;
 };
 #line 1 "<compiler builtins>"
-long __builtin_expect(long val , long res ) ;
+long ldv__builtin_expect(long val , long res ) ;
 #line 100 "include/linux/printk.h"
 extern int ( /* format attribute */  printk)(char const   *fmt  , ...) ;
 #line 49 "include/linux/dynamic_debug.h"
@@ -3450,7 +3450,7 @@ static int wl1273_core_remove(struct i2c_client *client )
 #line 178
       __cil_tmp11 = (long )__cil_tmp10;
 #line 178
-      tmp___8 = __builtin_expect(__cil_tmp11, 0L);
+      tmp___8 = ldv__builtin_expect(__cil_tmp11, 0L);
       }
 #line 178
       if (tmp___8) {
@@ -3737,7 +3737,7 @@ static int wl1273_core_probe(struct i2c_client *client , struct i2c_device_id  c
 #line 195
       __cil_tmp23 = (long )__cil_tmp22;
 #line 195
-      tmp___7 = __builtin_expect(__cil_tmp23, 0L);
+      tmp___7 = ldv__builtin_expect(__cil_tmp23, 0L);
       }
 #line 195
       if (tmp___7) {
@@ -3912,7 +3912,7 @@ static int wl1273_core_probe(struct i2c_client *client , struct i2c_device_id  c
 #line 217
       __cil_tmp65 = (long )__cil_tmp64;
 #line 217
-      tmp___9 = __builtin_expect(__cil_tmp65, 0L);
+      tmp___9 = ldv__builtin_expect(__cil_tmp65, 0L);
       }
 #line 217
       if (tmp___9) {
@@ -4070,7 +4070,7 @@ static int wl1273_core_probe(struct i2c_client *client , struct i2c_device_id  c
 #line 234
         __cil_tmp116 = (long )__cil_tmp115;
 #line 234
-        tmp___10 = __builtin_expect(__cil_tmp116, 0L);
+        tmp___10 = ldv__builtin_expect(__cil_tmp116, 0L);
         }
 #line 234
         if (tmp___10) {
@@ -4141,7 +4141,7 @@ static int wl1273_core_probe(struct i2c_client *client , struct i2c_device_id  c
 #line 241
       __cil_tmp130 = (long )__cil_tmp129;
 #line 241
-      tmp___11 = __builtin_expect(__cil_tmp130, 0L);
+      tmp___11 = ldv__builtin_expect(__cil_tmp130, 0L);
       }
 #line 241
       if (tmp___11) {
@@ -4249,7 +4249,7 @@ static int wl1273_core_probe(struct i2c_client *client , struct i2c_device_id  c
 #line 255
       __cil_tmp158 = (long )__cil_tmp157;
 #line 255
-      tmp___12 = __builtin_expect(__cil_tmp158, 0L);
+      tmp___12 = ldv__builtin_expect(__cil_tmp158, 0L);
       }
 #line 255
       if (tmp___12) {
@@ -4719,7 +4719,7 @@ void ldv_check_final_state(void)
 }
 }
 #line 418 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/8235/dscv_tempdir/dscv/ri/32_1/drivers/mfd/wl1273-core.c.common.c"
-long __builtin_expect(long val , long res ) 
+long ldv__builtin_expect(long val , long res ) 
 { 
 
   {

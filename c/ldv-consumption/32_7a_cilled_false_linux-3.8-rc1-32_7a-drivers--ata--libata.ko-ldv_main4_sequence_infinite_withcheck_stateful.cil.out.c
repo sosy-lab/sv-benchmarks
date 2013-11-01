@@ -5723,7 +5723,7 @@ void *__builtin_memcpy(void * , void const   * , unsigned long  ) ;
 #line 1
 void __builtin_va_end(__builtin_va_list  ) ;
 #line 1
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 #line 1
 void __builtin_va_start(__builtin_va_list  ) ;
 #line 100 "/home/mikhail/launches/cpachecker-regression/launcher-working-dir/ldv-manager-work-dir/inst/current/envs/linux-3.8-rc1/linux-3.8-rc1/arch/x86/include/asm/bitops.h"
@@ -5902,7 +5902,7 @@ __inline static long IS_ERR(void const   *ptr )
 
   {
 #line 34
-  tmp = __builtin_expect((unsigned long )ptr > 0xfffffffffffff000UL, 0L);
+  tmp = ldv__builtin_expect((unsigned long )ptr > 0xfffffffffffff000UL, 0L);
 #line 34
   return (tmp);
 }
@@ -6218,7 +6218,7 @@ __inline static struct page *sg_page(struct scatterlist *sg )
 
   {
 #line 98
-  tmp = __builtin_expect(sg->sg_magic != 2271560481UL, 0L);
+  tmp = ldv__builtin_expect(sg->sg_magic != 2271560481UL, 0L);
 #line 98
   if (tmp != 0L) {
 #line 98
@@ -6231,7 +6231,7 @@ __inline static struct page *sg_page(struct scatterlist *sg )
 
   }
 #line 99
-  tmp___0 = __builtin_expect((long )((int )sg->page_link) & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )((int )sg->page_link) & 1L, 0L);
 #line 99
   if (tmp___0 != 0L) {
 #line 99
@@ -6300,7 +6300,7 @@ __inline static struct dma_map_ops *get_dma_ops(struct device *dev )
 
   {
 #line 37
-  tmp = __builtin_expect((unsigned long )dev == (unsigned long )((struct device *)0),
+  tmp = ldv__builtin_expect((unsigned long )dev == (unsigned long )((struct device *)0),
                          0L);
 #line 37
   if (tmp != 0L || (unsigned long )dev->archdata.dma_ops == (unsigned long )((struct dma_map_ops *)0)) {
@@ -6356,7 +6356,7 @@ __inline static int dma_map_sg_attrs(struct device *dev , struct scatterlist *sg
 #line 52
   tmp___1 = valid_dma_direction((int )dir);
 #line 52
-  tmp___2 = __builtin_expect(tmp___1 == 0, 0L);
+  tmp___2 = ldv__builtin_expect(tmp___1 == 0, 0L);
 #line 52
   if (tmp___2 != 0L) {
 #line 52
@@ -6394,7 +6394,7 @@ __inline static void dma_unmap_sg_attrs(struct device *dev , struct scatterlist 
 #line 65
   tmp___0 = valid_dma_direction((int )dir);
 #line 65
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
 #line 65
   if (tmp___1 != 0L) {
 #line 65
@@ -7187,7 +7187,7 @@ __inline static struct ata_queued_cmd *__ata_qc_from_tag(struct ata_port *ap , u
 #line 1499
   tmp = ata_tag_valid(tag);
 #line 1499
-  tmp___0 = __builtin_expect(tmp != 0U, 1L);
+  tmp___0 = ldv__builtin_expect(tmp != 0U, 1L);
 #line 1499
   if (tmp___0 != 0L) {
 #line 1500
@@ -7212,7 +7212,7 @@ __inline static struct ata_queued_cmd *ata_qc_from_tag(struct ata_port *ap , uns
 #line 1507
   qc = tmp;
 #line 1509
-  tmp___0 = __builtin_expect((unsigned long )qc == (unsigned long )((struct ata_queued_cmd *)0),
+  tmp___0 = ldv__builtin_expect((unsigned long )qc == (unsigned long )((struct ata_queued_cmd *)0),
                              0L);
 #line 1509
   if (tmp___0 != 0L || (unsigned long )(ap->ops)->error_handler == (unsigned long )((void (*)(struct ata_port * ))0)) {
@@ -7627,11 +7627,11 @@ struct ata_link *ata_link_next(struct ata_link *link , struct ata_port *ap , enu
 
   {
 #line 257
-  tmp = __builtin_expect((unsigned int )mode != 0U, 0L);
+  tmp = ldv__builtin_expect((unsigned int )mode != 0U, 0L);
 #line 257
   if (tmp != 0L) {
 #line 257
-    tmp___0 = __builtin_expect((unsigned int )mode != 2U, 0L);
+    tmp___0 = ldv__builtin_expect((unsigned int )mode != 2U, 0L);
 #line 257
     if (tmp___0 != 0L) {
 #line 257
@@ -7647,7 +7647,7 @@ struct ata_link *ata_link_next(struct ata_link *link , struct ata_port *ap , enu
 #line 257
   if (tmp___1 != 0) {
 #line 257
-    tmp___2 = __builtin_expect((unsigned int )mode != 1U, 0L);
+    tmp___2 = ldv__builtin_expect((unsigned int )mode != 1U, 0L);
 #line 257
     if (tmp___2 != 0L) {
 #line 257
@@ -7700,7 +7700,7 @@ struct ata_link *ata_link_next(struct ata_link *link , struct ata_port *ap , enu
     }
     case 2U: 
 #line 280
-    tmp___5 = __builtin_expect((unsigned long )ap->slave_link != (unsigned long )((struct ata_link *)0),
+    tmp___5 = ldv__builtin_expect((unsigned long )ap->slave_link != (unsigned long )((struct ata_link *)0),
                                0L);
 #line 280
     if (tmp___5 != 0L) {
@@ -7717,7 +7717,7 @@ struct ata_link *ata_link_next(struct ata_link *link , struct ata_port *ap , enu
 
   }
 #line 288
-  tmp___6 = __builtin_expect((unsigned long )ap->slave_link == (unsigned long )link,
+  tmp___6 = ldv__builtin_expect((unsigned long )ap->slave_link == (unsigned long )link,
                              0L);
 #line 288
   if (tmp___6 != 0L) {
@@ -7761,11 +7761,11 @@ struct ata_device *ata_dev_next(struct ata_device *dev , struct ata_link *link ,
 
   {
 #line 316
-  tmp = __builtin_expect((unsigned int )mode != 0U, 0L);
+  tmp = ldv__builtin_expect((unsigned int )mode != 0U, 0L);
 #line 316
   if (tmp != 0L) {
 #line 316
-    tmp___0 = __builtin_expect((unsigned int )mode != 1U, 0L);
+    tmp___0 = ldv__builtin_expect((unsigned int )mode != 1U, 0L);
 #line 316
     if (tmp___0 != 0L) {
 #line 316
@@ -7781,7 +7781,7 @@ struct ata_device *ata_dev_next(struct ata_device *dev , struct ata_link *link ,
 #line 316
   if (tmp___1 != 0) {
 #line 316
-    tmp___2 = __builtin_expect((unsigned int )mode != 2U, 0L);
+    tmp___2 = ldv__builtin_expect((unsigned int )mode != 2U, 0L);
 #line 316
     if (tmp___2 != 0L) {
 #line 316
@@ -7797,7 +7797,7 @@ struct ata_device *ata_dev_next(struct ata_device *dev , struct ata_link *link ,
 #line 316
   if (tmp___3 != 0) {
 #line 316
-    tmp___4 = __builtin_expect((unsigned int )mode != 3U, 0L);
+    tmp___4 = ldv__builtin_expect((unsigned int )mode != 3U, 0L);
 #line 316
     if (tmp___4 != 0L) {
 #line 316
@@ -8483,7 +8483,7 @@ int ata_build_rw_tf(struct ata_taskfile *tf , struct ata_device *dev , u64 block
 #line 818
   if (tmp___9 != 0) {
 #line 818
-    tmp___10 = __builtin_expect(tag != 31U, 1L);
+    tmp___10 = ldv__builtin_expect(tag != 31U, 1L);
 #line 818
     if (tmp___10 != 0L) {
 #line 820
@@ -8588,7 +8588,7 @@ int ata_build_rw_tf(struct ata_taskfile *tf , struct ata_device *dev , u64 block
 #line 867
     tmp___3 = ata_rwcmd_protocol(tf, dev);
 #line 867
-    tmp___4 = __builtin_expect(tmp___3 < 0, 0L);
+    tmp___4 = ldv__builtin_expect(tmp___3 < 0, 0L);
 #line 867
     if (tmp___4 != 0L) {
 #line 868
@@ -8627,7 +8627,7 @@ int ata_build_rw_tf(struct ata_taskfile *tf , struct ata_device *dev , u64 block
 #line 885
     tmp___7 = ata_rwcmd_protocol(tf, dev);
 #line 885
-    tmp___8 = __builtin_expect(tmp___7 < 0, 0L);
+    tmp___8 = ldv__builtin_expect(tmp___7 < 0, 0L);
 #line 885
     if (tmp___8 != 0L) {
 #line 886
@@ -8950,7 +8950,7 @@ void ata_id_string(u16 const   *id , unsigned char *s , unsigned int ofs , unsig
 
   {
 #line 1179
-  tmp = __builtin_expect((long )((int )len) & 1L, 0L);
+  tmp = ldv__builtin_expect((long )((int )len) & 1L, 0L);
 #line 1179
   if (tmp != 0L) {
 #line 1179
@@ -9840,7 +9840,7 @@ unsigned int ata_exec_internal(struct ata_device *dev , struct ata_taskfile *tf 
 #line 1796
     __ret_warn_on = (unsigned long )buf == (unsigned long )((void *)0);
 #line 1796
-    tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 1796
     if (tmp != 0L) {
 #line 1796
@@ -9850,7 +9850,7 @@ unsigned int ata_exec_internal(struct ata_device *dev , struct ata_taskfile *tf 
 
     }
 #line 1796
-    __builtin_expect(__ret_warn_on != 0, 0L);
+    ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 1797
     sg_init_one(& sg, (void const   *)buf, buflen);
 #line 1798
@@ -11810,13 +11810,13 @@ struct ata_timing  const  *ata_timing_find_mode(u8 xfer_mode )
 #line 3012
   __ret_warn_once = 1;
 #line 3012
-  tmp___1 = __builtin_expect(__ret_warn_once != 0, 0L);
+  tmp___1 = ldv__builtin_expect(__ret_warn_once != 0, 0L);
 #line 3012
   if (tmp___1 != 0L) {
 #line 3012
     __ret_warn_on = ! __warned;
 #line 3012
-    tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 3012
     if (tmp != 0L) {
 #line 3012
@@ -11827,7 +11827,7 @@ struct ata_timing  const  *ata_timing_find_mode(u8 xfer_mode )
 
     }
 #line 3012
-    tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 3012
     if (tmp___0 != 0L) {
 #line 3012
@@ -11839,7 +11839,7 @@ struct ata_timing  const  *ata_timing_find_mode(u8 xfer_mode )
 
   }
 #line 3012
-  __builtin_expect(__ret_warn_once != 0, 0L);
+  ldv__builtin_expect(__ret_warn_once != 0, 0L);
 #line 3015
   return (0);
 }
@@ -12620,7 +12620,7 @@ int ata_wait_ready(struct ata_link *link , unsigned long deadline , int (*check_
 #line 3450
   __ret_warn_on = (unsigned long )(link->ap)->slave_link == (unsigned long )link;
 #line 3450
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 3450
   if (tmp != 0L) {
 #line 3450
@@ -12630,7 +12630,7 @@ int ata_wait_ready(struct ata_link *link , unsigned long deadline , int (*check_
 
   }
 #line 3450
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 3452
   if ((long )deadline - (long )nodev_deadline < 0L) {
 #line 3453
@@ -12996,7 +12996,7 @@ int sata_link_scr_lpm(struct ata_link *link , enum ata_lpm_policy policy , bool 
 #line 3713
   __ret_warn_on = 1;
 #line 3713
-  tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 3713
   if (tmp___0 != 0L) {
 #line 3713
@@ -13006,7 +13006,7 @@ int sata_link_scr_lpm(struct ata_link *link , enum ata_lpm_policy policy , bool 
 
   }
 #line 3713
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   ldv_40923: 
 #line 3716
@@ -14105,13 +14105,13 @@ void ata_sg_clean(struct ata_queued_cmd *qc )
 #line 4624
   __ret_warn_once = (unsigned long )sg == (unsigned long )((struct scatterlist *)0);
 #line 4624
-  tmp___1 = __builtin_expect(__ret_warn_once != 0, 0L);
+  tmp___1 = ldv__builtin_expect(__ret_warn_once != 0, 0L);
 #line 4624
   if (tmp___1 != 0L) {
 #line 4624
     __ret_warn_on = ! __warned;
 #line 4624
-    tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 4624
     if (tmp != 0L) {
 #line 4624
@@ -14121,7 +14121,7 @@ void ata_sg_clean(struct ata_queued_cmd *qc )
 
     }
 #line 4624
-    tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 4624
     if (tmp___0 != 0L) {
 #line 4624
@@ -14133,7 +14133,7 @@ void ata_sg_clean(struct ata_queued_cmd *qc )
 
   }
 #line 4624
-  __builtin_expect(__ret_warn_once != 0, 0L);
+  ldv__builtin_expect(__ret_warn_once != 0, 0L);
 #line 4628
   if (qc->n_elem != 0U) {
 #line 4629
@@ -14163,7 +14163,7 @@ int atapi_check_dma(struct ata_queued_cmd *qc )
 #line 4656
   if (((qc->dev)->horkage & 2048U) == 0U) {
 #line 4656
-    tmp = __builtin_expect((qc->nbytes & 15U) != 0U, 0L);
+    tmp = ldv__builtin_expect((qc->nbytes & 15U) != 0U, 0L);
 #line 4656
     if (tmp != 0L) {
 #line 4658
@@ -14303,7 +14303,7 @@ static struct ata_queued_cmd *ata_qc_new(struct ata_port *ap )
 #line 4783
   qc = 0;
 #line 4787
-  tmp = __builtin_expect((ap->pflags & 4U) != 0U, 0L);
+  tmp = ldv__builtin_expect((ap->pflags & 4U) != 0U, 0L);
 #line 4787
   if (tmp != 0L) {
 #line 4788
@@ -14395,13 +14395,13 @@ void ata_qc_free(struct ata_queued_cmd *qc )
 #line 4843
   __ret_warn_once = (unsigned long )qc == (unsigned long )((struct ata_queued_cmd *)0);
 #line 4843
-  tmp___1 = __builtin_expect(__ret_warn_once != 0, 0L);
+  tmp___1 = ldv__builtin_expect(__ret_warn_once != 0, 0L);
 #line 4843
   if (tmp___1 != 0L) {
 #line 4843
     __ret_warn_on = ! __warned;
 #line 4843
-    tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 4843
     if (tmp != 0L) {
 #line 4843
@@ -14411,7 +14411,7 @@ void ata_qc_free(struct ata_queued_cmd *qc )
 
     }
 #line 4843
-    tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 4843
     if (tmp___0 != 0L) {
 #line 4843
@@ -14423,7 +14423,7 @@ void ata_qc_free(struct ata_queued_cmd *qc )
 
   }
 #line 4843
-  __builtin_expect(__ret_warn_once != 0, 0L);
+  ldv__builtin_expect(__ret_warn_once != 0, 0L);
 #line 4844
   ap = qc->ap;
 #line 4846
@@ -14433,7 +14433,7 @@ void ata_qc_free(struct ata_queued_cmd *qc )
 #line 4848
   tmp___2 = ata_tag_valid(tag);
 #line 4848
-  tmp___3 = __builtin_expect(tmp___2 != 0U, 1L);
+  tmp___3 = ldv__builtin_expect(tmp___2 != 0U, 1L);
 #line 4848
   if (tmp___3 != 0L) {
 #line 4849
@@ -14472,13 +14472,13 @@ void __ata_qc_complete(struct ata_queued_cmd *qc )
 #line 4859
   __ret_warn_once = (unsigned long )qc == (unsigned long )((struct ata_queued_cmd *)0);
 #line 4859
-  tmp___1 = __builtin_expect(__ret_warn_once != 0, 0L);
+  tmp___1 = ldv__builtin_expect(__ret_warn_once != 0, 0L);
 #line 4859
   if (tmp___1 != 0L) {
 #line 4859
     __ret_warn_on = ! __warned;
 #line 4859
-    tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 4859
     if (tmp != 0L) {
 #line 4859
@@ -14488,7 +14488,7 @@ void __ata_qc_complete(struct ata_queued_cmd *qc )
 
     }
 #line 4859
-    tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 4859
     if (tmp___0 != 0L) {
 #line 4859
@@ -14500,17 +14500,17 @@ void __ata_qc_complete(struct ata_queued_cmd *qc )
 
   }
 #line 4859
-  __builtin_expect(__ret_warn_once != 0, 0L);
+  ldv__builtin_expect(__ret_warn_once != 0, 0L);
 #line 4860
   __ret_warn_once___0 = (qc->flags & 1UL) == 0UL;
 #line 4860
-  tmp___4 = __builtin_expect(__ret_warn_once___0 != 0, 0L);
+  tmp___4 = ldv__builtin_expect(__ret_warn_once___0 != 0, 0L);
 #line 4860
   if (tmp___4 != 0L) {
 #line 4860
     __ret_warn_on___0 = ! __warned___0;
 #line 4860
-    tmp___2 = __builtin_expect(__ret_warn_on___0 != 0, 0L);
+    tmp___2 = ldv__builtin_expect(__ret_warn_on___0 != 0, 0L);
 #line 4860
     if (tmp___2 != 0L) {
 #line 4860
@@ -14520,7 +14520,7 @@ void __ata_qc_complete(struct ata_queued_cmd *qc )
 
     }
 #line 4860
-    tmp___3 = __builtin_expect(__ret_warn_on___0 != 0, 0L);
+    tmp___3 = ldv__builtin_expect(__ret_warn_on___0 != 0, 0L);
 #line 4860
     if (tmp___3 != 0L) {
 #line 4860
@@ -14532,13 +14532,13 @@ void __ata_qc_complete(struct ata_queued_cmd *qc )
 
   }
 #line 4860
-  __builtin_expect(__ret_warn_once___0 != 0, 0L);
+  ldv__builtin_expect(__ret_warn_once___0 != 0, 0L);
 #line 4861
   ap = qc->ap;
 #line 4862
   link = (qc->dev)->link;
 #line 4864
-  tmp___5 = __builtin_expect((qc->flags & 2UL) != 0UL, 1L);
+  tmp___5 = ldv__builtin_expect((qc->flags & 2UL) != 0UL, 1L);
 #line 4864
   if (tmp___5 != 0L) {
 #line 4865
@@ -14564,11 +14564,11 @@ void __ata_qc_complete(struct ata_queued_cmd *qc )
     ap->nr_active_links = ap->nr_active_links - 1;
   }
 #line 4878
-  tmp___6 = __builtin_expect((qc->flags & 32UL) != 0UL, 0L);
+  tmp___6 = ldv__builtin_expect((qc->flags & 32UL) != 0UL, 0L);
 #line 4878
   if (tmp___6 != 0L) {
 #line 4878
-    tmp___7 = __builtin_expect((unsigned long )ap->excl_link == (unsigned long )link,
+    tmp___7 = ldv__builtin_expect((unsigned long )ap->excl_link == (unsigned long )link,
                                0L);
 #line 4878
     if (tmp___7 != 0L) {
@@ -14673,7 +14673,7 @@ void ata_qc_complete(struct ata_queued_cmd *qc )
 #line 4948
     ehi = & (dev->link)->eh_info;
 #line 4950
-    tmp = __builtin_expect(qc->err_mask != 0U, 0L);
+    tmp = ldv__builtin_expect(qc->err_mask != 0U, 0L);
 #line 4950
     if (tmp != 0L) {
 #line 4951
@@ -14684,7 +14684,7 @@ void ata_qc_complete(struct ata_queued_cmd *qc )
 #line 4957
     tmp___0 = ata_tag_internal(qc->tag);
 #line 4957
-    tmp___1 = __builtin_expect(tmp___0 != 0U, 0L);
+    tmp___1 = ldv__builtin_expect(tmp___0 != 0U, 0L);
 #line 4957
     if (tmp___1 != 0L) {
 #line 4958
@@ -14697,7 +14697,7 @@ void ata_qc_complete(struct ata_queued_cmd *qc )
 
     }
 #line 4967
-    tmp___2 = __builtin_expect((qc->flags & 65536UL) != 0UL, 0L);
+    tmp___2 = ldv__builtin_expect((qc->flags & 65536UL) != 0UL, 0L);
 #line 4967
     if (tmp___2 != 0L) {
 #line 4968
@@ -14712,13 +14712,13 @@ void ata_qc_complete(struct ata_queued_cmd *qc )
 #line 4973
     __ret_warn_once = (ap->pflags & 4U) != 0U;
 #line 4973
-    tmp___5 = __builtin_expect(__ret_warn_once != 0, 0L);
+    tmp___5 = ldv__builtin_expect(__ret_warn_once != 0, 0L);
 #line 4973
     if (tmp___5 != 0L) {
 #line 4973
       __ret_warn_on = ! __warned;
 #line 4973
-      tmp___3 = __builtin_expect(__ret_warn_on != 0, 0L);
+      tmp___3 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 4973
       if (tmp___3 != 0L) {
 #line 4973
@@ -14728,7 +14728,7 @@ void ata_qc_complete(struct ata_queued_cmd *qc )
 
       }
 #line 4973
-      tmp___4 = __builtin_expect(__ret_warn_on != 0, 0L);
+      tmp___4 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 4973
       if (tmp___4 != 0L) {
 #line 4973
@@ -14740,7 +14740,7 @@ void ata_qc_complete(struct ata_queued_cmd *qc )
 
     }
 #line 4973
-    __builtin_expect(__ret_warn_once != 0, 0L);
+    ldv__builtin_expect(__ret_warn_once != 0, 0L);
 #line 4976
     if ((qc->flags & 16UL) != 0UL) {
 #line 4977
@@ -14774,7 +14774,7 @@ void ata_qc_complete(struct ata_queued_cmd *qc )
     }
     ldv_41169: 
 #line 5000
-    tmp___6 = __builtin_expect((dev->flags & 65536UL) != 0UL, 0L);
+    tmp___6 = ldv__builtin_expect((dev->flags & 65536UL) != 0UL, 0L);
 #line 5000
     if (tmp___6 != 0L) {
 #line 5001
@@ -14822,7 +14822,7 @@ int ata_qc_complete_multiple(struct ata_port *ap , u32 qc_active )
 #line 5041
   done_mask = ap->qc_active ^ qc_active;
 #line 5043
-  tmp = __builtin_expect((done_mask & qc_active) != 0U, 0L);
+  tmp = ldv__builtin_expect((done_mask & qc_active) != 0U, 0L);
 #line 5043
   if (tmp != 0L) {
 #line 5044
@@ -14934,13 +14934,13 @@ void ata_qc_issue(struct ata_queued_cmd *qc )
 #line 5086
   __ret_warn_once = tmp___0;
 #line 5086
-  tmp___3 = __builtin_expect(__ret_warn_once != 0, 0L);
+  tmp___3 = ldv__builtin_expect(__ret_warn_once != 0, 0L);
 #line 5086
   if (tmp___3 != 0L) {
 #line 5086
     __ret_warn_on = ! __warned;
 #line 5086
-    tmp___1 = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp___1 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 5086
     if (tmp___1 != 0L) {
 #line 5086
@@ -14950,7 +14950,7 @@ void ata_qc_issue(struct ata_queued_cmd *qc )
 
     }
 #line 5086
-    tmp___2 = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp___2 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 5086
     if (tmp___2 != 0L) {
 #line 5086
@@ -14962,7 +14962,7 @@ void ata_qc_issue(struct ata_queued_cmd *qc )
 
   }
 #line 5086
-  __builtin_expect(__ret_warn_once != 0, 0L);
+  ldv__builtin_expect(__ret_warn_once != 0, 0L);
 #line 5088
   tmp___10 = ata_is_ncq((int )prot);
 #line 5088
@@ -14970,13 +14970,13 @@ void ata_qc_issue(struct ata_queued_cmd *qc )
 #line 5089
     __ret_warn_once___0 = (link->sactive & (u32 )(1 << (int )qc->tag)) != 0U;
 #line 5089
-    tmp___6 = __builtin_expect(__ret_warn_once___0 != 0, 0L);
+    tmp___6 = ldv__builtin_expect(__ret_warn_once___0 != 0, 0L);
 #line 5089
     if (tmp___6 != 0L) {
 #line 5089
       __ret_warn_on___0 = ! __warned___0;
 #line 5089
-      tmp___4 = __builtin_expect(__ret_warn_on___0 != 0, 0L);
+      tmp___4 = ldv__builtin_expect(__ret_warn_on___0 != 0, 0L);
 #line 5089
       if (tmp___4 != 0L) {
 #line 5089
@@ -14986,7 +14986,7 @@ void ata_qc_issue(struct ata_queued_cmd *qc )
 
       }
 #line 5089
-      tmp___5 = __builtin_expect(__ret_warn_on___0 != 0, 0L);
+      tmp___5 = ldv__builtin_expect(__ret_warn_on___0 != 0, 0L);
 #line 5089
       if (tmp___5 != 0L) {
 #line 5089
@@ -14998,7 +14998,7 @@ void ata_qc_issue(struct ata_queued_cmd *qc )
 
     }
 #line 5089
-    __builtin_expect(__ret_warn_once___0 != 0, 0L);
+    ldv__builtin_expect(__ret_warn_once___0 != 0, 0L);
 #line 5091
     if (link->sactive == 0U) {
 #line 5092
@@ -15012,13 +15012,13 @@ void ata_qc_issue(struct ata_queued_cmd *qc )
 #line 5095
     __ret_warn_once___1 = link->sactive != 0U;
 #line 5095
-    tmp___9 = __builtin_expect(__ret_warn_once___1 != 0, 0L);
+    tmp___9 = ldv__builtin_expect(__ret_warn_once___1 != 0, 0L);
 #line 5095
     if (tmp___9 != 0L) {
 #line 5095
       __ret_warn_on___1 = ! __warned___1;
 #line 5095
-      tmp___7 = __builtin_expect(__ret_warn_on___1 != 0, 0L);
+      tmp___7 = ldv__builtin_expect(__ret_warn_on___1 != 0, 0L);
 #line 5095
       if (tmp___7 != 0L) {
 #line 5095
@@ -15028,7 +15028,7 @@ void ata_qc_issue(struct ata_queued_cmd *qc )
 
       }
 #line 5095
-      tmp___8 = __builtin_expect(__ret_warn_on___1 != 0, 0L);
+      tmp___8 = ldv__builtin_expect(__ret_warn_on___1 != 0, 0L);
 #line 5095
       if (tmp___8 != 0L) {
 #line 5095
@@ -15040,7 +15040,7 @@ void ata_qc_issue(struct ata_queued_cmd *qc )
 
     }
 #line 5095
-    __builtin_expect(__ret_warn_once___1 != 0, 0L);
+    ldv__builtin_expect(__ret_warn_once___1 != 0, 0L);
 #line 5097
     ap->nr_active_links = ap->nr_active_links + 1;
 #line 5098
@@ -15055,13 +15055,13 @@ void ata_qc_issue(struct ata_queued_cmd *qc )
 #line 5108
   __ret_warn_once___2 = tmp___11 != 0 && (((unsigned long )qc->sg == (unsigned long )((struct scatterlist *)0) || qc->n_elem == 0U) || qc->nbytes == 0U);
 #line 5108
-  tmp___14 = __builtin_expect(__ret_warn_once___2 != 0, 0L);
+  tmp___14 = ldv__builtin_expect(__ret_warn_once___2 != 0, 0L);
 #line 5108
   if (tmp___14 != 0L) {
 #line 5108
     __ret_warn_on___2 = ! __warned___2;
 #line 5108
-    tmp___12 = __builtin_expect(__ret_warn_on___2 != 0, 0L);
+    tmp___12 = ldv__builtin_expect(__ret_warn_on___2 != 0, 0L);
 #line 5108
     if (tmp___12 != 0L) {
 #line 5108
@@ -15071,7 +15071,7 @@ void ata_qc_issue(struct ata_queued_cmd *qc )
 
     }
 #line 5108
-    tmp___13 = __builtin_expect(__ret_warn_on___2 != 0, 0L);
+    tmp___13 = ldv__builtin_expect(__ret_warn_on___2 != 0, 0L);
 #line 5108
     if (tmp___13 != 0L) {
 #line 5108
@@ -15083,7 +15083,7 @@ void ata_qc_issue(struct ata_queued_cmd *qc )
 
   }
 #line 5108
-  tmp___15 = __builtin_expect(__ret_warn_once___2 != 0, 0L);
+  tmp___15 = ldv__builtin_expect(__ret_warn_once___2 != 0, 0L);
 #line 5108
   if (tmp___15 != 0L) {
 #line 5110
@@ -15117,7 +15117,7 @@ void ata_qc_issue(struct ata_queued_cmd *qc )
     }
   }
 #line 5118
-  tmp___19 = __builtin_expect(((qc->dev)->flags & 32768UL) != 0UL, 0L);
+  tmp___19 = ldv__builtin_expect(((qc->dev)->flags & 32768UL) != 0UL, 0L);
 #line 5118
   if (tmp___19 != 0L) {
 #line 5119
@@ -15138,7 +15138,7 @@ void ata_qc_issue(struct ata_queued_cmd *qc )
 #line 5127
   qc->err_mask = qc->err_mask | tmp___20;
 #line 5128
-  tmp___21 = __builtin_expect(qc->err_mask != 0U, 0L);
+  tmp___21 = ldv__builtin_expect(qc->err_mask != 0U, 0L);
 #line 5128
   if (tmp___21 != 0L) {
 #line 5129
@@ -15365,7 +15365,7 @@ bool ata_link_online(struct ata_link *link )
 #line 5311
   __ret_warn_on = (unsigned long )link == (unsigned long )slave;
 #line 5311
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 5311
   if (tmp != 0L) {
 #line 5311
@@ -15375,7 +15375,7 @@ bool ata_link_online(struct ata_link *link )
 
   }
 #line 5311
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 5313
   tmp___0 = ata_phys_link_online(link);
 #line 5313
@@ -15419,7 +15419,7 @@ bool ata_link_offline(struct ata_link *link )
 #line 5337
   __ret_warn_on = (unsigned long )link == (unsigned long )slave;
 #line 5337
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 5337
   if (tmp != 0L) {
 #line 5337
@@ -15429,7 +15429,7 @@ bool ata_link_offline(struct ata_link *link )
 
   }
 #line 5337
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 5339
   tmp___0 = ata_phys_link_offline(link);
 #line 5339
@@ -15490,7 +15490,7 @@ static int ata_port_request_pm(struct ata_port *ap , pm_message_t mesg , unsigne
 #line 5361
     __ret_warn_on = (ap->pflags & 262144U) != 0U;
 #line 5361
-    tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 5361
     if (tmp != 0L) {
 #line 5361
@@ -15500,7 +15500,7 @@ static int ata_port_request_pm(struct ata_port *ap , pm_message_t mesg , unsigne
 
     }
 #line 5361
-    __builtin_expect(__ret_warn_on != 0, 0L);
+    ldv__builtin_expect(__ret_warn_on != 0, 0L);
   } else {
 
   }
@@ -15550,7 +15550,7 @@ static int ata_port_request_pm(struct ata_port *ap , pm_message_t mesg , unsigne
 #line 5386
     __ret_warn_on___0 = (ap->pflags & 262144U) != 0U;
 #line 5386
-    tmp___1 = __builtin_expect(__ret_warn_on___0 != 0, 0L);
+    tmp___1 = ldv__builtin_expect(__ret_warn_on___0 != 0, 0L);
 #line 5386
     if (tmp___1 != 0L) {
 #line 5386
@@ -15560,7 +15560,7 @@ static int ata_port_request_pm(struct ata_port *ap , pm_message_t mesg , unsigne
 
     }
 #line 5386
-    __builtin_expect(__ret_warn_on___0 != 0, 0L);
+    ldv__builtin_expect(__ret_warn_on___0 != 0, 0L);
   } else {
 
   }
@@ -16266,7 +16266,7 @@ int ata_slave_link_init(struct ata_port *ap )
 #line 5893
   __ret_warn_on = (unsigned long )ap->slave_link != (unsigned long )((struct ata_link *)0);
 #line 5893
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 5893
   if (tmp != 0L) {
 #line 5893
@@ -16276,11 +16276,11 @@ int ata_slave_link_init(struct ata_port *ap )
 
   }
 #line 5893
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 5894
   __ret_warn_on___0 = (ap->flags & 524288UL) != 0UL;
 #line 5894
-  tmp___0 = __builtin_expect(__ret_warn_on___0 != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on___0 != 0, 0L);
 #line 5894
   if (tmp___0 != 0L) {
 #line 5894
@@ -16290,7 +16290,7 @@ int ata_slave_link_init(struct ata_port *ap )
 
   }
 #line 5894
-  __builtin_expect(__ret_warn_on___0 != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on___0 != 0, 0L);
 #line 5896
   tmp___1 = kzalloc(7176UL, 208U);
 #line 5896
@@ -16328,7 +16328,7 @@ static void ata_host_stop(struct device *gendev , void *res )
 #line 5910
   __ret_warn_on = (host->flags & 2UL) == 0UL;
 #line 5910
-  tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 5910
   if (tmp___0 != 0L) {
 #line 5910
@@ -16338,7 +16338,7 @@ static void ata_host_stop(struct device *gendev , void *res )
 
   }
 #line 5910
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 5912
   i = 0;
 #line 5912
@@ -16785,7 +16785,7 @@ int ata_host_register(struct ata_host *host , struct scsi_host_template *sht )
 #line 6149
     __ret_warn_on = 1;
 #line 6149
-    tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 6149
     if (tmp != 0L) {
 #line 6149
@@ -16795,7 +16795,7 @@ int ata_host_register(struct ata_host *host , struct scsi_host_template *sht )
 
     }
 #line 6149
-    __builtin_expect(__ret_warn_on != 0, 0L);
+    ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 6150
     return (-22);
   } else {
@@ -16992,7 +16992,7 @@ int ata_host_activate(struct ata_host *host , int irq , irqreturn_t (*irq_handle
     __ret_warn_on = (unsigned long )irq_handler != (unsigned long )((irqreturn_t (*)(int  ,
                                                                                      void * ))0);
 #line 6256
-    tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 6256
     if (tmp != 0L) {
 #line 6256
@@ -17002,7 +17002,7 @@ int ata_host_activate(struct ata_host *host , int irq , irqreturn_t (*irq_handle
 
     }
 #line 6256
-    __builtin_expect(__ret_warn_on != 0, 0L);
+    ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 6257
     tmp___0 = ata_host_register(host, sht);
 #line 6257
@@ -17084,7 +17084,7 @@ static void ata_port_detach(struct ata_port *ap )
 #line 6304
   __ret_warn_on = (ap->pflags & 1024U) == 0U;
 #line 6304
-  tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 6304
   if (tmp___0 != 0L) {
 #line 6304
@@ -17094,7 +17094,7 @@ static void ata_port_detach(struct ata_port *ap )
 
   }
 #line 6304
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 6306
   cancel_delayed_work_sync(& ap->hotplug_task);
   skip_eh: ;
@@ -19130,14 +19130,14 @@ __inline static unsigned long copy_from_user(void *to , void const   *from , uns
 #line 61
   might_fault();
 #line 62
-  tmp___1 = __builtin_expect(sz == -1, 1L);
+  tmp___1 = ldv__builtin_expect(sz == -1, 1L);
 #line 62
   if (tmp___1 != 0L) {
 #line 63
     n = _copy_from_user(to, from, (unsigned int )n);
   } else {
 #line 62
-    tmp___2 = __builtin_expect((unsigned long )sz >= n, 1L);
+    tmp___2 = ldv__builtin_expect((unsigned long )sz >= n, 1L);
 #line 62
     if (tmp___2 != 0L) {
 #line 63
@@ -19146,7 +19146,7 @@ __inline static unsigned long copy_from_user(void *to , void const   *from , uns
 #line 66
       __ret_warn_on = 1;
 #line 66
-      tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+      tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 66
       if (tmp___0 != 0L) {
 #line 66
@@ -19156,7 +19156,7 @@ __inline static unsigned long copy_from_user(void *to , void const   *from , uns
 
       }
 #line 66
-      __builtin_expect(__ret_warn_on != 0, 0L);
+      ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
   }
 #line 68
@@ -19206,7 +19206,7 @@ __inline static struct page *sg_page___0(struct scatterlist *sg )
 
   {
 #line 98
-  tmp = __builtin_expect(sg->sg_magic != 2271560481UL, 0L);
+  tmp = ldv__builtin_expect(sg->sg_magic != 2271560481UL, 0L);
 #line 98
   if (tmp != 0L) {
 #line 98
@@ -19219,7 +19219,7 @@ __inline static struct page *sg_page___0(struct scatterlist *sg )
 
   }
 #line 99
-  tmp___0 = __builtin_expect((long )((int )sg->page_link) & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )((int )sg->page_link) & 1L, 0L);
 #line 99
   if (tmp___0 != 0L) {
 #line 99
@@ -20107,7 +20107,7 @@ static ssize_t ata_scsi_park_store(struct device *device , struct device_attribu
 #line 282
   dev = ata_scsi_find_dev(ap, (struct scsi_device  const  *)sdev);
 #line 283
-  tmp___0 = __builtin_expect((unsigned long )dev == (unsigned long )((struct ata_device *)0),
+  tmp___0 = ldv__builtin_expect((unsigned long )dev == (unsigned long )((struct ata_device *)0),
                              0L);
 #line 283
   if (tmp___0 != 0L) {
@@ -21703,7 +21703,7 @@ static int atapi_drain_needed(struct request *rq )
 
   {
 #line 1148
-  tmp = __builtin_expect((unsigned int )rq->cmd_type != 2U, 1L);
+  tmp = ldv__builtin_expect((unsigned int )rq->cmd_type != 2U, 1L);
 #line 1148
   if (tmp != 0L) {
 #line 1149
@@ -22501,7 +22501,7 @@ static unsigned int ata_scsi_rw_xlat(struct ata_queued_cmd *qc )
   case 40: ;
   case 42: 
 #line 1722
-  tmp = __builtin_expect((unsigned int )scmd->cmd_len <= 9U, 0L);
+  tmp = ldv__builtin_expect((unsigned int )scmd->cmd_len <= 9U, 0L);
 #line 1722
   if (tmp != 0L) {
 #line 1723
@@ -22523,7 +22523,7 @@ static unsigned int ata_scsi_rw_xlat(struct ata_queued_cmd *qc )
   case 8: ;
   case 10: 
 #line 1730
-  tmp___0 = __builtin_expect((unsigned int )scmd->cmd_len <= 5U, 0L);
+  tmp___0 = ldv__builtin_expect((unsigned int )scmd->cmd_len <= 5U, 0L);
 #line 1730
   if (tmp___0 != 0L) {
 #line 1731
@@ -22545,7 +22545,7 @@ static unsigned int ata_scsi_rw_xlat(struct ata_queued_cmd *qc )
   case 136: ;
   case 138: 
 #line 1742
-  tmp___1 = __builtin_expect((unsigned int )scmd->cmd_len <= 15U, 0L);
+  tmp___1 = ldv__builtin_expect((unsigned int )scmd->cmd_len <= 15U, 0L);
 #line 1742
   if (tmp___1 != 0L) {
 #line 1743
@@ -22583,7 +22583,7 @@ static unsigned int ata_scsi_rw_xlat(struct ata_queued_cmd *qc )
 #line 1767
   rc = ata_build_rw_tf(& qc->tf, qc->dev, block, n_block, tf_flags, qc->tag);
 #line 1769
-  tmp___2 = __builtin_expect(rc == 0, 1L);
+  tmp___2 = ldv__builtin_expect(rc == 0, 1L);
 #line 1769
   if (tmp___2 != 0L) {
 #line 1770
@@ -22689,7 +22689,7 @@ static int ata_scsi_translate(struct ata_device *dev , struct scsi_cmnd *cmd , u
 #line 1871
     tmp = scsi_bufflen(cmd);
 #line 1871
-    tmp___0 = __builtin_expect(tmp == 0U, 0L);
+    tmp___0 = ldv__builtin_expect(tmp == 0U, 0L);
 #line 1871
     if (tmp___0 != 0L) {
 #line 1872
@@ -23892,19 +23892,19 @@ static void atapi_qc_complete(struct ata_queued_cmd *qc )
 #line 2659
   err_mask = qc->err_mask;
 #line 2664
-  tmp = __builtin_expect((unsigned long )((qc->ap)->ops)->error_handler != (unsigned long )((void (*)(struct ata_port * ))0),
+  tmp = ldv__builtin_expect((unsigned long )((qc->ap)->ops)->error_handler != (unsigned long )((void (*)(struct ata_port * ))0),
                          0L);
 #line 2664
   if (tmp != 0L) {
 #line 2664
-    tmp___0 = __builtin_expect(err_mask != 0U, 0L);
+    tmp___0 = ldv__builtin_expect(err_mask != 0U, 0L);
 #line 2664
     if (tmp___0 != 0L) {
 #line 2664
       tmp___2 = 1;
     } else {
 #line 2664
-      tmp___1 = __builtin_expect((qc->flags & 131072UL) != 0UL, 0L);
+      tmp___1 = ldv__builtin_expect((qc->flags & 131072UL) != 0UL, 0L);
 #line 2664
       if (tmp___1 != 0L) {
 #line 2664
@@ -23945,7 +23945,7 @@ static void atapi_qc_complete(struct ata_queued_cmd *qc )
 
   }
 #line 2699
-  tmp___5 = __builtin_expect((long )((int )err_mask) & 1L, 0L);
+  tmp___5 = ldv__builtin_expect((long )((int )err_mask) & 1L, 0L);
 #line 2699
   if (tmp___5 != 0L) {
 #line 2700
@@ -23956,7 +23956,7 @@ static void atapi_qc_complete(struct ata_queued_cmd *qc )
     return;
   } else {
 #line 2703
-    tmp___4 = __builtin_expect(err_mask != 0U, 0L);
+    tmp___4 = ldv__builtin_expect(err_mask != 0U, 0L);
 #line 2703
     if (tmp___4 != 0L) {
 #line 2709
@@ -24125,14 +24125,14 @@ static struct ata_device *ata_find_dev(struct ata_port *ap , int devno )
 #line 2838
     tmp___0 = ata_link_max_devices((struct ata_link  const  *)(& ap->link));
 #line 2838
-    tmp___1 = __builtin_expect(tmp___0 > devno, 1L);
+    tmp___1 = ldv__builtin_expect(tmp___0 > devno, 1L);
 #line 2838
     if (tmp___1 != 0L) {
 #line 2839
       return ((struct ata_device *)(& ap->link.device) + (unsigned long )devno);
     } else {
 #line 2841
-      tmp = __builtin_expect(ap->nr_pmp_links > devno, 1L);
+      tmp = ldv__builtin_expect(ap->nr_pmp_links > devno, 1L);
 #line 2841
       if (tmp != 0L) {
 #line 2842
@@ -24174,14 +24174,14 @@ static struct ata_device *__ata_scsi_find_dev(struct ata_port *ap , struct scsi_
 #line 2854
   if (tmp___4) {
 #line 2855
-    tmp = __builtin_expect((unsigned int )scsidev->channel != 0U, 0L);
+    tmp = ldv__builtin_expect((unsigned int )scsidev->channel != 0U, 0L);
 #line 2855
     if (tmp != 0L) {
 #line 2856
       return (0);
     } else {
 #line 2855
-      tmp___0 = __builtin_expect((unsigned int )scsidev->lun != 0U, 0L);
+      tmp___0 = ldv__builtin_expect((unsigned int )scsidev->lun != 0U, 0L);
 #line 2855
       if (tmp___0 != 0L) {
 #line 2856
@@ -24194,14 +24194,14 @@ static struct ata_device *__ata_scsi_find_dev(struct ata_port *ap , struct scsi_
     devno = (int )scsidev->id;
   } else {
 #line 2859
-    tmp___1 = __builtin_expect((unsigned int )scsidev->id != 0U, 0L);
+    tmp___1 = ldv__builtin_expect((unsigned int )scsidev->id != 0U, 0L);
 #line 2859
     if (tmp___1 != 0L) {
 #line 2860
       return (0);
     } else {
 #line 2859
-      tmp___2 = __builtin_expect((unsigned int )scsidev->lun != 0U, 0L);
+      tmp___2 = ldv__builtin_expect((unsigned int )scsidev->lun != 0U, 0L);
 #line 2859
       if (tmp___2 != 0L) {
 #line 2860
@@ -24234,7 +24234,7 @@ static struct ata_device *ata_scsi_find_dev(struct ata_port *ap , struct scsi_de
 #line 2886
   dev = tmp;
 #line 2888
-  tmp___0 = __builtin_expect((unsigned long )dev == (unsigned long )((struct ata_device *)0),
+  tmp___0 = ldv__builtin_expect((unsigned long )dev == (unsigned long )((struct ata_device *)0),
                              0L);
 #line 2888
   if (tmp___0 != 0L) {
@@ -24244,7 +24244,7 @@ static struct ata_device *ata_scsi_find_dev(struct ata_port *ap , struct scsi_de
 #line 2888
     tmp___1 = ata_dev_enabled((struct ata_device  const  *)dev);
 #line 2888
-    tmp___2 = __builtin_expect(tmp___1 == 0U, 0L);
+    tmp___2 = ldv__builtin_expect(tmp___1 == 0U, 0L);
 #line 2888
     if (tmp___2 != 0L) {
 #line 2889
@@ -24535,7 +24535,7 @@ static unsigned int ata_scsi_write_same_xlat(struct ata_queued_cmd *qc )
 #line 3129
   cdb = (u8 const   *)scmd->cmnd;
 #line 3136
-  tmp = __builtin_expect((unsigned int )dev->dma_mode == 0U, 0L);
+  tmp = ldv__builtin_expect((unsigned int )dev->dma_mode == 0U, 0L);
 #line 3136
   if (tmp != 0L) {
 #line 3137
@@ -24544,7 +24544,7 @@ static unsigned int ata_scsi_write_same_xlat(struct ata_queued_cmd *qc )
 
   }
 #line 3139
-  tmp___0 = __builtin_expect((unsigned int )scmd->cmd_len <= 15U, 0L);
+  tmp___0 = ldv__builtin_expect((unsigned int )scmd->cmd_len <= 15U, 0L);
 #line 3139
   if (tmp___0 != 0L) {
 #line 3140
@@ -24555,7 +24555,7 @@ static unsigned int ata_scsi_write_same_xlat(struct ata_queued_cmd *qc )
 #line 3141
   scsi_16_lba_len(cdb, & block, & n_block);
 #line 3144
-  tmp___1 = __builtin_expect(((int )*(cdb + 1UL) & 8) == 0, 0L);
+  tmp___1 = ldv__builtin_expect(((int )*(cdb + 1UL) & 8) == 0, 0L);
 #line 3144
   if (tmp___1 != 0L) {
 #line 3145
@@ -24972,14 +24972,14 @@ __inline static int __ata_scsi_queuecmd(struct scsi_cmnd *scmd , struct ata_devi
 #line 3441
   if (dev->class == 1U) {
 #line 3442
-    tmp = __builtin_expect((unsigned int )scmd->cmd_len == 0U, 0L);
+    tmp = ldv__builtin_expect((unsigned int )scmd->cmd_len == 0U, 0L);
 #line 3442
     if (tmp != 0L) {
 #line 3443
       goto bad_cdb_len;
     } else {
 #line 3442
-      tmp___0 = __builtin_expect((unsigned int )scmd->cmd_len > dev->cdb_len, 0L);
+      tmp___0 = ldv__builtin_expect((unsigned int )scmd->cmd_len > dev->cdb_len, 0L);
 #line 3442
       if (tmp___0 != 0L) {
 #line 3443
@@ -24992,7 +24992,7 @@ __inline static int __ata_scsi_queuecmd(struct scsi_cmnd *scmd , struct ata_devi
     xlat_func = ata_get_xlat_func(dev, (int )scsi_op);
   } else {
 #line 3447
-    tmp___1 = __builtin_expect((unsigned int )scmd->cmd_len == 0U, 0L);
+    tmp___1 = ldv__builtin_expect((unsigned int )scmd->cmd_len == 0U, 0L);
 #line 3447
     if (tmp___1 != 0L) {
 #line 3448
@@ -25003,28 +25003,28 @@ __inline static int __ata_scsi_queuecmd(struct scsi_cmnd *scmd , struct ata_devi
 #line 3450
     xlat_func = 0;
 #line 3451
-    tmp___5 = __builtin_expect((unsigned int )scsi_op != 133U, 1L);
+    tmp___5 = ldv__builtin_expect((unsigned int )scsi_op != 133U, 1L);
 #line 3451
     if (tmp___5 != 0L) {
 #line 3451
       goto _L;
     } else {
 #line 3451
-      tmp___6 = __builtin_expect(atapi_passthru16 == 0, 1L);
+      tmp___6 = ldv__builtin_expect(atapi_passthru16 == 0, 1L);
 #line 3451
       if (tmp___6 != 0L) {
         _L: /* CIL Label */ 
 #line 3453
         len = (int )scsi_command_size_tbl[((int )scsi_op >> 5) & 7];
 #line 3454
-        tmp___2 = __builtin_expect((int )scmd->cmd_len < len, 0L);
+        tmp___2 = ldv__builtin_expect((int )scmd->cmd_len < len, 0L);
 #line 3454
         if (tmp___2 != 0L) {
 #line 3455
           goto bad_cdb_len;
         } else {
 #line 3454
-          tmp___3 = __builtin_expect((unsigned int )len > dev->cdb_len, 0L);
+          tmp___3 = ldv__builtin_expect((unsigned int )len > dev->cdb_len, 0L);
 #line 3454
           if (tmp___3 != 0L) {
 #line 3455
@@ -25037,7 +25037,7 @@ __inline static int __ata_scsi_queuecmd(struct scsi_cmnd *scmd , struct ata_devi
         xlat_func = & atapi_xlat;
       } else {
 #line 3460
-        tmp___4 = __builtin_expect((unsigned int )scmd->cmd_len > 16U, 0L);
+        tmp___4 = ldv__builtin_expect((unsigned int )scmd->cmd_len > 16U, 0L);
 #line 3460
         if (tmp___4 != 0L) {
 #line 3461
@@ -25096,7 +25096,7 @@ int ata_scsi_queuecmd(struct Scsi_Host *shost , struct scsi_cmnd *cmd )
 #line 3515
   dev = ata_scsi_find_dev(ap, (struct scsi_device  const  *)scsidev);
 #line 3516
-  tmp___0 = __builtin_expect((unsigned long )dev != (unsigned long )((struct ata_device *)0),
+  tmp___0 = ldv__builtin_expect((unsigned long )dev != (unsigned long )((struct ata_device *)0),
                              1L);
 #line 3516
   if (tmp___0 != 0L) {
@@ -25595,7 +25595,7 @@ static void ata_scsi_remove_dev(struct ata_device *dev )
 #line 3840
       __ret_warn_on = 1;
 #line 3840
-      tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+      tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 3840
       if (tmp___0 != 0L) {
 #line 3840
@@ -25605,7 +25605,7 @@ static void ata_scsi_remove_dev(struct ata_device *dev )
 
       }
 #line 3840
-      __builtin_expect(__ret_warn_on != 0, 0L);
+      ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 3841
       sdev = 0;
     }
@@ -26140,7 +26140,7 @@ int ata_sas_queuecmd(struct scsi_cmnd *cmd , struct ata_port *ap )
 #line 4210
   tmp = ata_dev_enabled((struct ata_device  const  *)(& ap->link.device));
 #line 4210
-  tmp___0 = __builtin_expect(tmp != 0U, 1L);
+  tmp___0 = ldv__builtin_expect(tmp != 0U, 1L);
 #line 4210
   if (tmp___0 != 0L) {
 #line 4211
@@ -26453,7 +26453,7 @@ __inline static int arch_spin_is_locked(struct arch_spinlock *lock )
 #line 718
   __eax = __eax;
 #line 718
-  tmp = __builtin_expect((unsigned long )pv_lock_ops.spin_is_locked == (unsigned long )((int (*)(struct arch_spinlock * ))0),
+  tmp = ldv__builtin_expect((unsigned long )pv_lock_ops.spin_is_locked == (unsigned long )((int (*)(struct arch_spinlock * ))0),
                          0L);
 #line 718
   if (tmp != 0L) {
@@ -26865,7 +26865,7 @@ void ata_port_desc(struct ata_port *ap , char const   *fmt  , ...)
 #line 321
   __ret_warn_on = (ap->pflags & 128U) == 0U;
 #line 321
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 321
   if (tmp != 0L) {
 #line 321
@@ -26875,7 +26875,7 @@ void ata_port_desc(struct ata_port *ap , char const   *fmt  , ...)
 
   }
 #line 321
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 323
   if (ap->link.eh_info.desc_len != 0) {
 #line 324
@@ -27060,7 +27060,7 @@ static void ata_ering_record(struct ata_ering *ering , unsigned int eflags , uns
 #line 444
   __ret_warn_on = err_mask == 0U;
 #line 444
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 444
   if (tmp != 0L) {
 #line 444
@@ -27070,7 +27070,7 @@ static void ata_ering_record(struct ata_ering *ering , unsigned int eflags , uns
 
   }
 #line 444
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 446
   ering->cursor = ering->cursor + 1;
 #line 447
@@ -27223,7 +27223,7 @@ static void ata_eh_clear_action(struct ata_link *link , struct ata_device *dev ,
 #line 514
     __ret_warn_on = (action & 33U) == 0U;
 #line 514
-    tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 514
     if (tmp != 0L) {
 #line 514
@@ -27233,7 +27233,7 @@ static void ata_eh_clear_action(struct ata_link *link , struct ata_device *dev ,
 
     }
 #line 514
-    __builtin_expect(__ret_warn_on != 0, 0L);
+    ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 517
     if ((ehi->action & action) != 0U) {
 #line 518
@@ -27281,13 +27281,13 @@ void ata_eh_acquire(struct ata_port *ap )
 #line 543
   __ret_warn_once = (unsigned long )(ap->host)->eh_owner != (unsigned long )((struct task_struct *)0);
 #line 543
-  tmp___1 = __builtin_expect(__ret_warn_once != 0, 0L);
+  tmp___1 = ldv__builtin_expect(__ret_warn_once != 0, 0L);
 #line 543
   if (tmp___1 != 0L) {
 #line 543
     __ret_warn_on = ! __warned;
 #line 543
-    tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 543
     if (tmp != 0L) {
 #line 543
@@ -27297,7 +27297,7 @@ void ata_eh_acquire(struct ata_port *ap )
 
     }
 #line 543
-    tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 543
     if (tmp___0 != 0L) {
 #line 543
@@ -27309,7 +27309,7 @@ void ata_eh_acquire(struct ata_port *ap )
 
   }
 #line 543
-  __builtin_expect(__ret_warn_once != 0, 0L);
+  ldv__builtin_expect(__ret_warn_once != 0, 0L);
 #line 544
   (ap->host)->eh_owner = get_current();
 #line 545
@@ -27333,13 +27333,13 @@ void ata_eh_release(struct ata_port *ap )
 #line 559
   __ret_warn_once = (unsigned long )(ap->host)->eh_owner != (unsigned long )tmp;
 #line 559
-  tmp___2 = __builtin_expect(__ret_warn_once != 0, 0L);
+  tmp___2 = ldv__builtin_expect(__ret_warn_once != 0, 0L);
 #line 559
   if (tmp___2 != 0L) {
 #line 559
     __ret_warn_on = ! __warned;
 #line 559
-    tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 559
     if (tmp___0 != 0L) {
 #line 559
@@ -27349,7 +27349,7 @@ void ata_eh_release(struct ata_port *ap )
 
     }
 #line 559
-    tmp___1 = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp___1 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 559
     if (tmp___1 != 0L) {
 #line 559
@@ -27361,7 +27361,7 @@ void ata_eh_release(struct ata_port *ap )
 
   }
 #line 559
-  __builtin_expect(__ret_warn_once != 0, 0L);
+  ldv__builtin_expect(__ret_warn_once != 0, 0L);
 #line 560
   (ap->host)->eh_owner = 0;
 #line 561
@@ -27412,7 +27412,7 @@ int ata_scsi_timed_out(struct scsi_cmnd *cmd )
 #line 602
     __ret_warn_on = (unsigned long )qc->scsicmd != (unsigned long )cmd;
 #line 602
-    tmp___1 = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp___1 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 602
     if (tmp___1 != 0L) {
 #line 602
@@ -27422,7 +27422,7 @@ int ata_scsi_timed_out(struct scsi_cmnd *cmd )
 
     }
 #line 602
-    __builtin_expect(__ret_warn_on != 0, 0L);
+    ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 603
     qc->flags = qc->flags | 262144UL;
 #line 604
@@ -27551,7 +27551,7 @@ void ata_scsi_error(struct Scsi_Host *host )
 #line 670
   __ret_warn_on = tmp___2;
 #line 670
-  tmp___3 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___3 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 670
   if (tmp___3 != 0L) {
 #line 670
@@ -27561,7 +27561,7 @@ void ata_scsi_error(struct Scsi_Host *host )
 
   }
 #line 670
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 672
   return;
 }
@@ -27847,7 +27847,7 @@ void ata_scsi_port_error_handler(struct Scsi_Host *host , struct ata_port *ap )
 #line 869
     __ret_warn_on = (unsigned long )tmp___2 == (unsigned long )((struct ata_queued_cmd *)0);
 #line 869
-    tmp___3 = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp___3 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 869
     if (tmp___3 != 0L) {
 #line 869
@@ -27857,7 +27857,7 @@ void ata_scsi_port_error_handler(struct Scsi_Host *host , struct ata_port *ap )
 
     }
 #line 869
-    __builtin_expect(__ret_warn_on != 0, 0L);
+    ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 870
     (*((ap->ops)->eng_timeout))(ap);
   }
@@ -28136,7 +28136,7 @@ void ata_qc_schedule_eh(struct ata_queued_cmd *qc )
 #line 1036
   __ret_warn_on = (unsigned long )(ap->ops)->error_handler == (unsigned long )((void (*)(struct ata_port * ))0);
 #line 1036
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 1036
   if (tmp != 0L) {
 #line 1036
@@ -28146,7 +28146,7 @@ void ata_qc_schedule_eh(struct ata_queued_cmd *qc )
 
   }
 #line 1036
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 1038
   qc->flags = qc->flags | 65536UL;
 #line 1039
@@ -28173,7 +28173,7 @@ void ata_std_sched_eh(struct ata_port *ap )
 #line 1060
   __ret_warn_on = (unsigned long )(ap->ops)->error_handler == (unsigned long )((void (*)(struct ata_port * ))0);
 #line 1060
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 1060
   if (tmp != 0L) {
 #line 1060
@@ -28183,7 +28183,7 @@ void ata_std_sched_eh(struct ata_port *ap )
 
   }
 #line 1060
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 1062
   if ((ap->pflags & 128U) != 0U) {
 #line 1063
@@ -28241,7 +28241,7 @@ static int ata_do_link_abort(struct ata_port *ap , struct ata_link *link )
 #line 1113
   __ret_warn_on = (unsigned long )(ap->ops)->error_handler == (unsigned long )((void (*)(struct ata_port * ))0);
 #line 1113
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 1113
   if (tmp != 0L) {
 #line 1113
@@ -28251,7 +28251,7 @@ static int ata_do_link_abort(struct ata_port *ap , struct ata_link *link )
 
   }
 #line 1113
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 1116
   ata_eh_set_pending(ap, 0);
 #line 1118
@@ -28330,7 +28330,7 @@ static void __ata_port_freeze(struct ata_port *ap )
 #line 1188
   __ret_warn_on = (unsigned long )(ap->ops)->error_handler == (unsigned long )((void (*)(struct ata_port * ))0);
 #line 1188
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 1188
   if (tmp != 0L) {
 #line 1188
@@ -28340,7 +28340,7 @@ static void __ata_port_freeze(struct ata_port *ap )
 
   }
 #line 1188
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 1190
   if ((unsigned long )(ap->ops)->freeze != (unsigned long )((void (*)(struct ata_port * ))0)) {
 #line 1191
@@ -28365,7 +28365,7 @@ int ata_port_freeze(struct ata_port *ap )
 #line 1216
   __ret_warn_on = (unsigned long )(ap->ops)->error_handler == (unsigned long )((void (*)(struct ata_port * ))0);
 #line 1216
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 1216
   if (tmp != 0L) {
 #line 1216
@@ -28375,7 +28375,7 @@ int ata_port_freeze(struct ata_port *ap )
 
   }
 #line 1216
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 1218
   __ata_port_freeze(ap);
 #line 1219
@@ -28598,7 +28598,7 @@ static void __ata_eh_qc_complete(struct ata_queued_cmd *qc )
 #line 1360
   __ret_warn_on = tmp___0 != 0U;
 #line 1360
-  tmp___1 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___1 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 1360
   if (tmp___1 != 0L) {
 #line 1360
@@ -28608,7 +28608,7 @@ static void __ata_eh_qc_complete(struct ata_queued_cmd *qc )
 
   }
 #line 1360
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 1361
   spin_unlock_irqrestore(ap->lock, flags);
 #line 1363
@@ -30959,7 +30959,7 @@ int ata_eh_reset(struct ata_link *link , int classify , int (*prereset)(struct a
 #line 2701
     __ret_warn_on = (long )now - (long )ehc->last_reset < 0L;
 #line 2701
-    tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 2701
     if (tmp != 0L) {
 #line 2701
@@ -30969,7 +30969,7 @@ int ata_eh_reset(struct ata_link *link , int classify , int (*prereset)(struct a
 
     }
 #line 2701
-    __builtin_expect(__ret_warn_on != 0, 0L);
+    ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 2702
     deadline = ata_deadline(ehc->last_reset, 5000UL);
 #line 2704
@@ -31812,7 +31812,7 @@ static int ata_eh_revalidate_and_attach(struct ata_link *link , struct ata_devic
 #line 3154
       __ret_warn_on = dev->class == 5U;
 #line 3154
-      tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+      tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 3154
       if (tmp___0 != 0L) {
 #line 3154
@@ -31822,7 +31822,7 @@ static int ata_eh_revalidate_and_attach(struct ata_link *link , struct ata_devic
 
       }
 #line 3154
-      __builtin_expect(__ret_warn_on != 0, 0L);
+      ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 3156
       tmp___1 = ata_dev_phys_link(dev);
 #line 3156
@@ -33437,7 +33437,7 @@ void ata_eh_finish(struct ata_port *ap )
 #line 4015
   __ret_warn_on = ap->nr_active_links != 0;
 #line 4015
-  tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 4015
   if (tmp___0 != 0L) {
 #line 4015
@@ -33447,7 +33447,7 @@ void ata_eh_finish(struct ata_port *ap )
 
   }
 #line 4015
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 4016
   ap->nr_active_links = 0;
 #line 4017
@@ -33563,7 +33563,7 @@ static void ata_eh_handle_port_suspend(struct ata_port *ap )
 #line 4098
   __ret_warn_on = (ap->pflags & 131072U) != 0U;
 #line 4098
-  tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 4098
   if (tmp___0 != 0L) {
 #line 4098
@@ -33573,7 +33573,7 @@ static void ata_eh_handle_port_suspend(struct ata_port *ap )
 
   }
 #line 4098
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 4101
   rc = ata_acpi_on_suspend(ap);
 #line 4102
@@ -33665,7 +33665,7 @@ static void ata_eh_handle_port_resume(struct ata_port *ap )
 #line 4157
   __ret_warn_on = (ap->pflags & 131072U) == 0U;
 #line 4157
-  tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 4157
   if (tmp___0 != 0L) {
 #line 4157
@@ -33675,7 +33675,7 @@ static void ata_eh_handle_port_resume(struct ata_port *ap )
 
   }
 #line 4157
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 4166
   link = ata_link_next(0, ap, 1);
 #line 4166
@@ -33957,7 +33957,7 @@ __inline static void transport_container_unregister(struct transport_container *
 #line 92
   tmp = attribute_container_unregister(& tc->ac);
 #line 92
-  tmp___0 = __builtin_expect(tmp != 0, 0L);
+  tmp___0 = ldv__builtin_expect(tmp != 0, 0L);
 #line 92
   if (tmp___0 != 0L) {
 #line 93
@@ -35119,7 +35119,7 @@ struct scsi_transport_template *ata_attach_transport(void)
 #line 774
   count = count + 1;
 #line 775
-  tmp___0 = __builtin_expect(count > 2, 0L);
+  tmp___0 = ldv__builtin_expect(count > 2, 0L);
 #line 775
   if (tmp___0 != 0L) {
 #line 775
@@ -35160,7 +35160,7 @@ struct scsi_transport_template *ata_attach_transport(void)
 #line 781
   count = count + 1;
 #line 782
-  tmp___1 = __builtin_expect(count > 3, 0L);
+  tmp___1 = ldv__builtin_expect(count > 3, 0L);
 #line 782
   if (tmp___1 != 0L) {
 #line 782
@@ -35241,7 +35241,7 @@ struct scsi_transport_template *ata_attach_transport(void)
 #line 793
   count = count + 1;
 #line 794
-  tmp___2 = __builtin_expect(count > 9, 0L);
+  tmp___2 = ldv__builtin_expect(count > 9, 0L);
 #line 794
   if (tmp___2 != 0L) {
 #line 794
@@ -35483,7 +35483,7 @@ __inline static unsigned long arch_local_save_flags(void)
 #line 825
   __eax = __eax;
 #line 825
-  tmp = __builtin_expect((unsigned long )pv_irq_ops.save_fl.func == (unsigned long )((void *)0),
+  tmp = ldv__builtin_expect((unsigned long )pv_irq_ops.save_fl.func == (unsigned long )((void *)0),
                          0L);
 #line 825
   if (tmp != 0L) {
@@ -35528,7 +35528,7 @@ __inline static void arch_local_irq_restore(unsigned long f )
 #line 830
   __eax = __eax;
 #line 830
-  tmp = __builtin_expect((unsigned long )pv_irq_ops.restore_fl.func == (unsigned long )((void *)0),
+  tmp = ldv__builtin_expect((unsigned long )pv_irq_ops.restore_fl.func == (unsigned long )((void *)0),
                          0L);
 #line 830
   if (tmp != 0L) {
@@ -35571,7 +35571,7 @@ __inline static void arch_local_irq_disable(void)
 #line 835
   __eax = __eax;
 #line 835
-  tmp = __builtin_expect((unsigned long )pv_irq_ops.irq_disable.func == (unsigned long )((void *)0),
+  tmp = ldv__builtin_expect((unsigned long )pv_irq_ops.irq_disable.func == (unsigned long )((void *)0),
                          0L);
 #line 835
   if (tmp != 0L) {
@@ -35758,7 +35758,7 @@ __inline static struct page *sg_page___1(struct scatterlist *sg )
 
   {
 #line 98
-  tmp = __builtin_expect(sg->sg_magic != 2271560481UL, 0L);
+  tmp = ldv__builtin_expect(sg->sg_magic != 2271560481UL, 0L);
 #line 98
   if (tmp != 0L) {
 #line 98
@@ -35771,7 +35771,7 @@ __inline static struct page *sg_page___1(struct scatterlist *sg )
 
   }
 #line 99
-  tmp___0 = __builtin_expect((long )((int )sg->page_link) & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )((int )sg->page_link) & 1L, 0L);
 #line 99
   if (tmp___0 != 0L) {
 #line 99
@@ -36563,13 +36563,13 @@ void ata_sff_tf_load(struct ata_port *ap , struct ata_taskfile  const  *tf )
 #line 490
     __ret_warn_once = (unsigned long )ioaddr->ctl_addr == (unsigned long )((void *)0);
 #line 490
-    tmp___1 = __builtin_expect(__ret_warn_once != 0, 0L);
+    tmp___1 = ldv__builtin_expect(__ret_warn_once != 0, 0L);
 #line 490
     if (tmp___1 != 0L) {
 #line 490
       __ret_warn_on = ! __warned;
 #line 490
-      tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+      tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 490
       if (tmp != 0L) {
 #line 490
@@ -36579,7 +36579,7 @@ void ata_sff_tf_load(struct ata_port *ap , struct ata_taskfile  const  *tf )
 
       }
 #line 490
-      tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+      tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 490
       if (tmp___0 != 0L) {
 #line 490
@@ -36591,7 +36591,7 @@ void ata_sff_tf_load(struct ata_port *ap , struct ata_taskfile  const  *tf )
 
     }
 #line 490
-    __builtin_expect(__ret_warn_once != 0, 0L);
+    ldv__builtin_expect(__ret_warn_once != 0, 0L);
 #line 491
     iowrite8((int )tf->hob_feature, ioaddr->feature_addr);
 #line 492
@@ -36688,7 +36688,7 @@ void ata_sff_tf_read(struct ata_port *ap , struct ata_taskfile *tf )
 #line 552
   if ((int )tf->flags & 1) {
 #line 553
-    tmp___13 = __builtin_expect((unsigned long )ioaddr->ctl_addr != (unsigned long )((void *)0),
+    tmp___13 = ldv__builtin_expect((unsigned long )ioaddr->ctl_addr != (unsigned long )((void *)0),
                                 1L);
 #line 553
     if (tmp___13 != 0L) {
@@ -36722,13 +36722,13 @@ void ata_sff_tf_read(struct ata_port *ap , struct ata_taskfile *tf )
 #line 563
       __ret_warn_once = 1;
 #line 563
-      tmp___12 = __builtin_expect(__ret_warn_once != 0, 0L);
+      tmp___12 = ldv__builtin_expect(__ret_warn_once != 0, 0L);
 #line 563
       if (tmp___12 != 0L) {
 #line 563
         __ret_warn_on = ! __warned;
 #line 563
-        tmp___10 = __builtin_expect(__ret_warn_on != 0, 0L);
+        tmp___10 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 563
         if (tmp___10 != 0L) {
 #line 563
@@ -36738,7 +36738,7 @@ void ata_sff_tf_read(struct ata_port *ap , struct ata_taskfile *tf )
 
         }
 #line 563
-        tmp___11 = __builtin_expect(__ret_warn_on != 0, 0L);
+        tmp___11 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 563
         if (tmp___11 != 0L) {
 #line 563
@@ -36750,7 +36750,7 @@ void ata_sff_tf_read(struct ata_port *ap , struct ata_taskfile *tf )
 
       }
 #line 563
-      __builtin_expect(__ret_warn_once != 0, 0L);
+      ldv__builtin_expect(__ret_warn_once != 0, 0L);
     }
   } else {
 
@@ -36813,7 +36813,7 @@ unsigned int ata_sff_data_xfer(struct ata_device *dev , unsigned char *buf , uns
     iowrite16_rep(data_addr, (void const   *)buf, (unsigned long )words);
   }
 #line 636
-  tmp = __builtin_expect((long )((int )buflen) & 1L, 0L);
+  tmp = ldv__builtin_expect((long )((int )buflen) & 1L, 0L);
 #line 636
   if (tmp != 0L) {
 #line 637
@@ -36886,7 +36886,7 @@ unsigned int ata_sff_data_xfer32(struct ata_device *dev , unsigned char *buf , u
     iowrite32_rep(data_addr, (void const   *)buf, (unsigned long )words);
   }
 #line 695
-  tmp___0 = __builtin_expect(slop != 0, 0L);
+  tmp___0 = ldv__builtin_expect(slop != 0, 0L);
 #line 695
   if (tmp___0 != 0L) {
 #line 696
@@ -37099,13 +37099,13 @@ static void ata_pio_sectors(struct ata_queued_cmd *qc )
 #line 829
     __ret_warn_once = (qc->dev)->multi_count == 0U;
 #line 829
-    tmp___1 = __builtin_expect(__ret_warn_once != 0, 0L);
+    tmp___1 = ldv__builtin_expect(__ret_warn_once != 0, 0L);
 #line 829
     if (tmp___1 != 0L) {
 #line 829
       __ret_warn_on = ! __warned;
 #line 829
-      tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+      tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 829
       if (tmp != 0L) {
 #line 829
@@ -37115,7 +37115,7 @@ static void ata_pio_sectors(struct ata_queued_cmd *qc )
 
       }
 #line 829
-      tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+      tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 829
       if (tmp___0 != 0L) {
 #line 829
@@ -37127,7 +37127,7 @@ static void ata_pio_sectors(struct ata_queued_cmd *qc )
 
     }
 #line 829
-    __builtin_expect(__ret_warn_once != 0, 0L);
+    ldv__builtin_expect(__ret_warn_once != 0, 0L);
 #line 831
     _min1 = (qc->nbytes - qc->curbytes) / qc->sect_size;
 #line 831
@@ -37176,13 +37176,13 @@ static void atapi_send_cdb(struct ata_port *ap , struct ata_queued_cmd *qc )
 #line 856
   __ret_warn_once = (qc->dev)->cdb_len <= 11U;
 #line 856
-  tmp___1 = __builtin_expect(__ret_warn_once != 0, 0L);
+  tmp___1 = ldv__builtin_expect(__ret_warn_once != 0, 0L);
 #line 856
   if (tmp___1 != 0L) {
 #line 856
     __ret_warn_on = ! __warned;
 #line 856
-    tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 856
     if (tmp != 0L) {
 #line 856
@@ -37192,7 +37192,7 @@ static void atapi_send_cdb(struct ata_port *ap , struct ata_queued_cmd *qc )
 
     }
 #line 856
-    tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 856
     if (tmp___0 != 0L) {
 #line 856
@@ -37204,7 +37204,7 @@ static void atapi_send_cdb(struct ata_port *ap , struct ata_queued_cmd *qc )
 
   }
 #line 856
-  __builtin_expect(__ret_warn_once != 0, 0L);
+  ldv__builtin_expect(__ret_warn_once != 0, 0L);
 #line 858
   (*((ap->ops)->sff_data_xfer))(qc->dev, (unsigned char *)(& qc->cdb), (qc->dev)->cdb_len,
                                 1);
@@ -37281,7 +37281,7 @@ static int __atapi_pio_bytes(struct ata_queued_cmd *qc , unsigned int bytes )
 #line 904
   sg = qc->cursg;
 #line 905
-  tmp = __builtin_expect((unsigned long )sg == (unsigned long )((struct scatterlist *)0),
+  tmp = ldv__builtin_expect((unsigned long )sg == (unsigned long )((struct scatterlist *)0),
                          0L);
 #line 905
   if (tmp != 0L) {
@@ -37421,7 +37421,7 @@ static void atapi_pio_bytes(struct ata_queued_cmd *qc )
 #line 993
   bytes = (bc_hi << 8) | bc_lo;
 #line 996
-  tmp = __builtin_expect((long )((int )ireason) & 1L, 0L);
+  tmp = ldv__builtin_expect((long )((int )ireason) & 1L, 0L);
 #line 996
   if (tmp != 0L) {
 #line 997
@@ -37432,7 +37432,7 @@ static void atapi_pio_bytes(struct ata_queued_cmd *qc )
 #line 1000
   i_write = (ireason & 2U) == 0U;
 #line 1001
-  tmp___0 = __builtin_expect(do_write != i_write, 0L);
+  tmp___0 = ldv__builtin_expect(do_write != i_write, 0L);
 #line 1001
   if (tmp___0 != 0L) {
 #line 1002
@@ -37441,7 +37441,7 @@ static void atapi_pio_bytes(struct ata_queued_cmd *qc )
 
   }
 #line 1004
-  tmp___1 = __builtin_expect(bytes == 0U, 0L);
+  tmp___1 = ldv__builtin_expect(bytes == 0U, 0L);
 #line 1004
   if (tmp___1 != 0L) {
 #line 1005
@@ -37452,7 +37452,7 @@ static void atapi_pio_bytes(struct ata_queued_cmd *qc )
 #line 1009
   tmp___2 = __atapi_pio_bytes(qc, bytes);
 #line 1009
-  tmp___3 = __builtin_expect(tmp___2 != 0, 0L);
+  tmp___3 = ldv__builtin_expect(tmp___2 != 0, 0L);
 #line 1009
   if (tmp___3 != 0L) {
 #line 1010
@@ -37540,7 +37540,7 @@ static void ata_hsm_qc_complete(struct ata_queued_cmd *qc , int in_wq )
 #line 1074
       if ((unsigned long )qc != (unsigned long )((struct ata_queued_cmd *)0)) {
 #line 1075
-        tmp___0 = __builtin_expect((qc->err_mask & 2U) == 0U, 1L);
+        tmp___0 = ldv__builtin_expect((qc->err_mask & 2U) == 0U, 1L);
 #line 1075
         if (tmp___0 != 0L) {
 #line 1076
@@ -37558,7 +37558,7 @@ static void ata_hsm_qc_complete(struct ata_queued_cmd *qc , int in_wq )
       spin_unlock_irqrestore(ap->lock, flags);
     } else {
 #line 1084
-      tmp___1 = __builtin_expect((qc->err_mask & 2U) == 0U, 1L);
+      tmp___1 = ldv__builtin_expect((qc->err_mask & 2U) == 0U, 1L);
 #line 1084
       if (tmp___1 != 0L) {
 #line 1085
@@ -37640,13 +37640,13 @@ int ata_sff_hsm_move(struct ata_port *ap , struct ata_queued_cmd *qc , u8 status
 #line 1118
   __ret_warn_once = (qc->flags & 1UL) == 0UL;
 #line 1118
-  tmp___1 = __builtin_expect(__ret_warn_once != 0, 0L);
+  tmp___1 = ldv__builtin_expect(__ret_warn_once != 0, 0L);
 #line 1118
   if (tmp___1 != 0L) {
 #line 1118
     __ret_warn_on = ! __warned;
 #line 1118
-    tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 1118
     if (tmp != 0L) {
 #line 1118
@@ -37656,7 +37656,7 @@ int ata_sff_hsm_move(struct ata_port *ap , struct ata_queued_cmd *qc , u8 status
 
     }
 #line 1118
-    tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 1118
     if (tmp___0 != 0L) {
 #line 1118
@@ -37668,19 +37668,19 @@ int ata_sff_hsm_move(struct ata_port *ap , struct ata_queued_cmd *qc , u8 status
 
   }
 #line 1118
-  __builtin_expect(__ret_warn_once != 0, 0L);
+  ldv__builtin_expect(__ret_warn_once != 0, 0L);
 #line 1124
   tmp___2 = ata_hsm_ok_in_wq(ap, qc);
 #line 1124
   __ret_warn_once___0 = tmp___2 != in_wq;
 #line 1124
-  tmp___5 = __builtin_expect(__ret_warn_once___0 != 0, 0L);
+  tmp___5 = ldv__builtin_expect(__ret_warn_once___0 != 0, 0L);
 #line 1124
   if (tmp___5 != 0L) {
 #line 1124
     __ret_warn_on___0 = ! __warned___0;
 #line 1124
-    tmp___3 = __builtin_expect(__ret_warn_on___0 != 0, 0L);
+    tmp___3 = ldv__builtin_expect(__ret_warn_on___0 != 0, 0L);
 #line 1124
     if (tmp___3 != 0L) {
 #line 1124
@@ -37690,7 +37690,7 @@ int ata_sff_hsm_move(struct ata_port *ap , struct ata_queued_cmd *qc , u8 status
 
     }
 #line 1124
-    tmp___4 = __builtin_expect(__ret_warn_on___0 != 0, 0L);
+    tmp___4 = ldv__builtin_expect(__ret_warn_on___0 != 0, 0L);
 #line 1124
     if (tmp___4 != 0L) {
 #line 1124
@@ -37702,7 +37702,7 @@ int ata_sff_hsm_move(struct ata_port *ap , struct ata_queued_cmd *qc , u8 status
 
   }
 #line 1124
-  __builtin_expect(__ret_warn_once___0 != 0, 0L);
+  ldv__builtin_expect(__ret_warn_once___0 != 0, 0L);
   fsm_start: ;
 #line 1130
   switch (ap->hsm_task_state) {
@@ -37710,11 +37710,11 @@ int ata_sff_hsm_move(struct ata_port *ap , struct ata_queued_cmd *qc , u8 status
 #line 1138
   poll_next = (int )qc->tf.flags & 64;
 #line 1141
-  tmp___7 = __builtin_expect(((int )status & 8) == 0, 0L);
+  tmp___7 = ldv__builtin_expect(((int )status & 8) == 0, 0L);
 #line 1141
   if (tmp___7 != 0L) {
 #line 1143
-    tmp___6 = __builtin_expect(((int )status & 33) != 0, 1L);
+    tmp___6 = ldv__builtin_expect(((int )status & 33) != 0, 1L);
 #line 1143
     if (tmp___6 != 0L) {
 #line 1145
@@ -37733,7 +37733,7 @@ int ata_sff_hsm_move(struct ata_port *ap , struct ata_queued_cmd *qc , u8 status
 
   }
 #line 1163
-  tmp___8 = __builtin_expect(((int )status & 33) != 0, 0L);
+  tmp___8 = ldv__builtin_expect(((int )status & 33) != 0, 0L);
 #line 1163
   if (tmp___8 != 0L) {
 #line 1169
@@ -37793,7 +37793,7 @@ int ata_sff_hsm_move(struct ata_port *ap , struct ata_queued_cmd *qc , u8 status
 
     }
 #line 1228
-    tmp___10 = __builtin_expect(((int )status & 33) != 0, 0L);
+    tmp___10 = ldv__builtin_expect(((int )status & 33) != 0, 0L);
 #line 1228
     if (tmp___10 != 0L) {
 #line 1229
@@ -37810,7 +37810,7 @@ int ata_sff_hsm_move(struct ata_port *ap , struct ata_queued_cmd *qc , u8 status
 #line 1237
     atapi_pio_bytes(qc);
 #line 1239
-    tmp___11 = __builtin_expect(ap->hsm_task_state == 4U, 0L);
+    tmp___11 = ldv__builtin_expect(ap->hsm_task_state == 4U, 0L);
 #line 1239
     if (tmp___11 != 0L) {
 #line 1241
@@ -37820,11 +37820,11 @@ int ata_sff_hsm_move(struct ata_port *ap , struct ata_queued_cmd *qc , u8 status
     }
   } else {
 #line 1245
-    tmp___13 = __builtin_expect(((int )status & 8) == 0, 0L);
+    tmp___13 = ldv__builtin_expect(((int )status & 8) == 0, 0L);
 #line 1245
     if (tmp___13 != 0L) {
 #line 1247
-      tmp___12 = __builtin_expect(((int )status & 33) != 0, 1L);
+      tmp___12 = ldv__builtin_expect(((int )status & 33) != 0, 1L);
 #line 1247
       if (tmp___12 != 0L) {
 #line 1249
@@ -37851,7 +37851,7 @@ int ata_sff_hsm_move(struct ata_port *ap , struct ata_queued_cmd *qc , u8 status
 
     }
 #line 1285
-    tmp___14 = __builtin_expect(((int )status & 33) != 0, 0L);
+    tmp___14 = ldv__builtin_expect(((int )status & 33) != 0, 0L);
 #line 1285
     if (tmp___14 != 0L) {
 #line 1287
@@ -37917,7 +37917,7 @@ int ata_sff_hsm_move(struct ata_port *ap , struct ata_queued_cmd *qc , u8 status
     tmp___17 = 1;
   }
 #line 1333
-  tmp___18 = __builtin_expect((long )tmp___17, 0L);
+  tmp___18 = ldv__builtin_expect((long )tmp___17, 0L);
 #line 1333
   if (tmp___18 != 0L) {
 #line 1334
@@ -37934,13 +37934,13 @@ int ata_sff_hsm_move(struct ata_port *ap , struct ata_queued_cmd *qc , u8 status
 #line 1343
   __ret_warn_once___1 = (qc->err_mask & 3U) != 0U;
 #line 1343
-  tmp___21 = __builtin_expect(__ret_warn_once___1 != 0, 0L);
+  tmp___21 = ldv__builtin_expect(__ret_warn_once___1 != 0, 0L);
 #line 1343
   if (tmp___21 != 0L) {
 #line 1343
     __ret_warn_on___1 = ! __warned___1;
 #line 1343
-    tmp___19 = __builtin_expect(__ret_warn_on___1 != 0, 0L);
+    tmp___19 = ldv__builtin_expect(__ret_warn_on___1 != 0, 0L);
 #line 1343
     if (tmp___19 != 0L) {
 #line 1343
@@ -37950,7 +37950,7 @@ int ata_sff_hsm_move(struct ata_port *ap , struct ata_queued_cmd *qc , u8 status
 
     }
 #line 1343
-    tmp___20 = __builtin_expect(__ret_warn_on___1 != 0, 0L);
+    tmp___20 = ldv__builtin_expect(__ret_warn_on___1 != 0, 0L);
 #line 1343
     if (tmp___20 != 0L) {
 #line 1343
@@ -37962,7 +37962,7 @@ int ata_sff_hsm_move(struct ata_port *ap , struct ata_queued_cmd *qc , u8 status
 
   }
 #line 1343
-  __builtin_expect(__ret_warn_once___1 != 0, 0L);
+  ldv__builtin_expect(__ret_warn_once___1 != 0, 0L);
 #line 1345
   ap->hsm_task_state = 0U;
 #line 1348
@@ -38033,7 +38033,7 @@ void ata_sff_queue_pio_task(struct ata_link *link , unsigned long delay )
 #line 1386
   __ret_warn_on = (unsigned long )ap->sff_pio_task_link != (unsigned long )((struct ata_link *)0) && (unsigned long )ap->sff_pio_task_link != (unsigned long )link;
 #line 1386
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 1386
   if (tmp != 0L) {
 #line 1386
@@ -38043,7 +38043,7 @@ void ata_sff_queue_pio_task(struct ata_link *link , unsigned long delay )
 
   }
 #line 1386
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 1388
   ap->sff_pio_task_link = link;
 #line 1391
@@ -38102,7 +38102,7 @@ static void ata_sff_pio_task(struct work_struct *work )
 #line 1411
   link = ap->sff_pio_task_link;
 #line 1416
-  tmp = __builtin_expect((unsigned long )ap->sff_pio_task_link == (unsigned long )((struct ata_link *)0),
+  tmp = ldv__builtin_expect((unsigned long )ap->sff_pio_task_link == (unsigned long )((struct ata_link *)0),
                          0L);
 #line 1416
   if (tmp != 0L) {
@@ -38130,13 +38130,13 @@ static void ata_sff_pio_task(struct work_struct *work )
 #line 1425
   __ret_warn_once = ap->hsm_task_state == 0U;
 #line 1425
-  tmp___2 = __builtin_expect(__ret_warn_once != 0, 0L);
+  tmp___2 = ldv__builtin_expect(__ret_warn_once != 0, 0L);
 #line 1425
   if (tmp___2 != 0L) {
 #line 1425
     __ret_warn_on = ! __warned;
 #line 1425
-    tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 1425
     if (tmp___0 != 0L) {
 #line 1425
@@ -38146,7 +38146,7 @@ static void ata_sff_pio_task(struct work_struct *work )
 
     }
 #line 1425
-    tmp___1 = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp___1 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 1425
     if (tmp___1 != 0L) {
 #line 1425
@@ -38158,7 +38158,7 @@ static void ata_sff_pio_task(struct work_struct *work )
 
   }
 #line 1425
-  __builtin_expect(__ret_warn_once != 0, 0L);
+  ldv__builtin_expect(__ret_warn_once != 0, 0L);
 #line 1434
   status = ata_sff_busy_wait(ap, 128U, 5U);
 #line 1435
@@ -38298,13 +38298,13 @@ unsigned int ata_sff_qc_issue(struct ata_queued_cmd *qc )
 #line 1545
   __ret_warn_once = 1;
 #line 1545
-  tmp___1 = __builtin_expect(__ret_warn_once != 0, 0L);
+  tmp___1 = ldv__builtin_expect(__ret_warn_once != 0, 0L);
 #line 1545
   if (tmp___1 != 0L) {
 #line 1545
     __ret_warn_on = ! __warned;
 #line 1545
-    tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 1545
     if (tmp != 0L) {
 #line 1545
@@ -38314,7 +38314,7 @@ unsigned int ata_sff_qc_issue(struct ata_queued_cmd *qc )
 
     }
 #line 1545
-    tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 1545
     if (tmp___0 != 0L) {
 #line 1545
@@ -38326,7 +38326,7 @@ unsigned int ata_sff_qc_issue(struct ata_queued_cmd *qc )
 
   }
 #line 1545
-  __builtin_expect(__ret_warn_once != 0, 0L);
+  ldv__builtin_expect(__ret_warn_once != 0, 0L);
 #line 1546
   return (64U);
   }
@@ -40103,13 +40103,13 @@ unsigned int ata_bmdma_qc_issue(struct ata_queued_cmd *qc )
 #line 2868
   __ret_warn_once = (qc->tf.flags & 64UL) != 0UL;
 #line 2868
-  tmp___3 = __builtin_expect(__ret_warn_once != 0, 0L);
+  tmp___3 = ldv__builtin_expect(__ret_warn_once != 0, 0L);
 #line 2868
   if (tmp___3 != 0L) {
 #line 2868
     __ret_warn_on = ! __warned;
 #line 2868
-    tmp___1 = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp___1 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 2868
     if (tmp___1 != 0L) {
 #line 2868
@@ -40119,7 +40119,7 @@ unsigned int ata_bmdma_qc_issue(struct ata_queued_cmd *qc )
 
     }
 #line 2868
-    tmp___2 = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp___2 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 2868
     if (tmp___2 != 0L) {
 #line 2868
@@ -40131,7 +40131,7 @@ unsigned int ata_bmdma_qc_issue(struct ata_queued_cmd *qc )
 
   }
 #line 2868
-  __builtin_expect(__ret_warn_once != 0, 0L);
+  ldv__builtin_expect(__ret_warn_once != 0, 0L);
 #line 2870
   (*((ap->ops)->sff_tf_load))(ap, (struct ata_taskfile  const  *)(& qc->tf));
 #line 2871
@@ -40146,13 +40146,13 @@ unsigned int ata_bmdma_qc_issue(struct ata_queued_cmd *qc )
 #line 2877
   __ret_warn_once___0 = (qc->tf.flags & 64UL) != 0UL;
 #line 2877
-  tmp___6 = __builtin_expect(__ret_warn_once___0 != 0, 0L);
+  tmp___6 = ldv__builtin_expect(__ret_warn_once___0 != 0, 0L);
 #line 2877
   if (tmp___6 != 0L) {
 #line 2877
     __ret_warn_on___0 = ! __warned___0;
 #line 2877
-    tmp___4 = __builtin_expect(__ret_warn_on___0 != 0, 0L);
+    tmp___4 = ldv__builtin_expect(__ret_warn_on___0 != 0, 0L);
 #line 2877
     if (tmp___4 != 0L) {
 #line 2877
@@ -40162,7 +40162,7 @@ unsigned int ata_bmdma_qc_issue(struct ata_queued_cmd *qc )
 
     }
 #line 2877
-    tmp___5 = __builtin_expect(__ret_warn_on___0 != 0, 0L);
+    tmp___5 = ldv__builtin_expect(__ret_warn_on___0 != 0, 0L);
 #line 2877
     if (tmp___5 != 0L) {
 #line 2877
@@ -40174,7 +40174,7 @@ unsigned int ata_bmdma_qc_issue(struct ata_queued_cmd *qc )
 
   }
 #line 2877
-  __builtin_expect(__ret_warn_once___0 != 0, 0L);
+  ldv__builtin_expect(__ret_warn_once___0 != 0, 0L);
 #line 2879
   (*((ap->ops)->sff_tf_load))(ap, (struct ata_taskfile  const  *)(& qc->tf));
 #line 2880
@@ -40194,7 +40194,7 @@ unsigned int ata_bmdma_qc_issue(struct ata_queued_cmd *qc )
 #line 2889
   __ret_warn_on___1 = 1;
 #line 2889
-  tmp___7 = __builtin_expect(__ret_warn_on___1 != 0, 0L);
+  tmp___7 = ldv__builtin_expect(__ret_warn_on___1 != 0, 0L);
 #line 2889
   if (tmp___7 != 0L) {
 #line 2889
@@ -40204,7 +40204,7 @@ unsigned int ata_bmdma_qc_issue(struct ata_queued_cmd *qc )
 
   }
 #line 2889
-  __builtin_expect(__ret_warn_on___1 != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on___1 != 0, 0L);
 #line 2890
   return (64U);
   }
@@ -40255,7 +40255,7 @@ unsigned int ata_bmdma_port_intr(struct ata_port *ap , struct ata_queued_cmd *qc
 #line 2928
       bmdma_stopped = 1;
 #line 2930
-      tmp___0 = __builtin_expect(((int )host_stat & 2) != 0, 0L);
+      tmp___0 = ldv__builtin_expect(((int )host_stat & 2) != 0, 0L);
 #line 2930
       if (tmp___0 != 0L) {
 #line 2932
@@ -40274,7 +40274,7 @@ unsigned int ata_bmdma_port_intr(struct ata_port *ap , struct ata_queued_cmd *qc
 #line 2937
   handled = __ata_sff_port_intr(ap, qc, (int )bmdma_stopped);
 #line 2939
-  tmp___2 = __builtin_expect(qc->err_mask != 0U, 0L);
+  tmp___2 = ldv__builtin_expect(qc->err_mask != 0U, 0L);
 #line 2939
   if (tmp___2 != 0L) {
 #line 2939
@@ -42044,7 +42044,7 @@ int sata_pmp_attach(struct ata_device *dev )
 #line 563
   __ret_warn_on = link->pmp != 0;
 #line 563
-  tmp___2 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___2 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 563
   if (tmp___2 != 0L) {
 #line 563
@@ -42054,7 +42054,7 @@ int sata_pmp_attach(struct ata_device *dev )
 
   }
 #line 563
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 564
   link->pmp = 15;
 #line 567
@@ -42093,7 +42093,7 @@ int sata_pmp_attach(struct ata_device *dev )
 #line 584
   __ret_warn_on___0 = ap->nr_pmp_links != 0;
 #line 584
-  tmp___4 = __builtin_expect(__ret_warn_on___0 != 0, 0L);
+  tmp___4 = ldv__builtin_expect(__ret_warn_on___0 != 0, 0L);
 #line 584
   if (tmp___4 != 0L) {
 #line 584
@@ -42103,7 +42103,7 @@ int sata_pmp_attach(struct ata_device *dev )
 
   }
 #line 584
-  __builtin_expect(__ret_warn_on___0 != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on___0 != 0, 0L);
 #line 585
   ap->nr_pmp_links = (int )dev->ldv_38497.gscr[2] & 15;
 #line 586
@@ -42168,7 +42168,7 @@ static void sata_pmp_detach(struct ata_device *dev )
 #line 622
   __ret_warn_on = (tmp == 0 || dev->devno != 0U) || link->pmp != 15;
 #line 622
-  tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 622
   if (tmp___0 != 0L) {
 #line 622
@@ -42178,7 +42178,7 @@ static void sata_pmp_detach(struct ata_device *dev )
 
   }
 #line 622
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 625
   if ((unsigned long )(ap->ops)->pmp_detach != (unsigned long )((void (*)(struct ata_port * ))0)) {
 #line 626
@@ -45329,7 +45329,7 @@ __inline static void ldv_error(void)
 #line 25
 extern int __VERIFIER_nondet_int(void) ;
 #line 49 "/home/mikhail/ldv/kernel-rules/verifier/rcv.h"
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 

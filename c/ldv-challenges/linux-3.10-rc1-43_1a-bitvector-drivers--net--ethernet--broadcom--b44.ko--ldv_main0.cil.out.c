@@ -5952,7 +5952,7 @@ struct b44 {
 #line 1 "<compiler builtins>"
 void *__builtin_memcpy(void * , void const   * , unsigned long  ) ;
 #line 1
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 #line 2 "/work/ldvuser/shchepetkov/43_1a-CPAchecker-bit-vector/work/current--X--drivers--X--defaultlinux-3.10-rc1--X--43_1a--X--cpachecker/linux-3.10-rc1/csd_deg_dscv/6656/dscv_tempdir/dscv/ri/43_1a/drivers/net/ethernet/broadcom/b44.c.prepared"
 void ldv_spin_lock(void) ;
 #line 3
@@ -6056,7 +6056,7 @@ __inline static unsigned long arch_local_save_flags(void)
 #line 824
   __eax = __eax;
 #line 824
-  tmp = __builtin_expect((unsigned long )pv_irq_ops.save_fl.func == (unsigned long )((void *)0),
+  tmp = ldv__builtin_expect((unsigned long )pv_irq_ops.save_fl.func == (unsigned long )((void *)0),
                          0L);
 #line 824
   if (tmp != 0L) {
@@ -6304,7 +6304,7 @@ __inline static struct dma_map_ops *get_dma_ops(struct device *dev )
 
   {
 #line 37
-  tmp = __builtin_expect((unsigned long )dev == (unsigned long )((struct device *)0),
+  tmp = ldv__builtin_expect((unsigned long )dev == (unsigned long )((struct device *)0),
                          0L);
 #line 37
   if (tmp != 0L || (unsigned long )dev->archdata.dma_ops == (unsigned long )((struct dma_map_ops *)0)) {
@@ -6338,7 +6338,7 @@ __inline static dma_addr_t dma_map_single_attrs(struct device *dev , void *ptr ,
 #line 19
   tmp___0 = valid_dma_direction((int )dir);
 #line 19
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
 #line 19
   if (tmp___1 != 0L) {
 #line 19
@@ -6382,7 +6382,7 @@ __inline static void dma_unmap_single_attrs(struct device *dev , dma_addr_t addr
 #line 36
   tmp___0 = valid_dma_direction((int )dir);
 #line 36
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
 #line 36
   if (tmp___1 != 0L) {
 #line 36
@@ -6427,7 +6427,7 @@ __inline static void dma_sync_single_for_cpu(struct device *dev , dma_addr_t add
 #line 103
   tmp___0 = valid_dma_direction((int )dir);
 #line 103
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
 #line 103
   if (tmp___1 != 0L) {
 #line 103
@@ -6472,7 +6472,7 @@ __inline static void dma_sync_single_for_device(struct device *dev , dma_addr_t 
 #line 115
   tmp___0 = valid_dma_direction((int )dir);
 #line 115
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
 #line 115
   if (tmp___1 != 0L) {
 #line 115
@@ -6657,7 +6657,7 @@ __inline static void dma_free_attrs(struct device *dev , size_t size , void *vad
 #line 166
   __ret_warn_on = tmp___0 != 0;
 #line 166
-  tmp___1 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___1 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 166
   if (tmp___1 != 0L) {
 #line 166
@@ -6667,7 +6667,7 @@ __inline static void dma_free_attrs(struct device *dev , size_t size , void *vad
 
   }
 #line 166
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 171
   debug_dma_free_coherent(dev, size, vaddr, bus);
 #line 172
@@ -6998,7 +6998,7 @@ __inline static void napi_enable(struct napi_struct *n )
 #line 472
   tmp = constant_test_bit(0U, (unsigned long const volatile   *)(& n->state));
 #line 472
-  tmp___0 = __builtin_expect(tmp == 0, 0L);
+  tmp___0 = ldv__builtin_expect(tmp == 0, 0L);
 #line 472
   if (tmp___0 != 0L) {
 #line 472
@@ -7131,7 +7131,7 @@ __inline static void netif_tx_stop_queue(struct netdev_queue *dev_queue )
 #line 1907
   __ret_warn_on = (unsigned long )dev_queue == (unsigned long )((struct netdev_queue *)0);
 #line 1907
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 1907
   if (tmp != 0L) {
 #line 1907
@@ -7140,7 +7140,7 @@ __inline static void netif_tx_stop_queue(struct netdev_queue *dev_queue )
 
   }
 #line 1907
-  tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 1907
   if (tmp___0 != 0L) {
 #line 1908
@@ -8687,7 +8687,7 @@ static void b44_tx(struct b44 *bp )
 #line 621
   skb = rp->skb;
 #line 623
-  tmp___0 = __builtin_expect((unsigned long )skb == (unsigned long )((struct sk_buff *)0),
+  tmp___0 = ldv__builtin_expect((unsigned long )skb == (unsigned long )((struct sk_buff *)0),
                              0L);
 #line 623
   if (tmp___0 != 0L) {
@@ -9243,7 +9243,7 @@ static irqreturn_t b44_interrupt(int irq , void *dev_id )
       tmp___3 = 1;
     }
 #line 920
-    tmp___4 = __builtin_expect((long )tmp___3, 0L);
+    tmp___4 = ldv__builtin_expect((long )tmp___3, 0L);
 #line 920
     if (tmp___4 != 0L) {
 #line 921
@@ -9342,7 +9342,7 @@ static netdev_tx_t b44_start_xmit(struct sk_buff *skb , struct net_device *dev )
 #line 970
   ldv_spin_lock();
 #line 973
-  tmp___0 = __builtin_expect(bp->tx_cons <= bp->tx_prod ? bp->tx_cons + bp->tx_pending == bp->tx_prod : (bp->tx_cons - bp->tx_prod) + bp->tx_pending == 512U,
+  tmp___0 = ldv__builtin_expect(bp->tx_cons <= bp->tx_prod ? bp->tx_cons + bp->tx_pending == bp->tx_prod : (bp->tx_cons - bp->tx_prod) + bp->tx_pending == 512U,
                              0L);
 #line 973
   if (tmp___0 != 0L) {
@@ -10011,7 +10011,7 @@ static void b44_chip_reset(struct b44 *bp , int reset_kind )
 #line 1316
   __ret_warn_on = 1;
 #line 1316
-  tmp___4 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___4 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 1316
   if (tmp___4 != 0L) {
 #line 1316
@@ -10021,7 +10021,7 @@ static void b44_chip_reset(struct b44 *bp , int reset_kind )
 
   }
 #line 1316
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 1317
   goto ldv_42640;
   }
@@ -10275,7 +10275,7 @@ static int b44_open(struct net_device *dev )
   err = request_irq(dev->irq, & b44_interrupt, 128UL, (char const   *)(& dev->name),
                     (void *)dev);
 #line 1453
-  tmp___0 = __builtin_expect(err < 0, 0L);
+  tmp___0 = ldv__builtin_expect(err < 0, 0L);
 #line 1453
   if (tmp___0 != 0L) {
 #line 1454
@@ -10928,7 +10928,7 @@ static void b44_get_drvinfo(struct net_device *dev , struct ethtool_drvinfo *inf
 #line 1784
   __ret_warn_on = 1;
 #line 1784
-  tmp___1 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___1 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 1784
   if (tmp___1 != 0L) {
 #line 1784
@@ -10938,7 +10938,7 @@ static void b44_get_drvinfo(struct net_device *dev , struct ethtool_drvinfo *inf
 
   }
 #line 1784
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 1785
   goto ldv_42789;
   }
@@ -12706,7 +12706,7 @@ __inline static void ldv_error(void)
 #line 25
 extern int __VERIFIER_nondet_int(void) ;
 #line 49 "/work/ldvuser/shchepetkov/ldv/kernel-rules/verifier/rcv.h"
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 

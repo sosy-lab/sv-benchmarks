@@ -8236,7 +8236,7 @@ void *__builtin_memcpy(void * , void const   * , unsigned long  ) ;
 #line 1
 void *__builtin_return_address(unsigned int  ) ;
 #line 1
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 #line 7 "/home/mikhail/launches/cpachecker-regression2/launcher-working-dir/ldv-manager-work-dir/inst/current/envs/linux-3.8-rc1/linux-3.8-rc1/arch/x86/include/uapi/asm/swab.h"
 __inline static __u32 __arch_swab32(__u32 val ) 
 { 
@@ -8953,7 +8953,7 @@ __inline static struct dst_entry *skb_dst(struct sk_buff  const  *skb )
 #line 545
   __ret_warn_on = tmp___1;
 #line 545
-  tmp___2 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___2 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 545
   if (tmp___2 != 0L) {
 #line 545
@@ -8962,7 +8962,7 @@ __inline static struct dst_entry *skb_dst(struct sk_buff  const  *skb )
 
   }
 #line 545
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 548
   return ((struct dst_entry *)((unsigned long )skb->_skb_refdst & 0xfffffffffffffffeUL));
 }
@@ -9106,12 +9106,12 @@ __inline static struct net *skb_net(struct sk_buff  const  *skb )
 
   {
 #line 53
-  tmp___0 = __builtin_expect((unsigned long )skb->dev != (unsigned long )((struct net_device */* const  */)0),
+  tmp___0 = ldv__builtin_expect((unsigned long )skb->dev != (unsigned long )((struct net_device */* const  */)0),
                              1L);
 #line 53
   if (tmp___0 != 0L) {
 #line 53
-    tmp___1 = __builtin_expect((unsigned long )(skb->dev)->nd_net != (unsigned long )((struct net *)0),
+    tmp___1 = ldv__builtin_expect((unsigned long )(skb->dev)->nd_net != (unsigned long )((struct net *)0),
                                1L);
 #line 53
     if (tmp___1 != 0L) {
@@ -9148,7 +9148,7 @@ __inline static struct net *skb_net(struct sk_buff  const  *skb )
 #line 57
   __ret_warn_on = (unsigned long )skb->sk != (unsigned long )((struct sock */* const  */)0);
 #line 57
-  tmp___6 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___6 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 57
   if (tmp___6 != 0L) {
 #line 57
@@ -9158,14 +9158,14 @@ __inline static struct net *skb_net(struct sk_buff  const  *skb )
 
   }
 #line 57
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 59
-  tmp___8 = __builtin_expect((unsigned long )skb->sk != (unsigned long )((struct sock */* const  */)0),
+  tmp___8 = ldv__builtin_expect((unsigned long )skb->sk != (unsigned long )((struct sock */* const  */)0),
                              1L);
 #line 59
   if (tmp___8 != 0L) {
 #line 59
-    tmp___9 = __builtin_expect((unsigned long )(skb->sk)->__sk_common.skc_net != (unsigned long )((struct net *)0),
+    tmp___9 = ldv__builtin_expect((unsigned long )(skb->sk)->__sk_common.skc_net != (unsigned long )((struct net *)0),
                                1L);
 #line 59
     if (tmp___9 != 0L) {
@@ -9215,14 +9215,14 @@ __inline static void *frag_safe_skb_hp(struct sk_buff  const  *skb , int offset 
 
   {
 #line 130
-  tmp___1 = __builtin_expect((unsigned int )((unsigned short )ipvsh->fragoffs) != 0U,
+  tmp___1 = ldv__builtin_expect((unsigned int )((unsigned short )ipvsh->fragoffs) != 0U,
                              0L);
 #line 130
   if (tmp___1 != 0L) {
 #line 130
     tmp___2 = skb_nfct_reasm(skb);
 #line 130
-    tmp___3 = __builtin_expect((unsigned long )tmp___2 != (unsigned long )((struct sk_buff *)0),
+    tmp___3 = ldv__builtin_expect((unsigned long )tmp___2 != (unsigned long )((struct sk_buff *)0),
                                0L);
 #line 130
     if (tmp___3 != 0L) {
@@ -9311,7 +9311,7 @@ __inline static char const   *ip_vs_dbg_addr(int af , char *buf , size_t buf_len
 #line 265
   *idx = *idx + len;
 #line 266
-  tmp___1 = __builtin_expect((size_t )*idx > buf_len + 1UL, 0L);
+  tmp___1 = ldv__builtin_expect((size_t )*idx > buf_len + 1UL, 0L);
 #line 266
   if (tmp___1 != 0L) {
 #line 266
@@ -9811,7 +9811,7 @@ static unsigned int ip_vs_conn_hashkey_param(struct ip_vs_conn_param  const  *p 
 
   }
 #line 214
-  tmp___0 = __builtin_expect((long )(! inverse), 1L);
+  tmp___0 = ldv__builtin_expect((long )(! inverse), 1L);
 #line 214
   if (tmp___0 != 0L) {
 #line 215
@@ -10119,7 +10119,7 @@ static int ip_vs_conn_fill_param_proto(int af , struct sk_buff  const  *skb , st
 
   }
 #line 376
-  tmp___1 = __builtin_expect(inverse == 0, 1L);
+  tmp___1 = ldv__builtin_expect(inverse == 0, 1L);
 #line 376
   if (tmp___1 != 0L) {
 #line 377
@@ -11103,7 +11103,7 @@ static void ip_vs_conn_expire(unsigned long data )
 #line 853
   tmp___5 = atomic_read((atomic_t const   *)(& cp->refcnt));
 #line 853
-  tmp___6 = __builtin_expect(tmp___5 == 1, 1L);
+  tmp___6 = ldv__builtin_expect(tmp___5 == 1, 1L);
 #line 853
   if (tmp___6 != 0L) {
 #line 855
@@ -11148,7 +11148,7 @@ static void ip_vs_conn_expire(unsigned long data )
 #line 874
     kfree((void const   *)cp->pe_data);
 #line 875
-    tmp___4 = __builtin_expect((unsigned long )cp->app != (unsigned long )((struct ip_vs_app *)0),
+    tmp___4 = ldv__builtin_expect((unsigned long )cp->app != (unsigned long )((struct ip_vs_app *)0),
                                0L);
 #line 875
     if (tmp___4 != 0L) {
@@ -11359,14 +11359,14 @@ struct ip_vs_conn *ip_vs_conn_new(struct ip_vs_conn_param  const  *p , union nf_
     ip_vs_bind_xmit(cp);
   }
 #line 980
-  tmp___3 = __builtin_expect((unsigned long )pd != (unsigned long )((struct ip_vs_proto_data *)0),
+  tmp___3 = ldv__builtin_expect((unsigned long )pd != (unsigned long )((struct ip_vs_proto_data *)0),
                              0L);
 #line 980
   if (tmp___3 != 0L) {
 #line 980
     tmp___4 = atomic_read((atomic_t const   *)(& pd->appcnt));
 #line 980
-    tmp___5 = __builtin_expect(tmp___4 != 0, 0L);
+    tmp___5 = ldv__builtin_expect(tmp___4 != 0, 0L);
 #line 980
     if (tmp___5 != 0L) {
 #line 981
@@ -12938,7 +12938,7 @@ __inline static unsigned char *__skb_pull(struct sk_buff *skb , unsigned int len
 #line 1365
   skb->len = skb->len - len;
 #line 1366
-  tmp = __builtin_expect(skb->len < skb->data_len, 0L);
+  tmp = ldv__builtin_expect(skb->len < skb->data_len, 0L);
 #line 1366
   if (tmp != 0L) {
 #line 1366
@@ -13216,14 +13216,14 @@ __inline static void *net_generic(struct net  const  *net , int id )
 #line 40
   ng = _________p1;
 #line 41
-  tmp___1 = __builtin_expect(id == 0, 0L);
+  tmp___1 = ldv__builtin_expect(id == 0, 0L);
 #line 41
   if (tmp___1 != 0L) {
 #line 41
     goto _L;
   } else {
 #line 41
-    tmp___2 = __builtin_expect((unsigned int )id > ng->len, 0L);
+    tmp___2 = ldv__builtin_expect((unsigned int )id > ng->len, 0L);
 #line 41
     if (tmp___2 != 0L) {
       _L: /* CIL Label */ 
@@ -13242,7 +13242,7 @@ __inline static void *net_generic(struct net  const  *net , int id )
 #line 43
   rcu_read_unlock();
 #line 45
-  tmp___3 = __builtin_expect((unsigned long )ptr == (unsigned long )((void *)0), 0L);
+  tmp___3 = ldv__builtin_expect((unsigned long )ptr == (unsigned long )((void *)0), 0L);
 #line 45
   if (tmp___3 != 0L) {
 #line 45
@@ -13321,12 +13321,12 @@ __inline static struct net *skb_net___0(struct sk_buff  const  *skb )
 
   {
 #line 53
-  tmp___0 = __builtin_expect((unsigned long )skb->dev != (unsigned long )((struct net_device */* const  */)0),
+  tmp___0 = ldv__builtin_expect((unsigned long )skb->dev != (unsigned long )((struct net_device */* const  */)0),
                              1L);
 #line 53
   if (tmp___0 != 0L) {
 #line 53
-    tmp___1 = __builtin_expect((unsigned long )(skb->dev)->nd_net != (unsigned long )((struct net *)0),
+    tmp___1 = ldv__builtin_expect((unsigned long )(skb->dev)->nd_net != (unsigned long )((struct net *)0),
                                1L);
 #line 53
     if (tmp___1 != 0L) {
@@ -13363,7 +13363,7 @@ __inline static struct net *skb_net___0(struct sk_buff  const  *skb )
 #line 57
   __ret_warn_on = (unsigned long )skb->sk != (unsigned long )((struct sock */* const  */)0);
 #line 57
-  tmp___6 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___6 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 57
   if (tmp___6 != 0L) {
 #line 57
@@ -13373,14 +13373,14 @@ __inline static struct net *skb_net___0(struct sk_buff  const  *skb )
 
   }
 #line 57
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 59
-  tmp___8 = __builtin_expect((unsigned long )skb->sk != (unsigned long )((struct sock */* const  */)0),
+  tmp___8 = ldv__builtin_expect((unsigned long )skb->sk != (unsigned long )((struct sock */* const  */)0),
                              1L);
 #line 59
   if (tmp___8 != 0L) {
 #line 59
-    tmp___9 = __builtin_expect((unsigned long )(skb->sk)->__sk_common.skc_net != (unsigned long )((struct net *)0),
+    tmp___9 = ldv__builtin_expect((unsigned long )(skb->sk)->__sk_common.skc_net != (unsigned long )((struct net *)0),
                                1L);
 #line 59
     if (tmp___9 != 0L) {
@@ -13522,7 +13522,7 @@ __inline static char const   *ip_vs_dbg_addr___0(int af , char *buf , size_t buf
 #line 265
   *idx = *idx + len;
 #line 266
-  tmp___1 = __builtin_expect((size_t )*idx > buf_len + 1UL, 0L);
+  tmp___1 = ldv__builtin_expect((size_t )*idx > buf_len + 1UL, 0L);
 #line 266
   if (tmp___1 != 0L) {
 #line 266
@@ -14158,7 +14158,7 @@ __inline static void ip_vs_set_state(struct ip_vs_conn *cp , int direction , str
 
   {
 #line 252
-  tmp = __builtin_expect((unsigned long )(pd->pp)->state_transition != (unsigned long )((void (*)(struct ip_vs_conn * ,
+  tmp = ldv__builtin_expect((unsigned long )(pd->pp)->state_transition != (unsigned long )((void (*)(struct ip_vs_conn * ,
                                                                                                   int  ,
                                                                                                   struct sk_buff  const  * ,
                                                                                                   struct ip_vs_proto_data * ))0),
@@ -15364,11 +15364,11 @@ static int ip_vs_out_icmp(struct sk_buff *skb , int *related , unsigned int hook
 
   }
 #line 951
-  tmp___7 = __builtin_expect(((int )cih->frag_off & 65311) != 0, 0L);
+  tmp___7 = ldv__builtin_expect(((int )cih->frag_off & 65311) != 0, 0L);
 #line 951
   if (tmp___7 != 0L) {
 #line 951
-    tmp___8 = __builtin_expect(pp->dont_defrag != 0, 0L);
+    tmp___8 = ldv__builtin_expect(pp->dont_defrag != 0, 0L);
 #line 951
     if (tmp___8 != 0L) {
 #line 953
@@ -15821,12 +15821,12 @@ static unsigned int ip_vs_out(unsigned int hooknum , struct sk_buff *skb , int a
 
   }
 #line 1146
-  tmp___1 = __builtin_expect((unsigned long )skb->sk != (unsigned long )((struct sock *)0),
+  tmp___1 = ldv__builtin_expect((unsigned long )skb->sk != (unsigned long )((struct sock *)0),
                              0L);
 #line 1146
   if (tmp___1 != 0L) {
 #line 1146
-    tmp___2 = __builtin_expect(hooknum == 3U, 0L);
+    tmp___2 = ldv__builtin_expect(hooknum == 3U, 0L);
 #line 1146
     if (tmp___2 != 0L) {
 #line 1146
@@ -15842,7 +15842,7 @@ static unsigned int ip_vs_out(unsigned int hooknum , struct sk_buff *skb , int a
 #line 1146
   if (tmp___3 != 0) {
 #line 1146
-    tmp___4 = __builtin_expect(af == 2, 0L);
+    tmp___4 = ldv__builtin_expect(af == 2, 0L);
 #line 1146
     if (tmp___4 != 0L) {
 #line 1148
@@ -15867,7 +15867,7 @@ static unsigned int ip_vs_out(unsigned int hooknum , struct sk_buff *skb , int a
 #line 1155
   tmp___5 = skb_dst((struct sk_buff  const  *)skb);
 #line 1155
-  tmp___6 = __builtin_expect((unsigned long )tmp___5 == (unsigned long )((struct dst_entry *)0),
+  tmp___6 = ldv__builtin_expect((unsigned long )tmp___5 == (unsigned long )((struct dst_entry *)0),
                              0L);
 #line 1155
   if (tmp___6 != 0L) {
@@ -15912,7 +15912,7 @@ static unsigned int ip_vs_out(unsigned int hooknum , struct sk_buff *skb , int a
 
     }
 #line 1171
-    tmp___11 = __builtin_expect((int )iph.protocol == 58, 0L);
+    tmp___11 = ldv__builtin_expect((int )iph.protocol == 58, 0L);
 #line 1171
     if (tmp___11 != 0L) {
 #line 1173
@@ -15931,7 +15931,7 @@ static unsigned int ip_vs_out(unsigned int hooknum , struct sk_buff *skb , int a
     }
   } else {
 #line 1181
-    tmp___13 = __builtin_expect((int )iph.protocol == 1, 0L);
+    tmp___13 = ldv__builtin_expect((int )iph.protocol == 1, 0L);
 #line 1181
     if (tmp___13 != 0L) {
 #line 1183
@@ -15952,7 +15952,7 @@ static unsigned int ip_vs_out(unsigned int hooknum , struct sk_buff *skb , int a
 #line 1189
   pd = ip_vs_proto_data_get(net, (int )((unsigned short )iph.protocol));
 #line 1190
-  tmp___14 = __builtin_expect((unsigned long )pd == (unsigned long )((struct ip_vs_proto_data *)0),
+  tmp___14 = ldv__builtin_expect((unsigned long )pd == (unsigned long )((struct ip_vs_proto_data *)0),
                               0L);
 #line 1190
   if (tmp___14 != 0L) {
@@ -15970,11 +15970,11 @@ static unsigned int ip_vs_out(unsigned int hooknum , struct sk_buff *skb , int a
 #line 1198
     tmp___19 = ip_is_fragment((struct iphdr  const  *)tmp___18);
 #line 1198
-    tmp___20 = __builtin_expect((long )tmp___19, 0L);
+    tmp___20 = ldv__builtin_expect((long )tmp___19, 0L);
 #line 1198
     if (tmp___20 != 0L) {
 #line 1198
-      tmp___21 = __builtin_expect(pp->dont_defrag == 0, 0L);
+      tmp___21 = ldv__builtin_expect(pp->dont_defrag == 0, 0L);
 #line 1198
       if (tmp___21 != 0L) {
 #line 1199
@@ -16005,7 +16005,7 @@ static unsigned int ip_vs_out(unsigned int hooknum , struct sk_buff *skb , int a
   cp = (*(pp->conn_out_get))(af, (struct sk_buff  const  *)skb, (struct ip_vs_iphdr  const  *)(& iph),
                              0);
 #line 1211
-  tmp___23 = __builtin_expect((unsigned long )cp != (unsigned long )((struct ip_vs_conn *)0),
+  tmp___23 = ldv__builtin_expect((unsigned long )cp != (unsigned long )((struct ip_vs_conn *)0),
                               1L);
 #line 1211
   if (tmp___23 != 0L) {
@@ -16306,7 +16306,7 @@ static int ip_vs_in_icmp(struct sk_buff *skb , int *related , unsigned int hookn
 #line 1391
   if ((unsigned int )cih->protocol == 4U) {
 #line 1392
-    tmp___7 = __builtin_expect(((int )cih->frag_off & 65311) != 0, 0L);
+    tmp___7 = ldv__builtin_expect(((int )cih->frag_off & 65311) != 0, 0L);
 #line 1392
     if (tmp___7 != 0L) {
 #line 1393
@@ -16354,11 +16354,11 @@ static int ip_vs_in_icmp(struct sk_buff *skb , int *related , unsigned int hookn
 #line 1407
   pp = pd->pp;
 #line 1410
-  tmp___10 = __builtin_expect(((int )cih->frag_off & 65311) != 0, 0L);
+  tmp___10 = ldv__builtin_expect(((int )cih->frag_off & 65311) != 0, 0L);
 #line 1410
   if (tmp___10 != 0L) {
 #line 1410
-    tmp___11 = __builtin_expect(pp->dont_defrag != 0, 0L);
+    tmp___11 = ldv__builtin_expect(pp->dont_defrag != 0, 0L);
 #line 1410
     if (tmp___11 != 0L) {
 #line 1412
@@ -16812,12 +16812,12 @@ static unsigned int ip_vs_in(unsigned int hooknum , struct sk_buff *skb , int af
 
   }
 #line 1624
-  tmp___1 = __builtin_expect((unsigned int )*((unsigned char *)skb + 125UL) != 0U,
+  tmp___1 = ldv__builtin_expect((unsigned int )*((unsigned char *)skb + 125UL) != 0U,
                              0L);
 #line 1624
   if (tmp___1 != 0L) {
 #line 1624
-    tmp___2 = __builtin_expect(hooknum != 3U, 0L);
+    tmp___2 = ldv__builtin_expect(hooknum != 3U, 0L);
 #line 1624
     if (tmp___2 != 0L) {
 #line 1624
@@ -16838,7 +16838,7 @@ static unsigned int ip_vs_in(unsigned int hooknum , struct sk_buff *skb , int af
 #line 1624
     tmp___4 = skb_dst((struct sk_buff  const  *)skb);
 #line 1624
-    tmp___5 = __builtin_expect((unsigned long )tmp___4 == (unsigned long )((struct dst_entry *)0),
+    tmp___5 = ldv__builtin_expect((unsigned long )tmp___4 == (unsigned long )((struct dst_entry *)0),
                                0L);
 #line 1624
     if (tmp___5 != 0L) {
@@ -16880,12 +16880,12 @@ static unsigned int ip_vs_in(unsigned int hooknum , struct sk_buff *skb , int af
 #line 1639
   ip_vs_fill_iph_skb(af, (struct sk_buff  const  *)skb, & iph);
 #line 1642
-  tmp___8 = __builtin_expect((unsigned long )skb->sk != (unsigned long )((struct sock *)0),
+  tmp___8 = ldv__builtin_expect((unsigned long )skb->sk != (unsigned long )((struct sock *)0),
                              0L);
 #line 1642
   if (tmp___8 != 0L) {
 #line 1642
-    tmp___9 = __builtin_expect(hooknum == 3U, 0L);
+    tmp___9 = ldv__builtin_expect(hooknum == 3U, 0L);
 #line 1642
     if (tmp___9 != 0L) {
 #line 1642
@@ -16901,7 +16901,7 @@ static unsigned int ip_vs_in(unsigned int hooknum , struct sk_buff *skb , int af
 #line 1642
   if (tmp___10 != 0) {
 #line 1642
-    tmp___11 = __builtin_expect(af == 2, 0L);
+    tmp___11 = ldv__builtin_expect(af == 2, 0L);
 #line 1642
     if (tmp___11 != 0L) {
 #line 1644
@@ -16946,7 +16946,7 @@ static unsigned int ip_vs_in(unsigned int hooknum , struct sk_buff *skb , int af
 
     }
 #line 1659
-    tmp___15 = __builtin_expect((int )iph.protocol == 58, 0L);
+    tmp___15 = ldv__builtin_expect((int )iph.protocol == 58, 0L);
 #line 1659
     if (tmp___15 != 0L) {
 #line 1661
@@ -16965,7 +16965,7 @@ static unsigned int ip_vs_in(unsigned int hooknum , struct sk_buff *skb , int af
     }
   } else {
 #line 1669
-    tmp___17 = __builtin_expect((int )iph.protocol == 1, 0L);
+    tmp___17 = ldv__builtin_expect((int )iph.protocol == 1, 0L);
 #line 1669
     if (tmp___17 != 0L) {
 #line 1671
@@ -16986,7 +16986,7 @@ static unsigned int ip_vs_in(unsigned int hooknum , struct sk_buff *skb , int af
 #line 1678
   pd = ip_vs_proto_data_get(net, (int )((unsigned short )iph.protocol));
 #line 1679
-  tmp___18 = __builtin_expect((unsigned long )pd == (unsigned long )((struct ip_vs_proto_data *)0),
+  tmp___18 = ldv__builtin_expect((unsigned long )pd == (unsigned long )((struct ip_vs_proto_data *)0),
                               0L);
 #line 1679
   if (tmp___18 != 0L) {
@@ -17001,7 +17001,7 @@ static unsigned int ip_vs_in(unsigned int hooknum , struct sk_buff *skb , int af
   cp = (*(pp->conn_in_get))(af, (struct sk_buff  const  *)skb, (struct ip_vs_iphdr  const  *)(& iph),
                             0);
 #line 1686
-  tmp___20 = __builtin_expect((unsigned long )cp == (unsigned long )((struct ip_vs_conn *)0),
+  tmp___20 = ldv__builtin_expect((unsigned long )cp == (unsigned long )((struct ip_vs_conn *)0),
                               0L);
 #line 1686
   if (tmp___20 != 0L && (unsigned int )iph.fragoffs == 0U) {
@@ -17018,7 +17018,7 @@ static unsigned int ip_vs_in(unsigned int hooknum , struct sk_buff *skb , int af
 
   }
 #line 1697
-  tmp___25 = __builtin_expect((unsigned long )cp == (unsigned long )((struct ip_vs_conn *)0),
+  tmp___25 = ldv__builtin_expect((unsigned long )cp == (unsigned long )((struct ip_vs_conn *)0),
                               0L);
 #line 1697
   if (tmp___25 != 0L) {
@@ -17972,13 +17972,13 @@ __inline static unsigned int cpumask_check(unsigned int cpu )
 #line 108
   __ret_warn_once = (unsigned int )nr_cpu_ids <= cpu;
 #line 108
-  tmp___1 = __builtin_expect(__ret_warn_once != 0, 0L);
+  tmp___1 = ldv__builtin_expect(__ret_warn_once != 0, 0L);
 #line 108
   if (tmp___1 != 0L) {
 #line 108
     __ret_warn_on = ! __warned;
 #line 108
-    tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 108
     if (tmp != 0L) {
 #line 108
@@ -17987,7 +17987,7 @@ __inline static unsigned int cpumask_check(unsigned int cpu )
 
     }
 #line 108
-    tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 108
     if (tmp___0 != 0L) {
 #line 108
@@ -17999,7 +17999,7 @@ __inline static unsigned int cpumask_check(unsigned int cpu )
 
   }
 #line 108
-  __builtin_expect(__ret_warn_once != 0, 0L);
+  ldv__builtin_expect(__ret_warn_once != 0, 0L);
 #line 110
   return (cpu);
 }
@@ -18051,7 +18051,7 @@ __inline static long IS_ERR(void const   *ptr )
 
   {
 #line 34
-  tmp = __builtin_expect((unsigned long )ptr > 0xfffffffffffff000UL, 0L);
+  tmp = ldv__builtin_expect((unsigned long )ptr > 0xfffffffffffff000UL, 0L);
 #line 34
   return (tmp);
 }
@@ -18261,14 +18261,14 @@ __inline static unsigned long copy_from_user(void *to , void const   *from , uns
 #line 61
   might_fault();
 #line 62
-  tmp___1 = __builtin_expect(sz == -1, 1L);
+  tmp___1 = ldv__builtin_expect(sz == -1, 1L);
 #line 62
   if (tmp___1 != 0L) {
 #line 63
     n = _copy_from_user(to, from, (unsigned int )n);
   } else {
 #line 62
-    tmp___2 = __builtin_expect((unsigned long )sz >= n, 1L);
+    tmp___2 = ldv__builtin_expect((unsigned long )sz >= n, 1L);
 #line 62
     if (tmp___2 != 0L) {
 #line 63
@@ -18277,7 +18277,7 @@ __inline static unsigned long copy_from_user(void *to , void const   *from , uns
 #line 66
       __ret_warn_on = 1;
 #line 66
-      tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+      tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 66
       if (tmp___0 != 0L) {
 #line 66
@@ -18287,7 +18287,7 @@ __inline static unsigned long copy_from_user(void *to , void const   *from , uns
 
       }
 #line 66
-      __builtin_expect(__ret_warn_on != 0, 0L);
+      ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
   }
 #line 68
@@ -18858,12 +18858,12 @@ __inline static struct net *skb_sknet(struct sk_buff  const  *skb )
 
   {
 #line 77
-  tmp___0 = __builtin_expect((unsigned long )skb->sk != (unsigned long )((struct sock */* const  */)0),
+  tmp___0 = ldv__builtin_expect((unsigned long )skb->sk != (unsigned long )((struct sock */* const  */)0),
                              1L);
 #line 77
   if (tmp___0 != 0L) {
 #line 77
-    tmp___1 = __builtin_expect((unsigned long )(skb->sk)->__sk_common.skc_net != (unsigned long )((struct net *)0),
+    tmp___1 = ldv__builtin_expect((unsigned long )(skb->sk)->__sk_common.skc_net != (unsigned long )((struct net *)0),
                                1L);
 #line 77
     if (tmp___1 != 0L) {
@@ -18880,7 +18880,7 @@ __inline static struct net *skb_sknet(struct sk_buff  const  *skb )
 #line 79
   __ret_warn_on = (unsigned long )skb->dev != (unsigned long )((struct net_device */* const  */)0);
 #line 79
-  tmp___2 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___2 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 79
   if (tmp___2 != 0L) {
 #line 79
@@ -18890,14 +18890,14 @@ __inline static struct net *skb_sknet(struct sk_buff  const  *skb )
 
   }
 #line 79
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 81
-  tmp___4 = __builtin_expect((unsigned long )skb->dev != (unsigned long )((struct net_device */* const  */)0),
+  tmp___4 = ldv__builtin_expect((unsigned long )skb->dev != (unsigned long )((struct net_device */* const  */)0),
                              1L);
 #line 81
   if (tmp___4 != 0L) {
 #line 81
-    tmp___5 = __builtin_expect((unsigned long )(skb->dev)->nd_net != (unsigned long )((struct net *)0),
+    tmp___5 = ldv__builtin_expect((unsigned long )(skb->dev)->nd_net != (unsigned long )((struct net *)0),
                                1L);
 #line 81
     if (tmp___5 != 0L) {
@@ -18960,7 +18960,7 @@ __inline static char const   *ip_vs_dbg_addr___1(int af , char *buf , size_t buf
 #line 265
   *idx = *idx + len;
 #line 266
-  tmp___1 = __builtin_expect((size_t )*idx > buf_len + 1UL, 0L);
+  tmp___1 = ldv__builtin_expect((size_t )*idx > buf_len + 1UL, 0L);
 #line 266
   if (tmp___1 != 0L) {
 #line 266
@@ -23709,7 +23709,7 @@ static int do_ip_vs_get_ctl(struct sock *sk , int cmd , void *user , int *len )
 #line 2688
   ipvs = tmp___0;
 #line 2690
-  tmp___1 = __builtin_expect((unsigned long )net == (unsigned long )((struct net *)0),
+  tmp___1 = ldv__builtin_expect((unsigned long )net == (unsigned long )((struct net *)0),
                              0L);
 #line 2690
   if (tmp___1 != 0L) {
@@ -27769,7 +27769,7 @@ __inline static struct sk_buff *skb_share_check(struct sk_buff *skb , gfp_t pri 
 #line 863
     nskb = tmp;
 #line 865
-    tmp___0 = __builtin_expect((unsigned long )nskb != (unsigned long )((struct sk_buff *)0),
+    tmp___0 = ldv__builtin_expect((unsigned long )nskb != (unsigned long )((struct sk_buff *)0),
                                1L);
 #line 865
     if (tmp___0 != 0L) {
@@ -28158,7 +28158,7 @@ __inline static void skb_dst_force(struct sk_buff *skb )
 #line 306
     __ret_warn_on = tmp == 0;
 #line 306
-    tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 306
     if (tmp___0 != 0L) {
 #line 306
@@ -28167,7 +28167,7 @@ __inline static void skb_dst_force(struct sk_buff *skb )
 
     }
 #line 306
-    __builtin_expect(__ret_warn_on != 0, 0L);
+    ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 307
     skb->_skb_refdst = skb->_skb_refdst & 0xfffffffffffffffeUL;
 #line 308
@@ -28385,12 +28385,12 @@ __inline static struct net *skb_net___1(struct sk_buff  const  *skb )
 
   {
 #line 53
-  tmp___0 = __builtin_expect((unsigned long )skb->dev != (unsigned long )((struct net_device */* const  */)0),
+  tmp___0 = ldv__builtin_expect((unsigned long )skb->dev != (unsigned long )((struct net_device */* const  */)0),
                              1L);
 #line 53
   if (tmp___0 != 0L) {
 #line 53
-    tmp___1 = __builtin_expect((unsigned long )(skb->dev)->nd_net != (unsigned long )((struct net *)0),
+    tmp___1 = ldv__builtin_expect((unsigned long )(skb->dev)->nd_net != (unsigned long )((struct net *)0),
                                1L);
 #line 53
     if (tmp___1 != 0L) {
@@ -28427,7 +28427,7 @@ __inline static struct net *skb_net___1(struct sk_buff  const  *skb )
 #line 57
   __ret_warn_on = (unsigned long )skb->sk != (unsigned long )((struct sock */* const  */)0);
 #line 57
-  tmp___6 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___6 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 57
   if (tmp___6 != 0L) {
 #line 57
@@ -28437,14 +28437,14 @@ __inline static struct net *skb_net___1(struct sk_buff  const  *skb )
 
   }
 #line 57
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 59
-  tmp___8 = __builtin_expect((unsigned long )skb->sk != (unsigned long )((struct sock */* const  */)0),
+  tmp___8 = ldv__builtin_expect((unsigned long )skb->sk != (unsigned long )((struct sock */* const  */)0),
                              1L);
 #line 59
   if (tmp___8 != 0L) {
 #line 59
-    tmp___9 = __builtin_expect((unsigned long )(skb->sk)->__sk_common.skc_net != (unsigned long )((struct net *)0),
+    tmp___9 = ldv__builtin_expect((unsigned long )(skb->sk)->__sk_common.skc_net != (unsigned long )((struct net *)0),
                                1L);
 #line 59
     if (tmp___9 != 0L) {
@@ -28817,7 +28817,7 @@ static struct rtable *__ip_vs_get_out_rt(struct sk_buff *skb , struct ip_vs_dest
 
   }
 #line 260
-  tmp___10 = __builtin_expect(local == 0, 0L);
+  tmp___10 = ldv__builtin_expect(local == 0, 0L);
 #line 260
   if (tmp___10 != 0L) {
 #line 260
@@ -28825,7 +28825,7 @@ static struct rtable *__ip_vs_get_out_rt(struct sk_buff *skb , struct ip_vs_dest
 #line 260
     tmp___12 = ipv4_is_loopback(tmp___11->saddr);
 #line 260
-    tmp___13 = __builtin_expect((long )tmp___12, 0L);
+    tmp___13 = ldv__builtin_expect((long )tmp___12, 0L);
 #line 260
     if (tmp___13 != 0L) {
 #line 261
@@ -29279,11 +29279,11 @@ static struct rt6_info *__ip_vs_get_out_rt_v6(struct sk_buff *skb , struct ip_vs
 
   }
 #line 411
-  tmp___12 = __builtin_expect(local == 0, 0L);
+  tmp___12 = ldv__builtin_expect(local == 0, 0L);
 #line 411
   if (tmp___12 != 0L) {
 #line 411
-    tmp___13 = __builtin_expect((unsigned long )skb->dev == (unsigned long )((struct net_device *)0),
+    tmp___13 = ldv__builtin_expect((unsigned long )skb->dev == (unsigned long )((struct net_device *)0),
                                 0L);
 #line 411
     if (tmp___13 != 0L) {
@@ -29291,7 +29291,7 @@ static struct rt6_info *__ip_vs_get_out_rt_v6(struct sk_buff *skb , struct ip_vs
       tmp___15 = 1;
     } else {
 #line 411
-      tmp___14 = __builtin_expect(((skb->dev)->flags & 8U) != 0U, 0L);
+      tmp___14 = ldv__builtin_expect(((skb->dev)->flags & 8U) != 0U, 0L);
 #line 411
       if (tmp___14 != 0L) {
 #line 411
@@ -29320,7 +29320,7 @@ static struct rt6_info *__ip_vs_get_out_rt_v6(struct sk_buff *skb , struct ip_vs
 #line 411
     tmp___18 = ipv6_addr_type((struct in6_addr  const  *)(& tmp___17->saddr));
 #line 411
-    tmp___19 = __builtin_expect(((unsigned int )tmp___18 & 16U) != 0U, 0L);
+    tmp___19 = ldv__builtin_expect(((unsigned int )tmp___18 & 16U) != 0U, 0L);
 #line 411
     if (tmp___19 != 0L) {
 #line 414
@@ -29378,7 +29378,7 @@ int ip_vs_null_xmit(struct sk_buff *skb , struct ip_vs_conn *cp , struct ip_vs_p
 #line 489
   skb->ipvs_property = 1U;
 #line 489
-  tmp = __builtin_expect(((unsigned int )cp->flags & 65536U) == 0U, 1L);
+  tmp = ldv__builtin_expect(((unsigned int )cp->flags & 65536U) == 0U, 1L);
 #line 489
   if (tmp != 0L) {
 #line 489
@@ -29485,7 +29485,7 @@ int ip_vs_bypass_xmit(struct sk_buff *skb , struct ip_vs_conn *cp , struct ip_vs
 #line 526
   skb = skb_share_check(skb, 32U);
 #line 526
-  tmp___6 = __builtin_expect((unsigned long )skb == (unsigned long )((struct sk_buff *)0),
+  tmp___6 = ldv__builtin_expect((unsigned long )skb == (unsigned long )((struct sk_buff *)0),
                              0L);
 #line 526
   if (tmp___6 != 0L) {
@@ -29509,7 +29509,7 @@ int ip_vs_bypass_xmit(struct sk_buff *skb , struct ip_vs_conn *cp , struct ip_vs
 #line 539
   skb->ipvs_property = 1U;
 #line 539
-  tmp___8 = __builtin_expect(((unsigned int )cp->flags & 65536U) == 0U, 1L);
+  tmp___8 = ldv__builtin_expect(((unsigned int )cp->flags & 65536U) == 0U, 1L);
 #line 539
   if (tmp___8 != 0L) {
 #line 539
@@ -29641,7 +29641,7 @@ int ip_vs_bypass_xmit_v6(struct sk_buff *skb , struct ip_vs_conn *cp , struct ip
 #line 587
   skb = skb_share_check(skb, 32U);
 #line 588
-  tmp___5 = __builtin_expect((unsigned long )skb == (unsigned long )((struct sk_buff *)0),
+  tmp___5 = ldv__builtin_expect((unsigned long )skb == (unsigned long )((struct sk_buff *)0),
                              0L);
 #line 588
   if (tmp___5 != 0L) {
@@ -29661,7 +29661,7 @@ int ip_vs_bypass_xmit_v6(struct sk_buff *skb , struct ip_vs_conn *cp , struct ip
 #line 600
   skb->ipvs_property = 1U;
 #line 600
-  tmp___6 = __builtin_expect(((unsigned int )cp->flags & 65536U) == 0U, 1L);
+  tmp___6 = ldv__builtin_expect(((unsigned int )cp->flags & 65536U) == 0U, 1L);
 #line 600
   if (tmp___6 != 0L) {
 #line 600
@@ -29768,7 +29768,7 @@ int ip_vs_nat_xmit(struct sk_buff *skb , struct ip_vs_conn *cp , struct ip_vs_pr
 
   }
 #line 630
-  tmp___4 = __builtin_expect(((unsigned int )cp->flags & 2048U) != 0U, 0L);
+  tmp___4 = ldv__builtin_expect(((unsigned int )cp->flags & 2048U) != 0U, 0L);
 #line 630
   if (tmp___4 != 0L) {
 #line 632
@@ -30010,7 +30010,7 @@ int ip_vs_nat_xmit(struct sk_buff *skb , struct ip_vs_conn *cp , struct ip_vs_pr
 #line 719
   skb->ipvs_property = 1U;
 #line 719
-  tmp___27 = __builtin_expect(((unsigned int )cp->flags & 65536U) == 0U, 1L);
+  tmp___27 = ldv__builtin_expect(((unsigned int )cp->flags & 65536U) == 0U, 1L);
 #line 719
   if (tmp___27 != 0L) {
 #line 719
@@ -30122,11 +30122,11 @@ int ip_vs_nat_xmit_v6(struct sk_buff *skb , struct ip_vs_conn *cp , struct ip_vs
 
   }
 #line 747
-  tmp___3 = __builtin_expect(((unsigned int )cp->flags & 2048U) != 0U, 0L);
+  tmp___3 = ldv__builtin_expect(((unsigned int )cp->flags & 2048U) != 0U, 0L);
 #line 747
   if (tmp___3 != 0L) {
 #line 747
-    tmp___4 = __builtin_expect((unsigned int )iph->fragoffs == 0U, 0L);
+    tmp___4 = ldv__builtin_expect((unsigned int )iph->fragoffs == 0U, 0L);
 #line 747
     if (tmp___4 != 0L) {
 #line 749
@@ -30352,7 +30352,7 @@ int ip_vs_nat_xmit_v6(struct sk_buff *skb , struct ip_vs_conn *cp , struct ip_vs
 #line 835
   skb->ipvs_property = 1U;
 #line 835
-  tmp___23 = __builtin_expect(((unsigned int )cp->flags & 65536U) == 0U, 1L);
+  tmp___23 = ldv__builtin_expect(((unsigned int )cp->flags & 65536U) == 0U, 1L);
 #line 835
   if (tmp___23 != 0L) {
 #line 835
@@ -30494,7 +30494,7 @@ int ip_vs_tunnel_xmit(struct sk_buff *skb , struct ip_vs_conn *cp , struct ip_vs
 #line 898
     skb->ipvs_property = 1U;
 #line 898
-    tmp___3 = __builtin_expect(((unsigned int )cp->flags & 65536U) == 0U, 1L);
+    tmp___3 = ldv__builtin_expect(((unsigned int )cp->flags & 65536U) == 0U, 1L);
 #line 898
     if (tmp___3 != 0L) {
 #line 898
@@ -30693,7 +30693,7 @@ int ip_vs_tunnel_xmit(struct sk_buff *skb , struct ip_vs_conn *cp , struct ip_vs
 #line 970
   skb->ipvs_property = 1U;
 #line 970
-  tmp___22 = __builtin_expect(((unsigned int )cp->flags & 65536U) != 0U, 0L);
+  tmp___22 = ldv__builtin_expect(((unsigned int )cp->flags & 65536U) != 0U, 0L);
 #line 970
   if (tmp___22 != 0L) {
 #line 970
@@ -30832,7 +30832,7 @@ int ip_vs_tunnel_xmit_v6(struct sk_buff *skb , struct ip_vs_conn *cp , struct ip
 #line 1013
     skb->ipvs_property = 1U;
 #line 1013
-    tmp___1 = __builtin_expect(((unsigned int )cp->flags & 65536U) == 0U, 1L);
+    tmp___1 = ldv__builtin_expect(((unsigned int )cp->flags & 65536U) == 0U, 1L);
 #line 1013
     if (tmp___1 != 0L) {
 #line 1013
@@ -31019,7 +31019,7 @@ int ip_vs_tunnel_xmit_v6(struct sk_buff *skb , struct ip_vs_conn *cp , struct ip
 #line 1088
   skb->ipvs_property = 1U;
 #line 1088
-  tmp___18 = __builtin_expect(((unsigned int )cp->flags & 65536U) != 0U, 0L);
+  tmp___18 = ldv__builtin_expect(((unsigned int )cp->flags & 65536U) != 0U, 0L);
 #line 1088
   if (tmp___18 != 0L) {
 #line 1088
@@ -31141,7 +31141,7 @@ int ip_vs_dr_xmit(struct sk_buff *skb , struct ip_vs_conn *cp , struct ip_vs_pro
 #line 1133
     skb->ipvs_property = 1U;
 #line 1133
-    tmp___1 = __builtin_expect(((unsigned int )cp->flags & 65536U) == 0U, 1L);
+    tmp___1 = ldv__builtin_expect(((unsigned int )cp->flags & 65536U) == 0U, 1L);
 #line 1133
     if (tmp___1 != 0L) {
 #line 1133
@@ -31204,7 +31204,7 @@ int ip_vs_dr_xmit(struct sk_buff *skb , struct ip_vs_conn *cp , struct ip_vs_pro
 #line 1150
   skb = skb_share_check(skb, 32U);
 #line 1150
-  tmp___8 = __builtin_expect((unsigned long )skb == (unsigned long )((struct sk_buff *)0),
+  tmp___8 = ldv__builtin_expect((unsigned long )skb == (unsigned long )((struct sk_buff *)0),
                              0L);
 #line 1150
   if (tmp___8 != 0L) {
@@ -31228,7 +31228,7 @@ int ip_vs_dr_xmit(struct sk_buff *skb , struct ip_vs_conn *cp , struct ip_vs_pro
 #line 1163
   skb->ipvs_property = 1U;
 #line 1163
-  tmp___10 = __builtin_expect(((unsigned int )cp->flags & 65536U) == 0U, 1L);
+  tmp___10 = ldv__builtin_expect(((unsigned int )cp->flags & 65536U) == 0U, 1L);
 #line 1163
   if (tmp___10 != 0L) {
 #line 1163
@@ -31325,7 +31325,7 @@ int ip_vs_dr_xmit_v6(struct sk_buff *skb , struct ip_vs_conn *cp , struct ip_vs_
 #line 1192
     skb->ipvs_property = 1U;
 #line 1192
-    tmp___0 = __builtin_expect(((unsigned int )cp->flags & 65536U) == 0U, 1L);
+    tmp___0 = ldv__builtin_expect(((unsigned int )cp->flags & 65536U) == 0U, 1L);
 #line 1192
     if (tmp___0 != 0L) {
 #line 1192
@@ -31391,7 +31391,7 @@ int ip_vs_dr_xmit_v6(struct sk_buff *skb , struct ip_vs_conn *cp , struct ip_vs_
 #line 1215
   skb = skb_share_check(skb, 32U);
 #line 1216
-  tmp___8 = __builtin_expect((unsigned long )skb == (unsigned long )((struct sk_buff *)0),
+  tmp___8 = ldv__builtin_expect((unsigned long )skb == (unsigned long )((struct sk_buff *)0),
                              0L);
 #line 1216
   if (tmp___8 != 0L) {
@@ -31411,7 +31411,7 @@ int ip_vs_dr_xmit_v6(struct sk_buff *skb , struct ip_vs_conn *cp , struct ip_vs_
 #line 1228
   skb->ipvs_property = 1U;
 #line 1228
-  tmp___9 = __builtin_expect(((unsigned int )cp->flags & 65536U) == 0U, 1L);
+  tmp___9 = ldv__builtin_expect(((unsigned int )cp->flags & 65536U) == 0U, 1L);
 #line 1228
   if (tmp___9 != 0L) {
 #line 1228
@@ -31693,7 +31693,7 @@ int ip_vs_icmp_xmit(struct sk_buff *skb , struct ip_vs_conn *cp , struct ip_vs_p
 #line 1350
   skb->ipvs_property = 1U;
 #line 1350
-  tmp___17 = __builtin_expect(((unsigned int )cp->flags & 65536U) == 0U, 1L);
+  tmp___17 = ldv__builtin_expect(((unsigned int )cp->flags & 65536U) == 0U, 1L);
 #line 1350
   if (tmp___17 != 0L) {
 #line 1350
@@ -31954,7 +31954,7 @@ int ip_vs_icmp_xmit_v6(struct sk_buff *skb , struct ip_vs_conn *cp , struct ip_v
 #line 1471
   skb->ipvs_property = 1U;
 #line 1471
-  tmp___12 = __builtin_expect(((unsigned int )cp->flags & 65536U) == 0U, 1L);
+  tmp___12 = ldv__builtin_expect(((unsigned int )cp->flags & 65536U) == 0U, 1L);
 #line 1471
   if (tmp___12 != 0L) {
 #line 1471
@@ -32413,7 +32413,7 @@ int ip_vs_app_inc_get(struct ip_vs_app *inc )
 #line 204
   result = ip_vs_app_get(inc->app);
 #line 204
-  tmp = __builtin_expect(result != 1, 0L);
+  tmp = ldv__builtin_expect(result != 1, 0L);
 #line 204
   if (tmp != 0L) {
 #line 205
@@ -33843,7 +33843,7 @@ __inline static int signal_pending(struct task_struct *p )
 #line 2620
   tmp = test_tsk_thread_flag(p, 2);
 #line 2620
-  tmp___0 = __builtin_expect(tmp != 0, 0L);
+  tmp___0 = ldv__builtin_expect(tmp != 0, 0L);
 #line 2620
   return ((int )tmp___0);
 }
@@ -34444,14 +34444,14 @@ static int ip_vs_sync_conn_needed(struct netns_ipvs *ipvs , struct ip_vs_conn *c
 #line 498
   n = ((unsigned long )cp->timeout + now) & 0xfffffffffffffffcUL;
 #line 504
-  tmp___1 = __builtin_expect(((unsigned int )cp->flags & 4096U) != 0U, 0L);
+  tmp___1 = ldv__builtin_expect(((unsigned int )cp->flags & 4096U) != 0U, 0L);
 #line 504
   if (tmp___1 != 0L) {
 #line 505
     force = 0;
   } else {
 #line 506
-    tmp___0 = __builtin_expect((unsigned int )cp->protocol == 6U, 1L);
+    tmp___0 = ldv__builtin_expect((unsigned int )cp->protocol == 6U, 1L);
 #line 506
     if (tmp___0 != 0L) {
 #line 507
@@ -34472,7 +34472,7 @@ static int ip_vs_sync_conn_needed(struct netns_ipvs *ipvs , struct ip_vs_conn *c
       }
     } else {
 #line 517
-      tmp = __builtin_expect((unsigned int )cp->protocol == 132U, 0L);
+      tmp = ldv__builtin_expect((unsigned int )cp->protocol == 132U, 0L);
 #line 517
       if (tmp != 0L) {
 #line 518
@@ -34657,7 +34657,7 @@ static void ip_vs_sync_conn_v0(struct net *net , struct ip_vs_conn *cp , int pkt
 #line 573
   ipvs = tmp;
 #line 581
-  tmp___0 = __builtin_expect((unsigned int )cp->af != 2U, 0L);
+  tmp___0 = ldv__builtin_expect((unsigned int )cp->af != 2U, 0L);
 #line 581
   if (tmp___0 != 0L) {
 #line 582
@@ -36978,7 +36978,7 @@ static int sync_thread_master(void *data )
 #line 1684
   tmp___0 = kthread_should_stop();
 #line 1684
-  tmp___1 = __builtin_expect((long )tmp___0, 0L);
+  tmp___1 = ldv__builtin_expect((long )tmp___0, 0L);
 #line 1684
   if (tmp___1 != 0L) {
 #line 1685
@@ -37062,7 +37062,7 @@ static int sync_thread_master(void *data )
 #line 1697
   tmp___9 = kthread_should_stop();
 #line 1697
-  tmp___10 = __builtin_expect((long )tmp___9, 0L);
+  tmp___10 = ldv__builtin_expect((long )tmp___9, 0L);
 #line 1697
   if (tmp___10 != 0L) {
 #line 1698
@@ -39076,7 +39076,7 @@ static void ip_vs_tcpudp_debug_packet_v4(struct ip_vs_protocol *pp , struct sk_b
 #line 321
   descriptor.flags = 0U;
 #line 321
-  tmp___3 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___3 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 321
   if (tmp___3 != 0L) {
 #line 321
@@ -39150,7 +39150,7 @@ static void ip_vs_tcpudp_debug_packet_v6(struct ip_vs_protocol *pp , struct sk_b
 #line 353
   descriptor.flags = 0U;
 #line 353
-  tmp___3 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___3 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 353
   if (tmp___3 != 0L) {
 #line 353
@@ -39916,12 +39916,12 @@ __inline static struct net *skb_net___2(struct sk_buff  const  *skb )
 
   {
 #line 53
-  tmp___0 = __builtin_expect((unsigned long )skb->dev != (unsigned long )((struct net_device */* const  */)0),
+  tmp___0 = ldv__builtin_expect((unsigned long )skb->dev != (unsigned long )((struct net_device */* const  */)0),
                              1L);
 #line 53
   if (tmp___0 != 0L) {
 #line 53
-    tmp___1 = __builtin_expect((unsigned long )(skb->dev)->nd_net != (unsigned long )((struct net *)0),
+    tmp___1 = ldv__builtin_expect((unsigned long )(skb->dev)->nd_net != (unsigned long )((struct net *)0),
                                1L);
 #line 53
     if (tmp___1 != 0L) {
@@ -39958,7 +39958,7 @@ __inline static struct net *skb_net___2(struct sk_buff  const  *skb )
 #line 57
   __ret_warn_on = (unsigned long )skb->sk != (unsigned long )((struct sock */* const  */)0);
 #line 57
-  tmp___6 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___6 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 57
   if (tmp___6 != 0L) {
 #line 57
@@ -39968,14 +39968,14 @@ __inline static struct net *skb_net___2(struct sk_buff  const  *skb )
 
   }
 #line 57
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 59
-  tmp___8 = __builtin_expect((unsigned long )skb->sk != (unsigned long )((struct sock */* const  */)0),
+  tmp___8 = ldv__builtin_expect((unsigned long )skb->sk != (unsigned long )((struct sock */* const  */)0),
                              1L);
 #line 59
   if (tmp___8 != 0L) {
 #line 59
-    tmp___9 = __builtin_expect((unsigned long )(skb->sk)->__sk_common.skc_net != (unsigned long )((struct net *)0),
+    tmp___9 = ldv__builtin_expect((unsigned long )(skb->sk)->__sk_common.skc_net != (unsigned long )((struct net *)0),
                                1L);
 #line 59
     if (tmp___9 != 0L) {
@@ -40028,7 +40028,7 @@ __inline static char const   *ip_vs_dbg_addr___2(int af , char *buf , size_t buf
 #line 265
   *idx = *idx + len;
 #line 266
-  tmp___1 = __builtin_expect((size_t )*idx > buf_len + 1UL, 0L);
+  tmp___1 = ldv__builtin_expect((size_t )*idx > buf_len + 1UL, 0L);
 #line 266
   if (tmp___1 != 0L) {
 #line 266
@@ -40343,7 +40343,7 @@ static int tcp_snat_handler(struct sk_buff *skb , struct ip_vs_protocol *pp , st
 
   }
 #line 203
-  tmp___1 = __builtin_expect((unsigned long )cp->app != (unsigned long )((struct ip_vs_app *)0),
+  tmp___1 = ldv__builtin_expect((unsigned long )cp->app != (unsigned long )((struct ip_vs_app *)0),
                              0L);
 #line 203
   if (tmp___1 != 0L) {
@@ -40488,7 +40488,7 @@ static int tcp_dnat_handler(struct sk_buff *skb , struct ip_vs_protocol *pp , st
 
   }
 #line 281
-  tmp___1 = __builtin_expect((unsigned long )cp->app != (unsigned long )((struct ip_vs_app *)0),
+  tmp___1 = ldv__builtin_expect((unsigned long )cp->app != (unsigned long )((struct ip_vs_app *)0),
                              0L);
 #line 281
   if (tmp___1 != 0L) {
@@ -40934,7 +40934,7 @@ __inline static void set_tcp_state(struct ip_vs_proto_data *pd , struct ip_vs_co
 
   }
 #line 590
-  tmp___10 = __builtin_expect((unsigned long )pd != (unsigned long )((struct ip_vs_proto_data *)0),
+  tmp___10 = ldv__builtin_expect((unsigned long )pd != (unsigned long )((struct ip_vs_proto_data *)0),
                               1L);
 #line 590
   if (tmp___10 != 0L) {
@@ -41167,7 +41167,7 @@ static int tcp_app_conn_bind(struct ip_vs_conn *cp )
 #line 686
     tmp___2 = ip_vs_app_inc_get(inc);
 #line 686
-    tmp___3 = __builtin_expect(tmp___2 == 0, 0L);
+    tmp___3 = ldv__builtin_expect(tmp___2 == 0, 0L);
 #line 686
     if (tmp___3 != 0L) {
 #line 687
@@ -41597,12 +41597,12 @@ __inline static struct net *skb_net___3(struct sk_buff  const  *skb )
 
   {
 #line 53
-  tmp___0 = __builtin_expect((unsigned long )skb->dev != (unsigned long )((struct net_device */* const  */)0),
+  tmp___0 = ldv__builtin_expect((unsigned long )skb->dev != (unsigned long )((struct net_device */* const  */)0),
                              1L);
 #line 53
   if (tmp___0 != 0L) {
 #line 53
-    tmp___1 = __builtin_expect((unsigned long )(skb->dev)->nd_net != (unsigned long )((struct net *)0),
+    tmp___1 = ldv__builtin_expect((unsigned long )(skb->dev)->nd_net != (unsigned long )((struct net *)0),
                                1L);
 #line 53
     if (tmp___1 != 0L) {
@@ -41639,7 +41639,7 @@ __inline static struct net *skb_net___3(struct sk_buff  const  *skb )
 #line 57
   __ret_warn_on = (unsigned long )skb->sk != (unsigned long )((struct sock */* const  */)0);
 #line 57
-  tmp___6 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___6 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 57
   if (tmp___6 != 0L) {
 #line 57
@@ -41649,14 +41649,14 @@ __inline static struct net *skb_net___3(struct sk_buff  const  *skb )
 
   }
 #line 57
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 59
-  tmp___8 = __builtin_expect((unsigned long )skb->sk != (unsigned long )((struct sock */* const  */)0),
+  tmp___8 = ldv__builtin_expect((unsigned long )skb->sk != (unsigned long )((struct sock */* const  */)0),
                              1L);
 #line 59
   if (tmp___8 != 0L) {
 #line 59
-    tmp___9 = __builtin_expect((unsigned long )(skb->sk)->__sk_common.skc_net != (unsigned long )((struct net *)0),
+    tmp___9 = ldv__builtin_expect((unsigned long )(skb->sk)->__sk_common.skc_net != (unsigned long )((struct net *)0),
                                1L);
 #line 59
     if (tmp___9 != 0L) {
@@ -41709,7 +41709,7 @@ __inline static char const   *ip_vs_dbg_addr___3(int af , char *buf , size_t buf
 #line 265
   *idx = *idx + len;
 #line 266
-  tmp___1 = __builtin_expect((size_t )*idx > buf_len + 1UL, 0L);
+  tmp___1 = ldv__builtin_expect((size_t )*idx > buf_len + 1UL, 0L);
 #line 266
   if (tmp___1 != 0L) {
 #line 266
@@ -41932,7 +41932,7 @@ static int udp_snat_handler(struct sk_buff *skb , struct ip_vs_protocol *pp , st
 
   }
 #line 201
-  tmp___1 = __builtin_expect((unsigned long )cp->app != (unsigned long )((struct ip_vs_app *)0),
+  tmp___1 = ldv__builtin_expect((unsigned long )cp->app != (unsigned long )((struct ip_vs_app *)0),
                              0L);
 #line 201
   if (tmp___1 != 0L) {
@@ -42084,7 +42084,7 @@ static int udp_dnat_handler(struct sk_buff *skb , struct ip_vs_protocol *pp , st
 
   }
 #line 284
-  tmp___1 = __builtin_expect((unsigned long )cp->app != (unsigned long )((struct ip_vs_app *)0),
+  tmp___1 = ldv__builtin_expect((unsigned long )cp->app != (unsigned long )((struct ip_vs_app *)0),
                              0L);
 #line 284
   if (tmp___1 != 0L) {
@@ -42473,7 +42473,7 @@ static int udp_app_conn_bind(struct ip_vs_conn *cp )
 #line 465
     tmp___2 = ip_vs_app_inc_get(inc);
 #line 465
-    tmp___3 = __builtin_expect(tmp___2 == 0, 0L);
+    tmp___3 = ldv__builtin_expect(tmp___2 == 0, 0L);
 #line 465
     if (tmp___3 != 0L) {
 #line 466
@@ -42571,7 +42571,7 @@ static void udp_state_transition(struct ip_vs_conn *cp , int direction , struct 
 
   {
 #line 513
-  tmp = __builtin_expect((unsigned long )pd == (unsigned long )((struct ip_vs_proto_data *)0),
+  tmp = ldv__builtin_expect((unsigned long )pd == (unsigned long )((struct ip_vs_proto_data *)0),
                          0L);
 #line 513
   if (tmp != 0L) {
@@ -42916,12 +42916,12 @@ __inline static struct net *skb_net___4(struct sk_buff  const  *skb )
 
   {
 #line 53
-  tmp___0 = __builtin_expect((unsigned long )skb->dev != (unsigned long )((struct net_device */* const  */)0),
+  tmp___0 = ldv__builtin_expect((unsigned long )skb->dev != (unsigned long )((struct net_device */* const  */)0),
                              1L);
 #line 53
   if (tmp___0 != 0L) {
 #line 53
-    tmp___1 = __builtin_expect((unsigned long )(skb->dev)->nd_net != (unsigned long )((struct net *)0),
+    tmp___1 = ldv__builtin_expect((unsigned long )(skb->dev)->nd_net != (unsigned long )((struct net *)0),
                                1L);
 #line 53
     if (tmp___1 != 0L) {
@@ -42958,7 +42958,7 @@ __inline static struct net *skb_net___4(struct sk_buff  const  *skb )
 #line 57
   __ret_warn_on = (unsigned long )skb->sk != (unsigned long )((struct sock */* const  */)0);
 #line 57
-  tmp___6 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___6 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 57
   if (tmp___6 != 0L) {
 #line 57
@@ -42968,14 +42968,14 @@ __inline static struct net *skb_net___4(struct sk_buff  const  *skb )
 
   }
 #line 57
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 59
-  tmp___8 = __builtin_expect((unsigned long )skb->sk != (unsigned long )((struct sock */* const  */)0),
+  tmp___8 = ldv__builtin_expect((unsigned long )skb->sk != (unsigned long )((struct sock */* const  */)0),
                              1L);
 #line 59
   if (tmp___8 != 0L) {
 #line 59
-    tmp___9 = __builtin_expect((unsigned long )(skb->sk)->__sk_common.skc_net != (unsigned long )((struct net *)0),
+    tmp___9 = ldv__builtin_expect((unsigned long )(skb->sk)->__sk_common.skc_net != (unsigned long )((struct net *)0),
                                1L);
 #line 59
     if (tmp___9 != 0L) {
@@ -43028,7 +43028,7 @@ __inline static char const   *ip_vs_dbg_addr___4(int af , char *buf , size_t buf
 #line 265
   *idx = *idx + len;
 #line 266
-  tmp___1 = __builtin_expect((size_t )*idx > buf_len + 1UL, 0L);
+  tmp___1 = ldv__builtin_expect((size_t )*idx > buf_len + 1UL, 0L);
 #line 266
   if (tmp___1 != 0L) {
 #line 266
@@ -43052,7 +43052,7 @@ static void ah_esp_conn_fill_param_proto(struct net *net , int af , struct ip_vs
 
   {
 #line 104
-  tmp = __builtin_expect(inverse == 0, 1L);
+  tmp = ldv__builtin_expect(inverse == 0, 1L);
 #line 104
   if (tmp != 0L) {
 #line 105
@@ -43509,12 +43509,12 @@ __inline static struct net *skb_net___5(struct sk_buff  const  *skb )
 
   {
 #line 53
-  tmp___0 = __builtin_expect((unsigned long )skb->dev != (unsigned long )((struct net_device */* const  */)0),
+  tmp___0 = ldv__builtin_expect((unsigned long )skb->dev != (unsigned long )((struct net_device */* const  */)0),
                              1L);
 #line 53
   if (tmp___0 != 0L) {
 #line 53
-    tmp___1 = __builtin_expect((unsigned long )(skb->dev)->nd_net != (unsigned long )((struct net *)0),
+    tmp___1 = ldv__builtin_expect((unsigned long )(skb->dev)->nd_net != (unsigned long )((struct net *)0),
                                1L);
 #line 53
     if (tmp___1 != 0L) {
@@ -43551,7 +43551,7 @@ __inline static struct net *skb_net___5(struct sk_buff  const  *skb )
 #line 57
   __ret_warn_on = (unsigned long )skb->sk != (unsigned long )((struct sock */* const  */)0);
 #line 57
-  tmp___6 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___6 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 57
   if (tmp___6 != 0L) {
 #line 57
@@ -43561,14 +43561,14 @@ __inline static struct net *skb_net___5(struct sk_buff  const  *skb )
 
   }
 #line 57
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 59
-  tmp___8 = __builtin_expect((unsigned long )skb->sk != (unsigned long )((struct sock */* const  */)0),
+  tmp___8 = ldv__builtin_expect((unsigned long )skb->sk != (unsigned long )((struct sock */* const  */)0),
                              1L);
 #line 59
   if (tmp___8 != 0L) {
 #line 59
-    tmp___9 = __builtin_expect((unsigned long )(skb->sk)->__sk_common.skc_net != (unsigned long )((struct net *)0),
+    tmp___9 = ldv__builtin_expect((unsigned long )(skb->sk)->__sk_common.skc_net != (unsigned long )((struct net *)0),
                                1L);
 #line 59
     if (tmp___9 != 0L) {
@@ -43621,7 +43621,7 @@ __inline static char const   *ip_vs_dbg_addr___5(int af , char *buf , size_t buf
 #line 265
   *idx = *idx + len;
 #line 266
-  tmp___1 = __builtin_expect((size_t )*idx > buf_len + 1UL, 0L);
+  tmp___1 = ldv__builtin_expect((size_t )*idx > buf_len + 1UL, 0L);
 #line 266
   if (tmp___1 != 0L) {
 #line 266
@@ -43769,7 +43769,7 @@ static int sctp_snat_handler(struct sk_buff *skb , struct ip_vs_protocol *pp , s
 
   }
 #line 138
-  tmp___2 = __builtin_expect((unsigned long )cp->app != (unsigned long )((struct ip_vs_app *)0),
+  tmp___2 = ldv__builtin_expect((unsigned long )cp->app != (unsigned long )((struct ip_vs_app *)0),
                              0L);
 #line 138
   if (tmp___2 != 0L) {
@@ -43876,7 +43876,7 @@ static int sctp_dnat_handler(struct sk_buff *skb , struct ip_vs_protocol *pp , s
 
   }
 #line 180
-  tmp___2 = __builtin_expect((unsigned long )cp->app != (unsigned long )((struct ip_vs_app *)0),
+  tmp___2 = ldv__builtin_expect((unsigned long )cp->app != (unsigned long )((struct ip_vs_app *)0),
                              0L);
 #line 180
   if (tmp___2 != 0L) {
@@ -44469,7 +44469,7 @@ __inline static void set_sctp_state(struct ip_vs_proto_data *pd , struct ip_vs_c
 
   }
 #line 1042
-  tmp___12 = __builtin_expect((unsigned long )pd != (unsigned long )((struct ip_vs_proto_data *)0),
+  tmp___12 = ldv__builtin_expect((unsigned long )pd != (unsigned long )((struct ip_vs_proto_data *)0),
                               1L);
 #line 1042
   if (tmp___12 != 0L) {
@@ -44664,7 +44664,7 @@ static int sctp_app_conn_bind(struct ip_vs_conn *cp )
 #line 1116
     tmp___2 = ip_vs_app_inc_get(inc);
 #line 1116
-    tmp___3 = __builtin_expect(tmp___2 == 0, 0L);
+    tmp___3 = ldv__builtin_expect(tmp___2 == 0, 0L);
 #line 1116
     if (tmp___3 != 0L) {
 #line 1117
@@ -45090,7 +45090,7 @@ __inline static void nf_ct_put(struct nf_conn *ct )
 #line 163
   __ret_warn_on = (unsigned long )ct == (unsigned long )((struct nf_conn *)0);
 #line 163
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 163
   if (tmp != 0L) {
 #line 163
@@ -45099,7 +45099,7 @@ __inline static void nf_ct_put(struct nf_conn *ct )
 
   }
 #line 163
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 164
   nf_conntrack_put(& ct->ct_general);
 #line 165
@@ -45192,7 +45192,7 @@ __inline static int nf_conntrack_confirm(struct sk_buff *skb )
 
       }
 #line 66
-      tmp___0 = __builtin_expect(ret == 1, 1L);
+      tmp___0 = ldv__builtin_expect(ret == 1, 1L);
 #line 66
       if (tmp___0 != 0L) {
 #line 67
@@ -45942,7 +45942,7 @@ __inline static void ldv_error(void)
 #line 25
 extern int __VERIFIER_nondet_int(void) ;
 #line 49 "/home/mikhail/ldv/kernel-rules/verifier/rcv.h"
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 

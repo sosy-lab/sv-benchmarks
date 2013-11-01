@@ -3935,7 +3935,7 @@ enum hrtimer_restart;
 #line 24 "include/linux/sysfs.h"
 enum kobj_ns_type;
 #line 1 "<compiler builtins>"
-long __builtin_expect(long val , long res ) ;
+long ldv__builtin_expect(long val , long res ) ;
 #line 100 "include/linux/printk.h"
 extern int ( /* format attribute */  printk)(char const   *fmt  , ...) ;
 #line 44 "include/linux/dynamic_debug.h"
@@ -4419,7 +4419,7 @@ static void nftl_add_mtd(struct mtd_blktrans_ops *tr , struct mtd_info *mtd )
 #line 60
     __cil_tmp25 = (long )__cil_tmp24;
 #line 60
-    tmp___8 = __builtin_expect(__cil_tmp25, 0L);
+    tmp___8 = ldv__builtin_expect(__cil_tmp25, 0L);
     }
 #line 60
     if (tmp___8) {
@@ -4880,7 +4880,7 @@ static void nftl_remove_dev(struct mtd_blktrans_dev *dev )
 #line 127
     __cil_tmp10 = (long )__cil_tmp9;
 #line 127
-    tmp___7 = __builtin_expect(__cil_tmp10, 0L);
+    tmp___7 = ldv__builtin_expect(__cil_tmp10, 0L);
     }
 #line 127
     if (tmp___7) {
@@ -5269,7 +5269,7 @@ static u16 NFTL_findfreeblock(struct NFTLrecord *nftl , int desperate )
 #line 215
         __cil_tmp21 = (long )__cil_tmp20;
 #line 215
-        tmp___7 = __builtin_expect(__cil_tmp21, 0L);
+        tmp___7 = ldv__builtin_expect(__cil_tmp21, 0L);
         }
 #line 215
         if (tmp___7) {
@@ -5986,7 +5986,7 @@ static u16 NFTL_foldchain(struct NFTLrecord *nftl , unsigned int thisVUC , unsig
 #line 286
             __cil_tmp81 = (long )__cil_tmp80;
 #line 286
-            tmp___7 = __builtin_expect(__cil_tmp81, 0L);
+            tmp___7 = ldv__builtin_expect(__cil_tmp81, 0L);
             }
 #line 286
             if (tmp___7) {
@@ -6250,7 +6250,7 @@ static u16 NFTL_foldchain(struct NFTLrecord *nftl , unsigned int thisVUC , unsig
 #line 351
               __cil_tmp132 = (long )__cil_tmp131;
 #line 351
-              tmp___10 = __builtin_expect(__cil_tmp132, 0L);
+              tmp___10 = ldv__builtin_expect(__cil_tmp132, 0L);
               }
 #line 351
               if (tmp___10) {
@@ -6392,7 +6392,7 @@ static u16 NFTL_foldchain(struct NFTLrecord *nftl , unsigned int thisVUC , unsig
 #line 367
             __cil_tmp171 = (long )__cil_tmp170;
 #line 367
-            tmp___11 = __builtin_expect(__cil_tmp171, 0L);
+            tmp___11 = ldv__builtin_expect(__cil_tmp171, 0L);
             }
 #line 367
             if (tmp___11) {
@@ -6446,7 +6446,7 @@ static u16 NFTL_foldchain(struct NFTLrecord *nftl , unsigned int thisVUC , unsig
 #line 374
       __cil_tmp177 = (long )__cil_tmp176;
 #line 374
-      tmp___12 = __builtin_expect(__cil_tmp177, 0L);
+      tmp___12 = ldv__builtin_expect(__cil_tmp177, 0L);
       }
 #line 374
       if (tmp___12) {
@@ -6554,7 +6554,7 @@ static u16 NFTL_foldchain(struct NFTLrecord *nftl , unsigned int thisVUC , unsig
 #line 404
     __cil_tmp205 = (long )__cil_tmp204;
 #line 404
-    tmp___14 = __builtin_expect(__cil_tmp205, 0L);
+    tmp___14 = ldv__builtin_expect(__cil_tmp205, 0L);
     }
 #line 404
     if (tmp___14) {
@@ -6909,7 +6909,7 @@ static u16 NFTL_foldchain(struct NFTLrecord *nftl , unsigned int thisVUC , unsig
 #line 456
     __cil_tmp320 = (long )__cil_tmp319;
 #line 456
-    tmp___16 = __builtin_expect(__cil_tmp320, 0L);
+    tmp___16 = ldv__builtin_expect(__cil_tmp320, 0L);
     }
 #line 456
     if (tmp___16) {
@@ -7561,7 +7561,7 @@ __inline static u16 NFTL_findwriteunit(struct NFTLrecord *nftl , unsigned int bl
 #line 569
         __cil_tmp60 = (long )__cil_tmp59;
 #line 569
-        tmp___7 = __builtin_expect(__cil_tmp60, 0L);
+        tmp___7 = ldv__builtin_expect(__cil_tmp60, 0L);
         }
 #line 569
         if (tmp___7) {
@@ -7709,7 +7709,7 @@ __inline static u16 NFTL_findwriteunit(struct NFTLrecord *nftl , unsigned int bl
 #line 622
           __cil_tmp83 = (long )__cil_tmp82;
 #line 622
-          tmp___11 = __builtin_expect(__cil_tmp83, 0L);
+          tmp___11 = ldv__builtin_expect(__cil_tmp83, 0L);
           }
 #line 622
           if (tmp___11) {
@@ -9027,7 +9027,7 @@ void ldv_check_final_state(void)
 }
 }
 #line 1159 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/5495/dscv_tempdir/dscv/ri/32_1/drivers/mtd/nftlcore.c.common.c"
-long __builtin_expect(long val , long res ) 
+long ldv__builtin_expect(long val , long res ) 
 { 
 
   {

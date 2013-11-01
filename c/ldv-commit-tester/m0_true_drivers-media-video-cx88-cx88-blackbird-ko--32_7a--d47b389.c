@@ -5822,7 +5822,7 @@ void ldv__builtin_va_arg(__builtin_va_list  , unsigned long  , void * ) ;
 #line 1
 void __builtin_prefetch(void const   *  , ...) ;
 #line 1
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 #line 1
 void __builtin_va_start(__builtin_va_list  ) ;
 #line 309 "/work/vladimir/commit-test/commit-test-work/task-007--linux-stable--dir/inst/current/envs/linux-stable-d47b389/linux-stable-d47b389/arch/x86/include/asm/bitops.h"
@@ -7766,7 +7766,7 @@ static int vidioc_queryctrl(struct file *file , void *priv , struct v4l2_queryct
 #line 974
   qctrl->id = v4l2_ctrl_next((u32 const   * const  *)(& ctrl_classes), qctrl->id);
 #line 975
-  tmp___0 = __builtin_expect(qctrl->id == 0U, 0L);
+  tmp___0 = ldv__builtin_expect(qctrl->id == 0U, 0L);
 #line 975
   if (tmp___0 != 0L) {
 #line 976
@@ -7841,7 +7841,7 @@ static int vidioc_g_frequency(struct file *file , void *priv , struct v4l2_frequ
 #line 1007
   core = (fh->dev)->core;
 #line 1009
-  tmp = __builtin_expect(core->board.tuner_type == 4294967295U, 0L);
+  tmp = ldv__builtin_expect(core->board.tuner_type == 4294967295U, 0L);
 #line 1009
   if (tmp != 0L) {
 #line 1010
@@ -7960,7 +7960,7 @@ static int vidioc_g_tuner(struct file *file , void *priv , struct v4l2_tuner *t 
 #line 1044
   core = (((struct cx8802_fh *)priv)->dev)->core;
 #line 1047
-  tmp = __builtin_expect(core->board.tuner_type == 4294967295U, 0L);
+  tmp = ldv__builtin_expect(core->board.tuner_type == 4294967295U, 0L);
 #line 1047
   if (tmp != 0L) {
 #line 1048
@@ -9420,7 +9420,7 @@ __inline static void ldv_error(void)
 #line 25
 extern int __VERIFIER_nondet_int(void) ;
 #line 49 "/work/vladimir/kernel-rules/verifier/rcv.h"
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 

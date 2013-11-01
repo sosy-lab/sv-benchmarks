@@ -2804,7 +2804,7 @@ struct __anonstruct_251 {
 #line 1 "<compiler builtins>"
 
 #line 1
-long __builtin_expect(long val , long res ) ;
+long ldv__builtin_expect(long val , long res ) ;
 #line 46 "include/linux/swab.h"
 __inline static __u16 __fswab16(__u16 val )  __attribute__((__no_instrument_function__,
 __const__)) ;
@@ -2876,7 +2876,7 @@ __inline static long __attribute__((__warn_unused_result__))  IS_ERR(void const 
 #line 34
   __cil_tmp7 = (long )__cil_tmp6;
 #line 34
-  tmp = __builtin_expect(__cil_tmp7, 0L);
+  tmp = ldv__builtin_expect(__cil_tmp7, 0L);
   }
 #line 34
   return (tmp);
@@ -3142,7 +3142,7 @@ static int wm8400_read(struct wm8400 *wm8400 , u8 reg , int num_regs , u16 *dest
 #line 125
     __cil_tmp18 = (long )__cil_tmp17;
 #line 125
-    tmp___7 = __builtin_expect(__cil_tmp18, 0L);
+    tmp___7 = ldv__builtin_expect(__cil_tmp18, 0L);
     }
 #line 125
     if (tmp___7) {
@@ -3324,7 +3324,7 @@ static int wm8400_write(struct wm8400 *wm8400 , u8 reg , int num_regs , u16 *src
 #line 146
     __cil_tmp17 = (long )__cil_tmp16;
 #line 146
-    tmp___7 = __builtin_expect(__cil_tmp17, 0L);
+    tmp___7 = ldv__builtin_expect(__cil_tmp17, 0L);
     }
 #line 146
     if (tmp___7) {
@@ -3399,7 +3399,7 @@ static int wm8400_write(struct wm8400 *wm8400 , u8 reg , int num_regs , u16 *src
 #line 149
       __cil_tmp27 = (long )__cil_tmp26;
 #line 149
-      tmp___8 = __builtin_expect(__cil_tmp27, 0L);
+      tmp___8 = ldv__builtin_expect(__cil_tmp27, 0L);
       }
 #line 149
       if (tmp___8) {
@@ -5104,7 +5104,7 @@ void ldv_check_final_state(void)
 }
 }
 #line 619 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/8236/dscv_tempdir/dscv/ri/32_1/drivers/mfd/wm8400-core.c.common.c"
-long __builtin_expect(long val , long res ) 
+long ldv__builtin_expect(long val , long res ) 
 { 
 
   {

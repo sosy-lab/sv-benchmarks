@@ -2477,7 +2477,7 @@ struct max16065_data {
 #line 3475 "/work/ldvuser/zakharov_benchmarks/bench/cpa/work/current--X--drivers/hwmon/max16065.ko--X--x1linux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/32_7a/drivers/hwmon/max16065.c.prepared"
 typedef int ldv_func_ret_type___2;
 #line 1 "<compiler builtins>"
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 #line 46 "include/uapi/linux/swab.h"
 __inline static __u16 __fswab16(__u16 val ) 
 { 
@@ -2517,7 +2517,7 @@ __inline static long IS_ERR(void const   *ptr )
 
   {
 #line 34
-  tmp = __builtin_expect((unsigned long )ptr > 0xfffffffffffff000UL, 0L);
+  tmp = ldv__builtin_expect((unsigned long )ptr > 0xfffffffffffff000UL, 0L);
 #line 34
   return (tmp);
 }
@@ -2924,7 +2924,7 @@ static int max16065_read_adc(struct i2c_client *client , int reg )
 #line 259
   rv = i2c_smbus_read_word_swapped((struct i2c_client  const  *)client, (int )((u8 )reg));
 #line 260
-  tmp = __builtin_expect(rv < 0, 0L);
+  tmp = ldv__builtin_expect(rv < 0, 0L);
 #line 260
   if (tmp != 0L) {
 #line 261
@@ -3090,7 +3090,7 @@ static ssize_t max16065_show_input(struct device *dev , struct device_attribute 
 #line 320
   adc = data->adc[attr->index];
 #line 322
-  tmp___0 = __builtin_expect(adc < 0, 0L);
+  tmp___0 = ldv__builtin_expect(adc < 0, 0L);
 #line 322
   if (tmp___0 != 0L) {
 #line 323
@@ -3121,7 +3121,7 @@ static ssize_t max16065_show_current(struct device *dev , struct device_attribut
 #line 332
   data = tmp;
 #line 334
-  tmp___0 = __builtin_expect(data->curr_sense < 0, 0L);
+  tmp___0 = ldv__builtin_expect(data->curr_sense < 0, 0L);
 #line 334
   if (tmp___0 != 0L) {
 #line 335
@@ -3167,7 +3167,7 @@ static ssize_t max16065_set_limit(struct device *dev , struct device_attribute *
 #line 352
   err = kstrtoul(buf, 10U, & val);
 #line 353
-  tmp___0 = __builtin_expect(err < 0, 0L);
+  tmp___0 = ldv__builtin_expect(err < 0, 0L);
 #line 353
   if (tmp___0 != 0L) {
 #line 354
@@ -3623,7 +3623,7 @@ static int max16065_probe(struct i2c_client *client , struct i2c_device_id  cons
 #line 676
   data = (struct max16065_data *)tmp___0;
 #line 677
-  tmp___1 = __builtin_expect((unsigned long )data == (unsigned long )((struct max16065_data *)0),
+  tmp___1 = ldv__builtin_expect((unsigned long )data == (unsigned long )((struct max16065_data *)0),
                              0L);
 #line 677
   if (tmp___1 != 0L) {
@@ -3647,7 +3647,7 @@ static int max16065_probe(struct i2c_client *client , struct i2c_device_id  cons
 #line 688
     val = i2c_smbus_read_byte_data((struct i2c_client  const  *)client, 115);
 #line 689
-    tmp___2 = __builtin_expect(val < 0, 0L);
+    tmp___2 = ldv__builtin_expect(val < 0, 0L);
 #line 689
     if (tmp___2 != 0L) {
 #line 690
@@ -3668,7 +3668,7 @@ static int max16065_probe(struct i2c_client *client , struct i2c_device_id  cons
 #line 696
   val = i2c_smbus_read_byte_data((struct i2c_client  const  *)client, (int )((unsigned int )((u8 )i) + 67U));
 #line 697
-  tmp___3 = __builtin_expect(val < 0, 0L);
+  tmp___3 = ldv__builtin_expect(val < 0, 0L);
 #line 697
   if (tmp___3 != 0L) {
 #line 698
@@ -3727,7 +3727,7 @@ static int max16065_probe(struct i2c_client *client , struct i2c_device_id  cons
 #line 711
   val = i2c_smbus_read_byte_data((struct i2c_client  const  *)client, (int )(((unsigned int )((u8 )i) + (unsigned int )((u8 )j) * 3U) + 72U));
 #line 713
-  tmp___4 = __builtin_expect(val < 0, 0L);
+  tmp___4 = ldv__builtin_expect(val < 0, 0L);
 #line 713
   if (tmp___4 != 0L) {
 #line 714
@@ -3777,7 +3777,7 @@ static int max16065_probe(struct i2c_client *client , struct i2c_device_id  cons
 #line 725
   ret = sysfs_create_file(& client->dev.kobj, (struct attribute  const  *)max16065_basic_attributes[i]);
 #line 727
-  tmp___5 = __builtin_expect(ret != 0, 0L);
+  tmp___5 = ldv__builtin_expect(ret != 0, 0L);
 #line 727
   if (tmp___5 != 0L) {
 #line 728
@@ -3825,7 +3825,7 @@ static int max16065_probe(struct i2c_client *client , struct i2c_device_id  cons
 #line 739
     ret = sysfs_create_file(& client->dev.kobj, (struct attribute  const  *)*(attr + (unsigned long )i));
 #line 740
-    tmp___7 = __builtin_expect(ret != 0, 0L);
+    tmp___7 = ldv__builtin_expect(ret != 0, 0L);
 #line 740
     if (tmp___7 != 0L) {
 #line 741
@@ -3854,7 +3854,7 @@ static int max16065_probe(struct i2c_client *client , struct i2c_device_id  cons
 #line 746
     val = i2c_smbus_read_byte_data((struct i2c_client  const  *)client, 71);
 #line 747
-    tmp___8 = __builtin_expect(val < 0, 0L);
+    tmp___8 = ldv__builtin_expect(val < 0, 0L);
 #line 747
     if (tmp___8 != 0L) {
 #line 748
@@ -3873,7 +3873,7 @@ static int max16065_probe(struct i2c_client *client , struct i2c_device_id  cons
 #line 759
       ret = sysfs_create_group(& client->dev.kobj, & max16065_current_group);
 #line 761
-      tmp___9 = __builtin_expect(ret != 0, 0L);
+      tmp___9 = ldv__builtin_expect(ret != 0, 0L);
 #line 761
       if (tmp___9 != 0L) {
 #line 762
@@ -3893,7 +3893,7 @@ static int max16065_probe(struct i2c_client *client , struct i2c_device_id  cons
 #line 769
   tmp___11 = IS_ERR((void const   *)data->hwmon_dev);
 #line 769
-  tmp___12 = __builtin_expect(tmp___11 != 0L, 0L);
+  tmp___12 = ldv__builtin_expect(tmp___11 != 0L, 0L);
 #line 769
   if (tmp___12 != 0L) {
 #line 770
@@ -8166,7 +8166,7 @@ __inline static void ldv_error(void)
 #line 25
 extern int __VERIFIER_nondet_int(void) ;
 #line 49 "/home/ldvuser/ldv_envgen2/kernel-rules/verifier/rcv.h"
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
   {

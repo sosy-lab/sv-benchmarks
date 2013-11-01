@@ -5742,7 +5742,7 @@ struct local_info_t {
 #line 61 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/10849/dscv_tempdir/dscv/ri/32_1/drivers/net/wireless/airo_cs.c.common.c"
 typedef struct local_info_t local_info_t;
 #line 1 "<compiler builtins>"
-long __builtin_expect(long val , long res ) ;
+long ldv__builtin_expect(long val , long res ) ;
 #line 100 "include/linux/printk.h"
 extern int ( /* format attribute */  printk)(char const   *fmt  , ...) ;
 #line 49 "include/linux/dynamic_debug.h"
@@ -5944,7 +5944,7 @@ static int airo_probe(struct pcmcia_device *p_dev )
 #line 69
       __cil_tmp11 = (long )__cil_tmp10;
 #line 69
-      tmp___7 = __builtin_expect(__cil_tmp11, 0L);
+      tmp___7 = ldv__builtin_expect(__cil_tmp11, 0L);
       }
 #line 69
       if (tmp___7) {
@@ -6065,7 +6065,7 @@ static void airo_detach(struct pcmcia_device *link )
 #line 84
       __cil_tmp8 = (long )__cil_tmp7;
 #line 84
-      tmp___7 = __builtin_expect(__cil_tmp8, 0L);
+      tmp___7 = ldv__builtin_expect(__cil_tmp8, 0L);
       }
 #line 84
       if (tmp___7) {
@@ -6274,7 +6274,7 @@ static int airo_config(struct pcmcia_device *link )
 #line 112
       __cil_tmp13 = (long )__cil_tmp12;
 #line 112
-      tmp___7 = __builtin_expect(__cil_tmp13, 0L);
+      tmp___7 = ldv__builtin_expect(__cil_tmp13, 0L);
       }
 #line 112
       if (tmp___7) {
@@ -6468,7 +6468,7 @@ static void airo_release(struct pcmcia_device *link )
 #line 142
       __cil_tmp8 = (long )__cil_tmp7;
 #line 142
-      tmp___7 = __builtin_expect(__cil_tmp8, 0L);
+      tmp___7 = ldv__builtin_expect(__cil_tmp8, 0L);
       }
 #line 142
       if (tmp___7) {
@@ -7021,7 +7021,7 @@ void ldv_check_final_state(void)
 }
 }
 #line 446 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/10849/dscv_tempdir/dscv/ri/32_1/drivers/net/wireless/airo_cs.c.common.c"
-long __builtin_expect(long val , long res ) 
+long ldv__builtin_expect(long val , long res ) 
 { 
 
   {

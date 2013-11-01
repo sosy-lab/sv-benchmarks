@@ -3746,7 +3746,7 @@ struct egalax_ts {
    struct input_dev *input_dev ;
 };
 #line 1 "<compiler builtins>"
-long __builtin_expect(long val , long res ) ;
+long ldv__builtin_expect(long val , long res ) ;
 #line 82 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/bitops.h"
 __inline static void __set_bit(int nr , unsigned long volatile   *addr )  __attribute__((__no_instrument_function__)) ;
 #line 82 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/bitops.h"
@@ -4318,7 +4318,7 @@ static irqreturn_t egalax_ts_interrupt(int irq , void *dev_id )
 #line 101
         __cil_tmp73 = (long )__cil_tmp72;
 #line 101
-        tmp___8 = __builtin_expect(__cil_tmp73, 0L);
+        tmp___8 = ldv__builtin_expect(__cil_tmp73, 0L);
         }
 #line 101
         if (tmp___8) {
@@ -4380,7 +4380,7 @@ static irqreturn_t egalax_ts_interrupt(int irq , void *dev_id )
 #line 108
       __cil_tmp83 = (long )__cil_tmp82;
 #line 108
-      tmp___10 = __builtin_expect(__cil_tmp83, 0L);
+      tmp___10 = ldv__builtin_expect(__cil_tmp83, 0L);
       }
 #line 108
       if (tmp___10) {
@@ -5525,7 +5525,7 @@ void ldv_check_final_state(void)
 }
 }
 #line 509 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/4173/dscv_tempdir/dscv/ri/32_1/drivers/input/touchscreen/egalax_ts.c.common.c"
-long __builtin_expect(long val , long res ) 
+long ldv__builtin_expect(long val , long res ) 
 { 
 
   {

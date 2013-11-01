@@ -5122,7 +5122,7 @@ struct wakeup_source {
 #line 365 "/home/mikhail/launches/cpachecker-regression2/launcher-working-dir/ldv-manager-work-dir/work/current--X--fs/ceph/ceph.ko--X--regression-testlinux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/27/dscv_tempdir/dscv/ri/32_7a/fs/ceph/debugfs.c.prepared"
 typedef int ldv_func_ret_type___2;
 #line 1 "<compiler builtins>"
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 #line 119 "include/linux/printk.h"
 extern int printk(char const   *  , ...) ;
 #line 45 "include/linux/dynamic_debug.h"
@@ -5170,7 +5170,7 @@ __inline static long IS_ERR(void const   *ptr )
 
   {
 #line 34
-  tmp = __builtin_expect((unsigned long )ptr > 0xfffffffffffff000UL, 0L);
+  tmp = ldv__builtin_expect((unsigned long )ptr > 0xfffffffffffff000UL, 0L);
 #line 34
   return (tmp);
 }
@@ -5437,7 +5437,7 @@ __inline static int kref_sub(struct kref *kref , unsigned int count , void (*rel
 #line 67
   __ret_warn_on = (unsigned long )release == (unsigned long )((void (*)(struct kref * ))0);
 #line 67
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 67
   if (tmp != 0L) {
 #line 67
@@ -5446,7 +5446,7 @@ __inline static int kref_sub(struct kref *kref , unsigned int count , void (*rel
 
   }
 #line 67
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 69
   tmp___0 = atomic_sub_and_test((int )count, & kref->refcount);
 #line 69
@@ -5721,7 +5721,7 @@ static void ceph_put_super(struct super_block *s )
 #line 112
   descriptor.flags = 0U;
 #line 112
-  tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 112
   if (tmp___1 != 0L) {
 #line 112
@@ -5781,7 +5781,7 @@ static int ceph_statfs(struct dentry *dentry , struct kstatfs *buf )
 #line 135
   descriptor.flags = 0U;
 #line 135
-  tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 135
   if (tmp___1 != 0L) {
 #line 135
@@ -5868,7 +5868,7 @@ static int ceph_sync_fs(struct super_block *sb , int wait )
 #line 171
     descriptor.flags = 0U;
 #line 171
-    tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 171
     if (tmp___1 != 0L) {
 #line 171
@@ -5895,7 +5895,7 @@ static int ceph_sync_fs(struct super_block *sb , int wait )
 #line 173
     descriptor___0.flags = 0U;
 #line 173
-    tmp___3 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___3 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 173
     if (tmp___3 != 0L) {
 #line 173
@@ -5925,7 +5925,7 @@ static int ceph_sync_fs(struct super_block *sb , int wait )
 #line 177
   descriptor___1.flags = 0U;
 #line 177
-  tmp___5 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+  tmp___5 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 177
   if (tmp___5 != 0L) {
 #line 177
@@ -5954,7 +5954,7 @@ static int ceph_sync_fs(struct super_block *sb , int wait )
 #line 180
   descriptor___2.flags = 0U;
 #line 180
-  tmp___7 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+  tmp___7 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
 #line 180
   if (tmp___7 != 0L) {
 #line 180
@@ -6051,7 +6051,7 @@ static int parse_fsopt_token(char *c , void *private )
 #line 257
     descriptor.flags = 0U;
 #line 257
-    tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 257
     if (tmp___0 != 0L) {
 #line 257
@@ -6079,7 +6079,7 @@ static int parse_fsopt_token(char *c , void *private )
 #line 259
     descriptor___0.flags = 0U;
 #line 259
-    tmp___2 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___2 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 259
     if (tmp___2 != 0L) {
 #line 259
@@ -6105,7 +6105,7 @@ static int parse_fsopt_token(char *c , void *private )
 #line 262
     descriptor___1.flags = 0U;
 #line 262
-    tmp___4 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___4 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 262
     if (tmp___4 != 0L) {
 #line 262
@@ -6227,7 +6227,7 @@ static int parse_fsopt_token(char *c , void *private )
   goto ldv_30063;
   default: 
 #line 331
-  tmp___5 = __builtin_expect(token != 0, 0L);
+  tmp___5 = ldv__builtin_expect(token != 0, 0L);
 #line 331
   if (tmp___5 != 0L) {
 #line 331
@@ -6266,7 +6266,7 @@ static void destroy_mount_options(struct ceph_mount_options *args )
 #line 338
   descriptor.flags = 0U;
 #line 338
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 338
   if (tmp___0 != 0L) {
 #line 338
@@ -6415,7 +6415,7 @@ static int parse_mount_options(struct ceph_mount_options **pfsopt , struct ceph_
 #line 391
   descriptor.flags = 0U;
 #line 391
-  tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 391
   if (tmp___1 != 0L) {
 #line 391
@@ -6491,7 +6491,7 @@ static int parse_mount_options(struct ceph_mount_options **pfsopt , struct ceph_
 #line 432
   descriptor___0.flags = 0U;
 #line 432
-  tmp___5 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___5 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 432
   if (tmp___5 != 0L) {
 #line 432
@@ -6517,7 +6517,7 @@ static int parse_mount_options(struct ceph_mount_options **pfsopt , struct ceph_
 #line 433
   descriptor___1.flags = 0U;
 #line 433
-  tmp___7 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+  tmp___7 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 433
   if (tmp___7 != 0L) {
 #line 433
@@ -6945,7 +6945,7 @@ static void destroy_fs_client(struct ceph_fs_client *fsc )
 #line 619
   descriptor.flags = 0U;
 #line 619
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 619
   if (tmp___0 != 0L) {
 #line 619
@@ -6988,7 +6988,7 @@ static void destroy_fs_client(struct ceph_fs_client *fsc )
 #line 636
   descriptor___0.flags = 0U;
 #line 636
-  tmp___2 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___2 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 636
   if (tmp___2 != 0L) {
 #line 636
@@ -7124,7 +7124,7 @@ static void ceph_umount_begin(struct super_block *sb )
 #line 711
   descriptor.flags = 0U;
 #line 711
-  tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 711
   if (tmp___1 != 0L) {
 #line 711
@@ -7197,7 +7197,7 @@ static struct dentry *open_root_dentry(struct ceph_fs_client *fsc , char const  
 #line 743
   descriptor.flags = 0U;
 #line 743
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 743
   if (tmp___0 != 0L) {
 #line 743
@@ -7257,7 +7257,7 @@ static struct dentry *open_root_dentry(struct ceph_fs_client *fsc , char const  
 #line 758
     descriptor___0.flags = 0U;
 #line 758
-    tmp___4 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___4 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 758
     if (tmp___4 != 0L) {
 #line 758
@@ -7305,7 +7305,7 @@ static struct dentry *open_root_dentry(struct ceph_fs_client *fsc , char const  
 #line 770
     descriptor___1.flags = 0U;
 #line 770
-    tmp___8 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___8 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 770
     if (tmp___8 != 0L) {
 #line 770
@@ -7373,7 +7373,7 @@ static struct dentry *ceph_real_mount(struct ceph_fs_client *fsc , char const   
 #line 793
   descriptor.flags = 0U;
 #line 793
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 793
   if (tmp___0 != 0L) {
 #line 793
@@ -7409,7 +7409,7 @@ static struct dentry *ceph_real_mount(struct ceph_fs_client *fsc , char const   
 #line 800
   descriptor___0.flags = 0U;
 #line 800
-  tmp___2 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___2 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 800
   if (tmp___2 != 0L) {
 #line 800
@@ -7473,7 +7473,7 @@ static struct dentry *ceph_real_mount(struct ceph_fs_client *fsc , char const   
 #line 820
     descriptor___1.flags = 0U;
 #line 820
-    tmp___6 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___6 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 820
     if (tmp___6 != 0L) {
 #line 820
@@ -7516,7 +7516,7 @@ static struct dentry *ceph_real_mount(struct ceph_fs_client *fsc , char const   
 #line 829
   descriptor___2.flags = 0U;
 #line 829
-  tmp___10 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+  tmp___10 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
 #line 829
   if (tmp___10 != 0L) {
 #line 829
@@ -7578,7 +7578,7 @@ static int ceph_set_super(struct super_block *s , void *data )
 #line 850
   descriptor.flags = 0U;
 #line 850
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 850
   if (tmp___0 != 0L) {
 #line 850
@@ -7671,7 +7671,7 @@ static int ceph_compare_super(struct super_block *sb , void *data )
 #line 885
   descriptor.flags = 0U;
 #line 885
-  tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 885
   if (tmp___1 != 0L) {
 #line 885
@@ -7700,7 +7700,7 @@ static int ceph_compare_super(struct super_block *sb , void *data )
 #line 888
     descriptor___0.flags = 0U;
 #line 888
-    tmp___3 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___3 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 888
     if (tmp___3 != 0L) {
 #line 888
@@ -7736,7 +7736,7 @@ static int ceph_compare_super(struct super_block *sb , void *data )
 #line 893
       descriptor___1.flags = 0U;
 #line 893
-      tmp___6 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+      tmp___6 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 893
       if (tmp___6 != 0L) {
 #line 893
@@ -7771,7 +7771,7 @@ static int ceph_compare_super(struct super_block *sb , void *data )
 #line 897
     descriptor___2.flags = 0U;
 #line 897
-    tmp___9 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+    tmp___9 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
 #line 897
     if (tmp___9 != 0L) {
 #line 897
@@ -7886,7 +7886,7 @@ static struct dentry *ceph_mount(struct file_system_type *fs_type , int flags , 
 #line 941
   descriptor.flags = 0U;
 #line 941
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 941
   if (tmp___0 != 0L) {
 #line 941
@@ -7988,7 +7988,7 @@ static struct dentry *ceph_mount(struct file_system_type *fs_type , int flags , 
 #line 975
     descriptor___0.flags = 0U;
 #line 975
-    tmp___8 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___8 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 975
     if (tmp___8 != 0L) {
 #line 975
@@ -8014,7 +8014,7 @@ static struct dentry *ceph_mount(struct file_system_type *fs_type , int flags , 
 #line 977
     descriptor___1.flags = 0U;
 #line 977
-    tmp___10 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___10 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 977
     if (tmp___10 != 0L) {
 #line 977
@@ -8064,7 +8064,7 @@ static struct dentry *ceph_mount(struct file_system_type *fs_type , int flags , 
 #line 988
   descriptor___2.flags = 0U;
 #line 988
-  tmp___17 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+  tmp___17 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
 #line 988
   if (tmp___17 != 0L) {
 #line 988
@@ -8109,7 +8109,7 @@ static struct dentry *ceph_mount(struct file_system_type *fs_type , int flags , 
 #line 1001
   descriptor___3.flags = 0U;
 #line 1001
-  tmp___20 = __builtin_expect((long )descriptor___3.flags & 1L, 0L);
+  tmp___20 = ldv__builtin_expect((long )descriptor___3.flags & 1L, 0L);
 #line 1001
   if (tmp___20 != 0L) {
 #line 1001
@@ -8154,7 +8154,7 @@ static void ceph_kill_sb(struct super_block *s )
 #line 1008
   descriptor.flags = 0U;
 #line 1008
-  tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1008
   if (tmp___1 != 0L) {
 #line 1008
@@ -8265,7 +8265,7 @@ static void exit_ceph(void)
 #line 1050
   descriptor.flags = 0U;
 #line 1050
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1050
   if (tmp___0 != 0L) {
 #line 1050
@@ -9300,7 +9300,7 @@ struct inode *ceph_get_inode(struct super_block *sb , struct ceph_vino vino )
 #line 126
     descriptor.flags = 0U;
 #line 126
-    tmp___4 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___4 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 126
     if (tmp___4 != 0L) {
 #line 126
@@ -9335,7 +9335,7 @@ struct inode *ceph_get_inode(struct super_block *sb , struct ceph_vino vino )
 #line 131
   descriptor___0.flags = 0U;
 #line 131
-  tmp___6 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___6 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 131
   if (tmp___6 != 0L) {
 #line 131
@@ -9380,7 +9380,7 @@ struct inode *ceph_get_snapdir(struct inode *parent )
 #line 146
   ci = tmp___1;
 #line 148
-  tmp___2 = __builtin_expect(((int )parent->i_mode & 61440) != 16384, 0L);
+  tmp___2 = ldv__builtin_expect(((int )parent->i_mode & 61440) != 16384, 0L);
 #line 148
   if (tmp___2 != 0L) {
 #line 148
@@ -9525,7 +9525,7 @@ static struct ceph_inode_frag *__get_or_create_frag(struct ceph_inode_info *ci ,
 #line 219
   descriptor.flags = 0U;
 #line 219
-  tmp___6 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___6 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 219
   if (tmp___6 != 0L) {
 #line 219
@@ -9639,7 +9639,7 @@ u32 ceph_choose_frag(struct ceph_inode_info *ci , u32 v , struct ceph_inode_frag
 #line 264
   __ret_warn_on = tmp___0 == 0;
 #line 264
-  tmp___1 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___1 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 264
   if (tmp___1 != 0L) {
 #line 264
@@ -9649,7 +9649,7 @@ u32 ceph_choose_frag(struct ceph_inode_info *ci , u32 v , struct ceph_inode_frag
 
   }
 #line 264
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 265
   frag = __ceph_find_frag(ci, t);
 #line 266
@@ -9703,7 +9703,7 @@ u32 ceph_choose_frag(struct ceph_inode_info *ci , u32 v , struct ceph_inode_frag
 #line 278
   descriptor.flags = 0U;
 #line 278
-  tmp___3 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___3 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 278
   if (tmp___3 != 0L) {
 #line 278
@@ -9745,7 +9745,7 @@ u32 ceph_choose_frag(struct ceph_inode_info *ci , u32 v , struct ceph_inode_frag
   }
   ldv_29833: 
 #line 287
-  tmp___5 = __builtin_expect(i == nway, 0L);
+  tmp___5 = ldv__builtin_expect(i == nway, 0L);
 #line 287
   if (tmp___5 != 0L) {
 #line 287
@@ -9773,7 +9773,7 @@ u32 ceph_choose_frag(struct ceph_inode_info *ci , u32 v , struct ceph_inode_frag
 #line 289
   descriptor___0.flags = 0U;
 #line 289
-  tmp___7 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___7 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 289
   if (tmp___7 != 0L) {
 #line 289
@@ -9864,7 +9864,7 @@ static int ceph_fill_dirfrag(struct inode *inode , struct ceph_mds_reply_dirfrag
 #line 319
       descriptor.flags = 0U;
 #line 319
-      tmp___3 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+      tmp___3 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 319
       if (tmp___3 != 0L) {
 #line 319
@@ -9899,7 +9899,7 @@ static int ceph_fill_dirfrag(struct inode *inode , struct ceph_mds_reply_dirfrag
 #line 325
       descriptor___0.flags = 0U;
 #line 325
-      tmp___7 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+      tmp___7 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 325
       if (tmp___7 != 0L) {
 #line 325
@@ -9984,7 +9984,7 @@ static int ceph_fill_dirfrag(struct inode *inode , struct ceph_mds_reply_dirfrag
 #line 349
   descriptor___1.flags = 0U;
 #line 349
-  tmp___14 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+  tmp___14 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 349
   if (tmp___14 != 0L) {
 #line 349
@@ -10056,7 +10056,7 @@ struct inode *ceph_alloc_inode(struct super_block *sb )
 #line 370
   descriptor.flags = 0U;
 #line 370
-  tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 370
   if (tmp___1 != 0L) {
 #line 370
@@ -10320,7 +10320,7 @@ void ceph_destroy_inode(struct inode *inode )
 #line 468
   descriptor.flags = 0U;
 #line 468
-  tmp___3 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___3 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 468
   if (tmp___3 != 0L) {
 #line 468
@@ -10360,7 +10360,7 @@ void ceph_destroy_inode(struct inode *inode )
 #line 481
     descriptor___0.flags = 0U;
 #line 481
-    tmp___6 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___6 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 481
     if (tmp___6 != 0L) {
 #line 481
@@ -10473,7 +10473,7 @@ int ceph_fill_file_size(struct inode *inode , int issued , u32 truncate_seq , u6
 #line 521
     descriptor.flags = 0U;
 #line 521
-    tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 521
     if (tmp___1 != 0L) {
 #line 521
@@ -10506,7 +10506,7 @@ int ceph_fill_file_size(struct inode *inode , int issued , u32 truncate_seq , u6
 #line 526
       descriptor___0.flags = 0U;
 #line 526
-      tmp___3 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+      tmp___3 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 526
       if (tmp___3 != 0L) {
 #line 526
@@ -10572,7 +10572,7 @@ int ceph_fill_file_size(struct inode *inode , int issued , u32 truncate_seq , u6
 #line 548
     descriptor___1.flags = 0U;
 #line 548
-    tmp___8 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___8 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 548
     if (tmp___8 != 0L) {
 #line 548
@@ -10647,7 +10647,7 @@ void ceph_fill_file_time(struct inode *inode , int issued , u64 time_warp_seq , 
 #line 568
       descriptor.flags = 0U;
 #line 568
-      tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+      tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 568
       if (tmp___1 != 0L) {
 #line 568
@@ -10682,7 +10682,7 @@ void ceph_fill_file_time(struct inode *inode , int issued , u64 time_warp_seq , 
 #line 575
       descriptor___0.flags = 0U;
 #line 575
-      tmp___4 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+      tmp___4 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 575
       if (tmp___4 != 0L) {
 #line 575
@@ -10722,7 +10722,7 @@ void ceph_fill_file_time(struct inode *inode , int issued , u64 time_warp_seq , 
 #line 587
         descriptor___1.flags = 0U;
 #line 587
-        tmp___6 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+        tmp___6 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 587
         if (tmp___6 != 0L) {
 #line 587
@@ -10757,7 +10757,7 @@ void ceph_fill_file_time(struct inode *inode , int issued , u64 time_warp_seq , 
 #line 594
         descriptor___2.flags = 0U;
 #line 594
-        tmp___9 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+        tmp___9 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
 #line 594
         if (tmp___9 != 0L) {
 #line 594
@@ -10816,7 +10816,7 @@ void ceph_fill_file_time(struct inode *inode , int issued , u64 time_warp_seq , 
 #line 617
     descriptor___3.flags = 0U;
 #line 617
-    tmp___14 = __builtin_expect((long )descriptor___3.flags & 1L, 0L);
+    tmp___14 = ldv__builtin_expect((long )descriptor___3.flags & 1L, 0L);
 #line 617
     if (tmp___14 != 0L) {
 #line 617
@@ -10928,7 +10928,7 @@ static int fill_inode(struct inode *inode , struct ceph_mds_reply_info_in *iinfo
 #line 643
   descriptor.flags = 0U;
 #line 643
-  tmp___3 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___3 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 643
   if (tmp___3 != 0L) {
 #line 643
@@ -11003,7 +11003,7 @@ static int fill_inode(struct inode *inode , struct ceph_mds_reply_info_in *iinfo
 #line 689
     descriptor___0.flags = 0U;
 #line 689
-    tmp___6 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___6 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 689
     if (tmp___6 != 0L) {
 #line 689
@@ -11053,7 +11053,7 @@ static int fill_inode(struct inode *inode , struct ceph_mds_reply_info_in *iinfo
 #line 711
     descriptor___1.flags = 0U;
 #line 711
-    tmp___8 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___8 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 711
     if (tmp___8 != 0L) {
 #line 711
@@ -11143,7 +11143,7 @@ static int fill_inode(struct inode *inode , struct ceph_mds_reply_info_in *iinfo
 #line 758
     __ret_warn_on = (loff_t )symlen != inode->i_size;
 #line 758
-    tmp___11 = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp___11 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 758
     if (tmp___11 != 0L) {
 #line 758
@@ -11153,7 +11153,7 @@ static int fill_inode(struct inode *inode , struct ceph_mds_reply_info_in *iinfo
 
     }
 #line 758
-    tmp___12 = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp___12 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 758
     if (tmp___12 != 0L) {
 #line 759
@@ -11267,7 +11267,7 @@ static int fill_inode(struct inode *inode , struct ceph_mds_reply_info_in *iinfo
 #line 809
   descriptor___2.flags = 0U;
 #line 809
-  tmp___18 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+  tmp___18 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
 #line 809
   if (tmp___18 != 0L) {
 #line 809
@@ -11318,7 +11318,7 @@ static int fill_inode(struct inode *inode , struct ceph_mds_reply_info_in *iinfo
 #line 828
       descriptor___3.flags = 0U;
 #line 828
-      tmp___21 = __builtin_expect((long )descriptor___3.flags & 1L, 0L);
+      tmp___21 = ldv__builtin_expect((long )descriptor___3.flags & 1L, 0L);
 #line 828
       if (tmp___21 != 0L) {
 #line 828
@@ -11393,7 +11393,7 @@ static int fill_inode(struct inode *inode , struct ceph_mds_reply_info_in *iinfo
 #line 849
             descriptor___4.flags = 0U;
 #line 849
-            tmp___26 = __builtin_expect((long )descriptor___4.flags & 1L, 0L);
+            tmp___26 = ldv__builtin_expect((long )descriptor___4.flags & 1L, 0L);
 #line 849
             if (tmp___26 != 0L) {
 #line 849
@@ -11493,7 +11493,7 @@ static void update_dentry_lease(struct dentry *dentry , struct ceph_mds_reply_le
 #line 885
   descriptor.flags = 0U;
 #line 885
-  tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 885
   if (tmp___1 != 0L) {
 #line 885
@@ -11581,7 +11581,7 @@ static void ceph_set_dentry_offset(struct dentry *dn )
 #line 925
   inode = dir->d_inode;
 #line 929
-  tmp = __builtin_expect((unsigned long )inode == (unsigned long )((struct inode *)0),
+  tmp = ldv__builtin_expect((unsigned long )inode == (unsigned long )((struct inode *)0),
                          0L);
 #line 929
   if (tmp != 0L) {
@@ -11650,7 +11650,7 @@ static void ceph_set_dentry_offset(struct dentry *dn )
 #line 945
   descriptor.flags = 0U;
 #line 945
-  tmp___6 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___6 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 945
   if (tmp___6 != 0L) {
 #line 945
@@ -11698,7 +11698,7 @@ static struct dentry *splice_dentry(struct dentry *dn , struct inode *in , bool 
 
   {
 #line 964
-  tmp = __builtin_expect((unsigned long )dn->d_inode != (unsigned long )((struct inode *)0),
+  tmp = ldv__builtin_expect((unsigned long )dn->d_inode != (unsigned long )((struct inode *)0),
                          0L);
 #line 964
   if (tmp != 0L) {
@@ -11762,7 +11762,7 @@ static struct dentry *splice_dentry(struct dentry *dn , struct inode *in , bool 
 #line 978
     descriptor.flags = 0U;
 #line 978
-    tmp___7 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___7 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 978
     if (tmp___7 != 0L) {
 #line 978
@@ -11787,7 +11787,7 @@ static struct dentry *splice_dentry(struct dentry *dn , struct inode *in , bool 
 #line 986
     tmp___8 = ceph_dentry(dn);
 #line 986
-    tmp___9 = __builtin_expect((unsigned long )tmp___8 == (unsigned long )((struct ceph_dentry_info *)0),
+    tmp___9 = ldv__builtin_expect((unsigned long )tmp___8 == (unsigned long )((struct ceph_dentry_info *)0),
                                0L);
 #line 986
     if (tmp___9 != 0L) {
@@ -11813,7 +11813,7 @@ static struct dentry *splice_dentry(struct dentry *dn , struct inode *in , bool 
 #line 987
     descriptor___0.flags = 0U;
 #line 987
-    tmp___13 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___13 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 987
     if (tmp___13 != 0L) {
 #line 987
@@ -11981,7 +11981,7 @@ int ceph_fill_trace(struct super_block *sb , struct ceph_mds_request *req , stru
 #line 1020
   descriptor.flags = 0U;
 #line 1020
-  tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1020
   if (tmp___1 != 0L) {
 #line 1020
@@ -12009,7 +12009,7 @@ int ceph_fill_trace(struct super_block *sb , struct ceph_mds_request *req , stru
 #line 1058
     descriptor___0.flags = 0U;
 #line 1058
-    tmp___3 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___3 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 1058
     if (tmp___3 != 0L) {
 #line 1058
@@ -12053,13 +12053,13 @@ int ceph_fill_trace(struct super_block *sb , struct ceph_mds_request *req , stru
 #line 1074
       __ret_warn_once = 1;
 #line 1074
-      tmp___6 = __builtin_expect(__ret_warn_once != 0, 0L);
+      tmp___6 = ldv__builtin_expect(__ret_warn_once != 0, 0L);
 #line 1074
       if (tmp___6 != 0L) {
 #line 1074
         __ret_warn_on = ! __warned;
 #line 1074
-        tmp___4 = __builtin_expect(__ret_warn_on != 0, 0L);
+        tmp___4 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 1074
         if (tmp___4 != 0L) {
 #line 1074
@@ -12069,7 +12069,7 @@ int ceph_fill_trace(struct super_block *sb , struct ceph_mds_request *req , stru
 
         }
 #line 1074
-        tmp___5 = __builtin_expect(__ret_warn_on != 0, 0L);
+        tmp___5 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 1074
         if (tmp___5 != 0L) {
 #line 1074
@@ -12081,7 +12081,7 @@ int ceph_fill_trace(struct super_block *sb , struct ceph_mds_request *req , stru
 
       }
 #line 1074
-      __builtin_expect(__ret_warn_once != 0, 0L);
+      ldv__builtin_expect(__ret_warn_once != 0, 0L);
     }
   } else {
 
@@ -12104,7 +12104,7 @@ int ceph_fill_trace(struct super_block *sb , struct ceph_mds_request *req , stru
 #line 1093
         dn = req->r_dentry;
 #line 1096
-        tmp___7 = __builtin_expect((unsigned long )dn == (unsigned long )((struct dentry *)0),
+        tmp___7 = ldv__builtin_expect((unsigned long )dn == (unsigned long )((struct dentry *)0),
                                    0L);
 #line 1096
         if (tmp___7 != 0L) {
@@ -12118,7 +12118,7 @@ int ceph_fill_trace(struct super_block *sb , struct ceph_mds_request *req , stru
 
         }
 #line 1097
-        tmp___8 = __builtin_expect((unsigned long )dir___0 == (unsigned long )((struct inode *)0),
+        tmp___8 = ldv__builtin_expect((unsigned long )dir___0 == (unsigned long )((struct inode *)0),
                                    0L);
 #line 1097
         if (tmp___8 != 0L) {
@@ -12132,7 +12132,7 @@ int ceph_fill_trace(struct super_block *sb , struct ceph_mds_request *req , stru
 
         }
 #line 1098
-        tmp___9 = __builtin_expect((unsigned long )(dn->d_parent)->d_inode != (unsigned long )dir___0,
+        tmp___9 = ldv__builtin_expect((unsigned long )(dn->d_parent)->d_inode != (unsigned long )dir___0,
                                    0L);
 #line 1098
         if (tmp___9 != 0L) {
@@ -12148,7 +12148,7 @@ int ceph_fill_trace(struct super_block *sb , struct ceph_mds_request *req , stru
 #line 1099
         tmp___10 = ceph_ino(dir___0);
 #line 1099
-        tmp___11 = __builtin_expect(tmp___10 != (rinfo->diri.in)->ino, 0L);
+        tmp___11 = ldv__builtin_expect(tmp___10 != (rinfo->diri.in)->ino, 0L);
 #line 1099
         if (tmp___11 != 0L) {
 #line 1099
@@ -12163,7 +12163,7 @@ int ceph_fill_trace(struct super_block *sb , struct ceph_mds_request *req , stru
 #line 1101
         tmp___12 = ceph_snap(dir___0);
 #line 1101
-        tmp___13 = __builtin_expect(tmp___12 != (rinfo->diri.in)->snapid, 0L);
+        tmp___13 = ldv__builtin_expect(tmp___12 != (rinfo->diri.in)->snapid, 0L);
 #line 1101
         if (tmp___13 != 0L) {
 #line 1101
@@ -12194,7 +12194,7 @@ int ceph_fill_trace(struct super_block *sb , struct ceph_mds_request *req , stru
 #line 1113
           descriptor___1.flags = 0U;
 #line 1113
-          tmp___15 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+          tmp___15 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 1113
           if (tmp___15 != 0L) {
 #line 1113
@@ -12224,7 +12224,7 @@ int ceph_fill_trace(struct super_block *sb , struct ceph_mds_request *req , stru
 #line 1117
           descriptor___2.flags = 0U;
 #line 1117
-          tmp___17 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+          tmp___17 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
 #line 1117
           if (tmp___17 != 0L) {
 #line 1117
@@ -12252,7 +12252,7 @@ int ceph_fill_trace(struct super_block *sb , struct ceph_mds_request *req , stru
 #line 1122
           descriptor___3.flags = 0U;
 #line 1122
-          tmp___19 = __builtin_expect((long )descriptor___3.flags & 1L, 0L);
+          tmp___19 = ldv__builtin_expect((long )descriptor___3.flags & 1L, 0L);
 #line 1122
           if (tmp___19 != 0L) {
 #line 1122
@@ -12280,7 +12280,7 @@ int ceph_fill_trace(struct super_block *sb , struct ceph_mds_request *req , stru
 #line 1126
           descriptor___4.flags = 0U;
 #line 1126
-          tmp___21 = __builtin_expect((long )descriptor___4.flags & 1L, 0L);
+          tmp___21 = ldv__builtin_expect((long )descriptor___4.flags & 1L, 0L);
 #line 1126
           if (tmp___21 != 0L) {
 #line 1126
@@ -12312,7 +12312,7 @@ int ceph_fill_trace(struct super_block *sb , struct ceph_mds_request *req , stru
 #line 1143
           descriptor___5.flags = 0U;
 #line 1143
-          tmp___24 = __builtin_expect((long )descriptor___5.flags & 1L, 0L);
+          tmp___24 = ldv__builtin_expect((long )descriptor___5.flags & 1L, 0L);
 #line 1143
           if (tmp___24 != 0L) {
 #line 1143
@@ -12349,7 +12349,7 @@ int ceph_fill_trace(struct super_block *sb , struct ceph_mds_request *req , stru
 #line 1152
           descriptor___6.flags = 0U;
 #line 1152
-          tmp___26 = __builtin_expect((long )descriptor___6.flags & 1L, 0L);
+          tmp___26 = ldv__builtin_expect((long )descriptor___6.flags & 1L, 0L);
 #line 1152
           if (tmp___26 != 0L) {
 #line 1152
@@ -12376,7 +12376,7 @@ int ceph_fill_trace(struct super_block *sb , struct ceph_mds_request *req , stru
 #line 1154
             descriptor___7.flags = 0U;
 #line 1154
-            tmp___28 = __builtin_expect((long )descriptor___7.flags & 1L, 0L);
+            tmp___28 = ldv__builtin_expect((long )descriptor___7.flags & 1L, 0L);
 #line 1154
             if (tmp___28 != 0L) {
 #line 1154
@@ -12404,7 +12404,7 @@ int ceph_fill_trace(struct super_block *sb , struct ceph_mds_request *req , stru
 #line 1157
             descriptor___8.flags = 0U;
 #line 1157
-            tmp___30 = __builtin_expect((long )descriptor___8.flags & 1L, 0L);
+            tmp___30 = ldv__builtin_expect((long )descriptor___8.flags & 1L, 0L);
 #line 1157
             if (tmp___30 != 0L) {
 #line 1157
@@ -12518,7 +12518,7 @@ int ceph_fill_trace(struct super_block *sb , struct ceph_mds_request *req , stru
 #line 1193
             descriptor___9.flags = 0U;
 #line 1193
-            tmp___39 = __builtin_expect((long )descriptor___9.flags & 1L, 0L);
+            tmp___39 = ldv__builtin_expect((long )descriptor___9.flags & 1L, 0L);
 #line 1193
             if (tmp___39 != 0L) {
 #line 1193
@@ -12561,7 +12561,7 @@ int ceph_fill_trace(struct super_block *sb , struct ceph_mds_request *req , stru
 #line 1203
         descriptor___10.flags = 0U;
 #line 1203
-        tmp___43 = __builtin_expect((long )descriptor___10.flags & 1L, 0L);
+        tmp___43 = ldv__builtin_expect((long )descriptor___10.flags & 1L, 0L);
 #line 1203
         if (tmp___43 != 0L) {
 #line 1203
@@ -12587,7 +12587,7 @@ int ceph_fill_trace(struct super_block *sb , struct ceph_mds_request *req , stru
 #line 1207
     dn___0 = req->r_dentry;
 #line 1210
-    tmp___44 = __builtin_expect((unsigned long )dn___0 == (unsigned long )((struct dentry *)0),
+    tmp___44 = ldv__builtin_expect((unsigned long )dn___0 == (unsigned long )((struct dentry *)0),
                                 0L);
 #line 1210
     if (tmp___44 != 0L) {
@@ -12601,7 +12601,7 @@ int ceph_fill_trace(struct super_block *sb , struct ceph_mds_request *req , stru
 
     }
 #line 1211
-    tmp___45 = __builtin_expect((unsigned long )req->r_locked_dir == (unsigned long )((struct inode *)0),
+    tmp___45 = ldv__builtin_expect((unsigned long )req->r_locked_dir == (unsigned long )((struct inode *)0),
                                 0L);
 #line 1211
     if (tmp___45 != 0L) {
@@ -12617,7 +12617,7 @@ int ceph_fill_trace(struct super_block *sb , struct ceph_mds_request *req , stru
 #line 1212
     tmp___46 = ceph_snap(req->r_locked_dir);
 #line 1212
-    tmp___47 = __builtin_expect(tmp___46 != 0xffffffffffffffffULL, 0L);
+    tmp___47 = ldv__builtin_expect(tmp___46 != 0xffffffffffffffffULL, 0L);
 #line 1212
     if (tmp___47 != 0L) {
 #line 1212
@@ -12667,7 +12667,7 @@ int ceph_fill_trace(struct super_block *sb , struct ceph_mds_request *req , stru
 #line 1224
     descriptor___11.flags = 0U;
 #line 1224
-    tmp___51 = __builtin_expect((long )descriptor___11.flags & 1L, 0L);
+    tmp___51 = ldv__builtin_expect((long )descriptor___11.flags & 1L, 0L);
 #line 1224
     if (tmp___51 != 0L) {
 #line 1224
@@ -12782,7 +12782,7 @@ int ceph_fill_trace(struct super_block *sb , struct ceph_mds_request *req , stru
 #line 1263
   descriptor___12.flags = 0U;
 #line 1263
-  tmp___62 = __builtin_expect((long )descriptor___12.flags & 1L, 0L);
+  tmp___62 = ldv__builtin_expect((long )descriptor___12.flags & 1L, 0L);
 #line 1263
   if (tmp___62 != 0L) {
 #line 1263
@@ -12878,7 +12878,7 @@ int ceph_readdir_prepopulate(struct ceph_mds_request *req , struct ceph_mds_sess
 #line 1287
     descriptor.flags = 0U;
 #line 1287
-    tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1287
     if (tmp___0 != 0L) {
 #line 1287
@@ -12905,7 +12905,7 @@ int ceph_readdir_prepopulate(struct ceph_mds_request *req , struct ceph_mds_sess
 #line 1290
     descriptor___0.flags = 0U;
 #line 1290
-    tmp___2 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___2 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 1290
     if (tmp___2 != 0L) {
 #line 1290
@@ -12957,7 +12957,7 @@ int ceph_readdir_prepopulate(struct ceph_mds_request *req , struct ceph_mds_sess
 #line 1308
   descriptor___1.flags = 0U;
 #line 1308
-  tmp___4 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+  tmp___4 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 1308
   if (tmp___4 != 0L) {
 #line 1308
@@ -12987,7 +12987,7 @@ int ceph_readdir_prepopulate(struct ceph_mds_request *req , struct ceph_mds_sess
 #line 1313
     descriptor___2.flags = 0U;
 #line 1313
-    tmp___6 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+    tmp___6 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
 #line 1313
     if (tmp___6 != 0L) {
 #line 1313
@@ -13015,7 +13015,7 @@ int ceph_readdir_prepopulate(struct ceph_mds_request *req , struct ceph_mds_sess
 #line 1316
       descriptor___3.flags = 0U;
 #line 1316
-      tmp___8 = __builtin_expect((long )descriptor___3.flags & 1L, 0L);
+      tmp___8 = ldv__builtin_expect((long )descriptor___3.flags & 1L, 0L);
 #line 1316
       if (tmp___8 != 0L) {
 #line 1316
@@ -13073,7 +13073,7 @@ int ceph_readdir_prepopulate(struct ceph_mds_request *req , struct ceph_mds_sess
 #line 1328
         descriptor___4.flags = 0U;
 #line 1328
-        tmp___10 = __builtin_expect((long )descriptor___4.flags & 1L, 0L);
+        tmp___10 = ldv__builtin_expect((long )descriptor___4.flags & 1L, 0L);
 #line 1328
         if (tmp___10 != 0L) {
 #line 1328
@@ -13141,7 +13141,7 @@ int ceph_readdir_prepopulate(struct ceph_mds_request *req , struct ceph_mds_sess
 #line 1351
       descriptor___5.flags = 0U;
 #line 1351
-      tmp___16 = __builtin_expect((long )descriptor___5.flags & 1L, 0L);
+      tmp___16 = ldv__builtin_expect((long )descriptor___5.flags & 1L, 0L);
 #line 1351
       if (tmp___16 != 0L) {
 #line 1351
@@ -13241,7 +13241,7 @@ int ceph_readdir_prepopulate(struct ceph_mds_request *req , struct ceph_mds_sess
 #line 1383
   descriptor___6.flags = 0U;
 #line 1383
-  tmp___22 = __builtin_expect((long )descriptor___6.flags & 1L, 0L);
+  tmp___22 = ldv__builtin_expect((long )descriptor___6.flags & 1L, 0L);
 #line 1383
   if (tmp___22 != 0L) {
 #line 1383
@@ -13289,7 +13289,7 @@ int ceph_inode_set_size(struct inode *inode , loff_t size )
 #line 1393
   descriptor.flags = 0U;
 #line 1393
-  tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1393
   if (tmp___1 != 0L) {
 #line 1393
@@ -13355,7 +13355,7 @@ void ceph_queue_writeback(struct inode *inode )
 #line 1415
     descriptor.flags = 0U;
 #line 1415
-    tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1415
     if (tmp___0 != 0L) {
 #line 1415
@@ -13381,7 +13381,7 @@ void ceph_queue_writeback(struct inode *inode )
 #line 1417
     descriptor___0.flags = 0U;
 #line 1417
-    tmp___2 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___2 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 1417
     if (tmp___2 != 0L) {
 #line 1417
@@ -13430,7 +13430,7 @@ static void ceph_writeback_work(struct work_struct *work )
 #line 1428
   descriptor.flags = 0U;
 #line 1428
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1428
   if (tmp___0 != 0L) {
 #line 1428
@@ -13487,7 +13487,7 @@ void ceph_queue_invalidate(struct inode *inode )
 #line 1441
     descriptor.flags = 0U;
 #line 1441
-    tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1441
     if (tmp___0 != 0L) {
 #line 1441
@@ -13513,7 +13513,7 @@ void ceph_queue_invalidate(struct inode *inode )
 #line 1443
     descriptor___0.flags = 0U;
 #line 1443
-    tmp___2 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___2 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 1443
     if (tmp___2 != 0L) {
 #line 1443
@@ -13574,7 +13574,7 @@ static void ceph_invalidate_work(struct work_struct *work )
 #line 1461
   descriptor.flags = 0U;
 #line 1461
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1461
   if (tmp___0 != 0L) {
 #line 1461
@@ -13618,7 +13618,7 @@ static void ceph_invalidate_work(struct work_struct *work )
 #line 1476
     descriptor___0.flags = 0U;
 #line 1476
-    tmp___2 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___2 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 1476
     if (tmp___2 != 0L) {
 #line 1476
@@ -13648,7 +13648,7 @@ static void ceph_invalidate_work(struct work_struct *work )
 #line 1481
     descriptor___1.flags = 0U;
 #line 1481
-    tmp___4 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___4 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 1481
     if (tmp___4 != 0L) {
 #line 1481
@@ -13708,7 +13708,7 @@ static void ceph_vmtruncate_work(struct work_struct *work )
 #line 1505
   descriptor.flags = 0U;
 #line 1505
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1505
   if (tmp___0 != 0L) {
 #line 1505
@@ -13772,7 +13772,7 @@ void ceph_queue_vmtruncate(struct inode *inode )
 #line 1523
     descriptor.flags = 0U;
 #line 1523
-    tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1523
     if (tmp___1 != 0L) {
 #line 1523
@@ -13798,7 +13798,7 @@ void ceph_queue_vmtruncate(struct inode *inode )
 #line 1525
     descriptor___0.flags = 0U;
 #line 1525
-    tmp___3 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___3 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 1525
     if (tmp___3 != 0L) {
 #line 1525
@@ -13860,7 +13860,7 @@ void __ceph_do_pending_vmtruncate(struct inode *inode )
 #line 1546
     descriptor.flags = 0U;
 #line 1546
-    tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1546
     if (tmp___1 != 0L) {
 #line 1546
@@ -13894,7 +13894,7 @@ void __ceph_do_pending_vmtruncate(struct inode *inode )
 #line 1556
     descriptor___0.flags = 0U;
 #line 1556
-    tmp___3 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___3 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 1556
     if (tmp___3 != 0L) {
 #line 1556
@@ -13932,7 +13932,7 @@ void __ceph_do_pending_vmtruncate(struct inode *inode )
 #line 1566
   descriptor___1.flags = 0U;
 #line 1566
-  tmp___5 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+  tmp___5 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 1566
   if (tmp___5 != 0L) {
 #line 1566
@@ -14135,7 +14135,7 @@ int ceph_setattr(struct dentry *dentry , struct iattr *attr )
 #line 1636
   descriptor.flags = 0U;
 #line 1636
-  tmp___6 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___6 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1636
   if (tmp___6 != 0L) {
 #line 1636
@@ -14164,7 +14164,7 @@ int ceph_setattr(struct dentry *dentry , struct iattr *attr )
 #line 1639
     descriptor___0.flags = 0U;
 #line 1639
-    tmp___8 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___8 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 1639
     if (tmp___8 != 0L) {
 #line 1639
@@ -14212,7 +14212,7 @@ int ceph_setattr(struct dentry *dentry , struct iattr *attr )
 #line 1652
     descriptor___1.flags = 0U;
 #line 1652
-    tmp___10 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___10 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 1652
     if (tmp___10 != 0L) {
 #line 1652
@@ -14260,7 +14260,7 @@ int ceph_setattr(struct dentry *dentry , struct iattr *attr )
 #line 1665
     descriptor___2.flags = 0U;
 #line 1665
-    tmp___12 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+    tmp___12 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
 #line 1665
     if (tmp___12 != 0L) {
 #line 1665
@@ -14309,7 +14309,7 @@ int ceph_setattr(struct dentry *dentry , struct iattr *attr )
 #line 1679
     descriptor___3.flags = 0U;
 #line 1679
-    tmp___14 = __builtin_expect((long )descriptor___3.flags & 1L, 0L);
+    tmp___14 = ldv__builtin_expect((long )descriptor___3.flags & 1L, 0L);
 #line 1679
     if (tmp___14 != 0L) {
 #line 1679
@@ -14388,7 +14388,7 @@ int ceph_setattr(struct dentry *dentry , struct iattr *attr )
 #line 1701
     descriptor___4.flags = 0U;
 #line 1701
-    tmp___18 = __builtin_expect((long )descriptor___4.flags & 1L, 0L);
+    tmp___18 = ldv__builtin_expect((long )descriptor___4.flags & 1L, 0L);
 #line 1701
     if (tmp___18 != 0L) {
 #line 1701
@@ -14467,7 +14467,7 @@ int ceph_setattr(struct dentry *dentry , struct iattr *attr )
 #line 1723
     descriptor___5.flags = 0U;
 #line 1723
-    tmp___22 = __builtin_expect((long )descriptor___5.flags & 1L, 0L);
+    tmp___22 = ldv__builtin_expect((long )descriptor___5.flags & 1L, 0L);
 #line 1723
     if (tmp___22 != 0L) {
 #line 1723
@@ -14535,7 +14535,7 @@ int ceph_setattr(struct dentry *dentry , struct iattr *attr )
 #line 1752
     descriptor___6.flags = 0U;
 #line 1752
-    tmp___24 = __builtin_expect((long )descriptor___6.flags & 1L, 0L);
+    tmp___24 = ldv__builtin_expect((long )descriptor___6.flags & 1L, 0L);
 #line 1752
     if (tmp___24 != 0L) {
 #line 1752
@@ -14592,7 +14592,7 @@ int ceph_setattr(struct dentry *dentry , struct iattr *attr )
 #line 1774
     descriptor___7.flags = 0U;
 #line 1774
-    tmp___26 = __builtin_expect((long )descriptor___7.flags & 1L, 0L);
+    tmp___26 = ldv__builtin_expect((long )descriptor___7.flags & 1L, 0L);
 #line 1774
     if (tmp___26 != 0L) {
 #line 1774
@@ -14661,7 +14661,7 @@ int ceph_setattr(struct dentry *dentry , struct iattr *attr )
 #line 1797
   descriptor___8.flags = 0U;
 #line 1797
-  tmp___29 = __builtin_expect((long )descriptor___8.flags & 1L, 0L);
+  tmp___29 = ldv__builtin_expect((long )descriptor___8.flags & 1L, 0L);
 #line 1797
   if (tmp___29 != 0L) {
 #line 1797
@@ -14738,7 +14738,7 @@ int ceph_do_getattr(struct inode *inode , int mask )
 #line 1821
     descriptor.flags = 0U;
 #line 1821
-    tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1821
     if (tmp___1 != 0L) {
 #line 1821
@@ -14768,7 +14768,7 @@ int ceph_do_getattr(struct inode *inode , int mask )
 #line 1825
   descriptor___0.flags = 0U;
 #line 1825
-  tmp___5 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___5 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 1825
   if (tmp___5 != 0L) {
 #line 1825
@@ -14831,7 +14831,7 @@ int ceph_do_getattr(struct inode *inode , int mask )
 #line 1838
   descriptor___1.flags = 0U;
 #line 1838
-  tmp___11 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+  tmp___11 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 1838
   if (tmp___11 != 0L) {
 #line 1838
@@ -15299,7 +15299,7 @@ __inline static void kref_get(struct kref *kref )
 #line 42
   __ret_warn_on = tmp == 0;
 #line 42
-  tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 42
   if (tmp___0 != 0L) {
 #line 42
@@ -15308,7 +15308,7 @@ __inline static void kref_get(struct kref *kref )
 
   }
 #line 42
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 43
   atomic_inc(& kref->refcount);
 #line 44
@@ -15658,7 +15658,7 @@ static int __dcache_readdir(struct file *filp , void *dirent , int (*filldir)(vo
 #line 201
   descriptor.flags = 0U;
 #line 201
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 201
   if (tmp___0 != 0L) {
 #line 201
@@ -15706,7 +15706,7 @@ static int __dcache_readdir(struct file *filp , void *dirent , int (*filldir)(vo
 #line 212
       descriptor___0.flags = 0U;
 #line 212
-      tmp___3 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+      tmp___3 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 212
       if (tmp___3 != 0L) {
 #line 212
@@ -15744,7 +15744,7 @@ static int __dcache_readdir(struct file *filp , void *dirent , int (*filldir)(vo
 #line 221
   descriptor___1.flags = 0U;
 #line 221
-  tmp___7 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+  tmp___7 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 221
   if (tmp___7 != 0L) {
 #line 221
@@ -15813,7 +15813,7 @@ static int __dcache_readdir(struct file *filp , void *dirent , int (*filldir)(vo
 #line 234
   descriptor___2.flags = 0U;
 #line 234
-  tmp___14 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+  tmp___14 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
 #line 234
   if (tmp___14 != 0L) {
 #line 234
@@ -15861,7 +15861,7 @@ static int __dcache_readdir(struct file *filp , void *dirent , int (*filldir)(vo
 #line 248
   descriptor___3.flags = 0U;
 #line 248
-  tmp___16 = __builtin_expect((long )descriptor___3.flags & 1L, 0L);
+  tmp___16 = ldv__builtin_expect((long )descriptor___3.flags & 1L, 0L);
 #line 248
   if (tmp___16 != 0L) {
 #line 248
@@ -15933,7 +15933,7 @@ static int __dcache_readdir(struct file *filp , void *dirent , int (*filldir)(vo
 #line 274
     descriptor___4.flags = 0U;
 #line 274
-    tmp___19 = __builtin_expect((long )descriptor___4.flags & 1L, 0L);
+    tmp___19 = ldv__builtin_expect((long )descriptor___4.flags & 1L, 0L);
 #line 274
     if (tmp___19 != 0L) {
 #line 274
@@ -16016,7 +16016,7 @@ static int note_last_dentry(struct ceph_file_info *fi , char const   *name , int
 #line 306
   descriptor.flags = 0U;
 #line 306
-  tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 306
   if (tmp___1 != 0L) {
 #line 306
@@ -16157,7 +16157,7 @@ static int ceph_readdir(struct file *filp , void *dirent , int (*filldir)(void *
 #line 325
   descriptor.flags = 0U;
 #line 325
-  tmp___4 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___4 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 325
   if (tmp___4 != 0L) {
 #line 325
@@ -16193,7 +16193,7 @@ static int ceph_readdir(struct file *filp , void *dirent , int (*filldir)(void *
 #line 335
     descriptor___0.flags = 0U;
 #line 335
-    tmp___6 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___6 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 335
     if (tmp___6 != 0L) {
 #line 335
@@ -16244,7 +16244,7 @@ static int ceph_readdir(struct file *filp , void *dirent , int (*filldir)(void *
 #line 345
     descriptor___1.flags = 0U;
 #line 345
-    tmp___12 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___12 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 345
     if (tmp___12 != 0L) {
 #line 345
@@ -16370,7 +16370,7 @@ static int ceph_readdir(struct file *filp , void *dirent , int (*filldir)(void *
 #line 395
     descriptor___2.flags = 0U;
 #line 395
-    tmp___24 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+    tmp___24 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
 #line 395
     if (tmp___24 != 0L) {
 #line 395
@@ -16448,7 +16448,7 @@ static int ceph_readdir(struct file *filp , void *dirent , int (*filldir)(void *
 #line 418
     descriptor___3.flags = 0U;
 #line 418
-    tmp___28 = __builtin_expect((long )descriptor___3.flags & 1L, 0L);
+    tmp___28 = ldv__builtin_expect((long )descriptor___3.flags & 1L, 0L);
 #line 418
     if (tmp___28 != 0L) {
 #line 418
@@ -16476,7 +16476,7 @@ static int ceph_readdir(struct file *filp , void *dirent , int (*filldir)(void *
 #line 424
       descriptor___4.flags = 0U;
 #line 424
-      tmp___30 = __builtin_expect((long )descriptor___4.flags & 1L, 0L);
+      tmp___30 = ldv__builtin_expect((long )descriptor___4.flags & 1L, 0L);
 #line 424
       if (tmp___30 != 0L) {
 #line 424
@@ -16547,7 +16547,7 @@ static int ceph_readdir(struct file *filp , void *dirent , int (*filldir)(void *
 #line 451
   descriptor___5.flags = 0U;
 #line 451
-  tmp___33 = __builtin_expect((long )descriptor___5.flags & 1L, 0L);
+  tmp___33 = ldv__builtin_expect((long )descriptor___5.flags & 1L, 0L);
 #line 451
   if (tmp___33 != 0L) {
 #line 451
@@ -16582,7 +16582,7 @@ static int ceph_readdir(struct file *filp , void *dirent , int (*filldir)(void *
 #line 460
   descriptor___6.flags = 0U;
 #line 460
-  tmp___36 = __builtin_expect((long )descriptor___6.flags & 1L, 0L);
+  tmp___36 = ldv__builtin_expect((long )descriptor___6.flags & 1L, 0L);
 #line 460
   if (tmp___36 != 0L) {
 #line 460
@@ -16598,7 +16598,7 @@ static int ceph_readdir(struct file *filp , void *dirent , int (*filldir)(void *
 
   }
 #line 464
-  tmp___37 = __builtin_expect((unsigned long )in == (unsigned long )((struct ceph_mds_reply_inode *)0),
+  tmp___37 = ldv__builtin_expect((unsigned long )in == (unsigned long )((struct ceph_mds_reply_inode *)0),
                               0L);
 #line 464
   if (tmp___37 != 0L) {
@@ -16640,7 +16640,7 @@ static int ceph_readdir(struct file *filp , void *dirent , int (*filldir)(void *
 #line 474
     descriptor___7.flags = 0U;
 #line 474
-    tmp___39 = __builtin_expect((long )descriptor___7.flags & 1L, 0L);
+    tmp___39 = ldv__builtin_expect((long )descriptor___7.flags & 1L, 0L);
 #line 474
     if (tmp___39 != 0L) {
 #line 474
@@ -16704,7 +16704,7 @@ static int ceph_readdir(struct file *filp , void *dirent , int (*filldir)(void *
 #line 492
     descriptor___8.flags = 0U;
 #line 492
-    tmp___43 = __builtin_expect((long )descriptor___8.flags & 1L, 0L);
+    tmp___43 = ldv__builtin_expect((long )descriptor___8.flags & 1L, 0L);
 #line 492
     if (tmp___43 != 0L) {
 #line 492
@@ -16749,7 +16749,7 @@ static int ceph_readdir(struct file *filp , void *dirent , int (*filldir)(void *
 #line 509
   descriptor___9.flags = 0U;
 #line 509
-  tmp___46 = __builtin_expect((long )descriptor___9.flags & 1L, 0L);
+  tmp___46 = ldv__builtin_expect((long )descriptor___9.flags & 1L, 0L);
 #line 509
   if (tmp___46 != 0L) {
 #line 509
@@ -16891,7 +16891,7 @@ static loff_t ceph_dir_llseek(struct file *file , loff_t offset , int whence )
 #line 565
           descriptor.flags = 0U;
 #line 565
-          tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+          tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 565
           if (tmp___0 != 0L) {
 #line 565
@@ -16977,7 +16977,7 @@ int ceph_handle_snapdir(struct ceph_mds_request *req , struct dentry *dentry , i
 #line 593
         descriptor.flags = 0U;
 #line 593
-        tmp___2 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+        tmp___2 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 593
         if (tmp___2 != 0L) {
 #line 593
@@ -16993,7 +16993,7 @@ int ceph_handle_snapdir(struct ceph_mds_request *req , struct dentry *dentry , i
 #line 595
         tmp___3 = d_unhashed(dentry);
 #line 595
-        tmp___4 = __builtin_expect(tmp___3 == 0, 0L);
+        tmp___4 = ldv__builtin_expect(tmp___3 == 0, 0L);
 #line 595
         if (tmp___4 != 0L) {
 #line 595
@@ -17051,7 +17051,7 @@ struct dentry *ceph_finish_lookup(struct ceph_mds_request *req , struct dentry *
 #line 620
       descriptor.flags = 0U;
 #line 620
-      tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+      tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 620
       if (tmp___0 != 0L) {
 #line 620
@@ -17183,7 +17183,7 @@ static struct dentry *ceph_lookup(struct inode *dir , struct dentry *dentry , un
 #line 658
   descriptor.flags = 0U;
 #line 658
-  tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 658
   if (tmp___1 != 0L) {
 #line 658
@@ -17241,7 +17241,7 @@ static struct dentry *ceph_lookup(struct inode *dir , struct dentry *dentry , un
 #line 674
     descriptor___0.flags = 0U;
 #line 674
-    tmp___7 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___7 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 674
     if (tmp___7 != 0L) {
 #line 674
@@ -17285,7 +17285,7 @@ static struct dentry *ceph_lookup(struct inode *dir , struct dentry *dentry , un
 #line 682
             descriptor___1.flags = 0U;
 #line 682
-            tmp___9 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+            tmp___9 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 682
             if (tmp___9 != 0L) {
 #line 682
@@ -17366,7 +17366,7 @@ static struct dentry *ceph_lookup(struct inode *dir , struct dentry *dentry , un
 #line 704
   descriptor___2.flags = 0U;
 #line 704
-  tmp___18 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+  tmp___18 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
 #line 704
   if (tmp___18 != 0L) {
 #line 704
@@ -17403,7 +17403,7 @@ int ceph_handle_notrace_create(struct inode *dir , struct dentry *dentry )
 #line 716
     if (tmp___1 == 0L) {
 #line 724
-      tmp___0 = __builtin_expect((unsigned long )result->d_inode == (unsigned long )((struct inode *)0),
+      tmp___0 = ldv__builtin_expect((unsigned long )result->d_inode == (unsigned long )((struct inode *)0),
                                  0L);
 #line 724
       if (tmp___0 != 0L) {
@@ -17476,7 +17476,7 @@ static int ceph_mknod(struct inode *dir , struct dentry *dentry , umode_t mode ,
 #line 742
   descriptor.flags = 0U;
 #line 742
-  tmp___2 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___2 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 742
   if (tmp___2 != 0L) {
 #line 742
@@ -17596,7 +17596,7 @@ static int ceph_symlink(struct inode *dir , struct dentry *dentry , char const  
 #line 782
   descriptor.flags = 0U;
 #line 782
-  tmp___2 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___2 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 782
   if (tmp___2 != 0L) {
 #line 782
@@ -17705,7 +17705,7 @@ static int ceph_mkdir(struct inode *dir , struct dentry *dentry , umode_t mode )
 #line 814
     descriptor.flags = 0U;
 #line 814
-    tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 814
     if (tmp___1 != 0L) {
 #line 814
@@ -17736,7 +17736,7 @@ static int ceph_mkdir(struct inode *dir , struct dentry *dentry , umode_t mode )
 #line 817
       descriptor___0.flags = 0U;
 #line 817
-      tmp___3 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+      tmp___3 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 817
       if (tmp___3 != 0L) {
 #line 817
@@ -17849,7 +17849,7 @@ static int ceph_link(struct dentry *old_dentry , struct inode *dir , struct dent
 #line 855
   descriptor.flags = 0U;
 #line 855
-  tmp___2 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___2 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 855
   if (tmp___2 != 0L) {
 #line 855
@@ -17995,7 +17995,7 @@ static int ceph_unlink(struct inode *dir , struct dentry *dentry )
 #line 914
     descriptor.flags = 0U;
 #line 914
-    tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 914
     if (tmp___1 != 0L) {
 #line 914
@@ -18028,7 +18028,7 @@ static int ceph_unlink(struct inode *dir , struct dentry *dentry )
 #line 918
       descriptor___0.flags = 0U;
 #line 918
-      tmp___3 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+      tmp___3 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 918
       if (tmp___3 != 0L) {
 #line 918
@@ -18157,7 +18157,7 @@ static int ceph_rename(struct inode *old_dir , struct dentry *old_dentry , struc
 #line 956
   descriptor.flags = 0U;
 #line 956
-  tmp___5 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___5 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 956
   if (tmp___5 != 0L) {
 #line 956
@@ -18338,7 +18338,7 @@ static int dentry_lease_is_valid(struct dentry *dentry )
 #line 1052
   descriptor.flags = 0U;
 #line 1052
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1052
   if (tmp___0 != 0L) {
 #line 1052
@@ -18401,7 +18401,7 @@ static int dir_lease_is_valid(struct inode *dir , struct dentry *dentry )
 #line 1069
   descriptor.flags = 0U;
 #line 1069
-  tmp___2 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___2 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1069
   if (tmp___2 != 0L) {
 #line 1069
@@ -18461,7 +18461,7 @@ static int ceph_d_revalidate(struct dentry *dentry , unsigned int flags )
 #line 1086
   descriptor.flags = 0U;
 #line 1086
-  tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1086
   if (tmp___1 != 0L) {
 #line 1086
@@ -18495,7 +18495,7 @@ static int ceph_d_revalidate(struct dentry *dentry , unsigned int flags )
 #line 1094
     descriptor___0.flags = 0U;
 #line 1094
-    tmp___3 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___3 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 1094
     if (tmp___3 != 0L) {
 #line 1094
@@ -18556,7 +18556,7 @@ static int ceph_d_revalidate(struct dentry *dentry , unsigned int flags )
 #line 1105
   descriptor___1.flags = 0U;
 #line 1105
-  tmp___9 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+  tmp___9 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 1105
   if (tmp___9 != 0L) {
 #line 1105
@@ -18609,7 +18609,7 @@ static void ceph_d_release(struct dentry *dentry )
 #line 1121
   descriptor.flags = 0U;
 #line 1121
-  tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1121
   if (tmp___1 != 0L) {
 #line 1121
@@ -18688,7 +18688,7 @@ void ceph_dir_set_complete(struct inode *inode )
 #line 1148
         descriptor.flags = 0U;
 #line 1148
-        tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+        tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1148
         if (tmp___1 != 0L) {
 #line 1148
@@ -18754,7 +18754,7 @@ void ceph_dir_clear_complete(struct inode *inode )
 #line 1159
       descriptor.flags = 0U;
 #line 1159
-      tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+      tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1159
       if (tmp___1 != 0L) {
 #line 1159
@@ -18817,7 +18817,7 @@ bool ceph_dir_test_complete(struct inode *inode )
 #line 1170
       descriptor.flags = 0U;
 #line 1170
-      tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+      tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1170
       if (tmp___1 != 0L) {
 #line 1170
@@ -18868,7 +18868,7 @@ static void ceph_d_prune(struct dentry *dentry )
 #line 1187
   descriptor.flags = 0U;
 #line 1187
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1187
   if (tmp___0 != 0L) {
 #line 1187
@@ -19034,7 +19034,7 @@ static int ceph_dir_fsync(struct file *file , loff_t start , loff_t end , int da
 #line 1270
   descriptor.flags = 0U;
 #line 1270
-  tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1270
   if (tmp___1 != 0L) {
 #line 1270
@@ -19092,7 +19092,7 @@ static int ceph_dir_fsync(struct file *file , loff_t start , loff_t end , int da
 #line 1288
   descriptor___0.flags = 0U;
 #line 1288
-  tmp___4 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___4 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 1288
   if (tmp___4 != 0L) {
 #line 1288
@@ -19195,7 +19195,7 @@ void ceph_dentry_lru_add(struct dentry *dn )
 #line 1325
   descriptor.flags = 0U;
 #line 1325
-  tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1325
   if (tmp___1 != 0L) {
 #line 1325
@@ -19253,7 +19253,7 @@ void ceph_dentry_lru_touch(struct dentry *dn )
 #line 1339
   descriptor.flags = 0U;
 #line 1339
-  tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1339
   if (tmp___1 != 0L) {
 #line 1339
@@ -19309,7 +19309,7 @@ void ceph_dentry_lru_del(struct dentry *dn )
 #line 1352
   descriptor.flags = 0U;
 #line 1352
-  tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1352
   if (tmp___1 != 0L) {
 #line 1352
@@ -19985,7 +19985,7 @@ static int ceph_init_file(struct inode *inode , struct file *file , int fmode )
 #line 146
   descriptor.flags = 0U;
 #line 146
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 146
   if (tmp___0 != 0L) {
 #line 146
@@ -20019,7 +20019,7 @@ static int ceph_init_file(struct inode *inode , struct file *file , int fmode )
 #line 155
   file->private_data = (void *)cf;
 #line 156
-  tmp___3 = __builtin_expect((unsigned long )((int (*)(struct inode * , struct file * ))(inode->i_fop)->release) != (unsigned long )(& ceph_release),
+  tmp___3 = ldv__builtin_expect((unsigned long )((int (*)(struct inode * , struct file * ))(inode->i_fop)->release) != (unsigned long )(& ceph_release),
                              0L);
 #line 156
   if (tmp___3 != 0L) {
@@ -20048,7 +20048,7 @@ static int ceph_init_file(struct inode *inode , struct file *file , int fmode )
 #line 160
   descriptor___0.flags = 0U;
 #line 160
-  tmp___5 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___5 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 160
   if (tmp___5 != 0L) {
 #line 160
@@ -20080,7 +20080,7 @@ static int ceph_init_file(struct inode *inode , struct file *file , int fmode )
 #line 166
   descriptor___1.flags = 0U;
 #line 166
-  tmp___8 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+  tmp___8 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 166
   if (tmp___8 != 0L) {
 #line 166
@@ -20097,7 +20097,7 @@ static int ceph_init_file(struct inode *inode , struct file *file , int fmode )
 #line 172
   ceph_put_fmode(tmp___9, fmode);
 #line 173
-  tmp___10 = __builtin_expect((unsigned long )((int (*)(struct inode * , struct file * ))(inode->i_fop)->release) == (unsigned long )(& ceph_release),
+  tmp___10 = ldv__builtin_expect((unsigned long )((int (*)(struct inode * , struct file * ))(inode->i_fop)->release) == (unsigned long )(& ceph_release),
                               0L);
 #line 173
   if (tmp___10 != 0L) {
@@ -20200,7 +20200,7 @@ int ceph_open(struct inode *inode , struct file *file )
 #line 199
     descriptor.flags = 0U;
 #line 199
-    tmp___2 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___2 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 199
     if (tmp___2 != 0L) {
 #line 199
@@ -20239,7 +20239,7 @@ int ceph_open(struct inode *inode , struct file *file )
 #line 208
   descriptor___0.flags = 0U;
 #line 208
-  tmp___6 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___6 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 208
   if (tmp___6 != 0L) {
 #line 208
@@ -20313,7 +20313,7 @@ int ceph_open(struct inode *inode , struct file *file )
 #line 236
     descriptor___1.flags = 0U;
 #line 236
-    tmp___15 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___15 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 236
     if (tmp___15 != 0L) {
 #line 236
@@ -20384,7 +20384,7 @@ int ceph_open(struct inode *inode , struct file *file )
 #line 257
   descriptor___2.flags = 0U;
 #line 257
-  tmp___23 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+  tmp___23 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
 #line 257
   if (tmp___23 != 0L) {
 #line 257
@@ -20452,7 +20452,7 @@ int ceph_open(struct inode *inode , struct file *file )
 #line 273
   descriptor___3.flags = 0U;
 #line 273
-  tmp___29 = __builtin_expect((long )descriptor___3.flags & 1L, 0L);
+  tmp___29 = ldv__builtin_expect((long )descriptor___3.flags & 1L, 0L);
 #line 273
   if (tmp___29 != 0L) {
 #line 273
@@ -20523,7 +20523,7 @@ int ceph_atomic_open(struct inode *dir , struct dentry *dentry , struct file *fi
 #line 293
   descriptor.flags = 0U;
 #line 293
-  tmp___2 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___2 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 293
   if (tmp___2 != 0L) {
 #line 293
@@ -20637,7 +20637,7 @@ int ceph_atomic_open(struct inode *dir , struct dentry *dentry , struct file *fi
 #line 334
     descriptor___0.flags = 0U;
 #line 334
-    tmp___9 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___9 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 334
     if (tmp___9 != 0L) {
 #line 334
@@ -20665,7 +20665,7 @@ int ceph_atomic_open(struct inode *dir , struct dentry *dentry , struct file *fi
 #line 337
     descriptor___1.flags = 0U;
 #line 337
-    tmp___11 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___11 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 337
     if (tmp___11 != 0L) {
 #line 337
@@ -20696,7 +20696,7 @@ int ceph_atomic_open(struct inode *dir , struct dentry *dentry , struct file *fi
 #line 343
   descriptor___2.flags = 0U;
 #line 343
-  tmp___13 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+  tmp___13 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
 #line 343
   if (tmp___13 != 0L) {
 #line 343
@@ -20742,7 +20742,7 @@ int ceph_release(struct inode *inode , struct file *file )
 #line 352
   descriptor.flags = 0U;
 #line 352
-  tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 352
   if (tmp___1 != 0L) {
 #line 352
@@ -20873,7 +20873,7 @@ static int striped_read(struct inode *inode , u64 off , u64 len , struct page **
 #line 414
   descriptor.flags = 0U;
 #line 414
-  tmp___3 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___3 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 414
   if (tmp___3 != 0L) {
 #line 414
@@ -20905,7 +20905,7 @@ static int striped_read(struct inode *inode , u64 off , u64 len , struct page **
 #line 421
       descriptor___0.flags = 0U;
 #line 421
-      tmp___5 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+      tmp___5 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 421
       if (tmp___5 != 0L) {
 #line 421
@@ -20974,7 +20974,7 @@ static int striped_read(struct inode *inode , u64 off , u64 len , struct page **
 #line 446
       descriptor___1.flags = 0U;
 #line 446
-      tmp___7 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+      tmp___7 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 446
       if (tmp___7 != 0L) {
 #line 446
@@ -21016,7 +21016,7 @@ static int striped_read(struct inode *inode , u64 off , u64 len , struct page **
 #line 455
   descriptor___2.flags = 0U;
 #line 455
-  tmp___9 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+  tmp___9 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
 #line 455
   if (tmp___9 != 0L) {
 #line 455
@@ -21068,7 +21068,7 @@ static ssize_t ceph_sync_read(struct file *file , char *data , unsigned int len 
 #line 473
   descriptor.flags = 0U;
 #line 473
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 473
   if (tmp___0 != 0L) {
 #line 473
@@ -21151,7 +21151,7 @@ static ssize_t ceph_sync_read(struct file *file , char *data , unsigned int len 
 #line 510
   descriptor___0.flags = 0U;
 #line 510
-  tmp___4 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___4 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 510
   if (tmp___4 != 0L) {
 #line 510
@@ -21194,7 +21194,7 @@ static void sync_write_commit(struct ceph_osd_request *req , struct ceph_msg *ms
 #line 523
   descriptor.flags = 0U;
 #line 523
-  tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 523
   if (tmp___1 != 0L) {
 #line 523
@@ -21303,7 +21303,7 @@ static ssize_t ceph_sync_write(struct file *file , char const   *data , size_t l
 #line 561
   descriptor.flags = 0U;
 #line 561
-  tmp___4 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___4 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 561
   if (tmp___4 != 0L) {
 #line 561
@@ -21353,7 +21353,7 @@ static ssize_t ceph_sync_write(struct file *file , char const   *data , size_t l
 #line 577
     descriptor___0.flags = 0U;
 #line 577
-    tmp___7 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___7 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 577
     if (tmp___7 != 0L) {
 #line 577
@@ -21652,7 +21652,7 @@ static ssize_t ceph_aio_read(struct kiocb *iocb , struct iovec  const  *iov , un
 #line 719
   descriptor.flags = 0U;
 #line 719
-  tmp___3 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___3 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 719
   if (tmp___3 != 0L) {
 #line 719
@@ -21704,7 +21704,7 @@ static ssize_t ceph_aio_read(struct kiocb *iocb , struct iovec  const  *iov , un
 #line 730
   descriptor___0.flags = 0U;
 #line 730
-  tmp___9 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___9 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 730
   if (tmp___9 != 0L) {
 #line 730
@@ -21745,7 +21745,7 @@ static ssize_t ceph_aio_read(struct kiocb *iocb , struct iovec  const  *iov , un
 #line 744
   descriptor___1.flags = 0U;
 #line 744
-  tmp___14 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+  tmp___14 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 744
   if (tmp___14 != 0L) {
 #line 744
@@ -21787,7 +21787,7 @@ static ssize_t ceph_aio_read(struct kiocb *iocb , struct iovec  const  *iov , un
 #line 753
       descriptor___2.flags = 0U;
 #line 753
-      tmp___17 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+      tmp___17 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
 #line 753
       if (tmp___17 != 0L) {
 #line 753
@@ -21977,7 +21977,7 @@ static ssize_t ceph_aio_write(struct kiocb *iocb , struct iovec  const  *iov , u
 #line 822
   descriptor.flags = 0U;
 #line 822
-  tmp___8 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___8 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 822
   if (tmp___8 != 0L) {
 #line 822
@@ -22017,7 +22017,7 @@ static ssize_t ceph_aio_write(struct kiocb *iocb , struct iovec  const  *iov , u
 #line 829
   descriptor___0.flags = 0U;
 #line 829
-  tmp___13 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___13 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 829
   if (tmp___13 != 0L) {
 #line 829
@@ -22074,7 +22074,7 @@ static ssize_t ceph_aio_write(struct kiocb *iocb , struct iovec  const  *iov , u
 #line 842
   descriptor___1.flags = 0U;
 #line 842
-  tmp___19 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+  tmp___19 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 842
   if (tmp___19 != 0L) {
 #line 842
@@ -22112,7 +22112,7 @@ static ssize_t ceph_aio_write(struct kiocb *iocb , struct iovec  const  *iov , u
 #line 848
     descriptor___2.flags = 0U;
 #line 848
-    tmp___23 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+    tmp___23 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
 #line 848
     if (tmp___23 != 0L) {
 #line 848
@@ -22608,7 +22608,7 @@ static int ceph_lock_message(u8 lock_type , u16 operation , struct file *file , 
 #line 106
   descriptor.flags = 0U;
 #line 106
-  tmp___3 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___3 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 106
   if (tmp___3 != 0L) {
 #line 106
@@ -22685,7 +22685,7 @@ static int ceph_lock_message(u8 lock_type , u16 operation , struct file *file , 
 #line 143
   descriptor___0.flags = 0U;
 #line 143
-  tmp___5 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___5 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 143
   if (tmp___5 != 0L) {
 #line 143
@@ -22749,7 +22749,7 @@ int ceph_lock(struct file *file , int cmd , struct file_lock *fl )
 #line 162
   descriptor.flags = 0U;
 #line 162
-  tmp___2 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___2 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 162
   if (tmp___2 != 0L) {
 #line 162
@@ -22807,7 +22807,7 @@ int ceph_lock(struct file *file , int cmd , struct file_lock *fl )
 #line 180
       descriptor___0.flags = 0U;
 #line 180
-      tmp___4 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+      tmp___4 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 180
       if (tmp___4 != 0L) {
 #line 180
@@ -22838,7 +22838,7 @@ int ceph_lock(struct file *file , int cmd , struct file_lock *fl )
 #line 188
         descriptor___1.flags = 0U;
 #line 188
-        tmp___6 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+        tmp___6 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 188
         if (tmp___6 != 0L) {
 #line 188
@@ -22869,7 +22869,7 @@ int ceph_lock(struct file *file , int cmd , struct file_lock *fl )
 #line 194
       descriptor___2.flags = 0U;
 #line 194
-      tmp___8 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+      tmp___8 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
 #line 194
       if (tmp___8 != 0L) {
 #line 194
@@ -22933,7 +22933,7 @@ int ceph_flock(struct file *file , int cmd , struct file_lock *fl )
 #line 208
   descriptor.flags = 0U;
 #line 208
-  tmp___2 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___2 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 208
   if (tmp___2 != 0L) {
 #line 208
@@ -22990,7 +22990,7 @@ int ceph_flock(struct file *file , int cmd , struct file_lock *fl )
 #line 231
       descriptor___0.flags = 0U;
 #line 231
-      tmp___4 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+      tmp___4 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 231
       if (tmp___4 != 0L) {
 #line 231
@@ -23021,7 +23021,7 @@ int ceph_flock(struct file *file , int cmd , struct file_lock *fl )
 #line 234
     descriptor___1.flags = 0U;
 #line 234
-    tmp___6 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___6 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 234
     if (tmp___6 != 0L) {
 #line 234
@@ -23095,7 +23095,7 @@ void ceph_count_locks(struct inode *inode , int *fcntl_count , int *flock_count 
 #line 260
   descriptor.flags = 0U;
 #line 260
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 260
   if (tmp___0 != 0L) {
 #line 260
@@ -23144,7 +23144,7 @@ int ceph_encode_locks(struct inode *inode , struct ceph_pagelist *pagelist , int
 #line 281
   descriptor.flags = 0U;
 #line 281
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 281
   if (tmp___0 != 0L) {
 #line 281
@@ -23330,7 +23330,7 @@ int lock_to_ceph_filelock(struct file_lock *lock , struct ceph_filelock *cephloc
 #line 352
   descriptor.flags = 0U;
 #line 352
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 352
   if (tmp___0 != 0L) {
 #line 352
@@ -23648,7 +23648,7 @@ __inline static int signal_pending(struct task_struct *p )
 #line 2620
   tmp = test_tsk_thread_flag(p, 2);
 #line 2620
-  tmp___0 = __builtin_expect(tmp != 0, 0L);
+  tmp___0 = ldv__builtin_expect(tmp != 0, 0L);
 #line 2620
   return ((int )tmp___0);
 }
@@ -23849,7 +23849,7 @@ __inline static unsigned long page_index(struct page *page )
 #line 862
   tmp = PageSwapCache((struct page  const  *)page);
 #line 862
-  tmp___0 = __builtin_expect(tmp != 0, 0L);
+  tmp___0 = ldv__builtin_expect(tmp != 0, 0L);
 #line 862
   if (tmp___0 != 0L) {
 #line 863
@@ -23947,14 +23947,14 @@ __inline static void zero_user_segments(struct page *page , unsigned int start1 
 #line 196
   kaddr = tmp;
 #line 198
-  tmp___0 = __builtin_expect(end1 > 4096U, 0L);
+  tmp___0 = ldv__builtin_expect(end1 > 4096U, 0L);
 #line 198
   if (tmp___0 != 0L) {
 #line 198
     goto _L;
   } else {
 #line 198
-    tmp___1 = __builtin_expect(end2 > 4096U, 0L);
+    tmp___1 = ldv__builtin_expect(end2 > 4096U, 0L);
 #line 198
     if (tmp___1 != 0L) {
       _L: /* CIL Label */ 
@@ -24007,7 +24007,7 @@ __inline static void mapping_set_error(struct address_space *mapping , int error
 
   {
 #line 32
-  tmp = __builtin_expect(error != 0, 0L);
+  tmp = ldv__builtin_expect(error != 0, 0L);
 #line 32
   if (tmp != 0L) {
 #line 33
@@ -24052,7 +24052,7 @@ __inline static int trylock_page(struct page *page )
 #line 342
   tmp = test_and_set_bit_lock(0, (unsigned long volatile   *)(& page->flags));
 #line 342
-  tmp___0 = __builtin_expect(tmp == 0, 1L);
+  tmp___0 = ldv__builtin_expect(tmp == 0, 1L);
 #line 342
   return ((int )tmp___0);
 }
@@ -24321,7 +24321,7 @@ static int ceph_set_page_dirty(struct page *page )
 #line 145
   undo = 0;
 #line 148
-  tmp___0 = __builtin_expect((unsigned long )mapping == (unsigned long )((struct address_space *)0),
+  tmp___0 = ldv__builtin_expect((unsigned long )mapping == (unsigned long )((struct address_space *)0),
                              0L);
 #line 148
   if (tmp___0 != 0L) {
@@ -24349,7 +24349,7 @@ static int ceph_set_page_dirty(struct page *page )
 #line 152
     descriptor.flags = 0U;
 #line 152
-    tmp___2 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___2 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 152
     if (tmp___2 != 0L) {
 #line 152
@@ -24405,7 +24405,7 @@ static int ceph_set_page_dirty(struct page *page )
 #line 174
   descriptor___0.flags = 0U;
 #line 174
-  tmp___5 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___5 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 174
   if (tmp___5 != 0L) {
 #line 174
@@ -24430,13 +24430,13 @@ static int ceph_set_page_dirty(struct page *page )
 #line 185
     __ret_warn_once = tmp___6 == 0;
 #line 185
-    tmp___9 = __builtin_expect(__ret_warn_once != 0, 0L);
+    tmp___9 = ldv__builtin_expect(__ret_warn_once != 0, 0L);
 #line 185
     if (tmp___9 != 0L) {
 #line 185
       __ret_warn_on = ! __warned;
 #line 185
-      tmp___7 = __builtin_expect(__ret_warn_on != 0, 0L);
+      tmp___7 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 185
       if (tmp___7 != 0L) {
 #line 185
@@ -24446,7 +24446,7 @@ static int ceph_set_page_dirty(struct page *page )
 
       }
 #line 185
-      tmp___8 = __builtin_expect(__ret_warn_on != 0, 0L);
+      tmp___8 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 185
       if (tmp___8 != 0L) {
 #line 185
@@ -24458,7 +24458,7 @@ static int ceph_set_page_dirty(struct page *page )
 
     }
 #line 185
-    __builtin_expect(__ret_warn_once != 0, 0L);
+    ldv__builtin_expect(__ret_warn_once != 0, 0L);
 #line 186
     account_page_dirtied(page, page->mapping);
 #line 187
@@ -24483,7 +24483,7 @@ static int ceph_set_page_dirty(struct page *page )
 #line 197
     descriptor___1.flags = 0U;
 #line 197
-    tmp___12 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___12 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 197
     if (tmp___12 != 0L) {
 #line 197
@@ -24512,7 +24512,7 @@ static int ceph_set_page_dirty(struct page *page )
 #line 209
   tmp___13 = PageDirty((struct page  const  *)page);
 #line 209
-  tmp___14 = __builtin_expect(tmp___13 == 0, 0L);
+  tmp___14 = ldv__builtin_expect(tmp___13 == 0, 0L);
 #line 209
   if (tmp___14 != 0L) {
 #line 209
@@ -24556,7 +24556,7 @@ static void ceph_invalidatepage(struct page *page , unsigned long offset )
 #line 224
   tmp___0 = PageLocked((struct page  const  *)page);
 #line 224
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
 #line 224
   if (tmp___1 != 0L) {
 #line 224
@@ -24571,7 +24571,7 @@ static void ceph_invalidatepage(struct page *page , unsigned long offset )
 #line 225
   tmp___2 = PagePrivate((struct page  const  *)page);
 #line 225
-  tmp___3 = __builtin_expect(tmp___2 == 0, 0L);
+  tmp___3 = ldv__builtin_expect(tmp___2 == 0, 0L);
 #line 225
   if (tmp___3 != 0L) {
 #line 225
@@ -24584,7 +24584,7 @@ static void ceph_invalidatepage(struct page *page , unsigned long offset )
 
   }
 #line 226
-  tmp___4 = __builtin_expect((unsigned long )page->mapping == (unsigned long )((struct address_space *)0),
+  tmp___4 = ldv__builtin_expect((unsigned long )page->mapping == (unsigned long )((struct address_space *)0),
                              0L);
 #line 226
   if (tmp___4 != 0L) {
@@ -24632,7 +24632,7 @@ static void ceph_invalidatepage(struct page *page , unsigned long offset )
 #line 243
     descriptor.flags = 0U;
 #line 243
-    tmp___7 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___7 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 243
     if (tmp___7 != 0L) {
 #line 243
@@ -24667,7 +24667,7 @@ static void ceph_invalidatepage(struct page *page , unsigned long offset )
 #line 250
     descriptor___0.flags = 0U;
 #line 250
-    tmp___9 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___9 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 250
     if (tmp___9 != 0L) {
 #line 250
@@ -24714,7 +24714,7 @@ static int ceph_releasepage(struct page *page , gfp_t g )
 #line 259
   descriptor.flags = 0U;
 #line 259
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 259
   if (tmp___0 != 0L) {
 #line 259
@@ -24731,7 +24731,7 @@ static int ceph_releasepage(struct page *page , gfp_t g )
 #line 260
   __ret_warn_on = tmp___1 != 0;
 #line 260
-  tmp___2 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___2 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 260
   if (tmp___2 != 0L) {
 #line 260
@@ -24741,13 +24741,13 @@ static int ceph_releasepage(struct page *page , gfp_t g )
 
   }
 #line 260
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 261
   tmp___3 = PagePrivate((struct page  const  *)page);
 #line 261
   __ret_warn_on___0 = tmp___3 != 0;
 #line 261
-  tmp___4 = __builtin_expect(__ret_warn_on___0 != 0, 0L);
+  tmp___4 = ldv__builtin_expect(__ret_warn_on___0 != 0, 0L);
 #line 261
   if (tmp___4 != 0L) {
 #line 261
@@ -24757,7 +24757,7 @@ static int ceph_releasepage(struct page *page , gfp_t g )
 
   }
 #line 261
-  __builtin_expect(__ret_warn_on___0 != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on___0 != 0, 0L);
 #line 262
   return (0);
 }
@@ -24806,7 +24806,7 @@ static int readpage_nounlock(struct file *filp , struct page *page )
 #line 277
   descriptor.flags = 0U;
 #line 277
-  tmp___2 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___2 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 277
   if (tmp___2 != 0L) {
 #line 277
@@ -24898,7 +24898,7 @@ static void finish_read(struct ceph_osd_request *req , struct ceph_msg *msg )
 #line 317
   __ret_warn_on = replyhead->num_ops == 0U;
 #line 317
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 317
   if (tmp != 0L) {
 #line 317
@@ -24908,7 +24908,7 @@ static void finish_read(struct ceph_osd_request *req , struct ceph_msg *msg )
 
   }
 #line 317
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 318
   rc = (int )replyhead->result;
 #line 319
@@ -24926,7 +24926,7 @@ static void finish_read(struct ceph_osd_request *req , struct ceph_msg *msg )
 #line 321
   descriptor.flags = 0U;
 #line 321
-  tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 321
   if (tmp___1 != 0L) {
 #line 321
@@ -24967,7 +24967,7 @@ static void finish_read(struct ceph_osd_request *req , struct ceph_msg *msg )
 #line 332
   descriptor___0.flags = 0U;
 #line 332
-  tmp___3 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___3 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 332
   if (tmp___3 != 0L) {
 #line 332
@@ -25146,7 +25146,7 @@ static int start_read(struct inode *inode , struct list_head *page_list , int ma
 #line 382
   descriptor.flags = 0U;
 #line 382
-  tmp___3 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___3 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 382
   if (tmp___3 != 0L) {
 #line 382
@@ -25202,7 +25202,7 @@ static int start_read(struct inode *inode , struct list_head *page_list , int ma
 #line 402
   tmp___8 = PageLocked((struct page  const  *)page);
 #line 402
-  tmp___9 = __builtin_expect(tmp___8 != 0, 0L);
+  tmp___9 = ldv__builtin_expect(tmp___8 != 0, 0L);
 #line 402
   if (tmp___9 != 0L) {
 #line 402
@@ -25229,7 +25229,7 @@ static int start_read(struct inode *inode , struct list_head *page_list , int ma
 #line 405
   descriptor___0.flags = 0U;
 #line 405
-  tmp___11 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___11 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 405
   if (tmp___11 != 0L) {
 #line 405
@@ -25261,7 +25261,7 @@ static int start_read(struct inode *inode , struct list_head *page_list , int ma
 #line 410
     descriptor___1.flags = 0U;
 #line 410
-    tmp___13 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___13 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 410
     if (tmp___13 != 0L) {
 #line 410
@@ -25313,7 +25313,7 @@ static int start_read(struct inode *inode , struct list_head *page_list , int ma
 #line 422
   descriptor___2.flags = 0U;
 #line 422
-  tmp___16 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+  tmp___16 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
 #line 422
   if (tmp___16 != 0L) {
 #line 422
@@ -25399,7 +25399,7 @@ static int ceph_readpages(struct file *file , struct address_space *mapping , st
 #line 454
   descriptor.flags = 0U;
 #line 454
-  tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 454
   if (tmp___1 != 0L) {
 #line 454
@@ -25424,7 +25424,7 @@ static int ceph_readpages(struct file *file , struct address_space *mapping , st
 
   }
 #line 460
-  tmp___2 = __builtin_expect(rc == 0, 0L);
+  tmp___2 = ldv__builtin_expect(rc == 0, 0L);
 #line 460
   if (tmp___2 != 0L) {
 #line 460
@@ -25461,7 +25461,7 @@ static int ceph_readpages(struct file *file , struct address_space *mapping , st
 #line 463
   descriptor___0.flags = 0U;
 #line 463
-  tmp___5 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___5 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 463
   if (tmp___5 != 0L) {
 #line 463
@@ -25524,7 +25524,7 @@ static struct ceph_snap_context *get_oldest_context(struct inode *inode , u64 *s
 #line 480
   descriptor.flags = 0U;
 #line 480
-  tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 480
   if (tmp___1 != 0L) {
 #line 480
@@ -25583,7 +25583,7 @@ static struct ceph_snap_context *get_oldest_context(struct inode *inode , u64 *s
 #line 491
     descriptor___0.flags = 0U;
 #line 491
-    tmp___3 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___3 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 491
     if (tmp___3 != 0L) {
 #line 491
@@ -25670,7 +25670,7 @@ static int writepage_nounlock(struct page *page , struct writeback_control *wbc 
 #line 518
   descriptor.flags = 0U;
 #line 518
-  tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 518
   if (tmp___1 != 0L) {
 #line 518
@@ -25697,7 +25697,7 @@ static int writepage_nounlock(struct page *page , struct writeback_control *wbc 
 #line 521
     descriptor___0.flags = 0U;
 #line 521
-    tmp___3 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___3 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 521
     if (tmp___3 != 0L) {
 #line 521
@@ -25739,7 +25739,7 @@ static int writepage_nounlock(struct page *page , struct writeback_control *wbc 
 #line 532
     descriptor___1.flags = 0U;
 #line 532
-    tmp___5 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___5 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 532
     if (tmp___5 != 0L) {
 #line 532
@@ -25773,7 +25773,7 @@ static int writepage_nounlock(struct page *page , struct writeback_control *wbc 
 #line 537
     descriptor___2.flags = 0U;
 #line 537
-    tmp___7 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+    tmp___7 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
 #line 537
     if (tmp___7 != 0L) {
 #line 537
@@ -25790,7 +25790,7 @@ static int writepage_nounlock(struct page *page , struct writeback_control *wbc 
 #line 540
     __ret_warn_on = (tmp___8->flags & 2048U) == 0U;
 #line 540
-    tmp___9 = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp___9 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 540
     if (tmp___9 != 0L) {
 #line 540
@@ -25800,7 +25800,7 @@ static int writepage_nounlock(struct page *page , struct writeback_control *wbc 
 
     }
 #line 540
-    __builtin_expect(__ret_warn_on != 0, 0L);
+    ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 541
     ceph_put_snap_context(oldest);
 #line 542
@@ -25838,7 +25838,7 @@ static int writepage_nounlock(struct page *page , struct writeback_control *wbc 
 #line 554
   descriptor___3.flags = 0U;
 #line 554
-  tmp___11 = __builtin_expect((long )descriptor___3.flags & 1L, 0L);
+  tmp___11 = ldv__builtin_expect((long )descriptor___3.flags & 1L, 0L);
 #line 554
   if (tmp___11 != 0L) {
 #line 554
@@ -25883,7 +25883,7 @@ static int writepage_nounlock(struct page *page , struct writeback_control *wbc 
 #line 570
     descriptor___4.flags = 0U;
 #line 570
-    tmp___14 = __builtin_expect((long )descriptor___4.flags & 1L, 0L);
+    tmp___14 = ldv__builtin_expect((long )descriptor___4.flags & 1L, 0L);
 #line 570
     if (tmp___14 != 0L) {
 #line 570
@@ -25920,7 +25920,7 @@ static int writepage_nounlock(struct page *page , struct writeback_control *wbc 
 #line 576
     descriptor___5.flags = 0U;
 #line 576
-    tmp___16 = __builtin_expect((long )descriptor___5.flags & 1L, 0L);
+    tmp___16 = ldv__builtin_expect((long )descriptor___5.flags & 1L, 0L);
 #line 576
     if (tmp___16 != 0L) {
 #line 576
@@ -25961,7 +25961,7 @@ static int ceph_writepage(struct page *page , struct writeback_control *wbc )
 #line 591
   inode = (page->mapping)->host;
 #line 592
-  tmp = __builtin_expect((unsigned long )inode == (unsigned long )((struct inode *)0),
+  tmp = ldv__builtin_expect((unsigned long )inode == (unsigned long )((struct inode *)0),
                          0L);
 #line 592
   if (tmp != 0L) {
@@ -26092,7 +26092,7 @@ static void writepages_finish(struct ceph_osd_request *req , struct ceph_msg *ms
 #line 645
   __ret_warn_on = replyhead->num_ops == 0U;
 #line 645
-  tmp___2 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___2 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 645
   if (tmp___2 != 0L) {
 #line 645
@@ -26102,7 +26102,7 @@ static void writepages_finish(struct ceph_osd_request *req , struct ceph_msg *ms
 
   }
 #line 645
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 646
   op = (struct ceph_osd_op *)replyhead + 1U;
 #line 647
@@ -26132,7 +26132,7 @@ static void writepages_finish(struct ceph_osd_request *req , struct ceph_msg *ms
 #line 662
   descriptor.flags = 0U;
 #line 662
-  tmp___4 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___4 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 662
   if (tmp___4 != 0L) {
 #line 662
@@ -26152,7 +26152,7 @@ static void writepages_finish(struct ceph_osd_request *req , struct ceph_msg *ms
 #line 667
   page = *(req->r_pages + (unsigned long )i);
 #line 668
-  tmp___5 = __builtin_expect((unsigned long )page == (unsigned long )((struct page *)0),
+  tmp___5 = ldv__builtin_expect((unsigned long )page == (unsigned long )((struct page *)0),
                              0L);
 #line 668
   if (tmp___5 != 0L) {
@@ -26170,7 +26170,7 @@ static void writepages_finish(struct ceph_osd_request *req , struct ceph_msg *ms
 #line 669
   __ret_warn_on___0 = tmp___6 == 0;
 #line 669
-  tmp___7 = __builtin_expect(__ret_warn_on___0 != 0, 0L);
+  tmp___7 = ldv__builtin_expect(__ret_warn_on___0 != 0, 0L);
 #line 669
   if (tmp___7 != 0L) {
 #line 669
@@ -26180,7 +26180,7 @@ static void writepages_finish(struct ceph_osd_request *req , struct ceph_msg *ms
 
   }
 #line 669
-  __builtin_expect(__ret_warn_on___0 != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on___0 != 0, 0L);
 #line 671
   writeback_stat = atomic_long_dec_return(& fsc->writeback_count);
 #line 673
@@ -26211,7 +26211,7 @@ static void writepages_finish(struct ceph_osd_request *req , struct ceph_msg *ms
 #line 681
   descriptor___0.flags = 0U;
 #line 681
-  tmp___10 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___10 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 681
   if (tmp___10 != 0L) {
 #line 681
@@ -26257,7 +26257,7 @@ static void writepages_finish(struct ceph_osd_request *req , struct ceph_msg *ms
 #line 695
   descriptor___1.flags = 0U;
 #line 695
-  tmp___12 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+  tmp___12 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 695
   if (tmp___12 != 0L) {
 #line 695
@@ -26313,7 +26313,7 @@ static void alloc_page_vec(struct ceph_fs_client *fsc , struct ceph_osd_request 
 #line 720
     __ret_warn_on = (unsigned long )req->r_pages == (unsigned long )((struct page **)0);
 #line 720
-    tmp___1 = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp___1 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 720
     if (tmp___1 != 0L) {
 #line 720
@@ -26323,7 +26323,7 @@ static void alloc_page_vec(struct ceph_fs_client *fsc , struct ceph_osd_request 
 
     }
 #line 720
-    __builtin_expect(__ret_warn_on != 0, 0L);
+    ldv__builtin_expect(__ret_warn_on != 0, 0L);
   } else {
 
   }
@@ -26519,7 +26519,7 @@ static int ceph_writepages_start(struct address_space *mapping , struct writebac
 #line 754
   descriptor.flags = 0U;
 #line 754
-  tmp___2 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___2 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 754
   if (tmp___2 != 0L) {
 #line 754
@@ -26579,7 +26579,7 @@ static int ceph_writepages_start(struct address_space *mapping , struct writebac
 #line 776
     descriptor___0.flags = 0U;
 #line 776
-    tmp___4 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___4 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 776
     if (tmp___4 != 0L) {
 #line 776
@@ -26618,7 +26618,7 @@ static int ceph_writepages_start(struct address_space *mapping , struct writebac
 #line 783
     descriptor___1.flags = 0U;
 #line 783
-    tmp___6 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___6 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 783
     if (tmp___6 != 0L) {
 #line 783
@@ -26653,7 +26653,7 @@ static int ceph_writepages_start(struct address_space *mapping , struct writebac
 #line 794
     descriptor___2.flags = 0U;
 #line 794
-    tmp___8 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+    tmp___8 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
 #line 794
     if (tmp___8 != 0L) {
 #line 794
@@ -26683,7 +26683,7 @@ static int ceph_writepages_start(struct address_space *mapping , struct writebac
 #line 797
   descriptor___3.flags = 0U;
 #line 797
-  tmp___10 = __builtin_expect((long )descriptor___3.flags & 1L, 0L);
+  tmp___10 = ldv__builtin_expect((long )descriptor___3.flags & 1L, 0L);
 #line 797
   if (tmp___10 != 0L) {
 #line 797
@@ -26710,7 +26710,7 @@ static int ceph_writepages_start(struct address_space *mapping , struct writebac
 #line 802
     descriptor___4.flags = 0U;
 #line 802
-    tmp___12 = __builtin_expect((long )descriptor___4.flags & 1L, 0L);
+    tmp___12 = ldv__builtin_expect((long )descriptor___4.flags & 1L, 0L);
 #line 802
     if (tmp___12 != 0L) {
 #line 802
@@ -26768,7 +26768,7 @@ static int ceph_writepages_start(struct address_space *mapping , struct writebac
 #line 833
   descriptor___5.flags = 0U;
 #line 833
-  tmp___15 = __builtin_expect((long )descriptor___5.flags & 1L, 0L);
+  tmp___15 = ldv__builtin_expect((long )descriptor___5.flags & 1L, 0L);
 #line 833
   if (tmp___15 != 0L) {
 #line 833
@@ -26807,7 +26807,7 @@ static int ceph_writepages_start(struct address_space *mapping , struct writebac
 #line 838
   descriptor___6.flags = 0U;
 #line 838
-  tmp___17 = __builtin_expect((long )descriptor___6.flags & 1L, 0L);
+  tmp___17 = ldv__builtin_expect((long )descriptor___6.flags & 1L, 0L);
 #line 838
   if (tmp___17 != 0L) {
 #line 838
@@ -26837,14 +26837,14 @@ static int ceph_writepages_start(struct address_space *mapping , struct writebac
 #line 845
   tmp___21 = PageDirty((struct page  const  *)page);
 #line 845
-  tmp___22 = __builtin_expect(tmp___21 == 0, 0L);
+  tmp___22 = ldv__builtin_expect(tmp___21 == 0, 0L);
 #line 845
   if (tmp___22 != 0L) {
 #line 845
     goto _L;
   } else {
 #line 845
-    tmp___23 = __builtin_expect((unsigned long )page->mapping != (unsigned long )mapping,
+    tmp___23 = ldv__builtin_expect((unsigned long )page->mapping != (unsigned long )mapping,
                                 0L);
 #line 845
     if (tmp___23 != 0L) {
@@ -26862,7 +26862,7 @@ static int ceph_writepages_start(struct address_space *mapping , struct writebac
 #line 847
       descriptor___7.flags = 0U;
 #line 847
-      tmp___20 = __builtin_expect((long )descriptor___7.flags & 1L, 0L);
+      tmp___20 = ldv__builtin_expect((long )descriptor___7.flags & 1L, 0L);
 #line 847
       if (tmp___20 != 0L) {
 #line 847
@@ -26897,7 +26897,7 @@ static int ceph_writepages_start(struct address_space *mapping , struct writebac
 #line 852
     descriptor___8.flags = 0U;
 #line 852
-    tmp___25 = __builtin_expect((long )descriptor___8.flags & 1L, 0L);
+    tmp___25 = ldv__builtin_expect((long )descriptor___8.flags & 1L, 0L);
 #line 852
     if (tmp___25 != 0L) {
 #line 852
@@ -26933,7 +26933,7 @@ static int ceph_writepages_start(struct address_space *mapping , struct writebac
 #line 858
     descriptor___9.flags = 0U;
 #line 858
-    tmp___27 = __builtin_expect((long )descriptor___9.flags & 1L, 0L);
+    tmp___27 = ldv__builtin_expect((long )descriptor___9.flags & 1L, 0L);
 #line 858
     if (tmp___27 != 0L) {
 #line 858
@@ -26967,7 +26967,7 @@ static int ceph_writepages_start(struct address_space *mapping , struct writebac
 #line 863
     descriptor___10.flags = 0U;
 #line 863
-    tmp___29 = __builtin_expect((long )descriptor___10.flags & 1L, 0L);
+    tmp___29 = ldv__builtin_expect((long )descriptor___10.flags & 1L, 0L);
 #line 863
     if (tmp___29 != 0L) {
 #line 863
@@ -27020,7 +27020,7 @@ static int ceph_writepages_start(struct address_space *mapping , struct writebac
 #line 869
       descriptor___11.flags = 0U;
 #line 869
-      tmp___33 = __builtin_expect((long )descriptor___11.flags & 1L, 0L);
+      tmp___33 = ldv__builtin_expect((long )descriptor___11.flags & 1L, 0L);
 #line 869
       if (tmp___33 != 0L) {
 #line 869
@@ -27071,7 +27071,7 @@ static int ceph_writepages_start(struct address_space *mapping , struct writebac
 #line 876
     descriptor___12.flags = 0U;
 #line 876
-    tmp___38 = __builtin_expect((long )descriptor___12.flags & 1L, 0L);
+    tmp___38 = ldv__builtin_expect((long )descriptor___12.flags & 1L, 0L);
 #line 876
     if (tmp___38 != 0L) {
 #line 876
@@ -27107,7 +27107,7 @@ static int ceph_writepages_start(struct address_space *mapping , struct writebac
 #line 884
     descriptor___13.flags = 0U;
 #line 884
-    tmp___41 = __builtin_expect((long )descriptor___13.flags & 1L, 0L);
+    tmp___41 = ldv__builtin_expect((long )descriptor___13.flags & 1L, 0L);
 #line 884
     if (tmp___41 != 0L) {
 #line 884
@@ -27151,7 +27151,7 @@ static int ceph_writepages_start(struct address_space *mapping , struct writebac
 #line 893
     descriptor___14.flags = 0U;
 #line 893
-    tmp___43 = __builtin_expect((long )descriptor___14.flags & 1L, 0L);
+    tmp___43 = ldv__builtin_expect((long )descriptor___14.flags & 1L, 0L);
 #line 893
     if (tmp___43 != 0L) {
 #line 893
@@ -27230,7 +27230,7 @@ static int ceph_writepages_start(struct address_space *mapping , struct writebac
 #line 931
   descriptor___15.flags = 0U;
 #line 931
-  tmp___50 = __builtin_expect((long )descriptor___15.flags & 1L, 0L);
+  tmp___50 = ldv__builtin_expect((long )descriptor___15.flags & 1L, 0L);
 #line 931
   if (tmp___50 != 0L) {
 #line 931
@@ -27281,14 +27281,14 @@ static int ceph_writepages_start(struct address_space *mapping , struct writebac
 #line 951
   if (i != 0U) {
 #line 953
-    tmp___51 = __builtin_expect(locked_pages == 0, 0L);
+    tmp___51 = ldv__builtin_expect(locked_pages == 0, 0L);
 #line 953
     if (tmp___51 != 0L) {
 #line 953
       goto _L___2;
     } else {
 #line 953
-      tmp___52 = __builtin_expect(first < 0, 0L);
+      tmp___52 = ldv__builtin_expect(first < 0, 0L);
 #line 953
       if (tmp___52 != 0L) {
         _L___2: /* CIL Label */ 
@@ -27317,7 +27317,7 @@ static int ceph_writepages_start(struct address_space *mapping , struct writebac
 #line 957
       descriptor___16.flags = 0U;
 #line 957
-      tmp___54 = __builtin_expect((long )descriptor___16.flags & 1L, 0L);
+      tmp___54 = ldv__builtin_expect((long )descriptor___16.flags & 1L, 0L);
 #line 957
       if (tmp___54 != 0L) {
 #line 957
@@ -27354,7 +27354,7 @@ static int ceph_writepages_start(struct address_space *mapping , struct writebac
 #line 965
     descriptor___17.flags = 0U;
 #line 965
-    tmp___56 = __builtin_expect((long )descriptor___17.flags & 1L, 0L);
+    tmp___56 = ldv__builtin_expect((long )descriptor___17.flags & 1L, 0L);
 #line 965
     if (tmp___56 != 0L) {
 #line 965
@@ -27414,7 +27414,7 @@ static int ceph_writepages_start(struct address_space *mapping , struct writebac
 #line 976
   descriptor___18.flags = 0U;
 #line 976
-  tmp___60 = __builtin_expect((long )descriptor___18.flags & 1L, 0L);
+  tmp___60 = ldv__builtin_expect((long )descriptor___18.flags & 1L, 0L);
 #line 976
   if (tmp___60 != 0L) {
 #line 976
@@ -27441,7 +27441,7 @@ static int ceph_writepages_start(struct address_space *mapping , struct writebac
 #line 987
   rc = ceph_osdc_start_request(& (fsc->client)->osdc, req, 1);
 #line 988
-  tmp___61 = __builtin_expect(rc != 0, 0L);
+  tmp___61 = ldv__builtin_expect(rc != 0, 0L);
 #line 988
   if (tmp___61 != 0L) {
 #line 988
@@ -27480,7 +27480,7 @@ static int ceph_writepages_start(struct address_space *mapping , struct writebac
 #line 998
   descriptor___19.flags = 0U;
 #line 998
-  tmp___63 = __builtin_expect((long )descriptor___19.flags & 1L, 0L);
+  tmp___63 = ldv__builtin_expect((long )descriptor___19.flags & 1L, 0L);
 #line 998
   if (tmp___63 != 0L) {
 #line 998
@@ -27525,7 +27525,7 @@ static int ceph_writepages_start(struct address_space *mapping , struct writebac
 #line 1008
     descriptor___20.flags = 0U;
 #line 1008
-    tmp___65 = __builtin_expect((long )descriptor___20.flags & 1L, 0L);
+    tmp___65 = ldv__builtin_expect((long )descriptor___20.flags & 1L, 0L);
 #line 1008
     if (tmp___65 != 0L) {
 #line 1008
@@ -27576,7 +27576,7 @@ static int ceph_writepages_start(struct address_space *mapping , struct writebac
 #line 1021
   descriptor___21.flags = 0U;
 #line 1021
-  tmp___67 = __builtin_expect((long )descriptor___21.flags & 1L, 0L);
+  tmp___67 = ldv__builtin_expect((long )descriptor___21.flags & 1L, 0L);
 #line 1021
   if (tmp___67 != 0L) {
 #line 1021
@@ -27673,7 +27673,7 @@ static int ceph_update_writeable_page(struct file *file , loff_t pos , unsigned 
 #line 1064
   wait_on_page_writeback(page);
 #line 1067
-  tmp___1 = __builtin_expect((unsigned long )ci->i_snap_realm == (unsigned long )((struct ceph_snap_realm *)0),
+  tmp___1 = ldv__builtin_expect((unsigned long )ci->i_snap_realm == (unsigned long )((struct ceph_snap_realm *)0),
                              0L);
 #line 1067
   if (tmp___1 != 0L) {
@@ -27689,7 +27689,7 @@ static int ceph_update_writeable_page(struct file *file , loff_t pos , unsigned 
 #line 1068
   down_read(& mdsc->snap_rwsem);
 #line 1069
-  tmp___2 = __builtin_expect((unsigned long )(ci->i_snap_realm)->cached_context == (unsigned long )((struct ceph_snap_context *)0),
+  tmp___2 = ldv__builtin_expect((unsigned long )(ci->i_snap_realm)->cached_context == (unsigned long )((struct ceph_snap_context *)0),
                              0L);
 #line 1069
   if (tmp___2 != 0L) {
@@ -27727,7 +27727,7 @@ static int ceph_update_writeable_page(struct file *file , loff_t pos , unsigned 
 #line 1081
       descriptor.flags = 0U;
 #line 1081
-      tmp___4 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+      tmp___4 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1081
       if (tmp___4 != 0L) {
 #line 1081
@@ -27832,7 +27832,7 @@ static int ceph_update_writeable_page(struct file *file , loff_t pos , unsigned 
 #line 1100
     descriptor___0.flags = 0U;
 #line 1100
-    tmp___11 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___11 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 1100
     if (tmp___11 != 0L) {
 #line 1100
@@ -27884,7 +27884,7 @@ static int ceph_update_writeable_page(struct file *file , loff_t pos , unsigned 
 #line 1111
     descriptor___1.flags = 0U;
 #line 1111
-    tmp___14 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___14 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 1111
     if (tmp___14 != 0L) {
 #line 1111
@@ -27934,7 +27934,7 @@ static int ceph_update_writeable_page(struct file *file , loff_t pos , unsigned 
 #line 1131
     descriptor___2.flags = 0U;
 #line 1131
-    tmp___17 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+    tmp___17 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
 #line 1131
     if (tmp___17 != 0L) {
 #line 1131
@@ -28041,7 +28041,7 @@ static int ceph_write_begin(struct file *file , struct address_space *mapping , 
 #line 1173
   descriptor.flags = 0U;
 #line 1173
-  tmp___3 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___3 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1173
   if (tmp___3 != 0L) {
 #line 1173
@@ -28080,7 +28080,7 @@ static int ceph_write_begin(struct file *file , struct address_space *mapping , 
 #line 1178
   descriptor___0.flags = 0U;
 #line 1178
-  tmp___8 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___8 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 1178
   if (tmp___8 != 0L) {
 #line 1178
@@ -28133,7 +28133,7 @@ static int ceph_write_begin(struct file *file , struct address_space *mapping , 
 #line 1193
   descriptor___1.flags = 0U;
 #line 1193
-  tmp___10 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+  tmp___10 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 1193
   if (tmp___10 != 0L) {
 #line 1193
@@ -28236,7 +28236,7 @@ static int ceph_write_end(struct file *file , struct address_space *mapping , lo
 #line 1227
   descriptor.flags = 0U;
 #line 1227
-  tmp___2 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___2 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1227
   if (tmp___2 != 0L) {
 #line 1227
@@ -28311,7 +28311,7 @@ static int ceph_write_end(struct file *file , struct address_space *mapping , lo
 #line 1257
   descriptor___0.flags = 0U;
 #line 1257
-  tmp___8 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___8 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 1257
   if (tmp___8 != 0L) {
 #line 1257
@@ -28356,7 +28356,7 @@ static ssize_t ceph_direct_io(int rw , struct kiocb *iocb , struct iovec  const 
 #line 1276
   __ret_warn_on = 1;
 #line 1276
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 1276
   if (tmp != 0L) {
 #line 1276
@@ -28366,7 +28366,7 @@ static ssize_t ceph_direct_io(int rw , struct kiocb *iocb , struct iovec  const 
 
   }
 #line 1276
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 1277
   return (-22L);
 }
@@ -28434,7 +28434,7 @@ static int ceph_page_mkwrite(struct vm_area_struct *vma , struct vm_fault *vmf )
 #line 1319
   descriptor.flags = 0U;
 #line 1319
-  tmp___2 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___2 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1319
   if (tmp___2 != 0L) {
 #line 1319
@@ -28490,7 +28490,7 @@ static int ceph_page_mkwrite(struct vm_area_struct *vma , struct vm_fault *vmf )
 #line 1342
   descriptor___0.flags = 0U;
 #line 1342
-  tmp___4 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___4 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 1342
   if (tmp___4 != 0L) {
 #line 1342
@@ -28783,14 +28783,14 @@ __inline static unsigned long copy_from_user(void *to , void const   *from , uns
 #line 61
   might_fault();
 #line 62
-  tmp___1 = __builtin_expect(sz == -1, 1L);
+  tmp___1 = ldv__builtin_expect(sz == -1, 1L);
 #line 62
   if (tmp___1 != 0L) {
 #line 63
     n = _copy_from_user(to, from, (unsigned int )n);
   } else {
 #line 62
-    tmp___2 = __builtin_expect((unsigned long )sz >= n, 1L);
+    tmp___2 = ldv__builtin_expect((unsigned long )sz >= n, 1L);
 #line 62
     if (tmp___2 != 0L) {
 #line 63
@@ -28799,7 +28799,7 @@ __inline static unsigned long copy_from_user(void *to , void const   *from , uns
 #line 66
       __ret_warn_on = 1;
 #line 66
-      tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+      tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 66
       if (tmp___0 != 0L) {
 #line 66
@@ -28809,7 +28809,7 @@ __inline static unsigned long copy_from_user(void *to , void const   *from , uns
 
       }
 #line 66
-      __builtin_expect(__ret_warn_on != 0, 0L);
+      ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
   }
 #line 68
@@ -29327,7 +29327,7 @@ static long ceph_ioctl_lazyio(struct file *file )
 #line 317
     descriptor.flags = 0U;
 #line 317
-    tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 317
     if (tmp___1 != 0L) {
 #line 317
@@ -29355,7 +29355,7 @@ static long ceph_ioctl_lazyio(struct file *file )
 #line 321
     descriptor___0.flags = 0U;
 #line 321
-    tmp___3 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___3 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 321
     if (tmp___3 != 0L) {
 #line 321
@@ -29413,7 +29413,7 @@ long ceph_ioctl(struct file *file , unsigned int cmd , unsigned long arg )
 #line 336
   descriptor.flags = 0U;
 #line 336
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 336
   if (tmp___0 != 0L) {
 #line 336
@@ -29629,7 +29629,7 @@ static int ceph_encode_fh(struct inode *inode , u32 *rawfh , int *max_len , stru
 #line 142
     descriptor.flags = 0U;
 #line 142
-    tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 142
     if (tmp___1 != 0L) {
 #line 142
@@ -29680,7 +29680,7 @@ static int ceph_encode_fh(struct inode *inode , u32 *rawfh , int *max_len , stru
 #line 158
       descriptor___0.flags = 0U;
 #line 158
-      tmp___3 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+      tmp___3 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 158
       if (tmp___3 != 0L) {
 #line 158
@@ -29767,7 +29767,7 @@ static struct dentry *__fh_to_dentry(struct super_block *sb , struct ceph_nfs_fh
 #line 189
   descriptor.flags = 0U;
 #line 189
-  tmp___2 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___2 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 189
   if (tmp___2 != 0L) {
 #line 189
@@ -29870,7 +29870,7 @@ static struct dentry *__fh_to_dentry(struct super_block *sb , struct ceph_nfs_fh
 #line 224
   descriptor___0.flags = 0U;
 #line 224
-  tmp___9 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___9 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 224
   if (tmp___9 != 0L) {
 #line 224
@@ -29938,7 +29938,7 @@ static struct dentry *__cfh_to_dentry(struct super_block *sb , struct ceph_nfs_c
 #line 243
   descriptor.flags = 0U;
 #line 243
-  tmp___2 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___2 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 243
   if (tmp___2 != 0L) {
 #line 243
@@ -30052,7 +30052,7 @@ static struct dentry *__cfh_to_dentry(struct super_block *sb , struct ceph_nfs_c
 #line 284
   descriptor___0.flags = 0U;
 #line 284
-  tmp___10 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___10 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 284
   if (tmp___10 != 0L) {
 #line 284
@@ -30145,7 +30145,7 @@ static struct dentry *ceph_fh_to_parent(struct super_block *sb , struct fid *fid
 #line 320
   descriptor.flags = 0U;
 #line 320
-  tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 320
   if (tmp___1 != 0L) {
 #line 320
@@ -30210,7 +30210,7 @@ static struct dentry *ceph_fh_to_parent(struct super_block *sb , struct fid *fid
 #line 341
   descriptor___0.flags = 0U;
 #line 341
-  tmp___6 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___6 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 341
   if (tmp___6 != 0L) {
 #line 341
@@ -30966,7 +30966,7 @@ void ceph_adjust_min_caps(struct ceph_mds_client *mdsc , int delta )
 #line 216
   mdsc->caps_min_count = mdsc->caps_min_count + delta;
 #line 217
-  tmp = __builtin_expect(mdsc->caps_min_count < 0, 0L);
+  tmp = ldv__builtin_expect(mdsc->caps_min_count < 0, 0L);
 #line 217
   if (tmp != 0L) {
 #line 217
@@ -31027,7 +31027,7 @@ int ceph_reserve_caps(struct ceph_mds_client *mdsc , struct ceph_cap_reservation
 #line 231
   descriptor.flags = 0U;
 #line 231
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 231
   if (tmp___0 != 0L) {
 #line 231
@@ -31054,7 +31054,7 @@ int ceph_reserve_caps(struct ceph_mds_client *mdsc , struct ceph_cap_reservation
 #line 240
   mdsc->caps_reserve_count = mdsc->caps_reserve_count + have;
 #line 241
-  tmp___1 = __builtin_expect(mdsc->caps_total_count != (mdsc->caps_use_count + mdsc->caps_reserve_count) + mdsc->caps_avail_count,
+  tmp___1 = ldv__builtin_expect(mdsc->caps_total_count != (mdsc->caps_use_count + mdsc->caps_reserve_count) + mdsc->caps_avail_count,
                              0L);
 #line 241
   if (tmp___1 != 0L) {
@@ -31102,7 +31102,7 @@ int ceph_reserve_caps(struct ceph_mds_client *mdsc , struct ceph_cap_reservation
 
   }
 #line 255
-  tmp___3 = __builtin_expect(have + alloc != need, 0L);
+  tmp___3 = ldv__builtin_expect(have + alloc != need, 0L);
 #line 255
   if (tmp___3 != 0L) {
 #line 255
@@ -31123,7 +31123,7 @@ int ceph_reserve_caps(struct ceph_mds_client *mdsc , struct ceph_cap_reservation
 #line 260
   list_splice((struct list_head  const  *)(& newcaps), & mdsc->caps_list);
 #line 262
-  tmp___4 = __builtin_expect(mdsc->caps_total_count != (mdsc->caps_use_count + mdsc->caps_reserve_count) + mdsc->caps_avail_count,
+  tmp___4 = ldv__builtin_expect(mdsc->caps_total_count != (mdsc->caps_use_count + mdsc->caps_reserve_count) + mdsc->caps_avail_count,
                              0L);
 #line 262
   if (tmp___4 != 0L) {
@@ -31153,7 +31153,7 @@ int ceph_reserve_caps(struct ceph_mds_client *mdsc , struct ceph_cap_reservation
 #line 268
   descriptor___0.flags = 0U;
 #line 268
-  tmp___6 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___6 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 268
   if (tmp___6 != 0L) {
 #line 268
@@ -31201,7 +31201,7 @@ int ceph_unreserve_caps(struct ceph_mds_client *mdsc , struct ceph_cap_reservati
 #line 283
   descriptor.flags = 0U;
 #line 283
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 283
   if (tmp___0 != 0L) {
 #line 283
@@ -31218,7 +31218,7 @@ int ceph_unreserve_caps(struct ceph_mds_client *mdsc , struct ceph_cap_reservati
 #line 285
     spin_lock(& mdsc->caps_list_lock);
 #line 286
-    tmp___1 = __builtin_expect(mdsc->caps_reserve_count < ctx->count, 0L);
+    tmp___1 = ldv__builtin_expect(mdsc->caps_reserve_count < ctx->count, 0L);
 #line 286
     if (tmp___1 != 0L) {
 #line 286
@@ -31249,7 +31249,7 @@ int ceph_unreserve_caps(struct ceph_mds_client *mdsc , struct ceph_cap_reservati
 #line 290
     descriptor___0.flags = 0U;
 #line 290
-    tmp___3 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___3 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 290
     if (tmp___3 != 0L) {
 #line 290
@@ -31263,7 +31263,7 @@ int ceph_unreserve_caps(struct ceph_mds_client *mdsc , struct ceph_cap_reservati
 
     }
 #line 293
-    tmp___4 = __builtin_expect(mdsc->caps_total_count != (mdsc->caps_use_count + mdsc->caps_reserve_count) + mdsc->caps_avail_count,
+    tmp___4 = ldv__builtin_expect(mdsc->caps_total_count != (mdsc->caps_use_count + mdsc->caps_reserve_count) + mdsc->caps_avail_count,
                                0L);
 #line 293
     if (tmp___4 != 0L) {
@@ -31342,7 +31342,7 @@ static struct ceph_cap *get_cap(struct ceph_mds_client *mdsc , struct ceph_cap_r
 #line 319
   descriptor.flags = 0U;
 #line 319
-  tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 319
   if (tmp___1 != 0L) {
 #line 319
@@ -31356,7 +31356,7 @@ static struct ceph_cap *get_cap(struct ceph_mds_client *mdsc , struct ceph_cap_r
 
   }
 #line 322
-  tmp___2 = __builtin_expect(ctx->count == 0, 0L);
+  tmp___2 = ldv__builtin_expect(ctx->count == 0, 0L);
 #line 322
   if (tmp___2 != 0L) {
 #line 322
@@ -31369,7 +31369,7 @@ static struct ceph_cap *get_cap(struct ceph_mds_client *mdsc , struct ceph_cap_r
 
   }
 #line 323
-  tmp___3 = __builtin_expect(ctx->count > mdsc->caps_reserve_count, 0L);
+  tmp___3 = ldv__builtin_expect(ctx->count > mdsc->caps_reserve_count, 0L);
 #line 323
   if (tmp___3 != 0L) {
 #line 323
@@ -31384,7 +31384,7 @@ static struct ceph_cap *get_cap(struct ceph_mds_client *mdsc , struct ceph_cap_r
 #line 324
   tmp___4 = list_empty((struct list_head  const  *)(& mdsc->caps_list));
 #line 324
-  tmp___5 = __builtin_expect(tmp___4 != 0, 0L);
+  tmp___5 = ldv__builtin_expect(tmp___4 != 0, 0L);
 #line 324
   if (tmp___5 != 0L) {
 #line 324
@@ -31409,7 +31409,7 @@ static struct ceph_cap *get_cap(struct ceph_mds_client *mdsc , struct ceph_cap_r
 #line 331
   list_del(& cap->caps_item);
 #line 333
-  tmp___6 = __builtin_expect(mdsc->caps_total_count != (mdsc->caps_use_count + mdsc->caps_reserve_count) + mdsc->caps_avail_count,
+  tmp___6 = ldv__builtin_expect(mdsc->caps_total_count != (mdsc->caps_use_count + mdsc->caps_reserve_count) + mdsc->caps_avail_count,
                              0L);
 #line 333
   if (tmp___6 != 0L) {
@@ -31452,7 +31452,7 @@ void ceph_put_cap(struct ceph_mds_client *mdsc , struct ceph_cap *cap )
 #line 342
   descriptor.flags = 0U;
 #line 342
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 342
   if (tmp___0 != 0L) {
 #line 342
@@ -31480,7 +31480,7 @@ void ceph_put_cap(struct ceph_mds_client *mdsc , struct ceph_cap *cap )
     list_add(& cap->caps_item, & mdsc->caps_list);
   }
 #line 359
-  tmp___1 = __builtin_expect(mdsc->caps_total_count != (mdsc->caps_use_count + mdsc->caps_reserve_count) + mdsc->caps_avail_count,
+  tmp___1 = ldv__builtin_expect(mdsc->caps_total_count != (mdsc->caps_use_count + mdsc->caps_reserve_count) + mdsc->caps_avail_count,
                              0L);
 #line 359
   if (tmp___1 != 0L) {
@@ -31760,7 +31760,7 @@ static void __cap_set_timeouts(struct ceph_mds_client *mdsc , struct ceph_inode_
 #line 483
   descriptor.flags = 0U;
 #line 483
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 483
   if (tmp___0 != 0L) {
 #line 483
@@ -31801,7 +31801,7 @@ static void __cap_delay_requeue(struct ceph_mds_client *mdsc , struct ceph_inode
 #line 499
   descriptor.flags = 0U;
 #line 499
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 499
   if (tmp___0 != 0L) {
 #line 499
@@ -31868,7 +31868,7 @@ static void __cap_delay_requeue_front(struct ceph_mds_client *mdsc , struct ceph
 #line 522
   descriptor.flags = 0U;
 #line 522
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 522
   if (tmp___0 != 0L) {
 #line 522
@@ -31923,7 +31923,7 @@ static void __cap_delay_cancel(struct ceph_mds_client *mdsc , struct ceph_inode_
 #line 539
   descriptor.flags = 0U;
 #line 539
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 539
   if (tmp___0 != 0L) {
 #line 539
@@ -32053,7 +32053,7 @@ int ceph_add_cap(struct inode *inode , struct ceph_mds_session *session , u64 ca
 #line 598
   descriptor.flags = 0U;
 #line 598
-  tmp___3 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___3 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 598
   if (tmp___3 != 0L) {
 #line 598
@@ -32170,7 +32170,7 @@ int ceph_add_cap(struct inode *inode , struct ceph_mds_session *session , u64 ca
 #line 663
       __ret_warn_on = (unsigned long )realm == (unsigned long )((struct ceph_snap_realm *)0);
 #line 663
-      tmp___6 = __builtin_expect(__ret_warn_on != 0, 0L);
+      tmp___6 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 663
       if (tmp___6 != 0L) {
 #line 663
@@ -32180,7 +32180,7 @@ int ceph_add_cap(struct inode *inode , struct ceph_mds_session *session , u64 ca
 
       }
 #line 663
-      __builtin_expect(__ret_warn_on != 0, 0L);
+      ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
   } else {
 
@@ -32204,7 +32204,7 @@ int ceph_add_cap(struct inode *inode , struct ceph_mds_session *session , u64 ca
 #line 677
     descriptor___0.flags = 0U;
 #line 677
-    tmp___11 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___11 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 677
     if (tmp___11 != 0L) {
 #line 677
@@ -32252,7 +32252,7 @@ int ceph_add_cap(struct inode *inode , struct ceph_mds_session *session , u64 ca
 #line 688
   descriptor___1.flags = 0U;
 #line 688
-  tmp___17 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+  tmp___17 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 688
   if (tmp___17 != 0L) {
 #line 688
@@ -32338,7 +32338,7 @@ static int __cap_is_valid(struct ceph_cap *cap )
 #line 723
     descriptor.flags = 0U;
 #line 723
-    tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 723
     if (tmp___1 != 0L) {
 #line 723
@@ -32416,7 +32416,7 @@ int __ceph_caps_issued(struct ceph_inode_info *ci , int *implemented )
 #line 749
   descriptor.flags = 0U;
 #line 749
-  tmp___2 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___2 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 749
   if (tmp___2 != 0L) {
 #line 749
@@ -32541,7 +32541,7 @@ static void __touch_cap(struct ceph_cap *cap )
 #line 788
     descriptor.flags = 0U;
 #line 788
-    tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 788
     if (tmp___0 != 0L) {
 #line 788
@@ -32570,7 +32570,7 @@ static void __touch_cap(struct ceph_cap *cap )
 #line 792
     descriptor___0.flags = 0U;
 #line 792
-    tmp___2 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___2 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 792
     if (tmp___2 != 0L) {
 #line 792
@@ -32635,7 +32635,7 @@ int __ceph_caps_issued_mask(struct ceph_inode_info *ci , int mask , int touch )
 #line 810
     descriptor.flags = 0U;
 #line 810
-    tmp___2 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___2 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 810
     if (tmp___2 != 0L) {
 #line 810
@@ -32690,7 +32690,7 @@ int __ceph_caps_issued_mask(struct ceph_inode_info *ci , int mask , int touch )
 #line 822
     descriptor___0.flags = 0U;
 #line 822
-    tmp___7 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___7 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 822
     if (tmp___7 != 0L) {
 #line 822
@@ -32736,7 +32736,7 @@ int __ceph_caps_issued_mask(struct ceph_inode_info *ci , int mask , int touch )
 #line 834
     descriptor___1.flags = 0U;
 #line 834
-    tmp___11 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___11 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 834
     if (tmp___11 != 0L) {
 #line 834
@@ -32880,7 +32880,7 @@ int ceph_caps_revoking(struct ceph_inode_info *ci , int mask )
 #line 879
   descriptor.flags = 0U;
 #line 879
-  tmp___2 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___2 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 879
   if (tmp___2 != 0L) {
 #line 879
@@ -33085,7 +33085,7 @@ void __ceph_remove_cap(struct ceph_cap *cap )
 #line 953
   descriptor.flags = 0U;
 #line 953
-  tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 953
   if (tmp___1 != 0L) {
 #line 953
@@ -33114,7 +33114,7 @@ void __ceph_remove_cap(struct ceph_cap *cap )
 #line 959
     descriptor___0.flags = 0U;
 #line 959
-    tmp___3 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___3 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 959
     if (tmp___3 != 0L) {
 #line 959
@@ -33230,7 +33230,7 @@ static int send_cap_msg(struct ceph_mds_session *session , u64 ino , u64 cid , i
 #line 1012
   descriptor.flags = 0U;
 #line 1012
-  tmp___4 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___4 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1012
   if (tmp___4 != 0L) {
 #line 1012
@@ -33356,7 +33356,7 @@ static void __queue_cap_release(struct ceph_mds_session *session , u64 ino , u64
 #line 1071
   spin_lock(& session->s_cap_lock);
 #line 1072
-  tmp = __builtin_expect(session->s_num_cap_releases == 0, 0L);
+  tmp = ldv__builtin_expect(session->s_num_cap_releases == 0, 0L);
 #line 1072
   if (tmp != 0L) {
 #line 1072
@@ -33385,7 +33385,7 @@ static void __queue_cap_release(struct ceph_mds_session *session , u64 ino , u64
 #line 1076
   descriptor.flags = 0U;
 #line 1076
-  tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1076
   if (tmp___1 != 0L) {
 #line 1076
@@ -33399,7 +33399,7 @@ static void __queue_cap_release(struct ceph_mds_session *session , u64 ino , u64
 
   }
 #line 1079
-  tmp___2 = __builtin_expect(msg->front.iov_len + 24UL > 4096UL, 0L);
+  tmp___2 = ldv__builtin_expect(msg->front.iov_len + 24UL > 4096UL, 0L);
 #line 1079
   if (tmp___2 != 0L) {
 #line 1079
@@ -33444,7 +33444,7 @@ static void __queue_cap_release(struct ceph_mds_session *session , u64 ino , u64
 #line 1092
     descriptor___0.flags = 0U;
 #line 1092
-    tmp___4 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___4 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 1092
     if (tmp___4 != 0L) {
 #line 1092
@@ -33472,7 +33472,7 @@ static void __queue_cap_release(struct ceph_mds_session *session , u64 ino , u64
 #line 1095
     descriptor___1.flags = 0U;
 #line 1095
-    tmp___6 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___6 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 1095
     if (tmp___6 != 0L) {
 #line 1095
@@ -33631,7 +33631,7 @@ static int __send_cap(struct ceph_mds_client *mdsc , struct ceph_cap *cap , int 
 #line 1170
   descriptor.flags = 0U;
 #line 1170
-  tmp___3 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___3 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1170
   if (tmp___3 != 0L) {
 #line 1170
@@ -33651,7 +33651,7 @@ static int __send_cap(struct ceph_mds_client *mdsc , struct ceph_cap *cap , int 
 
   }
 #line 1174
-  tmp___4 = __builtin_expect((retain & 1) == 0, 0L);
+  tmp___4 = ldv__builtin_expect((retain & 1) == 0, 0L);
 #line 1174
   if (tmp___4 != 0L) {
 #line 1174
@@ -33680,7 +33680,7 @@ static int __send_cap(struct ceph_mds_client *mdsc , struct ceph_cap *cap , int 
 #line 1181
     descriptor___0.flags = 0U;
 #line 1181
-    tmp___10 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___10 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 1181
     if (tmp___10 != 0L) {
 #line 1181
@@ -33751,7 +33751,7 @@ static int __send_cap(struct ceph_mds_client *mdsc , struct ceph_cap *cap , int 
 #line 1216
     descriptor___1.flags = 0U;
 #line 1216
-    tmp___12 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___12 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 1216
     if (tmp___12 != 0L) {
 #line 1216
@@ -33854,7 +33854,7 @@ static int __send_cap(struct ceph_mds_client *mdsc , struct ceph_cap *cap , int 
 #line 1255
     descriptor___2.flags = 0U;
 #line 1255
-    tmp___15 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+    tmp___15 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
 #line 1255
     if (tmp___15 != 0L) {
 #line 1255
@@ -33950,7 +33950,7 @@ void __ceph_flush_snaps(struct ceph_inode_info *ci , struct ceph_mds_session **p
 #line 1297
   descriptor.flags = 0U;
 #line 1297
-  tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1297
   if (tmp___1 != 0L) {
 #line 1297
@@ -33985,7 +33985,7 @@ void __ceph_flush_snaps(struct ceph_inode_info *ci , struct ceph_mds_session **p
 
   }
 #line 1314
-  tmp___2 = __builtin_expect(capsnap->dirty == 0, 0L);
+  tmp___2 = ldv__builtin_expect(capsnap->dirty == 0, 0L);
 #line 1314
   if (tmp___2 != 0L) {
 #line 1314
@@ -34012,7 +34012,7 @@ void __ceph_flush_snaps(struct ceph_inode_info *ci , struct ceph_mds_session **p
 #line 1318
     descriptor___0.flags = 0U;
 #line 1318
-    tmp___4 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___4 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 1318
     if (tmp___4 != 0L) {
 #line 1318
@@ -34048,7 +34048,7 @@ void __ceph_flush_snaps(struct ceph_inode_info *ci , struct ceph_mds_session **p
 #line 1324
       descriptor___1.flags = 0U;
 #line 1324
-      tmp___6 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+      tmp___6 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 1324
       if (tmp___6 != 0L) {
 #line 1324
@@ -34087,7 +34087,7 @@ void __ceph_flush_snaps(struct ceph_inode_info *ci , struct ceph_mds_session **p
 #line 1332
     descriptor___2.flags = 0U;
 #line 1332
-    tmp___9 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+    tmp___9 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
 #line 1332
     if (tmp___9 != 0L) {
 #line 1332
@@ -34133,7 +34133,7 @@ void __ceph_flush_snaps(struct ceph_inode_info *ci , struct ceph_mds_session **p
 #line 1343
       descriptor___3.flags = 0U;
 #line 1343
-      tmp___11 = __builtin_expect((long )descriptor___3.flags & 1L, 0L);
+      tmp___11 = ldv__builtin_expect((long )descriptor___3.flags & 1L, 0L);
 #line 1343
       if (tmp___11 != 0L) {
 #line 1343
@@ -34189,7 +34189,7 @@ void __ceph_flush_snaps(struct ceph_inode_info *ci , struct ceph_mds_session **p
 #line 1364
   descriptor___4.flags = 0U;
 #line 1364
-  tmp___14 = __builtin_expect((long )descriptor___4.flags & 1L, 0L);
+  tmp___14 = ldv__builtin_expect((long )descriptor___4.flags & 1L, 0L);
 #line 1364
   if (tmp___14 != 0L) {
 #line 1364
@@ -34318,7 +34318,7 @@ int __ceph_mark_dirty_caps(struct ceph_inode_info *ci , int mask )
 #line 1417
   descriptor.flags = 0U;
 #line 1417
-  tmp___4 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___4 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1417
   if (tmp___4 != 0L) {
 #line 1417
@@ -34361,7 +34361,7 @@ int __ceph_mark_dirty_caps(struct ceph_inode_info *ci , int mask )
 #line 1425
     descriptor___0.flags = 0U;
 #line 1425
-    tmp___6 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___6 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 1425
     if (tmp___6 != 0L) {
 #line 1425
@@ -34377,7 +34377,7 @@ int __ceph_mark_dirty_caps(struct ceph_inode_info *ci , int mask )
 #line 1427
     tmp___7 = list_empty((struct list_head  const  *)(& ci->i_dirty_item));
 #line 1427
-    tmp___8 = __builtin_expect(tmp___7 == 0, 0L);
+    tmp___8 = ldv__builtin_expect(tmp___7 == 0, 0L);
 #line 1427
     if (tmp___8 != 0L) {
 #line 1427
@@ -34416,7 +34416,7 @@ int __ceph_mark_dirty_caps(struct ceph_inode_info *ci , int mask )
 #line 1440
   tmp___9 = list_empty((struct list_head  const  *)(& ci->i_dirty_item));
 #line 1440
-  tmp___10 = __builtin_expect(tmp___9 != 0, 0L);
+  tmp___10 = ldv__builtin_expect(tmp___9 != 0, 0L);
 #line 1440
   if (tmp___10 != 0L) {
 #line 1440
@@ -34479,7 +34479,7 @@ static int __mark_caps_flushing(struct inode *inode , struct ceph_mds_session *s
 #line 1458
   ci = tmp___0;
 #line 1461
-  tmp___1 = __builtin_expect(ci->i_dirty_caps == 0U, 0L);
+  tmp___1 = ldv__builtin_expect(ci->i_dirty_caps == 0U, 0L);
 #line 1461
   if (tmp___1 != 0L) {
 #line 1461
@@ -34494,7 +34494,7 @@ static int __mark_caps_flushing(struct inode *inode , struct ceph_mds_session *s
 #line 1462
   tmp___2 = list_empty((struct list_head  const  *)(& ci->i_dirty_item));
 #line 1462
-  tmp___3 = __builtin_expect(tmp___2 != 0, 0L);
+  tmp___3 = ldv__builtin_expect(tmp___2 != 0, 0L);
 #line 1462
   if (tmp___3 != 0L) {
 #line 1462
@@ -34521,7 +34521,7 @@ static int __mark_caps_flushing(struct inode *inode , struct ceph_mds_session *s
 #line 1465
   descriptor.flags = 0U;
 #line 1465
-  tmp___8 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___8 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1465
   if (tmp___8 != 0L) {
 #line 1465
@@ -34556,7 +34556,7 @@ static int __mark_caps_flushing(struct inode *inode , struct ceph_mds_session *s
 #line 1471
   descriptor___0.flags = 0U;
 #line 1471
-  tmp___10 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___10 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 1471
   if (tmp___10 != 0L) {
 #line 1471
@@ -34597,7 +34597,7 @@ static int __mark_caps_flushing(struct inode *inode , struct ceph_mds_session *s
 #line 1480
     descriptor___1.flags = 0U;
 #line 1480
-    tmp___12 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___12 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 1480
     if (tmp___12 != 0L) {
 #line 1480
@@ -34625,7 +34625,7 @@ static int __mark_caps_flushing(struct inode *inode , struct ceph_mds_session *s
 #line 1484
     descriptor___2.flags = 0U;
 #line 1484
-    tmp___14 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+    tmp___14 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
 #line 1484
     if (tmp___14 != 0L) {
 #line 1484
@@ -34685,7 +34685,7 @@ static int try_nonblocking_invalidate(struct inode *inode )
 #line 1507
     descriptor.flags = 0U;
 #line 1507
-    tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1507
     if (tmp___1 != 0L) {
 #line 1507
@@ -34717,7 +34717,7 @@ static int try_nonblocking_invalidate(struct inode *inode )
 #line 1512
   descriptor___0.flags = 0U;
 #line 1512
-  tmp___3 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___3 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 1512
   if (tmp___3 != 0L) {
 #line 1512
@@ -34926,7 +34926,7 @@ void ceph_check_caps(struct ceph_inode_info *ci , int flags , struct ceph_mds_se
 #line 1583
   descriptor.flags = 0U;
 #line 1583
-  tmp___9 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___9 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1583
   if (tmp___9 != 0L) {
 #line 1583
@@ -34969,7 +34969,7 @@ void ceph_check_caps(struct ceph_inode_info *ci , int flags , struct ceph_mds_se
 #line 1606
     descriptor___0.flags = 0U;
 #line 1606
-    tmp___11 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___11 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 1606
     if (tmp___11 != 0L) {
 #line 1606
@@ -35000,7 +35000,7 @@ void ceph_check_caps(struct ceph_inode_info *ci , int flags , struct ceph_mds_se
 #line 1610
         descriptor___1.flags = 0U;
 #line 1610
-        tmp___13 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+        tmp___13 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 1610
         if (tmp___13 != 0L) {
 #line 1610
@@ -35030,7 +35030,7 @@ void ceph_check_caps(struct ceph_inode_info *ci , int flags , struct ceph_mds_se
 #line 1614
         descriptor___2.flags = 0U;
 #line 1614
-        tmp___15 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+        tmp___15 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
 #line 1614
         if (tmp___15 != 0L) {
 #line 1614
@@ -35092,7 +35092,7 @@ void ceph_check_caps(struct ceph_inode_info *ci , int flags , struct ceph_mds_se
 #line 1638
   descriptor___3.flags = 0U;
 #line 1638
-  tmp___21 = __builtin_expect((long )descriptor___3.flags & 1L, 0L);
+  tmp___21 = ldv__builtin_expect((long )descriptor___3.flags & 1L, 0L);
 #line 1638
   if (tmp___21 != 0L) {
 #line 1638
@@ -35128,7 +35128,7 @@ void ceph_check_caps(struct ceph_inode_info *ci , int flags , struct ceph_mds_se
 #line 1648
       descriptor___4.flags = 0U;
 #line 1648
-      tmp___23 = __builtin_expect((long )descriptor___4.flags & 1L, 0L);
+      tmp___23 = ldv__builtin_expect((long )descriptor___4.flags & 1L, 0L);
 #line 1648
       if (tmp___23 != 0L) {
 #line 1648
@@ -35160,7 +35160,7 @@ void ceph_check_caps(struct ceph_inode_info *ci , int flags , struct ceph_mds_se
 #line 1655
       descriptor___5.flags = 0U;
 #line 1655
-      tmp___25 = __builtin_expect((long )descriptor___5.flags & 1L, 0L);
+      tmp___25 = ldv__builtin_expect((long )descriptor___5.flags & 1L, 0L);
 #line 1655
       if (tmp___25 != 0L) {
 #line 1655
@@ -35195,7 +35195,7 @@ void ceph_check_caps(struct ceph_inode_info *ci , int flags , struct ceph_mds_se
 #line 1662
     descriptor___6.flags = 0U;
 #line 1662
-    tmp___27 = __builtin_expect((long )descriptor___6.flags & 1L, 0L);
+    tmp___27 = ldv__builtin_expect((long )descriptor___6.flags & 1L, 0L);
 #line 1662
     if (tmp___27 != 0L) {
 #line 1662
@@ -35227,7 +35227,7 @@ void ceph_check_caps(struct ceph_inode_info *ci , int flags , struct ceph_mds_se
 #line 1668
     descriptor___7.flags = 0U;
 #line 1668
-    tmp___30 = __builtin_expect((long )descriptor___7.flags & 1L, 0L);
+    tmp___30 = ldv__builtin_expect((long )descriptor___7.flags & 1L, 0L);
 #line 1668
     if (tmp___30 != 0L) {
 #line 1668
@@ -35282,7 +35282,7 @@ void ceph_check_caps(struct ceph_inode_info *ci , int flags , struct ceph_mds_se
 #line 1688
     descriptor___8.flags = 0U;
 #line 1688
-    tmp___36 = __builtin_expect((long )descriptor___8.flags & 1L, 0L);
+    tmp___36 = ldv__builtin_expect((long )descriptor___8.flags & 1L, 0L);
 #line 1688
     if (tmp___36 != 0L) {
 #line 1688
@@ -35326,7 +35326,7 @@ void ceph_check_caps(struct ceph_inode_info *ci , int flags , struct ceph_mds_se
 #line 1699
     descriptor___9.flags = 0U;
 #line 1699
-    tmp___38 = __builtin_expect((long )descriptor___9.flags & 1L, 0L);
+    tmp___38 = ldv__builtin_expect((long )descriptor___9.flags & 1L, 0L);
 #line 1699
     if (tmp___38 != 0L) {
 #line 1699
@@ -35358,7 +35358,7 @@ void ceph_check_caps(struct ceph_inode_info *ci , int flags , struct ceph_mds_se
 #line 1704
     descriptor___10.flags = 0U;
 #line 1704
-    tmp___40 = __builtin_expect((long )descriptor___10.flags & 1L, 0L);
+    tmp___40 = ldv__builtin_expect((long )descriptor___10.flags & 1L, 0L);
 #line 1704
     if (tmp___40 != 0L) {
 #line 1704
@@ -35398,7 +35398,7 @@ void ceph_check_caps(struct ceph_inode_info *ci , int flags , struct ceph_mds_se
 #line 1711
       descriptor___11.flags = 0U;
 #line 1711
-      tmp___42 = __builtin_expect((long )descriptor___11.flags & 1L, 0L);
+      tmp___42 = ldv__builtin_expect((long )descriptor___11.flags & 1L, 0L);
 #line 1711
       if (tmp___42 != 0L) {
 #line 1711
@@ -35450,7 +35450,7 @@ void ceph_check_caps(struct ceph_inode_info *ci , int flags , struct ceph_mds_se
 #line 1725
       descriptor___12.flags = 0U;
 #line 1725
-      tmp___45 = __builtin_expect((long )descriptor___12.flags & 1L, 0L);
+      tmp___45 = ldv__builtin_expect((long )descriptor___12.flags & 1L, 0L);
 #line 1725
       if (tmp___45 != 0L) {
 #line 1725
@@ -35606,7 +35606,7 @@ static int try_flush_caps(struct inode *inode , struct ceph_mds_session *session
 #line 1785
     descriptor.flags = 0U;
 #line 1785
-    tmp___2 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___2 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1785
     if (tmp___2 != 0L) {
 #line 1785
@@ -35649,7 +35649,7 @@ static int try_flush_caps(struct inode *inode , struct ceph_mds_session *session
 
     }
 #line 1800
-    tmp___5 = __builtin_expect((unsigned long )cap->session != (unsigned long )session,
+    tmp___5 = ldv__builtin_expect((unsigned long )cap->session != (unsigned long )session,
                                0L);
 #line 1800
     if (tmp___5 != 0L) {
@@ -35809,7 +35809,7 @@ static void sync_write_wait(struct inode *inode )
 #line 1869
   descriptor.flags = 0U;
 #line 1869
-  tmp___2 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___2 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1869
   if (tmp___2 != 0L) {
 #line 1869
@@ -35905,7 +35905,7 @@ int ceph_fsync(struct file *file , loff_t start , loff_t end , int datasync )
 #line 1896
   descriptor.flags = 0U;
 #line 1896
-  tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1896
   if (tmp___1 != 0L) {
 #line 1896
@@ -35945,7 +35945,7 @@ int ceph_fsync(struct file *file , loff_t start , loff_t end , int datasync )
 #line 1905
   descriptor___0.flags = 0U;
 #line 1905
-  tmp___4 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___4 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 1905
   if (tmp___4 != 0L) {
 #line 1905
@@ -35974,7 +35974,7 @@ int ceph_fsync(struct file *file , loff_t start , loff_t end , int datasync )
 #line 1913
     descriptor___1.flags = 0U;
 #line 1913
-    tmp___6 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___6 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 1913
     if (tmp___6 != 0L) {
 #line 1913
@@ -36060,7 +36060,7 @@ int ceph_fsync(struct file *file , loff_t start , loff_t end , int datasync )
 #line 1918
   descriptor___2.flags = 0U;
 #line 1918
-  tmp___13 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+  tmp___13 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
 #line 1918
   if (tmp___13 != 0L) {
 #line 1918
@@ -36123,7 +36123,7 @@ int ceph_write_inode(struct inode *inode , struct writeback_control *wbc )
 #line 1937
   descriptor.flags = 0U;
 #line 1937
-  tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1937
   if (tmp___1 != 0L) {
 #line 1937
@@ -36255,7 +36255,7 @@ static void kick_flushing_capsnaps(struct ceph_mds_client *mdsc , struct ceph_md
 #line 1966
   descriptor.flags = 0U;
 #line 1966
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1966
   if (tmp___0 != 0L) {
 #line 1966
@@ -36297,7 +36297,7 @@ static void kick_flushing_capsnaps(struct ceph_mds_client *mdsc , struct ceph_md
 #line 1976
     descriptor___0.flags = 0U;
 #line 1976
-    tmp___2 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___2 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 1976
     if (tmp___2 != 0L) {
 #line 1976
@@ -36369,7 +36369,7 @@ void ceph_kick_flushing_caps(struct ceph_mds_client *mdsc , struct ceph_mds_sess
 #line 1994
   descriptor.flags = 0U;
 #line 1994
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1994
   if (tmp___0 != 0L) {
 #line 1994
@@ -36411,7 +36411,7 @@ void ceph_kick_flushing_caps(struct ceph_mds_client *mdsc , struct ceph_mds_sess
 #line 2003
     descriptor___0.flags = 0U;
 #line 2003
-    tmp___3 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___3 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 2003
     if (tmp___3 != 0L) {
 #line 2003
@@ -36505,7 +36505,7 @@ static void kick_flushing_inode_caps(struct ceph_mds_client *mdsc , struct ceph_
 #line 2033
   descriptor.flags = 0U;
 #line 2033
-  tmp___2 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___2 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 2033
   if (tmp___2 != 0L) {
 #line 2033
@@ -36609,7 +36609,7 @@ static void __take_cap_refs(struct ceph_inode_info *ci , int got )
 #line 2073
     descriptor.flags = 0U;
 #line 2073
-    tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 2073
     if (tmp___0 != 0L) {
 #line 2073
@@ -36691,7 +36691,7 @@ static int try_get_cap_refs(struct ceph_inode_info *ci , int need , int want , i
 #line 2093
   descriptor.flags = 0U;
 #line 2093
-  tmp___2 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___2 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 2093
   if (tmp___2 != 0L) {
 #line 2093
@@ -36726,7 +36726,7 @@ static int try_get_cap_refs(struct ceph_inode_info *ci , int need , int want , i
 #line 2100
     descriptor___0.flags = 0U;
 #line 2100
-    tmp___6 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___6 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 2100
     if (tmp___6 != 0L) {
 #line 2100
@@ -36768,7 +36768,7 @@ static int try_get_cap_refs(struct ceph_inode_info *ci , int need , int want , i
 #line 2109
       descriptor___1.flags = 0U;
 #line 2109
-      tmp___8 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+      tmp___8 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 2109
       if (tmp___8 != 0L) {
 #line 2109
@@ -36811,7 +36811,7 @@ static int try_get_cap_refs(struct ceph_inode_info *ci , int need , int want , i
 #line 2122
       descriptor___2.flags = 0U;
 #line 2122
-      tmp___10 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+      tmp___10 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
 #line 2122
       if (tmp___10 != 0L) {
 #line 2122
@@ -36859,7 +36859,7 @@ static int try_get_cap_refs(struct ceph_inode_info *ci , int need , int want , i
 #line 2143
     descriptor___3.flags = 0U;
 #line 2143
-    tmp___16 = __builtin_expect((long )descriptor___3.flags & 1L, 0L);
+    tmp___16 = ldv__builtin_expect((long )descriptor___3.flags & 1L, 0L);
 #line 2143
     if (tmp___16 != 0L) {
 #line 2143
@@ -36903,7 +36903,7 @@ static int try_get_cap_refs(struct ceph_inode_info *ci , int need , int want , i
 #line 2152
     descriptor___4.flags = 0U;
 #line 2152
-    tmp___20 = __builtin_expect((long )descriptor___4.flags & 1L, 0L);
+    tmp___20 = ldv__builtin_expect((long )descriptor___4.flags & 1L, 0L);
 #line 2152
     if (tmp___20 != 0L) {
 #line 2152
@@ -36936,7 +36936,7 @@ static int try_get_cap_refs(struct ceph_inode_info *ci , int need , int want , i
 #line 2157
   descriptor___5.flags = 0U;
 #line 2157
-  tmp___23 = __builtin_expect((long )descriptor___5.flags & 1L, 0L);
+  tmp___23 = ldv__builtin_expect((long )descriptor___5.flags & 1L, 0L);
 #line 2157
   if (tmp___23 != 0L) {
 #line 2157
@@ -36988,7 +36988,7 @@ static void check_max_size(struct inode *inode , loff_t endoff )
 #line 2177
     descriptor.flags = 0U;
 #line 2177
-    tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 2177
     if (tmp___1 != 0L) {
 #line 2177
@@ -37232,7 +37232,7 @@ void ceph_put_cap_refs(struct ceph_inode_info *ci , int had )
 #line 2253
     descriptor.flags = 0U;
 #line 2253
-    tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 2253
     if (tmp___0 != 0L) {
 #line 2253
@@ -37298,7 +37298,7 @@ void ceph_put_cap_refs(struct ceph_inode_info *ci , int had )
 #line 2274
   descriptor___0.flags = 0U;
 #line 2274
-  tmp___4 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___4 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 2274
   if (tmp___4 != 0L) {
 #line 2274
@@ -37389,7 +37389,7 @@ void ceph_put_wrbuffer_cap_refs(struct ceph_inode_info *ci , int nr , struct cep
 #line 2310
     if ((ci->i_wrbuffer_ref_head == 0 && ci->i_dirty_caps == 0U) && ci->i_flushing_caps == 0U) {
 #line 2312
-      tmp = __builtin_expect((unsigned long )ci->i_head_snapc == (unsigned long )((struct ceph_snap_context *)0),
+      tmp = ldv__builtin_expect((unsigned long )ci->i_head_snapc == (unsigned long )((struct ceph_snap_context *)0),
                              0L);
 #line 2312
       if (tmp != 0L) {
@@ -37422,7 +37422,7 @@ void ceph_put_wrbuffer_cap_refs(struct ceph_inode_info *ci , int nr , struct cep
 #line 2316
     descriptor.flags = 0U;
 #line 2316
-    tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 2316
     if (tmp___1 != 0L) {
 #line 2316
@@ -37467,7 +37467,7 @@ void ceph_put_wrbuffer_cap_refs(struct ceph_inode_info *ci , int nr , struct cep
     }
     ldv_29644: 
 #line 2328
-    tmp___2 = __builtin_expect(found == 0, 0L);
+    tmp___2 = ldv__builtin_expect(found == 0, 0L);
 #line 2328
     if (tmp___2 != 0L) {
 #line 2328
@@ -37508,7 +37508,7 @@ void ceph_put_wrbuffer_cap_refs(struct ceph_inode_info *ci , int nr , struct cep
 #line 2337
     descriptor___0.flags = 0U;
 #line 2337
-    tmp___4 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___4 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 2337
     if (tmp___4 != 0L) {
 #line 2337
@@ -37679,7 +37679,7 @@ static void handle_cap_grant(struct inode *inode , struct ceph_mds_caps *grant ,
 #line 2397
   descriptor.flags = 0U;
 #line 2397
-  tmp___2 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___2 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 2397
   if (tmp___2 != 0L) {
 #line 2397
@@ -37706,7 +37706,7 @@ static void handle_cap_grant(struct inode *inode , struct ceph_mds_caps *grant ,
 #line 2399
   descriptor___0.flags = 0U;
 #line 2399
-  tmp___4 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___4 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 2399
   if (tmp___4 != 0L) {
 #line 2399
@@ -37770,7 +37770,7 @@ static void handle_cap_grant(struct inode *inode , struct ceph_mds_caps *grant ,
 #line 2435
     descriptor___1.flags = 0U;
 #line 2435
-    tmp___8 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___8 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 2435
     if (tmp___8 != 0L) {
 #line 2435
@@ -37814,7 +37814,7 @@ static void handle_cap_grant(struct inode *inode , struct ceph_mds_caps *grant ,
 #line 2447
       descriptor___2.flags = 0U;
 #line 2447
-      tmp___10 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+      tmp___10 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
 #line 2447
       if (tmp___10 != 0L) {
 #line 2447
@@ -37869,7 +37869,7 @@ static void handle_cap_grant(struct inode *inode , struct ceph_mds_caps *grant ,
 #line 2469
     descriptor___3.flags = 0U;
 #line 2469
-    tmp___12 = __builtin_expect((long )descriptor___3.flags & 1L, 0L);
+    tmp___12 = ldv__builtin_expect((long )descriptor___3.flags & 1L, 0L);
 #line 2469
     if (tmp___12 != 0L) {
 #line 2469
@@ -37916,7 +37916,7 @@ static void handle_cap_grant(struct inode *inode , struct ceph_mds_caps *grant ,
 #line 2482
   descriptor___4.flags = 0U;
 #line 2482
-  tmp___17 = __builtin_expect((long )descriptor___4.flags & 1L, 0L);
+  tmp___17 = ldv__builtin_expect((long )descriptor___4.flags & 1L, 0L);
 #line 2482
   if (tmp___17 != 0L) {
 #line 2482
@@ -37949,7 +37949,7 @@ static void handle_cap_grant(struct inode *inode , struct ceph_mds_caps *grant ,
 #line 2487
     descriptor___5.flags = 0U;
 #line 2487
-    tmp___21 = __builtin_expect((long )descriptor___5.flags & 1L, 0L);
+    tmp___21 = ldv__builtin_expect((long )descriptor___5.flags & 1L, 0L);
 #line 2487
     if (tmp___21 != 0L) {
 #line 2487
@@ -37991,7 +37991,7 @@ static void handle_cap_grant(struct inode *inode , struct ceph_mds_caps *grant ,
 #line 2502
     descriptor___6.flags = 0U;
 #line 2502
-    tmp___26 = __builtin_expect((long )descriptor___6.flags & 1L, 0L);
+    tmp___26 = ldv__builtin_expect((long )descriptor___6.flags & 1L, 0L);
 #line 2502
     if (tmp___26 != 0L) {
 #line 2502
@@ -38046,7 +38046,7 @@ static void handle_cap_grant(struct inode *inode , struct ceph_mds_caps *grant ,
 #line 2519
     descriptor___7.flags = 0U;
 #line 2519
-    tmp___30 = __builtin_expect((long )descriptor___7.flags & 1L, 0L);
+    tmp___30 = ldv__builtin_expect((long )descriptor___7.flags & 1L, 0L);
 #line 2519
     if (tmp___30 != 0L) {
 #line 2519
@@ -38076,7 +38076,7 @@ static void handle_cap_grant(struct inode *inode , struct ceph_mds_caps *grant ,
 #line 2522
     descriptor___8.flags = 0U;
 #line 2522
-    tmp___34 = __builtin_expect((long )descriptor___8.flags & 1L, 0L);
+    tmp___34 = ldv__builtin_expect((long )descriptor___8.flags & 1L, 0L);
 #line 2522
     if (tmp___34 != 0L) {
 #line 2522
@@ -38100,7 +38100,7 @@ static void handle_cap_grant(struct inode *inode , struct ceph_mds_caps *grant ,
     wake = 1;
   }
 #line 2530
-  tmp___35 = __builtin_expect((cap->issued & ~ cap->implemented) != 0, 0L);
+  tmp___35 = ldv__builtin_expect((cap->issued & ~ cap->implemented) != 0, 0L);
 #line 2530
   if (tmp___35 != 0L) {
 #line 2530
@@ -38241,7 +38241,7 @@ static void handle_cap_flush_ack(struct inode *inode , u64 flush_tid , struct ce
 #line 2577
   descriptor.flags = 0U;
 #line 2577
-  tmp___6 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___6 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 2577
   if (tmp___6 != 0L) {
 #line 2577
@@ -38294,7 +38294,7 @@ static void handle_cap_flush_ack(struct inode *inode , u64 flush_tid , struct ce
 #line 2592
       descriptor___0.flags = 0U;
 #line 2592
-      tmp___8 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+      tmp___8 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 2592
       if (tmp___8 != 0L) {
 #line 2592
@@ -38328,7 +38328,7 @@ static void handle_cap_flush_ack(struct inode *inode , u64 flush_tid , struct ce
 #line 2599
     descriptor___1.flags = 0U;
 #line 2599
-    tmp___11 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___11 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 2599
     if (tmp___11 != 0L) {
 #line 2599
@@ -38355,7 +38355,7 @@ static void handle_cap_flush_ack(struct inode *inode , u64 flush_tid , struct ce
 #line 2602
       descriptor___2.flags = 0U;
 #line 2602
-      tmp___13 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+      tmp___13 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
 #line 2602
       if (tmp___13 != 0L) {
 #line 2602
@@ -38370,7 +38370,7 @@ static void handle_cap_flush_ack(struct inode *inode , u64 flush_tid , struct ce
 #line 2603
       tmp___14 = list_empty((struct list_head  const  *)(& ci->i_dirty_item));
 #line 2603
-      tmp___15 = __builtin_expect(tmp___14 == 0, 0L);
+      tmp___15 = ldv__builtin_expect(tmp___14 == 0, 0L);
 #line 2603
       if (tmp___15 != 0L) {
 #line 2603
@@ -38387,7 +38387,7 @@ static void handle_cap_flush_ack(struct inode *inode , u64 flush_tid , struct ce
 #line 2605
       if (ci->i_wrbuffer_ref_head == 0) {
 #line 2606
-        tmp___16 = __builtin_expect((unsigned long )ci->i_head_snapc == (unsigned long )((struct ceph_snap_context *)0),
+        tmp___16 = ldv__builtin_expect((unsigned long )ci->i_head_snapc == (unsigned long )((struct ceph_snap_context *)0),
                                     0L);
 #line 2606
         if (tmp___16 != 0L) {
@@ -38411,7 +38411,7 @@ static void handle_cap_flush_ack(struct inode *inode , u64 flush_tid , struct ce
 #line 2611
       tmp___17 = list_empty((struct list_head  const  *)(& ci->i_dirty_item));
 #line 2611
-      tmp___18 = __builtin_expect(tmp___17 != 0, 0L);
+      tmp___18 = ldv__builtin_expect(tmp___17 != 0, 0L);
 #line 2611
       if (tmp___18 != 0L) {
 #line 2611
@@ -38493,7 +38493,7 @@ static void handle_cap_flushsnap_ack(struct inode *inode , u64 flush_tid , struc
 #line 2638
   descriptor.flags = 0U;
 #line 2638
-  tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 2638
   if (tmp___1 != 0L) {
 #line 2638
@@ -38532,7 +38532,7 @@ static void handle_cap_flushsnap_ack(struct inode *inode , u64 flush_tid , struc
 #line 2645
       descriptor___0.flags = 0U;
 #line 2645
-      tmp___3 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+      tmp___3 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 2645
       if (tmp___3 != 0L) {
 #line 2645
@@ -38553,7 +38553,7 @@ static void handle_cap_flushsnap_ack(struct inode *inode , u64 flush_tid , struc
 #line 2650
     __ret_warn_on = capsnap->dirty_pages != 0 || capsnap->writing != 0;
 #line 2650
-    tmp___4 = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp___4 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 2650
     if (tmp___4 != 0L) {
 #line 2650
@@ -38563,7 +38563,7 @@ static void handle_cap_flushsnap_ack(struct inode *inode , u64 flush_tid , struc
 
     }
 #line 2650
-    __builtin_expect(__ret_warn_on != 0, 0L);
+    ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 2651
     descriptor___1.modname = "ceph";
 #line 2651
@@ -38577,7 +38577,7 @@ static void handle_cap_flushsnap_ack(struct inode *inode , u64 flush_tid , struc
 #line 2651
     descriptor___1.flags = 0U;
 #line 2651
-    tmp___6 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___6 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 2651
     if (tmp___6 != 0L) {
 #line 2651
@@ -38615,7 +38615,7 @@ static void handle_cap_flushsnap_ack(struct inode *inode , u64 flush_tid , struc
 #line 2660
     descriptor___2.flags = 0U;
 #line 2660
-    tmp___8 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+    tmp___8 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
 #line 2660
     if (tmp___8 != 0L) {
 #line 2660
@@ -38719,7 +38719,7 @@ static void handle_cap_trunc(struct inode *inode , struct ceph_mds_caps *trunc ,
 #line 2692
   descriptor.flags = 0U;
 #line 2692
-  tmp___4 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___4 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 2692
   if (tmp___4 != 0L) {
 #line 2692
@@ -38804,7 +38804,7 @@ static void handle_cap_export(struct inode *inode , struct ceph_mds_caps *ex , s
 #line 2722
   descriptor.flags = 0U;
 #line 2722
-  tmp___2 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___2 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 2722
   if (tmp___2 != 0L) {
 #line 2722
@@ -38844,7 +38844,7 @@ static void handle_cap_export(struct inode *inode , struct ceph_mds_caps *ex , s
 #line 2731
     descriptor___0.flags = 0U;
 #line 2731
-    tmp___4 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___4 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 2731
     if (tmp___4 != 0L) {
 #line 2731
@@ -38910,7 +38910,7 @@ static void handle_cap_export(struct inode *inode , struct ceph_mds_caps *ex , s
 #line 2758
         descriptor___1.flags = 0U;
 #line 2758
-        tmp___7 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+        tmp___7 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 2758
         if (tmp___7 != 0L) {
 #line 2758
@@ -39007,7 +39007,7 @@ static void handle_cap_import(struct ceph_mds_client *mdsc , struct inode *inode
 #line 2794
       descriptor.flags = 0U;
 #line 2794
-      tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+      tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 2794
       if (tmp___1 != 0L) {
 #line 2794
@@ -39045,7 +39045,7 @@ static void handle_cap_import(struct ceph_mds_client *mdsc , struct inode *inode
 #line 2804
         descriptor___0.flags = 0U;
 #line 2804
-        tmp___3 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+        tmp___3 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 2804
         if (tmp___3 != 0L) {
 #line 2804
@@ -39083,7 +39083,7 @@ static void handle_cap_import(struct ceph_mds_client *mdsc , struct inode *inode
 #line 2809
     descriptor___1.flags = 0U;
 #line 2809
-    tmp___6 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___6 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 2809
     if (tmp___6 != 0L) {
 #line 2809
@@ -39192,7 +39192,7 @@ void ceph_handle_caps(struct ceph_mds_session *session , struct ceph_msg *msg )
 #line 2858
   descriptor.flags = 0U;
 #line 2858
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 2858
   if (tmp___0 != 0L) {
 #line 2858
@@ -39244,7 +39244,7 @@ void ceph_handle_caps(struct ceph_mds_session *session , struct ceph_msg *msg )
 #line 2882
     tmp___1 = ceph_has_room(& p, end, 4UL);
 #line 2882
-    tmp___2 = __builtin_expect(tmp___1 != 0, 1L);
+    tmp___2 = ldv__builtin_expect(tmp___1 != 0, 1L);
 #line 2882
     if (tmp___2 == 0L) {
 #line 2882
@@ -39279,7 +39279,7 @@ void ceph_handle_caps(struct ceph_mds_session *session , struct ceph_msg *msg )
 #line 2891
   descriptor___0.flags = 0U;
 #line 2891
-  tmp___4 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___4 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 2891
   if (tmp___4 != 0L) {
 #line 2891
@@ -39309,7 +39309,7 @@ void ceph_handle_caps(struct ceph_mds_session *session , struct ceph_msg *msg )
 #line 2897
   descriptor___1.flags = 0U;
 #line 2897
-  tmp___7 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+  tmp___7 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 2897
   if (tmp___7 != 0L) {
 #line 2897
@@ -39339,7 +39339,7 @@ void ceph_handle_caps(struct ceph_mds_session *session , struct ceph_msg *msg )
 #line 2900
     descriptor___2.flags = 0U;
 #line 2900
-    tmp___9 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+    tmp___9 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
 #line 2900
     if (tmp___9 != 0L) {
 #line 2900
@@ -39400,7 +39400,7 @@ void ceph_handle_caps(struct ceph_mds_session *session , struct ceph_msg *msg )
 #line 2927
     descriptor___3.flags = 0U;
 #line 2927
-    tmp___14 = __builtin_expect((long )descriptor___3.flags & 1L, 0L);
+    tmp___14 = ldv__builtin_expect((long )descriptor___3.flags & 1L, 0L);
 #line 2927
     if (tmp___14 != 0L) {
 #line 2927
@@ -39518,7 +39518,7 @@ void ceph_check_delayed_caps(struct ceph_mds_client *mdsc )
 #line 2989
   descriptor.flags = 0U;
 #line 2989
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 2989
   if (tmp___0 != 0L) {
 #line 2989
@@ -39570,7 +39570,7 @@ void ceph_check_delayed_caps(struct ceph_mds_client *mdsc )
 #line 3002
   descriptor___0.flags = 0U;
 #line 3002
-  tmp___3 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___3 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 3002
   if (tmp___3 != 0L) {
 #line 3002
@@ -39624,7 +39624,7 @@ void ceph_flush_dirty_caps(struct ceph_mds_client *mdsc )
 #line 3016
   descriptor.flags = 0U;
 #line 3016
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 3016
   if (tmp___0 != 0L) {
 #line 3016
@@ -39662,7 +39662,7 @@ void ceph_flush_dirty_caps(struct ceph_mds_client *mdsc )
 #line 3023
   descriptor___0.flags = 0U;
 #line 3023
-  tmp___2 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___2 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 3023
   if (tmp___2 != 0L) {
 #line 3023
@@ -39707,7 +39707,7 @@ void ceph_flush_dirty_caps(struct ceph_mds_client *mdsc )
 #line 3030
   descriptor___1.flags = 0U;
 #line 3030
-  tmp___5 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+  tmp___5 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 3030
   if (tmp___5 != 0L) {
 #line 3030
@@ -39753,7 +39753,7 @@ void ceph_put_fmode(struct ceph_inode_info *ci , int fmode )
 #line 3044
   descriptor.flags = 0U;
 #line 3044
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 3044
   if (tmp___0 != 0L) {
 #line 3044
@@ -39767,7 +39767,7 @@ void ceph_put_fmode(struct ceph_inode_info *ci , int fmode )
 
   }
 #line 3046
-  tmp___1 = __builtin_expect(ci->i_nr_by_mode[fmode] == 0, 0L);
+  tmp___1 = ldv__builtin_expect(ci->i_nr_by_mode[fmode] == 0, 0L);
 #line 3046
   if (tmp___1 != 0L) {
 #line 3046
@@ -39869,7 +39869,7 @@ int ceph_encode_inode_release(void **p , struct inode *inode , int mds , int dro
 #line 3076
   descriptor.flags = 0U;
 #line 3076
-  tmp___4 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___4 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 3076
   if (tmp___4 != 0L) {
 #line 3076
@@ -39915,7 +39915,7 @@ int ceph_encode_inode_release(void **p , struct inode *inode , int mds , int dro
 #line 3090
           descriptor___0.flags = 0U;
 #line 3090
-          tmp___8 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+          tmp___8 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 3090
           if (tmp___8 != 0L) {
 #line 3090
@@ -39955,7 +39955,7 @@ int ceph_encode_inode_release(void **p , struct inode *inode , int mds , int dro
 #line 3098
             descriptor___1.flags = 0U;
 #line 3098
-            tmp___14 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+            tmp___14 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 3098
             if (tmp___14 != 0L) {
 #line 3098
@@ -39993,7 +39993,7 @@ int ceph_encode_inode_release(void **p , struct inode *inode , int mds , int dro
 #line 3106
           descriptor___2.flags = 0U;
 #line 3106
-          tmp___17 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+          tmp___17 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
 #line 3106
           if (tmp___17 != 0L) {
 #line 3106
@@ -40044,7 +40044,7 @@ int ceph_encode_inode_release(void **p , struct inode *inode , int mds , int dro
 #line 3123
         descriptor___3.flags = 0U;
 #line 3123
-        tmp___20 = __builtin_expect((long )descriptor___3.flags & 1L, 0L);
+        tmp___20 = ldv__builtin_expect((long )descriptor___3.flags & 1L, 0L);
 #line 3123
         if (tmp___20 != 0L) {
 #line 3123
@@ -40128,7 +40128,7 @@ int ceph_encode_dentry_release(void **p , struct dentry *dentry , int mds , int 
 #line 3155
     descriptor.flags = 0U;
 #line 3155
-    tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 3155
     if (tmp___1 != 0L) {
 #line 3155
@@ -40568,7 +40568,7 @@ void ceph_get_snap_realm(struct ceph_mds_client *mdsc , struct ceph_snap_realm *
 #line 137
   descriptor.flags = 0U;
 #line 137
-  tmp___2 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___2 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 137
   if (tmp___2 != 0L) {
 #line 137
@@ -40720,7 +40720,7 @@ static struct ceph_snap_realm *ceph_create_snap_realm(struct ceph_mds_client *md
 #line 200
   descriptor.flags = 0U;
 #line 200
-  tmp___2 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___2 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 200
   if (tmp___2 != 0L) {
 #line 200
@@ -40779,7 +40779,7 @@ struct ceph_snap_realm *ceph_lookup_snap_realm(struct ceph_mds_client *mdsc , u6
 #line 222
     descriptor.flags = 0U;
 #line 222
-    tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 222
     if (tmp___0 != 0L) {
 #line 222
@@ -40830,7 +40830,7 @@ static void __destroy_snap_realm(struct ceph_mds_client *mdsc , struct ceph_snap
 #line 238
   descriptor.flags = 0U;
 #line 238
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 238
   if (tmp___0 != 0L) {
 #line 238
@@ -40889,7 +40889,7 @@ static void __put_snap_realm(struct ceph_mds_client *mdsc , struct ceph_snap_rea
 #line 259
   descriptor.flags = 0U;
 #line 259
-  tmp___2 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___2 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 259
   if (tmp___2 != 0L) {
 #line 259
@@ -40944,7 +40944,7 @@ void ceph_put_snap_realm(struct ceph_mds_client *mdsc , struct ceph_snap_realm *
 #line 271
   descriptor.flags = 0U;
 #line 271
-  tmp___2 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___2 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 271
   if (tmp___2 != 0L) {
 #line 271
@@ -41099,7 +41099,7 @@ static int adjust_snap_realm_parent(struct ceph_mds_client *mdsc , struct ceph_s
 #line 339
   descriptor.flags = 0U;
 #line 339
-  tmp___2 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___2 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 339
   if (tmp___2 != 0L) {
 #line 339
@@ -41221,7 +41221,7 @@ static int build_snap_context(struct ceph_snap_realm *realm )
 #line 395
     descriptor.flags = 0U;
 #line 395
-    tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 395
     if (tmp___0 != 0L) {
 #line 395
@@ -41328,7 +41328,7 @@ static int build_snap_context(struct ceph_snap_realm *realm )
 #line 437
   descriptor___0.flags = 0U;
 #line 437
-  tmp___4 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___4 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 437
   if (tmp___4 != 0L) {
 #line 437
@@ -41392,7 +41392,7 @@ static void rebuild_snap_realms(struct ceph_snap_realm *realm )
 #line 467
   descriptor.flags = 0U;
 #line 467
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 467
   if (tmp___0 != 0L) {
 #line 467
@@ -41553,7 +41553,7 @@ void ceph_queue_cap_snap(struct ceph_inode_info *ci )
 #line 540
     descriptor.flags = 0U;
 #line 540
-    tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 540
     if (tmp___1 != 0L) {
 #line 540
@@ -41592,7 +41592,7 @@ void ceph_queue_cap_snap(struct ceph_inode_info *ci )
 #line 553
     descriptor___0.flags = 0U;
 #line 553
-    tmp___4 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___4 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 553
     if (tmp___4 != 0L) {
 #line 553
@@ -41663,7 +41663,7 @@ void ceph_queue_cap_snap(struct ceph_inode_info *ci )
 #line 588
     descriptor___1.flags = 0U;
 #line 588
-    tmp___6 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___6 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 588
     if (tmp___6 != 0L) {
 #line 588
@@ -41692,7 +41692,7 @@ void ceph_queue_cap_snap(struct ceph_inode_info *ci )
 #line 592
       descriptor___2.flags = 0U;
 #line 592
-      tmp___8 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+      tmp___8 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
 #line 592
       if (tmp___8 != 0L) {
 #line 592
@@ -41725,7 +41725,7 @@ void ceph_queue_cap_snap(struct ceph_inode_info *ci )
 #line 601
     descriptor___3.flags = 0U;
 #line 601
-    tmp___10 = __builtin_expect((long )descriptor___3.flags & 1L, 0L);
+    tmp___10 = ldv__builtin_expect((long )descriptor___3.flags & 1L, 0L);
 #line 601
     if (tmp___10 != 0L) {
 #line 601
@@ -41770,7 +41770,7 @@ int __ceph_finish_cap_snap(struct ceph_inode_info *ci , struct ceph_cap_snap *ca
 #line 620
   mdsc = tmp->mdsc;
 #line 622
-  tmp___0 = __builtin_expect(capsnap->writing != 0, 0L);
+  tmp___0 = ldv__builtin_expect(capsnap->writing != 0, 0L);
 #line 622
   if (tmp___0 != 0L) {
 #line 622
@@ -41807,7 +41807,7 @@ int __ceph_finish_cap_snap(struct ceph_inode_info *ci , struct ceph_cap_snap *ca
 #line 629
     descriptor.flags = 0U;
 #line 629
-    tmp___3 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___3 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 629
     if (tmp___3 != 0L) {
 #line 629
@@ -41840,7 +41840,7 @@ int __ceph_finish_cap_snap(struct ceph_inode_info *ci , struct ceph_cap_snap *ca
 #line 636
   descriptor___0.flags = 0U;
 #line 636
-  tmp___6 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___6 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 636
   if (tmp___6 != 0L) {
 #line 636
@@ -41903,7 +41903,7 @@ static void queue_realm_cap_snaps(struct ceph_snap_realm *realm )
 #line 657
   descriptor.flags = 0U;
 #line 657
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 657
   if (tmp___0 != 0L) {
 #line 657
@@ -41992,7 +41992,7 @@ static void queue_realm_cap_snaps(struct ceph_snap_realm *realm )
 #line 677
   descriptor___0.flags = 0U;
 #line 677
-  tmp___3 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___3 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 677
   if (tmp___3 != 0L) {
 #line 677
@@ -42036,7 +42036,7 @@ static void queue_realm_cap_snaps(struct ceph_snap_realm *realm )
 #line 684
   descriptor___1.flags = 0U;
 #line 684
-  tmp___5 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+  tmp___5 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 684
   if (tmp___5 != 0L) {
 #line 684
@@ -42108,7 +42108,7 @@ int ceph_update_snap_trace(struct ceph_mds_client *mdsc , void *p , void *e , bo
 #line 705
   descriptor.flags = 0U;
 #line 705
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 705
   if (tmp___0 != 0L) {
 #line 705
@@ -42124,7 +42124,7 @@ int ceph_update_snap_trace(struct ceph_mds_client *mdsc , void *p , void *e , bo
 #line 707
   tmp___1 = ceph_has_room(& p, e, 48UL);
 #line 707
-  tmp___2 = __builtin_expect(tmp___1 != 0, 1L);
+  tmp___2 = ldv__builtin_expect(tmp___1 != 0, 1L);
 #line 707
   if (tmp___2 == 0L) {
 #line 707
@@ -42139,7 +42139,7 @@ int ceph_update_snap_trace(struct ceph_mds_client *mdsc , void *p , void *e , bo
 #line 710
   tmp___3 = ceph_has_room(& p, e, (unsigned long )(ri->num_snaps + ri->num_prior_parent_snaps) * 8UL);
 #line 710
-  tmp___4 = __builtin_expect(tmp___3 != 0, 1L);
+  tmp___4 = ldv__builtin_expect(tmp___3 != 0, 1L);
 #line 710
   if (tmp___4 == 0L) {
 #line 710
@@ -42203,7 +42203,7 @@ int ceph_update_snap_trace(struct ceph_mds_client *mdsc , void *p , void *e , bo
 #line 733
     descriptor___0.flags = 0U;
 #line 733
-    tmp___8 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___8 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 733
     if (tmp___8 != 0L) {
 #line 733
@@ -42264,7 +42264,7 @@ int ceph_update_snap_trace(struct ceph_mds_client *mdsc , void *p , void *e , bo
 #line 757
     descriptor___1.flags = 0U;
 #line 757
-    tmp___10 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___10 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 757
     if (tmp___10 != 0L) {
 #line 757
@@ -42292,7 +42292,7 @@ int ceph_update_snap_trace(struct ceph_mds_client *mdsc , void *p , void *e , bo
 #line 761
     descriptor___2.flags = 0U;
 #line 761
-    tmp___12 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+    tmp___12 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
 #line 761
     if (tmp___12 != 0L) {
 #line 761
@@ -42318,7 +42318,7 @@ int ceph_update_snap_trace(struct ceph_mds_client *mdsc , void *p , void *e , bo
 #line 765
   descriptor___3.flags = 0U;
 #line 765
-  tmp___14 = __builtin_expect((long )descriptor___3.flags & 1L, 0L);
+  tmp___14 = ldv__builtin_expect((long )descriptor___3.flags & 1L, 0L);
 #line 765
   if (tmp___14 != 0L) {
 #line 765
@@ -42409,7 +42409,7 @@ static void flush_snaps(struct ceph_mds_client *mdsc )
 #line 808
   descriptor.flags = 0U;
 #line 808
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 808
   if (tmp___0 != 0L) {
 #line 808
@@ -42480,7 +42480,7 @@ static void flush_snaps(struct ceph_mds_client *mdsc )
 #line 828
   descriptor___0.flags = 0U;
 #line 828
-  tmp___3 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___3 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 828
   if (tmp___3 != 0L) {
 #line 828
@@ -42591,7 +42591,7 @@ void ceph_handle_snap(struct ceph_mds_client *mdsc , struct ceph_mds_session *se
 #line 873
   descriptor.flags = 0U;
 #line 873
-  tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 873
   if (tmp___1 != 0L) {
 #line 873
@@ -42628,7 +42628,7 @@ void ceph_handle_snap(struct ceph_mds_client *mdsc , struct ceph_mds_session *se
 #line 896
     tmp___2 = ceph_has_room(& p, e, 48UL);
 #line 896
-    tmp___3 = __builtin_expect(tmp___2 != 0, 1L);
+    tmp___3 = ldv__builtin_expect(tmp___2 != 0, 1L);
 #line 896
     if (tmp___3 == 0L) {
 #line 896
@@ -42671,7 +42671,7 @@ void ceph_handle_snap(struct ceph_mds_client *mdsc , struct ceph_mds_session *se
 #line 910
     descriptor___0.flags = 0U;
 #line 910
-    tmp___6 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___6 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 910
     if (tmp___6 != 0L) {
 #line 910
@@ -42729,7 +42729,7 @@ void ceph_handle_snap(struct ceph_mds_client *mdsc , struct ceph_mds_session *se
 #line 936
       descriptor___1.flags = 0U;
 #line 936
-      tmp___9 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+      tmp___9 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 936
       if (tmp___9 != 0L) {
 #line 936
@@ -42760,7 +42760,7 @@ void ceph_handle_snap(struct ceph_mds_client *mdsc , struct ceph_mds_session *se
 #line 941
     descriptor___2.flags = 0U;
 #line 941
-    tmp___11 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+    tmp___11 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
 #line 941
     if (tmp___11 != 0L) {
 #line 941
@@ -43517,7 +43517,7 @@ static int __set_xattr(struct ceph_inode_info *ci , char const   *name , int nam
 #line 314
     descriptor.flags = 0U;
 #line 314
-    tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 314
     if (tmp___0 != 0L) {
 #line 314
@@ -43592,7 +43592,7 @@ static int __set_xattr(struct ceph_inode_info *ci , char const   *name , int nam
 #line 342
     descriptor___0.flags = 0U;
 #line 342
-    tmp___2 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___2 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 342
     if (tmp___2 != 0L) {
 #line 342
@@ -43620,7 +43620,7 @@ static int __set_xattr(struct ceph_inode_info *ci , char const   *name , int nam
 #line 345
   descriptor___1.flags = 0U;
 #line 345
-  tmp___6 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+  tmp___6 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 345
   if (tmp___6 != 0L) {
 #line 345
@@ -43710,7 +43710,7 @@ static struct ceph_inode_xattr *__get_xattr(struct ceph_inode_info *ci , char co
 #line 372
     descriptor.flags = 0U;
 #line 372
-    tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 372
     if (tmp___1 != 0L) {
 #line 372
@@ -43746,7 +43746,7 @@ static struct ceph_inode_xattr *__get_xattr(struct ceph_inode_info *ci , char co
 #line 378
   descriptor___0.flags = 0U;
 #line 378
-  tmp___3 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___3 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 378
   if (tmp___3 != 0L) {
 #line 378
@@ -43769,7 +43769,7 @@ static void __free_xattr(struct ceph_inode_xattr *xattr )
 
   {
 #line 385
-  tmp = __builtin_expect((unsigned long )xattr == (unsigned long )((struct ceph_inode_xattr *)0),
+  tmp = ldv__builtin_expect((unsigned long )xattr == (unsigned long )((struct ceph_inode_xattr *)0),
                          0L);
 #line 385
   if (tmp != 0L) {
@@ -43894,7 +43894,7 @@ static char *__copy_xattr_names(struct ceph_inode_info *ci , char *dest )
 #line 436
   descriptor.flags = 0U;
 #line 436
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 436
   if (tmp___0 != 0L) {
 #line 436
@@ -43932,7 +43932,7 @@ static char *__copy_xattr_names(struct ceph_inode_info *ci , char *dest )
 #line 443
   descriptor___0.flags = 0U;
 #line 443
-  tmp___2 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___2 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 443
   if (tmp___2 != 0L) {
 #line 443
@@ -43995,7 +43995,7 @@ void __ceph_destroy_xattrs(struct ceph_inode_info *ci )
 #line 460
   descriptor.flags = 0U;
 #line 460
-  tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 460
   if (tmp___1 != 0L) {
 #line 460
@@ -44031,7 +44031,7 @@ void __ceph_destroy_xattrs(struct ceph_inode_info *ci )
 #line 466
   descriptor___0.flags = 0U;
 #line 466
-  tmp___3 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___3 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 466
   if (tmp___3 != 0L) {
 #line 466
@@ -44124,7 +44124,7 @@ static int __build_xattrs(struct inode *inode )
 #line 495
   descriptor.flags = 0U;
 #line 495
-  tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 495
   if (tmp___1 != 0L) {
 #line 495
@@ -44155,7 +44155,7 @@ static int __build_xattrs(struct inode *inode )
 #line 508
     tmp___2 = ceph_has_room(& p, end, 4UL);
 #line 508
-    tmp___3 = __builtin_expect(tmp___2 != 0, 1L);
+    tmp___3 = ldv__builtin_expect(tmp___2 != 0, 1L);
 #line 508
     if (tmp___3 == 0L) {
 #line 508
@@ -44248,7 +44248,7 @@ static int __build_xattrs(struct inode *inode )
 #line 536
     tmp___6 = ceph_has_room(& p, end, 4UL);
 #line 536
-    tmp___7 = __builtin_expect(tmp___6 != 0, 1L);
+    tmp___7 = ldv__builtin_expect(tmp___6 != 0, 1L);
 #line 536
     if (tmp___7 == 0L) {
 #line 536
@@ -44267,7 +44267,7 @@ static int __build_xattrs(struct inode *inode )
 #line 540
     tmp___8 = ceph_has_room(& p, end, 4UL);
 #line 540
-    tmp___9 = __builtin_expect(tmp___8 != 0, 1L);
+    tmp___9 = ldv__builtin_expect(tmp___8 != 0, 1L);
 #line 540
     if (tmp___9 == 0L) {
 #line 540
@@ -44371,7 +44371,7 @@ static int __get_required_blob_size(struct ceph_inode_info *ci , int name_size ,
 #line 578
   descriptor.flags = 0U;
 #line 578
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 578
   if (tmp___0 != 0L) {
 #line 578
@@ -44429,7 +44429,7 @@ void __ceph_build_xattrs_blob(struct ceph_inode_info *ci )
 #line 598
   descriptor.flags = 0U;
 #line 598
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 598
   if (tmp___0 != 0L) {
 #line 598
@@ -44448,7 +44448,7 @@ void __ceph_build_xattrs_blob(struct ceph_inode_info *ci )
 #line 600
     need = tmp___1;
 #line 602
-    tmp___2 = __builtin_expect((size_t )need > (ci->i_xattrs.prealloc_blob)->alloc_len,
+    tmp___2 = ldv__builtin_expect((size_t )need > (ci->i_xattrs.prealloc_blob)->alloc_len,
                                0L);
 #line 602
     if (tmp___2 != 0L) {
@@ -44587,7 +44587,7 @@ ssize_t ceph_getxattr(struct dentry *dentry , char const   *name , void *value ,
 #line 650
   descriptor.flags = 0U;
 #line 650
-  tmp___3 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___3 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 650
   if (tmp___3 != 0L) {
 #line 650
@@ -44739,7 +44739,7 @@ ssize_t ceph_listxattr(struct dentry *dentry , char *names , size_t size )
 #line 711
   descriptor.flags = 0U;
 #line 711
-  tmp___2 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___2 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 711
   if (tmp___2 != 0L) {
 #line 711
@@ -44963,7 +44963,7 @@ static int ceph_sync_setxattr(struct dentry *dentry , char const   *name , char 
 #line 794
   descriptor.flags = 0U;
 #line 794
-  tmp___3 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___3 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 794
   if (tmp___3 != 0L) {
 #line 794
@@ -45021,7 +45021,7 @@ static int ceph_sync_setxattr(struct dentry *dentry , char const   *name , char 
 #line 814
   descriptor___0.flags = 0U;
 #line 814
-  tmp___7 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___7 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 814
   if (tmp___7 != 0L) {
 #line 814
@@ -45054,7 +45054,7 @@ static int ceph_sync_setxattr(struct dentry *dentry , char const   *name , char 
 #line 819
   descriptor___1.flags = 0U;
 #line 819
-  tmp___9 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+  tmp___9 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 819
   if (tmp___9 != 0L) {
 #line 819
@@ -45240,7 +45240,7 @@ int ceph_setxattr(struct dentry *dentry , char const   *name , void const   *val
 #line 875
   descriptor.flags = 0U;
 #line 875
-  tmp___9 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___9 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 875
   if (tmp___9 != 0L) {
 #line 875
@@ -45282,7 +45282,7 @@ int ceph_setxattr(struct dentry *dentry , char const   *name , void const   *val
 #line 887
     descriptor___0.flags = 0U;
 #line 887
-    tmp___11 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___11 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 887
     if (tmp___11 != 0L) {
 #line 887
@@ -45498,7 +45498,7 @@ int ceph_removexattr(struct dentry *dentry , char const   *name )
 #line 970
   descriptor.flags = 0U;
 #line 970
-  tmp___5 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___5 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 970
   if (tmp___5 != 0L) {
 #line 970
@@ -45540,7 +45540,7 @@ int ceph_removexattr(struct dentry *dentry , char const   *name )
 #line 983
     descriptor___0.flags = 0U;
 #line 983
-    tmp___7 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___7 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 983
     if (tmp___7 != 0L) {
 #line 983
@@ -45807,7 +45807,7 @@ __inline static int __atomic_add_unless(atomic_t *v , int a , int u )
   c = atomic_read((atomic_t const   *)v);
   ldv_5523: 
 #line 217
-  tmp = __builtin_expect(c == u, 0L);
+  tmp = ldv__builtin_expect(c == u, 0L);
 #line 217
   if (tmp != 0L) {
 #line 218
@@ -45818,7 +45818,7 @@ __inline static int __atomic_add_unless(atomic_t *v , int a , int u )
 #line 219
   old = atomic_cmpxchg(v, c, c + a);
 #line 220
-  tmp___0 = __builtin_expect(old == c, 1L);
+  tmp___0 = ldv__builtin_expect(old == c, 1L);
 #line 220
   if (tmp___0 != 0L) {
 #line 221
@@ -46111,7 +46111,7 @@ __inline static unsigned int read_seqbegin(seqlock_t const   *sl )
 #line 89
   ret = *((unsigned int const volatile   *)(& sl->sequence));
 #line 90
-  tmp = __builtin_expect((long )((int )ret) & 1L, 0L);
+  tmp = ldv__builtin_expect((long )((int )ret) & 1L, 0L);
 #line 90
   if (tmp != 0L) {
 #line 91
@@ -46136,7 +46136,7 @@ __inline static int read_seqretry(seqlock_t const   *sl , unsigned int start )
 #line 106
   __asm__  volatile   ("": : : "memory");
 #line 108
-  tmp = __builtin_expect((unsigned int )sl->sequence != start, 0L);
+  tmp = ldv__builtin_expect((unsigned int )sl->sequence != start, 0L);
 #line 108
   return ((int )tmp);
 }
@@ -46420,7 +46420,7 @@ __inline static int ceph_mdsmap_get_state(struct ceph_mdsmap *m , int w )
 
   {
 #line 46
-  tmp = __builtin_expect(w < 0, 0L);
+  tmp = ldv__builtin_expect(w < 0, 0L);
 #line 46
   if (tmp != 0L) {
 #line 46
@@ -46556,7 +46556,7 @@ __inline static void ceph_encode_filepath(void **p , void *end , u64 ino , char 
 #line 200
   len = tmp___0;
 #line 201
-  tmp___1 = __builtin_expect((unsigned long )(*p + ((unsigned long )len + 13UL)) > (unsigned long )end,
+  tmp___1 = ldv__builtin_expect((unsigned long )(*p + ((unsigned long )len + 13UL)) > (unsigned long )end,
                              0L);
 #line 201
   if (tmp___1 != 0L) {
@@ -46713,7 +46713,7 @@ static int parse_reply_info_in(void **p , void *end , struct ceph_mds_reply_info
 #line 146
   tmp = ceph_has_room(p, end, 4UL);
 #line 146
-  tmp___0 = __builtin_expect(tmp != 0, 1L);
+  tmp___0 = ldv__builtin_expect(tmp != 0, 1L);
 #line 146
   if (tmp___0 == 0L) {
 #line 146
@@ -46726,7 +46726,7 @@ static int parse_reply_info_in(void **p , void *end , struct ceph_mds_reply_info
 #line 147
   tmp___1 = ceph_has_room(p, end, (size_t )info->symlink_len);
 #line 147
-  tmp___2 = __builtin_expect(tmp___1 != 0, 1L);
+  tmp___2 = ldv__builtin_expect(tmp___1 != 0, 1L);
 #line 147
   if (tmp___2 == 0L) {
 #line 147
@@ -46743,7 +46743,7 @@ static int parse_reply_info_in(void **p , void *end , struct ceph_mds_reply_info
 #line 152
     tmp___3 = ceph_has_room(p, end, 8UL);
 #line 152
-    tmp___4 = __builtin_expect(tmp___3 != 0, 1L);
+    tmp___4 = ldv__builtin_expect(tmp___3 != 0, 1L);
 #line 152
     if (tmp___4 == 0L) {
 #line 152
@@ -46760,7 +46760,7 @@ static int parse_reply_info_in(void **p , void *end , struct ceph_mds_reply_info
 #line 157
   tmp___5 = ceph_has_room(p, end, 4UL);
 #line 157
-  tmp___6 = __builtin_expect(tmp___5 != 0, 1L);
+  tmp___6 = ldv__builtin_expect(tmp___5 != 0, 1L);
 #line 157
   if (tmp___6 == 0L) {
 #line 157
@@ -46773,7 +46773,7 @@ static int parse_reply_info_in(void **p , void *end , struct ceph_mds_reply_info
 #line 158
   tmp___7 = ceph_has_room(p, end, (size_t )info->xattr_len);
 #line 158
-  tmp___8 = __builtin_expect(tmp___7 != 0, 1L);
+  tmp___8 = ldv__builtin_expect(tmp___7 != 0, 1L);
 #line 158
   if (tmp___8 == 0L) {
 #line 158
@@ -46818,7 +46818,7 @@ static int parse_reply_info_trace(void **p , void *end , struct ceph_mds_reply_i
 
     }
 #line 181
-    tmp = __builtin_expect((unsigned long )(*p + 12UL) > (unsigned long )end, 0L);
+    tmp = ldv__builtin_expect((unsigned long )(*p + 12UL) > (unsigned long )end, 0L);
 #line 181
     if (tmp != 0L) {
 #line 182
@@ -46831,7 +46831,7 @@ static int parse_reply_info_trace(void **p , void *end , struct ceph_mds_reply_i
 #line 184
     *p = *p + ((unsigned long )(info->dirfrag)->ndist + 3UL) * 4UL;
 #line 186
-    tmp___0 = __builtin_expect((unsigned long )*p > (unsigned long )end, 0L);
+    tmp___0 = ldv__builtin_expect((unsigned long )*p > (unsigned long )end, 0L);
 #line 186
     if (tmp___0 != 0L) {
 #line 187
@@ -46842,7 +46842,7 @@ static int parse_reply_info_trace(void **p , void *end , struct ceph_mds_reply_i
 #line 189
     tmp___1 = ceph_has_room(p, end, 4UL);
 #line 189
-    tmp___2 = __builtin_expect(tmp___1 != 0, 1L);
+    tmp___2 = ldv__builtin_expect(tmp___1 != 0, 1L);
 #line 189
     if (tmp___2 == 0L) {
 #line 189
@@ -46855,7 +46855,7 @@ static int parse_reply_info_trace(void **p , void *end , struct ceph_mds_reply_i
 #line 190
     tmp___3 = ceph_has_room(p, end, (size_t )info->dname_len);
 #line 190
-    tmp___4 = __builtin_expect(tmp___3 != 0, 1L);
+    tmp___4 = ldv__builtin_expect(tmp___3 != 0, 1L);
 #line 190
     if (tmp___4 == 0L) {
 #line 190
@@ -46889,7 +46889,7 @@ static int parse_reply_info_trace(void **p , void *end , struct ceph_mds_reply_i
 
   }
 #line 203
-  tmp___5 = __builtin_expect((unsigned long )*p != (unsigned long )end, 0L);
+  tmp___5 = ldv__builtin_expect((unsigned long )*p != (unsigned long )end, 0L);
 #line 203
   if (tmp___5 != 0L) {
 #line 204
@@ -46951,7 +46951,7 @@ static int parse_reply_info_dir(void **p , void *end , struct ceph_mds_reply_inf
 #line 232
   tmp = ceph_has_room(p, end, 6UL);
 #line 232
-  tmp___0 = __builtin_expect(tmp != 0, 1L);
+  tmp___0 = ldv__builtin_expect(tmp != 0, 1L);
 #line 232
   if (tmp___0 == 0L) {
 #line 232
@@ -46999,7 +46999,7 @@ static int parse_reply_info_dir(void **p , void *end , struct ceph_mds_reply_inf
 #line 256
   tmp___2 = ceph_has_room(p, end, 8UL);
 #line 256
-  tmp___3 = __builtin_expect(tmp___2 != 0, 1L);
+  tmp___3 = ldv__builtin_expect(tmp___2 != 0, 1L);
 #line 256
   if (tmp___3 == 0L) {
 #line 256
@@ -47012,7 +47012,7 @@ static int parse_reply_info_dir(void **p , void *end , struct ceph_mds_reply_inf
 #line 258
   tmp___4 = ceph_has_room(p, end, (size_t )*(info->ldv_29667.ldv_29666.dir_dname_len + (unsigned long )i));
 #line 258
-  tmp___5 = __builtin_expect(tmp___4 != 0, 1L);
+  tmp___5 = ldv__builtin_expect(tmp___4 != 0, 1L);
 #line 258
   if (tmp___5 == 0L) {
 #line 258
@@ -47037,7 +47037,7 @@ static int parse_reply_info_dir(void **p , void *end , struct ceph_mds_reply_inf
 #line 261
   descriptor.flags = 0U;
 #line 261
-  tmp___7 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___7 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 261
   if (tmp___7 != 0L) {
 #line 261
@@ -47116,7 +47116,7 @@ static int parse_reply_info_filelock(void **p , void *end , struct ceph_mds_repl
 #line 297
   *p = *p + 41UL;
 #line 299
-  tmp = __builtin_expect((unsigned long )*p != (unsigned long )end, 0L);
+  tmp = ldv__builtin_expect((unsigned long )*p != (unsigned long )end, 0L);
 #line 299
   if (tmp != 0L) {
 #line 300
@@ -47182,7 +47182,7 @@ static int parse_reply_info(struct ceph_msg *msg , struct ceph_mds_reply_info_pa
 #line 336
   tmp = ceph_has_room(& p, end, 4UL);
 #line 336
-  tmp___0 = __builtin_expect(tmp != 0, 1L);
+  tmp___0 = ldv__builtin_expect(tmp != 0, 1L);
 #line 336
   if (tmp___0 == 0L) {
 #line 336
@@ -47197,7 +47197,7 @@ static int parse_reply_info(struct ceph_msg *msg , struct ceph_mds_reply_info_pa
 #line 338
     tmp___1 = ceph_has_room(& p, end, (size_t )len);
 #line 338
-    tmp___2 = __builtin_expect(tmp___1 != 0, 1L);
+    tmp___2 = ldv__builtin_expect(tmp___1 != 0, 1L);
 #line 338
     if (tmp___2 == 0L) {
 #line 338
@@ -47220,7 +47220,7 @@ static int parse_reply_info(struct ceph_msg *msg , struct ceph_mds_reply_info_pa
 #line 345
   tmp___3 = ceph_has_room(& p, end, 4UL);
 #line 345
-  tmp___4 = __builtin_expect(tmp___3 != 0, 1L);
+  tmp___4 = ldv__builtin_expect(tmp___3 != 0, 1L);
 #line 345
   if (tmp___4 == 0L) {
 #line 345
@@ -47235,7 +47235,7 @@ static int parse_reply_info(struct ceph_msg *msg , struct ceph_mds_reply_info_pa
 #line 347
     tmp___5 = ceph_has_room(& p, end, (size_t )len);
 #line 347
-    tmp___6 = __builtin_expect(tmp___5 != 0, 1L);
+    tmp___6 = ldv__builtin_expect(tmp___5 != 0, 1L);
 #line 347
     if (tmp___6 == 0L) {
 #line 347
@@ -47258,7 +47258,7 @@ static int parse_reply_info(struct ceph_msg *msg , struct ceph_mds_reply_info_pa
 #line 354
   tmp___7 = ceph_has_room(& p, end, 4UL);
 #line 354
-  tmp___8 = __builtin_expect(tmp___7 != 0, 1L);
+  tmp___8 = ldv__builtin_expect(tmp___7 != 0, 1L);
 #line 354
   if (tmp___8 == 0L) {
 #line 354
@@ -47371,7 +47371,7 @@ static struct ceph_mds_session *get_session(struct ceph_mds_session *s )
 #line 396
     descriptor.flags = 0U;
 #line 396
-    tmp___2 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___2 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 396
     if (tmp___2 != 0L) {
 #line 396
@@ -47403,7 +47403,7 @@ static struct ceph_mds_session *get_session(struct ceph_mds_session *s )
 #line 400
     descriptor___0.flags = 0U;
 #line 400
-    tmp___4 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___4 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 400
     if (tmp___4 != 0L) {
 #line 400
@@ -47444,7 +47444,7 @@ void ceph_put_mds_session(struct ceph_mds_session *s )
 #line 407
   descriptor.flags = 0U;
 #line 407
-  tmp___2 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___2 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 407
   if (tmp___2 != 0L) {
 #line 407
@@ -47514,7 +47514,7 @@ struct ceph_mds_session *__ceph_lookup_mds_session(struct ceph_mds_client *mdsc 
 #line 429
   descriptor.flags = 0U;
 #line 429
-  tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 429
   if (tmp___1 != 0L) {
 #line 429
@@ -47675,7 +47675,7 @@ static struct ceph_mds_session *register_session(struct ceph_mds_client *mdsc , 
 #line 492
   descriptor.flags = 0U;
 #line 492
-  tmp___2 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___2 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 492
   if (tmp___2 != 0L) {
 #line 492
@@ -47706,7 +47706,7 @@ static struct ceph_mds_session *register_session(struct ceph_mds_client *mdsc , 
 #line 497
     descriptor___0.flags = 0U;
 #line 497
-    tmp___5 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___5 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 497
     if (tmp___5 != 0L) {
 #line 497
@@ -47788,7 +47788,7 @@ static void __unregister_session(struct ceph_mds_client *mdsc , struct ceph_mds_
 #line 528
   descriptor.flags = 0U;
 #line 528
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 528
   if (tmp___0 != 0L) {
 #line 528
@@ -47801,7 +47801,7 @@ static void __unregister_session(struct ceph_mds_client *mdsc , struct ceph_mds_
 
   }
 #line 529
-  tmp___1 = __builtin_expect((unsigned long )*(mdsc->sessions + (unsigned long )s->s_mds) != (unsigned long )s,
+  tmp___1 = ldv__builtin_expect((unsigned long )*(mdsc->sessions + (unsigned long )s->s_mds) != (unsigned long )s,
                              0L);
 #line 529
   if (tmp___1 != 0L) {
@@ -48075,7 +48075,7 @@ static void __register_request(struct ceph_mds_client *mdsc , struct ceph_mds_re
 #line 649
   descriptor.flags = 0U;
 #line 649
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 649
   if (tmp___0 != 0L) {
 #line 649
@@ -48149,7 +48149,7 @@ static void __unregister_request(struct ceph_mds_client *mdsc , struct ceph_mds_
 #line 670
   descriptor.flags = 0U;
 #line 670
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 670
   if (tmp___0 != 0L) {
 #line 670
@@ -48310,7 +48310,7 @@ static int __choose_mds(struct ceph_mds_client *mdsc , struct ceph_mds_request *
 #line 727
         descriptor.flags = 0U;
 #line 727
-        tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+        tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 727
         if (tmp___0 != 0L) {
 #line 727
@@ -48379,7 +48379,7 @@ static int __choose_mds(struct ceph_mds_client *mdsc , struct ceph_mds_request *
 #line 751
         descriptor___0.flags = 0U;
 #line 751
-        tmp___5 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+        tmp___5 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 751
         if (tmp___5 != 0L) {
 #line 751
@@ -48421,7 +48421,7 @@ static int __choose_mds(struct ceph_mds_client *mdsc , struct ceph_mds_request *
 #line 763
   descriptor___1.flags = 0U;
 #line 763
-  tmp___8 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+  tmp___8 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 763
   if (tmp___8 != 0L) {
 #line 763
@@ -48470,7 +48470,7 @@ static int __choose_mds(struct ceph_mds_client *mdsc , struct ceph_mds_request *
 #line 782
         descriptor___2.flags = 0U;
 #line 782
-        tmp___12 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+        tmp___12 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
 #line 782
         if (tmp___12 != 0L) {
 #line 782
@@ -48518,7 +48518,7 @@ static int __choose_mds(struct ceph_mds_client *mdsc , struct ceph_mds_request *
 #line 799
         descriptor___3.flags = 0U;
 #line 799
-        tmp___17 = __builtin_expect((long )descriptor___3.flags & 1L, 0L);
+        tmp___17 = ldv__builtin_expect((long )descriptor___3.flags & 1L, 0L);
 #line 799
         if (tmp___17 != 0L) {
 #line 799
@@ -48599,7 +48599,7 @@ static int __choose_mds(struct ceph_mds_client *mdsc , struct ceph_mds_request *
 #line 820
   descriptor___4.flags = 0U;
 #line 820
-  tmp___23 = __builtin_expect((long )descriptor___4.flags & 1L, 0L);
+  tmp___23 = ldv__builtin_expect((long )descriptor___4.flags & 1L, 0L);
 #line 820
   if (tmp___23 != 0L) {
 #line 820
@@ -48637,7 +48637,7 @@ static int __choose_mds(struct ceph_mds_client *mdsc , struct ceph_mds_request *
 #line 828
   descriptor___5.flags = 0U;
 #line 828
-  tmp___25 = __builtin_expect((long )descriptor___5.flags & 1L, 0L);
+  tmp___25 = ldv__builtin_expect((long )descriptor___5.flags & 1L, 0L);
 #line 828
   if (tmp___25 != 0L) {
 #line 828
@@ -48710,7 +48710,7 @@ static int __open_session(struct ceph_mds_client *mdsc , struct ceph_mds_session
 #line 867
   descriptor.flags = 0U;
 #line 867
-  tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 867
   if (tmp___1 != 0L) {
 #line 867
@@ -48785,7 +48785,7 @@ static void __open_export_target_sessions(struct ceph_mds_client *mdsc , struct 
 #line 896
   descriptor.flags = 0U;
 #line 896
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 896
   if (tmp___0 != 0L) {
 #line 896
@@ -48840,7 +48840,7 @@ static void __open_export_target_sessions(struct ceph_mds_client *mdsc , struct 
 #line 911
     descriptor___0.flags = 0U;
 #line 911
-    tmp___4 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___4 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 911
     if (tmp___4 != 0L) {
 #line 911
@@ -48988,7 +48988,7 @@ static int iterate_session_caps(struct ceph_mds_session *session , int (*cb)(str
 #line 968
   descriptor.flags = 0U;
 #line 968
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 968
   if (tmp___0 != 0L) {
 #line 968
@@ -49067,7 +49067,7 @@ static int iterate_session_caps(struct ceph_mds_session *session , int (*cb)(str
 #line 996
     descriptor___0.flags = 0U;
 #line 996
-    tmp___2 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___2 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 996
     if (tmp___2 != 0L) {
 #line 996
@@ -49080,7 +49080,7 @@ static int iterate_session_caps(struct ceph_mds_session *session , int (*cb)(str
 
     }
 #line 998
-    tmp___3 = __builtin_expect((unsigned long )cap->session != (unsigned long )session,
+    tmp___3 = ldv__builtin_expect((unsigned long )cap->session != (unsigned long )session,
                                0L);
 #line 998
     if (tmp___3 != 0L) {
@@ -49186,7 +49186,7 @@ static int remove_session_caps_cb(struct inode *inode , struct ceph_cap *cap , v
 #line 1026
   descriptor.flags = 0U;
 #line 1026
-  tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1026
   if (tmp___1 != 0L) {
 #line 1026
@@ -49329,7 +49329,7 @@ static void remove_session_caps(struct ceph_mds_session *session )
 #line 1072
   descriptor.flags = 0U;
 #line 1072
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1072
   if (tmp___0 != 0L) {
 #line 1072
@@ -49344,7 +49344,7 @@ static void remove_session_caps(struct ceph_mds_session *session )
 #line 1073
   iterate_session_caps(session, & remove_session_caps_cb, 0);
 #line 1074
-  tmp___1 = __builtin_expect(session->s_nr_caps > 0, 0L);
+  tmp___1 = ldv__builtin_expect(session->s_nr_caps > 0, 0L);
 #line 1074
   if (tmp___1 != 0L) {
 #line 1074
@@ -49359,7 +49359,7 @@ static void remove_session_caps(struct ceph_mds_session *session )
 #line 1075
   tmp___2 = list_empty((struct list_head  const  *)(& session->s_cap_flushing));
 #line 1075
-  tmp___3 = __builtin_expect(tmp___2 == 0, 0L);
+  tmp___3 = ldv__builtin_expect(tmp___2 == 0, 0L);
 #line 1075
   if (tmp___3 != 0L) {
 #line 1075
@@ -49428,7 +49428,7 @@ static void wake_up_session_caps(struct ceph_mds_session *session , int reconnec
 #line 1103
   descriptor.flags = 0U;
 #line 1103
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1103
   if (tmp___0 != 0L) {
 #line 1103
@@ -49487,7 +49487,7 @@ static int send_renew_caps(struct ceph_mds_client *mdsc , struct ceph_mds_sessio
 #line 1129
     descriptor.flags = 0U;
 #line 1129
-    tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1129
     if (tmp___1 != 0L) {
 #line 1129
@@ -49519,7 +49519,7 @@ static int send_renew_caps(struct ceph_mds_client *mdsc , struct ceph_mds_sessio
 #line 1134
   descriptor___0.flags = 0U;
 #line 1134
-  tmp___4 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___4 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 1134
   if (tmp___4 != 0L) {
 #line 1134
@@ -49597,7 +49597,7 @@ static void renewed_caps(struct ceph_mds_client *mdsc , struct ceph_mds_session 
 #line 1169
   descriptor.flags = 0U;
 #line 1169
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1169
   if (tmp___0 != 0L) {
 #line 1169
@@ -49646,7 +49646,7 @@ static int request_close_session(struct ceph_mds_client *mdsc , struct ceph_mds_
 #line 1186
   descriptor.flags = 0U;
 #line 1186
-  tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1186
   if (tmp___1 != 0L) {
 #line 1186
@@ -49751,7 +49751,7 @@ static int trim_caps_cb(struct inode *inode , struct ceph_cap *cap , void *arg )
 #line 1232
   descriptor.flags = 0U;
 #line 1232
-  tmp___4 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___4 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1232
   if (tmp___4 != 0L) {
 #line 1232
@@ -49808,7 +49808,7 @@ static int trim_caps_cb(struct inode *inode , struct ceph_cap *cap , void *arg )
 #line 1248
     descriptor___0.flags = 0U;
 #line 1248
-    tmp___7 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___7 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 1248
     if (tmp___7 != 0L) {
 #line 1248
@@ -49860,7 +49860,7 @@ static int trim_caps(struct ceph_mds_client *mdsc , struct ceph_mds_session *ses
 #line 1267
   descriptor.flags = 0U;
 #line 1267
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1267
   if (tmp___0 != 0L) {
 #line 1267
@@ -49892,7 +49892,7 @@ static int trim_caps(struct ceph_mds_client *mdsc , struct ceph_mds_session *ses
 #line 1272
     descriptor___0.flags = 0U;
 #line 1272
-    tmp___2 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___2 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 1272
     if (tmp___2 != 0L) {
 #line 1272
@@ -49958,7 +49958,7 @@ int ceph_add_cap_releases(struct ceph_mds_client *mdsc , struct ceph_mds_session
 #line 1296
   descriptor.flags = 0U;
 #line 1296
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1296
   if (tmp___0 != 0L) {
 #line 1296
@@ -49999,7 +49999,7 @@ int ceph_add_cap_releases(struct ceph_mds_client *mdsc , struct ceph_mds_session
 #line 1308
       descriptor___0.flags = 0U;
 #line 1308
-      tmp___2 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+      tmp___2 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 1308
       if (tmp___2 != 0L) {
 #line 1308
@@ -50048,7 +50048,7 @@ int ceph_add_cap_releases(struct ceph_mds_client *mdsc , struct ceph_mds_session
 #line 1320
   descriptor___1.flags = 0U;
 #line 1320
-  tmp___5 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+  tmp___5 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 1320
   if (tmp___5 != 0L) {
 #line 1320
@@ -50100,7 +50100,7 @@ int ceph_add_cap_releases(struct ceph_mds_client *mdsc , struct ceph_mds_session
 #line 1333
     descriptor___2.flags = 0U;
 #line 1333
-    tmp___7 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+    tmp___7 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
 #line 1333
     if (tmp___7 != 0L) {
 #line 1333
@@ -50164,7 +50164,7 @@ static int check_cap_flush(struct ceph_mds_client *mdsc , u64 want_flush_seq )
 #line 1354
   descriptor.flags = 0U;
 #line 1354
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1354
   if (tmp___0 != 0L) {
 #line 1354
@@ -50225,7 +50225,7 @@ static int check_cap_flush(struct ceph_mds_client *mdsc , u64 want_flush_seq )
 #line 1374
       descriptor___0.flags = 0U;
 #line 1374
-      tmp___2 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+      tmp___2 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 1374
       if (tmp___2 != 0L) {
 #line 1374
@@ -50287,7 +50287,7 @@ static int check_cap_flush(struct ceph_mds_client *mdsc , u64 want_flush_seq )
 #line 1391
   descriptor___1.flags = 0U;
 #line 1391
-  tmp___5 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+  tmp___5 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 1391
   if (tmp___5 != 0L) {
 #line 1391
@@ -50330,7 +50330,7 @@ void ceph_send_cap_releases(struct ceph_mds_client *mdsc , struct ceph_mds_sessi
 #line 1403
   descriptor.flags = 0U;
 #line 1403
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1403
   if (tmp___0 != 0L) {
 #line 1403
@@ -50370,7 +50370,7 @@ void ceph_send_cap_releases(struct ceph_mds_client *mdsc , struct ceph_mds_sessi
 #line 1411
   descriptor___0.flags = 0U;
 #line 1411
-  tmp___2 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___2 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 1411
   if (tmp___2 != 0L) {
 #line 1411
@@ -50435,7 +50435,7 @@ static void discard_cap_releases(struct ceph_mds_client *mdsc , struct ceph_mds_
 #line 1425
   descriptor.flags = 0U;
 #line 1425
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1425
   if (tmp___0 != 0L) {
 #line 1425
@@ -50470,7 +50470,7 @@ static void discard_cap_releases(struct ceph_mds_client *mdsc , struct ceph_mds_
 #line 1433
   descriptor___0.flags = 0U;
 #line 1433
-  tmp___2 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___2 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 1433
   if (tmp___2 != 0L) {
 #line 1433
@@ -50512,7 +50512,7 @@ static void discard_cap_releases(struct ceph_mds_client *mdsc , struct ceph_mds_
 #line 1445
   descriptor___1.flags = 0U;
 #line 1445
-  tmp___4 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+  tmp___4 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 1445
   if (tmp___4 != 0L) {
 #line 1445
@@ -50791,7 +50791,7 @@ char *ceph_mdsc_build_path(struct dentry *dentry , int *plen , u64 *base , int s
 #line 1562
       descriptor.flags = 0U;
 #line 1562
-      tmp___5 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+      tmp___5 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1562
       if (tmp___5 != 0L) {
 #line 1562
@@ -50905,7 +50905,7 @@ char *ceph_mdsc_build_path(struct dentry *dentry , int *plen , u64 *base , int s
 #line 1596
   descriptor___0.flags = 0U;
 #line 1596
-  tmp___10 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___10 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 1596
   if (tmp___10 != 0L) {
 #line 1596
@@ -51056,7 +51056,7 @@ static int set_request_path_attr(struct inode *rinode , struct dentry *rdentry ,
 #line 1656
     descriptor.flags = 0U;
 #line 1656
-    tmp___2 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___2 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1656
     if (tmp___2 != 0L) {
 #line 1656
@@ -51090,7 +51090,7 @@ static int set_request_path_attr(struct inode *rinode , struct dentry *rdentry ,
 #line 1660
     descriptor___0.flags = 0U;
 #line 1660
-    tmp___4 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___4 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 1660
     if (tmp___4 != 0L) {
 #line 1660
@@ -51133,7 +51133,7 @@ static int set_request_path_attr(struct inode *rinode , struct dentry *rdentry ,
 #line 1666
     descriptor___1.flags = 0U;
 #line 1666
-    tmp___7 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___7 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 1666
     if (tmp___7 != 0L) {
 #line 1666
@@ -51326,7 +51326,7 @@ static struct ceph_msg *create_request_message(struct ceph_mds_client *mdsc , st
 #line 1759
   head->num_releases = releases;
 #line 1761
-  tmp___6 = __builtin_expect((unsigned long )p > (unsigned long )end, 0L);
+  tmp___6 = ldv__builtin_expect((unsigned long )p > (unsigned long )end, 0L);
 #line 1761
   if (tmp___6 != 0L) {
 #line 1761
@@ -51448,7 +51448,7 @@ static int __prepare_send_request(struct ceph_mds_client *mdsc , struct ceph_mds
 #line 1814
   descriptor.flags = 0U;
 #line 1814
-  tmp___3 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___3 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1814
   if (tmp___3 != 0L) {
 #line 1814
@@ -51564,7 +51564,7 @@ static int __prepare_send_request(struct ceph_mds_client *mdsc , struct ceph_mds
 #line 1866
   descriptor___0.flags = 0U;
 #line 1866
-  tmp___8 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___8 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 1866
   if (tmp___8 != 0L) {
 #line 1866
@@ -51629,7 +51629,7 @@ static int __do_request(struct ceph_mds_client *mdsc , struct ceph_mds_request *
 #line 1885
     descriptor.flags = 0U;
 #line 1885
-    tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1885
     if (tmp___0 != 0L) {
 #line 1885
@@ -51675,7 +51675,7 @@ static int __do_request(struct ceph_mds_client *mdsc , struct ceph_mds_request *
 #line 1895
       descriptor___0.flags = 0U;
 #line 1895
-      tmp___2 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+      tmp___2 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 1895
       if (tmp___2 != 0L) {
 #line 1895
@@ -51732,7 +51732,7 @@ static int __do_request(struct ceph_mds_client *mdsc , struct ceph_mds_request *
 #line 1911
   descriptor___1.flags = 0U;
 #line 1911
-  tmp___8 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+  tmp___8 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 1911
   if (tmp___8 != 0L) {
 #line 1911
@@ -51865,7 +51865,7 @@ static void kick_requests(struct ceph_mds_client *mdsc , int mds )
 #line 1973
   descriptor.flags = 0U;
 #line 1973
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1973
   if (tmp___0 != 0L) {
 #line 1973
@@ -51908,7 +51908,7 @@ static void kick_requests(struct ceph_mds_client *mdsc , int mds )
 #line 1980
     descriptor___0.flags = 0U;
 #line 1980
-    tmp___2 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___2 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 1980
     if (tmp___2 != 0L) {
 #line 1980
@@ -51962,7 +51962,7 @@ void ceph_mdsc_submit_request(struct ceph_mds_client *mdsc , struct ceph_mds_req
 #line 1989
   descriptor.flags = 0U;
 #line 1989
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1989
   if (tmp___0 != 0L) {
 #line 1989
@@ -52027,7 +52027,7 @@ int ceph_mdsc_do_request(struct ceph_mds_client *mdsc , struct inode *dir , stru
 #line 2006
   descriptor.flags = 0U;
 #line 2006
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 2006
   if (tmp___0 != 0L) {
 #line 2006
@@ -52091,7 +52091,7 @@ int ceph_mdsc_do_request(struct ceph_mds_client *mdsc , struct inode *dir , stru
 #line 2025
     descriptor___0.flags = 0U;
 #line 2025
-    tmp___5 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___5 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 2025
     if (tmp___5 != 0L) {
 #line 2025
@@ -52123,7 +52123,7 @@ int ceph_mdsc_do_request(struct ceph_mds_client *mdsc , struct inode *dir , stru
 #line 2031
   descriptor___1.flags = 0U;
 #line 2031
-  tmp___7 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+  tmp___7 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 2031
   if (tmp___7 != 0L) {
 #line 2031
@@ -52165,7 +52165,7 @@ int ceph_mdsc_do_request(struct ceph_mds_client *mdsc , struct inode *dir , stru
 #line 2040
   descriptor___2.flags = 0U;
 #line 2040
-  tmp___10 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+  tmp___10 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
 #line 2040
   if (tmp___10 != 0L) {
 #line 2040
@@ -52199,7 +52199,7 @@ int ceph_mdsc_do_request(struct ceph_mds_client *mdsc , struct inode *dir , stru
 #line 2047
     descriptor___3.flags = 0U;
 #line 2047
-    tmp___12 = __builtin_expect((long )descriptor___3.flags & 1L, 0L);
+    tmp___12 = ldv__builtin_expect((long )descriptor___3.flags & 1L, 0L);
 #line 2047
     if (tmp___12 != 0L) {
 #line 2047
@@ -52246,7 +52246,7 @@ int ceph_mdsc_do_request(struct ceph_mds_client *mdsc , struct inode *dir , stru
 #line 2068
   descriptor___4.flags = 0U;
 #line 2068
-  tmp___14 = __builtin_expect((long )descriptor___4.flags & 1L, 0L);
+  tmp___14 = ldv__builtin_expect((long )descriptor___4.flags & 1L, 0L);
 #line 2068
   if (tmp___14 != 0L) {
 #line 2068
@@ -52292,7 +52292,7 @@ void ceph_invalidate_dir_request(struct ceph_mds_request *req )
 #line 2081
   descriptor.flags = 0U;
 #line 2081
-  tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 2081
   if (tmp___1 != 0L) {
 #line 2081
@@ -52415,7 +52415,7 @@ static void handle_reply(struct ceph_mds_session *session , struct ceph_msg *msg
 #line 2121
     descriptor.flags = 0U;
 #line 2121
-    tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 2121
     if (tmp___0 != 0L) {
 #line 2121
@@ -52447,7 +52447,7 @@ static void handle_reply(struct ceph_mds_session *session , struct ceph_msg *msg
 #line 2125
   descriptor___0.flags = 0U;
 #line 2125
-  tmp___2 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___2 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 2125
   if (tmp___2 != 0L) {
 #line 2125
@@ -52511,7 +52511,7 @@ static void handle_reply(struct ceph_mds_session *session , struct ceph_msg *msg
 #line 2161
     descriptor___1.flags = 0U;
 #line 2161
-    tmp___4 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___4 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 2161
     if (tmp___4 != 0L) {
 #line 2161
@@ -52542,7 +52542,7 @@ static void handle_reply(struct ceph_mds_session *session , struct ceph_msg *msg
 #line 2165
       descriptor___2.flags = 0U;
 #line 2165
-      tmp___6 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+      tmp___6 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
 #line 2165
       if (tmp___6 != 0L) {
 #line 2165
@@ -52589,7 +52589,7 @@ static void handle_reply(struct ceph_mds_session *session , struct ceph_msg *msg
 #line 2178
       descriptor___3.flags = 0U;
 #line 2178
-      tmp___9 = __builtin_expect((long )descriptor___3.flags & 1L, 0L);
+      tmp___9 = ldv__builtin_expect((long )descriptor___3.flags & 1L, 0L);
 #line 2178
       if (tmp___9 != 0L) {
 #line 2178
@@ -52616,7 +52616,7 @@ static void handle_reply(struct ceph_mds_session *session , struct ceph_msg *msg
 #line 2181
         descriptor___4.flags = 0U;
 #line 2181
-        tmp___11 = __builtin_expect((long )descriptor___4.flags & 1L, 0L);
+        tmp___11 = ldv__builtin_expect((long )descriptor___4.flags & 1L, 0L);
 #line 2181
         if (tmp___11 != 0L) {
 #line 2181
@@ -52651,7 +52651,7 @@ static void handle_reply(struct ceph_mds_session *session , struct ceph_msg *msg
 #line 2187
     descriptor___5.flags = 0U;
 #line 2187
-    tmp___13 = __builtin_expect((long )descriptor___5.flags & 1L, 0L);
+    tmp___13 = ldv__builtin_expect((long )descriptor___5.flags & 1L, 0L);
 #line 2187
     if (tmp___13 != 0L) {
 #line 2187
@@ -52689,7 +52689,7 @@ static void handle_reply(struct ceph_mds_session *session , struct ceph_msg *msg
 #line 2204
       descriptor___6.flags = 0U;
 #line 2204
-      tmp___15 = __builtin_expect((long )descriptor___6.flags & 1L, 0L);
+      tmp___15 = ldv__builtin_expect((long )descriptor___6.flags & 1L, 0L);
 #line 2204
       if (tmp___15 != 0L) {
 #line 2204
@@ -52743,7 +52743,7 @@ static void handle_reply(struct ceph_mds_session *session , struct ceph_msg *msg
 #line 2218
   descriptor___7.flags = 0U;
 #line 2218
-  tmp___18 = __builtin_expect((long )descriptor___7.flags & 1L, 0L);
+  tmp___18 = ldv__builtin_expect((long )descriptor___7.flags & 1L, 0L);
 #line 2218
   if (tmp___18 != 0L) {
 #line 2218
@@ -52840,7 +52840,7 @@ static void handle_reply(struct ceph_mds_session *session , struct ceph_msg *msg
 #line 2264
     descriptor___8.flags = 0U;
 #line 2264
-    tmp___20 = __builtin_expect((long )descriptor___8.flags & 1L, 0L);
+    tmp___20 = ldv__builtin_expect((long )descriptor___8.flags & 1L, 0L);
 #line 2264
     if (tmp___20 != 0L) {
 #line 2264
@@ -52908,7 +52908,7 @@ static void handle_forward(struct ceph_mds_client *mdsc , struct ceph_mds_sessio
 #line 2295
   tmp = ceph_has_room(& p, end, 8UL);
 #line 2295
-  tmp___0 = __builtin_expect(tmp != 0, 1L);
+  tmp___0 = ldv__builtin_expect(tmp != 0, 1L);
 #line 2295
   if (tmp___0 == 0L) {
 #line 2295
@@ -52939,7 +52939,7 @@ static void handle_forward(struct ceph_mds_client *mdsc , struct ceph_mds_sessio
 #line 2302
     descriptor.flags = 0U;
 #line 2302
-    tmp___2 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___2 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 2302
     if (tmp___2 != 0L) {
 #line 2302
@@ -52971,7 +52971,7 @@ static void handle_forward(struct ceph_mds_client *mdsc , struct ceph_mds_sessio
 #line 2307
     descriptor___0.flags = 0U;
 #line 2307
-    tmp___4 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___4 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 2307
     if (tmp___4 != 0L) {
 #line 2307
@@ -53001,7 +53001,7 @@ static void handle_forward(struct ceph_mds_client *mdsc , struct ceph_mds_sessio
 #line 2310
     descriptor___1.flags = 0U;
 #line 2310
-    tmp___6 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___6 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 2310
     if (tmp___6 != 0L) {
 #line 2310
@@ -53028,7 +53028,7 @@ static void handle_forward(struct ceph_mds_client *mdsc , struct ceph_mds_sessio
 #line 2314
     descriptor___2.flags = 0U;
 #line 2314
-    tmp___8 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+    tmp___8 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
 #line 2314
     if (tmp___8 != 0L) {
 #line 2314
@@ -53041,7 +53041,7 @@ static void handle_forward(struct ceph_mds_client *mdsc , struct ceph_mds_sessio
 
     }
 #line 2315
-    tmp___9 = __builtin_expect(req->r_err != 0, 0L);
+    tmp___9 = ldv__builtin_expect(req->r_err != 0, 0L);
 #line 2315
     if (tmp___9 != 0L) {
 #line 2315
@@ -53054,7 +53054,7 @@ static void handle_forward(struct ceph_mds_client *mdsc , struct ceph_mds_sessio
 
     }
 #line 2316
-    tmp___10 = __builtin_expect((long )req->r_got_result, 0L);
+    tmp___10 = ldv__builtin_expect((long )req->r_got_result, 0L);
 #line 2316
     if (tmp___10 != 0L) {
 #line 2316
@@ -53154,7 +53154,7 @@ static void handle_session(struct ceph_mds_session *session , struct ceph_msg *m
 #line 2359
   descriptor.flags = 0U;
 #line 2359
-  tmp___2 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___2 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 2359
   if (tmp___2 != 0L) {
 #line 2359
@@ -53259,7 +53259,7 @@ static void handle_session(struct ceph_mds_session *session , struct ceph_msg *m
 #line 2409
   __ret_warn_on = 1;
 #line 2409
-  tmp___3 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___3 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 2409
   if (tmp___3 != 0L) {
 #line 2409
@@ -53269,7 +53269,7 @@ static void handle_session(struct ceph_mds_session *session , struct ceph_msg *m
 
   }
 #line 2409
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   ldv_30252: 
 #line 2412
@@ -53323,7 +53323,7 @@ static void replay_unsafe_requests(struct ceph_mds_client *mdsc , struct ceph_md
 #line 2437
   descriptor.flags = 0U;
 #line 2437
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 2437
   if (tmp___0 != 0L) {
 #line 2437
@@ -53427,7 +53427,7 @@ static int encode_caps_cb(struct inode *inode , struct ceph_cap *cap , void *arg
 #line 2471
   descriptor.flags = 0U;
 #line 2471
-  tmp___3 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___3 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 2471
   if (tmp___3 != 0L) {
 #line 2471
@@ -53677,7 +53677,7 @@ static void send_mds_reconnect(struct ceph_mds_client *mdsc , struct ceph_mds_se
 #line 2608
   descriptor.flags = 0U;
 #line 2608
-  tmp___3 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___3 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 2608
   if (tmp___3 != 0L) {
 #line 2608
@@ -53737,7 +53737,7 @@ static void send_mds_reconnect(struct ceph_mds_client *mdsc , struct ceph_mds_se
 #line 2635
   descriptor___0.flags = 0U;
 #line 2635
-  tmp___5 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___5 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 2635
   if (tmp___5 != 0L) {
 #line 2635
@@ -53864,7 +53864,7 @@ static void check_new_map(struct ceph_mds_client *mdsc , struct ceph_mdsmap *new
 #line 2688
   descriptor.flags = 0U;
 #line 2688
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 2688
   if (tmp___0 != 0L) {
 #line 2688
@@ -53907,7 +53907,7 @@ static void check_new_map(struct ceph_mds_client *mdsc , struct ceph_mdsmap *new
 #line 2698
   descriptor___0.flags = 0U;
 #line 2698
-  tmp___7 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___7 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 2698
   if (tmp___7 != 0L) {
 #line 2698
@@ -54061,7 +54061,7 @@ static void check_new_map(struct ceph_mds_client *mdsc , struct ceph_mdsmap *new
 #line 2763
     descriptor___1.flags = 0U;
 #line 2763
-    tmp___14 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___14 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 2763
     if (tmp___14 != 0L) {
 #line 2763
@@ -54169,7 +54169,7 @@ static void handle_lease(struct ceph_mds_client *mdsc , struct ceph_mds_session 
 #line 2802
   descriptor.flags = 0U;
 #line 2802
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 2802
   if (tmp___0 != 0L) {
 #line 2802
@@ -54226,7 +54226,7 @@ static void handle_lease(struct ceph_mds_client *mdsc , struct ceph_mds_session 
 #line 2820
   descriptor___0.flags = 0U;
 #line 2820
-  tmp___4 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___4 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 2820
   if (tmp___4 != 0L) {
 #line 2820
@@ -54256,7 +54256,7 @@ static void handle_lease(struct ceph_mds_client *mdsc , struct ceph_mds_session 
 #line 2824
     descriptor___1.flags = 0U;
 #line 2824
-    tmp___6 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___6 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 2824
     if (tmp___6 != 0L) {
 #line 2824
@@ -54290,7 +54290,7 @@ static void handle_lease(struct ceph_mds_client *mdsc , struct ceph_mds_session 
 #line 2831
     descriptor___2.flags = 0U;
 #line 2831
-    tmp___8 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+    tmp___8 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
 #line 2831
     if (tmp___8 != 0L) {
 #line 2831
@@ -54305,7 +54305,7 @@ static void handle_lease(struct ceph_mds_client *mdsc , struct ceph_mds_session 
 #line 2832
     __ret_warn_on = 1;
 #line 2832
-    tmp___9 = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp___9 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 2832
     if (tmp___9 != 0L) {
 #line 2832
@@ -54315,7 +54315,7 @@ static void handle_lease(struct ceph_mds_client *mdsc , struct ceph_mds_session 
 
     }
 #line 2832
-    __builtin_expect(__ret_warn_on != 0, 0L);
+    ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 2833
     goto release;
   } else {
@@ -54451,7 +54451,7 @@ void ceph_mdsc_lease_send_msg(struct ceph_mds_session *session , struct inode *i
 #line 2901
   descriptor.flags = 0U;
 #line 2901
-  tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 2901
   if (tmp___1 != 0L) {
 #line 2901
@@ -54529,7 +54529,7 @@ void ceph_mdsc_lease_release(struct ceph_mds_client *mdsc , struct inode *inode 
 
   {
 #line 2938
-  tmp = __builtin_expect((unsigned long )inode == (unsigned long )((struct inode *)0),
+  tmp = ldv__builtin_expect((unsigned long )inode == (unsigned long )((struct inode *)0),
                          0L);
 #line 2938
   if (tmp != 0L) {
@@ -54543,7 +54543,7 @@ void ceph_mdsc_lease_release(struct ceph_mds_client *mdsc , struct inode *inode 
 
   }
 #line 2939
-  tmp___0 = __builtin_expect((unsigned long )dentry == (unsigned long )((struct dentry *)0),
+  tmp___0 = ldv__builtin_expect((unsigned long )dentry == (unsigned long )((struct dentry *)0),
                              0L);
 #line 2939
   if (tmp___0 != 0L) {
@@ -54575,7 +54575,7 @@ void ceph_mdsc_lease_release(struct ceph_mds_client *mdsc , struct inode *inode 
 #line 2948
     descriptor.flags = 0U;
 #line 2948
-    tmp___2 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___2 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 2948
     if (tmp___2 != 0L) {
 #line 2948
@@ -54615,7 +54615,7 @@ void ceph_mdsc_lease_release(struct ceph_mds_client *mdsc , struct inode *inode 
 #line 2961
   descriptor___0.flags = 0U;
 #line 2961
-  tmp___4 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___4 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 2961
   if (tmp___4 != 0L) {
 #line 2961
@@ -54659,7 +54659,7 @@ static void drop_leases(struct ceph_mds_client *mdsc )
 #line 2975
   descriptor.flags = 0U;
 #line 2975
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 2975
   if (tmp___0 != 0L) {
 #line 2975
@@ -54771,7 +54771,7 @@ static void delayed_work(struct work_struct *work )
 #line 3010
   descriptor.flags = 0U;
 #line 3010
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 3010
   if (tmp___0 != 0L) {
 #line 3010
@@ -54829,7 +54829,7 @@ static void delayed_work(struct work_struct *work )
 #line 3025
     descriptor___0.flags = 0U;
 #line 3025
-    tmp___3 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___3 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 3025
     if (tmp___3 != 0L) {
 #line 3025
@@ -55106,7 +55106,7 @@ static void wait_requests(struct ceph_mds_client *mdsc )
 #line 3124
     descriptor.flags = 0U;
 #line 3124
-    tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 3124
     if (tmp___0 != 0L) {
 #line 3124
@@ -55138,7 +55138,7 @@ static void wait_requests(struct ceph_mds_client *mdsc )
 #line 3131
     descriptor___0.flags = 0U;
 #line 3131
-    tmp___2 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___2 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 3131
     if (tmp___2 != 0L) {
 #line 3131
@@ -55181,7 +55181,7 @@ static void wait_requests(struct ceph_mds_client *mdsc )
 #line 3137
   descriptor___1.flags = 0U;
 #line 3137
-  tmp___5 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+  tmp___5 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 3137
   if (tmp___5 != 0L) {
 #line 3137
@@ -55218,7 +55218,7 @@ void ceph_mdsc_pre_umount(struct ceph_mds_client *mdsc )
 #line 3146
   descriptor.flags = 0U;
 #line 3146
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 3146
   if (tmp___0 != 0L) {
 #line 3146
@@ -55279,7 +55279,7 @@ static void wait_unsafe_requests(struct ceph_mds_client *mdsc , u64 want_tid )
 #line 3169
   descriptor.flags = 0U;
 #line 3169
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 3169
   if (tmp___0 != 0L) {
 #line 3169
@@ -55335,7 +55335,7 @@ static void wait_unsafe_requests(struct ceph_mds_client *mdsc , u64 want_tid )
 #line 3185
     descriptor___0.flags = 0U;
 #line 3185
-    tmp___2 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___2 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 3185
     if (tmp___2 != 0L) {
 #line 3185
@@ -55400,7 +55400,7 @@ static void wait_unsafe_requests(struct ceph_mds_client *mdsc , u64 want_tid )
 #line 3202
   descriptor___1.flags = 0U;
 #line 3202
-  tmp___4 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+  tmp___4 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 3202
   if (tmp___4 != 0L) {
 #line 3202
@@ -55453,7 +55453,7 @@ void ceph_mdsc_sync(struct ceph_mds_client *mdsc )
 #line 3212
   descriptor.flags = 0U;
 #line 3212
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 3212
   if (tmp___0 != 0L) {
 #line 3212
@@ -55486,7 +55486,7 @@ void ceph_mdsc_sync(struct ceph_mds_client *mdsc )
 #line 3217
   descriptor___0.flags = 0U;
 #line 3217
-  tmp___2 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___2 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 3217
   if (tmp___2 != 0L) {
 #line 3217
@@ -55637,7 +55637,7 @@ void ceph_mdsc_close_sessions(struct ceph_mds_client *mdsc )
 #line 3253
   descriptor.flags = 0U;
 #line 3253
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 3253
   if (tmp___0 != 0L) {
 #line 3253
@@ -55703,7 +55703,7 @@ void ceph_mdsc_close_sessions(struct ceph_mds_client *mdsc )
 #line 3270
   descriptor___0.flags = 0U;
 #line 3270
-  tmp___2 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___2 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 3270
   if (tmp___2 != 0L) {
 #line 3270
@@ -55813,7 +55813,7 @@ void ceph_mdsc_close_sessions(struct ceph_mds_client *mdsc )
 #line 3288
   __ret_warn_on = tmp___7 == 0;
 #line 3288
-  tmp___8 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___8 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 3288
   if (tmp___8 != 0L) {
 #line 3288
@@ -55823,7 +55823,7 @@ void ceph_mdsc_close_sessions(struct ceph_mds_client *mdsc )
 
   }
 #line 3288
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 3289
   ldv_mutex_unlock_258(& mdsc->mutex);
 #line 3291
@@ -55843,7 +55843,7 @@ void ceph_mdsc_close_sessions(struct ceph_mds_client *mdsc )
 #line 3295
   descriptor___1.flags = 0U;
 #line 3295
-  tmp___10 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+  tmp___10 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 3295
   if (tmp___10 != 0L) {
 #line 3295
@@ -55880,7 +55880,7 @@ static void ceph_mdsc_stop(struct ceph_mds_client *mdsc )
 #line 3300
   descriptor.flags = 0U;
 #line 3300
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 3300
   if (tmp___0 != 0L) {
 #line 3300
@@ -55936,7 +55936,7 @@ void ceph_mdsc_destroy(struct ceph_fs_client *fsc )
 #line 3312
   descriptor.flags = 0U;
 #line 3312
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 3312
   if (tmp___0 != 0L) {
 #line 3312
@@ -55969,7 +55969,7 @@ void ceph_mdsc_destroy(struct ceph_fs_client *fsc )
 #line 3320
   descriptor___0.flags = 0U;
 #line 3320
-  tmp___2 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___2 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 3320
   if (tmp___2 != 0L) {
 #line 3320
@@ -56018,7 +56018,7 @@ void ceph_mdsc_handle_map(struct ceph_mds_client *mdsc , struct ceph_msg *msg )
 #line 3337
   tmp = ceph_has_room(& p, end, 24UL);
 #line 3337
-  tmp___0 = __builtin_expect(tmp != 0, 1L);
+  tmp___0 = ldv__builtin_expect(tmp != 0, 1L);
 #line 3337
   if (tmp___0 == 0L) {
 #line 3337
@@ -56054,7 +56054,7 @@ void ceph_mdsc_handle_map(struct ceph_mds_client *mdsc , struct ceph_msg *msg )
 #line 3343
   descriptor.flags = 0U;
 #line 3343
-  tmp___3 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___3 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 3343
   if (tmp___3 != 0L) {
 #line 3343
@@ -56085,7 +56085,7 @@ void ceph_mdsc_handle_map(struct ceph_mds_client *mdsc , struct ceph_msg *msg )
 #line 3349
     descriptor___0.flags = 0U;
 #line 3349
-    tmp___5 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___5 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 3349
     if (tmp___5 != 0L) {
 #line 3349
@@ -56186,7 +56186,7 @@ static struct ceph_connection *con_get(struct ceph_connection *con )
 #line 3390
     descriptor.flags = 0U;
 #line 3390
-    tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 3390
     if (tmp___1 != 0L) {
 #line 3390
@@ -56218,7 +56218,7 @@ static struct ceph_connection *con_get(struct ceph_connection *con )
 #line 3393
   descriptor___0.flags = 0U;
 #line 3393
-  tmp___4 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___4 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 3393
   if (tmp___4 != 0L) {
 #line 3393
@@ -56259,7 +56259,7 @@ static void con_put(struct ceph_connection *con )
 #line 3401
   descriptor.flags = 0U;
 #line 3401
-  tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 3401
   if (tmp___1 != 0L) {
 #line 3401
@@ -58103,7 +58103,7 @@ __inline static void ceph_decode_addr(struct ceph_entity_addr *a )
 #line 162
   __ret_warn_on = (unsigned int )a->in_addr.ss_family == 512U;
 #line 162
-  tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 162
   if (tmp___0 != 0L) {
 #line 162
@@ -58112,7 +58112,7 @@ __inline static void ceph_decode_addr(struct ceph_entity_addr *a )
 
   }
 #line 162
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 164
   return;
 }
@@ -58276,7 +58276,7 @@ struct ceph_mdsmap *ceph_mdsmap_decode(void **p , void *end )
 #line 132
   tmp___1 = ceph_has_room(p, end, 2UL);
 #line 132
-  tmp___2 = __builtin_expect(tmp___1 != 0, 1L);
+  tmp___2 = ldv__builtin_expect(tmp___1 != 0, 1L);
 #line 132
   if (tmp___2 == 0L) {
 #line 132
@@ -58289,7 +58289,7 @@ struct ceph_mdsmap *ceph_mdsmap_decode(void **p , void *end )
 #line 134
   tmp___3 = ceph_has_room(p, end, 40UL);
 #line 134
-  tmp___4 = __builtin_expect(tmp___3 != 0, 1L);
+  tmp___4 = ldv__builtin_expect(tmp___3 != 0, 1L);
 #line 134
   if (tmp___4 == 0L) {
 #line 134
@@ -58338,7 +58338,7 @@ struct ceph_mdsmap *ceph_mdsmap_decode(void **p , void *end )
 #line 161
   tmp___7 = ceph_has_room(p, end, 21UL);
 #line 161
-  tmp___8 = __builtin_expect(tmp___7 != 0, 1L);
+  tmp___8 = ldv__builtin_expect(tmp___7 != 0, 1L);
 #line 161
   if (tmp___8 == 0L) {
 #line 161
@@ -58359,7 +58359,7 @@ struct ceph_mdsmap *ceph_mdsmap_decode(void **p , void *end )
 #line 168
   tmp___9 = ceph_has_room(p, end, 168UL);
 #line 168
-  tmp___10 = __builtin_expect(tmp___9 != 0, 1L);
+  tmp___10 = ldv__builtin_expect(tmp___9 != 0, 1L);
 #line 168
   if (tmp___10 == 0L) {
 #line 168
@@ -58392,7 +58392,7 @@ struct ceph_mdsmap *ceph_mdsmap_decode(void **p , void *end )
 #line 180
   tmp___14 = ceph_has_room(p, end, 4UL);
 #line 180
-  tmp___15 = __builtin_expect(tmp___14 != 0, 1L);
+  tmp___15 = ldv__builtin_expect(tmp___14 != 0, 1L);
 #line 180
   if (tmp___15 == 0L) {
 #line 180
@@ -58409,7 +58409,7 @@ struct ceph_mdsmap *ceph_mdsmap_decode(void **p , void *end )
 #line 183
     tmp___16 = ceph_has_room(p, end, 4UL);
 #line 183
-    tmp___17 = __builtin_expect(tmp___16 != 0, 1L);
+    tmp___17 = ldv__builtin_expect(tmp___16 != 0, 1L);
 #line 183
     if (tmp___17 == 0L) {
 #line 183
@@ -58440,7 +58440,7 @@ struct ceph_mdsmap *ceph_mdsmap_decode(void **p , void *end )
 #line 190
   descriptor.flags = 0U;
 #line 190
-  tmp___21 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___21 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 190
   if (tmp___21 != 0L) {
 #line 190
@@ -58513,7 +58513,7 @@ struct ceph_mdsmap *ceph_mdsmap_decode(void **p , void *end )
 #line 216
   tmp___23 = ceph_has_room(p, end, 4UL);
 #line 216
-  tmp___24 = __builtin_expect(tmp___23 != 0, 1L);
+  tmp___24 = ldv__builtin_expect(tmp___23 != 0, 1L);
 #line 216
   if (tmp___24 == 0L) {
 #line 216
@@ -58541,7 +58541,7 @@ struct ceph_mdsmap *ceph_mdsmap_decode(void **p , void *end )
 #line 221
   tmp___27 = ceph_has_room(p, end, (unsigned long )(n + 1) * 4UL);
 #line 221
-  tmp___28 = __builtin_expect(tmp___27 != 0, 1L);
+  tmp___28 = ldv__builtin_expect(tmp___27 != 0, 1L);
 #line 221
   if (tmp___28 == 0L) {
 #line 221
@@ -58581,7 +58581,7 @@ struct ceph_mdsmap *ceph_mdsmap_decode(void **p , void *end )
 #line 227
   descriptor___0.flags = 0U;
 #line 227
-  tmp___30 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___30 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 227
   if (tmp___30 != 0L) {
 #line 227
@@ -59617,7 +59617,7 @@ void ceph_fs_debugfs_cleanup(struct ceph_fs_client *fsc )
 #line 260
   descriptor.flags = 0U;
 #line 260
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 260
   if (tmp___0 != 0L) {
 #line 260
@@ -59672,7 +59672,7 @@ int ceph_fs_debugfs_init(struct ceph_fs_client *fsc )
 #line 274
   descriptor.flags = 0U;
 #line 274
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 274
   if (tmp___0 != 0L) {
 #line 274
@@ -59685,7 +59685,7 @@ int ceph_fs_debugfs_init(struct ceph_fs_client *fsc )
 
   }
 #line 275
-  tmp___1 = __builtin_expect((unsigned long )(fsc->client)->debugfs_dir == (unsigned long )((struct dentry *)0),
+  tmp___1 = ldv__builtin_expect((unsigned long )(fsc->client)->debugfs_dir == (unsigned long )((struct dentry *)0),
                              0L);
 #line 275
   if (tmp___1 != 0L) {
@@ -59919,7 +59919,7 @@ __inline static void ldv_error(void)
 #line 25
 extern int __VERIFIER_nondet_int(void) ;
 #line 49 "/home/mikhail/ldv/kernel-rules/verifier/rcv.h"
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 

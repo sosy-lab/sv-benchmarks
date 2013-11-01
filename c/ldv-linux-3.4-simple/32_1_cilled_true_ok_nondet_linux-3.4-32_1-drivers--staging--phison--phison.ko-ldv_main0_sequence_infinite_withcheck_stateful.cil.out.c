@@ -5012,7 +5012,7 @@ struct ata_port_info {
 #line 1082
 struct pci_dev;
 #line 1 "<compiler builtins>"
-long __builtin_expect(long val , long res ) ;
+long ldv__builtin_expect(long val , long res ) ;
 #line 49 "include/linux/dynamic_debug.h"
 extern int ( /* format attribute */  __dynamic_dev_dbg)(struct _ddebug *descriptor ,
                                                         struct device  const  *dev ,
@@ -5129,7 +5129,7 @@ static int phison_pre_reset(struct ata_link *link , unsigned long deadline )
 #line 39
       __cil_tmp13 = (long )__cil_tmp12;
 #line 39
-      tmp___7 = __builtin_expect(__cil_tmp13, 0L);
+      tmp___7 = ldv__builtin_expect(__cil_tmp13, 0L);
       }
 #line 39
       if (tmp___7) {
@@ -5345,7 +5345,7 @@ static int phison_init_one(struct pci_dev *pdev , struct pci_device_id  const  *
 #line 68
       __cil_tmp29 = (long )__cil_tmp28;
 #line 68
-      tmp___7 = __builtin_expect(__cil_tmp29, 0L);
+      tmp___7 = ldv__builtin_expect(__cil_tmp29, 0L);
       }
 #line 68
       if (tmp___7) {
@@ -5833,7 +5833,7 @@ void ldv_check_final_state(void)
 }
 }
 #line 316 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/2053/dscv_tempdir/dscv/ri/32_1/drivers/staging/phison/phison.c.common.c"
-long __builtin_expect(long val , long res ) 
+long ldv__builtin_expect(long val , long res ) 
 { 
 
   {

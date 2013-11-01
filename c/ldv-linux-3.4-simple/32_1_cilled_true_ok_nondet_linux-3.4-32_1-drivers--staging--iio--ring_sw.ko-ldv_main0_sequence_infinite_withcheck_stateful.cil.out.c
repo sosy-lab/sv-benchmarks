@@ -3606,7 +3606,7 @@ struct iio_sw_ring_buffer {
 #line 1 "<compiler builtins>"
 
 #line 1
-long __builtin_expect(long val , long res ) ;
+long ldv__builtin_expect(long val , long res ) ;
 #line 100 "include/linux/printk.h"
 extern int ( /* format attribute */  printk)(char const   *fmt  , ...) ;
 #line 147 "include/linux/kernel.h"
@@ -4080,7 +4080,7 @@ static int iio_store_to_sw_ring(struct iio_sw_ring_buffer *ring , unsigned char 
 #line 75
   __cil_tmp19 = (long )__cil_tmp18;
 #line 75
-  tmp___7 = __builtin_expect(__cil_tmp19, 0L);
+  tmp___7 = ldv__builtin_expect(__cil_tmp19, 0L);
   }
 #line 75
   if (tmp___7) {
@@ -4718,7 +4718,7 @@ static int iio_read_first_n_sw_rb(struct iio_buffer *r , size_t n , char *buf )
 #line 175
   __cil_tmp61 = (long )__cil_tmp60;
 #line 175
-  tmp___9 = __builtin_expect(__cil_tmp61, 0L);
+  tmp___9 = ldv__builtin_expect(__cil_tmp61, 0L);
   }
 #line 175
   if (tmp___9) {
@@ -5733,7 +5733,7 @@ void ldv_check_final_state(void)
 }
 }
 #line 450 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/2048/dscv_tempdir/dscv/ri/32_1/drivers/staging/iio/ring_sw.c.common.c"
-long __builtin_expect(long val , long res ) 
+long ldv__builtin_expect(long val , long res ) 
 { 
 
   {

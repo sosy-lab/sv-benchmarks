@@ -3854,7 +3854,7 @@ struct device_node {
    void *data ;
 };
 #line 1 "<compiler builtins>"
-long __builtin_expect(long val , long res ) ;
+long ldv__builtin_expect(long val , long res ) ;
 #line 138 "include/linux/ioport.h"
 extern struct resource iomem_resource ;
 #line 181
@@ -5491,7 +5491,7 @@ static int ulite_request_port(struct uart_port *port )
 #line 286
     __cil_tmp10 = (long )__cil_tmp9;
 #line 286
-    tmp___7 = __builtin_expect(__cil_tmp10, 0L);
+    tmp___7 = ldv__builtin_expect(__cil_tmp10, 0L);
     }
 #line 286
     if (tmp___7) {
@@ -6305,7 +6305,7 @@ int ulite_init(void)
 #line 624
     __cil_tmp9 = (long )__cil_tmp8;
 #line 624
-    tmp___7 = __builtin_expect(__cil_tmp9, 0L);
+    tmp___7 = ldv__builtin_expect(__cil_tmp9, 0L);
     }
 #line 624
     if (tmp___7) {
@@ -6350,7 +6350,7 @@ int ulite_init(void)
 #line 629
     __cil_tmp15 = (long )__cil_tmp14;
 #line 629
-    tmp___8 = __builtin_expect(__cil_tmp15, 0L);
+    tmp___8 = ldv__builtin_expect(__cil_tmp15, 0L);
     }
 #line 629
     if (tmp___8) {
@@ -7050,7 +7050,7 @@ void ldv_check_final_state(void)
 }
 }
 #line 2795 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/16496/dscv_tempdir/dscv/ri/32_1/drivers/tty/serial/uartlite.c.common.c"
-long __builtin_expect(long val , long res ) 
+long ldv__builtin_expect(long val , long res ) 
 { 
 
   {

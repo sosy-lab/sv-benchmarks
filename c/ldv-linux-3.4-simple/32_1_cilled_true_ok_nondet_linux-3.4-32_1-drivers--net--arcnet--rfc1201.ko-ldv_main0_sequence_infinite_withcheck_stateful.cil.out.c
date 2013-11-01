@@ -5436,7 +5436,7 @@ struct arcnet_local {
 #line 1 "<compiler builtins>"
 
 #line 1
-long __builtin_expect(long val , long res ) ;
+long ldv__builtin_expect(long val , long res ) ;
 #line 46 "include/linux/swab.h"
 __inline static __u16 __fswab16(__u16 val )  __attribute__((__no_instrument_function__,
 __const__)) ;
@@ -10257,7 +10257,7 @@ void ldv_check_final_state(void)
 }
 }
 #line 761 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/9439/dscv_tempdir/dscv/ri/32_1/drivers/net/arcnet/rfc1201.c.common.c"
-long __builtin_expect(long val , long res ) 
+long ldv__builtin_expect(long val , long res ) 
 { 
 
   {

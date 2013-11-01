@@ -5827,7 +5827,7 @@ enum kobj_ns_type;
 #line 1 "<compiler builtins>"
 
 #line 1
-long __builtin_expect(long val , long res ) ;
+long ldv__builtin_expect(long val , long res ) ;
 #line 7 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/swab.h"
 __inline static __u32 __arch_swab32(__u32 val )  __attribute__((__no_instrument_function__)) ;
 
@@ -6149,7 +6149,7 @@ __inline static struct page *sg_page(struct scatterlist *sg )
 #line 98
     __cil_tmp8 = (long )__cil_tmp7;
 #line 98
-    tmp = __builtin_expect(__cil_tmp8, 0L);
+    tmp = ldv__builtin_expect(__cil_tmp8, 0L);
     }
 #line 98
     if (tmp) {
@@ -6205,7 +6205,7 @@ __inline static struct page *sg_page(struct scatterlist *sg )
 #line 99
     __cil_tmp15 = (long )__cil_tmp14;
 #line 99
-    tmp___0 = __builtin_expect(__cil_tmp15, 0L);
+    tmp___0 = ldv__builtin_expect(__cil_tmp15, 0L);
     }
 #line 99
     if (tmp___0) {
@@ -7335,7 +7335,7 @@ void fc_fill_hdr(struct fc_frame *fp , struct fc_frame    *in_fp , enum fc_rctl 
 #line 187
     __cil_tmp49 = (long )__cil_tmp48;
 #line 187
-    tmp___8 = __builtin_expect(__cil_tmp49, 0L);
+    tmp___8 = ldv__builtin_expect(__cil_tmp49, 0L);
     }
 #line 187
     if (tmp___8) {
@@ -7357,7 +7357,7 @@ void fc_fill_hdr(struct fc_frame *fp , struct fc_frame    *in_fp , enum fc_rctl 
 #line 187
     __cil_tmp53 = (long )__cil_tmp52;
 #line 187
-    __builtin_expect(__cil_tmp53, 0L);
+    ldv__builtin_expect(__cil_tmp53, 0L);
 #line 188
     __cil_tmp54 = 0 * 1UL;
 #line 188
@@ -7947,7 +7947,7 @@ void fc_fc4_conf_lport_params(struct fc_lport *lport , enum fc_fh_type type )
 #line 245
     __cil_tmp10 = (long )__cil_tmp9;
 #line 245
-    tmp___7 = __builtin_expect(__cil_tmp10, 0L);
+    tmp___7 = ldv__builtin_expect(__cil_tmp10, 0L);
     }
 #line 245
     if (tmp___7) {
@@ -7997,7 +7997,7 @@ void fc_fc4_conf_lport_params(struct fc_lport *lport , enum fc_fh_type type )
 #line 246
     __cil_tmp14 = (long )__cil_tmp13;
 #line 246
-    tmp___8 = __builtin_expect(__cil_tmp14, 0L);
+    tmp___8 = ldv__builtin_expect(__cil_tmp14, 0L);
     }
 #line 246
     if (tmp___8) {
@@ -8343,7 +8343,7 @@ void fc_fc4_deregister_provider(enum fc_fh_type type , struct fc4_prov *prov )
 #line 297
     __cil_tmp8 = (long )__cil_tmp7;
 #line 297
-    tmp___7 = __builtin_expect(__cil_tmp8, 0L);
+    tmp___7 = ldv__builtin_expect(__cil_tmp8, 0L);
     }
 #line 297
     if (tmp___7) {
@@ -8773,7 +8773,7 @@ void ldv_check_final_state(void)
 }
 }
 #line 427 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/508/dscv_tempdir/dscv/ri/32_1/drivers/scsi/libfc/fc_libfc.c.common.c"
-long __builtin_expect(long val , long res ) 
+long ldv__builtin_expect(long val , long res ) 
 { 
 
   {
@@ -8910,7 +8910,7 @@ __inline static long __attribute__((__warn_unused_result__))  IS_ERR(void    *pt
 #line 34
   __cil_tmp7 = (long )__cil_tmp6;
 #line 34
-  tmp = __builtin_expect(__cil_tmp7, 0L);
+  tmp = ldv__builtin_expect(__cil_tmp7, 0L);
   }
 #line 34
   return (tmp);
@@ -9035,7 +9035,7 @@ __inline static void kref_get(struct kref *kref )
 #line 41
   __cil_tmp10 = (long )__cil_tmp9;
 #line 41
-  tmp___1 = __builtin_expect(__cil_tmp10, 0L);
+  tmp___1 = ldv__builtin_expect(__cil_tmp10, 0L);
   }
 #line 41
   if (tmp___1) {
@@ -9056,7 +9056,7 @@ __inline static void kref_get(struct kref *kref )
 #line 41
   __cil_tmp14 = (long )__cil_tmp13;
 #line 41
-  __builtin_expect(__cil_tmp14, 0L);
+  ldv__builtin_expect(__cil_tmp14, 0L);
 #line 42
   __cil_tmp15 = (atomic_t *)kref;
 #line 42
@@ -9109,7 +9109,7 @@ __inline static int kref_sub(struct kref *kref , unsigned int count , void (*rel
 #line 66
   __cil_tmp14 = (long )__cil_tmp13;
 #line 66
-  tmp = __builtin_expect(__cil_tmp14, 0L);
+  tmp = ldv__builtin_expect(__cil_tmp14, 0L);
   }
 #line 66
   if (tmp) {
@@ -9130,7 +9130,7 @@ __inline static int kref_sub(struct kref *kref , unsigned int count , void (*rel
 #line 66
   __cil_tmp18 = (long )__cil_tmp17;
 #line 66
-  __builtin_expect(__cil_tmp18, 0L);
+  ldv__builtin_expect(__cil_tmp18, 0L);
 #line 68
   __cil_tmp19 = (int )count;
 #line 68
@@ -9429,7 +9429,7 @@ __inline static struct fc_frame_header *fc_frame_header_get(struct fc_frame    *
 #line 173
   __cil_tmp14 = (long )__cil_tmp13;
 #line 173
-  tmp___7 = __builtin_expect(__cil_tmp14, 0L);
+  tmp___7 = ldv__builtin_expect(__cil_tmp14, 0L);
   }
 #line 173
   if (tmp___7) {
@@ -9450,7 +9450,7 @@ __inline static struct fc_frame_header *fc_frame_header_get(struct fc_frame    *
 #line 173
   __cil_tmp18 = (long )__cil_tmp17;
 #line 173
-  __builtin_expect(__cil_tmp18, 0L);
+  ldv__builtin_expect(__cil_tmp18, 0L);
 #line 174
   tmp___8 = __fc_frame_header_get(fp);
   }
@@ -10064,7 +10064,7 @@ static void fc_disc_recv_rscn_req(struct fc_disc *disc , struct fc_frame *fp )
 #line 100
     __cil_tmp41 = (long )__cil_tmp40;
 #line 100
-    tmp___8 = __builtin_expect(__cil_tmp41, 0L);
+    tmp___8 = ldv__builtin_expect(__cil_tmp41, 0L);
     }
 #line 100
     if (tmp___8) {
@@ -10262,7 +10262,7 @@ static void fc_disc_recv_rscn_req(struct fc_disc *disc , struct fc_frame *fp )
 #line 133
           __cil_tmp77 = (long )__cil_tmp76;
 #line 133
-          tmp___14 = __builtin_expect(__cil_tmp77, 0L);
+          tmp___14 = ldv__builtin_expect(__cil_tmp77, 0L);
           }
 #line 133
           if (tmp___14) {
@@ -10378,7 +10378,7 @@ static void fc_disc_recv_rscn_req(struct fc_disc *disc , struct fc_frame *fp )
 #line 148
           __cil_tmp104 = (long )__cil_tmp103;
 #line 148
-          tmp___17 = __builtin_expect(__cil_tmp104, 0L);
+          tmp___17 = ldv__builtin_expect(__cil_tmp104, 0L);
           }
 #line 148
           if (tmp___17) {
@@ -10596,7 +10596,7 @@ static void fc_disc_recv_rscn_req(struct fc_disc *disc , struct fc_frame *fp )
 #line 168
       __cil_tmp162 = (long )__cil_tmp161;
 #line 168
-      tmp___19 = __builtin_expect(__cil_tmp162, 0L);
+      tmp___19 = ldv__builtin_expect(__cil_tmp162, 0L);
       }
 #line 168
       if (tmp___19) {
@@ -10654,7 +10654,7 @@ static void fc_disc_recv_rscn_req(struct fc_disc *disc , struct fc_frame *fp )
 #line 171
       __cil_tmp172 = (long )__cil_tmp171;
 #line 171
-      tmp___21 = __builtin_expect(__cil_tmp172, 0L);
+      tmp___21 = ldv__builtin_expect(__cil_tmp172, 0L);
       }
 #line 171
       if (tmp___21) {
@@ -10732,7 +10732,7 @@ static void fc_disc_recv_rscn_req(struct fc_disc *disc , struct fc_frame *fp )
 #line 178
     __cil_tmp190 = (long )__cil_tmp189;
 #line 178
-    tmp___23 = __builtin_expect(__cil_tmp190, 0L);
+    tmp___23 = ldv__builtin_expect(__cil_tmp190, 0L);
     }
 #line 178
     if (tmp___23) {
@@ -10887,7 +10887,7 @@ static void fc_disc_recv_req(struct fc_lport *lport , struct fc_frame *fp )
 #line 207
         __cil_tmp21 = (long )__cil_tmp20;
 #line 207
-        tmp___8 = __builtin_expect(__cil_tmp21, 0L);
+        tmp___8 = ldv__builtin_expect(__cil_tmp21, 0L);
         }
 #line 207
         if (tmp___8) {
@@ -11004,7 +11004,7 @@ static void fc_disc_restart(struct fc_disc *disc )
 #line 226
     __cil_tmp12 = (long )__cil_tmp11;
 #line 226
-    tmp___8 = __builtin_expect(__cil_tmp12, 0L);
+    tmp___8 = ldv__builtin_expect(__cil_tmp12, 0L);
     }
 #line 226
     if (tmp___8) {
@@ -11251,7 +11251,7 @@ static void fc_disc_done(struct fc_disc *disc , enum fc_disc_event event )
 #line 278
     __cil_tmp19 = (long )__cil_tmp18;
 #line 278
-    tmp___9 = __builtin_expect(__cil_tmp19, 0L);
+    tmp___9 = ldv__builtin_expect(__cil_tmp19, 0L);
     }
 #line 278
     if (tmp___9) {
@@ -11603,7 +11603,7 @@ static void fc_disc_error(struct fc_disc *disc , struct fc_frame *fp )
 #line 316
     __cil_tmp16 = (long )__cil_tmp15;
 #line 316
-    tmp___10 = __builtin_expect(__cil_tmp16, 0L);
+    tmp___10 = ldv__builtin_expect(__cil_tmp16, 0L);
     }
 #line 316
     if (tmp___10) {
@@ -11821,7 +11821,7 @@ static void fc_disc_gpn_ft_req(struct fc_disc *disc )
 #line 362
   __cil_tmp12 = (long )__cil_tmp11;
 #line 362
-  tmp___10 = __builtin_expect(__cil_tmp12, 0L);
+  tmp___10 = ldv__builtin_expect(__cil_tmp12, 0L);
   }
 #line 362
   if (tmp___10) {
@@ -11843,7 +11843,7 @@ static void fc_disc_gpn_ft_req(struct fc_disc *disc )
 #line 362
   __cil_tmp16 = (long )__cil_tmp15;
 #line 362
-  __builtin_expect(__cil_tmp16, 0L);
+  ldv__builtin_expect(__cil_tmp16, 0L);
 #line 364
   __cil_tmp17 = (unsigned long )disc;
 #line 364
@@ -12116,7 +12116,7 @@ static int fc_disc_gpn_ft_parse(struct fc_disc *disc , void *buf , size_t len )
 #line 415
     __cil_tmp41 = (long )__cil_tmp40;
 #line 415
-    tmp___7 = __builtin_expect(__cil_tmp41, 0L);
+    tmp___7 = ldv__builtin_expect(__cil_tmp41, 0L);
     }
 #line 415
     if (tmp___7) {
@@ -12138,7 +12138,7 @@ static int fc_disc_gpn_ft_parse(struct fc_disc *disc , void *buf , size_t len )
 #line 415
     __cil_tmp45 = (long )__cil_tmp44;
 #line 415
-    __builtin_expect(__cil_tmp45, 0L);
+    ldv__builtin_expect(__cil_tmp45, 0L);
 #line 416
     plen = 16UL - tlen;
 #line 417
@@ -12154,7 +12154,7 @@ static int fc_disc_gpn_ft_parse(struct fc_disc *disc , void *buf , size_t len )
 #line 417
     __cil_tmp50 = (long )__cil_tmp49;
 #line 417
-    tmp___8 = __builtin_expect(__cil_tmp50, 0L);
+    tmp___8 = ldv__builtin_expect(__cil_tmp50, 0L);
     }
 #line 417
     if (tmp___8) {
@@ -12176,7 +12176,7 @@ static int fc_disc_gpn_ft_parse(struct fc_disc *disc , void *buf , size_t len )
 #line 417
     __cil_tmp54 = (long )__cil_tmp53;
 #line 417
-    __builtin_expect(__cil_tmp54, 0L);
+    ldv__builtin_expect(__cil_tmp54, 0L);
 #line 418
     __cil_tmp55 = plen >= 16UL;
 #line 418
@@ -12190,7 +12190,7 @@ static int fc_disc_gpn_ft_parse(struct fc_disc *disc , void *buf , size_t len )
 #line 418
     __cil_tmp59 = (long )__cil_tmp58;
 #line 418
-    tmp___9 = __builtin_expect(__cil_tmp59, 0L);
+    tmp___9 = ldv__builtin_expect(__cil_tmp59, 0L);
     }
 #line 418
     if (tmp___9) {
@@ -12212,7 +12212,7 @@ static int fc_disc_gpn_ft_parse(struct fc_disc *disc , void *buf , size_t len )
 #line 418
     __cil_tmp63 = (long )__cil_tmp62;
 #line 418
-    __builtin_expect(__cil_tmp63, 0L);
+    ldv__builtin_expect(__cil_tmp63, 0L);
     }
 #line 419
     if (plen > len) {
@@ -12440,7 +12440,7 @@ static int fc_disc_gpn_ft_parse(struct fc_disc *disc , void *buf , size_t len )
 #line 477
             __cil_tmp113 = (long )__cil_tmp112;
 #line 477
-            tmp___12 = __builtin_expect(__cil_tmp113, 0L);
+            tmp___12 = ldv__builtin_expect(__cil_tmp113, 0L);
             }
 #line 477
             if (tmp___12) {
@@ -12817,7 +12817,7 @@ static void fc_disc_gpn_ft_resp(struct fc_seq *sp , struct fc_frame *fp , void *
 #line 521
     __cil_tmp39 = (long )__cil_tmp38;
 #line 521
-    tmp___8 = __builtin_expect(__cil_tmp39, 0L);
+    tmp___8 = ldv__builtin_expect(__cil_tmp39, 0L);
     }
 #line 521
     if (tmp___8) {
@@ -12899,7 +12899,7 @@ static void fc_disc_gpn_ft_resp(struct fc_seq *sp , struct fc_frame *fp , void *
 #line 529
   __cil_tmp50 = (long )__cil_tmp49;
 #line 529
-  tmp___12 = __builtin_expect(__cil_tmp50, 0L);
+  tmp___12 = ldv__builtin_expect(__cil_tmp50, 0L);
   }
 #line 529
   if (tmp___12) {
@@ -12921,7 +12921,7 @@ static void fc_disc_gpn_ft_resp(struct fc_seq *sp , struct fc_frame *fp , void *
 #line 529
   __cil_tmp54 = (long )__cil_tmp53;
 #line 529
-  __builtin_expect(__cil_tmp54, 0L);
+  ldv__builtin_expect(__cil_tmp54, 0L);
 #line 530
   __cil_tmp55 = (struct fc_frame    *)fp;
 #line 530
@@ -13019,7 +13019,7 @@ static void fc_disc_gpn_ft_resp(struct fc_seq *sp , struct fc_frame *fp , void *
 #line 536
             __cil_tmp87 = (long )__cil_tmp86;
 #line 536
-            tmp___16 = __builtin_expect(__cil_tmp87, 0L);
+            tmp___16 = ldv__builtin_expect(__cil_tmp87, 0L);
             }
 #line 536
             if (tmp___16) {
@@ -13131,7 +13131,7 @@ static void fc_disc_gpn_ft_resp(struct fc_seq *sp , struct fc_frame *fp , void *
 #line 545
                 __cil_tmp114 = (long )__cil_tmp113;
 #line 545
-                tmp___18 = __builtin_expect(__cil_tmp114, 0L);
+                tmp___18 = ldv__builtin_expect(__cil_tmp114, 0L);
                 }
 #line 545
                 if (tmp___18) {
@@ -13236,7 +13236,7 @@ static void fc_disc_gpn_ft_resp(struct fc_seq *sp , struct fc_frame *fp , void *
 #line 553
                 __cil_tmp140 = (long )__cil_tmp139;
 #line 553
-                tmp___21 = __builtin_expect(__cil_tmp140, 0L);
+                tmp___21 = ldv__builtin_expect(__cil_tmp140, 0L);
                 }
 #line 553
                 if (tmp___21) {
@@ -13371,7 +13371,7 @@ static void fc_disc_gpn_ft_resp(struct fc_seq *sp , struct fc_frame *fp , void *
 #line 560
         __cil_tmp172 = (long )__cil_tmp171;
 #line 560
-        tmp___25 = __builtin_expect(__cil_tmp172, 0L);
+        tmp___25 = ldv__builtin_expect(__cil_tmp172, 0L);
         }
 #line 560
         if (tmp___25) {
@@ -13808,7 +13808,7 @@ static void fc_disc_gpn_id_resp(struct fc_seq *sp , struct fc_frame *fp , void *
 #line 613
           __cil_tmp61 = (long )__cil_tmp60;
 #line 613
-          tmp___11 = __builtin_expect(__cil_tmp61, 0L);
+          tmp___11 = ldv__builtin_expect(__cil_tmp61, 0L);
           }
 #line 613
           if (tmp___11) {
@@ -13973,7 +13973,7 @@ static void fc_disc_gpn_id_resp(struct fc_seq *sp , struct fc_frame *fp , void *
 #line 629
         __cil_tmp107 = (long )__cil_tmp106;
 #line 629
-        tmp___13 = __builtin_expect(__cil_tmp107, 0L);
+        tmp___13 = ldv__builtin_expect(__cil_tmp107, 0L);
         }
 #line 629
         if (tmp___13) {
@@ -14056,7 +14056,7 @@ static void fc_disc_gpn_id_resp(struct fc_seq *sp , struct fc_frame *fp , void *
 #line 633
         __cil_tmp129 = (long )__cil_tmp128;
 #line 633
-        tmp___16 = __builtin_expect(__cil_tmp129, 0L);
+        tmp___16 = ldv__builtin_expect(__cil_tmp129, 0L);
         }
 #line 633
         if (tmp___16) {
@@ -14761,7 +14761,7 @@ __inline static unsigned int cpumask_check(unsigned int cpu )
 #line 108
   __cil_tmp12 = (long )__cil_tmp11;
 #line 108
-  tmp___1 = __builtin_expect(__cil_tmp12, 0L);
+  tmp___1 = ldv__builtin_expect(__cil_tmp12, 0L);
   }
 #line 108
   if (tmp___1) {
@@ -14779,7 +14779,7 @@ __inline static unsigned int cpumask_check(unsigned int cpu )
 #line 108
     __cil_tmp17 = (long )__cil_tmp16;
 #line 108
-    tmp = __builtin_expect(__cil_tmp17, 0L);
+    tmp = ldv__builtin_expect(__cil_tmp17, 0L);
     }
 #line 108
     if (tmp) {
@@ -14800,7 +14800,7 @@ __inline static unsigned int cpumask_check(unsigned int cpu )
 #line 108
     __cil_tmp21 = (long )__cil_tmp20;
 #line 108
-    tmp___0 = __builtin_expect(__cil_tmp21, 0L);
+    tmp___0 = ldv__builtin_expect(__cil_tmp21, 0L);
     }
 #line 108
     if (tmp___0) {
@@ -14820,7 +14820,7 @@ __inline static unsigned int cpumask_check(unsigned int cpu )
 #line 108
   __cil_tmp24 = (long )__cil_tmp23;
 #line 108
-  __builtin_expect(__cil_tmp24, 0L);
+  ldv__builtin_expect(__cil_tmp24, 0L);
   }
 #line 110
   return (cpu);
@@ -15327,7 +15327,7 @@ __inline static void __fc_fill_fc_hdr(struct fc_frame_header *fh , enum fc_rctl 
 #line 59
   __cil_tmp16 = (long )__cil_tmp15;
 #line 59
-  tmp___7 = __builtin_expect(__cil_tmp16, 0L);
+  tmp___7 = ldv__builtin_expect(__cil_tmp16, 0L);
   }
 #line 59
   if (tmp___7) {
@@ -15348,7 +15348,7 @@ __inline static void __fc_fill_fc_hdr(struct fc_frame_header *fh , enum fc_rctl 
 #line 59
   __cil_tmp20 = (long )__cil_tmp19;
 #line 59
-  __builtin_expect(__cil_tmp20, 0L);
+  ldv__builtin_expect(__cil_tmp20, 0L);
 #line 60
   *((__u8 *)fh) = (__u8 )r_ctl;
 #line 61
@@ -15963,7 +15963,7 @@ static void fc_exch_setup_hdr(struct fc_exch *ep , struct fc_frame *fp , u32 f_c
 #line 307
     __cil_tmp91 = (long )__cil_tmp90;
 #line 307
-    tmp___10 = __builtin_expect(__cil_tmp91, 0L);
+    tmp___10 = ldv__builtin_expect(__cil_tmp91, 0L);
     }
 #line 307
     if (tmp___10) {
@@ -15985,7 +15985,7 @@ static void fc_exch_setup_hdr(struct fc_exch *ep , struct fc_frame *fp , u32 f_c
 #line 307
     __cil_tmp95 = (long )__cil_tmp94;
 #line 307
-    __builtin_expect(__cil_tmp95, 0L);
+    ldv__builtin_expect(__cil_tmp95, 0L);
 #line 308
     __cil_tmp96 = 0 * 1UL;
 #line 308
@@ -16195,7 +16195,7 @@ static void fc_exch_release(struct fc_exch *ep )
 #line 336
     __cil_tmp32 = (long )__cil_tmp31;
 #line 336
-    tmp___7 = __builtin_expect(__cil_tmp32, 0L);
+    tmp___7 = ldv__builtin_expect(__cil_tmp32, 0L);
     }
 #line 336
     if (tmp___7) {
@@ -16217,7 +16217,7 @@ static void fc_exch_release(struct fc_exch *ep )
 #line 336
     __cil_tmp36 = (long )__cil_tmp35;
 #line 336
-    __builtin_expect(__cil_tmp36, 0L);
+    ldv__builtin_expect(__cil_tmp36, 0L);
 #line 337
     __cil_tmp37 = (void *)ep;
 #line 337
@@ -16525,7 +16525,7 @@ static void fc_exch_delete(struct fc_exch *ep )
 #line 408
   __cil_tmp17 = (long )__cil_tmp16;
 #line 408
-  tmp___7 = __builtin_expect(__cil_tmp17, 0L);
+  tmp___7 = ldv__builtin_expect(__cil_tmp17, 0L);
   }
 #line 408
   if (tmp___7) {
@@ -16547,7 +16547,7 @@ static void fc_exch_delete(struct fc_exch *ep )
 #line 408
   __cil_tmp21 = (long )__cil_tmp20;
 #line 408
-  __builtin_expect(__cil_tmp21, 0L);
+  ldv__builtin_expect(__cil_tmp21, 0L);
 #line 409
   __cil_tmp22 = (unsigned long )pool;
 #line 409
@@ -16742,7 +16742,7 @@ __inline static void fc_exch_timer_set_locked(struct fc_exch *ep , unsigned int 
 #line 441
     __cil_tmp17 = (long )__cil_tmp16;
 #line 441
-    tmp___7 = __builtin_expect(__cil_tmp17, 0L);
+    tmp___7 = ldv__builtin_expect(__cil_tmp17, 0L);
     }
 #line 441
     if (tmp___7) {
@@ -17030,7 +17030,7 @@ static int fc_seq_send(struct fc_lport *lport , struct fc_seq *sp , struct fc_fr
 #line 476
   __cil_tmp35 = (long )__cil_tmp34;
 #line 476
-  tmp___8 = __builtin_expect(__cil_tmp35, 0L);
+  tmp___8 = ldv__builtin_expect(__cil_tmp35, 0L);
   }
 #line 476
   if (tmp___8) {
@@ -17052,7 +17052,7 @@ static int fc_seq_send(struct fc_lport *lport , struct fc_seq *sp , struct fc_fr
 #line 476
   __cil_tmp39 = (long )__cil_tmp38;
 #line 476
-  __builtin_expect(__cil_tmp39, 0L);
+  ldv__builtin_expect(__cil_tmp39, 0L);
 #line 478
   __cil_tmp40 = 0 * 1UL;
 #line 478
@@ -17436,7 +17436,7 @@ static struct fc_seq *fc_seq_start_next_locked(struct fc_seq *sp )
 #line 544
     __cil_tmp28 = (long )__cil_tmp27;
 #line 544
-    tmp___8 = __builtin_expect(__cil_tmp28, 0L);
+    tmp___8 = ldv__builtin_expect(__cil_tmp28, 0L);
     }
 #line 544
     if (tmp___8) {
@@ -18000,7 +18000,7 @@ static void fc_exch_timeout(struct work_struct *work )
 #line 668
     __cil_tmp25 = (long )__cil_tmp24;
 #line 668
-    tmp___7 = __builtin_expect(__cil_tmp25, 0L);
+    tmp___7 = ldv__builtin_expect(__cil_tmp25, 0L);
     }
 #line 668
     if (tmp___7) {
@@ -20061,7 +20061,7 @@ static enum fc_pf_rjt_reason fc_seq_lookup_recip(struct fc_lport *lport , struct
 #line 917
   __cil_tmp41 = (long )__cil_tmp40;
 #line 917
-  tmp___8 = __builtin_expect(__cil_tmp41, 0L);
+  tmp___8 = ldv__builtin_expect(__cil_tmp41, 0L);
   }
 #line 917
   if (tmp___8) {
@@ -20083,7 +20083,7 @@ static enum fc_pf_rjt_reason fc_seq_lookup_recip(struct fc_lport *lport , struct
 #line 917
   __cil_tmp45 = (long )__cil_tmp44;
 #line 917
-  __builtin_expect(__cil_tmp45, 0L);
+  ldv__builtin_expect(__cil_tmp45, 0L);
   }
   {
 #line 922
@@ -20556,7 +20556,7 @@ static enum fc_pf_rjt_reason fc_seq_lookup_recip(struct fc_lport *lport , struct
 #line 1011
   __cil_tmp174 = (long )__cil_tmp173;
 #line 1011
-  tmp___18 = __builtin_expect(__cil_tmp174, 0L);
+  tmp___18 = ldv__builtin_expect(__cil_tmp174, 0L);
   }
 #line 1011
   if (tmp___18) {
@@ -20578,7 +20578,7 @@ static enum fc_pf_rjt_reason fc_seq_lookup_recip(struct fc_lport *lport , struct
 #line 1011
   __cil_tmp178 = (long )__cil_tmp177;
 #line 1011
-  __builtin_expect(__cil_tmp178, 0L);
+  ldv__builtin_expect(__cil_tmp178, 0L);
   }
   {
 #line 1013
@@ -20766,7 +20766,7 @@ static struct fc_seq *fc_seq_lookup_orig(struct fc_exch_mgr *mp , struct fc_fram
 #line 1043
   __cil_tmp34 = (long )__cil_tmp33;
 #line 1043
-  tmp___8 = __builtin_expect(__cil_tmp34, 0L);
+  tmp___8 = ldv__builtin_expect(__cil_tmp34, 0L);
   }
 #line 1043
   if (tmp___8) {
@@ -20788,7 +20788,7 @@ static struct fc_seq *fc_seq_lookup_orig(struct fc_exch_mgr *mp , struct fc_fram
 #line 1043
   __cil_tmp38 = (long )__cil_tmp37;
 #line 1043
-  __builtin_expect(__cil_tmp38, 0L);
+  ldv__builtin_expect(__cil_tmp38, 0L);
   }
   {
 #line 1044
@@ -21110,7 +21110,7 @@ static void fc_seq_els_rsp_send(struct fc_frame *fp , enum fc_els_cmd els_cmd , 
 #line 1109
         __cil_tmp14 = (long )__cil_tmp13;
 #line 1109
-        tmp___7 = __builtin_expect(__cil_tmp14, 0L);
+        tmp___7 = ldv__builtin_expect(__cil_tmp14, 0L);
         }
 #line 1109
         if (tmp___7) {
@@ -22761,7 +22761,7 @@ static struct fc_seq *fc_seq_assign(struct fc_lport *lport , struct fc_frame *fp
 #line 1328
   __cil_tmp26 = (long )__cil_tmp25;
 #line 1328
-  tmp___7 = __builtin_expect(__cil_tmp26, 0L);
+  tmp___7 = ldv__builtin_expect(__cil_tmp26, 0L);
   }
 #line 1328
   if (tmp___7) {
@@ -22783,7 +22783,7 @@ static struct fc_seq *fc_seq_assign(struct fc_lport *lport , struct fc_frame *fp
 #line 1328
   __cil_tmp30 = (long )__cil_tmp29;
 #line 1328
-  __builtin_expect(__cil_tmp30, 0L);
+  ldv__builtin_expect(__cil_tmp30, 0L);
 #line 1329
   __cil_tmp31 = 0 * 1UL;
 #line 1329
@@ -22815,7 +22815,7 @@ static struct fc_seq *fc_seq_assign(struct fc_lport *lport , struct fc_frame *fp
 #line 1329
   __cil_tmp44 = (long )__cil_tmp43;
 #line 1329
-  tmp___8 = __builtin_expect(__cil_tmp44, 0L);
+  tmp___8 = ldv__builtin_expect(__cil_tmp44, 0L);
   }
 #line 1329
   if (tmp___8) {
@@ -22837,7 +22837,7 @@ static struct fc_seq *fc_seq_assign(struct fc_lport *lport , struct fc_frame *fp
 #line 1329
   __cil_tmp48 = (long )__cil_tmp47;
 #line 1329
-  __builtin_expect(__cil_tmp48, 0L);
+  ldv__builtin_expect(__cil_tmp48, 0L);
 #line 1330
   __cil_tmp49 = 0 * 1UL;
 #line 1330
@@ -23242,7 +23242,7 @@ static void fc_exch_recv_req(struct fc_lport *lport , struct fc_exch_mgr *mp , s
 #line 1375
     __cil_tmp42 = (long )__cil_tmp41;
 #line 1375
-    tmp___9 = __builtin_expect(__cil_tmp42, 0L);
+    tmp___9 = ldv__builtin_expect(__cil_tmp42, 0L);
     }
 #line 1375
     if (tmp___9) {
@@ -23459,7 +23459,7 @@ static void fc_exch_recv_req(struct fc_lport *lport , struct fc_exch_mgr *mp , s
 #line 1408
       __cil_tmp104 = (long )__cil_tmp103;
 #line 1408
-      tmp___11 = __builtin_expect(__cil_tmp104, 0L);
+      tmp___11 = ldv__builtin_expect(__cil_tmp104, 0L);
       }
 #line 1408
       if (tmp___11) {
@@ -24214,7 +24214,7 @@ static void fc_exch_recv_seq_resp(struct fc_exch_mgr *mp , struct fc_frame *fp )
 #line 1478
         __cil_tmp183 = (long )__cil_tmp182;
 #line 1478
-        tmp___15 = __builtin_expect(__cil_tmp183, 0L);
+        tmp___15 = ldv__builtin_expect(__cil_tmp183, 0L);
         }
 #line 1478
         if (tmp___15) {
@@ -24236,7 +24236,7 @@ static void fc_exch_recv_seq_resp(struct fc_exch_mgr *mp , struct fc_frame *fp )
 #line 1478
         __cil_tmp187 = (long )__cil_tmp186;
 #line 1478
-        __builtin_expect(__cil_tmp187, 0L);
+        ldv__builtin_expect(__cil_tmp187, 0L);
 #line 1479
         __cil_tmp188 = (spinlock_t *)ep;
 #line 1479
@@ -24479,7 +24479,7 @@ static void fc_exch_abts_resp(struct fc_exch *ep , struct fc_frame *fp )
 #line 1549
     __cil_tmp25 = (long )__cil_tmp24;
 #line 1549
-    tmp___8 = __builtin_expect(__cil_tmp25, 0L);
+    tmp___8 = ldv__builtin_expect(__cil_tmp25, 0L);
     }
 #line 1549
     if (tmp___8) {
@@ -25082,7 +25082,7 @@ static void fc_exch_recv_bls(struct fc_exch_mgr *mp , struct fc_frame *fp )
 #line 1646
             __cil_tmp56 = (long )__cil_tmp55;
 #line 1646
-            tmp___11 = __builtin_expect(__cil_tmp56, 0L);
+            tmp___11 = ldv__builtin_expect(__cil_tmp56, 0L);
             }
 #line 1646
             if (tmp___11) {
@@ -26980,7 +26980,7 @@ static void fc_exch_rrq_resp(struct fc_seq *sp , struct fc_frame *fp , void *arg
 #line 1931
       __cil_tmp20 = (long )__cil_tmp19;
 #line 1931
-      tmp___8 = __builtin_expect(__cil_tmp20, 0L);
+      tmp___8 = ldv__builtin_expect(__cil_tmp20, 0L);
       }
 #line 1931
       if (tmp___8) {
@@ -27077,7 +27077,7 @@ static void fc_exch_rrq_resp(struct fc_seq *sp , struct fc_frame *fp , void *arg
 #line 1941
         __cil_tmp38 = (long )__cil_tmp37;
 #line 1941
-        tmp___11 = __builtin_expect(__cil_tmp38, 0L);
+        tmp___11 = ldv__builtin_expect(__cil_tmp38, 0L);
         }
 #line 1941
         if (tmp___11) {
@@ -27146,7 +27146,7 @@ static void fc_exch_rrq_resp(struct fc_seq *sp , struct fc_frame *fp , void *arg
 #line 1946
         __cil_tmp55 = (long )__cil_tmp54;
 #line 1946
-        tmp___12 = __builtin_expect(__cil_tmp55, 0L);
+        tmp___12 = ldv__builtin_expect(__cil_tmp55, 0L);
         }
 #line 1946
         if (tmp___12) {
@@ -27628,7 +27628,7 @@ static struct fc_seq *fc_exch_seq_send(struct fc_lport *lport , struct fc_frame 
 #line 2017
   __cil_tmp109 = (long )tmp___10;
 #line 2017
-  tmp___11 = __builtin_expect(__cil_tmp109, 0L);
+  tmp___11 = ldv__builtin_expect(__cil_tmp109, 0L);
   }
 #line 2017
   if (tmp___11) {
@@ -29146,7 +29146,7 @@ struct fc_exch_mgr *fc_exch_mgr_alloc(struct fc_lport *lport , enum fc_class cla
 #line 2251
           __cil_tmp30 = (long )__cil_tmp29;
 #line 2251
-          tmp___7 = __builtin_expect(__cil_tmp30, 0L);
+          tmp___7 = ldv__builtin_expect(__cil_tmp30, 0L);
           }
 #line 2251
           if (tmp___7) {
@@ -30172,7 +30172,7 @@ void fc_exch_recv(struct fc_lport *lport , struct fc_frame *fp )
 #line 2385
         __cil_tmp23 = (long )__cil_tmp22;
 #line 2385
-        tmp___8 = __builtin_expect(__cil_tmp23, 0L);
+        tmp___8 = ldv__builtin_expect(__cil_tmp23, 0L);
         }
 #line 2385
         if (tmp___8) {
@@ -30261,7 +30261,7 @@ void fc_exch_recv(struct fc_lport *lport , struct fc_frame *fp )
 #line 2394
       __cil_tmp42 = (long )__cil_tmp41;
 #line 2394
-      tmp___12 = __builtin_expect(__cil_tmp42, 0L);
+      tmp___12 = ldv__builtin_expect(__cil_tmp42, 0L);
       }
 #line 2394
       if (tmp___12) {
@@ -30516,7 +30516,7 @@ void fc_exch_recv(struct fc_lport *lport , struct fc_frame *fp )
 #line 2424
         __cil_tmp107 = (long )__cil_tmp106;
 #line 2424
-        tmp___13 = __builtin_expect(__cil_tmp107, 0L);
+        tmp___13 = ldv__builtin_expect(__cil_tmp107, 0L);
         }
 #line 2424
         if (tmp___13) {
@@ -36375,7 +36375,7 @@ u32 fc_frame_crc_check(struct fc_frame *fp )
 #line 41
   __cil_tmp13 = (long )__cil_tmp12;
 #line 41
-  tmp___9 = __builtin_expect(__cil_tmp13, 0L);
+  tmp___9 = ldv__builtin_expect(__cil_tmp13, 0L);
   }
 #line 41
   if (tmp___9) {
@@ -36397,7 +36397,7 @@ u32 fc_frame_crc_check(struct fc_frame *fp )
 #line 41
   __cil_tmp17 = (long )__cil_tmp16;
 #line 41
-  __builtin_expect(__cil_tmp17, 0L);
+  ldv__builtin_expect(__cil_tmp17, 0L);
 #line 42
   __cil_tmp18 = 0 * 1UL;
 #line 42
@@ -36582,7 +36582,7 @@ struct fc_frame *_fc_frame_alloc(size_t len )
 #line 60
   __cil_tmp17 = (long )__cil_tmp16;
 #line 60
-  tmp___7 = __builtin_expect(__cil_tmp17, 0L);
+  tmp___7 = ldv__builtin_expect(__cil_tmp17, 0L);
   }
 #line 60
   if (tmp___7) {
@@ -36604,7 +36604,7 @@ struct fc_frame *_fc_frame_alloc(size_t len )
 #line 60
   __cil_tmp21 = (long )__cil_tmp20;
 #line 60
-  __builtin_expect(__cil_tmp21, 0L);
+  ldv__builtin_expect(__cil_tmp21, 0L);
 #line 61
   len = len + 24UL;
 #line 63
@@ -36858,7 +36858,7 @@ __inline static unsigned int cpumask_check___0(unsigned int cpu )
 #line 108
   __cil_tmp12 = (long )__cil_tmp11;
 #line 108
-  tmp___1 = __builtin_expect(__cil_tmp12, 0L);
+  tmp___1 = ldv__builtin_expect(__cil_tmp12, 0L);
   }
 #line 108
   if (tmp___1) {
@@ -36876,7 +36876,7 @@ __inline static unsigned int cpumask_check___0(unsigned int cpu )
 #line 108
     __cil_tmp17 = (long )__cil_tmp16;
 #line 108
-    tmp = __builtin_expect(__cil_tmp17, 0L);
+    tmp = ldv__builtin_expect(__cil_tmp17, 0L);
     }
 #line 108
     if (tmp) {
@@ -36897,7 +36897,7 @@ __inline static unsigned int cpumask_check___0(unsigned int cpu )
 #line 108
     __cil_tmp21 = (long )__cil_tmp20;
 #line 108
-    tmp___0 = __builtin_expect(__cil_tmp21, 0L);
+    tmp___0 = ldv__builtin_expect(__cil_tmp21, 0L);
     }
 #line 108
     if (tmp___0) {
@@ -36917,7 +36917,7 @@ __inline static unsigned int cpumask_check___0(unsigned int cpu )
 #line 108
   __cil_tmp24 = (long )__cil_tmp23;
 #line 108
-  __builtin_expect(__cil_tmp24, 0L);
+  ldv__builtin_expect(__cil_tmp24, 0L);
   }
 #line 110
   return (cpu);
@@ -37590,7 +37590,7 @@ static void fc_lport_rport_callback(struct fc_lport *lport , struct fc_rport_pri
 #line 185
     __cil_tmp11 = (long )__cil_tmp10;
 #line 185
-    tmp___7 = __builtin_expect(__cil_tmp11, 0L);
+    tmp___7 = ldv__builtin_expect(__cil_tmp11, 0L);
     }
 #line 185
     if (tmp___7) {
@@ -37744,7 +37744,7 @@ static void fc_lport_rport_callback(struct fc_lport *lport , struct fc_rport_pri
 #line 198
           __cil_tmp46 = (long )__cil_tmp45;
 #line 198
-          tmp___8 = __builtin_expect(__cil_tmp46, 0L);
+          tmp___8 = ldv__builtin_expect(__cil_tmp46, 0L);
           }
 #line 198
           if (tmp___8) {
@@ -39272,7 +39272,7 @@ static void fc_lport_recv_rlir_req(struct fc_lport *lport , struct fc_frame *fp 
 #line 406
     __cil_tmp10 = (long )__cil_tmp9;
 #line 406
-    tmp___8 = __builtin_expect(__cil_tmp10, 0L);
+    tmp___8 = ldv__builtin_expect(__cil_tmp10, 0L);
     }
 #line 406
     if (tmp___8) {
@@ -39419,7 +39419,7 @@ static void fc_lport_recv_echo_req(struct fc_lport *lport , struct fc_frame *in_
 #line 429
     __cil_tmp17 = (long )__cil_tmp16;
 #line 429
-    tmp___8 = __builtin_expect(__cil_tmp17, 0L);
+    tmp___8 = ldv__builtin_expect(__cil_tmp17, 0L);
     }
 #line 429
     if (tmp___8) {
@@ -39693,7 +39693,7 @@ static void fc_lport_recv_rnid_req(struct fc_lport *lport , struct fc_frame *in_
 #line 471
     __cil_tmp23 = (long )__cil_tmp22;
 #line 471
-    tmp___8 = __builtin_expect(__cil_tmp23, 0L);
+    tmp___8 = ldv__builtin_expect(__cil_tmp23, 0L);
     }
 #line 471
     if (tmp___8) {
@@ -40821,7 +40821,7 @@ static void fc_lport_disc_callback(struct fc_lport *lport , enum fc_disc_event e
 #line 699
       __cil_tmp11 = (long )__cil_tmp10;
 #line 699
-      tmp___7 = __builtin_expect(__cil_tmp11, 0L);
+      tmp___7 = ldv__builtin_expect(__cil_tmp11, 0L);
       }
 #line 699
       if (tmp___7) {
@@ -40912,7 +40912,7 @@ static void fc_lport_disc_callback(struct fc_lport *lport , enum fc_disc_event e
 #line 710
     __cil_tmp34 = (long )__cil_tmp33;
 #line 710
-    tmp___8 = __builtin_expect(__cil_tmp34, 0L);
+    tmp___8 = ldv__builtin_expect(__cil_tmp34, 0L);
     }
 #line 710
     if (tmp___8) {
@@ -40934,7 +40934,7 @@ static void fc_lport_disc_callback(struct fc_lport *lport , enum fc_disc_event e
 #line 710
     __cil_tmp38 = (long )__cil_tmp37;
 #line 710
-    __builtin_expect(__cil_tmp38, 0L);
+    ldv__builtin_expect(__cil_tmp38, 0L);
     }
 #line 711
     goto switch_break;
@@ -40997,7 +40997,7 @@ static void fc_lport_enter_ready(struct fc_lport *lport )
 #line 724
     __cil_tmp9 = (long )__cil_tmp8;
 #line 724
-    tmp___8 = __builtin_expect(__cil_tmp9, 0L);
+    tmp___8 = ldv__builtin_expect(__cil_tmp9, 0L);
     }
 #line 724
     if (tmp___8) {
@@ -41400,7 +41400,7 @@ static void fc_lport_recv_flogi_req(struct fc_lport *lport , struct fc_frame *rx
 #line 812
     __cil_tmp21 = (long )__cil_tmp20;
 #line 812
-    tmp___8 = __builtin_expect(__cil_tmp21, 0L);
+    tmp___8 = ldv__builtin_expect(__cil_tmp21, 0L);
     }
 #line 812
     if (tmp___8) {
@@ -41519,7 +41519,7 @@ static void fc_lport_recv_flogi_req(struct fc_lport *lport , struct fc_frame *rx
 #line 826
     __cil_tmp47 = (long )__cil_tmp46;
 #line 826
-    tmp___10 = __builtin_expect(__cil_tmp47, 0L);
+    tmp___10 = ldv__builtin_expect(__cil_tmp47, 0L);
     }
 #line 826
     if (tmp___10) {
@@ -42089,7 +42089,7 @@ static void fc_lport_recv_req(struct fc_lport *lport , struct fc_frame *fp )
 #line 974
     __cil_tmp46 = (long )__cil_tmp45;
 #line 974
-    tmp___9 = __builtin_expect(__cil_tmp46, 0L);
+    tmp___9 = ldv__builtin_expect(__cil_tmp46, 0L);
     }
 #line 974
     if (tmp___9) {
@@ -42530,7 +42530,7 @@ static void fc_lport_enter_reset(struct fc_lport *lport )
 #line 1032
     __cil_tmp10 = (long )__cil_tmp9;
 #line 1032
-    tmp___8 = __builtin_expect(__cil_tmp10, 0L);
+    tmp___8 = ldv__builtin_expect(__cil_tmp10, 0L);
     }
 #line 1032
     if (tmp___8) {
@@ -42727,7 +42727,7 @@ static void fc_lport_enter_disabled(struct fc_lport *lport )
 #line 1062
     __cil_tmp9 = (long )__cil_tmp8;
 #line 1062
-    tmp___8 = __builtin_expect(__cil_tmp9, 0L);
+    tmp___8 = ldv__builtin_expect(__cil_tmp9, 0L);
     }
 #line 1062
     if (tmp___8) {
@@ -42854,7 +42854,7 @@ static void fc_lport_error(struct fc_lport *lport , struct fc_frame *fp )
 #line 1082
     __cil_tmp13 = (long )__cil_tmp12;
 #line 1082
-    tmp___9 = __builtin_expect(__cil_tmp13, 0L);
+    tmp___9 = ldv__builtin_expect(__cil_tmp13, 0L);
     }
 #line 1082
     if (tmp___9) {
@@ -43104,7 +43104,7 @@ static void fc_lport_ns_resp(struct fc_seq *sp , struct fc_frame *fp , void *lp_
 #line 1124
     __cil_tmp21 = (long )__cil_tmp20;
 #line 1124
-    tmp___8 = __builtin_expect(__cil_tmp21, 0L);
+    tmp___8 = ldv__builtin_expect(__cil_tmp21, 0L);
     }
 #line 1124
     if (tmp___8) {
@@ -43217,7 +43217,7 @@ static void fc_lport_ns_resp(struct fc_seq *sp , struct fc_frame *fp , void *lp_
 #line 1132
         __cil_tmp47 = (long )__cil_tmp46;
 #line 1132
-        tmp___11 = __builtin_expect(__cil_tmp47, 0L);
+        tmp___11 = ldv__builtin_expect(__cil_tmp47, 0L);
         }
 #line 1132
         if (tmp___11) {
@@ -43644,7 +43644,7 @@ static void fc_lport_ms_resp(struct fc_seq *sp , struct fc_frame *fp , void *lp_
 #line 1200
     __cil_tmp22 = (long )__cil_tmp21;
 #line 1200
-    tmp___8 = __builtin_expect(__cil_tmp22, 0L);
+    tmp___8 = ldv__builtin_expect(__cil_tmp22, 0L);
     }
 #line 1200
     if (tmp___8) {
@@ -43757,7 +43757,7 @@ static void fc_lport_ms_resp(struct fc_seq *sp , struct fc_frame *fp , void *lp_
 #line 1208
         __cil_tmp48 = (long )__cil_tmp47;
 #line 1208
-        tmp___11 = __builtin_expect(__cil_tmp48, 0L);
+        tmp___11 = ldv__builtin_expect(__cil_tmp48, 0L);
         }
 #line 1208
         if (tmp___11) {
@@ -43904,7 +43904,7 @@ static void fc_lport_ms_resp(struct fc_seq *sp , struct fc_frame *fp , void *lp_
 #line 1226
               __cil_tmp77 = (long )__cil_tmp76;
 #line 1226
-              tmp___15 = __builtin_expect(__cil_tmp77, 0L);
+              tmp___15 = ldv__builtin_expect(__cil_tmp77, 0L);
               }
 #line 1226
               if (tmp___15) {
@@ -44185,7 +44185,7 @@ static void fc_lport_scr_resp(struct fc_seq *sp , struct fc_frame *fp , void *lp
 #line 1277
     __cil_tmp18 = (long )__cil_tmp17;
 #line 1277
-    tmp___8 = __builtin_expect(__cil_tmp18, 0L);
+    tmp___8 = ldv__builtin_expect(__cil_tmp18, 0L);
     }
 #line 1277
     if (tmp___8) {
@@ -44283,7 +44283,7 @@ static void fc_lport_scr_resp(struct fc_seq *sp , struct fc_frame *fp , void *lp
 #line 1285
       __cil_tmp40 = (long )__cil_tmp39;
 #line 1285
-      tmp___11 = __builtin_expect(__cil_tmp40, 0L);
+      tmp___11 = ldv__builtin_expect(__cil_tmp40, 0L);
       }
 #line 1285
       if (tmp___11) {
@@ -44458,7 +44458,7 @@ static void fc_lport_enter_scr(struct fc_lport *lport )
 #line 1320
     __cil_tmp11 = (long )__cil_tmp10;
 #line 1320
-    tmp___8 = __builtin_expect(__cil_tmp11, 0L);
+    tmp___8 = ldv__builtin_expect(__cil_tmp11, 0L);
     }
 #line 1320
     if (tmp___8) {
@@ -44667,7 +44667,7 @@ static void fc_lport_enter_ns(struct fc_lport *lport , enum fc_lport_state state
 #line 1351
     __cil_tmp15 = (long )__cil_tmp14;
 #line 1351
-    tmp___8 = __builtin_expect(__cil_tmp15, 0L);
+    tmp___8 = ldv__builtin_expect(__cil_tmp15, 0L);
     }
 #line 1351
     if (tmp___8) {
@@ -45029,7 +45029,7 @@ static void fc_lport_enter_dns(struct fc_lport *lport )
 #line 1418
     __cil_tmp10 = (long )__cil_tmp9;
 #line 1418
-    tmp___8 = __builtin_expect(__cil_tmp10, 0L);
+    tmp___8 = ldv__builtin_expect(__cil_tmp10, 0L);
     }
 #line 1418
     if (tmp___8) {
@@ -45242,7 +45242,7 @@ static void fc_lport_enter_ms(struct fc_lport *lport , enum fc_lport_state state
 #line 1452
     __cil_tmp17 = (long )__cil_tmp16;
 #line 1452
-    tmp___8 = __builtin_expect(__cil_tmp17, 0L);
+    tmp___8 = ldv__builtin_expect(__cil_tmp17, 0L);
     }
 #line 1452
     if (tmp___8) {
@@ -45457,7 +45457,7 @@ static void fc_lport_enter_ms(struct fc_lport *lport , enum fc_lport_state state
 #line 1510
     __cil_tmp47 = (long )__cil_tmp46;
 #line 1510
-    tmp___9 = __builtin_expect(__cil_tmp47, 0L);
+    tmp___9 = ldv__builtin_expect(__cil_tmp47, 0L);
     }
 #line 1510
     if (tmp___9) {
@@ -45622,7 +45622,7 @@ static void fc_lport_enter_fdmi(struct fc_lport *lport )
 #line 1535
     __cil_tmp10 = (long )__cil_tmp9;
 #line 1535
-    tmp___8 = __builtin_expect(__cil_tmp10, 0L);
+    tmp___8 = ldv__builtin_expect(__cil_tmp10, 0L);
     }
 #line 1535
     if (tmp___8) {
@@ -45912,7 +45912,7 @@ static void fc_lport_timeout(struct work_struct *work )
 #line 1568
     __cil_tmp21 = (long )__cil_tmp20;
 #line 1568
-    tmp___7 = __builtin_expect(__cil_tmp21, 0L);
+    tmp___7 = ldv__builtin_expect(__cil_tmp21, 0L);
     }
 #line 1568
     if (tmp___7) {
@@ -45934,7 +45934,7 @@ static void fc_lport_timeout(struct work_struct *work )
 #line 1568
     __cil_tmp25 = (long )__cil_tmp24;
 #line 1568
-    __builtin_expect(__cil_tmp25, 0L);
+    ldv__builtin_expect(__cil_tmp25, 0L);
     }
 #line 1569
     goto switch_break;
@@ -46105,7 +46105,7 @@ void fc_lport_logo_resp(struct fc_seq *sp , struct fc_frame *fp , void *lp_arg )
 #line 1623
     __cil_tmp18 = (long )__cil_tmp17;
 #line 1623
-    tmp___8 = __builtin_expect(__cil_tmp18, 0L);
+    tmp___8 = ldv__builtin_expect(__cil_tmp18, 0L);
     }
 #line 1623
     if (tmp___8) {
@@ -46203,7 +46203,7 @@ void fc_lport_logo_resp(struct fc_seq *sp , struct fc_frame *fp , void *lp_arg )
 #line 1631
       __cil_tmp40 = (long )__cil_tmp39;
 #line 1631
-      tmp___11 = __builtin_expect(__cil_tmp40, 0L);
+      tmp___11 = ldv__builtin_expect(__cil_tmp40, 0L);
       }
 #line 1631
       if (tmp___11) {
@@ -46396,7 +46396,7 @@ static void fc_lport_enter_logo(struct fc_lport *lport )
 #line 1668
     __cil_tmp12 = (long )__cil_tmp11;
 #line 1668
-    tmp___8 = __builtin_expect(__cil_tmp12, 0L);
+    tmp___8 = ldv__builtin_expect(__cil_tmp12, 0L);
     }
 #line 1668
     if (tmp___8) {
@@ -46722,7 +46722,7 @@ void fc_lport_flogi_resp(struct fc_seq *sp , struct fc_frame *fp , void *lp_arg 
 #line 1708
     __cil_tmp36 = (long )__cil_tmp35;
 #line 1708
-    tmp___8 = __builtin_expect(__cil_tmp36, 0L);
+    tmp___8 = ldv__builtin_expect(__cil_tmp36, 0L);
     }
 #line 1708
     if (tmp___8) {
@@ -46820,7 +46820,7 @@ void fc_lport_flogi_resp(struct fc_seq *sp , struct fc_frame *fp , void *lp_arg 
 #line 1716
       __cil_tmp58 = (long )__cil_tmp57;
 #line 1716
-      tmp___11 = __builtin_expect(__cil_tmp58, 0L);
+      tmp___11 = ldv__builtin_expect(__cil_tmp58, 0L);
       }
 #line 1716
       if (tmp___11) {
@@ -46953,7 +46953,7 @@ void fc_lport_flogi_resp(struct fc_seq *sp , struct fc_frame *fp , void *lp_arg 
 #line 1732
         __cil_tmp79 = (long )__cil_tmp78;
 #line 1732
-        tmp___14 = __builtin_expect(__cil_tmp79, 0L);
+        tmp___14 = ldv__builtin_expect(__cil_tmp79, 0L);
         }
 #line 1732
         if (tmp___14) {
@@ -47033,7 +47033,7 @@ void fc_lport_flogi_resp(struct fc_seq *sp , struct fc_frame *fp , void *lp_arg 
 #line 1739
       __cil_tmp93 = (long )__cil_tmp92;
 #line 1739
-      tmp___17 = __builtin_expect(__cil_tmp93, 0L);
+      tmp___17 = ldv__builtin_expect(__cil_tmp93, 0L);
       }
 #line 1739
       if (tmp___17) {
@@ -47131,7 +47131,7 @@ void fc_lport_flogi_resp(struct fc_seq *sp , struct fc_frame *fp , void *lp_arg 
 #line 1748
         __cil_tmp114 = (long )__cil_tmp113;
 #line 1748
-        tmp___19 = __builtin_expect(__cil_tmp114, 0L);
+        tmp___19 = ldv__builtin_expect(__cil_tmp114, 0L);
         }
 #line 1748
         if (tmp___19) {
@@ -47509,7 +47509,7 @@ static void fc_lport_enter_flogi(struct fc_lport *lport )
 #line 1808
     __cil_tmp13 = (long )__cil_tmp12;
 #line 1808
-    tmp___8 = __builtin_expect(__cil_tmp13, 0L);
+    tmp___8 = ldv__builtin_expect(__cil_tmp13, 0L);
     }
 #line 1808
     if (tmp___8) {
@@ -51908,7 +51908,7 @@ static void fc_rport_work(struct work_struct *work )
 #line 260
     __cil_tmp43 = (long )__cil_tmp42;
 #line 260
-    tmp___7 = __builtin_expect(__cil_tmp43, 0L);
+    tmp___7 = ldv__builtin_expect(__cil_tmp43, 0L);
     }
 #line 260
     if (tmp___7) {
@@ -52049,7 +52049,7 @@ static void fc_rport_work(struct work_struct *work )
 #line 273
           __cil_tmp73 = (long )__cil_tmp72;
 #line 273
-          tmp___8 = __builtin_expect(__cil_tmp73, 0L);
+          tmp___8 = ldv__builtin_expect(__cil_tmp73, 0L);
           }
 #line 273
           if (tmp___8) {
@@ -52161,7 +52161,7 @@ static void fc_rport_work(struct work_struct *work )
 #line 280
           __cil_tmp104 = (long )__cil_tmp103;
 #line 280
-          tmp___9 = __builtin_expect(__cil_tmp104, 0L);
+          tmp___9 = ldv__builtin_expect(__cil_tmp104, 0L);
           }
 #line 280
           if (tmp___9) {
@@ -52315,7 +52315,7 @@ static void fc_rport_work(struct work_struct *work )
 #line 294
             __cil_tmp150 = (long )__cil_tmp149;
 #line 294
-            tmp___10 = __builtin_expect(__cil_tmp150, 0L);
+            tmp___10 = ldv__builtin_expect(__cil_tmp150, 0L);
             }
 #line 294
             if (tmp___10) {
@@ -52399,7 +52399,7 @@ static void fc_rport_work(struct work_struct *work )
 #line 298
           __cil_tmp169 = (long )__cil_tmp168;
 #line 298
-          tmp___11 = __builtin_expect(__cil_tmp169, 0L);
+          tmp___11 = ldv__builtin_expect(__cil_tmp169, 0L);
           }
 #line 298
           if (tmp___11) {
@@ -52599,7 +52599,7 @@ static void fc_rport_work(struct work_struct *work )
 #line 320
             __cil_tmp213 = (long )__cil_tmp212;
 #line 320
-            tmp___12 = __builtin_expect(__cil_tmp213, 0L);
+            tmp___12 = ldv__builtin_expect(__cil_tmp213, 0L);
             }
 #line 320
             if (tmp___12) {
@@ -52683,7 +52683,7 @@ static void fc_rport_work(struct work_struct *work )
 #line 324
           __cil_tmp232 = (long )__cil_tmp231;
 #line 324
-          tmp___13 = __builtin_expect(__cil_tmp232, 0L);
+          tmp___13 = ldv__builtin_expect(__cil_tmp232, 0L);
           }
 #line 324
           if (tmp___13) {
@@ -52956,7 +52956,7 @@ static void fc_rport_work(struct work_struct *work )
 #line 356
                 __cil_tmp320 = (long )__cil_tmp319;
 #line 356
-                tmp___14 = __builtin_expect(__cil_tmp320, 0L);
+                tmp___14 = ldv__builtin_expect(__cil_tmp320, 0L);
                 }
 #line 356
                 if (tmp___14) {
@@ -53037,7 +53037,7 @@ static void fc_rport_work(struct work_struct *work )
 #line 360
               __cil_tmp338 = (long )__cil_tmp337;
 #line 360
-              tmp___15 = __builtin_expect(__cil_tmp338, 0L);
+              tmp___15 = ldv__builtin_expect(__cil_tmp338, 0L);
               }
 #line 360
               if (tmp___15) {
@@ -53329,7 +53329,7 @@ static int fc_rport_login(struct fc_rport_priv *rdata )
 #line 402
         __cil_tmp24 = (long )__cil_tmp23;
 #line 402
-        tmp___7 = __builtin_expect(__cil_tmp24, 0L);
+        tmp___7 = ldv__builtin_expect(__cil_tmp24, 0L);
         }
 #line 402
         if (tmp___7) {
@@ -53397,7 +53397,7 @@ static int fc_rport_login(struct fc_rport_priv *rdata )
 #line 406
         __cil_tmp39 = (long )__cil_tmp38;
 #line 406
-        tmp___8 = __builtin_expect(__cil_tmp39, 0L);
+        tmp___8 = ldv__builtin_expect(__cil_tmp39, 0L);
         }
 #line 406
         if (tmp___8) {
@@ -53462,7 +53462,7 @@ static int fc_rport_login(struct fc_rport_priv *rdata )
 #line 409
         __cil_tmp54 = (long )__cil_tmp53;
 #line 409
-        tmp___9 = __builtin_expect(__cil_tmp54, 0L);
+        tmp___9 = ldv__builtin_expect(__cil_tmp54, 0L);
         }
 #line 409
         if (tmp___9) {
@@ -53600,7 +53600,7 @@ static void fc_rport_enter_delete(struct fc_rport_priv *rdata , enum fc_rport_ev
 #line 438
     __cil_tmp13 = (long )__cil_tmp12;
 #line 438
-    tmp___7 = __builtin_expect(__cil_tmp13, 0L);
+    tmp___7 = ldv__builtin_expect(__cil_tmp13, 0L);
     }
 #line 438
     if (tmp___7) {
@@ -53768,7 +53768,7 @@ static int fc_rport_logoff(struct fc_rport_priv *rdata )
 #line 459
     __cil_tmp12 = (long )__cil_tmp11;
 #line 459
-    tmp___7 = __builtin_expect(__cil_tmp12, 0L);
+    tmp___7 = ldv__builtin_expect(__cil_tmp12, 0L);
     }
 #line 459
     if (tmp___7) {
@@ -53860,7 +53860,7 @@ static int fc_rport_logoff(struct fc_rport_priv *rdata )
 #line 463
       __cil_tmp40 = (long )__cil_tmp39;
 #line 463
-      tmp___8 = __builtin_expect(__cil_tmp40, 0L);
+      tmp___8 = ldv__builtin_expect(__cil_tmp40, 0L);
       }
 #line 463
       if (tmp___8) {
@@ -53987,7 +53987,7 @@ static void fc_rport_enter_ready(struct fc_rport_priv *rdata )
 #line 489
     __cil_tmp9 = (long )__cil_tmp8;
 #line 489
-    tmp___7 = __builtin_expect(__cil_tmp9, 0L);
+    tmp___7 = ldv__builtin_expect(__cil_tmp9, 0L);
     }
 #line 489
     if (tmp___7) {
@@ -54288,7 +54288,7 @@ static void fc_rport_error(struct fc_rport_priv *rdata , struct fc_frame *fp )
 #line 547
     __cil_tmp14 = (long )__cil_tmp13;
 #line 547
-    tmp___12 = __builtin_expect(__cil_tmp14, 0L);
+    tmp___12 = ldv__builtin_expect(__cil_tmp14, 0L);
     }
 #line 547
     if (tmp___12) {
@@ -54569,7 +54569,7 @@ static void fc_rport_error_retry(struct fc_rport_priv *rdata , struct fc_frame *
 #line 593
       __cil_tmp23 = (long )__cil_tmp22;
 #line 593
-      tmp___10 = __builtin_expect(__cil_tmp23, 0L);
+      tmp___10 = ldv__builtin_expect(__cil_tmp23, 0L);
       }
 #line 593
       if (tmp___10) {
@@ -54787,7 +54787,7 @@ static int fc_rport_login_complete(struct fc_rport_priv *rdata , struct fc_frame
 #line 633
         __cil_tmp27 = (long )__cil_tmp26;
 #line 633
-        tmp___9 = __builtin_expect(__cil_tmp27, 0L);
+        tmp___9 = ldv__builtin_expect(__cil_tmp27, 0L);
         }
 #line 633
         if (tmp___9) {
@@ -55033,7 +55033,7 @@ static void fc_rport_flogi_resp(struct fc_seq *sp , struct fc_frame *fp , void *
 #line 665
     __cil_tmp25 = (long )__cil_tmp24;
 #line 665
-    tmp___8 = __builtin_expect(__cil_tmp25, 0L);
+    tmp___8 = ldv__builtin_expect(__cil_tmp25, 0L);
     }
 #line 665
     if (tmp___8) {
@@ -55135,7 +55135,7 @@ static void fc_rport_flogi_resp(struct fc_seq *sp , struct fc_frame *fp , void *
 #line 673
       __cil_tmp49 = (long )__cil_tmp48;
 #line 673
-      tmp___11 = __builtin_expect(__cil_tmp49, 0L);
+      tmp___11 = ldv__builtin_expect(__cil_tmp49, 0L);
       }
 #line 673
       if (tmp___11) {
@@ -55381,7 +55381,7 @@ static void fc_rport_flogi_resp(struct fc_seq *sp , struct fc_frame *fp , void *
 #line 709
     __cil_tmp97 = (long )__cil_tmp96;
 #line 709
-    tmp___18 = __builtin_expect(__cil_tmp97, 0L);
+    tmp___18 = ldv__builtin_expect(__cil_tmp97, 0L);
     }
 #line 709
     if (tmp___18) {
@@ -55514,7 +55514,7 @@ static void fc_rport_enter_flogi(struct fc_rport_priv *rdata )
 #line 729
     __cil_tmp13 = (long )__cil_tmp12;
 #line 729
-    tmp___8 = __builtin_expect(__cil_tmp13, 0L);
+    tmp___8 = ldv__builtin_expect(__cil_tmp13, 0L);
     }
 #line 729
     if (tmp___8) {
@@ -55777,7 +55777,7 @@ static void fc_rport_recv_flogi_req(struct fc_lport *lport , struct fc_frame *rx
 #line 763
     __cil_tmp21 = (long )__cil_tmp20;
 #line 763
-    tmp___7 = __builtin_expect(__cil_tmp21, 0L);
+    tmp___7 = ldv__builtin_expect(__cil_tmp21, 0L);
     }
 #line 763
     if (tmp___7) {
@@ -55925,7 +55925,7 @@ static void fc_rport_recv_flogi_req(struct fc_lport *lport , struct fc_frame *rx
 #line 789
     __cil_tmp52 = (long )__cil_tmp51;
 #line 789
-    tmp___10 = __builtin_expect(__cil_tmp52, 0L);
+    tmp___10 = ldv__builtin_expect(__cil_tmp52, 0L);
     }
 #line 789
     if (tmp___10) {
@@ -56396,7 +56396,7 @@ static void fc_rport_plogi_resp(struct fc_seq *sp , struct fc_frame *fp , void *
 #line 887
     __cil_tmp30 = (long )__cil_tmp29;
 #line 887
-    tmp___8 = __builtin_expect(__cil_tmp30, 0L);
+    tmp___8 = ldv__builtin_expect(__cil_tmp30, 0L);
     }
 #line 887
     if (tmp___8) {
@@ -56471,7 +56471,7 @@ static void fc_rport_plogi_resp(struct fc_seq *sp , struct fc_frame *fp , void *
 #line 890
       __cil_tmp49 = (long )__cil_tmp48;
 #line 890
-      tmp___10 = __builtin_expect(__cil_tmp49, 0L);
+      tmp___10 = ldv__builtin_expect(__cil_tmp49, 0L);
       }
 #line 890
       if (tmp___10) {
@@ -56851,7 +56851,7 @@ static void fc_rport_enter_plogi(struct fc_rport_priv *rdata )
 #line 942
     __cil_tmp13 = (long )__cil_tmp12;
 #line 942
-    tmp___8 = __builtin_expect(__cil_tmp13, 0L);
+    tmp___8 = ldv__builtin_expect(__cil_tmp13, 0L);
     }
 #line 942
     if (tmp___8) {
@@ -56931,7 +56931,7 @@ static void fc_rport_enter_plogi(struct fc_rport_priv *rdata )
 #line 950
       __cil_tmp31 = (long )__cil_tmp30;
 #line 950
-      tmp___9 = __builtin_expect(__cil_tmp31, 0L);
+      tmp___9 = ldv__builtin_expect(__cil_tmp31, 0L);
       }
 #line 950
       if (tmp___9) {
@@ -57260,7 +57260,7 @@ static void fc_rport_prli_resp(struct fc_seq *sp , struct fc_frame *fp , void *r
 #line 991
     __cil_tmp30 = (long )__cil_tmp29;
 #line 991
-    tmp___8 = __builtin_expect(__cil_tmp30, 0L);
+    tmp___8 = ldv__builtin_expect(__cil_tmp30, 0L);
     }
 #line 991
     if (tmp___8) {
@@ -57335,7 +57335,7 @@ static void fc_rport_prli_resp(struct fc_seq *sp , struct fc_frame *fp , void *r
 #line 994
       __cil_tmp49 = (long )__cil_tmp48;
 #line 994
-      tmp___10 = __builtin_expect(__cil_tmp49, 0L);
+      tmp___10 = ldv__builtin_expect(__cil_tmp49, 0L);
       }
 #line 994
       if (tmp___10) {
@@ -57483,7 +57483,7 @@ static void fc_rport_prli_resp(struct fc_seq *sp , struct fc_frame *fp , void *r
 #line 1016
       __cil_tmp78 = (long )__cil_tmp77;
 #line 1016
-      tmp___14 = __builtin_expect(__cil_tmp78, 0L);
+      tmp___14 = ldv__builtin_expect(__cil_tmp78, 0L);
       }
 #line 1016
       if (tmp___14) {
@@ -57744,7 +57744,7 @@ static void fc_rport_prli_resp(struct fc_seq *sp , struct fc_frame *fp , void *r
 #line 1052
       __cil_tmp147 = (long )__cil_tmp146;
 #line 1052
-      tmp___16 = __builtin_expect(__cil_tmp147, 0L);
+      tmp___16 = ldv__builtin_expect(__cil_tmp147, 0L);
       }
 #line 1052
       if (tmp___16) {
@@ -57957,7 +57957,7 @@ static void fc_rport_enter_prli(struct fc_rport_priv *rdata )
 #line 1089
     __cil_tmp19 = (long )__cil_tmp18;
 #line 1089
-    tmp___8 = __builtin_expect(__cil_tmp19, 0L);
+    tmp___8 = ldv__builtin_expect(__cil_tmp19, 0L);
     }
 #line 1089
     if (tmp___8) {
@@ -58281,7 +58281,7 @@ static void fc_rport_rtv_resp(struct fc_seq *sp , struct fc_frame *fp , void *rd
 #line 1139
     __cil_tmp27 = (long )__cil_tmp26;
 #line 1139
-    tmp___8 = __builtin_expect(__cil_tmp27, 0L);
+    tmp___8 = ldv__builtin_expect(__cil_tmp27, 0L);
     }
 #line 1139
     if (tmp___8) {
@@ -58356,7 +58356,7 @@ static void fc_rport_rtv_resp(struct fc_seq *sp , struct fc_frame *fp , void *rd
 #line 1142
       __cil_tmp46 = (long )__cil_tmp45;
 #line 1142
-      tmp___10 = __builtin_expect(__cil_tmp46, 0L);
+      tmp___10 = ldv__builtin_expect(__cil_tmp46, 0L);
       }
 #line 1142
       if (tmp___10) {
@@ -58647,7 +58647,7 @@ static void fc_rport_enter_rtv(struct fc_rport_priv *rdata )
 #line 1197
     __cil_tmp12 = (long )__cil_tmp11;
 #line 1197
-    tmp___8 = __builtin_expect(__cil_tmp12, 0L);
+    tmp___8 = ldv__builtin_expect(__cil_tmp12, 0L);
     }
 #line 1197
     if (tmp___8) {
@@ -58824,7 +58824,7 @@ static void fc_rport_logo_resp(struct fc_seq *sp , struct fc_frame *fp , void *l
 #line 1227
     __cil_tmp14 = (long )__cil_tmp13;
 #line 1227
-    tmp___8 = __builtin_expect(__cil_tmp14, 0L);
+    tmp___8 = ldv__builtin_expect(__cil_tmp14, 0L);
     }
 #line 1227
     if (tmp___8) {
@@ -58961,7 +58961,7 @@ static void fc_rport_enter_logo(struct fc_rport_priv *rdata )
 #line 1246
     __cil_tmp11 = (long )__cil_tmp10;
 #line 1246
-    tmp___8 = __builtin_expect(__cil_tmp11, 0L);
+    tmp___8 = ldv__builtin_expect(__cil_tmp11, 0L);
     }
 #line 1246
     if (tmp___8) {
@@ -59206,7 +59206,7 @@ static void fc_rport_adisc_resp(struct fc_seq *sp , struct fc_frame *fp , void *
 #line 1275
     __cil_tmp26 = (long )__cil_tmp25;
 #line 1275
-    tmp___7 = __builtin_expect(__cil_tmp26, 0L);
+    tmp___7 = ldv__builtin_expect(__cil_tmp26, 0L);
     }
 #line 1275
     if (tmp___7) {
@@ -59279,7 +59279,7 @@ static void fc_rport_adisc_resp(struct fc_seq *sp , struct fc_frame *fp , void *
 #line 1278
       __cil_tmp45 = (long )__cil_tmp44;
 #line 1278
-      tmp___9 = __builtin_expect(__cil_tmp45, 0L);
+      tmp___9 = ldv__builtin_expect(__cil_tmp45, 0L);
       }
 #line 1278
       if (tmp___9) {
@@ -59482,7 +59482,7 @@ static void fc_rport_adisc_resp(struct fc_seq *sp , struct fc_frame *fp , void *
 #line 1301
             __cil_tmp90 = (long )__cil_tmp89;
 #line 1301
-            tmp___13 = __builtin_expect(__cil_tmp90, 0L);
+            tmp___13 = ldv__builtin_expect(__cil_tmp90, 0L);
             }
 #line 1301
             if (tmp___13) {
@@ -59549,7 +59549,7 @@ static void fc_rport_adisc_resp(struct fc_seq *sp , struct fc_frame *fp , void *
 #line 1304
             __cil_tmp105 = (long )__cil_tmp104;
 #line 1304
-            tmp___14 = __builtin_expect(__cil_tmp105, 0L);
+            tmp___14 = ldv__builtin_expect(__cil_tmp105, 0L);
             }
 #line 1304
             if (tmp___14) {
@@ -59708,7 +59708,7 @@ static void fc_rport_enter_adisc(struct fc_rport_priv *rdata )
 #line 1326
     __cil_tmp12 = (long )__cil_tmp11;
 #line 1326
-    tmp___8 = __builtin_expect(__cil_tmp12, 0L);
+    tmp___8 = ldv__builtin_expect(__cil_tmp12, 0L);
     }
 #line 1326
     if (tmp___8) {
@@ -59895,7 +59895,7 @@ static void fc_rport_recv_adisc_req(struct fc_rport_priv *rdata , struct fc_fram
 #line 1359
     __cil_tmp15 = (long )__cil_tmp14;
 #line 1359
-    tmp___7 = __builtin_expect(__cil_tmp15, 0L);
+    tmp___7 = ldv__builtin_expect(__cil_tmp15, 0L);
     }
 #line 1359
     if (tmp___7) {
@@ -60143,7 +60143,7 @@ static void fc_rport_recv_rls_req(struct fc_rport_priv *rdata , struct fc_frame 
 #line 1401
     __cil_tmp25 = (long )__cil_tmp24;
 #line 1401
-    tmp___8 = __builtin_expect(__cil_tmp25, 0L);
+    tmp___8 = ldv__builtin_expect(__cil_tmp25, 0L);
     }
 #line 1401
     if (tmp___8) {
@@ -61135,7 +61135,7 @@ static void fc_rport_recv_plogi_req(struct fc_lport *lport , struct fc_frame *rx
 #line 1580
     __cil_tmp25 = (long )__cil_tmp24;
 #line 1580
-    tmp___7 = __builtin_expect(__cil_tmp25, 0L);
+    tmp___7 = ldv__builtin_expect(__cil_tmp25, 0L);
     }
 #line 1580
     if (tmp___7) {
@@ -61196,7 +61196,7 @@ static void fc_rport_recv_plogi_req(struct fc_lport *lport , struct fc_frame *rx
 #line 1584
       __cil_tmp36 = (long )__cil_tmp35;
 #line 1584
-      tmp___9 = __builtin_expect(__cil_tmp36, 0L);
+      tmp___9 = ldv__builtin_expect(__cil_tmp36, 0L);
       }
 #line 1584
       if (tmp___9) {
@@ -61415,7 +61415,7 @@ static void fc_rport_recv_plogi_req(struct fc_lport *lport , struct fc_frame *rx
 #line 1619
       __cil_tmp84 = (long )__cil_tmp83;
 #line 1619
-      tmp___10 = __builtin_expect(__cil_tmp84, 0L);
+      tmp___10 = ldv__builtin_expect(__cil_tmp84, 0L);
       }
 #line 1619
       if (tmp___10) {
@@ -61480,7 +61480,7 @@ static void fc_rport_recv_plogi_req(struct fc_lport *lport , struct fc_frame *rx
 #line 1622
       __cil_tmp99 = (long )__cil_tmp98;
 #line 1622
-      tmp___11 = __builtin_expect(__cil_tmp99, 0L);
+      tmp___11 = ldv__builtin_expect(__cil_tmp99, 0L);
       }
 #line 1622
       if (tmp___11) {
@@ -61545,7 +61545,7 @@ static void fc_rport_recv_plogi_req(struct fc_lport *lport , struct fc_frame *rx
 #line 1625
       __cil_tmp114 = (long )__cil_tmp113;
 #line 1625
-      tmp___12 = __builtin_expect(__cil_tmp114, 0L);
+      tmp___12 = ldv__builtin_expect(__cil_tmp114, 0L);
       }
 #line 1625
       if (tmp___12) {
@@ -61654,7 +61654,7 @@ static void fc_rport_recv_plogi_req(struct fc_lport *lport , struct fc_frame *rx
 #line 1637
       __cil_tmp141 = (long )__cil_tmp140;
 #line 1637
-      tmp___13 = __builtin_expect(__cil_tmp141, 0L);
+      tmp___13 = ldv__builtin_expect(__cil_tmp141, 0L);
       }
 #line 1637
       if (tmp___13) {
@@ -61728,7 +61728,7 @@ static void fc_rport_recv_plogi_req(struct fc_lport *lport , struct fc_frame *rx
 #line 1643
       __cil_tmp160 = (long )__cil_tmp159;
 #line 1643
-      tmp___15 = __builtin_expect(__cil_tmp160, 0L);
+      tmp___15 = ldv__builtin_expect(__cil_tmp160, 0L);
       }
 #line 1643
       if (tmp___15) {
@@ -62048,7 +62048,7 @@ static void fc_rport_recv_prli_req(struct fc_rport_priv *rdata , struct fc_frame
 #line 1703
     __cil_tmp29 = (long )__cil_tmp28;
 #line 1703
-    tmp___8 = __builtin_expect(__cil_tmp29, 0L);
+    tmp___8 = ldv__builtin_expect(__cil_tmp29, 0L);
     }
 #line 1703
     if (tmp___8) {
@@ -62267,7 +62267,7 @@ static void fc_rport_recv_prli_req(struct fc_rport_priv *rdata , struct fc_frame
 #line 1728
   __cil_tmp70 = (long )__cil_tmp69;
 #line 1728
-  tmp___12 = __builtin_expect(__cil_tmp70, 0L);
+  tmp___12 = ldv__builtin_expect(__cil_tmp70, 0L);
   }
 #line 1728
   if (tmp___12) {
@@ -62289,7 +62289,7 @@ static void fc_rport_recv_prli_req(struct fc_rport_priv *rdata , struct fc_frame
 #line 1728
   __cil_tmp74 = (long )__cil_tmp73;
 #line 1728
-  __builtin_expect(__cil_tmp74, 0L);
+  ldv__builtin_expect(__cil_tmp74, 0L);
 #line 1729
   __cil_tmp75 = (void *)pp;
 #line 1729
@@ -62711,7 +62711,7 @@ static void fc_rport_recv_prlo_req(struct fc_rport_priv *rdata , struct fc_frame
 #line 1819
     __cil_tmp24 = (long )__cil_tmp23;
 #line 1819
-    tmp___8 = __builtin_expect(__cil_tmp24, 0L);
+    tmp___8 = ldv__builtin_expect(__cil_tmp24, 0L);
     }
 #line 1819
     if (tmp___8) {
@@ -62865,7 +62865,7 @@ static void fc_rport_recv_prlo_req(struct fc_rport_priv *rdata , struct fc_frame
 #line 1842
   __cil_tmp57 = (long )__cil_tmp56;
 #line 1842
-  tmp___12 = __builtin_expect(__cil_tmp57, 0L);
+  tmp___12 = ldv__builtin_expect(__cil_tmp57, 0L);
   }
 #line 1842
   if (tmp___12) {
@@ -62887,7 +62887,7 @@ static void fc_rport_recv_prlo_req(struct fc_rport_priv *rdata , struct fc_frame
 #line 1842
   __cil_tmp61 = (long )__cil_tmp60;
 #line 1842
-  __builtin_expect(__cil_tmp61, 0L);
+  ldv__builtin_expect(__cil_tmp61, 0L);
 #line 1843
   __cil_tmp62 = (void *)pp;
 #line 1843
@@ -63134,7 +63134,7 @@ static void fc_rport_recv_logo_req(struct fc_lport *lport , struct fc_frame *fp 
 #line 1888
       __cil_tmp33 = (long )__cil_tmp32;
 #line 1888
-      tmp___8 = __builtin_expect(__cil_tmp33, 0L);
+      tmp___8 = ldv__builtin_expect(__cil_tmp33, 0L);
       }
 #line 1888
       if (tmp___8) {
@@ -63213,7 +63213,7 @@ static void fc_rport_recv_logo_req(struct fc_lport *lport , struct fc_frame *fp 
 #line 1894
       __cil_tmp52 = (long )__cil_tmp51;
 #line 1894
-      tmp___9 = __builtin_expect(__cil_tmp52, 0L);
+      tmp___9 = ldv__builtin_expect(__cil_tmp52, 0L);
       }
 #line 1894
       if (tmp___9) {
@@ -64258,7 +64258,7 @@ __inline static void get_page(struct page *page )
 #line 396
   __cil_tmp12 = (long )tmp___3;
 #line 396
-  tmp___4 = __builtin_expect(__cil_tmp12, 0L);
+  tmp___4 = ldv__builtin_expect(__cil_tmp12, 0L);
   }
 #line 396
   if (tmp___4) {
@@ -64278,7 +64278,7 @@ __inline static void get_page(struct page *page )
 #line 397
     __cil_tmp13 = (long )tmp___0;
 #line 397
-    tmp___1 = __builtin_expect(__cil_tmp13, 1L);
+    tmp___1 = ldv__builtin_expect(__cil_tmp13, 1L);
     }
 #line 397
     if (tmp___1) {
@@ -64324,7 +64324,7 @@ __inline static void get_page(struct page *page )
 #line 403
     __cil_tmp21 = (long )tmp___6;
 #line 403
-    tmp___7 = __builtin_expect(__cil_tmp21, 0L);
+    tmp___7 = ldv__builtin_expect(__cil_tmp21, 0L);
     }
 #line 403
     if (tmp___7) {
@@ -66271,7 +66271,7 @@ __inline static struct fc_frame *fc_fcp_frame_alloc(struct fc_lport *lport , siz
 #line 420
   __cil_tmp7 = (long )__cil_tmp6;
 #line 420
-  tmp___7 = __builtin_expect(__cil_tmp7, 1L);
+  tmp___7 = ldv__builtin_expect(__cil_tmp7, 1L);
   }
 #line 420
   if (tmp___7) {
@@ -66696,7 +66696,7 @@ static void fc_fcp_recv_data(struct fc_fcp_pkt *fsp , struct fc_frame *fp )
 #line 464
       __cil_tmp57 = (long )__cil_tmp56;
 #line 464
-      tmp___8 = __builtin_expect(__cil_tmp57, 0L);
+      tmp___8 = ldv__builtin_expect(__cil_tmp57, 0L);
       }
 #line 464
       if (tmp___8) {
@@ -66916,7 +66916,7 @@ static void fc_fcp_recv_data(struct fc_fcp_pkt *fsp , struct fc_frame *fp )
 #line 473
       __cil_tmp128 = (long )__cil_tmp127;
 #line 473
-      tmp___10 = __builtin_expect(__cil_tmp128, 0L);
+      tmp___10 = ldv__builtin_expect(__cil_tmp128, 0L);
       }
 #line 473
       if (tmp___10) {
@@ -67577,7 +67577,7 @@ static void fc_fcp_recv_data(struct fc_fcp_pkt *fsp , struct fc_frame *fp )
 #line 530
   __cil_tmp302 = (long )__cil_tmp301;
 #line 530
-  tmp___14 = __builtin_expect(__cil_tmp302, 0L);
+  tmp___14 = ldv__builtin_expect(__cil_tmp302, 0L);
   }
 #line 530
   if (tmp___14) {
@@ -68098,7 +68098,7 @@ static int fc_fcp_send_data(struct fc_fcp_pkt *fsp , struct fc_seq *seq , size_t
 #line 572
   __cil_tmp69 = (long )__cil_tmp68;
 #line 572
-  tmp___7 = __builtin_expect(__cil_tmp69, 0L);
+  tmp___7 = ldv__builtin_expect(__cil_tmp69, 0L);
   }
 #line 572
   if (tmp___7) {
@@ -68120,7 +68120,7 @@ static int fc_fcp_send_data(struct fc_fcp_pkt *fsp , struct fc_seq *seq , size_t
 #line 572
   __cil_tmp73 = (long )__cil_tmp72;
 #line 572
-  __builtin_expect(__cil_tmp73, 0L);
+  ldv__builtin_expect(__cil_tmp73, 0L);
 #line 573
   __cil_tmp74 = (unsigned long )fsp;
 #line 573
@@ -68140,7 +68140,7 @@ static int fc_fcp_send_data(struct fc_fcp_pkt *fsp , struct fc_seq *seq , size_t
 #line 573
   __cil_tmp82 = (long )__cil_tmp81;
 #line 573
-  tmp___10 = __builtin_expect(__cil_tmp82, 0L);
+  tmp___10 = ldv__builtin_expect(__cil_tmp82, 0L);
   }
 #line 573
   if (tmp___10) {
@@ -68162,7 +68162,7 @@ static int fc_fcp_send_data(struct fc_fcp_pkt *fsp , struct fc_seq *seq , size_t
 #line 575
       __cil_tmp88 = (long )__cil_tmp87;
 #line 575
-      tmp___8 = __builtin_expect(__cil_tmp88, 0L);
+      tmp___8 = ldv__builtin_expect(__cil_tmp88, 0L);
       }
 #line 575
       if (tmp___8) {
@@ -68334,7 +68334,7 @@ static int fc_fcp_send_data(struct fc_fcp_pkt *fsp , struct fc_seq *seq , size_t
 #line 581
         __cil_tmp144 = (long )__cil_tmp143;
 #line 581
-        tmp___9 = __builtin_expect(__cil_tmp144, 0L);
+        tmp___9 = ldv__builtin_expect(__cil_tmp144, 0L);
         }
 #line 581
         if (tmp___9) {
@@ -68543,7 +68543,7 @@ static int fc_fcp_send_data(struct fc_fcp_pkt *fsp , struct fc_seq *seq , size_t
 #line 593
       __cil_tmp211 = (long )__cil_tmp210;
 #line 593
-      tmp___12 = __builtin_expect(__cil_tmp211, 0L);
+      tmp___12 = ldv__builtin_expect(__cil_tmp211, 0L);
       }
 #line 593
       if (tmp___12) {
@@ -68745,7 +68745,7 @@ static int fc_fcp_send_data(struct fc_fcp_pkt *fsp , struct fc_seq *seq , size_t
 #line 606
   __cil_tmp276 = (long )__cil_tmp275;
 #line 606
-  tmp___13 = __builtin_expect(__cil_tmp276, 0L);
+  tmp___13 = ldv__builtin_expect(__cil_tmp276, 0L);
   }
 #line 606
   if (tmp___13) {
@@ -68767,7 +68767,7 @@ static int fc_fcp_send_data(struct fc_fcp_pkt *fsp , struct fc_seq *seq , size_t
 #line 606
   __cil_tmp280 = (long )__cil_tmp279;
 #line 606
-  __builtin_expect(__cil_tmp280, 0L);
+  ldv__builtin_expect(__cil_tmp280, 0L);
 #line 608
   sg = scsi_sglist(sc);
   }
@@ -69281,7 +69281,7 @@ static int fc_fcp_send_data(struct fc_fcp_pkt *fsp , struct fc_seq *seq , size_t
 #line 684
       __cil_tmp425 = (long )__cil_tmp424;
 #line 684
-      tmp___22 = __builtin_expect(__cil_tmp425, 0L);
+      tmp___22 = ldv__builtin_expect(__cil_tmp425, 0L);
       }
 #line 684
       if (tmp___22) {
@@ -69303,7 +69303,7 @@ static int fc_fcp_send_data(struct fc_fcp_pkt *fsp , struct fc_seq *seq , size_t
 #line 684
       __cil_tmp429 = (long )__cil_tmp428;
 #line 684
-      __builtin_expect(__cil_tmp429, 0L);
+      ldv__builtin_expect(__cil_tmp429, 0L);
       }
 #line 685
       return (error);
@@ -69840,7 +69840,7 @@ static void fc_fcp_recv(struct fc_seq *seq , struct fc_frame *fp , void *arg )
 #line 777
     __cil_tmp61 = (long )__cil_tmp60;
 #line 777
-    tmp___9 = __builtin_expect(__cil_tmp61, 0L);
+    tmp___9 = ldv__builtin_expect(__cil_tmp61, 0L);
     }
 #line 777
     if (tmp___9) {
@@ -69862,7 +69862,7 @@ static void fc_fcp_recv(struct fc_seq *seq , struct fc_frame *fp , void *arg )
 #line 777
     __cil_tmp65 = (long )__cil_tmp64;
 #line 777
-    __builtin_expect(__cil_tmp65, 0L);
+    ldv__builtin_expect(__cil_tmp65, 0L);
 #line 778
     __cil_tmp66 = (struct fc_frame    *)fp;
 #line 778
@@ -69882,7 +69882,7 @@ static void fc_fcp_recv(struct fc_seq *seq , struct fc_frame *fp , void *arg )
 #line 779
     __cil_tmp71 = (long )__cil_tmp70;
 #line 779
-    tmp___11 = __builtin_expect(__cil_tmp71, 0L);
+    tmp___11 = ldv__builtin_expect(__cil_tmp71, 0L);
     }
 #line 779
     if (tmp___11) {
@@ -69904,7 +69904,7 @@ static void fc_fcp_recv(struct fc_seq *seq , struct fc_frame *fp , void *arg )
 #line 779
     __cil_tmp75 = (long )__cil_tmp74;
 #line 779
-    __builtin_expect(__cil_tmp75, 0L);
+    ldv__builtin_expect(__cil_tmp75, 0L);
 #line 781
     __cil_tmp76 = (unsigned long )dd;
 #line 781
@@ -69971,7 +69971,7 @@ static void fc_fcp_recv(struct fc_seq *seq , struct fc_frame *fp , void *arg )
 #line 791
       __cil_tmp97 = (long )__cil_tmp96;
 #line 791
-      tmp___14 = __builtin_expect(__cil_tmp97, 0L);
+      tmp___14 = ldv__builtin_expect(__cil_tmp97, 0L);
       }
 #line 791
       if (tmp___14) {
@@ -69993,7 +69993,7 @@ static void fc_fcp_recv(struct fc_seq *seq , struct fc_frame *fp , void *arg )
 #line 791
       __cil_tmp101 = (long )__cil_tmp100;
 #line 791
-      __builtin_expect(__cil_tmp101, 0L);
+      ldv__builtin_expect(__cil_tmp101, 0L);
 #line 792
       fc_fcp_recv_data(fsp, fp);
 #line 793
@@ -70049,7 +70049,7 @@ static void fc_fcp_recv(struct fc_seq *seq , struct fc_frame *fp , void *arg )
 #line 795
         __cil_tmp122 = (long )__cil_tmp121;
 #line 795
-        tmp___15 = __builtin_expect(__cil_tmp122, 0L);
+        tmp___15 = ldv__builtin_expect(__cil_tmp122, 0L);
         }
 #line 795
         if (tmp___15) {
@@ -70071,7 +70071,7 @@ static void fc_fcp_recv(struct fc_seq *seq , struct fc_frame *fp , void *arg )
 #line 795
         __cil_tmp126 = (long )__cil_tmp125;
 #line 795
-        __builtin_expect(__cil_tmp126, 0L);
+        ldv__builtin_expect(__cil_tmp126, 0L);
 #line 797
         fc_fcp_resp(fsp, fp);
         }
@@ -70094,7 +70094,7 @@ static void fc_fcp_recv(struct fc_seq *seq , struct fc_frame *fp , void *arg )
 #line 799
           __cil_tmp132 = (long )__cil_tmp131;
 #line 799
-          tmp___16 = __builtin_expect(__cil_tmp132, 0L);
+          tmp___16 = ldv__builtin_expect(__cil_tmp132, 0L);
           }
 #line 799
           if (tmp___16) {
@@ -70581,7 +70581,7 @@ static void fc_fcp_resp(struct fc_fcp_pkt *fsp , struct fc_frame *fp )
 #line 826
   __cil_tmp40 = (long )__cil_tmp39;
 #line 826
-  tmp___7 = __builtin_expect(__cil_tmp40, 0L);
+  tmp___7 = ldv__builtin_expect(__cil_tmp40, 0L);
   }
 #line 826
   if (tmp___7) {
@@ -70660,7 +70660,7 @@ static void fc_fcp_resp(struct fc_fcp_pkt *fsp , struct fc_frame *fp )
 #line 838
   __cil_tmp57 = (long )tmp___12;
 #line 838
-  tmp___13 = __builtin_expect(__cil_tmp57, 0L);
+  tmp___13 = ldv__builtin_expect(__cil_tmp57, 0L);
   }
 #line 838
   if (tmp___13) {
@@ -70975,7 +70975,7 @@ static void fc_fcp_resp(struct fc_fcp_pkt *fsp , struct fc_frame *fp )
 #line 896
   __cil_tmp138 = (long )__cil_tmp137;
 #line 896
-  tmp___15 = __builtin_expect(__cil_tmp138, 0L);
+  tmp___15 = ldv__builtin_expect(__cil_tmp138, 0L);
   }
 #line 896
   if (tmp___15) {
@@ -71024,7 +71024,7 @@ static void fc_fcp_resp(struct fc_fcp_pkt *fsp , struct fc_frame *fp )
 #line 907
       __cil_tmp150 = (long )__cil_tmp149;
 #line 907
-      tmp___14 = __builtin_expect(__cil_tmp150, 0L);
+      tmp___14 = ldv__builtin_expect(__cil_tmp150, 0L);
       }
 #line 907
       if (tmp___14) {
@@ -71239,7 +71239,7 @@ static void fc_fcp_resp(struct fc_fcp_pkt *fsp , struct fc_frame *fp )
 #line 916
     __cil_tmp227 = (long )__cil_tmp226;
 #line 916
-    tmp___16 = __builtin_expect(__cil_tmp227, 0L);
+    tmp___16 = ldv__builtin_expect(__cil_tmp227, 0L);
     }
 #line 916
     if (tmp___16) {
@@ -71724,7 +71724,7 @@ static void fc_fcp_complete_locked(struct fc_fcp_pkt *fsp )
 #line 960
     __cil_tmp73 = (long )__cil_tmp72;
 #line 960
-    tmp___7 = __builtin_expect(__cil_tmp73, 0L);
+    tmp___7 = ldv__builtin_expect(__cil_tmp73, 0L);
     }
 #line 960
     if (tmp___7) {
@@ -72544,7 +72544,7 @@ static int fc_fcp_pkt_send(struct fc_lport *lport , struct fc_fcp_pkt *fsp )
 #line 1084
   __cil_tmp85 = (long )__cil_tmp84;
 #line 1084
-  tmp___10 = __builtin_expect(__cil_tmp85, 0L);
+  tmp___10 = ldv__builtin_expect(__cil_tmp85, 0L);
   }
 #line 1084
   if (tmp___10) {
@@ -73250,7 +73250,7 @@ static int fc_fcp_pkt_abort(struct fc_fcp_pkt *fsp )
 #line 1214
       __cil_tmp28 = (long )__cil_tmp27;
 #line 1214
-      tmp___8 = __builtin_expect(__cil_tmp28, 0L);
+      tmp___8 = ldv__builtin_expect(__cil_tmp28, 0L);
       }
 #line 1214
       if (tmp___8) {
@@ -73419,7 +73419,7 @@ static int fc_fcp_pkt_abort(struct fc_fcp_pkt *fsp )
 #line 1216
         __cil_tmp86 = (long )__cil_tmp85;
 #line 1216
-        tmp___9 = __builtin_expect(__cil_tmp86, 0L);
+        tmp___9 = ldv__builtin_expect(__cil_tmp86, 0L);
         }
 #line 1216
         if (tmp___9) {
@@ -73953,7 +73953,7 @@ static int fc_lun_reset(struct fc_lport *lport , struct fc_fcp_pkt *fsp , unsign
 #line 1287
       __cil_tmp65 = (long )__cil_tmp64;
 #line 1287
-      tmp___9 = __builtin_expect(__cil_tmp65, 0L);
+      tmp___9 = ldv__builtin_expect(__cil_tmp65, 0L);
       }
 #line 1287
       if (tmp___9) {
@@ -74026,7 +74026,7 @@ static int fc_lun_reset(struct fc_lport *lport , struct fc_fcp_pkt *fsp , unsign
 #line 1295
     __cil_tmp79 = (long )__cil_tmp78;
 #line 1295
-    tmp___10 = __builtin_expect(__cil_tmp79, 0L);
+    tmp___10 = ldv__builtin_expect(__cil_tmp79, 0L);
     }
 #line 1295
     if (tmp___10) {
@@ -75060,7 +75060,7 @@ static void fc_fcp_rec_resp(struct fc_seq *seq , struct fc_frame *fp , void *arg
 #line 1465
           __cil_tmp40 = (long )__cil_tmp39;
 #line 1465
-          tmp___10 = __builtin_expect(__cil_tmp40, 0L);
+          tmp___10 = ldv__builtin_expect(__cil_tmp40, 0L);
           }
 #line 1465
           if (tmp___10) {
@@ -75273,7 +75273,7 @@ static void fc_fcp_rec_resp(struct fc_seq *seq , struct fc_frame *fp , void *arg
 #line 1471
           __cil_tmp121 = (long )__cil_tmp120;
 #line 1471
-          tmp___11 = __builtin_expect(__cil_tmp121, 0L);
+          tmp___11 = ldv__builtin_expect(__cil_tmp121, 0L);
           }
 #line 1471
           if (tmp___11) {
@@ -75926,7 +75926,7 @@ static void fc_fcp_rec_error(struct fc_fcp_pkt *fsp , struct fc_frame *fp )
 #line 1591
         __cil_tmp19 = (long )__cil_tmp18;
 #line 1591
-        tmp___9 = __builtin_expect(__cil_tmp19, 0L);
+        tmp___9 = ldv__builtin_expect(__cil_tmp19, 0L);
         }
 #line 1591
         if (tmp___9) {
@@ -76113,7 +76113,7 @@ static void fc_fcp_rec_error(struct fc_fcp_pkt *fsp , struct fc_frame *fp )
 #line 1601
         __cil_tmp86 = (long )__cil_tmp85;
 #line 1601
-        tmp___10 = __builtin_expect(__cil_tmp86, 0L);
+        tmp___10 = ldv__builtin_expect(__cil_tmp86, 0L);
         }
 #line 1601
         if (tmp___10) {
@@ -78785,7 +78785,7 @@ static void fc_io_compl(struct fc_fcp_pkt *fsp )
 #line 1923
         __cil_tmp100 = (long )__cil_tmp99;
 #line 1923
-        tmp___7 = __builtin_expect(__cil_tmp100, 0L);
+        tmp___7 = ldv__builtin_expect(__cil_tmp100, 0L);
         }
 #line 1923
         if (tmp___7) {
@@ -78995,7 +78995,7 @@ static void fc_io_compl(struct fc_fcp_pkt *fsp )
 #line 1936
               __cil_tmp172 = (long )__cil_tmp171;
 #line 1936
-              tmp___8 = __builtin_expect(__cil_tmp172, 0L);
+              tmp___8 = ldv__builtin_expect(__cil_tmp172, 0L);
               }
 #line 1936
               if (tmp___8) {
@@ -79165,7 +79165,7 @@ static void fc_io_compl(struct fc_fcp_pkt *fsp )
 #line 1944
           __cil_tmp227 = (long )__cil_tmp226;
 #line 1944
-          tmp___9 = __builtin_expect(__cil_tmp227, 0L);
+          tmp___9 = ldv__builtin_expect(__cil_tmp227, 0L);
           }
 #line 1944
           if (tmp___9) {
@@ -79355,7 +79355,7 @@ static void fc_io_compl(struct fc_fcp_pkt *fsp )
 #line 1954
         __cil_tmp293 = (long )__cil_tmp292;
 #line 1954
-        tmp___10 = __builtin_expect(__cil_tmp293, 0L);
+        tmp___10 = ldv__builtin_expect(__cil_tmp293, 0L);
         }
 #line 1954
         if (tmp___10) {
@@ -79529,7 +79529,7 @@ static void fc_io_compl(struct fc_fcp_pkt *fsp )
 #line 1959
         __cil_tmp353 = (long )__cil_tmp352;
 #line 1959
-        tmp___11 = __builtin_expect(__cil_tmp353, 0L);
+        tmp___11 = ldv__builtin_expect(__cil_tmp353, 0L);
         }
 #line 1959
         if (tmp___11) {
@@ -79705,7 +79705,7 @@ static void fc_io_compl(struct fc_fcp_pkt *fsp )
 #line 1964
         __cil_tmp414 = (long )__cil_tmp413;
 #line 1964
-        tmp___12 = __builtin_expect(__cil_tmp414, 0L);
+        tmp___12 = ldv__builtin_expect(__cil_tmp414, 0L);
         }
 #line 1964
         if (tmp___12) {
@@ -79869,7 +79869,7 @@ static void fc_io_compl(struct fc_fcp_pkt *fsp )
 #line 1969
         __cil_tmp469 = (long )__cil_tmp468;
 #line 1969
-        tmp___13 = __builtin_expect(__cil_tmp469, 0L);
+        tmp___13 = ldv__builtin_expect(__cil_tmp469, 0L);
         }
 #line 1969
         if (tmp___13) {
@@ -80033,7 +80033,7 @@ static void fc_io_compl(struct fc_fcp_pkt *fsp )
 #line 1974
         __cil_tmp524 = (long )__cil_tmp523;
 #line 1974
-        tmp___14 = __builtin_expect(__cil_tmp524, 0L);
+        tmp___14 = ldv__builtin_expect(__cil_tmp524, 0L);
         }
 #line 1974
         if (tmp___14) {
@@ -80197,7 +80197,7 @@ static void fc_io_compl(struct fc_fcp_pkt *fsp )
 #line 1979
         __cil_tmp579 = (long )__cil_tmp578;
 #line 1979
-        tmp___15 = __builtin_expect(__cil_tmp579, 0L);
+        tmp___15 = ldv__builtin_expect(__cil_tmp579, 0L);
         }
 #line 1979
         if (tmp___15) {
@@ -80373,7 +80373,7 @@ static void fc_io_compl(struct fc_fcp_pkt *fsp )
 #line 1984
         __cil_tmp640 = (long )__cil_tmp639;
 #line 1984
-        tmp___16 = __builtin_expect(__cil_tmp640, 0L);
+        tmp___16 = ldv__builtin_expect(__cil_tmp640, 0L);
         }
 #line 1984
         if (tmp___16) {
@@ -81016,7 +81016,7 @@ int fc_eh_device_reset(struct scsi_cmnd *sc_cmd )
 #line 2080
     __cil_tmp45 = (long )__cil_tmp44;
 #line 2080
-    tmp___14 = __builtin_expect(__cil_tmp45, 0L);
+    tmp___14 = ldv__builtin_expect(__cil_tmp45, 0L);
     }
 #line 2080
     if (tmp___14) {
@@ -81203,7 +81203,7 @@ int fc_eh_host_reset(struct scsi_cmnd *sc_cmd )
 #line 2117
     __cil_tmp19 = (long )__cil_tmp18;
 #line 2117
-    tmp___8 = __builtin_expect(__cil_tmp19, 0L);
+    tmp___8 = ldv__builtin_expect(__cil_tmp19, 0L);
     }
 #line 2117
     if (tmp___8) {

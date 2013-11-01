@@ -4234,7 +4234,7 @@ struct hsu_port {
    struct dentry *debugfs ;
 };
 #line 1 "<compiler builtins>"
-long __builtin_expect(long val , long res ) ;
+long ldv__builtin_expect(long val , long res ) ;
 #line 100 "include/linux/printk.h"
 extern int ( /* format attribute */  printk)(char const   *fmt  , ...) ;
 #line 320 "include/linux/kernel.h"
@@ -4450,7 +4450,7 @@ __inline static int __atomic_add_unless(atomic_t *v , int a , int u )
 #line 233
     __cil_tmp12 = (long )__cil_tmp11;
 #line 233
-    tmp = __builtin_expect(__cil_tmp12, 0L);
+    tmp = ldv__builtin_expect(__cil_tmp12, 0L);
     }
 #line 233
     if (tmp) {
@@ -4473,7 +4473,7 @@ __inline static int __atomic_add_unless(atomic_t *v , int a , int u )
 #line 236
     __cil_tmp17 = (long )__cil_tmp16;
 #line 236
-    tmp___0 = __builtin_expect(__cil_tmp17, 1L);
+    tmp___0 = ldv__builtin_expect(__cil_tmp17, 1L);
     }
 #line 236
     if (tmp___0) {
@@ -4971,7 +4971,7 @@ __inline static struct dma_map_ops *get_dma_ops(struct device *dev )
 #line 36
   __cil_tmp6 = (long )__cil_tmp5;
 #line 36
-  tmp___7 = __builtin_expect(__cil_tmp6, 0L);
+  tmp___7 = ldv__builtin_expect(__cil_tmp6, 0L);
   }
 #line 36
   if (tmp___7) {
@@ -5084,7 +5084,7 @@ __inline static dma_addr_t dma_map_single_attrs(struct device *dev , void *ptr ,
 #line 19
     __cil_tmp16 = (long )tmp___9;
 #line 19
-    tmp___10 = __builtin_expect(__cil_tmp16, 0L);
+    tmp___10 = ldv__builtin_expect(__cil_tmp16, 0L);
     }
 #line 19
     if (tmp___10) {
@@ -5234,7 +5234,7 @@ __inline static void dma_sync_single_for_cpu(struct device *dev , dma_addr_t add
 #line 103
     __cil_tmp11 = (long )tmp___9;
 #line 103
-    tmp___10 = __builtin_expect(__cil_tmp11, 0L);
+    tmp___10 = ldv__builtin_expect(__cil_tmp11, 0L);
     }
 #line 103
     if (tmp___10) {
@@ -5351,7 +5351,7 @@ __inline static void dma_sync_single_for_device(struct device *dev , dma_addr_t 
 #line 115
     __cil_tmp11 = (long )tmp___9;
 #line 115
-    tmp___10 = __builtin_expect(__cil_tmp11, 0L);
+    tmp___10 = ldv__builtin_expect(__cil_tmp11, 0L);
     }
 #line 115
     if (tmp___10) {
@@ -8571,7 +8571,7 @@ __inline static void receive_chars(struct uart_hsu_port *up___0 , int *status )
 #line 475
     __cil_tmp28 = (long )__cil_tmp27;
 #line 475
-    tmp___8 = __builtin_expect(__cil_tmp28, 0L);
+    tmp___8 = ldv__builtin_expect(__cil_tmp28, 0L);
     }
 #line 475
     if (tmp___8) {
@@ -9432,7 +9432,7 @@ static irqreturn_t port_irq(int irq , void *dev_id )
 #line 595
   __cil_tmp18 = (long )__cil_tmp17;
 #line 595
-  tmp___7 = __builtin_expect(__cil_tmp18, 0L);
+  tmp___7 = ldv__builtin_expect(__cil_tmp18, 0L);
   }
 #line 595
   if (tmp___7) {
@@ -9492,7 +9492,7 @@ static irqreturn_t port_irq(int irq , void *dev_id )
 #line 601
     __cil_tmp28 = (long )__cil_tmp27;
 #line 601
-    tmp___9 = __builtin_expect(__cil_tmp28, 0L);
+    tmp___9 = ldv__builtin_expect(__cil_tmp28, 0L);
     }
 #line 601
     if (tmp___9) {
@@ -13984,7 +13984,7 @@ void ldv_check_final_state(void)
 }
 }
 #line 4079 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/16491/dscv_tempdir/dscv/ri/32_1/drivers/tty/serial/mfd.c.common.c"
-long __builtin_expect(long val , long res ) 
+long ldv__builtin_expect(long val , long res ) 
 { 
 
   {

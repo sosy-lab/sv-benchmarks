@@ -7265,7 +7265,7 @@ void *__builtin_memcpy(void * , void const   * , unsigned long  ) ;
 #line 1
 unsigned long __builtin_object_size(void * , int  ) ;
 #line 1
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 #line 62 "/home/mikhail/launches/cpachecker-regression2/launcher-working-dir/ldv-manager-work-dir/inst/current/envs/linux-3.8-rc1/linux-3.8-rc1/arch/x86/include/asm/bitops.h"
 __inline static void set_bit(unsigned int nr , unsigned long volatile   *addr ) 
 { 
@@ -7768,14 +7768,14 @@ __inline static unsigned long copy_from_user(void *to , void const   *from , uns
 #line 61
   might_fault();
 #line 62
-  tmp___1 = __builtin_expect(sz == -1, 1L);
+  tmp___1 = ldv__builtin_expect(sz == -1, 1L);
 #line 62
   if (tmp___1 != 0L) {
 #line 63
     n = _copy_from_user(to, from, (unsigned int )n);
   } else {
 #line 62
-    tmp___2 = __builtin_expect((unsigned long )sz >= n, 1L);
+    tmp___2 = ldv__builtin_expect((unsigned long )sz >= n, 1L);
 #line 62
     if (tmp___2 != 0L) {
 #line 63
@@ -7784,7 +7784,7 @@ __inline static unsigned long copy_from_user(void *to , void const   *from , uns
 #line 66
       __ret_warn_on = 1;
 #line 66
-      tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+      tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 66
       if (tmp___0 != 0L) {
 #line 66
@@ -7794,7 +7794,7 @@ __inline static unsigned long copy_from_user(void *to , void const   *from , uns
 
       }
 #line 66
-      __builtin_expect(__ret_warn_on != 0, 0L);
+      ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
   }
 #line 68
@@ -7852,7 +7852,7 @@ __inline static struct dst_entry *skb_dst(struct sk_buff  const  *skb )
 #line 545
   __ret_warn_on = tmp___1;
 #line 545
-  tmp___2 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___2 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 545
   if (tmp___2 != 0L) {
 #line 545
@@ -7861,7 +7861,7 @@ __inline static struct dst_entry *skb_dst(struct sk_buff  const  *skb )
 
   }
 #line 545
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 548
   return ((struct dst_entry *)((unsigned long )skb->_skb_refdst & 0xfffffffffffffffeUL));
 }
@@ -8119,7 +8119,7 @@ __inline static void netif_tx_stop_queue(struct netdev_queue *dev_queue )
 #line 1880
   __ret_warn_on = (unsigned long )dev_queue == (unsigned long )((struct netdev_queue *)0);
 #line 1880
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 1880
   if (tmp != 0L) {
 #line 1880
@@ -8128,7 +8128,7 @@ __inline static void netif_tx_stop_queue(struct netdev_queue *dev_queue )
 
   }
 #line 1880
-  tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 1880
   if (tmp___0 != 0L) {
 #line 1881
@@ -14347,7 +14347,7 @@ __inline static long IS_ERR(void const   *ptr )
 
   {
 #line 34
-  tmp = __builtin_expect((unsigned long )ptr > 0xfffffffffffff000UL, 0L);
+  tmp = ldv__builtin_expect((unsigned long )ptr > 0xfffffffffffff000UL, 0L);
 #line 34
   return (tmp);
 }
@@ -26448,7 +26448,7 @@ static int isdn_ioctl(struct file *file , uint cmd , ulong arg )
       __asm__  ("add %3,%1 ; sbb %0,%0 ; cmp %1,%4 ; sbb $0,%0": "=&r" (flag), "=r" (roksum): "1" (p___0),
                 "g" (1024L), "rm" (tmp___0->addr_limit.seg));
 #line 1360
-      tmp___1 = __builtin_expect(flag == 0UL, 1L);
+      tmp___1 = ldv__builtin_expect(flag == 0UL, 1L);
 #line 1360
       if (tmp___1 == 0L) {
 #line 1362
@@ -27139,7 +27139,7 @@ static int isdn_ioctl(struct file *file , uint cmd , ulong arg )
       __asm__  ("add %3,%1 ; sbb %0,%0 ; cmp %1,%4 ; sbb $0,%0": "=&r" (flag___0),
                 "=r" (roksum___0): "1" (argp), "g" (19904L), "rm" (tmp___39->addr_limit.seg));
 #line 1596
-      tmp___40 = __builtin_expect(flag___0 == 0UL, 1L);
+      tmp___40 = ldv__builtin_expect(flag___0 == 0UL, 1L);
 #line 1596
       if (tmp___40 == 0L) {
 #line 1599
@@ -27216,7 +27216,7 @@ static int isdn_ioctl(struct file *file , uint cmd , ulong arg )
       __asm__  ("add %3,%1 ; sbb %0,%0 ; cmp %1,%4 ; sbb $0,%0": "=&r" (flag___1),
                 "=r" (roksum___1): "1" (argp), "g" (19904L), "rm" (tmp___44->addr_limit.seg));
 #line 1623
-      tmp___45 = __builtin_expect(flag___1 == 0UL, 1L);
+      tmp___45 = ldv__builtin_expect(flag___1 == 0UL, 1L);
 #line 1623
       if (tmp___45 == 0L) {
 #line 1626
@@ -27361,7 +27361,7 @@ static int isdn_ioctl(struct file *file , uint cmd , ulong arg )
         __asm__  ("add %3,%1 ; sbb %0,%0 ; cmp %1,%4 ; sbb $0,%0": "=&r" (flag___2),
                   "=r" (roksum___2): "1" (p), "g" (1L), "rm" (tmp___52->addr_limit.seg));
 #line 1673
-        tmp___53 = __builtin_expect(flag___2 == 0UL, 1L);
+        tmp___53 = ldv__builtin_expect(flag___2 == 0UL, 1L);
 #line 1673
         if (tmp___53 == 0L) {
 #line 1674
@@ -27615,7 +27615,7 @@ static int isdn_ioctl(struct file *file , uint cmd , ulong arg )
       __asm__  ("add %3,%1 ; sbb %0,%0 ; cmp %1,%4 ; sbb $0,%0": "=&r" (flag___3),
                 "=r" (roksum___3): "1" (argp), "g" (40L), "rm" (tmp___67->addr_limit.seg));
 #line 1741
-      tmp___68 = __builtin_expect(flag___3 == 0UL, 1L);
+      tmp___68 = ldv__builtin_expect(flag___3 == 0UL, 1L);
 #line 1741
       if (tmp___68 == 0L) {
 #line 1743
@@ -31379,7 +31379,7 @@ int isdn_ppp_read(int min , struct file *file , char *buf , int count )
   __asm__  ("add %3,%1 ; sbb %0,%0 ; cmp %1,%4 ; sbb $0,%0": "=&r" (flag), "=r" (roksum): "1" (buf),
             "g" ((long )count), "rm" (tmp->addr_limit.seg));
 #line 824
-  tmp___0 = __builtin_expect(flag == 0UL, 1L);
+  tmp___0 = ldv__builtin_expect(flag == 0UL, 1L);
 #line 824
   if (tmp___0 == 0L) {
 #line 825
@@ -31763,7 +31763,7 @@ void isdn_ppp_receive(isdn_net_dev *net_dev , isdn_net_local *lp , struct sk_buf
 
   {
 #line 1030
-  tmp = __builtin_expect((unsigned long )(net_dev->local)->master != (unsigned long )((struct net_device *)0),
+  tmp = ldv__builtin_expect((unsigned long )(net_dev->local)->master != (unsigned long )((struct net_device *)0),
                          0L);
 #line 1030
   if (tmp != 0L) {
@@ -33552,7 +33552,7 @@ static int isdn_ppp_dev_ioctl_stats(int slot , struct ifreq *ifr , struct net_de
   __asm__  ("add %3,%1 ; sbb %0,%0 ; cmp %1,%4 ; sbb $0,%0": "=&r" (flag), "=r" (roksum): "1" (res),
             "g" (76L), "rm" (tmp___0->addr_limit.seg));
 #line 2043
-  tmp___1 = __builtin_expect(flag == 0UL, 1L);
+  tmp___1 = ldv__builtin_expect(flag == 0UL, 1L);
 #line 2043
   if (tmp___1 == 0L) {
 #line 2044
@@ -34432,7 +34432,7 @@ static struct sk_buff *isdn_ppp_decompress(struct sk_buff *skb , struct ippp_str
 
   }
 #line 2580
-  tmp = __builtin_expect((unsigned long )stat == (unsigned long )((void *)0), 0L);
+  tmp = ldv__builtin_expect((unsigned long )stat == (unsigned long )((void *)0), 0L);
 #line 2580
   if (tmp != 0L) {
 #line 2580
@@ -40551,7 +40551,7 @@ __inline static void ldv_error(void)
 #line 25
 extern int __VERIFIER_nondet_int(void) ;
 #line 49 "/home/mikhail/ldv/kernel-rules/verifier/rcv.h"
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 

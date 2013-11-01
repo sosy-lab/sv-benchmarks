@@ -4542,7 +4542,7 @@ struct radeon_bl_privdata {
 #line 1 "<compiler builtins>"
 void *__builtin_memcpy(void * , void const   * , unsigned long  ) ;
 #line 1
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 #line 119 "include/linux/printk.h"
 extern int printk(char const   *  , ...) ;
 #line 45 "include/linux/dynamic_debug.h"
@@ -4584,7 +4584,7 @@ __inline static void arch_local_irq_disable(void)
 #line 835
   __eax = __eax;
 #line 835
-  tmp = __builtin_expect((unsigned long )pv_irq_ops.irq_disable.func == (unsigned long )((void *)0),
+  tmp = ldv__builtin_expect((unsigned long )pv_irq_ops.irq_disable.func == (unsigned long )((void *)0),
                          0L);
 #line 835
   if (tmp != 0L) {
@@ -4627,7 +4627,7 @@ __inline static void arch_local_irq_enable(void)
 #line 840
   __eax = __eax;
 #line 840
-  tmp = __builtin_expect((unsigned long )pv_irq_ops.irq_enable.func == (unsigned long )((void *)0),
+  tmp = ldv__builtin_expect((unsigned long )pv_irq_ops.irq_enable.func == (unsigned long )((void *)0),
                          0L);
 #line 840
   if (tmp != 0L) {
@@ -7693,7 +7693,7 @@ static void radeon_calc_pll_regs(struct radeonfb_info *rinfo , struct radeon_reg
 #line 1529
   descriptor.flags = 0U;
 #line 1529
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1529
   if (tmp___0 != 0L) {
 #line 1529
@@ -7757,7 +7757,7 @@ static void radeon_calc_pll_regs(struct radeonfb_info *rinfo , struct radeon_reg
 #line 1550
   descriptor___0.flags = 0U;
 #line 1550
-  tmp___1 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 1550
   if (tmp___1 != 0L) {
 #line 1550
@@ -7788,7 +7788,7 @@ static void radeon_calc_pll_regs(struct radeonfb_info *rinfo , struct radeon_reg
 #line 1560
   descriptor___1.flags = 0U;
 #line 1560
-  tmp___2 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+  tmp___2 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 1560
   if (tmp___2 != 0L) {
 #line 1560
@@ -7816,7 +7816,7 @@ static void radeon_calc_pll_regs(struct radeonfb_info *rinfo , struct radeon_reg
 #line 1569
   descriptor___2.flags = 0U;
 #line 1569
-  tmp___3 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+  tmp___3 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
 #line 1569
   if (tmp___3 != 0L) {
 #line 1569
@@ -7837,7 +7837,7 @@ static void radeon_calc_pll_regs(struct radeonfb_info *rinfo , struct radeon_reg
 #line 1570
   descriptor___3.flags = 0U;
 #line 1570
-  tmp___4 = __builtin_expect((long )descriptor___3.flags & 1L, 0L);
+  tmp___4 = ldv__builtin_expect((long )descriptor___3.flags & 1L, 0L);
 #line 1570
   if (tmp___4 != 0L) {
 #line 1570
@@ -7858,7 +7858,7 @@ static void radeon_calc_pll_regs(struct radeonfb_info *rinfo , struct radeon_reg
 #line 1571
   descriptor___4.flags = 0U;
 #line 1571
-  tmp___5 = __builtin_expect((long )descriptor___4.flags & 1L, 0L);
+  tmp___5 = ldv__builtin_expect((long )descriptor___4.flags & 1L, 0L);
 #line 1571
   if (tmp___5 != 0L) {
 #line 1571
@@ -8065,7 +8065,7 @@ static int radeonfb_set_par(struct fb_info *info )
 #line 1643
   descriptor.flags = 0U;
 #line 1643
-  tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1643
   if (tmp___1 != 0L) {
 #line 1643
@@ -8087,7 +8087,7 @@ static int radeonfb_set_par(struct fb_info *info )
 #line 1645
   descriptor___0.flags = 0U;
 #line 1645
-  tmp___2 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___2 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 1645
   if (tmp___2 != 0L) {
 #line 1645
@@ -8227,7 +8227,7 @@ static int radeonfb_set_par(struct fb_info *info )
 #line 1754
   descriptor___1.flags = 0U;
 #line 1754
-  tmp___4 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+  tmp___4 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 1754
   if (tmp___4 != 0L) {
 #line 1754
@@ -8249,7 +8249,7 @@ static int radeonfb_set_par(struct fb_info *info )
 #line 1756
   descriptor___2.flags = 0U;
 #line 1756
-  tmp___5 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+  tmp___5 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
 #line 1756
   if (tmp___5 != 0L) {
 #line 1756
@@ -8275,7 +8275,7 @@ static int radeonfb_set_par(struct fb_info *info )
 #line 1762
   descriptor___3.flags = 0U;
 #line 1762
-  tmp___6 = __builtin_expect((long )descriptor___3.flags & 1L, 0L);
+  tmp___6 = ldv__builtin_expect((long )descriptor___3.flags & 1L, 0L);
 #line 1762
   if (tmp___6 != 0L) {
 #line 1762
@@ -8296,7 +8296,7 @@ static int radeonfb_set_par(struct fb_info *info )
 #line 1763
   descriptor___4.flags = 0U;
 #line 1763
-  tmp___7 = __builtin_expect((long )descriptor___4.flags & 1L, 0L);
+  tmp___7 = ldv__builtin_expect((long )descriptor___4.flags & 1L, 0L);
 #line 1763
   if (tmp___7 != 0L) {
 #line 1763
@@ -8680,7 +8680,7 @@ static void radeon_identify_vram(struct radeonfb_info *rinfo )
 #line 2125
   descriptor.flags = 0U;
 #line 2125
-  tmp___4 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___4 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 2125
   if (tmp___4 != 0L) {
 #line 2125
@@ -8837,7 +8837,7 @@ static int radeonfb_pci_register(struct pci_dev *pdev , struct pci_device_id  co
 #line 2195
   descriptor.flags = 0U;
 #line 2195
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 2195
   if (tmp != 0L) {
 #line 2195
@@ -9047,7 +9047,7 @@ static int radeonfb_pci_register(struct pci_dev *pdev , struct pci_device_id  co
 #line 2320
   descriptor___0.flags = 0U;
 #line 2320
-  tmp___10 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___10 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 2320
   if (tmp___10 != 0L) {
 #line 2320
@@ -9193,7 +9193,7 @@ static int radeonfb_pci_register(struct pci_dev *pdev , struct pci_device_id  co
 #line 2420
   descriptor___1.flags = 0U;
 #line 2420
-  tmp___16 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+  tmp___16 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 2420
   if (tmp___16 != 0L) {
 #line 2420
@@ -14457,7 +14457,7 @@ static int radeon_get_panel_info_BIOS(struct radeonfb_info *rinfo )
 #line 231
   descriptor.flags = 0U;
 #line 231
-  tmp___9 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___9 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 231
   if (tmp___9 != 0L) {
 #line 231
@@ -14507,7 +14507,7 @@ static int radeon_get_panel_info_BIOS(struct radeonfb_info *rinfo )
 #line 245
     descriptor___0.flags = 0U;
 #line 245
-    tmp___15 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___15 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 245
     if (tmp___15 != 0L) {
 #line 245
@@ -14528,7 +14528,7 @@ static int radeon_get_panel_info_BIOS(struct radeonfb_info *rinfo )
 #line 246
     descriptor___1.flags = 0U;
 #line 246
-    tmp___16 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___16 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 246
     if (tmp___16 != 0L) {
 #line 246
@@ -14549,7 +14549,7 @@ static int radeon_get_panel_info_BIOS(struct radeonfb_info *rinfo )
 #line 247
     descriptor___2.flags = 0U;
 #line 247
-    tmp___17 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+    tmp___17 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
 #line 247
     if (tmp___17 != 0L) {
 #line 247
@@ -14573,7 +14573,7 @@ static int radeon_get_panel_info_BIOS(struct radeonfb_info *rinfo )
 #line 249
   descriptor___3.flags = 0U;
 #line 249
-  tmp___18 = __builtin_expect((long )descriptor___3.flags & 1L, 0L);
+  tmp___18 = ldv__builtin_expect((long )descriptor___3.flags & 1L, 0L);
 #line 249
   if (tmp___18 != 0L) {
 #line 249
@@ -14612,7 +14612,7 @@ static int radeon_get_panel_info_BIOS(struct radeonfb_info *rinfo )
 #line 254
   descriptor___4.flags = 0U;
 #line 254
-  tmp___25 = __builtin_expect((long )descriptor___4.flags & 1L, 0L);
+  tmp___25 = ldv__builtin_expect((long )descriptor___4.flags & 1L, 0L);
 #line 254
   if (tmp___25 != 0L) {
 #line 254
@@ -14716,7 +14716,7 @@ static int radeon_get_panel_info_BIOS(struct radeonfb_info *rinfo )
 #line 273
       descriptor___5.flags = 0U;
 #line 273
-      tmp___47 = __builtin_expect((long )descriptor___5.flags & 1L, 0L);
+      tmp___47 = ldv__builtin_expect((long )descriptor___5.flags & 1L, 0L);
 #line 273
       if (tmp___47 != 0L) {
 #line 273
@@ -14737,7 +14737,7 @@ static int radeon_get_panel_info_BIOS(struct radeonfb_info *rinfo )
 #line 274
       descriptor___6.flags = 0U;
 #line 274
-      tmp___48 = __builtin_expect((long )descriptor___6.flags & 1L, 0L);
+      tmp___48 = ldv__builtin_expect((long )descriptor___6.flags & 1L, 0L);
 #line 274
       if (tmp___48 != 0L) {
 #line 274
@@ -14758,7 +14758,7 @@ static int radeon_get_panel_info_BIOS(struct radeonfb_info *rinfo )
 #line 275
       descriptor___7.flags = 0U;
 #line 275
-      tmp___49 = __builtin_expect((long )descriptor___7.flags & 1L, 0L);
+      tmp___49 = ldv__builtin_expect((long )descriptor___7.flags & 1L, 0L);
 #line 275
       if (tmp___49 != 0L) {
 #line 275
@@ -14779,7 +14779,7 @@ static int radeon_get_panel_info_BIOS(struct radeonfb_info *rinfo )
 #line 276
       descriptor___8.flags = 0U;
 #line 276
-      tmp___50 = __builtin_expect((long )descriptor___8.flags & 1L, 0L);
+      tmp___50 = ldv__builtin_expect((long )descriptor___8.flags & 1L, 0L);
 #line 276
       if (tmp___50 != 0L) {
 #line 276
@@ -14800,7 +14800,7 @@ static int radeon_get_panel_info_BIOS(struct radeonfb_info *rinfo )
 #line 277
       descriptor___9.flags = 0U;
 #line 277
-      tmp___51 = __builtin_expect((long )descriptor___9.flags & 1L, 0L);
+      tmp___51 = ldv__builtin_expect((long )descriptor___9.flags & 1L, 0L);
 #line 277
       if (tmp___51 != 0L) {
 #line 277
@@ -14821,7 +14821,7 @@ static int radeon_get_panel_info_BIOS(struct radeonfb_info *rinfo )
 #line 278
       descriptor___10.flags = 0U;
 #line 278
-      tmp___52 = __builtin_expect((long )descriptor___10.flags & 1L, 0L);
+      tmp___52 = ldv__builtin_expect((long )descriptor___10.flags & 1L, 0L);
 #line 278
       if (tmp___52 != 0L) {
 #line 278
@@ -14842,7 +14842,7 @@ static int radeon_get_panel_info_BIOS(struct radeonfb_info *rinfo )
 #line 279
       descriptor___11.flags = 0U;
 #line 279
-      tmp___53 = __builtin_expect((long )descriptor___11.flags & 1L, 0L);
+      tmp___53 = ldv__builtin_expect((long )descriptor___11.flags & 1L, 0L);
 #line 279
       if (tmp___53 != 0L) {
 #line 279
@@ -14863,7 +14863,7 @@ static int radeon_get_panel_info_BIOS(struct radeonfb_info *rinfo )
 #line 280
       descriptor___12.flags = 0U;
 #line 280
-      tmp___54 = __builtin_expect((long )descriptor___12.flags & 1L, 0L);
+      tmp___54 = ldv__builtin_expect((long )descriptor___12.flags & 1L, 0L);
 #line 280
       if (tmp___54 != 0L) {
 #line 280
@@ -14903,7 +14903,7 @@ static int radeon_get_panel_info_BIOS(struct radeonfb_info *rinfo )
 #line 285
   descriptor___13.flags = 0U;
 #line 285
-  tmp___59 = __builtin_expect((long )descriptor___13.flags & 1L, 0L);
+  tmp___59 = ldv__builtin_expect((long )descriptor___13.flags & 1L, 0L);
 #line 285
   if (tmp___59 != 0L) {
 #line 285
@@ -15017,7 +15017,7 @@ static void radeon_parse_connector_info(struct radeonfb_info *rinfo )
 #line 317
   descriptor.flags = 0U;
 #line 317
-  tmp___4 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___4 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 317
   if (tmp___4 != 0L) {
 #line 317
@@ -15053,7 +15053,7 @@ static void radeon_parse_connector_info(struct radeonfb_info *rinfo )
 #line 321
   descriptor___0.flags = 0U;
 #line 321
-  tmp___7 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___7 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 321
   if (tmp___7 != 0L) {
 #line 321
@@ -15095,7 +15095,7 @@ static void radeon_parse_connector_info(struct radeonfb_info *rinfo )
 #line 328
   descriptor___1.flags = 0U;
 #line 328
-  tmp___10 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+  tmp___10 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 328
   if (tmp___10 != 0L) {
 #line 328
@@ -15455,7 +15455,7 @@ void radeon_probe_screens(struct radeonfb_info *rinfo , char const   *monitor_la
 #line 495
     descriptor.flags = 0U;
 #line 495
-    tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 495
     if (tmp___0 != 0L) {
 #line 495
@@ -15533,7 +15533,7 @@ void radeon_probe_screens(struct radeonfb_info *rinfo , char const   *monitor_la
 #line 525
     descriptor___0.flags = 0U;
 #line 525
-    tmp___3 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___3 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 525
     if (tmp___3 != 0L) {
 #line 525
@@ -15998,7 +15998,7 @@ void radeon_check_modes(struct radeonfb_info *rinfo , char const   *mode_option_
 #line 821
     descriptor.flags = 0U;
 #line 821
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 821
     if (tmp != 0L) {
 #line 821
@@ -16042,7 +16042,7 @@ void radeon_check_modes(struct radeonfb_info *rinfo , char const   *mode_option_
 #line 841
     descriptor___0.flags = 0U;
 #line 841
-    tmp___1 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 841
     if (tmp___1 != 0L) {
 #line 841
@@ -16132,7 +16132,7 @@ void radeon_check_modes(struct radeonfb_info *rinfo , char const   *mode_option_
 #line 889
     descriptor___1.flags = 0U;
 #line 889
-    tmp___3 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___3 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 889
     if (tmp___3 != 0L) {
 #line 889
@@ -17501,7 +17501,7 @@ static int radeon_setup_i2c_bus(struct radeon_i2c_chan *chan , char const   *nam
 #line 132
     descriptor.flags = 0U;
 #line 132
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 132
     if (tmp != 0L) {
 #line 132
@@ -17643,7 +17643,7 @@ int radeon_probe_i2c_connector(struct radeonfb_info *rinfo , int conn , u8 **out
 #line 189
     descriptor.flags = 0U;
 #line 189
-    tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 189
     if (tmp___0 != 0L) {
 #line 189
@@ -17678,7 +17678,7 @@ int radeon_probe_i2c_connector(struct radeonfb_info *rinfo , int conn , u8 **out
 #line 196
         descriptor___0.flags = 0U;
 #line 196
-        tmp___1 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+        tmp___1 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 196
         if (tmp___1 != 0L) {
 #line 196
@@ -17708,7 +17708,7 @@ int radeon_probe_i2c_connector(struct radeonfb_info *rinfo , int conn , u8 **out
 #line 199
       descriptor___1.flags = 0U;
 #line 199
-      tmp___2 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+      tmp___2 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 199
       if (tmp___2 != 0L) {
 #line 199
@@ -17736,7 +17736,7 @@ int radeon_probe_i2c_connector(struct radeonfb_info *rinfo , int conn , u8 **out
 #line 203
   descriptor___2.flags = 0U;
 #line 203
-  tmp___4 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+  tmp___4 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
 #line 203
   if (tmp___4 != 0L) {
 #line 203
@@ -17904,7 +17904,7 @@ __inline static long IS_ERR(void const   *ptr )
 
   {
 #line 34
-  tmp = __builtin_expect((unsigned long )ptr > 0xfffffffffffff000UL, 0L);
+  tmp = ldv__builtin_expect((unsigned long )ptr > 0xfffffffffffff000UL, 0L);
 #line 34
   return (tmp);
 }
@@ -18477,7 +18477,7 @@ __inline static void ldv_error(void)
 #line 25
 extern int __VERIFIER_nondet_int(void) ;
 #line 49 "/home/mikhail/ldv/kernel-rules/verifier/rcv.h"
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 

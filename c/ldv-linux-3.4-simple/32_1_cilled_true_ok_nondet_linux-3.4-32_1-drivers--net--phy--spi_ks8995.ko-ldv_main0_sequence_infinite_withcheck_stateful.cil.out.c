@@ -2479,7 +2479,7 @@ struct ks8995_switch {
 #line 336
 struct ks8995_data;
 #line 1 "<compiler builtins>"
-long __builtin_expect(long val , long res ) ;
+long ldv__builtin_expect(long val , long res ) ;
 #line 100 "include/linux/printk.h"
 extern int ( /* format attribute */  printk)(char const   *fmt  , ...) ;
 #line 24 "include/linux/list.h"
@@ -3221,7 +3221,7 @@ static ssize_t ks8995_registers_read(struct file *filp , struct kobject *kobj , 
 #line 219
   __cil_tmp25 = (long )__cil_tmp24;
 #line 219
-  tmp___8 = __builtin_expect(__cil_tmp25, 0L);
+  tmp___8 = ldv__builtin_expect(__cil_tmp25, 0L);
   }
 #line 219
   if (tmp___8) {
@@ -3255,7 +3255,7 @@ static ssize_t ks8995_registers_read(struct file *filp , struct kobject *kobj , 
 #line 225
   __cil_tmp32 = (long )__cil_tmp31;
 #line 225
-  tmp___9 = __builtin_expect(__cil_tmp32, 0L);
+  tmp___9 = ldv__builtin_expect(__cil_tmp32, 0L);
   }
 #line 225
   if (tmp___9) {
@@ -3340,7 +3340,7 @@ static ssize_t ks8995_registers_write(struct file *filp , struct kobject *kobj ,
 #line 241
   __cil_tmp25 = (long )__cil_tmp24;
 #line 241
-  tmp___8 = __builtin_expect(__cil_tmp25, 0L);
+  tmp___8 = ldv__builtin_expect(__cil_tmp25, 0L);
   }
 #line 241
   if (tmp___8) {
@@ -3374,7 +3374,7 @@ static ssize_t ks8995_registers_write(struct file *filp , struct kobject *kobj ,
 #line 247
   __cil_tmp32 = (long )__cil_tmp31;
 #line 247
-  tmp___9 = __builtin_expect(__cil_tmp32, 0L);
+  tmp___9 = ldv__builtin_expect(__cil_tmp32, 0L);
   }
 #line 247
   if (tmp___9) {
@@ -4262,7 +4262,7 @@ void ldv_check_final_state(void)
 }
 }
 #line 977 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/9672/dscv_tempdir/dscv/ri/32_1/drivers/net/phy/spi_ks8995.c.common.c"
-long __builtin_expect(long val , long res ) 
+long ldv__builtin_expect(long val , long res ) 
 { 
 
   {

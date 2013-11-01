@@ -2571,7 +2571,7 @@ struct sercos3_priv {
    spinlock_t ier0_cache_lock ;
 };
 #line 1 "<compiler builtins>"
-long __builtin_expect(long val , long res ) ;
+long ldv__builtin_expect(long val , long res ) ;
 #line 93 "include/linux/spinlock.h"
 extern void __raw_spin_lock_init(raw_spinlock_t *lock , char const   *name , struct lock_class_key *key ) ;
 #line 22 "include/linux/spinlock_api_smp.h"
@@ -4460,7 +4460,7 @@ void ldv_check_final_state(void)
 }
 }
 #line 433 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/12552/dscv_tempdir/dscv/ri/32_1/drivers/uio/uio_sercos3.c.common.c"
-long __builtin_expect(long val , long res ) 
+long ldv__builtin_expect(long val , long res ) 
 { 
 
   {

@@ -7308,7 +7308,7 @@ typedef int ldv_func_ret_type___146;
 #line 1 "<compiler builtins>"
 void *__builtin_memcpy(void * , void const   * , unsigned long  ) ;
 #line 1
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 #line 62 "/work/ldvuser/zakharov_benchmarks/bench/cpa/inst/current/envs/linux-3.8-rc1/linux-3.8-rc1/arch/x86/include/asm/bitops.h"
 __inline static void set_bit(unsigned int nr , unsigned long volatile   *addr ) 
 { 
@@ -7537,7 +7537,7 @@ __inline static unsigned long arch_local_save_flags(void)
 #line 825
   __eax = __eax;
 #line 825
-  tmp = __builtin_expect((unsigned long )pv_irq_ops.save_fl.func == (unsigned long )((void *)0),
+  tmp = ldv__builtin_expect((unsigned long )pv_irq_ops.save_fl.func == (unsigned long )((void *)0),
                          0L);
 #line 825
   if (tmp != 0L) {
@@ -8188,7 +8188,7 @@ __inline static int signal_pending(struct task_struct *p )
 #line 2620
   tmp = test_tsk_thread_flag(p, 2);
 #line 2620
-  tmp___0 = __builtin_expect(tmp != 0, 0L);
+  tmp___0 = ldv__builtin_expect(tmp != 0, 0L);
 #line 2620
   return ((int )tmp___0);
 }
@@ -8343,7 +8343,7 @@ __inline static struct dma_map_ops *get_dma_ops(struct device *dev )
 
   {
 #line 37
-  tmp = __builtin_expect((unsigned long )dev == (unsigned long )((struct device *)0),
+  tmp = ldv__builtin_expect((unsigned long )dev == (unsigned long )((struct device *)0),
                          0L);
 #line 37
   if (tmp != 0L || (unsigned long )dev->archdata.dma_ops == (unsigned long )((struct dma_map_ops *)0)) {
@@ -8376,7 +8376,7 @@ __inline static dma_addr_t dma_map_single_attrs(struct device *dev , void *ptr ,
 #line 19
   tmp___0 = valid_dma_direction((int )dir);
 #line 19
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
 #line 19
   if (tmp___1 != 0L) {
 #line 19
@@ -8419,7 +8419,7 @@ __inline static void dma_unmap_single_attrs(struct device *dev , dma_addr_t addr
 #line 36
   tmp___0 = valid_dma_direction((int )dir);
 #line 36
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
 #line 36
   if (tmp___1 != 0L) {
 #line 36
@@ -8463,7 +8463,7 @@ __inline static void dma_sync_single_for_cpu(struct device *dev , dma_addr_t add
 #line 103
   tmp___0 = valid_dma_direction((int )dir);
 #line 103
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
 #line 103
   if (tmp___1 != 0L) {
 #line 103
@@ -8622,7 +8622,7 @@ __inline static void dma_free_attrs(struct device *dev , size_t size , void *vad
 #line 166
   __ret_warn_on = tmp___0 != 0;
 #line 166
-  tmp___1 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___1 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 166
   if (tmp___1 != 0L) {
 #line 166
@@ -8632,7 +8632,7 @@ __inline static void dma_free_attrs(struct device *dev , size_t size , void *vad
 
   }
 #line 166
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 171
   debug_dma_free_coherent(dev, size, vaddr, bus);
 #line 172
@@ -8863,7 +8863,7 @@ __inline static void netif_tx_stop_queue(struct netdev_queue *dev_queue )
 #line 1880
   __ret_warn_on = (unsigned long )dev_queue == (unsigned long )((struct netdev_queue *)0);
 #line 1880
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 1880
   if (tmp != 0L) {
 #line 1880
@@ -8872,7 +8872,7 @@ __inline static void netif_tx_stop_queue(struct netdev_queue *dev_queue )
 
   }
 #line 1880
-  tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 1880
   if (tmp___0 != 0L) {
 #line 1881
@@ -10314,7 +10314,7 @@ static void _ipw_read_indirect(struct ipw_priv *priv , u32 addr , u8 *buf , int 
 
   }
 #line 578
-  tmp___3 = __builtin_expect(dif_len != 0U, 0L);
+  tmp___3 = ldv__builtin_expect(dif_len != 0U, 0L);
 #line 578
   if (tmp___3 != 0L) {
 #line 579
@@ -10373,7 +10373,7 @@ static void _ipw_read_indirect(struct ipw_priv *priv , u32 addr , u8 *buf , int 
   }
   ldv_45711: 
 #line 592
-  tmp___9 = __builtin_expect(num != 0, 0L);
+  tmp___9 = ldv__builtin_expect(num != 0, 0L);
 #line 592
   if (tmp___9 != 0L) {
 #line 593
@@ -10472,7 +10472,7 @@ static void _ipw_write_indirect(struct ipw_priv *priv , u32 addr , u8 *buf , int
 
   }
 #line 615
-  tmp___2 = __builtin_expect(dif_len != 0U, 0L);
+  tmp___2 = ldv__builtin_expect(dif_len != 0U, 0L);
 #line 615
   if (tmp___2 != 0L) {
 #line 616
@@ -10529,7 +10529,7 @@ static void _ipw_write_indirect(struct ipw_priv *priv , u32 addr , u8 *buf , int
   }
   ldv_45731: 
 #line 629
-  tmp___3 = __builtin_expect(num != 0, 0L);
+  tmp___3 = ldv__builtin_expect(num != 0, 0L);
 #line 629
   if (tmp___3 != 0L) {
 #line 630
@@ -18338,7 +18338,7 @@ static int ipw_load_firmware(struct ipw_priv *priv , u8 *data , size_t len )
 #line 3312
   ret = ipw_fw_dma_enable(priv);
 #line 3315
-  tmp___4 = __builtin_expect(priv->sram_desc.last_cb_index != 0UL, 0L);
+  tmp___4 = ldv__builtin_expect(priv->sram_desc.last_cb_index != 0UL, 0L);
 #line 3315
   if (tmp___4 != 0L) {
 #line 3315
@@ -18403,7 +18403,7 @@ static int ipw_load_firmware(struct ipw_priv *priv , u8 *data , size_t len )
 #line 3340
   total_nr = total_nr + 1;
 #line 3342
-  tmp___6 = __builtin_expect(total_nr > 64, 0L);
+  tmp___6 = ldv__builtin_expect(total_nr > 64, 0L);
 #line 3342
   if (tmp___6 != 0L) {
 #line 3342
@@ -20296,7 +20296,7 @@ static void average_add(struct average *avg , s16 val )
 #line 4183
   avg->entries[tmp] = val;
 #line 4184
-  tmp___0 = __builtin_expect((unsigned int )avg->pos == 8U, 0L);
+  tmp___0 = ldv__builtin_expect((unsigned int )avg->pos == 8U, 0L);
 #line 4184
   if (tmp___0 != 0L) {
 #line 4185
@@ -20316,7 +20316,7 @@ static s16 average_value(struct average *avg )
 
   {
 #line 4192
-  tmp = __builtin_expect((unsigned int )avg->init != 0U, 0L);
+  tmp = ldv__builtin_expect((unsigned int )avg->init != 0U, 0L);
 #line 4192
   if (tmp == 0L) {
 #line 4193
@@ -22815,7 +22815,7 @@ static struct ipw_rx_queue *ipw_rx_queue_alloc(struct ipw_priv *priv )
 #line 5362
   rxq = (struct ipw_rx_queue *)tmp;
 #line 5363
-  tmp___0 = __builtin_expect((unsigned long )rxq == (unsigned long )((struct ipw_rx_queue *)0),
+  tmp___0 = ldv__builtin_expect((unsigned long )rxq == (unsigned long )((struct ipw_rx_queue *)0),
                              0L);
 #line 5363
   if (tmp___0 != 0L) {
@@ -23491,7 +23491,7 @@ static int ipw_find_adhoc_network(struct ipw_priv *priv , struct ipw_network_mat
 
   }
 #line 5611
-  tmp___15 = __builtin_expect(roaming___0 != 0, 0L);
+  tmp___15 = ldv__builtin_expect(roaming___0 != 0, 0L);
 #line 5611
   if (tmp___15 != 0L) {
 #line 5614
@@ -24153,7 +24153,7 @@ static int ipw_best_network(struct ipw_priv *priv , struct ipw_network_match *ma
 
   }
 #line 5825
-  tmp___15 = __builtin_expect(roaming___0 != 0, 0L);
+  tmp___15 = ldv__builtin_expect(roaming___0 != 0, 0L);
 #line 5825
   if (tmp___15 != 0L) {
 #line 5828
@@ -24631,7 +24631,7 @@ static void ipw_adhoc_create(struct ipw_priv *priv , struct libipw_network *netw
 #line 6017
   i = libipw_channel_to_index(priv->ieee, (int )priv->channel);
 #line 6018
-  tmp___1 = __builtin_expect(i == -1, 0L);
+  tmp___1 = ldv__builtin_expect(i == -1, 0L);
 #line 6018
   if (tmp___1 != 0L) {
 #line 6018
@@ -24666,7 +24666,7 @@ static void ipw_adhoc_create(struct ipw_priv *priv , struct libipw_network *netw
 #line 6030
   i = libipw_channel_to_index(priv->ieee, (int )priv->channel);
 #line 6031
-  tmp___2 = __builtin_expect(i == -1, 0L);
+  tmp___2 = ldv__builtin_expect(i == -1, 0L);
 #line 6031
   if (tmp___2 != 0L) {
 #line 6031
@@ -27952,7 +27952,7 @@ static int ipw_qos_association(struct ipw_priv *priv , struct libipw_network *ne
   switch ((priv->ieee)->iw_mode) {
   case 1: 
 #line 7203
-  tmp = __builtin_expect(((int )network->capability & 2) == 0, 0L);
+  tmp = ldv__builtin_expect(((int )network->capability & 2) == 0, 0L);
 #line 7203
   if (tmp != 0L) {
 #line 7203
@@ -28724,7 +28724,7 @@ static int ipw_associate_network(struct ipw_priv *priv , struct libipw_network *
     priv->assoc_request.assoc_tsf_lsw = 0U;
   } else {
 #line 7559
-    tmp___13 = __builtin_expect(roaming___0 != 0, 0L);
+    tmp___13 = ldv__builtin_expect(roaming___0 != 0, 0L);
 #line 7559
     if (tmp___13 != 0L) {
 #line 7560
@@ -29588,7 +29588,7 @@ static void ipw_handle_data_packet(struct ipw_priv *priv , struct ipw_rx_mem_buf
 #line 7885
   tmp___8 = skb_tailroom((struct sk_buff  const  *)rxb->skb);
 #line 7885
-  tmp___9 = __builtin_expect((unsigned int )pkt->u.frame.length + 28U > (unsigned int )tmp___8,
+  tmp___9 = ldv__builtin_expect((unsigned int )pkt->u.frame.length + 28U > (unsigned int )tmp___8,
                              0L);
 #line 7885
   if (tmp___9 != 0L) {
@@ -29627,7 +29627,7 @@ static void ipw_handle_data_packet(struct ipw_priv *priv , struct ipw_rx_mem_buf
       tmp___6 = 1;
     }
 #line 7891
-    tmp___7 = __builtin_expect((long )tmp___6, 0L);
+    tmp___7 = ldv__builtin_expect((long )tmp___6, 0L);
 #line 7891
     if (tmp___7 != 0L) {
 #line 7892
@@ -29770,7 +29770,7 @@ static void ipw_handle_data_packet_monitor(struct ipw_priv *priv , struct ipw_rx
 #line 7948
   tmp___8 = skb_tailroom((struct sk_buff  const  *)rxb->skb);
 #line 7948
-  tmp___9 = __builtin_expect((unsigned int )pkt->u.frame.length + 28U > (unsigned int )tmp___8,
+  tmp___9 = ldv__builtin_expect((unsigned int )pkt->u.frame.length + 28U > (unsigned int )tmp___8,
                              0L);
 #line 7948
   if (tmp___9 != 0L) {
@@ -29809,7 +29809,7 @@ static void ipw_handle_data_packet_monitor(struct ipw_priv *priv , struct ipw_rx
       tmp___6 = 1;
     }
 #line 7954
-    tmp___7 = __builtin_expect((long )tmp___6, 0L);
+    tmp___7 = ldv__builtin_expect((long )tmp___6, 0L);
 #line 7954
     if (tmp___7 != 0L) {
 #line 7955
@@ -30102,7 +30102,7 @@ static void ipw_handle_promiscuous_rx(struct ipw_priv *priv , struct ipw_rx_mem_
 #line 8128
   tmp___2 = skb_tailroom((struct sk_buff  const  *)rxb->skb);
 #line 8128
-  tmp___3 = __builtin_expect((unsigned int )len + 28U > (unsigned int )tmp___2, 0L);
+  tmp___3 = ldv__builtin_expect((unsigned int )len + 28U > (unsigned int )tmp___2, 0L);
 #line 8128
   if (tmp___3 != 0L) {
 #line 8129
@@ -30140,7 +30140,7 @@ static void ipw_handle_promiscuous_rx(struct ipw_priv *priv , struct ipw_rx_mem_
     tmp___8 = 1;
   }
 #line 8135
-  tmp___9 = __builtin_expect((long )tmp___8, 0L);
+  tmp___9 = ldv__builtin_expect((long )tmp___8, 0L);
 #line 8135
   if (tmp___9 != 0L) {
 #line 8136
@@ -30865,7 +30865,7 @@ static void ipw_rx(struct ipw_priv *priv )
 #line 8463
   rxb = (priv->rxq)->queue[i];
 #line 8464
-  tmp___8 = __builtin_expect((unsigned long )rxb == (unsigned long )((struct ipw_rx_mem_buffer *)0),
+  tmp___8 = ldv__builtin_expect((unsigned long )rxb == (unsigned long )((struct ipw_rx_mem_buffer *)0),
                              0L);
 #line 8464
   if (tmp___8 != 0L) {
@@ -31065,7 +31065,7 @@ static void ipw_rx(struct ipw_priv *priv )
   goto ldv_48153;
   case 8: 
 #line 8578
-  tmp___25 = __builtin_expect((unsigned int )network_packet == 0U, 0L);
+  tmp___25 = ldv__builtin_expect((unsigned int )network_packet == 0U, 0L);
 #line 8578
   if (tmp___25 != 0L) {
 #line 8578
@@ -31074,7 +31074,7 @@ static void ipw_rx(struct ipw_priv *priv )
 #line 8578
     tmp___26 = is_duplicate_packet(priv, header);
 #line 8578
-    tmp___27 = __builtin_expect(tmp___26 != 0, 0L);
+    tmp___27 = ldv__builtin_expect(tmp___26 != 0, 0L);
 #line 8578
     if (tmp___27 != 0L) {
       _L: /* CIL Label */ 
@@ -31881,7 +31881,7 @@ static int ipw_wx_get_freq(struct net_device *dev , struct iw_request_info *info
 #line 8905
     i = libipw_channel_to_index(priv->ieee, (int )priv->channel);
 #line 8906
-    tmp___0 = __builtin_expect(i == -1, 0L);
+    tmp___0 = ldv__builtin_expect(i == -1, 0L);
 #line 8906
     if (tmp___0 != 0L) {
 #line 8906
@@ -35400,7 +35400,7 @@ static int ipw_tx_skb(struct ipw_priv *priv , struct libipw_txb *txb , int pri )
   __ret = __builtin_memcpy((void *)(& tfd->u.data.tfd.tfd_24.mchdr), (void const   *)hdr,
                            __len);
 #line 10357
-  tmp___5 = __builtin_expect((unsigned int )unicast != 0U, 1L);
+  tmp___5 = ldv__builtin_expect((unsigned int )unicast != 0U, 1L);
 #line 10357
   if (tmp___5 != 0L) {
 #line 10358
@@ -44446,7 +44446,7 @@ __inline static void ldv_error(void)
 #line 25
 extern int __VERIFIER_nondet_int(void) ;
 #line 49 "/home/ldvuser/ldv_envgen2/kernel-rules/verifier/rcv.h"
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
   {

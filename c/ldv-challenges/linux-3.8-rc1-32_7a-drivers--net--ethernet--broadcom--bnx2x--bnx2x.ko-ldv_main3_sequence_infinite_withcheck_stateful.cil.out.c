@@ -10736,7 +10736,7 @@ void *__builtin_memcpy(void * , void const   * , unsigned long  ) ;
 #line 1
 void __builtin_prefetch(void const   *  , ...) ;
 #line 1
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 #line 33 "include/linux/export.h"
 extern struct module __this_module ;
 #line 62 "/work/ldvuser/exper_fp/inst/current/envs/linux-3.10-rc1.tar/linux-3.10-rc1/arch/x86/include/asm/bitops.h"
@@ -10966,7 +10966,7 @@ __inline static unsigned long arch_local_save_flags(void)
 #line 824
   __eax = __eax;
 #line 824
-  tmp = __builtin_expect((unsigned long )pv_irq_ops.save_fl.func == (unsigned long )((void *)0),
+  tmp = ldv__builtin_expect((unsigned long )pv_irq_ops.save_fl.func == (unsigned long )((void *)0),
                          0L);
 #line 824
   if (tmp != 0L) {
@@ -11725,7 +11725,7 @@ __inline static struct dma_map_ops *get_dma_ops(struct device *dev )
 
   {
 #line 37
-  tmp = __builtin_expect((unsigned long )dev == (unsigned long )((struct device *)0),
+  tmp = ldv__builtin_expect((unsigned long )dev == (unsigned long )((struct device *)0),
                          0L);
 #line 37
   if (tmp != 0L || (unsigned long )dev->archdata.dma_ops == (unsigned long )((struct dma_map_ops *)0)) {
@@ -11754,7 +11754,7 @@ __inline static void dma_unmap_page(struct device *dev , dma_addr_t addr , size_
 #line 91
   tmp___0 = valid_dma_direction((int )dir);
 #line 91
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
 #line 91
   if (tmp___1 != 0L) {
 #line 91
@@ -11911,7 +11911,7 @@ __inline static void dma_free_attrs(struct device *dev , size_t size , void *vad
 #line 166
   __ret_warn_on = tmp___0 != 0;
 #line 166
-  tmp___1 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___1 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 166
   if (tmp___1 != 0L) {
 #line 166
@@ -11921,7 +11921,7 @@ __inline static void dma_free_attrs(struct device *dev , size_t size , void *vad
 
   }
 #line 166
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 171
   debug_dma_free_coherent(dev, size, vaddr, bus);
 #line 172
@@ -12250,7 +12250,7 @@ __inline static void netif_tx_stop_queue(struct netdev_queue *dev_queue )
 #line 1907
   __ret_warn_on = (unsigned long )dev_queue == (unsigned long )((struct netdev_queue *)0);
 #line 1907
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 1907
   if (tmp != 0L) {
 #line 1907
@@ -12259,7 +12259,7 @@ __inline static void netif_tx_stop_queue(struct netdev_queue *dev_queue )
 
   }
 #line 1907
-  tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 1907
   if (tmp___0 != 0L) {
 #line 1908
@@ -14033,7 +14033,7 @@ static void bnx2x_init_pxp_arb(struct bnx2x *bp , int r_order , int w_order )
 #line 478
   if (r_order > 3) {
 #line 479
-    tmp = __builtin_expect((bp->msg_enable & 8192) != 0, 0L);
+    tmp = ldv__builtin_expect((bp->msg_enable & 8192) != 0, 0L);
 #line 479
     if (tmp != 0L) {
 #line 479
@@ -14051,7 +14051,7 @@ static void bnx2x_init_pxp_arb(struct bnx2x *bp , int r_order , int w_order )
 #line 483
   if (w_order > 2) {
 #line 484
-    tmp___0 = __builtin_expect((bp->msg_enable & 8192) != 0, 0L);
+    tmp___0 = ldv__builtin_expect((bp->msg_enable & 8192) != 0, 0L);
 #line 484
     if (tmp___0 != 0L) {
 #line 484
@@ -14069,7 +14069,7 @@ static void bnx2x_init_pxp_arb(struct bnx2x *bp , int r_order , int w_order )
 #line 488
   if ((bp->common.chip_id & 61440U) > 20480U && (bp->common.chip_id & 4096U) != 0U) {
 #line 489
-    tmp___1 = __builtin_expect((bp->msg_enable & 8192) != 0, 0L);
+    tmp___1 = ldv__builtin_expect((bp->msg_enable & 8192) != 0, 0L);
 #line 489
     if (tmp___1 != 0L) {
 #line 489
@@ -14084,7 +14084,7 @@ static void bnx2x_init_pxp_arb(struct bnx2x *bp , int r_order , int w_order )
 
   }
 #line 492
-  tmp___2 = __builtin_expect((bp->msg_enable & 8192) != 0, 0L);
+  tmp___2 = ldv__builtin_expect((bp->msg_enable & 8192) != 0, 0L);
 #line 492
   if (tmp___2 != 0L) {
 #line 492
@@ -15094,7 +15094,7 @@ __inline static void bnx2x_igu_ack_sb_gen(struct bnx2x *bp , u8 igu_sb_id , u8 s
 #line 669
   cmd_data.sb_id_and_flags = (u32 )((((int )index | ((int )segment << 21)) | ((int )update << 24)) | ((int )op << 25));
 #line 675
-  tmp = __builtin_expect((bp->msg_enable & 512) != 0, 0L);
+  tmp = ldv__builtin_expect((bp->msg_enable & 512) != 0, 0L);
 #line 675
   if (tmp != 0L) {
 #line 675
@@ -15211,7 +15211,7 @@ __inline static u16 bnx2x_igu_ack_int(struct bnx2x *bp )
 #line 738
   result = tmp;
 #line 740
-  tmp___0 = __builtin_expect((bp->msg_enable & 512) != 0, 0L);
+  tmp___0 = ldv__builtin_expect((bp->msg_enable & 512) != 0, 0L);
 #line 740
   if (tmp___0 != 0L) {
 #line 740
@@ -15597,7 +15597,7 @@ __inline static void bnx2x_init_txdata(struct bnx2x *bp , struct bnx2x_fp_txdata
 #line 1160
   txdata->tx_ring_size = (uint )fp->index != (uint )(fp->bp)->num_queues - (fp->bp)->num_cnic_queues ? bp->tx_ring_size : 4078;
 #line 1162
-  tmp = __builtin_expect((bp->msg_enable & 32) != 0, 0L);
+  tmp = ldv__builtin_expect((bp->msg_enable & 32) != 0, 0L);
 #line 1162
   if (tmp != 0L) {
 #line 1162
@@ -15674,7 +15674,7 @@ __inline static void bnx2x_init_fcoe_fp(struct bnx2x *bp )
                     (__le16 *)(& (bp->def_status_blk)->sp_sb.index_values) + 6UL,
                     fp);
 #line 1201
-  tmp = __builtin_expect((bp->msg_enable & 32) != 0, 0L);
+  tmp = ldv__builtin_expect((bp->msg_enable & 32) != 0, 0L);
 #line 1201
   if (tmp != 0L) {
 #line 1201
@@ -15693,7 +15693,7 @@ __inline static void bnx2x_init_fcoe_fp(struct bnx2x *bp )
 #line 1211
   __set_bit(1, (unsigned long volatile   *)(& q_type));
 #line 1214
-  tmp___0 = __builtin_expect((unsigned int )fp->max_cos != 1U, 0L);
+  tmp___0 = ldv__builtin_expect((unsigned int )fp->max_cos != 1U, 0L);
 #line 1214
   if (tmp___0 != 0L) {
 #line 1214
@@ -15710,7 +15710,7 @@ __inline static void bnx2x_init_fcoe_fp(struct bnx2x *bp )
                        & fp->cid, 1, (int )bp->pfid, (void *)(& (bp->slowpath)->q_rdata),
                        bp->slowpath_mapping + 2512ULL, q_type);
 #line 1220
-  tmp___1 = __builtin_expect((bp->msg_enable & 32) != 0, 0L);
+  tmp___1 = ldv__builtin_expect((bp->msg_enable & 32) != 0, 0L);
 #line 1220
   if (tmp___1 != 0L) {
 #line 1220
@@ -15883,7 +15883,7 @@ __inline static u16 bnx2x_extract_max_cfg(struct bnx2x *bp , u32 mf_cfg )
 #line 1322
   if ((unsigned int )max_cfg == 0U) {
 #line 1323
-    tmp = __builtin_expect((bp->msg_enable & 67108896) != 0, 0L);
+    tmp = ldv__builtin_expect((bp->msg_enable & 67108896) != 0, 0L);
 #line 1323
     if (tmp != 0L) {
 #line 1323
@@ -16218,7 +16218,7 @@ void bnx2x_dp_dmae(struct bnx2x *bp , struct dmae_command *dmae , int msglvl )
 #line 457
   if (src_type == 0U) {
 #line 458
-    tmp = __builtin_expect((bp->msg_enable & msglvl) != 0, 0L);
+    tmp = ldv__builtin_expect((bp->msg_enable & msglvl) != 0, 0L);
 #line 458
     if (tmp != 0L) {
 #line 458
@@ -16232,7 +16232,7 @@ void bnx2x_dp_dmae(struct bnx2x *bp , struct dmae_command *dmae , int msglvl )
     }
   } else {
 #line 466
-    tmp___0 = __builtin_expect((bp->msg_enable & msglvl) != 0, 0L);
+    tmp___0 = ldv__builtin_expect((bp->msg_enable & msglvl) != 0, 0L);
 #line 466
     if (tmp___0 != 0L) {
 #line 466
@@ -16250,7 +16250,7 @@ void bnx2x_dp_dmae(struct bnx2x *bp , struct dmae_command *dmae , int msglvl )
 #line 475
   if (src_type == 0U) {
 #line 476
-    tmp___1 = __builtin_expect((bp->msg_enable & msglvl) != 0, 0L);
+    tmp___1 = ldv__builtin_expect((bp->msg_enable & msglvl) != 0, 0L);
 #line 476
     if (tmp___1 != 0L) {
 #line 476
@@ -16263,7 +16263,7 @@ void bnx2x_dp_dmae(struct bnx2x *bp , struct dmae_command *dmae , int msglvl )
     }
   } else {
 #line 484
-    tmp___2 = __builtin_expect((bp->msg_enable & msglvl) != 0, 0L);
+    tmp___2 = ldv__builtin_expect((bp->msg_enable & msglvl) != 0, 0L);
 #line 484
     if (tmp___2 != 0L) {
 #line 484
@@ -16281,7 +16281,7 @@ void bnx2x_dp_dmae(struct bnx2x *bp , struct dmae_command *dmae , int msglvl )
 #line 493
   if (src_type == 0U) {
 #line 494
-    tmp___3 = __builtin_expect((bp->msg_enable & msglvl) != 0, 0L);
+    tmp___3 = ldv__builtin_expect((bp->msg_enable & msglvl) != 0, 0L);
 #line 494
     if (tmp___3 != 0L) {
 #line 494
@@ -16294,7 +16294,7 @@ void bnx2x_dp_dmae(struct bnx2x *bp , struct dmae_command *dmae , int msglvl )
     }
   } else {
 #line 501
-    tmp___4 = __builtin_expect((bp->msg_enable & msglvl) != 0, 0L);
+    tmp___4 = ldv__builtin_expect((bp->msg_enable & msglvl) != 0, 0L);
 #line 501
     if (tmp___4 != 0L) {
 #line 501
@@ -17058,7 +17058,7 @@ static void bnx2x_hc_int_disable(struct bnx2x *bp )
     val = val & 4294967265U;
   }
 #line 905
-  tmp___0 = __builtin_expect((bp->msg_enable & 16) != 0, 0L);
+  tmp___0 = ldv__builtin_expect((bp->msg_enable & 16) != 0, 0L);
 #line 905
   if (tmp___0 != 0L) {
 #line 905
@@ -17102,7 +17102,7 @@ static void bnx2x_igu_int_disable(struct bnx2x *bp )
 #line 921
   val = val & 4294967281U;
 #line 925
-  tmp___0 = __builtin_expect((bp->msg_enable & 16) != 0, 0L);
+  tmp___0 = ldv__builtin_expect((bp->msg_enable & 16) != 0, 0L);
 #line 925
   if (tmp___0 != 0L) {
 #line 925
@@ -17182,7 +17182,7 @@ void bnx2x_panic_dump(struct bnx2x *bp , bool disable_int )
 #line 957
   bp->eth_stats.unrecoverable_error = bp->eth_stats.unrecoverable_error + 1U;
 #line 958
-  tmp = __builtin_expect((bp->msg_enable & 131072) != 0, 0L);
+  tmp = ldv__builtin_expect((bp->msg_enable & 131072) != 0, 0L);
 #line 958
   if (tmp != 0L) {
 #line 958
@@ -17466,7 +17466,7 @@ static void bnx2x_pbf_pN_buf_flushed(struct bnx2x *bp , struct pbf_pN_buf_regs *
 #line 1212
   init_crd = readl((void const volatile   *)bp->regview + (unsigned long )regs->init_crd);
 #line 1214
-  tmp = __builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
+  tmp = ldv__builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
 #line 1214
   if (tmp != 0L) {
 #line 1214
@@ -17477,7 +17477,7 @@ static void bnx2x_pbf_pN_buf_flushed(struct bnx2x *bp , struct pbf_pN_buf_regs *
 
   }
 #line 1215
-  tmp___0 = __builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
+  tmp___0 = ldv__builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
 #line 1215
   if (tmp___0 != 0L) {
 #line 1215
@@ -17488,7 +17488,7 @@ static void bnx2x_pbf_pN_buf_flushed(struct bnx2x *bp , struct pbf_pN_buf_regs *
 
   }
 #line 1216
-  tmp___1 = __builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
+  tmp___1 = ldv__builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
 #line 1216
   if (tmp___1 != 0L) {
 #line 1216
@@ -17515,7 +17515,7 @@ static void bnx2x_pbf_pN_buf_flushed(struct bnx2x *bp , struct pbf_pN_buf_regs *
     crd_freed = readl((void const volatile   *)bp->regview + (unsigned long )regs->crd_freed);
   } else {
 #line 1225
-    tmp___2 = __builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
+    tmp___2 = ldv__builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
 #line 1225
     if (tmp___2 != 0L) {
 #line 1225
@@ -17526,7 +17526,7 @@ static void bnx2x_pbf_pN_buf_flushed(struct bnx2x *bp , struct pbf_pN_buf_regs *
 
     }
 #line 1227
-    tmp___3 = __builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
+    tmp___3 = ldv__builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
 #line 1227
     if (tmp___3 != 0L) {
 #line 1227
@@ -17537,7 +17537,7 @@ static void bnx2x_pbf_pN_buf_flushed(struct bnx2x *bp , struct pbf_pN_buf_regs *
 
     }
 #line 1229
-    tmp___4 = __builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
+    tmp___4 = ldv__builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
 #line 1229
     if (tmp___4 != 0L) {
 #line 1229
@@ -17560,7 +17560,7 @@ static void bnx2x_pbf_pN_buf_flushed(struct bnx2x *bp , struct pbf_pN_buf_regs *
   }
   ldv_55928: 
 #line 1234
-  tmp___6 = __builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
+  tmp___6 = ldv__builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
 #line 1234
   if (tmp___6 != 0L) {
 #line 1234
@@ -17603,7 +17603,7 @@ static void bnx2x_pbf_pN_cmd_flushed(struct bnx2x *bp , struct pbf_pN_cmd_regs *
 #line 1246
   freed = freed_start;
 #line 1248
-  tmp = __builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
+  tmp = ldv__builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
 #line 1248
   if (tmp != 0L) {
 #line 1248
@@ -17614,7 +17614,7 @@ static void bnx2x_pbf_pN_cmd_flushed(struct bnx2x *bp , struct pbf_pN_cmd_regs *
 
   }
 #line 1249
-  tmp___0 = __builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
+  tmp___0 = ldv__builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
 #line 1249
   if (tmp___0 != 0L) {
 #line 1249
@@ -17641,7 +17641,7 @@ static void bnx2x_pbf_pN_cmd_flushed(struct bnx2x *bp , struct pbf_pN_cmd_regs *
     freed = readl((void const volatile   *)bp->regview + (unsigned long )regs->lines_freed);
   } else {
 #line 1257
-    tmp___1 = __builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
+    tmp___1 = ldv__builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
 #line 1257
     if (tmp___1 != 0L) {
 #line 1257
@@ -17652,7 +17652,7 @@ static void bnx2x_pbf_pN_cmd_flushed(struct bnx2x *bp , struct pbf_pN_cmd_regs *
 
     }
 #line 1259
-    tmp___2 = __builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
+    tmp___2 = ldv__builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
 #line 1259
     if (tmp___2 != 0L) {
 #line 1259
@@ -17663,7 +17663,7 @@ static void bnx2x_pbf_pN_cmd_flushed(struct bnx2x *bp , struct pbf_pN_cmd_regs *
 
     }
 #line 1261
-    tmp___3 = __builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
+    tmp___3 = ldv__builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
 #line 1261
     if (tmp___3 != 0L) {
 #line 1261
@@ -17686,7 +17686,7 @@ static void bnx2x_pbf_pN_cmd_flushed(struct bnx2x *bp , struct pbf_pN_cmd_regs *
   }
   ldv_55942: 
 #line 1266
-  tmp___5 = __builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
+  tmp___5 = ldv__builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
 #line 1266
   if (tmp___5 != 0L) {
 #line 1266
@@ -17921,7 +17921,7 @@ int bnx2x_send_final_clnup(struct bnx2x *bp , u8 clnup_func , u32 poll_cnt )
 #line 1397
   op_gen_command = op_gen_command | 65536U;
 #line 1399
-  tmp___0 = __builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
+  tmp___0 = ldv__builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
 #line 1399
   if (tmp___0 != 0L) {
 #line 1399
@@ -17940,7 +17940,7 @@ int bnx2x_send_final_clnup(struct bnx2x *bp , u8 clnup_func , u32 poll_cnt )
     printk("\vbnx2x: [%s:%d(%s)]FW final cleanup did not succeed\n", "bnx2x_send_final_clnup",
            1403, (unsigned long )bp->dev != (unsigned long )((struct net_device *)0) ? (char *)(& (bp->dev)->name) : (char *)"?");
 #line 1404
-    tmp___2 = __builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
+    tmp___2 = ldv__builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
 #line 1404
     if (tmp___2 != 0L) {
 #line 1404
@@ -18078,7 +18078,7 @@ static void bnx2x_hw_enable_status(struct bnx2x *bp )
 #line 1476
   val = readl((void const volatile   *)bp->regview + 1065252U);
 #line 1477
-  tmp = __builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
+  tmp = ldv__builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
 #line 1477
   if (tmp != 0L) {
 #line 1477
@@ -18091,7 +18091,7 @@ static void bnx2x_hw_enable_status(struct bnx2x *bp )
 #line 1479
   val = readl((void const volatile   *)bp->regview + 1311464U);
 #line 1480
-  tmp___0 = __builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
+  tmp___0 = ldv__builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
 #line 1480
   if (tmp___0 != 0L) {
 #line 1480
@@ -18104,7 +18104,7 @@ static void bnx2x_hw_enable_status(struct bnx2x *bp )
 #line 1482
   val = readl((void const volatile   *)bp->regview + 1245504U);
 #line 1483
-  tmp___1 = __builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
+  tmp___1 = ldv__builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
 #line 1483
   if (tmp___1 != 0L) {
 #line 1483
@@ -18117,7 +18117,7 @@ static void bnx2x_hw_enable_status(struct bnx2x *bp )
 #line 1485
   val = readl((void const volatile   *)bp->regview + 1245508U);
 #line 1486
-  tmp___2 = __builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
+  tmp___2 = ldv__builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
 #line 1486
   if (tmp___2 != 0L) {
 #line 1486
@@ -18130,7 +18130,7 @@ static void bnx2x_hw_enable_status(struct bnx2x *bp )
 #line 1488
   val = readl((void const volatile   *)bp->regview + 1245512U);
 #line 1489
-  tmp___3 = __builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
+  tmp___3 = ldv__builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
 #line 1489
   if (tmp___3 != 0L) {
 #line 1489
@@ -18143,7 +18143,7 @@ static void bnx2x_hw_enable_status(struct bnx2x *bp )
 #line 1491
   val = readl((void const volatile   *)bp->regview + 37976U);
 #line 1492
-  tmp___4 = __builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
+  tmp___4 = ldv__builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
 #line 1492
   if (tmp___4 != 0L) {
 #line 1492
@@ -18156,7 +18156,7 @@ static void bnx2x_hw_enable_status(struct bnx2x *bp )
 #line 1494
   val = readl((void const volatile   *)bp->regview + 37912U);
 #line 1495
-  tmp___5 = __builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
+  tmp___5 = ldv__builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
 #line 1495
   if (tmp___5 != 0L) {
 #line 1495
@@ -18169,7 +18169,7 @@ static void bnx2x_hw_enable_status(struct bnx2x *bp )
 #line 1497
   val = readl((void const volatile   *)bp->regview + 37932U);
 #line 1498
-  tmp___6 = __builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
+  tmp___6 = ldv__builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
 #line 1498
   if (tmp___6 != 0L) {
 #line 1498
@@ -18200,7 +18200,7 @@ static int bnx2x_pf_flr_clnup(struct bnx2x *bp )
 #line 1504
   poll_cnt = tmp;
 #line 1506
-  tmp___0 = __builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
+  tmp___0 = ldv__builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
 #line 1506
   if (tmp___0 != 0L) {
 #line 1506
@@ -18213,7 +18213,7 @@ static int bnx2x_pf_flr_clnup(struct bnx2x *bp )
 #line 1509
   writel(1U, (void volatile   *)bp->regview + 37936U);
 #line 1512
-  tmp___1 = __builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
+  tmp___1 = ldv__builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
 #line 1512
   if (tmp___1 != 0L) {
 #line 1512
@@ -18316,7 +18316,7 @@ static void bnx2x_hc_int_enable(struct bnx2x *bp )
 #line 1573
     if (bp->common.chip_id >> 16 != 5710U) {
 #line 1574
-      tmp___0 = __builtin_expect((bp->msg_enable & 32) != 0, 0L);
+      tmp___0 = ldv__builtin_expect((bp->msg_enable & 32) != 0, 0L);
 #line 1574
       if (tmp___0 != 0L) {
 #line 1574
@@ -18342,7 +18342,7 @@ static void bnx2x_hc_int_enable(struct bnx2x *bp )
 
   }
 #line 1586
-  tmp___1 = __builtin_expect((bp->msg_enable & 32) != 0, 0L);
+  tmp___1 = ldv__builtin_expect((bp->msg_enable & 32) != 0, 0L);
 #line 1586
   if (tmp___1 != 0L) {
 #line 1586
@@ -18444,7 +18444,7 @@ static void bnx2x_igu_int_enable(struct bnx2x *bp )
 #line 1650
   val = val | 1U;
 #line 1652
-  tmp = __builtin_expect((bp->msg_enable & 32) != 0, 0L);
+  tmp = ldv__builtin_expect((bp->msg_enable & 32) != 0, 0L);
 #line 1652
   if (tmp != 0L) {
 #line 1652
@@ -18592,7 +18592,7 @@ static bool bnx2x_trylock_hw_lock(struct bnx2x *bp , u32 resource )
 #line 1723
   func = (int )bp->pfid;
 #line 1726
-  tmp = __builtin_expect((bp->msg_enable & 8224) != 0, 0L);
+  tmp = ldv__builtin_expect((bp->msg_enable & 8224) != 0, 0L);
 #line 1726
   if (tmp != 0L) {
 #line 1726
@@ -18605,7 +18605,7 @@ static bool bnx2x_trylock_hw_lock(struct bnx2x *bp , u32 resource )
 #line 1730
   if (resource > 31U) {
 #line 1731
-    tmp___0 = __builtin_expect((bp->msg_enable & 8224) != 0, 0L);
+    tmp___0 = ldv__builtin_expect((bp->msg_enable & 8224) != 0, 0L);
 #line 1731
     if (tmp___0 != 0L) {
 #line 1731
@@ -18640,7 +18640,7 @@ static bool bnx2x_trylock_hw_lock(struct bnx2x *bp , u32 resource )
 
   }
 #line 1749
-  tmp___1 = __builtin_expect((bp->msg_enable & 8224) != 0, 0L);
+  tmp___1 = ldv__builtin_expect((bp->msg_enable & 8224) != 0, 0L);
 #line 1749
   if (tmp___1 != 0L) {
 #line 1749
@@ -18735,7 +18735,7 @@ void bnx2x_sp_event(struct bnx2x_fastpath *fp , union eth_rx_cqe *rr_cqe )
 #line 1809
   q_obj = & (bp->sp_objs + (unsigned long )fp->index)->q_obj;
 #line 1811
-  tmp = __builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
+  tmp = ldv__builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
 #line 1811
   if (tmp != 0L) {
 #line 1811
@@ -18756,7 +18756,7 @@ void bnx2x_sp_event(struct bnx2x_fastpath *fp , union eth_rx_cqe *rr_cqe )
   switch (command) {
   case 5: 
 #line 1825
-  tmp___0 = __builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
+  tmp___0 = ldv__builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
 #line 1825
   if (tmp___0 != 0L) {
 #line 1825
@@ -18772,7 +18772,7 @@ void bnx2x_sp_event(struct bnx2x_fastpath *fp , union eth_rx_cqe *rr_cqe )
   goto ldv_56075;
   case 1: 
 #line 1830
-  tmp___1 = __builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
+  tmp___1 = ldv__builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
 #line 1830
   if (tmp___1 != 0L) {
 #line 1830
@@ -18788,7 +18788,7 @@ void bnx2x_sp_event(struct bnx2x_fastpath *fp , union eth_rx_cqe *rr_cqe )
   goto ldv_56075;
   case 4: 
 #line 1835
-  tmp___2 = __builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
+  tmp___2 = ldv__builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
 #line 1835
   if (tmp___2 != 0L) {
 #line 1835
@@ -18804,7 +18804,7 @@ void bnx2x_sp_event(struct bnx2x_fastpath *fp , union eth_rx_cqe *rr_cqe )
   goto ldv_56075;
   case 2: 
 #line 1840
-  tmp___3 = __builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
+  tmp___3 = ldv__builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
 #line 1840
   if (tmp___3 != 0L) {
 #line 1840
@@ -18820,7 +18820,7 @@ void bnx2x_sp_event(struct bnx2x_fastpath *fp , union eth_rx_cqe *rr_cqe )
   goto ldv_56075;
   case 7: 
 #line 1845
-  tmp___4 = __builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
+  tmp___4 = ldv__builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
 #line 1845
   if (tmp___4 != 0L) {
 #line 1845
@@ -18836,7 +18836,7 @@ void bnx2x_sp_event(struct bnx2x_fastpath *fp , union eth_rx_cqe *rr_cqe )
   goto ldv_56075;
   case 6: 
 #line 1850
-  tmp___5 = __builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
+  tmp___5 = ldv__builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
 #line 1850
   if (tmp___5 != 0L) {
 #line 1850
@@ -18882,7 +18882,7 @@ void bnx2x_sp_event(struct bnx2x_fastpath *fp , union eth_rx_cqe *rr_cqe )
 #line 1880
   __asm__  volatile   ("": : : "memory");
 #line 1882
-  tmp___8 = __builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
+  tmp___8 = ldv__builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
 #line 1882
   if (tmp___8 != 0L) {
 #line 1882
@@ -18954,11 +18954,11 @@ irqreturn_t bnx2x_interrupt(int irq , void *dev_instance )
 #line 1911
   status = tmp___0;
 #line 1917
-  tmp___2 = __builtin_expect((unsigned int )status == 0U, 0L);
+  tmp___2 = ldv__builtin_expect((unsigned int )status == 0U, 0L);
 #line 1917
   if (tmp___2 != 0L) {
 #line 1918
-    tmp___1 = __builtin_expect((bp->msg_enable & 512) != 0, 0L);
+    tmp___1 = ldv__builtin_expect((bp->msg_enable & 512) != 0, 0L);
 #line 1918
     if (tmp___1 != 0L) {
 #line 1918
@@ -18973,7 +18973,7 @@ irqreturn_t bnx2x_interrupt(int irq , void *dev_instance )
 
   }
 #line 1921
-  tmp___3 = __builtin_expect((bp->msg_enable & 512) != 0, 0L);
+  tmp___3 = ldv__builtin_expect((bp->msg_enable & 512) != 0, 0L);
 #line 1921
   if (tmp___3 != 0L) {
 #line 1921
@@ -19084,7 +19084,7 @@ irqreturn_t bnx2x_interrupt(int irq , void *dev_instance )
 
   }
 #line 1959
-  tmp___6 = __builtin_expect((long )status & 1L, 0L);
+  tmp___6 = ldv__builtin_expect((long )status & 1L, 0L);
 #line 1959
   if (tmp___6 != 0L) {
 #line 1964
@@ -19102,11 +19102,11 @@ irqreturn_t bnx2x_interrupt(int irq , void *dev_instance )
 
   }
 #line 1971
-  tmp___8 = __builtin_expect((unsigned int )status != 0U, 0L);
+  tmp___8 = ldv__builtin_expect((unsigned int )status != 0U, 0L);
 #line 1971
   if (tmp___8 != 0L) {
 #line 1972
-    tmp___7 = __builtin_expect((bp->msg_enable & 512) != 0, 0L);
+    tmp___7 = ldv__builtin_expect((bp->msg_enable & 512) != 0, 0L);
 #line 1972
     if (tmp___7 != 0L) {
 #line 1972
@@ -19328,7 +19328,7 @@ int bnx2x_get_gpio(struct bnx2x *bp , int gpio_num , u8 port )
     value = 0;
   }
 #line 2092
-  tmp___2 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+  tmp___2 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 2092
   if (tmp___2 != 0L) {
 #line 2092
@@ -19401,7 +19401,7 @@ int bnx2x_set_gpio(struct bnx2x *bp , int gpio_num , u32 mode , u8 port )
   switch (mode) {
   case 0U: 
 #line 2118
-  tmp___3 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+  tmp___3 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 2118
   if (tmp___3 != 0L) {
 #line 2118
@@ -19419,7 +19419,7 @@ int bnx2x_set_gpio(struct bnx2x *bp , int gpio_num , u32 mode , u8 port )
   goto ldv_56151;
   case 1U: 
 #line 2127
-  tmp___4 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+  tmp___4 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 2127
   if (tmp___4 != 0L) {
 #line 2127
@@ -19437,7 +19437,7 @@ int bnx2x_set_gpio(struct bnx2x *bp , int gpio_num , u32 mode , u8 port )
   goto ldv_56151;
   case 2U: 
 #line 2136
-  tmp___5 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+  tmp___5 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 2136
   if (tmp___5 != 0L) {
 #line 2136
@@ -19492,7 +19492,7 @@ int bnx2x_set_mult_gpio(struct bnx2x *bp , u8 pins , u32 mode )
   switch (mode) {
   case 0U: 
 #line 2169
-  tmp = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+  tmp = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 2169
   if (tmp != 0L) {
 #line 2169
@@ -19508,7 +19508,7 @@ int bnx2x_set_mult_gpio(struct bnx2x *bp , u8 pins , u32 mode )
   goto ldv_56164;
   case 1U: 
 #line 2175
-  tmp___0 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+  tmp___0 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 2175
   if (tmp___0 != 0L) {
 #line 2175
@@ -19524,7 +19524,7 @@ int bnx2x_set_mult_gpio(struct bnx2x *bp , u8 pins , u32 mode )
   goto ldv_56164;
   case 2U: 
 #line 2181
-  tmp___1 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+  tmp___1 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 2181
   if (tmp___1 != 0L) {
 #line 2181
@@ -19618,7 +19618,7 @@ int bnx2x_set_gpio_int(struct bnx2x *bp , int gpio_num , u32 mode , u8 port )
   switch (mode) {
   case 0U: 
 #line 2221
-  tmp___2 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+  tmp___2 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 2221
   if (tmp___2 != 0L) {
 #line 2221
@@ -19636,7 +19636,7 @@ int bnx2x_set_gpio_int(struct bnx2x *bp , int gpio_num , u32 mode , u8 port )
   goto ldv_56180;
   case 1U: 
 #line 2230
-  tmp___3 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+  tmp___3 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 2230
   if (tmp___3 != 0L) {
 #line 2230
@@ -19695,7 +19695,7 @@ static int bnx2x_set_spio(struct bnx2x *bp , int spio , u32 mode )
   switch (mode) {
   case 0U: 
 #line 2264
-  tmp___0 = __builtin_expect((bp->msg_enable & 8192) != 0, 0L);
+  tmp___0 = ldv__builtin_expect((bp->msg_enable & 8192) != 0, 0L);
 #line 2264
   if (tmp___0 != 0L) {
 #line 2264
@@ -19713,7 +19713,7 @@ static int bnx2x_set_spio(struct bnx2x *bp , int spio , u32 mode )
   goto ldv_56191;
   case 1U: 
 #line 2271
-  tmp___1 = __builtin_expect((bp->msg_enable & 8192) != 0, 0L);
+  tmp___1 = ldv__builtin_expect((bp->msg_enable & 8192) != 0, 0L);
 #line 2271
   if (tmp___1 != 0L) {
 #line 2271
@@ -19731,7 +19731,7 @@ static int bnx2x_set_spio(struct bnx2x *bp , int spio , u32 mode )
   goto ldv_56191;
   case 2U: 
 #line 2278
-  tmp___2 = __builtin_expect((bp->msg_enable & 8192) != 0, 0L);
+  tmp___2 = ldv__builtin_expect((bp->msg_enable & 8192) != 0, 0L);
 #line 2278
   if (tmp___2 != 0L) {
 #line 2278
@@ -20045,7 +20045,7 @@ static void bnx2x_calc_vn_min(struct bnx2x *bp , struct cmng_init_input *input )
 #line 2457
     input->flags.cmng_enables = input->flags.cmng_enables & 4294967294U;
 #line 2459
-    tmp = __builtin_expect((bp->msg_enable & 32) != 0, 0L);
+    tmp = ldv__builtin_expect((bp->msg_enable & 32) != 0, 0L);
 #line 2459
     if (tmp != 0L) {
 #line 2459
@@ -20060,7 +20060,7 @@ static void bnx2x_calc_vn_min(struct bnx2x *bp , struct cmng_init_input *input )
 #line 2461
     input->flags.cmng_enables = input->flags.cmng_enables & 4294967294U;
 #line 2463
-    tmp___0 = __builtin_expect((bp->msg_enable & 32) != 0, 0L);
+    tmp___0 = ldv__builtin_expect((bp->msg_enable & 32) != 0, 0L);
 #line 2463
     if (tmp___0 != 0L) {
 #line 2463
@@ -20108,7 +20108,7 @@ static void bnx2x_calc_vn_max(struct bnx2x *bp , int vn , struct cmng_init_input
     }
   }
 #line 2489
-  tmp___0 = __builtin_expect((bp->msg_enable & 32) != 0, 0L);
+  tmp___0 = ldv__builtin_expect((bp->msg_enable & 32) != 0, 0L);
 #line 2489
   if (tmp___0 != 0L) {
 #line 2489
@@ -20197,7 +20197,7 @@ void bnx2x_read_mf_cfg(struct bnx2x *bp )
 #line 2532
   if ((bp->mf_config[(int )bp->pfid >> 1] & 8U) != 0U) {
 #line 2533
-    tmp = __builtin_expect((bp->msg_enable & 32) != 0, 0L);
+    tmp = ldv__builtin_expect((bp->msg_enable & 32) != 0, 0L);
 #line 2533
     if (tmp != 0L) {
 #line 2533
@@ -20210,7 +20210,7 @@ void bnx2x_read_mf_cfg(struct bnx2x *bp )
     bp->flags = bp->flags | 2048U;
   } else {
 #line 2536
-    tmp___0 = __builtin_expect((bp->msg_enable & 32) != 0, 0L);
+    tmp___0 = ldv__builtin_expect((bp->msg_enable & 32) != 0, 0L);
 #line 2536
     if (tmp___0 != 0L) {
 #line 2536
@@ -20282,7 +20282,7 @@ static void bnx2x_cmng_fns_init(struct bnx2x *bp , u8 read_cfg , u8 cmng_type )
 
   }
 #line 2572
-  tmp = __builtin_expect((bp->msg_enable & 32) != 0, 0L);
+  tmp = ldv__builtin_expect((bp->msg_enable & 32) != 0, 0L);
 #line 2572
   if (tmp != 0L) {
 #line 2572
@@ -20415,7 +20415,7 @@ static void bnx2x_link_attn(struct bnx2x *bp )
       storm_memset_cmng(bp, & bp->cmng, (int )bp->pfid & 1);
     } else {
 #line 2648
-      tmp___0 = __builtin_expect((bp->msg_enable & 32) != 0, 0L);
+      tmp___0 = ldv__builtin_expect((bp->msg_enable & 32) != 0, 0L);
 #line 2648
       if (tmp___0 != 0L) {
 #line 2648
@@ -20749,7 +20749,7 @@ static void bnx2x_handle_afex_cmd(struct bnx2x *bp , u32 cmd )
 #line 2785
     vifid = readl((void const volatile   *)(bp->regview + ((unsigned long )bp->common.shmem2_base + ((unsigned long )(((int )bp->pfid & 1) + ((int )bp->pfid >> 1) * ((bp->common.chip_id >> 16 == 5710U || (bp->common.chip_id >> 16 == 5711U || bp->common.chip_id >> 16 == 5712U)) || (unsigned int )bp->common.chip_port_mode == 0U ? 2 : 1)) + 34UL) * 4UL)));
 #line 2786
-    tmp = __builtin_expect((bp->msg_enable & 65536) != 0, 0L);
+    tmp = ldv__builtin_expect((bp->msg_enable & 65536) != 0, 0L);
 #line 2786
     if (tmp != 0L) {
 #line 2786
@@ -20771,7 +20771,7 @@ static void bnx2x_handle_afex_cmd(struct bnx2x *bp , u32 cmd )
 #line 2793
     addrs = readl((void const volatile   *)(bp->regview + ((unsigned long )bp->common.shmem2_base + ((unsigned long )(((int )bp->pfid & 1) + ((int )bp->pfid >> 1) * ((bp->common.chip_id >> 16 == 5710U || (bp->common.chip_id >> 16 == 5711U || bp->common.chip_id >> 16 == 5712U)) || (unsigned int )bp->common.chip_port_mode == 0U ? 2 : 1)) + 38UL) * 4UL)));
 #line 2794
-    tmp___0 = __builtin_expect((bp->msg_enable & 65536) != 0, 0L);
+    tmp___0 = ldv__builtin_expect((bp->msg_enable & 65536) != 0, 0L);
 #line 2794
     if (tmp___0 != 0L) {
 #line 2794
@@ -20793,7 +20793,7 @@ static void bnx2x_handle_afex_cmd(struct bnx2x *bp , u32 cmd )
 #line 2804
     stats_type = readl((void const volatile   *)(bp->regview + ((unsigned long )bp->common.shmem2_base + ((unsigned long )(((int )bp->pfid & 1) + ((int )bp->pfid >> 1) * ((bp->common.chip_id >> 16 == 5710U || (bp->common.chip_id >> 16 == 5711U || bp->common.chip_id >> 16 == 5712U)) || (unsigned int )bp->common.chip_port_mode == 0U ? 2 : 1)) + 34UL) * 4UL)));
 #line 2807
-    tmp___1 = __builtin_expect((bp->msg_enable & 65536) != 0, 0L);
+    tmp___1 = ldv__builtin_expect((bp->msg_enable & 65536) != 0, 0L);
 #line 2807
     if (tmp___1 != 0L) {
 #line 2807
@@ -20834,7 +20834,7 @@ static void bnx2x_handle_afex_cmd(struct bnx2x *bp , u32 cmd )
 #line 2824
     bp->mf_config[(int )bp->pfid >> 1] = mf_config;
 #line 2825
-    tmp___2 = __builtin_expect((bp->msg_enable & 65536) != 0, 0L);
+    tmp___2 = ldv__builtin_expect((bp->msg_enable & 65536) != 0, 0L);
 #line 2825
     if (tmp___2 != 0L) {
 #line 2825
@@ -20921,7 +20921,7 @@ static void bnx2x_pmf_update(struct bnx2x *bp )
 #line 2898
   bp->port.pmf = 1U;
 #line 2899
-  tmp = __builtin_expect((bp->msg_enable & 65536) != 0, 0L);
+  tmp = ldv__builtin_expect((bp->msg_enable & 65536) != 0, 0L);
 #line 2899
   if (tmp != 0L) {
 #line 2899
@@ -20992,7 +20992,7 @@ u32 bnx2x_fw_command(struct bnx2x *bp , u32 command , u32 param )
 #line 2945
   writel(command | seq, (void volatile   *)(bp->regview + (((unsigned long )bp->common.shmem_base + (unsigned long )mb_idx * 44UL) + 1668UL)));
 #line 2947
-  tmp = __builtin_expect((bp->msg_enable & 65536) != 0, 0L);
+  tmp = ldv__builtin_expect((bp->msg_enable & 65536) != 0, 0L);
 #line 2947
   if (tmp != 0L) {
 #line 2947
@@ -21026,7 +21026,7 @@ u32 bnx2x_fw_command(struct bnx2x *bp , u32 command , u32 param )
   }
   ldv_56364: 
 #line 2959
-  tmp___1 = __builtin_expect((bp->msg_enable & 65536) != 0, 0L);
+  tmp___1 = ldv__builtin_expect((bp->msg_enable & 65536) != 0, 0L);
 #line 2959
   if (tmp___1 != 0L) {
 #line 2959
@@ -21277,7 +21277,7 @@ static void bnx2x_pf_rx_q_prep(struct bnx2x *bp , struct bnx2x_fastpath *fp , st
 #line 3114
     __ret_warn_on = (int )bp->dropless_fc && (unsigned int )((int )pause->sge_th_hi + 16) > 1020U;
 #line 3114
-    tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 3114
     if (tmp != 0L) {
 #line 3114
@@ -21287,7 +21287,7 @@ static void bnx2x_pf_rx_q_prep(struct bnx2x *bp , struct bnx2x_fastpath *fp , st
 
     }
 #line 3114
-    __builtin_expect(__ret_warn_on != 0, 0L);
+    ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 3118
     __min1___0 = 8U;
 #line 3118
@@ -21324,7 +21324,7 @@ static void bnx2x_pf_rx_q_prep(struct bnx2x *bp , struct bnx2x_fastpath *fp , st
 #line 3137
     __ret_warn_on___0 = (int )bp->dropless_fc && (int )pause->bd_th_hi + 16 > bp->rx_ring_size;
 #line 3137
-    tmp___0 = __builtin_expect(__ret_warn_on___0 != 0, 0L);
+    tmp___0 = ldv__builtin_expect(__ret_warn_on___0 != 0, 0L);
 #line 3137
     if (tmp___0 != 0L) {
 #line 3137
@@ -21334,11 +21334,11 @@ static void bnx2x_pf_rx_q_prep(struct bnx2x *bp , struct bnx2x_fastpath *fp , st
 
     }
 #line 3137
-    __builtin_expect(__ret_warn_on___0 != 0, 0L);
+    ldv__builtin_expect(__ret_warn_on___0 != 0, 0L);
 #line 3140
     __ret_warn_on___1 = (int )bp->dropless_fc && (unsigned int )((int )pause->rcq_th_hi + 16) > 4032U;
 #line 3140
-    tmp___1 = __builtin_expect(__ret_warn_on___1 != 0, 0L);
+    tmp___1 = ldv__builtin_expect(__ret_warn_on___1 != 0, 0L);
 #line 3140
     if (tmp___1 != 0L) {
 #line 3140
@@ -21348,7 +21348,7 @@ static void bnx2x_pf_rx_q_prep(struct bnx2x *bp , struct bnx2x_fastpath *fp , st
 
     }
 #line 3140
-    __builtin_expect(__ret_warn_on___1 != 0, 0L);
+    ldv__builtin_expect(__ret_warn_on___1 != 0, 0L);
 #line 3144
     pause->pri_map = 1U;
   } else {
@@ -21832,7 +21832,7 @@ static void bnx2x_handle_eee_event(struct bnx2x *bp )
 
   {
 #line 3480
-  tmp = __builtin_expect((bp->msg_enable & 65536) != 0, 0L);
+  tmp = ldv__builtin_expect((bp->msg_enable & 65536) != 0, 0L);
 #line 3480
   if (tmp != 0L) {
 #line 3480
@@ -21915,7 +21915,7 @@ static void bnx2x_dcc_event(struct bnx2x *bp , u32 dcc_event )
 
   {
 #line 3530
-  tmp = __builtin_expect((bp->msg_enable & 65536) != 0, 0L);
+  tmp = ldv__builtin_expect((bp->msg_enable & 65536) != 0, 0L);
 #line 3530
   if (tmp != 0L) {
 #line 3530
@@ -21929,7 +21929,7 @@ static void bnx2x_dcc_event(struct bnx2x *bp , u32 dcc_event )
 #line 3539
     if ((bp->mf_config[(int )bp->pfid >> 1] & 8U) != 0U) {
 #line 3540
-      tmp___0 = __builtin_expect((bp->msg_enable & 65536) != 0, 0L);
+      tmp___0 = ldv__builtin_expect((bp->msg_enable & 65536) != 0, 0L);
 #line 3540
       if (tmp___0 != 0L) {
 #line 3540
@@ -21944,7 +21944,7 @@ static void bnx2x_dcc_event(struct bnx2x *bp , u32 dcc_event )
       bnx2x_e1h_disable(bp);
     } else {
 #line 3545
-      tmp___1 = __builtin_expect((bp->msg_enable & 65536) != 0, 0L);
+      tmp___1 = ldv__builtin_expect((bp->msg_enable & 65536) != 0, 0L);
 #line 3545
       if (tmp___1 != 0L) {
 #line 3545
@@ -22000,7 +22000,7 @@ static struct eth_spe *bnx2x_sp_get_next(struct bnx2x *bp )
 #line 3571
     bp->spq_prod_idx = 0U;
 #line 3572
-    tmp = __builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
+    tmp = ldv__builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
 #line 3572
     if (tmp != 0L) {
 #line 3572
@@ -22138,7 +22138,7 @@ int bnx2x_sp_post(struct bnx2x *bp , int command , int cid , u32 data_hi , u32 d
     atomic_dec(& bp->cq_spq_left);
   }
 #line 3691
-  tmp___4 = __builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
+  tmp___4 = ldv__builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
 #line 3691
   if (tmp___4 != 0L) {
 #line 3691
@@ -22318,7 +22318,7 @@ static void bnx2x_attn_int_asserted(struct bnx2x *bp , u32 asserted )
 #line 3777
   aeu_mask = readl((void const volatile   *)bp->regview + (unsigned long )aeu_addr);
 #line 3779
-  tmp = __builtin_expect((bp->msg_enable & 8192) != 0, 0L);
+  tmp = ldv__builtin_expect((bp->msg_enable & 8192) != 0, 0L);
 #line 3779
   if (tmp != 0L) {
 #line 3779
@@ -22331,7 +22331,7 @@ static void bnx2x_attn_int_asserted(struct bnx2x *bp , u32 asserted )
 #line 3781
   aeu_mask = ~ (asserted & 1023U) & aeu_mask;
 #line 3782
-  tmp___0 = __builtin_expect((bp->msg_enable & 8192) != 0, 0L);
+  tmp___0 = ldv__builtin_expect((bp->msg_enable & 8192) != 0, 0L);
 #line 3782
   if (tmp___0 != 0L) {
 #line 3782
@@ -22345,7 +22345,7 @@ static void bnx2x_attn_int_asserted(struct bnx2x *bp , u32 asserted )
 #line 3785
   bnx2x_release_hw_lock(bp, (u32 )(port + 3));
 #line 3787
-  tmp___1 = __builtin_expect((bp->msg_enable & 8192) != 0, 0L);
+  tmp___1 = ldv__builtin_expect((bp->msg_enable & 8192) != 0, 0L);
 #line 3787
   if (tmp___1 != 0L) {
 #line 3787
@@ -22358,7 +22358,7 @@ static void bnx2x_attn_int_asserted(struct bnx2x *bp , u32 asserted )
 #line 3788
   bp->attn_state = bp->attn_state | asserted;
 #line 3789
-  tmp___2 = __builtin_expect((bp->msg_enable & 8192) != 0, 0L);
+  tmp___2 = ldv__builtin_expect((bp->msg_enable & 8192) != 0, 0L);
 #line 3789
   if (tmp___2 != 0L) {
 #line 3789
@@ -22391,7 +22391,7 @@ static void bnx2x_attn_int_asserted(struct bnx2x *bp , u32 asserted )
 #line 3810
     if (((long )asserted & 512L) != 0L) {
 #line 3811
-      tmp___3 = __builtin_expect((bp->msg_enable & 8192) != 0, 0L);
+      tmp___3 = ldv__builtin_expect((bp->msg_enable & 8192) != 0, 0L);
 #line 3811
       if (tmp___3 != 0L) {
 #line 3811
@@ -22406,7 +22406,7 @@ static void bnx2x_attn_int_asserted(struct bnx2x *bp , u32 asserted )
 #line 3813
     if (((long )asserted & 1024L) != 0L) {
 #line 3814
-      tmp___4 = __builtin_expect((bp->msg_enable & 8192) != 0, 0L);
+      tmp___4 = ldv__builtin_expect((bp->msg_enable & 8192) != 0, 0L);
 #line 3814
       if (tmp___4 != 0L) {
 #line 3814
@@ -22421,7 +22421,7 @@ static void bnx2x_attn_int_asserted(struct bnx2x *bp , u32 asserted )
 #line 3816
     if (((long )asserted & 2048L) != 0L) {
 #line 3817
-      tmp___5 = __builtin_expect((bp->msg_enable & 8192) != 0, 0L);
+      tmp___5 = ldv__builtin_expect((bp->msg_enable & 8192) != 0, 0L);
 #line 3817
       if (tmp___5 != 0L) {
 #line 3817
@@ -22436,7 +22436,7 @@ static void bnx2x_attn_int_asserted(struct bnx2x *bp , u32 asserted )
 #line 3819
     if (((long )asserted & 4096L) != 0L) {
 #line 3820
-      tmp___6 = __builtin_expect((bp->msg_enable & 8192) != 0, 0L);
+      tmp___6 = ldv__builtin_expect((bp->msg_enable & 8192) != 0, 0L);
 #line 3820
       if (tmp___6 != 0L) {
 #line 3820
@@ -22453,7 +22453,7 @@ static void bnx2x_attn_int_asserted(struct bnx2x *bp , u32 asserted )
 #line 3823
       if (((long )asserted & 8192L) != 0L) {
 #line 3824
-        tmp___7 = __builtin_expect((bp->msg_enable & 8192) != 0, 0L);
+        tmp___7 = ldv__builtin_expect((bp->msg_enable & 8192) != 0, 0L);
 #line 3824
         if (tmp___7 != 0L) {
 #line 3824
@@ -22470,7 +22470,7 @@ static void bnx2x_attn_int_asserted(struct bnx2x *bp , u32 asserted )
 #line 3827
       if (((long )asserted & 16384L) != 0L) {
 #line 3828
-        tmp___8 = __builtin_expect((bp->msg_enable & 8192) != 0, 0L);
+        tmp___8 = ldv__builtin_expect((bp->msg_enable & 8192) != 0, 0L);
 #line 3828
         if (tmp___8 != 0L) {
 #line 3828
@@ -22487,7 +22487,7 @@ static void bnx2x_attn_int_asserted(struct bnx2x *bp , u32 asserted )
 #line 3831
       if (((long )asserted & 32768L) != 0L) {
 #line 3832
-        tmp___9 = __builtin_expect((bp->msg_enable & 8192) != 0, 0L);
+        tmp___9 = ldv__builtin_expect((bp->msg_enable & 8192) != 0, 0L);
 #line 3832
         if (tmp___9 != 0L) {
 #line 3832
@@ -22505,7 +22505,7 @@ static void bnx2x_attn_int_asserted(struct bnx2x *bp , u32 asserted )
 #line 3836
       if (((long )asserted & 8192L) != 0L) {
 #line 3837
-        tmp___10 = __builtin_expect((bp->msg_enable & 8192) != 0, 0L);
+        tmp___10 = ldv__builtin_expect((bp->msg_enable & 8192) != 0, 0L);
 #line 3837
         if (tmp___10 != 0L) {
 #line 3837
@@ -22522,7 +22522,7 @@ static void bnx2x_attn_int_asserted(struct bnx2x *bp , u32 asserted )
 #line 3840
       if (((long )asserted & 16384L) != 0L) {
 #line 3841
-        tmp___11 = __builtin_expect((bp->msg_enable & 8192) != 0, 0L);
+        tmp___11 = ldv__builtin_expect((bp->msg_enable & 8192) != 0, 0L);
 #line 3841
         if (tmp___11 != 0L) {
 #line 3841
@@ -22539,7 +22539,7 @@ static void bnx2x_attn_int_asserted(struct bnx2x *bp , u32 asserted )
 #line 3844
       if (((long )asserted & 32768L) != 0L) {
 #line 3845
-        tmp___12 = __builtin_expect((bp->msg_enable & 8192) != 0, 0L);
+        tmp___12 = ldv__builtin_expect((bp->msg_enable & 8192) != 0, 0L);
 #line 3845
         if (tmp___12 != 0L) {
 #line 3845
@@ -22566,7 +22566,7 @@ static void bnx2x_attn_int_asserted(struct bnx2x *bp , u32 asserted )
     reg_addr = 4467976U;
   }
 #line 3858
-  tmp___13 = __builtin_expect((bp->msg_enable & 8192) != 0, 0L);
+  tmp___13 = ldv__builtin_expect((bp->msg_enable & 8192) != 0, 0L);
 #line 3858
   if (tmp___13 != 0L) {
 #line 3858
@@ -22607,7 +22607,7 @@ static void bnx2x_attn_int_asserted(struct bnx2x *bp , u32 asserted )
 #line 3874
       if (igu_acked == 0U) {
 #line 3875
-        tmp___14 = __builtin_expect((bp->msg_enable & 8192) != 0, 0L);
+        tmp___14 = ldv__builtin_expect((bp->msg_enable & 8192) != 0, 0L);
 #line 3875
         if (tmp___14 != 0L) {
 #line 3875
@@ -23122,7 +23122,7 @@ static bool bnx2x_reset_is_global(struct bnx2x *bp )
 #line 4181
   val = tmp;
 #line 4183
-  tmp___0 = __builtin_expect((bp->msg_enable & 8192) != 0, 0L);
+  tmp___0 = ldv__builtin_expect((bp->msg_enable & 8192) != 0, 0L);
 #line 4183
   if (tmp___0 != 0L) {
 #line 4183
@@ -23219,7 +23219,7 @@ void bnx2x_set_pf_load(struct bnx2x *bp )
 #line 4254
   val = readl((void const volatile   *)bp->regview + 42100U);
 #line 4256
-  tmp = __builtin_expect((bp->msg_enable & 32) != 0, 0L);
+  tmp = ldv__builtin_expect((bp->msg_enable & 32) != 0, 0L);
 #line 4256
   if (tmp != 0L) {
 #line 4256
@@ -23264,7 +23264,7 @@ bool bnx2x_clear_pf_load(struct bnx2x *bp )
 #line 4292
   val = readl((void const volatile   *)bp->regview + 42100U);
 #line 4293
-  tmp = __builtin_expect((bp->msg_enable & 16) != 0, 0L);
+  tmp = ldv__builtin_expect((bp->msg_enable & 16) != 0, 0L);
 #line 4293
   if (tmp != 0L) {
 #line 4293
@@ -23310,7 +23310,7 @@ static bool bnx2x_get_load_status(struct bnx2x *bp , int engine )
 #line 4323
   val = tmp;
 #line 4325
-  tmp___0 = __builtin_expect((bp->msg_enable & 8224) != 0, 0L);
+  tmp___0 = ldv__builtin_expect((bp->msg_enable & 8224) != 0, 0L);
 #line 4325
   if (tmp___0 != 0L) {
 #line 4325
@@ -23323,7 +23323,7 @@ static bool bnx2x_get_load_status(struct bnx2x *bp , int engine )
 #line 4327
   val = (val & mask) >> (int )shift;
 #line 4329
-  tmp___1 = __builtin_expect((bp->msg_enable & 8224) != 0, 0L);
+  tmp___1 = ldv__builtin_expect((bp->msg_enable & 8224) != 0, 0L);
 #line 4329
   if (tmp___1 != 0L) {
 #line 4329
@@ -24148,7 +24148,7 @@ static bool bnx2x_parity_attn(struct bnx2x *bp , bool *global , bool print , u32
 #line 4603
     par_num = 0;
 #line 4604
-    tmp = __builtin_expect((bp->msg_enable & 8192) != 0, 0L);
+    tmp = ldv__builtin_expect((bp->msg_enable & 8192) != 0, 0L);
 #line 4604
     if (tmp != 0L) {
 #line 4604
@@ -24465,7 +24465,7 @@ static void bnx2x_attn_int_deasserted(struct bnx2x *bp , u32 deasserted )
     attn.sig[4] = 0U;
   }
 #line 4761
-  tmp___0 = __builtin_expect((bp->msg_enable & 8192) != 0, 0L);
+  tmp___0 = ldv__builtin_expect((bp->msg_enable & 8192) != 0, 0L);
 #line 4761
   if (tmp___0 != 0L) {
 #line 4761
@@ -24485,7 +24485,7 @@ static void bnx2x_attn_int_deasserted(struct bnx2x *bp , u32 deasserted )
 #line 4766
     group_mask = (struct attn_route *)(& bp->attn_group) + (unsigned long )index;
 #line 4768
-    tmp___1 = __builtin_expect((bp->msg_enable & 8192) != 0, 0L);
+    tmp___1 = ldv__builtin_expect((bp->msg_enable & 8192) != 0, 0L);
 #line 4768
     if (tmp___1 != 0L) {
 #line 4768
@@ -24532,7 +24532,7 @@ static void bnx2x_attn_int_deasserted(struct bnx2x *bp , u32 deasserted )
 #line 4795
   val = ~ deasserted;
 #line 4796
-  tmp___2 = __builtin_expect((bp->msg_enable & 8192) != 0, 0L);
+  tmp___2 = ldv__builtin_expect((bp->msg_enable & 8192) != 0, 0L);
 #line 4796
   if (tmp___2 != 0L) {
 #line 4796
@@ -24559,7 +24559,7 @@ static void bnx2x_attn_int_deasserted(struct bnx2x *bp , u32 deasserted )
 #line 4807
   aeu_mask = readl((void const volatile   *)bp->regview + (unsigned long )reg_addr);
 #line 4809
-  tmp___3 = __builtin_expect((bp->msg_enable & 8192) != 0, 0L);
+  tmp___3 = ldv__builtin_expect((bp->msg_enable & 8192) != 0, 0L);
 #line 4809
   if (tmp___3 != 0L) {
 #line 4809
@@ -24572,7 +24572,7 @@ static void bnx2x_attn_int_deasserted(struct bnx2x *bp , u32 deasserted )
 #line 4811
   aeu_mask = (deasserted & 1023U) | aeu_mask;
 #line 4812
-  tmp___4 = __builtin_expect((bp->msg_enable & 8192) != 0, 0L);
+  tmp___4 = ldv__builtin_expect((bp->msg_enable & 8192) != 0, 0L);
 #line 4812
   if (tmp___4 != 0L) {
 #line 4812
@@ -24587,7 +24587,7 @@ static void bnx2x_attn_int_deasserted(struct bnx2x *bp , u32 deasserted )
 #line 4815
   bnx2x_release_hw_lock(bp, (u32 )(port + 3));
 #line 4817
-  tmp___5 = __builtin_expect((bp->msg_enable & 8192) != 0, 0L);
+  tmp___5 = ldv__builtin_expect((bp->msg_enable & 8192) != 0, 0L);
 #line 4817
   if (tmp___5 != 0L) {
 #line 4817
@@ -24600,7 +24600,7 @@ static void bnx2x_attn_int_deasserted(struct bnx2x *bp , u32 deasserted )
 #line 4818
   bp->attn_state = bp->attn_state & ~ deasserted;
 #line 4819
-  tmp___6 = __builtin_expect((bp->msg_enable & 8192) != 0, 0L);
+  tmp___6 = ldv__builtin_expect((bp->msg_enable & 8192) != 0, 0L);
 #line 4819
   if (tmp___6 != 0L) {
 #line 4819
@@ -24636,7 +24636,7 @@ static void bnx2x_attn_int(struct bnx2x *bp )
 #line 4833
   deasserted = (~ attn_bits & attn_ack) & attn_state;
 #line 4835
-  tmp = __builtin_expect((bp->msg_enable & 8192) != 0, 0L);
+  tmp = ldv__builtin_expect((bp->msg_enable & 8192) != 0, 0L);
 #line 4835
   if (tmp != 0L) {
 #line 4835
@@ -24721,7 +24721,7 @@ static int bnx2x_cnic_handle_cfc_del(struct bnx2x *bp , u32 cid , union event_ri
 
   }
 #line 4876
-  tmp = __builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
+  tmp = ldv__builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
 #line 4876
   if (tmp != 0L) {
 #line 4876
@@ -24732,7 +24732,7 @@ static int bnx2x_cnic_handle_cfc_del(struct bnx2x *bp , u32 cid , union event_ri
 
   }
 #line 4878
-  tmp___0 = __builtin_expect((unsigned int )err != 0U, 0L);
+  tmp___0 = ldv__builtin_expect((unsigned int )err != 0U, 0L);
 #line 4878
   if (tmp___0 != 0L) {
 #line 4880
@@ -24814,7 +24814,7 @@ static void bnx2x_handle_classification_eqe(struct bnx2x *bp , union event_ring_
   switch (elem->message.data.eth_event.echo >> 17) {
   case 0U: 
 #line 4927
-  tmp = __builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
+  tmp = ldv__builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
 #line 4927
   if (tmp != 0L) {
 #line 4927
@@ -24835,7 +24835,7 @@ static void bnx2x_handle_classification_eqe(struct bnx2x *bp , union event_ring_
   goto ldv_56831;
   case 9U: 
 #line 4935
-  tmp___0 = __builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
+  tmp___0 = ldv__builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
 #line 4935
   if (tmp___0 != 0L) {
 #line 4935
@@ -24869,7 +24869,7 @@ static void bnx2x_handle_classification_eqe(struct bnx2x *bp , union event_ring_
 #line 4951
   if (rc > 0) {
 #line 4952
-    tmp___1 = __builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
+    tmp___1 = ldv__builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
 #line 4952
     if (tmp___1 != 0L) {
 #line 4952
@@ -24940,7 +24940,7 @@ static void bnx2x_after_afex_vif_lists(struct bnx2x *bp , union event_ring_elem 
 #line 4980
   if ((unsigned int )elem->message.data.vif_list_event.echo == 1U) {
 #line 4981
-    tmp = __builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
+    tmp = ldv__builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
 #line 4981
     if (tmp != 0L) {
 #line 4981
@@ -24956,7 +24956,7 @@ static void bnx2x_after_afex_vif_lists(struct bnx2x *bp , union event_ring_elem 
 #line 4986
   if ((unsigned int )elem->message.data.vif_list_event.echo == 0U) {
 #line 4988
-    tmp___0 = __builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
+    tmp___0 = ldv__builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
 #line 4988
     if (tmp___0 != 0L) {
 #line 4988
@@ -25159,7 +25159,7 @@ static struct bnx2x_queue_sp_obj *bnx2x_cid_to_q_obj(struct bnx2x *bp , u32 cid 
 
   {
 #line 5061
-  tmp = __builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
+  tmp = ldv__builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
 #line 5061
   if (tmp != 0L) {
 #line 5061
@@ -25240,7 +25240,7 @@ static void bnx2x_eq_int(struct bnx2x *bp )
 #line 5096
   sw_prod = bp->eq_prod;
 #line 5098
-  tmp___0 = __builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
+  tmp___0 = ldv__builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
 #line 5098
   if (tmp___0 != 0L) {
 #line 5098
@@ -25262,7 +25262,7 @@ static void bnx2x_eq_int(struct bnx2x *bp )
 #line 5107
   if (rc == 0) {
 #line 5108
-    tmp___1 = __builtin_expect((bp->msg_enable & 8388608) != 0, 0L);
+    tmp___1 = ldv__builtin_expect((bp->msg_enable & 8388608) != 0, 0L);
 #line 5108
     if (tmp___1 != 0L) {
 #line 5108
@@ -25285,7 +25285,7 @@ static void bnx2x_eq_int(struct bnx2x *bp )
   switch ((int )opcode) {
   case 0: 
 #line 5121
-  tmp___2 = __builtin_expect((bp->msg_enable & 8388608) != 0, 0L);
+  tmp___2 = ldv__builtin_expect((bp->msg_enable & 8388608) != 0, 0L);
 #line 5121
   if (tmp___2 != 0L) {
 #line 5121
@@ -25300,7 +25300,7 @@ static void bnx2x_eq_int(struct bnx2x *bp )
   goto ldv_56880;
   case 5: 
 #line 5126
-  tmp___4 = __builtin_expect((bp->msg_enable & 1179648) != 0, 0L);
+  tmp___4 = ldv__builtin_expect((bp->msg_enable & 1179648) != 0, 0L);
 #line 5126
   if (tmp___4 != 0L) {
 #line 5126
@@ -25318,7 +25318,7 @@ static void bnx2x_eq_int(struct bnx2x *bp )
   goto next_spqe;
   case 3: 
 #line 5138
-  tmp___5 = __builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
+  tmp___5 = ldv__builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
 #line 5138
   if (tmp___5 != 0L) {
 #line 5138
@@ -25357,7 +25357,7 @@ static void bnx2x_eq_int(struct bnx2x *bp )
   goto next_spqe;
   case 6: 
 #line 5155
-  tmp___8 = __builtin_expect((bp->msg_enable & 135266304) != 0, 0L);
+  tmp___8 = ldv__builtin_expect((bp->msg_enable & 135266304) != 0, 0L);
 #line 5155
   if (tmp___8 != 0L) {
 #line 5155
@@ -25380,7 +25380,7 @@ static void bnx2x_eq_int(struct bnx2x *bp )
   goto next_spqe;
   case 7: 
 #line 5163
-  tmp___10 = __builtin_expect((bp->msg_enable & 135266304) != 0, 0L);
+  tmp___10 = ldv__builtin_expect((bp->msg_enable & 135266304) != 0, 0L);
 #line 5163
   if (tmp___10 != 0L) {
 #line 5163
@@ -25407,7 +25407,7 @@ static void bnx2x_eq_int(struct bnx2x *bp )
 #line 5172
   if ((unsigned int )echo == 0U) {
 #line 5173
-    tmp___12 = __builtin_expect((bp->msg_enable & 1048608) != 0, 0L);
+    tmp___12 = ldv__builtin_expect((bp->msg_enable & 1048608) != 0, 0L);
 #line 5173
     if (tmp___12 != 0L) {
 #line 5173
@@ -25427,7 +25427,7 @@ static void bnx2x_eq_int(struct bnx2x *bp )
     }
   } else {
 #line 5180
-    tmp___14 = __builtin_expect((bp->msg_enable & 1114112) != 0, 0L);
+    tmp___14 = ldv__builtin_expect((bp->msg_enable & 1114112) != 0, 0L);
 #line 5180
     if (tmp___14 != 0L) {
 #line 5180
@@ -25458,7 +25458,7 @@ static void bnx2x_eq_int(struct bnx2x *bp )
   goto next_spqe;
   case 1: 
 #line 5205
-  tmp___15 = __builtin_expect((bp->msg_enable & 1048608) != 0, 0L);
+  tmp___15 = ldv__builtin_expect((bp->msg_enable & 1048608) != 0, 0L);
 #line 5205
   if (tmp___15 != 0L) {
 #line 5205
@@ -25479,7 +25479,7 @@ static void bnx2x_eq_int(struct bnx2x *bp )
   goto next_spqe;
   case 2: 
 #line 5213
-  tmp___17 = __builtin_expect((bp->msg_enable & 1048608) != 0, 0L);
+  tmp___17 = ldv__builtin_expect((bp->msg_enable & 1048608) != 0, 0L);
 #line 5213
   if (tmp___17 != 0L) {
 #line 5213
@@ -25507,7 +25507,7 @@ static void bnx2x_eq_int(struct bnx2x *bp )
 #line 5226
   cid = elem->message.data.eth_event.echo & 131071U;
 #line 5228
-  tmp___19 = __builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
+  tmp___19 = ldv__builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
 #line 5228
   if (tmp___19 != 0L) {
 #line 5228
@@ -25528,7 +25528,7 @@ static void bnx2x_eq_int(struct bnx2x *bp )
   case 57359: ;
   case 16399: 
 #line 5243
-  tmp___20 = __builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
+  tmp___20 = ldv__builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
 #line 5243
   if (tmp___20 != 0L) {
 #line 5243
@@ -25544,7 +25544,7 @@ static void bnx2x_eq_int(struct bnx2x *bp )
   case 57361: ;
   case 16401: 
 #line 5253
-  tmp___21 = __builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
+  tmp___21 = ldv__builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
 #line 5253
   if (tmp___21 != 0L) {
 #line 5253
@@ -25560,7 +25560,7 @@ static void bnx2x_eq_int(struct bnx2x *bp )
   case 57360: ;
   case 16400: 
 #line 5263
-  tmp___22 = __builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
+  tmp___22 = ldv__builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
 #line 5263
   if (tmp___22 != 0L) {
 #line 5263
@@ -25635,7 +25635,7 @@ static void bnx2x_sp_task(struct work_struct *work )
 #line 5289
   bp = (struct bnx2x *)__mptr + 0xfffffffffffffcb0UL;
 #line 5291
-  tmp = __builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
+  tmp = ldv__builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
 #line 5291
   if (tmp != 0L) {
 #line 5291
@@ -25654,7 +25654,7 @@ static void bnx2x_sp_task(struct work_struct *work )
 #line 5298
     status = tmp___0;
 #line 5300
-    tmp___1 = __builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
+    tmp___1 = ldv__builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
 #line 5300
     if (tmp___1 != 0L) {
 #line 5300
@@ -25664,7 +25664,7 @@ static void bnx2x_sp_task(struct work_struct *work )
 
     }
 #line 5301
-    tmp___2 = __builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
+    tmp___2 = ldv__builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
 #line 5301
     if (tmp___2 != 0L) {
 #line 5301
@@ -25728,11 +25728,11 @@ static void bnx2x_sp_task(struct work_struct *work )
 
     }
 #line 5333
-    tmp___6 = __builtin_expect((unsigned int )status != 0U, 0L);
+    tmp___6 = ldv__builtin_expect((unsigned int )status != 0U, 0L);
 #line 5333
     if (tmp___6 != 0L) {
 #line 5334
-      tmp___5 = __builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
+      tmp___5 = ldv__builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
 #line 5334
       if (tmp___5 != 0L) {
 #line 5334
@@ -26241,7 +26241,7 @@ void bnx2x_init_sb(struct bnx2x *bp , dma_addr_t mapping , int vfid , u8 vf_vali
 #line 5630
   bnx2x_setup_ndsb_state_machine(hc_sm_p + 1UL, igu_sb_id, igu_seg_id);
 #line 5633
-  tmp = __builtin_expect((bp->msg_enable & 32) != 0, 0L);
+  tmp = ldv__builtin_expect((bp->msg_enable & 32) != 0, 0L);
 #line 5633
   if (tmp != 0L) {
 #line 5633
@@ -26872,7 +26872,7 @@ static void bnx2x_init_eth_fp(struct bnx2x *bp , int fp_idx )
 #line 6007
   __set_bit(1, (unsigned long volatile   *)(& q_type));
 #line 6009
-  tmp___0 = __builtin_expect((unsigned int )fp->max_cos > 3U, 0L);
+  tmp___0 = ldv__builtin_expect((unsigned int )fp->max_cos > 3U, 0L);
 #line 6009
   if (tmp___0 != 0L) {
 #line 6009
@@ -26924,7 +26924,7 @@ static void bnx2x_init_eth_fp(struct bnx2x *bp , int fp_idx )
 #line 6034
   bnx2x_init_vlan_mac_fp_objs(fp, 2);
 #line 6036
-  tmp___1 = __builtin_expect((bp->msg_enable & 32) != 0, 0L);
+  tmp___1 = ldv__builtin_expect((bp->msg_enable & 32) != 0, 0L);
 #line 6036
   if (tmp___1 != 0L) {
 #line 6036
@@ -27549,7 +27549,7 @@ static int bnx2x_int_mem_test(struct bnx2x *bp )
 #line 6340
   bnx2x_init_block(bp, 16U, 0U);
 #line 6342
-  tmp = __builtin_expect((bp->msg_enable & 8192) != 0, 0L);
+  tmp = ldv__builtin_expect((bp->msg_enable & 8192) != 0, 0L);
 #line 6342
   if (tmp != 0L) {
 #line 6342
@@ -27707,7 +27707,7 @@ static int bnx2x_int_mem_test(struct bnx2x *bp )
 #line 6414
   writel(1U, (void volatile   *)bp->regview + 65720U);
 #line 6416
-  tmp___0 = __builtin_expect((bp->msg_enable & 8192) != 0, 0L);
+  tmp___0 = ldv__builtin_expect((bp->msg_enable & 8192) != 0, 0L);
 #line 6416
   if (tmp___0 != 0L) {
 #line 6416
@@ -27854,7 +27854,7 @@ static void bnx2x_init_pxp(struct bnx2x *bp )
 #line 6508
   pcie_capability_read_word(bp->pdev, 8, & devctl);
 #line 6509
-  tmp = __builtin_expect((bp->msg_enable & 8192) != 0, 0L);
+  tmp = ldv__builtin_expect((bp->msg_enable & 8192) != 0, 0L);
 #line 6509
   if (tmp != 0L) {
 #line 6509
@@ -27872,7 +27872,7 @@ static void bnx2x_init_pxp(struct bnx2x *bp )
     r_order = ((int )devctl & 28672) >> 12;
   } else {
 #line 6514
-    tmp___0 = __builtin_expect((bp->msg_enable & 8192) != 0, 0L);
+    tmp___0 = ldv__builtin_expect((bp->msg_enable & 8192) != 0, 0L);
 #line 6514
     if (tmp___0 != 0L) {
 #line 6514
@@ -27947,7 +27947,7 @@ static void bnx2x_setup_fan_failure_detection(struct bnx2x *bp )
 
   }
 #line 6552
-  tmp___1 = __builtin_expect((bp->msg_enable & 8192) != 0, 0L);
+  tmp___1 = ldv__builtin_expect((bp->msg_enable & 8192) != 0, 0L);
 #line 6552
   if (tmp___1 != 0L) {
 #line 6552
@@ -28063,7 +28063,7 @@ static int bnx2x_init_hw_common(struct bnx2x *bp )
 
   {
 #line 6611
-  tmp = __builtin_expect((bp->msg_enable & 8192) != 0, 0L);
+  tmp = ldv__builtin_expect((bp->msg_enable & 8192) != 0, 0L);
 #line 6611
   if (tmp != 0L) {
 #line 6611
@@ -28638,7 +28638,7 @@ static int bnx2x_init_hw_port(struct bnx2x *bp )
 #line 7084
   init_phase = port != 0 ? 2 : 1;
 #line 7089
-  tmp = __builtin_expect((bp->msg_enable & 8192) != 0, 0L);
+  tmp = ldv__builtin_expect((bp->msg_enable & 8192) != 0, 0L);
 #line 7089
   if (tmp != 0L) {
 #line 7089
@@ -28994,7 +28994,7 @@ void bnx2x_igu_clear_sb_gen(struct bnx2x *bp , u8 func , u8 idu_sb_id , bool is_
 #line 7331
   ctl = ((func_encode << 12) | addr_encode) | 1048576U;
 #line 7335
-  tmp = __builtin_expect((bp->msg_enable & 8192) != 0, 0L);
+  tmp = ldv__builtin_expect((bp->msg_enable & 8192) != 0, 0L);
 #line 7335
   if (tmp != 0L) {
 #line 7335
@@ -29011,7 +29011,7 @@ void bnx2x_igu_clear_sb_gen(struct bnx2x *bp , u8 func , u8 idu_sb_id , bool is_
 #line 7339
   __asm__  volatile   ("": : : "memory");
 #line 7340
-  tmp___0 = __builtin_expect((bp->msg_enable & 8192) != 0, 0L);
+  tmp___0 = ldv__builtin_expect((bp->msg_enable & 8192) != 0, 0L);
 #line 7340
   if (tmp___0 != 0L) {
 #line 7340
@@ -29056,7 +29056,7 @@ void bnx2x_igu_clear_sb_gen(struct bnx2x *bp , u8 func , u8 idu_sb_id , bool is_
 #line 7351
   if ((tmp___3 & sb_bit) == 0U) {
 #line 7352
-    tmp___2 = __builtin_expect((bp->msg_enable & 8192) != 0, 0L);
+    tmp___2 = ldv__builtin_expect((bp->msg_enable & 8192) != 0, 0L);
 #line 7352
     if (tmp___2 != 0L) {
 #line 7352
@@ -29327,7 +29327,7 @@ static int bnx2x_reset_nic_mode(struct bnx2x *bp )
 
   }
 #line 7470
-  tmp___1 = __builtin_expect((bp->msg_enable & 32) != 0, 0L);
+  tmp___1 = ldv__builtin_expect((bp->msg_enable & 32) != 0, 0L);
 #line 7470
   if (tmp___1 != 0L) {
 #line 7470
@@ -29408,7 +29408,7 @@ static int bnx2x_init_hw_func(struct bnx2x *bp )
 #line 7499
   ilt = bp->ilt;
 #line 7505
-  tmp = __builtin_expect((bp->msg_enable & 8192) != 0, 0L);
+  tmp = ldv__builtin_expect((bp->msg_enable & 8192) != 0, 0L);
 #line 7505
   if (tmp != 0L) {
 #line 7505
@@ -29498,7 +29498,7 @@ static int bnx2x_init_hw_func(struct bnx2x *bp )
 #line 7549
     writel(0U, (void volatile   *)bp->regview + 262456U);
 #line 7550
-    tmp___1 = __builtin_expect((bp->msg_enable & 32) != 0, 0L);
+    tmp___1 = ldv__builtin_expect((bp->msg_enable & 32) != 0, 0L);
 #line 7550
     if (tmp___1 != 0L) {
 #line 7550
@@ -29511,7 +29511,7 @@ static int bnx2x_init_hw_func(struct bnx2x *bp )
 #line 7553
     writel(1U, (void volatile   *)bp->regview + 262456U);
 #line 7554
-    tmp___2 = __builtin_expect((bp->msg_enable & 32) != 0, 0L);
+    tmp___2 = ldv__builtin_expect((bp->msg_enable & 32) != 0, 0L);
 #line 7554
     if (tmp___2 != 0L) {
 #line 7554
@@ -29815,7 +29815,7 @@ static int bnx2x_init_hw_func(struct bnx2x *bp )
 #line 7775
     if (val != 0U) {
 #line 7776
-      tmp___3 = __builtin_expect((bp->msg_enable & 8192) != 0, 0L);
+      tmp___3 = ldv__builtin_expect((bp->msg_enable & 8192) != 0, 0L);
 #line 7776
       if (tmp___3 != 0L) {
 #line 7776
@@ -30314,7 +30314,7 @@ int bnx2x_set_mac_one(struct bnx2x *bp , u8 *mac , struct bnx2x_vlan_mac_obj *ob
 #line 7978
   if (rc == -17) {
 #line 7979
-    tmp___0 = __builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
+    tmp___0 = ldv__builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
 #line 7979
     if (tmp___0 != 0L) {
 #line 7979
@@ -30392,7 +30392,7 @@ int bnx2x_set_eth_mac(struct bnx2x *bp , bool set )
 #line 8011
   if ((int )tmp___0 && (((unsigned int )bp->mf_mode == 1U && ((bp->mf_config[(int )bp->pfid >> 1] & 6U) == 6U || (bp->mf_config[(int )bp->pfid >> 1] & 6U) == 0U)) || ((unsigned int )bp->mf_mode == 3U && (bp->mf_ext_config & 8U) != 0U))) {
 #line 8013
-    tmp = __builtin_expect((bp->msg_enable & 48) != 0, 0L);
+    tmp = ldv__builtin_expect((bp->msg_enable & 48) != 0, 0L);
 #line 8013
     if (tmp != 0L) {
 #line 8013
@@ -30411,7 +30411,7 @@ int bnx2x_set_eth_mac(struct bnx2x *bp , bool set )
 #line 8019
     ramrod_flags = 0UL;
 #line 8021
-    tmp___1 = __builtin_expect((bp->msg_enable & 32) != 0, 0L);
+    tmp___1 = ldv__builtin_expect((bp->msg_enable & 32) != 0, 0L);
 #line 8021
     if (tmp___1 != 0L) {
 #line 8021
@@ -30485,7 +30485,7 @@ int bnx2x_set_int_mode(struct bnx2x *bp )
 
   }
 #line 8065
-  tmp = __builtin_expect((bp->msg_enable & 2) != 0, 0L);
+  tmp = ldv__builtin_expect((bp->msg_enable & 2) != 0, 0L);
 #line 8065
   if (tmp != 0L) {
 #line 8065
@@ -30503,7 +30503,7 @@ int bnx2x_set_int_mode(struct bnx2x *bp )
 #line 8076
   bp->num_queues = (int )(bp->num_ethernet_queues + bp->num_cnic_queues);
 #line 8077
-  tmp___0 = __builtin_expect((bp->msg_enable & 2) != 0, 0L);
+  tmp___0 = ldv__builtin_expect((bp->msg_enable & 2) != 0, 0L);
 #line 8077
   if (tmp___0 != 0L) {
 #line 8077
@@ -30515,7 +30515,7 @@ int bnx2x_set_int_mode(struct bnx2x *bp )
   goto ldv_57479;
   default: 
 #line 8080
-  tmp___1 = __builtin_expect((bp->msg_enable & 2) != 0, 0L);
+  tmp___1 = ldv__builtin_expect((bp->msg_enable & 2) != 0, 0L);
 #line 8080
   if (tmp___1 != 0L) {
 #line 8080
@@ -30574,7 +30574,7 @@ void bnx2x_ilt_set_info(struct bnx2x *bp )
 #line 8100
   ilt->start_line = (u32 )((int )bp->pfid * 384);
 #line 8101
-  tmp = __builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
+  tmp = ldv__builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
 #line 8101
   if (tmp != 0L) {
 #line 8101
@@ -30608,7 +30608,7 @@ void bnx2x_ilt_set_info(struct bnx2x *bp )
 #line 8113
   ilt_client->end = (unsigned int )line + 65535U;
 #line 8115
-  tmp___2 = __builtin_expect((bp->msg_enable & 32) != 0, 0L);
+  tmp___2 = ldv__builtin_expect((bp->msg_enable & 32) != 0, 0L);
 #line 8115
   if (tmp___2 != 0L) {
 #line 8115
@@ -30638,7 +30638,7 @@ void bnx2x_ilt_set_info(struct bnx2x *bp )
 #line 8134
     ilt_client->end = (unsigned int )line + 65535U;
 #line 8136
-    tmp___4 = __builtin_expect((bp->msg_enable & 32) != 0, 0L);
+    tmp___4 = ldv__builtin_expect((bp->msg_enable & 32) != 0, 0L);
 #line 8136
     if (tmp___4 != 0L) {
 #line 8136
@@ -30671,7 +30671,7 @@ void bnx2x_ilt_set_info(struct bnx2x *bp )
 #line 8154
     ilt_client->end = (unsigned int )line + 65535U;
 #line 8156
-    tmp___6 = __builtin_expect((bp->msg_enable & 32) != 0, 0L);
+    tmp___6 = ldv__builtin_expect((bp->msg_enable & 32) != 0, 0L);
 #line 8156
     if (tmp___6 != 0L) {
 #line 8156
@@ -30699,7 +30699,7 @@ void bnx2x_ilt_set_info(struct bnx2x *bp )
 #line 8171
     ilt_client->end = (unsigned int )line + 65535U;
 #line 8173
-    tmp___8 = __builtin_expect((bp->msg_enable & 32) != 0, 0L);
+    tmp___8 = ldv__builtin_expect((bp->msg_enable & 32) != 0, 0L);
 #line 8173
     if (tmp___8 != 0L) {
 #line 8173
@@ -30716,7 +30716,7 @@ void bnx2x_ilt_set_info(struct bnx2x *bp )
 
   }
 #line 8182
-  tmp___9 = __builtin_expect((unsigned int )line > 256U, 0L);
+  tmp___9 = ldv__builtin_expect((unsigned int )line > 256U, 0L);
 #line 8182
   if (tmp___9 != 0L) {
 #line 8182
@@ -30772,7 +30772,7 @@ static void bnx2x_pf_q_prep_init(struct bnx2x *bp , struct bnx2x_fastpath *fp , 
 #line 8233
   init_params->max_cos = fp->max_cos;
 #line 8235
-  tmp___0 = __builtin_expect((bp->msg_enable & 32) != 0, 0L);
+  tmp___0 = ldv__builtin_expect((bp->msg_enable & 32) != 0, 0L);
 #line 8235
   if (tmp___0 != 0L) {
 #line 8235
@@ -30830,7 +30830,7 @@ static int bnx2x_setup_tx_only(struct bnx2x *bp , struct bnx2x_fastpath *fp , st
 #line 8268
   bnx2x_pf_tx_q_prep(bp, fp, & tx_only_params->txq_params, (int )((u8 )tx_index));
 #line 8270
-  tmp = __builtin_expect((bp->msg_enable & 32) != 0, 0L);
+  tmp = ldv__builtin_expect((bp->msg_enable & 32) != 0, 0L);
 #line 8270
   if (tmp != 0L) {
 #line 8270
@@ -30945,7 +30945,7 @@ int bnx2x_setup_queue(struct bnx2x *bp , struct bnx2x_fastpath *fp , bool leadin
 #line 8298
   tx_only_params = & q_params.params.tx_only;
 #line 8303
-  tmp = __builtin_expect((bp->msg_enable & 32) != 0, 0L);
+  tmp = ldv__builtin_expect((bp->msg_enable & 32) != 0, 0L);
 #line 8303
   if (tmp != 0L) {
 #line 8303
@@ -30984,7 +30984,7 @@ int bnx2x_setup_queue(struct bnx2x *bp , struct bnx2x_fastpath *fp , bool leadin
 
   }
 #line 8327
-  tmp___0 = __builtin_expect((bp->msg_enable & 32) != 0, 0L);
+  tmp___0 = ldv__builtin_expect((bp->msg_enable & 32) != 0, 0L);
 #line 8327
   if (tmp___0 != 0L) {
 #line 8327
@@ -31153,7 +31153,7 @@ static int bnx2x_stop_queue(struct bnx2x *bp , int index )
 #line 8381
   q_params.params.setup.flags = 0UL;
 #line 8384
-  tmp = __builtin_expect((bp->msg_enable & 16) != 0, 0L);
+  tmp = ldv__builtin_expect((bp->msg_enable & 16) != 0, 0L);
 #line 8384
   if (tmp != 0L) {
 #line 8384
@@ -31175,7 +31175,7 @@ static int bnx2x_stop_queue(struct bnx2x *bp , int index )
 #line 8397
   txdata = fp->txdata_ptr[tx_index];
 #line 8399
-  tmp___0 = __builtin_expect((bp->msg_enable & 16) != 0, 0L);
+  tmp___0 = ldv__builtin_expect((bp->msg_enable & 16) != 0, 0L);
 #line 8399
   if (tmp___0 != 0L) {
 #line 8399
@@ -31439,7 +31439,7 @@ static void bnx2x_reset_port(struct bnx2x *bp )
 #line 8548
   if (val != 0U) {
 #line 8549
-    tmp = __builtin_expect((bp->msg_enable & 16) != 0, 0L);
+    tmp = ldv__builtin_expect((bp->msg_enable & 16) != 0, 0L);
 #line 8549
     if (tmp != 0L) {
 #line 8549
@@ -31696,7 +31696,7 @@ u32 bnx2x_send_unload_req(struct bnx2x *bp , int unload_mode )
 #line 8652
     path = bp->common.chip_id >> 16 != 5710U && (bp->common.chip_id >> 16 != 5711U && bp->common.chip_id >> 16 != 5712U) ? (int )bp->pf_num & 1 : 0;
 #line 8654
-    tmp = __builtin_expect((bp->msg_enable & 16) != 0, 0L);
+    tmp = ldv__builtin_expect((bp->msg_enable & 16) != 0, 0L);
 #line 8654
     if (tmp != 0L) {
 #line 8654
@@ -31711,7 +31711,7 @@ u32 bnx2x_send_unload_req(struct bnx2x *bp , int unload_mode )
 #line 8658
     load_count[path][port + 1] = load_count[path][port + 1] - 1;
 #line 8659
-    tmp___0 = __builtin_expect((bp->msg_enable & 16) != 0, 0L);
+    tmp___0 = ldv__builtin_expect((bp->msg_enable & 16) != 0, 0L);
 #line 8659
     if (tmp___0 != 0L) {
 #line 8659
@@ -31883,7 +31883,7 @@ static int bnx2x_func_wait_started(struct bnx2x *bp )
 #line 8732
     func_params.params.tx_start.dont_add_pri_0_en = (unsigned char)0;
 #line 8734
-    tmp___1 = __builtin_expect((bp->msg_enable & 16) != 0, 0L);
+    tmp___1 = ldv__builtin_expect((bp->msg_enable & 16) != 0, 0L);
 #line 8734
     if (tmp___1 != 0L) {
 #line 8734
@@ -32183,7 +32183,7 @@ void bnx2x_disable_close_the_gate(struct bnx2x *bp )
 
   {
 #line 8897
-  tmp = __builtin_expect((bp->msg_enable & 16) != 0, 0L);
+  tmp = ldv__builtin_expect((bp->msg_enable & 16) != 0, 0L);
 #line 8897
   if (tmp != 0L) {
 #line 8897
@@ -32249,7 +32249,7 @@ static void bnx2x_set_234_gates(struct bnx2x *bp , bool close )
     writel(! close ? val | 1U : val & 4294967294U, (void volatile   *)bp->regview + 1245184U);
   }
 #line 8950
-  tmp = __builtin_expect((bp->msg_enable & 8224) != 0, 0L);
+  tmp = ldv__builtin_expect((bp->msg_enable & 8224) != 0, 0L);
 #line 8950
   if (tmp != 0L) {
 #line 8950
@@ -32310,7 +32310,7 @@ static void bnx2x_reset_mcp_prep(struct bnx2x *bp , u32 *magic_val )
 
   {
 #line 8992
-  tmp = __builtin_expect((bp->msg_enable & 8224) != 0, 0L);
+  tmp = ldv__builtin_expect((bp->msg_enable & 8224) != 0, 0L);
 #line 8992
   if (tmp != 0L) {
 #line 8992
@@ -32863,7 +32863,7 @@ static void bnx2x_parity_recover(struct bnx2x *bp )
 #line 9386
   global = 0;
 #line 9390
-  tmp = __builtin_expect((bp->msg_enable & 8192) != 0, 0L);
+  tmp = ldv__builtin_expect((bp->msg_enable & 8192) != 0, 0L);
 #line 9390
   if (tmp != 0L) {
 #line 9390
@@ -32877,7 +32877,7 @@ static void bnx2x_parity_recover(struct bnx2x *bp )
   switch ((unsigned int )bp->recovery_state) {
   case 1U: 
 #line 9394
-  tmp___0 = __builtin_expect((bp->msg_enable & 8192) != 0, 0L);
+  tmp___0 = ldv__builtin_expect((bp->msg_enable & 8192) != 0, 0L);
 #line 9394
   if (tmp___0 != 0L) {
 #line 9394
@@ -32891,7 +32891,7 @@ static void bnx2x_parity_recover(struct bnx2x *bp )
 #line 9396
   __ret_warn_on = ! is_parity;
 #line 9396
-  tmp___1 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___1 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 9396
   if (tmp___1 != 0L) {
 #line 9396
@@ -32901,7 +32901,7 @@ static void bnx2x_parity_recover(struct bnx2x *bp )
 
   }
 #line 9396
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 9399
   tmp___2 = bnx2x_trylock_leader_lock(bp);
 #line 9399
@@ -32937,7 +32937,7 @@ static void bnx2x_parity_recover(struct bnx2x *bp )
   goto ldv_57735;
   case 2U: 
 #line 9428
-  tmp___4 = __builtin_expect((bp->msg_enable & 8192) != 0, 0L);
+  tmp___4 = ldv__builtin_expect((bp->msg_enable & 8192) != 0, 0L);
 #line 9428
   if (tmp___4 != 0L) {
 #line 9428
@@ -33115,7 +33115,7 @@ static void bnx2x_sp_rtnl_task(struct work_struct *work )
 
   }
 #line 9562
-  tmp___1 = __builtin_expect((unsigned int )bp->recovery_state != 0U, 0L);
+  tmp___1 = ldv__builtin_expect((unsigned int )bp->recovery_state != 0U, 0L);
 #line 9562
   if (tmp___1 != 0L) {
 #line 9567
@@ -33173,7 +33173,7 @@ static void bnx2x_sp_rtnl_task(struct work_struct *work )
 #line 9602
   if (tmp___6 != 0) {
 #line 9603
-    tmp___5 = __builtin_expect((bp->msg_enable & 8192) != 0, 0L);
+    tmp___5 = ldv__builtin_expect((bp->msg_enable & 8192) != 0, 0L);
 #line 9603
     if (tmp___5 != 0L) {
 #line 9603
@@ -33198,7 +33198,7 @@ static void bnx2x_sp_rtnl_task(struct work_struct *work )
 #line 9610
   if (tmp___8 != 0) {
 #line 9611
-    tmp___7 = __builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
+    tmp___7 = ldv__builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
 #line 9611
     if (tmp___7 != 0L) {
 #line 9611
@@ -33217,7 +33217,7 @@ static void bnx2x_sp_rtnl_task(struct work_struct *work )
 #line 9616
   if (tmp___10 != 0) {
 #line 9618
-    tmp___9 = __builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
+    tmp___9 = ldv__builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
 #line 9618
     if (tmp___9 != 0L) {
 #line 9618
@@ -33377,7 +33377,7 @@ static void bnx2x_prev_unload_close_mac(struct bnx2x *bp , struct bnx2x_mac_vals
 #line 9700
     if ((mask & reset_reg) != 0U && val != 0U) {
 #line 9702
-      tmp = __builtin_expect((bp->msg_enable & 2) != 0, 0L);
+      tmp = ldv__builtin_expect((bp->msg_enable & 2) != 0, 0L);
 #line 9702
       if (tmp != 0L) {
 #line 9702
@@ -33409,7 +33409,7 @@ static void bnx2x_prev_unload_close_mac(struct bnx2x *bp , struct bnx2x_mac_vals
 
     }
 #line 9724
-    tmp___0 = __builtin_expect((bp->msg_enable & 2) != 0, 0L);
+    tmp___0 = ldv__builtin_expect((bp->msg_enable & 2) != 0, 0L);
 #line 9724
     if (tmp___0 != 0L) {
 #line 9724
@@ -33429,7 +33429,7 @@ static void bnx2x_prev_unload_close_mac(struct bnx2x *bp , struct bnx2x_mac_vals
 #line 9730
     if ((reset_reg & 4194304U) != 0U) {
 #line 9731
-      tmp___1 = __builtin_expect((bp->msg_enable & 2) != 0, 0L);
+      tmp___1 = ldv__builtin_expect((bp->msg_enable & 2) != 0, 0L);
 #line 9731
       if (tmp___1 != 0L) {
 #line 9731
@@ -33461,7 +33461,7 @@ static void bnx2x_prev_unload_close_mac(struct bnx2x *bp , struct bnx2x_mac_vals
 #line 9744
     if ((mask & reset_reg) != 0U) {
 #line 9745
-      tmp___2 = __builtin_expect((bp->msg_enable & 2) != 0, 0L);
+      tmp___2 = ldv__builtin_expect((bp->msg_enable & 2) != 0, 0L);
 #line 9745
       if (tmp___2 != 0L) {
 #line 9745
@@ -33517,7 +33517,7 @@ static void bnx2x_prev_unload_undi_inc(struct bnx2x *bp , u8 port , u8 inc )
 #line 9773
   writel(tmp_reg, (void volatile   *)bp->regview + (unsigned long )(((int )port << 4) + 4396296));
 #line 9775
-  tmp___0 = __builtin_expect((bp->msg_enable & 2) != 0, 0L);
+  tmp___0 = ldv__builtin_expect((bp->msg_enable & 2) != 0, 0L);
 #line 9775
   if (tmp___0 != 0L) {
 #line 9775
@@ -33662,7 +33662,7 @@ static bool bnx2x_prev_is_path_marked(struct bnx2x *bp )
 #line 9840
     if ((unsigned int )tmp_list->aer != 0U) {
 #line 9841
-      tmp___0 = __builtin_expect((bp->msg_enable & 8192) != 0, 0L);
+      tmp___0 = ldv__builtin_expect((bp->msg_enable & 8192) != 0, 0L);
 #line 9841
       if (tmp___0 != 0L) {
 #line 9841
@@ -33676,7 +33676,7 @@ static bool bnx2x_prev_is_path_marked(struct bnx2x *bp )
 #line 9844
       rc = 1;
 #line 9845
-      tmp___1 = __builtin_expect((bp->msg_enable & 2) != 0, 0L);
+      tmp___1 = ldv__builtin_expect((bp->msg_enable & 2) != 0, 0L);
 #line 9845
       if (tmp___1 != 0L) {
 #line 9845
@@ -33729,7 +33729,7 @@ static int bnx2x_prev_mark_path(struct bnx2x *bp , bool after_undi )
              9870, (unsigned long )bp->dev != (unsigned long )((struct net_device *)0) ? (char *)(& (bp->dev)->name) : (char *)"?");
     } else {
 #line 9872
-      tmp = __builtin_expect((bp->msg_enable & 8192) != 0, 0L);
+      tmp = ldv__builtin_expect((bp->msg_enable & 8192) != 0, 0L);
 #line 9872
       if (tmp != 0L) {
 #line 9872
@@ -33787,7 +33787,7 @@ static int bnx2x_prev_mark_path(struct bnx2x *bp , bool after_undi )
     kfree((void const   *)tmp_list);
   } else {
 #line 9899
-    tmp___1 = __builtin_expect((bp->msg_enable & 8192) != 0, 0L);
+    tmp___1 = ldv__builtin_expect((bp->msg_enable & 8192) != 0, 0L);
 #line 9899
     if (tmp___1 != 0L) {
 #line 9899
@@ -33821,7 +33821,7 @@ static int bnx2x_do_flr(struct bnx2x *bp )
 #line 9915
   if (bp->common.chip_id >> 16 == 5710U || (bp->common.chip_id >> 16 == 5711U || bp->common.chip_id >> 16 == 5712U)) {
 #line 9916
-    tmp = __builtin_expect((bp->msg_enable & 2) != 0, 0L);
+    tmp = ldv__builtin_expect((bp->msg_enable & 2) != 0, 0L);
 #line 9916
     if (tmp != 0L) {
 #line 9916
@@ -33880,7 +33880,7 @@ static int bnx2x_do_flr(struct bnx2x *bp )
   dev_err((struct device  const  *)(& dev->dev), "transaction is not cleared; proceeding with reset anyway\n");
   clear: 
 #line 9942
-  tmp___0 = __builtin_expect((bp->msg_enable & 2) != 0, 0L);
+  tmp___0 = ldv__builtin_expect((bp->msg_enable & 2) != 0, 0L);
 #line 9942
   if (tmp___0 != 0L) {
 #line 9942
@@ -33908,7 +33908,7 @@ static int bnx2x_prev_unload_uncommon(struct bnx2x *bp )
 
   {
 #line 9952
-  tmp = __builtin_expect((bp->msg_enable & 2) != 0, 0L);
+  tmp = ldv__builtin_expect((bp->msg_enable & 2) != 0, 0L);
 #line 9952
   if (tmp != 0L) {
 #line 9952
@@ -33928,7 +33928,7 @@ static int bnx2x_prev_unload_uncommon(struct bnx2x *bp )
 
   }
 #line 9958
-  tmp___2 = __builtin_expect((bp->msg_enable & 2) != 0, 0L);
+  tmp___2 = ldv__builtin_expect((bp->msg_enable & 2) != 0, 0L);
 #line 9958
   if (tmp___2 != 0L) {
 #line 9958
@@ -33941,7 +33941,7 @@ static int bnx2x_prev_unload_uncommon(struct bnx2x *bp )
 #line 9966
   if (rc == 0) {
 #line 9968
-    tmp___3 = __builtin_expect((bp->msg_enable & 2) != 0, 0L);
+    tmp___3 = ldv__builtin_expect((bp->msg_enable & 2) != 0, 0L);
 #line 9968
     if (tmp___3 != 0L) {
 #line 9968
@@ -33957,7 +33957,7 @@ static int bnx2x_prev_unload_uncommon(struct bnx2x *bp )
 #line 9972
   if (rc == 0) {
 #line 9974
-    tmp___4 = __builtin_expect((bp->msg_enable & 2) != 0, 0L);
+    tmp___4 = ldv__builtin_expect((bp->msg_enable & 2) != 0, 0L);
 #line 9974
     if (tmp___4 != 0L) {
 #line 9974
@@ -33971,7 +33971,7 @@ static int bnx2x_prev_unload_uncommon(struct bnx2x *bp )
 
   }
 #line 9978
-  tmp___5 = __builtin_expect((bp->msg_enable & 2) != 0, 0L);
+  tmp___5 = ldv__builtin_expect((bp->msg_enable & 2) != 0, 0L);
 #line 9978
   if (tmp___5 != 0L) {
 #line 9978
@@ -34016,7 +34016,7 @@ static int bnx2x_prev_unload_common(struct bnx2x *bp )
 #line 9991
   prev_undi = 0;
 #line 9998
-  tmp = __builtin_expect((bp->msg_enable & 2) != 0, 0L);
+  tmp = ldv__builtin_expect((bp->msg_enable & 2) != 0, 0L);
 #line 9998
   if (tmp != 0L) {
 #line 9998
@@ -34054,7 +34054,7 @@ static int bnx2x_prev_unload_common(struct bnx2x *bp )
 #line 10022
       if (tmp_reg == 7U) {
 #line 10023
-        tmp___2 = __builtin_expect((bp->msg_enable & 2) != 0, 0L);
+        tmp___2 = ldv__builtin_expect((bp->msg_enable & 2) != 0, 0L);
 #line 10023
         if (tmp___2 != 0L) {
 #line 10023
@@ -34098,7 +34098,7 @@ static int bnx2x_prev_unload_common(struct bnx2x *bp )
 
     }
 #line 10044
-    tmp___3 = __builtin_expect((bp->msg_enable & 2) != 0, 0L);
+    tmp___3 = ldv__builtin_expect((bp->msg_enable & 2) != 0, 0L);
 #line 10044
     if (tmp___3 != 0L) {
 #line 10044
@@ -34212,7 +34212,7 @@ static void bnx2x_prev_interrupted_dmae(struct bnx2x *bp )
 #line 10098
     if ((val & 4U) != 0U) {
 #line 10099
-      tmp___0 = __builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
+      tmp___0 = ldv__builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
 #line 10099
       if (tmp___0 != 0L) {
 #line 10099
@@ -34261,7 +34261,7 @@ static int bnx2x_prev_unload(struct bnx2x *bp )
 #line 10109
   time_counter = 10;
 #line 10112
-  tmp = __builtin_expect((bp->msg_enable & 2) != 0, 0L);
+  tmp = ldv__builtin_expect((bp->msg_enable & 2) != 0, 0L);
 #line 10112
   if (tmp != 0L) {
 #line 10112
@@ -34280,7 +34280,7 @@ static int bnx2x_prev_unload(struct bnx2x *bp )
 #line 10126
     if ((hw_lock_val & 12U) != 0U) {
 #line 10127
-      tmp___0 = __builtin_expect((bp->msg_enable & 2) != 0, 0L);
+      tmp___0 = ldv__builtin_expect((bp->msg_enable & 2) != 0, 0L);
 #line 10127
       if (tmp___0 != 0L) {
 #line 10127
@@ -34294,7 +34294,7 @@ static int bnx2x_prev_unload(struct bnx2x *bp )
 
     }
 #line 10132
-    tmp___1 = __builtin_expect((bp->msg_enable & 2) != 0, 0L);
+    tmp___1 = ldv__builtin_expect((bp->msg_enable & 2) != 0, 0L);
 #line 10132
     if (tmp___1 != 0L) {
 #line 10132
@@ -34306,7 +34306,7 @@ static int bnx2x_prev_unload(struct bnx2x *bp )
     writel(4294967295U, (void volatile   *)bp->regview + (unsigned long )hw_lock_reg);
   } else {
 #line 10135
-    tmp___2 = __builtin_expect((bp->msg_enable & 2) != 0, 0L);
+    tmp___2 = ldv__builtin_expect((bp->msg_enable & 2) != 0, 0L);
 #line 10135
     if (tmp___2 != 0L) {
 #line 10135
@@ -34320,7 +34320,7 @@ static int bnx2x_prev_unload(struct bnx2x *bp )
 #line 10137
   if ((int )tmp___4 < 0) {
 #line 10138
-    tmp___3 = __builtin_expect((bp->msg_enable & 2) != 0, 0L);
+    tmp___3 = ldv__builtin_expect((bp->msg_enable & 2) != 0, 0L);
 #line 10138
     if (tmp___3 != 0L) {
 #line 10138
@@ -34438,7 +34438,7 @@ static int bnx2x_prev_unload(struct bnx2x *bp )
 
   }
 #line 10187
-  tmp___11 = __builtin_expect((bp->msg_enable & 2) != 0, 0L);
+  tmp___11 = ldv__builtin_expect((bp->msg_enable & 2) != 0, 0L);
 #line 10187
   if (tmp___11 != 0L) {
 #line 10187
@@ -34532,7 +34532,7 @@ static void bnx2x_get_common_hwinfo(struct bnx2x *bp )
       val = (val >> 1) & 1U;
     }
 #line 10233
-    tmp___0 = __builtin_expect((bp->msg_enable & 2) != 0, 0L);
+    tmp___0 = ldv__builtin_expect((bp->msg_enable & 2) != 0, 0L);
 #line 10233
     if (tmp___0 != 0L) {
 #line 10233
@@ -34557,7 +34557,7 @@ static void bnx2x_get_common_hwinfo(struct bnx2x *bp )
     bp->pfid = bp->pf_num;
   }
 #line 10247
-  tmp___1 = __builtin_expect((bp->msg_enable & 2) != 0, 0L);
+  tmp___1 = ldv__builtin_expect((bp->msg_enable & 2) != 0, 0L);
 #line 10247
   if (tmp___1 != 0L) {
 #line 10247
@@ -34568,7 +34568,7 @@ static void bnx2x_get_common_hwinfo(struct bnx2x *bp )
 #line 10249
   bp->link_params.chip_id = bp->common.chip_id;
 #line 10250
-  tmp___2 = __builtin_expect((bp->msg_enable & 2) != 0, 0L);
+  tmp___2 = ldv__builtin_expect((bp->msg_enable & 2) != 0, 0L);
 #line 10250
   if (tmp___2 != 0L) {
 #line 10250
@@ -34585,7 +34585,7 @@ static void bnx2x_get_common_hwinfo(struct bnx2x *bp )
 #line 10255
     bp->flags = bp->flags | 4U;
 #line 10256
-    tmp___4 = __builtin_expect((bp->msg_enable & 2) != 0, 0L);
+    tmp___4 = ldv__builtin_expect((bp->msg_enable & 2) != 0, 0L);
 #line 10256
     if (tmp___4 != 0L) {
 #line 10256
@@ -34601,7 +34601,7 @@ static void bnx2x_get_common_hwinfo(struct bnx2x *bp )
 #line 10260
   bp->common.flash_size = 131072 << ((int )val & 7);
 #line 10262
-  tmp___5 = __builtin_expect((bp->msg_enable & 2) != 0, 0L);
+  tmp___5 = ldv__builtin_expect((bp->msg_enable & 2) != 0, 0L);
 #line 10262
   if (tmp___5 != 0L) {
 #line 10262
@@ -34629,7 +34629,7 @@ static void bnx2x_get_common_hwinfo(struct bnx2x *bp )
     bp->link_params.lfa_base = 0U;
   }
 #line 10283
-  tmp___7 = __builtin_expect((bp->msg_enable & 2) != 0, 0L);
+  tmp___7 = ldv__builtin_expect((bp->msg_enable & 2) != 0, 0L);
 #line 10283
   if (tmp___7 != 0L) {
 #line 10283
@@ -34641,7 +34641,7 @@ static void bnx2x_get_common_hwinfo(struct bnx2x *bp )
 #line 10286
   if (bp->common.shmem_base == 0U) {
 #line 10287
-    tmp___8 = __builtin_expect((bp->msg_enable & 2) != 0, 0L);
+    tmp___8 = ldv__builtin_expect((bp->msg_enable & 2) != 0, 0L);
 #line 10287
     if (tmp___8 != 0L) {
 #line 10287
@@ -34659,7 +34659,7 @@ static void bnx2x_get_common_hwinfo(struct bnx2x *bp )
 #line 10292
   bp->common.hw_config = readl((void const volatile   *)(bp->regview + ((unsigned long )bp->common.shmem_base + 28UL)));
 #line 10293
-  tmp___9 = __builtin_expect((bp->msg_enable & 2) != 0, 0L);
+  tmp___9 = ldv__builtin_expect((bp->msg_enable & 2) != 0, 0L);
 #line 10293
   if (tmp___9 != 0L) {
 #line 10293
@@ -34689,7 +34689,7 @@ static void bnx2x_get_common_hwinfo(struct bnx2x *bp )
 #line 10309
   bp->common.bc_ver = val;
 #line 10310
-  tmp___11 = __builtin_expect((bp->msg_enable & 2) != 0, 0L);
+  tmp___11 = ldv__builtin_expect((bp->msg_enable & 2) != 0, 0L);
 #line 10310
   if (tmp___11 != 0L) {
 #line 10310
@@ -34755,7 +34755,7 @@ static void bnx2x_get_common_hwinfo(struct bnx2x *bp )
 #line 10362
   bp->flags = bp->flags | ((int )((short )pmc) < 0 ? 0U : 8U);
 #line 10364
-  tmp___13 = __builtin_expect((bp->msg_enable & 2) != 0, 0L);
+  tmp___13 = ldv__builtin_expect((bp->msg_enable & 2) != 0, 0L);
 #line 10364
   if (tmp___13 != 0L) {
 #line 10364
@@ -34984,7 +34984,7 @@ static void bnx2x_link_settings_supported(struct bnx2x *bp , u32 switch_cfg )
     ldv_57912: ;
   }
 #line 10498
-  tmp___1 = __builtin_expect((bp->msg_enable & 2) != 0, 0L);
+  tmp___1 = ldv__builtin_expect((bp->msg_enable & 2) != 0, 0L);
 #line 10498
   if (tmp___1 != 0L) {
 #line 10498
@@ -35057,7 +35057,7 @@ static void bnx2x_link_settings_supported(struct bnx2x *bp , u32 switch_cfg )
 
   }
 #line 10532
-  tmp___2 = __builtin_expect((bp->msg_enable & 2) != 0, 0L);
+  tmp___2 = ldv__builtin_expect((bp->msg_enable & 2) != 0, 0L);
 #line 10532
   if (tmp___2 != 0L) {
 #line 10532
@@ -35292,7 +35292,7 @@ static void bnx2x_link_settings_requested(struct bnx2x *bp )
 
   }
 #line 10714
-  tmp = __builtin_expect((bp->msg_enable & 2) != 0, 0L);
+  tmp = ldv__builtin_expect((bp->msg_enable & 2) != 0, 0L);
 #line 10714
   if (tmp != 0L) {
 #line 10714
@@ -35419,7 +35419,7 @@ static void bnx2x_get_port_hwinfo(struct bnx2x *bp )
 
   }
 #line 10772
-  tmp___1 = __builtin_expect((bp->msg_enable & 2) != 0, 0L);
+  tmp___1 = ldv__builtin_expect((bp->msg_enable & 2) != 0, 0L);
 #line 10772
   if (tmp___1 != 0L) {
 #line 10772
@@ -35498,7 +35498,7 @@ void bnx2x_get_iscsi_info(struct bnx2x *bp )
 #line 10827
   bp->cnic_eth_dev.max_iscsi_conn = max_iscsi_conn >> 16;
 #line 10831
-  tmp___0 = __builtin_expect((bp->msg_enable & 2) != 0, 0L);
+  tmp___0 = ldv__builtin_expect((bp->msg_enable & 2) != 0, 0L);
 #line 10831
   if (tmp___0 != 0L) {
 #line 10831
@@ -35603,7 +35603,7 @@ static void bnx2x_get_fcoe_info(struct bnx2x *bp )
 
   }
 #line 10913
-  tmp___0 = __builtin_expect((bp->msg_enable & 2) != 0, 0L);
+  tmp___0 = ldv__builtin_expect((bp->msg_enable & 2) != 0, 0L);
 #line 10913
   if (tmp___0 != 0L) {
 #line 10913
@@ -35691,7 +35691,7 @@ static void bnx2x_get_cnic_mac_hwinfo(struct bnx2x *bp )
 #line 10955
         bnx2x_set_mac_buf(iscsi_mac, val, (int )((u16 )val2));
 #line 10956
-        tmp___0 = __builtin_expect((bp->msg_enable & 2) != 0, 0L);
+        tmp___0 = ldv__builtin_expect((bp->msg_enable & 2) != 0, 0L);
 #line 10956
         if (tmp___0 != 0L) {
 #line 10956
@@ -35713,7 +35713,7 @@ static void bnx2x_get_cnic_mac_hwinfo(struct bnx2x *bp )
 #line 10967
         bnx2x_set_mac_buf(fip_mac, val, (int )((u16 )val2));
 #line 10968
-        tmp___1 = __builtin_expect((bp->msg_enable & 2) != 0, 0L);
+        tmp___1 = ldv__builtin_expect((bp->msg_enable & 2) != 0, 0L);
 #line 10968
         if (tmp___1 != 0L) {
 #line 10968
@@ -35743,7 +35743,7 @@ static void bnx2x_get_cnic_mac_hwinfo(struct bnx2x *bp )
                                  __len);
       }
 #line 10981
-      tmp___2 = __builtin_expect((bp->msg_enable & 2) != 0, 0L);
+      tmp___2 = ldv__builtin_expect((bp->msg_enable & 2) != 0, 0L);
 #line 10981
       if (tmp___2 != 0L) {
 #line 10981
@@ -35752,7 +35752,7 @@ static void bnx2x_get_cnic_mac_hwinfo(struct bnx2x *bp )
 
       }
 #line 10982
-      tmp___3 = __builtin_expect((bp->msg_enable & 2) != 0, 0L);
+      tmp___3 = ldv__builtin_expect((bp->msg_enable & 2) != 0, 0L);
 #line 10982
       if (tmp___3 != 0L) {
 #line 10982
@@ -35777,7 +35777,7 @@ static void bnx2x_get_cnic_mac_hwinfo(struct bnx2x *bp )
                                      __len___0);
       }
 #line 10987
-      tmp___4 = __builtin_expect((bp->msg_enable & 2) != 0, 0L);
+      tmp___4 = ldv__builtin_expect((bp->msg_enable & 2) != 0, 0L);
 #line 10987
       if (tmp___4 != 0L) {
 #line 10987
@@ -35786,7 +35786,7 @@ static void bnx2x_get_cnic_mac_hwinfo(struct bnx2x *bp )
 
       }
 #line 10988
-      tmp___5 = __builtin_expect((bp->msg_enable & 2) != 0, 0L);
+      tmp___5 = ldv__builtin_expect((bp->msg_enable & 2) != 0, 0L);
 #line 10988
       if (tmp___5 != 0L) {
 #line 10988
@@ -36054,7 +36054,7 @@ static int bnx2x_get_hwinfo(struct bnx2x *bp )
 #line 11112
       tout = 5000;
 #line 11114
-      tmp = __builtin_expect((bp->msg_enable & 2) != 0, 0L);
+      tmp = ldv__builtin_expect((bp->msg_enable & 2) != 0, 0L);
 #line 11114
       if (tmp != 0L) {
 #line 11114
@@ -36111,7 +36111,7 @@ static int bnx2x_get_hwinfo(struct bnx2x *bp )
 #line 11134
     if ((val & 2U) != 0U) {
 #line 11135
-      tmp___2 = __builtin_expect((bp->msg_enable & 2) != 0, 0L);
+      tmp___2 = ldv__builtin_expect((bp->msg_enable & 2) != 0, 0L);
 #line 11135
       if (tmp___2 != 0L) {
 #line 11135
@@ -36123,7 +36123,7 @@ static int bnx2x_get_hwinfo(struct bnx2x *bp )
       bp->common.int_block = (u8 )((unsigned int )bp->common.int_block | 2U);
     } else {
 #line 11138
-      tmp___3 = __builtin_expect((bp->msg_enable & 2) != 0, 0L);
+      tmp___3 = ldv__builtin_expect((bp->msg_enable & 2) != 0, 0L);
 #line 11138
       if (tmp___3 != 0L) {
 #line 11138
@@ -36153,7 +36153,7 @@ static int bnx2x_get_hwinfo(struct bnx2x *bp )
     bp->base_fw_ndsb = (int )bp->igu_base_sb;
   }
 #line 11160
-  tmp___4 = __builtin_expect((bp->msg_enable & 2) != 0, 0L);
+  tmp___4 = ldv__builtin_expect((bp->msg_enable & 2) != 0, 0L);
 #line 11160
   if (tmp___4 != 0L) {
 #line 11160
@@ -36171,7 +36171,7 @@ static int bnx2x_get_hwinfo(struct bnx2x *bp )
 #line 11172
   if (bp->common.chip_id >> 16 != 5710U && (bp->flags & 512U) == 0U) {
 #line 11173
-    tmp___6 = __builtin_expect((bp->msg_enable & 2) != 0, 0L);
+    tmp___6 = ldv__builtin_expect((bp->msg_enable & 2) != 0, 0L);
 #line 11173
     if (tmp___6 != 0L) {
 #line 11173
@@ -36217,7 +36217,7 @@ static int bnx2x_get_hwinfo(struct bnx2x *bp )
         bp->mf_config[vn] = readl((void const volatile   *)(bp->regview + (((unsigned long )bp->common.mf_cfg_base + (unsigned long )func * 24UL) + 36UL)));
       } else {
 #line 11207
-        tmp___8 = __builtin_expect((bp->msg_enable & 2) != 0, 0L);
+        tmp___8 = ldv__builtin_expect((bp->msg_enable & 2) != 0, 0L);
 #line 11207
         if (tmp___8 != 0L) {
 #line 11207
@@ -36260,7 +36260,7 @@ static int bnx2x_get_hwinfo(struct bnx2x *bp )
       } else {
         _L___0: /* CIL Label */ 
 #line 11219
-        tmp___9 = __builtin_expect((bp->msg_enable & 2) != 0, 0L);
+        tmp___9 = ldv__builtin_expect((bp->msg_enable & 2) != 0, 0L);
 #line 11219
         if (tmp___9 != 0L) {
 #line 11219
@@ -36284,7 +36284,7 @@ static int bnx2x_get_hwinfo(struct bnx2x *bp )
         bp->mf_config[vn] = readl((void const volatile   *)(bp->regview + (((unsigned long )bp->common.mf_cfg_base + (unsigned long )func * 24UL) + 36UL)));
       } else {
 #line 11233
-        tmp___12 = __builtin_expect((bp->msg_enable & 2) != 0, 0L);
+        tmp___12 = ldv__builtin_expect((bp->msg_enable & 2) != 0, 0L);
 #line 11233
         if (tmp___12 != 0L) {
 #line 11233
@@ -36304,7 +36304,7 @@ static int bnx2x_get_hwinfo(struct bnx2x *bp )
 #line 11240
       bp->mf_config[vn] = 0U;
 #line 11241
-      tmp___13 = __builtin_expect((bp->msg_enable & 2) != 0, 0L);
+      tmp___13 = ldv__builtin_expect((bp->msg_enable & 2) != 0, 0L);
 #line 11241
       if (tmp___13 != 0L) {
 #line 11241
@@ -36319,7 +36319,7 @@ static int bnx2x_get_hwinfo(struct bnx2x *bp )
 
     }
 #line 11245
-    tmp___14 = __builtin_expect((bp->msg_enable & 2) != 0, 0L);
+    tmp___14 = ldv__builtin_expect((bp->msg_enable & 2) != 0, 0L);
 #line 11245
     if (tmp___14 != 0L) {
 #line 11245
@@ -36342,7 +36342,7 @@ static int bnx2x_get_hwinfo(struct bnx2x *bp )
 #line 11254
       bp->path_has_ovlan = 1U;
 #line 11256
-      tmp___16 = __builtin_expect((bp->msg_enable & 2) != 0, 0L);
+      tmp___16 = ldv__builtin_expect((bp->msg_enable & 2) != 0, 0L);
 #line 11256
       if (tmp___16 != 0L) {
 #line 11256
@@ -36362,7 +36362,7 @@ static int bnx2x_get_hwinfo(struct bnx2x *bp )
     goto ldv_58037;
     case 3: 
 #line 11266
-    tmp___17 = __builtin_expect((bp->msg_enable & 2) != 0, 0L);
+    tmp___17 = ldv__builtin_expect((bp->msg_enable & 2) != 0, 0L);
 #line 11266
     if (tmp___17 != 0L) {
 #line 11266
@@ -36375,7 +36375,7 @@ static int bnx2x_get_hwinfo(struct bnx2x *bp )
     goto ldv_58037;
     case 2: 
 #line 11269
-    tmp___18 = __builtin_expect((bp->msg_enable & 2) != 0, 0L);
+    tmp___18 = ldv__builtin_expect((bp->msg_enable & 2) != 0, 0L);
 #line 11269
     if (tmp___18 != 0L) {
 #line 11269
@@ -36829,7 +36829,7 @@ static int bnx2x_init_bp(struct bnx2x *bp )
 #line 11484
     bp->fw_seq = (u16 )tmp;
 #line 11487
-    tmp___0 = __builtin_expect((bp->msg_enable & 2) != 0, 0L);
+    tmp___0 = ldv__builtin_expect((bp->msg_enable & 2) != 0, 0L);
 #line 11487
     if (tmp___0 != 0L) {
 #line 11487
@@ -36989,7 +36989,7 @@ static int bnx2x_init_bp(struct bnx2x *bp )
            bp->common.chip_id >> 16, (bp->common.chip_id & 61440U) > 20480U ? ((~ bp->common.chip_id & 61440U) >> 13) << 12 : bp->common.chip_id & 61440U);
   }
 #line 11560
-  tmp___6 = __builtin_expect((bp->msg_enable & 2) != 0, 0L);
+  tmp___6 = ldv__builtin_expect((bp->msg_enable & 2) != 0, 0L);
 #line 11560
   if (tmp___6 != 0L) {
 #line 11560
@@ -37007,7 +37007,7 @@ static int bnx2x_init_bp(struct bnx2x *bp )
     bp->min_msix_vec_cnt = 2U;
   }
 #line 11570
-  tmp___7 = __builtin_expect((bp->msg_enable & 2) != 0, 0L);
+  tmp___7 = ldv__builtin_expect((bp->msg_enable & 2) != 0, 0L);
 #line 11570
   if (tmp___7 != 0L) {
 #line 11570
@@ -37234,7 +37234,7 @@ static void bnx2x_free_mcast_macs_list(struct bnx2x_mcast_ramrod_params *p )
 #line 11697
   __ret_warn_on = (unsigned long )mc_mac == (unsigned long )((struct bnx2x_mcast_list_elem *)0);
 #line 11697
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 11697
   if (tmp != 0L) {
 #line 11697
@@ -37244,7 +37244,7 @@ static void bnx2x_free_mcast_macs_list(struct bnx2x_mcast_ramrod_params *p )
 
   }
 #line 11697
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 11698
   kfree((void const   *)mc_mac);
 #line 11699
@@ -37296,7 +37296,7 @@ static int bnx2x_set_uc_list(struct bnx2x *bp )
 #line 11726
   if (rc == -17) {
 #line 11727
-    tmp = __builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
+    tmp = ldv__builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
 #line 11727
     if (tmp != 0L) {
 #line 11727
@@ -37434,7 +37434,7 @@ void bnx2x_set_rx_mode(struct net_device *dev )
 #line 11789
   if ((unsigned int )bp->state != 12288U) {
 #line 11790
-    tmp___0 = __builtin_expect((bp->msg_enable & 32) != 0, 0L);
+    tmp___0 = ldv__builtin_expect((bp->msg_enable & 32) != 0, 0L);
 #line 11790
     if (tmp___0 != 0L) {
 #line 11790
@@ -37450,7 +37450,7 @@ void bnx2x_set_rx_mode(struct net_device *dev )
 
   }
 #line 11794
-  tmp___1 = __builtin_expect((bp->msg_enable & 32) != 0, 0L);
+  tmp___1 = ldv__builtin_expect((bp->msg_enable & 32) != 0, 0L);
 #line 11794
   if (tmp___1 != 0L) {
 #line 11794
@@ -37553,7 +37553,7 @@ static int bnx2x_mdio_read(struct net_device *netdev , int prtad , int devad , u
 #line 11855
   bp = (struct bnx2x *)tmp;
 #line 11859
-  tmp___0 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+  tmp___0 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 11859
   if (tmp___0 != 0L) {
 #line 11859
@@ -37573,7 +37573,7 @@ static int bnx2x_mdio_read(struct net_device *netdev , int prtad , int devad , u
 #line 11867
   bnx2x_release_phy_lock(bp);
 #line 11868
-  tmp___1 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+  tmp___1 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 11868
   if (tmp___1 != 0L) {
 #line 11868
@@ -37609,7 +37609,7 @@ static int bnx2x_mdio_write(struct net_device *netdev , int prtad , int devad , 
 #line 11879
   bp = (struct bnx2x *)tmp;
 #line 11882
-  tmp___0 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+  tmp___0 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 11882
   if (tmp___0 != 0L) {
 #line 11882
@@ -37654,7 +37654,7 @@ static int bnx2x_ioctl(struct net_device *dev , struct ifreq *ifr , int cmd )
 #line 11899
   mdio = tmp___0;
 #line 11901
-  tmp___1 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+  tmp___1 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 11901
   if (tmp___1 != 0L) {
 #line 11901
@@ -37985,7 +37985,7 @@ static int bnx2x_init_dev(struct bnx2x *bp , struct pci_dev *pdev , struct net_d
     bp->pf_num = (unsigned char )(((long )pci_cfg_dword & 458752L) >> 16);
   }
 #line 12081
-  tmp___2 = __builtin_expect((bp->msg_enable & 2) != 0, 0L);
+  tmp___2 = ldv__builtin_expect((bp->msg_enable & 2) != 0, 0L);
 #line 12081
   if (tmp___2 != 0L) {
 #line 12081
@@ -38502,7 +38502,7 @@ static int bnx2x_init_firmware(struct bnx2x *bp )
     return (-22);
   }
 #line 12330
-  tmp = __builtin_expect((bp->msg_enable & 2) != 0, 0L);
+  tmp = ldv__builtin_expect((bp->msg_enable & 2) != 0, 0L);
 #line 12330
   if (tmp != 0L) {
 #line 12330
@@ -38948,7 +38948,7 @@ static int bnx2x_init_one(struct pci_dev *pdev , struct pci_device_id  const  *e
 
   }
 #line 12602
-  tmp___1 = __builtin_expect((bp->msg_enable & 2) != 0, 0L);
+  tmp___1 = ldv__builtin_expect((bp->msg_enable & 2) != 0, 0L);
 #line 12602
   if (tmp___1 != 0L) {
 #line 12602
@@ -38958,7 +38958,7 @@ static int bnx2x_init_one(struct pci_dev *pdev , struct pci_device_id  const  *e
 
   }
 #line 12604
-  tmp___2 = __builtin_expect((bp->msg_enable & 2) != 0, 0L);
+  tmp___2 = ldv__builtin_expect((bp->msg_enable & 2) != 0, 0L);
 #line 12604
   if (tmp___2 != 0L) {
 #line 12604
@@ -38968,7 +38968,7 @@ static int bnx2x_init_one(struct pci_dev *pdev , struct pci_device_id  const  *e
 
   }
 #line 12605
-  tmp___3 = __builtin_expect((bp->msg_enable & 2) != 0, 0L);
+  tmp___3 = ldv__builtin_expect((bp->msg_enable & 2) != 0, 0L);
 #line 12605
   if (tmp___3 != 0L) {
 #line 12605
@@ -38978,7 +38978,7 @@ static int bnx2x_init_one(struct pci_dev *pdev , struct pci_device_id  const  *e
 
   }
 #line 12606
-  tmp___4 = __builtin_expect((bp->msg_enable & 2) != 0, 0L);
+  tmp___4 = ldv__builtin_expect((bp->msg_enable & 2) != 0, 0L);
 #line 12606
   if (tmp___4 != 0L) {
 #line 12606
@@ -39063,7 +39063,7 @@ static int bnx2x_init_one(struct pci_dev *pdev , struct pci_device_id  const  *e
 #line 12652
   bp->qm_cid_count = bnx2x_set_qm_cid_count(bp);
 #line 12653
-  tmp___5 = __builtin_expect((bp->msg_enable & 2) != 0, 0L);
+  tmp___5 = ldv__builtin_expect((bp->msg_enable & 2) != 0, 0L);
 #line 12653
   if (tmp___5 != 0L) {
 #line 12653
@@ -39092,7 +39092,7 @@ static int bnx2x_init_one(struct pci_dev *pdev , struct pci_device_id  const  *e
 
   }
 #line 12670
-  tmp___6 = __builtin_expect((bp->msg_enable & 2) != 0, 0L);
+  tmp___6 = ldv__builtin_expect((bp->msg_enable & 2) != 0, 0L);
 #line 12670
   if (tmp___6 != 0L) {
 #line 12670
@@ -39112,7 +39112,7 @@ static int bnx2x_init_one(struct pci_dev *pdev , struct pci_device_id  const  *e
 
   }
 #line 12678
-  tmp___7 = __builtin_expect((bp->msg_enable & 2) != 0, 0L);
+  tmp___7 = ldv__builtin_expect((bp->msg_enable & 2) != 0, 0L);
 #line 12678
   if (tmp___7 != 0L) {
 #line 12678
@@ -39135,7 +39135,7 @@ static int bnx2x_init_one(struct pci_dev *pdev , struct pci_device_id  const  *e
 #line 12688
   bnx2x_get_pcie_width_speed(bp, & pcie_width, & pcie_speed);
 #line 12689
-  tmp___8 = __builtin_expect((bp->msg_enable & 2) != 0, 0L);
+  tmp___8 = ldv__builtin_expect((bp->msg_enable & 2) != 0, 0L);
 #line 12689
   if (tmp___8 != 0L) {
 #line 12689
@@ -39145,7 +39145,7 @@ static int bnx2x_init_one(struct pci_dev *pdev , struct pci_device_id  const  *e
 
   }
 #line 12692
-  tmp___9 = __builtin_expect((bp->msg_enable & 2) != 0, 0L);
+  tmp___9 = ldv__builtin_expect((bp->msg_enable & 2) != 0, 0L);
 #line 12692
   if (tmp___9 != 0L) {
 #line 12692
@@ -39776,7 +39776,7 @@ static void bnx2x_cnic_sp_post(struct bnx2x *bp , int count )
 #line 13067
   spin_lock_bh(& bp->spq_lock);
 #line 13068
-  tmp = __builtin_expect((int )bp->cnic_spq_pending < count, 0L);
+  tmp = ldv__builtin_expect((int )bp->cnic_spq_pending < count, 0L);
 #line 13068
   if (tmp != 0L) {
 #line 13068
@@ -39869,7 +39869,7 @@ static void bnx2x_cnic_sp_post(struct bnx2x *bp , int count )
 #line 13125
   *spe = *(bp->cnic_kwq_cons);
 #line 13127
-  tmp___2 = __builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
+  tmp___2 = ldv__builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
 #line 13127
   if (tmp___2 != 0L) {
 #line 13127
@@ -39951,7 +39951,7 @@ static int bnx2x_cnic_sp_queue(struct net_device *dev , struct kwqe_16 **kwqes ,
 #line 13168
   bp->cnic_kwq_pending = (u16 )((int )bp->cnic_kwq_pending + 1);
 #line 13170
-  tmp___0 = __builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
+  tmp___0 = ldv__builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
 #line 13170
   if (tmp___0 != 0L) {
 #line 13170
@@ -40834,7 +40834,7 @@ static int bnx2x_register_cnic(struct net_device *dev , struct cnic_ops *ops , v
 #line 13488
   cp = & bp->cnic_eth_dev;
 #line 13491
-  tmp___0 = __builtin_expect((bp->msg_enable & 32) != 0, 0L);
+  tmp___0 = ldv__builtin_expect((bp->msg_enable & 32) != 0, 0L);
 #line 13491
   if (tmp___0 != 0L) {
 #line 13491
@@ -41042,7 +41042,7 @@ struct cnic_eth_dev *bnx2x_cnic_probe(struct net_device *dev )
 
   }
 #line 13596
-  tmp___3 = __builtin_expect((bp->msg_enable & 2) != 0, 0L);
+  tmp___3 = ldv__builtin_expect((bp->msg_enable & 2) != 0, 0L);
 #line 13596
   if (tmp___3 != 0L) {
 #line 13596
@@ -41713,7 +41713,7 @@ static int bnx2x_check_lfa(struct link_params *params )
 #line 319
   if ((additional_config & 65536U) != 0U) {
 #line 320
-    tmp = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+    tmp = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 320
     if (tmp != 0L) {
 #line 320
@@ -41778,7 +41778,7 @@ static int bnx2x_check_lfa(struct link_params *params )
 #line 360
   if (((saved_val ^ req_val) & lfa_mask) != 0U) {
 #line 361
-    tmp___0 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+    tmp___0 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 361
     if (tmp___0 != 0L) {
 #line 361
@@ -41800,7 +41800,7 @@ static int bnx2x_check_lfa(struct link_params *params )
 #line 369
   if (((saved_val ^ req_val) & lfa_mask) != 0U) {
 #line 370
-    tmp___1 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+    tmp___1 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 370
     if (tmp___1 != 0L) {
 #line 370
@@ -41822,7 +41822,7 @@ static int bnx2x_check_lfa(struct link_params *params )
 #line 378
   if (((saved_val ^ req_val) & lfa_mask) != 0U) {
 #line 379
-    tmp___2 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+    tmp___2 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 379
     if (tmp___2 != 0L) {
 #line 379
@@ -41847,7 +41847,7 @@ static int bnx2x_check_lfa(struct link_params *params )
 #line 389
   if (params->speed_cap_mask[cfg_idx] != cur_speed_cap_mask) {
 #line 390
-    tmp___3 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+    tmp___3 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 390
     if (tmp___3 != 0L) {
 #line 390
@@ -41879,7 +41879,7 @@ static int bnx2x_check_lfa(struct link_params *params )
 #line 402
   if ((int )((unsigned short )cur_req_fc_auto_adv) != (int )params->req_fc_auto_adv) {
 #line 403
-    tmp___5 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+    tmp___5 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 403
     if (tmp___5 != 0L) {
 #line 403
@@ -41899,7 +41899,7 @@ static int bnx2x_check_lfa(struct link_params *params )
 #line 412
   if ((eee_status & 536870912U) != (params->eee_mode & 1073741824U) || (eee_status & 268435456U) != (params->eee_mode & 2147483648U)) {
 #line 416
-    tmp___6 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+    tmp___6 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 416
     if (tmp___6 != 0L) {
 #line 416
@@ -41932,7 +41932,7 @@ static void bnx2x_get_epio(struct bnx2x *bp , u32 epio_pin , u32 *en )
 #line 432
   if (epio_pin > 31U) {
 #line 433
-    tmp = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+    tmp = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 433
     if (tmp != 0L) {
 #line 433
@@ -41974,7 +41974,7 @@ static void bnx2x_set_epio(struct bnx2x *bp , u32 epio_pin , u32 en )
 #line 449
   if (epio_pin > 31U) {
 #line 450
-    tmp = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+    tmp = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 450
     if (tmp != 0L) {
 #line 450
@@ -41990,7 +41990,7 @@ static void bnx2x_set_epio(struct bnx2x *bp , u32 epio_pin , u32 en )
 
   }
 #line 453
-  tmp___0 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+  tmp___0 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 453
   if (tmp___0 != 0L) {
 #line 453
@@ -42095,7 +42095,7 @@ static void bnx2x_ets_e2e3a0_disabled(struct link_params *params )
 #line 502
   bp = params->bp;
 #line 504
-  tmp = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+  tmp = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 504
   if (tmp != 0L) {
 #line 504
@@ -42458,7 +42458,7 @@ static int bnx2x_ets_e3b0_disabled(struct link_params  const  *params , struct l
 #line 808
   if ((((((((((bp->common.chip_id >> 16 != 5770U && bp->common.chip_id >> 16 != 5797U) && bp->common.chip_id >> 16 != 5801U) && bp->common.chip_id >> 16 != 5774U) && bp->common.chip_id >> 16 != 5806U) && bp->common.chip_id >> 16 != 5807U) && ((bp->common.chip_id >> 16 != 5693U && bp->common.chip_id >> 16 != 5694U) && bp->common.chip_id >> 16 != 5695U)) && ((bp->common.chip_id >> 16 != 5793U && bp->common.chip_id >> 16 != 5794U) && bp->common.chip_id >> 16 != 5773U)) && (bp->common.chip_id >> 16 != 5796U && bp->common.chip_id >> 16 != 5803U)) && bp->common.chip_id >> 16 != 5805U) || ((bp->common.chip_id & 61440U) > 20480U ? ((~ bp->common.chip_id & 61440U) >> 13) << 12 != 4096U : (bp->common.chip_id & 61440U) != 4096U)) {
 #line 809
-    tmp = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+    tmp = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 809
     if (tmp != 0L) {
 #line 809
@@ -42503,7 +42503,7 @@ int bnx2x_ets_disabled(struct link_params *params , struct link_vars *vars )
     bnx2x_status = bnx2x_ets_e3b0_disabled((struct link_params  const  *)params, (struct link_vars  const  *)vars);
   } else {
 #line 837
-    tmp = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+    tmp = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 837
     if (tmp != 0L) {
 #line 837
@@ -42681,7 +42681,7 @@ static int bnx2x_ets_e3b0_get_total_bw(struct link_params  const  *params , stru
 #line 969
     if ((unsigned int )ets_params->cos[(int )cos_idx].params.bw_params.bw == 0U) {
 #line 970
-      tmp = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+      tmp = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 970
       if (tmp != 0L) {
 #line 970
@@ -42716,7 +42716,7 @@ static int bnx2x_ets_e3b0_get_total_bw(struct link_params  const  *params , stru
 #line 985
     if ((unsigned int )*total_bw == 0U) {
 #line 986
-      tmp___0 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+      tmp___0 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 986
       if (tmp___0 != 0L) {
 #line 986
@@ -42731,7 +42731,7 @@ static int bnx2x_ets_e3b0_get_total_bw(struct link_params  const  *params , stru
 
     }
 #line 990
-    tmp___1 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+    tmp___1 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 990
     if (tmp___1 != 0L) {
 #line 990
@@ -42797,7 +42797,7 @@ static int bnx2x_ets_e3b0_sp_pri_to_cos_set(struct link_params  const  *params ,
 #line 1025
   if ((int )((unsigned char )pri) >= (int )max_num_of_cos) {
 #line 1026
-    tmp = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+    tmp = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 1026
     if (tmp != 0L) {
 #line 1026
@@ -42814,7 +42814,7 @@ static int bnx2x_ets_e3b0_sp_pri_to_cos_set(struct link_params  const  *params ,
 #line 1031
   if ((unsigned int )*(sp_pri_to_cos + (unsigned long )pri) != 255U) {
 #line 1032
-    tmp___0 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+    tmp___0 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 1032
     if (tmp___0 != 0L) {
 #line 1032
@@ -42940,7 +42940,7 @@ static int bnx2x_ets_e3b0_sp_set_pri_cli_reg(struct link_params  const  *params 
 #line 1117
     if ((unsigned int )*(sp_pri_to_cos + (unsigned long )i) > 5U) {
 #line 1118
-      tmp = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+      tmp = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 1118
       if (tmp != 0L) {
 #line 1118
@@ -42969,7 +42969,7 @@ static int bnx2x_ets_e3b0_sp_set_pri_cli_reg(struct link_params  const  *params 
 #line 1131
     if ((unsigned int )((int )pri_bitmask & (int )cos_bit_to_set) == 0U) {
 #line 1132
-      tmp___2 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+      tmp___2 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 1132
       if (tmp___2 != 0L) {
 #line 1132
@@ -43038,7 +43038,7 @@ static int bnx2x_ets_e3b0_sp_set_pri_cli_reg(struct link_params  const  *params 
 #line 1160
   if ((int )pri_set != (int )max_num_of_cos) {
 #line 1161
-    tmp___5 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+    tmp___5 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 1161
     if (tmp___5 != 0L) {
 #line 1161
@@ -43143,7 +43143,7 @@ int bnx2x_ets_e3b0_config(struct link_params  const  *params , struct link_vars 
 #line 1208
   if ((((((((((bp->common.chip_id >> 16 != 5770U && bp->common.chip_id >> 16 != 5797U) && bp->common.chip_id >> 16 != 5801U) && bp->common.chip_id >> 16 != 5774U) && bp->common.chip_id >> 16 != 5806U) && bp->common.chip_id >> 16 != 5807U) && ((bp->common.chip_id >> 16 != 5693U && bp->common.chip_id >> 16 != 5694U) && bp->common.chip_id >> 16 != 5695U)) && ((bp->common.chip_id >> 16 != 5793U && bp->common.chip_id >> 16 != 5794U) && bp->common.chip_id >> 16 != 5773U)) && (bp->common.chip_id >> 16 != 5796U && bp->common.chip_id >> 16 != 5803U)) && bp->common.chip_id >> 16 != 5805U) || ((bp->common.chip_id & 61440U) > 20480U ? ((~ bp->common.chip_id & 61440U) >> 13) << 12 != 4096U : (bp->common.chip_id & 61440U) != 4096U)) {
 #line 1209
-    tmp___1 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+    tmp___1 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 1209
     if (tmp___1 != 0L) {
 #line 1209
@@ -43160,7 +43160,7 @@ int bnx2x_ets_e3b0_config(struct link_params  const  *params , struct link_vars 
 #line 1214
   if ((int )ets_params->num_of_cos > (int )max_num_of_cos) {
 #line 1215
-    tmp___2 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+    tmp___2 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 1215
     if (tmp___2 != 0L) {
 #line 1215
@@ -43181,7 +43181,7 @@ int bnx2x_ets_e3b0_config(struct link_params  const  *params , struct link_vars 
 #line 1226
   if (bnx2x_status != 0) {
 #line 1227
-    tmp___3 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+    tmp___3 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 1227
     if (tmp___3 != 0L) {
 #line 1227
@@ -43223,7 +43223,7 @@ int bnx2x_ets_e3b0_config(struct link_params  const  *params , struct link_vars 
                                                     (int )cos_entry);
   } else {
 #line 1261
-    tmp___4 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+    tmp___4 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 1261
     if (tmp___4 != 0L) {
 #line 1261
@@ -43238,7 +43238,7 @@ int bnx2x_ets_e3b0_config(struct link_params  const  *params , struct link_vars 
 #line 1265
   if (bnx2x_status != 0) {
 #line 1266
-    tmp___5 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+    tmp___5 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 1266
     if (tmp___5 != 0L) {
 #line 1266
@@ -43267,7 +43267,7 @@ int bnx2x_ets_e3b0_config(struct link_params  const  *params , struct link_vars 
 #line 1276
   if (bnx2x_status != 0) {
 #line 1277
-    tmp___6 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+    tmp___6 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 1277
     if (tmp___6 != 0L) {
 #line 1277
@@ -43287,7 +43287,7 @@ int bnx2x_ets_e3b0_config(struct link_params  const  *params , struct link_vars 
 #line 1287
   if (bnx2x_status != 0) {
 #line 1288
-    tmp___7 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+    tmp___7 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 1288
     if (tmp___7 != 0L) {
 #line 1288
@@ -43315,7 +43315,7 @@ static void bnx2x_ets_bw_limit_common(struct link_params  const  *params )
 #line 1296
   bp = params->bp;
 #line 1297
-  tmp = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+  tmp = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 1297
   if (tmp != 0L) {
 #line 1297
@@ -43367,7 +43367,7 @@ void bnx2x_ets_bw_limit(struct link_params  const  *params , u32 const   cos0_bw
 #line 1344
   cos1_credit_weight = 0U;
 #line 1346
-  tmp = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+  tmp = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 1346
   if (tmp != 0L) {
 #line 1346
@@ -43379,7 +43379,7 @@ void bnx2x_ets_bw_limit(struct link_params  const  *params , u32 const   cos0_bw
 #line 1348
   if ((total_bw == 0U || (unsigned int )cos0_bw == 0U) || (unsigned int )cos1_bw == 0U) {
 #line 1351
-    tmp___0 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+    tmp___0 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 1351
     if (tmp___0 != 0L) {
 #line 1351
@@ -43424,7 +43424,7 @@ int bnx2x_ets_strict(struct link_params  const  *params , u8 const   strict_cos 
 #line 1373
   val = 0U;
 #line 1375
-  tmp = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+  tmp = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 1375
   if (tmp != 0L) {
 #line 1375
@@ -43538,7 +43538,7 @@ static void bnx2x_emac_get_pfc_stat(struct link_params *params , u32 *pfc_frames
 #line 1482
   val_xoff = 0U;
 #line 1484
-  tmp = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+  tmp = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 1484
   if (tmp != 0L) {
 #line 1484
@@ -43583,7 +43583,7 @@ void bnx2x_pfc_statistic(struct link_params *params , struct link_vars *vars , u
 #line 1511
   bp = params->bp;
 #line 1513
-  tmp = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+  tmp = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 1513
   if (tmp != 0L) {
 #line 1513
@@ -43601,7 +43601,7 @@ void bnx2x_pfc_statistic(struct link_params *params , struct link_vars *vars , u
 #line 1518
   if ((unsigned int )vars->mac_type == 1U) {
 #line 1519
-    tmp___0 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+    tmp___0 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 1519
     if (tmp___0 != 0L) {
 #line 1519
@@ -43652,7 +43652,7 @@ static void bnx2x_set_mdio_clk(struct bnx2x *bp , u32 chip_id , u32 emac_base )
 #line 1549
   new_mode = new_mode | 2147483648U;
 #line 1551
-  tmp = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+  tmp = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 1551
   if (tmp != 0L) {
 #line 1551
@@ -43754,7 +43754,7 @@ static void bnx2x_emac_init(struct link_params *params , struct link_vars *vars 
 #line 1604
   val = readl((void const volatile   *)bp->regview + (unsigned long )emac_base);
 #line 1605
-  tmp = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+  tmp = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 1605
   if (tmp != 0L) {
 #line 1605
@@ -43767,7 +43767,7 @@ static void bnx2x_emac_init(struct link_params *params , struct link_vars *vars 
 #line 1606
   if ((unsigned int )timeout == 0U) {
 #line 1607
-    tmp___0 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+    tmp___0 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 1607
     if (tmp___0 != 0L) {
 #line 1607
@@ -43882,7 +43882,7 @@ static void bnx2x_umac_enable(struct link_params *params , struct link_vars *var
 #line 1670
   writel((unsigned int )(1048576 << (int )params->port), (void volatile   *)bp->regview + 42388U);
 #line 1673
-  tmp = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+  tmp = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 1673
   if (tmp != 0L) {
 #line 1673
@@ -43918,7 +43918,7 @@ static void bnx2x_umac_enable(struct link_params *params , struct link_vars *var
   goto ldv_45374;
   default: 
 #line 1696
-  tmp___0 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+  tmp___0 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 1696
   if (tmp___0 != 0L) {
 #line 1696
@@ -43960,7 +43960,7 @@ static void bnx2x_umac_enable(struct link_params *params , struct link_vars *var
 #line 1713
   if ((vars->eee_status & 15728640U) != 0U) {
 #line 1714
-    tmp___1 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+    tmp___1 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 1714
     if (tmp___1 != 0L) {
 #line 1714
@@ -44038,7 +44038,7 @@ static void bnx2x_xmac_init(struct link_params *params , u32 max_speed )
 #line 1769
     if ((tmp___1 & 4194304U) != 0U) {
 #line 1775
-      tmp___0 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+      tmp___0 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 1775
       if (tmp___0 != 0L) {
 #line 1775
@@ -44064,7 +44064,7 @@ static void bnx2x_xmac_init(struct link_params *params , u32 max_speed )
 #line 1787
   if (is_port4mode != 0U) {
 #line 1788
-    tmp___2 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+    tmp___2 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 1788
     if (tmp___2 != 0L) {
 #line 1788
@@ -44083,7 +44083,7 @@ static void bnx2x_xmac_init(struct link_params *params , u32 max_speed )
 #line 1798
     if (max_speed == 10000U) {
 #line 1799
-      tmp___3 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+      tmp___3 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 1799
       if (tmp___3 != 0L) {
 #line 1799
@@ -44096,7 +44096,7 @@ static void bnx2x_xmac_init(struct link_params *params , u32 max_speed )
       writel(3U, (void volatile   *)bp->regview + 43360U);
     } else {
 #line 1804
-      tmp___4 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+      tmp___4 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 1804
       if (tmp___4 != 0L) {
 #line 1804
@@ -44148,7 +44148,7 @@ static void bnx2x_set_xmac_rxtx(struct link_params *params , u8 en )
 #line 1836
     writel(pfc_ctrl | 2U, (void volatile   *)bp->regview + (unsigned long )(xmac_base + 116U));
 #line 1838
-    tmp = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+    tmp = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 1838
     if (tmp != 0L) {
 #line 1838
@@ -44191,7 +44191,7 @@ static int bnx2x_xmac_enable(struct link_params *params , struct link_vars *vars
 #line 1852
   bp = params->bp;
 #line 1853
-  tmp = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+  tmp = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 1853
   if (tmp != 0L) {
 #line 1853
@@ -44225,7 +44225,7 @@ static int bnx2x_xmac_enable(struct link_params *params , struct link_vars *vars
 #line 1889
   if ((vars->eee_status & 15728640U) != 0U) {
 #line 1890
-    tmp___0 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+    tmp___0 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 1890
     if (tmp___0 != 0L) {
 #line 1890
@@ -44290,7 +44290,7 @@ static int bnx2x_emac_enable(struct link_params *params , struct link_vars *vars
 #line 1923
   emac_base = (unsigned int )port != 0U ? 33792U : 32768U;
 #line 1926
-  tmp = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+  tmp = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 1926
   if (tmp != 0L) {
 #line 1926
@@ -44307,7 +44307,7 @@ static int bnx2x_emac_enable(struct link_params *params , struct link_vars *vars
 #line 1937
     ser_lane = (params->lane_config & 49152U) >> 14;
 #line 1941
-    tmp___0 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+    tmp___0 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 1941
     if (tmp___0 != 0L) {
 #line 1941
@@ -44321,7 +44321,7 @@ static int bnx2x_emac_enable(struct link_params *params , struct link_vars *vars
     writel(1U, (void volatile   *)bp->regview + (unsigned long )(((int )port + 16568) * 4));
   } else {
 #line 1948
-    tmp___1 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+    tmp___1 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 1948
     if (tmp___1 != 0L) {
 #line 1948
@@ -44369,7 +44369,7 @@ static int bnx2x_emac_enable(struct link_params *params , struct link_vars *vars
 #line 1993
   if ((params->feature_config_flags & 2U) != 0U) {
 #line 1994
-    tmp___2 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+    tmp___2 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 1994
     if (tmp___2 != 0L) {
 #line 1994
@@ -44598,7 +44598,7 @@ static void bnx2x_update_pfc_bmac2(struct link_params *params , struct link_vars
 #line 2113
   if ((params->feature_config_flags & 2U) != 0U) {
 #line 2114
-    tmp = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+    tmp = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 2114
     if (tmp != 0L) {
 #line 2114
@@ -44639,7 +44639,7 @@ static void bnx2x_update_pfc_bmac2(struct link_params *params , struct link_vars
     wb_data[0] = wb_data[0] & 4294967291U;
   } else {
 #line 2128
-    tmp___0 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+    tmp___0 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 2128
     if (tmp___0 != 0L) {
 #line 2128
@@ -44701,7 +44701,7 @@ static void bnx2x_update_pfc_bmac2(struct link_params *params , struct link_vars
 #line 2153
     val = val | 4U;
 #line 2154
-    tmp___1 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+    tmp___1 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 2154
     if (tmp___1 != 0L) {
 #line 2154
@@ -44895,7 +44895,7 @@ static void bnx2x_update_pfc_nig(struct link_params *params , struct link_vars *
 #line 2242
   set_pfc = (int )params->feature_config_flags & 2;
 #line 2244
-  tmp = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+  tmp = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 2244
   if (tmp != 0L) {
 #line 2244
@@ -45043,7 +45043,7 @@ int bnx2x_update_pfc(struct link_params *params , struct link_vars *vars , struc
 
   }
 #line 2354
-  tmp = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+  tmp = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 2354
   if (tmp != 0L) {
 #line 2354
@@ -45067,7 +45067,7 @@ int bnx2x_update_pfc(struct link_params *params , struct link_vars *vars , struc
 #line 2361
     if (((u32 )(1 << (int )params->port) & val) == 0U) {
 #line 2364
-      tmp___0 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+      tmp___0 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 2364
       if (tmp___0 != 0L) {
 #line 2364
@@ -45141,7 +45141,7 @@ static int bnx2x_bmac1_enable(struct link_params *params , struct link_vars *var
 #line 2389
   bmac_addr = (unsigned int )port != 0U ? 69632U : 68608U;
 #line 2394
-  tmp = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+  tmp = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 2394
   if (tmp != 0L) {
 #line 2394
@@ -45192,7 +45192,7 @@ static int bnx2x_bmac1_enable(struct link_params *params , struct link_vars *var
 #line 2414
     val = val | 4U;
 #line 2415
-    tmp___0 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+    tmp___0 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 2415
     if (tmp___0 != 0L) {
 #line 2415
@@ -45332,7 +45332,7 @@ static int bnx2x_bmac2_enable(struct link_params *params , struct link_vars *var
 #line 2453
   bmac_addr = (unsigned int )port != 0U ? 69632U : 68608U;
 #line 2457
-  tmp = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+  tmp = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 2457
   if (tmp != 0L) {
 #line 2457
@@ -45661,7 +45661,7 @@ static int bnx2x_pbf_update(struct link_params *params , u32 flow_ctrl , u32 lin
 #line 2596
   crd = readl((void const volatile   *)bp->regview + (unsigned long )(((int )port + 163904) * 8));
 #line 2597
-  tmp = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+  tmp = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 2597
   if (tmp != 0L) {
 #line 2597
@@ -45693,7 +45693,7 @@ static int bnx2x_pbf_update(struct link_params *params , u32 flow_ctrl , u32 lin
 #line 2605
   if (init_crd != crd) {
 #line 2606
-    tmp___0 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+    tmp___0 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 2606
     if (tmp___0 != 0L) {
 #line 2606
@@ -45732,7 +45732,7 @@ static int bnx2x_pbf_update(struct link_params *params , u32 flow_ctrl , u32 lin
     goto ldv_45617;
     default: 
 #line 2634
-    tmp___1 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+    tmp___1 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 2634
     if (tmp___1 != 0L) {
 #line 2634
@@ -45750,7 +45750,7 @@ static int bnx2x_pbf_update(struct link_params *params , u32 flow_ctrl , u32 lin
 #line 2639
   writel(init_crd, (void volatile   *)bp->regview + (unsigned long )(((int )port + 327732) * 4));
 #line 2640
-  tmp___2 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+  tmp___2 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 2640
   if (tmp___2 != 0L) {
 #line 2640
@@ -45884,7 +45884,7 @@ static int bnx2x_cl22_write(struct bnx2x *bp , struct bnx2x_phy *phy , u16 reg ,
 #line 2730
   if (((long )tmp & 536870912L) != 0L) {
 #line 2731
-    tmp___0 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+    tmp___0 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 2731
     if (tmp___0 != 0L) {
 #line 2731
@@ -45958,7 +45958,7 @@ static int bnx2x_cl22_read(struct bnx2x *bp , struct bnx2x_phy *phy , u16 reg , 
 #line 2767
   if (((long )val & 536870912L) != 0L) {
 #line 2768
-    tmp = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+    tmp = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 2768
     if (tmp != 0L) {
 #line 2768
@@ -46053,7 +46053,7 @@ static int bnx2x_cl45_read(struct bnx2x *bp , struct bnx2x_phy *phy , u8 devad ,
 #line 2811
   if (((long )val & 536870912L) != 0L) {
 #line 2812
-    tmp___1 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+    tmp___1 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 2812
     if (tmp___1 != 0L) {
 #line 2812
@@ -46105,7 +46105,7 @@ static int bnx2x_cl45_read(struct bnx2x *bp , struct bnx2x_phy *phy , u8 devad ,
 #line 2833
     if (((long )val & 536870912L) != 0L) {
 #line 2834
-      tmp___2 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+      tmp___2 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 2834
       if (tmp___2 != 0L) {
 #line 2834
@@ -46222,7 +46222,7 @@ static int bnx2x_cl45_write(struct bnx2x *bp , struct bnx2x_phy *phy , u8 devad 
 #line 2887
   if (((long )tmp & 536870912L) != 0L) {
 #line 2888
-    tmp___2 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+    tmp___2 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 2888
     if (tmp___2 != 0L) {
 #line 2888
@@ -46272,7 +46272,7 @@ static int bnx2x_cl45_write(struct bnx2x *bp , struct bnx2x_phy *phy , u8 devad 
 #line 2908
     if (((long )tmp & 536870912L) != 0L) {
 #line 2909
-      tmp___3 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+      tmp___3 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 2909
       if (tmp___3 != 0L) {
 #line 2909
@@ -46477,7 +46477,7 @@ static int bnx2x_eee_set_timers(struct link_params *params , struct link_vars *v
 #line 3025
   if (((params->eee_mode & 1073741824U) != 0U && (params->eee_mode & 536870912U) != 0U) && (params->eee_mode & 268435456U) != 0U) {
 #line 3028
-    tmp = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+    tmp = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 3028
     if (tmp != 0L) {
 #line 3028
@@ -46585,7 +46585,7 @@ static int bnx2x_eee_advertise(struct bnx2x_phy *phy , struct link_params *param
 #line 3092
   if (((int )modes & 4) != 0) {
 #line 3093
-    tmp = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+    tmp = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 3093
     if (tmp != 0L) {
 #line 3093
@@ -46602,7 +46602,7 @@ static int bnx2x_eee_advertise(struct bnx2x_phy *phy , struct link_params *param
 #line 3096
   if (((int )modes & 2) != 0) {
 #line 3097
-    tmp___0 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+    tmp___0 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 3097
     if (tmp___0 != 0L) {
 #line 3097
@@ -46691,7 +46691,7 @@ static void bnx2x_eee_an_resolve(struct bnx2x_phy *phy , struct link_params *par
 
       }
 #line 3136
-      tmp = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+      tmp = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 3136
       if (tmp != 0L) {
 #line 3136
@@ -46720,7 +46720,7 @@ static void bnx2x_eee_an_resolve(struct bnx2x_phy *phy , struct link_params *par
 
       }
 #line 3144
-      tmp___0 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+      tmp___0 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 3144
       if (tmp___0 != 0L) {
 #line 3144
@@ -46749,7 +46749,7 @@ static void bnx2x_eee_an_resolve(struct bnx2x_phy *phy , struct link_params *par
 
       }
 #line 3152
-      tmp___1 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+      tmp___1 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 3152
       if (tmp___1 != 0L) {
 #line 3152
@@ -46771,7 +46771,7 @@ static void bnx2x_eee_an_resolve(struct bnx2x_phy *phy , struct link_params *par
 #line 3159
   if ((unsigned int )neg != 0U) {
 #line 3160
-    tmp___2 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+    tmp___2 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 3160
     if (tmp___2 != 0L) {
 #line 3160
@@ -46819,7 +46819,7 @@ static void bnx2x_bsc_module_sel(struct link_params *params )
 #line 3189
   i2c_val[1] = (sfp_ctrl & 33554432U) != 0U;
 #line 3190
-  tmp = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+  tmp = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 3190
   if (tmp != 0L) {
 #line 3190
@@ -46872,7 +46872,7 @@ static int bnx2x_bsc_read(struct link_params *params , struct bnx2x_phy *phy , u
 #line 3207
   if ((unsigned int )xfer_cnt > 16U) {
 #line 3208
-    tmp = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+    tmp = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 3208
     if (tmp != 0L) {
 #line 3208
@@ -46923,7 +46923,7 @@ static int bnx2x_bsc_read(struct link_params *params , struct bnx2x_phy *phy , u
 #line 3238
   if (tmp___1 > 1000U) {
 #line 3239
-    tmp___0 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+    tmp___0 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 3239
     if (tmp___0 != 0L) {
 #line 3239
@@ -46978,7 +46978,7 @@ static int bnx2x_bsc_read(struct link_params *params , struct bnx2x_phy *phy , u
 #line 3262
   if (tmp___3 > 1000U) {
 #line 3263
-    tmp___2 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+    tmp___2 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 3263
     if (tmp___2 != 0L) {
 #line 3263
@@ -47302,7 +47302,7 @@ static void bnx2x_serdes_deassert(struct bnx2x *bp , u8 port )
 
   {
 #line 3442
-  tmp = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+  tmp = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 3442
   if (tmp != 0L) {
 #line 3442
@@ -47363,7 +47363,7 @@ static void bnx2x_xgxs_deassert(struct link_params *params )
 #line 3474
   bp = params->bp;
 #line 3477
-  tmp = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+  tmp = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 3477
   if (tmp != 0L) {
 #line 3477
@@ -47443,7 +47443,7 @@ static void bnx2x_calc_ieee_aneg_adv(struct bnx2x_phy *phy , struct link_params 
   }
   ldv_45903: 
 #line 3528
-  tmp = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+  tmp = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 3528
   if (tmp != 0L) {
 #line 3528
@@ -47514,7 +47514,7 @@ static void set_phy_vars(struct link_params *params , struct link_vars *vars )
 
   }
 #line 3564
-  tmp = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+  tmp = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 3564
   if (tmp != 0L) {
 #line 3564
@@ -47572,7 +47572,7 @@ static void bnx2x_ext_phy_set_pause(struct link_params *params , struct bnx2x_ph
 
   }
 #line 3595
-  tmp = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+  tmp = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 3595
   if (tmp != 0L) {
 #line 3595
@@ -47698,7 +47698,7 @@ static void bnx2x_ext_phy_update_adv_fc(struct bnx2x_phy *phy , struct link_para
 #line 3675
   pause_result = (u16 )((int )((short )(((int )lp_pause & 3072) >> 10)) | (int )((short )pause_result));
 #line 3677
-  tmp___0 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+  tmp___0 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 3677
   if (tmp___0 != 0L) {
 #line 3677
@@ -47858,7 +47858,7 @@ static void bnx2x_warpcore_enable_AN_KR2(struct bnx2x_phy *phy , struct link_par
 #line 3726
   reg_set[14].val = 1568U;
 #line 3745
-  tmp = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+  tmp = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 3745
   if (tmp != 0L) {
 #line 3745
@@ -47905,7 +47905,7 @@ static void bnx2x_warpcore_set_lpi_passthrough(struct bnx2x_phy *phy , struct li
 #line 3762
   bp = params->bp;
 #line 3764
-  tmp = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+  tmp = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 3764
   if (tmp != 0L) {
 #line 3764
@@ -48014,7 +48014,7 @@ static void bnx2x_warpcore_enable_AN_KR(struct bnx2x_phy *phy , struct link_para
 #line 3792
   reg_set[6].val = 0U;
 #line 3802
-  tmp = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+  tmp = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 3802
   if (tmp != 0L) {
 #line 3802
@@ -48058,7 +48058,7 @@ static void bnx2x_warpcore_enable_AN_KR(struct bnx2x_phy *phy , struct link_para
 #line 3823
     bnx2x_cl45_read_or_write(bp, phy, 3, (int )addr, 1);
 #line 3824
-    tmp___0 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+    tmp___0 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 3824
     if (tmp___0 != 0L) {
 #line 3824
@@ -48081,7 +48081,7 @@ static void bnx2x_warpcore_enable_AN_KR(struct bnx2x_phy *phy , struct link_para
 #line 3837
     bnx2x_set_aer_mmd(params, phy);
 #line 3838
-    tmp___1 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+    tmp___1 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 3838
     if (tmp___1 != 0L) {
 #line 3838
@@ -48122,7 +48122,7 @@ static void bnx2x_warpcore_enable_AN_KR(struct bnx2x_phy *phy , struct link_para
 #line 3873
     bnx2x_cl45_read_or_write(bp, phy, 3, 33616, 1);
 #line 3876
-    tmp___3 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+    tmp___3 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 3876
     if (tmp___3 != 0L) {
 #line 3876
@@ -48141,7 +48141,7 @@ static void bnx2x_warpcore_enable_AN_KR(struct bnx2x_phy *phy , struct link_para
 #line 3885
   if ((unsigned int )ucode_ver <= 53511U) {
 #line 3886
-    tmp___5 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+    tmp___5 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 3886
     if (tmp___5 != 0L) {
 #line 3886
@@ -48509,7 +48509,7 @@ static void bnx2x_warpcore_set_sgmii_speed(struct bnx2x_phy *phy , struct link_p
 #line 4224
     bnx2x_cl45_read_or_write(bp, phy, 3, 65504, 4096);
 #line 4227
-    tmp = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+    tmp = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 4227
     if (tmp != 0L) {
 #line 4227
@@ -48540,7 +48540,7 @@ static void bnx2x_warpcore_set_sgmii_speed(struct bnx2x_phy *phy , struct link_p
     goto ldv_46059;
     default: 
 #line 4242
-    tmp___0 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+    tmp___0 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 4242
     if (tmp___0 != 0L) {
 #line 4242
@@ -48564,7 +48564,7 @@ static void bnx2x_warpcore_set_sgmii_speed(struct bnx2x_phy *phy , struct link_p
 #line 4250
     bnx2x_cl45_write(bp, phy, 3, 65504, (int )val16);
 #line 4253
-    tmp___1 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+    tmp___1 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 4253
     if (tmp___1 != 0L) {
 #line 4253
@@ -48577,7 +48577,7 @@ static void bnx2x_warpcore_set_sgmii_speed(struct bnx2x_phy *phy , struct link_p
 #line 4255
     bnx2x_cl45_read(bp, phy, 3, 65504, & val16);
 #line 4257
-    tmp___2 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+    tmp___2 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 4257
     if (tmp___2 != 0L) {
 #line 4257
@@ -48766,7 +48766,7 @@ static int bnx2x_get_mod_abs_int_cfg(struct bnx2x *bp , u32 chip_id , u32 shmem_
 #line 4365
     if (cfg_pin == 0U || cfg_pin > 8U) {
 #line 4367
-      tmp___0 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+      tmp___0 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 4367
       if (tmp___0 != 0L) {
 #line 4367
@@ -48898,7 +48898,7 @@ static void bnx2x_warpcore_config_runtime(struct bnx2x_phy *phy , struct link_pa
 #line 4430
   if (tmp___1 == 0) {
 #line 4431
-    tmp___0 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+    tmp___0 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 4431
     if (tmp___0 != 0L) {
 #line 4431
@@ -48928,7 +48928,7 @@ static void bnx2x_warpcore_config_runtime(struct bnx2x_phy *phy , struct link_pa
 #line 4448
     lnkup_kr = (unsigned int )((u16 )((int )gp_status1 >> ((int )lane + 12))) & 1U;
 #line 4450
-    tmp___3 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+    tmp___3 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 4450
     if (tmp___3 != 0L) {
 #line 4450
@@ -48943,7 +48943,7 @@ static void bnx2x_warpcore_config_runtime(struct bnx2x_phy *phy , struct link_pa
 #line 4454
       vars->rx_tx_asic_rst = 0U;
 #line 4455
-      tmp___4 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+      tmp___4 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 4455
       if (tmp___4 != 0L) {
 #line 4455
@@ -48963,7 +48963,7 @@ static void bnx2x_warpcore_config_runtime(struct bnx2x_phy *phy , struct link_pa
 #line 4467
       vars->rx_tx_asic_rst = (u8 )((int )vars->rx_tx_asic_rst - 1);
 #line 4468
-      tmp___5 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+      tmp___5 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 4468
       if (tmp___5 != 0L) {
 #line 4468
@@ -49009,7 +49009,7 @@ static void bnx2x_warpcore_config_sfi(struct bnx2x_phy *phy , struct link_params
 #line 4486
   if ((unsigned int )params->req_line_speed[0] == 10000U && phy->media_type != 5U) {
 #line 4489
-    tmp___0 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+    tmp___0 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 4489
     if (tmp___0 != 0L) {
 #line 4489
@@ -49022,7 +49022,7 @@ static void bnx2x_warpcore_config_sfi(struct bnx2x_phy *phy , struct link_params
     bnx2x_warpcore_set_10G_XFI(phy, params, 0);
   } else {
 #line 4492
-    tmp___1 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+    tmp___1 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 4492
     if (tmp___1 != 0L) {
 #line 4492
@@ -49058,7 +49058,7 @@ static void bnx2x_sfp_e3_set_transmitter(struct link_params *params , struct bnx
 #line 4505
   cfg_pin = tmp & 255U;
 #line 4510
-  tmp___0 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+  tmp___0 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 4510
   if (tmp___0 != 0L) {
 #line 4510
@@ -49116,7 +49116,7 @@ static void bnx2x_warpcore_config_init(struct bnx2x_phy *phy , struct link_param
 #line 4526
   serdes_net_if = tmp___0 & 251658240U;
 #line 4530
-  tmp___1 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+  tmp___1 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 4530
   if (tmp___1 != 0L) {
 #line 4530
@@ -49137,7 +49137,7 @@ static void bnx2x_warpcore_config_init(struct bnx2x_phy *phy , struct link_param
 #line 4540
     vars->phy_flags = (u8 )((unsigned int )vars->phy_flags | 2U);
 #line 4541
-    tmp___2 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+    tmp___2 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 4541
     if (tmp___2 != 0L) {
 #line 4541
@@ -49160,7 +49160,7 @@ static void bnx2x_warpcore_config_init(struct bnx2x_phy *phy , struct link_param
       bnx2x_warpcore_enable_AN_KR(phy, params, vars);
     } else {
 #line 4551
-      tmp___3 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+      tmp___3 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 4551
       if (tmp___3 != 0L) {
 #line 4551
@@ -49180,7 +49180,7 @@ static void bnx2x_warpcore_config_init(struct bnx2x_phy *phy , struct link_param
 #line 4558
     if ((unsigned int )vars->line_speed == 10000U) {
 #line 4559
-      tmp___4 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+      tmp___4 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 4559
       if (tmp___4 != 0L) {
 #line 4559
@@ -49195,7 +49195,7 @@ static void bnx2x_warpcore_config_init(struct bnx2x_phy *phy , struct link_param
 #line 4562
       if ((unsigned int )params->num_phys == 1U) {
 #line 4563
-        tmp___5 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+        tmp___5 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 4563
         if (tmp___5 != 0L) {
 #line 4563
@@ -49208,7 +49208,7 @@ static void bnx2x_warpcore_config_init(struct bnx2x_phy *phy , struct link_param
         fiber_mode = 1U;
       } else {
 #line 4566
-        tmp___6 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+        tmp___6 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 4566
         if (tmp___6 != 0L) {
 #line 4566
@@ -49244,7 +49244,7 @@ static void bnx2x_warpcore_config_init(struct bnx2x_phy *phy , struct link_param
 #line 4591
     if ((unsigned int )vars->line_speed != 20000U) {
 #line 4592
-      tmp___8 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+      tmp___8 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 4592
       if (tmp___8 != 0L) {
 #line 4592
@@ -49259,7 +49259,7 @@ static void bnx2x_warpcore_config_init(struct bnx2x_phy *phy , struct link_param
 
     }
 #line 4595
-    tmp___9 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+    tmp___9 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 4595
     if (tmp___9 != 0L) {
 #line 4595
@@ -49281,7 +49281,7 @@ static void bnx2x_warpcore_config_init(struct bnx2x_phy *phy , struct link_param
       bnx2x_warpcore_enable_AN_KR(phy, params, vars);
     } else {
 #line 4605
-      tmp___10 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+      tmp___10 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 4605
       if (tmp___10 != 0L) {
 #line 4605
@@ -49297,7 +49297,7 @@ static void bnx2x_warpcore_config_init(struct bnx2x_phy *phy , struct link_param
     goto ldv_46149;
     default: 
 #line 4610
-    tmp___11 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+    tmp___11 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 4610
     if (tmp___11 != 0L) {
 #line 4610
@@ -49315,7 +49315,7 @@ static void bnx2x_warpcore_config_init(struct bnx2x_phy *phy , struct link_param
 #line 4618
   bnx2x_warpcore_reset_lane(bp, phy, 0);
 #line 4619
-  tmp___12 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+  tmp___12 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 4619
   if (tmp___12 != 0L) {
 #line 4619
@@ -49410,7 +49410,7 @@ static void bnx2x_set_warpcore_loopback(struct bnx2x_phy *phy , struct link_para
 #line 4680
   bp = params->bp;
 #line 4683
-  tmp = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+  tmp = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 4683
   if (tmp != 0L) {
 #line 4683
@@ -49478,7 +49478,7 @@ static void bnx2x_sync_link(struct link_params *params , struct link_vars *vars 
 #line 4730
   if ((unsigned int )vars->link_up != 0U) {
 #line 4731
-    tmp = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+    tmp = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 4731
     if (tmp != 0L) {
 #line 4731
@@ -49601,7 +49601,7 @@ static void bnx2x_sync_link(struct link_params *params , struct link_vars *vars 
     }
   } else {
 #line 4811
-    tmp___0 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+    tmp___0 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 4811
     if (tmp___0 != 0L) {
 #line 4811
@@ -49691,7 +49691,7 @@ void bnx2x_link_status_update(struct link_params *params , struct link_vars *var
 #line 4865
   params->phy[2].media_type = (media_types & 16711680U) >> 16;
 #line 4868
-  tmp___0 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+  tmp___0 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 4868
   if (tmp___0 != 0L) {
 #line 4868
@@ -49728,7 +49728,7 @@ void bnx2x_link_status_update(struct link_params *params , struct link_vars *var
 
   }
 #line 4889
-  tmp___2 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+  tmp___2 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 4889
   if (tmp___2 != 0L) {
 #line 4889
@@ -49739,7 +49739,7 @@ void bnx2x_link_status_update(struct link_params *params , struct link_vars *var
 
   }
 #line 4891
-  tmp___3 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+  tmp___3 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 4891
   if (tmp___3 != 0L) {
 #line 4891
@@ -49828,7 +49828,7 @@ static int bnx2x_reset_unicore(struct link_params *params , struct bnx2x_phy *ph
   netdev_err((struct net_device  const  *)bp->dev, "Warning: PHY was not initialized, Port %d\n",
              (int )params->port);
 #line 4955
-  tmp = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+  tmp = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 4955
   if (tmp != 0L) {
 #line 4955
@@ -49897,7 +49897,7 @@ static void bnx2x_set_parallel_detection(struct bnx2x_phy *phy , struct link_par
     control2 = (unsigned int )control2 & 65534U;
   }
 #line 5015
-  tmp = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+  tmp = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 5015
   if (tmp != 0L) {
 #line 5015
@@ -49912,7 +49912,7 @@ static void bnx2x_set_parallel_detection(struct bnx2x_phy *phy , struct link_par
 #line 5022
   if (phy->type == 0U && (phy->speed_cap_mask & 4194304U) != 0U) {
 #line 5025
-    tmp___0 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+    tmp___0 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 5025
     if (tmp___0 != 0L) {
 #line 5025
@@ -50050,7 +50050,7 @@ static void bnx2x_program_serdes(struct bnx2x_phy *phy , struct link_params *par
 #line 5182
   bnx2x_cl45_read(bp, phy, (int )phy->def_md_devad, 33544, & reg_val);
 #line 5186
-  tmp = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+  tmp = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 5186
   if (tmp != 0L) {
 #line 5186
@@ -50152,7 +50152,7 @@ static void bnx2x_restart_autoneg(struct bnx2x_phy *phy , struct link_params *pa
 #line 5253
   bp = params->bp;
 #line 5256
-  tmp = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+  tmp = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 5256
   if (tmp != 0L) {
 #line 5256
@@ -50171,7 +50171,7 @@ static void bnx2x_restart_autoneg(struct bnx2x_phy *phy , struct link_params *pa
 #line 5273
     bnx2x_cl45_read(bp, phy, (int )phy->def_md_devad, 65504, & mii_control);
 #line 5277
-    tmp___0 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+    tmp___0 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 5277
     if (tmp___0 != 0L) {
 #line 5277
@@ -50231,7 +50231,7 @@ static void bnx2x_initialize_sgmii_process(struct bnx2x_phy *phy , struct link_p
     goto ldv_46278;
     default: 
 #line 5339
-    tmp = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+    tmp = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 5339
     if (tmp != 0L) {
 #line 5339
@@ -50288,7 +50288,7 @@ static int bnx2x_direct_parallel_detect_used(struct bnx2x_phy *phy , struct link
 #line 5376
   if (((int )status2_1000x & 2) != 0) {
 #line 5377
-    tmp = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+    tmp = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 5377
     if (tmp != 0L) {
 #line 5377
@@ -50308,7 +50308,7 @@ static int bnx2x_direct_parallel_detect_used(struct bnx2x_phy *phy , struct link
 #line 5387
   if ((int )((short )pd_10g) < 0) {
 #line 5388
-    tmp___0 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+    tmp___0 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 5388
     if (tmp___0 != 0L) {
 #line 5388
@@ -50352,7 +50352,7 @@ static void bnx2x_update_adv_fc(struct bnx2x_phy *phy , struct link_params *para
 #line 5420
     pause_result = (u16 )((int )((short )(((int )lp_pause & 3072) >> 10)) | (int )((short )pause_result));
 #line 5422
-    tmp = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+    tmp = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 5422
     if (tmp != 0L) {
 #line 5422
@@ -50372,7 +50372,7 @@ static void bnx2x_update_adv_fc(struct bnx2x_phy *phy , struct link_params *para
 #line 5434
     pause_result = (u16 )((int )((short )(((int )lp_pause & 384) >> 7)) | (int )((short )pause_result));
 #line 5436
-    tmp___0 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+    tmp___0 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 5436
     if (tmp___0 != 0L) {
 #line 5436
@@ -50438,7 +50438,7 @@ static void bnx2x_flow_ctrl_resolve(struct bnx2x_phy *phy , struct link_params *
 
   }
 #line 5467
-  tmp___0 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+  tmp___0 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 5467
   if (tmp___0 != 0L) {
 #line 5467
@@ -50469,7 +50469,7 @@ static void bnx2x_check_fallback_to_cl37(struct bnx2x_phy *phy , struct link_par
 #line 5473
   bp = params->bp;
 #line 5475
-  tmp = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+  tmp = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 5475
   if (tmp != 0L) {
 #line 5475
@@ -50483,7 +50483,7 @@ static void bnx2x_check_fallback_to_cl37(struct bnx2x_phy *phy , struct link_par
 #line 5481
   if ((int )((short )rx_status) >= 0) {
 #line 5483
-    tmp___0 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+    tmp___0 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 5483
     if (tmp___0 != 0L) {
 #line 5483
@@ -50505,7 +50505,7 @@ static void bnx2x_check_fallback_to_cl37(struct bnx2x_phy *phy , struct link_par
 #line 5496
   if (((int )ustat_val & 1280) != 1280) {
 #line 5501
-    tmp___1 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+    tmp___1 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 5501
     if (tmp___1 != 0L) {
 #line 5501
@@ -50525,7 +50525,7 @@ static void bnx2x_check_fallback_to_cl37(struct bnx2x_phy *phy , struct link_par
 #line 5512
   if (((int )cl37_fsm_received & 1552) != 1552) {
 #line 5517
-    tmp___2 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+    tmp___2 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 5517
     if (tmp___2 != 0L) {
 #line 5517
@@ -50545,7 +50545,7 @@ static void bnx2x_check_fallback_to_cl37(struct bnx2x_phy *phy , struct link_par
 #line 5534
   bnx2x_restart_autoneg(phy, params, 0);
 #line 5535
-  tmp___3 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+  tmp___3 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 5535
   if (tmp___3 != 0L) {
 #line 5535
@@ -50610,7 +50610,7 @@ static int bnx2x_get_link_speed_duplex(struct bnx2x_phy *phy , struct link_param
 #line 5561
   if ((unsigned int )is_link_up != 0U) {
 #line 5562
-    tmp = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+    tmp = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 5562
     if (tmp != 0L) {
 #line 5562
@@ -50681,7 +50681,7 @@ static int bnx2x_get_link_speed_duplex(struct bnx2x_phy *phy , struct link_param
     case 1024: ;
     case 1280: 
 #line 5603
-    tmp___0 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+    tmp___0 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 5603
     if (tmp___0 != 0L) {
 #line 5603
@@ -50715,7 +50715,7 @@ static int bnx2x_get_link_speed_duplex(struct bnx2x_phy *phy , struct link_param
     goto ldv_46336;
     default: 
 #line 5623
-    tmp___1 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+    tmp___1 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 5623
     if (tmp___1 != 0L) {
 #line 5623
@@ -50731,7 +50731,7 @@ static int bnx2x_get_link_speed_duplex(struct bnx2x_phy *phy , struct link_param
     ldv_46336: ;
   } else {
 #line 5629
-    tmp___2 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+    tmp___2 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 5629
     if (tmp___2 != 0L) {
 #line 5629
@@ -50750,7 +50750,7 @@ static int bnx2x_get_link_speed_duplex(struct bnx2x_phy *phy , struct link_param
     vars->mac_type = 0U;
   }
 #line 5637
-  tmp___3 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+  tmp___3 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 5637
   if (tmp___3 != 0L) {
 #line 5637
@@ -50806,7 +50806,7 @@ static int bnx2x_link_settings_status(struct bnx2x_phy *phy , struct link_params
 #line 5660
   speed_mask = (unsigned int )gp_status & 16128U;
 #line 5661
-  tmp = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+  tmp = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 5661
   if (tmp != 0L) {
 #line 5661
@@ -50890,7 +50890,7 @@ static int bnx2x_link_settings_status(struct bnx2x_phy *phy , struct link_params
 
   }
 #line 5711
-  tmp___0 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+  tmp___0 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 5711
   if (tmp___0 != 0L) {
 #line 5711
@@ -50950,7 +50950,7 @@ static int bnx2x_warpcore_read_status(struct bnx2x_phy *phy , struct link_params
 #line 5738
     bnx2x_cl45_read(bp, phy, 3, 1, & link_up);
 #line 5740
-    tmp = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+    tmp = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 5740
     if (tmp != 0L) {
 #line 5740
@@ -50973,7 +50973,7 @@ static int bnx2x_warpcore_read_status(struct bnx2x_phy *phy , struct link_params
 #line 5746
     bnx2x_cl45_read(bp, phy, 3, 33233, & gp_status1);
 #line 5749
-    tmp___0 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+    tmp___0 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 5749
     if (tmp___0 != 0L) {
 #line 5749
@@ -51075,7 +51075,7 @@ static int bnx2x_warpcore_read_status(struct bnx2x_phy *phy , struct link_params
     bnx2x_cl45_read(bp, phy, 3, 33235, & gp_speed);
   }
 #line 5822
-  tmp___1 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+  tmp___1 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 5822
   if (tmp___1 != 0L) {
 #line 5822
@@ -51100,7 +51100,7 @@ static int bnx2x_warpcore_read_status(struct bnx2x_phy *phy , struct link_params
   rc = bnx2x_get_link_speed_duplex(phy, params, vars, (int )link_up, (int )gp_speed,
                                    (int )duplex);
 #line 5832
-  tmp___2 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+  tmp___2 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 5832
   if (tmp___2 != 0L) {
 #line 5832
@@ -51191,7 +51191,7 @@ static int bnx2x_emac_program(struct link_params *params , struct link_vars *var
 #line 5880
   mode = 0U;
 #line 5882
-  tmp = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+  tmp = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 5882
   if (tmp != 0L) {
 #line 5882
@@ -51226,7 +51226,7 @@ static int bnx2x_emac_program(struct link_params *params , struct link_vars *var
   goto ldv_46403;
   default: 
 #line 5907
-  tmp___0 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+  tmp___0 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 5907
   if (tmp___0 != 0L) {
 #line 5907
@@ -51343,7 +51343,7 @@ static void bnx2x_xgxs_config_init(struct bnx2x_phy *phy , struct link_params *p
 #line 5960
     if ((unsigned int )vars->line_speed != 0U || ((unsigned int )params->num_phys == 1U && (unsigned int )params->loopback_mode == 5U)) {
 #line 5963
-      tmp = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+      tmp = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 5963
       if (tmp != 0L) {
 #line 5963
@@ -51358,7 +51358,7 @@ static void bnx2x_xgxs_config_init(struct bnx2x_phy *phy , struct link_params *p
       bnx2x_program_serdes(phy, params, vars);
     } else {
 #line 5972
-      tmp___0 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+      tmp___0 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 5972
       if (tmp___0 != 0L) {
 #line 5972
@@ -51378,7 +51378,7 @@ static void bnx2x_xgxs_config_init(struct bnx2x_phy *phy , struct link_params *p
     }
   } else {
 #line 5989
-    tmp___1 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+    tmp___1 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 5989
     if (tmp___1 != 0L) {
 #line 5989
@@ -51495,7 +51495,7 @@ static u16 bnx2x_wait_reset_complete(struct bnx2x *bp , struct bnx2x_phy *phy , 
 
   }
 #line 6057
-  tmp = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+  tmp = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 6057
   if (tmp != 0L) {
 #line 6057
@@ -51551,7 +51551,7 @@ static void bnx2x_link_int_enable(struct link_params *params )
 #line 6073
     mask = 3964928U;
 #line 6075
-    tmp = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+    tmp = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 6075
     if (tmp != 0L) {
 #line 6075
@@ -51565,7 +51565,7 @@ static void bnx2x_link_int_enable(struct link_params *params )
 #line 6079
       mask = mask | 1U;
 #line 6080
-      tmp___0 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+      tmp___0 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 6080
       if (tmp___0 != 0L) {
 #line 6080
@@ -51581,7 +51581,7 @@ static void bnx2x_link_int_enable(struct link_params *params )
 #line 6084
     mask = 512U;
 #line 6085
-    tmp___1 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+    tmp___1 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 6085
     if (tmp___1 != 0L) {
 #line 6085
@@ -51595,7 +51595,7 @@ static void bnx2x_link_int_enable(struct link_params *params )
 #line 6089
       mask = mask | 1U;
 #line 6090
-      tmp___2 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+      tmp___2 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 6090
       if (tmp___2 != 0L) {
 #line 6090
@@ -51611,7 +51611,7 @@ static void bnx2x_link_int_enable(struct link_params *params )
 #line 6093
   bnx2x_bits_en(bp, (u32 )(((int )port + 16588) * 4), mask);
 #line 6097
-  tmp___4 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+  tmp___4 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 6097
   if (tmp___4 != 0L) {
 #line 6097
@@ -51624,7 +51624,7 @@ static void bnx2x_link_int_enable(struct link_params *params )
 
   }
 #line 6100
-  tmp___8 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+  tmp___8 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 6100
   if (tmp___8 != 0L) {
 #line 6100
@@ -51641,7 +51641,7 @@ static void bnx2x_link_int_enable(struct link_params *params )
 
   }
 #line 6104
-  tmp___11 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+  tmp___11 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 6104
   if (tmp___11 != 0L) {
 #line 6104
@@ -51671,7 +51671,7 @@ static void bnx2x_rearm_latch_signal(struct bnx2x *bp , u8 port , u8 exp_mi_int 
 #line 6119
   latch_status = readl((void const volatile   *)bp->regview + (unsigned long )(((int )port + 12288) * 8));
 #line 6121
-  tmp = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+  tmp = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 6121
   if (tmp != 0L) {
 #line 6121
@@ -51740,7 +51740,7 @@ static void bnx2x_link_int_ack(struct link_params *params , struct link_vars *va
       mask = 512U;
     }
 #line 6175
-    tmp = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+    tmp = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 6175
     if (tmp != 0L) {
 #line 6175
@@ -51956,7 +51956,7 @@ static void bnx2x_set_xgxs_loopback(struct bnx2x_phy *phy , struct link_params *
 #line 6276
     md_devad = 0U;
 #line 6278
-    tmp = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+    tmp = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 6278
     if (tmp != 0L) {
 #line 6278
@@ -51991,7 +51991,7 @@ static void bnx2x_set_xgxs_loopback(struct bnx2x_phy *phy , struct link_params *
     }
   } else {
 #line 6311
-    tmp___0 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+    tmp___0 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 6311
     if (tmp___0 != 0L) {
 #line 6311
@@ -52036,7 +52036,7 @@ int bnx2x_set_led(struct link_params *params , struct link_vars *vars , u8 mode 
 #line 6333
   bp = params->bp;
 #line 6334
-  tmp___0 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+  tmp___0 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 6334
   if (tmp___0 != 0L) {
 #line 6334
@@ -52047,7 +52047,7 @@ int bnx2x_set_led(struct link_params *params , struct link_vars *vars , u8 mode 
 
   }
 #line 6335
-  tmp___1 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+  tmp___1 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 6335
   if (tmp___1 != 0L) {
 #line 6335
@@ -52202,7 +52202,7 @@ int bnx2x_set_led(struct link_params *params , struct link_vars *vars , u8 mode 
 #line 6454
   rc = -22;
 #line 6455
-  tmp___2 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+  tmp___2 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 6455
   if (tmp___2 != 0L) {
 #line 6455
@@ -52437,7 +52437,7 @@ static int bnx2x_link_initialize(struct link_params *params , struct link_vars *
 #line 6601
       if (tmp___0 == 1U) {
 #line 6604
-        tmp = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+        tmp = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 6604
         if (tmp != 0L) {
 #line 6604
@@ -52511,7 +52511,7 @@ static void bnx2x_common_ext_link_reset(struct bnx2x_phy *phy , struct link_para
 #line 6644
   bnx2x_set_gpio(bp, 2, 0U, (int )gpio_port);
 #line 6647
-  tmp = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+  tmp = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 6647
   if (tmp != 0L) {
 #line 6647
@@ -52537,7 +52537,7 @@ static int bnx2x_update_link_down(struct link_params *params , struct link_vars 
 #line 6654
   port = params->port;
 #line 6656
-  tmp = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+  tmp = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 6656
   if (tmp != 0L) {
 #line 6656
@@ -52647,7 +52647,7 @@ static int bnx2x_update_link_up(struct link_params *params , struct link_vars *v
 #line 6718
       if (tmp___0 == -3) {
 #line 6720
-        tmp = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+        tmp = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 6720
         if (tmp != 0L) {
 #line 6720
@@ -52674,7 +52674,7 @@ static int bnx2x_update_link_up(struct link_params *params , struct link_vars *v
 #line 6730
     if ((vars->eee_status & 1073741824U) != 0U && (vars->eee_status & 536870912U) != 0U) {
 #line 6732
-      tmp___1 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+      tmp___1 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 6732
       if (tmp___1 != 0L) {
 #line 6732
@@ -52704,7 +52704,7 @@ static int bnx2x_update_link_up(struct link_params *params , struct link_vars *v
 #line 6743
       if (tmp___3 == -3) {
 #line 6745
-        tmp___2 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+        tmp___2 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 6745
         if (tmp___2 != 0L) {
 #line 6745
@@ -52882,7 +52882,7 @@ int bnx2x_link_update(struct link_params *params , struct link_vars *vars )
 
   }
 #line 6828
-  tmp___0 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+  tmp___0 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 6828
   if (tmp___0 != 0L) {
 #line 6828
@@ -52899,7 +52899,7 @@ int bnx2x_link_update(struct link_params *params , struct link_vars *vars )
 #line 6832
   is_mi_int = tmp___1 != 0U;
 #line 6834
-  tmp___4 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+  tmp___4 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 6834
   if (tmp___4 != 0L) {
 #line 6834
@@ -52914,7 +52914,7 @@ int bnx2x_link_update(struct link_params *params , struct link_vars *vars )
 
   }
 #line 6839
-  tmp___7 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+  tmp___7 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 6839
   if (tmp___7 != 0L) {
 #line 6839
@@ -52956,7 +52956,7 @@ int bnx2x_link_update(struct link_params *params , struct link_vars *vars )
 #line 6862
   if ((unsigned int )cur_link_up != 0U) {
 #line 6863
-    tmp___8 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+    tmp___8 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 6863
     if (tmp___8 != 0L) {
 #line 6863
@@ -52968,7 +52968,7 @@ int bnx2x_link_update(struct link_params *params , struct link_vars *vars )
     }
   } else {
 #line 6866
-    tmp___9 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+    tmp___9 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 6866
     if (tmp___9 != 0L) {
 #line 6866
@@ -53005,7 +53005,7 @@ int bnx2x_link_update(struct link_params *params , struct link_vars *vars )
     goto ldv_46621;
     default: 
 #line 6899
-    tmp___11 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+    tmp___11 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 6899
     if (tmp___11 != 0L) {
 #line 6899
@@ -53057,7 +53057,7 @@ int bnx2x_link_update(struct link_params *params , struct link_vars *vars )
                                                                                          struct link_params * ,
                                                                                          u32  ))0)) {
 #line 6937
-        tmp___12 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+        tmp___12 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 6937
         if (tmp___12 != 0L) {
 #line 6937
@@ -53090,7 +53090,7 @@ int bnx2x_link_update(struct link_params *params , struct link_vars *vars )
 #line 6953
     vars->eee_status = phy_vars[(int )active_external_phy].eee_status;
 #line 6955
-    tmp___13 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+    tmp___13 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 6955
     if (tmp___13 != 0L) {
 #line 6955
@@ -53129,7 +53129,7 @@ int bnx2x_link_update(struct link_params *params , struct link_vars *vars )
   }
   ldv_46627: 
 #line 6969
-  tmp___14 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+  tmp___14 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 6969
   if (tmp___14 != 0L) {
 #line 6969
@@ -53144,7 +53144,7 @@ int bnx2x_link_update(struct link_params *params , struct link_vars *vars )
 #line 6978
     if (((unsigned int )params->num_phys != 1U && (unsigned int )ext_phy_link_up != 0U) && (int )vars->line_speed != (int )ext_phy_line_speed) {
 #line 6980
-      tmp___15 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+      tmp___15 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 6980
       if (tmp___15 != 0L) {
 #line 6980
@@ -53176,7 +53176,7 @@ int bnx2x_link_update(struct link_params *params , struct link_vars *vars )
 #line 7004
   if ((unsigned int )params->num_phys != 1U) {
 #line 7005
-    tmp___16 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+    tmp___16 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 7005
     if (tmp___16 != 0L) {
 #line 7005
@@ -53267,7 +53267,7 @@ static void bnx2x_save_spirom_version(struct bnx2x *bp , u8 port , u32 spirom_ve
 
   {
 #line 7066
-  tmp = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+  tmp = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 7066
   if (tmp != 0L) {
 #line 7066
@@ -53374,7 +53374,7 @@ static void bnx2x_8073_resolve_fc(struct bnx2x_phy *phy , struct link_params *pa
 #line 7135
     bnx2x_pause_resolve(vars, (u32 )pause_result);
 #line 7136
-    tmp = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+    tmp = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 7136
     if (tmp != 0L) {
 #line 7136
@@ -53425,7 +53425,7 @@ static int bnx2x_8073_8727_external_rom_boot(struct bnx2x *bp , struct bnx2x_phy
 #line 7183
   if (count > 300U) {
 #line 7184
-    tmp = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+    tmp = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 7184
     if (tmp != 0L) {
 #line 7184
@@ -53461,7 +53461,7 @@ static int bnx2x_8073_8727_external_rom_boot(struct bnx2x *bp , struct bnx2x_phy
 #line 7208
   bnx2x_save_bcm_spirom_ver(bp, phy, (int )port);
 #line 7210
-  tmp___0 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+  tmp___0 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 7210
   if (tmp___0 != 0L) {
 #line 7210
@@ -53534,7 +53534,7 @@ static int bnx2x_8073_xaui_wa(struct bnx2x *bp , struct bnx2x_phy *phy )
 #line 7274
   if (((int )val & 16384) == 0 || ((int )val & 8192) == 0) {
 #line 7275
-    tmp = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+    tmp = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 7275
     if (tmp != 0L) {
 #line 7275
@@ -53549,7 +53549,7 @@ static int bnx2x_8073_xaui_wa(struct bnx2x *bp , struct bnx2x_phy *phy )
 #line 7277
   if ((int )((short )val) >= 0) {
 #line 7278
-    tmp___0 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+    tmp___0 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 7278
     if (tmp___0 != 0L) {
 #line 7278
@@ -53568,7 +53568,7 @@ static int bnx2x_8073_xaui_wa(struct bnx2x *bp , struct bnx2x_phy *phy )
 #line 7288
     if ((int )((short )val) < 0) {
 #line 7289
-      tmp___1 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+      tmp___1 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 7289
       if (tmp___1 != 0L) {
 #line 7289
@@ -53614,7 +53614,7 @@ static int bnx2x_8073_xaui_wa(struct bnx2x *bp , struct bnx2x_phy *phy )
   }
   ldv_46692: 
 #line 7299
-  tmp___2 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+  tmp___2 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 7299
   if (tmp___2 != 0L) {
 #line 7299
@@ -53684,7 +53684,7 @@ static void bnx2x_8073_set_pause_cl37(struct link_params *params , struct bnx2x_
 
   }
 #line 7343
-  tmp = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+  tmp = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 7343
   if (tmp != 0L) {
 #line 7343
@@ -53753,7 +53753,7 @@ static int bnx2x_8073_config_init(struct bnx2x_phy *phy , struct link_params *pa
 #line 7372
   val = 0U;
 #line 7374
-  tmp = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+  tmp = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 7374
   if (tmp != 0L) {
 #line 7374
@@ -53782,7 +53782,7 @@ static int bnx2x_8073_config_init(struct bnx2x_phy *phy , struct link_params *pa
 #line 7393
   bnx2x_cl45_read(bp, phy, 1, 36867, & tmp1);
 #line 7396
-  tmp___0 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+  tmp___0 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 7396
   if (tmp___0 != 0L) {
 #line 7396
@@ -53795,7 +53795,7 @@ static int bnx2x_8073_config_init(struct bnx2x_phy *phy , struct link_params *pa
 #line 7399
   if ((params->lane_config & 65536U) != 0U) {
 #line 7401
-    tmp___1 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+    tmp___1 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 7401
     if (tmp___1 != 0L) {
 #line 7401
@@ -53820,7 +53820,7 @@ static int bnx2x_8073_config_init(struct bnx2x_phy *phy , struct link_params *pa
 #line 7422
     bnx2x_cl45_write(bp, phy, 7, 33616, (int )((unsigned int )val | 1U));
 #line 7425
-    tmp___2 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+    tmp___2 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 7425
     if (tmp___2 != 0L) {
 #line 7425
@@ -53837,7 +53837,7 @@ static int bnx2x_8073_config_init(struct bnx2x_phy *phy , struct link_params *pa
 #line 7428
     bnx2x_807x_force_10G(bp, phy);
 #line 7429
-    tmp___4 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+    tmp___4 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 7429
     if (tmp___4 != 0L) {
 #line 7429
@@ -53885,7 +53885,7 @@ static int bnx2x_8073_config_init(struct bnx2x_phy *phy , struct link_params *pa
 
     }
 #line 7456
-    tmp___5 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+    tmp___5 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 7456
     if (tmp___5 != 0L) {
 #line 7456
@@ -53905,7 +53905,7 @@ static int bnx2x_8073_config_init(struct bnx2x_phy *phy , struct link_params *pa
 #line 7467
     bnx2x_cl45_read(bp, phy, 1, 51201, & phy_ver);
 #line 7470
-    tmp___6 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+    tmp___6 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 7470
     if (tmp___6 != 0L) {
 #line 7470
@@ -53923,7 +53923,7 @@ static int bnx2x_8073_config_init(struct bnx2x_phy *phy , struct link_params *pa
     }
   } else {
 #line 7476
-    tmp___7 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+    tmp___7 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 7476
     if (tmp___7 != 0L) {
 #line 7476
@@ -53965,7 +53965,7 @@ static int bnx2x_8073_config_init(struct bnx2x_phy *phy , struct link_params *pa
 #line 7509
   bnx2x_cl45_write(bp, phy, 7, 0, 4608);
 #line 7510
-  tmp___9 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+  tmp___9 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 7510
   if (tmp___9 != 0L) {
 #line 7510
@@ -54015,7 +54015,7 @@ static u8 bnx2x_8073_read_status(struct bnx2x_phy *phy , struct link_params *par
 #line 7525
   bnx2x_cl45_read(bp, phy, 1, 36869, & val1);
 #line 7528
-  tmp = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+  tmp = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 7528
   if (tmp != 0L) {
 #line 7528
@@ -54030,7 +54030,7 @@ static u8 bnx2x_8073_read_status(struct bnx2x_phy *phy , struct link_params *par
 #line 7533
   bnx2x_cl45_read(bp, phy, 3, 32, & val1);
 #line 7535
-  tmp___0 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+  tmp___0 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 7535
   if (tmp___0 != 0L) {
 #line 7535
@@ -54045,7 +54045,7 @@ static u8 bnx2x_8073_read_status(struct bnx2x_phy *phy , struct link_params *par
 #line 7541
   bnx2x_cl45_read(bp, phy, 1, 36867, & val2);
 #line 7544
-  tmp___1 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+  tmp___1 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 7544
   if (tmp___1 != 0L) {
 #line 7544
@@ -54058,7 +54058,7 @@ static u8 bnx2x_8073_read_status(struct bnx2x_phy *phy , struct link_params *par
 #line 7547
   bnx2x_cl45_read(bp, phy, 3, 32, & val2);
 #line 7549
-  tmp___2 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+  tmp___2 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 7549
   if (tmp___2 != 0L) {
 #line 7549
@@ -54075,7 +54075,7 @@ static u8 bnx2x_8073_read_status(struct bnx2x_phy *phy , struct link_params *par
 #line 7555
   link_up = ((int )val1 & 4) != 0;
 #line 7556
-  tmp___3 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+  tmp___3 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 7556
   if (tmp___3 != 0L) {
 #line 7556
@@ -54108,7 +54108,7 @@ static u8 bnx2x_8073_read_status(struct bnx2x_phy *phy , struct link_params *par
 #line 7571
   bnx2x_cl45_read(bp, phy, 1, 1, & val1);
 #line 7573
-  tmp___5 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+  tmp___5 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 7573
   if (tmp___5 != 0L) {
 #line 7573
@@ -54145,7 +54145,7 @@ static u8 bnx2x_8073_read_status(struct bnx2x_phy *phy , struct link_params *par
 #line 7598
     vars->line_speed = 10000U;
 #line 7599
-    tmp___7 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+    tmp___7 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 7599
     if (tmp___7 != 0L) {
 #line 7599
@@ -54163,7 +54163,7 @@ static u8 bnx2x_8073_read_status(struct bnx2x_phy *phy , struct link_params *par
 #line 7603
     vars->line_speed = 2500U;
 #line 7604
-    tmp___8 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+    tmp___8 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 7604
     if (tmp___8 != 0L) {
 #line 7604
@@ -54181,7 +54181,7 @@ static u8 bnx2x_8073_read_status(struct bnx2x_phy *phy , struct link_params *par
 #line 7608
     vars->line_speed = 1000U;
 #line 7609
-    tmp___9 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+    tmp___9 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 7609
     if (tmp___9 != 0L) {
 #line 7609
@@ -54195,7 +54195,7 @@ static u8 bnx2x_8073_read_status(struct bnx2x_phy *phy , struct link_params *par
 #line 7612
     link_up = 0U;
 #line 7613
-    tmp___10 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+    tmp___10 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 7613
     if (tmp___10 != 0L) {
 #line 7613
@@ -54215,7 +54215,7 @@ static u8 bnx2x_8073_read_status(struct bnx2x_phy *phy , struct link_params *par
 #line 7628
       if ((unsigned int )vars->line_speed == 1000U) {
 #line 7629
-        tmp___11 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+        tmp___11 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 7629
         if (tmp___11 != 0L) {
 #line 7629
@@ -54288,7 +54288,7 @@ static void bnx2x_8073_link_reset(struct bnx2x_phy *phy , struct link_params *pa
     gpio_port = params->port;
   }
 #line 7669
-  tmp = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+  tmp = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 7669
   if (tmp != 0L) {
 #line 7669
@@ -54315,7 +54315,7 @@ static int bnx2x_8705_config_init(struct bnx2x_phy *phy , struct link_params *pa
 #line 7683
   bp = params->bp;
 #line 7684
-  tmp = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+  tmp = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 7684
   if (tmp != 0L) {
 #line 7684
@@ -54364,7 +54364,7 @@ static u8 bnx2x_8705_read_status(struct bnx2x_phy *phy , struct link_params *par
 #line 7712
   bp = params->bp;
 #line 7713
-  tmp = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+  tmp = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 7713
   if (tmp != 0L) {
 #line 7713
@@ -54376,7 +54376,7 @@ static u8 bnx2x_8705_read_status(struct bnx2x_phy *phy , struct link_params *par
 #line 7714
   bnx2x_cl45_read(bp, phy, 2, 36869, & val1);
 #line 7716
-  tmp___0 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+  tmp___0 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 7716
   if (tmp___0 != 0L) {
 #line 7716
@@ -54389,7 +54389,7 @@ static u8 bnx2x_8705_read_status(struct bnx2x_phy *phy , struct link_params *par
 #line 7718
   bnx2x_cl45_read(bp, phy, 2, 36869, & val1);
 #line 7720
-  tmp___1 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+  tmp___1 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 7720
   if (tmp___1 != 0L) {
 #line 7720
@@ -54406,7 +54406,7 @@ static u8 bnx2x_8705_read_status(struct bnx2x_phy *phy , struct link_params *par
 #line 7727
   bnx2x_cl45_read(bp, phy, 1, 51209, & val1);
 #line 7730
-  tmp___2 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+  tmp___2 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 7730
   if (tmp___2 != 0L) {
 #line 7730
@@ -54448,7 +54448,7 @@ static void bnx2x_set_disable_pmd_transmit(struct link_params *params , struct b
 #line 7751
     if ((params->feature_config_flags & 1024U) != 0U) {
 #line 7753
-      tmp = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+      tmp = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 7753
       if (tmp != 0L) {
 #line 7753
@@ -54459,7 +54459,7 @@ static void bnx2x_set_disable_pmd_transmit(struct link_params *params , struct b
       }
     } else {
 #line 7755
-      tmp___0 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+      tmp___0 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 7755
       if (tmp___0 != 0L) {
 #line 7755
@@ -54473,7 +54473,7 @@ static void bnx2x_set_disable_pmd_transmit(struct link_params *params , struct b
     }
   } else {
 #line 7759
-    tmp___1 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+    tmp___1 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 7759
     if (tmp___1 != 0L) {
 #line 7759
@@ -54541,7 +54541,7 @@ static void bnx2x_sfp_e1e2_set_transmitter(struct link_params *params , struct b
 #line 7789
   tx_en_mode = tmp & 255U;
 #line 7793
-  tmp___0 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+  tmp___0 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 7793
   if (tmp___0 != 0L) {
 #line 7793
@@ -54590,7 +54590,7 @@ static void bnx2x_sfp_e1e2_set_transmitter(struct link_params *params , struct b
   goto ldv_46787;
   default: 
 #line 7831
-  tmp___1 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+  tmp___1 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 7831
   if (tmp___1 != 0L) {
 #line 7831
@@ -54619,7 +54619,7 @@ static void bnx2x_sfp_set_transmitter(struct link_params *params , struct bnx2x_
 #line 7840
   bp = params->bp;
 #line 7841
-  tmp = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+  tmp = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 7841
   if (tmp != 0L) {
 #line 7841
@@ -54660,7 +54660,7 @@ static int bnx2x_8726_read_sfp_module_eeprom(struct bnx2x_phy *phy , struct link
 #line 7856
   if ((unsigned int )byte_cnt > 16U) {
 #line 7857
-    tmp = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+    tmp = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 7857
     if (tmp != 0L) {
 #line 7857
@@ -54710,7 +54710,7 @@ static int bnx2x_8726_read_sfp_module_eeprom(struct bnx2x_phy *phy , struct link
 #line 7887
   if (((int )val & 12) != 4) {
 #line 7889
-    tmp___0 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+    tmp___0 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 7889
     if (tmp___0 != 0L) {
 #line 7889
@@ -54798,7 +54798,7 @@ static void bnx2x_warpcore_power_module(struct link_params *params , u8 power )
 
   }
 #line 7929
-  tmp___0 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+  tmp___0 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 7929
   if (tmp___0 != 0L) {
 #line 7929
@@ -54840,7 +54840,7 @@ static int bnx2x_warpcore_read_sfp_module_eeprom(struct bnx2x_phy *phy , struct 
 #line 7948
   if ((unsigned int )byte_cnt > 16U) {
 #line 7949
-    tmp = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+    tmp = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 7949
     if (tmp != 0L) {
 #line 7949
@@ -54933,7 +54933,7 @@ static int bnx2x_8727_read_sfp_module_eeprom(struct bnx2x_phy *phy , struct link
 #line 7985
   if ((unsigned int )byte_cnt > 16U) {
 #line 7986
-    tmp = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+    tmp = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 7986
     if (tmp != 0L) {
 #line 7986
@@ -54991,7 +54991,7 @@ static int bnx2x_8727_read_sfp_module_eeprom(struct bnx2x_phy *phy , struct link
 #line 8044
   if (((int )val & 12) != 4) {
 #line 8046
-    tmp___0 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+    tmp___0 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 8046
     if (tmp___0 != 0L) {
 #line 8046
@@ -55078,7 +55078,7 @@ int bnx2x_read_sfp_module_eeprom(struct bnx2x_phy *phy , struct link_params *par
 #line 8082
   if ((unsigned int )dev_addr != 160U && (unsigned int )dev_addr != 162U) {
 #line 8083
-    tmp = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+    tmp = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 8083
     if (tmp != 0L) {
 #line 8083
@@ -55188,7 +55188,7 @@ static int bnx2x_get_edc_mode(struct bnx2x_phy *phy , struct link_params *params
 #line 8124
   if (tmp___0 != 0) {
 #line 8130
-    tmp = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+    tmp = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 8130
     if (tmp != 0L) {
 #line 8130
@@ -55212,7 +55212,7 @@ static int bnx2x_get_edc_mode(struct bnx2x_phy *phy , struct link_params *params
 #line 8142
   if (tmp___2 != 0) {
 #line 8148
-    tmp___1 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+    tmp___1 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 8148
     if (tmp___1 != 0L) {
 #line 8148
@@ -55229,7 +55229,7 @@ static int bnx2x_get_edc_mode(struct bnx2x_phy *phy , struct link_params *params
 #line 8154
   if (((int )copper_module_type & 8) != 0) {
 #line 8156
-    tmp___3 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+    tmp___3 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 8156
     if (tmp___3 != 0L) {
 #line 8156
@@ -55244,7 +55244,7 @@ static int bnx2x_get_edc_mode(struct bnx2x_phy *phy , struct link_params *params
 #line 8158
   if (((int )copper_module_type & 4) != 0) {
 #line 8160
-    tmp___4 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+    tmp___4 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 8160
     if (tmp___4 != 0L) {
 #line 8160
@@ -55257,7 +55257,7 @@ static int bnx2x_get_edc_mode(struct bnx2x_phy *phy , struct link_params *params
     *edc_mode = 85U;
   } else {
 #line 8165
-    tmp___5 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+    tmp___5 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 8165
     if (tmp___5 != 0L) {
 #line 8165
@@ -55279,7 +55279,7 @@ static int bnx2x_get_edc_mode(struct bnx2x_phy *phy , struct link_params *params
 #line 8175
   if (((int )val[1] & 112) == 0) {
 #line 8178
-    tmp___6 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+    tmp___6 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 8178
     if (tmp___6 != 0L) {
 #line 8178
@@ -55313,7 +55313,7 @@ static int bnx2x_get_edc_mode(struct bnx2x_phy *phy , struct link_params *params
 #line 8192
     cfg_idx = 0;
 #line 8193
-    tmp___7 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+    tmp___7 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 8193
     if (tmp___7 != 0L) {
 #line 8193
@@ -55356,7 +55356,7 @@ static int bnx2x_get_edc_mode(struct bnx2x_phy *phy , struct link_params *params
   goto ldv_46914;
   default: 
 #line 8205
-  tmp___8 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+  tmp___8 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 8205
   if (tmp___8 != 0L) {
 #line 8205
@@ -55410,7 +55410,7 @@ static int bnx2x_get_edc_mode(struct bnx2x_phy *phy , struct link_params *params
 #line 8227
     if (tmp___10 != 0) {
 #line 8233
-      tmp___9 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+      tmp___9 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 8233
       if (tmp___9 != 0L) {
 #line 8233
@@ -55436,7 +55436,7 @@ static int bnx2x_get_edc_mode(struct bnx2x_phy *phy , struct link_params *params
 
   }
 #line 8242
-  tmp___11 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+  tmp___11 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 8242
   if (tmp___11 != 0L) {
 #line 8242
@@ -55477,7 +55477,7 @@ static int bnx2x_verify_sfp_module(struct bnx2x_phy *phy , struct link_params *p
 #line 8260
   if ((val & 3758096384U) == 0U) {
 #line 8262
-    tmp = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+    tmp = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 8262
     if (tmp != 0L) {
 #line 8262
@@ -55501,7 +55501,7 @@ static int bnx2x_verify_sfp_module(struct bnx2x_phy *phy , struct link_params *p
 #line 8273
     if ((unsigned int )params->num_phys == 3U) {
 #line 8274
-      tmp___0 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+      tmp___0 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 8274
       if (tmp___0 != 0L) {
 #line 8274
@@ -55519,7 +55519,7 @@ static int bnx2x_verify_sfp_module(struct bnx2x_phy *phy , struct link_params *p
     cmd = 2684354560U;
   } else {
 #line 8281
-    tmp___1 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+    tmp___1 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 8281
     if (tmp___1 != 0L) {
 #line 8281
@@ -55538,7 +55538,7 @@ static int bnx2x_verify_sfp_module(struct bnx2x_phy *phy , struct link_params *p
 #line 8288
   if (fw_resp == 2685403136U) {
 #line 8289
-    tmp___2 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+    tmp___2 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 8289
     if (tmp___2 != 0L) {
 #line 8289
@@ -55614,7 +55614,7 @@ static int bnx2x_wait_for_sfp_module_initialized(struct bnx2x_phy *phy , struct 
 #line 8343
   if (rc == 0) {
 #line 8344
-    tmp = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+    tmp = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 8344
     if (tmp != 0L) {
 #line 8344
@@ -55687,7 +55687,7 @@ static int bnx2x_8726_set_limiting_mode(struct bnx2x *bp , struct bnx2x_phy *phy
 #line 8394
   bnx2x_cl45_read(bp, phy, 1, 51738, & cur_limiting_mode);
 #line 8398
-  tmp = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+  tmp = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 8398
   if (tmp != 0L) {
 #line 8398
@@ -55700,7 +55700,7 @@ static int bnx2x_8726_set_limiting_mode(struct bnx2x *bp , struct bnx2x_phy *phy
 #line 8401
   if ((unsigned int )edc_mode == 68U) {
 #line 8402
-    tmp___0 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+    tmp___0 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 8402
     if (tmp___0 != 0L) {
 #line 8402
@@ -55713,7 +55713,7 @@ static int bnx2x_8726_set_limiting_mode(struct bnx2x *bp , struct bnx2x_phy *phy
     bnx2x_cl45_write(bp, phy, 1, 51738, 68);
   } else {
 #line 8409
-    tmp___1 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+    tmp___1 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 8409
     if (tmp___1 != 0L) {
 #line 8409
@@ -55823,7 +55823,7 @@ static void bnx2x_8727_specific_func(struct bnx2x_phy *phy , struct link_params 
   goto ldv_46979;
   default: 
 #line 8511
-  tmp = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+  tmp = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 8511
   if (tmp != 0L) {
 #line 8511
@@ -55876,7 +55876,7 @@ static void bnx2x_set_e1e2_module_fault_led(struct link_params *params , u8 gpio
 #line 8535
   gpio_pin = (u16 )fault_led_gpio;
 #line 8537
-  tmp___1 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+  tmp___1 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 8537
   if (tmp___1 != 0L) {
 #line 8537
@@ -55892,7 +55892,7 @@ static void bnx2x_set_e1e2_module_fault_led(struct link_params *params , u8 gpio
   goto ldv_46998;
   default: 
 #line 8544
-  tmp___2 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+  tmp___2 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 8544
   if (tmp___2 != 0L) {
 #line 8544
@@ -55927,7 +55927,7 @@ static void bnx2x_set_e3_module_fault_led(struct link_params *params , u8 gpio_m
 #line 8555
   pin_cfg = (tmp & 65280U) >> 8;
 #line 8560
-  tmp___0 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+  tmp___0 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 8560
   if (tmp___0 != 0L) {
 #line 8560
@@ -55953,7 +55953,7 @@ static void bnx2x_set_sfp_module_fault_led(struct link_params *params , u8 gpio_
 #line 8568
   bp = params->bp;
 #line 8569
-  tmp = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+  tmp = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 8569
   if (tmp != 0L) {
 #line 8569
@@ -56008,7 +56008,7 @@ static void bnx2x_power_sfp_module(struct link_params *params , struct bnx2x_phy
 #line 8597
   bp = params->bp;
 #line 8598
-  tmp = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+  tmp = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 8598
   if (tmp != 0L) {
 #line 8598
@@ -56155,7 +56155,7 @@ int bnx2x_sfp_module_detection(struct bnx2x_phy *phy , struct link_params *param
 #line 8680
   bnx2x_sfp_set_transmitter(params, phy, 1);
 #line 8681
-  tmp___0 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+  tmp___0 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 8681
   if (tmp___0 != 0L) {
 #line 8681
@@ -56172,7 +56172,7 @@ int bnx2x_sfp_module_detection(struct bnx2x_phy *phy , struct link_params *param
 #line 8685
   if (tmp___5 != 0) {
 #line 8686
-    tmp___1 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+    tmp___1 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 8686
     if (tmp___1 != 0L) {
 #line 8686
@@ -56189,7 +56189,7 @@ int bnx2x_sfp_module_detection(struct bnx2x_phy *phy , struct link_params *param
 #line 8688
     if (tmp___4 != 0) {
 #line 8690
-      tmp___2 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+      tmp___2 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 8690
       if (tmp___2 != 0L) {
 #line 8690
@@ -56205,7 +56205,7 @@ int bnx2x_sfp_module_detection(struct bnx2x_phy *phy , struct link_params *param
 #line 8697
       if ((val & 3758096384U) == 1610612736U) {
 #line 8699
-        tmp___3 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+        tmp___3 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 8699
         if (tmp___3 != 0L) {
 #line 8699
@@ -56273,7 +56273,7 @@ void bnx2x_handle_module_detect_int(struct link_params *params )
 #line 8737
   if (tmp___0 == -22) {
 #line 8740
-    tmp = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+    tmp = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 8740
     if (tmp != 0L) {
 #line 8740
@@ -56329,7 +56329,7 @@ void bnx2x_handle_module_detect_int(struct link_params *params )
       }
     } else {
 #line 8780
-      tmp___2 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+      tmp___2 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 8780
       if (tmp___2 != 0L) {
 #line 8780
@@ -56397,7 +56397,7 @@ static u8 bnx2x_8706_8726_read_status(struct bnx2x_phy *phy , struct link_params
 #line 8825
   bp = params->bp;
 #line 8826
-  tmp = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+  tmp = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 8826
   if (tmp != 0L) {
 #line 8826
@@ -56415,7 +56415,7 @@ static u8 bnx2x_8706_8726_read_status(struct bnx2x_phy *phy , struct link_params
 #line 8837
   bnx2x_cl45_read(bp, phy, 1, 36869, & val2);
 #line 8839
-  tmp___0 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+  tmp___0 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 8839
   if (tmp___0 != 0L) {
 #line 8839
@@ -56434,7 +56434,7 @@ static u8 bnx2x_8706_8726_read_status(struct bnx2x_phy *phy , struct link_params
 #line 8847
   bnx2x_cl45_read(bp, phy, 7, 33540, & val2);
 #line 8850
-  tmp___1 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+  tmp___1 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 8850
   if (tmp___1 != 0L) {
 #line 8850
@@ -56540,7 +56540,7 @@ static u8 bnx2x_8706_config_init(struct bnx2x_phy *phy , struct link_params *par
   }
   ldv_47104: 
 #line 8904
-  tmp = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+  tmp = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 8904
   if (tmp != 0L) {
 #line 8904
@@ -56566,7 +56566,7 @@ static u8 bnx2x_8706_config_init(struct bnx2x_phy *phy , struct link_params *par
 #line 8917
     val = (u16 )(((int )((short )phy->rx_preemphasis[(int )i]) & 7) | (int )((short )val));
 #line 8918
-    tmp___0 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+    tmp___0 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 8918
     if (tmp___0 != 0L) {
 #line 8918
@@ -56595,7 +56595,7 @@ static u8 bnx2x_8706_config_init(struct bnx2x_phy *phy , struct link_params *par
 #line 8924
   if ((unsigned int )phy->req_line_speed == 10000U) {
 #line 8925
-    tmp___1 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+    tmp___1 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 8925
     if (tmp___1 != 0L) {
 #line 8925
@@ -56612,7 +56612,7 @@ static u8 bnx2x_8706_config_init(struct bnx2x_phy *phy , struct link_params *par
     bnx2x_cl45_write(bp, phy, 1, 36866, 3);
   } else {
 #line 8940
-    tmp___2 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+    tmp___2 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 8940
     if (tmp___2 != 0L) {
 #line 8940
@@ -56645,7 +56645,7 @@ static u8 bnx2x_8706_config_init(struct bnx2x_phy *phy , struct link_params *par
 #line 8975
   if (tx_en_mode == 1U) {
 #line 8976
-    tmp___4 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+    tmp___4 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 8976
     if (tmp___4 != 0L) {
 #line 8976
@@ -56690,7 +56690,7 @@ static void bnx2x_8726_config_loopback(struct bnx2x_phy *phy , struct link_param
 #line 9000
   bp = params->bp;
 #line 9001
-  tmp = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+  tmp = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 9001
   if (tmp != 0L) {
 #line 9001
@@ -56759,7 +56759,7 @@ static u8 bnx2x_8726_read_status(struct bnx2x_phy *phy , struct link_params *par
 #line 9054
     if ((int )((short )val1) < 0) {
 #line 9055
-      tmp___0 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+      tmp___0 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 9055
       if (tmp___0 != 0L) {
 #line 9055
@@ -56796,7 +56796,7 @@ static int bnx2x_8726_config_init(struct bnx2x_phy *phy , struct link_params *pa
 #line 9068
   bp = params->bp;
 #line 9069
-  tmp = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+  tmp = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 9069
   if (tmp != 0L) {
 #line 9069
@@ -56816,7 +56816,7 @@ static int bnx2x_8726_config_init(struct bnx2x_phy *phy , struct link_params *pa
 #line 9083
   if ((unsigned int )phy->req_line_speed == 1000U) {
 #line 9084
-    tmp___0 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+    tmp___0 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 9084
     if (tmp___0 != 0L) {
 #line 9084
@@ -56837,7 +56837,7 @@ static int bnx2x_8726_config_init(struct bnx2x_phy *phy , struct link_params *pa
 #line 9094
   if (((unsigned int )phy->req_line_speed == 0U && (phy->speed_cap_mask & 1048576U) != 0U) && (phy->speed_cap_mask & 4194304U) == 0U) {
 #line 9100
-    tmp___1 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+    tmp___1 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 9100
     if (tmp___1 != 0L) {
 #line 9100
@@ -56869,7 +56869,7 @@ static int bnx2x_8726_config_init(struct bnx2x_phy *phy , struct link_params *pa
 #line 9128
   if ((int )params->feature_config_flags & 1) {
 #line 9130
-    tmp___2 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+    tmp___2 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 9130
     if (tmp___2 != 0L) {
 #line 9130
@@ -56900,7 +56900,7 @@ static void bnx2x_8726_link_reset(struct bnx2x_phy *phy , struct link_params *pa
 #line 9152
   bp = params->bp;
 #line 9153
-  tmp = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+  tmp = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 9153
   if (tmp != 0L) {
 #line 9153
@@ -57024,7 +57024,7 @@ static void bnx2x_8727_config_speed(struct bnx2x_phy *phy , struct link_params *
 #line 9231
   if ((unsigned int )phy->req_line_speed == 1000U || phy->media_type == 5U) {
 #line 9233
-    tmp = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+    tmp = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 9233
     if (tmp != 0L) {
 #line 9233
@@ -57040,7 +57040,7 @@ static void bnx2x_8727_config_speed(struct bnx2x_phy *phy , struct link_params *
 #line 9238
     bnx2x_cl45_read(bp, phy, 1, 7, & tmp1);
 #line 9240
-    tmp___0 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+    tmp___0 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 9240
     if (tmp___0 != 0L) {
 #line 9240
@@ -57065,7 +57065,7 @@ static void bnx2x_8727_config_speed(struct bnx2x_phy *phy , struct link_params *
 #line 9253
   if (((unsigned int )phy->req_line_speed == 0U && (phy->speed_cap_mask & 1048576U) != 0U) && (phy->speed_cap_mask & 4194304U) == 0U) {
 #line 9260
-    tmp___1 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+    tmp___1 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 9260
     if (tmp___1 != 0L) {
 #line 9260
@@ -57112,7 +57112,7 @@ static int bnx2x_8727_config_init(struct bnx2x_phy *phy , struct link_params *pa
 #line 9291
   bnx2x_wait_reset_complete(bp, phy, params);
 #line 9293
-  tmp = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+  tmp = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 9293
   if (tmp != 0L) {
 #line 9293
@@ -57149,7 +57149,7 @@ static int bnx2x_8727_config_init(struct bnx2x_phy *phy , struct link_params *pa
 #line 9326
   if ((int )params->feature_config_flags & 1) {
 #line 9328
-    tmp___0 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+    tmp___0 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 9328
     if (tmp___0 != 0L) {
 #line 9328
@@ -57173,7 +57173,7 @@ static int bnx2x_8727_config_init(struct bnx2x_phy *phy , struct link_params *pa
 #line 9348
   if (tx_en_mode == 1U) {
 #line 9350
-    tmp___2 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+    tmp___2 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 9350
     if (tmp___2 != 0L) {
 #line 9350
@@ -57227,7 +57227,7 @@ static void bnx2x_8727_handle_mod_abs(struct bnx2x_phy *phy , struct link_params
 #line 9380
   if (((int )mod_abs & 256) != 0) {
 #line 9383
-    tmp___0 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+    tmp___0 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 9383
     if (tmp___0 != 0L) {
 #line 9383
@@ -57253,7 +57253,7 @@ static void bnx2x_8727_handle_mod_abs(struct bnx2x_phy *phy , struct link_params
     bnx2x_cl45_read(bp, phy, 1, 36867, & rx_alarm_status);
   } else {
 #line 9409
-    tmp___1 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+    tmp___1 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 9409
     if (tmp___1 != 0L) {
 #line 9409
@@ -57290,7 +57290,7 @@ static void bnx2x_8727_handle_mod_abs(struct bnx2x_phy *phy , struct link_params
       bnx2x_sfp_module_detection(phy, params);
     } else {
 #line 9442
-      tmp___2 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+      tmp___2 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 9442
       if (tmp___2 != 0L) {
 #line 9442
@@ -57304,7 +57304,7 @@ static void bnx2x_8727_handle_mod_abs(struct bnx2x_phy *phy , struct link_params
     bnx2x_8727_config_speed(phy, params);
   }
 #line 9448
-  tmp___4 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+  tmp___4 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 9448
   if (tmp___4 != 0L) {
 #line 9448
@@ -57362,7 +57362,7 @@ static u8 bnx2x_8727_read_status(struct bnx2x_phy *phy , struct link_params *par
 #line 9474
   vars->line_speed = 0U;
 #line 9475
-  tmp = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+  tmp = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 9475
   if (tmp != 0L) {
 #line 9475
@@ -57377,7 +57377,7 @@ static u8 bnx2x_8727_read_status(struct bnx2x_phy *phy , struct link_params *par
 #line 9480
   bnx2x_cl45_read(bp, phy, 1, 36869, & val1);
 #line 9483
-  tmp___0 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+  tmp___0 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 9483
   if (tmp___0 != 0L) {
 #line 9483
@@ -57403,7 +57403,7 @@ static u8 bnx2x_8727_read_status(struct bnx2x_phy *phy , struct link_params *par
 
       }
 #line 9501
-      tmp___1 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+      tmp___1 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 9501
       if (tmp___1 != 0L) {
 #line 9501
@@ -57448,7 +57448,7 @@ static u8 bnx2x_8727_read_status(struct bnx2x_phy *phy , struct link_params *par
 #line 9543
   if (((int )phy->flags & 128) == 0) {
 #line 9544
-    tmp___2 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+    tmp___2 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 9544
     if (tmp___2 != 0L) {
 #line 9544
@@ -57461,7 +57461,7 @@ static u8 bnx2x_8727_read_status(struct bnx2x_phy *phy , struct link_params *par
     bnx2x_sfp_set_transmitter(params, phy, 1);
   } else {
 #line 9547
-    tmp___3 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+    tmp___3 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 9547
     if (tmp___3 != 0L) {
 #line 9547
@@ -57482,7 +57482,7 @@ static u8 bnx2x_8727_read_status(struct bnx2x_phy *phy , struct link_params *par
 #line 9560
     vars->line_speed = 10000U;
 #line 9561
-    tmp___4 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+    tmp___4 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 9561
     if (tmp___4 != 0L) {
 #line 9561
@@ -57500,7 +57500,7 @@ static u8 bnx2x_8727_read_status(struct bnx2x_phy *phy , struct link_params *par
 #line 9565
     vars->line_speed = 1000U;
 #line 9566
-    tmp___5 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+    tmp___5 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 9566
     if (tmp___5 != 0L) {
 #line 9566
@@ -57514,7 +57514,7 @@ static u8 bnx2x_8727_read_status(struct bnx2x_phy *phy , struct link_params *par
 #line 9569
     link_up = 0U;
 #line 9570
-    tmp___6 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+    tmp___6 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 9570
     if (tmp___6 != 0L) {
 #line 9570
@@ -57548,7 +57548,7 @@ static u8 bnx2x_8727_read_status(struct bnx2x_phy *phy , struct link_params *par
 #line 9589
     vars->duplex = 1U;
 #line 9590
-    tmp___7 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+    tmp___7 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 9590
     if (tmp___7 != 0L) {
 #line 9590
@@ -57699,7 +57699,7 @@ static void bnx2x_save_848xx_spirom_version(struct bnx2x_phy *phy , struct bnx2x
 #line 9662
     if ((unsigned int )cnt == 100U) {
 #line 9663
-      tmp = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+      tmp = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 9663
       if (tmp != 0L) {
 #line 9663
@@ -57751,7 +57751,7 @@ static void bnx2x_save_848xx_spirom_version(struct bnx2x_phy *phy , struct bnx2x
 #line 9681
     if ((unsigned int )cnt == 100U) {
 #line 9682
-      tmp___0 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+      tmp___0 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 9682
       if (tmp___0 != 0L) {
 #line 9682
@@ -57944,7 +57944,7 @@ static int bnx2x_848xx_cmn_config_init(struct bnx2x_phy *phy , struct link_param
 
     }
 #line 9799
-    tmp = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+    tmp = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 9799
     if (tmp != 0L) {
 #line 9799
@@ -57973,7 +57973,7 @@ static int bnx2x_848xx_cmn_config_init(struct bnx2x_phy *phy , struct link_param
 
     }
 #line 9818
-    tmp___0 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+    tmp___0 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 9818
     if (tmp___0 != 0L) {
 #line 9818
@@ -57999,7 +57999,7 @@ static int bnx2x_848xx_cmn_config_init(struct bnx2x_phy *phy , struct link_param
 
     }
 #line 9832
-    tmp___1 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+    tmp___1 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 9832
     if (tmp___1 != 0L) {
 #line 9832
@@ -58020,7 +58020,7 @@ static int bnx2x_848xx_cmn_config_init(struct bnx2x_phy *phy , struct link_param
 #line 9846
     an_10_100_val = (u16 )((unsigned int )an_10_100_val | 384U);
 #line 9847
-    tmp___2 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+    tmp___2 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 9847
     if (tmp___2 != 0L) {
 #line 9847
@@ -58037,7 +58037,7 @@ static int bnx2x_848xx_cmn_config_init(struct bnx2x_phy *phy , struct link_param
 #line 9854
     bnx2x_cl45_write(bp, phy, 7, 65528, 33287);
 #line 9857
-    tmp___3 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+    tmp___3 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 9857
     if (tmp___3 != 0L) {
 #line 9857
@@ -58068,7 +58068,7 @@ static int bnx2x_848xx_cmn_config_init(struct bnx2x_phy *phy , struct link_param
 #line 9877
   if (((unsigned int )phy->req_line_speed == 0U && (phy->speed_cap_mask & 4194304U) != 0U) || (unsigned int )phy->req_line_speed == 10000U) {
 #line 9881
-    tmp___4 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+    tmp___4 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 9881
     if (tmp___4 != 0L) {
 #line 9881
@@ -58158,7 +58158,7 @@ static int bnx2x_84833_cmd_hdlr(struct bnx2x_phy *phy , struct link_params *para
 #line 9938
   if (idx > 299) {
 #line 9939
-    tmp = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+    tmp = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 9939
     if (tmp != 0L) {
 #line 9939
@@ -58221,7 +58221,7 @@ static int bnx2x_84833_cmd_hdlr(struct bnx2x_phy *phy , struct link_params *para
 #line 9959
   if (idx > 299 || (unsigned int )val == 8U) {
 #line 9961
-    tmp___0 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+    tmp___0 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 9961
     if (tmp___0 != 0L) {
 #line 9961
@@ -58290,7 +58290,7 @@ static int bnx2x_84833_pair_swap_cfg(struct bnx2x_phy *phy , struct link_params 
 #line 9999
   if (status == 0) {
 #line 10000
-    tmp___0 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+    tmp___0 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 10000
     if (tmp___0 != 0L) {
 #line 10000
@@ -58407,7 +58407,7 @@ static int bnx2x_84833_hw_reset_phy(struct bnx2x_phy *phy , struct link_params *
 #line 10069
   __const_udelay(42950UL);
 #line 10070
-  tmp___0 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+  tmp___0 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 10070
   if (tmp___0 != 0L) {
 #line 10070
@@ -58438,7 +58438,7 @@ static int bnx2x_8483x_disable_eee(struct bnx2x_phy *phy , struct link_params *p
 #line 10082
   cmd_args = 0U;
 #line 10084
-  tmp = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+  tmp = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 10084
   if (tmp != 0L) {
 #line 10084
@@ -58452,7 +58452,7 @@ static int bnx2x_8483x_disable_eee(struct bnx2x_phy *phy , struct link_params *p
 #line 10089
   if (rc != 0) {
 #line 10090
-    tmp___0 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+    tmp___0 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 10090
     if (tmp___0 != 0L) {
 #line 10090
@@ -58492,7 +58492,7 @@ static int bnx2x_8483x_enable_eee(struct bnx2x_phy *phy , struct link_params *pa
 #line 10107
   if (rc != 0) {
 #line 10108
-    tmp = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+    tmp = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 10108
     if (tmp != 0L) {
 #line 10108
@@ -58628,7 +58628,7 @@ static int bnx2x_848x3_config_init(struct bnx2x_phy *phy , struct link_params *p
 #line 10201
   bnx2x_cl45_write(bp, phy, 30, 16410, (int )val);
 #line 10203
-  tmp = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+  tmp = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 10203
   if (tmp != 0L) {
 #line 10203
@@ -58655,7 +58655,7 @@ static int bnx2x_848x3_config_init(struct bnx2x_phy *phy , struct link_params *p
 #line 10218
     if (rc != 0) {
 #line 10219
-      tmp___0 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+      tmp___0 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 10219
       if (tmp___0 != 0L) {
 #line 10219
@@ -58712,7 +58712,7 @@ static int bnx2x_848x3_config_init(struct bnx2x_phy *phy , struct link_params *p
 #line 10250
       if (rc != 0) {
 #line 10251
-        tmp___2 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+        tmp___2 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 10251
         if (tmp___2 != 0L) {
 #line 10251
@@ -58747,7 +58747,7 @@ static int bnx2x_848x3_config_init(struct bnx2x_phy *phy , struct link_params *p
 #line 10263
       if (rc != 0) {
 #line 10264
-        tmp___4 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+        tmp___4 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 10264
         if (tmp___4 != 0L) {
 #line 10264
@@ -58806,7 +58806,7 @@ static u8 bnx2x_848xx_read_status(struct bnx2x_phy *phy , struct link_params *pa
 #line 10295
   bnx2x_cl45_read(bp, phy, 1, 43025, & val2);
 #line 10298
-  tmp = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+  tmp = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 10298
   if (tmp != 0L) {
 #line 10298
@@ -58832,7 +58832,7 @@ static u8 bnx2x_848xx_read_status(struct bnx2x_phy *phy , struct link_params *pa
 #line 10315
     bnx2x_cl45_read(bp, phy, 7, 65525, & legacy_status);
 #line 10320
-    tmp___0 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+    tmp___0 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 10320
     if (tmp___0 != 0L) {
 #line 10320
@@ -58877,7 +58877,7 @@ static u8 bnx2x_848xx_read_status(struct bnx2x_phy *phy , struct link_params *pa
         vars->duplex = 0U;
       }
 #line 10341
-      tmp___1 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+      tmp___1 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 10341
       if (tmp___1 != 0L) {
 #line 10341
@@ -58912,7 +58912,7 @@ static u8 bnx2x_848xx_read_status(struct bnx2x_phy *phy , struct link_params *pa
 #line 10362
   if ((unsigned int )link_up != 0U) {
 #line 10363
-    tmp___2 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+    tmp___2 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 10363
     if (tmp___2 != 0L) {
 #line 10363
@@ -59109,7 +59109,7 @@ static void bnx2x_848xx_set_link_led(struct bnx2x_phy *phy , struct link_params 
   switch ((int )mode) {
   case 0: 
 #line 10481
-  tmp = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+  tmp = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 10481
   if (tmp != 0L) {
 #line 10481
@@ -59137,7 +59137,7 @@ static void bnx2x_848xx_set_link_led(struct bnx2x_phy *phy , struct link_params 
   goto ldv_47419;
   case 3: 
 #line 10516
-  tmp___0 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+  tmp___0 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 10516
   if (tmp___0 != 0L) {
 #line 10516
@@ -59183,7 +59183,7 @@ static void bnx2x_848xx_set_link_led(struct bnx2x_phy *phy , struct link_params 
   goto ldv_47419;
   case 1: 
 #line 10574
-  tmp___2 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+  tmp___2 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 10574
   if (tmp___2 != 0L) {
 #line 10574
@@ -59237,7 +59237,7 @@ static void bnx2x_848xx_set_link_led(struct bnx2x_phy *phy , struct link_params 
   goto ldv_47419;
   case 2: 
 #line 10643
-  tmp___4 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+  tmp___4 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 10643
   if (tmp___4 != 0L) {
 #line 10643
@@ -59254,7 +59254,7 @@ static void bnx2x_848xx_set_link_led(struct bnx2x_phy *phy , struct link_params 
 #line 10654
     if (((int )val & 2048) >> 11 == 0) {
 #line 10657
-      tmp___5 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+      tmp___5 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 10657
       if (tmp___5 != 0L) {
 #line 10657
@@ -59383,7 +59383,7 @@ static int bnx2x_54618se_config_init(struct bnx2x_phy *phy , struct link_params 
 #line 10767
   bp = params->bp;
 #line 10772
-  tmp = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+  tmp = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 10772
   if (tmp != 0L) {
 #line 10772
@@ -59462,7 +59462,7 @@ static int bnx2x_54618se_config_init(struct bnx2x_phy *phy , struct link_params 
 
     }
 #line 10852
-    tmp___1 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+    tmp___1 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 10852
     if (tmp___1 != 0L) {
 #line 10852
@@ -59493,7 +59493,7 @@ static int bnx2x_54618se_config_init(struct bnx2x_phy *phy , struct link_params 
 
     }
 #line 10874
-    tmp___2 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+    tmp___2 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 10874
     if (tmp___2 != 0L) {
 #line 10874
@@ -59519,7 +59519,7 @@ static int bnx2x_54618se_config_init(struct bnx2x_phy *phy , struct link_params 
 
     }
 #line 10886
-    tmp___3 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+    tmp___3 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 10886
     if (tmp___3 != 0L) {
 #line 10886
@@ -59538,7 +59538,7 @@ static int bnx2x_54618se_config_init(struct bnx2x_phy *phy , struct link_params 
 #line 10893
     bnx2x_cl22_write(bp, phy, 24, 33287);
 #line 10896
-    tmp___4 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+    tmp___4 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 10896
     if (tmp___4 != 0L) {
 #line 10896
@@ -59555,7 +59555,7 @@ static int bnx2x_54618se_config_init(struct bnx2x_phy *phy , struct link_params 
 #line 10900
     bnx2x_cl22_write(bp, phy, 24, 33287);
 #line 10903
-    tmp___5 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+    tmp___5 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 10903
     if (tmp___5 != 0L) {
 #line 10903
@@ -59586,7 +59586,7 @@ static int bnx2x_54618se_config_init(struct bnx2x_phy *phy , struct link_params 
 #line 10917
       if (rc != 0) {
 #line 10918
-        tmp___6 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+        tmp___6 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 10918
         if (tmp___6 != 0L) {
 #line 10918
@@ -59613,7 +59613,7 @@ static int bnx2x_54618se_config_init(struct bnx2x_phy *phy , struct link_params 
       } else {
         _L: /* CIL Label */ 
 #line 10932
-        tmp___7 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+        tmp___7 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 10932
         if (tmp___7 != 0L) {
 #line 10932
@@ -59640,7 +59640,7 @@ static int bnx2x_54618se_config_init(struct bnx2x_phy *phy , struct link_params 
 #line 10943
         temp = 6U;
 #line 10944
-        tmp___9 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+        tmp___9 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 10944
         if (tmp___9 != 0L) {
 #line 10944
@@ -59653,7 +59653,7 @@ static int bnx2x_54618se_config_init(struct bnx2x_phy *phy , struct link_params 
 #line 10946
         temp = 0U;
 #line 10947
-        tmp___10 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+        tmp___10 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 10947
         if (tmp___10 != 0L) {
 #line 10947
@@ -59702,7 +59702,7 @@ static void bnx2x_5461x_set_link_led(struct bnx2x_phy *phy , struct link_params 
 #line 10980
   temp = (unsigned int )temp & 65280U;
 #line 10982
-  tmp = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+  tmp = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 10982
   if (tmp != 0L) {
 #line 10982
@@ -59788,7 +59788,7 @@ static u8 bnx2x_54618se_read_status(struct bnx2x_phy *phy , struct link_params *
 #line 11039
   bnx2x_cl22_read(bp, phy, 25, & legacy_status);
 #line 11042
-  tmp = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+  tmp = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 11042
   if (tmp != 0L) {
 #line 11042
@@ -59852,7 +59852,7 @@ static u8 bnx2x_54618se_read_status(struct bnx2x_phy *phy , struct link_params *
       vars->line_speed = 0U;
     }
 #line 11076
-    tmp___0 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+    tmp___0 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 11076
     if (tmp___0 != 0L) {
 #line 11076
@@ -59881,7 +59881,7 @@ static u8 bnx2x_54618se_read_status(struct bnx2x_phy *phy , struct link_params *
 
     }
 #line 11095
-    tmp___1 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+    tmp___1 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 11095
     if (tmp___1 != 0L) {
 #line 11095
@@ -59986,7 +59986,7 @@ static void bnx2x_54618se_config_loopback(struct bnx2x_phy *phy , struct link_pa
 #line 11141
   umac_base = (unsigned int )params->port != 0U ? 1442816U : 1441792U;
 #line 11143
-  tmp = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+  tmp = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 11143
   if (tmp != 0L) {
 #line 11143
@@ -60048,7 +60048,7 @@ static int bnx2x_7101_config_init(struct bnx2x_phy *phy , struct link_params *pa
 #line 11193
   bp = params->bp;
 #line 11194
-  tmp = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+  tmp = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 11194
   if (tmp != 0L) {
 #line 11194
@@ -60066,7 +60066,7 @@ static int bnx2x_7101_config_init(struct bnx2x_phy *phy , struct link_params *pa
 #line 11203
   bnx2x_cl45_write(bp, phy, 1, 36866, 1);
 #line 11205
-  tmp___0 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+  tmp___0 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 11205
   if (tmp___0 != 0L) {
 #line 11205
@@ -60116,7 +60116,7 @@ static u8 bnx2x_7101_read_status(struct bnx2x_phy *phy , struct link_params *par
 #line 11237
   bnx2x_cl45_read(bp, phy, 1, 36869, & val1);
 #line 11239
-  tmp = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+  tmp = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 11239
   if (tmp != 0L) {
 #line 11239
@@ -60131,7 +60131,7 @@ static u8 bnx2x_7101_read_status(struct bnx2x_phy *phy , struct link_params *par
 #line 11243
   bnx2x_cl45_read(bp, phy, 1, 1, & val1);
 #line 11245
-  tmp___0 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+  tmp___0 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 11245
   if (tmp___0 != 0L) {
 #line 11245
@@ -60152,7 +60152,7 @@ static u8 bnx2x_7101_read_status(struct bnx2x_phy *phy , struct link_params *par
 #line 11254
     vars->duplex = 1U;
 #line 11255
-    tmp___1 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+    tmp___1 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 11255
     if (tmp___1 != 0L) {
 #line 11255
@@ -60515,7 +60515,7 @@ static u32 bnx2x_get_ext_phy_config(struct bnx2x *bp , u32 shmem_base , u8 phy_i
   goto ldv_47578;
   default: 
 #line 11891
-  tmp = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+  tmp = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 11891
   if (tmp != 0L) {
 #line 11891
@@ -60562,7 +60562,7 @@ static int bnx2x_populate_int_phy(struct bnx2x *bp , u32 shmem_base , u8 port , 
 #line 11906
   chip_id = (tmp___0 << 16) | ((tmp___1 << 12) & 65535U);
 #line 11909
-  tmp___2 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+  tmp___2 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 11909
   if (tmp___2 != 0L) {
 #line 11909
@@ -60644,7 +60644,7 @@ static int bnx2x_populate_int_phy(struct bnx2x *bp , u32 shmem_base , u8 port , 
     goto ldv_47594;
     default: 
 #line 11986
-    tmp___5 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+    tmp___5 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 11986
     if (tmp___5 != 0L) {
 #line 11986
@@ -60685,7 +60685,7 @@ static int bnx2x_populate_int_phy(struct bnx2x *bp , u32 shmem_base , u8 port , 
     goto ldv_47602;
     default: 
 #line 12014
-    tmp___6 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+    tmp___6 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 12014
     if (tmp___6 != 0L) {
 #line 12014
@@ -60712,7 +60712,7 @@ static int bnx2x_populate_int_phy(struct bnx2x *bp , u32 shmem_base , u8 port , 
     phy->def_md_devad = 3U;
   }
 #line 12027
-  tmp___7 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+  tmp___7 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 12027
   if (tmp___7 != 0L) {
 #line 12027
@@ -60906,7 +60906,7 @@ static int bnx2x_populate_ext_phy(struct bnx2x *bp , u8 phy_index , u32 shmem_ba
 
   }
 #line 12154
-  tmp___1 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+  tmp___1 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 12154
   if (tmp___1 != 0L) {
 #line 12154
@@ -60917,7 +60917,7 @@ static int bnx2x_populate_ext_phy(struct bnx2x *bp , u8 phy_index , u32 shmem_ba
 
   }
 #line 12156
-  tmp___2 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+  tmp___2 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 12156
   if (tmp___2 != 0L) {
 #line 12156
@@ -60983,7 +60983,7 @@ static void bnx2x_phy_def_cfg(struct link_params *params , struct bnx2x_phy *phy
     phy->speed_cap_mask = readl((void const volatile   *)(bp->regview + (((unsigned long )params->shmem_base + (unsigned long )params->port * 400UL) + 440UL)));
   }
 #line 12197
-  tmp = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+  tmp = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 12197
   if (tmp != 0L) {
 #line 12197
@@ -61138,7 +61138,7 @@ int bnx2x_phy_probe(struct link_params *params )
 #line 12284
   params->num_phys = 0U;
 #line 12285
-  tmp = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+  tmp = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 12285
   if (tmp != 0L) {
 #line 12285
@@ -61173,7 +61173,7 @@ int bnx2x_phy_probe(struct link_params *params )
 
   }
 #line 12298
-  tmp___0 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+  tmp___0 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 12298
   if (tmp___0 != 0L) {
 #line 12298
@@ -61193,7 +61193,7 @@ int bnx2x_phy_probe(struct link_params *params )
 #line 12305
     params->num_phys = 0U;
 #line 12306
-    tmp___1 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+    tmp___1 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 12306
     if (tmp___1 != 0L) {
 #line 12306
@@ -61276,7 +61276,7 @@ int bnx2x_phy_probe(struct link_params *params )
   }
   ldv_47694: 
 #line 12348
-  tmp___3 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+  tmp___3 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 12348
   if (tmp___3 != 0L) {
 #line 12348
@@ -61580,7 +61580,7 @@ static int bnx2x_avoid_link_flap(struct link_params *params , struct link_vars *
                                                                            struct link_params * ,
                                                                            u32  ))0)) {
 #line 12520
-    tmp = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+    tmp = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 12520
     if (tmp != 0L) {
 #line 12520
@@ -61747,7 +61747,7 @@ int bnx2x_phy_init(struct link_params *params , struct link_vars *vars )
 #line 12639
   bp = params->bp;
 #line 12640
-  tmp = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+  tmp = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 12640
   if (tmp != 0L) {
 #line 12640
@@ -61757,7 +61757,7 @@ int bnx2x_phy_init(struct link_params *params , struct link_vars *vars )
 
   }
 #line 12641
-  tmp___0 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+  tmp___0 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 12641
   if (tmp___0 != 0L) {
 #line 12641
@@ -61768,7 +61768,7 @@ int bnx2x_phy_init(struct link_params *params , struct link_vars *vars )
 
   }
 #line 12643
-  tmp___1 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+  tmp___1 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 12643
   if (tmp___1 != 0L) {
 #line 12643
@@ -61779,7 +61779,7 @@ int bnx2x_phy_init(struct link_params *params , struct link_vars *vars )
 
   }
 #line 12645
-  tmp___2 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+  tmp___2 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 12645
   if (tmp___2 != 0L) {
 #line 12645
@@ -61816,7 +61816,7 @@ int bnx2x_phy_init(struct link_params *params , struct link_vars *vars )
 #line 12661
   if (lfa_status == 0) {
 #line 12662
-    tmp___3 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+    tmp___3 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 12662
     if (tmp___3 != 0L) {
 #line 12662
@@ -61833,7 +61833,7 @@ int bnx2x_phy_init(struct link_params *params , struct link_vars *vars )
 
   }
 #line 12666
-  tmp___5 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+  tmp___5 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 12666
   if (tmp___5 != 0L) {
 #line 12666
@@ -61859,7 +61859,7 @@ int bnx2x_phy_init(struct link_params *params , struct link_vars *vars )
 #line 12682
   if ((unsigned int )params->num_phys == 0U) {
 #line 12683
-    tmp___6 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+    tmp___6 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 12683
     if (tmp___6 != 0L) {
 #line 12683
@@ -61876,7 +61876,7 @@ int bnx2x_phy_init(struct link_params *params , struct link_vars *vars )
 #line 12686
   set_phy_vars(params, vars);
 #line 12688
-  tmp___7 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+  tmp___7 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 12688
   if (tmp___7 != 0L) {
 #line 12688
@@ -61965,7 +61965,7 @@ int bnx2x_link_reset(struct link_params *params , struct link_vars *vars , u8 re
 #line 12728
   clear_latch_ind = 0U;
 #line 12729
-  tmp = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+  tmp = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 12729
   if (tmp != 0L) {
 #line 12729
@@ -62232,7 +62232,7 @@ static int bnx2x_8073_common_init_phy(struct bnx2x *bp , u32 *shmem_base_path , 
 #line 12899
   if (tmp___0 != 0) {
 #line 12902
-    tmp = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+    tmp = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 12902
     if (tmp != 0L) {
 #line 12902
@@ -62290,7 +62290,7 @@ static int bnx2x_8073_common_init_phy(struct bnx2x *bp , u32 *shmem_base_path , 
     port_of_path = 0;
   }
 #line 12945
-  tmp___1 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+  tmp___1 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 12945
   if (tmp___1 != 0L) {
 #line 12945
@@ -62403,7 +62403,7 @@ static int bnx2x_8726_common_init_phy(struct bnx2x *bp , u32 *shmem_base_path , 
 #line 13024
   if (tmp___0 != 0) {
 #line 13027
-    tmp = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+    tmp = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 13027
     if (tmp != 0L) {
 #line 13027
@@ -62581,7 +62581,7 @@ static int bnx2x_8727_common_init_phy(struct bnx2x *bp , u32 *shmem_base_path , 
 #line 13140
   if (tmp___0 != 0) {
 #line 13143
-    tmp = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+    tmp = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 13143
     if (tmp != 0L) {
 #line 13143
@@ -62637,7 +62637,7 @@ static int bnx2x_8727_common_init_phy(struct bnx2x *bp , u32 *shmem_base_path , 
     port_of_path = 0;
   }
 #line 13175
-  tmp___1 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+  tmp___1 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 13175
   if (tmp___1 != 0L) {
 #line 13175
@@ -62690,7 +62690,7 @@ static int bnx2x_84833_common_init_phy(struct bnx2x *bp , u32 *shmem_base_path ,
 #line 13199
   bnx2x_set_mult_gpio(bp, (int )reset_gpios, 1U);
 #line 13200
-  tmp = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+  tmp = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 13200
   if (tmp != 0L) {
 #line 13200
@@ -62750,7 +62750,7 @@ static int bnx2x_ext_phy_common_init(struct bnx2x *bp , u32 *shmem_base_path , u
   goto ldv_47893;
   default: 
 #line 13246
-  tmp = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+  tmp = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 13246
   if (tmp != 0L) {
 #line 13246
@@ -62800,7 +62800,7 @@ int bnx2x_common_init_phy(struct bnx2x *bp , u32 *shmem_base_path , u32 *shmem2_
 #line 13268
   bnx2x_set_mdio_clk(bp, chip_id, 33792U);
 #line 13269
-  tmp = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+  tmp = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 13269
   if (tmp != 0L) {
 #line 13269
@@ -62823,7 +62823,7 @@ int bnx2x_common_init_phy(struct bnx2x *bp , u32 *shmem_base_path , u32 *shmem2_
 #line 13279
   if (phy_ver != 0U) {
 #line 13280
-    tmp___0 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+    tmp___0 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 13280
     if (tmp___0 != 0L) {
 #line 13280
@@ -62946,7 +62946,7 @@ static u8 bnx2x_analyze_link_error(struct link_params *params , struct link_vars
   switch (phy_flag) {
   case 8U: 
 #line 13351
-  tmp = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+  tmp = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 13351
   if (tmp != 0L) {
 #line 13351
@@ -62959,7 +62959,7 @@ static u8 bnx2x_analyze_link_error(struct link_params *params , struct link_vars
   goto ldv_47940;
   case 32U: 
 #line 13354
-  tmp___0 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+  tmp___0 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 13354
   if (tmp___0 != 0L) {
 #line 13354
@@ -62972,7 +62972,7 @@ static u8 bnx2x_analyze_link_error(struct link_params *params , struct link_vars
   goto ldv_47940;
   default: 
 #line 13357
-  tmp___1 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+  tmp___1 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 13357
   if (tmp___1 != 0L) {
 #line 13357
@@ -62984,7 +62984,7 @@ static u8 bnx2x_analyze_link_error(struct link_params *params , struct link_vars
   }
   ldv_47940: 
 #line 13359
-  tmp___2 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+  tmp___2 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 13359
   if (tmp___2 != 0L) {
 #line 13359
@@ -63177,7 +63177,7 @@ static void bnx2x_sfp_tx_fault_detection(struct bnx2x_phy *phy , struct link_par
 #line 13480
   if (tmp___1 != 0U) {
 #line 13481
-    tmp___0 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+    tmp___0 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 13481
     if (tmp___0 != 0L) {
 #line 13481
@@ -63211,7 +63211,7 @@ static void bnx2x_sfp_tx_fault_detection(struct bnx2x_phy *phy , struct link_par
 #line 13502
     if (((int )phy->flags & 128) == 0) {
 #line 13503
-      tmp___2 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+      tmp___2 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 13503
       if (tmp___2 != 0L) {
 #line 13503
@@ -63336,7 +63336,7 @@ static void bnx2x_disable_kr2(struct link_params *params , struct link_vars *var
 #line 13515
   reg_set[14].val = 0U;
 #line 13533
-  tmp = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+  tmp = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 13533
   if (tmp != 0L) {
 #line 13533
@@ -63385,7 +63385,7 @@ static void bnx2x_kr2_recovery(struct link_params *params , struct link_vars *va
 #line 13550
   bp = params->bp;
 #line 13551
-  tmp = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+  tmp = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 13551
   if (tmp != 0L) {
 #line 13551
@@ -63438,7 +63438,7 @@ static void bnx2x_check_kr2_wa(struct link_params *params , struct link_vars *va
 #line 13577
       bnx2x_kr2_recovery(params, vars, phy);
 #line 13578
-      tmp = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+      tmp = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 13578
       if (tmp != 0L) {
 #line 13578
@@ -63473,7 +63473,7 @@ static void bnx2x_check_kr2_wa(struct link_params *params , struct link_vars *va
 #line 13595
       bnx2x_kr2_recovery(params, vars, phy);
 #line 13596
-      tmp___1 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+      tmp___1 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 13596
       if (tmp___1 != 0L) {
 #line 13596
@@ -63496,7 +63496,7 @@ static void bnx2x_check_kr2_wa(struct link_params *params , struct link_vars *va
 #line 13611
     if ((unsigned int )not_kr2_device == 0U) {
 #line 13612
-      tmp___2 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+      tmp___2 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 13612
       if (tmp___2 != 0L) {
 #line 13612
@@ -63519,7 +63519,7 @@ static void bnx2x_check_kr2_wa(struct link_params *params , struct link_vars *va
 #line 13619
   if ((unsigned int )not_kr2_device != 0U) {
 #line 13621
-    tmp___3 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+    tmp___3 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 13621
     if (tmp___3 != 0L) {
 #line 13621
@@ -63568,7 +63568,7 @@ void bnx2x_period_func(struct link_params *params , struct link_vars *vars )
 #line 13634
     if (tmp___0 != 0) {
 #line 13636
-      tmp = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+      tmp = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 13636
       if (tmp != 0L) {
 #line 13636
@@ -63674,7 +63674,7 @@ u8 bnx2x_fan_failure_det_req(struct bnx2x *bp , u32 shmem_base , u32 shmem2_base
 #line 13679
   if (tmp___0 != 0) {
 #line 13682
-    tmp = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+    tmp = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 13682
     if (tmp != 0L) {
 #line 13682
@@ -63797,7 +63797,7 @@ void bnx2x_init_mod_abs_int(struct bnx2x *bp , struct link_vars *vars , u32 chip
 #line 13731
     if (tmp___1 != 0) {
 #line 13734
-      tmp___0 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+      tmp___0 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 13734
       if (tmp___0 != 0L) {
 #line 13734
@@ -63856,7 +63856,7 @@ void bnx2x_init_mod_abs_int(struct bnx2x *bp , struct link_vars *vars , u32 chip
 #line 13761
   writel(vars->aeu_int_mask, (void volatile   *)bp->regview + (unsigned long )sync_offset);
 #line 13763
-  tmp___2 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+  tmp___2 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 13763
   if (tmp___2 != 0L) {
 #line 13763
@@ -64197,7 +64197,7 @@ __inline static struct page *compound_head(struct page *page )
 #line 364
   tmp = PageTail((struct page  const  *)page);
 #line 364
-  tmp___0 = __builtin_expect(tmp != 0, 0L);
+  tmp___0 = ldv__builtin_expect(tmp != 0, 0L);
 #line 364
   if (tmp___0 != 0L) {
 #line 365
@@ -64225,13 +64225,13 @@ __inline static void get_page(struct page *page )
 #line 404
   tmp___1 = PageTail((struct page  const  *)page);
 #line 404
-  tmp___2 = __builtin_expect(tmp___1 != 0, 0L);
+  tmp___2 = ldv__builtin_expect(tmp___1 != 0, 0L);
 #line 404
   if (tmp___2 != 0L) {
 #line 405
     tmp = __get_page_tail(page);
 #line 405
-    tmp___0 = __builtin_expect((long )tmp, 1L);
+    tmp___0 = ldv__builtin_expect((long )tmp, 1L);
 #line 405
     if (tmp___0 != 0L) {
 #line 406
@@ -64245,7 +64245,7 @@ __inline static void get_page(struct page *page )
 #line 411
   tmp___3 = atomic_read((atomic_t const   *)(& page->ldv_19018.ldv_19017.ldv_19016._count));
 #line 411
-  tmp___4 = __builtin_expect(tmp___3 <= 0, 0L);
+  tmp___4 = ldv__builtin_expect(tmp___3 <= 0, 0L);
 #line 411
   if (tmp___4 != 0L) {
 #line 411
@@ -64323,7 +64323,7 @@ __inline static dma_addr_t dma_map_single_attrs(struct device *dev , void *ptr ,
 #line 19
   tmp___0 = valid_dma_direction((int )dir);
 #line 19
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
 #line 19
   if (tmp___1 != 0L) {
 #line 19
@@ -64367,7 +64367,7 @@ __inline static void dma_unmap_single_attrs(struct device *dev , dma_addr_t addr
 #line 36
   tmp___0 = valid_dma_direction((int )dir);
 #line 36
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
 #line 36
   if (tmp___1 != 0L) {
 #line 36
@@ -64418,7 +64418,7 @@ __inline static dma_addr_t dma_map_page(struct device *dev , struct page *page ,
 #line 79
   tmp___1 = valid_dma_direction((int )dir);
 #line 79
-  tmp___2 = __builtin_expect(tmp___1 == 0, 0L);
+  tmp___2 = ldv__builtin_expect(tmp___1 == 0, 0L);
 #line 79
   if (tmp___2 != 0L) {
 #line 79
@@ -64455,7 +64455,7 @@ __inline static void dma_unmap_page___0(struct device *dev , dma_addr_t addr , s
 #line 91
   tmp___0 = valid_dma_direction((int )dir);
 #line 91
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
 #line 91
   if (tmp___1 != 0L) {
 #line 91
@@ -64500,7 +64500,7 @@ __inline static void dma_sync_single_for_cpu(struct device *dev , dma_addr_t add
 #line 103
   tmp___0 = valid_dma_direction((int )dir);
 #line 103
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
 #line 103
   if (tmp___1 != 0L) {
 #line 103
@@ -65024,7 +65024,7 @@ __inline static void dql_queued(struct dql *dql , unsigned int count )
 
   {
 #line 74
-  tmp = __builtin_expect(count > 268435455U, 0L);
+  tmp = ldv__builtin_expect(count > 268435455U, 0L);
 #line 74
   if (tmp != 0L) {
 #line 74
@@ -65109,7 +65109,7 @@ __inline static void napi_enable(struct napi_struct *n )
 #line 472
   tmp = constant_test_bit(0U, (unsigned long const volatile   *)(& n->state));
 #line 472
-  tmp___0 = __builtin_expect(tmp == 0, 0L);
+  tmp___0 = ldv__builtin_expect(tmp == 0, 0L);
 #line 472
   if (tmp___0 != 0L) {
 #line 472
@@ -65304,7 +65304,7 @@ __inline static void netdev_tx_sent_queue(struct netdev_queue *dev_queue , unsig
 #line 1968
   tmp = dql_avail((struct dql  const  *)(& dev_queue->dql));
 #line 1968
-  tmp___0 = __builtin_expect(tmp >= 0, 1L);
+  tmp___0 = ldv__builtin_expect(tmp >= 0, 1L);
 #line 1968
   if (tmp___0 != 0L) {
 #line 1969
@@ -65319,7 +65319,7 @@ __inline static void netdev_tx_sent_queue(struct netdev_queue *dev_queue , unsig
 #line 1981
   tmp___1 = dql_avail((struct dql  const  *)(& dev_queue->dql));
 #line 1981
-  tmp___2 = __builtin_expect(tmp___1 >= 0, 0L);
+  tmp___2 = ldv__builtin_expect(tmp___1 >= 0, 0L);
 #line 1981
   if (tmp___2 != 0L) {
 #line 1982
@@ -65341,7 +65341,7 @@ __inline static void netdev_tx_completed_queue(struct netdev_queue *dev_queue , 
 
   {
 #line 1995
-  tmp = __builtin_expect(bytes == 0U, 0L);
+  tmp = ldv__builtin_expect(bytes == 0U, 0L);
 #line 1995
   if (tmp != 0L) {
 #line 1996
@@ -65641,7 +65641,7 @@ __inline static __be16 vlan_get_protocol(struct sk_buff  const  *skb )
 #line 338
     protop = (__be16 *)tmp;
 #line 341
-    tmp___0 = __builtin_expect((unsigned long )protop != (unsigned long )((__be16 *)0),
+    tmp___0 = ldv__builtin_expect((unsigned long )protop != (unsigned long )((__be16 *)0),
                                1L);
 #line 341
     if (tmp___0 != 0L) {
@@ -65997,7 +65997,7 @@ __inline static void bnx2x_update_rx_prod(struct bnx2x *bp , struct bnx2x_fastpa
 #line 546
   __asm__  volatile   ("": : : "memory");
 #line 548
-  tmp = __builtin_expect((bp->msg_enable & 2048) != 0, 0L);
+  tmp = ldv__builtin_expect((bp->msg_enable & 2048) != 0, 0L);
 #line 548
   if (tmp != 0L) {
 #line 548
@@ -66637,7 +66637,7 @@ __inline static u8 bnx2x_get_path_func_num(struct bnx2x *bp )
 #line 1107
   __ret_warn_on = (unsigned int )func_num == 0U;
 #line 1107
-  tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 1107
   if (tmp___0 != 0L) {
 #line 1107
@@ -66647,7 +66647,7 @@ __inline static u8 bnx2x_get_path_func_num(struct bnx2x *bp )
 
   }
 #line 1107
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 1109
   return (func_num);
 }
@@ -66828,7 +66828,7 @@ __inline static void bnx2x_update_drv_flags(struct bnx2x *bp , u32 flags , u32 s
 #line 1393
       writel(drv_flags, (void volatile   *)(bp->regview + ((unsigned long )bp->common.shmem2_base + 188UL)));
 #line 1394
-      tmp = __builtin_expect((bp->msg_enable & 32) != 0, 0L);
+      tmp = ldv__builtin_expect((bp->msg_enable & 32) != 0, 0L);
 #line 1394
       if (tmp != 0L) {
 #line 1394
@@ -67087,7 +67087,7 @@ static u16 bnx2x_free_tx_pkt(struct bnx2x *bp , struct bnx2x_fp_txdata *txdata ,
 #line 229
   __builtin_prefetch((void const   *)(& skb->end));
 #line 231
-  tmp = __builtin_expect((bp->msg_enable & 1024) != 0, 0L);
+  tmp = ldv__builtin_expect((bp->msg_enable & 1024) != 0, 0L);
 #line 231
   if (tmp != 0L) {
 #line 231
@@ -67149,7 +67149,7 @@ static u16 bnx2x_free_tx_pkt(struct bnx2x *bp , struct bnx2x_fp_txdata *txdata ,
 #line 273
   __ret_warn_on = (unsigned long )skb == (unsigned long )((struct sk_buff *)0);
 #line 273
-  tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 273
   if (tmp___0 != 0L) {
 #line 273
@@ -67159,9 +67159,9 @@ static u16 bnx2x_free_tx_pkt(struct bnx2x *bp , struct bnx2x_fp_txdata *txdata ,
 
   }
 #line 273
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 274
-  tmp___1 = __builtin_expect((unsigned long )skb != (unsigned long )((struct sk_buff *)0),
+  tmp___1 = ldv__builtin_expect((unsigned long )skb != (unsigned long )((struct sk_buff *)0),
                              1L);
 #line 274
   if (tmp___1 != 0L) {
@@ -67223,7 +67223,7 @@ int bnx2x_tx_int(struct bnx2x *bp , struct bnx2x_fp_txdata *txdata )
 #line 304
   pkt_cons = (unsigned int )sw_cons & 4095U;
 #line 306
-  tmp = __builtin_expect((bp->msg_enable & 1024) != 0, 0L);
+  tmp = ldv__builtin_expect((bp->msg_enable & 1024) != 0, 0L);
 #line 306
   if (tmp != 0L) {
 #line 306
@@ -67256,7 +67256,7 @@ int bnx2x_tx_int(struct bnx2x *bp , struct bnx2x_fp_txdata *txdata )
 #line 332
   tmp___2 = netif_tx_queue_stopped((struct netdev_queue  const  *)txq);
 #line 332
-  tmp___3 = __builtin_expect((long )tmp___2, 0L);
+  tmp___3 = ldv__builtin_expect((long )tmp___2, 0L);
 #line 332
   if (tmp___3 != 0L) {
 #line 343
@@ -67488,7 +67488,7 @@ __inline static void bnx2x_update_sge_prod(struct bnx2x_fastpath *fp , u16 sge_l
 
   }
 #line 381
-  tmp = __builtin_expect((bp->msg_enable & 2048) != 0, 0L);
+  tmp = ldv__builtin_expect((bp->msg_enable & 2048) != 0, 0L);
 #line 381
   if (tmp != 0L) {
 #line 381
@@ -67521,7 +67521,7 @@ __inline static void bnx2x_update_sge_prod(struct bnx2x_fastpath *fp , u16 sge_l
   goto ldv_54427;
   ldv_54426: 
 #line 399
-  tmp___0 = __builtin_expect(fp->sge_mask[(int )i] != 0ULL, 1L);
+  tmp___0 = ldv__builtin_expect(fp->sge_mask[(int )i] != 0ULL, 1L);
 #line 399
   if (tmp___0 != 0L) {
 #line 400
@@ -67554,7 +67554,7 @@ __inline static void bnx2x_update_sge_prod(struct bnx2x_fastpath *fp , u16 sge_l
 
   }
 #line 412
-  tmp___1 = __builtin_expect((bp->msg_enable & 2048) != 0, 0L);
+  tmp___1 = ldv__builtin_expect((bp->msg_enable & 2048) != 0, 0L);
 #line 412
   if (tmp___1 != 0L) {
 #line 412
@@ -67641,7 +67641,7 @@ static void bnx2x_tpa_start(struct bnx2x_fastpath *fp , u16 queue , u16 cons , u
 #line 464
   tmp = dma_mapping_error(& (bp->pdev)->dev, mapping);
 #line 464
-  tmp___0 = __builtin_expect(tmp != 0, 0L);
+  tmp___0 = ldv__builtin_expect(tmp != 0, 0L);
 #line 464
   if (tmp___0 != 0L) {
 #line 466
@@ -67758,7 +67758,7 @@ static int bnx2x_alloc_rx_sge(struct bnx2x *bp , struct bnx2x_fastpath *fp , u16
 #line 563
   sge = fp->rx_sge_ring + (unsigned long )index;
 #line 566
-  tmp___0 = __builtin_expect((unsigned long )page == (unsigned long )((struct page *)0),
+  tmp___0 = ldv__builtin_expect((unsigned long )page == (unsigned long )((struct page *)0),
                              0L);
 #line 566
   if (tmp___0 != 0L) {
@@ -67774,7 +67774,7 @@ static int bnx2x_alloc_rx_sge(struct bnx2x *bp , struct bnx2x_fastpath *fp , u16
 #line 573
   tmp___1 = dma_mapping_error(& (bp->pdev)->dev, mapping);
 #line 573
-  tmp___2 = __builtin_expect(tmp___1 != 0, 0L);
+  tmp___2 = ldv__builtin_expect(tmp___1 != 0, 0L);
 #line 573
   if (tmp___2 != 0L) {
 #line 574
@@ -67885,7 +67885,7 @@ static int bnx2x_fill_frag_skb(struct bnx2x *bp , struct bnx2x_fastpath *fp , st
 #line 640
   err = bnx2x_alloc_rx_sge(bp, fp, (int )sge_idx);
 #line 641
-  tmp = __builtin_expect(err != 0, 0L);
+  tmp = ldv__builtin_expect(err != 0, 0L);
 #line 641
   if (tmp != 0L) {
 #line 642
@@ -68181,7 +68181,7 @@ static void bnx2x_tpa_stop(struct bnx2x *bp , struct bnx2x_fastpath *fp , struct
   dma_unmap_single_attrs(& (bp->pdev)->dev, rx_buf->mapping, (size_t )fp->rx_buf_size,
                          2, 0);
 #line 775
-  tmp___0 = __builtin_expect((unsigned long )new_data != (unsigned long )((u8 *)0),
+  tmp___0 = ldv__builtin_expect((unsigned long )new_data != (unsigned long )((u8 *)0),
                              1L);
 #line 775
   if (tmp___0 != 0L) {
@@ -68191,7 +68191,7 @@ static void bnx2x_tpa_stop(struct bnx2x *bp , struct bnx2x_fastpath *fp , struct
 
   }
 #line 778
-  tmp___3 = __builtin_expect((unsigned long )skb != (unsigned long )((struct sk_buff *)0),
+  tmp___3 = ldv__builtin_expect((unsigned long )skb != (unsigned long )((struct sk_buff *)0),
                              1L);
 #line 778
   if (tmp___3 != 0L) {
@@ -68226,7 +68226,7 @@ static void bnx2x_tpa_stop(struct bnx2x *bp , struct bnx2x_fastpath *fp , struct
       bnx2x_gro_receive(bp, fp, skb);
     } else {
 #line 802
-      tmp___1 = __builtin_expect((bp->msg_enable & 2048) != 0, 0L);
+      tmp___1 = ldv__builtin_expect((bp->msg_enable & 2048) != 0, 0L);
 #line 802
       if (tmp___1 != 0L) {
 #line 802
@@ -68249,7 +68249,7 @@ static void bnx2x_tpa_stop(struct bnx2x *bp , struct bnx2x_fastpath *fp , struct
   bnx2x_frag_free((struct bnx2x_fastpath  const  *)fp, (void *)new_data);
   drop: 
 #line 816
-  tmp___4 = __builtin_expect((bp->msg_enable & 2048) != 0, 0L);
+  tmp___4 = ldv__builtin_expect((bp->msg_enable & 2048) != 0, 0L);
 #line 816
   if (tmp___4 != 0L) {
 #line 816
@@ -68288,7 +68288,7 @@ static int bnx2x_alloc_rx_data(struct bnx2x *bp , struct bnx2x_fastpath *fp , u1
 #line 829
   data = (u8 *)tmp;
 #line 830
-  tmp___0 = __builtin_expect((unsigned long )data == (unsigned long )((u8 *)0), 0L);
+  tmp___0 = ldv__builtin_expect((unsigned long )data == (unsigned long )((u8 *)0), 0L);
 #line 830
   if (tmp___0 != 0L) {
 #line 831
@@ -68306,7 +68306,7 @@ static int bnx2x_alloc_rx_data(struct bnx2x *bp , struct bnx2x_fastpath *fp , u1
 #line 836
   tmp___1 = dma_mapping_error(& (bp->pdev)->dev, mapping);
 #line 836
-  tmp___2 = __builtin_expect(tmp___1 != 0, 0L);
+  tmp___2 = ldv__builtin_expect(tmp___1 != 0, 0L);
 #line 836
   if (tmp___2 != 0L) {
 #line 837
@@ -68428,7 +68428,7 @@ int bnx2x_rx_int(struct bnx2x_fastpath *fp , int budget )
 #line 902
   __asm__  volatile   ("lfence": : : "memory");
 #line 904
-  tmp = __builtin_expect((bp->msg_enable & 2048) != 0, 0L);
+  tmp = ldv__builtin_expect((bp->msg_enable & 2048) != 0, 0L);
 #line 904
   if (tmp != 0L) {
 #line 904
@@ -68458,7 +68458,7 @@ int bnx2x_rx_int(struct bnx2x_fastpath *fp , int budget )
 #line 931
   cqe_fp_type = (enum eth_rx_cqe_type )((int )cqe_fp_flags & 3);
 #line 933
-  tmp___0 = __builtin_expect((bp->msg_enable & 2048) != 0, 0L);
+  tmp___0 = ldv__builtin_expect((bp->msg_enable & 2048) != 0, 0L);
 #line 933
   if (tmp___0 != 0L) {
 #line 933
@@ -68470,7 +68470,7 @@ int bnx2x_rx_int(struct bnx2x_fastpath *fp , int budget )
 
   }
 #line 942
-  tmp___1 = __builtin_expect((unsigned int )cqe_fp_type == 1U, 0L);
+  tmp___1 = ldv__builtin_expect((unsigned int )cqe_fp_type == 1U, 0L);
 #line 942
   if (tmp___1 != 0L) {
 #line 943
@@ -68491,7 +68491,7 @@ int bnx2x_rx_int(struct bnx2x_fastpath *fp , int budget )
 #line 963
       queue___0 = (u16 )cqe_fp->queue_index;
 #line 964
-      tmp___2 = __builtin_expect((bp->msg_enable & 2048) != 0, 0L);
+      tmp___2 = ldv__builtin_expect((bp->msg_enable & 2048) != 0, 0L);
 #line 964
       if (tmp___2 != 0L) {
 #line 964
@@ -68513,7 +68513,7 @@ int bnx2x_rx_int(struct bnx2x_fastpath *fp , int budget )
 #line 976
     tpa_info = fp->tpa_info + (unsigned long )queue;
 #line 977
-    tmp___3 = __builtin_expect((bp->msg_enable & 2048) != 0, 0L);
+    tmp___3 = ldv__builtin_expect((bp->msg_enable & 2048) != 0, 0L);
 #line 977
     if (tmp___3 != 0L) {
 #line 977
@@ -68558,11 +68558,11 @@ int bnx2x_rx_int(struct bnx2x_fastpath *fp , int budget )
 #line 1009
   __builtin_prefetch((void const   *)data + (unsigned long )pad);
 #line 1011
-  tmp___5 = __builtin_expect(((int )cqe_fp_flags & 8) != 0, 0L);
+  tmp___5 = ldv__builtin_expect(((int )cqe_fp_flags & 8) != 0, 0L);
 #line 1011
   if (tmp___5 != 0L) {
 #line 1012
-    tmp___4 = __builtin_expect((bp->msg_enable & 2112) != 0, 0L);
+    tmp___4 = ldv__builtin_expect((bp->msg_enable & 2112) != 0, 0L);
 #line 1012
     if (tmp___4 != 0L) {
 #line 1012
@@ -68586,7 +68586,7 @@ int bnx2x_rx_int(struct bnx2x_fastpath *fp , int budget )
 #line 1025
     if ((unsigned long )skb == (unsigned long )((struct sk_buff *)0)) {
 #line 1026
-      tmp___6 = __builtin_expect((bp->msg_enable & 2112) != 0, 0L);
+      tmp___6 = ldv__builtin_expect((bp->msg_enable & 2112) != 0, 0L);
 #line 1026
       if (tmp___6 != 0L) {
 #line 1026
@@ -68613,7 +68613,7 @@ int bnx2x_rx_int(struct bnx2x_fastpath *fp , int budget )
 #line 1034
     tmp___9 = bnx2x_alloc_rx_data(bp, fp, (int )bd_prod);
 #line 1034
-    tmp___10 = __builtin_expect(tmp___9 == 0, 1L);
+    tmp___10 = ldv__builtin_expect(tmp___9 == 0, 1L);
 #line 1034
     if (tmp___10 != 0L) {
 #line 1035
@@ -68622,7 +68622,7 @@ int bnx2x_rx_int(struct bnx2x_fastpath *fp , int budget )
 #line 1039
       skb = build_skb((void *)data, fp->rx_frag_size);
 #line 1040
-      tmp___7 = __builtin_expect((unsigned long )skb == (unsigned long )((struct sk_buff *)0),
+      tmp___7 = ldv__builtin_expect((unsigned long )skb == (unsigned long )((struct sk_buff *)0),
                                  0L);
 #line 1040
       if (tmp___7 != 0L) {
@@ -68639,7 +68639,7 @@ int bnx2x_rx_int(struct bnx2x_fastpath *fp , int budget )
       skb_reserve(skb, (int )pad);
     } else {
 #line 1048
-      tmp___8 = __builtin_expect((bp->msg_enable & 2112) != 0, 0L);
+      tmp___8 = ldv__builtin_expect((bp->msg_enable & 2112) != 0, 0L);
 #line 1048
       if (tmp___8 != 0L) {
 #line 1048
@@ -68750,7 +68750,7 @@ static irqreturn_t bnx2x_msix_fp_int(int irq , void *fp_cookie )
 #line 1112
   bp = fp->bp;
 #line 1115
-  tmp = __builtin_expect((bp->msg_enable & 512) != 0, 0L);
+  tmp = ldv__builtin_expect((bp->msg_enable & 512) != 0, 0L);
 #line 1115
   if (tmp != 0L) {
 #line 1115
@@ -69096,7 +69096,7 @@ static void bnx2x_free_tpa_pool(struct bnx2x *bp , struct bnx2x_fastpath *fp , i
 #line 1332
   if ((unsigned long )data == (unsigned long )((u8 *)0)) {
 #line 1333
-    tmp = __builtin_expect((bp->msg_enable & 16) != 0, 0L);
+    tmp = ldv__builtin_expect((bp->msg_enable & 16) != 0, 0L);
 #line 1333
     if (tmp != 0L) {
 #line 1333
@@ -69203,7 +69203,7 @@ void bnx2x_init_rx_rings(struct bnx2x *bp )
 #line 1372
   fp = bp->fp + (unsigned long )j;
 #line 1374
-  tmp = __builtin_expect((bp->msg_enable & 32) != 0, 0L);
+  tmp = ldv__builtin_expect((bp->msg_enable & 32) != 0, 0L);
 #line 1374
   if (tmp != 0L) {
 #line 1374
@@ -69697,7 +69697,7 @@ static void bnx2x_free_msix_irqs(struct bnx2x *bp , int nvecs )
 #line 1588
     free_irq((bp->msix_table + (unsigned long )offset)->vector, (void *)bp->dev);
 #line 1589
-    tmp = __builtin_expect((bp->msg_enable & 16) != 0, 0L);
+    tmp = ldv__builtin_expect((bp->msg_enable & 16) != 0, 0L);
 #line 1589
     if (tmp != 0L) {
 #line 1589
@@ -69739,7 +69739,7 @@ static void bnx2x_free_msix_irqs(struct bnx2x *bp , int nvecs )
 
   }
 #line 1603
-  tmp___0 = __builtin_expect((bp->msg_enable & 16) != 0, 0L);
+  tmp___0 = ldv__builtin_expect((bp->msg_enable & 16) != 0, 0L);
 #line 1603
   if (tmp___0 != 0L) {
 #line 1603
@@ -69824,7 +69824,7 @@ int bnx2x_enable_msix(struct bnx2x *bp )
 #line 1632
     (bp->msix_table + (unsigned long )msix_vec)->entry = (u16 )msix_vec;
 #line 1633
-    tmp = __builtin_expect((bp->msg_enable & 2) != 0, 0L);
+    tmp = ldv__builtin_expect((bp->msg_enable & 2) != 0, 0L);
 #line 1633
     if (tmp != 0L) {
 #line 1633
@@ -69843,7 +69843,7 @@ int bnx2x_enable_msix(struct bnx2x *bp )
 #line 1640
     (bp->msix_table + (unsigned long )msix_vec)->entry = (u16 )msix_vec;
 #line 1641
-    tmp___0 = __builtin_expect((bp->msg_enable & 2) != 0, 0L);
+    tmp___0 = ldv__builtin_expect((bp->msg_enable & 2) != 0, 0L);
 #line 1641
     if (tmp___0 != 0L) {
 #line 1641
@@ -69865,7 +69865,7 @@ int bnx2x_enable_msix(struct bnx2x *bp )
 #line 1648
   (bp->msix_table + (unsigned long )msix_vec)->entry = (u16 )msix_vec;
 #line 1649
-  tmp___1 = __builtin_expect((bp->msg_enable & 2) != 0, 0L);
+  tmp___1 = ldv__builtin_expect((bp->msg_enable & 2) != 0, 0L);
 #line 1649
   if (tmp___1 != 0L) {
 #line 1649
@@ -69887,7 +69887,7 @@ int bnx2x_enable_msix(struct bnx2x *bp )
 
   }
 #line 1654
-  tmp___2 = __builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
+  tmp___2 = ldv__builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
 #line 1654
   if (tmp___2 != 0L) {
 #line 1654
@@ -69904,7 +69904,7 @@ int bnx2x_enable_msix(struct bnx2x *bp )
 #line 1665
     diff = msix_vec - rc;
 #line 1667
-    tmp___3 = __builtin_expect((bp->msg_enable & 2) != 0, 0L);
+    tmp___3 = ldv__builtin_expect((bp->msg_enable & 2) != 0, 0L);
 #line 1667
     if (tmp___3 != 0L) {
 #line 1667
@@ -69918,7 +69918,7 @@ int bnx2x_enable_msix(struct bnx2x *bp )
 #line 1671
     if (rc != 0) {
 #line 1672
-      tmp___4 = __builtin_expect((bp->msg_enable & 2) != 0, 0L);
+      tmp___4 = ldv__builtin_expect((bp->msg_enable & 2) != 0, 0L);
 #line 1672
       if (tmp___4 != 0L) {
 #line 1672
@@ -69937,7 +69937,7 @@ int bnx2x_enable_msix(struct bnx2x *bp )
 #line 1679
     bp->num_queues = (int )(bp->num_ethernet_queues + bp->num_cnic_queues);
 #line 1681
-    tmp___5 = __builtin_expect((bp->msg_enable & 2) != 0, 0L);
+    tmp___5 = ldv__builtin_expect((bp->msg_enable & 2) != 0, 0L);
 #line 1681
     if (tmp___5 != 0L) {
 #line 1681
@@ -69954,7 +69954,7 @@ int bnx2x_enable_msix(struct bnx2x *bp )
 #line 1686
     if (rc != 0) {
 #line 1687
-      tmp___6 = __builtin_expect((bp->msg_enable & 2) != 0, 0L);
+      tmp___6 = ldv__builtin_expect((bp->msg_enable & 2) != 0, 0L);
 #line 1687
       if (tmp___6 != 0L) {
 #line 1687
@@ -69969,7 +69969,7 @@ int bnx2x_enable_msix(struct bnx2x *bp )
 
     }
 #line 1692
-    tmp___7 = __builtin_expect((bp->msg_enable & 2) != 0, 0L);
+    tmp___7 = ldv__builtin_expect((bp->msg_enable & 2) != 0, 0L);
 #line 1692
     if (tmp___7 != 0L) {
 #line 1692
@@ -69980,7 +69980,7 @@ int bnx2x_enable_msix(struct bnx2x *bp )
 #line 1693
     bp->flags = bp->flags | 1048576U;
 #line 1695
-    tmp___8 = __builtin_expect((bp->msg_enable & 2) != 0, 0L);
+    tmp___8 = ldv__builtin_expect((bp->msg_enable & 2) != 0, 0L);
 #line 1695
     if (tmp___8 != 0L) {
 #line 1695
@@ -69996,7 +69996,7 @@ int bnx2x_enable_msix(struct bnx2x *bp )
 #line 1698
   if (rc < 0) {
 #line 1699
-    tmp___9 = __builtin_expect((bp->msg_enable & 2) != 0, 0L);
+    tmp___9 = ldv__builtin_expect((bp->msg_enable & 2) != 0, 0L);
 #line 1699
     if (tmp___9 != 0L) {
 #line 1699
@@ -70137,7 +70137,7 @@ int bnx2x_enable_msi(struct bnx2x *bp )
 #line 1773
   if (rc != 0) {
 #line 1774
-    tmp = __builtin_expect((bp->msg_enable & 2) != 0, 0L);
+    tmp = ldv__builtin_expect((bp->msg_enable & 2) != 0, 0L);
 #line 1774
     if (tmp != 0L) {
 #line 1774
@@ -70497,7 +70497,7 @@ void bnx2x_set_num_queues(struct bnx2x *bp )
 #line 1917
   bp->num_queues = (int )(bp->num_ethernet_queues + bp->num_cnic_queues);
 #line 1919
-  tmp___0 = __builtin_expect((bp->msg_enable & 2) != 0, 0L);
+  tmp___0 = ldv__builtin_expect((bp->msg_enable & 2) != 0, 0L);
 #line 1919
   if (tmp___0 != 0L) {
 #line 1919
@@ -70559,7 +70559,7 @@ static int bnx2x_set_real_num_queues(struct bnx2x *bp , int include_cnic )
 
   }
 #line 1968
-  tmp = __builtin_expect((bp->msg_enable & 32) != 0, 0L);
+  tmp = ldv__builtin_expect((bp->msg_enable & 32) != 0, 0L);
 #line 1968
   if (tmp != 0L) {
 #line 1968
@@ -71282,7 +71282,7 @@ static int bnx2x_alloc_fw_stats_mem(struct bnx2x *bp )
 #line 2205
   num_groups = ((int )bp->fw_stats_num + vf_headroom) / 16 + (((unsigned int )((int )bp->fw_stats_num + vf_headroom) & 15U) != 0U);
 #line 2210
-  tmp = __builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
+  tmp = ldv__builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
 #line 2210
   if (tmp != 0L) {
 #line 2210
@@ -71315,7 +71315,7 @@ static int bnx2x_alloc_fw_stats_mem(struct bnx2x *bp )
 #line 2237
   bp->fw_stats_data_mapping = bp->fw_stats_mapping + (dma_addr_t )bp->fw_stats_req_sz;
 #line 2240
-  tmp___0 = __builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
+  tmp___0 = ldv__builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
 #line 2240
   if (tmp___0 != 0L) {
 #line 2240
@@ -71326,7 +71326,7 @@ static int bnx2x_alloc_fw_stats_mem(struct bnx2x *bp )
 
   }
 #line 2243
-  tmp___1 = __builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
+  tmp___1 = ldv__builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
 #line 2243
   if (tmp___1 != 0L) {
 #line 2243
@@ -71362,7 +71362,7 @@ static int bnx2x_nic_load_request(struct bnx2x *bp , u32 *load_code )
 #line 2258
   bp->fw_seq = (u16 )tmp;
 #line 2261
-  tmp___0 = __builtin_expect((bp->msg_enable & 2) != 0, 0L);
+  tmp___0 = ldv__builtin_expect((bp->msg_enable & 2) != 0, 0L);
 #line 2261
   if (tmp___0 != 0L) {
 #line 2261
@@ -71375,7 +71375,7 @@ static int bnx2x_nic_load_request(struct bnx2x *bp , u32 *load_code )
 #line 2264
   bp->fw_drv_pulse_wr_seq = (unsigned int )((u16 )tmp___1) & 32767U;
 #line 2267
-  tmp___2 = __builtin_expect((bp->msg_enable & 2) != 0, 0L);
+  tmp___2 = ldv__builtin_expect((bp->msg_enable & 2) != 0, 0L);
 #line 2267
   if (tmp___2 != 0L) {
 #line 2267
@@ -71427,7 +71427,7 @@ int bnx2x_nic_load_analyze_req(struct bnx2x *bp , u32 load_code )
 #line 2305
     loaded_fw = tmp;
 #line 2307
-    tmp___0 = __builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
+    tmp___0 = ldv__builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
 #line 2307
     if (tmp___0 != 0L) {
 #line 2307
@@ -71466,7 +71466,7 @@ static int bnx2x_nic_load_no_mcp(struct bnx2x *bp , int port )
 #line 2323
   path = bp->common.chip_id >> 16 != 5710U && (bp->common.chip_id >> 16 != 5711U && bp->common.chip_id >> 16 != 5712U) ? (int )bp->pf_num & 1 : 0;
 #line 2325
-  tmp = __builtin_expect((bp->msg_enable & 32) != 0, 0L);
+  tmp = ldv__builtin_expect((bp->msg_enable & 32) != 0, 0L);
 #line 2325
   if (tmp != 0L) {
 #line 2325
@@ -71481,7 +71481,7 @@ static int bnx2x_nic_load_no_mcp(struct bnx2x *bp , int port )
 #line 2329
   load_count[path][port + 1] = load_count[path][port + 1] + 1;
 #line 2330
-  tmp___0 = __builtin_expect((bp->msg_enable & 32) != 0, 0L);
+  tmp___0 = ldv__builtin_expect((bp->msg_enable & 32) != 0, 0L);
 #line 2330
   if (tmp___0 != 0L) {
 #line 2330
@@ -71523,7 +71523,7 @@ static void bnx2x_nic_load_pmf(struct bnx2x *bp , u32 load_code )
     bp->port.pmf = 0U;
   }
 #line 2357
-  tmp = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+  tmp = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 2357
   if (tmp != 0L) {
 #line 2357
@@ -71725,7 +71725,7 @@ int bnx2x_load_cnic(struct bnx2x *bp )
 #line 2438
   port = (int )bp->pfid & 1;
 #line 2440
-  tmp = __builtin_expect((bp->msg_enable & 32) != 0, 0L);
+  tmp = ldv__builtin_expect((bp->msg_enable & 32) != 0, 0L);
 #line 2440
   if (tmp != 0L) {
 #line 2440
@@ -71786,7 +71786,7 @@ int bnx2x_load_cnic(struct bnx2x *bp )
 #line 2466
   bnx2x_add_all_napi_cnic(bp);
 #line 2467
-  tmp___0 = __builtin_expect((bp->msg_enable & 32) != 0, 0L);
+  tmp___0 = ldv__builtin_expect((bp->msg_enable & 32) != 0, 0L);
 #line 2467
   if (tmp___0 != 0L) {
 #line 2467
@@ -71873,7 +71873,7 @@ int bnx2x_load_cnic(struct bnx2x *bp )
 
   }
 #line 2504
-  tmp___1 = __builtin_expect((bp->msg_enable & 32) != 0, 0L);
+  tmp___1 = ldv__builtin_expect((bp->msg_enable & 32) != 0, 0L);
 #line 2504
   if (tmp___1 != 0L) {
 #line 2504
@@ -71939,7 +71939,7 @@ int bnx2x_nic_load(struct bnx2x *bp , int load_mode )
 #line 2531
   load_code = 0;
 #line 2533
-  tmp = __builtin_expect((bp->msg_enable & 32) != 0, 0L);
+  tmp = ldv__builtin_expect((bp->msg_enable & 32) != 0, 0L);
 #line 2533
   if (tmp != 0L) {
 #line 2533
@@ -71948,7 +71948,7 @@ int bnx2x_nic_load(struct bnx2x *bp , int load_mode )
 
   }
 #line 2534
-  tmp___0 = __builtin_expect((bp->msg_enable & 32) != 0, 0L);
+  tmp___0 = ldv__builtin_expect((bp->msg_enable & 32) != 0, 0L);
 #line 2534
   if (tmp___0 != 0L) {
 #line 2534
@@ -71971,7 +71971,7 @@ int bnx2x_nic_load(struct bnx2x *bp , int load_mode )
 
   }
 #line 2559
-  tmp___1 = __builtin_expect((bp->msg_enable & 32) != 0, 0L);
+  tmp___1 = ldv__builtin_expect((bp->msg_enable & 32) != 0, 0L);
 #line 2559
   if (tmp___1 != 0L) {
 #line 2559
@@ -72085,7 +72085,7 @@ int bnx2x_nic_load(struct bnx2x *bp , int load_mode )
 #line 2616
   bnx2x_add_all_napi(bp);
 #line 2617
-  tmp___3 = __builtin_expect((bp->msg_enable & 32) != 0, 0L);
+  tmp___3 = ldv__builtin_expect((bp->msg_enable & 32) != 0, 0L);
 #line 2617
   if (tmp___3 != 0L) {
 #line 2617
@@ -72468,7 +72468,7 @@ int bnx2x_nic_load(struct bnx2x *bp , int load_mode )
 
   }
 #line 2819
-  tmp___8 = __builtin_expect((bp->msg_enable & 32) != 0, 0L);
+  tmp___8 = ldv__builtin_expect((bp->msg_enable & 32) != 0, 0L);
 #line 2819
   if (tmp___8 != 0L) {
 #line 2819
@@ -72635,7 +72635,7 @@ int bnx2x_nic_unload(struct bnx2x *bp , int unload_mode , bool keep_link )
 #line 2882
   global = 0;
 #line 2884
-  tmp = __builtin_expect((bp->msg_enable & 32) != 0, 0L);
+  tmp = ldv__builtin_expect((bp->msg_enable & 32) != 0, 0L);
 #line 2884
   if (tmp != 0L) {
 #line 2884
@@ -72676,7 +72676,7 @@ int bnx2x_nic_unload(struct bnx2x *bp , int unload_mode , bool keep_link )
 #line 2907
     __asm__  volatile   ("mfence": : : "memory");
 #line 2909
-    tmp___1 = __builtin_expect((bp->msg_enable & 16) != 0, 0L);
+    tmp___1 = ldv__builtin_expect((bp->msg_enable & 16) != 0, 0L);
 #line 2909
     if (tmp___1 != 0L) {
 #line 2909
@@ -72889,7 +72889,7 @@ int bnx2x_nic_unload(struct bnx2x *bp , int unload_mode , bool keep_link )
 
   }
 #line 3038
-  tmp___6 = __builtin_expect((bp->msg_enable & 32) != 0, 0L);
+  tmp___6 = ldv__builtin_expect((bp->msg_enable & 32) != 0, 0L);
 #line 3038
   if (tmp___6 != 0L) {
 #line 3038
@@ -72912,7 +72912,7 @@ int bnx2x_set_power_state(struct bnx2x *bp , pci_power_t state )
 #line 3048
   if (bp->pm_cap == 0) {
 #line 3049
-    tmp = __builtin_expect((bp->msg_enable & 2) != 0, 0L);
+    tmp = ldv__builtin_expect((bp->msg_enable & 2) != 0, 0L);
 #line 3049
     if (tmp != 0L) {
 #line 3049
@@ -73104,7 +73104,7 @@ int bnx2x_poll(struct napi_struct *napi , int budget )
 #line 3155
           napi_complete(napi);
 #line 3157
-          tmp___2 = __builtin_expect((bp->msg_enable & 2048) != 0, 0L);
+          tmp___2 = ldv__builtin_expect((bp->msg_enable & 2048) != 0, 0L);
 #line 3157
           if (tmp___2 != 0L) {
 #line 3157
@@ -73156,7 +73156,7 @@ static u16 bnx2x_tx_split(struct bnx2x *bp , struct bnx2x_fp_txdata *txdata , st
 #line 3186
   h_tx_bd->nbytes = hlen;
 #line 3188
-  tmp = __builtin_expect((bp->msg_enable & 256) != 0, 0L);
+  tmp = ldv__builtin_expect((bp->msg_enable & 256) != 0, 0L);
 #line 3188
   if (tmp != 0L) {
 #line 3188
@@ -73181,7 +73181,7 @@ static u16 bnx2x_tx_split(struct bnx2x *bp , struct bnx2x_fp_txdata *txdata , st
 #line 3204
   tx_buf->flags = (u8 )((unsigned int )tx_buf->flags | 1U);
 #line 3206
-  tmp___0 = __builtin_expect((bp->msg_enable & 256) != 0, 0L);
+  tmp___0 = ldv__builtin_expect((bp->msg_enable & 256) != 0, 0L);
 #line 3206
   if (tmp___0 != 0L) {
 #line 3206
@@ -73456,7 +73456,7 @@ static int bnx2x_pkt_req_lin(struct bnx2x *bp , struct sk_buff *skb , u32 xmit_t
 #line 3318
       if (first_bd_sz > 0) {
 #line 3319
-        tmp___6 = __builtin_expect((u32 )lso_mss > wnd_sum, 0L);
+        tmp___6 = ldv__builtin_expect((u32 )lso_mss > wnd_sum, 0L);
 #line 3319
         if (tmp___6 != 0L) {
 #line 3320
@@ -73483,7 +73483,7 @@ static int bnx2x_pkt_req_lin(struct bnx2x *bp , struct sk_buff *skb , u32 xmit_t
 #line 3330
       wnd_sum = tmp___8 + wnd_sum;
 #line 3333
-      tmp___9 = __builtin_expect((u32 )lso_mss > wnd_sum, 0L);
+      tmp___9 = ldv__builtin_expect((u32 )lso_mss > wnd_sum, 0L);
 #line 3333
       if (tmp___9 != 0L) {
 #line 3334
@@ -73519,11 +73519,11 @@ static int bnx2x_pkt_req_lin(struct bnx2x *bp , struct sk_buff *skb , u32 xmit_t
   }
   exit_lbl: 
 #line 3348
-  tmp___15 = __builtin_expect(to_copy != 0, 0L);
+  tmp___15 = ldv__builtin_expect(to_copy != 0, 0L);
 #line 3348
   if (tmp___15 != 0L) {
 #line 3349
-    tmp___14 = __builtin_expect((bp->msg_enable & 256) != 0, 0L);
+    tmp___14 = ldv__builtin_expect((bp->msg_enable & 256) != 0, 0L);
 #line 3349
     if (tmp___14 != 0L) {
 #line 3349
@@ -73810,7 +73810,7 @@ static u8 bnx2x_set_pbd_csum(struct bnx2x *bp , struct sk_buff *skb , struct eth
 #line 3527
     fix = (s8 )(16U - (unsigned int )((unsigned char )skb->ldv_31656.ldv_31655.csum_offset));
 #line 3529
-    tmp___6 = __builtin_expect((bp->msg_enable & 256) != 0, 0L);
+    tmp___6 = ldv__builtin_expect((bp->msg_enable & 256) != 0, 0L);
 #line 3529
     if (tmp___6 != 0L) {
 #line 3529
@@ -73830,7 +73830,7 @@ static u8 bnx2x_set_pbd_csum(struct bnx2x *bp , struct sk_buff *skb , struct eth
     pbd->tcp_pseudo_csum = bnx2x_csum_fix(tmp___8, (int )*((u16 *)tmp___7 + (unsigned long )skb->ldv_31656.ldv_31655.csum_offset),
                                           (int )fix);
 #line 3538
-    tmp___9 = __builtin_expect((bp->msg_enable & 256) != 0, 0L);
+    tmp___9 = ldv__builtin_expect((bp->msg_enable & 256) != 0, 0L);
 #line 3538
     if (tmp___9 != 0L) {
 #line 3538
@@ -74102,7 +74102,7 @@ netdev_tx_t bnx2x_start_xmit(struct sk_buff *skb , struct net_device *dev )
 #line 3647
   txq = netdev_get_tx_queue((struct net_device  const  *)dev, (unsigned int )txq_index);
 #line 3649
-  tmp___2 = __builtin_expect((uint )txq_index >= ((uint )bp->num_queues - bp->num_cnic_queues) * (uint )bp->max_cos + ((int )bp->cnic_loaded ? 1U : 0U),
+  tmp___2 = ldv__builtin_expect((uint )txq_index >= ((uint )bp->num_queues - bp->num_cnic_queues) * (uint )bp->max_cos + ((int )bp->cnic_loaded ? 1U : 0U),
                              0L);
 #line 3649
   if (tmp___2 != 0L) {
@@ -74122,7 +74122,7 @@ netdev_tx_t bnx2x_start_xmit(struct sk_buff *skb , struct net_device *dev )
 #line 3662
   tmp___4 = skb_end_pointer((struct sk_buff  const  *)skb);
 #line 3662
-  tmp___5 = __builtin_expect((unsigned long )tmp___3 < (unsigned long )((int )((struct skb_shared_info *)tmp___4)->nr_frags + 4) + 1UL,
+  tmp___5 = ldv__builtin_expect((unsigned long )tmp___3 < (unsigned long )((int )((struct skb_shared_info *)tmp___4)->nr_frags + 4) + 1UL,
                              0L);
 #line 3662
   if (tmp___5 != 0L) {
@@ -74152,7 +74152,7 @@ netdev_tx_t bnx2x_start_xmit(struct sk_buff *skb , struct net_device *dev )
 
   }
 #line 3681
-  tmp___9 = __builtin_expect((bp->msg_enable & 256) != 0, 0L);
+  tmp___9 = ldv__builtin_expect((bp->msg_enable & 256) != 0, 0L);
 #line 3681
   if (tmp___9 != 0L) {
 #line 3681
@@ -74175,7 +74175,7 @@ netdev_tx_t bnx2x_start_xmit(struct sk_buff *skb , struct net_device *dev )
 #line 3690
   tmp___11 = is_multicast_ether_addr((u8 const   *)(& eth->h_dest));
 #line 3690
-  tmp___12 = __builtin_expect((long )tmp___11, 0L);
+  tmp___12 = ldv__builtin_expect((long )tmp___11, 0L);
 #line 3690
   if (tmp___12 != 0L) {
 #line 3691
@@ -74202,7 +74202,7 @@ netdev_tx_t bnx2x_start_xmit(struct sk_buff *skb , struct net_device *dev )
 #line 3704
     if (tmp___14 != 0) {
 #line 3705
-      tmp___13 = __builtin_expect((bp->msg_enable & 256) != 0, 0L);
+      tmp___13 = ldv__builtin_expect((bp->msg_enable & 256) != 0, 0L);
 #line 3705
       if (tmp___13 != 0L) {
 #line 3705
@@ -74229,11 +74229,11 @@ netdev_tx_t bnx2x_start_xmit(struct sk_buff *skb , struct net_device *dev )
 #line 3715
   tmp___18 = dma_mapping_error(& (bp->pdev)->dev, mapping);
 #line 3715
-  tmp___19 = __builtin_expect(tmp___18 != 0, 0L);
+  tmp___19 = ldv__builtin_expect(tmp___18 != 0, 0L);
 #line 3715
   if (tmp___19 != 0L) {
 #line 3716
-    tmp___17 = __builtin_expect((bp->msg_enable & 256) != 0, 0L);
+    tmp___17 = ldv__builtin_expect((bp->msg_enable & 256) != 0, 0L);
 #line 3716
     if (tmp___17 != 0L) {
 #line 3716
@@ -74270,7 +74270,7 @@ netdev_tx_t bnx2x_start_xmit(struct sk_buff *skb , struct net_device *dev )
 #line 3752
   tx_buf->flags = 0U;
 #line 3754
-  tmp___20 = __builtin_expect((bp->msg_enable & 256) != 0, 0L);
+  tmp___20 = ldv__builtin_expect((bp->msg_enable & 256) != 0, 0L);
 #line 3754
   if (tmp___20 != 0L) {
 #line 3754
@@ -74404,7 +74404,7 @@ netdev_tx_t bnx2x_start_xmit(struct sk_buff *skb , struct net_device *dev )
 #line 3860
   pkt_size = tx_start_bd->nbytes;
 #line 3862
-  tmp___24 = __builtin_expect((bp->msg_enable & 256) != 0, 0L);
+  tmp___24 = ldv__builtin_expect((bp->msg_enable & 256) != 0, 0L);
 #line 3862
   if (tmp___24 != 0L) {
 #line 3862
@@ -74418,7 +74418,7 @@ netdev_tx_t bnx2x_start_xmit(struct sk_buff *skb , struct net_device *dev )
 #line 3869
   if ((xmit_type & 408U) != 0U) {
 #line 3871
-    tmp___27 = __builtin_expect((bp->msg_enable & 256) != 0, 0L);
+    tmp___27 = ldv__builtin_expect((bp->msg_enable & 256) != 0, 0L);
 #line 3871
     if (tmp___27 != 0L) {
 #line 3871
@@ -74437,7 +74437,7 @@ netdev_tx_t bnx2x_start_xmit(struct sk_buff *skb , struct net_device *dev )
 #line 3878
     tmp___28 = skb_headlen((struct sk_buff  const  *)skb);
 #line 3878
-    tmp___29 = __builtin_expect(tmp___28 > (unsigned int )hlen, 0L);
+    tmp___29 = ldv__builtin_expect(tmp___28 > (unsigned int )hlen, 0L);
 #line 3878
     if (tmp___29 != 0L) {
 #line 3879
@@ -74484,7 +74484,7 @@ netdev_tx_t bnx2x_start_xmit(struct sk_buff *skb , struct net_device *dev )
 #line 3905
   tmp___33 = dma_mapping_error(& (bp->pdev)->dev, mapping);
 #line 3905
-  tmp___34 = __builtin_expect(tmp___33 != 0, 0L);
+  tmp___34 = ldv__builtin_expect(tmp___33 != 0, 0L);
 #line 3905
   if (tmp___34 != 0L) {
 #line 3906
@@ -74492,7 +74492,7 @@ netdev_tx_t bnx2x_start_xmit(struct sk_buff *skb , struct net_device *dev )
 #line 3906
     bytes_compl = 0U;
 #line 3908
-    tmp___32 = __builtin_expect((bp->msg_enable & 256) != 0, 0L);
+    tmp___32 = ldv__builtin_expect((bp->msg_enable & 256) != 0, 0L);
 #line 3908
     if (tmp___32 != 0L) {
 #line 3908
@@ -74537,7 +74537,7 @@ netdev_tx_t bnx2x_start_xmit(struct sk_buff *skb , struct net_device *dev )
 #line 3932
   nbd = nbd + 1;
 #line 3934
-  tmp___37 = __builtin_expect((bp->msg_enable & 256) != 0, 0L);
+  tmp___37 = ldv__builtin_expect((bp->msg_enable & 256) != 0, 0L);
 #line 3934
   if (tmp___37 != 0L) {
 #line 3934
@@ -74560,7 +74560,7 @@ netdev_tx_t bnx2x_start_xmit(struct sk_buff *skb , struct net_device *dev )
 
   }
 #line 3940
-  tmp___39 = __builtin_expect((bp->msg_enable & 256) != 0, 0L);
+  tmp___39 = ldv__builtin_expect((bp->msg_enable & 256) != 0, 0L);
 #line 3940
   if (tmp___39 != 0L) {
 #line 3940
@@ -74590,7 +74590,7 @@ netdev_tx_t bnx2x_start_xmit(struct sk_buff *skb , struct net_device *dev )
 #line 3963
   if ((unsigned long )pbd_e1x != (unsigned long )((struct eth_tx_parse_bd_e1x *)0)) {
 #line 3964
-    tmp___40 = __builtin_expect((bp->msg_enable & 256) != 0, 0L);
+    tmp___40 = ldv__builtin_expect((bp->msg_enable & 256) != 0, 0L);
 #line 3964
     if (tmp___40 != 0L) {
 #line 3964
@@ -74608,7 +74608,7 @@ netdev_tx_t bnx2x_start_xmit(struct sk_buff *skb , struct net_device *dev )
 #line 3970
   if ((unsigned long )pbd_e2 != (unsigned long )((struct eth_tx_parse_bd_e2 *)0)) {
 #line 3971
-    tmp___41 = __builtin_expect((bp->msg_enable & 256) != 0, 0L);
+    tmp___41 = ldv__builtin_expect((bp->msg_enable & 256) != 0, 0L);
 #line 3971
     if (tmp___41 != 0L) {
 #line 3971
@@ -74625,7 +74625,7 @@ netdev_tx_t bnx2x_start_xmit(struct sk_buff *skb , struct net_device *dev )
 
   }
 #line 3981
-  tmp___42 = __builtin_expect((bp->msg_enable & 256) != 0, 0L);
+  tmp___42 = ldv__builtin_expect((bp->msg_enable & 256) != 0, 0L);
 #line 3981
   if (tmp___42 != 0L) {
 #line 3981
@@ -74656,7 +74656,7 @@ netdev_tx_t bnx2x_start_xmit(struct sk_buff *skb , struct net_device *dev )
 #line 4006
   tmp___44 = bnx2x_tx_avail(bp, txdata);
 #line 4006
-  tmp___45 = __builtin_expect((unsigned int )tmp___44 <= 21U, 0L);
+  tmp___45 = ldv__builtin_expect((unsigned int )tmp___44 <= 21U, 0L);
 #line 4006
   if (tmp___45 != 0L) {
 #line 4007
@@ -74706,7 +74706,7 @@ int bnx2x_setup_tc(struct net_device *dev , u8 num_tc )
 #line 4037
   tmp___0 = rtnl_is_locked();
 #line 4037
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
 #line 4037
   if (tmp___1 != 0L) {
 #line 4037
@@ -74758,7 +74758,7 @@ int bnx2x_setup_tc(struct net_device *dev , u8 num_tc )
 #line 4060
   netdev_set_prio_tc_map(dev, (int )((u8 )prio), (int )bp->prio_to_cos[prio]);
 #line 4061
-  tmp___3 = __builtin_expect((bp->msg_enable & 1048608) != 0, 0L);
+  tmp___3 = ldv__builtin_expect((bp->msg_enable & 1048608) != 0, 0L);
 #line 4061
   if (tmp___3 != 0L) {
 #line 4061
@@ -74790,7 +74790,7 @@ int bnx2x_setup_tc(struct net_device *dev , u8 num_tc )
 #line 4081
   netdev_set_tc_queue(dev, (int )((u8 )cos), (int )((u16 )count), (int )((u16 )offset));
 #line 4082
-  tmp___4 = __builtin_expect((bp->msg_enable & 1048608) != 0, 0L);
+  tmp___4 = ldv__builtin_expect((bp->msg_enable & 1048608) != 0, 0L);
 #line 4082
   if (tmp___4 != 0L) {
 #line 4082
@@ -75038,7 +75038,7 @@ static void bnx2x_free_fp_mem_at(struct bnx2x *bp , int fp_index )
 #line 4173
     txdata = fp->txdata_ptr[(int )cos];
 #line 4175
-    tmp = __builtin_expect((bp->msg_enable & 16) != 0, 0L);
+    tmp = ldv__builtin_expect((bp->msg_enable & 16) != 0, 0L);
 #line 4175
     if (tmp != 0L) {
 #line 4175
@@ -75221,7 +75221,7 @@ static int bnx2x_alloc_rx_bds(struct bnx2x_fastpath *fp , int rx_ring_size )
 #line 4239
   __ret_warn_on = (int )ring_prod <= i - failure_cnt;
 #line 4239
-  tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 4239
   if (tmp___0 != 0L) {
 #line 4239
@@ -75231,7 +75231,7 @@ static int bnx2x_alloc_rx_bds(struct bnx2x_fastpath *fp , int rx_ring_size )
 
   }
 #line 4239
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
   ldv_55311: 
 #line 4232
   i = i + 1;
@@ -75410,7 +75410,7 @@ static int bnx2x_alloc_fp_mem_at(struct bnx2x *bp , int index )
     rx_ring_size = bp->rx_ring_size;
   }
 #line 4309
-  tmp___1 = __builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
+  tmp___1 = ldv__builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
 #line 4309
   if (tmp___1 != 0L) {
 #line 4309
@@ -75472,7 +75472,7 @@ static int bnx2x_alloc_fp_mem_at(struct bnx2x *bp , int index )
 #line 4336
     txdata = fp->txdata_ptr[(int )cos];
 #line 4338
-    tmp___4 = __builtin_expect((bp->msg_enable & 32) != 0, 0L);
+    tmp___4 = ldv__builtin_expect((bp->msg_enable & 32) != 0, 0L);
 #line 4338
     if (tmp___4 != 0L) {
 #line 4338
@@ -75707,7 +75707,7 @@ int bnx2x_alloc_fp_mem(struct bnx2x *bp )
 #line 4435
     __ret_warn_on = delta < 0;
 #line 4435
-    tmp___1 = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp___1 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 4435
     if (tmp___1 != 0L) {
 #line 4435
@@ -75717,7 +75717,7 @@ int bnx2x_alloc_fp_mem(struct bnx2x *bp )
 
     }
 #line 4435
-    __builtin_expect(__ret_warn_on != 0, 0L);
+    ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 4436
     bnx2x_shrink_eth_fp(bp, delta);
 #line 4437
@@ -75815,7 +75815,7 @@ int bnx2x_alloc_mem_bp(struct bnx2x *bp )
 
   }
 #line 4485
-  tmp = __builtin_expect((bp->msg_enable & 2) != 0, 0L);
+  tmp = ldv__builtin_expect((bp->msg_enable & 2) != 0, 0L);
 #line 4485
   if (tmp != 0L) {
 #line 4485
@@ -75829,7 +75829,7 @@ int bnx2x_alloc_mem_bp(struct bnx2x *bp )
 #line 4489
   bp->fp_array_size = fp_array_size;
 #line 4490
-  tmp___0 = __builtin_expect((bp->msg_enable & 2) != 0, 0L);
+  tmp___0 = ldv__builtin_expect((bp->msg_enable & 2) != 0, 0L);
 #line 4490
   if (tmp___0 != 0L) {
 #line 4490
@@ -75902,7 +75902,7 @@ int bnx2x_alloc_mem_bp(struct bnx2x *bp )
 #line 4518
   txq_array_size = ((int )bp->igu_sb_cnt - (int )bp->cnic_support) * 3 + (int )bp->cnic_support;
 #line 4520
-  tmp___5 = __builtin_expect((bp->msg_enable & 2) != 0, 0L);
+  tmp___5 = ldv__builtin_expect((bp->msg_enable & 2) != 0, 0L);
 #line 4520
   if (tmp___5 != 0L) {
 #line 4520
@@ -75982,7 +75982,7 @@ int bnx2x_reload_if_running(struct net_device *dev )
     tmp___1 = 1;
   }
 #line 4550
-  tmp___2 = __builtin_expect((long )tmp___1, 0L);
+  tmp___2 = ldv__builtin_expect((long )tmp___1, 0L);
 #line 4550
   if (tmp___2 != 0L) {
 #line 4551
@@ -76464,7 +76464,7 @@ static void storm_memset_hc_timeout(struct bnx2x *bp , u8 port , u8 fw_sb_id , u
 #line 4816
   writeb((int )ticks, (void volatile   *)bp->regview + (unsigned long )addr);
 #line 4817
-  tmp = __builtin_expect((bp->msg_enable & 32) != 0, 0L);
+  tmp = ldv__builtin_expect((bp->msg_enable & 32) != 0, 0L);
 #line 4817
   if (tmp != 0L) {
 #line 4817
@@ -76504,7 +76504,7 @@ static void storm_memset_hc_disable(struct bnx2x *bp , u8 port , u16 fw_sb_id , 
 #line 4833
   writeb((int )flags, (void volatile   *)bp->regview + (unsigned long )addr);
 #line 4834
-  tmp___0 = __builtin_expect((bp->msg_enable & 32) != 0, 0L);
+  tmp___0 = ldv__builtin_expect((bp->msg_enable & 32) != 0, 0L);
 #line 4834
   if (tmp___0 != 0L) {
 #line 4834
@@ -76712,7 +76712,7 @@ __inline static dma_addr_t dma_map_single_attrs___0(struct device *dev , void *p
 #line 19
   tmp___0 = valid_dma_direction((int )dir);
 #line 19
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
 #line 19
   if (tmp___1 != 0L) {
 #line 19
@@ -76755,7 +76755,7 @@ __inline static void dma_sync_single_for_cpu___0(struct device *dev , dma_addr_t
 #line 103
   tmp___0 = valid_dma_direction((int )dir);
 #line 103
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
 #line 103
   if (tmp___1 != 0L) {
 #line 103
@@ -76828,7 +76828,7 @@ __inline static void dql_queued___0(struct dql *dql , unsigned int count )
 
   {
 #line 74
-  tmp = __builtin_expect(count > 268435455U, 0L);
+  tmp = ldv__builtin_expect(count > 268435455U, 0L);
 #line 74
   if (tmp != 0L) {
 #line 74
@@ -76862,7 +76862,7 @@ __inline static void netdev_tx_sent_queue___0(struct netdev_queue *dev_queue , u
 #line 1968
   tmp = dql_avail((struct dql  const  *)(& dev_queue->dql));
 #line 1968
-  tmp___0 = __builtin_expect(tmp >= 0, 1L);
+  tmp___0 = ldv__builtin_expect(tmp >= 0, 1L);
 #line 1968
   if (tmp___0 != 0L) {
 #line 1969
@@ -76877,7 +76877,7 @@ __inline static void netdev_tx_sent_queue___0(struct netdev_queue *dev_queue , u
 #line 1981
   tmp___1 = dql_avail((struct dql  const  *)(& dev_queue->dql));
 #line 1981
-  tmp___2 = __builtin_expect(tmp___1 >= 0, 0L);
+  tmp___2 = ldv__builtin_expect(tmp___1 >= 0, 0L);
 #line 1981
   if (tmp___2 != 0L) {
 #line 1982
@@ -76950,7 +76950,7 @@ __inline static void bnx2x_update_rx_prod___0(struct bnx2x *bp , struct bnx2x_fa
 #line 546
   __asm__  volatile   ("": : : "memory");
 #line 548
-  tmp = __builtin_expect((bp->msg_enable & 2048) != 0, 0L);
+  tmp = ldv__builtin_expect((bp->msg_enable & 2048) != 0, 0L);
 #line 548
   if (tmp != 0L) {
 #line 548
@@ -79275,7 +79275,7 @@ __inline static void bnx2x_disable_blocks_parity(struct bnx2x *bp )
 #line 699
     writel(dis_mask, (void volatile   *)bp->regview + (unsigned long )bnx2x_blocks_parity_data___0[i].mask_addr);
 #line 701
-    tmp___0 = __builtin_expect((bp->msg_enable & 8192) != 0, 0L);
+    tmp___0 = ldv__builtin_expect((bp->msg_enable & 8192) != 0, 0L);
 #line 701
     if (tmp___0 != 0L) {
 #line 701
@@ -79342,7 +79342,7 @@ __inline static void bnx2x_clear_blocks_parity(struct bnx2x *bp )
 #line 733
     if ((reg_val & reg_mask) != 0U) {
 #line 734
-      tmp___0 = __builtin_expect((bp->msg_enable & 8192) != 0, 0L);
+      tmp___0 = ldv__builtin_expect((bp->msg_enable & 8192) != 0, 0L);
 #line 734
       if (tmp___0 != 0L) {
 #line 734
@@ -79373,7 +79373,7 @@ __inline static void bnx2x_clear_blocks_parity(struct bnx2x *bp )
 #line 743
   if ((reg_val & mcp_aeu_bits) != 0U) {
 #line 744
-    tmp___1 = __builtin_expect((bp->msg_enable & 8192) != 0, 0L);
+    tmp___1 = ldv__builtin_expect((bp->msg_enable & 8192) != 0, 0L);
 #line 744
     if (tmp___1 != 0L) {
 #line 744
@@ -79797,7 +79797,7 @@ static int bnx2x_get_settings(struct net_device *dev , struct ethtool_cmd *cmd )
 #line 361
   cmd->maxrxpkt = 0U;
 #line 363
-  tmp___5 = __builtin_expect((bp->msg_enable & 67108864) != 0, 0L);
+  tmp___5 = ldv__builtin_expect((bp->msg_enable & 67108864) != 0, 0L);
 #line 363
   if (tmp___5 != 0L) {
 #line 363
@@ -79869,7 +79869,7 @@ static int bnx2x_set_settings(struct net_device *dev , struct ethtool_cmd *cmd )
 
   }
 #line 384
-  tmp___1 = __builtin_expect((bp->msg_enable & 67108864) != 0, 0L);
+  tmp___1 = ldv__builtin_expect((bp->msg_enable & 67108864) != 0, 0L);
 #line 384
   if (tmp___1 != 0L) {
 #line 384
@@ -79906,7 +79906,7 @@ static int bnx2x_set_settings(struct net_device *dev , struct ethtool_cmd *cmd )
 #line 407
     if (bp->common.bc_ver <= 393729U) {
 #line 408
-      tmp___2 = __builtin_expect((bp->msg_enable & 67108864) != 0, 0L);
+      tmp___2 = ldv__builtin_expect((bp->msg_enable & 67108864) != 0, 0L);
 #line 408
       if (tmp___2 != 0L) {
 #line 408
@@ -79926,7 +79926,7 @@ static int bnx2x_set_settings(struct net_device *dev , struct ethtool_cmd *cmd )
 #line 416
     if (line_speed < speed || part == 0U) {
 #line 417
-      tmp___3 = __builtin_expect((bp->msg_enable & 67108864) != 0, 0L);
+      tmp___3 = ldv__builtin_expect((bp->msg_enable & 67108864) != 0, 0L);
 #line 417
       if (tmp___3 != 0L) {
 #line 417
@@ -79972,7 +79972,7 @@ static int bnx2x_set_settings(struct net_device *dev , struct ethtool_cmd *cmd )
 #line 438
   if ((bp->port.supported[0] & 128U) == 0U && (bp->port.supported[1] & 128U) == 0U) {
 #line 440
-    tmp___5 = __builtin_expect((bp->msg_enable & 67108864) != 0, 0L);
+    tmp___5 = ldv__builtin_expect((bp->msg_enable & 67108864) != 0, 0L);
 #line 440
     if (tmp___5 != 0L) {
 #line 440
@@ -80010,7 +80010,7 @@ static int bnx2x_set_settings(struct net_device *dev , struct ethtool_cmd *cmd )
 #line 458
   if ((bp->port.supported[0] & 1024U) == 0U && (bp->port.supported[1] & 1024U) == 0U) {
 #line 460
-    tmp___6 = __builtin_expect((bp->msg_enable & 67108864) != 0, 0L);
+    tmp___6 = ldv__builtin_expect((bp->msg_enable & 67108864) != 0, 0L);
 #line 460
     if (tmp___6 != 0L) {
 #line 460
@@ -80038,7 +80038,7 @@ static int bnx2x_set_settings(struct net_device *dev , struct ethtool_cmd *cmd )
   goto ldv_45386;
   default: 
 #line 474
-  tmp___7 = __builtin_expect((bp->msg_enable & 67108864) != 0, 0L);
+  tmp___7 = ldv__builtin_expect((bp->msg_enable & 67108864) != 0, 0L);
 #line 474
   if (tmp___7 != 0L) {
 #line 474
@@ -80060,7 +80060,7 @@ static int bnx2x_set_settings(struct net_device *dev , struct ethtool_cmd *cmd )
 #line 482
   bp->link_params.multi_phy_config = old_multi_phy_config;
 #line 483
-  tmp___9 = __builtin_expect((bp->msg_enable & 67108864) != 0, 0L);
+  tmp___9 = ldv__builtin_expect((bp->msg_enable & 67108864) != 0, 0L);
 #line 483
   if (tmp___9 != 0L) {
 #line 483
@@ -80083,7 +80083,7 @@ static int bnx2x_set_settings(struct net_device *dev , struct ethtool_cmd *cmd )
 #line 491
     if ((bp->port.supported[cfg_idx] & 64U) == 0U) {
 #line 492
-      tmp___10 = __builtin_expect((bp->msg_enable & 67108864) != 0, 0L);
+      tmp___10 = ldv__builtin_expect((bp->msg_enable & 67108864) != 0, 0L);
 #line 492
       if (tmp___10 != 0L) {
 #line 492
@@ -80100,7 +80100,7 @@ static int bnx2x_set_settings(struct net_device *dev , struct ethtool_cmd *cmd )
 #line 497
     if ((cmd->advertising & ~ an_supported_speed) != 0U) {
 #line 498
-      tmp___11 = __builtin_expect((bp->msg_enable & 67108864) != 0, 0L);
+      tmp___11 = ldv__builtin_expect((bp->msg_enable & 67108864) != 0, 0L);
 #line 498
       if (tmp___11 != 0L) {
 #line 498
@@ -80192,7 +80192,7 @@ static int bnx2x_set_settings(struct net_device *dev , struct ethtool_cmd *cmd )
 #line 550
       if ((bp->port.supported[cfg_idx] & 2U) == 0U) {
 #line 552
-        tmp___12 = __builtin_expect((bp->msg_enable & 67108864) != 0, 0L);
+        tmp___12 = ldv__builtin_expect((bp->msg_enable & 67108864) != 0, 0L);
 #line 552
         if (tmp___12 != 0L) {
 #line 552
@@ -80212,7 +80212,7 @@ static int bnx2x_set_settings(struct net_device *dev , struct ethtool_cmd *cmd )
 #line 560
       if ((bp->port.supported[cfg_idx] & 1U) == 0U) {
 #line 562
-        tmp___13 = __builtin_expect((bp->msg_enable & 67108864) != 0, 0L);
+        tmp___13 = ldv__builtin_expect((bp->msg_enable & 67108864) != 0, 0L);
 #line 562
         if (tmp___13 != 0L) {
 #line 562
@@ -80237,7 +80237,7 @@ static int bnx2x_set_settings(struct net_device *dev , struct ethtool_cmd *cmd )
 #line 574
       if ((bp->port.supported[cfg_idx] & 8U) == 0U) {
 #line 576
-        tmp___14 = __builtin_expect((bp->msg_enable & 67108864) != 0, 0L);
+        tmp___14 = ldv__builtin_expect((bp->msg_enable & 67108864) != 0, 0L);
 #line 576
         if (tmp___14 != 0L) {
 #line 576
@@ -80257,7 +80257,7 @@ static int bnx2x_set_settings(struct net_device *dev , struct ethtool_cmd *cmd )
 #line 584
       if ((bp->port.supported[cfg_idx] & 4U) == 0U) {
 #line 586
-        tmp___15 = __builtin_expect((bp->msg_enable & 67108864) != 0, 0L);
+        tmp___15 = ldv__builtin_expect((bp->msg_enable & 67108864) != 0, 0L);
 #line 586
         if (tmp___15 != 0L) {
 #line 586
@@ -80280,7 +80280,7 @@ static int bnx2x_set_settings(struct net_device *dev , struct ethtool_cmd *cmd )
 #line 597
     if ((unsigned int )cmd->duplex != 1U) {
 #line 598
-      tmp___16 = __builtin_expect((bp->msg_enable & 67108864) != 0, 0L);
+      tmp___16 = ldv__builtin_expect((bp->msg_enable & 67108864) != 0, 0L);
 #line 598
       if (tmp___16 != 0L) {
 #line 598
@@ -80297,7 +80297,7 @@ static int bnx2x_set_settings(struct net_device *dev , struct ethtool_cmd *cmd )
 #line 603
     if ((bp->port.supported[cfg_idx] & 32U) == 0U) {
 #line 605
-      tmp___17 = __builtin_expect((bp->msg_enable & 67108864) != 0, 0L);
+      tmp___17 = ldv__builtin_expect((bp->msg_enable & 67108864) != 0, 0L);
 #line 605
       if (tmp___17 != 0L) {
 #line 605
@@ -80319,7 +80319,7 @@ static int bnx2x_set_settings(struct net_device *dev , struct ethtool_cmd *cmd )
 #line 615
     if ((unsigned int )cmd->duplex != 1U) {
 #line 616
-      tmp___18 = __builtin_expect((bp->msg_enable & 67108864) != 0, 0L);
+      tmp___18 = ldv__builtin_expect((bp->msg_enable & 67108864) != 0, 0L);
 #line 616
       if (tmp___18 != 0L) {
 #line 616
@@ -80336,7 +80336,7 @@ static int bnx2x_set_settings(struct net_device *dev , struct ethtool_cmd *cmd )
 #line 621
     if ((bp->port.supported[cfg_idx] & 32768U) == 0U) {
 #line 623
-      tmp___19 = __builtin_expect((bp->msg_enable & 67108864) != 0, 0L);
+      tmp___19 = ldv__builtin_expect((bp->msg_enable & 67108864) != 0, 0L);
 #line 623
       if (tmp___19 != 0L) {
 #line 623
@@ -80358,7 +80358,7 @@ static int bnx2x_set_settings(struct net_device *dev , struct ethtool_cmd *cmd )
 #line 633
     if ((unsigned int )cmd->duplex != 1U) {
 #line 634
-      tmp___20 = __builtin_expect((bp->msg_enable & 67108864) != 0, 0L);
+      tmp___20 = ldv__builtin_expect((bp->msg_enable & 67108864) != 0, 0L);
 #line 634
       if (tmp___20 != 0L) {
 #line 634
@@ -80379,7 +80379,7 @@ static int bnx2x_set_settings(struct net_device *dev , struct ethtool_cmd *cmd )
 #line 639
     if ((bp->port.supported[cfg_idx] & 4096U) == 0U || bp->link_params.phy[phy_idx].media_type == 5U) {
 #line 643
-      tmp___22 = __builtin_expect((bp->msg_enable & 67108864) != 0, 0L);
+      tmp___22 = ldv__builtin_expect((bp->msg_enable & 67108864) != 0, 0L);
 #line 643
       if (tmp___22 != 0L) {
 #line 643
@@ -80399,7 +80399,7 @@ static int bnx2x_set_settings(struct net_device *dev , struct ethtool_cmd *cmd )
     goto ldv_45392;
     default: 
 #line 653
-    tmp___23 = __builtin_expect((bp->msg_enable & 67108864) != 0, 0L);
+    tmp___23 = ldv__builtin_expect((bp->msg_enable & 67108864) != 0, 0L);
 #line 653
     if (tmp___23 != 0L) {
 #line 653
@@ -80421,7 +80421,7 @@ static int bnx2x_set_settings(struct net_device *dev , struct ethtool_cmd *cmd )
     bp->port.advertising[cfg_idx] = advertising;
   }
 #line 662
-  tmp___24 = __builtin_expect((bp->msg_enable & 67108864) != 0, 0L);
+  tmp___24 = ldv__builtin_expect((bp->msg_enable & 67108864) != 0, 0L);
 #line 662
   if (tmp___24 != 0L) {
 #line 662
@@ -81291,7 +81291,7 @@ static int bnx2x_get_dump_flag(struct net_device *dev , struct ethtool_dump *dum
 #line 1045
   dump->len = (__u32 )tmp___0;
 #line 1046
-  tmp___1 = __builtin_expect((bp->msg_enable & 67108864) != 0, 0L);
+  tmp___1 = ldv__builtin_expect((bp->msg_enable & 67108864) != 0, 0L);
 #line 1046
   if (tmp___1 != 0L) {
 #line 1046
@@ -81353,7 +81353,7 @@ static int bnx2x_get_dump_data(struct net_device *dev , struct ethtool_dump *dum
 #line 1081
   dump_hdr.version = 1353514753U;
 #line 1083
-  tmp___0 = __builtin_expect((bp->msg_enable & 67108864) != 0, 0L);
+  tmp___0 = ldv__builtin_expect((bp->msg_enable & 67108864) != 0, 0L);
 #line 1083
   if (tmp___0 != 0L) {
 #line 1083
@@ -81510,7 +81510,7 @@ static int bnx2x_set_wol(struct net_device *dev , struct ethtool_wolinfo *wol )
 #line 1161
   if ((wol->wolopts & 4294967263U) != 0U) {
 #line 1162
-    tmp___0 = __builtin_expect((bp->msg_enable & 67108864) != 0, 0L);
+    tmp___0 = ldv__builtin_expect((bp->msg_enable & 67108864) != 0, 0L);
 #line 1162
     if (tmp___0 != 0L) {
 #line 1162
@@ -81528,7 +81528,7 @@ static int bnx2x_set_wol(struct net_device *dev , struct ethtool_wolinfo *wol )
 #line 1167
     if ((bp->flags & 8U) != 0U) {
 #line 1168
-      tmp___1 = __builtin_expect((bp->msg_enable & 67108864) != 0, 0L);
+      tmp___1 = ldv__builtin_expect((bp->msg_enable & 67108864) != 0, 0L);
 #line 1168
       if (tmp___1 != 0L) {
 #line 1168
@@ -81726,7 +81726,7 @@ static int bnx2x_acquire_nvram_lock(struct bnx2x *bp )
 #line 1269
   if (((long )val & (512L << port)) == 0L) {
 #line 1270
-    tmp = __builtin_expect((bp->msg_enable & 67371008) != 0, 0L);
+    tmp = ldv__builtin_expect((bp->msg_enable & 67371008) != 0, 0L);
 #line 1270
     if (tmp != 0L) {
 #line 1270
@@ -81797,7 +81797,7 @@ static int bnx2x_release_nvram_lock(struct bnx2x *bp )
 #line 1301
   if (((long )val & (512L << port)) != 0L) {
 #line 1302
-    tmp = __builtin_expect((bp->msg_enable & 67371008) != 0, 0L);
+    tmp = ldv__builtin_expect((bp->msg_enable & 67371008) != 0, 0L);
 #line 1302
     if (tmp != 0L) {
 #line 1302
@@ -81916,7 +81916,7 @@ static int bnx2x_nvram_read_dword(struct bnx2x *bp , u32 offset , __be32 *ret_va
 #line 1378
   if (rc == -16) {
 #line 1379
-    tmp___0 = __builtin_expect((bp->msg_enable & 67371008) != 0, 0L);
+    tmp___0 = ldv__builtin_expect((bp->msg_enable & 67371008) != 0, 0L);
 #line 1379
     if (tmp___0 != 0L) {
 #line 1379
@@ -81949,7 +81949,7 @@ static int bnx2x_nvram_read(struct bnx2x *bp , u32 offset , u8 *ret_buf , int bu
 #line 1391
   if (((offset & 3U) != 0U || (buf_size & 3) != 0) || buf_size == 0) {
 #line 1392
-    tmp = __builtin_expect((bp->msg_enable & 67371008) != 0, 0L);
+    tmp = ldv__builtin_expect((bp->msg_enable & 67371008) != 0, 0L);
 #line 1392
     if (tmp != 0L) {
 #line 1392
@@ -81967,7 +81967,7 @@ static int bnx2x_nvram_read(struct bnx2x *bp , u32 offset , u8 *ret_buf , int bu
 #line 1398
   if (offset + (u32 )buf_size > (u32 )bp->common.flash_size) {
 #line 1399
-    tmp___0 = __builtin_expect((bp->msg_enable & 67371008) != 0, 0L);
+    tmp___0 = ldv__builtin_expect((bp->msg_enable & 67371008) != 0, 0L);
 #line 1399
     if (tmp___0 != 0L) {
 #line 1399
@@ -82133,7 +82133,7 @@ static int bnx2x_get_eeprom(struct net_device *dev , struct ethtool_eeprom *eepr
 #line 1461
   if (tmp___2) {
 #line 1462
-    tmp___0 = __builtin_expect((bp->msg_enable & 67371008) != 0, 0L);
+    tmp___0 = ldv__builtin_expect((bp->msg_enable & 67371008) != 0, 0L);
 #line 1462
     if (tmp___0 != 0L) {
 #line 1462
@@ -82148,7 +82148,7 @@ static int bnx2x_get_eeprom(struct net_device *dev , struct ethtool_eeprom *eepr
 
   }
 #line 1467
-  tmp___3 = __builtin_expect((bp->msg_enable & 67371008) != 0, 0L);
+  tmp___3 = ldv__builtin_expect((bp->msg_enable & 67371008) != 0, 0L);
 #line 1467
   if (tmp___3 != 0L) {
 #line 1467
@@ -82208,7 +82208,7 @@ static int bnx2x_get_module_eeprom(struct net_device *dev , struct ethtool_eepro
 #line 1486
   if (tmp___2) {
 #line 1487
-    tmp___0 = __builtin_expect((bp->msg_enable & 67371008) != 0, 0L);
+    tmp___0 = ldv__builtin_expect((bp->msg_enable & 67371008) != 0, 0L);
 #line 1487
     if (tmp___0 != 0L) {
 #line 1487
@@ -82245,7 +82245,7 @@ static int bnx2x_get_module_eeprom(struct net_device *dev , struct ethtool_eepro
 #line 1509
     if (rc != 0) {
 #line 1510
-      tmp___3 = __builtin_expect((bp->msg_enable & 67108864) != 0, 0L);
+      tmp___3 = ldv__builtin_expect((bp->msg_enable & 67108864) != 0, 0L);
 #line 1510
       if (tmp___3 != 0L) {
 #line 1510
@@ -82290,7 +82290,7 @@ static int bnx2x_get_module_eeprom(struct net_device *dev , struct ethtool_eepro
 #line 1534
     if (rc != 0) {
 #line 1535
-      tmp___4 = __builtin_expect((bp->msg_enable & 67108864) != 0, 0L);
+      tmp___4 = ldv__builtin_expect((bp->msg_enable & 67108864) != 0, 0L);
 #line 1535
       if (tmp___4 != 0L) {
 #line 1535
@@ -82344,7 +82344,7 @@ static int bnx2x_get_module_info(struct net_device *dev , struct ethtool_modinfo
 #line 1549
   if (tmp___2) {
 #line 1550
-    tmp___0 = __builtin_expect((bp->msg_enable & 67371008) != 0, 0L);
+    tmp___0 = ldv__builtin_expect((bp->msg_enable & 67371008) != 0, 0L);
 #line 1550
     if (tmp___0 != 0L) {
 #line 1550
@@ -82370,7 +82370,7 @@ static int bnx2x_get_module_info(struct net_device *dev , struct ethtool_modinfo
 #line 1563
   if (rc != 0) {
 #line 1564
-    tmp___3 = __builtin_expect((bp->msg_enable & 67108864) != 0, 0L);
+    tmp___3 = ldv__builtin_expect((bp->msg_enable & 67108864) != 0, 0L);
 #line 1564
     if (tmp___3 != 0L) {
 #line 1564
@@ -82394,7 +82394,7 @@ static int bnx2x_get_module_info(struct net_device *dev , struct ethtool_modinfo
 #line 1576
   if (rc != 0) {
 #line 1577
-    tmp___4 = __builtin_expect((bp->msg_enable & 67108864) != 0, 0L);
+    tmp___4 = ldv__builtin_expect((bp->msg_enable & 67108864) != 0, 0L);
 #line 1577
     if (tmp___4 != 0L) {
 #line 1577
@@ -82486,7 +82486,7 @@ static int bnx2x_nvram_write_dword(struct bnx2x *bp , u32 offset , u32 val , u32
 #line 1629
   if (rc == -16) {
 #line 1630
-    tmp = __builtin_expect((bp->msg_enable & 67371008) != 0, 0L);
+    tmp = ldv__builtin_expect((bp->msg_enable & 67371008) != 0, 0L);
 #line 1630
     if (tmp != 0L) {
 #line 1630
@@ -82517,7 +82517,7 @@ static int bnx2x_nvram_write1(struct bnx2x *bp , u32 offset , u8 *data_buf , int
 #line 1644
   if (offset + (u32 )buf_size > (u32 )bp->common.flash_size) {
 #line 1645
-    tmp = __builtin_expect((bp->msg_enable & 67371008) != 0, 0L);
+    tmp = ldv__builtin_expect((bp->msg_enable & 67371008) != 0, 0L);
 #line 1645
     if (tmp != 0L) {
 #line 1645
@@ -82598,7 +82598,7 @@ static int bnx2x_nvram_write(struct bnx2x *bp , u32 offset , u8 *data_buf , int 
 #line 1694
   if (((offset & 3U) != 0U || (buf_size & 3) != 0) || buf_size == 0) {
 #line 1695
-    tmp___0 = __builtin_expect((bp->msg_enable & 67371008) != 0, 0L);
+    tmp___0 = ldv__builtin_expect((bp->msg_enable & 67371008) != 0, 0L);
 #line 1695
     if (tmp___0 != 0L) {
 #line 1695
@@ -82616,7 +82616,7 @@ static int bnx2x_nvram_write(struct bnx2x *bp , u32 offset , u8 *data_buf , int 
 #line 1701
   if (offset + (u32 )buf_size > (u32 )bp->common.flash_size) {
 #line 1702
-    tmp___1 = __builtin_expect((bp->msg_enable & 67371008) != 0, 0L);
+    tmp___1 = ldv__builtin_expect((bp->msg_enable & 67371008) != 0, 0L);
 #line 1702
     if (tmp___1 != 0L) {
 #line 1702
@@ -82742,7 +82742,7 @@ static int bnx2x_set_eeprom(struct net_device *dev , struct ethtool_eeprom *eepr
 #line 1751
   if (tmp___2) {
 #line 1752
-    tmp___0 = __builtin_expect((bp->msg_enable & 67371008) != 0, 0L);
+    tmp___0 = ldv__builtin_expect((bp->msg_enable & 67371008) != 0, 0L);
 #line 1752
     if (tmp___0 != 0L) {
 #line 1752
@@ -82757,7 +82757,7 @@ static int bnx2x_set_eeprom(struct net_device *dev , struct ethtool_eeprom *eepr
 
   }
 #line 1757
-  tmp___3 = __builtin_expect((bp->msg_enable & 67371008) != 0, 0L);
+  tmp___3 = ldv__builtin_expect((bp->msg_enable & 67371008) != 0, 0L);
 #line 1757
   if (tmp___3 != 0L) {
 #line 1757
@@ -82771,7 +82771,7 @@ static int bnx2x_set_eeprom(struct net_device *dev , struct ethtool_eeprom *eepr
 #line 1765
   if ((eeprom->magic > 1346918655U && eeprom->magic <= 1346918911U) && bp->port.pmf == 0U) {
 #line 1767
-    tmp___4 = __builtin_expect((bp->msg_enable & 67371008) != 0, 0L);
+    tmp___4 = ldv__builtin_expect((bp->msg_enable & 67371008) != 0, 0L);
 #line 1767
     if (tmp___4 != 0L) {
 #line 1767
@@ -82974,7 +82974,7 @@ static int bnx2x_set_ringparam(struct net_device *dev , struct ethtool_ringparam
 #line 1879
   bp = (struct bnx2x *)tmp;
 #line 1881
-  tmp___0 = __builtin_expect((bp->msg_enable & 67108864) != 0, 0L);
+  tmp___0 = ldv__builtin_expect((bp->msg_enable & 67108864) != 0, 0L);
 #line 1881
   if (tmp___0 != 0L) {
 #line 1881
@@ -82987,7 +82987,7 @@ static int bnx2x_set_ringparam(struct net_device *dev , struct ethtool_ringparam
 #line 1885
   if ((unsigned int )bp->recovery_state != 0U) {
 #line 1886
-    tmp___1 = __builtin_expect((bp->msg_enable & 67108864) != 0, 0L);
+    tmp___1 = ldv__builtin_expect((bp->msg_enable & 67108864) != 0, 0L);
 #line 1886
     if (tmp___1 != 0L) {
 #line 1886
@@ -83036,7 +83036,7 @@ static int bnx2x_set_ringparam(struct net_device *dev , struct ethtool_ringparam
     if (ering->tx_pending <= 21U) {
       _L: /* CIL Label */ 
 #line 1896
-      tmp___2 = __builtin_expect((bp->msg_enable & 67108864) != 0, 0L);
+      tmp___2 = ldv__builtin_expect((bp->msg_enable & 67108864) != 0, 0L);
 #line 1896
       if (tmp___2 != 0L) {
 #line 1896
@@ -83095,7 +83095,7 @@ static void bnx2x_get_pauseparam(struct net_device *dev , struct ethtool_pausepa
 #line 1923
   epause->tx_pause = (cfg_reg & 256) != 0;
 #line 1926
-  tmp___1 = __builtin_expect((bp->msg_enable & 67108864) != 0, 0L);
+  tmp___1 = ldv__builtin_expect((bp->msg_enable & 67108864) != 0, 0L);
 #line 1926
   if (tmp___1 != 0L) {
 #line 1926
@@ -83138,7 +83138,7 @@ static int bnx2x_set_pauseparam(struct net_device *dev , struct ethtool_pausepar
 
   }
 #line 1939
-  tmp___1 = __builtin_expect((bp->msg_enable & 67108864) != 0, 0L);
+  tmp___1 = ldv__builtin_expect((bp->msg_enable & 67108864) != 0, 0L);
 #line 1939
   if (tmp___1 != 0L) {
 #line 1939
@@ -83176,7 +83176,7 @@ static int bnx2x_set_pauseparam(struct net_device *dev , struct ethtool_pausepar
 #line 1955
     if ((bp->port.supported[cfg_idx] & 64U) == 0U) {
 #line 1956
-      tmp___2 = __builtin_expect((bp->msg_enable & 67108864) != 0, 0L);
+      tmp___2 = ldv__builtin_expect((bp->msg_enable & 67108864) != 0, 0L);
 #line 1956
       if (tmp___2 != 0L) {
 #line 1956
@@ -83224,7 +83224,7 @@ static int bnx2x_set_pauseparam(struct net_device *dev , struct ethtool_pausepar
 
   }
 #line 1975
-  tmp___3 = __builtin_expect((bp->msg_enable & 67108864) != 0, 0L);
+  tmp___3 = ldv__builtin_expect((bp->msg_enable & 67108864) != 0, 0L);
 #line 1975
   if (tmp___3 != 0L) {
 #line 1975
@@ -83390,7 +83390,7 @@ static int bnx2x_get_eee(struct net_device *dev , struct ethtool_eee *edata )
     if ((unsigned long )tmp___1 <= (((unsigned long )bp->pfid & 1UL) + 76UL) * 4UL) {
       _L: /* CIL Label */ 
 #line 2029
-      tmp___0 = __builtin_expect((bp->msg_enable & 67108864) != 0, 0L);
+      tmp___0 = ldv__builtin_expect((bp->msg_enable & 67108864) != 0, 0L);
 #line 2029
       if (tmp___0 != 0L) {
 #line 2029
@@ -83463,7 +83463,7 @@ static int bnx2x_set_eee(struct net_device *dev , struct ethtool_eee *edata )
     if ((unsigned long )tmp___1 <= (((unsigned long )bp->pfid & 1UL) + 76UL) * 4UL) {
       _L: /* CIL Label */ 
 #line 2066
-      tmp___0 = __builtin_expect((bp->msg_enable & 67108864) != 0, 0L);
+      tmp___0 = ldv__builtin_expect((bp->msg_enable & 67108864) != 0, 0L);
 #line 2066
       if (tmp___0 != 0L) {
 #line 2066
@@ -83483,7 +83483,7 @@ static int bnx2x_set_eee(struct net_device *dev , struct ethtool_eee *edata )
 #line 2072
   if ((eee_cfg & 983040U) == 0U) {
 #line 2073
-    tmp___2 = __builtin_expect((bp->msg_enable & 67108864) != 0, 0L);
+    tmp___2 = ldv__builtin_expect((bp->msg_enable & 67108864) != 0, 0L);
 #line 2073
     if (tmp___2 != 0L) {
 #line 2073
@@ -83502,7 +83502,7 @@ static int bnx2x_set_eee(struct net_device *dev , struct ethtool_eee *edata )
 #line 2079
   if ((eee_cfg & 15728640U) != advertised) {
 #line 2080
-    tmp___3 = __builtin_expect((bp->msg_enable & 67108864) != 0, 0L);
+    tmp___3 = ldv__builtin_expect((bp->msg_enable & 67108864) != 0, 0L);
 #line 2080
     if (tmp___3 != 0L) {
 #line 2080
@@ -83519,7 +83519,7 @@ static int bnx2x_set_eee(struct net_device *dev , struct ethtool_eee *edata )
 #line 2085
   if (edata->tx_lpi_timer > 1048575U) {
 #line 2086
-    tmp___4 = __builtin_expect((bp->msg_enable & 67108864) != 0, 0L);
+    tmp___4 = ldv__builtin_expect((bp->msg_enable & 67108864) != 0, 0L);
 #line 2086
     if (tmp___4 != 0L) {
 #line 2086
@@ -83537,7 +83537,7 @@ static int bnx2x_set_eee(struct net_device *dev , struct ethtool_eee *edata )
 #line 2091
   if (edata->tx_lpi_enabled != 0U && edata->tx_lpi_timer <= 255U) {
 #line 2093
-    tmp___5 = __builtin_expect((bp->msg_enable & 67108864) != 0, 0L);
+    tmp___5 = ldv__builtin_expect((bp->msg_enable & 67108864) != 0, 0L);
 #line 2093
     if (tmp___5 != 0L) {
 #line 2093
@@ -83940,7 +83940,7 @@ static int bnx2x_test_registers(struct bnx2x *bp )
 #line 2235
   if (tmp___1) {
 #line 2236
-    tmp = __builtin_expect((bp->msg_enable & 67371008) != 0, 0L);
+    tmp = ldv__builtin_expect((bp->msg_enable & 67371008) != 0, 0L);
 #line 2236
     if (tmp != 0L) {
 #line 2236
@@ -84023,7 +84023,7 @@ static int bnx2x_test_registers(struct bnx2x *bp )
 #line 2284
   if (((val ^ wr_val) & mask) != 0U) {
 #line 2285
-    tmp___2 = __builtin_expect((bp->msg_enable & 67108864) != 0, 0L);
+    tmp___2 = ldv__builtin_expect((bp->msg_enable & 67108864) != 0, 0L);
 #line 2285
     if (tmp___2 != 0L) {
 #line 2285
@@ -84333,7 +84333,7 @@ static int bnx2x_test_memory(struct bnx2x *bp )
 #line 2339
   if (tmp___8) {
 #line 2340
-    tmp___6 = __builtin_expect((bp->msg_enable & 67371008) != 0, 0L);
+    tmp___6 = ldv__builtin_expect((bp->msg_enable & 67371008) != 0, 0L);
 #line 2340
     if (tmp___6 != 0L) {
 #line 2340
@@ -84375,7 +84375,7 @@ static int bnx2x_test_memory(struct bnx2x *bp )
 #line 2357
   if ((~ prty_tbl[i].hw_mask[index] & val) != 0U) {
 #line 2358
-    tmp___9 = __builtin_expect((bp->msg_enable & 67108864) != 0, 0L);
+    tmp___9 = ldv__builtin_expect((bp->msg_enable & 67108864) != 0, 0L);
 #line 2358
     if (tmp___9 != 0L) {
 #line 2358
@@ -84441,7 +84441,7 @@ static int bnx2x_test_memory(struct bnx2x *bp )
 #line 2372
   if ((~ prty_tbl[i].hw_mask[index] & val) != 0U) {
 #line 2373
-    tmp___10 = __builtin_expect((bp->msg_enable & 67108864) != 0, 0L);
+    tmp___10 = ldv__builtin_expect((bp->msg_enable & 67108864) != 0, 0L);
 #line 2373
     if (tmp___10 != 0L) {
 #line 2373
@@ -84521,7 +84521,7 @@ static void bnx2x_wait_for_link(struct bnx2x *bp , u8 link_up , u8 is_serdes )
 #line 2393
       if ((unsigned int )tmp___2 != 0U) {
 #line 2394
-        tmp___1 = __builtin_expect((bp->msg_enable & 67108864) != 0, 0L);
+        tmp___1 = ldv__builtin_expect((bp->msg_enable & 67108864) != 0, 0L);
 #line 2394
         if (tmp___1 != 0L) {
 #line 2394
@@ -84565,7 +84565,7 @@ static void bnx2x_wait_for_link(struct bnx2x *bp , u8 link_up , u8 is_serdes )
 #line 2400
     if (cnt <= 0 && (unsigned int )bp->link_vars.link_up == 0U) {
 #line 2401
-      tmp___4 = __builtin_expect((bp->msg_enable & 67108864) != 0, 0L);
+      tmp___4 = ldv__builtin_expect((bp->msg_enable & 67108864) != 0, 0L);
 #line 2401
       if (tmp___4 != 0L) {
 #line 2401
@@ -84653,7 +84653,7 @@ static int bnx2x_run_loopback(struct bnx2x *bp , int loopback_mode )
 #line 2432
   if ((unsigned int )bp->link_params.loopback_mode != 3U) {
 #line 2433
-    tmp___0 = __builtin_expect((bp->msg_enable & 67108864) != 0, 0L);
+    tmp___0 = ldv__builtin_expect((bp->msg_enable & 67108864) != 0, 0L);
 #line 2433
     if (tmp___0 != 0L) {
 #line 2433
@@ -84696,7 +84696,7 @@ static int bnx2x_run_loopback(struct bnx2x *bp , int loopback_mode )
 #line 2453
   if ((unsigned int )bp->link_params.loopback_mode != 5U) {
 #line 2454
-    tmp___2 = __builtin_expect((bp->msg_enable & 67108864) != 0, 0L);
+    tmp___2 = ldv__builtin_expect((bp->msg_enable & 67108864) != 0, 0L);
 #line 2454
     if (tmp___2 != 0L) {
 #line 2454
@@ -84714,7 +84714,7 @@ static int bnx2x_run_loopback(struct bnx2x *bp , int loopback_mode )
   goto ldv_45924;
   default: 
 #line 2460
-  tmp___3 = __builtin_expect((bp->msg_enable & 67108864) != 0, 0L);
+  tmp___3 = ldv__builtin_expect((bp->msg_enable & 67108864) != 0, 0L);
 #line 2460
   if (tmp___3 != 0L) {
 #line 2460
@@ -84734,7 +84734,7 @@ static int bnx2x_run_loopback(struct bnx2x *bp , int loopback_mode )
 #line 2468
   if ((unsigned long )skb == (unsigned long )((struct sk_buff *)0)) {
 #line 2469
-    tmp___4 = __builtin_expect((bp->msg_enable & 67108864) != 0, 0L);
+    tmp___4 = ldv__builtin_expect((bp->msg_enable & 67108864) != 0, 0L);
 #line 2469
     if (tmp___4 != 0L) {
 #line 2469
@@ -84792,7 +84792,7 @@ static int bnx2x_run_loopback(struct bnx2x *bp , int loopback_mode )
 #line 2481
   tmp___7 = dma_mapping_error(& (bp->pdev)->dev, mapping);
 #line 2481
-  tmp___8 = __builtin_expect(tmp___7 != 0, 0L);
+  tmp___8 = ldv__builtin_expect(tmp___7 != 0, 0L);
 #line 2481
   if (tmp___8 != 0L) {
 #line 2482
@@ -84800,7 +84800,7 @@ static int bnx2x_run_loopback(struct bnx2x *bp , int loopback_mode )
 #line 2483
     consume_skb(skb);
 #line 2484
-    tmp___6 = __builtin_expect((bp->msg_enable & 67108864) != 0, 0L);
+    tmp___6 = ldv__builtin_expect((bp->msg_enable & 67108864) != 0, 0L);
 #line 2484
     if (tmp___6 != 0L) {
 #line 2484
@@ -85061,7 +85061,7 @@ static int bnx2x_test_loopback(struct bnx2x *bp )
 #line 2624
   if (res != 0) {
 #line 2625
-    tmp___1 = __builtin_expect((bp->msg_enable & 67108864) != 0, 0L);
+    tmp___1 = ldv__builtin_expect((bp->msg_enable & 67108864) != 0, 0L);
 #line 2625
     if (tmp___1 != 0L) {
 #line 2625
@@ -85081,7 +85081,7 @@ static int bnx2x_test_loopback(struct bnx2x *bp )
 #line 2630
   if (res != 0) {
 #line 2631
-    tmp___2 = __builtin_expect((bp->msg_enable & 67108864) != 0, 0L);
+    tmp___2 = ldv__builtin_expect((bp->msg_enable & 67108864) != 0, 0L);
 #line 2631
     if (tmp___2 != 0L) {
 #line 2631
@@ -85148,7 +85148,7 @@ static int bnx2x_test_ext_loopback(struct bnx2x *bp )
 #line 2655
   if (rc != 0) {
 #line 2656
-    tmp___1 = __builtin_expect((bp->msg_enable & 67108864) != 0, 0L);
+    tmp___1 = ldv__builtin_expect((bp->msg_enable & 67108864) != 0, 0L);
 #line 2656
     if (tmp___1 != 0L) {
 #line 2656
@@ -85171,7 +85171,7 @@ static int bnx2x_test_ext_loopback(struct bnx2x *bp )
 #line 2665
   if (rc != 0) {
 #line 2666
-    tmp___2 = __builtin_expect((bp->msg_enable & 67108864) != 0, 0L);
+    tmp___2 = ldv__builtin_expect((bp->msg_enable & 67108864) != 0, 0L);
 #line 2666
     if (tmp___2 != 0L) {
 #line 2666
@@ -85209,7 +85209,7 @@ static int bnx2x_nvram_crc(struct bnx2x *bp , int offset , int size , u8 *buff )
 #line 2701
   done = 0;
 #line 2703
-  tmp = __builtin_expect((bp->msg_enable & 67371008) != 0, 0L);
+  tmp = ldv__builtin_expect((bp->msg_enable & 67371008) != 0, 0L);
 #line 2703
   if (tmp != 0L) {
 #line 2703
@@ -85286,7 +85286,7 @@ static int bnx2x_test_nvram_dir(struct bnx2x *bp , struct code_entry *entry , u8
 #line 2737
   if (rc != 0) {
 #line 2738
-    tmp = __builtin_expect((bp->msg_enable & 67371008) != 0, 0L);
+    tmp = ldv__builtin_expect((bp->msg_enable & 67371008) != 0, 0L);
 #line 2738
     if (tmp != 0L) {
 #line 2738
@@ -85418,7 +85418,7 @@ static int bnx2x_test_nvram_dirs(struct bnx2x *bp , u8 *buff )
 #line 2792
   dir_offset = 20U;
 #line 2795
-  tmp = __builtin_expect((bp->msg_enable & 67371008) != 0, 0L);
+  tmp = ldv__builtin_expect((bp->msg_enable & 67371008) != 0, 0L);
 #line 2795
   if (tmp != 0L) {
 #line 2795
@@ -85483,7 +85483,7 @@ static int bnx2x_test_nvram_tbl(struct bnx2x *bp , struct crc_pair  const  *nvra
 #line 2821
   if (rc != 0) {
 #line 2822
-    tmp___0 = __builtin_expect((bp->msg_enable & 67371008) != 0, 0L);
+    tmp___0 = ldv__builtin_expect((bp->msg_enable & 67371008) != 0, 0L);
 #line 2822
     if (tmp___0 != 0L) {
 #line 2822
@@ -85585,7 +85585,7 @@ static int bnx2x_test_nvram(struct bnx2x *bp )
 #line 2857
   if ((unsigned long )buf == (unsigned long )((u8 *)0)) {
 #line 2858
-    tmp___0 = __builtin_expect((bp->msg_enable & 67371008) != 0, 0L);
+    tmp___0 = ldv__builtin_expect((bp->msg_enable & 67371008) != 0, 0L);
 #line 2858
     if (tmp___0 != 0L) {
 #line 2858
@@ -85605,7 +85605,7 @@ static int bnx2x_test_nvram(struct bnx2x *bp )
 #line 2864
   if (rc != 0) {
 #line 2865
-    tmp___1 = __builtin_expect((bp->msg_enable & 67371008) != 0, 0L);
+    tmp___1 = ldv__builtin_expect((bp->msg_enable & 67371008) != 0, 0L);
 #line 2865
     if (tmp___1 != 0L) {
 #line 2865
@@ -85623,7 +85623,7 @@ static int bnx2x_test_nvram(struct bnx2x *bp )
 #line 2870
   if (magic != 1721324970U) {
 #line 2871
-    tmp___2 = __builtin_expect((bp->msg_enable & 67371008) != 0, 0L);
+    tmp___2 = ldv__builtin_expect((bp->msg_enable & 67371008) != 0, 0L);
 #line 2871
     if (tmp___2 != 0L) {
 #line 2871
@@ -85641,7 +85641,7 @@ static int bnx2x_test_nvram(struct bnx2x *bp )
 
   }
 #line 2877
-  tmp___3 = __builtin_expect((bp->msg_enable & 67371008) != 0, 0L);
+  tmp___3 = ldv__builtin_expect((bp->msg_enable & 67371008) != 0, 0L);
 #line 2877
   if (tmp___3 != 0L) {
 #line 2877
@@ -85668,7 +85668,7 @@ static int bnx2x_test_nvram(struct bnx2x *bp )
 #line 2886
     if (hide == 0U) {
 #line 2887
-      tmp___5 = __builtin_expect((bp->msg_enable & 67371008) != 0, 0L);
+      tmp___5 = ldv__builtin_expect((bp->msg_enable & 67371008) != 0, 0L);
 #line 2887
       if (tmp___5 != 0L) {
 #line 2887
@@ -85804,7 +85804,7 @@ static int bnx2x_test_intr(struct bnx2x *bp )
 #line 2907
   if (tmp___1) {
 #line 2908
-    tmp = __builtin_expect((bp->msg_enable & 67371008) != 0, 0L);
+    tmp = ldv__builtin_expect((bp->msg_enable & 67371008) != 0, 0L);
 #line 2908
     if (tmp != 0L) {
 #line 2908
@@ -85875,7 +85875,7 @@ static void bnx2x_self_test(struct net_device *dev , struct ethtool_test *etest 
 
   }
 #line 2935
-  tmp___0 = __builtin_expect((bp->msg_enable & 67108864) != 0, 0L);
+  tmp___0 = ldv__builtin_expect((bp->msg_enable & 67108864) != 0, 0L);
 #line 2935
   if (tmp___0 != 0L) {
 #line 2935
@@ -85900,7 +85900,7 @@ static void bnx2x_self_test(struct net_device *dev , struct ethtool_test *etest 
 #line 2942
   if (tmp___3) {
 #line 2943
-    tmp___1 = __builtin_expect((bp->msg_enable & 67108864) != 0, 0L);
+    tmp___1 = ldv__builtin_expect((bp->msg_enable & 67108864) != 0, 0L);
 #line 2943
     if (tmp___1 != 0L) {
 #line 2943
@@ -85935,7 +85935,7 @@ static void bnx2x_self_test(struct net_device *dev , struct ethtool_test *etest 
 #line 2963
       etest->flags = etest->flags | 2U;
 #line 2964
-      tmp___4 = __builtin_expect((bp->msg_enable & 67108864) != 0, 0L);
+      tmp___4 = ldv__builtin_expect((bp->msg_enable & 67108864) != 0, 0L);
 #line 2964
       if (tmp___4 != 0L) {
 #line 2964
@@ -86013,7 +86013,7 @@ static void bnx2x_self_test(struct net_device *dev , struct ethtool_test *etest 
 #line 2998
       etest->flags = etest->flags | 2U;
 #line 2999
-      tmp___9 = __builtin_expect((bp->msg_enable & 67108864) != 0, 0L);
+      tmp___9 = ldv__builtin_expect((bp->msg_enable & 67108864) != 0, 0L);
 #line 2999
       if (tmp___9 != 0L) {
 #line 2999
@@ -86483,7 +86483,7 @@ static int bnx2x_set_phys_id(struct net_device *dev , enum ethtool_phys_id_state
 #line 3181
   if (tmp___2) {
 #line 3182
-    tmp___0 = __builtin_expect((bp->msg_enable & 67371008) != 0, 0L);
+    tmp___0 = ldv__builtin_expect((bp->msg_enable & 67371008) != 0, 0L);
 #line 3182
     if (tmp___0 != 0L) {
 #line 3182
@@ -86500,7 +86500,7 @@ static int bnx2x_set_phys_id(struct net_device *dev , enum ethtool_phys_id_state
 #line 3187
   if (bp->port.pmf == 0U) {
 #line 3188
-    tmp___3 = __builtin_expect((bp->msg_enable & 67108864) != 0, 0L);
+    tmp___3 = ldv__builtin_expect((bp->msg_enable & 67108864) != 0, 0L);
 #line 3188
     if (tmp___3 != 0L) {
 #line 3188
@@ -86630,7 +86630,7 @@ static int bnx2x_get_rxnfc(struct net_device *dev , struct ethtool_rxnfc *info ,
   return (tmp___0);
   default: 
 #line 3268
-  tmp___1 = __builtin_expect((bp->msg_enable & 67108864) != 0, 0L);
+  tmp___1 = ldv__builtin_expect((bp->msg_enable & 67108864) != 0, 0L);
 #line 3268
   if (tmp___1 != 0L) {
 #line 3268
@@ -86659,7 +86659,7 @@ static int bnx2x_set_rss_flags(struct bnx2x *bp , struct ethtool_rxnfc *info )
 
   {
 #line 3277
-  tmp = __builtin_expect((bp->msg_enable & 67108864) != 0, 0L);
+  tmp = ldv__builtin_expect((bp->msg_enable & 67108864) != 0, 0L);
 #line 3277
   if (tmp != 0L) {
 #line 3277
@@ -86676,7 +86676,7 @@ static int bnx2x_set_rss_flags(struct bnx2x *bp , struct ethtool_rxnfc *info )
 #line 3285
   if (info->data != 240ULL) {
 #line 3287
-    tmp___0 = __builtin_expect((bp->msg_enable & 67108864) != 0, 0L);
+    tmp___0 = ldv__builtin_expect((bp->msg_enable & 67108864) != 0, 0L);
 #line 3287
     if (tmp___0 != 0L) {
 #line 3287
@@ -86712,7 +86712,7 @@ static int bnx2x_set_rss_flags(struct bnx2x *bp , struct ethtool_rxnfc *info )
 #line 3305
     bp->rss_conf_obj.udp_rss_v4 = (u8 )udp_rss_requested;
 #line 3306
-    tmp___1 = __builtin_expect((bp->msg_enable & 67108864) != 0, 0L);
+    tmp___1 = ldv__builtin_expect((bp->msg_enable & 67108864) != 0, 0L);
 #line 3306
     if (tmp___1 != 0L) {
 #line 3306
@@ -86732,7 +86732,7 @@ static int bnx2x_set_rss_flags(struct bnx2x *bp , struct ethtool_rxnfc *info )
 #line 3312
     bp->rss_conf_obj.udp_rss_v6 = (u8 )udp_rss_requested;
 #line 3313
-    tmp___3 = __builtin_expect((bp->msg_enable & 67108864) != 0, 0L);
+    tmp___3 = ldv__builtin_expect((bp->msg_enable & 67108864) != 0, 0L);
 #line 3313
     if (tmp___3 != 0L) {
 #line 3313
@@ -86756,7 +86756,7 @@ static int bnx2x_set_rss_flags(struct bnx2x *bp , struct ethtool_rxnfc *info )
 #line 3323
   if (info->data != 48ULL) {
 #line 3324
-    tmp___5 = __builtin_expect((bp->msg_enable & 67108864) != 0, 0L);
+    tmp___5 = ldv__builtin_expect((bp->msg_enable & 67108864) != 0, 0L);
 #line 3324
     if (tmp___5 != 0L) {
 #line 3324
@@ -86785,7 +86785,7 @@ static int bnx2x_set_rss_flags(struct bnx2x *bp , struct ethtool_rxnfc *info )
 #line 3341
   if (info->data != 0ULL) {
 #line 3342
-    tmp___6 = __builtin_expect((bp->msg_enable & 67108864) != 0, 0L);
+    tmp___6 = ldv__builtin_expect((bp->msg_enable & 67108864) != 0, 0L);
 #line 3342
     if (tmp___6 != 0L) {
 #line 3342
@@ -86829,7 +86829,7 @@ static int bnx2x_set_rxnfc(struct net_device *dev , struct ethtool_rxnfc *info )
   return (tmp___0);
   default: 
 #line 3361
-  tmp___1 = __builtin_expect((bp->msg_enable & 67108864) != 0, 0L);
+  tmp___1 = ldv__builtin_expect((bp->msg_enable & 67108864) != 0, 0L);
 #line 3361
   if (tmp___1 != 0L) {
 #line 3361
@@ -86977,7 +86977,7 @@ static void bnx2x_change_num_queues(struct bnx2x *bp , int num_rss )
 #line 3443
   bp->num_queues = (int )(bp->num_ethernet_queues + bp->num_cnic_queues);
 #line 3444
-  tmp = __builtin_expect((bp->msg_enable & 2) != 0, 0L);
+  tmp = ldv__builtin_expect((bp->msg_enable & 2) != 0, 0L);
 #line 3444
   if (tmp != 0L) {
 #line 3444
@@ -87011,7 +87011,7 @@ static int bnx2x_set_channels(struct net_device *dev , struct ethtool_channels *
 #line 3457
   bp = (struct bnx2x *)tmp;
 #line 3460
-  tmp___0 = __builtin_expect((bp->msg_enable & 67108864) != 0, 0L);
+  tmp___0 = ldv__builtin_expect((bp->msg_enable & 67108864) != 0, 0L);
 #line 3460
   if (tmp___0 != 0L) {
 #line 3460
@@ -87024,7 +87024,7 @@ static int bnx2x_set_channels(struct net_device *dev , struct ethtool_channels *
 #line 3468
   if ((((channels->rx_count != 0U || channels->tx_count != 0U) || channels->other_count != 0U) || channels->combined_count == 0U) || channels->combined_count > (__u32 )((int )bp->igu_sb_cnt - (int )bp->cnic_support)) {
 #line 3471
-    tmp___1 = __builtin_expect((bp->msg_enable & 67108864) != 0, 0L);
+    tmp___1 = ldv__builtin_expect((bp->msg_enable & 67108864) != 0, 0L);
 #line 3471
     if (tmp___1 != 0L) {
 #line 3471
@@ -87041,7 +87041,7 @@ static int bnx2x_set_channels(struct net_device *dev , struct ethtool_channels *
 #line 3476
   if (channels->combined_count == bp->num_ethernet_queues) {
 #line 3477
-    tmp___2 = __builtin_expect((bp->msg_enable & 67108864) != 0, 0L);
+    tmp___2 = ldv__builtin_expect((bp->msg_enable & 67108864) != 0, 0L);
 #line 3477
     if (tmp___2 != 0L) {
 #line 3477
@@ -87066,7 +87066,7 @@ static int bnx2x_set_channels(struct net_device *dev , struct ethtool_channels *
     tmp___4 = 1;
   }
 #line 3485
-  tmp___5 = __builtin_expect((long )tmp___4, 0L);
+  tmp___5 = ldv__builtin_expect((long )tmp___4, 0L);
 #line 3485
   if (tmp___5 != 0L) {
 #line 3486
@@ -87779,7 +87779,7 @@ __inline static u16 bnx2x_get_port_stats_dma_len(struct bnx2x *bp )
 #line 145
   __ret_warn_on = (unsigned int )res > 256U;
 #line 145
-  tmp___1 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___1 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 145
   if (tmp___1 != 0L) {
 #line 145
@@ -87789,7 +87789,7 @@ __inline static u16 bnx2x_get_port_stats_dma_len(struct bnx2x *bp )
 
   }
 #line 145
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 146
   return (res);
 }
@@ -87803,7 +87803,7 @@ static void bnx2x_dp_stats(struct bnx2x *bp )
 
   {
 #line 157
-  tmp = __builtin_expect((bp->msg_enable & 131072) != 0, 0L);
+  tmp = ldv__builtin_expect((bp->msg_enable & 131072) != 0, 0L);
 #line 157
   if (tmp != 0L) {
 #line 157
@@ -87821,7 +87821,7 @@ static void bnx2x_dp_stats(struct bnx2x *bp )
   goto ldv_45029;
   ldv_45028: 
 #line 173
-  tmp___0 = __builtin_expect((bp->msg_enable & 131072) != 0, 0L);
+  tmp___0 = ldv__builtin_expect((bp->msg_enable & 131072) != 0, 0L);
 #line 173
   if (tmp___0 != 0L) {
 #line 173
@@ -87876,7 +87876,7 @@ static void bnx2x_storm_stats_post(struct bnx2x *bp )
 #line 207
     (bp->fw_stats_req)->hdr.drv_stats_counter = tmp;
 #line 210
-    tmp___0 = __builtin_expect((bp->msg_enable & 131072) != 0, 0L);
+    tmp___0 = ldv__builtin_expect((bp->msg_enable & 131072) != 0, 0L);
 #line 210
     if (tmp___0 != 0L) {
 #line 210
@@ -90721,7 +90721,7 @@ static int bnx2x_hw_stats_update(struct bnx2x *bp )
   goto ldv_45132;
   case 0: 
 #line 907
-  tmp = __builtin_expect((bp->msg_enable & 131072) != 0, 0L);
+  tmp = ldv__builtin_expect((bp->msg_enable & 131072) != 0, 0L);
 #line 907
   if (tmp != 0L) {
 #line 907
@@ -90901,7 +90901,7 @@ static int bnx2x_storm_stats_validate_counters(struct bnx2x *bp )
 #line 967
   if ((int )counters->xstats_counter != (int )cur_stats_counter) {
 #line 968
-    tmp = __builtin_expect((bp->msg_enable & 131072) != 0, 0L);
+    tmp = ldv__builtin_expect((bp->msg_enable & 131072) != 0, 0L);
 #line 968
     if (tmp != 0L) {
 #line 968
@@ -90919,7 +90919,7 @@ static int bnx2x_storm_stats_validate_counters(struct bnx2x *bp )
 #line 974
   if ((int )counters->ustats_counter != (int )cur_stats_counter) {
 #line 975
-    tmp___0 = __builtin_expect((bp->msg_enable & 131072) != 0, 0L);
+    tmp___0 = ldv__builtin_expect((bp->msg_enable & 131072) != 0, 0L);
 #line 975
     if (tmp___0 != 0L) {
 #line 975
@@ -90937,7 +90937,7 @@ static int bnx2x_storm_stats_validate_counters(struct bnx2x *bp )
 #line 981
   if ((int )counters->cstats_counter != (int )cur_stats_counter) {
 #line 982
-    tmp___1 = __builtin_expect((bp->msg_enable & 131072) != 0, 0L);
+    tmp___1 = ldv__builtin_expect((bp->msg_enable & 131072) != 0, 0L);
 #line 982
     if (tmp___1 != 0L) {
 #line 982
@@ -90955,7 +90955,7 @@ static int bnx2x_storm_stats_validate_counters(struct bnx2x *bp )
 #line 988
   if ((int )counters->tstats_counter != (int )cur_stats_counter) {
 #line 989
-    tmp___2 = __builtin_expect((bp->msg_enable & 131072) != 0, 0L);
+    tmp___2 = ldv__builtin_expect((bp->msg_enable & 131072) != 0, 0L);
 #line 989
     if (tmp___2 != 0L) {
 #line 989
@@ -91051,7 +91051,7 @@ static int bnx2x_storm_stats_update(struct bnx2x *bp )
 #line 1034
   qstats_old = & (bp->fp_stats + (unsigned long )fp->index)->eth_q_stats_old;
 #line 1039
-  tmp___0 = __builtin_expect((bp->msg_enable & 131072) != 0, 0L);
+  tmp___0 = ldv__builtin_expect((bp->msg_enable & 131072) != 0, 0L);
 #line 1039
   if (tmp___0 != 0L) {
 #line 1039
@@ -91062,7 +91062,7 @@ static int bnx2x_storm_stats_update(struct bnx2x *bp )
 
   }
 #line 1043
-  tmp___1 = __builtin_expect((bp->msg_enable & 131072) != 0, 0L);
+  tmp___1 = ldv__builtin_expect((bp->msg_enable & 131072) != 0, 0L);
 #line 1043
   if (tmp___1 != 0L) {
 #line 1043
@@ -92199,7 +92199,7 @@ static void bnx2x_stats_update(struct bnx2x *bp )
 #line 1336
     descriptor.flags = 0U;
 #line 1336
-    tmp___2 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___2 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1336
     if (tmp___2 != 0L) {
 #line 1336
@@ -92396,7 +92396,7 @@ void bnx2x_stats_handle(struct bnx2x *bp , enum bnx2x_stats_event event )
 
   {
 #line 1451
-  tmp = __builtin_expect(bp->panic != 0, 0L);
+  tmp = ldv__builtin_expect(bp->panic != 0, 0L);
 #line 1451
   if (tmp != 0L) {
 #line 1452
@@ -92417,7 +92417,7 @@ void bnx2x_stats_handle(struct bnx2x *bp , enum bnx2x_stats_event event )
 #line 1461
   if ((unsigned int )event != 2U || (bp->msg_enable & 8) != 0) {
 #line 1462
-    tmp___0 = __builtin_expect((bp->msg_enable & 131072) != 0, 0L);
+    tmp___0 = ldv__builtin_expect((bp->msg_enable & 131072) != 0, 0L);
 #line 1462
     if (tmp___0 != 0L) {
 #line 1462
@@ -92732,7 +92732,7 @@ void bnx2x_stats_init(struct bnx2x *bp )
     bp->func_stx = 0U;
   }
 #line 1680
-  tmp = __builtin_expect((bp->msg_enable & 131072) != 0, 0L);
+  tmp = ldv__builtin_expect((bp->msg_enable & 131072) != 0, 0L);
 #line 1680
   if (tmp != 0L) {
 #line 1680
@@ -93526,7 +93526,7 @@ static void bnx2x_dump_dcbx_drv_param(struct bnx2x *bp , struct dcbx_features *f
 #line 202
   i = 0U;
 #line 203
-  tmp = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+  tmp = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 203
   if (tmp != 0L) {
 #line 203
@@ -93537,7 +93537,7 @@ static void bnx2x_dump_dcbx_drv_param(struct bnx2x *bp , struct dcbx_features *f
 
   }
 #line 206
-  tmp___0 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+  tmp___0 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 206
   if (tmp___0 != 0L) {
 #line 206
@@ -93553,7 +93553,7 @@ static void bnx2x_dump_dcbx_drv_param(struct bnx2x *bp , struct dcbx_features *f
   goto ldv_45433;
   ldv_45432: 
 #line 209
-  tmp___1 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+  tmp___1 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 209
   if (tmp___1 != 0L) {
 #line 209
@@ -93579,7 +93579,7 @@ static void bnx2x_dump_dcbx_drv_param(struct bnx2x *bp , struct dcbx_features *f
   goto ldv_45436;
   ldv_45435: 
 #line 213
-  tmp___2 = __builtin_expect((bp->msg_enable & 4) != 0, 0L);
+  tmp___2 = ldv__builtin_expect((bp->msg_enable & 4) != 0, 0L);
 #line 213
   if (tmp___2 != 0L) {
 #line 213
@@ -93600,7 +93600,7 @@ static void bnx2x_dump_dcbx_drv_param(struct bnx2x *bp , struct dcbx_features *f
 
   }
 #line 218
-  tmp___3 = __builtin_expect((bp->msg_enable & 134217728) != 0, 0L);
+  tmp___3 = ldv__builtin_expect((bp->msg_enable & 134217728) != 0, 0L);
 #line 218
   if (tmp___3 != 0L) {
 #line 218
@@ -93611,7 +93611,7 @@ static void bnx2x_dump_dcbx_drv_param(struct bnx2x *bp , struct dcbx_features *f
 
   }
 #line 220
-  tmp___4 = __builtin_expect((bp->msg_enable & 134217728) != 0, 0L);
+  tmp___4 = ldv__builtin_expect((bp->msg_enable & 134217728) != 0, 0L);
 #line 220
   if (tmp___4 != 0L) {
 #line 220
@@ -93622,7 +93622,7 @@ static void bnx2x_dump_dcbx_drv_param(struct bnx2x *bp , struct dcbx_features *f
 
   }
 #line 222
-  tmp___5 = __builtin_expect((bp->msg_enable & 134217728) != 0, 0L);
+  tmp___5 = ldv__builtin_expect((bp->msg_enable & 134217728) != 0, 0L);
 #line 222
   if (tmp___5 != 0L) {
 #line 222
@@ -93633,7 +93633,7 @@ static void bnx2x_dump_dcbx_drv_param(struct bnx2x *bp , struct dcbx_features *f
 
   }
 #line 225
-  tmp___6 = __builtin_expect((bp->msg_enable & 134217728) != 0, 0L);
+  tmp___6 = ldv__builtin_expect((bp->msg_enable & 134217728) != 0, 0L);
 #line 225
   if (tmp___6 != 0L) {
 #line 225
@@ -93644,7 +93644,7 @@ static void bnx2x_dump_dcbx_drv_param(struct bnx2x *bp , struct dcbx_features *f
 
   }
 #line 227
-  tmp___7 = __builtin_expect((bp->msg_enable & 134217728) != 0, 0L);
+  tmp___7 = ldv__builtin_expect((bp->msg_enable & 134217728) != 0, 0L);
 #line 227
   if (tmp___7 != 0L) {
 #line 227
@@ -93655,7 +93655,7 @@ static void bnx2x_dump_dcbx_drv_param(struct bnx2x *bp , struct dcbx_features *f
 
   }
 #line 229
-  tmp___8 = __builtin_expect((bp->msg_enable & 134217728) != 0, 0L);
+  tmp___8 = ldv__builtin_expect((bp->msg_enable & 134217728) != 0, 0L);
 #line 229
   if (tmp___8 != 0L) {
 #line 229
@@ -93671,7 +93671,7 @@ static void bnx2x_dump_dcbx_drv_param(struct bnx2x *bp , struct dcbx_features *f
   goto ldv_45439;
   ldv_45438: 
 #line 232
-  tmp___9 = __builtin_expect((bp->msg_enable & 134217728) != 0, 0L);
+  tmp___9 = ldv__builtin_expect((bp->msg_enable & 134217728) != 0, 0L);
 #line 232
   if (tmp___9 != 0L) {
 #line 232
@@ -93682,7 +93682,7 @@ static void bnx2x_dump_dcbx_drv_param(struct bnx2x *bp , struct dcbx_features *f
 
   }
 #line 235
-  tmp___10 = __builtin_expect((bp->msg_enable & 134217728) != 0, 0L);
+  tmp___10 = ldv__builtin_expect((bp->msg_enable & 134217728) != 0, 0L);
 #line 235
   if (tmp___10 != 0L) {
 #line 235
@@ -93693,7 +93693,7 @@ static void bnx2x_dump_dcbx_drv_param(struct bnx2x *bp , struct dcbx_features *f
 
   }
 #line 238
-  tmp___11 = __builtin_expect((bp->msg_enable & 134217728) != 0, 0L);
+  tmp___11 = ldv__builtin_expect((bp->msg_enable & 134217728) != 0, 0L);
 #line 238
   if (tmp___11 != 0L) {
 #line 238
@@ -93791,7 +93791,7 @@ static void bnx2x_dcbx_get_ap_feature(struct bnx2x *bp , struct dcbx_app_priorit
 #line 271
   if ((error & 4U) != 0U) {
 #line 272
-    tmp = __builtin_expect((bp->msg_enable & 134217728) != 0, 0L);
+    tmp = ldv__builtin_expect((bp->msg_enable & 134217728) != 0, 0L);
 #line 272
     if (tmp != 0L) {
 #line 272
@@ -93806,7 +93806,7 @@ static void bnx2x_dcbx_get_ap_feature(struct bnx2x *bp , struct dcbx_app_priorit
 #line 274
   if ((error & 32U) != 0U) {
 #line 275
-    tmp___0 = __builtin_expect((bp->msg_enable & 134217728) != 0, 0L);
+    tmp___0 = ldv__builtin_expect((bp->msg_enable & 134217728) != 0, 0L);
 #line 275
     if (tmp___0 != 0L) {
 #line 275
@@ -93821,7 +93821,7 @@ static void bnx2x_dcbx_get_ap_feature(struct bnx2x *bp , struct dcbx_app_priorit
 #line 277
   if ((error & 512U) != 0U) {
 #line 278
-    tmp___1 = __builtin_expect((bp->msg_enable & 134217728) != 0, 0L);
+    tmp___1 = ldv__builtin_expect((bp->msg_enable & 134217728) != 0, 0L);
 #line 278
     if (tmp___1 != 0L) {
 #line 278
@@ -93898,7 +93898,7 @@ static void bnx2x_dcbx_get_ap_feature(struct bnx2x *bp , struct dcbx_app_priorit
 
   } else {
 #line 310
-    tmp___2 = __builtin_expect((bp->msg_enable & 134217728) != 0, 0L);
+    tmp___2 = ldv__builtin_expect((bp->msg_enable & 134217728) != 0, 0L);
 #line 310
     if (tmp___2 != 0L) {
 #line 310
@@ -93974,7 +93974,7 @@ static void bnx2x_dcbx_get_ets_feature(struct bnx2x *bp , struct dcbx_ets_featur
 #line 329
   if ((int )error & 1) {
 #line 330
-    tmp___0 = __builtin_expect((bp->msg_enable & 134217728) != 0, 0L);
+    tmp___0 = ldv__builtin_expect((bp->msg_enable & 134217728) != 0, 0L);
 #line 330
     if (tmp___0 != 0L) {
 #line 330
@@ -93989,7 +93989,7 @@ static void bnx2x_dcbx_get_ets_feature(struct bnx2x *bp , struct dcbx_ets_featur
 #line 332
   if ((error & 128U) != 0U) {
 #line 333
-    tmp___1 = __builtin_expect((bp->msg_enable & 134217728) != 0, 0L);
+    tmp___1 = ldv__builtin_expect((bp->msg_enable & 134217728) != 0, 0L);
 #line 333
     if (tmp___1 != 0L) {
 #line 333
@@ -94028,7 +94028,7 @@ static void bnx2x_dcbx_get_ets_feature(struct bnx2x *bp , struct dcbx_ets_featur
 #line 343
   if ((bp->dcbx_port_params.app.enabled != 0U && ets->enabled != 0U) && (error & 129U) == 0U) {
 #line 346
-    tmp___2 = __builtin_expect((bp->msg_enable & 134217728) != 0, 0L);
+    tmp___2 = ldv__builtin_expect((bp->msg_enable & 134217728) != 0, 0L);
 #line 346
     if (tmp___2 != 0L) {
 #line 346
@@ -94047,7 +94047,7 @@ static void bnx2x_dcbx_get_ets_feature(struct bnx2x *bp , struct dcbx_ets_featur
     bnx2x_dcbx_fill_cos_params(bp, & pg_help_data, ets, (u32 *)(& pg_pri_orginal_spread));
   } else {
 #line 361
-    tmp___3 = __builtin_expect((bp->msg_enable & 134217728) != 0, 0L);
+    tmp___3 = ldv__builtin_expect((bp->msg_enable & 134217728) != 0, 0L);
 #line 361
     if (tmp___3 != 0L) {
 #line 361
@@ -94097,7 +94097,7 @@ static void bnx2x_dcbx_get_pfc_feature(struct bnx2x *bp , struct dcbx_pfc_featur
 #line 374
   if ((error & 2U) != 0U) {
 #line 375
-    tmp = __builtin_expect((bp->msg_enable & 134217728) != 0, 0L);
+    tmp = ldv__builtin_expect((bp->msg_enable & 134217728) != 0, 0L);
 #line 375
     if (tmp != 0L) {
 #line 375
@@ -94112,7 +94112,7 @@ static void bnx2x_dcbx_get_pfc_feature(struct bnx2x *bp , struct dcbx_pfc_featur
 #line 377
   if ((error & 256U) != 0U) {
 #line 378
-    tmp___0 = __builtin_expect((bp->msg_enable & 134217728) != 0, 0L);
+    tmp___0 = ldv__builtin_expect((bp->msg_enable & 134217728) != 0, 0L);
 #line 378
     if (tmp___0 != 0L) {
 #line 378
@@ -94132,7 +94132,7 @@ static void bnx2x_dcbx_get_pfc_feature(struct bnx2x *bp , struct dcbx_pfc_featur
     bp->dcbx_port_params.pfc.priority_non_pauseable_mask = (u32 )(~ ((int )pfc->pri_en_bitmap));
   } else {
 #line 386
-    tmp___1 = __builtin_expect((bp->msg_enable & 134217728) != 0, 0L);
+    tmp___1 = ldv__builtin_expect((bp->msg_enable & 134217728) != 0, 0L);
 #line 386
     if (tmp___1 != 0L) {
 #line 386
@@ -94194,7 +94194,7 @@ static void bnx2x_dcbx_map_nw(struct bnx2x *bp )
 #line 408
   if (((cos_params + (unsigned long )i)->pri_bitmask & nw_prio) != 0U) {
 #line 410
-    tmp = __builtin_expect((bp->msg_enable & 134217728) != 0, 0L);
+    tmp = ldv__builtin_expect((bp->msg_enable & 134217728) != 0, 0L);
 #line 410
     if (tmp != 0L) {
 #line 410
@@ -94450,7 +94450,7 @@ static int bnx2x_dcbx_stop_hw_tx(struct bnx2x *bp )
 #line 508
   func_params.cmd = 6;
 #line 510
-  tmp = __builtin_expect((bp->msg_enable & 134217728) != 0, 0L);
+  tmp = ldv__builtin_expect((bp->msg_enable & 134217728) != 0, 0L);
 #line 510
   if (tmp != 0L) {
 #line 510
@@ -94542,7 +94542,7 @@ static int bnx2x_dcbx_resume_hw_tx(struct bnx2x *bp )
 #line 523
   bnx2x_dcbx_fw_struct(bp, tx_params);
 #line 525
-  tmp = __builtin_expect((bp->msg_enable & 134217728) != 0, 0L);
+  tmp = ldv__builtin_expect((bp->msg_enable & 134217728) != 0, 0L);
 #line 525
   if (tmp != 0L) {
 #line 525
@@ -94951,7 +94951,7 @@ static int bnx2x_dcbx_read_shmem_remote_mib(struct bnx2x *bp )
 #line 651
   dcbx_remote_mib_offset = tmp;
 #line 654
-  tmp___0 = __builtin_expect((bp->msg_enable & 134217728) != 0, 0L);
+  tmp___0 = ldv__builtin_expect((bp->msg_enable & 134217728) != 0, 0L);
 #line 654
   if (tmp___0 != 0L) {
 #line 654
@@ -95132,7 +95132,7 @@ static int bnx2x_dcbx_read_shmem_neg_results(struct bnx2x *bp )
 #line 680
   dcbx_neg_res_offset = tmp;
 #line 683
-  tmp___0 = __builtin_expect((bp->msg_enable & 134217728) != 0, 0L);
+  tmp___0 = ldv__builtin_expect((bp->msg_enable & 134217728) != 0, 0L);
 #line 683
   if (tmp___0 != 0L) {
 #line 683
@@ -95296,7 +95296,7 @@ __inline static void bnx2x_dcbx_update_tc_mapping(struct bnx2x *bp )
 #line 758
     bp->prio_to_cos[(int )prio] = cos;
 #line 759
-    tmp = __builtin_expect((bp->msg_enable & 134217728) != 0, 0L);
+    tmp = ldv__builtin_expect((bp->msg_enable & 134217728) != 0, 0L);
 #line 759
     if (tmp != 0L) {
 #line 759
@@ -95356,7 +95356,7 @@ void bnx2x_dcbx_set_params(struct bnx2x *bp , u32 state )
   switch (state) {
   case 1U: 
 #line 778
-  tmp = __builtin_expect((bp->msg_enable & 134217728) != 0, 0L);
+  tmp = ldv__builtin_expect((bp->msg_enable & 134217728) != 0, 0L);
 #line 778
   if (tmp != 0L) {
 #line 778
@@ -95408,7 +95408,7 @@ void bnx2x_dcbx_set_params(struct bnx2x *bp , u32 state )
   return;
   case 2U: 
 #line 828
-  tmp___2 = __builtin_expect((bp->msg_enable & 134217728) != 0, 0L);
+  tmp___2 = ldv__builtin_expect((bp->msg_enable & 134217728) != 0, 0L);
 #line 828
   if (tmp___2 != 0L) {
 #line 828
@@ -95427,7 +95427,7 @@ void bnx2x_dcbx_set_params(struct bnx2x *bp , u32 state )
   return;
   case 3U: 
 #line 836
-  tmp___3 = __builtin_expect((bp->msg_enable & 134217728) != 0, 0L);
+  tmp___3 = ldv__builtin_expect((bp->msg_enable & 134217728) != 0, 0L);
 #line 836
   if (tmp___3 != 0L) {
 #line 836
@@ -95557,7 +95557,7 @@ static void bnx2x_dcbx_admin_mib_updated_params(struct bnx2x *bp , u32 dcbx_lldp
 #line 924
     af->ets.pg_bw_tbl[i / 4U] = af->ets.pg_bw_tbl[i / 4U] | (u32 )((int )((unsigned char )dp->admin_configuration_bw_precentage[i]) << (int )((~ i & 3U) * 8U));
 #line 927
-    tmp = __builtin_expect((bp->msg_enable & 134217728) != 0, 0L);
+    tmp = ldv__builtin_expect((bp->msg_enable & 134217728) != 0, 0L);
 #line 927
     if (tmp != 0L) {
 #line 927
@@ -95587,7 +95587,7 @@ static void bnx2x_dcbx_admin_mib_updated_params(struct bnx2x *bp , u32 dcbx_lldp
 #line 932
     af->ets.pri_pg_tbl[i / 8U] = af->ets.pri_pg_tbl[i / 8U] | (u32 )(((int )((unsigned char )dp->admin_configuration_ets_pg[i]) & 15) << (int )(((~ (i / 2U) & 3U) * 2U + (i & 1U)) * 4U));
 #line 935
-    tmp___0 = __builtin_expect((bp->msg_enable & 134217728) != 0, 0L);
+    tmp___0 = ldv__builtin_expect((bp->msg_enable & 134217728) != 0, 0L);
 #line 935
     if (tmp___0 != 0L) {
 #line 935
@@ -95686,7 +95686,7 @@ void bnx2x_dcbx_set_state(struct bnx2x *bp , bool dcb_on , u32 dcbx_enabled )
     bp->dcbx_enabled = -1;
   }
 #line 989
-  tmp = __builtin_expect((bp->msg_enable & 134217728) != 0, 0L);
+  tmp = ldv__builtin_expect((bp->msg_enable & 134217728) != 0, 0L);
 #line 989
   if (tmp != 0L) {
 #line 989
@@ -95836,7 +95836,7 @@ void bnx2x_dcbx_init(struct bnx2x *bp , bool update_shmem )
 
   }
 #line 1067
-  tmp = __builtin_expect((bp->msg_enable & 134217728) != 0, 0L);
+  tmp = ldv__builtin_expect((bp->msg_enable & 134217728) != 0, 0L);
 #line 1067
   if (tmp != 0L) {
 #line 1067
@@ -95857,7 +95857,7 @@ void bnx2x_dcbx_init(struct bnx2x *bp , bool update_shmem )
 #line 1072
         dcbx_lldp_params_offset = readl((void const volatile   *)(bp->regview + ((unsigned long )bp->common.shmem2_base + 40UL)));
 #line 1075
-        tmp___0 = __builtin_expect((bp->msg_enable & 134217728) != 0, 0L);
+        tmp___0 = ldv__builtin_expect((bp->msg_enable & 134217728) != 0, 0L);
 #line 1075
         if (tmp___0 != 0L) {
 #line 1075
@@ -95920,7 +95920,7 @@ static void bnx2x_dcbx_print_cos_params(struct bnx2x *bp , struct bnx2x_func_tx_
 #line 1106
   cos = 0U;
 #line 1108
-  tmp = __builtin_expect((bp->msg_enable & 134217728) != 0, 0L);
+  tmp = ldv__builtin_expect((bp->msg_enable & 134217728) != 0, 0L);
 #line 1108
   if (tmp != 0L) {
 #line 1108
@@ -95931,7 +95931,7 @@ static void bnx2x_dcbx_print_cos_params(struct bnx2x *bp , struct bnx2x_func_tx_
 
   }
 #line 1110
-  tmp___0 = __builtin_expect((bp->msg_enable & 134217728) != 0, 0L);
+  tmp___0 = ldv__builtin_expect((bp->msg_enable & 134217728) != 0, 0L);
 #line 1110
   if (tmp___0 != 0L) {
 #line 1110
@@ -95947,7 +95947,7 @@ static void bnx2x_dcbx_print_cos_params(struct bnx2x *bp , struct bnx2x_func_tx_
   goto ldv_45682;
   ldv_45681: 
 #line 1115
-  tmp___1 = __builtin_expect((bp->msg_enable & 134217728) != 0, 0L);
+  tmp___1 = ldv__builtin_expect((bp->msg_enable & 134217728) != 0, 0L);
 #line 1115
   if (tmp___1 != 0L) {
 #line 1115
@@ -95958,7 +95958,7 @@ static void bnx2x_dcbx_print_cos_params(struct bnx2x *bp , struct bnx2x_func_tx_
 
   }
 #line 1119
-  tmp___2 = __builtin_expect((bp->msg_enable & 134217728) != 0, 0L);
+  tmp___2 = ldv__builtin_expect((bp->msg_enable & 134217728) != 0, 0L);
 #line 1119
   if (tmp___2 != 0L) {
 #line 1119
@@ -95969,7 +95969,7 @@ static void bnx2x_dcbx_print_cos_params(struct bnx2x *bp , struct bnx2x_func_tx_
 
   }
 #line 1123
-  tmp___3 = __builtin_expect((bp->msg_enable & 134217728) != 0, 0L);
+  tmp___3 = ldv__builtin_expect((bp->msg_enable & 134217728) != 0, 0L);
 #line 1123
   if (tmp___3 != 0L) {
 #line 1123
@@ -95980,7 +95980,7 @@ static void bnx2x_dcbx_print_cos_params(struct bnx2x *bp , struct bnx2x_func_tx_
 
   }
 #line 1127
-  tmp___4 = __builtin_expect((bp->msg_enable & 134217728) != 0, 0L);
+  tmp___4 = ldv__builtin_expect((bp->msg_enable & 134217728) != 0, 0L);
 #line 1127
   if (tmp___4 != 0L) {
 #line 1127
@@ -96006,7 +96006,7 @@ static void bnx2x_dcbx_print_cos_params(struct bnx2x *bp , struct bnx2x_func_tx_
   goto ldv_45685;
   ldv_45684: 
 #line 1133
-  tmp___5 = __builtin_expect((bp->msg_enable & 134217728) != 0, 0L);
+  tmp___5 = ldv__builtin_expect((bp->msg_enable & 134217728) != 0, 0L);
 #line 1133
   if (tmp___5 != 0L) {
 #line 1133
@@ -96017,7 +96017,7 @@ static void bnx2x_dcbx_print_cos_params(struct bnx2x *bp , struct bnx2x_func_tx_
 
   }
 #line 1137
-  tmp___6 = __builtin_expect((bp->msg_enable & 134217728) != 0, 0L);
+  tmp___6 = ldv__builtin_expect((bp->msg_enable & 134217728) != 0, 0L);
 #line 1137
   if (tmp___6 != 0L) {
 #line 1137
@@ -96141,7 +96141,7 @@ static void bnx2x_dcbx_get_num_pg_traf_type(struct bnx2x *bp , u32 *pg_pri_orgin
 
   }
 #line 1184
-  tmp = __builtin_expect((bp->msg_enable & 134217728) != 0, 0L);
+  tmp = ldv__builtin_expect((bp->msg_enable & 134217728) != 0, 0L);
 #line 1184
   if (tmp != 0L) {
 #line 1184
@@ -97116,7 +97116,7 @@ static void bnx2x_dcbx_fill_cos_params(struct bnx2x *bp , struct pg_help_data *h
 #line 1852
   if ((unsigned int )p->pauseable != 0U) {
 #line 1853
-    tmp = __builtin_expect((bp->msg_enable & 134217728) != 0, 0L);
+    tmp = ldv__builtin_expect((bp->msg_enable & 134217728) != 0, 0L);
 #line 1853
     if (tmp != 0L) {
 #line 1853
@@ -97128,7 +97128,7 @@ static void bnx2x_dcbx_fill_cos_params(struct bnx2x *bp , struct pg_help_data *h
     }
   } else {
 #line 1856
-    tmp___0 = __builtin_expect((bp->msg_enable & 134217728) != 0, 0L);
+    tmp___0 = ldv__builtin_expect((bp->msg_enable & 134217728) != 0, 0L);
 #line 1856
     if (tmp___0 != 0L) {
 #line 1856
@@ -97171,7 +97171,7 @@ static void bnx2x_dcbx_get_ets_pri_pg_tbl(struct bnx2x *bp , u32 *set_configurat
 #line 1871
   *(set_configuration_ets_pg + (unsigned long )i) = (*(pri_pg_tbl + (unsigned long )(i / 8)) >> ((3 - (i / 2) % 4) * 2 + i % 2) * 4) & 15U;
 #line 1873
-  tmp = __builtin_expect((bp->msg_enable & 134217728) != 0, 0L);
+  tmp = ldv__builtin_expect((bp->msg_enable & 134217728) != 0, 0L);
 #line 1873
   if (tmp != 0L) {
 #line 1873
@@ -97383,7 +97383,7 @@ static u8 bnx2x_dcbnl_get_state(struct net_device *netdev )
 #line 1971
   bp = (struct bnx2x *)tmp;
 #line 1972
-  tmp___0 = __builtin_expect((bp->msg_enable & 134217728) != 0, 0L);
+  tmp___0 = ldv__builtin_expect((bp->msg_enable & 134217728) != 0, 0L);
 #line 1972
   if (tmp___0 != 0L) {
 #line 1972
@@ -97410,7 +97410,7 @@ static u8 bnx2x_dcbnl_set_state(struct net_device *netdev , u8 state )
 #line 1978
   bp = (struct bnx2x *)tmp;
 #line 1979
-  tmp___0 = __builtin_expect((bp->msg_enable & 134217728) != 0, 0L);
+  tmp___0 = ldv__builtin_expect((bp->msg_enable & 134217728) != 0, 0L);
 #line 1979
   if (tmp___0 != 0L) {
 #line 1979
@@ -97422,7 +97422,7 @@ static u8 bnx2x_dcbnl_set_state(struct net_device *netdev , u8 state )
 #line 1982
   if ((unsigned int )state != 0U && (bp->dcbx_enabled == 0 || bp->dcbx_enabled == -1)) {
 #line 1984
-    tmp___1 = __builtin_expect((bp->msg_enable & 134217728) != 0, 0L);
+    tmp___1 = ldv__builtin_expect((bp->msg_enable & 134217728) != 0, 0L);
 #line 1984
     if (tmp___1 != 0L) {
 #line 1984
@@ -97459,7 +97459,7 @@ static void bnx2x_dcbnl_get_perm_hw_addr(struct net_device *netdev , u8 *perm_ad
 #line 1995
   bp = (struct bnx2x *)tmp;
 #line 1996
-  tmp___0 = __builtin_expect((bp->msg_enable & 134217728) != 0, 0L);
+  tmp___0 = ldv__builtin_expect((bp->msg_enable & 134217728) != 0, 0L);
 #line 1996
   if (tmp___0 != 0L) {
 #line 1996
@@ -97502,7 +97502,7 @@ static void bnx2x_dcbnl_set_pg_tccfg_tx(struct net_device *netdev , int prio , u
 #line 2011
   bp = (struct bnx2x *)tmp;
 #line 2013
-  tmp___0 = __builtin_expect((bp->msg_enable & 134217728) != 0, 0L);
+  tmp___0 = ldv__builtin_expect((bp->msg_enable & 134217728) != 0, 0L);
 #line 2013
   if (tmp___0 != 0L) {
 #line 2013
@@ -97552,7 +97552,7 @@ static void bnx2x_dcbnl_set_pg_bwgcfg_tx(struct net_device *netdev , int pgid , 
 #line 2037
   bp = (struct bnx2x *)tmp;
 #line 2038
-  tmp___0 = __builtin_expect((bp->msg_enable & 134217728) != 0, 0L);
+  tmp___0 = ldv__builtin_expect((bp->msg_enable & 134217728) != 0, 0L);
 #line 2038
   if (tmp___0 != 0L) {
 #line 2038
@@ -97601,7 +97601,7 @@ static void bnx2x_dcbnl_set_pg_tccfg_rx(struct net_device *netdev , int prio , u
 #line 2051
   bp = (struct bnx2x *)tmp;
 #line 2052
-  tmp___0 = __builtin_expect((bp->msg_enable & 134217728) != 0, 0L);
+  tmp___0 = ldv__builtin_expect((bp->msg_enable & 134217728) != 0, 0L);
 #line 2052
   if (tmp___0 != 0L) {
 #line 2052
@@ -97627,7 +97627,7 @@ static void bnx2x_dcbnl_set_pg_bwgcfg_rx(struct net_device *netdev , int pgid , 
 #line 2058
   bp = (struct bnx2x *)tmp;
 #line 2059
-  tmp___0 = __builtin_expect((bp->msg_enable & 134217728) != 0, 0L);
+  tmp___0 = ldv__builtin_expect((bp->msg_enable & 134217728) != 0, 0L);
 #line 2059
   if (tmp___0 != 0L) {
 #line 2059
@@ -97657,7 +97657,7 @@ static void bnx2x_dcbnl_get_pg_tccfg_tx(struct net_device *netdev , int prio , u
 #line 2066
   bp = (struct bnx2x *)tmp;
 #line 2067
-  tmp___0 = __builtin_expect((bp->msg_enable & 134217728) != 0, 0L);
+  tmp___0 = ldv__builtin_expect((bp->msg_enable & 134217728) != 0, 0L);
 #line 2067
   if (tmp___0 != 0L) {
 #line 2067
@@ -97707,7 +97707,7 @@ static void bnx2x_dcbnl_get_pg_bwgcfg_tx(struct net_device *netdev , int pgid , 
 #line 2092
   bp = (struct bnx2x *)tmp;
 #line 2093
-  tmp___0 = __builtin_expect((bp->msg_enable & 134217728) != 0, 0L);
+  tmp___0 = ldv__builtin_expect((bp->msg_enable & 134217728) != 0, 0L);
 #line 2093
   if (tmp___0 != 0L) {
 #line 2093
@@ -97749,7 +97749,7 @@ static void bnx2x_dcbnl_get_pg_tccfg_rx(struct net_device *netdev , int prio , u
 #line 2107
   bp = (struct bnx2x *)tmp;
 #line 2108
-  tmp___0 = __builtin_expect((bp->msg_enable & 134217728) != 0, 0L);
+  tmp___0 = ldv__builtin_expect((bp->msg_enable & 134217728) != 0, 0L);
 #line 2108
   if (tmp___0 != 0L) {
 #line 2108
@@ -97789,7 +97789,7 @@ static void bnx2x_dcbnl_get_pg_bwgcfg_rx(struct net_device *netdev , int pgid , 
 #line 2116
   bp = (struct bnx2x *)tmp;
 #line 2117
-  tmp___0 = __builtin_expect((bp->msg_enable & 134217728) != 0, 0L);
+  tmp___0 = ldv__builtin_expect((bp->msg_enable & 134217728) != 0, 0L);
 #line 2117
   if (tmp___0 != 0L) {
 #line 2117
@@ -97819,7 +97819,7 @@ static void bnx2x_dcbnl_set_pfc_cfg(struct net_device *netdev , int prio , u8 se
 #line 2125
   bp = (struct bnx2x *)tmp;
 #line 2126
-  tmp___0 = __builtin_expect((bp->msg_enable & 134217728) != 0, 0L);
+  tmp___0 = ldv__builtin_expect((bp->msg_enable & 134217728) != 0, 0L);
 #line 2126
   if (tmp___0 != 0L) {
 #line 2126
@@ -97873,7 +97873,7 @@ static void bnx2x_dcbnl_get_pfc_cfg(struct net_device *netdev , int prio , u8 *s
 #line 2142
   bp = (struct bnx2x *)tmp;
 #line 2143
-  tmp___0 = __builtin_expect((bp->msg_enable & 134217728) != 0, 0L);
+  tmp___0 = ldv__builtin_expect((bp->msg_enable & 134217728) != 0, 0L);
 #line 2143
   if (tmp___0 != 0L) {
 #line 2143
@@ -97917,7 +97917,7 @@ static u8 bnx2x_dcbnl_set_all(struct net_device *netdev )
 #line 2156
   rc = 0;
 #line 2158
-  tmp___0 = __builtin_expect((bp->msg_enable & 134217728) != 0, 0L);
+  tmp___0 = ldv__builtin_expect((bp->msg_enable & 134217728) != 0, 0L);
 #line 2158
   if (tmp___0 != 0L) {
 #line 2158
@@ -97963,7 +97963,7 @@ static u8 bnx2x_dcbnl_set_all(struct net_device *netdev )
 
   }
 #line 2174
-  tmp___4 = __builtin_expect((bp->msg_enable & 134217728) != 0, 0L);
+  tmp___4 = ldv__builtin_expect((bp->msg_enable & 134217728) != 0, 0L);
 #line 2174
   if (tmp___4 != 0L) {
 #line 2174
@@ -98056,7 +98056,7 @@ static u8 bnx2x_dcbnl_get_cap(struct net_device *netdev , int capid , u8 *cap )
     ldv_46031: ;
   } else {
 #line 2218
-    tmp___0 = __builtin_expect((bp->msg_enable & 134217728) != 0, 0L);
+    tmp___0 = ldv__builtin_expect((bp->msg_enable & 134217728) != 0, 0L);
 #line 2218
     if (tmp___0 != 0L) {
 #line 2218
@@ -98068,7 +98068,7 @@ static u8 bnx2x_dcbnl_get_cap(struct net_device *netdev , int capid , u8 *cap )
     rval = 1U;
   }
 #line 2222
-  tmp___1 = __builtin_expect((bp->msg_enable & 134217728) != 0, 0L);
+  tmp___1 = ldv__builtin_expect((bp->msg_enable & 134217728) != 0, 0L);
 #line 2222
   if (tmp___1 != 0L) {
 #line 2222
@@ -98098,7 +98098,7 @@ static int bnx2x_dcbnl_get_numtcs(struct net_device *netdev , int tcid , u8 *num
 #line 2229
   rval = 0U;
 #line 2231
-  tmp___0 = __builtin_expect((bp->msg_enable & 134217728) != 0, 0L);
+  tmp___0 = ldv__builtin_expect((bp->msg_enable & 134217728) != 0, 0L);
 #line 2231
   if (tmp___0 != 0L) {
 #line 2231
@@ -98133,7 +98133,7 @@ static int bnx2x_dcbnl_get_numtcs(struct net_device *netdev , int tcid , u8 *num
     ldv_46050: ;
   } else {
 #line 2249
-    tmp___1 = __builtin_expect((bp->msg_enable & 134217728) != 0, 0L);
+    tmp___1 = ldv__builtin_expect((bp->msg_enable & 134217728) != 0, 0L);
 #line 2249
     if (tmp___1 != 0L) {
 #line 2249
@@ -98162,7 +98162,7 @@ static int bnx2x_dcbnl_set_numtcs(struct net_device *netdev , int tcid , u8 num 
 #line 2258
   bp = (struct bnx2x *)tmp;
 #line 2259
-  tmp___0 = __builtin_expect((bp->msg_enable & 134217728) != 0, 0L);
+  tmp___0 = ldv__builtin_expect((bp->msg_enable & 134217728) != 0, 0L);
 #line 2259
   if (tmp___0 != 0L) {
 #line 2259
@@ -98189,7 +98189,7 @@ static u8 bnx2x_dcbnl_get_pfc_state(struct net_device *netdev )
 #line 2265
   bp = (struct bnx2x *)tmp;
 #line 2266
-  tmp___0 = __builtin_expect((bp->msg_enable & 134217728) != 0, 0L);
+  tmp___0 = ldv__builtin_expect((bp->msg_enable & 134217728) != 0, 0L);
 #line 2266
   if (tmp___0 != 0L) {
 #line 2266
@@ -98226,7 +98226,7 @@ static void bnx2x_dcbnl_set_pfc_state(struct net_device *netdev , u8 state )
 #line 2276
   bp = (struct bnx2x *)tmp;
 #line 2277
-  tmp___0 = __builtin_expect((bp->msg_enable & 134217728) != 0, 0L);
+  tmp___0 = ldv__builtin_expect((bp->msg_enable & 134217728) != 0, 0L);
 #line 2277
   if (tmp___0 != 0L) {
 #line 2277
@@ -98441,7 +98441,7 @@ static u8 bnx2x_dcbnl_set_app_up(struct net_device *netdev , u8 idtype , u16 idv
 #line 2370
   bp = (struct bnx2x *)tmp;
 #line 2372
-  tmp___0 = __builtin_expect((bp->msg_enable & 134217728) != 0, 0L);
+  tmp___0 = ldv__builtin_expect((bp->msg_enable & 134217728) != 0, 0L);
 #line 2372
   if (tmp___0 != 0L) {
 #line 2372
@@ -98464,7 +98464,7 @@ static u8 bnx2x_dcbnl_set_app_up(struct net_device *netdev , u8 idtype , u16 idv
 #line 2375
   if (tmp___3) {
 #line 2376
-    tmp___1 = __builtin_expect((bp->msg_enable & 134217728) != 0, 0L);
+    tmp___1 = ldv__builtin_expect((bp->msg_enable & 134217728) != 0, 0L);
 #line 2376
     if (tmp___1 != 0L) {
 #line 2376
@@ -98486,7 +98486,7 @@ static u8 bnx2x_dcbnl_set_app_up(struct net_device *netdev , u8 idtype , u16 idv
   goto ldv_46113;
   default: 
 #line 2386
-  tmp___4 = __builtin_expect((bp->msg_enable & 134217728) != 0, 0L);
+  tmp___4 = ldv__builtin_expect((bp->msg_enable & 134217728) != 0, 0L);
 #line 2386
   if (tmp___4 != 0L) {
 #line 2386
@@ -98543,7 +98543,7 @@ static u8 bnx2x_dcbnl_set_dcbx(struct net_device *netdev , u8 state )
 #line 2407
   bp = (struct bnx2x *)tmp;
 #line 2408
-  tmp___0 = __builtin_expect((bp->msg_enable & 134217728) != 0, 0L);
+  tmp___0 = ldv__builtin_expect((bp->msg_enable & 134217728) != 0, 0L);
 #line 2408
   if (tmp___0 != 0L) {
 #line 2408
@@ -98604,7 +98604,7 @@ static u8 bnx2x_dcbnl_get_featcfg(struct net_device *netdev , int featid , u8 *f
 #line 2436
   rval = 0U;
 #line 2438
-  tmp___0 = __builtin_expect((bp->msg_enable & 134217728) != 0, 0L);
+  tmp___0 = ldv__builtin_expect((bp->msg_enable & 134217728) != 0, 0L);
 #line 2438
   if (tmp___0 != 0L) {
 #line 2438
@@ -98682,7 +98682,7 @@ static u8 bnx2x_dcbnl_get_featcfg(struct net_device *netdev , int featid , u8 *f
     ldv_46135: ;
   } else {
 #line 2469
-    tmp___1 = __builtin_expect((bp->msg_enable & 134217728) != 0, 0L);
+    tmp___1 = ldv__builtin_expect((bp->msg_enable & 134217728) != 0, 0L);
 #line 2469
     if (tmp___1 != 0L) {
 #line 2469
@@ -98716,7 +98716,7 @@ static u8 bnx2x_dcbnl_set_featcfg(struct net_device *netdev , int featid , u8 fl
 #line 2480
   rval = 0U;
 #line 2482
-  tmp___0 = __builtin_expect((bp->msg_enable & 134217728) != 0, 0L);
+  tmp___0 = ldv__builtin_expect((bp->msg_enable & 134217728) != 0, 0L);
 #line 2482
   if (tmp___0 != 0L) {
 #line 2482
@@ -98763,7 +98763,7 @@ static u8 bnx2x_dcbnl_set_featcfg(struct net_device *netdev , int featid , u8 fl
     ldv_46148: ;
   } else {
 #line 2510
-    tmp___1 = __builtin_expect((bp->msg_enable & 134217728) != 0, 0L);
+    tmp___1 = ldv__builtin_expect((bp->msg_enable & 134217728) != 0, 0L);
 #line 2510
     if (tmp___1 != 0L) {
 #line 2510
@@ -98794,7 +98794,7 @@ static int bnx2x_peer_appinfo(struct net_device *netdev , struct dcb_peer_app_in
 #line 2521
   bp = (struct bnx2x *)tmp;
 #line 2523
-  tmp___0 = __builtin_expect((bp->msg_enable & 134217728) != 0, 0L);
+  tmp___0 = ldv__builtin_expect((bp->msg_enable & 134217728) != 0, 0L);
 #line 2523
   if (tmp___0 != 0L) {
 #line 2523
@@ -98852,7 +98852,7 @@ static int bnx2x_peer_apptable(struct net_device *netdev , struct dcb_app *table
 #line 2540
   bp = (struct bnx2x *)tmp;
 #line 2542
-  tmp___0 = __builtin_expect((bp->msg_enable & 134217728) != 0, 0L);
+  tmp___0 = ldv__builtin_expect((bp->msg_enable & 134217728) != 0, 0L);
 #line 2542
   if (tmp___0 != 0L) {
 #line 2542
@@ -99621,7 +99621,7 @@ __inline static void bnx2x_exe_queue_init(struct bnx2x *bp , struct bnx2x_exe_qu
 #line 142
   o->get = get;
 #line 144
-  tmp = __builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
+  tmp = ldv__builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
 #line 144
   if (tmp != 0L) {
 #line 144
@@ -99642,7 +99642,7 @@ __inline static void bnx2x_exe_queue_free_elem(struct bnx2x *bp , struct bnx2x_e
 
   {
 #line 151
-  tmp = __builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
+  tmp = ldv__builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
 #line 151
   if (tmp != 0L) {
 #line 151
@@ -99723,7 +99723,7 @@ __inline static int bnx2x_exe_queue_add(struct bnx2x *bp , struct bnx2x_exe_queu
 #line 197
     if (rc != 0) {
 #line 198
-      tmp = __builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
+      tmp = ldv__builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
 #line 198
       if (tmp != 0L) {
 #line 198
@@ -99838,7 +99838,7 @@ __inline static int bnx2x_exe_queue_step(struct bnx2x *bp , struct bnx2x_exe_que
 #line 274
     if (tmp___0 != 0) {
 #line 275
-      tmp = __builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
+      tmp = ldv__builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
 #line 275
       if (tmp != 0L) {
 #line 275
@@ -99868,7 +99868,7 @@ __inline static int bnx2x_exe_queue_step(struct bnx2x *bp , struct bnx2x_exe_que
 #line 290
   __ret_warn_on = elem->cmd_len == 0;
 #line 290
-  tmp___2 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___2 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 290
   if (tmp___2 != 0L) {
 #line 290
@@ -99878,7 +99878,7 @@ __inline static int bnx2x_exe_queue_step(struct bnx2x *bp , struct bnx2x_exe_que
 
   }
 #line 290
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 292
   if (elem->cmd_len + cur_len <= o->exe_chunk_len) {
 #line 293
@@ -99978,7 +99978,7 @@ __inline static struct bnx2x_exeq_elem *bnx2x_exe_queue_alloc_elem(struct bnx2x 
 
   {
 #line 344
-  tmp = __builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
+  tmp = ldv__builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
 #line 344
   if (tmp != 0L) {
 #line 344
@@ -100056,7 +100056,7 @@ __inline static int bnx2x_state_wait(struct bnx2x *bp , int state , unsigned lon
 
   }
 #line 386
-  tmp = __builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
+  tmp = ldv__builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
 #line 386
   if (tmp != 0L) {
 #line 386
@@ -100136,7 +100136,7 @@ static bool bnx2x_get_cam_offset_mac(struct bnx2x_vlan_mac_obj *o , int *offset 
 #line 423
   __ret_warn_on = (unsigned long )mp == (unsigned long )((struct bnx2x_credit_pool_obj *)0);
 #line 423
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 423
   if (tmp != 0L) {
 #line 423
@@ -100146,7 +100146,7 @@ static bool bnx2x_get_cam_offset_mac(struct bnx2x_vlan_mac_obj *o , int *offset 
 
   }
 #line 423
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 425
   tmp___0 = (*(mp->get_entry))(mp, offset);
 #line 425
@@ -100167,7 +100167,7 @@ static bool bnx2x_get_credit_mac(struct bnx2x_vlan_mac_obj *o )
 #line 432
   __ret_warn_on = (unsigned long )mp == (unsigned long )((struct bnx2x_credit_pool_obj *)0);
 #line 432
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 432
   if (tmp != 0L) {
 #line 432
@@ -100177,7 +100177,7 @@ static bool bnx2x_get_credit_mac(struct bnx2x_vlan_mac_obj *o )
 
   }
 #line 432
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 434
   tmp___0 = (*(mp->get))(mp, 1);
 #line 434
@@ -100198,7 +100198,7 @@ static bool bnx2x_get_cam_offset_vlan(struct bnx2x_vlan_mac_obj *o , int *offset
 #line 441
   __ret_warn_on = (unsigned long )vp == (unsigned long )((struct bnx2x_credit_pool_obj *)0);
 #line 441
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 441
   if (tmp != 0L) {
 #line 441
@@ -100208,7 +100208,7 @@ static bool bnx2x_get_cam_offset_vlan(struct bnx2x_vlan_mac_obj *o , int *offset
 
   }
 #line 441
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 443
   tmp___0 = (*(vp->get_entry))(vp, offset);
 #line 443
@@ -100229,7 +100229,7 @@ static bool bnx2x_get_credit_vlan(struct bnx2x_vlan_mac_obj *o )
 #line 450
   __ret_warn_on = (unsigned long )vp == (unsigned long )((struct bnx2x_credit_pool_obj *)0);
 #line 450
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 450
   if (tmp != 0L) {
 #line 450
@@ -100239,7 +100239,7 @@ static bool bnx2x_get_credit_vlan(struct bnx2x_vlan_mac_obj *o )
 
   }
 #line 450
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 452
   tmp___0 = (*(vp->get))(vp, 1);
 #line 452
@@ -100450,7 +100450,7 @@ static int bnx2x_get_n_elements(struct bnx2x *bp , struct bnx2x_vlan_mac_obj *o 
 #line 526
     counter = counter + 1;
 #line 527
-    tmp = __builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
+    tmp = ldv__builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
 #line 527
     if (tmp != 0L) {
 #line 527
@@ -100495,7 +100495,7 @@ static int bnx2x_check_mac_add(struct bnx2x *bp , struct bnx2x_vlan_mac_obj *o ,
 
   {
 #line 543
-  tmp = __builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
+  tmp = ldv__builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
 #line 543
   if (tmp != 0L) {
 #line 543
@@ -100567,7 +100567,7 @@ static int bnx2x_check_vlan_add(struct bnx2x *bp , struct bnx2x_vlan_mac_obj *o 
 
   {
 #line 563
-  tmp = __builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
+  tmp = ldv__builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
 #line 563
   if (tmp != 0L) {
 #line 563
@@ -100620,7 +100620,7 @@ static int bnx2x_check_vlan_mac_add(struct bnx2x *bp , struct bnx2x_vlan_mac_obj
 
   {
 #line 578
-  tmp = __builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
+  tmp = ldv__builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
 #line 578
   if (tmp != 0L) {
 #line 578
@@ -100687,7 +100687,7 @@ static struct bnx2x_vlan_mac_registry_elem *bnx2x_check_mac_del(struct bnx2x *bp
 
   {
 #line 601
-  tmp = __builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
+  tmp = ldv__builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
 #line 601
   if (tmp != 0L) {
 #line 601
@@ -100743,7 +100743,7 @@ static struct bnx2x_vlan_mac_registry_elem *bnx2x_check_vlan_del(struct bnx2x *b
 
   {
 #line 618
-  tmp = __builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
+  tmp = ldv__builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
 #line 618
   if (tmp != 0L) {
 #line 618
@@ -100797,7 +100797,7 @@ static struct bnx2x_vlan_mac_registry_elem *bnx2x_check_vlan_mac_del(struct bnx2
 
   {
 #line 634
-  tmp = __builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
+  tmp = ldv__builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
 #line 634
   if (tmp != 0L) {
 #line 634
@@ -100942,7 +100942,7 @@ void bnx2x_set_mac_in_nig(struct bnx2x *bp , bool add , unsigned char *dev_addr 
 
   }
 #line 714
-  tmp = __builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
+  tmp = ldv__builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
 #line 714
   if (tmp != 0L) {
 #line 714
@@ -101094,7 +101094,7 @@ static void bnx2x_set_one_mac_e2(struct bnx2x *bp , struct bnx2x_vlan_mac_obj *o
 #line 829
   bnx2x_vlan_mac_set_cmd_hdr_e2(bp, o, (int )add, 0, & rule_entry->mac.header);
 #line 832
-  tmp___1 = __builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
+  tmp___1 = ldv__builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
 #line 832
   if (tmp___1 != 0L) {
 #line 832
@@ -101215,7 +101215,7 @@ __inline static void bnx2x_vlan_mac_set_rdata_e1x(struct bnx2x *bp , struct bnx2
 #line 928
   bnx2x_vlan_mac_set_cfg_entry_e1x(bp, o, (int )add, opcode, mac, (int )vlan_id, cfg_entry);
 #line 931
-  tmp = __builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
+  tmp = ldv__builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
 #line 931
   if (tmp != 0L) {
 #line 931
@@ -101292,7 +101292,7 @@ static void bnx2x_set_one_vlan_e2(struct bnx2x *bp , struct bnx2x_vlan_mac_obj *
 #line 988
   bnx2x_vlan_mac_set_cmd_hdr_e2(bp, o, (int )add, 1, & rule_entry->vlan.header);
 #line 991
-  tmp = __builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
+  tmp = ldv__builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
 #line 991
   if (tmp != 0L) {
 #line 991
@@ -101658,7 +101658,7 @@ __inline static int bnx2x_validate_vlan_mac_add(struct bnx2x *bp , union bnx2x_q
 #line 1256
   if (rc != 0) {
 #line 1257
-    tmp = __builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
+    tmp = ldv__builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
 #line 1257
     if (tmp != 0L) {
 #line 1257
@@ -101677,7 +101677,7 @@ __inline static int bnx2x_validate_vlan_mac_add(struct bnx2x *bp , union bnx2x_q
 #line 1265
   if ((unsigned long )tmp___1 != (unsigned long )((struct bnx2x_exeq_elem *)0)) {
 #line 1266
-    tmp___0 = __builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
+    tmp___0 = ldv__builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
 #line 1266
     if (tmp___0 != 0L) {
 #line 1266
@@ -101747,7 +101747,7 @@ __inline static int bnx2x_validate_vlan_mac_del(struct bnx2x *bp , union bnx2x_q
 #line 1309
   if ((unsigned long )pos == (unsigned long )((struct bnx2x_vlan_mac_registry_elem *)0)) {
 #line 1310
-    tmp = __builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
+    tmp = ldv__builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
 #line 1310
     if (tmp != 0L) {
 #line 1310
@@ -101790,7 +101790,7 @@ __inline static int bnx2x_validate_vlan_mac_del(struct bnx2x *bp , union bnx2x_q
 #line 1328
   if ((unsigned long )tmp___2 != (unsigned long )((struct bnx2x_exeq_elem *)0)) {
 #line 1329
-    tmp___1 = __builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
+    tmp___1 = ldv__builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
 #line 1329
     if (tmp___1 != 0L) {
 #line 1329
@@ -101882,7 +101882,7 @@ __inline static int bnx2x_validate_vlan_mac_move(struct bnx2x *bp , union bnx2x_
 #line 1370
   if (tmp___1) {
 #line 1372
-    tmp = __builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
+    tmp = ldv__builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
 #line 1372
     if (tmp != 0L) {
 #line 1372
@@ -101925,7 +101925,7 @@ __inline static int bnx2x_validate_vlan_mac_move(struct bnx2x *bp , union bnx2x_
 #line 1391
   if ((unsigned long )tmp___4 != (unsigned long )((struct bnx2x_exeq_elem *)0)) {
 #line 1392
-    tmp___3 = __builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
+    tmp___3 = ldv__builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
 #line 1392
     if (tmp___3 != 0L) {
 #line 1392
@@ -102325,7 +102325,7 @@ static int bnx2x_optimize_vlan_mac(struct bnx2x *bp , union bnx2x_qable_obj *qo 
 
     }
 #line 1582
-    tmp___4 = __builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
+    tmp___4 = ldv__builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
 #line 1582
     if (tmp___4 != 0L) {
 #line 1582
@@ -102395,7 +102395,7 @@ __inline static int bnx2x_vlan_mac_get_registry_elem(struct bnx2x *bp , struct b
 #line 1628
       __ret_warn_on = 1;
 #line 1628
-      tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+      tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 1628
       if (tmp___0 != 0L) {
 #line 1628
@@ -102405,7 +102405,7 @@ __inline static int bnx2x_vlan_mac_get_registry_elem(struct bnx2x *bp , struct b
 
       }
 #line 1628
-      __builtin_expect(__ret_warn_on != 0, 0L);
+      ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 1629
       kfree((void const   *)reg_elem);
 #line 1630
@@ -102414,7 +102414,7 @@ __inline static int bnx2x_vlan_mac_get_registry_elem(struct bnx2x *bp , struct b
 
     }
 #line 1633
-    tmp___3 = __builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
+    tmp___3 = ldv__builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
 #line 1633
     if (tmp___3 != 0L) {
 #line 1633
@@ -102500,7 +102500,7 @@ static int bnx2x_execute_vlan_mac(struct bnx2x *bp , union bnx2x_qable_obj *qo ,
 #line 1678
     __ret_warn_on = (int )tmp___1;
 #line 1678
-    tmp___2 = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp___2 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 1678
     if (tmp___2 != 0L) {
 #line 1678
@@ -102510,7 +102510,7 @@ static int bnx2x_execute_vlan_mac(struct bnx2x *bp , union bnx2x_qable_obj *qo ,
 
     }
 #line 1678
-    __builtin_expect(__ret_warn_on != 0, 0L);
+    ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 1681
     (*(r->set_pending))(r);
 #line 1684
@@ -102542,7 +102542,7 @@ static int bnx2x_execute_vlan_mac(struct bnx2x *bp , union bnx2x_qable_obj *qo ,
 #line 1701
     __ret_warn_on___0 = (unsigned long )reg_elem == (unsigned long )((struct bnx2x_vlan_mac_registry_elem *)0);
 #line 1701
-    tmp___3 = __builtin_expect(__ret_warn_on___0 != 0, 0L);
+    tmp___3 = ldv__builtin_expect(__ret_warn_on___0 != 0, 0L);
 #line 1701
     if (tmp___3 != 0L) {
 #line 1701
@@ -102552,7 +102552,7 @@ static int bnx2x_execute_vlan_mac(struct bnx2x *bp , union bnx2x_qable_obj *qo ,
 
     }
 #line 1701
-    __builtin_expect(__ret_warn_on___0 != 0, 0L);
+    ldv__builtin_expect(__ret_warn_on___0 != 0, 0L);
 #line 1704
     if (! restore && ((unsigned int )cmd == 0U || (unsigned int )cmd == 2U)) {
 #line 1707
@@ -102611,7 +102611,7 @@ static int bnx2x_execute_vlan_mac(struct bnx2x *bp , union bnx2x_qable_obj *qo ,
 #line 1744
     __ret_warn_on___1 = (unsigned long )reg_elem == (unsigned long )((struct bnx2x_vlan_mac_registry_elem *)0);
 #line 1744
-    tmp___4 = __builtin_expect(__ret_warn_on___1 != 0, 0L);
+    tmp___4 = ldv__builtin_expect(__ret_warn_on___1 != 0, 0L);
 #line 1744
     if (tmp___4 != 0L) {
 #line 1744
@@ -102621,7 +102621,7 @@ static int bnx2x_execute_vlan_mac(struct bnx2x *bp , union bnx2x_qable_obj *qo ,
 
     }
 #line 1744
-    __builtin_expect(__ret_warn_on___1 != 0, 0L);
+    ldv__builtin_expect(__ret_warn_on___1 != 0, 0L);
 #line 1746
     (*(o->put_cam_offset))(o, reg_elem->cam_offset);
 #line 1747
@@ -102833,7 +102833,7 @@ int bnx2x_config_vlan_mac(struct bnx2x *bp , struct bnx2x_vlan_mac_ramrod_params
 #line 1847
   if (tmp___3 != 0) {
 #line 1848
-    tmp___2 = __builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
+    tmp___2 = ldv__builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
 #line 1848
     if (tmp___2 != 0L) {
 #line 1848
@@ -103474,7 +103474,7 @@ static int bnx2x_set_rx_mode_e1x(struct bnx2x *bp , struct bnx2x_rx_mode_ramrod_
 #line 2243
   mac_filters->unmatched_unicast = (unsigned int )unmatched_unicast != 0U ? mac_filters->unmatched_unicast | mask : mac_filters->unmatched_unicast & ~ mask;
 #line 2247
-  tmp___5 = __builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
+  tmp___5 = ldv__builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
 #line 2247
   if (tmp___5 != 0L) {
 #line 2247
@@ -103723,7 +103723,7 @@ static int bnx2x_set_rx_mode_e2(struct bnx2x *bp , struct bnx2x_rx_mode_ramrod_p
 #line 2402
   bnx2x_rx_mode_set_rdata_hdr_e2(p->cid, & data->header, (int )rule_idx);
 #line 2404
-  tmp___6 = __builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
+  tmp___6 = ldv__builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
 #line 2404
   if (tmp___6 != 0L) {
 #line 2404
@@ -103909,7 +103909,7 @@ static int bnx2x_mcast_enqueue_cmd(struct bnx2x *bp , struct bnx2x_mcast_obj *o 
 
   }
 #line 2537
-  tmp___0 = __builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
+  tmp___0 = ldv__builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
 #line 2537
   if (tmp___0 != 0L) {
 #line 2537
@@ -104174,7 +104174,7 @@ static void bnx2x_mcast_set_one_rule_e2(struct bnx2x *bp , struct bnx2x_mcast_ob
   }
   ldv_46731: 
 #line 2687
-  tmp___1 = __builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
+  tmp___1 = ldv__builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
 #line 2687
   if (tmp___1 != 0L) {
 #line 2687
@@ -104221,7 +104221,7 @@ __inline static int bnx2x_mcast_handle_restore_cmd_e2(struct bnx2x *bp , struct 
 #line 2721
   cnt = cnt + 1;
 #line 2723
-  tmp = __builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
+  tmp = ldv__builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
 #line 2723
   if (tmp != 0L) {
 #line 2723
@@ -104293,7 +104293,7 @@ __inline static void bnx2x_mcast_hdl_pending_add_e2(struct bnx2x *bp , struct bn
 #line 2751
   cnt = cnt + 1;
 #line 2753
-  tmp = __builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
+  tmp = ldv__builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
 #line 2753
   if (tmp != 0L) {
 #line 2753
@@ -104363,7 +104363,7 @@ __inline static void bnx2x_mcast_hdl_pending_del_e2(struct bnx2x *bp , struct bn
 #line 2783
   cmd_pos->data.macs_num = cmd_pos->data.macs_num - 1U;
 #line 2785
-  tmp = __builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
+  tmp = ldv__builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
 #line 2785
   if (tmp != 0L) {
 #line 2785
@@ -104542,7 +104542,7 @@ __inline static void bnx2x_mcast_hdl_add(struct bnx2x *bp , struct bnx2x_mcast_o
 #line 2873
   cnt = cnt + 1;
 #line 2875
-  tmp = __builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
+  tmp = ldv__builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
 #line 2875
   if (tmp != 0L) {
 #line 2875
@@ -104591,7 +104591,7 @@ __inline static void bnx2x_mcast_hdl_del(struct bnx2x *bp , struct bnx2x_mcast_o
 #line 2891
   cnt = cnt + 1;
 #line 2893
-  tmp = __builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
+  tmp = ldv__builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
 #line 2893
   if (tmp != 0L) {
 #line 2893
@@ -104631,7 +104631,7 @@ __inline static int bnx2x_mcast_handle_current_cmd(struct bnx2x *bp , struct bnx
 #line 2918
   cnt = start_cnt;
 #line 2920
-  tmp = __builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
+  tmp = ldv__builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
 #line 2920
   if (tmp != 0L) {
 #line 2920
@@ -104854,7 +104854,7 @@ static int bnx2x_mcast_setup_e2(struct bnx2x *bp , struct bnx2x_mcast_ramrod_par
 #line 3085
   __ret_warn_on = o->total_pending_num < 0;
 #line 3085
-  tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 3085
   if (tmp___0 != 0L) {
 #line 3085
@@ -104864,11 +104864,11 @@ static int bnx2x_mcast_setup_e2(struct bnx2x *bp , struct bnx2x_mcast_ramrod_par
 
   }
 #line 3085
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 3086
   __ret_warn_on___0 = o->max_cmd_len < cnt;
 #line 3086
-  tmp___1 = __builtin_expect(__ret_warn_on___0 != 0, 0L);
+  tmp___1 = ldv__builtin_expect(__ret_warn_on___0 != 0, 0L);
 #line 3086
   if (tmp___1 != 0L) {
 #line 3086
@@ -104878,7 +104878,7 @@ static int bnx2x_mcast_setup_e2(struct bnx2x *bp , struct bnx2x_mcast_ramrod_par
 
   }
 #line 3086
-  __builtin_expect(__ret_warn_on___0 != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on___0 != 0, 0L);
 #line 3088
   bnx2x_mcast_set_rdata_hdr_e2(bp, p, (int )((unsigned char )cnt));
 #line 3105
@@ -104968,7 +104968,7 @@ __inline static void bnx2x_mcast_hdl_add_e1h(struct bnx2x *bp , struct bnx2x_mca
 #line 3170
   *(mc_filter + (unsigned long )(bit >> 5)) = *(mc_filter + (unsigned long )(bit >> 5)) | (u32 )(1 << (bit & 31));
 #line 3172
-  tmp___0 = __builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
+  tmp___0 = ldv__builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
 #line 3172
   if (tmp___0 != 0L) {
 #line 3172
@@ -105014,7 +105014,7 @@ __inline static void bnx2x_mcast_hdl_restore_e1h(struct bnx2x *bp , struct bnx2x
 #line 3190
   *(mc_filter + (unsigned long )(bit >> 5)) = *(mc_filter + (unsigned long )(bit >> 5)) | (u32 )(1 << (bit & 31));
 #line 3191
-  tmp = __builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
+  tmp = ldv__builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
 #line 3191
   if (tmp != 0L) {
 #line 3191
@@ -105087,7 +105087,7 @@ static int bnx2x_mcast_setup_e1h(struct bnx2x *bp , struct bnx2x_mcast_ramrod_pa
     goto ldv_46953;
     case 2U: 
 #line 3222
-    tmp___0 = __builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
+    tmp___0 = ldv__builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
 #line 3222
     if (tmp___0 != 0L) {
 #line 3222
@@ -105168,7 +105168,7 @@ static int bnx2x_mcast_validate_e1(struct bnx2x *bp , struct bnx2x_mcast_ramrod_
 #line 3268
   p->mcast_list_len = reg_sz;
 #line 3269
-  tmp___0 = __builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
+  tmp___0 = ldv__builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
 #line 3269
   if (tmp___0 != 0L) {
 #line 3269
@@ -105194,7 +105194,7 @@ static int bnx2x_mcast_validate_e1(struct bnx2x *bp , struct bnx2x_mcast_ramrod_
 
   }
 #line 3288
-  tmp___1 = __builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
+  tmp___1 = ldv__builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
 #line 3288
   if (tmp___1 != 0L) {
 #line 3288
@@ -105347,7 +105347,7 @@ __inline static int bnx2x_mcast_handle_restore_cmd_e1(struct bnx2x *bp , struct 
 #line 3405
   i = i + 1;
 #line 3407
-  tmp = __builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
+  tmp = ldv__builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
 #line 3407
   if (tmp != 0L) {
 #line 3407
@@ -105427,7 +105427,7 @@ __inline static int bnx2x_mcast_handle_pending_cmds_e1(struct bnx2x *bp , struct
 #line 3441
   cnt = cnt + 1;
 #line 3443
-  tmp___0 = __builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
+  tmp___0 = ldv__builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
 #line 3443
   if (tmp___0 != 0L) {
 #line 3443
@@ -105456,7 +105456,7 @@ __inline static int bnx2x_mcast_handle_pending_cmds_e1(struct bnx2x *bp , struct
 #line 3449
   cnt = (int )cmd_pos->data.macs_num;
 #line 3450
-  tmp___1 = __builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
+  tmp___1 = ldv__builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
 #line 3450
   if (tmp___1 != 0L) {
 #line 3450
@@ -105568,7 +105568,7 @@ __inline static int bnx2x_mcast_refresh_registry_e1(struct bnx2x *bp , struct bn
     bnx2x_get_fw_mac_addr(& data->config_table[i].msb_mac_addr, & data->config_table[i].middle_mac_addr,
                           & data->config_table[i].lsb_mac_addr, (u8 *)(& elem->mac));
 #line 3529
-    tmp___1 = __builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
+    tmp___1 = ldv__builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
 #line 3529
     if (tmp___1 != 0L) {
 #line 3529
@@ -105599,7 +105599,7 @@ __inline static int bnx2x_mcast_refresh_registry_e1(struct bnx2x *bp , struct bn
 #line 3535
     elem = (struct bnx2x_mcast_mac_elem *)__mptr;
 #line 3537
-    tmp___2 = __builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
+    tmp___2 = ldv__builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
 #line 3537
     if (tmp___2 != 0L) {
 #line 3537
@@ -105685,7 +105685,7 @@ static int bnx2x_mcast_setup_e1(struct bnx2x *bp , struct bnx2x_mcast_ramrod_par
 #line 3582
   __ret_warn_on = o->max_cmd_len < cnt;
 #line 3582
-  tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 3582
   if (tmp___0 != 0L) {
 #line 3582
@@ -105695,7 +105695,7 @@ static int bnx2x_mcast_setup_e1(struct bnx2x *bp , struct bnx2x_mcast_ramrod_par
 
   }
 #line 3582
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 3585
   bnx2x_mcast_set_rdata_hdr_e1(bp, p, (int )((unsigned char )cnt));
 #line 3593
@@ -105831,7 +105831,7 @@ int bnx2x_config_mcast(struct bnx2x *bp , struct bnx2x_mcast_ramrod_params *p , 
 
   }
 #line 3671
-  tmp___1 = __builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
+  tmp___1 = ldv__builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
 #line 3671
   if (tmp___1 != 0L) {
 #line 3671
@@ -106104,7 +106104,7 @@ __inline static bool __atomic_add_ifless(atomic_t *v , int a , int u )
   c = atomic_read((atomic_t const   *)v);
   ldv_47135: 
 #line 3841
-  tmp = __builtin_expect(c + a >= u, 0L);
+  tmp = ldv__builtin_expect(c + a >= u, 0L);
 #line 3841
   if (tmp != 0L) {
 #line 3842
@@ -106115,7 +106115,7 @@ __inline static bool __atomic_add_ifless(atomic_t *v , int a , int u )
 #line 3844
   old = atomic_cmpxchg(v, c, c + a);
 #line 3845
-  tmp___0 = __builtin_expect(old == c, 1L);
+  tmp___0 = ldv__builtin_expect(old == c, 1L);
 #line 3845
   if (tmp___0 != 0L) {
 #line 3846
@@ -106145,7 +106145,7 @@ __inline static bool __atomic_dec_ifmoe(atomic_t *v , int a , int u )
   c = atomic_read((atomic_t const   *)v);
   ldv_47144: 
 #line 3869
-  tmp = __builtin_expect(c - a < u, 0L);
+  tmp = ldv__builtin_expect(c - a < u, 0L);
 #line 3869
   if (tmp != 0L) {
 #line 3870
@@ -106156,7 +106156,7 @@ __inline static bool __atomic_dec_ifmoe(atomic_t *v , int a , int u )
 #line 3872
   old = atomic_cmpxchg(v, c, c - a);
 #line 3873
-  tmp___0 = __builtin_expect(old == c, 1L);
+  tmp___0 = ldv__builtin_expect(old == c, 1L);
 #line 3873
   if (tmp___0 != 0L) {
 #line 3874
@@ -106502,7 +106502,7 @@ __inline static void bnx2x_debug_print_ind_table(struct bnx2x *bp , struct bnx2x
 
   {
 #line 4135
-  tmp = __builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
+  tmp = ldv__builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
 #line 4135
   if (tmp != 0L) {
 #line 4135
@@ -106512,7 +106512,7 @@ __inline static void bnx2x_debug_print_ind_table(struct bnx2x *bp , struct bnx2x
 
   }
 #line 4136
-  tmp___0 = __builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
+  tmp___0 = ldv__builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
 #line 4136
   if (tmp___0 != 0L) {
 #line 4136
@@ -106526,7 +106526,7 @@ __inline static void bnx2x_debug_print_ind_table(struct bnx2x *bp , struct bnx2x
   goto ldv_47215;
   ldv_47214: 
 #line 4138
-  tmp___1 = __builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
+  tmp___1 = ldv__builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
 #line 4138
   if (tmp___1 != 0L) {
 #line 4138
@@ -106537,7 +106537,7 @@ __inline static void bnx2x_debug_print_ind_table(struct bnx2x *bp , struct bnx2x
 #line 4141
   if (i + 1 <= 127 && ((i + 1) & 3) == 0) {
 #line 4143
-    tmp___2 = __builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
+    tmp___2 = ldv__builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
 #line 4143
     if (tmp___2 != 0L) {
 #line 4143
@@ -106546,7 +106546,7 @@ __inline static void bnx2x_debug_print_ind_table(struct bnx2x *bp , struct bnx2x
 
     }
 #line 4144
-    tmp___3 = __builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
+    tmp___3 = ldv__builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
 #line 4144
     if (tmp___3 != 0L) {
 #line 4144
@@ -106570,7 +106570,7 @@ __inline static void bnx2x_debug_print_ind_table(struct bnx2x *bp , struct bnx2x
 
   }
 #line 4148
-  tmp___4 = __builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
+  tmp___4 = ldv__builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
 #line 4148
   if (tmp___4 != 0L) {
 #line 4148
@@ -106621,7 +106621,7 @@ static int bnx2x_setup_rss(struct bnx2x *bp , struct bnx2x_config_rss_params *p 
 #line 4169
   memset((void *)data, 0, 184UL);
 #line 4171
-  tmp = __builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
+  tmp = ldv__builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
 #line 4171
   if (tmp != 0L) {
 #line 4171
@@ -106651,7 +106651,7 @@ static int bnx2x_setup_rss(struct bnx2x *bp , struct bnx2x_config_rss_params *p 
 #line 4183
   data->rss_mode = rss_mode;
 #line 4185
-  tmp___2 = __builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
+  tmp___2 = ldv__builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
 #line 4185
   if (tmp___2 != 0L) {
 #line 4185
@@ -106719,7 +106719,7 @@ static int bnx2x_setup_rss(struct bnx2x *bp , struct bnx2x_config_rss_params *p 
 #line 4216
   data->rss_engine_id = o->engine_id;
 #line 4218
-  tmp___9 = __builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
+  tmp___9 = ldv__builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
 #line 4218
   if (tmp___9 != 0L) {
 #line 4218
@@ -106917,7 +106917,7 @@ int bnx2x_queue_state_change(struct bnx2x *bp , struct bnx2x_queue_state_params 
 
   }
 #line 4333
-  tmp = __builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
+  tmp = ldv__builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
 #line 4333
   if (tmp != 0L) {
 #line 4333
@@ -106930,7 +106930,7 @@ int bnx2x_queue_state_change(struct bnx2x *bp , struct bnx2x_queue_state_params 
 #line 4334
   pending_bit = (*(o->set_pending))(o, params);
 #line 4335
-  tmp___0 = __builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
+  tmp___0 = ldv__builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
 #line 4335
   if (tmp___0 != 0L) {
 #line 4335
@@ -107058,7 +107058,7 @@ static int bnx2x_queue_comp_cmd(struct bnx2x *bp , struct bnx2x_queue_sp_obj *o 
 
   }
 #line 4417
-  tmp___0 = __builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
+  tmp___0 = ldv__builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
 #line 4417
   if (tmp___0 != 0L) {
 #line 4417
@@ -107071,7 +107071,7 @@ static int bnx2x_queue_comp_cmd(struct bnx2x *bp , struct bnx2x_queue_sp_obj *o 
 #line 4421
   if ((unsigned int )o->next_tx_only != 0U) {
 #line 4422
-    tmp___1 = __builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
+    tmp___1 = ldv__builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
 #line 4422
     if (tmp___1 != 0L) {
 #line 4422
@@ -107171,7 +107171,7 @@ static void bnx2x_q_fill_init_general_data(struct bnx2x *bp , struct bnx2x_queue
 #line 4480
   gen_data->traffic_type = tmp___3 != 0;
 #line 4484
-  tmp___4 = __builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
+  tmp___4 = ldv__builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
 #line 4484
   if (tmp___4 != 0L) {
 #line 4484
@@ -107411,7 +107411,7 @@ static void bnx2x_q_fill_setup_tx_only(struct bnx2x *bp , struct bnx2x_queue_sta
   bnx2x_q_fill_init_tx_data(cmd_params->q_obj, & cmd_params->params.tx_only.txq_params,
                             & data->tx, & cmd_params->params.tx_only.flags);
 #line 4647
-  tmp = __builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
+  tmp = ldv__builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
 #line 4647
   if (tmp != 0L) {
 #line 4647
@@ -107494,7 +107494,7 @@ __inline static int bnx2x_q_init(struct bnx2x *bp , struct bnx2x_queue_state_par
   goto ldv_47342;
   ldv_47341: 
 #line 4696
-  tmp___5 = __builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
+  tmp___5 = ldv__builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
 #line 4696
   if (tmp___5 != 0L) {
 #line 4696
@@ -107505,7 +107505,7 @@ __inline static int bnx2x_q_init(struct bnx2x *bp , struct bnx2x_queue_state_par
 
   }
 #line 4698
-  tmp___6 = __builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
+  tmp___6 = ldv__builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
 #line 4698
   if (tmp___6 != 0L) {
 #line 4698
@@ -107634,7 +107634,7 @@ __inline static int bnx2x_q_send_setup_tx_only(struct bnx2x *bp , struct bnx2x_q
 
   }
 #line 4787
-  tmp = __builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
+  tmp = ldv__builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
 #line 4787
   if (tmp != 0L) {
 #line 4787
@@ -107649,7 +107649,7 @@ __inline static int bnx2x_q_send_setup_tx_only(struct bnx2x *bp , struct bnx2x_q
 #line 4795
   bnx2x_q_fill_setup_tx_only(bp, params, rdata);
 #line 4797
-  tmp___0 = __builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
+  tmp___0 = ldv__builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
 #line 4797
   if (tmp___0 != 0L) {
 #line 4797
@@ -108350,7 +108350,7 @@ static int bnx2x_queue_chk_transition(struct bnx2x *bp , struct bnx2x_queue_sp_o
 #line 5257
   if ((unsigned int )next_state != 9U) {
 #line 5258
-    tmp___7 = __builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
+    tmp___7 = ldv__builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
 #line 5258
     if (tmp___7 != 0L) {
 #line 5258
@@ -108370,7 +108370,7 @@ static int bnx2x_queue_chk_transition(struct bnx2x *bp , struct bnx2x_queue_sp_o
 
   }
 #line 5265
-  tmp___8 = __builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
+  tmp___8 = ldv__builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
 #line 5265
   if (tmp___8 != 0L) {
 #line 5265
@@ -108397,7 +108397,7 @@ void bnx2x_init_queue_obj(struct bnx2x *bp , struct bnx2x_queue_sp_obj *obj , u8
 #line 5276
   memset((void *)obj, 0, 104UL);
 #line 5279
-  tmp = __builtin_expect((unsigned int )cid_cnt > 3U, 0L);
+  tmp = ldv__builtin_expect((unsigned int )cid_cnt > 3U, 0L);
 #line 5279
   if (tmp != 0L) {
 #line 5279
@@ -108531,7 +108531,7 @@ __inline static int bnx2x_func_state_change_comp(struct bnx2x *bp , struct bnx2x
 
   }
 #line 5370
-  tmp___0 = __builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
+  tmp___0 = ldv__builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
 #line 5370
   if (tmp___0 != 0L) {
 #line 5370
@@ -108728,7 +108728,7 @@ static int bnx2x_func_chk_transition(struct bnx2x *bp , struct bnx2x_func_sp_obj
 #line 5500
   if ((unsigned int )next_state != 4U) {
 #line 5501
-    tmp___4 = __builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
+    tmp___4 = ldv__builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
 #line 5501
     if (tmp___4 != 0L) {
 #line 5501
@@ -108746,7 +108746,7 @@ static int bnx2x_func_chk_transition(struct bnx2x *bp , struct bnx2x_func_sp_obj
 
   }
 #line 5507
-  tmp___5 = __builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
+  tmp___5 = ldv__builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
 #line 5507
   if (tmp___5 != 0L) {
 #line 5507
@@ -108866,7 +108866,7 @@ static int bnx2x_func_hw_init(struct bnx2x *bp , struct bnx2x_func_state_params 
 #line 5596
   rc = 0;
 #line 5598
-  tmp = __builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
+  tmp = ldv__builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
 #line 5598
   if (tmp != 0L) {
 #line 5598
@@ -109026,7 +109026,7 @@ __inline static int bnx2x_func_hw_reset(struct bnx2x *bp , struct bnx2x_func_sta
 #line 5716
   drv = (struct bnx2x_func_sp_drv_ops  const  *)o->drv;
 #line 5718
-  tmp = __builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
+  tmp = ldv__builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
 #line 5718
   if (tmp != 0L) {
 #line 5718
@@ -109176,7 +109176,7 @@ __inline static int bnx2x_func_send_afex_update(struct bnx2x *bp , struct bnx2x_
 #line 5816
   rdata->echo = 1U;
 #line 5824
-  tmp = __builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
+  tmp = ldv__builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
 #line 5824
   if (tmp != 0L) {
 #line 5824
@@ -109225,7 +109225,7 @@ __inline static int bnx2x_func_send_afex_viflists(struct bnx2x *bp , struct bnx2
 #line 5854
   rdata->echo = afex_vif_params->afex_vif_list_command;
 #line 5863
-  tmp = __builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
+  tmp = ldv__builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
 #line 5863
   if (tmp != 0L) {
 #line 5863
@@ -109858,7 +109858,7 @@ __inline static struct bnx2x_vfop *bnx2x_vfop_cur(struct bnx2x *bp , struct bnx2
 #line 517
   __ret_warn_on = tmp == 0;
 #line 517
-  tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 517
   if (tmp___0 != 0L) {
 #line 517
@@ -109868,13 +109868,13 @@ __inline static struct bnx2x_vfop *bnx2x_vfop_cur(struct bnx2x *bp , struct bnx2
 
   }
 #line 517
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 518
   tmp___1 = list_empty((struct list_head  const  *)(& vf->op_list_head));
 #line 518
   __ret_warn_on___0 = tmp___1 != 0;
 #line 518
-  tmp___2 = __builtin_expect(__ret_warn_on___0 != 0, 0L);
+  tmp___2 = ldv__builtin_expect(__ret_warn_on___0 != 0, 0L);
 #line 518
   if (tmp___2 != 0L) {
 #line 518
@@ -109884,7 +109884,7 @@ __inline static struct bnx2x_vfop *bnx2x_vfop_cur(struct bnx2x *bp , struct bnx2
 
   }
 #line 518
-  __builtin_expect(__ret_warn_on___0 != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on___0 != 0, 0L);
 #line 519
   __mptr = (struct list_head  const  *)vf->op_list_head.next;
 #line 519
@@ -109910,7 +109910,7 @@ __inline static struct bnx2x_vfop *bnx2x_vfop_add(struct bnx2x *bp , struct bnx2
 #line 527
   __ret_warn_on = tmp___0 == 0;
 #line 527
-  tmp___1 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___1 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 527
   if (tmp___1 != 0L) {
 #line 527
@@ -109920,7 +109920,7 @@ __inline static struct bnx2x_vfop *bnx2x_vfop_add(struct bnx2x *bp , struct bnx2
 
   }
 #line 527
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 528
   if ((unsigned long )vfop != (unsigned long )((struct bnx2x_vfop *)0)) {
 #line 529
@@ -109955,7 +109955,7 @@ __inline static void bnx2x_vfop_end(struct bnx2x *bp , struct bnx2x_virtf *vf , 
 
   {
 #line 539
-  tmp = __builtin_expect((bp->msg_enable & 8388608) != 0, 0L);
+  tmp = ldv__builtin_expect((bp->msg_enable & 8388608) != 0, 0L);
 #line 539
   if (tmp != 0L) {
 #line 539
@@ -109972,7 +109972,7 @@ __inline static void bnx2x_vfop_end(struct bnx2x *bp , struct bnx2x_virtf *vf , 
 
   }
 #line 542
-  tmp___0 = __builtin_expect((bp->msg_enable & 8388608) != 0, 0L);
+  tmp___0 = ldv__builtin_expect((bp->msg_enable & 8388608) != 0, 0L);
 #line 542
   if (tmp___0 != 0L) {
 #line 542
@@ -109986,7 +109986,7 @@ __inline static void bnx2x_vfop_end(struct bnx2x *bp , struct bnx2x_virtf *vf , 
 #line 547
   __ret_warn_on = tmp___1 == 0;
 #line 547
-  tmp___2 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___2 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 547
   if (tmp___2 != 0L) {
 #line 547
@@ -109996,7 +109996,7 @@ __inline static void bnx2x_vfop_end(struct bnx2x *bp , struct bnx2x_virtf *vf , 
 
   }
 #line 547
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 549
   list_del(& vfop->link);
 #line 551
@@ -110004,7 +110004,7 @@ __inline static void bnx2x_vfop_end(struct bnx2x *bp , struct bnx2x_virtf *vf , 
 #line 551
   if (tmp___7 != 0) {
 #line 552
-    tmp___3 = __builtin_expect((bp->msg_enable & 8388608) != 0, 0L);
+    tmp___3 = ldv__builtin_expect((bp->msg_enable & 8388608) != 0, 0L);
 #line 552
     if (tmp___3 != 0L) {
 #line 552
@@ -110016,7 +110016,7 @@ __inline static void bnx2x_vfop_end(struct bnx2x *bp , struct bnx2x_virtf *vf , 
 #line 553
     vf->op_rc = vfop->rc;
 #line 554
-    tmp___4 = __builtin_expect((bp->msg_enable & 8388608) != 0, 0L);
+    tmp___4 = ldv__builtin_expect((bp->msg_enable & 8388608) != 0, 0L);
 #line 554
     if (tmp___4 != 0L) {
 #line 554
@@ -110028,7 +110028,7 @@ __inline static void bnx2x_vfop_end(struct bnx2x *bp , struct bnx2x_virtf *vf , 
     }
   } else {
 #line 559
-    tmp___5 = __builtin_expect((bp->msg_enable & 8388608) != 0, 0L);
+    tmp___5 = ldv__builtin_expect((bp->msg_enable & 8388608) != 0, 0L);
 #line 559
     if (tmp___5 != 0L) {
 #line 559
@@ -110042,7 +110042,7 @@ __inline static void bnx2x_vfop_end(struct bnx2x *bp , struct bnx2x_virtf *vf , 
 #line 561
     cur_vfop->rc = vfop->rc;
 #line 562
-    tmp___6 = __builtin_expect((bp->msg_enable & 8388608) != 0, 0L);
+    tmp___6 = ldv__builtin_expect((bp->msg_enable & 8388608) != 0, 0L);
 #line 562
     if (tmp___6 != 0L) {
 #line 562
@@ -110056,7 +110056,7 @@ __inline static void bnx2x_vfop_end(struct bnx2x *bp , struct bnx2x_virtf *vf , 
 #line 567
   if ((unsigned long )vfop->done != (unsigned long )((void (*)(struct bnx2x * , struct bnx2x_virtf * ))0)) {
 #line 568
-    tmp___8 = __builtin_expect((bp->msg_enable & 8388608) != 0, 0L);
+    tmp___8 = ldv__builtin_expect((bp->msg_enable & 8388608) != 0, 0L);
 #line 568
     if (tmp___8 != 0L) {
 #line 568
@@ -110071,7 +110071,7 @@ __inline static void bnx2x_vfop_end(struct bnx2x *bp , struct bnx2x_virtf *vf , 
     bnx2x_unlock_vf_pf_channel(bp, vf, 8);
   }
 #line 577
-  tmp___9 = __builtin_expect((bp->msg_enable & 8388608) != 0, 0L);
+  tmp___9 = ldv__builtin_expect((bp->msg_enable & 8388608) != 0, 0L);
 #line 577
   if (tmp___9 != 0L) {
 #line 577
@@ -110086,7 +110086,7 @@ __inline static void bnx2x_vfop_end(struct bnx2x *bp , struct bnx2x_virtf *vf , 
 #line 583
   if (tmp___11 != 0) {
 #line 584
-    tmp___10 = __builtin_expect((bp->msg_enable & 8388608) != 0, 0L);
+    tmp___10 = ldv__builtin_expect((bp->msg_enable & 8388608) != 0, 0L);
 #line 584
     if (tmp___10 != 0L) {
 #line 584
@@ -110299,7 +110299,7 @@ void bnx2x_vfpf_prep(struct bnx2x *bp , struct vfpf_first_tlv *first_tlv , u16 t
 #line 111
   ldv_mutex_lock_151(& bp->vf2pf_mutex);
 #line 113
-  tmp = __builtin_expect((bp->msg_enable & 8388608) != 0, 0L);
+  tmp = ldv__builtin_expect((bp->msg_enable & 8388608) != 0, 0L);
 #line 113
   if (tmp != 0L) {
 #line 113
@@ -110326,7 +110326,7 @@ void bnx2x_vfpf_finalize(struct bnx2x *bp , struct vfpf_first_tlv *first_tlv )
 
   {
 #line 129
-  tmp = __builtin_expect((bp->msg_enable & 8388608) != 0, 0L);
+  tmp = ldv__builtin_expect((bp->msg_enable & 8388608) != 0, 0L);
 #line 129
   if (tmp != 0L) {
 #line 129
@@ -110361,7 +110361,7 @@ void bnx2x_dp_tlv_list(struct bnx2x *bp , void *tlvs_list )
   goto ldv_45069;
   ldv_45068: 
 #line 143
-  tmp = __builtin_expect((bp->msg_enable & 8388608) != 0, 0L);
+  tmp = ldv__builtin_expect((bp->msg_enable & 8388608) != 0, 0L);
 #line 143
   if (tmp != 0L) {
 #line 143
@@ -110382,7 +110382,7 @@ void bnx2x_dp_tlv_list(struct bnx2x *bp , void *tlvs_list )
 #line 156
     __ret_warn_on = 1;
 #line 156
-    tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 156
     if (tmp___0 != 0L) {
 #line 156
@@ -110392,7 +110392,7 @@ void bnx2x_dp_tlv_list(struct bnx2x *bp , void *tlvs_list )
 
     }
 #line 156
-    __builtin_expect(__ret_warn_on != 0, 0L);
+    ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 157
     return;
   } else {
@@ -110407,7 +110407,7 @@ void bnx2x_dp_tlv_list(struct bnx2x *bp , void *tlvs_list )
 
   }
 #line 162
-  tmp___1 = __builtin_expect((bp->msg_enable & 8388608) != 0, 0L);
+  tmp___1 = ldv__builtin_expect((bp->msg_enable & 8388608) != 0, 0L);
 #line 162
   if (tmp___1 != 0L) {
 #line 162
@@ -110477,7 +110477,7 @@ static int bnx2x_send_msg2pf(struct bnx2x *bp , u8 *done , dma_addr_t msg_mappin
 #line 192
     __ret_warn_on = 1;
 #line 192
-    tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 192
     if (tmp != 0L) {
 #line 192
@@ -110487,7 +110487,7 @@ static int bnx2x_send_msg2pf(struct bnx2x *bp , u8 *done , dma_addr_t msg_mappin
 
     }
 #line 192
-    __builtin_expect(__ret_warn_on != 0, 0L);
+    ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 193
     return (-22);
   } else {
@@ -110509,7 +110509,7 @@ static int bnx2x_send_msg2pf(struct bnx2x *bp , u8 *done , dma_addr_t msg_mappin
 #line 211
   tout = tout + -1;
 #line 216
-  tmp___0 = __builtin_expect((bp->msg_enable & 8388608) != 0, 0L);
+  tmp___0 = ldv__builtin_expect((bp->msg_enable & 8388608) != 0, 0L);
 #line 216
   if (tmp___0 != 0L) {
 #line 216
@@ -110536,7 +110536,7 @@ static int bnx2x_send_msg2pf(struct bnx2x *bp , u8 *done , dma_addr_t msg_mappin
 
   }
 #line 223
-  tmp___1 = __builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
+  tmp___1 = ldv__builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
 #line 223
   if (tmp___1 != 0L) {
 #line 223
@@ -110677,7 +110677,7 @@ int bnx2x_vfpf_acquire(struct bnx2x *bp , u8 tx_count , u8 rx_count )
   goto ldv_45121;
   ldv_45120: 
 #line 292
-  tmp___0 = __builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
+  tmp___0 = ldv__builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
 #line 292
   if (tmp___0 != 0L) {
 #line 292
@@ -110710,7 +110710,7 @@ int bnx2x_vfpf_acquire(struct bnx2x *bp , u8 tx_count , u8 rx_count )
 #line 311
   if ((unsigned int )bp->acquire_resp.hdr.status == 1U) {
 #line 312
-    tmp___1 = __builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
+    tmp___1 = ldv__builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
 #line 312
     if (tmp___1 != 0L) {
 #line 312
@@ -110724,7 +110724,7 @@ int bnx2x_vfpf_acquire(struct bnx2x *bp , u8 tx_count , u8 rx_count )
 #line 314
   if ((unsigned int )bp->acquire_resp.hdr.status == 4U && attempts <= 2) {
 #line 317
-    tmp___2 = __builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
+    tmp___2 = ldv__builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
 #line 317
     if (tmp___2 != 0L) {
 #line 317
@@ -110867,7 +110867,7 @@ int bnx2x_vfpf_release(struct bnx2x *bp )
 #line 403
   if ((unsigned int )resp->hdr.status == 1U) {
 #line 405
-    tmp___1 = __builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
+    tmp___1 = ldv__builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
 #line 405
     if (tmp___1 != 0L) {
 #line 405
@@ -110954,7 +110954,7 @@ int bnx2x_vfpf_init(struct bnx2x *bp )
 
   }
 #line 456
-  tmp = __builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
+  tmp = ldv__builtin_expect((bp->msg_enable & 1048576) != 0, 0L);
 #line 456
   if (tmp != 0L) {
 #line 456
@@ -111119,7 +111119,7 @@ int bnx2x_vfpf_setup_q(struct bnx2x *bp , int fp_idx )
 #line 541
   flags = (u16 )((unsigned int )flags | 64U);
 #line 542
-  tmp = __builtin_expect((bp->msg_enable & 32) != 0, 0L);
+  tmp = ldv__builtin_expect((bp->msg_enable & 32) != 0, 0L);
 #line 542
   if (tmp != 0L) {
 #line 542
@@ -111340,7 +111340,7 @@ int bnx2x_vfpf_config_mac(struct bnx2x *bp , u8 *addr , u8 vf_qid , bool set )
   goto ldv_45213;
   ldv_45212: 
 #line 680
-  tmp = __builtin_expect((bp->msg_enable & 8388608) != 0, 0L);
+  tmp = ldv__builtin_expect((bp->msg_enable & 8388608) != 0, 0L);
 #line 680
   if (tmp != 0L) {
 #line 680
@@ -111443,7 +111443,7 @@ int bnx2x_vfpf_set_mcast(struct net_device *dev )
 #line 719
   if ((unsigned int )bp->state != 12288U) {
 #line 720
-    tmp___0 = __builtin_expect((bp->msg_enable & 32) != 0, 0L);
+    tmp___0 = ldv__builtin_expect((bp->msg_enable & 32) != 0, 0L);
 #line 720
     if (tmp___0 != 0L) {
 #line 720
@@ -111461,7 +111461,7 @@ int bnx2x_vfpf_set_mcast(struct net_device *dev )
 #line 725
   bnx2x_vfpf_prep(bp, & req->first_tlv, 4, 596);
 #line 729
-  tmp___1 = __builtin_expect((bp->msg_enable & 32) != 0, 0L);
+  tmp___1 = ldv__builtin_expect((bp->msg_enable & 32) != 0, 0L);
 #line 729
   if (tmp___1 != 0L) {
 #line 729
@@ -111478,7 +111478,7 @@ int bnx2x_vfpf_set_mcast(struct net_device *dev )
   goto ldv_45232;
   ldv_45231: 
 #line 732
-  tmp___2 = __builtin_expect((bp->msg_enable & 32) != 0, 0L);
+  tmp___2 = ldv__builtin_expect((bp->msg_enable & 32) != 0, 0L);
 #line 732
   if (tmp___2 != 0L) {
 #line 732
@@ -111517,7 +111517,7 @@ int bnx2x_vfpf_set_mcast(struct net_device *dev )
 #line 741
   if (i > 31) {
 #line 742
-    tmp___3 = __builtin_expect((bp->msg_enable & 32) != 0, 0L);
+    tmp___3 = ldv__builtin_expect((bp->msg_enable & 32) != 0, 0L);
 #line 742
     if (tmp___3 != 0L) {
 #line 742
@@ -111592,7 +111592,7 @@ int bnx2x_vfpf_storm_rx_mode(struct bnx2x *bp )
 #line 783
   bnx2x_vfpf_prep(bp, & req->first_tlv, 4, 596);
 #line 786
-  tmp = __builtin_expect((bp->msg_enable & 32) != 0, 0L);
+  tmp = ldv__builtin_expect((bp->msg_enable & 32) != 0, 0L);
 #line 786
   if (tmp != 0L) {
 #line 786
@@ -111829,7 +111829,7 @@ static void bnx2x_vf_mbx_resp(struct bnx2x *bp , struct bnx2x_virtf *vf )
 #line 943
   bnx2x_dp_tlv_list(bp, (void *)resp);
 #line 944
-  tmp___0 = __builtin_expect((bp->msg_enable & 8388608) != 0, 0L);
+  tmp___0 = ldv__builtin_expect((bp->msg_enable & 8388608) != 0, 0L);
 #line 944
   if (tmp___0 != 0L) {
 #line 944
@@ -112043,7 +112043,7 @@ static void bnx2x_vf_mbx_acquire_resp(struct bnx2x *bp , struct bnx2x_virtf *vf 
 
   }
 #line 1057
-  tmp___3 = __builtin_expect((bp->msg_enable & 8388608) != 0, 0L);
+  tmp___3 = ldv__builtin_expect((bp->msg_enable & 8388608) != 0, 0L);
 #line 1057
   if (tmp___3 != 0L) {
 #line 1057
@@ -112057,7 +112057,7 @@ static void bnx2x_vf_mbx_acquire_resp(struct bnx2x *bp , struct bnx2x_virtf *vf 
 
   }
 #line 1072
-  tmp___4 = __builtin_expect((bp->msg_enable & 8388608) != 0, 0L);
+  tmp___4 = ldv__builtin_expect((bp->msg_enable & 8388608) != 0, 0L);
 #line 1072
   if (tmp___4 != 0L) {
 #line 1072
@@ -112071,7 +112071,7 @@ static void bnx2x_vf_mbx_acquire_resp(struct bnx2x *bp , struct bnx2x_virtf *vf 
   goto ldv_45317;
   ldv_45316: 
 #line 1074
-  tmp___5 = __builtin_expect((bp->msg_enable & 8388608) != 0, 0L);
+  tmp___5 = ldv__builtin_expect((bp->msg_enable & 8388608) != 0, 0L);
 #line 1074
   if (tmp___5 != 0L) {
 #line 1074
@@ -112090,7 +112090,7 @@ static void bnx2x_vf_mbx_acquire_resp(struct bnx2x *bp , struct bnx2x_virtf *vf 
 
   }
 #line 1075
-  tmp___6 = __builtin_expect((bp->msg_enable & 8388608) != 0, 0L);
+  tmp___6 = ldv__builtin_expect((bp->msg_enable & 8388608) != 0, 0L);
 #line 1075
   if (tmp___6 != 0L) {
 #line 1075
@@ -112104,7 +112104,7 @@ static void bnx2x_vf_mbx_acquire_resp(struct bnx2x *bp , struct bnx2x_virtf *vf 
   goto ldv_45320;
   ldv_45319: 
 #line 1077
-  tmp___7 = __builtin_expect((bp->msg_enable & 8388608) != 0, 0L);
+  tmp___7 = ldv__builtin_expect((bp->msg_enable & 8388608) != 0, 0L);
 #line 1077
   if (tmp___7 != 0L) {
 #line 1077
@@ -112123,7 +112123,7 @@ static void bnx2x_vf_mbx_acquire_resp(struct bnx2x *bp , struct bnx2x_virtf *vf 
 
   }
 #line 1080
-  tmp___8 = __builtin_expect((bp->msg_enable & 8388608) != 0, 0L);
+  tmp___8 = ldv__builtin_expect((bp->msg_enable & 8388608) != 0, 0L);
 #line 1080
   if (tmp___8 != 0L) {
 #line 1080
@@ -112150,7 +112150,7 @@ static void bnx2x_vf_mbx_acquire(struct bnx2x *bp , struct bnx2x_virtf *vf , str
 #line 1091
   acquire = & (mbx->msg)->req.acquire;
 #line 1094
-  tmp = __builtin_expect((bp->msg_enable & 8388608) != 0, 0L);
+  tmp = ldv__builtin_expect((bp->msg_enable & 8388608) != 0, 0L);
 #line 1094
   if (tmp != 0L) {
 #line 1094
@@ -112512,7 +112512,7 @@ static void bnx2x_vf_mbx_dp_q_filter(struct bnx2x *bp , int msglvl , int idx , s
 
   {
 #line 1326
-  tmp = __builtin_expect((bp->msg_enable & msglvl) != 0, 0L);
+  tmp = ldv__builtin_expect((bp->msg_enable & msglvl) != 0, 0L);
 #line 1326
   if (tmp != 0L) {
 #line 1326
@@ -112525,7 +112525,7 @@ static void bnx2x_vf_mbx_dp_q_filter(struct bnx2x *bp , int msglvl , int idx , s
 #line 1327
   if ((filter->flags & 2U) != 0U) {
 #line 1328
-    tmp___0 = __builtin_expect((bp->msg_enable & msglvl) != 0, 0L);
+    tmp___0 = ldv__builtin_expect((bp->msg_enable & msglvl) != 0, 0L);
 #line 1328
     if (tmp___0 != 0L) {
 #line 1328
@@ -112539,7 +112539,7 @@ static void bnx2x_vf_mbx_dp_q_filter(struct bnx2x *bp , int msglvl , int idx , s
 #line 1329
   if ((int )filter->flags & 1) {
 #line 1330
-    tmp___1 = __builtin_expect((bp->msg_enable & msglvl) != 0, 0L);
+    tmp___1 = ldv__builtin_expect((bp->msg_enable & msglvl) != 0, 0L);
 #line 1330
     if (tmp___1 != 0L) {
 #line 1330
@@ -112551,7 +112551,7 @@ static void bnx2x_vf_mbx_dp_q_filter(struct bnx2x *bp , int msglvl , int idx , s
 
   }
 #line 1331
-  tmp___2 = __builtin_expect((bp->msg_enable & msglvl) != 0, 0L);
+  tmp___2 = ldv__builtin_expect((bp->msg_enable & msglvl) != 0, 0L);
 #line 1331
   if (tmp___2 != 0L) {
 #line 1331
@@ -112597,7 +112597,7 @@ static void bnx2x_vf_mbx_dp_q_filters(struct bnx2x *bp , int msglvl , struct vfp
 #line 1344
   if ((filters->flags & 4U) != 0U) {
 #line 1345
-    tmp = __builtin_expect((bp->msg_enable & msglvl) != 0, 0L);
+    tmp = ldv__builtin_expect((bp->msg_enable & msglvl) != 0, 0L);
 #line 1345
     if (tmp != 0L) {
 #line 1345
@@ -112617,7 +112617,7 @@ static void bnx2x_vf_mbx_dp_q_filters(struct bnx2x *bp , int msglvl , struct vfp
     goto ldv_45396;
     ldv_45395: 
 #line 1349
-    tmp___0 = __builtin_expect((bp->msg_enable & msglvl) != 0, 0L);
+    tmp___0 = ldv__builtin_expect((bp->msg_enable & msglvl) != 0, 0L);
 #line 1349
     if (tmp___0 != 0L) {
 #line 1349
@@ -112672,7 +112672,7 @@ static void bnx2x_vfop_mbx_qfilters(struct bnx2x *bp , struct bnx2x_virtf *vf )
 #line 1365
   cmd.block = 0;
 #line 1370
-  tmp___0 = __builtin_expect((bp->msg_enable & 8388608) != 0, 0L);
+  tmp___0 = ldv__builtin_expect((bp->msg_enable & 8388608) != 0, 0L);
 #line 1370
   if (tmp___0 != 0L) {
 #line 1370
@@ -112970,7 +112970,7 @@ static void bnx2x_vf_mbx_set_q_filters(struct bnx2x *bp , struct bnx2x_virtf *vf
 
   }
 #line 1555
-  tmp___0 = __builtin_expect((bp->msg_enable & 8388608) != 0, 0L);
+  tmp___0 = ldv__builtin_expect((bp->msg_enable & 8388608) != 0, 0L);
 #line 1555
   if (tmp___0 != 0L) {
 #line 1555
@@ -113015,7 +113015,7 @@ static void bnx2x_vf_mbx_teardown_q(struct bnx2x *bp , struct bnx2x_virtf *vf , 
 #line 1575
   cmd.block = 0;
 #line 1580
-  tmp = __builtin_expect((bp->msg_enable & 8388608) != 0, 0L);
+  tmp = ldv__builtin_expect((bp->msg_enable & 8388608) != 0, 0L);
 #line 1580
   if (tmp != 0L) {
 #line 1580
@@ -113050,7 +113050,7 @@ static void bnx2x_vf_mbx_close_vf(struct bnx2x *bp , struct bnx2x_virtf *vf , st
 #line 1591
   cmd.block = 0;
 #line 1596
-  tmp = __builtin_expect((bp->msg_enable & 8388608) != 0, 0L);
+  tmp = ldv__builtin_expect((bp->msg_enable & 8388608) != 0, 0L);
 #line 1596
   if (tmp != 0L) {
 #line 1596
@@ -113084,7 +113084,7 @@ static void bnx2x_vf_mbx_release_vf(struct bnx2x *bp , struct bnx2x_virtf *vf , 
 #line 1606
   cmd.block = 0;
 #line 1611
-  tmp = __builtin_expect((bp->msg_enable & 8388608) != 0, 0L);
+  tmp = ldv__builtin_expect((bp->msg_enable & 8388608) != 0, 0L);
 #line 1611
   if (tmp != 0L) {
 #line 1611
@@ -113170,7 +113170,7 @@ static void bnx2x_vf_mbx_request(struct bnx2x *bp , struct bnx2x_virtf *vf , str
     goto ldv_45473;
     ldv_45472: 
 #line 1666
-    tmp = __builtin_expect((bp->msg_enable & 8388608) != 0, 0L);
+    tmp = ldv__builtin_expect((bp->msg_enable & 8388608) != 0, 0L);
 #line 1666
     if (tmp != 0L) {
 #line 1666
@@ -113217,7 +113217,7 @@ void bnx2x_vf_mbx(struct bnx2x *bp , struct vf_pf_event_data *vfpf_event )
 
   {
 #line 1696
-  tmp = __builtin_expect((bp->msg_enable & 8388608) != 0, 0L);
+  tmp = ldv__builtin_expect((bp->msg_enable & 8388608) != 0, 0L);
 #line 1696
   if (tmp != 0L) {
 #line 1696
@@ -113262,7 +113262,7 @@ void bnx2x_vf_mbx(struct bnx2x *bp , struct vf_pf_event_data *vfpf_event )
 #line 1723
   mbx->vf_addr_lo = vfpf_event->msg_addr_lo;
 #line 1724
-  tmp___1 = __builtin_expect((bp->msg_enable & 8388608) != 0, 0L);
+  tmp___1 = ldv__builtin_expect((bp->msg_enable & 8388608) != 0, 0L);
 #line 1724
   if (tmp___1 != 0L) {
 #line 1724
@@ -113706,7 +113706,7 @@ __inline static struct bnx2x_vfop *bnx2x_vfop_cur___0(struct bnx2x *bp , struct 
 #line 517
   __ret_warn_on = tmp == 0;
 #line 517
-  tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 517
   if (tmp___0 != 0L) {
 #line 517
@@ -113716,13 +113716,13 @@ __inline static struct bnx2x_vfop *bnx2x_vfop_cur___0(struct bnx2x *bp , struct 
 
   }
 #line 517
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 518
   tmp___1 = list_empty((struct list_head  const  *)(& vf->op_list_head));
 #line 518
   __ret_warn_on___0 = tmp___1 != 0;
 #line 518
-  tmp___2 = __builtin_expect(__ret_warn_on___0 != 0, 0L);
+  tmp___2 = ldv__builtin_expect(__ret_warn_on___0 != 0, 0L);
 #line 518
   if (tmp___2 != 0L) {
 #line 518
@@ -113732,7 +113732,7 @@ __inline static struct bnx2x_vfop *bnx2x_vfop_cur___0(struct bnx2x *bp , struct 
 
   }
 #line 518
-  __builtin_expect(__ret_warn_on___0 != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on___0 != 0, 0L);
 #line 519
   __mptr = (struct list_head  const  *)vf->op_list_head.next;
 #line 519
@@ -113758,7 +113758,7 @@ __inline static struct bnx2x_vfop *bnx2x_vfop_add___0(struct bnx2x *bp , struct 
 #line 527
   __ret_warn_on = tmp___0 == 0;
 #line 527
-  tmp___1 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___1 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 527
   if (tmp___1 != 0L) {
 #line 527
@@ -113768,7 +113768,7 @@ __inline static struct bnx2x_vfop *bnx2x_vfop_add___0(struct bnx2x *bp , struct 
 
   }
 #line 527
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 528
   if ((unsigned long )vfop != (unsigned long )((struct bnx2x_vfop *)0)) {
 #line 529
@@ -113804,7 +113804,7 @@ __inline static void bnx2x_vfop_end___0(struct bnx2x *bp , struct bnx2x_virtf *v
 
   {
 #line 539
-  tmp = __builtin_expect((bp->msg_enable & 8388608) != 0, 0L);
+  tmp = ldv__builtin_expect((bp->msg_enable & 8388608) != 0, 0L);
 #line 539
   if (tmp != 0L) {
 #line 539
@@ -113821,7 +113821,7 @@ __inline static void bnx2x_vfop_end___0(struct bnx2x *bp , struct bnx2x_virtf *v
 
   }
 #line 542
-  tmp___0 = __builtin_expect((bp->msg_enable & 8388608) != 0, 0L);
+  tmp___0 = ldv__builtin_expect((bp->msg_enable & 8388608) != 0, 0L);
 #line 542
   if (tmp___0 != 0L) {
 #line 542
@@ -113835,7 +113835,7 @@ __inline static void bnx2x_vfop_end___0(struct bnx2x *bp , struct bnx2x_virtf *v
 #line 547
   __ret_warn_on = tmp___1 == 0;
 #line 547
-  tmp___2 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___2 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 547
   if (tmp___2 != 0L) {
 #line 547
@@ -113845,7 +113845,7 @@ __inline static void bnx2x_vfop_end___0(struct bnx2x *bp , struct bnx2x_virtf *v
 
   }
 #line 547
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 549
   list_del(& vfop->link);
 #line 551
@@ -113853,7 +113853,7 @@ __inline static void bnx2x_vfop_end___0(struct bnx2x *bp , struct bnx2x_virtf *v
 #line 551
   if (tmp___7 != 0) {
 #line 552
-    tmp___3 = __builtin_expect((bp->msg_enable & 8388608) != 0, 0L);
+    tmp___3 = ldv__builtin_expect((bp->msg_enable & 8388608) != 0, 0L);
 #line 552
     if (tmp___3 != 0L) {
 #line 552
@@ -113865,7 +113865,7 @@ __inline static void bnx2x_vfop_end___0(struct bnx2x *bp , struct bnx2x_virtf *v
 #line 553
     vf->op_rc = vfop->rc;
 #line 554
-    tmp___4 = __builtin_expect((bp->msg_enable & 8388608) != 0, 0L);
+    tmp___4 = ldv__builtin_expect((bp->msg_enable & 8388608) != 0, 0L);
 #line 554
     if (tmp___4 != 0L) {
 #line 554
@@ -113877,7 +113877,7 @@ __inline static void bnx2x_vfop_end___0(struct bnx2x *bp , struct bnx2x_virtf *v
     }
   } else {
 #line 559
-    tmp___5 = __builtin_expect((bp->msg_enable & 8388608) != 0, 0L);
+    tmp___5 = ldv__builtin_expect((bp->msg_enable & 8388608) != 0, 0L);
 #line 559
     if (tmp___5 != 0L) {
 #line 559
@@ -113891,7 +113891,7 @@ __inline static void bnx2x_vfop_end___0(struct bnx2x *bp , struct bnx2x_virtf *v
 #line 561
     cur_vfop->rc = vfop->rc;
 #line 562
-    tmp___6 = __builtin_expect((bp->msg_enable & 8388608) != 0, 0L);
+    tmp___6 = ldv__builtin_expect((bp->msg_enable & 8388608) != 0, 0L);
 #line 562
     if (tmp___6 != 0L) {
 #line 562
@@ -113905,7 +113905,7 @@ __inline static void bnx2x_vfop_end___0(struct bnx2x *bp , struct bnx2x_virtf *v
 #line 567
   if ((unsigned long )vfop->done != (unsigned long )((void (*)(struct bnx2x * , struct bnx2x_virtf * ))0)) {
 #line 568
-    tmp___8 = __builtin_expect((bp->msg_enable & 8388608) != 0, 0L);
+    tmp___8 = ldv__builtin_expect((bp->msg_enable & 8388608) != 0, 0L);
 #line 568
     if (tmp___8 != 0L) {
 #line 568
@@ -113920,7 +113920,7 @@ __inline static void bnx2x_vfop_end___0(struct bnx2x *bp , struct bnx2x_virtf *v
     bnx2x_unlock_vf_pf_channel(bp, vf, 8);
   }
 #line 577
-  tmp___9 = __builtin_expect((bp->msg_enable & 8388608) != 0, 0L);
+  tmp___9 = ldv__builtin_expect((bp->msg_enable & 8388608) != 0, 0L);
 #line 577
   if (tmp___9 != 0L) {
 #line 577
@@ -113935,7 +113935,7 @@ __inline static void bnx2x_vfop_end___0(struct bnx2x *bp , struct bnx2x_virtf *v
 #line 583
   if (tmp___11 != 0) {
 #line 584
-    tmp___10 = __builtin_expect((bp->msg_enable & 8388608) != 0, 0L);
+    tmp___10 = ldv__builtin_expect((bp->msg_enable & 8388608) != 0, 0L);
 #line 584
     if (tmp___10 != 0L) {
 #line 584
@@ -114153,7 +114153,7 @@ static void bnx2x_vf_igu_ack_sb(struct bnx2x *bp , struct bnx2x_virtf *vf , u8 i
 #line 161
   ctl = ((func_encode << 12) | addr_encode) | 1048576U;
 #line 165
-  tmp = __builtin_expect((bp->msg_enable & 8192) != 0, 0L);
+  tmp = ldv__builtin_expect((bp->msg_enable & 8192) != 0, 0L);
 #line 165
   if (tmp != 0L) {
 #line 165
@@ -114170,7 +114170,7 @@ static void bnx2x_vf_igu_ack_sb(struct bnx2x *bp , struct bnx2x_virtf *vf , u8 i
 #line 169
   __asm__  volatile   ("": : : "memory");
 #line 171
-  tmp___0 = __builtin_expect((bp->msg_enable & 8192) != 0, 0L);
+  tmp___0 = ldv__builtin_expect((bp->msg_enable & 8192) != 0, 0L);
 #line 171
   if (tmp___0 != 0L) {
 #line 171
@@ -114199,7 +114199,7 @@ void bnx2x_vfop_qctor_dump_tx(struct bnx2x *bp , struct bnx2x_virtf *vf , struct
 
   {
 #line 252
-  tmp = __builtin_expect((bp->msg_enable & 8388608) != 0, 0L);
+  tmp = ldv__builtin_expect((bp->msg_enable & 8388608) != 0, 0L);
 #line 252
   if (tmp != 0L) {
 #line 252
@@ -114226,7 +114226,7 @@ void bnx2x_vfop_qctor_dump_rx(struct bnx2x *bp , struct bnx2x_virtf *vf , struct
 #line 268
   rxq_params = & setup_params->rxq_params;
 #line 270
-  tmp = __builtin_expect((bp->msg_enable & 8388608) != 0, 0L);
+  tmp = ldv__builtin_expect((bp->msg_enable & 8388608) != 0, 0L);
 #line 270
   if (tmp != 0L) {
 #line 270
@@ -114401,7 +114401,7 @@ static void bnx2x_vfop_qctor(struct bnx2x *bp , struct bnx2x_virtf *vf )
 
   }
 #line 377
-  tmp___0 = __builtin_expect((bp->msg_enable & 8388608) != 0, 0L);
+  tmp___0 = ldv__builtin_expect((bp->msg_enable & 8388608) != 0, 0L);
 #line 377
   if (tmp___0 != 0L) {
 #line 377
@@ -114418,7 +114418,7 @@ static void bnx2x_vfop_qctor(struct bnx2x *bp , struct bnx2x_virtf *vf )
 #line 383
   if (tmp___2 == 0) {
 #line 385
-    tmp___1 = __builtin_expect((bp->msg_enable & 8388608) != 0, 0L);
+    tmp___1 = ldv__builtin_expect((bp->msg_enable & 8388608) != 0, 0L);
 #line 385
     if (tmp___1 != 0L) {
 #line 385
@@ -114449,7 +114449,7 @@ static void bnx2x_vfop_qctor(struct bnx2x *bp , struct bnx2x_virtf *vf )
     goto op_pending;
   } else {
 #line 396
-    tmp___3 = __builtin_expect((bp->msg_enable & 8388608) != 0, 0L);
+    tmp___3 = ldv__builtin_expect((bp->msg_enable & 8388608) != 0, 0L);
 #line 396
     if (tmp___3 != 0L) {
 #line 396
@@ -114484,7 +114484,7 @@ static void bnx2x_vfop_qctor(struct bnx2x *bp , struct bnx2x_virtf *vf )
     goto op_pending;
   } else {
 #line 409
-    tmp___4 = __builtin_expect((bp->msg_enable & 8388608) != 0, 0L);
+    tmp___4 = ldv__builtin_expect((bp->msg_enable & 8388608) != 0, 0L);
 #line 409
     if (tmp___4 != 0L) {
 #line 409
@@ -114603,7 +114603,7 @@ static void bnx2x_vfop_qdtor(struct bnx2x *bp , struct bnx2x_virtf *vf )
 
   }
 #line 463
-  tmp___0 = __builtin_expect((bp->msg_enable & 8388608) != 0, 0L);
+  tmp___0 = ldv__builtin_expect((bp->msg_enable & 8388608) != 0, 0L);
 #line 463
   if (tmp___0 != 0L) {
 #line 463
@@ -114620,7 +114620,7 @@ static void bnx2x_vfop_qdtor(struct bnx2x *bp , struct bnx2x_virtf *vf )
 #line 469
   if (tmp___2 == 1) {
 #line 471
-    tmp___1 = __builtin_expect((bp->msg_enable & 8388608) != 0, 0L);
+    tmp___1 = ldv__builtin_expect((bp->msg_enable & 8388608) != 0, 0L);
 #line 471
     if (tmp___1 != 0L) {
 #line 471
@@ -114651,7 +114651,7 @@ static void bnx2x_vfop_qdtor(struct bnx2x *bp , struct bnx2x_virtf *vf )
     goto op_pending;
   } else {
 #line 482
-    tmp___3 = __builtin_expect((bp->msg_enable & 8388608) != 0, 0L);
+    tmp___3 = ldv__builtin_expect((bp->msg_enable & 8388608) != 0, 0L);
 #line 482
     if (tmp___3 != 0L) {
 #line 482
@@ -114684,7 +114684,7 @@ static void bnx2x_vfop_qdtor(struct bnx2x *bp , struct bnx2x_virtf *vf )
     goto op_pending;
   } else {
 #line 491
-    tmp___4 = __builtin_expect((bp->msg_enable & 8388608) != 0, 0L);
+    tmp___4 = ldv__builtin_expect((bp->msg_enable & 8388608) != 0, 0L);
 #line 491
     if (tmp___4 != 0L) {
 #line 491
@@ -114791,7 +114791,7 @@ static int bnx2x_vfop_qdtor_cmd(struct bnx2x *bp , struct bnx2x_virtf *vf , stru
 
   }
 #line 540
-  tmp___1 = __builtin_expect((bp->msg_enable & 8388608) != 0, 0L);
+  tmp___1 = ldv__builtin_expect((bp->msg_enable & 8388608) != 0, 0L);
 #line 540
   if (tmp___1 != 0L) {
 #line 540
@@ -115121,7 +115121,7 @@ static void bnx2x_vfop_vlan_mac(struct bnx2x *bp , struct bnx2x_virtf *vf )
 
   }
 #line 672
-  tmp___0 = __builtin_expect((bp->msg_enable & 8388608) != 0, 0L);
+  tmp___0 = ldv__builtin_expect((bp->msg_enable & 8388608) != 0, 0L);
 #line 672
   if (tmp___0 != 0L) {
 #line 672
@@ -115258,7 +115258,7 @@ static void bnx2x_vfop_vlan_mac(struct bnx2x *bp , struct bnx2x_virtf *vf )
     goto op_pending;
   } else {
 #line 733
-    tmp___6 = __builtin_expect((bp->msg_enable & 8388608) != 0, 0L);
+    tmp___6 = ldv__builtin_expect((bp->msg_enable & 8388608) != 0, 0L);
 #line 733
     if (tmp___6 != 0L) {
 #line 733
@@ -115701,7 +115701,7 @@ static void bnx2x_vfop_qsetup(struct bnx2x *bp , struct bnx2x_virtf *vf )
 
   }
 #line 1008
-  tmp___0 = __builtin_expect((bp->msg_enable & 8388608) != 0, 0L);
+  tmp___0 = ldv__builtin_expect((bp->msg_enable & 8388608) != 0, 0L);
 #line 1008
   if (tmp___0 != 0L) {
 #line 1008
@@ -115846,7 +115846,7 @@ static void bnx2x_vfop_qflr(struct bnx2x *bp , struct bnx2x_virtf *vf )
 
   }
 #line 1079
-  tmp___0 = __builtin_expect((bp->msg_enable & 8388608) != 0, 0L);
+  tmp___0 = ldv__builtin_expect((bp->msg_enable & 8388608) != 0, 0L);
 #line 1079
   if (tmp___0 != 0L) {
 #line 1079
@@ -115881,7 +115881,7 @@ static void bnx2x_vfop_qflr(struct bnx2x *bp , struct bnx2x_virtf *vf )
 #line 1096
   vfop->rc = bnx2x_vfop_mac_delall_cmd(bp, vf, & cmd, qid, 1);
 #line 1097
-  tmp___1 = __builtin_expect((bp->msg_enable & 8388608) != 0, 0L);
+  tmp___1 = ldv__builtin_expect((bp->msg_enable & 8388608) != 0, 0L);
 #line 1097
   if (tmp___1 != 0L) {
 #line 1097
@@ -115910,7 +115910,7 @@ static void bnx2x_vfop_qflr(struct bnx2x *bp , struct bnx2x_virtf *vf )
 #line 1108
   vfop->state = 3;
 #line 1110
-  tmp___2 = __builtin_expect((bp->msg_enable & 8388608) != 0, 0L);
+  tmp___2 = ldv__builtin_expect((bp->msg_enable & 8388608) != 0, 0L);
 #line 1110
   if (tmp___2 != 0L) {
 #line 1110
@@ -116043,7 +116043,7 @@ static void bnx2x_vfop_mcast(struct bnx2x *bp , struct bnx2x_virtf *vf )
 
   }
 #line 1168
-  tmp___0 = __builtin_expect((bp->msg_enable & 8388608) != 0, 0L);
+  tmp___0 = ldv__builtin_expect((bp->msg_enable & 8388608) != 0, 0L);
 #line 1168
   if (tmp___0 != 0L) {
 #line 1168
@@ -116070,7 +116070,7 @@ static void bnx2x_vfop_mcast(struct bnx2x *bp , struct bnx2x_virtf *vf )
     goto op_pending;
   } else {
 #line 1175
-    tmp___1 = __builtin_expect((bp->msg_enable & 8388608) != 0, 0L);
+    tmp___1 = ldv__builtin_expect((bp->msg_enable & 8388608) != 0, 0L);
 #line 1175
     if (tmp___1 != 0L) {
 #line 1175
@@ -116298,7 +116298,7 @@ static void bnx2x_vfop_rxmode(struct bnx2x *bp , struct bnx2x_virtf *vf )
 
   }
 #line 1263
-  tmp___0 = __builtin_expect((bp->msg_enable & 8388608) != 0, 0L);
+  tmp___0 = ldv__builtin_expect((bp->msg_enable & 8388608) != 0, 0L);
 #line 1263
   if (tmp___0 != 0L) {
 #line 1263
@@ -116452,7 +116452,7 @@ static void bnx2x_vfop_qdown(struct bnx2x *bp , struct bnx2x_virtf *vf )
 
   }
 #line 1340
-  tmp___0 = __builtin_expect((bp->msg_enable & 8388608) != 0, 0L);
+  tmp___0 = ldv__builtin_expect((bp->msg_enable & 8388608) != 0, 0L);
 #line 1340
   if (tmp___0 != 0L) {
 #line 1340
@@ -116511,7 +116511,7 @@ static void bnx2x_vfop_qdown(struct bnx2x *bp , struct bnx2x_virtf *vf )
   return;
   case 3U: 
 #line 1372
-  tmp___1 = __builtin_expect((bp->msg_enable & 8388608) != 0, 0L);
+  tmp___1 = ldv__builtin_expect((bp->msg_enable & 8388608) != 0, 0L);
 #line 1372
   if (tmp___1 != 0L) {
 #line 1372
@@ -116523,7 +116523,7 @@ static void bnx2x_vfop_qdown(struct bnx2x *bp , struct bnx2x_virtf *vf )
 #line 1373
   vfop->state = 4;
 #line 1374
-  tmp___2 = __builtin_expect((bp->msg_enable & 8388608) != 0, 0L);
+  tmp___2 = ldv__builtin_expect((bp->msg_enable & 8388608) != 0, 0L);
 #line 1374
   if (tmp___2 != 0L) {
 #line 1374
@@ -116535,7 +116535,7 @@ static void bnx2x_vfop_qdown(struct bnx2x *bp , struct bnx2x_virtf *vf )
 #line 1375
   vfop->rc = bnx2x_vfop_qdtor_cmd(bp, vf, & cmd, qid);
 #line 1376
-  tmp___3 = __builtin_expect((bp->msg_enable & 8388608) != 0, 0L);
+  tmp___3 = ldv__builtin_expect((bp->msg_enable & 8388608) != 0, 0L);
 #line 1376
   if (tmp___3 != 0L) {
 #line 1376
@@ -116723,7 +116723,7 @@ static void bnx2x_vf_igu_reset(struct bnx2x *bp , struct bnx2x_virtf *vf )
 #line 1475
   writel(val, (void volatile   *)bp->regview + 1245552U);
 #line 1477
-  tmp___0 = __builtin_expect((bp->msg_enable & 8388608) != 0, 0L);
+  tmp___0 = ldv__builtin_expect((bp->msg_enable & 8388608) != 0, 0L);
 #line 1477
   if (tmp___0 != 0L) {
 #line 1477
@@ -116784,7 +116784,7 @@ void bnx2x_vf_enable_access(struct bnx2x *bp , u8 abs_vfid )
 #line 1511
   bnx2x_pretend_func(bp, (int )((unsigned short )((int )((short )((unsigned int )bp->pf_num | 8U)) | (int )((short )((int )abs_vfid << 4)))));
 #line 1512
-  tmp = __builtin_expect((bp->msg_enable & 8388608) != 0, 0L);
+  tmp = ldv__builtin_expect((bp->msg_enable & 8388608) != 0, 0L);
 #line 1512
   if (tmp != 0L) {
 #line 1512
@@ -116991,7 +116991,7 @@ static void bnx2x_vfop_flr(struct bnx2x *bp , struct bnx2x_virtf *vf )
 
   }
 #line 1623
-  tmp___0 = __builtin_expect((bp->msg_enable & 8388608) != 0, 0L);
+  tmp___0 = ldv__builtin_expect((bp->msg_enable & 8388608) != 0, 0L);
 #line 1623
   if (tmp___0 != 0L) {
 #line 1623
@@ -117130,7 +117130,7 @@ static void bnx2x_vf_flr_clnup(struct bnx2x *bp , struct bnx2x_virtf *prev_vf )
 
   }
 #line 1695
-  tmp = __builtin_expect((bp->msg_enable & 8388608) != 0, 0L);
+  tmp = ldv__builtin_expect((bp->msg_enable & 8388608) != 0, 0L);
 #line 1695
   if (tmp != 0L) {
 #line 1695
@@ -117194,7 +117194,7 @@ static void bnx2x_vf_flr_clnup(struct bnx2x *bp , struct bnx2x_virtf *prev_vf )
 
   }
 #line 1733
-  tmp___1 = __builtin_expect((bp->msg_enable & 65536) != 0, 0L);
+  tmp___1 = ldv__builtin_expect((bp->msg_enable & 65536) != 0, 0L);
 #line 1733
   if (tmp___1 != 0L) {
 #line 1733
@@ -117273,7 +117273,7 @@ void bnx2x_vf_handle_flr_event(struct bnx2x *bp )
 
   }
 #line 1756
-  tmp = __builtin_expect((bp->msg_enable & 65536) != 0, 0L);
+  tmp = ldv__builtin_expect((bp->msg_enable & 65536) != 0, 0L);
 #line 1756
   if (tmp != 0L) {
 #line 1756
@@ -117307,7 +117307,7 @@ void bnx2x_vf_handle_flr_event(struct bnx2x *bp )
 #line 1773
     vf->flr_clnup_stage = 1U;
 #line 1775
-    tmp___0 = __builtin_expect((bp->msg_enable & 8388608) != 0, 0L);
+    tmp___0 = ldv__builtin_expect((bp->msg_enable & 8388608) != 0, 0L);
 #line 1775
     if (tmp___0 != 0L) {
 #line 1775
@@ -117382,7 +117382,7 @@ void bnx2x_iov_init_dmae(struct bnx2x *bp )
 
   {
 #line 1827
-  tmp = __builtin_expect((bp->msg_enable & 8388608) != 0, 0L);
+  tmp = ldv__builtin_expect((bp->msg_enable & 8388608) != 0, 0L);
 #line 1827
   if (tmp != 0L) {
 #line 1827
@@ -117526,7 +117526,7 @@ static void bnx2x_get_vf_igu_cam_info(struct bnx2x *bp )
 
   }
 #line 1889
-  tmp = __builtin_expect((bp->msg_enable & 8388608) != 0, 0L);
+  tmp = ldv__builtin_expect((bp->msg_enable & 8388608) != 0, 0L);
 #line 1889
   if (tmp != 0L) {
 #line 1889
@@ -117601,7 +117601,7 @@ static int bnx2x_sriov_pci_cfg_info(struct bnx2x *bp , struct bnx2x_sriov *iov )
 #line 1918
   iov->pos = pos;
 #line 1919
-  tmp = __builtin_expect((bp->msg_enable & 8388608) != 0, 0L);
+  tmp = ldv__builtin_expect((bp->msg_enable & 8388608) != 0, 0L);
 #line 1919
   if (tmp != 0L) {
 #line 1919
@@ -117654,7 +117654,7 @@ static int bnx2x_sriov_info(struct bnx2x *bp , struct bnx2x_sriov *iov )
 #line 1948
   iov->first_vf_in_pf = (val & 15U) * 8U - (bp->common.chip_id >> 16 != 5710U && (bp->common.chip_id >> 16 != 5711U && bp->common.chip_id >> 16 != 5712U) ? (u32 )(((int )bp->pf_num & 1) * 64) : 0U);
 #line 1951
-  tmp___0 = __builtin_expect((bp->msg_enable & 8388608) != 0, 0L);
+  tmp___0 = ldv__builtin_expect((bp->msg_enable & 8388608) != 0, 0L);
 #line 1951
   if (tmp___0 != 0L) {
 #line 1951
@@ -117848,7 +117848,7 @@ int bnx2x_iov_init_one(struct bnx2x *bp , int int_mode_param , int num_vfs_param
 #line 2047
   iov->nr_virtfn = (u16 )((int )__min1 < (int )__min2 ? __min1 : __min2);
 #line 2049
-  tmp___2 = __builtin_expect((bp->msg_enable & 8388608) != 0, 0L);
+  tmp___2 = ldv__builtin_expect((bp->msg_enable & 8388608) != 0, 0L);
 #line 2049
   if (tmp___2 != 0L) {
 #line 2049
@@ -117928,7 +117928,7 @@ int bnx2x_iov_init_one(struct bnx2x *bp , int int_mode_param , int num_vfs_param
   return (0);
   failed: 
 #line 2088
-  tmp___6 = __builtin_expect((bp->msg_enable & 8388608) != 0, 0L);
+  tmp___6 = ldv__builtin_expect((bp->msg_enable & 8388608) != 0, 0L);
 #line 2088
   if (tmp___6 != 0L) {
 #line 2088
@@ -117958,7 +117958,7 @@ void bnx2x_iov_remove_one(struct bnx2x *bp )
 
   }
 #line 2099
-  tmp = __builtin_expect((bp->msg_enable & 8388608) != 0, 0L);
+  tmp = ldv__builtin_expect((bp->msg_enable & 8388608) != 0, 0L);
 #line 2099
   if (tmp != 0L) {
 #line 2099
@@ -117970,7 +117970,7 @@ void bnx2x_iov_remove_one(struct bnx2x *bp )
 #line 2100
   pci_disable_sriov(bp->pdev);
 #line 2101
-  tmp___0 = __builtin_expect((bp->msg_enable & 8388608) != 0, 0L);
+  tmp___0 = ldv__builtin_expect((bp->msg_enable & 8388608) != 0, 0L);
 #line 2101
   if (tmp___0 != 0L) {
 #line 2101
@@ -118212,7 +118212,7 @@ static void bnx2x_vfq_init(struct bnx2x *bp , struct bnx2x_virtf *vf , struct bn
                        ((bp->vfdb)->sp_dma.mapping + (unsigned long long )((unsigned long )vf->index * 1176UL)) + 1056ULL,
                        q_type);
 #line 2199
-  tmp___0 = __builtin_expect((bp->msg_enable & 8388608) != 0, 0L);
+  tmp___0 = ldv__builtin_expect((bp->msg_enable & 8388608) != 0, 0L);
 #line 2199
   if (tmp___0 != 0L) {
 #line 2199
@@ -118271,7 +118271,7 @@ int bnx2x_iov_nic_init(struct bnx2x *bp )
 #line 2244
   if ((unsigned long )bp->vfdb == (unsigned long )((struct bnx2x_vfdb *)0)) {
 #line 2245
-    tmp = __builtin_expect((bp->msg_enable & 8388608) != 0, 0L);
+    tmp = ldv__builtin_expect((bp->msg_enable & 8388608) != 0, 0L);
 #line 2245
     if (tmp != 0L) {
 #line 2245
@@ -118286,7 +118286,7 @@ int bnx2x_iov_nic_init(struct bnx2x *bp )
 
   }
 #line 2249
-  tmp___0 = __builtin_expect((bp->msg_enable & 8388608) != 0, 0L);
+  tmp___0 = ldv__builtin_expect((bp->msg_enable & 8388608) != 0, 0L);
 #line 2249
   if (tmp___0 != 0L) {
 #line 2249
@@ -118307,7 +118307,7 @@ int bnx2x_iov_nic_init(struct bnx2x *bp )
 #line 2258
   base_cxt = (union cdu_context *)((struct hw_dma *)(& (bp->vfdb)->context) + (unsigned long )base_vf_cid / 32UL)->addr + ((unsigned long )base_vf_cid & 31UL);
 #line 2262
-  tmp___1 = __builtin_expect((bp->msg_enable & 8388608) != 0, 0L);
+  tmp___1 = ldv__builtin_expect((bp->msg_enable & 8388608) != 0, 0L);
 #line 2262
   if (tmp___1 != 0L) {
 #line 2262
@@ -118370,7 +118370,7 @@ int bnx2x_iov_nic_init(struct bnx2x *bp )
 #line 2311
   bnx2x_vf_set_bars(bp, vf___0);
 #line 2313
-  tmp___4 = __builtin_expect((bp->msg_enable & 8388608) != 0, 0L);
+  tmp___4 = ldv__builtin_expect((bp->msg_enable & 8388608) != 0, 0L);
 #line 2313
   if (tmp___4 != 0L) {
 #line 2313
@@ -118537,7 +118537,7 @@ static void bnx2x_vf_handle_classification_eqe(struct bnx2x *bp , struct bnx2x_v
 #line 2396
   if (rc > 0) {
 #line 2397
-    tmp = __builtin_expect((bp->msg_enable & 8388608) != 0, 0L);
+    tmp = ldv__builtin_expect((bp->msg_enable & 8388608) != 0, 0L);
 #line 2397
     if (tmp != 0L) {
 #line 2397
@@ -118657,7 +118657,7 @@ int bnx2x_iov_eq_sp_event(struct bnx2x *bp , union event_ring_elem *elem )
 #line 2445
   cid = (u16 )elem->message.data.cfc_del_event.cid;
 #line 2447
-  tmp = __builtin_expect((bp->msg_enable & 8388608) != 0, 0L);
+  tmp = ldv__builtin_expect((bp->msg_enable & 8388608) != 0, 0L);
 #line 2447
   if (tmp != 0L) {
 #line 2447
@@ -118675,7 +118675,7 @@ int bnx2x_iov_eq_sp_event(struct bnx2x *bp , union event_ring_elem *elem )
 #line 2452
   cid = (u16 )elem->message.data.eth_event.echo;
 #line 2454
-  tmp___0 = __builtin_expect((bp->msg_enable & 8388608) != 0, 0L);
+  tmp___0 = ldv__builtin_expect((bp->msg_enable & 8388608) != 0, 0L);
 #line 2454
   if (tmp___0 != 0L) {
 #line 2454
@@ -118691,7 +118691,7 @@ int bnx2x_iov_eq_sp_event(struct bnx2x *bp , union event_ring_elem *elem )
 #line 2457
   abs_vfid = (int )elem->message.data.vf_flr_event.vf_id;
 #line 2458
-  tmp___1 = __builtin_expect((bp->msg_enable & 8388608) != 0, 0L);
+  tmp___1 = ldv__builtin_expect((bp->msg_enable & 8388608) != 0, 0L);
 #line 2458
   if (tmp___1 != 0L) {
 #line 2458
@@ -118707,7 +118707,7 @@ int bnx2x_iov_eq_sp_event(struct bnx2x *bp , union event_ring_elem *elem )
 #line 2462
   abs_vfid = (int )elem->message.data.malicious_vf_event.vf_id;
 #line 2463
-  tmp___2 = __builtin_expect((bp->msg_enable & 8388608) != 0, 0L);
+  tmp___2 = ldv__builtin_expect((bp->msg_enable & 8388608) != 0, 0L);
 #line 2463
   if (tmp___2 != 0L) {
 #line 2463
@@ -118729,7 +118729,7 @@ int bnx2x_iov_eq_sp_event(struct bnx2x *bp , union event_ring_elem *elem )
 #line 2471
   if ((unsigned int )tmp___4 == 0U) {
 #line 2472
-    tmp___3 = __builtin_expect((bp->msg_enable & 8388608) != 0, 0L);
+    tmp___3 = ldv__builtin_expect((bp->msg_enable & 8388608) != 0, 0L);
 #line 2472
     if (tmp___3 != 0L) {
 #line 2472
@@ -118766,7 +118766,7 @@ int bnx2x_iov_eq_sp_event(struct bnx2x *bp , union event_ring_elem *elem )
   switch ((int )opcode) {
   case 3: 
 #line 2493
-  tmp___5 = __builtin_expect((bp->msg_enable & 8388608) != 0, 0L);
+  tmp___5 = ldv__builtin_expect((bp->msg_enable & 8388608) != 0, 0L);
 #line 2493
   if (tmp___5 != 0L) {
 #line 2493
@@ -118786,7 +118786,7 @@ int bnx2x_iov_eq_sp_event(struct bnx2x *bp , union event_ring_elem *elem )
   goto ldv_46571;
   case 15: 
 #line 2501
-  tmp___8 = __builtin_expect((bp->msg_enable & 8388608) != 0, 0L);
+  tmp___8 = ldv__builtin_expect((bp->msg_enable & 8388608) != 0, 0L);
 #line 2501
   if (tmp___8 != 0L) {
 #line 2501
@@ -118804,7 +118804,7 @@ int bnx2x_iov_eq_sp_event(struct bnx2x *bp , union event_ring_elem *elem )
   goto ldv_46571;
   case 17: 
 #line 2506
-  tmp___10 = __builtin_expect((bp->msg_enable & 8388608) != 0, 0L);
+  tmp___10 = ldv__builtin_expect((bp->msg_enable & 8388608) != 0, 0L);
 #line 2506
   if (tmp___10 != 0L) {
 #line 2506
@@ -118820,7 +118820,7 @@ int bnx2x_iov_eq_sp_event(struct bnx2x *bp , union event_ring_elem *elem )
   goto ldv_46571;
   case 16: 
 #line 2511
-  tmp___11 = __builtin_expect((bp->msg_enable & 8388608) != 0, 0L);
+  tmp___11 = ldv__builtin_expect((bp->msg_enable & 8388608) != 0, 0L);
 #line 2511
   if (tmp___11 != 0L) {
 #line 2511
@@ -118836,7 +118836,7 @@ int bnx2x_iov_eq_sp_event(struct bnx2x *bp , union event_ring_elem *elem )
   goto ldv_46571;
   case 8: 
 #line 2516
-  tmp___12 = __builtin_expect((bp->msg_enable & 8388608) != 0, 0L);
+  tmp___12 = ldv__builtin_expect((bp->msg_enable & 8388608) != 0, 0L);
 #line 2516
   if (tmp___12 != 0L) {
 #line 2516
@@ -118850,7 +118850,7 @@ int bnx2x_iov_eq_sp_event(struct bnx2x *bp , union event_ring_elem *elem )
   goto ldv_46571;
   case 9: 
 #line 2521
-  tmp___13 = __builtin_expect((bp->msg_enable & 8388608) != 0, 0L);
+  tmp___13 = ldv__builtin_expect((bp->msg_enable & 8388608) != 0, 0L);
 #line 2521
   if (tmp___13 != 0L) {
 #line 2521
@@ -119003,7 +119003,7 @@ void bnx2x_iov_adjust_stats_req(struct bnx2x *bp )
 #line 2598
   first_queue_query_index = (int )is_fcoe ? 3 : 2;
 #line 2601
-  tmp = __builtin_expect((bp->msg_enable & 8388608) != 0, 0L);
+  tmp = ldv__builtin_expect((bp->msg_enable & 8388608) != 0, 0L);
 #line 2601
   if (tmp != 0L) {
 #line 2601
@@ -119027,7 +119027,7 @@ void bnx2x_iov_adjust_stats_req(struct bnx2x *bp )
 #line 2617
   if ((unsigned int )vf->state != 2U) {
 #line 2618
-    tmp___0 = __builtin_expect((bp->msg_enable & 8388608) != 0, 0L);
+    tmp___0 = ldv__builtin_expect((bp->msg_enable & 8388608) != 0, 0L);
 #line 2618
     if (tmp___0 != 0L) {
 #line 2618
@@ -119043,7 +119043,7 @@ void bnx2x_iov_adjust_stats_req(struct bnx2x *bp )
 
   }
 #line 2624
-  tmp___1 = __builtin_expect((bp->msg_enable & 8388608) != 0, 0L);
+  tmp___1 = ldv__builtin_expect((bp->msg_enable & 8388608) != 0, 0L);
 #line 2624
   if (tmp___1 != 0L) {
 #line 2624
@@ -119082,7 +119082,7 @@ void bnx2x_iov_adjust_stats_req(struct bnx2x *bp )
 #line 2640
   cur_query_entry->address.lo = (unsigned int )vf->fw_stat_map;
 #line 2642
-  tmp___4 = __builtin_expect((bp->msg_enable & 8388608) != 0, 0L);
+  tmp___4 = ldv__builtin_expect((bp->msg_enable & 8388608) != 0, 0L);
 #line 2642
   if (tmp___4 != 0L) {
 #line 2642
@@ -119148,7 +119148,7 @@ void bnx2x_iov_sp_task(struct bnx2x *bp )
 
   }
 #line 2664
-  tmp = __builtin_expect((bp->msg_enable & 8388608) != 0, 0L);
+  tmp = ldv__builtin_expect((bp->msg_enable & 8388608) != 0, 0L);
 #line 2664
   if (tmp != 0L) {
 #line 2664
@@ -119173,7 +119173,7 @@ void bnx2x_iov_sp_task(struct bnx2x *bp )
 #line 2668
     if (tmp___3 != 0) {
 #line 2670
-      tmp___0 = __builtin_expect((bp->msg_enable & 8388608) != 0, 0L);
+      tmp___0 = ldv__builtin_expect((bp->msg_enable & 8388608) != 0, 0L);
 #line 2670
       if (tmp___0 != 0L) {
 #line 2670
@@ -119366,7 +119366,7 @@ int bnx2x_vf_acquire(struct bnx2x *bp , struct bnx2x_virtf *vf , struct vf_pf_re
 #line 2760
   if ((unsigned int )vf->state == 1U) {
 #line 2761
-    tmp = __builtin_expect((bp->msg_enable & 8388608) != 0, 0L);
+    tmp = ldv__builtin_expect((bp->msg_enable & 8388608) != 0, 0L);
 #line 2761
     if (tmp != 0L) {
 #line 2761
@@ -119410,7 +119410,7 @@ int bnx2x_vf_acquire(struct bnx2x *bp , struct bnx2x_virtf *vf , struct vf_pf_re
 #line 2783
   if (tmp___2 == 0) {
 #line 2784
-    tmp___1 = __builtin_expect((bp->msg_enable & 8388608) != 0, 0L);
+    tmp___1 = ldv__builtin_expect((bp->msg_enable & 8388608) != 0, 0L);
 #line 2784
     if (tmp___1 != 0L) {
 #line 2784
@@ -119461,7 +119461,7 @@ int bnx2x_vf_acquire(struct bnx2x *bp , struct bnx2x_virtf *vf , struct vf_pf_re
 
   }
 #line 2799
-  tmp___5 = __builtin_expect((bp->msg_enable & 8388608) != 0, 0L);
+  tmp___5 = ldv__builtin_expect((bp->msg_enable & 8388608) != 0, 0L);
 #line 2799
   if (tmp___5 != 0L) {
 #line 2799
@@ -119475,7 +119475,7 @@ int bnx2x_vf_acquire(struct bnx2x *bp , struct bnx2x_virtf *vf , struct vf_pf_re
 #line 2806
   if ((unsigned long )vf->vfqs == (unsigned long )((struct bnx2x_vf_queue *)0)) {
 #line 2807
-    tmp___6 = __builtin_expect((bp->msg_enable & 8388608) != 0, 0L);
+    tmp___6 = ldv__builtin_expect((bp->msg_enable & 8388608) != 0, 0L);
 #line 2807
     if (tmp___6 != 0L) {
 #line 2807
@@ -119501,7 +119501,7 @@ int bnx2x_vf_acquire(struct bnx2x *bp , struct bnx2x_virtf *vf , struct vf_pf_re
 #line 2814
   if ((unsigned long )q == (unsigned long )((struct bnx2x_vf_queue *)0)) {
 #line 2815
-    tmp___8 = __builtin_expect((bp->msg_enable & 8388608) != 0, 0L);
+    tmp___8 = ldv__builtin_expect((bp->msg_enable & 8388608) != 0, 0L);
 #line 2815
     if (tmp___8 != 0L) {
 #line 2815
@@ -119523,7 +119523,7 @@ int bnx2x_vf_acquire(struct bnx2x *bp , struct bnx2x_virtf *vf , struct vf_pf_re
 #line 2821
   q->cid = (u32 )((base_vf_cid + 256) + i);
 #line 2823
-  tmp___9 = __builtin_expect((bp->msg_enable & 8388608) != 0, 0L);
+  tmp___9 = ldv__builtin_expect((bp->msg_enable & 8388608) != 0, 0L);
 #line 2823
   if (tmp___9 != 0L) {
 #line 2823
@@ -119605,7 +119605,7 @@ int bnx2x_vf_init(struct bnx2x *bp , struct bnx2x_virtf *vf , dma_addr_t *sb_map
 #line 2847
   if ((unsigned int )vf->state != 1U) {
 #line 2848
-    tmp___1 = __builtin_expect((bp->msg_enable & 8388608) != 0, 0L);
+    tmp___1 = ldv__builtin_expect((bp->msg_enable & 8388608) != 0, 0L);
 #line 2848
     if (tmp___1 != 0L) {
 #line 2848
@@ -119733,7 +119733,7 @@ static void bnx2x_vfop_close(struct bnx2x *bp , struct bnx2x_virtf *vf )
 
   }
 #line 2909
-  tmp___0 = __builtin_expect((bp->msg_enable & 8388608) != 0, 0L);
+  tmp___0 = ldv__builtin_expect((bp->msg_enable & 8388608) != 0, 0L);
 #line 2909
   if (tmp___0 != 0L) {
 #line 2909
@@ -119778,7 +119778,7 @@ static void bnx2x_vfop_close(struct bnx2x *bp , struct bnx2x_virtf *vf )
   return;
   case 1U: 
 #line 2931
-  tmp___1 = __builtin_expect((bp->msg_enable & 8388608) != 0, 0L);
+  tmp___1 = ldv__builtin_expect((bp->msg_enable & 8388608) != 0, 0L);
 #line 2931
   if (tmp___1 != 0L) {
 #line 2931
@@ -119789,7 +119789,7 @@ static void bnx2x_vfop_close(struct bnx2x *bp , struct bnx2x_virtf *vf )
 #line 2932
   bnx2x_vf_igu_disable(bp, vf);
 #line 2935
-  tmp___2 = __builtin_expect((bp->msg_enable & 8388608) != 0, 0L);
+  tmp___2 = ldv__builtin_expect((bp->msg_enable & 8388608) != 0, 0L);
 #line 2935
   if (tmp___2 != 0L) {
 #line 2935
@@ -119818,7 +119818,7 @@ static void bnx2x_vfop_close(struct bnx2x *bp , struct bnx2x_virtf *vf )
 #line 2945
   vf->state = 1U;
 #line 2946
-  tmp___3 = __builtin_expect((bp->msg_enable & 8388608) != 0, 0L);
+  tmp___3 = ldv__builtin_expect((bp->msg_enable & 8388608) != 0, 0L);
 #line 2946
   if (tmp___3 != 0L) {
 #line 2946
@@ -119888,7 +119888,7 @@ static void bnx2x_vfop_release(struct bnx2x *bp , struct bnx2x_virtf *vf )
 #line 2972
   cmd.block = 0;
 #line 2977
-  tmp___0 = __builtin_expect((bp->msg_enable & 8388608) != 0, 0L);
+  tmp___0 = ldv__builtin_expect((bp->msg_enable & 8388608) != 0, 0L);
 #line 2977
   if (tmp___0 != 0L) {
 #line 2977
@@ -119905,7 +119905,7 @@ static void bnx2x_vfop_release(struct bnx2x *bp , struct bnx2x_virtf *vf )
 
   }
 #line 2982
-  tmp___1 = __builtin_expect((bp->msg_enable & 8388608) != 0, 0L);
+  tmp___1 = ldv__builtin_expect((bp->msg_enable & 8388608) != 0, 0L);
 #line 2982
   if (tmp___1 != 0L) {
 #line 2982
@@ -119930,7 +119930,7 @@ static void bnx2x_vfop_release(struct bnx2x *bp , struct bnx2x_virtf *vf )
   return;
   case 1: 
 #line 2997
-  tmp___2 = __builtin_expect((bp->msg_enable & 8388608) != 0, 0L);
+  tmp___2 = ldv__builtin_expect((bp->msg_enable & 8388608) != 0, 0L);
 #line 2997
   if (tmp___2 != 0L) {
 #line 2997
@@ -119941,7 +119941,7 @@ static void bnx2x_vfop_release(struct bnx2x *bp , struct bnx2x_virtf *vf )
 #line 2998
   bnx2x_vf_free_resc(bp, vf);
 #line 2999
-  tmp___3 = __builtin_expect((bp->msg_enable & 8388608) != 0, 0L);
+  tmp___3 = ldv__builtin_expect((bp->msg_enable & 8388608) != 0, 0L);
 #line 2999
   if (tmp___3 != 0L) {
 #line 2999
@@ -120032,7 +120032,7 @@ void bnx2x_vf_release(struct bnx2x *bp , struct bnx2x_virtf *vf , bool block )
 #line 3044
     __ret_warn_on = rc != 0;
 #line 3044
-    tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 3044
     if (tmp != 0L) {
 #line 3044
@@ -120043,7 +120043,7 @@ void bnx2x_vf_release(struct bnx2x *bp , struct bnx2x_virtf *vf , bool block )
 
     }
 #line 3044
-    __builtin_expect(__ret_warn_on != 0, 0L);
+    ldv__builtin_expect(__ret_warn_on != 0, 0L);
   } else {
 
   }
@@ -120062,7 +120062,7 @@ void bnx2x_lock_vf_pf_channel(struct bnx2x *bp , struct bnx2x_virtf *vf , enum c
 #line 3072
   vf->op_current = tlv;
 #line 3075
-  tmp = __builtin_expect((bp->msg_enable & 8388608) != 0, 0L);
+  tmp = ldv__builtin_expect((bp->msg_enable & 8388608) != 0, 0L);
 #line 3075
   if (tmp != 0L) {
 #line 3075
@@ -120087,7 +120087,7 @@ void bnx2x_unlock_vf_pf_channel(struct bnx2x *bp , struct bnx2x_virtf *vf , enum
 #line 3082
   __ret_warn_on = (unsigned int )vf->op_current != (unsigned int )expected_tlv;
 #line 3082
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 3082
   if (tmp != 0L) {
 #line 3082
@@ -120098,11 +120098,11 @@ void bnx2x_unlock_vf_pf_channel(struct bnx2x *bp , struct bnx2x_virtf *vf , enum
 
   }
 #line 3082
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 3087
   ldv_mutex_unlock_172(& vf->op_mutex);
 #line 3090
-  tmp___0 = __builtin_expect((bp->msg_enable & 8388608) != 0, 0L);
+  tmp___0 = ldv__builtin_expect((bp->msg_enable & 8388608) != 0, 0L);
 #line 3090
   if (tmp___0 != 0L) {
 #line 3090
@@ -120135,7 +120135,7 @@ int bnx2x_sriov_configure(struct pci_dev *dev , int num_vfs_param )
 #line 3100
   bp = (struct bnx2x *)tmp___0;
 #line 3102
-  tmp___1 = __builtin_expect((bp->msg_enable & 8388608) != 0, 0L);
+  tmp___1 = ldv__builtin_expect((bp->msg_enable & 8388608) != 0, 0L);
 #line 3102
   if (tmp___1 != 0L) {
 #line 3102
@@ -120208,7 +120208,7 @@ int bnx2x_enable_sriov(struct bnx2x *bp )
 
   }
 #line 3136
-  tmp = __builtin_expect((bp->msg_enable & 8388608) != 0, 0L);
+  tmp = ldv__builtin_expect((bp->msg_enable & 8388608) != 0, 0L);
 #line 3136
   if (tmp != 0L) {
 #line 3136
@@ -120230,7 +120230,7 @@ void bnx2x_pf_set_vfs_vlan(struct bnx2x *bp )
 
   {
 #line 3145
-  tmp = __builtin_expect((bp->msg_enable & 8388608) != 0, 0L);
+  tmp = ldv__builtin_expect((bp->msg_enable & 8388608) != 0, 0L);
 #line 3145
   if (tmp != 0L) {
 #line 3145
@@ -120596,7 +120596,7 @@ int bnx2x_set_vf_vlan(struct net_device *dev , int vfidx , u16 vlan , u8 qos )
 
   }
 #line 3331
-  tmp___0 = __builtin_expect((bp->msg_enable & 8388608) != 0, 0L);
+  tmp___0 = ldv__builtin_expect((bp->msg_enable & 8388608) != 0, 0L);
 #line 3331
   if (tmp___0 != 0L) {
 #line 3331
@@ -121211,7 +121211,7 @@ __inline static void ldv_error(void)
 #line 25
 extern int __VERIFIER_nondet_int(void) ;
 #line 49 "/home/ldvuser/ldv/inst/kernel-rules/verifier/rcv.h"
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 

@@ -7483,7 +7483,7 @@ typedef int ldv_func_ret_type___2;
 #line 1 "<compiler builtins>"
 void *__builtin_memcpy(void * , void const   * , unsigned long  ) ;
 #line 1
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 #line 62 "/home/mikhail/launches/cpachecker-regression2/launcher-working-dir/ldv-manager-work-dir/inst/current/envs/linux-3.8-rc1/linux-3.8-rc1/arch/x86/include/asm/bitops.h"
 __inline static void set_bit(unsigned int nr , unsigned long volatile   *addr ) 
 { 
@@ -7695,7 +7695,7 @@ __inline static unsigned long arch_local_save_flags(void)
 #line 825
   __eax = __eax;
 #line 825
-  tmp = __builtin_expect((unsigned long )pv_irq_ops.save_fl.func == (unsigned long )((void *)0),
+  tmp = ldv__builtin_expect((unsigned long )pv_irq_ops.save_fl.func == (unsigned long )((void *)0),
                          0L);
 #line 825
   if (tmp != 0L) {
@@ -8211,7 +8211,7 @@ __inline static struct dma_map_ops *get_dma_ops(struct device *dev )
 
   {
 #line 37
-  tmp = __builtin_expect((unsigned long )dev == (unsigned long )((struct device *)0),
+  tmp = ldv__builtin_expect((unsigned long )dev == (unsigned long )((struct device *)0),
                          0L);
 #line 37
   if (tmp != 0L || (unsigned long )dev->archdata.dma_ops == (unsigned long )((struct dma_map_ops *)0)) {
@@ -8245,7 +8245,7 @@ __inline static dma_addr_t dma_map_single_attrs(struct device *dev , void *ptr ,
 #line 19
   tmp___0 = valid_dma_direction((int )dir);
 #line 19
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
 #line 19
   if (tmp___1 != 0L) {
 #line 19
@@ -8289,7 +8289,7 @@ __inline static void dma_unmap_single_attrs(struct device *dev , dma_addr_t addr
 #line 36
   tmp___0 = valid_dma_direction((int )dir);
 #line 36
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
 #line 36
   if (tmp___1 != 0L) {
 #line 36
@@ -8334,7 +8334,7 @@ __inline static void dma_sync_single_for_cpu(struct device *dev , dma_addr_t add
 #line 103
   tmp___0 = valid_dma_direction((int )dir);
 #line 103
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
 #line 103
   if (tmp___1 != 0L) {
 #line 103
@@ -8379,7 +8379,7 @@ __inline static void dma_sync_single_for_device(struct device *dev , dma_addr_t 
 #line 115
   tmp___0 = valid_dma_direction((int )dir);
 #line 115
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
 #line 115
   if (tmp___1 != 0L) {
 #line 115
@@ -8534,7 +8534,7 @@ __inline static void dma_free_attrs(struct device *dev , size_t size , void *vad
 #line 166
   __ret_warn_on = tmp___0 != 0;
 #line 166
-  tmp___1 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___1 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 166
   if (tmp___1 != 0L) {
 #line 166
@@ -8544,7 +8544,7 @@ __inline static void dma_free_attrs(struct device *dev , size_t size , void *vad
 
   }
 #line 166
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 171
   debug_dma_free_coherent(dev, size, vaddr, bus);
 #line 172
@@ -8662,7 +8662,7 @@ __inline static int signal_pending(struct task_struct *p )
 #line 2620
   tmp = test_tsk_thread_flag(p, 2);
 #line 2620
-  tmp___0 = __builtin_expect(tmp != 0, 0L);
+  tmp___0 = ldv__builtin_expect(tmp != 0, 0L);
 #line 2620
   return ((int )tmp___0);
 }
@@ -8776,7 +8776,7 @@ __inline static void netif_tx_stop_queue(struct netdev_queue *dev_queue )
 #line 1880
   __ret_warn_on = (unsigned long )dev_queue == (unsigned long )((struct netdev_queue *)0);
 #line 1880
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 1880
   if (tmp != 0L) {
 #line 1880
@@ -8785,7 +8785,7 @@ __inline static void netif_tx_stop_queue(struct netdev_queue *dev_queue )
 
   }
 #line 1880
-  tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 1880
   if (tmp___0 != 0L) {
 #line 1881
@@ -15171,7 +15171,7 @@ static void isr_rx(struct ipw2100_priv *priv , int i , struct libipw_rx_stats *s
 #line 2536
   tmp___2 = skb_tailroom((struct sk_buff  const  *)packet->skb);
 #line 2536
-  tmp___3 = __builtin_expect(status->frame_size > (u32 )tmp___2, 0L);
+  tmp___3 = ldv__builtin_expect(status->frame_size > (u32 )tmp___2, 0L);
 #line 2536
   if (tmp___3 != 0L) {
 #line 2537
@@ -15207,7 +15207,7 @@ static void isr_rx(struct ipw2100_priv *priv , int i , struct libipw_rx_stats *s
     tmp___6 = 1;
   }
 #line 2545
-  tmp___7 = __builtin_expect((long )tmp___6, 0L);
+  tmp___7 = ldv__builtin_expect((long )tmp___6, 0L);
 #line 2545
   if (tmp___7 != 0L) {
 #line 2546
@@ -15232,11 +15232,11 @@ static void isr_rx(struct ipw2100_priv *priv , int i , struct libipw_rx_stats *s
 
   }
 #line 2552
-  tmp___9 = __builtin_expect((priv->ieee)->iw_mode != 6, 0L);
+  tmp___9 = ldv__builtin_expect((priv->ieee)->iw_mode != 6, 0L);
 #line 2552
   if (tmp___9 != 0L) {
 #line 2552
-    tmp___10 = __builtin_expect((priv->status & 1024UL) == 0UL, 0L);
+    tmp___10 = ldv__builtin_expect((priv->status & 1024UL) == 0UL, 0L);
 #line 2552
     if (tmp___10 != 0L) {
 #line 2554
@@ -15302,7 +15302,7 @@ static void isr_rx(struct ipw2100_priv *priv , int i , struct libipw_rx_stats *s
 #line 2587
   tmp___14 = ipw2100_alloc_skb(priv, packet);
 #line 2587
-  tmp___15 = __builtin_expect(tmp___14 != 0, 0L);
+  tmp___15 = ldv__builtin_expect(tmp___14 != 0, 0L);
 #line 2587
   if (tmp___15 != 0L) {
 #line 2588
@@ -15375,7 +15375,7 @@ static void isr_rx_monitor(struct ipw2100_priv *priv , int i , struct libipw_rx_
 #line 2618
   tmp___2 = skb_tailroom((struct sk_buff  const  *)packet->skb);
 #line 2618
-  tmp___3 = __builtin_expect((unsigned long )status->frame_size > (unsigned long )tmp___2 - 9UL,
+  tmp___3 = ldv__builtin_expect((unsigned long )status->frame_size > (unsigned long )tmp___2 - 9UL,
                              0L);
 #line 2618
   if (tmp___3 != 0L) {
@@ -15412,7 +15412,7 @@ static void isr_rx_monitor(struct ipw2100_priv *priv , int i , struct libipw_rx_
     tmp___6 = 1;
   }
 #line 2629
-  tmp___7 = __builtin_expect((long )tmp___6, 0L);
+  tmp___7 = ldv__builtin_expect((long )tmp___6, 0L);
 #line 2629
   if (tmp___7 != 0L) {
 #line 2630
@@ -15437,11 +15437,11 @@ static void isr_rx_monitor(struct ipw2100_priv *priv , int i , struct libipw_rx_
 
   }
 #line 2636
-  tmp___9 = __builtin_expect((priv->config & 2048UL) != 0UL, 0L);
+  tmp___9 = ldv__builtin_expect((priv->config & 2048UL) != 0UL, 0L);
 #line 2636
   if (tmp___9 != 0L) {
 #line 2636
-    tmp___10 = __builtin_expect(((int )status->flags & 4) != 0, 0L);
+    tmp___10 = ldv__builtin_expect(((int )status->flags & 4) != 0, 0L);
 #line 2636
     if (tmp___10 != 0L) {
 #line 2638
@@ -15500,7 +15500,7 @@ static void isr_rx_monitor(struct ipw2100_priv *priv , int i , struct libipw_rx_
 #line 2669
   tmp___13 = ipw2100_alloc_skb(priv, packet);
 #line 2669
-  tmp___14 = __builtin_expect(tmp___13 != 0, 0L);
+  tmp___14 = ldv__builtin_expect(tmp___13 != 0, 0L);
 #line 2669
   if (tmp___14 != 0L) {
 #line 2670
@@ -15645,7 +15645,7 @@ static void __ipw2100_rx_process(struct ipw2100_priv *priv )
 #line 2773
   tmp___0 = ipw2100_corruption_check(priv, (int )i);
 #line 2773
-  tmp___1 = __builtin_expect(tmp___0 != 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 != 0, 0L);
 #line 2773
   if (tmp___1 != 0L) {
 #line 2774
@@ -16278,7 +16278,7 @@ static void ipw2100_tx_send_data(struct ipw2100_priv *priv )
 #line 3162
   packet = (struct ipw2100_tx_packet *)__mptr + 0xffffffffffffffd8UL;
 #line 3164
-  tmp___0 = __builtin_expect((int )(packet->info.d_struct.txb)->nr_frags + 1 > 6,
+  tmp___0 = ldv__builtin_expect((int )(packet->info.d_struct.txb)->nr_frags + 1 > 6,
                              0L);
 #line 3164
   if (tmp___0 != 0L) {
@@ -19572,7 +19572,7 @@ static int ipw2100_rx_allocate(struct ipw2100_priv *priv )
 #line 4696
   err = ipw2100_alloc_skb(priv, packet);
 #line 4697
-  tmp___4 = __builtin_expect(err != 0, 0L);
+  tmp___4 = ldv__builtin_expect(err != 0, 0L);
 #line 4697
   if (tmp___4 != 0L) {
 #line 4698
@@ -32093,7 +32093,7 @@ __inline static void ldv_error(void)
 #line 25
 extern int __VERIFIER_nondet_int(void) ;
 #line 49 "/home/mikhail/ldv/kernel-rules/verifier/rcv.h"
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 

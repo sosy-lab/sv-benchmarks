@@ -4272,7 +4272,7 @@ struct ili9320 {
    int (*write)(struct ili9320 *ili , unsigned int reg , unsigned int val ) ;
 };
 #line 1 "<compiler builtins>"
-long __builtin_expect(long val , long res ) ;
+long ldv__builtin_expect(long val , long res ) ;
 #line 49 "include/linux/dynamic_debug.h"
 extern int ( /* format attribute */  __dynamic_dev_dbg)(struct _ddebug *descriptor ,
                                                         struct device  const  *dev ,
@@ -4314,7 +4314,7 @@ __inline static long __attribute__((__warn_unused_result__))  IS_ERR(void const 
 #line 34
   __cil_tmp7 = (long )__cil_tmp6;
 #line 34
-  tmp = __builtin_expect(__cil_tmp7, 0L);
+  tmp = ldv__builtin_expect(__cil_tmp7, 0L);
   }
 #line 34
   return (tmp);
@@ -4699,7 +4699,7 @@ int ili9320_write(struct ili9320 *ili , unsigned int reg , unsigned int value )
 #line 57
       __cil_tmp11 = (long )__cil_tmp10;
 #line 57
-      tmp___7 = __builtin_expect(__cil_tmp11, 0L);
+      tmp___7 = ldv__builtin_expect(__cil_tmp11, 0L);
       }
 #line 57
       if (tmp___7) {
@@ -5240,7 +5240,7 @@ static int ili9320_power(struct ili9320 *lcd , int power )
 #line 136
       __cil_tmp10 = (long )__cil_tmp9;
 #line 136
-      tmp___7 = __builtin_expect(__cil_tmp10, 0L);
+      tmp___7 = ldv__builtin_expect(__cil_tmp10, 0L);
       }
 #line 136
       if (tmp___7) {
@@ -6093,7 +6093,7 @@ int ili9320_suspend(struct ili9320 *lcd , int state_event33 )
 #line 288
       __cil_tmp10 = (long )__cil_tmp9;
 #line 288
-      tmp___7 = __builtin_expect(__cil_tmp10, 0L);
+      tmp___7 = ldv__builtin_expect(__cil_tmp10, 0L);
       }
 #line 288
       if (tmp___7) {
@@ -6636,7 +6636,7 @@ void ldv_check_final_state(void)
 }
 }
 #line 482 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/16918/dscv_tempdir/dscv/ri/32_1/drivers/video/backlight/ili9320.c.common.c"
-long __builtin_expect(long val , long res ) 
+long ldv__builtin_expect(long val , long res ) 
 { 
 
   {

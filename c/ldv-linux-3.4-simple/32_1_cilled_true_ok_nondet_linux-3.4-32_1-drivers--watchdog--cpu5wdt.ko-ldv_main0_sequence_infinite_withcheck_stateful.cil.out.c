@@ -1564,7 +1564,7 @@ struct __anonstruct_cpu5wdt_device_218 {
    unsigned long inuse ;
 };
 #line 1 "<compiler builtins>"
-long __builtin_expect(long val , long res ) ;
+long ldv__builtin_expect(long val , long res ) ;
 #line 97 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/bitops.h"
 __inline static void ( __attribute__((__always_inline__)) clear_bit)(int nr , unsigned long volatile   *addr )  __attribute__((__no_instrument_function__)) ;
 #line 97 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/bitops.h"
@@ -1979,7 +1979,7 @@ static void cpu5wdt_trigger(unsigned long unused )
 #line 77
       __cil_tmp10 = (long )__cil_tmp9;
 #line 77
-      tmp = __builtin_expect(__cil_tmp10, 0L);
+      tmp = ldv__builtin_expect(__cil_tmp10, 0L);
       }
 #line 77
       if (tmp) {
@@ -2137,7 +2137,7 @@ static void cpu5wdt_reset(void)
 #line 102
       __cil_tmp10 = (long )__cil_tmp9;
 #line 102
-      tmp = __builtin_expect(__cil_tmp10, 0L);
+      tmp = ldv__builtin_expect(__cil_tmp10, 0L);
       }
 #line 102
       if (tmp) {
@@ -3021,7 +3021,7 @@ static int cpu5wdt_init(void)
 #line 225
       __cil_tmp12 = (long )__cil_tmp11;
 #line 225
-      tmp = __builtin_expect(__cil_tmp12, 0L);
+      tmp = ldv__builtin_expect(__cil_tmp12, 0L);
       }
 #line 225
       if (tmp) {
@@ -3818,7 +3818,7 @@ void ldv_check_final_state(void)
 }
 }
 #line 618 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/16397/dscv_tempdir/dscv/ri/32_1/drivers/watchdog/cpu5wdt.c.common.c"
-long __builtin_expect(long val , long res ) 
+long ldv__builtin_expect(long val , long res ) 
 { 
 
   {

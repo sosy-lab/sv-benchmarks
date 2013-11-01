@@ -3735,7 +3735,7 @@ typedef int ldv_func_ret_type___4;
 #line 1 "<compiler builtins>"
 void *__builtin_memcpy(void * , void const   * , unsigned long  ) ;
 #line 1
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 #line 62 "/work/zakharov/bench-tests/cpa/inst/current/envs/linux-3.8-rc1/linux-3.8-rc1/arch/x86/include/asm/bitops.h"
 __inline static void set_bit(unsigned int nr , unsigned long volatile   *addr ) 
 { 
@@ -4366,7 +4366,7 @@ static int ir_create_table(struct rc_map *rc_map , char const   *name , u64 rc_t
 #line 188
     descriptor.flags = 0U;
 #line 188
-    tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 188
     if (tmp___1 != 0L) {
 #line 188
@@ -4446,7 +4446,7 @@ static int ir_resize_table(struct rc_map *rc_map , gfp_t gfp_flags )
 #line 229
       descriptor.flags = 0U;
 #line 229
-      tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+      tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 229
       if (tmp != 0L) {
 #line 229
@@ -4480,7 +4480,7 @@ static int ir_resize_table(struct rc_map *rc_map , gfp_t gfp_flags )
 #line 235
       descriptor___0.flags = 0U;
 #line 235
-      tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+      tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 235
       if (tmp___0 != 0L) {
 #line 235
@@ -4523,7 +4523,7 @@ static int ir_resize_table(struct rc_map *rc_map , gfp_t gfp_flags )
 #line 243
       descriptor___1.flags = 0U;
 #line 243
-      tmp___2 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+      tmp___2 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 243
       if (tmp___2 != 0L) {
 #line 243
@@ -4587,7 +4587,7 @@ static unsigned int ir_update_mapping(struct rc_dev *dev , struct rc_map *rc_map
 #line 276
       descriptor.flags = 0U;
 #line 276
-      tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+      tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 276
       if (tmp != 0L) {
 #line 276
@@ -4620,7 +4620,7 @@ static unsigned int ir_update_mapping(struct rc_dev *dev , struct rc_map *rc_map
 #line 282
       descriptor___0.flags = 0U;
 #line 282
-      tmp___1 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+      tmp___1 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 282
       if (tmp___1 != 0L) {
 #line 282
@@ -4873,7 +4873,7 @@ static int ir_setkeytable(struct rc_dev *dev , struct rc_map  const  *from )
 #line 435
     descriptor.flags = 0U;
 #line 435
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 435
     if (tmp != 0L) {
 #line 435
@@ -5102,7 +5102,7 @@ u32 rc_g_keycode_from_table(struct rc_dev *dev , u32 scancode )
 #line 571
       descriptor.flags = 0U;
 #line 571
-      tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+      tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 571
       if (tmp___0 != 0L) {
 #line 571
@@ -5149,7 +5149,7 @@ static void ir_do_keyup(struct rc_dev *dev , bool sync )
 #line 591
     descriptor.flags = 0U;
 #line 591
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 591
     if (tmp != 0L) {
 #line 591
@@ -5297,7 +5297,7 @@ static void ir_do_keydown(struct rc_dev *dev , int scancode , u32 keycode , u8 t
 #line 700
       descriptor.flags = 0U;
 #line 700
-      tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+      tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 700
       if (tmp != 0L) {
 #line 700
@@ -5513,7 +5513,7 @@ static ssize_t show_protocols(struct device *device , struct device_attribute *m
 #line 850
     descriptor.flags = 0U;
 #line 850
-    tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 850
     if (tmp___0 != 0L) {
 #line 850
@@ -5650,7 +5650,7 @@ static ssize_t store_protocols(struct device *device , struct device_attribute *
 #line 917
       descriptor.flags = 0U;
 #line 917
-      tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+      tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 917
       if (tmp___0 != 0L) {
 #line 917
@@ -5745,7 +5745,7 @@ static ssize_t store_protocols(struct device *device , struct device_attribute *
 #line 947
       descriptor___0.flags = 0U;
 #line 947
-      tmp___2 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+      tmp___2 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 947
       if (tmp___2 != 0L) {
 #line 947
@@ -5808,7 +5808,7 @@ static ssize_t store_protocols(struct device *device , struct device_attribute *
 #line 962
       descriptor___1.flags = 0U;
 #line 962
-      tmp___4 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+      tmp___4 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 962
       if (tmp___4 != 0L) {
 #line 962
@@ -5848,7 +5848,7 @@ static ssize_t store_protocols(struct device *device , struct device_attribute *
 #line 970
         descriptor___2.flags = 0U;
 #line 970
-        tmp___5 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+        tmp___5 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
 #line 970
         if (tmp___5 != 0L) {
 #line 970
@@ -5899,7 +5899,7 @@ static ssize_t store_protocols(struct device *device , struct device_attribute *
 #line 985
     descriptor___3.flags = 0U;
 #line 985
-    tmp___7 = __builtin_expect((long )descriptor___3.flags & 1L, 0L);
+    tmp___7 = ldv__builtin_expect((long )descriptor___3.flags & 1L, 0L);
 #line 985
     if (tmp___7 != 0L) {
 #line 985
@@ -6272,7 +6272,7 @@ int rc_register_device(struct rc_dev *dev )
 #line 1173
         descriptor.flags = 0U;
 #line 1173
-        tmp___4 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+        tmp___4 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1173
         if (tmp___4 != 0L) {
 #line 1173
@@ -6336,7 +6336,7 @@ int rc_register_device(struct rc_dev *dev )
 #line 1191
     descriptor___0.flags = 0U;
 #line 1191
-    tmp___8 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___8 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 1191
     if (tmp___8 != 0L) {
 #line 1191
@@ -6439,7 +6439,7 @@ void rc_unregister_device(struct rc_dev *dev )
 #line 1227
     descriptor.flags = 0U;
 #line 1227
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1227
     if (tmp != 0L) {
 #line 1227
@@ -7013,7 +7013,7 @@ __inline static long IS_ERR(void const   *ptr )
 
   {
 #line 34
-  tmp = __builtin_expect((unsigned long )ptr > 0xfffffffffffff000UL, 0L);
+  tmp = ldv__builtin_expect((unsigned long )ptr > 0xfffffffffffff000UL, 0L);
 #line 34
   return (tmp);
 }
@@ -7470,7 +7470,7 @@ int ir_raw_event_store(struct rc_dev *dev , struct ir_raw_event *ev )
 #line 144
     descriptor.flags = 0U;
 #line 144
-    tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 144
     if (tmp___0 != 0L) {
 #line 144
@@ -7681,7 +7681,7 @@ void ir_raw_event_set_idle(struct rc_dev *dev , bool idle )
 #line 257
     descriptor.flags = 0U;
 #line 257
-    tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 257
     if (tmp___0 != 0L) {
 #line 257
@@ -8377,7 +8377,7 @@ __inline static void ldv_error(void)
 #line 25
 extern int __VERIFIER_nondet_int(void) ;
 #line 49 "/home/zakharov/workspace/instruments/ldv/kernel-rules/verifier/rcv.h"
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
   {

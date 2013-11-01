@@ -4014,7 +4014,7 @@ void ldv_mutex_unlock_3(struct mutex *ldv_func_arg1 )
 }
 }
 #line 1 "<compiler builtins>"
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 #line 166 "include/linux/kernel.h"
 extern void might_fault(void) ;
 #line 61 "/work/vladimir/commit-test/commit-test-work/task-006--linux-stable--dir/inst/current/envs/linux-stable-c4cb1dd-1/linux-stable-c4cb1dd-1/arch/x86/include/asm/page_64_types.h"
@@ -4141,7 +4141,7 @@ __inline static void trace_module_get(struct module *mod , unsigned long ip )
 
   {
 #line 79
-  tmp___1 = __builtin_expect(__tracepoint_module_get.state != 0, 0L);
+  tmp___1 = ldv__builtin_expect(__tracepoint_module_get.state != 0, 0L);
 #line 79
   if (tmp___1 != 0L) {
 #line 79
@@ -4232,7 +4232,7 @@ __inline static int try_module_get(struct module *module )
 #line 489
     tmp = module_is_live(module);
 #line 489
-    tmp___0 = __builtin_expect(tmp != 0, 1L);
+    tmp___0 = ldv__builtin_expect(tmp != 0, 1L);
 #line 489
     if (tmp___0 != 0L) {
 #line 490
@@ -4678,7 +4678,7 @@ __inline static int __copy_from_user(void *dst , void const   *src , unsigned in
                        "=r" (*((u64 *)dst)): "m" (*((struct __large_struct *)src)),
                        "i" (10), "0" (ret));
 #line 95
-  tmp___0 = __builtin_expect(ret != 0, 0L);
+  tmp___0 = ldv__builtin_expect(ret != 0, 0L);
 #line 95
   if (tmp___0 != 0L) {
 #line 96
@@ -4698,7 +4698,7 @@ __inline static int __copy_from_user(void *dst , void const   *src , unsigned in
                        "=r" (*((u64 *)dst)): "m" (*((struct __large_struct *)src)),
                        "i" (16), "0" (ret));
 #line 104
-  tmp___1 = __builtin_expect(ret != 0, 0L);
+  tmp___1 = ldv__builtin_expect(ret != 0, 0L);
 #line 104
   if (tmp___1 != 0L) {
 #line 105
@@ -4769,7 +4769,7 @@ __inline static int __copy_to_user(void *dst , void const   *src , unsigned int 
   __asm__  volatile   ("1:\tmovq %1,%2\n2:\n.section .fixup,\"ax\"\n3:\tmov %3,%0\n\tjmp 2b\n.previous\n .section __ex_table,\"a\"\n .balign 8 \n .quad 1b,3b\n .previous\n": "=r" (ret): "er" (*((u64 *)src)),
                        "m" (*((struct __large_struct *)dst)), "i" (10), "0" (ret));
 #line 139
-  tmp___0 = __builtin_expect(ret != 0, 0L);
+  tmp___0 = ldv__builtin_expect(ret != 0, 0L);
 #line 139
   if (tmp___0 != 0L) {
 #line 140
@@ -4789,7 +4789,7 @@ __inline static int __copy_to_user(void *dst , void const   *src , unsigned int 
   __asm__  volatile   ("1:\tmovq %1,%2\n2:\n.section .fixup,\"ax\"\n3:\tmov %3,%0\n\tjmp 2b\n.previous\n .section __ex_table,\"a\"\n .balign 8 \n .quad 1b,3b\n .previous\n": "=r" (ret): "er" (*((u64 *)src)),
                        "m" (*((struct __large_struct *)dst)), "i" (16), "0" (ret));
 #line 148
-  tmp___1 = __builtin_expect(ret != 0, 0L);
+  tmp___1 = ldv__builtin_expect(ret != 0, 0L);
 #line 148
   if (tmp___1 != 0L) {
 #line 149
@@ -5521,7 +5521,7 @@ static long sound_ioctl(struct file *file , unsigned int cmd , unsigned long arg
       __asm__  ("add %3,%1 ; sbb %0,%0 ; cmp %1,%4 ; sbb $0,%0": "=&r" (flag), "=r" (roksum): "1" (p),
                 "g" ((long )len), "rm" (tmp___0->addr_limit.seg));
 #line 361
-      tmp___1 = __builtin_expect(flag == 0UL, 1L);
+      tmp___1 = ldv__builtin_expect(flag == 0UL, 1L);
 #line 361
       if (tmp___1 == 0L) {
 #line 362
@@ -5540,7 +5540,7 @@ static long sound_ioctl(struct file *file , unsigned int cmd , unsigned long arg
       __asm__  ("add %3,%1 ; sbb %0,%0 ; cmp %1,%4 ; sbb $0,%0": "=&r" (flag___0),
                 "=r" (roksum___0): "1" (p), "g" ((long )len), "rm" (tmp___2->addr_limit.seg));
 #line 364
-      tmp___3 = __builtin_expect(flag___0 == 0UL, 1L);
+      tmp___3 = ldv__builtin_expect(flag___0 == 0UL, 1L);
 #line 364
       if (tmp___3 == 0L) {
 #line 365
@@ -6671,14 +6671,14 @@ __inline static unsigned long copy_from_user(void *to , void const   *from , uns
 #line 53
   might_fault();
 #line 54
-  tmp___1 = __builtin_expect(sz == -1, 1L);
+  tmp___1 = ldv__builtin_expect(sz == -1, 1L);
 #line 54
   if (tmp___1 != 0L) {
 #line 55
     n = _copy_from_user(to, from, (unsigned int )n);
   } else {
 #line 54
-    tmp___2 = __builtin_expect((unsigned long )sz >= n, 1L);
+    tmp___2 = ldv__builtin_expect((unsigned long )sz >= n, 1L);
 #line 54
     if (tmp___2 != 0L) {
 #line 55
@@ -6687,7 +6687,7 @@ __inline static unsigned long copy_from_user(void *to , void const   *from , uns
 #line 58
       __ret_warn_on = 1;
 #line 58
-      tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+      tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 58
       if (tmp___0 != 0L) {
 #line 58
@@ -6697,7 +6697,7 @@ __inline static unsigned long copy_from_user(void *to , void const   *from , uns
 
       }
 #line 58
-      __builtin_expect(__ret_warn_on != 0, 0L);
+      ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
   }
 #line 60
@@ -9606,7 +9606,7 @@ __inline static int signal_pending(struct task_struct *p )
 #line 2309
   tmp = test_tsk_thread_flag(p, 2);
 #line 2309
-  tmp___0 = __builtin_expect(tmp != 0, 0L);
+  tmp___0 = ldv__builtin_expect(tmp != 0, 0L);
 #line 2309
   return ((int )tmp___0);
 }
@@ -20592,7 +20592,7 @@ __inline static void ldv_error(void)
 #line 25
 extern int __VERIFIER_nondet_int(void) ;
 #line 49 "/work/vladimir/kernel-rules/verifier/rcv.h"
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 

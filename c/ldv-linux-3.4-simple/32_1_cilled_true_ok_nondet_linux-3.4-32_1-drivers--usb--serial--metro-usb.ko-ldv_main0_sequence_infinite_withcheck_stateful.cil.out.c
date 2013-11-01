@@ -4233,7 +4233,7 @@ struct metrousb_private {
    unsigned long control_state ;
 };
 #line 1 "<compiler builtins>"
-long __builtin_expect(long val , long res ) ;
+long ldv__builtin_expect(long val , long res ) ;
 #line 49 "include/linux/dynamic_debug.h"
 extern int ( /* format attribute */  __dynamic_dev_dbg)(struct _ddebug *descriptor ,
                                                         struct device  const  *dev ,
@@ -4834,7 +4834,7 @@ static void metrousb_read_int_callback(struct urb *urb )
 #line 70
       __cil_tmp31 = (long )__cil_tmp30;
 #line 70
-      tmp___8 = __builtin_expect(__cil_tmp31, 0L);
+      tmp___8 = ldv__builtin_expect(__cil_tmp31, 0L);
       }
 #line 70
       if (tmp___8) {
@@ -4921,7 +4921,7 @@ static void metrousb_read_int_callback(struct urb *urb )
 #line 80
           __cil_tmp43 = (long )__cil_tmp42;
 #line 80
-          tmp___9 = __builtin_expect(__cil_tmp43, 0L);
+          tmp___9 = ldv__builtin_expect(__cil_tmp43, 0L);
           }
 #line 80
           if (tmp___9) {
@@ -4976,7 +4976,7 @@ static void metrousb_read_int_callback(struct urb *urb )
 #line 85
           __cil_tmp53 = (long )__cil_tmp52;
 #line 85
-          tmp___10 = __builtin_expect(__cil_tmp53, 0L);
+          tmp___10 = ldv__builtin_expect(__cil_tmp53, 0L);
           }
 #line 85
           if (tmp___10) {
@@ -5048,7 +5048,7 @@ static void metrousb_read_int_callback(struct urb *urb )
 #line 95
         __cil_tmp66 = (long )__cil_tmp65;
 #line 95
-        tmp___11 = __builtin_expect(__cil_tmp66, 0L);
+        tmp___11 = ldv__builtin_expect(__cil_tmp66, 0L);
         }
 #line 95
         if (tmp___11) {
@@ -5256,7 +5256,7 @@ static void metrousb_read_int_callback(struct urb *urb )
 #line 125
           __cil_tmp119 = (long )__cil_tmp118;
 #line 125
-          tmp___14 = __builtin_expect(__cil_tmp119, 0L);
+          tmp___14 = ldv__builtin_expect(__cil_tmp119, 0L);
           }
 #line 125
           if (tmp___14) {
@@ -5323,7 +5323,7 @@ static void metrousb_read_int_callback(struct urb *urb )
 #line 135
         __cil_tmp129 = (long )__cil_tmp128;
 #line 135
-        tmp___15 = __builtin_expect(__cil_tmp129, 0L);
+        tmp___15 = ldv__builtin_expect(__cil_tmp129, 0L);
         }
 #line 135
         if (tmp___15) {
@@ -5412,7 +5412,7 @@ static void metrousb_cleanup(struct usb_serial_port *port )
 #line 142
       __cil_tmp8 = (long )__cil_tmp7;
 #line 142
-      tmp___7 = __builtin_expect(__cil_tmp8, 0L);
+      tmp___7 = ldv__builtin_expect(__cil_tmp8, 0L);
       }
 #line 142
       if (tmp___7) {
@@ -5643,7 +5643,7 @@ static int metrousb_open(struct tty_struct *tty , struct usb_serial_port *port )
 #line 160
       __cil_tmp21 = (long )__cil_tmp20;
 #line 160
-      tmp___8 = __builtin_expect(__cil_tmp21, 0L);
+      tmp___8 = ldv__builtin_expect(__cil_tmp21, 0L);
       }
 #line 160
       if (tmp___8) {
@@ -5703,7 +5703,7 @@ static int metrousb_open(struct tty_struct *tty , struct usb_serial_port *port )
 #line 164
         __cil_tmp34 = (long )__cil_tmp33;
 #line 164
-        tmp___9 = __builtin_expect(__cil_tmp34, 0L);
+        tmp___9 = ldv__builtin_expect(__cil_tmp34, 0L);
         }
 #line 164
         if (tmp___9) {
@@ -5901,7 +5901,7 @@ static int metrousb_open(struct tty_struct *tty , struct usb_serial_port *port )
 #line 195
         __cil_tmp88 = (long )__cil_tmp87;
 #line 195
-        tmp___12 = __builtin_expect(__cil_tmp88, 0L);
+        tmp___12 = ldv__builtin_expect(__cil_tmp88, 0L);
         }
 #line 195
         if (tmp___12) {
@@ -5958,7 +5958,7 @@ static int metrousb_open(struct tty_struct *tty , struct usb_serial_port *port )
 #line 201
       __cil_tmp98 = (long )__cil_tmp97;
 #line 201
-      tmp___13 = __builtin_expect(__cil_tmp98, 0L);
+      tmp___13 = ldv__builtin_expect(__cil_tmp98, 0L);
       }
 #line 201
       if (tmp___13) {
@@ -6077,7 +6077,7 @@ static int metrousb_set_modem_ctrl(struct usb_serial *serial , unsigned int cont
 #line 211
       __cil_tmp13 = (long )__cil_tmp12;
 #line 211
-      tmp___7 = __builtin_expect(__cil_tmp13, 0L);
+      tmp___7 = ldv__builtin_expect(__cil_tmp13, 0L);
       }
 #line 211
       if (tmp___7) {
@@ -6184,7 +6184,7 @@ static int metrousb_set_modem_ctrl(struct usb_serial *serial , unsigned int cont
 #line 225
         __cil_tmp39 = (long )__cil_tmp38;
 #line 225
-        tmp___9 = __builtin_expect(__cil_tmp39, 0L);
+        tmp___9 = ldv__builtin_expect(__cil_tmp39, 0L);
         }
 #line 225
         if (tmp___9) {
@@ -6321,7 +6321,7 @@ static void metrousb_shutdown(struct usb_serial *serial )
 #line 236
       __cil_tmp11 = (long )__cil_tmp10;
 #line 236
-      tmp___7 = __builtin_expect(__cil_tmp11, 0L);
+      tmp___7 = ldv__builtin_expect(__cil_tmp11, 0L);
       }
 #line 236
       if (tmp___7) {
@@ -6441,7 +6441,7 @@ static void metrousb_shutdown(struct usb_serial *serial )
 #line 247
         __cil_tmp43 = (long )__cil_tmp42;
 #line 247
-        tmp___9 = __builtin_expect(__cil_tmp43, 0L);
+        tmp___9 = ldv__builtin_expect(__cil_tmp43, 0L);
         }
 #line 247
         if (tmp___9) {
@@ -6585,7 +6585,7 @@ static int metrousb_startup(struct usb_serial *serial )
 #line 258
       __cil_tmp13 = (long )__cil_tmp12;
 #line 258
-      tmp___7 = __builtin_expect(__cil_tmp13, 0L);
+      tmp___7 = ldv__builtin_expect(__cil_tmp13, 0L);
       }
 #line 258
       if (tmp___7) {
@@ -6720,7 +6720,7 @@ static int metrousb_startup(struct usb_serial *serial )
 #line 274
         __cil_tmp35 = (long )__cil_tmp34;
 #line 274
-        tmp___9 = __builtin_expect(__cil_tmp35, 0L);
+        tmp___9 = ldv__builtin_expect(__cil_tmp35, 0L);
         }
 #line 274
         if (tmp___9) {
@@ -6840,7 +6840,7 @@ static void metrousb_throttle(struct tty_struct *tty )
 #line 287
       __cil_tmp18 = (long )__cil_tmp17;
 #line 287
-      tmp___8 = __builtin_expect(__cil_tmp18, 0L);
+      tmp___8 = ldv__builtin_expect(__cil_tmp18, 0L);
       }
 #line 287
       if (tmp___8) {
@@ -6985,7 +6985,7 @@ static int metrousb_tiocmget(struct tty_struct *tty )
 #line 302
       __cil_tmp19 = (long )__cil_tmp18;
 #line 302
-      tmp___8 = __builtin_expect(__cil_tmp19, 0L);
+      tmp___8 = ldv__builtin_expect(__cil_tmp19, 0L);
       }
 #line 302
       if (tmp___8) {
@@ -7137,7 +7137,7 @@ static int metrousb_tiocmset(struct tty_struct *tty , unsigned int set , unsigne
 #line 320
       __cil_tmp23 = (long )__cil_tmp22;
 #line 320
-      tmp___8 = __builtin_expect(__cil_tmp23, 0L);
+      tmp___8 = ldv__builtin_expect(__cil_tmp23, 0L);
       }
 #line 320
       if (tmp___8) {
@@ -7347,7 +7347,7 @@ static void metrousb_unthrottle(struct tty_struct *tty )
 #line 347
       __cil_tmp20 = (long )__cil_tmp19;
 #line 347
-      tmp___8 = __builtin_expect(__cil_tmp20, 0L);
+      tmp___8 = ldv__builtin_expect(__cil_tmp20, 0L);
       }
 #line 347
       if (tmp___8) {
@@ -7460,7 +7460,7 @@ static void metrousb_unthrottle(struct tty_struct *tty )
 #line 358
         __cil_tmp43 = (long )__cil_tmp42;
 #line 358
-        tmp___10 = __builtin_expect(__cil_tmp43, 0L);
+        tmp___10 = ldv__builtin_expect(__cil_tmp43, 0L);
         }
 #line 358
         if (tmp___10) {
@@ -8129,7 +8129,7 @@ void ldv_check_final_state(void)
 }
 }
 #line 904 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/7543/dscv_tempdir/dscv/ri/32_1/drivers/usb/serial/metro-usb.c.common.c"
-long __builtin_expect(long val , long res ) 
+long ldv__builtin_expect(long val , long res ) 
 { 
 
   {

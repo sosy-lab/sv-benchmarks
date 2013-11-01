@@ -3600,7 +3600,7 @@ struct partition_t {
 #line 111 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/5616/dscv_tempdir/dscv/ri/32_1/drivers/mtd/ftl.c.common.c"
 typedef struct partition_t partition_t;
 #line 1 "<compiler builtins>"
-long __builtin_expect(long val , long res ) ;
+long ldv__builtin_expect(long val , long res ) ;
 #line 100 "include/linux/printk.h"
 extern int ( /* format attribute */  printk)(char const   *fmt  , ...) ;
 #line 44 "include/linux/dynamic_debug.h"
@@ -5723,7 +5723,7 @@ static int erase_xfer(partition_t *part , uint16_t xfernum )
 #line 343
     __cil_tmp16 = (long )__cil_tmp15;
 #line 343
-    tmp___7 = __builtin_expect(__cil_tmp16, 0L);
+    tmp___7 = ldv__builtin_expect(__cil_tmp16, 0L);
     }
 #line 343
     if (tmp___7) {
@@ -6142,7 +6142,7 @@ static int prepare_xfer(partition_t *part , int i )
 #line 419
     __cil_tmp21 = (long )__cil_tmp20;
 #line 419
-    tmp___7 = __builtin_expect(__cil_tmp21, 0L);
+    tmp___7 = ldv__builtin_expect(__cil_tmp21, 0L);
     }
 #line 419
     if (tmp___7) {
@@ -6523,7 +6523,7 @@ static int copy_erase_unit(partition_t *part , uint16_t srcunit , uint16_t xferu
 #line 480
     __cil_tmp29 = (long )__cil_tmp28;
 #line 480
-    tmp___7 = __builtin_expect(__cil_tmp29, 0L);
+    tmp___7 = ldv__builtin_expect(__cil_tmp29, 0L);
     }
 #line 480
     if (tmp___7) {
@@ -7317,7 +7317,7 @@ static int reclaim_block(partition_t *part )
 #line 615
     __cil_tmp25 = (long )__cil_tmp24;
 #line 615
-    tmp___7 = __builtin_expect(__cil_tmp25, 0L);
+    tmp___7 = ldv__builtin_expect(__cil_tmp25, 0L);
     }
 #line 615
     if (tmp___7) {
@@ -7351,7 +7351,7 @@ static int reclaim_block(partition_t *part )
 #line 616
     __cil_tmp31 = (long )__cil_tmp30;
 #line 616
-    tmp___8 = __builtin_expect(__cil_tmp31, 0L);
+    tmp___8 = ldv__builtin_expect(__cil_tmp31, 0L);
     }
 #line 616
     if (tmp___8) {
@@ -7453,7 +7453,7 @@ static int reclaim_block(partition_t *part )
 #line 624
           __cil_tmp56 = (long )__cil_tmp55;
 #line 624
-          tmp___9 = __builtin_expect(__cil_tmp56, 0L);
+          tmp___9 = ldv__builtin_expect(__cil_tmp56, 0L);
           }
 #line 624
           if (tmp___9) {
@@ -7519,7 +7519,7 @@ static int reclaim_block(partition_t *part )
 #line 629
           __cil_tmp71 = (long )__cil_tmp70;
 #line 629
-          tmp___10 = __builtin_expect(__cil_tmp71, 0L);
+          tmp___10 = ldv__builtin_expect(__cil_tmp71, 0L);
           }
 #line 629
           if (tmp___10) {
@@ -7580,7 +7580,7 @@ static int reclaim_block(partition_t *part )
 #line 634
             __cil_tmp86 = (long )__cil_tmp85;
 #line 634
-            tmp___11 = __builtin_expect(__cil_tmp86, 0L);
+            tmp___11 = ldv__builtin_expect(__cil_tmp86, 0L);
             }
 #line 634
             if (tmp___11) {
@@ -7650,7 +7650,7 @@ static int reclaim_block(partition_t *part )
 #line 639
           __cil_tmp102 = (long )__cil_tmp101;
 #line 639
-          tmp___12 = __builtin_expect(__cil_tmp102, 0L);
+          tmp___12 = ldv__builtin_expect(__cil_tmp102, 0L);
           }
 #line 639
           if (tmp___12) {
@@ -7732,7 +7732,7 @@ static int reclaim_block(partition_t *part )
 #line 647
           __cil_tmp122 = (long )__cil_tmp121;
 #line 647
-          tmp___13 = __builtin_expect(__cil_tmp122, 0L);
+          tmp___13 = ldv__builtin_expect(__cil_tmp122, 0L);
           }
 #line 647
           if (tmp___13) {
@@ -7804,7 +7804,7 @@ static int reclaim_block(partition_t *part )
 #line 652
           __cil_tmp140 = (long )__cil_tmp139;
 #line 652
-          tmp___14 = __builtin_expect(__cil_tmp140, 0L);
+          tmp___14 = ldv__builtin_expect(__cil_tmp140, 0L);
           }
 #line 652
           if (tmp___14) {
@@ -7860,7 +7860,7 @@ static int reclaim_block(partition_t *part )
 #line 661
             __cil_tmp150 = (long )__cil_tmp149;
 #line 661
-            tmp___15 = __builtin_expect(__cil_tmp150, 0L);
+            tmp___15 = ldv__builtin_expect(__cil_tmp150, 0L);
             }
 #line 661
             if (tmp___15) {
@@ -7931,7 +7931,7 @@ static int reclaim_block(partition_t *part )
 #line 671
       __cil_tmp162 = (long )__cil_tmp161;
 #line 671
-      tmp___16 = __builtin_expect(__cil_tmp162, 0L);
+      tmp___16 = ldv__builtin_expect(__cil_tmp162, 0L);
       }
 #line 671
       if (tmp___16) {
@@ -8123,7 +8123,7 @@ static int reclaim_block(partition_t *part )
 #line 691
           __cil_tmp208 = (long )__cil_tmp207;
 #line 691
-          tmp___17 = __builtin_expect(__cil_tmp208, 0L);
+          tmp___17 = ldv__builtin_expect(__cil_tmp208, 0L);
           }
 #line 691
           if (tmp___17) {
@@ -8549,7 +8549,7 @@ static uint32_t find_free(partition_t *part )
 #line 777
     __cil_tmp85 = (long )__cil_tmp84;
 #line 777
-    tmp___7 = __builtin_expect(__cil_tmp85, 0L);
+    tmp___7 = ldv__builtin_expect(__cil_tmp85, 0L);
     }
 #line 777
     if (tmp___7) {
@@ -8652,7 +8652,7 @@ static int ftl_read(partition_t *part , caddr_t buffer , u_long sector , u_long 
 #line 797
     __cil_tmp17 = (long )__cil_tmp16;
 #line 797
-    tmp___7 = __builtin_expect(__cil_tmp17, 0L);
+    tmp___7 = ldv__builtin_expect(__cil_tmp17, 0L);
     }
 #line 797
     if (tmp___7) {
@@ -8908,7 +8908,7 @@ static int set_bam_entry(partition_t *part , uint32_t log_addr , uint32_t virt_a
 #line 846
     __cil_tmp17 = (long )__cil_tmp16;
 #line 846
-    tmp___7 = __builtin_expect(__cil_tmp17, 0L);
+    tmp___7 = ldv__builtin_expect(__cil_tmp17, 0L);
     }
 #line 846
     if (tmp___7) {
@@ -9230,7 +9230,7 @@ static int ftl_write(partition_t *part , caddr_t buffer , u_long sector , u_long
 #line 911
     __cil_tmp23 = (long )__cil_tmp22;
 #line 911
-    tmp___7 = __builtin_expect(__cil_tmp23, 0L);
+    tmp___7 = ldv__builtin_expect(__cil_tmp23, 0L);
     }
 #line 911
     if (tmp___7) {
@@ -9885,7 +9885,7 @@ static int ftl_discardsect(struct mtd_blktrans_dev *dev , unsigned long sector ,
 #line 1016
     __cil_tmp21 = (long )__cil_tmp20;
 #line 1016
-    tmp___7 = __builtin_expect(__cil_tmp21, 0L);
+    tmp___7 = ldv__builtin_expect(__cil_tmp21, 0L);
     }
 #line 1016
     if (tmp___7) {
@@ -10756,7 +10756,7 @@ void ldv_check_final_state(void)
 }
 }
 #line 1736 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/5616/dscv_tempdir/dscv/ri/32_1/drivers/mtd/ftl.c.common.c"
-long __builtin_expect(long val , long res ) 
+long ldv__builtin_expect(long val , long res ) 
 { 
 
   {

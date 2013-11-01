@@ -2948,7 +2948,7 @@ struct __anonstruct_256 {
    int  : 0 ;
 };
 #line 1 "<compiler builtins>"
-long __builtin_expect(long val , long res ) ;
+long ldv__builtin_expect(long val , long res ) ;
 #line 100 "include/linux/printk.h"
 extern int ( /* format attribute */  printk)(char const   *fmt  , ...) ;
 #line 49 "include/linux/dynamic_debug.h"
@@ -2993,7 +2993,7 @@ __inline static long __attribute__((__warn_unused_result__))  IS_ERR(void const 
 #line 34
   __cil_tmp7 = (long )__cil_tmp6;
 #line 34
-  tmp = __builtin_expect(__cil_tmp7, 0L);
+  tmp = ldv__builtin_expect(__cil_tmp7, 0L);
   }
 #line 34
   return (tmp);
@@ -3718,7 +3718,7 @@ static int wm831x_dcdc_get_status(struct regulator_dev *rdev )
 #line 185
         __cil_tmp25 = (long )__cil_tmp24;
 #line 185
-        tmp___9 = __builtin_expect(__cil_tmp25, 0L);
+        tmp___9 = ldv__builtin_expect(__cil_tmp25, 0L);
         }
 #line 185
         if (tmp___9) {
@@ -3794,7 +3794,7 @@ static int wm831x_dcdc_get_status(struct regulator_dev *rdev )
 #line 193
           __cil_tmp37 = (long )__cil_tmp36;
 #line 193
-          tmp___12 = __builtin_expect(__cil_tmp37, 0L);
+          tmp___12 = ldv__builtin_expect(__cil_tmp37, 0L);
           }
 #line 193
           if (tmp___12) {
@@ -3865,7 +3865,7 @@ static int wm831x_dcdc_get_status(struct regulator_dev *rdev )
 #line 199
           __cil_tmp49 = (long )__cil_tmp48;
 #line 199
-          tmp___15 = __builtin_expect(__cil_tmp49, 0L);
+          tmp___15 = ldv__builtin_expect(__cil_tmp49, 0L);
           }
 #line 199
           if (tmp___15) {
@@ -5425,7 +5425,7 @@ static int wm831x_buckv_probe(struct platform_device *pdev )
 #line 513
       __cil_tmp35 = (long )__cil_tmp34;
 #line 513
-      tmp___8 = __builtin_expect(__cil_tmp35, 0L);
+      tmp___8 = ldv__builtin_expect(__cil_tmp35, 0L);
       }
 #line 513
       if (tmp___8) {
@@ -6567,7 +6567,7 @@ static int wm831x_buckp_probe(struct platform_device *pdev )
 #line 723
       __cil_tmp34 = (long )__cil_tmp33;
 #line 723
-      tmp___8 = __builtin_expect(__cil_tmp34, 0L);
+      tmp___8 = ldv__builtin_expect(__cil_tmp34, 0L);
       }
 #line 723
       if (tmp___8) {
@@ -7088,7 +7088,7 @@ static int wm831x_boostp_get_status(struct regulator_dev *rdev )
 #line 818
         __cil_tmp18 = (long )__cil_tmp17;
 #line 818
-        tmp___9 = __builtin_expect(__cil_tmp18, 0L);
+        tmp___9 = ldv__builtin_expect(__cil_tmp18, 0L);
         }
 #line 818
         if (tmp___9) {
@@ -7399,7 +7399,7 @@ static int wm831x_boostp_probe(struct platform_device *pdev )
 #line 850
       __cil_tmp36 = (long )__cil_tmp35;
 #line 850
-      tmp___8 = __builtin_expect(__cil_tmp36, 0L);
+      tmp___8 = ldv__builtin_expect(__cil_tmp36, 0L);
       }
 #line 850
       if (tmp___8) {
@@ -8046,7 +8046,7 @@ static int wm831x_epe_probe(struct platform_device *pdev )
 #line 954
       __cil_tmp34 = (long )__cil_tmp33;
 #line 954
-      tmp___8 = __builtin_expect(__cil_tmp34, 0L);
+      tmp___8 = ldv__builtin_expect(__cil_tmp34, 0L);
       }
 #line 954
       if (tmp___8) {
@@ -9430,7 +9430,7 @@ void ldv_check_final_state(void)
 }
 }
 #line 3173 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/4592/dscv_tempdir/dscv/ri/32_1/drivers/regulator/wm831x-dcdc.c.common.c"
-long __builtin_expect(long val , long res ) 
+long ldv__builtin_expect(long val , long res ) 
 { 
 
   {

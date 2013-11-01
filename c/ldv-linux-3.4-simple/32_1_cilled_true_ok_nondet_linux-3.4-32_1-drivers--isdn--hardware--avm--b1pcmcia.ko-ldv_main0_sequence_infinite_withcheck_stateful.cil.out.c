@@ -772,7 +772,7 @@ struct avmcard {
 #line 77 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/drivers/isdn/hardware/avm/avmcard.h"
 typedef struct avmcard avmcard;
 #line 1 "<compiler builtins>"
-long __builtin_expect(long val , long res ) ;
+long ldv__builtin_expect(long val , long res ) ;
 #line 47 "include/linux/list.h"
 extern void __list_add(struct list_head *new , struct list_head *prev , struct list_head *next ) ;
 #line 60
@@ -2711,7 +2711,7 @@ void ldv_check_final_state(void)
 }
 }
 #line 320 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/3477/dscv_tempdir/dscv/ri/32_1/drivers/isdn/hardware/avm/b1pcmcia.c.common.c"
-long __builtin_expect(long val , long res ) 
+long ldv__builtin_expect(long val , long res ) 
 { 
 
   {

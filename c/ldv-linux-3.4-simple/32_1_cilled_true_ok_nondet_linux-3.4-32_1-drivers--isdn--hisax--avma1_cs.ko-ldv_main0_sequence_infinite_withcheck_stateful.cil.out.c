@@ -2924,7 +2924,7 @@ struct IsdnCard {
    IsdnCardState_t *cs ;
 };
 #line 1 "<compiler builtins>"
-long __builtin_expect(long val , long res ) ;
+long ldv__builtin_expect(long val , long res ) ;
 #line 100 "include/linux/printk.h"
 extern int ( /* format attribute */  printk)(char const   *fmt  , ...) ;
 #line 49 "include/linux/dynamic_debug.h"
@@ -3100,7 +3100,7 @@ static int avma1cs_probe(struct pcmcia_device *p_dev )
 #line 48
       __cil_tmp9 = (long )__cil_tmp8;
 #line 48
-      tmp___7 = __builtin_expect(__cil_tmp9, 0L);
+      tmp___7 = ldv__builtin_expect(__cil_tmp9, 0L);
       }
 #line 48
       if (tmp___7) {
@@ -3212,7 +3212,7 @@ static void avma1cs_detach(struct pcmcia_device *link )
 #line 60
       __cil_tmp8 = (long )__cil_tmp7;
 #line 60
-      tmp___7 = __builtin_expect(__cil_tmp8, 0L);
+      tmp___7 = ldv__builtin_expect(__cil_tmp8, 0L);
       }
 #line 60
       if (tmp___7) {
@@ -3502,7 +3502,7 @@ static int avma1cs_config(struct pcmcia_device *link )
 #line 83
       __cil_tmp14 = (long )__cil_tmp13;
 #line 83
-      tmp___7 = __builtin_expect(__cil_tmp14, 0L);
+      tmp___7 = ldv__builtin_expect(__cil_tmp14, 0L);
       }
 #line 83
       if (tmp___7) {
@@ -3787,7 +3787,7 @@ static void avma1cs_release(struct pcmcia_device *link )
 #line 141
       __cil_tmp12 = (long )__cil_tmp11;
 #line 141
-      tmp___7 = __builtin_expect(__cil_tmp12, 0L);
+      tmp___7 = ldv__builtin_expect(__cil_tmp12, 0L);
       }
 #line 141
       if (tmp___7) {
@@ -4245,7 +4245,7 @@ void ldv_check_final_state(void)
 }
 }
 #line 300 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/3633/dscv_tempdir/dscv/ri/32_1/drivers/isdn/hisax/avma1_cs.c.common.c"
-long __builtin_expect(long val , long res ) 
+long ldv__builtin_expect(long val , long res ) 
 { 
 
   {

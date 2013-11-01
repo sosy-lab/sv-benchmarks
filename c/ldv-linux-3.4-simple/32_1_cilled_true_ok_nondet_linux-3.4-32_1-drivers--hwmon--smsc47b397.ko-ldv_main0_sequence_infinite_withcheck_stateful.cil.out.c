@@ -3518,7 +3518,7 @@ struct smsc47b397_data {
    u8 temp[4] ;
 };
 #line 1 "<compiler builtins>"
-long __builtin_expect(long val , long res ) ;
+long ldv__builtin_expect(long val , long res ) ;
 #line 100 "include/linux/printk.h"
 extern int ( /* format attribute */  printk)(char const   *fmt  , ...) ;
 #line 49 "include/linux/dynamic_debug.h"
@@ -3584,7 +3584,7 @@ __inline static long __attribute__((__warn_unused_result__))  IS_ERR(void const 
 #line 34
   __cil_tmp7 = (long )__cil_tmp6;
 #line 34
-  tmp = __builtin_expect(__cil_tmp7, 0L);
+  tmp = ldv__builtin_expect(__cil_tmp7, 0L);
   }
 #line 34
   return (tmp);
@@ -4139,7 +4139,7 @@ static struct smsc47b397_data *smsc47b397_update_device(struct device *dev )
 #line 136
           __cil_tmp33 = (long )__cil_tmp32;
 #line 136
-          tmp___8 = __builtin_expect(__cil_tmp33, 0L);
+          tmp___8 = ldv__builtin_expect(__cil_tmp33, 0L);
           }
 #line 136
           if (tmp___8) {
@@ -4286,7 +4286,7 @@ static struct smsc47b397_data *smsc47b397_update_device(struct device *dev )
 #line 153
           __cil_tmp73 = (long )__cil_tmp72;
 #line 153
-          tmp___12 = __builtin_expect(__cil_tmp73, 0L);
+          tmp___12 = ldv__builtin_expect(__cil_tmp73, 0L);
           }
 #line 153
           if (tmp___12) {
@@ -5655,7 +5655,7 @@ void ldv_check_final_state(void)
 }
 }
 #line 604 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/6108/dscv_tempdir/dscv/ri/32_1/drivers/hwmon/smsc47b397.c.common.c"
-long __builtin_expect(long val , long res ) 
+long ldv__builtin_expect(long val , long res ) 
 { 
 
   {

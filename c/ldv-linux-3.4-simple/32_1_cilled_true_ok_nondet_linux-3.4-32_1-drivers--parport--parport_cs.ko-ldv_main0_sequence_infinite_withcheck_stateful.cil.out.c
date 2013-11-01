@@ -4131,7 +4131,7 @@ struct parport_info_t {
 #line 74 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/7396/dscv_tempdir/dscv/ri/32_1/drivers/parport/parport_cs.c.common.c"
 typedef struct parport_info_t parport_info_t;
 #line 1 "<compiler builtins>"
-long __builtin_expect(long val , long res ) ;
+long ldv__builtin_expect(long val , long res ) ;
 #line 100 "include/linux/printk.h"
 extern int ( /* format attribute */  printk)(char const   *fmt  , ...) ;
 #line 49 "include/linux/dynamic_debug.h"
@@ -4341,7 +4341,7 @@ static int parport_probe(struct pcmcia_device *link )
 #line 88
       __cil_tmp11 = (long )__cil_tmp10;
 #line 88
-      tmp___7 = __builtin_expect(__cil_tmp11, 0L);
+      tmp___7 = ldv__builtin_expect(__cil_tmp11, 0L);
       }
 #line 88
       if (tmp___7) {
@@ -4458,7 +4458,7 @@ static void parport_detach(struct pcmcia_device *link )
 #line 103
       __cil_tmp8 = (long )__cil_tmp7;
 #line 103
-      tmp___7 = __builtin_expect(__cil_tmp8, 0L);
+      tmp___7 = ldv__builtin_expect(__cil_tmp8, 0L);
       }
 #line 103
       if (tmp___7) {
@@ -4820,7 +4820,7 @@ static int parport_config(struct pcmcia_device *link )
 #line 126
       __cil_tmp14 = (long )__cil_tmp13;
 #line 126
-      tmp___7 = __builtin_expect(__cil_tmp14, 0L);
+      tmp___7 = ldv__builtin_expect(__cil_tmp14, 0L);
       }
 #line 126
       if (tmp___7) {
@@ -5122,7 +5122,7 @@ static void parport_cs_release(struct pcmcia_device *link )
 #line 170
       __cil_tmp13 = (long )__cil_tmp12;
 #line 170
-      tmp___7 = __builtin_expect(__cil_tmp13, 0L);
+      tmp___7 = ldv__builtin_expect(__cil_tmp13, 0L);
       }
 #line 170
       if (tmp___7) {
@@ -5614,7 +5614,7 @@ void ldv_check_final_state(void)
 }
 }
 #line 371 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/7396/dscv_tempdir/dscv/ri/32_1/drivers/parport/parport_cs.c.common.c"
-long __builtin_expect(long val , long res ) 
+long ldv__builtin_expect(long val , long res ) 
 { 
 
   {

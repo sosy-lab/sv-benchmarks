@@ -2492,7 +2492,7 @@ struct __anonstruct_232 {
    int  : 0 ;
 };
 #line 1 "<compiler builtins>"
-long __builtin_expect(long val , long res ) ;
+long ldv__builtin_expect(long val , long res ) ;
 #line 24 "include/linux/list.h"
 __inline static void INIT_LIST_HEAD(struct list_head *list )  __attribute__((__no_instrument_function__)) ;
 #line 24 "include/linux/list.h"
@@ -2945,7 +2945,7 @@ __inline static int tle62x0_write(struct tle62x0_state *st )
 #line 56
       __cil_tmp26 = (long )__cil_tmp25;
 #line 56
-      tmp___7 = __builtin_expect(__cil_tmp26, 0L);
+      tmp___7 = ldv__builtin_expect(__cil_tmp26, 0L);
       }
 #line 56
       if (tmp___7) {
@@ -3346,7 +3346,7 @@ static ssize_t tle62x0_status_show(struct device *dev , struct device_attribute 
 #line 113
       __cil_tmp29 = (long )__cil_tmp28;
 #line 113
-      tmp___8 = __builtin_expect(__cil_tmp29, 0L);
+      tmp___8 = ldv__builtin_expect(__cil_tmp29, 0L);
       }
 #line 113
       if (tmp___8) {
@@ -3446,7 +3446,7 @@ static ssize_t tle62x0_status_show(struct device *dev , struct device_attribute 
 #line 123
         __cil_tmp48 = (long )__cil_tmp47;
 #line 123
-        tmp___9 = __builtin_expect(__cil_tmp48, 0L);
+        tmp___9 = ldv__builtin_expect(__cil_tmp48, 0L);
         }
 #line 123
         if (tmp___9) {
@@ -3729,7 +3729,7 @@ static ssize_t tle62x0_gpio_store(struct device *dev , struct device_attribute *
 #line 165
       __cil_tmp22 = (long )__cil_tmp21;
 #line 165
-      tmp___9 = __builtin_expect(__cil_tmp22, 0L);
+      tmp___9 = ldv__builtin_expect(__cil_tmp22, 0L);
       }
 #line 165
       if (tmp___9) {
@@ -4727,7 +4727,7 @@ void ldv_check_final_state(void)
 }
 }
 #line 489 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/16730/dscv_tempdir/dscv/ri/32_1/drivers/spi/spi-tle62x0.c.common.c"
-long __builtin_expect(long val , long res ) 
+long ldv__builtin_expect(long val , long res ) 
 { 
 
   {

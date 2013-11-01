@@ -3603,7 +3603,7 @@ struct pcf2123_plat_data {
    struct pcf2123_sysfs_reg regs[16] ;
 };
 #line 1 "<compiler builtins>"
-long __builtin_expect(long val , long res ) ;
+long ldv__builtin_expect(long val , long res ) ;
 #line 6 "include/linux/bcd.h"
 extern unsigned int bcd2bin(unsigned char val )  __attribute__((__const__)) ;
 #line 7
@@ -3747,7 +3747,7 @@ __inline static long __attribute__((__warn_unused_result__))  IS_ERR(void const 
 #line 34
   __cil_tmp7 = (long )__cil_tmp6;
 #line 34
-  tmp = __builtin_expect(__cil_tmp7, 0L);
+  tmp = ldv__builtin_expect(__cil_tmp7, 0L);
   }
 #line 34
   return (tmp);
@@ -4697,7 +4697,7 @@ static int pcf2123_rtc_read_time(struct device *dev , struct rtc_time *tm )
 #line 156
       __cil_tmp95 = (long )__cil_tmp94;
 #line 156
-      tmp___14 = __builtin_expect(__cil_tmp95, 0L);
+      tmp___14 = ldv__builtin_expect(__cil_tmp95, 0L);
       }
 #line 156
       if (tmp___14) {
@@ -4929,7 +4929,7 @@ static int pcf2123_rtc_set_time(struct device *dev , struct rtc_time *tm )
 #line 177
       __cil_tmp14 = (long )__cil_tmp13;
 #line 177
-      tmp___8 = __builtin_expect(__cil_tmp14, 0L);
+      tmp___8 = ldv__builtin_expect(__cil_tmp14, 0L);
       }
 #line 177
       if (tmp___8) {
@@ -5546,7 +5546,7 @@ static int pcf2123_probe(struct spi_device *spi )
 #line 237
       __cil_tmp28 = (long )__cil_tmp27;
 #line 237
-      tmp___8 = __builtin_expect(__cil_tmp28, 0L);
+      tmp___8 = ldv__builtin_expect(__cil_tmp28, 0L);
       }
 #line 237
       if (tmp___8) {
@@ -5649,7 +5649,7 @@ static int pcf2123_probe(struct spi_device *spi )
 #line 247
       __cil_tmp54 = (long )__cil_tmp53;
 #line 247
-      tmp___9 = __builtin_expect(__cil_tmp54, 0L);
+      tmp___9 = ldv__builtin_expect(__cil_tmp54, 0L);
       }
 #line 247
       if (tmp___9) {
@@ -5750,7 +5750,7 @@ static int pcf2123_probe(struct spi_device *spi )
 #line 256
       __cil_tmp80 = (long )__cil_tmp79;
 #line 256
-      tmp___10 = __builtin_expect(__cil_tmp80, 0L);
+      tmp___10 = ldv__builtin_expect(__cil_tmp80, 0L);
       }
 #line 256
       if (tmp___10) {
@@ -5832,7 +5832,7 @@ static int pcf2123_probe(struct spi_device *spi )
 #line 260
       __cil_tmp103 = (long )__cil_tmp102;
 #line 260
-      tmp___11 = __builtin_expect(__cil_tmp103, 0L);
+      tmp___11 = ldv__builtin_expect(__cil_tmp103, 0L);
       }
 #line 260
       if (tmp___11) {
@@ -6779,7 +6779,7 @@ void ldv_check_final_state(void)
 }
 }
 #line 595 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/6249/dscv_tempdir/dscv/ri/32_1/drivers/rtc/rtc-pcf2123.c.common.c"
-long __builtin_expect(long val , long res ) 
+long ldv__builtin_expect(long val , long res ) 
 { 
 
   {

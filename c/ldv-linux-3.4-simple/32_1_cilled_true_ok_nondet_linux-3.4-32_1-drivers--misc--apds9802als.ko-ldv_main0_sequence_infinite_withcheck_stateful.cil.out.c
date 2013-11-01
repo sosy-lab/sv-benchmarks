@@ -2516,7 +2516,7 @@ struct als_data {
    struct mutex mutex ;
 };
 #line 1 "<compiler builtins>"
-long __builtin_expect(long val , long res ) ;
+long ldv__builtin_expect(long val , long res ) ;
 #line 215 "include/linux/kernel.h"
 extern int __attribute__((__warn_unused_result__))  _kstrtoul(char const   *s , unsigned int base ,
                                                               unsigned long *res ) ;
@@ -2755,7 +2755,7 @@ __inline static int __atomic_add_unless(atomic_t *v , int a , int u )
 #line 233
     __cil_tmp12 = (long )__cil_tmp11;
 #line 233
-    tmp = __builtin_expect(__cil_tmp12, 0L);
+    tmp = ldv__builtin_expect(__cil_tmp12, 0L);
     }
 #line 233
     if (tmp) {
@@ -2778,7 +2778,7 @@ __inline static int __atomic_add_unless(atomic_t *v , int a , int u )
 #line 236
     __cil_tmp17 = (long )__cil_tmp16;
 #line 236
-    tmp___0 = __builtin_expect(__cil_tmp17, 1L);
+    tmp___0 = ldv__builtin_expect(__cil_tmp17, 1L);
     }
 #line 236
     if (tmp___0) {
@@ -4596,7 +4596,7 @@ void ldv_check_final_state(void)
 }
 }
 #line 685 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/4865/dscv_tempdir/dscv/ri/32_1/drivers/misc/apds9802als.c.common.c"
-long __builtin_expect(long val , long res ) 
+long ldv__builtin_expect(long val , long res ) 
 { 
 
   {

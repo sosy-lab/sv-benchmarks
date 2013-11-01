@@ -4295,7 +4295,7 @@ void ldv_main0_sequence_infinite_withcheck_stateful(void)
 }
 }
 #line 1 "<compiler builtins>"
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 #line 98 "/work/vladimir/commit-test/commit-test-work/task-085--linux-stable--dir/inst/current/envs/linux-stable-79db8ef/linux-stable-79db8ef/arch/x86/include/asm/bitops.h"
 __inline static void clear_bit(int nr , unsigned long volatile   *addr ) 
 { 
@@ -4402,13 +4402,13 @@ __inline static unsigned int cpumask_check(unsigned int cpu )
 #line 107
   __ret_warn_once = (unsigned int )nr_cpu_ids <= cpu;
 #line 107
-  tmp___1 = __builtin_expect(__ret_warn_once != 0, 0L);
+  tmp___1 = ldv__builtin_expect(__ret_warn_once != 0, 0L);
 #line 107
   if (tmp___1 != 0L) {
 #line 107
     __ret_warn_on = ! __warned;
 #line 107
-    tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 107
     if (tmp != 0L) {
 #line 107
@@ -4417,7 +4417,7 @@ __inline static unsigned int cpumask_check(unsigned int cpu )
 
     }
 #line 107
-    tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 107
     if (tmp___0 != 0L) {
 #line 107
@@ -4429,7 +4429,7 @@ __inline static unsigned int cpumask_check(unsigned int cpu )
 
   }
 #line 107
-  __builtin_expect(__ret_warn_once != 0, 0L);
+  ldv__builtin_expect(__ret_warn_once != 0, 0L);
 #line 109
   return (cpu);
 }
@@ -5227,7 +5227,7 @@ void oprofile_add_sample(struct pt_regs * const  regs , unsigned long event )
 
   {
 #line 334
-  tmp___0 = __builtin_expect((unsigned long )regs != (unsigned long )((struct pt_regs */* const  */)0),
+  tmp___0 = ldv__builtin_expect((unsigned long )regs != (unsigned long )((struct pt_regs */* const  */)0),
                              1L);
 #line 334
   if (tmp___0 != 0L) {
@@ -7140,7 +7140,7 @@ __inline static int signal_pending(struct task_struct *p )
 #line 2313
   tmp = test_tsk_thread_flag(p, 2);
 #line 2313
-  tmp___0 = __builtin_expect(tmp != 0, 0L);
+  tmp___0 = ldv__builtin_expect(tmp != 0, 0L);
 #line 2313
   return ((int )tmp___0);
 }
@@ -7212,13 +7212,13 @@ void add_event_entry(unsigned long value )
 #line 63
     __ret_warn_once = 1;
 #line 63
-    tmp___1 = __builtin_expect(__ret_warn_once != 0, 0L);
+    tmp___1 = ldv__builtin_expect(__ret_warn_once != 0, 0L);
 #line 63
     if (tmp___1 != 0L) {
 #line 63
       __ret_warn_on = ! __warned;
 #line 63
-      tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+      tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 63
       if (tmp != 0L) {
 #line 63
@@ -7228,7 +7228,7 @@ void add_event_entry(unsigned long value )
 
       }
 #line 63
-      tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+      tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 63
       if (tmp___0 != 0L) {
 #line 63
@@ -7240,7 +7240,7 @@ void add_event_entry(unsigned long value )
 
     }
 #line 63
-    __builtin_expect(__ret_warn_once != 0, 0L);
+    ldv__builtin_expect(__ret_warn_once != 0, 0L);
 #line 64
     return;
   } else {
@@ -8426,14 +8426,14 @@ __inline static unsigned long copy_from_user(void *to , void const   *from , uns
 #line 53
   might_fault();
 #line 54
-  tmp___1 = __builtin_expect(sz == -1, 1L);
+  tmp___1 = ldv__builtin_expect(sz == -1, 1L);
 #line 54
   if (tmp___1 != 0L) {
 #line 55
     n = _copy_from_user(to, from, (unsigned int )n);
   } else {
 #line 54
-    tmp___2 = __builtin_expect((unsigned long )sz >= n, 1L);
+    tmp___2 = ldv__builtin_expect((unsigned long )sz >= n, 1L);
 #line 54
     if (tmp___2 != 0L) {
 #line 55
@@ -8442,7 +8442,7 @@ __inline static unsigned long copy_from_user(void *to , void const   *from , uns
 #line 58
       __ret_warn_on = 1;
 #line 58
-      tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+      tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 58
       if (tmp___0 != 0L) {
 #line 58
@@ -8452,7 +8452,7 @@ __inline static unsigned long copy_from_user(void *to , void const   *from , uns
 
       }
 #line 58
-      __builtin_expect(__ret_warn_on != 0, 0L);
+      ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
   }
 #line 60
@@ -9926,7 +9926,7 @@ static struct frame_head *dump_user_backtrace(struct frame_head *head )
   __asm__  ("add %3,%1 ; sbb %0,%0 ; cmp %1,%4 ; sbb $0,%0": "=&r" (flag), "=r" (roksum): "1" (head),
             "g" (32L), "rm" (tmp->addr_limit.seg));
 #line 73
-  tmp___0 = __builtin_expect(flag == 0UL, 1L);
+  tmp___0 = ldv__builtin_expect(flag == 0UL, 1L);
 #line 73
   if (tmp___0 == 0L) {
 #line 74
@@ -10158,7 +10158,7 @@ __inline static u64 paravirt_read_msr(unsigned int msr , int *err )
 #line 127
   __eax = __eax;
 #line 127
-  tmp = __builtin_expect((unsigned long )pv_cpu_ops.read_msr == (unsigned long )((u64 (*)(unsigned int  ,
+  tmp = ldv__builtin_expect((unsigned long )pv_cpu_ops.read_msr == (unsigned long )((u64 (*)(unsigned int  ,
                                                                                           int * ))0),
                          0L);
 #line 127
@@ -10207,7 +10207,7 @@ __inline static int paravirt_write_msr(unsigned int msr , unsigned int low , uns
 #line 137
   __eax = __eax;
 #line 137
-  tmp = __builtin_expect((unsigned long )pv_cpu_ops.write_msr == (unsigned long )((int (*)(unsigned int  ,
+  tmp = ldv__builtin_expect((unsigned long )pv_cpu_ops.write_msr == (unsigned long )((int (*)(unsigned int  ,
                                                                                            unsigned int  ,
                                                                                            unsigned int  ))0),
                          0L);
@@ -10356,7 +10356,7 @@ __inline static void trace_kmalloc(unsigned long call_site , void const   *ptr ,
 
   {
 #line 45
-  tmp___1 = __builtin_expect(__tracepoint_kmalloc.state != 0, 0L);
+  tmp___1 = ldv__builtin_expect(__tracepoint_kmalloc.state != 0, 0L);
 #line 45
   if (tmp___1 != 0L) {
 #line 45
@@ -11001,13 +11001,13 @@ static void nmi_cpu_start(void *dummy )
 #line 116
     __ret_warn_once = 1;
 #line 116
-    tmp___1 = __builtin_expect(__ret_warn_once != 0, 0L);
+    tmp___1 = ldv__builtin_expect(__ret_warn_once != 0, 0L);
 #line 116
     if (tmp___1 != 0L) {
 #line 116
       __ret_warn_on = ! __warned;
 #line 116
-      tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+      tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 116
       if (tmp != 0L) {
 #line 116
@@ -11017,7 +11017,7 @@ static void nmi_cpu_start(void *dummy )
 
       }
 #line 116
-      tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+      tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 116
       if (tmp___0 != 0L) {
 #line 116
@@ -11029,7 +11029,7 @@ static void nmi_cpu_start(void *dummy )
 
     }
 #line 116
-    __builtin_expect(__ret_warn_once != 0, 0L);
+    ldv__builtin_expect(__ret_warn_once != 0, 0L);
   } else {
 #line 118
     (*(model->start))(msrs);
@@ -11109,13 +11109,13 @@ static void nmi_cpu_stop(void *dummy )
 #line 134
     __ret_warn_once = 1;
 #line 134
-    tmp___1 = __builtin_expect(__ret_warn_once != 0, 0L);
+    tmp___1 = ldv__builtin_expect(__ret_warn_once != 0, 0L);
 #line 134
     if (tmp___1 != 0L) {
 #line 134
       __ret_warn_on = ! __warned;
 #line 134
-      tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+      tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 134
       if (tmp != 0L) {
 #line 134
@@ -11125,7 +11125,7 @@ static void nmi_cpu_stop(void *dummy )
 
       }
 #line 134
-      tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+      tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 134
       if (tmp___0 != 0L) {
 #line 134
@@ -11137,7 +11137,7 @@ static void nmi_cpu_stop(void *dummy )
 
     }
 #line 134
-    __builtin_expect(__ret_warn_once != 0, 0L);
+    ldv__builtin_expect(__ret_warn_once != 0, 0L);
   } else {
 #line 136
     (*(model->stop))(msrs);
@@ -12905,7 +12905,7 @@ __inline static void __cpuid(unsigned int *eax , unsigned int *ebx , unsigned in
 #line 31
   __eax = __eax;
 #line 31
-  tmp = __builtin_expect((unsigned long )pv_cpu_ops.cpuid == (unsigned long )((void (*)(unsigned int * ,
+  tmp = ldv__builtin_expect((unsigned long )pv_cpu_ops.cpuid == (unsigned long )((void (*)(unsigned int * ,
                                                                                         unsigned int * ,
                                                                                         unsigned int * ,
                                                                                         unsigned int * ))0),
@@ -14075,7 +14075,7 @@ __inline static void trace_kmalloc___0(unsigned long call_site , void const   *p
 
   {
 #line 45
-  tmp___1 = __builtin_expect(__tracepoint_kmalloc.state != 0, 0L);
+  tmp___1 = ldv__builtin_expect(__tracepoint_kmalloc.state != 0, 0L);
 #line 45
   if (tmp___1 != 0L) {
 #line 45
@@ -14614,7 +14614,7 @@ static int ppro_check_ctrs(struct pt_regs * const  regs , struct op_msrs  const 
 
   {
 #line 160
-  tmp = __builtin_expect((unsigned long )reset_value___0 == (unsigned long )((u64 *)0),
+  tmp = ldv__builtin_expect((unsigned long )reset_value___0 == (unsigned long )((u64 *)0),
                          0L);
 #line 160
   if (tmp != 0L) {
@@ -15696,7 +15696,7 @@ static void p4_setup_ctrs(struct op_x86_model_spec  const  *model___0 , struct o
   goto ldv_15799;
   ldv_15798: 
 #line 598
-  tmp___0 = __builtin_expect((msrs->controls + (unsigned long )i)->addr == 0UL, 0L);
+  tmp___0 = ldv__builtin_expect((msrs->controls + (unsigned long )i)->addr == 0UL, 0L);
 #line 598
   if (tmp___0 != 0L) {
 #line 599
@@ -15737,7 +15737,7 @@ static void p4_setup_ctrs(struct op_x86_model_spec  const  *model___0 , struct o
   goto ldv_15803;
   ldv_15802: 
 #line 608
-  tmp___2 = __builtin_expect((msrs->controls + (unsigned long )i)->addr == 0UL, 0L);
+  tmp___2 = ldv__builtin_expect((msrs->controls + (unsigned long )i)->addr == 0UL, 0L);
 #line 608
   if (tmp___2 != 0L) {
 #line 609
@@ -16213,7 +16213,7 @@ __inline static void ldv_error(void)
 }
 }
 #line 49 "/work/vladimir/kernel-rules/verifier/rcv.h"
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 

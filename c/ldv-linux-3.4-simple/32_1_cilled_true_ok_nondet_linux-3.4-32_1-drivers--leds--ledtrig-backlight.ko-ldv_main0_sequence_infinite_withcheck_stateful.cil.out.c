@@ -4133,7 +4133,7 @@ struct bl_trig_notifier {
    unsigned int invert ;
 };
 #line 1 "<compiler builtins>"
-long __builtin_expect(long val , long res ) ;
+long ldv__builtin_expect(long val , long res ) ;
 #line 215 "include/linux/kernel.h"
 extern int __attribute__((__warn_unused_result__))  _kstrtoul(char const   *s , unsigned int base ,
                                                               unsigned long *res ) ;
@@ -5288,7 +5288,7 @@ void ldv_check_final_state(void)
 }
 }
 #line 320 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/12613/dscv_tempdir/dscv/ri/32_1/drivers/leds/ledtrig-backlight.c.common.c"
-long __builtin_expect(long val , long res ) 
+long ldv__builtin_expect(long val , long res ) 
 { 
 
   {

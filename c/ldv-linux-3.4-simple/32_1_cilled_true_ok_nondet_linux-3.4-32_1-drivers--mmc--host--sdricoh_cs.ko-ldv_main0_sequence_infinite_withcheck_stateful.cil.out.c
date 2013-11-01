@@ -4164,7 +4164,7 @@ struct sdricoh_host {
    int app_cmd ;
 };
 #line 1 "<compiler builtins>"
-long __builtin_expect(long val , long res ) ;
+long ldv__builtin_expect(long val , long res ) ;
 #line 49 "include/linux/dynamic_debug.h"
 extern int ( /* format attribute */  __dynamic_dev_dbg)(struct _ddebug *descriptor ,
                                                         struct device  const  *dev ,
@@ -4401,7 +4401,7 @@ __inline static struct page *sg_page(struct scatterlist *sg )
 #line 98
     __cil_tmp8 = (long )__cil_tmp7;
 #line 98
-    tmp = __builtin_expect(__cil_tmp8, 0L);
+    tmp = ldv__builtin_expect(__cil_tmp8, 0L);
     }
 #line 98
     if (tmp) {
@@ -4457,7 +4457,7 @@ __inline static struct page *sg_page(struct scatterlist *sg )
 #line 99
     __cil_tmp15 = (long )__cil_tmp14;
 #line 99
-    tmp___0 = __builtin_expect(__cil_tmp15, 0L);
+    tmp___0 = ldv__builtin_expect(__cil_tmp15, 0L);
     }
 #line 99
     if (tmp___0) {
@@ -4903,7 +4903,7 @@ static int sdricoh_reset(struct sdricoh_host *host )
 #line 201
       __cil_tmp9 = (long )__cil_tmp8;
 #line 201
-      tmp___7 = __builtin_expect(__cil_tmp9, 0L);
+      tmp___7 = ldv__builtin_expect(__cil_tmp9, 0L);
       }
 #line 201
       if (tmp___7) {
@@ -5434,7 +5434,7 @@ static void sdricoh_request(struct mmc_host *mmc , struct mmc_request *mrq )
 #line 275
       __cil_tmp33 = (long )__cil_tmp32;
 #line 275
-      tmp___8 = __builtin_expect(__cil_tmp33, 0L);
+      tmp___8 = ldv__builtin_expect(__cil_tmp33, 0L);
       }
 #line 275
       if (tmp___8) {
@@ -5479,7 +5479,7 @@ static void sdricoh_request(struct mmc_host *mmc , struct mmc_request *mrq )
 #line 276
       __cil_tmp40 = (long )__cil_tmp39;
 #line 276
-      tmp___9 = __builtin_expect(__cil_tmp40, 0L);
+      tmp___9 = ldv__builtin_expect(__cil_tmp40, 0L);
       }
 #line 276
       if (tmp___9) {
@@ -5734,7 +5734,7 @@ static void sdricoh_request(struct mmc_host *mmc , struct mmc_request *mrq )
 #line 314
           __cil_tmp103 = (long )__cil_tmp102;
 #line 314
-          tmp___13 = __builtin_expect(__cil_tmp103, 0L);
+          tmp___13 = ldv__builtin_expect(__cil_tmp103, 0L);
           }
 #line 314
           if (tmp___13) {
@@ -5984,7 +5984,7 @@ static void sdricoh_request(struct mmc_host *mmc , struct mmc_request *mrq )
 #line 353
       __cil_tmp167 = (long )__cil_tmp166;
 #line 353
-      tmp___16 = __builtin_expect(__cil_tmp167, 0L);
+      tmp___16 = ldv__builtin_expect(__cil_tmp167, 0L);
       }
 #line 353
       if (tmp___16) {
@@ -6072,7 +6072,7 @@ static void sdricoh_set_ios(struct mmc_host *mmc , struct mmc_ios *ios )
 #line 359
       __cil_tmp11 = (long )__cil_tmp10;
 #line 359
-      tmp___8 = __builtin_expect(__cil_tmp11, 0L);
+      tmp___8 = ldv__builtin_expect(__cil_tmp11, 0L);
       }
 #line 359
       if (tmp___8) {
@@ -6508,7 +6508,7 @@ static int sdricoh_init_mmc(struct pci_dev *pci_dev , struct pcmcia_device *pcmc
 #line 410
         __cil_tmp67 = (long )__cil_tmp66;
 #line 410
-        tmp___7 = __builtin_expect(__cil_tmp67, 0L);
+        tmp___7 = ldv__builtin_expect(__cil_tmp67, 0L);
         }
 #line 410
         if (tmp___7) {
@@ -6585,7 +6585,7 @@ static int sdricoh_init_mmc(struct pci_dev *pci_dev , struct pcmcia_device *pcmc
 #line 421
         __cil_tmp77 = (long )__cil_tmp76;
 #line 421
-        tmp___9 = __builtin_expect(__cil_tmp77, 0L);
+        tmp___9 = ldv__builtin_expect(__cil_tmp77, 0L);
         }
 #line 421
         if (tmp___9) {
@@ -6746,7 +6746,7 @@ static int sdricoh_init_mmc(struct pci_dev *pci_dev , struct pcmcia_device *pcmc
 #line 453
         __cil_tmp112 = (long )__cil_tmp111;
 #line 453
-        tmp___14 = __builtin_expect(__cil_tmp112, 0L);
+        tmp___14 = ldv__builtin_expect(__cil_tmp112, 0L);
         }
 #line 453
         if (tmp___14) {
@@ -6804,7 +6804,7 @@ static int sdricoh_init_mmc(struct pci_dev *pci_dev , struct pcmcia_device *pcmc
 #line 462
         __cil_tmp119 = (long )__cil_tmp118;
 #line 462
-        tmp___16 = __builtin_expect(__cil_tmp119, 0L);
+        tmp___16 = ldv__builtin_expect(__cil_tmp119, 0L);
         }
 #line 462
         if (tmp___16) {
@@ -7045,7 +7045,7 @@ static void sdricoh_pcmcia_detach(struct pcmcia_device *link )
 #line 503
       __cil_tmp14 = (long )__cil_tmp13;
 #line 503
-      tmp___7 = __builtin_expect(__cil_tmp14, 0L);
+      tmp___7 = ldv__builtin_expect(__cil_tmp14, 0L);
       }
 #line 503
       if (tmp___7) {
@@ -7176,7 +7176,7 @@ static int sdricoh_pcmcia_suspend(struct pcmcia_device *link )
 #line 521
       __cil_tmp12 = (long )__cil_tmp11;
 #line 521
-      tmp___7 = __builtin_expect(__cil_tmp12, 0L);
+      tmp___7 = ldv__builtin_expect(__cil_tmp12, 0L);
       }
 #line 521
       if (tmp___7) {
@@ -7270,7 +7270,7 @@ static int sdricoh_pcmcia_resume(struct pcmcia_device *link )
 #line 529
       __cil_tmp13 = (long )__cil_tmp12;
 #line 529
-      tmp___7 = __builtin_expect(__cil_tmp13, 0L);
+      tmp___7 = ldv__builtin_expect(__cil_tmp13, 0L);
       }
 #line 529
       if (tmp___7) {
@@ -7879,7 +7879,7 @@ void ldv_check_final_state(void)
 }
 }
 #line 1390 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/12461/dscv_tempdir/dscv/ri/32_1/drivers/mmc/host/sdricoh_cs.c.common.c"
-long __builtin_expect(long val , long res ) 
+long ldv__builtin_expect(long val , long res ) 
 { 
 
   {

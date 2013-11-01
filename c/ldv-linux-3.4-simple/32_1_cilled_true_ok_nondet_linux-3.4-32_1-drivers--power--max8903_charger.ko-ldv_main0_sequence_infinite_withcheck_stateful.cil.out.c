@@ -1242,7 +1242,7 @@ struct __anonstruct_216 {
 #line 1 "<compiler builtins>"
 
 #line 1
-long __builtin_expect(long val , long res ) ;
+long ldv__builtin_expect(long val , long res ) ;
 #line 49 "include/linux/dynamic_debug.h"
 extern int ( /* format attribute */  __dynamic_dev_dbg)(struct _ddebug *descriptor ,
                                                         struct device  const  *dev ,
@@ -1867,7 +1867,7 @@ static irqreturn_t max8903_dcin(int irq , void *_data___0 )
 #line 105
       __cil_tmp40 = (long )__cil_tmp39;
 #line 105
-      tmp___5 = __builtin_expect(__cil_tmp40, 0L);
+      tmp___5 = ldv__builtin_expect(__cil_tmp40, 0L);
       }
 #line 105
       if (tmp___5) {
@@ -2164,7 +2164,7 @@ static irqreturn_t max8903_usbin(int irq , void *_data___0 )
 #line 144
       __cil_tmp33 = (long )__cil_tmp32;
 #line 144
-      tmp___4 = __builtin_expect(__cil_tmp33, 0L);
+      tmp___4 = ldv__builtin_expect(__cil_tmp33, 0L);
       }
 #line 144
       if (tmp___4) {
@@ -4148,7 +4148,7 @@ void ldv_check_final_state(void)
 }
 }
 #line 565 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/1053/dscv_tempdir/dscv/ri/32_1/drivers/power/max8903_charger.c.common.c"
-long __builtin_expect(long val , long res ) 
+long ldv__builtin_expect(long val , long res ) 
 { 
 
   {

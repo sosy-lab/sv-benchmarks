@@ -3638,7 +3638,7 @@ struct virtblk_req {
 #line 734 "/work/vladimir/commit-test/commit-test-work/task-034--linux-stable--dir/work/current--X--drivers/block/virtio_blk.ko--X--defaultlinux-stable-39a1d13-1--X--101_1a--X--cpachecker/linux-stable-39a1d13-1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/101_1a/drivers/block/virtio_blk.c.prepared"
 typedef struct request *ldv_func_ret_type___3;
 #line 1 "<compiler builtins>"
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 #line 315 "/work/vladimir/commit-test/commit-test-work/task-034--linux-stable--dir/inst/current/envs/linux-stable-39a1d13-1/linux-stable-39a1d13-1/arch/x86/include/asm/bitops.h"
 __inline static int variable_test_bit(int nr , unsigned long const volatile   *addr ) 
 { 
@@ -3981,7 +3981,7 @@ __inline static void trace_kmalloc(unsigned long call_site , void const   *ptr ,
 
   {
 #line 81
-  tmp___1 = __builtin_expect(__tracepoint_kmalloc.state != 0, 0L);
+  tmp___1 = ldv__builtin_expect(__tracepoint_kmalloc.state != 0, 0L);
 #line 81
   if (tmp___1 != 0L) {
 #line 81
@@ -4342,7 +4342,7 @@ __inline static void sg_assign_page(struct scatterlist *sg , struct page *page )
 #line 57
   page_link = sg->page_link & 3UL;
 #line 63
-  tmp = __builtin_expect(((unsigned long )page & 3UL) != 0UL, 0L);
+  tmp = ldv__builtin_expect(((unsigned long )page & 3UL) != 0UL, 0L);
 #line 63
   if (tmp != 0L) {
 #line 63
@@ -4355,7 +4355,7 @@ __inline static void sg_assign_page(struct scatterlist *sg , struct page *page )
 
   }
 #line 65
-  tmp___0 = __builtin_expect(sg->sg_magic != 2271560481UL, 0L);
+  tmp___0 = ldv__builtin_expect(sg->sg_magic != 2271560481UL, 0L);
 #line 65
   if (tmp___0 != 0L) {
 #line 65
@@ -4368,7 +4368,7 @@ __inline static void sg_assign_page(struct scatterlist *sg , struct page *page )
 
   }
 #line 66
-  tmp___1 = __builtin_expect((long )((int )sg->page_link) & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )((int )sg->page_link) & 1L, 0L);
 #line 66
   if (tmp___1 != 0L) {
 #line 66
@@ -4829,7 +4829,7 @@ static void do_virtblk_request(struct request_queue *q )
   goto ldv_26493;
   ldv_26492: 
 #line 191
-  tmp = __builtin_expect((unsigned int )((int )req->nr_phys_segments + 2) > vblk->sg_elems,
+  tmp = ldv__builtin_expect((unsigned int )((int )req->nr_phys_segments + 2) > vblk->sg_elems,
                          0L);
 #line 191
   if (tmp != 0L) {
@@ -5357,7 +5357,7 @@ static void virtblk_remove(struct virtio_device *vdev )
 #line 481
   tmp = list_empty((struct list_head  const  *)(& vblk->reqs));
 #line 481
-  tmp___0 = __builtin_expect(tmp == 0, 0L);
+  tmp___0 = ldv__builtin_expect(tmp == 0, 0L);
 #line 481
   if (tmp___0 != 0L) {
 #line 481
@@ -5588,7 +5588,7 @@ __inline static void ldv_error(void)
 }
 }
 #line 49 "/work/vladimir/kernel-rules/verifier/rcv.h"
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 
@@ -5661,7 +5661,7 @@ __inline static long ( __attribute__((__warn_unused_result__)) IS_ERR___0)(void 
 
   {
 #line 34
-  tmp = __builtin_expect(! (! ((unsigned long )ptr >= 0xfffffffffffff001UL)), 0);
+  tmp = ldv__builtin_expect(! (! ((unsigned long )ptr >= 0xfffffffffffff001UL)), 0);
 #line 34
   return (tmp);
 }

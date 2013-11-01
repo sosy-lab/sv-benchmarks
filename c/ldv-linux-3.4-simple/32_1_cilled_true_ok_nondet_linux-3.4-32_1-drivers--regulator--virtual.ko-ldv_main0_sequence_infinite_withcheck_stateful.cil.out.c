@@ -1005,7 +1005,7 @@ struct virtual_consumer_data {
    unsigned int mode ;
 };
 #line 1 "<compiler builtins>"
-long __builtin_expect(long val , long res ) ;
+long ldv__builtin_expect(long val , long res ) ;
 #line 27 "include/linux/err.h"
 __inline static long __attribute__((__warn_unused_result__))  PTR_ERR(void const   *ptr )  __attribute__((__no_instrument_function__)) ;
 #line 27 "include/linux/err.h"
@@ -1041,7 +1041,7 @@ __inline static long __attribute__((__warn_unused_result__))  IS_ERR(void const 
 #line 34
   __cil_tmp7 = (long )__cil_tmp6;
 #line 34
-  tmp = __builtin_expect(__cil_tmp7, 0L);
+  tmp = ldv__builtin_expect(__cil_tmp7, 0L);
   }
 #line 34
   return (tmp);
@@ -1393,7 +1393,7 @@ static void update_voltage_constraints(struct device *dev , struct virtual_consu
 #line 40
             __cil_tmp22 = (long )__cil_tmp21;
 #line 40
-            tmp = __builtin_expect(__cil_tmp22, 0L);
+            tmp = ldv__builtin_expect(__cil_tmp22, 0L);
             }
 #line 40
             if (tmp) {
@@ -1521,7 +1521,7 @@ static void update_voltage_constraints(struct device *dev , struct virtual_consu
 #line 52
             __cil_tmp52 = (long )__cil_tmp51;
 #line 52
-            tmp___0 = __builtin_expect(__cil_tmp52, 0L);
+            tmp___0 = ldv__builtin_expect(__cil_tmp52, 0L);
             }
 #line 52
             if (tmp___0) {
@@ -1633,7 +1633,7 @@ static void update_voltage_constraints(struct device *dev , struct virtual_consu
 #line 62
           __cil_tmp71 = (long )__cil_tmp70;
 #line 62
-          tmp___1 = __builtin_expect(__cil_tmp71, 0L);
+          tmp___1 = ldv__builtin_expect(__cil_tmp71, 0L);
           }
 #line 62
           if (tmp___1) {
@@ -1830,7 +1830,7 @@ static void update_current_limit_constraints(struct device *dev , struct virtual
 #line 79
           __cil_tmp20 = (long )__cil_tmp19;
 #line 79
-          tmp = __builtin_expect(__cil_tmp20, 0L);
+          tmp = ldv__builtin_expect(__cil_tmp20, 0L);
           }
 #line 79
           if (tmp) {
@@ -1947,7 +1947,7 @@ static void update_current_limit_constraints(struct device *dev , struct virtual
 #line 92
           __cil_tmp48 = (long )__cil_tmp47;
 #line 92
-          tmp___0 = __builtin_expect(__cil_tmp48, 0L);
+          tmp___0 = ldv__builtin_expect(__cil_tmp48, 0L);
           }
 #line 92
           if (tmp___0) {
@@ -2055,7 +2055,7 @@ static void update_current_limit_constraints(struct device *dev , struct virtual
 #line 102
           __cil_tmp67 = (long )__cil_tmp66;
 #line 102
-          tmp___1 = __builtin_expect(__cil_tmp67, 0L);
+          tmp___1 = ldv__builtin_expect(__cil_tmp67, 0L);
           }
 #line 102
           if (tmp___1) {
@@ -3449,7 +3449,7 @@ void ldv_check_final_state(void)
 }
 }
 #line 473 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/4591/dscv_tempdir/dscv/ri/32_1/drivers/regulator/virtual.c.common.c"
-long __builtin_expect(long val , long res ) 
+long ldv__builtin_expect(long val , long res ) 
 { 
 
   {

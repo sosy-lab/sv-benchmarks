@@ -4015,7 +4015,7 @@ void *__builtin_memcpy(void * , void const   * , unsigned long  ) ;
 #line 1
 void *__builtin_alloca(unsigned long  ) ;
 #line 1
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 #line 119 "include/linux/printk.h"
 extern int printk(char const   *  , ...) ;
 #line 115 "include/linux/mutex.h"
@@ -4895,7 +4895,7 @@ static int stv090x_read_reg(struct stv090x_state *state , unsigned int reg )
 
   }
 #line 770
-  tmp = __builtin_expect(*(state->verbose) > 3U, 0L);
+  tmp = ldv__builtin_expect(*(state->verbose) > 3U, 0L);
 #line 770
   if (tmp != 0L) {
 #line 771
@@ -4973,7 +4973,7 @@ static int stv090x_write_regs(struct stv090x_state *state , unsigned int reg , u
 #line 786
   __ret = __builtin_memcpy((void *)(& buf) + 2U, (void const   *)data, __len);
 #line 788
-  tmp___0 = __builtin_expect(*(state->verbose) > 3U, 0L);
+  tmp___0 = ldv__builtin_expect(*(state->verbose) > 3U, 0L);
 #line 788
   if (tmp___0 != 0L) {
 #line 791
@@ -23886,7 +23886,7 @@ __inline static void ldv_error(void)
 #line 25
 extern int __VERIFIER_nondet_int(void) ;
 #line 49 "/work/vladimir/kernel-rules/verifier/rcv.h"
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 

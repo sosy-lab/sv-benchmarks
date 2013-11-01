@@ -2501,7 +2501,7 @@ enum vendor {
 #line 5356 "/work/ldvuser/zakharov_benchmarks/bench/cpa/work/current--X--drivers/hwmon/w83781d.ko--X--x1linux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/32_7a/drivers/hwmon/w83781d.c.prepared"
 typedef int ldv_func_ret_type___2;
 #line 1 "<compiler builtins>"
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 #line 46 "include/uapi/linux/swab.h"
 __inline static __u16 __fswab16(__u16 val ) 
 { 
@@ -2559,7 +2559,7 @@ __inline static long IS_ERR(void const   *ptr )
 
   {
 #line 34
-  tmp = __builtin_expect((unsigned long )ptr > 0xfffffffffffff000UL, 0L);
+  tmp = ldv__builtin_expect((unsigned long )ptr > 0xfffffffffffff000UL, 0L);
 #line 34
   return (tmp);
 }
@@ -5309,7 +5309,7 @@ static int w83781d_detect(struct i2c_client *client , struct i2c_board_info *inf
 #line 1261
     descriptor.flags = 1U;
 #line 1261
-    tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1261
     if (tmp___1 != 0L) {
 #line 1261
@@ -5341,7 +5341,7 @@ static int w83781d_detect(struct i2c_client *client , struct i2c_board_info *inf
 #line 1272
     descriptor___0.flags = 1U;
 #line 1272
-    tmp___3 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___3 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 1272
     if (tmp___3 != 0L) {
 #line 1272
@@ -5374,7 +5374,7 @@ static int w83781d_detect(struct i2c_client *client , struct i2c_board_info *inf
 #line 1284
       descriptor___1.flags = 1U;
 #line 1284
-      tmp___4 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+      tmp___4 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
 #line 1284
       if (tmp___4 != 0L) {
 #line 1284
@@ -5420,7 +5420,7 @@ static int w83781d_detect(struct i2c_client *client , struct i2c_board_info *inf
 #line 1302
     descriptor___2.flags = 1U;
 #line 1302
-    tmp___7 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+    tmp___7 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
 #line 1302
     if (tmp___7 != 0L) {
 #line 1302
@@ -5476,7 +5476,7 @@ static int w83781d_detect(struct i2c_client *client , struct i2c_board_info *inf
 #line 1321
       descriptor___3.flags = 1U;
 #line 1321
-      tmp___8 = __builtin_expect((long )descriptor___3.flags & 1L, 0L);
+      tmp___8 = ldv__builtin_expect((long )descriptor___3.flags & 1L, 0L);
 #line 1321
       if (tmp___8 != 0L) {
 #line 1321
@@ -6020,7 +6020,7 @@ static struct w83781d_data *w83781d_update_device(struct device *dev )
 #line 1614
     descriptor.flags = 1U;
 #line 1614
-    tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 1614
     if (tmp___0 != 0L) {
 #line 1614
@@ -11646,7 +11646,7 @@ __inline static void ldv_error(void)
 #line 25
 extern int __VERIFIER_nondet_int(void) ;
 #line 49 "/home/ldvuser/ldv_envgen2/kernel-rules/verifier/rcv.h"
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
   {

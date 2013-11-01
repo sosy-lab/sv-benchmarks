@@ -3464,7 +3464,7 @@ struct ad714x_chip {
    __be16 xfer_buf[16]  __attribute__((__aligned__((1) <<  (6) ))) ;
 };
 #line 1 "<compiler builtins>"
-long __builtin_expect(long val , long res ) ;
+long ldv__builtin_expect(long val , long res ) ;
 #line 46 "include/linux/swab.h"
 __inline static __u16 __fswab16(__u16 val )  __attribute__((__no_instrument_function__,
 __const__)) ;
@@ -3536,7 +3536,7 @@ __inline static long __attribute__((__warn_unused_result__))  IS_ERR(void const 
 #line 34
   __cil_tmp7 = (long )__cil_tmp6;
 #line 34
-  tmp = __builtin_expect(__cil_tmp7, 0L);
+  tmp = ldv__builtin_expect(__cil_tmp7, 0L);
   }
 #line 34
   return (tmp);
@@ -4119,7 +4119,7 @@ static int ad714x_spi_read(struct ad714x_chip *chip , unsigned short reg , unsig
 #line 57
   __cil_tmp61 = (long )__cil_tmp60;
 #line 57
-  tmp___9 = __builtin_expect(__cil_tmp61, 0L);
+  tmp___9 = ldv__builtin_expect(__cil_tmp61, 0L);
   }
 #line 57
   if (tmp___9) {
@@ -4299,7 +4299,7 @@ static int ad714x_spi_write(struct ad714x_chip *chip , unsigned short reg , unsi
 #line 79
   __cil_tmp36 = (long )__cil_tmp35;
 #line 79
-  tmp___10 = __builtin_expect(__cil_tmp36, 0L);
+  tmp___10 = ldv__builtin_expect(__cil_tmp36, 0L);
   }
 #line 79
   if (tmp___10) {
@@ -4844,7 +4844,7 @@ void ldv_check_final_state(void)
 }
 }
 #line 253 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/3996/dscv_tempdir/dscv/ri/32_1/drivers/input/misc/ad714x-spi.c.common.c"
-long __builtin_expect(long val , long res ) 
+long ldv__builtin_expect(long val , long res ) 
 { 
 
   {

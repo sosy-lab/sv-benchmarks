@@ -4261,7 +4261,7 @@ struct __anonstruct_258 {
    int  : 0 ;
 };
 #line 1 "<compiler builtins>"
-long __builtin_expect(long val , long res ) ;
+long ldv__builtin_expect(long val , long res ) ;
 #line 24 "include/linux/list.h"
 __inline static void INIT_LIST_HEAD(struct list_head *list )  __attribute__((__no_instrument_function__)) ;
 #line 24 "include/linux/list.h"
@@ -4351,7 +4351,7 @@ __inline static long __attribute__((__warn_unused_result__))  IS_ERR(void const 
 #line 34
   __cil_tmp7 = (long )__cil_tmp6;
 #line 34
-  tmp = __builtin_expect(__cil_tmp7, 0L);
+  tmp = ldv__builtin_expect(__cil_tmp7, 0L);
   }
 #line 34
   return (tmp);
@@ -4696,7 +4696,7 @@ static void l4f00242t03_reset(unsigned int gpio )
 #line 38
     __cil_tmp14 = (long )__cil_tmp13;
 #line 38
-    tmp___7 = __builtin_expect(__cil_tmp14, 0L);
+    tmp___7 = ldv__builtin_expect(__cil_tmp14, 0L);
     }
 #line 38
     if (tmp___7) {
@@ -4927,7 +4927,7 @@ static void l4f00242t03_lcd_init(struct spi_device *spi )
 #line 55
       __cil_tmp26 = (long )__cil_tmp25;
 #line 55
-      tmp___8 = __builtin_expect(__cil_tmp26, 0L);
+      tmp___8 = ldv__builtin_expect(__cil_tmp26, 0L);
       }
 #line 55
       if (tmp___8) {
@@ -5101,7 +5101,7 @@ static void l4f00242t03_lcd_powerdown(struct spi_device *spi )
 #line 75
       __cil_tmp17 = (long )__cil_tmp16;
 #line 75
-      tmp___8 = __builtin_expect(__cil_tmp17, 0L);
+      tmp___8 = ldv__builtin_expect(__cil_tmp17, 0L);
       }
 #line 75
       if (tmp___8) {
@@ -5327,7 +5327,7 @@ static int l4f00242t03_lcd_power_set(struct lcd_device *ld , int power )
 #line 105
             __cil_tmp27 = (long )__cil_tmp26;
 #line 105
-            tmp___8 = __builtin_expect(__cil_tmp27, 0L);
+            tmp___8 = ldv__builtin_expect(__cil_tmp27, 0L);
             }
 #line 105
             if (tmp___8) {
@@ -5425,7 +5425,7 @@ static int l4f00242t03_lcd_power_set(struct lcd_device *ld , int power )
 #line 119
           __cil_tmp47 = (long )__cil_tmp46;
 #line 119
-          tmp___9 = __builtin_expect(__cil_tmp47, 0L);
+          tmp___9 = ldv__builtin_expect(__cil_tmp47, 0L);
           }
 #line 119
           if (tmp___9) {
@@ -6588,7 +6588,7 @@ void ldv_check_final_state(void)
 }
 }
 #line 473 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/16920/dscv_tempdir/dscv/ri/32_1/drivers/video/backlight/l4f00242t03.c.common.c"
-long __builtin_expect(long val , long res ) 
+long ldv__builtin_expect(long val , long res ) 
 { 
 
   {

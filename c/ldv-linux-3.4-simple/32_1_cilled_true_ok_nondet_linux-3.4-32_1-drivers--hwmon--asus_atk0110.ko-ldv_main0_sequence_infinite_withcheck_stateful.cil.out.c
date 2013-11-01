@@ -3762,7 +3762,7 @@ struct atk_acpi_input_buf {
    u32 param2 ;
 };
 #line 1 "<compiler builtins>"
-long __builtin_expect(long val , long res ) ;
+long ldv__builtin_expect(long val , long res ) ;
 #line 24 "include/linux/list.h"
 __inline static void INIT_LIST_HEAD(struct list_head *list )  __attribute__((__no_instrument_function__)) ;
 #line 24 "include/linux/list.h"
@@ -3863,7 +3863,7 @@ __inline static long __attribute__((__warn_unused_result__))  IS_ERR(void const 
 #line 34
   __cil_tmp7 = (long )__cil_tmp6;
 #line 34
-  tmp = __builtin_expect(__cil_tmp7, 0L);
+  tmp = ldv__builtin_expect(__cil_tmp7, 0L);
   }
 #line 34
   return (tmp);
@@ -5153,7 +5153,7 @@ static void atk_print_sensor(struct atk_data *data , union acpi_object *obj )
 #line 445
       __cil_tmp27 = (long )__cil_tmp26;
 #line 445
-      tmp___8 = __builtin_expect(__cil_tmp27, 0L);
+      tmp___8 = ldv__builtin_expect(__cil_tmp27, 0L);
       }
 #line 445
       if (tmp___8) {
@@ -8334,7 +8334,7 @@ static int atk_ec_present(struct atk_data *data )
 #line 1057
           __cil_tmp27 = (long )__cil_tmp26;
 #line 1057
-          tmp___7 = __builtin_expect(__cil_tmp27, 0L);
+          tmp___7 = ldv__builtin_expect(__cil_tmp27, 0L);
           }
 #line 1057
           if (tmp___7) {
@@ -8502,7 +8502,7 @@ static int atk_ec_present(struct atk_data *data )
 #line 1085
         __cil_tmp58 = (long )__cil_tmp57;
 #line 1085
-        tmp___11 = __builtin_expect(__cil_tmp58, 0L);
+        tmp___11 = ldv__builtin_expect(__cil_tmp58, 0L);
         }
 #line 1085
         if (tmp___11) {
@@ -8672,7 +8672,7 @@ static int atk_ec_enabled(struct atk_data *data )
 #line 1110
         __cil_tmp32 = (long )__cil_tmp31;
 #line 1110
-        tmp___10 = __builtin_expect(__cil_tmp32, 0L);
+        tmp___10 = ldv__builtin_expect(__cil_tmp32, 0L);
         }
 #line 1110
         if (tmp___10) {
@@ -9006,7 +9006,7 @@ static int atk_enumerate_new_hwmon(struct atk_data *data )
 #line 1174
       __cil_tmp24 = (long )__cil_tmp23;
 #line 1174
-      tmp___7 = __builtin_expect(__cil_tmp24, 0L);
+      tmp___7 = ldv__builtin_expect(__cil_tmp24, 0L);
       }
 #line 1174
       if (tmp___7) {
@@ -9729,7 +9729,7 @@ static int atk_register_hwmon(struct atk_data *data )
 #line 1246
       __cil_tmp18 = (long )__cil_tmp17;
 #line 1246
-      tmp___7 = __builtin_expect(__cil_tmp18, 0L);
+      tmp___7 = ldv__builtin_expect(__cil_tmp18, 0L);
       }
 #line 1246
       if (tmp___7) {
@@ -9799,7 +9799,7 @@ static int atk_register_hwmon(struct atk_data *data )
 #line 1251
       __cil_tmp29 = (long )__cil_tmp28;
 #line 1251
-      tmp___10 = __builtin_expect(__cil_tmp29, 0L);
+      tmp___10 = ldv__builtin_expect(__cil_tmp29, 0L);
       }
 #line 1251
       if (tmp___10) {
@@ -10072,7 +10072,7 @@ static int atk_probe_if(struct atk_data *data )
 #line 1276
         __cil_tmp35 = (long )__cil_tmp34;
 #line 1276
-        tmp___8 = __builtin_expect(__cil_tmp35, 0L);
+        tmp___8 = ldv__builtin_expect(__cil_tmp35, 0L);
         }
 #line 1276
         if (tmp___8) {
@@ -10144,7 +10144,7 @@ static int atk_probe_if(struct atk_data *data )
 #line 1284
         __cil_tmp49 = (long )__cil_tmp48;
 #line 1284
-        tmp___10 = __builtin_expect(__cil_tmp49, 0L);
+        tmp___10 = ldv__builtin_expect(__cil_tmp49, 0L);
         }
 #line 1284
         if (tmp___10) {
@@ -10216,7 +10216,7 @@ static int atk_probe_if(struct atk_data *data )
 #line 1292
         __cil_tmp63 = (long )__cil_tmp62;
 #line 1292
-        tmp___12 = __builtin_expect(__cil_tmp63, 0L);
+        tmp___12 = ldv__builtin_expect(__cil_tmp63, 0L);
         }
 #line 1292
         if (tmp___12) {
@@ -10288,7 +10288,7 @@ static int atk_probe_if(struct atk_data *data )
 #line 1300
         __cil_tmp77 = (long )__cil_tmp76;
 #line 1300
-        tmp___14 = __builtin_expect(__cil_tmp77, 0L);
+        tmp___14 = ldv__builtin_expect(__cil_tmp77, 0L);
         }
 #line 1300
         if (tmp___14) {
@@ -10360,7 +10360,7 @@ static int atk_probe_if(struct atk_data *data )
 #line 1308
         __cil_tmp91 = (long )__cil_tmp90;
 #line 1308
-        tmp___16 = __builtin_expect(__cil_tmp91, 0L);
+        tmp___16 = ldv__builtin_expect(__cil_tmp91, 0L);
         }
 #line 1308
         if (tmp___16) {
@@ -10432,7 +10432,7 @@ static int atk_probe_if(struct atk_data *data )
 #line 1316
         __cil_tmp105 = (long )__cil_tmp104;
 #line 1316
-        tmp___18 = __builtin_expect(__cil_tmp105, 0L);
+        tmp___18 = ldv__builtin_expect(__cil_tmp105, 0L);
         }
 #line 1316
         if (tmp___18) {
@@ -10743,7 +10743,7 @@ static int atk_add(struct acpi_device *device )
 #line 1347
       __cil_tmp19 = (long )__cil_tmp18;
 #line 1347
-      tmp___7 = __builtin_expect(__cil_tmp19, 0L);
+      tmp___7 = ldv__builtin_expect(__cil_tmp19, 0L);
       }
 #line 1347
       if (tmp___7) {
@@ -10861,7 +10861,7 @@ static int atk_add(struct acpi_device *device )
 #line 1362
         __cil_tmp48 = (long )__cil_tmp47;
 #line 1362
-        tmp___9 = __builtin_expect(__cil_tmp48, 0L);
+        tmp___9 = ldv__builtin_expect(__cil_tmp48, 0L);
         }
 #line 1362
         if (tmp___9) {
@@ -10945,7 +10945,7 @@ static int atk_add(struct acpi_device *device )
 #line 1368
             __cil_tmp69 = (long )__cil_tmp68;
 #line 1368
-            tmp___10 = __builtin_expect(__cil_tmp69, 0L);
+            tmp___10 = ldv__builtin_expect(__cil_tmp69, 0L);
             }
 #line 1368
             if (tmp___10) {
@@ -11054,7 +11054,7 @@ static int atk_add(struct acpi_device *device )
 #line 1381
         __cil_tmp92 = (long )__cil_tmp91;
 #line 1381
-        tmp___11 = __builtin_expect(__cil_tmp92, 0L);
+        tmp___11 = ldv__builtin_expect(__cil_tmp92, 0L);
         }
 #line 1381
         if (tmp___11) {
@@ -11110,7 +11110,7 @@ static int atk_add(struct acpi_device *device )
 #line 1384
         __cil_tmp102 = (long )__cil_tmp101;
 #line 1384
-        tmp___12 = __builtin_expect(__cil_tmp102, 0L);
+        tmp___12 = ldv__builtin_expect(__cil_tmp102, 0L);
         }
 #line 1384
         if (tmp___12) {
@@ -11293,7 +11293,7 @@ static int atk_remove(struct acpi_device *device , int type )
 #line 1416
       __cil_tmp14 = (long )__cil_tmp13;
 #line 1416
-      tmp___7 = __builtin_expect(__cil_tmp14, 0L);
+      tmp___7 = ldv__builtin_expect(__cil_tmp14, 0L);
       }
 #line 1416
       if (tmp___7) {
@@ -11897,7 +11897,7 @@ void ldv_check_final_state(void)
 }
 }
 #line 2402 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/6030/dscv_tempdir/dscv/ri/32_1/drivers/hwmon/asus_atk0110.c.common.c"
-long __builtin_expect(long val , long res ) 
+long ldv__builtin_expect(long val , long res ) 
 { 
 
   {

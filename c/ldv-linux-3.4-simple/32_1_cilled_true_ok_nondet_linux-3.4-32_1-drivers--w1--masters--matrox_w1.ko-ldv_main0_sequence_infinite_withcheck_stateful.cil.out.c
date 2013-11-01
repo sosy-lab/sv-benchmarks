@@ -1608,7 +1608,7 @@ struct matrox_device {
    struct w1_bus_master *bus_master ;
 };
 #line 1 "<compiler builtins>"
-long __builtin_expect(long val , long res ) ;
+long ldv__builtin_expect(long val , long res ) ;
 #line 100 "include/linux/printk.h"
 extern int ( /* format attribute */  printk)(char const   *fmt  , ...) ;
 #line 53 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/io.h"
@@ -2186,7 +2186,7 @@ static int matrox_w1_probe(struct pci_dev *pdev , struct pci_device_id  const  *
 #line 161
   __cil_tmp15 = (long )__cil_tmp14;
 #line 161
-  tmp = __builtin_expect(__cil_tmp15, 0L);
+  tmp = ldv__builtin_expect(__cil_tmp15, 0L);
   }
 #line 161
   if (tmp) {
@@ -2216,7 +2216,7 @@ static int matrox_w1_probe(struct pci_dev *pdev , struct pci_device_id  const  *
 #line 162
   __cil_tmp23 = (long )__cil_tmp22;
 #line 162
-  tmp___0 = __builtin_expect(__cil_tmp23, 0L);
+  tmp___0 = ldv__builtin_expect(__cil_tmp23, 0L);
   }
 #line 162
   if (tmp___0) {
@@ -2555,7 +2555,7 @@ static void matrox_w1_remove(struct pci_dev *pdev )
 #line 228
   __cil_tmp12 = (long )__cil_tmp11;
 #line 228
-  tmp___0 = __builtin_expect(__cil_tmp12, 0L);
+  tmp___0 = ldv__builtin_expect(__cil_tmp12, 0L);
   }
 #line 228
   if (tmp___0) {
@@ -2984,7 +2984,7 @@ void ldv_check_final_state(void)
 }
 }
 #line 415 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/12371/dscv_tempdir/dscv/ri/32_1/drivers/w1/masters/matrox_w1.c.common.c"
-long __builtin_expect(long val , long res ) 
+long ldv__builtin_expect(long val , long res ) 
 { 
 
   {

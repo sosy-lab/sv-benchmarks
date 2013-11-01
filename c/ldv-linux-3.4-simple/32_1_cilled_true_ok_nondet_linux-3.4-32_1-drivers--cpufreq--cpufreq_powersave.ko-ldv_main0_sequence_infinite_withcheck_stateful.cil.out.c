@@ -525,7 +525,7 @@ struct cpufreq_governor {
    struct module *owner ;
 };
 #line 1 "<compiler builtins>"
-long __builtin_expect(long val , long res ) ;
+long ldv__builtin_expect(long val , long res ) ;
 #line 44 "include/linux/dynamic_debug.h"
 extern int ( /* format attribute */  __dynamic_pr_debug)(struct _ddebug *descriptor ,
                                                          char const   *fmt  , ...) ;
@@ -612,7 +612,7 @@ static int cpufreq_governor_powersave(struct cpufreq_policy *policy , unsigned i
 #line 25
         __cil_tmp9 = (long )__cil_tmp8;
 #line 25
-        tmp = __builtin_expect(__cil_tmp9, 0L);
+        tmp = ldv__builtin_expect(__cil_tmp9, 0L);
         }
 #line 25
         if (tmp) {
@@ -1048,7 +1048,7 @@ void ldv_check_final_state(void)
 }
 }
 #line 217 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/3882/dscv_tempdir/dscv/ri/32_1/drivers/cpufreq/cpufreq_powersave.c.common.c"
-long __builtin_expect(long val , long res ) 
+long ldv__builtin_expect(long val , long res ) 
 { 
 
   {

@@ -5450,7 +5450,7 @@ typedef struct usb_device *ldv_func_ret_type___5;
 #line 2636 "/work/vladimir/commit-test/commit-test-work/task-089--linux-stable--dir/work/current--X--drivers/staging/usbip/vhci-hcd.ko--X--defaultlinux-stable-927c3fa44e--X--132_1a--X--cpachecker/linux-stable-927c3fa44e/csd_deg_dscv/20/dscv_tempdir/dscv/ri/132_1a/drivers/staging/usbip/vhci_hcd.c.prepared"
 typedef struct usb_device *ldv_func_ret_type___7;
 #line 1 "<compiler builtins>"
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 #line 71 "include/linux/printk.h"
 extern int printk(char const   *  , ...) ;
 #line 183 "include/linux/kernel.h"
@@ -5647,7 +5647,7 @@ static ssize_t show_status(struct device *dev , struct device_attribute *attr , 
 #line 48
   i = 0;
 #line 50
-  tmp = __builtin_expect((unsigned long )the_controller == (unsigned long )((struct vhci_hcd *)0),
+  tmp = ldv__builtin_expect((unsigned long )the_controller == (unsigned long )((struct vhci_hcd *)0),
                          0L);
 #line 50
   if (tmp != 0L) {
@@ -5655,7 +5655,7 @@ static ssize_t show_status(struct device *dev , struct device_attribute *attr , 
     goto _L;
   } else {
 #line 50
-    tmp___0 = __builtin_expect((unsigned long )out == (unsigned long )((char *)0),
+    tmp___0 = ldv__builtin_expect((unsigned long )out == (unsigned long )((char *)0),
                                0L);
 #line 50
     if (tmp___0 != 0L) {
@@ -6272,7 +6272,7 @@ __inline static int signal_pending(struct task_struct *p )
 #line 2351
   tmp = test_tsk_thread_flag(p, 2);
 #line 2351
-  tmp___0 = __builtin_expect(tmp != 0, 0L);
+  tmp___0 = ldv__builtin_expect(tmp != 0, 0L);
 #line 2351
   return ((int )tmp___0);
 }
@@ -7788,7 +7788,7 @@ __inline static void trace_kmalloc(unsigned long call_site , void const   *ptr ,
 
   {
 #line 45
-  tmp = __builtin_expect(__tracepoint_kmalloc.state != 0, 0L);
+  tmp = ldv__builtin_expect(__tracepoint_kmalloc.state != 0, 0L);
 #line 45
   if (tmp != 0L) {
 #line 45
@@ -9302,12 +9302,12 @@ static int vhci_urb_enqueue(struct usb_hcd *hcd , struct urb *urb , gfp_t mem_fl
 
   }
 #line 583
-  tmp___3 = __builtin_expect((unsigned long )urb->transfer_buffer == (unsigned long )((void *)0),
+  tmp___3 = ldv__builtin_expect((unsigned long )urb->transfer_buffer == (unsigned long )((void *)0),
                              0L);
 #line 583
   if (tmp___3 != 0L) {
 #line 583
-    tmp___4 = __builtin_expect(urb->transfer_buffer_length != 0U, 0L);
+    tmp___4 = ldv__builtin_expect(urb->transfer_buffer_length != 0U, 0L);
 #line 583
     if (tmp___4 != 0L) {
 #line 583
@@ -10960,7 +10960,7 @@ __inline static void ldv_error(void)
 }
 }
 #line 49 "/work/vladimir/kernel-rules/verifier/rcv.h"
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 

@@ -8792,7 +8792,7 @@ struct pau_qh_chg {
    struct nes_qp *nesqp ;
 };
 #line 1 "<compiler builtins>"
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 #line 62 "/home/zakharov/workspace/benchmarks/bench_1/inst/current/envs/linux-3.8-rc1/linux-3.8-rc1/arch/x86/include/asm/bitops.h"
 __inline static void set_bit(unsigned int nr , unsigned long volatile   *addr ) 
 { 
@@ -8924,7 +8924,7 @@ __inline static unsigned long arch_local_save_flags(void)
 #line 825
   __eax = __eax;
 #line 825
-  tmp = __builtin_expect((unsigned long )pv_irq_ops.save_fl.func == (unsigned long )((void *)0),
+  tmp = ldv__builtin_expect((unsigned long )pv_irq_ops.save_fl.func == (unsigned long )((void *)0),
                          0L);
 #line 825
   if (tmp != 0L) {
@@ -9175,7 +9175,7 @@ __inline static struct dma_map_ops *get_dma_ops(struct device *dev )
 
   {
 #line 37
-  tmp = __builtin_expect((unsigned long )dev == (unsigned long )((struct device *)0),
+  tmp = ldv__builtin_expect((unsigned long )dev == (unsigned long )((struct device *)0),
                          0L);
 #line 37
   if (tmp != 0L || (unsigned long )dev->archdata.dma_ops == (unsigned long )((struct dma_map_ops *)0)) {
@@ -9213,7 +9213,7 @@ __inline static void dma_free_attrs(struct device *dev , size_t size , void *vad
 #line 166
   __ret_warn_on = tmp___0 != 0;
 #line 166
-  tmp___1 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___1 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 166
   if (tmp___1 != 0L) {
 #line 166
@@ -9223,7 +9223,7 @@ __inline static void dma_free_attrs(struct device *dev , size_t size , void *vad
 
   }
 #line 166
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 171
   debug_dma_free_coherent(dev, size, vaddr, bus);
 #line 172
@@ -9288,7 +9288,7 @@ __inline static void netif_tx_stop_queue(struct netdev_queue *dev_queue )
 #line 1880
   __ret_warn_on = (unsigned long )dev_queue == (unsigned long )((struct netdev_queue *)0);
 #line 1880
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 1880
   if (tmp != 0L) {
 #line 1880
@@ -9297,7 +9297,7 @@ __inline static void netif_tx_stop_queue(struct netdev_queue *dev_queue )
 
   }
 #line 1880
-  tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 1880
   if (tmp___0 != 0L) {
 #line 1881
@@ -10276,7 +10276,7 @@ static irqreturn_t nes_interrupt(int irq , void *dev_id )
     handled = 1;
   } else {
 #line 430
-    tmp___0 = __builtin_expect((nesdev->nesadapter)->hw_rev == 4U, 0L);
+    tmp___0 = ldv__builtin_expect((nesdev->nesadapter)->hw_rev == 4U, 0L);
 #line 430
     if (tmp___0 != 0L) {
 #line 433
@@ -12900,7 +12900,7 @@ __inline static dma_addr_t dma_map_single_attrs(struct device *dev , void *ptr ,
 #line 19
   tmp___0 = valid_dma_direction((int )dir);
 #line 19
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
 #line 19
   if (tmp___1 != 0L) {
 #line 19
@@ -12943,7 +12943,7 @@ __inline static void dma_unmap_single_attrs(struct device *dev , dma_addr_t addr
 #line 36
   tmp___0 = valid_dma_direction((int )dir);
 #line 36
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
 #line 36
   if (tmp___1 != 0L) {
 #line 36
@@ -12987,7 +12987,7 @@ __inline static void dma_unmap_page(struct device *dev , dma_addr_t addr , size_
 #line 91
   tmp___0 = valid_dma_direction((int )dir);
 #line 91
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
 #line 91
   if (tmp___1 != 0L) {
 #line 91
@@ -17974,11 +17974,11 @@ int nes_napi_isr(struct nes_device *nesdev )
 #line 2123
     nes_process_ceq(nesdev, (struct nes_hw_ceq *)(& (nesdev->nesadapter)->ceq) + (unsigned long )nesdev->nic_ceq_index);
 #line 2125
-    tmp___0 = __builtin_expect(nesadapter->et_rx_coalesce_usecs_irq != 0U, 0L);
+    tmp___0 = ldv__builtin_expect(nesadapter->et_rx_coalesce_usecs_irq != 0U, 0L);
 #line 2125
     if (tmp___0 != 0L) {
 #line 2125
-      tmp___1 = __builtin_expect((unsigned int )nesadapter->et_use_adaptive_rx_coalesce == 0U,
+      tmp___1 = ldv__builtin_expect((unsigned int )nesadapter->et_use_adaptive_rx_coalesce == 0U,
                                  0L);
 #line 2125
       if (tmp___1 != 0L) {
@@ -17998,12 +17998,12 @@ int nes_napi_isr(struct nes_device *nesdev )
       goto _L;
     } else {
 #line 2125
-      tmp___3 = __builtin_expect((unsigned int )nesadapter->et_use_adaptive_rx_coalesce != 0U,
+      tmp___3 = ldv__builtin_expect((unsigned int )nesadapter->et_use_adaptive_rx_coalesce != 0U,
                                  0L);
 #line 2125
       if (tmp___3 != 0L) {
 #line 2125
-        tmp___4 = __builtin_expect((u32 )nesdev->deepcq_count > nesadapter->et_pkt_rate_low,
+        tmp___4 = ldv__builtin_expect((u32 )nesdev->deepcq_count > nesadapter->et_pkt_rate_low,
                                    0L);
 #line 2125
         if (tmp___4 != 0L) {
@@ -18032,7 +18032,7 @@ int nes_napi_isr(struct nes_device *nesdev )
 
         }
 #line 2140
-        tmp = __builtin_expect((unsigned int )nesadapter->et_use_adaptive_rx_coalesce != 0U,
+        tmp = ldv__builtin_expect((unsigned int )nesadapter->et_use_adaptive_rx_coalesce != 0U,
                                0L);
 #line 2140
         if (tmp != 0L) {
@@ -18362,7 +18362,7 @@ void nes_dpc(unsigned long param )
         }
       } else {
 #line 2308
-        tmp___0 = __builtin_expect((unsigned int )nesadapter->et_use_adaptive_rx_coalesce != 0U,
+        tmp___0 = ldv__builtin_expect((unsigned int )nesadapter->et_use_adaptive_rx_coalesce != 0U,
                                    0L);
 #line 2308
         if (tmp___0 != 0L) {
@@ -19862,7 +19862,7 @@ void nes_nic_ce_handler(struct nes_device *nesdev , struct nes_hw_nic_cq *cq )
 #line 3038
   cq->cqe_allocs_pending = (int )cqe_count;
 #line 3039
-  tmp___5 = __builtin_expect((unsigned int )nesadapter->et_use_adaptive_rx_coalesce != 0U,
+  tmp___5 = ldv__builtin_expect((unsigned int )nesadapter->et_use_adaptive_rx_coalesce != 0U,
                              0L);
 #line 3039
   if (tmp___5 != 0L) {
@@ -20574,7 +20574,7 @@ static void nes_terminate_connection(struct nes_device *nesdev , struct nes_qp *
 #line 3431
     __ret_warn_on = context == 0ULL;
 #line 3431
-    tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 3431
     if (tmp != 0L) {
 #line 3431
@@ -20584,7 +20584,7 @@ static void nes_terminate_connection(struct nes_device *nesdev , struct nes_qp *
 
     }
 #line 3431
-    __builtin_expect(__ret_warn_on != 0, 0L);
+    ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 3432
     return;
   } else {
@@ -20917,7 +20917,7 @@ static void nes_process_iwarp_aeqe(struct nes_device *nesdev , struct nes_hw_aeq
 #line 3602
     context = (u64 )*(nesadapter->qp_table + (unsigned long )(aeqe->aeqe_words[2] - 64U));
 #line 3604
-    tmp = __builtin_expect(context == 0ULL, 0L);
+    tmp = ldv__builtin_expect(context == 0ULL, 0L);
 #line 3604
     if (tmp != 0L) {
 #line 3604
@@ -21816,7 +21816,7 @@ __inline static dma_addr_t dma_map_page(struct device *dev , struct page *page ,
 #line 79
   tmp___1 = valid_dma_direction((int )dir);
 #line 79
-  tmp___2 = __builtin_expect(tmp___1 == 0, 0L);
+  tmp___2 = ldv__builtin_expect(tmp___1 == 0, 0L);
 #line 79
   if (tmp___2 != 0L) {
 #line 79
@@ -22023,7 +22023,7 @@ __inline static void napi_enable(struct napi_struct *n )
 #line 468
   tmp = constant_test_bit(0U, (unsigned long const volatile   *)(& n->state));
 #line 468
-  tmp___0 = __builtin_expect(tmp == 0, 0L);
+  tmp___0 = ldv__builtin_expect(tmp == 0, 0L);
 #line 468
   if (tmp___0 != 0L) {
 #line 468
@@ -23219,7 +23219,7 @@ static int nes_netdev_start_xmit(struct sk_buff *skb , struct net_device *netdev
 
   }
 #line 570
-  tmp___43 = __builtin_expect(nr_frags > 4U, 0L);
+  tmp___43 = ldv__builtin_expect(nr_frags > 4U, 0L);
 #line 570
   if (tmp___43 != 0L) {
 #line 571
@@ -23237,7 +23237,7 @@ static int nes_netdev_start_xmit(struct sk_buff *skb , struct net_device *netdev
 #line 577
       wqes_available = (u16 )((int )((short )((unsigned int )(((int )nesnic->sq_tail + (int )nesnic->sq_size) - (int )nesnic->sq_head) + 65535U)) & (int )((short )((unsigned int )nesnic->sq_size + 65535U)));
 #line 580
-      tmp___9 = __builtin_expect((int )wqes_needed > (int )wqes_available, 0L);
+      tmp___9 = ldv__builtin_expect((int )wqes_needed > (int )wqes_available, 0L);
 #line 580
       if (tmp___9 != 0L) {
 #line 581
@@ -29101,7 +29101,7 @@ __inline static long IS_ERR(void const   *ptr )
 
   {
 #line 34
-  tmp = __builtin_expect((unsigned long )ptr > 0xfffffffffffff000UL, 0L);
+  tmp = ldv__builtin_expect((unsigned long )ptr > 0xfffffffffffff000UL, 0L);
 #line 34
   return (tmp);
 }
@@ -29159,14 +29159,14 @@ __inline static unsigned long copy_from_user(void *to , void const   *from , uns
 #line 61
   might_fault();
 #line 62
-  tmp___1 = __builtin_expect(sz == -1, 1L);
+  tmp___1 = ldv__builtin_expect(sz == -1, 1L);
 #line 62
   if (tmp___1 != 0L) {
 #line 63
     n = _copy_from_user(to, from, (unsigned int )n);
   } else {
 #line 62
-    tmp___2 = __builtin_expect((unsigned long )sz >= n, 1L);
+    tmp___2 = ldv__builtin_expect((unsigned long )sz >= n, 1L);
 #line 62
     if (tmp___2 != 0L) {
 #line 63
@@ -29175,7 +29175,7 @@ __inline static unsigned long copy_from_user(void *to , void const   *from , uns
 #line 66
       __ret_warn_on = 1;
 #line 66
-      tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+      tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 66
       if (tmp___0 != 0L) {
 #line 66
@@ -29185,7 +29185,7 @@ __inline static unsigned long copy_from_user(void *to , void const   *from , uns
 
       }
 #line 66
-      __builtin_expect(__ret_warn_on != 0, 0L);
+      ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
   }
 #line 68
@@ -29238,7 +29238,7 @@ __inline static struct page *sg_page(struct scatterlist *sg )
 
   {
 #line 98
-  tmp = __builtin_expect(sg->sg_magic != 2271560481UL, 0L);
+  tmp = ldv__builtin_expect(sg->sg_magic != 2271560481UL, 0L);
 #line 98
   if (tmp != 0L) {
 #line 98
@@ -29251,7 +29251,7 @@ __inline static struct page *sg_page(struct scatterlist *sg )
 
   }
 #line 99
-  tmp___0 = __builtin_expect((long )((int )sg->page_link) & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )((int )sg->page_link) & 1L, 0L);
 #line 99
   if (tmp___0 != 0L) {
 #line 99
@@ -39268,7 +39268,7 @@ static void build_rdma0_msg(struct nes_cm_node *cm_node , struct nes_qp **nesqp_
 #line 673
     __ret_warn_on = 1;
 #line 673
-    tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 673
     if (tmp != 0L) {
 #line 673
@@ -39278,7 +39278,7 @@ static void build_rdma0_msg(struct nes_cm_node *cm_node , struct nes_qp **nesqp_
 
     }
 #line 673
-    __builtin_expect(__ret_warn_on != 0, 0L);
+    ldv__builtin_expect(__ret_warn_on != 0, 0L);
   } else {
 
   }
@@ -39383,7 +39383,7 @@ int schedule_nes_timer(struct nes_cm_node *cm_node , struct sk_buff *skb , enum 
 #line 731
       __ret_warn_on = 1;
 #line 731
-      tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+      tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 731
       if (tmp___0 != 0L) {
 #line 731
@@ -39393,7 +39393,7 @@ int schedule_nes_timer(struct nes_cm_node *cm_node , struct sk_buff *skb , enum 
 
       }
 #line 731
-      __builtin_expect(__ret_warn_on != 0, 0L);
+      ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 732
       return (-22);
     } else {
@@ -40421,7 +40421,7 @@ static int mini_cm_dec_refcnt_listen(struct nes_cm_core *cm_core , struct nes_cm
 #line 1262
       __ret_warn_on = 1;
 #line 1262
-      tmp___1 = __builtin_expect(__ret_warn_on != 0, 0L);
+      tmp___1 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 1262
       if (tmp___1 != 0L) {
 #line 1262
@@ -40431,7 +40431,7 @@ static int mini_cm_dec_refcnt_listen(struct nes_cm_core *cm_core , struct nes_cm
 
       }
 #line 1262
-      __builtin_expect(__ret_warn_on != 0, 0L);
+      ldv__builtin_expect(__ret_warn_on != 0, 0L);
     } else {
 #line 1264
       old_state = cm_node->state;
@@ -40579,7 +40579,7 @@ __inline static int mini_cm_accelerated(struct nes_cm_core *cm_core , struct nes
 #line 1350
   if (cm_node->accept_pend != 0) {
 #line 1351
-    tmp = __builtin_expect((unsigned long )cm_node->listener == (unsigned long )((struct nes_cm_listener *)0),
+    tmp = ldv__builtin_expect((unsigned long )cm_node->listener == (unsigned long )((struct nes_cm_listener *)0),
                            0L);
 #line 1351
     if (tmp != 0L) {
@@ -40599,7 +40599,7 @@ __inline static int mini_cm_accelerated(struct nes_cm_core *cm_core , struct nes
 #line 1354
     tmp___0 = atomic_read((atomic_t const   *)(& (cm_node->listener)->pend_accepts_cnt));
 #line 1354
-    tmp___1 = __builtin_expect(tmp___0 < 0, 0L);
+    tmp___1 = ldv__builtin_expect(tmp___0 < 0, 0L);
 #line 1354
     if (tmp___1 != 0L) {
 #line 1354
@@ -40959,7 +40959,7 @@ static int rem_ref_cm_node(struct nes_cm_core *cm_core , struct nes_cm_node *cm_
 #line 1547
   if (cm_node->accelerated == 0 && cm_node->accept_pend != 0) {
 #line 1548
-    tmp___1 = __builtin_expect((unsigned long )cm_node->listener == (unsigned long )((struct nes_cm_listener *)0),
+    tmp___1 = ldv__builtin_expect((unsigned long )cm_node->listener == (unsigned long )((struct nes_cm_listener *)0),
                                0L);
 #line 1548
     if (tmp___1 != 0L) {
@@ -40977,7 +40977,7 @@ static int rem_ref_cm_node(struct nes_cm_core *cm_core , struct nes_cm_node *cm_
 #line 1550
     tmp___2 = atomic_read((atomic_t const   *)(& (cm_node->listener)->pend_accepts_cnt));
 #line 1550
-    tmp___3 = __builtin_expect(tmp___2 < 0, 0L);
+    tmp___3 = ldv__builtin_expect(tmp___2 < 0, 0L);
 #line 1550
     if (tmp___3 != 0L) {
 #line 1550
@@ -40995,7 +40995,7 @@ static int rem_ref_cm_node(struct nes_cm_core *cm_core , struct nes_cm_node *cm_
 #line 1552
   __ret_warn_on = (unsigned long )cm_node->send_entry != (unsigned long )((struct nes_timer_entry *)0);
 #line 1552
-  tmp___4 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___4 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 1552
   if (tmp___4 != 0L) {
 #line 1552
@@ -41005,7 +41005,7 @@ static int rem_ref_cm_node(struct nes_cm_core *cm_core , struct nes_cm_node *cm_
 
   }
 #line 1552
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 1553
   if ((unsigned long )cm_node->recv_entry != (unsigned long )((struct nes_timer_entry *)0)) {
 #line 1554
@@ -41446,7 +41446,7 @@ static void handle_rcv_mpa(struct nes_cm_node *cm_node , struct sk_buff *skb )
 #line 1782
     __ret_warn_on = 1;
 #line 1782
-    tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 1782
     if (tmp != 0L) {
 #line 1782
@@ -41456,7 +41456,7 @@ static void handle_rcv_mpa(struct nes_cm_node *cm_node , struct sk_buff *skb )
 
     }
 #line 1782
-    __builtin_expect(__ret_warn_on != 0, 0L);
+    ldv__builtin_expect(__ret_warn_on != 0, 0L);
   } else {
 
   }
@@ -41489,7 +41489,7 @@ static void handle_rcv_mpa(struct nes_cm_node *cm_node , struct sk_buff *skb )
 #line 1800
   __ret_warn_on___0 = 1;
 #line 1800
-  tmp___0 = __builtin_expect(__ret_warn_on___0 != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on___0 != 0, 0L);
 #line 1800
   if (tmp___0 != 0L) {
 #line 1800
@@ -41499,7 +41499,7 @@ static void handle_rcv_mpa(struct nes_cm_node *cm_node , struct sk_buff *skb )
 
   }
 #line 1800
-  __builtin_expect(__ret_warn_on___0 != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on___0 != 0, 0L);
 #line 1801
   goto ldv_53961;
   }
@@ -41713,7 +41713,7 @@ static void handle_syn_pkt(struct nes_cm_node *cm_node , struct sk_buff *skb , s
 #line 1907
   cm_node->tcp_cntxt.rcv_nxt = inc_sequence + 1U;
 #line 1908
-  tmp___1 = __builtin_expect((unsigned long )cm_node->send_entry != (unsigned long )((struct nes_timer_entry *)0),
+  tmp___1 = ldv__builtin_expect((unsigned long )cm_node->send_entry != (unsigned long )((struct nes_timer_entry *)0),
                              0L);
 #line 1908
   if (tmp___1 != 0L) {
@@ -42672,7 +42672,7 @@ static int mini_cm_reject(struct nes_cm_core *cm_core , struct nes_cm_node *cm_n
 #line 2442
           __ret_warn_on = 1;
 #line 2442
-          tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+          tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 2442
           if (tmp != 0L) {
 #line 2442
@@ -42682,7 +42682,7 @@ static int mini_cm_reject(struct nes_cm_core *cm_core , struct nes_cm_node *cm_n
 
           }
 #line 2442
-          __builtin_expect(__ret_warn_on != 0, 0L);
+          ldv__builtin_expect(__ret_warn_on != 0, 0L);
         } else {
 
         }
@@ -45427,7 +45427,7 @@ __inline static dma_addr_t dma_map_single_attrs___1(struct device *dev , void *p
 #line 19
   tmp___0 = valid_dma_direction((int )dir);
 #line 19
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
 #line 19
   if (tmp___1 != 0L) {
 #line 19
@@ -45470,7 +45470,7 @@ __inline static void dma_unmap_single_attrs___0(struct device *dev , dma_addr_t 
 #line 36
   tmp___0 = valid_dma_direction((int )dir);
 #line 36
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
 #line 36
   if (tmp___1 != 0L) {
 #line 36
@@ -45600,7 +45600,7 @@ __inline static int signal_pending(struct task_struct *p )
 #line 2620
   tmp = test_tsk_thread_flag(p, 2);
 #line 2620
-  tmp___0 = __builtin_expect(tmp != 0, 0L);
+  tmp___0 = ldv__builtin_expect(tmp != 0, 0L);
 #line 2620
   return ((int )tmp___0);
 }
@@ -47010,7 +47010,7 @@ static void nes_chg_qh_handler(struct nes_device *nesdev , struct nes_cqp_reques
 #line 693
     __ret_warn_on = 1;
 #line 693
-    tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 693
     if (tmp != 0L) {
 #line 693
@@ -47020,7 +47020,7 @@ static void nes_chg_qh_handler(struct nes_device *nesdev , struct nes_cqp_reques
 
     }
 #line 693
-    __builtin_expect(__ret_warn_on != 0, 0L);
+    ldv__builtin_expect(__ret_warn_on != 0, 0L);
   } else {
 
   }
@@ -47044,7 +47044,7 @@ static void nes_chg_qh_handler(struct nes_device *nesdev , struct nes_cqp_reques
 #line 703
     __ret_warn_on___0 = 1;
 #line 703
-    tmp___0 = __builtin_expect(__ret_warn_on___0 != 0, 0L);
+    tmp___0 = ldv__builtin_expect(__ret_warn_on___0 != 0, 0L);
 #line 703
     if (tmp___0 != 0L) {
 #line 703
@@ -47054,7 +47054,7 @@ static void nes_chg_qh_handler(struct nes_device *nesdev , struct nes_cqp_reques
 
     }
 #line 703
-    __builtin_expect(__ret_warn_on___0 != 0, 0L);
+    ldv__builtin_expect(__ret_warn_on___0 != 0, 0L);
 #line 704
     return;
   } else {
@@ -48219,7 +48219,7 @@ __inline static void ldv_error(void)
 #line 25
 extern int __VERIFIER_nondet_int(void) ;
 #line 49 "/home/zakharov/workspace/instruments/ldv1/kernel-rules/verifier/rcv.h"
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
   {

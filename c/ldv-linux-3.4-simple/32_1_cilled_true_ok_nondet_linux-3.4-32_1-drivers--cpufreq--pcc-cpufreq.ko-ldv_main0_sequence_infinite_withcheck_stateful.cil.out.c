@@ -3797,7 +3797,7 @@ struct pcc_cpu {
    u32 output_offset ;
 };
 #line 1 "<compiler builtins>"
-long __builtin_expect(long val , long res ) ;
+long ldv__builtin_expect(long val , long res ) ;
 #line 100 "include/linux/printk.h"
 extern int ( /* format attribute */  printk)(char const   *fmt  , ...) ;
 #line 44 "include/linux/dynamic_debug.h"
@@ -4360,7 +4360,7 @@ static unsigned int pcc_get_freq(unsigned int cpu )
 #line 153
     __cil_tmp21 = (long )__cil_tmp20;
 #line 153
-    tmp___7 = __builtin_expect(__cil_tmp21, 0L);
+    tmp___7 = ldv__builtin_expect(__cil_tmp21, 0L);
     }
 #line 153
     if (tmp___7) {
@@ -4482,7 +4482,7 @@ static unsigned int pcc_get_freq(unsigned int cpu )
 #line 171
       __cil_tmp53 = (long )__cil_tmp52;
 #line 171
-      tmp___9 = __builtin_expect(__cil_tmp53, 0L);
+      tmp___9 = ldv__builtin_expect(__cil_tmp53, 0L);
       }
 #line 171
       if (tmp___9) {
@@ -4557,7 +4557,7 @@ static unsigned int pcc_get_freq(unsigned int cpu )
 #line 179
     __cil_tmp72 = (long )__cil_tmp71;
 #line 179
-    tmp___11 = __builtin_expect(__cil_tmp72, 0L);
+    tmp___11 = ldv__builtin_expect(__cil_tmp72, 0L);
     }
 #line 179
     if (tmp___11) {
@@ -4606,7 +4606,7 @@ static unsigned int pcc_get_freq(unsigned int cpu )
 #line 186
       __cil_tmp83 = (long )__cil_tmp82;
 #line 186
-      tmp___12 = __builtin_expect(__cil_tmp83, 0L);
+      tmp___12 = ldv__builtin_expect(__cil_tmp83, 0L);
       }
 #line 186
       if (tmp___12) {
@@ -4815,7 +4815,7 @@ static int pcc_cpufreq_target(struct cpufreq_policy *policy , unsigned int targe
 #line 213
     __cil_tmp30 = (long )__cil_tmp29;
 #line 213
-    tmp___7 = __builtin_expect(__cil_tmp30, 0L);
+    tmp___7 = ldv__builtin_expect(__cil_tmp30, 0L);
     }
 #line 213
     if (tmp___7) {
@@ -4933,7 +4933,7 @@ static int pcc_cpufreq_target(struct cpufreq_policy *policy , unsigned int targe
 #line 235
       __cil_tmp64 = (long )__cil_tmp63;
 #line 235
-      tmp___10 = __builtin_expect(__cil_tmp64, 0L);
+      tmp___10 = ldv__builtin_expect(__cil_tmp64, 0L);
       }
 #line 235
       if (tmp___10) {
@@ -4992,7 +4992,7 @@ static int pcc_cpufreq_target(struct cpufreq_policy *policy , unsigned int targe
 #line 242
     __cil_tmp76 = (long )__cil_tmp75;
 #line 242
-    tmp___11 = __builtin_expect(__cil_tmp76, 0L);
+    tmp___11 = ldv__builtin_expect(__cil_tmp76, 0L);
     }
 #line 242
     if (tmp___11) {
@@ -5373,7 +5373,7 @@ static int pcc_get_offset(int cpu )
 #line 297
     __cil_tmp71 = (long )__cil_tmp70;
 #line 297
-    tmp___7 = __builtin_expect(__cil_tmp71, 0L);
+    tmp___7 = ldv__builtin_expect(__cil_tmp71, 0L);
     }
 #line 297
     if (tmp___7) {
@@ -6286,7 +6286,7 @@ static int pcc_cpufreq_probe(void)
 #line 414
         __cil_tmp50 = (long )__cil_tmp49;
 #line 414
-        tmp___7 = __builtin_expect(__cil_tmp50, 0L);
+        tmp___7 = ldv__builtin_expect(__cil_tmp50, 0L);
         }
 #line 414
         if (tmp___7) {
@@ -6401,7 +6401,7 @@ static int pcc_cpufreq_probe(void)
 #line 437
     __cil_tmp73 = (long )__cil_tmp72;
 #line 437
-    tmp___8 = __builtin_expect(__cil_tmp73, 0L);
+    tmp___8 = ldv__builtin_expect(__cil_tmp73, 0L);
     }
 #line 437
     if (tmp___8) {
@@ -6549,7 +6549,7 @@ static int pcc_cpufreq_probe(void)
 #line 457
       __cil_tmp126 = (long )__cil_tmp125;
 #line 457
-      tmp___9 = __builtin_expect(__cil_tmp126, 0L);
+      tmp___9 = ldv__builtin_expect(__cil_tmp126, 0L);
       }
 #line 457
       if (tmp___9) {
@@ -6591,7 +6591,7 @@ static int pcc_cpufreq_probe(void)
 #line 462
     __cil_tmp132 = (long )__cil_tmp131;
 #line 462
-    tmp___10 = __builtin_expect(__cil_tmp132, 0L);
+    tmp___10 = ldv__builtin_expect(__cil_tmp132, 0L);
     }
 #line 462
     if (tmp___10) {
@@ -6626,7 +6626,7 @@ static int pcc_cpufreq_probe(void)
 #line 463
     __cil_tmp138 = (long )__cil_tmp137;
 #line 463
-    tmp___19 = __builtin_expect(__cil_tmp138, 0L);
+    tmp___19 = ldv__builtin_expect(__cil_tmp138, 0L);
     }
 #line 463
     if (tmp___19) {
@@ -6744,7 +6744,7 @@ static int pcc_cpufreq_probe(void)
 #line 473
     __cil_tmp177 = (long )__cil_tmp176;
 #line 473
-    tmp___25 = __builtin_expect(__cil_tmp177, 0L);
+    tmp___25 = ldv__builtin_expect(__cil_tmp177, 0L);
     }
 #line 473
     if (tmp___25) {
@@ -6898,7 +6898,7 @@ static int pcc_cpufreq_probe(void)
 #line 498
     __cil_tmp225 = (long )__cil_tmp224;
 #line 498
-    tmp___26 = __builtin_expect(__cil_tmp225, 0L);
+    tmp___26 = ldv__builtin_expect(__cil_tmp225, 0L);
     }
 #line 498
     if (tmp___26) {
@@ -7025,7 +7025,7 @@ static int pcc_cpufreq_probe(void)
 #line 519
     __cil_tmp262 = (long )__cil_tmp261;
 #line 519
-    tmp___27 = __builtin_expect(__cil_tmp262, 0L);
+    tmp___27 = ldv__builtin_expect(__cil_tmp262, 0L);
     }
 #line 519
     if (tmp___27) {
@@ -7238,7 +7238,7 @@ static int pcc_cpufreq_cpu_init(struct cpufreq_policy *policy )
 #line 554
       __cil_tmp20 = (long )__cil_tmp19;
 #line 554
-      tmp___8 = __builtin_expect(__cil_tmp20, 0L);
+      tmp___8 = ldv__builtin_expect(__cil_tmp20, 0L);
       }
 #line 554
       if (tmp___8) {
@@ -7344,7 +7344,7 @@ static int pcc_cpufreq_cpu_init(struct cpufreq_policy *policy )
 #line 565
       __cil_tmp48 = (long )__cil_tmp47;
 #line 565
-      tmp___13 = __builtin_expect(__cil_tmp48, 0L);
+      tmp___13 = ldv__builtin_expect(__cil_tmp48, 0L);
       }
 #line 565
       if (tmp___13) {
@@ -7386,7 +7386,7 @@ static int pcc_cpufreq_cpu_init(struct cpufreq_policy *policy )
 #line 570
     __cil_tmp54 = (long )__cil_tmp53;
 #line 570
-    tmp___14 = __builtin_expect(__cil_tmp54, 0L);
+    tmp___14 = ldv__builtin_expect(__cil_tmp54, 0L);
     }
 #line 570
     if (tmp___14) {
@@ -7491,7 +7491,7 @@ static int pcc_cpufreq_init(void)
 #line 601
       __cil_tmp8 = (long )__cil_tmp7;
 #line 601
-      tmp___7 = __builtin_expect(__cil_tmp8, 0L);
+      tmp___7 = ldv__builtin_expect(__cil_tmp8, 0L);
       }
 #line 601
       if (tmp___7) {
@@ -7939,7 +7939,7 @@ void ldv_check_final_state(void)
 }
 }
 #line 892 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/3888/dscv_tempdir/dscv/ri/32_1/drivers/cpufreq/pcc-cpufreq.c.common.c"
-long __builtin_expect(long val , long res ) 
+long ldv__builtin_expect(long val , long res ) 
 { 
 
   {

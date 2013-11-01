@@ -3890,7 +3890,7 @@ typedef int ldv_func_ret_type___4;
 #line 1 "<compiler builtins>"
 void *__builtin_memcpy(void * , void const   * , unsigned long  ) ;
 #line 1
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 #line 119 "include/linux/printk.h"
 extern int printk(char const   *  , ...) ;
 #line 53 "include/linux/dynamic_debug.h"
@@ -3977,7 +3977,7 @@ __inline static long IS_ERR(void const   *ptr )
 
   {
 #line 34
-  tmp = __builtin_expect((unsigned long )ptr > 0xfffffffffffff000UL, 0L);
+  tmp = ldv__builtin_expect((unsigned long )ptr > 0xfffffffffffff000UL, 0L);
 #line 34
   return (tmp);
 }
@@ -4210,7 +4210,7 @@ __inline static __u16 usb_maxpacket(struct usb_device *udev , int pipe , int is_
 #line 1768
     __ret_warn_on = (pipe & 128) != 0;
 #line 1768
-    tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 1768
     if (tmp != 0L) {
 #line 1768
@@ -4219,14 +4219,14 @@ __inline static __u16 usb_maxpacket(struct usb_device *udev , int pipe , int is_
 
     }
 #line 1768
-    __builtin_expect(__ret_warn_on != 0, 0L);
+    ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 1769
     ep = udev->ep_out[epnum];
   } else {
 #line 1771
     __ret_warn_on___0 = (pipe & 128) == 0;
 #line 1771
-    tmp___0 = __builtin_expect(__ret_warn_on___0 != 0, 0L);
+    tmp___0 = ldv__builtin_expect(__ret_warn_on___0 != 0, 0L);
 #line 1771
     if (tmp___0 != 0L) {
 #line 1771
@@ -4235,7 +4235,7 @@ __inline static __u16 usb_maxpacket(struct usb_device *udev , int pipe , int is_
 
     }
 #line 1771
-    __builtin_expect(__ret_warn_on___0 != 0, 0L);
+    ldv__builtin_expect(__ret_warn_on___0 != 0, 0L);
 #line 1772
     ep = udev->ep_in[epnum];
   }
@@ -4371,7 +4371,7 @@ __inline static struct r8a66597_td *r8a66597_get_td(struct r8a66597 *r8a66597 , 
 #line 150
   tmp = list_empty((struct list_head  const  *)(& r8a66597->pipe_queue) + (unsigned long )pipenum);
 #line 150
-  tmp___0 = __builtin_expect(tmp != 0, 0L);
+  tmp___0 = ldv__builtin_expect(tmp != 0, 0L);
 #line 150
   if (tmp___0 != 0L) {
 #line 151
@@ -4534,7 +4534,7 @@ __inline static void r8a66597_write_fifo(struct r8a66597 *r8a66597 , struct r8a6
 #line 240
     iowrite16_rep(fifoaddr, (void const   *)buf, (unsigned long )len);
 #line 241
-    tmp___0 = __builtin_expect(odd != 0, 0L);
+    tmp___0 = ldv__builtin_expect(odd != 0, 0L);
 #line 241
     if (tmp___0 != 0L) {
 #line 242
@@ -5461,7 +5461,7 @@ static u8 alloc_usb_address(struct r8a66597 *r8a66597 , struct urb *urb )
 #line 432
   descriptor.flags = 1U;
 #line 432
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 432
   if (tmp___0 != 0L) {
 #line 432
@@ -5530,7 +5530,7 @@ static void free_usb_address(struct r8a66597 *r8a66597 , struct r8a66597_device 
 #line 457
   descriptor.flags = 1U;
 #line 457
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 457
   if (tmp != 0L) {
 #line 457
@@ -6369,7 +6369,7 @@ static void enable_r8a66597_pipe(struct r8a66597 *r8a66597 , struct urb *urb , s
 #line 850
   descriptor.flags = 1U;
 #line 850
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 850
   if (tmp___0 != 0L) {
 #line 850
@@ -6583,7 +6583,7 @@ static void disable_r8a66597_pipe_all(struct r8a66597 *r8a66597 , struct r8a6659
 #line 929
   descriptor.flags = 1U;
 #line 929
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 929
   if (tmp != 0L) {
 #line 929
@@ -7144,7 +7144,7 @@ static void prepare_packet_write(struct r8a66597 *r8a66597 , struct r8a66597_td 
 #line 1197
   tmp = r8a66597_read(r8a66597, (td->pipe)->fifoctr);
 #line 1198
-  tmp___0 = __builtin_expect(((int )tmp & 8192) == 0, 0L);
+  tmp___0 = ldv__builtin_expect(((int )tmp & 8192) == 0, 0L);
 #line 1198
   if (tmp___0 != 0L) {
 #line 1199
@@ -7229,7 +7229,7 @@ static int start_transfer(struct r8a66597 *r8a66597 , struct r8a66597_td *td )
 
   {
 #line 1244
-  tmp = __builtin_expect((unsigned long )td == (unsigned long )((struct r8a66597_td *)0),
+  tmp = ldv__builtin_expect((unsigned long )td == (unsigned long )((struct r8a66597_td *)0),
                          0L);
 #line 1244
   if (tmp != 0L) {
@@ -7332,7 +7332,7 @@ static void set_td_timer(struct r8a66597 *r8a66597 , struct r8a66597_td *td )
 
   {
 #line 1294
-  tmp = __builtin_expect((unsigned long )td == (unsigned long )((struct r8a66597_td *)0),
+  tmp = ldv__builtin_expect((unsigned long )td == (unsigned long )((struct r8a66597_td *)0),
                          0L);
 #line 1294
   if (tmp != 0L) {
@@ -7400,7 +7400,7 @@ static void finish_request(struct r8a66597 *r8a66597 , struct r8a66597_td *td , 
 #line 1322
   r8a66597->timeout_map = (unsigned short )((int )((short )r8a66597->timeout_map) & ~ ((int )((short )(1 << (int )pipenum))));
 #line 1324
-  tmp___0 = __builtin_expect((unsigned long )td != (unsigned long )((struct r8a66597_td *)0),
+  tmp___0 = ldv__builtin_expect((unsigned long )td != (unsigned long )((struct r8a66597_td *)0),
                              1L);
 #line 1324
   if (tmp___0 != 0L) {
@@ -7430,7 +7430,7 @@ static void finish_request(struct r8a66597 *r8a66597 , struct r8a66597_td *td , 
 
   }
 #line 1336
-  tmp___2 = __builtin_expect((unsigned long )urb != (unsigned long )((struct urb *)0),
+  tmp___2 = ldv__builtin_expect((unsigned long )urb != (unsigned long )((struct urb *)0),
                              1L);
 #line 1336
   if (tmp___2 != 0L) {
@@ -7451,7 +7451,7 @@ static void finish_request(struct r8a66597 *r8a66597 , struct r8a66597_td *td , 
 #line 1344
     td = r8a66597_get_td(r8a66597, (int )pipenum);
 #line 1345
-    tmp___3 = __builtin_expect((unsigned long )td == (unsigned long )((struct r8a66597_td *)0),
+    tmp___3 = ldv__builtin_expect((unsigned long )td == (unsigned long )((struct r8a66597_td *)0),
                                0L);
 #line 1345
     if (tmp___3 != 0L) {
@@ -7501,7 +7501,7 @@ static void packet_read(struct r8a66597 *r8a66597 , u16 pipenum )
 #line 1361
   status = 0;
 #line 1363
-  tmp___1 = __builtin_expect((unsigned long )td == (unsigned long )((struct r8a66597_td *)0),
+  tmp___1 = ldv__builtin_expect((unsigned long )td == (unsigned long )((struct r8a66597_td *)0),
                              0L);
 #line 1363
   if (tmp___1 != 0L) {
@@ -7517,7 +7517,7 @@ static void packet_read(struct r8a66597 *r8a66597 , u16 pipenum )
 #line 1368
   tmp = r8a66597_read(r8a66597, (td->pipe)->fifoctr);
 #line 1369
-  tmp___2 = __builtin_expect(((int )tmp & 8192) == 0, 0L);
+  tmp___2 = ldv__builtin_expect(((int )tmp & 8192) == 0, 0L);
 #line 1369
   if (tmp___2 != 0L) {
 #line 1370
@@ -7665,7 +7665,7 @@ static void packet_write(struct r8a66597 *r8a66597 , u16 pipenum )
 #line 1435
   td = tmp___0;
 #line 1438
-  tmp___1 = __builtin_expect((unsigned long )td == (unsigned long )((struct r8a66597_td *)0),
+  tmp___1 = ldv__builtin_expect((unsigned long )td == (unsigned long )((struct r8a66597_td *)0),
                              0L);
 #line 1438
   if (tmp___1 != 0L) {
@@ -7681,7 +7681,7 @@ static void packet_write(struct r8a66597 *r8a66597 , u16 pipenum )
 #line 1443
   tmp = r8a66597_read(r8a66597, (td->pipe)->fifoctr);
 #line 1444
-  tmp___2 = __builtin_expect(((int )tmp & 8192) == 0, 0L);
+  tmp___2 = ldv__builtin_expect(((int )tmp & 8192) == 0, 0L);
 #line 1444
   if (tmp___2 != 0L) {
 #line 1445
@@ -7794,7 +7794,7 @@ static void check_next_phase(struct r8a66597 *r8a66597 , int status )
 #line 1497
   finish = 0U;
 #line 1499
-  tmp___0 = __builtin_expect((unsigned long )td == (unsigned long )((struct r8a66597_td *)0),
+  tmp___0 = ldv__builtin_expect((unsigned long )td == (unsigned long )((struct r8a66597_td *)0),
                              0L);
 #line 1499
   if (tmp___0 != 0L) {
@@ -7938,7 +7938,7 @@ static void irq_pipe_ready(struct r8a66597 *r8a66597 )
 #line 1565
     td = r8a66597_get_td(r8a66597, (int )pipenum);
 #line 1566
-    tmp___1 = __builtin_expect((unsigned long )td == (unsigned long )((struct r8a66597_td *)0),
+    tmp___1 = ldv__builtin_expect((unsigned long )td == (unsigned long )((struct r8a66597_td *)0),
                                0L);
 #line 1566
     if (tmp___1 != 0L) {
@@ -8030,7 +8030,7 @@ static void irq_pipe_empty(struct r8a66597 *r8a66597 )
 #line 1600
     td___0 = r8a66597_get_td(r8a66597, (int )pipenum);
 #line 1601
-    tmp___2 = __builtin_expect((unsigned long )td___0 == (unsigned long )((struct r8a66597_td *)0),
+    tmp___2 = ldv__builtin_expect((unsigned long )td___0 == (unsigned long )((struct r8a66597_td *)0),
                                0L);
 #line 1601
     if (tmp___2 != 0L) {
@@ -8117,7 +8117,7 @@ static void irq_pipe_nrdy(struct r8a66597 *r8a66597 )
 #line 1636
     td = r8a66597_get_td(r8a66597, (int )pipenum);
 #line 1637
-    tmp___1 = __builtin_expect((unsigned long )td == (unsigned long )((struct r8a66597_td *)0),
+    tmp___1 = ldv__builtin_expect((unsigned long )td == (unsigned long )((struct r8a66597_td *)0),
                                0L);
 #line 1637
     if (tmp___1 != 0L) {
@@ -8853,7 +8853,7 @@ static int r8a66597_urb_enqueue(struct usb_hcd *hcd , struct urb *urb , gfp_t me
 #line 1959
   tmp___2 = check_pipe_config(r8a66597, urb);
 #line 1959
-  tmp___3 = __builtin_expect(tmp___2 != 0, 0L);
+  tmp___3 = ldv__builtin_expect(tmp___2 != 0, 0L);
 #line 1959
   if (tmp___3 != 0L) {
 #line 1960
@@ -9598,7 +9598,7 @@ static int r8a66597_bus_suspend(struct usb_hcd *hcd )
 #line 2292
   descriptor.flags = 1U;
 #line 2292
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 2292
   if (tmp___0 != 0L) {
 #line 2292
@@ -9638,7 +9638,7 @@ static int r8a66597_bus_suspend(struct usb_hcd *hcd )
 #line 2301
   descriptor___0.flags = 1U;
 #line 2301
-  tmp___2 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___2 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 2301
   if (tmp___2 != 0L) {
 #line 2301
@@ -9717,7 +9717,7 @@ static int r8a66597_bus_resume(struct usb_hcd *hcd )
 #line 2323
   descriptor.flags = 1U;
 #line 2323
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 2323
   if (tmp___0 != 0L) {
 #line 2323
@@ -9757,7 +9757,7 @@ static int r8a66597_bus_resume(struct usb_hcd *hcd )
 #line 2332
   descriptor___0.flags = 1U;
 #line 2332
-  tmp___2 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___2 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
 #line 2332
   if (tmp___2 != 0L) {
 #line 2332
@@ -9828,7 +9828,7 @@ static int r8a66597_suspend(struct device *dev )
 #line 2388
   descriptor.flags = 1U;
 #line 2388
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 2388
   if (tmp___0 != 0L) {
 #line 2388
@@ -9894,7 +9894,7 @@ static int r8a66597_resume(struct device *dev )
 #line 2406
   descriptor.flags = 1U;
 #line 2406
-  tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
 #line 2406
   if (tmp___1 != 0L) {
 #line 2406
@@ -10542,7 +10542,7 @@ __inline static void ldv_error(void)
 #line 25
 extern int __VERIFIER_nondet_int(void) ;
 #line 49 "/home/mikhail/ldv/kernel-rules/verifier/rcv.h"
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 

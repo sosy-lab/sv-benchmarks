@@ -2212,7 +2212,7 @@ struct dynapro {
    char phys[32] ;
 };
 #line 1 "<compiler builtins>"
-long __builtin_expect(long val , long res ) ;
+long ldv__builtin_expect(long val , long res ) ;
 #line 49 "include/linux/dynamic_debug.h"
 extern int ( /* format attribute */  __dynamic_dev_dbg)(struct _ddebug *descriptor ,
                                                         struct device  const  *dev ,
@@ -2816,7 +2816,7 @@ static irqreturn_t dynapro_interrupt(struct serio *serio , unsigned char data , 
 #line 90
         __cil_tmp25 = (long )__cil_tmp24;
 #line 90
-        tmp___0 = __builtin_expect(__cil_tmp25, 0L);
+        tmp___0 = ldv__builtin_expect(__cil_tmp25, 0L);
         }
 #line 90
         if (tmp___0) {
@@ -3590,7 +3590,7 @@ void ldv_check_final_state(void)
 }
 }
 #line 471 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/4171/dscv_tempdir/dscv/ri/32_1/drivers/input/touchscreen/dynapro.c.common.c"
-long __builtin_expect(long val , long res ) 
+long ldv__builtin_expect(long val , long res ) 
 { 
 
   {

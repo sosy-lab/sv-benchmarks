@@ -2721,7 +2721,7 @@ struct wm831x_ldo {
    struct regulator_dev *regulator ;
 };
 #line 1 "<compiler builtins>"
-long __builtin_expect(long val , long res ) ;
+long ldv__builtin_expect(long val , long res ) ;
 #line 100 "include/linux/printk.h"
 extern int ( /* format attribute */  printk)(char const   *fmt  , ...) ;
 #line 49 "include/linux/dynamic_debug.h"
@@ -2766,7 +2766,7 @@ __inline static long __attribute__((__warn_unused_result__))  IS_ERR(void const 
 #line 34
   __cil_tmp7 = (long )__cil_tmp6;
 #line 34
-  tmp = __builtin_expect(__cil_tmp7, 0L);
+  tmp = ldv__builtin_expect(__cil_tmp7, 0L);
   }
 #line 34
   return (tmp);
@@ -3891,7 +3891,7 @@ static int wm831x_gp_ldo_probe(struct platform_device *pdev )
 #line 325
       __cil_tmp34 = (long )__cil_tmp33;
 #line 325
-      tmp___8 = __builtin_expect(__cil_tmp34, 0L);
+      tmp___8 = ldv__builtin_expect(__cil_tmp34, 0L);
       }
 #line 325
       if (tmp___8) {
@@ -5064,7 +5064,7 @@ static int wm831x_aldo_probe(struct platform_device *pdev )
 #line 590
       __cil_tmp34 = (long )__cil_tmp33;
 #line 590
-      tmp___8 = __builtin_expect(__cil_tmp34, 0L);
+      tmp___8 = ldv__builtin_expect(__cil_tmp34, 0L);
       }
 #line 590
       if (tmp___8) {
@@ -5980,7 +5980,7 @@ static int wm831x_alive_ldo_probe(struct platform_device *pdev )
 #line 785
       __cil_tmp33 = (long )__cil_tmp32;
 #line 785
-      tmp___8 = __builtin_expect(__cil_tmp33, 0L);
+      tmp___8 = ldv__builtin_expect(__cil_tmp33, 0L);
       }
 #line 785
       if (tmp___8) {
@@ -7306,7 +7306,7 @@ void ldv_check_final_state(void)
 }
 }
 #line 2591 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/4594/dscv_tempdir/dscv/ri/32_1/drivers/regulator/wm831x-ldo.c.common.c"
-long __builtin_expect(long val , long res ) 
+long ldv__builtin_expect(long val , long res ) 
 { 
 
   {

@@ -2488,7 +2488,7 @@ struct ads7871_data {
    struct mutex update_lock ;
 };
 #line 1 "<compiler builtins>"
-long __builtin_expect(long val , long res ) ;
+long ldv__builtin_expect(long val , long res ) ;
 #line 24 "include/linux/list.h"
 __inline static void INIT_LIST_HEAD(struct list_head *list )  __attribute__((__no_instrument_function__)) ;
 #line 24 "include/linux/list.h"
@@ -2577,7 +2577,7 @@ __inline static long __attribute__((__warn_unused_result__))  IS_ERR(void const 
 #line 34
   __cil_tmp7 = (long )__cil_tmp6;
 #line 34
-  tmp = __builtin_expect(__cil_tmp7, 0L);
+  tmp = ldv__builtin_expect(__cil_tmp7, 0L);
   }
 #line 34
   return (tmp);
@@ -3386,7 +3386,7 @@ static int ads7871_probe(struct spi_device *spi )
 #line 174
       __cil_tmp16 = (long )__cil_tmp15;
 #line 174
-      tmp___7 = __builtin_expect(__cil_tmp16, 0L);
+      tmp___7 = ldv__builtin_expect(__cil_tmp16, 0L);
       }
 #line 174
       if (tmp___7) {
@@ -3477,7 +3477,7 @@ static int ads7871_probe(struct spi_device *spi )
 #line 188
       __cil_tmp37 = (long )__cil_tmp36;
 #line 188
-      tmp___8 = __builtin_expect(__cil_tmp37, 0L);
+      tmp___8 = ldv__builtin_expect(__cil_tmp37, 0L);
       }
 #line 188
       if (tmp___8) {
@@ -4058,7 +4058,7 @@ void ldv_check_final_state(void)
 }
 }
 #line 412 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/6021/dscv_tempdir/dscv/ri/32_1/drivers/hwmon/ads7871.c.common.c"
-long __builtin_expect(long val , long res ) 
+long ldv__builtin_expect(long val , long res ) 
 { 
 
   {

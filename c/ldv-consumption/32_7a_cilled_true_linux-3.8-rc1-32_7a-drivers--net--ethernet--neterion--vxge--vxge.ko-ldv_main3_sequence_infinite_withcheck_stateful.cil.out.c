@@ -8342,7 +8342,7 @@ struct vxge_tx_priv {
 #line 1 "<compiler builtins>"
 void *__builtin_memcpy(void * , void const   * , unsigned long  ) ;
 #line 1
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 #line 14 "/home/mikhail/launches/cpachecker-regression2/launcher-working-dir/ldv-manager-work-dir/inst/current/envs/linux-3.8-rc1/linux-3.8-rc1/arch/x86/include/uapi/asm/swab.h"
 __inline static __u64 __arch_swab64(__u64 val ) 
 { 
@@ -8654,7 +8654,7 @@ __inline static struct dma_map_ops *get_dma_ops(struct device *dev )
 
   {
 #line 37
-  tmp = __builtin_expect((unsigned long )dev == (unsigned long )((struct device *)0),
+  tmp = ldv__builtin_expect((unsigned long )dev == (unsigned long )((struct device *)0),
                          0L);
 #line 37
   if (tmp != 0L || (unsigned long )dev->archdata.dma_ops == (unsigned long )((struct dma_map_ops *)0)) {
@@ -8688,7 +8688,7 @@ __inline static dma_addr_t dma_map_single_attrs(struct device *dev , void *ptr ,
 #line 19
   tmp___0 = valid_dma_direction((int )dir);
 #line 19
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
 #line 19
   if (tmp___1 != 0L) {
 #line 19
@@ -8732,7 +8732,7 @@ __inline static void dma_unmap_single_attrs(struct device *dev , dma_addr_t addr
 #line 36
   tmp___0 = valid_dma_direction((int )dir);
 #line 36
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
 #line 36
   if (tmp___1 != 0L) {
 #line 36
@@ -11217,7 +11217,7 @@ static enum vxge_hw_status __vxge_hw_blockpool_create(struct __vxge_hw_device *h
 #line 1220
   tmp___0 = pci_dma_mapping_error(hldev->pdev, dma_addr);
 #line 1220
-  tmp___1 = __builtin_expect(tmp___0 != 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 != 0, 0L);
 #line 1220
   if (tmp___1 != 0L) {
 #line 1222
@@ -12872,7 +12872,7 @@ static void vxge_hw_blockpool_block_add(struct __vxge_hw_device *devh , void *bl
 #line 2312
   tmp = pci_dma_mapping_error(devh->pdev, dma_addr);
 #line 2312
-  tmp___0 = __builtin_expect(tmp != 0, 0L);
+  tmp___0 = ldv__builtin_expect(tmp != 0, 0L);
 #line 2312
   if (tmp___0 != 0L) {
 #line 2313
@@ -13038,7 +13038,7 @@ static void *__vxge_hw_blockpool_malloc(struct __vxge_hw_device *devh , u32 size
 #line 2414
     tmp = pci_dma_mapping_error(devh->pdev, dma_object->addr);
 #line 2414
-    tmp___0 = __builtin_expect(tmp != 0, 0L);
+    tmp___0 = ldv__builtin_expect(tmp != 0, 0L);
 #line 2414
     if (tmp___0 != 0L) {
 #line 2416
@@ -18307,7 +18307,7 @@ enum vxge_hw_status vxge_hw_device_begin_irq(struct __vxge_hw_device *hldev , u3
 #line 930
   val64 = (u64 )tmp;
 #line 932
-  tmp___0 = __builtin_expect(val64 == 0ULL, 0L);
+  tmp___0 = ldv__builtin_expect(val64 == 0ULL, 0L);
 #line 932
   if (tmp___0 != 0L) {
 #line 934
@@ -18320,7 +18320,7 @@ enum vxge_hw_status vxge_hw_device_begin_irq(struct __vxge_hw_device *hldev , u3
 
   }
 #line 939
-  tmp___2 = __builtin_expect(val64 == 0xffffffffffffffffULL, 0L);
+  tmp___2 = ldv__builtin_expect(val64 == 0xffffffffffffffffULL, 0L);
 #line 939
   if (tmp___2 != 0L) {
 #line 941
@@ -18361,7 +18361,7 @@ enum vxge_hw_status vxge_hw_device_begin_irq(struct __vxge_hw_device *hldev , u3
 #line 967
   hldev->stats.sw_dev_info_stats.not_traffic_intr_cnt = hldev->stats.sw_dev_info_stats.not_traffic_intr_cnt + 1U;
 #line 969
-  tmp___5 = __builtin_expect((val64 & 2305843009213693952ULL) != 0ULL, 0L);
+  tmp___5 = ldv__builtin_expect((val64 & 2305843009213693952ULL) != 0ULL, 0L);
 #line 969
   if (tmp___5 != 0L) {
 #line 972
@@ -18386,14 +18386,14 @@ enum vxge_hw_status vxge_hw_device_begin_irq(struct __vxge_hw_device *hldev , u3
 #line 984
     error_level = (enum vxge_hw_status )((int )ret > (int )error_level ? (int )ret : (int )error_level);
 #line 986
-    tmp___3 = __builtin_expect((int )ret == 221, 0L);
+    tmp___3 = ldv__builtin_expect((int )ret == 221, 0L);
 #line 986
     if (tmp___3 != 0L) {
 #line 988
       goto ldv_40103;
     } else {
 #line 986
-      tmp___4 = __builtin_expect((int )ret == 222, 0L);
+      tmp___4 = ldv__builtin_expect((int )ret == 222, 0L);
 #line 986
       if (tmp___4 != 0L) {
 #line 988
@@ -24342,14 +24342,14 @@ __inline static unsigned long copy_from_user(void *to , void const   *from , uns
 #line 61
   might_fault();
 #line 62
-  tmp___1 = __builtin_expect(sz == -1, 1L);
+  tmp___1 = ldv__builtin_expect(sz == -1, 1L);
 #line 62
   if (tmp___1 != 0L) {
 #line 63
     n = _copy_from_user(to, from, (unsigned int )n);
   } else {
 #line 62
-    tmp___2 = __builtin_expect((unsigned long )sz >= n, 1L);
+    tmp___2 = ldv__builtin_expect((unsigned long )sz >= n, 1L);
 #line 62
     if (tmp___2 != 0L) {
 #line 63
@@ -24358,7 +24358,7 @@ __inline static unsigned long copy_from_user(void *to , void const   *from , uns
 #line 66
       __ret_warn_on = 1;
 #line 66
-      tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+      tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 66
       if (tmp___0 != 0L) {
 #line 66
@@ -24368,7 +24368,7 @@ __inline static unsigned long copy_from_user(void *to , void const   *from , uns
 
       }
 #line 66
-      __builtin_expect(__ret_warn_on != 0, 0L);
+      ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
   }
 #line 68
@@ -24418,7 +24418,7 @@ __inline static dma_addr_t dma_map_single_attrs___0(struct device *dev , void *p
 #line 19
   tmp___0 = valid_dma_direction((int )dir);
 #line 19
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
 #line 19
   if (tmp___1 != 0L) {
 #line 19
@@ -24462,7 +24462,7 @@ __inline static void dma_unmap_single_attrs___0(struct device *dev , dma_addr_t 
 #line 36
   tmp___0 = valid_dma_direction((int )dir);
 #line 36
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
 #line 36
   if (tmp___1 != 0L) {
 #line 36
@@ -24513,7 +24513,7 @@ __inline static dma_addr_t dma_map_page(struct device *dev , struct page *page ,
 #line 79
   tmp___1 = valid_dma_direction((int )dir);
 #line 79
-  tmp___2 = __builtin_expect(tmp___1 == 0, 0L);
+  tmp___2 = ldv__builtin_expect(tmp___1 == 0, 0L);
 #line 79
   if (tmp___2 != 0L) {
 #line 79
@@ -24550,7 +24550,7 @@ __inline static void dma_unmap_page(struct device *dev , dma_addr_t addr , size_
 #line 91
   tmp___0 = valid_dma_direction((int )dir);
 #line 91
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
 #line 91
   if (tmp___1 != 0L) {
 #line 91
@@ -24595,7 +24595,7 @@ __inline static void dma_sync_single_for_cpu(struct device *dev , dma_addr_t add
 #line 103
   tmp___0 = valid_dma_direction((int )dir);
 #line 103
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
 #line 103
   if (tmp___1 != 0L) {
 #line 103
@@ -24640,7 +24640,7 @@ __inline static void dma_sync_single_for_device(struct device *dev , dma_addr_t 
 #line 115
   tmp___0 = valid_dma_direction((int )dir);
 #line 115
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
 #line 115
   if (tmp___1 != 0L) {
 #line 115
@@ -24983,7 +24983,7 @@ __inline static void napi_enable(struct napi_struct *n )
 #line 468
   tmp = constant_test_bit(0U, (unsigned long const volatile   *)(& n->state));
 #line 468
-  tmp___0 = __builtin_expect(tmp == 0, 0L);
+  tmp___0 = ldv__builtin_expect(tmp == 0, 0L);
 #line 468
   if (tmp___0 != 0L) {
 #line 468
@@ -25148,7 +25148,7 @@ __inline static void netif_tx_stop_queue(struct netdev_queue *dev_queue )
 #line 1880
   __ret_warn_on = (unsigned long )dev_queue == (unsigned long )((struct netdev_queue *)0);
 #line 1880
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 1880
   if (tmp != 0L) {
 #line 1880
@@ -25157,7 +25157,7 @@ __inline static void netif_tx_stop_queue(struct netdev_queue *dev_queue )
 
   }
 #line 1880
-  tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 1880
   if (tmp___0 != 0L) {
 #line 1881
@@ -25252,7 +25252,7 @@ __inline static bool __netif_tx_trylock(struct netdev_queue *txq )
 #line 2395
   ok = tmp != 0;
 #line 2396
-  tmp___0 = __builtin_expect((long )ok, 1L);
+  tmp___0 = ldv__builtin_expect((long )ok, 1L);
 #line 2396
   if (tmp___0 != 0L) {
 #line 2397
@@ -26127,7 +26127,7 @@ static int vxge_rx_map(void *dtrh , struct vxge_ring *ring )
 #line 278
   tmp___0 = pci_dma_mapping_error(ring->pdev, dma_addr);
 #line 278
-  tmp___1 = __builtin_expect(tmp___0 != 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 != 0, 0L);
 #line 278
   if (tmp___1 != 0L) {
 #line 279
@@ -26363,7 +26363,7 @@ static enum vxge_hw_status vxge_rx_1b_compl(struct __vxge_hw_ring *ringh , void 
 #line 428
   __builtin_prefetch((void const   *)skb + 64U);
 #line 429
-  tmp___1 = __builtin_expect((unsigned int )t_code != 0U, 0L);
+  tmp___1 = ldv__builtin_expect((unsigned int )t_code != 0U, 0L);
 #line 429
   if (tmp___1 != 0L) {
 #line 430
@@ -26595,7 +26595,7 @@ static enum vxge_hw_status vxge_xmit_compl(struct __vxge_hw_fifo *fifo_hw , void
   printk("%s: %s:%d skb = %p itxd_priv = %p frg_cnt = %d\n", (char *)(& (fifo->ndev)->name),
          "vxge_xmit_compl", 604, skb, txd_priv, frg_cnt);
 #line 605
-  tmp___2 = __builtin_expect((unsigned int )t_code != 0U, 0L);
+  tmp___2 = ldv__builtin_expect((unsigned int )t_code != 0U, 0L);
 #line 605
   if (tmp___2 != 0L) {
 #line 606
@@ -27150,7 +27150,7 @@ static netdev_tx_t vxge_xmit(struct sk_buff *skb , struct net_device *dev )
 #line 849
   printk("%s: %s:%d\n", (char *)(& dev->name), "vxge_xmit", 850);
 #line 853
-  tmp = __builtin_expect(skb->len == 0U, 0L);
+  tmp = ldv__builtin_expect(skb->len == 0U, 0L);
 #line 853
   if (tmp != 0L) {
 #line 854
@@ -27169,7 +27169,7 @@ static netdev_tx_t vxge_xmit(struct sk_buff *skb , struct net_device *dev )
 #line 862
   tmp___1 = is_vxge_card_up(vdev);
 #line 862
-  tmp___2 = __builtin_expect(tmp___1 == 0, 0L);
+  tmp___2 = ldv__builtin_expect(tmp___1 == 0, 0L);
 #line 862
   if (tmp___2 != 0L) {
 #line 863
@@ -27262,7 +27262,7 @@ static netdev_tx_t vxge_xmit(struct sk_buff *skb , struct net_device *dev )
 #line 910
   status = vxge_hw_fifo_txdl_reserve(fifo_hw, & dtr, & dtr_priv);
 #line 911
-  tmp___7 = __builtin_expect((int )status != 0, 0L);
+  tmp___7 = ldv__builtin_expect((int )status != 0, 0L);
 #line 911
   if (tmp___7 != 0L) {
 #line 912
@@ -27296,7 +27296,7 @@ static netdev_tx_t vxge_xmit(struct sk_buff *skb , struct net_device *dev )
 #line 933
   tmp___9 = pci_dma_mapping_error(fifo->pdev, dma_pointer);
 #line 933
-  tmp___10 = __builtin_expect(tmp___9 != 0, 0L);
+  tmp___10 = ldv__builtin_expect(tmp___9 != 0, 0L);
 #line 933
   if (tmp___10 != 0L) {
 #line 934
@@ -27355,7 +27355,7 @@ static netdev_tx_t vxge_xmit(struct sk_buff *skb , struct net_device *dev )
 #line 963
   tmp___17 = dma_mapping_error(& (fifo->pdev)->dev, dma_pointer);
 #line 963
-  tmp___18 = __builtin_expect(tmp___17 != 0, 0L);
+  tmp___18 = ldv__builtin_expect(tmp___17 != 0, 0L);
 #line 963
   if (tmp___18 != 0L) {
 #line 964
@@ -27747,7 +27747,7 @@ static void vxge_set_multicast(struct net_device *dev )
 #line 1171
   tmp___0 = is_vxge_card_up(vdev);
 #line 1171
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
 #line 1171
   if (tmp___1 != 0L) {
 #line 1172
@@ -28247,7 +28247,7 @@ static int vxge_set_mac_addr(struct net_device *dev , void *p )
 #line 1362
   tmp___2 = is_vxge_card_up(vdev);
 #line 1362
-  tmp___3 = __builtin_expect(tmp___2 == 0, 0L);
+  tmp___3 = ldv__builtin_expect(tmp___2 == 0, 0L);
 #line 1362
   if (tmp___3 != 0L) {
 #line 1363
@@ -28587,7 +28587,7 @@ static int vxge_reset_vpath(struct vxgedev *vdev , int vp_id )
 #line 1546
   tmp = is_vxge_card_up(vdev);
 #line 1546
-  tmp___0 = __builtin_expect(tmp == 0, 0L);
+  tmp___0 = ldv__builtin_expect(tmp == 0, 0L);
 #line 1546
   if (tmp___0 != 0L) {
 #line 1547
@@ -28778,7 +28778,7 @@ static int do_vxge_reset(struct vxgedev *vdev , int event )
 #line 1648
     tmp = is_vxge_card_up(vdev);
 #line 1648
-    tmp___0 = __builtin_expect(tmp == 0, 0L);
+    tmp___0 = ldv__builtin_expect(tmp == 0, 0L);
 #line 1648
     if (tmp___0 != 0L) {
 #line 1649
@@ -28835,7 +28835,7 @@ static int do_vxge_reset(struct vxgedev *vdev , int event )
 #line 1665
     netif_carrier_on(vdev->ndev);
 #line 1668
-    tmp___3 = __builtin_expect(vdev->exec_mode != 0, 0L);
+    tmp___3 = ldv__builtin_expect(vdev->exec_mode != 0, 0L);
 #line 1668
     if (tmp___3 != 0L) {
 #line 1669
@@ -29784,7 +29784,7 @@ static irqreturn_t vxge_isr_napi(int irq , void *dev_id )
 #line 2220
   tmp___1 = is_vxge_card_up(vdev);
 #line 2220
-  tmp___2 = __builtin_expect(tmp___1 == 0, 0L);
+  tmp___2 = ldv__builtin_expect(tmp___1 == 0, 0L);
 #line 2220
   if (tmp___2 != 0L) {
 #line 2221
@@ -29814,14 +29814,14 @@ static irqreturn_t vxge_isr_napi(int irq , void *dev_id )
     }
   } else {
 #line 2239
-    tmp___4 = __builtin_expect((int )status == 220, 0L);
+    tmp___4 = ldv__builtin_expect((int )status == 220, 0L);
 #line 2239
     if (tmp___4 != 0L) {
 #line 2239
       tmp___6 = 1;
     } else {
 #line 2239
-      tmp___5 = __builtin_expect((int )status == 221, 0L);
+      tmp___5 = ldv__builtin_expect((int )status == 221, 0L);
 #line 2239
       if (tmp___5 != 0L) {
 #line 2239
@@ -29841,7 +29841,7 @@ static irqreturn_t vxge_isr_napi(int irq , void *dev_id )
       return (1);
     } else {
 #line 2239
-      tmp___7 = __builtin_expect((int )status == 219, 0L);
+      tmp___7 = ldv__builtin_expect((int )status == 219, 0L);
 #line 2239
       if (tmp___7 != 0L) {
 #line 2242
@@ -29852,7 +29852,7 @@ static irqreturn_t vxge_isr_napi(int irq , void *dev_id )
         return (1);
       } else {
 #line 2245
-        tmp___3 = __builtin_expect((int )status == 222, 0L);
+        tmp___3 = ldv__builtin_expect((int )status == 222, 0L);
 #line 2245
         if (tmp___3 != 0L) {
 #line 2246
@@ -31195,7 +31195,7 @@ static int do_vxge_close(struct net_device *dev , int do_io )
 #line 2989
   tmp___1 = is_vxge_card_up(vdev);
 #line 2989
-  tmp___2 = __builtin_expect(tmp___1 == 0, 0L);
+  tmp___2 = ldv__builtin_expect(tmp___1 == 0, 0L);
 #line 2989
   if (tmp___2 != 0L) {
 #line 2990
@@ -31370,7 +31370,7 @@ static int vxge_change_mtu(struct net_device *dev , int new_mtu )
 #line 3117
   tmp___0 = is_vxge_card_up(vdev);
 #line 3117
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
 #line 3117
   if (tmp___1 != 0L) {
 #line 3119
@@ -32264,7 +32264,7 @@ static void vxge_callback_crit_err(struct __vxge_hw_device *hldev , enum vxge_hw
 #line 3614
   if ((unsigned int )type == 11U || (unsigned int )type == 14U) {
 #line 3616
-    tmp___4 = __builtin_expect(vdev->exec_mode != 0, 0L);
+    tmp___4 = ldv__builtin_expect(vdev->exec_mode != 0, 0L);
 #line 3616
     if (tmp___4 != 0L) {
 #line 3617
@@ -32275,7 +32275,7 @@ static void vxge_callback_crit_err(struct __vxge_hw_device *hldev , enum vxge_hw
 #line 3619
       vxge_hw_device_mask_all(hldev);
 #line 3620
-      tmp___1 = __builtin_expect(vdev->exec_mode != 0, 0L);
+      tmp___1 = ldv__builtin_expect(vdev->exec_mode != 0, 0L);
 #line 3620
       if (tmp___1 != 0L) {
 #line 3621
@@ -32287,7 +32287,7 @@ static void vxge_callback_crit_err(struct __vxge_hw_device *hldev , enum vxge_hw
 #line 3622
     if ((unsigned int )type == 8U || (unsigned int )type == 9U) {
 #line 3625
-      tmp___3 = __builtin_expect(vdev->exec_mode != 0, 0L);
+      tmp___3 = ldv__builtin_expect(vdev->exec_mode != 0, 0L);
 #line 3625
       if (tmp___3 != 0L) {
 #line 3626
@@ -34784,7 +34784,7 @@ __inline static void ldv_error(void)
 #line 25
 extern int __VERIFIER_nondet_int(void) ;
 #line 49 "/home/mikhail/ldv/kernel-rules/verifier/rcv.h"
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 

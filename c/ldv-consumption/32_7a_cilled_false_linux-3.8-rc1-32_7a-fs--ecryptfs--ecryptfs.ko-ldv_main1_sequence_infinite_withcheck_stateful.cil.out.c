@@ -6166,7 +6166,7 @@ void ldv_mutex_unlock_18(struct mutex *ldv_func_arg1 )
 #line 1 "<compiler builtins>"
 void *__builtin_memcpy(void * , void const   * , unsigned long  ) ;
 #line 1
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 #line 88 "/home/mikhail/launches/cpachecker-regression/launcher-working-dir/ldv-manager-work-dir/inst/current/envs/linux-3.8-rc1/linux-3.8-rc1/arch/x86/include/asm/percpu.h"
 extern void __bad_percpu_size(void) ;
 #line 34 "/home/mikhail/launches/cpachecker-regression/launcher-working-dir/ldv-manager-work-dir/inst/current/envs/linux-3.8-rc1/linux-3.8-rc1/arch/x86/include/asm/string_64.h"
@@ -6200,7 +6200,7 @@ __inline static long IS_ERR(void const   *ptr )
 
   {
 #line 34
-  tmp = __builtin_expect((unsigned long )ptr > 0xfffffffffffff000UL, 0L);
+  tmp = ldv__builtin_expect((unsigned long )ptr > 0xfffffffffffff000UL, 0L);
 #line 34
   return (tmp);
 }
@@ -7078,7 +7078,7 @@ static int ecryptfs_create(struct inode *directory_inode , struct dentry *ecrypt
 #line 420
   tmp___0 = IS_ERR((void const   *)ecryptfs_inode);
 #line 420
-  tmp___1 = __builtin_expect(tmp___0 != 0L, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 != 0L, 0L);
 #line 420
   if (tmp___1 != 0L) {
 #line 421
@@ -7215,7 +7215,7 @@ static int ecryptfs_lookup_interpose(struct dentry *dentry , struct dentry *lowe
 #line 496
   fsstack_copy_attr_atime(dir_inode, (struct inode  const  *)(lower_dentry->d_parent)->d_inode);
 #line 497
-  tmp___1 = __builtin_expect(lower_dentry->d_count == 0U, 0L);
+  tmp___1 = ldv__builtin_expect(lower_dentry->d_count == 0U, 0L);
 #line 497
   if (tmp___1 != 0L) {
 #line 497
@@ -7980,7 +7980,7 @@ static int truncate_upper(struct dentry *dentry , struct iattr *ia , struct iatt
 #line 903
   i_size = tmp;
 #line 907
-  tmp___0 = __builtin_expect(ia->ia_size == i_size, 0L);
+  tmp___0 = ldv__builtin_expect(ia->ia_size == i_size, 0L);
 #line 907
   if (tmp___0 != 0L) {
 #line 908
@@ -9747,13 +9747,13 @@ int ecryptfs_get_lower_file(struct dentry *dentry , struct inode *inode )
 #line 282
   __ret_warn_once = count <= 0;
 #line 282
-  tmp___1 = __builtin_expect(__ret_warn_once != 0, 0L);
+  tmp___1 = ldv__builtin_expect(__ret_warn_once != 0, 0L);
 #line 282
   if (tmp___1 != 0L) {
 #line 282
     __ret_warn_on = ! __warned;
 #line 282
-    tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 282
     if (tmp != 0L) {
 #line 282
@@ -9763,7 +9763,7 @@ int ecryptfs_get_lower_file(struct dentry *dentry , struct inode *inode )
 
     }
 #line 282
-    tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 282
     if (tmp___0 != 0L) {
 #line 282
@@ -9775,7 +9775,7 @@ int ecryptfs_get_lower_file(struct dentry *dentry , struct inode *inode )
 
   }
 #line 282
-  tmp___2 = __builtin_expect(__ret_warn_once != 0, 0L);
+  tmp___2 = ldv__builtin_expect(__ret_warn_once != 0, 0L);
 #line 282
   if (tmp___2 != 0L) {
 #line 283
@@ -10164,7 +10164,7 @@ static int ecryptfs_parse_options(struct ecryptfs_sb_info *sbi , char *options ,
 #line 545
     cipher_name_len = (int )tmp___1;
 #line 547
-    tmp___2 = __builtin_expect(cipher_name_len > 31, 0L);
+    tmp___2 = ldv__builtin_expect(cipher_name_len > 31, 0L);
 #line 547
     if (tmp___2 != 0L) {
 #line 547
@@ -11242,7 +11242,7 @@ static struct inode *ecryptfs_alloc_inode(struct super_block *sb )
 #line 192
   inode_info = (struct ecryptfs_inode_info *)tmp;
 #line 193
-  tmp___0 = __builtin_expect((unsigned long )inode_info == (unsigned long )((struct ecryptfs_inode_info *)0),
+  tmp___0 = ldv__builtin_expect((unsigned long )inode_info == (unsigned long )((struct ecryptfs_inode_info *)0),
                              0L);
 #line 193
   if (tmp___0 != 0L) {
@@ -11296,7 +11296,7 @@ static void ecryptfs_destroy_inode(struct inode *inode )
 #line 226
   inode_info = ecryptfs_inode_to_private(inode);
 #line 227
-  tmp = __builtin_expect((unsigned long )inode_info->lower_file != (unsigned long )((struct file *)0),
+  tmp = ldv__builtin_expect((unsigned long )inode_info->lower_file != (unsigned long )((struct file *)0),
                          0L);
 #line 227
   if (tmp != 0L) {
@@ -11915,14 +11915,14 @@ __inline static void zero_user_segments(struct page *page , unsigned int start1 
 #line 196
   kaddr = tmp;
 #line 198
-  tmp___0 = __builtin_expect(end1 > 4096U, 0L);
+  tmp___0 = ldv__builtin_expect(end1 > 4096U, 0L);
 #line 198
   if (tmp___0 != 0L) {
 #line 198
     goto _L;
   } else {
 #line 198
-    tmp___1 = __builtin_expect(end2 > 4096U, 0L);
+    tmp___1 = ldv__builtin_expect(end2 > 4096U, 0L);
 #line 198
     if (tmp___1 != 0L) {
       _L: /* CIL Label */ 
@@ -12016,7 +12016,7 @@ __inline static int trylock_page(struct page *page )
 #line 342
   tmp = test_and_set_bit_lock(0, (unsigned long volatile   *)(& page->flags));
 #line 342
-  tmp___0 = __builtin_expect(tmp == 0, 1L);
+  tmp___0 = ldv__builtin_expect(tmp == 0, 1L);
 #line 342
   return ((int )tmp___0);
 }
@@ -12531,7 +12531,7 @@ static int ecryptfs_write_begin(struct file *file , struct address_space *mappin
   }
   out: 
 #line 512
-  tmp___4 = __builtin_expect(rc != 0, 0L);
+  tmp___4 = ldv__builtin_expect(rc != 0, 0L);
 #line 512
   if (tmp___4 != 0L) {
 #line 513
@@ -12691,7 +12691,7 @@ int ecryptfs_write_inode_size_to_metadata(struct inode *ecryptfs_inode )
 #line 595
   crypt_stat = & tmp->crypt_stat;
 #line 596
-  tmp___0 = __builtin_expect((crypt_stat->flags & 4U) == 0U, 0L);
+  tmp___0 = ldv__builtin_expect((crypt_stat->flags & 4U) == 0U, 0L);
 #line 596
   if (tmp___0 != 0L) {
 #line 596
@@ -13243,7 +13243,7 @@ __inline static int signal_pending(struct task_struct *p )
 #line 2620
   tmp = test_tsk_thread_flag(p, 2);
 #line 2620
-  tmp___0 = __builtin_expect(tmp != 0, 0L);
+  tmp___0 = ldv__builtin_expect(tmp != 0, 0L);
 #line 2620
   return ((int )tmp___0);
 }
@@ -13258,7 +13258,7 @@ __inline static int __fatal_signal_pending(struct task_struct *p )
 #line 2625
   tmp = sigismember(& p->pending.signal, 9);
 #line 2625
-  tmp___0 = __builtin_expect(tmp != 0, 0L);
+  tmp___0 = ldv__builtin_expect(tmp != 0, 0L);
 #line 2625
   return ((int )tmp___0);
 }
@@ -14276,7 +14276,7 @@ __inline static void sg_assign_page(struct scatterlist *sg , struct page *page )
 #line 59
   page_link = sg->page_link & 3UL;
 #line 65
-  tmp = __builtin_expect(((unsigned long )page & 3UL) != 0UL, 0L);
+  tmp = ldv__builtin_expect(((unsigned long )page & 3UL) != 0UL, 0L);
 #line 65
   if (tmp != 0L) {
 #line 65
@@ -14289,7 +14289,7 @@ __inline static void sg_assign_page(struct scatterlist *sg , struct page *page )
 
   }
 #line 67
-  tmp___0 = __builtin_expect(sg->sg_magic != 2271560481UL, 0L);
+  tmp___0 = ldv__builtin_expect(sg->sg_magic != 2271560481UL, 0L);
 #line 67
   if (tmp___0 != 0L) {
 #line 67
@@ -14302,7 +14302,7 @@ __inline static void sg_assign_page(struct scatterlist *sg , struct page *page )
 
   }
 #line 68
-  tmp___1 = __builtin_expect((long )((int )sg->page_link) & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )((int )sg->page_link) & 1L, 0L);
 #line 68
   if (tmp___1 != 0L) {
 #line 68
@@ -14693,7 +14693,7 @@ int ecryptfs_derive_iv(char *iv , struct ecryptfs_crypt_stat *crypt_stat , loff_
 #line 318
   rc = 0;
 #line 322
-  tmp = __builtin_expect(ecryptfs_verbosity > 0, 0L);
+  tmp = ldv__builtin_expect(ecryptfs_verbosity > 0, 0L);
 #line 322
   if (tmp != 0L) {
 #line 323
@@ -14713,7 +14713,7 @@ int ecryptfs_derive_iv(char *iv , struct ecryptfs_crypt_stat *crypt_stat , loff_
 #line 332
   snprintf((char *)(& src) + crypt_stat->iv_bytes, 16UL, "%lld", offset);
 #line 333
-  tmp___0 = __builtin_expect(ecryptfs_verbosity > 0, 0L);
+  tmp___0 = ldv__builtin_expect(ecryptfs_verbosity > 0, 0L);
 #line 333
   if (tmp___0 != 0L) {
 #line 334
@@ -14740,7 +14740,7 @@ int ecryptfs_derive_iv(char *iv , struct ecryptfs_crypt_stat *crypt_stat , loff_
 #line 344
   __ret___0 = __builtin_memcpy((void *)iv, (void const   *)(& dst), __len___0);
 #line 345
-  tmp___1 = __builtin_expect(ecryptfs_verbosity > 0, 0L);
+  tmp___1 = ldv__builtin_expect(ecryptfs_verbosity > 0, 0L);
 #line 345
   if (tmp___1 != 0L) {
 #line 346
@@ -15008,7 +15008,7 @@ static int encrypt_scatterlist(struct ecryptfs_crypt_stat *crypt_stat , struct s
 #line 481
   rc = 0;
 #line 483
-  tmp = __builtin_expect((unsigned long )crypt_stat == (unsigned long )((struct ecryptfs_crypt_stat *)0),
+  tmp = ldv__builtin_expect((unsigned long )crypt_stat == (unsigned long )((struct ecryptfs_crypt_stat *)0),
                          0L);
 #line 483
   if (tmp != 0L) {
@@ -15016,7 +15016,7 @@ static int encrypt_scatterlist(struct ecryptfs_crypt_stat *crypt_stat , struct s
     tmp___1 = 1;
   } else {
 #line 483
-    tmp___0 = __builtin_expect((unsigned long )crypt_stat->tfm == (unsigned long )((struct crypto_blkcipher *)0),
+    tmp___0 = ldv__builtin_expect((unsigned long )crypt_stat->tfm == (unsigned long )((struct crypto_blkcipher *)0),
                                0L);
 #line 483
     if (tmp___0 != 0L) {
@@ -15033,7 +15033,7 @@ static int encrypt_scatterlist(struct ecryptfs_crypt_stat *crypt_stat , struct s
     goto _L;
   } else {
 #line 483
-    tmp___2 = __builtin_expect((crypt_stat->flags & 1U) == 0U, 0L);
+    tmp___2 = ldv__builtin_expect((crypt_stat->flags & 1U) == 0U, 0L);
 #line 483
     if (tmp___2 != 0L) {
       _L: /* CIL Label */ 
@@ -15048,7 +15048,7 @@ static int encrypt_scatterlist(struct ecryptfs_crypt_stat *crypt_stat , struct s
     }
   }
 #line 485
-  tmp___3 = __builtin_expect(ecryptfs_verbosity > 0, 0L);
+  tmp___3 = ldv__builtin_expect(ecryptfs_verbosity > 0, 0L);
 #line 485
   if (tmp___3 != 0L) {
 #line 486
@@ -15181,7 +15181,7 @@ int ecryptfs_encrypt_page(struct page *page )
 #line 598
   crypt_stat = & tmp->crypt_stat;
 #line 600
-  tmp___0 = __builtin_expect((crypt_stat->flags & 4U) == 0U, 0L);
+  tmp___0 = ldv__builtin_expect((crypt_stat->flags & 4U) == 0U, 0L);
 #line 600
   if (tmp___0 != 0L) {
 #line 600
@@ -15340,7 +15340,7 @@ int ecryptfs_decrypt_page(struct page *page )
 #line 706
   crypt_stat = & tmp->crypt_stat;
 #line 708
-  tmp___0 = __builtin_expect((crypt_stat->flags & 4U) == 0U, 0L);
+  tmp___0 = ldv__builtin_expect((crypt_stat->flags & 4U) == 0U, 0L);
 #line 708
   if (tmp___0 != 0L) {
 #line 708
@@ -15693,7 +15693,7 @@ int ecryptfs_compute_root_iv(struct ecryptfs_crypt_stat *crypt_stat )
 #line 949
   rc = 0;
 #line 952
-  tmp = __builtin_expect(crypt_stat->iv_bytes > 16UL, 0L);
+  tmp = ldv__builtin_expect(crypt_stat->iv_bytes > 16UL, 0L);
 #line 952
   if (tmp != 0L) {
 #line 952
@@ -15706,7 +15706,7 @@ int ecryptfs_compute_root_iv(struct ecryptfs_crypt_stat *crypt_stat )
 
   }
 #line 953
-  tmp___0 = __builtin_expect(crypt_stat->iv_bytes == 0UL, 0L);
+  tmp___0 = ldv__builtin_expect(crypt_stat->iv_bytes == 0UL, 0L);
 #line 953
   if (tmp___0 != 0L) {
 #line 953
@@ -15774,7 +15774,7 @@ static void ecryptfs_generate_new_key(struct ecryptfs_crypt_stat *crypt_stat )
 #line 980
   ecryptfs_compute_root_iv(crypt_stat);
 #line 981
-  tmp = __builtin_expect(ecryptfs_verbosity > 0, 0L);
+  tmp = ldv__builtin_expect(ecryptfs_verbosity > 0, 0L);
 #line 981
   if (tmp != 0L) {
 #line 982
@@ -16449,7 +16449,7 @@ int ecryptfs_write_metadata(struct dentry *ecryptfs_dentry , struct inode *ecryp
 #line 1457
   rc = 0;
 #line 1459
-  tmp___0 = __builtin_expect((crypt_stat->flags & 4U) != 0U, 1L);
+  tmp___0 = ldv__builtin_expect((crypt_stat->flags & 4U) != 0U, 1L);
 #line 1459
   if (tmp___0 != 0L) {
 #line 1460
@@ -16495,7 +16495,7 @@ int ecryptfs_write_metadata(struct dentry *ecryptfs_dentry , struct inode *ecryp
 #line 1481
   rc = ecryptfs_write_headers_virt(virt, virt_len, & size, crypt_stat, ecryptfs_dentry);
 #line 1483
-  tmp___3 = __builtin_expect(rc != 0, 0L);
+  tmp___3 = ldv__builtin_expect(rc != 0, 0L);
 #line 1483
   if (tmp___3 != 0L) {
 #line 1484
@@ -16737,7 +16737,7 @@ int ecryptfs_read_xattr_region(char *page_virt , struct inode *ecryptfs_inode )
 #line 1645
   if (size < 0L) {
 #line 1646
-    tmp___0 = __builtin_expect(ecryptfs_verbosity > 0, 0L);
+    tmp___0 = ldv__builtin_expect(ecryptfs_verbosity > 0, 0L);
 #line 1646
     if (tmp___0 != 0L) {
 #line 1647
@@ -17207,7 +17207,7 @@ int ecryptfs_add_new_key_tfm(struct ecryptfs_key_tfm **key_tfm , char *cipher_na
 #line 1942
   tmp = mutex_is_locked(& key_tfm_list_mutex);
 #line 1942
-  tmp___0 = __builtin_expect(tmp == 0, 0L);
+  tmp___0 = ldv__builtin_expect(tmp == 0, 0L);
 #line 1942
   if (tmp___0 != 0L) {
 #line 1942
@@ -17292,7 +17292,7 @@ int ecryptfs_tfm_exists(char *cipher_name , struct ecryptfs_key_tfm **key_tfm )
 #line 1989
   tmp = mutex_is_locked(& key_tfm_list_mutex);
 #line 1989
-  tmp___0 = __builtin_expect(tmp == 0, 0L);
+  tmp___0 = ldv__builtin_expect(tmp == 0, 0L);
 #line 1989
   if (tmp___0 != 0L) {
 #line 1989
@@ -17940,7 +17940,7 @@ int ecryptfs_set_f_namelen(long *namelen , long lower_namelen , struct ecryptfs_
 #line 2399
   rc = ecryptfs_get_tfm_and_mutex_for_cipher_name(& desc.tfm, & tfm_mutex, (char *)(& mount_crypt_stat->global_default_fn_cipher_name));
 #line 2401
-  tmp = __builtin_expect(rc != 0, 0L);
+  tmp = ldv__builtin_expect(rc != 0, 0L);
 #line 2401
   if (tmp != 0L) {
 #line 2402
@@ -19583,7 +19583,7 @@ int ecryptfs_write_tag_70_packet(char *dest , size_t *remaining_bytes , size_t *
 #line 788
   rc = ecryptfs_get_tfm_and_mutex_for_cipher_name(& s->desc.tfm, & s->tfm_mutex, (char *)(& mount_crypt_stat->global_default_fn_cipher_name));
 #line 791
-  tmp___0 = __builtin_expect(rc != 0, 0L);
+  tmp___0 = ldv__builtin_expect(rc != 0, 0L);
 #line 791
   if (tmp___0 != 0L) {
 #line 792
@@ -20086,7 +20086,7 @@ int ecryptfs_parse_tag_70_packet(char **filename , size_t *filename_size , size_
 #line 1132
   rc = ecryptfs_get_tfm_and_mutex_for_cipher_name(& s->desc.tfm, & s->tfm_mutex, (char *)(& s->cipher_string));
 #line 1135
-  tmp___2 = __builtin_expect(rc != 0, 0L);
+  tmp___2 = ldv__builtin_expect(rc != 0, 0L);
 #line 1135
   if (tmp___2 != 0L) {
 #line 1136
@@ -20510,7 +20510,7 @@ static int parse_tag_1_packet(struct ecryptfs_crypt_stat *crypt_stat , unsigned 
 #line 1390
   *new_auth_tok = 0;
 #line 1404
-  tmp = __builtin_expect(max_packet_size <= 11UL, 0L);
+  tmp = ldv__builtin_expect(max_packet_size <= 11UL, 0L);
 #line 1404
   if (tmp != 0L) {
 #line 1405
@@ -20566,7 +20566,7 @@ static int parse_tag_1_packet(struct ecryptfs_crypt_stat *crypt_stat , unsigned 
 
   }
 #line 1433
-  tmp___2 = __builtin_expect(body_size <= 9UL, 0L);
+  tmp___2 = ldv__builtin_expect(body_size <= 9UL, 0L);
 #line 1433
   if (tmp___2 != 0L) {
 #line 1434
@@ -20581,7 +20581,7 @@ static int parse_tag_1_packet(struct ecryptfs_crypt_stat *crypt_stat , unsigned 
 #line 1438
   *packet_size = *packet_size + length_size;
 #line 1439
-  tmp___3 = __builtin_expect(*packet_size + body_size > max_packet_size, 0L);
+  tmp___3 = ldv__builtin_expect(*packet_size + body_size > max_packet_size, 0L);
 #line 1439
   if (tmp___3 != 0L) {
 #line 1440
@@ -20598,7 +20598,7 @@ static int parse_tag_1_packet(struct ecryptfs_crypt_stat *crypt_stat , unsigned 
 #line 1444
   *packet_size = *packet_size + 1UL;
 #line 1444
-  tmp___5 = __builtin_expect((unsigned int )*(data + tmp___4) != 3U, 0L);
+  tmp___5 = ldv__builtin_expect((unsigned int )*(data + tmp___4) != 3U, 0L);
 #line 1444
   if (tmp___5 != 0L) {
 #line 1445
@@ -20758,7 +20758,7 @@ static int parse_tag_3_packet(struct ecryptfs_crypt_stat *crypt_stat , unsigned 
 
   }
 #line 1567
-  tmp___1 = __builtin_expect(body_size <= 12UL, 0L);
+  tmp___1 = ldv__builtin_expect(body_size <= 12UL, 0L);
 #line 1567
   if (tmp___1 != 0L) {
 #line 1568
@@ -20773,7 +20773,7 @@ static int parse_tag_3_packet(struct ecryptfs_crypt_stat *crypt_stat , unsigned 
 #line 1572
   *packet_size = *packet_size + length_size;
 #line 1573
-  tmp___2 = __builtin_expect(*packet_size + body_size > max_packet_size, 0L);
+  tmp___2 = ldv__builtin_expect(*packet_size + body_size > max_packet_size, 0L);
 #line 1573
   if (tmp___2 != 0L) {
 #line 1574
@@ -20803,7 +20803,7 @@ static int parse_tag_3_packet(struct ecryptfs_crypt_stat *crypt_stat , unsigned 
 #line 1587
   *packet_size = *packet_size + 1UL;
 #line 1587
-  tmp___4 = __builtin_expect((unsigned int )*(data + tmp___3) != 4U, 0L);
+  tmp___4 = ldv__builtin_expect((unsigned int )*(data + tmp___3) != 4U, 0L);
 #line 1587
   if (tmp___4 != 0L) {
 #line 1588
@@ -20854,7 +20854,7 @@ static int parse_tag_3_packet(struct ecryptfs_crypt_stat *crypt_stat , unsigned 
 #line 1610
   *packet_size = *packet_size + 1UL;
 #line 1610
-  tmp___7 = __builtin_expect((unsigned int )*(data + tmp___6) != 3U, 0L);
+  tmp___7 = ldv__builtin_expect((unsigned int )*(data + tmp___6) != 3U, 0L);
 #line 1610
   if (tmp___7 != 0L) {
 #line 1611
@@ -21021,7 +21021,7 @@ static int parse_tag_11_packet(unsigned char *data , unsigned char *contents , s
 #line 1731
   *tag_11_contents_size = body_size - 14UL;
 #line 1732
-  tmp___0 = __builtin_expect((*packet_size + body_size) + 1UL > max_packet_size, 0L);
+  tmp___0 = ldv__builtin_expect((*packet_size + body_size) + 1UL > max_packet_size, 0L);
 #line 1732
   if (tmp___0 != 0L) {
 #line 1733
@@ -21034,7 +21034,7 @@ static int parse_tag_11_packet(unsigned char *data , unsigned char *contents , s
 
   }
 #line 1737
-  tmp___1 = __builtin_expect(*tag_11_contents_size > max_contents_bytes, 0L);
+  tmp___1 = ldv__builtin_expect(*tag_11_contents_size > max_contents_bytes, 0L);
 #line 1737
   if (tmp___1 != 0L) {
 #line 1738
@@ -21209,7 +21209,7 @@ static int decrypt_passphrase_encrypted_session_key(struct ecryptfs_auth_tok *au
 #line 1810
   rc = 0;
 #line 1812
-  tmp = __builtin_expect(ecryptfs_verbosity > 0, 0L);
+  tmp = ldv__builtin_expect(ecryptfs_verbosity > 0, 0L);
 #line 1812
   if (tmp != 0L) {
 #line 1813
@@ -21224,7 +21224,7 @@ static int decrypt_passphrase_encrypted_session_key(struct ecryptfs_auth_tok *au
 #line 1820
   rc = ecryptfs_get_tfm_and_mutex_for_cipher_name(& desc.tfm, & tfm_mutex, (char *)(& crypt_stat->cipher));
 #line 1822
-  tmp___0 = __builtin_expect(rc != 0, 0L);
+  tmp___0 = ldv__builtin_expect(rc != 0, 0L);
 #line 1822
   if (tmp___0 != 0L) {
 #line 1823
@@ -21271,7 +21271,7 @@ static int decrypt_passphrase_encrypted_session_key(struct ecryptfs_auth_tok *au
   rc = crypto_blkcipher_setkey(desc.tfm, (u8 const   *)(& auth_tok->token.password.session_key_encryption_key),
                                (unsigned int )crypt_stat->key_size);
 #line 1854
-  tmp___1 = __builtin_expect(rc < 0, 0L);
+  tmp___1 = ldv__builtin_expect(rc < 0, 0L);
 #line 1854
   if (tmp___1 != 0L) {
 #line 1855
@@ -21291,7 +21291,7 @@ static int decrypt_passphrase_encrypted_session_key(struct ecryptfs_auth_tok *au
 #line 1862
   ldv_mutex_unlock_202(tfm_mutex);
 #line 1863
-  tmp___2 = __builtin_expect(rc != 0, 0L);
+  tmp___2 = ldv__builtin_expect(rc != 0, 0L);
 #line 1863
   if (tmp___2 != 0L) {
 #line 1864
@@ -21311,7 +21311,7 @@ static int decrypt_passphrase_encrypted_session_key(struct ecryptfs_auth_tok *au
 #line 1870
   crypt_stat->flags = crypt_stat->flags | 64U;
 #line 1871
-  tmp___3 = __builtin_expect(ecryptfs_verbosity > 0, 0L);
+  tmp___3 = ldv__builtin_expect(ecryptfs_verbosity > 0, 0L);
 #line 1871
   if (tmp___3 != 0L) {
 #line 1872
@@ -21503,7 +21503,7 @@ int ecryptfs_parse_packet_set(struct ecryptfs_crypt_stat *crypt_stat , unsigned 
 #line 2009
   candidate_auth_tok = & auth_tok_list_item->auth_tok;
 #line 2010
-  tmp___0 = __builtin_expect(ecryptfs_verbosity > 0, 0L);
+  tmp___0 = ldv__builtin_expect(ecryptfs_verbosity > 0, 0L);
 #line 2010
   if (tmp___0 != 0L) {
 #line 2011
@@ -22112,7 +22112,7 @@ static int write_tag_3_packet(char *dest , size_t *remaining_bytes , struct ecry
 #line 2341
   rc = ecryptfs_get_tfm_and_mutex_for_cipher_name(& desc.tfm, & tfm_mutex, (char *)(& crypt_stat->cipher));
 #line 2343
-  tmp = __builtin_expect(rc != 0, 0L);
+  tmp = ldv__builtin_expect(rc != 0, 0L);
 #line 2343
   if (tmp != 0L) {
 #line 2344
@@ -22228,7 +22228,7 @@ static int write_tag_3_packet(char *dest , size_t *remaining_bytes , struct ecry
 
   }
 #line 2399
-  tmp___2 = __builtin_expect(ecryptfs_verbosity > 0, 0L);
+  tmp___2 = ldv__builtin_expect(ecryptfs_verbosity > 0, 0L);
 #line 2399
   if (tmp___2 != 0L) {
 #line 2400
@@ -22571,7 +22571,7 @@ int ecryptfs_generate_key_packet_set(char *dest_base , struct ecryptfs_crypt_sta
 
   }
 #line 2605
-  tmp___1 = __builtin_expect(max != 0UL, 1L);
+  tmp___1 = ldv__builtin_expect(max != 0UL, 1L);
 #line 2605
   if (tmp___1 != 0L) {
 #line 2606
@@ -24686,14 +24686,14 @@ __inline static unsigned long copy_from_user(void *to , void const   *from , uns
 #line 61
   might_fault();
 #line 62
-  tmp___1 = __builtin_expect(sz == -1, 1L);
+  tmp___1 = ldv__builtin_expect(sz == -1, 1L);
 #line 62
   if (tmp___1 != 0L) {
 #line 63
     n = _copy_from_user(to, from, (unsigned int )n);
   } else {
 #line 62
-    tmp___2 = __builtin_expect((unsigned long )sz >= n, 1L);
+    tmp___2 = ldv__builtin_expect((unsigned long )sz >= n, 1L);
 #line 62
     if (tmp___2 != 0L) {
 #line 63
@@ -24702,7 +24702,7 @@ __inline static unsigned long copy_from_user(void *to , void const   *from , uns
 #line 66
       __ret_warn_on = 1;
 #line 66
-      tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+      tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
 #line 66
       if (tmp___0 != 0L) {
 #line 66
@@ -24712,7 +24712,7 @@ __inline static unsigned long copy_from_user(void *to , void const   *from , uns
 
       }
 #line 66
-      __builtin_expect(__ret_warn_on != 0, 0L);
+      ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
   }
 #line 68
@@ -24923,7 +24923,7 @@ static int ecryptfs_miscdev_release(struct inode *inode , struct file *file )
 #line 271
   ldv_mutex_lock_315(& daemon->mux);
 #line 272
-  tmp = __builtin_expect((daemon->flags & 8U) == 0U, 0L);
+  tmp = ldv__builtin_expect((daemon->flags & 8U) == 0U, 0L);
 #line 272
   if (tmp != 0L) {
 #line 272
@@ -25183,7 +25183,7 @@ static ssize_t ecryptfs_miscdev_read(struct file *file , char *buf , size_t coun
 #line 419
   msg_ctx = (struct ecryptfs_msg_ctx *)__mptr + 0xffffffffffffffc8UL;
 #line 421
-  tmp___6 = __builtin_expect((unsigned long )msg_ctx == (unsigned long )((struct ecryptfs_msg_ctx *)0),
+  tmp___6 = ldv__builtin_expect((unsigned long )msg_ctx == (unsigned long )((struct ecryptfs_msg_ctx *)0),
                              0L);
 #line 421
   if (tmp___6 != 0L) {
@@ -25626,7 +25626,7 @@ void ecryptfs_destroy_ecryptfs_miscdev(void)
 #line 655
   tmp = atomic_read((atomic_t const   *)(& ecryptfs_num_miscdev_opens));
 #line 655
-  tmp___0 = __builtin_expect(tmp != 0, 0L);
+  tmp___0 = ldv__builtin_expect(tmp != 0, 0L);
 #line 655
   if (tmp___0 != 0L) {
 #line 655
@@ -26222,7 +26222,7 @@ __inline static bool freezing(struct task_struct *p )
 #line 30
   tmp = atomic_read((atomic_t const   *)(& system_freezing_cnt));
 #line 30
-  tmp___0 = __builtin_expect(tmp == 0, 1L);
+  tmp___0 = ldv__builtin_expect(tmp == 0, 1L);
 #line 30
   if (tmp___0 != 0L) {
 #line 31
@@ -26263,7 +26263,7 @@ __inline static bool try_to_freeze(void)
     tmp___1 = 1;
   }
 #line 47
-  tmp___2 = __builtin_expect((long )tmp___1, 1L);
+  tmp___2 = ldv__builtin_expect((long )tmp___1, 1L);
 #line 47
   if (tmp___2 != 0L) {
 #line 48
@@ -27082,7 +27082,7 @@ __inline static void ldv_error(void)
 #line 25
 extern int __VERIFIER_nondet_int(void) ;
 #line 49 "/home/mikhail/ldv/kernel-rules/verifier/rcv.h"
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 

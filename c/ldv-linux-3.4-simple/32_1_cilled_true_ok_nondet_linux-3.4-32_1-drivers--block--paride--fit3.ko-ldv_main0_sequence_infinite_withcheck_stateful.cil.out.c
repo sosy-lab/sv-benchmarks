@@ -480,7 +480,7 @@ struct pi_protocol {
 #line 164 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/drivers/block/paride/paride.h"
 typedef struct pi_protocol PIP;
 #line 1 "<compiler builtins>"
-long __builtin_expect(long val , long res ) ;
+long ldv__builtin_expect(long val , long res ) ;
 #line 100 "include/linux/printk.h"
 extern int ( /* format attribute */  printk)(char const   *fmt  , ...) ;
 #line 152 "include/linux/mutex.h"
@@ -6228,7 +6228,7 @@ void ldv_check_final_state(void)
 }
 }
 #line 555 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/16803/dscv_tempdir/dscv/ri/32_1/drivers/block/paride/fit3.c.common.c"
-long __builtin_expect(long val , long res ) 
+long ldv__builtin_expect(long val , long res ) 
 { 
 
   {

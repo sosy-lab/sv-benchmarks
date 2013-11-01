@@ -2428,7 +2428,7 @@ typedef __u16 __le16;
 #line 24 "include/linux/sysfs.h"
 enum kobj_ns_type;
 #line 1 "<compiler builtins>"
-long __builtin_expect(long val , long res ) ;
+long ldv__builtin_expect(long val , long res ) ;
 #line 100 "include/linux/printk.h"
 extern int ( /* format attribute */  printk)(char const   *fmt  , ...) ;
 #line 44 "include/linux/dynamic_debug.h"
@@ -2938,7 +2938,7 @@ static void inftl_add_mtd(struct mtd_blktrans_ops *tr , struct mtd_info *mtd )
 #line 67
     __cil_tmp28 = (long )__cil_tmp27;
 #line 67
-    tmp___8 = __builtin_expect(__cil_tmp28, 0L);
+    tmp___8 = ldv__builtin_expect(__cil_tmp28, 0L);
     }
 #line 67
     if (tmp___8) {
@@ -3399,7 +3399,7 @@ static void inftl_remove_dev(struct mtd_blktrans_dev *dev )
 #line 135
     __cil_tmp10 = (long )__cil_tmp9;
 #line 135
-    tmp___7 = __builtin_expect(__cil_tmp10, 0L);
+    tmp___7 = ldv__builtin_expect(__cil_tmp10, 0L);
     }
 #line 135
     if (tmp___7) {
@@ -3802,7 +3802,7 @@ static u16 INFTL_findfreeblock(struct INFTLrecord *inftl , int desperate )
 #line 217
     __cil_tmp18 = (long )__cil_tmp17;
 #line 217
-    tmp___7 = __builtin_expect(__cil_tmp18, 0L);
+    tmp___7 = ldv__builtin_expect(__cil_tmp18, 0L);
     }
 #line 217
     if (tmp___7) {
@@ -3850,7 +3850,7 @@ static u16 INFTL_findfreeblock(struct INFTLrecord *inftl , int desperate )
 #line 225
         __cil_tmp28 = (long )__cil_tmp27;
 #line 225
-        tmp___8 = __builtin_expect(__cil_tmp28, 0L);
+        tmp___8 = ldv__builtin_expect(__cil_tmp28, 0L);
         }
 #line 225
         if (tmp___8) {
@@ -4252,7 +4252,7 @@ static u16 INFTL_foldchain(struct INFTLrecord *inftl , unsigned int thisVUC , un
 #line 261
     __cil_tmp33 = (long )__cil_tmp32;
 #line 261
-    tmp___7 = __builtin_expect(__cil_tmp33, 0L);
+    tmp___7 = ldv__builtin_expect(__cil_tmp33, 0L);
     }
 #line 261
     if (tmp___7) {
@@ -4557,7 +4557,7 @@ static u16 INFTL_foldchain(struct INFTLrecord *inftl , unsigned int thisVUC , un
 #line 325
     __cil_tmp95 = (long )__cil_tmp94;
 #line 325
-    tmp___10 = __builtin_expect(__cil_tmp95, 0L);
+    tmp___10 = ldv__builtin_expect(__cil_tmp95, 0L);
     }
 #line 325
     if (tmp___10) {
@@ -4757,7 +4757,7 @@ static u16 INFTL_foldchain(struct INFTLrecord *inftl , unsigned int thisVUC , un
 #line 359
             __cil_tmp153 = (long )__cil_tmp152;
 #line 359
-            tmp___11 = __builtin_expect(__cil_tmp153, 0L);
+            tmp___11 = ldv__builtin_expect(__cil_tmp153, 0L);
             }
 #line 359
             if (tmp___11) {
@@ -4865,7 +4865,7 @@ static u16 INFTL_foldchain(struct INFTLrecord *inftl , unsigned int thisVUC , un
 #line 375
     __cil_tmp184 = (long )__cil_tmp183;
 #line 375
-    tmp___13 = __builtin_expect(__cil_tmp184, 0L);
+    tmp___13 = ldv__builtin_expect(__cil_tmp184, 0L);
     }
 #line 375
     if (tmp___13) {
@@ -5085,7 +5085,7 @@ static u16 INFTL_makefreeblock(struct INFTLrecord *inftl , unsigned int pendingb
 #line 423
     __cil_tmp15 = (long )__cil_tmp14;
 #line 423
-    tmp___7 = __builtin_expect(__cil_tmp15, 0L);
+    tmp___7 = ldv__builtin_expect(__cil_tmp15, 0L);
     }
 #line 423
     if (tmp___7) {
@@ -5586,7 +5586,7 @@ __inline static u16 INFTL_findwriteunit(struct INFTLrecord *inftl , unsigned int
 #line 486
     __cil_tmp55 = (long )__cil_tmp54;
 #line 486
-    tmp___7 = __builtin_expect(__cil_tmp55, 0L);
+    tmp___7 = ldv__builtin_expect(__cil_tmp55, 0L);
     }
 #line 486
     if (tmp___7) {
@@ -5702,7 +5702,7 @@ __inline static u16 INFTL_findwriteunit(struct INFTLrecord *inftl , unsigned int
 #line 503
         __cil_tmp87 = (long )__cil_tmp86;
 #line 503
-        tmp___8 = __builtin_expect(__cil_tmp87, 0L);
+        tmp___8 = ldv__builtin_expect(__cil_tmp87, 0L);
         }
 #line 503
         if (tmp___8) {
@@ -5834,7 +5834,7 @@ __inline static u16 INFTL_findwriteunit(struct INFTLrecord *inftl , unsigned int
 #line 557
         __cil_tmp98 = (long )__cil_tmp97;
 #line 557
-        tmp___12 = __builtin_expect(__cil_tmp98, 0L);
+        tmp___12 = ldv__builtin_expect(__cil_tmp98, 0L);
         }
 #line 557
         if (tmp___12) {
@@ -6452,7 +6452,7 @@ static void INFTL_trydeletechain(struct INFTLrecord *inftl , unsigned int thisVU
 #line 649
     __cil_tmp29 = (long )__cil_tmp28;
 #line 649
-    tmp___7 = __builtin_expect(__cil_tmp29, 0L);
+    tmp___7 = ldv__builtin_expect(__cil_tmp29, 0L);
     }
 #line 649
     if (tmp___7) {
@@ -6788,7 +6788,7 @@ static void INFTL_trydeletechain(struct INFTLrecord *inftl , unsigned int thisVU
 #line 713
     __cil_tmp94 = (long )__cil_tmp93;
 #line 713
-    tmp___10 = __builtin_expect(__cil_tmp94, 0L);
+    tmp___10 = ldv__builtin_expect(__cil_tmp94, 0L);
     }
 #line 713
     if (tmp___10) {
@@ -6840,7 +6840,7 @@ static void INFTL_trydeletechain(struct INFTLrecord *inftl , unsigned int thisVU
 #line 721
         __cil_tmp104 = (long )__cil_tmp103;
 #line 721
-        tmp___11 = __builtin_expect(__cil_tmp104, 0L);
+        tmp___11 = ldv__builtin_expect(__cil_tmp104, 0L);
         }
 #line 721
         if (tmp___11) {
@@ -6907,7 +6907,7 @@ static void INFTL_trydeletechain(struct INFTLrecord *inftl , unsigned int thisVU
 #line 727
         __cil_tmp117 = (long )__cil_tmp116;
 #line 727
-        tmp___12 = __builtin_expect(__cil_tmp117, 0L);
+        tmp___12 = ldv__builtin_expect(__cil_tmp117, 0L);
         }
 #line 727
         if (tmp___12) {
@@ -6976,7 +6976,7 @@ static void INFTL_trydeletechain(struct INFTLrecord *inftl , unsigned int thisVU
 #line 733
       __cil_tmp127 = (long )__cil_tmp126;
 #line 733
-      tmp___13 = __builtin_expect(__cil_tmp127, 0L);
+      tmp___13 = ldv__builtin_expect(__cil_tmp127, 0L);
       }
 #line 733
       if (tmp___13) {
@@ -7225,7 +7225,7 @@ static int INFTL_deleteblock(struct INFTLrecord *inftl , unsigned int block )
 #line 769
     __cil_tmp40 = (long )__cil_tmp39;
 #line 769
-    tmp___7 = __builtin_expect(__cil_tmp40, 0L);
+    tmp___7 = ldv__builtin_expect(__cil_tmp40, 0L);
     }
 #line 769
     if (tmp___7) {
@@ -7576,7 +7576,7 @@ static int inftl_writeblock(struct mtd_blktrans_dev *mbd , unsigned long block ,
 #line 828
     __cil_tmp25 = (long )__cil_tmp24;
 #line 828
-    tmp___7 = __builtin_expect(__cil_tmp25, 0L);
+    tmp___7 = ldv__builtin_expect(__cil_tmp25, 0L);
     }
 #line 828
     if (tmp___7) {
@@ -7886,7 +7886,7 @@ static int inftl_readblock(struct mtd_blktrans_dev *mbd , unsigned long block , 
 #line 878
     __cil_tmp46 = (long )__cil_tmp45;
 #line 878
-    tmp___7 = __builtin_expect(__cil_tmp46, 0L);
+    tmp___7 = ldv__builtin_expect(__cil_tmp46, 0L);
     }
 #line 878
     if (tmp___7) {
@@ -8653,7 +8653,7 @@ void ldv_check_final_state(void)
 }
 }
 #line 1250 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/5496/dscv_tempdir/dscv/ri/32_1/drivers/mtd/inftlcore.c.common.c"
-long __builtin_expect(long val , long res ) 
+long ldv__builtin_expect(long val , long res ) 
 { 
 
   {
@@ -9277,7 +9277,7 @@ static int find_boot_record(struct INFTLrecord *inftl )
 #line 56
     __cil_tmp33 = (long )__cil_tmp32;
 #line 56
-    tmp = __builtin_expect(__cil_tmp33, 0L);
+    tmp = ldv__builtin_expect(__cil_tmp33, 0L);
     }
 #line 56
     if (tmp) {
@@ -9714,7 +9714,7 @@ static int find_boot_record(struct INFTLrecord *inftl )
 #line 142
       __cil_tmp166 = (long )__cil_tmp165;
 #line 142
-      tmp___2 = __builtin_expect(__cil_tmp166, 0L);
+      tmp___2 = ldv__builtin_expect(__cil_tmp166, 0L);
       }
 #line 142
       if (tmp___2) {
@@ -10067,7 +10067,7 @@ static int find_boot_record(struct INFTLrecord *inftl )
 #line 199
         __cil_tmp288 = (long )__cil_tmp287;
 #line 199
-        tmp___3 = __builtin_expect(__cil_tmp288, 0L);
+        tmp___3 = ldv__builtin_expect(__cil_tmp288, 0L);
         }
 #line 199
         if (tmp___3) {
@@ -11121,7 +11121,7 @@ int INFTL_formatblock(struct INFTLrecord *inftl , int block )
 #line 381
     __cil_tmp21 = (long )__cil_tmp20;
 #line 381
-    tmp = __builtin_expect(__cil_tmp21, 0L);
+    tmp = ldv__builtin_expect(__cil_tmp21, 0L);
     }
 #line 381
     if (tmp) {
@@ -11753,7 +11753,7 @@ void INFTL_dumptables(struct INFTLrecord *s )
 #line 471
     __cil_tmp19 = (long )__cil_tmp18;
 #line 471
-    tmp = __builtin_expect(__cil_tmp19, 0L);
+    tmp = ldv__builtin_expect(__cil_tmp19, 0L);
     }
 #line 471
     if (tmp) {
@@ -11787,7 +11787,7 @@ void INFTL_dumptables(struct INFTLrecord *s )
 #line 474
     __cil_tmp25 = (long )__cil_tmp24;
 #line 474
-    tmp___0 = __builtin_expect(__cil_tmp25, 0L);
+    tmp___0 = ldv__builtin_expect(__cil_tmp25, 0L);
     }
 #line 474
     if (tmp___0) {
@@ -11855,7 +11855,7 @@ void INFTL_dumptables(struct INFTLrecord *s )
 #line 477
         __cil_tmp39 = (long )__cil_tmp38;
 #line 477
-        tmp___1 = __builtin_expect(__cil_tmp39, 0L);
+        tmp___1 = ldv__builtin_expect(__cil_tmp39, 0L);
         }
 #line 477
         if (tmp___1) {
@@ -11893,7 +11893,7 @@ void INFTL_dumptables(struct INFTLrecord *s )
 #line 478
       __cil_tmp45 = (long )__cil_tmp44;
 #line 478
-      tmp___2 = __builtin_expect(__cil_tmp45, 0L);
+      tmp___2 = ldv__builtin_expect(__cil_tmp45, 0L);
       }
 #line 478
       if (tmp___2) {
@@ -11944,7 +11944,7 @@ void INFTL_dumptables(struct INFTLrecord *s )
 #line 481
     __cil_tmp57 = (long )__cil_tmp56;
 #line 481
-    tmp___3 = __builtin_expect(__cil_tmp57, 0L);
+    tmp___3 = ldv__builtin_expect(__cil_tmp57, 0L);
     }
 #line 481
     if (tmp___3) {
@@ -11978,7 +11978,7 @@ void INFTL_dumptables(struct INFTLrecord *s )
 #line 484
     __cil_tmp63 = (long )__cil_tmp62;
 #line 484
-    tmp___4 = __builtin_expect(__cil_tmp63, 0L);
+    tmp___4 = ldv__builtin_expect(__cil_tmp63, 0L);
     }
 #line 484
     if (tmp___4) {
@@ -12063,7 +12063,7 @@ void INFTL_dumptables(struct INFTLrecord *s )
 #line 487
         __cil_tmp85 = (long )__cil_tmp84;
 #line 487
-        tmp___5 = __builtin_expect(__cil_tmp85, 0L);
+        tmp___5 = ldv__builtin_expect(__cil_tmp85, 0L);
         }
 #line 487
         if (tmp___5) {
@@ -12101,7 +12101,7 @@ void INFTL_dumptables(struct INFTLrecord *s )
 #line 488
       __cil_tmp91 = (long )__cil_tmp90;
 #line 488
-      tmp___6 = __builtin_expect(__cil_tmp91, 0L);
+      tmp___6 = ldv__builtin_expect(__cil_tmp91, 0L);
       }
 #line 488
       if (tmp___6) {
@@ -12152,7 +12152,7 @@ void INFTL_dumptables(struct INFTLrecord *s )
 #line 491
     __cil_tmp103 = (long )__cil_tmp102;
 #line 491
-    tmp___7 = __builtin_expect(__cil_tmp103, 0L);
+    tmp___7 = ldv__builtin_expect(__cil_tmp103, 0L);
     }
 #line 491
     if (tmp___7) {
@@ -12186,7 +12186,7 @@ void INFTL_dumptables(struct INFTLrecord *s )
 #line 494
     __cil_tmp109 = (long )__cil_tmp108;
 #line 494
-    tmp___8 = __builtin_expect(__cil_tmp109, 0L);
+    tmp___8 = ldv__builtin_expect(__cil_tmp109, 0L);
     }
 #line 494
     if (tmp___8) {
@@ -12305,7 +12305,7 @@ void INFTL_dumptables(struct INFTLrecord *s )
 #line 508
     __cil_tmp156 = (long )__cil_tmp155;
 #line 508
-    tmp___9 = __builtin_expect(__cil_tmp156, 0L);
+    tmp___9 = ldv__builtin_expect(__cil_tmp156, 0L);
     }
 #line 508
     if (tmp___9) {
@@ -12446,7 +12446,7 @@ void INFTL_dumpVUchains(struct INFTLrecord *s )
 #line 516
     __cil_tmp16 = (long )__cil_tmp15;
 #line 516
-    tmp = __builtin_expect(__cil_tmp16, 0L);
+    tmp = ldv__builtin_expect(__cil_tmp16, 0L);
     }
 #line 516
     if (tmp) {
@@ -12480,7 +12480,7 @@ void INFTL_dumpVUchains(struct INFTLrecord *s )
 #line 519
     __cil_tmp22 = (long )__cil_tmp21;
 #line 519
-    tmp___0 = __builtin_expect(__cil_tmp22, 0L);
+    tmp___0 = ldv__builtin_expect(__cil_tmp22, 0L);
     }
 #line 519
     if (tmp___0) {
@@ -12566,7 +12566,7 @@ void INFTL_dumpVUchains(struct INFTLrecord *s )
 #line 524
       __cil_tmp41 = (long )__cil_tmp40;
 #line 524
-      tmp___1 = __builtin_expect(__cil_tmp41, 0L);
+      tmp___1 = ldv__builtin_expect(__cil_tmp41, 0L);
       }
 #line 524
       if (tmp___1) {
@@ -12656,7 +12656,7 @@ void INFTL_dumpVUchains(struct INFTLrecord *s )
 #line 529
         __cil_tmp62 = (long )__cil_tmp61;
 #line 529
-        tmp___2 = __builtin_expect(__cil_tmp62, 0L);
+        tmp___2 = ldv__builtin_expect(__cil_tmp62, 0L);
         }
 #line 529
         if (tmp___2) {
@@ -12695,7 +12695,7 @@ void INFTL_dumpVUchains(struct INFTLrecord *s )
 #line 531
       __cil_tmp68 = (long )__cil_tmp67;
 #line 531
-      tmp___3 = __builtin_expect(__cil_tmp68, 0L);
+      tmp___3 = ldv__builtin_expect(__cil_tmp68, 0L);
       }
 #line 531
       if (tmp___3) {
@@ -12735,7 +12735,7 @@ void INFTL_dumpVUchains(struct INFTLrecord *s )
 #line 534
     __cil_tmp74 = (long )__cil_tmp73;
 #line 534
-    tmp___4 = __builtin_expect(__cil_tmp74, 0L);
+    tmp___4 = ldv__builtin_expect(__cil_tmp74, 0L);
     }
 #line 534
     if (tmp___4) {
@@ -13078,7 +13078,7 @@ int INFTL_mount(struct INFTLrecord *s )
 #line 550
     __cil_tmp35 = (long )__cil_tmp34;
 #line 550
-    tmp = __builtin_expect(__cil_tmp35, 0L);
+    tmp = ldv__builtin_expect(__cil_tmp35, 0L);
     }
 #line 550
     if (tmp) {
@@ -13204,7 +13204,7 @@ int INFTL_mount(struct INFTLrecord *s )
 #line 580
     __cil_tmp58 = (long )__cil_tmp57;
 #line 580
-    tmp___2 = __builtin_expect(__cil_tmp58, 0L);
+    tmp___2 = ldv__builtin_expect(__cil_tmp58, 0L);
     }
 #line 580
     if (tmp___2) {
@@ -13697,7 +13697,7 @@ int INFTL_mount(struct INFTLrecord *s )
 #line 719
     __cil_tmp163 = (long )__cil_tmp162;
 #line 719
-    tmp___5 = __builtin_expect(__cil_tmp163, 0L);
+    tmp___5 = ldv__builtin_expect(__cil_tmp163, 0L);
     }
 #line 719
     if (tmp___5) {
@@ -13981,7 +13981,7 @@ int INFTL_mount(struct INFTLrecord *s )
 #line 773
     __cil_tmp236 = (long )__cil_tmp235;
 #line 773
-    tmp___6 = __builtin_expect(__cil_tmp236, 0L);
+    tmp___6 = ldv__builtin_expect(__cil_tmp236, 0L);
     }
 #line 773
     if (tmp___6) {
