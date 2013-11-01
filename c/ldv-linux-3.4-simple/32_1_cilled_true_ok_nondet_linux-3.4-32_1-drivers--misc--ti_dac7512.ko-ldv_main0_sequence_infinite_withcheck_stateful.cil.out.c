@@ -3365,7 +3365,7 @@ void ldv_check_final_state(void)
 }
 }
 #line 209 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/4895/dscv_tempdir/dscv/ri/32_1/drivers/misc/ti_dac7512.c.common.c"
-long s__builtin_expect(long val , long res ) 
+long __builtin_expect(long val , long res ) 
 { 
 
   {

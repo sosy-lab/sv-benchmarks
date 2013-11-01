@@ -5365,7 +5365,7 @@ void ldv_check_final_state(void)
 }
 }
 #line 740 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/4570/dscv_tempdir/dscv/ri/32_1/drivers/regulator/gpio-regulator.c.common.c"
-long s__builtin_expect(long val , long res ) 
+long __builtin_expect(long val , long res ) 
 { 
 
   {
