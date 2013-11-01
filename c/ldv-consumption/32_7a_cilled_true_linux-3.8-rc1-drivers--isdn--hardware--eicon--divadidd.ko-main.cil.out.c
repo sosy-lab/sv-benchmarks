@@ -6598,7 +6598,7 @@ long __builtin_expect(long exp , long c )
 }
 }
 #line 59 "/home/ldvuser/ldv_envgen2/kernel-rules/verifier/rcv.h"
-void __builtin_trap(void) 
+void ldv__builtin_trap(void) 
 { 
 
   {

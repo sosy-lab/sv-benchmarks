@@ -8134,7 +8134,7 @@ long __builtin_expect(long exp , long c )
 }
 }
 #line 59 "/home/zakharov/workspace/instruments/ldv/kernel-rules/verifier/rcv.h"
-void __builtin_trap(void) 
+void ldv__builtin_trap(void) 
 { 
 
   {
