@@ -646,5 +646,11 @@ int main() {
     p = p->n;
     i++;
   }
+  p = a;
+  while (p != 0) {
+    t = p->n;
+    free(p);
+    p = t;
+  }
   return 0;
 }

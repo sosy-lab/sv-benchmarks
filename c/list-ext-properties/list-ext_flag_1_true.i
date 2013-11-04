@@ -657,6 +657,13 @@ void main() {
   }
   if (p->h != 3 || i > 20)
     goto ERROR;
-  return;
+  p = a;
+  while (p->n != 0) {
+    t = p->n;
+    free(p);
+    p = t;
+  }
+  free(p);
+  return 0;
   ERROR: goto ERROR;
 }
