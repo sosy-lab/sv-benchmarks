@@ -622,10 +622,10 @@ struct cell {
 struct cell *S;
 int pc1 = 1;
 int pc4 = 1;
+static struct cell *t1 = ((void *)0);
+static struct cell *x1 = ((void *)0);
 void push()
 {
-    static struct cell *t1 = ((void *)0);
-    static struct cell *x1 = ((void *)0);
     switch (pc1++) {
         case 1:
             x1 = malloc(sizeof(*x1));
@@ -653,10 +653,10 @@ void push()
     }
 }
 struct cell* garbage;
+static struct cell *t4 = ((void *)0);
+static struct cell *x4 = ((void *)0);
 void pop()
 {
-    static struct cell *t4 = ((void *)0);
-    static struct cell *x4 = ((void *)0);
     static int res4;
     switch (pc4++) {
         case 1:
@@ -696,5 +696,10 @@ int main()
         free(garbage);
         garbage = next;
     }
+    S = ((void *)0);
+    t1 = ((void *)0);
+    x1 = ((void *)0);
+    t4 = ((void *)0);
+    x4 = ((void *)0);
     return !!garbage;
 }

@@ -663,6 +663,9 @@ long long Sum2 (Struct3 *instrs)
     }
     return count;
 }
+static void dummy_abort(void)
+{
+}
 int main() {
   Struct3 *p = malloc (sizeof (int) + 3 * sizeof(Union));
   memset(p, 0, sizeof(int) + 3*sizeof(Union));
@@ -674,8 +677,9 @@ int main() {
   p->List[1].a.Count2 = 999;
   p->List[2].a.Count2 = 0x101010101LL;
   if (Sum(p) != 555 + 999 + 0x101010101ULL)
-    abort();
+    dummy_abort();
   if (Sum2(p) != 555 + 999 + 0x101010101LL)
-    abort();
+    dummy_abort();
+  p = ((void *)0);
   return 0;
 }

@@ -16,11 +16,13 @@ static void free_data(TData data)
     void *lo = data.lo;
     void *hi = data.hi;
 
-    if (lo != hi)
-        return;
+    if (lo == hi) {
+        free(lo);
+        free(hi);
+    }
 
-    free(lo);
-    free(hi);
+    data.lo = NULL;
+    data.hi = NULL;
 }
 
 int main() {

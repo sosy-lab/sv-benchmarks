@@ -629,10 +629,12 @@ static void free_data(TData data)
 {
     int *lo = data.lo;
     int *hi = data.hi;
-    if (*lo < *hi)
-        return;
-    free(lo);
-    free(hi);
+    if (*lo >= *hi) {
+        free(lo);
+        free(hi);
+    }
+    data.lo = (void *) 0;
+    data.hi = (void *) 0;
 }
 int main() {
     TData data;

@@ -12,11 +12,11 @@ struct cell *S;
 int pc1 = 1;
 int pc4 = 1;
 
+static struct cell *t1 = NULL;
+static struct cell *x1 = NULL;
+
 void push()
 {
-    static struct cell *t1 = NULL;
-    static struct cell *x1 = NULL;
-
     switch (pc1++) {
         case 1:
             x1 = malloc(sizeof(*x1));
@@ -51,10 +51,11 @@ void push()
 
 struct cell* garbage;
 
+static struct cell *t4 = NULL;
+static struct cell *x4 = NULL;
+
 void pop()
 {
-    static struct cell *t4 = NULL;
-    static struct cell *x4 = NULL;
     static int res4;
 
     switch (pc4++) {
@@ -101,6 +102,12 @@ int main()
         free(garbage);
         garbage = next;
     }
+
+    S = NULL;
+    t1 = NULL;
+    x1 = NULL;
+    t4 = NULL;
+    x4 = NULL;
 
     return !!garbage;
 }
