@@ -29,7 +29,7 @@ int main()
         append(&list);
     while (__VERIFIER_nondet_int());
 
-    // remove the frist item
+    // remove the first item
     if (list) {
         struct item *next = list->next;
 
