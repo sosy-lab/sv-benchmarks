@@ -14,23 +14,23 @@ static void alloc_data(TData *pdata)
     *(pdata->hi) = 8;
 }
 
-static void free_data(TData data)
+static void free_data(TData *data)
 {
-    int *lo = data.lo;
-    int *hi = data.hi;
+    int *lo = data->lo;
+    int *hi = data->hi;
 
     if (*lo >= *hi) {
         free(lo);
         free(hi);
     }
 
-    data.lo = NULL;
-    data.hi = NULL;
+    data->lo = NULL;
+    data->hi = NULL;
 }
 
 int main() {
     TData data;
     alloc_data(&data);
-    free_data(data);
+    free_data(&data);
     return 0;
 }
