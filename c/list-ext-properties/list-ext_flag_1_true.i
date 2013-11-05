@@ -622,7 +622,7 @@ typedef struct node {
   int flag;
   struct node *n;
 } *List;
-void main() {
+int main() {
   List p, a, t;
   a = (List) malloc(sizeof(struct node));
   if (a == 0) exit(1);
@@ -642,6 +642,7 @@ void main() {
     p = p->n;
   }
   p->h = 3;
+  p->n = 0;
   p = a;
   i = 0;
   while (p->h != 3) {

@@ -633,8 +633,8 @@ static void free_data(TData *data)
         free(lo);
         free(hi);
     }
-    data->lo = (void *) 0;
-    data->hi = (void *) 0;
+    data->lo = ((void *)0);
+    data->hi = ((void *)0);
 }
 int main() {
     TData data;
