@@ -9147,6 +9147,7 @@ void ldv_check_final_state(void) ;
 extern void ldv_initialize(void) ;
 # 1217 "/anthill/stuff/tacas-comp/work/current--X--drivers/isdn/gigaset/gigaset.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/20/dscv_tempdir/dscv/ri/08_1/drivers/isdn/gigaset/common.c.p"
 extern int __VERIFIER_nondet_int(void) ;
+extern void * __VERIFIER_nondet_pointer(void);
 # 1220 "/anthill/stuff/tacas-comp/work/current--X--drivers/isdn/gigaset/gigaset.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/20/dscv_tempdir/dscv/ri/08_1/drivers/isdn/gigaset/common.c.p"
 int LDV_IN_INTERRUPT ;
 # 1223 "/anthill/stuff/tacas-comp/work/current--X--drivers/isdn/gigaset/gigaset.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/20/dscv_tempdir/dscv/ri/08_1/drivers/isdn/gigaset/common.c.p"
@@ -11723,6 +11724,10 @@ void main(void)
 
   {
   {
+
+  drivers.prev = __VERIFIER_nondet_pointer();
+  drivers.next = __VERIFIER_nondet_pointer();
+
 # 828 "/anthill/stuff/tacas-comp/work/current--X--drivers/isdn/gigaset/gigaset.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/20/dscv_tempdir/dscv/ri/08_1/drivers/isdn/gigaset/interface.c.p"
   ldv_s_if_ops_tty_operations = 0;
 # 818 "/anthill/stuff/tacas-comp/work/current--X--drivers/isdn/gigaset/gigaset.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/20/dscv_tempdir/dscv/ri/08_1/drivers/isdn/gigaset/interface.c.p"

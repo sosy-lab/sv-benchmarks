@@ -32202,6 +32202,7 @@ void ldv_initialize(void) ;
 extern void ldv_handler_precall(void) ;
 #line 8236
 extern int __VERIFIER_nondet_int(void) ;
+extern void * __VERIFIER_nondet_pointer(void);
 #line 8239 "/work/ldvuser/exper_fp/work/current--X--drivers--X--defaultlinux-3.10-rc1.tar--X--32_7a--X--cpachecker/linux-3.10-rc1.tar/csd_deg_dscv/4815/dscv_tempdir/dscv/ri/32_7a/drivers/scsi/mpt3sas/mpt3sas_scsih.c.prepared"
 int LDV_IN_INTERRUPT  ;
 #line 8242 "/work/ldvuser/exper_fp/work/current--X--drivers--X--defaultlinux-3.10-rc1.tar--X--32_7a--X--cpachecker/linux-3.10-rc1.tar/csd_deg_dscv/4815/dscv_tempdir/dscv/ri/32_7a/drivers/scsi/mpt3sas/mpt3sas_scsih.c.prepared"
@@ -41856,6 +41857,10 @@ void main(void)
   int tmp___0 ;
 
   {
+
+  mpt3sas_ioc_list.next = __VERIFIER_nondet_pointer();
+  mpt3sas_ioc_list.prev = __VERIFIER_nondet_pointer();
+
 #line 3483
   LDV_IN_INTERRUPT = 1;
 #line 3492

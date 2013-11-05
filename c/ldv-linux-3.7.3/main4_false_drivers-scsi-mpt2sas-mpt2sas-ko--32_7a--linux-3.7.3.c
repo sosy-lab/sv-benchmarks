@@ -32368,6 +32368,7 @@ void ldv_initialize(void) ;
 extern void ldv_handler_precall(void) ;
 #line 8547
 extern int __VERIFIER_nondet_int(void) ;
+extern void * __VERIFIER_nondet_pointer(void);
 #line 8550 "/work/vladimir/UFO/Work/test/work/current--X--drivers/scsi/mpt2sas/mpt2sas.ko--X--defaultlinux-3.7.3--X--32_7a--X--ufo/linux-3.7.3/csd_deg_dscv/16/dscv_tempdir/dscv/ri/32_7a/drivers/scsi/mpt2sas/mpt2sas_scsih.c.prepared"
 int LDV_IN_INTERRUPT  ;
 #line 8553 "/work/vladimir/UFO/Work/test/work/current--X--drivers/scsi/mpt2sas/mpt2sas.ko--X--defaultlinux-3.7.3--X--32_7a--X--ufo/linux-3.7.3/csd_deg_dscv/16/dscv_tempdir/dscv/ri/32_7a/drivers/scsi/mpt2sas/mpt2sas_scsih.c.prepared"
@@ -41927,6 +41928,10 @@ void main(void)
   int tmp___0 ;
 
   {
+
+  mpt2sas_ioc_list.prev = __VERIFIER_nondet_pointer();
+  mpt2sas_ioc_list.next = __VERIFIER_nondet_pointer();
+
 #line 3330
   ldv_s_ctl_fops_file_operations = 0;
 #line 3320
