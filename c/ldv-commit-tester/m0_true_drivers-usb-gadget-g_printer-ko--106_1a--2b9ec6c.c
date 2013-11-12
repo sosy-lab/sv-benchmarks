@@ -7953,7 +7953,7 @@ extern int __VERIFIER_nondet_int(void) ;
 #line 26
 extern void *ldv_undef_ptr(void) ;
 #line 38 "/work/vladimir/kernel-rules/verifier/rcv.h"
-__inline static int __VERIFIER_nondet_uint(void) 
+__inline static int ldv_nonpositive_int(void) 
 { 
   int ret ;
   int tmp ;
@@ -8087,7 +8087,7 @@ int ldv_register_class(void)
 
   {
 #line 66
-  is_reg = __VERIFIER_nondet_uint();
+  is_reg = ldv_nonpositive_int();
 #line 69
   if (! is_reg) {
 #line 72
@@ -8146,7 +8146,7 @@ int ldv_register_chrdev_region(void)
 
   {
 #line 100
-  is_reg = __VERIFIER_nondet_uint();
+  is_reg = ldv_nonpositive_int();
 #line 103
   if (! is_reg) {
 #line 106
@@ -8205,7 +8205,7 @@ int ldv_register_usb_gadget(void)
 
   {
 #line 134
-  is_reg = __VERIFIER_nondet_uint();
+  is_reg = ldv_nonpositive_int();
 #line 137
   if (! is_reg) {
 #line 140

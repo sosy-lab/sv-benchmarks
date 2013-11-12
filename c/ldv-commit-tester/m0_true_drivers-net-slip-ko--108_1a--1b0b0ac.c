@@ -5417,7 +5417,7 @@ __inline static void ldv_stop(void)
 #line 25
 extern int __VERIFIER_nondet_int(void) ;
 #line 38 "/work/vladimir/kernel-rules/verifier/rcv.h"
-__inline static int __VERIFIER_nondet_uint(void) 
+__inline static int ldv_nonpositive_int(void) 
 { 
   int ret ;
   int tmp ;
@@ -9349,7 +9349,7 @@ static int ldv_sl_alloc_bufs_1(struct slip *sl , int mtu )
 #line 5357
   ldv_func_res = tmp;
 #line 5359
-  tmp___0 = __VERIFIER_nondet_uint();
+  tmp___0 = ldv_nonpositive_int();
 #line 5359
   return (tmp___0);
 #line 5361
@@ -9369,7 +9369,7 @@ int ldv_register_netdevice_2(struct net_device *ldv_func_arg1 )
 #line 5369
   ldv_func_res = tmp;
 #line 5371
-  tmp___0 = __VERIFIER_nondet_uint();
+  tmp___0 = ldv_nonpositive_int();
 #line 5371
   return (tmp___0);
 #line 5373
