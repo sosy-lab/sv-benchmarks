@@ -15308,7 +15308,7 @@ static int batadv_fdebug_log(struct batadv_debug_log *debug_log , char const   *
 #line 104
   spin_lock_bh(& debug_log->lock);
 #line 105
-  __builtin_va_start((__va_list_tag *)(& args));
+  __builtin_va_start((__va_list_tag *)(& args), fmt);
 #line 106
   vscnprintf((char *)(& debug_log_buf), 256UL, fmt, (__va_list_tag *)(& args));
 #line 107
@@ -15347,7 +15347,7 @@ int batadv_debug_log(struct batadv_priv *bat_priv , char const   *fmt  , ...)
 
   {
 #line 124
-  __builtin_va_start((__va_list_tag *)(& args));
+  __builtin_va_start((__va_list_tag *)(& args), fmt);
 #line 125
   vscnprintf((char *)(& tmp_log_buf), 256UL, fmt, (__va_list_tag *)(& args));
 #line 126

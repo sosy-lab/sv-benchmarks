@@ -29127,7 +29127,7 @@ int cx18_vapi_result(struct cx18 *cx , u32 *data , u32 cmd , int args  , ...)
 
   {
 #line 945
-  __builtin_va_start((__va_list_tag *)(& ap));
+  __builtin_va_start((__va_list_tag *)(& ap), fmt);
 #line 946
   i = 0;
 #line 946

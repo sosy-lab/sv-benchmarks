@@ -18164,7 +18164,7 @@ void synth_printf(char const   *fmt  , ...)
 
   {
 #line 268
-  __builtin_va_start((__va_list_tag *)(& args));
+  __builtin_va_start((__va_list_tag *)(& args), fmt);
 #line 269
   r = vsnprintf((char *)(& buf___0), 160UL, fmt, (__va_list_tag *)(& args));
 #line 270

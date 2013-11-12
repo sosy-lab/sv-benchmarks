@@ -12579,7 +12579,7 @@ void __iwl_warn(struct device *dev , char const   *fmt  , ...)
 #line 176
   vaf.va = 0;
 #line 176
-  __builtin_va_start((__va_list_tag *)(& args));
+  __builtin_va_start((__va_list_tag *)(& args), fmt);
 #line 176
   vaf.va = & args;
 #line 176
@@ -12603,7 +12603,7 @@ void __iwl_info(struct device *dev , char const   *fmt  , ...)
 #line 178
   vaf.va = 0;
 #line 178
-  __builtin_va_start((__va_list_tag *)(& args));
+  __builtin_va_start((__va_list_tag *)(& args), fmt);
 #line 178
   vaf.va = & args;
 #line 178
@@ -12627,7 +12627,7 @@ void __iwl_crit(struct device *dev , char const   *fmt  , ...)
 #line 180
   vaf.va = 0;
 #line 180
-  __builtin_va_start((__va_list_tag *)(& args));
+  __builtin_va_start((__va_list_tag *)(& args), fmt);
 #line 180
   vaf.va = & args;
 #line 180
@@ -12652,7 +12652,7 @@ void __iwl_err(struct device *dev , bool rfkill_prefix , bool trace_only , char 
 #line 186
   vaf.va = 0;
 #line 191
-  __builtin_va_start((__va_list_tag *)(& args));
+  __builtin_va_start((__va_list_tag *)(& args), fmt);
 #line 192
   vaf.va = & args;
 #line 193
@@ -12695,7 +12695,7 @@ void __iwl_dbg(struct device *dev , u32 level , bool limit , char const   *funct
 #line 209
   vaf.va = 0;
 #line 214
-  __builtin_va_start((__va_list_tag *)(& args));
+  __builtin_va_start((__va_list_tag *)(& args), fmt);
 #line 215
   vaf.va = & args;
 #line 217

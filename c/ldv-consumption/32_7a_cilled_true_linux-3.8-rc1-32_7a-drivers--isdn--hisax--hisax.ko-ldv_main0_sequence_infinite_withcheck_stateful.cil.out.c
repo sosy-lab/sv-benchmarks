@@ -7848,7 +7848,7 @@ void HiSax_putstatus(struct IsdnCardState *cs , char *head , char *fmt  , ...)
 
   {
 #line 768
-  __builtin_va_start((__va_list_tag *)(& args));
+  __builtin_va_start((__va_list_tag *)(& args), fmt);
 #line 769
   VHiSax_putstatus(cs, head, fmt, (__va_list_tag *)(& args));
 #line 770
@@ -10324,7 +10324,7 @@ void debugl1(struct IsdnCardState *cs , char *fmt  , ...)
 
   {
 #line 166
-  __builtin_va_start((__va_list_tag *)(& args));
+  __builtin_va_start((__va_list_tag *)(& args), fmt);
 #line 167
   sprintf((char *)(& tmp), "Card%d ", cs->cardnr + 1);
 #line 168
@@ -10349,7 +10349,7 @@ static void l1m_debug(struct FsmInst *fi , char *fmt  , ...)
 #line 177
   cs = (struct IsdnCardState *)st->l1.hardware;
 #line 180
-  __builtin_va_start((__va_list_tag *)(& args));
+  __builtin_va_start((__va_list_tag *)(& args), fmt);
 #line 181
   sprintf((char *)(& tmp), "Card%d ", cs->cardnr + 1);
 #line 182
@@ -12725,7 +12725,7 @@ static void tei_debug(struct FsmInst *fi , char *fmt  , ...)
 #line 428
   st = (struct PStack *)fi->userdata;
 #line 430
-  __builtin_va_start((__va_list_tag *)(& args));
+  __builtin_va_start((__va_list_tag *)(& args), fmt);
 #line 431
   VHiSax_putstatus((struct IsdnCardState *)st->l1.hardware, (char *)"tei ", fmt, (__va_list_tag *)(& args));
 #line 432
@@ -16753,7 +16753,7 @@ static void l2m_debug(struct FsmInst *fi , char *fmt  , ...)
 #line 1798
   st = (struct PStack *)fi->userdata;
 #line 1800
-  __builtin_va_start((__va_list_tag *)(& args));
+  __builtin_va_start((__va_list_tag *)(& args), fmt);
 #line 1801
   VHiSax_putstatus((struct IsdnCardState *)st->l1.hardware, (char *)(& st->l2.debug_id),
                    fmt, (__va_list_tag *)(& args));
@@ -17105,7 +17105,7 @@ static void l3m_debug(struct FsmInst *fi , char *fmt  , ...)
 #line 104
   st = (struct PStack *)fi->userdata;
 #line 106
-  __builtin_va_start((__va_list_tag *)(& args));
+  __builtin_va_start((__va_list_tag *)(& args), fmt);
 #line 107
   VHiSax_putstatus((struct IsdnCardState *)st->l1.hardware, (char *)(& st->l3.debug_id),
                    fmt, (__va_list_tag *)(& args));
@@ -21846,7 +21846,7 @@ static void link_debug(struct Channel *chanp , int direction , char *fmt  , ...)
 
   {
 #line 105
-  __builtin_va_start((__va_list_tag *)(& args));
+  __builtin_va_start((__va_list_tag *)(& args), fmt);
 #line 106
   sprintf((char *)(& tmp), "Ch%d %s ", chanp->chan, direction != 0 ? (char *)"LL->HL" : (char *)"HL->LL");
 #line 108
@@ -23478,7 +23478,7 @@ static void callc_debug(struct FsmInst *fi , char *fmt  , ...)
 #line 1106
   chanp = (struct Channel *)fi->userdata;
 #line 1109
-  __builtin_va_start((__va_list_tag *)(& args));
+  __builtin_va_start((__va_list_tag *)(& args), fmt);
 #line 1110
   sprintf((char *)(& tmp), "Ch%d callc ", chanp->chan);
 #line 1111

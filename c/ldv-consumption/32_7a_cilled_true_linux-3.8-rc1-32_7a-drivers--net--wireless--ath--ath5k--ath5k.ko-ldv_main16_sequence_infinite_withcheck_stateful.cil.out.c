@@ -36300,7 +36300,7 @@ void _ath5k_printk(struct ath5k_hw  const  *ah , char const   *level , char cons
 
   {
 #line 3096
-  __builtin_va_start((__va_list_tag *)(& args));
+  __builtin_va_start((__va_list_tag *)(& args), fmt);
 #line 3098
   vaf.fmt = fmt;
 #line 3099

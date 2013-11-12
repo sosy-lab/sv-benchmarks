@@ -5128,7 +5128,7 @@ void myDbgPrint_LOG(char *format  , ...)
                                                                                 char * ,
                                                                                 __va_list_tag * ))0)) {
 #line 46
-    __builtin_va_start((__va_list_tag *)(& ap));
+    __builtin_va_start((__va_list_tag *)(& ap), fmt);
 #line 46
     (*(myDriverDebugHandle.dbg_prt))((int )((unsigned short )myDriverDebugHandle.id),
                                      256, format, (__va_list_tag *)(& ap));
@@ -5152,7 +5152,7 @@ void myDbgPrint_FTL(char *format  , ...)
                                                                                 char * ,
                                                                                 __va_list_tag * ))0)) {
 #line 47
-    __builtin_va_start((__va_list_tag *)(& ap));
+    __builtin_va_start((__va_list_tag *)(& ap), fmt);
 #line 47
     (*(myDriverDebugHandle.dbg_prt))((int )((unsigned short )myDriverDebugHandle.id),
                                      512, format, (__va_list_tag *)(& ap));
@@ -5176,7 +5176,7 @@ void myDbgPrint_ERR(char *format  , ...)
                                                                                 char * ,
                                                                                 __va_list_tag * ))0)) {
 #line 48
-    __builtin_va_start((__va_list_tag *)(& ap));
+    __builtin_va_start((__va_list_tag *)(& ap), fmt);
 #line 48
     (*(myDriverDebugHandle.dbg_prt))((int )((unsigned short )myDriverDebugHandle.id),
                                      768, format, (__va_list_tag *)(& ap));
@@ -5200,7 +5200,7 @@ void myDbgPrint_TRC(char *format  , ...)
                                                                                 char * ,
                                                                                 __va_list_tag * ))0)) {
 #line 49
-    __builtin_va_start((__va_list_tag *)(& ap));
+    __builtin_va_start((__va_list_tag *)(& ap), fmt);
 #line 49
     (*(myDriverDebugHandle.dbg_prt))((int )((unsigned short )myDriverDebugHandle.id),
                                      1024, format, (__va_list_tag *)(& ap));
@@ -5224,7 +5224,7 @@ void myDbgPrint_MXLOG(char *format  , ...)
                                                                                 char * ,
                                                                                 __va_list_tag * ))0)) {
 #line 50
-    __builtin_va_start((__va_list_tag *)(& ap));
+    __builtin_va_start((__va_list_tag *)(& ap), fmt);
 #line 50
     (*(myDriverDebugHandle.dbg_prt))((int )((unsigned short )myDriverDebugHandle.id),
                                      1536, format, (__va_list_tag *)(& ap));
@@ -5248,7 +5248,7 @@ void myDbgPrint_FTL_MXLOG(char *format  , ...)
                                                                                 char * ,
                                                                                 __va_list_tag * ))0)) {
 #line 51
-    __builtin_va_start((__va_list_tag *)(& ap));
+    __builtin_va_start((__va_list_tag *)(& ap), fmt);
 #line 51
     (*(myDriverDebugHandle.dbg_prt))((int )((unsigned short )myDriverDebugHandle.id),
                                      1536, format, (__va_list_tag *)(& ap));
@@ -5271,7 +5271,7 @@ void myDbgPrint_EVL(long msgID  , ...)
                                                                                unsigned long  ,
                                                                                __va_list_tag * ))0)) {
 #line 56
-    __builtin_va_start((__va_list_tag *)(& ap));
+    __builtin_va_start((__va_list_tag *)(& ap), fmt);
 #line 58
     (*(myDriverDebugHandle.dbg_ev))((int )((unsigned short )myDriverDebugHandle.id),
                                     (unsigned long )msgID, (__va_list_tag *)(& ap));
@@ -5295,7 +5295,7 @@ void myDbgPrint_REG(char *format  , ...)
                                                                                 char * ,
                                                                                 __va_list_tag * ))0)) {
 #line 61
-    __builtin_va_start((__va_list_tag *)(& ap));
+    __builtin_va_start((__va_list_tag *)(& ap), fmt);
 #line 61
     (*(myDriverDebugHandle.dbg_prt))((int )((unsigned short )myDriverDebugHandle.id),
                                      2304, format, (__va_list_tag *)(& ap));
@@ -5319,7 +5319,7 @@ void myDbgPrint_MEM(char *format  , ...)
                                                                                 char * ,
                                                                                 __va_list_tag * ))0)) {
 #line 62
-    __builtin_va_start((__va_list_tag *)(& ap));
+    __builtin_va_start((__va_list_tag *)(& ap), fmt);
 #line 62
     (*(myDriverDebugHandle.dbg_prt))((int )((unsigned short )myDriverDebugHandle.id),
                                      2560, format, (__va_list_tag *)(& ap));
@@ -5343,7 +5343,7 @@ void myDbgPrint_SPL(char *format  , ...)
                                                                                 char * ,
                                                                                 __va_list_tag * ))0)) {
 #line 63
-    __builtin_va_start((__va_list_tag *)(& ap));
+    __builtin_va_start((__va_list_tag *)(& ap), fmt);
 #line 63
     (*(myDriverDebugHandle.dbg_prt))((int )((unsigned short )myDriverDebugHandle.id),
                                      2816, format, (__va_list_tag *)(& ap));
@@ -5367,7 +5367,7 @@ void myDbgPrint_IRP(char *format  , ...)
                                                                                 char * ,
                                                                                 __va_list_tag * ))0)) {
 #line 64
-    __builtin_va_start((__va_list_tag *)(& ap));
+    __builtin_va_start((__va_list_tag *)(& ap), fmt);
 #line 64
     (*(myDriverDebugHandle.dbg_prt))((int )((unsigned short )myDriverDebugHandle.id),
                                      3072, format, (__va_list_tag *)(& ap));
@@ -5391,7 +5391,7 @@ void myDbgPrint_TIM(char *format  , ...)
                                                                                 char * ,
                                                                                 __va_list_tag * ))0)) {
 #line 65
-    __builtin_va_start((__va_list_tag *)(& ap));
+    __builtin_va_start((__va_list_tag *)(& ap), fmt);
 #line 65
     (*(myDriverDebugHandle.dbg_prt))((int )((unsigned short )myDriverDebugHandle.id),
                                      3328, format, (__va_list_tag *)(& ap));
@@ -5415,7 +5415,7 @@ void myDbgPrint_BLK(char *format  , ...)
                                                                                 char * ,
                                                                                 __va_list_tag * ))0)) {
 #line 66
-    __builtin_va_start((__va_list_tag *)(& ap));
+    __builtin_va_start((__va_list_tag *)(& ap), fmt);
 #line 66
     (*(myDriverDebugHandle.dbg_prt))((int )((unsigned short )myDriverDebugHandle.id),
                                      3584, format, (__va_list_tag *)(& ap));
@@ -5439,7 +5439,7 @@ void myDbgPrint_TAPI(char *format  , ...)
                                                                                 char * ,
                                                                                 __va_list_tag * ))0)) {
 #line 67
-    __builtin_va_start((__va_list_tag *)(& ap));
+    __builtin_va_start((__va_list_tag *)(& ap), fmt);
 #line 67
     (*(myDriverDebugHandle.dbg_prt))((int )((unsigned short )myDriverDebugHandle.id),
                                      4352, format, (__va_list_tag *)(& ap));
@@ -5463,7 +5463,7 @@ void myDbgPrint_NDIS(char *format  , ...)
                                                                                 char * ,
                                                                                 __va_list_tag * ))0)) {
 #line 68
-    __builtin_va_start((__va_list_tag *)(& ap));
+    __builtin_va_start((__va_list_tag *)(& ap), fmt);
 #line 68
     (*(myDriverDebugHandle.dbg_prt))((int )((unsigned short )myDriverDebugHandle.id),
                                      4608, format, (__va_list_tag *)(& ap));
@@ -5487,7 +5487,7 @@ void myDbgPrint_CONN(char *format  , ...)
                                                                                 char * ,
                                                                                 __va_list_tag * ))0)) {
 #line 69
-    __builtin_va_start((__va_list_tag *)(& ap));
+    __builtin_va_start((__va_list_tag *)(& ap), fmt);
 #line 69
     (*(myDriverDebugHandle.dbg_prt))((int )((unsigned short )myDriverDebugHandle.id),
                                      4864, format, (__va_list_tag *)(& ap));
@@ -5511,7 +5511,7 @@ void myDbgPrint_STAT(char *format  , ...)
                                                                                 char * ,
                                                                                 __va_list_tag * ))0)) {
 #line 70
-    __builtin_va_start((__va_list_tag *)(& ap));
+    __builtin_va_start((__va_list_tag *)(& ap), fmt);
 #line 70
     (*(myDriverDebugHandle.dbg_prt))((int )((unsigned short )myDriverDebugHandle.id),
                                      5120, format, (__va_list_tag *)(& ap));
@@ -5535,7 +5535,7 @@ void myDbgPrint_SEND(char *format  , ...)
                                                                                 char * ,
                                                                                 __va_list_tag * ))0)) {
 #line 71
-    __builtin_va_start((__va_list_tag *)(& ap));
+    __builtin_va_start((__va_list_tag *)(& ap), fmt);
 #line 71
     (*(myDriverDebugHandle.dbg_prt))((int )((unsigned short )myDriverDebugHandle.id),
                                      5376, format, (__va_list_tag *)(& ap));
@@ -5559,7 +5559,7 @@ void myDbgPrint_RECV(char *format  , ...)
                                                                                 char * ,
                                                                                 __va_list_tag * ))0)) {
 #line 72
-    __builtin_va_start((__va_list_tag *)(& ap));
+    __builtin_va_start((__va_list_tag *)(& ap), fmt);
 #line 72
     (*(myDriverDebugHandle.dbg_prt))((int )((unsigned short )myDriverDebugHandle.id),
                                      5632, format, (__va_list_tag *)(& ap));
@@ -5583,7 +5583,7 @@ void myDbgPrint_PRV0(char *format  , ...)
                                                                                 char * ,
                                                                                 __va_list_tag * ))0)) {
 #line 73
-    __builtin_va_start((__va_list_tag *)(& ap));
+    __builtin_va_start((__va_list_tag *)(& ap), fmt);
 #line 73
     (*(myDriverDebugHandle.dbg_prt))((int )((unsigned short )myDriverDebugHandle.id),
                                      6400, format, (__va_list_tag *)(& ap));
@@ -5607,7 +5607,7 @@ void myDbgPrint_PRV1(char *format  , ...)
                                                                                 char * ,
                                                                                 __va_list_tag * ))0)) {
 #line 74
-    __builtin_va_start((__va_list_tag *)(& ap));
+    __builtin_va_start((__va_list_tag *)(& ap), fmt);
 #line 74
     (*(myDriverDebugHandle.dbg_prt))((int )((unsigned short )myDriverDebugHandle.id),
                                      6656, format, (__va_list_tag *)(& ap));
@@ -5631,7 +5631,7 @@ void myDbgPrint_PRV2(char *format  , ...)
                                                                                 char * ,
                                                                                 __va_list_tag * ))0)) {
 #line 75
-    __builtin_va_start((__va_list_tag *)(& ap));
+    __builtin_va_start((__va_list_tag *)(& ap), fmt);
 #line 75
     (*(myDriverDebugHandle.dbg_prt))((int )((unsigned short )myDriverDebugHandle.id),
                                      6912, format, (__va_list_tag *)(& ap));
@@ -5655,7 +5655,7 @@ void myDbgPrint_PRV3(char *format  , ...)
                                                                                 char * ,
                                                                                 __va_list_tag * ))0)) {
 #line 76
-    __builtin_va_start((__va_list_tag *)(& ap));
+    __builtin_va_start((__va_list_tag *)(& ap), fmt);
 #line 76
     (*(myDriverDebugHandle.dbg_prt))((int )((unsigned short )myDriverDebugHandle.id),
                                      7168, format, (__va_list_tag *)(& ap));
@@ -5786,7 +5786,7 @@ void xdi_dbg_xlog(char *x  , ...)
 
   {
 #line 142
-  __builtin_va_start((__va_list_tag *)(& ap));
+  __builtin_va_start((__va_list_tag *)(& ap), fmt);
 #line 143
   if (((unsigned long )myDriverDebugHandle.dbg_end != (unsigned long )((void (*)(pDbgHandle  ))0) && ((unsigned long )myDriverDebugHandle.dbg_irq != (unsigned long )((void (*)(unsigned short  ,
                                                                                                                                                                                 int  ,

@@ -7271,7 +7271,7 @@ int _tda_printk(struct tda18271_priv *state , char const   *level , char const  
 
   {
 #line 764
-  __builtin_va_start((__va_list_tag *)(& args));
+  __builtin_va_start((__va_list_tag *)(& args), fmt);
 #line 766
   vaf.fmt = fmt;
 #line 767

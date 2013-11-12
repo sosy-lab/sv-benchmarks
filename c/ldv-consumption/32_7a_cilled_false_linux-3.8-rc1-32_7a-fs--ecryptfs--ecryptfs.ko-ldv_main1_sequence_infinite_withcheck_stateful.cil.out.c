@@ -9655,7 +9655,7 @@ void __ecryptfs_printk(char const   *fmt  , ...)
 
   {
 #line 225
-  __builtin_va_start((__va_list_tag *)(& args));
+  __builtin_va_start((__va_list_tag *)(& args), fmt);
 #line 226
   if ((int )((signed char )*(fmt + 1UL)) == 55) {
 #line 227

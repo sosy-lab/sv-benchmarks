@@ -13876,7 +13876,7 @@ static void l1m_debug(struct FsmInst *fi , char *fmt , ...)
 # 108 "/anthill/stuff/tacas-comp/work/current--X--drivers/isdn/mISDN/mISDN_core.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/30/dscv_tempdir/dscv/ri/08_1/drivers/isdn/mISDN/layer1.c.p"
   l1 = (struct layer1 *)fi->userdata;
 # 112 "/anthill/stuff/tacas-comp/work/current--X--drivers/isdn/mISDN/mISDN_core.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/30/dscv_tempdir/dscv/ri/08_1/drivers/isdn/mISDN/layer1.c.p"
-  __builtin_va_start(((& va)));
+  __builtin_va_start(((& va)), fmt);
 # 114 "/anthill/stuff/tacas-comp/work/current--X--drivers/isdn/mISDN/mISDN_core.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/30/dscv_tempdir/dscv/ri/08_1/drivers/isdn/mISDN/layer1.c.p"
   vaf.fmt = (char const *)fmt;
 # 115 "/anthill/stuff/tacas-comp/work/current--X--drivers/isdn/mISDN/mISDN_core.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/30/dscv_tempdir/dscv/ri/08_1/drivers/isdn/mISDN/layer1.c.p"
@@ -14704,7 +14704,7 @@ static void l2m_debug(struct FsmInst *fi , char *fmt , ...)
   }
   {
 # 112 "/anthill/stuff/tacas-comp/work/current--X--drivers/isdn/mISDN/mISDN_core.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/30/dscv_tempdir/dscv/ri/08_1/drivers/isdn/mISDN/layer2.c.p"
-  __builtin_va_start(((& va)));
+  __builtin_va_start(((& va)), fmt);
 # 114 "/anthill/stuff/tacas-comp/work/current--X--drivers/isdn/mISDN/mISDN_core.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/30/dscv_tempdir/dscv/ri/08_1/drivers/isdn/mISDN/layer2.c.p"
   vaf.fmt = (char const *)fmt;
 # 115 "/anthill/stuff/tacas-comp/work/current--X--drivers/isdn/mISDN/mISDN_core.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/30/dscv_tempdir/dscv/ri/08_1/drivers/isdn/mISDN/layer2.c.p"
@@ -20595,7 +20595,7 @@ static void da_debug(struct FsmInst *fi , char *fmt , ...)
   }
   {
 # 95 "/anthill/stuff/tacas-comp/work/current--X--drivers/isdn/mISDN/mISDN_core.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/30/dscv_tempdir/dscv/ri/08_1/drivers/isdn/mISDN/tei.c.p"
-  __builtin_va_start(((__va_list_tag *)(& va)));
+  __builtin_va_start(((__va_list_tag *)(& va)), fmt);
 # 97 "/anthill/stuff/tacas-comp/work/current--X--drivers/isdn/mISDN/mISDN_core.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/30/dscv_tempdir/dscv/ri/08_1/drivers/isdn/mISDN/tei.c.p"
   vaf.fmt = (char const *)fmt;
 # 98 "/anthill/stuff/tacas-comp/work/current--X--drivers/isdn/mISDN/mISDN_core.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/30/dscv_tempdir/dscv/ri/08_1/drivers/isdn/mISDN/tei.c.p"
@@ -20836,7 +20836,7 @@ static void tei_debug(struct FsmInst *fi , char *fmt , ...)
   }
   {
 # 244 "/anthill/stuff/tacas-comp/work/current--X--drivers/isdn/mISDN/mISDN_core.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/30/dscv_tempdir/dscv/ri/08_1/drivers/isdn/mISDN/tei.c.p"
-  __builtin_va_start(((& va)));
+  __builtin_va_start(((& va)), fmt);
 # 246 "/anthill/stuff/tacas-comp/work/current--X--drivers/isdn/mISDN/mISDN_core.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/30/dscv_tempdir/dscv/ri/08_1/drivers/isdn/mISDN/tei.c.p"
   vaf.fmt = (char const *)fmt;
 # 247 "/anthill/stuff/tacas-comp/work/current--X--drivers/isdn/mISDN/mISDN_core.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/30/dscv_tempdir/dscv/ri/08_1/drivers/isdn/mISDN/tei.c.p"

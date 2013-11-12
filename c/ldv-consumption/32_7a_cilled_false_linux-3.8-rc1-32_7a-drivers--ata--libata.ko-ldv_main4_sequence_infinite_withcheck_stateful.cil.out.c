@@ -18540,7 +18540,7 @@ int ata_port_printk(struct ata_port  const  *ap , char const   *level , char con
 
   {
 #line 6806
-  __builtin_va_start((__va_list_tag *)(& args));
+  __builtin_va_start((__va_list_tag *)(& args), fmt);
 #line 6808
   vaf.fmt = fmt;
 #line 6809
@@ -18564,7 +18564,7 @@ int ata_link_printk(struct ata_link  const  *link , char const   *level , char c
 
   {
 #line 6826
-  __builtin_va_start((__va_list_tag *)(& args));
+  __builtin_va_start((__va_list_tag *)(& args), fmt);
 #line 6828
   vaf.fmt = fmt;
 #line 6829
@@ -18595,7 +18595,7 @@ int ata_dev_printk(struct ata_device  const  *dev , char const   *level , char c
 
   {
 #line 6851
-  __builtin_va_start((__va_list_tag *)(& args));
+  __builtin_va_start((__va_list_tag *)(& args), fmt);
 #line 6853
   vaf.fmt = fmt;
 #line 6854
@@ -26804,7 +26804,7 @@ void __ata_ehi_push_desc(struct ata_eh_info *ehi , char const   *fmt  , ...)
 
   {
 #line 261
-  __builtin_va_start((__va_list_tag *)(& args));
+  __builtin_va_start((__va_list_tag *)(& args), fmt);
 #line 262
   __ata_ehi_pushv_desc(ehi, fmt, (__va_list_tag *)(& args));
 #line 263
@@ -26827,7 +26827,7 @@ void ata_ehi_push_desc(struct ata_eh_info *ehi , char const   *fmt  , ...)
 
   }
 #line 284
-  __builtin_va_start((__va_list_tag *)(& args));
+  __builtin_va_start((__va_list_tag *)(& args), fmt);
 #line 285
   __ata_ehi_pushv_desc(ehi, fmt, (__va_list_tag *)(& args));
 #line 286
@@ -26880,7 +26880,7 @@ void ata_port_desc(struct ata_port *ap , char const   *fmt  , ...)
 
   }
 #line 326
-  __builtin_va_start((__va_list_tag *)(& args));
+  __builtin_va_start((__va_list_tag *)(& args), fmt);
 #line 327
   __ata_ehi_pushv_desc(& ap->link.eh_info, fmt, (__va_list_tag *)(& args));
 #line 328

@@ -9271,7 +9271,7 @@ int snd_seq_create_kernel_client(struct snd_card *card , int client_index , char
 #line 2322
   client->accept_output = 1U;
 #line 2324
-  __builtin_va_start((__va_list_tag *)(& args));
+  __builtin_va_start((__va_list_tag *)(& args), fmt);
 #line 2325
   vsnprintf((char *)(& client->name), 64UL, name_fmt, (__va_list_tag *)(& args));
 #line 2326
