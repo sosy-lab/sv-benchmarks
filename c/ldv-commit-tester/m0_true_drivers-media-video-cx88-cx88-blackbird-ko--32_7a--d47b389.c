@@ -6640,7 +6640,7 @@ static int blackbird_api_cmd(struct cx8802_dev *dev , u32 command , u32 inputcnt
 
   {
 #line 427
-  __builtin_va_start((__va_list_tag *)(& vargs), fmt);
+  __builtin_va_start((__va_list_tag *)(& vargs), outputcnt);
 #line 429
   i = 0;
 #line 429
