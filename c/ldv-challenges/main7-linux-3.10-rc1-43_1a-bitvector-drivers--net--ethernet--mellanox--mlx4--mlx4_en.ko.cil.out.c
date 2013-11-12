@@ -7911,7 +7911,7 @@ int en_print(char const   *level , struct mlx4_en_priv  const  *priv , char cons
 
   {
 #line 97
-  __builtin_va_start((__va_list_tag *)(& args));
+  __builtin_va_start((__va_list_tag *)(& args), format);
 #line 99
   vaf.fmt = format;
 #line 100
