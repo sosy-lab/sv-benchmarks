@@ -21,11 +21,10 @@ int hanoi(int n) {
 
 int main() {
     int n = __VERIFIER_nondet_int();
-    if (n < 1) {
+    if (n < 1 || n > 31) {
     	return 0;
     }
     int result = hanoi(n);
-    // result and the counter should be the same!
     if (result >= n) {
         return 0;
     } else {
