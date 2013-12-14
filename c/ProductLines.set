@@ -1,7 +1,7 @@
-product-lines/elevator*_false.*.c
+product-lines/elevator*_false-unreach-label.*.c
 product-lines/elevator*_true.*.c
-product-lines/email*_false.*.c
+product-lines/email*_false-unreach-label.*.c
 product-lines/email*_true.*.c
-product-lines/minepump*_false.*.c
+product-lines/minepump*_false-unreach-label.*.c
 product-lines/minepump*_true.*.c
 

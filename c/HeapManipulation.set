@@ -1,10 +1,10 @@
-heap-manipulation/*_false.i
+heap-manipulation/*_false-unreach-label.i
 heap-manipulation/*_true.i
-list-properties/*_false.i
+list-properties/*_false-unreach-label.i
 list-properties/*_true.i
 
-ldv-regression/*_false*.i
+ldv-regression/*_false-unreach-label*.i
 ldv-regression/*_true*.i
-ddv-machzwd/*_false.i
+ddv-machzwd/*_false-unreach-label.i
 ddv-machzwd/*_true.i
 
