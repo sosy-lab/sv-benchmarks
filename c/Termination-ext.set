@@ -1,0 +1,7 @@
+locks/*.c
+loops/*.i
+ntdrivers-simplified/*.c
+recursive/*.c
+ssh-simplified/*.c
+systemc/*.c
+
