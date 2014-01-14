@@ -1,8 +1,8 @@
 bitvector/*_false-unreach-label.i
-bitvector/*_true.i
+bitvector/*_true-unreach-label.i
 bitvector/*_false-unreach-label.BV.c.cil.c
-bitvector/*_true.BV.c.cil.c
-bitvector/*_true.c.cil.c
+bitvector/*_true-unreach-label.BV.c.cil.c
+bitvector/*_true-unreach-label.c.cil.c
 bitvector-regression/*_false-unreach-label.i
-bitvector-regression/*_true.i
+bitvector-regression/*_true-unreach-label.i
 

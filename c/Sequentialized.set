@@ -1,6 +1,6 @@
 systemc/*_false-unreach-label.cil.c
-systemc/*_true.cil.c
+systemc/*_true-unreach-label.cil.c
 seq-mthreaded/*_false-unreach-label.*.c
-seq-mthreaded/*_true.*.c
+seq-mthreaded/*_true-unreach-label.*.c
 seq-pthread/*_false-unreach-label.i
-seq-pthread/*_true.i
+seq-pthread/*_true-unreach-label.i
