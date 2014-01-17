@@ -1,6 +1,6 @@
-pthread/*_false-unreach-label.i
-pthread/*_true-unreach-label.i
-pthread-atomic/*_false-unreach-label.i
-pthread-atomic/*_true-unreach-label.i
-pthread-ext/*_false-unreach-label.i
-pthread-ext/*_true-unreach-label.i
+pthread/*_false-unreach-label*.i
+pthread/*_true-unreach-label*.i
+pthread-atomic/*_false-unreach-label*.i
+pthread-atomic/*_true-unreach-label*.i
+pthread-ext/*_false-unreach-label*.i
+pthread-ext/*_true-unreach-label*.i

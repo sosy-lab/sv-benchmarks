@@ -1,5 +1,5 @@
-ntdrivers/*_false-unreach-label.i.cil.c
-ntdrivers/*_true-unreach-label.i.cil.c
-ssh/*_false-unreach-label.i.cil.c
-ssh/*_true-unreach-label.i.cil.c
+ntdrivers/*_false-unreach-label*.i.cil.c
+ntdrivers/*_true-unreach-label*.i.cil.c
+ssh/*_false-unreach-label*.i.cil.c
+ssh/*_true-unreach-label*.i.cil.c
 
