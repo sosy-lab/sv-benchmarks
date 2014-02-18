@@ -688,7 +688,7 @@ inline void init(){
 }
 void __VERIFIER_atomic_assert(int r)
 {
-  { if(!(!r || !isEmpty())) { ERROR: __VERIFIER_error(); goto ERROR; (void)0; } };
+  { if(!(!r || !isEmpty())) { ERROR: __VERIFIER_error();(void)0; } };
 }
 inline void push_loop(){
  int r = -1;

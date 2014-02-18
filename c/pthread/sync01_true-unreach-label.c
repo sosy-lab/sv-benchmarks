@@ -55,7 +55,7 @@ int main()
 
   if (num!=1)
   {
-    ERROR: __VERIFIER_error(); goto ERROR;
+    ERROR: __VERIFIER_error();
     ;
   }
 

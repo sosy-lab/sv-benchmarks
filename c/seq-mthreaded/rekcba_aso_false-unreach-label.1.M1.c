@@ -112,7 +112,7 @@ unsigned char __startrek_hyper_period  ;
 #line 1 "aso.bug1.o"
 #pragma merger(0,"/tmp/aaaa/aso.bug1.i","-S")
 #line 26 "src/startrek.h"
-void assert(_Bool arg) { if (!arg) { ERROR: __VERIFIER_error(); goto ERROR; } }
+void assert(_Bool arg) { if (!arg) { ERROR: __VERIFIER_error();} }
 #line 19 "src/balancer.h"
 static unsigned int ud_err_theta  ;
 #line 20 "src/balancer.h"

@@ -83,7 +83,7 @@ int main(void)
     {
 #line 24
     //__assert_fail("good.x->y->c == 4", "nested_structure-safe.c", 24U, "main");
-    ERROR: __VERIFIER_error(); goto ERROR;
+    ERROR: __VERIFIER_error();
     }
   }
   }

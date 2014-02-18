@@ -1076,7 +1076,7 @@ extern int getloadavg (double __loadavg[], int __nelem)
 
 void __blast_assert()
 {
- ERROR: __VERIFIER_error(); goto ERROR;
+ ERROR: __VERIFIER_error();
 }
 # 3 "files/fo_test.c" 2
 

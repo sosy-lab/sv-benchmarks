@@ -18,7 +18,7 @@ extern void __VERIFIER_error() __attribute__ ((__noreturn__));
 
 
 void err()
-{ ERROR: __VERIFIER_error(); goto ERROR; }
+{ ERROR: __VERIFIER_error();}
 
 int __VERIFIER_nondet_int();
 

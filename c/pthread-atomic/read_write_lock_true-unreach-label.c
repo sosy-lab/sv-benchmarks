@@ -9,7 +9,7 @@ extern void __VERIFIER_error() __attribute__ ((__noreturn__));
 */
 
 #include <pthread.h>
-#define assert(e) if (!(e)) ERROR: __VERIFIER_error(); goto ERROR;
+#define assert(e) if (!(e)) ERROR: __VERIFIER_error();
 
 int w=0, r=0, x, y;
 

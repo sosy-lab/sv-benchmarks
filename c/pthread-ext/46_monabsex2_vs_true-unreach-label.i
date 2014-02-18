@@ -636,7 +636,7 @@ _Bool s = 0;
 __thread _Bool l = 0;
 void* thr1(void* arg)
 {
- { if(!(!l || s)) { ERROR: __VERIFIER_error(); goto ERROR; (void)0; } };
+ { if(!(!l || s)) { ERROR: __VERIFIER_error();(void)0; } };
   s = s || 1;
  l = 1;
   return 0;

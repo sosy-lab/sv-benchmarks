@@ -17,5 +17,5 @@ void main() {
 
   if(k >= 0 && k < i)
     if(y[k] == 0)
-      {ERROR: __VERIFIER_error(); goto ERROR;}
+      {ERROR: __VERIFIER_error();}
 }

@@ -59,7 +59,7 @@ extern int __VERIFIER_nondet_int();
 		error_37:;
 		}
 		if(((( a12 <=  -43  && (a24==1)) && (a15==7)) && (a21==7))){
-		ERROR: __VERIFIER_error(); goto ERROR;
+		ERROR: __VERIFIER_error();
 		}
 		if(((( 80 < a12  && (a24==1)) && (a15==5)) && (a21==10))){
 		error_18:;

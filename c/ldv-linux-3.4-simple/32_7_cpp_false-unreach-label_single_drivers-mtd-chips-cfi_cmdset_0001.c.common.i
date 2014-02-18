@@ -27828,7 +27828,7 @@ void main(void) {
 
 
 void ldv_blast_assert(void) {
-ERROR: __VERIFIER_error(); goto ERROR;
+ERROR: __VERIFIER_error();
 }
 # 5 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/5348/dscv_tempdir/dscv/ri/32_1/kernel-rules/files/engine-blast.h" 2
 

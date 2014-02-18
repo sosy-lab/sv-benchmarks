@@ -1342,7 +1342,7 @@ void *thread3(void *arg)
 {
   pthread_mutex_lock(&mutex);
   if (data >= 3){
-    ERROR: __VERIFIER_error(); goto ERROR;
+    ERROR: __VERIFIER_error();
     ;
   }
   pthread_mutex_unlock(&mutex);

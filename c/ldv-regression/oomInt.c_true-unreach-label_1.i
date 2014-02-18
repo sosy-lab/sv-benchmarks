@@ -9,7 +9,7 @@ extern void __VERIFIER_error() __attribute__ ((__noreturn__));
 
 void __blast_assert()
 {
- ERROR: __VERIFIER_error(); goto ERROR;
+ ERROR: __VERIFIER_error();
 }
 # 3 "files/oomInt.c" 2
 # 17 "files/oomInt.c"

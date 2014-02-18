@@ -660,7 +660,7 @@ int main() {
     p = p->n;
   }
   if(p->h != 3 || (i + y) > 20)
-    ERROR: __VERIFIER_error(); goto ERROR;
+    ERROR: __VERIFIER_error();
   p = a;
   while (p->n != 0) {
     t = p->n;

@@ -6,7 +6,7 @@ extern void __VERIFIER_error() __attribute__ ((__noreturn__));
 #include <pthread.h>
 
 #define assume(e) __VERIFIER_assume(e)
-#define assert(e) { if(!(e)) { ERROR: __VERIFIER_error(); goto ERROR; (void)0; } }
+#define assert(e) { if(!(e)) { ERROR: __VERIFIER_error();(void)0; } }
 
 inline int calculateNext(int s2){ 
 	int calculateNext_return;

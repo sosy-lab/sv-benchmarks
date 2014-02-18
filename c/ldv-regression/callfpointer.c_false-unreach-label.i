@@ -15,7 +15,7 @@ void f(void g(int)) {
 
 void h(int i) {
  if(i==1) {
-  ERROR: __VERIFIER_error(); goto ERROR;
+  ERROR: __VERIFIER_error();
  } else {
 
  }

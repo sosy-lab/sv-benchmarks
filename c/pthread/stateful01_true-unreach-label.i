@@ -1340,7 +1340,7 @@ int main()
 
   if (data1!=16 && data2!=5)
   {
-    ERROR: __VERIFIER_error(); goto ERROR;
+    ERROR: __VERIFIER_error();
       ;
   }
 

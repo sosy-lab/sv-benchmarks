@@ -24,7 +24,7 @@ int main()
         p = &a;
         a = a - 4;
         if (*p != 0){
-                ERROR: __VERIFIER_error(); goto ERROR;
+                ERROR: __VERIFIER_error();
         }
         return 0;
 }

@@ -661,7 +661,7 @@ void* thr1(void* arg)
  {
   { if(!(x == y)) { goto ERROR; } };
  } else {
-  { if(!(x != y)) { ERROR: __VERIFIER_error(); goto ERROR; (void)0; } };
+  { if(!(x != y)) { ERROR: __VERIFIER_error();(void)0; } };
  }
  __VERIFIER_atomic_release();
  return 0;

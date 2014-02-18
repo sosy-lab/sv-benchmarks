@@ -44,7 +44,7 @@ int main() {
   i = 0;
   while (p!=0) {
     if (p->h != i) {
-      ERROR: __VERIFIER_error(); goto ERROR;
+      ERROR: __VERIFIER_error();
     }
     p = p->n;
     i++;

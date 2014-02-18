@@ -5,7 +5,7 @@ extern void __VERIFIER_error() __attribute__ ((__noreturn__));
 */
 
 #include <pthread.h>
-#define assert(e) if (!(e)) ERROR: __VERIFIER_error(); goto ERROR;
+#define assert(e) if (!(e)) ERROR: __VERIFIER_error();
 
 int flag1 = 0, flag2 = 0; // boolean flags
 int turn; // integer variable to hold the ID of the thread whose turn is it

@@ -664,7 +664,7 @@ void* thr1(void* arg)
   while(1)
   {
     __VERIFIER_atomic_acquire();
-    { if(!(a != b)) { ERROR: __VERIFIER_error(); goto ERROR; (void)0; } };
+    { if(!(a != b)) { ERROR: __VERIFIER_error();(void)0; } };
     __VERIFIER_atomic_release();
   }
   return 0;

@@ -1,7 +1,7 @@
 extern void __VERIFIER_error() __attribute__ ((__noreturn__));
 
 void __blast_assert(void) {
-ERROR: __VERIFIER_error(); goto ERROR;
+ERROR: __VERIFIER_error();
 }
 
 

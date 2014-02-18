@@ -9312,7 +9312,7 @@ extern int __VERIFIER_nondet_int();
 	    	error_10:;
 	    } 
 	    if((((((((a2==1)&&(a14==4))&&(a25==1))&&(a3==13))&&(a27==19))&&(a10==1))&&!(a26==1))){
-	    	ERROR: __VERIFIER_error(); goto ERROR;
+	    	ERROR: __VERIFIER_error();
 	    } 
 	    if((((((((a2==1)&&(a14==4))&&(a25==1))&&(a3==13))&&(a27==19))&&(a10==1))&&(a26==1))){
 	    	error_5:;

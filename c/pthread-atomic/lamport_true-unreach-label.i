@@ -656,7 +656,7 @@ void *thr1() {
     break;
   }
   X = 0;
-  if (!(X <= 0)) ERROR: __VERIFIER_error(); goto ERROR;;
+  if (!(X <= 0)) ERROR: __VERIFIER_error();
   y = 0;
   b1 = 0;
 }
@@ -681,7 +681,7 @@ void *thr2() {
     break;
   }
   X = 1;
-  if (!(X >= 1)) ERROR: __VERIFIER_error(); goto ERROR;;
+  if (!(X >= 1)) ERROR: __VERIFIER_error();
   y = 0;
   b2 = 0;
 }

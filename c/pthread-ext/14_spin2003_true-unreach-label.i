@@ -647,7 +647,7 @@ void* thr1(void* arg) {
   __VERIFIER_atomic_acquire();
   x = 0;
   x = 1;
-  { if(!(x>=1)) { ERROR: __VERIFIER_error(); goto ERROR; (void)0; } };
+  { if(!(x>=1)) { ERROR: __VERIFIER_error();(void)0; } };
   __VERIFIER_atomic_release();
   return 0;
 }

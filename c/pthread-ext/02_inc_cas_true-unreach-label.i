@@ -659,7 +659,7 @@ void* thr1(void* arg) {
   __VERIFIER_atomic_CAS(&value,v,vn,&casret);
  }
  while (casret==0);
- { if(!(value > v)) { ERROR: __VERIFIER_error(); goto ERROR; (void)0; } };
+ { if(!(value > v)) { ERROR: __VERIFIER_error();(void)0; } };
  return 0;
 }
 int main(){

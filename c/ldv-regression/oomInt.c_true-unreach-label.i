@@ -11,7 +11,7 @@ extern void __VERIFIER_error() __attribute__ ((__noreturn__));
   {
  if (i == 0)
  {
-  ERROR: __VERIFIER_error(); goto ERROR;
+  ERROR: __VERIFIER_error();
  }
   }
 # 20 "files/oomInt.c"

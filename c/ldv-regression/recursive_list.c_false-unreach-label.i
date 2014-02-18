@@ -10,7 +10,7 @@ typedef unsigned int size_t;
 extern  __attribute__((__nothrow__)) void *malloc(size_t __size ) __attribute__((__malloc__));
 
 void err()
-{ ERROR: __VERIFIER_error(); goto ERROR; }
+{ ERROR: __VERIFIER_error();}
 
 struct list {
  int n;

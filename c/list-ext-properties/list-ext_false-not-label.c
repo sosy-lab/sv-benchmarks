@@ -67,7 +67,7 @@ int main() {
   }
 
   if(p->h != 3 || (i + y) < 20)
-    ERROR: __VERIFIER_error(); goto ERROR;
+    ERROR: __VERIFIER_error();
 
   return 0;
 }

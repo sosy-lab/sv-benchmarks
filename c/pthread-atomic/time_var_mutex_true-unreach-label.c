@@ -9,7 +9,7 @@ extern void __VERIFIER_error() __attribute__ ((__noreturn__));
 */
 
 #include <pthread.h>
-#define assert(e) if (!(e)) ERROR: __VERIFIER_error(); goto ERROR;
+#define assert(e) if (!(e)) ERROR: __VERIFIER_error();
 
 int block;
 int busy; // boolean flag indicating whether the block has been allocated to an inode

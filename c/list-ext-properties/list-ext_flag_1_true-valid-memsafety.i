@@ -668,5 +668,5 @@ int main() {
   }
   free(p);
   return 0;
-  ERROR: __VERIFIER_error(); goto ERROR;
+  ERROR: __VERIFIER_error();
 }

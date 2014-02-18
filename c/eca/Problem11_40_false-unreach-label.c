@@ -136,7 +136,7 @@ extern int __VERIFIER_nondet_int();
 		error_16:;
 		}
 		if(((((( a29 <=  140  && (a4==1)) && (a25==10)) && (a3==1)) &&   ((138 < a23) && (306 >= a23)) ) && (a8==15))){
-		ERROR: __VERIFIER_error(); goto ERROR;
+		ERROR: __VERIFIER_error();
 		}
 		if(((((( 277 < a29  && (a4==1)) && (a25==10)) && (a3==1)) &&   ((138 < a23) && (306 >= a23)) ) && (a8==15))){
 		error_55:;

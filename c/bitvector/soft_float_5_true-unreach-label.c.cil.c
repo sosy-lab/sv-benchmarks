@@ -4,7 +4,7 @@ extern char __VERIFIER_nondet_char(void);
 extern unsigned int __VERIFIER_nondet_uint(void);
 void __VERIFIER_assert(int cond) {
   if (!(cond)) {
-    ERROR: __VERIFIER_error(); goto ERROR;
+    ERROR: __VERIFIER_error();
   }
   return;
 }

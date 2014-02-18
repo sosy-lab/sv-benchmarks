@@ -35,7 +35,7 @@ int main() {
   p = a;
   while (p!=0) {
     if (p->h != 1) {
-      ERROR: __VERIFIER_error(); goto ERROR;
+      ERROR: __VERIFIER_error();
     }
     p = p->n;
   }

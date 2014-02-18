@@ -104,7 +104,7 @@ extern int __VERIFIER_nondet_int();
 		error_16:;
 		}
 		if((((((a10==2) && (a12==0)) &&  218 < a1 ) && (a4==14)) && (a19==7))){
-		ERROR: __VERIFIER_error(); goto ERROR;
+		ERROR: __VERIFIER_error();
 		}
 		if((((((a10==1) && (a12==0)) &&  a1 <=  -13 ) && (a4==14)) && (a19==8))){
 		error_43:;

@@ -8,7 +8,7 @@ to correctly model the cv_broadcast(COND) statement "b1_COND := 1;" must be manu
 
 #define assume(e) __VERIFIER_assume(e)
 #define assert_nl(e) { if(!(e)) { goto ERROR; } }
-#define assert(e) { if(!(e)) { ERROR: __VERIFIER_error(); goto ERROR; (void)0; } }
+#define assert(e) { if(!(e)) { ERROR: __VERIFIER_error();(void)0; } }
 
 #define cv_wait(c,m){ \
   c = 0; \

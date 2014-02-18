@@ -646,7 +646,7 @@ void *allocator(){
     inode = 1;
   }
   block = 1;
-  if (!(block == 1)) ERROR: __VERIFIER_error(); goto ERROR;;
+  if (!(block == 1)) ERROR: __VERIFIER_error();
   pthread_mutex_unlock(&m_inode);
   return ((void *)0);
 }
@@ -654,7 +654,7 @@ void *de_allocator(){
   pthread_mutex_lock(&m_busy);
   if(busy == 0){
     block = 0;
-    if (!(block == 0)) ERROR: __VERIFIER_error(); goto ERROR;;
+    if (!(block == 0)) ERROR: __VERIFIER_error();
   }
   pthread_mutex_unlock(&m_busy);
   return ((void *)0);

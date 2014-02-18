@@ -653,7 +653,7 @@ volatile unsigned inc_flag = 0;
 volatile unsigned dec_flag = 0;
 void __VERIFIER_atomic_assert1(unsigned inc__v)
 {
- { if(!(dec_flag || value > inc__v)) { ERROR: __VERIFIER_error(); goto ERROR; (void)0; } };
+ { if(!(dec_flag || value > inc__v)) { ERROR: __VERIFIER_error();(void)0; } };
 }
 inline unsigned inc() {
  unsigned inc__v, inc__vn, inc__casret;
@@ -671,7 +671,7 @@ inline unsigned inc() {
 }
 void __VERIFIER_atomic_assert2(unsigned dec__v)
 {
-  { if(!(inc_flag || value < dec__v)) { ERROR: __VERIFIER_error(); goto ERROR; (void)0; } };
+  { if(!(inc_flag || value < dec__v)) { ERROR: __VERIFIER_error();(void)0; } };
 }
 inline unsigned dec() {
  unsigned dec__v, dec__vn, dec__casret;

@@ -8,7 +8,7 @@ extern void __VERIFIER_error() __attribute__ ((__noreturn__));
 
 void __blast_assert()
 {
- ERROR: __VERIFIER_error(); goto ERROR;
+ ERROR: __VERIFIER_error();
 }
 # 2 "files/ex3_forlist.c" 2
 # 10 "files/ex3_forlist.c"

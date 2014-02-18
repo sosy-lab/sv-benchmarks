@@ -839,7 +839,7 @@ extern void funlockfile (FILE *__stream) __attribute__ ((__nothrow__));
 
 void __blast_assert()
 {
- ERROR: __VERIFIER_error(); goto ERROR;
+ ERROR: __VERIFIER_error();
 }
 # 3 "files/sizeofparameters_test.c" 2
 

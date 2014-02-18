@@ -50,7 +50,7 @@ void * thread_routine(void * arg)
     
     if (h<0)
     {
-      ERROR: __VERIFIER_error(); goto ERROR;
+      ERROR: __VERIFIER_error();
       ;
     }
 

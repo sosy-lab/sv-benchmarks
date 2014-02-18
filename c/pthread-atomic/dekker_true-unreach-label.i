@@ -645,7 +645,7 @@ void *thr1() {
     }
   }
   x = 0;
-  if (!(x<=0)) ERROR: __VERIFIER_error(); goto ERROR;;
+  if (!(x<=0)) ERROR: __VERIFIER_error();
   turn = 1;
   flag1 = 0;
 }
@@ -659,7 +659,7 @@ void *thr2() {
     }
   }
   x = 1;
-  if (!(x>=1)) ERROR: __VERIFIER_error(); goto ERROR;;
+  if (!(x>=1)) ERROR: __VERIFIER_error();
   turn = 1;
   flag2 = 0;
 }

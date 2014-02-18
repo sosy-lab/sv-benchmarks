@@ -1209,7 +1209,7 @@ extern char *stpncpy (char *__restrict __dest,
         __const char *__restrict __src, size_t __n)
      __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1, 2)));
 
-void __VERIFIER_assert(int expression) { if (!expression) { ERROR: __VERIFIER_error(); goto ERROR; }; return; }
+void __VERIFIER_assert(int expression) { if (!expression) { ERROR: __VERIFIER_error();}; return; }
 char *v;
 void *thread1(void * arg)
 {

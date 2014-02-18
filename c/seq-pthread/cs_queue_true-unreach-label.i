@@ -846,7 +846,7 @@ extern int getloadavg (double __loadavg[], int __nelem)
 
 void __VERIFIER_assert(int cond) {
     if (!(cond)) {
-          ERROR: __VERIFIER_error(); goto ERROR;
+          ERROR: __VERIFIER_error();
                    }
       return;
 }

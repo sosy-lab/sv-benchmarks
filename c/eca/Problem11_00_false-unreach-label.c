@@ -22,7 +22,7 @@ extern int __VERIFIER_nondet_int();
 
 	int calculate_output(int input) {
 		if(((((( a29 <=  140  && (a4==1)) && (a25==10)) && (a3==1)) &&  a23 <=  -43 ) && (a8==15))){
-		ERROR: __VERIFIER_error(); goto ERROR;
+		ERROR: __VERIFIER_error();
 		}
 		if((((((  ((245 < a29) && (277 >= a29))  && (a4==1)) && (a25==11)) && (a3==1)) &&   ((-43 < a23) && (138 >= a23)) ) && (a8==15))){
 		error_31:;

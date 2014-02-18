@@ -14,7 +14,7 @@ extern void __VERIFIER_error() __attribute__ ((__noreturn__));
 
 
 void err()
-{ ERROR: __VERIFIER_error(); goto ERROR; }
+{ ERROR: __VERIFIER_error();}
 
 struct mutex {
  int is_locked;

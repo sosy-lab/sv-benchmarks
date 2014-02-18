@@ -4795,7 +4795,7 @@ extern int __VERIFIER_nondet_int();
 	    	error_37:;
 	    } 
 	    if(((((((((a3==1)&&(a4==16))&&(a25==1))&&(a1==1))&&(a26==17))&&(a28==17))&&!(a7==1))&&(a14==20))){
-	    	ERROR: __VERIFIER_error(); goto ERROR;
+	    	ERROR: __VERIFIER_error();
 	    } 
 	    return -2; 
 	}

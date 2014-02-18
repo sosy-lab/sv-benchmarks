@@ -631,7 +631,7 @@ extern void __assert (const char *__assertion, const char *__file, int __line)
 
 void __VERIFIER_assert(int cond) {
     if (!(cond)) {
-          ERROR: __VERIFIER_error(); goto ERROR;
+          ERROR: __VERIFIER_error();
                    }
       return;
 }

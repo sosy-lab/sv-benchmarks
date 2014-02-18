@@ -8,7 +8,7 @@ extern void __VERIFIER_error() __attribute__ ((__noreturn__));
 
 void __blast_assert()
 {
- ERROR: __VERIFIER_error(); goto ERROR;
+ ERROR: __VERIFIER_error();
 }
 # 2 "files/rule60_list2.c" 2
 # 1 "/usr/include/malloc.h" 1 3 4

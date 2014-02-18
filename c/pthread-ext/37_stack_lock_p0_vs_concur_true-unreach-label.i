@@ -666,7 +666,7 @@ inline void push(int d) {
  }
 }
 void* thr1(void* arg){
-  while(1){push(10); { if(!(top != 0)) { ERROR: __VERIFIER_error(); goto ERROR; (void)0; } };}
+  while(1){push(10); { if(!(top != 0)) { ERROR: __VERIFIER_error();(void)0; } };}
   return 0;
 }
 int main()

@@ -657,7 +657,7 @@ inline void findMax(int offset)
    }
   }
   __VERIFIER_atomic_release();
-  { if(!(e <= max)) { ERROR: __VERIFIER_error(); goto ERROR; (void)0; } };
+  { if(!(e <= max)) { ERROR: __VERIFIER_error();(void)0; } };
  }
 }
 void* thr1(void* arg) {

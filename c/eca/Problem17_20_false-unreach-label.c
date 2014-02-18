@@ -81,7 +81,7 @@ extern int __VERIFIER_nondet_int();
 		error_16:;
 		}
 		if(((((  ((-182 < a14) && (-114 >= a14))  &&   ((-68 < a26) && (124 >= a26)) ) && (a24==1)) &&   ((37 < a28) && (134 >= a28)) ) &&  a21 <=  127 )){
-		ERROR: __VERIFIER_error(); goto ERROR;
+		ERROR: __VERIFIER_error();
 		}
 		if(((((  ((-114 < a14) && (-84 >= a14))  &&  a26 <=  -68 ) && (a24==1)) &&  a28 <=  37 ) &&  a21 <=  127 )){
 		error_7:;

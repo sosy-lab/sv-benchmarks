@@ -32,7 +32,7 @@ int main( void ) {
   for ( x = 0 ; x < N ; x++ ) {
     for ( y = x+1 ; y < N ; y++ ) {
       if ( a[x] > a[y] ) {
-        ERROR: __VERIFIER_error(); goto ERROR;
+        ERROR: __VERIFIER_error();
       }
     } 
   }

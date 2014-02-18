@@ -651,7 +651,7 @@ void __VERIFIER_atomic_thr1(int PR_CreateThread__RES)
       if( __COUNT__ == 0 ) {
  mThread = PR_CreateThread__RES;
  __COUNT__ = __COUNT__ + 1;
-      } else { { if(!(0)) { ERROR: __VERIFIER_error(); goto ERROR; (void)0; } }; }
+      } else { { if(!(0)) { ERROR: __VERIFIER_error();(void)0; } }; }
 }
 void* thr1(void* arg) {
   int PR_CreateThread__RES = 1;
@@ -665,7 +665,7 @@ void __VERIFIER_atomic_thr2(int self)
 {
       if( __COUNT__ == 1 ) {
  __COUNT__ = __COUNT__ + 1;
-      } else { { if(!(0)) { ERROR: __VERIFIER_error(); goto ERROR; (void)0; } }; }
+      } else { { if(!(0)) { ERROR: __VERIFIER_error();(void)0; } }; }
 }
 void* thr2(void* arg) {
   int self = mThread;

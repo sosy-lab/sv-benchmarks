@@ -1608,7 +1608,7 @@ extern int __VERIFIER_nondet_int();
 	    	error_24:;
 	    } 
 	    if((((((((!(a26==1)&&(a6==1))&&(a27==1))&&(a12==1))&&(a3==0))&&(a11==1))&&(a5==1))&&(a18==1))){
-	    	ERROR: __VERIFIER_error(); goto ERROR;
+	    	ERROR: __VERIFIER_error();
 	    } 
 	    if(((((((((a26==1)&&!(a6==1))&&(a27==1))&&!(a12==1))&&(a3==0))&&(a11==1))&&(a5==1))&&(a18==1))){
 	    	error_11:;

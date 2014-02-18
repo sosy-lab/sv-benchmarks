@@ -5,7 +5,7 @@ extern void __VERIFIER_error() __attribute__ ((__noreturn__));
 */
 
 #include <pthread.h>
-#define assert(e) if (!(e)) ERROR: __VERIFIER_error(); goto ERROR;
+#define assert(e) if (!(e)) ERROR: __VERIFIER_error();
 
 int x, y;
 int b1, b2; // boolean flags

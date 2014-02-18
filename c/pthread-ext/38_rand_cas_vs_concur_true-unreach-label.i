@@ -672,7 +672,7 @@ inline int PseudoRandomUsingAtomic_nex()
  return nex_return;
 }
 void* thr1(void* arg){
-  { if(!(PseudoRandomUsingAtomic_nex() <= 10)) { ERROR: __VERIFIER_error(); goto ERROR; (void)0; } };
+  { if(!(PseudoRandomUsingAtomic_nex() <= 10)) { ERROR: __VERIFIER_error();(void)0; } };
   return 0;
 }
 int main()

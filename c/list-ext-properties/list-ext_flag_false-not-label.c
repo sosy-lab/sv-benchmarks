@@ -71,5 +71,5 @@ void main() {
 
   return;
 
-  ERROR: __VERIFIER_error(); goto ERROR;
+  ERROR: __VERIFIER_error();
 }

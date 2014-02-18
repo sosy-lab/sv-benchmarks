@@ -9393,7 +9393,7 @@ extern int __VERIFIER_nondet_int();
 	    	error_14:;
 	    } 
 	    if((((((((a2==1)&&(a14==4))&&!(a25==1))&&(a3==14))&&(a27==19))&&(a10==1))&&(a26==1))){
-	    	ERROR: __VERIFIER_error(); goto ERROR;
+	    	ERROR: __VERIFIER_error();
 	    } 
 	    if((((((((a2==1)&&(a14==6))&&!(a25==1))&&(a3==14))&&(a27==19))&&(a10==1))&&(a26==1))){
 	    	error_42:;

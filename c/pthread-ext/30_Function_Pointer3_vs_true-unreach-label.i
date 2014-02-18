@@ -669,7 +669,7 @@ void* thr1(void* arg)
 {
   while(1)
   {
-    { if(!(res < 10)) { ERROR: __VERIFIER_error(); goto ERROR; (void)0; } };
+    { if(!(res < 10)) { ERROR: __VERIFIER_error();(void)0; } };
   }
   return 0;
 }

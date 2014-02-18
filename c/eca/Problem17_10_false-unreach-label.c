@@ -120,7 +120,7 @@ extern int __VERIFIER_nondet_int();
 		error_17:;
 		}
 		if(((((  ((-114 < a14) && (-84 >= a14))  &&  a26 <=  -68 ) && (a24==1)) &&  300 < a28 ) &&  a21 <=  127 )){
-		ERROR: __VERIFIER_error(); goto ERROR;
+		ERROR: __VERIFIER_error();
 		}
 		if(((((  ((-114 < a14) && (-84 >= a14))  &&   ((124 < a26) && (217 >= a26)) ) && (a24==1)) &&  300 < a28 ) &&  a21 <=  127 )){
 		error_42:;

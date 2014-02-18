@@ -657,7 +657,7 @@ void* thr1(void* arg) {
     break;
   }
   X = 0;
-  { if(!(X <= 0)) { ERROR: __VERIFIER_error(); goto ERROR; (void)0; } };
+  { if(!(X <= 0)) { ERROR: __VERIFIER_error();(void)0; } };
   y = 0;
   b1 = 0;
   return 0;
@@ -683,7 +683,7 @@ void* thr2(void* arg) {
     break;
   }
   X = 1;
-  { if(!(X >= 1)) { ERROR: __VERIFIER_error(); goto ERROR; (void)0; } };
+  { if(!(X >= 1)) { ERROR: __VERIFIER_error();(void)0; } };
   y = 0;
   b2 = 0;
   return 0;

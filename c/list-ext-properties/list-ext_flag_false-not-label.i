@@ -659,5 +659,5 @@ void main() {
   if (p->h != 3 || i > 20)
     goto ERROR;
   return;
-  ERROR: __VERIFIER_error(); goto ERROR;
+  ERROR: __VERIFIER_error();
 }

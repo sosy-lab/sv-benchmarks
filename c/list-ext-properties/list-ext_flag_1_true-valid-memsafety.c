@@ -82,5 +82,5 @@ int main() {
 
   return 0;
 
-  ERROR: __VERIFIER_error(); goto ERROR;
+  ERROR: __VERIFIER_error();
 }

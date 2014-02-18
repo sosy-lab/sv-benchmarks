@@ -128,7 +128,7 @@ extern int __VERIFIER_nondet_int();
 		error_57:;
 		}
 		if(((((a2==1) &&  a4 <=  -86 ) &&   ((-147 < a0) && (-98 >= a0)) ) &&   ((-144 < a29) && (-16 >= a29)) )){
-		ERROR: __VERIFIER_error(); goto ERROR;
+		ERROR: __VERIFIER_error();
 		}
 		if(((((a2==2) &&  a4 <=  -86 ) &&   ((-98 < a0) && (-61 >= a0)) ) &&  43 < a29 )){
 		error_46:;
