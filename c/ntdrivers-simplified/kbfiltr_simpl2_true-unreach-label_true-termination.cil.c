@@ -1322,7 +1322,6 @@ void errorFn(void)
 { 
 
   {
-  goto ERROR;
   ERROR: __VERIFIER_error();
 #line 29
   return;

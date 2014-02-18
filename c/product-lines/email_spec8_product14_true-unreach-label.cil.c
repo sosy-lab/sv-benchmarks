@@ -1060,7 +1060,6 @@ void __automaton_fail(void)
 { 
 
   {
-  goto ERROR;
   ERROR: __VERIFIER_error();
 #line 53 "wsllib_check.c"
   return;

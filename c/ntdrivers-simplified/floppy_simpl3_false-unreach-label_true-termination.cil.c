@@ -35,7 +35,6 @@ void errorFn(void)
 { 
 
   {
-  goto ERROR;
   ERROR: __VERIFIER_error();
   return;
 }

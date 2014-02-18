@@ -7,7 +7,6 @@ void error(void)
 { 
 
   {
-  goto ERROR;
   ERROR: __VERIFIER_error();
   return;
 }

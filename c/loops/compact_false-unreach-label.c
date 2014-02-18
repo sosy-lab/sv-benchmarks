@@ -17,7 +17,6 @@ int main(int argc, char **argv)
 		if (array[i] == ND)
 			return i;
 
-	goto ERROR;
 ERROR: __VERIFIER_error();
 	return 0;
 }
