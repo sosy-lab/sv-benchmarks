@@ -8872,8 +8872,6 @@ void ldv_blast_assert(void)
 
   {
   ERROR: __VERIFIER_error();
-# 6 "/anthill/stuff/tacas-comp/work/current--X--drivers/char/ipmi/ipmi_watchdog.ko--X--safelinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/kernel-rules/files/engine-blast-assert.h"
-  goto ERROR;
 }
 }
 # 6 "/anthill/stuff/tacas-comp/work/current--X--drivers/char/ipmi/ipmi_watchdog.ko--X--safelinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/kernel-rules/files/engine-blast.h"

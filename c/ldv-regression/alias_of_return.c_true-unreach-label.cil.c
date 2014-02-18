@@ -9,8 +9,6 @@ void err(void)
 
   {
   ERROR: __VERIFIER_error();
-#line 13
-  goto ERROR;
 }
 }
 #line 16 "files/alias_of_return.c"

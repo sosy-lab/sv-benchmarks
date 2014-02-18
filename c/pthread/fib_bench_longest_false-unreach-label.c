@@ -40,7 +40,6 @@ main(int argc, char **argv)
 
   if (i >= 46368 || j >= 46368) {
     ERROR: __VERIFIER_error();
-    goto ERROR;
   }
 
   return 0;

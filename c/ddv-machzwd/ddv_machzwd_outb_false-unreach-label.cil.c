@@ -5993,7 +5993,6 @@ void __VERIFIER_assert(int phi , char *txt )
 #line 1634
   if (! phi) {
     ERROR: __VERIFIER_error();
-    goto ERROR;
   } else {
 
   }

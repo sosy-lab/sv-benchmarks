@@ -16,7 +16,6 @@ int __VERIFIER_nondet_int(void) {
 
 static void fail(void) {
 ERROR: __VERIFIER_error();
-    goto ERROR;
 }
 
 #define ___MY_ASSERT(cond) do {     \

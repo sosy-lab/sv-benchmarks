@@ -117,7 +117,6 @@ void *t2(void *arg)
       if (empty(&queue)!=EMPTY)
         if (!dequeue(&queue)==stored_elements[i]) {
           ERROR: __VERIFIER_error();
-          goto ERROR;
         }
     }
     dequeue_flag=FALSE;
@@ -139,7 +138,6 @@ int main(void)
 
   if (!empty(&queue)==EMPTY) {
     ERROR: __VERIFIER_error();
-    goto ERROR;
   }
 
   pthread_mutex_init(&m, 0);

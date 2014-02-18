@@ -5528,8 +5528,6 @@ void ldv_blast_assert(void)
 
   {
   ERROR: __VERIFIER_error();
-#line 6
-  goto ERROR;
 }
 }
 #line 6 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--43_1a--X--cpachecker/linux-3.4/csd_deg_dscv/7625/dscv_tempdir/dscv/ri/43_1a/kernel-rules/files/engine-blast.h"

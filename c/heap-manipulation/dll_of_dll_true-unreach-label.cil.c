@@ -30,7 +30,6 @@ static void fail(void)
 
   {
   ERROR: __VERIFIER_error();
-  goto ERROR;
 }
 }
 #line 20 "dll_of_dll.c"

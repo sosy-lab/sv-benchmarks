@@ -29,7 +29,6 @@ static void fail(void)
 
   {
   ERROR: __VERIFIER_error();
-  goto ERROR;
 }
 }
 #line 25 "test-0177.c"

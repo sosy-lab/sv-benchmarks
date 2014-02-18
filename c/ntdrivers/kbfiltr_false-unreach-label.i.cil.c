@@ -1641,7 +1641,6 @@ void errorFn(void)
 
   {
   ERROR: __VERIFIER_error();
-  goto ERROR;
 }
 }
 int s  ;

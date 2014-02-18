@@ -15,8 +15,6 @@ void __blast_assert(void)
 
   {
   ERROR: __VERIFIER_error();
-#line 4
-  goto ERROR;
 }
 }
 #line 6 "files/alt_test.c"

@@ -1740,7 +1740,6 @@ int ssl3_accept(SSL *s )
   }
   return (ret);
   ERROR: __VERIFIER_error();
-  goto ERROR;
 }
 }
 int ssl3_send_server_certificate(SSL *s ) 

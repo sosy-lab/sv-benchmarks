@@ -16838,8 +16838,6 @@ void ldv_blast_assert(void)
 
   {
   ERROR: __VERIFIER_error();
-#line 6
-  goto ERROR;
 }
 }
 #line 6 "/anthill/stuff/tacas-comp/work/current--X--drivers/block/drbd/drbd.ko--X--unsafe1_safe6linux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/19/dscv_tempdir/dscv/ri/08_1/kernel-rules/files/engine-blast.h"

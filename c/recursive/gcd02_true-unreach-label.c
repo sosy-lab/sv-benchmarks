@@ -16,7 +16,6 @@ int gcd(int y1, int y2) {
     if (y1 <= 0 || y2 <= 0) {
         // No non-positive input allowed
         ERROR: __VERIFIER_error();
-        goto ERROR;
     }
     if (y1 == y2) {
         return y1;
@@ -51,7 +50,6 @@ int main() {
         int z = gcd(m, n);
         if (divides(z, m) == 0) {
             ERROR: __VERIFIER_error();
-            goto ERROR;
         } else {
             return 0;
         }

@@ -177,7 +177,6 @@ int main(void)
 #line 34
     if (__cil_tmp24 != 1) {
       ERROR: __VERIFIER_error();
-      goto ERROR;
     } else {
 
     }

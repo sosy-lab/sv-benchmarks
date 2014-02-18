@@ -143,7 +143,6 @@ int main(int argc , char **argv )
     if (j >= 377) {
       _L: /* CIL Label */ 
       ERROR: __VERIFIER_error();
-      goto ERROR;
     } else {
 
     }

@@ -38,7 +38,6 @@ main(int argc, char **argv)
 
   if (i > 144 || j > 144) {
     ERROR: __VERIFIER_error();
-    goto ERROR;
   }
 
   return 0;

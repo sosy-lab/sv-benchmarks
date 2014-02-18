@@ -1638,6 +1638,5 @@ int ssl3_connect(SSL *s )
   }
   return (ret);
   ERROR: __VERIFIER_error();
-  goto ERROR;
 }
 }

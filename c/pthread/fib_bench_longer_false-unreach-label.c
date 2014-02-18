@@ -38,7 +38,6 @@ main(int argc, char **argv)
 
   if (i >= 377 || j >= 377) {
     ERROR: __VERIFIER_error();
-    goto ERROR;
   }
 
   return 0;

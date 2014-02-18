@@ -128,7 +128,6 @@ int main(void)
 #line 29
     if (__cil_tmp14 != 1) {
       ERROR: __VERIFIER_error();
-      goto ERROR;
     } else {
 
     }

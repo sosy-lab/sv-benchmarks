@@ -9,7 +9,6 @@ void __blast_assert(void)
 
   {
   ERROR: __VERIFIER_error();
-  goto ERROR;
 }
 }
 #line 7 "stateful_check.c"

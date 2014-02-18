@@ -205,7 +205,6 @@ void main(void)
 #line 52
   if (__cil_tmp25 != 3) {
     ERROR: __VERIFIER_error();
-    goto ERROR;
   } else {
 
   }

@@ -118,7 +118,6 @@ void *t1(void *arg)
   return NULL;
 
   ERROR: __VERIFIER_error();
-    goto ERROR;
 }
 
 void *t2(void *arg) 
@@ -132,7 +131,6 @@ void *t2(void *arg)
     {
       if (!dequeue(&queue)==stored_elements[i]) {
         ERROR: __VERIFIER_error();
-        goto ERROR;
       }
       dequeue_flag=FALSE;
       enqueue_flag=TRUE;
@@ -154,7 +152,6 @@ int main(void)
 
   if (!empty(&queue)==EMPTY) {
     ERROR: __VERIFIER_error();
-    goto ERROR;
   }
 
 

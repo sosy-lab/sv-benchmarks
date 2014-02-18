@@ -35,7 +35,6 @@ int main() {
     int res2 = mult(n, m);
     if (res1 != res2 && m > 0 && n > 0) {
         ERROR: __VERIFIER_error();
-        goto ERROR;
     } else {
         return 0;
     }

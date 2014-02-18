@@ -16,8 +16,6 @@ void err(void)
 
   {
   ERROR: __VERIFIER_error();
-#line 13
-  goto ERROR;
 }
 }
 #line 22 "files/recursive_list.c"

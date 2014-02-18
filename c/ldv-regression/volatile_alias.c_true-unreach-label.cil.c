@@ -27,8 +27,6 @@ int main(void)
 #line 19
   if (__cil_tmp4 != 0) {
     ERROR: __VERIFIER_error();
-#line 20
-    goto ERROR;
   } else {
 
   }

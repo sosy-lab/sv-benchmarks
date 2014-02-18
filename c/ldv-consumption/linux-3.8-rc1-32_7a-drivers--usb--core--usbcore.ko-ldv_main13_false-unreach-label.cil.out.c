@@ -50660,8 +50660,6 @@ __inline static void ldv_error(void)
 
   {
   ERROR: __VERIFIER_error();
-#line 12
-  goto ERROR;
 }
 }
 #line 25

@@ -515,7 +515,6 @@ void *t2(void *arg )
 #line 131
       if (tmp___0 == __cil_tmp7) {
         ERROR: __VERIFIER_error();
-        goto ERROR;
       } else {
 
       }
@@ -586,7 +585,6 @@ int main(void)
 #line 154
   if (tmp___0 == -1) {
     ERROR: __VERIFIER_error();
-    goto ERROR;
   } else {
 
   }

@@ -24,8 +24,6 @@ void h(int i )
 #line 10
   if (i == 1) {
     ERROR: __VERIFIER_error();
-#line 11
-    goto ERROR;
   } else {
 
   }

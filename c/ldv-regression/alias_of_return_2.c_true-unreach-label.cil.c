@@ -9,8 +9,6 @@ void err(void)
 
   {
   ERROR: __VERIFIER_error();
-#line 14
-  goto ERROR;
 }
 }
 #line 16

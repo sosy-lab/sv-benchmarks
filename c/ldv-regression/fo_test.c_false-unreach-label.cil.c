@@ -17,8 +17,6 @@ void __blast_assert(void)
 
   {
   ERROR: __VERIFIER_error();
-#line 4
-  goto ERROR;
 }
 }
 #line 87 "/usr/include/fcntl.h"

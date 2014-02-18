@@ -13,8 +13,6 @@ void err(void)
 
   {
   ERROR: __VERIFIER_error();
-#line 10
-  goto ERROR;
 }
 }
 #line 16 "files/mutex_lock_struct.c"

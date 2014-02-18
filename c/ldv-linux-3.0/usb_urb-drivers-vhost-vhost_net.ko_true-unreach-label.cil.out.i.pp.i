@@ -15215,8 +15215,6 @@ void ldv_blast_assert(void)
 
   {
   ERROR: __VERIFIER_error();
-# 6 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/kernel-rules/files/engine-blast-assert.h"
-  goto ERROR;
 }
 }
 # 7 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/kernel-rules/files/engine-blast.h"

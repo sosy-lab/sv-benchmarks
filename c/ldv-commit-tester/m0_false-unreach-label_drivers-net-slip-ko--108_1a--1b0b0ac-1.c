@@ -9402,8 +9402,6 @@ __inline static void ldv_error(void)
 
   {
   ERROR: __VERIFIER_error();
-#line 12
-  goto ERROR;
 }
 }
 #line 6 "/work/vladimir/commit-test/commit-test-work/task-056--linux-stable--dir/work/current--X--drivers/net/slip.ko--X--defaultlinux-stable-1b0b0ac-1--X--108_1a--X--cpachecker/linux-stable-1b0b0ac-1/csd_deg_dscv/11/dscv_tempdir/rule-instrumentor/108_1a/common-model/ldv_common_model.c"

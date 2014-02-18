@@ -31,7 +31,6 @@ int main() {
         return 0;
     } else {
         ERROR: __VERIFIER_error();
-        goto ERROR;
     }
 }
 

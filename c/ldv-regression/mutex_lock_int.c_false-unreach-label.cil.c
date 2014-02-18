@@ -9,8 +9,6 @@ void err(void)
 
   {
   ERROR: __VERIFIER_error();
-#line 11
-  goto ERROR;
 }
 }
 #line 13 "files/mutex_lock_int.c"

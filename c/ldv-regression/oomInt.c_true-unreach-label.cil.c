@@ -11,8 +11,6 @@ void __VERIFIER_assert(int i)
 #line 6
   if (i == 0) {
     ERROR: __VERIFIER_error();
-#line 8
-    goto ERROR;
   } else {
 
   }

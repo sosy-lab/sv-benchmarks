@@ -7922,8 +7922,6 @@ void ldv_blast_assert(void)
 
   {
   ERROR: __VERIFIER_error();
-#line 6
-  goto ERROR;
 }
 }
 #line 6 "/anthill/stuff/tacas-comp/work/current--X--drivers/block/paride/pt.ko--X--safelinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/kernel-rules/files/engine-blast.h"

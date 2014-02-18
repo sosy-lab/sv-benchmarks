@@ -88,7 +88,6 @@ int main() {
 
     if (result == 1 && mult(f1, f2) == n && f1 > 1 && f2 > 1) {
         ERROR: __VERIFIER_error();
-        goto ERROR;
     } else {
         return 0;
     }

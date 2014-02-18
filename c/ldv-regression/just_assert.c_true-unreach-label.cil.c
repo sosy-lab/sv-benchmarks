@@ -11,8 +11,6 @@ int main(void)
 #line 4
   if (0) {
     ERROR: __VERIFIER_error();
-#line 5
-    goto ERROR;
   } else {
 
   }

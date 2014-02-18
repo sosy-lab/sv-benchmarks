@@ -605,7 +605,6 @@ void *checkThread(void *param )
       fprintf(__cil_tmp2, __cil_tmp3);
       }
       ERROR: __VERIFIER_error();
-      goto ERROR;
     }
   }
 #line 86

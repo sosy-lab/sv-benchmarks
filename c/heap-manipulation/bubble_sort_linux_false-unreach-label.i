@@ -903,7 +903,6 @@ extern void funlockfile (FILE *__stream) __attribute__ ((__nothrow__ , __leaf__)
 extern int __VERIFIER_nondet_int(void);
 static void fail(void) {
 ERROR: __VERIFIER_error();
-    goto ERROR;
 }
 struct list_head {
  struct list_head *next, *prev;

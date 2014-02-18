@@ -2248,7 +2248,6 @@ void errorFn(void)
 
   {
   ERROR: __VERIFIER_error();
-  goto ERROR;
 }
 }
 NTSTATUS PptWmiInitWmi(PDEVICE_OBJECT DeviceObject ) ;

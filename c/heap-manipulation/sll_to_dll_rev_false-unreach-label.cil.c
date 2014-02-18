@@ -24,7 +24,6 @@ static void fail(void)
 
   {
   ERROR: __VERIFIER_error();
-  goto ERROR;
 }
 }
 #line 24 "sll_to_dll_rev_BUG.c"

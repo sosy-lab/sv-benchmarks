@@ -1021,7 +1021,6 @@ void *t1(void *arg)
   }
   return ((void *)0);
   ERROR: __VERIFIER_error();
-    goto ERROR;
 }
 void *t2(void *arg)
 {
@@ -1033,7 +1032,6 @@ void *t2(void *arg)
     {
       if (!dequeue(&queue)==stored_elements[i]) {
         ERROR: __VERIFIER_error();
-        goto ERROR;
       }
       dequeue_flag=(0);
       enqueue_flag=(1);

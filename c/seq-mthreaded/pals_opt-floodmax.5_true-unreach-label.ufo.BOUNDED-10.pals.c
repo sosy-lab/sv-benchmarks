@@ -2991,7 +2991,6 @@ void assert(_Bool arg )
   if (! arg) {
     {
     ERROR: __VERIFIER_error();
-    goto ERROR;
     }
   }
 }

@@ -35,7 +35,6 @@ static void fail(void)
 
   {
   ERROR: __VERIFIER_error();
-  goto ERROR;
 }
 }
 #line 39 "test-0180.c"
