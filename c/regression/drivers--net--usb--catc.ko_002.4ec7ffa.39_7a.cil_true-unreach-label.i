@@ -6303,8 +6303,6 @@ __inline static void ( __attribute__((__always_inline__)) ldv_error)(void)
 
   {
   LDV_ERROR: __VERIFIER_error();
-#line 12
-  goto LDV_ERROR;
 }
 }
 #line 25

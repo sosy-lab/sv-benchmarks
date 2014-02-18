@@ -61248,8 +61248,6 @@ __inline static void ldv_error(void)
 
   {
   LDV_ERROR: __VERIFIER_error();
-#line 12
-  goto LDV_ERROR;
 }
 }
 #line 25
