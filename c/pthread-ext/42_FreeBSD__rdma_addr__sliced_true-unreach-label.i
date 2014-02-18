@@ -1,3 +1,5 @@
+extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+
 typedef unsigned char __u_char;
 typedef unsigned short int __u_short;
 typedef unsigned int __u_int;
@@ -649,7 +651,7 @@ inline static void put_client(int client){
  if (refctr == 0) {
   COND = 1; }
  __VERIFIER_atomic_release(MTX);
-  { if(!(1)) { ERROR: goto ERROR; (void)0; } };
+  { if(!(1)) { ERROR: __VERIFIER_error(); goto ERROR; (void)0; } };
 }
 inline void rdma_addr_unregister_client(int client){
  put_client(client);
@@ -657,17 +659,17 @@ inline void rdma_addr_unregister_client(int client){
  if (refctr) {
   { COND = 0; __VERIFIER_atomic_release(); __VERIFIER_assume(COND); __VERIFIER_atomic_acquire(); }; }
  __VERIFIER_atomic_release(MTX);
-  { if(!(1)) { ERROR: goto ERROR; (void)0; } };
+  { if(!(1)) { ERROR: __VERIFIER_error(); goto ERROR; (void)0; } };
 }
 inline static void queue_req( ){
  __VERIFIER_atomic_acquire();{ if(!(MTX==1)) { goto ERROR; } };;
  __VERIFIER_atomic_release(MTX);
-  { if(!(1)) { ERROR: goto ERROR; (void)0; } };
+  { if(!(1)) { ERROR: __VERIFIER_error(); goto ERROR; (void)0; } };
 }
 inline static void process_req( ){
  __VERIFIER_atomic_acquire();{ if(!(MTX==1)) { goto ERROR; } };;
  __VERIFIER_atomic_release(MTX);
-  { if(!(1)) { ERROR: goto ERROR; (void)0; } };
+  { if(!(1)) { ERROR: __VERIFIER_error(); goto ERROR; (void)0; } };
 }
 inline void rdma_resolve_ip( ){
  __VERIFIER_atomic_acquire();{ if(!(MTX==1)) { goto ERROR; } };;
@@ -677,12 +679,12 @@ inline void rdma_resolve_ip( ){
   __VERIFIER_atomic_acquire();{ if(!(MTX==1)) { goto ERROR; } };;
   refctr--;
   __VERIFIER_atomic_release(MTX); }
-  { if(!(1)) { ERROR: goto ERROR; (void)0; } };
+  { if(!(1)) { ERROR: __VERIFIER_error(); goto ERROR; (void)0; } };
 }
 inline void rdma_addr_cancel( ){
  __VERIFIER_atomic_acquire();{ if(!(MTX==1)) { goto ERROR; } };;
  __VERIFIER_atomic_release(MTX);
-  { if(!(1)) { ERROR: goto ERROR; (void)0; } };
+  { if(!(1)) { ERROR: __VERIFIER_error(); goto ERROR; (void)0; } };
 }
 void* thr1(void* arg){
   while(1)

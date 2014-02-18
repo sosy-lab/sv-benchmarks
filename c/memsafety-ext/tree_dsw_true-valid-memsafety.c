@@ -1,3 +1,5 @@
+extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+
 /*
  * The Deutsch-Schorr-Waite tree traversal algorithm
  *

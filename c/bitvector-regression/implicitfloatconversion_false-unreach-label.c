@@ -1,3 +1,5 @@
+extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+
 int main() {
   float f = 1;
   int i = f;
@@ -5,7 +7,7 @@ int main() {
     goto ERROR;
   }
   return (0);
-  ERROR:
+  ERROR: __VERIFIER_error();
   return (-1);
 }
 

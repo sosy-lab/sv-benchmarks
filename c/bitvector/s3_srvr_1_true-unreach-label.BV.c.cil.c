@@ -1,3 +1,5 @@
+extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+
 extern long __VERIFIER_nondet_long(void);
 extern unsigned long __VERIFIER_nondet_ulong(void);
 extern int __VERIFIER_nondet_int(void);
@@ -665,7 +667,7 @@ int ssl3_accept(int initial_state )
   }
   __retres67 = ret;
   goto return_label;
-  ERROR: 
+  ERROR: __VERIFIER_error();
   {
   }
   __retres67 = -1;

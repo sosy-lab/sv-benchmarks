@@ -1,3 +1,5 @@
+extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+
 # 1 "./implicitfloatconversion_unsafe.c"
 # 1 "<eingebaut>"
 # 1 "<Kommandozeile>"
@@ -9,6 +11,6 @@ int main() {
     goto ERROR;
   }
   return (0);
-  ERROR:
+  ERROR: __VERIFIER_error();
   return (-1);
 }

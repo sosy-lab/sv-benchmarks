@@ -1,3 +1,5 @@
+extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+
 /*
  * Recursive implementation of the greatest common denominator
  * using Euclid's algorithm
@@ -34,7 +36,7 @@ int main() {
     }
     int z = gcd(m, n);
     if (z < 1 && m > 0 && n > 0) {
-        ERROR:
+        ERROR: __VERIFIER_error();
         goto ERROR;
     } else {
         return 0;

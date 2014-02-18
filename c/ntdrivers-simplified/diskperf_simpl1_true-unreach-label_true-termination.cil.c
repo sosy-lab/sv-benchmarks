@@ -1,3 +1,5 @@
+extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+
 extern char __VERIFIER_nondet_char(void);
 extern int __VERIFIER_nondet_int(void);
 extern long __VERIFIER_nondet_long(void);
@@ -30,7 +32,7 @@ void errorFn(void)
 
   {
   goto ERROR;
-  ERROR: 
+  ERROR: __VERIFIER_error();
 #line 58
   return;
 }

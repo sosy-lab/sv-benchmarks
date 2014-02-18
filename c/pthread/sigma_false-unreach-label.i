@@ -1,3 +1,5 @@
+extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+
 typedef long unsigned int size_t;
 typedef int wchar_t;
 
@@ -1207,7 +1209,7 @@ extern char *stpncpy (char *__restrict __dest,
         __const char *__restrict __src, size_t __n)
      __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1, 2)));
 
-void __VERIFIER_assert(int expression) { if (!expression) { ERROR: goto ERROR; }; return; }
+void __VERIFIER_assert(int expression) { if (!expression) { ERROR: __VERIFIER_error(); goto ERROR; }; return; }
 const int SIGMA = 16;
 int *array;
 int array_index;

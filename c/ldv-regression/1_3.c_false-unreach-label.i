@@ -1,3 +1,5 @@
+extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+
 # 1 "files/1_3.c"
 # 1 "<built-in>"
 # 1 "<command-line>"
@@ -6,7 +8,7 @@
 
 void __blast_assert()
 {
- ERROR: goto ERROR;
+ ERROR: __VERIFIER_error(); goto ERROR;
 }
 # 2 "files/1_3.c" 2
 # 1 "files/1_3.h" 1

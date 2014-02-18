@@ -1,3 +1,5 @@
+extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+
 /* Testcase from Threader's distribution. For details see:
    http://www.model.in.tum.de/~popeea/research/threader
 
@@ -7,7 +9,7 @@
 */
 
 #include <pthread.h>
-#define assert(e) if (!(e)) ERROR: goto ERROR;
+#define assert(e) if (!(e)) ERROR: __VERIFIER_error(); goto ERROR;
 
 int w=0, r=0, x, y;
 

@@ -1,3 +1,5 @@
+extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+
 extern char __VERIFIER_nondet_char(void);
 extern int __VERIFIER_nondet_int(void);
 extern long __VERIFIER_nondet_long(void);
@@ -872,7 +874,7 @@ s__s3__tmp__reuse_message = __VERIFIER_nondet_int();
   }
 #line 681
   return (ret);
-  ERROR: 
+  ERROR: __VERIFIER_error();
 #line 683
   return (-1);
 }

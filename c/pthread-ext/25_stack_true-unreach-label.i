@@ -1,3 +1,5 @@
+extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+
 typedef unsigned char __u_char;
 typedef unsigned short int __u_short;
 typedef unsigned int __u_int;
@@ -686,7 +688,7 @@ inline void init(){
 }
 void __VERIFIER_atomic_assert(int r)
 {
-  { if(!(!r || !isEmpty())) { ERROR: goto ERROR; (void)0; } };
+  { if(!(!r || !isEmpty())) { ERROR: __VERIFIER_error(); goto ERROR; (void)0; } };
 }
 inline void push_loop(){
  int r = -1;

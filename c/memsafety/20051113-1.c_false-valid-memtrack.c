@@ -1,3 +1,5 @@
+extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+
 #include <stdlib.h>
 
 extern void *malloc(__SIZE_TYPE__);

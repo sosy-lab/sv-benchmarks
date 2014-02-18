@@ -1,9 +1,11 @@
+extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+
 /* Testcase from Threader's distribution. For details see:
    http://www.model.in.tum.de/~popeea/research/threader
 */
 
 #include <pthread.h>
-#define assert(e) if (!(e)) ERROR: goto ERROR;
+#define assert(e) if (!(e)) ERROR: __VERIFIER_error(); goto ERROR;
 
 int flag1 = 0, flag2 = 0; // boolean flags
 int turn; // integer variable to hold the ID of the thread whose turn is it

@@ -1,3 +1,5 @@
+extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+
 #include <stdio.h> 
 #include <pthread.h>
 
@@ -53,7 +55,7 @@ int main()
 
   if (num!=1)
   {
-    ERROR: goto ERROR;
+    ERROR: __VERIFIER_error(); goto ERROR;
     ;
   }
 

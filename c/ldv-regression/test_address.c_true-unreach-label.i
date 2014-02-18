@@ -1,3 +1,5 @@
+extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+
 # 1 "files/test_address.c"
 # 1 "<built-in>"
 # 1 "<command-line>"
@@ -952,7 +954,7 @@ extern void __malloc_check_init (void) __attribute__ ((__nothrow__));
 
 void __blast_assert()
 {
- ERROR: goto ERROR;
+ ERROR: __VERIFIER_error(); goto ERROR;
 }
 # 3 "files/test_address.c" 2
 

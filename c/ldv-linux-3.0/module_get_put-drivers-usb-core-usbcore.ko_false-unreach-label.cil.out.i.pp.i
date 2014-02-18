@@ -1,3 +1,5 @@
+extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+
 
 extern int __VERIFIER_nondet_int();
 
@@ -6141,7 +6143,7 @@ void ldv_blast_assert(void)
 {
 
   {
-  ERROR: ;
+  ERROR: __VERIFIER_error();
 # 6 "/anthill/stuff/tacas-comp/work/current--X--drivers/usb/core/usbcore.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/28/dscv_tempdir/dscv/ri/08_1/kernel-rules/files/engine-blast-assert.h"
   goto ERROR;
 }

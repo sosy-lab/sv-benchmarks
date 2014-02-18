@@ -1,3 +1,5 @@
+extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+
 extern void __VERIFIER_assume(int);
 
 typedef long unsigned int size_t;
@@ -844,7 +846,7 @@ extern int getloadavg (double __loadavg[], int __nelem)
 
 void __VERIFIER_assert(int cond) {
     if (!(cond)) {
-          ERROR: goto ERROR;
+          ERROR: __VERIFIER_error(); goto ERROR;
                    }
       return;
 }

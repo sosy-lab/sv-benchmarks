@@ -1,3 +1,5 @@
+extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+
 #include <pthread.h>
 
 pthread_mutex_t  ma, mb;
@@ -45,7 +47,7 @@ int main()
 
   if (data1==16 && data2==5)
   {
-    ERROR: goto ERROR;
+    ERROR: __VERIFIER_error(); goto ERROR;
       ;    
   }
 

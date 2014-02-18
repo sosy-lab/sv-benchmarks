@@ -1,3 +1,5 @@
+extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+
 int main() {
   unsigned int plus_one = 1;
   int minus_one = -1;
@@ -7,7 +9,7 @@ int main() {
   }
   
   return (0);
-  ERROR:
+  ERROR: __VERIFIER_error();
   return (-1);
 }
 

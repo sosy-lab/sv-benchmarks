@@ -1,3 +1,5 @@
+extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+
 extern int __VERIFIER_nondet_int();
 /* Testcase from Threader's distribution. For details see:
    http://www.model.in.tum.de/~popeea/research/threader
@@ -8,7 +10,7 @@ extern int __VERIFIER_nondet_int();
 */
 
 #include <pthread.h>
-#define assert(e) if (!(e)) ERROR: goto ERROR;
+#define assert(e) if (!(e)) ERROR: __VERIFIER_error(); goto ERROR;
 
 int idx=0; // boolean to control which of the two elements will be used by readers
   // (idx <= 0) then ctr1 is used

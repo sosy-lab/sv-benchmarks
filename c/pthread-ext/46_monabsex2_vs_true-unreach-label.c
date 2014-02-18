@@ -1,6 +1,8 @@
+extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+
 #include <pthread.h>
 
-#define assert(e) { if(!(e)) { ERROR: goto ERROR; (void)0; } }
+#define assert(e) { if(!(e)) { ERROR: __VERIFIER_error(); goto ERROR; (void)0; } }
 
 _Bool s = 0;
 __thread _Bool l = 0;

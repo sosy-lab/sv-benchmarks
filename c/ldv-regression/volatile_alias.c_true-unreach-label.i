@@ -1,3 +1,5 @@
+extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+
 # 1 "files/volatile_alias.c"
 # 1 "<built-in>"
 # 1 "<command-line>"
@@ -13,7 +15,7 @@ int main()
         p = &a;
         a = a - 4;
         if (*p != 0){
-                ERROR: goto ERROR;
+                ERROR: __VERIFIER_error(); goto ERROR;
         }
         return 0;
 }

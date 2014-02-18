@@ -1,3 +1,5 @@
+extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+
 extern int __VERIFIER_nondet_int(); 
 
 
@@ -37,7 +39,7 @@ extern int __VERIFIER_nondet_int();
 		error_51:;
 		}
 		if((((((a7==12) &&  a2 <=  189 ) &&  255 < a17 ) && (a24==14)) && (a5==3))){
-		ERROR: goto ERROR;
+		ERROR: __VERIFIER_error(); goto ERROR;
 		}
 		if((((((a7==14) &&  a2 <=  189 ) &&  a17 <=  -108 ) && (a24==13)) && (a5==4))){
 		error_37:;

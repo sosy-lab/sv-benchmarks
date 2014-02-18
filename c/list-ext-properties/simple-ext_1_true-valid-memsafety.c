@@ -1,3 +1,5 @@
+extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+
 /*
  * Simple example: build a list with only 1s and finally a 0 (arbitrary length); 
  * afterwards, go through it and check if the list does have the correct form, and in particular
@@ -42,7 +44,7 @@ int main() {
   i = 0;
   while (p!=0) {
     if (p->h != i) {
-      ERROR: goto ERROR;
+      ERROR: __VERIFIER_error(); goto ERROR;
     }
     p = p->n;
     i++;

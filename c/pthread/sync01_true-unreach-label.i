@@ -1,3 +1,5 @@
+extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+
 # 1 "sync01.c"
 # 1 "<built-in>"
 # 1 "<command-line>"
@@ -2068,7 +2070,7 @@ int main()
 
   if (num!=1)
   {
-    ERROR: goto ERROR;
+    ERROR: __VERIFIER_error(); goto ERROR;
     ;
   }
 

@@ -1,3 +1,5 @@
+extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+
 extern int __VERIFIER_nondet_int();
 /*
  * Alternating list example: 
@@ -56,6 +58,6 @@ int main() {
 
   return 0;
 
-  ERROR:
+  ERROR: __VERIFIER_error();
     return 1;
 }

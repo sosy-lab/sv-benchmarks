@@ -1,8 +1,10 @@
+extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+
 extern char __VERIFIER_nondet_char();
 
 void __VERIFIER_assert(int cond) {
   if (!(cond)) {
-    ERROR: goto ERROR;
+    ERROR: __VERIFIER_error(); goto ERROR;
   }
   return;
 }

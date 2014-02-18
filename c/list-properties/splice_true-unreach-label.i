@@ -1,3 +1,5 @@
+extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+
 extern int __VERIFIER_nondet_int();
 typedef long unsigned int size_t;
 typedef int wchar_t;
@@ -674,5 +676,5 @@ int main() {
     p = p->n;
   }
   return 0;
-  ERROR: return 1;
+  ERROR: __VERIFIER_error(); return 1;
 }

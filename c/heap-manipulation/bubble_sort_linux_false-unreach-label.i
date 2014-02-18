@@ -1,3 +1,5 @@
+extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+
 /*
  * This source code is licensed under the GPL license, see License.GPLv2.txt
  * for details.  The list implementation is taken from the Linux kernel.
@@ -900,7 +902,7 @@ extern void funlockfile (FILE *__stream) __attribute__ ((__nothrow__ , __leaf__)
 
 extern int __VERIFIER_nondet_int(void);
 static void fail(void) {
-ERROR:
+ERROR: __VERIFIER_error();
     goto ERROR;
 }
 struct list_head {

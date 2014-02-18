@@ -1,3 +1,5 @@
+extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+
 
 typedef long unsigned int size_t;
 typedef unsigned char __u_char;
@@ -1346,7 +1348,7 @@ void *funcB(void *param) {
     pthread_mutex_unlock(data2Lock);
     if (t2 != (t1 + 1)) {
         fprintf(stderr, "Bug found!\n");
- ERROR: goto ERROR;
+ ERROR: __VERIFIER_error(); goto ERROR;
           ;
     }
     return ((void *)0);

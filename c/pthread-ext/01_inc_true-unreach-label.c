@@ -1,10 +1,12 @@
+extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+
 //http://www.ibm.com/developerworks/java/library/j-jtp04186/index.html
 //A counter using locks
 
 #include <pthread.h>
 
 #define assume(e) __VERIFIER_assume(e)
-#define assert(e) { if(!(e)) { ERROR: goto ERROR; (void)0; } }
+#define assert(e) { if(!(e)) { ERROR: __VERIFIER_error(); goto ERROR; (void)0; } }
 
 volatile unsigned value, m = 0;
 

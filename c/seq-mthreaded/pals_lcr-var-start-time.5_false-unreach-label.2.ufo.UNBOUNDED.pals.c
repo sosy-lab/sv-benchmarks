@@ -1,3 +1,5 @@
+extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+
 /**********************************************************************
 
 Copyright (c) 2013 Carnegie Mellon University. All Rights Reserved.
@@ -522,7 +524,7 @@ void assert(_Bool arg )
   {
   if (! arg) {
     {
-    ERROR: /* CIL Label */ 
+    ERROR: __VERIFIER_error();
     goto ERROR;
     }
   }

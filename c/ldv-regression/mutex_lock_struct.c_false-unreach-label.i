@@ -1,3 +1,5 @@
+extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+
 # 1 "files/mutex_lock_struct.c"
 # 1 "<built-in>"
 # 1 "<command-line>"
@@ -12,7 +14,7 @@
 
 
 void err()
-{ ERROR: goto ERROR; }
+{ ERROR: __VERIFIER_error(); goto ERROR; }
 
 struct mutex {
  int is_locked;

@@ -1,3 +1,5 @@
+extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+
 //Ticket lock with proportional backoff
 //Algorithms for Scalable Synchronization on Shared-Memory Multiprocessors
 //ACM TOCS
@@ -6,7 +8,7 @@
 #include <pthread.h>
 
 #define assume(e) __VERIFIER_assume(e)
-#define assert(e) { if(!(e)) { ERROR: goto ERROR; (void)0; } }
+#define assert(e) { if(!(e)) { ERROR: __VERIFIER_error(); goto ERROR; (void)0; } }
 
 volatile unsigned s = 0; //served
 volatile unsigned t = 0; //next ticket

@@ -1,3 +1,5 @@
+extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+
 # 1 "ldv/08_1/drivers/bluetooth/btmrvl.ko/safe.cil.out.i"
 # 1 "<built-in>"
 # 1 "<command-line>"
@@ -8035,7 +8037,7 @@ void ldv_blast_assert(void)
 {
 
   {
-  ERROR: ;
+  ERROR: __VERIFIER_error();
 # 6 "/anthill/stuff/tacas-comp/work/current--X--drivers/bluetooth/btmrvl.ko--X--safelinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/17/dscv_tempdir/dscv/ri/08_1/kernel-rules/files/engine-blast-assert.h"
   goto ERROR;
 }

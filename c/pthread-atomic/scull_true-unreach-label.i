@@ -1,3 +1,5 @@
+extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+
 extern int __VERIFIER_nondet_int();
 typedef unsigned char __u_char;
 typedef unsigned short int __u_short;
@@ -681,7 +683,7 @@ inline int scull_open(int tid, int i, int filp)
     return -512;
   __X__ = 2;
   scull_trim(dev);
-  if (!(__X__ >= 2)) ERROR: goto ERROR;;
+  if (!(__X__ >= 2)) ERROR: __VERIFIER_error(); goto ERROR;;
   up();
   return 0;
 }
@@ -716,7 +718,7 @@ inline int scull_read(int tid, int filp, int buf, int count,
   }
   f_pos += count;
   retval = count;
-  if (!(__X__ <= 0)) ERROR: goto ERROR;;
+  if (!(__X__ <= 0)) ERROR: __VERIFIER_error(); goto ERROR;;
  out:
   up();
   return retval;
@@ -749,7 +751,7 @@ inline int scull_write(int tid, int filp, int buf, int count,
   retval = count;
   if (dev_size < f_pos)
     dev_size = f_pos;
-  if (!(__X__ == 1)) ERROR: goto ERROR;;
+  if (!(__X__ == 1)) ERROR: __VERIFIER_error(); goto ERROR;;
  out:
   up();
   return retval;

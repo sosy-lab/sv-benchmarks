@@ -1,3 +1,5 @@
+extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+
 /**********************************************************************
 
 Copyright (c) 2013 Carnegie Mellon University. All Rights Reserved.
@@ -109,7 +111,7 @@ unsigned char __startrek_hyper_period  ;
 #line 1 "nxt.ok2.o"
 #pragma merger(0,"/tmp/aaaa/nxt.ok2.i","-S")
 #line 26 "src/startrek.h"
-void assert(_Bool arg) { if (!arg) { ERROR: goto ERROR; } }
+void assert(_Bool arg) { if (!arg) { ERROR: __VERIFIER_error(); goto ERROR; } }
 #line 19 "src/balancer.h"
 static unsigned int ud_err_theta  ;
 #line 20 "src/balancer.h"

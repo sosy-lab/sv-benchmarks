@@ -1,3 +1,5 @@
+extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+
 #include <pthread.h>
 #include <stdio.h>
 
@@ -15,7 +17,7 @@ _Bool flag=FALSE;
 
 void error(void) 
 { 
-  ERROR: ;
+  ERROR: __VERIFIER_error();
   goto ERROR;
   return;
 }

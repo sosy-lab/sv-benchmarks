@@ -1,9 +1,11 @@
+extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+
 //http://www.ibm.com/developerworks/java/library/j-jtp11234/
 //Listing 5. Implementing a thread-safe PRNG with synchronization and atomic variables
 
 #include <pthread.h>
 
-#define assert(e) { if(!(e)) { ERROR: goto ERROR; (void)0; } }
+#define assert(e) { if(!(e)) { ERROR: __VERIFIER_error(); goto ERROR; (void)0; } }
 
 inline int nC(int s2){ 
 	int nC_return;

@@ -1,3 +1,5 @@
+extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+
 typedef unsigned char __u_char;
 typedef unsigned short int __u_short;
 typedef unsigned int __u_int;
@@ -664,7 +666,7 @@ inline void push(int d) {
  }
 }
 void* thr1(void* arg){
-  while(1){push(10); { if(!(top != 0)) { ERROR: goto ERROR; (void)0; } };}
+  while(1){push(10); { if(!(top != 0)) { ERROR: __VERIFIER_error(); goto ERROR; (void)0; } };}
   return 0;
 }
 int main()

@@ -1,3 +1,5 @@
+extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+
 extern void *malloc(unsigned long sz );
 extern char __VERIFIER_nondet_char(void);
 extern int __VERIFIER_nondet_int(void);
@@ -1636,7 +1638,7 @@ int ssl3_connect(SSL *s )
 
   }
   return (ret);
-  ERROR: 
+  ERROR: __VERIFIER_error();
   goto ERROR;
 }
 }

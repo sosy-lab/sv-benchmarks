@@ -1,3 +1,5 @@
+extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+
 extern int __VERIFIER_nondet_int();
 /*
  * Simple example: build a list with only 1s and finally a 0 (arbitrary length); 
@@ -33,7 +35,7 @@ int main() {
   p = a;
   while (p!=0) {
     if (p->h != 1) {
-      ERROR: goto ERROR;
+      ERROR: __VERIFIER_error(); goto ERROR;
     }
     p = p->n;
   }

@@ -1,3 +1,5 @@
+extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+
 extern int __VERIFIER_nondet_int();
 /*
  * Variation on example 0: use a (non-deterministic) boolean
@@ -69,5 +71,5 @@ void main() {
 
   return;
 
-  ERROR: goto ERROR;
+  ERROR: __VERIFIER_error(); goto ERROR;
 }

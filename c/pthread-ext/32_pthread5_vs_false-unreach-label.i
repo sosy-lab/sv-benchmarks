@@ -1,3 +1,5 @@
+extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+
 typedef unsigned char __u_char;
 typedef unsigned short int __u_short;
 typedef unsigned int __u_int;
@@ -657,14 +659,14 @@ void* thr3(void* arg)
   if(lock)
   {
     x=1;
-    { if(!(g0==1 && g1==1)) { ERROR: goto ERROR; (void)0; } };
+    { if(!(g0==1 && g1==1)) { ERROR: __VERIFIER_error(); goto ERROR; (void)0; } };
   }
   __VERIFIER_atomic_release();
   return 0;
 }
 void* thr2(void* arg)
 {
-  { while(1) { __VERIFIER_atomic_acquire(); { if(!(g0==g1)) { ERROR: goto ERROR; (void)0; } }; __VERIFIER_atomic_release(); }};
+  { while(1) { __VERIFIER_atomic_acquire(); { if(!(g0==g1)) { ERROR: __VERIFIER_error(); goto ERROR; (void)0; } }; __VERIFIER_atomic_release(); }};
   return 0;
 }
 void* thr1(void* arg)

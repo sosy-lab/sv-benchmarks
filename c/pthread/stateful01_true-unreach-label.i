@@ -1,3 +1,5 @@
+extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+
 # 1 "stateful01_ok.c"
 # 1 "<built-in>"
 # 1 "<command-line>"
@@ -1338,7 +1340,7 @@ int main()
 
   if (data1!=16 && data2!=5)
   {
-    ERROR: goto ERROR;
+    ERROR: __VERIFIER_error(); goto ERROR;
       ;
   }
 

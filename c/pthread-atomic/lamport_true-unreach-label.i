@@ -1,3 +1,5 @@
+extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+
 typedef unsigned char __u_char;
 typedef unsigned short int __u_short;
 typedef unsigned int __u_int;
@@ -654,7 +656,7 @@ void *thr1() {
     break;
   }
   X = 0;
-  if (!(X <= 0)) ERROR: goto ERROR;;
+  if (!(X <= 0)) ERROR: __VERIFIER_error(); goto ERROR;;
   y = 0;
   b1 = 0;
 }
@@ -679,7 +681,7 @@ void *thr2() {
     break;
   }
   X = 1;
-  if (!(X >= 1)) ERROR: goto ERROR;;
+  if (!(X >= 1)) ERROR: __VERIFIER_error(); goto ERROR;;
   y = 0;
   b2 = 0;
 }

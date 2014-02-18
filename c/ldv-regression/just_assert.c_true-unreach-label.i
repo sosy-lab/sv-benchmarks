@@ -1,3 +1,5 @@
+extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+
 # 1 "files/just_assert.c"
 # 1 "<built-in>"
 # 1 "<command-line>"
@@ -7,7 +9,7 @@
 int main()
 {
  if (2+2 == 5){
-  ERROR: goto ERROR;
+  ERROR: __VERIFIER_error(); goto ERROR;
  }
  return 0;
 }

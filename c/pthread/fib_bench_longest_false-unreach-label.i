@@ -1,3 +1,5 @@
+extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+
 typedef unsigned char __u_char;
 typedef unsigned short int __u_short;
 typedef unsigned int __u_int;
@@ -630,7 +632,7 @@ extern int pthread_atfork (void (*__prepare) (void),
       void (*__parent) (void),
       void (*__child) (void)) __attribute__ ((__nothrow__ , __leaf__));
 
-void __VERIFIER_assert(int expression) { if (!expression) { ERROR: goto ERROR; }; return; }
+void __VERIFIER_assert(int expression) { if (!expression) { ERROR: __VERIFIER_error(); goto ERROR; }; return; }
 int i=1, j=1;
 void *
 t1(void* arg)
@@ -655,7 +657,7 @@ main(int argc, char **argv)
   pthread_create(&id1, ((void *)0), t1, ((void *)0));
   pthread_create(&id2, ((void *)0), t2, ((void *)0));
   if (i >= 46368 || j >= 46368) {
-    ERROR:
+    ERROR: __VERIFIER_error();
     goto ERROR;
   }
   return 0;

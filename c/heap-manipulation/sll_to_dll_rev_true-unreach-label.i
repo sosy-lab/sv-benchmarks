@@ -1,3 +1,5 @@
+extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+
 typedef long unsigned int size_t;
 typedef int wchar_t;
 
@@ -616,7 +618,7 @@ extern int getloadavg (double __loadavg[], int __nelem)
 
 extern int __VERIFIER_nondet_int(void);
 static void fail(void) {
-ERROR:
+ERROR: __VERIFIER_error();
     goto ERROR;
 }
 struct node {

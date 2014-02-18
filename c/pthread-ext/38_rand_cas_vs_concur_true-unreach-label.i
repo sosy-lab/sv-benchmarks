@@ -1,3 +1,5 @@
+extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+
 typedef unsigned char __u_char;
 typedef unsigned short int __u_short;
 typedef unsigned int __u_int;
@@ -670,7 +672,7 @@ inline int PseudoRandomUsingAtomic_nex()
  return nex_return;
 }
 void* thr1(void* arg){
-  { if(!(PseudoRandomUsingAtomic_nex() <= 10)) { ERROR: goto ERROR; (void)0; } };
+  { if(!(PseudoRandomUsingAtomic_nex() <= 10)) { ERROR: __VERIFIER_error(); goto ERROR; (void)0; } };
   return 0;
 }
 int main()

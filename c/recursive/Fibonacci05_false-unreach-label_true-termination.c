@@ -1,3 +1,5 @@
+extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+
 /*
  * Recursive computation of fibonacci numbers.
  * 
@@ -26,7 +28,7 @@ int main() {
     if (x < 8 || result >= 34) {
         return 0;
     } else {
-        ERROR: 
+        ERROR: __VERIFIER_error();
         goto ERROR;
     }
 }

@@ -1,3 +1,5 @@
+extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+
 
 typedef long unsigned int size_t;
 typedef unsigned char __u_char;
@@ -365,6 +367,6 @@ int main() {
   }
   printf ("SAFE\n");
   return (0);
-  ERROR:
+  ERROR: __VERIFIER_error();
   return (-1);
 }

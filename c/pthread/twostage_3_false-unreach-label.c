@@ -1,3 +1,5 @@
+extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <pthread.h>
@@ -45,7 +47,7 @@ void *funcB(void *param) {
 
     if (t2 != (t1 + 1)) {
         fprintf(stderr, "Bug found!\n");
-	ERROR: goto ERROR;
+	ERROR: __VERIFIER_error(); goto ERROR;
           ;
     }
 

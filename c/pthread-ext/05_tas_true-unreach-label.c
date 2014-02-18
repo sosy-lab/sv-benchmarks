@@ -1,3 +1,5 @@
+extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+
 //Simple test_and_set lock with exponential backoff
 //
 //From Algorithms for Scalable Synchronization on Shared-Memory Multiprocessors, 1991 (Fig. 1).
@@ -9,7 +11,7 @@
 #define locked 1
 volatile int lock = unlocked;
 
-#define assert(e) { if(!(e)) { ERROR: goto ERROR; (void)0; } }
+#define assert(e) { if(!(e)) { ERROR: __VERIFIER_error(); goto ERROR; (void)0; } }
 
 void __VERIFIER_atomic_TAS(
   volatile int *v,

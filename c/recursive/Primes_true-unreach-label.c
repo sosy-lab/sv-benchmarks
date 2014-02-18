@@ -1,3 +1,5 @@
+extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+
 /*
  * Recursive implementation of prime number test
  * (Sieve of Eratosthenes)
@@ -85,7 +87,7 @@ int main() {
     }
 
     if (result == 1 && mult(f1, f2) == n && f1 > 1 && f2 > 1) {
-        ERROR:
+        ERROR: __VERIFIER_error();
         goto ERROR;
     } else {
         return 0;

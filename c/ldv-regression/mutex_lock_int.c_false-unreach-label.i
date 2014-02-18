@@ -1,3 +1,5 @@
+extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+
 # 1 "files/mutex_lock_int.c"
 # 1 "<built-in>"
 # 1 "<command-line>"
@@ -13,7 +15,7 @@
 
 
 void err()
-{ ERROR: goto ERROR; }
+{ ERROR: __VERIFIER_error(); goto ERROR; }
 
 void mutex_lock(int *a)
 {

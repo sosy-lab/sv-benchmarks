@@ -1,3 +1,5 @@
+extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+
 int __VERIFIER_nondet_int();
 
   char x[100], y[100];
@@ -15,5 +17,5 @@ void main() {
 
   if(k >= 0 && k < i)
     if(y[k] == 0)
-      {ERROR: goto ERROR;}
+      {ERROR: __VERIFIER_error(); goto ERROR;}
 }

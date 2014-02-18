@@ -1,3 +1,5 @@
+extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+
 # 1 "files/recursive_list.c"
 # 1 "<built-in>"
 # 1 "<command-line>"
@@ -8,7 +10,7 @@ typedef unsigned int size_t;
 extern  __attribute__((__nothrow__)) void *malloc(size_t __size ) __attribute__((__malloc__));
 
 void err()
-{ ERROR: goto ERROR; }
+{ ERROR: __VERIFIER_error(); goto ERROR; }
 
 struct list {
  int n;

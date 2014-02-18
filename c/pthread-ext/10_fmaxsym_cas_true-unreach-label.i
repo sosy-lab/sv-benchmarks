@@ -1,3 +1,5 @@
+extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+
 typedef unsigned char __u_char;
 typedef unsigned short int __u_short;
 typedef unsigned int __u_int;
@@ -665,7 +667,7 @@ inline void findMax(int offset){
     break;
    }
   }
-  { if(!(e <= max)) { ERROR: goto ERROR; (void)0; } };
+  { if(!(e <= max)) { ERROR: __VERIFIER_error(); goto ERROR; (void)0; } };
  }
 }
 void* thr1(void* arg) {

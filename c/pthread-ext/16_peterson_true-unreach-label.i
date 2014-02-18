@@ -1,3 +1,5 @@
+extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+
 typedef unsigned char __u_char;
 typedef unsigned short int __u_short;
 typedef unsigned int __u_int;
@@ -638,7 +640,7 @@ void* thr1(void* arg) {
   turn = 1;
   do {} while (flag2==1 && turn==1);
   x = 0;
-  { if(!(x<=0)) { ERROR: goto ERROR; (void)0; } };
+  { if(!(x<=0)) { ERROR: __VERIFIER_error(); goto ERROR; (void)0; } };
   flag1 = 0;
   return 0;
 }
@@ -647,7 +649,7 @@ void* thr2(void* arg) {
   turn = 0;
   do {} while (flag1==1 && turn==0);
   x = 1;
-  { if(!(x>=1)) { ERROR: goto ERROR; (void)0; } };
+  { if(!(x>=1)) { ERROR: __VERIFIER_error(); goto ERROR; (void)0; } };
   flag2 = 0;
   return 0;
 }

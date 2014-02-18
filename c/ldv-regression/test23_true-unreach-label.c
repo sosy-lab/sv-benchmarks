@@ -1,3 +1,5 @@
+extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+
 void printf(char *format);
 void assert_fail(void);
 
@@ -38,6 +40,6 @@ int main()
 
   return 0;
 
-  ERROR:
+  ERROR: __VERIFIER_error();
   return 1;
 }

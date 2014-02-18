@@ -1,3 +1,5 @@
+extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+
 /*
  * Implementation the Ackermann function.
  * http://en.wikipedia.org/wiki/Ackermann_function
@@ -27,7 +29,7 @@ int main() {
     if (m < 2 || result >= 4) {
         return 0;
     } else {
-        ERROR: 
+        ERROR: __VERIFIER_error();
         goto ERROR;
     }
 }

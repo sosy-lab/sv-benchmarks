@@ -1,3 +1,5 @@
+extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+
 typedef unsigned char __u_char;
 typedef unsigned short int __u_short;
 typedef unsigned int __u_int;
@@ -654,7 +656,7 @@ main(int argc, char **argv)
   pthread_create(&id1, ((void *)0), t1, ((void *)0));
   pthread_create(&id2, ((void *)0), t2, ((void *)0));
   if (i >= 144 || j >= 144) {
-    ERROR:
+    ERROR: __VERIFIER_error();
     goto ERROR;
   }
   return 0;

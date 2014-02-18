@@ -1,3 +1,5 @@
+extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+
 #include <pthread.h>
 #include <assert.h>
 
@@ -24,7 +26,7 @@ void *thread3(void *arg)
 {
   pthread_mutex_lock(&mutex);
   if (data >= 3){
-    ERROR: goto ERROR;
+    ERROR: __VERIFIER_error(); goto ERROR;
     ;
   }
   pthread_mutex_unlock(&mutex);    

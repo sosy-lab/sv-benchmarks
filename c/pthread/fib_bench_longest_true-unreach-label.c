@@ -1,6 +1,8 @@
+extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+
 #include <pthread.h>
 
-void __VERIFIER_assert(int expression) { if (!expression) { ERROR: goto ERROR; }; return; }
+void __VERIFIER_assert(int expression) { if (!expression) { ERROR: __VERIFIER_error(); goto ERROR; }; return; }
 
 int i=1, j=1;
 
@@ -37,7 +39,7 @@ main(int argc, char **argv)
   pthread_create(&id2, NULL, t2, NULL);
 
   if (i > 46368 || j > 46368) {
-    ERROR:
+    ERROR: __VERIFIER_error();
     goto ERROR;
   }
 

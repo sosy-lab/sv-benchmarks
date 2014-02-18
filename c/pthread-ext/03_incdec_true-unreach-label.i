@@ -1,3 +1,5 @@
+extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+
 typedef unsigned char __u_char;
 typedef unsigned short int __u_short;
 typedef unsigned int __u_int;
@@ -653,7 +655,7 @@ inline unsigned inc() {
   inc_v = value;
   inc_flag = 1, value = inc_v + 1;
   __VERIFIER_atomic_release();
-  {__VERIFIER_atomic_acquire();{ if(!(dec_flag || value > inc_v)) { ERROR: goto ERROR; (void)0; } };__VERIFIER_atomic_release();};
+  {__VERIFIER_atomic_acquire();{ if(!(dec_flag || value > inc_v)) { ERROR: __VERIFIER_error(); goto ERROR; (void)0; } };__VERIFIER_atomic_release();};
   return inc_v + 1;
  }
 }
@@ -667,7 +669,7 @@ inline unsigned dec() {
   dec_v = value;
   dec_flag = 1, value = dec_v - 1;
   __VERIFIER_atomic_release();
-  {__VERIFIER_atomic_acquire();{ if(!(inc_flag || value < dec_v)) { ERROR: goto ERROR; (void)0; } };__VERIFIER_atomic_release();};
+  {__VERIFIER_atomic_acquire();{ if(!(inc_flag || value < dec_v)) { ERROR: __VERIFIER_error(); goto ERROR; (void)0; } };__VERIFIER_atomic_release();};
   return dec_v - 1;
  }
 }

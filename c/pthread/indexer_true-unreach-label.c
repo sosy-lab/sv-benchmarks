@@ -1,3 +1,5 @@
+extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+
 #include <stdlib.h>
 #include <pthread.h>
 
@@ -48,7 +50,7 @@ void * thread_routine(void * arg)
     
     if (h<0)
     {
-      ERROR: goto ERROR;
+      ERROR: __VERIFIER_error(); goto ERROR;
       ;
     }
 

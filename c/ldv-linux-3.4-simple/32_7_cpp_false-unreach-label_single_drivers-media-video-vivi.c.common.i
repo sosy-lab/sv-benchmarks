@@ -1,3 +1,5 @@
+extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+
 # 1 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/15067/dscv_tempdir/dscv/ri/32_1/drivers/media/video/vivi.c.common.c"
 # 1 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4//"
 # 1 "<built-in>"
@@ -31904,7 +31906,7 @@ void main(void) {
 
 
 void ldv_blast_assert(void) {
-ERROR: goto ERROR;
+ERROR: __VERIFIER_error(); goto ERROR;
 }
 # 5 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/15067/dscv_tempdir/dscv/ri/32_1/kernel-rules/files/engine-blast.h" 2
 

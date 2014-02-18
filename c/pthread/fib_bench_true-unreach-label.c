@@ -1,3 +1,5 @@
+extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+
 #include <pthread.h>
 
 int i=1, j=1;
@@ -35,7 +37,7 @@ main(int argc, char **argv)
   pthread_create(&id2, NULL, t2, NULL);
 
   if (i > 144 || j > 144) {
-    ERROR:
+    ERROR: __VERIFIER_error();
     goto ERROR;
   }
 

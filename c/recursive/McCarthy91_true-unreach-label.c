@@ -1,3 +1,5 @@
+extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+
 /*
  * Implementation the McCarthy 91 function.
  * http://en.wikipedia.org/wiki/McCarthy_91_function
@@ -25,7 +27,7 @@ int main() {
     if (result == 91 || x > 101 && result == x - 10) {
         return 0;
     } else {
-        ERROR: 
+        ERROR: __VERIFIER_error();
         goto ERROR;
     }
 }

@@ -1,3 +1,5 @@
+extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+
 extern int __VERIFIER_nondet_int();
 int main()
 {
@@ -114,7 +116,7 @@ int main()
     }
   out:
     return 0;
-  ERROR:
+  ERROR: __VERIFIER_error();
     return 0;  
 }
 

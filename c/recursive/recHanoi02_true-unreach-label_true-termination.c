@@ -1,3 +1,5 @@
+extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+
 /*
  * recHanoi.c
  *
@@ -28,7 +30,7 @@ int main() {
     if (result >= 0) {
         return 0;
     } else {
-        ERROR:
+        ERROR: __VERIFIER_error();
         goto ERROR;
     }
 }

@@ -1,3 +1,5 @@
+extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+
 #include <stdlib.h>
 
 /* Builds a tree with parent links and
@@ -13,7 +15,7 @@ int __VERIFIER_nondet_int(void) {
 
 
 static void fail(void) {
-ERROR:
+ERROR: __VERIFIER_error();
     goto ERROR;
 }
 

@@ -1,3 +1,5 @@
+extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+
 extern int __VERIFIER_nondet_int();
 /* Testcase from Threader's distribution. For details see:
    http://www.model.in.tum.de/~popeea/research/threader
@@ -5,7 +7,7 @@ extern int __VERIFIER_nondet_int();
 
 #include <pthread.h>
 #include "scull_safe.h"
-#define assert(e) if (!(e)) ERROR: goto ERROR;
+#define assert(e) if (!(e)) ERROR: __VERIFIER_error(); goto ERROR;
 
 inode i;
 pthread_mutex_t lock;

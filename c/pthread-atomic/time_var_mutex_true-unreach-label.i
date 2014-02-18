@@ -1,3 +1,5 @@
+extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+
 typedef unsigned char __u_char;
 typedef unsigned short int __u_short;
 typedef unsigned int __u_int;
@@ -644,7 +646,7 @@ void *allocator(){
     inode = 1;
   }
   block = 1;
-  if (!(block == 1)) ERROR: goto ERROR;;
+  if (!(block == 1)) ERROR: __VERIFIER_error(); goto ERROR;;
   pthread_mutex_unlock(&m_inode);
   return ((void *)0);
 }
@@ -652,7 +654,7 @@ void *de_allocator(){
   pthread_mutex_lock(&m_busy);
   if(busy == 0){
     block = 0;
-    if (!(block == 0)) ERROR: goto ERROR;;
+    if (!(block == 0)) ERROR: __VERIFIER_error(); goto ERROR;;
   }
   pthread_mutex_unlock(&m_busy);
   return ((void *)0);

@@ -1,3 +1,5 @@
+extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+
 # 1 "reorder_bad.c"
 # 1 "<built-in>"
 # 1 "<command line>"
@@ -2858,7 +2860,7 @@ void *setThread(void *param) {
 void *checkThread(void *param) {
     if (! ((a == 0 && b == 0) || (a == 1 && b == -1))) {
         fprintf(stderr, "Bug found!\n");
-        ERROR:
+        ERROR: __VERIFIER_error();
         goto ERROR;
     }
 

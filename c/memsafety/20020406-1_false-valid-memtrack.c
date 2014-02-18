@@ -1,3 +1,5 @@
+extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+
 /* Origin: abbott@dima.unige.it
  * PR c/5120
  */

@@ -1,3 +1,5 @@
+extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+
 typedef unsigned char __u_char;
 typedef unsigned short int __u_short;
 typedef unsigned int __u_int;
@@ -667,7 +669,7 @@ void* thr1(void* arg)
 {
   while(1)
   {
-    { if(!(res < 10)) { ERROR: goto ERROR; (void)0; } };
+    { if(!(res < 10)) { ERROR: __VERIFIER_error(); goto ERROR; (void)0; } };
   }
   return 0;
 }

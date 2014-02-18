@@ -1,3 +1,5 @@
+extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+
 # 1 "indexer.c"
 # 1 "<built-in>"
 # 1 "<command-line>"
@@ -2178,7 +2180,7 @@ void * thread_routine(void * arg)
 
     if (h<0)
     {
-      ERROR: goto ERROR;
+      ERROR: __VERIFIER_error(); goto ERROR;
       ;
     }
 

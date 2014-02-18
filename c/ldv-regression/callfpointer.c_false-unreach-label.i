@@ -1,3 +1,5 @@
+extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+
 # 1 "files/callfpointer.c"
 # 1 "<built-in>"
 # 1 "<command-line>"
@@ -13,7 +15,7 @@ void f(void g(int)) {
 
 void h(int i) {
  if(i==1) {
-  ERROR: goto ERROR;
+  ERROR: __VERIFIER_error(); goto ERROR;
  } else {
 
  }

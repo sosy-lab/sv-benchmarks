@@ -1,3 +1,5 @@
+extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+
 /*
  * Recursive implementation integer addition.
  * 
@@ -28,7 +30,7 @@ int main() {
     if (m < 100 || n < 100 || result >= 200) {
         return 0;
     } else {
-        ERROR: 
+        ERROR: __VERIFIER_error();
         goto ERROR;
     }
 }

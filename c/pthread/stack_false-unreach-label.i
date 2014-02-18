@@ -1,3 +1,5 @@
+extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+
 # 1 "stack_BUG.c"
 # 1 "<built-in>"
 # 1 "<command-line>"
@@ -2030,7 +2032,7 @@ _Bool flag=(0);
 
 void error(void)
 {
-  ERROR: ;
+  ERROR: __VERIFIER_error();
   goto ERROR;
   return;
 }

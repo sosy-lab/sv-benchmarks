@@ -1,3 +1,5 @@
+extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+
 # 1 "./integerpromotion_safe.c"
 # 1 "<eingebaut>"
 # 1 "<Kommandozeile>"
@@ -927,6 +929,6 @@ int main() {
   printf ("SAFE\n");
 
   return (0);
-  ERROR:
+  ERROR: __VERIFIER_error();
   return (-1);
 }

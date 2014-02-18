@@ -1,3 +1,5 @@
+extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+
 extern void __VERIFIER_assume(int);
 
 extern void __assert_fail (__const char *__assertion, __const char *__file,
@@ -617,7 +619,7 @@ extern int getloadavg (double __loadavg[], int __nelem)
 
 void __VERIFIER_assert(int cond) {
     if (!(cond)) {
-          ERROR: goto ERROR;
+          ERROR: __VERIFIER_error(); goto ERROR;
                    }
       return;
 }

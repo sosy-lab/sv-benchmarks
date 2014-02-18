@@ -1,3 +1,5 @@
+extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+
 typedef unsigned char __u_char;
 typedef unsigned short int __u_short;
 typedef unsigned int __u_int;
@@ -657,7 +659,7 @@ void* thr1(void* arg) {
   __VERIFIER_atomic_CAS(&value,v,vn,&casret);
  }
  while (casret==0);
- { if(!(value > v)) { ERROR: goto ERROR; (void)0; } };
+ { if(!(value > v)) { ERROR: __VERIFIER_error(); goto ERROR; (void)0; } };
  return 0;
 }
 int main(){

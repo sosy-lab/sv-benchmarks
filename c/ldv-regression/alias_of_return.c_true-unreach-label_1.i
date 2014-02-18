@@ -1,3 +1,5 @@
+extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+
 # 1 "files/alias_of_return.c"
 # 1 "<built-in>"
 # 1 "<command-line>"
@@ -15,7 +17,7 @@
 
 
 void err()
-{ ERROR: goto ERROR; }
+{ ERROR: __VERIFIER_error(); goto ERROR; }
 
 
 int * return_self (int * p)

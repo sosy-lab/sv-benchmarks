@@ -1,3 +1,5 @@
+extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+
 typedef unsigned char __u_char;
 typedef unsigned short int __u_short;
 typedef unsigned int __u_int;
@@ -649,7 +651,7 @@ void *reader() {
   __VERIFIER_atomic_take_read_lock();
   l = x;
   y = l;
-  if (!(y == x)) ERROR: goto ERROR;;
+  if (!(y == x)) ERROR: __VERIFIER_error(); goto ERROR;;
   l = r-1;
   r = l;
 }

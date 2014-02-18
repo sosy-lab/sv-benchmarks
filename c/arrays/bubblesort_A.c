@@ -1,3 +1,5 @@
+extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+
 
 extern int nondet_int();
 
@@ -30,7 +32,7 @@ int main( void ) {
   for ( x = 0 ; x < N ; x++ ) {
     for ( y = x+1 ; y < N ; y++ ) {
       if ( a[x] > a[y] ) {
-        ERROR: goto ERROR;
+        ERROR: __VERIFIER_error(); goto ERROR;
       }
     } 
   }

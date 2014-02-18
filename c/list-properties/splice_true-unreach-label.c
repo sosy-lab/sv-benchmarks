@@ -1,3 +1,5 @@
+extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+
 extern int __VERIFIER_nondet_int();
 /*
  * Odd-Even Splice example: create a list with 1s at odd positions
@@ -79,6 +81,6 @@ int main() {
 
   return 0;
 
-  ERROR: return 1;
+  ERROR: __VERIFIER_error(); return 1;
   
 }

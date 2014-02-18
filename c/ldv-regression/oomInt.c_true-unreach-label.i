@@ -1,3 +1,5 @@
+extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+
 # 1 "files/oomInt.c"
 # 1 "<built-in>"
 # 1 "<command-line>"
@@ -9,7 +11,7 @@
   {
  if (i == 0)
  {
-  ERROR: goto ERROR;
+  ERROR: __VERIFIER_error(); goto ERROR;
  }
   }
 # 20 "files/oomInt.c"

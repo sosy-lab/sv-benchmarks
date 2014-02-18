@@ -1,3 +1,5 @@
+extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+
 
 extern void __assert_fail (__const char *__assertion, __const char *__file,
       unsigned int __line, __const char *__function)
@@ -30,7 +32,7 @@ extern int __VERIFIER_nondet_int(void);
 static void fail(void)
 {
   {
-  ERROR: ((0) ? (void) (0) : __assert_fail ("0", "test-0180.c", 11, __PRETTY_FUNCTION__));
+  ERROR: __VERIFIER_error();((0) ? (void) (0) : __assert_fail ("0", "test-0180.c", 11, __PRETTY_FUNCTION__));
   goto ERROR;
 }
 }

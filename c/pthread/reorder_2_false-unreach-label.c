@@ -1,3 +1,5 @@
+extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <pthread.h>
@@ -75,7 +77,7 @@ void *setThread(void *param) {
 void *checkThread(void *param) {
     if (! ((a == 0 && b == 0) || (a == 1 && b == -1))) {
         fprintf(stderr, "Bug found!\n");
-    	ERROR:
+    	ERROR: __VERIFIER_error();
     	goto ERROR;
     }
 

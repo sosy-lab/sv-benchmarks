@@ -1,3 +1,5 @@
+extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+
 # 1 "files/alt_test.c"
 # 1 "<built-in>"
 # 1 "<command-line>"
@@ -1780,7 +1782,7 @@ extern int getloadavg (double __loadavg[], int __nelem)
 
 void __blast_assert()
 {
- ERROR: goto ERROR;
+ ERROR: __VERIFIER_error(); goto ERROR;
 }
 # 4 "files/alt_test.c" 2
 

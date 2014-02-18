@@ -1,3 +1,5 @@
+extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+
 # 1 "files/sizeofparameters_test.c"
 # 1 "<built-in>"
 # 1 "<command-line>"
@@ -837,7 +839,7 @@ extern void funlockfile (FILE *__stream) __attribute__ ((__nothrow__));
 
 void __blast_assert()
 {
- ERROR: goto ERROR;
+ ERROR: __VERIFIER_error(); goto ERROR;
 }
 # 3 "files/sizeofparameters_test.c" 2
 

@@ -1,3 +1,5 @@
+extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+
 typedef unsigned char __u_char;
 typedef unsigned short int __u_short;
 typedef unsigned int __u_int;
@@ -640,7 +642,7 @@ void* thr1(void* arg){
       }
     }
   }
-  { if(!(i == x && ( j == y || y <= x+1) && (x == 0 || y <= x+1 || k == z || z < y))) { ERROR: goto ERROR; (void)0; } } ;
+  { if(!(i == x && ( j == y || y <= x+1) && (x == 0 || y <= x+1 || k == z || z < y))) { ERROR: __VERIFIER_error(); goto ERROR; (void)0; } } ;
   return 0;
 }
 int main()

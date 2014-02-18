@@ -1,3 +1,5 @@
+extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+
 /*
  * Recursive implementation multiplication by repeated addition
  * Check that this multiplication is commutative
@@ -32,7 +34,7 @@ int main() {
     int res1 = mult(m, n);
     int res2 = mult(n, m);
     if (res1 != res2 && m > 0 && n > 0) {
-        ERROR:
+        ERROR: __VERIFIER_error();
         goto ERROR;
     } else {
         return 0;

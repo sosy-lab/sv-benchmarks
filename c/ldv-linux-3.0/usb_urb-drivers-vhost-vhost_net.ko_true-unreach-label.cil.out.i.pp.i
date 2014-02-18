@@ -1,3 +1,5 @@
+extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+
 # 1 "ldv/68_1/drivers/vhost/vhost_net.ko/safe.cil.out.i"
 # 1 "<built-in>"
 # 1 "<command-line>"
@@ -15212,7 +15214,7 @@ void ldv_blast_assert(void)
 {
 
   {
-  ERROR:
+  ERROR: __VERIFIER_error();
 # 6 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/kernel-rules/files/engine-blast-assert.h"
   goto ERROR;
 }

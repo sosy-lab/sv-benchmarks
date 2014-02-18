@@ -1,3 +1,5 @@
+extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+
 typedef unsigned char __u_char;
 typedef unsigned short int __u_short;
 typedef unsigned int __u_int;
@@ -1019,7 +1021,7 @@ void *t2(void *arg)
     {
       if (empty(&queue)!=(-1))
         if (!dequeue(&queue)==stored_elements[i]) {
-          ERROR:
+          ERROR: __VERIFIER_error();
           goto ERROR;
         }
     }
@@ -1036,7 +1038,7 @@ int main(void)
   dequeue_flag=(0);
   init(&queue);
   if (!empty(&queue)==(-1)) {
-    ERROR:
+    ERROR: __VERIFIER_error();
     goto ERROR;
   }
   pthread_mutex_init(&m, 0);

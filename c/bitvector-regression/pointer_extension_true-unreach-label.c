@@ -1,3 +1,5 @@
+extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+
 #include <stdio.h>
 
 int main() {
@@ -15,7 +17,7 @@ int main() {
   printf ("SAFE\n");
 
   return (0);
-  ERROR:
+  ERROR: __VERIFIER_error();
   return (-1);
 }
 

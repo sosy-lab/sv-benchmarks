@@ -1,3 +1,5 @@
+extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+
 # 1 "files/oomInt.c"
 # 1 "<built-in>"
 # 1 "<command-line>"
@@ -7,7 +9,7 @@
 
 void __blast_assert()
 {
- ERROR: goto ERROR;
+ ERROR: __VERIFIER_error(); goto ERROR;
 }
 # 3 "files/oomInt.c" 2
 # 17 "files/oomInt.c"

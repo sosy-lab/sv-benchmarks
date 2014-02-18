@@ -1,3 +1,5 @@
+extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+
 extern int __VERIFIER_nondet_int();
 /*
  * Simple example: build a list with only 1s, then 2s and finally
@@ -66,7 +68,7 @@ int main() {
   }
 
   if(p->h != 3 || (i + y) > 20)
-    ERROR: goto ERROR;
+    ERROR: __VERIFIER_error(); goto ERROR;
 
   /* free memory */
   p = a;

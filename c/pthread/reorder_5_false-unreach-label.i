@@ -1,3 +1,5 @@
+extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+
 typedef long unsigned int size_t;
 typedef unsigned char __u_char;
 typedef unsigned short int __u_short;
@@ -1242,7 +1244,7 @@ void *setThread(void *param) {
 void *checkThread(void *param) {
     if (! ((a == 0 && b == 0) || (a == 1 && b == -1))) {
         fprintf(stderr, "Bug found!\n");
-        ERROR:
+        ERROR: __VERIFIER_error();
         goto ERROR;
     }
     return ((void *)0);
