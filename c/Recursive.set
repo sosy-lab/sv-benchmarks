@@ -1,2 +1,2 @@
-recursive/*_false-unreach-label*.c
-recursive/*_true-unreach-label*.c
+recursive/*_false-unreach-call*.c
+recursive/*_true-unreach-call*.c

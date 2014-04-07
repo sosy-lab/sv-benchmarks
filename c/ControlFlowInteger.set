@@ -1,9 +1,9 @@
-ntdrivers-simplified/*_false-unreach-label*.cil.c
-ntdrivers-simplified/*_true-unreach-label*.cil.c
-ssh-simplified/*_false-unreach-label*.cil.c
-ssh-simplified/*_true-unreach-label*.cil.c
-locks/*_false-unreach-label*.c
-locks/*_true-unreach-label*.c
-eca/*_false-unreach-label*.c
-eca/*_true-unreach-label*.c
+ntdrivers-simplified/*_false-unreach-call*.cil.c
+ntdrivers-simplified/*_true-unreach-call*.cil.c
+ssh-simplified/*_false-unreach-call*.cil.c
+ssh-simplified/*_true-unreach-call*.cil.c
+locks/*_false-unreach-call*.c
+locks/*_true-unreach-call*.c
+eca/*_false-unreach-call*.c
+eca/*_true-unreach-call*.c
 

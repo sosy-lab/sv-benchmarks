@@ -1,2 +1,2 @@
-loops/*_false-unreach-label*.i
-loops/*_true-unreach-label*.i
+loops/*_false-unreach-call*.i
+loops/*_true-unreach-call*.i

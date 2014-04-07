@@ -1,6 +1,6 @@
-systemc/*_false-unreach-label*.cil.c
-systemc/*_true-unreach-label*.cil.c
-seq-mthreaded/*_false-unreach-label.*.c
-seq-mthreaded/*_true-unreach-label.*.c
-seq-pthread/*_false-unreach-label*.i
-seq-pthread/*_true-unreach-label*.i
+systemc/*_false-unreach-call*.cil.c
+systemc/*_true-unreach-call*.cil.c
+seq-mthreaded/*_false-unreach-call.*.c
+seq-mthreaded/*_true-unreach-call.*.c
+seq-pthread/*_false-unreach-call*.i
+seq-pthread/*_true-unreach-call*.i
