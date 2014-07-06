@@ -6,6 +6,7 @@
 # 1 "<built-in>" 2
 # 1 "sine.c" 2
 extern void __VERIFIER_error(void);
+extern void __VERIFIER_assume(int);
 # 27 "sine.c"
 int main()
 {

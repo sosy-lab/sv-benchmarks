@@ -1,4 +1,5 @@
 extern void __VERIFIER_error(void);
+extern void __VERIFIER_assume(int);
 
 #ifndef NR
 //#error PLEASE DEFINE THE NR OF THE BENCHMARK (FLAG -DNR=[1,8])

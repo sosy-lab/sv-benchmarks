@@ -1,4 +1,5 @@
 extern void __VERIFIER_error(void);
+extern void __VERIFIER_assume(int);
 #define HALFPI 1.57079632679f
 
 #ifndef NR
