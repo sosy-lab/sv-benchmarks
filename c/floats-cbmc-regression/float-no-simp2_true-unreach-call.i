@@ -382,6 +382,7 @@ struct exception {
 extern int matherr(struct exception *) __attribute__((availability(macosx,introduced=10.0)));
 # 2 "float-no-simp2_true-unreach-call.c" 2
 extern void __VERIFIER_error(void);
+extern void __VERIFIER_assume(int);
 int main()
 {
   double f, f2;
