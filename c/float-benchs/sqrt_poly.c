@@ -1,0 +1,26 @@
+/* Example from "Robustness analysis of finite precision implementations"
+   by Goubault and Putot, extended version of an article published
+   at APLAS 13.
+
+   Particular case of a polynomial approximation of square root.
+ */
+
+double __VERIFIER_nondet_double(void) { double val; return val; }
+void __VERIFIER_assume(int expression) { if (!expression) { LOOP: goto LOOP; }; return; }
+void __VERIFIER_assert(int cond) { if (!(cond)) { ERROR: goto ERROR; } return; }
+
+double sqrt2 = 1.414213538169860839843750;
+
+void main()
+{
+  double S, I;
+
+  I = __VERIFIER_nondet_double();
+  __VERIFIER_assume(I >= 1. && I <= 3.);
+
+  if (I >= 2.) S = sqrt2 * (1.+(I/2.- 1.)*(.5-0.125*(I/2.-1.)));
+  else S = 1.+(I-1.) * (.5+(I-1.) * (-.125+(I-1.)*.0625));
+
+  __VERIFIER_assert(S >= 1. && S <= 2.);
+}
+
