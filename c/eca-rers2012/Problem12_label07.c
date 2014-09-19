@@ -19,7 +19,7 @@ extern void exit(int);
 
 	int calculate_output(int input) {
 		if((((((a7==14) &&  a2 <=  189 ) &&   ((111 < a17) && (255 >= a17)) ) && (a24==13)) && (a5==3))){
-		error_7: exit(0);
+		error_7: __VERIFIER_error();
 		}
 		if((((((a7==12) &&  a2 <=  189 ) &&  a17 <=  -108 ) && (a24==13)) && (a5==4))){
 		error_35: exit(0);

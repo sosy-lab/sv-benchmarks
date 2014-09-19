@@ -141,7 +141,7 @@ extern void exit(int);
 		error_16: exit(0);
 		}
 		if((((  ((-43 < a12) && (11 >= a12))  && (a24==1)) && (a15==5)) && (a21==9))){
-		error_7: exit(0);
+		error_7: __VERIFIER_error();
 		}
 		if(((( 80 < a12  && (a24==1)) && (a15==6)) && (a21==8))){
 		error_36: exit(0);

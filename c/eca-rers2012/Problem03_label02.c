@@ -1643,7 +1643,7 @@ extern void exit(int);
 	    	error_18: exit(0);
 	    } 
 	    if((((((((!(a26==1)&&(a6==1))&&!(a27==1))&&(a12==1))&&(a3==0))&&(a11==1))&&(a5==1))&&(a18==1))){
-	    	error_2: exit(0);
+	    	error_2: __VERIFIER_error();
 	    } 
 	    return -2; 
 	}

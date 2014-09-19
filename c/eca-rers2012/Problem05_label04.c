@@ -11101,7 +11101,7 @@ extern void exit(int);
 	    	error_29: exit(0);
 	    } 
 	    if(((((((((a9==16)&&(a27==1))&&(a2==9))&&(a16==1))&&(a15==1))&&(a12==3))&&(a25==1))&&(a20==5))){
-	    	error_4: exit(0);
+	    	error_4: __VERIFIER_error();
 	    } 
 	    return -2; 
 	}

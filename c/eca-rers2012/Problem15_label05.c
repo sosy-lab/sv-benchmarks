@@ -192,7 +192,7 @@ extern void exit(int);
 		error_17: exit(0);
 		}
 		if(((((a2==2) &&  a4 <=  -86 ) &&  a0 <=  -147 ) &&   ((-16 < a29) && (43 >= a29)) )){
-		error_5: exit(0);
+		error_5: __VERIFIER_error();
 		}
 		if(((((a2==4) &&  a4 <=  -86 ) &&   ((-147 < a0) && (-98 >= a0)) ) &&  a29 <=  -144 )){
 		error_31: exit(0);

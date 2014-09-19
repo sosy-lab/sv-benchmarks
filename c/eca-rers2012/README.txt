@@ -25,7 +25,8 @@ for p in `seq 1 19`; do
 		;;
 	esac
 
-	for l in `seq -w 0 59`; do
+	for l in `seq 0 59`; do
+		sed Problem${p}.c > Problem$(printf "%02d" "$p")_label$(printf "%02d" "$l").c \
 		sed Problem${p}.c > Problem$(printf "%02d" "$p")_label${l}.c \
 			-e "1 i extern void __VERIFIER_error(void);" \
 			-e "1 i extern int __VERIFIER_nondet_int(void);" \

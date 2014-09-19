@@ -18,7 +18,7 @@ extern void exit(int);
 
 	int calculate_output(int input) {
 		if(((((a2==1) &&  a4 <=  -86 ) &&  a0 <=  -147 ) &&   ((-144 < a29) && (-16 >= a29)) )){
-		error_0: exit(0);
+		error_0: __VERIFIER_error();
 		}
 		if(((((a2==3) &&  a4 <=  -86 ) &&  a0 <=  -147 ) &&   ((-16 < a29) && (43 >= a29)) )){
 		error_9: exit(0);

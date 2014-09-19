@@ -33,7 +33,7 @@ extern void exit(int);
 		error_9: exit(0);
 		}
 		if(((((a24==0) && (a18==12)) && (a15==4)) &&  a3 <=  115 )){
-		error_3: exit(0);
+		error_3: __VERIFIER_error();
 		}
 		if(((((a24==2) && (a18==9)) && (a15==4)) &&  417 < a3 )){
 		error_55: exit(0);

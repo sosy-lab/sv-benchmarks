@@ -135,7 +135,7 @@ extern void exit(int);
 		error_33: exit(0);
 		}
 		if((((((a10==2) && (a12==0)) &&  a1 <=  -13 ) && (a4==14)) && (a19==6))){
-		error_7: exit(0);
+		error_7: __VERIFIER_error();
 		}
 		if((((((a10==1) && (a12==0)) &&  a1 <=  -13 ) && (a4==14)) && (a19==7))){
 		error_23: exit(0);

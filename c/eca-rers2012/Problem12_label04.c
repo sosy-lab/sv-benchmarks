@@ -181,7 +181,7 @@ extern void exit(int);
 		error_5: exit(0);
 		}
 		if((((((a7==14) &&  a2 <=  189 ) &&   ((-108 < a17) && (111 >= a17)) ) && (a24==13)) && (a5==3))){
-		error_4: exit(0);
+		error_4: __VERIFIER_error();
 		}
 		if((((((a7==14) &&  a2 <=  189 ) &&  255 < a17 ) && (a24==13)) && (a5==4))){
 		error_46: exit(0);
