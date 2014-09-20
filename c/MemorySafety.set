@@ -7,4 +7,12 @@ list-ext-properties/*_false-valid-deref*.i
 list-ext-properties/*_false-valid-free*.i
 list-ext-properties/*_false-valid-memtrack*.i
 list-ext-properties/*_true-valid-memsafety*.i
+memory-alloca/*_false-valid-deref*.i
+memory-alloca/*_false-valid-free*.i
+memory-alloca/*_false-valid-memtrack*.i
+memory-alloca/*_true-valid-memsafety*.i
+memory-unsafe/*_false-valid-deref*.i
+memory-unsafe/*_false-valid-free*.i
+memory-unsafe/*_false-valid-memtrack*.i
+memory-unsafe/*_true-valid-memsafety*.i
 
