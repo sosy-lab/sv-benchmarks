@@ -4,3 +4,5 @@ pthread-atomic/*_false-unreach-call*.i
 pthread-atomic/*_true-unreach-call*.i
 pthread-ext/*_false-unreach-call*.i
 pthread-ext/*_true-unreach-call*.i
+pthread-wmm/*_false-unreach-call*.i
+pthread-wmm/*_true-unreach-call*.i
