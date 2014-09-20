@@ -1,2 +1,5 @@
 loops/*_false-unreach-call*.i
 loops/*_true-unreach-call*.i
+loop-acceleration/*_false-unreach-call*.c
+loop-acceleration/*_true-unreach-call*.c
+
