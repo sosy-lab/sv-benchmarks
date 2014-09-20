@@ -1,5 +1,7 @@
 termination-crafted/*_false-termination*.c
 termination-crafted/*_true-termination*.c
+termination-crafted-lit/*_false-termination*.c
+termination-crafted-lit/*_true-termination*.c
 memory-alloca/*_false-termination*.c
 memory-alloca/*_true-termination*.c
 memory-unsafe/*_false-termination*.c
