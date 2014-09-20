@@ -6,3 +6,5 @@ pthread-ext/*_false-unreach-call*.i
 pthread-ext/*_true-unreach-call*.i
 pthread-wmm/*_false-unreach-call*.i
 pthread-wmm/*_true-unreach-call*.i
+pthread-lit/*_false-unreach-call*.i
+pthread-lit/*_true-unreach-call*.i
