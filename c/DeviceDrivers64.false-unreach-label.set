@@ -3,4 +3,6 @@ ldv-linux-3.4-simple/*_false-unreach-call*.c
 ldv-linux-3.7.3/*_false-unreach-call*.c
 ldv-commit-tester/*_false-unreach-call*.c
 ldv-consumption/*_false-unreach-call*.c
-
+ldv-linux-3.12-rc1/*_false-unreach-call*.c
+ldv-linux-3.16-rc1/*_false-unreach-call*.c
+ldv-validator-v0.6/*_false-unreach-call*.c
