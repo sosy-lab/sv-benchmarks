@@ -1,0 +1,1 @@
+CHECK( init(main()), LTL(G ! call(__VERIFIER_error())) )
