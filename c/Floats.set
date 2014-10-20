@@ -1,4 +1,6 @@
 floats-cdfpl/*_false-unreach-call*.i
 floats-cdfpl/*_true-unreach-call*.i
 floats-cbmc-regression/*_true-unreach-call*.i
+float-benchs/*_false.c
+float-benchs/*_true.c
 
