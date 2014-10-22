@@ -7,7 +7,7 @@ extern void *__VERIFIER_nondet_pointer();
 
 struct dummy {
   int a, b;
-} global;
+} global = {0, 1};
 
 void assign(int *pa, int *pb)
 {
