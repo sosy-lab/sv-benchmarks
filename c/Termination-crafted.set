@@ -4,7 +4,6 @@ termination-crafted-lit/*_false-termination*.c
 termination-crafted-lit/*_true-termination*.c
 termination-memory-alloca/*_false-termination*.c
 termination-memory-alloca/*_true-termination*.c
-memory-unsafe/*_false-termination*.c
 termination-numeric/*_false-termination*.c
 termination-numeric/*_true-termination*.c
 
