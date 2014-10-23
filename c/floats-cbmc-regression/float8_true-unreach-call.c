@@ -1,3 +1,4 @@
+extern void __VERIFIER_assume(int);
 #include <math.h>
 extern void __VERIFIER_error(void);
 int main()

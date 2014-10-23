@@ -1,3 +1,4 @@
+extern void __VERIFIER_assume(int);
 extern void __VERIFIER_error(void);
 /*
 ** subnormal-boundary.c

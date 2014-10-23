@@ -1,3 +1,4 @@
+extern void __VERIFIER_assume(int);
 # 1 "float4_true-unreach-call.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
