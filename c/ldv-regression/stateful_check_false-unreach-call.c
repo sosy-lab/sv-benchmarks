@@ -13,7 +13,7 @@ ERROR: __VERIFIER_error();
 int ldv_mutex = 1;
 
 int open_called = 0;
-int __VERIFIER_nondet_int(void) { int x; return x; }
+extern int __VERIFIER_nondet_int(void);
 
 void mutex_lock(void)
 {
