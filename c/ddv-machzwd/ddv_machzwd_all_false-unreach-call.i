@@ -12,7 +12,7 @@ extern void __VERIFIER_error() __attribute__ ((__noreturn__));
 # 1 "concatenated.c"
 # 1 "/ddverify-2010-04-30/models/seq1/include/ddverify/ddverify.h" 1
 
-void __VERIFIER_assume(int expression) { if (!expression) { LOOP: goto LOOP; }; return; }
+extern void __VERIFIER_assume(int);
 void __VERIFIER_assert(int expression, char* x) { if (!expression) { ERROR: __VERIFIER_error();}; return; }
 
 enum __bool { false, true };

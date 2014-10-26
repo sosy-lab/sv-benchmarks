@@ -613,7 +613,7 @@ struct ddv_tty_driver {
    unsigned short registered ;
 };
 #line 2 "/ddverify-2010-04-30/models/seq1/include/ddverify/ddverify.h"
-void __VERIFIER_assume(int phi ) ;
+extern void __VERIFIER_assume(int) ;
 #line 3
 void __VERIFIER_assert(int phi , char *txt ) ;
 #line 12 "/ddverify-2010-04-30/models/seq1/include/ddverify/ddverify.h"
@@ -5961,28 +5961,6 @@ loff_t no_llseek(struct file *file , loff_t offset , int origin )
   {
 #line 1628
   return (l);
-}
-}
-#line 1633 "concatenated.c"
-void __VERIFIER_assume(int phi ) 
-{ 
-
-  {
-  {
-#line 1633
-  while (1) {
-    while_18_continue: /* CIL Label */ ;
-#line 1633
-    if (! phi) {
-
-    } else {
-      goto while_18_break;
-    }
-  }
-  while_18_break: /* CIL Label */ ;
-  }
-#line 1633
-  return;
 }
 }
 #line 1634 "concatenated.c"
