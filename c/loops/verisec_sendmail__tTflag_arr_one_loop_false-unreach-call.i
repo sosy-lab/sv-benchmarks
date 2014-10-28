@@ -26,7 +26,7 @@ int main (void)
   while (('0' <= c) && (c <= '9'))
   {
     j = c - '0';
-    i = i * 10 + j;
+    i = i * 10U + j;
     idx_in++;
     c = in[idx_in];
   }
