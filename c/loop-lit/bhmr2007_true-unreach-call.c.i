@@ -9,7 +9,7 @@ void __VERIFIER_assert(int cond) {
 int __VERIFIER_nondet_int();
 void main() {
     int i, n, a, b;
-    i = 0; a = 0; b = 0;
+    i = 0; a = 0; b = 0; n = __VERIFIER_nondet_int();
     __VERIFIER_assume(n >= 0);
     while (i < n) {
  if (__VERIFIER_nondet_int()) {
