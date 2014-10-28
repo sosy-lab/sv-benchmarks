@@ -1,4 +1,5 @@
-void __VERIFIER_assert(int cond) { if(!(cond)) { ERROR: goto ERROR; } }
+extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+void __VERIFIER_assert(int cond) { if(!(cond)) { ERROR: __VERIFIER_error(); } }
 int strcmp( int src[100000] , int dst[100000] ) {
   int i = 0;
   while ( i < 100000 ) {
