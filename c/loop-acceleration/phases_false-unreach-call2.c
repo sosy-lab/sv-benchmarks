@@ -1,5 +1,6 @@
 extern void __VERIFIER_error() __attribute__ ((__noreturn__));
 extern void __VERIFIER_assume(int);
+extern unsigned int __VERIFIER_nondet_uint(void);
 
 void __VERIFIER_assert(int cond) {
   if (!(cond)) {
@@ -10,7 +11,7 @@ void __VERIFIER_assert(int cond) {
 
 int main(void) {
   unsigned int x = 1;
-  unsigned int y;
+  unsigned int y = __VERIFIER_nondet_uint();
 
   __VERIFIER_assume(y > 0);
 
