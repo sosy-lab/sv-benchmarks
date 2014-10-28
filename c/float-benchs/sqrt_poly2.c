@@ -1,3 +1,4 @@
+extern void __VERIFIER_error() __attribute__ ((__noreturn__));
 /* Example inspired from "Abstract Domains for Bit-Level Machine Integer and
    Floating-point Operations" by Miné, published in WING 12.
 */
@@ -5,7 +6,7 @@
 
 double __VERIFIER_nondet_double(void) { double val; return val; }
 void __VERIFIER_assume(int expression) { if (!expression) { LOOP: goto LOOP; }; return; }
-void __VERIFIER_assert(int cond) { if (!(cond)) { ERROR: goto ERROR; } return; }
+void __VERIFIER_assert(int cond) { if (!(cond)) { ERROR: __VERIFIER_error(); } return; }
 
 
 double C0 =  1.414213538;

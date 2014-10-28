@@ -1,3 +1,4 @@
+extern void __VERIFIER_error() __attribute__ ((__noreturn__));
 /* Example proposed by Muller in "Arithmétique des Ordinateurs", Masson, 1989.
    See also: "Static Analysis of Finite precision Computations" by Goubault
    and Putot, published in VMCAI 11.
@@ -6,7 +7,7 @@
    Any rounding error (e.g., in 61/11) will make it converge to 100 instead.
  */
 
-void __VERIFIER_assert(int cond) { if (!(cond)) { ERROR: goto ERROR; } return; }
+void __VERIFIER_assert(int cond) { if (!(cond)) { ERROR: __VERIFIER_error(); } return; }
 
 void main()
 {

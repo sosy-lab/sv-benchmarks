@@ -1,3 +1,4 @@
+extern void __VERIFIER_error() __attribute__ ((__noreturn__));
 /* Example from the Habilitation Report "Static Analysis of Numerical
    Programs and Systems" by Sylvie Putot.
    Inspired from http://www.netlib.org/fdlibm/k_cos.c
@@ -5,7 +6,7 @@
 
 double __VERIFIER_nondet_double(void) { double val; return val; }
 void __VERIFIER_assume(int expression) { if (!expression) { LOOP: goto LOOP; }; return; }
-void __VERIFIER_assert(int cond) { if (!(cond)) { ERROR: goto ERROR; } return; }
+void __VERIFIER_assert(int cond) { if (!(cond)) { ERROR: __VERIFIER_error(); } return; }
 
 double C1 =  4.16666666666666019037e-02;
 double C2 = -1.38888888888741095749e-03;

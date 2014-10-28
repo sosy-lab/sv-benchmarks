@@ -1,10 +1,11 @@
+extern void __VERIFIER_error() __attribute__ ((__noreturn__));
 /* Variant of sqrt_Householder but using Newton's iterations
    twice to obtain a quartic convergence.
  */
 
 double __VERIFIER_nondet_double(void) { double val; return val; }
 void __VERIFIER_assume(int expression) { if (!expression) { LOOP: goto LOOP; }; return; }
-void __VERIFIER_assert(int cond) { if (!(cond)) { ERROR: goto ERROR; } return; }
+void __VERIFIER_assert(int cond) { if (!(cond)) { ERROR: __VERIFIER_error(); } return; }
 
 double _EPS = 1e-6;
 

@@ -1,10 +1,11 @@
+extern void __VERIFIER_error() __attribute__ ((__noreturn__));
 /* Example from "An Accurate Join for Zonotopes, Preserving Affine 
    Input/Output Relations", by Gougault, Le Gall and Putot, published
    in NSAD 12.
 */
 
 
-void __VERIFIER_assert(int cond) { if (!(cond)) { ERROR: goto ERROR; } return; }
+void __VERIFIER_assert(int cond) { if (!(cond)) { ERROR: __VERIFIER_error(); } return; }
 
 void main()
 {

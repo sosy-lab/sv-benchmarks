@@ -1,8 +1,9 @@
+extern void __VERIFIER_error() __attribute__ ((__noreturn__));
 /* Example from "Some future challenges in the validation of control
    systems" by Goubault, Martel, and Putot, published at ERTS 06
 */
 
-void __VERIFIER_assert(int cond) { if (!(cond)) { ERROR: goto ERROR; } return; }
+void __VERIFIER_assert(int cond) { if (!(cond)) { ERROR: __VERIFIER_error(); } return; }
 
 
 typedef double NUM;

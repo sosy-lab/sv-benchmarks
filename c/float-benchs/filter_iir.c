@@ -1,10 +1,11 @@
+extern void __VERIFIER_error() __attribute__ ((__noreturn__));
 /* Example from "Numerical error minimizing floating-point to fixed-point 
    ANSI C compilation" by Aamodt and Chow, published in MPDSP 99.
  */
 
 double __VERIFIER_nondet_double(void) { double val; return val; }
 void __VERIFIER_assume(int expression) { if (!expression) { LOOP: goto LOOP; }; return; }
-void __VERIFIER_assert(int cond) { if (!(cond)) { ERROR: goto ERROR; } return; }
+void __VERIFIER_assert(int cond) { if (!(cond)) { ERROR: __VERIFIER_error(); } return; }
 
 
 double A1[3] = { 1, 0.5179422053046, 1.0 };

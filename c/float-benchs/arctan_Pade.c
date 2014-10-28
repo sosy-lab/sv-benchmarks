@@ -1,3 +1,4 @@
+extern void __VERIFIER_error() __attribute__ ((__noreturn__));
 /* Example from "Towards an industrial use of FLUCTUAT on safety-critical 
    avionics software" by Delmas, Goubault, Putot, Souryis, Tekkal,
    and Védrine. Published in FMICS 09.
@@ -8,7 +9,7 @@
 
 double __VERIFIER_nondet_double(void) { double val; return val; }
 void __VERIFIER_assume(int expression) { if (!expression) { LOOP: goto LOOP; }; return; }
-void __VERIFIER_assert(int cond) { if (!(cond)) { ERROR: goto ERROR; } return; }
+void __VERIFIER_assert(int cond) { if (!(cond)) { ERROR: __VERIFIER_error(); } return; }
 
 
 const double Pi=3.141592653589793238;
