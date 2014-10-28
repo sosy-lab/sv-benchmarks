@@ -1,3 +1,4 @@
+extern void __VERIFIER_error() __attribute__ ((__noreturn__));
 #include <pthread.h>
 #include <stdio.h>
 #include <assert.h>
@@ -115,8 +116,7 @@ void *t1(void *arg)
 
   return NULL;
 
-  ERROR:
-    goto ERROR;
+  ERROR:__VERIFIER_error();
 }
 
 void *t2(void *arg) 
@@ -129,8 +129,7 @@ void *t2(void *arg)
     if (dequeue_flag)
     {
       if (!dequeue(&queue)==stored_elements[i]) {
-        ERROR:
-        goto ERROR;
+        ERROR:__VERIFIER_error();
       }
       dequeue_flag=FALSE;
       enqueue_flag=TRUE;
@@ -151,8 +150,7 @@ int main(void)
   init(&queue);
 
   if (!empty(&queue)==EMPTY) {
-    ERROR:
-    goto ERROR;
+    ERROR:__VERIFIER_error();
   }
 
 

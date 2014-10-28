@@ -1,3 +1,4 @@
+extern void __VERIFIER_error() __attribute__ ((__noreturn__));
 #include <pthread.h>
 #include <stdio.h>
 #include <assert.h>
@@ -114,8 +115,7 @@ void *t2(void *arg)
     {
       if (empty(&queue)!=EMPTY)
         if (!dequeue(&queue)==stored_elements[i]) {
-          ERROR:
-          goto ERROR;
+			ERROR:__VERIFIER_error();
         }
     }
     dequeue_flag=FALSE;
@@ -136,8 +136,7 @@ int main(void)
   init(&queue);
 
   if (!empty(&queue)==EMPTY) {
-    ERROR:
-    goto ERROR;
+	ERROR:__VERIFIER_error();
   }
 
   pthread_mutex_init(&m, 0);
