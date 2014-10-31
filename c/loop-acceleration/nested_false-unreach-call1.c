@@ -21,5 +21,5 @@ int main(void) {
     x++;
   }
 
-  __VERIFIER_assert(x % 2);
+  __VERIFIER_assert(!(x % 2));
 }
