@@ -16,5 +16,5 @@ int main(void) {
     y *= 2;
   }
 
-  __VERIFIER_assert(!(y % 3));
+  __VERIFIER_assert(y % 3);
 }
