@@ -1,3 +1,4 @@
+extern void *malloc (unsigned int __size) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__malloc__)) ;
 extern void __VERIFIER_error(void);
 extern void __VERIFIER_assume(int);
 void __VERIFIER_assert(int cond) {
@@ -6,7 +7,7 @@ void __VERIFIER_assert(int cond) {
   }
   return;
 }
-int __VERIFIER_nondet_int();
+extern int __VERIFIER_nondet_int();
 void main() {
     int n = __VERIFIER_nondet_int();
     __VERIFIER_assume(0 <= n && n <= 1000);
