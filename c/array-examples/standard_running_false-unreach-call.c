@@ -19,6 +19,6 @@ int main ( ) {
     if ( a[i] < 0 && !b[i] ) f = 0;
     i = i + 1;
   }
-  assert ( f ); 
+  __VERIFIER_assert ( f ); 
   return 0;
 }
