@@ -16,7 +16,7 @@ int main ()
   int glob2_pathbuf_off;
   int glob2_pathlim_off;
   MAXPATHLEN = __VERIFIER_nondet_int();
-  if(MAXPATHLEN > 0); else goto END;
+  if(MAXPATHLEN > 0 && MAXPATHLEN < 2147483647); else goto END;
   pathbuf_off = 0;
   bound_off = pathbuf_off + (MAXPATHLEN + 1) - 1;
   glob2_pathbuf_off = pathbuf_off;
