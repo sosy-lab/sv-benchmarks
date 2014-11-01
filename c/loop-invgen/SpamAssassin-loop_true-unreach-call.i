@@ -16,6 +16,7 @@ void main ()
   bufsize = __VERIFIER_nondet_int();
   len = __VERIFIER_nondet_int();
   int limit = bufsize - 4;
+  if (bufsize < 0) return;
   for (i = 0; i < len; ) {
     for (j = 0; i < len && j < limit; ){
       if (i + 1 < len){
