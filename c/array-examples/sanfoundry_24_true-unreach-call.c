@@ -13,7 +13,7 @@ void printEven( int i ) {
 }
 
 void printOdd( int i ) {
-  __VERIFIER_assert(  ( i % 2 ) == 1  );
+  __VERIFIER_assert(  ( i % 2 ) != 0  );
   // printf( "%d" , i );
 }
 

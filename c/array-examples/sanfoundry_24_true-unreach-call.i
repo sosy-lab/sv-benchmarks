@@ -4,7 +4,7 @@ void printEven( int i ) {
   __VERIFIER_assert( ( i % 2 ) == 0 );
 }
 void printOdd( int i ) {
-  __VERIFIER_assert( ( i % 2 ) == 1 );
+  __VERIFIER_assert( ( i % 2 ) != 0 );
 }
 int main()
 {
