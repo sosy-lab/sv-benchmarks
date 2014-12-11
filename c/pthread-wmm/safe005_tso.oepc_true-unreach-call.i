@@ -1,4 +1,4 @@
-extern void __VERIFIER_error() attribute ((__noreturn__));
+extern void __VERIFIER_error() __attribute__ ((__noreturn__));
 void __VERIFIER_assert(int expression) { if (!expression) { ERROR: __VERIFIER_error(); }; return; }
 int __global_lock;
 void __VERIFIER_atomic_begin() { __VERIFIER_assume(__global_lock==0); __global_lock=1; return; }
