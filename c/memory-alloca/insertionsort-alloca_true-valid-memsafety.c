@@ -17,7 +17,7 @@ void insertionSort(int a[], int array_size)
 
 int main() {
   int array_size = __VERIFIER_nondet_int();
-  if (array_size < 1) {
+  if (array_size < 1 || array_size >= 2147483647 / sizeof(int)) {
      array_size = 1;
   }
   int* a = (int*) alloca(array_size * sizeof(int));
