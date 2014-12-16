@@ -564,11 +564,11 @@ void diff(int *A, int Alen, int *B, int Blen, int *D)
 int main() {
   int Alen = __VERIFIER_nondet_int();
   int Blen = __VERIFIER_nondet_int();
-  if (Alen < 1) {
-     Alen = 1;
+  if (Alen < 1 || Alen >= 2147483647 / sizeof(int)) {
+    Alen = 1;
   }
-  if (Blen < 1) {
-     Blen = 1;
+  if (Blen < 1 || Blen >= 2147483647 / sizeof(int)) {
+    Blen = 1;
   }
   int* A = (int*) __builtin_alloca (Alen * sizeof(int));
   int* B = (int*) __builtin_alloca (Blen * sizeof(int));

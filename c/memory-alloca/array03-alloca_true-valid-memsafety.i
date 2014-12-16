@@ -557,7 +557,7 @@ void test_fun(int a[], int N)
 }
 int main() {
   int array_size = __VERIFIER_nondet_int();
-  if (array_size < 1) {
+  if (array_size < 1 || array_size >= 2147483647 / sizeof(int)) {
      array_size = 1;
   }
   int* numbers = (int*) __builtin_alloca (array_size * sizeof(int));

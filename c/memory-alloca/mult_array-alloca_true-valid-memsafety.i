@@ -540,9 +540,9 @@ extern int __VERIFIER_nondet_int(void);
 int main() {
   int i, j;
   int length = __VERIFIER_nondet_int();
-  if (length < 1) length = 1;
+  if (length < 1 || length >= 2147483647 / sizeof(int)) length = 1;
   int fac = __VERIFIER_nondet_int();
-  if (fac < 1) fac = 1;
+  if (fac < 1 || fac >= 2147483647 / (sizeof(int) * length)) fac = 1;
   int *arr = __builtin_alloca (length*sizeof(int));
   int *arr2 = __builtin_alloca (fac*length*sizeof(int));
   if (!arr || !arr2) return 0;
