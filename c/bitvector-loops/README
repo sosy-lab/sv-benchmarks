@@ -1,0 +1,4 @@
+The benchmarks in this directory were submitted by Matt Lewis.
+They were taken from the regression tests for under-approximate
+loop acceleration in CBMC.
+http://www.cprover.org/cbmc
