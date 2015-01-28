@@ -10,6 +10,6 @@ void main() {
   int input = __VERIFIER_nondet_int();
   int result = id(input);
   if (result == 1000) {
-    __VERIFIER_error();
+    ERROR: __VERIFIER_error();
   }
 }

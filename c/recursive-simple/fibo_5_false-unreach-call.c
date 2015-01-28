@@ -24,7 +24,7 @@ int main() {
     int x = 5;
     int result = fibo(x);
     if (result == 5) {
-        __VERIFIER_error();
+        ERROR: __VERIFIER_error();
     }
     return 0;
 }

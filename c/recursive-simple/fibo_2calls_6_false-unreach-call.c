@@ -34,7 +34,7 @@ int main() {
     int x = 6;
     int result = fibo1(x);
     if (result == 8) {
-        __VERIFIER_error();
+        ERROR: __VERIFIER_error();
     }
     return 0;
 }

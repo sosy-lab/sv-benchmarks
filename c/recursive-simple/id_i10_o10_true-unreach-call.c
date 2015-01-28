@@ -10,6 +10,6 @@ void main() {
   int input = 10;
   int result = id(input);
   if (result != 10) {
-    __VERIFIER_error();
+    ERROR: __VERIFIER_error();
   }
 }

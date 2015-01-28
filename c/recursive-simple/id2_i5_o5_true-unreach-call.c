@@ -15,6 +15,6 @@ void main() {
   int input = 5;
   int result = id(input);
   if (result != 5) {
-    __VERIFIER_error();
+    ERROR: __VERIFIER_error();
   }
 }

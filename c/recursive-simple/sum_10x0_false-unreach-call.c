@@ -1,3 +1,5 @@
+extern void __VERIFIER_error();
+
 int sum(int n, int m) {
     if (n <= 0) {
       return m + n;
@@ -11,6 +13,6 @@ void main() {
   int b = 0;
   int result = sum(a, b);
   if (result == a + b) {
-    __VERIFIER_error();
+    ERROR: __VERIFIER_error();
   }
 }
