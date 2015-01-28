@@ -1,5 +1,8 @@
 extern void __VERIFIER_error();
 
+void f(int);
+void f2(int);
+
 void f(int n) {
   if (n<3) return;
   n--;
