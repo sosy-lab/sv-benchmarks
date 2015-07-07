@@ -6605,6 +6605,8 @@ void main(void)
   int tmp___5 ;
   int tmp___6 ;
   int tmp___7 ;
+  
+  adapters_count_g = __VERIFIER_nondet_int();
 
   {
 #line 1358
