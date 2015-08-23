@@ -124,14 +124,6 @@ union anonymous
   char *s;
 };
 
-struct anonymous$0
-{
-  // rm_so
-  signed int rm_so;
-  // rm_eo
-  signed int rm_eo;
-};
-
 struct globals
 {
   // args
@@ -454,7 +446,7 @@ static struct valinfo * docolon(struct valinfo *sv, struct valinfo *pv)
 {
   struct valinfo *v;
   struct re_pattern_buffer re_buffer;
-  struct anonymous$0 re_regs[2l];
+  regmatch_t re_regs[2l];
   tostring(sv);
   tostring(pv);
   if(!(pv == ((struct valinfo *)NULL)))
@@ -473,7 +465,7 @@ static struct valinfo * docolon(struct valinfo *sv, struct valinfo *pv)
     bb_error_msg("warning: '%s': using '^' as the first character\nof a basic regular expression is not portable; it is ignored", pv->u.s);
 
   memset((void *)&re_buffer, 0, sizeof(struct re_pattern_buffer) /*64ul*/ );
-  memset((void *)re_regs, 0, sizeof(struct anonymous$0 [2l]) /*16ul*/ );
+  memset((void *)re_regs, 0, sizeof(regmatch_t [2l]) /*16ul*/ );
   if(!(pv == ((struct valinfo *)NULL)))
     (void)0;
 
