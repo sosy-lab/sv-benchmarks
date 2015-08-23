@@ -14,6 +14,8 @@
    MA 02110-1301, USA.
 */
 extern void __VERIFIER_error(void);
+#define _GNU_SOURCE
+#include <syslog.h>
 #include <libio.h>
 #include <regex.h>
 #include <setjmp.h>
