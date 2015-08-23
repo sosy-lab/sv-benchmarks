@@ -1271,7 +1271,7 @@ signed int main(signed int argc, char **argv)
 
   __CPROVER_DUMP_L9:
     ;
-    if(!(((16 & opts) != 0 ? lutimes : utimes) == ((signed int (*)(const char *, struct timeval *))NULL)))
+    if(!(((16 & opts) != 0 ? lutimes : utimes) == NULL))
       (void)0;
 
     else

@@ -494,7 +494,7 @@ static void expand(struct _IO_FILE *file, unsigned int tab_size, unsigned int op
           /* assertion tab_size != 0u */
           __VERIFIER_error();
         len = tab_size - len % tab_size;
-        printf("%s%*s", ptr_strbeg, len, (const void *)"");
+        printf("%s%*s", ptr_strbeg, len, "");
         ptr_strbeg = ptr + (signed long int)1;
       }
 

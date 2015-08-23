@@ -979,7 +979,7 @@ static void display_files(struct dnode **dn, unsigned int nfiles)
         if(column > 0u)
         {
           nexttab = nexttab - column;
-          printf("%*s ", nexttab, (const void *)"");
+          printf("%*s ", nexttab, "");
           column = column + nexttab + (unsigned int)1;
         }
 
@@ -2218,7 +2218,7 @@ signed int main(signed int argc, char **argv)
             {
               if(__result == 0)
               {
-                if(!("none" + 1l == ((const unsigned char *)NULL)))
+                if(!("none" + 1l == ((const char *)NULL)))
                   (void)0;
 
                 else
@@ -2235,7 +2235,7 @@ signed int main(signed int argc, char **argv)
                 {
                   if(__result == 0)
                   {
-                    if(!("none" + 2l == ((const unsigned char *)NULL)))
+                    if(!("none" + 2l == ((const char *)NULL)))
                       (void)0;
 
                     else
@@ -2252,7 +2252,7 @@ signed int main(signed int argc, char **argv)
                     {
                       if(__result == 0)
                       {
-                        if(!("none" + 3l == ((const unsigned char *)NULL)))
+                        if(!("none" + 3l == ((const char *)NULL)))
                           (void)0;
 
                         else

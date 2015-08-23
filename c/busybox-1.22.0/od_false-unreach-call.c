@@ -1262,7 +1262,7 @@ static void dump_hexl_mode_trailer(unsigned long int n_bytes, const char *block)
     unsigned int c;
     tmp_post$2 = block;
     block = block + 1l;
-    if(!(tmp_post$2 == ((unsigned char *)NULL)))
+    if(!(tmp_post$2 == ((char *)NULL)))
       (void)0;
 
     else
@@ -2711,7 +2711,7 @@ static void print_ascii(unsigned long int n_bytes, const char *block, const char
     unsigned int c;
     tmp_post$2 = block;
     block = block + 1l;
-    if(!(tmp_post$2 == ((unsigned char *)NULL)))
+    if(!(tmp_post$2 == ((char *)NULL)))
       (void)0;
 
     else
@@ -2829,7 +2829,7 @@ static void print_char(unsigned long int n_bytes, const char *block, const char 
       break;
 
     unsigned int tmp;
-    if(!(block == ((unsigned char *)NULL)))
+    if(!(block == ((char *)NULL)))
       (void)0;
 
     else
@@ -2988,7 +2988,7 @@ static void print_named_ascii(unsigned long int n_bytes, const char *block, cons
     unsigned int masked_c;
     tmp_post$2 = block;
     block = block + 1l;
-    if(!(tmp_post$2 == ((unsigned char *)NULL)))
+    if(!(tmp_post$2 == ((char *)NULL)))
       (void)0;
 
     else
@@ -3339,7 +3339,7 @@ static void write_block(signed long int current_offset, unsigned long int n_byte
       }
 
       else
-        printf("%*s", (signed int)address_fmt[(signed long int)2] - 48, (const void *)"");
+        printf("%*s", (signed int)address_fmt[(signed long int)2] - 48, "");
       if(!(spec + (signed long int)i == ((struct tspec *)NULL)))
         (void)0;
 
@@ -3384,7 +3384,7 @@ static void write_block(signed long int current_offset, unsigned long int n_byte
           __VERIFIER_error();
         blank_fields = (unsigned int)(((unsigned long int)bytes_per_block - n_bytes) / (unsigned long int)datum_width);
         unsigned int field_width = (unsigned int)((spec + (signed long int)i)->field_width + 1);
-        printf("%*s", blank_fields * field_width, (const void *)"");
+        printf("%*s", blank_fields * field_width, "");
         dump_hexl_mode_trailer(n_bytes, curr_block);
       }
 

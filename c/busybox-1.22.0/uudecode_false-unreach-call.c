@@ -1261,7 +1261,7 @@ static void read_stduu(struct _IO_FILE *src_stream, struct _IO_FILE *dst_stream,
       {
         if(__result == 0)
         {
-          if(!("end" + 1l == ((const unsigned char *)NULL)))
+          if(!("end" + 1l == ((const char *)NULL)))
             (void)0;
 
           else
@@ -1278,7 +1278,7 @@ static void read_stduu(struct _IO_FILE *src_stream, struct _IO_FILE *dst_stream,
           {
             if(__result == 0)
             {
-              if(!("end" + 2l == ((const unsigned char *)NULL)))
+              if(!("end" + 2l == ((const char *)NULL)))
                 (void)0;
 
               else
@@ -1295,7 +1295,7 @@ static void read_stduu(struct _IO_FILE *src_stream, struct _IO_FILE *dst_stream,
               {
                 if(__result == 0)
                 {
-                  if(!("end" + 3l == ((const unsigned char *)NULL)))
+                  if(!("end" + 3l == ((const char *)NULL)))
                     (void)0;
 
                   else
@@ -1576,7 +1576,7 @@ signed int main(signed int argc, char **argv)
         {
           if(__result == 0)
           {
-            if(!("begin-base64 " + 1l == ((const unsigned char *)NULL)))
+            if(!("begin-base64 " + 1l == ((const char *)NULL)))
               (void)0;
 
             else
@@ -1593,7 +1593,7 @@ signed int main(signed int argc, char **argv)
             {
               if(__result == 0)
               {
-                if(!("begin-base64 " + 2l == ((const unsigned char *)NULL)))
+                if(!("begin-base64 " + 2l == ((const char *)NULL)))
                   (void)0;
 
                 else
@@ -1610,7 +1610,7 @@ signed int main(signed int argc, char **argv)
                 {
                   if(__result == 0)
                   {
-                    if(!("begin-base64 " + 3l == ((const unsigned char *)NULL)))
+                    if(!("begin-base64 " + 3l == ((const char *)NULL)))
                       (void)0;
 
                     else
@@ -1697,7 +1697,7 @@ signed int main(signed int argc, char **argv)
           {
             if(uudecode_main$$1$$1$$3$$2$$__result == 0)
             {
-              if(!("begin " + 1l == ((const unsigned char *)NULL)))
+              if(!("begin " + 1l == ((const char *)NULL)))
                 (void)0;
 
               else
@@ -1714,7 +1714,7 @@ signed int main(signed int argc, char **argv)
               {
                 if(uudecode_main$$1$$1$$3$$2$$__result == 0)
                 {
-                  if(!("begin " + 2l == ((const unsigned char *)NULL)))
+                  if(!("begin " + 2l == ((const char *)NULL)))
                     (void)0;
 
                   else
@@ -1731,7 +1731,7 @@ signed int main(signed int argc, char **argv)
                   {
                     if(uudecode_main$$1$$1$$3$$2$$__result == 0)
                     {
-                      if(!("begin " + 3l == ((const unsigned char *)NULL)))
+                      if(!("begin " + 3l == ((const char *)NULL)))
                         (void)0;
 
                       else

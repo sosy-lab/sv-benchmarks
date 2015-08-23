@@ -927,7 +927,7 @@ signed int main(signed int argc, char **argv)
           seconds = (signed long int)ut->ut_tv.tv_sec;
           char *return_value_ctime$3;
           return_value_ctime$3=ctime(&seconds);
-          printf("%-15.*s %-15.*s %-7s %-16.16s %.*s\n", (signed int)sizeof(char [32l]) /*32ul*/ , (const void *)ut->ut_user, (signed int)sizeof(char [32l]) /*32ul*/ , (const void *)ut->ut_line, (const void *)str6, return_value_ctime$3 + (signed long int)4, (signed int)sizeof(char [256l]) /*256ul*/ , (const void *)ut->ut_host);
+          printf("%-15.*s %-15.*s %-7s %-16.16s %.*s\n", (signed int)sizeof(char [32l]) /*32ul*/ , ut->ut_user, (signed int)sizeof(char [32l]) /*32ul*/ , ut->ut_line, str6, return_value_ctime$3 + (signed long int)4, (signed int)sizeof(char [256l]) /*256ul*/ , ut->ut_host);
         }
 
         else

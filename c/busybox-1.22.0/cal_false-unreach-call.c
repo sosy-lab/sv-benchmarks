@@ -600,7 +600,7 @@ signed int main(signed int argc, char **argv)
       __VERIFIER_error();
     return_value_sprintf$4=sprintf(cal_main$$1$$4$$lineout, "%s %u", month_names[(signed long int)(month - (unsigned int)1)], year);
     len = (unsigned int)return_value_sprintf$4;
-    printf("%*s%s\n%s\n", (((unsigned int)7 * (unsigned int)option_mask32 + (unsigned int)20) - len) / (unsigned int)2, (const void *)"", (const void *)cal_main$$1$$4$$lineout, (const void *)day_headings);
+    printf("%*s%s\n%s\n", (((unsigned int)7 * (unsigned int)option_mask32 + (unsigned int)20) - len) / (unsigned int)2, "", cal_main$$1$$4$$lineout, day_headings);
     row = (unsigned int)0;
     for( ; row < 6u; row = row + 1u)
     {
@@ -662,9 +662,9 @@ signed int main(signed int argc, char **argv)
         /* assertion (signed long int)(2u + month + -option_mask32) < 12l */
         __VERIFIER_error();
       center(month_names[(signed long int)((month + (unsigned int)2) - (unsigned int)option_mask32)], week_len, (unsigned int)0);
-      printf("\n%s%*s%s", (const void *)day_headings, 2, (const void *)"", (const void *)day_headings);
+      printf("\n%s%*s%s", day_headings, 2, "", day_headings);
       if(option_mask32 == 0u)
-        printf("%*s%s", 2, (const void *)"", (const void *)day_headings);
+        printf("%*s%s", 2, "", day_headings);
 
       bb_putchar(10);
       cal_main$$1$$5$$row = (unsigned int)0;
@@ -691,7 +691,7 @@ static void center(char *str, unsigned int len, unsigned int separate)
   return_value_strlen$1=strlen(str);
   n = (unsigned int)return_value_strlen$1;
   len = len - n;
-  printf("%*s%*s", len / (unsigned int)2 + n, str, len / (unsigned int)2 + len % (unsigned int)2 + separate, (const void *)"");
+  printf("%*s%*s", len / (unsigned int)2 + n, str, len / (unsigned int)2 + len % (unsigned int)2 + separate, "");
 }
 
 // file coreutils/cal.c line 227

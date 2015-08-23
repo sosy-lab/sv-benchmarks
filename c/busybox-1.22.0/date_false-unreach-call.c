@@ -787,7 +787,7 @@ signed int main(signed int argc, char **argv)
         {
           if(__result == 0)
           {
-            if(!("%f" + 1l == ((const unsigned char *)NULL)))
+            if(!("%f" + 1l == ((const char *)NULL)))
               (void)0;
 
             else
@@ -804,7 +804,7 @@ signed int main(signed int argc, char **argv)
             {
               if(__result == 0)
               {
-                if(!("%f" + 2l == ((const unsigned char *)NULL)))
+                if(!("%f" + 2l == ((const char *)NULL)))
                   (void)0;
 
                 else
@@ -821,7 +821,7 @@ signed int main(signed int argc, char **argv)
                 {
                   if(__result == 0)
                   {
-                    if(!("%f" + 3l == ((const unsigned char *)NULL)))
+                    if(!("%f" + 3l == ((const char *)NULL)))
                       (void)0;
 
                     else
