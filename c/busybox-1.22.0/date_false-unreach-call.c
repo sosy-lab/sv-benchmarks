@@ -463,73 +463,7 @@ signed int main(signed int argc, char **argv)
     if(!(date_str == ((char *)NULL)))
     {
       signed int len;
-      char __a0;
-      char __a1;
-      char __a2;
-      if((_Bool)1)
-      {
-        if(!((unsigned long int)("0123456789" + 1l) + -((unsigned long int)"0123456789") == 1ul))
-          goto __CPROVER_DUMP_L19;
-
-        __a0 = ((const char *)"0123456789")[(signed long int)0];
-        if((signed int)__a0 == 0)
-        {
-          (void)date_str;
-          tmp_if_expr$7 = (unsigned long int)0;
-        }
-
-        else
-        {
-          if(!("0123456789" + 1l == ((const char *)NULL)))
-            (void)0;
-
-          else
-            /* assertion !("0123456789" + 1l == ((const char *)((void*)0))) */
-            __VERIFIER_error();
-          __a1 = ((const char *)"0123456789")[(signed long int)1];
-          if((signed int)__a1 == 0)
-          {
-            return_value___strspn_c1$2=__strspn_c1(date_str, (signed int)__a0);
-            tmp_if_expr$6 = return_value___strspn_c1$2;
-          }
-
-          else
-          {
-            if(!("0123456789" + 2l == ((const char *)NULL)))
-              (void)0;
-
-            else
-              /* assertion !("0123456789" + 2l == ((const char *)((void*)0))) */
-              __VERIFIER_error();
-            __a2 = ((const char *)"0123456789")[(signed long int)2];
-            if((signed int)__a2 == 0)
-            {
-              return_value___strspn_c2$3=__strspn_c2(date_str, (signed int)__a0, (signed int)__a1);
-              tmp_if_expr$5 = return_value___strspn_c2$3;
-            }
-
-            else
-            {
-              return_value___builtin_strspn$4=__builtin_strspn(date_str, "0123456789");
-              tmp_if_expr$5 = return_value___builtin_strspn$4;
-            }
-            tmp_if_expr$6 = tmp_if_expr$5;
-          }
-          tmp_if_expr$7 = tmp_if_expr$6;
-        }
-        tmp_if_expr$9 = tmp_if_expr$7;
-      }
-
-      else
-      {
-
-      __CPROVER_DUMP_L19:
-        ;
-        return_value___builtin_strspn$8=__builtin_strspn(date_str, "0123456789");
-        tmp_if_expr$9 = return_value___builtin_strspn$8;
-      }
-      tmp_statement_expression$1 = (signed int)tmp_if_expr$9;
-      len = tmp_statement_expression$1;
+      len = strspn(date_str, "0123456789");
       if(!(date_str + (signed long int)len == ((char *)NULL)))
         (void)0;
 

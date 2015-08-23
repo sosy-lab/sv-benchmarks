@@ -1306,7 +1306,7 @@ static char * xstrdup(const char *s)
     return (char *)NULL;
 
   char *return_value___strdup$1;
-  return_value___strdup$1=__strdup(s);
+  return_value___strdup$1=strdup(s);
   t = return_value___strdup$1;
   if(t == ((char *)NULL))
     bb_error_msg_and_die(bb_msg_memory_exhausted);

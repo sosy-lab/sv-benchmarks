@@ -1464,98 +1464,14 @@ static void unexpand(struct _IO_FILE *file, unsigned int tab_size, unsigned int 
         {
           if(!(ptr == line))
           {
-            printf("%*s%s", len, (const void *)"", ptr);
+            printf("%*s%s", len, "", ptr);
             break;
           }
 
         }
 
-        char __r0;
-        char __r1;
-        char __r2;
-        if((_Bool)1)
-        {
-          if(!((unsigned long int)("\t " + 1l) + -((unsigned long int)"\t ") == 1ul))
-            goto __CPROVER_DUMP_L35;
-
-          __r0 = ((const char *)"\t ")[(signed long int)0];
-          if((signed int)__r0 == 0)
-          {
-            return_value_strlen$3=strlen(ptr);
-            tmp_if_expr$11 = return_value_strlen$3;
-          }
-
-          else
-          {
-            if(!("\t " + 1l == ((const char *)NULL)))
-              (void)0;
-
-            else
-              /* assertion !("\t " + 1l == ((const char *)((void*)0))) */
-              __VERIFIER_error();
-            __r1 = ((const char *)"\t ")[(signed long int)1];
-            if((signed int)__r1 == 0)
-            {
-              return_value___strcspn_c1$4=__strcspn_c1(ptr, (signed int)__r0);
-              tmp_if_expr$10 = return_value___strcspn_c1$4;
-            }
-
-            else
-            {
-              if(!("\t " + 2l == ((const char *)NULL)))
-                (void)0;
-
-              else
-                /* assertion !("\t " + 2l == ((const char *)((void*)0))) */
-                __VERIFIER_error();
-              __r2 = ((const char *)"\t ")[(signed long int)2];
-              if((signed int)__r2 == 0)
-              {
-                return_value___strcspn_c2$5=__strcspn_c2(ptr, (signed int)__r0, (signed int)__r1);
-                tmp_if_expr$9 = return_value___strcspn_c2$5;
-              }
-
-              else
-              {
-                if(!("\t " + 3l == ((const char *)NULL)))
-                  (void)0;
-
-                else
-                  /* assertion !("\t " + 3l == ((const char *)((void*)0))) */
-                  __VERIFIER_error();
-                /* assertion (_Bool)0 */
-                __VERIFIER_error();
-                if((signed int)"\t "[3l] == 0)
-                {
-                  return_value___strcspn_c3$6=__strcspn_c3(ptr, (signed int)__r0, (signed int)__r1, (signed int)__r2);
-                  tmp_if_expr$8 = return_value___strcspn_c3$6;
-                }
-
-                else
-                {
-                  return_value___builtin_strcspn$7=__builtin_strcspn(ptr, "\t ");
-                  tmp_if_expr$8 = return_value___builtin_strcspn$7;
-                }
-                tmp_if_expr$9 = tmp_if_expr$8;
-              }
-              tmp_if_expr$10 = tmp_if_expr$9;
-            }
-            tmp_if_expr$11 = tmp_if_expr$10;
-          }
-          tmp_if_expr$13 = tmp_if_expr$11;
-        }
-
-        else
-        {
-
-        __CPROVER_DUMP_L35:
-          ;
-          return_value___builtin_strcspn$12=__builtin_strcspn(ptr, "\t ");
-          tmp_if_expr$13 = return_value___builtin_strcspn$12;
-        }
-        tmp_statement_expression$2 = (unsigned int)tmp_if_expr$13;
-        n = tmp_statement_expression$2;
-        printf("%*s%.*s", len, (const void *)"", n, ptr);
+        n = strcspn(ptr, "\t ");
+        printf("%*s%.*s", len, "", n, ptr);
         char c;
         if(!(ptr + (signed long int)n == ((char *)NULL)))
           (void)0;

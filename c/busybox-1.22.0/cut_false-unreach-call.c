@@ -580,7 +580,7 @@ static void cut_file(struct _IO_FILE *file, char delim, struct cut_list *cut_lis
             if(ndelim >= spos)
               break;
 
-            return_value___strsep_g$7=__strsep_g(&line, delimiter);
+            return_value___strsep_g$7=strsep(&line, delimiter);
             tmp_statement_expression$6 = return_value___strsep_g$7;
             field = tmp_statement_expression$6;
             ndelim = ndelim + 1;
@@ -717,45 +717,7 @@ signed int main(signed int argc, char **argv)
   char *return_value___strsep_g$9;
   do
   {
-    char cut_main$$1$$3$$1$$__r0;
-    char __r1;
-    char __r2;
-    if((_Bool)1)
-    {
-      if(!((unsigned long int)("," + 1l) + -((unsigned long int)",") == 1ul))
-        goto __CPROVER_DUMP_L13;
-
-      cut_main$$1$$3$$1$$__r0 = ((const char *)",")[(signed long int)0];
-      tmp_if_expr$2 = ((signed int)((const char *)",")[(signed long int)0] != 0 ? (signed int)(1 != 0) : (signed int)(0 != 0)) != 0;
-    }
-
-    else
-    {
-
-    __CPROVER_DUMP_L13:
-      ;
-      tmp_if_expr$2 = 0 != 0;
-    }
-    if(!(tmp_if_expr$2 == (_Bool)0))
-    {
-      if(!("," + 1l == ((const char *)NULL)))
-        (void)0;
-
-      else
-        /* assertion !("," + 1l == ((const char *)((void*)0))) */
-        __VERIFIER_error();
-      __r1 = ((const char *)",")[(signed long int)1];
-      return_value___strsep_1c$3=__strsep_1c(&sopt, cut_main$$1$$3$$1$$__r0);
-      tmp_if_expr$5 = return_value___strsep_1c$3;
-    }
-
-    else
-    {
-      return_value___strsep_g$4=__strsep_g(&sopt, ",");
-      tmp_if_expr$5 = return_value___strsep_g$4;
-    }
-    tmp_statement_expression$1 = tmp_if_expr$5;
-    ltok = tmp_statement_expression$1;
+    ltok = strsep(&sopt, ",");
     if(ltok == ((char *)NULL))
       break;
 
@@ -767,45 +729,7 @@ signed int main(signed int argc, char **argv)
       __VERIFIER_error();
     if(!((signed int)*ltok == 0))
     {
-      char __r0;
-      char cut_main$$1$$3$$2$$1$$__r1;
-      char cut_main$$1$$3$$2$$1$$__r2;
-      if((_Bool)1)
-      {
-        if(!((unsigned long int)("-" + 1l) + -((unsigned long int)"-") == 1ul))
-          goto __CPROVER_DUMP_L22;
-
-        __r0 = ((const char *)"-")[(signed long int)0];
-        tmp_if_expr$7 = ((signed int)((const char *)"-")[(signed long int)0] != 0 ? (signed int)(1 != 0) : (signed int)(0 != 0)) != 0;
-      }
-
-      else
-      {
-
-      __CPROVER_DUMP_L22:
-        ;
-        tmp_if_expr$7 = 0 != 0;
-      }
-      if(!(tmp_if_expr$7 == (_Bool)0))
-      {
-        if(!("-" + 1l == ((const char *)NULL)))
-          (void)0;
-
-        else
-          /* assertion !("-" + 1l == ((const char *)((void*)0))) */
-          __VERIFIER_error();
-        cut_main$$1$$3$$2$$1$$__r1 = ((const char *)"-")[(signed long int)1];
-        return_value___strsep_1c$8=__strsep_1c(&ltok, __r0);
-        tmp_if_expr$10 = return_value___strsep_1c$8;
-      }
-
-      else
-      {
-        return_value___strsep_g$9=__strsep_g(&ltok, "-");
-        tmp_if_expr$10 = return_value___strsep_g$9;
-      }
-      tmp_statement_expression$6 = tmp_if_expr$10;
-      ntok = tmp_statement_expression$6;
+      ntok = strsep(&ltok, "-");
       if(!(ntok == ((char *)NULL)))
         (void)0;
 
