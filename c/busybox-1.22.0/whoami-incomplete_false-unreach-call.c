@@ -33,7 +33,7 @@ extern void __VERIFIER_error(void);
 // file include/libbb.h line 1082
 static void bb_error_msg_and_die(const char *s, ...);
 // file include/pwd_.h line 70
-static struct passwd * bb_internal_getpwuid(unsigned int);
+struct passwd * bb_internal_getpwuid(unsigned int);
 // file ./libbb-dump.i line 1
 static void bb_show_usage(void);
 // file include/libbb.h line 1092

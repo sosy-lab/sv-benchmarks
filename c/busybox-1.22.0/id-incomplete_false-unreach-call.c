@@ -47,13 +47,13 @@ static void bb_error_msg(const char *s, ...);
 // file include/libbb.h line 1082
 static void bb_error_msg_and_die(const char *s, ...);
 // file include/grp_.h line 71
-static struct group * bb_internal_getgrgid(unsigned int);
+struct group * bb_internal_getgrgid(unsigned int);
 // file include/grp_.h line 109
 extern signed int bb_internal_getgrouplist(const char *, unsigned int, unsigned int *, signed int *);
 // file include/pwd_.h line 73
-static struct passwd * bb_internal_getpwnam(const char *);
+struct passwd * bb_internal_getpwnam(const char *);
 // file include/pwd_.h line 70
-static struct passwd * bb_internal_getpwuid(unsigned int);
+struct passwd * bb_internal_getpwuid(unsigned int);
 // file include/libbb.h line 1085
 static void bb_perror_msg_and_die(const char *s, ...);
 // file include/libbb.h line 655

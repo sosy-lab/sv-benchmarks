@@ -74,9 +74,9 @@ static void bb_error_msg(const char *s, ...);
 // file include/libbb.h line 1082
 static void bb_error_msg_and_die(const char *s, ...);
 // file include/grp_.h line 71
-static struct group * bb_internal_getgrgid(unsigned int);
+struct group * bb_internal_getgrgid(unsigned int);
 // file include/pwd_.h line 70
-static struct passwd * bb_internal_getpwuid(unsigned int);
+struct passwd * bb_internal_getpwuid(unsigned int);
 // file libbb/mode_string.c line 94
 static const char * bb_mode_string(unsigned int mode);
 // file include/libbb.h line 1083

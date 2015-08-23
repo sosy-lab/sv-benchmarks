@@ -35,7 +35,7 @@ static signed int BB_EXECVP(const char *file, char * const *argv);
 // file libbb/execable.c line 80
 static signed int BB_EXECVP_or_die(char **argv);
 // file include/pwd_.h line 70
-static struct passwd * bb_internal_getpwuid(unsigned int);
+struct passwd * bb_internal_getpwuid(unsigned int);
 // file include/libbb.h line 1085
 static void bb_perror_msg_and_die(const char *s, ...);
 // file ./libbb-dump.i line 1
@@ -45,7 +45,7 @@ static void bb_verror_msg(const char *s, va_list p, const char *strerr);
 // file include/libbb.h line 785
 static signed int fflush_all(void);
 // file include/libbb.h line 1165
-static signed int find_applet_by_name(const char *);
+signed int find_applet_by_name(const char *);
 // file include/libbb.h line 751
 static signed long int full_write(signed int fd, const void *buf, unsigned long int len);
 // file libbb/get_shell_name.c line 11
