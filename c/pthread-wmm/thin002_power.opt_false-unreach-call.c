@@ -241,7 +241,7 @@ void * P0(void *arg)
   __VERIFIER_atomic_begin();
   __unbuffered_cnt = __unbuffered_cnt + 1;
   __VERIFIER_atomic_end();
-  return nondet_0();
+  return __VERIFIER_nondet_pointer();
 }
 
 
@@ -259,7 +259,7 @@ void * P1(void *arg)
   __VERIFIER_atomic_begin();
   __unbuffered_cnt = __unbuffered_cnt + 1;
   __VERIFIER_atomic_end();
-  return nondet_0();
+  return __VERIFIER_nondet_pointer();
 }
 
 
@@ -292,7 +292,7 @@ void * P2(void *arg)
   __VERIFIER_atomic_begin();
   __unbuffered_cnt = __unbuffered_cnt + 1;
   __VERIFIER_atomic_end();
-  return nondet_0();
+  return __VERIFIER_nondet_pointer();
 }
 
 
@@ -300,11 +300,11 @@ void * P2(void *arg)
 void * P3(void *arg)
 {
   __VERIFIER_atomic_begin();
-  weak$$choice0 = nondet_1();
-  weak$$choice2 = nondet_1();
+  weak$$choice0 = __VERIFIER_nondet_pointer();
+  weak$$choice2 = __VERIFIER_nondet_pointer();
   z$flush_delayed = weak$$choice2;
   z$mem_tmp = z;
-  weak$$choice1 = nondet_1();
+  weak$$choice1 = __VERIFIER_nondet_pointer();
   z = !z$w_buff0_used ? z : (z$w_buff0_used && z$r_buff0_thd4 ? z$w_buff0 : (z$w_buff0_used && !z$r_buff1_thd4 && z$w_buff1_used && !z$r_buff0_thd4 ? (weak$$choice0 ? z : (weak$$choice1 ? z$w_buff0 : z$w_buff1)) : (z$w_buff0_used && z$r_buff1_thd4 && z$w_buff1_used && !z$r_buff0_thd4 ? (weak$$choice0 ? z$w_buff1 : z$w_buff0) : (weak$$choice0 ? z$w_buff0 : z))));
   z$w_buff0 = weak$$choice2 ? z$w_buff0 : (!z$w_buff0_used ? z$w_buff0 : (z$w_buff0_used && z$r_buff0_thd4 ? z$w_buff0 : (z$w_buff0_used && !z$r_buff1_thd4 && z$w_buff1_used && !z$r_buff0_thd4 ? z$w_buff0 : (z$w_buff0_used && z$r_buff1_thd4 && z$w_buff1_used && !z$r_buff0_thd4 ? z$w_buff0 : z$w_buff0))));
   z$w_buff1 = weak$$choice2 ? z$w_buff1 : (!z$w_buff0_used ? z$w_buff1 : (z$w_buff0_used && z$r_buff0_thd4 ? z$w_buff1 : (z$w_buff0_used && !z$r_buff1_thd4 && z$w_buff1_used && !z$r_buff0_thd4 ? z$w_buff1 : (z$w_buff0_used && z$r_buff1_thd4 && z$w_buff1_used && !z$r_buff0_thd4 ? z$w_buff1 : z$w_buff1))));
@@ -331,7 +331,7 @@ void * P3(void *arg)
   __VERIFIER_atomic_begin();
   __unbuffered_cnt = __unbuffered_cnt + 1;
   __VERIFIER_atomic_end();
-  return nondet_0();
+  return __VERIFIER_nondet_pointer();
 }
 
 
@@ -359,10 +359,14 @@ void lwfence()
 
 int main()
 {
-  pthread_create(NULL, NULL, P0, NULL);
-  pthread_create(NULL, NULL, P1, NULL);
-  pthread_create(NULL, NULL, P2, NULL);
-  pthread_create(NULL, NULL, P3, NULL);
+  pthread_t t2709;
+  pthread_create(&t2709, NULL, P0, NULL);
+  pthread_t t2710;
+  pthread_create(&t2710, NULL, P1, NULL);
+  pthread_t t2711;
+  pthread_create(&t2711, NULL, P2, NULL);
+  pthread_t t2712;
+  pthread_create(&t2712, NULL, P3, NULL);
   __VERIFIER_atomic_begin();
   main$tmp_guard0 = __unbuffered_cnt == 4;
   __VERIFIER_atomic_end();
@@ -377,7 +381,7 @@ int main()
   __VERIFIER_atomic_begin();
   /* Program was expected to be safe for X86, model checker should have said NO.
 This likely is a bug in the tool chain. */
-  weak$$choice1 = nondet_1();
+  weak$$choice1 = __VERIFIER_nondet_pointer();
   /* Program was expected to be safe for X86, model checker should have said NO.
 This likely is a bug in the tool chain. */
   __unbuffered_p3_EAX = __unbuffered_p3_EAX$read_delayed ? (weak$$choice1 ? *__unbuffered_p3_EAX$read_delayed_var : __unbuffered_p3_EAX) : __unbuffered_p3_EAX;

@@ -148,8 +148,8 @@ void * P0(void *arg)
   x$r_buff1_thd1 = x$w_buff0_used && x$r_buff0_thd1 || x$w_buff1_used && x$r_buff1_thd1 ? FALSE : x$r_buff1_thd1;
   __VERIFIER_atomic_end();
   __VERIFIER_atomic_begin();
-  weak$$choice0 = nondet_0();
-  weak$$choice2 = nondet_0();
+  weak$$choice0 = __VERIFIER_nondet_bool();
+  weak$$choice2 = __VERIFIER_nondet_bool();
   x$flush_delayed = weak$$choice2;
   x$mem_tmp = x;
   x = !x$w_buff0_used || !x$r_buff0_thd1 && !x$w_buff1_used || !x$r_buff0_thd1 && !x$r_buff1_thd1 ? x : (x$w_buff0_used && x$r_buff0_thd1 ? x$w_buff0 : x$w_buff1);
@@ -173,7 +173,7 @@ void * P0(void *arg)
   __VERIFIER_atomic_begin();
   __unbuffered_cnt = __unbuffered_cnt + 1;
   __VERIFIER_atomic_end();
-  return nondet_1();
+  return __VERIFIER_nondet_pointer();
 }
 
 
@@ -198,8 +198,8 @@ void * P1(void *arg)
   __unbuffered_p1_EAX = y;
   __VERIFIER_atomic_end();
   __VERIFIER_atomic_begin();
-  weak$$choice0 = nondet_0();
-  weak$$choice2 = nondet_0();
+  weak$$choice0 = __VERIFIER_nondet_bool();
+  weak$$choice2 = __VERIFIER_nondet_bool();
   x$flush_delayed = weak$$choice2;
   x$mem_tmp = x;
   x = !x$w_buff0_used || !x$r_buff0_thd2 && !x$w_buff1_used || !x$r_buff0_thd2 && !x$r_buff1_thd2 ? x : (x$w_buff0_used && x$r_buff0_thd2 ? x$w_buff0 : x$w_buff1);
@@ -223,7 +223,7 @@ void * P1(void *arg)
   __VERIFIER_atomic_begin();
   __unbuffered_cnt = __unbuffered_cnt + 1;
   __VERIFIER_atomic_end();
-  return nondet_1();
+  return __VERIFIER_nondet_pointer();
 }
 
 
@@ -251,8 +251,10 @@ void lwfence()
 
 int main()
 {
-  pthread_create(NULL, NULL, P0, NULL);
-  pthread_create(NULL, NULL, P1, NULL);
+  pthread_t t1627;
+  pthread_create(&t1627, NULL, P0, NULL);
+  pthread_t t1628;
+  pthread_create(&t1628, NULL, P1, NULL);
   __VERIFIER_atomic_begin();
   main$tmp_guard0 = __unbuffered_cnt == 2;
   __VERIFIER_atomic_end();
@@ -266,9 +268,9 @@ int main()
   __VERIFIER_atomic_end();
   __VERIFIER_atomic_begin();
   /* Program proven to be relaxed for X86, model checker says YES. */
-  weak$$choice0 = nondet_0();
+  weak$$choice0 = __VERIFIER_nondet_bool();
   /* Program proven to be relaxed for X86, model checker says YES. */
-  weak$$choice2 = nondet_0();
+  weak$$choice2 = __VERIFIER_nondet_bool();
   /* Program proven to be relaxed for X86, model checker says YES. */
   x$flush_delayed = weak$$choice2;
   /* Program proven to be relaxed for X86, model checker says YES. */
