@@ -70,7 +70,7 @@ void testTwo (void) {
 
    if(!(f1.ieee.negative != f2.ieee.negative)) __VERIFIER_error();
 
-   return 1;
+   return;
 }
 
 

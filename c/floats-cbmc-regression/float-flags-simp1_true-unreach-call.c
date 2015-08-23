@@ -45,7 +45,9 @@ int main()
   // check /
   if(!(isnan(INFINITY/INFINITY))) __VERIFIER_error();
   if(!(isnan(-INFINITY/INFINITY))) __VERIFIER_error();
-  if(!(isinf(INFINITY/0))) __VERIFIER_error();
+  // work around compiler warning
+  int zero=0;
+  if(!(isinf(INFINITY/zero))) __VERIFIER_error();
   if(!(0.0/INFINITY==0)) __VERIFIER_error();
   if(!(1.0/INFINITY==0)) __VERIFIER_error();
   if(!(signbit(-1.0/INFINITY))) __VERIFIER_error();
