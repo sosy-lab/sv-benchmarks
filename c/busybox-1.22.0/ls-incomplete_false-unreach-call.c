@@ -29,6 +29,7 @@ extern void __VERIFIER_error(void);
 #include <sys/sysmacros.h>
 #include <time.h>
 #include <unistd.h>
+#include <stdarg.h>
 
 // file libbb/procps.c line 20
 struct cache_t;
@@ -57,7 +58,6 @@ struct uni_stat_t;
 // file /usr/include/x86_64-linux-gnu/bits/ioctl-types.h line 27
 struct winsize;
 
- #include <stdarg.h>
 
 #ifndef NULL
 #define NULL ((void*)0)
@@ -88,7 +88,7 @@ static void bb_simple_perror_msg(const char *s);
 // file libbb/xatonum.c line 38
 static inline unsigned int bb_strtoui(const char *str, char **end, signed int b);
 // file include/libbb.h line 1092
-static void bb_verror_msg(const char *s, void **p, const char *strerr);
+static void bb_verror_msg(const char *s, va_list p, const char *strerr);
 // file include/unicode.h line 112
 static signed int bb_wcwidth(unsigned int ucs);
 // file coreutils/ls.c line 418
@@ -421,17 +421,19 @@ static const char * bb_basename(const char *name)
 // file include/libbb.h line 1081
 static void bb_error_msg(const char *s, ...)
 {
-  void **p = (void **)&s;
+  va_list p;
+  va_start(p, s);
   bb_verror_msg(s, p, (const char *)NULL);
-  p = (void **)NULL;
+  va_end(p);
 }
 
 // file include/libbb.h line 1082
 static void bb_error_msg_and_die(const char *s, ...)
 {
-  void **p = (void **)&s;
+  va_list p;
+  va_start(p, s);
   bb_verror_msg(s, p, (const char *)NULL);
-  p = (void **)NULL;
+  va_end(p);
   xfunc_die();
 }
 
@@ -478,7 +480,8 @@ static const char * bb_mode_string(unsigned int mode)
 // file include/libbb.h line 1083
 static void bb_perror_msg(const char *s, ...)
 {
-  void **p = (void **)&s;
+  va_list p;
+  va_start(p, s);
   char *tmp_if_expr$2;
   char *return_value_strerror$1;
   if(!(*bb_errno == 0))
@@ -490,7 +493,7 @@ static void bb_perror_msg(const char *s, ...)
   else
     tmp_if_expr$2 = (char *)NULL;
   bb_verror_msg(s, p, tmp_if_expr$2);
-  p = (void **)NULL;
+  va_end(p);
 }
 
 // file include/libbb.h line 655
@@ -528,7 +531,7 @@ static inline unsigned int bb_strtoui(const char *str, char **end, signed int b)
 }
 
 // file include/libbb.h line 1092
-static void bb_verror_msg(const char *s, void **p, const char *strerr)
+static void bb_verror_msg(const char *s, va_list p, const char *strerr)
 {
   char *msg;
   char *msg1;
@@ -3820,12 +3823,12 @@ static signed int wh_helper(signed int value, signed int def_val, const char *en
 // file include/libbb.h line 658
 static char * xasprintf(const char *format, ...)
 {
-  void **p;
+  va_list p;
   signed int r;
   char *string_ptr;
-  p = (void **)&format;
+  va_start(p, format);
   r=vasprintf(&string_ptr, format, p);
-  p = (void **)NULL;
+  va_end(p);
   if(r < 0)
     bb_error_msg_and_die(bb_msg_memory_exhausted);
 

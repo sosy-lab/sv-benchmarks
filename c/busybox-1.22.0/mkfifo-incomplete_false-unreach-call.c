@@ -21,6 +21,7 @@ extern void __VERIFIER_error(void);
 #include <string.h>
 #include <sys/stat.h>
 #include <unistd.h>
+#include <stdarg.h>
 
 #ifndef NULL
 #define NULL ((void*)0)
@@ -33,7 +34,7 @@ static void bb_show_usage(void);
 // file include/libbb.h line 1084
 static void bb_simple_perror_msg(const char *s);
 // file include/libbb.h line 1092
-static void bb_verror_msg(const char *s, void **p, const char *strerr);
+static void bb_verror_msg(const char *s, va_list p, const char *strerr);
 // file include/libbb.h line 785
 static signed int fflush_all(void);
 // file include/libbb.h line 751
@@ -55,7 +56,8 @@ static const char *msg_eol = "\n";
 // file include/libbb.h line 1083
 static void bb_perror_msg(const char *s, ...)
 {
-  void **p = (void **)&s;
+  va_list p;
+  va_start(p, s);
   char *tmp_if_expr$2;
   char *return_value_strerror$1;
   if(!(*bb_errno == 0))
@@ -67,7 +69,7 @@ static void bb_perror_msg(const char *s, ...)
   else
     tmp_if_expr$2 = (char *)NULL;
   bb_verror_msg(s, p, tmp_if_expr$2);
-  p = (void **)NULL;
+  va_end(p);
 }
 
 // file ./libbb-dump.i line 1
@@ -83,7 +85,7 @@ static void bb_simple_perror_msg(const char *s)
 }
 
 // file include/libbb.h line 1092
-static void bb_verror_msg(const char *s, void **p, const char *strerr)
+static void bb_verror_msg(const char *s, va_list p, const char *strerr)
 {
   char *msg;
   char *msg1;

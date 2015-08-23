@@ -22,6 +22,7 @@ extern void __VERIFIER_error(void);
 #include <stdlib.h>
 #include <string.h>
 #include <unistd.h>
+#include <stdarg.h>
 
 #ifndef NULL
 #define NULL ((void*)0)
@@ -34,7 +35,7 @@ static struct passwd * bb_internal_getpwuid(unsigned int);
 // file ./libbb-dump.i line 1
 static void bb_show_usage(void);
 // file include/libbb.h line 1092
-static void bb_verror_msg(const char *s, void **p, const char *strerr);
+static void bb_verror_msg(const char *s, va_list p, const char *strerr);
 // file include/libbb.h line 785
 static signed int fflush_all(void);
 // file include/libbb.h line 751
@@ -72,9 +73,10 @@ static unsigned char xfunc_error_retval = (unsigned char)1;
 // file include/libbb.h line 1082
 static void bb_error_msg_and_die(const char *s, ...)
 {
-  void **p = (void **)&s;
+  va_list p;
+  va_start(p, s);
   bb_verror_msg(s, p, (const char *)NULL);
-  p = (void **)NULL;
+  va_end(p);
   xfunc_die();
 }
 
@@ -85,7 +87,7 @@ static void bb_show_usage(void)
 }
 
 // file include/libbb.h line 1092
-static void bb_verror_msg(const char *s, void **p, const char *strerr)
+static void bb_verror_msg(const char *s, va_list p, const char *strerr)
 {
   char *msg;
   char *msg1;

@@ -23,6 +23,7 @@ extern void __VERIFIER_error(void);
 #include <sys/stat.h>
 #include <time.h>
 #include <unistd.h>
+#include <stdarg.h>
 
 // file coreutils/test.c line 276
 struct operator_t;
@@ -43,7 +44,7 @@ static void bb_error_msg(const char *s, ...);
 // file include/libbb.h line 1082
 static void bb_error_msg_and_die(const char *s, ...);
 // file include/libbb.h line 1092
-static void bb_verror_msg(const char *s, void **p, const char *strerr);
+static void bb_verror_msg(const char *s, va_list p, const char *strerr);
 // file coreutils/test.c line 492
 static signed int binop(void);
 // file coreutils/test.c line 473
@@ -259,22 +260,24 @@ static const char * bb_basename(const char *name)
 // file include/libbb.h line 1081
 static void bb_error_msg(const char *s, ...)
 {
-  void **p = (void **)&s;
+  va_list p;
+  va_start(p, s);
   bb_verror_msg(s, p, (const char *)NULL);
-  p = (void **)NULL;
+  va_end(p);
 }
 
 // file include/libbb.h line 1082
 static void bb_error_msg_and_die(const char *s, ...)
 {
-  void **p = (void **)&s;
+  va_list p;
+  va_start(p, s);
   bb_verror_msg(s, p, (const char *)NULL);
-  p = (void **)NULL;
+  va_end(p);
   xfunc_die();
 }
 
 // file include/libbb.h line 1092
-static void bb_verror_msg(const char *s, void **p, const char *strerr)
+static void bb_verror_msg(const char *s, va_list p, const char *strerr)
 {
   char *msg;
   char *msg1;

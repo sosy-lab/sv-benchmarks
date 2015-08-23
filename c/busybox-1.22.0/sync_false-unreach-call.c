@@ -19,6 +19,7 @@ extern void __VERIFIER_error(void);
 #include <stdlib.h>
 #include <string.h>
 #include <unistd.h>
+#include <stdarg.h>
 
 #ifndef NULL
 #define NULL ((void*)0)
@@ -27,7 +28,7 @@ extern void __VERIFIER_error(void);
 // file include/libbb.h line 1081
 static void bb_error_msg(const char *s, ...);
 // file include/libbb.h line 1092
-static void bb_verror_msg(const char *s, void **p, const char *strerr);
+static void bb_verror_msg(const char *s, va_list p, const char *strerr);
 // file libbb/warn_ignoring_args.c line 12
 static void bb_warn_ignoring_args(char *arg);
 // file include/libbb.h line 785
@@ -49,13 +50,14 @@ static const char *msg_eol = "\n";
 // file include/libbb.h line 1081
 static void bb_error_msg(const char *s, ...)
 {
-  void **p = (void **)&s;
+  va_list p;
+  va_start(p, s);
   bb_verror_msg(s, p, (const char *)NULL);
-  p = (void **)NULL;
+  va_end(p);
 }
 
 // file include/libbb.h line 1092
-static void bb_verror_msg(const char *s, void **p, const char *strerr)
+static void bb_verror_msg(const char *s, va_list p, const char *strerr)
 {
   char *msg;
   char *msg1;

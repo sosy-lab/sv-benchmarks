@@ -23,6 +23,7 @@ extern void __VERIFIER_error(void);
 #include <string.h>
 #include <time.h>
 #include <unistd.h>
+#include <stdarg.h>
 
 // file libbb/getopt32.c line 307
 struct libbb_anonymous$0;
@@ -36,7 +37,6 @@ struct suffix_mult;
 // file include/libbb.h line 671
 struct uni_stat_t;
 
- #include <stdarg.h>
 
 #ifndef NULL
 #define NULL ((void*)0)
@@ -53,7 +53,7 @@ static void bb_show_usage(void);
 // file libbb/xatonum.c line 38
 static inline unsigned int bb_strtoui(const char *str, char **end, signed int b);
 // file include/libbb.h line 1092
-static void bb_verror_msg(const char *s, void **p, const char *strerr);
+static void bb_verror_msg(const char *s, va_list p, const char *strerr);
 // file include/unicode.h line 112
 static signed int bb_wcwidth(unsigned int ucs);
 // file coreutils/cal.c line 314
@@ -199,16 +199,18 @@ static unsigned char xfunc_error_retval = (unsigned char)1;
 // file include/libbb.h line 1082
 static void bb_error_msg_and_die(const char *s, ...)
 {
-  void **p = (void **)&s;
+  va_list p;
+  va_start(p, s);
   bb_verror_msg(s, p, (const char *)NULL);
-  p = (void **)NULL;
+  va_end(p);
   xfunc_die();
 }
 
 // file include/libbb.h line 1085
 static void bb_perror_msg_and_die(const char *s, ...)
 {
-  void **p = (void **)&s;
+  va_list p;
+  va_start(p, s);
   char *tmp_if_expr$2;
   char *return_value_strerror$1;
   if(!(*bb_errno == 0))
@@ -220,7 +222,7 @@ static void bb_perror_msg_and_die(const char *s, ...)
   else
     tmp_if_expr$2 = (char *)NULL;
   bb_verror_msg(s, p, tmp_if_expr$2);
-  p = (void **)NULL;
+  va_end(p);
   xfunc_die();
 }
 
@@ -253,7 +255,7 @@ static inline unsigned int bb_strtoui(const char *str, char **end, signed int b)
 }
 
 // file include/libbb.h line 1092
-static void bb_verror_msg(const char *s, void **p, const char *strerr)
+static void bb_verror_msg(const char *s, va_list p, const char *strerr)
 {
   char *msg;
   char *msg1;
