@@ -55,60 +55,24 @@ for f in $(<source_files) ; do
   echo $f
   ec=0
   case $f in
-    *array-examples/*) m32="-m32" ;;
-    *bitvector-loops/*) m32="-m32" ;;
-    *bitvector/*) m32="-m32" ;;
-    *bitvector-regression/*) m32="-m32" ;;
-    *busybox-1.22.0/*) m32="-m32" ;;
-    *ddv-machzwd/*) m32="-m32" ;;
-    *eca/*) m32="-m32" ;;
-    *eca-rers2012/*) m32="-m32" ;;
-    *float-benchs/*) m32="-m32" ;;
-    *floats-cbmc-regression/*) m32="-m32" ;;
-    *floats-cdfpl/*) m32="-m32" ;;
-    *heap-manipulation/*) m32="-m32" ;;
-    *ldv-challenges/*) m32="" ;;
-    *ldv-commit-tester/*) m32="" ;;
-    *ldv-consumption/*) m32="" ;;
-    *ldv-linux-3.0/*) m32="" ;;
-    *ldv-linux-3.12-rc1/*) m32="" ;;
-    *ldv-linux-3.16-rc1/*) m32="" ;;
-    *ldv-linux-3.4-simple/*) m32="" ;;
-    *ldv-linux-3.7.3/*) m32="" ;;
-    *ldv-regression/*) m32="" ;;
-    *ldv-validator-v0.6/*) m32="" ;;
-    *list-ext-properties/*) m32="-m32" ;;
-    *list-properties/*) m32="-m32" ;;
-    *locks/*) m32="-m32" ;;
-    *loop-acceleration/*) m32="-m32" ;;
-    *loop-invgen/*) m32="-m32" ;;
-    *loop-lit/*) m32="-m32" ;;
-    *loop-new/*) m32="-m32" ;;
-    *loops/*) m32="-m32" ;;
-    *memory-alloca/*) m32="-m32" ;;
-    *memory-unsafe/*) m32="-m32" ;;
-    *memsafety-ext/*) m32="-m32" ;;
-    *memsafety/*) m32="-m32" ;;
-    *ntdrivers/*) m32="-m32" ;;
-    *ntdrivers-simplified/*) m32="-m32" ;;
-    *product-lines/*) m32="-m32" ;;
-    *pthread-atomic/*) m32="-m32" ;;
-    *pthread-ext/*) m32="-m32" ;;
-    *pthread-lit/*) m32="-m32" ;;
-    *pthread/*) m32="-m32" ;;
-    *pthread-wmm/*) m32="-m32" ;;
-    *recursive/*) m32="-m32" ;;
-    *recursive-simple/*) m32="-m32" ;;
-    *regression/*) m32="" ;;
-    *seq-mthreaded/*) m32="-m32" ;;
-    *seq-pthread/*) m32="-m32" ;;
-    *ssh/*) m32="-m32" ;;
-    *ssh-simplified/*) m32="-m32" ;;
-    *systemc/*) m32="-m32" ;;
-    *termination-crafted-lit/*) m32="" ;;
-    *termination-crafted/*) m32="" ;;
-    *termination-memory-alloca/*) m32="" ;;
-    *termination-numeric/*) m32="" ;;
+    *ldv-challenges/* |\
+    *ldv-commit-tester/* |\
+    *ldv-consumption/* |\
+    *ldv-linux-3.0/* |\
+    *ldv-linux-3.12-rc1/* |\
+    *ldv-linux-3.16-rc1/* |\
+    *ldv-linux-3.4-simple/* |\
+    *ldv-linux-3.7.3/* |\
+    *ldv-regression/* |\
+    *ldv-validator-v0.6/* |\
+    *regression/* |\
+    *termination-crafted-lit/* |\
+    *termination-crafted/* |\
+    *termination-memory-alloca/* |\
+    *termination-numeric/* )
+    arch="-m64" ;;
+  *)
+    arch="-m32" ;;
   esac
 
   ff=$f
@@ -118,7 +82,7 @@ for f in $(<source_files) ; do
     ff=x.i
   fi
 
-  gcc -x c -std=c99 $m32 -c -o f.o $ff -I `dirname $f` -include decls.h \
+  gcc -x c -std=c99 $arch -c -o f.o $ff -I `dirname $f` -include decls.h \
     -Wall -Werror \
     -Wno-unused-label -Wno-unused-function \
     -Wno-unused-but-set-variable -Wno-unused-variable -Wno-unused-value \
