@@ -1,0 +1,98 @@
+#!/bin/bash
+#
+# Copyright (c) 2015 Michael Tautschnig <michael.tautschnig@qmul.ac.uk>
+# 
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+# 
+#     http://www.apache.org/licenses/LICENSE-2.0
+# 
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+set -e
+
+cat > decls.h <<EOF
+int __VERIFIER_nondet_int();
+void __VERIFIER_assume(int);
+EOF
+
+if [ $# -gt 0 ] ; then
+  echo $@ > source_files
+else
+  find . \( -name "*.c" -o -name "*.i" \) -a ! -exec grep -q '{}' check-blacklist \; -print > source_files
+fi
+
+rm -f blacklist
+
+for f in $(<source_files) ; do
+  [ -f $f ] || continue
+  echo $f
+  ec=0
+  case $f in
+    *ldv-challenges/* |\
+    *ldv-commit-tester/* |\
+    *ldv-consumption/* |\
+    *ldv-linux-3.0/* |\
+    *ldv-linux-3.12-rc1/* |\
+    *ldv-linux-3.16-rc1/* |\
+    *ldv-linux-3.4-simple/* |\
+    *ldv-linux-3.7.3/* |\
+    *ldv-regression/* |\
+    *ldv-validator-v0.6/* |\
+    *regression/* |\
+    *termination-crafted-lit/* |\
+    *termination-crafted/* |\
+    *termination-memory-alloca/* |\
+    *termination-numeric/* )
+    arch="-m64" ;;
+  *)
+    arch="-m32" ;;
+  esac
+
+  ff=$f
+  if echo $f | grep -q "\.i$" ; then
+    cp decls.h x.i
+    cat $f >> x.i
+    ff=x.i
+  fi
+
+  gcc -x c -std=c99 $arch -c -o f.o $ff -I `dirname $f` -include decls.h \
+    -Wall -Werror \
+    -Wno-unused-label -Wno-unused-function \
+    -Wno-unused-but-set-variable -Wno-unused-variable -Wno-unused-value \
+    -Wno-unknown-pragmas -Wno-attributes -Wno-parentheses \
+    -Wno-maybe-uninitialized -Wno-uninitialized \
+    -Wno-pointer-to-int-cast -Wno-int-to-pointer-cast -Wno-pointer-sign \
+    -Wno-return-local-addr -Wno-return-type \
+    -Wno-main -Wno-sequence-point \
+    2>&1 | tee err.log
+  ec=${PIPESTATUS[0]}
+  if [ $ec -ne 0 ] ; then
+    if grep -q "makes pointer from integer without a cast \[-Werror\]$" err.log || \
+       grep -q "assignment from incompatible pointer type \[-Werror\]$" err.log || \
+       grep -q "\[-Werror=implicit-function-declaration\]$" err.log || \
+       grep -q "declared inside parameter list \[-Werror\]$" err.log || \
+       grep -q "qualifier from pointer target type \[-Werror\]$" err.log ; then
+      echo "$f" >> blacklist
+      echo "auto-blacklisted"
+    else
+      rm -f f.o x.i err.log
+      echo -n "Add to blacklist - press n to decline?"
+      read y
+      if [ "$y" != "n" ] ; then
+        echo "$f" >> blacklist
+      else
+        exit 1
+      fi
+    fi
+  fi
+  rm -f f.o x.i err.log
+done
+
+rm -f decls.h source_files
+
