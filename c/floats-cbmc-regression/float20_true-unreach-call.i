@@ -1,13 +1,12 @@
-extern void __VERIFIER_assume(int);
 # 1 "float20_true-unreach-call.c"
-# 1 "<built-in>" 1
-# 1 "<built-in>" 3
-# 170 "<built-in>" 3
-# 1 "<command line>" 1
-# 1 "<built-in>" 2
-# 1 "float20_true-unreach-call.c" 2
+# 1 "<built-in>"
+# 1 "<command-line>"
+# 1 "/usr/include/stdc-predef.h" 1 3 4
+# 1 "<command-line>" 2
+# 1 "float20_true-unreach-call.c"
+extern void __VERIFIER_assume(int);
 extern void __VERIFIER_error(void);
-# 14 "float20_true-unreach-call.c"
+# 15 "float20_true-unreach-call.c"
 void bug (float min) {
   __VERIFIER_assume(min == 0x1.fffffep-105f);
   float modifier = (0x1.0p-23 * (1<<1));

@@ -1,6 +1,6 @@
 extern void __VERIFIER_error(void);
 
-main()
+int main()
 {
   float a;
   double b;
