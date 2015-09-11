@@ -14,6 +14,8 @@
    MA 02110-1301, USA.
 */
 extern void __VERIFIER_error(void);
+#define _GNU_SOURCE
+#include <syslog.h>
 #include <getopt.h>
 #include <libio.h>
 #include <setjmp.h>
@@ -22,6 +24,7 @@ extern void __VERIFIER_error(void);
 #include <stdlib.h>
 #include <string.h>
 #include <unistd.h>
+#include <stdarg.h>
 
 // file libbb/getopt32.c line 307
 struct libbb_anonymous$0;
@@ -35,7 +38,6 @@ struct suffix_mult;
 // file include/libbb.h line 671
 struct uni_stat_t;
 
- #include <stdarg.h>
 
 #ifndef NULL
 #define NULL ((void*)0)
@@ -56,7 +58,7 @@ static void bb_simple_perror_msg(const char *s);
 // file libbb/xatonum.c line 38
 static inline unsigned int bb_strtoui(const char *str, char **end, signed int b);
 // file include/libbb.h line 1092
-static void bb_verror_msg(const char *s, void **p, const char *strerr);
+static void bb_verror_msg(const char *s, va_list p, const char *strerr);
 // file include/unicode.h line 112
 static signed int bb_wcwidth(unsigned int ucs);
 // file coreutils/expand.c line 62
@@ -202,9 +204,10 @@ static unsigned char xfunc_error_retval = (unsigned char)1;
 // file include/libbb.h line 1082
 static void bb_error_msg_and_die(const char *s, ...)
 {
-  void **p = (void **)&s;
+  va_list p;
+  va_start(p, s);
   bb_verror_msg(s, p, (const char *)NULL);
-  p = (void **)NULL;
+  va_end(p);
   xfunc_die();
 }
 
@@ -260,7 +263,8 @@ static char * bb_get_chunk_from_file(struct _IO_FILE *file, signed int *end)
 // file include/libbb.h line 1083
 static void bb_perror_msg(const char *s, ...)
 {
-  void **p = (void **)&s;
+  va_list p;
+  va_start(p, s);
   char *tmp_if_expr$2;
   char *return_value_strerror$1;
   if(!(*bb_errno == 0))
@@ -272,13 +276,14 @@ static void bb_perror_msg(const char *s, ...)
   else
     tmp_if_expr$2 = (char *)NULL;
   bb_verror_msg(s, p, tmp_if_expr$2);
-  p = (void **)NULL;
+  va_end(p);
 }
 
 // file include/libbb.h line 1085
 static void bb_perror_msg_and_die(const char *s, ...)
 {
-  void **p = (void **)&s;
+  va_list p;
+  va_start(p, s);
   char *tmp_if_expr$2;
   char *return_value_strerror$1;
   if(!(*bb_errno == 0))
@@ -290,7 +295,7 @@ static void bb_perror_msg_and_die(const char *s, ...)
   else
     tmp_if_expr$2 = (char *)NULL;
   bb_verror_msg(s, p, tmp_if_expr$2);
-  p = (void **)NULL;
+  va_end(p);
   xfunc_die();
 }
 
@@ -321,7 +326,7 @@ static inline unsigned int bb_strtoui(const char *str, char **end, signed int b)
 }
 
 // file include/libbb.h line 1092
-static void bb_verror_msg(const char *s, void **p, const char *strerr)
+static void bb_verror_msg(const char *s, va_list p, const char *strerr)
 {
   char *msg;
   char *msg1;
@@ -491,7 +496,7 @@ static void expand(struct _IO_FILE *file, unsigned int tab_size, unsigned int op
           /* assertion tab_size != 0u */
           __VERIFIER_error();
         len = tab_size - len % tab_size;
-        printf("%s%*s", ptr_strbeg, len, (const void *)"");
+        printf("%s%*s", ptr_strbeg, len, "");
         ptr_strbeg = ptr + (signed long int)1;
       }
 
@@ -1459,98 +1464,14 @@ static void unexpand(struct _IO_FILE *file, unsigned int tab_size, unsigned int 
         {
           if(!(ptr == line))
           {
-            printf("%*s%s", len, (const void *)"", ptr);
+            printf("%*s%s", len, "", ptr);
             break;
           }
 
         }
 
-        char __r0;
-        char __r1;
-        char __r2;
-        if((_Bool)1)
-        {
-          if(!((unsigned long int)("\t " + 1l) + -((unsigned long int)"\t ") == 1ul))
-            goto __CPROVER_DUMP_L35;
-
-          __r0 = ((const char *)"\t ")[(signed long int)0];
-          if((signed int)__r0 == 0)
-          {
-            return_value_strlen$3=strlen(ptr);
-            tmp_if_expr$11 = return_value_strlen$3;
-          }
-
-          else
-          {
-            if(!("\t " + 1l == ((const char *)NULL)))
-              (void)0;
-
-            else
-              /* assertion !("\t " + 1l == ((const char *)((void*)0))) */
-              __VERIFIER_error();
-            __r1 = ((const char *)"\t ")[(signed long int)1];
-            if((signed int)__r1 == 0)
-            {
-              return_value___strcspn_c1$4=__strcspn_c1(ptr, (signed int)__r0);
-              tmp_if_expr$10 = return_value___strcspn_c1$4;
-            }
-
-            else
-            {
-              if(!("\t " + 2l == ((const char *)NULL)))
-                (void)0;
-
-              else
-                /* assertion !("\t " + 2l == ((const char *)((void*)0))) */
-                __VERIFIER_error();
-              __r2 = ((const char *)"\t ")[(signed long int)2];
-              if((signed int)__r2 == 0)
-              {
-                return_value___strcspn_c2$5=__strcspn_c2(ptr, (signed int)__r0, (signed int)__r1);
-                tmp_if_expr$9 = return_value___strcspn_c2$5;
-              }
-
-              else
-              {
-                if(!("\t " + 3l == ((const char *)NULL)))
-                  (void)0;
-
-                else
-                  /* assertion !("\t " + 3l == ((const char *)((void*)0))) */
-                  __VERIFIER_error();
-                /* assertion (_Bool)0 */
-                __VERIFIER_error();
-                if((signed int)"\t "[3l] == 0)
-                {
-                  return_value___strcspn_c3$6=__strcspn_c3(ptr, (signed int)__r0, (signed int)__r1, (signed int)__r2);
-                  tmp_if_expr$8 = return_value___strcspn_c3$6;
-                }
-
-                else
-                {
-                  return_value___builtin_strcspn$7=__builtin_strcspn(ptr, "\t ");
-                  tmp_if_expr$8 = return_value___builtin_strcspn$7;
-                }
-                tmp_if_expr$9 = tmp_if_expr$8;
-              }
-              tmp_if_expr$10 = tmp_if_expr$9;
-            }
-            tmp_if_expr$11 = tmp_if_expr$10;
-          }
-          tmp_if_expr$13 = tmp_if_expr$11;
-        }
-
-        else
-        {
-
-        __CPROVER_DUMP_L35:
-          ;
-          return_value___builtin_strcspn$12=__builtin_strcspn(ptr, "\t ");
-          tmp_if_expr$13 = return_value___builtin_strcspn$12;
-        }
-        tmp_statement_expression$2 = (unsigned int)tmp_if_expr$13;
-        n = tmp_statement_expression$2;
-        printf("%*s%.*s", len, (const void *)"", n, ptr);
+        n = strcspn(ptr, "\t ");
+        printf("%*s%.*s", len, "", n, ptr);
         char c;
         if(!(ptr + (signed long int)n == ((char *)NULL)))
           (void)0;

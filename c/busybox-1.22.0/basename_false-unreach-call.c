@@ -96,7 +96,7 @@ signed int main(signed int argc, char **argv)
       {
         if(__result == 0)
         {
-          if(!("--" + 1l == ((const unsigned char *)NULL)))
+          if(!("--" + 1l == ((const char *)NULL)))
             (void)0;
 
           else
@@ -113,7 +113,7 @@ signed int main(signed int argc, char **argv)
           {
             if(__result == 0)
             {
-              if(!("--" + 2l == ((const unsigned char *)NULL)))
+              if(!("--" + 2l == ((const char *)NULL)))
                 (void)0;
 
               else
@@ -130,7 +130,7 @@ signed int main(signed int argc, char **argv)
               {
                 if(__result == 0)
                 {
-                  if(!("--" + 3l == ((const unsigned char *)NULL)))
+                  if(!("--" + 3l == ((const char *)NULL)))
                     (void)0;
 
                   else

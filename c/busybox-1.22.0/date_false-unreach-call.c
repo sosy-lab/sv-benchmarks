@@ -14,6 +14,8 @@
    MA 02110-1301, USA.
 */
 extern void __VERIFIER_error(void);
+#define _GNU_SOURCE
+#include <syslog.h>
 #include <getopt.h>
 #include <libio.h>
 #include <setjmp.h>
@@ -24,6 +26,7 @@ extern void __VERIFIER_error(void);
 #include <sys/stat.h>
 #include <time.h>
 #include <unistd.h>
+#include <stdarg.h>
 
 // file libbb/getopt32.c line 307
 struct libbb_anonymous$0;
@@ -34,7 +37,6 @@ struct llist_t;
 // file include/libbb.h line 841
 struct suffix_mult;
 
- #include <stdarg.h>
 
 #ifndef NULL
 #define NULL ((void*)0)
@@ -57,7 +59,7 @@ static signed long long int bb_strtoll(const char *arg, char **endp, signed int 
 // file libbb/xatonum.c line 38
 static inline unsigned int bb_strtoui(const char *str, char **end, signed int b);
 // file include/libbb.h line 1092
-static void bb_verror_msg(const char *s, void **p, const char *strerr);
+static void bb_verror_msg(const char *s, va_list p, const char *strerr);
 // file include/libbb.h line 785
 static signed int fflush_all(void);
 // file include/libbb.h line 751
@@ -182,16 +184,18 @@ static inline signed int bb_ascii_isalnum(unsigned char a)
 // file include/libbb.h line 1082
 static void bb_error_msg_and_die(const char *s, ...)
 {
-  void **p = (void **)&s;
+  va_list p;
+  va_start(p, s);
   bb_verror_msg(s, p, (const char *)NULL);
-  p = (void **)NULL;
+  va_end(p);
   xfunc_die();
 }
 
 // file include/libbb.h line 1083
 static void bb_perror_msg(const char *s, ...)
 {
-  void **p = (void **)&s;
+  va_list p;
+  va_start(p, s);
   char *tmp_if_expr$2;
   char *return_value_strerror$1;
   if(!(*bb_errno == 0))
@@ -203,13 +207,14 @@ static void bb_perror_msg(const char *s, ...)
   else
     tmp_if_expr$2 = (char *)NULL;
   bb_verror_msg(s, p, tmp_if_expr$2);
-  p = (void **)NULL;
+  va_end(p);
 }
 
 // file include/libbb.h line 1085
 static void bb_perror_msg_and_die(const char *s, ...)
 {
-  void **p = (void **)&s;
+  va_list p;
+  va_start(p, s);
   char *tmp_if_expr$2;
   char *return_value_strerror$1;
   if(!(*bb_errno == 0))
@@ -221,7 +226,7 @@ static void bb_perror_msg_and_die(const char *s, ...)
   else
     tmp_if_expr$2 = (char *)NULL;
   bb_verror_msg(s, p, tmp_if_expr$2);
-  p = (void **)NULL;
+  va_end(p);
   xfunc_die();
 }
 
@@ -289,7 +294,7 @@ static inline unsigned int bb_strtoui(const char *str, char **end, signed int b)
 }
 
 // file include/libbb.h line 1092
-static void bb_verror_msg(const char *s, void **p, const char *strerr)
+static void bb_verror_msg(const char *s, va_list p, const char *strerr)
 {
   char *msg;
   char *msg1;
@@ -458,73 +463,7 @@ signed int main(signed int argc, char **argv)
     if(!(date_str == ((char *)NULL)))
     {
       signed int len;
-      char __a0;
-      char __a1;
-      char __a2;
-      if((_Bool)1)
-      {
-        if(!((unsigned long int)("0123456789" + 1l) + -((unsigned long int)"0123456789") == 1ul))
-          goto __CPROVER_DUMP_L19;
-
-        __a0 = ((const char *)"0123456789")[(signed long int)0];
-        if((signed int)__a0 == 0)
-        {
-          (void)date_str;
-          tmp_if_expr$7 = (unsigned long int)0;
-        }
-
-        else
-        {
-          if(!("0123456789" + 1l == ((const char *)NULL)))
-            (void)0;
-
-          else
-            /* assertion !("0123456789" + 1l == ((const char *)((void*)0))) */
-            __VERIFIER_error();
-          __a1 = ((const char *)"0123456789")[(signed long int)1];
-          if((signed int)__a1 == 0)
-          {
-            return_value___strspn_c1$2=__strspn_c1(date_str, (signed int)__a0);
-            tmp_if_expr$6 = return_value___strspn_c1$2;
-          }
-
-          else
-          {
-            if(!("0123456789" + 2l == ((const char *)NULL)))
-              (void)0;
-
-            else
-              /* assertion !("0123456789" + 2l == ((const char *)((void*)0))) */
-              __VERIFIER_error();
-            __a2 = ((const char *)"0123456789")[(signed long int)2];
-            if((signed int)__a2 == 0)
-            {
-              return_value___strspn_c2$3=__strspn_c2(date_str, (signed int)__a0, (signed int)__a1);
-              tmp_if_expr$5 = return_value___strspn_c2$3;
-            }
-
-            else
-            {
-              return_value___builtin_strspn$4=__builtin_strspn(date_str, "0123456789");
-              tmp_if_expr$5 = return_value___builtin_strspn$4;
-            }
-            tmp_if_expr$6 = tmp_if_expr$5;
-          }
-          tmp_if_expr$7 = tmp_if_expr$6;
-        }
-        tmp_if_expr$9 = tmp_if_expr$7;
-      }
-
-      else
-      {
-
-      __CPROVER_DUMP_L19:
-        ;
-        return_value___builtin_strspn$8=__builtin_strspn(date_str, "0123456789");
-        tmp_if_expr$9 = return_value___builtin_strspn$8;
-      }
-      tmp_statement_expression$1 = (signed int)tmp_if_expr$9;
-      len = tmp_statement_expression$1;
+      len = strspn(date_str, "0123456789");
       if(!(date_str + (signed long int)len == ((char *)NULL)))
         (void)0;
 
@@ -784,7 +723,7 @@ signed int main(signed int argc, char **argv)
         {
           if(__result == 0)
           {
-            if(!("%f" + 1l == ((const unsigned char *)NULL)))
+            if(!("%f" + 1l == ((const char *)NULL)))
               (void)0;
 
             else
@@ -801,7 +740,7 @@ signed int main(signed int argc, char **argv)
             {
               if(__result == 0)
               {
-                if(!("%f" + 2l == ((const unsigned char *)NULL)))
+                if(!("%f" + 2l == ((const char *)NULL)))
                   (void)0;
 
                 else
@@ -818,7 +757,7 @@ signed int main(signed int argc, char **argv)
                 {
                   if(__result == 0)
                   {
-                    if(!("%f" + 3l == ((const unsigned char *)NULL)))
+                    if(!("%f" + 3l == ((const char *)NULL)))
                       (void)0;
 
                     else

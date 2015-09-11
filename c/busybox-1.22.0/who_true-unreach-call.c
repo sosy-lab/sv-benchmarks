@@ -14,6 +14,8 @@
    MA 02110-1301, USA.
 */
 extern void __VERIFIER_error(void);
+#define _GNU_SOURCE
+#include <syslog.h>
 #include <getopt.h>
 #include <libio.h>
 #include <setjmp.h>
@@ -25,6 +27,7 @@ extern void __VERIFIER_error(void);
 #include <time.h>
 #include <unistd.h>
 #include <utmp.h>
+#include <stdarg.h>
 
 // file libbb/getopt32.c line 307
 struct libbb_anonymous$0;
@@ -35,7 +38,6 @@ struct llist_t;
 // file include/libbb.h line 841
 struct suffix_mult;
 
- #include <stdarg.h>
 
 #ifndef NULL
 #define NULL ((void*)0)
@@ -50,7 +52,7 @@ static void bb_show_usage(void);
 // file libbb/xatonum.c line 38
 static inline unsigned int bb_strtoui(const char *str, char **end, signed int b);
 // file include/libbb.h line 1092
-static void bb_verror_msg(const char *s, void **p, const char *strerr);
+static void bb_verror_msg(const char *s, va_list p, const char *strerr);
 // file include/libbb.h line 785
 static signed int fflush_all(void);
 // file include/libbb.h line 751
@@ -156,9 +158,10 @@ static unsigned char xfunc_error_retval = (unsigned char)1;
 // file include/libbb.h line 1082
 static void bb_error_msg_and_die(const char *s, ...)
 {
-  void **p = (void **)&s;
+  va_list p;
+  va_start(p, s);
   bb_verror_msg(s, p, (const char *)NULL);
-  p = (void **)NULL;
+  va_end(p);
   xfunc_die();
 }
 
@@ -191,7 +194,7 @@ static inline unsigned int bb_strtoui(const char *str, char **end, signed int b)
 }
 
 // file include/libbb.h line 1092
-static void bb_verror_msg(const char *s, void **p, const char *strerr)
+static void bb_verror_msg(const char *s, va_list p, const char *strerr)
 {
   char *msg;
   char *msg1;
@@ -926,7 +929,7 @@ signed int main(signed int argc, char **argv)
           seconds = (signed long int)ut->ut_tv.tv_sec;
           char *return_value_ctime$3;
           return_value_ctime$3=ctime(&seconds);
-          printf("%-15.*s %-15.*s %-7s %-16.16s %.*s\n", (signed int)sizeof(char [32l]) /*32ul*/ , (const void *)ut->ut_user, (signed int)sizeof(char [32l]) /*32ul*/ , (const void *)ut->ut_line, (const void *)str6, return_value_ctime$3 + (signed long int)4, (signed int)sizeof(char [256l]) /*256ul*/ , (const void *)ut->ut_host);
+          printf("%-15.*s %-15.*s %-7s %-16.16s %.*s\n", (signed int)sizeof(char [32l]) /*32ul*/ , ut->ut_user, (signed int)sizeof(char [32l]) /*32ul*/ , ut->ut_line, str6, return_value_ctime$3 + (signed long int)4, (signed int)sizeof(char [256l]) /*256ul*/ , ut->ut_host);
         }
 
         else

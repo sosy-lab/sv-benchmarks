@@ -14,6 +14,8 @@
    MA 02110-1301, USA.
 */
 extern void __VERIFIER_error(void);
+#define _GNU_SOURCE
+#include <syslog.h>
 #include <fcntl.h>
 #include <libio.h>
 #include <setjmp.h>
@@ -24,6 +26,7 @@ extern void __VERIFIER_error(void);
 #include <sys/ioctl.h>
 #include <termios.h>
 #include <unistd.h>
+#include <stdarg.h>
 
 // file coreutils/stty.c line 636
 struct control_info;
@@ -58,7 +61,7 @@ static signed int bb_putchar(signed int ch);
 // file libbb/xatonum.c line 38
 static inline unsigned int bb_strtoui(const char *str, char **end, signed int b);
 // file include/libbb.h line 1092
-static void bb_verror_msg(const char *s, void **p, const char *strerr);
+static void bb_verror_msg(const char *s, va_list p, const char *strerr);
 // file coreutils/stty.c line 965
 static void display_recoverable(struct termios *mode, signed int dummy);
 // file coreutils/stty.c line 977
@@ -448,16 +451,18 @@ static unsigned char xfunc_error_retval = (unsigned char)1;
 // file include/libbb.h line 1082
 static void bb_error_msg_and_die(const char *s, ...)
 {
-  void **p = (void **)&s;
+  va_list p;
+  va_start(p, s);
   bb_verror_msg(s, p, (const char *)NULL);
-  p = (void **)NULL;
+  va_end(p);
   xfunc_die();
 }
 
 // file include/libbb.h line 1083
 static void bb_perror_msg(const char *s, ...)
 {
-  void **p = (void **)&s;
+  va_list p;
+  va_start(p, s);
   char *tmp_if_expr$2;
   char *return_value_strerror$1;
   if(!(*bb_errno == 0))
@@ -469,13 +474,14 @@ static void bb_perror_msg(const char *s, ...)
   else
     tmp_if_expr$2 = (char *)NULL;
   bb_verror_msg(s, p, tmp_if_expr$2);
-  p = (void **)NULL;
+  va_end(p);
 }
 
 // file include/libbb.h line 1085
 static void bb_perror_msg_and_die(const char *s, ...)
 {
-  void **p = (void **)&s;
+  va_list p;
+  va_start(p, s);
   char *tmp_if_expr$2;
   char *return_value_strerror$1;
   if(!(*bb_errno == 0))
@@ -487,7 +493,7 @@ static void bb_perror_msg_and_die(const char *s, ...)
   else
     tmp_if_expr$2 = (char *)NULL;
   bb_verror_msg(s, p, tmp_if_expr$2);
-  p = (void **)NULL;
+  va_end(p);
   xfunc_die();
 }
 
@@ -514,7 +520,7 @@ static inline unsigned int bb_strtoui(const char *str, char **end, signed int b)
 }
 
 // file include/libbb.h line 1092
-static void bb_verror_msg(const char *s, void **p, const char *strerr)
+static void bb_verror_msg(const char *s, va_list p, const char *strerr)
 {
   char *msg;
   char *msg1;
@@ -1428,7 +1434,7 @@ static void set_control_char_or_die(struct control_info *info, const char *arg, 
         {
           if(__result == 0)
           {
-            if(!("^-" + 1l == ((const unsigned char *)NULL)))
+            if(!("^-" + 1l == ((const char *)NULL)))
               (void)0;
 
             else
@@ -1445,7 +1451,7 @@ static void set_control_char_or_die(struct control_info *info, const char *arg, 
             {
               if(__result == 0)
               {
-                if(!("^-" + 2l == ((const unsigned char *)NULL)))
+                if(!("^-" + 2l == ((const char *)NULL)))
                   (void)0;
 
                 else
@@ -1462,7 +1468,7 @@ static void set_control_char_or_die(struct control_info *info, const char *arg, 
                 {
                   if(__result == 0)
                   {
-                    if(!("^-" + 3l == ((const unsigned char *)NULL)))
+                    if(!("^-" + 3l == ((const char *)NULL)))
                       (void)0;
 
                     else
@@ -1537,7 +1543,7 @@ static void set_control_char_or_die(struct control_info *info, const char *arg, 
           {
             if(set_control_char_or_die$$1$$2$$2$$__result == 0)
             {
-              if(!("undef" + 1l == ((const unsigned char *)NULL)))
+              if(!("undef" + 1l == ((const char *)NULL)))
                 (void)0;
 
               else
@@ -1554,7 +1560,7 @@ static void set_control_char_or_die(struct control_info *info, const char *arg, 
               {
                 if(set_control_char_or_die$$1$$2$$2$$__result == 0)
                 {
-                  if(!("undef" + 2l == ((const unsigned char *)NULL)))
+                  if(!("undef" + 2l == ((const char *)NULL)))
                     (void)0;
 
                   else
@@ -1571,7 +1577,7 @@ static void set_control_char_or_die(struct control_info *info, const char *arg, 
                   {
                     if(set_control_char_or_die$$1$$2$$2$$__result == 0)
                     {
-                      if(!("undef" + 3l == ((const unsigned char *)NULL)))
+                      if(!("undef" + 3l == ((const char *)NULL)))
                         (void)0;
 
                       else
@@ -2854,13 +2860,13 @@ static signed int wh_helper(signed int value, signed int def_val, const char *en
 static void wrapf(const char *message, ...)
 {
   char buf[128l];
-  void **args;
+  va_list args;
   unsigned int buflen;
-  args = (void **)&message;
+  va_start(args, message);
   signed int return_value_vsnprintf$1;
   return_value_vsnprintf$1=vsnprintf(buf, sizeof(char [128l]) /*128ul*/ , message, args);
   buflen = (unsigned int)return_value_vsnprintf$1;
-  args = (void **)NULL;
+  va_end(args);
   if(!(buflen == 0u))
   {
     if((unsigned long int)buflen >= sizeof(char [128l]) /*128ul*/ )

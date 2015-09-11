@@ -14,6 +14,8 @@
    MA 02110-1301, USA.
 */
 extern void __VERIFIER_error(void);
+#define _GNU_SOURCE
+#include <syslog.h>
 #include <libio.h>
 #include <regex.h>
 #include <setjmp.h>
@@ -22,6 +24,7 @@ extern void __VERIFIER_error(void);
 #include <stdlib.h>
 #include <string.h>
 #include <unistd.h>
+#include <stdarg.h>
 
 // file coreutils/expr.c line 91
 union anonymous;
@@ -45,7 +48,7 @@ static void bb_error_msg_and_die(const char *s, ...);
 // file include/libbb.h line 1085
 static void bb_perror_msg_and_die(const char *s, ...);
 // file include/libbb.h line 1092
-static void bb_verror_msg(const char *s, void **p, const char *strerr);
+static void bb_verror_msg(const char *s, va_list p, const char *strerr);
 // file coreutils/expr.c line 196
 static signed int cmp_common(struct valinfo *l, struct valinfo *r, signed int op);
 // file coreutils/expr.c line 251
@@ -119,14 +122,6 @@ union anonymous
   signed long int i;
   // s
   char *s;
-};
-
-struct anonymous$0
-{
-  // rm_so
-  signed int rm_so;
-  // rm_eo
-  signed int rm_eo;
 };
 
 struct globals
@@ -233,24 +228,27 @@ static signed long int arithmetic_common(struct valinfo *l, struct valinfo *r, s
 // file include/libbb.h line 1081
 static void bb_error_msg(const char *s, ...)
 {
-  void **p = (void **)&s;
+  va_list p;
+  va_start(p, s);
   bb_verror_msg(s, p, (const char *)NULL);
-  p = (void **)NULL;
+  va_end(p);
 }
 
 // file include/libbb.h line 1082
 static void bb_error_msg_and_die(const char *s, ...)
 {
-  void **p = (void **)&s;
+  va_list p;
+  va_start(p, s);
   bb_verror_msg(s, p, (const char *)NULL);
-  p = (void **)NULL;
+  va_end(p);
   xfunc_die();
 }
 
 // file include/libbb.h line 1085
 static void bb_perror_msg_and_die(const char *s, ...)
 {
-  void **p = (void **)&s;
+  va_list p;
+  va_start(p, s);
   char *tmp_if_expr$2;
   char *return_value_strerror$1;
   if(!(*bb_errno == 0))
@@ -262,12 +260,12 @@ static void bb_perror_msg_and_die(const char *s, ...)
   else
     tmp_if_expr$2 = (char *)NULL;
   bb_verror_msg(s, p, tmp_if_expr$2);
-  p = (void **)NULL;
+  va_end(p);
   xfunc_die();
 }
 
 // file include/libbb.h line 1092
-static void bb_verror_msg(const char *s, void **p, const char *strerr)
+static void bb_verror_msg(const char *s, va_list p, const char *strerr)
 {
   char *msg;
   char *msg1;
@@ -448,7 +446,7 @@ static struct valinfo * docolon(struct valinfo *sv, struct valinfo *pv)
 {
   struct valinfo *v;
   struct re_pattern_buffer re_buffer;
-  struct anonymous$0 re_regs[2l];
+  regmatch_t re_regs[2l];
   tostring(sv);
   tostring(pv);
   if(!(pv == ((struct valinfo *)NULL)))
@@ -467,7 +465,7 @@ static struct valinfo * docolon(struct valinfo *sv, struct valinfo *pv)
     bb_error_msg("warning: '%s': using '^' as the first character\nof a basic regular expression is not portable; it is ignored", pv->u.s);
 
   memset((void *)&re_buffer, 0, sizeof(struct re_pattern_buffer) /*64ul*/ );
-  memset((void *)re_regs, 0, sizeof(struct anonymous$0 [2l]) /*16ul*/ );
+  memset((void *)re_regs, 0, sizeof(regmatch_t [2l]) /*16ul*/ );
   if(!(pv == ((struct valinfo *)NULL)))
     (void)0;
 
@@ -1455,12 +1453,12 @@ static void tostring(struct valinfo *v)
 // file include/libbb.h line 658
 static char * xasprintf(const char *format, ...)
 {
-  void **p;
+  va_list p;
   signed int r;
   char *string_ptr;
-  p = (void **)&format;
+  va_start(p, format);
   r=vasprintf(&string_ptr, format, p);
-  p = (void **)NULL;
+  va_end(p);
   if(r < 0)
     bb_error_msg_and_die(bb_msg_memory_exhausted);
 
@@ -1514,7 +1512,7 @@ static char * xstrdup(const char *s)
     return (char *)NULL;
 
   char *return_value___strdup$1;
-  return_value___strdup$1=__strdup(s);
+  return_value___strdup$1=strdup(s);
   t = return_value___strdup$1;
   if(t == ((char *)NULL))
     bb_error_msg_and_die(bb_msg_memory_exhausted);

@@ -14,6 +14,8 @@
    MA 02110-1301, USA.
 */
 extern void __VERIFIER_error(void);
+#define _GNU_SOURCE
+#include <syslog.h>
 #include <libio.h>
 #include <setjmp.h>
 #include <signal.h>
@@ -21,6 +23,7 @@ extern void __VERIFIER_error(void);
 #include <stdlib.h>
 #include <string.h>
 #include <unistd.h>
+#include <stdarg.h>
 
 #ifndef NULL
 #define NULL ((void*)0)
@@ -29,7 +32,7 @@ extern void __VERIFIER_error(void);
 // file include/libbb.h line 1082
 static void bb_error_msg_and_die(const char *s, ...);
 // file include/libbb.h line 1092
-static void bb_verror_msg(const char *s, void **p, const char *strerr);
+static void bb_verror_msg(const char *s, va_list p, const char *strerr);
 // file include/libbb.h line 1112
 signed int chown_main(signed int, char **);
 // file include/libbb.h line 785
@@ -69,14 +72,15 @@ static unsigned char xfunc_error_retval = (unsigned char)1;
 // file include/libbb.h line 1082
 static void bb_error_msg_and_die(const char *s, ...)
 {
-  void **p = (void **)&s;
+  va_list p;
+  va_start(p, s);
   bb_verror_msg(s, p, (const char *)NULL);
-  p = (void **)NULL;
+  va_end(p);
   xfunc_die();
 }
 
 // file include/libbb.h line 1092
-static void bb_verror_msg(const char *s, void **p, const char *strerr)
+static void bb_verror_msg(const char *s, va_list p, const char *strerr)
 {
   char *msg;
   char *msg1;
@@ -250,12 +254,12 @@ static signed long int safe_write(signed int fd, const void *buf, unsigned long 
 // file include/libbb.h line 658
 static char * xasprintf(const char *format, ...)
 {
-  void **p;
+  va_list p;
   signed int r;
   char *string_ptr;
-  p = (void **)&format;
+  va_start(p, format);
   r=vasprintf(&string_ptr, format, p);
-  p = (void **)NULL;
+  va_end(p);
   if(r < 0)
     bb_error_msg_and_die(bb_msg_memory_exhausted);
 

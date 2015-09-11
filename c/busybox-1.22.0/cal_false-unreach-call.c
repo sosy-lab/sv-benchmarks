@@ -14,6 +14,8 @@
    MA 02110-1301, USA.
 */
 extern void __VERIFIER_error(void);
+#define _GNU_SOURCE
+#include <syslog.h>
 #include <getopt.h>
 #include <libio.h>
 #include <setjmp.h>
@@ -23,6 +25,7 @@ extern void __VERIFIER_error(void);
 #include <string.h>
 #include <time.h>
 #include <unistd.h>
+#include <stdarg.h>
 
 // file libbb/getopt32.c line 307
 struct libbb_anonymous$0;
@@ -36,7 +39,6 @@ struct suffix_mult;
 // file include/libbb.h line 671
 struct uni_stat_t;
 
- #include <stdarg.h>
 
 #ifndef NULL
 #define NULL ((void*)0)
@@ -53,7 +55,7 @@ static void bb_show_usage(void);
 // file libbb/xatonum.c line 38
 static inline unsigned int bb_strtoui(const char *str, char **end, signed int b);
 // file include/libbb.h line 1092
-static void bb_verror_msg(const char *s, void **p, const char *strerr);
+static void bb_verror_msg(const char *s, va_list p, const char *strerr);
 // file include/unicode.h line 112
 static signed int bb_wcwidth(unsigned int ucs);
 // file coreutils/cal.c line 314
@@ -199,16 +201,18 @@ static unsigned char xfunc_error_retval = (unsigned char)1;
 // file include/libbb.h line 1082
 static void bb_error_msg_and_die(const char *s, ...)
 {
-  void **p = (void **)&s;
+  va_list p;
+  va_start(p, s);
   bb_verror_msg(s, p, (const char *)NULL);
-  p = (void **)NULL;
+  va_end(p);
   xfunc_die();
 }
 
 // file include/libbb.h line 1085
 static void bb_perror_msg_and_die(const char *s, ...)
 {
-  void **p = (void **)&s;
+  va_list p;
+  va_start(p, s);
   char *tmp_if_expr$2;
   char *return_value_strerror$1;
   if(!(*bb_errno == 0))
@@ -220,7 +224,7 @@ static void bb_perror_msg_and_die(const char *s, ...)
   else
     tmp_if_expr$2 = (char *)NULL;
   bb_verror_msg(s, p, tmp_if_expr$2);
-  p = (void **)NULL;
+  va_end(p);
   xfunc_die();
 }
 
@@ -253,7 +257,7 @@ static inline unsigned int bb_strtoui(const char *str, char **end, signed int b)
 }
 
 // file include/libbb.h line 1092
-static void bb_verror_msg(const char *s, void **p, const char *strerr)
+static void bb_verror_msg(const char *s, va_list p, const char *strerr)
 {
   char *msg;
   char *msg1;
@@ -598,7 +602,7 @@ signed int main(signed int argc, char **argv)
       __VERIFIER_error();
     return_value_sprintf$4=sprintf(cal_main$$1$$4$$lineout, "%s %u", month_names[(signed long int)(month - (unsigned int)1)], year);
     len = (unsigned int)return_value_sprintf$4;
-    printf("%*s%s\n%s\n", (((unsigned int)7 * (unsigned int)option_mask32 + (unsigned int)20) - len) / (unsigned int)2, (const void *)"", (const void *)cal_main$$1$$4$$lineout, (const void *)day_headings);
+    printf("%*s%s\n%s\n", (((unsigned int)7 * (unsigned int)option_mask32 + (unsigned int)20) - len) / (unsigned int)2, "", cal_main$$1$$4$$lineout, day_headings);
     row = (unsigned int)0;
     for( ; row < 6u; row = row + 1u)
     {
@@ -660,9 +664,9 @@ signed int main(signed int argc, char **argv)
         /* assertion (signed long int)(2u + month + -option_mask32) < 12l */
         __VERIFIER_error();
       center(month_names[(signed long int)((month + (unsigned int)2) - (unsigned int)option_mask32)], week_len, (unsigned int)0);
-      printf("\n%s%*s%s", (const void *)day_headings, 2, (const void *)"", (const void *)day_headings);
+      printf("\n%s%*s%s", day_headings, 2, "", day_headings);
       if(option_mask32 == 0u)
-        printf("%*s%s", 2, (const void *)"", (const void *)day_headings);
+        printf("%*s%s", 2, "", day_headings);
 
       bb_putchar(10);
       cal_main$$1$$5$$row = (unsigned int)0;
@@ -689,7 +693,7 @@ static void center(char *str, unsigned int len, unsigned int separate)
   return_value_strlen$1=strlen(str);
   n = (unsigned int)return_value_strlen$1;
   len = len - n;
-  printf("%*s%*s", len / (unsigned int)2 + n, str, len / (unsigned int)2 + len % (unsigned int)2 + separate, (const void *)"");
+  printf("%*s%*s", len / (unsigned int)2 + n, str, len / (unsigned int)2 + len % (unsigned int)2 + separate, "");
 }
 
 // file coreutils/cal.c line 227
@@ -1782,7 +1786,7 @@ static char * xstrdup(const char *s)
     return (char *)NULL;
 
   char *return_value___strdup$1;
-  return_value___strdup$1=__strdup(s);
+  return_value___strdup$1=strdup(s);
   t = return_value___strdup$1;
   if(t == ((char *)NULL))
     bb_error_msg_and_die(bb_msg_memory_exhausted);

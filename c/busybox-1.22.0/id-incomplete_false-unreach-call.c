@@ -14,6 +14,8 @@
    MA 02110-1301, USA.
 */
 extern void __VERIFIER_error(void);
+#define _GNU_SOURCE
+#include <syslog.h>
 #include <getopt.h>
 #include <grp.h>
 #include <libio.h>
@@ -24,6 +26,7 @@ extern void __VERIFIER_error(void);
 #include <stdlib.h>
 #include <string.h>
 #include <unistd.h>
+#include <stdarg.h>
 
 // file libbb/getopt32.c line 307
 struct libbb_anonymous$0;
@@ -34,7 +37,6 @@ struct llist_t;
 // file include/libbb.h line 841
 struct suffix_mult;
 
- #include <stdarg.h>
 
 #ifndef NULL
 #define NULL ((void*)0)
@@ -45,13 +47,13 @@ static void bb_error_msg(const char *s, ...);
 // file include/libbb.h line 1082
 static void bb_error_msg_and_die(const char *s, ...);
 // file include/grp_.h line 71
-static struct group * bb_internal_getgrgid(unsigned int);
+struct group * bb_internal_getgrgid(unsigned int);
 // file include/grp_.h line 109
 extern signed int bb_internal_getgrouplist(const char *, unsigned int, unsigned int *, signed int *);
 // file include/pwd_.h line 73
-static struct passwd * bb_internal_getpwnam(const char *);
+struct passwd * bb_internal_getpwnam(const char *);
 // file include/pwd_.h line 70
-static struct passwd * bb_internal_getpwuid(unsigned int);
+struct passwd * bb_internal_getpwuid(unsigned int);
 // file include/libbb.h line 1085
 static void bb_perror_msg_and_die(const char *s, ...);
 // file include/libbb.h line 655
@@ -61,7 +63,7 @@ static void bb_show_usage(void);
 // file libbb/xatonum.c line 38
 static inline unsigned int bb_strtoui(const char *str, char **end, signed int b);
 // file include/libbb.h line 1092
-static void bb_verror_msg(const char *s, void **p, const char *strerr);
+static void bb_verror_msg(const char *s, va_list p, const char *strerr);
 // file include/libbb.h line 785
 static signed int fflush_all(void);
 // file include/libbb.h line 786
@@ -175,24 +177,27 @@ static unsigned char xfunc_error_retval = (unsigned char)1;
 // file include/libbb.h line 1081
 static void bb_error_msg(const char *s, ...)
 {
-  void **p = (void **)&s;
+  va_list p;
+  va_start(p, s);
   bb_verror_msg(s, p, (const char *)NULL);
-  p = (void **)NULL;
+  va_end(p);
 }
 
 // file include/libbb.h line 1082
 static void bb_error_msg_and_die(const char *s, ...)
 {
-  void **p = (void **)&s;
+  va_list p;
+  va_start(p, s);
   bb_verror_msg(s, p, (const char *)NULL);
-  p = (void **)NULL;
+  va_end(p);
   xfunc_die();
 }
 
 // file include/libbb.h line 1085
 static void bb_perror_msg_and_die(const char *s, ...)
 {
-  void **p = (void **)&s;
+  va_list p;
+  va_start(p, s);
   char *tmp_if_expr$2;
   char *return_value_strerror$1;
   if(!(*bb_errno == 0))
@@ -204,7 +209,7 @@ static void bb_perror_msg_and_die(const char *s, ...)
   else
     tmp_if_expr$2 = (char *)NULL;
   bb_verror_msg(s, p, tmp_if_expr$2);
-  p = (void **)NULL;
+  va_end(p);
   xfunc_die();
 }
 
@@ -237,7 +242,7 @@ static inline unsigned int bb_strtoui(const char *str, char **end, signed int b)
 }
 
 // file include/libbb.h line 1092
-static void bb_verror_msg(const char *s, void **p, const char *strerr)
+static void bb_verror_msg(const char *s, va_list p, const char *strerr)
 {
   char *msg;
   char *msg1;
