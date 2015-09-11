@@ -30,13 +30,13 @@ public  class  Actions {
 		
 	void stopSystem  () {
 	    if(p.systemActive)
-		p.stopSystem();
+		p.systemActive=false;
 	}
 
 	
 	void startSystem  () {
 	    if(!p.systemActive)
-		p.startSystem();
+		p.systemActive=true;
 	}
 		
 	void timeShift() {
