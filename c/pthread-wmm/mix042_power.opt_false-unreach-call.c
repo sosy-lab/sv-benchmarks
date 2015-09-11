@@ -169,7 +169,7 @@ void * P0(void *arg)
   __VERIFIER_atomic_begin();
   __unbuffered_cnt = __unbuffered_cnt + 1;
   __VERIFIER_atomic_end();
-  return nondet_0();
+  return __VERIFIER_nondet_pointer();
 }
 
 
@@ -192,7 +192,7 @@ void * P1(void *arg)
   __VERIFIER_atomic_begin();
   __unbuffered_cnt = __unbuffered_cnt + 1;
   __VERIFIER_atomic_end();
-  return nondet_0();
+  return __VERIFIER_nondet_pointer();
 }
 
 
@@ -230,7 +230,7 @@ void * P2(void *arg)
   __VERIFIER_atomic_begin();
   __unbuffered_cnt = __unbuffered_cnt + 1;
   __VERIFIER_atomic_end();
-  return nondet_0();
+  return __VERIFIER_nondet_pointer();
 }
 
 
@@ -258,9 +258,12 @@ void lwfence()
 
 int main()
 {
-  pthread_create(NULL, NULL, P0, NULL);
-  pthread_create(NULL, NULL, P1, NULL);
-  pthread_create(NULL, NULL, P2, NULL);
+  pthread_t t1108;
+  pthread_create(&t1108, NULL, P0, NULL);
+  pthread_t t1109;
+  pthread_create(&t1109, NULL, P1, NULL);
+  pthread_t t1110;
+  pthread_create(&t1110, NULL, P2, NULL);
   __VERIFIER_atomic_begin();
   main$tmp_guard0 = __unbuffered_cnt == 3;
   __VERIFIER_atomic_end();
@@ -274,9 +277,9 @@ int main()
   __VERIFIER_atomic_end();
   __VERIFIER_atomic_begin();
   /* Program proven to be relaxed for X86, model checker says YES. */
-  weak$$choice0 = nondet_1();
+  weak$$choice0 = __VERIFIER_nondet_pointer();
   /* Program proven to be relaxed for X86, model checker says YES. */
-  weak$$choice2 = nondet_1();
+  weak$$choice2 = __VERIFIER_nondet_pointer();
   /* Program proven to be relaxed for X86, model checker says YES. */
   y$flush_delayed = weak$$choice2;
   /* Program proven to be relaxed for X86, model checker says YES. */

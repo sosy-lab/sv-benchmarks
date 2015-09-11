@@ -168,8 +168,8 @@ void * P0(void *arg)
   a = 1;
   __VERIFIER_atomic_end();
   __VERIFIER_atomic_begin();
-  weak$$choice0 = nondet_0();
-  weak$$choice2 = nondet_0();
+  weak$$choice0 = __VERIFIER_nondet_bool();
+  weak$$choice2 = __VERIFIER_nondet_bool();
   x$flush_delayed = weak$$choice2;
   x$mem_tmp = x;
   x = !x$w_buff0_used || !x$r_buff0_thd1 && !x$w_buff1_used || !x$r_buff0_thd1 && !x$r_buff1_thd1 ? x : (x$w_buff0_used && x$r_buff0_thd1 ? x$w_buff0 : x$w_buff1);
@@ -188,7 +188,7 @@ void * P0(void *arg)
   __VERIFIER_atomic_begin();
   __unbuffered_cnt = __unbuffered_cnt + 1;
   __VERIFIER_atomic_end();
-  return nondet_1();
+  return __VERIFIER_nondet_pointer();
 }
 
 
@@ -220,7 +220,7 @@ void * P1(void *arg)
   __VERIFIER_atomic_begin();
   __unbuffered_cnt = __unbuffered_cnt + 1;
   __VERIFIER_atomic_end();
-  return nondet_1();
+  return __VERIFIER_nondet_pointer();
 }
 
 
@@ -249,7 +249,7 @@ void * P2(void *arg)
   __VERIFIER_atomic_begin();
   __unbuffered_cnt = __unbuffered_cnt + 1;
   __VERIFIER_atomic_end();
-  return nondet_1();
+  return __VERIFIER_nondet_pointer();
 }
 
 
@@ -277,9 +277,12 @@ void lwfence()
 
 int main()
 {
-  pthread_create(NULL, NULL, P0, NULL);
-  pthread_create(NULL, NULL, P1, NULL);
-  pthread_create(NULL, NULL, P2, NULL);
+  pthread_t t916;
+  pthread_create(&t916, NULL, P0, NULL);
+  pthread_t t917;
+  pthread_create(&t917, NULL, P1, NULL);
+  pthread_t t918;
+  pthread_create(&t918, NULL, P2, NULL);
   __VERIFIER_atomic_begin();
   main$tmp_guard0 = __unbuffered_cnt == 3;
   __VERIFIER_atomic_end();

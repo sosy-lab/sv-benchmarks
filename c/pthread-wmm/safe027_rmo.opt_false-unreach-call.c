@@ -219,8 +219,8 @@ _Bool weak$$choice2;
 void * P0(void *arg)
 {
   __VERIFIER_atomic_begin();
-  weak$$choice0 = nondet_0();
-  weak$$choice2 = nondet_0();
+  weak$$choice0 = __VERIFIER_nondet_bool();
+  weak$$choice2 = __VERIFIER_nondet_bool();
   y$flush_delayed = weak$$choice2;
   y$mem_tmp = y;
   y = !y$w_buff0_used || !y$r_buff0_thd1 && !y$w_buff1_used || !y$r_buff0_thd1 && !y$r_buff1_thd1 ? y : (y$w_buff0_used && y$r_buff0_thd1 ? y$w_buff0 : y$w_buff1);
@@ -244,7 +244,7 @@ void * P0(void *arg)
   __VERIFIER_atomic_begin();
   __unbuffered_cnt = __unbuffered_cnt + 1;
   __VERIFIER_atomic_end();
-  return nondet_1();
+  return __VERIFIER_nondet_pointer();
 }
 
 
@@ -259,7 +259,7 @@ void * P1(void *arg)
   __VERIFIER_atomic_begin();
   __unbuffered_cnt = __unbuffered_cnt + 1;
   __VERIFIER_atomic_end();
-  return nondet_1();
+  return __VERIFIER_nondet_pointer();
 }
 
 
@@ -270,8 +270,8 @@ void * P2(void *arg)
   __unbuffered_p2_EAX = x;
   __VERIFIER_atomic_end();
   __VERIFIER_atomic_begin();
-  weak$$choice0 = nondet_0();
-  weak$$choice2 = nondet_0();
+  weak$$choice0 = __VERIFIER_nondet_bool();
+  weak$$choice2 = __VERIFIER_nondet_bool();
   y$flush_delayed = weak$$choice2;
   y$mem_tmp = y;
   y = !y$w_buff0_used || !y$r_buff0_thd3 && !y$w_buff1_used || !y$r_buff0_thd3 && !y$r_buff1_thd3 ? y : (y$w_buff0_used && y$r_buff0_thd3 ? y$w_buff0 : y$w_buff1);
@@ -290,7 +290,7 @@ void * P2(void *arg)
   __VERIFIER_atomic_begin();
   __unbuffered_cnt = __unbuffered_cnt + 1;
   __VERIFIER_atomic_end();
-  return nondet_1();
+  return __VERIFIER_nondet_pointer();
 }
 
 
@@ -310,7 +310,7 @@ void * P3(void *arg)
   __VERIFIER_atomic_begin();
   __unbuffered_cnt = __unbuffered_cnt + 1;
   __VERIFIER_atomic_end();
-  return nondet_1();
+  return __VERIFIER_nondet_pointer();
 }
 
 
@@ -338,10 +338,14 @@ void lwfence()
 
 int main()
 {
-  pthread_create(NULL, NULL, P0, NULL);
-  pthread_create(NULL, NULL, P1, NULL);
-  pthread_create(NULL, NULL, P2, NULL);
-  pthread_create(NULL, NULL, P3, NULL);
+  pthread_t t2437;
+  pthread_create(&t2437, NULL, P0, NULL);
+  pthread_t t2438;
+  pthread_create(&t2438, NULL, P1, NULL);
+  pthread_t t2439;
+  pthread_create(&t2439, NULL, P2, NULL);
+  pthread_t t2440;
+  pthread_create(&t2440, NULL, P3, NULL);
   __VERIFIER_atomic_begin();
   main$tmp_guard0 = __unbuffered_cnt == 4;
   __VERIFIER_atomic_end();
@@ -356,7 +360,7 @@ int main()
   __VERIFIER_atomic_begin();
   /* Program was expected to be safe for X86, model checker should have said NO.
 This likely is a bug in the tool chain. */
-  weak$$choice1 = nondet_0();
+  weak$$choice1 = __VERIFIER_nondet_bool();
   /* Program was expected to be safe for X86, model checker should have said NO.
 This likely is a bug in the tool chain. */
   __unbuffered_p0_EAX = __unbuffered_p0_EAX$read_delayed ? (weak$$choice1 ? *__unbuffered_p0_EAX$read_delayed_var : __unbuffered_p0_EAX) : __unbuffered_p0_EAX;

@@ -691,7 +691,7 @@ void * P0(void *arg)
   __VERIFIER_atomic_begin();
   __unbuffered_cnt = __unbuffered_cnt + 1;
   __VERIFIER_atomic_end();
-  return nondet_0();
+  return __VERIFIER_nondet_pointer();
 }
 void * P1(void *arg)
 {
@@ -706,7 +706,7 @@ void * P1(void *arg)
   __VERIFIER_atomic_begin();
   __unbuffered_cnt = __unbuffered_cnt + 1;
   __VERIFIER_atomic_end();
-  return nondet_0();
+  return __VERIFIER_nondet_pointer();
 }
 void fence()
 {
@@ -719,8 +719,10 @@ void lwfence()
 }
 int main()
 {
-  pthread_create(((void *)0), ((void *)0), P0, ((void *)0));
-  pthread_create(((void *)0), ((void *)0), P1, ((void *)0));
+  pthread_t t2319;
+  pthread_create(&t2319, ((void *)0), P0, ((void *)0));
+  pthread_t t2320;
+  pthread_create(&t2320, ((void *)0), P1, ((void *)0));
   __VERIFIER_atomic_begin();
   main$tmp_guard0 = __unbuffered_cnt == 2;
   __VERIFIER_atomic_end();

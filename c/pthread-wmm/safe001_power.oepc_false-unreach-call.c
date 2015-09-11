@@ -192,11 +192,11 @@ _Bool weak$$choice2;
 void * P0(void *arg)
 {
   __VERIFIER_atomic_begin();
-  weak$$choice0 = nondet_0();
-  weak$$choice2 = nondet_0();
+  weak$$choice0 = __VERIFIER_nondet_bool();
+  weak$$choice2 = __VERIFIER_nondet_bool();
   y$flush_delayed = weak$$choice2;
   y$mem_tmp = y;
-  weak$$choice1 = nondet_0();
+  weak$$choice1 = __VERIFIER_nondet_bool();
   y = !y$w_buff0_used ? y : (y$w_buff0_used && y$r_buff0_thd1 ? y$w_buff0 : (y$w_buff0_used && !y$r_buff1_thd1 && y$w_buff1_used && !y$r_buff0_thd1 ? (weak$$choice0 ? y : (weak$$choice1 ? y$w_buff0 : y$w_buff1)) : (y$w_buff0_used && y$r_buff1_thd1 && y$w_buff1_used && !y$r_buff0_thd1 ? (weak$$choice0 ? y$w_buff1 : y$w_buff0) : (weak$$choice0 ? y$w_buff0 : y))));
   y$w_buff0 = weak$$choice2 ? y$w_buff0 : (!y$w_buff0_used ? y$w_buff0 : (y$w_buff0_used && y$r_buff0_thd1 ? y$w_buff0 : (y$w_buff0_used && !y$r_buff1_thd1 && y$w_buff1_used && !y$r_buff0_thd1 ? y$w_buff0 : (y$w_buff0_used && y$r_buff1_thd1 && y$w_buff1_used && !y$r_buff0_thd1 ? y$w_buff0 : y$w_buff0))));
   y$w_buff1 = weak$$choice2 ? y$w_buff1 : (!y$w_buff0_used ? y$w_buff1 : (y$w_buff0_used && y$r_buff0_thd1 ? y$w_buff1 : (y$w_buff0_used && !y$r_buff1_thd1 && y$w_buff1_used && !y$r_buff0_thd1 ? y$w_buff1 : (y$w_buff0_used && y$r_buff1_thd1 && y$w_buff1_used && !y$r_buff0_thd1 ? y$w_buff1 : y$w_buff1))));
@@ -218,7 +218,7 @@ void * P0(void *arg)
   __VERIFIER_atomic_begin();
   __unbuffered_cnt = __unbuffered_cnt + 1;
   __VERIFIER_atomic_end();
-  return nondet_1();
+  return __VERIFIER_nondet_pointer();
 }
 
 
@@ -241,7 +241,7 @@ void * P1(void *arg)
   __VERIFIER_atomic_begin();
   __unbuffered_cnt = __unbuffered_cnt + 1;
   __VERIFIER_atomic_end();
-  return nondet_1();
+  return __VERIFIER_nondet_pointer();
 }
 
 
@@ -249,8 +249,8 @@ void * P1(void *arg)
 void * P2(void *arg)
 {
   __VERIFIER_atomic_begin();
-  weak$$choice0 = nondet_0();
-  weak$$choice2 = nondet_0();
+  weak$$choice0 = __VERIFIER_nondet_bool();
+  weak$$choice2 = __VERIFIER_nondet_bool();
   y$flush_delayed = weak$$choice2;
   y$mem_tmp = y;
   y = !y$w_buff0_used || !y$r_buff0_thd3 && !y$w_buff1_used || !y$r_buff0_thd3 && !y$r_buff1_thd3 ? y : (y$w_buff0_used && y$r_buff0_thd3 ? y$w_buff0 : y$w_buff1);
@@ -277,7 +277,7 @@ void * P2(void *arg)
   __VERIFIER_atomic_begin();
   __unbuffered_cnt = __unbuffered_cnt + 1;
   __VERIFIER_atomic_end();
-  return nondet_1();
+  return __VERIFIER_nondet_pointer();
 }
 
 
@@ -305,9 +305,12 @@ void lwfence()
 
 int main()
 {
-  pthread_create(NULL, NULL, P0, NULL);
-  pthread_create(NULL, NULL, P1, NULL);
-  pthread_create(NULL, NULL, P2, NULL);
+  pthread_t t1801;
+  pthread_create(&t1801, NULL, P0, NULL);
+  pthread_t t1802;
+  pthread_create(&t1802, NULL, P1, NULL);
+  pthread_t t1803;
+  pthread_create(&t1803, NULL, P2, NULL);
   __VERIFIER_atomic_begin();
   main$tmp_guard0 = __unbuffered_cnt == 3;
   __VERIFIER_atomic_end();
@@ -322,10 +325,10 @@ int main()
   __VERIFIER_atomic_begin();
   /* Program was expected to be safe for X86, model checker should have said NO.
 This likely is a bug in the tool chain. */
-  weak$$choice0 = nondet_0();
+  weak$$choice0 = __VERIFIER_nondet_bool();
   /* Program was expected to be safe for X86, model checker should have said NO.
 This likely is a bug in the tool chain. */
-  weak$$choice2 = nondet_0();
+  weak$$choice2 = __VERIFIER_nondet_bool();
   /* Program was expected to be safe for X86, model checker should have said NO.
 This likely is a bug in the tool chain. */
   y$flush_delayed = weak$$choice2;
@@ -355,7 +358,7 @@ This likely is a bug in the tool chain. */
   y$r_buff1_thd0 = weak$$choice2 ? y$r_buff1_thd0 : (!y$w_buff0_used || !y$r_buff0_thd0 && !y$w_buff1_used || !y$r_buff0_thd0 && !y$r_buff1_thd0 ? y$r_buff1_thd0 : (y$w_buff0_used && y$r_buff0_thd0 ? FALSE : FALSE));
   /* Program was expected to be safe for X86, model checker should have said NO.
 This likely is a bug in the tool chain. */
-  weak$$choice1 = nondet_0();
+  weak$$choice1 = __VERIFIER_nondet_bool();
   /* Program was expected to be safe for X86, model checker should have said NO.
 This likely is a bug in the tool chain. */
   __unbuffered_p0_EAX = __unbuffered_p0_EAX$read_delayed ? (weak$$choice1 ? *__unbuffered_p0_EAX$read_delayed_var : __unbuffered_p0_EAX) : __unbuffered_p0_EAX;

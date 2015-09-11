@@ -738,7 +738,7 @@ void * P0(void *arg)
   __VERIFIER_atomic_begin();
   __unbuffered_cnt = __unbuffered_cnt + 1;
   __VERIFIER_atomic_end();
-  return nondet_0();
+  return __VERIFIER_nondet_pointer();
 }
 void * P1(void *arg)
 {
@@ -758,7 +758,7 @@ void * P1(void *arg)
   __VERIFIER_atomic_begin();
   __unbuffered_cnt = __unbuffered_cnt + 1;
   __VERIFIER_atomic_end();
-  return nondet_0();
+  return __VERIFIER_nondet_pointer();
 }
 void * P2(void *arg)
 {
@@ -778,7 +778,7 @@ void * P2(void *arg)
   __VERIFIER_atomic_begin();
   __unbuffered_cnt = __unbuffered_cnt + 1;
   __VERIFIER_atomic_end();
-  return nondet_0();
+  return __VERIFIER_nondet_pointer();
 }
 void * P3(void *arg)
 {
@@ -792,8 +792,8 @@ void * P3(void *arg)
   __unbuffered_p3_EAX = a;
   __VERIFIER_atomic_end();
   __VERIFIER_atomic_begin();
-  weak$$choice0 = nondet_1();
-  weak$$choice2 = nondet_1();
+  weak$$choice0 = __VERIFIER_nondet_pointer();
+  weak$$choice2 = __VERIFIER_nondet_pointer();
   b$flush_delayed = weak$$choice2;
   b$mem_tmp = b;
   b = !b$w_buff0_used || !b$r_buff0_thd4 && !b$w_buff1_used || !b$r_buff0_thd4 && !b$r_buff1_thd4 ? b : (b$w_buff0_used && b$r_buff0_thd4 ? b$w_buff0 : b$w_buff1);
@@ -817,7 +817,7 @@ void * P3(void *arg)
   __VERIFIER_atomic_begin();
   __unbuffered_cnt = __unbuffered_cnt + 1;
   __VERIFIER_atomic_end();
-  return nondet_0();
+  return __VERIFIER_nondet_pointer();
 }
 void fence()
 {
@@ -830,10 +830,14 @@ void lwfence()
 }
 int main()
 {
-  pthread_create(((void *)0), ((void *)0), P0, ((void *)0));
-  pthread_create(((void *)0), ((void *)0), P1, ((void *)0));
-  pthread_create(((void *)0), ((void *)0), P2, ((void *)0));
-  pthread_create(((void *)0), ((void *)0), P3, ((void *)0));
+  pthread_t t971;
+  pthread_create(&t971, ((void *)0), P0, ((void *)0));
+  pthread_t t972;
+  pthread_create(&t972, ((void *)0), P1, ((void *)0));
+  pthread_t t973;
+  pthread_create(&t973, ((void *)0), P2, ((void *)0));
+  pthread_t t974;
+  pthread_create(&t974, ((void *)0), P3, ((void *)0));
   __VERIFIER_atomic_begin();
   main$tmp_guard0 = __unbuffered_cnt == 4;
   __VERIFIER_atomic_end();

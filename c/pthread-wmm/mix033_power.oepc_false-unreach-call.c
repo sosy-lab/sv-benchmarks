@@ -195,7 +195,7 @@ void * P0(void *arg)
   __VERIFIER_atomic_begin();
   __unbuffered_cnt = __unbuffered_cnt + 1;
   __VERIFIER_atomic_end();
-  return nondet_0();
+  return __VERIFIER_nondet_pointer();
 }
 
 
@@ -224,7 +224,7 @@ void * P1(void *arg)
   __VERIFIER_atomic_begin();
   __unbuffered_cnt = __unbuffered_cnt + 1;
   __VERIFIER_atomic_end();
-  return nondet_0();
+  return __VERIFIER_nondet_pointer();
 }
 
 
@@ -241,8 +241,8 @@ void * P2(void *arg)
   __unbuffered_p2_EAX = a;
   __VERIFIER_atomic_end();
   __VERIFIER_atomic_begin();
-  weak$$choice0 = nondet_1();
-  weak$$choice2 = nondet_1();
+  weak$$choice0 = __VERIFIER_nondet_pointer();
+  weak$$choice2 = __VERIFIER_nondet_pointer();
   b$flush_delayed = weak$$choice2;
   b$mem_tmp = b;
   b = !b$w_buff0_used || !b$r_buff0_thd3 && !b$w_buff1_used || !b$r_buff0_thd3 && !b$r_buff1_thd3 ? b : (b$w_buff0_used && b$r_buff0_thd3 ? b$w_buff0 : b$w_buff1);
@@ -266,7 +266,7 @@ void * P2(void *arg)
   __VERIFIER_atomic_begin();
   __unbuffered_cnt = __unbuffered_cnt + 1;
   __VERIFIER_atomic_end();
-  return nondet_0();
+  return __VERIFIER_nondet_pointer();
 }
 
 
@@ -294,9 +294,12 @@ void lwfence()
 
 int main()
 {
-  pthread_create(NULL, NULL, P0, NULL);
-  pthread_create(NULL, NULL, P1, NULL);
-  pthread_create(NULL, NULL, P2, NULL);
+  pthread_t t873;
+  pthread_create(&t873, NULL, P0, NULL);
+  pthread_t t874;
+  pthread_create(&t874, NULL, P1, NULL);
+  pthread_t t875;
+  pthread_create(&t875, NULL, P2, NULL);
   __VERIFIER_atomic_begin();
   main$tmp_guard0 = __unbuffered_cnt == 3;
   __VERIFIER_atomic_end();

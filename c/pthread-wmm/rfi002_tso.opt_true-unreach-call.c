@@ -190,8 +190,8 @@ void * P0(void *arg)
   x$r_buff1_thd1 = x$w_buff0_used && x$r_buff0_thd1 || x$w_buff1_used && x$r_buff1_thd1 ? FALSE : x$r_buff1_thd1;
   __VERIFIER_atomic_end();
   __VERIFIER_atomic_begin();
-  weak$$choice0 = nondet_0();
-  weak$$choice2 = nondet_0();
+  weak$$choice0 = __VERIFIER_nondet_bool();
+  weak$$choice2 = __VERIFIER_nondet_bool();
   x$flush_delayed = weak$$choice2;
   x$mem_tmp = x;
   x = !x$w_buff0_used || !x$r_buff0_thd1 && !x$w_buff1_used || !x$r_buff0_thd1 && !x$r_buff1_thd1 ? x : (x$w_buff0_used && x$r_buff0_thd1 ? x$w_buff0 : x$w_buff1);
@@ -215,7 +215,7 @@ void * P0(void *arg)
   __VERIFIER_atomic_begin();
   __unbuffered_cnt = __unbuffered_cnt + 1;
   __VERIFIER_atomic_end();
-  return nondet_1();
+  return __VERIFIER_nondet_pointer();
 }
 
 
@@ -245,8 +245,8 @@ void * P1(void *arg)
   y$r_buff0_thd2 = TRUE;
   __VERIFIER_atomic_end();
   __VERIFIER_atomic_begin();
-  weak$$choice0 = nondet_0();
-  weak$$choice2 = nondet_0();
+  weak$$choice0 = __VERIFIER_nondet_bool();
+  weak$$choice2 = __VERIFIER_nondet_bool();
   y$flush_delayed = weak$$choice2;
   y$mem_tmp = y;
   y = !y$w_buff0_used || !y$r_buff0_thd2 && !y$w_buff1_used || !y$r_buff0_thd2 && !y$r_buff1_thd2 ? y : (y$w_buff0_used && y$r_buff0_thd2 ? y$w_buff0 : y$w_buff1);
@@ -261,8 +261,8 @@ void * P1(void *arg)
   y$flush_delayed = FALSE;
   __VERIFIER_atomic_end();
   __VERIFIER_atomic_begin();
-  weak$$choice0 = nondet_0();
-  weak$$choice2 = nondet_0();
+  weak$$choice0 = __VERIFIER_nondet_bool();
+  weak$$choice2 = __VERIFIER_nondet_bool();
   x$flush_delayed = weak$$choice2;
   x$mem_tmp = x;
   x = !x$w_buff0_used || !x$r_buff0_thd2 && !x$w_buff1_used || !x$r_buff0_thd2 && !x$r_buff1_thd2 ? x : (x$w_buff0_used && x$r_buff0_thd2 ? x$w_buff0 : x$w_buff1);
@@ -291,7 +291,7 @@ void * P1(void *arg)
   __VERIFIER_atomic_begin();
   __unbuffered_cnt = __unbuffered_cnt + 1;
   __VERIFIER_atomic_end();
-  return nondet_1();
+  return __VERIFIER_nondet_pointer();
 }
 
 
@@ -319,8 +319,10 @@ void lwfence()
 
 int main()
 {
-  pthread_create(NULL, NULL, P0, NULL);
-  pthread_create(NULL, NULL, P1, NULL);
+  pthread_t t1631;
+  pthread_create(&t1631, NULL, P0, NULL);
+  pthread_t t1632;
+  pthread_create(&t1632, NULL, P1, NULL);
   __VERIFIER_atomic_begin();
   main$tmp_guard0 = __unbuffered_cnt == 2;
   __VERIFIER_atomic_end();
@@ -339,9 +341,9 @@ int main()
   __VERIFIER_atomic_end();
   __VERIFIER_atomic_begin();
   /* Program proven to be relaxed for X86, model checker says YES. */
-  weak$$choice0 = nondet_0();
+  weak$$choice0 = __VERIFIER_nondet_bool();
   /* Program proven to be relaxed for X86, model checker says YES. */
-  weak$$choice2 = nondet_0();
+  weak$$choice2 = __VERIFIER_nondet_bool();
   /* Program proven to be relaxed for X86, model checker says YES. */
   x$flush_delayed = weak$$choice2;
   /* Program proven to be relaxed for X86, model checker says YES. */
