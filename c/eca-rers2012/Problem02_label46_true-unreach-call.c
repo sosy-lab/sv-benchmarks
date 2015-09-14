@@ -1,3 +1,4 @@
+int calculate_output(int);
 extern void __VERIFIER_error(void);
 extern int __VERIFIER_nondet_int(void);
 extern void exit(int);
