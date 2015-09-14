@@ -95,4 +95,9 @@ public   class  MinePump {
 	}
 
 
+	public boolean isSystemActive() {
+		return systemActive;
+	}
+
+
 }

@@ -29,24 +29,24 @@ public  class  Actions {
 
 		
 	void stopSystem  () {
-	    if(p.systemActive)
+	    if(p.isSystemActive())
 		p.stopSystem();
 	}
 
 	
 	void startSystem  () {
-	    if(!p.systemActive)
+	    if(!p.isSystemActive())
 		p.startSystem();
 	}
 		
 	void timeShift() {
 	
-	    if(p.systemActive)
+	    if(p.isSystemActive())
 	      Specification5_1();
 	
 		p.timeShift();
 		
-		if(p.systemActive) {
+		if(p.isSystemActive()) {
 		  Specification1();
 		  Specification2();		
 	      Specification3();
