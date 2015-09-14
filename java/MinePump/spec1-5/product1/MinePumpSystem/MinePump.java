@@ -5,11 +5,11 @@ import MinePumpSystem.Environment;
 public  class  MinePump {
 	
 
-	boolean pumpRunning = false;
+	public boolean pumpRunning = false;
 
 	
 
-	boolean systemActive = true;
+	public boolean systemActive = true;
 
 	
 
@@ -63,7 +63,7 @@ public  class  MinePump {
 
 	
 	
-	private Environment getEnv() {
+	public Environment getEnv() {
 		return env;
 	}
 
