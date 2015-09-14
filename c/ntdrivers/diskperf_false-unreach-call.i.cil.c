@@ -1478,14 +1478,9 @@ struct _IRP;
 struct _SCSI_REQUEST_BLOCK;
 #pragma pack(push,4)
 #pragma pack(pop)
-#pragma once
-#pragma once
-#pragma once
-#pragma once
 #pragma warning(push)
 #pragma warning(disable:4035)
 #pragma warning(pop)
-#pragma once
 extern void *memcpy(void * , void const   * , size_t  ) ;
 extern void *memset(void * , int  , size_t  ) ;
 PCCHAR KeNumberProcessors ;
@@ -1673,7 +1668,6 @@ extern   LARGE_INTEGER KeQueryPerformanceCounter(PLARGE_INTEGER PerformanceFrequ
                                                                    POBJECT_HANDLE_INFORMATION HandleInformation ) ;
   void ObfDereferenceObject(PVOID Object ) ;
   NTSTATUS ZwClose(HANDLE Handle ) ;
-#pragma once
   struct _GUID  const  DiskClassGuid  =    {1408590599L, 46783, 4560, {148, 242, 0, 160, 201, 30, 251, 139}};
   struct _GUID  const  CdRomClassGuid  =    {1408590600L, 46783, 4560, {148, 242, 0, 160, 201, 30, 251, 139}};
   struct _GUID  const  PartitionClassGuid  =    {1408590602L, 46783, 4560, {148, 242, 0, 160, 201, 30, 251, 139}};
@@ -1694,11 +1688,7 @@ extern   LARGE_INTEGER KeQueryPerformanceCounter(PLARGE_INTEGER PerformanceFrequ
 #pragma warning(disable:4103)
 #pragma warning(disable:4103)
 #pragma warning(disable:4103)
-#pragma once
-#pragma once
 extern int swprintf(wchar_t * , wchar_t const   *  , ...) ;
-#pragma once
-#pragma once
   struct _GUID  const  MOUNTDEV_MOUNTED_DEVICE_GUID  =    {1408590605,
     46783, 4560, {148, 242, 0, 160, 201, 30, 251, 139}};
 #pragma warning(disable:4200)
@@ -1975,7 +1965,6 @@ extern int swprintf(wchar_t * , wchar_t const   *  , ...) ;
   struct _GUID  const  ImageLoadGuid  =    {749821213, 24513, 4562, {171, 225, 0, 160, 201, 17, 245, 24}};
   struct _GUID  const  RegistryGuid  =    {2924704302U, 51299, 4562, {134, 89, 0, 192, 79, 163, 33, 161}};
   struct _GUID  const  TraceErrorGuid  =    {964792796, 11687, 4563, {139, 152, 0, 128, 95, 133, 215, 198}};
-#pragma once
 extern NTSTATUS WmiCompleteRequest(PDEVICE_OBJECT DeviceObject , PIRP Irp , NTSTATUS Status ,
                                    ULONG BufferUsed , CCHAR PriorityBoost ) ;
 NTSTATUS WmiSystemControl(PWMILIB_CONTEXT WmiLibInfo , PDEVICE_OBJECT DeviceObject ,
@@ -3130,14 +3119,9 @@ void DiskPerfAddCounters(PDISK_PERFORMANCE TotalCounters , PDISK_PERFORMANCE New
   return;
 }
 }
-#pragma once
-#pragma once
-#pragma once
-#pragma once
 #pragma warning(push)
 #pragma warning(disable:4035)
 #pragma warning(pop)
-#pragma once
 #pragma warning(disable:4103)
 #pragma warning(disable:4103)
 #pragma warning(push)

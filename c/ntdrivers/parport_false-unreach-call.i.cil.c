@@ -1931,14 +1931,9 @@ struct _IRP;
 struct _SCSI_REQUEST_BLOCK;
 #pragma pack(push,4)
 #pragma pack(pop)
-#pragma once
-#pragma once
-#pragma once
-#pragma once
 #pragma warning(push)
 #pragma warning(disable:4035)
 #pragma warning(pop)
-#pragma once
 extern void *malloc(unsigned long sz ) ;
 extern void *memcpy(void * , void const   * , size_t  ) ;
 extern void *memset(void * , int  , size_t  ) ;
@@ -2213,7 +2208,6 @@ extern   NTSTATUS ZwSetValueKey(HANDLE KeyHandle ,
                                                                                               ULONG DataSize ) ;
   struct _GUID  const  GUID_PARALLEL_DEVICE ;
   struct _GUID  const  GUID_PARCLASS_DEVICE ;
-#pragma once
 extern NTSTATUS WmiCompleteRequest(PDEVICE_OBJECT DeviceObject , PIRP Irp , NTSTATUS Status ,
                                    ULONG BufferUsed , CCHAR PriorityBoost ) ;
 NTSTATUS WmiSystemControl(PWMILIB_CONTEXT WmiLibInfo , PDEVICE_OBJECT DeviceObject ,
@@ -2350,14 +2344,9 @@ NTSTATUS PptDispatchCleanup(PDEVICE_OBJECT DeviceObject , PIRP Irp )
   return (0L);
 }
 }
-#pragma once
-#pragma once
-#pragma once
-#pragma once
 #pragma warning(push)
 #pragma warning(disable:4035)
 #pragma warning(pop)
-#pragma once
 #pragma warning(disable:4103)
 #pragma warning(disable:4103)
 #pragma warning(push)
@@ -2377,7 +2366,6 @@ NTSTATUS PptDispatchCleanup(PDEVICE_OBJECT DeviceObject , PIRP Irp )
 #pragma warning(disable:4103)
 #pragma warning(disable:4200)
 #pragma warning(default:4200)
-#pragma once
 PCHAR PnpIrpName[25]  = 
   {      "IRP_MN_START_DEVICE                 0x00",      "IRP_MN_QUERY_REMOVE_DEVICE          0x01",      "IRP_MN_REMOVE_DEVICE                0x02",      "IRP_MN_CANCEL_REMOVE_DEVICE         0x03", 
         "IRP_MN_STOP_DEVICE                  0x04",      "IRP_MN_QUERY_STOP_DEVICE            0x05",      "IRP_MN_CANCEL_STOP_DEVICE           0x06",      "IRP_MN_QUERY_DEVICE_RELATIONS       0x07", 
@@ -2537,14 +2525,9 @@ void PptDebugDumpResourceRequirementsList(PIO_RESOURCE_REQUIREMENTS_LIST Resourc
   return;
 }
 }
-#pragma once
-#pragma once
-#pragma once
-#pragma once
 #pragma warning(push)
 #pragma warning(disable:4035)
 #pragma warning(pop)
-#pragma once
 #pragma warning(disable:4103)
 #pragma warning(disable:4103)
 #pragma warning(push)
@@ -2564,7 +2547,6 @@ void PptDebugDumpResourceRequirementsList(PIO_RESOURCE_REQUIREMENTS_LIST Resourc
 #pragma warning(disable:4103)
 #pragma warning(disable:4200)
 #pragma warning(default:4200)
-#pragma once
 void PptLogError(PDRIVER_OBJECT DriverObject , PDEVICE_OBJECT DeviceObject , PHYSICAL_ADDRESS P1 ,
                  PHYSICAL_ADDRESS P2 , ULONG SequenceNumber , UCHAR MajorFunctionCode ,
                  UCHAR RetryCount , ULONG UniqueErrorValue , NTSTATUS FinalStatus ,
@@ -2638,14 +2620,9 @@ void PptLogError(PDRIVER_OBJECT DriverObject , PDEVICE_OBJECT DeviceObject , PHY
   return;
 }
 }
-#pragma once
-#pragma once
-#pragma once
-#pragma once
 #pragma warning(push)
 #pragma warning(disable:4035)
 #pragma warning(pop)
-#pragma once
 #pragma warning(disable:4103)
 #pragma warning(disable:4103)
 #pragma warning(push)
@@ -2665,7 +2642,6 @@ void PptLogError(PDRIVER_OBJECT DriverObject , PDEVICE_OBJECT DeviceObject , PHY
 #pragma warning(disable:4103)
 #pragma warning(disable:4200)
 #pragma warning(default:4200)
-#pragma once
 NTSTATUS DriverEntry(PDRIVER_OBJECT DriverObject , PUNICODE_STRING pRegistryPath ) 
 { void *Buffer ;
 
@@ -2774,14 +2750,9 @@ void PptUnload(PDRIVER_OBJECT DriverObject )
   return;
 }
 }
-#pragma once
-#pragma once
-#pragma once
-#pragma once
 #pragma warning(push)
 #pragma warning(disable:4035)
 #pragma warning(pop)
-#pragma once
 #pragma warning(disable:4103)
 #pragma warning(disable:4103)
 #pragma warning(push)
@@ -2801,7 +2772,6 @@ void PptUnload(PDRIVER_OBJECT DriverObject )
 #pragma warning(disable:4103)
 #pragma warning(disable:4200)
 #pragma warning(default:4200)
-#pragma once
 void PptCleanRemovalRelationsList(PDEVICE_EXTENSION Extension ) 
 { PLIST_ENTRY listHead ;
   PLIST_ENTRY thisListEntry ;
@@ -3618,14 +3588,9 @@ NTSTATUS PptDispatchInternalDeviceControl(PDEVICE_OBJECT DeviceObject , PIRP Irp
   return (Status);
 }
 }
-#pragma once
-#pragma once
-#pragma once
-#pragma once
 #pragma warning(push)
 #pragma warning(disable:4035)
 #pragma warning(pop)
-#pragma once
 #pragma warning(disable:4103)
 #pragma warning(disable:4103)
 #pragma warning(push)
@@ -3645,7 +3610,6 @@ NTSTATUS PptDispatchInternalDeviceControl(PDEVICE_OBJECT DeviceObject , PIRP Irp
 #pragma warning(disable:4103)
 #pragma warning(disable:4200)
 #pragma warning(default:4200)
-#pragma once
 BOOLEAN PptIsNecR98Machine(void) 
 { UNICODE_STRING Path ;
   RTL_QUERY_REGISTRY_TABLE ParamTable[2] ;
@@ -3716,14 +3680,9 @@ BOOLEAN PptIsNecR98Machine(void)
   return (0);
 }
 }
-#pragma once
-#pragma once
-#pragma once
-#pragma once
 #pragma warning(push)
 #pragma warning(disable:4035)
 #pragma warning(pop)
-#pragma once
 #pragma warning(disable:4103)
 #pragma warning(disable:4103)
 #pragma warning(push)
@@ -3743,7 +3702,6 @@ BOOLEAN PptIsNecR98Machine(void)
 #pragma warning(disable:4103)
 #pragma warning(disable:4200)
 #pragma warning(default:4200)
-#pragma once
 NTSTATUS PptDispatchCreate(PDEVICE_OBJECT DeviceObject , PIRP Irp ) 
 { PDEVICE_EXTENSION extension ;
   NTSTATUS status ;
@@ -3857,14 +3815,9 @@ NTSTATUS PptDispatchClose(PDEVICE_OBJECT DeviceObject , PIRP Irp )
   return (0L);
 }
 }
-#pragma once
-#pragma once
-#pragma once
-#pragma once
 #pragma warning(push)
 #pragma warning(disable:4035)
 #pragma warning(pop)
-#pragma once
 #pragma warning(disable:4103)
 #pragma warning(disable:4103)
 #pragma warning(push)
@@ -3886,7 +3839,6 @@ NTSTATUS PptDispatchClose(PDEVICE_OBJECT DeviceObject , PIRP Irp )
 #pragma warning(default:4200)
 static UCHAR ModeQualifier___6[7]  = {      170,      85,      0,      255, 
         135,      120,      255};
-#pragma once
 BOOLEAN PptCheckIfStl1284_3(PDEVICE_EXTENSION DeviceExtension , ULONG ulDaisyIndex ,
                             BOOLEAN bNoStrobe ) ;
 BOOLEAN PptCheckIfNon1284_3Present(PDEVICE_EXTENSION Extension ) ;
@@ -4801,14 +4753,9 @@ BOOLEAN PptSend1284_3Command(PDEVICE_EXTENSION DeviceExtension , UCHAR Command )
   return (success);
 }
 }
-#pragma once
-#pragma once
-#pragma once
-#pragma once
 #pragma warning(push)
 #pragma warning(disable:4035)
 #pragma warning(pop)
-#pragma once
 #pragma warning(disable:4103)
 #pragma warning(disable:4103)
 #pragma warning(push)
@@ -4828,7 +4775,6 @@ BOOLEAN PptSend1284_3Command(PDEVICE_EXTENSION DeviceExtension , UCHAR Command )
 #pragma warning(disable:4103)
 #pragma warning(disable:4200)
 #pragma warning(default:4200)
-#pragma once
 NTSTATUS PptDetectPortCapabilities(PDEVICE_EXTENSION Extension ) ;
 void PptDetectEcpPort(PDEVICE_EXTENSION Extension ) ;
 void PptDetectEppPortIfDot3DevicePresent(PDEVICE_EXTENSION Extension ) ;
@@ -5986,14 +5932,9 @@ NTSTATUS PptBuildResourceList(PDEVICE_EXTENSION Extension , ULONG Partial , PULO
   return (0L);
 }
 }
-#pragma once
-#pragma once
-#pragma once
-#pragma once
 #pragma warning(push)
 #pragma warning(disable:4035)
 #pragma warning(pop)
-#pragma once
 #pragma warning(disable:4103)
 #pragma warning(disable:4103)
 #pragma warning(push)
@@ -6013,8 +5954,6 @@ NTSTATUS PptBuildResourceList(PDEVICE_EXTENSION Extension , ULONG Partial , PULO
 #pragma warning(disable:4103)
 #pragma warning(disable:4200)
 #pragma warning(default:4200)
-#pragma once
-#pragma once
   struct _GUID  const  GUID_PARALLEL_DEVICE  =    {2549575408U, 63619, 4560, {175, 31, 0, 0, 248, 0, 132, 92}};
   struct _GUID  const  GUID_PARCLASS_DEVICE  =    {2166343333U, 63272, 4560, {165, 55, 0, 0, 248, 117, 62, 209}};
 ULONG PptDebugLevel  =    0UL;
@@ -6024,14 +5963,9 @@ LONG PortInfoReferenceCount  =    -1L;
 PFAST_MUTEX PortInfoMutex  =    (void *)0;
 union _LARGE_INTEGER  const  PhysicalZero  =    {{0, 0L}};
 UCHAR PptDot3Retries  =    5;
-#pragma once
-#pragma once
-#pragma once
-#pragma once
 #pragma warning(push)
 #pragma warning(disable:4035)
 #pragma warning(pop)
-#pragma once
 #pragma warning(disable:4103)
 #pragma warning(disable:4103)
 #pragma warning(push)
@@ -6051,7 +5985,6 @@ UCHAR PptDot3Retries  =    5;
 #pragma warning(disable:4103)
 #pragma warning(disable:4200)
 #pragma warning(default:4200)
-#pragma once
 NTSTATUS PptPnpFilterResourceRequirements(PDEVICE_OBJECT DeviceObject , PIRP Irp ) ;
 NTSTATUS PptPnpQueryDeviceRelations(PDEVICE_OBJECT DeviceObject , PIRP Irp ) ;
 NTSTATUS PptPnpQueryStopDevice(PDEVICE_OBJECT DeviceObject , PIRP Irp ) ;
@@ -7709,14 +7642,9 @@ NTSTATUS PptPnpUnhandledIrp(PDEVICE_OBJECT DeviceObject , PIRP Irp )
   return (tmp);
 }
 }
-#pragma once
-#pragma once
-#pragma once
-#pragma once
 #pragma warning(push)
 #pragma warning(disable:4035)
 #pragma warning(pop)
-#pragma once
 #pragma warning(disable:4103)
 #pragma warning(disable:4103)
 #pragma warning(push)
@@ -7736,7 +7664,6 @@ NTSTATUS PptPnpUnhandledIrp(PDEVICE_OBJECT DeviceObject , PIRP Irp )
 #pragma warning(disable:4103)
 #pragma warning(disable:4200)
 #pragma warning(default:4200)
-#pragma once
 NTSTATUS PptPowerComplete(PDEVICE_OBJECT pDeviceObject , PIRP pIrp , PDEVICE_EXTENSION Extension ) 
 { POWER_STATE_TYPE powerType ;
   POWER_STATE powerState ;
@@ -8007,14 +7934,9 @@ NTSTATUS PptDispatchPower(PDEVICE_OBJECT pDeviceObject , PIRP pIrp )
   return (status);
 }
 }
-#pragma once
-#pragma once
-#pragma once
-#pragma once
 #pragma warning(push)
 #pragma warning(disable:4035)
 #pragma warning(pop)
-#pragma once
 #pragma warning(disable:4103)
 #pragma warning(disable:4103)
 #pragma warning(push)
@@ -8035,7 +7957,6 @@ NTSTATUS PptDispatchPower(PDEVICE_OBJECT pDeviceObject , PIRP pIrp )
 #pragma warning(disable:4200)
 #pragma warning(default:4200)
 static UCHAR LegacyZipModeQualifier___11[3]  = {      0,      60,      32};
-#pragma once
 void PptLegacyZipClockDiskModeByte(PUCHAR Controller , UCHAR ModeByte ) 
 { 
 
@@ -8221,14 +8142,9 @@ NTSTATUS PptDeselectLegacyZip(PVOID Context , PVOID DeselectCommand )
   return (0L);
 }
 }
-#pragma once
-#pragma once
-#pragma once
-#pragma once
 #pragma warning(push)
 #pragma warning(disable:4035)
 #pragma warning(pop)
-#pragma once
 #pragma warning(disable:4103)
 #pragma warning(disable:4103)
 #pragma warning(push)
@@ -8248,7 +8164,6 @@ NTSTATUS PptDeselectLegacyZip(PVOID Context , PVOID DeselectCommand )
 #pragma warning(disable:4103)
 #pragma warning(disable:4200)
 #pragma warning(default:4200)
-#pragma once
 void PptRegInitDriverSettings(PUNICODE_STRING RegistryPath___0 ) 
 { NTSTATUS Status ;
   RTL_QUERY_REGISTRY_TABLE paramTable[3] ;
@@ -8373,14 +8288,9 @@ NTSTATUS PptRegSetDeviceParameterDword(PDEVICE_OBJECT Pdo , PWSTR ParameterName 
   return (status);
 }
 }
-#pragma once
-#pragma once
-#pragma once
-#pragma once
 #pragma warning(push)
 #pragma warning(disable:4035)
 #pragma warning(pop)
-#pragma once
 #pragma warning(disable:4103)
 #pragma warning(disable:4103)
 #pragma warning(push)
@@ -8400,7 +8310,6 @@ NTSTATUS PptRegSetDeviceParameterDword(PDEVICE_OBJECT Pdo , PWSTR ParameterName 
 #pragma warning(disable:4103)
 #pragma warning(disable:4200)
 #pragma warning(default:4200)
-#pragma once
 NTSTATUS PptFailRequest(PIRP Irp , NTSTATUS Status ) 
 { 
 
@@ -9342,14 +9251,9 @@ PDEVICE_OBJECT PptBuildDeviceObject(PDRIVER_OBJECT DriverObject , PDEVICE_OBJECT
   return (deviceObject);
 }
 }
-#pragma once
-#pragma once
-#pragma once
-#pragma once
 #pragma warning(push)
 #pragma warning(disable:4035)
 #pragma warning(pop)
-#pragma once
 #pragma warning(disable:4103)
 #pragma warning(disable:4103)
 #pragma warning(push)
@@ -9369,7 +9273,6 @@ PDEVICE_OBJECT PptBuildDeviceObject(PDRIVER_OBJECT DriverObject , PDEVICE_OBJECT
 #pragma warning(disable:4103)
 #pragma warning(disable:4200)
 #pragma warning(default:4200)
-#pragma once
 #pragma warning(disable:4200)
 NTSTATUS PptWmiQueryWmiRegInfo(PDEVICE_OBJECT PDevObj , PULONG PRegFlags , PUNICODE_STRING PInstanceName ,
                                PUNICODE_STRING *PRegistryPath , PUNICODE_STRING MofResourceName ,
@@ -9534,14 +9437,9 @@ NTSTATUS PptWmiQueryWmiDataBlock(PDEVICE_OBJECT DeviceObject , PIRP Irp , ULONG 
   return (status);
 }
 }
-#pragma once
-#pragma once
-#pragma once
-#pragma once
 #pragma warning(push)
 #pragma warning(disable:4035)
 #pragma warning(pop)
-#pragma once
 #pragma warning(disable:4103)
 #pragma warning(disable:4103)
 #pragma warning(push)
