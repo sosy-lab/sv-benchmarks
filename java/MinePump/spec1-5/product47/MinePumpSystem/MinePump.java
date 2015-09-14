@@ -118,6 +118,11 @@ public   class  MinePump {
 	}
 
 
+	public void startSystem() {
+		// feature not present
+	}
+
+
 	public boolean isSystemActive() {
 		return systemActive;
 	}
