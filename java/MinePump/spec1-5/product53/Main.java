@@ -27,6 +27,7 @@ public  class  Main {
 			boolean action1 = getBoolean();
 			boolean action2 = getBoolean();
 			boolean action3 = getBoolean();			
+			boolean action4 = false;
 			if (!action3) action4 = getBoolean();
 
 			if (action1) {
