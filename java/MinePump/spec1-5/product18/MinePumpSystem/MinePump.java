@@ -54,6 +54,11 @@ public   class  MinePump {
 
 	
 
+	public boolean isPumpRunning() {
+		return pumpRunning;
+	}
+
+
 	void deactivatePump() {
 		pumpRunning = false;
 	}

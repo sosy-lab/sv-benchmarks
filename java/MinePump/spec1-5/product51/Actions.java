@@ -65,7 +65,7 @@ public  class  Actions {
 	        Environment e = p.getEnv();
 	
 		    boolean b1 = e.isMethaneLevelCritical();
-	        boolean b2 = p.pumpRunning;
+	        boolean b2 = p.isPumpRunning();
 	     
 			 if ( b1 && b2) {
 			     assert false;   				
@@ -79,7 +79,7 @@ public  class  Actions {
         Environment e = p.getEnv();
 
         boolean b1 = e.isMethaneLevelCritical();
-	    boolean b2 = p.pumpRunning;
+	    boolean b2 = p.isPumpRunning();
 
         if (b1 && b2) {
 	        if (methAndRunningLastTime) {			    
@@ -99,7 +99,7 @@ public  class  Actions {
 	    Environment e = p.getEnv();
    
         boolean b1 = e.isMethaneLevelCritical();
-	    boolean b2 = p.pumpRunning;
+	    boolean b2 = p.isPumpRunning();
 	    boolean b3 = e.getWaterLevel() == Environment.WaterLevelEnum.high;
    
 		if (!b1 && b3 && !b2) {
@@ -112,7 +112,7 @@ public  class  Actions {
    
         Environment e = p.getEnv();
       
-	    boolean b2 = p.pumpRunning;
+	    boolean b2 = p.isPumpRunning();
 	    boolean b3 = e.getWaterLevel() == Environment.WaterLevelEnum.low;
             
 			 if (b3 && b2) {			 	
@@ -125,7 +125,7 @@ public  class  Actions {
    void Specification5_1() {
             
 
-			switchedOnBeforeTS = p.pumpRunning;
+			switchedOnBeforeTS = p.isPumpRunning();
 		
 		 	 
     }
@@ -135,7 +135,7 @@ public  class  Actions {
     
         Environment e = p.getEnv();
        
-        boolean b1 = p.pumpRunning;
+        boolean b1 = p.isPumpRunning();
 	    boolean b2 = e.getWaterLevel() != Environment.WaterLevelEnum.high;
                
 			 if ((b2) && (b1 && !switchedOnBeforeTS)) {			 	
