@@ -81,7 +81,7 @@ public   class  MinePump {
 
 	
 	
-	private Environment getEnv() {
+	public Environment getEnv() {
 		return env;
 	}
 
