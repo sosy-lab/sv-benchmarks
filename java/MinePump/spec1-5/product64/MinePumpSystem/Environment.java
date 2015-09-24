@@ -36,7 +36,7 @@ public   class  Environment {
 		methaneLevelCritical = !methaneLevelCritical;
 	}
 
-	boolean isMethaneLevelCritical() {
+	public boolean isMethaneLevelCritical() {
 		return methaneLevelCritical;
 	}
 
@@ -45,7 +45,7 @@ public   class  Environment {
 		return "Env(Water:" + waterLevel + ",Meth:" + (methaneLevelCritical?"CRIT":"OK") + ")";
 	}
 	
-	private WaterLevelEnum getWaterLevel() {
+	public WaterLevelEnum getWaterLevel() {
 		return waterLevel;
 	}
 	

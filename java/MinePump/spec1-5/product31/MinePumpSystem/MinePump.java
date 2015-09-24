@@ -72,6 +72,11 @@ public   class  MinePump {
 
 	
 
+	public boolean isPumpRunning() {
+		return pumpRunning;
+	}
+
+
 	void deactivatePump() {
 		pumpRunning = false;
 	}
@@ -91,7 +96,7 @@ public   class  MinePump {
 
 	
 	
-	private Environment getEnv() {
+	public Environment getEnv() {
 		return env;
 	}
 
@@ -108,6 +113,16 @@ public   class  MinePump {
 		}
 		assert !pumpRunning;
 		systemActive = false;
+	}
+
+
+	public void startSystem() {
+		// feature not present
+	}
+
+
+	public boolean isSystemActive() {
+		return systemActive;
 	}
 
 

@@ -72,6 +72,11 @@ public   class  MinePump {
 
 	
 
+	public boolean isPumpRunning() {
+		return pumpRunning;
+	}
+
+
 	void deactivatePump() {
 		pumpRunning = false;
 	}
@@ -91,7 +96,7 @@ public   class  MinePump {
 
 	
 	
-	private Environment getEnv() {
+	public Environment getEnv() {
 		return env;
 	}
 
@@ -99,6 +104,21 @@ public   class  MinePump {
 	
 	boolean isLowWaterLevel() {
 		return !env.isLowWaterSensorDry();
+	}
+
+
+	public void stopSystem() {
+		// feature not present
+	}
+
+
+	public void startSystem() {
+		// feature not present
+	}
+
+
+	public boolean isSystemActive() {
+		return systemActive;
 	}
 
 
