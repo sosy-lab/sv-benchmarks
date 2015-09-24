@@ -668,10 +668,10 @@ inline void space_map_load(){
  { if(!(!LOADED)) { goto ERROR; } };
  { if(!(!LOADING)) { goto ERROR; } };
  LOADING = 1;
- __VERIFIER_atomic_release(MTX);
+ __VERIFIER_atomic_release();
  __VERIFIER_atomic_acquire();{ if(!(MTX==1)) { goto ERROR; } };;
  for (;__VERIFIER_nondet_int();) {
-  __VERIFIER_atomic_release(MTX);
+  __VERIFIER_atomic_release();
   __VERIFIER_atomic_acquire();{ if(!(MTX==1)) { goto ERROR; } };;
   if (__VERIFIER_nondet_int())
    break; }
@@ -700,10 +700,10 @@ inline void space_map_sync(){
  while (__VERIFIER_nondet_int()) {
   while (__VERIFIER_nondet_int()) {
    if (__VERIFIER_nondet_int()) {
-    __VERIFIER_atomic_release(MTX);
+    __VERIFIER_atomic_release();
     __VERIFIER_atomic_acquire();{ if(!(MTX==1)) { goto ERROR; } };; }}}
  if (__VERIFIER_nondet_int()) {
-  __VERIFIER_atomic_release(MTX);
+  __VERIFIER_atomic_release();
   __VERIFIER_atomic_acquire();{ if(!(MTX==1)) { goto ERROR; } };; }
   { if(!(1)) { ERROR: __VERIFIER_error();(void)0; } };
 }
@@ -727,7 +727,7 @@ void* thr1(void* arg){
   case 7: space_map_sync(); break;
   case 8: space_map_ref_generate_map(); break; }
  { if(!((MTX==1))) { goto ERROR; } };
- __VERIFIER_atomic_release(MTX);
+ __VERIFIER_atomic_release();
   { if(!(1)) { ERROR: __VERIFIER_error();(void)0; } };
   return 0;
 }

@@ -21,7 +21,7 @@ to correctly model the cv_broadcast(COND) statement "b1_COND := 1;" must be manu
 #define LOCKED 1
 
 #define mutex_enter(m) __VERIFIER_atomic_acquire();assert_nl(m==LOCKED); //acquire lock and ensure no other thread unlocked it
-#define mutex_exit(m) __VERIFIER_atomic_release(m)
+#define mutex_exit(m) __VERIFIER_atomic_release()
 
 volatile _Bool MTX = !LOCKED;
 __thread _Bool COND = 0;
