@@ -21,7 +21,7 @@ int foo(int size, char b[]) {
 int main() {
 	int i, b[100];
 	unsigned char buffer[32];
-	char mask[31];
+	char mask[32];
 	for (i = 0; i < sizeof(mask); i++) {
 		b[i] = foo(32, mask);
 	}
