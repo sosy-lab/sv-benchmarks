@@ -2638,14 +2638,9 @@ struct _IRP;
 struct _SCSI_REQUEST_BLOCK;
 #pragma pack(push,4)
 #pragma pack(pop)
-#pragma once
-#pragma once
-#pragma once
-#pragma once
 #pragma warning(push)
 #pragma warning(disable:4035)
 #pragma warning(pop)
-#pragma once
 extern void *memcpy(void * , void const   * , size_t  ) ;
 extern int memcmp(void const   * , void const   * ,
                                                 size_t  ) ;
@@ -2829,8 +2824,6 @@ extern   NTSTATUS IoOpenDeviceRegistryKey(PDEVICE_OBJECT DeviceObject ,
                                                                    POBJECT_HANDLE_INFORMATION HandleInformation ) ;
   void ObfDereferenceObject(PVOID Object ) ;
   NTSTATUS ZwClose(HANDLE Handle ) ;
-#pragma once
-#pragma once
 #pragma warning(disable:4200)
 #pragma warning(default:4200)
 void errorFn(void) 
@@ -7507,14 +7500,9 @@ NTSTATUS CdAudioPower(PDEVICE_OBJECT DeviceObject , PIRP Irp )
   return (tmp);
 }
 }
-#pragma once
-#pragma once
-#pragma once
-#pragma once
 #pragma warning(push)
 #pragma warning(disable:4035)
 #pragma warning(pop)
-#pragma once
 #pragma warning(disable:4103)
 #pragma warning(disable:4103)
 #pragma warning(push)

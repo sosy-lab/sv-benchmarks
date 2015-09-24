@@ -1426,14 +1426,9 @@ struct _IRP;
 struct _SCSI_REQUEST_BLOCK;
 #pragma pack(push,4)
 #pragma pack(pop)
-#pragma once
-#pragma once
-#pragma once
-#pragma once
 #pragma warning(push)
 #pragma warning(disable:4035)
 #pragma warning(pop)
-#pragma once
 extern void *memcpy(void * , void const   * , size_t  ) ;
 extern void *memset(void * , int  , size_t  ) ;
 #pragma warning(disable:4103)
@@ -1604,9 +1599,6 @@ extern   LONG InterlockedDecrement(PLONG Addend ) ;
                                                                    POBJECT_HANDLE_INFORMATION HandleInformation ) ;
   void ObfDereferenceObject(PVOID Object ) ;
   NTSTATUS ZwClose(HANDLE Handle ) ;
-#pragma once
-#pragma once
-#pragma once
 NTSTATUS KbFilter_AddDevice(PDRIVER_OBJECT Driver , PDEVICE_OBJECT PDO ) ;
 NTSTATUS KbFilter_CreateClose(PDEVICE_OBJECT DeviceObject , PIRP Irp ) ;
 NTSTATUS KbFilter_DispatchPassThrough(PDEVICE_OBJECT DeviceObject , PIRP Irp ) ;
@@ -2332,14 +2324,9 @@ void KbFilter_Unload(PDRIVER_OBJECT Driver )
   return;
 }
 }
-#pragma once
-#pragma once
-#pragma once
-#pragma once
 #pragma warning(push)
 #pragma warning(disable:4035)
 #pragma warning(pop)
-#pragma once
 #pragma warning(disable:4103)
 #pragma warning(disable:4103)
 #pragma warning(push)

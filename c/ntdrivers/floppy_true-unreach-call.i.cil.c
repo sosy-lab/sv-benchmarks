@@ -1726,17 +1726,11 @@ struct _IRP;
 struct _SCSI_REQUEST_BLOCK;
 #pragma pack(push,4)
 #pragma pack(pop)
-#pragma once
 extern int sprintf(char * , char const   *  , ...) ;
 extern int swprintf(wchar_t * , wchar_t const   *  , ...) ;
-#pragma once
-#pragma once
-#pragma once
-#pragma once
 #pragma warning(push)
 #pragma warning(disable:4035)
 #pragma warning(pop)
-#pragma once
 extern void *memcpy(void * , void const   * , size_t  ) ;
 extern void *memset(void * , int  , size_t  ) ;
 extern void *memmove(void * , void const   * , size_t  ) ;
@@ -1915,7 +1909,6 @@ extern   void MmProbeAndLockPages(PMDL MemoryDescriptorList ,
                                                                    POBJECT_HANDLE_INFORMATION HandleInformation ) ;
   void ObfDereferenceObject(PVOID Object ) ;
   NTSTATUS ZwClose(HANDLE Handle ) ;
-#pragma once
 #pragma warning(disable:4103)
 #pragma warning(disable:4103)
 #pragma warning(disable:4103)
@@ -1926,11 +1919,8 @@ extern   void MmProbeAndLockPages(PMDL MemoryDescriptorList ,
 #pragma warning(disable:4103)
 #pragma warning(disable:4103)
 #pragma warning(disable:4103)
-#pragma once
-#pragma once
   struct _GUID  const  MOUNTDEV_MOUNTED_DEVICE_GUID  =    {1408590605,
     46783, 4560, {148, 242, 0, 160, 201, 30, 251, 139}};
-#pragma once
 DRIVE_MEDIA_LIMITS _DriveMediaLimits[5]  = {      {4, 0}, 
         {11, 6}, 
         {5, 5}, 
@@ -6996,14 +6986,9 @@ void FloppyProcessQueuedRequests(PDISKETTE_EXTENSION DisketteExtension )
   return;
 }
 }
-#pragma once
-#pragma once
-#pragma once
-#pragma once
 #pragma warning(push)
 #pragma warning(disable:4035)
 #pragma warning(pop)
-#pragma once
 #pragma warning(disable:4103)
 #pragma warning(disable:4103)
 #pragma warning(push)

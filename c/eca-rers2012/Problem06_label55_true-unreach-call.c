@@ -1,3 +1,8 @@
+int calculate_output(int);
+int calculate_output2(int);
+int calculate_output3(int);
+int calculate_output4(int);
+int calculate_output5(int);
 extern void __VERIFIER_error(void);
 extern int __VERIFIER_nondet_int(void);
 extern void exit(int);
