@@ -647,25 +647,25 @@ void __VERIFIER_atomic_release()
 }
 inline static int adb_kbd_receive_packet(){
  __VERIFIER_atomic_acquire();{ if(!(MTX==1)) { ERROR: __VERIFIER_error();(void)0; } };;
- __VERIFIER_atomic_release(MTX);
+ __VERIFIER_atomic_release();
  COND = 1;
  return 0; }
 inline static void akbd_repeat() {
  __VERIFIER_atomic_acquire();{ if(!(MTX==1)) { ERROR: __VERIFIER_error();(void)0; } };;
- __VERIFIER_atomic_release(MTX); }
+ __VERIFIER_atomic_release(); }
 inline static void akbd_read_char(int wait) {
  __VERIFIER_atomic_acquire();{ if(!(MTX==1)) { ERROR: __VERIFIER_error();(void)0; } };;
  if (!buf && wait){
   { COND = 0; __VERIFIER_atomic_release(); __VERIFIER_assume(COND); __VERIFIER_atomic_acquire(); };
   { if(!(COND)) { goto ERROR; } };}
  if (!buf) {
-  __VERIFIER_atomic_release(MTX);
+  __VERIFIER_atomic_release();
   return; }
- __VERIFIER_atomic_release(MTX); }
+ __VERIFIER_atomic_release(); }
 inline static void akbd_clear_state(){
  __VERIFIER_atomic_acquire();{ if(!(MTX==1)) { ERROR: __VERIFIER_error();(void)0; } };;
  buf = 0;
- __VERIFIER_atomic_release(MTX); }
+ __VERIFIER_atomic_release(); }
 void* thr1(void* arg){
   while(1)
   {
@@ -678,7 +678,7 @@ void* thr1(void* arg){
     case 4: while(1){
         __VERIFIER_atomic_acquire();{ if(!(MTX==1)) { ERROR: __VERIFIER_error();(void)0; } };;
         buf = !buf;
-        __VERIFIER_atomic_release(MTX);
+        __VERIFIER_atomic_release();
       }
     }
   }

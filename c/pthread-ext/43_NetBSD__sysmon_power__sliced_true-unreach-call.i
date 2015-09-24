@@ -663,25 +663,25 @@ inline int sysmon_power_daemon_task(){
  case 1:
   { if(!((MTX==1))) { goto ERROR; } };
   if (__VERIFIER_nondet_int()) {
-   __VERIFIER_atomic_release(MTX);
+   __VERIFIER_atomic_release();
    goto out;}
   break;
  case 2:
   { if(!((MTX==1))) { goto ERROR; } };
   if (__VERIFIER_nondet_int()) {
-   __VERIFIER_atomic_release(MTX);
+   __VERIFIER_atomic_release();
    goto out;}
   break;
  default:
-  __VERIFIER_atomic_release(MTX);
+  __VERIFIER_atomic_release();
   goto out;}
  sysmon_queue_power_event();
  if (__VERIFIER_nondet_int()) {
-  __VERIFIER_atomic_release(MTX);
+  __VERIFIER_atomic_release();
   goto out;}
  else {
   COND = 1;
-  __VERIFIER_atomic_release(MTX);}
+  __VERIFIER_atomic_release();}
  out:
   { if(!(1)) { ERROR: __VERIFIER_error();(void)0; } };
  return __VERIFIER_nondet_int(); }
@@ -689,13 +689,13 @@ inline void sysmonopen_power(){
  __VERIFIER_atomic_acquire();{ if(!(MTX==1)) { goto ERROR; } };;
  if (__VERIFIER_nondet_int())
   { if(!((MTX==1))) { goto ERROR; } };
- __VERIFIER_atomic_release(MTX);
+ __VERIFIER_atomic_release();
   { if(!(1)) { ERROR: __VERIFIER_error();(void)0; } };
 }
 inline void sysmonclose_power(){
  __VERIFIER_atomic_acquire();{ if(!(MTX==1)) { goto ERROR; } };;
  { if(!((MTX==1))) { goto ERROR; } };
- __VERIFIER_atomic_release(MTX);
+ __VERIFIER_atomic_release();
   { if(!(1)) { ERROR: __VERIFIER_error();(void)0; } };
 }
 inline void sysmonread_power(){
@@ -708,28 +708,28 @@ inline void sysmonread_power(){
     break;}
    { COND = 0; __VERIFIER_atomic_release(); __VERIFIER_assume(COND); __VERIFIER_atomic_acquire(); };
       { if(!(COND)) { goto ERROR; } }; }
-  __VERIFIER_atomic_release(MTX); }
+  __VERIFIER_atomic_release(); }
   { if(!(1)) { ERROR: __VERIFIER_error();(void)0; } };
 }
 inline void sysmonpoll_power(){
  if(__VERIFIER_nondet_int()){
   __VERIFIER_atomic_acquire();{ if(!(MTX==1)) { goto ERROR; } };;
-  __VERIFIER_atomic_release(MTX); }
+  __VERIFIER_atomic_release(); }
   { if(!(1)) { ERROR: __VERIFIER_error();(void)0; } };
 }
 inline void filt_sysmon_power_rdetach(){
  __VERIFIER_atomic_acquire();{ if(!(MTX==1)) { goto ERROR; } };;
- __VERIFIER_atomic_release(MTX);
+ __VERIFIER_atomic_release();
   { if(!(1)) { ERROR: __VERIFIER_error();(void)0; } };
 }
 inline void filt_sysmon_power_read(){
  __VERIFIER_atomic_acquire();{ if(!(MTX==1)) { goto ERROR; } };;
- __VERIFIER_atomic_release(MTX);
+ __VERIFIER_atomic_release();
   { if(!(1)) { ERROR: __VERIFIER_error();(void)0; } };
 }
 inline void sysmonkqfilter_power(){
  __VERIFIER_atomic_acquire();{ if(!(MTX==1)) { goto ERROR; } };;
- __VERIFIER_atomic_release(MTX);
+ __VERIFIER_atomic_release();
   { if(!(1)) { ERROR: __VERIFIER_error();(void)0; } };
 }
 inline void sysmonioctl_power(){
@@ -737,11 +737,11 @@ inline void sysmonioctl_power(){
  case 3:
   __VERIFIER_atomic_acquire();{ if(!(MTX==1)) { goto ERROR; } };;
   if (__VERIFIER_nondet_int()) {
-   __VERIFIER_atomic_release(MTX);
+   __VERIFIER_atomic_release();
    break;}
-  __VERIFIER_atomic_release(MTX);
+  __VERIFIER_atomic_release();
   __VERIFIER_atomic_acquire();{ if(!(MTX==1)) { goto ERROR; } };;
-  __VERIFIER_atomic_release(MTX);
+  __VERIFIER_atomic_release();
   break; }
   { if(!(1)) { ERROR: __VERIFIER_error();(void)0; } };
 }
