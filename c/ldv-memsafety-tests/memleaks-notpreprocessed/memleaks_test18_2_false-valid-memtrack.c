@@ -21,6 +21,7 @@ void entry_point(void) {
 	struct A18 *p;
 	int i=0;
 	int j;
+	if(!array) return;
 	for(; i<len; i++) {
 		p = (struct A18 *)ldv_malloc(sizeof(struct A18));
 		if(!p) goto err;
