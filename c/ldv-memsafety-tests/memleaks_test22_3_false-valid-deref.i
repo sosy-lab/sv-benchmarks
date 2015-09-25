@@ -1,9 +1,9 @@
-# 1 "memleaks_test22_5_false-valid-free.c"
+# 1 "memleaks_test22_3_false-valid-deref.c"
 # 1 "<command-line>"
 # 1 "/usr/include/stdc-predef.h" 1 3 4
 # 1 "<command-line>" 2
-# 1 "memleaks_test22_5_false-valid-free.c"
-# 11 "memleaks_test22_5_false-valid-free.c"
+# 1 "memleaks_test22_3_false-valid-deref.c"
+# 11 "memleaks_test22_3_false-valid-deref.c"
 # 1 "header.h" 1
 # 12 "header.h"
 # 1 "/usr/include/stdlib.h" 1 3 4
@@ -1563,24 +1563,15 @@ int f(void) {
 int g(void) {
  return __VERIFIER_nondet_int();
 }
-# 12 "memleaks_test22_5_false-valid-free.c" 2
+# 12 "memleaks_test22_3_false-valid-deref.c" 2
 
 
-
-
-void f_22_get(struct ldv_kobject *kobj) {
- ldv_kobject_get(kobj);
-}
-
-void f_22_put(struct ldv_kobject *kobj) {
- ldv_kobject_put(kobj);
-}
 
 void entry_point(void) {
  struct ldv_kobject *kobj;
  kobj = ldv_kobject_create();
+ ldv_kobject_put(kobj);
 
- f_22_put(kobj);
  ldv_kobject_put(kobj);
 }
 

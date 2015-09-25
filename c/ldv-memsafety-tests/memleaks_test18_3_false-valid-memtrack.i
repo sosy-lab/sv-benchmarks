@@ -1575,6 +1575,7 @@ void entry_point(void) {
  struct A18 **array = (struct A18 **)ldv_malloc(sizeof(struct A18*)*len);
  struct A18 *p;
  int i=0;
+ if(!array) return;
  for(; i<len; i++) {
   p = (struct A18 *)ldv_malloc(sizeof(struct A18));
   array[i]=p;

@@ -1570,7 +1570,7 @@ int g(void) {
 void entry_point(void) {
  struct ldv_kobject *kobj;
  kobj = ldv_kobject_create();
- ldv_object_put(kobj);
+ ldv_kobject_put(kobj);
 }
 
 void main(void) {
