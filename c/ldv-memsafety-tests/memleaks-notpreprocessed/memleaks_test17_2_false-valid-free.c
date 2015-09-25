@@ -34,6 +34,13 @@ err:
 	return -ENOMEM;	
 }
 
+void free_17(struct A17 **array, int len) {
+	int i;
+	for(i=0; i<len; i++) {
+		free(array[i]);
+	}
+}
+
 void entry_point(void) {
 	int i;
 	int len = 10;
