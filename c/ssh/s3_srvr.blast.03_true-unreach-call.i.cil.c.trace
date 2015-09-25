@@ -13,6 +13,7 @@ main()
     ...
     s = malloc(sizeof(SSL));                        // s = 0x7fffff08
     s->s3 = malloc(sizeof(struct ssl3_state_st));   // s->s3 = 0x7ffff780 (stored @0x7fffff5c)
+    s->session = malloc(sizeof(SSL_SESSION));
     s->state = 8464;
     tmp = ssl3_accept(s);  // *** 1 ***
     ...
