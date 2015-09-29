@@ -44,7 +44,8 @@ void free_17(struct A17 **array, int len) {
 void entry_point(void) {
 	int i;
 	int len = 10;
-	struct A17 **array = (struct A17 **)ldv_malloc(sizeof(struct A17*)*len); 
+	struct A17 **array = (struct A17 **)ldv_malloc(sizeof(struct A17*)*len);
+	if(!array) return;
 	for(i=0; i<len; i++) {
 		array[i]=0;
 	}
