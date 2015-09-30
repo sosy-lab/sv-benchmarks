@@ -1264,7 +1264,7 @@ static inline void ldv_list_del(struct ldv_list_head *entry)
 
 
 }
-# 142 "header.h"
+# 155 "header.h"
 struct ldv_list_head ldv_global_msg_list = { &(ldv_global_msg_list), &(ldv_global_msg_list) };
 
 struct ldv_msg {
@@ -1312,7 +1312,7 @@ void ldv_destroy_msgs(void) {
   ldv_msg_free(msg);
  }
 }
-# 198 "header.h"
+# 211 "header.h"
 struct ldv_device {
  void *platform_data;
  void *driver_data;
@@ -1468,7 +1468,7 @@ static void ldv_kobject_cleanup(struct ldv_kobject *kobj)
 {
 
         char *name = kobj->name;
-# 364 "header.h"
+# 377 "header.h"
         free(kobj);
 
 
@@ -1527,14 +1527,14 @@ void ldv_kobject_init(struct ldv_kobject *kobj)
 
                 goto error;
         }
-# 432 "header.h"
+# 445 "header.h"
         ldv_kobject_init_internal(kobj);
 
         return;
 error:
  return;
 }
-# 450 "header.h"
+# 463 "header.h"
 struct ldv_kobject *ldv_kobject_create(void)
 {
         struct ldv_kobject *kobj;
@@ -1582,7 +1582,8 @@ void alloc_13(void) {
 
 void free_13() {
  struct A13 *p;
- for (p = ({ const typeof( ((typeof(*p) *)0)->list ) *__mptr = ((&global_list_13)->next); (typeof(*p) *)( (char *)__mptr - ((size_t) &((typeof(*p) *)0)->list) );}); &p->list != (&global_list_13); p = ({ const typeof( ((typeof(*(p)) *)0)->list ) *__mptr = ((p)->list.next); (typeof(*(p)) *)( (char *)__mptr - ((size_t) &((typeof(*(p)) *)0)->list) );})) {
+ struct A13 *n;
+ for (p = ({ const typeof( ((typeof(*p) *)0)->list ) *__mptr = ((&global_list_13)->next); (typeof(*p) *)( (char *)__mptr - ((size_t) &((typeof(*p) *)0)->list) );}), n = ({ const typeof( ((typeof(*(p)) *)0)->list ) *__mptr = ((p)->list.next); (typeof(*(p)) *)( (char *)__mptr - ((size_t) &((typeof(*(p)) *)0)->list) );}); &p->list != (&global_list_13); p = n, n = ({ const typeof( ((typeof(*(n)) *)0)->list ) *__mptr = ((n)->list.next); (typeof(*(n)) *)( (char *)__mptr - ((size_t) &((typeof(*(n)) *)0)->list) );})) {
   ldv_list_del(&p->list);
   free(p);
  }
