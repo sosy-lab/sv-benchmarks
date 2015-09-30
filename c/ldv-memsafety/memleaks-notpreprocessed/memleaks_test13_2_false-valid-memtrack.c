@@ -28,7 +28,8 @@ void alloc_13(void) {
 //forgot to free
 void free_unsafe_13() {
 	struct A13 *p;
-	ldv_list_for_each_entry(p, &global_list_13, list) {
+	struct A13 *n;
+	ldv_list_for_each_entry_safe(p, n, &global_list_13, list) {
 		ldv_list_del(&p->list);
 		//unsafe: free is missed
 	}

@@ -27,7 +27,8 @@ void alloc_13(void) {
 
 void free_13() {
 	struct A13 *p;
-	ldv_list_for_each_entry(p, &global_list_13, list) {
+	struct A13 *n;
+	ldv_list_for_each_entry_safe(p, n, &global_list_13, list) {
 		ldv_list_del(&p->list);
 		free(p);
 	}
