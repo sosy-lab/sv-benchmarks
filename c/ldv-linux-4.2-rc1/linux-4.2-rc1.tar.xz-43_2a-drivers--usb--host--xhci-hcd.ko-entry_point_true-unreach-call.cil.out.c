@@ -37430,11 +37430,11 @@ int ldv_del_timer_sync_135(struct timer_list *ldv_func_arg1 )
 }
 }
 #line 1 "<compiler builtins>"
-void ldv__builtin_va_end(__builtin_va_list  ) ;
+void ldv__builtin_va_end(__builtin_va_list * ) ;
 #line 1
 __inline static long ldv__builtin_expect(long exp , long c ) ;
 #line 1
-void ldv__builtin_va_start(__builtin_va_list  ) ;
+void ldv__builtin_va_start(__builtin_va_list * ) ;
 #line 293 "include/linux/slab.h"
 void *ldv_kmem_cache_alloc_156(struct kmem_cache *ldv_func_arg1 , gfp_t flags ) ;
 #line 1671 "/home/ldvuser/mutilin/launch/inst/current/envs/linux-4.2-rc1.tar.xz/linux-4.2-rc1/drivers/usb/host/xhci.h"

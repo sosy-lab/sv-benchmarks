@@ -35487,11 +35487,11 @@ int ldv_del_timer_sync_129(struct timer_list *ldv_func_arg1 )
 }
 }
 #line 1 "<compiler builtins>"
-void ldv__builtin_va_end(__builtin_va_list  ) ;
+void ldv__builtin_va_end(__builtin_va_list * ) ;
 #line 1
 __inline static long ldv__builtin_expect(long exp , long c ) ;
 #line 1
-void ldv__builtin_va_start(__builtin_va_list  ) ;
+void ldv__builtin_va_start(__builtin_va_list * ) ;
 #line 433 "include/linux/workqueue.h"
 bool ldv_queue_work_on_148(int ldv_func_arg1 , struct workqueue_struct *ldv_func_arg2 ,
                            struct work_struct *ldv_func_arg3 ) ;

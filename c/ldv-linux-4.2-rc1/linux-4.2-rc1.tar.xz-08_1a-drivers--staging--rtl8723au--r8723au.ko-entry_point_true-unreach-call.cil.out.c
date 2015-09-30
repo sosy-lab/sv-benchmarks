@@ -64006,9 +64006,9 @@ bool ldv_queue_delayed_work_on_401(int ldv_func_arg1 , struct workqueue_struct *
 }
 }
 #line 1 "<compiler builtins>"
-void ldv__builtin_va_end(__builtin_va_list  ) ;
+void ldv__builtin_va_end(__builtin_va_list * ) ;
 #line 1
-void ldv__builtin_va_start(__builtin_va_list  ) ;
+void ldv__builtin_va_start(__builtin_va_list * ) ;
 #line 433 "include/linux/workqueue.h"
 bool ldv_queue_work_on_411(int ldv_func_arg1 , struct workqueue_struct *ldv_func_arg2 ,
                            struct work_struct *ldv_func_arg3 ) ;

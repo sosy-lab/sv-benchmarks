@@ -5657,11 +5657,11 @@ typedef bool ldv_func_ret_type___4;
 #line 1097 "/home/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--43_2a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/13333/dscv_tempdir/dscv/ri/43_2a/drivers/block/rbd.o.c.prepared"
 typedef bool ldv_func_ret_type___5;
 #line 1 "<compiler builtins>"
-void ldv__builtin_va_end(__builtin_va_list  ) ;
+void ldv__builtin_va_end(__builtin_va_list * ) ;
 #line 1
 __inline static long ldv__builtin_expect(long exp , long c ) ;
 #line 1
-void ldv__builtin_va_start(__builtin_va_list  ) ;
+void ldv__builtin_va_start(__builtin_va_list * ) ;
 #line 33 "include/linux/export.h"
 extern struct module __this_module ;
 #line 369 "./arch/x86/include/asm/paravirt_types.h"

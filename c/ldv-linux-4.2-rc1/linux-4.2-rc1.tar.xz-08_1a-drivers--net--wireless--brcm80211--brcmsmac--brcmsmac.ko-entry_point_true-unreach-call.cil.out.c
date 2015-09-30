@@ -97107,11 +97107,11 @@ bool ldv_queue_delayed_work_on_273(int ldv_func_arg1 , struct workqueue_struct *
 }
 }
 #line 1 "<compiler builtins>"
-void ldv__builtin_va_end(__builtin_va_list  ) ;
+void ldv__builtin_va_end(__builtin_va_list * ) ;
 #line 1
 __inline static long ldv__builtin_expect(long exp , long c ) ;
 #line 1
-void ldv__builtin_va_start(__builtin_va_list  ) ;
+void ldv__builtin_va_start(__builtin_va_list * ) ;
 #line 4 "/work/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--08_1a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/11786/dscv_tempdir/dscv/ri/08_1a/drivers/net/wireless/brcm80211/brcmsmac/debug.o.c.prepared"
 bool ldv_is_err_or_null(void const   *ptr ) ;
 #line 6

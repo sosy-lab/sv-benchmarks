@@ -7049,11 +7049,11 @@ struct zpodd {
 };
 #line 1 "<compiler builtins>"
 #line 1
-void ldv__builtin_va_end(__builtin_va_list  ) ;
+void ldv__builtin_va_end(__builtin_va_list * ) ;
 #line 1
 __inline static long ldv__builtin_expect(long exp , long c ) ;
 #line 1
-void ldv__builtin_va_start(__builtin_va_list  ) ;
+void ldv__builtin_va_start(__builtin_va_list * ) ;
 #line 201 "include/linux/compiler.h"
 __inline static void __read_once_size(void const volatile   *p , void *res , int size ) 
 { 

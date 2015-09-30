@@ -9277,9 +9277,9 @@ struct mlx4_congestion_control_mb_prio_802_1_qau_statistics {
    __be32 reserved3[4U] ;
 };
 #line 1 "<compiler builtins>"
-void ldv__builtin_va_end(__builtin_va_list  ) ;
+void ldv__builtin_va_end(__builtin_va_list * ) ;
 #line 1
-void ldv__builtin_va_start(__builtin_va_list  ) ;
+void ldv__builtin_va_start(__builtin_va_list * ) ;
 #line 142 "include/linux/printk.h"
 extern int printk(char const   *  , ...) ;
 #line 57 "./arch/x86/include/asm/string_64.h"

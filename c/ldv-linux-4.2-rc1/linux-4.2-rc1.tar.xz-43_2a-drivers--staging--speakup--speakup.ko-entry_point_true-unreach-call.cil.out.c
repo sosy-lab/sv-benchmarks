@@ -21399,9 +21399,9 @@ void ldv_free_irq_204(unsigned int ldv_func_arg1 , void *ldv_func_arg2 )
 }
 }
 #line 1 "<compiler builtins>"
-void ldv__builtin_va_end(__builtin_va_list  ) ;
+void ldv__builtin_va_end(__builtin_va_list * ) ;
 #line 1
-void ldv__builtin_va_start(__builtin_va_list  ) ;
+void ldv__builtin_va_start(__builtin_va_list * ) ;
 #line 407 "include/linux/kernel.h"
 extern int vsnprintf(char * , size_t  , char const   * , va_list * ) ;
 #line 386 "include/linux/spinlock.h"

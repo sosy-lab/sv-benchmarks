@@ -75438,9 +75438,9 @@ int ldv_scsi_add_host_with_dma_243(struct Scsi_Host *shost , struct device *dev 
 }
 }
 #line 1 "<compiler builtins>"
-void ldv__builtin_va_end(__builtin_va_list  ) ;
+void ldv__builtin_va_end(__builtin_va_list * ) ;
 #line 1
-void ldv__builtin_va_start(__builtin_va_list  ) ;
+void ldv__builtin_va_start(__builtin_va_list * ) ;
 #line 142 "include/linux/printk.h"
 extern int printk(char const   *  , ...) ;
 #line 176 "include/linux/mutex.h"

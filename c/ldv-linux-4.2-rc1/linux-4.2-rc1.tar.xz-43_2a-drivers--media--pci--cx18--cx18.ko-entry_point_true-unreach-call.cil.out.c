@@ -31174,11 +31174,11 @@ struct sk_buff *ldv_skb_clone_477(struct sk_buff *ldv_func_arg1 , gfp_t flags )
 }
 }
 #line 1 "<compiler builtins>"
-void ldv__builtin_va_end(__builtin_va_list  ) ;
+void ldv__builtin_va_end(__builtin_va_list * ) ;
 #line 1
 void ldv__builtin_va_arg(__builtin_va_list  , unsigned long  , void * ) ;
 #line 1
-void ldv__builtin_va_start(__builtin_va_list  ) ;
+void ldv__builtin_va_start(__builtin_va_list * ) ;
 #line 178 "include/linux/kernel.h"
 extern void __might_sleep(char const   * , int  , int  ) ;
 #line 50 "include/linux/string.h"

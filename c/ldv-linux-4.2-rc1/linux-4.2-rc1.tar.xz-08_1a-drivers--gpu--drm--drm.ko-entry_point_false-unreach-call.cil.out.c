@@ -25306,13 +25306,13 @@ bool ldv_queue_delayed_work_on_153(int ldv_func_arg1 , struct workqueue_struct *
 }
 }
 #line 1 "<compiler builtins>"
-void ldv__builtin_va_end(__builtin_va_list  ) ;
+void ldv__builtin_va_end(__builtin_va_list * ) ;
 #line 1
 void *__builtin_return_address(unsigned int  ) ;
 #line 1
 __inline static long ldv__builtin_expect(long exp , long c ) ;
 #line 1
-void ldv__builtin_va_start(__builtin_va_list  ) ;
+void ldv__builtin_va_start(__builtin_va_list * ) ;
 #line 33 "include/linux/export.h"
 extern struct module __this_module ;
 #line 414 "include/linux/kernel.h"

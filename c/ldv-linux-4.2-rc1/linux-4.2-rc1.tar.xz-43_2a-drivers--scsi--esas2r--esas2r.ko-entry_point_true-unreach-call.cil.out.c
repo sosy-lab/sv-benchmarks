@@ -6969,9 +6969,9 @@ typedef int ldv_func_ret_type___10;
 #line 1517 "/home/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--43_2a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/3322/dscv_tempdir/dscv/ri/43_2a/drivers/scsi/esas2r/esas2r_main.o.c.prepared"
 typedef bool ldv_func_ret_type___11;
 #line 1 "<compiler builtins>"
-void ldv__builtin_va_end(__builtin_va_list  ) ;
+void ldv__builtin_va_end(__builtin_va_list * ) ;
 #line 1
-void ldv__builtin_va_start(__builtin_va_list  ) ;
+void ldv__builtin_va_start(__builtin_va_list * ) ;
 #line 142 "include/linux/printk.h"
 extern int printk(char const   *  , ...) ;
 #line 431

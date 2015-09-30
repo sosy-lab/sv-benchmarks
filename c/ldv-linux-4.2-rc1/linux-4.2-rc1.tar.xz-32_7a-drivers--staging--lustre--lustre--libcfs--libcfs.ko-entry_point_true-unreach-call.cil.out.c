@@ -28886,13 +28886,13 @@ int ldv_misc_deregister_242(struct miscdevice *misc )
 }
 }
 #line 1 "<compiler builtins>"
-void ldv__builtin_va_end(__builtin_va_list  ) ;
+void ldv__builtin_va_end(__builtin_va_list * ) ;
 #line 1
 void __builtin_va_copy(__builtin_va_list  , __builtin_va_list  ) ;
 #line 1
 __inline static long ldv__builtin_expect(long exp , long c ) ;
 #line 1
-void ldv__builtin_va_start(__builtin_va_list  ) ;
+void ldv__builtin_va_start(__builtin_va_list * ) ;
 #line 308 "./arch/x86/include/asm/bitops.h"
 __inline static int constant_test_bit(long nr , unsigned long const volatile   *addr ) 
 { 

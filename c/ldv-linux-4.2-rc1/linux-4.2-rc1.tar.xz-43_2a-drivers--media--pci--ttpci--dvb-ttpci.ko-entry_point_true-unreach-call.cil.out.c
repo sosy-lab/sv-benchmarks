@@ -9783,14 +9783,14 @@ typedef int ldv_func_ret_type___2;
 #line 471 "/home/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--43_2a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/6726/dscv_tempdir/dscv/ri/43_2a/drivers/media/pci/ttpci/av7110_ir.o.c.prepared"
 typedef int ldv_func_ret_type___3;
 #line 1 "<compiler builtins>"
-void ldv__builtin_va_end(__builtin_va_list  ) ;
+void ldv__builtin_va_end(__builtin_va_list * ) ;
 #line 1
 #line 1
 void ldv__builtin_va_arg(__builtin_va_list  , unsigned long  , void * ) ;
 #line 1
 __inline static long ldv__builtin_expect(long exp , long c ) ;
 #line 1
-void ldv__builtin_va_start(__builtin_va_list  ) ;
+void ldv__builtin_va_start(__builtin_va_list * ) ;
 #line 7 "./arch/x86/include/uapi/asm/swab.h"
 __inline static __u32 __arch_swab32(__u32 val ) 
 { 

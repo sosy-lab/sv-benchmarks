@@ -92629,13 +92629,13 @@ void *ldv_kmem_cache_alloc_798(struct kmem_cache *ldv_func_arg1 , gfp_t flags )
 }
 }
 #line 1 "<compiler builtins>"
-void ldv__builtin_va_end(__builtin_va_list  ) ;
+void ldv__builtin_va_end(__builtin_va_list * ) ;
 #line 1
 void ldv__builtin_va_arg(__builtin_va_list  , unsigned long  , void * ) ;
 #line 1
 __inline static long ldv__builtin_expect(long exp , long c ) ;
 #line 1
-void ldv__builtin_va_start(__builtin_va_list  ) ;
+void ldv__builtin_va_start(__builtin_va_list * ) ;
 #line 23 "include/linux/err.h"
 __inline static void *ERR_PTR(long error ) ;
 #line 32

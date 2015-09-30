@@ -2906,11 +2906,11 @@ typedef int ldv_func_ret_type___6;
 #line 624 "/work/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--08_1a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/2300/dscv_tempdir/dscv/ri/08_1a/drivers/input/gameport/gameport.o.c.prepared"
 typedef bool ldv_func_ret_type___7;
 #line 1 "<compiler builtins>"
-void ldv__builtin_va_end(__builtin_va_list  ) ;
+void ldv__builtin_va_end(__builtin_va_list * ) ;
 #line 1
 __inline static long ldv__builtin_expect(long exp , long c ) ;
 #line 1
-void ldv__builtin_va_start(__builtin_va_list  ) ;
+void ldv__builtin_va_start(__builtin_va_list * ) ;
 #line 33 "include/linux/export.h"
 extern struct module __this_module ;
 #line 368 "./arch/x86/include/asm/paravirt_types.h"

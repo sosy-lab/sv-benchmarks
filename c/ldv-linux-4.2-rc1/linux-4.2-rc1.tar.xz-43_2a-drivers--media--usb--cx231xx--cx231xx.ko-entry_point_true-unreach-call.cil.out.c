@@ -32955,13 +32955,13 @@ struct sk_buff *ldv_skb_clone_239(struct sk_buff *ldv_func_arg1 , gfp_t flags )
 }
 }
 #line 1 "<compiler builtins>"
-void ldv__builtin_va_end(__builtin_va_list  ) ;
+void ldv__builtin_va_end(__builtin_va_list * ) ;
 #line 1
 void ldv__builtin_va_arg(__builtin_va_list  , unsigned long  , void * ) ;
 #line 1
 __inline static long ldv__builtin_expect(long exp , long c ) ;
 #line 1
-void ldv__builtin_va_start(__builtin_va_list  ) ;
+void ldv__builtin_va_start(__builtin_va_list * ) ;
 #line 63 "./arch/x86/include/asm/string_64.h"
 extern int memcmp(void const   * , void const   * , size_t  ) ;
 #line 13 "./arch/x86/include/asm/cmpxchg.h"

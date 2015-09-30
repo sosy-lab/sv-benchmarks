@@ -47709,11 +47709,11 @@ __inline static int ldv_mutex_is_locked_366(struct mutex *lock )
 }
 }
 #line 1 "<compiler builtins>"
-void ldv__builtin_va_end(__builtin_va_list  ) ;
+void ldv__builtin_va_end(__builtin_va_list * ) ;
 #line 1
 __inline static long ldv__builtin_expect(long exp , long c ) ;
 #line 1
-void ldv__builtin_va_start(__builtin_va_list  ) ;
+void ldv__builtin_va_start(__builtin_va_list * ) ;
 #line 829 "./arch/x86/include/asm/paravirt.h"
 __inline static unsigned long arch_local_save_flags___2(void) 
 { 

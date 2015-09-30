@@ -10928,11 +10928,11 @@ struct b43_debugfs_fops {
    size_t file_struct_offset ;
 };
 #line 1 "<compiler builtins>"
-void ldv__builtin_va_end(__builtin_va_list  ) ;
+void ldv__builtin_va_end(__builtin_va_list * ) ;
 #line 1
 __inline static long ldv__builtin_expect(long exp , long c ) ;
 #line 1
-void ldv__builtin_va_start(__builtin_va_list  ) ;
+void ldv__builtin_va_start(__builtin_va_list * ) ;
 #line 33 "include/linux/export.h"
 extern struct module __this_module ;
 #line 7 "./arch/x86/include/uapi/asm/swab.h"

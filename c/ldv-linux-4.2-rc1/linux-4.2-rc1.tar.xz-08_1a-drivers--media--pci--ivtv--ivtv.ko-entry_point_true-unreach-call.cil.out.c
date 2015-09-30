@@ -35786,11 +35786,11 @@ int ldv_del_timer_152(struct timer_list *ldv_func_arg1 )
 }
 }
 #line 1 "<compiler builtins>"
-void ldv__builtin_va_end(__builtin_va_list  ) ;
+void ldv__builtin_va_end(__builtin_va_list * ) ;
 #line 1
 void ldv__builtin_va_arg(__builtin_va_list  , unsigned long  , void * ) ;
 #line 1
-void ldv__builtin_va_start(__builtin_va_list  ) ;
+void ldv__builtin_va_start(__builtin_va_list * ) ;
 #line 63 "./arch/x86/include/asm/string_64.h"
 extern int memcmp(void const   * , void const   * , size_t  ) ;
 #line 284 "include/linux/jiffies.h"
