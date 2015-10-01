@@ -7,7 +7,7 @@ typedef struct node {
     struct node* next;
 } node_t;
 
-//Initialize a circular linked list with length n
+//Initialize a circular / null-terminating linked list with length n
 node_t* init_nondet_ll (int n)
 {
   node_t* head;
