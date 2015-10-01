@@ -1673,6 +1673,7 @@ int probe_23(struct hid_device *dev) {
  struct hid_report_enum *p = (struct hid_report_enum *)ldv_malloc(sizeof(struct hid_report_enum));
  if(p==0)
   return ret;
+ LDV_INIT_LIST_HEAD(&p->report_list);
  dev->report_enum = p;
 
  ret = hid_open_report(dev);
