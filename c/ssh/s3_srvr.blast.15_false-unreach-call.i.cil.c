@@ -1074,6 +1074,8 @@ int main(void)
   {
   s = malloc(sizeof(SSL));
   s->s3 = malloc(sizeof(struct ssl3_state_st));
+  s->ctx = malloc(sizeof(SSL_CTX));
+  s->session = malloc(sizeof(SSL_SESSION));
   tmp = ssl3_accept(s);
   }
   return (tmp);
