@@ -1,10 +1,15 @@
+/*
+ * Date: 30/09/2015
+ * Created by: Ton Chanh Le (chanhle@comp.nus.edu.sg)
+ */
+
 #include <stdlib.h>
 
 extern int __VERIFIER_nondet_int();
 
 typedef struct node {
-    int val;
-    struct node* next;
+  int val;
+  struct node* next;
 } node_t;
 
 //Initialize a circular linked list with length n
