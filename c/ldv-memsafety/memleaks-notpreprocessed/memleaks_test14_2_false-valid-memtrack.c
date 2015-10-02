@@ -27,7 +27,8 @@ void alloc_14(struct ldv_list_head *list) {
 //unsafe: forgot to free
 void free_unsafe_14(struct ldv_list_head *plist) {
 	struct A14 *p;
-	ldv_list_for_each_entry(p, plist, list) {
+	struct A14 *n;
+	ldv_list_for_each_entry_safe(p, n, plist, list) {
 		ldv_list_del(&p->list);
 	}
 }
