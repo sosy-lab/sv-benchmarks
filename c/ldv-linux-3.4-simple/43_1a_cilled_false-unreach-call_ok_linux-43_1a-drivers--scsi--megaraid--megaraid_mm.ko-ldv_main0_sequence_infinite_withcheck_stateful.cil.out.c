@@ -9445,6 +9445,7 @@ extern int __VERIFIER_nondet_int(void) ;
 #line 1306 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--43_1a--X--cpachecker/linux-3.4/csd_deg_dscv/3550/dscv_tempdir/dscv/ri/43_1a/drivers/scsi/megaraid/megaraid_mm.c.p"
 int LDV_IN_INTERRUPT  ;
 #line 1309 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--43_1a--X--cpachecker/linux-3.4/csd_deg_dscv/3550/dscv_tempdir/dscv/ri/43_1a/drivers/scsi/megaraid/megaraid_mm.c.p"
+extern void __VERIFIER_assume(int);
 void main(void) 
 { struct inode *var_group1 ;
   struct file *var_group2 ;
@@ -9458,7 +9459,8 @@ void main(void)
   int tmp ;
   int tmp___0 ;
   int tmp___1 ;
-
+  adapters_count_g = __VERIFIER_nondet_int();
+   __VERIFIER_assume (adapters_count_g >= 0);
   {
   {
 #line 1411
