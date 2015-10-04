@@ -360,12 +360,12 @@ inline int scull_init_module()
 /* =====================================================
    User program calling functions from the device driver
    ===================================================== */
-void *loader() {
+void *loader(void *arg) {
   scull_init_module();
   scull_cleanup_module();
 }
 
-void *thread1() {
+void *thread1(void *arg) {
   file filp;
   char buf;
   size_t count = 10;
@@ -375,7 +375,7 @@ void *thread1() {
   scull_release(i, filp);
 }
 
-void *thread2() {
+void *thread2(void *arg) {
   file filp;
   char buf;
   size_t count = 10;
