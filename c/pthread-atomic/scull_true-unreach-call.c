@@ -341,7 +341,7 @@ inline loff_t scull_llseek(file filp, loff_t off, int whence, loff_t f_pos)
  */
 inline void scull_cleanup_module(void) 
 {
-  scull_dev dev;
+  scull_dev dev=__VERIFIER_nondet_int();
   scull_trim(dev);
 
 }
@@ -366,8 +366,8 @@ void *loader(void *arg) {
 }
 
 void *thread1(void *arg) {
-  file filp;
-  char buf;
+  file filp=__VERIFIER_nondet_int();
+  char buf=__VERIFIER_nondet_int();
   size_t count = 10;
   loff_t off = 0;
   scull_open(tid1, i, filp);
@@ -376,8 +376,8 @@ void *thread1(void *arg) {
 }
 
 void *thread2(void *arg) {
-  file filp;
-  char buf;
+  file filp=__VERIFIER_nondet_int();
+  char buf=__VERIFIER_nondet_int();
   size_t count = 10;
   loff_t off = 0;
   scull_open(tid2, i, filp);
