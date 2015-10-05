@@ -1068,6 +1068,8 @@ int main(void)
   {
   {
   s->s3 = malloc(sizeof(struct ssl3_state_st));
+  s->ctx = malloc(sizeof(SSL_CTX));
+  s->session = malloc(sizeof(SSL_SESSION));
   s->state = 12292;
   ssl3_connect(s);
   }
