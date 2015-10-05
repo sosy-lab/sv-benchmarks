@@ -116,7 +116,7 @@ void *qrcu_reader2() {
 
 void* qrcu_updater() {
   int i;
-  int readerstart1, readerstart2;
+  int readerstart1=__VERIFIER_nondet_int(), readerstart2=__VERIFIER_nondet_int();
   int sum;
   __VERIFIER_atomic_take_snapshot(readerstart1, readerstart2);
   sum_unordered;

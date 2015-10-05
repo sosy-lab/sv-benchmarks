@@ -9,7 +9,7 @@ void __VERIFIER_assert(int expression) { if (!expression) { ERROR: __VERIFIER_er
 const int SIGMA = 16;
 
 int *array;
-int array_index;
+int array_index=-1;
 
 
 void *thread(void * arg)
@@ -31,8 +31,8 @@ int main()
 	__VERIFIER_assume(array);
 
 	for (tid=0; tid<SIGMA; tid++) {
+	        array_index++;
 		pthread_create(&t[tid], 0, thread, 0);
-		array_index++;
 	}
 
 	for (tid=0; tid<SIGMA; tid++) {

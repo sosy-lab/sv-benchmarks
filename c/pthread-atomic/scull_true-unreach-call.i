@@ -847,11 +847,11 @@ inline int scull_init_module()
   scull_cleanup_module();
   return result;
 }
-void *loader() {
+void *loader(void *arg) {
   scull_init_module();
   scull_cleanup_module();
 }
-void *thread1() {
+void *thread1(void *arg) {
   int filp;
   int buf;
   int count = 10;
@@ -860,7 +860,7 @@ void *thread1() {
   scull_read(1, filp, buf, count, off);
   0;
 }
-void *thread2() {
+void *thread2(void *arg) {
   int filp;
   int buf;
   int count = 10;
