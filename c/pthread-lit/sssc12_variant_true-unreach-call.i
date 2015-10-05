@@ -694,7 +694,7 @@ void* thr(void* arg) {
 }
 void main(int argc, char* argv[]) {
     pthread_t t;
-    pthread_mutex_init(&lock, 0);
+    lock=0;
     next = 0;
     len = __VERIFIER_nondet_int();
     __VERIFIER_assume(len > 0);
