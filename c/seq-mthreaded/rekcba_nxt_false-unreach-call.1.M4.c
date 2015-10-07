@@ -81,7 +81,7 @@ _Bool __VERIFIER_nondet__Bool(void) ;
 unsigned char __VERIFIER_nondet_uchar(void) ;
 _Bool __VERIFIER_nondet_bool(void) ;
 extern int __VERIFIER_nondet_int();
-void __VERIFIER_assume(_Bool arg ) ;
+void __VERIFIER_assume(int arg ) ;
 #line 1 "<startrek builtins>"
 unsigned char __startrek_task  ;
 #line 1 "<startrek builtins>"

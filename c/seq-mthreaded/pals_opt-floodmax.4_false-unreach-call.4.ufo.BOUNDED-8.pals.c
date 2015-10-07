@@ -61,7 +61,7 @@ DM-0000575
 char __VERIFIER_nondet_char(void) ;
 _Bool __VERIFIER_nondet__Bool(void) ;
 void assert(_Bool arg ) ;
-void __VERIFIER_assume(_Bool arg ) ;
+void __VERIFIER_assume(int arg ) ;
 typedef char msg_t;
 typedef int port_t;
 extern void read(port_t p , msg_t m ) ;
