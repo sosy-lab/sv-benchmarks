@@ -1,4 +1,5 @@
 extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+extern int __VERIFIER_nondet_int();
 
 #include <pthread.h>
 
@@ -43,7 +44,7 @@ inline void findMax(int offset)
 }
 
 void* thr1(void* arg) {
-	int offset;
+	int offset=__VERIFIER_nondet_int();
 
 	assume(offset % WORKPERTHREAD == 0 && offset >= 0 && offset < WORKPERTHREAD*THREADSMAX);
 	//assume(offset < WORKPERTHREAD && offset >= 0 && offset < WORKPERTHREAD*THREADSMAX);

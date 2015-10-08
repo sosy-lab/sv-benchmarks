@@ -1,4 +1,5 @@
 extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+extern unsigned int __VERIFIER_nondet_uint();
 
 #include <pthread.h>
 
@@ -6,7 +7,7 @@ extern void __VERIFIER_error() __attribute__ ((__noreturn__));
 #define assert(e) { if(!(e)) { ERROR: __VERIFIER_error();(void)0; } }
 
 void* thr1(void* arg){
-  unsigned int x, y, z;
+  unsigned int x=__VERIFIER_nondet_uint(), y=__VERIFIER_nondet_uint(), z=__VERIFIER_nondet_uint();
   int i, j, k;
   for(i=0; i<x; i++) {
     for(j=i+1; j<y; j++) {
