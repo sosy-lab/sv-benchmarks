@@ -14,6 +14,8 @@ void __VERIFIER_assert(int cond) {
   return;
 }
 
+extern unsigned int __VERIFIER_nondet_uint();
+
 # 1 "/usr/include/pthread.h" 1 3 4
 # 21 "/usr/include/pthread.h" 3 4
 # 1 "/usr/include/features.h" 1 3 4
@@ -1427,7 +1429,7 @@ unsigned start(unsigned a_in, unsigned b_in)
 
 void check_gcd(unsigned a_in, unsigned b_in, unsigned gcd)
 {
-  unsigned guessed_gcd;
+  unsigned guessed_gcd=__VERIFIER_nondet_uint();
   __VERIFIER_assume(a_in%guessed_gcd==0);
   __VERIFIER_assume(b_in%guessed_gcd==0);
   __VERIFIER_assume(guessed_gcd>1);
@@ -1441,8 +1443,8 @@ void check_gcd(unsigned a_in, unsigned b_in, unsigned gcd)
 int main()
 {
 
-  unsigned a_in;
-  unsigned b_in;
+  unsigned a_in=__VERIFIER_nondet_uint();
+  unsigned b_in=__VERIFIER_nondet_uint();
 
   __VERIFIER_assume(a_in>0);
   __VERIFIER_assume(b_in>0);
