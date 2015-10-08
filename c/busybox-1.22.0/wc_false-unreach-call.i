@@ -5786,7 +5786,7 @@ signed int main(signed int argc, char **argv)
     fname_fmt = "\n";
   }
 
-  if(!(1l + argv == ((char **)((void *)0))))
+  if(!(argv == ((char **)((void *)0))))
     (void)0;
 
   else

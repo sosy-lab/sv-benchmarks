@@ -288,11 +288,11 @@ signed int main(signed int argc, char **argv)
       signed int len;
       len = strspn(arg, "0123456789.");
       char sv;
-      if(!(arg + (signed long int)len == ((char *)NULL)))
+      if(!(arg == ((char *)NULL)))
         (void)0;
 
       else
-        /* assertion !(arg + (signed long int)len == ((char *)((void*)0))) */
+        /* assertion !(arg == ((char *)((void*)0))) */
         __VERIFIER_error();
       sv = arg[(signed long int)len];
       arg[(signed long int)len] = (char)0;

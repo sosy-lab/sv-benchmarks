@@ -6683,7 +6683,7 @@ signed int main(signed int argc, char **argv)
         __VERIFIER_error();
       if((signed int)*base == 46)
       {
-        if(!(1l + base == ((const char *)((void *)0))))
+        if(!(base == ((const char *)((void *)0))))
           (void)0;
 
         else
@@ -6694,7 +6694,7 @@ signed int main(signed int argc, char **argv)
 
         else
         {
-          if(!(1l + base == ((const char *)((void *)0))))
+          if(!(base == ((const char *)((void *)0))))
             (void)0;
 
           else
@@ -6702,7 +6702,7 @@ signed int main(signed int argc, char **argv)
             __VERIFIER_error();
           if((signed int)*(1l + base) == 46)
           {
-            if(!(2l + base == ((const char *)((void *)0))))
+            if(!(base == ((const char *)((void *)0))))
               (void)0;
 
             else

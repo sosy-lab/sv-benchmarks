@@ -845,11 +845,11 @@ signed int main(signed int argc, char **argv)
   unsigned int opt;
   opt_complementary = "=1";
   opt=getopt32(argv, "fnvsq");
-  if(!(argv + (signed long int)optind == ((char **)NULL)))
+  if(!(argv == ((char **)NULL)))
     (void)0;
 
   else
-    /* assertion !(argv + (signed long int)optind == ((char **)((void*)0))) */
+    /* assertion !(argv == ((char **)((void*)0))) */
     __VERIFIER_error();
   fname = argv[(signed long int)optind];
   if((4u & opt) == 0u)

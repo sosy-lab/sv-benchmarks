@@ -934,11 +934,11 @@ signed int main(signed int argc, char **argv)
   unsigned int return_value_getopt32$1;
   return_value_getopt32$1=getopt32(argv, "sfnbS:vT", &suffix);
   opts = (signed int)return_value_getopt32$1;
-  if(!(argv + (signed long int)(-1 + argc) == ((char **)NULL)))
+  if(!(argv == ((char **)NULL)))
     (void)0;
 
   else
-    /* assertion !(argv + (signed long int)(argc + -1) == ((char **)((void*)0))) */
+    /* assertion !(argv == ((char **)((void*)0))) */
     __VERIFIER_error();
   last = argv[(signed long int)(argc - 1)];
   argv = argv + (signed long int)optind;
@@ -950,11 +950,11 @@ signed int main(signed int argc, char **argv)
 
   }
 
-  if(!(1l + argv == ((char **)NULL)))
+  if(!(argv == ((char **)NULL)))
     (void)0;
 
   else
-    /* assertion !(1l + argv == ((char **)((void*)0))) */
+    /* assertion !(argv == ((char **)((void*)0))) */
     __VERIFIER_error();
   if(*(1l + argv) == ((char *)NULL))
   {
@@ -1109,11 +1109,11 @@ signed int main(signed int argc, char **argv)
   __CPROVER_DUMP_L35:
     ;
     argv = argv + 1l;
-    if(!(1l + argv == ((char **)NULL)))
+    if(!(argv == ((char **)NULL)))
       (void)0;
 
     else
-      /* assertion !(1l + argv == ((char **)((void*)0))) */
+      /* assertion !(argv == ((char **)((void*)0))) */
       __VERIFIER_error();
   }
   while(!(*(1l + argv) == ((char *)NULL)));

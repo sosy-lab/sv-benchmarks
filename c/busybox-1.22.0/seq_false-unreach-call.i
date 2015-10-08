@@ -5614,7 +5614,7 @@ signed int main(signed int argc, char **argv)
 
   else
   {
-    if(!(1l + argv == ((char **)((void *)0))))
+    if(!(argv == ((char **)((void *)0))))
       (void)0;
 
     else
@@ -5660,7 +5660,7 @@ signed int main(signed int argc, char **argv)
 
   __CPROVER_DUMP_L17:
     ;
-    if(!(argv + (signed long int)(-1 + argc) == ((char **)((void *)0))))
+    if(!(argv == ((char **)((void *)0))))
       (void)0;
 
     else

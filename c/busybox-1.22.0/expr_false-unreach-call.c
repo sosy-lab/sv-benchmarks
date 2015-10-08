@@ -503,11 +503,11 @@ static struct valinfo * docolon(struct valinfo *sv, struct valinfo *pv)
       else
         /* assertion !(sv == ((struct valinfo *)((void*)0))) */
         __VERIFIER_error();
-      if(!(sv->u.s + (signed long int)re_regs[1l].rm_eo == ((char *)NULL)))
+      if(!(sv->u.s == ((char *)NULL)))
         (void)0;
 
       else
-        /* assertion !(sv->u.s + (signed long int)re_regs[1l].rm_eo == ((char *)((void*)0))) */
+        /* assertion !(sv->u.s == ((char *)((void*)0))) */
         __VERIFIER_error();
       sv->u.s[(signed long int)re_regs[(signed long int)1].rm_eo] = (char)0;
       if(!(sv == ((struct valinfo *)NULL)))
@@ -1230,11 +1230,11 @@ static signed int nextarg(const char *str)
   else
     /* assertion !(str == ((const char *)((void*)0))) */
     __VERIFIER_error();
-  if(!(1l + str == ((const char *)NULL)))
+  if(!(str == ((const char *)NULL)))
     (void)0;
 
   else
-    /* assertion !(1l + str == ((const char *)((void*)0))) */
+    /* assertion !(str == ((const char *)((void*)0))) */
     __VERIFIER_error();
   return (signed int)(unsigned char)str[(signed long int)0] + (signed int)(unsigned char)str[(signed long int)1];
 }
@@ -1284,11 +1284,11 @@ static signed int null(struct valinfo *v)
       __VERIFIER_error();
     if((signed int)*v->u.s == 48)
     {
-      if(!(1l + v->u.s == ((char *)NULL)))
+      if(!(v->u.s == ((char *)NULL)))
         (void)0;
 
       else
-        /* assertion !(1l + v->u.s == ((char *)((void*)0))) */
+        /* assertion !(v->u.s == ((char *)((void*)0))) */
         __VERIFIER_error();
       tmp_if_expr$1 = (!((signed int)v->u.s[(signed long int)1] != 0) ? (signed int)(1 != 0) : (signed int)(0 != 0)) != 0;
     }

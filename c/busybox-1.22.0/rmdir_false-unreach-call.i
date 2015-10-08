@@ -5654,7 +5654,7 @@ signed int main(signed int argc, char **argv)
 
           else
           {
-            if(!(1l + path == ((char *)((void *)0))))
+            if(!(path == ((char *)((void *)0))))
               (void)0;
 
             else

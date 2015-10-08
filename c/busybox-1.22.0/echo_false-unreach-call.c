@@ -420,11 +420,11 @@ just_echo:
 
           if((signed int)*arg == 48)
           {
-            if(!(1l + arg == ((const char *)NULL)))
+            if(!(arg == ((const char *)NULL)))
               (void)0;
 
             else
-              /* assertion !(1l + arg == ((const char *)((void*)0))) */
+              /* assertion !(arg == ((const char *)((void*)0))) */
               __VERIFIER_error();
             if(208 + (signed int)(unsigned char)(signed int)*(1l + arg) < 8)
               arg = arg + 1l;

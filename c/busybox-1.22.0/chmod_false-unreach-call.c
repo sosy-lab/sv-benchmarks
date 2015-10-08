@@ -573,11 +573,11 @@ signed int main(signed int argc, char **argv)
       break;
     }
 
-    if(!(1l + arg == ((char *)NULL)))
+    if(!(arg == ((char *)NULL)))
       (void)0;
 
     else
-      /* assertion !(1l + arg == ((char *)((void*)0))) */
+      /* assertion !(arg == ((char *)((void*)0))) */
       __VERIFIER_error();
     if(!((signed int)*(1l + arg) == 0))
     {

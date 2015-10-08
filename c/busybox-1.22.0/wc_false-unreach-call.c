@@ -1013,11 +1013,11 @@ signed int main(signed int argc, char **argv)
     fname_fmt = "\n";
   }
 
-  if(!(1l + argv == ((char **)NULL)))
+  if(!(argv == ((char **)NULL)))
     (void)0;
 
   else
-    /* assertion !(1l + argv == ((char **)((void*)0))) */
+    /* assertion !(argv == ((char **)((void*)0))) */
     __VERIFIER_error();
   if(*(1l + argv) == ((char *)NULL))
   {

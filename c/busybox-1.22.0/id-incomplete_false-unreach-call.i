@@ -5903,7 +5903,7 @@ signed int main(signed int argc, char **argv)
     opt_complementary = "?1:u--g:g--u:G--u:u--G:g--G:G--g:r?ugG:n?ugG";
     opt=getopt32(argv, "rnugG");
   }
-  if(!(argv + (signed long int)optind == ((char **)((void *)0))))
+  if(!(argv == ((char **)((void *)0))))
     (void)0;
 
   else
@@ -6007,7 +6007,7 @@ signed int main(signed int argc, char **argv)
       {
         if(!(opt == 0u))
         {
-          if(!(groups + (signed long int)i == ((unsigned int *)((void *)0))))
+          if(!(groups == ((unsigned int *)((void *)0))))
             (void)0;
 
           else
@@ -6018,7 +6018,7 @@ signed int main(signed int argc, char **argv)
 
           else
           {
-            if(!(groups + (signed long int)i == ((unsigned int *)((void *)0))))
+            if(!(groups == ((unsigned int *)((void *)0))))
               (void)0;
 
             else
@@ -6032,7 +6032,7 @@ signed int main(signed int argc, char **argv)
         }
 
         signed int return_value_print_group$12;
-        if(!(groups + (signed long int)i == ((unsigned int *)((void *)0))))
+        if(!(groups == ((unsigned int *)((void *)0))))
           (void)0;
 
         else

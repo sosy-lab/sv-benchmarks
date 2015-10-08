@@ -5756,7 +5756,7 @@ __CPROVER_DUMP_L4:
     else
 
       __VERIFIER_error();
-    if(!(1l + *argv == ((char *)((void *)0))))
+    if(!(*argv == ((char *)((void *)0))))
       (void)0;
 
     else

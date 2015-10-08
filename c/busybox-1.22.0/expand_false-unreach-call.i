@@ -6246,7 +6246,7 @@ static void unexpand(struct _IO_FILE *file, unsigned int tab_size, unsigned int 
         n = strcspn(ptr, "\t ");
         printf("%*s%.*s", len, "", n, ptr);
         char c;
-        if(!(ptr + (signed long int)n == ((char *)((void *)0))))
+        if(!(ptr == ((char *)((void *)0))))
           (void)0;
 
         else
@@ -6257,7 +6257,7 @@ static void unexpand(struct _IO_FILE *file, unsigned int tab_size, unsigned int 
         unsigned long int return_value_unicode_strwidth$14;
         return_value_unicode_strwidth$14=unicode_strwidth(ptr);
         len = (unsigned int)return_value_unicode_strwidth$14;
-        if(!(ptr + (signed long int)n == ((char *)((void *)0))))
+        if(!(ptr == ((char *)((void *)0))))
           (void)0;
 
         else

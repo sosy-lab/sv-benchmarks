@@ -254,21 +254,21 @@ static signed long int safe_write(signed int fd, const void *buf, unsigned long 
 // file coreutils/usleep.c line 26
 signed int main(signed int argc, char **argv)
 {
-  if(!(1l + argv == ((char **)NULL)))
+  if(!(argv == ((char **)NULL)))
     (void)0;
 
   else
-    /* assertion !(1l + argv == ((char **)((void*)0))) */
+    /* assertion !(argv == ((char **)((void*)0))) */
     __VERIFIER_error();
   if(*(1l + argv) == ((char *)NULL))
     bb_show_usage();
 
   unsigned int return_value_xatou$1;
-  if(!(1l + argv == ((char **)NULL)))
+  if(!(argv == ((char **)NULL)))
     (void)0;
 
   else
-    /* assertion !(1l + argv == ((char **)((void*)0))) */
+    /* assertion !(argv == ((char **)((void*)0))) */
     __VERIFIER_error();
   return_value_xatou$1=xatou(argv[(signed long int)1]);
   usleep(return_value_xatou$1);

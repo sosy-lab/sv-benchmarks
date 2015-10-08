@@ -983,11 +983,11 @@ __CPROVER_DUMP_L4:
     else
       /* assertion !(argv == ((char **)((void*)0))) */
       __VERIFIER_error();
-    if(!(1l + *argv == ((char *)NULL)))
+    if(!(*argv == ((char *)NULL)))
       (void)0;
 
     else
-      /* assertion !(1l + *argv == ((char *)((void*)0))) */
+      /* assertion !(*argv == ((char *)((void*)0))) */
       __VERIFIER_error();
     tmp_if_expr$3 = ((signed int)(*argv)[(signed long int)1] != 0 ? (signed int)(1 != 0) : (signed int)(0 != 0)) != 0;
   }

@@ -5618,7 +5618,7 @@ signed int main(signed int argc, char **argv)
   unsigned int opt;
   opt_complementary = "=1";
   opt=getopt32(argv, "fnvsq");
-  if(!(argv + (signed long int)optind == ((char **)((void *)0))))
+  if(!(argv == ((char **)((void *)0))))
     (void)0;
 
   else

@@ -5074,7 +5074,7 @@ static signed long int safe_write(signed int fd, const void *buf, unsigned long 
 
 signed int main(signed int argc, char **argv)
 {
-  if(!(1l + argv == ((char **)((void *)0))))
+  if(!(argv == ((char **)((void *)0))))
     (void)0;
 
   else

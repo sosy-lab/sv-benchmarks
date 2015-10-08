@@ -7092,7 +7092,7 @@ signed int main(signed int argc, char **argv)
     flags = flags | 2;
 
   status = 0;
-  if(!(argv + (signed long int)(-1 + argc) == ((char **)((void *)0))))
+  if(!(argv == ((char **)((void *)0))))
     (void)0;
 
   else

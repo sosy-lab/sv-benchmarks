@@ -6457,7 +6457,7 @@ signed int main(signed int argc, char **argv)
     tbl = bb_uuenc_tbl_base64;
 
   argv = argv + (signed long int)optind;
-  if(!(1l + argv == ((char **)((void *)0))))
+  if(!(argv == ((char **)((void *)0))))
     (void)0;
 
   else

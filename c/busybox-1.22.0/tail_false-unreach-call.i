@@ -6735,7 +6735,7 @@ signed int main(signed int argc, char **argv)
   signed int *fds;
   const char *fmt;
   signed int prev_fd;
-  if(!(1l + argv == ((char **)((void *)0))))
+  if(!(argv == ((char **)((void *)0))))
     (void)0;
 
   else
@@ -6755,7 +6755,7 @@ signed int main(signed int argc, char **argv)
 
     else
     {
-      if(!(1l + argv == ((char **)((void *)0))))
+      if(!(argv == ((char **)((void *)0))))
         (void)0;
 
       else
@@ -6771,13 +6771,13 @@ signed int main(signed int argc, char **argv)
     }
     if(!(tmp_if_expr$1 == (_Bool)0))
     {
-      if(!(1l + argv == ((char **)((void *)0))))
+      if(!(argv == ((char **)((void *)0))))
         (void)0;
 
       else
 
         __VERIFIER_error();
-      if(!(1l + *(1l + argv) == ((char *)((void *)0))))
+      if(!(*(1l + argv) == ((char *)((void *)0))))
         (void)0;
 
       else
@@ -6848,7 +6848,7 @@ signed int main(signed int argc, char **argv)
   do
   {
     signed int tail_main$$1$$4$$fd;
-    if(!(argv + (signed long int)i == ((char **)((void *)0))))
+    if(!(argv == ((char **)((void *)0))))
       (void)0;
 
     else
@@ -6868,7 +6868,7 @@ signed int main(signed int argc, char **argv)
 
     __CPROVER_DUMP_L29:
       ;
-      if(!(fds + (signed long int)nfiles == ((signed int *)((void *)0))))
+      if(!(fds == ((signed int *)((void *)0))))
         (void)0;
 
       else
@@ -6877,13 +6877,13 @@ signed int main(signed int argc, char **argv)
       fds[(signed long int)nfiles] = tail_main$$1$$4$$fd;
       tmp_post$5 = nfiles;
       nfiles = nfiles + 1u;
-      if(!(argv + (signed long int)tmp_post$5 == ((char **)((void *)0))))
+      if(!(argv == ((char **)((void *)0))))
         (void)0;
 
       else
 
         __VERIFIER_error();
-      if(!(argv + (signed long int)i == ((char **)((void *)0))))
+      if(!(argv == ((char **)((void *)0))))
         (void)0;
 
       else
@@ -6923,7 +6923,7 @@ signed int main(signed int argc, char **argv)
     unsigned int seen;
     signed int nread;
     signed int fd;
-    if(!(fds + (signed long int)i == ((signed int *)((void *)0))))
+    if(!(fds == ((signed int *)((void *)0))))
       (void)0;
 
     else
@@ -6944,7 +6944,7 @@ signed int main(signed int argc, char **argv)
       ;
       if(!(header_threshhold >= nfiles))
       {
-        if(!(argv + (signed long int)i == ((char **)((void *)0))))
+        if(!(argv == ((char **)((void *)0))))
           (void)0;
 
         else
@@ -7069,7 +7069,7 @@ signed int main(signed int argc, char **argv)
               do
               {
                 k = k - 1;
-                if(!(buf + (signed long int)k == ((char *)((void *)0))))
+                if(!(buf == ((char *)((void *)0))))
                   (void)0;
 
                 else
@@ -7089,7 +7089,7 @@ signed int main(signed int argc, char **argv)
               else
               {
                 signed int extra;
-                if(!(buf + (signed long int)(-1 + nread) == ((char *)((void *)0))))
+                if(!(buf == ((char *)((void *)0))))
                   (void)0;
 
                 else
@@ -7139,7 +7139,7 @@ signed int main(signed int argc, char **argv)
     i = i + 1;
   }
   while(!((unsigned int)i >= nfiles));
-  if(!(fds + (signed long int)(-1 + i) == ((signed int *)((void *)0))))
+  if(!(fds == ((signed int *)((void *)0))))
     (void)0;
 
   else
@@ -7163,7 +7163,7 @@ signed int main(signed int argc, char **argv)
       {
         signed int tail_main$$1$$7$$1$$nread;
         const char *filename;
-        if(!(argv + (signed long int)i == ((char **)((void *)0))))
+        if(!(argv == ((char **)((void *)0))))
           (void)0;
 
         else
@@ -7171,7 +7171,7 @@ signed int main(signed int argc, char **argv)
           __VERIFIER_error();
         filename = argv[(signed long int)i];
         signed int tail_main$$1$$7$$1$$fd;
-        if(!(fds + (signed long int)i == ((signed int *)((void *)0))))
+        if(!(fds == ((signed int *)((void *)0))))
           (void)0;
 
         else
@@ -7226,7 +7226,7 @@ signed int main(signed int argc, char **argv)
                 bb_perror_msg("%s has become inaccessible", filename);
 
             tail_main$$1$$7$$1$$fd = new_fd;
-            if(!(fds + (signed long int)i == ((signed int *)((void *)0))))
+            if(!(fds == ((signed int *)((void *)0))))
               (void)0;
 
             else

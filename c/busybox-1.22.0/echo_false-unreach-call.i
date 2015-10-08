@@ -5182,7 +5182,7 @@ just_echo:
 
           if((signed int)*arg == 48)
           {
-            if(!(1l + arg == ((const char *)((void *)0))))
+            if(!(arg == ((const char *)((void *)0))))
               (void)0;
 
             else

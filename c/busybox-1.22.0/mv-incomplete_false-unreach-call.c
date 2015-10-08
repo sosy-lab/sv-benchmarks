@@ -1611,11 +1611,11 @@ signed int main(signed int argc, char **argv)
   flags=getopt32(argv, "finv");
   argc = argc - optind;
   argv = argv + (signed long int)optind;
-  if(!(argv + (signed long int)(-1 + argc) == ((char **)NULL)))
+  if(!(argv == ((char **)NULL)))
     (void)0;
 
   else
-    /* assertion !(argv + (signed long int)(argc + -1) == ((char **)((void*)0))) */
+    /* assertion !(argv == ((char **)((void*)0))) */
     __VERIFIER_error();
   last = argv[(signed long int)(argc - 1)];
   char *return_value_bb_get_last_path_component_strip$1;

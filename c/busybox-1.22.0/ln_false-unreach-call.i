@@ -6255,7 +6255,7 @@ signed int main(signed int argc, char **argv)
   unsigned int return_value_getopt32$1;
   return_value_getopt32$1=getopt32(argv, "sfnbS:vT", &suffix);
   opts = (signed int)return_value_getopt32$1;
-  if(!(argv + (signed long int)(-1 + argc) == ((char **)((void *)0))))
+  if(!(argv == ((char **)((void *)0))))
     (void)0;
 
   else
@@ -6271,7 +6271,7 @@ signed int main(signed int argc, char **argv)
 
   }
 
-  if(!(1l + argv == ((char **)((void *)0))))
+  if(!(argv == ((char **)((void *)0))))
     (void)0;
 
   else
@@ -6430,7 +6430,7 @@ signed int main(signed int argc, char **argv)
   __CPROVER_DUMP_L35:
     ;
     argv = argv + 1l;
-    if(!(1l + argv == ((char **)((void *)0))))
+    if(!(argv == ((char **)((void *)0))))
       (void)0;
 
     else

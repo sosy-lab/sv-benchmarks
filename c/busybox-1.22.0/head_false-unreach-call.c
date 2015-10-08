@@ -492,11 +492,11 @@ signed int main(signed int argc, char **argv)
   char *p;
   signed int opt;
   signed int retval = 0;
-  if(!(1l + argv == ((char **)NULL)))
+  if(!(argv == ((char **)NULL)))
     (void)0;
 
   else
-    /* assertion !(1l + argv == ((char **)((void*)0))) */
+    /* assertion !(argv == ((char **)((void*)0))) */
     __VERIFIER_error();
   if(!(*(1l + argv) == ((char *)NULL)))
   {
@@ -509,11 +509,11 @@ signed int main(signed int argc, char **argv)
     if(!((signed int)*(*(1l + argv)) == 45))
       goto __CPROVER_DUMP_L9;
 
-    if(!(1l + *(1l + argv) == ((char *)NULL)))
+    if(!(*(1l + argv) == ((char *)NULL)))
       (void)0;
 
     else
-      /* assertion !(1l + *(1l + argv) == ((char *)((void*)0))) */
+      /* assertion !(*(1l + argv) == ((char *)((void*)0))) */
       __VERIFIER_error();
     if(!(208 + (signed int)(unsigned char)(signed int)*(1l + *(1l + argv)) <= 9))
       goto __CPROVER_DUMP_L9;
@@ -712,11 +712,11 @@ static void print_except_N_last_bytes(struct _IO_FILE *fp, unsigned int count)
 
     tmp_post$2 = head;
     head = head + 1u;
-    if(!(circle + (signed long int)tmp_post$2 == ((unsigned char *)NULL)))
+    if(!(circle == ((unsigned char *)NULL)))
       (void)0;
 
     else
-      /* assertion !(circle + (signed long int)tmp_post$2 == ((unsigned char *)((void*)0))) */
+      /* assertion !(circle == ((unsigned char *)((void*)0))) */
       __VERIFIER_error();
     circle[(signed long int)tmp_post$2] = (unsigned char)c;
     if(head == count)
@@ -730,22 +730,22 @@ static void print_except_N_last_bytes(struct _IO_FILE *fp, unsigned int count)
     if(head == count)
       head = (unsigned int)0;
 
-    if(!(circle + (signed long int)head == ((unsigned char *)NULL)))
+    if(!(circle == ((unsigned char *)NULL)))
       (void)0;
 
     else
-      /* assertion !(circle + (signed long int)head == ((unsigned char *)((void*)0))) */
+      /* assertion !(circle == ((unsigned char *)((void*)0))) */
       __VERIFIER_error();
     putchar((signed int)circle[(signed long int)head]);
     print_except_N_last_bytes$$1$$2$$1$$c=getc(fp);
     if(print_except_N_last_bytes$$1$$2$$1$$c == -1)
       break;
 
-    if(!(circle + (signed long int)head == ((unsigned char *)NULL)))
+    if(!(circle == ((unsigned char *)NULL)))
       (void)0;
 
     else
-      /* assertion !(circle + (signed long int)head == ((unsigned char *)((void*)0))) */
+      /* assertion !(circle == ((unsigned char *)((void*)0))) */
       __VERIFIER_error();
     circle[(signed long int)head] = (unsigned char)print_except_N_last_bytes$$1$$2$$1$$c;
     head = head + 1u;
@@ -776,11 +776,11 @@ static void print_except_N_last_lines(struct _IO_FILE *fp, unsigned int count)
 
     tmp_post$2 = head;
     head = head + 1u;
-    if(!(circle + (signed long int)tmp_post$2 == ((char **)NULL)))
+    if(!(circle == ((char **)NULL)))
       (void)0;
 
     else
-      /* assertion !(circle + (signed long int)tmp_post$2 == ((char **)((void*)0))) */
+      /* assertion !(circle == ((char **)((void*)0))) */
       __VERIFIER_error();
     circle[(signed long int)tmp_post$2] = c;
     if(head == count)
@@ -795,31 +795,31 @@ static void print_except_N_last_lines(struct _IO_FILE *fp, unsigned int count)
     if(head == count)
       head = (unsigned int)0;
 
-    if(!(circle + (signed long int)head == ((char **)NULL)))
+    if(!(circle == ((char **)NULL)))
       (void)0;
 
     else
-      /* assertion !(circle + (signed long int)head == ((char **)((void*)0))) */
+      /* assertion !(circle == ((char **)((void*)0))) */
       __VERIFIER_error();
     fputs(circle[(signed long int)head], stdout);
     print_except_N_last_lines$$1$$2$$1$$c=xmalloc_fgets(fp);
     if(print_except_N_last_lines$$1$$2$$1$$c == ((char *)NULL))
       break;
 
-    if(!(circle + (signed long int)head == ((char **)NULL)))
+    if(!(circle == ((char **)NULL)))
       (void)0;
 
     else
-      /* assertion !(circle + (signed long int)head == ((char **)((void*)0))) */
+      /* assertion !(circle == ((char **)((void*)0))) */
       __VERIFIER_error();
     free((void *)circle[(signed long int)head]);
     tmp_post$3 = head;
     head = head + 1u;
-    if(!(circle + (signed long int)tmp_post$3 == ((char **)NULL)))
+    if(!(circle == ((char **)NULL)))
       (void)0;
 
     else
-      /* assertion !(circle + (signed long int)tmp_post$3 == ((char **)((void*)0))) */
+      /* assertion !(circle == ((char **)((void*)0))) */
       __VERIFIER_error();
     circle[(signed long int)tmp_post$3] = print_except_N_last_lines$$1$$2$$1$$c;
   }
@@ -833,11 +833,11 @@ ret:
   {
     tmp_post$4 = head;
     head = head + 1u;
-    if(!(circle + (signed long int)tmp_post$4 == ((char **)NULL)))
+    if(!(circle == ((char **)NULL)))
       (void)0;
 
     else
-      /* assertion !(circle + (signed long int)tmp_post$4 == ((char **)((void*)0))) */
+      /* assertion !(circle == ((char **)((void*)0))) */
       __VERIFIER_error();
     free((void *)circle[(signed long int)tmp_post$4]);
     if(head == count)

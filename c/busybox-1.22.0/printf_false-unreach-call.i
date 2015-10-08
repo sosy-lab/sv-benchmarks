@@ -5628,7 +5628,7 @@ static signed int multiconvert(const char *arg, void *result, void (*convert)(co
   }
   if(!(tmp_if_expr$1 == (_Bool)0))
   {
-    if(!(1l + arg == ((const char *)((void *)0))))
+    if(!(arg == ((const char *)((void *)0))))
       (void)0;
 
     else
@@ -5723,7 +5723,7 @@ static void print_direc(char *format, unsigned int fmt_length, signed int field_
   char saved;
   char *have_prec;
   char *have_width;
-  if(!(format + (signed long int)fmt_length == ((char *)((void *)0))))
+  if(!(format == ((char *)((void *)0))))
     (void)0;
 
   else
@@ -5745,7 +5745,7 @@ static void print_direc(char *format, unsigned int fmt_length, signed int field_
 
     __VERIFIER_error();
   *bb_errno = 0;
-  if(!(format + (signed long int)(4294967295u + fmt_length) == ((char *)((void *)0))))
+  if(!(format == ((char *)((void *)0))))
     (void)0;
 
   else
@@ -5770,7 +5770,7 @@ static void print_direc(char *format, unsigned int fmt_length, signed int field_
   _Bool tmp_if_expr$17;
   if(!((signed int)format[(signed long int)(4294967295u + fmt_length)] == 99))
   {
-    if((signed int)format[(signed long int)(fmt_length + 4294967295u)] == 105 || !(format + (signed long int)(4294967295u + fmt_length) == ((char *)((void *)0))))
+    if((signed int)format[(signed long int)(fmt_length + 4294967295u)] == 105 || !(format == ((char *)((void *)0))))
       (void)0;
 
     else
@@ -5784,7 +5784,7 @@ static void print_direc(char *format, unsigned int fmt_length, signed int field_
     if(tmp_if_expr$1)
       goto __CPROVER_DUMP_L61;
 
-    if((signed int)format[(signed long int)(fmt_length + 4294967295u)] == 88 || !(format + (signed long int)(4294967295u + fmt_length) == ((char *)((void *)0))))
+    if((signed int)format[(signed long int)(fmt_length + 4294967295u)] == 88 || !(format == ((char *)((void *)0))))
       (void)0;
 
     else
@@ -5795,7 +5795,7 @@ static void print_direc(char *format, unsigned int fmt_length, signed int field_
 
     else
       tmp_if_expr$2 = (_Bool)0;
-    if(!(format + (signed long int)(4294967295u + fmt_length) == ((char *)((void *)0))) || !tmp_if_expr$2)
+    if(!(format == ((char *)((void *)0))) || !tmp_if_expr$2)
       (void)0;
 
     else
@@ -5811,7 +5811,7 @@ static void print_direc(char *format, unsigned int fmt_length, signed int field_
 
     else
       tmp_if_expr$4 = (_Bool)0;
-    if(!(format + (signed long int)(4294967295u + fmt_length) == ((char *)((void *)0))) || !tmp_if_expr$4)
+    if(!(format == ((char *)((void *)0))) || !tmp_if_expr$4)
       (void)0;
 
     else
@@ -5838,7 +5838,7 @@ static void print_direc(char *format, unsigned int fmt_length, signed int field_
     if((signed int)format[(signed long int)(4294967295u + fmt_length)] == 115)
       goto __CPROVER_DUMP_L69;
 
-    if((signed int)format[(signed long int)(fmt_length + 4294967295u)] == 71 || !(format + (signed long int)(4294967295u + fmt_length) == ((char *)((void *)0))))
+    if((signed int)format[(signed long int)(fmt_length + 4294967295u)] == 71 || !(format == ((char *)((void *)0))))
       (void)0;
 
     else
@@ -5849,7 +5849,7 @@ static void print_direc(char *format, unsigned int fmt_length, signed int field_
 
     else
       tmp_if_expr$8 = (_Bool)0;
-    if(!(format + (signed long int)(4294967295u + fmt_length) == ((char *)((void *)0))) || !tmp_if_expr$8)
+    if(!(format == ((char *)((void *)0))) || !tmp_if_expr$8)
       (void)0;
 
     else
@@ -5865,7 +5865,7 @@ static void print_direc(char *format, unsigned int fmt_length, signed int field_
 
     else
       tmp_if_expr$10 = (_Bool)0;
-    if(!(format + (signed long int)(4294967295u + fmt_length) == ((char *)((void *)0))) || !tmp_if_expr$10)
+    if(!(format == ((char *)((void *)0))) || !tmp_if_expr$10)
       (void)0;
 
     else
@@ -5886,7 +5886,7 @@ static void print_direc(char *format, unsigned int fmt_length, signed int field_
 
     else
       tmp_if_expr$13 = (_Bool)0;
-    if(!(format + (signed long int)(4294967295u + fmt_length) == ((char *)((void *)0))) || !tmp_if_expr$13)
+    if(!(format == ((char *)((void *)0))) || !tmp_if_expr$13)
       (void)0;
 
     else
@@ -5986,7 +5986,7 @@ static void print_direc(char *format, unsigned int fmt_length, signed int field_
 
 __CPROVER_DUMP_L76:
   ;
-  if(!(format + (signed long int)fmt_length == ((char *)((void *)0))))
+  if(!(format == ((char *)((void *)0))))
     (void)0;
 
   else
@@ -6022,7 +6022,7 @@ static void print_esc_string(const char *str)
         __VERIFIER_error();
       if((signed int)*str == 48)
       {
-        if(!(1l + str == ((const char *)((void *)0))))
+        if(!(str == ((const char *)((void *)0))))
           (void)0;
 
         else
@@ -6279,27 +6279,27 @@ static char ** print_formatted(char *f, char **argv, signed int *conv_err)
         return_value_xmalloc$6=xmalloc((unsigned long int)(direc_length + (unsigned int)3));
         p = (char *)return_value_xmalloc$6;
         memcpy((void *)p, (const void *)direc_start, (unsigned long int)direc_length);
-        if(!(p + (signed long int)(1u + direc_length) == ((char *)((void *)0))))
+        if(!(p == ((char *)((void *)0))))
           (void)0;
 
         else
 
           __VERIFIER_error();
-        if(!(p + (signed long int)(4294967295u + direc_length) == ((char *)((void *)0))))
+        if(!(p == ((char *)((void *)0))))
           (void)0;
 
         else
 
           __VERIFIER_error();
         p[(signed long int)(direc_length + (unsigned int)1)] = p[(signed long int)(direc_length - (unsigned int)1)];
-        if(!(p + (signed long int)(4294967295u + direc_length) == ((char *)((void *)0))))
+        if(!(p == ((char *)((void *)0))))
           (void)0;
 
         else
 
           __VERIFIER_error();
         p[(signed long int)(direc_length - (unsigned int)1)] = (char)108;
-        if(!(p + (signed long int)direc_length == ((char *)((void *)0))))
+        if(!(p == ((char *)((void *)0))))
           (void)0;
 
         else
@@ -6392,7 +6392,7 @@ signed int main(signed int argc, char **argv)
   if(return_value_fcntl$1 == -1)
     return 1;
 
-  if(!(1l + argv == ((char **)((void *)0))))
+  if(!(argv == ((char **)((void *)0))))
     (void)0;
 
   else
@@ -6408,7 +6408,7 @@ signed int main(signed int argc, char **argv)
       __VERIFIER_error();
     if((signed int)*(*(1l + argv)) == 45)
     {
-      if(!(1l + *(1l + argv) == ((char *)((void *)0))))
+      if(!(*(1l + argv) == ((char *)((void *)0))))
         (void)0;
 
       else
@@ -6416,7 +6416,7 @@ signed int main(signed int argc, char **argv)
         __VERIFIER_error();
       if((signed int)*(1l + *(1l + argv)) == 45)
       {
-        if(!(2l + *(1l + argv) == ((char *)((void *)0))))
+        if(!(*(1l + argv) == ((char *)((void *)0))))
           (void)0;
 
         else
@@ -6431,7 +6431,7 @@ signed int main(signed int argc, char **argv)
 
   }
 
-  if(!(1l + argv == ((char **)((void *)0))))
+  if(!(argv == ((char **)((void *)0))))
     (void)0;
 
   else
@@ -6454,7 +6454,7 @@ signed int main(signed int argc, char **argv)
     bb_show_usage();
   }
 
-  if(!(1l + argv == ((char **)((void *)0))))
+  if(!(argv == ((char **)((void *)0))))
     (void)0;
 
   else

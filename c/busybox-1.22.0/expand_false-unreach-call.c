@@ -1473,22 +1473,22 @@ static void unexpand(struct _IO_FILE *file, unsigned int tab_size, unsigned int 
         n = strcspn(ptr, "\t ");
         printf("%*s%.*s", len, "", n, ptr);
         char c;
-        if(!(ptr + (signed long int)n == ((char *)NULL)))
+        if(!(ptr == ((char *)NULL)))
           (void)0;
 
         else
-          /* assertion !(ptr + (signed long int)n == ((char *)((void*)0))) */
+          /* assertion !(ptr == ((char *)((void*)0))) */
           __VERIFIER_error();
         c = ptr[(signed long int)n];
         ptr[(signed long int)n] = (char)0;
         unsigned long int return_value_unicode_strwidth$14;
         return_value_unicode_strwidth$14=unicode_strwidth(ptr);
         len = (unsigned int)return_value_unicode_strwidth$14;
-        if(!(ptr + (signed long int)n == ((char *)NULL)))
+        if(!(ptr == ((char *)NULL)))
           (void)0;
 
         else
-          /* assertion !(ptr + (signed long int)n == ((char *)((void*)0))) */
+          /* assertion !(ptr == ((char *)((void*)0))) */
           __VERIFIER_error();
         ptr[(signed long int)n] = c;
         ptr = ptr + (signed long int)n;

@@ -1180,30 +1180,30 @@ signed int main(signed int argc, char **argv)
         __VERIFIER_error();
       if((signed int)*base == 46)
       {
-        if(!(1l + base == ((const char *)NULL)))
+        if(!(base == ((const char *)NULL)))
           (void)0;
 
         else
-          /* assertion !(1l + base == ((const char *)((void*)0))) */
+          /* assertion !(base == ((const char *)((void*)0))) */
           __VERIFIER_error();
         if((signed int)*(1l + base) == 0)
           tmp_if_expr$3 = 1 != 0;
 
         else
         {
-          if(!(1l + base == ((const char *)NULL)))
+          if(!(base == ((const char *)NULL)))
             (void)0;
 
           else
-            /* assertion !(1l + base == ((const char *)((void*)0))) */
+            /* assertion !(base == ((const char *)((void*)0))) */
             __VERIFIER_error();
           if((signed int)*(1l + base) == 46)
           {
-            if(!(2l + base == ((const char *)NULL)))
+            if(!(base == ((const char *)NULL)))
               (void)0;
 
             else
-              /* assertion !(2l + base == ((const char *)((void*)0))) */
+              /* assertion !(base == ((const char *)((void*)0))) */
               __VERIFIER_error();
             tmp_if_expr$2 = (!((signed int)base[(signed long int)2] != 0) ? (signed int)(1 != 0) : (signed int)(0 != 0)) != 0;
           }

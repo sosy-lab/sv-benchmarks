@@ -5339,7 +5339,7 @@ signed int main(signed int argc, char **argv)
       signed int len;
       len = strspn(arg, "0123456789.");
       char sv;
-      if(!(arg + (signed long int)len == ((char *)((void *)0))))
+      if(!(arg == ((char *)((void *)0))))
         (void)0;
 
       else

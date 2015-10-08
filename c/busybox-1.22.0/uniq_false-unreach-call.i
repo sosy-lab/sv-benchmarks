@@ -6010,7 +6010,7 @@ signed int main(signed int argc, char **argv)
 
     else
     {
-      if(!(1l + input_filename == ((const char *)((void *)0))))
+      if(!(input_filename == ((const char *)((void *)0))))
         (void)0;
 
       else
@@ -6024,7 +6024,7 @@ signed int main(signed int argc, char **argv)
       xopen(input_filename, 0);
     }
 
-    if(!(1l + argv == ((char **)((void *)0))))
+    if(!(argv == ((char **)((void *)0))))
       (void)0;
 
     else
@@ -6033,7 +6033,7 @@ signed int main(signed int argc, char **argv)
     output = argv[(signed long int)1];
     if(!(output == ((const char *)((void *)0))))
     {
-      if(!(2l + argv == ((char **)((void *)0))))
+      if(!(argv == ((char **)((void *)0))))
         (void)0;
 
       else
@@ -6053,7 +6053,7 @@ signed int main(signed int argc, char **argv)
 
       else
       {
-        if(!(1l + output == ((const char *)((void *)0))))
+        if(!(output == ((const char *)((void *)0))))
           (void)0;
 
         else

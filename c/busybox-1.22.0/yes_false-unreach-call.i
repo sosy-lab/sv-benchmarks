@@ -5015,7 +5015,7 @@ signed int main(signed int argc, char **argv)
 
     __VERIFIER_error();
   argv[(signed long int)0] = (char *)"y";
-  if(!(1l + argv == ((char **)((void *)0))))
+  if(!(argv == ((char **)((void *)0))))
     (void)0;
 
   else

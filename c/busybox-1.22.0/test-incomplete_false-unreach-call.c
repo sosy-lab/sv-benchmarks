@@ -425,11 +425,11 @@ static signed int binop(void)
   opnd2 = *test_ptr_to_statics->args;
   if(opnd2 == ((const char *)NULL))
   {
-    if(!(-1l + test_ptr_to_statics->args == ((char **)NULL)))
+    if(!(test_ptr_to_statics->args == ((char **)NULL)))
       (void)0;
 
     else
-      /* assertion !(-1l + test_ptr_to_statics->args == ((char **)((void*)0))) */
+      /* assertion !(test_ptr_to_statics->args == ((char **)((void*)0))) */
       __VERIFIER_error();
     syntax(test_ptr_to_statics->args[(signed long int)-1], "argument expected");
   }
@@ -902,11 +902,11 @@ static signed int is_a_group_member(unsigned int gid)
     if(i >= test_ptr_to_statics->ngroups)
       break;
 
-    if(!(test_ptr_to_statics->group_array + (signed long int)i == ((unsigned int *)NULL)))
+    if(!(test_ptr_to_statics->group_array == ((unsigned int *)NULL)))
       (void)0;
 
     else
-      /* assertion !(test_ptr_to_statics->group_array + (signed long int)i == ((unsigned int *)((void*)0))) */
+      /* assertion !(test_ptr_to_statics->group_array == ((unsigned int *)((void*)0))) */
       __VERIFIER_error();
     if(gid == test_ptr_to_statics->group_array[(signed long int)i])
       return 1;
@@ -1107,11 +1107,11 @@ static signed long int primary(signed int n)
     __VERIFIER_error();
   args0_op = test_ptr_to_statics->last_operator;
   signed int return_value_check_operator$4;
-  if(!(1l + test_ptr_to_statics->args == ((char **)NULL)))
+  if(!(test_ptr_to_statics->args == ((char **)NULL)))
     (void)0;
 
   else
-    /* assertion !(1l + test_ptr_to_statics->args == ((char **)((void*)0))) */
+    /* assertion !(test_ptr_to_statics->args == ((char **)((void*)0))) */
     __VERIFIER_error();
   return_value_check_operator$4=check_operator(test_ptr_to_statics->args[(signed long int)1]);
   signed int return_value_binop$3;
@@ -1123,11 +1123,11 @@ static signed long int primary(signed int n)
     else
       /* assertion !(test_ptr_to_statics == ((struct test_statics *)((void*)0))) */
       __VERIFIER_error();
-    if(!(2l + test_ptr_to_statics->args == ((char **)NULL)))
+    if(!(test_ptr_to_statics->args == ((char **)NULL)))
       (void)0;
 
     else
-      /* assertion !(2l + test_ptr_to_statics->args == ((char **)((void*)0))) */
+      /* assertion !(test_ptr_to_statics->args == ((char **)((void*)0))) */
       __VERIFIER_error();
     if(!(*(2l + test_ptr_to_statics->args) == ((char *)NULL)))
     {
@@ -1163,11 +1163,11 @@ static signed long int primary(signed int n)
     else
       /* assertion !(test_ptr_to_statics == ((struct test_statics *)((void*)0))) */
       __VERIFIER_error();
-    if(!(1l + test_ptr_to_statics->args == ((char **)NULL)))
+    if(!(test_ptr_to_statics->args == ((char **)NULL)))
       (void)0;
 
     else
-      /* assertion !(1l + test_ptr_to_statics->args == ((char **)((void*)0))) */
+      /* assertion !(test_ptr_to_statics->args == ((char **)((void*)0))) */
       __VERIFIER_error();
     if(*(1l + test_ptr_to_statics->args) == ((char *)NULL))
       goto check_emptiness;
@@ -1419,19 +1419,19 @@ signed int main(signed int argc, char **argv)
   if((signed int)*arg0 == 91)
   {
     argc = argc - 1;
-    if(!(1l + arg0 == ((const char *)NULL)))
+    if(!(arg0 == ((const char *)NULL)))
       (void)0;
 
     else
-      /* assertion !(1l + arg0 == ((const char *)((void*)0))) */
+      /* assertion !(arg0 == ((const char *)((void*)0))) */
       __VERIFIER_error();
     if((signed int)*(1l + arg0) == 0)
     {
-      if(!(argv + (signed long int)argc == ((char **)NULL)))
+      if(!(argv == ((char **)NULL)))
         (void)0;
 
       else
-        /* assertion !(argv + (signed long int)argc == ((char **)((void*)0))) */
+        /* assertion !(argv == ((char **)((void*)0))) */
         __VERIFIER_error();
       if(!(argv[(signed long int)argc] == ((char *)NULL)))
         (void)0;
@@ -1444,17 +1444,17 @@ signed int main(signed int argc, char **argv)
 
       else
       {
-        if(!(argv + (signed long int)argc == ((char **)NULL)))
+        if(!(argv == ((char **)NULL)))
           (void)0;
 
         else
-          /* assertion !(argv + (signed long int)argc == ((char **)((void*)0))) */
+          /* assertion !(argv == ((char **)((void*)0))) */
           __VERIFIER_error();
-        if(!(1l + argv[(signed long int)argc] == ((char *)NULL)))
+        if(!(argv[(signed long int)argc] == ((char *)NULL)))
           (void)0;
 
         else
-          /* assertion !(1l + argv[(signed long int)argc] == ((char *)((void*)0))) */
+          /* assertion !(argv[(signed long int)argc] == ((char *)((void*)0))) */
           __VERIFIER_error();
         tmp_if_expr$1 = ((signed int)argv[(signed long int)argc][(signed long int)1] != 0 ? (signed int)(1 != 0) : (signed int)(0 != 0)) != 0;
       }
@@ -1489,11 +1489,11 @@ signed int main(signed int argc, char **argv)
       if(!(tmp_if_expr$3 == (_Bool)0))
       {
         const unsigned char *__s2;
-        if(!(argv + (signed long int)argc == ((char **)NULL)))
+        if(!(argv == ((char **)NULL)))
           (void)0;
 
         else
-          /* assertion !(argv + (signed long int)argc == ((char **)((void*)0))) */
+          /* assertion !(argv == ((char **)((void*)0))) */
           __VERIFIER_error();
         __s2 = (const char *)argv[(signed long int)argc];
         signed int __result;
@@ -1508,53 +1508,53 @@ signed int main(signed int argc, char **argv)
         {
           if(__result == 0)
           {
-            if(!("]]" + 1l == ((const char *)NULL)))
+            if(!("]]" == ((const char *)NULL)))
               (void)0;
 
             else
-              /* assertion !("]]" + 1l == ((const unsigned char *)((void*)0))) */
+              /* assertion !("]]" == ((const unsigned char *)((void*)0))) */
               __VERIFIER_error();
-            if(!(1l + __s2 == ((const unsigned char *)NULL)))
+            if(!(__s2 == ((const unsigned char *)NULL)))
               (void)0;
 
             else
-              /* assertion !(1l + __s2 == ((const unsigned char *)((void*)0))) */
+              /* assertion !(__s2 == ((const unsigned char *)((void*)0))) */
               __VERIFIER_error();
             __result = (signed int)((const char *)"]]")[(signed long int)1] - (signed int)__s2[(signed long int)1];
             if(__s2_len > 1ul)
             {
               if(__result == 0)
               {
-                if(!("]]" + 2l == ((const char *)NULL)))
+                if(!("]]" == ((const char *)NULL)))
                   (void)0;
 
                 else
-                  /* assertion !("]]" + 2l == ((const unsigned char *)((void*)0))) */
+                  /* assertion !("]]" == ((const unsigned char *)((void*)0))) */
                   __VERIFIER_error();
-                if(!(2l + __s2 == ((const unsigned char *)NULL)))
+                if(!(__s2 == ((const unsigned char *)NULL)))
                   (void)0;
 
                 else
-                  /* assertion !(2l + __s2 == ((const unsigned char *)((void*)0))) */
+                  /* assertion !(__s2 == ((const unsigned char *)((void*)0))) */
                   __VERIFIER_error();
                 __result = (signed int)((const char *)"]]")[(signed long int)2] - (signed int)__s2[(signed long int)2];
                 if(__s2_len > 2ul)
                 {
                   if(__result == 0)
                   {
-                    if(!("]]" + 3l == ((const char *)NULL)))
+                    if(!("]]" == ((const char *)NULL)))
                       (void)0;
 
                     else
-                      /* assertion !("]]" + 3l == ((const unsigned char *)((void*)0))) */
+                      /* assertion !("]]" == ((const unsigned char *)((void*)0))) */
                       __VERIFIER_error();
                     /* assertion (_Bool)0 */
                     __VERIFIER_error();
-                    if(!(3l + __s2 == ((const unsigned char *)NULL)))
+                    if(!(__s2 == ((const unsigned char *)NULL)))
                       (void)0;
 
                     else
-                      /* assertion !(3l + __s2 == ((const unsigned char *)((void*)0))) */
+                      /* assertion !(__s2 == ((const unsigned char *)((void*)0))) */
                       __VERIFIER_error();
                     __result = (signed int)((const char *)"]]")[(signed long int)3] - (signed int)__s2[(signed long int)3];
                   }
@@ -1575,11 +1575,11 @@ signed int main(signed int argc, char **argv)
 
       else
       {
-        if(!(argv + (signed long int)argc == ((char **)NULL)))
+        if(!(argv == ((char **)NULL)))
           (void)0;
 
         else
-          /* assertion !(argv + (signed long int)argc == ((char **)((void*)0))) */
+          /* assertion !(argv == ((char **)((void*)0))) */
           __VERIFIER_error();
         return_value___builtin_strcmp$5=__builtin_strcmp(argv[(signed long int)argc], "]]");
         tmp_if_expr$6 = return_value___builtin_strcmp$5;
@@ -1592,11 +1592,11 @@ signed int main(signed int argc, char **argv)
       }
 
     }
-    if(!(argv + (signed long int)argc == ((char **)NULL)))
+    if(!(argv == ((char **)NULL)))
       (void)0;
 
     else
-      /* assertion !(argv + (signed long int)argc == ((char **)((void*)0))) */
+      /* assertion !(argv == ((char **)((void*)0))) */
       __VERIFIER_error();
     argv[(signed long int)argc] = (char *)NULL;
   }

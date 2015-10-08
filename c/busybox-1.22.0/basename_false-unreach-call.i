@@ -1627,7 +1627,7 @@ signed int main(signed int argc, char **argv)
   unsigned long int m;
   unsigned long int n;
   char *s;
-  if(!(1l + argv == ((char **)((void *)0))))
+  if(!(argv == ((char **)((void *)0))))
     (void)0;
 
   else
@@ -1661,7 +1661,7 @@ signed int main(signed int argc, char **argv)
     if(!(tmp_if_expr$2 == (_Bool)0))
     {
       const unsigned char *__s2;
-      if(!(1l + argv == ((char **)((void *)0))))
+      if(!(argv == ((char **)((void *)0))))
         (void)0;
 
       else
@@ -1680,13 +1680,13 @@ signed int main(signed int argc, char **argv)
       {
         if(__result == 0)
         {
-          if(!("--" + 1l == ((const char *)((void *)0))))
+          if(!("--" == ((const char *)((void *)0))))
             (void)0;
 
           else
 
             __VERIFIER_error();
-          if(!(1l + __s2 == ((const unsigned char *)((void *)0))))
+          if(!(__s2 == ((const unsigned char *)((void *)0))))
             (void)0;
 
           else
@@ -1697,13 +1697,13 @@ signed int main(signed int argc, char **argv)
           {
             if(__result == 0)
             {
-              if(!("--" + 2l == ((const char *)((void *)0))))
+              if(!("--" == ((const char *)((void *)0))))
                 (void)0;
 
               else
 
                 __VERIFIER_error();
-              if(!(2l + __s2 == ((const unsigned char *)((void *)0))))
+              if(!(__s2 == ((const unsigned char *)((void *)0))))
                 (void)0;
 
               else
@@ -1714,7 +1714,7 @@ signed int main(signed int argc, char **argv)
               {
                 if(__result == 0)
                 {
-                  if(!("--" + 3l == ((const char *)((void *)0))))
+                  if(!("--" == ((const char *)((void *)0))))
                     (void)0;
 
                   else
@@ -1722,7 +1722,7 @@ signed int main(signed int argc, char **argv)
                     __VERIFIER_error();
 
                   __VERIFIER_error();
-                  if(!(3l + __s2 == ((const unsigned char *)((void *)0))))
+                  if(!(__s2 == ((const unsigned char *)((void *)0))))
                     (void)0;
 
                   else
@@ -1747,7 +1747,7 @@ signed int main(signed int argc, char **argv)
 
     else
     {
-      if(!(1l + argv == ((char **)((void *)0))))
+      if(!(argv == ((char **)((void *)0))))
         (void)0;
 
       else
@@ -1810,7 +1810,7 @@ signed int main(signed int argc, char **argv)
 
   unsigned long int tmp_post$8 = m;
   m = m + 1ul;
-  if(!(s + (signed long int)tmp_post$8 == ((char *)((void *)0))))
+  if(!(s == ((char *)((void *)0))))
     (void)0;
 
   else

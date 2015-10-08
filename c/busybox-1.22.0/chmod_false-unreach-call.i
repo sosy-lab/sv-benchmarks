@@ -6076,7 +6076,7 @@ signed int main(signed int argc, char **argv)
       break;
     }
 
-    if(!(1l + arg == ((char *)((void *)0))))
+    if(!(arg == ((char *)((void *)0))))
       (void)0;
 
     else

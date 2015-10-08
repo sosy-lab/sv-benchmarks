@@ -866,11 +866,11 @@ signed int main(signed int argc, char **argv)
 
           else
           {
-            if(!(1l + path == ((char *)NULL)))
+            if(!(path == ((char *)NULL)))
               (void)0;
 
             else
-              /* assertion !(1l + path == ((char *)((void*)0))) */
+              /* assertion !(path == ((char *)((void*)0))) */
               __VERIFIER_error();
             tmp_if_expr$2 = ((signed int)path[(signed long int)1] != 0 ? (signed int)(1 != 0) : (signed int)(0 != 0)) != 0;
           }

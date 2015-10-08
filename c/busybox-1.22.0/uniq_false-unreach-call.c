@@ -984,11 +984,11 @@ signed int main(signed int argc, char **argv)
 
     else
     {
-      if(!(1l + input_filename == ((const char *)NULL)))
+      if(!(input_filename == ((const char *)NULL)))
         (void)0;
 
       else
-        /* assertion !(1l + input_filename == ((const char *)((void*)0))) */
+        /* assertion !(input_filename == ((const char *)((void*)0))) */
         __VERIFIER_error();
       tmp_if_expr$1 = ((signed int)input_filename[(signed long int)1] != 0 ? (signed int)(1 != 0) : (signed int)(0 != 0)) != 0;
     }
@@ -998,20 +998,20 @@ signed int main(signed int argc, char **argv)
       xopen(input_filename, 0);
     }
 
-    if(!(1l + argv == ((char **)NULL)))
+    if(!(argv == ((char **)NULL)))
       (void)0;
 
     else
-      /* assertion !(1l + argv == ((char **)((void*)0))) */
+      /* assertion !(argv == ((char **)((void*)0))) */
       __VERIFIER_error();
     output = argv[(signed long int)1];
     if(!(output == ((const char *)NULL)))
     {
-      if(!(2l + argv == ((char **)NULL)))
+      if(!(argv == ((char **)NULL)))
         (void)0;
 
       else
-        /* assertion !(2l + argv == ((char **)((void*)0))) */
+        /* assertion !(argv == ((char **)((void*)0))) */
         __VERIFIER_error();
       if(!(*(2l + argv) == ((char *)NULL)))
         bb_show_usage();
@@ -1027,11 +1027,11 @@ signed int main(signed int argc, char **argv)
 
       else
       {
-        if(!(1l + output == ((const char *)NULL)))
+        if(!(output == ((const char *)NULL)))
           (void)0;
 
         else
-          /* assertion !(1l + output == ((const char *)((void*)0))) */
+          /* assertion !(output == ((const char *)((void*)0))) */
           __VERIFIER_error();
         tmp_if_expr$3 = ((signed int)output[(signed long int)1] != 0 ? (signed int)(1 != 0) : (signed int)(0 != 0)) != 0;
       }

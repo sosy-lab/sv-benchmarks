@@ -5735,7 +5735,7 @@ static signed int binop(void)
   opnd2 = *test_ptr_to_statics->args;
   if(opnd2 == ((const char *)((void *)0)))
   {
-    if(!(-1l + test_ptr_to_statics->args == ((char **)((void *)0))))
+    if(!(test_ptr_to_statics->args == ((char **)((void *)0))))
       (void)0;
 
     else
@@ -6212,7 +6212,7 @@ static signed int is_a_group_member(unsigned int gid)
     if(i >= test_ptr_to_statics->ngroups)
       break;
 
-    if(!(test_ptr_to_statics->group_array + (signed long int)i == ((unsigned int *)((void *)0))))
+    if(!(test_ptr_to_statics->group_array == ((unsigned int *)((void *)0))))
       (void)0;
 
     else
@@ -6417,7 +6417,7 @@ static signed long int primary(signed int n)
     __VERIFIER_error();
   args0_op = test_ptr_to_statics->last_operator;
   signed int return_value_check_operator$4;
-  if(!(1l + test_ptr_to_statics->args == ((char **)((void *)0))))
+  if(!(test_ptr_to_statics->args == ((char **)((void *)0))))
     (void)0;
 
   else
@@ -6433,7 +6433,7 @@ static signed long int primary(signed int n)
     else
 
       __VERIFIER_error();
-    if(!(2l + test_ptr_to_statics->args == ((char **)((void *)0))))
+    if(!(test_ptr_to_statics->args == ((char **)((void *)0))))
       (void)0;
 
     else
@@ -6473,7 +6473,7 @@ static signed long int primary(signed int n)
     else
 
       __VERIFIER_error();
-    if(!(1l + test_ptr_to_statics->args == ((char **)((void *)0))))
+    if(!(test_ptr_to_statics->args == ((char **)((void *)0))))
       (void)0;
 
     else
@@ -6729,7 +6729,7 @@ signed int main(signed int argc, char **argv)
   if((signed int)*arg0 == 91)
   {
     argc = argc - 1;
-    if(!(1l + arg0 == ((const char *)((void *)0))))
+    if(!(arg0 == ((const char *)((void *)0))))
       (void)0;
 
     else
@@ -6737,7 +6737,7 @@ signed int main(signed int argc, char **argv)
       __VERIFIER_error();
     if((signed int)*(1l + arg0) == 0)
     {
-      if(!(argv + (signed long int)argc == ((char **)((void *)0))))
+      if(!(argv == ((char **)((void *)0))))
         (void)0;
 
       else
@@ -6754,13 +6754,13 @@ signed int main(signed int argc, char **argv)
 
       else
       {
-        if(!(argv + (signed long int)argc == ((char **)((void *)0))))
+        if(!(argv == ((char **)((void *)0))))
           (void)0;
 
         else
 
           __VERIFIER_error();
-        if(!(1l + argv[(signed long int)argc] == ((char *)((void *)0))))
+        if(!(argv[(signed long int)argc] == ((char *)((void *)0))))
           (void)0;
 
         else
@@ -6799,7 +6799,7 @@ signed int main(signed int argc, char **argv)
       if(!(tmp_if_expr$3 == (_Bool)0))
       {
         const unsigned char *__s2;
-        if(!(argv + (signed long int)argc == ((char **)((void *)0))))
+        if(!(argv == ((char **)((void *)0))))
           (void)0;
 
         else
@@ -6818,13 +6818,13 @@ signed int main(signed int argc, char **argv)
         {
           if(__result == 0)
           {
-            if(!("]]" + 1l == ((const char *)((void *)0))))
+            if(!("]]" == ((const char *)((void *)0))))
               (void)0;
 
             else
 
               __VERIFIER_error();
-            if(!(1l + __s2 == ((const unsigned char *)((void *)0))))
+            if(!(__s2 == ((const unsigned char *)((void *)0))))
               (void)0;
 
             else
@@ -6835,13 +6835,13 @@ signed int main(signed int argc, char **argv)
             {
               if(__result == 0)
               {
-                if(!("]]" + 2l == ((const char *)((void *)0))))
+                if(!("]]" == ((const char *)((void *)0))))
                   (void)0;
 
                 else
 
                   __VERIFIER_error();
-                if(!(2l + __s2 == ((const unsigned char *)((void *)0))))
+                if(!(__s2 == ((const unsigned char *)((void *)0))))
                   (void)0;
 
                 else
@@ -6852,7 +6852,7 @@ signed int main(signed int argc, char **argv)
                 {
                   if(__result == 0)
                   {
-                    if(!("]]" + 3l == ((const char *)((void *)0))))
+                    if(!("]]" == ((const char *)((void *)0))))
                       (void)0;
 
                     else
@@ -6860,7 +6860,7 @@ signed int main(signed int argc, char **argv)
                       __VERIFIER_error();
 
                     __VERIFIER_error();
-                    if(!(3l + __s2 == ((const unsigned char *)((void *)0))))
+                    if(!(__s2 == ((const unsigned char *)((void *)0))))
                       (void)0;
 
                     else
@@ -6885,7 +6885,7 @@ signed int main(signed int argc, char **argv)
 
       else
       {
-        if(!(argv + (signed long int)argc == ((char **)((void *)0))))
+        if(!(argv == ((char **)((void *)0))))
           (void)0;
 
         else
@@ -6902,7 +6902,7 @@ signed int main(signed int argc, char **argv)
       }
 
     }
-    if(!(argv + (signed long int)argc == ((char **)((void *)0))))
+    if(!(argv == ((char **)((void *)0))))
       (void)0;
 
     else

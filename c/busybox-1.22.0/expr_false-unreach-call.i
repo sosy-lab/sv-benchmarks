@@ -5445,7 +5445,7 @@ static struct valinfo * docolon(struct valinfo *sv, struct valinfo *pv)
       else
 
         __VERIFIER_error();
-      if(!(sv->u.s + (signed long int)re_regs[1l].rm_eo == ((char *)((void *)0))))
+      if(!(sv->u.s == ((char *)((void *)0))))
         (void)0;
 
       else
@@ -6172,7 +6172,7 @@ static signed int nextarg(const char *str)
   else
 
     __VERIFIER_error();
-  if(!(1l + str == ((const char *)((void *)0))))
+  if(!(str == ((const char *)((void *)0))))
     (void)0;
 
   else
@@ -6226,7 +6226,7 @@ static signed int null(struct valinfo *v)
       __VERIFIER_error();
     if((signed int)*v->u.s == 48)
     {
-      if(!(1l + v->u.s == ((char *)((void *)0))))
+      if(!(v->u.s == ((char *)((void *)0))))
         (void)0;
 
       else

@@ -841,11 +841,11 @@ signed int main(signed int argc, char **argv)
 
   else
   {
-    if(!(1l + argv == ((char **)NULL)))
+    if(!(argv == ((char **)NULL)))
       (void)0;
 
     else
-      /* assertion !(1l + argv == ((char **)((void*)0))) */
+      /* assertion !(argv == ((char **)((void*)0))) */
       __VERIFIER_error();
     increment=strtod(argv[(signed long int)1], &pp);
     if(!(bb_errno == ((signed int *)NULL)))
@@ -887,11 +887,11 @@ signed int main(signed int argc, char **argv)
 
   __CPROVER_DUMP_L17:
     ;
-    if(!(argv + (signed long int)(-1 + argc) == ((char **)NULL)))
+    if(!(argv == ((char **)NULL)))
       (void)0;
 
     else
-      /* assertion !(argv + (signed long int)(argc + -1) == ((char **)((void*)0))) */
+      /* assertion !(argv == ((char **)((void*)0))) */
       __VERIFIER_error();
     last=strtod(argv[(signed long int)(argc - 1)], &pp);
     if(!(bb_errno == ((signed int *)NULL)))

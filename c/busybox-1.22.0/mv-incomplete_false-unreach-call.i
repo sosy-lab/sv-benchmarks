@@ -7481,7 +7481,7 @@ signed int main(signed int argc, char **argv)
   flags=getopt32(argv, "finv");
   argc = argc - optind;
   argv = argv + (signed long int)optind;
-  if(!(argv + (signed long int)(-1 + argc) == ((char **)((void *)0))))
+  if(!(argv == ((char **)((void *)0))))
     (void)0;
 
   else

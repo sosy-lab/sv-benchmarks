@@ -253,11 +253,11 @@ signed int main(signed int argc, char **argv)
     /* assertion !(argv == ((char **)((void*)0))) */
     __VERIFIER_error();
   argv[(signed long int)0] = (char *)"y";
-  if(!(1l + argv == ((char **)NULL)))
+  if(!(argv == ((char **)NULL)))
     (void)0;
 
   else
-    /* assertion !(1l + argv == ((char **)((void*)0))) */
+    /* assertion !(argv == ((char **)((void*)0))) */
     __VERIFIER_error();
   if(!(*(1l + argv) == ((char *)NULL)))
     argv = argv + 1l;
