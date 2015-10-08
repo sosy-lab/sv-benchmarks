@@ -18,6 +18,7 @@ extern void __VERIFIER_error(void);
 #include <libio.h>
 #include <stdio.h>
 #include <unistd.h>
+#include <stdlib.h>
 
 #ifndef NULL
 #define NULL ((void*)0)

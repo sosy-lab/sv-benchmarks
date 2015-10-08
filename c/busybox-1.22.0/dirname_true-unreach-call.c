@@ -17,6 +17,7 @@ extern void __VERIFIER_error(void);
 #include <libgen.h>
 #include <libio.h>
 #include <stdio.h>
+#include <stdlib.h>
 
 #ifndef NULL
 #define NULL ((void*)0)

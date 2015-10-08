@@ -16,6 +16,7 @@
 extern void __VERIFIER_error(void);
 #include <string.h>
 #include <unistd.h>
+#include <stdlib.h>
 
 #ifndef NULL
 #define NULL ((void*)0)
