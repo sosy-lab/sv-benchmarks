@@ -38,7 +38,7 @@ static signed long int safe_write(signed int fd, const void *buf, unsigned long 
 static signed int * const bb_errno;
 
 // file coreutils/basename.c line 49
-signed int main(signed int argc, char **argv)
+signed int __main(signed int argc, char **argv)
 {
   unsigned long int m;
   unsigned long int n;
@@ -352,3 +352,23 @@ static signed long int safe_write(signed int fd, const void *buf, unsigned long 
   return n;
 }
 
+
+int main()
+{
+  int argc;
+  __VERIFIER_assume(argc>=0);
+
+  char **argv=malloc((argc+1)*sizeof(char*));
+  argv[argc]=0;
+
+  for(int i=0; i<argc; ++i)
+  {
+    // let's limit the size of arguments to 10, which is an
+    // underapproximation obviously
+    argv[i]=malloc(10);
+    for(int j=0; j<10; ++j)
+      argv[i][j]=__VERIFIER_nondet_char();
+  }
+
+  return __main(argc, argv);
+}

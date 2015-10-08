@@ -874,7 +874,7 @@ static void bb_show_usage(void)
 }
 
 
-signed int main(signed int argc, char **argv)
+signed int __main(signed int argc, char **argv)
 {
   char *return_value_single_argv$1;
   return_value_single_argv$1=single_argv(argv);
@@ -976,4 +976,25 @@ static char * single_argv(char **argv)
     bb_show_usage();
 
   return argv[(signed long int)1];
+}
+
+
+int main()
+{
+  int argc;
+  __VERIFIER_assume(argc>=0);
+
+  char **argv=malloc((argc+1)*sizeof(char*));
+  argv[argc]=0;
+
+  for(int i=0; i<argc; ++i)
+  {
+
+
+    argv[i]=malloc(10);
+    for(int j=0; j<10; ++j)
+      argv[i][j]=__VERIFIER_nondet_char();
+  }
+
+  return __main(argc, argv);
 }
