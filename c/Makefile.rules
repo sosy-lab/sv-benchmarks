@@ -1,0 +1,149 @@
+# Copyright (c) 2015 Daniel Liew <dan@su-root.co.uk>
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# Compiler to use unless overriden
+
+.PHONY: all build_at_level clean
+
+CURRENT_DIR := $(shell pwd)
+ROOT_DIR := $(shell cd $(LEVEL) ; pwd)
+BUILD_ROOT := $(ROOT_DIR)/$(BUILD_DIR)
+LOCAL_BUILD_DIR_SUFFIX := $(subst $(ROOT_DIR),,$(CURRENT_DIR))
+LOCAL_BUILD_DIR := $(BUILD_ROOT)$(LOCAL_BUILD_DIR_SUFFIX)
+
+# Any changes to the files listed here will trigger a rebuild of the sources
+ADDITIONAL_BUILD_DEPS := $(CURRENT_DIR)/Makefile \
+                         $(ROOT_DIR)/Makefile.config \
+                         $(ROOT_DIR)/Makefile.rules
+
+# Handle VERBOSE
+VERBOSE := 0
+ifneq ($(VERBOSE),0)
+  Verb :=
+else
+  Verb := @
+endif
+
+
+# all Directory Recursion target
+all::
+	$(Verb) for dir in $(DIRS); do \
+		($(MAKE) -C $$dir $@ ) || exit 1; \
+	done
+
+# clean Directory Recursion target
+clean::
+	@echo "Cleaning $(CURRENT_DIR)"
+	$(Verb) for dir in $(DIRS); do \
+		($(MAKE) -C $$dir $@ ) || exit 1; \
+	done
+	$(Verb) if [ -d $(LOCAL_BUILD_DIR) ]; then \
+		$(RM) -r $(LOCAL_BUILD_DIR) ;\
+	fi
+
+################################################################################
+# Begin ifndef SKIP_LEVEL
+################################################################################
+ifndef SKIP_LEVEL
+all:: build_at_level
+
+CC.Warnings := $(COMMON_WARNINGS)
+
+# Detect Compiler
+# FIXME: Not sure $(GREP) accepts these flags on OSX
+CC_VERSION_INFO :=$(shell $(CC) --version)
+CC_IS_GCC:=$(shell echo '$(CC_VERSION_INFO)' | $(GREP) -ic gcc)
+CC_IS_CLANG:=$(shell echo '$(CC_VERSION_INFO)' | $(GREP) -ic clang)
+
+ifeq ($(CC_IS_GCC),1)
+  CC.Warnings += $(GCC_ONLY_WARNINGS)
+else ifeq ($(CC_IS_CLANG),1)
+  CC.Warnings += $(CLANG_ONLY_WARNINGS)
+else
+  $(error Compiler "$(CC)" was not identified as gcc or clang)
+endif
+
+CC.Flags += -std=$(CC.Standard) \
+            -m$(CC.Arch) \
+            $(CC.Warnings) \
+            -include $(ROOT_DIR)/decls.h
+
+ifneq ($(WARNINGS_AS_ERRORS),0)
+  CC.Flags += -Werror
+endif
+
+# Handle emission of LLVM Bitcode rather than native code
+ifneq ($(EMIT_LLVM),0)
+  ifneq ($(CC_IS_CLANG),1)
+    $(error To use EMIT_LLVM you must build with Clang)
+  endif
+  CC.Flags += -emit-llvm
+endif
+
+# Get all the source files in the current directory
+SRCS := $(shell echo *.c)
+
+# Remove sources we are told to not compile
+ifdef IGNORE_SRCS
+  SRCS := $(filter-out $(IGNORE_SRCS), $(SRCS))
+endif
+
+OBJS := $(addprefix $(LOCAL_BUILD_DIR)/,$(patsubst %.c,%.o,$(SRCS)))
+OBJS_NO_PREFIX := $(patsubst %.c,%.o,$(SRCS))
+
+build_at_level: $(OBJS)
+
+
+# Include the Compiler generated dependency files if they exist
+-include $(OBJS:.o=.d)
+
+# Pattern rule for building source code and dependency files
+# that is included above
+$(LOCAL_BUILD_DIR)/%.o: %.c
+	@echo "$(CC) building $(LOCAL_BUILD_DIR_SUFFIX)/$<"
+	$(Verb) $(MKDIR) -p $(LOCAL_BUILD_DIR)
+	$(Verb) $(CC) $(CC.Flags) -c $< -o $@ -MMD -MF $(LOCAL_BUILD_DIR)/$*.d
+
+# All the objects have these additional dependencies
+$(OBJS): $(ADDITIONAL_BUILD_DEPS)
+
+$(LOCAL_BUILD_DIR):
+	$(Verb) $(MKDIR) -p $(LOCAL_BUILD_DIR)
+
+# Pattern rule to allow a user to run make thing.o in a directory to trigger a
+# build. It is effectively an alias that makes it convenient to compile a
+# single benchmark.
+.PHONY: $(OBJS_NO_PREFIX)
+$(OBJS_NO_PREFIX): %.o : $(LOCAL_BUILD_DIR)/%.o
+
+endif
+################################################################################
+# End ifndef SKIP_LEVEL
+################################################################################
+
+debug_vars:
+	@echo "********************************************************************************"
+	@echo "Makefile variables for debugging"
+	@echo "********************************************************************************"
+	@echo "BUILD_ROOT := $(BUILD_ROOT)"
+	@echo "CC.Flags := $(CC.Flags)"
+	@echo "CC_IS_CLANG := $(CC_IS_CLANG)"
+	@echo "CC_IS_GCC := $(CC_IS_GCC)"
+	@echo "CURRENT_DIR := $(CURRENT_DIR)"
+	@echo "DIRS := $(DIRS)"
+	@echo "EMIT_LLVM := $(EMIT_LLVM)"
+	@echo "IGNORE_SRCS := $(IGNORE_SRCS)"
+	@echo "LEVEL := $(LEVEL)"
+	@echo "LOCAL_BUILD_DIR := $(LOCAL_BUILD_DIR)"
+	@echo "ROOT_DIR := $(ROOT_DIR)"
+	@echo "SKIP_LEVEL := $(SKIP_LEVEL)"
+
