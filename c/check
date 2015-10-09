@@ -47,6 +47,7 @@ for f in $(<source_files) ; do
     *ldv-linux-3.16-rc1/* |\
     *ldv-linux-3.4-simple/* |\
     *ldv-linux-3.7.3/* |\
+    *ldv-linux-4.2-rc1/* |\
     *ldv-regression/* |\
     *ldv-validator-v0.6/* |\
     *regression/* |\
