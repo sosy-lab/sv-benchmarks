@@ -5704,7 +5704,7 @@ static void bb_verror_msg(const char *s, va_list p, const char *strerr)
 }
 
 
-signed int main(signed int argc, char **argv)
+signed int __main(signed int argc, char **argv)
 {
   struct timespec ts;
   struct tm tm_time;
@@ -5785,7 +5785,7 @@ signed int main(signed int argc, char **argv)
     {
       signed int len;
       len = strspn(date_str, "0123456789");
-      if(!(date_str + (signed long int)len == ((char *)((void *)0))))
+      if(!(date_str == ((char *)((void *)0))))
         (void)0;
 
       else
@@ -5796,7 +5796,7 @@ signed int main(signed int argc, char **argv)
 
       else
       {
-        if(!(date_str + (signed long int)len == ((char *)((void *)0))))
+        if(!(date_str == ((char *)((void *)0))))
           (void)0;
 
         else
@@ -5804,7 +5804,7 @@ signed int main(signed int argc, char **argv)
           __VERIFIER_error();
         if((signed int)date_str[(signed long int)len] == 46)
         {
-          if(!(date_str + (signed long int)(1 + len) == ((char *)((void *)0))))
+          if(!(date_str == ((char *)((void *)0))))
             (void)0;
 
           else
@@ -5817,7 +5817,7 @@ signed int main(signed int argc, char **argv)
           tmp_if_expr$10 = 0 != 0;
         if(!(tmp_if_expr$10 == (_Bool)0))
         {
-          if(!(date_str + (signed long int)(2 + len) == ((char *)((void *)0))))
+          if(!(date_str == ((char *)((void *)0))))
             (void)0;
 
           else
@@ -5830,7 +5830,7 @@ signed int main(signed int argc, char **argv)
           tmp_if_expr$11 = 0 != 0;
         if(!(tmp_if_expr$11 == (_Bool)0))
         {
-          if(!(date_str + (signed long int)(3 + len) == ((char *)((void *)0))))
+          if(!(date_str == ((char *)((void *)0))))
             (void)0;
 
           else
@@ -6044,13 +6044,13 @@ signed int main(signed int argc, char **argv)
         {
           if(__result == 0)
           {
-            if(!("%f" + 1l == ((const char *)((void *)0))))
+            if(!("%f" == ((const char *)((void *)0))))
               (void)0;
 
             else
 
               __VERIFIER_error();
-            if(!(1l + __s2 == ((const unsigned char *)((void *)0))))
+            if(!(__s2 == ((const unsigned char *)((void *)0))))
               (void)0;
 
             else
@@ -6061,13 +6061,13 @@ signed int main(signed int argc, char **argv)
             {
               if(__result == 0)
               {
-                if(!("%f" + 2l == ((const char *)((void *)0))))
+                if(!("%f" == ((const char *)((void *)0))))
                   (void)0;
 
                 else
 
                   __VERIFIER_error();
-                if(!(2l + __s2 == ((const unsigned char *)((void *)0))))
+                if(!(__s2 == ((const unsigned char *)((void *)0))))
                   (void)0;
 
                 else
@@ -6078,7 +6078,7 @@ signed int main(signed int argc, char **argv)
                 {
                   if(__result == 0)
                   {
-                    if(!("%f" + 3l == ((const char *)((void *)0))))
+                    if(!("%f" == ((const char *)((void *)0))))
                       (void)0;
 
                     else
@@ -6086,7 +6086,7 @@ signed int main(signed int argc, char **argv)
                       __VERIFIER_error();
 
                     __VERIFIER_error();
-                    if(!(3l + __s2 == ((const unsigned char *)((void *)0))))
+                    if(!(__s2 == ((const unsigned char *)((void *)0))))
                       (void)0;
 
                     else
@@ -7147,4 +7147,25 @@ static void * xzalloc(unsigned long int size)
   ptr=xmalloc(size);
   memset(ptr, 0, size);
   return ptr;
+}
+
+
+int main()
+{
+  int argc;
+  __VERIFIER_assume(argc>=0);
+
+  char **argv=malloc((argc+1)*sizeof(char*));
+  argv[argc]=0;
+
+  for(int i=0; i<argc; ++i)
+  {
+
+
+    argv[i]=malloc(10);
+    for(int j=0; j<10; ++j)
+      argv[i][j]=__VERIFIER_nondet_char();
+  }
+
+  return __main(argc, argv);
 }

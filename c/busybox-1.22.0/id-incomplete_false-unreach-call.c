@@ -930,7 +930,7 @@ static char * gid2group(unsigned int gid)
 }
 
 // file coreutils/id.c line 148
-signed int main(signed int argc, char **argv)
+signed int __main(signed int argc, char **argv)
 {
   unsigned int ruid;
   unsigned int rgid;
@@ -960,11 +960,11 @@ signed int main(signed int argc, char **argv)
     opt_complementary = "?1:u--g:g--u:G--u:u--G:g--G:G--g:r?ugG:n?ugG";
     opt=getopt32(argv, "rnugG");
   }
-  if(!(argv + (signed long int)optind == ((char **)NULL)))
+  if(!(argv == ((char **)NULL)))
     (void)0;
 
   else
-    /* assertion !(argv + (signed long int)optind == ((char **)((void*)0))) */
+    /* assertion !(argv == ((char **)((void*)0))) */
     __VERIFIER_error();
   username = argv[(signed long int)optind];
   if(!(username == ((const char *)NULL)))
@@ -1064,22 +1064,22 @@ signed int main(signed int argc, char **argv)
       {
         if(!(opt == 0u))
         {
-          if(!(groups + (signed long int)i == ((unsigned int *)NULL)))
+          if(!(groups == ((unsigned int *)NULL)))
             (void)0;
 
           else
-            /* assertion !(groups + (signed long int)i == ((unsigned int *)((void*)0))) */
+            /* assertion !(groups == ((unsigned int *)((void*)0))) */
             __VERIFIER_error();
           if(groups[(signed long int)i] == rgid)
             tmp_if_expr$11 = 1 != 0;
 
           else
           {
-            if(!(groups + (signed long int)i == ((unsigned int *)NULL)))
+            if(!(groups == ((unsigned int *)NULL)))
               (void)0;
 
             else
-              /* assertion !(groups + (signed long int)i == ((unsigned int *)((void*)0))) */
+              /* assertion !(groups == ((unsigned int *)((void*)0))) */
               __VERIFIER_error();
             tmp_if_expr$11 = (groups[(signed long int)i] == egid ? (signed int)(1 != 0) : (signed int)(0 != 0)) != 0;
           }
@@ -1089,11 +1089,11 @@ signed int main(signed int argc, char **argv)
         }
 
         signed int return_value_print_group$12;
-        if(!(groups + (signed long int)i == ((unsigned int *)NULL)))
+        if(!(groups == ((unsigned int *)NULL)))
           (void)0;
 
         else
-          /* assertion !(groups + (signed long int)i == ((unsigned int *)((void*)0))) */
+          /* assertion !(groups == ((unsigned int *)((void*)0))) */
           __VERIFIER_error();
         return_value_print_group$12=print_group(groups[(signed long int)i], opt != 0u ? " " : prefix);
         status = status | return_value_print_group$12;
@@ -1409,3 +1409,23 @@ static void * xzalloc(unsigned long int size)
   return ptr;
 }
 
+
+int main()
+{
+  int argc;
+  __VERIFIER_assume(argc>=0);
+
+  char **argv=malloc((argc+1)*sizeof(char*));
+  argv[argc]=0;
+
+  for(int i=0; i<argc; ++i)
+  {
+    // let's limit the size of arguments to 10, which is an
+    // underapproximation obviously
+    argv[i]=malloc(10);
+    for(int j=0; j<10; ++j)
+      argv[i][j]=__VERIFIER_nondet_char();
+  }
+
+  return __main(argc, argv);
+}

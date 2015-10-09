@@ -261,7 +261,7 @@ static void bb_verror_msg(const char *s, va_list p, const char *strerr)
 }
 
 // file coreutils/echo.c line 66
-signed int main(signed int argc, char **argv)
+signed int __main(signed int argc, char **argv)
 {
   char **pp;
   const char *arg;
@@ -420,11 +420,11 @@ just_echo:
 
           if((signed int)*arg == 48)
           {
-            if(!(1l + arg == ((const char *)NULL)))
+            if(!(arg == ((const char *)NULL)))
               (void)0;
 
             else
-              /* assertion !(1l + arg == ((const char *)((void*)0))) */
+              /* assertion !(arg == ((const char *)((void*)0))) */
               __VERIFIER_error();
             if(208 + (signed int)(unsigned char)(signed int)*(1l + arg) < 8)
               arg = arg + 1l;
@@ -586,3 +586,23 @@ static void * xmalloc(unsigned long int size)
   return ptr;
 }
 
+
+int main()
+{
+  int argc;
+  __VERIFIER_assume(argc>=0);
+
+  char **argv=malloc((argc+1)*sizeof(char*));
+  argv[argc]=0;
+
+  for(int i=0; i<argc; ++i)
+  {
+    // let's limit the size of arguments to 10, which is an
+    // underapproximation obviously
+    argv[i]=malloc(10);
+    for(int j=0; j<10; ++j)
+      argv[i][j]=__VERIFIER_nondet_char();
+  }
+
+  return __main(argc, argv);
+}

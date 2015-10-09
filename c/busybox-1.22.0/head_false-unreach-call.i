@@ -5254,7 +5254,7 @@ static signed long int full_write(signed int fd, const void *buf, unsigned long 
 }
 
 
-signed int main(signed int argc, char **argv)
+signed int __main(signed int argc, char **argv)
 {
   unsigned long int count = (unsigned long int)10;
   signed int header_threshhold = 1;
@@ -5265,7 +5265,7 @@ signed int main(signed int argc, char **argv)
   char *p;
   signed int opt;
   signed int retval = 0;
-  if(!(1l + argv == ((char **)((void *)0))))
+  if(!(argv == ((char **)((void *)0))))
     (void)0;
 
   else
@@ -5282,7 +5282,7 @@ signed int main(signed int argc, char **argv)
     if(!((signed int)*(*(1l + argv)) == 45))
       goto __CPROVER_DUMP_L9;
 
-    if(!(1l + *(1l + argv) == ((char *)((void *)0))))
+    if(!(*(1l + argv) == ((char *)((void *)0))))
       (void)0;
 
     else
@@ -5485,7 +5485,7 @@ static void print_except_N_last_bytes(struct _IO_FILE *fp, unsigned int count)
 
     tmp_post$2 = head;
     head = head + 1u;
-    if(!(circle + (signed long int)tmp_post$2 == ((unsigned char *)((void *)0))))
+    if(!(circle == ((unsigned char *)((void *)0))))
       (void)0;
 
     else
@@ -5503,7 +5503,7 @@ static void print_except_N_last_bytes(struct _IO_FILE *fp, unsigned int count)
     if(head == count)
       head = (unsigned int)0;
 
-    if(!(circle + (signed long int)head == ((unsigned char *)((void *)0))))
+    if(!(circle == ((unsigned char *)((void *)0))))
       (void)0;
 
     else
@@ -5514,7 +5514,7 @@ static void print_except_N_last_bytes(struct _IO_FILE *fp, unsigned int count)
     if(print_except_N_last_bytes$$1$$2$$1$$c == -1)
       break;
 
-    if(!(circle + (signed long int)head == ((unsigned char *)((void *)0))))
+    if(!(circle == ((unsigned char *)((void *)0))))
       (void)0;
 
     else
@@ -5549,7 +5549,7 @@ static void print_except_N_last_lines(struct _IO_FILE *fp, unsigned int count)
 
     tmp_post$2 = head;
     head = head + 1u;
-    if(!(circle + (signed long int)tmp_post$2 == ((char **)((void *)0))))
+    if(!(circle == ((char **)((void *)0))))
       (void)0;
 
     else
@@ -5568,7 +5568,7 @@ static void print_except_N_last_lines(struct _IO_FILE *fp, unsigned int count)
     if(head == count)
       head = (unsigned int)0;
 
-    if(!(circle + (signed long int)head == ((char **)((void *)0))))
+    if(!(circle == ((char **)((void *)0))))
       (void)0;
 
     else
@@ -5579,7 +5579,7 @@ static void print_except_N_last_lines(struct _IO_FILE *fp, unsigned int count)
     if(print_except_N_last_lines$$1$$2$$1$$c == ((char *)((void *)0)))
       break;
 
-    if(!(circle + (signed long int)head == ((char **)((void *)0))))
+    if(!(circle == ((char **)((void *)0))))
       (void)0;
 
     else
@@ -5588,7 +5588,7 @@ static void print_except_N_last_lines(struct _IO_FILE *fp, unsigned int count)
     free((void *)circle[(signed long int)head]);
     tmp_post$3 = head;
     head = head + 1u;
-    if(!(circle + (signed long int)tmp_post$3 == ((char **)((void *)0))))
+    if(!(circle == ((char **)((void *)0))))
       (void)0;
 
     else
@@ -5606,7 +5606,7 @@ ret:
   {
     tmp_post$4 = head;
     head = head + 1u;
-    if(!(circle + (signed long int)tmp_post$4 == ((char **)((void *)0))))
+    if(!(circle == ((char **)((void *)0))))
       (void)0;
 
     else
@@ -5823,4 +5823,25 @@ static void * xzalloc(unsigned long int size)
   ptr=xmalloc(size);
   memset(ptr, 0, size);
   return ptr;
+}
+
+
+int main()
+{
+  int argc;
+  __VERIFIER_assume(argc>=0);
+
+  char **argv=malloc((argc+1)*sizeof(char*));
+  argv[argc]=0;
+
+  for(int i=0; i<argc; ++i)
+  {
+
+
+    argv[i]=malloc(10);
+    for(int j=0; j<10; ++j)
+      argv[i][j]=__VERIFIER_nondet_char();
+  }
+
+  return __main(argc, argv);
 }

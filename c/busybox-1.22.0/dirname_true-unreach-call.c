@@ -17,6 +17,7 @@ extern void __VERIFIER_error(void);
 #include <libgen.h>
 #include <libio.h>
 #include <stdio.h>
+#include <stdlib.h>
 
 #ifndef NULL
 #define NULL ((void*)0)
@@ -36,7 +37,7 @@ static void bb_show_usage(void)
 }
 
 // file coreutils/dirname.c line 29
-signed int main(signed int argc, char **argv)
+signed int __main(signed int argc, char **argv)
 {
   char *return_value_single_argv$1;
   return_value_single_argv$1=single_argv(argv);
@@ -140,3 +141,23 @@ static char * single_argv(char **argv)
   return argv[(signed long int)1];
 }
 
+
+int main()
+{
+  int argc;
+  __VERIFIER_assume(argc>=0);
+
+  char **argv=malloc((argc+1)*sizeof(char*));
+  argv[argc]=0;
+
+  for(int i=0; i<argc; ++i)
+  {
+    // let's limit the size of arguments to 10, which is an
+    // underapproximation obviously
+    argv[i]=malloc(10);
+    for(int j=0; j<10; ++j)
+      argv[i][j]=__VERIFIER_nondet_char();
+  }
+
+  return __main(argc, argv);
+}

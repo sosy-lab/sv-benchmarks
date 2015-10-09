@@ -1185,7 +1185,7 @@ preserve_mode_ugid_time:
 }
 
 // file coreutils/cp.c line 41
-signed int main(signed int argc, char **argv)
+signed int __main(signed int argc, char **argv)
 {
   struct stat source_stat;
   struct stat dest_stat;
@@ -1207,11 +1207,11 @@ signed int main(signed int argc, char **argv)
     flags = flags | 2;
 
   status = 0;
-  if(!(argv + (signed long int)(-1 + argc) == ((char **)NULL)))
+  if(!(argv == ((char **)NULL)))
     (void)0;
 
   else
-    /* assertion !(argv + (signed long int)(argc + -1) == ((char **)((void*)0))) */
+    /* assertion !(argv == ((char **)((void*)0))) */
     __VERIFIER_error();
   last = argv[(signed long int)(argc - 1)];
   char *return_value_bb_get_last_path_component_strip$3;
@@ -2167,3 +2167,23 @@ static void * xzalloc(unsigned long int size)
   return ptr;
 }
 
+
+int main()
+{
+  int argc;
+  __VERIFIER_assume(argc>=0);
+
+  char **argv=malloc((argc+1)*sizeof(char*));
+  argv[argc]=0;
+
+  for(int i=0; i<argc; ++i)
+  {
+    // let's limit the size of arguments to 10, which is an
+    // underapproximation obviously
+    argv[i]=malloc(10);
+    for(int j=0; j<10; ++j)
+      argv[i][j]=__VERIFIER_nondet_char();
+  }
+
+  return __main(argc, argv);
+}

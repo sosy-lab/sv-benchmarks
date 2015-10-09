@@ -6241,7 +6241,7 @@ static void llist_add_to_end(struct llist_t **list_head, void *data)
 }
 
 
-signed int main(signed int argc, char **argv)
+signed int __main(signed int argc, char **argv)
 {
   signed int status = 0;
   signed int opts;
@@ -6255,7 +6255,7 @@ signed int main(signed int argc, char **argv)
   unsigned int return_value_getopt32$1;
   return_value_getopt32$1=getopt32(argv, "sfnbS:vT", &suffix);
   opts = (signed int)return_value_getopt32$1;
-  if(!(argv + (signed long int)(-1 + argc) == ((char **)((void *)0))))
+  if(!(argv == ((char **)((void *)0))))
     (void)0;
 
   else
@@ -6271,7 +6271,7 @@ signed int main(signed int argc, char **argv)
 
   }
 
-  if(!(1l + argv == ((char **)((void *)0))))
+  if(!(argv == ((char **)((void *)0))))
     (void)0;
 
   else
@@ -6430,7 +6430,7 @@ signed int main(signed int argc, char **argv)
   __CPROVER_DUMP_L35:
     ;
     argv = argv + 1l;
-    if(!(1l + argv == ((char **)((void *)0))))
+    if(!(argv == ((char **)((void *)0))))
       (void)0;
 
     else
@@ -6623,4 +6623,25 @@ static void * xzalloc(unsigned long int size)
   ptr=xmalloc(size);
   memset(ptr, 0, size);
   return ptr;
+}
+
+
+int main()
+{
+  int argc;
+  __VERIFIER_assume(argc>=0);
+
+  char **argv=malloc((argc+1)*sizeof(char*));
+  argv[argc]=0;
+
+  for(int i=0; i<argc; ++i)
+  {
+
+
+    argv[i]=malloc(10);
+    for(int j=0; j<10; ++j)
+      argv[i][j]=__VERIFIER_nondet_char();
+  }
+
+  return __main(argc, argv);
 }

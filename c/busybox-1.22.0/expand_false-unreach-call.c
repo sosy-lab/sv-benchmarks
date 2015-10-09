@@ -509,7 +509,7 @@ static void expand(struct _IO_FILE *file, unsigned int tab_size, unsigned int op
 }
 
 // file coreutils/expand.c line 154
-signed int main(signed int argc, char **argv)
+signed int __main(signed int argc, char **argv)
 {
   const char *opt_t = "8";
   struct _IO_FILE *file;
@@ -1473,22 +1473,22 @@ static void unexpand(struct _IO_FILE *file, unsigned int tab_size, unsigned int 
         n = strcspn(ptr, "\t ");
         printf("%*s%.*s", len, "", n, ptr);
         char c;
-        if(!(ptr + (signed long int)n == ((char *)NULL)))
+        if(!(ptr == ((char *)NULL)))
           (void)0;
 
         else
-          /* assertion !(ptr + (signed long int)n == ((char *)((void*)0))) */
+          /* assertion !(ptr == ((char *)((void*)0))) */
           __VERIFIER_error();
         c = ptr[(signed long int)n];
         ptr[(signed long int)n] = (char)0;
         unsigned long int return_value_unicode_strwidth$14;
         return_value_unicode_strwidth$14=unicode_strwidth(ptr);
         len = (unsigned int)return_value_unicode_strwidth$14;
-        if(!(ptr + (signed long int)n == ((char *)NULL)))
+        if(!(ptr == ((char *)NULL)))
           (void)0;
 
         else
-          /* assertion !(ptr + (signed long int)n == ((char *)((void*)0))) */
+          /* assertion !(ptr == ((char *)((void*)0))) */
           __VERIFIER_error();
         ptr[(signed long int)n] = c;
         ptr = ptr + (signed long int)n;
@@ -1902,3 +1902,23 @@ static void * xzalloc(unsigned long int size)
   return ptr;
 }
 
+
+int main()
+{
+  int argc;
+  __VERIFIER_assume(argc>=0);
+
+  char **argv=malloc((argc+1)*sizeof(char*));
+  argv[argc]=0;
+
+  for(int i=0; i<argc; ++i)
+  {
+    // let's limit the size of arguments to 10, which is an
+    // underapproximation obviously
+    argv[i]=malloc(10);
+    for(int j=0; j<10; ++j)
+      argv[i][j]=__VERIFIER_nondet_char();
+  }
+
+  return __main(argc, argv);
+}

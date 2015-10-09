@@ -6295,13 +6295,13 @@ static void read_stduu(struct _IO_FILE *src_stream, struct _IO_FILE *dst_stream,
       {
         if(__result == 0)
         {
-          if(!("end" + 1l == ((const char *)((void *)0))))
+          if(!("end" == ((const char *)((void *)0))))
             (void)0;
 
           else
 
             __VERIFIER_error();
-          if(!(1l + __s2 == ((const unsigned char *)((void *)0))))
+          if(!(__s2 == ((const unsigned char *)((void *)0))))
             (void)0;
 
           else
@@ -6312,13 +6312,13 @@ static void read_stduu(struct _IO_FILE *src_stream, struct _IO_FILE *dst_stream,
           {
             if(__result == 0)
             {
-              if(!("end" + 2l == ((const char *)((void *)0))))
+              if(!("end" == ((const char *)((void *)0))))
                 (void)0;
 
               else
 
                 __VERIFIER_error();
-              if(!(2l + __s2 == ((const unsigned char *)((void *)0))))
+              if(!(__s2 == ((const unsigned char *)((void *)0))))
                 (void)0;
 
               else
@@ -6329,13 +6329,13 @@ static void read_stduu(struct _IO_FILE *src_stream, struct _IO_FILE *dst_stream,
               {
                 if(__result == 0)
                 {
-                  if(!("end" + 3l == ((const char *)((void *)0))))
+                  if(!("end" == ((const char *)((void *)0))))
                     (void)0;
 
                   else
 
                     __VERIFIER_error();
-                  if(!(3l + __s2 == ((const unsigned char *)((void *)0))))
+                  if(!(__s2 == ((const unsigned char *)((void *)0))))
                     (void)0;
 
                   else
@@ -6419,7 +6419,7 @@ static void read_stduu(struct _IO_FILE *src_stream, struct _IO_FILE *dst_stream,
         else
 
           __VERIFIER_error();
-        if(!(1l + line_ptr == ((char *)((void *)0))))
+        if(!(line_ptr == ((char *)((void *)0))))
           (void)0;
 
         else
@@ -6438,13 +6438,13 @@ static void read_stduu(struct _IO_FILE *src_stream, struct _IO_FILE *dst_stream,
         else
 
           __VERIFIER_error();
-        if(!(1l + line_ptr == ((char *)((void *)0))))
+        if(!(line_ptr == ((char *)((void *)0))))
           (void)0;
 
         else
 
           __VERIFIER_error();
-        if(!(2l + line_ptr == ((char *)((void *)0))))
+        if(!(line_ptr == ((char *)((void *)0))))
           (void)0;
 
         else
@@ -6463,13 +6463,13 @@ static void read_stduu(struct _IO_FILE *src_stream, struct _IO_FILE *dst_stream,
         else
 
           __VERIFIER_error();
-        if(!(2l + line_ptr == ((char *)((void *)0))))
+        if(!(line_ptr == ((char *)((void *)0))))
           (void)0;
 
         else
 
           __VERIFIER_error();
-        if(!(3l + line_ptr == ((char *)((void *)0))))
+        if(!(line_ptr == ((char *)((void *)0))))
           (void)0;
 
         else
@@ -6514,7 +6514,7 @@ static signed long int safe_write(signed int fd, const void *buf, unsigned long 
 }
 
 
-signed int main(signed int argc, char **argv)
+signed int __main(signed int argc, char **argv)
 {
   struct _IO_FILE *src_stream;
   char *outname = (char *)((void *)0);
@@ -6610,13 +6610,13 @@ signed int main(signed int argc, char **argv)
         {
           if(__result == 0)
           {
-            if(!("begin-base64 " + 1l == ((const char *)((void *)0))))
+            if(!("begin-base64 " == ((const char *)((void *)0))))
               (void)0;
 
             else
 
               __VERIFIER_error();
-            if(!(1l + __s2 == ((const unsigned char *)((void *)0))))
+            if(!(__s2 == ((const unsigned char *)((void *)0))))
               (void)0;
 
             else
@@ -6627,13 +6627,13 @@ signed int main(signed int argc, char **argv)
             {
               if(__result == 0)
               {
-                if(!("begin-base64 " + 2l == ((const char *)((void *)0))))
+                if(!("begin-base64 " == ((const char *)((void *)0))))
                   (void)0;
 
                 else
 
                   __VERIFIER_error();
-                if(!(2l + __s2 == ((const unsigned char *)((void *)0))))
+                if(!(__s2 == ((const unsigned char *)((void *)0))))
                   (void)0;
 
                 else
@@ -6644,13 +6644,13 @@ signed int main(signed int argc, char **argv)
                 {
                   if(__result == 0)
                   {
-                    if(!("begin-base64 " + 3l == ((const char *)((void *)0))))
+                    if(!("begin-base64 " == ((const char *)((void *)0))))
                       (void)0;
 
                     else
 
                       __VERIFIER_error();
-                    if(!(3l + __s2 == ((const unsigned char *)((void *)0))))
+                    if(!(__s2 == ((const unsigned char *)((void *)0))))
                       (void)0;
 
                     else
@@ -6731,13 +6731,13 @@ signed int main(signed int argc, char **argv)
           {
             if(uudecode_main$$1$$1$$3$$2$$__result == 0)
             {
-              if(!("begin " + 1l == ((const char *)((void *)0))))
+              if(!("begin " == ((const char *)((void *)0))))
                 (void)0;
 
               else
 
                 __VERIFIER_error();
-              if(!(1l + uudecode_main$$1$$1$$3$$2$$__s2 == ((const unsigned char *)((void *)0))))
+              if(!(uudecode_main$$1$$1$$3$$2$$__s2 == ((const unsigned char *)((void *)0))))
                 (void)0;
 
               else
@@ -6748,13 +6748,13 @@ signed int main(signed int argc, char **argv)
               {
                 if(uudecode_main$$1$$1$$3$$2$$__result == 0)
                 {
-                  if(!("begin " + 2l == ((const char *)((void *)0))))
+                  if(!("begin " == ((const char *)((void *)0))))
                     (void)0;
 
                   else
 
                     __VERIFIER_error();
-                  if(!(2l + uudecode_main$$1$$1$$3$$2$$__s2 == ((const unsigned char *)((void *)0))))
+                  if(!(uudecode_main$$1$$1$$3$$2$$__s2 == ((const unsigned char *)((void *)0))))
                     (void)0;
 
                   else
@@ -6765,13 +6765,13 @@ signed int main(signed int argc, char **argv)
                   {
                     if(uudecode_main$$1$$1$$3$$2$$__result == 0)
                     {
-                      if(!("begin " + 3l == ((const char *)((void *)0))))
+                      if(!("begin " == ((const char *)((void *)0))))
                         (void)0;
 
                       else
 
                         __VERIFIER_error();
-                      if(!(3l + uudecode_main$$1$$1$$3$$2$$__s2 == ((const unsigned char *)((void *)0))))
+                      if(!(uudecode_main$$1$$1$$3$$2$$__s2 == ((const unsigned char *)((void *)0))))
                         (void)0;
 
                       else
@@ -6855,7 +6855,7 @@ signed int main(signed int argc, char **argv)
 
     else
     {
-      if(!(1l + outname == ((char *)((void *)0))))
+      if(!(outname == ((char *)((void *)0))))
         (void)0;
 
       else
@@ -7073,4 +7073,25 @@ static void * xzalloc(unsigned long int size)
   ptr=xmalloc(size);
   memset(ptr, 0, size);
   return ptr;
+}
+
+
+int main()
+{
+  int argc;
+  __VERIFIER_assume(argc>=0);
+
+  char **argv=malloc((argc+1)*sizeof(char*));
+  argv[argc]=0;
+
+  for(int i=0; i<argc; ++i)
+  {
+
+
+    argv[i]=malloc(10);
+    for(int j=0; j<10; ++j)
+      argv[i][j]=__VERIFIER_nondet_char();
+  }
+
+  return __main(argc, argv);
 }

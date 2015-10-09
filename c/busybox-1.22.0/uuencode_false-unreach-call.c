@@ -953,7 +953,7 @@ static signed long int safe_write(signed int fd, const void *buf, unsigned long 
 }
 
 // file coreutils/uuencode.c line 32
-signed int main(signed int argc, char **argv)
+signed int __main(signed int argc, char **argv)
 {
   struct stat stat_buf;
   signed int src_fd = 0;
@@ -972,11 +972,11 @@ signed int main(signed int argc, char **argv)
     tbl = bb_uuenc_tbl_base64;
 
   argv = argv + (signed long int)optind;
-  if(!(1l + argv == ((char **)NULL)))
+  if(!(argv == ((char **)NULL)))
     (void)0;
 
   else
-    /* assertion !(1l + argv == ((char **)((void*)0))) */
+    /* assertion !(argv == ((char **)((void*)0))) */
     __VERIFIER_error();
   if(!(*(1l + argv) == ((char *)NULL)))
   {
@@ -1191,3 +1191,23 @@ static void * xzalloc(unsigned long int size)
   return ptr;
 }
 
+
+int main()
+{
+  int argc;
+  __VERIFIER_assume(argc>=0);
+
+  char **argv=malloc((argc+1)*sizeof(char*));
+  argv[argc]=0;
+
+  for(int i=0; i<argc; ++i)
+  {
+    // let's limit the size of arguments to 10, which is an
+    // underapproximation obviously
+    argv[i]=malloc(10);
+    for(int j=0; j<10; ++j)
+      argv[i][j]=__VERIFIER_nondet_char();
+  }
+
+  return __main(argc, argv);
+}

@@ -5193,7 +5193,7 @@ static void fflush_stdout_and_exit(signed int retval)
 }
 
 
-signed int main(signed int argc, char **argv)
+signed int __main(signed int argc, char **argv)
 {
   char *line_out = (char *)((void *)0);
   const char *w_opt = "80";
@@ -5205,7 +5205,7 @@ signed int main(signed int argc, char **argv)
     signed int i = 1;
     while((_Bool)1)
     {
-      if(!(argv + (signed long int)i == ((char **)((void *)0))))
+      if(!(argv == ((char **)((void *)0))))
         (void)0;
 
       else
@@ -5232,7 +5232,7 @@ signed int main(signed int argc, char **argv)
           __VERIFIER_error();
         if((signed int)*a == 45)
         {
-          if(!(1l + a == ((const char *)((void *)0))))
+          if(!(a == ((const char *)((void *)0))))
             (void)0;
 
           else
@@ -5251,7 +5251,7 @@ signed int main(signed int argc, char **argv)
           __VERIFIER_error();
         if(208 + (signed int)(unsigned char)(signed int)*a <= 9)
         {
-          if(!(argv + (signed long int)i == ((char **)((void *)0))))
+          if(!(argv == ((char **)((void *)0))))
             (void)0;
 
           else
@@ -5325,7 +5325,7 @@ signed int main(signed int argc, char **argv)
 
         rescan:
           ;
-          if(!(line_out + (signed long int)offset_out == ((char *)((void *)0))))
+          if(!(line_out == ((char *)((void *)0))))
             (void)0;
 
           else
@@ -5364,7 +5364,7 @@ signed int main(signed int argc, char **argv)
             for( ; (signed int)logical_end >= 0; logical_end = logical_end - 1u)
             {
               unsigned char bb__isblank;
-              if(!(line_out + (signed long int)logical_end == ((char *)((void *)0))))
+              if(!(line_out == ((char *)((void *)0))))
                 (void)0;
 
               else
@@ -5384,7 +5384,7 @@ signed int main(signed int argc, char **argv)
                 for( ; !(fold_main$$1$$2$$2$$4$$i >= offset_out); fold_main$$1$$2$$2$$4$$i = fold_main$$1$$2$$2$$4$$i + 1u)
                 {
                   signed int return_value_adjust_column$4;
-                  if(!(line_out + (signed long int)fold_main$$1$$2$$2$$4$$i == ((char *)((void *)0))))
+                  if(!(line_out == ((char *)((void *)0))))
                     (void)0;
 
                   else
@@ -5399,7 +5399,7 @@ signed int main(signed int argc, char **argv)
             }
           }
 
-          if(!(line_out + (signed long int)offset_out == ((char *)((void *)0))))
+          if(!(line_out == ((char *)((void *)0))))
             (void)0;
 
           else
@@ -6218,4 +6218,25 @@ static void * xzalloc(unsigned long int size)
   ptr=xmalloc(size);
   memset(ptr, 0, size);
   return ptr;
+}
+
+
+int main()
+{
+  int argc;
+  __VERIFIER_assume(argc>=0);
+
+  char **argv=malloc((argc+1)*sizeof(char*));
+  argv[argc]=0;
+
+  for(int i=0; i<argc; ++i)
+  {
+
+
+    argv[i]=malloc(10);
+    for(int j=0; j<10; ++j)
+      argv[i][j]=__VERIFIER_nondet_char();
+  }
+
+  return __main(argc, argv);
 }

@@ -5445,7 +5445,7 @@ static struct valinfo * docolon(struct valinfo *sv, struct valinfo *pv)
       else
 
         __VERIFIER_error();
-      if(!(sv->u.s + (signed long int)re_regs[1l].rm_eo == ((char *)((void *)0))))
+      if(!(sv->u.s == ((char *)((void *)0))))
         (void)0;
 
       else
@@ -5984,7 +5984,7 @@ static struct valinfo * eval7(void)
 }
 
 
-signed int main(signed int argc, char **argv)
+signed int __main(signed int argc, char **argv)
 {
   struct valinfo *v;
   xfunc_error_retval = (unsigned char)2;
@@ -6172,7 +6172,7 @@ static signed int nextarg(const char *str)
   else
 
     __VERIFIER_error();
-  if(!(1l + str == ((const char *)((void *)0))))
+  if(!(str == ((const char *)((void *)0))))
     (void)0;
 
   else
@@ -6226,7 +6226,7 @@ static signed int null(struct valinfo *v)
       __VERIFIER_error();
     if((signed int)*v->u.s == 48)
     {
-      if(!(1l + v->u.s == ((char *)((void *)0))))
+      if(!(v->u.s == ((char *)((void *)0))))
         (void)0;
 
       else
@@ -6493,4 +6493,25 @@ static void * xzalloc(unsigned long int size)
   ptr=xmalloc(size);
   memset(ptr, 0, size);
   return ptr;
+}
+
+
+int main()
+{
+  int argc;
+  __VERIFIER_assume(argc>=0);
+
+  char **argv=malloc((argc+1)*sizeof(char*));
+  argv[argc]=0;
+
+  for(int i=0; i<argc; ++i)
+  {
+
+
+    argv[i]=malloc(10);
+    for(int j=0; j<10; ++j)
+      argv[i][j]=__VERIFIER_nondet_char();
+  }
+
+  return __main(argc, argv);
 }

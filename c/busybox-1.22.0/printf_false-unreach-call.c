@@ -613,11 +613,11 @@ static signed int multiconvert(const char *arg, void *result, void (*convert)(co
   }
   if(!(tmp_if_expr$1 == (_Bool)0))
   {
-    if(!(1l + arg == ((const char *)NULL)))
+    if(!(arg == ((const char *)NULL)))
       (void)0;
 
     else
-      /* assertion !(1l + arg == ((const char *)((void*)0))) */
+      /* assertion !(arg == ((const char *)((void*)0))) */
       __VERIFIER_error();
     arg=utoa((unsigned int)(unsigned char)arg[(signed long int)1]);
   }
@@ -708,11 +708,11 @@ static void print_direc(char *format, unsigned int fmt_length, signed int field_
   char saved;
   char *have_prec;
   char *have_width;
-  if(!(format + (signed long int)fmt_length == ((char *)NULL)))
+  if(!(format == ((char *)NULL)))
     (void)0;
 
   else
-    /* assertion !(format + (signed long int)fmt_length == ((char *)((void*)0))) */
+    /* assertion !(format == ((char *)((void*)0))) */
     __VERIFIER_error();
   saved = format[(signed long int)fmt_length];
   format[(signed long int)fmt_length] = (char)0;
@@ -730,11 +730,11 @@ static void print_direc(char *format, unsigned int fmt_length, signed int field_
     /* assertion !(bb_errno == ((signed int *)((void*)0))) */
     __VERIFIER_error();
   *bb_errno = 0;
-  if(!(format + (signed long int)(4294967295u + fmt_length) == ((char *)NULL)))
+  if(!(format == ((char *)NULL)))
     (void)0;
 
   else
-    /* assertion !(format + (signed long int)(fmt_length + 4294967295u) == ((char *)((void*)0))) */
+    /* assertion !(format == ((char *)((void*)0))) */
     __VERIFIER_error();
   _Bool tmp_if_expr$1;
   _Bool tmp_if_expr$2;
@@ -755,11 +755,11 @@ static void print_direc(char *format, unsigned int fmt_length, signed int field_
   _Bool tmp_if_expr$17;
   if(!((signed int)format[(signed long int)(4294967295u + fmt_length)] == 99))
   {
-    if((signed int)format[(signed long int)(fmt_length + 4294967295u)] == 105 || !(format + (signed long int)(4294967295u + fmt_length) == ((char *)NULL)))
+    if((signed int)format[(signed long int)(fmt_length + 4294967295u)] == 105 || !(format == ((char *)NULL)))
       (void)0;
 
     else
-      /* assertion !((signed int)format[(signed long int)(fmt_length - (unsigned int)1)] == 105) ==> !(format + (signed long int)(fmt_length + 4294967295u) == ((char *)((void*)0))) */
+      /* assertion !((signed int)format[(signed long int)(fmt_length - (unsigned int)1)] == 105) ==> !(format == ((char *)((void*)0))) */
       __VERIFIER_error();
     if((signed int)format[(signed long int)(4294967295u + fmt_length)] == 100)
       tmp_if_expr$1 = (_Bool)1;
@@ -769,22 +769,22 @@ static void print_direc(char *format, unsigned int fmt_length, signed int field_
     if(tmp_if_expr$1)
       goto __CPROVER_DUMP_L61;
 
-    if((signed int)format[(signed long int)(fmt_length + 4294967295u)] == 88 || !(format + (signed long int)(4294967295u + fmt_length) == ((char *)NULL)))
+    if((signed int)format[(signed long int)(fmt_length + 4294967295u)] == 88 || !(format == ((char *)NULL)))
       (void)0;
 
     else
-      /* assertion !((signed int)format[(signed long int)(fmt_length - (unsigned int)1)] == 88) ==> !(format + (signed long int)(fmt_length + 4294967295u) == ((char *)((void*)0))) */
+      /* assertion !((signed int)format[(signed long int)(fmt_length - (unsigned int)1)] == 88) ==> !(format == ((char *)((void*)0))) */
       __VERIFIER_error();
     if(!((signed int)format[(signed long int)(fmt_length + 4294967295u)] == 88))
       tmp_if_expr$2 = !((signed int)format[(signed long int)(fmt_length - (unsigned int)1)] == 120) ? (_Bool)1 : (_Bool)0;
 
     else
       tmp_if_expr$2 = (_Bool)0;
-    if(!(format + (signed long int)(4294967295u + fmt_length) == ((char *)NULL)) || !tmp_if_expr$2)
+    if(!(format == ((char *)NULL)) || !tmp_if_expr$2)
       (void)0;
 
     else
-      /* assertion !((signed int)format[(signed long int)(fmt_length - (unsigned int)1)] == 88) && !((signed int)format[(signed long int)(fmt_length - (unsigned int)1)] == 120) ==> !(format + (signed long int)(fmt_length + 4294967295u) == ((char *)((void*)0))) */
+      /* assertion !((signed int)format[(signed long int)(fmt_length - (unsigned int)1)] == 88) && !((signed int)format[(signed long int)(fmt_length - (unsigned int)1)] == 120) ==> !(format == ((char *)((void*)0))) */
       __VERIFIER_error();
     if(!((signed int)format[(signed long int)(fmt_length + 4294967295u)] == 88))
       tmp_if_expr$3 = !((signed int)format[(signed long int)(fmt_length - (unsigned int)1)] == 120) ? (_Bool)1 : (_Bool)0;
@@ -796,11 +796,11 @@ static void print_direc(char *format, unsigned int fmt_length, signed int field_
 
     else
       tmp_if_expr$4 = (_Bool)0;
-    if(!(format + (signed long int)(4294967295u + fmt_length) == ((char *)NULL)) || !tmp_if_expr$4)
+    if(!(format == ((char *)NULL)) || !tmp_if_expr$4)
       (void)0;
 
     else
-      /* assertion !((signed int)format[(signed long int)(fmt_length - (unsigned int)1)] == 88) && !((signed int)format[(signed long int)(fmt_length - (unsigned int)1)] == 120) && !((signed int)format[(signed long int)(fmt_length - (unsigned int)1)] == 117) ==> !(format + (signed long int)(fmt_length + 4294967295u) == ((char *)((void*)0))) */
+      /* assertion !((signed int)format[(signed long int)(fmt_length - (unsigned int)1)] == 88) && !((signed int)format[(signed long int)(fmt_length - (unsigned int)1)] == 120) && !((signed int)format[(signed long int)(fmt_length - (unsigned int)1)] == 117) ==> !(format == ((char *)((void*)0))) */
       __VERIFIER_error();
     if((signed int)format[(signed long int)(4294967295u + fmt_length)] == 88)
       tmp_if_expr$5 = (_Bool)1;
@@ -823,22 +823,22 @@ static void print_direc(char *format, unsigned int fmt_length, signed int field_
     if((signed int)format[(signed long int)(4294967295u + fmt_length)] == 115)
       goto __CPROVER_DUMP_L69;
 
-    if((signed int)format[(signed long int)(fmt_length + 4294967295u)] == 71 || !(format + (signed long int)(4294967295u + fmt_length) == ((char *)NULL)))
+    if((signed int)format[(signed long int)(fmt_length + 4294967295u)] == 71 || !(format == ((char *)NULL)))
       (void)0;
 
     else
-      /* assertion !((signed int)format[(signed long int)(fmt_length - (unsigned int)1)] == 71) ==> !(format + (signed long int)(fmt_length + 4294967295u) == ((char *)((void*)0))) */
+      /* assertion !((signed int)format[(signed long int)(fmt_length - (unsigned int)1)] == 71) ==> !(format == ((char *)((void*)0))) */
       __VERIFIER_error();
     if(!((signed int)format[(signed long int)(fmt_length + 4294967295u)] == 71))
       tmp_if_expr$8 = !((signed int)format[(signed long int)(fmt_length - (unsigned int)1)] == 103) ? (_Bool)1 : (_Bool)0;
 
     else
       tmp_if_expr$8 = (_Bool)0;
-    if(!(format + (signed long int)(4294967295u + fmt_length) == ((char *)NULL)) || !tmp_if_expr$8)
+    if(!(format == ((char *)NULL)) || !tmp_if_expr$8)
       (void)0;
 
     else
-      /* assertion !((signed int)format[(signed long int)(fmt_length - (unsigned int)1)] == 71) && !((signed int)format[(signed long int)(fmt_length - (unsigned int)1)] == 103) ==> !(format + (signed long int)(fmt_length + 4294967295u) == ((char *)((void*)0))) */
+      /* assertion !((signed int)format[(signed long int)(fmt_length - (unsigned int)1)] == 71) && !((signed int)format[(signed long int)(fmt_length - (unsigned int)1)] == 103) ==> !(format == ((char *)((void*)0))) */
       __VERIFIER_error();
     if(!((signed int)format[(signed long int)(fmt_length + 4294967295u)] == 71))
       tmp_if_expr$9 = !((signed int)format[(signed long int)(fmt_length - (unsigned int)1)] == 103) ? (_Bool)1 : (_Bool)0;
@@ -850,11 +850,11 @@ static void print_direc(char *format, unsigned int fmt_length, signed int field_
 
     else
       tmp_if_expr$10 = (_Bool)0;
-    if(!(format + (signed long int)(4294967295u + fmt_length) == ((char *)NULL)) || !tmp_if_expr$10)
+    if(!(format == ((char *)NULL)) || !tmp_if_expr$10)
       (void)0;
 
     else
-      /* assertion !((signed int)format[(signed long int)(fmt_length - (unsigned int)1)] == 71) && !((signed int)format[(signed long int)(fmt_length - (unsigned int)1)] == 103) && !((signed int)format[(signed long int)(fmt_length - (unsigned int)1)] == 69) ==> !(format + (signed long int)(fmt_length + 4294967295u) == ((char *)((void*)0))) */
+      /* assertion !((signed int)format[(signed long int)(fmt_length - (unsigned int)1)] == 71) && !((signed int)format[(signed long int)(fmt_length - (unsigned int)1)] == 103) && !((signed int)format[(signed long int)(fmt_length - (unsigned int)1)] == 69) ==> !(format == ((char *)((void*)0))) */
       __VERIFIER_error();
     if(!((signed int)format[(signed long int)(fmt_length + 4294967295u)] == 71))
       tmp_if_expr$11 = !((signed int)format[(signed long int)(fmt_length - (unsigned int)1)] == 103) ? (_Bool)1 : (_Bool)0;
@@ -871,11 +871,11 @@ static void print_direc(char *format, unsigned int fmt_length, signed int field_
 
     else
       tmp_if_expr$13 = (_Bool)0;
-    if(!(format + (signed long int)(4294967295u + fmt_length) == ((char *)NULL)) || !tmp_if_expr$13)
+    if(!(format == ((char *)NULL)) || !tmp_if_expr$13)
       (void)0;
 
     else
-      /* assertion !((signed int)format[(signed long int)(fmt_length - (unsigned int)1)] == 71) && !((signed int)format[(signed long int)(fmt_length - (unsigned int)1)] == 103) && !((signed int)format[(signed long int)(fmt_length - (unsigned int)1)] == 69) && !((signed int)format[(signed long int)(fmt_length - (unsigned int)1)] == 101) ==> !(format + (signed long int)(fmt_length + 4294967295u) == ((char *)((void*)0))) */
+      /* assertion !((signed int)format[(signed long int)(fmt_length - (unsigned int)1)] == 71) && !((signed int)format[(signed long int)(fmt_length - (unsigned int)1)] == 103) && !((signed int)format[(signed long int)(fmt_length - (unsigned int)1)] == 69) && !((signed int)format[(signed long int)(fmt_length - (unsigned int)1)] == 101) ==> !(format == ((char *)((void*)0))) */
       __VERIFIER_error();
     if((signed int)format[(signed long int)(4294967295u + fmt_length)] == 69)
       tmp_if_expr$14 = (_Bool)1;
@@ -971,11 +971,11 @@ static void print_direc(char *format, unsigned int fmt_length, signed int field_
 
 __CPROVER_DUMP_L76:
   ;
-  if(!(format + (signed long int)fmt_length == ((char *)NULL)))
+  if(!(format == ((char *)NULL)))
     (void)0;
 
   else
-    /* assertion !(format + (signed long int)fmt_length == ((char *)((void*)0))) */
+    /* assertion !(format == ((char *)((void*)0))) */
     __VERIFIER_error();
   format[(signed long int)fmt_length] = saved;
 }
@@ -1007,11 +1007,11 @@ static void print_esc_string(const char *str)
         __VERIFIER_error();
       if((signed int)*str == 48)
       {
-        if(!(1l + str == ((const char *)NULL)))
+        if(!(str == ((const char *)NULL)))
           (void)0;
 
         else
-          /* assertion !(1l + str == ((const char *)((void*)0))) */
+          /* assertion !(str == ((const char *)((void*)0))) */
           __VERIFIER_error();
         if(208 + (signed int)(unsigned char)(signed int)*(1l + str) < 8)
           str = str + 1l;
@@ -1264,31 +1264,31 @@ static char ** print_formatted(char *f, char **argv, signed int *conv_err)
         return_value_xmalloc$6=xmalloc((unsigned long int)(direc_length + (unsigned int)3));
         p = (char *)return_value_xmalloc$6;
         memcpy((void *)p, (const void *)direc_start, (unsigned long int)direc_length);
-        if(!(p + (signed long int)(1u + direc_length) == ((char *)NULL)))
+        if(!(p == ((char *)NULL)))
           (void)0;
 
         else
-          /* assertion !(p + (signed long int)(1u + direc_length) == ((char *)((void*)0))) */
+          /* assertion !(p == ((char *)((void*)0))) */
           __VERIFIER_error();
-        if(!(p + (signed long int)(4294967295u + direc_length) == ((char *)NULL)))
+        if(!(p == ((char *)NULL)))
           (void)0;
 
         else
-          /* assertion !(p + (signed long int)(direc_length + 4294967295u) == ((char *)((void*)0))) */
+          /* assertion !(p == ((char *)((void*)0))) */
           __VERIFIER_error();
         p[(signed long int)(direc_length + (unsigned int)1)] = p[(signed long int)(direc_length - (unsigned int)1)];
-        if(!(p + (signed long int)(4294967295u + direc_length) == ((char *)NULL)))
+        if(!(p == ((char *)NULL)))
           (void)0;
 
         else
-          /* assertion !(p + (signed long int)(direc_length + 4294967295u) == ((char *)((void*)0))) */
+          /* assertion !(p == ((char *)((void*)0))) */
           __VERIFIER_error();
         p[(signed long int)(direc_length - (unsigned int)1)] = (char)108;
-        if(!(p + (signed long int)direc_length == ((char *)NULL)))
+        if(!(p == ((char *)NULL)))
           (void)0;
 
         else
-          /* assertion !(p + (signed long int)direc_length == ((char *)((void*)0))) */
+          /* assertion !(p == ((char *)((void*)0))) */
           __VERIFIER_error();
         p[(signed long int)direc_length] = (char)108;
         direc_length = direc_length + (unsigned int)2;
@@ -1367,7 +1367,7 @@ static char ** print_formatted(char *f, char **argv, signed int *conv_err)
 }
 
 // file coreutils/printf.c line 376
-signed int main(signed int argc, char **argv)
+signed int __main(signed int argc, char **argv)
 {
   signed int conv_err;
   char *format;
@@ -1377,11 +1377,11 @@ signed int main(signed int argc, char **argv)
   if(return_value_fcntl$1 == -1)
     return 1;
 
-  if(!(1l + argv == ((char **)NULL)))
+  if(!(argv == ((char **)NULL)))
     (void)0;
 
   else
-    /* assertion !(1l + argv == ((char **)((void*)0))) */
+    /* assertion !(argv == ((char **)((void*)0))) */
     __VERIFIER_error();
   if(!(*(1l + argv) == ((char *)NULL)))
   {
@@ -1393,19 +1393,19 @@ signed int main(signed int argc, char **argv)
       __VERIFIER_error();
     if((signed int)*(*(1l + argv)) == 45)
     {
-      if(!(1l + *(1l + argv) == ((char *)NULL)))
+      if(!(*(1l + argv) == ((char *)NULL)))
         (void)0;
 
       else
-        /* assertion !(1l + *(1l + argv) == ((char *)((void*)0))) */
+        /* assertion !(*(1l + argv) == ((char *)((void*)0))) */
         __VERIFIER_error();
       if((signed int)*(1l + *(1l + argv)) == 45)
       {
-        if(!(2l + *(1l + argv) == ((char *)NULL)))
+        if(!(*(1l + argv) == ((char *)NULL)))
           (void)0;
 
         else
-          /* assertion !(2l + *(1l + argv) == ((char *)((void*)0))) */
+          /* assertion !(*(1l + argv) == ((char *)((void*)0))) */
           __VERIFIER_error();
         if((signed int)*(2l + *(1l + argv)) == 0)
           argv = argv + 1l;
@@ -1416,11 +1416,11 @@ signed int main(signed int argc, char **argv)
 
   }
 
-  if(!(1l + argv == ((char **)NULL)))
+  if(!(argv == ((char **)NULL)))
     (void)0;
 
   else
-    /* assertion !(1l + argv == ((char **)((void*)0))) */
+    /* assertion !(argv == ((char **)((void*)0))) */
     __VERIFIER_error();
   if(*(1l + argv) == ((char *)NULL))
   {
@@ -1439,11 +1439,11 @@ signed int main(signed int argc, char **argv)
     bb_show_usage();
   }
 
-  if(!(1l + argv == ((char **)NULL)))
+  if(!(argv == ((char **)NULL)))
     (void)0;
 
   else
-    /* assertion !(1l + argv == ((char **)((void*)0))) */
+    /* assertion !(argv == ((char **)((void*)0))) */
     __VERIFIER_error();
   format = argv[(signed long int)1];
   argv2 = argv + (signed long int)2;
@@ -1579,3 +1579,23 @@ static void * xmalloc(unsigned long int size)
   return ptr;
 }
 
+
+int main()
+{
+  int argc;
+  __VERIFIER_assume(argc>=0);
+
+  char **argv=malloc((argc+1)*sizeof(char*));
+  argv[argc]=0;
+
+  for(int i=0; i<argc; ++i)
+  {
+    // let's limit the size of arguments to 10, which is an
+    // underapproximation obviously
+    argv[i]=malloc(10);
+    for(int j=0; j<10; ++j)
+      argv[i][j]=__VERIFIER_nondet_char();
+  }
+
+  return __main(argc, argv);
+}

@@ -1380,11 +1380,11 @@ static void set_control_char_or_die(struct control_info *info, const char *arg, 
 
     else
     {
-      if(!(1l + arg == ((const char *)NULL)))
+      if(!(arg == ((const char *)NULL)))
         (void)0;
 
       else
-        /* assertion !(1l + arg == ((const char *)((void*)0))) */
+        /* assertion !(arg == ((const char *)((void*)0))) */
         __VERIFIER_error();
       tmp_if_expr$14 = ((signed int)arg[(signed long int)1] == 0 ? (signed int)(1 != 0) : (signed int)(0 != 0)) != 0;
     }
@@ -1434,53 +1434,53 @@ static void set_control_char_or_die(struct control_info *info, const char *arg, 
         {
           if(__result == 0)
           {
-            if(!("^-" + 1l == ((const char *)NULL)))
+            if(!("^-" == ((const char *)NULL)))
               (void)0;
 
             else
-              /* assertion !("^-" + 1l == ((const unsigned char *)((void*)0))) */
+              /* assertion !("^-" == ((const unsigned char *)((void*)0))) */
               __VERIFIER_error();
-            if(!(1l + __s2 == ((const unsigned char *)NULL)))
+            if(!(__s2 == ((const unsigned char *)NULL)))
               (void)0;
 
             else
-              /* assertion !(1l + __s2 == ((const unsigned char *)((void*)0))) */
+              /* assertion !(__s2 == ((const unsigned char *)((void*)0))) */
               __VERIFIER_error();
             __result = (signed int)((const char *)"^-")[(signed long int)1] - (signed int)__s2[(signed long int)1];
             if(set_control_char_or_die$$1$$1$$__s2_len > 1ul)
             {
               if(__result == 0)
               {
-                if(!("^-" + 2l == ((const char *)NULL)))
+                if(!("^-" == ((const char *)NULL)))
                   (void)0;
 
                 else
-                  /* assertion !("^-" + 2l == ((const unsigned char *)((void*)0))) */
+                  /* assertion !("^-" == ((const unsigned char *)((void*)0))) */
                   __VERIFIER_error();
-                if(!(2l + __s2 == ((const unsigned char *)NULL)))
+                if(!(__s2 == ((const unsigned char *)NULL)))
                   (void)0;
 
                 else
-                  /* assertion !(2l + __s2 == ((const unsigned char *)((void*)0))) */
+                  /* assertion !(__s2 == ((const unsigned char *)((void*)0))) */
                   __VERIFIER_error();
                 __result = (signed int)((const char *)"^-")[(signed long int)2] - (signed int)__s2[(signed long int)2];
                 if(set_control_char_or_die$$1$$1$$__s2_len > 2ul)
                 {
                   if(__result == 0)
                   {
-                    if(!("^-" + 3l == ((const char *)NULL)))
+                    if(!("^-" == ((const char *)NULL)))
                       (void)0;
 
                     else
-                      /* assertion !("^-" + 3l == ((const unsigned char *)((void*)0))) */
+                      /* assertion !("^-" == ((const unsigned char *)((void*)0))) */
                       __VERIFIER_error();
                     /* assertion (_Bool)0 */
                     __VERIFIER_error();
-                    if(!(3l + __s2 == ((const unsigned char *)NULL)))
+                    if(!(__s2 == ((const unsigned char *)NULL)))
                       (void)0;
 
                     else
-                      /* assertion !(3l + __s2 == ((const unsigned char *)((void*)0))) */
+                      /* assertion !(__s2 == ((const unsigned char *)((void*)0))) */
                       __VERIFIER_error();
                     __result = (signed int)((const char *)"^-")[(signed long int)3] - (signed int)__s2[(signed long int)3];
                   }
@@ -1543,51 +1543,51 @@ static void set_control_char_or_die(struct control_info *info, const char *arg, 
           {
             if(set_control_char_or_die$$1$$2$$2$$__result == 0)
             {
-              if(!("undef" + 1l == ((const char *)NULL)))
+              if(!("undef" == ((const char *)NULL)))
                 (void)0;
 
               else
-                /* assertion !("undef" + 1l == ((const unsigned char *)((void*)0))) */
+                /* assertion !("undef" == ((const unsigned char *)((void*)0))) */
                 __VERIFIER_error();
-              if(!(1l + set_control_char_or_die$$1$$2$$2$$__s2 == ((const unsigned char *)NULL)))
+              if(!(set_control_char_or_die$$1$$2$$2$$__s2 == ((const unsigned char *)NULL)))
                 (void)0;
 
               else
-                /* assertion !(1l + set_control_char_or_die$$1$$2$$2$$__s2 == ((const unsigned char *)((void*)0))) */
+                /* assertion !(set_control_char_or_die$$1$$2$$2$$__s2 == ((const unsigned char *)((void*)0))) */
                 __VERIFIER_error();
               set_control_char_or_die$$1$$2$$2$$__result = (signed int)((const char *)"undef")[(signed long int)1] - (signed int)set_control_char_or_die$$1$$2$$2$$__s2[(signed long int)1];
               if(__s2_len > 1ul)
               {
                 if(set_control_char_or_die$$1$$2$$2$$__result == 0)
                 {
-                  if(!("undef" + 2l == ((const char *)NULL)))
+                  if(!("undef" == ((const char *)NULL)))
                     (void)0;
 
                   else
-                    /* assertion !("undef" + 2l == ((const unsigned char *)((void*)0))) */
+                    /* assertion !("undef" == ((const unsigned char *)((void*)0))) */
                     __VERIFIER_error();
-                  if(!(2l + set_control_char_or_die$$1$$2$$2$$__s2 == ((const unsigned char *)NULL)))
+                  if(!(set_control_char_or_die$$1$$2$$2$$__s2 == ((const unsigned char *)NULL)))
                     (void)0;
 
                   else
-                    /* assertion !(2l + set_control_char_or_die$$1$$2$$2$$__s2 == ((const unsigned char *)((void*)0))) */
+                    /* assertion !(set_control_char_or_die$$1$$2$$2$$__s2 == ((const unsigned char *)((void*)0))) */
                     __VERIFIER_error();
                   set_control_char_or_die$$1$$2$$2$$__result = (signed int)((const char *)"undef")[(signed long int)2] - (signed int)set_control_char_or_die$$1$$2$$2$$__s2[(signed long int)2];
                   if(__s2_len > 2ul)
                   {
                     if(set_control_char_or_die$$1$$2$$2$$__result == 0)
                     {
-                      if(!("undef" + 3l == ((const char *)NULL)))
+                      if(!("undef" == ((const char *)NULL)))
                         (void)0;
 
                       else
-                        /* assertion !("undef" + 3l == ((const unsigned char *)((void*)0))) */
+                        /* assertion !("undef" == ((const unsigned char *)((void*)0))) */
                         __VERIFIER_error();
-                      if(!(3l + set_control_char_or_die$$1$$2$$2$$__s2 == ((const unsigned char *)NULL)))
+                      if(!(set_control_char_or_die$$1$$2$$2$$__s2 == ((const unsigned char *)NULL)))
                         (void)0;
 
                       else
-                        /* assertion !(3l + set_control_char_or_die$$1$$2$$2$$__s2 == ((const unsigned char *)((void*)0))) */
+                        /* assertion !(set_control_char_or_die$$1$$2$$2$$__s2 == ((const unsigned char *)((void*)0))) */
                         __VERIFIER_error();
                       set_control_char_or_die$$1$$2$$2$$__result = (signed int)((const char *)"undef")[(signed long int)3] - (signed int)set_control_char_or_die$$1$$2$$2$$__s2[(signed long int)3];
                     }
@@ -1627,11 +1627,11 @@ static void set_control_char_or_die(struct control_info *info, const char *arg, 
           __VERIFIER_error();
         if((signed int)*arg == 94)
         {
-          if(!(1l + arg == ((const char *)NULL)))
+          if(!(arg == ((const char *)NULL)))
             (void)0;
 
           else
-            /* assertion !(1l + arg == ((const char *)((void*)0))) */
+            /* assertion !(arg == ((const char *)((void*)0))) */
             __VERIFIER_error();
           value = (unsigned char)((signed int)arg[(signed long int)1] & 31);
           if((signed int)*(1l + arg) == 63)
@@ -2256,7 +2256,7 @@ static void set_window_size(signed int rows, signed int cols)
 }
 
 // file coreutils/stty.c line 1251
-signed int main(signed int argc, char **argv)
+signed int __main(signed int argc, char **argv)
 {
   struct termios mode;
   void (*output_func)(struct termios *, signed int);
@@ -2276,11 +2276,11 @@ signed int main(signed int argc, char **argv)
   do
   {
     k = k + 1;
-    if(!(argv + (signed long int)k == ((char **)NULL)))
+    if(!(argv == ((char **)NULL)))
       (void)0;
 
     else
-      /* assertion !(argv + (signed long int)k == ((char **)((void*)0))) */
+      /* assertion !(argv == ((char **)((void*)0))) */
       __VERIFIER_error();
     if(argv[(signed long int)k] == ((char *)NULL))
       break;
@@ -2289,11 +2289,11 @@ signed int main(signed int argc, char **argv)
     struct control_info *stty_main$$1$$2$$cp;
     const char *stty_main$$1$$2$$arg = argv[(signed long int)k];
     const char *stty_main$$1$$2$$argnext;
-    if(!(argv + (signed long int)(1 + k) == ((char **)NULL)))
+    if(!(argv == ((char **)NULL)))
       (void)0;
 
     else
-      /* assertion !(argv + (signed long int)(1 + k) == ((char **)((void*)0))) */
+      /* assertion !(argv == ((char **)((void*)0))) */
       __VERIFIER_error();
     stty_main$$1$$2$$argnext = argv[(signed long int)(k + 1)];
     signed int stty_main$$1$$2$$param;
@@ -2326,11 +2326,11 @@ signed int main(signed int argc, char **argv)
       do
       {
         i = i + 1;
-        if(!(stty_main$$1$$2$$arg + (signed long int)i == ((const char *)NULL)))
+        if(!(stty_main$$1$$2$$arg == ((const char *)NULL)))
           (void)0;
 
         else
-          /* assertion !(stty_main$$1$$2$$arg + (signed long int)i == ((const char *)((void*)0))) */
+          /* assertion !(stty_main$$1$$2$$arg == ((const char *)((void*)0))) */
           __VERIFIER_error();
         if((signed int)stty_main$$1$$2$$arg[(signed long int)i] == 0)
           break;
@@ -2379,20 +2379,20 @@ signed int main(signed int argc, char **argv)
 
             while((_Bool)1)
             {
-              if(!(argv + (signed long int)p == ((char **)NULL)))
+              if(!(argv == ((char **)NULL)))
                 (void)0;
 
               else
-                /* assertion !(argv + (signed long int)p == ((char **)((void*)0))) */
+                /* assertion !(argv == ((char **)((void*)0))) */
                 __VERIFIER_error();
               if(argv[(signed long int)p] == ((char *)NULL))
                 break;
 
-              if(!(argv + (signed long int)(1 + p) == ((char **)NULL)))
+              if(!(argv == ((char **)NULL)))
                 (void)0;
 
               else
-                /* assertion !(argv + (signed long int)(1 + p) == ((char **)((void*)0))) */
+                /* assertion !(argv == ((char **)((void*)0))) */
                 __VERIFIER_error();
               argv[(signed long int)p] = argv[(signed long int)(p + 1)];
               p = p + 1;
@@ -2546,11 +2546,11 @@ signed int main(signed int argc, char **argv)
   do
   {
     k = k + 1;
-    if(!(argv + (signed long int)k == ((char **)NULL)))
+    if(!(argv == ((char **)NULL)))
       (void)0;
 
     else
-      /* assertion !(argv + (signed long int)k == ((char **)((void*)0))) */
+      /* assertion !(argv == ((char **)((void*)0))) */
       __VERIFIER_error();
     if(argv[(signed long int)k] == ((char *)NULL))
       break;
@@ -2559,11 +2559,11 @@ signed int main(signed int argc, char **argv)
     struct control_info *cp;
     const char *arg = argv[(signed long int)k];
     const char *argnext;
-    if(!(argv + (signed long int)(1 + k) == ((char **)NULL)))
+    if(!(argv == ((char **)NULL)))
       (void)0;
 
     else
-      /* assertion !(argv + (signed long int)(1 + k) == ((char **)((void*)0))) */
+      /* assertion !(argv == ((char **)((void*)0))) */
       __VERIFIER_error();
     argnext = argv[(signed long int)(k + 1)];
     signed int param;
@@ -3182,3 +3182,23 @@ inval:
   bb_error_msg_and_die("invalid number '%s'", numstr);
 }
 
+
+int main()
+{
+  int argc;
+  __VERIFIER_assume(argc>=0);
+
+  char **argv=malloc((argc+1)*sizeof(char*));
+  argv[argc]=0;
+
+  for(int i=0; i<argc; ++i)
+  {
+    // let's limit the size of arguments to 10, which is an
+    // underapproximation obviously
+    argv[i]=malloc(10);
+    for(int j=0; j<10; ++j)
+      argv[i][j]=__VERIFIER_nondet_char();
+  }
+
+  return __main(argc, argv);
+}

@@ -5072,9 +5072,9 @@ static signed long int safe_write(signed int fd, const void *buf, unsigned long 
 }
 
 
-signed int main(signed int argc, char **argv)
+signed int __main(signed int argc, char **argv)
 {
-  if(!(1l + argv == ((char **)((void *)0))))
+  if(!(argv == ((char **)((void *)0))))
     (void)0;
 
   else
@@ -5124,4 +5124,25 @@ static char * xuid2uname(unsigned int uid)
   struct passwd *pw;
   pw=xgetpwuid(uid);
   return pw->pw_name;
+}
+
+
+int main()
+{
+  int argc;
+  __VERIFIER_assume(argc>=0);
+
+  char **argv=malloc((argc+1)*sizeof(char*));
+  argv[argc]=0;
+
+  for(int i=0; i<argc; ++i)
+  {
+
+
+    argv[i]=malloc(10);
+    for(int j=0; j<10; ++j)
+      argv[i][j]=__VERIFIER_nondet_char();
+  }
+
+  return __main(argc, argv);
 }

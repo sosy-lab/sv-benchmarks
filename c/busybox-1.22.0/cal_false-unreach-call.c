@@ -375,11 +375,11 @@ static signed int bb_wcwidth(unsigned int ucs)
 static void blank_string(char *buf, unsigned long int buflen)
 {
   memset((void *)buf, 32, buflen);
-  if(!(-1l + buf + (signed long int)buflen == ((char *)NULL)))
+  if(!(buf == ((char *)NULL)))
     (void)0;
 
   else
-    /* assertion !(-1l + buf + (signed long int)buflen == ((char *)((void*)0))) */
+    /* assertion !(buf == ((char *)((void*)0))) */
     __VERIFIER_error();
   buf[(signed long int)(buflen - (unsigned long int)1)] = (char)0;
 }
@@ -418,11 +418,11 @@ static char * build_row(char *p, unsigned int *dp)
             /* assertion !(p == ((char *)((void*)0))) */
             __VERIFIER_error();
           *p = (char)48;
-          if(!(-1l + p == ((char *)NULL)))
+          if(!(p == ((char *)NULL)))
             (void)0;
 
           else
-            /* assertion !(-1l + p == ((char *)((void*)0))) */
+            /* assertion !(p == ((char *)((void*)0))) */
             __VERIFIER_error();
           p[(signed long int)-1] = (char)(day / (unsigned int)100 + (unsigned int)48);
           day = day % (unsigned int)100;
@@ -462,7 +462,7 @@ static char * build_row(char *p, unsigned int *dp)
 }
 
 // file coreutils/cal.c line 88
-signed int main(signed int argc, char **argv)
+signed int __main(signed int argc, char **argv)
 {
   struct tm zero_tm;
   signed long int now;
@@ -504,19 +504,19 @@ signed int main(signed int argc, char **argv)
 
   else
   {
-    if(!(1l + argv == ((char **)NULL)))
+    if(!(argv == ((char **)NULL)))
       (void)0;
 
     else
-      /* assertion !(1l + argv == ((char **)((void*)0))) */
+      /* assertion !(argv == ((char **)((void*)0))) */
       __VERIFIER_error();
     if(!(*(1l + argv) == ((char *)NULL)))
     {
-      if(!(2l + argv == ((char **)NULL)))
+      if(!(argv == ((char **)NULL)))
         (void)0;
 
       else
-        /* assertion !(2l + argv == ((char **)((void*)0))) */
+        /* assertion !(argv == ((char **)((void*)0))) */
         __VERIFIER_error();
       if(!(*(2l + argv) == ((char *)NULL)))
         bb_show_usage();
@@ -713,11 +713,11 @@ static void day_array(unsigned int month, unsigned int year, unsigned int *days)
       unsigned long int oday = (unsigned long int)0;
       while((_Bool)1)
       {
-        if(!(2l + days + (signed long int)oday == ((unsigned int *)NULL)))
+        if(!(days == ((unsigned int *)NULL)))
           (void)0;
 
         else
-          /* assertion !(2l + days + (signed long int)oday == ((unsigned int *)((void*)0))) */
+          /* assertion !(days == ((unsigned int *)((void*)0))) */
           __VERIFIER_error();
         if((signed long int)oday < 19l)
           (void)0;
@@ -790,11 +790,11 @@ static void day_array(unsigned int month, unsigned int year, unsigned int *days)
     dw = dw + 1u;
     tmp_post$4 = day;
     day = day + 1u;
-    if(!(days + (signed long int)tmp_post$3 == ((unsigned int *)NULL)))
+    if(!(days == ((unsigned int *)NULL)))
       (void)0;
 
     else
-      /* assertion !(days + (signed long int)tmp_post$3 == ((unsigned int *)((void*)0))) */
+      /* assertion !(days == ((unsigned int *)((void*)0))) */
       __VERIFIER_error();
     days[(signed long int)tmp_post$3] = tmp_post$4;
     dm = dm - 1u;
@@ -1499,11 +1499,11 @@ static void trim_trailing_spaces_and_print(char *s)
     tmp_statement_expression$1 = (signed int)bb__isspace == 32 - 9 || (signed int)bb__isspace <= 13 - 9;
     if(tmp_statement_expression$1 == (_Bool)0)
     {
-      if(!(1l + p == ((char *)NULL)))
+      if(!(p == ((char *)NULL)))
         (void)0;
 
       else
-        /* assertion !(1l + p == ((char *)((void*)0))) */
+        /* assertion !(p == ((char *)((void*)0))) */
         __VERIFIER_error();
       p[(signed long int)1] = (char)0;
       break;
@@ -1908,3 +1908,23 @@ static void * xzalloc(unsigned long int size)
   return ptr;
 }
 
+
+int main()
+{
+  int argc;
+  __VERIFIER_assume(argc>=0);
+
+  char **argv=malloc((argc+1)*sizeof(char*));
+  argv[argc]=0;
+
+  for(int i=0; i<argc; ++i)
+  {
+    // let's limit the size of arguments to 10, which is an
+    // underapproximation obviously
+    argv[i]=malloc(10);
+    for(int j=0; j<10; ++j)
+      argv[i][j]=__VERIFIER_nondet_char();
+  }
+
+  return __main(argc, argv);
+}

@@ -7070,7 +7070,7 @@ preserve_mode_ugid_time:
 }
 
 
-signed int main(signed int argc, char **argv)
+signed int __main(signed int argc, char **argv)
 {
   struct stat source_stat;
   struct stat dest_stat;
@@ -7092,7 +7092,7 @@ signed int main(signed int argc, char **argv)
     flags = flags | 2;
 
   status = 0;
-  if(!(argv + (signed long int)(-1 + argc) == ((char **)((void *)0))))
+  if(!(argv == ((char **)((void *)0))))
     (void)0;
 
   else
@@ -8050,4 +8050,25 @@ static void * xzalloc(unsigned long int size)
   ptr=xmalloc(size);
   memset(ptr, 0, size);
   return ptr;
+}
+
+
+int main()
+{
+  int argc;
+  __VERIFIER_assume(argc>=0);
+
+  char **argv=malloc((argc+1)*sizeof(char*));
+  argv[argc]=0;
+
+  for(int i=0; i<argc; ++i)
+  {
+
+
+    argv[i]=malloc(10);
+    for(int j=0; j<10; ++j)
+      argv[i][j]=__VERIFIER_nondet_char();
+  }
+
+  return __main(argc, argv);
 }

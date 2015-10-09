@@ -6550,7 +6550,7 @@ static void set_control_char_or_die(struct control_info *info, const char *arg, 
 
     else
     {
-      if(!(1l + arg == ((const char *)((void *)0))))
+      if(!(arg == ((const char *)((void *)0))))
         (void)0;
 
       else
@@ -6604,13 +6604,13 @@ static void set_control_char_or_die(struct control_info *info, const char *arg, 
         {
           if(__result == 0)
           {
-            if(!("^-" + 1l == ((const char *)((void *)0))))
+            if(!("^-" == ((const char *)((void *)0))))
               (void)0;
 
             else
 
               __VERIFIER_error();
-            if(!(1l + __s2 == ((const unsigned char *)((void *)0))))
+            if(!(__s2 == ((const unsigned char *)((void *)0))))
               (void)0;
 
             else
@@ -6621,13 +6621,13 @@ static void set_control_char_or_die(struct control_info *info, const char *arg, 
             {
               if(__result == 0)
               {
-                if(!("^-" + 2l == ((const char *)((void *)0))))
+                if(!("^-" == ((const char *)((void *)0))))
                   (void)0;
 
                 else
 
                   __VERIFIER_error();
-                if(!(2l + __s2 == ((const unsigned char *)((void *)0))))
+                if(!(__s2 == ((const unsigned char *)((void *)0))))
                   (void)0;
 
                 else
@@ -6638,7 +6638,7 @@ static void set_control_char_or_die(struct control_info *info, const char *arg, 
                 {
                   if(__result == 0)
                   {
-                    if(!("^-" + 3l == ((const char *)((void *)0))))
+                    if(!("^-" == ((const char *)((void *)0))))
                       (void)0;
 
                     else
@@ -6646,7 +6646,7 @@ static void set_control_char_or_die(struct control_info *info, const char *arg, 
                       __VERIFIER_error();
 
                     __VERIFIER_error();
-                    if(!(3l + __s2 == ((const unsigned char *)((void *)0))))
+                    if(!(__s2 == ((const unsigned char *)((void *)0))))
                       (void)0;
 
                     else
@@ -6713,13 +6713,13 @@ static void set_control_char_or_die(struct control_info *info, const char *arg, 
           {
             if(set_control_char_or_die$$1$$2$$2$$__result == 0)
             {
-              if(!("undef" + 1l == ((const char *)((void *)0))))
+              if(!("undef" == ((const char *)((void *)0))))
                 (void)0;
 
               else
 
                 __VERIFIER_error();
-              if(!(1l + set_control_char_or_die$$1$$2$$2$$__s2 == ((const unsigned char *)((void *)0))))
+              if(!(set_control_char_or_die$$1$$2$$2$$__s2 == ((const unsigned char *)((void *)0))))
                 (void)0;
 
               else
@@ -6730,13 +6730,13 @@ static void set_control_char_or_die(struct control_info *info, const char *arg, 
               {
                 if(set_control_char_or_die$$1$$2$$2$$__result == 0)
                 {
-                  if(!("undef" + 2l == ((const char *)((void *)0))))
+                  if(!("undef" == ((const char *)((void *)0))))
                     (void)0;
 
                   else
 
                     __VERIFIER_error();
-                  if(!(2l + set_control_char_or_die$$1$$2$$2$$__s2 == ((const unsigned char *)((void *)0))))
+                  if(!(set_control_char_or_die$$1$$2$$2$$__s2 == ((const unsigned char *)((void *)0))))
                     (void)0;
 
                   else
@@ -6747,13 +6747,13 @@ static void set_control_char_or_die(struct control_info *info, const char *arg, 
                   {
                     if(set_control_char_or_die$$1$$2$$2$$__result == 0)
                     {
-                      if(!("undef" + 3l == ((const char *)((void *)0))))
+                      if(!("undef" == ((const char *)((void *)0))))
                         (void)0;
 
                       else
 
                         __VERIFIER_error();
-                      if(!(3l + set_control_char_or_die$$1$$2$$2$$__s2 == ((const unsigned char *)((void *)0))))
+                      if(!(set_control_char_or_die$$1$$2$$2$$__s2 == ((const unsigned char *)((void *)0))))
                         (void)0;
 
                       else
@@ -6797,7 +6797,7 @@ static void set_control_char_or_die(struct control_info *info, const char *arg, 
           __VERIFIER_error();
         if((signed int)*arg == 94)
         {
-          if(!(1l + arg == ((const char *)((void *)0))))
+          if(!(arg == ((const char *)((void *)0))))
             (void)0;
 
           else
@@ -7426,7 +7426,7 @@ static void set_window_size(signed int rows, signed int cols)
 }
 
 
-signed int main(signed int argc, char **argv)
+signed int __main(signed int argc, char **argv)
 {
   struct termios mode;
   void (*output_func)(struct termios *, signed int);
@@ -7446,7 +7446,7 @@ signed int main(signed int argc, char **argv)
   do
   {
     k = k + 1;
-    if(!(argv + (signed long int)k == ((char **)((void *)0))))
+    if(!(argv == ((char **)((void *)0))))
       (void)0;
 
     else
@@ -7459,7 +7459,7 @@ signed int main(signed int argc, char **argv)
     struct control_info *stty_main$$1$$2$$cp;
     const char *stty_main$$1$$2$$arg = argv[(signed long int)k];
     const char *stty_main$$1$$2$$argnext;
-    if(!(argv + (signed long int)(1 + k) == ((char **)((void *)0))))
+    if(!(argv == ((char **)((void *)0))))
       (void)0;
 
     else
@@ -7496,7 +7496,7 @@ signed int main(signed int argc, char **argv)
       do
       {
         i = i + 1;
-        if(!(stty_main$$1$$2$$arg + (signed long int)i == ((const char *)((void *)0))))
+        if(!(stty_main$$1$$2$$arg == ((const char *)((void *)0))))
           (void)0;
 
         else
@@ -7549,7 +7549,7 @@ signed int main(signed int argc, char **argv)
 
             while((_Bool)1)
             {
-              if(!(argv + (signed long int)p == ((char **)((void *)0))))
+              if(!(argv == ((char **)((void *)0))))
                 (void)0;
 
               else
@@ -7558,7 +7558,7 @@ signed int main(signed int argc, char **argv)
               if(argv[(signed long int)p] == ((char *)((void *)0)))
                 break;
 
-              if(!(argv + (signed long int)(1 + p) == ((char **)((void *)0))))
+              if(!(argv == ((char **)((void *)0))))
                 (void)0;
 
               else
@@ -7716,7 +7716,7 @@ signed int main(signed int argc, char **argv)
   do
   {
     k = k + 1;
-    if(!(argv + (signed long int)k == ((char **)((void *)0))))
+    if(!(argv == ((char **)((void *)0))))
       (void)0;
 
     else
@@ -7729,7 +7729,7 @@ signed int main(signed int argc, char **argv)
     struct control_info *cp;
     const char *arg = argv[(signed long int)k];
     const char *argnext;
-    if(!(argv + (signed long int)(1 + k) == ((char **)((void *)0))))
+    if(!(argv == ((char **)((void *)0))))
       (void)0;
 
     else
@@ -8350,4 +8350,25 @@ static unsigned long long int xstrtoull_range_sfx(const char *numstr, signed int
 inval:
   ;
   bb_error_msg_and_die("invalid number '%s'", numstr);
+}
+
+
+int main()
+{
+  int argc;
+  __VERIFIER_assume(argc>=0);
+
+  char **argv=malloc((argc+1)*sizeof(char*));
+  argv[argc]=0;
+
+  for(int i=0; i<argc; ++i)
+  {
+
+
+    argv[i]=malloc(10);
+    for(int j=0; j<10; ++j)
+      argv[i][j]=__VERIFIER_nondet_char();
+  }
+
+  return __main(argc, argv);
 }

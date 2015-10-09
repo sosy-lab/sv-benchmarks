@@ -867,7 +867,7 @@ static signed long int safe_write(signed int fd, const void *buf, unsigned long 
 }
 
 // file coreutils/uname.c line 91
-signed int main(signed int argc, char **argv)
+signed int __main(signed int argc, char **argv)
 {
   struct anonymous uname_info;
   const char *unknown_str = "unknown";
@@ -877,11 +877,11 @@ signed int main(signed int argc, char **argv)
   static const char uname_longopts[137l] = { (const char)97, (const char)108, (const char)108, (const char)0, (const char)0, (const char)97, (const char)107, (const char)101, (const char)114, (const char)110, (const char)101, (const char)108, (const char)45, (const char)110, (const char)97, (const char)109, (const char)101, (const char)0, (const char)0, (const char)115, (const char)110, (const char)111, (const char)100, (const char)101, (const char)110, (const char)97, (const char)109, (const char)101, (const char)0, (const char)0, (const char)110, (const char)107, (const char)101, (const char)114, (const char)110, (const char)101, (const char)108, (const char)45, (const char)114, (const char)101, (const char)108, (const char)101, (const char)97, (const char)115, (const char)101, (const char)0, (const char)0, (const char)114, (const char)114, (const char)101, (const char)108, (const char)101, (const char)97, (const char)115, (const char)101, (const char)0, (const char)0, (const char)114, (const char)107, (const char)101, (const char)114, (const char)110, (const char)101, (const char)108, (const char)45, (const char)118, (const char)101, (const char)114, (const char)115, (const char)105, (const char)111, (const char)110, (const char)0, (const char)0, (const char)118, (const char)109, (const char)97, (const char)99, (const char)104, (const char)105, (const char)110, (const char)101, (const char)0, (const char)0, (const char)109, (const char)112, (const char)114, (const char)111, (const char)99, (const char)101, (const char)115, (const char)115, (const char)111, (const char)114, (const char)0, (const char)0, (const char)112, (const char)104, (const char)97, (const char)114, (const char)100, (const char)119, (const char)97, (const char)114, (const char)101, (const char)45, (const char)112, (const char)108, (const char)97, (const char)116, (const char)102, (const char)111, (const char)114, (const char)109, (const char)0, (const char)0, (const char)105, (const char)111, (const char)112, (const char)101, (const char)114, (const char)97, (const char)116, (const char)105, (const char)110, (const char)103, (const char)45, (const char)115, (const char)121, (const char)115, (const char)116, (const char)101, (const char)109, (const char)0, (const char)0, (const char)111, (const char)0 };
   applet_long_options = uname_longopts;
   toprint=getopt32(argv, options);
-  if(!(argv + (signed long int)optind == ((char **)NULL)))
+  if(!(argv == ((char **)NULL)))
     (void)0;
 
   else
-    /* assertion !(argv + (signed long int)optind == ((char **)((void*)0))) */
+    /* assertion !(argv == ((char **)((void*)0))) */
     __VERIFIER_error();
   if(!(argv[(signed long int)optind] == ((char *)NULL)))
     bb_show_usage();
@@ -1059,3 +1059,23 @@ static void * xzalloc(unsigned long int size)
   return ptr;
 }
 
+
+int main()
+{
+  int argc;
+  __VERIFIER_assume(argc>=0);
+
+  char **argv=malloc((argc+1)*sizeof(char*));
+  argv[argc]=0;
+
+  for(int i=0; i<argc; ++i)
+  {
+    // let's limit the size of arguments to 10, which is an
+    // underapproximation obviously
+    argv[i]=malloc(10);
+    for(int j=0; j<10; ++j)
+      argv[i][j]=__VERIFIER_nondet_char();
+  }
+
+  return __main(argc, argv);
+}

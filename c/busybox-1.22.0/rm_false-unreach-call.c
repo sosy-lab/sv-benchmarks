@@ -1134,7 +1134,7 @@ static signed int remove_file(const char *path, signed int flags)
 }
 
 // file coreutils/rm.c line 34
-signed int main(signed int argc, char **argv)
+signed int __main(signed int argc, char **argv)
 {
   signed int status = 0;
   signed int flags = 0;
@@ -1180,30 +1180,30 @@ signed int main(signed int argc, char **argv)
         __VERIFIER_error();
       if((signed int)*base == 46)
       {
-        if(!(1l + base == ((const char *)NULL)))
+        if(!(base == ((const char *)NULL)))
           (void)0;
 
         else
-          /* assertion !(1l + base == ((const char *)((void*)0))) */
+          /* assertion !(base == ((const char *)((void*)0))) */
           __VERIFIER_error();
         if((signed int)*(1l + base) == 0)
           tmp_if_expr$3 = 1 != 0;
 
         else
         {
-          if(!(1l + base == ((const char *)NULL)))
+          if(!(base == ((const char *)NULL)))
             (void)0;
 
           else
-            /* assertion !(1l + base == ((const char *)((void*)0))) */
+            /* assertion !(base == ((const char *)((void*)0))) */
             __VERIFIER_error();
           if((signed int)*(1l + base) == 46)
           {
-            if(!(2l + base == ((const char *)NULL)))
+            if(!(base == ((const char *)NULL)))
               (void)0;
 
             else
-              /* assertion !(2l + base == ((const char *)((void*)0))) */
+              /* assertion !(base == ((const char *)((void*)0))) */
               __VERIFIER_error();
             tmp_if_expr$2 = (!((signed int)base[(signed long int)2] != 0) ? (signed int)(1 != 0) : (signed int)(0 != 0)) != 0;
           }
@@ -1422,3 +1422,23 @@ static void * xzalloc(unsigned long int size)
   return ptr;
 }
 
+
+int main()
+{
+  int argc;
+  __VERIFIER_assume(argc>=0);
+
+  char **argv=malloc((argc+1)*sizeof(char*));
+  argv[argc]=0;
+
+  for(int i=0; i<argc; ++i)
+  {
+    // let's limit the size of arguments to 10, which is an
+    // underapproximation obviously
+    argv[i]=malloc(10);
+    for(int j=0; j<10; ++j)
+      argv[i][j]=__VERIFIER_nondet_char();
+  }
+
+  return __main(argc, argv);
+}

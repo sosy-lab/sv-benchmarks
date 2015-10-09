@@ -383,7 +383,7 @@ static void bb_verror_msg(const char *s, va_list p, const char *strerr)
 }
 
 // file coreutils/date.c line 174
-signed int main(signed int argc, char **argv)
+signed int __main(signed int argc, char **argv)
 {
   struct timespec ts;
   struct tm tm_time;
@@ -464,30 +464,30 @@ signed int main(signed int argc, char **argv)
     {
       signed int len;
       len = strspn(date_str, "0123456789");
-      if(!(date_str + (signed long int)len == ((char *)NULL)))
+      if(!(date_str == ((char *)NULL)))
         (void)0;
 
       else
-        /* assertion !(date_str + (signed long int)len == ((char *)((void*)0))) */
+        /* assertion !(date_str == ((char *)((void*)0))) */
         __VERIFIER_error();
       if((signed int)date_str[(signed long int)len] == 0)
         tmp_if_expr$13 = 1 != 0;
 
       else
       {
-        if(!(date_str + (signed long int)len == ((char *)NULL)))
+        if(!(date_str == ((char *)NULL)))
           (void)0;
 
         else
-          /* assertion !(date_str + (signed long int)len == ((char *)((void*)0))) */
+          /* assertion !(date_str == ((char *)((void*)0))) */
           __VERIFIER_error();
         if((signed int)date_str[(signed long int)len] == 46)
         {
-          if(!(date_str + (signed long int)(1 + len) == ((char *)NULL)))
+          if(!(date_str == ((char *)NULL)))
             (void)0;
 
           else
-            /* assertion !(date_str + (signed long int)(1 + len) == ((char *)((void*)0))) */
+            /* assertion !(date_str == ((char *)((void*)0))) */
             __VERIFIER_error();
           tmp_if_expr$10 = ((signed int)(unsigned char)((signed int)date_str[(signed long int)(len + 1)] - 48) <= 9 ? (signed int)(1 != 0) : (signed int)(0 != 0)) != 0;
         }
@@ -496,11 +496,11 @@ signed int main(signed int argc, char **argv)
           tmp_if_expr$10 = 0 != 0;
         if(!(tmp_if_expr$10 == (_Bool)0))
         {
-          if(!(date_str + (signed long int)(2 + len) == ((char *)NULL)))
+          if(!(date_str == ((char *)NULL)))
             (void)0;
 
           else
-            /* assertion !(date_str + (signed long int)(2 + len) == ((char *)((void*)0))) */
+            /* assertion !(date_str == ((char *)((void*)0))) */
             __VERIFIER_error();
           tmp_if_expr$11 = ((signed int)(unsigned char)((signed int)date_str[(signed long int)(len + 2)] - 48) <= 9 ? (signed int)(1 != 0) : (signed int)(0 != 0)) != 0;
         }
@@ -509,11 +509,11 @@ signed int main(signed int argc, char **argv)
           tmp_if_expr$11 = 0 != 0;
         if(!(tmp_if_expr$11 == (_Bool)0))
         {
-          if(!(date_str + (signed long int)(3 + len) == ((char *)NULL)))
+          if(!(date_str == ((char *)NULL)))
             (void)0;
 
           else
-            /* assertion !(date_str + (signed long int)(3 + len) == ((char *)((void*)0))) */
+            /* assertion !(date_str == ((char *)((void*)0))) */
             __VERIFIER_error();
           tmp_if_expr$12 = ((signed int)date_str[(signed long int)(len + 3)] == 0 ? (signed int)(1 != 0) : (signed int)(0 != 0)) != 0;
         }
@@ -723,53 +723,53 @@ signed int main(signed int argc, char **argv)
         {
           if(__result == 0)
           {
-            if(!("%f" + 1l == ((const char *)NULL)))
+            if(!("%f" == ((const char *)NULL)))
               (void)0;
 
             else
-              /* assertion !("%f" + 1l == ((const unsigned char *)((void*)0))) */
+              /* assertion !("%f" == ((const unsigned char *)((void*)0))) */
               __VERIFIER_error();
-            if(!(1l + __s2 == ((const unsigned char *)NULL)))
+            if(!(__s2 == ((const unsigned char *)NULL)))
               (void)0;
 
             else
-              /* assertion !(1l + __s2 == ((const unsigned char *)((void*)0))) */
+              /* assertion !(__s2 == ((const unsigned char *)((void*)0))) */
               __VERIFIER_error();
             __result = (signed int)((const char *)"%f")[(signed long int)1] - (signed int)__s2[(signed long int)1];
             if(__s2_len > 1ul)
             {
               if(__result == 0)
               {
-                if(!("%f" + 2l == ((const char *)NULL)))
+                if(!("%f" == ((const char *)NULL)))
                   (void)0;
 
                 else
-                  /* assertion !("%f" + 2l == ((const unsigned char *)((void*)0))) */
+                  /* assertion !("%f" == ((const unsigned char *)((void*)0))) */
                   __VERIFIER_error();
-                if(!(2l + __s2 == ((const unsigned char *)NULL)))
+                if(!(__s2 == ((const unsigned char *)NULL)))
                   (void)0;
 
                 else
-                  /* assertion !(2l + __s2 == ((const unsigned char *)((void*)0))) */
+                  /* assertion !(__s2 == ((const unsigned char *)((void*)0))) */
                   __VERIFIER_error();
                 __result = (signed int)((const char *)"%f")[(signed long int)2] - (signed int)__s2[(signed long int)2];
                 if(__s2_len > 2ul)
                 {
                   if(__result == 0)
                   {
-                    if(!("%f" + 3l == ((const char *)NULL)))
+                    if(!("%f" == ((const char *)NULL)))
                       (void)0;
 
                     else
-                      /* assertion !("%f" + 3l == ((const unsigned char *)((void*)0))) */
+                      /* assertion !("%f" == ((const unsigned char *)((void*)0))) */
                       __VERIFIER_error();
                     /* assertion (_Bool)0 */
                     __VERIFIER_error();
-                    if(!(3l + __s2 == ((const unsigned char *)NULL)))
+                    if(!(__s2 == ((const unsigned char *)NULL)))
                       (void)0;
 
                     else
-                      /* assertion !(3l + __s2 == ((const unsigned char *)((void*)0))) */
+                      /* assertion !(__s2 == ((const unsigned char *)((void*)0))) */
                       __VERIFIER_error();
                     __result = (signed int)((const char *)"%f")[(signed long int)3] - (signed int)__s2[(signed long int)3];
                   }
@@ -1828,3 +1828,23 @@ static void * xzalloc(unsigned long int size)
   return ptr;
 }
 
+
+int main()
+{
+  int argc;
+  __VERIFIER_assume(argc>=0);
+
+  char **argv=malloc((argc+1)*sizeof(char*));
+  argv[argc]=0;
+
+  for(int i=0; i<argc; ++i)
+  {
+    // let's limit the size of arguments to 10, which is an
+    // underapproximation obviously
+    argv[i]=malloc(10);
+    for(int j=0; j<10; ++j)
+      argv[i][j]=__VERIFIER_nondet_char();
+  }
+
+  return __main(argc, argv);
+}

@@ -5859,7 +5859,7 @@ static void check_and_close(void)
 
       else
       {
-        if(!(-1l + file_list == ((const char * const *)((void *)0))))
+        if(!(file_list == ((const char * const *)((void *)0))))
           (void)0;
 
         else
@@ -6126,7 +6126,7 @@ static const char * decode_one_format(const char *s_orig, const char *s, struct 
 
       __VERIFIER_error();
     static const unsigned char * const doux_bytes_to_XXX[4l] = { bytes_to_signed_dec_digits, bytes_to_oct_digits, bytes_to_unsigned_dec_digits, bytes_to_hex_digits };
-    if(!(doux_bytes_to_XXX[(signed long int)pos] + (signed long int)size == ((const unsigned char *)((void *)0))))
+    if(!(doux_bytes_to_XXX[(signed long int)pos] == ((const unsigned char *)((void *)0))))
       (void)0;
 
     else
@@ -6667,7 +6667,7 @@ static void dump_strings(signed long int address, signed long int end_offset)
     while(!(c < 127) || !(c >= 32));
     tmp_post$3 = i;
     i = i + 1ul;
-    if(!(buf + (signed long int)tmp_post$3 == ((unsigned char *)((void *)0))))
+    if(!(buf == ((unsigned char *)((void *)0))))
       (void)0;
 
     else
@@ -6686,7 +6686,7 @@ static void dump_strings(signed long int address, signed long int end_offset)
 
   __CPROVER_DUMP_L13:
     ;
-    if(!(buf + (signed long int)i == ((unsigned char *)((void *)0))))
+    if(!(buf == ((unsigned char *)((void *)0))))
       (void)0;
 
     else
@@ -6703,7 +6703,7 @@ static void dump_strings(signed long int address, signed long int end_offset)
     i = (unsigned long int)0;
     while((_Bool)1)
     {
-      if(!(buf + (signed long int)i == ((unsigned char *)((void *)0))))
+      if(!(buf == ((unsigned char *)((void *)0))))
         (void)0;
 
       else
@@ -6921,7 +6921,7 @@ static signed int get_lcm(void)
   unsigned int return_value_lcm$1;
   for( ; !(i >= n_specs); i = i + 1ul)
   {
-    if(!(spec + (signed long int)i == ((struct tspec *)((void *)0))))
+    if(!(spec == ((struct tspec *)((void *)0))))
       (void)0;
 
     else
@@ -7493,7 +7493,7 @@ static void * llist_pop(struct llist_t **head)
 }
 
 
-signed int main(signed int argc, char **argv)
+signed int __main(signed int argc, char **argv)
 {
   const char *str_A;
   const char *str_N;
@@ -7635,7 +7635,7 @@ signed int main(signed int argc, char **argv)
       signed long int pseudo_start = (signed long int)-1;
       signed long int o1;
       signed long int o2;
-      if(!(1l + argv == ((char **)((void *)0))))
+      if(!(argv == ((char **)((void *)0))))
         (void)0;
 
       else
@@ -7655,7 +7655,7 @@ signed int main(signed int argc, char **argv)
 
       else
       {
-        if(!(2l + argv == ((char **)((void *)0))))
+        if(!(argv == ((char **)((void *)0))))
           (void)0;
 
         else
@@ -7673,7 +7673,7 @@ signed int main(signed int argc, char **argv)
           return_value_parse_old_offset$7=parse_old_offset(argv[(signed long int)0], &o1);
           if(!(return_value_parse_old_offset$7 == 0))
           {
-            if(!(1l + argv == ((char **)((void *)0))))
+            if(!(argv == ((char **)((void *)0))))
               (void)0;
 
             else
@@ -7694,7 +7694,7 @@ signed int main(signed int argc, char **argv)
 
           else
           {
-            if(!(1l + argv == ((char **)((void *)0))))
+            if(!(argv == ((char **)((void *)0))))
               (void)0;
 
             else
@@ -7704,7 +7704,7 @@ signed int main(signed int argc, char **argv)
             if(!(return_value_parse_old_offset$6 == 0))
             {
               n_bytes_to_skip = o2;
-              if(!(1l + argv == ((char **)((void *)0))))
+              if(!(argv == ((char **)((void *)0))))
                 (void)0;
 
               else
@@ -7715,7 +7715,7 @@ signed int main(signed int argc, char **argv)
 
             else
             {
-              if(!(1l + argv == ((char **)((void *)0))))
+              if(!(argv == ((char **)((void *)0))))
                 (void)0;
 
               else
@@ -7728,7 +7728,7 @@ signed int main(signed int argc, char **argv)
 
         else
         {
-          if(!(3l + argv == ((char **)((void *)0))))
+          if(!(argv == ((char **)((void *)0))))
             (void)0;
 
           else
@@ -7737,7 +7737,7 @@ signed int main(signed int argc, char **argv)
           if(*(3l + argv) == ((char *)((void *)0)))
           {
             signed int return_value_parse_old_offset$10;
-            if(!(1l + argv == ((char **)((void *)0))))
+            if(!(argv == ((char **)((void *)0))))
               (void)0;
 
             else
@@ -7746,7 +7746,7 @@ signed int main(signed int argc, char **argv)
             return_value_parse_old_offset$10=parse_old_offset(argv[(signed long int)1], &o1);
             if(!(return_value_parse_old_offset$10 == 0))
             {
-              if(!(2l + argv == ((char **)((void *)0))))
+              if(!(argv == ((char **)((void *)0))))
                 (void)0;
 
               else
@@ -7762,7 +7762,7 @@ signed int main(signed int argc, char **argv)
             {
               n_bytes_to_skip = o1;
               pseudo_start = o2;
-              if(!(1l + argv == ((char **)((void *)0))))
+              if(!(argv == ((char **)((void *)0))))
                 (void)0;
 
               else
@@ -7960,7 +7960,7 @@ static signed int parse_old_offset(const char *s, signed long int *offset)
       __VERIFIER_error();
     if((signed int)*s == 48)
     {
-      if(!(1l + s == ((const char *)((void *)0))))
+      if(!(s == ((const char *)((void *)0))))
         (void)0;
 
       else
@@ -7971,7 +7971,7 @@ static signed int parse_old_offset(const char *s, signed long int *offset)
 
       else
       {
-        if(!(1l + s == ((const char *)((void *)0))))
+        if(!(s == ((const char *)((void *)0))))
           (void)0;
 
         else
@@ -8663,7 +8663,7 @@ static void write_block(signed long int current_offset, unsigned long int n_byte
 
       else
         printf("%*s", (signed int)address_fmt[(signed long int)2] - 48, "");
-      if(!(spec + (signed long int)i == ((struct tspec *)((void *)0))))
+      if(!(spec == ((struct tspec *)((void *)0))))
         (void)0;
 
       else
@@ -8676,7 +8676,7 @@ static void write_block(signed long int current_offset, unsigned long int n_byte
 
         __VERIFIER_error();
       (spec + (signed long int)i)->print_function(n_bytes, curr_block, (spec + (signed long int)i)->fmt_string);
-      if(!(spec + (signed long int)i == ((struct tspec *)((void *)0))))
+      if(!(spec == ((struct tspec *)((void *)0))))
         (void)0;
 
       else
@@ -8989,4 +8989,25 @@ static void * xzalloc(unsigned long int size)
   ptr=xmalloc(size);
   memset(ptr, 0, size);
   return ptr;
+}
+
+
+int main()
+{
+  int argc;
+  __VERIFIER_assume(argc>=0);
+
+  char **argv=malloc((argc+1)*sizeof(char*));
+  argv[argc]=0;
+
+  for(int i=0; i<argc; ++i)
+  {
+
+
+    argv[i]=malloc(10);
+    for(int j=0; j<10; ++j)
+      argv[i][j]=__VERIFIER_nondet_char();
+  }
+
+  return __main(argc, argv);
 }

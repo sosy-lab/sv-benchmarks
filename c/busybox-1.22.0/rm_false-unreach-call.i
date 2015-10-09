@@ -6637,7 +6637,7 @@ static signed int remove_file(const char *path, signed int flags)
 }
 
 
-signed int main(signed int argc, char **argv)
+signed int __main(signed int argc, char **argv)
 {
   signed int status = 0;
   signed int flags = 0;
@@ -6683,7 +6683,7 @@ signed int main(signed int argc, char **argv)
         __VERIFIER_error();
       if((signed int)*base == 46)
       {
-        if(!(1l + base == ((const char *)((void *)0))))
+        if(!(base == ((const char *)((void *)0))))
           (void)0;
 
         else
@@ -6694,7 +6694,7 @@ signed int main(signed int argc, char **argv)
 
         else
         {
-          if(!(1l + base == ((const char *)((void *)0))))
+          if(!(base == ((const char *)((void *)0))))
             (void)0;
 
           else
@@ -6702,7 +6702,7 @@ signed int main(signed int argc, char **argv)
             __VERIFIER_error();
           if((signed int)*(1l + base) == 46)
           {
-            if(!(2l + base == ((const char *)((void *)0))))
+            if(!(base == ((const char *)((void *)0))))
               (void)0;
 
             else
@@ -6923,4 +6923,25 @@ static void * xzalloc(unsigned long int size)
   ptr=xmalloc(size);
   memset(ptr, 0, size);
   return ptr;
+}
+
+
+int main()
+{
+  int argc;
+  __VERIFIER_assume(argc>=0);
+
+  char **argv=malloc((argc+1)*sizeof(char*));
+  argv[argc]=0;
+
+  for(int i=0; i<argc; ++i)
+  {
+
+
+    argv[i]=malloc(10);
+    for(int j=0; j<10; ++j)
+      argv[i][j]=__VERIFIER_nondet_char();
+  }
+
+  return __main(argc, argv);
 }

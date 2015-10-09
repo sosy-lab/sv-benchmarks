@@ -538,11 +538,11 @@ static void check_and_close(void)
 
       else
       {
-        if(!(-1l + file_list == ((const char * const *)NULL)))
+        if(!(file_list == ((const char * const *)NULL)))
           (void)0;
 
         else
-          /* assertion !(-1l + file_list == ((const char * const *)((void*)0))) */
+          /* assertion !(file_list == ((const char * const *)((void*)0))) */
           __VERIFIER_error();
         tmp_if_expr$1 = file_list[(signed long int)-1];
       }
@@ -805,11 +805,11 @@ static const char * decode_one_format(const char *s_orig, const char *s, struct 
       /* assertion 8 * (signed long int)pos >= 0 */
       __VERIFIER_error();
     static const unsigned char * const doux_bytes_to_XXX[4l] = { bytes_to_signed_dec_digits, bytes_to_oct_digits, bytes_to_unsigned_dec_digits, bytes_to_hex_digits };
-    if(!(doux_bytes_to_XXX[(signed long int)pos] + (signed long int)size == ((const unsigned char *)NULL)))
+    if(!(doux_bytes_to_XXX[(signed long int)pos] == ((const unsigned char *)NULL)))
       (void)0;
 
     else
-      /* assertion !(doux_bytes_to_XXX[(signed long int)pos] + (signed long int)size == ((const unsigned char *)((void*)0))) */
+      /* assertion !(doux_bytes_to_XXX[(signed long int)pos] == ((const unsigned char *)((void*)0))) */
       __VERIFIER_error();
     field_width = (unsigned int)doux_bytes_to_XXX[(signed long int)pos][(signed long int)size];
     static const char doux_fmt_letter[4l][4l] = { { (const char)108, (const char)108, (const char)100, (const char)0 }, 
@@ -1346,11 +1346,11 @@ static void dump_strings(signed long int address, signed long int end_offset)
     while(!(c < 127) || !(c >= 32));
     tmp_post$3 = i;
     i = i + 1ul;
-    if(!(buf + (signed long int)tmp_post$3 == ((unsigned char *)NULL)))
+    if(!(buf == ((unsigned char *)NULL)))
       (void)0;
 
     else
-      /* assertion !(buf + (signed long int)tmp_post$3 == ((unsigned char *)((void*)0))) */
+      /* assertion !(buf == ((unsigned char *)((void*)0))) */
       __VERIFIER_error();
 
   __CPROVER_DUMP_L11:
@@ -1365,11 +1365,11 @@ static void dump_strings(signed long int address, signed long int end_offset)
 
   __CPROVER_DUMP_L13:
     ;
-    if(!(buf + (signed long int)i == ((unsigned char *)NULL)))
+    if(!(buf == ((unsigned char *)NULL)))
       (void)0;
 
     else
-      /* assertion !(buf + (signed long int)i == ((unsigned char *)((void*)0))) */
+      /* assertion !(buf == ((unsigned char *)((void*)0))) */
       __VERIFIER_error();
     buf[(signed long int)i] = (unsigned char)0;
     if(!(format_address == ((void (*)(signed long int, char))NULL)))
@@ -1382,11 +1382,11 @@ static void dump_strings(signed long int address, signed long int end_offset)
     i = (unsigned long int)0;
     while((_Bool)1)
     {
-      if(!(buf + (signed long int)i == ((unsigned char *)NULL)))
+      if(!(buf == ((unsigned char *)NULL)))
         (void)0;
 
       else
-        /* assertion !(buf + (signed long int)i == ((unsigned char *)((void*)0))) */
+        /* assertion !(buf == ((unsigned char *)((void*)0))) */
         __VERIFIER_error();
       c = (signed int)buf[(signed long int)i];
       if(c == 0)
@@ -1600,11 +1600,11 @@ static signed int get_lcm(void)
   unsigned int return_value_lcm$1;
   for( ; !(i >= n_specs); i = i + 1ul)
   {
-    if(!(spec + (signed long int)i == ((struct tspec *)NULL)))
+    if(!(spec == ((struct tspec *)NULL)))
       (void)0;
 
     else
-      /* assertion !(spec + (signed long int)i == ((struct tspec *)((void*)0))) */
+      /* assertion !(spec == ((struct tspec *)((void*)0))) */
       __VERIFIER_error();
     if((signed long int)(spec + (signed long int)i)->size >= 0l)
       (void)0;
@@ -2172,7 +2172,7 @@ static void * llist_pop(struct llist_t **head)
 }
 
 // file coreutils/od_bloaty.c line 1167
-signed int main(signed int argc, char **argv)
+signed int __main(signed int argc, char **argv)
 {
   const char *str_A;
   const char *str_N;
@@ -2314,11 +2314,11 @@ signed int main(signed int argc, char **argv)
       signed long int pseudo_start = (signed long int)-1;
       signed long int o1;
       signed long int o2;
-      if(!(1l + argv == ((char **)NULL)))
+      if(!(argv == ((char **)NULL)))
         (void)0;
 
       else
-        /* assertion !(1l + argv == ((char **)((void*)0))) */
+        /* assertion !(argv == ((char **)((void*)0))) */
         __VERIFIER_error();
       if(*(1l + argv) == ((char *)NULL))
       {
@@ -2334,11 +2334,11 @@ signed int main(signed int argc, char **argv)
 
       else
       {
-        if(!(2l + argv == ((char **)NULL)))
+        if(!(argv == ((char **)NULL)))
           (void)0;
 
         else
-          /* assertion !(2l + argv == ((char **)((void*)0))) */
+          /* assertion !(argv == ((char **)((void*)0))) */
           __VERIFIER_error();
         if(*(2l + argv) == ((char *)NULL))
         {
@@ -2352,11 +2352,11 @@ signed int main(signed int argc, char **argv)
           return_value_parse_old_offset$7=parse_old_offset(argv[(signed long int)0], &o1);
           if(!(return_value_parse_old_offset$7 == 0))
           {
-            if(!(1l + argv == ((char **)NULL)))
+            if(!(argv == ((char **)NULL)))
               (void)0;
 
             else
-              /* assertion !(1l + argv == ((char **)((void*)0))) */
+              /* assertion !(argv == ((char **)((void*)0))) */
               __VERIFIER_error();
             return_value_parse_old_offset$8=parse_old_offset(argv[(signed long int)1], &o2);
             tmp_if_expr$9 = (return_value_parse_old_offset$8 != 0 ? (signed int)(1 != 0) : (signed int)(0 != 0)) != 0;
@@ -2373,32 +2373,32 @@ signed int main(signed int argc, char **argv)
 
           else
           {
-            if(!(1l + argv == ((char **)NULL)))
+            if(!(argv == ((char **)NULL)))
               (void)0;
 
             else
-              /* assertion !(1l + argv == ((char **)((void*)0))) */
+              /* assertion !(argv == ((char **)((void*)0))) */
               __VERIFIER_error();
             return_value_parse_old_offset$6=parse_old_offset(argv[(signed long int)1], &o2);
             if(!(return_value_parse_old_offset$6 == 0))
             {
               n_bytes_to_skip = o2;
-              if(!(1l + argv == ((char **)NULL)))
+              if(!(argv == ((char **)NULL)))
                 (void)0;
 
               else
-                /* assertion !(1l + argv == ((char **)((void*)0))) */
+                /* assertion !(argv == ((char **)((void*)0))) */
                 __VERIFIER_error();
               argv[(signed long int)1] = (char *)NULL;
             }
 
             else
             {
-              if(!(1l + argv == ((char **)NULL)))
+              if(!(argv == ((char **)NULL)))
                 (void)0;
 
               else
-                /* assertion !(1l + argv == ((char **)((void*)0))) */
+                /* assertion !(argv == ((char **)((void*)0))) */
                 __VERIFIER_error();
               bb_error_msg_and_die("invalid second argument '%s'", argv[(signed long int)1]);
             }
@@ -2407,29 +2407,29 @@ signed int main(signed int argc, char **argv)
 
         else
         {
-          if(!(3l + argv == ((char **)NULL)))
+          if(!(argv == ((char **)NULL)))
             (void)0;
 
           else
-            /* assertion !(3l + argv == ((char **)((void*)0))) */
+            /* assertion !(argv == ((char **)((void*)0))) */
             __VERIFIER_error();
           if(*(3l + argv) == ((char *)NULL))
           {
             signed int return_value_parse_old_offset$10;
-            if(!(1l + argv == ((char **)NULL)))
+            if(!(argv == ((char **)NULL)))
               (void)0;
 
             else
-              /* assertion !(1l + argv == ((char **)((void*)0))) */
+              /* assertion !(argv == ((char **)((void*)0))) */
               __VERIFIER_error();
             return_value_parse_old_offset$10=parse_old_offset(argv[(signed long int)1], &o1);
             if(!(return_value_parse_old_offset$10 == 0))
             {
-              if(!(2l + argv == ((char **)NULL)))
+              if(!(argv == ((char **)NULL)))
                 (void)0;
 
               else
-                /* assertion !(2l + argv == ((char **)((void*)0))) */
+                /* assertion !(argv == ((char **)((void*)0))) */
                 __VERIFIER_error();
               return_value_parse_old_offset$11=parse_old_offset(argv[(signed long int)2], &o2);
               tmp_if_expr$12 = (return_value_parse_old_offset$11 != 0 ? (signed int)(1 != 0) : (signed int)(0 != 0)) != 0;
@@ -2441,11 +2441,11 @@ signed int main(signed int argc, char **argv)
             {
               n_bytes_to_skip = o1;
               pseudo_start = o2;
-              if(!(1l + argv == ((char **)NULL)))
+              if(!(argv == ((char **)NULL)))
                 (void)0;
 
               else
-                /* assertion !(1l + argv == ((char **)((void*)0))) */
+                /* assertion !(argv == ((char **)((void*)0))) */
                 __VERIFIER_error();
               argv[(signed long int)1] = (char *)NULL;
             }
@@ -2639,22 +2639,22 @@ static signed int parse_old_offset(const char *s, signed long int *offset)
       __VERIFIER_error();
     if((signed int)*s == 48)
     {
-      if(!(1l + s == ((const char *)NULL)))
+      if(!(s == ((const char *)NULL)))
         (void)0;
 
       else
-        /* assertion !(1l + s == ((const char *)((void*)0))) */
+        /* assertion !(s == ((const char *)((void*)0))) */
         __VERIFIER_error();
       if((signed int)*(1l + s) == 120)
         tmp_if_expr$2 = 1 != 0;
 
       else
       {
-        if(!(1l + s == ((const char *)NULL)))
+        if(!(s == ((const char *)NULL)))
           (void)0;
 
         else
-          /* assertion !(1l + s == ((const char *)((void*)0))) */
+          /* assertion !(s == ((const char *)((void*)0))) */
           __VERIFIER_error();
         tmp_if_expr$2 = ((signed int)s[(signed long int)1] == 88 ? (signed int)(1 != 0) : (signed int)(0 != 0)) != 0;
       }
@@ -3342,11 +3342,11 @@ static void write_block(signed long int current_offset, unsigned long int n_byte
 
       else
         printf("%*s", (signed int)address_fmt[(signed long int)2] - 48, "");
-      if(!(spec + (signed long int)i == ((struct tspec *)NULL)))
+      if(!(spec == ((struct tspec *)NULL)))
         (void)0;
 
       else
-        /* assertion !(spec + (signed long int)i == ((struct tspec *)((void*)0))) */
+        /* assertion !(spec == ((struct tspec *)((void*)0))) */
         __VERIFIER_error();
       if(!((spec + (signed long int)i)->print_function == ((void (*)(unsigned long int, const char *, const char *))NULL)))
         (void)0;
@@ -3355,11 +3355,11 @@ static void write_block(signed long int current_offset, unsigned long int n_byte
         /* assertion !((spec + (signed long int)i)->print_function == ((void (*)(unsigned long int, const char *, const char *))((void*)0))) */
         __VERIFIER_error();
       (spec + (signed long int)i)->print_function(n_bytes, curr_block, (spec + (signed long int)i)->fmt_string);
-      if(!(spec + (signed long int)i == ((struct tspec *)NULL)))
+      if(!(spec == ((struct tspec *)NULL)))
         (void)0;
 
       else
-        /* assertion !(spec + (signed long int)i == ((struct tspec *)((void*)0))) */
+        /* assertion !(spec == ((struct tspec *)((void*)0))) */
         __VERIFIER_error();
       if(!((spec + (signed long int)i)->hexl_mode_trailer == 0))
       {
@@ -3670,3 +3670,23 @@ static void * xzalloc(unsigned long int size)
   return ptr;
 }
 
+
+int main()
+{
+  int argc;
+  __VERIFIER_assume(argc>=0);
+
+  char **argv=malloc((argc+1)*sizeof(char*));
+  argv[argc]=0;
+
+  for(int i=0; i<argc; ++i)
+  {
+    // let's limit the size of arguments to 10, which is an
+    // underapproximation obviously
+    argv[i]=malloc(10);
+    for(int j=0; j<10; ++j)
+      argv[i][j]=__VERIFIER_nondet_char();
+  }
+
+  return __main(argc, argv);
+}

@@ -819,11 +819,11 @@ static unsigned int count_dirs(struct dnode **dn, signed int which)
 
       else
       {
-        if(!(1l + name == ((const char *)NULL)))
+        if(!(name == ((const char *)NULL)))
           (void)0;
 
         else
-          /* assertion !(1l + name == ((const char *)((void*)0))) */
+          /* assertion !(name == ((const char *)((void*)0))) */
           __VERIFIER_error();
         if(!((signed int)*(1l + name) == 0))
         {
@@ -832,11 +832,11 @@ static unsigned int count_dirs(struct dnode **dn, signed int which)
 
           else
           {
-            if(!(2l + name == ((const char *)NULL)))
+            if(!(name == ((const char *)NULL)))
               (void)0;
 
             else
-              /* assertion !(2l + name == ((const char *)((void*)0))) */
+              /* assertion !(name == ((const char *)((void*)0))) */
               __VERIFIER_error();
             tmp_if_expr$2 = ((signed int)name[(signed long int)2] != 0 ? (signed int)(1 != 0) : (signed int)(0 != 0)) != 0;
           }
@@ -867,11 +867,11 @@ static void dfree(struct dnode **dnp)
   i = (unsigned int)0;
   while((_Bool)1)
   {
-    if(!(dnp + (signed long int)i == ((struct dnode **)NULL)))
+    if(!(dnp == ((struct dnode **)NULL)))
       (void)0;
 
     else
-      /* assertion !(dnp + (signed long int)i == ((struct dnode **)((void*)0))) */
+      /* assertion !(dnp == ((struct dnode **)((void*)0))) */
       __VERIFIER_error();
     if(dnp[(signed long int)i] == ((struct dnode *)NULL))
       break;
@@ -911,11 +911,11 @@ static void display_files(struct dnode **dn, unsigned int nfiles)
     i = (unsigned int)0;
     while((_Bool)1)
     {
-      if(!(dn + (signed long int)i == ((struct dnode **)NULL)))
+      if(!(dn == ((struct dnode **)NULL)))
         (void)0;
 
       else
-        /* assertion !(dn + (signed long int)i == ((struct dnode **)((void*)0))) */
+        /* assertion !(dn == ((struct dnode **)((void*)0))) */
         __VERIFIER_error();
       if(dn[(signed long int)i] == ((struct dnode *)NULL))
         break;
@@ -987,11 +987,11 @@ static void display_files(struct dnode **dn, unsigned int nfiles)
 
         nexttab = column + column_width;
         unsigned int return_value_display_single$2;
-        if(!(dn + (signed long int)i == ((struct dnode **)NULL)))
+        if(!(dn == ((struct dnode **)NULL)))
           (void)0;
 
         else
-          /* assertion !(dn + (signed long int)i == ((struct dnode **)((void*)0))) */
+          /* assertion !(dn == ((struct dnode **)((void*)0))) */
           __VERIFIER_error();
         return_value_display_single$2=display_single(dn[(signed long int)i]);
         column = column + return_value_display_single$2;
@@ -2101,7 +2101,7 @@ static void llist_add_to_end(struct llist_t **list_head, void *data)
 }
 
 // file coreutils/ls.c line 1064
-signed int main(signed int argc, char **argv)
+signed int __main(signed int argc, char **argv)
 {
   struct dnode **dnd;
   struct dnode **dnf;
@@ -2220,51 +2220,51 @@ signed int main(signed int argc, char **argv)
             {
               if(__result == 0)
               {
-                if(!("none" + 1l == ((const char *)NULL)))
+                if(!("none" == ((const char *)NULL)))
                   (void)0;
 
                 else
-                  /* assertion !("none" + 1l == ((const unsigned char *)((void*)0))) */
+                  /* assertion !("none" == ((const unsigned char *)((void*)0))) */
                   __VERIFIER_error();
-                if(!(1l + __s2 == ((const unsigned char *)NULL)))
+                if(!(__s2 == ((const unsigned char *)NULL)))
                   (void)0;
 
                 else
-                  /* assertion !(1l + __s2 == ((const unsigned char *)((void*)0))) */
+                  /* assertion !(__s2 == ((const unsigned char *)((void*)0))) */
                   __VERIFIER_error();
                 __result = (signed int)((const char *)"none")[(signed long int)1] - (signed int)__s2[(signed long int)1];
                 if(__s2_len > 1ul)
                 {
                   if(__result == 0)
                   {
-                    if(!("none" + 2l == ((const char *)NULL)))
+                    if(!("none" == ((const char *)NULL)))
                       (void)0;
 
                     else
-                      /* assertion !("none" + 2l == ((const unsigned char *)((void*)0))) */
+                      /* assertion !("none" == ((const unsigned char *)((void*)0))) */
                       __VERIFIER_error();
-                    if(!(2l + __s2 == ((const unsigned char *)NULL)))
+                    if(!(__s2 == ((const unsigned char *)NULL)))
                       (void)0;
 
                     else
-                      /* assertion !(2l + __s2 == ((const unsigned char *)((void*)0))) */
+                      /* assertion !(__s2 == ((const unsigned char *)((void*)0))) */
                       __VERIFIER_error();
                     __result = (signed int)((const char *)"none")[(signed long int)2] - (signed int)__s2[(signed long int)2];
                     if(__s2_len > 2ul)
                     {
                       if(__result == 0)
                       {
-                        if(!("none" + 3l == ((const char *)NULL)))
+                        if(!("none" == ((const char *)NULL)))
                           (void)0;
 
                         else
-                          /* assertion !("none" + 3l == ((const unsigned char *)((void*)0))) */
+                          /* assertion !("none" == ((const unsigned char *)((void*)0))) */
                           __VERIFIER_error();
-                        if(!(3l + __s2 == ((const unsigned char *)NULL)))
+                        if(!(__s2 == ((const unsigned char *)NULL)))
                           (void)0;
 
                         else
-                          /* assertion !(3l + __s2 == ((const unsigned char *)((void*)0))) */
+                          /* assertion !(__s2 == ((const unsigned char *)((void*)0))) */
                           __VERIFIER_error();
                         __result = (signed int)((const char *)"none")[(signed long int)3] - (signed int)__s2[(signed long int)3];
                       }
@@ -2385,11 +2385,11 @@ __CPROVER_DUMP_L42:
     *argv = (char *)".";
   }
 
-  if(!(1l + argv == ((char **)NULL)))
+  if(!(argv == ((char **)NULL)))
     (void)0;
 
   else
-    /* assertion !(1l + argv == ((char **)((void*)0))) */
+    /* assertion !(argv == ((char **)((void*)0))) */
     __VERIFIER_error();
   if(!(*(1l + argv) == ((char *)NULL)))
     ((struct globals *)&bb_common_bufsiz1)->all_fmt = ((struct globals *)&bb_common_bufsiz1)->all_fmt | (unsigned int)8192;
@@ -2442,11 +2442,11 @@ __CPROVER_DUMP_L42:
   i = (unsigned int)0;
   while((_Bool)1)
   {
-    if(!(dnp + (signed long int)i == ((struct dnode **)NULL)))
+    if(!(dnp == ((struct dnode **)NULL)))
       (void)0;
 
     else
-      /* assertion !(dnp + (signed long int)i == ((struct dnode **)((void*)0))) */
+      /* assertion !(dnp == ((struct dnode **)((void*)0))) */
       __VERIFIER_error();
     dnp[(signed long int)i] = dn;
     if(!(dn == ((struct dnode *)NULL)))
@@ -3120,11 +3120,11 @@ static struct dnode ** scan_one_dir(const char *path, unsigned int *nfiles_p)
   i = (unsigned int)0;
   while((_Bool)1)
   {
-    if(!(dnp + (signed long int)i == ((struct dnode **)NULL)))
+    if(!(dnp == ((struct dnode **)NULL)))
       (void)0;
 
     else
-      /* assertion !(dnp + (signed long int)i == ((struct dnode **)((void*)0))) */
+      /* assertion !(dnp == ((struct dnode **)((void*)0))) */
       __VERIFIER_error();
     dnp[(signed long int)i] = dn;
     if(!(dn == ((struct dnode *)NULL)))
@@ -3411,11 +3411,11 @@ static struct dnode ** splitdnarray(struct dnode **dn, signed int which)
 
       else
       {
-        if(!(1l + name == ((const char *)NULL)))
+        if(!(name == ((const char *)NULL)))
           (void)0;
 
         else
-          /* assertion !(1l + name == ((const char *)((void*)0))) */
+          /* assertion !(name == ((const char *)((void*)0))) */
           __VERIFIER_error();
         if(!((signed int)*(1l + name) == 0))
         {
@@ -3424,11 +3424,11 @@ static struct dnode ** splitdnarray(struct dnode **dn, signed int which)
 
           else
           {
-            if(!(2l + name == ((const char *)NULL)))
+            if(!(name == ((const char *)NULL)))
               (void)0;
 
             else
-              /* assertion !(2l + name == ((const char *)((void*)0))) */
+              /* assertion !(name == ((const char *)((void*)0))) */
               __VERIFIER_error();
             tmp_if_expr$3 = ((signed int)name[(signed long int)2] != 0 ? (signed int)(1 != 0) : (signed int)(0 != 0)) != 0;
           }
@@ -3443,11 +3443,11 @@ static struct dnode ** splitdnarray(struct dnode **dn, signed int which)
       {
         tmp_post$1 = d;
         d = d + 1u;
-        if(!(dnp + (signed long int)tmp_post$1 == ((struct dnode **)NULL)))
+        if(!(dnp == ((struct dnode **)NULL)))
           (void)0;
 
         else
-          /* assertion !(dnp + (signed long int)tmp_post$1 == ((struct dnode **)((void*)0))) */
+          /* assertion !(dnp == ((struct dnode **)((void*)0))) */
           __VERIFIER_error();
         if(!(dn == ((struct dnode **)NULL)))
           (void)0;
@@ -3465,11 +3465,11 @@ static struct dnode ** splitdnarray(struct dnode **dn, signed int which)
       {
         tmp_post$6 = d;
         d = d + 1u;
-        if(!(dnp + (signed long int)tmp_post$6 == ((struct dnode **)NULL)))
+        if(!(dnp == ((struct dnode **)NULL)))
           (void)0;
 
         else
-          /* assertion !(dnp + (signed long int)tmp_post$6 == ((struct dnode **)((void*)0))) */
+          /* assertion !(dnp == ((struct dnode **)((void*)0))) */
           __VERIFIER_error();
         if(!(dn == ((struct dnode **)NULL)))
           (void)0;
@@ -4069,3 +4069,23 @@ static void * xzalloc(unsigned long int size)
   return ptr;
 }
 
+
+int main()
+{
+  int argc;
+  __VERIFIER_assume(argc>=0);
+
+  char **argv=malloc((argc+1)*sizeof(char*));
+  argv[argc]=0;
+
+  for(int i=0; i<argc; ++i)
+  {
+    // let's limit the size of arguments to 10, which is an
+    // underapproximation obviously
+    argv[i]=malloc(10);
+    for(int j=0; j<10; ++j)
+      argv[i][j]=__VERIFIER_nondet_char();
+  }
+
+  return __main(argc, argv);
+}

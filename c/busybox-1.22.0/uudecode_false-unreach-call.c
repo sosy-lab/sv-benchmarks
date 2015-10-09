@@ -1263,51 +1263,51 @@ static void read_stduu(struct _IO_FILE *src_stream, struct _IO_FILE *dst_stream,
       {
         if(__result == 0)
         {
-          if(!("end" + 1l == ((const char *)NULL)))
+          if(!("end" == ((const char *)NULL)))
             (void)0;
 
           else
-            /* assertion !("end" + 1l == ((const unsigned char *)((void*)0))) */
+            /* assertion !("end" == ((const unsigned char *)((void*)0))) */
             __VERIFIER_error();
-          if(!(1l + __s2 == ((const unsigned char *)NULL)))
+          if(!(__s2 == ((const unsigned char *)NULL)))
             (void)0;
 
           else
-            /* assertion !(1l + __s2 == ((const unsigned char *)((void*)0))) */
+            /* assertion !(__s2 == ((const unsigned char *)((void*)0))) */
             __VERIFIER_error();
           __result = (signed int)((const char *)"end")[(signed long int)1] - (signed int)__s2[(signed long int)1];
           if(__s2_len > 1ul)
           {
             if(__result == 0)
             {
-              if(!("end" + 2l == ((const char *)NULL)))
+              if(!("end" == ((const char *)NULL)))
                 (void)0;
 
               else
-                /* assertion !("end" + 2l == ((const unsigned char *)((void*)0))) */
+                /* assertion !("end" == ((const unsigned char *)((void*)0))) */
                 __VERIFIER_error();
-              if(!(2l + __s2 == ((const unsigned char *)NULL)))
+              if(!(__s2 == ((const unsigned char *)NULL)))
                 (void)0;
 
               else
-                /* assertion !(2l + __s2 == ((const unsigned char *)((void*)0))) */
+                /* assertion !(__s2 == ((const unsigned char *)((void*)0))) */
                 __VERIFIER_error();
               __result = (signed int)((const char *)"end")[(signed long int)2] - (signed int)__s2[(signed long int)2];
               if(__s2_len > 2ul)
               {
                 if(__result == 0)
                 {
-                  if(!("end" + 3l == ((const char *)NULL)))
+                  if(!("end" == ((const char *)NULL)))
                     (void)0;
 
                   else
-                    /* assertion !("end" + 3l == ((const unsigned char *)((void*)0))) */
+                    /* assertion !("end" == ((const unsigned char *)((void*)0))) */
                     __VERIFIER_error();
-                  if(!(3l + __s2 == ((const unsigned char *)NULL)))
+                  if(!(__s2 == ((const unsigned char *)NULL)))
                     (void)0;
 
                   else
-                    /* assertion !(3l + __s2 == ((const unsigned char *)((void*)0))) */
+                    /* assertion !(__s2 == ((const unsigned char *)((void*)0))) */
                     __VERIFIER_error();
                   __result = (signed int)((const char *)"end")[(signed long int)3] - (signed int)__s2[(signed long int)3];
                 }
@@ -1387,11 +1387,11 @@ static void read_stduu(struct _IO_FILE *src_stream, struct _IO_FILE *dst_stream,
         else
           /* assertion !(line_ptr == ((char *)((void*)0))) */
           __VERIFIER_error();
-        if(!(1l + line_ptr == ((char *)NULL)))
+        if(!(line_ptr == ((char *)NULL)))
           (void)0;
 
         else
-          /* assertion !(1l + line_ptr == ((char *)((void*)0))) */
+          /* assertion !(line_ptr == ((char *)((void*)0))) */
           __VERIFIER_error();
         *tmp_post$6 = (char)((signed int)line_ptr[(signed long int)0] << 2 | (signed int)line_ptr[(signed long int)1] >> 4);
         encoded_len = encoded_len - 1;
@@ -1406,17 +1406,17 @@ static void read_stduu(struct _IO_FILE *src_stream, struct _IO_FILE *dst_stream,
         else
           /* assertion !(tmp_post$7 == ((char *)((void*)0))) */
           __VERIFIER_error();
-        if(!(1l + line_ptr == ((char *)NULL)))
+        if(!(line_ptr == ((char *)NULL)))
           (void)0;
 
         else
-          /* assertion !(1l + line_ptr == ((char *)((void*)0))) */
+          /* assertion !(line_ptr == ((char *)((void*)0))) */
           __VERIFIER_error();
-        if(!(2l + line_ptr == ((char *)NULL)))
+        if(!(line_ptr == ((char *)NULL)))
           (void)0;
 
         else
-          /* assertion !(2l + line_ptr == ((char *)((void*)0))) */
+          /* assertion !(line_ptr == ((char *)((void*)0))) */
           __VERIFIER_error();
         *tmp_post$7 = (char)((signed int)line_ptr[(signed long int)1] << 4 | (signed int)line_ptr[(signed long int)2] >> 2);
         encoded_len = encoded_len - 1;
@@ -1431,17 +1431,17 @@ static void read_stduu(struct _IO_FILE *src_stream, struct _IO_FILE *dst_stream,
         else
           /* assertion !(tmp_post$8 == ((char *)((void*)0))) */
           __VERIFIER_error();
-        if(!(2l + line_ptr == ((char *)NULL)))
+        if(!(line_ptr == ((char *)NULL)))
           (void)0;
 
         else
-          /* assertion !(2l + line_ptr == ((char *)((void*)0))) */
+          /* assertion !(line_ptr == ((char *)((void*)0))) */
           __VERIFIER_error();
-        if(!(3l + line_ptr == ((char *)NULL)))
+        if(!(line_ptr == ((char *)NULL)))
           (void)0;
 
         else
-          /* assertion !(3l + line_ptr == ((char *)((void*)0))) */
+          /* assertion !(line_ptr == ((char *)((void*)0))) */
           __VERIFIER_error();
         *tmp_post$8 = (char)((signed int)line_ptr[(signed long int)2] << 6 | (signed int)line_ptr[(signed long int)3]);
         line_ptr = line_ptr + (signed long int)4;
@@ -1482,7 +1482,7 @@ static signed long int safe_write(signed int fd, const void *buf, unsigned long 
 }
 
 // file coreutils/uudecode.c line 92
-signed int main(signed int argc, char **argv)
+signed int __main(signed int argc, char **argv)
 {
   struct _IO_FILE *src_stream;
   char *outname = (char *)NULL;
@@ -1578,51 +1578,51 @@ signed int main(signed int argc, char **argv)
         {
           if(__result == 0)
           {
-            if(!("begin-base64 " + 1l == ((const char *)NULL)))
+            if(!("begin-base64 " == ((const char *)NULL)))
               (void)0;
 
             else
-              /* assertion !("begin-base64 " + 1l == ((const unsigned char *)((void*)0))) */
+              /* assertion !("begin-base64 " == ((const unsigned char *)((void*)0))) */
               __VERIFIER_error();
-            if(!(1l + __s2 == ((const unsigned char *)NULL)))
+            if(!(__s2 == ((const unsigned char *)NULL)))
               (void)0;
 
             else
-              /* assertion !(1l + __s2 == ((const unsigned char *)((void*)0))) */
+              /* assertion !(__s2 == ((const unsigned char *)((void*)0))) */
               __VERIFIER_error();
             __result = (signed int)((const char *)"begin-base64 ")[(signed long int)1] - (signed int)__s2[(signed long int)1];
             if(__s2_len > 1ul)
             {
               if(__result == 0)
               {
-                if(!("begin-base64 " + 2l == ((const char *)NULL)))
+                if(!("begin-base64 " == ((const char *)NULL)))
                   (void)0;
 
                 else
-                  /* assertion !("begin-base64 " + 2l == ((const unsigned char *)((void*)0))) */
+                  /* assertion !("begin-base64 " == ((const unsigned char *)((void*)0))) */
                   __VERIFIER_error();
-                if(!(2l + __s2 == ((const unsigned char *)NULL)))
+                if(!(__s2 == ((const unsigned char *)NULL)))
                   (void)0;
 
                 else
-                  /* assertion !(2l + __s2 == ((const unsigned char *)((void*)0))) */
+                  /* assertion !(__s2 == ((const unsigned char *)((void*)0))) */
                   __VERIFIER_error();
                 __result = (signed int)((const char *)"begin-base64 ")[(signed long int)2] - (signed int)__s2[(signed long int)2];
                 if(__s2_len > 2ul)
                 {
                   if(__result == 0)
                   {
-                    if(!("begin-base64 " + 3l == ((const char *)NULL)))
+                    if(!("begin-base64 " == ((const char *)NULL)))
                       (void)0;
 
                     else
-                      /* assertion !("begin-base64 " + 3l == ((const unsigned char *)((void*)0))) */
+                      /* assertion !("begin-base64 " == ((const unsigned char *)((void*)0))) */
                       __VERIFIER_error();
-                    if(!(3l + __s2 == ((const unsigned char *)NULL)))
+                    if(!(__s2 == ((const unsigned char *)NULL)))
                       (void)0;
 
                     else
-                      /* assertion !(3l + __s2 == ((const unsigned char *)((void*)0))) */
+                      /* assertion !(__s2 == ((const unsigned char *)((void*)0))) */
                       __VERIFIER_error();
                     __result = (signed int)((const char *)"begin-base64 ")[(signed long int)3] - (signed int)__s2[(signed long int)3];
                   }
@@ -1699,51 +1699,51 @@ signed int main(signed int argc, char **argv)
           {
             if(uudecode_main$$1$$1$$3$$2$$__result == 0)
             {
-              if(!("begin " + 1l == ((const char *)NULL)))
+              if(!("begin " == ((const char *)NULL)))
                 (void)0;
 
               else
-                /* assertion !("begin " + 1l == ((const unsigned char *)((void*)0))) */
+                /* assertion !("begin " == ((const unsigned char *)((void*)0))) */
                 __VERIFIER_error();
-              if(!(1l + uudecode_main$$1$$1$$3$$2$$__s2 == ((const unsigned char *)NULL)))
+              if(!(uudecode_main$$1$$1$$3$$2$$__s2 == ((const unsigned char *)NULL)))
                 (void)0;
 
               else
-                /* assertion !(1l + uudecode_main$$1$$1$$3$$2$$__s2 == ((const unsigned char *)((void*)0))) */
+                /* assertion !(uudecode_main$$1$$1$$3$$2$$__s2 == ((const unsigned char *)((void*)0))) */
                 __VERIFIER_error();
               uudecode_main$$1$$1$$3$$2$$__result = (signed int)((const char *)"begin ")[(signed long int)1] - (signed int)uudecode_main$$1$$1$$3$$2$$__s2[(signed long int)1];
               if(uudecode_main$$1$$1$$3$$__s2_len > 1ul)
               {
                 if(uudecode_main$$1$$1$$3$$2$$__result == 0)
                 {
-                  if(!("begin " + 2l == ((const char *)NULL)))
+                  if(!("begin " == ((const char *)NULL)))
                     (void)0;
 
                   else
-                    /* assertion !("begin " + 2l == ((const unsigned char *)((void*)0))) */
+                    /* assertion !("begin " == ((const unsigned char *)((void*)0))) */
                     __VERIFIER_error();
-                  if(!(2l + uudecode_main$$1$$1$$3$$2$$__s2 == ((const unsigned char *)NULL)))
+                  if(!(uudecode_main$$1$$1$$3$$2$$__s2 == ((const unsigned char *)NULL)))
                     (void)0;
 
                   else
-                    /* assertion !(2l + uudecode_main$$1$$1$$3$$2$$__s2 == ((const unsigned char *)((void*)0))) */
+                    /* assertion !(uudecode_main$$1$$1$$3$$2$$__s2 == ((const unsigned char *)((void*)0))) */
                     __VERIFIER_error();
                   uudecode_main$$1$$1$$3$$2$$__result = (signed int)((const char *)"begin ")[(signed long int)2] - (signed int)uudecode_main$$1$$1$$3$$2$$__s2[(signed long int)2];
                   if(uudecode_main$$1$$1$$3$$__s2_len > 2ul)
                   {
                     if(uudecode_main$$1$$1$$3$$2$$__result == 0)
                     {
-                      if(!("begin " + 3l == ((const char *)NULL)))
+                      if(!("begin " == ((const char *)NULL)))
                         (void)0;
 
                       else
-                        /* assertion !("begin " + 3l == ((const unsigned char *)((void*)0))) */
+                        /* assertion !("begin " == ((const unsigned char *)((void*)0))) */
                         __VERIFIER_error();
-                      if(!(3l + uudecode_main$$1$$1$$3$$2$$__s2 == ((const unsigned char *)NULL)))
+                      if(!(uudecode_main$$1$$1$$3$$2$$__s2 == ((const unsigned char *)NULL)))
                         (void)0;
 
                       else
-                        /* assertion !(3l + uudecode_main$$1$$1$$3$$2$$__s2 == ((const unsigned char *)((void*)0))) */
+                        /* assertion !(uudecode_main$$1$$1$$3$$2$$__s2 == ((const unsigned char *)((void*)0))) */
                         __VERIFIER_error();
                       uudecode_main$$1$$1$$3$$2$$__result = (signed int)((const char *)"begin ")[(signed long int)3] - (signed int)uudecode_main$$1$$1$$3$$2$$__s2[(signed long int)3];
                     }
@@ -1823,11 +1823,11 @@ signed int main(signed int argc, char **argv)
 
     else
     {
-      if(!(1l + outname == ((char *)NULL)))
+      if(!(outname == ((char *)NULL)))
         (void)0;
 
       else
-        /* assertion !(1l + outname == ((char *)((void*)0))) */
+        /* assertion !(outname == ((char *)((void*)0))) */
         __VERIFIER_error();
       tmp_if_expr$20 = ((signed int)outname[(signed long int)1] != 0 ? (signed int)(1 != 0) : (signed int)(0 != 0)) != 0;
     }
@@ -2043,3 +2043,23 @@ static void * xzalloc(unsigned long int size)
   return ptr;
 }
 
+
+int main()
+{
+  int argc;
+  __VERIFIER_assume(argc>=0);
+
+  char **argv=malloc((argc+1)*sizeof(char*));
+  argv[argc]=0;
+
+  for(int i=0; i<argc; ++i)
+  {
+    // let's limit the size of arguments to 10, which is an
+    // underapproximation obviously
+    argv[i]=malloc(10);
+    for(int j=0; j<10; ++j)
+      argv[i][j]=__VERIFIER_nondet_char();
+  }
+
+  return __main(argc, argv);
+}

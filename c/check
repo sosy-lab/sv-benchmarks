@@ -17,6 +17,7 @@
 set -e
 
 cat > decls.h <<EOF
+char __VERIFIER_nondet_char();
 int __VERIFIER_nondet_int();
 _Bool __VERIFIER_nondet_bool();
 void* __VERIFIER_nondet_pointer();
@@ -37,6 +38,7 @@ for f in $(<source_files) ; do
   echo $f
   ec=0
   case $f in
+    *busybox-1.22.0/* |\
     *ldv-challenges/* |\
     *ldv-commit-tester/* |\
     *ldv-consumption/* |\

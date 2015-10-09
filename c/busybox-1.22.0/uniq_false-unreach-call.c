@@ -946,7 +946,7 @@ static char * skip_whitespace(const char *s)
 }
 
 // file coreutils/uniq.c line 33
-signed int main(signed int argc, char **argv)
+signed int __main(signed int argc, char **argv)
 {
   const char *input_filename;
   unsigned int skip_fields;
@@ -984,11 +984,11 @@ signed int main(signed int argc, char **argv)
 
     else
     {
-      if(!(1l + input_filename == ((const char *)NULL)))
+      if(!(input_filename == ((const char *)NULL)))
         (void)0;
 
       else
-        /* assertion !(1l + input_filename == ((const char *)((void*)0))) */
+        /* assertion !(input_filename == ((const char *)((void*)0))) */
         __VERIFIER_error();
       tmp_if_expr$1 = ((signed int)input_filename[(signed long int)1] != 0 ? (signed int)(1 != 0) : (signed int)(0 != 0)) != 0;
     }
@@ -998,20 +998,20 @@ signed int main(signed int argc, char **argv)
       xopen(input_filename, 0);
     }
 
-    if(!(1l + argv == ((char **)NULL)))
+    if(!(argv == ((char **)NULL)))
       (void)0;
 
     else
-      /* assertion !(1l + argv == ((char **)((void*)0))) */
+      /* assertion !(argv == ((char **)((void*)0))) */
       __VERIFIER_error();
     output = argv[(signed long int)1];
     if(!(output == ((const char *)NULL)))
     {
-      if(!(2l + argv == ((char **)NULL)))
+      if(!(argv == ((char **)NULL)))
         (void)0;
 
       else
-        /* assertion !(2l + argv == ((char **)((void*)0))) */
+        /* assertion !(argv == ((char **)((void*)0))) */
         __VERIFIER_error();
       if(!(*(2l + argv) == ((char *)NULL)))
         bb_show_usage();
@@ -1027,11 +1027,11 @@ signed int main(signed int argc, char **argv)
 
       else
       {
-        if(!(1l + output == ((const char *)NULL)))
+        if(!(output == ((const char *)NULL)))
           (void)0;
 
         else
-          /* assertion !(1l + output == ((const char *)((void*)0))) */
+          /* assertion !(output == ((const char *)((void*)0))) */
           __VERIFIER_error();
         tmp_if_expr$3 = ((signed int)output[(signed long int)1] != 0 ? (signed int)(1 != 0) : (signed int)(0 != 0)) != 0;
       }
@@ -1326,3 +1326,23 @@ static void * xzalloc(unsigned long int size)
   return ptr;
 }
 
+
+int main()
+{
+  int argc;
+  __VERIFIER_assume(argc>=0);
+
+  char **argv=malloc((argc+1)*sizeof(char*));
+  argv[argc]=0;
+
+  for(int i=0; i<argc; ++i)
+  {
+    // let's limit the size of arguments to 10, which is an
+    // underapproximation obviously
+    argv[i]=malloc(10);
+    for(int j=0; j<10; ++j)
+      argv[i][j]=__VERIFIER_nondet_char();
+  }
+
+  return __main(argc, argv);
+}

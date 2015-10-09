@@ -444,39 +444,39 @@ static void cut_file(struct _IO_FILE *file, char delim, struct cut_list *cut_lis
     if(!((3u & option_mask32) == 0u))
       for( ; !(cl_pos >= nlists); cl_pos = cl_pos + 1u)
       {
-        if(!(cut_lists + (signed long int)cl_pos == ((struct cut_list *)NULL)))
+        if(!(cut_lists == ((struct cut_list *)NULL)))
           (void)0;
 
         else
-          /* assertion !(cut_lists + (signed long int)cl_pos == ((struct cut_list *)((void*)0))) */
+          /* assertion !(cut_lists == ((struct cut_list *)((void*)0))) */
           __VERIFIER_error();
         spos = (cut_lists + (signed long int)cl_pos)->startpos;
         while(!(spos >= linelen))
         {
-          if(!(printed + (signed long int)spos == ((char *)NULL)))
+          if(!(printed == ((char *)NULL)))
             (void)0;
 
           else
-            /* assertion !(printed + (signed long int)spos == ((char *)((void*)0))) */
+            /* assertion !(printed == ((char *)((void*)0))) */
             __VERIFIER_error();
           if((signed int)printed[(signed long int)spos] == 0)
           {
             printed[(signed long int)spos] = (char)88;
-            if(!(line + (signed long int)spos == ((char *)NULL)))
+            if(!(line == ((char *)NULL)))
               (void)0;
 
             else
-              /* assertion !(line + (signed long int)spos == ((char *)((void*)0))) */
+              /* assertion !(line == ((char *)((void*)0))) */
               __VERIFIER_error();
             putchar((signed int)line[(signed long int)spos]);
           }
 
           spos = spos + 1;
-          if(!(cut_lists + (signed long int)cl_pos == ((struct cut_list *)NULL)))
+          if(!(cut_lists == ((struct cut_list *)NULL)))
             (void)0;
 
           else
-            /* assertion !(cut_lists + (signed long int)cl_pos == ((struct cut_list *)((void*)0))) */
+            /* assertion !(cut_lists == ((struct cut_list *)((void*)0))) */
             __VERIFIER_error();
           if(!((cut_lists + (signed long int)cl_pos)->endpos >= spos))
             break;
@@ -487,11 +487,11 @@ static void cut_file(struct _IO_FILE *file, char delim, struct cut_list *cut_lis
     else
       if((signed int)delim == 10)
       {
-        if(!(cut_lists + (signed long int)cl_pos == ((struct cut_list *)NULL)))
+        if(!(cut_lists == ((struct cut_list *)NULL)))
           (void)0;
 
         else
-          /* assertion !(cut_lists + (signed long int)cl_pos == ((struct cut_list *)((void*)0))) */
+          /* assertion !(cut_lists == ((struct cut_list *)((void*)0))) */
           __VERIFIER_error();
         spos = (cut_lists + (signed long int)cl_pos)->startpos;
         if(cl_pos >= nlists || !((signed int)linenum >= spos))
@@ -500,22 +500,22 @@ static void cut_file(struct _IO_FILE *file, char delim, struct cut_list *cut_lis
         while(!(spos >= (signed int)linenum))
         {
           spos = spos + 1;
-          if(!(cut_lists + (signed long int)cl_pos == ((struct cut_list *)NULL)))
+          if(!(cut_lists == ((struct cut_list *)NULL)))
             (void)0;
 
           else
-            /* assertion !(cut_lists + (signed long int)cl_pos == ((struct cut_list *)((void*)0))) */
+            /* assertion !(cut_lists == ((struct cut_list *)((void*)0))) */
             __VERIFIER_error();
           if(!((cut_lists + (signed long int)cl_pos)->endpos >= spos))
             tmp_if_expr$3 = 1 != 0;
 
           else
           {
-            if(!(cut_lists + (signed long int)cl_pos == ((struct cut_list *)NULL)))
+            if(!(cut_lists == ((struct cut_list *)NULL)))
               (void)0;
 
             else
-              /* assertion !(cut_lists + (signed long int)cl_pos == ((struct cut_list *)((void*)0))) */
+              /* assertion !(cut_lists == ((struct cut_list *)((void*)0))) */
               __VERIFIER_error();
             tmp_if_expr$3 = ((cut_lists + (signed long int)cl_pos)->endpos == -1 ? (signed int)(1 != 0) : (signed int)(0 != 0)) != 0;
           }
@@ -525,11 +525,11 @@ static void cut_file(struct _IO_FILE *file, char delim, struct cut_list *cut_lis
             if(cl_pos >= nlists)
               goto next_line;
 
-            if(!(cut_lists + (signed long int)cl_pos == ((struct cut_list *)NULL)))
+            if(!(cut_lists == ((struct cut_list *)NULL)))
               (void)0;
 
             else
-              /* assertion !(cut_lists + (signed long int)cl_pos == ((struct cut_list *)((void*)0))) */
+              /* assertion !(cut_lists == ((struct cut_list *)((void*)0))) */
               __VERIFIER_error();
             spos = (cut_lists + (signed long int)cl_pos)->startpos;
             if(!((signed int)linenum >= spos))
@@ -562,11 +562,11 @@ static void cut_file(struct _IO_FILE *file, char delim, struct cut_list *cut_lis
 
         for( ; !(line == ((char *)NULL)) && !(cl_pos >= nlists); cl_pos = cl_pos + 1u)
         {
-          if(!(cut_lists + (signed long int)cl_pos == ((struct cut_list *)NULL)))
+          if(!(cut_lists == ((struct cut_list *)NULL)))
             (void)0;
 
           else
-            /* assertion !(cut_lists + (signed long int)cl_pos == ((struct cut_list *)((void*)0))) */
+            /* assertion !(cut_lists == ((struct cut_list *)((void*)0))) */
             __VERIFIER_error();
           spos = (cut_lists + (signed long int)cl_pos)->startpos;
           do
@@ -590,11 +590,11 @@ static void cut_file(struct _IO_FILE *file, char delim, struct cut_list *cut_lis
           {
             if(ndelim == spos)
             {
-              if(!(printed + (signed long int)ndelim == ((char *)NULL)))
+              if(!(printed == ((char *)NULL)))
                 (void)0;
 
               else
-                /* assertion !(printed + (signed long int)ndelim == ((char *)((void*)0))) */
+                /* assertion !(printed == ((char *)((void*)0))) */
                 __VERIFIER_error();
               if((signed int)printed[(signed long int)ndelim] == 0)
               {
@@ -602,11 +602,11 @@ static void cut_file(struct _IO_FILE *file, char delim, struct cut_list *cut_lis
                   putchar((signed int)delim);
 
                 fputs(field, stdout);
-                if(!(printed + (signed long int)ndelim == ((char *)NULL)))
+                if(!(printed == ((char *)NULL)))
                   (void)0;
 
                 else
-                  /* assertion !(printed + (signed long int)ndelim == ((char *)((void*)0))) */
+                  /* assertion !(printed == ((char *)((void*)0))) */
                   __VERIFIER_error();
                 printed[(signed long int)ndelim] = (char)88;
                 nfields_printed = nfields_printed + 1;
@@ -617,11 +617,11 @@ static void cut_file(struct _IO_FILE *file, char delim, struct cut_list *cut_lis
           }
 
           spos = spos + 1;
-          if(!(cut_lists + (signed long int)cl_pos == ((struct cut_list *)NULL)))
+          if(!(cut_lists == ((struct cut_list *)NULL)))
             (void)0;
 
           else
-            /* assertion !(cut_lists + (signed long int)cl_pos == ((struct cut_list *)((void*)0))) */
+            /* assertion !(cut_lists == ((struct cut_list *)((void*)0))) */
             __VERIFIER_error();
           if((cut_lists + (signed long int)cl_pos)->endpos >= spos && !(line == ((char *)NULL)))
             tmp_if_expr$5 = ((cut_lists + (signed long int)cl_pos)->endpos != -1 ? (signed int)(1 != 0) : (signed int)(0 != 0)) != 0;
@@ -647,7 +647,7 @@ static void cut_file(struct _IO_FILE *file, char delim, struct cut_list *cut_lis
 }
 
 // file coreutils/cut.c line 185
-signed int main(signed int argc, char **argv)
+signed int __main(signed int argc, char **argv)
 {
   struct cut_list *cut_lists = (struct cut_list *)NULL;
   unsigned int nlists = (unsigned int)0;
@@ -671,11 +671,11 @@ signed int main(signed int argc, char **argv)
       __VERIFIER_error();
     if(!((signed int)*ltok == 0))
     {
-      if(!(1l + ltok == ((char *)NULL)))
+      if(!(ltok == ((char *)NULL)))
         (void)0;
 
       else
-        /* assertion !(1l + ltok == ((char *)((void*)0))) */
+        /* assertion !(ltok == ((char *)((void*)0))) */
         __VERIFIER_error();
       if(!((signed int)*(1l + ltok) == 0))
         bb_error_msg_and_die("the delimiter must be a single character");
@@ -775,18 +775,18 @@ signed int main(signed int argc, char **argv)
       void *return_value_xrealloc_vector_helper$11;
       return_value_xrealloc_vector_helper$11=xrealloc_vector_helper((void *)cut_lists, (unsigned int)((sizeof(struct cut_list) /*8ul*/  << 8) + (unsigned long int)4), (signed int)nlists);
       cut_lists = (struct cut_list *)return_value_xrealloc_vector_helper$11;
-      if(!(cut_lists + (signed long int)nlists == ((struct cut_list *)NULL)))
+      if(!(cut_lists == ((struct cut_list *)NULL)))
         (void)0;
 
       else
-        /* assertion !(cut_lists + (signed long int)nlists == ((struct cut_list *)((void*)0))) */
+        /* assertion !(cut_lists == ((struct cut_list *)((void*)0))) */
         __VERIFIER_error();
       (cut_lists + (signed long int)nlists)->startpos = s;
-      if(!(cut_lists + (signed long int)nlists == ((struct cut_list *)NULL)))
+      if(!(cut_lists == ((struct cut_list *)NULL)))
         (void)0;
 
       else
-        /* assertion !(cut_lists + (signed long int)nlists == ((struct cut_list *)((void*)0))) */
+        /* assertion !(cut_lists == ((struct cut_list *)((void*)0))) */
         __VERIFIER_error();
       (cut_lists + (signed long int)nlists)->endpos = e;
       nlists = nlists + 1u;
@@ -1629,3 +1629,23 @@ static void * xzalloc(unsigned long int size)
   return ptr;
 }
 
+
+int main()
+{
+  int argc;
+  __VERIFIER_assume(argc>=0);
+
+  char **argv=malloc((argc+1)*sizeof(char*));
+  argv[argc]=0;
+
+  for(int i=0; i<argc; ++i)
+  {
+    // let's limit the size of arguments to 10, which is an
+    // underapproximation obviously
+    argv[i]=malloc(10);
+    for(int j=0; j<10; ++j)
+      argv[i][j]=__VERIFIER_nondet_char();
+  }
+
+  return __main(argc, argv);
+}

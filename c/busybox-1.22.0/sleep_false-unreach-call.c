@@ -243,7 +243,7 @@ static signed long int safe_write(signed int fd, const void *buf, unsigned long 
 }
 
 // file coreutils/sleep.c line 52
-signed int main(signed int argc, char **argv)
+signed int __main(signed int argc, char **argv)
 {
   double duration;
   struct timespec ts;
@@ -288,11 +288,11 @@ signed int main(signed int argc, char **argv)
       signed int len;
       len = strspn(arg, "0123456789.");
       char sv;
-      if(!(arg + (signed long int)len == ((char *)NULL)))
+      if(!(arg == ((char *)NULL)))
         (void)0;
 
       else
-        /* assertion !(arg + (signed long int)len == ((char *)((void*)0))) */
+        /* assertion !(arg == ((char *)((void*)0))) */
         __VERIFIER_error();
       sv = arg[(signed long int)len];
       arg[(signed long int)len] = (char)0;
@@ -517,3 +517,23 @@ inval:
   bb_error_msg_and_die("invalid number '%s'", numstr);
 }
 
+
+int main()
+{
+  int argc;
+  __VERIFIER_assume(argc>=0);
+
+  char **argv=malloc((argc+1)*sizeof(char*));
+  argv[argc]=0;
+
+  for(int i=0; i<argc; ++i)
+  {
+    // let's limit the size of arguments to 10, which is an
+    // underapproximation obviously
+    argv[i]=malloc(10);
+    for(int j=0; j<10; ++j)
+      argv[i][j]=__VERIFIER_nondet_char();
+  }
+
+  return __main(argc, argv);
+}

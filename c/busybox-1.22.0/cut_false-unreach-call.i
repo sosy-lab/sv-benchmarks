@@ -5217,7 +5217,7 @@ static void cut_file(struct _IO_FILE *file, char delim, struct cut_list *cut_lis
     if(!((3u & option_mask32) == 0u))
       for( ; !(cl_pos >= nlists); cl_pos = cl_pos + 1u)
       {
-        if(!(cut_lists + (signed long int)cl_pos == ((struct cut_list *)((void *)0))))
+        if(!(cut_lists == ((struct cut_list *)((void *)0))))
           (void)0;
 
         else
@@ -5226,7 +5226,7 @@ static void cut_file(struct _IO_FILE *file, char delim, struct cut_list *cut_lis
         spos = (cut_lists + (signed long int)cl_pos)->startpos;
         while(!(spos >= linelen))
         {
-          if(!(printed + (signed long int)spos == ((char *)((void *)0))))
+          if(!(printed == ((char *)((void *)0))))
             (void)0;
 
           else
@@ -5235,7 +5235,7 @@ static void cut_file(struct _IO_FILE *file, char delim, struct cut_list *cut_lis
           if((signed int)printed[(signed long int)spos] == 0)
           {
             printed[(signed long int)spos] = (char)88;
-            if(!(line + (signed long int)spos == ((char *)((void *)0))))
+            if(!(line == ((char *)((void *)0))))
               (void)0;
 
             else
@@ -5245,7 +5245,7 @@ static void cut_file(struct _IO_FILE *file, char delim, struct cut_list *cut_lis
           }
 
           spos = spos + 1;
-          if(!(cut_lists + (signed long int)cl_pos == ((struct cut_list *)((void *)0))))
+          if(!(cut_lists == ((struct cut_list *)((void *)0))))
             (void)0;
 
           else
@@ -5260,7 +5260,7 @@ static void cut_file(struct _IO_FILE *file, char delim, struct cut_list *cut_lis
     else
       if((signed int)delim == 10)
       {
-        if(!(cut_lists + (signed long int)cl_pos == ((struct cut_list *)((void *)0))))
+        if(!(cut_lists == ((struct cut_list *)((void *)0))))
           (void)0;
 
         else
@@ -5273,7 +5273,7 @@ static void cut_file(struct _IO_FILE *file, char delim, struct cut_list *cut_lis
         while(!(spos >= (signed int)linenum))
         {
           spos = spos + 1;
-          if(!(cut_lists + (signed long int)cl_pos == ((struct cut_list *)((void *)0))))
+          if(!(cut_lists == ((struct cut_list *)((void *)0))))
             (void)0;
 
           else
@@ -5284,7 +5284,7 @@ static void cut_file(struct _IO_FILE *file, char delim, struct cut_list *cut_lis
 
           else
           {
-            if(!(cut_lists + (signed long int)cl_pos == ((struct cut_list *)((void *)0))))
+            if(!(cut_lists == ((struct cut_list *)((void *)0))))
               (void)0;
 
             else
@@ -5298,7 +5298,7 @@ static void cut_file(struct _IO_FILE *file, char delim, struct cut_list *cut_lis
             if(cl_pos >= nlists)
               goto next_line;
 
-            if(!(cut_lists + (signed long int)cl_pos == ((struct cut_list *)((void *)0))))
+            if(!(cut_lists == ((struct cut_list *)((void *)0))))
               (void)0;
 
             else
@@ -5335,7 +5335,7 @@ static void cut_file(struct _IO_FILE *file, char delim, struct cut_list *cut_lis
 
         for( ; !(line == ((char *)((void *)0))) && !(cl_pos >= nlists); cl_pos = cl_pos + 1u)
         {
-          if(!(cut_lists + (signed long int)cl_pos == ((struct cut_list *)((void *)0))))
+          if(!(cut_lists == ((struct cut_list *)((void *)0))))
             (void)0;
 
           else
@@ -5363,7 +5363,7 @@ static void cut_file(struct _IO_FILE *file, char delim, struct cut_list *cut_lis
           {
             if(ndelim == spos)
             {
-              if(!(printed + (signed long int)ndelim == ((char *)((void *)0))))
+              if(!(printed == ((char *)((void *)0))))
                 (void)0;
 
               else
@@ -5375,7 +5375,7 @@ static void cut_file(struct _IO_FILE *file, char delim, struct cut_list *cut_lis
                   putchar((signed int)delim);
 
                 fputs(field, stdout);
-                if(!(printed + (signed long int)ndelim == ((char *)((void *)0))))
+                if(!(printed == ((char *)((void *)0))))
                   (void)0;
 
                 else
@@ -5390,7 +5390,7 @@ static void cut_file(struct _IO_FILE *file, char delim, struct cut_list *cut_lis
           }
 
           spos = spos + 1;
-          if(!(cut_lists + (signed long int)cl_pos == ((struct cut_list *)((void *)0))))
+          if(!(cut_lists == ((struct cut_list *)((void *)0))))
             (void)0;
 
           else
@@ -5420,7 +5420,7 @@ static void cut_file(struct _IO_FILE *file, char delim, struct cut_list *cut_lis
 }
 
 
-signed int main(signed int argc, char **argv)
+signed int __main(signed int argc, char **argv)
 {
   struct cut_list *cut_lists = (struct cut_list *)((void *)0);
   unsigned int nlists = (unsigned int)0;
@@ -5444,7 +5444,7 @@ signed int main(signed int argc, char **argv)
       __VERIFIER_error();
     if(!((signed int)*ltok == 0))
     {
-      if(!(1l + ltok == ((char *)((void *)0))))
+      if(!(ltok == ((char *)((void *)0))))
         (void)0;
 
       else
@@ -5548,14 +5548,14 @@ signed int main(signed int argc, char **argv)
       void *return_value_xrealloc_vector_helper$11;
       return_value_xrealloc_vector_helper$11=xrealloc_vector_helper((void *)cut_lists, (unsigned int)((sizeof(struct cut_list) << 8) + (unsigned long int)4), (signed int)nlists);
       cut_lists = (struct cut_list *)return_value_xrealloc_vector_helper$11;
-      if(!(cut_lists + (signed long int)nlists == ((struct cut_list *)((void *)0))))
+      if(!(cut_lists == ((struct cut_list *)((void *)0))))
         (void)0;
 
       else
 
         __VERIFIER_error();
       (cut_lists + (signed long int)nlists)->startpos = s;
-      if(!(cut_lists + (signed long int)nlists == ((struct cut_list *)((void *)0))))
+      if(!(cut_lists == ((struct cut_list *)((void *)0))))
         (void)0;
 
       else
@@ -6400,4 +6400,25 @@ static void * xzalloc(unsigned long int size)
   ptr=xmalloc(size);
   memset(ptr, 0, size);
   return ptr;
+}
+
+
+int main()
+{
+  int argc;
+  __VERIFIER_assume(argc>=0);
+
+  char **argv=malloc((argc+1)*sizeof(char*));
+  argv[argc]=0;
+
+  for(int i=0; i<argc; ++i)
+  {
+
+
+    argv[i]=malloc(10);
+    for(int j=0; j<10; ++j)
+      argv[i][j]=__VERIFIER_nondet_char();
+  }
+
+  return __main(argc, argv);
 }

@@ -16,6 +16,7 @@
 extern void __VERIFIER_error(void);
 #include <string.h>
 #include <unistd.h>
+#include <stdlib.h>
 
 #ifndef NULL
 #define NULL ((void*)0)
@@ -38,16 +39,16 @@ static signed long int safe_write(signed int fd, const void *buf, unsigned long 
 static signed int * const bb_errno;
 
 // file coreutils/basename.c line 49
-signed int main(signed int argc, char **argv)
+signed int __main(signed int argc, char **argv)
 {
   unsigned long int m;
   unsigned long int n;
   char *s;
-  if(!(1l + argv == ((char **)NULL)))
+  if(!(argv == ((char **)NULL)))
     (void)0;
 
   else
-    /* assertion !(1l + argv == ((char **)((void*)0))) */
+    /* assertion !(argv == ((char **)((void*)0))) */
     __VERIFIER_error();
   signed int tmp_statement_expression$1;
   _Bool tmp_if_expr$2;
@@ -77,11 +78,11 @@ signed int main(signed int argc, char **argv)
     if(!(tmp_if_expr$2 == (_Bool)0))
     {
       const unsigned char *__s2;
-      if(!(1l + argv == ((char **)NULL)))
+      if(!(argv == ((char **)NULL)))
         (void)0;
 
       else
-        /* assertion !(1l + argv == ((char **)((void*)0))) */
+        /* assertion !(argv == ((char **)((void*)0))) */
         __VERIFIER_error();
       __s2 = (const char *)argv[(signed long int)1];
       signed int __result;
@@ -96,53 +97,53 @@ signed int main(signed int argc, char **argv)
       {
         if(__result == 0)
         {
-          if(!("--" + 1l == ((const char *)NULL)))
+          if(!("--" == ((const char *)NULL)))
             (void)0;
 
           else
-            /* assertion !("--" + 1l == ((const unsigned char *)((void*)0))) */
+            /* assertion !("--" == ((const unsigned char *)((void*)0))) */
             __VERIFIER_error();
-          if(!(1l + __s2 == ((const unsigned char *)NULL)))
+          if(!(__s2 == ((const unsigned char *)NULL)))
             (void)0;
 
           else
-            /* assertion !(1l + __s2 == ((const unsigned char *)((void*)0))) */
+            /* assertion !(__s2 == ((const unsigned char *)((void*)0))) */
             __VERIFIER_error();
           __result = (signed int)((const char *)"--")[(signed long int)1] - (signed int)__s2[(signed long int)1];
           if(__s2_len > 1ul)
           {
             if(__result == 0)
             {
-              if(!("--" + 2l == ((const char *)NULL)))
+              if(!("--" == ((const char *)NULL)))
                 (void)0;
 
               else
-                /* assertion !("--" + 2l == ((const unsigned char *)((void*)0))) */
+                /* assertion !("--" == ((const unsigned char *)((void*)0))) */
                 __VERIFIER_error();
-              if(!(2l + __s2 == ((const unsigned char *)NULL)))
+              if(!(__s2 == ((const unsigned char *)NULL)))
                 (void)0;
 
               else
-                /* assertion !(2l + __s2 == ((const unsigned char *)((void*)0))) */
+                /* assertion !(__s2 == ((const unsigned char *)((void*)0))) */
                 __VERIFIER_error();
               __result = (signed int)((const char *)"--")[(signed long int)2] - (signed int)__s2[(signed long int)2];
               if(__s2_len > 2ul)
               {
                 if(__result == 0)
                 {
-                  if(!("--" + 3l == ((const char *)NULL)))
+                  if(!("--" == ((const char *)NULL)))
                     (void)0;
 
                   else
-                    /* assertion !("--" + 3l == ((const unsigned char *)((void*)0))) */
+                    /* assertion !("--" == ((const unsigned char *)((void*)0))) */
                     __VERIFIER_error();
                   /* assertion (_Bool)0 */
                   __VERIFIER_error();
-                  if(!(3l + __s2 == ((const unsigned char *)NULL)))
+                  if(!(__s2 == ((const unsigned char *)NULL)))
                     (void)0;
 
                   else
-                    /* assertion !(3l + __s2 == ((const unsigned char *)((void*)0))) */
+                    /* assertion !(__s2 == ((const unsigned char *)((void*)0))) */
                     __VERIFIER_error();
                   __result = (signed int)((const char *)"--")[(signed long int)3] - (signed int)__s2[(signed long int)3];
                 }
@@ -163,11 +164,11 @@ signed int main(signed int argc, char **argv)
 
     else
     {
-      if(!(1l + argv == ((char **)NULL)))
+      if(!(argv == ((char **)NULL)))
         (void)0;
 
       else
-        /* assertion !(1l + argv == ((char **)((void*)0))) */
+        /* assertion !(argv == ((char **)((void*)0))) */
         __VERIFIER_error();
       return_value___builtin_strcmp$4=__builtin_strcmp(argv[(signed long int)1], "--");
       tmp_if_expr$5 = return_value___builtin_strcmp$4;
@@ -226,11 +227,11 @@ signed int main(signed int argc, char **argv)
 
   unsigned long int tmp_post$8 = m;
   m = m + 1ul;
-  if(!(s + (signed long int)tmp_post$8 == ((char *)NULL)))
+  if(!(s == ((char *)NULL)))
     (void)0;
 
   else
-    /* assertion !(s + (signed long int)tmp_post$8 == ((char *)((void*)0))) */
+    /* assertion !(s == ((char *)((void*)0))) */
     __VERIFIER_error();
   s[(signed long int)tmp_post$8] = (char)10;
   signed long int return_value_full_write$9;
@@ -352,3 +353,23 @@ static signed long int safe_write(signed int fd, const void *buf, unsigned long 
   return n;
 }
 
+
+int main()
+{
+  int argc;
+  __VERIFIER_assume(argc>=0);
+
+  char **argv=malloc((argc+1)*sizeof(char*));
+  argv[argc]=0;
+
+  for(int i=0; i<argc; ++i)
+  {
+    // let's limit the size of arguments to 10, which is an
+    // underapproximation obviously
+    argv[i]=malloc(10);
+    for(int j=0; j<10; ++j)
+      argv[i][j]=__VERIFIER_nondet_char();
+  }
+
+  return __main(argc, argv);
+}

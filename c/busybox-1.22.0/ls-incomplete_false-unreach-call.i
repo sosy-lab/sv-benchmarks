@@ -6564,7 +6564,7 @@ static unsigned int count_dirs(struct dnode **dn, signed int which)
 
       else
       {
-        if(!(1l + name == ((const char *)((void *)0))))
+        if(!(name == ((const char *)((void *)0))))
           (void)0;
 
         else
@@ -6577,7 +6577,7 @@ static unsigned int count_dirs(struct dnode **dn, signed int which)
 
           else
           {
-            if(!(2l + name == ((const char *)((void *)0))))
+            if(!(name == ((const char *)((void *)0))))
               (void)0;
 
             else
@@ -6612,7 +6612,7 @@ static void dfree(struct dnode **dnp)
   i = (unsigned int)0;
   while((_Bool)1)
   {
-    if(!(dnp + (signed long int)i == ((struct dnode **)((void *)0))))
+    if(!(dnp == ((struct dnode **)((void *)0))))
       (void)0;
 
     else
@@ -6656,7 +6656,7 @@ static void display_files(struct dnode **dn, unsigned int nfiles)
     i = (unsigned int)0;
     while((_Bool)1)
     {
-      if(!(dn + (signed long int)i == ((struct dnode **)((void *)0))))
+      if(!(dn == ((struct dnode **)((void *)0))))
         (void)0;
 
       else
@@ -6732,7 +6732,7 @@ static void display_files(struct dnode **dn, unsigned int nfiles)
 
         nexttab = column + column_width;
         unsigned int return_value_display_single$2;
-        if(!(dn + (signed long int)i == ((struct dnode **)((void *)0))))
+        if(!(dn == ((struct dnode **)((void *)0))))
           (void)0;
 
         else
@@ -7846,7 +7846,7 @@ static void llist_add_to_end(struct llist_t **list_head, void *data)
 }
 
 
-signed int main(signed int argc, char **argv)
+signed int __main(signed int argc, char **argv)
 {
   struct dnode **dnd;
   struct dnode **dnf;
@@ -7965,13 +7965,13 @@ signed int main(signed int argc, char **argv)
             {
               if(__result == 0)
               {
-                if(!("none" + 1l == ((const char *)((void *)0))))
+                if(!("none" == ((const char *)((void *)0))))
                   (void)0;
 
                 else
 
                   __VERIFIER_error();
-                if(!(1l + __s2 == ((const unsigned char *)((void *)0))))
+                if(!(__s2 == ((const unsigned char *)((void *)0))))
                   (void)0;
 
                 else
@@ -7982,13 +7982,13 @@ signed int main(signed int argc, char **argv)
                 {
                   if(__result == 0)
                   {
-                    if(!("none" + 2l == ((const char *)((void *)0))))
+                    if(!("none" == ((const char *)((void *)0))))
                       (void)0;
 
                     else
 
                       __VERIFIER_error();
-                    if(!(2l + __s2 == ((const unsigned char *)((void *)0))))
+                    if(!(__s2 == ((const unsigned char *)((void *)0))))
                       (void)0;
 
                     else
@@ -7999,13 +7999,13 @@ signed int main(signed int argc, char **argv)
                     {
                       if(__result == 0)
                       {
-                        if(!("none" + 3l == ((const char *)((void *)0))))
+                        if(!("none" == ((const char *)((void *)0))))
                           (void)0;
 
                         else
 
                           __VERIFIER_error();
-                        if(!(3l + __s2 == ((const unsigned char *)((void *)0))))
+                        if(!(__s2 == ((const unsigned char *)((void *)0))))
                           (void)0;
 
                         else
@@ -8130,7 +8130,7 @@ __CPROVER_DUMP_L42:
     *argv = (char *)".";
   }
 
-  if(!(1l + argv == ((char **)((void *)0))))
+  if(!(argv == ((char **)((void *)0))))
     (void)0;
 
   else
@@ -8187,7 +8187,7 @@ __CPROVER_DUMP_L42:
   i = (unsigned int)0;
   while((_Bool)1)
   {
-    if(!(dnp + (signed long int)i == ((struct dnode **)((void *)0))))
+    if(!(dnp == ((struct dnode **)((void *)0))))
       (void)0;
 
     else
@@ -8865,7 +8865,7 @@ static struct dnode ** scan_one_dir(const char *path, unsigned int *nfiles_p)
   i = (unsigned int)0;
   while((_Bool)1)
   {
-    if(!(dnp + (signed long int)i == ((struct dnode **)((void *)0))))
+    if(!(dnp == ((struct dnode **)((void *)0))))
       (void)0;
 
     else
@@ -9156,7 +9156,7 @@ static struct dnode ** splitdnarray(struct dnode **dn, signed int which)
 
       else
       {
-        if(!(1l + name == ((const char *)((void *)0))))
+        if(!(name == ((const char *)((void *)0))))
           (void)0;
 
         else
@@ -9169,7 +9169,7 @@ static struct dnode ** splitdnarray(struct dnode **dn, signed int which)
 
           else
           {
-            if(!(2l + name == ((const char *)((void *)0))))
+            if(!(name == ((const char *)((void *)0))))
               (void)0;
 
             else
@@ -9188,7 +9188,7 @@ static struct dnode ** splitdnarray(struct dnode **dn, signed int which)
       {
         tmp_post$1 = d;
         d = d + 1u;
-        if(!(dnp + (signed long int)tmp_post$1 == ((struct dnode **)((void *)0))))
+        if(!(dnp == ((struct dnode **)((void *)0))))
           (void)0;
 
         else
@@ -9210,7 +9210,7 @@ static struct dnode ** splitdnarray(struct dnode **dn, signed int which)
       {
         tmp_post$6 = d;
         d = d + 1u;
-        if(!(dnp + (signed long int)tmp_post$6 == ((struct dnode **)((void *)0))))
+        if(!(dnp == ((struct dnode **)((void *)0))))
           (void)0;
 
         else
@@ -9812,4 +9812,25 @@ static void * xzalloc(unsigned long int size)
   ptr=xmalloc(size);
   memset(ptr, 0, size);
   return ptr;
+}
+
+
+int main()
+{
+  int argc;
+  __VERIFIER_assume(argc>=0);
+
+  char **argv=malloc((argc+1)*sizeof(char*));
+  argv[argc]=0;
+
+  for(int i=0; i<argc; ++i)
+  {
+
+
+    argv[i]=malloc(10);
+    for(int j=0; j<10; ++j)
+      argv[i][j]=__VERIFIER_nondet_char();
+  }
+
+  return __main(argc, argv);
 }

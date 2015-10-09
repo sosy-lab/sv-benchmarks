@@ -5873,7 +5873,7 @@ static char * gid2group(unsigned int gid)
 }
 
 
-signed int main(signed int argc, char **argv)
+signed int __main(signed int argc, char **argv)
 {
   unsigned int ruid;
   unsigned int rgid;
@@ -5903,7 +5903,7 @@ signed int main(signed int argc, char **argv)
     opt_complementary = "?1:u--g:g--u:G--u:u--G:g--G:G--g:r?ugG:n?ugG";
     opt=getopt32(argv, "rnugG");
   }
-  if(!(argv + (signed long int)optind == ((char **)((void *)0))))
+  if(!(argv == ((char **)((void *)0))))
     (void)0;
 
   else
@@ -6007,7 +6007,7 @@ signed int main(signed int argc, char **argv)
       {
         if(!(opt == 0u))
         {
-          if(!(groups + (signed long int)i == ((unsigned int *)((void *)0))))
+          if(!(groups == ((unsigned int *)((void *)0))))
             (void)0;
 
           else
@@ -6018,7 +6018,7 @@ signed int main(signed int argc, char **argv)
 
           else
           {
-            if(!(groups + (signed long int)i == ((unsigned int *)((void *)0))))
+            if(!(groups == ((unsigned int *)((void *)0))))
               (void)0;
 
             else
@@ -6032,7 +6032,7 @@ signed int main(signed int argc, char **argv)
         }
 
         signed int return_value_print_group$12;
-        if(!(groups + (signed long int)i == ((unsigned int *)((void *)0))))
+        if(!(groups == ((unsigned int *)((void *)0))))
           (void)0;
 
         else
@@ -6350,4 +6350,25 @@ static void * xzalloc(unsigned long int size)
   ptr=xmalloc(size);
   memset(ptr, 0, size);
   return ptr;
+}
+
+
+int main()
+{
+  int argc;
+  __VERIFIER_assume(argc>=0);
+
+  char **argv=malloc((argc+1)*sizeof(char*));
+  argv[argc]=0;
+
+  for(int i=0; i<argc; ++i)
+  {
+
+
+    argv[i]=malloc(10);
+    for(int j=0; j<10; ++j)
+      argv[i][j]=__VERIFIER_nondet_char();
+  }
+
+  return __main(argc, argv);
 }

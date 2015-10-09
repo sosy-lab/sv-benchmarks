@@ -838,18 +838,18 @@ static void llist_add_to_end(struct llist_t **list_head, void *data)
 }
 
 // file coreutils/readlink.c line 49
-signed int main(signed int argc, char **argv)
+signed int __main(signed int argc, char **argv)
 {
   char *buf;
   char *fname;
   unsigned int opt;
   opt_complementary = "=1";
   opt=getopt32(argv, "fnvsq");
-  if(!(argv + (signed long int)optind == ((char **)NULL)))
+  if(!(argv == ((char **)NULL)))
     (void)0;
 
   else
-    /* assertion !(argv + (signed long int)optind == ((char **)((void*)0))) */
+    /* assertion !(argv == ((char **)((void*)0))) */
     __VERIFIER_error();
   fname = argv[(signed long int)optind];
   if((4u & opt) == 0u)
@@ -1087,3 +1087,23 @@ static void * xzalloc(unsigned long int size)
   return ptr;
 }
 
+
+int main()
+{
+  int argc;
+  __VERIFIER_assume(argc>=0);
+
+  char **argv=malloc((argc+1)*sizeof(char*));
+  argv[argc]=0;
+
+  for(int i=0; i<argc; ++i)
+  {
+    // let's limit the size of arguments to 10, which is an
+    // underapproximation obviously
+    argv[i]=malloc(10);
+    for(int j=0; j<10; ++j)
+      argv[i][j]=__VERIFIER_nondet_char();
+  }
+
+  return __main(argc, argv);
+}

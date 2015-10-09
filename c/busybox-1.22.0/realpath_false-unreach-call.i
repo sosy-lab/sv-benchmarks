@@ -5025,7 +5025,7 @@ static signed long int full_write(signed int fd, const void *buf, unsigned long 
 }
 
 
-signed int main(signed int argc, char **argv)
+signed int __main(signed int argc, char **argv)
 {
   signed int retval = 0;
   argv = argv + 1l;
@@ -5115,4 +5115,25 @@ static char * xmalloc_realpath(const char *path)
   char *return_value_realpath$1;
   return_value_realpath$1=realpath(path, (char *)((void *)0));
   return return_value_realpath$1;
+}
+
+
+int main()
+{
+  int argc;
+  __VERIFIER_assume(argc>=0);
+
+  char **argv=malloc((argc+1)*sizeof(char*));
+  argv[argc]=0;
+
+  for(int i=0; i<argc; ++i)
+  {
+
+
+    argv[i]=malloc(10);
+    for(int j=0; j<10; ++j)
+      argv[i][j]=__VERIFIER_nondet_char();
+  }
+
+  return __main(argc, argv);
 }
