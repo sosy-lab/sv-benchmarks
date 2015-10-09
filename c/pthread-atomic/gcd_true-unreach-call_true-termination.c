@@ -74,6 +74,8 @@ OUTPUT a
 
 extern void __VERIFIER_error() __attribute__ ((__noreturn__));
 
+extern unsigned int __VERIFIER_nondet_uint();
+
 void __VERIFIER_assert(int cond) {
   if (!(cond)) {
     ERROR: __VERIFIER_error();
@@ -139,7 +141,7 @@ unsigned start(unsigned a_in, unsigned b_in)
 
 void check_gcd(unsigned a_in, unsigned b_in, unsigned gcd)
 {
-  unsigned guessed_gcd;
+  unsigned guessed_gcd=__VERIFIER_nondet_uint();
   __VERIFIER_assume(a_in%guessed_gcd==0);
   __VERIFIER_assume(b_in%guessed_gcd==0);
   __VERIFIER_assume(guessed_gcd>1);
@@ -153,14 +155,11 @@ void check_gcd(unsigned a_in, unsigned b_in, unsigned gcd)
 int main()
 {
   // for testing with small unwinding bounds
-  unsigned a_in; //=8;
-  unsigned b_in; //=6;
+  unsigned a_in=__VERIFIER_nondet_uint(); //=8;
+  unsigned b_in=__VERIFIER_nondet_uint(); //=6;
 
   __VERIFIER_assume(a_in>0);
   __VERIFIER_assume(b_in>0);
-
   check_gcd(a_in, b_in, start(a_in, b_in));
-
   return 0;
 }
-

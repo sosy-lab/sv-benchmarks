@@ -1,4 +1,5 @@
 extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+extern unsigned int __VERIFIER_nondet_uint();
 
 typedef unsigned char __u_char;
 typedef unsigned short int __u_short;
@@ -633,7 +634,7 @@ extern int pthread_atfork (void (*__prepare) (void),
       void (*__child) (void)) __attribute__ ((__nothrow__ , __leaf__));
 
 void* thr1(void* arg){
-  unsigned int x, y, z;
+  unsigned int x=__VERIFIER_nondet_uint(), y=__VERIFIER_nondet_uint(), z=__VERIFIER_nondet_uint();
   int i, j, k;
   for(i=0; i<x; i++) {
     for(j=i+1; j<y; j++) {
