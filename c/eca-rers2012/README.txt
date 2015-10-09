@@ -41,3 +41,24 @@ for p in `seq 1 19`; do
 			;
 	done
 done
+
+
+
+
+
+2015-07-13 Matthias Heizmann made files C11 compliant (avoid implicit function 
+declarations) with the following script.
+
+#!/bin/sh
+for f in ./*.c; do
+	cat "$f"|grep "int calculate_output[^(]" > "$f".decl
+	if [[ -s "$f".decl ]] ; then
+		sed -i 's/..$/;/g' "$f".decl
+		echo "" >> "$f".decl
+		line=$(grep -n '	int calculate_output(int input) {' "$f" | cut -d ":" -f 1)
+		mv "$f" "$f".tmp
+		{ head -n $(($line-1)) "$f".tmp; cat "$f".decl; tail -n +$line "$f".tmp; } > "$f"
+		rm "$f".tmp
+	fi ;
+	rm "$f".decl
+done;

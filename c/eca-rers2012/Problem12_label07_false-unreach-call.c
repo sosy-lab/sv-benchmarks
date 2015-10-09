@@ -21,6 +21,10 @@ extern void exit(int);
 	 int a2 = 170;
 	 int a7 = 13;
 
+	int calculate_output2(int input);
+	int calculate_output3(int input);
+	int calculate_output4(int input);
+
 	int calculate_output(int input) {
 		if((((((a7==14) &&  a2 <=  189 ) &&   ((111 < a17) && (255 >= a17)) ) && (a24==13)) && (a5==3))){
 		error_7: __VERIFIER_error();
