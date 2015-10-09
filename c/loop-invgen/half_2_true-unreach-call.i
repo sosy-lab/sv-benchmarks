@@ -1,5 +1,4 @@
 extern void __VERIFIER_error(void);
-extern void __VERIFIER_assume(int);
 void __VERIFIER_assert(int cond) {
   if (!(cond)) {
     ERROR: __VERIFIER_error();
@@ -10,7 +9,6 @@ int __VERIFIER_nondet_int();
 int main() {
   int n,i,k;
   n = __VERIFIER_nondet_int();
-  assume(n>=0);
   k = n;
   i = 0;
   while( i < n ) {
