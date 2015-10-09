@@ -8,3 +8,5 @@ pthread-wmm/*_false-unreach-call*.i
 pthread-wmm/*_true-unreach-call*.i
 pthread-lit/*_false-unreach-call*.i
 pthread-lit/*_true-unreach-call*.i
+ldv-races/*_true-unreach-call*.i
+ldv-races/*_false-unreach-call*.i

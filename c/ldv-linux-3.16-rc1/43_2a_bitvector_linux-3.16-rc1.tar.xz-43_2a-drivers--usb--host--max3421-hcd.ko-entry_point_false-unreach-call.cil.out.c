@@ -8412,9 +8412,9 @@ void main(void)
 #line 2135
   ldv_initialize();
 #line 2140
-  memset((void *)(& ldvarg5), 0, 4UL);
+  ldvarg5 = (gfp_t)__VERIFIER_nondet_int();
 #line 2141
-  memset((void *)(& ldvarg6), 0, 4UL);
+  ldvarg6 = (gfp_t)__VERIFIER_nondet_int();
 #line 2149
   ldv_state_variable_1 = 1;
 #line 2150
