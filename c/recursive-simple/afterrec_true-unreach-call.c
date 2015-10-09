@@ -7,6 +7,6 @@ void f(int n) {
   ERROR: __VERIFIER_error();
 }
 
-void main() {
+int main(void) {
   f(2);
 }

@@ -8,7 +8,7 @@ int id(int x) {
   return ret;
 }
 
-void main() {
+int main(void) {
   int input = __VERIFIER_nondet_int();
   int result = id(input);
   if (result == 5) {

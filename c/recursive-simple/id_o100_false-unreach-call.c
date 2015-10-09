@@ -6,7 +6,7 @@ int id(int x) {
   return id(x-1) + 1;
 }
 
-void main() {
+int main(void) {
   int input = __VERIFIER_nondet_int();
   int result = id(input);
   if (result == 100) {
