@@ -98,7 +98,7 @@ _Bool side2Failed  ;
 msg_t side1_written  ;
 msg_t side2_written  ;
 void assert(_Bool arg ) ;
-extern void __VERIFIER_assume(_Bool arg ) ;
+extern void __VERIFIER_assume(int arg ) ;
 static _Bool side1Failed_History_0  ;
 static _Bool side1Failed_History_1  ;
 static _Bool side1Failed_History_2  ;

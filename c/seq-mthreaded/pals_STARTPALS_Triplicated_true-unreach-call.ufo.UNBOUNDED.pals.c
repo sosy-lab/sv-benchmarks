@@ -77,7 +77,7 @@ int8_t g3v_old ;
 int8_t g3v_new ;
 extern _Bool __VERIFIER_nondet_bool() ;
 extern msg_t __VERIFIER_nondet_int8_t() ;
-extern void __VERIFIER_assume(_Bool arg ) ;
+extern void __VERIFIER_assume(int arg ) ;
 _Bool gate1Failed  ;
 _Bool gate2Failed  ;
 _Bool gate3Failed  ;

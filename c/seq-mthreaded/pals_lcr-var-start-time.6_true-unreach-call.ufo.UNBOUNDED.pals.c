@@ -62,7 +62,7 @@ _Bool __VERIFIER_nondet__Bool(void) ;
 char __VERIFIER_nondet_msg_t(void) ;
 char __VERIFIER_nondet_char(void) ;
 void assert(_Bool arg ) ;
-void __VERIFIER_assume(_Bool arg ) ;
+void __VERIFIER_assume(int arg ) ;
 typedef char msg_t;
 typedef int port_t;
 extern void read(port_t p , msg_t m ) ;
