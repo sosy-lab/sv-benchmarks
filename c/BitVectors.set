@@ -5,5 +5,5 @@ bitvector/*_true-unreach-call*.c.cil.c
 bitvector-regression/*_false-unreach-call*.i
 bitvector-regression/*_true-unreach-call*.i
 bitvector-loops/*_false-unreach-call*.i
-bitvector-loops/*_true-unreach-call*.i
+# bitvector-loops/*_true-unreach-call*.i
 
