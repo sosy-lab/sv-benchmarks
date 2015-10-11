@@ -11,18 +11,22 @@ There are a few Makefile variables that can be set from the command line
 that are worth knowing about
 
 * ``CC`` - The C compiler to use
-* ``EMIT_LLVM`` - **Clang only** If ``1`` emit LLVM bitcode files, if
+* ``EMIT_LLVM`` - **Clang only** If ``1`` emit LLVM bitcode files. If
                   ``0`` emit native object files. This is useful if a
                   verification tool takes LLVM bitcode as input.
+* ``SYNTAX_ONLY`` - If ``1`` the compiler will only do a syntax check
+                    and will not create real object files. If ``0``
+                    the compiler will create real object files. This
+                    option is ignored if ``EMIT_LLVM`` is enabled.
 * ``VERBOSE`` - If ``1`` be more verbose, if ``0`` do not.
-* ``WARNINGS_AS_ERRORS`` - If ``1`` treat compiler warnings as errors,
-  if ``0`` do not. See ``Makefile.config`` for the default value.
-
+* ``WARNINGS_AS_ERRORS`` - If ``1`` treat compiler warnings as errors.
+                           If ``0`` do not.
 e.g.
 
 ```
 $ make CC=clang VERBOSE=1
 ```
+See ``Makefile.config`` for the default values.
 
 # Building the benchmarks
 
