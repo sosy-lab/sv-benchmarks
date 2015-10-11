@@ -33,7 +33,7 @@ int main()
   float x = IN;
   
   float result = 
-    1f + 0.5f*x - 0.125f*x*x + 0.0625f*x*x*x - 0.0390625f*x*x*x*x;
+    1.0f + 0.5f*x - 0.125f*x*x + 0.0625f*x*x*x - 0.0390625f*x*x*x*x;
 
   if(!(result >= 0.0f && result < VAL))
     __VERIFIER_error();
