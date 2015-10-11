@@ -15,7 +15,7 @@ static double fabs(double n)
   else f = -n;
   return f;
 }
-void main()
+int main()
 {
  int i, j, nmax = 50, n = 5, chkerr;
  double eps, w;
@@ -33,6 +33,8 @@ void main()
    b[i] = w;
  }
  chkerr = ludcmp(nmax, n, eps);
+
+ return 0;
 }
 int ludcmp(int nmax, int n, double eps)
 {

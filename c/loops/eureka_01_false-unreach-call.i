@@ -9,7 +9,7 @@ void __VERIFIER_assert(int cond) {
   return;
 }
 int INFINITY = 899;
-void main(){
+int main(){
   int nodecount = __VERIFIER_nondet_int();
   int edgecount = __VERIFIER_nondet_int();
   __VERIFIER_assume(0 <= nodecount && nodecount <= 4);
@@ -58,4 +58,5 @@ void main(){
       __VERIFIER_assert(distance[i]>=0);
     }
 
+  return 0;
 }
