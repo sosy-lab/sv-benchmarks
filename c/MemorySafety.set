@@ -11,10 +11,10 @@ memory-alloca/*_false-valid-deref*.i
 memory-alloca/*_false-valid-free*.i
 memory-alloca/*_false-valid-memtrack*.i
 memory-alloca/*_true-valid-memsafety*.i
-memory-unsafe/*_false-valid-deref*.i
-memory-unsafe/*_false-valid-free*.i
-memory-unsafe/*_false-valid-memtrack*.i
-memory-unsafe/*_true-valid-memsafety*.i
+array-memsafety/*_false-valid-deref*.i
+array-memsafety/*_false-valid-free*.i
+array-memsafety/*_false-valid-memtrack*.i
+array-memsafety/*_true-valid-memsafety*.i
 ldv-memsafety/*_false-valid-deref*.c
 ldv-memsafety/*_true-valid-memsafety*.c
 ldv-memsafety/*_false-valid-deref*.i
