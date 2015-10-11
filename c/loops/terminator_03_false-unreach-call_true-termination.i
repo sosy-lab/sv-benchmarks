@@ -8,7 +8,7 @@ void __VERIFIER_assert(int cond) {
 }
 extern int __VERIFIER_nondet_int();
 
-main()
+int main()
 {
   int x=__VERIFIER_nondet_int();
   int y=__VERIFIER_nondet_int();
@@ -21,4 +21,6 @@ main()
      }
   }
   __VERIFIER_assert(y<=0 || (y<0 && x>=100));
+
+  return 0;
 }

@@ -12,7 +12,7 @@ void __VERIFIER_assert(int cond) {
 
 extern char __VERIFIER_nondet_char();
 
-main()
+int main()
 {
   char string_A[MAX], string_B[MAX];
   int i, j, nc_A, nc_B, found=0;
@@ -56,5 +56,6 @@ main()
   
   __VERIFIER_assert(found == 0 || found == 1);
 
+  return 0;
 }
 
