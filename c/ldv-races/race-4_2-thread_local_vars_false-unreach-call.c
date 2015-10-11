@@ -136,9 +136,9 @@ void module_exit() {
    ldv_assert(pdev==5);
 }
 
-void main(void) {
+int main(void) {
     if(module_init()!=0) goto module_exit;
     module_exit();
 module_exit:
-    return;
+    return 0;
 }
