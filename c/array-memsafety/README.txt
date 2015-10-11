@@ -11,3 +11,9 @@ Janine Repke
 Thomas Ströder
 
 You may use and redistribute them according to the (2-clause) BSD license that is shipped with these examples.
+
+[comment by Ondrej Lengal (11 Oct 2015):
+
+  Array examples were moved from memory-alloca/ here in commit f3f1cdf .
+]
+
