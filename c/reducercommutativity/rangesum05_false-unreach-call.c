@@ -18,7 +18,7 @@ extern void __VERIFIER_error() __attribute__ ((__noreturn__));
 int rangesum (int x[N])
 {
   int i;
-  int ret;
+  long long ret;
   ret = 0;
   int cnt = 0;
   for (i = 0; i < N; i++) {

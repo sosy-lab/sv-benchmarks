@@ -20,7 +20,7 @@ int N;
 int avg (int x[N])
 {
   int i;
-  int ret;
+  long long ret;
   ret = 0;
   for (i = 0; i < N; i++) {
     ret = ret + x[i];

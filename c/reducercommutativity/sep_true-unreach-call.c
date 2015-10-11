@@ -19,7 +19,7 @@ int N;
 
 int sep (int x[N])
 {
-  int ret =0;
+  long long ret =0;
   for(int i=0;i<N;i++)
   {
     if(x[i]%2==0)
