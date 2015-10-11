@@ -6303,7 +6303,7 @@ struct Bprotocol *get_Bprotocol4mask(u_int m ) ;
 #line 67
 struct Bprotocol *get_Bprotocol4id(u_int id ) ;
 #line 69
-extern int mISDN_inittimer(u_int * ) ;
+extern int mISDN_inittimer(int * ) ;
 #line 70
 void mISDN_timer_cleanup(void) ;
 #line 72
