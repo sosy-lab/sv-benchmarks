@@ -14,6 +14,10 @@ that are worth knowing about
 * ``EMIT_LLVM`` - **Clang only** If ``1`` emit LLVM bitcode files. If
                   ``0`` emit native object files. This is useful if a
                   verification tool takes LLVM bitcode as input.
+* ``PREFER_I_FILES`` - When two source files exist with the same name
+                       (e.g. ``foo.c`` and ``foo.i``) decide which to
+                       use. If ``1`` the ``*.i`` file will be used. If
+                       ``0`` the ``*.c`` file will be used.
 * ``SYNTAX_ONLY`` - If ``1`` the compiler will only do a syntax check
                     and will not create real object files. If ``0``
                     the compiler will create real object files. This
@@ -63,17 +67,31 @@ To build a particular benchmark run
 
 ```
 $ cd <DIR>
-$ make <NAME>.o
+$ make <NAME>.<OBJ_SUFFIX>
 ```
 
-where ``<DIR>`` is the directory containing the benchmark and ``<NAME>``
-is the name of benchmark without a suffix.
+where ``<DIR>`` is the directory containing the benchmark, ``<NAME>``
+is the name of benchmark without a suffix and ``<OBJ_SUFFIX>`` is
+``oc`` if you wish to build from ``<NAME>.c`` or ``oi`` if you wish to
+build from ``<NAME>.i``. Tab completion is your friend here.
 
-Here's a concrete example
+Here's some concrete examples:
+
+This uses ``standard_copy5_true-unreach-call_ground.i`` as the source
+file.
 
 ```
 $ cd array-examples/
-$ make standard_copy5_true-unreach-call_ground.o
+$ make standard_copy5_true-unreach-call_ground.oi
+```
+
+
+This uses ``standard_copy5_true-unreach-call_ground.c`` as the source
+file.
+
+```
+$ cd array-examples/
+$ make standard_copy5_true-unreach-call_ground.oc
 ```
 
 ## Cleaning
@@ -90,8 +108,8 @@ and its child directories.
 
 # Adding a new benchmark
 
-Simply add the benchmark (``*.c`` file) to a directory of your choice and the
-build system will detect it automatically.
+Simply add the benchmark (``*.c`` or ``*.i`` file) to a directory of your
+choice and the build system will detect it automatically.
 
 # Adding a new benchmark directory
 
@@ -120,17 +138,20 @@ In these instructions replace ``<DIR>`` with the directory name you wish to add
 
 # The contents of a ``Makefile``
 
-A ``Makefile`` in each directory will automatically add targets for all C source files
-(``*.c``) implicitly unless ``SKIP_LEVEL`` is defined. The decision to make declaring
-source files implicit is a practical decision because it would be very cumbersome
-to specify all the benchmarks given the large number in the repository. It also means
-that no modifications to the build system are required when addng a new source file.
+A ``Makefile`` in each directory will automatically add targets for all C
+source files (``*.c`` and ``*.i``) implicitly unless ``SKIP_LEVEL`` is defined.
+If a file exists with the same prefix (e.g. ``foo.c`` and ``foo.i``) the file
+used for compilation is determined by the value of ``PREFER_I_FILES``.  The
+decision to make declaring source files implicit is a practical decision
+because it would be very cumbersome to specify all the benchmarks given the
+large number in the repository. It also means that no modifications to the
+build system are required when addng a new source file.
 
 If for some reason some sources need to be ignored you should add them to the
 ``IGNORE_SRCS`` variable.
 
 ```
-IGNORE_SRCS := file1.c file2.c file3.c
+IGNORE_SRCS := file1.c file2.c file3.c file4.i
 ```
 If you need to modify the flags passed to the compiler you can do so here.
 For example
