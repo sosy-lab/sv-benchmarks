@@ -49,7 +49,7 @@ int main(){
       y = Source[i];
       if(distance[x] > distance[y] + Weight[i])
  {
-   return;
+   return 0;
  }
     }
 
