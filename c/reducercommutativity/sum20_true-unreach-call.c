@@ -11,17 +11,17 @@
  */
 
 #define N 20
-#define fun max
+#define fun sum
 
 extern void __VERIFIER_error() __attribute__ ((__noreturn__));
 
-int max (int x[N])
+int sum (int x[N])
 {
   int i;
-  int ret;
+  long long ret;
   ret = 0;
   for (i = 0; i < N; i++) {
-    ret = ret < x[i] ? x[i] : ret;
+    ret = ret + x[i];
   }
   return ret;
 }

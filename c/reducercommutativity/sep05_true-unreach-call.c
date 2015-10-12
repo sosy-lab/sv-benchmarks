@@ -10,21 +10,24 @@
  * the same results on the same input data set.
  */
 
-#define N 40
-#define fun sum
+#define N 5
+#define fun sep
 
 extern void __VERIFIER_error() __attribute__ ((__noreturn__));
 
-int sum (int x[N])
+int sep (int x[N])
 {
-  int i;
-  int ret;
-  ret = 0;
-  for (i = 0; i < N; i++) {
-    ret = ret + x[i];
+  long long ret =0;
+  for(int i=0;i<N;i++)
+  {
+    if(x[i]%2==0)
+      ret++;
+    else
+      ret--;
   }
-  return ret;
+    return ret;
 }
+
 
 int main ()
 {

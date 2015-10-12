@@ -11,23 +11,20 @@
  */
 
 #define N 10
-#define fun sep
+#define fun max
 
 extern void __VERIFIER_error() __attribute__ ((__noreturn__));
 
-int sep (int x[N])
+int max (int x[N])
 {
-  int ret =0;
-  for(int i=0;i<N;i++)
-  {
-    if(x[i]%2==0)
-      ret++;
-    else
-      ret--;
+  int i;
+  long long ret;
+  ret = 0;
+  for (i = 0; i < N; i++) {
+    ret = ret < x[i] ? x[i] : ret;
   }
-    return ret;
+  return ret;
 }
-
 
 int main ()
 {

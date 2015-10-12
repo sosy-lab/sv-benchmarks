@@ -10,7 +10,7 @@
  * the same results on the same input data set.
  */
 
-#define N 5
+#define N 60
 #define fun max
 
 extern void __VERIFIER_error() __attribute__ ((__noreturn__));
@@ -18,7 +18,7 @@ extern void __VERIFIER_error() __attribute__ ((__noreturn__));
 int max (int x[N])
 {
   int i;
-  int ret;
+  long long ret;
   ret = 0;
   for (i = 0; i < N; i++) {
     ret = ret < x[i] ? x[i] : ret;

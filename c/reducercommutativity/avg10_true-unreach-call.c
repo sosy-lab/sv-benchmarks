@@ -10,20 +10,20 @@
  * the same results on the same input data set.
  */
 
-#define N 60
-#define fun max
+#define N 10
+#define fun avg
 
 extern void __VERIFIER_error() __attribute__ ((__noreturn__));
 
-int max (int x[N])
+int avg (int x[N])
 {
   int i;
-  int ret;
+  long long ret;
   ret = 0;
   for (i = 0; i < N; i++) {
-    ret = ret < x[i] ? x[i] : ret;
+    ret = ret + x[i];
   }
-  return ret;
+  return ret / N;
 }
 
 int main ()

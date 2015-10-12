@@ -11,23 +11,27 @@
  */
 
 #define N 5
-#define fun sep
+#define fun rangesum
 
 extern void __VERIFIER_error() __attribute__ ((__noreturn__));
 
-int sep (int x[N])
+int rangesum (int x[N])
 {
-  int ret =0;
-  for(int i=0;i<N;i++)
-  {
-    if(x[i]%2==0)
-      ret++;
-    else
-      ret--;
+  int i;
+  long long ret;
+  ret = 0;
+  int cnt = 0;
+  for (i = 0; i < N; i++) {
+    if( i > N/2){
+       ret = ret + x[i];
+       cnt = cnt + 1;
+    }
   }
-    return ret;
+  if ( cnt !=0)
+    return ret / cnt;
+  else
+    return 0;
 }
-
 
 int main ()
 {

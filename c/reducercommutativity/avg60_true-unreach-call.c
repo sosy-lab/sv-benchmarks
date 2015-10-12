@@ -10,27 +10,20 @@
  * the same results on the same input data set.
  */
 
-#define N 5
-#define fun rangesum
+#define N 60
+#define fun avg
 
 extern void __VERIFIER_error() __attribute__ ((__noreturn__));
 
-int rangesum (int x[N])
+int avg (int x[N])
 {
   int i;
-  int ret;
+  long long ret;
   ret = 0;
-  int cnt = 0;
   for (i = 0; i < N; i++) {
-    if( i > N/2){
-       ret = ret + x[i];
-       cnt = cnt + 1;
-    }
+    ret = ret + x[i];
   }
-  if ( cnt !=0)
-    return ret / cnt;
-  else
-    return 0;
+  return ret / N;
 }
 
 int main ()
