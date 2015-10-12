@@ -635,7 +635,7 @@ extern int pthread_atfork (void (*__prepare) (void),
 
 void* thr1(void* arg){
   unsigned int x=__VERIFIER_nondet_uint(), y=__VERIFIER_nondet_uint(), z=__VERIFIER_nondet_uint();
-  int i, j, k;
+  int i, j=1, k=1;
   for(i=0; i<x; i++) {
     for(j=i+1; j<y; j++) {
       for(k = j; k < z; k++) {
