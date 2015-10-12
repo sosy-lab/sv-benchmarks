@@ -1299,18 +1299,6 @@ void main(void)
   }
 }
 }
-void __VERIFIER_assume(_Bool arg ) 
-{ 
-
-
-  {
-  while (! arg) {
-    {
-
-    }
-  }
-}
-}
 void assert(_Bool arg ) 
 { 
 
