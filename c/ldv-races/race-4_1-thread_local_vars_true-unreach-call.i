@@ -4084,7 +4084,7 @@ void ath9k_flush(void) {
 
 void *thread_ath9k(void *arg) {
     while(1) {
-      switch(nondet_int()) {
+      switch(__VERIFIER_nondet_int()) {
        case 1:
 
          ath9k_flush();
@@ -4094,7 +4094,7 @@ void *thread_ath9k(void *arg) {
       }
     }
 exit_thread_ath9k:
-    return;
+    return 0;
 }
 
 int ieee80211_register_hw(void) {
@@ -4135,7 +4135,7 @@ void *thread_usb(void *arg) {
     ldv_usb_state = 0;
     int probe_ret;
     while(1) {
-      switch(nondet_int()) {
+      switch(__VERIFIER_nondet_int()) {
   case 0:
                 if(ldv_usb_state==0) {
     probe_ret = ath_ahb_probe();
@@ -4167,7 +4167,7 @@ exit_thread_usb:
 
     pdev = 9;
     ldv_assert(pdev==9);
-    return;
+    return 0;
 }
 
 
@@ -4199,9 +4199,9 @@ void module_exit() {
    ldv_assert(pdev==5);
 }
 
-void main(void) {
+int main(void) {
     if(module_init()!=0) goto module_exit;
     module_exit();
 module_exit:
-    return;
+    return 0;
 }

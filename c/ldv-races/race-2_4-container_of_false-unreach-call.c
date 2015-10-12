@@ -86,7 +86,7 @@ void my_drv_cleanup(void) {
 	return;
 }
 
-void main(void) {
+int main(void) {
 	int ret = my_drv_init();
 	if(ret==0) {
 		int probe_ret;
@@ -103,5 +103,5 @@ void main(void) {
 		ldv_assert(data.shared.a==-1);
 		ldv_assert(data.shared.b==-1);
 	}
-	return;
+	return 0;
 }
