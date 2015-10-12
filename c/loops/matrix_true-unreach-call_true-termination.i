@@ -8,7 +8,7 @@ void __VERIFIER_assert(int cond) {
 }
 int __VERIFIER_nondet_int();
 
-main()
+int main()
 {
   unsigned int N_LIN=1;
   unsigned int N_COL=1;
@@ -26,4 +26,6 @@ main()
     }
 
   __VERIFIER_assert(matriz[0][0]<=maior);
+
+  return 0;
 }

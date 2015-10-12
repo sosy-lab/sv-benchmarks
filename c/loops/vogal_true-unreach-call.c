@@ -11,7 +11,7 @@ void __VERIFIER_assert(int cond) {
 
 char __VERIFIER_nondet_char();
 
-main(void)
+int main(void)
 {
   char input_string[MAX], vogal_array[]={'a','A','e','E','i','I','o','O','u','U','\0'};; 
   unsigned int  i,j,cont, tam_string, n_caracter;
@@ -42,5 +42,7 @@ main(void)
     i++;       
   }    
   __VERIFIER_assert(cont_aux==cont);                          
+
+  return 0;
 }
 

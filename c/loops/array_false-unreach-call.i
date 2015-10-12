@@ -8,7 +8,7 @@ void __VERIFIER_assert(int cond) {
 }
 int __VERIFIER_nondet_int();
 
-main()
+int main()
 {
   unsigned int SIZE=1;
   unsigned int j,k;
@@ -24,4 +24,6 @@ main()
     }
 
     __VERIFIER_assert(array[0]>menor);
+
+    return 0;
 }

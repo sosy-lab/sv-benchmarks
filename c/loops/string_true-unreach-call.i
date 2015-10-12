@@ -11,7 +11,7 @@ void __VERIFIER_assert(int cond) {
 
 extern char __VERIFIER_nondet_char();
 
-main()
+int main()
 {
   char string_A[5], string_B[5];
   int i, j, nc_A, nc_B, found=0;
@@ -53,4 +53,6 @@ main()
   found = (j>nc_B-1);
 
   __VERIFIER_assert(found == 0 || found == 1);
+
+  return 0;
 }

@@ -10,7 +10,7 @@ void __VERIFIER_assert(int cond) {
 
 extern char __VERIFIER_nondet_char();
 
-main(void)
+int main(void)
 {
   char string_entrada[10], vetor_vogais[]={'a','A','e','E','i','I','o','O','u','U','\0'};;
   unsigned int i,j,cont, tam_string, n_caracter;
@@ -42,4 +42,6 @@ main(void)
     i++;
   }
   __VERIFIER_assert(cont_aux==cont);
+
+  return 0;
 }

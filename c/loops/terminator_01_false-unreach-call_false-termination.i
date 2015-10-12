@@ -8,7 +8,7 @@ void __VERIFIER_assert(int cond) {
 }
 int __VERIFIER_nondet_int();
 
-main()
+int main()
 {
   int x=__VERIFIER_nondet_int();
   int *p = &x;
@@ -17,4 +17,6 @@ main()
    (*p)++;
   }
   __VERIFIER_assert(0);
+
+  return 0;
 }
