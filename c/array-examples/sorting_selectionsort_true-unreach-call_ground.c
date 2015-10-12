@@ -28,7 +28,7 @@ int main( ) {
         __VERIFIER_assert(  a[x] <= a[y]  );
       }
     }
-    for ( x = 0 ; x < N ; x++ ) {
+    for ( x = i ; x < N ; x++ ) {
       __VERIFIER_assert(  a[x] >= a[i]  );
     }
     
