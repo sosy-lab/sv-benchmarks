@@ -26,7 +26,7 @@ ADDITIONAL_BUILD_DEPS := $(CURRENT_DIR)/Makefile \
                          $(ROOT_DIR)/Makefile.rules
 
 # Handle VERBOSE
-VERBOSE := 0
+VERBOSE ?= 0
 ifneq ($(VERBOSE),0)
   Verb :=
 else
