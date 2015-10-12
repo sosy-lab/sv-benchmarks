@@ -15,7 +15,6 @@ extern void __VERIFIER_error() __attribute__ ((__noreturn__));
 extern void __VERIFIER_assume(int);
 void __VERIFIER_assert(int expression, char* x) { if (!expression) { ERROR: __VERIFIER_error();}; return; }
 
-enum __bool { false, true };
 
 
 
@@ -818,7 +817,7 @@ size_t __VERIFIER_nondet_size_t();
 sector_t __VERIFIER_nondet_sector_t();
 u32 __VERIFIER_nondet_u32();
 char * __VERIFIER_nondet_pchar();
-enum __bool __VERIFIER_nondet_bool();
+_Bool __VERIFIER_nondet_bool();
 
 
 
