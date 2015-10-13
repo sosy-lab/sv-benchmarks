@@ -3562,19 +3562,31 @@ void audio_init_devices(void) ;
 #line 355 "/home/ldvuser/gratinskiy/commit-tester-runs/6-cpa-svcomp-newdeg/commit-tester-work/task-176--linux-torvalds--dir/inst/current/envs/linux-torvalds-645ef9e/linux-torvalds-645ef9e/sound/oss/dev_table.h"
 struct sound_timer_operations default_sound_timer ;
 #line 357 "/home/ldvuser/gratinskiy/commit-tester-runs/6-cpa-svcomp-newdeg/commit-tester-work/task-176--linux-torvalds--dir/inst/current/envs/linux-torvalds-645ef9e/linux-torvalds-645ef9e/sound/oss/dev_table.h"
-struct audio_operations *audio_devs[5U]  ;
+// XXX: hook to initialize audio_devs
+//struct audio_operations *audio_devs[5U]  ;
+struct audio_operations tmp___1;
+struct audio_operations *audio_devs[5U] = {&tmp___1, &tmp___1, &tmp___1, &tmp___1, &tmp___1} ;
 #line 358 "/home/ldvuser/gratinskiy/commit-tester-runs/6-cpa-svcomp-newdeg/commit-tester-work/task-176--linux-torvalds--dir/inst/current/envs/linux-torvalds-645ef9e/linux-torvalds-645ef9e/sound/oss/dev_table.h"
 int num_audiodevs  ;
 #line 359 "/home/ldvuser/gratinskiy/commit-tester-runs/6-cpa-svcomp-newdeg/commit-tester-work/task-176--linux-torvalds--dir/inst/current/envs/linux-torvalds-645ef9e/linux-torvalds-645ef9e/sound/oss/dev_table.h"
-struct mixer_operations *mixer_devs[5U]  ;
+// XXX: hook to initialize mixer_devs
+//struct mixer_operations *mixer_devs[5U]  ;
+struct mixer_operations tmp___2;
+struct mixer_operations *mixer_devs[5U] = {&tmp___2, &tmp___2, &tmp___2, &tmp___2, &tmp___2} ;
 #line 360 "/home/ldvuser/gratinskiy/commit-tester-runs/6-cpa-svcomp-newdeg/commit-tester-work/task-176--linux-torvalds--dir/inst/current/envs/linux-torvalds-645ef9e/linux-torvalds-645ef9e/sound/oss/dev_table.h"
 int num_mixers  ;
 #line 361 "/home/ldvuser/gratinskiy/commit-tester-runs/6-cpa-svcomp-newdeg/commit-tester-work/task-176--linux-torvalds--dir/inst/current/envs/linux-torvalds-645ef9e/linux-torvalds-645ef9e/sound/oss/dev_table.h"
-struct synth_operations *synth_devs[11U]  ;
+// XXX: hook to initialize synth_devs
+//struct synth_operations *synth_devs[11U]  ;
+struct synth_operations tmp___3;
+struct synth_operations *synth_devs[11U] = {&tmp___3, &tmp___3, &tmp___3, &tmp___3, &tmp___3, &tmp___3, &tmp___3, &tmp___3, &tmp___3, &tmp___3, &tmp___3, };
 #line 362 "/home/ldvuser/gratinskiy/commit-tester-runs/6-cpa-svcomp-newdeg/commit-tester-work/task-176--linux-torvalds--dir/inst/current/envs/linux-torvalds-645ef9e/linux-torvalds-645ef9e/sound/oss/dev_table.h"
 int num_synths  ;
 #line 363 "/home/ldvuser/gratinskiy/commit-tester-runs/6-cpa-svcomp-newdeg/commit-tester-work/task-176--linux-torvalds--dir/inst/current/envs/linux-torvalds-645ef9e/linux-torvalds-645ef9e/sound/oss/dev_table.h"
-struct midi_operations *midi_devs[6U]  ;
+// XXX: hook to initialize midi_devs
+//struct midi_operations *midi_devs[6U]  ;
+struct midi_operations tmp___4;
+struct midi_operations *midi_devs[6U] = {&tmp___4, &tmp___4, &tmp___4, &tmp___4, &tmp___4, &tmp___4 };
 #line 364 "/home/ldvuser/gratinskiy/commit-tester-runs/6-cpa-svcomp-newdeg/commit-tester-work/task-176--linux-torvalds--dir/inst/current/envs/linux-torvalds-645ef9e/linux-torvalds-645ef9e/sound/oss/dev_table.h"
 int num_midis  ;
 #line 365
@@ -6515,6 +6527,7 @@ void ldv_file_operations_6(void)
   return;
 }
 }
+
 #line 812
 void ldv_main_exported_4(void) ;
 #line 813
@@ -12314,7 +12327,7 @@ void DMAbuf_start_devices(unsigned int devmask )
 
   }
 #line 738
-  adev = audio_devs[dev];
+  adev = audio_devs[dev];    // PROBLEM adev is null!
 #line 738
   if ((unsigned long )adev == (unsigned long )((struct audio_operations *)0)) {
 #line 739
