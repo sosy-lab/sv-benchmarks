@@ -1,3 +1,4 @@
+extern int __VERIFIER_nondet_int(void);
 extern void __VERIFIER_error();
 
 int sum(int n, int m) {
@@ -9,8 +10,8 @@ int sum(int n, int m) {
 }
 
 int main(void) {
-  int a;
-  int b;
+  int a = __VERIFIER_nondet_int() ;
+  int b = __VERIFIER_nondet_int();
   int result = sum(a, b);
   if (result == a + b) {
     ERROR: __VERIFIER_error();
