@@ -1,22 +1,28 @@
 language: c
-compiler:
-  # FIXME: Enable clang once we fix the compiler errors
-  #- clang
-  - gcc
 env:
   # FIXME: If we want to check assembly too SYNTAX_ONLY needs to be 0
   # FIXME: We'd like to build with WARNINGS_AS_ERRORS=1 but there are too
   # many warnings firing right now
-  - SYNTAX_ONLY=1 WARNINGS_AS_ERRORS=0 VERBOSE=0
+  - CC=gcc-4.8 SYNTAX_ONLY=1 WARNINGS_AS_ERRORS=0 VERBOSE=0
+  # FIXME: Enable clang once we can fix compile errors.
+  #- CC=clang-3.7 SYNTAX_ONLY=1 WARNINGS_AS_ERRORS=0 VERBOSE=0
 # Hint to TravisCI that we want to use their container infrastructure
 sudo: false
 addons:
   apt:
+    sources:
+      # For gcc-4.8
+      - ubuntu-toolchain-r-test
+      # For Clang 3.7
+      - llvm-toolchain-precise-3.7
     packages:
       # These are needed for compiling with -m32
       # otherwise including system header files might result in
       # errors (e.g. ``fatal error: bits/predefs.h: No such file or directory``)
       - libc6-dev-i386
+      - gcc-4.8
+      - g++-4.8
+      - clang-3.7
 script:
   - ${CC} -v --version
   - cd c/ && make -j2
