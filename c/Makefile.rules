@@ -195,13 +195,15 @@ build_at_level: $(C_OBJS) $(I_OBJS)
 # -fsyntax-only is used as Clang doesn't seem to emit a file
 # to $@
 $(LOCAL_BUILD_DIR)/%.oc: %.c
-	@echo "$(CC) building $(LOCAL_BUILD_DIR_SUFFIX)/$<"
+	@( [ $(REPORT_CC_FILE) -ne 0 ] && \
+    echo "$(CC) building $(LOCAL_BUILD_DIR_SUFFIX)/$<") || exit 0
 	$(Verb) $(MKDIR) -p $(LOCAL_BUILD_DIR)
 	$(Verb) $(CC) $(CC.Flags) -c $< -o $@ -MP -MMD -MF $(LOCAL_BUILD_DIR)/$*.dc
 	$(Verb) $(TOUCH) $@
 
 $(LOCAL_BUILD_DIR)/%.oi: %.i
-	@echo "$(CC) building $(LOCAL_BUILD_DIR_SUFFIX)/$<"
+	@( [ $(REPORT_CC_FILE) -ne 0 ] && \
+    echo "$(CC) building $(LOCAL_BUILD_DIR_SUFFIX)/$<") || exit 0
 	$(Verb) $(MKDIR) -p $(LOCAL_BUILD_DIR)
 	$(Verb) $(CC) $(CC.Flags) -c $< -o $@ -MP -MMD -MF $(LOCAL_BUILD_DIR)/$*.di
 	$(Verb) $(TOUCH) $@

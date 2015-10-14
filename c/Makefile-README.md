@@ -18,6 +18,8 @@ that are worth knowing about
                        (e.g. ``foo.c`` and ``foo.i``) decide which to
                        use. If ``1`` the ``*.i`` file will be used. If
                        ``0`` the ``*.c`` file will be used.
+* ``REPORT_CC_FILE`` - If ``1`` report the file being compiled on
+                       standard output. If ``0`` do not report.
 * ``SET_FILES`` - See "Set files mode" section.
 * ``SUPPRESS_WARNINGS`` - If ``1`` suppress all compiler warnings. If
                           ``0`` do not suppress compiler warnings and
