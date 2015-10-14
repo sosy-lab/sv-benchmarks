@@ -231,5 +231,5 @@ makefile variable to a list of set files.
 This mode is not on by default because all sources that live in the repository
 **SHOULD BE POSSIBLE TO COMPILE ALL SOURCES IN THE REPOSITORY**.
 
-Please also note that set files may contain wildcards put only filenames **ONLY**.
+Please also note that set files may contain wildcards but in filenames **ONLY**.
 Wildcards may not be used for directory names.
