@@ -18,6 +18,7 @@ that are worth knowing about
                        (e.g. ``foo.c`` and ``foo.i``) decide which to
                        use. If ``1`` the ``*.i`` file will be used. If
                        ``0`` the ``*.c`` file will be used.
+* ``SET_FILES`` - See "Set files mode" section.
 * ``SYNTAX_ONLY`` - If ``1`` the compiler will only do a syntax check
                     and will not create real object files. If ``0``
                     the compiler will create real object files. This
@@ -187,3 +188,43 @@ this is the place to do it.
 This file contains the makefile rules to perform the build. If you wish
 to add a new target and change how compilation is done then this is the
 place to do it.
+
+# Set files mode
+
+The build system normally builds every source that it finds in a directory
+where the explored directories are those in the ``DIRS`` list in the ``Makefile``s.
+
+The build system has an alternative mode called "Set files mode" mode where the build
+system will
+
+* Only build benchmarks listed in a particular set of ``*.set`` files (i.e. the
+  behaviour of building every source file in a directory is overriden).
+* Ignore ``DIRS`` directives in ``Makefile``s
+
+This mode is useful if you only need to build a particular set of benchmarks. There
+are three ways to use this mode, all of which basically set the ``SET_FILES``
+makefile variable to a list of set files.
+
+* Edit ``Makefile.config`` and set the ``SET_FILES`` variable to a space separated
+  list of ``*.set`` files in the top level directory (e.g. ``Floats.set``).
+  ```
+  SET_FILES := BusyBox.set Floats.set
+  ```
+* Set the ``SET_FILES`` variable on the command line. This is a bit more cumbersome
+  but can be useful for quick testing.
+  ```
+  $ make SET_FILES="BusyBox.set Floats.set"
+  ```
+* Set ``SET_FILES`` as environment variable. Be very careful doing it this way. It's
+  easy to forget that this environment variable is set and consequently think that
+  all the benchmarks are being built!
+  ```
+  $ export SET_FILES="BusyBox.set Floats.set"
+  $ make
+  ```
+
+This mode is not on by default because all sources that live in the repository
+**SHOULD BE POSSIBLE TO COMPILE ALL SOURCES IN THE REPOSITORY**.
+
+Please also note that set files may contain wildcards put only filenames **ONLY**.
+Wildcards may not be used for directory names.

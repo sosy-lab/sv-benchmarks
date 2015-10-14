@@ -17,8 +17,26 @@
 CURRENT_DIR := $(shell pwd)
 ROOT_DIR := $(shell cd $(LEVEL) ; pwd)
 BUILD_ROOT := $(ROOT_DIR)/$(BUILD_DIR)
-LOCAL_BUILD_DIR_SUFFIX := $(subst $(ROOT_DIR),,$(CURRENT_DIR))
-LOCAL_BUILD_DIR := $(BUILD_ROOT)$(LOCAL_BUILD_DIR_SUFFIX)
+LOCAL_BUILD_DIR_SUFFIX := $(patsubst /%,%,$(subst $(ROOT_DIR),,$(CURRENT_DIR)))
+LOCAL_BUILD_DIR := $(BUILD_ROOT)/$(LOCAL_BUILD_DIR_SUFFIX)
+DEPTH := $(words $(subst ./, ,$(LEVEL)))
+DEPTH_PLUS_ONE := $(shell echo $$(( $(DEPTH) + 1)))
+DEPTH_PLUS_ONE_PLUS_ONE := $(shell echo $$(( $(DEPTH_PLUS_ONE) + 1)))
+
+# Used as a function to call. It takes a list of paths
+# and returns a list containing only the paths referring to files/dirs
+# at the current level
+only_at_depth = $(foreach path,$(1),\
+                          $(strip \
+                            $(if $(word $(DEPTH_PLUS_ONE_PLUS_ONE),$(subst /, ,$(path))),,\
+                                 $(word $(DEPTH_PLUS_ONE),$(subst /, ,$(path))) \
+                             ) \
+                           ) \
+                 )
+
+# Used as a functionc call. It takes a list of paths and returns a list
+# referring to files/dirs at the current level or deeper.
+at_depth_or_deeper = $(foreach path,$(1),$(word $(DEPTH_PLUS_ONE),$(subst /, ,$(path))))
 
 # Any changes to the files listed here will trigger a rebuild of the sources
 ADDITIONAL_BUILD_DEPS := $(CURRENT_DIR)/Makefile \
@@ -33,6 +51,28 @@ else
   Verb := @
 endif
 
+ifdef SET_FILES
+  $(warning Using Set files ($(SET_FILES)). DIR directives will be ignored)
+  DIRS :=
+  # Open all the set files we were asked to use, strip any comment lines and return
+  # a list of wildcard patterns
+  _SET_FILE_WILDCARDS := $(foreach set_file,$(SET_FILES),$(shell sed '/^\#/d' $(ROOT_DIR)/$(set_file)))
+  ifeq ($(strip $(LOCAL_BUILD_DIR_SUFFIX)),)
+    # At the root directory everything path is relevant
+    RELEVANT_PATHS := $(_SET_FILE_WILDCARDS)
+  else
+    # Filter only paths relevent to current build directory
+    # Note we assume wildcard patterns only appear in a filename and NEVER in
+    # a directory name!
+    RELEVANT_PATHS := $(filter $(LOCAL_BUILD_DIR_SUFFIX)/%,$(_SET_FILE_WILDCARDS))
+  endif
+  # Note sort also removes duplicates
+  DIRS := $(sort $(foreach wildcard_pattern,$(RELEVANT_PATHS),$(dir $(wildcard_pattern))))
+  # Need to only visit directories at the current level or deeper
+  DIRS := $(call at_depth_or_deeper,$(DIRS))
+  # Only need sources at the current level
+  RELEVANT_SRCS := $(call only_at_depth,$(RELEVANT_PATHS))
+endif
 
 # all Directory Recursion target
 all::
@@ -94,9 +134,15 @@ else
   endif
 endif
 
-# Get all the source files in the current directory
-C_SRCS := $(wildcard *.c)
-I_SRCS := $(wildcard *.i)
+ifndef SET_FILES
+  # Get all the source files in the current directory
+  C_SRCS := $(wildcard *.c)
+  I_SRCS := $(wildcard *.i)
+else
+  # Use set files to determine which files will be built in this directory
+  C_SRCS := $(filter %.c,$(wildcard $(RELEVANT_SRCS)))
+  I_SRCS := $(filter %.i,$(wildcard $(RELEVANT_SRCS)))
+endif
 
 # Remove sources we are told to not compile
 ifdef IGNORE_SRCS
@@ -182,11 +228,13 @@ debug_vars:
 	@echo "CC_IS_CLANG := $(CC_IS_CLANG)"
 	@echo "CC_IS_GCC := $(CC_IS_GCC)"
 	@echo "CURRENT_DIR := $(CURRENT_DIR)"
+	@echo "DEPTH := $(DEPTH)"
 	@echo "DIRS := $(DIRS)"
 	@echo "EMIT_LLVM := $(EMIT_LLVM)"
 	@echo "IGNORE_SRCS := $(IGNORE_SRCS)"
 	@echo "LEVEL := $(LEVEL)"
 	@echo "LOCAL_BUILD_DIR := $(LOCAL_BUILD_DIR)"
+	@echo "LOCAL_BUILD_DIR_SUFFIX := $(LOCAL_BUILD_DIR_SUFFIX)"
 	@echo "ROOT_DIR := $(ROOT_DIR)"
 	@echo "SKIP_LEVEL := $(SKIP_LEVEL)"
 	@echo "SYNTAX_ONLY := $(SYNTAX_ONLY)"
