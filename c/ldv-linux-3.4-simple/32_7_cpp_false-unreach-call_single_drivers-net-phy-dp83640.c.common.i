@@ -44070,7 +44070,7 @@ static const char
 
 
 static struct list_head phyter_clocks = { &(phyter_clocks), &(phyter_clocks) };
-static struct mutex phyter_clocks_lock = { .count = { (1) } , .wait_lock = (spinlock_t ) { { .rlock = { .raw_lock = { { 0 } }, .magic = 0xdead4ead, .owner_cpu = -1, .owner = ((void *)-1L), } } } , .wait_list = { &(phyter_clocks_lock.wait_list), &(phyter_clocks_lock.wait_list) } , .magic = &phyter_clocks_lock };
+static struct mutex phyter_clocks_lock = { .count = { (1) } , .wait_lock = { { .rlock = { .raw_lock = { { 0 } }, .magic = 0xdead4ead, .owner_cpu = -1, .owner = ((void *)-1L), } } } , .wait_list = { &(phyter_clocks_lock.wait_list), &(phyter_clocks_lock.wait_list) } , .magic = &phyter_clocks_lock };
 
 static void rx_timestamp_work(struct work_struct *work);
 
