@@ -207,17 +207,22 @@ makefile variable to a list of set files.
 
 * Edit ``Makefile.config`` and set the ``SET_FILES`` variable to a space separated
   list of ``*.set`` files in the top level directory (e.g. ``Floats.set``).
+
   ```
   SET_FILES := BusyBox.set Floats.set
   ```
+
 * Set the ``SET_FILES`` variable on the command line. This is a bit more cumbersome
   but can be useful for quick testing.
+
   ```
   $ make SET_FILES="BusyBox.set Floats.set"
   ```
+
 * Set ``SET_FILES`` as environment variable. Be very careful doing it this way. It's
   easy to forget that this environment variable is set and consequently think that
   all the benchmarks are being built!
+
   ```
   $ export SET_FILES="BusyBox.set Floats.set"
   $ make
