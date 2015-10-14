@@ -19,6 +19,9 @@ that are worth knowing about
                        use. If ``1`` the ``*.i`` file will be used. If
                        ``0`` the ``*.c`` file will be used.
 * ``SET_FILES`` - See "Set files mode" section.
+* ``SUPPRESS_WARNINGS`` - If ``1`` suppress all compiler warnings. If
+                          ``0`` do not suppress compiler warnings and
+                          pass warning flags as set in ``Makefile.config``.
 * ``SYNTAX_ONLY`` - If ``1`` the compiler will only do a syntax check
                     and will not create real object files. If ``0``
                     the compiler will create real object files. This

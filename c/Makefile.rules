@@ -96,7 +96,6 @@ clean::
 ifndef SKIP_LEVEL
 all:: build_at_level
 
-CC.Warnings := $(COMMON_WARNINGS)
 
 # Detect Compiler
 # FIXME: Not sure $(GREP) accepts these flags on OSX
@@ -104,12 +103,22 @@ CC_VERSION_INFO :=$(shell $(CC) --version)
 CC_IS_GCC:=$(shell echo '$(CC_VERSION_INFO)' | $(GREP) -ic gcc)
 CC_IS_CLANG:=$(shell echo '$(CC_VERSION_INFO)' | $(GREP) -ic clang)
 
-ifeq ($(CC_IS_GCC),1)
-  CC.Warnings += $(GCC_ONLY_WARNINGS)
-else ifeq ($(CC_IS_CLANG),1)
-  CC.Warnings += $(CLANG_ONLY_WARNINGS)
+ifeq ($(SUPPRESS_WARNINGS),0)
+  CC.Warnings := $(COMMON_WARNINGS)
+
+  ifeq ($(CC_IS_GCC),1)
+    CC.Warnings += $(GCC_ONLY_WARNINGS)
+  else ifeq ($(CC_IS_CLANG),1)
+    CC.Warnings += $(CLANG_ONLY_WARNINGS)
+  else
+    $(error Compiler "$(CC)" was not identified as gcc or clang)
+  endif
 else
-  $(error Compiler "$(CC)" was not identified as gcc or clang)
+  ifneq ($(WARNINGS_AS_ERRORS),0)
+    $(error Cannot SUPPRESS_WARNINGS and enable  WARNINGS_AS_ERRORS)
+  endif
+  # Suppress all warnings
+  CC.Warnings := -w
 endif
 
 CC.Flags += -std=$(CC.Standard) \
