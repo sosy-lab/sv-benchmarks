@@ -3908,6 +3908,7 @@ extern void *calloc(size_t  , size_t  ) ;
 extern int __VERIFIER_nondet_int(void) ;
 #line 28
 extern unsigned long __VERIFIER_nondet_ulong(void) ;
+extern unsigned int __VERIFIER_nondet_uint(void);
 #line 29
 extern void *__VERIFIER_nondet_pointer(void) ;
 #line 30
@@ -5260,7 +5261,7 @@ void main(void)
 #line 58
   ldv_memset((void *)(& ldvarg3), 0, 4UL);
 #line 60
-  ldv_memset((void *)(& ldvarg2), 0, 4UL);
+  ldvarg2 = __VERIFIER_nondet_ulong ();
 #line 62
   ldv_state_variable_1 = 0;
 #line 63
