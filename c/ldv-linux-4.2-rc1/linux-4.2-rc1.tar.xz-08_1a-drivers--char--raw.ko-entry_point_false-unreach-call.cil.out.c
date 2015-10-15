@@ -4576,6 +4576,7 @@ extern void *malloc(size_t  ) ;
 extern void *calloc(size_t  , size_t  ) ;
 #line 13
 extern int __VERIFIER_nondet_int(void) ;
+extern unsigned int __VERIFIER_nondet_uint (void);
 #line 28
 extern unsigned long __VERIFIER_nondet_ulong(void) ;
 #line 29
@@ -5627,7 +5628,7 @@ void main(void)
 #line 66
   ldv_memset((void *)(& ldvarg0), 0, 8UL);
 #line 67
-  ldv_memset((void *)(& ldvarg5), 0, 4UL);
+  ldvarg5 = __VERIFIER_nondet_uint();
 #line 68
   ldv_memset((void *)(& ldvarg2), 0, 4UL);
 #line 69
