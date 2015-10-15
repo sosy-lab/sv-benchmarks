@@ -25,7 +25,7 @@ void main() {
     pthread_t t;
     int i, n;
     s = 0;
-    t = 0;
+    //t = 0;
     n = __VERIFIER_nondet_int();
     __VERIFIER_assume(n > 0);
     for (i = 0; i < n; i++) {
