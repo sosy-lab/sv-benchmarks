@@ -6562,7 +6562,7 @@ void main(void)
 #line 105
   ldv_memset((void *)(& ldvarg0), 0, 8UL);
 #line 106
-  ldv_memset((void *)(& ldvarg5), 0, 4UL);
+  ldvarg5 = (unsigned int) __VERIFIER_nondet_int ();
 #line 107
   ldv_memset((void *)(& ldvarg2), 0, 4UL);
 #line 110
