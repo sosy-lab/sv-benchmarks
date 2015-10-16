@@ -6261,7 +6261,7 @@ static int opl3_init(int ioaddr , struct module *owner )
 #line 1206 "/home/ldvuser/andrianov/commit-tester-work/task-034--linux-stable--dir/work/current--X--sound/oss/opl3.ko--X--defaultlinux-stable-42f9f8d-1--X--111_1a--X--cpachecker/linux-stable-42f9f8d-1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/111_1a/sound/oss/opl3.c"
 static int me  ;
 #line 1208 "/home/ldvuser/andrianov/commit-tester-work/task-034--linux-stable--dir/work/current--X--sound/oss/opl3.ko--X--defaultlinux-stable-42f9f8d-1--X--111_1a--X--cpachecker/linux-stable-42f9f8d-1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/111_1a/sound/oss/opl3.c"
-static int io  =    -1;
+static int io  =    0;
 #line 1212 "/home/ldvuser/andrianov/commit-tester-work/task-034--linux-stable--dir/work/current--X--sound/oss/opl3.ko--X--defaultlinux-stable-42f9f8d-1--X--111_1a--X--cpachecker/linux-stable-42f9f8d-1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/111_1a/sound/oss/opl3.c"
 static int init_opl3(void) 
 { 
