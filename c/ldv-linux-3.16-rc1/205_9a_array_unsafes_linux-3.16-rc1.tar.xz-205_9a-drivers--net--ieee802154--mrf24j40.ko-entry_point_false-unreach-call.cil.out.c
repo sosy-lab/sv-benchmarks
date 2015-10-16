@@ -6755,7 +6755,7 @@ int spi_sync(struct spi_device *dev , struct spi_message *message) {
     u8 *buf;
     int i = 0;
 
-    for (xfer = ({ const typeof( ((typeof(*xfer) *)0)->transfer_list ) *__mptr = ((&message->transfers)->next); (typeof(*xfer) *)( (char *)__mptr - ((size_t) &((typeof(*xfer) *)0)->transfer_list) );}); &xfer->transfer_list != (&message->transfers); xfer = ({ const typeof( ((typeof(*(xfer)) *)0)->transfer_list ) *__mptr = ((xfer)->transfer_list.next); (typeof(*(xfer)) *)( (char *)__mptr - ((size_t) &((typeof(*(xfer)) *)0)->transfer_list) );})) {
+    for (xfer = ({ const struct list_head *__mptr = ((&message->transfers)->next); (struct spi_transfer *)( (char *)__mptr - ((size_t) &((struct spi_transfer *)0)->transfer_list) );}); &xfer->transfer_list != (&message->transfers); xfer = ({ const struct list_head *__mptr = ((xfer)->transfer_list.next); (struct spi_transfer *)( (char *)__mptr - ((size_t) &((struct spi_transfer *)0)->transfer_list) );})) {
         for (i = 0; i < xfer->len; i++) {
             buf = (u8*)xfer->rx_buf;
             buf[i] = __VERIFIER_nondet_int();
