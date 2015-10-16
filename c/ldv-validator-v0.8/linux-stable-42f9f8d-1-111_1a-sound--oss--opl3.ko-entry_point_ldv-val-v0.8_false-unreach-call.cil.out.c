@@ -6418,7 +6418,7 @@ void main(void)
 #line 36
   ldv_memset((void *)(& ldvarg32), 0, 4UL);
 #line 37
-  ldv_memset((void *)(& ldvarg7), 0, 4UL);
+  ldvarg7 = __VERIFIER_nondet_int();
 #line 39
   ldv_memset((void *)(& ldvarg43), 0, 4UL);
 #line 40
@@ -6442,11 +6442,11 @@ void main(void)
 #line 50
   ldv_memset((void *)(& ldvarg38), 0, 4UL);
 #line 51
-  ldv_memset((void *)(& ldvarg5), 0, 4UL);
+  ldvarg5 = __VERIFIER_nondet_int();
 #line 53
   ldv_memset((void *)(& ldvarg16), 0, 4UL);
 #line 54
-  ldv_memset((void *)(& ldvarg6), 0, 4UL);
+  ldvarg6 = __VERIFIER_nondet_int();
 #line 55
   ldv_memset((void *)(& ldvarg4), 0, 4UL);
 #line 56
@@ -6474,11 +6474,11 @@ void main(void)
 #line 68
   ldv_memset((void *)(& ldvarg36), 0, 4UL);
 #line 69
-  ldv_memset((void *)(& ldvarg10), 0, 4UL);
+  ldvarg10 = __VERIFIER_nondet_int();
 #line 70
   ldv_memset((void *)(& ldvarg40), 0, 4UL);
 #line 71
-  ldv_memset((void *)(& ldvarg9), 0, 4UL);
+  ldvarg9 = __VERIFIER_nondet_int();
 #line 72
   ldv_memset((void *)(& ldvarg45), 0, 4UL);
 #line 73
