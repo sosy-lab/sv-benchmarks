@@ -8594,6 +8594,9 @@ static int imon_probe(struct usb_interface *interface , struct usb_device_id  co
 #line 2310
   ldv_mutex_unlock_39(& driver_lock);
 #line 2312
+  /* A model of function call from other module without any lock 
+   */ 
+  ictx->rdev->change_protocol(ictx->rdev, 0);
   return (0);
   fail: 
 #line 2315

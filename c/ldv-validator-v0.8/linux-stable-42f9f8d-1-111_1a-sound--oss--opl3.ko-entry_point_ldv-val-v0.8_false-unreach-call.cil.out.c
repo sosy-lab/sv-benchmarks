@@ -6261,7 +6261,7 @@ static int opl3_init(int ioaddr , struct module *owner )
 #line 1206 "/home/ldvuser/andrianov/commit-tester-work/task-034--linux-stable--dir/work/current--X--sound/oss/opl3.ko--X--defaultlinux-stable-42f9f8d-1--X--111_1a--X--cpachecker/linux-stable-42f9f8d-1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/111_1a/sound/oss/opl3.c"
 static int me  ;
 #line 1208 "/home/ldvuser/andrianov/commit-tester-work/task-034--linux-stable--dir/work/current--X--sound/oss/opl3.ko--X--defaultlinux-stable-42f9f8d-1--X--111_1a--X--cpachecker/linux-stable-42f9f8d-1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/111_1a/sound/oss/opl3.c"
-static int io  =    -1;
+static int io  =    0;
 #line 1212 "/home/ldvuser/andrianov/commit-tester-work/task-034--linux-stable--dir/work/current--X--sound/oss/opl3.ko--X--defaultlinux-stable-42f9f8d-1--X--111_1a--X--cpachecker/linux-stable-42f9f8d-1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/111_1a/sound/oss/opl3.c"
 static int init_opl3(void) 
 { 
@@ -6418,7 +6418,7 @@ void main(void)
 #line 36
   ldv_memset((void *)(& ldvarg32), 0, 4UL);
 #line 37
-  ldv_memset((void *)(& ldvarg7), 0, 4UL);
+  ldvarg7 = __VERIFIER_nondet_int();
 #line 39
   ldv_memset((void *)(& ldvarg43), 0, 4UL);
 #line 40
@@ -6442,11 +6442,11 @@ void main(void)
 #line 50
   ldv_memset((void *)(& ldvarg38), 0, 4UL);
 #line 51
-  ldv_memset((void *)(& ldvarg5), 0, 4UL);
+  ldvarg5 = __VERIFIER_nondet_int();
 #line 53
   ldv_memset((void *)(& ldvarg16), 0, 4UL);
 #line 54
-  ldv_memset((void *)(& ldvarg6), 0, 4UL);
+  ldvarg6 = __VERIFIER_nondet_int();
 #line 55
   ldv_memset((void *)(& ldvarg4), 0, 4UL);
 #line 56
@@ -6474,11 +6474,11 @@ void main(void)
 #line 68
   ldv_memset((void *)(& ldvarg36), 0, 4UL);
 #line 69
-  ldv_memset((void *)(& ldvarg10), 0, 4UL);
+  ldvarg10 = __VERIFIER_nondet_int();
 #line 70
   ldv_memset((void *)(& ldvarg40), 0, 4UL);
 #line 71
-  ldv_memset((void *)(& ldvarg9), 0, 4UL);
+  ldvarg9 = __VERIFIER_nondet_int();
 #line 72
   ldv_memset((void *)(& ldvarg45), 0, 4UL);
 #line 73

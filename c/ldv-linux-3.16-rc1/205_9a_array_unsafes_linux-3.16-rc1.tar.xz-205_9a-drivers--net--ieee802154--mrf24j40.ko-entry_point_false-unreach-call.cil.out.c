@@ -6267,7 +6267,15 @@ __inline static void INIT_LIST_HEAD(struct list_head *list )
 }
 }
 #line 47
-extern void __list_add(struct list_head * , struct list_head * , struct list_head * ) ;
+static inline void __list_add(struct list_head *new,
+                              struct list_head *prev,
+                               struct list_head *next)
+{
+         next->prev = new;
+         new->next = next;
+         new->prev = prev;
+         prev->next = new;
+ }
 #line 74 "include/linux/list.h"
 __inline static void list_add_tail(struct list_head *new , struct list_head *head ) 
 { 
@@ -6741,7 +6749,21 @@ __inline static void spi_message_add_tail(struct spi_transfer *t , struct spi_me
 }
 }
 #line 765
-extern int spi_sync(struct spi_device * , struct spi_message * ) ;
+int spi_sync(struct spi_device *dev , struct spi_message *message) {
+
+    struct spi_transfer *xfer;
+    u8 *buf;
+    int i = 0;
+
+    for (xfer = ({ const struct list_head *__mptr = ((&message->transfers)->next); (struct spi_transfer *)( (char *)__mptr - ((size_t) &((struct spi_transfer *)0)->transfer_list) );}); &xfer->transfer_list != (&message->transfers); xfer = ({ const struct list_head *__mptr = ((xfer)->transfer_list.next); (struct spi_transfer *)( (char *)__mptr - ((size_t) &((struct spi_transfer *)0)->transfer_list) );})) {
+        for (i = 0; i < xfer->len; i++) {
+            buf = (u8*)xfer->rx_buf;
+            buf[i] = __VERIFIER_nondet_int();
+            buf = (u8*)xfer->tx_buf;
+            buf[i] = __VERIFIER_nondet_int();
+        }
+    }
+}
 #line 148 "include/linux/interrupt.h"
 extern int devm_request_threaded_irq(struct device * , unsigned int  , irqreturn_t (*)(int  ,
                                                                                        void * ) ,
