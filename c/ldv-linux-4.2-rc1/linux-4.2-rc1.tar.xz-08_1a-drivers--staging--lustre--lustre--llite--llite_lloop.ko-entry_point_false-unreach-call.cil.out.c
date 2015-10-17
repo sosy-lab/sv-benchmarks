@@ -13637,7 +13637,7 @@ void main(void)
 #line 51
   ldv_memset((void *)(& ldvarg5), 0, 4UL);
 #line 52
-  ldv_memset((void *)(& ldvarg2), 0, 4UL);
+  ldvarg2 = (unsigned int) __VERIFIER_nondet_int ();
 #line 54
   ldv_state_variable_1 = 0;
 #line 55
