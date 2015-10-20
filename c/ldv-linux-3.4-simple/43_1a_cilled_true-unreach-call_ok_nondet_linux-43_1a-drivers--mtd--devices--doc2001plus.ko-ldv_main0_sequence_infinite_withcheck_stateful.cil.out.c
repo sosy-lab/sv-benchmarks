@@ -2545,7 +2545,7 @@ __inline static int ffs(int x )
 #line 411
   tmp = -1L;
 #line 412
-  __asm__  ("bsfl %1,%0": "=r" (r): "rm" (x), "0" (tmp));
+  /*__asm__  ("bsfl %1,%0": "=r" (r): "rm" (x), "0" (tmp));*/
 #line 425
   return (r + 1);
 }
