@@ -2538,7 +2538,7 @@ void ldv_spin_unlock(void) ;
 int ldv_spin_trylock(void) ;
 #line 397 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/bitops.h"
 __inline static int ffs(int x ) 
-{ int r ;
+{ long r ;
   long tmp ;
 
   {
