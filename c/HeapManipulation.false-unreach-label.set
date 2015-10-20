@@ -1,6 +1,0 @@
-heap-manipulation/*_false-unreach-call.i
-list-properties/*_false-unreach-call.i
-
-ldv-regression/*_false-unreach-call*.i
-ddv-machzwd/*_false-unreach-call.i
-
