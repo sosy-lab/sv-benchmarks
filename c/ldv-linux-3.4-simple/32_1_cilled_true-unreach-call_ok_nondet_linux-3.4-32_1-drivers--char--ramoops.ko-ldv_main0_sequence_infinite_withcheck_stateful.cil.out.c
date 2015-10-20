@@ -1040,7 +1040,7 @@ __inline static int fls(int x )
 #line 453
   tmp = -1L;
 #line 454
-  __asm__  ("bsrl %1,%0": "=r" (r): "rm" (x), "0" (tmp));
+  /* __asm__  ("bsrl %1,%0": "=r" (r): "rm" (x), "0" (tmp)); */
 #line 467
   return (r + 1);
 }
