@@ -1033,7 +1033,7 @@ long ldv__builtin_expect(long val , long res ) ;
 __inline static int fls(int x )  __attribute__((__no_instrument_function__)) ;
 #line 439 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/bitops.h"
 __inline static int fls(int x ) 
-{ int r ;
+{ long r ;
   long tmp ;
 
   {
