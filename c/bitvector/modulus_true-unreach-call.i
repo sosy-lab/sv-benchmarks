@@ -24,6 +24,7 @@ int main()
     unsigned int s = __VERIFIER_nondet_uint();
     unsigned int d;
     unsigned int m;
+    __VERIFIER_assume(s < 32);
     d = (1 << s) - 1;
     if (d > 0) {
         m = n;
