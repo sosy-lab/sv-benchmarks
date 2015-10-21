@@ -22919,7 +22919,7 @@ void __main(void)
 }
 }
 #line 1 "<compiler builtins>"
-void main(void) 
+int main(void) 
 { 
 
 
@@ -22933,6 +22933,7 @@ void main(void)
 #line 1
   __main();
 }
+return 0;
 }
 #line 1 "<startrek builtins>"
 __inline static unsigned char __startrek_read_nxtway_gs_mode(void) 
