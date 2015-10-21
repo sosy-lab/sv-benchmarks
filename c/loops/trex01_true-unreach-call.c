@@ -7,9 +7,10 @@ void __VERIFIER_assert(int cond) {
   return;
 }
 _Bool __VERIFIER_nondet_bool();
+int __VERIFIER_nondet_int();
 
 void f(int d) {
-  int x, y, k, z = 1;
+  int x = __VERIFIER_nondet_int(), y = __VERIFIER_nondet_int(), k = __VERIFIER_nondet_int(), z = 1;
   L1:
   while (z < k) { z = 2 * z; }
   __VERIFIER_assert(z>=1);
