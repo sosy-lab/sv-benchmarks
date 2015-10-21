@@ -51,7 +51,7 @@ void filter2()
   }
 }
 
-void main()
+int main()
 {
   X = 0;
   INIT1 = TRUE;
@@ -71,5 +71,6 @@ void main()
 
     __VERIFIER_assert(X >= -1155. && X <= 4251.);
   }
+  return 0;
 }
 

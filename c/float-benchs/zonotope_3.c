@@ -19,7 +19,7 @@ float g(float x)
   return -x + 5.f;
 }
 
-void main()
+int main()
 {
   int i;
   float x,y,z,t,u,v;
@@ -41,4 +41,5 @@ void main()
 
   t = y + 2.f * z;
   __VERIFIER_assert(t >= 6.9f && t <= 7.1f);
+  return 0;
 }

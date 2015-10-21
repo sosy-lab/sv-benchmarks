@@ -506,7 +506,7 @@ void write(int offset, UINT8 data)
 
 /* verification driver */
 
-void main()
+int main()
 {
         device_start();
         while (1) {
@@ -517,4 +517,5 @@ void main()
                 case 3: device_reset(); break;
                 }
         }
+        return 0;
 }

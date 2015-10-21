@@ -42,7 +42,7 @@ void filter2 ()
   S[1] = S[0]; S[0] = P;
 }
 
-void main () 
+int main () 
 {
   X = RANDOM_INPUT();
   INIT = TRUE;
@@ -51,5 +51,6 @@ void main ()
     filter2 ();
     INIT = FALSE;
   }
+  return 0;
 }
 

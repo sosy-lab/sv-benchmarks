@@ -10,7 +10,7 @@ void __VERIFIER_assert(int cond) { if (!(cond)) { ERROR: __VERIFIER_error(); } r
 
 void wait_for_clock() { }
 
-void main()
+int main()
 {
   int i;
   float x;
@@ -31,4 +31,5 @@ void main()
   }
 
   __VERIFIER_assert(x >= -1000.f && x <= 1000.f);
+  return 0;
 }

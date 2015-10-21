@@ -138,7 +138,7 @@ double SIN(double x)
   else return SIN_POS(x); 
 }
 
-void main()
+int main()
 {
   double a, aa, r;
 
@@ -150,4 +150,5 @@ void main()
 
     __VERIFIER_assert(r >= -0.06 && r <= 0.06);
   }
+  return 0;
 }

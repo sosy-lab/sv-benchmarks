@@ -112,7 +112,7 @@ void sobelitereen(double xm2, double xm1, double x0, double x1, double x2, doubl
   *z19 = y19;
 }
 
-void main() 
+int main() 
 {
   double xm2, xm1, x0, x1, x2, x3, x4, x5, x6, x7, x8, x9;
   double x10, x11, x12, x13, x14, x15, x16, x17, x18, x19, x20, x21;
@@ -192,4 +192,5 @@ void main()
   __VERIFIER_assert(y17 >= -1. && y17 <= 1.);
   __VERIFIER_assert(y18 >= -1. && y18 <= 1.);
   __VERIFIER_assert(y19 >= -1. && y19 <= 1.);
+  return 0;
 }

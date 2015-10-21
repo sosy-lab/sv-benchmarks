@@ -142,7 +142,7 @@ double SIN(double x)
   else return SIN_POS(x); 
 }
 
-void main()
+int main()
 {
   double a, r;
 
@@ -150,4 +150,5 @@ void main()
   __VERIFIER_assume(a >= -1e10 && a <= 1e10);
 
   r = SIN(a);
+  return 0;
 }

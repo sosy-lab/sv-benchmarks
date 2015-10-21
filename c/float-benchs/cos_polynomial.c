@@ -39,7 +39,7 @@ double mcos(double x)
   }
 }
 
-void main()
+int main()
 {
  double a, r;
 
@@ -49,4 +49,5 @@ void main()
   r = mcos(a);
 
   __VERIFIER_assert(r >= 0. && r <= 1.1);
+  return 0;
 }

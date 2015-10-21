@@ -7,7 +7,7 @@ float __VERIFIER_nondet_float(void) { float val; return val; }
 void __VERIFIER_assume(int expression) { if (!expression) { LOOP: goto LOOP; }; return; }
 void __VERIFIER_assert(int cond) { if (!(cond)) { ERROR: __VERIFIER_error(); } return; }
 
-void main()
+int main()
 {
   float x, y, z;
 
@@ -19,4 +19,5 @@ void main()
     __VERIFIER_assert(y != 0.f);
     z = 1.f / y;
   }
+  return 0;
 }

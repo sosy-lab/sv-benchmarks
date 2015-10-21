@@ -44,11 +44,12 @@ float cast(double d)
   return f;
 }
 
-void main()
+int main()
 {
   double a;
   float r;
 
   a = __VERIFIER_nondet_double();
   r = cast(a);
+  return 0;
 }

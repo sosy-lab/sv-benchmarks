@@ -3,7 +3,7 @@ extern void __VERIFIER_error() __attribute__ ((__noreturn__));
 
 void __VERIFIER_assert(int cond) { if (!(cond)) { ERROR: __VERIFIER_error(); } return; }
 
-void main()
+int main()
 {
   float tick = 1.f / 10.f;
   float time = 0.f;
@@ -13,4 +13,5 @@ void main()
     time += tick;
   }
   __VERIFIER_assert(time != 1.0);
+  return 0;
 }

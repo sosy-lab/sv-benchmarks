@@ -39,7 +39,7 @@ double SqrtR(double Input)
   return 1.0 / xnp1; 
 }
 
-void main()
+int main()
 {
   double d, r;
 
@@ -49,4 +49,5 @@ void main()
   r = SqrtR(d);
 
   __VERIFIER_assert(r >= 0.3 && r <= 5.);
+  return 0;
 }

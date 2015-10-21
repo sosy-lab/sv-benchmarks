@@ -33,7 +33,7 @@ double SqrtR(double Input)
   return 1.0 / xnp1; 
 }
 
-void main()
+int main()
 {
   double d, dd, r;
   double epsilon = 1e-8;
@@ -47,4 +47,5 @@ void main()
 
     __VERIFIER_assert(r >= 0.9 && r <= 5.);
   }
+  return 0;
 }

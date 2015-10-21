@@ -61,7 +61,7 @@ float LDEXP(float d, int e)
   return d * x;
 }
 
-void main()
+int main()
 {
   float a, b, c;
   int e;
@@ -73,4 +73,5 @@ void main()
   c = LDEXP(b, e/2);
 
   __VERIFIER_assert(c >= 0.f && c <= 1e6);
+  return 0;
 }

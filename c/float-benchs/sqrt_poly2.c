@@ -48,7 +48,7 @@ double sqrt(double a)
   return r;
 }
 
-void main()
+int main()
 {
   double x,y;
 
@@ -58,5 +58,6 @@ void main()
   y = sqrt(x);
 
   __VERIFIER_assert(y >= 0. && y <= 1e6);
+  return 0;
 }
 

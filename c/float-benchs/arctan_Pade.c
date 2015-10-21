@@ -37,7 +37,7 @@ double ARCTAN(double x)
   else return ARCTAN_POS(x);
 }
 
-void main()
+int main()
 {
   double a, r;
 
@@ -47,4 +47,5 @@ void main()
   r = ARCTAN(a);
   
   __VERIFIER_assert(r >= -1.571 && r <= 1.571);
+  return 0;
 }
