@@ -8079,6 +8079,7 @@ static int mpeg_open(struct file *file )
 #line 1103
   if ((unsigned long )drv != (unsigned long )((struct cx8802_driver *)0)) {
 #line 1104
+  err = __VERIFIER_nondet_int();  
 #line 1105
     if (err != 0) {
 #line 1106
