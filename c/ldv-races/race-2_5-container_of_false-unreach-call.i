@@ -4099,10 +4099,8 @@ void *my_callback(void *arg) {
  data = ({ const typeof( ((struct my_data *)0)->dev ) *__mptr = (dev); (struct my_data *)( (char *)__mptr - ((unsigned long) &((struct my_data *)0)->dev) );});
 
  pthread_mutex_lock (&data->lock);
- if(!data->shared.a) {
-  data->shared.a = 1;
-  data->shared.b = data->shared.b + 1;
- }
+ data->shared.a = 1;
+ data->shared.b = data->shared.b + 1;
  pthread_mutex_unlock (&data->lock);
 }
 
