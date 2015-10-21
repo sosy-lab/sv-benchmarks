@@ -61,7 +61,7 @@ struct hid_report *hid_register_report(struct hid_device *device, unsigned id) {
 	if(!report)
 		return NULL;
 	report_enum->report_id_hash[id] = report;
-	list_add_tail(&report->list, &report_enum->report_list);
+	ldv_list_add_tail(&report->list, &report_enum->report_list);
 	return report;
 }
 

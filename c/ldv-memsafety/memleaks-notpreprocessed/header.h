@@ -83,6 +83,11 @@ static inline void ldv_list_add(struct ldv_list_head *new, struct ldv_list_head 
 	__ldv_list_add(new, head, head->next);
 }
 
+static inline void ldv_list_add_tail(struct ldv_list_head *new, struct ldv_list_head *head)
+{
+	__ldv_list_add(new, head->prev, head);
+}
+
 static inline void ldv_list_del(struct ldv_list_head *entry)
 {
 	__ldv_list_del(entry->prev, entry->next);
