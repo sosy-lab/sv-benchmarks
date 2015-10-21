@@ -4,7 +4,7 @@ extern void __VERIFIER_error() __attribute__ ((__noreturn__));
    Inspired from http://www.netlib.org/fdlibm/k_cos.c
  */
 
-double __VERIFIER_nondet_double(void);
+double __VERIFIER_nondet_double();
 void __VERIFIER_assume(int expression) { if (!expression) { LOOP: goto LOOP; }; return; }
 void __VERIFIER_assert(int cond) { if (!(cond)) { ERROR: __VERIFIER_error(); } return; }
 
