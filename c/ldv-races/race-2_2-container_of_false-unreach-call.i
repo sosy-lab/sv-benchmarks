@@ -4100,10 +4100,8 @@ void *my_callback(void *arg) {
 
 
 
- if(!data->shared.a) {
-  data->shared.a = 1;
-  data->shared.b = data->shared.b + 1;
- }
+ data->shared.a = 1;
+ data->shared.b = data->shared.b + 1;
 
 }
 

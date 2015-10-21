@@ -1258,13 +1258,18 @@ static inline void ldv_list_add(struct ldv_list_head *new, struct ldv_list_head 
  __ldv_list_add(new, head, head->next);
 }
 
+static inline void ldv_list_add_tail(struct ldv_list_head *new, struct ldv_list_head *head)
+{
+ __ldv_list_add(new, head->prev, head);
+}
+
 static inline void ldv_list_del(struct ldv_list_head *entry)
 {
  __ldv_list_del(entry->prev, entry->next);
 
 
 }
-# 155 "header.h"
+# 160 "header.h"
 struct ldv_list_head ldv_global_msg_list = { &(ldv_global_msg_list), &(ldv_global_msg_list) };
 
 struct ldv_msg {
@@ -1312,7 +1317,7 @@ void ldv_destroy_msgs(void) {
   ldv_msg_free(msg);
  }
 }
-# 211 "header.h"
+# 216 "header.h"
 struct ldv_device {
  void *platform_data;
  void *driver_data;
@@ -1468,7 +1473,7 @@ static void ldv_kobject_cleanup(struct ldv_kobject *kobj)
 {
 
         char *name = kobj->name;
-# 377 "header.h"
+# 382 "header.h"
         free(kobj);
 
 
@@ -1527,14 +1532,14 @@ void ldv_kobject_init(struct ldv_kobject *kobj)
 
                 goto error;
         }
-# 445 "header.h"
+# 450 "header.h"
         ldv_kobject_init_internal(kobj);
 
         return;
 error:
  return;
 }
-# 463 "header.h"
+# 468 "header.h"
 struct ldv_kobject *ldv_kobject_create(void)
 {
         struct ldv_kobject *kobj;

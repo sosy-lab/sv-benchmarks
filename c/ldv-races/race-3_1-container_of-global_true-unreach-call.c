@@ -37,10 +37,8 @@ void *my_callback(void *arg) {
 	data = container_of(my_dev, struct my_data, dev);
 	
 	pthread_mutex_lock (&data->lock);
-	if(!data->shared.a) {
-		data->shared.a = 1;
-		data->shared.b = data->shared.b + 1;
-	}
+	data->shared.a = 1;
+	data->shared.b = data->shared.b + 1;
 	pthread_mutex_unlock (&data->lock);
 }
 

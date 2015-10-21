@@ -38,10 +38,8 @@ void *my_callback(void *arg) {
 	
 	//race
 	//pthread_mutex_lock (&data->lock);
-	if(!data->shared.a) {
-		data->shared.a = 1;
-		data->shared.b = data->shared.b + 1;
-	}
+	data->shared.a = 1;
+	data->shared.b = data->shared.b + 1;
 	//pthread_mutex_unlock (&data->lock);
 }
 
