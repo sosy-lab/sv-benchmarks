@@ -576,7 +576,7 @@ int check(void)
   return (1);
 }
 }
-void main(void) 
+int main(void) 
 { 
   int c1 ;
   int i2 ;
@@ -645,6 +645,7 @@ void main(void)
     }
   }
 }
+return 0;
 }
 void assert(_Bool arg ) 
 { 

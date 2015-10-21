@@ -1121,7 +1121,7 @@ int check(void)
   return (tmp);
 }
 }
-void main(void) 
+int main(void) 
 { 
   int c1 ;
   int i2 ;
@@ -1230,6 +1230,7 @@ void main(void)
     }
   }
 }
+return 0;
 }
 void assert(_Bool arg ) 
 { 

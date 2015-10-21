@@ -3771,7 +3771,7 @@ void __startrek_hyperperiod(void)
 }
 }
 #line 1 "<compiler builtins>"
-void main(void) 
+int main(void) 
 { 
 
 
@@ -3787,6 +3787,7 @@ void main(void)
 #line 1
   __startrek_user_final();
 }
+return 0;
 }
 #line 1 "<compiler builtins>"
 __inline static unsigned char __startrek_read_nxtway_gs_mode(void) 

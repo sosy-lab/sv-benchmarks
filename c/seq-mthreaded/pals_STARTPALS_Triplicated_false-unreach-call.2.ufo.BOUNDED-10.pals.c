@@ -513,7 +513,7 @@ void voter(void)
 }
 }
 void (*nodes[4])(void)  = {      & gate1_each_pals_period,      & gate2_each_pals_period,      & gate3_each_pals_period,      & voter};
-void main(void) 
+int main(void) 
 { 
   int c1 ;
   int i2 ;
@@ -565,6 +565,7 @@ void main(void)
     }
   }
 }
+return 0;
 }
 void assert(_Bool arg ) 
 { 

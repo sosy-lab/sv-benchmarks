@@ -148,7 +148,7 @@ char __startrek_hidden___startrek_current_priority  =    0;
 #line 46 "src/verification.h"
 extern unsigned char __VERIFIER_nondet_U8() ;
 #line 47
-extern _Bool __VERIFIER_nondet_Bool() ;
+extern _Bool __VERIFIER_nondet_bool() ;
 #line 1 "<startrek builtins>"
 __inline static int __startrek_read_R_count(void) ;
 #line 1
@@ -295,7 +295,7 @@ _Bool ecrobot_is_ENTER_button_pressed(void)
 
   {
 #line 103
-  tmp = __VERIFIER_nondet_Bool();
+  tmp = __VERIFIER_nondet_bool();
 #line 103
   return (tmp);
 }
@@ -17516,7 +17516,7 @@ void __main(void)
 }
 }
 #line 1 "<compiler builtins>"
-void main(void) 
+int main(void) 
 { 
 
 
@@ -17530,6 +17530,7 @@ void main(void)
 #line 1
   __main();
 }
+return 0;
 }
 #line 1 "<startrek builtins>"
 __inline static char __startrek_read___startrek_current_priority(void) 
