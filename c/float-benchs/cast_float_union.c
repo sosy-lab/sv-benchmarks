@@ -3,7 +3,7 @@ extern void __VERIFIER_error() __attribute__ ((__noreturn__));
    Floating-point Operations" by Miné, published in WING 12.
 */
 
-double  __VERIFIER_nondet_double(void) { double val; return val; }
+double  __VERIFIER_nondet_double();
 void __VERIFIER_assume(int expression) { if (!expression) { LOOP: goto LOOP; }; return; }
 void __VERIFIER_assert(int cond) { if (!(cond)) { ERROR: __VERIFIER_error(); } return; }
 
@@ -44,11 +44,12 @@ float cast(double d)
   return f;
 }
 
-void main()
+int main()
 {
   double a;
   float r;
 
   a = __VERIFIER_nondet_double();
   r = cast(a);
+  return 0;
 }

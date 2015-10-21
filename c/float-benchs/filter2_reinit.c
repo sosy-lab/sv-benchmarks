@@ -8,12 +8,12 @@ extern void __VERIFIER_error() __attribute__ ((__noreturn__));
 
 
 int  __VERIFIER_nondet_int(void) { int val; return val; }
-double __VERIFIER_nondet_double(void) { double val; return val; }
+double __VERIFIER_nondet_double();
 void __VERIFIER_assume(int expression) { if (!expression) { LOOP: goto LOOP; }; return; }
 void __VERIFIER_assert(int cond) { if (!(cond)) { ERROR: __VERIFIER_error(); } return; }
 
 
-void main()
+int main()
 {
   double E, E0, E1, S0, S1, S;
   int i;
@@ -47,5 +47,6 @@ void main()
 
     __VERIFIER_assert(S >= -4. && S <= 4.);
   }
+  return 0;
 }
 

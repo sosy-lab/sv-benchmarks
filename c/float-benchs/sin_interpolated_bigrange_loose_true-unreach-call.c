@@ -7,7 +7,7 @@ extern void __VERIFIER_error() __attribute__ ((__noreturn__));
 */
 
 
-double __VERIFIER_nondet_double(void) { double val; return val; }
+double __VERIFIER_nondet_double();
 void __VERIFIER_assume(int expression) { if (!expression) { LOOP: goto LOOP; }; return; }
 void __VERIFIER_assert(int cond) { if (!(cond)) { ERROR: __VERIFIER_error(); } return; }
 
@@ -138,7 +138,7 @@ double SIN(double x)
   else return SIN_POS(x); 
 }
 
-void main()
+int main()
 {
   double a, r;
 
@@ -148,4 +148,5 @@ void main()
   r = SIN(a);
   
   __VERIFIER_assert(r >= -1e5 && r <= 1e5);
+  return 0;
 }

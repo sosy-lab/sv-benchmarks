@@ -4,11 +4,11 @@ extern void __VERIFIER_error() __attribute__ ((__noreturn__));
 */
 
 
-double __VERIFIER_nondet_double(void) { double val; return val; }
+double __VERIFIER_nondet_double();
 void __VERIFIER_assume(int expression) { if (!expression) { LOOP: goto LOOP; }; return; }
 void __VERIFIER_assert(int cond) { if (!(cond)) { ERROR: __VERIFIER_error(); } return; }
 
-void main()
+int main()
 {
   double x,y;
 
@@ -20,4 +20,5 @@ void main()
   else y = x*x + 2.;
 
   __VERIFIER_assert(y >= 0. && y <= 105.);
+  return 0;
 }

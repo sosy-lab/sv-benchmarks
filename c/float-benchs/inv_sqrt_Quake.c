@@ -17,7 +17,7 @@ float InvSqrt(float x)
   return x;
 }
 
-void main()
+int main()
 {
   float a,r;
  
@@ -27,4 +27,5 @@ void main()
   r = InvSqrt(a);
 
   __VERIFIER_assert(r >= 0.f && r <= 10.);
+  return 0;
 }

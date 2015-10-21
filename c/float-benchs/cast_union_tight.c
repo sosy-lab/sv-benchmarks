@@ -21,7 +21,7 @@ double cast(int i)
   return y.d - x.d;
 }
 
-void main()
+int main()
 {
   int a;
   double r;
@@ -30,4 +30,5 @@ void main()
 
   r = cast(a);
   __VERIFIER_assert(r == a);
+  return 0;
 }

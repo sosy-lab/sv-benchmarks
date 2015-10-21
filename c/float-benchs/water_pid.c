@@ -17,7 +17,7 @@ NUM y(int i)
   return yn;
 }
 
-void main() 
+int main() 
 {
   NUM yi, yc;
   NUM K;
@@ -43,4 +43,5 @@ void main()
 
     __VERIFIER_assert(epi >= -1. && epi <= 1.);
   }
+  return 0;
 }

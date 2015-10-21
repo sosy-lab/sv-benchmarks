@@ -45,7 +45,7 @@ void bary()
   __VERIFIER_assert(X >= -5.f && X <= 5.f);
 }
 
-void main () 
+int main () 
 {
   int i;
 
@@ -60,4 +60,5 @@ void main ()
     I = RANDOM_INPUT();
     wait_for_clock();
   }
+  return 0;
 }

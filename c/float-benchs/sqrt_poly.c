@@ -6,13 +6,13 @@ extern void __VERIFIER_error() __attribute__ ((__noreturn__));
    Particular case of a polynomial approximation of square root.
  */
 
-double __VERIFIER_nondet_double(void) { double val; return val; }
+double __VERIFIER_nondet_double();
 void __VERIFIER_assume(int expression) { if (!expression) { LOOP: goto LOOP; }; return; }
 void __VERIFIER_assert(int cond) { if (!(cond)) { ERROR: __VERIFIER_error(); } return; }
 
 double sqrt2 = 1.414213538169860839843750;
 
-void main()
+int main()
 {
   double S, I;
 
@@ -23,5 +23,6 @@ void main()
   else S = 1.+(I-1.) * (.5+(I-1.) * (-.125+(I-1.)*.0625));
 
   __VERIFIER_assert(S >= 1. && S <= 2.);
+  return 0;
 }
 

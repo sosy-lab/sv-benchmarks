@@ -2,10 +2,10 @@ extern void __VERIFIER_error() __attribute__ ((__noreturn__));
 /* Assertion holds because the test filters out NaNs.
  */
 
-double __VERIFIER_nondet_double(void) { double val; return val; }
+double __VERIFIER_nondet_double();
 void __VERIFIER_assert(int cond) { if (!(cond)) { ERROR: __VERIFIER_error(); } return; }
 
-void main()
+int main()
 {
   double x;
   x = __VERIFIER_nondet_double();
@@ -13,4 +13,5 @@ void main()
   if (x >= -1e307 && x <= 1e307) {
     __VERIFIER_assert(x==x);
   }
+  return 0;
 }

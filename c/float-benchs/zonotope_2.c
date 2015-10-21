@@ -7,7 +7,7 @@ extern void __VERIFIER_error() __attribute__ ((__noreturn__));
 
 void __VERIFIER_assert(int cond) { if (!(cond)) { ERROR: __VERIFIER_error(); } return; }
 
-void main()
+int main()
 {
   float x = 12.f;
   float x1 = 12.f;
@@ -25,4 +25,5 @@ void main()
   }
   
   __VERIFIER_assert(x1-y1 >= -0.1f && x1-y1 <= 0.1f);
+  return 0;
 }

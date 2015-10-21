@@ -3,7 +3,7 @@ extern void __VERIFIER_error() __attribute__ ((__noreturn__));
 
 void __VERIFIER_assert(int cond) { if (!(cond)) { ERROR: __VERIFIER_error(); } return; }
 
-void main()
+int main()
 {
   double x, y, z, r;
 
@@ -12,4 +12,5 @@ void main()
   z = x - 1;
   r = y - z;  
   __VERIFIER_assert(r == 2.);
+  return 0;
 }

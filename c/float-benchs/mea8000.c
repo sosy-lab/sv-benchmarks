@@ -5,7 +5,7 @@ extern void __VERIFIER_error() __attribute__ ((__noreturn__));
 
 int __VERIFIER_nondet_int(void) { int val; return val; }
 unsigned char __VERIFIER_nondet_unsigned_char(void) { unsigned char val; return val; }
-double __VERIFIER_nondet_double(void) { double val; return val; }
+double __VERIFIER_nondet_double();
 void __VERIFIER_assume(int expression) { if (!expression) { LOOP: goto LOOP; }; return; }
 void __VERIFIER_assert(int cond) { if (!(cond)) { ERROR: __VERIFIER_error(); } return; }
 
@@ -506,7 +506,7 @@ void write(int offset, UINT8 data)
 
 /* verification driver */
 
-void main()
+int main()
 {
         device_start();
         while (1) {
@@ -517,4 +517,5 @@ void main()
                 case 3: device_reset(); break;
                 }
         }
+        return 0;
 }

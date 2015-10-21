@@ -6,7 +6,7 @@ extern void __VERIFIER_error() __attribute__ ((__noreturn__));
 */
 
 
-double __VERIFIER_nondet_double(void) { double val; return val; }
+double __VERIFIER_nondet_double();
 void __VERIFIER_assume(int expression) { if (!expression) { LOOP: goto LOOP; }; return; }
 void __VERIFIER_assert(int cond) { if (!(cond)) { ERROR: __VERIFIER_error(); } return; }
 
@@ -29,7 +29,7 @@ double inv (double A)
   return xi;
 }
 
-void main()
+int main()
 {
   double a,r;
 
@@ -39,4 +39,5 @@ void main()
   r = inv(a);
 
   __VERIFIER_assert(r >= 0 && r <= 0.06);
+  return 0;
 }

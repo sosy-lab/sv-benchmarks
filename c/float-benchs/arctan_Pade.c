@@ -7,7 +7,7 @@ extern void __VERIFIER_error() __attribute__ ((__noreturn__));
 */
 
 
-double __VERIFIER_nondet_double(void) { double val; return val; }
+double __VERIFIER_nondet_double();
 void __VERIFIER_assume(int expression) { if (!expression) { LOOP: goto LOOP; }; return; }
 void __VERIFIER_assert(int cond) { if (!(cond)) { ERROR: __VERIFIER_error(); } return; }
 
@@ -37,7 +37,7 @@ double ARCTAN(double x)
   else return ARCTAN_POS(x);
 }
 
-void main()
+int main()
 {
   double a, r;
 
@@ -47,4 +47,5 @@ void main()
   r = ARCTAN(a);
   
   __VERIFIER_assert(r >= -1.571 && r <= 1.571);
+  return 0;
 }

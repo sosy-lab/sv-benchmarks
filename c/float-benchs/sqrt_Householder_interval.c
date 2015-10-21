@@ -10,7 +10,7 @@ extern void __VERIFIER_error() __attribute__ ((__noreturn__));
    Square root of a big interval.
  */
 
-double __VERIFIER_nondet_double(void) { double val; return val; }
+double __VERIFIER_nondet_double();
 void __VERIFIER_assume(int expression) { if (!expression) { LOOP: goto LOOP; }; return; }
 void __VERIFIER_assert(int cond) { if (!(cond)) { ERROR: __VERIFIER_error(); } return; }
 
@@ -39,7 +39,7 @@ double SqrtR(double Input)
   return 1.0 / xnp1; 
 }
 
-void main()
+int main()
 {
   double d, r;
 
@@ -49,4 +49,5 @@ void main()
   r = SqrtR(d);
 
   __VERIFIER_assert(r >= 0.3 && r <= 5.);
+  return 0;
 }
