@@ -119,7 +119,7 @@ _Bool is_relaxed_prefix(
 
 int main()
 {
-  unsigned long pat_len /*=3*/, a_len /*=4*/;
+  unsigned long pat_len = __VERIFIER_nondet_ulong(), a_len = __VERIFIER_nondet_ulong();
 
   int *pat=malloc(sizeof(int)*pat_len);
   int *a=malloc(sizeof(int)*a_len);
@@ -131,7 +131,7 @@ int main()
   if(is_relaxed_prefix(pat, pat_len, a, a_len))
   {
     __VERIFIER_assert(pat_len<=a_len+1);
-    unsigned long different;
+    unsigned long different = __VERIFIER_nondet_ulong();
     if(pat_len>a_len)
       different=pat_len-1;
     for(int i=0; i<pat_len && i<a_len; i++)
