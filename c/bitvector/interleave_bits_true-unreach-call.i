@@ -27,7 +27,7 @@ int main()
     unsigned int zz;
     unsigned int z = 0;
     unsigned int i = 0;
-    while (i < 32U) {
+    while (i < sizeof(x) * 8) {
         z |= ((x & (1U << i)) << i) | ((y & (1U << i)) << (i + 1));
         i += 1U;
     }
