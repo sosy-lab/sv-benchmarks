@@ -16,7 +16,7 @@ void entry_point(void) {
 	struct ldv_kobject *kobj;
 	kobj = ldv_kobject_create();
 	ldv_kobject_put(kobj);
-	//unsafe: double free
+	//unsafe: double put (leading to invalid refcounter dereference)
 	ldv_kobject_put(kobj);
 }
 
