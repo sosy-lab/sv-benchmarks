@@ -641,7 +641,7 @@ void __VERIFIER_atomic_TAS(
  *v = 1;
 }
 inline void acquire_lock(){
- int delay;
+ unsigned int delay;
  int cond;
  delay = 1;
  __VERIFIER_atomic_TAS(&lock,&cond);

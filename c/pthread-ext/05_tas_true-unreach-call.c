@@ -22,7 +22,7 @@ void __VERIFIER_atomic_TAS(
 }
 
 inline void acquire_lock(){
-	int delay;
+	unsigned int delay;
 	int cond;
 
 	delay = 1;
