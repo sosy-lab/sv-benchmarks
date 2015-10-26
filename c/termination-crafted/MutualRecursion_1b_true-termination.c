@@ -5,6 +5,9 @@
 
 extern int __VERIFIER_nondet_int();
 
+int f(int x);
+int g(int x);
+
 int f(int x) 
 { 
   if (x <= 0) return 0; 
