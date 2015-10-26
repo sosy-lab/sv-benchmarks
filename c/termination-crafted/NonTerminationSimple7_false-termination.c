@@ -3,19 +3,19 @@
  * Author: leike@informatik.uni-freiburg.de
  */
 
-extern int __VERIFIER_nondet_int();
+typedef enum {false, true} bool;
+
+extern int __VERIFIER_nondet_int(void);
 
 int main()
 {
-	int x = __VERIFIER_nondet_int();
-	int c = __VERIFIER_nondet_int();
-	
-	if (c != 0) {
-		return 1;
-	}
-	while (x >= 0) {
-		x += c;
-	}
+    int c, x;
+	x = __VERIFIER_nondet_int();
+	c = __VERIFIER_nondet_int();
+	if (c == 0) {
+	    while (x >= 0) {
+		    x = x + c;
+	    }
+    }
 	return 0;
 }
-

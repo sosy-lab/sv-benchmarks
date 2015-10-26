@@ -6,10 +6,13 @@
  * Author: Caterina Urban
  */
 
+typedef enum {false, true} bool;
+
 extern int __VERIFIER_nondet_int(void);
 
 int main() {
-	int y = __VERIFIER_nondet_int();
+	int y;
+    y = __VERIFIER_nondet_int();
 	while (y >= 0) {
 		y = y - 1;
 	}

@@ -5,14 +5,17 @@
  * Does not terminate for c >= 0.
  */
 
-extern int __VERIFIER_nondet_int();
+typedef enum {false, true} bool;
+
+extern int __VERIFIER_nondet_int(void);
 
 int main()
 {
-	int c = __VERIFIER_nondet_int();
-	int x = __VERIFIER_nondet_int();
+	int c, x;
+    c = __VERIFIER_nondet_int();
+	x = __VERIFIER_nondet_int();
 	while (x >= 0) {
-		x += c;
+		x = x + c;
 	}
+    return 0;
 }
-

@@ -7,19 +7,21 @@
  *
  */
 
+typedef enum {false, true} bool;
+
+extern int __VERIFIER_nondet_int(void);
+
 int main() {
-	int x = 0, y = 0;
-	while (1) {
+    int x, y;
+	x = 0;
+    y = 0;
+	while (y >= 0) {
 		if (x <= 50) {
-			y++;
+			y = y + 1;
 		} else {
-			y--;
+			y = y - 1;
 		}
-		if (y < 0) {
-			break;
-		}
-		x++;
+		x = x + 1;
 	}
 	return 0;
 }
-

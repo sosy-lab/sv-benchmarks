@@ -2,7 +2,7 @@
  * Date: 2014-06-22
  * Author: heizmann@informatik.uni-freiburg.de
  */
-#include <stdlib.h>
+#include <alloca.h>
 
 int main() {
 	int* x0 = alloca(sizeof(int));

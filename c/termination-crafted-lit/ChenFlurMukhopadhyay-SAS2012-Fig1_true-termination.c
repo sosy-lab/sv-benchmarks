@@ -7,6 +7,8 @@
  *
  */
 
+typedef enum {false, true} bool;
+
 extern int __VERIFIER_nondet_int(void);
 
 int main() {
@@ -19,4 +21,5 @@ int main() {
 		y = z;
 		z = -z -1;
 	}
+    return 0;
 }

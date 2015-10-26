@@ -9,18 +9,21 @@
  *
  */
 
-extern int __VERIFIER_nondet_int();
+typedef enum {false, true} bool;
+
+extern int __VERIFIER_nondet_int(void);
 
 int main()
 {
-	int d1 = 73;
-	int d2 = 74;
-	int x = __VERIFIER_nondet_int();
+    int x, d1, d2, d1old;
+	d1 = 73;
+	d2 = 74;
+	x = __VERIFIER_nondet_int();
 	while (x >= 0) {
 		x = x - d1;
-		int d1_old = d1;
+		d1old = d1;
 		d1 = d2 + 1;
-		d2 = d1_old + 1;
+		d2 = d1old + 1;
 	}
 	return 0;
 }

@@ -4,13 +4,15 @@
  *
  */
 
-extern int __VERIFIER_nondet_int();
+typedef enum {false, true} bool;
+
+extern int __VERIFIER_nondet_int(void);
 
 int main()
 {
-	int x = 0;
+	int x = __VERIFIER_nondet_int();
 	while (x >= 0) {
-		x--;
+		x = x - 1;
 	}
 	return 0;
 }

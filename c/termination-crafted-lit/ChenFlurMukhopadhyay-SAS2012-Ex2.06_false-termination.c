@@ -18,15 +18,18 @@
  * Comment: terminating, non-linear
  */
 
-extern int __VERIFIER_nondet_int();
+typedef enum {false, true} bool;
+
+extern int __VERIFIER_nondet_int(void);
 
 int main() {
-    int x = __VERIFIER_nondet_int();
-    int y = __VERIFIER_nondet_int();
+    int x, y, oldx;
+    x = __VERIFIER_nondet_int();
+    y = __VERIFIER_nondet_int();
     while (4*x + y > 0) {
-        int old_x = x;
-        x = -2*old_x + 4*y;
-        y = 4*old_x;
+        oldx = x;
+        x = -2*oldx + 4*y;
+        y = 4*oldx;
     }
     return 0;
 }

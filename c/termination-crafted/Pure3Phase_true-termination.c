@@ -10,15 +10,18 @@
  * The program does not have a nested ranking function.
  */
 
-extern int __VERIFIER_nondet_int();
+typedef enum {false, true} bool;
+
+extern int __VERIFIER_nondet_int(void);
 
 int main()
 {
-	int x = __VERIFIER_nondet_int();
-	int y = __VERIFIER_nondet_int();
-	int z = __VERIFIER_nondet_int();
+    int x, y, z;
+    x = __VERIFIER_nondet_int();
+    y = __VERIFIER_nondet_int();
+    z = __VERIFIER_nondet_int();
 	while (x >= 0) {
-		if (__VERIFIER_nondet_int()) {
+		if (__VERIFIER_nondet_int() != 0) {
 			x = x + y;
 		} else {
 			x = x + z;

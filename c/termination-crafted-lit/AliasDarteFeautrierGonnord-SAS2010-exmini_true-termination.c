@@ -6,13 +6,16 @@
  * Author: Caterina Urban
  */
 
+typedef enum {false, true} bool;
+
 extern int __VERIFIER_nondet_int(void);
 
 int main() {
-	int i = __VERIFIER_nondet_int();
-	int j = __VERIFIER_nondet_int();
-	int k = __VERIFIER_nondet_int();
-	int tmp = __VERIFIER_nondet_int();
+    int i, j, k, tmp;
+	i = __VERIFIER_nondet_int();
+	j = __VERIFIER_nondet_int();
+	k = __VERIFIER_nondet_int();
+	tmp = __VERIFIER_nondet_int();
 	while (i <= 100 && j <= k) {
 		tmp = i;
 		i = j;

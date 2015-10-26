@@ -5,11 +5,13 @@
  * The loop is equivalent to false,
  * f(x) = 0 is a ranking function.
  */
+typedef enum {false, true} bool;
+
+extern int __VERIFIER_nondet_int(void);
 
 int main()
 {
-	while (0) {
+	while (false) {
 	}
 	return 0;
 }
-

@@ -7,12 +7,15 @@
  *
  */
 
-extern int __VERIFIER_nondet_int();
+typedef enum {false, true} bool;
+
+extern int __VERIFIER_nondet_int(void);
 
 int main()
 {
-	int y = __VERIFIER_nondet_int();
-	int z = __VERIFIER_nondet_int();
+    int y, z;
+	y = __VERIFIER_nondet_int();
+	z = __VERIFIER_nondet_int();
 	while (z >= 0) {
 		y = y - 1;
 		if (y >= 0) {

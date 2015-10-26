@@ -3,16 +3,17 @@
  * Author: leike@informatik.uni-freiburg.de
  */
 
-extern int __VERIFIER_nondet_int();
+typedef enum {false, true} bool;
 
-const int c = 5;
+extern int __VERIFIER_nondet_int(void);
 
 int main()
 {
-	int x = __VERIFIER_nondet_int();
+	int c, x;
+    c = 5;
+    x = __VERIFIER_nondet_int();
 	while (x >= 0) {
-		x += c;
+		x = x + c;
 	}
 	return 0;
 }
-

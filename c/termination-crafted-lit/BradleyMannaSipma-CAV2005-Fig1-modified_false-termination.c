@@ -9,27 +9,22 @@
  *
  */
 
+typedef enum {false, true} bool;
+
 extern int __VERIFIER_nondet_int(void);
 
-
-int gcd(int y1, int y2) {
-	while (y1 != y2) {
-		if (y1 > y2) {
-			y1 = y1 - y2;
-		} else {
-			y2 = y2 - y1;
-		}
-	}
-	return y1;
-}
-
 int main() {
-	int y1 = __VERIFIER_nondet_int();
-	int y2 = __VERIFIER_nondet_int();
-	if (y1 >= 0  && y2 >= 0) {
-		gcd(y1, y2);
+    int y1, y2;
+	y1 = __VERIFIER_nondet_int();
+	y2 = __VERIFIER_nondet_int();
+	if (y1 >= 0 && y2 >= 0) {
+    	while (y1 != y2) {
+	    	if (y1 > y2) {
+		    	y1 = y1 - y2;
+    		} else {
+	    		y2 = y2 - y1;
+		    }
+	    }
 	}
 	return 0;
 }
-
-
