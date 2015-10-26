@@ -10,19 +10,19 @@
  *
  */
 
+typedef enum {false, true} bool;
+
 extern int __VERIFIER_nondet_int(void);
 
 int main()
 {
-	int x = __VERIFIER_nondet_int();
-	int y = __VERIFIER_nondet_int();
-	while (1) {
+    int x, y;
+	x = __VERIFIER_nondet_int();
+	y = __VERIFIER_nondet_int();
+	while (x >= 0 || y >= 0) {
 		if (x >= 0) {
 			x = x - 1;
 		} else {
-			if (y < 0) {
-				break;
-			}
 			y = y - 1;
 		}
 	}

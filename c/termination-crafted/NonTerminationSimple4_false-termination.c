@@ -5,18 +5,19 @@
  * Does not terminate for y >= 5.
  */
 
-extern int __VERIFIER_nondet_int();
+typedef enum {false, true} bool;
+
+extern int __VERIFIER_nondet_int(void);
 
 int main()
 {
-	int x = __VERIFIER_nondet_int();
-	int y = __VERIFIER_nondet_int();
-	if (y < 5) {
-		return 0;
-	}
-	while (x >= 0) {
-		y -= 1;
-	}
+    int x, y;
+	x = __VERIFIER_nondet_int();
+	y = __VERIFIER_nondet_int();
+	if (y >= 5) {
+	    while (x >= 0) {
+		    y = y - 1;
+    	}
+    }
 	return 0;
 }
-

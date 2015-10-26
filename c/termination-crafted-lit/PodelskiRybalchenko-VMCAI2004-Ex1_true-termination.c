@@ -6,26 +6,25 @@
  * Author: Caterina Urban, Matthias Heizmann
  */
 
+typedef enum {false, true} bool;
+
 extern int __VERIFIER_nondet_int(void);
 
-/**
- * Returns the absolut value of i. Assumes that can be no overflow.
- */
-int absMathInteger(int i) {
-	if (i >= 0) {
-		return i;
-	} else {
-		return -i;
-	}
-}
-
 int main() {
-	int i = __VERIFIER_nondet_int();
-	int j = __VERIFIER_nondet_int();
+    int i, j, nondetNat, nondetPos;
+	i = __VERIFIER_nondet_int();
+	j = __VERIFIER_nondet_int();
 	while (i - j >= 1) {
-		int nondetNat = absMathInteger(__VERIFIER_nondet_int());
+        nondetNat = __VERIFIER_nondet_int();
+        if (nondetNat < 0) {
+            nondetNat = -nondetNat;
+        }
 		i = i - nondetNat;
-		int nondetPos = absMathInteger(__VERIFIER_nondet_int()) + 1;
+		nondetPos = __VERIFIER_nondet_int();
+        if (nondetPos < 0) {
+            nondetPos = -nondetPos;
+        }
+        nondetPos = nondetPos + 1;
 		j = j + nondetPos;
 	}
 	return 0;

@@ -7,14 +7,16 @@
  *
  */
 
+typedef enum {false, true} bool;
+
 extern int __VERIFIER_nondet_int(void);
 
 int main() {
-	int i = __VERIFIER_nondet_int();
-	int j = __VERIFIER_nondet_int();
-	int M = __VERIFIER_nondet_int();
-	int N = __VERIFIER_nondet_int();
-	int a, b, c;
+	int a, b, c, i, j, M, N;
+	i = __VERIFIER_nondet_int();
+	j = __VERIFIER_nondet_int();
+	M = __VERIFIER_nondet_int();
+	N = __VERIFIER_nondet_int();
     a = i;
     b = j;
     c = 0;
@@ -23,4 +25,5 @@ int main() {
     	j = j + 1;
     	c = c + 1;
     }
+    return 0;
 }

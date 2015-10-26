@@ -8,17 +8,19 @@
  *
  */
 
+typedef enum {false, true} bool;
+
 extern int __VERIFIER_nondet_int(void);
 
-
 int main() {
-    int id = __VERIFIER_nondet_int();
-    int maxId = __VERIFIER_nondet_int();
+    int id, maxId, tmp;
+    id = __VERIFIER_nondet_int();
+    maxId = __VERIFIER_nondet_int();
 
 
     if(0 <= id && id < maxId) {
-        int tmp = id+1;
-        while(tmp!=id && __VERIFIER_nondet_int()) {
+        tmp = id+1;
+        while(tmp!=id && __VERIFIER_nondet_int() != 0) {
             if (tmp <= maxId) {
                 tmp = tmp + 1;
             } else {
@@ -30,5 +32,3 @@ int main() {
 
     return 0;
 }
-
-

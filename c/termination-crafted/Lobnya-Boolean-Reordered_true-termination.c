@@ -6,19 +6,23 @@
  *
  */
 
-extern int __VERIFIER_nondet_int();
+typedef enum {false, true} bool;
+
+extern int __VERIFIER_nondet_int(void);
 
 int main ()
 {
-	int x = __VERIFIER_nondet_int();
-	int b = __VERIFIER_nondet_int();
-	while (1) {
-		if (!b) {
-			break;
-		}
+    int x, b;
+	x = __VERIFIER_nondet_int();
+	b = __VERIFIER_nondet_int();
+	while (b != 0) {
 		b = __VERIFIER_nondet_int();
 		x = x - 1;
-		b = (x >= 0);
+        if (x >= 0) {
+            b = 1;
+        } else {
+            b = 0;
+        }
 	}
 	return 0;
 }

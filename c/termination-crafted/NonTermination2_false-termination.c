@@ -4,16 +4,16 @@
  *
  */
 
-extern int __VERIFIER_nondet_int();
+typedef enum {false, true} bool;
+
+extern int __VERIFIER_nondet_int(void);
 
 int main() {
-	int x = __VERIFIER_nondet_int();
-	while (x > 1) {
-		int old_x = x;
+	int x, oldx;
+    x = __VERIFIER_nondet_int();
+	while (x > 1 && x >= 2*oldx) {
+		oldx = x;
 		x = __VERIFIER_nondet_int();
-		if (x < 2*old_x) {
-			break;
-		}
 	}
 	return 0;
 }

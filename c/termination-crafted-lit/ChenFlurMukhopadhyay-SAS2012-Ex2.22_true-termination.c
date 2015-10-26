@@ -15,18 +15,18 @@
  * Comment: terminating, linear
  */
 
-extern int __VERIFIER_nondet_int();
+typedef enum {false, true} bool;
+
+extern int __VERIFIER_nondet_int(void);
 
 int main() {
-    int x = __VERIFIER_nondet_int();
-    int y = __VERIFIER_nondet_int();
-    while (x > 0) {
+    int x, y, oldy;
+    x = __VERIFIER_nondet_int();
+    y = __VERIFIER_nondet_int();
+    while (x > 0 && y <= -oldy) {
         x = y;
-        int old_y = y;
+        oldy = y;
         y = __VERIFIER_nondet_int();
-        if (y > -old_y) {
-            break;
-        }
     }
     return 0;
 }

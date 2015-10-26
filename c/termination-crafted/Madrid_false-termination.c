@@ -3,11 +3,15 @@
  * Author: heizmann@informatik.uni-freiburg.de
  *
  */
+typedef enum {false, true} bool;
+
+extern int __VERIFIER_nondet_int(void);
 
 int main()
 {
-	int x = 7;
-	while (1) {
+    int x;
+	x = 7;
+	while (true) {
 		x = 2;
 	}
 	return 0;

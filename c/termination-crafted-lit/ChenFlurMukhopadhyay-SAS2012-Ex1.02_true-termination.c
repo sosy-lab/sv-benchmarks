@@ -15,16 +15,16 @@
  * Comment: terminating, linear
  */
 
-extern int __VERIFIER_nondet_int();
+typedef enum {false, true} bool;
+
+extern int __VERIFIER_nondet_int(void);
 
 int main() {
-    int x = __VERIFIER_nondet_int();
-    while (x > 0 && x < 100) {
-        int old_x = x;
+    int x, oldx;
+    x = __VERIFIER_nondet_int();
+    while (x > 0 && x < 100 && x >= 2*oldx + 10) {
+        oldx = x;
         x = __VERIFIER_nondet_int();
-        if (x < 2*old_x + 10) {
-            break;
-        }
     }
     return 0;
 }

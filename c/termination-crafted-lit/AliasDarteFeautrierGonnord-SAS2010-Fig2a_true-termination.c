@@ -6,17 +6,22 @@
  * Author: Caterina Urban
  */
 
+typedef enum {false, true} bool;
+
 extern int __VERIFIER_nondet_int(void);
 
 int main() {
-	int x = __VERIFIER_nondet_int();
-	int y = __VERIFIER_nondet_int();
+    int x, y;
+	x = __VERIFIER_nondet_int();
+	y = __VERIFIER_nondet_int();
 	while (x >= 2) {
-		x--; y = y + x;
-		while (y >= x && __VERIFIER_nondet_int()) {
-			y--;
+		x = x - 1;
+        y = y + x;
+		while (y >= x && __VERIFIER_nondet_int() != 0) {
+			y = y - 1;
 		}
-		x--; y = y - x;
+		x = x - 1;
+        y = y - x;
 	}
 	return 0;
 }

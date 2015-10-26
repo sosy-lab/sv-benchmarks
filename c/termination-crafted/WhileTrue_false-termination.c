@@ -4,12 +4,14 @@
  *
  * Very simple example for non-termination
  */
+typedef enum {false, true} bool;
+
+extern int __VERIFIER_nondet_int(void);
 
 int main()
 {
-	while (1) {
+	while (true) {
 		// do nothing
 	}
 	return 0;
 }
-

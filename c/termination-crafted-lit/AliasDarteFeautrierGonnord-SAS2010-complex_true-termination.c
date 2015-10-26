@@ -5,21 +5,26 @@
  * Date: 2014
  * Author: Caterina Urban
  */
+typedef enum {false, true} bool;
+
 extern int __VERIFIER_nondet_int(void);
 
 int main() {
-	int a = __VERIFIER_nondet_int();
-	int b = __VERIFIER_nondet_int();
+    int a, b;
+	a = __VERIFIER_nondet_int();
+	b = __VERIFIER_nondet_int();
 	while (a < 30) {
 		while (b < a) {
-			if (b > 5)
+			if (b > 5) {
 				b = b + 7;
-			else
+			} else {
 				b = b + 2;
-			if (b >= 10 && b <= 12)
+            }
+			if (b >= 10 && b <= 12) {
 				a = a + 10;
-			else
+			} else {
 				a = a + 1;
+            }
 		}
 		a = a + 2;
 		b = b - 10;

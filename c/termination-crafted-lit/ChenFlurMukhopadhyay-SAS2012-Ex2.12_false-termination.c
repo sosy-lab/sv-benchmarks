@@ -15,15 +15,18 @@
  * Comment: non-terminating (for x=0,y=0)
  */
 
-extern int __VERIFIER_nondet_int();
+typedef enum {false, true} bool;
+
+extern int __VERIFIER_nondet_int(void);
 
 int main() {
-    int x = __VERIFIER_nondet_int();
-    int y = __VERIFIER_nondet_int();
+    int x, y, oldx;
+    x = __VERIFIER_nondet_int();
+    y = __VERIFIER_nondet_int();
     while (x < 5) {
-        int old_x = x;
-        x = old_x - y;
-        y = old_x + y;
+        oldx = x;
+        x = oldx - y;
+        y = oldx + y;
     }
     return 0;
 }
