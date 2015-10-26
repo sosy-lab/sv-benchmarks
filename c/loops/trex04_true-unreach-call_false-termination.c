@@ -7,6 +7,7 @@ void __VERIFIER_assert(int cond) {
   return;
 }
 extern _Bool __VERIFIER_nondet_bool();
+extern int __VERIFIER_nondet_int();
 
 void foo()
 {
@@ -20,7 +21,7 @@ void foo()
 int main()
 {
   int d = 1;
-  int x;
+  int x = __VERIFIER_nondet_int();
   _Bool c1=__VERIFIER_nondet_bool(), c2=__VERIFIER_nondet_bool();
 
   if (c1) d = d - 1;
