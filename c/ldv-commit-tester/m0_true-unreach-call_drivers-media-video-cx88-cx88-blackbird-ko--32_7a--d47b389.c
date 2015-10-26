@@ -8078,7 +8078,7 @@ static int mpeg_open(struct file *file )
 #line 1103
   if ((unsigned long )drv != (unsigned long )((struct cx8802_driver *)0)) {
 #line 1104
-    err = (*(drv->request_acquire))(drv);
+    err = __VERIFIER_nondet_int();
 #line 1105
     if (err != 0) {
 #line 1106
@@ -8110,7 +8110,6 @@ static int mpeg_open(struct file *file )
 #line 1113
       if ((unsigned long )drv != (unsigned long )((struct cx8802_driver *)0)) {
 #line 1114
-        (*(drv->request_release))(drv);
       } else {
 
       }
@@ -8142,7 +8141,6 @@ static int mpeg_open(struct file *file )
 #line 1123
     if ((unsigned long )drv != (unsigned long )((struct cx8802_driver *)0)) {
 #line 1124
-      (*(drv->request_release))(drv);
     } else {
 
     }
@@ -8218,7 +8216,6 @@ static int mpeg_release(struct file *file )
 #line 1168
   if ((unsigned long )drv != (unsigned long )((struct cx8802_driver *)0)) {
 #line 1169
-    (*(drv->request_release))(drv);
   } else {
 
   }
