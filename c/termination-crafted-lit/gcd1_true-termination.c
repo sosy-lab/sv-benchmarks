@@ -6,34 +6,28 @@
  * Author: Amir Ben-Amram, amirben@cs.mta.ac.il
  *
  */
-extern int __VERIFIER_nondet_int(void);
+typedef enum {false, true} bool;
 
-int gcd(int x, int y)	
-{
-	int r;
-	
-	if (x<0) x = -x;
-	if (y<0) y = -y;
-	while (y>0) {
-		/*  the next statements compute  r = mod(x,y)   */
-		r = x;
-		while (r>=y) 
-			r = r-y;
-		/* end of inlined mod */
-		x = y;
-		y = r;
-	}
-	return x;
-}
+extern int __VERIFIER_nondet_int(void);
 
 int main()
 {
-	int x,y;
+	int r, x, y;
 
 	x = __VERIFIER_nondet_int();
 	y = __VERIFIER_nondet_int();
 
-	gcd(x,y);
+	if (x<0) {x = -x;}
+	if (y<0) {y = -y;}
+	while (y>0) {
+		/*  the next statements compute  r = mod(x,y)   */
+		r = x;
+		while (r>=y) {
+			r = r-y;
+        }
+		/* end of inlined mod */
+		x = y;
+		y = r;
+	}
+    return 0;
 }
-
-
