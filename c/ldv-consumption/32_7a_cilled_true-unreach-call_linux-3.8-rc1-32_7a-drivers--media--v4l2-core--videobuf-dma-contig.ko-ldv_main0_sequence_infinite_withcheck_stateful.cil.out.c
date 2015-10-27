@@ -4073,6 +4073,7 @@ __inline static void dma_free_attrs(struct device *dev , size_t size , void *vad
 extern void kfree(void const   * ) ;
 #line 224 "include/linux/slub_def.h"
 extern void *__kmalloc(size_t  , gfp_t  ) ;
+extern void *malloc(size_t) ;
 #line 274 "include/linux/slub_def.h"
 __inline static void *kmalloc(size_t size , gfp_t flags ) 
 { 
@@ -5284,8 +5285,17 @@ void main(void)
   int ldv_s_videobuf_vm_ops_vm_operations_struct ;
   int tmp ;
   int tmp___0 ;
+  int i;
+  struct videobuf_mapping *map ;
 
   {
+  var_group1 = (struct vm_area_struct*) malloc(sizeof(struct vm_area_struct));
+  map = (struct videobuf_mapping*) malloc(sizeof(struct videobuf_mapping));
+  var_group1->vm_private_data = map;
+  map->q = (struct videobuf_queue*) malloc(sizeof(struct videobuf_queue));
+  for (i = 0; i < 32; ++i)
+    map->q->bufs[i] = (struct videobuf_buffer*) malloc(sizeof(struct videobuf_buffer));
+
 #line 730
   ldv_s_videobuf_vm_ops_vm_operations_struct = 0;
 #line 720
