@@ -3,7 +3,7 @@ void __VERIFIER_assert(int cond) { if(!(cond)) { ERROR: __VERIFIER_error(); } }
 int main ( ) {
   int a [100000];
   int b [100000];
-  int incr;
+  int incr = __VERIFIER_nondet_int();
   int i = 0;
   while ( i < 100000 ) {
     a[i] = 42;
