@@ -23364,7 +23364,7 @@ extern int __VERIFIER_nondet_int(void) ;
 #line 4947 "/work/vladimir/UFO/Work/test/work/current--X--drivers/media/dvb-frontends/stv090x.ko--X--defaultlinux-3.7.3--X--32_7a--X--ufo/linux-3.7.3/csd_deg_dscv/12/dscv_tempdir/dscv/ri/32_7a/drivers/media/dvb-frontends/stv090x.c.prepared"
 int LDV_IN_INTERRUPT  ;
 #line 4950 "/work/vladimir/UFO/Work/test/work/current--X--drivers/media/dvb-frontends/stv090x.ko--X--defaultlinux-3.7.3--X--32_7a--X--ufo/linux-3.7.3/csd_deg_dscv/12/dscv_tempdir/dscv/ri/32_7a/drivers/media/dvb-frontends/stv090x.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct dvb_frontend *var_group1 ;
   struct dvb_diseqc_master_cmd *var_group2 ;
@@ -23511,7 +23511,7 @@ void main(void)
 #line 5258
   ldv_check_final_state();
 #line 5261
-  return;
+  return 0;
 }
 }
 #line 5265 "/work/vladimir/UFO/Work/test/work/current--X--drivers/media/dvb-frontends/stv090x.ko--X--defaultlinux-3.7.3--X--32_7a--X--ufo/linux-3.7.3/csd_deg_dscv/12/dscv_tempdir/dscv/ri/32_7a/drivers/media/dvb-frontends/stv090x.c.prepared"

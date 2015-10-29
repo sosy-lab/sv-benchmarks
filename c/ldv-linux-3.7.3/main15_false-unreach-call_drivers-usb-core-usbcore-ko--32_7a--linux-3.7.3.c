@@ -48934,7 +48934,7 @@ struct file_operations  const  usbfs_devices_fops  =
      {0, & usb_device_lseek, & usb_device_read, 0, 0, 0, 0, & usb_device_poll, 0, 0,
     0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
 #line 822 "/work/vladimir/UFO/Work/test/work/current--X--drivers/usb/core/usbcore.ko--X--defaultlinux-3.7.3--X--32_7a--X--ufo/linux-3.7.3/csd_deg_dscv/29/dscv_tempdir/dscv/ri/32_7a/drivers/usb/core/devices.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct file *var_group1 ;
   loff_t var_usb_device_lseek_16_p1 ;
@@ -49027,7 +49027,7 @@ void main(void)
 #line 989
   ldv_check_final_state();
 #line 992
-  return;
+  return 0;
 }
 }
 #line 996 "/work/vladimir/UFO/Work/test/work/current--X--drivers/usb/core/usbcore.ko--X--defaultlinux-3.7.3--X--32_7a--X--ufo/linux-3.7.3/csd_deg_dscv/29/dscv_tempdir/dscv/ri/32_7a/drivers/usb/core/devices.c.prepared"

@@ -36633,7 +36633,7 @@ void vmw_kms_screen_object_update_implicit_fb(struct vmw_private *dev_priv , str
 }
 }
 #line 714 "/work/vladimir/UFO/Work/test/work/current--X--drivers/gpu/drm/vmwgfx/vmwgfx.ko--X--defaultlinux-3.5--X--32_7a--X--ufo/linux-3.5/csd_deg_dscv/29/dscv_tempdir/dscv/ri/32_7a/drivers/gpu/drm/vmwgfx/vmwgfx_scrn.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct drm_crtc *var_group1 ;
   struct drm_mode_set *var_group2 ;
@@ -36702,7 +36702,7 @@ void main(void)
 #line 903
   ldv_check_final_state();
 #line 906
-  return;
+  return 0;
 }
 }
 #line 910 "/work/vladimir/UFO/Work/test/work/current--X--drivers/gpu/drm/vmwgfx/vmwgfx.ko--X--defaultlinux-3.5--X--32_7a--X--ufo/linux-3.5/csd_deg_dscv/29/dscv_tempdir/dscv/ri/32_7a/drivers/gpu/drm/vmwgfx/vmwgfx_scrn.c.prepared"
