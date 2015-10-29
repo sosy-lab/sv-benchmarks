@@ -624,7 +624,7 @@ typedef struct node {
   int flag;
   struct node *n;
 } *List;
-void main() {
+int main() {
   List p, a, t;
   a = (List) malloc(sizeof(struct node));
   if (a == 0) exit(1);
@@ -658,6 +658,6 @@ void main() {
   }
   if (p->h != 3 || i > 20)
     goto ERROR;
-  return;
+  return 0;
   ERROR: __VERIFIER_error();
 }
