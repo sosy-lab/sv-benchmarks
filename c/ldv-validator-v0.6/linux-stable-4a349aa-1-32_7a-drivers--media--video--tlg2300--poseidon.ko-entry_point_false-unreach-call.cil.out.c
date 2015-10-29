@@ -18278,7 +18278,7 @@ void ldv_usb_driver_1(void)
 }
 }
 #line 664 "/home/ldvuser/gratinskiy/commit-tester-runs/6-cpa-svcomp-newdeg/commit-tester-work/task-001--linux-stable--dir/work/current--X--drivers/media/video/tlg2300/poseidon.ko--X--defaultlinux-stable-4a349aa-1--X--32_7a--X--cpachecker/linux-stable-4a349aa-1/csd_deg_dscv/15/dscv_tempdir/dscv/ri/32_7a/drivers/media/video/tlg2300/pd-main.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   unsigned long ldvarg54 ;
   unsigned long tmp ;
@@ -18679,7 +18679,7 @@ void main(void)
 #line 909
   ldv_check_final_state();
 #line 910
-  return;
+  return 0;
 }
 }
 #line 913 "/home/ldvuser/gratinskiy/commit-tester-runs/6-cpa-svcomp-newdeg/commit-tester-work/task-001--linux-stable--dir/work/current--X--drivers/media/video/tlg2300/poseidon.ko--X--defaultlinux-stable-4a349aa-1--X--32_7a--X--cpachecker/linux-stable-4a349aa-1/csd_deg_dscv/15/dscv_tempdir/dscv/ri/32_7a/drivers/media/video/tlg2300/pd-main.o.c.prepared"

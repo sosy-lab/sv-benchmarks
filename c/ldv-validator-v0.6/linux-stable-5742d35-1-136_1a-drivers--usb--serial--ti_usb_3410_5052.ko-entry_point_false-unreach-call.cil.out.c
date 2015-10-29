@@ -8675,7 +8675,7 @@ void ldv_usb_driver_3(void)
 }
 }
 #line 1834 "/home/ldvuser/gratinskiy/commit-tester-runs/6-cpa-svcomp-newdeg/commit-tester-work/task-032--linux-stable--dir/work/current--X--drivers/usb/serial/ti_usb_3410_5052.ko--X--defaultlinux-stable-5742d35-1--X--136_1a--X--cpachecker/linux-stable-5742d35-1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/136_1a/drivers/usb/serial/ti_usb_3410_5052.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct ktermios *ldvarg7 ;
   void *tmp ;
@@ -10067,7 +10067,7 @@ void main(void)
 #line 2818
   ldv_check_final_state();
 #line 2819
-  return;
+  return 0;
 }
 }
 #line 2822 "/home/ldvuser/gratinskiy/commit-tester-runs/6-cpa-svcomp-newdeg/commit-tester-work/task-032--linux-stable--dir/work/current--X--drivers/usb/serial/ti_usb_3410_5052.ko--X--defaultlinux-stable-5742d35-1--X--136_1a--X--cpachecker/linux-stable-5742d35-1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/136_1a/drivers/usb/serial/ti_usb_3410_5052.o.c.prepared"

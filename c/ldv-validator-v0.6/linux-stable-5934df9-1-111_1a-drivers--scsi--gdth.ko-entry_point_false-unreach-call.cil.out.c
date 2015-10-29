@@ -18359,7 +18359,7 @@ void ldv_initialize_kernel_param_13(void)
 }
 }
 #line 5563 "/home/ldvuser/gratinskiy/commit-tester-runs/6-cpa-svcomp-newdeg/commit-tester-work/task-021--linux-stable--dir/work/current--X--drivers/scsi/gdth.ko--X--defaultlinux-stable-5934df9-1--X--111_1a--X--cpachecker/linux-stable-5934df9-1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/111_1a/drivers/scsi/gdth.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   char *ldvarg1 ;
   void *tmp ;
@@ -19587,7 +19587,7 @@ void main(void)
 #line 6283
   ldv_check_final_state();
 #line 6284
-  return;
+  return 0;
 }
 }
 #line 6287 "/home/ldvuser/gratinskiy/commit-tester-runs/6-cpa-svcomp-newdeg/commit-tester-work/task-021--linux-stable--dir/work/current--X--drivers/scsi/gdth.ko--X--defaultlinux-stable-5934df9-1--X--111_1a--X--cpachecker/linux-stable-5934df9-1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/111_1a/drivers/scsi/gdth.o.c.prepared"

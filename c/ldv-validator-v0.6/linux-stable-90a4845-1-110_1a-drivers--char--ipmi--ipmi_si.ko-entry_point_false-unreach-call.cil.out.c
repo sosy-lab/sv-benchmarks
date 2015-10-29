@@ -10825,7 +10825,7 @@ void ldv_main_exported_4(void) ;
 #line 4032
 void ldv_main_exported_5(void) ;
 #line 4036 "/home/ldvuser/gratinskiy/commit-tester-runs/6-cpa-svcomp-newdeg/commit-tester-work/task-018--linux-stable--dir/work/current--X--drivers/char/ipmi/ipmi_si.ko--X--defaultlinux-stable-90a4845-1--X--110_1a--X--cpachecker/linux-stable-90a4845-1/csd_deg_dscv/14/dscv_tempdir/dscv/ri/110_1a/drivers/char/ipmi/ipmi_si_intf.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   void *ldvarg11 ;
   void *tmp ;
@@ -11428,7 +11428,7 @@ void main(void)
 #line 4390
   ldv_check_final_state();
 #line 4391
-  return;
+  return 0;
 }
 }
 #line 4400 "/home/ldvuser/gratinskiy/commit-tester-runs/6-cpa-svcomp-newdeg/commit-tester-work/task-018--linux-stable--dir/work/current--X--drivers/char/ipmi/ipmi_si.ko--X--defaultlinux-stable-90a4845-1--X--110_1a--X--cpachecker/linux-stable-90a4845-1/csd_deg_dscv/14/dscv_tempdir/dscv/ri/110_1a/drivers/char/ipmi/ipmi_si_intf.o.c.prepared"

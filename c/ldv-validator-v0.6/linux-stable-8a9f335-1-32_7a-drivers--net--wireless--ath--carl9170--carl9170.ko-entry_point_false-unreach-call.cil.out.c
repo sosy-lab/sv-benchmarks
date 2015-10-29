@@ -16336,7 +16336,7 @@ void ldv_main_exported_19(void) ;
 #line 1423
 void ldv_main_exported_5(void) ;
 #line 1427 "/home/ldvuser/gratinskiy/commit-tester-runs/6-cpa-svcomp-newdeg/commit-tester-work/task-007--linux-stable--dir/work/current--X--drivers/net/wireless/ath/carl9170/carl9170.ko--X--defaultlinux-stable-8a9f335-1--X--32_7a--X--cpachecker/linux-stable-8a9f335-1/csd_deg_dscv/20/dscv_tempdir/dscv/ri/32_7a/drivers/net/wireless/ath/carl9170/usb.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct usb_device_id *ldvarg162 ;
   void *tmp ;
@@ -17259,7 +17259,7 @@ void main(void)
 #line 2052
   ldv_check_final_state();
 #line 2053
-  return;
+  return 0;
 }
 }
 #line 2056 "/home/ldvuser/gratinskiy/commit-tester-runs/6-cpa-svcomp-newdeg/commit-tester-work/task-007--linux-stable--dir/work/current--X--drivers/net/wireless/ath/carl9170/carl9170.ko--X--defaultlinux-stable-8a9f335-1--X--32_7a--X--cpachecker/linux-stable-8a9f335-1/csd_deg_dscv/20/dscv_tempdir/dscv/ri/32_7a/drivers/net/wireless/ath/carl9170/usb.o.c.prepared"

@@ -6694,7 +6694,7 @@ void ldv_usb_driver_2(void)
 }
 }
 #line 806 "/home/ldvuser/gratinskiy/commit-tester-runs/6-cpa-svcomp-newdeg/commit-tester-work/task-009--linux-stable--dir/work/current--X--drivers/usb/serial/kobil_sct.ko--X--defaultlinux-stable-1dfa93a-1--X--100_1a--X--cpachecker/linux-stable-1dfa93a-1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/100_1a/drivers/usb/serial/kobil_sct.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   unsigned char *ldvarg7 ;
   void *tmp ;
@@ -7264,7 +7264,7 @@ void main(void)
 #line 1184
   ldv_check_final_state();
 #line 1185
-  return;
+  return 0;
 }
 }
 #line 1207 "/home/ldvuser/gratinskiy/commit-tester-runs/6-cpa-svcomp-newdeg/commit-tester-work/task-009--linux-stable--dir/work/current--X--drivers/usb/serial/kobil_sct.ko--X--defaultlinux-stable-1dfa93a-1--X--100_1a--X--cpachecker/linux-stable-1dfa93a-1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/100_1a/drivers/usb/serial/kobil_sct.o.c.prepared"

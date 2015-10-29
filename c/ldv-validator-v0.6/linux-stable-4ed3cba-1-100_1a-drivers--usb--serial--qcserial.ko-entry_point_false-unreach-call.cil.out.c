@@ -5923,7 +5923,7 @@ void ldv_usb_driver_2(void)
 }
 }
 #line 327 "/home/ldvuser/gratinskiy/commit-tester-runs/6-cpa-svcomp-newdeg/commit-tester-work/task-008--linux-stable--dir/work/current--X--drivers/usb/serial/qcserial.ko--X--defaultlinux-stable-4ed3cba-1--X--100_1a--X--cpachecker/linux-stable-4ed3cba-1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/100_1a/drivers/usb/serial/qcserial.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct usb_device_id *ldvarg1 ;
   void *tmp ;
@@ -6518,7 +6518,7 @@ void main(void)
   ldv_check_final_state();
   ldv_error();//fix it
 #line 715
-  return;
+  return 0;
 }
 }
 #line 745 "/home/ldvuser/gratinskiy/commit-tester-runs/6-cpa-svcomp-newdeg/commit-tester-work/task-008--linux-stable--dir/work/current--X--drivers/usb/serial/qcserial.ko--X--defaultlinux-stable-4ed3cba-1--X--100_1a--X--cpachecker/linux-stable-4ed3cba-1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/100_1a/drivers/usb/serial/qcserial.o.c.prepared"

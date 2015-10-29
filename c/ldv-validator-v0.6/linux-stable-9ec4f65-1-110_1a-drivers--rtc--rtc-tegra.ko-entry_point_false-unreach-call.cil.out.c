@@ -3308,7 +3308,7 @@ void disable_suitable_irq_1(int line , void *data )
 }
 }
 #line 672 "/home/ldvuser/gratinskiy/commit-tester-runs/6-cpa-svcomp-newdeg/commit-tester-work/task-020--linux-stable--dir/work/current--X--drivers/rtc/rtc-tegra.ko--X--defaultlinux-stable-9ec4f65-1--X--110_1a--X--cpachecker/linux-stable-9ec4f65-1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/110_1a/drivers/rtc/rtc-tegra.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct seq_file *ldvarg1 ;
   void *tmp ;
@@ -3714,7 +3714,7 @@ void main(void)
 #line 953
   ldv_check_final_state();
 #line 954
-  return;
+  return 0;
 }
 }
 #line 1021 "/home/ldvuser/gratinskiy/commit-tester-runs/6-cpa-svcomp-newdeg/commit-tester-work/task-020--linux-stable--dir/work/current--X--drivers/rtc/rtc-tegra.ko--X--defaultlinux-stable-9ec4f65-1--X--110_1a--X--cpachecker/linux-stable-9ec4f65-1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/110_1a/drivers/rtc/rtc-tegra.o.c.prepared"

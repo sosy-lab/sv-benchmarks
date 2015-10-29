@@ -8974,7 +8974,7 @@ void ldv_initialize_v4l2_ioctl_ops_2(void)
 }
 }
 #line 1508 "/home/ldvuser/gratinskiy/commit-tester-runs/6-cpa-svcomp-newdeg/commit-tester-work/task-003--linux-stable--dir/work/current--X--drivers/media/video/cx88/cx88-blackbird.ko--X--defaultlinux-stable-d47b389-1--X--32_7a--X--cpachecker/linux-stable-d47b389-1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/32_7a/drivers/media/video/cx88/cx88-blackbird.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   unsigned int *ldvarg1 ;
   void *tmp ;
@@ -10013,7 +10013,7 @@ void main(void)
 #line 2125
   ldv_check_final_state();
 #line 2126
-  return;
+  return 0;
 }
 }
 #line 2129 "/home/ldvuser/gratinskiy/commit-tester-runs/6-cpa-svcomp-newdeg/commit-tester-work/task-003--linux-stable--dir/work/current--X--drivers/media/video/cx88/cx88-blackbird.ko--X--defaultlinux-stable-d47b389-1--X--32_7a--X--cpachecker/linux-stable-d47b389-1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/32_7a/drivers/media/video/cx88/cx88-blackbird.o.c.prepared"
