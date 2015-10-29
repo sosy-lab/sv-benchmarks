@@ -50807,7 +50807,7 @@ void usb_deregister_dev(struct usb_interface *intf , struct usb_class_driver *cl
 }
 }
 #line 294 "/anthill/stuff/tacas-comp/work/current--X--drivers/usb/core/usbcore.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/28/dscv_tempdir/dscv/ri/08_1/drivers/usb/core/file.c.p"
-void main(void) 
+int main(void) 
 { struct inode *var_group1 ;
   struct file *var_group2 ;
   int res_usb_open_0 ;
@@ -50896,7 +50896,7 @@ void main(void)
   ldv_check_final_state();
   }
 #line 378
-  return;
+  return 0;
 }
 }
 #line 382 "/anthill/stuff/tacas-comp/work/current--X--drivers/usb/core/usbcore.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/28/dscv_tempdir/dscv/ri/08_1/drivers/usb/core/file.c.p"

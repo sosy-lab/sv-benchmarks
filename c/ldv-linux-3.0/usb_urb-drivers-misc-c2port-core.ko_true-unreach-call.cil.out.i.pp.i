@@ -6904,7 +6904,7 @@ extern int __VERIFIER_nondet_int(void) ;
 # 1037 "/anthill/stuff/tacas-comp/work/current--X--drivers/misc/c2port/core.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/misc/c2port/core.c.common.c"
 int LDV_IN_INTERRUPT ;
 # 1040 "/anthill/stuff/tacas-comp/work/current--X--drivers/misc/c2port/core.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/misc/c2port/core.c.common.c"
-void main(void)
+int main(void)
 { struct file *var_group1 ;
   struct kobject *var_group2 ;
   struct bin_attribute *var_c2port_read_flash_data_25_p2 ;
@@ -7007,7 +7007,7 @@ void main(void)
   ldv_check_final_state();
   }
 # 1243 "/anthill/stuff/tacas-comp/work/current--X--drivers/misc/c2port/core.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/misc/c2port/core.c.common.c"
-  return;
+  return 0;
 }
 }
 # 5 "/anthill/stuff/tacas-comp/work/current--X--drivers/misc/c2port/core.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/kernel-rules/files/engine-blast-assert.h"

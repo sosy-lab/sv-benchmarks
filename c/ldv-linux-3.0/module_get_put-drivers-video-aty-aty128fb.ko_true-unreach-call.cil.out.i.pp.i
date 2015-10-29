@@ -8701,7 +8701,7 @@ extern int __VERIFIER_nondet_int(void) ;
 # 2608 "/anthill/stuff/tacas-comp/work/current--X--drivers/video/aty/aty128fb.ko--X--chewlinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/video/aty/aty128fb.c.p"
 int LDV_IN_INTERRUPT ;
 # 2611 "/anthill/stuff/tacas-comp/work/current--X--drivers/video/aty/aty128fb.ko--X--chewlinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/video/aty/aty128fb.c.p"
-void main(void)
+int main(void)
 { struct pci_dev *var_group1 ;
   struct pci_device_id const *var_aty128_probe_48_p1 ;
   int res_aty128_probe_48 ;
@@ -8952,7 +8952,7 @@ void main(void)
   ldv_check_final_state();
   }
 # 6207 "/anthill/stuff/tacas-comp/work/current--X--drivers/video/aty/aty128fb.ko--X--chewlinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/video/aty/aty128fb.c.p"
-  return;
+  return 0;
 }
 }
 # 5 "/anthill/stuff/tacas-comp/work/current--X--drivers/video/aty/aty128fb.ko--X--chewlinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/kernel-rules/files/engine-blast-assert.h"

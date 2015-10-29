@@ -15918,7 +15918,7 @@ extern int __VERIFIER_nondet_int(void) ;
 #line 2716 "/anthill/stuff/tacas-comp/work/current--X--drivers/net/wan/farsync.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/net/wan/farsync.c.p"
 int LDV_IN_INTERRUPT  ;
 #line 2719 "/anthill/stuff/tacas-comp/work/current--X--drivers/net/wan/farsync.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/net/wan/farsync.c.p"
-void main(void) 
+int main(void) 
 { struct net_device *var_group1 ;
   int res_fst_open_36 ;
   int res_fst_close_37 ;
@@ -16133,7 +16133,7 @@ void main(void)
   ldv_check_final_state();
   }
 #line 4676
-  return;
+  return 0;
 }
 }
 #line 5 "/anthill/stuff/tacas-comp/work/current--X--drivers/net/wan/farsync.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/kernel-rules/files/engine-blast-assert.h"

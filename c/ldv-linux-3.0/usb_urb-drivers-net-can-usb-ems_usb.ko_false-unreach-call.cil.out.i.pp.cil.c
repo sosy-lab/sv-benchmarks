@@ -10538,7 +10538,7 @@ static int res_ems_usb_close_12  ;
 #line 1434 "/anthill/stuff/tacas-comp/work/current--X--drivers/net/can/usb/ems_usb.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/net/can/usb/ems_usb.c.common.c"
 static int res_ems_usb_probe_16  ;
 #line 1176 "/anthill/stuff/tacas-comp/work/current--X--drivers/net/can/usb/ems_usb.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/net/can/usb/ems_usb.c.common.c"
-void main(void) 
+int main(void) 
 { struct net_device *var_group1 ;
   struct sk_buff *var_group2 ;
   struct usb_interface *var_group3 ;
@@ -10750,7 +10750,7 @@ void main(void)
   ldv_check_final_state();
   }
 #line 2037
-  return;
+  return 0;
 }
 }
 #line 5 "/anthill/stuff/tacas-comp/work/current--X--drivers/net/can/usb/ems_usb.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/kernel-rules/files/engine-blast-assert.h"

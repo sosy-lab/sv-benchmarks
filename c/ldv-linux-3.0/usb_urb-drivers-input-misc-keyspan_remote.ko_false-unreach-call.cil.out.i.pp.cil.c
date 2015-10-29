@@ -7463,7 +7463,7 @@ int LDV_IN_INTERRUPT  ;
 #line 672 "/anthill/stuff/tacas-comp/work/current--X--drivers/input/misc/keyspan_remote.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/input/misc/keyspan_remote.c.common.c"
 static int res_keyspan_probe_9  ;
 #line 641 "/anthill/stuff/tacas-comp/work/current--X--drivers/input/misc/keyspan_remote.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/input/misc/keyspan_remote.c.common.c"
-void main(void) 
+int main(void) 
 { struct usb_interface *var_group1 ;
   struct usb_device_id  const  *var_keyspan_probe_9_p1 ;
   int tmp___7 ;
@@ -7592,7 +7592,7 @@ void main(void)
   ldv_check_final_state();
   }
 #line 846
-  return;
+  return 0;
 }
 }
 #line 5 "/anthill/stuff/tacas-comp/work/current--X--drivers/input/misc/keyspan_remote.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/kernel-rules/files/engine-blast-assert.h"

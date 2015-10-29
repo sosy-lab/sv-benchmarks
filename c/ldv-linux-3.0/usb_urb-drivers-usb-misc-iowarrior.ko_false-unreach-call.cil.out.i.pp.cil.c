@@ -9131,7 +9131,7 @@ static int res_iowarrior_open_9  ;
 #line 1215 "/anthill/stuff/tacas-comp/work/current--X--drivers/usb/misc/iowarrior.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/usb/misc/iowarrior.c.common.c"
 static int res_iowarrior_probe_13  ;
 #line 975 "/anthill/stuff/tacas-comp/work/current--X--drivers/usb/misc/iowarrior.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/usb/misc/iowarrior.c.common.c"
-void main(void) 
+int main(void) 
 { struct file *var_group1 ;
   char const   *var_iowarrior_write_7_p1 ;
   size_t var_iowarrior_write_7_p2 ;
@@ -9433,7 +9433,7 @@ void main(void)
   ldv_check_final_state();
   }
 #line 1695
-  return;
+  return 0;
 }
 }
 #line 5 "/anthill/stuff/tacas-comp/work/current--X--drivers/usb/misc/iowarrior.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/kernel-rules/files/engine-blast-assert.h"

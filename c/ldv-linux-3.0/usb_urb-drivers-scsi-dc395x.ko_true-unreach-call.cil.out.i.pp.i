@@ -17314,7 +17314,7 @@ int LDV_IN_INTERRUPT ;
 # 5806 "/anthill/stuff/tacas-comp/work/current--X--drivers/scsi/dc395x.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/scsi/dc395x.c.common.c"
 static int res_dc395x_init_one_106 ;
 # 4958 "/anthill/stuff/tacas-comp/work/current--X--drivers/scsi/dc395x.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/scsi/dc395x.c.common.c"
-void main(void)
+int main(void)
 { struct Scsi_Host *var_group1 ;
   char *var_dc395x_proc_info_104_p1 ;
   char **var_dc395x_proc_info_104_p2 ;
@@ -17541,7 +17541,7 @@ void main(void)
   ldv_check_final_state();
   }
 # 7753 "/anthill/stuff/tacas-comp/work/current--X--drivers/scsi/dc395x.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/scsi/dc395x.c.common.c"
-  return;
+  return 0;
 }
 }
 # 5 "/anthill/stuff/tacas-comp/work/current--X--drivers/scsi/dc395x.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/kernel-rules/files/engine-blast-assert.h"

@@ -8383,7 +8383,7 @@ extern int __VERIFIER_nondet_int(void) ;
 # 1409 "/anthill/stuff/tacas-comp/work/current--X--drivers/char/ipmi/ipmi_watchdog.ko--X--safelinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/char/ipmi/ipmi_watchdog.c.p"
 int LDV_IN_INTERRUPT ;
 # 1412 "/anthill/stuff/tacas-comp/work/current--X--drivers/char/ipmi/ipmi_watchdog.ko--X--safelinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/char/ipmi/ipmi_watchdog.c.p"
-void main(void)
+int main(void)
 { char const *var_set_param_timeout_0_p0 ;
   struct kernel_param const *var_set_param_timeout_0_p1 ;
   char const *var_set_param_wdog_ifnum_3_p0 ;
@@ -8863,7 +8863,7 @@ void main(void)
   ldv_check_final_state();
   }
 # 6078 "/anthill/stuff/tacas-comp/work/current--X--drivers/char/ipmi/ipmi_watchdog.ko--X--safelinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/char/ipmi/ipmi_watchdog.c.p"
-  return;
+  return 0;
 }
 }
 # 5 "/anthill/stuff/tacas-comp/work/current--X--drivers/char/ipmi/ipmi_watchdog.ko--X--safelinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/kernel-rules/files/engine-blast-assert.h"

@@ -9343,7 +9343,7 @@ extern int __VERIFIER_nondet_int(void) ;
 # 492 "/anthill/stuff/tacas-comp/work/current--X--drivers/bluetooth/btmrvl.ko--X--safelinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/17/dscv_tempdir/dscv/ri/08_1/drivers/bluetooth/btmrvl_debugfs.c.p"
 int LDV_IN_INTERRUPT ;
 # 495 "/anthill/stuff/tacas-comp/work/current--X--drivers/bluetooth/btmrvl.ko--X--safelinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/17/dscv_tempdir/dscv/ri/08_1/drivers/bluetooth/btmrvl_debugfs.c.p"
-void main(void)
+int main(void)
 { struct file *var_group1 ;
   char *var_btmrvl_hscfgcmd_read_2_p1 ;
   size_t var_btmrvl_hscfgcmd_read_2_p2 ;
@@ -10299,6 +10299,6 @@ void main(void)
   ldv_check_final_state();
   }
 # 1283 "/anthill/stuff/tacas-comp/work/current--X--drivers/bluetooth/btmrvl.ko--X--safelinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/17/dscv_tempdir/dscv/ri/08_1/drivers/bluetooth/btmrvl_debugfs.c.p"
-  return;
+  return 0;
 }
 }

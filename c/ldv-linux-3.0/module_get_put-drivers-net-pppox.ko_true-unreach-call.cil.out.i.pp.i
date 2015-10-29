@@ -6080,7 +6080,7 @@ extern int __VERIFIER_nondet_int(void) ;
 # 187 "/anthill/stuff/tacas-comp/work/current--X--drivers/net/pppox.ko--X--aerrlinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/net/pppox.c.p"
 int LDV_IN_INTERRUPT ;
 # 190 "/anthill/stuff/tacas-comp/work/current--X--drivers/net/pppox.ko--X--aerrlinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/net/pppox.c.p"
-void main(void)
+int main(void)
 { struct net *var_group1 ;
   struct socket *var_group2 ;
   int var_pppox_create_4_p2 ;
@@ -6160,7 +6160,7 @@ void main(void)
   ldv_check_final_state();
   }
 # 273 "/anthill/stuff/tacas-comp/work/current--X--drivers/net/pppox.ko--X--aerrlinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/net/pppox.c.p"
-  return;
+  return 0;
 }
 }
 # 5 "/anthill/stuff/tacas-comp/work/current--X--drivers/net/pppox.ko--X--aerrlinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/kernel-rules/files/engine-blast-assert.h"
