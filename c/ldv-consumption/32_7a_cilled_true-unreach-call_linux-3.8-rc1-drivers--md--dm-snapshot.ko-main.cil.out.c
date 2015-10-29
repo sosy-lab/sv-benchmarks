@@ -8990,7 +8990,7 @@ void ldv_main_exported_6(void) ;
 #line 2417
 void ldv_main_exported_7(void) ;
 #line 2421 "/home/zakharov/workspace/benchmarks/bench_1/work/current--X--drivers/md/dm-snapshot.ko--X--deg2_cpalinux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/35/dscv_tempdir/dscv/ri/32_7a/drivers/md/dm-snap.c.prepared"
-void main(void) 
+int main(void) 
 { int tmp ;
   int tmp___0 ;
   int tmp___1 ;
@@ -10102,7 +10102,7 @@ void main(void)
 #line 3240
   ldv_check_final_state();
 #line 3241
-  return;
+  return 0;
 }
 }
 #line 3244 "/home/zakharov/workspace/benchmarks/bench_1/work/current--X--drivers/md/dm-snapshot.ko--X--deg2_cpalinux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/35/dscv_tempdir/dscv/ri/32_7a/drivers/md/dm-snap.c.prepared"

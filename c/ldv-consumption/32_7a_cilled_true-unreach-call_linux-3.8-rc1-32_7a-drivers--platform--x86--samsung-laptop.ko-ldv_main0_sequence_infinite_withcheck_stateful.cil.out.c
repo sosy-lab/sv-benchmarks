@@ -7159,7 +7159,7 @@ extern int __VERIFIER_nondet_int(void) ;
 #line 1724 "/home/mikhail/launches/cpachecker-regression2/launcher-working-dir/ldv-manager-work-dir/work/current--X--drivers/platform/x86/samsung-laptop.ko--X--regression-testlinux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/32_7a/drivers/platform/x86/samsung-laptop.c.prepared"
 int LDV_IN_INTERRUPT  ;
 #line 1727 "/home/mikhail/launches/cpachecker-regression2/launcher-working-dir/ldv-manager-work-dir/work/current--X--drivers/platform/x86/samsung-laptop.ko--X--regression-testlinux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/32_7a/drivers/platform/x86/samsung-laptop.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct backlight_device *var_group1 ;
   void *var_seclinux_rfkill_set_7_p0 ;
@@ -7294,7 +7294,7 @@ void main(void)
 #line 2178
   ldv_check_final_state();
 #line 2181
-  return;
+  return 0;
 }
 }
 #line 2185 "/home/mikhail/launches/cpachecker-regression2/launcher-working-dir/ldv-manager-work-dir/work/current--X--drivers/platform/x86/samsung-laptop.ko--X--regression-testlinux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/32_7a/drivers/platform/x86/samsung-laptop.c.prepared"

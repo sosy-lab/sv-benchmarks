@@ -31059,7 +31059,7 @@ struct ethtool_ops  const  be_ethtool_ops  =
     & be_get_rxnfc, & be_set_rxnfc, & be_do_flash, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
     0, 0, 0};
 #line 1202 "/work/ldvuser/exper_fp/work/current--X--drivers--X--defaultlinux-3.10-rc1.tar--X--32_7a--X--cpachecker/linux-3.10-rc1.tar/csd_deg_dscv/8517/dscv_tempdir/dscv/ri/32_7a/drivers/net/ethernet/emulex/benet/be_ethtool.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct net_device *var_group1 ;
   struct ethtool_cmd *var_group2 ;
@@ -31280,7 +31280,7 @@ void main(void)
 #line 2508
   ldv_check_final_state();
 #line 2511
-  return;
+  return 0;
 }
 }
 #line 2515 "/work/ldvuser/exper_fp/work/current--X--drivers--X--defaultlinux-3.10-rc1.tar--X--32_7a--X--cpachecker/linux-3.10-rc1.tar/csd_deg_dscv/8517/dscv_tempdir/dscv/ri/32_7a/drivers/net/ethernet/emulex/benet/be_ethtool.c.prepared"

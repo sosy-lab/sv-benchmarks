@@ -7922,7 +7922,7 @@ unsigned char *ldvarg22  ;
 #line 1364 "/home/zakharov/workspace/benchmarks/bench_1/work/current--X--drivers/ata/pata_legacy.ko--X--deg2_cpalinux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/32_7a/drivers/ata/pata_legacy.c.prepared"
 struct ata_port *ldvarg19  ;
 #line 1370 "/home/zakharov/workspace/benchmarks/bench_1/work/current--X--drivers/ata/pata_legacy.ko--X--deg2_cpalinux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/32_7a/drivers/ata/pata_legacy.c.prepared"
-void main(void) 
+int main(void) 
 { int tmp ;
   int tmp___0 ;
   int tmp___1 ;
@@ -8442,7 +8442,7 @@ void main(void)
 #line 1717
   ldv_check_final_state();
 #line 1718
-  return;
+  return 0;
 }
 }
 #line 1721 "/home/zakharov/workspace/benchmarks/bench_1/work/current--X--drivers/ata/pata_legacy.ko--X--deg2_cpalinux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/32_7a/drivers/ata/pata_legacy.c.prepared"

@@ -40863,7 +40863,7 @@ void ata_sff_exit(void)
 }
 }
 #line 3449 "/home/mikhail/launches/cpachecker-regression/launcher-working-dir/ldv-manager-work-dir/work/current--X--drivers/ata/libata.ko--X--regression-testlinux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/18/dscv_tempdir/dscv/ri/32_7a/drivers/ata/libata-sff.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct ata_queued_cmd *var_group1 ;
   struct ata_port *var_group2 ;
@@ -41151,7 +41151,7 @@ void main(void)
 #line 5303
   ldv_check_final_state();
 #line 5306
-  return;
+  return 0;
 }
 }
 #line 5310 "/home/mikhail/launches/cpachecker-regression/launcher-working-dir/ldv-manager-work-dir/work/current--X--drivers/ata/libata.ko--X--regression-testlinux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/18/dscv_tempdir/dscv/ri/32_7a/drivers/ata/libata-sff.c.prepared"

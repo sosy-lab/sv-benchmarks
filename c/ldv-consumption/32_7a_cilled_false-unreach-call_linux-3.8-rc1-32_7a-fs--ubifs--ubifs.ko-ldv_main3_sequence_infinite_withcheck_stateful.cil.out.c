@@ -16929,7 +16929,7 @@ struct file_operations  const  ubifs_dir_operations  =
     & ubifs_compat_ioctl, 0, 0, 0, & ubifs_dir_release, & ubifs_fsync, 0, 0, 0, 0,
     0, 0, 0, 0, 0, 0, 0, 0};
 #line 1348 "/home/mikhail/launches/cpachecker-regression/launcher-working-dir/ldv-manager-work-dir/work/current--X--fs/ubifs/ubifs.ko--X--regression-testlinux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/38/dscv_tempdir/dscv/ri/32_7a/fs/ubifs/dir.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct inode *var_group1 ;
   struct dentry *var_group2 ;
@@ -17094,7 +17094,7 @@ void main(void)
 #line 1784
   ldv_check_final_state();
 #line 1787
-  return;
+  return 0;
 }
 }
 #line 1791 "/home/mikhail/launches/cpachecker-regression/launcher-working-dir/ldv-manager-work-dir/work/current--X--fs/ubifs/ubifs.ko--X--regression-testlinux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/38/dscv_tempdir/dscv/ri/32_7a/fs/ubifs/dir.c.prepared"

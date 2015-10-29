@@ -4144,7 +4144,7 @@ void ldv_check_final_state(void) ;
 #line 649 "/work/ldvuser/zakharov_benchmarks/bench/cpa/work/current--X--drivers/vfio/pci/vfio-pci.ko--X--x1linux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/15/dscv_tempdir/dscv/ri/32_7a/drivers/vfio/pci/vfio_pci.c.prepared"
 loff_t *ldvarg2  ;
 #line 658 "/work/ldvuser/zakharov_benchmarks/bench/cpa/work/current--X--drivers/vfio/pci/vfio-pci.ko--X--x1linux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/15/dscv_tempdir/dscv/ri/32_7a/drivers/vfio/pci/vfio_pci.c.prepared"
-void main(void) 
+int main(void) 
 { int tmp ;
   int tmp___0 ;
   int tmp___1 ;
@@ -4404,7 +4404,7 @@ void main(void)
 #line 831
   ldv_check_final_state();
 #line 832
-  return;
+  return 0;
 }
 }
 #line 835 "/work/ldvuser/zakharov_benchmarks/bench/cpa/work/current--X--drivers/vfio/pci/vfio-pci.ko--X--x1linux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/15/dscv_tempdir/dscv/ri/32_7a/drivers/vfio/pci/vfio_pci.c.prepared"

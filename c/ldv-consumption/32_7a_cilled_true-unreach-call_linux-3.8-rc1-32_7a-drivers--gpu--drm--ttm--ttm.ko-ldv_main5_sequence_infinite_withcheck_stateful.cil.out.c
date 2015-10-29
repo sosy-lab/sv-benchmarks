@@ -14187,7 +14187,7 @@ ssize_t ttm_bo_fbdev_io(struct ttm_buffer_object *bo , char const   *wbuf , char
 }
 }
 #line 552 "/home/mikhail/launches/cpachecker-regression2/launcher-working-dir/ldv-manager-work-dir/work/current--X--drivers/gpu/drm/ttm/ttm.ko--X--regression-testlinux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/24/dscv_tempdir/dscv/ri/32_7a/drivers/gpu/drm/ttm/ttm_bo_vm.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct vm_area_struct *var_group1 ;
   struct vm_fault *var_group2 ;
@@ -14264,7 +14264,7 @@ void main(void)
 #line 674
   ldv_check_final_state();
 #line 677
-  return;
+  return 0;
 }
 }
 #line 681 "/home/mikhail/launches/cpachecker-regression2/launcher-working-dir/ldv-manager-work-dir/work/current--X--drivers/gpu/drm/ttm/ttm.ko--X--regression-testlinux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/24/dscv_tempdir/dscv/ri/32_7a/drivers/gpu/drm/ttm/ttm_bo_vm.c.prepared"

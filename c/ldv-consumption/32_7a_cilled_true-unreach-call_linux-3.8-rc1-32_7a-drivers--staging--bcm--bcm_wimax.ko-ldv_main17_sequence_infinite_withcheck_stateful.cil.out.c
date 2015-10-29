@@ -36137,7 +36137,7 @@ void unregister_control_device_interface(struct bcm_mini_adapter *Adapter )
 }
 }
 #line 2123 "/home/mikhail/launches/cpachecker-regression2/launcher-working-dir/ldv-manager-work-dir/work/current--X--drivers/staging/bcm/bcm_wimax.ko--X--regression-testlinux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/34/dscv_tempdir/dscv/ri/32_7a/drivers/staging/bcm/Bcmchar.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct inode *var_group1 ;
   struct file *var_group2 ;
@@ -36254,7 +36254,7 @@ void main(void)
 #line 2290
   ldv_check_final_state();
 #line 2293
-  return;
+  return 0;
 }
 }
 #line 2297 "/home/mikhail/launches/cpachecker-regression2/launcher-working-dir/ldv-manager-work-dir/work/current--X--drivers/staging/bcm/bcm_wimax.ko--X--regression-testlinux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/34/dscv_tempdir/dscv/ri/32_7a/drivers/staging/bcm/Bcmchar.c.prepared"

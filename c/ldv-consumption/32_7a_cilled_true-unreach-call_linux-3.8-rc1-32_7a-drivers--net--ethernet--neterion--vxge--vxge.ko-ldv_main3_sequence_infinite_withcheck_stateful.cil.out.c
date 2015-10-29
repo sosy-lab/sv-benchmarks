@@ -34304,7 +34304,7 @@ extern void ldv_check_return_value(int  ) ;
 #line 4910
 extern void ldv_check_return_value_probe(int  ) ;
 #line 4925 "/home/mikhail/launches/cpachecker-regression2/launcher-working-dir/ldv-manager-work-dir/work/current--X--drivers/net/ethernet/neterion/vxge/vxge.ko--X--regression-testlinux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/15/dscv_tempdir/dscv/ri/32_7a/drivers/net/ethernet/neterion/vxge/vxge-main.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct net_device *var_group1 ;
   int res_vxge_open_57 ;
@@ -34660,7 +34660,7 @@ void main(void)
 #line 6814
   ldv_check_final_state();
 #line 6817
-  return;
+  return 0;
 }
 }
 #line 6821 "/home/mikhail/launches/cpachecker-regression2/launcher-working-dir/ldv-manager-work-dir/work/current--X--drivers/net/ethernet/neterion/vxge/vxge.ko--X--regression-testlinux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/15/dscv_tempdir/dscv/ri/32_7a/drivers/net/ethernet/neterion/vxge/vxge-main.c.prepared"

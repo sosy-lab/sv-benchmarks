@@ -22595,7 +22595,7 @@ extern int __VERIFIER_nondet_int(void) ;
 #line 5145 "/home/mikhail/launches/cpachecker-regression2/launcher-working-dir/ldv-manager-work-dir/work/current--X--drivers/scsi/be2iscsi/be2iscsi.ko--X--regression-testlinux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/15/dscv_tempdir/dscv/ri/32_7a/drivers/scsi/be2iscsi/be_main.c.prepared"
 int LDV_IN_INTERRUPT  ;
 #line 5148 "/home/mikhail/launches/cpachecker-regression2/launcher-working-dir/ldv-manager-work-dir/work/current--X--drivers/scsi/be2iscsi/be2iscsi.ko--X--regression-testlinux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/15/dscv_tempdir/dscv/ri/32_7a/drivers/scsi/be2iscsi/be_main.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct scsi_device *var_group1 ;
   struct scsi_cmnd *var_group2 ;
@@ -22804,7 +22804,7 @@ void main(void)
 #line 7743
   ldv_check_final_state();
 #line 7746
-  return;
+  return 0;
 }
 }
 #line 7750 "/home/mikhail/launches/cpachecker-regression2/launcher-working-dir/ldv-manager-work-dir/work/current--X--drivers/scsi/be2iscsi/be2iscsi.ko--X--regression-testlinux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/15/dscv_tempdir/dscv/ri/32_7a/drivers/scsi/be2iscsi/be_main.c.prepared"

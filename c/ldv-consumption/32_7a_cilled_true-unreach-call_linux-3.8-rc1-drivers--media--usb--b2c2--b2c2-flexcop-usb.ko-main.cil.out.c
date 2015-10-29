@@ -9091,7 +9091,7 @@ struct usb_device_id *ldvarg0  ;
 #line 631
 void ldv_check_final_state(void) ;
 #line 639 "/work/ldvuser/zakharov_benchmarks/bench/cpa/work/current--X--drivers/media/usb/b2c2/b2c2-flexcop-usb.ko--X--x1linux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/32_7a/drivers/media/usb/b2c2/flexcop-usb.c.prepared"
-void main(void) 
+int main(void) 
 { int tmp ;
   int tmp___0 ;
   int tmp___1 ;
@@ -9228,7 +9228,7 @@ void main(void)
 #line 719
   ldv_check_final_state();
 #line 720
-  return;
+  return 0;
 }
 }
 #line 723 "/work/ldvuser/zakharov_benchmarks/bench/cpa/work/current--X--drivers/media/usb/b2c2/b2c2-flexcop-usb.ko--X--x1linux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/32_7a/drivers/media/usb/b2c2/flexcop-usb.c.prepared"

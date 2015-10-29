@@ -45963,7 +45963,7 @@ static int generic_resume(struct usb_device *udev , pm_message_t msg )
 struct usb_device_driver usb_generic_driver  =    {"usb", & generic_probe, & generic_disconnect, & generic_suspend, & generic_resume,
     {{0, 0, 0, 0, (_Bool)0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}, 0}, 1U};
 #line 357 "/work/ldvuser/exper_fp/work/current--X--drivers--X--defaultlinux-3.10-rc1.tar--X--32_7a--X--cpachecker/linux-3.10-rc1.tar/csd_deg_dscv/7180/dscv_tempdir/dscv/ri/32_7a/drivers/usb/core/generic.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct usb_device *var_group1 ;
   int res_generic_probe_4 ;
@@ -46058,7 +46058,7 @@ void main(void)
 #line 583
   ldv_check_final_state();
 #line 586
-  return;
+  return 0;
 }
 }
 #line 590 "/work/ldvuser/exper_fp/work/current--X--drivers--X--defaultlinux-3.10-rc1.tar--X--32_7a--X--cpachecker/linux-3.10-rc1.tar/csd_deg_dscv/7180/dscv_tempdir/dscv/ri/32_7a/drivers/usb/core/generic.c.prepared"

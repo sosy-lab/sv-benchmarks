@@ -6508,7 +6508,7 @@ void ldv_main_exported_1(void) ;
 #line 414
 void ldv_main_exported_2(void) ;
 #line 418 "/work/ldvuser/zakharov_benchmarks/bench/cpa/work/current--X--drivers/gpu/drm/ast/ast.ko--X--x1linux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/17/dscv_tempdir/dscv/ri/32_7a/drivers/gpu/drm/ast/ast_drv.c.prepared"
-void main(void) 
+int main(void) 
 { int tmp ;
   int tmp___0 ;
   int tmp___1 ;
@@ -7436,7 +7436,7 @@ void main(void)
 #line 1050
   ldv_check_final_state();
 #line 1051
-  return;
+  return 0;
 }
 }
 #line 1054 "/work/ldvuser/zakharov_benchmarks/bench/cpa/work/current--X--drivers/gpu/drm/ast/ast.ko--X--x1linux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/17/dscv_tempdir/dscv/ri/32_7a/drivers/gpu/drm/ast/ast_drv.c.prepared"

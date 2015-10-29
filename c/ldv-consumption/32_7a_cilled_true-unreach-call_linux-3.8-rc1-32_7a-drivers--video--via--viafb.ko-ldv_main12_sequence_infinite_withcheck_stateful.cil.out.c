@@ -21949,7 +21949,7 @@ static void via_core_exit(void)
 }
 }
 #line 886 "/home/mikhail/launches/cpachecker-regression2/launcher-working-dir/ldv-manager-work-dir/work/current--X--drivers/video/via/viafb.ko--X--regression-testlinux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/37/dscv_tempdir/dscv/ri/32_7a/drivers/video/via/via-core.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct pci_dev *var_group1 ;
   struct pci_device_id  const  *var_via_pci_probe_20_p1 ;
@@ -22074,7 +22074,7 @@ void main(void)
 #line 1246
   ldv_check_final_state();
 #line 1249
-  return;
+  return 0;
 }
 }
 #line 1253 "/home/mikhail/launches/cpachecker-regression2/launcher-working-dir/ldv-manager-work-dir/work/current--X--drivers/video/via/viafb.ko--X--regression-testlinux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/37/dscv_tempdir/dscv/ri/32_7a/drivers/video/via/via-core.c.prepared"

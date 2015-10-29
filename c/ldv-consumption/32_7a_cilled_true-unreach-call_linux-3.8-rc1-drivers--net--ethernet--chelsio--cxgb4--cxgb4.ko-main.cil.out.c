@@ -20547,7 +20547,7 @@ void ldv_main_exported_1(void) ;
 #line 5279
 void ldv_main_exported_2(void) ;
 #line 5283 "/work/ldvuser/zakharov_benchmarks/bench/cpa/work/current--X--drivers/net/ethernet/chelsio/cxgb4/cxgb4.ko--X--x1linux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/15/dscv_tempdir/dscv/ri/32_7a/drivers/net/ethernet/chelsio/cxgb4/cxgb4_main.c.prepared"
-void main(void) 
+int main(void) 
 { int tmp ;
   int tmp___0 ;
   int tmp___1 ;
@@ -21668,7 +21668,7 @@ void main(void)
 #line 6121
   ldv_check_final_state();
 #line 6122
-  return;
+  return 0;
 }
 }
 #line 6125 "/work/ldvuser/zakharov_benchmarks/bench/cpa/work/current--X--drivers/net/ethernet/chelsio/cxgb4/cxgb4.ko--X--x1linux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/15/dscv_tempdir/dscv/ri/32_7a/drivers/net/ethernet/chelsio/cxgb4/cxgb4_main.c.prepared"

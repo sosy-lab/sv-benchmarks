@@ -6529,7 +6529,7 @@ umode_t *ldvarg2  ;
 #line 1283
 extern int ldv_rc_dev_type_probe_1(void) ;
 #line 1293 "/work/zakharov/bench-tests/cpa/work/current--X--drivers/media/rc/rc-core.ko--X--x1linux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/13/dscv_tempdir/dscv/ri/32_7a/drivers/media/rc/rc-main.c.prepared"
-void main(void) 
+int main(void) 
 { int tmp ;
   int tmp___0 ;
   int tmp___1 ;
@@ -6779,7 +6779,7 @@ void main(void)
 #line 1445
   ldv_check_final_state();
 #line 1446
-  return;
+  return 0;
 }
 }
 #line 1449 "/work/zakharov/bench-tests/cpa/work/current--X--drivers/media/rc/rc-core.ko--X--x1linux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/13/dscv_tempdir/dscv/ri/32_7a/drivers/media/rc/rc-main.c.prepared"

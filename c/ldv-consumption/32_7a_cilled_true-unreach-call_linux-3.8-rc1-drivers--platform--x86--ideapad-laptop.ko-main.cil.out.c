@@ -6719,7 +6719,7 @@ extern int ldv_ideapad_pm_restore_noirq_2(void) ;
 #line 1061 "/work/ldvuser/zakharov_benchmarks/bench/cpa/work/current--X--drivers/platform/x86/ideapad-laptop.ko--X--x1linux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/32_7a/drivers/platform/x86/ideapad-laptop.c.prepared"
 int ldv_retval_3  ;
 #line 1077 "/work/ldvuser/zakharov_benchmarks/bench/cpa/work/current--X--drivers/platform/x86/ideapad-laptop.ko--X--x1linux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/32_7a/drivers/platform/x86/ideapad-laptop.c.prepared"
-void main(void) 
+int main(void) 
 { int tmp ;
   int tmp___0 ;
   int tmp___1 ;
@@ -7607,7 +7607,7 @@ void main(void)
 #line 1657
   ldv_check_final_state();
 #line 1658
-  return;
+  return 0;
 }
 }
 #line 1661 "/work/ldvuser/zakharov_benchmarks/bench/cpa/work/current--X--drivers/platform/x86/ideapad-laptop.ko--X--x1linux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/32_7a/drivers/platform/x86/ideapad-laptop.c.prepared"

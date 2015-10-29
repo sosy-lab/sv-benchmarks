@@ -11662,7 +11662,7 @@ extern int __VERIFIER_nondet_int(void) ;
 #line 3315 "/home/mikhail/launches/cpachecker-regression2/launcher-working-dir/ldv-manager-work-dir/work/current--X--drivers/mmc/host/sdhci.ko--X--regression-testlinux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/32_7a/drivers/mmc/host/sdhci.c.prepared"
 int LDV_IN_INTERRUPT  ;
 #line 3318 "/home/mikhail/launches/cpachecker-regression2/launcher-working-dir/ldv-manager-work-dir/work/current--X--drivers/mmc/host/sdhci.ko--X--regression-testlinux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/32_7a/drivers/mmc/host/sdhci.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct mmc_host *var_group1 ;
   struct mmc_request *var_group2 ;
@@ -11805,7 +11805,7 @@ void main(void)
 #line 4513
   ldv_check_final_state();
 #line 4516
-  return;
+  return 0;
 }
 }
 #line 4520 "/home/mikhail/launches/cpachecker-regression2/launcher-working-dir/ldv-manager-work-dir/work/current--X--drivers/mmc/host/sdhci.ko--X--regression-testlinux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/32_7a/drivers/mmc/host/sdhci.c.prepared"

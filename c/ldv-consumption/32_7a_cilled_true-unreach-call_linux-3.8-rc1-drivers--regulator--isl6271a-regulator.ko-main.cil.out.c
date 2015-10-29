@@ -3033,7 +3033,7 @@ void ldv_check_final_state(void) ;
 #line 256 "/work/ldvuser/zakharov_benchmarks/bench/cpa/work/current--X--drivers/regulator/isl6271a-regulator.ko--X--x1linux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/32_7a/drivers/regulator/isl6271a-regulator.c.prepared"
 int ldvarg2  ;
 #line 266 "/work/ldvuser/zakharov_benchmarks/bench/cpa/work/current--X--drivers/regulator/isl6271a-regulator.ko--X--x1linux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/32_7a/drivers/regulator/isl6271a-regulator.c.prepared"
-void main(void) 
+int main(void) 
 { int tmp ;
   int tmp___0 ;
   int tmp___1 ;
@@ -3276,7 +3276,7 @@ void main(void)
 #line 423
   ldv_check_final_state();
 #line 424
-  return;
+  return 0;
 }
 }
 #line 427 "/work/ldvuser/zakharov_benchmarks/bench/cpa/work/current--X--drivers/regulator/isl6271a-regulator.ko--X--x1linux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/32_7a/drivers/regulator/isl6271a-regulator.c.prepared"

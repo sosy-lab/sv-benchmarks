@@ -5573,7 +5573,7 @@ struct pci_device_id *ldvarg0  ;
 #line 1249
 void ldv_check_final_state(void) ;
 #line 1257 "/work/ldvuser/zakharov_benchmarks/bench/cpa/work/current--X--drivers/edac/i7300_edac.ko--X--x1linux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/32_7a/drivers/edac/i7300_edac.c.prepared"
-void main(void) 
+int main(void) 
 { int tmp ;
   int tmp___0 ;
   int tmp___1 ;
@@ -5712,7 +5712,7 @@ void main(void)
 #line 1340
   ldv_check_final_state();
 #line 1341
-  return;
+  return 0;
 }
 }
 #line 1344 "/work/ldvuser/zakharov_benchmarks/bench/cpa/work/current--X--drivers/edac/i7300_edac.ko--X--x1linux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/32_7a/drivers/edac/i7300_edac.c.prepared"

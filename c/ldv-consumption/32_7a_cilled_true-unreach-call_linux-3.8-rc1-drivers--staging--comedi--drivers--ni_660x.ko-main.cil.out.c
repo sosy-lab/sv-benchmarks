@@ -6531,7 +6531,7 @@ void ldv_check_final_state(void) ;
 #line 1405
 extern int ldv_ni_660x_driver_open_2(void) ;
 #line 1414 "/work/ldvuser/zakharov_benchmarks/bench/cpa/work/current--X--drivers/staging/comedi/drivers/ni_660x.ko--X--x1linux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/32_7a/drivers/staging/comedi/drivers/ni_660x.c.prepared"
-void main(void) 
+int main(void) 
 { int tmp ;
   int tmp___0 ;
   int tmp___1 ;
@@ -6816,7 +6816,7 @@ void main(void)
 #line 1603
   ldv_check_final_state();
 #line 1604
-  return;
+  return 0;
 }
 }
 #line 1607 "/work/ldvuser/zakharov_benchmarks/bench/cpa/work/current--X--drivers/staging/comedi/drivers/ni_660x.ko--X--x1linux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/32_7a/drivers/staging/comedi/drivers/ni_660x.c.prepared"

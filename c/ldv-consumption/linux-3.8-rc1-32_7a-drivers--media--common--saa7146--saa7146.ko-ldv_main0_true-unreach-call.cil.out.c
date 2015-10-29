@@ -6900,7 +6900,7 @@ extern int __VERIFIER_nondet_int(void) ;
 #line 507 "/work/ldvuser/exper_fp/work/current--X--drivers--X--defaultlinux-3.10-rc1.tar--X--32_7a--X--cpachecker/linux-3.10-rc1.tar/csd_deg_dscv/2093/dscv_tempdir/dscv/ri/32_7a/drivers/media/common/saa7146/saa7146_i2c.c.prepared"
 int LDV_IN_INTERRUPT  ;
 #line 510 "/work/ldvuser/exper_fp/work/current--X--drivers--X--defaultlinux-3.10-rc1.tar--X--32_7a--X--cpachecker/linux-3.10-rc1.tar/csd_deg_dscv/2093/dscv_tempdir/dscv/ri/32_7a/drivers/media/common/saa7146/saa7146_i2c.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct i2c_adapter *var_group1 ;
   struct i2c_msg *var_group2 ;
@@ -6955,7 +6955,7 @@ void main(void)
 #line 605
   ldv_check_final_state();
 #line 608
-  return;
+  return 0;
 }
 }
 #line 612 "/work/ldvuser/exper_fp/work/current--X--drivers--X--defaultlinux-3.10-rc1.tar--X--32_7a--X--cpachecker/linux-3.10-rc1.tar/csd_deg_dscv/2093/dscv_tempdir/dscv/ri/32_7a/drivers/media/common/saa7146/saa7146_i2c.c.prepared"

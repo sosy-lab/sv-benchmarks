@@ -4912,7 +4912,7 @@ char *ldvarg22  ;
 #line 1313 "/work/ldvuser/zakharov_benchmarks/bench/cpa/work/current--X--drivers/hwmon/amc6821.ko--X--x1linux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/32_7a/drivers/hwmon/amc6821.c.prepared"
 struct device_attribute *ldvarg52  ;
 #line 1353 "/work/ldvuser/zakharov_benchmarks/bench/cpa/work/current--X--drivers/hwmon/amc6821.ko--X--x1linux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/32_7a/drivers/hwmon/amc6821.c.prepared"
-void main(void) 
+int main(void) 
 { int tmp ;
   int tmp___0 ;
   int tmp___1 ;
@@ -6395,7 +6395,7 @@ void main(void)
 #line 2327
   ldv_check_final_state();
 #line 2328
-  return;
+  return 0;
 }
 }
 #line 2331 "/work/ldvuser/zakharov_benchmarks/bench/cpa/work/current--X--drivers/hwmon/amc6821.ko--X--x1linux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/32_7a/drivers/hwmon/amc6821.c.prepared"

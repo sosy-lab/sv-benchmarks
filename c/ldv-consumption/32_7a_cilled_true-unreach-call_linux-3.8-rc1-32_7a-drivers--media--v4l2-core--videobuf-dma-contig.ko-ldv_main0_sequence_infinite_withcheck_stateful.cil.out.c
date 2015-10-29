@@ -5272,7 +5272,7 @@ extern int __VERIFIER_nondet_int(void) ;
 #line 586 "/home/mikhail/launches/cpachecker-regression2/launcher-working-dir/ldv-manager-work-dir/work/current--X--drivers/media/v4l2-core/videobuf-dma-contig.ko--X--regression-testlinux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/32_7a/drivers/media/v4l2-core/videobuf-dma-contig.c.prepared"
 int LDV_IN_INTERRUPT  ;
 #line 589 "/home/mikhail/launches/cpachecker-regression2/launcher-working-dir/ldv-manager-work-dir/work/current--X--drivers/media/v4l2-core/videobuf-dma-contig.ko--X--regression-testlinux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/32_7a/drivers/media/v4l2-core/videobuf-dma-contig.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct vm_area_struct *var_group1 ;
   size_t var___videobuf_alloc_uncached_7_p0 ;
@@ -5410,7 +5410,7 @@ void main(void)
 #line 1016
   ldv_check_final_state();
 #line 1019
-  return;
+  return 0;
 }
 }
 #line 1023 "/home/mikhail/launches/cpachecker-regression2/launcher-working-dir/ldv-manager-work-dir/work/current--X--drivers/media/v4l2-core/videobuf-dma-contig.ko--X--regression-testlinux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/32_7a/drivers/media/v4l2-core/videobuf-dma-contig.c.prepared"
