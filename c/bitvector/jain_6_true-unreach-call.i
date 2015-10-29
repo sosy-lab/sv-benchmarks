@@ -7,7 +7,7 @@ void __VERIFIER_assert(int cond) {
   }
   return;
 }
-void main()
+int main()
 {
   int x,y,z;
 
@@ -23,4 +23,5 @@ void main()
 
       __VERIFIER_assert(4*x+2*y+z!=4);
     }
+    return 0;
 }
