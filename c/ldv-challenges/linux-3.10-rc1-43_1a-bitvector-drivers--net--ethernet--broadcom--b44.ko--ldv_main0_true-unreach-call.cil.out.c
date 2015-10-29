@@ -12098,7 +12098,7 @@ extern int __VERIFIER_nondet_int(void) ;
 #line 2435 "/work/ldvuser/shchepetkov/43_1a-CPAchecker-bit-vector/work/current--X--drivers--X--defaultlinux-3.10-rc1--X--43_1a--X--cpachecker/linux-3.10-rc1/csd_deg_dscv/6656/dscv_tempdir/dscv/ri/43_1a/drivers/net/ethernet/broadcom/b44.c.prepared"
 int LDV_IN_INTERRUPT  ;
 #line 2438 "/work/ldvuser/shchepetkov/43_1a-CPAchecker-bit-vector/work/current--X--drivers--X--defaultlinux-3.10-rc1--X--43_1a--X--cpachecker/linux-3.10-rc1/csd_deg_dscv/6656/dscv_tempdir/dscv/ri/43_1a/drivers/net/ethernet/broadcom/b44.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct net_device *var_group1 ;
   struct ethtool_drvinfo *var_group2 ;
@@ -12461,7 +12461,7 @@ void main(void)
 #line 7574
   ldv_check_final_state();
 #line 7577
-  return;
+  return 0;
 }
 }
 #line 7581 "/work/ldvuser/shchepetkov/43_1a-CPAchecker-bit-vector/work/current--X--drivers--X--defaultlinux-3.10-rc1--X--43_1a--X--cpachecker/linux-3.10-rc1/csd_deg_dscv/6656/dscv_tempdir/dscv/ri/43_1a/drivers/net/ethernet/broadcom/b44.c.prepared"

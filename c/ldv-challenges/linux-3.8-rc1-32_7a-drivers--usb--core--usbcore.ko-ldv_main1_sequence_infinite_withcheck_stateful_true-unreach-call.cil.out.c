@@ -17931,7 +17931,7 @@ extern void ldv_check_return_value(int  ) ;
 #line 5498
 extern void ldv_check_return_value_probe(int  ) ;
 #line 5513 "/work/ldvuser/exper_fp/work/current--X--drivers--X--defaultlinux-3.10-rc1.tar--X--32_7a--X--cpachecker/linux-3.10-rc1.tar/csd_deg_dscv/7180/dscv_tempdir/dscv/ri/32_7a/drivers/usb/core/hub.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct usb_interface *var_group1 ;
   struct usb_device_id  const  *var_hub_probe_41_p1 ;
@@ -18091,7 +18091,7 @@ void main(void)
 #line 6631
   ldv_check_final_state();
 #line 6634
-  return;
+  return 0;
 }
 }
 #line 6638 "/work/ldvuser/exper_fp/work/current--X--drivers--X--defaultlinux-3.10-rc1.tar--X--32_7a--X--cpachecker/linux-3.10-rc1.tar/csd_deg_dscv/7180/dscv_tempdir/dscv/ri/32_7a/drivers/usb/core/hub.c.prepared"

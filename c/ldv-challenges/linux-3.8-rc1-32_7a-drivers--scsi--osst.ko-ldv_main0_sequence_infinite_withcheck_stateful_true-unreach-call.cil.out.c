@@ -16369,7 +16369,7 @@ extern int __VERIFIER_nondet_int(void) ;
 #line 6171 "/work/ldvuser/exper_fp/work/current--X--drivers--X--defaultlinux-3.10-rc1.tar--X--32_7a--X--cpachecker/linux-3.10-rc1.tar/csd_deg_dscv/4968/dscv_tempdir/dscv/ri/32_7a/drivers/scsi/osst.c.prepared"
 int LDV_IN_INTERRUPT  ;
 #line 6174 "/work/ldvuser/exper_fp/work/current--X--drivers--X--defaultlinux-3.10-rc1.tar--X--32_7a--X--cpachecker/linux-3.10-rc1.tar/csd_deg_dscv/4968/dscv_tempdir/dscv/ri/32_7a/drivers/scsi/osst.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct device *var_group1 ;
   int res_osst_probe_85 ;
@@ -16590,7 +16590,7 @@ void main(void)
 #line 15464
   ldv_check_final_state();
 #line 15467
-  return;
+  return 0;
 }
 }
 #line 15471 "/work/ldvuser/exper_fp/work/current--X--drivers--X--defaultlinux-3.10-rc1.tar--X--32_7a--X--cpachecker/linux-3.10-rc1.tar/csd_deg_dscv/4968/dscv_tempdir/dscv/ri/32_7a/drivers/scsi/osst.c.prepared"
