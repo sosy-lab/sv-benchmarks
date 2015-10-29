@@ -1,5 +1,5 @@
 #include "assert.h"
-void main()
+int main()
 {
   int tagbuf_len;
   int t;
@@ -65,5 +65,5 @@ void main()
   __VERIFIER_assert(t <= tagbuf_len);
 
  END:
-  return;
+  return 0;
 }

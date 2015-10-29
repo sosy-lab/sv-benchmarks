@@ -1,6 +1,6 @@
 #include "assert.h"
 
-void main(){
+int main(){
   int i,pvlen ;
   int tmp___1 ;
   int k = 0;
@@ -35,6 +35,6 @@ void main(){
       break;
     }
   }
-  return;
+  return 0;
 
 }

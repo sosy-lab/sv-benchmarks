@@ -1,6 +1,6 @@
 #include "assert.h"
 
-void main() {
+int main() {
   int i,j,k,n;
 
   k = __VERIFIER_nondet_int();

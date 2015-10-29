@@ -1,6 +1,6 @@
 #include "assert.h"
 
-void main ()
+int main()
 {
   int scheme;
   int urilen,tokenlen;
@@ -63,5 +63,5 @@ void main ()
   }
   
  END:
-  return;
+  return 0;
 }

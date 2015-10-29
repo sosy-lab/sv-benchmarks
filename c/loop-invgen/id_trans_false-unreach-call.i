@@ -7,7 +7,7 @@ void __VERIFIER_assert(int cond) {
   return;
 }
 int __VERIFIER_nondet_int();
-void main() {
+int main() {
   int idBitLength, material_length, nlen;
   int j, k;
   nlen = __VERIFIER_nondet_int();
@@ -20,5 +20,5 @@ void main() {
     __VERIFIER_assert( 0 <= j/4 );
     __VERIFIER_assert( j/4 < nlen);
   }
-  return;
+  return 0;
 }

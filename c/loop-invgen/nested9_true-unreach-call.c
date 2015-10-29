@@ -2,7 +2,7 @@
 
 int __BLAST_NONDET;
 
-void main() {
+int main() {
   int i,j,k,n,l,m;
   
   n = __VERIFIER_nondet_int();

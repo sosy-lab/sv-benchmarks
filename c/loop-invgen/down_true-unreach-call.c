@@ -1,6 +1,6 @@
 #include "assert.h"
 
-void main() {
+int main() {
   int n;
   int k = 0;
   int i = 0;
@@ -15,4 +15,5 @@ void main() {
 	j--;
 	k--;
   }
+  return 0;
 }
