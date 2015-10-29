@@ -38,7 +38,7 @@ void* thr(void* arg) {
     }
 }
 
-void main() {
+int main() {
     pthread_t t;
     next = 0;
     lock = 0;
@@ -48,4 +48,5 @@ void main() {
     while(1) {
 	pthread_create(&t, 0, thr, 0);
     }
+    return 0;
 }

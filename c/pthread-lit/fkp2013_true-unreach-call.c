@@ -17,7 +17,7 @@ void* thr2(void* arg) {
     x = t + 1;
 }
 
-void main(int argc, char* argv[]) {
+int main(int argc, char* argv[]) {
     pthread_t t1, t2;
     int i;
     x = 0;
@@ -25,4 +25,5 @@ void main(int argc, char* argv[]) {
     for (i = 0; i < N; i++) {
 	pthread_create(&t2, 0, thr2, 0);
     }
+    return 0;
 }

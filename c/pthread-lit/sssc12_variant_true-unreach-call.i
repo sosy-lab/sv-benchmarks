@@ -692,7 +692,7 @@ void* thr(void* arg) {
  c = c + 1;
     }
 }
-void main(int argc, char* argv[]) {
+int main(int argc, char* argv[]) {
     pthread_t t;
     lock=0;
     next = 0;
@@ -702,4 +702,5 @@ void main(int argc, char* argv[]) {
     while(1) {
  pthread_create(&t, 0, thr, 0);
     }
+    return 0;
 }
