@@ -155,7 +155,7 @@ static int my_init(void)
 #line 76
 extern int ( /* missing proto */  __VERIFIER_nondet_int)() ;
 #line 71 "stateful_check.c"
-void main(void) 
+int main(void) 
 { int ldv_s_misc_fops_file_operations ;
   int tmp ;
   int tmp___0 ;
@@ -275,6 +275,6 @@ void main(void)
   check_final_state();
   }
 #line 114
-  return;
+  return 0;
 }
 }

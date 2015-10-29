@@ -51,7 +51,7 @@ void firstFunction(void)
 }
 }
 #line 39 "files/oomInt.c"
-void main(void) 
+int main(void) 
 { 
 
   {
@@ -60,6 +60,6 @@ void main(void)
   firstFunction();
   }
 #line 42
-  return;
+  return 0;
 }
 }
