@@ -12789,7 +12789,7 @@ void disable_suitable_irq_1(int line , void *data )
 }
 }
 #line 1947 "/work/ldvuser/mutilin/launch/work/current--X--drivers/net/--X--defaultlinux-3.16-rc1.tar.xz--X--205_9a--X--cpachecker/linux-3.16-rc1.tar.xz/csd_deg_dscv/1286/dscv_tempdir/dscv/ri/205_9a/drivers/net/ethernet/smsc/smsc9420.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct ethtool_regs *ldvarg1 ;
   void *tmp ;
@@ -13519,7 +13519,7 @@ void main(void)
 #line 2437
   ldv_check_final_state();
 #line 2438
-  return;
+  return 0;
 }
 }
 #line 2447 "/work/ldvuser/mutilin/launch/work/current--X--drivers/net/--X--defaultlinux-3.16-rc1.tar.xz--X--205_9a--X--cpachecker/linux-3.16-rc1.tar.xz/csd_deg_dscv/1286/dscv_tempdir/dscv/ri/205_9a/drivers/net/ethernet/smsc/smsc9420.o.c.prepared"

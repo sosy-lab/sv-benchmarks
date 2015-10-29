@@ -16715,7 +16715,7 @@ int reg_check_2(irqreturn_t (*handler)(int  , void * ) )
 #line 2832
 void ldv_main_exported_4(void) ;
 #line 2836 "/work/ldvuser/mutilin/launch/work/current--X--drivers--X--defaultlinux-3.16-rc1.tar.xz--X--43_2a--X--cpachecker/linux-3.16-rc1.tar.xz/csd_deg_dscv/10272/dscv_tempdir/dscv/ri/43_2a/drivers/net/ethernet/cisco/enic/enic_main.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   __be16 ldvarg11 ;
   int ldvarg7 ;
@@ -17961,7 +17961,7 @@ void main(void)
 #line 3679
   ldv_check_final_state();
 #line 3680
-  return;
+  return 0;
 }
 }
 #line 3683 "/work/ldvuser/mutilin/launch/work/current--X--drivers--X--defaultlinux-3.16-rc1.tar.xz--X--43_2a--X--cpachecker/linux-3.16-rc1.tar.xz/csd_deg_dscv/10272/dscv_tempdir/dscv/ri/43_2a/drivers/net/ethernet/cisco/enic/enic_main.o.c.prepared"

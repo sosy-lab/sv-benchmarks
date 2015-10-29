@@ -10594,7 +10594,7 @@ void ldv_tty_port_operations_1(void)
 }
 }
 #line 3226 "/work/ldvuser/mutilin/launch/work/current--X--drivers--X--defaultlinux-3.16-rc1.tar.xz--X--43_2a--X--cpachecker/linux-3.16-rc1.tar.xz/csd_deg_dscv/606/dscv_tempdir/dscv/ri/43_2a/drivers/tty/rocket.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct tty_port *ldvarg1 ;
   void *tmp ;
@@ -11751,7 +11751,7 @@ void main(void)
 #line 4038
   ldv_check_final_state();
 #line 4039
-  return;
+  return 0;
 }
 }
 #line 4069 "/work/ldvuser/mutilin/launch/work/current--X--drivers--X--defaultlinux-3.16-rc1.tar.xz--X--43_2a--X--cpachecker/linux-3.16-rc1.tar.xz/csd_deg_dscv/606/dscv_tempdir/dscv/ri/43_2a/drivers/tty/rocket.o.c.prepared"

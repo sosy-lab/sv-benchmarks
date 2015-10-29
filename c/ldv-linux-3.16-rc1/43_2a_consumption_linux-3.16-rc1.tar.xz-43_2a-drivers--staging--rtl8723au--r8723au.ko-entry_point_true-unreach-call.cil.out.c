@@ -113501,7 +113501,7 @@ void ldv_usb_driver_12(void)
 }
 }
 #line 1046 "/work/ldvuser/mutilin/launch/work/current--X--drivers--X--defaultlinux-3.16-rc1.tar.xz--X--43_2a--X--cpachecker/linux-3.16-rc1.tar.xz/csd_deg_dscv/5848/dscv_tempdir/dscv/ri/43_2a/drivers/staging/rtl8723au/os_dep/usb_intf.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct usb_device_id *ldvarg1 ;
   void *tmp ;
@@ -113827,7 +113827,7 @@ void main(void)
 #line 1319
   ldv_check_final_state();
 #line 1320
-  return;
+  return 0;
 }
 }
 #line 1450 "/work/ldvuser/mutilin/launch/work/current--X--drivers--X--defaultlinux-3.16-rc1.tar.xz--X--43_2a--X--cpachecker/linux-3.16-rc1.tar.xz/csd_deg_dscv/5848/dscv_tempdir/dscv/ri/43_2a/drivers/staging/rtl8723au/os_dep/usb_intf.o.c.prepared"

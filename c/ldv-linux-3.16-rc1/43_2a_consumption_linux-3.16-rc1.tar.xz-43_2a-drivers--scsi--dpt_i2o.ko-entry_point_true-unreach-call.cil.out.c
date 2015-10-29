@@ -13325,7 +13325,7 @@ void disable_suitable_irq_1(int line , void *data )
 }
 }
 #line 3794 "/work/ldvuser/mutilin/launch/work/current--X--drivers--X--defaultlinux-3.16-rc1.tar.xz--X--43_2a--X--cpachecker/linux-3.16-rc1.tar.xz/csd_deg_dscv/5440/dscv_tempdir/dscv/ri/43_2a/drivers/scsi/dpt_i2o.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   unsigned int ldvarg1 ;
   unsigned int tmp ;
@@ -13696,7 +13696,7 @@ void main(void)
 #line 4026
   ldv_check_final_state();
 #line 4027
-  return;
+  return 0;
 }
 }
 #line 4030 "/work/ldvuser/mutilin/launch/work/current--X--drivers--X--defaultlinux-3.16-rc1.tar.xz--X--43_2a--X--cpachecker/linux-3.16-rc1.tar.xz/csd_deg_dscv/5440/dscv_tempdir/dscv/ri/43_2a/drivers/scsi/dpt_i2o.o.c.prepared"

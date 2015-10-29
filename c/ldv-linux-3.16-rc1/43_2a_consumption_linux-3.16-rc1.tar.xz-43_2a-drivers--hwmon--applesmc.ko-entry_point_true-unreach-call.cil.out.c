@@ -6353,7 +6353,7 @@ void ldv_dev_pm_ops_4(void)
 }
 }
 #line 1462 "/work/ldvuser/mutilin/launch/work/current--X--drivers--X--defaultlinux-3.16-rc1.tar.xz--X--43_2a--X--cpachecker/linux-3.16-rc1.tar.xz/csd_deg_dscv/7442/dscv_tempdir/dscv/ri/43_2a/drivers/hwmon/applesmc.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   enum led_brightness ldvarg1 ;
   struct led_classdev *ldvarg0 ;
@@ -6841,7 +6841,7 @@ void main(void)
 #line 1760
   ldv_check_final_state();
 #line 1761
-  return;
+  return 0;
 }
 }
 #line 1877 "/work/ldvuser/mutilin/launch/work/current--X--drivers--X--defaultlinux-3.16-rc1.tar.xz--X--43_2a--X--cpachecker/linux-3.16-rc1.tar.xz/csd_deg_dscv/7442/dscv_tempdir/dscv/ri/43_2a/drivers/hwmon/applesmc.o.c.prepared"

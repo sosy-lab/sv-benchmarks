@@ -32264,7 +32264,7 @@ void ldv_initialize_device_attribute_6(void)
 }
 }
 #line 8912 "/work/ldvuser/mutilin/launch/work/current--X--drivers--X--defaultlinux-3.16-rc1.tar.xz--X--43_2a--X--cpachecker/linux-3.16-rc1.tar.xz/csd_deg_dscv/10953/dscv_tempdir/dscv/ri/43_2a/drivers/net/wireless/ipw2x00/ipw2100.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   char *ldvarg1 ;
   void *tmp ;
@@ -33676,7 +33676,7 @@ void main(void)
 #line 9708
   ldv_check_final_state();
 #line 9709
-  return;
+  return 0;
 }
 }
 #line 9712 "/work/ldvuser/mutilin/launch/work/current--X--drivers--X--defaultlinux-3.16-rc1.tar.xz--X--43_2a--X--cpachecker/linux-3.16-rc1.tar.xz/csd_deg_dscv/10953/dscv_tempdir/dscv/ri/43_2a/drivers/net/wireless/ipw2x00/ipw2100.o.c.prepared"

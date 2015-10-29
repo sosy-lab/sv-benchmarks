@@ -27234,7 +27234,7 @@ void ldv_usb_driver_1(void)
 }
 }
 #line 2115 "/work/ldvuser/mutilin/launch/work/current--X--drivers/net/--X--defaultlinux-3.16-rc1.tar.xz--X--205_9a--X--cpachecker/linux-3.16-rc1.tar.xz/csd_deg_dscv/553/dscv_tempdir/dscv/ri/205_9a/drivers/net/wireless/zd1211rw/zd_usb.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct usb_device_id *ldvarg0 ;
   void *tmp ;
@@ -27394,7 +27394,7 @@ void main(void)
 #line 2208
   ldv_check_final_state();
 #line 2209
-  return;
+  return 0;
 }
 }
 #line 2236 "/work/ldvuser/mutilin/launch/work/current--X--drivers/net/--X--defaultlinux-3.16-rc1.tar.xz--X--205_9a--X--cpachecker/linux-3.16-rc1.tar.xz/csd_deg_dscv/553/dscv_tempdir/dscv/ri/205_9a/drivers/net/wireless/zd1211rw/zd_usb.o.c.prepared"

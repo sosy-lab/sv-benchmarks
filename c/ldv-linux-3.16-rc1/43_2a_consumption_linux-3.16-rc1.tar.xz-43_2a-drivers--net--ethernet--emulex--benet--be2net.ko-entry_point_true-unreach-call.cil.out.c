@@ -24703,7 +24703,7 @@ int reg_check_2(irqreturn_t (*handler)(int  , void * ) )
 #line 5432
 void ldv_main_exported_3(void) ;
 #line 5436 "/work/ldvuser/mutilin/launch/work/current--X--drivers--X--defaultlinux-3.16-rc1.tar.xz--X--43_2a--X--cpachecker/linux-3.16-rc1.tar.xz/csd_deg_dscv/9912/dscv_tempdir/dscv/ri/43_2a/drivers/net/ethernet/emulex/benet/be_main.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   int ldvarg18 ;
   int tmp ;
@@ -25908,7 +25908,7 @@ void main(void)
 #line 6241
   ldv_check_final_state();
 #line 6242
-  return;
+  return 0;
 }
 }
 #line 6245 "/work/ldvuser/mutilin/launch/work/current--X--drivers--X--defaultlinux-3.16-rc1.tar.xz--X--43_2a--X--cpachecker/linux-3.16-rc1.tar.xz/csd_deg_dscv/9912/dscv_tempdir/dscv/ri/43_2a/drivers/net/ethernet/emulex/benet/be_main.o.c.prepared"

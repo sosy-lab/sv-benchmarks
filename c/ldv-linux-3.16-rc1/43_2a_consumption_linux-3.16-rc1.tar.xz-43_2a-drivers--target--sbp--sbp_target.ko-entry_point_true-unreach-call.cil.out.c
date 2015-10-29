@@ -14522,7 +14522,7 @@ void ldv_initialize_target_fabric_tpg_attrib_attribute_3(void)
 }
 }
 #line 2716 "/work/ldvuser/mutilin/launch/work/current--X--drivers--X--defaultlinux-3.16-rc1.tar.xz--X--43_2a--X--cpachecker/linux-3.16-rc1.tar.xz/csd_deg_dscv/5011/dscv_tempdir/dscv/ri/43_2a/drivers/target/sbp/sbp_target.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   size_t ldvarg1 ;
   size_t tmp ;
@@ -15875,7 +15875,7 @@ void main(void)
 #line 3635
   ldv_check_final_state();
 #line 3636
-  return;
+  return 0;
 }
 }
 #line 3639 "/work/ldvuser/mutilin/launch/work/current--X--drivers--X--defaultlinux-3.16-rc1.tar.xz--X--43_2a--X--cpachecker/linux-3.16-rc1.tar.xz/csd_deg_dscv/5011/dscv_tempdir/dscv/ri/43_2a/drivers/target/sbp/sbp_target.o.c.prepared"

@@ -14912,7 +14912,7 @@ void ldv_initialize_lane2_ops_7(void)
 }
 }
 #line 2544 "/work/ldvuser/mutilin/launch/work/current--X--net--X--defaultlinux-3.16-rc1.tar.xz--X--43_2a--X--cpachecker/linux-3.16-rc1.tar.xz/csd_deg_dscv/521/dscv_tempdir/dscv/ri/43_2a/net/atm/lec.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct sk_buff *ldvarg0 ;
   void *tmp ;
@@ -15646,7 +15646,7 @@ void main(void)
 #line 2981
   ldv_check_final_state();
 #line 2982
-  return;
+  return 0;
 }
 }
 #line 3044 "/work/ldvuser/mutilin/launch/work/current--X--net--X--defaultlinux-3.16-rc1.tar.xz--X--43_2a--X--cpachecker/linux-3.16-rc1.tar.xz/csd_deg_dscv/521/dscv_tempdir/dscv/ri/43_2a/net/atm/lec.o.c.prepared"

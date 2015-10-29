@@ -10191,7 +10191,7 @@ void ldv_net_device_ops_2(void)
 }
 }
 #line 1725 "/work/ldvuser/mutilin/launch/work/current--X--drivers--X--defaultlinux-3.16-rc1.tar.xz--X--43_2a--X--cpachecker/linux-3.16-rc1.tar.xz/csd_deg_dscv/9849/dscv_tempdir/dscv/ri/43_2a/drivers/net/can/usb/kvaser_usb.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct usb_device_id *ldvarg0 ;
   void *tmp ;
@@ -10470,7 +10470,7 @@ void main(void)
 #line 1893
   ldv_check_final_state();
 #line 1894
-  return;
+  return 0;
 }
 }
 #line 1994 "/work/ldvuser/mutilin/launch/work/current--X--drivers--X--defaultlinux-3.16-rc1.tar.xz--X--43_2a--X--cpachecker/linux-3.16-rc1.tar.xz/csd_deg_dscv/9849/dscv_tempdir/dscv/ri/43_2a/drivers/net/can/usb/kvaser_usb.o.c.prepared"

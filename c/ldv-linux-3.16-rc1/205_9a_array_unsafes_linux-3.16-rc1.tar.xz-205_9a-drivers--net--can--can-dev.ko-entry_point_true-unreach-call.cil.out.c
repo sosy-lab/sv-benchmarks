@@ -9572,7 +9572,7 @@ void ldv_initialize_rtnl_link_ops_4(void)
 #line 1199
 void ldv_main_exported_3(void) ;
 #line 1205 "/work/ldvuser/mutilin/launch/work/current--X--drivers/net/--X--defaultlinux-3.16-rc1.tar.xz--X--205_9a--X--cpachecker/linux-3.16-rc1.tar.xz/csd_deg_dscv/1665/dscv_tempdir/dscv/ri/205_9a/drivers/net/can/dev.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct net *ldvarg0 ;
   void *tmp ;
@@ -9958,7 +9958,7 @@ void main(void)
 #line 1483
   ldv_check_final_state();
 #line 1484
-  return;
+  return 0;
 }
 }
 #line 1511 "/work/ldvuser/mutilin/launch/work/current--X--drivers/net/--X--defaultlinux-3.16-rc1.tar.xz--X--205_9a--X--cpachecker/linux-3.16-rc1.tar.xz/csd_deg_dscv/1665/dscv_tempdir/dscv/ri/205_9a/drivers/net/can/dev.o.c.prepared"

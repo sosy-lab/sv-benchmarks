@@ -2602,7 +2602,7 @@ extern void ldv_check_final_state(void) ;
 #line 316
 extern int ldv_release_1(void) ;
 #line 326 "/work/ldvuser/mutilin/launch/work/current--X--drivers--X--defaultlinux-3.16-rc1.tar.xz--X--43_2a--X--cpachecker/linux-3.16-rc1.tar.xz/csd_deg_dscv/1906/dscv_tempdir/dscv/ri/43_2a/drivers/input/gameport/ns558.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct pnp_device_id *ldvarg1 ;
   void *tmp ;
@@ -2754,7 +2754,7 @@ void main(void)
 #line 412
   ldv_check_final_state();
 #line 413
-  return;
+  return 0;
 }
 }
 #line 543 "/work/ldvuser/mutilin/launch/work/current--X--drivers--X--defaultlinux-3.16-rc1.tar.xz--X--43_2a--X--cpachecker/linux-3.16-rc1.tar.xz/csd_deg_dscv/1906/dscv_tempdir/dscv/ri/43_2a/drivers/input/gameport/ns558.o.c.prepared"

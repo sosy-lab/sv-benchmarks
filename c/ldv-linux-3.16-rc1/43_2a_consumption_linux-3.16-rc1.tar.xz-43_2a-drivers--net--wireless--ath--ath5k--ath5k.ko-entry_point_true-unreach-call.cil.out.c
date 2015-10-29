@@ -50293,7 +50293,7 @@ void ldv_dev_pm_ops_3(void)
 }
 }
 #line 571 "/work/ldvuser/mutilin/launch/work/current--X--drivers--X--defaultlinux-3.16-rc1.tar.xz--X--43_2a--X--cpachecker/linux-3.16-rc1.tar.xz/csd_deg_dscv/10814/dscv_tempdir/dscv/ri/43_2a/drivers/net/wireless/ath/ath5k/pci.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct pci_device_id *ldvarg21 ;
   void *tmp ;
@@ -51363,7 +51363,7 @@ void main(void)
 #line 1273
   ldv_check_final_state();
 #line 1274
-  return;
+  return 0;
 }
 }
 #line 1404 "/work/ldvuser/mutilin/launch/work/current--X--drivers--X--defaultlinux-3.16-rc1.tar.xz--X--43_2a--X--cpachecker/linux-3.16-rc1.tar.xz/csd_deg_dscv/10814/dscv_tempdir/dscv/ri/43_2a/drivers/net/wireless/ath/ath5k/pci.o.c.prepared"

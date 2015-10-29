@@ -7146,7 +7146,7 @@ void timer_init_2(void)
 }
 }
 #line 1387 "/work/ldvuser/mutilin/launch/work/current--X--drivers--X--defaultlinux-3.16-rc1.tar.xz--X--43_2a--X--cpachecker/linux-3.16-rc1.tar.xz/csd_deg_dscv/7570/dscv_tempdir/dscv/ri/43_2a/drivers/memstick/host/jmb38x_ms.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct pci_device_id *ldvarg1 ;
   void *tmp ;
@@ -7368,7 +7368,7 @@ void main(void)
 #line 1528
   ldv_check_final_state();
 #line 1529
-  return;
+  return 0;
 }
 }
 #line 1532 "/work/ldvuser/mutilin/launch/work/current--X--drivers--X--defaultlinux-3.16-rc1.tar.xz--X--43_2a--X--cpachecker/linux-3.16-rc1.tar.xz/csd_deg_dscv/7570/dscv_tempdir/dscv/ri/43_2a/drivers/memstick/host/jmb38x_ms.o.c.prepared"

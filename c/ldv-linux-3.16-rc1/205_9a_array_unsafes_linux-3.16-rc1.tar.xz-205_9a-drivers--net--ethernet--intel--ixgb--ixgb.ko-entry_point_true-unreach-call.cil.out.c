@@ -13836,7 +13836,7 @@ void choose_interrupt_1(void)
 #line 2603
 void ldv_main_exported_3(void) ;
 #line 2611 "/work/ldvuser/mutilin/launch/work/current--X--drivers/net/--X--defaultlinux-3.16-rc1.tar.xz--X--205_9a--X--cpachecker/linux-3.16-rc1.tar.xz/csd_deg_dscv/1478/dscv_tempdir/dscv/ri/205_9a/drivers/net/ethernet/intel/ixgb/ixgb_main.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   enum pci_channel_state ldvarg0 ;
   __be16 ldvarg7 ;
@@ -14631,7 +14631,7 @@ void main(void)
 #line 3169
   ldv_check_final_state();
 #line 3170
-  return;
+  return 0;
 }
 }
 #line 3197 "/work/ldvuser/mutilin/launch/work/current--X--drivers/net/--X--defaultlinux-3.16-rc1.tar.xz--X--205_9a--X--cpachecker/linux-3.16-rc1.tar.xz/csd_deg_dscv/1478/dscv_tempdir/dscv/ri/205_9a/drivers/net/ethernet/intel/ixgb/ixgb_main.o.c.prepared"

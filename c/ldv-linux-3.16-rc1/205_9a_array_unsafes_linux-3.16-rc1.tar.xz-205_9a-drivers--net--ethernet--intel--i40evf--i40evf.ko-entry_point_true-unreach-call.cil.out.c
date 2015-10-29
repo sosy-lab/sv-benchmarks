@@ -14772,7 +14772,7 @@ int reg_check_2(irqreturn_t (*handler)(int  , void * ) )
 #line 2822
 void ldv_main_exported_4(void) ;
 #line 2829 "/work/ldvuser/mutilin/launch/work/current--X--drivers/net/--X--defaultlinux-3.16-rc1.tar.xz--X--205_9a--X--cpachecker/linux-3.16-rc1.tar.xz/csd_deg_dscv/1460/dscv_tempdir/dscv/ri/205_9a/drivers/net/ethernet/intel/i40evf/i40evf_main.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct sk_buff *ldvarg1 ;
   void *tmp ;
@@ -15413,7 +15413,7 @@ void main(void)
 #line 3269
   ldv_check_final_state();
 #line 3270
-  return;
+  return 0;
 }
 }
 #line 3297 "/work/ldvuser/mutilin/launch/work/current--X--drivers/net/--X--defaultlinux-3.16-rc1.tar.xz--X--205_9a--X--cpachecker/linux-3.16-rc1.tar.xz/csd_deg_dscv/1460/dscv_tempdir/dscv/ri/205_9a/drivers/net/ethernet/intel/i40evf/i40evf_main.o.c.prepared"

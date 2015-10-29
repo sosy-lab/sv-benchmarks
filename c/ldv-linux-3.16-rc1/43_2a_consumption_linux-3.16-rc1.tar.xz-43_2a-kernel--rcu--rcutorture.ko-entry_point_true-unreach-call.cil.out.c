@@ -9771,7 +9771,7 @@ void disable_suitable_timer_1(struct timer_list *timer )
 }
 }
 #line 1937 "/work/ldvuser/mutilin/launch/work/current--X--kernel--X--defaultlinux-3.16-rc1.tar.xz--X--43_2a--X--cpachecker/linux-3.16-rc1.tar.xz/csd_deg_dscv/11/dscv_tempdir/dscv/ri/43_2a/kernel/rcu/rcutorture.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct rcu_torture *ldvarg1 ;
   void *tmp ;
@@ -11887,7 +11887,7 @@ void main(void)
 #line 3468
   ldv_check_final_state();
 #line 3469
-  return;
+  return 0;
 }
 }
 #line 3472 "/work/ldvuser/mutilin/launch/work/current--X--kernel--X--defaultlinux-3.16-rc1.tar.xz--X--43_2a--X--cpachecker/linux-3.16-rc1.tar.xz/csd_deg_dscv/11/dscv_tempdir/dscv/ri/43_2a/kernel/rcu/rcutorture.o.c.prepared"

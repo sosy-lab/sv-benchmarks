@@ -6649,7 +6649,7 @@ void ldv_initialize_drm_driver_2(void)
 }
 }
 #line 201 "/work/ldvuser/mutilin/launch/work/current--X--drivers--X--defaultlinux-3.16-rc1.tar.xz--X--43_2a--X--cpachecker/linux-3.16-rc1.tar.xz/csd_deg_dscv/9341/dscv_tempdir/dscv/ri/43_2a/drivers/gpu/drm/via/via_drv.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct vm_area_struct *ldvarg7 ;
   void *tmp ;
@@ -7317,7 +7317,7 @@ void main(void)
 #line 649
   ldv_check_final_state();
 #line 650
-  return;
+  return 0;
 }
 }
 #line 750 "/work/ldvuser/mutilin/launch/work/current--X--drivers--X--defaultlinux-3.16-rc1.tar.xz--X--43_2a--X--cpachecker/linux-3.16-rc1.tar.xz/csd_deg_dscv/9341/dscv_tempdir/dscv/ri/43_2a/drivers/gpu/drm/via/via_drv.o.c.prepared"

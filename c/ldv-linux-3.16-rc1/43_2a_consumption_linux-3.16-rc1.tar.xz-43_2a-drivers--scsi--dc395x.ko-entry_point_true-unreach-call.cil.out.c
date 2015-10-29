@@ -13715,7 +13715,7 @@ void choose_timer_4(struct timer_list *timer )
 }
 }
 #line 5217 "/work/ldvuser/mutilin/launch/work/current--X--drivers--X--defaultlinux-3.16-rc1.tar.xz--X--43_2a--X--cpachecker/linux-3.16-rc1.tar.xz/csd_deg_dscv/5433/dscv_tempdir/dscv/ri/43_2a/drivers/scsi/dc395x.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   sector_t ldvarg1 ;
   struct seq_file *ldvarg3 ;
@@ -14036,7 +14036,7 @@ void main(void)
 #line 5428
   ldv_check_final_state();
 #line 5429
-  return;
+  return 0;
 }
 }
 #line 5459 "/work/ldvuser/mutilin/launch/work/current--X--drivers--X--defaultlinux-3.16-rc1.tar.xz--X--43_2a--X--cpachecker/linux-3.16-rc1.tar.xz/csd_deg_dscv/5433/dscv_tempdir/dscv/ri/43_2a/drivers/scsi/dc395x.o.c.prepared"

@@ -5486,7 +5486,7 @@ int reg_check_2(irqreturn_t (*handler)(int  , void * ) , irqreturn_t (*thread_fn
 }
 }
 #line 1056 "/work/ldvuser/mutilin/launch/work/current--X--drivers--X--defaultlinux-3.16-rc1.tar.xz--X--43_2a--X--cpachecker/linux-3.16-rc1.tar.xz/csd_deg_dscv/841/dscv_tempdir/dscv/ri/43_2a/drivers/nfc/st21nfca/i2c.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   void *ldvarg1 ;
   void *tmp ;
@@ -5740,7 +5740,7 @@ void main(void)
 #line 1208
   ldv_check_final_state();
 #line 1209
-  return;
+  return 0;
 }
 }
 #line 1339 "/work/ldvuser/mutilin/launch/work/current--X--drivers--X--defaultlinux-3.16-rc1.tar.xz--X--43_2a--X--cpachecker/linux-3.16-rc1.tar.xz/csd_deg_dscv/841/dscv_tempdir/dscv/ri/43_2a/drivers/nfc/st21nfca/i2c.o.c.prepared"
