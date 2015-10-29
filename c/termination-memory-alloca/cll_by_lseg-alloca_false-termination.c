@@ -41,9 +41,10 @@ void traverse (node_t* head)
   }
 }
 
-void main ()
+int main ()
 {
   node_t* x = new_cll(0);
+  return 0;
 }
 
 
