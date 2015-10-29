@@ -19468,7 +19468,7 @@ void sound_timer_init(struct sound_lowlev_timer *t , char *name )
 }
 }
 #line 382 "/work/vladimir/commit-test/commit-test-work/task-006--linux-stable--dir/work/current--X--sound/oss/sound.ko--X--defaultlinux-stable-c4cb1dd-1--X--32_7a--X--cpachecker/linux-stable-c4cb1dd-1/csd_deg_dscv/29/dscv_tempdir/dscv/ri/32_7a/sound/oss/sound_timer.c.prepared"
-void main(void) 
+int main(void) 
 { 
   int var_timer_open_4_p0 ;
   int var_timer_open_4_p1 ;
@@ -19585,7 +19585,7 @@ void main(void)
 #line 566
   ldv_check_final_state();
 #line 569
-  return;
+  return 0;
 }
 }
 #line 573 "/work/vladimir/commit-test/commit-test-work/task-006--linux-stable--dir/work/current--X--sound/oss/sound.ko--X--defaultlinux-stable-c4cb1dd-1--X--32_7a--X--cpachecker/linux-stable-c4cb1dd-1/csd_deg_dscv/29/dscv_tempdir/dscv/ri/32_7a/sound/oss/sound_timer.c.prepared"

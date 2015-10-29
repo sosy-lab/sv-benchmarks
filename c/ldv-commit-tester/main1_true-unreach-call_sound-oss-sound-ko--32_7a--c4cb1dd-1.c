@@ -6359,7 +6359,7 @@ extern int __VERIFIER_nondet_int(void) ;
 #line 804 "/work/vladimir/commit-test/commit-test-work/task-006--linux-stable--dir/work/current--X--sound/oss/sound.ko--X--defaultlinux-stable-c4cb1dd-1--X--32_7a--X--cpachecker/linux-stable-c4cb1dd-1/csd_deg_dscv/29/dscv_tempdir/dscv/ri/32_7a/sound/oss/soundcard.c.prepared"
 int LDV_IN_INTERRUPT  ;
 #line 807 "/work/vladimir/commit-test/commit-test-work/task-006--linux-stable--dir/work/current--X--sound/oss/sound.ko--X--defaultlinux-stable-c4cb1dd-1--X--32_7a--X--cpachecker/linux-stable-c4cb1dd-1/csd_deg_dscv/29/dscv_tempdir/dscv/ri/32_7a/sound/oss/soundcard.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct file *var_group1 ;
   char *var_sound_read_3_p1 ;
@@ -6537,7 +6537,7 @@ void main(void)
 #line 1371
   ldv_check_final_state();
 #line 1374
-  return;
+  return 0;
 }
 }
 #line 1378 "/work/vladimir/commit-test/commit-test-work/task-006--linux-stable--dir/work/current--X--sound/oss/sound.ko--X--defaultlinux-stable-c4cb1dd-1--X--32_7a--X--cpachecker/linux-stable-c4cb1dd-1/csd_deg_dscv/29/dscv_tempdir/dscv/ri/32_7a/sound/oss/soundcard.c.prepared"

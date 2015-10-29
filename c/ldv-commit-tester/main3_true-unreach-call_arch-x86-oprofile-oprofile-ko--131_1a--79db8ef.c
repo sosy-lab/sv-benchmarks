@@ -7592,7 +7592,7 @@ struct file_operations  const  event_buffer_fops  =
 #line 242
 extern void ldv_check_return_value(int  ) ;
 #line 260 "/work/vladimir/commit-test/commit-test-work/task-085--linux-stable--dir/work/current--X--arch/x86/oprofile/oprofile.ko--X--defaultlinux-stable-79db8ef--X--131_1a--X--cpachecker/linux-stable-79db8ef/csd_deg_dscv/25/dscv_tempdir/dscv/ri/131_1a/drivers/oprofile/event_buffer.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct inode *var_group1 ;
   struct file *var_group2 ;
@@ -7700,7 +7700,7 @@ void main(void)
 #line 379
   ldv_check_final_state();
 #line 382
-  return;
+  return 0;
 }
 }
 #line 296 "include/linux/jiffies.h"

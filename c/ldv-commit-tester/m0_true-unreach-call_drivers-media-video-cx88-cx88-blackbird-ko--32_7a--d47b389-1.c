@@ -8661,7 +8661,7 @@ extern int __VERIFIER_nondet_int(void) ;
 #line 1473 "/work/vladimir/commit-test/commit-test-work/task-008--linux-stable--dir/work/current--X--drivers/media/video/cx88/cx88-blackbird.ko--X--defaultlinux-stable-d47b389-1--X--32_7a--X--cpachecker/linux-stable-d47b389-1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/32_7a/drivers/media/video/cx88/cx88-blackbird.c.prepared"
 int LDV_IN_INTERRUPT  ;
 #line 1476 "/work/vladimir/commit-test/commit-test-work/task-008--linux-stable--dir/work/current--X--drivers/media/video/cx88/cx88-blackbird.ko--X--defaultlinux-stable-d47b389-1--X--32_7a--X--cpachecker/linux-stable-d47b389-1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/32_7a/drivers/media/video/cx88/cx88-blackbird.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct videobuf_queue *var_group1 ;
   unsigned int *var_bb_buf_setup_12_p1 ;
@@ -9114,7 +9114,7 @@ void main(void)
 #line 4902
   ldv_check_final_state();
 #line 4905
-  return;
+  return 0;
 }
 }
 #line 4909 "/work/vladimir/commit-test/commit-test-work/task-008--linux-stable--dir/work/current--X--drivers/media/video/cx88/cx88-blackbird.ko--X--defaultlinux-stable-d47b389-1--X--32_7a--X--cpachecker/linux-stable-d47b389-1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/32_7a/drivers/media/video/cx88/cx88-blackbird.c.prepared"

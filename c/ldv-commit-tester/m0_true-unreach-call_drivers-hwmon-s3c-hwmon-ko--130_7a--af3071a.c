@@ -1558,7 +1558,7 @@ extern int __VERIFIER_nondet_int(void) ;
 #line 459 "/work/vladimir/commit-test/commit-test-work/task-083--linux-stable--dir/work/current--X--drivers/hwmon/s3c-hwmon.ko--X--defaultlinux-stable-af3071a--X--130_7a--X--cpachecker/linux-stable-af3071a/csd_deg_dscv/11/dscv_tempdir/dscv/ri/130_7a/drivers/hwmon/s3c-hwmon.c.prepared"
 int LDV_IN_INTERRUPT  ;
 #line 462 "/work/vladimir/commit-test/commit-test-work/task-083--linux-stable--dir/work/current--X--drivers/hwmon/s3c-hwmon.ko--X--defaultlinux-stable-af3071a--X--130_7a--X--cpachecker/linux-stable-af3071a/csd_deg_dscv/11/dscv_tempdir/dscv/ri/130_7a/drivers/hwmon/s3c-hwmon.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct platform_device *var_group1 ;
   int res_s3c_hwmon_probe_10 ;
@@ -1654,7 +1654,7 @@ void main(void)
 #line 600
   ldv_check_final_state();
 #line 603
-  return;
+  return 0;
 }
 }
 #line 615 "/work/vladimir/commit-test/commit-test-work/task-083--linux-stable--dir/work/current--X--drivers/hwmon/s3c-hwmon.ko--X--defaultlinux-stable-af3071a--X--130_7a--X--cpachecker/linux-stable-af3071a/csd_deg_dscv/11/dscv_tempdir/dscv/ri/130_7a/drivers/hwmon/s3c-hwmon.c.prepared"

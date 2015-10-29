@@ -7772,7 +7772,7 @@ extern int __VERIFIER_nondet_int(void) ;
 #line 987 "/work/vladimir/commit-test/commit-test-work/task-011--linux-stable--dir/work/current--X--drivers/media/video/cx88/cx8802.ko--X--defaultlinux-stable-d47b389--X--32_7a--X--cpachecker/linux-stable-d47b389/csd_deg_dscv/19/dscv_tempdir/dscv/ri/32_7a/drivers/media/video/cx88/cx88-mpeg.c.prepared"
 int LDV_IN_INTERRUPT  ;
 #line 990 "/work/vladimir/commit-test/commit-test-work/task-011--linux-stable--dir/work/current--X--drivers/media/video/cx88/cx8802.ko--X--defaultlinux-stable-d47b389--X--32_7a--X--cpachecker/linux-stable-d47b389/csd_deg_dscv/19/dscv_tempdir/dscv/ri/32_7a/drivers/media/video/cx88/cx88-mpeg.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct pci_dev *var_group1 ;
   struct pci_device_id  const  *var_cx8802_probe_23_p1 ;
@@ -7890,7 +7890,7 @@ void main(void)
 #line 1290
   ldv_check_final_state();
 #line 1293
-  return;
+  return 0;
 }
 }
 #line 1297 "/work/vladimir/commit-test/commit-test-work/task-011--linux-stable--dir/work/current--X--drivers/media/video/cx88/cx8802.ko--X--defaultlinux-stable-d47b389--X--32_7a--X--cpachecker/linux-stable-d47b389/csd_deg_dscv/19/dscv_tempdir/dscv/ri/32_7a/drivers/media/video/cx88/cx88-mpeg.c.prepared"
