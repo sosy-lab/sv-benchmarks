@@ -1102,6 +1102,7 @@ int ssl3_connect(SSL *s )
   cb = (void (*)())((void *)0);
   ret = -1;
   skip = 0;
+  tmp___0 = (int*)malloc(sizeof(int));
   *tmp___0 = 0;
   if ((unsigned long )s->info_callback != (unsigned long )((void *)0)) {
     cb = s->info_callback;
