@@ -28,7 +28,7 @@ void exit(int s )
 #line 20
 extern int ( /* missing proto */  __VERIFIER_nondet_int)() ;
 #line 19 "list_flag.c"
-void main(void) 
+int main(void) 
 { int flag ;
   int tmp ;
   List p ;
@@ -210,6 +210,6 @@ void main(void)
   }
   }
 #line 54
-  return;
+  return 0;
 }
 }

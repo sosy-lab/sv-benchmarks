@@ -19,7 +19,7 @@ typedef struct node {
   struct node *n;
 } *List;
 
-void main() {
+int main() {
   int flag = __VERIFIER_nondet_int();
   List p, a, t;
 
