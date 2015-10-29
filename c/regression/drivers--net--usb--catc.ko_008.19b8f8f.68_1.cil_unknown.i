@@ -8202,7 +8202,7 @@ static int res_catc_stop_16  ;
 #line 1277 "/work/ldvuser/novikov/work/current--X--drivers/net/usb/catc.ko--X--defaultlinux--X--68_1--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/net/usb/catc.c"
 static int res_catc_probe_17  ;
 #line 1393
-void main(void) ;
+int main(void) ;
 #line 1393 "/work/ldvuser/novikov/work/current--X--drivers/net/usb/catc.ko--X--defaultlinux--X--68_1--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/net/usb/catc.c"
 static struct ftrace_branch_data  __attribute__((__aligned__(4))) ______f___1200  __attribute__((__section__("_ftrace_branch")))  =    {"main",
     "/work/ldvuser/novikov/work/current--X--drivers/net/usb/catc.ko--X--defaultlinux--X--68_1--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/net/usb/catc.c",
@@ -8236,7 +8236,7 @@ static struct ftrace_branch_data  __attribute__((__aligned__(4))) ______f___1207
     "/work/ldvuser/novikov/work/current--X--drivers/net/usb/catc.ko--X--defaultlinux--X--68_1--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/net/usb/catc.c",
     1784, {{0UL, 0UL}}};
 #line 1009 "/work/ldvuser/novikov/work/current--X--drivers/net/usb/catc.ko--X--defaultlinux--X--68_1--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/net/usb/catc.c"
-void main(void) 
+int main(void) 
 { 
   struct net_device *var_group1 ;
   struct ethtool_drvinfo *var_group2 ;
@@ -8522,7 +8522,7 @@ void main(void)
 #line 1915
   ldv_check_final_state();
 #line 1918
-  return;
+  return 0;
 }
 }
 #line 10 "/home/ldvuser/ldv/inst/kernel-rules/verifier/rcv.h"

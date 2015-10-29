@@ -6965,7 +6965,7 @@ extern int nondet_int(void) ;
 #line 441 "/work/ldvuser/novikov/work/current--X--drivers/net/wireless/wl12xx/wl12xx_sdio.ko--X--defaultlinux--X--08_1a--X--cpachecker/linux/csd_deg_dscv/26/dscv_tempdir/dscv/ri/08_1a/drivers/net/wireless/wl12xx/sdio.c.prepared"
 int LDV_IN_INTERRUPT  ;
 #line 444 "/work/ldvuser/novikov/work/current--X--drivers/net/wireless/wl12xx/wl12xx_sdio.ko--X--defaultlinux--X--08_1a--X--cpachecker/linux/csd_deg_dscv/26/dscv_tempdir/dscv/ri/08_1a/drivers/net/wireless/wl12xx/sdio.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct wl1271 *var_group1 ;
   int var_wl1271_sdio_raw_read_8_p1 ;
@@ -7166,7 +7166,7 @@ void main(void)
 #line 1026
   ldv_check_final_state();
 #line 1029
-  return;
+  return 0;
 }
 }
 #line 10 "/home/ldvuser/ldv/inst/kernel-rules/verifier/rcv.h"

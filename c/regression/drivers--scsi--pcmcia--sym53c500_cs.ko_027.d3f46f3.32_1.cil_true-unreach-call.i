@@ -5833,7 +5833,7 @@ int LDV_IN_INTERRUPT  ;
 #line 1564 "/work/ldvuser/novikov/work/current--X--drivers/scsi/pcmcia/sym53c500_cs.ko--X--defaultlinux--X--32_1--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/32_1/drivers/scsi/pcmcia/sym53c500_cs.c"
 static int res_SYM53C500_probe_14  ;
 #line 968 "/work/ldvuser/novikov/work/current--X--drivers/scsi/pcmcia/sym53c500_cs.ko--X--defaultlinux--X--32_1--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/32_1/drivers/scsi/pcmcia/sym53c500_cs.c"
-void main(void) 
+int main(void) 
 { 
   struct class_device *var_group1 ;
   char *var_SYM53C500_show_pio_9_p1 ;
@@ -5990,7 +5990,7 @@ void main(void)
 #line 3060
   ldv_check_final_state();
 #line 3063
-  return;
+  return 0;
 }
 }
 #line 132 "include/linux/mutex.h"

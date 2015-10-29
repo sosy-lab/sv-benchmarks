@@ -2502,7 +2502,7 @@ extern int nondet_int(void) ;
 #line 368 "/work/ldvuser/novikov/work/current--X--drivers/mfd/janz-cmodio.ko--X--defaultlinux--X--39_7a--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/39_7a/drivers/mfd/janz-cmodio.c.prepared"
 int LDV_IN_INTERRUPT  ;
 #line 371 "/work/ldvuser/novikov/work/current--X--drivers/mfd/janz-cmodio.ko--X--defaultlinux--X--39_7a--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/39_7a/drivers/mfd/janz-cmodio.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct pci_dev *var_group1 ;
   struct pci_device_id  const  *var_cmodio_pci_probe_3_p1 ;
@@ -2599,7 +2599,7 @@ void main(void)
 #line 513
   ldv_check_final_state();
 #line 516
-  return;
+  return 0;
 }
 }
 #line 552 "/work/ldvuser/novikov/work/current--X--drivers/mfd/janz-cmodio.ko--X--defaultlinux--X--39_7a--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/39_7a/drivers/mfd/janz-cmodio.c.prepared"

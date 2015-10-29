@@ -6630,7 +6630,7 @@ extern int nondet_int(void) ;
 #line 1024 "/work/ldvuser/novikov/work/current--X--drivers/scsi/pcmcia/sym53c500_cs.ko--X--defaultlinux--X--39_7a--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/39_7a/drivers/scsi/pcmcia/sym53c500_cs.c.prepared"
 int LDV_IN_INTERRUPT  ;
 #line 1027 "/work/ldvuser/novikov/work/current--X--drivers/scsi/pcmcia/sym53c500_cs.ko--X--defaultlinux--X--39_7a--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/39_7a/drivers/scsi/pcmcia/sym53c500_cs.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct device *var_group1 ;
   struct device_attribute *var_group2 ;
@@ -6792,7 +6792,7 @@ void main(void)
 #line 2957
   ldv_check_final_state();
 #line 2960
-  return;
+  return 0;
 }
 }
 #line 2964 "/work/ldvuser/novikov/work/current--X--drivers/scsi/pcmcia/sym53c500_cs.ko--X--defaultlinux--X--39_7a--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/39_7a/drivers/scsi/pcmcia/sym53c500_cs.c.prepared"

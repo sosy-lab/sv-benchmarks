@@ -3519,7 +3519,7 @@ extern int nondet_int(void) ;
 #line 319 "/work/ldvuser/novikov/work/current--X--drivers/input/joystick/twidjoy.ko--X--defaultlinux--X--08_1a--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1a/drivers/input/joystick/twidjoy.c.prepared"
 int LDV_IN_INTERRUPT  ;
 #line 322 "/work/ldvuser/novikov/work/current--X--drivers/input/joystick/twidjoy.ko--X--defaultlinux--X--08_1a--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1a/drivers/input/joystick/twidjoy.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct serio *var_group1 ;
   unsigned char var_twidjoy_interrupt_1_p1 ;
@@ -3625,7 +3625,7 @@ void main(void)
 #line 474
   ldv_check_final_state();
 #line 477
-  return;
+  return 0;
 }
 }
 #line 1 "<compiler builtins>"

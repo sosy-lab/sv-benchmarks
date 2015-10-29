@@ -6174,7 +6174,7 @@ static int res_wm831x_buckp_probe_24  ;
 #line 1380 "/work/ldvuser/novikov/work/current--X--drivers/regulator/wm831x-dcdc.ko--X--defaultlinux--X--68_1--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/regulator/wm831x-dcdc.c"
 static int res_wm831x_epe_probe_26  ;
 #line 771 "/work/ldvuser/novikov/work/current--X--drivers/regulator/wm831x-dcdc.ko--X--defaultlinux--X--68_1--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/regulator/wm831x-dcdc.c"
-void main(void) 
+int main(void) 
 { 
   struct regulator_dev *var_group1 ;
   int var_wm831x_buckv_set_voltage_12_p1 ;
@@ -6582,7 +6582,7 @@ void main(void)
 #line 2687
   ldv_check_final_state();
 #line 2690
-  return;
+  return 0;
 }
 }
 #line 1327 "include/linux/usb.h"

@@ -10028,7 +10028,7 @@ int LDV_IN_INTERRUPT  ;
 #line 1602 "/work/ldvuser/novikov/work/current--X--drivers/video/arkfb.ko--X--defaultlinux--X--68_1--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/video/arkfb.c"
 static int res_ark_pci_probe_29  ;
 #line 1725
-void main(void) ;
+int main(void) ;
 #line 1725 "/work/ldvuser/novikov/work/current--X--drivers/video/arkfb.ko--X--defaultlinux--X--68_1--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/video/arkfb.c"
 static struct ftrace_branch_data  __attribute__((__aligned__(4))) ______f___1412  __attribute__((__section__("_ftrace_branch")))  =    {"main",
     "/work/ldvuser/novikov/work/current--X--drivers/video/arkfb.ko--X--defaultlinux--X--68_1--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/video/arkfb.c",
@@ -10046,7 +10046,7 @@ static struct ftrace_branch_data  __attribute__((__aligned__(4))) ______f___1415
     "/work/ldvuser/novikov/work/current--X--drivers/video/arkfb.ko--X--defaultlinux--X--68_1--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/video/arkfb.c",
     2279, {{0UL, 0UL}}};
 #line 1239 "/work/ldvuser/novikov/work/current--X--drivers/video/arkfb.ko--X--defaultlinux--X--68_1--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/video/arkfb.c"
-void main(void) 
+int main(void) 
 { 
   struct fb_info *var_group1 ;
   struct fb_tilemap *var_group2 ;
@@ -10318,7 +10318,7 @@ void main(void)
 #line 2425
   ldv_check_final_state();
 #line 2428
-  return;
+  return 0;
 }
 }
 #line 1299 "include/linux/usb.h"

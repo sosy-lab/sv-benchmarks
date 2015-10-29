@@ -3956,7 +3956,7 @@ extern int nondet_int(void) ;
 #line 447 "/work/ldvuser/novikov/work/current--X--drivers/media/common/tuners/mt2266.ko--X--defaultlinux--X--39_7a--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/39_7a/drivers/media/common/tuners/mt2266.c.prepared"
 int LDV_IN_INTERRUPT  ;
 #line 450 "/work/ldvuser/novikov/work/current--X--drivers/media/common/tuners/mt2266.ko--X--defaultlinux--X--39_7a--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/39_7a/drivers/media/common/tuners/mt2266.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct dvb_frontend *var_group1 ;
   struct dvb_frontend_parameters *var_group2 ;
@@ -4049,7 +4049,7 @@ void main(void)
 #line 759
   ldv_check_final_state();
 #line 762
-  return;
+  return 0;
 }
 }
 #line 766 "/work/ldvuser/novikov/work/current--X--drivers/media/common/tuners/mt2266.ko--X--defaultlinux--X--39_7a--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/39_7a/drivers/media/common/tuners/mt2266.c.prepared"

@@ -5563,7 +5563,7 @@ int LDV_IN_INTERRUPT  ;
 #line 659 "/work/ldvuser/novikov/work/current--X--drivers/input/mouse/vsxxxaa.ko--X--defaultlinux--X--68_1--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/input/mouse/vsxxxaa.c"
 static int res_vsxxxaa_connect_11  ;
 #line 627 "/work/ldvuser/novikov/work/current--X--drivers/input/mouse/vsxxxaa.ko--X--defaultlinux--X--68_1--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/input/mouse/vsxxxaa.c"
-void main(void) 
+int main(void) 
 { 
   struct serio *var_group1 ;
   struct serio_driver *var_group2 ;
@@ -5665,7 +5665,7 @@ void main(void)
 #line 899
   ldv_check_final_state();
 #line 902
-  return;
+  return 0;
 }
 }
 #line 1327 "include/linux/usb.h"

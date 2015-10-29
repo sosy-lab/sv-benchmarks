@@ -6027,7 +6027,7 @@ extern int nondet_int(void) ;
 #line 460 "/work/ldvuser/novikov/work/current--X--drivers/isdn/mISDN/mISDN_core.ko--X--defaultlinux--X--32_7a--X--cpachecker/linux/csd_deg_dscv/30/dscv_tempdir/dscv/ri/32_7a/drivers/isdn/mISDN/core.c.prepared"
 int LDV_IN_INTERRUPT  ;
 #line 463 "/work/ldvuser/novikov/work/current--X--drivers/isdn/mISDN/mISDN_core.ko--X--defaultlinux--X--32_7a--X--cpachecker/linux/csd_deg_dscv/30/dscv_tempdir/dscv/ri/32_7a/drivers/isdn/mISDN/core.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct device *var_group1 ;
   struct kobj_uevent_env *var_group2 ;
@@ -6104,7 +6104,7 @@ void main(void)
 #line 658
   ldv_check_final_state();
 #line 661
-  return;
+  return 0;
 }
 }
 #line 1 "<compiler builtins>"

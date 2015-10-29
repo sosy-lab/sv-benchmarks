@@ -4278,7 +4278,7 @@ extern int nondet_int(void) ;
 #line 676 "/work/ldvuser/novikov/work/current--X--drivers/cpufreq/pcc-cpufreq.ko--X--defaultlinux--X--32_7a--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/32_7a/drivers/cpufreq/pcc-cpufreq.c.prepared"
 int LDV_IN_INTERRUPT  ;
 #line 679 "/work/ldvuser/novikov/work/current--X--drivers/cpufreq/pcc-cpufreq.ko--X--defaultlinux--X--32_7a--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/32_7a/drivers/cpufreq/pcc-cpufreq.c.prepared"
-void main(void) 
+int main(void) 
 { 
   unsigned int var_pcc_get_freq_3_p0 ;
   struct cpufreq_policy *var_group1 ;
@@ -4357,7 +4357,7 @@ void main(void)
 #line 907
   ldv_check_final_state();
 #line 910
-  return;
+  return 0;
 }
 }
 #line 914 "/work/ldvuser/novikov/work/current--X--drivers/cpufreq/pcc-cpufreq.ko--X--defaultlinux--X--32_7a--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/32_7a/drivers/cpufreq/pcc-cpufreq.c.prepared"

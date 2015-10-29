@@ -4137,7 +4137,7 @@ extern int nondet_int(void) ;
 #line 507 "/work/ldvuser/novikov/work/current--X--drivers/mtd/mtdoops.ko--X--defaultlinux--X--43_1a--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/43_1a/drivers/mtd/mtdoops.c.prepared"
 int LDV_IN_INTERRUPT  ;
 #line 510 "/work/ldvuser/novikov/work/current--X--drivers/mtd/mtdoops.ko--X--defaultlinux--X--43_1a--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/43_1a/drivers/mtd/mtdoops.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct mtd_info *var_group1 ;
   struct console *var_group2 ;
@@ -4284,7 +4284,7 @@ void main(void)
 #line 713
   ldv_check_final_state();
 #line 716
-  return;
+  return 0;
 }
 }
 #line 731 "/work/ldvuser/novikov/work/current--X--drivers/mtd/mtdoops.ko--X--defaultlinux--X--43_1a--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/43_1a/drivers/mtd/mtdoops.c.prepared"

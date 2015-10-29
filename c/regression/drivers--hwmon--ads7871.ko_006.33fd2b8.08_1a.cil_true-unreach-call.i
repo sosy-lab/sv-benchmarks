@@ -2959,7 +2959,7 @@ extern int nondet_int(void) ;
 #line 295 "/work/ldvuser/novikov/work/current--X--drivers/hwmon/ads7871.ko--X--defaultlinux--X--08_1a--X--cpachecker/linux/csd_deg_dscv/12/dscv_tempdir/dscv/ri/08_1a/drivers/hwmon/ads7871.c.prepared"
 int LDV_IN_INTERRUPT  ;
 #line 298 "/work/ldvuser/novikov/work/current--X--drivers/hwmon/ads7871.ko--X--defaultlinux--X--08_1a--X--cpachecker/linux/csd_deg_dscv/12/dscv_tempdir/dscv/ri/08_1a/drivers/hwmon/ads7871.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct spi_device *var_group1 ;
   int res_ads7871_probe_5 ;
@@ -3038,7 +3038,7 @@ void main(void)
 #line 485
   ldv_check_final_state();
 #line 488
-  return;
+  return 0;
 }
 }
 #line 10 "/home/ldvuser/ldv/inst/kernel-rules/verifier/rcv.h"

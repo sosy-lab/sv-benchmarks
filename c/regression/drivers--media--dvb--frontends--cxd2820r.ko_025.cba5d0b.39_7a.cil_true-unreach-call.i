@@ -5158,7 +5158,7 @@ extern int nondet_int(void) ;
 #line 742 "/work/ldvuser/novikov/work/current--X--drivers/media/dvb/frontends/cxd2820r.ko--X--defaultlinux--X--39_7a--X--cpachecker/linux/csd_deg_dscv/21/dscv_tempdir/dscv/ri/39_7a/drivers/media/dvb/frontends/cxd2820r_core.c.prepared"
 int LDV_IN_INTERRUPT  ;
 #line 745 "/work/ldvuser/novikov/work/current--X--drivers/media/dvb/frontends/cxd2820r.ko--X--defaultlinux--X--39_7a--X--cpachecker/linux/csd_deg_dscv/21/dscv_tempdir/dscv/ri/39_7a/drivers/media/dvb/frontends/cxd2820r_core.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct dvb_frontend *var_group1 ;
   struct dvb_frontend_tune_settings *var_group2 ;
@@ -5304,7 +5304,7 @@ void main(void)
 #line 1051
   ldv_check_final_state();
 #line 1054
-  return;
+  return 0;
 }
 }
 #line 1090 "/work/ldvuser/novikov/work/current--X--drivers/media/dvb/frontends/cxd2820r.ko--X--defaultlinux--X--39_7a--X--cpachecker/linux/csd_deg_dscv/21/dscv_tempdir/dscv/ri/39_7a/drivers/media/dvb/frontends/cxd2820r_core.c.prepared"

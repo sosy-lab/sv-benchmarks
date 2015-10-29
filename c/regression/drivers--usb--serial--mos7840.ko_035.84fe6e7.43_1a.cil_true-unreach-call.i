@@ -9444,7 +9444,7 @@ extern int nondet_int(void) ;
 #line 2821 "/work/ldvuser/novikov/work/current--X--drivers/usb/serial/mos7840.ko--X--defaultlinux--X--43_1a--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/43_1a/drivers/usb/serial/mos7840.c.prepared"
 int LDV_IN_INTERRUPT  ;
 #line 2824 "/work/ldvuser/novikov/work/current--X--drivers/usb/serial/mos7840.ko--X--defaultlinux--X--43_1a--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/43_1a/drivers/usb/serial/mos7840.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct tty_struct *var_group1 ;
   struct usb_serial_port *var_group2 ;
@@ -9668,7 +9668,7 @@ void main(void)
 #line 6866
   ldv_check_final_state();
 #line 6869
-  return;
+  return 0;
 }
 }
 #line 6884 "/work/ldvuser/novikov/work/current--X--drivers/usb/serial/mos7840.ko--X--defaultlinux--X--43_1a--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/43_1a/drivers/usb/serial/mos7840.c.prepared"

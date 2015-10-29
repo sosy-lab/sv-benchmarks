@@ -8500,7 +8500,7 @@ static int res_bd2802_probe_22  ;
 #line 1091 "/work/ldvuser/novikov/work/current--X--drivers/leds/leds-bd2802.ko--X--defaultlinux--X--68_1--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/leds/leds-bd2802.c"
 static int res_bd2802_remove_23  ;
 #line 1307
-void main(void) ;
+int main(void) ;
 #line 1307 "/work/ldvuser/novikov/work/current--X--drivers/leds/leds-bd2802.ko--X--defaultlinux--X--68_1--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/leds/leds-bd2802.c"
 static struct ftrace_branch_data  __attribute__((__aligned__(4))) ______f___787  __attribute__((__section__("_ftrace_branch")))  =    {"main",
     "/work/ldvuser/novikov/work/current--X--drivers/leds/leds-bd2802.ko--X--defaultlinux--X--68_1--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/leds/leds-bd2802.c",
@@ -8522,7 +8522,7 @@ static struct ftrace_branch_data  __attribute__((__aligned__(4))) ______f___791 
     "/work/ldvuser/novikov/work/current--X--drivers/leds/leds-bd2802.ko--X--defaultlinux--X--68_1--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/leds/leds-bd2802.c",
     1568, {{0UL, 0UL}}};
 #line 805 "/work/ldvuser/novikov/work/current--X--drivers/leds/leds-bd2802.ko--X--defaultlinux--X--68_1--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/leds/leds-bd2802.c"
-void main(void) 
+int main(void) 
 { 
   struct device *var_group1 ;
   struct device_attribute *var_group2 ;
@@ -8693,7 +8693,7 @@ void main(void)
 #line 1883
   ldv_check_final_state();
 #line 1886
-  return;
+  return 0;
 }
 }
 #line 1 "<compiler builtins>"

@@ -7195,7 +7195,7 @@ static int res_catc_stop_16  ;
 #line 1278 "/work/ldvuser/novikov/work/current--X--drivers/net/usb/catc.ko--X--defaultlinux--X--32_1--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/32_1/drivers/net/usb/catc.c"
 static int res_catc_probe_17  ;
 #line 1010 "/work/ldvuser/novikov/work/current--X--drivers/net/usb/catc.ko--X--defaultlinux--X--32_1--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/32_1/drivers/net/usb/catc.c"
-void main(void) 
+int main(void) 
 { 
   struct net_device *var_group1 ;
   struct ethtool_drvinfo *var_group2 ;
@@ -7384,7 +7384,7 @@ void main(void)
 #line 1916
   ldv_check_final_state();
 #line 1919
-  return;
+  return 0;
 }
 }
 #line 136 "include/linux/mutex.h"

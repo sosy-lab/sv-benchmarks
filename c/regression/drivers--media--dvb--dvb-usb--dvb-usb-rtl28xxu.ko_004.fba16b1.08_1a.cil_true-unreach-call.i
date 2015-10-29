@@ -8476,7 +8476,7 @@ extern int nondet_int(void) ;
 #line 1049 "/work/ldvuser/novikov/work/current--X--drivers/media/dvb/dvb-usb/dvb-usb-rtl28xxu.ko--X--defaultlinux--X--08_1a--X--cpachecker/linux/csd_deg_dscv/64/dscv_tempdir/dscv/ri/08_1a/drivers/media/dvb/dvb-usb/rtl28xxu.c.prepared"
 int LDV_IN_INTERRUPT  ;
 #line 1052 "/work/ldvuser/novikov/work/current--X--drivers/media/dvb/dvb-usb/dvb-usb-rtl28xxu.ko--X--defaultlinux--X--08_1a--X--cpachecker/linux/csd_deg_dscv/64/dscv_tempdir/dscv/ri/08_1a/drivers/media/dvb/dvb-usb/rtl28xxu.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct i2c_adapter *var_group1 ;
   struct usb_interface *var_group2 ;
@@ -8567,7 +8567,7 @@ void main(void)
 #line 1236
   ldv_check_final_state();
 #line 1239
-  return;
+  return 0;
 }
 }
 #line 1 "<compiler builtins>"

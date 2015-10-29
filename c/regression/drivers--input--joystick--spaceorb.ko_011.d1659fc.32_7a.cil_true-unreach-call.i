@@ -3671,7 +3671,7 @@ extern int nondet_int(void) ;
 #line 307 "/work/ldvuser/novikov/work/current--X--drivers/input/joystick/spaceorb.ko--X--defaultlinux--X--32_7a--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/32_7a/drivers/input/joystick/spaceorb.c.prepared"
 int LDV_IN_INTERRUPT  ;
 #line 310 "/work/ldvuser/novikov/work/current--X--drivers/input/joystick/spaceorb.ko--X--defaultlinux--X--32_7a--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/32_7a/drivers/input/joystick/spaceorb.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct serio *var_group1 ;
   unsigned char var_spaceorb_interrupt_1_p1 ;
@@ -3777,7 +3777,7 @@ void main(void)
 #line 462
   ldv_check_final_state();
 #line 465
-  return;
+  return 0;
 }
 }
 #line 469 "/work/ldvuser/novikov/work/current--X--drivers/input/joystick/spaceorb.ko--X--defaultlinux--X--32_7a--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/32_7a/drivers/input/joystick/spaceorb.c.prepared"

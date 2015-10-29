@@ -3566,7 +3566,7 @@ int LDV_IN_INTERRUPT  ;
 #line 386 "/work/ldvuser/novikov/work/current--X--drivers/rtc/rtc-max6902.ko--X--defaultlinux--X--32_1--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/32_1/drivers/rtc/rtc-max6902.c"
 static int res_max6902_probe_6  ;
 #line 319 "/work/ldvuser/novikov/work/current--X--drivers/rtc/rtc-max6902.ko--X--defaultlinux--X--32_1--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/32_1/drivers/rtc/rtc-max6902.c"
-void main(void) 
+int main(void) 
 { 
   struct device *var_group1 ;
   struct rtc_time *var_group2 ;
@@ -3674,7 +3674,7 @@ void main(void)
 #line 617
   ldv_check_final_state();
 #line 620
-  return;
+  return 0;
 }
 }
 #line 135 "include/linux/mutex.h"

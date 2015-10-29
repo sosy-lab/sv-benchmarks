@@ -8251,7 +8251,7 @@ int LDV_IN_INTERRUPT  ;
 #line 955 "/work/ldvuser/novikov/work/current--X--drivers/usb/serial/cp210x.ko--X--defaultlinux--X--68_1--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/usb/serial/cp210x.c"
 static int res_cp2101_open_4  ;
 #line 1469
-void main(void) ;
+int main(void) ;
 #line 1469 "/work/ldvuser/novikov/work/current--X--drivers/usb/serial/cp210x.ko--X--defaultlinux--X--68_1--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/usb/serial/cp210x.c"
 static struct ftrace_branch_data  __attribute__((__aligned__(4))) ______f___967  __attribute__((__section__("_ftrace_branch")))  =    {"main",
     "/work/ldvuser/novikov/work/current--X--drivers/usb/serial/cp210x.ko--X--defaultlinux--X--68_1--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/usb/serial/cp210x.c",
@@ -8269,7 +8269,7 @@ static struct ftrace_branch_data  __attribute__((__aligned__(4))) ______f___970 
     "/work/ldvuser/novikov/work/current--X--drivers/usb/serial/cp210x.ko--X--defaultlinux--X--68_1--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/usb/serial/cp210x.c",
     1562, {{0UL, 0UL}}};
 #line 881 "/work/ldvuser/novikov/work/current--X--drivers/usb/serial/cp210x.ko--X--defaultlinux--X--68_1--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/usb/serial/cp210x.c"
-void main(void) 
+int main(void) 
 { 
   struct tty_struct *var_group1 ;
   struct usb_serial_port *var_group2 ;
@@ -8440,7 +8440,7 @@ void main(void)
 #line 2158
   ldv_check_final_state();
 #line 2161
-  return;
+  return 0;
 }
 }
 #line 1299 "include/linux/usb.h"

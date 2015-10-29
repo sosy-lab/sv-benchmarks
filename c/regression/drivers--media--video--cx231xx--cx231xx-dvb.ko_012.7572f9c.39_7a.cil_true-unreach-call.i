@@ -9414,7 +9414,7 @@ extern int nondet_int(void) ;
 #line 924 "/work/ldvuser/novikov/work/current--X--drivers/media/video/cx231xx/cx231xx-dvb.ko--X--defaultlinux--X--39_7a--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/39_7a/drivers/media/video/cx231xx/cx231xx-dvb.c.prepared"
 int LDV_IN_INTERRUPT  ;
 #line 927 "/work/ldvuser/novikov/work/current--X--drivers/media/video/cx231xx/cx231xx-dvb.ko--X--defaultlinux--X--39_7a--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/39_7a/drivers/media/video/cx231xx/cx231xx-dvb.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct cx231xx *var_group1 ;
   int tmp ;
@@ -9482,7 +9482,7 @@ void main(void)
 #line 1083
   ldv_check_final_state();
 #line 1086
-  return;
+  return 0;
 }
 }
 #line 1122 "/work/ldvuser/novikov/work/current--X--drivers/media/video/cx231xx/cx231xx-dvb.ko--X--defaultlinux--X--39_7a--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/39_7a/drivers/media/video/cx231xx/cx231xx-dvb.c.prepared"

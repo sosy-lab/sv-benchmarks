@@ -8262,7 +8262,7 @@ static int res_ems_usb_close_12  ;
 #line 1444 "/work/ldvuser/novikov/work/current--X--drivers/net/can/usb/ems_usb.ko--X--defaultlinux--X--32_1--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/32_1/drivers/net/can/usb/ems_usb.c"
 static int res_ems_usb_probe_16  ;
 #line 1186 "/work/ldvuser/novikov/work/current--X--drivers/net/can/usb/ems_usb.ko--X--defaultlinux--X--32_1--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/32_1/drivers/net/can/usb/ems_usb.c"
-void main(void) 
+int main(void) 
 { 
   struct net_device *var_group1 ;
   struct sk_buff *var_group2 ;
@@ -8413,7 +8413,7 @@ void main(void)
 #line 2051
   ldv_check_final_state();
 #line 2054
-  return;
+  return 0;
 }
 }
 #line 136 "include/linux/mutex.h"

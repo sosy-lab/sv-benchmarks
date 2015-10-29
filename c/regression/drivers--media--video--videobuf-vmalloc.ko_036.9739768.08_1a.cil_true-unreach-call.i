@@ -3186,7 +3186,7 @@ extern int nondet_int(void) ;
 #line 392 "/work/ldvuser/novikov/work/current--X--drivers/media/video/videobuf-vmalloc.ko--X--defaultlinux--X--08_1a--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1a/drivers/media/video/videobuf-vmalloc.c.prepared"
 int LDV_IN_INTERRUPT  ;
 #line 395 "/work/ldvuser/novikov/work/current--X--drivers/media/video/videobuf-vmalloc.ko--X--defaultlinux--X--08_1a--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1a/drivers/media/video/videobuf-vmalloc.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct vm_area_struct *var_group1 ;
   size_t var___videobuf_alloc_vb_2_p0 ;
@@ -3288,7 +3288,7 @@ void main(void)
 #line 743
   ldv_check_final_state();
 #line 746
-  return;
+  return 0;
 }
 }
 #line 10 "/home/ldvuser/ldv/inst/kernel-rules/verifier/rcv.h"

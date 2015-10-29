@@ -3957,7 +3957,7 @@ extern int nondet_int(void) ;
 #line 408 "/work/ldvuser/novikov/work/current--X--drivers/mtd/devices/slram.ko--X--defaultlinux--X--68_1--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/mtd/devices/slram.c"
 int LDV_IN_INTERRUPT  ;
 #line 411 "/work/ldvuser/novikov/work/current--X--drivers/mtd/devices/slram.ko--X--defaultlinux--X--68_1--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/mtd/devices/slram.c"
-void main(void) 
+int main(void) 
 { 
   int tmp ;
   int tmp___0 ;
@@ -4007,7 +4007,7 @@ void main(void)
 #line 486
   ldv_check_final_state();
 #line 489
-  return;
+  return 0;
 }
 }
 #line 1 "<compiler builtins>"

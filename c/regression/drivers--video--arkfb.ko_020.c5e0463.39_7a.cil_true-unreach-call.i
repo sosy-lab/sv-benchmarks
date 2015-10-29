@@ -7021,7 +7021,7 @@ extern int nondet_int(void) ;
 #line 1313 "/work/ldvuser/novikov/work/current--X--drivers/video/arkfb.ko--X--defaultlinux--X--39_7a--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/39_7a/drivers/video/arkfb.c.prepared"
 int LDV_IN_INTERRUPT  ;
 #line 1316 "/work/ldvuser/novikov/work/current--X--drivers/video/arkfb.ko--X--defaultlinux--X--39_7a--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/39_7a/drivers/video/arkfb.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct fb_info *var_group1 ;
   struct fb_tilemap *var_group2 ;
@@ -7252,7 +7252,7 @@ void main(void)
 #line 2565
   ldv_check_final_state();
 #line 2568
-  return;
+  return 0;
 }
 }
 #line 2604 "/work/ldvuser/novikov/work/current--X--drivers/video/arkfb.ko--X--defaultlinux--X--39_7a--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/39_7a/drivers/video/arkfb.c.prepared"

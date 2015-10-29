@@ -4046,7 +4046,7 @@ extern int nondet_int(void) ;
 #line 457 "/work/ldvuser/novikov/work/current--X--drivers/mtd/mtdoops.ko--X--defaultlinux--X--68_1--X--cpachecker/linux/csd_deg_dscv/10/dscv_tempdir/dscv/ri/68_1/drivers/mtd/mtdoops.c"
 int LDV_IN_INTERRUPT  ;
 #line 460 "/work/ldvuser/novikov/work/current--X--drivers/mtd/mtdoops.ko--X--defaultlinux--X--68_1--X--cpachecker/linux/csd_deg_dscv/10/dscv_tempdir/dscv/ri/68_1/drivers/mtd/mtdoops.c"
-void main(void) 
+int main(void) 
 { 
   struct mtd_info *var_group1 ;
   struct console *var_group2 ;
@@ -4146,7 +4146,7 @@ void main(void)
 #line 651
   ldv_check_final_state();
 #line 654
-  return;
+  return 0;
 }
 }
 #line 1 "<compiler builtins>"
