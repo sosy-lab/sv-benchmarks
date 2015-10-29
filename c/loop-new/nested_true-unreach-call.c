@@ -1,5 +1,5 @@
 #include "assert.h"
-void main() {
+int main() {
     int n = __VERIFIER_nondet_int();
     int m = __VERIFIER_nondet_int();
     int k = 0;
@@ -12,4 +12,5 @@ void main() {
 	}
     }
     __VERIFIER_assert(k >= 100);
+    return 0;
 }

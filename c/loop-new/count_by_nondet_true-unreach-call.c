@@ -1,5 +1,5 @@
 #include "assert.h"
-void main() {
+int main() {
     int i = 0;
     int k = 0;
     while(i < LARGE_INT) {
@@ -9,4 +9,5 @@ void main() {
 	k ++;
     }
     __VERIFIER_assert(k <= LARGE_INT);
+    return 0;
 }
