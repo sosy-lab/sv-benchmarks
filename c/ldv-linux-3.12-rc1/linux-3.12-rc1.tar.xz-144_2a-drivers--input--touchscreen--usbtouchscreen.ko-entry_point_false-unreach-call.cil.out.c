@@ -7381,7 +7381,7 @@ void ldv_usb_driver_1(void)
 }
 }
 #line 1808 "/work/ldvuser/mutilin/launch/work/current--X--drivers--X--defaultlinux-3.12-rc1.tar.xz--X--144_2a--X--cpachecker/linux-3.12-rc1.tar.xz/csd_deg_dscv/300/dscv_tempdir/dscv/ri/144_2a/drivers/input/touchscreen/usbtouchscreen.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct usb_device_id *ldvarg1 ;
   void *tmp ;
@@ -7590,7 +7590,7 @@ void main(void)
 #line 1931
   ldv_check_final_state();
 #line 1932
-  return;
+  return 0;
 }
 }
 #line 1935 "/work/ldvuser/mutilin/launch/work/current--X--drivers--X--defaultlinux-3.12-rc1.tar.xz--X--144_2a--X--cpachecker/linux-3.12-rc1.tar.xz/csd_deg_dscv/300/dscv_tempdir/dscv/ri/144_2a/drivers/input/touchscreen/usbtouchscreen.o.c.prepared"
