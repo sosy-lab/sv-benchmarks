@@ -3,7 +3,7 @@
 
 #include "assert.h"
 
-void main() {
+int main() {
     int i,j,a,b;
     int flag = __VERIFIER_nondet_int();
     a = 0;
@@ -27,4 +27,5 @@ void main() {
     if (flag) {
 	__VERIFIER_assert(a == b);
     }
+    return 0;
 }

@@ -3,7 +3,7 @@
 
 #include "assert.h"
 
-void main() {
+int main() {
     int x,y,z,w;
     x = y = z = w = 0;
     while (__VERIFIER_nondet_int() && y < 10000) {
@@ -22,4 +22,5 @@ void main() {
 	z = z + 10;
     }
     assert(x >= 4 && y <= 2);
+    return 0;
 }

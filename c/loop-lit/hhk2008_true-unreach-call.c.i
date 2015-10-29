@@ -7,7 +7,7 @@ void __VERIFIER_assert(int cond) {
   return;
 }
 int __VERIFIER_nondet_int();
-void main() {
+int main() {
     int a, b;
     int res, cnt;
     __VERIFIER_assume(a <= 1000000);
@@ -19,4 +19,5 @@ void main() {
  res = res + 1;
     }
     assert(res == a + b);
+    return 0;
 }
