@@ -7680,7 +7680,7 @@ int reg_check_2(irqreturn_t (*pollfunc_bh)(int  , void * ) , irqreturn_t (*pollf
 #line 405
 void ldv_main_exported_3(void) ;
 #line 409 "/work/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--08_1a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/286/dscv_tempdir/dscv/ri/08_1a/drivers/iio/imu/inv_mpu6050/inv_mpu_core.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   int *ldvarg1 ;
   void *tmp ;
@@ -8577,7 +8577,7 @@ void main(void)
 #line 948
   ldv_check_final_state();
 #line 949
-  return;
+  return 0;
 }
 }
 #line 976 "/work/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--08_1a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/286/dscv_tempdir/dscv/ri/08_1a/drivers/iio/imu/inv_mpu6050/inv_mpu_core.o.c.prepared"

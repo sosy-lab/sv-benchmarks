@@ -9496,7 +9496,7 @@ void ldv_initialize_dvb_usb_device_properties_2(void)
 }
 }
 #line 136 "/work/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--32_7a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/3826/dscv_tempdir/dscv/ri/32_7a/drivers/media/usb/dvb-usb/opera1.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct i2c_msg *ldvarg1 ;
   void *tmp ;
@@ -9870,7 +9870,7 @@ void main(void)
 #line 361
   ldv_check_final_state();
 #line 362
-  return;
+  return 0;
 }
 }
 #line 389 "/work/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--32_7a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/3826/dscv_tempdir/dscv/ri/32_7a/drivers/media/usb/dvb-usb/opera1.o.c.prepared"

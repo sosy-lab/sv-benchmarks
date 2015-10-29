@@ -8001,7 +8001,7 @@ void disable_suitable_timer_1(struct timer_list *timer )
 #line 131
 void ldv_main_exported_3(void) ;
 #line 138 "/home/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--43_2a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/3731/dscv_tempdir/dscv/ri/43_2a/drivers/misc/sgi-xp/xpc_main.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   void *ldvarg1 ;
   void *tmp ;
@@ -8224,7 +8224,7 @@ void main(void)
 #line 267
   ldv_check_final_state();
 #line 268
-  return;
+  return 0;
 }
 }
 #line 283 "/home/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--43_2a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/3731/dscv_tempdir/dscv/ri/43_2a/drivers/misc/sgi-xp/xpc_main.o.c.prepared"

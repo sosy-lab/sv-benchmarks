@@ -8090,7 +8090,7 @@ void ldv_main_exported_3(void) ;
 #line 73
 void ldv_main_exported_5(void) ;
 #line 79 "/work/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--08_1a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/4925/dscv_tempdir/dscv/ri/08_1a/drivers/infiniband/hw/mthca/mthca_main.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct pci_device_id *ldvarg6 ;
   void *tmp ;
@@ -8312,7 +8312,7 @@ void main(void)
 #line 229
   ldv_check_final_state();
 #line 230
-  return;
+  return 0;
 }
 }
 #line 257 "/work/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--08_1a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/4925/dscv_tempdir/dscv/ri/08_1a/drivers/infiniband/hw/mthca/mthca_main.o.c.prepared"

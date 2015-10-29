@@ -19616,7 +19616,7 @@ void ldv_timer_3(int state , struct timer_list *timer )
 }
 }
 #line 715 "/home/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--43_2a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/12925/dscv_tempdir/dscv/ri/43_2a/drivers/tty/synclink_gt.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   int ldvarg1 ;
   struct tty_port *ldvarg0 ;
@@ -21277,7 +21277,7 @@ void main(void)
 #line 1901
   ldv_check_final_state();
 #line 1902
-  return;
+  return 0;
 }
 }
 #line 1917 "/home/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--43_2a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/12925/dscv_tempdir/dscv/ri/43_2a/drivers/tty/synclink_gt.o.c.prepared"

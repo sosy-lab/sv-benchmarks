@@ -15855,7 +15855,7 @@ void invoke_work_2(void)
 #line 579
 void ldv_main_exported_4(void) ;
 #line 586 "/work/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--32_7a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/965/dscv_tempdir/dscv/ri/32_7a/drivers/md/dm-thin.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   void *ldvarg11 ;
   void *tmp ;
@@ -17028,7 +17028,7 @@ void main(void)
 #line 1391
   ldv_check_final_state();
 #line 1392
-  return;
+  return 0;
 }
 }
 #line 1395 "/work/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--32_7a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/965/dscv_tempdir/dscv/ri/32_7a/drivers/md/dm-thin.o.c.prepared"

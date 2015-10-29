@@ -10955,7 +10955,7 @@ void ldv_usb_driver_1(void)
 }
 }
 #line 105 "/work/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--32_7a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/12494/dscv_tempdir/dscv/ri/32_7a/drivers/net/wireless/p54/p54usb.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct usb_device_id *ldvarg1 ;
   void *tmp ;
@@ -11159,7 +11159,7 @@ void main(void)
 #line 226
   ldv_check_final_state();
 #line 227
-  return;
+  return 0;
 }
 }
 #line 254 "/work/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--32_7a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/12494/dscv_tempdir/dscv/ri/32_7a/drivers/net/wireless/p54/p54usb.o.c.prepared"

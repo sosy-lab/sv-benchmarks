@@ -11508,7 +11508,7 @@ void choose_interrupt_1(void)
 }
 }
 #line 252 "/home/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--43_2a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/10734/dscv_tempdir/dscv/ri/43_2a/drivers/net/ethernet/amd/amd8111e.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct sk_buff *ldvarg1 ;
   void *tmp ;
@@ -12352,7 +12352,7 @@ void main(void)
 #line 826
   ldv_check_final_state();
 #line 827
-  return;
+  return 0;
 }
 }
 #line 854 "/home/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--43_2a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/10734/dscv_tempdir/dscv/ri/43_2a/drivers/net/ethernet/amd/amd8111e.o.c.prepared"

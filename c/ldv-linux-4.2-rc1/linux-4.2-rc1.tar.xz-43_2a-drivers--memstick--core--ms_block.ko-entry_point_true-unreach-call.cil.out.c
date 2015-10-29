@@ -11159,7 +11159,7 @@ void ldv_initialize_block_device_operations_4(void)
 }
 }
 #line 384 "/home/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--43_2a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/3086/dscv_tempdir/dscv/ri/43_2a/drivers/memstick/core/ms_block.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct hd_geometry *ldvarg1 ;
   void *tmp ;
@@ -11473,7 +11473,7 @@ void main(void)
 #line 584
   ldv_check_final_state();
 #line 585
-  return;
+  return 0;
 }
 }
 #line 671 "/home/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--43_2a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/3086/dscv_tempdir/dscv/ri/43_2a/drivers/memstick/core/ms_block.o.c.prepared"

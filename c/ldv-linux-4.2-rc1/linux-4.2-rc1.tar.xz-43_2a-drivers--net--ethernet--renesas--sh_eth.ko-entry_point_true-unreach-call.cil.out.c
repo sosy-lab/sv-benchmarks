@@ -16054,7 +16054,7 @@ void ldv_platform_driver_init_2(void)
 }
 }
 #line 351 "/home/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--43_2a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/10334/dscv_tempdir/dscv/ri/43_2a/drivers/net/ethernet/renesas/sh_eth.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   int ldvarg1 ;
   int ldvarg0 ;
@@ -18122,7 +18122,7 @@ void main(void)
 #line 1767
   ldv_check_final_state();
 #line 1768
-  return;
+  return 0;
 }
 }
 #line 1771 "/home/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--43_2a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/10334/dscv_tempdir/dscv/ri/43_2a/drivers/net/ethernet/renesas/sh_eth.o.c.prepared"

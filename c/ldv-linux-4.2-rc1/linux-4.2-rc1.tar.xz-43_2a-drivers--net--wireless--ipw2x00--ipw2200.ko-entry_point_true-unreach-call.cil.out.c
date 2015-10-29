@@ -45056,7 +45056,7 @@ void disable_work_15(struct work_struct *work )
 }
 }
 #line 4106 "/home/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--43_2a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/11675/dscv_tempdir/dscv/ri/43_2a/drivers/net/wireless/ipw2x00/ipw2200.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   size_t ldvarg1 ;
   char *ldvarg0 ;
@@ -47659,7 +47659,7 @@ void main(void)
 #line 5714
   ldv_check_final_state();
 #line 5715
-  return;
+  return 0;
 }
 }
 #line 5742 "/home/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--43_2a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/11675/dscv_tempdir/dscv/ri/43_2a/drivers/net/wireless/ipw2x00/ipw2200.o.c.prepared"

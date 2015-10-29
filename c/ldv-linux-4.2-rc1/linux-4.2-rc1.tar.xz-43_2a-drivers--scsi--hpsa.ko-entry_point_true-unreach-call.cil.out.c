@@ -25566,7 +25566,7 @@ void invoke_work_2(void)
 }
 }
 #line 610 "/home/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--43_2a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/3512/dscv_tempdir/dscv/ri/43_2a/drivers/scsi/hpsa.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct device *ldvarg1 ;
   void *tmp ;
@@ -27170,7 +27170,7 @@ void main(void)
 #line 1561
   ldv_check_final_state();
 #line 1562
-  return;
+  return 0;
 }
 }
 #line 1648 "/home/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--43_2a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/3512/dscv_tempdir/dscv/ri/43_2a/drivers/scsi/hpsa.o.c.prepared"

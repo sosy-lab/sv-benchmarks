@@ -15140,7 +15140,7 @@ void ldv_target_type_4(void)
 #line 414
 void ldv_main_exported_3(void) ;
 #line 420 "/work/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--32_7a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/970/dscv_tempdir/dscv/ri/32_7a/drivers/md/dm-cache-target.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct bio_vec *ldvarg11 ;
   void *tmp ;
@@ -15817,7 +15817,7 @@ void main(void)
 #line 879
   ldv_check_final_state();
 #line 880
-  return;
+  return 0;
 }
 }
 #line 889 "/work/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--32_7a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/970/dscv_tempdir/dscv/ri/32_7a/drivers/md/dm-cache-target.o.c.prepared"

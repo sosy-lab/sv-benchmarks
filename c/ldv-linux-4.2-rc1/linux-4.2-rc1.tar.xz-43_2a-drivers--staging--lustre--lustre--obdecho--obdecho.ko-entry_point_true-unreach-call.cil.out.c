@@ -21059,7 +21059,7 @@ void ldv_initialize_cl_object_operations_7(void)
 }
 }
 #line 128 "/home/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--43_2a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/1766/dscv_tempdir/dscv/ri/43_2a/drivers/staging/lustre/lustre/obdecho/echo_client.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct lu_object *ldvarg1 ;
   void *tmp ;
@@ -22034,7 +22034,7 @@ void main(void)
 #line 705
   ldv_check_final_state();
 #line 706
-  return;
+  return 0;
 }
 }
 #line 709 "/home/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--43_2a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/1766/dscv_tempdir/dscv/ri/43_2a/drivers/staging/lustre/lustre/obdecho/echo_client.o.c.prepared"

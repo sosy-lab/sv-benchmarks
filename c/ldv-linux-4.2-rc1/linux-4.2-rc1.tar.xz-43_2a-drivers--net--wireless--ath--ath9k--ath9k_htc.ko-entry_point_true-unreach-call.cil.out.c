@@ -30396,7 +30396,7 @@ void ldv_main_exported_13(void) ;
 #line 799
 void ldv_main_exported_16(void) ;
 #line 803 "/home/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--43_2a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/11557/dscv_tempdir/dscv/ri/43_2a/drivers/net/wireless/ath/ath9k/htc_drv_init.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   int *ldvarg14 ;
   void *tmp ;
@@ -30879,7 +30879,7 @@ void main(void)
 #line 1157
   ldv_check_final_state();
 #line 1158
-  return;
+  return 0;
 }
 }
 #line 1274 "/home/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--43_2a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/11557/dscv_tempdir/dscv/ri/43_2a/drivers/net/wireless/ath/ath9k/htc_drv_init.o.c.prepared"

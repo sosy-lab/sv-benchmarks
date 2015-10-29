@@ -15649,7 +15649,7 @@ void ldv_main_exported_7(void) ;
 #line 927
 void ldv_main_exported_10(void) ;
 #line 931 "/work/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--32_7a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/4101/dscv_tempdir/dscv/ri/32_7a/drivers/media/pci/saa7164/saa7164-core.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct pci_device_id *ldvarg35 ;
   void *tmp ;
@@ -16051,7 +16051,7 @@ void main(void)
 #line 1192
   ldv_check_final_state();
 #line 1193
-  return;
+  return 0;
 }
 }
 #line 1208 "/work/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--32_7a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/4101/dscv_tempdir/dscv/ri/32_7a/drivers/media/pci/saa7164/saa7164-core.o.c.prepared"

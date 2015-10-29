@@ -10034,7 +10034,7 @@ void disable_suitable_irq_1(int line , void *data )
 }
 }
 #line 190 "/home/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--43_2a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/8769/dscv_tempdir/dscv/ri/43_2a/drivers/isdn/hardware/avm/c4.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   loff_t ldvarg1 ;
   char *ldvarg4 ;
@@ -10302,7 +10302,7 @@ void main(void)
 #line 350
   ldv_check_final_state();
 #line 351
-  return;
+  return 0;
 }
 }
 #line 437 "/home/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--43_2a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/8769/dscv_tempdir/dscv/ri/43_2a/drivers/isdn/hardware/avm/c4.o.c.prepared"

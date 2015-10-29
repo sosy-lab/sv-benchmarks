@@ -28483,7 +28483,7 @@ extern void ldv_initialize(void) ;
 #line 121
 void ldv_check_final_state(void) ;
 #line 135 "/work/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--32_7a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/7235/dscv_tempdir/dscv/ri/32_7a/drivers/staging/lustre/lustre/libcfs/module.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   void *ldvarg8 ;
   void *tmp ;
@@ -28725,7 +28725,7 @@ void main(void)
 #line 290
   ldv_check_final_state();
 #line 291
-  return;
+  return 0;
 }
 }
 #line 318 "/work/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--32_7a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/7235/dscv_tempdir/dscv/ri/32_7a/drivers/staging/lustre/lustre/libcfs/module.o.c.prepared"

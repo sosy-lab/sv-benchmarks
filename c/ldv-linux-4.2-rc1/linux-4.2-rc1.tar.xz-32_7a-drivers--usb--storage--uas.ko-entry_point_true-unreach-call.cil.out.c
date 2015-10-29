@@ -9196,7 +9196,7 @@ void work_init_1(void)
 }
 }
 #line 271 "/work/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--32_7a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/9120/dscv_tempdir/dscv/ri/32_7a/drivers/usb/storage/uas.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct Scsi_Host *ldvarg0 ;
   void *tmp ;
@@ -9536,7 +9536,7 @@ void main(void)
 #line 491
   ldv_check_final_state();
 #line 492
-  return;
+  return 0;
 }
 }
 #line 519 "/work/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--32_7a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/9120/dscv_tempdir/dscv/ri/32_7a/drivers/usb/storage/uas.o.c.prepared"

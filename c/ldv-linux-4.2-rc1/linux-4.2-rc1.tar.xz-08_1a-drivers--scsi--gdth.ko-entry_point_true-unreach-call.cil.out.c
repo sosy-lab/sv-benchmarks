@@ -18238,7 +18238,7 @@ void choose_interrupt_1(void)
 }
 }
 #line 241 "/work/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--08_1a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/6304/dscv_tempdir/dscv/ri/08_1a/drivers/scsi/gdth.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   unsigned int ldvarg1 ;
   loff_t ldvarg3 ;
@@ -18791,7 +18791,7 @@ void main(void)
 #line 601
   ldv_check_final_state();
 #line 602
-  return;
+  return 0;
 }
 }
 #line 629 "/work/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--08_1a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/6304/dscv_tempdir/dscv/ri/08_1a/drivers/scsi/gdth.o.c.prepared"

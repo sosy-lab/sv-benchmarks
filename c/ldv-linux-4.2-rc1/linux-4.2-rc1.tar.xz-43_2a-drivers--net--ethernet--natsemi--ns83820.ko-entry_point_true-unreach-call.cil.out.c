@@ -11114,7 +11114,7 @@ void invoke_work_2(void)
 }
 }
 #line 400 "/home/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--43_2a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/10706/dscv_tempdir/dscv/ri/43_2a/drivers/net/ethernet/natsemi/ns83820.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct ethtool_drvinfo *ldvarg0 ;
   void *tmp ;
@@ -11668,7 +11668,7 @@ void main(void)
 #line 781
   ldv_check_final_state();
 #line 782
-  return;
+  return 0;
 }
 }
 #line 809 "/home/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--43_2a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/10706/dscv_tempdir/dscv/ri/43_2a/drivers/net/ethernet/natsemi/ns83820.o.c.prepared"

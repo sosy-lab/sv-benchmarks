@@ -47206,7 +47206,7 @@ extern void ldv_initialize(void) ;
 #line 35
 extern void ldv_check_final_state(void) ;
 #line 45 "/home/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--43_2a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/1925/dscv_tempdir/dscv/ri/43_2a/drivers/staging/lustre/lnet/selftest/module.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   int tmp ;
   int tmp___0 ;
@@ -47305,7 +47305,7 @@ void main(void)
 #line 103
   ldv_check_final_state();
 #line 104
-  return;
+  return 0;
 }
 }
 #line 255 "/home/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--43_2a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/1925/dscv_tempdir/dscv/ri/43_2a/drivers/staging/lustre/lnet/selftest/module.o.c.prepared"

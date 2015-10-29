@@ -44412,7 +44412,7 @@ extern void ldv_initialize(void) ;
 #line 110
 void ldv_check_final_state(void) ;
 #line 120 "/work/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--32_7a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/7207/dscv_tempdir/dscv/ri/32_7a/drivers/staging/lustre/lnet/lnet/module.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct libcfs_ioctl_data *ldvarg1 ;
   void *tmp ;
@@ -44540,7 +44540,7 @@ void main(void)
 #line 192
   ldv_check_final_state();
 #line 193
-  return;
+  return 0;
 }
 }
 #line 220 "/work/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--32_7a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/7207/dscv_tempdir/dscv/ri/32_7a/drivers/staging/lustre/lnet/lnet/module.o.c.prepared"

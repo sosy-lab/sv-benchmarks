@@ -14292,7 +14292,7 @@ void ldv_main_exported_14(void) ;
 #line 506
 void ldv_main_exported_12(void) ;
 #line 524 "/home/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--43_2a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/678/dscv_tempdir/dscv/ri/43_2a/drivers/infiniband/hw/nes/nes.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   size_t ldvarg1 ;
   char *ldvarg0 ;
@@ -15354,7 +15354,7 @@ void main(void)
 #line 1202
   ldv_check_final_state();
 #line 1203
-  return;
+  return 0;
 }
 }
 #line 1289 "/home/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--43_2a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/678/dscv_tempdir/dscv/ri/43_2a/drivers/infiniband/hw/nes/nes.o.c.prepared"

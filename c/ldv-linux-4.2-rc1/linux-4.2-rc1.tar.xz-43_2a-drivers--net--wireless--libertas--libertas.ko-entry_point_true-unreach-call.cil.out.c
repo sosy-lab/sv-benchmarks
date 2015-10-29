@@ -28238,7 +28238,7 @@ void ldv_main_exported_10(void) ;
 #line 783
 void ldv_main_exported_13(void) ;
 #line 789 "/home/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--43_2a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/11063/dscv_tempdir/dscv/ri/43_2a/drivers/net/wireless/libertas/main.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   int ldvarg8 ;
   struct sk_buff *ldvarg7 ;
@@ -28826,7 +28826,7 @@ void main(void)
 #line 1203
   ldv_check_final_state();
 #line 1204
-  return;
+  return 0;
 }
 }
 #line 1239 "/home/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--43_2a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/11063/dscv_tempdir/dscv/ri/43_2a/drivers/net/wireless/libertas/main.o.c.prepared"

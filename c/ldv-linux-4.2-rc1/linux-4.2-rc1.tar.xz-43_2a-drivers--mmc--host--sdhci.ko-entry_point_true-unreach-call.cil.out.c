@@ -14924,7 +14924,7 @@ int ldv_irq_2(int state , int line , void *data )
 }
 }
 #line 765 "/home/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--43_2a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/13057/dscv_tempdir/dscv/ri/43_2a/drivers/mmc/host/sdhci.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   u32 ldvarg7 ;
   struct mmc_card *ldvarg3 ;
@@ -15296,7 +15296,7 @@ void main(void)
 #line 1027
   ldv_check_final_state();
 #line 1028
-  return;
+  return 0;
 }
 }
 #line 1031 "/home/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--43_2a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/13057/dscv_tempdir/dscv/ri/43_2a/drivers/mmc/host/sdhci.o.c.prepared"

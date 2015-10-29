@@ -17506,7 +17506,7 @@ void ldv_main_exported_5(void) ;
 #line 191
 void ldv_main_exported_11(void) ;
 #line 198 "/work/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--08_1a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/9130/dscv_tempdir/dscv/ri/08_1a/drivers/usb/dwc2/platform.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   int tmp ;
   int tmp___0 ;
@@ -18174,7 +18174,7 @@ void main(void)
 #line 647
   ldv_check_final_state();
 #line 648
-  return;
+  return 0;
 }
 }
 #line 657 "/work/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--08_1a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/9130/dscv_tempdir/dscv/ri/08_1a/drivers/usb/dwc2/platform.o.c.prepared"

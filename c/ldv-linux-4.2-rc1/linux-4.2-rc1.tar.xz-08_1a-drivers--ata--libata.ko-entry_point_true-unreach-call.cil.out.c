@@ -24829,7 +24829,7 @@ void ldv_main_exported_10(void) ;
 #line 576
 void ldv_main_exported_9(void) ;
 #line 580 "/work/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--08_1a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/13180/dscv_tempdir/dscv/ri/08_1a/drivers/ata/libata-core.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   void *ldvarg29 ;
   void *tmp ;
@@ -26821,7 +26821,7 @@ void main(void)
 #line 1889
   ldv_check_final_state();
 #line 1890
-  return;
+  return 0;
 }
 }
 #line 1905 "/work/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--08_1a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/13180/dscv_tempdir/dscv/ri/08_1a/drivers/ata/libata-core.o.c.prepared"

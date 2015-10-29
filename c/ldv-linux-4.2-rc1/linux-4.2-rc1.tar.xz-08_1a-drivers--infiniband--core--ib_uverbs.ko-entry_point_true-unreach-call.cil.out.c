@@ -9278,7 +9278,7 @@ void ldv_initialize_ib_client_4(void)
 }
 }
 #line 86 "/work/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--08_1a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/5041/dscv_tempdir/dscv/ri/08_1a/drivers/infiniband/core/uverbs_main.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   loff_t ldvarg1 ;
   char *ldvarg4 ;
@@ -9966,7 +9966,7 @@ void main(void)
 #line 487
   ldv_check_final_state();
 #line 488
-  return;
+  return 0;
 }
 }
 #line 491 "/work/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--08_1a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/5041/dscv_tempdir/dscv/ri/08_1a/drivers/infiniband/core/uverbs_main.o.c.prepared"

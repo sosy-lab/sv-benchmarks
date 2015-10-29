@@ -7147,7 +7147,7 @@ void ldv_initialize_md_cluster_operations_1(void)
 }
 }
 #line 53 "/work/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--08_1a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/997/dscv_tempdir/dscv/ri/08_1a/drivers/md/md-cluster.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   bool ldvarg7 ;
   sector_t ldvarg3 ;
@@ -7547,7 +7547,7 @@ void main(void)
 #line 321
   ldv_check_final_state();
 #line 322
-  return;
+  return 0;
 }
 }
 #line 349 "/work/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--08_1a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/997/dscv_tempdir/dscv/ri/08_1a/drivers/md/md-cluster.o.c.prepared"

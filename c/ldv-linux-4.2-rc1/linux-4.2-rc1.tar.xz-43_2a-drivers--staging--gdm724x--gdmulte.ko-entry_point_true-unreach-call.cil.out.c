@@ -14092,7 +14092,7 @@ void invoke_work_2(void)
 }
 }
 #line 371 "/home/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--43_2a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/1705/dscv_tempdir/dscv/ri/43_2a/drivers/staging/gdm724x/gdm_usb.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct usb_device_id *ldvarg3 ;
   void *tmp ;
@@ -14336,7 +14336,7 @@ void main(void)
 #line 525
   ldv_check_final_state();
 #line 526
-  return;
+  return 0;
 }
 }
 #line 612 "/home/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--43_2a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/1705/dscv_tempdir/dscv/ri/43_2a/drivers/staging/gdm724x/gdm_usb.o.c.prepared"

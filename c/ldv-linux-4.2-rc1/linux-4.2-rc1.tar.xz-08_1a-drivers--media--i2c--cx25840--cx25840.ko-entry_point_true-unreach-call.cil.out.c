@@ -16654,7 +16654,7 @@ void ldv_main_exported_5(void) ;
 #line 563
 void ldv_main_exported_4(void) ;
 #line 567 "/work/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--08_1a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/2770/dscv_tempdir/dscv/ri/08_1a/drivers/media/i2c/cx25840/cx25840-core.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct i2c_device_id *ldvarg0 ;
   void *tmp ;
@@ -17563,7 +17563,7 @@ void main(void)
 #line 1149
   ldv_check_final_state();
 #line 1150
-  return;
+  return 0;
 }
 }
 #line 1177 "/work/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--08_1a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/2770/dscv_tempdir/dscv/ri/08_1a/drivers/media/i2c/cx25840/cx25840-core.o.c.prepared"

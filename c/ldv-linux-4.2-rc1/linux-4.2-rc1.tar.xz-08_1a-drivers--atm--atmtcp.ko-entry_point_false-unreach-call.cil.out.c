@@ -8936,7 +8936,7 @@ void ldv_initialize_atmdev_ops_2(void)
 }
 }
 #line 57 "/work/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--08_1a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/5412/dscv_tempdir/dscv/ri/08_1a/drivers/atm/atmtcp.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   unsigned long ldvarg1 ;
   struct socket *ldvarg0 ;
@@ -9293,7 +9293,7 @@ void main(void)
 #line 277
   ldv_check_final_state();
 #line 278
-  return;
+  return 0;
 }
 }
 #line 305 "/work/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--08_1a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/5412/dscv_tempdir/dscv/ri/08_1a/drivers/atm/atmtcp.o.c.prepared"

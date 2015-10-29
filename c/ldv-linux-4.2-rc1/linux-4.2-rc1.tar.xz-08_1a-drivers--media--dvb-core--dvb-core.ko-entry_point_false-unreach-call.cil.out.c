@@ -8928,7 +8928,7 @@ void ldv_main_exported_4(void) ;
 #line 112
 void ldv_main_exported_5(void) ;
 #line 118 "/work/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--08_1a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/2927/dscv_tempdir/dscv/ri/08_1a/drivers/media/dvb-core/dvbdev.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   int ldvarg8 ;
   loff_t ldvarg9 ;
@@ -9189,7 +9189,7 @@ void main(void)
 #line 306
   ldv_check_final_state();
 #line 307
-  return;
+  return 0;
 }
 }
 #line 316 "/work/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--08_1a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/2927/dscv_tempdir/dscv/ri/08_1a/drivers/media/dvb-core/dvbdev.o.c.prepared"

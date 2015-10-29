@@ -15236,7 +15236,7 @@ void ldv_main_exported_10(void) ;
 #line 347
 void ldv_main_exported_9(void) ;
 #line 353 "/work/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--32_7a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/3759/dscv_tempdir/dscv/ri/32_7a/drivers/media/usb/pvrusb2/pvrusb2-main.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct usb_device_id *ldvarg57 ;
   void *tmp ;
@@ -15550,7 +15550,7 @@ void main(void)
 #line 589
   ldv_check_final_state();
 #line 590
-  return;
+  return 0;
 }
 }
 #line 617 "/work/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--32_7a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/3759/dscv_tempdir/dscv/ri/32_7a/drivers/media/usb/pvrusb2/pvrusb2-main.o.c.prepared"

@@ -16318,7 +16318,7 @@ void ldv_initialize_em28xx_ops_1(void)
 }
 }
 #line 52 "/work/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--08_1a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/3715/dscv_tempdir/dscv/ri/08_1a/drivers/media/usb/em28xx/em28xx-dvb.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct dvb_frontend *ldvarg0 ;
   void *tmp ;
@@ -16707,7 +16707,7 @@ void main(void)
 #line 309
   ldv_check_final_state();
 #line 310
-  return;
+  return 0;
 }
 }
 #line 337 "/work/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--08_1a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/3715/dscv_tempdir/dscv/ri/08_1a/drivers/media/usb/em28xx/em28xx-dvb.o.c.prepared"

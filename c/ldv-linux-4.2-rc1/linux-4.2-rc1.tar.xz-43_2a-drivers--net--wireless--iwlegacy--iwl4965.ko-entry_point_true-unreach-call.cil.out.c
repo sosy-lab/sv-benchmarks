@@ -33626,7 +33626,7 @@ void ldv_main_exported_14(void) ;
 #line 1496
 void ldv_main_exported_10(void) ;
 #line 1500 "/home/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--43_2a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/11700/dscv_tempdir/dscv/ri/43_2a/drivers/net/wireless/iwlegacy/4965-mac.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   char *ldvarg21 ;
   void *tmp ;
@@ -34838,7 +34838,7 @@ void main(void)
 #line 2244
   ldv_check_final_state();
 #line 2245
-  return;
+  return 0;
 }
 }
 #line 2272 "/home/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--43_2a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/11700/dscv_tempdir/dscv/ri/43_2a/drivers/net/wireless/iwlegacy/4965-mac.o.c.prepared"

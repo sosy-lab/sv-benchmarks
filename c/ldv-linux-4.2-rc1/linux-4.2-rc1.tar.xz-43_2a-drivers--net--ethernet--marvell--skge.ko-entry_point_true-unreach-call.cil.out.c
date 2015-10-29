@@ -18455,7 +18455,7 @@ void ldv_timer_3(int state , struct timer_list *timer )
 }
 }
 #line 553 "/home/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--43_2a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/10526/dscv_tempdir/dscv/ri/43_2a/drivers/net/ethernet/marvell/skge.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   int ldvarg1 ;
   struct ifreq *ldvarg4 ;
@@ -19882,7 +19882,7 @@ void main(void)
 #line 1511
   ldv_check_final_state();
 #line 1512
-  return;
+  return 0;
 }
 }
 #line 1527 "/home/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--43_2a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/10526/dscv_tempdir/dscv/ri/43_2a/drivers/net/ethernet/marvell/skge.o.c.prepared"

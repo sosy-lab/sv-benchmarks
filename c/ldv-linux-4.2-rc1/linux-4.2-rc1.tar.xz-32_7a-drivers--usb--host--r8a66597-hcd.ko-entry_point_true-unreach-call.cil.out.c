@@ -12113,7 +12113,7 @@ void ldv_timer_3(int state , struct timer_list *timer )
 }
 }
 #line 638 "/work/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--32_7a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/9076/dscv_tempdir/dscv/ri/32_7a/drivers/usb/host/r8a66597-hcd.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct usb_host_endpoint *ldvarg7 ;
   void *tmp ;
@@ -12865,7 +12865,7 @@ void main(void)
 #line 1135
   ldv_check_final_state();
 #line 1136
-  return;
+  return 0;
 }
 }
 #line 1145 "/work/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--32_7a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/9076/dscv_tempdir/dscv/ri/32_7a/drivers/usb/host/r8a66597-hcd.o.c.prepared"

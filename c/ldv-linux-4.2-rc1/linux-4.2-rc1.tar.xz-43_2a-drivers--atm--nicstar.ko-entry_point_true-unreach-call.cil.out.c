@@ -14481,7 +14481,7 @@ void choose_interrupt_1(void)
 }
 }
 #line 232 "/home/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--43_2a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/2870/dscv_tempdir/dscv/ri/43_2a/drivers/atm/nicstar.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   loff_t *ldvarg7 ;
   void *tmp ;
@@ -14842,7 +14842,7 @@ void main(void)
 #line 461
   ldv_check_final_state();
 #line 462
-  return;
+  return 0;
 }
 }
 #line 516 "/home/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--43_2a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/2870/dscv_tempdir/dscv/ri/43_2a/drivers/atm/nicstar.o.c.prepared"

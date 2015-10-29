@@ -10027,7 +10027,7 @@ void ldv_initialize_fb_ops_6(void)
 }
 }
 #line 606 "/work/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--32_7a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/5262/dscv_tempdir/dscv/ri/32_7a/drivers/video/fbdev/udlfb.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct fb_image *ldvarg18 ;
   void *tmp ;
@@ -10712,7 +10712,7 @@ void main(void)
 #line 1048
   ldv_check_final_state();
 #line 1049
-  return;
+  return 0;
 }
 }
 #line 1076 "/work/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--32_7a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/5262/dscv_tempdir/dscv/ri/32_7a/drivers/video/fbdev/udlfb.o.c.prepared"

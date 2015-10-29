@@ -33857,7 +33857,7 @@ void call_and_disable_work_2(struct work_struct *work )
 }
 }
 #line 1267 "/work/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--32_7a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/12333/dscv_tempdir/dscv/ri/32_7a/drivers/net/wireless/ipw2x00/ipw2100.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct ethtool_drvinfo *ldvarg0 ;
   void *tmp ;
@@ -35428,7 +35428,7 @@ void main(void)
 #line 2186
   ldv_check_final_state();
 #line 2187
-  return;
+  return 0;
 }
 }
 #line 2214 "/work/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--32_7a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/12333/dscv_tempdir/dscv/ri/32_7a/drivers/net/wireless/ipw2x00/ipw2100.o.c.prepared"

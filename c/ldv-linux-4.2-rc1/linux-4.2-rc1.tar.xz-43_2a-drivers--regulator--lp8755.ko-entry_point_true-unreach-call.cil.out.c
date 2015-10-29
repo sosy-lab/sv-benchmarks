@@ -36076,7 +36076,7 @@ int reg_check_2(irqreturn_t (*handler)(int  , void * ) , irqreturn_t (*thread_fn
 }
 }
 #line 349 "/home/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--43_2a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/3625/dscv_tempdir/dscv/ri/43_2a/drivers/regulator/lp8755.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   int ldvarg1 ;
   unsigned int ldvarg4 ;
@@ -36422,7 +36422,7 @@ void main(void)
 #line 584
   ldv_check_final_state();
 #line 585
-  return;
+  return 0;
 }
 }
 #line 594 "/home/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--43_2a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/3625/dscv_tempdir/dscv/ri/43_2a/drivers/regulator/lp8755.o.c.prepared"

@@ -6084,7 +6084,7 @@ void ldv_initialize_class_interface_1(void)
 }
 }
 #line 131 "/work/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--32_7a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/5896/dscv_tempdir/dscv/ri/32_7a/drivers/pcmcia/rsrc_nonstatic.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   char *ldvarg7 ;
   void *tmp ;
@@ -6615,7 +6615,7 @@ void main(void)
 #line 450
   ldv_check_final_state();
 #line 451
-  return;
+  return 0;
 }
 }
 #line 478 "/work/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--32_7a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/5896/dscv_tempdir/dscv/ri/32_7a/drivers/pcmcia/rsrc_nonstatic.o.c.prepared"

@@ -23025,7 +23025,7 @@ void ldv_main_exported_16(void) ;
 #line 1431
 void ldv_main_exported_15(void) ;
 #line 1435 "/work/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--32_7a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/11285/dscv_tempdir/dscv/ri/32_7a/drivers/net/ethernet/sfc/efx.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   enum pci_channel_state ldvarg0 ;
   int ldvarg178 ;
@@ -25268,7 +25268,7 @@ void main(void)
 #line 3004
   ldv_check_final_state();
 #line 3005
-  return;
+  return 0;
 }
 }
 #line 3032 "/work/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--32_7a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/11285/dscv_tempdir/dscv/ri/32_7a/drivers/net/ethernet/sfc/efx.o.c.prepared"

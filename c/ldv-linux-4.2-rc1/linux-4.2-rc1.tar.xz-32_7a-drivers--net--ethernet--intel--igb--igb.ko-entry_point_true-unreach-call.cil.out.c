@@ -30915,7 +30915,7 @@ void ldv_main_exported_17(void) ;
 #line 1409
 void ldv_main_exported_15(void) ;
 #line 1420 "/work/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--32_7a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/11386/dscv_tempdir/dscv/ri/32_7a/drivers/net/ethernet/intel/igb/igb_main.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   int ldvarg1 ;
   void *ldvarg4 ;
@@ -32754,7 +32754,7 @@ void main(void)
 #line 2711
   ldv_check_final_state();
 #line 2712
-  return;
+  return 0;
 }
 }
 #line 2739 "/work/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--32_7a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/11386/dscv_tempdir/dscv/ri/32_7a/drivers/net/ethernet/intel/igb/igb_main.o.c.prepared"

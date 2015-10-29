@@ -19230,7 +19230,7 @@ void ldv_main_exported_32(void) ;
 #line 1154
 void ldv_main_exported_31(void) ;
 #line 1158 "/work/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--32_7a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/12119/dscv_tempdir/dscv/ri/32_7a/drivers/net/wireless/ath/ath9k/init.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   int tmp ;
   int tmp___0 ;
@@ -19864,7 +19864,7 @@ void main(void)
 #line 1652
   ldv_check_final_state();
 #line 1653
-  return;
+  return 0;
 }
 }
 #line 1680 "/work/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--32_7a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/12119/dscv_tempdir/dscv/ri/32_7a/drivers/net/wireless/ath/ath9k/init.o.c.prepared"

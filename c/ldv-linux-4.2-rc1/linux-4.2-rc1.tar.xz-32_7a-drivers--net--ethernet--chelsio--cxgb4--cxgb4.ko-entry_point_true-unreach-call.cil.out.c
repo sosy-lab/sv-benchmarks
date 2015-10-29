@@ -25182,7 +25182,7 @@ void ldv_main_exported_43(void) ;
 #line 1540
 void ldv_main_exported_42(void) ;
 #line 1544 "/work/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--32_7a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/11616/dscv_tempdir/dscv/ri/32_7a/drivers/net/ethernet/chelsio/cxgb4/cxgb4_main.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct notifier_block *ldvarg77 ;
   void *tmp ;
@@ -26735,7 +26735,7 @@ void main(void)
 #line 2633
   ldv_check_final_state();
 #line 2634
-  return;
+  return 0;
 }
 }
 #line 2643 "/work/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--32_7a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/11616/dscv_tempdir/dscv/ri/32_7a/drivers/net/ethernet/chelsio/cxgb4/cxgb4_main.o.c.prepared"

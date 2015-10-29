@@ -22784,7 +22784,7 @@ void ldv_main_exported_11(void) ;
 #line 1649
 void ldv_main_exported_12(void) ;
 #line 1653 "/home/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--43_2a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/10625/dscv_tempdir/dscv/ri/43_2a/drivers/net/ethernet/brocade/bna/bnad.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   u16 ldvarg11 ;
   int ldvarg7 ;
@@ -23607,7 +23607,7 @@ void main(void)
 #line 2238
   ldv_check_final_state();
 #line 2239
-  return;
+  return 0;
 }
 }
 #line 2325 "/home/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--43_2a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/10625/dscv_tempdir/dscv/ri/43_2a/drivers/net/ethernet/brocade/bna/bnad.o.c.prepared"

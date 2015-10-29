@@ -14133,7 +14133,7 @@ void ldv_main_exported_3(void) ;
 #line 280
 void ldv_main_exported_5(void) ;
 #line 284 "/work/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--32_7a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/1368/dscv_tempdir/dscv/ri/32_7a/drivers/mtd/ubi/build.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct kernel_param *ldvarg1 ;
   void *tmp ;
@@ -15068,7 +15068,7 @@ void main(void)
 #line 810
   ldv_check_final_state();
 #line 811
-  return;
+  return 0;
 }
 }
 #line 838 "/work/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--32_7a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/1368/dscv_tempdir/dscv/ri/32_7a/drivers/mtd/ubi/build.o.c.prepared"

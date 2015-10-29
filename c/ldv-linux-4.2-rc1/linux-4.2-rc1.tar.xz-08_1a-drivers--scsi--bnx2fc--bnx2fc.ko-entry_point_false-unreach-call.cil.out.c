@@ -22455,7 +22455,7 @@ void activate_pending_timer_7(struct timer_list *timer , unsigned long data , in
 }
 }
 #line 530 "/work/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--08_1a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/6203/dscv_tempdir/dscv/ri/08_1a/drivers/scsi/bnx2fc/bnx2fc_fcoe.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   u32 ldvarg1 ;
   struct fc_bsg_job *ldvarg0 ;
@@ -23560,7 +23560,7 @@ void main(void)
 #line 1316
   ldv_check_final_state();
 #line 1317
-  return;
+  return 0;
 }
 }
 #line 1326 "/work/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--08_1a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/6203/dscv_tempdir/dscv/ri/08_1a/drivers/scsi/bnx2fc/bnx2fc_fcoe.o.c.prepared"

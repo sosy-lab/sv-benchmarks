@@ -16348,7 +16348,7 @@ void activate_work_6(struct work_struct *work , int state )
 #line 1047
 void ldv_main_exported_8(void) ;
 #line 1051 "/work/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--32_7a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/11303/dscv_tempdir/dscv/ri/32_7a/drivers/net/ethernet/intel/i40evf/i40evf_main.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct pci_device_id *ldvarg1 ;
   void *tmp ;
@@ -17129,7 +17129,7 @@ void main(void)
 #line 1590
   ldv_check_final_state();
 #line 1591
-  return;
+  return 0;
 }
 }
 #line 1618 "/work/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--32_7a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/11303/dscv_tempdir/dscv/ri/32_7a/drivers/net/ethernet/intel/i40evf/i40evf_main.o.c.prepared"

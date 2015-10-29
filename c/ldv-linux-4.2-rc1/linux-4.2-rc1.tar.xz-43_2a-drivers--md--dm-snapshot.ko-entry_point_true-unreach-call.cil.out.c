@@ -10110,7 +10110,7 @@ void ldv_main_exported_4(void) ;
 #line 97
 void ldv_main_exported_3(void) ;
 #line 101 "/home/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--43_2a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/1386/dscv_tempdir/dscv/ri/43_2a/drivers/md/dm-snap.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   int ldvarg7 ;
   unsigned int ldvarg3 ;
@@ -11387,7 +11387,7 @@ void main(void)
 #line 962
   ldv_check_final_state();
 #line 963
-  return;
+  return 0;
 }
 }
 #line 972 "/home/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--43_2a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/1386/dscv_tempdir/dscv/ri/43_2a/drivers/md/dm-snap.o.c.prepared"

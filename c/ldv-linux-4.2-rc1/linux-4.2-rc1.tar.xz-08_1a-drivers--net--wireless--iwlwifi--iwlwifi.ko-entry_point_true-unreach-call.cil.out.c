@@ -14547,7 +14547,7 @@ void ldv_main_exported_44(void) ;
 #line 247
 void ldv_main_exported_41(void) ;
 #line 251 "/work/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--08_1a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/12023/dscv_tempdir/dscv/ri/08_1a/drivers/net/wireless/iwlwifi/iwl-drv.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   int tmp ;
   int tmp___0 ;
@@ -15320,7 +15320,7 @@ void main(void)
 #line 803
   ldv_check_final_state();
 #line 804
-  return;
+  return 0;
 }
 }
 #line 807 "/work/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--08_1a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/12023/dscv_tempdir/dscv/ri/08_1a/drivers/net/wireless/iwlwifi/iwl-drv.o.c.prepared"

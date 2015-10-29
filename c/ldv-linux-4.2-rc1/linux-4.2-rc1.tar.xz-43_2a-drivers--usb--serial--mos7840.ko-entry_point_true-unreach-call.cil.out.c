@@ -11899,7 +11899,7 @@ void timer_init_2(void)
 }
 }
 #line 391 "/home/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--43_2a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/9672/dscv_tempdir/dscv/ri/43_2a/drivers/usb/serial/mos7840.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   unsigned int ldvarg7 ;
   unsigned char *ldvarg3 ;
@@ -12790,7 +12790,7 @@ void main(void)
 #line 1040
   ldv_check_final_state();
 #line 1041
-  return;
+  return 0;
 }
 }
 #line 1068 "/home/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--43_2a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/9672/dscv_tempdir/dscv/ri/43_2a/drivers/usb/serial/mos7840.o.c.prepared"

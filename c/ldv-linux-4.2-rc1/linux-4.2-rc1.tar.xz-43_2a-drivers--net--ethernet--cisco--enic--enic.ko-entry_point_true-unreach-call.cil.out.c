@@ -18521,7 +18521,7 @@ void activate_pending_timer_6(struct timer_list *timer , unsigned long data , in
 #line 738
 void ldv_main_exported_9(void) ;
 #line 742 "/home/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--43_2a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/10358/dscv_tempdir/dscv/ri/43_2a/drivers/net/ethernet/cisco/enic/enic_main.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct sk_buff *ldvarg11 ;
   void *tmp ;
@@ -19949,7 +19949,7 @@ void main(void)
 #line 1745
   ldv_check_final_state();
 #line 1746
-  return;
+  return 0;
 }
 }
 #line 1773 "/home/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--43_2a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/10358/dscv_tempdir/dscv/ri/43_2a/drivers/net/ethernet/cisco/enic/enic_main.o.c.prepared"
