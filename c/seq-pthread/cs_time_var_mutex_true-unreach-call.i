@@ -653,7 +653,7 @@ unsigned char *__CS_thread_lockedon[3][2 +1];
 int nondet_int();
 void __CS_cs(void)
 {
- unsigned char k;
+ unsigned char k = __VERIFIER_nondet_uchar();
  __VERIFIER_assume(__CS_round+k < 3);
  __CS_round += k;
  __CS_ret = (nondet_int() && __CS_round == 3 -1)?__CS_ret_PREEMPTED:__CS_ret;
@@ -844,8 +844,8 @@ void *de_allocator()
 }
 void *main_thread(void *arg)
 {
- unsigned char t1;
- unsigned char t2;
+ unsigned char t1 = __VERIFIER_nondet_uchar();
+ unsigned char t2 = __VERIFIER_nondet_uchar();
  __CS_cs(); if (__CS_ret != 0) return 0;
  __CS_assume(inode[__CS_round] == busy[__CS_round]);
  __CS_cs(); if (__CS_ret != 0) return 0;
@@ -875,6 +875,19 @@ int main()
  int __CS_cp_inode[3];
  unsigned char __CS_cp_m_inode[3];
  unsigned char __CS_cp_m_busy[3];
+ int i, j;
+
+ for(i = 0; i < 3; i++) {
+   __CS_cp_block[i] = __VERIFIER_nondet_int();
+   __CS_cp_busy[i] = __VERIFIER_nondet_int();
+   __CS_cp_inode[i] = __VERIFIER_nondet_int();
+   __CS_cp_m_inode[i] = __VERIFIER_nondet_uchar();
+   __CS_cp_m_busy[i] = __VERIFIER_nondet_uchar();
+   for(j = 0; j < 3; j++) {
+     __CS_cp___CS_thread_status[i][j] = __VERIFIER_nondet_uchar();
+     __CS_cp___CS_thread_lockedon[i][j] = (unsigned char *) __VERIFIER_nondet_pointer();
+   }
+ }
  __CS_thread_status[1][0] = __CS_cp___CS_thread_status[1][0];
  __CS_thread_status[2][0] = __CS_cp___CS_thread_status[2][0];
  __CS_thread_status[1][1] = __CS_cp___CS_thread_status[1][1];
