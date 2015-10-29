@@ -653,7 +653,7 @@ unsigned char *__CS_thread_lockedon[6][2 +1];
 int nondet_int();
 void __CS_cs(void)
 {
- unsigned char k;
+ unsigned char k = __VERIFIER_nondet_uchar();
  __VERIFIER_assume(__CS_round+k < 6);
  __CS_round += k;
  __CS_ret = (nondet_int() && __CS_round == 6 -1)?__CS_ret_PREEMPTED:__CS_ret;
@@ -806,10 +806,10 @@ void *t2(void *arg)
 }
 void *main_thread(void *arg)
 {
- int __CS_main_arg_argc;
+ int __CS_main_arg_argc = __VERIFIER_nondet_int();
  char **argv;
- unsigned char id1;
- unsigned char id2;
+ unsigned char id1 = __VERIFIER_nondet_uchar();
+ unsigned char id2 = __VERIFIER_nondet_uchar();
  __CS_cs(); if (__CS_ret != 0) return 0;
  __CS_pthread_create(&id1, 0, t1, 0);
  __CS_cs(); if (__CS_ret != 0) return 0;
@@ -833,6 +833,16 @@ int main(int argc, char **argv)
  unsigned char *__CS_cp___CS_thread_lockedon[6][2 +1];
  int __CS_cp_i[6];
  int __CS_cp_j[6];
+ int k, l;
+
+ for(k = 0; k < 6; k++) {
+   __CS_cp_i[k] = __VERIFIER_nondet_int();
+   __CS_cp_j[k] = __VERIFIER_nondet_int();
+   for(l = 0; l < 3; l++) {
+     __CS_cp___CS_thread_status[k][l] = __VERIFIER_nondet_uchar();
+     __CS_cp___CS_thread_lockedon[k][l] = (unsigned char *) __VERIFIER_nondet_pointer();
+   }
+ }
  __CS_thread_status[1][0] = __CS_cp___CS_thread_status[1][0];
  __CS_thread_status[2][0] = __CS_cp___CS_thread_status[2][0];
  __CS_thread_status[3][0] = __CS_cp___CS_thread_status[3][0];
