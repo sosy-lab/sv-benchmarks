@@ -7771,7 +7771,7 @@ void ldv_net_device_ops_2(void)
 }
 }
 #line 71 "/home/ldvuser/andrianov/commit-tester-work/task-221--linux-stable--dir/work/current--X--drivers/net/usb/cdc-phonet.ko--X--defaultlinux-stable-47dffc7-1--X--144_2a--X--cpachecker/linux-stable-47dffc7-1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/144_2a/drivers/net/usb/cdc-phonet.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct usb_device_id *ldvarg0 ;
   void *tmp ;
@@ -8082,7 +8082,7 @@ void main(void)
 #line 263
   ldv_check_final_state();
 #line 264
-  return;
+  return 0;
 }
 }
 #line 267 "/home/ldvuser/andrianov/commit-tester-work/task-221--linux-stable--dir/work/current--X--drivers/net/usb/cdc-phonet.ko--X--defaultlinux-stable-47dffc7-1--X--144_2a--X--cpachecker/linux-stable-47dffc7-1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/144_2a/drivers/net/usb/cdc-phonet.o.c.prepared"
