@@ -28,12 +28,7 @@ DIRS += ldv-consumption
 DIRS += ldv-linux-3.0
 DIRS += ldv-linux-3.12-rc1
 DIRS += ldv-linux-3.16-rc1
-# FIXME: We should be able to compile these with Clang
-ifeq ($(CC_IS_CLANG)$(CLANG_BUILD_HACK),11)
-  $(warning Skipping ldv-linux-3.4-simple due to Clang compilation issues)
-else
-  DIRS += ldv-linux-3.4-simple
-endif
+DIRS += ldv-linux-3.4-simple
 DIRS += ldv-linux-3.7.3
 DIRS += ldv-linux-4.2-rc1
 DIRS += ldv-memsafety
