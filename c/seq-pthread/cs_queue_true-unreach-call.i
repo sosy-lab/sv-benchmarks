@@ -1001,10 +1001,10 @@ int __CS_pthread_create(unsigned char *id1, void *attr, void *(*t1)(void*), void
 }
 typedef struct __CS_anonstruct_0
 {
- int element[20] = __VERIFIER_nondet_int();
- int head = __VERIFIER_nondet_int();
- int tail = __VERIFIER_nondet_int();
- int amount = __VERIFIER_nondet_int();
+ int element[20];
+ int head;
+ int tail;
+ int amount;
 } QType;
 unsigned char m[2];
 int nondet_int();
@@ -1226,6 +1226,12 @@ int main(void)
    __CS_cp_m[i] = __VERIFIER_nondet_uchar();
    __CS_cp_enqueue_flag[i] = __VERIFIER_nondet_bool();
    __CS_cp_dequeue_flag[i] = __VERIFIER_nondet_bool();
+   __CS_cp_queue[i].head = __VERIFIER_nondet_int();
+   __CS_cp_queue[i].tail = __VERIFIER_nondet_int();
+   __CS_cp_queue[i].amount = __VERIFIER_nondet_int();
+   for(j = 0; j < 20; j++) {
+     __CS_cp_queue[i].element[j] = __VERIFIER_nondet_int();
+   }
    for(j = 0; j < 3; j++) {
      __CS_cp___CS_thread_status[i][j] = __VERIFIER_nondet_uchar();
      __CS_cp___CS_thread_lockedon[i][j] = (unsigned char *) __VERIFIER_nondet_pointer();
