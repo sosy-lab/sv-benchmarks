@@ -9469,7 +9469,7 @@ void disable_suitable_timer_1(struct timer_list *timer )
 }
 }
 #line 1596 "/home/ldvuser/gratinskiy/commit-tester-runs/6-cpa-svcomp-newdeg/commit-tester-work/task-017--linux-stable--dir/work/current--X--drivers/net/slip.ko--X--defaultlinux-stable-1b0b0ac-1--X--108_1a--X--cpachecker/linux-stable-1b0b0ac-1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/108_1a/drivers/net/slip.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct sk_buff *ldvarg1 ;
   void *tmp ;
@@ -10016,7 +10016,7 @@ void main(void)
 #line 1938
   ldv_check_final_state();
 #line 1939
-  return;
+  return 0;
 }
 }
 #line 1942 "/home/ldvuser/gratinskiy/commit-tester-runs/6-cpa-svcomp-newdeg/commit-tester-work/task-017--linux-stable--dir/work/current--X--drivers/net/slip.ko--X--defaultlinux-stable-1b0b0ac-1--X--108_1a--X--cpachecker/linux-stable-1b0b0ac-1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/108_1a/drivers/net/slip.o.c.prepared"

@@ -4776,7 +4776,7 @@ void ldv_usb_driver_1(void)
 }
 }
 #line 61 "/home/ldvuser/andrianov/commit-tester-work/task-235--linux-stable--dir/work/current--X--drivers/input/tablet/acecad.ko--X--defaultlinux-stable-a450319-1--X--144_1a--X--cpachecker/linux-stable-a450319-1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/144_1a/drivers/input/tablet/acecad.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct usb_device_id *ldvarg0 ;
   void *tmp ;
@@ -4920,7 +4920,7 @@ void main(void)
 #line 143
   ldv_check_final_state();
 #line 144
-  return;
+  return 0;
 }
 }
 #line 147 "/home/ldvuser/andrianov/commit-tester-work/task-235--linux-stable--dir/work/current--X--drivers/input/tablet/acecad.ko--X--defaultlinux-stable-a450319-1--X--144_1a--X--cpachecker/linux-stable-a450319-1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/144_1a/drivers/input/tablet/acecad.o.c.prepared"

@@ -21542,7 +21542,7 @@ extern int __VERIFIER_nondet_int(void) ;
 #line 886 "/anthill/stuff/tacas-comp/work/current--X--drivers/staging/et131x/et131x.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/19/dscv_tempdir/dscv/ri/08_1/drivers/staging/et131x/et131x_initpci.c.p"
 int LDV_IN_INTERRUPT  ;
 #line 889 "/anthill/stuff/tacas-comp/work/current--X--drivers/staging/et131x/et131x.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/19/dscv_tempdir/dscv/ri/08_1/drivers/staging/et131x/et131x_initpci.c.p"
-void main(void) 
+int main(void) 
 { struct pci_dev *var_group1 ;
   struct pci_device_id  const  *var_et131x_pci_setup_11_p1 ;
   int res_et131x_pci_setup_11 ;
@@ -21659,7 +21659,7 @@ void main(void)
   ldv_check_final_state();
   }
 #line 1028
-  return;
+  return 0;
 }
 }
 #line 360 "include/linux/workqueue.h"

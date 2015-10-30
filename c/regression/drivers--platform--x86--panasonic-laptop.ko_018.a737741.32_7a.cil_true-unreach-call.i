@@ -4763,7 +4763,7 @@ extern int nondet_int(void) ;
 #line 755 "/work/ldvuser/novikov/work/current--X--drivers/platform/x86/panasonic-laptop.ko--X--defaultlinux--X--32_7a--X--cpachecker/linux/csd_deg_dscv/12/dscv_tempdir/dscv/ri/32_7a/drivers/platform/x86/panasonic-laptop.c.prepared"
 int LDV_IN_INTERRUPT  ;
 #line 758 "/work/ldvuser/novikov/work/current--X--drivers/platform/x86/panasonic-laptop.ko--X--defaultlinux--X--32_7a--X--cpachecker/linux/csd_deg_dscv/12/dscv_tempdir/dscv/ri/32_7a/drivers/platform/x86/panasonic-laptop.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct acpi_device *var_group1 ;
   int var_acpi_pcc_hotkey_remove_17_p1 ;
@@ -4865,7 +4865,7 @@ void main(void)
 #line 1103
   ldv_check_final_state();
 #line 1106
-  return;
+  return 0;
 }
 }
 #line 1110 "/work/ldvuser/novikov/work/current--X--drivers/platform/x86/panasonic-laptop.ko--X--defaultlinux--X--32_7a--X--cpachecker/linux/csd_deg_dscv/12/dscv_tempdir/dscv/ri/32_7a/drivers/platform/x86/panasonic-laptop.c.prepared"

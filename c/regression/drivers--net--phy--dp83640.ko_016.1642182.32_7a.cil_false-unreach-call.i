@@ -8397,7 +8397,7 @@ extern int nondet_int(void) ;
 #line 1467 "/work/ldvuser/novikov/work/current--X--drivers/net/phy/dp83640.ko--X--defaultlinux--X--32_7a--X--cpachecker/linux/csd_deg_dscv/12/dscv_tempdir/dscv/ri/32_7a/drivers/net/phy/dp83640.c.prepared"
 int LDV_IN_INTERRUPT  ;
 #line 1470 "/work/ldvuser/novikov/work/current--X--drivers/net/phy/dp83640.ko--X--defaultlinux--X--32_7a--X--cpachecker/linux/csd_deg_dscv/12/dscv_tempdir/dscv/ri/32_7a/drivers/net/phy/dp83640.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct phy_device *var_group1 ;
   int res_dp83640_probe_31 ;
@@ -8540,7 +8540,7 @@ void main(void)
 #line 2345
   ldv_check_final_state();
 #line 2348
-  return;
+  return 0;
 }
 }
 #line 2352 "/work/ldvuser/novikov/work/current--X--drivers/net/phy/dp83640.ko--X--defaultlinux--X--32_7a--X--cpachecker/linux/csd_deg_dscv/12/dscv_tempdir/dscv/ri/32_7a/drivers/net/phy/dp83640.c.prepared"

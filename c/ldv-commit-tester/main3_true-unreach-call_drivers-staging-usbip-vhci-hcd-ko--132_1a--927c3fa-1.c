@@ -10608,7 +10608,7 @@ void ldv_check_return_value_probe(int retval ) ;
 #line 1322
 extern void ldv_handler_precall(void) ;
 #line 1331 "/work/vladimir/commit-test/commit-test-work/task-090--linux-stable--dir/work/current--X--drivers/staging/usbip/vhci-hcd.ko--X--defaultlinux-stable-927c3fa44e-1--X--132_1a--X--cpachecker/linux-stable-927c3fa44e-1/csd_deg_dscv/20/dscv_tempdir/dscv/ri/132_1a/drivers/staging/usbip/vhci_hcd.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct usb_hcd *var_group1 ;
   struct urb *var_group2 ;
@@ -10825,7 +10825,7 @@ void main(void)
 #line 2544
   ldv_check_final_state();
 #line 2547
-  return;
+  return 0;
 }
 }
 #line 10 "/work/vladimir/kernel-rules/verifier/rcv.h"

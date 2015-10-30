@@ -10165,7 +10165,7 @@ void ldv_main_exported_4(void) ;
 #line 935
 void ldv_main_exported_5(void) ;
 #line 942 "/work/ldvuser/mutilin/launch/work/current--X--drivers--X--defaultlinux-3.12-rc1.tar.xz--X--144_2a--X--cpachecker/linux-3.12-rc1.tar.xz/csd_deg_dscv/2235/dscv_tempdir/dscv/ri/144_2a/drivers/media/usb/dvb-usb/dib0700_core.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct usb_device_id *ldvarg6 ;
   void *tmp ;
@@ -10497,7 +10497,7 @@ void main(void)
 #line 1147
   ldv_check_final_state();
 #line 1148
-  return;
+  return 0;
 }
 }
 #line 1157 "/work/ldvuser/mutilin/launch/work/current--X--drivers--X--defaultlinux-3.12-rc1.tar.xz--X--144_2a--X--cpachecker/linux-3.12-rc1.tar.xz/csd_deg_dscv/2235/dscv_tempdir/dscv/ri/144_2a/drivers/media/usb/dvb-usb/dib0700_core.o.c.prepared"

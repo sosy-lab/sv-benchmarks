@@ -26,10 +26,11 @@ node_t* new_ll(int n)
   return head;
 }
 
-void main ()
+int main ()
 {
   int n = __VERIFIER_nondet_int();
   node_t* head = new_ll(abs(n));
+  return 0;
 }
 
 

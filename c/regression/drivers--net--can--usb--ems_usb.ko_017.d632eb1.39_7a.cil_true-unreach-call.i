@@ -7193,7 +7193,7 @@ extern int nondet_int(void) ;
 #line 1238 "/work/ldvuser/novikov/work/current--X--drivers/net/can/usb/ems_usb.ko--X--defaultlinux--X--39_7a--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/39_7a/drivers/net/can/usb/ems_usb.c.prepared"
 int LDV_IN_INTERRUPT  ;
 #line 1241 "/work/ldvuser/novikov/work/current--X--drivers/net/can/usb/ems_usb.ko--X--defaultlinux--X--39_7a--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/39_7a/drivers/net/can/usb/ems_usb.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct net_device *var_group1 ;
   int res_ems_usb_open_10 ;
@@ -7333,7 +7333,7 @@ void main(void)
 #line 1977
   ldv_check_final_state();
 #line 1980
-  return;
+  return 0;
 }
 }
 #line 2016 "/work/ldvuser/novikov/work/current--X--drivers/net/can/usb/ems_usb.ko--X--defaultlinux--X--39_7a--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/39_7a/drivers/net/can/usb/ems_usb.c.prepared"

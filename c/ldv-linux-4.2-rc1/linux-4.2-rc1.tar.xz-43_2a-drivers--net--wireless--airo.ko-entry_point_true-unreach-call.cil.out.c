@@ -24035,7 +24035,7 @@ void ldv_file_operations_4(void)
 }
 }
 #line 323 "/home/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--43_2a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/11742/dscv_tempdir/dscv/ri/43_2a/drivers/net/wireless/airo.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct sk_buff *ldvarg1 ;
   void *tmp ;
@@ -26257,7 +26257,7 @@ void main(void)
 #line 1722
   ldv_check_final_state();
 #line 1723
-  return;
+  return 0;
 }
 }
 #line 1732 "/home/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--43_2a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/11742/dscv_tempdir/dscv/ri/43_2a/drivers/net/wireless/airo.o.c.prepared"

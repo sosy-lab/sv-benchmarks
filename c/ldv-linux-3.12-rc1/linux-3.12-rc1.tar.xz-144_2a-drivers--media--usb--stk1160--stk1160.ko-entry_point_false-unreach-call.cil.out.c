@@ -7694,7 +7694,7 @@ void ldv_main_exported_3(void) ;
 #line 517
 void ldv_main_exported_5(void) ;
 #line 521 "/work/ldvuser/mutilin/launch/work/current--X--drivers--X--defaultlinux-3.12-rc1.tar.xz--X--144_2a--X--cpachecker/linux-3.12-rc1.tar.xz/csd_deg_dscv/2166/dscv_tempdir/dscv/ri/144_2a/drivers/media/usb/stk1160/stk1160-core.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct usb_device_id *ldvarg8 ;
   void *tmp ;
@@ -7932,7 +7932,7 @@ void main(void)
 #line 668
   ldv_check_final_state();
 #line 669
-  return;
+  return 0;
 }
 }
 #line 672 "/work/ldvuser/mutilin/launch/work/current--X--drivers--X--defaultlinux-3.12-rc1.tar.xz--X--144_2a--X--cpachecker/linux-3.12-rc1.tar.xz/csd_deg_dscv/2166/dscv_tempdir/dscv/ri/144_2a/drivers/media/usb/stk1160/stk1160-core.o.c.prepared"

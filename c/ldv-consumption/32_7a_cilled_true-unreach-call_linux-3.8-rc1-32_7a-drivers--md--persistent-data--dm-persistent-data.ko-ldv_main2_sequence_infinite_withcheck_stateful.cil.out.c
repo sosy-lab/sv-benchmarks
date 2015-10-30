@@ -8310,7 +8310,7 @@ struct dm_space_map *dm_sm_disk_open(struct dm_transaction_manager *tm , void *r
 }
 }
 #line 389 "/home/mikhail/launches/cpachecker-regression2/launcher-working-dir/ldv-manager-work-dir/work/current--X--drivers/md/persistent-data/dm-persistent-data.ko--X--regression-testlinux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/19/dscv_tempdir/dscv/ri/32_7a/drivers/md/persistent-data/dm-space-map-disk.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct dm_space_map *var_group1 ;
   dm_block_t var_sm_disk_extend_1_p1 ;
@@ -8455,7 +8455,7 @@ void main(void)
 #line 761
   ldv_check_final_state();
 #line 764
-  return;
+  return 0;
 }
 }
 #line 768 "/home/mikhail/launches/cpachecker-regression2/launcher-working-dir/ldv-manager-work-dir/work/current--X--drivers/md/persistent-data/dm-persistent-data.ko--X--regression-testlinux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/19/dscv_tempdir/dscv/ri/32_7a/drivers/md/persistent-data/dm-space-map-disk.c.prepared"

@@ -18554,7 +18554,7 @@ void invoke_work_2(void)
 }
 }
 #line 562 "/work/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--32_7a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/5027/dscv_tempdir/dscv/ri/32_7a/drivers/infiniband/core/cm.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct kobject *ldvarg0 ;
   void *tmp ;
@@ -18933,7 +18933,7 @@ void main(void)
 #line 789
   ldv_check_final_state();
 #line 790
-  return;
+  return 0;
 }
 }
 #line 793 "/work/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--32_7a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/5027/dscv_tempdir/dscv/ri/32_7a/drivers/infiniband/core/cm.o.c.prepared"

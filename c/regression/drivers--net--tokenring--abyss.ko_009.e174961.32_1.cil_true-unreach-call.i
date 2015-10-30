@@ -4896,7 +4896,7 @@ int LDV_IN_INTERRUPT  ;
 #line 519 "/work/ldvuser/novikov/work/current--X--drivers/net/tokenring/abyss.ko--X--defaultlinux--X--32_1--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/32_1/drivers/net/tokenring/abyss.c"
 static int res_abyss_attach_4  ;
 #line 503 "/work/ldvuser/novikov/work/current--X--drivers/net/tokenring/abyss.ko--X--defaultlinux--X--32_1--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/32_1/drivers/net/tokenring/abyss.c"
-void main(void) 
+int main(void) 
 { 
   struct pci_dev *var_group1 ;
   struct pci_device_id  const  *var_abyss_attach_4_p1 ;
@@ -4989,7 +4989,7 @@ void main(void)
 #line 619
   ldv_check_final_state();
 #line 622
-  return;
+  return 0;
 }
 }
 #line 135 "include/linux/mutex.h"

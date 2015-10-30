@@ -20,7 +20,7 @@ typedef struct node {
   struct node *n;
 } *List;
 
-void main() {  
+int main() {  
   List p, a, t;
 
   /* Build a list of the form 1->2->2->...->1->3
@@ -69,7 +69,7 @@ void main() {
   if (p->h != 3 || i > 20)
     goto ERROR;
 
-  return;
+  return 0;
 
   ERROR: __VERIFIER_error();
 }

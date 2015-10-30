@@ -10913,7 +10913,7 @@ extern int nondet_int(void) ;
 #line 1521 "/work/ldvuser/novikov/work/current--X--drivers/target/loopback/tcm_loop.ko--X--defaultlinux--X--08_1a--X--cpachecker/linux/csd_deg_dscv/12/dscv_tempdir/dscv/ri/08_1a/drivers/target/loopback/tcm_loop.c.prepared"
 int LDV_IN_INTERRUPT  ;
 #line 1524 "/work/ldvuser/novikov/work/current--X--drivers/target/loopback/tcm_loop.ko--X--defaultlinux--X--08_1a--X--cpachecker/linux/csd_deg_dscv/12/dscv_tempdir/dscv/ri/08_1a/drivers/target/loopback/tcm_loop.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct device *var_group1 ;
   struct device_driver *var_group2 ;
@@ -11070,7 +11070,7 @@ void main(void)
 #line 1826
   ldv_check_final_state();
 #line 1829
-  return;
+  return 0;
 }
 }
 #line 10 "/home/ldvuser/ldv/inst/kernel-rules/verifier/rcv.h"

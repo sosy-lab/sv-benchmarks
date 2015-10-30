@@ -7684,7 +7684,7 @@ void ldv_net_device_ops_2(void)
 }
 }
 #line 652 "/work/ldvuser/mutilin/launch/work/current--X--drivers--X--defaultlinux-3.12-rc1.tar.xz--X--144_2a--X--cpachecker/linux-3.12-rc1.tar.xz/csd_deg_dscv/7621/dscv_tempdir/dscv/ri/144_2a/drivers/net/usb/ipheth.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct usb_device_id *ldvarg0 ;
   void *tmp ;
@@ -8000,7 +8000,7 @@ void main(void)
 #line 846
   ldv_check_final_state();
 #line 847
-  return;
+  return 0;
 }
 }
 #line 850 "/work/ldvuser/mutilin/launch/work/current--X--drivers--X--defaultlinux-3.12-rc1.tar.xz--X--144_2a--X--cpachecker/linux-3.12-rc1.tar.xz/csd_deg_dscv/7621/dscv_tempdir/dscv/ri/144_2a/drivers/net/usb/ipheth.o.c.prepared"

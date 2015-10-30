@@ -11433,7 +11433,7 @@ void ldv_usb_driver_1(void)
 }
 }
 #line 2117 "/work/ldvuser/mutilin/launch/work/current--X--drivers--X--defaultlinux-3.12-rc1.tar.xz--X--144_2a--X--cpachecker/linux-3.12-rc1.tar.xz/csd_deg_dscv/7636/dscv_tempdir/dscv/ri/144_2a/drivers/net/usb/smsc95xx.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct ethtool_regs *ldvarg1 ;
   void *tmp ;
@@ -12406,7 +12406,7 @@ void main(void)
 #line 2775
   ldv_check_final_state();
 #line 2776
-  return;
+  return 0;
 }
 }
 #line 2785 "/work/ldvuser/mutilin/launch/work/current--X--drivers--X--defaultlinux-3.12-rc1.tar.xz--X--144_2a--X--cpachecker/linux-3.12-rc1.tar.xz/csd_deg_dscv/7636/dscv_tempdir/dscv/ri/144_2a/drivers/net/usb/smsc95xx.o.c.prepared"

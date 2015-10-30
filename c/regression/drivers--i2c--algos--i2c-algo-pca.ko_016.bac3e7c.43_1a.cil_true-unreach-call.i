@@ -3661,7 +3661,7 @@ extern int nondet_int(void) ;
 #line 445 "/work/ldvuser/novikov/work/current--X--drivers/i2c/algos/i2c-algo-pca.ko--X--defaultlinux--X--43_1a--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/43_1a/drivers/i2c/algos/i2c-algo-pca.c.prepared"
 int LDV_IN_INTERRUPT  ;
 #line 448 "/work/ldvuser/novikov/work/current--X--drivers/i2c/algos/i2c-algo-pca.ko--X--defaultlinux--X--43_1a--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/43_1a/drivers/i2c/algos/i2c-algo-pca.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct i2c_adapter *var_group1 ;
   struct i2c_msg *var_group2 ;
@@ -3715,7 +3715,7 @@ void main(void)
 #line 593
   ldv_check_final_state();
 #line 596
-  return;
+  return 0;
 }
 }
 #line 611 "/work/ldvuser/novikov/work/current--X--drivers/i2c/algos/i2c-algo-pca.ko--X--defaultlinux--X--43_1a--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/43_1a/drivers/i2c/algos/i2c-algo-pca.c.prepared"

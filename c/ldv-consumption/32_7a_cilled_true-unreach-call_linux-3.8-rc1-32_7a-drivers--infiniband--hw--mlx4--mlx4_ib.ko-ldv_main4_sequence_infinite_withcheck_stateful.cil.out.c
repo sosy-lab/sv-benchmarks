@@ -22396,7 +22396,7 @@ extern int __VERIFIER_nondet_int(void) ;
 #line 1824 "/home/mikhail/launches/cpachecker-regression2/launcher-working-dir/ldv-manager-work-dir/work/current--X--drivers/infiniband/hw/mlx4/mlx4_ib.ko--X--regression-testlinux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/23/dscv_tempdir/dscv/ri/32_7a/drivers/infiniband/hw/mlx4/main.c.prepared"
 int LDV_IN_INTERRUPT  ;
 #line 1827 "/home/mikhail/launches/cpachecker-regression2/launcher-working-dir/ldv-manager-work-dir/work/current--X--drivers/infiniband/hw/mlx4/mlx4_ib.ko--X--regression-testlinux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/23/dscv_tempdir/dscv/ri/32_7a/drivers/infiniband/hw/mlx4/main.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct mlx4_dev *var_group1 ;
   void *var_mlx4_ib_remove_44_p1 ;
@@ -22485,7 +22485,7 @@ void main(void)
 #line 1984
   ldv_check_final_state();
 #line 1987
-  return;
+  return 0;
 }
 }
 #line 1991 "/home/mikhail/launches/cpachecker-regression2/launcher-working-dir/ldv-manager-work-dir/work/current--X--drivers/infiniband/hw/mlx4/mlx4_ib.ko--X--regression-testlinux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/23/dscv_tempdir/dscv/ri/32_7a/drivers/infiniband/hw/mlx4/main.c.prepared"

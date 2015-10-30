@@ -12086,7 +12086,7 @@ extern int __VERIFIER_nondet_int(void) ;
 #line 1891 "/work/vladimir/commit-test/commit-test-work/task-024--linux-stable--dir/work/current--X--drivers/net/wireless/ath/carl9170/carl9170.ko--X--defaultlinux-stable-8a9f335-1--X--32_7a--X--cpachecker/linux-stable-8a9f335-1/csd_deg_dscv/20/dscv_tempdir/dscv/ri/32_7a/drivers/net/wireless/ath/carl9170/main.c.prepared"
 int LDV_IN_INTERRUPT  ;
 #line 1894 "/work/vladimir/commit-test/commit-test-work/task-024--linux-stable--dir/work/current--X--drivers/net/wireless/ath/carl9170/carl9170.ko--X--defaultlinux-stable-8a9f335-1--X--32_7a--X--cpachecker/linux-stable-8a9f335-1/csd_deg_dscv/20/dscv_tempdir/dscv/ri/32_7a/drivers/net/wireless/ath/carl9170/main.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct ieee80211_hw *var_group1 ;
   bool var_carl9170_op_flush_29_p1 ;
@@ -12283,7 +12283,7 @@ void main(void)
 #line 4637
   ldv_check_final_state();
 #line 4640
-  return;
+  return 0;
 }
 }
 #line 4644 "/work/vladimir/commit-test/commit-test-work/task-024--linux-stable--dir/work/current--X--drivers/net/wireless/ath/carl9170/carl9170.ko--X--defaultlinux-stable-8a9f335-1--X--32_7a--X--cpachecker/linux-stable-8a9f335-1/csd_deg_dscv/20/dscv_tempdir/dscv/ri/32_7a/drivers/net/wireless/ath/carl9170/main.c.prepared"

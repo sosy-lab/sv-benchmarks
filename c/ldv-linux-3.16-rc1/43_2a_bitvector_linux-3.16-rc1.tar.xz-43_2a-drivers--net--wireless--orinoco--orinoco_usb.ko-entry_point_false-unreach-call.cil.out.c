@@ -11545,7 +11545,7 @@ void disable_suitable_timer_1(struct timer_list *timer )
 }
 }
 #line 1861 "/work/ldvuser/mutilin/launch/work/current--X--drivers--X--defaultlinux-3.16-rc1.tar.xz--X--43_2a--X--cpachecker/linux-3.16-rc1.tar.xz/csd_deg_dscv/11079/dscv_tempdir/dscv/ri/43_2a/drivers/net/wireless/orinoco/orinoco_usb.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   u32 ldvarg18 ;
   u32 tmp ;
@@ -12655,7 +12655,7 @@ void main(void)
 #line 2522
   ldv_check_final_state();
 #line 2523
-  return;
+  return 0;
 }
 }
 #line 2534 "/work/ldvuser/mutilin/launch/work/current--X--drivers--X--defaultlinux-3.16-rc1.tar.xz--X--43_2a--X--cpachecker/linux-3.16-rc1.tar.xz/csd_deg_dscv/11079/dscv_tempdir/dscv/ri/43_2a/drivers/net/wireless/orinoco/orinoco_usb.o.c.prepared"

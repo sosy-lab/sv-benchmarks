@@ -6542,7 +6542,7 @@ extern int __VERIFIER_nondet_int(void) ;
 #line 601 "/anthill/stuff/tacas-comp/work/current--X--drivers/hid/hid-magicmouse.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/hid/hid-magicmouse.c.p"
 int LDV_IN_INTERRUPT  ;
 #line 604 "/anthill/stuff/tacas-comp/work/current--X--drivers/hid/hid-magicmouse.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/hid/hid-magicmouse.c.p"
-void main(void) 
+int main(void) 
 { struct hid_device *var_group1 ;
   struct hid_device_id  const  *var_magicmouse_probe_7_p1 ;
   int res_magicmouse_probe_7 ;
@@ -6693,7 +6693,7 @@ void main(void)
   ldv_check_final_state();
   }
 #line 880
-  return;
+  return 0;
 }
 }
 #line 5 "/anthill/stuff/tacas-comp/work/current--X--drivers/hid/hid-magicmouse.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/kernel-rules/files/engine-blast-assert.h"

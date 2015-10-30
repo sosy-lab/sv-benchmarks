@@ -45390,7 +45390,7 @@ extern int __VERIFIER_nondet_int(void) ;
 #line 17763 "/work/ldvuser/exper_fp/work/current--X--drivers--X--defaultlinux-3.10-rc1.tar--X--32_7a--X--cpachecker/linux-3.10-rc1.tar/csd_deg_dscv/8512/dscv_tempdir/dscv/ri/32_7a/drivers/net/ethernet/broadcom/tg3.c.prepared"
 int LDV_IN_INTERRUPT  ;
 #line 17766 "/work/ldvuser/exper_fp/work/current--X--drivers--X--defaultlinux-3.10-rc1.tar--X--32_7a--X--cpachecker/linux-3.10-rc1.tar/csd_deg_dscv/8512/dscv_tempdir/dscv/ri/32_7a/drivers/net/ethernet/broadcom/tg3.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct ptp_clock_info *var_group1 ;
   s32 var_tg3_ptp_adjfreq_149_p1 ;
@@ -45997,7 +45997,7 @@ void main(void)
 #line 48833
   ldv_check_final_state();
 #line 48836
-  return;
+  return 0;
 }
 }
 #line 48840 "/work/ldvuser/exper_fp/work/current--X--drivers--X--defaultlinux-3.10-rc1.tar--X--32_7a--X--cpachecker/linux-3.10-rc1.tar/csd_deg_dscv/8512/dscv_tempdir/dscv/ri/32_7a/drivers/net/ethernet/broadcom/tg3.c.prepared"

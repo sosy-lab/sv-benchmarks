@@ -11216,7 +11216,7 @@ int reg_check_2(irqreturn_t (*handler)(int  , void * ) )
 }
 }
 #line 2724 "/home/ldvuser/gratinskiy/commit-tester-runs/6-cpa-svcomp-newdeg/commit-tester-work/task-024--linux-stable--dir/work/current--X--drivers/net/b44.ko--X--defaultlinux-stable-073676f-1--X--114_1a--X--cpachecker/linux-stable-073676f-1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/114_1a/drivers/net/b44.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   u32 ldvarg1 ;
   u32 tmp ;
@@ -12117,7 +12117,7 @@ void main(void)
 #line 3339
   ldv_check_final_state();
 #line 3340
-  return;
+  return 0;
 }
 }
 #line 3343 "/home/ldvuser/gratinskiy/commit-tester-runs/6-cpa-svcomp-newdeg/commit-tester-work/task-024--linux-stable--dir/work/current--X--drivers/net/b44.ko--X--defaultlinux-stable-073676f-1--X--114_1a--X--cpachecker/linux-stable-073676f-1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/114_1a/drivers/net/b44.o.c.prepared"

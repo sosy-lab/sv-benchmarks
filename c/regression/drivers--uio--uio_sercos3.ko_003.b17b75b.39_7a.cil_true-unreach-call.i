@@ -3000,7 +3000,7 @@ extern int nondet_int(void) ;
 #line 332 "/work/ldvuser/novikov/work/current--X--drivers/uio/uio_sercos3.ko--X--defaultlinux--X--39_7a--X--cpachecker/linux/csd_deg_dscv/12/dscv_tempdir/dscv/ri/39_7a/drivers/uio/uio_sercos3.c.prepared"
 int LDV_IN_INTERRUPT  ;
 #line 335 "/work/ldvuser/novikov/work/current--X--drivers/uio/uio_sercos3.ko--X--defaultlinux--X--39_7a--X--cpachecker/linux/csd_deg_dscv/12/dscv_tempdir/dscv/ri/39_7a/drivers/uio/uio_sercos3.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct pci_dev *var_group1 ;
   struct pci_device_id  const  *var_sercos3_pci_probe_5_p1 ;
@@ -3097,7 +3097,7 @@ void main(void)
 #line 481
   ldv_check_final_state();
 #line 484
-  return;
+  return 0;
 }
 }
 #line 520 "/work/ldvuser/novikov/work/current--X--drivers/uio/uio_sercos3.ko--X--defaultlinux--X--39_7a--X--cpachecker/linux/csd_deg_dscv/12/dscv_tempdir/dscv/ri/39_7a/drivers/uio/uio_sercos3.c.prepared"

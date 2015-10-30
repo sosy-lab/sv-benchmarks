@@ -7,7 +7,7 @@ void __VERIFIER_assert(int cond) {
   }
   return;
 }
-void main()
+int main()
 {
   int y;
 
@@ -21,5 +21,6 @@ void main()
       __VERIFIER_assert (y!=0);
 	
     }
+    return 0;
 }
 

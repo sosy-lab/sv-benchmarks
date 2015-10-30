@@ -45851,7 +45851,7 @@ void usb_devio_cleanup(void)
 }
 }
 #line 2403 "/work/vladimir/UFO/Work/test/work/current--X--drivers/usb/core/usbcore.ko--X--defaultlinux-3.7.3--X--32_7a--X--ufo/linux-3.7.3/csd_deg_dscv/29/dscv_tempdir/dscv/ri/32_7a/drivers/usb/core/devio.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct usb_interface *var_group1 ;
   struct usb_device_id  const  *var_driver_probe_18_p1 ;
@@ -46083,7 +46083,7 @@ void main(void)
 #line 3330
   ldv_check_final_state();
 #line 3333
-  return;
+  return 0;
 }
 }
 #line 3337 "/work/vladimir/UFO/Work/test/work/current--X--drivers/usb/core/usbcore.ko--X--defaultlinux-3.7.3--X--32_7a--X--ufo/linux-3.7.3/csd_deg_dscv/29/dscv_tempdir/dscv/ri/32_7a/drivers/usb/core/devio.c.prepared"

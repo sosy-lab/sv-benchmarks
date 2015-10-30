@@ -10897,7 +10897,7 @@ static void ecryptfs_exit(void)
 }
 }
 #line 1065 "/home/mikhail/launches/cpachecker-regression2/launcher-working-dir/ldv-manager-work-dir/work/current--X--fs/ecryptfs/ecryptfs.ko--X--regression-testlinux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/24/dscv_tempdir/dscv/ri/32_7a/fs/ecryptfs/main.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct file_system_type *var_group1 ;
   int var_ecryptfs_mount_6_p1 ;
@@ -10969,7 +10969,7 @@ void main(void)
 #line 1169
   ldv_check_final_state();
 #line 1172
-  return;
+  return 0;
 }
 }
 #line 1176 "/home/mikhail/launches/cpachecker-regression2/launcher-working-dir/ldv-manager-work-dir/work/current--X--fs/ecryptfs/ecryptfs.ko--X--regression-testlinux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/24/dscv_tempdir/dscv/ri/32_7a/fs/ecryptfs/main.c.prepared"

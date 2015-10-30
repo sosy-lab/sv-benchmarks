@@ -45732,7 +45732,7 @@ void ldv_dev_pm_ops_2(void)
 }
 }
 #line 103 "/work/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--08_1a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/12366/dscv_tempdir/dscv/ri/08_1a/drivers/net/wireless/rtlwifi/rtl8821ae/sw.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct pci_device_id *ldvarg0 ;
   void *tmp ;
@@ -47502,7 +47502,7 @@ void main(void)
 #line 1282
   ldv_check_final_state();
 #line 1283
-  return;
+  return 0;
 }
 }
 #line 1310 "/work/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--08_1a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/12366/dscv_tempdir/dscv/ri/08_1a/drivers/net/wireless/rtlwifi/rtl8821ae/sw.o.c.prepared"

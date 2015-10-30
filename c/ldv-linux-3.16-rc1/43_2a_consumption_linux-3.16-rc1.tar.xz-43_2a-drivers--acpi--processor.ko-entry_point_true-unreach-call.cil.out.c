@@ -5443,7 +5443,7 @@ void ldv_main_exported_3(void) ;
 #line 356
 void ldv_main_exported_2(void) ;
 #line 363 "/work/ldvuser/mutilin/launch/work/current--X--drivers--X--defaultlinux-3.16-rc1.tar.xz--X--43_2a--X--cpachecker/linux-3.16-rc1.tar.xz/csd_deg_dscv/7693/dscv_tempdir/dscv/ri/43_2a/drivers/acpi/processor_driver.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   unsigned long ldvarg11 ;
   unsigned long tmp ;
@@ -5695,7 +5695,7 @@ void main(void)
 #line 514
   ldv_check_final_state();
 #line 515
-  return;
+  return 0;
 }
 }
 #line 645 "/work/ldvuser/mutilin/launch/work/current--X--drivers--X--defaultlinux-3.16-rc1.tar.xz--X--43_2a--X--cpachecker/linux-3.16-rc1.tar.xz/csd_deg_dscv/7693/dscv_tempdir/dscv/ri/43_2a/drivers/acpi/processor_driver.o.c.prepared"

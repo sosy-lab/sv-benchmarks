@@ -10413,7 +10413,7 @@ void ldv_main_exported_7(void) ;
 #line 404
 void ldv_main_exported_6(void) ;
 #line 408 "/home/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--43_2a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/4072/dscv_tempdir/dscv/ri/43_2a/drivers/bluetooth/hci_ldisc.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   int tmp ;
   int tmp___0 ;
@@ -10639,7 +10639,7 @@ void main(void)
 #line 575
   ldv_check_final_state();
 #line 576
-  return;
+  return 0;
 }
 }
 #line 585 "/home/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--43_2a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/4072/dscv_tempdir/dscv/ri/43_2a/drivers/bluetooth/hci_ldisc.o.c.prepared"

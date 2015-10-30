@@ -9049,7 +9049,7 @@ extern int __VERIFIER_nondet_int(void) ;
 #line 1507 "/work/vladimir/commit-test/commit-test-work/task-055--linux-stable--dir/work/current--X--drivers/net/slip.ko--X--defaultlinux-stable-1b0b0ac--X--108_1a--X--cpachecker/linux-stable-1b0b0ac/csd_deg_dscv/11/dscv_tempdir/dscv/ri/108_1a/drivers/net/slip.c.prepared"
 int LDV_IN_INTERRUPT  ;
 #line 1510 "/work/vladimir/commit-test/commit-test-work/task-055--linux-stable--dir/work/current--X--drivers/net/slip.ko--X--defaultlinux-stable-1b0b0ac--X--108_1a--X--cpachecker/linux-stable-1b0b0ac/csd_deg_dscv/11/dscv_tempdir/dscv/ri/108_1a/drivers/net/slip.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct net_device *var_group1 ;
   int res_sl_init_14 ;
@@ -9335,7 +9335,7 @@ void main(void)
 #line 5344
   ldv_check_final_state();
 #line 5347
-  return;
+  return 0;
 }
 }
 #line 5351 "/work/vladimir/commit-test/commit-test-work/task-055--linux-stable--dir/work/current--X--drivers/net/slip.ko--X--defaultlinux-stable-1b0b0ac--X--108_1a--X--cpachecker/linux-stable-1b0b0ac/csd_deg_dscv/11/dscv_tempdir/dscv/ri/108_1a/drivers/net/slip.c.prepared"

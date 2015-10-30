@@ -5793,7 +5793,7 @@ struct file_operations  const  ecryptfs_main_fops  =
 #line 532
 extern void ldv_check_return_value(int  ) ;
 #line 550 "/home/mikhail/launches/cpachecker-regression/launcher-working-dir/ldv-manager-work-dir/work/current--X--fs/ecryptfs/ecryptfs.ko--X--regression-testlinux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/24/dscv_tempdir/dscv/ri/32_7a/fs/ecryptfs/file.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct file *var_group1 ;
   void *var_ecryptfs_readdir_2_p1 ;
@@ -6022,7 +6022,7 @@ void main(void)
 #line 1244
   ldv_check_final_state();
 #line 1247
-  return;
+  return 0;
 }
 }
 #line 1251 "/home/mikhail/launches/cpachecker-regression/launcher-working-dir/ldv-manager-work-dir/work/current--X--fs/ecryptfs/ecryptfs.ko--X--regression-testlinux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/24/dscv_tempdir/dscv/ri/32_7a/fs/ecryptfs/file.c.prepared"

@@ -8703,7 +8703,7 @@ void ldv_usb_driver_2(void)
 #line 359
 void ldv_main_exported_1(void) ;
 #line 363 "/work/ldvuser/mutilin/launch/work/current--X--drivers--X--defaultlinux-3.16-rc1.tar.xz--X--43_2a--X--cpachecker/linux-3.16-rc1.tar.xz/csd_deg_dscv/3174/dscv_tempdir/dscv/ri/43_2a/drivers/media/usb/dvb-usb/vp7045.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   u8 *ldvarg8 ;
   void *tmp ;
@@ -8993,7 +8993,7 @@ void main(void)
 #line 539
   ldv_check_final_state();
 #line 540
-  return;
+  return 0;
 }
 }
 #line 670 "/work/ldvuser/mutilin/launch/work/current--X--drivers--X--defaultlinux-3.16-rc1.tar.xz--X--43_2a--X--cpachecker/linux-3.16-rc1.tar.xz/csd_deg_dscv/3174/dscv_tempdir/dscv/ri/43_2a/drivers/media/usb/dvb-usb/vp7045.o.c.prepared"

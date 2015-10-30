@@ -21202,7 +21202,7 @@ void ldv_timer_3(int state , struct timer_list *timer )
 }
 }
 #line 5778 "/work/ldvuser/mutilin/launch/work/current--X--drivers/net/--X--defaultlinux-3.16-rc1.tar.xz--X--205_9a--X--cpachecker/linux-3.16-rc1.tar.xz/csd_deg_dscv/1531/dscv_tempdir/dscv/ri/205_9a/drivers/net/ethernet/marvell/sky2.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   void *ldvarg1 ;
   void *tmp ;
@@ -22318,7 +22318,7 @@ void main(void)
 #line 6497
   ldv_check_final_state();
 #line 6498
-  return;
+  return 0;
 }
 }
 #line 6513 "/work/ldvuser/mutilin/launch/work/current--X--drivers/net/--X--defaultlinux-3.16-rc1.tar.xz--X--205_9a--X--cpachecker/linux-3.16-rc1.tar.xz/csd_deg_dscv/1531/dscv_tempdir/dscv/ri/205_9a/drivers/net/ethernet/marvell/sky2.o.c.prepared"

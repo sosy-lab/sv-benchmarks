@@ -10639,7 +10639,7 @@ void invoke_work_2(void)
 }
 }
 #line 665 "/home/ldvuser/andrianov/commit-tester-work/task-211--linux-stable--dir/work/current--X--drivers/mmc/host/vub300.ko--X--defaultlinux-stable-5fdb450-1--X--144_1a--X--cpachecker/linux-stable-5fdb450-1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/144_1a/drivers/mmc/host/vub300.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct usb_device_id *ldvarg1 ;
   void *tmp ;
@@ -11026,7 +11026,7 @@ void main(void)
 #line 919
   ldv_check_final_state();
 #line 920
-  return;
+  return 0;
 }
 }
 #line 923 "/home/ldvuser/andrianov/commit-tester-work/task-211--linux-stable--dir/work/current--X--drivers/mmc/host/vub300.ko--X--defaultlinux-stable-5fdb450-1--X--144_1a--X--cpachecker/linux-stable-5fdb450-1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/144_1a/drivers/mmc/host/vub300.o.c.prepared"

@@ -47936,7 +47936,7 @@ void ldv_main_exported_11(void) ;
 #line 1063
 void ldv_main_exported_12(void) ;
 #line 1067 "/work/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--08_1a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/11114/dscv_tempdir/dscv/ri/08_1a/drivers/net/ethernet/broadcom/bnx2x/bnx2x_main.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   void *ldvarg39 ;
   void *tmp ;
@@ -49749,7 +49749,7 @@ void main(void)
 #line 2358
   ldv_check_final_state();
 #line 2359
-  return;
+  return 0;
 }
 }
 #line 2374 "/work/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--08_1a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/11114/dscv_tempdir/dscv/ri/08_1a/drivers/net/ethernet/broadcom/bnx2x/bnx2x_main.o.c.prepared"

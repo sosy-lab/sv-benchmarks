@@ -9986,7 +9986,7 @@ int LDV_IN_INTERRUPT  ;
 #line 2921 "/work/ldvuser/novikov/work/current--X--drivers/usb/serial/mos7840.ko--X--defaultlinux--X--32_1--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/32_1/drivers/usb/serial/mos7840.c"
 static int res_mos7840_open_18  ;
 #line 2824 "/work/ldvuser/novikov/work/current--X--drivers/usb/serial/mos7840.ko--X--defaultlinux--X--32_1--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/32_1/drivers/usb/serial/mos7840.c"
-void main(void) 
+int main(void) 
 { 
   struct tty_struct *var_group1 ;
   struct usb_serial_port *var_group2 ;
@@ -10207,7 +10207,7 @@ void main(void)
 #line 6792
   ldv_check_final_state();
 #line 6795
-  return;
+  return 0;
 }
 }
 #line 135 "include/linux/mutex.h"

@@ -3,7 +3,7 @@
 
 #include "assert.h"
 
-void main() {
+int main() {
     int x = 0;
     int m = 0;
     int n = __VERIFIER_nondet_int();
@@ -15,4 +15,5 @@ void main() {
     }
     __VERIFIER_assert((m >= 0 || n <= 0));
     __VERIFIER_assert((m < n || n <= 0));
+    return 0;
 }

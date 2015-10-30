@@ -7,7 +7,7 @@ void __VERIFIER_assert(int cond) {
   return;
 }
 int __VERIFIER_nondet_int();
-void main ()
+int main()
 {
   int len;
   int i;
@@ -16,7 +16,7 @@ void main ()
   bufsize = __VERIFIER_nondet_int();
   len = __VERIFIER_nondet_int();
   int limit = bufsize - 4;
-  if (bufsize < 0) return;
+  if (bufsize < 0) return 0;
   for (i = 0; i < len; ) {
     for (j = 0; i < len && j < limit; ){
       if (i + 1 < len){
@@ -49,4 +49,5 @@ ELSE:
       }
     }
   }
+  return 0;
 }

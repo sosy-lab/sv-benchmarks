@@ -1815,7 +1815,7 @@ extern int nondet_int(void) ;
 #line 482 "/work/ldvuser/novikov/work/current--X--drivers/auxdisplay/cfag12864b.ko--X--defaultlinux--X--39_7a--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/39_7a/drivers/auxdisplay/cfag12864b.c.prepared"
 int LDV_IN_INTERRUPT  ;
 #line 485 "/work/ldvuser/novikov/work/current--X--drivers/auxdisplay/cfag12864b.ko--X--defaultlinux--X--39_7a--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/39_7a/drivers/auxdisplay/cfag12864b.c.prepared"
-void main(void) 
+int main(void) 
 { 
   int tmp ;
   int tmp___0 ;
@@ -1868,7 +1868,7 @@ void main(void)
 #line 551
   ldv_check_final_state();
 #line 554
-  return;
+  return 0;
 }
 }
 #line 590 "/work/ldvuser/novikov/work/current--X--drivers/auxdisplay/cfag12864b.ko--X--defaultlinux--X--39_7a--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/39_7a/drivers/auxdisplay/cfag12864b.c.prepared"

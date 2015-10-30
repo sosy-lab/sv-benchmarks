@@ -14756,7 +14756,7 @@ int reg_check_2(irqreturn_t (*handler)(int  , void * ) )
 }
 }
 #line 2971 "/work/ldvuser/mutilin/launch/work/current--X--drivers--X--defaultlinux-3.16-rc1.tar.xz--X--43_2a--X--cpachecker/linux-3.16-rc1.tar.xz/csd_deg_dscv/9904/dscv_tempdir/dscv/ri/43_2a/drivers/net/ethernet/broadcom/b44.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   u32 ldvarg1 ;
   u32 tmp ;
@@ -15607,7 +15607,7 @@ void main(void)
 #line 3554
   ldv_check_final_state();
 #line 3555
-  return;
+  return 0;
 }
 }
 #line 3558 "/work/ldvuser/mutilin/launch/work/current--X--drivers--X--defaultlinux-3.16-rc1.tar.xz--X--43_2a--X--cpachecker/linux-3.16-rc1.tar.xz/csd_deg_dscv/9904/dscv_tempdir/dscv/ri/43_2a/drivers/net/ethernet/broadcom/b44.o.c.prepared"

@@ -12447,7 +12447,7 @@ void ldv_main_exported_7(void) ;
 #line 628
 void ldv_main_exported_9(void) ;
 #line 639 "/work/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--32_7a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/5943/dscv_tempdir/dscv/ri/32_7a/drivers/scsi/snic/snic_main.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   int ldvarg1 ;
   struct Scsi_Host *ldvarg0 ;
@@ -12886,7 +12886,7 @@ void main(void)
 #line 952
   ldv_check_final_state();
 #line 953
-  return;
+  return 0;
 }
 }
 #line 980 "/work/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--32_7a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/5943/dscv_tempdir/dscv/ri/32_7a/drivers/scsi/snic/snic_main.o.c.prepared"

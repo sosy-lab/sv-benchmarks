@@ -10136,7 +10136,7 @@ int LDV_IN_INTERRUPT  ;
 #line 1023 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/msp3400.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/22/dscv_tempdir/dscv/ri/68_1/drivers/media/video/msp3400-driver.c.common.c"
 static int res_msp_probe_23  ;
 #line 917 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/msp3400.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/22/dscv_tempdir/dscv/ri/68_1/drivers/media/video/msp3400-driver.c.common.c"
-void main(void) 
+int main(void) 
 { struct v4l2_ctrl *var_group1 ;
   struct v4l2_subdev *var_group2 ;
   struct v4l2_dbg_chip_ident *var_group3 ;
@@ -10414,7 +10414,7 @@ void main(void)
   ldv_check_final_state();
   }
 #line 1395
-  return;
+  return 0;
 }
 }
 #line 5 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/msp3400.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/22/dscv_tempdir/dscv/ri/68_1/kernel-rules/files/engine-blast-assert.h"

@@ -7501,7 +7501,7 @@ void ldv_main_exported_5(void) ;
 #line 151
 void ldv_main_exported_8(void) ;
 #line 155 "/work/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--32_7a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/1565/dscv_tempdir/dscv/ri/32_7a/drivers/misc/sgi-gru/grufile.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct vm_fault *ldvarg8 ;
   void *tmp ;
@@ -7879,7 +7879,7 @@ void main(void)
 #line 402
   ldv_check_final_state();
 #line 403
-  return;
+  return 0;
 }
 }
 #line 430 "/work/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--32_7a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/1565/dscv_tempdir/dscv/ri/32_7a/drivers/misc/sgi-gru/grufile.o.c.prepared"

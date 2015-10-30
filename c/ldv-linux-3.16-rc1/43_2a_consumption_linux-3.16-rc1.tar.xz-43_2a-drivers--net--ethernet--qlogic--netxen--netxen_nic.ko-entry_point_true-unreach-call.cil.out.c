@@ -23333,7 +23333,7 @@ void ldv_initialize_bin_attribute_7(void)
 #line 3660
 void ldv_main_exported_1(void) ;
 #line 3664 "/work/ldvuser/mutilin/launch/work/current--X--drivers--X--defaultlinux-3.16-rc1.tar.xz--X--43_2a--X--cpachecker/linux-3.16-rc1.tar.xz/csd_deg_dscv/10155/dscv_tempdir/dscv/ri/43_2a/drivers/net/ethernet/qlogic/netxen/netxen_nic_main.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   char *ldvarg1 ;
   void *tmp ;
@@ -24678,7 +24678,7 @@ void main(void)
 #line 4503
   ldv_check_final_state();
 #line 4504
-  return;
+  return 0;
 }
 }
 #line 4634 "/work/ldvuser/mutilin/launch/work/current--X--drivers--X--defaultlinux-3.16-rc1.tar.xz--X--43_2a--X--cpachecker/linux-3.16-rc1.tar.xz/csd_deg_dscv/10155/dscv_tempdir/dscv/ri/43_2a/drivers/net/ethernet/qlogic/netxen/netxen_nic_main.o.c.prepared"

@@ -31,7 +31,7 @@ void exit(int s )
 #line 24
 extern int ( /* missing proto */  __VERIFIER_nondet_int)() ;
 #line 18 "list.c"
-void main(void) 
+int main(void) 
 { List a ;
   void *tmp ;
   List t ;
@@ -269,6 +269,6 @@ void main(void)
   }
   }
 #line 49
-  return;
+  return 0;
 }
 }

@@ -1,6 +1,6 @@
 #include "assert.h"
 
-void main() {
+int main() {
   int n0, n1;
   int i0 = 0;
   int k = 0;

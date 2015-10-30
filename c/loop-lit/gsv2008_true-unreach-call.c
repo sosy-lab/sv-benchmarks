@@ -2,7 +2,7 @@
 // Analysis as Constraint Solving", PLDI 2008.
 
 #include "assert.h"
-void main() {
+int main() {
     int x,y;
     x = -50;
     y = __VERIFIER_nondet_int();
@@ -12,4 +12,5 @@ void main() {
 	y++;
     }
     __VERIFIER_assert(y > 0);
+    return 0;
 }

@@ -21720,7 +21720,7 @@ void ldv_main_exported_26(void) ;
 #line 1229
 void ldv_main_exported_28(void) ;
 #line 1233 "/home/ldvuser/andrianov/commit-tester-work/task-056--linux-stable--dir/work/current--X--drivers/net/wireless/b43/b43.ko--X--defaultlinux-stable-1575714-1--X--150_1a--X--cpachecker/linux-stable-1575714-1/csd_deg_dscv/28/dscv_tempdir/dscv/ri/150_1a/drivers/net/wireless/b43/main.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct ieee80211_sta *ldvarg39 ;
   void *tmp ;
@@ -22865,7 +22865,7 @@ void main(void)
 #line 2000
   ldv_check_final_state();
 #line 2001
-  return;
+  return 0;
 }
 }
 #line 2004 "/home/ldvuser/andrianov/commit-tester-work/task-056--linux-stable--dir/work/current--X--drivers/net/wireless/b43/b43.ko--X--defaultlinux-stable-1575714-1--X--150_1a--X--cpachecker/linux-stable-1575714-1/csd_deg_dscv/28/dscv_tempdir/dscv/ri/150_1a/drivers/net/wireless/b43/main.o.c.prepared"

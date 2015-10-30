@@ -7761,7 +7761,7 @@ void ldv_file_operations_2(void)
 }
 }
 #line 1670 "/home/ldvuser/gratinskiy/commit-tester-runs/6-cpa-svcomp-newdeg/commit-tester-work/task-016--linux-stable--dir/work/current--X--drivers/usb/gadget/g_printer.ko--X--defaultlinux-stable-2b9ec6c-1--X--106_1a--X--cpachecker/linux-stable-2b9ec6c-1/csd_deg_dscv/25/dscv_tempdir/dscv/ri/106_1a/drivers/usb/gadget/printer.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct usb_ctrlrequest *ldvarg0 ;
   void *tmp ;
@@ -8140,7 +8140,7 @@ void main(void)
 #line 1890
   ldv_check_final_state();
 #line 1891
-  return;
+  return 0;
 }
 }
 #line 1900 "/home/ldvuser/gratinskiy/commit-tester-runs/6-cpa-svcomp-newdeg/commit-tester-work/task-016--linux-stable--dir/work/current--X--drivers/usb/gadget/g_printer.ko--X--defaultlinux-stable-2b9ec6c-1--X--106_1a--X--cpachecker/linux-stable-2b9ec6c-1/csd_deg_dscv/25/dscv_tempdir/dscv/ri/106_1a/drivers/usb/gadget/printer.o.c.prepared"

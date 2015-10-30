@@ -25990,7 +25990,7 @@ void ldv_main_exported_8(void) ;
 #line 1185
 void ldv_main_exported_9(void) ;
 #line 1189 "/home/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--43_2a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/1700/dscv_tempdir/dscv/ri/43_2a/drivers/staging/wlan-ng/prism2usb.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct usb_device_id *ldvarg34 ;
   void *tmp ;
@@ -26320,7 +26320,7 @@ void main(void)
 #line 1414
   ldv_check_final_state();
 #line 1415
-  return;
+  return 0;
 }
 }
 #line 1501 "/home/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--43_2a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/1700/dscv_tempdir/dscv/ri/43_2a/drivers/staging/wlan-ng/prism2usb.o.c.prepared"

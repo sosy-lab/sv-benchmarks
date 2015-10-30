@@ -2577,7 +2577,7 @@ extern int nondet_int(void) ;
 #line 276 "/work/ldvuser/novikov/work/current--X--drivers/rtc/rtc-m41t93.ko--X--defaultlinux--X--32_7a--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/32_7a/drivers/rtc/rtc-m41t93.c.prepared"
 int LDV_IN_INTERRUPT  ;
 #line 279 "/work/ldvuser/novikov/work/current--X--drivers/rtc/rtc-m41t93.ko--X--defaultlinux--X--32_7a--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/32_7a/drivers/rtc/rtc-m41t93.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct device *var_group1 ;
   struct rtc_time *var_group2 ;
@@ -2689,7 +2689,7 @@ void main(void)
 #line 577
   ldv_check_final_state();
 #line 580
-  return;
+  return 0;
 }
 }
 #line 584 "/work/ldvuser/novikov/work/current--X--drivers/rtc/rtc-m41t93.ko--X--defaultlinux--X--32_7a--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/32_7a/drivers/rtc/rtc-m41t93.c.prepared"

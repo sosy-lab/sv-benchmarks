@@ -77682,7 +77682,7 @@ void ldv_main_exported_36(void) ;
 #line 473
 void ldv_main_exported_37(void) ;
 #line 477 "/home/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--43_2a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/1903/dscv_tempdir/dscv/ri/43_2a/drivers/staging/lustre/lustre/llite/super25.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct seq_file *ldvarg187 ;
   void *tmp ;
@@ -78821,7 +78821,7 @@ void main(void)
 #line 1256
   ldv_check_final_state();
 #line 1257
-  return;
+  return 0;
 }
 }
 #line 1278 "/home/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--43_2a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/1903/dscv_tempdir/dscv/ri/43_2a/drivers/staging/lustre/lustre/llite/super25.o.c.prepared"

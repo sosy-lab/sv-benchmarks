@@ -31111,7 +31111,7 @@ void ldv_initialize_spi_function_template_5(void)
 #line 135
 void ldv_main_exported_4(void) ;
 #line 142 "/work/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--32_7a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/5992/dscv_tempdir/dscv/ri/32_7a/drivers/scsi/aic7xxx/aic79xx_osm.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   char *ldvarg1 ;
   void *tmp ;
@@ -31715,7 +31715,7 @@ void main(void)
 #line 587
   ldv_check_final_state();
 #line 588
-  return;
+  return 0;
 }
 }
 #line 615 "/work/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--32_7a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/5992/dscv_tempdir/dscv/ri/32_7a/drivers/scsi/aic7xxx/aic79xx_osm.o.c.prepared"

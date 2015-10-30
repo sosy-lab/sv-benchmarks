@@ -6257,7 +6257,7 @@ extern int nondet_int(void) ;
 #line 528 "/work/ldvuser/novikov/work/current--X--drivers/net/tokenring/abyss.ko--X--defaultlinux--X--32_7a--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/32_7a/drivers/net/tokenring/abyss.c.prepared"
 int LDV_IN_INTERRUPT  ;
 #line 531 "/work/ldvuser/novikov/work/current--X--drivers/net/tokenring/abyss.ko--X--defaultlinux--X--32_7a--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/32_7a/drivers/net/tokenring/abyss.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct pci_dev *var_group1 ;
   struct pci_device_id  const  *var_abyss_attach_4_p1 ;
@@ -6354,7 +6354,7 @@ void main(void)
 #line 647
   ldv_check_final_state();
 #line 650
-  return;
+  return 0;
 }
 }
 #line 654 "/work/ldvuser/novikov/work/current--X--drivers/net/tokenring/abyss.ko--X--defaultlinux--X--32_7a--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/32_7a/drivers/net/tokenring/abyss.c.prepared"

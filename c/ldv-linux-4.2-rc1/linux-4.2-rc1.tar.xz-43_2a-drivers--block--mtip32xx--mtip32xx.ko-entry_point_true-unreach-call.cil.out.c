@@ -17863,7 +17863,7 @@ void call_and_disable_work_2(struct work_struct *work )
 }
 }
 #line 1358 "/home/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--43_2a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/13299/dscv_tempdir/dscv/ri/43_2a/drivers/block/mtip32xx/mtip32xx.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   unsigned int ldvarg1 ;
   unsigned long ldvarg4 ;
@@ -18859,7 +18859,7 @@ void main(void)
 #line 1968
   ldv_check_final_state();
 #line 1969
-  return;
+  return 0;
 }
 }
 #line 1984 "/home/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--43_2a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/13299/dscv_tempdir/dscv/ri/43_2a/drivers/block/mtip32xx/mtip32xx.o.c.prepared"

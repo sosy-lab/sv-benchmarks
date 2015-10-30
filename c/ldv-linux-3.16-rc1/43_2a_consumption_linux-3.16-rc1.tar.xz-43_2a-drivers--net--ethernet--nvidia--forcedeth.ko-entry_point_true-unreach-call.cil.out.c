@@ -22218,7 +22218,7 @@ int ldv_irq_2(int state , int line , void *data )
 }
 }
 #line 6960 "/work/ldvuser/mutilin/launch/work/current--X--drivers--X--defaultlinux-3.16-rc1.tar.xz--X--43_2a--X--cpachecker/linux-3.16-rc1.tar.xz/csd_deg_dscv/10218/dscv_tempdir/dscv/ri/43_2a/drivers/net/ethernet/nvidia/forcedeth.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct pci_device_id *ldvarg0 ;
   void *tmp ;
@@ -23888,7 +23888,7 @@ void main(void)
 #line 8107
   ldv_check_final_state();
 #line 8108
-  return;
+  return 0;
 }
 }
 #line 8111 "/work/ldvuser/mutilin/launch/work/current--X--drivers--X--defaultlinux-3.16-rc1.tar.xz--X--43_2a--X--cpachecker/linux-3.16-rc1.tar.xz/csd_deg_dscv/10218/dscv_tempdir/dscv/ri/43_2a/drivers/net/ethernet/nvidia/forcedeth.o.c.prepared"

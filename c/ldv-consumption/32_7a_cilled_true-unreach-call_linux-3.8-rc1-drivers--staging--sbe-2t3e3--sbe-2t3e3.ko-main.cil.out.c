@@ -6279,7 +6279,7 @@ int ldv_retval_2  ;
 #line 258
 void ldv_main_exported_1(void) ;
 #line 262 "/work/ldvuser/zakharov_benchmarks/bench/cpa/work/current--X--drivers/staging/sbe-2t3e3/sbe-2t3e3.ko--X--x1linux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/22/dscv_tempdir/dscv/ri/32_7a/drivers/staging/sbe-2t3e3/module.c.prepared"
-void main(void) 
+int main(void) 
 { int tmp ;
   int tmp___0 ;
   int tmp___1 ;
@@ -6430,7 +6430,7 @@ void main(void)
 #line 354
   ldv_check_final_state();
 #line 355
-  return;
+  return 0;
 }
 }
 #line 358 "/work/ldvuser/zakharov_benchmarks/bench/cpa/work/current--X--drivers/staging/sbe-2t3e3/sbe-2t3e3.ko--X--x1linux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/22/dscv_tempdir/dscv/ri/32_7a/drivers/staging/sbe-2t3e3/module.c.prepared"

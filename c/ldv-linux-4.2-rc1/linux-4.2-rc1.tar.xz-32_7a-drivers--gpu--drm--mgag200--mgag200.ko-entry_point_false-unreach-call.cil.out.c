@@ -14396,7 +14396,7 @@ void ldv_main_exported_4(void) ;
 #line 202
 void ldv_main_exported_3(void) ;
 #line 212 "/work/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--32_7a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/10176/dscv_tempdir/dscv/ri/32_7a/drivers/gpu/drm/mgag200/mgag200_drv.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   char *ldvarg11 ;
   void *tmp ;
@@ -15053,7 +15053,7 @@ void main(void)
 #line 630
   ldv_check_final_state();
 #line 631
-  return;
+  return 0;
 }
 }
 #line 658 "/work/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--32_7a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/10176/dscv_tempdir/dscv/ri/32_7a/drivers/gpu/drm/mgag200/mgag200_drv.o.c.prepared"

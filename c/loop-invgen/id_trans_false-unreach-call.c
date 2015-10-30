@@ -18,7 +18,7 @@
   }
 */
 #include "assert.h"
-void main() {
+int main() {
   int idBitLength, material_length, nlen;
   int j, k;
 
@@ -34,5 +34,5 @@ void main() {
     __VERIFIER_assert( j/4 < nlen);
   }
   
-  return;
+  return 0;
 }

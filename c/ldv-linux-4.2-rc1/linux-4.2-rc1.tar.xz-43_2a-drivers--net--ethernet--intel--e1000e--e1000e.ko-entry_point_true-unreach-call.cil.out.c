@@ -67409,7 +67409,7 @@ int reg_check_5(irqreturn_t (*handler)(int  , void * ) )
 #line 1980
 void ldv_main_exported_18(void) ;
 #line 2011 "/home/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--43_2a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/10421/dscv_tempdir/dscv/ri/43_2a/drivers/net/ethernet/intel/e1000e/netdev.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   enum pci_channel_state ldvarg2 ;
   int ldvarg63 ;
@@ -69231,7 +69231,7 @@ void main(void)
 #line 3308
   ldv_check_final_state();
 #line 3309
-  return;
+  return 0;
 }
 }
 #line 3336 "/home/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--43_2a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/10421/dscv_tempdir/dscv/ri/43_2a/drivers/net/ethernet/intel/e1000e/netdev.o.c.prepared"

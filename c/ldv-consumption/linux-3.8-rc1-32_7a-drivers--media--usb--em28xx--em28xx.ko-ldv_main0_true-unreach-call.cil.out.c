@@ -11611,7 +11611,7 @@ extern int __VERIFIER_nondet_int(void) ;
 #line 2138 "/work/ldvuser/exper_fp/work/current--X--drivers--X--defaultlinux-3.10-rc1.tar--X--32_7a--X--cpachecker/linux-3.10-rc1.tar/csd_deg_dscv/2685/dscv_tempdir/dscv/ri/32_7a/drivers/media/usb/em28xx/em28xx-video.c.prepared"
 int LDV_IN_INTERRUPT  ;
 #line 2141 "/work/ldvuser/exper_fp/work/current--X--drivers--X--defaultlinux-3.10-rc1.tar--X--32_7a--X--cpachecker/linux-3.10-rc1.tar/csd_deg_dscv/2685/dscv_tempdir/dscv/ri/32_7a/drivers/media/usb/em28xx/em28xx-video.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct vb2_buffer *var_group1 ;
   struct vb2_queue *var_group2 ;
@@ -12061,7 +12061,7 @@ void main(void)
 #line 5987
   ldv_check_final_state();
 #line 5990
-  return;
+  return 0;
 }
 }
 #line 5994 "/work/ldvuser/exper_fp/work/current--X--drivers--X--defaultlinux-3.10-rc1.tar--X--32_7a--X--cpachecker/linux-3.10-rc1.tar/csd_deg_dscv/2685/dscv_tempdir/dscv/ri/32_7a/drivers/media/usb/em28xx/em28xx-video.c.prepared"

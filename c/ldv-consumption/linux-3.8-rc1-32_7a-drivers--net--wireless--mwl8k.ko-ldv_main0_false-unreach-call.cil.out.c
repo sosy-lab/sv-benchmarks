@@ -18320,7 +18320,7 @@ extern int __VERIFIER_nondet_int(void) ;
 #line 6229 "/work/ldvuser/exper_fp/work/current--X--drivers--X--defaultlinux-3.10-rc1.tar--X--32_7a--X--cpachecker/linux-3.10-rc1.tar/csd_deg_dscv/9588/dscv_tempdir/dscv/ri/32_7a/drivers/net/wireless/mwl8k.c.prepared"
 int LDV_IN_INTERRUPT  ;
 #line 6232 "/work/ldvuser/exper_fp/work/current--X--drivers--X--defaultlinux-3.10-rc1.tar--X--32_7a--X--cpachecker/linux-3.10-rc1.tar/csd_deg_dscv/9588/dscv_tempdir/dscv/ri/32_7a/drivers/net/wireless/mwl8k.c.prepared"
-void main(void) 
+int main(void) 
 { 
   void *var_mwl8k_rxd_ap_init_13_p0 ;
   dma_addr_t var_mwl8k_rxd_ap_init_13_p1 ;
@@ -18628,7 +18628,7 @@ void main(void)
 #line 18527
   ldv_check_final_state();
 #line 18530
-  return;
+  return 0;
 }
 }
 #line 18534 "/work/ldvuser/exper_fp/work/current--X--drivers--X--defaultlinux-3.10-rc1.tar--X--32_7a--X--cpachecker/linux-3.10-rc1.tar/csd_deg_dscv/9588/dscv_tempdir/dscv/ri/32_7a/drivers/net/wireless/mwl8k.c.prepared"

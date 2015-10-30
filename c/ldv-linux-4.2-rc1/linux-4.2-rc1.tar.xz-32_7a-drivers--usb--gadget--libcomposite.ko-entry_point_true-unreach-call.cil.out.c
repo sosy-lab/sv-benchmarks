@@ -17787,7 +17787,7 @@ void ldv_initialize_gadget_info_attribute_31(void)
 }
 }
 #line 425 "/work/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--32_7a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/8755/dscv_tempdir/dscv/ri/32_7a/drivers/usb/gadget/configfs.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   size_t ldvarg1 ;
   char *ldvarg0 ;
@@ -20663,7 +20663,7 @@ void main(void)
 #line 2146
   ldv_check_final_state();
 #line 2147
-  return;
+  return 0;
 }
 }
 #line 2174 "/work/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--32_7a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/8755/dscv_tempdir/dscv/ri/32_7a/drivers/usb/gadget/configfs.o.c.prepared"

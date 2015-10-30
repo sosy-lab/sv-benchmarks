@@ -15563,7 +15563,7 @@ void gigaset_if_freedriver(struct gigaset_driver *drv )
 #line 750
 extern void ldv_check_return_value(int  ) ;
 #line 762 "/anthill/stuff/tacas-comp/work/current--X--drivers/isdn/gigaset/gigaset.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/20/dscv_tempdir/dscv/ri/08_1/drivers/isdn/gigaset/interface.c.p"
-void main(void) 
+int main(void) 
 { struct tty_struct *var_group1 ;
   struct file *var_group2 ;
   int res_if_open_2 ;
@@ -15786,7 +15786,7 @@ void main(void)
   ldv_check_final_state();
   }
 #line 1029
-  return;
+  return 0;
 }
 }
 #line 1041 "/anthill/stuff/tacas-comp/work/current--X--drivers/isdn/gigaset/gigaset.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/20/dscv_tempdir/dscv/ri/08_1/drivers/isdn/gigaset/interface.c.p"

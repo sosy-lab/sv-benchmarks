@@ -12698,7 +12698,7 @@ void invoke_work_2(void)
 }
 }
 #line 594 "/work/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--32_7a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/8935/dscv_tempdir/dscv/ri/32_7a/drivers/usb/misc/ftdi-elan.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct usb_device_id *ldvarg0 ;
   void *tmp ;
@@ -13022,7 +13022,7 @@ void main(void)
 #line 792
   ldv_check_final_state();
 #line 793
-  return;
+  return 0;
 }
 }
 #line 820 "/work/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--32_7a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/8935/dscv_tempdir/dscv/ri/32_7a/drivers/usb/misc/ftdi-elan.o.c.prepared"

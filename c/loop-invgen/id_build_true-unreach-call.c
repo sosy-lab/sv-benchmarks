@@ -20,7 +20,7 @@
 #include "assert.h"
 
 
-void main() {
+int main() {
   int offset, length, nlen;
   int i, j;
   
@@ -30,5 +30,5 @@ void main() {
       __VERIFIER_assert(nlen-1-i < nlen);
     }
   }
-  return;
+  return 0;
 }  

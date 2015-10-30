@@ -11733,7 +11733,7 @@ void ldv_initialize_i2c_algorithm_2(void)
 }
 }
 #line 128 "/work/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--32_7a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/3992/dscv_tempdir/dscv/ri/32_7a/drivers/media/usb/ttusb-budget/dvb-ttusb-budget.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   char *ldvarg1 ;
   void *tmp ;
@@ -12033,7 +12033,7 @@ void main(void)
 #line 295
   ldv_check_final_state();
 #line 296
-  return;
+  return 0;
 }
 }
 #line 323 "/work/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--32_7a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/3992/dscv_tempdir/dscv/ri/32_7a/drivers/media/usb/ttusb-budget/dvb-ttusb-budget.o.c.prepared"

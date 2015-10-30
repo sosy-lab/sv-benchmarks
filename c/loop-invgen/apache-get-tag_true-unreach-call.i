@@ -7,7 +7,7 @@ void __VERIFIER_assert(int cond) {
   return;
 }
 int __VERIFIER_nondet_int();
-void main()
+int main()
 {
   int tagbuf_len;
   int t;
@@ -59,5 +59,5 @@ void main()
   __VERIFIER_assert(0 <= t);
   __VERIFIER_assert(t <= tagbuf_len);
  END:
-  return;
+  return 0;
 }

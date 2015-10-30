@@ -7,7 +7,7 @@ void __VERIFIER_assert(int cond) {
   return;
 }
 int __VERIFIER_nondet_int();
-void main ()
+int main()
 {
   int scheme;
   int urilen,tokenlen;
@@ -63,5 +63,5 @@ void main ()
       }
   }
  END:
-  return;
+  return 0;
 }

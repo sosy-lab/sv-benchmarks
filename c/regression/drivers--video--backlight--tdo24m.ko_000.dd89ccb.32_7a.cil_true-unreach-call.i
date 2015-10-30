@@ -3980,7 +3980,7 @@ extern int nondet_int(void) ;
 #line 456 "/work/ldvuser/novikov/work/current--X--drivers/video/backlight/tdo24m.ko--X--defaultlinux--X--32_7a--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/32_7a/drivers/video/backlight/tdo24m.c.prepared"
 int LDV_IN_INTERRUPT  ;
 #line 459 "/work/ldvuser/novikov/work/current--X--drivers/video/backlight/tdo24m.ko--X--defaultlinux--X--32_7a--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/32_7a/drivers/video/backlight/tdo24m.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct lcd_device *var_group1 ;
   int var_tdo24m_set_power_5_p1 ;
@@ -4122,7 +4122,7 @@ void main(void)
 #line 986
   ldv_check_final_state();
 #line 989
-  return;
+  return 0;
 }
 }
 #line 993 "/work/ldvuser/novikov/work/current--X--drivers/video/backlight/tdo24m.ko--X--defaultlinux--X--32_7a--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/32_7a/drivers/video/backlight/tdo24m.c.prepared"

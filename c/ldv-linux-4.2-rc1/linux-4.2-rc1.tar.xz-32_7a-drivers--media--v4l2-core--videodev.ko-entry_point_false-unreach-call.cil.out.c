@@ -10100,7 +10100,7 @@ void ldv_main_exported_7(void) ;
 #line 213
 void ldv_main_exported_9(void) ;
 #line 217 "/work/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--32_7a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/2989/dscv_tempdir/dscv/ri/32_7a/drivers/media/v4l2-core/v4l2-dev.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct device_attribute *ldvarg4 ;
   void *tmp ;
@@ -10721,7 +10721,7 @@ void main(void)
 #line 588
   ldv_check_final_state();
 #line 589
-  return;
+  return 0;
 }
 }
 #line 616 "/work/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--32_7a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/2989/dscv_tempdir/dscv/ri/32_7a/drivers/media/v4l2-core/v4l2-dev.o.c.prepared"

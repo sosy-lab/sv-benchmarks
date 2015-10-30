@@ -34275,7 +34275,7 @@ static int batadv_get_sset_count(struct net_device *dev , int stringset )
 }
 }
 #line 733 "/home/mikhail/launches/cpachecker-regression2/launcher-working-dir/ldv-manager-work-dir/work/current--X--net/batman-adv/batman-adv.ko--X--regression-testlinux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/31/dscv_tempdir/dscv/ri/32_7a/net/batman-adv/soft-interface.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct net_device *var_group1 ;
   struct ethtool_cmd *var_group2 ;
@@ -34483,7 +34483,7 @@ void main(void)
 #line 1348
   ldv_check_final_state();
 #line 1351
-  return;
+  return 0;
 }
 }
 #line 1355 "/home/mikhail/launches/cpachecker-regression2/launcher-working-dir/ldv-manager-work-dir/work/current--X--net/batman-adv/batman-adv.ko--X--regression-testlinux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/31/dscv_tempdir/dscv/ri/32_7a/net/batman-adv/soft-interface.c.prepared"

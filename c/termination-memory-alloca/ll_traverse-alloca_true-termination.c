@@ -35,11 +35,12 @@ void traverse (node_t* head)
   }
 }
 
-void main ()
+int main ()
 {
   int n = __VERIFIER_nondet_int();
   node_t* head = init_ll(n);
   traverse(head);
+  return 0;
 }
 
 

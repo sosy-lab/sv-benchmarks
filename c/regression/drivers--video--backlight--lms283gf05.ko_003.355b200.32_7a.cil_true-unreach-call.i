@@ -4551,7 +4551,7 @@ extern int nondet_int(void) ;
 #line 320 "/work/ldvuser/novikov/work/current--X--drivers/video/backlight/lms283gf05.ko--X--defaultlinux--X--32_7a--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/32_7a/drivers/video/backlight/lms283gf05.c.prepared"
 int LDV_IN_INTERRUPT  ;
 #line 323 "/work/ldvuser/novikov/work/current--X--drivers/video/backlight/lms283gf05.ko--X--defaultlinux--X--32_7a--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/32_7a/drivers/video/backlight/lms283gf05.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct lcd_device *var_group1 ;
   int var_lms283gf05_power_set_2_p1 ;
@@ -4656,7 +4656,7 @@ void main(void)
 #line 452
   ldv_check_final_state();
 #line 455
-  return;
+  return 0;
 }
 }
 #line 459 "/work/ldvuser/novikov/work/current--X--drivers/video/backlight/lms283gf05.ko--X--defaultlinux--X--32_7a--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/32_7a/drivers/video/backlight/lms283gf05.c.prepared"

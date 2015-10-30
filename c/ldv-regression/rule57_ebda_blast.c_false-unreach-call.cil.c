@@ -243,7 +243,7 @@ int ebda_rsrc_controller(void)
 }
 }
 #line 111 "files/rule57_ebda_blast.c"
-void main(void) 
+int main(void) 
 { 
 
   {
@@ -266,6 +266,6 @@ void main(void)
 
   }
 #line 115
-  return;
+  return 0;
 }
 }

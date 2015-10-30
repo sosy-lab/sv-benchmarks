@@ -12571,7 +12571,7 @@ void disable_suitable_timer_2(struct timer_list *timer )
 }
 }
 #line 316 "/work/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--32_7a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/5347/dscv_tempdir/dscv/ri/32_7a/drivers/video/console/fbcon.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   unsigned long ldvarg18 ;
   int ldvarg11 ;
@@ -13179,7 +13179,7 @@ void main(void)
 #line 703
   ldv_check_final_state();
 #line 704
-  return;
+  return 0;
 }
 }
 #line 713 "/work/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--32_7a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/5347/dscv_tempdir/dscv/ri/32_7a/drivers/video/console/fbcon.o.c.prepared"

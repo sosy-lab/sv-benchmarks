@@ -13485,7 +13485,7 @@ void ldv_main_exported_3(void) ;
 #line 56
 void ldv_main_exported_2(void) ;
 #line 60 "/work/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--08_1a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/10967/dscv_tempdir/dscv/ri/08_1a/drivers/net/xen-netback/netback.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   int tmp ;
   int tmp___0 ;
@@ -13635,7 +13635,7 @@ void main(void)
 #line 159
   ldv_check_final_state();
 #line 160
-  return;
+  return 0;
 }
 }
 #line 169 "/work/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--08_1a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/10967/dscv_tempdir/dscv/ri/08_1a/drivers/net/xen-netback/netback.o.c.prepared"

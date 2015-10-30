@@ -5621,7 +5621,7 @@ int LDV_IN_INTERRUPT  ;
 #line 1204 "/work/ldvuser/novikov/work/current--X--drivers/usb/serial/spcp8x5.ko--X--defaultlinux--X--32_1--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/32_1/drivers/usb/serial/spcp8x5.c"
 static int res_spcp8x5_open_14  ;
 #line 1115 "/work/ldvuser/novikov/work/current--X--drivers/usb/serial/spcp8x5.ko--X--defaultlinux--X--32_1--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/32_1/drivers/usb/serial/spcp8x5.c"
-void main(void) 
+int main(void) 
 { 
   struct usb_serial_port *var_group1 ;
   struct file *var_group2 ;
@@ -5800,7 +5800,7 @@ void main(void)
 #line 3547
   ldv_check_final_state();
 #line 3550
-  return;
+  return 0;
 }
 }
 #line 135 "include/linux/mutex.h"

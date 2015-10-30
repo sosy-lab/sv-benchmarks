@@ -6712,7 +6712,7 @@ extern int nondet_int(void) ;
 #line 215 "/work/ldvuser/novikov/work/current--X--drivers/scsi/dmx3191d.ko--X--defaultlinux--X--32_7a--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/32_7a/drivers/scsi/dmx3191d.c.prepared"
 int LDV_IN_INTERRUPT  ;
 #line 218 "/work/ldvuser/novikov/work/current--X--drivers/scsi/dmx3191d.ko--X--defaultlinux--X--32_7a--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/32_7a/drivers/scsi/dmx3191d.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct pci_dev *var_group1 ;
   struct pci_device_id  const  *var_dmx3191d_probe_one_0_p1 ;
@@ -6809,7 +6809,7 @@ void main(void)
 #line 376
   ldv_check_final_state();
 #line 379
-  return;
+  return 0;
 }
 }
 #line 49 "/home/ldvuser/ldv/inst/kernel-rules/verifier/rcv.h"

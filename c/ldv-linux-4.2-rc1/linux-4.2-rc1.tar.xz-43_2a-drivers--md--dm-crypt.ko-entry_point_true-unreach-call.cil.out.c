@@ -11965,7 +11965,7 @@ void invoke_work_2(void)
 }
 }
 #line 417 "/home/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--43_2a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/1415/dscv_tempdir/dscv/ri/43_2a/drivers/md/dm-crypt.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct dm_crypt_request *ldvarg1 ;
   void *tmp ;
@@ -13487,7 +13487,7 @@ void main(void)
 #line 1421
   ldv_check_final_state();
 #line 1422
-  return;
+  return 0;
 }
 }
 #line 1425 "/home/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--43_2a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/1415/dscv_tempdir/dscv/ri/43_2a/drivers/md/dm-crypt.o.c.prepared"

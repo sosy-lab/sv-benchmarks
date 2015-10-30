@@ -8877,7 +8877,7 @@ extern int __VERIFIER_nondet_int(void) ;
 #line 1810 "/home/mikhail/launches/cpachecker-regression2/launcher-working-dir/ldv-manager-work-dir/work/current--X--sound/core/snd-rawmidi.ko--X--regression-testlinux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/37/dscv_tempdir/dscv/ri/32_7a/sound/core/rawmidi.c.prepared"
 int LDV_IN_INTERRUPT  ;
 #line 1813 "/home/mikhail/launches/cpachecker-regression2/launcher-working-dir/ldv-manager-work-dir/work/current--X--sound/core/snd-rawmidi.ko--X--regression-testlinux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/37/dscv_tempdir/dscv/ri/32_7a/sound/core/rawmidi.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct file *var_group1 ;
   char *var_snd_rawmidi_read_34_p1 ;
@@ -9069,7 +9069,7 @@ void main(void)
 #line 2627
   ldv_check_final_state();
 #line 2630
-  return;
+  return 0;
 }
 }
 #line 2634 "/home/mikhail/launches/cpachecker-regression2/launcher-working-dir/ldv-manager-work-dir/work/current--X--sound/core/snd-rawmidi.ko--X--regression-testlinux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/37/dscv_tempdir/dscv/ri/32_7a/sound/core/rawmidi.c.prepared"

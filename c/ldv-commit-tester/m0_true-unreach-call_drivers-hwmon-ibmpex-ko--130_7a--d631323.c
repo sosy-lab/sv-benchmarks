@@ -3093,7 +3093,7 @@ extern int __VERIFIER_nondet_int(void) ;
 #line 666 "/work/vladimir/commit-test/commit-test-work/task-081--linux-stable--dir/work/current--X--drivers/hwmon/ibmpex.ko--X--defaultlinux-stable-d631323--X--130_7a--X--cpachecker/linux-stable-d631323/csd_deg_dscv/11/dscv_tempdir/dscv/ri/130_7a/drivers/hwmon/ibmpex.c.prepared"
 int LDV_IN_INTERRUPT  ;
 #line 669 "/work/vladimir/commit-test/commit-test-work/task-081--linux-stable--dir/work/current--X--drivers/hwmon/ibmpex.ko--X--defaultlinux-stable-d631323--X--130_7a--X--cpachecker/linux-stable-d631323/csd_deg_dscv/11/dscv_tempdir/dscv/ri/130_7a/drivers/hwmon/ibmpex.c.prepared"
-void main(void) 
+int main(void) 
 { 
   int var_ibmpex_register_bmc_17_p0 ;
   struct device *var_group1 ;
@@ -3172,7 +3172,7 @@ void main(void)
 #line 912
   ldv_check_final_state();
 #line 915
-  return;
+  return 0;
 }
 }
 #line 935 "/work/vladimir/commit-test/commit-test-work/task-081--linux-stable--dir/work/current--X--drivers/hwmon/ibmpex.ko--X--defaultlinux-stable-d631323--X--130_7a--X--cpachecker/linux-stable-d631323/csd_deg_dscv/11/dscv_tempdir/dscv/ri/130_7a/drivers/hwmon/ibmpex.c.prepared"

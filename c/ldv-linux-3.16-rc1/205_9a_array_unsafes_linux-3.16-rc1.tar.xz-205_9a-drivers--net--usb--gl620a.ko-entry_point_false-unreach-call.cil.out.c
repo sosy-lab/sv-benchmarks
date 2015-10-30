@@ -7098,7 +7098,7 @@ void ldv_usb_driver_1(void)
 }
 }
 #line 308 "/work/ldvuser/mutilin/launch/work/current--X--drivers/net/--X--defaultlinux-3.16-rc1.tar.xz--X--205_9a--X--cpachecker/linux-3.16-rc1.tar.xz/csd_deg_dscv/162/dscv_tempdir/dscv/ri/205_9a/drivers/net/usb/gl620a.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct usb_device_id *ldvarg1 ;
   void *tmp ;
@@ -7415,7 +7415,7 @@ void main(void)
 #line 504
   ldv_check_final_state();
 #line 505
-  return;
+  return 0;
 }
 }
 #line 532 "/work/ldvuser/mutilin/launch/work/current--X--drivers/net/--X--defaultlinux-3.16-rc1.tar.xz--X--205_9a--X--cpachecker/linux-3.16-rc1.tar.xz/csd_deg_dscv/162/dscv_tempdir/dscv/ri/205_9a/drivers/net/usb/gl620a.o.c.prepared"

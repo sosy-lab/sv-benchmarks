@@ -7328,7 +7328,7 @@ void ldv_main_exported_9(void) ;
 #line 245
 void ldv_main_exported_5(void) ;
 #line 254 "/work/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--32_7a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/10096/dscv_tempdir/dscv/ri/32_7a/drivers/gpu/drm/ast/ast_drv.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   uint32_t ldvarg21 ;
   struct drm_master *ldvarg18 ;
@@ -8348,7 +8348,7 @@ void main(void)
 #line 905
   ldv_check_final_state();
 #line 906
-  return;
+  return 0;
 }
 }
 #line 933 "/work/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--32_7a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/10096/dscv_tempdir/dscv/ri/32_7a/drivers/gpu/drm/ast/ast_drv.o.c.prepared"

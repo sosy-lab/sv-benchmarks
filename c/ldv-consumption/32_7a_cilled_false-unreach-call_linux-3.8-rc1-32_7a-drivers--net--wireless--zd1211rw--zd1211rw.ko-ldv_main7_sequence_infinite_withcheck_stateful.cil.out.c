@@ -27214,7 +27214,7 @@ extern void ldv_check_return_value(int  ) ;
 #line 2126
 extern void ldv_check_return_value_probe(int  ) ;
 #line 2141 "/home/mikhail/launches/cpachecker-regression/launcher-working-dir/ldv-manager-work-dir/work/current--X--drivers/net/wireless/zd1211rw/zd1211rw.ko--X--regression-testlinux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/19/dscv_tempdir/dscv/ri/32_7a/drivers/net/wireless/zd1211rw/zd_usb.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct usb_interface *var_group1 ;
   struct usb_device_id  const  *var_probe_48_p1 ;
@@ -27339,7 +27339,7 @@ void main(void)
 #line 2413
   ldv_check_final_state();
 #line 2416
-  return;
+  return 0;
 }
 }
 #line 2420 "/home/mikhail/launches/cpachecker-regression/launcher-working-dir/ldv-manager-work-dir/work/current--X--drivers/net/wireless/zd1211rw/zd1211rw.ko--X--regression-testlinux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/19/dscv_tempdir/dscv/ri/32_7a/drivers/net/wireless/zd1211rw/zd_usb.c.prepared"

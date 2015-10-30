@@ -5901,7 +5901,7 @@ extern int nondet_int(void) ;
 #line 1019 "/work/ldvuser/novikov/work/current--X--drivers/net/usb/catc.ko--X--defaultlinux--X--43_1a--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/43_1a/drivers/net/usb/catc.c.prepared"
 int LDV_IN_INTERRUPT  ;
 #line 1022 "/work/ldvuser/novikov/work/current--X--drivers/net/usb/catc.ko--X--defaultlinux--X--43_1a--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/43_1a/drivers/net/usb/catc.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct net_device *var_group1 ;
   struct ethtool_drvinfo *var_group2 ;
@@ -6023,7 +6023,7 @@ void main(void)
 #line 1535
   ldv_check_final_state();
 #line 1538
-  return;
+  return 0;
 }
 }
 #line 1553 "/work/ldvuser/novikov/work/current--X--drivers/net/usb/catc.ko--X--defaultlinux--X--43_1a--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/43_1a/drivers/net/usb/catc.c.prepared"

@@ -36,7 +36,7 @@ void firstFunction()
  ((p >= 0) ? (0) : __blast_assert ());
 }
 
-void main()
+int main()
 {
  firstFunction();
 }

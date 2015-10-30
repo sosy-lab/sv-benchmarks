@@ -6624,7 +6624,7 @@ void ldv_main_exported_4(void) ;
 #line 254
 void ldv_main_exported_5(void) ;
 #line 258 "/work/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--32_7a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/10477/dscv_tempdir/dscv/ri/32_7a/drivers/gpu/drm/amd/amdkfd/kfd_module.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct kfd2kgd_calls *ldvarg18 ;
   void *tmp ;
@@ -6987,7 +6987,7 @@ void main(void)
 #line 506
   ldv_check_final_state();
 #line 507
-  return;
+  return 0;
 }
 }
 #line 534 "/work/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--32_7a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/10477/dscv_tempdir/dscv/ri/32_7a/drivers/gpu/drm/amd/amdkfd/kfd_module.o.c.prepared"

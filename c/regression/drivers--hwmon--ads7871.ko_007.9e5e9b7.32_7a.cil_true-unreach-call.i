@@ -2971,7 +2971,7 @@ extern int nondet_int(void) ;
 #line 319 "/work/ldvuser/novikov/work/current--X--drivers/hwmon/ads7871.ko--X--defaultlinux--X--32_7a--X--cpachecker/linux/csd_deg_dscv/12/dscv_tempdir/dscv/ri/32_7a/drivers/hwmon/ads7871.c.prepared"
 int LDV_IN_INTERRUPT  ;
 #line 322 "/work/ldvuser/novikov/work/current--X--drivers/hwmon/ads7871.ko--X--defaultlinux--X--32_7a--X--cpachecker/linux/csd_deg_dscv/12/dscv_tempdir/dscv/ri/32_7a/drivers/hwmon/ads7871.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct spi_device *var_group1 ;
   int res_ads7871_probe_5 ;
@@ -3050,7 +3050,7 @@ void main(void)
 #line 509
   ldv_check_final_state();
 #line 512
-  return;
+  return 0;
 }
 }
 #line 516 "/work/ldvuser/novikov/work/current--X--drivers/hwmon/ads7871.ko--X--defaultlinux--X--32_7a--X--cpachecker/linux/csd_deg_dscv/12/dscv_tempdir/dscv/ri/32_7a/drivers/hwmon/ads7871.c.prepared"

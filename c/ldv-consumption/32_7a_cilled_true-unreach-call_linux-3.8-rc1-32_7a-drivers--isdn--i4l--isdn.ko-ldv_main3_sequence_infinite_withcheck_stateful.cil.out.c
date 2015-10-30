@@ -29164,7 +29164,7 @@ static void isdn_exit(void)
 }
 }
 #line 2483 "/home/mikhail/launches/cpachecker-regression2/launcher-working-dir/ldv-manager-work-dir/work/current--X--drivers/isdn/i4l/isdn.ko--X--regression-testlinux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/20/dscv_tempdir/dscv/ri/32_7a/drivers/isdn/i4l/isdn_common.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct file *var_group1 ;
   char *var_isdn_read_23_p1 ;
@@ -29334,7 +29334,7 @@ void main(void)
 #line 4229
   ldv_check_final_state();
 #line 4232
-  return;
+  return 0;
 }
 }
 #line 4236 "/home/mikhail/launches/cpachecker-regression2/launcher-working-dir/ldv-manager-work-dir/work/current--X--drivers/isdn/i4l/isdn.ko--X--regression-testlinux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/20/dscv_tempdir/dscv/ri/32_7a/drivers/isdn/i4l/isdn_common.c.prepared"

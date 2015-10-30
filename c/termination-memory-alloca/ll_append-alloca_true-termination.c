@@ -44,13 +44,14 @@ node_t* append(node_t* x, node_t* y)
   return s;
 }
 
-void main ()
+int main ()
 {
   int n = abs(__VERIFIER_nondet_int());
   node_t* x = new_ll(n);
   node_t* y = new_ll(n + 1);
   node_t* z = append(x, y);
   int z_length = length(z);
+  return 0;
 }
 
 

@@ -10682,7 +10682,7 @@ void ldv_initialize_rtnl_link_ops_4(void)
 }
 }
 #line 1676 "/work/ldvuser/mutilin/launch/work/current--X--drivers/net/--X--defaultlinux-3.16-rc1.tar.xz--X--205_9a--X--cpachecker/linux-3.16-rc1.tar.xz/csd_deg_dscv/211/dscv_tempdir/dscv/ri/205_9a/drivers/net/caif/caif_hsi.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct sk_buff *ldvarg1 ;
   void *tmp ;
@@ -11117,7 +11117,7 @@ void main(void)
 #line 1971
   ldv_check_final_state();
 #line 1972
-  return;
+  return 0;
 }
 }
 #line 1999 "/work/ldvuser/mutilin/launch/work/current--X--drivers/net/--X--defaultlinux-3.16-rc1.tar.xz--X--205_9a--X--cpachecker/linux-3.16-rc1.tar.xz/csd_deg_dscv/211/dscv_tempdir/dscv/ri/205_9a/drivers/net/caif/caif_hsi.o.c.prepared"

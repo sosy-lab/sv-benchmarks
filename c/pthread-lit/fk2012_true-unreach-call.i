@@ -1065,7 +1065,7 @@ void* consumer(void *arg) {
     __VERIFIER_assert(counter >= 0);
     __VERIFIER_atomic_release1();
 }
-void main () {
+int main () {
     pthread_t t;
     counter = 0;
     lock1 = 0;
@@ -1078,4 +1078,5 @@ void main () {
      pthread_create(&t, 0, consumer, 0);
  }
     }
+    return 0;
 }

@@ -18349,7 +18349,7 @@ void atl1c_set_ethtool_ops(struct net_device *netdev )
 }
 }
 # 352 "/anthill/stuff/tacas-comp/work/current--X--drivers/net/atl1c/atl1c.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/13/dscv_tempdir/dscv/ri/08_1/drivers/net/atl1c/atl1c_ethtool.c.p"
-void main(void)
+int main(void)
 { struct net_device *var_group1 ;
   struct ethtool_cmd *var_group2 ;
   struct ethtool_drvinfo *var_group3 ;
@@ -18551,6 +18551,6 @@ void main(void)
   ldv_check_final_state();
   }
 # 630 "/anthill/stuff/tacas-comp/work/current--X--drivers/net/atl1c/atl1c.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/13/dscv_tempdir/dscv/ri/08_1/drivers/net/atl1c/atl1c_ethtool.c.p"
-  return;
+  return 0;
 }
 }

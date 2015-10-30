@@ -3839,13 +3839,13 @@ extern int nondet_int(void) ;
 #line 190 "/work/ldvuser/novikov/work/current--X--drivers/mtd/ar7part.ko--X--defaultlinux--X--68_1--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/mtd/ar7part.c"
 int LDV_IN_INTERRUPT  ;
 #line 247
-void main(void) ;
+int main(void) ;
 #line 247 "/work/ldvuser/novikov/work/current--X--drivers/mtd/ar7part.ko--X--defaultlinux--X--68_1--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/mtd/ar7part.c"
 static struct ftrace_branch_data  __attribute__((__aligned__(4))) ______f___682  __attribute__((__section__("_ftrace_branch")))  =    {"main",
     "/work/ldvuser/novikov/work/current--X--drivers/mtd/ar7part.ko--X--defaultlinux--X--68_1--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/mtd/ar7part.c",
     247, {{0UL, 0UL}}};
 #line 193 "/work/ldvuser/novikov/work/current--X--drivers/mtd/ar7part.ko--X--defaultlinux--X--68_1--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/mtd/ar7part.c"
-void main(void) 
+int main(void) 
 { 
   struct mtd_info *var_group1 ;
   struct mtd_partition **var_group2 ;
@@ -3921,7 +3921,7 @@ void main(void)
 #line 291
   ldv_check_final_state();
 #line 294
-  return;
+  return 0;
 }
 }
 #line 1 "<compiler builtins>"

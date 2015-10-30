@@ -9669,7 +9669,7 @@ extern int nondet_int(void) ;
 #line 2820 "/work/ldvuser/novikov/work/current--X--drivers/net/wan/farsync.ko--X--defaultlinux--X--39_7a--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/39_7a/drivers/net/wan/farsync.c.prepared"
 int LDV_IN_INTERRUPT  ;
 #line 2823 "/work/ldvuser/novikov/work/current--X--drivers/net/wan/farsync.ko--X--defaultlinux--X--39_7a--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/39_7a/drivers/net/wan/farsync.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct net_device *var_group1 ;
   int res_fst_open_36 ;
@@ -9847,7 +9847,7 @@ void main(void)
 #line 5052
   ldv_check_final_state();
 #line 5055
-  return;
+  return 0;
 }
 }
 #line 5091 "/work/ldvuser/novikov/work/current--X--drivers/net/wan/farsync.ko--X--defaultlinux--X--39_7a--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/39_7a/drivers/net/wan/farsync.c.prepared"

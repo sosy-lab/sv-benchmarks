@@ -8093,7 +8093,7 @@ extern int __VERIFIER_nondet_int(void) ;
 #line 1585 "/home/mikhail/launches/cpachecker-regression2/launcher-working-dir/ldv-manager-work-dir/work/current--X--drivers/media/tuners/tuner-xc2028.ko--X--regression-testlinux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/32_7a/drivers/media/tuners/tuner-xc2028.c.prepared"
 int LDV_IN_INTERRUPT  ;
 #line 1588 "/home/mikhail/launches/cpachecker-regression2/launcher-working-dir/ldv-manager-work-dir/work/current--X--drivers/media/tuners/tuner-xc2028.ko--X--regression-testlinux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/32_7a/drivers/media/tuners/tuner-xc2028.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct dvb_frontend *var_group1 ;
   void *var_xc2028_set_config_20_p1 ;
@@ -8202,7 +8202,7 @@ void main(void)
 #line 2699
   ldv_check_final_state();
 #line 2702
-  return;
+  return 0;
 }
 }
 #line 2706 "/home/mikhail/launches/cpachecker-regression2/launcher-working-dir/ldv-manager-work-dir/work/current--X--drivers/media/tuners/tuner-xc2028.ko--X--regression-testlinux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/32_7a/drivers/media/tuners/tuner-xc2028.c.prepared"

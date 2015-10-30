@@ -7641,7 +7641,7 @@ char *ldvarg52  ;
 #line 2328 "/work/ldvuser/zakharov_benchmarks/bench/cpa/work/current--X--drivers/hwmon/w83792d.ko--X--x1linux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/32_7a/drivers/hwmon/w83792d.c.prepared"
 struct device_attribute *sensor_dev_attr_pwm2_group1  ;
 #line 2450 "/work/ldvuser/zakharov_benchmarks/bench/cpa/work/current--X--drivers/hwmon/w83792d.ko--X--x1linux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/32_7a/drivers/hwmon/w83792d.c.prepared"
-void main(void) 
+int main(void) 
 { int tmp ;
   int tmp___0 ;
   int tmp___1 ;
@@ -12724,7 +12724,7 @@ void main(void)
 #line 5808
   ldv_check_final_state();
 #line 5809
-  return;
+  return 0;
 }
 }
 #line 5812 "/work/ldvuser/zakharov_benchmarks/bench/cpa/work/current--X--drivers/hwmon/w83792d.ko--X--x1linux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/32_7a/drivers/hwmon/w83792d.c.prepared"

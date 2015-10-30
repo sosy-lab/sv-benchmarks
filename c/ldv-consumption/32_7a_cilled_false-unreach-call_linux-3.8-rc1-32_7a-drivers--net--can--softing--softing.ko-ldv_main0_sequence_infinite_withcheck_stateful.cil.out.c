@@ -8213,7 +8213,7 @@ extern int __VERIFIER_nondet_int(void) ;
 #line 950 "/home/mikhail/launches/cpachecker-regression/launcher-working-dir/ldv-manager-work-dir/work/current--X--drivers/net/can/softing/softing.ko--X--regression-testlinux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/13/dscv_tempdir/dscv/ri/32_7a/drivers/net/can/softing/softing_main.c.prepared"
 int LDV_IN_INTERRUPT  ;
 #line 953 "/home/mikhail/launches/cpachecker-regression/launcher-working-dir/ldv-manager-work-dir/work/current--X--drivers/net/can/softing/softing.ko--X--regression-testlinux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/13/dscv_tempdir/dscv/ri/32_7a/drivers/net/can/softing/softing_main.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct net_device *var_group1 ;
   int res_softing_netdev_open_9 ;
@@ -8391,7 +8391,7 @@ void main(void)
 #line 1502
   ldv_check_final_state();
 #line 1505
-  return;
+  return 0;
 }
 }
 #line 1509 "/home/mikhail/launches/cpachecker-regression/launcher-working-dir/ldv-manager-work-dir/work/current--X--drivers/net/can/softing/softing.ko--X--regression-testlinux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/13/dscv_tempdir/dscv/ri/32_7a/drivers/net/can/softing/softing_main.c.prepared"

@@ -3371,7 +3371,7 @@ extern int nondet_int(void) ;
 #line 434 "/work/ldvuser/novikov/work/current--X--drivers/regulator/gpio-regulator.ko--X--defaultlinux--X--39_7a--X--cpachecker/linux/csd_deg_dscv/12/dscv_tempdir/dscv/ri/39_7a/drivers/regulator/gpio-regulator.c.prepared"
 int LDV_IN_INTERRUPT  ;
 #line 437 "/work/ldvuser/novikov/work/current--X--drivers/regulator/gpio-regulator.ko--X--defaultlinux--X--39_7a--X--cpachecker/linux/csd_deg_dscv/12/dscv_tempdir/dscv/ri/39_7a/drivers/regulator/gpio-regulator.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct regulator_dev *var_group1 ;
   int var_gpio_regulator_set_voltage_5_p1 ;
@@ -3553,7 +3553,7 @@ void main(void)
 #line 770
   ldv_check_final_state();
 #line 773
-  return;
+  return 0;
 }
 }
 #line 809 "/work/ldvuser/novikov/work/current--X--drivers/regulator/gpio-regulator.ko--X--defaultlinux--X--39_7a--X--cpachecker/linux/csd_deg_dscv/12/dscv_tempdir/dscv/ri/39_7a/drivers/regulator/gpio-regulator.c.prepared"

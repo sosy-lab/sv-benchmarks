@@ -22970,7 +22970,7 @@ void activate_work_6(struct work_struct *work , int state )
 }
 }
 #line 853 "/work/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--08_1a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/11689/dscv_tempdir/dscv/ri/08_1a/drivers/net/ethernet/rocker/rocker.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   void *ldvarg1 ;
   void *tmp ;
@@ -23981,7 +23981,7 @@ void main(void)
 #line 1487
   ldv_check_final_state();
 #line 1488
-  return;
+  return 0;
 }
 }
 #line 1503 "/work/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--08_1a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/11689/dscv_tempdir/dscv/ri/08_1a/drivers/net/ethernet/rocker/rocker.o.c.prepared"

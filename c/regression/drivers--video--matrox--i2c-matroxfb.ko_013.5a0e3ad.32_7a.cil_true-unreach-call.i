@@ -5047,7 +5047,7 @@ extern int nondet_int(void) ;
 #line 298 "/work/ldvuser/novikov/work/current--X--drivers/video/matrox/i2c-matroxfb.ko--X--defaultlinux--X--32_7a--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/32_7a/drivers/video/matrox/i2c-matroxfb.c.prepared"
 int LDV_IN_INTERRUPT  ;
 #line 301 "/work/ldvuser/novikov/work/current--X--drivers/video/matrox/i2c-matroxfb.ko--X--defaultlinux--X--32_7a--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/32_7a/drivers/video/matrox/i2c-matroxfb.c.prepared"
-void main(void) 
+int main(void) 
 { 
   void *var_matroxfb_gpio_setsda_3_p0 ;
   int var_matroxfb_gpio_setsda_3_p1 ;
@@ -5167,7 +5167,7 @@ void main(void)
 #line 618
   ldv_check_final_state();
 #line 621
-  return;
+  return 0;
 }
 }
 #line 625 "/work/ldvuser/novikov/work/current--X--drivers/video/matrox/i2c-matroxfb.ko--X--defaultlinux--X--32_7a--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/32_7a/drivers/video/matrox/i2c-matroxfb.c.prepared"

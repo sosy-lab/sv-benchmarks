@@ -27398,7 +27398,7 @@ void ldv_initialize_bin_attribute_11(void)
 }
 }
 #line 353 "/work/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--08_1a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/6125/dscv_tempdir/dscv/ri/08_1a/drivers/scsi/esas2r/esas2r_main.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   char *ldvarg1 ;
   void *tmp ;
@@ -28712,7 +28712,7 @@ void main(void)
 #line 1189
   ldv_check_final_state();
 #line 1190
-  return;
+  return 0;
 }
 }
 #line 1217 "/work/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--08_1a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/6125/dscv_tempdir/dscv/ri/08_1a/drivers/scsi/esas2r/esas2r_main.o.c.prepared"

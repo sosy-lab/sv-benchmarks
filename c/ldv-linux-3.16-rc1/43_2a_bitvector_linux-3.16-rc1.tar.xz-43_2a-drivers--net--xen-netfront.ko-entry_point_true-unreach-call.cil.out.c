@@ -14371,7 +14371,7 @@ void disable_suitable_timer_1(struct timer_list *timer )
 }
 }
 #line 2493 "/work/ldvuser/mutilin/launch/work/current--X--drivers--X--defaultlinux-3.16-rc1.tar.xz--X--43_2a--X--cpachecker/linux-3.16-rc1.tar.xz/csd_deg_dscv/11421/dscv_tempdir/dscv/ri/43_2a/drivers/net/xen-netfront.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   void *ldvarg7 ;
   void *tmp ;
@@ -15073,7 +15073,7 @@ void main(void)
 #line 2958
   ldv_check_final_state();
 #line 2959
-  return;
+  return 0;
 }
 }
 #line 2962 "/work/ldvuser/mutilin/launch/work/current--X--drivers--X--defaultlinux-3.16-rc1.tar.xz--X--43_2a--X--cpachecker/linux-3.16-rc1.tar.xz/csd_deg_dscv/11421/dscv_tempdir/dscv/ri/43_2a/drivers/net/xen-netfront.o.c.prepared"

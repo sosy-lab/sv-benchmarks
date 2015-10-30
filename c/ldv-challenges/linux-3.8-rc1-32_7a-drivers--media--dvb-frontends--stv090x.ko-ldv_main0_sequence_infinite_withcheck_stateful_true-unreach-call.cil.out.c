@@ -23224,7 +23224,7 @@ extern int __VERIFIER_nondet_int(void) ;
 #line 5056 "/work/ldvuser/exper_fp/work/current--X--drivers--X--defaultlinux-3.10-rc1.tar--X--32_7a--X--cpachecker/linux-3.10-rc1.tar/csd_deg_dscv/1939/dscv_tempdir/dscv/ri/32_7a/drivers/media/dvb-frontends/stv090x.c.prepared"
 int LDV_IN_INTERRUPT  ;
 #line 5059 "/work/ldvuser/exper_fp/work/current--X--drivers--X--defaultlinux-3.10-rc1.tar--X--32_7a--X--cpachecker/linux-3.10-rc1.tar/csd_deg_dscv/1939/dscv_tempdir/dscv/ri/32_7a/drivers/media/dvb-frontends/stv090x.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct dvb_frontend *var_group1 ;
   struct dvb_diseqc_master_cmd *var_group2 ;
@@ -23371,7 +23371,7 @@ void main(void)
 #line 5367
   ldv_check_final_state();
 #line 5370
-  return;
+  return 0;
 }
 }
 #line 5374 "/work/ldvuser/exper_fp/work/current--X--drivers--X--defaultlinux-3.10-rc1.tar--X--32_7a--X--cpachecker/linux-3.10-rc1.tar/csd_deg_dscv/1939/dscv_tempdir/dscv/ri/32_7a/drivers/media/dvb-frontends/stv090x.c.prepared"

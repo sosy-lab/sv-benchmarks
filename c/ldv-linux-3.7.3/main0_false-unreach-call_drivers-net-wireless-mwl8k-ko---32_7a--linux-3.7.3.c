@@ -17494,7 +17494,7 @@ extern int __VERIFIER_nondet_int(void) ;
 #line 5991 "/work/vladimir/UFO/Work/test/work/current--X--drivers/net/wireless/mwl8k.ko--X--defaultlinux-3.7.3--X--32_7a--X--ufo/linux-3.7.3/csd_deg_dscv/12/dscv_tempdir/dscv/ri/32_7a/drivers/net/wireless/mwl8k.c.prepared"
 int LDV_IN_INTERRUPT  ;
 #line 5994 "/work/vladimir/UFO/Work/test/work/current--X--drivers/net/wireless/mwl8k.ko--X--defaultlinux-3.7.3--X--32_7a--X--ufo/linux-3.7.3/csd_deg_dscv/12/dscv_tempdir/dscv/ri/32_7a/drivers/net/wireless/mwl8k.c.prepared"
-void main(void) 
+int main(void) 
 { 
   void *var_mwl8k_rxd_8366_ap_init_13_p0 ;
   dma_addr_t var_mwl8k_rxd_8366_ap_init_13_p1 ;
@@ -17809,7 +17809,7 @@ void main(void)
 #line 18429
   ldv_check_final_state();
 #line 18432
-  return;
+  return 0;
 }
 }
 #line 18436 "/work/vladimir/UFO/Work/test/work/current--X--drivers/net/wireless/mwl8k.ko--X--defaultlinux-3.7.3--X--32_7a--X--ufo/linux-3.7.3/csd_deg_dscv/12/dscv_tempdir/dscv/ri/32_7a/drivers/net/wireless/mwl8k.c.prepared"

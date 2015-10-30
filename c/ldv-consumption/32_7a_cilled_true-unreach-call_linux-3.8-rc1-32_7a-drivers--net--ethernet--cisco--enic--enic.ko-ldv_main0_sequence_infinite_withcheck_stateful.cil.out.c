@@ -15424,7 +15424,7 @@ extern int __VERIFIER_nondet_int(void) ;
 #line 2670 "/home/mikhail/launches/cpachecker-regression2/launcher-working-dir/ldv-manager-work-dir/work/current--X--drivers/net/ethernet/cisco/enic/enic.ko--X--regression-testlinux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/21/dscv_tempdir/dscv/ri/32_7a/drivers/net/ethernet/cisco/enic/enic_main.c.prepared"
 int LDV_IN_INTERRUPT  ;
 #line 2673 "/home/mikhail/launches/cpachecker-regression2/launcher-working-dir/ldv-manager-work-dir/work/current--X--drivers/net/ethernet/cisco/enic/enic.ko--X--regression-testlinux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/21/dscv_tempdir/dscv/ri/32_7a/drivers/net/ethernet/cisco/enic/enic_main.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct net_device *var_group1 ;
   struct ethtool_cmd *var_group2 ;
@@ -15915,7 +15915,7 @@ void main(void)
 #line 6207
   ldv_check_final_state();
 #line 6210
-  return;
+  return 0;
 }
 }
 #line 6214 "/home/mikhail/launches/cpachecker-regression2/launcher-working-dir/ldv-manager-work-dir/work/current--X--drivers/net/ethernet/cisco/enic/enic.ko--X--regression-testlinux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/21/dscv_tempdir/dscv/ri/32_7a/drivers/net/ethernet/cisco/enic/enic_main.c.prepared"

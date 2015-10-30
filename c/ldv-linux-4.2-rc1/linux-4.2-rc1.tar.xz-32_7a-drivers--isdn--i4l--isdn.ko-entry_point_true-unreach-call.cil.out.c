@@ -31871,7 +31871,7 @@ void ldv_main_exported_6(void) ;
 #line 228
 void ldv_main_exported_7(void) ;
 #line 236 "/work/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--32_7a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/5601/dscv_tempdir/dscv/ri/32_7a/drivers/isdn/i4l/isdn_common.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   char *ldvarg24 ;
   void *tmp ;
@@ -32261,7 +32261,7 @@ void main(void)
 #line 504
   ldv_check_final_state();
 #line 505
-  return;
+  return 0;
 }
 }
 #line 532 "/work/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--32_7a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/5601/dscv_tempdir/dscv/ri/32_7a/drivers/isdn/i4l/isdn_common.o.c.prepared"

@@ -18035,7 +18035,7 @@ void activate_work_1(struct work_struct *work , int state )
 }
 }
 #line 290 "/work/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--32_7a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/12618/dscv_tempdir/dscv/ri/32_7a/drivers/net/usb/r8152.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   u32 ldvarg1 ;
   u64 *ldvarg4 ;
@@ -18867,7 +18867,7 @@ void main(void)
 #line 861
   ldv_check_final_state();
 #line 862
-  return;
+  return 0;
 }
 }
 #line 877 "/work/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--32_7a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/12618/dscv_tempdir/dscv/ri/32_7a/drivers/net/usb/r8152.o.c.prepared"

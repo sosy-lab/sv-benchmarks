@@ -18146,7 +18146,7 @@ void disable_suitable_irq_1(int line , void *data )
 }
 }
 #line 518 "/work/ldvuser/mutilin/launch/work/current--X--drivers/net/--X--defaultlinux-3.16-rc1.tar.xz--X--205_9a--X--cpachecker/linux-3.16-rc1.tar.xz/csd_deg_dscv/296/dscv_tempdir/dscv/ri/205_9a/drivers/net/wireless/prism54/islpci_hotplug.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   pm_message_t ldvarg5 ;
   struct pci_device_id *ldvarg6 ;
@@ -18394,7 +18394,7 @@ void main(void)
 #line 676
   ldv_check_final_state();
 #line 677
-  return;
+  return 0;
 }
 }
 #line 704 "/work/ldvuser/mutilin/launch/work/current--X--drivers/net/--X--defaultlinux-3.16-rc1.tar.xz--X--205_9a--X--cpachecker/linux-3.16-rc1.tar.xz/csd_deg_dscv/296/dscv_tempdir/dscv/ri/205_9a/drivers/net/wireless/prism54/islpci_hotplug.o.c.prepared"

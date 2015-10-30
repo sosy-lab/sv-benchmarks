@@ -18982,7 +18982,7 @@ void invoke_work_2(void)
 }
 }
 #line 498 "/home/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--43_2a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/1441/dscv_tempdir/dscv/ri/43_2a/drivers/staging/unisys/visorbus/visorchipset.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct device_attribute *ldvarg8 ;
   void *tmp ;
@@ -20157,7 +20157,7 @@ void main(void)
 #line 1226
   ldv_check_final_state();
 #line 1227
-  return;
+  return 0;
 }
 }
 #line 1343 "/home/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--43_2a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/1441/dscv_tempdir/dscv/ri/43_2a/drivers/staging/unisys/visorbus/visorchipset.o.c.prepared"

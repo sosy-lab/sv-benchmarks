@@ -15358,7 +15358,7 @@ void ldv_main_exported_7(void) ;
 #line 142
 void ldv_main_exported_9(void) ;
 #line 153 "/work/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--08_1a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/4847/dscv_tempdir/dscv/ri/08_1a/drivers/infiniband/hw/cxgb4/device.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   enum cxgb4_control ldvarg7 ;
   __be64 *ldvarg3 ;
@@ -16261,7 +16261,7 @@ void main(void)
 #line 719
   ldv_check_final_state();
 #line 720
-  return;
+  return 0;
 }
 }
 #line 723 "/work/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--08_1a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/4847/dscv_tempdir/dscv/ri/08_1a/drivers/infiniband/hw/cxgb4/device.o.c.prepared"

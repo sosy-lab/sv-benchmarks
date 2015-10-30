@@ -7,7 +7,7 @@ void __VERIFIER_assert(int cond) {
   return;
 }
 int __VERIFIER_nondet_int();
-void main() {
+int main() {
     int i,j;
     i = 1;
     j = 10;
@@ -16,4 +16,5 @@ void main() {
  j = -1 + j;
     }
     __VERIFIER_assert(j == 6);
+    return 0;
 }

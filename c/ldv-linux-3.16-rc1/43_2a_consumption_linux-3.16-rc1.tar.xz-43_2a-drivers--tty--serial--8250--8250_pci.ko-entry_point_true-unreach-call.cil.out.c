@@ -9503,7 +9503,7 @@ void ldv_initialize_pci_error_handlers_2(void)
 }
 }
 #line 5408 "/work/ldvuser/mutilin/launch/work/current--X--drivers--X--defaultlinux-3.16-rc1.tar.xz--X--43_2a--X--cpachecker/linux-3.16-rc1.tar.xz/csd_deg_dscv/536/dscv_tempdir/dscv/ri/43_2a/drivers/tty/serial/8250/8250_pci.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct pci_device_id *ldvarg1 ;
   void *tmp ;
@@ -9849,7 +9849,7 @@ void main(void)
 #line 5639
   ldv_check_final_state();
 #line 5640
-  return;
+  return 0;
 }
 }
 #line 5770 "/work/ldvuser/mutilin/launch/work/current--X--drivers--X--defaultlinux-3.16-rc1.tar.xz--X--43_2a--X--cpachecker/linux-3.16-rc1.tar.xz/csd_deg_dscv/536/dscv_tempdir/dscv/ri/43_2a/drivers/tty/serial/8250/8250_pci.o.c.prepared"

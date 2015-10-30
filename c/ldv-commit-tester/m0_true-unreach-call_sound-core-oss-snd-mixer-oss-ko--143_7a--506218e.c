@@ -8177,7 +8177,7 @@ extern int __VERIFIER_nondet_int(void) ;
 #line 1465 "/work/vladimir/commit-test/commit-test-work/task-101--linux-stable--dir/work/current--X--sound/core/oss/snd-mixer-oss.ko--X--defaultlinux-stable-506218e--X--143_7a--X--cpachecker/linux-stable-506218e/csd_deg_dscv/19/dscv_tempdir/dscv/ri/143_7a/sound/core/oss/mixer_oss.c.prepared"
 int LDV_IN_INTERRUPT  ;
 #line 1468 "/work/vladimir/commit-test/commit-test-work/task-101--linux-stable--dir/work/current--X--sound/core/oss/snd-mixer-oss.ko--X--defaultlinux-stable-506218e--X--143_7a--X--cpachecker/linux-stable-506218e/csd_deg_dscv/19/dscv_tempdir/dscv/ri/143_7a/sound/core/oss/mixer_oss.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct inode *var_group1 ;
   struct file *var_group2 ;
@@ -8283,7 +8283,7 @@ void main(void)
 #line 1960
   ldv_check_final_state();
 #line 1963
-  return;
+  return 0;
 }
 }
 #line 1967 "/work/vladimir/commit-test/commit-test-work/task-101--linux-stable--dir/work/current--X--sound/core/oss/snd-mixer-oss.ko--X--defaultlinux-stable-506218e--X--143_7a--X--cpachecker/linux-stable-506218e/csd_deg_dscv/19/dscv_tempdir/dscv/ri/143_7a/sound/core/oss/mixer_oss.c.prepared"

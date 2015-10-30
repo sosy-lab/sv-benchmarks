@@ -5354,7 +5354,7 @@ void ldv_initialize_sensor_device_attribute_16(void)
 }
 }
 #line 349 "/work/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--32_7a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/8170/dscv_tempdir/dscv/ri/32_7a/drivers/hwmon/lm78.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   size_t ldvarg1 ;
   char *ldvarg0 ;
@@ -8193,7 +8193,7 @@ void main(void)
 #line 1834
   ldv_check_final_state();
 #line 1835
-  return;
+  return 0;
 }
 }
 #line 1844 "/work/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--32_7a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/8170/dscv_tempdir/dscv/ri/32_7a/drivers/hwmon/lm78.o.c.prepared"

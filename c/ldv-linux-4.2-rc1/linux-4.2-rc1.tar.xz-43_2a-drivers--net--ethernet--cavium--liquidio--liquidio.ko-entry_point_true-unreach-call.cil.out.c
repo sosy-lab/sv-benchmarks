@@ -18413,7 +18413,7 @@ void invoke_work_2(void)
 #line 566
 void ldv_main_exported_7(void) ;
 #line 570 "/home/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--43_2a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/10161/dscv_tempdir/dscv/ri/43_2a/drivers/net/ethernet/cavium/liquidio/lio_main.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct pci_device_id *ldvarg17 ;
   void *tmp ;
@@ -19346,7 +19346,7 @@ void main(void)
 #line 1234
   ldv_check_final_state();
 #line 1235
-  return;
+  return 0;
 }
 }
 #line 1250 "/home/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--43_2a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/10161/dscv_tempdir/dscv/ri/43_2a/drivers/net/ethernet/cavium/liquidio/lio_main.o.c.prepared"

@@ -7051,7 +7051,7 @@ void work_init_1(void)
 }
 }
 #line 209 "/home/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--43_2a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/3332/dscv_tempdir/dscv/ri/43_2a/drivers/scsi/device_handler/scsi_dh_rdac.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct request *ldvarg1 ;
   void *tmp ;
@@ -7281,7 +7281,7 @@ void main(void)
 #line 353
   ldv_check_final_state();
 #line 354
-  return;
+  return 0;
 }
 }
 #line 357 "/home/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--43_2a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/3332/dscv_tempdir/dscv/ri/43_2a/drivers/scsi/device_handler/scsi_dh_rdac.o.c.prepared"

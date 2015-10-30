@@ -8220,7 +8220,7 @@ void ldv_main_exported_5(void) ;
 #line 220
 void ldv_main_exported_6(void) ;
 #line 224 "/work/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--32_7a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/5462/dscv_tempdir/dscv/ri/32_7a/drivers/crypto/qat/qat_common/adf_ctl_drv.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   unsigned long ldvarg1 ;
   unsigned int ldvarg4 ;
@@ -8489,7 +8489,7 @@ void main(void)
 #line 405
   ldv_check_final_state();
 #line 406
-  return;
+  return 0;
 }
 }
 #line 421 "/work/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--32_7a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/5462/dscv_tempdir/dscv/ri/32_7a/drivers/crypto/qat/qat_common/adf_ctl_drv.o.c.prepared"

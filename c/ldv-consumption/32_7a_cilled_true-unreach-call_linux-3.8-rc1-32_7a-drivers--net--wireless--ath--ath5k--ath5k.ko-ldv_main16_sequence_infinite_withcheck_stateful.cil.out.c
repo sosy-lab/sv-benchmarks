@@ -40612,7 +40612,7 @@ struct ieee80211_ops  const  ath5k_hw_ops  =
     0, 0, 0, 0, 0, & ath5k_set_antenna, & ath5k_get_antenna, 0, 0, & ath5k_set_ringparam,
     & ath5k_get_ringparam, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
 #line 900 "/home/mikhail/launches/cpachecker-regression2/launcher-working-dir/ldv-manager-work-dir/work/current--X--drivers/net/wireless/ath/ath5k/ath5k.ko--X--regression-testlinux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/30/dscv_tempdir/dscv/ri/32_7a/drivers/net/wireless/ath/ath5k/mac80211-ops.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct ieee80211_hw *var_group1 ;
   struct ieee80211_tx_control *var_group2 ;
@@ -40832,7 +40832,7 @@ void main(void)
 #line 1672
   ldv_check_final_state();
 #line 1675
-  return;
+  return 0;
 }
 }
 #line 1679 "/home/mikhail/launches/cpachecker-regression2/launcher-working-dir/ldv-manager-work-dir/work/current--X--drivers/net/wireless/ath/ath5k/ath5k.ko--X--regression-testlinux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/30/dscv_tempdir/dscv/ri/32_7a/drivers/net/wireless/ath/ath5k/mac80211-ops.c.prepared"

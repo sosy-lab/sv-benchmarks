@@ -15703,7 +15703,7 @@ void invoke_work_2(void)
 #line 682
 void ldv_main_exported_5(void) ;
 #line 690 "/home/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--43_2a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/10498/dscv_tempdir/dscv/ri/43_2a/drivers/net/ethernet/atheros/atl1e/atl1e_main.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct pci_device_id *ldvarg1 ;
   void *tmp ;
@@ -16659,7 +16659,7 @@ void main(void)
 #line 1357
   ldv_check_final_state();
 #line 1358
-  return;
+  return 0;
 }
 }
 #line 1385 "/home/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--43_2a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/10498/dscv_tempdir/dscv/ri/43_2a/drivers/net/ethernet/atheros/atl1e/atl1e_main.o.c.prepared"

@@ -6963,7 +6963,7 @@ int LDV_IN_INTERRUPT  ;
 #line 1119 "/work/ldvuser/novikov/work/current--X--drivers/net/usb/catc.ko--X--defaultlinux--X--68_1--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/net/usb/catc.c"
 static int res_catc_probe_18  ;
 #line 1009 "/work/ldvuser/novikov/work/current--X--drivers/net/usb/catc.ko--X--defaultlinux--X--68_1--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/net/usb/catc.c"
-void main(void) 
+int main(void) 
 { 
   struct net_device *var_group1 ;
   struct ethtool_drvinfo *var_group2 ;
@@ -7081,7 +7081,7 @@ void main(void)
 #line 1522
   ldv_check_final_state();
 #line 1525
-  return;
+  return 0;
 }
 }
 #line 10 "/home/ldvuser/ldv/inst/kernel-rules/verifier/rcv.h"

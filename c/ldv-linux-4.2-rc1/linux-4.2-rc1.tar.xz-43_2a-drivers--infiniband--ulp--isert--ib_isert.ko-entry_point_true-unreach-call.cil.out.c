@@ -20602,7 +20602,7 @@ void invoke_work_2(void)
 }
 }
 #line 523 "/home/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--43_2a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/753/dscv_tempdir/dscv/ri/43_2a/drivers/infiniband/ulp/isert/ib_isert.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   u32 ldvarg1 ;
   int ldvarg4 ;
@@ -20943,7 +20943,7 @@ void main(void)
 #line 765
   ldv_check_final_state();
 #line 766
-  return;
+  return 0;
 }
 }
 #line 769 "/home/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--43_2a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/753/dscv_tempdir/dscv/ri/43_2a/drivers/infiniband/ulp/isert/ib_isert.o.c.prepared"

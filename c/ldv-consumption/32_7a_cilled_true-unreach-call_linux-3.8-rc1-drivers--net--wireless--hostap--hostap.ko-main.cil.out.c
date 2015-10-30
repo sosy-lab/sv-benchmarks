@@ -28430,7 +28430,7 @@ struct net_device *ldvarg22  ;
 #line 1253 "/work/ldvuser/zakharov_benchmarks/bench/cpa/work/current--X--drivers/net/wireless/hostap/hostap.ko--X--x1linux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/18/dscv_tempdir/dscv/ri/32_7a/drivers/net/wireless/hostap/hostap_main.c.prepared"
 int ldv_retval_3  ;
 #line 1267 "/work/ldvuser/zakharov_benchmarks/bench/cpa/work/current--X--drivers/net/wireless/hostap/hostap.ko--X--x1linux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/18/dscv_tempdir/dscv/ri/32_7a/drivers/net/wireless/hostap/hostap_main.c.prepared"
-void main(void) 
+int main(void) 
 { int tmp ;
   int tmp___0 ;
   int tmp___1 ;
@@ -29511,7 +29511,7 @@ void main(void)
 #line 2060
   ldv_check_final_state();
 #line 2061
-  return;
+  return 0;
 }
 }
 #line 2064 "/work/ldvuser/zakharov_benchmarks/bench/cpa/work/current--X--drivers/net/wireless/hostap/hostap.ko--X--x1linux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/18/dscv_tempdir/dscv/ri/32_7a/drivers/net/wireless/hostap/hostap_main.c.prepared"

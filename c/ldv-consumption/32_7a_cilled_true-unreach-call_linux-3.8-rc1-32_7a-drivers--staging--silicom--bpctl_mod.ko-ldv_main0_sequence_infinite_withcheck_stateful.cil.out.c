@@ -20522,7 +20522,7 @@ extern int __VERIFIER_nondet_int(void) ;
 #line 8790 "/home/mikhail/launches/cpachecker-regression2/launcher-working-dir/ldv-manager-work-dir/work/current--X--drivers/staging/silicom/bpctl_mod.ko--X--regression-testlinux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/13/dscv_tempdir/dscv/ri/32_7a/drivers/staging/silicom/bp_mod.c.prepared"
 int LDV_IN_INTERRUPT  ;
 #line 8793 "/home/mikhail/launches/cpachecker-regression2/launcher-working-dir/ldv-manager-work-dir/work/current--X--drivers/staging/silicom/bpctl_mod.ko--X--regression-testlinux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/13/dscv_tempdir/dscv/ri/32_7a/drivers/staging/silicom/bp_mod.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct notifier_block *var_group1 ;
   unsigned long var_bp_device_event_0_p1 ;
@@ -20638,7 +20638,7 @@ void main(void)
 #line 10434
   ldv_check_final_state();
 #line 10437
-  return;
+  return 0;
 }
 }
 #line 10441 "/home/mikhail/launches/cpachecker-regression2/launcher-working-dir/ldv-manager-work-dir/work/current--X--drivers/staging/silicom/bpctl_mod.ko--X--regression-testlinux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/13/dscv_tempdir/dscv/ri/32_7a/drivers/staging/silicom/bp_mod.c.prepared"

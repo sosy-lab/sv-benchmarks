@@ -1326,7 +1326,7 @@ extern int nondet_int(void) ;
 #line 210 "/work/ldvuser/novikov/work/current--X--drivers/mtd/ar7part.ko--X--defaultlinux--X--32_7a--X--cpachecker/linux/csd_deg_dscv/12/dscv_tempdir/dscv/ri/32_7a/drivers/mtd/ar7part.c.prepared"
 int LDV_IN_INTERRUPT  ;
 #line 213 "/work/ldvuser/novikov/work/current--X--drivers/mtd/ar7part.ko--X--defaultlinux--X--32_7a--X--cpachecker/linux/csd_deg_dscv/12/dscv_tempdir/dscv/ri/32_7a/drivers/mtd/ar7part.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct mtd_info *var_group1 ;
   struct mtd_partition **var_group2 ;
@@ -1386,7 +1386,7 @@ void main(void)
 #line 302
   ldv_check_final_state();
 #line 305
-  return;
+  return 0;
 }
 }
 #line 309 "/work/ldvuser/novikov/work/current--X--drivers/mtd/ar7part.ko--X--defaultlinux--X--32_7a--X--cpachecker/linux/csd_deg_dscv/12/dscv_tempdir/dscv/ri/32_7a/drivers/mtd/ar7part.c.prepared"

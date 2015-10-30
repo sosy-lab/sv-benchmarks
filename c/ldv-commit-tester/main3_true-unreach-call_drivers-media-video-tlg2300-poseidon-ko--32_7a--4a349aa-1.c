@@ -14641,7 +14641,7 @@ int poseidon_fm_exit(struct poseidon *p )
 }
 }
 #line 510 "/work/vladimir/commit-test/commit-test-work/task-002--linux-stable--dir/work/current--X--drivers/media/video/tlg2300/poseidon.ko--X--defaultlinux-stable-4a349aa-1--X--32_7a--X--cpachecker/linux-stable-4a349aa-1/csd_deg_dscv/15/dscv_tempdir/dscv/ri/32_7a/drivers/media/video/tlg2300/pd-radio.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct file *var_group1 ;
   int res_poseidon_fm_open_3 ;
@@ -14855,7 +14855,7 @@ void main(void)
 #line 1234
   ldv_check_final_state();
 #line 1237
-  return;
+  return 0;
 }
 }
 #line 1241 "/work/vladimir/commit-test/commit-test-work/task-002--linux-stable--dir/work/current--X--drivers/media/video/tlg2300/poseidon.ko--X--defaultlinux-stable-4a349aa-1--X--32_7a--X--cpachecker/linux-stable-4a349aa-1/csd_deg_dscv/15/dscv_tempdir/dscv/ri/32_7a/drivers/media/video/tlg2300/pd-radio.c.prepared"

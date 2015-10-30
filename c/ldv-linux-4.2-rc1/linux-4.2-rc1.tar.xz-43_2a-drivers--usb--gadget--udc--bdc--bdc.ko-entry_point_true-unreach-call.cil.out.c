@@ -6106,7 +6106,7 @@ void ldv_main_exported_2(void) ;
 #line 87
 void ldv_main_exported_3(void) ;
 #line 91 "/home/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--43_2a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/9071/dscv_tempdir/dscv/ri/43_2a/drivers/usb/gadget/udc/bdc/bdc_core.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   int tmp ;
   int tmp___0 ;
@@ -6310,7 +6310,7 @@ void main(void)
 #line 219
   ldv_check_final_state();
 #line 220
-  return;
+  return 0;
 }
 }
 #line 235 "/home/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--43_2a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/9071/dscv_tempdir/dscv/ri/43_2a/drivers/usb/gadget/udc/bdc/bdc_core.o.c.prepared"

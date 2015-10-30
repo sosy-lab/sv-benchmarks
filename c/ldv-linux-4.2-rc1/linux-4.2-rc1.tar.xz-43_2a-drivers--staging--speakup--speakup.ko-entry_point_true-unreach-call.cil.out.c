@@ -13792,7 +13792,7 @@ void ldv_main_exported_19(void) ;
 #line 224
 void ldv_main_exported_5(void) ;
 #line 228 "/home/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--43_2a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/2556/dscv_tempdir/dscv/ri/43_2a/drivers/staging/speakup/main.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   unsigned long ldvarg80 ;
   unsigned long ldvarg93 ;
@@ -14563,7 +14563,7 @@ void main(void)
 #line 736
   ldv_check_final_state();
 #line 737
-  return;
+  return 0;
 }
 }
 #line 746 "/home/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--43_2a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/2556/dscv_tempdir/dscv/ri/43_2a/drivers/staging/speakup/main.o.c.prepared"

@@ -5708,7 +5708,7 @@ extern int nondet_int(void) ;
 #line 870 "/work/ldvuser/novikov/work/current--X--drivers/leds/leds-bd2802.ko--X--defaultlinux--X--32_7a--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/32_7a/drivers/leds/leds-bd2802.c.prepared"
 int LDV_IN_INTERRUPT  ;
 #line 873 "/work/ldvuser/novikov/work/current--X--drivers/leds/leds-bd2802.ko--X--defaultlinux--X--32_7a--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/32_7a/drivers/leds/leds-bd2802.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct device *var_group1 ;
   struct device_attribute *var_group2 ;
@@ -5849,7 +5849,7 @@ void main(void)
 #line 2455
   ldv_check_final_state();
 #line 2458
-  return;
+  return 0;
 }
 }
 #line 2462 "/work/ldvuser/novikov/work/current--X--drivers/leds/leds-bd2802.ko--X--defaultlinux--X--32_7a--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/32_7a/drivers/leds/leds-bd2802.c.prepared"

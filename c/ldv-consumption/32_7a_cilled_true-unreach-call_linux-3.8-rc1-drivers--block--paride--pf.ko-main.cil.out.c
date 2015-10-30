@@ -6566,7 +6566,7 @@ void ldv_check_final_state(void) ;
 #line 1067 "/home/zakharov/workspace/benchmarks/bench_1/work/current--X--drivers/block/paride/pf.ko--X--deg2_cpalinux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/32_7a/drivers/block/paride/pf.c.prepared"
 unsigned long ldvarg2  ;
 #line 1073 "/home/zakharov/workspace/benchmarks/bench_1/work/current--X--drivers/block/paride/pf.ko--X--deg2_cpalinux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/32_7a/drivers/block/paride/pf.c.prepared"
-void main(void) 
+int main(void) 
 { int tmp ;
   int tmp___0 ;
   int tmp___1 ;
@@ -6768,7 +6768,7 @@ void main(void)
 #line 1207
   ldv_check_final_state();
 #line 1208
-  return;
+  return 0;
 }
 }
 #line 1211 "/home/zakharov/workspace/benchmarks/bench_1/work/current--X--drivers/block/paride/pf.ko--X--deg2_cpalinux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/32_7a/drivers/block/paride/pf.c.prepared"

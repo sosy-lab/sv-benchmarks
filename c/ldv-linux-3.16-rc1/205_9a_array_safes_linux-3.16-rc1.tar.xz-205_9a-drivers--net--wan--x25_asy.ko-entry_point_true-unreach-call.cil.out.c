@@ -8357,7 +8357,7 @@ void ldv_net_device_ops_2(void)
 }
 }
 #line 896 "/work/ldvuser/mutilin/launch/work/current--X--drivers/net/--X--defaultlinux-3.16-rc1.tar.xz--X--205_9a--X--cpachecker/linux-3.16-rc1.tar.xz/csd_deg_dscv/54/dscv_tempdir/dscv/ri/205_9a/drivers/net/wan/x25_asy.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   char *ldvarg7 ;
   void *tmp ;
@@ -8958,7 +8958,7 @@ void main(void)
 #line 1272
   ldv_check_final_state();
 #line 1273
-  return;
+  return 0;
 }
 }
 #line 1300 "/work/ldvuser/mutilin/launch/work/current--X--drivers/net/--X--defaultlinux-3.16-rc1.tar.xz--X--205_9a--X--cpachecker/linux-3.16-rc1.tar.xz/csd_deg_dscv/54/dscv_tempdir/dscv/ri/205_9a/drivers/net/wan/x25_asy.o.c.prepared"

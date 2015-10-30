@@ -13983,7 +13983,7 @@ void ldv_main_exported_8(void) ;
 #line 491
 void ldv_main_exported_9(void) ;
 #line 495 "/home/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--43_2a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/11083/dscv_tempdir/dscv/ri/43_2a/drivers/net/wireless/rtl818x/rtl8180/dev.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   u32 ldvarg18 ;
   struct ieee80211_bss_conf *ldvarg11 ;
@@ -14761,7 +14761,7 @@ void main(void)
 #line 992
   ldv_check_final_state();
 #line 993
-  return;
+  return 0;
 }
 }
 #line 1020 "/home/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--43_2a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/11083/dscv_tempdir/dscv/ri/43_2a/drivers/net/wireless/rtl818x/rtl8180/dev.o.c.prepared"

@@ -12123,7 +12123,7 @@ extern int nondet_int(void) ;
 #line 316 "/work/ldvuser/novikov/work/current--X--drivers/block/drbd/drbd.ko--X--defaultlinux--X--08_1a--X--cpachecker/linux/csd_deg_dscv/19/dscv_tempdir/dscv/ri/08_1a/drivers/block/drbd/drbd_proc.c.prepared"
 int LDV_IN_INTERRUPT  ;
 #line 319 "/work/ldvuser/novikov/work/current--X--drivers/block/drbd/drbd.ko--X--defaultlinux--X--08_1a--X--cpachecker/linux/csd_deg_dscv/19/dscv_tempdir/dscv/ri/08_1a/drivers/block/drbd/drbd_proc.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct inode *var_group1 ;
   struct file *var_group2 ;
@@ -12189,7 +12189,7 @@ void main(void)
 #line 389
   ldv_check_final_state();
 #line 392
-  return;
+  return 0;
 }
 }
 #line 1 "<compiler builtins>"

@@ -22569,7 +22569,7 @@ void activate_work_6(struct work_struct *work , int state )
 #line 740
 void ldv_main_exported_7(void) ;
 #line 744 "/work/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--08_1a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/11349/dscv_tempdir/dscv/ri/08_1a/drivers/net/ethernet/intel/e1000/e1000_main.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct pci_device_id *ldvarg16 ;
   void *tmp ;
@@ -23609,7 +23609,7 @@ void main(void)
 #line 1483
   ldv_check_final_state();
 #line 1484
-  return;
+  return 0;
 }
 }
 #line 1511 "/work/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--08_1a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/11349/dscv_tempdir/dscv/ri/08_1a/drivers/net/ethernet/intel/e1000/e1000_main.o.c.prepared"

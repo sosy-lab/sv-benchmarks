@@ -8512,7 +8512,7 @@ void ldv_initialize_gigaset_ops_1(void)
 }
 }
 #line 1029 "/work/ldvuser/mutilin/launch/work/current--X--drivers--X--defaultlinux-3.12-rc1.tar.xz--X--144_2a--X--cpachecker/linux-3.12-rc1.tar.xz/csd_deg_dscv/3596/dscv_tempdir/dscv/ri/144_2a/drivers/isdn/gigaset/usb-gigaset.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct inbuf_t *ldvarg7 ;
   void *tmp ;
@@ -9148,7 +9148,7 @@ void main(void)
 #line 1460
   ldv_check_final_state();
 #line 1461
-  return;
+  return 0;
 }
 }
 #line 1464 "/work/ldvuser/mutilin/launch/work/current--X--drivers--X--defaultlinux-3.12-rc1.tar.xz--X--144_2a--X--cpachecker/linux-3.12-rc1.tar.xz/csd_deg_dscv/3596/dscv_tempdir/dscv/ri/144_2a/drivers/isdn/gigaset/usb-gigaset.o.c.prepared"

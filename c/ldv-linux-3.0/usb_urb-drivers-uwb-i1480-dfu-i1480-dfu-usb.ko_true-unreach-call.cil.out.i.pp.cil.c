@@ -9152,7 +9152,7 @@ int LDV_IN_INTERRUPT  ;
 #line 524 "/anthill/stuff/tacas-comp/work/current--X--drivers/uwb/i1480/dfu/i1480-dfu-usb.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/14/dscv_tempdir/dscv/ri/68_1/drivers/uwb/i1480/dfu/usb.c"
 static int res_i1480_usb_probe_8  ;
 #line 510 "/anthill/stuff/tacas-comp/work/current--X--drivers/uwb/i1480/dfu/i1480-dfu-usb.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/14/dscv_tempdir/dscv/ri/68_1/drivers/uwb/i1480/dfu/usb.c"
-void main(void) 
+int main(void) 
 { struct usb_interface *var_group1 ;
   struct usb_device_id  const  *var_i1480_usb_probe_8_p1 ;
   int tmp___7 ;
@@ -9262,6 +9262,6 @@ void main(void)
   ldv_check_final_state();
   }
 #line 657
-  return;
+  return 0;
 }
 }

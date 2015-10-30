@@ -7305,7 +7305,7 @@ void *ldvarg28  ;
 #line 1444
 void ldv_main_exported_1(void) ;
 #line 1448 "/work/ldvuser/zakharov_benchmarks/bench/cpa/work/current--X--drivers/misc/sgi-xp/xpc.ko--X--x1linux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/17/dscv_tempdir/dscv/ri/32_7a/drivers/misc/sgi-xp/xpc_main.c.prepared"
-void main(void) 
+int main(void) 
 { int tmp ;
   int tmp___0 ;
   int tmp___1 ;
@@ -7471,7 +7471,7 @@ void main(void)
 #line 1549
   ldv_check_final_state();
 #line 1550
-  return;
+  return 0;
 }
 }
 #line 1553 "/work/ldvuser/zakharov_benchmarks/bench/cpa/work/current--X--drivers/misc/sgi-xp/xpc.ko--X--x1linux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/17/dscv_tempdir/dscv/ri/32_7a/drivers/misc/sgi-xp/xpc_main.c.prepared"

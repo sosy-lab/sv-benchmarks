@@ -30235,7 +30235,7 @@ void ldv_initialize_md_sysfs_entry_8(void)
 }
 }
 #line 314 "/work/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--32_7a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/918/dscv_tempdir/dscv/ri/32_7a/drivers/md/raid5.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   char *ldvarg1 ;
   void *tmp ;
@@ -32468,7 +32468,7 @@ void main(void)
 #line 1841
   ldv_check_final_state();
 #line 1842
-  return;
+  return 0;
 }
 }
 #line 1845 "/work/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--32_7a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/918/dscv_tempdir/dscv/ri/32_7a/drivers/md/raid5.o.c.prepared"

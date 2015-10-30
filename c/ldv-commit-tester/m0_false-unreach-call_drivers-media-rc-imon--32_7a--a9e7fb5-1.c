@@ -8624,7 +8624,7 @@ extern int __VERIFIER_nondet_int(void) ;
 #line 2517 "/work/vladimir/commit-test/commit-test-work/task-004--linux-stable--dir/work/current--X--drivers/media/rc/imon.ko--X--defaultlinux-stable-a9e7fb5-1--X--32_7a--X--cpachecker/linux-stable-a9e7fb5-1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/32_7a/drivers/media/rc/imon.c.prepared"
 int LDV_IN_INTERRUPT  ;
 #line 2520 "/work/vladimir/commit-test/commit-test-work/task-004--linux-stable--dir/work/current--X--drivers/media/rc/imon.ko--X--defaultlinux-stable-a9e7fb5-1--X--32_7a--X--cpachecker/linux-stable-a9e7fb5-1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/32_7a/drivers/media/rc/imon.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct usb_interface *var_group1 ;
   struct usb_device_id  const  *var_imon_probe_36_p1 ;
@@ -8758,7 +8758,7 @@ void main(void)
 #line 2873
   ldv_check_final_state();
 #line 2876
-  return;
+  return 0;
 }
 }
 #line 2880 "/work/vladimir/commit-test/commit-test-work/task-004--linux-stable--dir/work/current--X--drivers/media/rc/imon.ko--X--defaultlinux-stable-a9e7fb5-1--X--32_7a--X--cpachecker/linux-stable-a9e7fb5-1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/32_7a/drivers/media/rc/imon.c.prepared"

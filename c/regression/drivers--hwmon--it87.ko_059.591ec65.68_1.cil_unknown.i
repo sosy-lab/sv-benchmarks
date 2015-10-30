@@ -8137,7 +8137,7 @@ int LDV_IN_INTERRUPT  ;
 #line 1815 "/work/ldvuser/novikov/work/current--X--drivers/hwmon/it87.ko--X--defaultlinux--X--68_1--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/hwmon/it87.c"
 static int res_it87_probe_42  ;
 #line 1708 "/work/ldvuser/novikov/work/current--X--drivers/hwmon/it87.ko--X--defaultlinux--X--68_1--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/hwmon/it87.c"
-void main(void) 
+int main(void) 
 { 
   struct platform_device *var_group1 ;
   int tmp ;
@@ -8229,7 +8229,7 @@ void main(void)
 #line 2380
   ldv_check_final_state();
 #line 2383
-  return;
+  return 0;
 }
 }
 #line 1334 "include/linux/usb.h"

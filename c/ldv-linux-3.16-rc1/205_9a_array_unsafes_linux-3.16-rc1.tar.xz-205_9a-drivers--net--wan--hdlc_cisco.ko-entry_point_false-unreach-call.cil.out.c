@@ -7665,7 +7665,7 @@ void disable_suitable_timer_1(struct timer_list *timer )
 }
 }
 #line 502 "/work/ldvuser/mutilin/launch/work/current--X--drivers/net/--X--defaultlinux-3.16-rc1.tar.xz--X--205_9a--X--cpachecker/linux-3.16-rc1.tar.xz/csd_deg_dscv/43/dscv_tempdir/dscv/ri/205_9a/drivers/net/wan/hdlc_cisco.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct ifreq *ldvarg0 ;
   void *tmp ;
@@ -7954,7 +7954,7 @@ void main(void)
 #line 675
   ldv_check_final_state();
 #line 676
-  return;
+  return 0;
 }
 }
 #line 703 "/work/ldvuser/mutilin/launch/work/current--X--drivers/net/--X--defaultlinux-3.16-rc1.tar.xz--X--205_9a--X--cpachecker/linux-3.16-rc1.tar.xz/csd_deg_dscv/43/dscv_tempdir/dscv/ri/205_9a/drivers/net/wan/hdlc_cisco.o.c.prepared"

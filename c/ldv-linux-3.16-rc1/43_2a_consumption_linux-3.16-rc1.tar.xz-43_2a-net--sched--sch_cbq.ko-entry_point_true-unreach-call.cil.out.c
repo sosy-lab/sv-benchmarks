@@ -11630,7 +11630,7 @@ void ldv_initialize_Qdisc_class_ops_2(void)
 }
 }
 #line 2136 "/work/ldvuser/mutilin/launch/work/current--X--net--X--defaultlinux-3.16-rc1.tar.xz--X--43_2a--X--cpachecker/linux-3.16-rc1.tar.xz/csd_deg_dscv/1383/dscv_tempdir/dscv/ri/43_2a/net/sched/sch_cbq.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct nlattr *ldvarg1 ;
   void *tmp ;
@@ -12453,7 +12453,7 @@ void main(void)
 #line 2670
   ldv_check_final_state();
 #line 2671
-  return;
+  return 0;
 }
 }
 #line 2682 "/work/ldvuser/mutilin/launch/work/current--X--net--X--defaultlinux-3.16-rc1.tar.xz--X--43_2a--X--cpachecker/linux-3.16-rc1.tar.xz/csd_deg_dscv/1383/dscv_tempdir/dscv/ri/43_2a/net/sched/sch_cbq.o.c.prepared"

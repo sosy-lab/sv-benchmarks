@@ -14026,7 +14026,7 @@ void ldv_dev_pm_ops_2(void)
 }
 }
 #line 115 "/home/ldvuser/andrianov/commit-tester-work/task-064--linux-stable--dir/work/current--X--drivers/net/jme.ko--X--defaultlinux-stable-468e4e3-1--X--204_8a--X--cpachecker/linux-stable-468e4e3-1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/204_8a/drivers/net/jme.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   u8 *ldvarg1 ;
   void *tmp ;
@@ -15207,7 +15207,7 @@ void main(void)
 #line 917
   ldv_check_final_state();
 #line 918
-  return;
+  return 0;
 }
 }
 #line 921 "/home/ldvuser/andrianov/commit-tester-work/task-064--linux-stable--dir/work/current--X--drivers/net/jme.ko--X--defaultlinux-stable-468e4e3-1--X--204_8a--X--cpachecker/linux-stable-468e4e3-1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/204_8a/drivers/net/jme.o.c.prepared"

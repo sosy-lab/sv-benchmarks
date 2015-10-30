@@ -10047,7 +10047,7 @@ extern int __VERIFIER_nondet_int(void) ;
 #line 1755 "/work/vladimir/commit-test/commit-test-work/task-002--linux-stable--dir/work/current--X--drivers/media/video/tlg2300/poseidon.ko--X--defaultlinux-stable-4a349aa-1--X--32_7a--X--cpachecker/linux-stable-4a349aa-1/csd_deg_dscv/15/dscv_tempdir/dscv/ri/32_7a/drivers/media/video/tlg2300/pd-video.c.prepared"
 int LDV_IN_INTERRUPT  ;
 #line 1758 "/work/vladimir/commit-test/commit-test-work/task-002--linux-stable--dir/work/current--X--drivers/media/video/tlg2300/poseidon.ko--X--defaultlinux-stable-4a349aa-1--X--32_7a--X--cpachecker/linux-stable-4a349aa-1/csd_deg_dscv/15/dscv_tempdir/dscv/ri/32_7a/drivers/media/video/tlg2300/pd-video.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct videobuf_queue *var_group1 ;
   unsigned int *var_pd_buf_setup_24_p1 ;
@@ -10419,7 +10419,7 @@ void main(void)
 #line 4121
   ldv_check_final_state();
 #line 4124
-  return;
+  return 0;
 }
 }
 #line 4128 "/work/vladimir/commit-test/commit-test-work/task-002--linux-stable--dir/work/current--X--drivers/media/video/tlg2300/poseidon.ko--X--defaultlinux-stable-4a349aa-1--X--32_7a--X--cpachecker/linux-stable-4a349aa-1/csd_deg_dscv/15/dscv_tempdir/dscv/ri/32_7a/drivers/media/video/tlg2300/pd-video.c.prepared"

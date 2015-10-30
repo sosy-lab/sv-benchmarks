@@ -13506,7 +13506,7 @@ void ldv_initialize_usb_serial_driver_3(void)
 }
 }
 #line 111 "/home/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--43_2a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/9659/dscv_tempdir/dscv/ri/43_2a/drivers/usb/serial/io_edgeport.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   unsigned int ldvarg7 ;
   unsigned char *ldvarg3 ;
@@ -16687,7 +16687,7 @@ void main(void)
 #line 2467
   ldv_check_final_state();
 #line 2468
-  return;
+  return 0;
 }
 }
 #line 2495 "/home/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--43_2a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/9659/dscv_tempdir/dscv/ri/43_2a/drivers/usb/serial/io_edgeport.o.c.prepared"

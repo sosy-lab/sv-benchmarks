@@ -5222,7 +5222,7 @@ extern int nondet_int(void) ;
 #line 462 "/work/ldvuser/novikov/work/current--X--drivers/usb/serial/metro-usb.ko--X--defaultlinux--X--32_7a--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/32_7a/drivers/usb/serial/metro-usb.c.prepared"
 int LDV_IN_INTERRUPT  ;
 #line 465 "/work/ldvuser/novikov/work/current--X--drivers/usb/serial/metro-usb.ko--X--defaultlinux--X--32_7a--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/32_7a/drivers/usb/serial/metro-usb.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct tty_struct *var_group1 ;
   struct usb_serial_port *var_group2 ;
@@ -5362,7 +5362,7 @@ void main(void)
 #line 930
   ldv_check_final_state();
 #line 933
-  return;
+  return 0;
 }
 }
 #line 937 "/work/ldvuser/novikov/work/current--X--drivers/usb/serial/metro-usb.ko--X--defaultlinux--X--32_7a--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/32_7a/drivers/usb/serial/metro-usb.c.prepared"

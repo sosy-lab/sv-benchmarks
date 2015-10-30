@@ -20772,7 +20772,7 @@ void ldv_main_exported_17(void) ;
 #line 1335
 void ldv_main_exported_20(void) ;
 #line 1339 "/work/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--08_1a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/11627/dscv_tempdir/dscv/ri/08_1a/drivers/net/ethernet/chelsio/cxgb3/cxgb3_main.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   size_t ldvarg1 ;
   char *ldvarg0 ;
@@ -22826,7 +22826,7 @@ void main(void)
 #line 2707
   ldv_check_final_state();
 #line 2708
-  return;
+  return 0;
 }
 }
 #line 2717 "/work/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--08_1a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/11627/dscv_tempdir/dscv/ri/08_1a/drivers/net/ethernet/chelsio/cxgb3/cxgb3_main.o.c.prepared"

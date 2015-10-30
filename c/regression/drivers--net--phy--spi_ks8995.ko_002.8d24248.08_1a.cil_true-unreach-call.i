@@ -2999,7 +2999,7 @@ extern int nondet_int(void) ;
 #line 420 "/work/ldvuser/novikov/work/current--X--drivers/net/phy/spi_ks8995.ko--X--defaultlinux--X--08_1a--X--cpachecker/linux/csd_deg_dscv/12/dscv_tempdir/dscv/ri/08_1a/drivers/net/phy/spi_ks8995.c.prepared"
 int LDV_IN_INTERRUPT  ;
 #line 423 "/work/ldvuser/novikov/work/current--X--drivers/net/phy/spi_ks8995.ko--X--defaultlinux--X--08_1a--X--cpachecker/linux/csd_deg_dscv/12/dscv_tempdir/dscv/ri/08_1a/drivers/net/phy/spi_ks8995.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct file *var_group1 ;
   struct kobject *var_group2 ;
@@ -3122,7 +3122,7 @@ void main(void)
 #line 1117
   ldv_check_final_state();
 #line 1120
-  return;
+  return 0;
 }
 }
 #line 10 "/home/ldvuser/ldv/inst/kernel-rules/verifier/rcv.h"

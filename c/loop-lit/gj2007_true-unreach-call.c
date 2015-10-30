@@ -3,7 +3,7 @@
 
 #include "assert.h"
 
-void main() {
+int main() {
     int x = 0;
     int y = 50;
     while(x < 100) {
@@ -15,4 +15,5 @@ void main() {
 	}
     }
     __VERIFIER_assert(y == 100);
+    return 0;
 }

@@ -7517,7 +7517,7 @@ void activate_suitable_timer_4(struct timer_list *timer , unsigned long data )
 }
 }
 #line 757 "/work/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--32_7a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/2221/dscv_tempdir/dscv/ri/32_7a/drivers/input/touchscreen/tsc2005.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   int ldvarg1 ;
   struct kobject *ldvarg0 ;
@@ -8175,7 +8175,7 @@ void main(void)
 #line 1169
   ldv_check_final_state();
 #line 1170
-  return;
+  return 0;
 }
 }
 #line 1179 "/work/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--32_7a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/2221/dscv_tempdir/dscv/ri/32_7a/drivers/input/touchscreen/tsc2005.o.c.prepared"

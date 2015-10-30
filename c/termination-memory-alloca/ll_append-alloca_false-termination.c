@@ -44,12 +44,13 @@ node_t* append(node_t* x, node_t* y)
   return s;
 }
 
-void main ()
+int main ()
 {
   int n = abs(__VERIFIER_nondet_int());
   node_t* x = new_ll(n + 1);
   node_t* y = append(x, x); // y is a circular linked list
   int y_length = length(y);
+  return 0;
 }
 
 

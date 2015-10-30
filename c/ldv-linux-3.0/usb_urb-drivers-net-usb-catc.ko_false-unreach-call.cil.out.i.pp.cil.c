@@ -11363,7 +11363,7 @@ static int res_catc_stop_16  ;
 #line 1269 "/anthill/stuff/tacas-comp/work/current--X--drivers/net/usb/catc.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/net/usb/catc.c.common.c"
 static int res_catc_probe_17  ;
 #line 1001 "/anthill/stuff/tacas-comp/work/current--X--drivers/net/usb/catc.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/net/usb/catc.c.common.c"
-void main(void) 
+int main(void) 
 { struct net_device *var_group1 ;
   struct ethtool_drvinfo *var_group2 ;
   struct ethtool_cmd *var_group3 ;
@@ -11638,7 +11638,7 @@ void main(void)
   ldv_check_final_state();
   }
 #line 1898
-  return;
+  return 0;
 }
 }
 #line 5 "/anthill/stuff/tacas-comp/work/current--X--drivers/net/usb/catc.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/kernel-rules/files/engine-blast-assert.h"

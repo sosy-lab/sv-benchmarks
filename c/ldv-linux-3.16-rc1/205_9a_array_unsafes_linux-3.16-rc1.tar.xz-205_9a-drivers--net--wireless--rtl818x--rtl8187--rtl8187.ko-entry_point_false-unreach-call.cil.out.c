@@ -12315,7 +12315,7 @@ void ldv_main_exported_3(void) ;
 #line 1750
 void ldv_main_exported_2(void) ;
 #line 1757 "/work/ldvuser/mutilin/launch/work/current--X--drivers/net/--X--defaultlinux-3.16-rc1.tar.xz--X--205_9a--X--cpachecker/linux-3.16-rc1.tar.xz/csd_deg_dscv/570/dscv_tempdir/dscv/ri/205_9a/drivers/net/wireless/rtl818x/rtl8187/dev.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct usb_device_id *ldvarg0 ;
   void *tmp ;
@@ -12837,7 +12837,7 @@ void main(void)
 #line 2090
   ldv_check_final_state();
 #line 2091
-  return;
+  return 0;
 }
 }
 #line 2118 "/work/ldvuser/mutilin/launch/work/current--X--drivers/net/--X--defaultlinux-3.16-rc1.tar.xz--X--205_9a--X--cpachecker/linux-3.16-rc1.tar.xz/csd_deg_dscv/570/dscv_tempdir/dscv/ri/205_9a/drivers/net/wireless/rtl818x/rtl8187/dev.o.c.prepared"

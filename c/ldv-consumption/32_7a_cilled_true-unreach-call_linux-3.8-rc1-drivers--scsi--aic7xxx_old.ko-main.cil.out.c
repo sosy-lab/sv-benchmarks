@@ -23126,7 +23126,7 @@ void ldv_check_final_state(void) ;
 #line 11202 "/home/zakharov/workspace/benchmarks/bench_1/work/current--X--drivers/scsi/aic7xxx_old.ko--X--x1linux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/32_7a/drivers/scsi/aic7xxx_old.c.prepared"
 off_t ldvarg2  ;
 #line 11210 "/home/zakharov/workspace/benchmarks/bench_1/work/current--X--drivers/scsi/aic7xxx_old.ko--X--x1linux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/32_7a/drivers/scsi/aic7xxx_old.c.prepared"
-void main(void) 
+int main(void) 
 { int tmp ;
   int tmp___0 ;
   int tmp___1 ;
@@ -23491,7 +23491,7 @@ void main(void)
 #line 11477
   ldv_check_final_state();
 #line 11478
-  return;
+  return 0;
 }
 }
 #line 11481 "/home/zakharov/workspace/benchmarks/bench_1/work/current--X--drivers/scsi/aic7xxx_old.ko--X--x1linux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/32_7a/drivers/scsi/aic7xxx_old.c.prepared"

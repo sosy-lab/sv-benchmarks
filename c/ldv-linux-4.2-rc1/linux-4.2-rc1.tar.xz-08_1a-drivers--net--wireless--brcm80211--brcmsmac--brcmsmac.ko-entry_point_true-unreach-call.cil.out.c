@@ -15683,7 +15683,7 @@ void ldv_main_exported_5(void) ;
 #line 540
 void ldv_main_exported_4(void) ;
 #line 544 "/work/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--08_1a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/11786/dscv_tempdir/dscv/ri/08_1a/drivers/net/wireless/brcm80211/brcmsmac/mac80211_if.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct work_struct *ldvarg2 ;
   void *tmp ;
@@ -16729,7 +16729,7 @@ void main(void)
 #line 1218
   ldv_check_final_state();
 #line 1219
-  return;
+  return 0;
 }
 }
 #line 1246 "/work/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--08_1a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/11786/dscv_tempdir/dscv/ri/08_1a/drivers/net/wireless/brcm80211/brcmsmac/mac80211_if.o.c.prepared"

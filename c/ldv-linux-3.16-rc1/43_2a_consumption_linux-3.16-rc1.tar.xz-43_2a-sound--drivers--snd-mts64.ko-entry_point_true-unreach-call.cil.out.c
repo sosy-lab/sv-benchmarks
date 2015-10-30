@@ -6404,7 +6404,7 @@ void ldv_initialize_snd_kcontrol_new_7(void)
 }
 }
 #line 1227 "/work/ldvuser/mutilin/launch/work/current--X--sound--X--defaultlinux-3.16-rc1.tar.xz--X--43_2a--X--cpachecker/linux-3.16-rc1.tar.xz/csd_deg_dscv/834/dscv_tempdir/dscv/ri/43_2a/sound/drivers/mts64.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct snd_ctl_elem_info *ldvarg0 ;
   void *tmp ;
@@ -7225,7 +7225,7 @@ void main(void)
 #line 1764
   ldv_check_final_state();
 #line 1765
-  return;
+  return 0;
 }
 }
 #line 1768 "/work/ldvuser/mutilin/launch/work/current--X--sound--X--defaultlinux-3.16-rc1.tar.xz--X--43_2a--X--cpachecker/linux-3.16-rc1.tar.xz/csd_deg_dscv/834/dscv_tempdir/dscv/ri/43_2a/sound/drivers/mts64.o.c.prepared"

@@ -10828,7 +10828,7 @@ int reg_check_2(irqreturn_t (*handler)(int  , void * ) )
 }
 }
 #line 361 "/home/ldvuser/andrianov/commit-tester-work/task-038--linux-stable--dir/work/current--X--drivers/net/b44.ko--X--defaultlinux-stable-073676f-1--X--114_1a--X--cpachecker/linux-stable-073676f-1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/114_1a/drivers/net/b44.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   u32 ldvarg1 ;
   u64 *ldvarg4 ;
@@ -11714,7 +11714,7 @@ void main(void)
 #line 976
   ldv_check_final_state();
 #line 977
-  return;
+  return 0;
 }
 }
 #line 980 "/home/ldvuser/andrianov/commit-tester-work/task-038--linux-stable--dir/work/current--X--drivers/net/b44.ko--X--defaultlinux-stable-073676f-1--X--114_1a--X--cpachecker/linux-stable-073676f-1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/114_1a/drivers/net/b44.o.c.prepared"

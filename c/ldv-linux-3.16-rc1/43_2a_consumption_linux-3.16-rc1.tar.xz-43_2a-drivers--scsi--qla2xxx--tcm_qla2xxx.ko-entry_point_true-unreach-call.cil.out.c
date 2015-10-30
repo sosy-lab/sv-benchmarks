@@ -17231,7 +17231,7 @@ void ldv_initialize_target_core_fabric_ops_3(void)
 }
 }
 #line 2341 "/work/ldvuser/mutilin/launch/work/current--X--drivers--X--defaultlinux-3.16-rc1.tar.xz--X--43_2a--X--cpachecker/linux-3.16-rc1.tar.xz/csd_deg_dscv/5154/dscv_tempdir/dscv/ri/43_2a/drivers/scsi/qla2xxx/tcm_qla2xxx.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   size_t ldvarg1 ;
   size_t tmp ;
@@ -19898,7 +19898,7 @@ void main(void)
 #line 4179
   ldv_check_final_state();
 #line 4180
-  return;
+  return 0;
 }
 }
 #line 4242 "/work/ldvuser/mutilin/launch/work/current--X--drivers--X--defaultlinux-3.16-rc1.tar.xz--X--43_2a--X--cpachecker/linux-3.16-rc1.tar.xz/csd_deg_dscv/5154/dscv_tempdir/dscv/ri/43_2a/drivers/scsi/qla2xxx/tcm_qla2xxx.o.c.prepared"

@@ -12595,7 +12595,7 @@ void ldv_main_exported_43(void) ;
 #line 520
 void ldv_main_exported_5(void) ;
 #line 524 "/work/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--32_7a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/11865/dscv_tempdir/dscv/ri/32_7a/drivers/net/wireless/ti/wl12xx/main.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   u32 ldvarg51 ;
   u32 ldvarg32 ;
@@ -15155,7 +15155,7 @@ void main(void)
 #line 2306
   ldv_check_final_state();
 #line 2307
-  return;
+  return 0;
 }
 }
 #line 2316 "/work/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--32_7a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/11865/dscv_tempdir/dscv/ri/32_7a/drivers/net/wireless/ti/wl12xx/main.o.c.prepared"

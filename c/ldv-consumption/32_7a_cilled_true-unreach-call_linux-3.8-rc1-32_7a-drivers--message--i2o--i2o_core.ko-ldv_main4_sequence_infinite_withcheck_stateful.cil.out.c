@@ -9917,7 +9917,7 @@ extern void ldv_check_return_value(int  ) ;
 #line 570
 extern void ldv_check_return_value_probe(int  ) ;
 #line 585 "/home/mikhail/launches/cpachecker-regression2/launcher-working-dir/ldv-manager-work-dir/work/current--X--drivers/message/i2o/i2o_core.ko--X--regression-testlinux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/20/dscv_tempdir/dscv/ri/32_7a/drivers/message/i2o/pci.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct pci_dev *var_group1 ;
   struct pci_device_id  const  *var_i2o_pci_probe_5_p1 ;
@@ -10010,7 +10010,7 @@ void main(void)
 #line 725
   ldv_check_final_state();
 #line 728
-  return;
+  return 0;
 }
 }
 #line 732 "/home/mikhail/launches/cpachecker-regression2/launcher-working-dir/ldv-manager-work-dir/work/current--X--drivers/message/i2o/i2o_core.ko--X--regression-testlinux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/20/dscv_tempdir/dscv/ri/32_7a/drivers/message/i2o/pci.c.prepared"

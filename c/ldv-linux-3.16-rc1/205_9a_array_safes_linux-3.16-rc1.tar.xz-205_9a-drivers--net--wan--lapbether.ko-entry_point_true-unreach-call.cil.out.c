@@ -9111,7 +9111,7 @@ void ldv_initialize_lapb_register_struct_4(void)
 }
 }
 #line 518 "/work/ldvuser/mutilin/launch/work/current--X--drivers/net/--X--defaultlinux-3.16-rc1.tar.xz--X--205_9a--X--cpachecker/linux-3.16-rc1.tar.xz/csd_deg_dscv/49/dscv_tempdir/dscv/ri/205_9a/drivers/net/wan/lapbether.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   int ldvarg1 ;
   int tmp ;
@@ -9627,7 +9627,7 @@ void main(void)
 #line 832
   ldv_check_final_state();
 #line 833
-  return;
+  return 0;
 }
 }
 #line 860 "/work/ldvuser/mutilin/launch/work/current--X--drivers/net/--X--defaultlinux-3.16-rc1.tar.xz--X--205_9a--X--cpachecker/linux-3.16-rc1.tar.xz/csd_deg_dscv/49/dscv_tempdir/dscv/ri/205_9a/drivers/net/wan/lapbether.o.c.prepared"

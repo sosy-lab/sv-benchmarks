@@ -7962,7 +7962,7 @@ void ldv_main_exported_3(void) ;
 #line 128
 void ldv_main_exported_4(void) ;
 #line 143 "/home/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--43_2a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/10081/dscv_tempdir/dscv/ri/43_2a/drivers/xen/xen-pciback/pci_stub.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   char *ldvarg1 ;
   void *tmp ;
@@ -8770,7 +8770,7 @@ void main(void)
 #line 642
   ldv_check_final_state();
 #line 643
-  return;
+  return 0;
 }
 }
 #line 729 "/home/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--43_2a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/10081/dscv_tempdir/dscv/ri/43_2a/drivers/xen/xen-pciback/pci_stub.o.c.prepared"

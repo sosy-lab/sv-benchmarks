@@ -15752,7 +15752,7 @@ void ldv_main_exported_1(void) ;
 #line 5416
 void ldv_main_exported_2(void) ;
 #line 5420 "/work/ldvuser/mutilin/launch/work/current--X--drivers--X--defaultlinux-3.16-rc1.tar.xz--X--43_2a--X--cpachecker/linux-3.16-rc1.tar.xz/csd_deg_dscv/2299/dscv_tempdir/dscv/ri/43_2a/drivers/media/i2c/cx25840/cx25840-core.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   u32 ldvarg1 ;
   u32 tmp ;
@@ -16621,7 +16621,7 @@ void main(void)
 #line 5952
   ldv_check_final_state();
 #line 5953
-  return;
+  return 0;
 }
 }
 #line 6083 "/work/ldvuser/mutilin/launch/work/current--X--drivers--X--defaultlinux-3.16-rc1.tar.xz--X--43_2a--X--cpachecker/linux-3.16-rc1.tar.xz/csd_deg_dscv/2299/dscv_tempdir/dscv/ri/43_2a/drivers/media/i2c/cx25840/cx25840-core.o.c.prepared"

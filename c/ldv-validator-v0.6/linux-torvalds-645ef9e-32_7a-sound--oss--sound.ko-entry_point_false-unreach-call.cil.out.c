@@ -6537,7 +6537,7 @@ void ldv_main_exported_1(void) ;
 #line 818
 void ldv_main_exported_2(void) ;
 #line 822 "/home/ldvuser/gratinskiy/commit-tester-runs/6-cpa-svcomp-newdeg/commit-tester-work/task-176--linux-torvalds--dir/work/current--X--sound/oss/sound.ko--X--defaultlinux-torvalds-645ef9e--X--32_7a--X--cpachecker/linux-torvalds-645ef9e/csd_deg_dscv/29/dscv_tempdir/dscv/ri/32_7a/sound/oss/soundcard.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   char *ldvarg11 ;
   void *tmp ;
@@ -6946,7 +6946,7 @@ void main(void)
 #line 1061
   ldv_check_final_state();
 #line 1062
-  return;
+  return 0;
 }
 }
 #line 1065 "/home/ldvuser/gratinskiy/commit-tester-runs/6-cpa-svcomp-newdeg/commit-tester-work/task-176--linux-torvalds--dir/work/current--X--sound/oss/sound.ko--X--defaultlinux-torvalds-645ef9e--X--32_7a--X--cpachecker/linux-torvalds-645ef9e/csd_deg_dscv/29/dscv_tempdir/dscv/ri/32_7a/sound/oss/soundcard.o.c.prepared"

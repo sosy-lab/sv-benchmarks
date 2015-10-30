@@ -4,7 +4,7 @@
 
 #include "assert.h"
 
-void main() {
+int main() {
     int i,j;
     i = 1;
     j = 10;
@@ -13,4 +13,5 @@ void main() {
 	j = -1 + j;
     }
     __VERIFIER_assert(j == 6);
+    return 0;
 }

@@ -12970,7 +12970,7 @@ void ldv_dev_pm_ops_4(void)
 }
 }
 #line 2100 "/work/ldvuser/mutilin/launch/work/current--X--drivers/net/--X--defaultlinux-3.16-rc1.tar.xz--X--205_9a--X--cpachecker/linux-3.16-rc1.tar.xz/csd_deg_dscv/512/dscv_tempdir/dscv/ri/205_9a/drivers/net/wireless/mwifiex/sdio.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   u32 ldvarg1 ;
   u32 tmp ;
@@ -13575,7 +13575,7 @@ void main(void)
 #line 2498
   ldv_check_final_state();
 #line 2499
-  return;
+  return 0;
 }
 }
 #line 2526 "/work/ldvuser/mutilin/launch/work/current--X--drivers/net/--X--defaultlinux-3.16-rc1.tar.xz--X--205_9a--X--cpachecker/linux-3.16-rc1.tar.xz/csd_deg_dscv/512/dscv_tempdir/dscv/ri/205_9a/drivers/net/wireless/mwifiex/sdio.o.c.prepared"

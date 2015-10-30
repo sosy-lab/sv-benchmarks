@@ -17578,7 +17578,7 @@ void ldv_main_exported_17(void) ;
 #line 514
 void ldv_main_exported_20(void) ;
 #line 518 "/home/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--43_2a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/3391/dscv_tempdir/dscv/ri/43_2a/drivers/scsi/bfa/bfad.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   enum pci_channel_state ldvarg85 ;
   struct pci_device_id *ldvarg93 ;
@@ -18417,7 +18417,7 @@ void main(void)
 #line 1121
   ldv_check_final_state();
 #line 1122
-  return;
+  return 0;
 }
 }
 #line 1137 "/home/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--43_2a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/3391/dscv_tempdir/dscv/ri/43_2a/drivers/scsi/bfa/bfad.o.c.prepared"

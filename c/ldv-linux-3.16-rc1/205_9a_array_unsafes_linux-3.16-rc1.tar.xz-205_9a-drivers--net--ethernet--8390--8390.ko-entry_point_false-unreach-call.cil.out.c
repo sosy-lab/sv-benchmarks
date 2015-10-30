@@ -8764,7 +8764,7 @@ void ldv_net_device_ops_2(void)
 }
 }
 #line 167 "/work/ldvuser/mutilin/launch/work/current--X--drivers/net/--X--defaultlinux-3.16-rc1.tar.xz--X--205_9a--X--cpachecker/linux-3.16-rc1.tar.xz/csd_deg_dscv/1163/dscv_tempdir/dscv/ri/205_9a/drivers/net/ethernet/8390/8390.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct sk_buff *ldvarg1 ;
   void *tmp ;
@@ -9483,7 +9483,7 @@ void main(void)
 #line 673
   ldv_check_final_state();
 #line 674
-  return;
+  return 0;
 }
 }
 #line 701 "/work/ldvuser/mutilin/launch/work/current--X--drivers/net/--X--defaultlinux-3.16-rc1.tar.xz--X--205_9a--X--cpachecker/linux-3.16-rc1.tar.xz/csd_deg_dscv/1163/dscv_tempdir/dscv/ri/205_9a/drivers/net/ethernet/8390/8390.o.c.prepared"

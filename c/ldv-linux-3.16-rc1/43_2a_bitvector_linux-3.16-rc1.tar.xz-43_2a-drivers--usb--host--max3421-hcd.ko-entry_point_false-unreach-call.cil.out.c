@@ -8351,7 +8351,7 @@ void disable_suitable_irq_1(int line , void *data )
 }
 }
 #line 2134 "/work/ldvuser/mutilin/launch/work/current--X--drivers--X--defaultlinux-3.16-rc1.tar.xz--X--43_2a--X--cpachecker/linux-3.16-rc1.tar.xz/csd_deg_dscv/8168/dscv_tempdir/dscv/ri/43_2a/drivers/usb/host/max3421-hcd.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   char *ldvarg7 ;
   void *tmp ;
@@ -8849,7 +8849,7 @@ void main(void)
 #line 2463
   ldv_check_final_state();
 #line 2464
-  return;
+  return 0;
 }
 }
 #line 2526 "/work/ldvuser/mutilin/launch/work/current--X--drivers--X--defaultlinux-3.16-rc1.tar.xz--X--43_2a--X--cpachecker/linux-3.16-rc1.tar.xz/csd_deg_dscv/8168/dscv_tempdir/dscv/ri/43_2a/drivers/usb/host/max3421-hcd.o.c.prepared"

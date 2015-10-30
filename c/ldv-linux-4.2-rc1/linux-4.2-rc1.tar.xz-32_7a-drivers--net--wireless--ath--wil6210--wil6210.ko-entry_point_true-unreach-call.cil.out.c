@@ -25002,7 +25002,7 @@ void ldv_main_exported_43(void) ;
 #line 587
 void ldv_main_exported_31(void) ;
 #line 593 "/work/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--32_7a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/12257/dscv_tempdir/dscv/ri/32_7a/drivers/net/wireless/ath/wil6210/pcie_bus.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct pci_device_id *ldvarg72 ;
   void *tmp ;
@@ -25887,7 +25887,7 @@ void main(void)
 #line 1278
   ldv_check_final_state();
 #line 1279
-  return;
+  return 0;
 }
 }
 #line 1288 "/work/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--32_7a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/12257/dscv_tempdir/dscv/ri/32_7a/drivers/net/wireless/ath/wil6210/pcie_bus.o.c.prepared"

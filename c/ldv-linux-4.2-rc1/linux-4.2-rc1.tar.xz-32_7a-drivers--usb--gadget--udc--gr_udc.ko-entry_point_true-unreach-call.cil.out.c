@@ -9442,7 +9442,7 @@ int ldv_irq_2(int state , int line , void *data )
 }
 }
 #line 419 "/work/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--32_7a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/8654/dscv_tempdir/dscv/ri/32_7a/drivers/usb/gadget/udc/gr_udc.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   loff_t ldvarg1 ;
   char *ldvarg4 ;
@@ -9985,7 +9985,7 @@ void main(void)
 #line 776
   ldv_check_final_state();
 #line 777
-  return;
+  return 0;
 }
 }
 #line 786 "/work/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--32_7a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/8654/dscv_tempdir/dscv/ri/32_7a/drivers/usb/gadget/udc/gr_udc.o.c.prepared"

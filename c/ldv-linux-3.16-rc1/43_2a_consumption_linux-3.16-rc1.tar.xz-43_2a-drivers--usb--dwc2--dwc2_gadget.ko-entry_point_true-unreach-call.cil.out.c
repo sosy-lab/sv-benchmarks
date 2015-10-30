@@ -12479,7 +12479,7 @@ void ldv_file_operations_4(void)
 }
 }
 #line 3776 "/work/ldvuser/mutilin/launch/work/current--X--drivers--X--defaultlinux-3.16-rc1.tar.xz--X--43_2a--X--cpachecker/linux-3.16-rc1.tar.xz/csd_deg_dscv/8229/dscv_tempdir/dscv/ri/43_2a/drivers/usb/dwc2/gadget.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   gfp_t ldvarg1 ;
   int ldvarg3 ;
@@ -13202,7 +13202,7 @@ void main(void)
 #line 4213
   ldv_check_final_state();
 #line 4214
-  return;
+  return 0;
 }
 }
 #line 4217 "/work/ldvuser/mutilin/launch/work/current--X--drivers--X--defaultlinux-3.16-rc1.tar.xz--X--43_2a--X--cpachecker/linux-3.16-rc1.tar.xz/csd_deg_dscv/8229/dscv_tempdir/dscv/ri/43_2a/drivers/usb/dwc2/gadget.o.c.prepared"

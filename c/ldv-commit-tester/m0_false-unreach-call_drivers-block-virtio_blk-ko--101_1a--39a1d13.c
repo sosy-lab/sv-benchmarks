@@ -5457,7 +5457,7 @@ extern int __VERIFIER_nondet_int(void) ;
 #line 578 "/work/vladimir/commit-test/commit-test-work/task-033--linux-stable--dir/work/current--X--drivers/block/virtio_blk.ko--X--defaultlinux-stable-39a1d13--X--101_1a--X--cpachecker/linux-stable-39a1d13/csd_deg_dscv/11/dscv_tempdir/dscv/ri/101_1a/drivers/block/virtio_blk.c.prepared"
 int LDV_IN_INTERRUPT  ;
 #line 581 "/work/vladimir/commit-test/commit-test-work/task-033--linux-stable--dir/work/current--X--drivers/block/virtio_blk.ko--X--defaultlinux-stable-39a1d13--X--101_1a--X--cpachecker/linux-stable-39a1d13/csd_deg_dscv/11/dscv_tempdir/dscv/ri/101_1a/drivers/block/virtio_blk.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct block_device *var_group1 ;
   fmode_t var_virtblk_ioctl_5_p1 ;
@@ -5529,7 +5529,7 @@ void main(void)
 #line 697
   ldv_check_final_state();
 #line 700
-  return;
+  return 0;
 }
 }
 #line 704 "/work/vladimir/commit-test/commit-test-work/task-033--linux-stable--dir/work/current--X--drivers/block/virtio_blk.ko--X--defaultlinux-stable-39a1d13--X--101_1a--X--cpachecker/linux-stable-39a1d13/csd_deg_dscv/11/dscv_tempdir/dscv/ri/101_1a/drivers/block/virtio_blk.c.prepared"

@@ -8516,7 +8516,7 @@ void disable_suitable_irq_1(int line , void *data )
 }
 }
 #line 158 "/work/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--08_1a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/10824/dscv_tempdir/dscv/ri/08_1a/drivers/net/arcnet/com90xx.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   int tmp ;
   int tmp___0 ;
@@ -8613,7 +8613,7 @@ void main(void)
 #line 216
   ldv_check_final_state();
 #line 217
-  return;
+  return 0;
 }
 }
 #line 244 "/work/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--08_1a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/10824/dscv_tempdir/dscv/ri/08_1a/drivers/net/arcnet/com90xx.o.c.prepared"

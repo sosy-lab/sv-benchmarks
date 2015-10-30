@@ -18414,7 +18414,7 @@ struct tty_driver *ldvarg19  ;
 #line 8222 "/work/ldvuser/zakharov_benchmarks/bench/cpa/work/current--X--drivers/tty/synclink.ko--X--x1linux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/32_7a/drivers/tty/synclink.c.prepared"
 int ldv_retval_3  ;
 #line 8234 "/work/ldvuser/zakharov_benchmarks/bench/cpa/work/current--X--drivers/tty/synclink.ko--X--x1linux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/32_7a/drivers/tty/synclink.c.prepared"
-void main(void) 
+int main(void) 
 { int tmp ;
   int tmp___0 ;
   int tmp___1 ;
@@ -19895,7 +19895,7 @@ void main(void)
 #line 9338
   ldv_check_final_state();
 #line 9339
-  return;
+  return 0;
 }
 }
 #line 9342 "/work/ldvuser/zakharov_benchmarks/bench/cpa/work/current--X--drivers/tty/synclink.ko--X--x1linux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/32_7a/drivers/tty/synclink.c.prepared"

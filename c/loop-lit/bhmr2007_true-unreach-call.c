@@ -2,7 +2,7 @@
 // Rybalchenko: "Path Invariants", PLDI 2007.
 
 #include "assert.h"
-void main() {
+int main() {
     int i, n, a, b;
     i = 0; a = 0; b = 0; n = __VERIFIER_nondet_int();
     __VERIFIER_assume(n >= 0);
@@ -17,4 +17,5 @@ void main() {
 	i = i + 1;
     }
     assert(a + b == 3*n);
+    return 0;
 }

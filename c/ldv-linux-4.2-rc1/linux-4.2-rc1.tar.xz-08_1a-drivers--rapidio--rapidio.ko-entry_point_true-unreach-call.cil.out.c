@@ -9458,7 +9458,7 @@ void ldv_main_exported_10(void) ;
 #line 98
 void ldv_main_exported_5(void) ;
 #line 105 "/work/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--08_1a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/453/dscv_tempdir/dscv/ri/08_1a/drivers/rapidio/rio-driver.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct kobj_uevent_env *ldvarg13 ;
   void *tmp ;
@@ -9998,7 +9998,7 @@ void main(void)
 #line 471
   ldv_check_final_state();
 #line 472
-  return;
+  return 0;
 }
 }
 #line 499 "/work/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--08_1a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/453/dscv_tempdir/dscv/ri/08_1a/drivers/rapidio/rio-driver.o.c.prepared"

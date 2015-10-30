@@ -15936,7 +15936,7 @@ void ldv_initialize_v4l2_ioctl_ops_5(void)
 #line 1838
 void ldv_main_exported_2(void) ;
 #line 1859 "/work/ldvuser/mutilin/launch/work/current--X--drivers--X--defaultlinux-3.12-rc1.tar.xz--X--144_2a--X--cpachecker/linux-3.12-rc1.tar.xz/csd_deg_dscv/2290/dscv_tempdir/dscv/ri/144_2a/drivers/media/usb/usbvision/usbvision-video.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   char *ldvarg1 ;
   void *tmp ;
@@ -17857,7 +17857,7 @@ void main(void)
 #line 2895
   ldv_check_final_state();
 #line 2896
-  return;
+  return 0;
 }
 }
 #line 2899 "/work/ldvuser/mutilin/launch/work/current--X--drivers--X--defaultlinux-3.12-rc1.tar.xz--X--144_2a--X--cpachecker/linux-3.12-rc1.tar.xz/csd_deg_dscv/2290/dscv_tempdir/dscv/ri/144_2a/drivers/media/usb/usbvision/usbvision-video.o.c.prepared"

@@ -1653,7 +1653,7 @@ void ldv_initialize_platform_driver_1(void)
 }
 }
 #line 456 "/home/ldvuser/gratinskiy/commit-tester-runs/6-cpa-svcomp-newdeg/commit-tester-work/task-029--linux-stable--dir/work/current--X--drivers/hwmon/s3c-hwmon.ko--X--defaultlinux-stable-af3071a-1--X--130_7a--X--cpachecker/linux-stable-af3071a-1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/130_7a/drivers/hwmon/s3c-hwmon.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   int tmp ;
   int tmp___0 ;
@@ -1795,7 +1795,7 @@ void main(void)
 #line 541
   ldv_check_final_state();
 #line 542
-  return;
+  return 0;
 }
 }
 #line 563 "/home/ldvuser/gratinskiy/commit-tester-runs/6-cpa-svcomp-newdeg/commit-tester-work/task-029--linux-stable--dir/work/current--X--drivers/hwmon/s3c-hwmon.ko--X--defaultlinux-stable-af3071a-1--X--130_7a--X--cpachecker/linux-stable-af3071a-1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/130_7a/drivers/hwmon/s3c-hwmon.o.c.prepared"

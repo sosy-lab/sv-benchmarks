@@ -5,8 +5,8 @@ env:
   # many warnings firing right now
   # Note: Can't use CC variable as TravisCI will override it
   - C_COMPILER=gcc-4.8 SYNTAX_ONLY=1 WARNINGS_AS_ERRORS=0 VERBOSE=0 SUPPRESS_WARNINGS=1 REPORT_CC_FILE=0
-  # FIXME: Enable clang once we can fix compile errors.
-  #- C_COMPILER=clang-3.7 SYNTAX_ONLY=1 WARNINGS_AS_ERRORS=0 VERBOSE=0 SUPPRESS_WARNINGS=1 REPORT_CC_FILE=0
+  # FIXME: Remove CLANG_BUILD_HACK once we can build all the benchmarks
+  - C_COMPILER=clang-3.7 CLANG_BUILD_HACK=1 SYNTAX_ONLY=1 WARNINGS_AS_ERRORS=0 VERBOSE=0 SUPPRESS_WARNINGS=1 REPORT_CC_FILE=0
 # Hint to TravisCI that we want to use their container infrastructure
 sudo: false
 addons:

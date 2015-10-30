@@ -121,6 +121,19 @@ else
   CC.Warnings := -w
 endif
 
+# FIXME: I don't like this but it seems to be necessary for Clang right now
+# Warning suppression flags are always passed (regardless of SUPPRESS_WARNINGS)
+# so that compilation can still pass (e.g. some benchmarks won't compile without
+# -Wno-return-type with Clang)
+CC.Warnings += $(COMMON_WARNINGS_SUPPRESS)
+ifeq ($(CC_IS_GCC),1)
+  CC.Warnings += $(GCC_ONLY_WARNINGS_SUPPRESS)
+else ifeq ($(CC_IS_CLANG),1)
+  CC.Warnings += $(CLANG_ONLY_WARNINGS_SUPPRESS)
+else
+  $(error Compiler "$(CC)" was not identified as gcc or clang)
+endif
+
 CC.Flags += -std=$(CC.Standard) \
             -m$(CC.Arch) \
             $(CC.Warnings) \

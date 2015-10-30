@@ -22711,7 +22711,7 @@ extern int __VERIFIER_nondet_int(void) ;
 #line 5470 "/home/mikhail/launches/cpachecker-regression2/launcher-working-dir/ldv-manager-work-dir/work/current--X--drivers/block/cciss.ko--X--regression-testlinux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/32_7a/drivers/block/cciss.c.prepared"
 int LDV_IN_INTERRUPT  ;
 #line 5473 "/home/mikhail/launches/cpachecker-regression2/launcher-working-dir/ldv-manager-work-dir/work/current--X--drivers/block/cciss.ko--X--regression-testlinux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/32_7a/drivers/block/cciss.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct block_device *var_group1 ;
   fmode_t var_cciss_unlocked_open_42_p1 ;
@@ -23074,7 +23074,7 @@ void main(void)
 #line 8529
   ldv_check_final_state();
 #line 8532
-  return;
+  return 0;
 }
 }
 #line 8536 "/home/mikhail/launches/cpachecker-regression2/launcher-working-dir/ldv-manager-work-dir/work/current--X--drivers/block/cciss.ko--X--regression-testlinux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/32_7a/drivers/block/cciss.c.prepared"

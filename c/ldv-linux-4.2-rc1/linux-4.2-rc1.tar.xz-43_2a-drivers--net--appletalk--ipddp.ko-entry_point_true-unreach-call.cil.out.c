@@ -7976,7 +7976,7 @@ void ldv_net_device_ops_1(void)
 }
 }
 #line 58 "/home/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--43_2a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/11962/dscv_tempdir/dscv/ri/43_2a/drivers/net/appletalk/ipddp.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct sk_buff *ldvarg1 ;
   void *tmp ;
@@ -8290,7 +8290,7 @@ void main(void)
 #line 263
   ldv_check_final_state();
 #line 264
-  return;
+  return 0;
 }
 }
 #line 267 "/home/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--43_2a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/11962/dscv_tempdir/dscv/ri/43_2a/drivers/net/appletalk/ipddp.o.c.prepared"

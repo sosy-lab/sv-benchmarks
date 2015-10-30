@@ -26617,7 +26617,7 @@ int mlx4_en_init_netdev(struct mlx4_en_dev *mdev , int port , struct mlx4_en_por
 #line 2345
 extern void ldv_check_return_value(int  ) ;
 #line 2363 "/work/ldvuser/shchepetkov/43_1a-CPAchecker-bit-vector/work/current--X--drivers--X--defaultlinux-3.10-rc1--X--43_1a--X--cpachecker/linux-3.10-rc1/csd_deg_dscv/6637/dscv_tempdir/dscv/ri/43_1a/drivers/net/ethernet/mellanox/mlx4/en_netdev.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct net_device *var_group1 ;
   int res_mlx4_en_open_40 ;
@@ -26969,7 +26969,7 @@ void main(void)
 #line 4489
   ldv_check_final_state();
 #line 4492
-  return;
+  return 0;
 }
 }
 #line 4496 "/work/ldvuser/shchepetkov/43_1a-CPAchecker-bit-vector/work/current--X--drivers--X--defaultlinux-3.10-rc1--X--43_1a--X--cpachecker/linux-3.10-rc1/csd_deg_dscv/6637/dscv_tempdir/dscv/ri/43_1a/drivers/net/ethernet/mellanox/mlx4/en_netdev.c.prepared"

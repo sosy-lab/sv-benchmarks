@@ -7718,7 +7718,7 @@ void ldv_pci_driver_1(void)
 }
 }
 #line 97 "/work/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--08_1a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/4072/dscv_tempdir/dscv/ri/08_1a/drivers/media/pci/pt3/pt3.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct pci_device_id *ldvarg0 ;
   void *tmp ;
@@ -8292,7 +8292,7 @@ void main(void)
 #line 455
   ldv_check_final_state();
 #line 456
-  return;
+  return 0;
 }
 }
 #line 465 "/work/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--08_1a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/4072/dscv_tempdir/dscv/ri/08_1a/drivers/media/pci/pt3/pt3.o.c.prepared"

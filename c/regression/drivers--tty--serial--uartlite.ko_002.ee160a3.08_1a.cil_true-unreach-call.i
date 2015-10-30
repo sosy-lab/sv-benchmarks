@@ -4576,7 +4576,7 @@ extern int nondet_int(void) ;
 #line 699 "/work/ldvuser/novikov/work/current--X--drivers/tty/serial/uartlite.ko--X--defaultlinux--X--08_1a--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1a/drivers/tty/serial/uartlite.c.prepared"
 int LDV_IN_INTERRUPT  ;
 #line 702 "/work/ldvuser/novikov/work/current--X--drivers/tty/serial/uartlite.ko--X--defaultlinux--X--08_1a--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1a/drivers/tty/serial/uartlite.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct uart_port *var_group1 ;
   unsigned int var_ulite_set_mctrl_5_p1 ;
@@ -4825,7 +4825,7 @@ void main(void)
 #line 3003
   ldv_check_final_state();
 #line 3006
-  return;
+  return 0;
 }
 }
 #line 10 "/home/ldvuser/ldv/inst/kernel-rules/verifier/rcv.h"

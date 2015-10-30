@@ -5085,7 +5085,7 @@ int LDV_IN_INTERRUPT  ;
 #line 521 "/work/ldvuser/novikov/work/current--X--drivers/net/tokenring/abyss.ko--X--defaultlinux--X--68_1--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/net/tokenring/abyss.c"
 static int res_abyss_attach_4  ;
 #line 505 "/work/ldvuser/novikov/work/current--X--drivers/net/tokenring/abyss.ko--X--defaultlinux--X--68_1--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/net/tokenring/abyss.c"
-void main(void) 
+int main(void) 
 { 
   struct pci_dev *var_group1 ;
   struct pci_device_id  const  *var_abyss_attach_4_p1 ;
@@ -5178,7 +5178,7 @@ void main(void)
 #line 621
   ldv_check_final_state();
 #line 624
-  return;
+  return 0;
 }
 }
 #line 1410 "include/linux/usb.h"

@@ -17476,7 +17476,7 @@ extern int __VERIFIER_nondet_int(void) ;
 #line 5274 "/work/vladimir/commit-test/commit-test-work/task-064--linux-stable--dir/work/current--X--drivers/scsi/gdth.ko--X--defaultlinux-stable-5934df9-1--X--111_1a--X--cpachecker/linux-stable-5934df9-1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/111_1a/drivers/scsi/gdth.c.prepared"
 int LDV_IN_INTERRUPT  ;
 #line 5277 "/work/vladimir/commit-test/commit-test-work/task-064--linux-stable--dir/work/current--X--drivers/scsi/gdth.ko--X--defaultlinux-stable-5934df9-1--X--111_1a--X--cpachecker/linux-stable-5934df9-1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/111_1a/drivers/scsi/gdth.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct file *var_group1 ;
   unsigned int var_gdth_unlocked_ioctl_66_p1 ;
@@ -17680,7 +17680,7 @@ void main(void)
 #line 8803
   ldv_check_final_state();
 #line 8806
-  return;
+  return 0;
 }
 }
 #line 8810 "/work/vladimir/commit-test/commit-test-work/task-064--linux-stable--dir/work/current--X--drivers/scsi/gdth.ko--X--defaultlinux-stable-5934df9-1--X--111_1a--X--cpachecker/linux-stable-5934df9-1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/111_1a/drivers/scsi/gdth.c.prepared"

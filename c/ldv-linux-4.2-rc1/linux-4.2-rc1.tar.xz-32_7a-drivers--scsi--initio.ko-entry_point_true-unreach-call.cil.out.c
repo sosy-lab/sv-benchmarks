@@ -11562,7 +11562,7 @@ void disable_suitable_irq_1(int line , void *data )
 }
 }
 #line 222 "/work/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--32_7a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/6308/dscv_tempdir/dscv/ri/32_7a/drivers/scsi/initio.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   int *ldvarg1 ;
   void *tmp ;
@@ -11811,7 +11811,7 @@ void main(void)
 #line 368
   ldv_check_final_state();
 #line 369
-  return;
+  return 0;
 }
 }
 #line 396 "/work/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--32_7a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/6308/dscv_tempdir/dscv/ri/32_7a/drivers/scsi/initio.o.c.prepared"

@@ -87127,7 +87127,7 @@ void bnx2x_set_ethtool_ops(struct bnx2x *bp , struct net_device *netdev )
 }
 }
 #line 3604 "/work/ldvuser/exper_fp/work/current--X--drivers--X--defaultlinux-3.10-rc1.tar--X--32_7a--X--cpachecker/linux-3.10-rc1.tar/csd_deg_dscv/8504/dscv_tempdir/dscv/ri/32_7a/drivers/net/ethernet/broadcom/bnx2x/bnx2x_ethtool.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct net_device *var_group1 ;
   struct ethtool_cmd *var_group2 ;
@@ -87601,7 +87601,7 @@ void main(void)
 #line 9949
   ldv_check_final_state();
 #line 9952
-  return;
+  return 0;
 }
 }
 #line 9956 "/work/ldvuser/exper_fp/work/current--X--drivers--X--defaultlinux-3.10-rc1.tar--X--32_7a--X--cpachecker/linux-3.10-rc1.tar/csd_deg_dscv/8504/dscv_tempdir/dscv/ri/32_7a/drivers/net/ethernet/broadcom/bnx2x/bnx2x_ethtool.c.prepared"

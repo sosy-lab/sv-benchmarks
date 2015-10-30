@@ -24630,7 +24630,7 @@ void ldv_main_exported_4(void) ;
 #line 4555
 void ldv_main_exported_5(void) ;
 #line 4559 "/work/ldvuser/mutilin/launch/work/current--X--drivers--X--defaultlinux-3.16-rc1.tar.xz--X--43_2a--X--cpachecker/linux-3.16-rc1.tar.xz/csd_deg_dscv/10149/dscv_tempdir/dscv/ri/43_2a/drivers/net/ethernet/qlogic/qlcnic/qlcnic_main.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   sa_family_t ldvarg18 ;
   u8 ldvarg11 ;
@@ -28488,7 +28488,7 @@ void main(void)
 #line 7168
   ldv_check_final_state();
 #line 7169
-  return;
+  return 0;
 }
 }
 #line 7172 "/work/ldvuser/mutilin/launch/work/current--X--drivers--X--defaultlinux-3.16-rc1.tar.xz--X--43_2a--X--cpachecker/linux-3.16-rc1.tar.xz/csd_deg_dscv/10149/dscv_tempdir/dscv/ri/43_2a/drivers/net/ethernet/qlogic/qlcnic/qlcnic_main.o.c.prepared"

@@ -15373,7 +15373,7 @@ int LDV_IN_INTERRUPT  ;
 #line 2947 "/work/ldvuser/novikov/work/current--X--drivers/usb/serial/mos7840.ko--X--defaultlinux--X--68_1--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/usb/serial/mos7840.c"
 static int res_mos7840_open_18  ;
 #line 4751
-void main(void) ;
+int main(void) ;
 #line 4751 "/work/ldvuser/novikov/work/current--X--drivers/usb/serial/mos7840.ko--X--defaultlinux--X--68_1--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/usb/serial/mos7840.c"
 static struct ftrace_branch_data  __attribute__((__aligned__(4))) ______f___1245  __attribute__((__section__("_ftrace_branch")))  =    {"main",
     "/work/ldvuser/novikov/work/current--X--drivers/usb/serial/mos7840.ko--X--defaultlinux--X--68_1--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/usb/serial/mos7840.c",
@@ -15395,7 +15395,7 @@ static struct ftrace_branch_data  __attribute__((__aligned__(4))) ______f___1249
     "/work/ldvuser/novikov/work/current--X--drivers/usb/serial/mos7840.ko--X--defaultlinux--X--68_1--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/usb/serial/mos7840.c",
     4996, {{0UL, 0UL}}};
 #line 2848 "/work/ldvuser/novikov/work/current--X--drivers/usb/serial/mos7840.ko--X--defaultlinux--X--68_1--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/usb/serial/mos7840.c"
-void main(void) 
+int main(void) 
 { 
   struct tty_struct *var_group1 ;
   struct usb_serial_port *var_group2 ;
@@ -15650,7 +15650,7 @@ void main(void)
 #line 6892
   ldv_check_final_state();
 #line 6895
-  return;
+  return 0;
 }
 }
 #line 10 "/home/ldvuser/ldv/inst/kernel-rules/verifier/rcv.h"

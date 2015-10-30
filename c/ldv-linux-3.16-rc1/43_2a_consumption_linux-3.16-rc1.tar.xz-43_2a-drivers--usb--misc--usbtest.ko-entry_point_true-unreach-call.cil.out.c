@@ -9536,7 +9536,7 @@ void ldv_usb_driver_1(void)
 }
 }
 #line 2787 "/work/ldvuser/mutilin/launch/work/current--X--drivers--X--defaultlinux-3.16-rc1.tar.xz--X--43_2a--X--cpachecker/linux-3.16-rc1.tar.xz/csd_deg_dscv/8062/dscv_tempdir/dscv/ri/43_2a/drivers/usb/misc/usbtest.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   unsigned int ldvarg1 ;
   unsigned int tmp ;
@@ -9778,7 +9778,7 @@ void main(void)
 #line 2929
   ldv_check_final_state();
 #line 2930
-  return;
+  return 0;
 }
 }
 #line 2933 "/work/ldvuser/mutilin/launch/work/current--X--drivers--X--defaultlinux-3.16-rc1.tar.xz--X--43_2a--X--cpachecker/linux-3.16-rc1.tar.xz/csd_deg_dscv/8062/dscv_tempdir/dscv/ri/43_2a/drivers/usb/misc/usbtest.o.c.prepared"

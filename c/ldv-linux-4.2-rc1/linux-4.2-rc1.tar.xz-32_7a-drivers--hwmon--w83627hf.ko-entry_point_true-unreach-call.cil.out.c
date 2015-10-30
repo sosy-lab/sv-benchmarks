@@ -10194,7 +10194,7 @@ void ldv_initialize_sensor_device_attribute_29(void)
 }
 }
 #line 816 "/work/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--32_7a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/8244/dscv_tempdir/dscv/ri/32_7a/drivers/hwmon/w83627hf.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   size_t ldvarg1 ;
   char *ldvarg0 ;
@@ -16127,7 +16127,7 @@ void main(void)
 #line 3997
   ldv_check_final_state();
 #line 3998
-  return;
+  return 0;
 }
 }
 #line 4007 "/work/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--32_7a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/8244/dscv_tempdir/dscv/ri/32_7a/drivers/hwmon/w83627hf.o.c.prepared"

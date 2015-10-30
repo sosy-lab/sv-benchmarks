@@ -3986,7 +3986,7 @@ int LDV_IN_INTERRUPT  ;
 #line 384 "/work/ldvuser/novikov/work/current--X--drivers/rtc/rtc-max6902.ko--X--defaultlinux--X--68_1--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/rtc/rtc-max6902.c"
 static int res_max6902_probe_6  ;
 #line 317 "/work/ldvuser/novikov/work/current--X--drivers/rtc/rtc-max6902.ko--X--defaultlinux--X--68_1--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/rtc/rtc-max6902.c"
-void main(void) 
+int main(void) 
 { 
   struct device *var_group1 ;
   struct rtc_time *var_group2 ;
@@ -4094,7 +4094,7 @@ void main(void)
 #line 615
   ldv_check_final_state();
 #line 618
-  return;
+  return 0;
 }
 }
 #line 1455 "include/linux/usb.h"
