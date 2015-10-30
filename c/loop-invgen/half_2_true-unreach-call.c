@@ -3,6 +3,7 @@
 int main() {
   int n,i,k;
   n = __VERIFIER_nondet_int();
+  __VERIFIER_assume(n <= LARGE_INT);
   k = n;
   i = 0;
   while( i < n ) {

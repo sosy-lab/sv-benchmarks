@@ -11,7 +11,7 @@ extern _Bool __VERIFIER_nondet_bool();
 
 int main(){
    int a[5];
-   int len=0;
+   unsigned int len=0;
 
    int i;
 

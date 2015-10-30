@@ -21,7 +21,7 @@
 
 
 void main() {
-  int offset, length, nlen;
+  int offset, length, nlen = __VERIFIER_nondet_int();
   int i, j;
   
   for (i=0; i<nlen; i++) {

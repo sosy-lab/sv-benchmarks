@@ -12,28 +12,27 @@ _Bool __VERIFIER_nondet_bool();
 
 int main()
 {
-  int x=__VERIFIER_nondet_int();
-  int y=__VERIFIER_nondet_int();
-  int z=__VERIFIER_nondet_int();
-  __VERIFIER_assume(x<100);
-  __VERIFIER_assume(z<100);
-  while(x<100 && 100<z) 
-  {
-    _Bool tmp=__VERIFIER_nondet_bool();
-    if (tmp)
-   {
-     x++;
-   }
-   else
-   {
-     x--;
-     z--;
-   }
-  }                       
-    
-  __VERIFIER_assert(x>=100 || z<=100);
+    int x=__VERIFIER_nondet_int();
+    int y=__VERIFIER_nondet_int();
+    int z=__VERIFIER_nondet_int();
+    __VERIFIER_assume(x<100);
+    __VERIFIER_assume(x>-100);
+    __VERIFIER_assume(z<100);
+    __VERIFIER_assume(z>-100);
+    while(x<100 && 100<z) 
+    {
+        _Bool tmp=__VERIFIER_nondet_bool();
+        if (tmp) {
+            x++;
+        } else {
+            x--;
+            z--;
+        }
+    }                       
 
-  return 0;
+    __VERIFIER_assert(x>=100 || z<=100);
+
+    return 0;
 }
 
 

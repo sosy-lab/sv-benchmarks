@@ -10,14 +10,10 @@ int __VERIFIER_nondet_int();
 int main ()
 {
   int in;
-  int inlen;
-  int bufferlen;
+  int inlen = __VERIFIER_nondet_int();
+  int bufferlen = __VERIFIER_nondet_int();
   int buf;
   int buflim;
-
-  bufferlen = __VERIFIER_nondet_int();
-  inlen = __VERIFIER_nondet_int();
-
   if(bufferlen >1);else goto END;
   if(inlen > 0);else goto END;
   if(bufferlen < inlen);else goto END;

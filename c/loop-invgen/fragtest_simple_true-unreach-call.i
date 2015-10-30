@@ -14,13 +14,14 @@ void main(){
   int n;
   i = 0;
   pvlen = __VERIFIER_nondet_int();
-  while ( __VERIFIER_nondet_int() )
+  while ( __VERIFIER_nondet_int() && i <= 1000000) {
     i = i + 1;
+  }
   if (i > pvlen) {
     pvlen = i;
   }
   i = 0;
-  while ( __VERIFIER_nondet_int() ) {
+  while ( __VERIFIER_nondet_int() && i <= 1000000) {
     tmp___1 = i;
     i = i + 1;
     k = k + 1;

@@ -8,8 +8,8 @@
 int main ()
 {
   int in;
-  int inlen;
-  int bufferlen;
+  int inlen = __VERIFIER_nondet_int();
+  int bufferlen = __VERIFIER_nondet_int();
   int buf;
   int buflim;
 

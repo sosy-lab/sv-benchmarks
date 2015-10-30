@@ -11,10 +11,10 @@ void main() {
     int i = 0;
     int k = 0;
     while(i < 1000000) {
- int j = __VERIFIER_nondet_int();
- __VERIFIER_assume(1 <= j && j < 1000000);
- i = i + j;
- k ++;
+        int j = __VERIFIER_nondet_int();
+        __VERIFIER_assume(1 <= j && j < 1000000);
+        i = i + j;
+        k ++;
     }
     __VERIFIER_assert(k <= 1000000);
 }

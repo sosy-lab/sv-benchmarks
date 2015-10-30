@@ -1,4 +1,5 @@
 extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+extern void __VERIFIER_assume(int);
 
 extern int __VERIFIER_nondet_int(void);
 void __VERIFIER_assert(int cond) {
@@ -9,17 +10,24 @@ void __VERIFIER_assert(int cond) {
 }
 extern unsigned int __VERIFIER_nondet_uint();
 
+#define LIMIT 1000000
+
 int main()
 {
   unsigned int M = __VERIFIER_nondet_uint();
   int A[M], B[M], C[M];
   unsigned int  i;
   
-  for(i=0;i<M;i++)
+  for(i=0;i<M;i++) {
     A[i] = __VERIFIER_nondet_int();
+    __VERIFIER_assume(A[i] <= LIMIT);
+
+  }
   
-  for(i=0;i<M;i++)
+  for(i=0;i<M;i++) {
     B[i] = __VERIFIER_nondet_int();
+    __VERIFIER_assume(B[i] <= LIMIT);
+  }
 
   for(i=0;i<M;i++)
      C[i]=A[i]+B[i];

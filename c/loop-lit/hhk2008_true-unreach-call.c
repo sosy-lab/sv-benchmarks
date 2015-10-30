@@ -4,7 +4,8 @@
 #include "assert.h"
 
 void main() {
-    int a, b;
+    int a = __VERIFIER_nondet_int();
+    int b = __VERIFIER_nondet_int();
     int res, cnt;
     __VERIFIER_assume(a <= 1000000);
     __VERIFIER_assume(0 <= b && b <= 1000000);
