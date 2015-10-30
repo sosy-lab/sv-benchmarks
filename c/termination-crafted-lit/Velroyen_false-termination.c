@@ -5,6 +5,9 @@
  * Date: 18.12.2013
  * Author: urban@di.ens.fr
  */
+typedef enum {false, true} bool;
+
+extern int __VERIFIER_nondet_int(void);
 
 int main() {
 	int x;
@@ -23,4 +26,5 @@ int main() {
 		    x = 0;
 		}
 	}
+    return 0;
 }
