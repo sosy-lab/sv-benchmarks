@@ -14,6 +14,6 @@ int main() {
 	cnt = cnt - 1;
 	res = res + 1;
     }
-    assert(res == a + b);
+    __VERIFIER_assert(res == a + b);
     return 0;
 }

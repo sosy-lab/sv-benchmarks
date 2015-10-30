@@ -25,6 +25,6 @@ int main() {
  w = w + 1;
  z = z + 10;
     }
-    assert(x >= 4 && y <= 2);
+    __VERIFIER_assert(x >= 4 && y <= 2);
     return 0;
 }
