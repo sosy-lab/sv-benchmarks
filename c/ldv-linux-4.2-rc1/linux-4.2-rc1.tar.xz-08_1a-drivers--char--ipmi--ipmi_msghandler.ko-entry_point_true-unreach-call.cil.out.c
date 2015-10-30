@@ -13724,7 +13724,7 @@ void ldv_timer_1(int state , struct timer_list *timer )
 }
 }
 #line 260 "/work/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--08_1a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/9508/dscv_tempdir/dscv/ri/08_1a/drivers/char/ipmi/ipmi_msghandler.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   char *ldvarg1 ;
   void *tmp ;
@@ -14747,7 +14747,7 @@ void main(void)
 #line 800
   ldv_check_final_state();
 #line 801
-  return;
+  return 0;
 }
 }
 #line 828 "/work/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--08_1a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/9508/dscv_tempdir/dscv/ri/08_1a/drivers/char/ipmi/ipmi_msghandler.o.c.prepared"

@@ -8587,7 +8587,7 @@ void work_init_1(void)
 }
 }
 #line 233 "/home/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--43_2a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/9654/dscv_tempdir/dscv/ri/43_2a/drivers/usb/serial/digi_acceleport.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   int ldvarg1 ;
   unsigned int ldvarg4 ;
@@ -9936,7 +9936,7 @@ void main(void)
 #line 1223
   ldv_check_final_state();
 #line 1224
-  return;
+  return 0;
 }
 }
 #line 1251 "/home/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--43_2a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/9654/dscv_tempdir/dscv/ri/43_2a/drivers/usb/serial/digi_acceleport.o.c.prepared"

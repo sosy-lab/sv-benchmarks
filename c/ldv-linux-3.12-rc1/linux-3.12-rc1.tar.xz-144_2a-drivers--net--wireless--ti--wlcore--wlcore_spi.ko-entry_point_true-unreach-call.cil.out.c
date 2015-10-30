@@ -8301,7 +8301,7 @@ void ldv_initialize_spi_driver_1(void)
 }
 }
 #line 507 "/work/ldvuser/mutilin/launch/work/current--X--drivers--X--defaultlinux-3.12-rc1.tar.xz--X--144_2a--X--cpachecker/linux-3.12-rc1.tar.xz/csd_deg_dscv/6757/dscv_tempdir/dscv/ri/144_2a/drivers/net/wireless/ti/wlcore/spi.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   bool ldvarg7 ;
   bool ldvarg3 ;
@@ -8614,7 +8614,7 @@ void main(void)
 #line 697
   ldv_check_final_state();
 #line 698
-  return;
+  return 0;
 }
 }
 #line 12 "/home/ldvuser/ldv/inst-cpa/kernel-rules/verifier/rcv.h"

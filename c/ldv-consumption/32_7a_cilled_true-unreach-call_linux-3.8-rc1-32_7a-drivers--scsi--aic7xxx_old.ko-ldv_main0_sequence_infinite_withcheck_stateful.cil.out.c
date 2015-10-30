@@ -21999,7 +21999,7 @@ extern int __VERIFIER_nondet_int(void) ;
 #line 11217 "/home/mikhail/launches/cpachecker-regression2/launcher-working-dir/ldv-manager-work-dir/work/current--X--drivers/scsi/aic7xxx_old.ko--X--regression-testlinux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/32_7a/drivers/scsi/aic7xxx_old.c.prepared"
 int LDV_IN_INTERRUPT  ;
 #line 11220 "/home/mikhail/launches/cpachecker-regression2/launcher-working-dir/ldv-manager-work-dir/work/current--X--drivers/scsi/aic7xxx_old.ko--X--regression-testlinux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/32_7a/drivers/scsi/aic7xxx_old.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct scsi_host_template *var_group1 ;
   struct Scsi_Host *var_group2 ;
@@ -22126,7 +22126,7 @@ void main(void)
 #line 17019
   ldv_check_final_state();
 #line 17022
-  return;
+  return 0;
 }
 }
 #line 17026 "/home/mikhail/launches/cpachecker-regression2/launcher-working-dir/ldv-manager-work-dir/work/current--X--drivers/scsi/aic7xxx_old.ko--X--regression-testlinux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/32_7a/drivers/scsi/aic7xxx_old.c.prepared"

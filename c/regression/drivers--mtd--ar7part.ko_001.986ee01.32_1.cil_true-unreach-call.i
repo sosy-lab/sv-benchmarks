@@ -743,7 +743,7 @@ extern int nondet_int(void) ;
 #line 188 "/work/ldvuser/novikov/work/current--X--drivers/mtd/ar7part.ko--X--defaultlinux--X--32_1--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/32_1/drivers/mtd/ar7part.c"
 int LDV_IN_INTERRUPT  ;
 #line 191 "/work/ldvuser/novikov/work/current--X--drivers/mtd/ar7part.ko--X--defaultlinux--X--32_1--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/32_1/drivers/mtd/ar7part.c"
-void main(void) 
+int main(void) 
 { 
   struct mtd_info *var_group1 ;
   struct mtd_partition **var_group2 ;
@@ -799,7 +799,7 @@ void main(void)
 #line 289
   ldv_check_final_state();
 #line 292
-  return;
+  return 0;
 }
 }
 #line 1 "<compiler builtins>"

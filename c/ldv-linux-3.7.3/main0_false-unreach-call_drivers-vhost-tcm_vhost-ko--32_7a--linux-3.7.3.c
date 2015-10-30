@@ -17837,7 +17837,7 @@ extern int __VERIFIER_nondet_int(void) ;
 #line 1688 "/work/vladimir/UFO/Work/test/work/current--X--drivers/vhost/tcm_vhost.ko--X--defaultlinux-3.7.3--X--32_7a--X--ufo/linux-3.7.3/csd_deg_dscv/12/dscv_tempdir/dscv/ri/32_7a/drivers/vhost/tcm_vhost.c.prepared"
 int LDV_IN_INTERRUPT  ;
 #line 1691 "/work/vladimir/UFO/Work/test/work/current--X--drivers/vhost/tcm_vhost.ko--X--defaultlinux-3.7.3--X--32_7a--X--ufo/linux-3.7.3/csd_deg_dscv/12/dscv_tempdir/dscv/ri/32_7a/drivers/vhost/tcm_vhost.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct inode *var_group1 ;
   struct file *var_group2 ;
@@ -18206,7 +18206,7 @@ void main(void)
 #line 3109
   ldv_check_final_state();
 #line 3112
-  return;
+  return 0;
 }
 }
 #line 3116 "/work/vladimir/UFO/Work/test/work/current--X--drivers/vhost/tcm_vhost.ko--X--defaultlinux-3.7.3--X--32_7a--X--ufo/linux-3.7.3/csd_deg_dscv/12/dscv_tempdir/dscv/ri/32_7a/drivers/vhost/tcm_vhost.c.prepared"

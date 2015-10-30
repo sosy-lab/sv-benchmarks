@@ -15628,7 +15628,7 @@ void ldv_initialize_scsi_driver_21(void)
 }
 }
 #line 102 "/home/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--43_2a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/3541/dscv_tempdir/dscv/ri/43_2a/drivers/scsi/st.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   char *ldvarg1 ;
   void *tmp ;
@@ -16935,7 +16935,7 @@ void main(void)
 #line 780
   ldv_check_final_state();
 #line 781
-  return;
+  return 0;
 }
 }
 #line 790 "/home/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--43_2a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/3541/dscv_tempdir/dscv/ri/43_2a/drivers/scsi/st.o.c.prepared"

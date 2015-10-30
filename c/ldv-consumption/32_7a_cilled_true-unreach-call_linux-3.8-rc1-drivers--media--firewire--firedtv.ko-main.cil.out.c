@@ -12926,7 +12926,7 @@ int ldvarg10  ;
 #line 501 "/work/ldvuser/zakharov_benchmarks/bench/cpa/work/current--X--drivers/media/firewire/firedtv.ko--X--x1linux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/17/dscv_tempdir/dscv/ri/32_7a/drivers/media/firewire/firedtv-fw.c.prepared"
 int ldvarg19  ;
 #line 512 "/work/ldvuser/zakharov_benchmarks/bench/cpa/work/current--X--drivers/media/firewire/firedtv.ko--X--x1linux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/17/dscv_tempdir/dscv/ri/32_7a/drivers/media/firewire/firedtv-fw.c.prepared"
-void main(void) 
+int main(void) 
 { int tmp ;
   int tmp___0 ;
   int tmp___1 ;
@@ -13149,7 +13149,7 @@ void main(void)
 #line 654
   ldv_check_final_state();
 #line 655
-  return;
+  return 0;
 }
 }
 #line 658 "/work/ldvuser/zakharov_benchmarks/bench/cpa/work/current--X--drivers/media/firewire/firedtv.ko--X--x1linux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/17/dscv_tempdir/dscv/ri/32_7a/drivers/media/firewire/firedtv-fw.c.prepared"

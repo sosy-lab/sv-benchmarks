@@ -19154,7 +19154,7 @@ void ldv_main_exported_5(void) ;
 #line 1585
 void ldv_main_exported_1(void) ;
 #line 1589 "/work/ldvuser/mutilin/launch/work/current--X--drivers--X--defaultlinux-3.16-rc1.tar.xz--X--43_2a--X--cpachecker/linux-3.16-rc1.tar.xz/csd_deg_dscv/3333/dscv_tempdir/dscv/ri/43_2a/drivers/media/usb/cx231xx/cx231xx-cards.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct usb_device_id *ldvarg0 ;
   void *tmp ;
@@ -19488,7 +19488,7 @@ void main(void)
 #line 1802
   ldv_check_final_state();
 #line 1803
-  return;
+  return 0;
 }
 }
 #line 1903 "/work/ldvuser/mutilin/launch/work/current--X--drivers--X--defaultlinux-3.16-rc1.tar.xz--X--43_2a--X--cpachecker/linux-3.16-rc1.tar.xz/csd_deg_dscv/3333/dscv_tempdir/dscv/ri/43_2a/drivers/media/usb/cx231xx/cx231xx-cards.o.c.prepared"

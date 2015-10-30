@@ -14984,7 +14984,7 @@ extern int __VERIFIER_nondet_int(void) ;
 #line 5424 "/home/mikhail/launches/cpachecker-regression2/launcher-working-dir/ldv-manager-work-dir/work/current--X--drivers/media/i2c/cx25840/cx25840.ko--X--regression-testlinux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/16/dscv_tempdir/dscv/ri/32_7a/drivers/media/i2c/cx25840/cx25840-core.c.prepared"
 int LDV_IN_INTERRUPT  ;
 #line 5427 "/home/mikhail/launches/cpachecker-regression2/launcher-working-dir/ldv-manager-work-dir/work/current--X--drivers/media/i2c/cx25840/cx25840.ko--X--regression-testlinux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/16/dscv_tempdir/dscv/ri/32_7a/drivers/media/i2c/cx25840/cx25840-core.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct v4l2_ctrl *var_group1 ;
   struct v4l2_subdev *var_group2 ;
@@ -15246,7 +15246,7 @@ void main(void)
 #line 8094
   ldv_check_final_state();
 #line 8097
-  return;
+  return 0;
 }
 }
 #line 8101 "/home/mikhail/launches/cpachecker-regression2/launcher-working-dir/ldv-manager-work-dir/work/current--X--drivers/media/i2c/cx25840/cx25840.ko--X--regression-testlinux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/16/dscv_tempdir/dscv/ri/32_7a/drivers/media/i2c/cx25840/cx25840-core.c.prepared"

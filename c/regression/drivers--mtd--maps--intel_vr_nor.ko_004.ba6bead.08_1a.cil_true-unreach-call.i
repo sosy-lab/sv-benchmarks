@@ -3136,7 +3136,7 @@ extern int nondet_int(void) ;
 #line 323 "/work/ldvuser/novikov/work/current--X--drivers/mtd/maps/intel_vr_nor.ko--X--defaultlinux--X--08_1a--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1a/drivers/mtd/maps/intel_vr_nor.c.prepared"
 int LDV_IN_INTERRUPT  ;
 #line 326 "/work/ldvuser/novikov/work/current--X--drivers/mtd/maps/intel_vr_nor.ko--X--defaultlinux--X--08_1a--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1a/drivers/mtd/maps/intel_vr_nor.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct pci_dev *var_group1 ;
   struct pci_device_id  const  *var_vr_nor_pci_probe_7_p1 ;
@@ -3233,7 +3233,7 @@ void main(void)
 #line 502
   ldv_check_final_state();
 #line 505
-  return;
+  return 0;
 }
 }
 #line 1 "<compiler builtins>"

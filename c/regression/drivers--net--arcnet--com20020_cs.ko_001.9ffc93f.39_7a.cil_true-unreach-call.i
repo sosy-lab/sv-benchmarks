@@ -6226,7 +6226,7 @@ extern int nondet_int(void) ;
 #line 468 "/work/ldvuser/novikov/work/current--X--drivers/net/arcnet/com20020_cs.ko--X--defaultlinux--X--39_7a--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/39_7a/drivers/net/arcnet/com20020_cs.c.prepared"
 int LDV_IN_INTERRUPT  ;
 #line 471 "/work/ldvuser/novikov/work/current--X--drivers/net/arcnet/com20020_cs.ko--X--defaultlinux--X--39_7a--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/39_7a/drivers/net/arcnet/com20020_cs.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct pcmcia_device *var_group1 ;
   int res_com20020_probe_1 ;
@@ -6336,7 +6336,7 @@ void main(void)
 #line 652
   ldv_check_final_state();
 #line 655
-  return;
+  return 0;
 }
 }
 #line 691 "/work/ldvuser/novikov/work/current--X--drivers/net/arcnet/com20020_cs.ko--X--defaultlinux--X--39_7a--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/39_7a/drivers/net/arcnet/com20020_cs.c.prepared"

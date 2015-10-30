@@ -18870,7 +18870,7 @@ void ldv_initialize_driver_attribute_13(void)
 }
 }
 #line 265 "/home/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--43_2a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/3533/dscv_tempdir/dscv/ri/43_2a/drivers/scsi/scsi_debug.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   char *ldvarg1 ;
   void *tmp ;
@@ -20943,7 +20943,7 @@ void main(void)
 #line 1500
   ldv_check_final_state();
 #line 1501
-  return;
+  return 0;
 }
 }
 #line 1510 "/home/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--43_2a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/3533/dscv_tempdir/dscv/ri/43_2a/drivers/scsi/scsi_debug.o.c.prepared"

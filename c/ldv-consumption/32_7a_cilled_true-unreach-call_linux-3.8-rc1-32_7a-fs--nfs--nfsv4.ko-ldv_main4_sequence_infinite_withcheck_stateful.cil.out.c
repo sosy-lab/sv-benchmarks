@@ -50736,7 +50736,7 @@ static void exit_nfs_v4(void)
 }
 }
 #line 461 "/home/mikhail/launches/cpachecker-regression2/launcher-working-dir/ldv-manager-work-dir/work/current--X--fs/nfs/nfsv4.ko--X--regression-testlinux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/58/dscv_tempdir/dscv/ri/32_7a/fs/nfs/nfs4super.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct file_system_type *var_group1 ;
   int var_nfs4_remote_mount_2_p1 ;
@@ -50839,7 +50839,7 @@ void main(void)
 #line 696
   ldv_check_final_state();
 #line 699
-  return;
+  return 0;
 }
 }
 #line 703 "/home/mikhail/launches/cpachecker-regression2/launcher-working-dir/ldv-manager-work-dir/work/current--X--fs/nfs/nfsv4.ko--X--regression-testlinux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/58/dscv_tempdir/dscv/ri/32_7a/fs/nfs/nfs4super.c.prepared"

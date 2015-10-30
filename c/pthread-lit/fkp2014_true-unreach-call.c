@@ -21,7 +21,7 @@ void* thr(void* arg) {
     __VERIFIER_atomic_incs();
 }
 
-void main() {
+int main() {
     pthread_t t;
     int i, n;
     s = 0;
@@ -31,4 +31,5 @@ void main() {
     for (i = 0; i < n; i++) {
 	pthread_create(&t, 0, thr, 0);
     }
+    return 0;
 }

@@ -9313,7 +9313,7 @@ void ldv_main_exported_3(void) ;
 #line 1558
 void ldv_main_exported_2(void) ;
 #line 1562 "/work/ldvuser/mutilin/launch/work/current--X--drivers--X--defaultlinux-3.12-rc1.tar.xz--X--144_2a--X--cpachecker/linux-3.12-rc1.tar.xz/csd_deg_dscv/8085/dscv_tempdir/dscv/ri/144_2a/drivers/usb/serial/usb-serial.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   unsigned long ldvarg7 ;
   unsigned long tmp ;
@@ -10259,7 +10259,7 @@ void main(void)
 #line 2174
   ldv_check_final_state();
 #line 2175
-  return;
+  return 0;
 }
 }
 #line 2178 "/work/ldvuser/mutilin/launch/work/current--X--drivers--X--defaultlinux-3.12-rc1.tar.xz--X--144_2a--X--cpachecker/linux-3.12-rc1.tar.xz/csd_deg_dscv/8085/dscv_tempdir/dscv/ri/144_2a/drivers/usb/serial/usb-serial.o.c.prepared"

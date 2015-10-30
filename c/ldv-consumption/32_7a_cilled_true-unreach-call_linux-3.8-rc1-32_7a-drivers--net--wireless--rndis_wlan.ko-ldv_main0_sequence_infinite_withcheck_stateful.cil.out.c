@@ -14709,7 +14709,7 @@ extern int __VERIFIER_nondet_int(void) ;
 #line 3845 "/home/mikhail/launches/cpachecker-regression2/launcher-working-dir/ldv-manager-work-dir/work/current--X--drivers/net/wireless/rndis_wlan.ko--X--regression-testlinux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/32_7a/drivers/net/wireless/rndis_wlan.c.prepared"
 int LDV_IN_INTERRUPT  ;
 #line 3848 "/home/mikhail/launches/cpachecker-regression2/launcher-working-dir/ldv-manager-work-dir/work/current--X--drivers/net/wireless/rndis_wlan.ko--X--regression-testlinux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/32_7a/drivers/net/wireless/rndis_wlan.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct wiphy *var_group1 ;
   struct net_device *var_group2 ;
@@ -15085,7 +15085,7 @@ void main(void)
 #line 8588
   ldv_check_final_state();
 #line 8591
-  return;
+  return 0;
 }
 }
 #line 8595 "/home/mikhail/launches/cpachecker-regression2/launcher-working-dir/ldv-manager-work-dir/work/current--X--drivers/net/wireless/rndis_wlan.ko--X--regression-testlinux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/32_7a/drivers/net/wireless/rndis_wlan.c.prepared"

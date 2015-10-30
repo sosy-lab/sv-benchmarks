@@ -6473,7 +6473,7 @@ int LDV_IN_INTERRUPT  ;
 #line 1602 "/work/ldvuser/novikov/work/current--X--drivers/video/arkfb.ko--X--defaultlinux--X--32_1--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/32_1/drivers/video/arkfb.c"
 static int res_ark_pci_probe_29  ;
 #line 1239 "/work/ldvuser/novikov/work/current--X--drivers/video/arkfb.ko--X--defaultlinux--X--32_1--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/32_1/drivers/video/arkfb.c"
-void main(void) 
+int main(void) 
 { 
   struct fb_info *var_group1 ;
   struct fb_tilemap *var_group2 ;
@@ -6692,7 +6692,7 @@ void main(void)
 #line 2425
   ldv_check_final_state();
 #line 2428
-  return;
+  return 0;
 }
 }
 #line 1 "<compiler builtins>"

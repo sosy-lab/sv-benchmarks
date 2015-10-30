@@ -9194,7 +9194,7 @@ extern int __VERIFIER_nondet_int(void) ;
 # 2309 "/anthill/stuff/tacas-comp/work/current--X--drivers/hwmon/it87.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/hwmon/it87.c.p"
 int LDV_IN_INTERRUPT ;
 # 2312 "/anthill/stuff/tacas-comp/work/current--X--drivers/hwmon/it87.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/hwmon/it87.c.p"
-void main(void)
+int main(void)
 { struct platform_device *var_group1 ;
   int res_it87_probe_61 ;
   int ldv_s_it87_driver_platform_driver ;
@@ -9297,7 +9297,7 @@ void main(void)
   ldv_check_final_state();
   }
 # 2911 "/anthill/stuff/tacas-comp/work/current--X--drivers/hwmon/it87.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/hwmon/it87.c.p"
-  return;
+  return 0;
 }
 }
 # 5 "/anthill/stuff/tacas-comp/work/current--X--drivers/hwmon/it87.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/kernel-rules/files/engine-blast-assert.h"

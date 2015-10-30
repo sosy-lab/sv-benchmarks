@@ -9639,7 +9639,7 @@ void ldv_main_exported_5(void) ;
 #line 444
 void ldv_main_exported_3(void) ;
 #line 448 "/work/ldvuser/mutilin/launch/work/current--X--drivers--X--defaultlinux-3.16-rc1.tar.xz--X--43_2a--X--cpachecker/linux-3.16-rc1.tar.xz/csd_deg_dscv/10194/dscv_tempdir/dscv/ri/43_2a/drivers/net/ethernet/mellanox/mlx4/en_main.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   unsigned long ldvarg24 ;
   unsigned long tmp ;
@@ -9939,7 +9939,7 @@ void main(void)
 #line 633
   ldv_check_final_state();
 #line 634
-  return;
+  return 0;
 }
 }
 #line 764 "/work/ldvuser/mutilin/launch/work/current--X--drivers--X--defaultlinux-3.16-rc1.tar.xz--X--43_2a--X--cpachecker/linux-3.16-rc1.tar.xz/csd_deg_dscv/10194/dscv_tempdir/dscv/ri/43_2a/drivers/net/ethernet/mellanox/mlx4/en_main.o.c.prepared"

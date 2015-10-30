@@ -5416,7 +5416,7 @@ void ldv_initialize(void) ;
 #line 32
 extern void ldv_check_final_state(void) ;
 #line 44 "/home/ldvuser/andrianov/commit-tester-work/task-042--linux-stable--dir/work/current--X--drivers/hwmon/ibmaem.ko--X--defaultlinux-stable-4ee267b-1--X--130_7a--X--cpachecker/linux-stable-4ee267b-1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/130_7a/drivers/hwmon/ibmaem.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   char *ldvarg1 ;
   void *tmp ;
@@ -5687,7 +5687,7 @@ void main(void)
 #line 189
   ldv_check_final_state();
 #line 190
-  return;
+  return 0;
 }
 }
 #line 205 "/home/ldvuser/andrianov/commit-tester-work/task-042--linux-stable--dir/work/current--X--drivers/hwmon/ibmaem.ko--X--defaultlinux-stable-4ee267b-1--X--130_7a--X--cpachecker/linux-stable-4ee267b-1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/130_7a/drivers/hwmon/ibmaem.o.c.prepared"

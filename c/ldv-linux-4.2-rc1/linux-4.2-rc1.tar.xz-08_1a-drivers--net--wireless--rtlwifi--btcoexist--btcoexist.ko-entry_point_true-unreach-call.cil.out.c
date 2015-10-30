@@ -19071,7 +19071,7 @@ void ldv_initialize_rtl_btc_ops_1(void)
 }
 }
 #line 43 "/work/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--08_1a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/12404/dscv_tempdir/dscv/ri/08_1a/drivers/net/wireless/rtlwifi/btcoexist/rtl_btc.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   u8 ldvarg7 ;
   u8 ldvarg3 ;
@@ -19387,7 +19387,7 @@ void main(void)
 #line 262
   ldv_check_final_state();
 #line 263
-  return;
+  return 0;
 }
 }
 #line 8 "/home/ldvuser/ldv/inst/kernel-rules/verifier/sv-comp.h"

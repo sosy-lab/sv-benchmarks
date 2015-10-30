@@ -16567,7 +16567,7 @@ void ldv_main_exported_8(void) ;
 #line 3586
 void ldv_main_exported_9(void) ;
 #line 3590 "/work/ldvuser/mutilin/launch/work/current--X--drivers--X--defaultlinux-3.16-rc1.tar.xz--X--43_2a--X--cpachecker/linux-3.16-rc1.tar.xz/csd_deg_dscv/10255/dscv_tempdir/dscv/ri/43_2a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct ifreq *ldvarg18 ;
   void *tmp ;
@@ -17488,7 +17488,7 @@ void main(void)
 #line 4196
   ldv_check_final_state();
 #line 4197
-  return;
+  return 0;
 }
 }
 #line 4200 "/work/ldvuser/mutilin/launch/work/current--X--drivers--X--defaultlinux-3.16-rc1.tar.xz--X--43_2a--X--cpachecker/linux-3.16-rc1.tar.xz/csd_deg_dscv/10255/dscv_tempdir/dscv/ri/43_2a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.o.c.prepared"

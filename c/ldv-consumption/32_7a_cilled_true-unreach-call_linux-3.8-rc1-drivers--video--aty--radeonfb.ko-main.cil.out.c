@@ -9487,7 +9487,7 @@ int ldv_retval_3  ;
 #line 2672
 void ldv_main_exported_1(void) ;
 #line 2681 "/work/ldvuser/zakharov_benchmarks/bench/cpa/work/current--X--drivers/video/aty/radeonfb.ko--X--x1linux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/22/dscv_tempdir/dscv/ri/32_7a/drivers/video/aty/radeon_base.c.prepared"
-void main(void) 
+int main(void) 
 { int tmp ;
   int tmp___0 ;
   int tmp___1 ;
@@ -9963,7 +9963,7 @@ void main(void)
 #line 3016
   ldv_check_final_state();
 #line 3017
-  return;
+  return 0;
 }
 }
 #line 3020 "/work/ldvuser/zakharov_benchmarks/bench/cpa/work/current--X--drivers/video/aty/radeonfb.ko--X--x1linux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/22/dscv_tempdir/dscv/ri/32_7a/drivers/video/aty/radeon_base.c.prepared"

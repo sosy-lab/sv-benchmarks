@@ -7547,7 +7547,7 @@ void ldv_initialize_dummy_timer_ops_7(void)
 }
 }
 #line 1394 "/work/ldvuser/mutilin/launch/work/current--X--sound--X--defaultlinux-3.16-rc1.tar.xz--X--43_2a--X--cpachecker/linux-3.16-rc1.tar.xz/csd_deg_dscv/829/dscv_tempdir/dscv/ri/43_2a/sound/drivers/dummy.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct snd_pcm_runtime *ldvarg0 ;
   void *tmp ;
@@ -8815,7 +8815,7 @@ void main(void)
 #line 2238
   ldv_check_final_state();
 #line 2239
-  return;
+  return 0;
 }
 }
 #line 2242 "/work/ldvuser/mutilin/launch/work/current--X--sound--X--defaultlinux-3.16-rc1.tar.xz--X--43_2a--X--cpachecker/linux-3.16-rc1.tar.xz/csd_deg_dscv/829/dscv_tempdir/dscv/ri/43_2a/sound/drivers/dummy.o.c.prepared"

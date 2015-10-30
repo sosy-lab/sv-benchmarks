@@ -16,5 +16,5 @@ void main() {
       __VERIFIER_assert(nlen-1-i < nlen);
     }
   }
-  return;
+  return 0;
 }

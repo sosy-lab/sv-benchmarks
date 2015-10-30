@@ -10322,7 +10322,7 @@ extern int __VERIFIER_nondet_int(void) ;
 #line 2407 "/work/vladimir/commit-test/commit-test-work/task-070--linux-stable--dir/work/current--X--drivers/net/b44.ko--X--defaultlinux-stable-073676f-1--X--114_1a--X--cpachecker/linux-stable-073676f-1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/114_1a/drivers/net/b44.c.prepared"
 int LDV_IN_INTERRUPT  ;
 #line 2410 "/work/vladimir/commit-test/commit-test-work/task-070--linux-stable--dir/work/current--X--drivers/net/b44.ko--X--defaultlinux-stable-073676f-1--X--114_1a--X--cpachecker/linux-stable-073676f-1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/114_1a/drivers/net/b44.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct net_device *var_group1 ;
   struct ethtool_drvinfo *var_group2 ;
@@ -10684,7 +10684,7 @@ void main(void)
 #line 7480
   ldv_check_final_state();
 #line 7483
-  return;
+  return 0;
 }
 }
 #line 7487 "/work/vladimir/commit-test/commit-test-work/task-070--linux-stable--dir/work/current--X--drivers/net/b44.ko--X--defaultlinux-stable-073676f-1--X--114_1a--X--cpachecker/linux-stable-073676f-1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/114_1a/drivers/net/b44.c.prepared"

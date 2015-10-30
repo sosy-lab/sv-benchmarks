@@ -7555,7 +7555,7 @@ extern int __VERIFIER_nondet_int(void) ;
 #line 1662 "/work/vladimir/commit-test/commit-test-work/task-039--linux-stable--dir/work/current--X--drivers/usb/gadget/g_printer.ko--X--defaultlinux-stable-2b9ec6c--X--106_1a--X--cpachecker/linux-stable-2b9ec6c/csd_deg_dscv/25/dscv_tempdir/dscv/ri/106_1a/drivers/usb/gadget/printer.c.prepared"
 int LDV_IN_INTERRUPT  ;
 #line 1665 "/work/vladimir/commit-test/commit-test-work/task-039--linux-stable--dir/work/current--X--drivers/usb/gadget/g_printer.ko--X--defaultlinux-stable-2b9ec6c--X--106_1a--X--cpachecker/linux-stable-2b9ec6c/csd_deg_dscv/25/dscv_tempdir/dscv/ri/106_1a/drivers/usb/gadget/printer.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct inode *var_group1 ;
   struct file *var_group2 ;
@@ -7773,7 +7773,7 @@ void main(void)
 #line 3309
   ldv_check_final_state();
 #line 3312
-  return;
+  return 0;
 }
 }
 #line 3324 "/work/vladimir/commit-test/commit-test-work/task-039--linux-stable--dir/work/current--X--drivers/usb/gadget/g_printer.ko--X--defaultlinux-stable-2b9ec6c--X--106_1a--X--cpachecker/linux-stable-2b9ec6c/csd_deg_dscv/25/dscv_tempdir/dscv/ri/106_1a/drivers/usb/gadget/printer.c.prepared"

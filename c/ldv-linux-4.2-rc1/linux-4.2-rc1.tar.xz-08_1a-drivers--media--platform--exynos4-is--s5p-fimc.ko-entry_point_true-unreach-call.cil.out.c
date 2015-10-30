@@ -25082,7 +25082,7 @@ void ldv_initialize_device_attribute_3(void)
 }
 }
 #line 145 "/work/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--08_1a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/3559/dscv_tempdir/dscv/ri/08_1a/drivers/media/platform/exynos4-is/media-dev.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   char *ldvarg37 ;
   void *tmp ;
@@ -25653,7 +25653,7 @@ void main(void)
 #line 506
   ldv_check_final_state();
 #line 507
-  return;
+  return 0;
 }
 }
 #line 534 "/work/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--08_1a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/3559/dscv_tempdir/dscv/ri/08_1a/drivers/media/platform/exynos4-is/media-dev.o.c.prepared"

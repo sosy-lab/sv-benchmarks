@@ -27491,7 +27491,7 @@ void ldv_initialize_scsi_host_template_4(void)
 #line 120
 void ldv_main_exported_2(void) ;
 #line 127 "/work/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--32_7a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/5985/dscv_tempdir/dscv/ri/32_7a/drivers/scsi/aic7xxx/aic7xxx_osm.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   char *ldvarg1 ;
   void *tmp ;
@@ -27980,7 +27980,7 @@ void main(void)
 #line 477
   ldv_check_final_state();
 #line 478
-  return;
+  return 0;
 }
 }
 #line 505 "/work/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--32_7a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/5985/dscv_tempdir/dscv/ri/32_7a/drivers/scsi/aic7xxx/aic7xxx_osm.o.c.prepared"

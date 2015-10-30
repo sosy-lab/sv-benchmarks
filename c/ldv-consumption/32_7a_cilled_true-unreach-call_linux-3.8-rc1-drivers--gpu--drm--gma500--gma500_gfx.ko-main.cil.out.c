@@ -20931,7 +20931,7 @@ void ldv_main_exported_8(void) ;
 #line 935
 void ldv_main_exported_26(void) ;
 #line 939 "/work/ldvuser/zakharov_benchmarks/bench/cpa/work/current--X--drivers/gpu/drm/gma500/gma500_gfx.ko--X--x1linux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/42/dscv_tempdir/dscv/ri/32_7a/drivers/gpu/drm/gma500/psb_drv.c.prepared"
-void main(void) 
+int main(void) 
 { int tmp ;
   int tmp___0 ;
   int tmp___1 ;
@@ -22588,7 +22588,7 @@ void main(void)
 #line 2128
   ldv_check_final_state();
 #line 2129
-  return;
+  return 0;
 }
 }
 #line 2132 "/work/ldvuser/zakharov_benchmarks/bench/cpa/work/current--X--drivers/gpu/drm/gma500/gma500_gfx.ko--X--x1linux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/42/dscv_tempdir/dscv/ri/32_7a/drivers/gpu/drm/gma500/psb_drv.c.prepared"

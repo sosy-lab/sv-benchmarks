@@ -17203,7 +17203,7 @@ void ldv_initialize_gadget_info_attribute_31(void)
 }
 }
 #line 355 "/work/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--08_1a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/8755/dscv_tempdir/dscv/ri/08_1a/drivers/usb/gadget/configfs.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   size_t ldvarg1 ;
   char *ldvarg0 ;
@@ -20079,7 +20079,7 @@ void main(void)
 #line 2076
   ldv_check_final_state();
 #line 2077
-  return;
+  return 0;
 }
 }
 #line 48 "/work/ldvuser/mutilin/launch/inst/current/envs/linux-4.2-rc1.tar.xz/linux-4.2-rc1/drivers/usb/gadget/u_f.h"

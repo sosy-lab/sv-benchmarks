@@ -4969,7 +4969,7 @@ struct inode *pg_fops_group1  ;
 #line 786 "/work/ldvuser/zakharov_benchmarks/bench/cpa/work/current--X--drivers/block/paride/pg.ko--X--x1linux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/32_7a/drivers/block/paride/pg.c.prepared"
 loff_t *ldvarg2  ;
 #line 794 "/work/ldvuser/zakharov_benchmarks/bench/cpa/work/current--X--drivers/block/paride/pg.ko--X--x1linux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/32_7a/drivers/block/paride/pg.c.prepared"
-void main(void) 
+int main(void) 
 { int tmp ;
   int tmp___0 ;
   int tmp___1 ;
@@ -5151,7 +5151,7 @@ void main(void)
 #line 911
   ldv_check_final_state();
 #line 912
-  return;
+  return 0;
 }
 }
 #line 915 "/work/ldvuser/zakharov_benchmarks/bench/cpa/work/current--X--drivers/block/paride/pg.ko--X--x1linux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/32_7a/drivers/block/paride/pg.c.prepared"

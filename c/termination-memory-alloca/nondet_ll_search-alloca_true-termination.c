@@ -42,11 +42,12 @@ void safe_search (node_t* head, int i)
   }
 }
 
-void main ()
+int main ()
 {
   int n = __VERIFIER_nondet_int();
   node_t* head = init_nondet_ll(n);
   safe_search(head, __VERIFIER_nondet_int() % n);
+  return 0;
 }
 
 

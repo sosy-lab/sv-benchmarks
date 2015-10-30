@@ -40,11 +40,12 @@ void search (node_t* head, int i)
 }
 
 
-void main ()
+int main ()
 {
   int n = __VERIFIER_nondet_int();
   node_t* head = init_cll(n);
   search(head, __VERIFIER_nondet_int());
+  return 0;
 }
 
 

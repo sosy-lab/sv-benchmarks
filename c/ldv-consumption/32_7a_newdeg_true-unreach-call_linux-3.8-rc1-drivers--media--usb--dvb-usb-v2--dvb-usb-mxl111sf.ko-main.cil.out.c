@@ -11663,7 +11663,7 @@ int ldv_retval_3  ;
 #line 1580 "/work/ldvuser/zakharov_benchmarks/bench/cpa/work/current--X--drivers/media/usb/dvb-usb-v2/dvb-usb-mxl111sf.ko--X--x1linux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/30/dscv_tempdir/dscv/ri/32_7a/drivers/media/usb/dvb-usb-v2/mxl111sf.c.prepared"
 struct mxl111sf_state *mxl_tuner_config_group0  ;
 #line 1597 "/work/ldvuser/zakharov_benchmarks/bench/cpa/work/current--X--drivers/media/usb/dvb-usb-v2/dvb-usb-mxl111sf.ko--X--x1linux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/30/dscv_tempdir/dscv/ri/32_7a/drivers/media/usb/dvb-usb-v2/mxl111sf.c.prepared"
-void main(void) 
+int main(void) 
 { int tmp ;
   int tmp___0 ;
   int tmp___1 ;
@@ -13334,7 +13334,7 @@ void main(void)
 #line 2825
   ldv_check_final_state();
 #line 2826
-  return;
+  return 0;
 }
 }
 #line 2829 "/work/ldvuser/zakharov_benchmarks/bench/cpa/work/current--X--drivers/media/usb/dvb-usb-v2/dvb-usb-mxl111sf.ko--X--x1linux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/30/dscv_tempdir/dscv/ri/32_7a/drivers/media/usb/dvb-usb-v2/mxl111sf.c.prepared"

@@ -18618,7 +18618,7 @@ struct e1000_info  const  e1000_pch_lpt_info  =
      {11, 33451U, 48U, 26U, 9234U, & e1000_get_variants_ich8lan, & ich8_mac_ops, & ich8_phy_ops,
     & ich8_nvm_ops};
 #line 4642 "/home/mikhail/launches/cpachecker-regression2/launcher-working-dir/ldv-manager-work-dir/work/current--X--drivers/net/ethernet/intel/e1000e/e1000e.ko--X--regression-testlinux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/21/dscv_tempdir/dscv/ri/32_7a/drivers/net/ethernet/intel/e1000e/ich8lan.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct e1000_hw *var_group1 ;
   u16 *var_e1000_get_link_up_info_ich8lan_63_p1 ;
@@ -18901,7 +18901,7 @@ void main(void)
 #line 11101
   ldv_check_final_state();
 #line 11104
-  return;
+  return 0;
 }
 }
 #line 11108 "/home/mikhail/launches/cpachecker-regression2/launcher-working-dir/ldv-manager-work-dir/work/current--X--drivers/net/ethernet/intel/e1000e/e1000e.ko--X--regression-testlinux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/21/dscv_tempdir/dscv/ri/32_7a/drivers/net/ethernet/intel/e1000e/ich8lan.c.prepared"

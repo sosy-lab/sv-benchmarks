@@ -26477,7 +26477,7 @@ static int batadv_param_set_ra(char const   *val , struct kernel_param  const  *
 }
 }
 #line 566 "/home/mikhail/launches/cpachecker-regression2/launcher-working-dir/ldv-manager-work-dir/work/current--X--net/batman-adv/batman-adv.ko--X--regression-testlinux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/31/dscv_tempdir/dscv/ri/32_7a/net/batman-adv/main.c.prepared"
-void main(void) 
+int main(void) 
 { 
   char const   *var_batadv_param_set_ra_15_p0 ;
   struct kernel_param  const  *var_batadv_param_set_ra_15_p1 ;
@@ -26539,7 +26539,7 @@ void main(void)
 #line 645
   ldv_check_final_state();
 #line 648
-  return;
+  return 0;
 }
 }
 #line 652 "/home/mikhail/launches/cpachecker-regression2/launcher-working-dir/ldv-manager-work-dir/work/current--X--net/batman-adv/batman-adv.ko--X--regression-testlinux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/31/dscv_tempdir/dscv/ri/32_7a/net/batman-adv/main.c.prepared"

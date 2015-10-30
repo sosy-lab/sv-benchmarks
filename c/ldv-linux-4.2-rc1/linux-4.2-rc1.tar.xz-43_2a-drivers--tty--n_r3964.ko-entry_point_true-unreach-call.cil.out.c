@@ -6399,7 +6399,7 @@ void disable_suitable_timer_1(struct timer_list *timer )
 }
 }
 #line 218 "/home/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--43_2a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/12919/dscv_tempdir/dscv/ri/43_2a/drivers/tty/n_r3964.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct file *ldvarg11 ;
   void *tmp ;
@@ -6731,7 +6731,7 @@ void main(void)
 #line 409
   ldv_check_final_state();
 #line 410
-  return;
+  return 0;
 }
 }
 #line 496 "/home/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--43_2a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/12919/dscv_tempdir/dscv/ri/43_2a/drivers/tty/n_r3964.o.c.prepared"

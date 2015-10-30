@@ -12386,7 +12386,7 @@ void ldv_main_exported_7(void) ;
 #line 329
 void ldv_main_exported_5(void) ;
 #line 333 "/work/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--32_7a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/12064/dscv_tempdir/dscv/ri/32_7a/drivers/net/wireless/mediatek/mt7601u/usb.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   pm_message_t ldvarg113 ;
   struct usb_device_id *ldvarg114 ;
@@ -13158,7 +13158,7 @@ void main(void)
 #line 876
   ldv_check_final_state();
 #line 877
-  return;
+  return 0;
 }
 }
 #line 904 "/work/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--32_7a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/12064/dscv_tempdir/dscv/ri/32_7a/drivers/net/wireless/mediatek/mt7601u/usb.o.c.prepared"

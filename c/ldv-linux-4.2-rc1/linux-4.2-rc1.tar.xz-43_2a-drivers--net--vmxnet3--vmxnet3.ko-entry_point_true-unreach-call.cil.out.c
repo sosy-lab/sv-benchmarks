@@ -19007,7 +19007,7 @@ void activate_work_6(struct work_struct *work , int state )
 #line 864
 void ldv_main_exported_7(void) ;
 #line 871 "/home/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--43_2a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/10121/dscv_tempdir/dscv/ri/43_2a/drivers/net/vmxnet3/vmxnet3_drv.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct pci_device_id *ldvarg17 ;
   void *tmp ;
@@ -19614,7 +19614,7 @@ void main(void)
 #line 1267
   ldv_check_final_state();
 #line 1268
-  return;
+  return 0;
 }
 }
 #line 1295 "/home/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--43_2a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/10121/dscv_tempdir/dscv/ri/43_2a/drivers/net/vmxnet3/vmxnet3_drv.o.c.prepared"

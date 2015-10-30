@@ -11370,7 +11370,7 @@ void ldv_initialize_uart_ops_5(void)
 #line 3693
 void ldv_main_exported_3(void) ;
 #line 3697 "/work/ldvuser/mutilin/launch/work/current--X--drivers--X--defaultlinux-3.16-rc1.tar.xz--X--43_2a--X--cpachecker/linux-3.16-rc1.tar.xz/csd_deg_dscv/531/dscv_tempdir/dscv/ri/43_2a/drivers/tty/serial/8250/8250_core.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   pm_message_t ldvarg0 ;
   unsigned int ldvarg11 ;
@@ -12301,7 +12301,7 @@ void main(void)
 #line 4363
   ldv_check_final_state();
 #line 4364
-  return;
+  return 0;
 }
 }
 #line 4367 "/work/ldvuser/mutilin/launch/work/current--X--drivers--X--defaultlinux-3.16-rc1.tar.xz--X--43_2a--X--cpachecker/linux-3.16-rc1.tar.xz/csd_deg_dscv/531/dscv_tempdir/dscv/ri/43_2a/drivers/tty/serial/8250/8250_core.o.c.prepared"

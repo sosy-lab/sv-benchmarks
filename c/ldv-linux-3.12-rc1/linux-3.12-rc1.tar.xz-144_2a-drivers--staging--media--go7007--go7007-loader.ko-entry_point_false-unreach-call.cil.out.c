@@ -4307,7 +4307,7 @@ void ldv_usb_driver_1(void)
 }
 }
 #line 202 "/work/ldvuser/mutilin/launch/work/current--X--drivers--X--defaultlinux-3.12-rc1.tar.xz--X--144_2a--X--cpachecker/linux-3.12-rc1.tar.xz/csd_deg_dscv/4688/dscv_tempdir/dscv/ri/144_2a/drivers/staging/media/go7007/go7007-loader.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct usb_device_id *ldvarg0 ;
   void *tmp ;
@@ -4451,7 +4451,7 @@ void main(void)
 #line 284
   ldv_check_final_state();
 #line 285
-  return;
+  return 0;
 }
 }
 #line 288 "/work/ldvuser/mutilin/launch/work/current--X--drivers--X--defaultlinux-3.12-rc1.tar.xz--X--144_2a--X--cpachecker/linux-3.12-rc1.tar.xz/csd_deg_dscv/4688/dscv_tempdir/dscv/ri/144_2a/drivers/staging/media/go7007/go7007-loader.o.c.prepared"

@@ -13125,7 +13125,7 @@ extern int __VERIFIER_nondet_int(void) ;
 #line 3440 "/home/mikhail/launches/cpachecker-regression2/launcher-working-dir/ldv-manager-work-dir/work/current--X--drivers/net/usb/hso.ko--X--regression-testlinux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/32_7a/drivers/net/usb/hso.c.prepared"
 int LDV_IN_INTERRUPT  ;
 #line 3443 "/home/mikhail/launches/cpachecker-regression2/launcher-working-dir/ldv-manager-work-dir/work/current--X--drivers/net/usb/hso.ko--X--regression-testlinux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/32_7a/drivers/net/usb/hso.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct net_device *var_group1 ;
   int res_hso_net_open_12 ;
@@ -13441,7 +13441,7 @@ void main(void)
 #line 7520
   ldv_check_final_state();
 #line 7523
-  return;
+  return 0;
 }
 }
 #line 7527 "/home/mikhail/launches/cpachecker-regression2/launcher-working-dir/ldv-manager-work-dir/work/current--X--drivers/net/usb/hso.ko--X--regression-testlinux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/32_7a/drivers/net/usb/hso.c.prepared"

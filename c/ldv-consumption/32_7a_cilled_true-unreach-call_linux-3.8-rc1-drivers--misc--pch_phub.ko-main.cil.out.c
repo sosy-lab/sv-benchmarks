@@ -4090,7 +4090,7 @@ int ldv_retval_3  ;
 #line 963 "/work/ldvuser/zakharov_benchmarks/bench/cpa/work/current--X--drivers/misc/pch_phub.ko--X--x1linux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/32_7a/drivers/misc/pch_phub.c.prepared"
 char *ldvarg2  ;
 #line 973 "/work/ldvuser/zakharov_benchmarks/bench/cpa/work/current--X--drivers/misc/pch_phub.ko--X--x1linux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/32_7a/drivers/misc/pch_phub.c.prepared"
-void main(void) 
+int main(void) 
 { int tmp ;
   int tmp___0 ;
   int tmp___1 ;
@@ -4397,7 +4397,7 @@ void main(void)
 #line 1174
   ldv_check_final_state();
 #line 1175
-  return;
+  return 0;
 }
 }
 #line 1178 "/work/ldvuser/zakharov_benchmarks/bench/cpa/work/current--X--drivers/misc/pch_phub.ko--X--x1linux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/32_7a/drivers/misc/pch_phub.c.prepared"

@@ -8716,13 +8716,13 @@ extern int nondet_int(void) ;
 #line 445 "/work/ldvuser/novikov/work/current--X--drivers/isdn/mISDN/mISDN_core.ko--X--defaultlinux--X--68_1--X--cpachecker/linux/csd_deg_dscv/30/dscv_tempdir/dscv/ri/68_1/drivers/isdn/mISDN/core.c"
 int LDV_IN_INTERRUPT  ;
 #line 528
-void main(void) ;
+int main(void) ;
 #line 528 "/work/ldvuser/novikov/work/current--X--drivers/isdn/mISDN/mISDN_core.ko--X--defaultlinux--X--68_1--X--cpachecker/linux/csd_deg_dscv/30/dscv_tempdir/dscv/ri/68_1/drivers/isdn/mISDN/core.c"
 static struct ftrace_branch_data  __attribute__((__aligned__(4))) ______f___1264  __attribute__((__section__("_ftrace_branch")))  =    {"main",
     "/work/ldvuser/novikov/work/current--X--drivers/isdn/mISDN/mISDN_core.ko--X--defaultlinux--X--68_1--X--cpachecker/linux/csd_deg_dscv/30/dscv_tempdir/dscv/ri/68_1/drivers/isdn/mISDN/core.c",
     528, {{0UL, 0UL}}};
 #line 448 "/work/ldvuser/novikov/work/current--X--drivers/isdn/mISDN/mISDN_core.ko--X--defaultlinux--X--68_1--X--cpachecker/linux/csd_deg_dscv/30/dscv_tempdir/dscv/ri/68_1/drivers/isdn/mISDN/core.c"
-void main(void) 
+int main(void) 
 { 
   struct device *var_group1 ;
   struct kobj_uevent_env *var_group2 ;
@@ -8810,7 +8810,7 @@ void main(void)
 #line 643
   ldv_check_final_state();
 #line 646
-  return;
+  return 0;
 }
 }
 #line 1 "<compiler builtins>"

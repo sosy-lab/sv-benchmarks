@@ -5054,7 +5054,7 @@ extern int nondet_int(void) ;
 #line 296 "/work/ldvuser/novikov/work/current--X--drivers/isdn/mISDN/mISDN_core.ko--X--defaultlinux--X--32_7a--X--cpachecker/linux/csd_deg_dscv/29/dscv_tempdir/dscv/ri/32_7a/drivers/isdn/mISDN/core.c.prepared"
 int LDV_IN_INTERRUPT  ;
 #line 299 "/work/ldvuser/novikov/work/current--X--drivers/isdn/mISDN/mISDN_core.ko--X--defaultlinux--X--32_7a--X--cpachecker/linux/csd_deg_dscv/29/dscv_tempdir/dscv/ri/32_7a/drivers/isdn/mISDN/core.c.prepared"
-void main(void) 
+int main(void) 
 { 
   int tmp ;
   int tmp___0 ;
@@ -5107,7 +5107,7 @@ void main(void)
 #line 355
   ldv_check_final_state();
 #line 358
-  return;
+  return 0;
 }
 }
 #line 1 "<compiler builtins>"

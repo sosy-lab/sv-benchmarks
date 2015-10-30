@@ -9514,7 +9514,7 @@ void work_init_1(void)
 }
 }
 #line 260 "/work/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--32_7a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/988/dscv_tempdir/dscv/ri/32_7a/drivers/md/dm-raid.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   void *ldvarg11 ;
   void *tmp ;
@@ -10104,7 +10104,7 @@ void main(void)
 #line 656
   ldv_check_final_state();
 #line 657
-  return;
+  return 0;
 }
 }
 #line 660 "/work/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--32_7a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/988/dscv_tempdir/dscv/ri/32_7a/drivers/md/dm-raid.o.c.prepared"

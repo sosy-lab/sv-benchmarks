@@ -1,10 +1,12 @@
 extern void __VERIFIER_error(void);
+extern double __VERIFIER_nondet_double();
+
 #include <math.h>
 #include <float.h>
 
 int main()
 {
-  double d;
+  double d = __VERIFIER_nondet_double();
 
   #ifndef _MSC_VER
 

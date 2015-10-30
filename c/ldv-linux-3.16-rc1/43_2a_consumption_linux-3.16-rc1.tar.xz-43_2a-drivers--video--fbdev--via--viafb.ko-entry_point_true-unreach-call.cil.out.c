@@ -22367,7 +22367,7 @@ void ldv_main_exported_3(void) ;
 #line 1005
 void ldv_main_exported_2(void) ;
 #line 1019 "/work/ldvuser/mutilin/launch/work/current--X--drivers--X--defaultlinux-3.16-rc1.tar.xz--X--43_2a--X--cpachecker/linux-3.16-rc1.tar.xz/csd_deg_dscv/4388/dscv_tempdir/dscv/ri/43_2a/drivers/video/fbdev/via/via-core.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   pm_message_t ldvarg85 ;
   struct pci_device_id *ldvarg86 ;
@@ -22787,7 +22787,7 @@ void main(void)
 #line 1296
   ldv_check_final_state();
 #line 1297
-  return;
+  return 0;
 }
 }
 #line 1300 "/work/ldvuser/mutilin/launch/work/current--X--drivers--X--defaultlinux-3.16-rc1.tar.xz--X--43_2a--X--cpachecker/linux-3.16-rc1.tar.xz/csd_deg_dscv/4388/dscv_tempdir/dscv/ri/43_2a/drivers/video/fbdev/via/via-core.o.c.prepared"

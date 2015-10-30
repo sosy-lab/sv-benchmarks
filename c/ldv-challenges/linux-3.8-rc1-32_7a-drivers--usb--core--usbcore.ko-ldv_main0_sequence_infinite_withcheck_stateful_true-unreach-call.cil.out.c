@@ -6361,7 +6361,7 @@ extern int __VERIFIER_nondet_int(void) ;
 #line 1182 "/work/ldvuser/exper_fp/work/current--X--drivers--X--defaultlinux-3.10-rc1.tar--X--32_7a--X--cpachecker/linux-3.10-rc1.tar/csd_deg_dscv/7180/dscv_tempdir/dscv/ri/32_7a/drivers/usb/core/usb.c.prepared"
 int LDV_IN_INTERRUPT  ;
 #line 1185 "/work/ldvuser/exper_fp/work/current--X--drivers--X--defaultlinux-3.10-rc1.tar--X--32_7a--X--cpachecker/linux-3.10-rc1.tar/csd_deg_dscv/7180/dscv_tempdir/dscv/ri/32_7a/drivers/usb/core/usb.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct device *var_group1 ;
   struct kobj_uevent_env *var_group2 ;
@@ -6516,7 +6516,7 @@ void main(void)
 #line 2267
   ldv_check_final_state();
 #line 2270
-  return;
+  return 0;
 }
 }
 #line 2274 "/work/ldvuser/exper_fp/work/current--X--drivers--X--defaultlinux-3.10-rc1.tar--X--32_7a--X--cpachecker/linux-3.10-rc1.tar/csd_deg_dscv/7180/dscv_tempdir/dscv/ri/32_7a/drivers/usb/core/usb.c.prepared"

@@ -20176,7 +20176,7 @@ int reg_check_2(irqreturn_t (*handler)(int  , void * ) )
 }
 }
 #line 6654 "/work/ldvuser/mutilin/launch/work/current--X--drivers/net/--X--defaultlinux-3.16-rc1.tar.xz--X--205_9a--X--cpachecker/linux-3.16-rc1.tar.xz/csd_deg_dscv/953/dscv_tempdir/dscv/ri/205_9a/drivers/net/wireless/mwl8k.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   void *ldvarg7 ;
   void *tmp ;
@@ -21095,7 +21095,7 @@ void main(void)
 #line 7209
   ldv_check_final_state();
 #line 7210
-  return;
+  return 0;
 }
 }
 #line 7237 "/work/ldvuser/mutilin/launch/work/current--X--drivers/net/--X--defaultlinux-3.16-rc1.tar.xz--X--205_9a--X--cpachecker/linux-3.16-rc1.tar.xz/csd_deg_dscv/953/dscv_tempdir/dscv/ri/205_9a/drivers/net/wireless/mwl8k.o.c.prepared"

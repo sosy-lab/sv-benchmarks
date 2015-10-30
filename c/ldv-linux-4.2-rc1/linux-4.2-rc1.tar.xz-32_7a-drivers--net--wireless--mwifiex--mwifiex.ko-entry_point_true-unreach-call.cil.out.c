@@ -17695,7 +17695,7 @@ void ldv_main_exported_16(void) ;
 #line 707
 void ldv_main_exported_19(void) ;
 #line 711 "/work/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--32_7a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/11944/dscv_tempdir/dscv/ri/32_7a/drivers/net/wireless/mwifiex/main.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   u16 (*ldvarg8)(struct net_device * , struct sk_buff * ) ;
   struct sk_buff *ldvarg7 ;
@@ -18327,7 +18327,7 @@ void main(void)
 #line 1172
   ldv_check_final_state();
 #line 1173
-  return;
+  return 0;
 }
 }
 #line 1188 "/work/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--32_7a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/11944/dscv_tempdir/dscv/ri/32_7a/drivers/net/wireless/mwifiex/main.o.c.prepared"

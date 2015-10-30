@@ -18328,7 +18328,7 @@ void ldv_main_exported_21(void) ;
 #line 1458
 void ldv_main_exported_20(void) ;
 #line 1462 "/work/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--08_1a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/4829/dscv_tempdir/dscv/ri/08_1a/drivers/infiniband/ulp/ipoib/ipoib_main.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   size_t ldvarg4 ;
   char *ldvarg3 ;
@@ -19288,7 +19288,7 @@ void main(void)
 #line 2122
   ldv_check_final_state();
 #line 2123
-  return;
+  return 0;
 }
 }
 #line 2126 "/work/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--08_1a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/4829/dscv_tempdir/dscv/ri/08_1a/drivers/infiniband/ulp/ipoib/ipoib_main.o.c.prepared"

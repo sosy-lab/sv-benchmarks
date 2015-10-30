@@ -6592,7 +6592,7 @@ extern int nondet_int(void) ;
 #line 441 "/work/ldvuser/novikov/work/current--X--drivers/media/dvb/dvb-usb/dvb-usb-vp7045.ko--X--defaultlinux--X--39_7a--X--cpachecker/linux/csd_deg_dscv/54/dscv_tempdir/dscv/ri/39_7a/drivers/media/dvb/dvb-usb/vp7045.c.prepared"
 int LDV_IN_INTERRUPT  ;
 #line 444 "/work/ldvuser/novikov/work/current--X--drivers/media/dvb/dvb-usb/dvb-usb-vp7045.ko--X--defaultlinux--X--39_7a--X--cpachecker/linux/csd_deg_dscv/54/dscv_tempdir/dscv/ri/39_7a/drivers/media/dvb/dvb-usb/vp7045.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct dvb_usb_adapter *var_group1 ;
   struct dvb_usb_device *var_group2 ;
@@ -6701,7 +6701,7 @@ void main(void)
 #line 640
   ldv_check_final_state();
 #line 643
-  return;
+  return 0;
 }
 }
 #line 679 "/work/ldvuser/novikov/work/current--X--drivers/media/dvb/dvb-usb/dvb-usb-vp7045.ko--X--defaultlinux--X--39_7a--X--cpachecker/linux/csd_deg_dscv/54/dscv_tempdir/dscv/ri/39_7a/drivers/media/dvb/dvb-usb/vp7045.c.prepared"

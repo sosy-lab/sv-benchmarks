@@ -11795,7 +11795,7 @@ void ldv_initialize_v4l2_file_operations_6(void)
 }
 }
 #line 2811 "/work/ldvuser/mutilin/launch/work/current--X--drivers--X--defaultlinux-3.12-rc1.tar.xz--X--144_2a--X--cpachecker/linux-3.12-rc1.tar.xz/csd_deg_dscv/2067/dscv_tempdir/dscv/ri/144_2a/drivers/media/usb/s2255/s2255drv.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   unsigned int ldvarg1 ;
   unsigned int tmp ;
@@ -12843,7 +12843,7 @@ void main(void)
 #line 3427
   ldv_check_final_state();
 #line 3428
-  return;
+  return 0;
 }
 }
 #line 3431 "/work/ldvuser/mutilin/launch/work/current--X--drivers--X--defaultlinux-3.12-rc1.tar.xz--X--144_2a--X--cpachecker/linux-3.12-rc1.tar.xz/csd_deg_dscv/2067/dscv_tempdir/dscv/ri/144_2a/drivers/media/usb/s2255/s2255drv.o.c.prepared"

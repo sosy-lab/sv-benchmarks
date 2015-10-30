@@ -8485,7 +8485,7 @@ void ldv_tty_port_operations_2(void)
 }
 }
 #line 1929 "/work/ldvuser/mutilin/launch/work/current--X--drivers--X--defaultlinux-3.16-rc1.tar.xz--X--43_2a--X--cpachecker/linux-3.16-rc1.tar.xz/csd_deg_dscv/597/dscv_tempdir/dscv/ri/43_2a/drivers/tty/isicom.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   unsigned long ldvarg0 ;
   unsigned long tmp ;
@@ -9651,7 +9651,7 @@ void main(void)
 #line 2748
   ldv_check_final_state();
 #line 2749
-  return;
+  return 0;
 }
 }
 #line 2752 "/work/ldvuser/mutilin/launch/work/current--X--drivers--X--defaultlinux-3.16-rc1.tar.xz--X--43_2a--X--cpachecker/linux-3.16-rc1.tar.xz/csd_deg_dscv/597/dscv_tempdir/dscv/ri/43_2a/drivers/tty/isicom.o.c.prepared"

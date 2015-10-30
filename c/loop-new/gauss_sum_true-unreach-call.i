@@ -7,7 +7,7 @@ void __VERIFIER_assert(int cond) {
   return;
 }
 int __VERIFIER_nondet_int();
-void main() {
+int main() {
     int n, sum, i;
     n = __VERIFIER_nondet_int();
     __VERIFIER_assume(1 <= n && n <= 1000);
@@ -16,4 +16,5 @@ void main() {
         sum = sum + i;
     }
     __VERIFIER_assert(2*sum == n*(n+1));
+    return 0;
 }

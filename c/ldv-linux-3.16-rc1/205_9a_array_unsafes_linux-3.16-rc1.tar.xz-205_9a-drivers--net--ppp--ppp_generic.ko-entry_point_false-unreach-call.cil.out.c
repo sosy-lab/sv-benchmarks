@@ -14584,7 +14584,7 @@ void ldv_file_operations_3(void)
 }
 }
 #line 3098 "/work/ldvuser/mutilin/launch/work/current--X--drivers/net/--X--defaultlinux-3.16-rc1.tar.xz--X--205_9a--X--cpachecker/linux-3.16-rc1.tar.xz/csd_deg_dscv/1604/dscv_tempdir/dscv/ri/205_9a/drivers/net/ppp/ppp_generic.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct sk_buff *ldvarg1 ;
   void *tmp ;
@@ -15092,7 +15092,7 @@ void main(void)
 #line 3402
   ldv_check_final_state();
 #line 3403
-  return;
+  return 0;
 }
 }
 #line 3412 "/work/ldvuser/mutilin/launch/work/current--X--drivers/net/--X--defaultlinux-3.16-rc1.tar.xz--X--205_9a--X--cpachecker/linux-3.16-rc1.tar.xz/csd_deg_dscv/1604/dscv_tempdir/dscv/ri/205_9a/drivers/net/ppp/ppp_generic.o.c.prepared"

@@ -5702,7 +5702,7 @@ int LDV_IN_INTERRUPT  ;
 #line 603 "/work/ldvuser/novikov/work/current--X--drivers/video/backlight/tdo24m.ko--X--defaultlinux--X--68_1--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/video/backlight/tdo24m.c"
 static int res_tdo24m_probe_9  ;
 #line 516 "/work/ldvuser/novikov/work/current--X--drivers/video/backlight/tdo24m.ko--X--defaultlinux--X--68_1--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/video/backlight/tdo24m.c"
-void main(void) 
+int main(void) 
 { 
   struct lcd_device *var_group1 ;
   int var_tdo24m_set_power_6_p1 ;
@@ -5840,7 +5840,7 @@ void main(void)
 #line 1043
   ldv_check_final_state();
 #line 1046
-  return;
+  return 0;
 }
 }
 #line 1334 "include/linux/usb.h"

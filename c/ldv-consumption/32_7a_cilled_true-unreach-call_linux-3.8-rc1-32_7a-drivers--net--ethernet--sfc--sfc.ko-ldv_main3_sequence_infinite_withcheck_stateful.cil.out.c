@@ -30584,7 +30584,7 @@ struct efx_nic_type  const  siena_a0_nic_type  =
     16056320U, 15990784U, 8388608U, 16121856U, 16384000U, 70368744177663ULL, 16U,
     0U, 0U, 32U, 16384U, 402653202ULL};
 #line 835 "/home/mikhail/launches/cpachecker-regression2/launcher-working-dir/ldv-manager-work-dir/work/current--X--drivers/net/ethernet/sfc/sfc.ko--X--regression-testlinux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/33/dscv_tempdir/dscv/ri/32_7a/drivers/net/ethernet/sfc/siena.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct efx_nic *var_group1 ;
   int res_siena_probe_nic_13 ;
@@ -30789,7 +30789,7 @@ void main(void)
 #line 1476
   ldv_check_final_state();
 #line 1479
-  return;
+  return 0;
 }
 }
 #line 1483 "/home/mikhail/launches/cpachecker-regression2/launcher-working-dir/ldv-manager-work-dir/work/current--X--drivers/net/ethernet/sfc/sfc.ko--X--regression-testlinux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/33/dscv_tempdir/dscv/ri/32_7a/drivers/net/ethernet/sfc/siena.c.prepared"

@@ -11205,7 +11205,7 @@ void ldv_initialize_mwifiex_if_ops_1(void)
 }
 }
 #line 1116 "/work/ldvuser/mutilin/launch/work/current--X--drivers/net/--X--defaultlinux-3.16-rc1.tar.xz--X--205_9a--X--cpachecker/linux-3.16-rc1.tar.xz/csd_deg_dscv/514/dscv_tempdir/dscv/ri/205_9a/drivers/net/wireless/mwifiex/usb.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   u8 ldvarg1 ;
   u8 tmp ;
@@ -11564,7 +11564,7 @@ void main(void)
 #line 1345
   ldv_check_final_state();
 #line 1346
-  return;
+  return 0;
 }
 }
 #line 1373 "/work/ldvuser/mutilin/launch/work/current--X--drivers/net/--X--defaultlinux-3.16-rc1.tar.xz--X--205_9a--X--cpachecker/linux-3.16-rc1.tar.xz/csd_deg_dscv/514/dscv_tempdir/dscv/ri/205_9a/drivers/net/wireless/mwifiex/usb.o.c.prepared"

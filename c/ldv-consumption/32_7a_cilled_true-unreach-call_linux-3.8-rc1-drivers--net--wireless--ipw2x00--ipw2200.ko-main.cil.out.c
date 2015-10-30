@@ -40746,7 +40746,7 @@ int ldv_retval_3  ;
 #line 12371 "/work/ldvuser/zakharov_benchmarks/bench/cpa/work/current--X--drivers/net/wireless/ipw2x00/ipw2200.ko--X--x1linux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/32_7a/drivers/net/wireless/ipw2x00/ipw2200.c.prepared"
 struct sk_buff *ldvarg52  ;
 #line 12406 "/work/ldvuser/zakharov_benchmarks/bench/cpa/work/current--X--drivers/net/wireless/ipw2x00/ipw2200.ko--X--x1linux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/32_7a/drivers/net/wireless/ipw2x00/ipw2200.c.prepared"
-void main(void) 
+int main(void) 
 { int tmp ;
   int tmp___0 ;
   int tmp___1 ;
@@ -42441,7 +42441,7 @@ void main(void)
 #line 13566
   ldv_check_final_state();
 #line 13567
-  return;
+  return 0;
 }
 }
 #line 13570 "/work/ldvuser/zakharov_benchmarks/bench/cpa/work/current--X--drivers/net/wireless/ipw2x00/ipw2200.ko--X--x1linux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/32_7a/drivers/net/wireless/ipw2x00/ipw2200.c.prepared"

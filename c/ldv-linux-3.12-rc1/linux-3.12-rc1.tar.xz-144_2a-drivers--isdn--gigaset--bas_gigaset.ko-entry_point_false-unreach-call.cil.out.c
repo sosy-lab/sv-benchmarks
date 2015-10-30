@@ -13767,7 +13767,7 @@ void ldv_timer_3(int state , struct timer_list *timer )
 }
 }
 #line 3405 "/work/ldvuser/mutilin/launch/work/current--X--drivers--X--defaultlinux-3.12-rc1.tar.xz--X--144_2a--X--cpachecker/linux-3.12-rc1.tar.xz/csd_deg_dscv/3597/dscv_tempdir/dscv/ri/144_2a/drivers/isdn/gigaset/bas-gigaset.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct usb_device_id *ldvarg1 ;
   void *tmp ;
@@ -14459,7 +14459,7 @@ void main(void)
 #line 3884
   ldv_check_final_state();
 #line 3885
-  return;
+  return 0;
 }
 }
 #line 3888 "/work/ldvuser/mutilin/launch/work/current--X--drivers--X--defaultlinux-3.12-rc1.tar.xz--X--144_2a--X--cpachecker/linux-3.12-rc1.tar.xz/csd_deg_dscv/3597/dscv_tempdir/dscv/ri/144_2a/drivers/isdn/gigaset/bas-gigaset.o.c.prepared"

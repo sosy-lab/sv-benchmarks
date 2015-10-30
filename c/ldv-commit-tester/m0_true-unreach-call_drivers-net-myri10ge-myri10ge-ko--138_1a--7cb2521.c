@@ -16003,7 +16003,7 @@ extern int __VERIFIER_nondet_int(void) ;
 #line 4211 "/work/vladimir/commit-test/commit-test-work/task-097--linux-stable--dir/work/current--X--drivers/net/myri10ge/myri10ge.ko--X--defaultlinux-stable-7cb2521--X--138_1a--X--cpachecker/linux-stable-7cb2521/csd_deg_dscv/11/dscv_tempdir/dscv/ri/138_1a/drivers/net/myri10ge/myri10ge.c.prepared"
 int LDV_IN_INTERRUPT  ;
 #line 4214 "/work/vladimir/commit-test/commit-test-work/task-097--linux-stable--dir/work/current--X--drivers/net/myri10ge/myri10ge.ko--X--defaultlinux-stable-7cb2521--X--138_1a--X--cpachecker/linux-stable-7cb2521/csd_deg_dscv/11/dscv_tempdir/dscv/ri/138_1a/drivers/net/myri10ge/myri10ge.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct net_device *var_group1 ;
   struct ethtool_cmd *var_group2 ;
@@ -16354,7 +16354,7 @@ void main(void)
 #line 9438
   ldv_check_final_state();
 #line 9441
-  return;
+  return 0;
 }
 }
 #line 9445 "/work/vladimir/commit-test/commit-test-work/task-097--linux-stable--dir/work/current--X--drivers/net/myri10ge/myri10ge.ko--X--defaultlinux-stable-7cb2521--X--138_1a--X--cpachecker/linux-stable-7cb2521/csd_deg_dscv/11/dscv_tempdir/dscv/ri/138_1a/drivers/net/myri10ge/myri10ge.c.prepared"

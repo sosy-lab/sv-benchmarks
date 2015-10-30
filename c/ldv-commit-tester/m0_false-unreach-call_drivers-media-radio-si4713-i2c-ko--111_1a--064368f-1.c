@@ -7973,7 +7973,7 @@ extern int __VERIFIER_nondet_int(void) ;
 #line 2165 "/work/vladimir/commit-test/commit-test-work/task-068--linux-stable--dir/work/current--X--drivers/media/radio/si4713-i2c.ko--X--defaultlinux-stable-064368f-1--X--111_1a--X--cpachecker/linux-stable-064368f-1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/111_1a/drivers/media/radio/si4713-i2c.c.prepared"
 int LDV_IN_INTERRUPT  ;
 #line 2168 "/work/vladimir/commit-test/commit-test-work/task-068--linux-stable--dir/work/current--X--drivers/media/radio/si4713-i2c.ko--X--defaultlinux-stable-064368f-1--X--111_1a--X--cpachecker/linux-stable-064368f-1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/111_1a/drivers/media/radio/si4713-i2c.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct v4l2_subdev *var_group1 ;
   struct v4l2_queryctrl *var_group2 ;
@@ -8171,7 +8171,7 @@ void main(void)
 #line 4198
   ldv_check_final_state();
 #line 4201
-  return;
+  return 0;
 }
 }
 #line 4205 "/work/vladimir/commit-test/commit-test-work/task-068--linux-stable--dir/work/current--X--drivers/media/radio/si4713-i2c.ko--X--defaultlinux-stable-064368f-1--X--111_1a--X--cpachecker/linux-stable-064368f-1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/111_1a/drivers/media/radio/si4713-i2c.c.prepared"

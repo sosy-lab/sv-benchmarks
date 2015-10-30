@@ -12590,7 +12590,7 @@ extern int __VERIFIER_nondet_int(void) ;
 #line 2937 "/work/ldvuser/shchepetkov/43_1a-CPAchecker-bit-vector/work/current--X--drivers--X--defaultlinux-3.10-rc1--X--43_1a--X--cpachecker/linux-3.10-rc1/csd_deg_dscv/491/dscv_tempdir/dscv/ri/43_1a/drivers/atm/he.c.prepared"
 int LDV_IN_INTERRUPT  ;
 #line 2940 "/work/ldvuser/shchepetkov/43_1a-CPAchecker-bit-vector/work/current--X--drivers--X--defaultlinux-3.10-rc1--X--43_1a--X--cpachecker/linux-3.10-rc1/csd_deg_dscv/491/dscv_tempdir/dscv/ri/43_1a/drivers/atm/he.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct atm_vcc *var_group1 ;
   int res_he_open_23 ;
@@ -12786,7 +12786,7 @@ void main(void)
 #line 6201
   ldv_check_final_state();
 #line 6204
-  return;
+  return 0;
 }
 }
 #line 6208 "/work/ldvuser/shchepetkov/43_1a-CPAchecker-bit-vector/work/current--X--drivers--X--defaultlinux-3.10-rc1--X--43_1a--X--cpachecker/linux-3.10-rc1/csd_deg_dscv/491/dscv_tempdir/dscv/ri/43_1a/drivers/atm/he.c.prepared"

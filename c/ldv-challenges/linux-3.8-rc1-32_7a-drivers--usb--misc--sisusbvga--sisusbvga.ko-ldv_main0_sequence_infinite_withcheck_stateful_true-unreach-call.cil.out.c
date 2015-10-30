@@ -11835,7 +11835,7 @@ extern int __VERIFIER_nondet_int(void) ;
 #line 3353 "/work/ldvuser/exper_fp/work/current--X--drivers--X--defaultlinux-3.10-rc1.tar--X--32_7a--X--cpachecker/linux-3.10-rc1.tar/csd_deg_dscv/6843/dscv_tempdir/dscv/ri/32_7a/drivers/usb/misc/sisusbvga/sisusb.c.prepared"
 int LDV_IN_INTERRUPT  ;
 #line 3356 "/work/ldvuser/exper_fp/work/current--X--drivers--X--defaultlinux-3.10-rc1.tar--X--32_7a--X--cpachecker/linux-3.10-rc1.tar/csd_deg_dscv/6843/dscv_tempdir/dscv/ri/32_7a/drivers/usb/misc/sisusbvga/sisusb.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct inode *var_group1 ;
   struct file *var_group2 ;
@@ -12065,7 +12065,7 @@ void main(void)
 #line 5270
   ldv_check_final_state();
 #line 5273
-  return;
+  return 0;
 }
 }
 #line 5277 "/work/ldvuser/exper_fp/work/current--X--drivers--X--defaultlinux-3.10-rc1.tar--X--32_7a--X--cpachecker/linux-3.10-rc1.tar/csd_deg_dscv/6843/dscv_tempdir/dscv/ri/32_7a/drivers/usb/misc/sisusbvga/sisusb.c.prepared"

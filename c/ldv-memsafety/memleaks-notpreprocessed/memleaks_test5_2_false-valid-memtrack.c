@@ -12,6 +12,7 @@
 
 int *f5(void) {
 	int *p = (int *)ldv_malloc(sizeof(int));
+	return 0;//bug: should return p
 }
 
 void g5(int *p) {

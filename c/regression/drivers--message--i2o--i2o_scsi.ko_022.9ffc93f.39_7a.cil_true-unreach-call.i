@@ -5876,7 +5876,7 @@ extern int nondet_int(void) ;
 #line 935 "/work/ldvuser/novikov/work/current--X--drivers/message/i2o/i2o_scsi.ko--X--defaultlinux--X--39_7a--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/39_7a/drivers/message/i2o/i2o_scsi.c.prepared"
 int LDV_IN_INTERRUPT  ;
 #line 938 "/work/ldvuser/novikov/work/current--X--drivers/message/i2o/i2o_scsi.ko--X--defaultlinux--X--39_7a--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/39_7a/drivers/message/i2o/i2o_scsi.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct i2o_controller *var_group1 ;
   u32 var_i2o_scsi_reply_5_p1 ;
@@ -6038,7 +6038,7 @@ void main(void)
 #line 1531
   ldv_check_final_state();
 #line 1534
-  return;
+  return 0;
 }
 }
 #line 1570 "/work/ldvuser/novikov/work/current--X--drivers/message/i2o/i2o_scsi.ko--X--defaultlinux--X--39_7a--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/39_7a/drivers/message/i2o/i2o_scsi.c.prepared"

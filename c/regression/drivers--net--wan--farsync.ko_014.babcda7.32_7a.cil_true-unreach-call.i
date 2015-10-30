@@ -8077,7 +8077,7 @@ extern int nondet_int(void) ;
 #line 2741 "/work/ldvuser/novikov/work/current--X--drivers/net/wan/farsync.ko--X--defaultlinux--X--32_7a--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/32_7a/drivers/net/wan/farsync.c.prepared"
 int LDV_IN_INTERRUPT  ;
 #line 2744 "/work/ldvuser/novikov/work/current--X--drivers/net/wan/farsync.ko--X--defaultlinux--X--32_7a--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/32_7a/drivers/net/wan/farsync.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct pci_dev *var_group1 ;
   struct pci_device_id  const  *var_fst_add_one_42_p1 ;
@@ -8187,7 +8187,7 @@ void main(void)
 #line 3831
   ldv_check_final_state();
 #line 3834
-  return;
+  return 0;
 }
 }
 #line 49 "/home/ldvuser/ldv/inst/kernel-rules/verifier/rcv.h"

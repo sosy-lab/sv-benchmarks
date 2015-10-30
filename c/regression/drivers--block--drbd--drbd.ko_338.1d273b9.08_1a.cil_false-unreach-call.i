@@ -12697,7 +12697,7 @@ extern void ldv_check_return_value(int  ) ;
 #line 357
 extern void ldv_handler_precall(void) ;
 #line 366 "/work/ldvuser/novikov/work/current--X--drivers/block/drbd/drbd.ko--X--defaultlinux--X--08_1a--X--cpachecker/linux/csd_deg_dscv/19/dscv_tempdir/dscv/ri/08_1a/drivers/block/drbd/drbd_proc.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct inode *var_group1 ;
   struct file *var_group2 ;
@@ -12777,7 +12777,7 @@ void main(void)
 #line 455
   ldv_check_final_state();
 #line 458
-  return;
+  return 0;
 }
 }
 #line 462 "/work/ldvuser/novikov/work/current--X--drivers/block/drbd/drbd.ko--X--defaultlinux--X--08_1a--X--cpachecker/linux/csd_deg_dscv/19/dscv_tempdir/dscv/ri/08_1a/drivers/block/drbd/drbd_proc.c.prepared"

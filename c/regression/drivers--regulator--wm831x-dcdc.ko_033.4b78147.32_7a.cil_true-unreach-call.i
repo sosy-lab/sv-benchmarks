@@ -4899,7 +4899,7 @@ extern int nondet_int(void) ;
 #line 1103 "/work/ldvuser/novikov/work/current--X--drivers/regulator/wm831x-dcdc.ko--X--defaultlinux--X--32_7a--X--cpachecker/linux/csd_deg_dscv/12/dscv_tempdir/dscv/ri/32_7a/drivers/regulator/wm831x-dcdc.c.prepared"
 int LDV_IN_INTERRUPT  ;
 #line 1106 "/work/ldvuser/novikov/work/current--X--drivers/regulator/wm831x-dcdc.ko--X--defaultlinux--X--32_7a--X--cpachecker/linux/csd_deg_dscv/12/dscv_tempdir/dscv/ri/32_7a/drivers/regulator/wm831x-dcdc.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct regulator_dev *var_group1 ;
   int var_wm831x_buckv_set_voltage_10_p1 ;
@@ -5295,7 +5295,7 @@ void main(void)
 #line 2757
   ldv_check_final_state();
 #line 2760
-  return;
+  return 0;
 }
 }
 #line 2764 "/work/ldvuser/novikov/work/current--X--drivers/regulator/wm831x-dcdc.ko--X--defaultlinux--X--32_7a--X--cpachecker/linux/csd_deg_dscv/12/dscv_tempdir/dscv/ri/32_7a/drivers/regulator/wm831x-dcdc.c.prepared"

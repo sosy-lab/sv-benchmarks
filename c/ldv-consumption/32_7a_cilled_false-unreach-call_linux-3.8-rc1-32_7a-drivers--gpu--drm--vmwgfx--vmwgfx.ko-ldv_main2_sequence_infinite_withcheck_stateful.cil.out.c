@@ -16670,7 +16670,7 @@ extern int __VERIFIER_nondet_int(void) ;
 #line 2177 "/home/mikhail/launches/cpachecker-regression/launcher-working-dir/ldv-manager-work-dir/work/current--X--drivers/gpu/drm/vmwgfx/vmwgfx.ko--X--regression-testlinux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/31/dscv_tempdir/dscv/ri/32_7a/drivers/gpu/drm/vmwgfx/vmwgfx_kms.c.prepared"
 int LDV_IN_INTERRUPT  ;
 #line 2180 "/home/mikhail/launches/cpachecker-regression/launcher-working-dir/ldv-manager-work-dir/work/current--X--drivers/gpu/drm/vmwgfx/vmwgfx.ko--X--regression-testlinux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/31/dscv_tempdir/dscv/ri/32_7a/drivers/gpu/drm/vmwgfx/vmwgfx_kms.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct drm_framebuffer *var_group1 ;
   struct drm_file *var_group2 ;
@@ -16773,7 +16773,7 @@ void main(void)
 #line 2528
   ldv_check_final_state();
 #line 2531
-  return;
+  return 0;
 }
 }
 #line 2535 "/home/mikhail/launches/cpachecker-regression/launcher-working-dir/ldv-manager-work-dir/work/current--X--drivers/gpu/drm/vmwgfx/vmwgfx.ko--X--regression-testlinux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/31/dscv_tempdir/dscv/ri/32_7a/drivers/gpu/drm/vmwgfx/vmwgfx_kms.c.prepared"

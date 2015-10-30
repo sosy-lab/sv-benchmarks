@@ -5465,7 +5465,7 @@ void choose_interrupt_1(void)
 }
 }
 #line 1278 "/work/ldvuser/mutilin/launch/work/current--X--sound--X--defaultlinux-3.16-rc1.tar.xz--X--43_2a--X--cpachecker/linux-3.16-rc1.tar.xz/csd_deg_dscv/832/dscv_tempdir/dscv/ri/43_2a/sound/drivers/serial-u16550.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   int ldvarg0 ;
   int tmp ;
@@ -5805,7 +5805,7 @@ void main(void)
 #line 1495
   ldv_check_final_state();
 #line 1496
-  return;
+  return 0;
 }
 }
 #line 1499 "/work/ldvuser/mutilin/launch/work/current--X--sound--X--defaultlinux-3.16-rc1.tar.xz--X--43_2a--X--cpachecker/linux-3.16-rc1.tar.xz/csd_deg_dscv/832/dscv_tempdir/dscv/ri/43_2a/sound/drivers/serial-u16550.o.c.prepared"

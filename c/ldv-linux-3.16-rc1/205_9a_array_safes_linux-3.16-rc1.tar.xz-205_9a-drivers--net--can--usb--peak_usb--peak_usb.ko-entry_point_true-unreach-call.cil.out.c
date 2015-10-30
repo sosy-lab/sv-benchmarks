@@ -9054,7 +9054,7 @@ void ldv_main_exported_3(void) ;
 #line 1024
 void ldv_main_exported_2(void) ;
 #line 1031 "/work/ldvuser/mutilin/launch/work/current--X--drivers/net/--X--defaultlinux-3.16-rc1.tar.xz--X--205_9a--X--cpachecker/linux-3.16-rc1.tar.xz/csd_deg_dscv/1620/dscv_tempdir/dscv/ri/205_9a/drivers/net/can/usb/peak_usb/pcan_usb_core.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct usb_device_id *ldvarg0 ;
   void *tmp ;
@@ -9370,7 +9370,7 @@ void main(void)
 #line 1230
   ldv_check_final_state();
 #line 1231
-  return;
+  return 0;
 }
 }
 #line 1258 "/work/ldvuser/mutilin/launch/work/current--X--drivers/net/--X--defaultlinux-3.16-rc1.tar.xz--X--205_9a--X--cpachecker/linux-3.16-rc1.tar.xz/csd_deg_dscv/1620/dscv_tempdir/dscv/ri/205_9a/drivers/net/can/usb/peak_usb/pcan_usb_core.o.c.prepared"

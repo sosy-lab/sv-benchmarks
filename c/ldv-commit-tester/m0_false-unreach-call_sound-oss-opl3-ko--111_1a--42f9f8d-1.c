@@ -7256,7 +7256,7 @@ extern int __VERIFIER_nondet_int(void) ;
 #line 1306 "/work/vladimir/commit-test/commit-test-work/task-066--linux-stable--dir/work/current--X--sound/oss/opl3.ko--X--defaultlinux-stable-42f9f8d-1--X--111_1a--X--cpachecker/linux-stable-42f9f8d-1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/111_1a/sound/oss/opl3.c.prepared"
 int LDV_IN_INTERRUPT  ;
 #line 1309 "/work/vladimir/commit-test/commit-test-work/task-066--linux-stable--dir/work/current--X--sound/oss/opl3.ko--X--defaultlinux-stable-42f9f8d-1--X--111_1a--X--cpachecker/linux-stable-42f9f8d-1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/111_1a/sound/oss/opl3.c.prepared"
-void main(void) 
+int main(void) 
 { 
   int var_opl3_open_12_p0 ;
   int var_opl3_open_12_p1 ;
@@ -7502,7 +7502,7 @@ void main(void)
 #line 2452
   ldv_check_final_state();
 #line 2455
-  return;
+  return 0;
 }
 }
 #line 2459 "/work/vladimir/commit-test/commit-test-work/task-066--linux-stable--dir/work/current--X--sound/oss/opl3.ko--X--defaultlinux-stable-42f9f8d-1--X--111_1a--X--cpachecker/linux-stable-42f9f8d-1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/111_1a/sound/oss/opl3.c.prepared"

@@ -12496,7 +12496,7 @@ void ldv_main_exported_10(void) ;
 #line 208
 void ldv_main_exported_9(void) ;
 #line 212 "/home/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--43_2a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/10657/dscv_tempdir/dscv/ri/43_2a/drivers/net/ethernet/mellanox/mlx5/core/main.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct pci_device_id *ldvarg9 ;
   void *tmp ;
@@ -12826,7 +12826,7 @@ void main(void)
 #line 472
   ldv_check_final_state();
 #line 473
-  return;
+  return 0;
 }
 }
 #line 500 "/home/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--43_2a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/10657/dscv_tempdir/dscv/ri/43_2a/drivers/net/ethernet/mellanox/mlx5/core/main.o.c.prepared"

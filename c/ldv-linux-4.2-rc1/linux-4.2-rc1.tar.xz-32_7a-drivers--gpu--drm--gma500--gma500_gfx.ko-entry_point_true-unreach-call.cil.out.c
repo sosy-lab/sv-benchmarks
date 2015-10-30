@@ -24272,7 +24272,7 @@ void ldv_main_exported_31(void) ;
 #line 532
 void ldv_main_exported_29(void) ;
 #line 536 "/work/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--32_7a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/10068/dscv_tempdir/dscv/ri/32_7a/drivers/gpu/drm/gma500/psb_drv.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   int ldvarg85 ;
   int ldvarg84 ;
@@ -26190,7 +26190,7 @@ void main(void)
 #line 1837
   ldv_check_final_state();
 #line 1838
-  return;
+  return 0;
 }
 }
 #line 1865 "/work/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--32_7a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/10068/dscv_tempdir/dscv/ri/32_7a/drivers/gpu/drm/gma500/psb_drv.o.c.prepared"

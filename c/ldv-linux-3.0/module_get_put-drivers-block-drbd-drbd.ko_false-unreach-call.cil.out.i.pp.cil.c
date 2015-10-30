@@ -18664,7 +18664,7 @@ static int drbd_proc_release(struct inode *inode , struct file *file )
 #line 348
 extern void ldv_check_return_value(int  ) ;
 #line 360 "/anthill/stuff/tacas-comp/work/current--X--drivers/block/drbd/drbd.ko--X--unsafe1_safe6linux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/19/dscv_tempdir/dscv/ri/08_1/drivers/block/drbd/drbd_proc.c.p"
-void main(void) 
+int main(void) 
 { struct inode *var_group1 ;
   struct file *var_group2 ;
   int res_drbd_proc_open_4 ;
@@ -18772,7 +18772,7 @@ void main(void)
   ldv_check_final_state();
   }
 #line 450
-  return;
+  return 0;
 }
 }
 #line 454 "/anthill/stuff/tacas-comp/work/current--X--drivers/block/drbd/drbd.ko--X--unsafe1_safe6linux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/19/dscv_tempdir/dscv/ri/08_1/drivers/block/drbd/drbd_proc.c.p"

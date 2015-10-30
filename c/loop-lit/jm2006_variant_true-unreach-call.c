@@ -4,7 +4,7 @@
 
 #include "assert.h"
 
-void main() {
+int main() {
     int i, j;
     i = __VERIFIER_nondet_int();
     j = __VERIFIER_nondet_int();
@@ -22,4 +22,5 @@ void main() {
     if (i == j) {
         __VERIFIER_assert(y == -z);
     }
+    return 0;
 }

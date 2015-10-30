@@ -6192,7 +6192,7 @@ extern int __VERIFIER_nondet_int(void) ;
 #line 951 "/work/ldvuser/exper_fp/work/current--X--drivers--X--defaultlinux-3.10-rc1.tar--X--32_7a--X--cpachecker/linux-3.10-rc1.tar/csd_deg_dscv/1438/dscv_tempdir/dscv/ri/32_7a/drivers/input/misc/uinput.c.prepared"
 int LDV_IN_INTERRUPT  ;
 #line 954 "/work/ldvuser/exper_fp/work/current--X--drivers--X--defaultlinux-3.10-rc1.tar--X--32_7a--X--cpachecker/linux-3.10-rc1.tar/csd_deg_dscv/1438/dscv_tempdir/dscv/ri/32_7a/drivers/input/misc/uinput.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct inode *var_group1 ;
   struct file *var_group2 ;
@@ -6371,7 +6371,7 @@ void main(void)
 #line 1492
   ldv_check_final_state();
 #line 1495
-  return;
+  return 0;
 }
 }
 #line 1499 "/work/ldvuser/exper_fp/work/current--X--drivers--X--defaultlinux-3.10-rc1.tar--X--32_7a--X--cpachecker/linux-3.10-rc1.tar/csd_deg_dscv/1438/dscv_tempdir/dscv/ri/32_7a/drivers/input/misc/uinput.c.prepared"

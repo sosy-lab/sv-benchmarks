@@ -9911,7 +9911,7 @@ void ldv_main_exported_10(void) ;
 #line 387
 void ldv_main_exported_5(void) ;
 #line 391 "/work/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--32_7a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/3697/dscv_tempdir/dscv/ri/32_7a/drivers/media/usb/tm6000/tm6000-cards.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct usb_device_id *ldvarg58 ;
   void *tmp ;
@@ -10221,7 +10221,7 @@ void main(void)
 #line 603
   ldv_check_final_state();
 #line 604
-  return;
+  return 0;
 }
 }
 #line 631 "/work/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--32_7a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/3697/dscv_tempdir/dscv/ri/32_7a/drivers/media/usb/tm6000/tm6000-cards.o.c.prepared"

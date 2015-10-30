@@ -28357,7 +28357,7 @@ void ldv_initialize_saa7146_extension_3(void)
 #line 112
 void ldv_main_exported_2(void) ;
 #line 118 "/home/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--43_2a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/6726/dscv_tempdir/dscv/ri/43_2a/drivers/media/pci/ttpci/av7110.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   u32 ldvarg4 ;
   struct dvb_frontend *ldvarg3 ;
@@ -29037,7 +29037,7 @@ void main(void)
 #line 542
   ldv_check_final_state();
 #line 543
-  return;
+  return 0;
 }
 }
 #line 552 "/home/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--43_2a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/6726/dscv_tempdir/dscv/ri/43_2a/drivers/media/pci/ttpci/av7110.o.c.prepared"

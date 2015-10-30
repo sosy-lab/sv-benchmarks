@@ -8008,7 +8008,7 @@ void oprofile_create_files(struct super_block *sb , struct dentry *root )
 }
 }
 #line 242 "/work/vladimir/commit-test/commit-test-work/task-085--linux-stable--dir/work/current--X--arch/x86/oprofile/oprofile.ko--X--defaultlinux-stable-79db8ef--X--131_1a--X--cpachecker/linux-stable-79db8ef/csd_deg_dscv/25/dscv_tempdir/dscv/ri/131_1a/drivers/oprofile/oprofile_files.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct file *var_group1 ;
   char *var_timeout_read_0_p1 ;
@@ -8316,7 +8316,7 @@ void main(void)
 #line 779
   ldv_check_final_state();
 #line 782
-  return;
+  return 0;
 }
 }
 #line 818 "/work/vladimir/commit-test/commit-test-work/task-085--linux-stable--dir/work/current--X--arch/x86/oprofile/oprofile.ko--X--defaultlinux-stable-79db8ef--X--131_1a--X--cpachecker/linux-stable-79db8ef/csd_deg_dscv/25/dscv_tempdir/dscv/ri/131_1a/drivers/oprofile/oprofile_files.c.prepared"

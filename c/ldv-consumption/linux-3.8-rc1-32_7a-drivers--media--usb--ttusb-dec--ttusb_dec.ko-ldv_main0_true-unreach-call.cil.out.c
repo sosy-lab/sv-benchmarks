@@ -11088,7 +11088,7 @@ extern int __VERIFIER_nondet_int(void) ;
 #line 1840 "/work/ldvuser/exper_fp/work/current--X--drivers--X--defaultlinux-3.10-rc1.tar--X--32_7a--X--cpachecker/linux-3.10-rc1.tar/csd_deg_dscv/2821/dscv_tempdir/dscv/ri/32_7a/drivers/media/usb/ttusb-dec/ttusb_dec.c.prepared"
 int LDV_IN_INTERRUPT  ;
 #line 1843 "/work/ldvuser/exper_fp/work/current--X--drivers--X--defaultlinux-3.10-rc1.tar--X--32_7a--X--cpachecker/linux-3.10-rc1.tar/csd_deg_dscv/2821/dscv_tempdir/dscv/ri/32_7a/drivers/media/usb/ttusb-dec/ttusb_dec.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct usb_interface *var_group1 ;
   struct usb_device_id  const  *var_ttusb_dec_probe_38_p1 ;
@@ -11168,7 +11168,7 @@ void main(void)
 #line 1992
   ldv_check_final_state();
 #line 1995
-  return;
+  return 0;
 }
 }
 #line 1999 "/work/ldvuser/exper_fp/work/current--X--drivers--X--defaultlinux-3.10-rc1.tar--X--32_7a--X--cpachecker/linux-3.10-rc1.tar/csd_deg_dscv/2821/dscv_tempdir/dscv/ri/32_7a/drivers/media/usb/ttusb-dec/ttusb_dec.c.prepared"

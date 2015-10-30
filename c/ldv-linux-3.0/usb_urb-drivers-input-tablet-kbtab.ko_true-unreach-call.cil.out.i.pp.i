@@ -5074,7 +5074,7 @@ int LDV_IN_INTERRUPT ;
 # 273 "/anthill/stuff/tacas-comp/work/current--X--drivers/input/tablet/kbtab.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/input/tablet/kbtab.c.common.c"
 static int res_kbtab_probe_3 ;
 # 253 "/anthill/stuff/tacas-comp/work/current--X--drivers/input/tablet/kbtab.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/input/tablet/kbtab.c.common.c"
-void main(void)
+int main(void)
 { struct usb_interface *var_group1 ;
   struct usb_device_id const *var_kbtab_probe_3_p1 ;
   int tmp___7 ;
@@ -5196,7 +5196,7 @@ void main(void)
   ldv_check_final_state();
   }
 # 392 "/anthill/stuff/tacas-comp/work/current--X--drivers/input/tablet/kbtab.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/input/tablet/kbtab.c.common.c"
-  return;
+  return 0;
 }
 }
 # 5 "/anthill/stuff/tacas-comp/work/current--X--drivers/input/tablet/kbtab.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/kernel-rules/files/engine-blast-assert.h"

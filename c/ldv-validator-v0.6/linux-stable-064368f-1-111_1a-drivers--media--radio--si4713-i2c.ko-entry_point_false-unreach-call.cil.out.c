@@ -8466,7 +8466,7 @@ void ldv_initialize_v4l2_subdev_tuner_ops_3(void)
 }
 }
 #line 2304 "/home/ldvuser/gratinskiy/commit-tester-runs/6-cpa-svcomp-newdeg/commit-tester-work/task-023--linux-stable--dir/work/current--X--drivers/media/radio/si4713-i2c.ko--X--defaultlinux-stable-064368f-1--X--111_1a--X--cpachecker/linux-stable-064368f-1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/111_1a/drivers/media/radio/si4713-i2c.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   unsigned int ldvarg1 ;
   unsigned int tmp ;
@@ -8812,7 +8812,7 @@ void main(void)
 #line 2529
   ldv_check_final_state();
 #line 2530
-  return;
+  return 0;
 }
 }
 #line 2533 "/home/ldvuser/gratinskiy/commit-tester-runs/6-cpa-svcomp-newdeg/commit-tester-work/task-023--linux-stable--dir/work/current--X--drivers/media/radio/si4713-i2c.ko--X--defaultlinux-stable-064368f-1--X--111_1a--X--cpachecker/linux-stable-064368f-1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/111_1a/drivers/media/radio/si4713-i2c.o.c.prepared"

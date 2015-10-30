@@ -10749,7 +10749,7 @@ extern int __VERIFIER_nondet_int(void) ;
 #line 416 "/home/mikhail/launches/cpachecker-regression/launcher-working-dir/ldv-manager-work-dir/work/current--X--fs/hfs/hfs.ko--X--regression-testlinux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/27/dscv_tempdir/dscv/ri/32_7a/fs/hfs/dir.c.prepared"
 int LDV_IN_INTERRUPT  ;
 #line 419 "/home/mikhail/launches/cpachecker-regression/launcher-working-dir/ldv-manager-work-dir/work/current--X--fs/hfs/hfs.ko--X--regression-testlinux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/27/dscv_tempdir/dscv/ri/32_7a/fs/hfs/dir.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct file *var_group1 ;
   void *var_hfs_readdir_1_p1 ;
@@ -10856,7 +10856,7 @@ void main(void)
 #line 621
   ldv_check_final_state();
 #line 624
-  return;
+  return 0;
 }
 }
 #line 628 "/home/mikhail/launches/cpachecker-regression/launcher-working-dir/ldv-manager-work-dir/work/current--X--fs/hfs/hfs.ko--X--regression-testlinux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/27/dscv_tempdir/dscv/ri/32_7a/fs/hfs/dir.c.prepared"

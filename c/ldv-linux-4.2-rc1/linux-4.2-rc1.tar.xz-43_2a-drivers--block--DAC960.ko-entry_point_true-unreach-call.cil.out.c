@@ -21769,7 +21769,7 @@ void ldv_file_operations_12(void)
 }
 }
 #line 186 "/home/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--43_2a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/13323/dscv_tempdir/dscv/ri/43_2a/drivers/block/DAC960.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   char *ldvarg7 ;
   void *tmp ;
@@ -22890,7 +22890,7 @@ void main(void)
 #line 854
   ldv_check_final_state();
 #line 855
-  return;
+  return 0;
 }
 }
 #line 909 "/home/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--43_2a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/13323/dscv_tempdir/dscv/ri/43_2a/drivers/block/DAC960.o.c.prepared"

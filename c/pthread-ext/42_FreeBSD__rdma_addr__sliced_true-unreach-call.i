@@ -644,7 +644,7 @@ void __VERIFIER_atomic_release()
  __VERIFIER_assume(MTX==1);
  MTX = 0;
 }
-volatile int refctr = 0;
+volatile unsigned int refctr = 0;
 inline static void put_client(int client){
  __VERIFIER_atomic_acquire();{ if(!(MTX==1)) { goto ERROR; } };;
  --refctr;

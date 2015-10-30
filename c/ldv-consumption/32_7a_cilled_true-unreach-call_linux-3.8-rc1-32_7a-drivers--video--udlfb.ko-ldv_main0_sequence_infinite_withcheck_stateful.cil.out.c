@@ -8552,7 +8552,7 @@ extern int __VERIFIER_nondet_int(void) ;
 #line 2057 "/home/mikhail/launches/cpachecker-regression2/launcher-working-dir/ldv-manager-work-dir/work/current--X--drivers/video/udlfb.ko--X--regression-testlinux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/32_7a/drivers/video/udlfb.c.prepared"
 int LDV_IN_INTERRUPT  ;
 #line 2060 "/home/mikhail/launches/cpachecker-regression2/launcher-working-dir/ldv-manager-work-dir/work/current--X--drivers/video/udlfb.ko--X--regression-testlinux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/32_7a/drivers/video/udlfb.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct fb_info *var_group1 ;
   char const   *var_dlfb_ops_write_18_p1 ;
@@ -8763,7 +8763,7 @@ void main(void)
 #line 2547
   ldv_check_final_state();
 #line 2550
-  return;
+  return 0;
 }
 }
 #line 2554 "/home/mikhail/launches/cpachecker-regression2/launcher-working-dir/ldv-manager-work-dir/work/current--X--drivers/video/udlfb.ko--X--regression-testlinux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/32_7a/drivers/video/udlfb.c.prepared"

@@ -7052,7 +7052,7 @@ int LDV_IN_INTERRUPT ;
 # 1109 "/anthill/stuff/tacas-comp/work/current--X--drivers/staging/lirc/lirc_imon.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/staging/lirc/lirc_imon.c.common.c"
 static int res_imon_probe_13 ;
 # 1084 "/anthill/stuff/tacas-comp/work/current--X--drivers/staging/lirc/lirc_imon.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/staging/lirc/lirc_imon.c.common.c"
-void main(void)
+int main(void)
 { struct usb_interface *var_group1 ;
   struct usb_device_id const *var_imon_probe_13_p1 ;
   pm_message_t var_imon_suspend_15_p1 ;
@@ -7213,7 +7213,7 @@ void main(void)
   ldv_check_final_state();
   }
 # 1335 "/anthill/stuff/tacas-comp/work/current--X--drivers/staging/lirc/lirc_imon.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/staging/lirc/lirc_imon.c.common.c"
-  return;
+  return 0;
 }
 }
 # 5 "/anthill/stuff/tacas-comp/work/current--X--drivers/staging/lirc/lirc_imon.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/kernel-rules/files/engine-blast-assert.h"

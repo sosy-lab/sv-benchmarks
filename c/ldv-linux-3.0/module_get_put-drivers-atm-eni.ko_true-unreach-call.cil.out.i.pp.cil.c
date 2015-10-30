@@ -21357,7 +21357,7 @@ extern int __VERIFIER_nondet_int(void) ;
 #line 2343 "/anthill/stuff/tacas-comp/work/current--X--drivers/atm/eni.ko--X--safelinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/atm/eni.c.p"
 int LDV_IN_INTERRUPT  ;
 #line 2346 "/anthill/stuff/tacas-comp/work/current--X--drivers/atm/eni.ko--X--safelinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/atm/eni.c.p"
-void main(void) 
+int main(void) 
 { struct atm_vcc *var_group1 ;
   int res_eni_open_41 ;
   struct atm_dev *var_group2 ;
@@ -21655,7 +21655,7 @@ void main(void)
   ldv_check_final_state();
   }
 #line 5137
-  return;
+  return 0;
 }
 }
 #line 5 "/anthill/stuff/tacas-comp/work/current--X--drivers/atm/eni.ko--X--safelinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/kernel-rules/files/engine-blast-assert.h"

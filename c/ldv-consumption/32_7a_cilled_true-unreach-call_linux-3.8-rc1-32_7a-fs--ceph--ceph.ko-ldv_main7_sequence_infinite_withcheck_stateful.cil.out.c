@@ -30229,7 +30229,7 @@ static struct dentry *ceph_fh_to_parent(struct super_block *sb , struct fid *fid
 #line 345 "/home/mikhail/launches/cpachecker-regression2/launcher-working-dir/ldv-manager-work-dir/work/current--X--fs/ceph/ceph.ko--X--regression-testlinux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/27/dscv_tempdir/dscv/ri/32_7a/fs/ceph/export.c.prepared"
 struct export_operations  const  ceph_export_ops  =    {& ceph_encode_fh, & ceph_fh_to_dentry, & ceph_fh_to_parent, 0, 0, 0};
 #line 388 "/home/mikhail/launches/cpachecker-regression2/launcher-working-dir/ldv-manager-work-dir/work/current--X--fs/ceph/ceph.ko--X--regression-testlinux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/27/dscv_tempdir/dscv/ri/32_7a/fs/ceph/export.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct inode *var_group1 ;
   u32 *var_ceph_encode_fh_0_p1 ;
@@ -30297,7 +30297,7 @@ void main(void)
 #line 506
   ldv_check_final_state();
 #line 509
-  return;
+  return 0;
 }
 }
 #line 513 "/home/mikhail/launches/cpachecker-regression2/launcher-working-dir/ldv-manager-work-dir/work/current--X--fs/ceph/ceph.ko--X--regression-testlinux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/27/dscv_tempdir/dscv/ri/32_7a/fs/ceph/export.c.prepared"

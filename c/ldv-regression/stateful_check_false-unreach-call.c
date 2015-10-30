@@ -74,7 +74,7 @@ static int my_init(void)
         return 0;
 }
 
-void main(void) {
+int main(void) {
         int ldv_s_misc_fops_file_operations = 0;
  my_init();
         while(__VERIFIER_nondet_int()) {
@@ -117,5 +117,5 @@ void main(void) {
                 }
         }
         check_final_state();
- return;
+ return 0;
 }

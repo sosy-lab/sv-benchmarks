@@ -25292,7 +25292,7 @@ void dvb_frontend_detach(struct dvb_frontend *fe )
 }
 }
 #line 2736 "/home/mikhail/launches/cpachecker-regression2/launcher-working-dir/ldv-manager-work-dir/work/current--X--drivers/media/dvb-core/dvb-core.ko--X--regression-testlinux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/20/dscv_tempdir/dscv/ri/32_7a/drivers/media/dvb-core/dvb_frontend.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct file *var_group1 ;
   struct poll_table_struct *var_group2 ;
@@ -25389,7 +25389,7 @@ void main(void)
 #line 3122
   ldv_check_final_state();
 #line 3125
-  return;
+  return 0;
 }
 }
 #line 3129 "/home/mikhail/launches/cpachecker-regression2/launcher-working-dir/ldv-manager-work-dir/work/current--X--drivers/media/dvb-core/dvb-core.ko--X--regression-testlinux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/20/dscv_tempdir/dscv/ri/32_7a/drivers/media/dvb-core/dvb_frontend.c.prepared"

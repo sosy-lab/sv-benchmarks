@@ -9476,7 +9476,7 @@ void disable_suitable_timer_1(struct timer_list *timer )
 }
 }
 #line 134 "/home/ldvuser/andrianov/commit-tester-work/task-024--linux-stable--dir/work/current--X--drivers/net/slip.ko--X--defaultlinux-stable-1b0b0ac-1--X--108_1a--X--cpachecker/linux-stable-1b0b0ac-1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/108_1a/drivers/net/slip.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct sk_buff *ldvarg1 ;
   void *tmp ;
@@ -10002,7 +10002,7 @@ void main(void)
 #line 476
   ldv_check_final_state();
 #line 477
-  return;
+  return 0;
 }
 }
 #line 480 "/home/ldvuser/andrianov/commit-tester-work/task-024--linux-stable--dir/work/current--X--drivers/net/slip.ko--X--defaultlinux-stable-1b0b0ac-1--X--108_1a--X--cpachecker/linux-stable-1b0b0ac-1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/108_1a/drivers/net/slip.o.c.prepared"

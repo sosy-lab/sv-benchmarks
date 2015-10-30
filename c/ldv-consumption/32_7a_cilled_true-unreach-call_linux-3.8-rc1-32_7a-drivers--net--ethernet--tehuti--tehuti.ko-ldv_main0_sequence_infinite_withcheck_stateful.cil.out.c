@@ -12697,7 +12697,7 @@ extern int __VERIFIER_nondet_int(void) ;
 #line 2563 "/home/mikhail/launches/cpachecker-regression2/launcher-working-dir/ldv-manager-work-dir/work/current--X--drivers/net/ethernet/tehuti/tehuti.ko--X--regression-testlinux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/32_7a/drivers/net/ethernet/tehuti/tehuti.c.prepared"
 int LDV_IN_INTERRUPT  ;
 #line 2566 "/home/mikhail/launches/cpachecker-regression2/launcher-working-dir/ldv-manager-work-dir/work/current--X--drivers/net/ethernet/tehuti/tehuti.ko--X--regression-testlinux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/32_7a/drivers/net/ethernet/tehuti/tehuti.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct net_device *var_group1 ;
   int res_bdx_open_18 ;
@@ -12987,7 +12987,7 @@ void main(void)
 #line 4119
   ldv_check_final_state();
 #line 4122
-  return;
+  return 0;
 }
 }
 #line 4126 "/home/mikhail/launches/cpachecker-regression2/launcher-working-dir/ldv-manager-work-dir/work/current--X--drivers/net/ethernet/tehuti/tehuti.ko--X--regression-testlinux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/32_7a/drivers/net/ethernet/tehuti/tehuti.c.prepared"

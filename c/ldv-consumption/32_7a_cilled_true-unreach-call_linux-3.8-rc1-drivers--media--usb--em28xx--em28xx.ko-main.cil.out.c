@@ -21477,7 +21477,7 @@ int ldv_retval_em28xx_usb_driver_init  ;
 #line 3515
 void ldv_main_exported_6(void) ;
 #line 3520 "/home/zakharov/workspace/benchmarks/bench_1/work/current--X--drivers/media/usb/em28xx/em28xx.ko--X--deg2_cpalinux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/18/dscv_tempdir/dscv/ri/32_7a/drivers/media/usb/em28xx/em28xx-cards.c.prepared"
-void main(void) 
+int main(void) 
 { int tmp ;
   int tmp___0 ;
   int tmp___1 ;
@@ -21712,7 +21712,7 @@ void main(void)
 #line 3670
   ldv_check_final_state();
 #line 3671
-  return;
+  return 0;
 }
 }
 #line 3674 "/home/zakharov/workspace/benchmarks/bench_1/work/current--X--drivers/media/usb/em28xx/em28xx.ko--X--deg2_cpalinux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/18/dscv_tempdir/dscv/ri/32_7a/drivers/media/usb/em28xx/em28xx-cards.c.prepared"

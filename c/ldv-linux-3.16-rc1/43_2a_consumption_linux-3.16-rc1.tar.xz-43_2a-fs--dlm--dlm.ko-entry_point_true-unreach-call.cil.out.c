@@ -30378,7 +30378,7 @@ void ldv_main_exported_4(void) ;
 #line 318
 void ldv_main_exported_5(void) ;
 #line 332 "/work/ldvuser/mutilin/launch/work/current--X--fs--X--defaultlinux-3.16-rc1.tar.xz--X--43_2a--X--cpachecker/linux-3.16-rc1.tar.xz/csd_deg_dscv/631/dscv_tempdir/dscv/ri/43_2a/fs/dlm/main.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   int tmp ;
   int tmp___0 ;
@@ -31193,7 +31193,7 @@ void main(void)
 #line 892
   ldv_check_final_state();
 #line 893
-  return;
+  return 0;
 }
 }
 #line 1023 "/work/ldvuser/mutilin/launch/work/current--X--fs--X--defaultlinux-3.16-rc1.tar.xz--X--43_2a--X--cpachecker/linux-3.16-rc1.tar.xz/csd_deg_dscv/631/dscv_tempdir/dscv/ri/43_2a/fs/dlm/main.o.c.prepared"

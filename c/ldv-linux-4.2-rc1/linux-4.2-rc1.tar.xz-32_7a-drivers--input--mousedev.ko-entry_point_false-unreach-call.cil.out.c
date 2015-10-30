@@ -7026,7 +7026,7 @@ void ldv_initialize_input_handler_1(void)
 }
 }
 #line 115 "/work/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--32_7a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/2442/dscv_tempdir/dscv/ri/32_7a/drivers/input/mousedev.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   unsigned int ldvarg1 ;
   struct input_device_id *ldvarg4 ;
@@ -7437,7 +7437,7 @@ void main(void)
 #line 362
   ldv_check_final_state();
 #line 363
-  return;
+  return 0;
 }
 }
 #line 366 "/work/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--32_7a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/2442/dscv_tempdir/dscv/ri/32_7a/drivers/input/mousedev.o.c.prepared"

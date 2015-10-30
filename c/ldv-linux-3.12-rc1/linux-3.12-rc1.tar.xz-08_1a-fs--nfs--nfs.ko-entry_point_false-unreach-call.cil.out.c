@@ -34831,7 +34831,7 @@ void ldv_main_exported_54(void) ;
 #line 2151
 void ldv_main_exported_55(void) ;
 #line 2155 "/work/ldvuser/mutilin/launch/work/current--X--fs/nfs/nfs.ko--X--defaultlinux-3.12-rc1.tar.xz--X--08_1a--X--cpachecker/linux-3.12-rc1.tar.xz/csd_deg_dscv/60/dscv_tempdir/dscv/ri/08_1a/fs/nfs/inode.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   int tmp ;
   int tmp___0 ;
@@ -36074,7 +36074,7 @@ void main(void)
 #line 3010
   ldv_check_final_state();
 #line 3011
-  return;
+  return 0;
 }
 }
 #line 1 "<compiler builtins>"

@@ -6941,7 +6941,7 @@ int LDV_IN_INTERRUPT  ;
 #line 951 "/work/ldvuser/novikov/work/current--X--drivers/usb/serial/cp210x.ko--X--defaultlinux--X--68_1--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/usb/serial/cp210x.c"
 static int res_cp210x_open_4  ;
 #line 879 "/work/ldvuser/novikov/work/current--X--drivers/usb/serial/cp210x.ko--X--defaultlinux--X--68_1--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/usb/serial/cp210x.c"
-void main(void) 
+int main(void) 
 { 
   struct tty_struct *var_group1 ;
   struct usb_serial_port *var_group2 ;
@@ -7089,7 +7089,7 @@ void main(void)
 #line 2154
   ldv_check_final_state();
 #line 2157
-  return;
+  return 0;
 }
 }
 #line 1334 "include/linux/usb.h"

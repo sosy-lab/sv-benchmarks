@@ -6236,7 +6236,7 @@ void ldv_main_exported_4(void) ;
 #line 140
 void ldv_main_exported_5(void) ;
 #line 144 "/home/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--43_2a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/9382/dscv_tempdir/dscv/ri/43_2a/drivers/usb/isp1760/isp1760-if.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct pci_device_id *ldvarg8 ;
   void *tmp ;
@@ -6537,7 +6537,7 @@ void main(void)
 #line 345
   ldv_check_final_state();
 #line 346
-  return;
+  return 0;
 }
 }
 #line 497 "/home/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--43_2a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/9382/dscv_tempdir/dscv/ri/43_2a/drivers/usb/isp1760/isp1760-if.o.c.prepared"

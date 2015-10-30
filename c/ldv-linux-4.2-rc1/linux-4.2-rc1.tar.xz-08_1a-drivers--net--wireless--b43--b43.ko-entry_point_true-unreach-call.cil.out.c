@@ -27542,7 +27542,7 @@ void ldv_main_exported_30(void) ;
 #line 1517
 void ldv_main_exported_28(void) ;
 #line 1521 "/work/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--08_1a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/12523/dscv_tempdir/dscv/ri/08_1a/drivers/net/wireless/b43/main.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct ssb_device_id *ldvarg0 ;
   void *tmp ;
@@ -28834,7 +28834,7 @@ void main(void)
 #line 2368
   ldv_check_final_state();
 #line 2369
-  return;
+  return 0;
 }
 }
 #line 2372 "/work/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--08_1a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/12523/dscv_tempdir/dscv/ri/08_1a/drivers/net/wireless/b43/main.o.c.prepared"

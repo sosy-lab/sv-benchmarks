@@ -39697,7 +39697,7 @@ extern int __VERIFIER_nondet_int(void) ;
 #line 3206 "/home/mikhail/launches/cpachecker-regression2/launcher-working-dir/ldv-manager-work-dir/work/current--X--drivers/staging/rtl8192e/rtl8192e/r8192e_pci.ko--X--regression-testlinux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/27/dscv_tempdir/dscv/ri/32_7a/drivers/staging/rtl8192e/rtl8192e/rtl_core.c.prepared"
 int LDV_IN_INTERRUPT  ;
 #line 3209 "/home/mikhail/launches/cpachecker-regression2/launcher-working-dir/ldv-manager-work-dir/work/current--X--drivers/staging/rtl8192e/rtl8192e/r8192e_pci.ko--X--regression-testlinux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/27/dscv_tempdir/dscv/ri/32_7a/drivers/staging/rtl8192e/rtl8192e/rtl_core.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct pci_dev *var_group1 ;
   struct pci_device_id  const  *var_rtl8192_pci_probe_89_p1 ;
@@ -39877,7 +39877,7 @@ void main(void)
 #line 3775
   ldv_check_final_state();
 #line 3778
-  return;
+  return 0;
 }
 }
 #line 3782 "/home/mikhail/launches/cpachecker-regression2/launcher-working-dir/ldv-manager-work-dir/work/current--X--drivers/staging/rtl8192e/rtl8192e/r8192e_pci.ko--X--regression-testlinux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/27/dscv_tempdir/dscv/ri/32_7a/drivers/staging/rtl8192e/rtl8192e/rtl_core.c.prepared"

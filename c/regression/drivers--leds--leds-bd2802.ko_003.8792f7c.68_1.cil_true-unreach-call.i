@@ -7487,7 +7487,7 @@ static int res_bd2802_probe_22  ;
 #line 1289 "/work/ldvuser/novikov/work/current--X--drivers/leds/leds-bd2802.ko--X--defaultlinux--X--68_1--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/leds/leds-bd2802.c"
 static int res_bd2802_remove_23  ;
 #line 859 "/work/ldvuser/novikov/work/current--X--drivers/leds/leds-bd2802.ko--X--defaultlinux--X--68_1--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/leds/leds-bd2802.c"
-void main(void) 
+int main(void) 
 { 
   struct device *var_group1 ;
   struct device_attribute *var_group2 ;
@@ -7624,7 +7624,7 @@ void main(void)
 #line 2441
   ldv_check_final_state();
 #line 2444
-  return;
+  return 0;
 }
 }
 #line 1325 "include/linux/usb.h"

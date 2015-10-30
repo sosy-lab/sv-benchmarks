@@ -15028,7 +15028,7 @@ extern int __VERIFIER_nondet_int(void) ;
 # 5107 "/anthill/stuff/tacas-comp/work/current--X--drivers/scsi/megaraid.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/scsi/megaraid.c.p"
 int LDV_IN_INTERRUPT ;
 # 5110 "/anthill/stuff/tacas-comp/work/current--X--drivers/scsi/megaraid.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/scsi/megaraid.c.p"
-void main(void)
+int main(void)
 { struct file *var_group1 ;
   unsigned int var_megadev_unlocked_ioctl_49_p1 ;
   unsigned long var_megadev_unlocked_ioctl_49_p2 ;
@@ -15272,7 +15272,7 @@ void main(void)
   ldv_check_final_state();
   }
 # 6485 "/anthill/stuff/tacas-comp/work/current--X--drivers/scsi/megaraid.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/scsi/megaraid.c.p"
-  return;
+  return 0;
 }
 }
 # 5 "/anthill/stuff/tacas-comp/work/current--X--drivers/scsi/megaraid.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/kernel-rules/files/engine-blast-assert.h"

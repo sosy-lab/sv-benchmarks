@@ -45,7 +45,7 @@ void* BCSP_PnpStop(void* arg) {
     stopped = 1;
 }
 
-void main() {
+int main() {
     pthread_t t;
     int i;
     pendingIo = 1;
@@ -56,4 +56,5 @@ void main() {
     for(i = 0; i < N; i++) {
 	pthread_create(&t, 0, BCSP_PnpAdd, 0);
     }
+    return 0;
 }

@@ -3460,7 +3460,7 @@ extern int ldv_probe_2(void) ;
 #line 490
 extern int ldv_release_1(void) ;
 #line 502 "/work/ldvuser/mutilin/launch/work/current--X--kernel--X--defaultlinux-3.16-rc1.tar.xz--X--43_2a--X--cpachecker/linux-3.16-rc1.tar.xz/csd_deg_dscv/13/dscv_tempdir/dscv/ri/43_2a/kernel/locking/locktorture.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct torture_random_state *ldvarg0 ;
   void *tmp ;
@@ -3875,7 +3875,7 @@ void main(void)
 #line 787
   ldv_check_final_state();
 #line 788
-  return;
+  return 0;
 }
 }
 #line 791 "/work/ldvuser/mutilin/launch/work/current--X--kernel--X--defaultlinux-3.16-rc1.tar.xz--X--43_2a--X--cpachecker/linux-3.16-rc1.tar.xz/csd_deg_dscv/13/dscv_tempdir/dscv/ri/43_2a/kernel/locking/locktorture.o.c.prepared"

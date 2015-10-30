@@ -7310,7 +7310,7 @@ extern int __VERIFIER_nondet_int(void) ;
 #line 1450 "/home/mikhail/launches/cpachecker-regression2/launcher-working-dir/ldv-manager-work-dir/work/current--X--drivers/misc/sgi-xp/xpc.ko--X--regression-testlinux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/17/dscv_tempdir/dscv/ri/32_7a/drivers/misc/sgi-xp/xpc_main.c.prepared"
 int LDV_IN_INTERRUPT  ;
 #line 1453 "/home/mikhail/launches/cpachecker-regression2/launcher-working-dir/ldv-manager-work-dir/work/current--X--drivers/misc/sgi-xp/xpc.ko--X--regression-testlinux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/17/dscv_tempdir/dscv/ri/32_7a/drivers/misc/sgi-xp/xpc_main.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct notifier_block *var_group1 ;
   unsigned long var_xpc_system_reboot_21_p1 ;
@@ -7398,7 +7398,7 @@ void main(void)
 #line 1673
   ldv_check_final_state();
 #line 1676
-  return;
+  return 0;
 }
 }
 #line 1680 "/home/mikhail/launches/cpachecker-regression2/launcher-working-dir/ldv-manager-work-dir/work/current--X--drivers/misc/sgi-xp/xpc.ko--X--regression-testlinux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/17/dscv_tempdir/dscv/ri/32_7a/drivers/misc/sgi-xp/xpc_main.c.prepared"

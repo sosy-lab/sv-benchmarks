@@ -7,7 +7,7 @@ void __VERIFIER_assert(int cond) {
   return;
 }
 int __VERIFIER_nondet_int();
-void main() {
+int main() {
     int x = 0;
     int y = 50;
     while(x < 100) {
@@ -19,4 +19,5 @@ void main() {
  }
     }
     __VERIFIER_assert(y == 100);
+    return 0;
 }

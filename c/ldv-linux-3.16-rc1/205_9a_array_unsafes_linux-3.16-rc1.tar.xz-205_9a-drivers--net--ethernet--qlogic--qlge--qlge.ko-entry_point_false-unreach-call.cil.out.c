@@ -20450,7 +20450,7 @@ void ldv_initialize_nic_operations_6(void)
 #line 5224
 void ldv_main_exported_2(void) ;
 #line 5228 "/work/ldvuser/mutilin/launch/work/current--X--drivers/net/--X--defaultlinux-3.16-rc1.tar.xz--X--205_9a--X--cpachecker/linux-3.16-rc1.tar.xz/csd_deg_dscv/1559/dscv_tempdir/dscv/ri/205_9a/drivers/net/ethernet/qlogic/qlge/qlge_main.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct pci_device_id *ldvarg1 ;
   void *tmp ;
@@ -21379,7 +21379,7 @@ void main(void)
 #line 5876
   ldv_check_final_state();
 #line 5877
-  return;
+  return 0;
 }
 }
 #line 5904 "/work/ldvuser/mutilin/launch/work/current--X--drivers/net/--X--defaultlinux-3.16-rc1.tar.xz--X--205_9a--X--cpachecker/linux-3.16-rc1.tar.xz/csd_deg_dscv/1559/dscv_tempdir/dscv/ri/205_9a/drivers/net/ethernet/qlogic/qlge/qlge_main.o.c.prepared"

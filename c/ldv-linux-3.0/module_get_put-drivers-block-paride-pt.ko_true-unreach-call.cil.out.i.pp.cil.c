@@ -7704,7 +7704,7 @@ extern int __VERIFIER_nondet_int(void) ;
 #line 1052 "/anthill/stuff/tacas-comp/work/current--X--drivers/block/paride/pt.ko--X--safelinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/block/paride/pt.c.p"
 int LDV_IN_INTERRUPT  ;
 #line 1055 "/anthill/stuff/tacas-comp/work/current--X--drivers/block/paride/pt.ko--X--safelinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/drivers/block/paride/pt.c.p"
-void main(void) 
+int main(void) 
 { struct file *var_group1 ;
   char *var_pt_read_24_p1 ;
   size_t var_pt_read_24_p2 ;
@@ -7913,7 +7913,7 @@ void main(void)
   ldv_check_final_state();
   }
 #line 1791
-  return;
+  return 0;
 }
 }
 #line 5 "/anthill/stuff/tacas-comp/work/current--X--drivers/block/paride/pt.ko--X--safelinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1/kernel-rules/files/engine-blast-assert.h"

@@ -5785,7 +5785,7 @@ int LDV_IN_INTERRUPT  ;
 #line 468 "/work/ldvuser/novikov/work/current--X--drivers/rtc/rtc-pcf2123.ko--X--defaultlinux--X--68_1--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/rtc/rtc-pcf2123.c"
 static int res_pcf2123_probe_5  ;
 #line 404 "/work/ldvuser/novikov/work/current--X--drivers/rtc/rtc-pcf2123.ko--X--defaultlinux--X--68_1--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/rtc/rtc-pcf2123.c"
-void main(void) 
+int main(void) 
 { 
   struct device *var_group1 ;
   struct rtc_time *var_group2 ;
@@ -5893,7 +5893,7 @@ void main(void)
 #line 692
   ldv_check_final_state();
 #line 695
-  return;
+  return 0;
 }
 }
 #line 1327 "include/linux/usb.h"

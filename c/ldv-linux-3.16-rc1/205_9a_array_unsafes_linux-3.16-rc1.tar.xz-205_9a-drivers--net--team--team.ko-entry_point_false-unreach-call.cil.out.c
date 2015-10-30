@@ -16915,7 +16915,7 @@ void ldv_initialize_ethtool_ops_3(void)
 }
 }
 #line 2993 "/work/ldvuser/mutilin/launch/work/current--X--drivers/net/--X--defaultlinux-3.16-rc1.tar.xz--X--205_9a--X--cpachecker/linux-3.16-rc1.tar.xz/csd_deg_dscv/99/dscv_tempdir/dscv/ri/205_9a/drivers/net/team/team.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   u16 ldvarg11 ;
   u16 tmp ;
@@ -17918,7 +17918,7 @@ void main(void)
 #line 3682
   ldv_check_final_state();
 #line 3683
-  return;
+  return 0;
 }
 }
 #line 3710 "/work/ldvuser/mutilin/launch/work/current--X--drivers/net/--X--defaultlinux-3.16-rc1.tar.xz--X--205_9a--X--cpachecker/linux-3.16-rc1.tar.xz/csd_deg_dscv/99/dscv_tempdir/dscv/ri/205_9a/drivers/net/team/team.o.c.prepared"

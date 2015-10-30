@@ -8973,7 +8973,7 @@ void ldv_initialize_tty_operations_1(void)
 }
 }
 #line 1879 "/work/ldvuser/mutilin/launch/work/current--X--drivers--X--defaultlinux-3.12-rc1.tar.xz--X--144_2a--X--cpachecker/linux-3.12-rc1.tar.xz/csd_deg_dscv/8326/dscv_tempdir/dscv/ri/144_2a/drivers/usb/class/cdc-acm.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   char *ldvarg1 ;
   void *tmp ;
@@ -9786,7 +9786,7 @@ void main(void)
 #line 2380
   ldv_check_final_state();
 #line 2381
-  return;
+  return 0;
 }
 }
 #line 2384 "/work/ldvuser/mutilin/launch/work/current--X--drivers--X--defaultlinux-3.12-rc1.tar.xz--X--144_2a--X--cpachecker/linux-3.12-rc1.tar.xz/csd_deg_dscv/8326/dscv_tempdir/dscv/ri/144_2a/drivers/usb/class/cdc-acm.o.c.prepared"

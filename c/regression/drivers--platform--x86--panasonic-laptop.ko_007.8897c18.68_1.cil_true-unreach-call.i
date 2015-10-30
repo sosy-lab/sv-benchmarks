@@ -6890,7 +6890,7 @@ extern int nondet_int(void) ;
 #line 766 "/work/ldvuser/novikov/work/current--X--drivers/platform/x86/panasonic-laptop.ko--X--defaultlinux--X--68_1--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/platform/x86/panasonic-laptop.c"
 int LDV_IN_INTERRUPT  ;
 #line 933
-void main(void) ;
+int main(void) ;
 #line 933 "/work/ldvuser/novikov/work/current--X--drivers/platform/x86/panasonic-laptop.ko--X--defaultlinux--X--68_1--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/platform/x86/panasonic-laptop.c"
 static struct ftrace_branch_data  __attribute__((__aligned__(4))) ______f___864  __attribute__((__section__("_ftrace_branch")))  =    {"main",
     "/work/ldvuser/novikov/work/current--X--drivers/platform/x86/panasonic-laptop.ko--X--defaultlinux--X--68_1--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/platform/x86/panasonic-laptop.c",
@@ -6900,7 +6900,7 @@ static struct ftrace_branch_data  __attribute__((__aligned__(4))) ______f___865 
     "/work/ldvuser/novikov/work/current--X--drivers/platform/x86/panasonic-laptop.ko--X--defaultlinux--X--68_1--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/platform/x86/panasonic-laptop.c",
     950, {{0UL, 0UL}}};
 #line 769 "/work/ldvuser/novikov/work/current--X--drivers/platform/x86/panasonic-laptop.ko--X--defaultlinux--X--68_1--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/platform/x86/panasonic-laptop.c"
-void main(void) 
+int main(void) 
 { 
   struct acpi_device *var_group1 ;
   int var_acpi_pcc_hotkey_remove_19_p1 ;
@@ -7025,7 +7025,7 @@ void main(void)
 #line 1177
   ldv_check_final_state();
 #line 1180
-  return;
+  return 0;
 }
 }
 #line 1299 "include/linux/usb.h"

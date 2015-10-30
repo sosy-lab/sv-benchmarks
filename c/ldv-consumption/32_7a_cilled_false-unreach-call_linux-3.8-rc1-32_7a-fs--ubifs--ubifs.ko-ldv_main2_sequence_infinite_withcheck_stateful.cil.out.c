@@ -13297,7 +13297,7 @@ extern int __VERIFIER_nondet_int(void) ;
 #line 1749 "/home/mikhail/launches/cpachecker-regression/launcher-working-dir/ldv-manager-work-dir/work/current--X--fs/ubifs/ubifs.ko--X--regression-testlinux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/38/dscv_tempdir/dscv/ri/32_7a/fs/ubifs/file.c.prepared"
 int LDV_IN_INTERRUPT  ;
 #line 1752 "/home/mikhail/launches/cpachecker-regression/launcher-working-dir/ldv-manager-work-dir/work/current--X--fs/ubifs/ubifs.ko--X--regression-testlinux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/38/dscv_tempdir/dscv/ri/32_7a/fs/ubifs/file.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct vm_area_struct *var_group1 ;
   struct vm_fault *var_group2 ;
@@ -13463,7 +13463,7 @@ void main(void)
 #line 2321
   ldv_check_final_state();
 #line 2324
-  return;
+  return 0;
 }
 }
 #line 2328 "/home/mikhail/launches/cpachecker-regression/launcher-working-dir/ldv-manager-work-dir/work/current--X--fs/ubifs/ubifs.ko--X--regression-testlinux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/38/dscv_tempdir/dscv/ri/32_7a/fs/ubifs/file.c.prepared"

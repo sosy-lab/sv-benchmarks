@@ -10411,7 +10411,7 @@ int ldv_retval_4  ;
 #line 2623 "/work/ldvuser/zakharov_benchmarks/bench/cpa/work/current--X--drivers/usb/host/r8a66597-hcd.ko--X--x1linux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/32_7a/drivers/usb/host/r8a66597-hcd.c.prepared"
 int ldv_retval_3  ;
 #line 2633 "/work/ldvuser/zakharov_benchmarks/bench/cpa/work/current--X--drivers/usb/host/r8a66597-hcd.ko--X--x1linux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/32_7a/drivers/usb/host/r8a66597-hcd.c.prepared"
-void main(void) 
+int main(void) 
 { int tmp ;
   int tmp___0 ;
   int tmp___1 ;
@@ -11053,7 +11053,7 @@ void main(void)
 #line 3070
   ldv_check_final_state();
 #line 3071
-  return;
+  return 0;
 }
 }
 #line 3074 "/work/ldvuser/zakharov_benchmarks/bench/cpa/work/current--X--drivers/usb/host/r8a66597-hcd.ko--X--x1linux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/32_7a/drivers/usb/host/r8a66597-hcd.c.prepared"

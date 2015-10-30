@@ -10873,7 +10873,7 @@ extern int __VERIFIER_nondet_int(void) ;
 #line 922 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
 int LDV_IN_INTERRUPT  ;
 #line 925 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
-void main(void) 
+int main(void) 
 { struct file *var_group1 ;
   char *var_qcam_read_25_p1 ;
   size_t var_qcam_read_25_p2 ;
@@ -11134,7 +11134,7 @@ void main(void)
   ldv_check_final_state();
   }
 #line 1596
-  return;
+  return 0;
 }
 }
 #line 5 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/kernel-rules/files/engine-blast-assert.h"

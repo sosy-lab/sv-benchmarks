@@ -10810,7 +10810,7 @@ void ldv_main_exported_3(void) ;
 #line 253
 void ldv_main_exported_5(void) ;
 #line 257 "/work/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--08_1a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/5786/dscv_tempdir/dscv/ri/08_1a/drivers/isdn/gigaset/common.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   int tmp ;
   int tmp___0 ;
@@ -10969,7 +10969,7 @@ void main(void)
 #line 360
   ldv_check_final_state();
 #line 361
-  return;
+  return 0;
 }
 }
 #line 388 "/work/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--08_1a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/5786/dscv_tempdir/dscv/ri/08_1a/drivers/isdn/gigaset/common.o.c.prepared"

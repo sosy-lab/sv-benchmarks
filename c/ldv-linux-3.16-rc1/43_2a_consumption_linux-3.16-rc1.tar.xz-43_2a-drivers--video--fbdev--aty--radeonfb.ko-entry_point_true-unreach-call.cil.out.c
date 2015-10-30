@@ -9882,7 +9882,7 @@ void ldv_initialize_fb_ops_6(void)
 #line 2676
 void ldv_main_exported_2(void) ;
 #line 2680 "/work/ldvuser/mutilin/launch/work/current--X--drivers--X--defaultlinux-3.16-rc1.tar.xz--X--43_2a--X--cpachecker/linux-3.16-rc1.tar.xz/csd_deg_dscv/4305/dscv_tempdir/dscv/ri/43_2a/drivers/video/fbdev/aty/radeon_base.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct fb_copyarea *ldvarg11 ;
   void *tmp ;
@@ -10530,7 +10530,7 @@ void main(void)
 #line 3055
   ldv_check_final_state();
 #line 3056
-  return;
+  return 0;
 }
 }
 #line 3118 "/work/ldvuser/mutilin/launch/work/current--X--drivers--X--defaultlinux-3.16-rc1.tar.xz--X--43_2a--X--cpachecker/linux-3.16-rc1.tar.xz/csd_deg_dscv/4305/dscv_tempdir/dscv/ri/43_2a/drivers/video/fbdev/aty/radeon_base.o.c.prepared"

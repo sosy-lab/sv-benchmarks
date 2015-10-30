@@ -7,8 +7,9 @@ void __VERIFIER_assert(int cond) {
   return;
 }
 int __VERIFIER_nondet_int();
-void main() {
+int main() {
     int i;
     for (i = 0; i < 1000000; i++) ;
     __VERIFIER_assert(i == 1000000);
+    return 0;
 }

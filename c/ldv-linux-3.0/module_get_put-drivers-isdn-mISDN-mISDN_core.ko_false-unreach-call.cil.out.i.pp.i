@@ -25128,7 +25128,7 @@ void mISDN_timer_cleanup(void)
 # 323 "/anthill/stuff/tacas-comp/work/current--X--drivers/isdn/mISDN/mISDN_core.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/30/dscv_tempdir/dscv/ri/08_1/drivers/isdn/mISDN/timerdev.c.p"
 extern void ldv_check_return_value(int ) ;
 # 335 "/anthill/stuff/tacas-comp/work/current--X--drivers/isdn/mISDN/mISDN_core.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/30/dscv_tempdir/dscv/ri/08_1/drivers/isdn/mISDN/timerdev.c.p"
-void main(void)
+int main(void)
 { struct file *var_group1 ;
   char *var_mISDN_read_2_p1 ;
   size_t var_mISDN_read_2_p2 ;
@@ -25317,7 +25317,7 @@ void main(void)
   ldv_check_final_state();
   }
 # 521 "/anthill/stuff/tacas-comp/work/current--X--drivers/isdn/mISDN/mISDN_core.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/30/dscv_tempdir/dscv/ri/08_1/drivers/isdn/mISDN/timerdev.c.p"
-  return;
+  return 0;
 }
 }
 # 533 "/anthill/stuff/tacas-comp/work/current--X--drivers/isdn/mISDN/mISDN_core.ko--X--bulklinux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/30/dscv_tempdir/dscv/ri/08_1/drivers/isdn/mISDN/timerdev.c.p"

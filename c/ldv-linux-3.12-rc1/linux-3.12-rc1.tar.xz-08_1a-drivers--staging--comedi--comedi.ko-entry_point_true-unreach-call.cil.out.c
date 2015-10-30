@@ -11961,7 +11961,7 @@ void ldv_initialize_device_attribute_6(void)
 #line 2702
 void ldv_main_exported_1(void) ;
 #line 2706 "/work/ldvuser/mutilin/launch/work/current--X--drivers/staging/comedi/comedi.ko--X--defaultlinux-3.12-rc1.tar.xz--X--08_1a--X--cpachecker/linux-3.12-rc1.tar.xz/csd_deg_dscv/20/dscv_tempdir/dscv/ri/08_1a/drivers/staging/comedi/comedi_fops.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   size_t ldvarg1 ;
   size_t tmp ;
@@ -12661,7 +12661,7 @@ void main(void)
 #line 3096
   ldv_check_final_state();
 #line 3097
-  return;
+  return 0;
 }
 }
 #line 3100 "/work/ldvuser/mutilin/launch/work/current--X--drivers/staging/comedi/comedi.ko--X--defaultlinux-3.12-rc1.tar.xz--X--08_1a--X--cpachecker/linux-3.12-rc1.tar.xz/csd_deg_dscv/20/dscv_tempdir/dscv/ri/08_1a/drivers/staging/comedi/comedi_fops.o.c.prepared"

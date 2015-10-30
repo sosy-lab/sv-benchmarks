@@ -13827,7 +13827,7 @@ void ldv_initialize_ieee80211_ops_2(void)
 }
 }
 #line 2680 "/work/ldvuser/mutilin/launch/work/current--X--drivers/net/--X--defaultlinux-3.16-rc1.tar.xz--X--205_9a--X--cpachecker/linux-3.16-rc1.tar.xz/csd_deg_dscv/947/dscv_tempdir/dscv/ri/205_9a/drivers/net/wireless/at76c50x-usb.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct usb_device_id *ldvarg0 ;
   void *tmp ;
@@ -14302,7 +14302,7 @@ void main(void)
 #line 2970
   ldv_check_final_state();
 #line 2971
-  return;
+  return 0;
 }
 }
 #line 2998 "/work/ldvuser/mutilin/launch/work/current--X--drivers/net/--X--defaultlinux-3.16-rc1.tar.xz--X--205_9a--X--cpachecker/linux-3.16-rc1.tar.xz/csd_deg_dscv/947/dscv_tempdir/dscv/ri/205_9a/drivers/net/wireless/at76c50x-usb.o.c.prepared"

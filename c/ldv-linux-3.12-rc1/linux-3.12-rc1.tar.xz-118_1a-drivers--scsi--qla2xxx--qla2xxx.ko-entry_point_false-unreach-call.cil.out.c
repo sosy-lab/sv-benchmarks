@@ -26265,7 +26265,7 @@ void ldv_main_exported_43(void) ;
 #line 6301
 void ldv_main_exported_54(void) ;
 #line 6305 "/work/ldvuser/mutilin/launch/work/current--X--drivers/scsi/qla2xxx/qla2xxx.ko--X--defaultlinux-3.12-rc1.tar.xz--X--118_1a--X--cpachecker/linux-3.12-rc1.tar.xz/csd_deg_dscv/27/dscv_tempdir/dscv/ri/118_1a/drivers/scsi/qla2xxx/qla_os.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   char *ldvarg18 ;
   void *tmp ;
@@ -35335,7 +35335,7 @@ void main(void)
 #line 12647
   ldv_check_final_state();
 #line 12648
-  return;
+  return 0;
 }
 }
 #line 12651 "/work/ldvuser/mutilin/launch/work/current--X--drivers/scsi/qla2xxx/qla2xxx.ko--X--defaultlinux-3.12-rc1.tar.xz--X--118_1a--X--cpachecker/linux-3.12-rc1.tar.xz/csd_deg_dscv/27/dscv_tempdir/dscv/ri/118_1a/drivers/scsi/qla2xxx/qla_os.o.c.prepared"

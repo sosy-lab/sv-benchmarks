@@ -7309,7 +7309,7 @@ extern int __VERIFIER_nondet_int(void) ;
 #line 1500 "/home/mikhail/launches/cpachecker-regression2/launcher-working-dir/ldv-manager-work-dir/work/current--X--sound/core/oss/snd-mixer-oss.ko--X--regression-testlinux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/20/dscv_tempdir/dscv/ri/32_7a/sound/core/oss/mixer_oss.c.prepared"
 int LDV_IN_INTERRUPT  ;
 #line 1503 "/home/mikhail/launches/cpachecker-regression2/launcher-working-dir/ldv-manager-work-dir/work/current--X--sound/core/oss/snd-mixer-oss.ko--X--regression-testlinux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/20/dscv_tempdir/dscv/ri/32_7a/sound/core/oss/mixer_oss.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct inode *var_group1 ;
   struct file *var_group2 ;
@@ -7415,7 +7415,7 @@ void main(void)
 #line 1995
   ldv_check_final_state();
 #line 1998
-  return;
+  return 0;
 }
 }
 #line 2002 "/home/mikhail/launches/cpachecker-regression2/launcher-working-dir/ldv-manager-work-dir/work/current--X--sound/core/oss/snd-mixer-oss.ko--X--regression-testlinux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/20/dscv_tempdir/dscv/ri/32_7a/sound/core/oss/mixer_oss.c.prepared"

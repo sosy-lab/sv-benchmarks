@@ -698,7 +698,7 @@ void* BCSP_PnpStop(void* arg) {
     __VERIFIER_assume(stoppingEvent);
     stopped = 1;
 }
-void main() {
+int main() {
     pthread_t t;
     pendingIo = 1;
     stoppingFlag = 0;
@@ -706,4 +706,5 @@ void main() {
     stopped = 0;
     pthread_create(&t, 0, BCSP_PnpStop, 0);
     BCSP_PnpAdd(0);
+    return 0;
 }

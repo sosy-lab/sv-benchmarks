@@ -13186,7 +13186,7 @@ static int speakup_init(void)
 }
 }
 #line 2445 "/home/mikhail/launches/cpachecker-regression2/launcher-working-dir/ldv-manager-work-dir/work/current--X--drivers/staging/speakup/speakup.ko--X--regression-testlinux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/23/dscv_tempdir/dscv/ri/32_7a/drivers/staging/speakup/main.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct notifier_block *var_group1 ;
   unsigned long var_keyboard_notifier_call_84_p1 ;
@@ -13258,7 +13258,7 @@ void main(void)
 #line 2583
   ldv_check_final_state();
 #line 2586
-  return;
+  return 0;
 }
 }
 #line 2590 "/home/mikhail/launches/cpachecker-regression2/launcher-working-dir/ldv-manager-work-dir/work/current--X--drivers/staging/speakup/speakup.ko--X--regression-testlinux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/23/dscv_tempdir/dscv/ri/32_7a/drivers/staging/speakup/main.c.prepared"

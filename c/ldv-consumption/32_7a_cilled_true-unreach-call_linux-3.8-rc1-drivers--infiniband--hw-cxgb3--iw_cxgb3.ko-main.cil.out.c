@@ -27610,7 +27610,7 @@ int ldv_retval_iwch_init_module  ;
 #line 360 "/home/zakharov/workspace/benchmarks/bench_1/work/current--X--drivers/infiniband/hw/cxgb3/iw_cxgb3.ko--X--deg2_cpalinux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/20/dscv_tempdir/dscv/ri/32_7a/drivers/infiniband/hw/cxgb3/iwch.c.prepared"
 struct t3cdev *t3c_client_group0  ;
 #line 366 "/home/zakharov/workspace/benchmarks/bench_1/work/current--X--drivers/infiniband/hw/cxgb3/iw_cxgb3.ko--X--deg2_cpalinux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/20/dscv_tempdir/dscv/ri/32_7a/drivers/infiniband/hw/cxgb3/iwch.c.prepared"
-void main(void) 
+int main(void) 
 { int tmp ;
   int tmp___0 ;
   int tmp___1 ;
@@ -27765,7 +27765,7 @@ void main(void)
 #line 464
   ldv_check_final_state();
 #line 465
-  return;
+  return 0;
 }
 }
 #line 468 "/home/zakharov/workspace/benchmarks/bench_1/work/current--X--drivers/infiniband/hw/cxgb3/iw_cxgb3.ko--X--deg2_cpalinux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/20/dscv_tempdir/dscv/ri/32_7a/drivers/infiniband/hw/cxgb3/iwch.c.prepared"

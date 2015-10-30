@@ -37403,7 +37403,7 @@ void choose_interrupt_3(void)
 }
 }
 #line 844 "/work/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--32_7a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/11216/dscv_tempdir/dscv/ri/32_7a/drivers/net/ethernet/neterion/vxge/vxge-main.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   enum pci_channel_state ldvarg0 ;
   u64 ldvarg1 ;
@@ -38538,7 +38538,7 @@ void main(void)
 #line 1652
   ldv_check_final_state();
 #line 1653
-  return;
+  return 0;
 }
 }
 #line 1680 "/work/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--32_7a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/11216/dscv_tempdir/dscv/ri/32_7a/drivers/net/ethernet/neterion/vxge/vxge-main.o.c.prepared"

@@ -11042,7 +11042,7 @@ void ldv_main_exported_43(void) ;
 #line 1404
 void ldv_main_exported_41(void) ;
 #line 1408 "/work/ldvuser/zakharov_benchmarks/bench/cpa/work/current--X--drivers/net/wireless/iwlwifi/iwlwifi.ko--X--x1linux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/27/dscv_tempdir/dscv/ri/32_7a/drivers/net/wireless/iwlwifi/iwl-drv.c.prepared"
-void main(void) 
+int main(void) 
 { int tmp ;
   int tmp___0 ;
 
@@ -11756,7 +11756,7 @@ void main(void)
 #line 1905
   ldv_check_final_state();
 #line 1906
-  return;
+  return 0;
 }
 }
 #line 1909 "/work/ldvuser/zakharov_benchmarks/bench/cpa/work/current--X--drivers/net/wireless/iwlwifi/iwlwifi.ko--X--x1linux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/27/dscv_tempdir/dscv/ri/32_7a/drivers/net/wireless/iwlwifi/iwl-drv.c.prepared"

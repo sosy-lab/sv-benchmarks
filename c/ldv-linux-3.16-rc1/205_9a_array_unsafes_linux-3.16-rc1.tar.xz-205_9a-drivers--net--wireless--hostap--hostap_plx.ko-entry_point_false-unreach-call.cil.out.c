@@ -17295,7 +17295,7 @@ void choose_interrupt_1(void)
 }
 }
 #line 911 "/work/ldvuser/mutilin/launch/work/current--X--drivers/net/--X--defaultlinux-3.16-rc1.tar.xz--X--205_9a--X--cpachecker/linux-3.16-rc1.tar.xz/csd_deg_dscv/591/dscv_tempdir/dscv/ri/205_9a/drivers/net/wireless/hostap/hostap_plx.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   loff_t ldvarg1 ;
   loff_t tmp ;
@@ -17890,7 +17890,7 @@ void main(void)
 #line 1254
   ldv_check_final_state();
 #line 1255
-  return;
+  return 0;
 }
 }
 #line 1282 "/work/ldvuser/mutilin/launch/work/current--X--drivers/net/--X--defaultlinux-3.16-rc1.tar.xz--X--205_9a--X--cpachecker/linux-3.16-rc1.tar.xz/csd_deg_dscv/591/dscv_tempdir/dscv/ri/205_9a/drivers/net/wireless/hostap/hostap_plx.o.c.prepared"

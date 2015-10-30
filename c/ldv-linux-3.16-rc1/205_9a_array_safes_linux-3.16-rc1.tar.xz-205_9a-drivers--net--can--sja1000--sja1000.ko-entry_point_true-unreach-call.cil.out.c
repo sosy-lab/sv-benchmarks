@@ -8192,7 +8192,7 @@ void disable_suitable_irq_1(int line , void *data )
 }
 }
 #line 867 "/work/ldvuser/mutilin/launch/work/current--X--drivers/net/--X--defaultlinux-3.16-rc1.tar.xz--X--205_9a--X--cpachecker/linux-3.16-rc1.tar.xz/csd_deg_dscv/1658/dscv_tempdir/dscv/ri/205_9a/drivers/net/can/sja1000/sja1000.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   int ldvarg1 ;
   int tmp ;
@@ -8420,7 +8420,7 @@ void main(void)
 #line 1009
   ldv_check_final_state();
 #line 1010
-  return;
+  return 0;
 }
 }
 #line 1037 "/work/ldvuser/mutilin/launch/work/current--X--drivers/net/--X--defaultlinux-3.16-rc1.tar.xz--X--205_9a--X--cpachecker/linux-3.16-rc1.tar.xz/csd_deg_dscv/1658/dscv_tempdir/dscv/ri/205_9a/drivers/net/can/sja1000/sja1000.o.c.prepared"

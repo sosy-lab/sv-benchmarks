@@ -3570,7 +3570,7 @@ extern int nondet_int(void) ;
 #line 284 "/work/ldvuser/novikov/work/current--X--drivers/input/joystick/magellan.ko--X--defaultlinux--X--08_1a--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1a/drivers/input/joystick/magellan.c.prepared"
 int LDV_IN_INTERRUPT  ;
 #line 287 "/work/ldvuser/novikov/work/current--X--drivers/input/joystick/magellan.ko--X--defaultlinux--X--08_1a--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/08_1a/drivers/input/joystick/magellan.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct serio *var_group1 ;
   unsigned char var_magellan_interrupt_2_p1 ;
@@ -3676,7 +3676,7 @@ void main(void)
 #line 439
   ldv_check_final_state();
 #line 442
-  return;
+  return 0;
 }
 }
 #line 1 "<compiler builtins>"

@@ -22473,7 +22473,7 @@ void call_and_disable_work_2(struct work_struct *work )
 #line 1143
 void ldv_main_exported_8(void) ;
 #line 1153 "/work/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--08_1a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/11418/dscv_tempdir/dscv/ri/08_1a/drivers/net/ethernet/qlogic/qlge/qlge_main.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   u16 ldvarg7 ;
   int ldvarg3 ;
@@ -23570,7 +23570,7 @@ void main(void)
 #line 1924
   ldv_check_final_state();
 #line 1925
-  return;
+  return 0;
 }
 }
 #line 1952 "/work/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--08_1a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/11418/dscv_tempdir/dscv/ri/08_1a/drivers/net/ethernet/qlogic/qlge/qlge_main.o.c.prepared"

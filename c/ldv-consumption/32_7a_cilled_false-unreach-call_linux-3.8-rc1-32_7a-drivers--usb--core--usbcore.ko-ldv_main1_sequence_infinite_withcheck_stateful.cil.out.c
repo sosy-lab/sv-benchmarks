@@ -17440,7 +17440,7 @@ extern void ldv_check_return_value(int  ) ;
 #line 5325
 extern void ldv_check_return_value_probe(int  ) ;
 #line 5340 "/home/mikhail/launches/cpachecker-regression/launcher-working-dir/ldv-manager-work-dir/work/current--X--drivers/usb/core/usbcore.ko--X--regression-testlinux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/29/dscv_tempdir/dscv/ri/32_7a/drivers/usb/core/hub.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct device *var_group1 ;
   struct usb_interface *var_group2 ;
@@ -17618,7 +17618,7 @@ void main(void)
 #line 6670
   ldv_check_final_state();
 #line 6673
-  return;
+  return 0;
 }
 }
 #line 6677 "/home/mikhail/launches/cpachecker-regression/launcher-working-dir/ldv-manager-work-dir/work/current--X--drivers/usb/core/usbcore.ko--X--regression-testlinux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/29/dscv_tempdir/dscv/ri/32_7a/drivers/usb/core/hub.c.prepared"

@@ -18600,7 +18600,7 @@ void ldv_initialize_obd_ops_1(void)
 }
 }
 #line 1116 "/work/ldvuser/mutilin/launch/work/current--X--drivers--X--defaultlinux-3.16-rc1.tar.xz--X--43_2a--X--cpachecker/linux-3.16-rc1.tar.xz/csd_deg_dscv/6729/dscv_tempdir/dscv/ri/43_2a/drivers/staging/lustre/lustre/obdclass/llog_test.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct lustre_cfg *ldvarg0 ;
   void *tmp ;
@@ -18739,7 +18739,7 @@ void main(void)
 #line 1198
   ldv_check_final_state();
 #line 1199
-  return;
+  return 0;
 }
 }
 #line 1202 "/work/ldvuser/mutilin/launch/work/current--X--drivers--X--defaultlinux-3.16-rc1.tar.xz--X--43_2a--X--cpachecker/linux-3.16-rc1.tar.xz/csd_deg_dscv/6729/dscv_tempdir/dscv/ri/43_2a/drivers/staging/lustre/lustre/obdclass/llog_test.o.c.prepared"

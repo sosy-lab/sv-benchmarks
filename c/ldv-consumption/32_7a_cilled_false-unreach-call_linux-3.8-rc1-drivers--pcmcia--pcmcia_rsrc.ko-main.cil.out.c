@@ -5444,7 +5444,7 @@ struct device *pccard_rsrc_interface_group0  ;
 #line 1324 "/work/zakharov/bench-tests/cpa/work/current--X--drivers/pcmcia/pcmcia_rsrc.ko--X--x1linux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/20/dscv_tempdir/dscv/ri/32_7a/drivers/pcmcia/rsrc_nonstatic.c.prepared"
 unsigned int ldvarg19  ;
 #line 1338 "/work/zakharov/bench-tests/cpa/work/current--X--drivers/pcmcia/pcmcia_rsrc.ko--X--x1linux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/20/dscv_tempdir/dscv/ri/32_7a/drivers/pcmcia/rsrc_nonstatic.c.prepared"
-void main(void) 
+int main(void) 
 { int tmp ;
   int tmp___0 ;
   int tmp___1 ;
@@ -5864,7 +5864,7 @@ void main(void)
 #line 1625
   ldv_check_final_state();
 #line 1626
-  return;
+  return 0;
 }
 }
 #line 1629 "/work/zakharov/bench-tests/cpa/work/current--X--drivers/pcmcia/pcmcia_rsrc.ko--X--x1linux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/20/dscv_tempdir/dscv/ri/32_7a/drivers/pcmcia/rsrc_nonstatic.c.prepared"

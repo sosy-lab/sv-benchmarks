@@ -20442,7 +20442,7 @@ void ldv_main_exported_26(void) ;
 #line 870
 void ldv_main_exported_29(void) ;
 #line 880 "/work/ldvuser/mutilin/launch/work/current--X--drivers--X--defaultlinux-3.16-rc1.tar.xz--X--43_2a--X--cpachecker/linux-3.16-rc1.tar.xz/csd_deg_dscv/9064/dscv_tempdir/dscv/ri/43_2a/drivers/gpu/drm/gma500/psb_drv.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct vm_fault *ldvarg102 ;
   void *tmp ;
@@ -22326,7 +22326,7 @@ void main(void)
 #line 2131
   ldv_check_final_state();
 #line 2132
-  return;
+  return 0;
 }
 }
 #line 2262 "/work/ldvuser/mutilin/launch/work/current--X--drivers--X--defaultlinux-3.16-rc1.tar.xz--X--43_2a--X--cpachecker/linux-3.16-rc1.tar.xz/csd_deg_dscv/9064/dscv_tempdir/dscv/ri/43_2a/drivers/gpu/drm/gma500/psb_drv.o.c.prepared"

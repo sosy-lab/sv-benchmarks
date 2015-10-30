@@ -7160,7 +7160,7 @@ int LDV_IN_INTERRUPT  ;
 #line 588 "/anthill/stuff/tacas-comp/work/current--X--drivers/usb/serial/ir-usb.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/usb/serial/ir-usb.c.common.c"
 static int res_ir_open_4  ;
 #line 554 "/anthill/stuff/tacas-comp/work/current--X--drivers/usb/serial/ir-usb.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/usb/serial/ir-usb.c.common.c"
-void main(void) 
+int main(void) 
 { struct tty_struct *var_group1 ;
   struct usb_serial_port *var_group2 ;
   struct ktermios *var_ir_set_termios_8_p2 ;
@@ -7323,7 +7323,7 @@ void main(void)
   ldv_check_final_state();
   }
 #line 770
-  return;
+  return 0;
 }
 }
 #line 5 "/anthill/stuff/tacas-comp/work/current--X--drivers/usb/serial/ir-usb.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/kernel-rules/files/engine-blast-assert.h"

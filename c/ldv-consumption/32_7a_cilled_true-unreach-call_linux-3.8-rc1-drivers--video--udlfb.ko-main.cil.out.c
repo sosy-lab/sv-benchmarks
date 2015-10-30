@@ -8701,7 +8701,7 @@ struct fb_image *ldvarg19  ;
 #line 2078
 extern int ldv_dlfb_ops_release_3(void) ;
 #line 2088 "/work/ldvuser/zakharov_benchmarks/bench/cpa/work/current--X--drivers/video/udlfb.ko--X--x1linux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/32_7a/drivers/video/udlfb.c.prepared"
-void main(void) 
+int main(void) 
 { int tmp ;
   int tmp___0 ;
   int tmp___1 ;
@@ -9219,7 +9219,7 @@ void main(void)
 #line 2463
   ldv_check_final_state();
 #line 2464
-  return;
+  return 0;
 }
 }
 #line 2467 "/work/ldvuser/zakharov_benchmarks/bench/cpa/work/current--X--drivers/video/udlfb.ko--X--x1linux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/32_7a/drivers/video/udlfb.c.prepared"

@@ -8973,7 +8973,7 @@ int reg_check_2(irqreturn_t (*handler)(int  , void * ) , irqreturn_t (*thread_fn
 }
 }
 #line 1081 "/work/ldvuser/mutilin/launch/work/current--X--drivers/net/--X--defaultlinux-3.16-rc1.tar.xz--X--205_9a--X--cpachecker/linux-3.16-rc1.tar.xz/csd_deg_dscv/114/dscv_tempdir/dscv/ri/205_9a/drivers/net/ieee802154/mrf24j40.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct sk_buff *ldvarg1 ;
   void *tmp ;
@@ -9316,7 +9316,7 @@ void main(void)
 #line 1297
   ldv_check_final_state();
 #line 1298
-  return;
+  return 0;
 }
 }
 #line 1325 "/work/ldvuser/mutilin/launch/work/current--X--drivers/net/--X--defaultlinux-3.16-rc1.tar.xz--X--205_9a--X--cpachecker/linux-3.16-rc1.tar.xz/csd_deg_dscv/114/dscv_tempdir/dscv/ri/205_9a/drivers/net/ieee802154/mrf24j40.o.c.prepared"

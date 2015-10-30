@@ -16,4 +16,5 @@ void main() {
 	res = res + 1;
     }
     assert(res == a + b);
+    return 0;
 }

@@ -7679,7 +7679,7 @@ extern int __VERIFIER_nondet_int(void) ;
 #line 996 "/home/mikhail/launches/cpachecker-regression2/launcher-working-dir/ldv-manager-work-dir/work/current--X--drivers/net/ethernet/i825xx/znet.ko--X--regression-testlinux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/32_7a/drivers/net/ethernet/i825xx/znet.c.prepared"
 int LDV_IN_INTERRUPT  ;
 #line 999 "/home/mikhail/launches/cpachecker-regression2/launcher-working-dir/ldv-manager-work-dir/work/current--X--drivers/net/ethernet/i825xx/znet.ko--X--regression-testlinux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/32_7a/drivers/net/ethernet/i825xx/znet.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct net_device *var_group1 ;
   int res_znet_open_5 ;
@@ -7820,7 +7820,7 @@ void main(void)
 #line 1439
   ldv_check_final_state();
 #line 1442
-  return;
+  return 0;
 }
 }
 #line 1446 "/home/mikhail/launches/cpachecker-regression2/launcher-working-dir/ldv-manager-work-dir/work/current--X--drivers/net/ethernet/i825xx/znet.ko--X--regression-testlinux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/32_7a/drivers/net/ethernet/i825xx/znet.c.prepared"

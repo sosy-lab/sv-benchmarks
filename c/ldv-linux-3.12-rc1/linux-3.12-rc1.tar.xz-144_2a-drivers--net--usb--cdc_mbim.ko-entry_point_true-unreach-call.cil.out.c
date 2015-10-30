@@ -7973,7 +7973,7 @@ void ldv_usb_driver_1(void)
 }
 }
 #line 518 "/work/ldvuser/mutilin/launch/work/current--X--drivers--X--defaultlinux-3.12-rc1.tar.xz--X--144_2a--X--cpachecker/linux-3.12-rc1.tar.xz/csd_deg_dscv/7613/dscv_tempdir/dscv/ri/144_2a/drivers/net/usb/cdc_mbim.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct usb_device_id *ldvarg1 ;
   void *tmp ;
@@ -8440,7 +8440,7 @@ void main(void)
 #line 821
   ldv_check_final_state();
 #line 822
-  return;
+  return 0;
 }
 }
 #line 831 "/work/ldvuser/mutilin/launch/work/current--X--drivers--X--defaultlinux-3.12-rc1.tar.xz--X--144_2a--X--cpachecker/linux-3.12-rc1.tar.xz/csd_deg_dscv/7613/dscv_tempdir/dscv/ri/144_2a/drivers/net/usb/cdc_mbim.o.c.prepared"

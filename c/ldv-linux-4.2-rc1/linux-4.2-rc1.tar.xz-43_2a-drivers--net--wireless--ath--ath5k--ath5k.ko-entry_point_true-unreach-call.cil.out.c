@@ -54140,7 +54140,7 @@ void ldv_initialize_ath_bus_ops_7(void)
 }
 }
 #line 288 "/home/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--43_2a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/11584/dscv_tempdir/dscv/ri/43_2a/drivers/net/wireless/ath/ath5k/pci.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct ath5k_hw *ldvarg8 ;
   void *tmp ;
@@ -55242,7 +55242,7 @@ void main(void)
 #line 1034
   ldv_check_final_state();
 #line 1035
-  return;
+  return 0;
 }
 }
 #line 1151 "/home/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--43_2a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/11584/dscv_tempdir/dscv/ri/43_2a/drivers/net/wireless/ath/ath5k/pci.o.c.prepared"

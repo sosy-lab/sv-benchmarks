@@ -7255,7 +7255,7 @@ extern int __VERIFIER_nondet_int(void) ;
 #line 772 "/home/mikhail/launches/cpachecker-regression2/launcher-working-dir/ldv-manager-work-dir/work/current--X--drivers/net/arcnet/com90xx.ko--X--regression-testlinux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/32_7a/drivers/net/arcnet/com90xx.c.prepared"
 int LDV_IN_INTERRUPT  ;
 #line 775 "/home/mikhail/launches/cpachecker-regression2/launcher-working-dir/ldv-manager-work-dir/work/current--X--drivers/net/arcnet/com90xx.ko--X--regression-testlinux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/32_7a/drivers/net/arcnet/com90xx.c.prepared"
-void main(void) 
+int main(void) 
 { 
   int tmp ;
   int tmp___0 ;
@@ -7308,7 +7308,7 @@ void main(void)
 #line 881
   ldv_check_final_state();
 #line 884
-  return;
+  return 0;
 }
 }
 #line 888 "/home/mikhail/launches/cpachecker-regression2/launcher-working-dir/ldv-manager-work-dir/work/current--X--drivers/net/arcnet/com90xx.ko--X--regression-testlinux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/32_7a/drivers/net/arcnet/com90xx.c.prepared"

@@ -5159,7 +5159,7 @@ extern int nondet_int(void) ;
 #line 1058 "/work/ldvuser/novikov/work/current--X--drivers/block/paride/pt.ko--X--defaultlinux--X--43_1a--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/43_1a/drivers/block/paride/pt.c.prepared"
 int LDV_IN_INTERRUPT  ;
 #line 1061 "/work/ldvuser/novikov/work/current--X--drivers/block/paride/pt.ko--X--defaultlinux--X--43_1a--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/43_1a/drivers/block/paride/pt.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct file *var_group1 ;
   char *var_pt_read_24_p1 ;
@@ -5320,7 +5320,7 @@ void main(void)
 #line 1801
   ldv_check_final_state();
 #line 1804
-  return;
+  return 0;
 }
 }
 #line 1819 "/work/ldvuser/novikov/work/current--X--drivers/block/paride/pt.ko--X--defaultlinux--X--43_1a--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/43_1a/drivers/block/paride/pt.c.prepared"

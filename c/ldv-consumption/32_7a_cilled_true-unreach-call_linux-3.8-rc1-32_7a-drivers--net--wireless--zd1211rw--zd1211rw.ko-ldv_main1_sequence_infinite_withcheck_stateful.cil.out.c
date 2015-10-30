@@ -16947,7 +16947,7 @@ extern int __VERIFIER_nondet_int(void) ;
 #line 1628 "/home/mikhail/launches/cpachecker-regression2/launcher-working-dir/ldv-manager-work-dir/work/current--X--drivers/net/wireless/zd1211rw/zd1211rw.ko--X--regression-testlinux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/19/dscv_tempdir/dscv/ri/32_7a/drivers/net/wireless/zd1211rw/zd_mac.c.prepared"
 int LDV_IN_INTERRUPT  ;
 #line 1631 "/home/mikhail/launches/cpachecker-regression2/launcher-working-dir/ldv-manager-work-dir/work/current--X--drivers/net/wireless/zd1211rw/zd1211rw.ko--X--regression-testlinux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/19/dscv_tempdir/dscv/ri/32_7a/drivers/net/wireless/zd1211rw/zd_mac.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct ieee80211_hw *var_group1 ;
   struct ieee80211_tx_control *var_group2 ;
@@ -17067,7 +17067,7 @@ void main(void)
 #line 2030
   ldv_check_final_state();
 #line 2033
-  return;
+  return 0;
 }
 }
 #line 2037 "/home/mikhail/launches/cpachecker-regression2/launcher-working-dir/ldv-manager-work-dir/work/current--X--drivers/net/wireless/zd1211rw/zd1211rw.ko--X--regression-testlinux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/19/dscv_tempdir/dscv/ri/32_7a/drivers/net/wireless/zd1211rw/zd_mac.c.prepared"

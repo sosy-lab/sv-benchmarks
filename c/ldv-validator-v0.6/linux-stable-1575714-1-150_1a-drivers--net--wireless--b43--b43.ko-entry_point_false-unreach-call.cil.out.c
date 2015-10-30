@@ -20550,7 +20550,7 @@ void ldv_main_exported_20(void) ;
 #line 5555
 void ldv_main_exported_22(void) ;
 #line 5559 "/home/ldvuser/gratinskiy/commit-tester-runs/6-cpa-svcomp-newdeg/commit-tester-work/task-034--linux-stable--dir/work/current--X--drivers/net/wireless/b43/b43.ko--X--defaultlinux-stable-1575714-1--X--150_1a--X--cpachecker/linux-stable-1575714-1/csd_deg_dscv/28/dscv_tempdir/dscv/ri/150_1a/drivers/net/wireless/b43/main.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct ssb_device_id *ldvarg57 ;
   void *tmp ;
@@ -21570,7 +21570,7 @@ void main(void)
 #line 6245
   ldv_check_final_state();
 #line 6246
-  return;
+  return 0;
 }
 }
 #line 6249 "/home/ldvuser/gratinskiy/commit-tester-runs/6-cpa-svcomp-newdeg/commit-tester-work/task-034--linux-stable--dir/work/current--X--drivers/net/wireless/b43/b43.ko--X--defaultlinux-stable-1575714-1--X--150_1a--X--cpachecker/linux-stable-1575714-1/csd_deg_dscv/28/dscv_tempdir/dscv/ri/150_1a/drivers/net/wireless/b43/main.o.c.prepared"

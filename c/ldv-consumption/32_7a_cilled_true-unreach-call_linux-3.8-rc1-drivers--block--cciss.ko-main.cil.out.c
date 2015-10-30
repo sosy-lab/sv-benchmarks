@@ -23011,7 +23011,7 @@ struct pci_dev *cciss_pci_driver_group0  ;
 #line 5557
 extern int ldv_cciss_host_type_probe_3(void) ;
 #line 5584 "/work/ldvuser/zakharov_benchmarks/bench/cpa/work/current--X--drivers/block/cciss.ko--X--x1linux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/32_7a/drivers/block/cciss.c.prepared"
-void main(void) 
+int main(void) 
 { int tmp ;
   int tmp___0 ;
   int tmp___1 ;
@@ -24259,7 +24259,7 @@ void main(void)
 #line 6453
   ldv_check_final_state();
 #line 6454
-  return;
+  return 0;
 }
 }
 #line 6457 "/work/ldvuser/zakharov_benchmarks/bench/cpa/work/current--X--drivers/block/cciss.ko--X--x1linux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/32_7a/drivers/block/cciss.c.prepared"

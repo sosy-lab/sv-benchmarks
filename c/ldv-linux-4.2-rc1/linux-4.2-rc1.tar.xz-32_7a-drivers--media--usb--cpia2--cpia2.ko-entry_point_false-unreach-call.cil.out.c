@@ -8670,7 +8670,7 @@ void ldv_initialize_v4l2_ioctl_ops_5(void)
 #line 138
 void ldv_main_exported_1(void) ;
 #line 142 "/work/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--32_7a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/3779/dscv_tempdir/dscv/ri/32_7a/drivers/media/usb/cpia2/cpia2_v4l.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   unsigned int ldvarg1 ;
   size_t ldvarg4 ;
@@ -9523,7 +9523,7 @@ void main(void)
 #line 639
   ldv_check_final_state();
 #line 640
-  return;
+  return 0;
 }
 }
 #line 667 "/work/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--32_7a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/3779/dscv_tempdir/dscv/ri/32_7a/drivers/media/usb/cpia2/cpia2_v4l.o.c.prepared"

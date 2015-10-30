@@ -8932,7 +8932,7 @@ struct dsa_switch_driver mv88e6131_switch_driver  =
     & mv88e6131_phy_read, & mv88e6131_phy_write, & mv88e6xxx_poll_link, & mv88e6131_get_strings,
     & mv88e6131_get_ethtool_stats, & mv88e6131_get_sset_count};
 #line 485 "/work/ldvuser/exper_fp/work/current--X--drivers--X--defaultlinux-3.10-rc1.tar--X--32_7a--X--cpachecker/linux-3.10-rc1.tar/csd_deg_dscv/9668/dscv_tempdir/dscv/ri/32_7a/drivers/net/dsa/mv88e6131.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct mii_bus *var_group1 ;
   int var_mv88e6131_probe_0_p1 ;
@@ -9054,7 +9054,7 @@ void main(void)
 #line 746
   ldv_check_final_state();
 #line 749
-  return;
+  return 0;
 }
 }
 #line 753 "/work/ldvuser/exper_fp/work/current--X--drivers--X--defaultlinux-3.10-rc1.tar--X--32_7a--X--cpachecker/linux-3.10-rc1.tar/csd_deg_dscv/9668/dscv_tempdir/dscv/ri/32_7a/drivers/net/dsa/mv88e6131.c.prepared"

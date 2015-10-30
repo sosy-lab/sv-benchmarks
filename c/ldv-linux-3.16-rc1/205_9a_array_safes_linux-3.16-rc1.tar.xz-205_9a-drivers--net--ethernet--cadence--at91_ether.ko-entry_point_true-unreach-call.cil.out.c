@@ -8150,7 +8150,7 @@ void ldv_net_device_ops_2(void)
 }
 }
 #line 546 "/work/ldvuser/mutilin/launch/work/current--X--drivers/net/--X--defaultlinux-3.16-rc1.tar.xz--X--205_9a--X--cpachecker/linux-3.16-rc1.tar.xz/csd_deg_dscv/1177/dscv_tempdir/dscv/ri/205_9a/drivers/net/ethernet/cadence/at91_ether.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   pm_message_t ldvarg0 ;
   void *ldvarg1 ;
@@ -8660,7 +8660,7 @@ void main(void)
 #line 891
   ldv_check_final_state();
 #line 892
-  return;
+  return 0;
 }
 }
 #line 895 "/work/ldvuser/mutilin/launch/work/current--X--drivers/net/--X--defaultlinux-3.16-rc1.tar.xz--X--205_9a--X--cpachecker/linux-3.16-rc1.tar.xz/csd_deg_dscv/1177/dscv_tempdir/dscv/ri/205_9a/drivers/net/ethernet/cadence/at91_ether.o.c.prepared"

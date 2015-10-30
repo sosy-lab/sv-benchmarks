@@ -12217,7 +12217,7 @@ void ldv_main_exported_4(void) ;
 #line 1299
 void ldv_main_exported_5(void) ;
 #line 1303 "/home/zakharov/workspace/benchmarks/bench_1/work/current--X--drivers/infiniband/hw/nes/iw_nes.ko--X--deg2_cpalinux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/18/dscv_tempdir/dscv/ri/32_7a/drivers/infiniband/hw/nes/nes.c.prepared"
-void main(void) 
+int main(void) 
 { int tmp ;
   int tmp___0 ;
   int tmp___1 ;
@@ -12450,7 +12450,7 @@ void main(void)
 #line 1449
   ldv_check_final_state();
 #line 1450
-  return;
+  return 0;
 }
 }
 #line 1453 "/home/zakharov/workspace/benchmarks/bench_1/work/current--X--drivers/infiniband/hw/nes/iw_nes.ko--X--deg2_cpalinux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/18/dscv_tempdir/dscv/ri/32_7a/drivers/infiniband/hw/nes/nes.c.prepared"

@@ -11007,7 +11007,7 @@ extern int __VERIFIER_nondet_int(void) ;
 #line 2320 "/work/ldvuser/exper_fp/work/current--X--drivers--X--defaultlinux-3.10-rc1.tar--X--32_7a--X--cpachecker/linux-3.10-rc1.tar/csd_deg_dscv/8931/dscv_tempdir/dscv/ri/32_7a/drivers/net/fddi/skfp/skfddi.c.prepared"
 int LDV_IN_INTERRUPT  ;
 #line 2323 "/work/ldvuser/exper_fp/work/current--X--drivers--X--defaultlinux-3.10-rc1.tar--X--32_7a--X--cpachecker/linux-3.10-rc1.tar/csd_deg_dscv/8931/dscv_tempdir/dscv/ri/32_7a/drivers/net/fddi/skfp/skfddi.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct net_device *var_group1 ;
   int res_skfp_open_3 ;
@@ -11208,7 +11208,7 @@ void main(void)
 #line 3203
   ldv_check_final_state();
 #line 3206
-  return;
+  return 0;
 }
 }
 #line 3210 "/work/ldvuser/exper_fp/work/current--X--drivers--X--defaultlinux-3.10-rc1.tar--X--32_7a--X--cpachecker/linux-3.10-rc1.tar/csd_deg_dscv/8931/dscv_tempdir/dscv/ri/32_7a/drivers/net/fddi/skfp/skfddi.c.prepared"

@@ -6337,7 +6337,7 @@ extern void ldv_initialize(void) ;
 #line 1284
 extern void ldv_check_final_state(void) ;
 #line 1294 "/home/ldvuser/gratinskiy/commit-tester-runs/6-cpa-svcomp-newdeg/commit-tester-work/task-022--linux-stable--dir/work/current--X--sound/oss/opl3.ko--X--defaultlinux-stable-42f9f8d-1--X--111_1a--X--cpachecker/linux-stable-42f9f8d-1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/111_1a/sound/oss/opl3.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   int ldvarg18 ;
   int tmp ;
@@ -7059,7 +7059,7 @@ void main(void)
 #line 1662
   ldv_check_final_state();
 #line 1663
-  return;
+  return 0;
 }
 }
 #line 1666 "/home/ldvuser/gratinskiy/commit-tester-runs/6-cpa-svcomp-newdeg/commit-tester-work/task-022--linux-stable--dir/work/current--X--sound/oss/opl3.ko--X--defaultlinux-stable-42f9f8d-1--X--111_1a--X--cpachecker/linux-stable-42f9f8d-1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/111_1a/sound/oss/opl3.o.c.prepared"

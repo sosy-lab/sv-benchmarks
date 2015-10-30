@@ -13841,7 +13841,7 @@ void ldv_initialize_device_attribute_4(void)
 }
 }
 #line 262 "/home/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--43_2a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/12156/dscv_tempdir/dscv/ri/43_2a/drivers/net/xen-netfront.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   u32 ldvarg1 ;
   int ldvarg4 ;
@@ -14719,7 +14719,7 @@ void main(void)
 #line 827
   ldv_check_final_state();
 #line 828
-  return;
+  return 0;
 }
 }
 #line 831 "/home/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--43_2a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/12156/dscv_tempdir/dscv/ri/43_2a/drivers/net/xen-netfront.o.c.prepared"

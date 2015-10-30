@@ -46655,7 +46655,7 @@ extern int __VERIFIER_nondet_int(void) ;
 #line 5037 "/home/mikhail/launches/cpachecker-regression2/launcher-working-dir/ldv-manager-work-dir/work/current--X--drivers/media/usb/gspca/gspca_topro.ko--X--regression-testlinux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/56/dscv_tempdir/dscv/ri/32_7a/drivers/media/usb/gspca/topro.c.prepared"
 int LDV_IN_INTERRUPT  ;
 #line 5040 "/home/mikhail/launches/cpachecker-regression2/launcher-working-dir/ldv-manager-work-dir/work/current--X--drivers/media/usb/gspca/gspca_topro.ko--X--regression-testlinux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/56/dscv_tempdir/dscv/ri/32_7a/drivers/media/usb/gspca/topro.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct v4l2_ctrl *var_group1 ;
   struct gspca_dev *var_group2 ;
@@ -46820,7 +46820,7 @@ void main(void)
 #line 12101
   ldv_check_final_state();
 #line 12104
-  return;
+  return 0;
 }
 }
 #line 12108 "/home/mikhail/launches/cpachecker-regression2/launcher-working-dir/ldv-manager-work-dir/work/current--X--drivers/media/usb/gspca/gspca_topro.ko--X--regression-testlinux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/56/dscv_tempdir/dscv/ri/32_7a/drivers/media/usb/gspca/topro.c.prepared"

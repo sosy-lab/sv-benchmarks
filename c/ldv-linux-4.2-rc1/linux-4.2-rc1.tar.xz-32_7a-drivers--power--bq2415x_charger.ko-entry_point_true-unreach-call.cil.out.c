@@ -8873,7 +8873,7 @@ void ldv_initialize_device_attribute_18(void)
 }
 }
 #line 413 "/work/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--32_7a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/8348/dscv_tempdir/dscv/ri/32_7a/drivers/power/bq2415x_charger.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   size_t ldvarg1 ;
   char *ldvarg0 ;
@@ -10073,7 +10073,7 @@ void main(void)
 #line 1068
   ldv_check_final_state();
 #line 1069
-  return;
+  return 0;
 }
 }
 #line 1078 "/work/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--32_7a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/8348/dscv_tempdir/dscv/ri/32_7a/drivers/power/bq2415x_charger.o.c.prepared"

@@ -12769,7 +12769,7 @@ void ldv_usb_driver_1(void)
 }
 }
 #line 225 "/work/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--32_7a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/4026/dscv_tempdir/dscv/ri/32_7a/drivers/media/usb/dvb-usb-v2/mxl111sf.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   u8 *ldvarg1 ;
   void *tmp ;
@@ -14649,7 +14649,7 @@ void main(void)
 #line 1501
   ldv_check_final_state();
 #line 1502
-  return;
+  return 0;
 }
 }
 #line 1529 "/work/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--32_7a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/4026/dscv_tempdir/dscv/ri/32_7a/drivers/media/usb/dvb-usb-v2/mxl111sf.o.c.prepared"

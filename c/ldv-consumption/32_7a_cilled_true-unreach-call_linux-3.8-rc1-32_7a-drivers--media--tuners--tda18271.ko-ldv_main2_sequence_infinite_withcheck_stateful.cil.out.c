@@ -10497,7 +10497,7 @@ struct dvb_frontend *tda18271_attach(struct dvb_frontend *fe , u8 addr , struct 
 #line 1432
 extern void ldv_handler_precall(void) ;
 #line 1441 "/home/mikhail/launches/cpachecker-regression2/launcher-working-dir/ldv-manager-work-dir/work/current--X--drivers/media/tuners/tda18271.ko--X--regression-testlinux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/14/dscv_tempdir/dscv/ri/32_7a/drivers/media/tuners/tda18271-fe.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct dvb_frontend *var_group1 ;
   struct analog_parameters *var_group2 ;
@@ -10613,7 +10613,7 @@ void main(void)
 #line 2041
   ldv_check_final_state();
 #line 2044
-  return;
+  return 0;
 }
 }
 #line 2048 "/home/mikhail/launches/cpachecker-regression2/launcher-working-dir/ldv-manager-work-dir/work/current--X--drivers/media/tuners/tda18271.ko--X--regression-testlinux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/14/dscv_tempdir/dscv/ri/32_7a/drivers/media/tuners/tda18271-fe.c.prepared"

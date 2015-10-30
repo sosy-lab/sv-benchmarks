@@ -4501,7 +4501,7 @@ int LDV_IN_INTERRUPT  ;
 #line 679 "/work/ldvuser/novikov/work/current--X--drivers/input/misc/keyspan_remote.ko--X--defaultlinux--X--32_1--X--cpachecker/linux/csd_deg_dscv/10/dscv_tempdir/dscv/ri/32_1/drivers/input/misc/keyspan_remote.c"
 static int res_keyspan_probe_9  ;
 #line 648 "/work/ldvuser/novikov/work/current--X--drivers/input/misc/keyspan_remote.ko--X--defaultlinux--X--32_1--X--cpachecker/linux/csd_deg_dscv/10/dscv_tempdir/dscv/ri/32_1/drivers/input/misc/keyspan_remote.c"
-void main(void) 
+int main(void) 
 { 
   struct usb_interface *var_group1 ;
   struct usb_device_id  const  *var_keyspan_probe_9_p1 ;
@@ -4594,7 +4594,7 @@ void main(void)
 #line 854
   ldv_check_final_state();
 #line 857
-  return;
+  return 0;
 }
 }
 #line 1 "<compiler builtins>"

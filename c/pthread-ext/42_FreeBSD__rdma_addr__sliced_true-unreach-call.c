@@ -38,7 +38,7 @@ void __VERIFIER_atomic_release()
 	MTX = 0;
 }
 
-volatile int refctr = 0;
+volatile unsigned int refctr = 0;
 
 inline static void put_client(int client){
 	mtx_lock(MTX);

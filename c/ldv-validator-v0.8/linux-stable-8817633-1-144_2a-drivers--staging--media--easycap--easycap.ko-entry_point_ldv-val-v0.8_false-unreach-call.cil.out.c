@@ -15163,7 +15163,7 @@ void ldv_initialize_vm_operations_struct_4(void)
 #line 76
 void ldv_main_exported_1(void) ;
 #line 80 "/home/ldvuser/andrianov/commit-tester-work/task-233--linux-stable--dir/work/current--X--drivers/staging/media/easycap/easycap.ko--X--defaultlinux-stable-8817633-1--X--144_2a--X--cpachecker/linux-stable-8817633-1/csd_deg_dscv/16/dscv_tempdir/dscv/ri/144_2a/drivers/staging/media/easycap/easycap_main.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct vm_fault *ldvarg0 ;
   void *tmp ;
@@ -15538,7 +15538,7 @@ void main(void)
 #line 315
   ldv_check_final_state();
 #line 316
-  return;
+  return 0;
 }
 }
 #line 319 "/home/ldvuser/andrianov/commit-tester-work/task-233--linux-stable--dir/work/current--X--drivers/staging/media/easycap/easycap.ko--X--defaultlinux-stable-8817633-1--X--144_2a--X--cpachecker/linux-stable-8817633-1/csd_deg_dscv/16/dscv_tempdir/dscv/ri/144_2a/drivers/staging/media/easycap/easycap_main.o.c.prepared"

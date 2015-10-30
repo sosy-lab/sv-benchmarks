@@ -27709,7 +27709,7 @@ extern int __VERIFIER_nondet_int(void) ;
 #line 368 "/home/mikhail/launches/cpachecker-regression2/launcher-working-dir/ldv-manager-work-dir/work/current--X--drivers/infiniband/hw/cxgb3/iw_cxgb3.ko--X--regression-testlinux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/20/dscv_tempdir/dscv/ri/32_7a/drivers/infiniband/hw/cxgb3/iwch.c.prepared"
 int LDV_IN_INTERRUPT  ;
 #line 371 "/home/mikhail/launches/cpachecker-regression2/launcher-working-dir/ldv-manager-work-dir/work/current--X--drivers/infiniband/hw/cxgb3/iw_cxgb3.ko--X--regression-testlinux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/20/dscv_tempdir/dscv/ri/32_7a/drivers/infiniband/hw/cxgb3/iwch.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct t3cdev *var_group1 ;
   u32 var_iwch_event_handler_8_p1 ;
@@ -27796,7 +27796,7 @@ void main(void)
 #line 508
   ldv_check_final_state();
 #line 511
-  return;
+  return 0;
 }
 }
 #line 515 "/home/mikhail/launches/cpachecker-regression2/launcher-working-dir/ldv-manager-work-dir/work/current--X--drivers/infiniband/hw/cxgb3/iw_cxgb3.ko--X--regression-testlinux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/20/dscv_tempdir/dscv/ri/32_7a/drivers/infiniband/hw/cxgb3/iwch.c.prepared"

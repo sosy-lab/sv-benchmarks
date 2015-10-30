@@ -8260,7 +8260,7 @@ void ldv_main_exported_5(void) ;
 #line 176
 void ldv_main_exported_2(void) ;
 #line 182 "/work/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--32_7a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/3679/dscv_tempdir/dscv/ri/32_7a/drivers/media/usb/hdpvr/hdpvr-core.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct usb_device_id *ldvarg6 ;
   void *tmp ;
@@ -8489,7 +8489,7 @@ void main(void)
 #line 329
   ldv_check_final_state();
 #line 330
-  return;
+  return 0;
 }
 }
 #line 357 "/work/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--32_7a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/3679/dscv_tempdir/dscv/ri/32_7a/drivers/media/usb/hdpvr/hdpvr-core.o.c.prepared"

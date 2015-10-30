@@ -8576,7 +8576,7 @@ int LDV_IN_INTERRUPT  ;
 #line 1781 "/work/ldvuser/novikov/work/current--X--drivers/hwmon/it87.ko--X--defaultlinux--X--68_1--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/hwmon/it87.c"
 static int res_it87_probe_42  ;
 #line 1993
-void main(void) ;
+int main(void) ;
 #line 1993 "/work/ldvuser/novikov/work/current--X--drivers/hwmon/it87.ko--X--defaultlinux--X--68_1--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/hwmon/it87.c"
 static struct ftrace_branch_data  __attribute__((__aligned__(4))) ______f___857  __attribute__((__section__("_ftrace_branch")))  =    {"main",
     "/work/ldvuser/novikov/work/current--X--drivers/hwmon/it87.ko--X--defaultlinux--X--68_1--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/hwmon/it87.c",
@@ -8594,7 +8594,7 @@ static struct ftrace_branch_data  __attribute__((__aligned__(4))) ______f___860 
     "/work/ldvuser/novikov/work/current--X--drivers/hwmon/it87.ko--X--defaultlinux--X--68_1--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/hwmon/it87.c",
     2120, {{0UL, 0UL}}};
 #line 1676 "/work/ldvuser/novikov/work/current--X--drivers/hwmon/it87.ko--X--defaultlinux--X--68_1--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/hwmon/it87.c"
-void main(void) 
+int main(void) 
 { 
   struct platform_device *var_group1 ;
   int ______r ;
@@ -8739,7 +8739,7 @@ void main(void)
 #line 2336
   ldv_check_final_state();
 #line 2339
-  return;
+  return 0;
 }
 }
 #line 1479 "include/linux/usb.h"

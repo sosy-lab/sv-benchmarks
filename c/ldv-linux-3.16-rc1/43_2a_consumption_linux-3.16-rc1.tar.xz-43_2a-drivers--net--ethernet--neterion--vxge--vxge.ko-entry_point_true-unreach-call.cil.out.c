@@ -37540,7 +37540,7 @@ int ldv_irq_2(int state , int line , void *data )
 }
 }
 #line 5501 "/work/ldvuser/mutilin/launch/work/current--X--drivers--X--defaultlinux-3.16-rc1.tar.xz--X--43_2a--X--cpachecker/linux-3.16-rc1.tar.xz/csd_deg_dscv/9981/dscv_tempdir/dscv/ri/43_2a/drivers/net/ethernet/neterion/vxge/vxge-main.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   enum vxge_hw_event ldvarg1 ;
   u64 ldvarg0 ;
@@ -38548,7 +38548,7 @@ void main(void)
 #line 6221
   ldv_check_final_state();
 #line 6222
-  return;
+  return 0;
 }
 }
 #line 6241 "/work/ldvuser/mutilin/launch/work/current--X--drivers--X--defaultlinux-3.16-rc1.tar.xz--X--43_2a--X--cpachecker/linux-3.16-rc1.tar.xz/csd_deg_dscv/9981/dscv_tempdir/dscv/ri/43_2a/drivers/net/ethernet/neterion/vxge/vxge-main.o.c.prepared"

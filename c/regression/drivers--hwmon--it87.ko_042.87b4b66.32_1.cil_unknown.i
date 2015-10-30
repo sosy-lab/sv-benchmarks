@@ -3977,7 +3977,7 @@ int LDV_IN_INTERRUPT  ;
 #line 1645 "/work/ldvuser/novikov/work/current--X--drivers/hwmon/it87.ko--X--defaultlinux--X--32_1--X--cpachecker/linux/csd_deg_dscv/10/dscv_tempdir/dscv/ri/32_1/drivers/hwmon/it87.c"
 static int res_it87_probe_40  ;
 #line 1541 "/work/ldvuser/novikov/work/current--X--drivers/hwmon/it87.ko--X--defaultlinux--X--32_1--X--cpachecker/linux/csd_deg_dscv/10/dscv_tempdir/dscv/ri/32_1/drivers/hwmon/it87.c"
-void main(void) 
+int main(void) 
 { 
   struct platform_device *var_group1 ;
   int tmp ;
@@ -4069,7 +4069,7 @@ void main(void)
 #line 2195
   ldv_check_final_state();
 #line 2198
-  return;
+  return 0;
 }
 }
 #line 133 "include/linux/mutex.h"

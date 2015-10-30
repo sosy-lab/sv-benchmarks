@@ -11501,7 +11501,7 @@ void ldv_main_exported_2(void) ;
 #line 762
 void ldv_main_exported_1(void) ;
 #line 768 "/work/ldvuser/zakharov_benchmarks/bench/cpa/work/current--X--drivers/staging/bcm/bcm_wimax.ko--X--x1linux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/34/dscv_tempdir/dscv/ri/32_7a/drivers/staging/bcm/InterfaceInit.c.prepared"
-void main(void) 
+int main(void) 
 { int tmp ;
   int tmp___0 ;
   int tmp___1 ;
@@ -11738,7 +11738,7 @@ void main(void)
 #line 916
   ldv_check_final_state();
 #line 917
-  return;
+  return 0;
 }
 }
 #line 920 "/work/ldvuser/zakharov_benchmarks/bench/cpa/work/current--X--drivers/staging/bcm/bcm_wimax.ko--X--x1linux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/34/dscv_tempdir/dscv/ri/32_7a/drivers/staging/bcm/InterfaceInit.c.prepared"

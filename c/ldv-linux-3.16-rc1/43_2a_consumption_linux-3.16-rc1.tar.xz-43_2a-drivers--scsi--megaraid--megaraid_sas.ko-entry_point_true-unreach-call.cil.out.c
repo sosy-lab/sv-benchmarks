@@ -17706,7 +17706,7 @@ void choose_timer_1(struct timer_list *timer )
 #line 6503
 void ldv_main_exported_2(void) ;
 #line 6507 "/work/ldvuser/mutilin/launch/work/current--X--drivers--X--defaultlinux-3.16-rc1.tar.xz--X--43_2a--X--cpachecker/linux-3.16-rc1.tar.xz/csd_deg_dscv/5295/dscv_tempdir/dscv/ri/43_2a/drivers/scsi/megaraid/megaraid_sas_base.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   char *ldvarg1 ;
   void *tmp ;
@@ -19903,7 +19903,7 @@ void main(void)
 #line 7973
   ldv_check_final_state();
 #line 7974
-  return;
+  return 0;
 }
 }
 #line 8036 "/work/ldvuser/mutilin/launch/work/current--X--drivers--X--defaultlinux-3.16-rc1.tar.xz--X--43_2a--X--cpachecker/linux-3.16-rc1.tar.xz/csd_deg_dscv/5295/dscv_tempdir/dscv/ri/43_2a/drivers/scsi/megaraid/megaraid_sas_base.o.c.prepared"

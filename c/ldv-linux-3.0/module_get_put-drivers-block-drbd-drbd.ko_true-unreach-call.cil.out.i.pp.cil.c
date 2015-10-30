@@ -90577,7 +90577,7 @@ char const   *drbd_buildtag(void)
 }
 }
 #line 4244 "/anthill/stuff/tacas-comp/work/current--X--drivers/block/drbd/drbd.ko--X--unsafe1_safe6linux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/19/dscv_tempdir/dscv/ri/08_1/drivers/block/drbd/drbd_main.c.p"
-void main(void) 
+int main(void) 
 { struct block_device *var_group1 ;
   fmode_t var_drbd_open_68_p1 ;
   int res_drbd_open_68 ;
@@ -90730,7 +90730,7 @@ void main(void)
   ldv_check_final_state();
   }
 #line 4660
-  return;
+  return 0;
 }
 }
 #line 4664 "/anthill/stuff/tacas-comp/work/current--X--drivers/block/drbd/drbd.ko--X--unsafe1_safe6linux-3.0.1--X--08_1/linux-3.0.1/csd_deg_dscv/19/dscv_tempdir/dscv/ri/08_1/drivers/block/drbd/drbd_main.c.p"

@@ -24904,7 +24904,7 @@ void ldv_initialize_rtl_hal_ops_3(void)
 }
 }
 #line 555 "/work/ldvuser/mutilin/launch/work/current--X--drivers--X--defaultlinux-3.12-rc1.tar.xz--X--144_2a--X--cpachecker/linux-3.12-rc1.tar.xz/csd_deg_dscv/7013/dscv_tempdir/dscv/ri/144_2a/drivers/net/wireless/rtlwifi/rtl8192se/sw.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct pci_device_id *ldvarg0 ;
   void *tmp ;
@@ -26619,7 +26619,7 @@ void main(void)
 #line 1655
   ldv_check_final_state();
 #line 1656
-  return;
+  return 0;
 }
 }
 #line 77 "/work/ldvuser/mutilin/launch/work/current--X--drivers--X--defaultlinux-3.12-rc1.tar.xz--X--144_2a--X--cpachecker/linux-3.12-rc1.tar.xz/csd_deg_dscv/7013/dscv_tempdir/dscv/ri/144_2a/drivers/net/wireless/rtlwifi/rtl8192se/table.o.c.prepared"

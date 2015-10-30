@@ -8421,7 +8421,7 @@ void disable_suitable_irq_1(int line , void *data )
 }
 }
 #line 244 "/work/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--32_7a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/7085/dscv_tempdir/dscv/ri/32_7a/drivers/staging/rts5208/rtsx.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct pci_device_id *ldvarg1 ;
   void *tmp ;
@@ -8858,7 +8858,7 @@ void main(void)
 #line 530
   ldv_check_final_state();
 #line 531
-  return;
+  return 0;
 }
 }
 #line 540 "/work/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--32_7a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/7085/dscv_tempdir/dscv/ri/32_7a/drivers/staging/rts5208/rtsx.o.c.prepared"

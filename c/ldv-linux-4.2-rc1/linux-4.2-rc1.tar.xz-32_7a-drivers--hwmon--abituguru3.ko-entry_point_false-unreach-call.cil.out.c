@@ -5954,7 +5954,7 @@ void ldv_platform_driver_init_1(void)
 }
 }
 #line 144 "/work/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--32_7a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/8101/dscv_tempdir/dscv/ri/32_7a/drivers/hwmon/abituguru3.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   int tmp ;
   int tmp___0 ;
@@ -6482,7 +6482,7 @@ void main(void)
 #line 472
   ldv_check_final_state();
 #line 473
-  return;
+  return 0;
 }
 }
 #line 482 "/work/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--32_7a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/8101/dscv_tempdir/dscv/ri/32_7a/drivers/hwmon/abituguru3.o.c.prepared"

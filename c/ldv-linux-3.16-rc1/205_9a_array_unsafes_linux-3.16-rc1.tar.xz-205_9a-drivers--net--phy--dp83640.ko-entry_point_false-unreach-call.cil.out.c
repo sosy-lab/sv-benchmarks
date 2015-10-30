@@ -9409,7 +9409,7 @@ void ldv_initialize_phy_driver_1(void)
 }
 }
 #line 1491 "/work/ldvuser/mutilin/launch/work/current--X--drivers/net/--X--defaultlinux-3.16-rc1.tar.xz--X--205_9a--X--cpachecker/linux-3.16-rc1.tar.xz/csd_deg_dscv/998/dscv_tempdir/dscv/ri/205_9a/drivers/net/phy/dp83640.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   int ldvarg1 ;
   int tmp ;
@@ -9755,7 +9755,7 @@ void main(void)
 #line 1726
   ldv_check_final_state();
 #line 1727
-  return;
+  return 0;
 }
 }
 #line 1736 "/work/ldvuser/mutilin/launch/work/current--X--drivers/net/--X--defaultlinux-3.16-rc1.tar.xz--X--205_9a--X--cpachecker/linux-3.16-rc1.tar.xz/csd_deg_dscv/998/dscv_tempdir/dscv/ri/205_9a/drivers/net/phy/dp83640.o.c.prepared"

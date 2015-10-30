@@ -56498,7 +56498,7 @@ static struct ceph_connection_operations  const  mds_con_ops  =
      {& con_get, & con_put, & dispatch, & get_authorizer, & verify_authorizer_reply,
     & invalidate_authorizer, 0, & peer_reset, 0};
 #line 3565 "/home/mikhail/launches/cpachecker-regression/launcher-working-dir/ldv-manager-work-dir/work/current--X--fs/ceph/ceph.ko--X--regression-testlinux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/27/dscv_tempdir/dscv/ri/32_7a/fs/ceph/mds_client.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct ceph_connection *var_group1 ;
   struct ceph_msg *var_group2 ;
@@ -56589,7 +56589,7 @@ void main(void)
 #line 3749
   ldv_check_final_state();
 #line 3752
-  return;
+  return 0;
 }
 }
 #line 3756 "/home/mikhail/launches/cpachecker-regression/launcher-working-dir/ldv-manager-work-dir/work/current--X--fs/ceph/ceph.ko--X--regression-testlinux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/27/dscv_tempdir/dscv/ri/32_7a/fs/ceph/mds_client.c.prepared"

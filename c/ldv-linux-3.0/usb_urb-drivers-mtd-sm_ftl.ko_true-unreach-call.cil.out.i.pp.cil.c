@@ -10751,7 +10751,7 @@ extern int __VERIFIER_nondet_int(void) ;
 #line 1333 "/anthill/stuff/tacas-comp/work/current--X--drivers/mtd/sm_ftl.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/mtd/sm_ftl.c.common.c"
 int LDV_IN_INTERRUPT  ;
 #line 1336 "/anthill/stuff/tacas-comp/work/current--X--drivers/mtd/sm_ftl.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/mtd/sm_ftl.c.common.c"
-void main(void) 
+int main(void) 
 { struct mtd_blktrans_dev *var_group1 ;
   struct hd_geometry *var_group2 ;
   struct mtd_blktrans_ops *var_group3 ;
@@ -10929,7 +10929,7 @@ void main(void)
   ldv_check_final_state();
   }
 #line 1585
-  return;
+  return 0;
 }
 }
 #line 5 "/anthill/stuff/tacas-comp/work/current--X--drivers/mtd/sm_ftl.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/kernel-rules/files/engine-blast-assert.h"

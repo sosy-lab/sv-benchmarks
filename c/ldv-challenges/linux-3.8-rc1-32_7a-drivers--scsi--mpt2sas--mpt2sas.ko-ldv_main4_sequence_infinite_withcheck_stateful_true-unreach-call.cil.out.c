@@ -41547,7 +41547,7 @@ void mpt2sas_ctl_exit(void)
 }
 }
 #line 3151 "/work/ldvuser/exper_fp/work/current--X--drivers--X--defaultlinux-3.10-rc1.tar--X--32_7a--X--cpachecker/linux-3.10-rc1.tar/csd_deg_dscv/4634/dscv_tempdir/dscv/ri/32_7a/drivers/scsi/mpt2sas/mpt2sas_ctl.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct file *var_group1 ;
   unsigned int var__ctl_ioctl_31_p1 ;
@@ -41620,7 +41620,7 @@ void main(void)
 #line 3452
   ldv_check_final_state();
 #line 3455
-  return;
+  return 0;
 }
 }
 #line 3459 "/work/ldvuser/exper_fp/work/current--X--drivers--X--defaultlinux-3.10-rc1.tar--X--32_7a--X--cpachecker/linux-3.10-rc1.tar/csd_deg_dscv/4634/dscv_tempdir/dscv/ri/32_7a/drivers/scsi/mpt2sas/mpt2sas_ctl.c.prepared"

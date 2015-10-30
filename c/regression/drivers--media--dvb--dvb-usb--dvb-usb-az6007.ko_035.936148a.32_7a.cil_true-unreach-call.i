@@ -8576,7 +8576,7 @@ extern int nondet_int(void) ;
 #line 1031 "/work/ldvuser/novikov/work/current--X--drivers/media/dvb/dvb-usb/dvb-usb-az6007.ko--X--defaultlinux--X--32_7a--X--cpachecker/linux/csd_deg_dscv/65/dscv_tempdir/dscv/ri/32_7a/drivers/media/dvb/dvb-usb/az6007.c.prepared"
 int LDV_IN_INTERRUPT  ;
 #line 1034 "/work/ldvuser/novikov/work/current--X--drivers/media/dvb/dvb-usb/dvb-usb-az6007.ko--X--defaultlinux--X--32_7a--X--cpachecker/linux/csd_deg_dscv/65/dscv_tempdir/dscv/ri/32_7a/drivers/media/dvb/dvb-usb/az6007.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct i2c_adapter *var_group1 ;
   struct usb_device *var_group2 ;
@@ -8731,7 +8731,7 @@ void main(void)
 #line 1577
   ldv_check_final_state();
 #line 1580
-  return;
+  return 0;
 }
 }
 #line 1584 "/work/ldvuser/novikov/work/current--X--drivers/media/dvb/dvb-usb/dvb-usb-az6007.ko--X--defaultlinux--X--32_7a--X--cpachecker/linux/csd_deg_dscv/65/dscv_tempdir/dscv/ri/32_7a/drivers/media/dvb/dvb-usb/az6007.c.prepared"

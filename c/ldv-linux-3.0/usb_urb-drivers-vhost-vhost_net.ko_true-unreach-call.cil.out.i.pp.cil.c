@@ -24818,7 +24818,7 @@ int LDV_IN_INTERRUPT  ;
 #line 880 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
 static int res_vhost_net_open_12  ;
 #line 826 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
-void main(void) 
+int main(void) 
 { struct inode *var_group1 ;
   struct file *var_group2 ;
   unsigned int var_vhost_net_ioctl_26_p1 ;
@@ -24975,6 +24975,6 @@ void main(void)
   ldv_check_final_state();
   }
 #line 1050
-  return;
+  return 0;
 }
 }

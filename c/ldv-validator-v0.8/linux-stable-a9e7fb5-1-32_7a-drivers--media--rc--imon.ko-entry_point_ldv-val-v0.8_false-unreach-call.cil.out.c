@@ -9027,7 +9027,7 @@ void disable_suitable_timer_1(struct timer_list *timer )
 }
 }
 #line 180 "/home/ldvuser/andrianov/commit-tester-work/task-004--linux-stable--dir/work/current--X--drivers/media/rc/imon.ko--X--defaultlinux-stable-a9e7fb5-1--X--32_7a--X--cpachecker/linux-stable-a9e7fb5-1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/32_7a/drivers/media/rc/imon.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   loff_t ldvarg1 ;
   char *ldvarg4 ;
@@ -9594,7 +9594,7 @@ void main(void)
 #line 517
   ldv_check_final_state();
 #line 518
-  return;
+  return 0;
 }
 }
 #line 545 "/home/ldvuser/andrianov/commit-tester-work/task-004--linux-stable--dir/work/current--X--drivers/media/rc/imon.ko--X--defaultlinux-stable-a9e7fb5-1--X--32_7a--X--cpachecker/linux-stable-a9e7fb5-1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/32_7a/drivers/media/rc/imon.o.c.prepared"

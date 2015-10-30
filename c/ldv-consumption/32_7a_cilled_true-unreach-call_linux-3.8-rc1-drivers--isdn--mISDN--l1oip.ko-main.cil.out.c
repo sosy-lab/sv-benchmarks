@@ -9218,7 +9218,7 @@ void ldv_initialize(void) ;
 #line 1568
 void ldv_check_final_state(void) ;
 #line 1575 "/work/ldvuser/zakharov_benchmarks/bench/cpa/work/current--X--drivers/isdn/mISDN/l1oip.ko--X--x1linux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/31/dscv_tempdir/dscv/ri/32_7a/drivers/isdn/mISDN/l1oip_core.c.prepared"
-void main(void) 
+int main(void) 
 { int tmp ;
   int tmp___0 ;
 
@@ -9302,7 +9302,7 @@ void main(void)
 #line 1622
   ldv_check_final_state();
 #line 1623
-  return;
+  return 0;
 }
 }
 #line 1626 "/work/ldvuser/zakharov_benchmarks/bench/cpa/work/current--X--drivers/isdn/mISDN/l1oip.ko--X--x1linux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/31/dscv_tempdir/dscv/ri/32_7a/drivers/isdn/mISDN/l1oip_core.c.prepared"

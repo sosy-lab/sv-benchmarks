@@ -28656,7 +28656,7 @@ struct efx_nic_type  const  falcon_b0_nic_type  =
     16056320U, 15990784U, 8388608U, 16121856U, 16384000U, 70368744177663ULL, 16U,
     0U, 0U, 32U, 4096U, 402653186ULL};
 #line 2002 "/home/mikhail/launches/cpachecker-regression2/launcher-working-dir/ldv-manager-work-dir/work/current--X--drivers/net/ethernet/sfc/sfc.ko--X--regression-testlinux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/33/dscv_tempdir/dscv/ri/32_7a/drivers/net/ethernet/sfc/falcon.c.prepared"
-void main(void) 
+int main(void) 
 { 
   void *var_falcon_setsda_0_p0 ;
   int var_falcon_setsda_0_p1 ;
@@ -29104,7 +29104,7 @@ void main(void)
 #line 3227
   ldv_check_final_state();
 #line 3230
-  return;
+  return 0;
 }
 }
 #line 3234 "/home/mikhail/launches/cpachecker-regression2/launcher-working-dir/ldv-manager-work-dir/work/current--X--drivers/net/ethernet/sfc/sfc.ko--X--regression-testlinux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/33/dscv_tempdir/dscv/ri/32_7a/drivers/net/ethernet/sfc/falcon.c.prepared"

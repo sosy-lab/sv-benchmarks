@@ -8825,7 +8825,7 @@ void ldv_net_device_ops_2(void)
 }
 }
 #line 1233 "/work/ldvuser/mutilin/launch/work/current--X--drivers--X--defaultlinux-3.12-rc1.tar.xz--X--144_2a--X--cpachecker/linux-3.12-rc1.tar.xz/csd_deg_dscv/6226/dscv_tempdir/dscv/ri/144_2a/drivers/net/can/usb/esd_usb2.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   char *ldvarg1 ;
   void *tmp ;
@@ -9233,7 +9233,7 @@ void main(void)
 #line 1458
   ldv_check_final_state();
 #line 1459
-  return;
+  return 0;
 }
 }
 #line 1462 "/work/ldvuser/mutilin/launch/work/current--X--drivers--X--defaultlinux-3.12-rc1.tar.xz--X--144_2a--X--cpachecker/linux-3.12-rc1.tar.xz/csd_deg_dscv/6226/dscv_tempdir/dscv/ri/144_2a/drivers/net/can/usb/esd_usb2.o.c.prepared"

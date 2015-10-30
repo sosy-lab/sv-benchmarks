@@ -41914,7 +41914,7 @@ void mpt2sas_ctl_exit(void)
 }
 }
 #line 3173 "/work/vladimir/UFO/Work/test/work/current--X--drivers/scsi/mpt2sas/mpt2sas.ko--X--defaultlinux-3.7.3--X--32_7a--X--ufo/linux-3.7.3/csd_deg_dscv/16/dscv_tempdir/dscv/ri/32_7a/drivers/scsi/mpt2sas/mpt2sas_ctl.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct file *var_group1 ;
   unsigned int var__ctl_ioctl_32_p1 ;
@@ -42009,7 +42009,7 @@ void main(void)
 #line 3539
   ldv_check_final_state();
 #line 3542
-  return;
+  return 0;
 }
 }
 #line 3546 "/work/vladimir/UFO/Work/test/work/current--X--drivers/scsi/mpt2sas/mpt2sas.ko--X--defaultlinux-3.7.3--X--32_7a--X--ufo/linux-3.7.3/csd_deg_dscv/16/dscv_tempdir/dscv/ri/32_7a/drivers/scsi/mpt2sas/mpt2sas_ctl.c.prepared"

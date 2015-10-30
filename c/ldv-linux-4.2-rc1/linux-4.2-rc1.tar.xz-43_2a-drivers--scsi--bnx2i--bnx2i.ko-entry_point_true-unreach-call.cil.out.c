@@ -11097,7 +11097,7 @@ void ldv_main_exported_6(void) ;
 #line 90
 void ldv_main_exported_7(void) ;
 #line 94 "/home/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--43_2a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/3258/dscv_tempdir/dscv/ri/43_2a/drivers/scsi/bnx2i/bnx2i_init.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct notifier_block *ldvarg32 ;
   void *tmp ;
@@ -11326,7 +11326,7 @@ void main(void)
 #line 249
   ldv_check_final_state();
 #line 250
-  return;
+  return 0;
 }
 }
 #line 265 "/home/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--43_2a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/3258/dscv_tempdir/dscv/ri/43_2a/drivers/scsi/bnx2i/bnx2i_init.o.c.prepared"

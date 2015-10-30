@@ -11516,7 +11516,7 @@ int poseidon_audio_free(struct poseidon *p )
 }
 }
 #line 419 "/work/vladimir/commit-test/commit-test-work/task-001--linux-stable--dir/work/current--X--drivers/media/video/tlg2300/poseidon.ko--X--defaultlinux-stable-4a349aa--X--32_7a--X--cpachecker/linux-stable-4a349aa/csd_deg_dscv/15/dscv_tempdir/dscv/ri/32_7a/drivers/media/video/tlg2300/pd-alsa.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct snd_pcm_substream *var_group1 ;
   int res_snd_pd_capture_open_0 ;
@@ -11640,7 +11640,7 @@ void main(void)
 #line 803
   ldv_check_final_state();
 #line 806
-  return;
+  return 0;
 }
 }
 #line 810 "/work/vladimir/commit-test/commit-test-work/task-001--linux-stable--dir/work/current--X--drivers/media/video/tlg2300/poseidon.ko--X--defaultlinux-stable-4a349aa--X--32_7a--X--cpachecker/linux-stable-4a349aa/csd_deg_dscv/15/dscv_tempdir/dscv/ri/32_7a/drivers/media/video/tlg2300/pd-alsa.c.prepared"

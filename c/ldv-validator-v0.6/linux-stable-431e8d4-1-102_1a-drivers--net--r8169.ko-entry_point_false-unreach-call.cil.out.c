@@ -18975,7 +18975,7 @@ void choose_interrupt_1(void)
 }
 }
 #line 5366 "/home/ldvuser/gratinskiy/commit-tester-runs/6-cpa-svcomp-newdeg/commit-tester-work/task-012--linux-stable--dir/work/current--X--drivers/net/r8169.ko--X--defaultlinux-stable-431e8d4-1--X--102_1a--X--cpachecker/linux-stable-431e8d4-1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/102_1a/drivers/net/r8169.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   int ldvarg1 ;
   int tmp ;
@@ -20489,7 +20489,7 @@ void main(void)
 #line 6361
   ldv_check_final_state();
 #line 6362
-  return;
+  return 0;
 }
 }
 #line 6365 "/home/ldvuser/gratinskiy/commit-tester-runs/6-cpa-svcomp-newdeg/commit-tester-work/task-012--linux-stable--dir/work/current--X--drivers/net/r8169.ko--X--defaultlinux-stable-431e8d4-1--X--102_1a--X--cpachecker/linux-stable-431e8d4-1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/102_1a/drivers/net/r8169.o.c.prepared"

@@ -4557,7 +4557,7 @@ extern int nondet_int(void) ;
 #line 1671 "/work/ldvuser/novikov/work/current--X--drivers/hwmon/it87.ko--X--defaultlinux--X--32_7a--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/32_7a/drivers/hwmon/it87.c.prepared"
 int LDV_IN_INTERRUPT  ;
 #line 1674 "/work/ldvuser/novikov/work/current--X--drivers/hwmon/it87.ko--X--defaultlinux--X--32_7a--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/32_7a/drivers/hwmon/it87.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct platform_device *var_group1 ;
   int res_it87_probe_42 ;
@@ -4653,7 +4653,7 @@ void main(void)
 #line 2328
   ldv_check_final_state();
 #line 2331
-  return;
+  return 0;
 }
 }
 #line 2335 "/work/ldvuser/novikov/work/current--X--drivers/hwmon/it87.ko--X--defaultlinux--X--32_7a--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/32_7a/drivers/hwmon/it87.c.prepared"

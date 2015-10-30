@@ -9592,7 +9592,7 @@ void ldv_initialize_v4l2_file_operations_4(void)
 }
 }
 #line 1535 "/work/ldvuser/mutilin/launch/work/current--X--drivers--X--defaultlinux-3.12-rc1.tar.xz--X--144_2a--X--cpachecker/linux-3.12-rc1.tar.xz/csd_deg_dscv/2169/dscv_tempdir/dscv/ri/144_2a/drivers/media/usb/stkwebcam/stk-webcam.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   unsigned int ldvarg1 ;
   unsigned int tmp ;
@@ -10529,7 +10529,7 @@ void main(void)
 #line 2083
   ldv_check_final_state();
 #line 2084
-  return;
+  return 0;
 }
 }
 #line 2087 "/work/ldvuser/mutilin/launch/work/current--X--drivers--X--defaultlinux-3.12-rc1.tar.xz--X--144_2a--X--cpachecker/linux-3.12-rc1.tar.xz/csd_deg_dscv/2169/dscv_tempdir/dscv/ri/144_2a/drivers/media/usb/stkwebcam/stk-webcam.o.c.prepared"

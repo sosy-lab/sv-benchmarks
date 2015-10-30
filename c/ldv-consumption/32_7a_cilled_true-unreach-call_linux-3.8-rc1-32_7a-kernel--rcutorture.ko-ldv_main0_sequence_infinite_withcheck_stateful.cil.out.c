@@ -10397,7 +10397,7 @@ extern int __VERIFIER_nondet_int(void) ;
 #line 2258 "/home/mikhail/launches/cpachecker-regression2/launcher-working-dir/ldv-manager-work-dir/work/current--X--kernel/rcutorture.ko--X--regression-testlinux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/32_7a/kernel/rcutorture.c.prepared"
 int LDV_IN_INTERRUPT  ;
 #line 2261 "/home/mikhail/launches/cpachecker-regression2/launcher-working-dir/ldv-manager-work-dir/work/current--X--kernel/rcutorture.ko--X--regression-testlinux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/32_7a/kernel/rcutorture.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct rcu_random_state *var_group1 ;
   int var_rcu_torture_read_unlock_8_p0 ;
@@ -11128,7 +11128,7 @@ void main(void)
 #line 10884
   ldv_check_final_state();
 #line 10887
-  return;
+  return 0;
 }
 }
 #line 10891 "/home/mikhail/launches/cpachecker-regression2/launcher-working-dir/ldv-manager-work-dir/work/current--X--kernel/rcutorture.ko--X--regression-testlinux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/32_7a/kernel/rcutorture.c.prepared"

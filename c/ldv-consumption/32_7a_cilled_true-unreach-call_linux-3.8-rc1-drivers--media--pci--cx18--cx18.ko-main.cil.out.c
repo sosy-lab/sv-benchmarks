@@ -12298,7 +12298,7 @@ void ldv_main_exported_12(void) ;
 #line 1489
 void ldv_main_exported_2(void) ;
 #line 1493 "/work/ldvuser/zakharov_benchmarks/bench/cpa/work/current--X--drivers/media/pci/cx18/cx18.ko--X--x1linux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/35/dscv_tempdir/dscv/ri/32_7a/drivers/media/pci/cx18/cx18-driver.c.prepared"
-void main(void) 
+int main(void) 
 { int tmp ;
   int tmp___0 ;
   int tmp___1 ;
@@ -12675,7 +12675,7 @@ void main(void)
 #line 1746
   ldv_check_final_state();
 #line 1747
-  return;
+  return 0;
 }
 }
 #line 1750 "/work/ldvuser/zakharov_benchmarks/bench/cpa/work/current--X--drivers/media/pci/cx18/cx18.ko--X--x1linux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/35/dscv_tempdir/dscv/ri/32_7a/drivers/media/pci/cx18/cx18-driver.c.prepared"

@@ -11561,7 +11561,7 @@ void choose_interrupt_1(void)
 }
 }
 #line 234 "/home/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--43_2a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/11763/dscv_tempdir/dscv/ri/43_2a/drivers/net/hippi/rrunner.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct sk_buff *ldvarg1 ;
   void *tmp ;
@@ -11938,7 +11938,7 @@ void main(void)
 #line 477
   ldv_check_final_state();
 #line 478
-  return;
+  return 0;
 }
 }
 #line 505 "/home/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--43_2a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/11763/dscv_tempdir/dscv/ri/43_2a/drivers/net/hippi/rrunner.o.c.prepared"

@@ -14548,7 +14548,7 @@ void ldv_main_exported_20(void) ;
 #line 574
 void ldv_main_exported_16(void) ;
 #line 578 "/home/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--43_2a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/6636/dscv_tempdir/dscv/ri/43_2a/drivers/media/pci/cx18/cx18-driver.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct pci_device_id *ldvarg87 ;
   void *tmp ;
@@ -15040,7 +15040,7 @@ void main(void)
 #line 922
   ldv_check_final_state();
 #line 923
-  return;
+  return 0;
 }
 }
 #line 1039 "/home/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--43_2a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/6636/dscv_tempdir/dscv/ri/43_2a/drivers/media/pci/cx18/cx18-driver.o.c.prepared"

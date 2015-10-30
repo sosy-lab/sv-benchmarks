@@ -35084,7 +35084,7 @@ u32 ldvarg52  ;
 #line 555
 extern int ldv_rtlwifi_pm_ops_thaw_early_2(void) ;
 #line 565 "/work/ldvuser/zakharov_benchmarks/bench/cpa/work/current--X--drivers/net/wireless/rtlwifi/rtl8192de/rtl8192de.ko--X--x1linux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/20/dscv_tempdir/dscv/ri/32_7a/drivers/net/wireless/rtlwifi/rtl8192de/sw.c.prepared"
-void main(void) 
+int main(void) 
 { int tmp ;
   int tmp___0 ;
   int tmp___1 ;
@@ -36498,7 +36498,7 @@ void main(void)
 #line 1604
   ldv_check_final_state();
 #line 1605
-  return;
+  return 0;
 }
 }
 #line 1608 "/work/ldvuser/zakharov_benchmarks/bench/cpa/work/current--X--drivers/net/wireless/rtlwifi/rtl8192de/rtl8192de.ko--X--x1linux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/20/dscv_tempdir/dscv/ri/32_7a/drivers/net/wireless/rtlwifi/rtl8192de/sw.c.prepared"

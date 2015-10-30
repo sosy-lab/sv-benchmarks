@@ -19033,7 +19033,7 @@ void invoke_work_2(void)
 }
 }
 #line 350 "/home/ldvuser/andrianov/commit-tester-work/task-002--linux-stable--dir/work/current--X--drivers/media/video/tlg2300/poseidon.ko--X--defaultlinux-stable-4a349aa-1--X--32_7a--X--cpachecker/linux-stable-4a349aa-1/csd_deg_dscv/15/dscv_tempdir/dscv/ri/32_7a/drivers/media/video/tlg2300/pd-main.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct usb_device_id *ldvarg57 ;
   void *tmp ;
@@ -19447,7 +19447,7 @@ void main(void)
 #line 616
   ldv_check_final_state();
 #line 617
-  return;
+  return 0;
 }
 }
 #line 644 "/home/ldvuser/andrianov/commit-tester-work/task-002--linux-stable--dir/work/current--X--drivers/media/video/tlg2300/poseidon.ko--X--defaultlinux-stable-4a349aa-1--X--32_7a--X--cpachecker/linux-stable-4a349aa-1/csd_deg_dscv/15/dscv_tempdir/dscv/ri/32_7a/drivers/media/video/tlg2300/pd-main.o.c.prepared"

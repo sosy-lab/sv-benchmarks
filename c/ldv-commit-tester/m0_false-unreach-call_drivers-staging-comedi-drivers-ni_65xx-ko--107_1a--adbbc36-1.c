@@ -3808,7 +3808,7 @@ extern int __VERIFIER_nondet_int(void) ;
 #line 915 "/work/vladimir/commit-test/commit-test-work/task-046--linux-stable--dir/work/current--X--drivers/staging/comedi/drivers/ni_65xx.ko--X--defaultlinux-stable-adbbc36-1--X--107_1a--X--cpachecker/linux-stable-adbbc36-1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/107_1a/drivers/staging/comedi/drivers/ni_65xx.c.prepared"
 int LDV_IN_INTERRUPT  ;
 #line 918 "/work/vladimir/commit-test/commit-test-work/task-046--linux-stable--dir/work/current--X--drivers/staging/comedi/drivers/ni_65xx.ko--X--defaultlinux-stable-adbbc36-1--X--107_1a--X--cpachecker/linux-stable-adbbc36-1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/107_1a/drivers/staging/comedi/drivers/ni_65xx.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct comedi_device *var_group1 ;
   struct comedi_devconfig *var_group2 ;
@@ -3890,7 +3890,7 @@ void main(void)
 #line 1227
   ldv_check_final_state();
 #line 1230
-  return;
+  return 0;
 }
 }
 #line 10 "/work/vladimir/kernel-rules/verifier/rcv.h"

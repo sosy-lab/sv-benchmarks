@@ -5636,7 +5636,7 @@ void ldv_initialize_block_device_operations_2(void)
 }
 }
 #line 576 "/home/ldvuser/gratinskiy/commit-tester-runs/6-cpa-svcomp-newdeg/commit-tester-work/task-011--linux-stable--dir/work/current--X--drivers/block/virtio_blk.ko--X--defaultlinux-stable-39a1d13-1--X--101_1a--X--cpachecker/linux-stable-39a1d13-1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/101_1a/drivers/block/virtio_blk.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   unsigned long ldvarg1 ;
   unsigned long tmp ;
@@ -5847,7 +5847,7 @@ void main(void)
 #line 698
   ldv_check_final_state();
 #line 699
-  return;
+  return 0;
 }
 }
 #line 702 "/home/ldvuser/gratinskiy/commit-tester-runs/6-cpa-svcomp-newdeg/commit-tester-work/task-011--linux-stable--dir/work/current--X--drivers/block/virtio_blk.ko--X--defaultlinux-stable-39a1d13-1--X--101_1a--X--cpachecker/linux-stable-39a1d13-1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/101_1a/drivers/block/virtio_blk.o.c.prepared"

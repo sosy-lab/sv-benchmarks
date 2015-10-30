@@ -7306,7 +7306,7 @@ extern int nondet_int(void) ;
 #line 496 "/work/ldvuser/novikov/work/current--X--drivers/net/wireless/wl12xx/wl12xx_sdio.ko--X--defaultlinux--X--39_7a--X--cpachecker/linux/csd_deg_dscv/25/dscv_tempdir/dscv/ri/39_7a/drivers/net/wireless/wl12xx/sdio.c.prepared"
 int LDV_IN_INTERRUPT  ;
 #line 499 "/work/ldvuser/novikov/work/current--X--drivers/net/wireless/wl12xx/wl12xx_sdio.ko--X--defaultlinux--X--39_7a--X--cpachecker/linux/csd_deg_dscv/25/dscv_tempdir/dscv/ri/39_7a/drivers/net/wireless/wl12xx/sdio.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct device *var_group1 ;
   int var_wl12xx_sdio_raw_read_1_p1 ;
@@ -7458,7 +7458,7 @@ void main(void)
 #line 977
   ldv_check_final_state();
 #line 980
-  return;
+  return 0;
 }
 }
 #line 1016 "/work/ldvuser/novikov/work/current--X--drivers/net/wireless/wl12xx/wl12xx_sdio.ko--X--defaultlinux--X--39_7a--X--cpachecker/linux/csd_deg_dscv/25/dscv_tempdir/dscv/ri/39_7a/drivers/net/wireless/wl12xx/sdio.c.prepared"

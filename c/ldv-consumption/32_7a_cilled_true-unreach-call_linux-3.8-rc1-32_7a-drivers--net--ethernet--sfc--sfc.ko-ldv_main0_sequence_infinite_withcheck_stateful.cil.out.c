@@ -17266,7 +17266,7 @@ extern int __VERIFIER_nondet_int(void) ;
 #line 3056 "/home/mikhail/launches/cpachecker-regression2/launcher-working-dir/ldv-manager-work-dir/work/current--X--drivers/net/ethernet/sfc/sfc.ko--X--regression-testlinux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/33/dscv_tempdir/dscv/ri/32_7a/drivers/net/ethernet/sfc/efx.c.prepared"
 int LDV_IN_INTERRUPT  ;
 #line 3059 "/home/mikhail/launches/cpachecker-regression2/launcher-working-dir/ldv-manager-work-dir/work/current--X--drivers/net/ethernet/sfc/sfc.ko--X--regression-testlinux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/33/dscv_tempdir/dscv/ri/32_7a/drivers/net/ethernet/sfc/efx.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct efx_channel *var_group1 ;
   char *var_efx_get_channel_name_14_p1 ;
@@ -17577,7 +17577,7 @@ void main(void)
 #line 4936
   ldv_check_final_state();
 #line 4939
-  return;
+  return 0;
 }
 }
 #line 4943 "/home/mikhail/launches/cpachecker-regression2/launcher-working-dir/ldv-manager-work-dir/work/current--X--drivers/net/ethernet/sfc/sfc.ko--X--regression-testlinux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/33/dscv_tempdir/dscv/ri/32_7a/drivers/net/ethernet/sfc/efx.c.prepared"

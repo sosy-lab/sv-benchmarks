@@ -9021,7 +9021,7 @@ void ldv_main_exported_3(void) ;
 #line 925
 void ldv_main_exported_2(void) ;
 #line 929 "/work/ldvuser/mutilin/launch/work/current--X--drivers--X--defaultlinux-3.16-rc1.tar.xz--X--43_2a--X--cpachecker/linux-3.16-rc1.tar.xz/csd_deg_dscv/5994/dscv_tempdir/dscv/ri/43_2a/drivers/staging/media/solo6x10/solo6x10-core.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct pci_device_id *ldvarg88 ;
   void *tmp ;
@@ -9381,7 +9381,7 @@ void main(void)
 #line 1164
   ldv_check_final_state();
 #line 1165
-  return;
+  return 0;
 }
 }
 #line 1227 "/work/ldvuser/mutilin/launch/work/current--X--drivers--X--defaultlinux-3.16-rc1.tar.xz--X--43_2a--X--cpachecker/linux-3.16-rc1.tar.xz/csd_deg_dscv/5994/dscv_tempdir/dscv/ri/43_2a/drivers/staging/media/solo6x10/solo6x10-core.o.c.prepared"

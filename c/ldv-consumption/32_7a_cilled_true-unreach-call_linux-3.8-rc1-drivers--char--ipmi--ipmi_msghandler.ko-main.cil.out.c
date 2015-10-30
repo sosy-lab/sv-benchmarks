@@ -6467,7 +6467,7 @@ int ipmi_get_maintenance_mode(ipmi_user_t user )
 }
 }
 #line 1221 "/home/zakharov/workspace/benchmarks/bench_1/work/current--X--drivers/char/ipmi/ipmi_msghandler.ko--X--deg2_cpalinux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/32_7a/drivers/char/ipmi/ipmi_msghandler.c.prepared"
-static void maintenance_mode_update(ipmi_smi_t intf ) 
+static int maintenance_mode_update(ipmi_smi_t intf ) 
 { 
 
   {
@@ -12208,7 +12208,7 @@ void ldv_check_final_state(void) ;
 #line 4666 "/home/zakharov/workspace/benchmarks/bench_1/work/current--X--drivers/char/ipmi/ipmi_msghandler.ko--X--deg2_cpalinux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/32_7a/drivers/char/ipmi/ipmi_msghandler.c.prepared"
 unsigned long ldvarg2  ;
 #line 4672 "/home/zakharov/workspace/benchmarks/bench_1/work/current--X--drivers/char/ipmi/ipmi_msghandler.ko--X--deg2_cpalinux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/32_7a/drivers/char/ipmi/ipmi_msghandler.c.prepared"
-void main(void) 
+int main(void) 
 { int tmp ;
   int tmp___0 ;
   int tmp___1 ;
@@ -12494,7 +12494,7 @@ void main(void)
 #line 4843
   ldv_check_final_state();
 #line 4844
-  return;
+  return 0;
 }
 }
 #line 4847 "/home/zakharov/workspace/benchmarks/bench_1/work/current--X--drivers/char/ipmi/ipmi_msghandler.ko--X--deg2_cpalinux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/32_7a/drivers/char/ipmi/ipmi_msghandler.c.prepared"

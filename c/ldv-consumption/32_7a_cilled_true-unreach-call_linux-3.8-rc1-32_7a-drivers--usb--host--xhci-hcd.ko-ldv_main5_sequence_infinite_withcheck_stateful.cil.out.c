@@ -37215,7 +37215,7 @@ extern void ldv_check_return_value(int  ) ;
 #line 411
 extern void ldv_check_return_value_probe(int  ) ;
 #line 426 "/home/mikhail/launches/cpachecker-regression2/launcher-working-dir/ldv-manager-work-dir/work/current--X--drivers/usb/host/xhci-hcd.ko--X--regression-testlinux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/20/dscv_tempdir/dscv/ri/32_7a/drivers/usb/host/xhci-pci.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct usb_hcd *var_group1 ;
   bool var_xhci_pci_suspend_5_p1 ;
@@ -37319,7 +37319,7 @@ void main(void)
 #line 722
   ldv_check_final_state();
 #line 725
-  return;
+  return 0;
 }
 }
 #line 729 "/home/mikhail/launches/cpachecker-regression2/launcher-working-dir/ldv-manager-work-dir/work/current--X--drivers/usb/host/xhci-hcd.ko--X--regression-testlinux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/20/dscv_tempdir/dscv/ri/32_7a/drivers/usb/host/xhci-pci.c.prepared"

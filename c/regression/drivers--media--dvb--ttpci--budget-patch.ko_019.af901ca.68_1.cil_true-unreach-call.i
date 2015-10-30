@@ -9875,7 +9875,7 @@ extern int nondet_int(void) ;
 #line 710 "/work/ldvuser/novikov/work/current--X--drivers/media/dvb/ttpci/budget-patch.ko--X--defaultlinux--X--68_1--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/dvb/ttpci/budget-patch.c"
 int LDV_IN_INTERRUPT  ;
 #line 713 "/work/ldvuser/novikov/work/current--X--drivers/media/dvb/ttpci/budget-patch.ko--X--defaultlinux--X--68_1--X--cpachecker/linux/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/dvb/ttpci/budget-patch.c"
-void main(void) 
+int main(void) 
 { 
   struct saa7146_dev *var_group1 ;
   struct saa7146_pci_extension_data *var_group2 ;
@@ -9941,7 +9941,7 @@ void main(void)
 #line 899
   ldv_check_final_state();
 #line 902
-  return;
+  return 0;
 }
 }
 #line 1334 "include/linux/usb.h"

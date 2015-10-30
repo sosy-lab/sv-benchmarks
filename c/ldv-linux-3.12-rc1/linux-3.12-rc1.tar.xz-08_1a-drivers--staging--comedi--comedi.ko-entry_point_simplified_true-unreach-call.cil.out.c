@@ -11955,13 +11955,13 @@ void ldv_initialize_device_attribute_6(void)
 #line 2691
   dev_attr_read_buffer_kb_group1 = (struct device_attribute *)tmp___0;
 #line 2692
-  return;
+  return 0;
 }
 }
 #line 2702
 void ldv_main_exported_1(void) ;
 #line 2706 "/work/ldvuser/mutilin/launch/work/current--X--drivers/staging/comedi/comedi.ko--X--defaultlinux-3.12-rc1.tar.xz--X--08_1a--X--cpachecker/linux-3.12-rc1.tar.xz/csd_deg_dscv/20/dscv_tempdir/dscv/ri/08_1a/drivers/staging/comedi/comedi_fops.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   size_t ldvarg1 ;
   size_t tmp ;

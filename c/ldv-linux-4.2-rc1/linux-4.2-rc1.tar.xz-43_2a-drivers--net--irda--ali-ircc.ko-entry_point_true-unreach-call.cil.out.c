@@ -12429,7 +12429,7 @@ void ldv_net_device_ops_2(void)
 }
 }
 #line 220 "/home/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--43_2a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/10859/dscv_tempdir/dscv/ri/43_2a/drivers/net/irda/ali-ircc.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   pm_message_t ldvarg0 ;
   struct sk_buff *ldvarg1 ;
@@ -12933,7 +12933,7 @@ void main(void)
 #line 537
   ldv_check_final_state();
 #line 538
-  return;
+  return 0;
 }
 }
 #line 565 "/home/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--43_2a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/10859/dscv_tempdir/dscv/ri/43_2a/drivers/net/irda/ali-ircc.o.c.prepared"

@@ -11647,7 +11647,7 @@ void ldv_initialize_ieee80211_ops_3(void)
 }
 }
 #line 222 "/home/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--43_2a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/2447/dscv_tempdir/dscv/ri/43_2a/drivers/staging/vt6656/main_usb.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct ieee80211_vif *ldvarg18 ;
   void *tmp ;
@@ -12338,7 +12338,7 @@ void main(void)
 #line 652
   ldv_check_final_state();
 #line 653
-  return;
+  return 0;
 }
 }
 #line 769 "/home/ldvuser/mutilin/launch/work/current--X--drivers/--X--defaultlinux-4.2-rc1.tar.xz--X--43_2a--X--cpachecker/linux-4.2-rc1.tar.xz/csd_deg_dscv/2447/dscv_tempdir/dscv/ri/43_2a/drivers/staging/vt6656/main_usb.o.c.prepared"

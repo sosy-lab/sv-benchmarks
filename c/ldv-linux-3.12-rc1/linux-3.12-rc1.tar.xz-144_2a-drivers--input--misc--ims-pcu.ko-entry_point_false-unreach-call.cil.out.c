@@ -8372,7 +8372,7 @@ void ldv_usb_driver_1(void)
 }
 }
 #line 2030 "/work/ldvuser/mutilin/launch/work/current--X--drivers--X--defaultlinux-3.12-rc1.tar.xz--X--144_2a--X--cpachecker/linux-3.12-rc1.tar.xz/csd_deg_dscv/418/dscv_tempdir/dscv/ri/144_2a/drivers/input/misc/ims-pcu.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   size_t ldvarg1 ;
   size_t tmp ;
@@ -9210,7 +9210,7 @@ void main(void)
 #line 2471
   ldv_check_final_state();
 #line 2472
-  return;
+  return 0;
 }
 }
 #line 2475 "/work/ldvuser/mutilin/launch/work/current--X--drivers--X--defaultlinux-3.12-rc1.tar.xz--X--144_2a--X--cpachecker/linux-3.12-rc1.tar.xz/csd_deg_dscv/418/dscv_tempdir/dscv/ri/144_2a/drivers/input/misc/ims-pcu.o.c.prepared"

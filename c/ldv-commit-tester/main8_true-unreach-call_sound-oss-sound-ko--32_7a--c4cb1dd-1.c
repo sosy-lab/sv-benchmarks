@@ -20410,7 +20410,7 @@ struct sound_timer_operations default_sound_timer  =
                        '\000'}, 0}, 0, 0, & def_tmr_open, & def_tmr_close, & def_tmr_event,
     & def_tmr_get_time, & def_tmr_ioctl, & def_tmr_arm};
 #line 340 "/work/vladimir/commit-test/commit-test-work/task-006--linux-stable--dir/work/current--X--sound/oss/sound.ko--X--defaultlinux-stable-c4cb1dd-1--X--32_7a--X--cpachecker/linux-stable-c4cb1dd-1/csd_deg_dscv/29/dscv_tempdir/dscv/ri/32_7a/sound/oss/sys_timer.c.prepared"
-void main(void) 
+int main(void) 
 { 
   int var_def_tmr_open_3_p0 ;
   int var_def_tmr_open_3_p1 ;
@@ -20527,7 +20527,7 @@ void main(void)
 #line 524
   ldv_check_final_state();
 #line 527
-  return;
+  return 0;
 }
 }
 #line 531 "/work/vladimir/commit-test/commit-test-work/task-006--linux-stable--dir/work/current--X--sound/oss/sound.ko--X--defaultlinux-stable-c4cb1dd-1--X--32_7a--X--cpachecker/linux-stable-c4cb1dd-1/csd_deg_dscv/29/dscv_tempdir/dscv/ri/32_7a/sound/oss/sys_timer.c.prepared"

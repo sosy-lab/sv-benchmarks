@@ -9854,7 +9854,7 @@ void snd_sequencer_device_done(void)
 #line 2676
 extern void ldv_check_return_value(int  ) ;
 #line 2694 "/home/mikhail/launches/cpachecker-regression2/launcher-working-dir/ldv-manager-work-dir/work/current--X--sound/core/seq/snd-seq.ko--X--regression-testlinux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/28/dscv_tempdir/dscv/ri/32_7a/sound/core/seq/seq_clientmgr.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct file *var_group1 ;
   char *var_snd_seq_read_14_p1 ;
@@ -10007,7 +10007,7 @@ void main(void)
 #line 3316
   ldv_check_final_state();
 #line 3319
-  return;
+  return 0;
 }
 }
 #line 3323 "/home/mikhail/launches/cpachecker-regression2/launcher-working-dir/ldv-manager-work-dir/work/current--X--sound/core/seq/snd-seq.ko--X--regression-testlinux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/28/dscv_tempdir/dscv/ri/32_7a/sound/core/seq/seq_clientmgr.c.prepared"

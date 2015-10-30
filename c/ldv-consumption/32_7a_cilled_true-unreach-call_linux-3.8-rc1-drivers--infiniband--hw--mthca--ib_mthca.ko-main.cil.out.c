@@ -7200,7 +7200,7 @@ void ldv_main_exported_3(void) ;
 #line 1415
 void ldv_main_exported_2(void) ;
 #line 1419 "/work/ldvuser/zakharov_benchmarks/bench/cpa/work/current--X--drivers/infiniband/hw/mthca/ib_mthca.ko--X--x1linux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/29/dscv_tempdir/dscv/ri/32_7a/drivers/infiniband/hw/mthca/mthca_main.c.prepared"
-void main(void) 
+int main(void) 
 { int tmp ;
   int tmp___0 ;
   int tmp___1 ;
@@ -7395,7 +7395,7 @@ void main(void)
 #line 1542
   ldv_check_final_state();
 #line 1543
-  return;
+  return 0;
 }
 }
 #line 1546 "/work/ldvuser/zakharov_benchmarks/bench/cpa/work/current--X--drivers/infiniband/hw/mthca/ib_mthca.ko--X--x1linux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/29/dscv_tempdir/dscv/ri/32_7a/drivers/infiniband/hw/mthca/mthca_main.c.prepared"

@@ -20496,7 +20496,7 @@ void ldv_check_final_state(void) ;
 #line 8771 "/home/zakharov/workspace/benchmarks/bench_1/work/current--X--drivers/staging/silicom/bpctl_mod.ko--X--x1linux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/13/dscv_tempdir/dscv/ri/32_7a/drivers/staging/silicom/bp_mod.c.prepared"
 struct notifier_block *ldvarg2  ;
 #line 8780 "/home/zakharov/workspace/benchmarks/bench_1/work/current--X--drivers/staging/silicom/bpctl_mod.ko--X--x1linux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/13/dscv_tempdir/dscv/ri/32_7a/drivers/staging/silicom/bp_mod.c.prepared"
-void main(void) 
+int main(void) 
 { int tmp ;
   int tmp___0 ;
   int tmp___1 ;
@@ -20679,7 +20679,7 @@ void main(void)
 #line 8892
   ldv_check_final_state();
 #line 8893
-  return;
+  return 0;
 }
 }
 #line 8896 "/home/zakharov/workspace/benchmarks/bench_1/work/current--X--drivers/staging/silicom/bpctl_mod.ko--X--x1linux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/13/dscv_tempdir/dscv/ri/32_7a/drivers/staging/silicom/bp_mod.c.prepared"

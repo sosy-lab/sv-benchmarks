@@ -12930,7 +12930,7 @@ static int res_whiteheat_firmware_download_0  ;
 #line 1709 "/anthill/stuff/tacas-comp/work/current--X--drivers/usb/serial/whiteheat.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/usb/serial/whiteheat.c.common.c"
 static int res_whiteheat_open_4  ;
 #line 1599 "/anthill/stuff/tacas-comp/work/current--X--drivers/usb/serial/whiteheat.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/usb/serial/whiteheat.c.common.c"
-void main(void) 
+int main(void) 
 { struct usb_serial *var_group1 ;
   struct usb_device_id  const  *var_whiteheat_firmware_download_0_p1 ;
   struct tty_struct *var_group2 ;
@@ -13299,7 +13299,7 @@ void main(void)
   ldv_check_final_state();
   }
 #line 2632
-  return;
+  return 0;
 }
 }
 #line 5 "/anthill/stuff/tacas-comp/work/current--X--drivers/usb/serial/whiteheat.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/kernel-rules/files/engine-blast-assert.h"

@@ -6380,7 +6380,7 @@ void ldv_main_exported_10(void) ;
 #line 293
 void ldv_main_exported_5(void) ;
 #line 299 "/work/ldvuser/mutilin/launch/work/current--X--sound--X--defaultlinux-3.16-rc1.tar.xz--X--43_2a--X--cpachecker/linux-3.16-rc1.tar.xz/csd_deg_dscv/750/dscv_tempdir/dscv/ri/43_2a/sound/pci/cs46xx/cs46xx.o.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct pci_device_id *ldvarg8 ;
   void *tmp ;
@@ -6771,7 +6771,7 @@ void main(void)
 #line 558
   ldv_check_final_state();
 #line 559
-  return;
+  return 0;
 }
 }
 #line 689 "/work/ldvuser/mutilin/launch/work/current--X--sound--X--defaultlinux-3.16-rc1.tar.xz--X--43_2a--X--cpachecker/linux-3.16-rc1.tar.xz/csd_deg_dscv/750/dscv_tempdir/dscv/ri/43_2a/sound/pci/cs46xx/cs46xx.o.c.prepared"

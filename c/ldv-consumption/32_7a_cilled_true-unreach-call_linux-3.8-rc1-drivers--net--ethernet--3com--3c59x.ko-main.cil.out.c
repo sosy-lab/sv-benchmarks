@@ -14647,7 +14647,7 @@ struct net_device *ldvarg22  ;
 #line 3450 "/work/ldvuser/zakharov_benchmarks/bench/cpa/work/current--X--drivers/net/ethernet/3com/3c59x.ko--X--x1linux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/32_7a/drivers/net/ethernet/3com/3c59x.c.prepared"
 int ldv_retval_3  ;
 #line 3462 "/work/ldvuser/zakharov_benchmarks/bench/cpa/work/current--X--drivers/net/ethernet/3com/3c59x.ko--X--x1linux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/32_7a/drivers/net/ethernet/3com/3c59x.c.prepared"
-void main(void) 
+int main(void) 
 { int tmp ;
   int tmp___0 ;
   int tmp___1 ;
@@ -15963,7 +15963,7 @@ void main(void)
 #line 4405
   ldv_check_final_state();
 #line 4406
-  return;
+  return 0;
 }
 }
 #line 4409 "/work/ldvuser/zakharov_benchmarks/bench/cpa/work/current--X--drivers/net/ethernet/3com/3c59x.ko--X--x1linux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/32_7a/drivers/net/ethernet/3com/3c59x.c.prepared"

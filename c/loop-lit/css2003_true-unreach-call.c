@@ -2,7 +2,7 @@
 // Invariant Generation using Non-Linear Constraint Solving", CAV 2003.
 
 #include "assert.h"
-void main() {
+int main() {
     int i,j,k;
     i = 1;
     j = 1;
@@ -14,4 +14,5 @@ void main() {
 	k = k - 1;
 	__VERIFIER_assert(1 <= i + k && i + k <= 2 && i >= 1);
     }
+    return 0;
 }

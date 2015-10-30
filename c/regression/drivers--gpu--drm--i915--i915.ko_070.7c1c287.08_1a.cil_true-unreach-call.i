@@ -4660,7 +4660,7 @@ extern int nondet_int(void) ;
 #line 203 "/work/ldvuser/novikov/work/current--X--drivers/gpu/drm/i915/i915.ko--X--defaultlinux--X--08_1a--X--cpachecker/linux/csd_deg_dscv/21/dscv_tempdir/dscv/ri/08_1a/drivers/gpu/drm/i915/i915_drv.c.prepared"
 int LDV_IN_INTERRUPT  ;
 #line 206 "/work/ldvuser/novikov/work/current--X--drivers/gpu/drm/i915/i915.ko--X--defaultlinux--X--08_1a--X--cpachecker/linux/csd_deg_dscv/21/dscv_tempdir/dscv/ri/08_1a/drivers/gpu/drm/i915/i915_drv.c.prepared"
-void main(void) 
+int main(void) 
 { 
   struct drm_device *var_group1 ;
   pm_message_t var_i915_suspend_0_p1 ;
@@ -4729,7 +4729,7 @@ void main(void)
 #line 326
   ldv_check_final_state();
 #line 329
-  return;
+  return 0;
 }
 }
 #line 1 "<compiler builtins>"
