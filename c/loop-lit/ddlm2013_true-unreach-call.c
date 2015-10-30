@@ -3,7 +3,7 @@
 
 #include "assert.h"
 
-void main() {
+int main() {
     unsigned int i,j,a,b;
     int flag = __VERIFIER_nondet_int();
     a = 0;

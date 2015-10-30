@@ -20,7 +20,7 @@
 #include "assert.h"
 
 
-void main() {
+int main() {
   int offset, length, nlen = __VERIFIER_nondet_int();
   int i, j;
   

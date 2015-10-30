@@ -3,7 +3,7 @@
 
 #include "assert.h"
 
-void main() {
+int main() {
     int a = __VERIFIER_nondet_int();
     int b = __VERIFIER_nondet_int();
     int res, cnt;

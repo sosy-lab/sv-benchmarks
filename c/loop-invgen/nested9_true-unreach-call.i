@@ -8,7 +8,7 @@ void __VERIFIER_assert(int cond) {
 }
 int __VERIFIER_nondet_int();
 int __BLAST_NONDET;
-void main() {
+int main() {
     int i,j,k,n,l,m;
     n = __VERIFIER_nondet_int();
     m = __VERIFIER_nondet_int();
@@ -22,5 +22,5 @@ void main() {
             for (k = i; k< j; k++)
                 __VERIFIER_assert( k-i <= 2*n );
 END:
-    ;
+    return 0;
 }
