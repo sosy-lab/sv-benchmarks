@@ -1120,10 +1120,10 @@ static inline __attribute__((no_instrument_function)) int ffs(int x)
 {
  int r;
 # 411 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/bitops.h"
- long tmp = -1;
+ //long tmp = -1;
  asm("bsfl %1,%0"
      : "=r" (r)
-     : "rm" (x), "0" (tmp));
+     : "rm" (x), "0" (-1));
 # 425 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/bitops.h"
  return r + 1;
 }
@@ -1132,10 +1132,10 @@ static inline __attribute__((no_instrument_function)) int fls(int x)
 {
  int r;
 # 453 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/bitops.h"
- long tmp = -1;
+ //long tmp = -1;
  asm("bsrl %1,%0"
      : "=r" (r)
-     : "rm" (x), "0" (tmp));
+     : "rm" (x), "0" (-1));
 # 467 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/bitops.h"
  return r + 1;
 }
