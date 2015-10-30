@@ -8,7 +8,7 @@ void __VERIFIER_assert(int cond) {
 int main(void) {
   int A[1024];
   int i;
-  for (i = 0; A[i] != 0; i++) {
+  for (i = 0; A[i] != 0 && i < 1024; i++) {
   }
-  __VERIFIER_assert(i <= 1024);
+  __VERIFIER_assert(i <= 1024 / 2);
 }
