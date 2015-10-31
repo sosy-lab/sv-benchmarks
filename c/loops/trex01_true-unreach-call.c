@@ -1,4 +1,5 @@
 extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+extern void __VERIFIER_assume(int condition);
 
 void __VERIFIER_assert(int cond) {
   if (!(cond)) {
@@ -9,12 +10,17 @@ void __VERIFIER_assert(int cond) {
 _Bool __VERIFIER_nondet_bool();
 int __VERIFIER_nondet_int();
 
+#define LARGE_INT 1000000
+
 void f(int d) {
   int x = __VERIFIER_nondet_int(), y = __VERIFIER_nondet_int(), k = __VERIFIER_nondet_int(), z = 1;
   L1:
   while (z < k) { z = 2 * z; }
   __VERIFIER_assert(z>=1);
   L2:
+  __VERIFIER_assume(x <= LARGE_INT && x >= -LARGE_INT);
+  __VERIFIER_assume(y <= LARGE_INT && y >= -LARGE_INT);
+  __VERIFIER_assume(k <= LARGE_INT && k >= -LARGE_INT);
   while (x > 0 && y > 0) {
     _Bool c = __VERIFIER_nondet_bool();
     if (c) {

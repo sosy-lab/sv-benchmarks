@@ -11,14 +11,15 @@ int main() {
     int i, j;
     i = __VERIFIER_nondet_int();
     j = __VERIFIER_nondet_int();
+    __VERIFIER_assume(i >= 0 && j >= 0);
     int x = i;
     int y = j;
     while(x != 0) {
- x --;
- y --;
+        x--;
+        y--;
     }
     if (i == j) {
- __VERIFIER_assert(y == 0);
+        __VERIFIER_assert(y == 0);
     }
     return 0;
 }

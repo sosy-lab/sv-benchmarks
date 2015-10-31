@@ -6,7 +6,7 @@ int main() {
     __VERIFIER_assume(1 <= n && n <= 1000);
     sum = 0;
     for(i = 1; i <= n; i++) {
-	sum = sum + i;
+        sum = sum + i;
     }
     __VERIFIER_assert(2*sum == n*(n+1));
     return 0;

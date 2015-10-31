@@ -8,9 +8,8 @@ void __VERIFIER_assert(int cond) {
 }
 int __VERIFIER_nondet_int();
 int main() {
-  int offset, length, nlen;
+  int offset, length, nlen = __VERIFIER_nondet_int();
   int i, j;
-  nlen = __VERIFIER_nondet_int();
   for (i=0; i<nlen; i++) {
     for (j=0; j<8; j++) {
       __VERIFIER_assert(0 <= nlen-1-i);

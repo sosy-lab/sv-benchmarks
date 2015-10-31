@@ -14,7 +14,7 @@ int main() {
   unsigned int loop1=__VERIFIER_nondet_uint(), n1=__VERIFIER_nondet_uint();
   unsigned int x=0;
 
-  while(1){
+  while(x < 1000000){
     sn = sn + a;
     x++;
     __VERIFIER_assert(sn==x*a || sn == 0);

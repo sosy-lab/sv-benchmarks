@@ -1,5 +1,4 @@
 extern void __VERIFIER_error() __attribute__ ((__noreturn__));
-
 extern void __VERIFIER_assume(int);
 void __VERIFIER_assert(int cond) {
   if (!(cond)) {
@@ -7,11 +6,10 @@ void __VERIFIER_assert(int cond) {
   }
   return;
 }
-
 int __VERIFIER_nondet_int();
-
 int main() {
-  int i=0, x=0, y=0;
+  unsigned int i=0;
+  int x=0, y=0;
   int n=__VERIFIER_nondet_int();
   __VERIFIER_assume(n>0);
   for(i=0; 1; i++)

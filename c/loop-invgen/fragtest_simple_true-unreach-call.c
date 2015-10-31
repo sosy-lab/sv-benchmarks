@@ -10,14 +10,17 @@ int main(){
   pvlen = __VERIFIER_nondet_int();
 
   //  pkt = pktq->tqh_first;
-  while ( __VERIFIER_nondet_int() )
+  while ( __VERIFIER_nondet_int() && i <= LARGE_INT) {
     i = i + 1;
+  }
+
+
   if (i > pvlen) {
     pvlen = i;
   }
   i = 0;
 
-  while ( __VERIFIER_nondet_int() ) {
+  while ( __VERIFIER_nondet_int() && i <= LARGE_INT) {
     tmp___1 = i;
     i = i + 1;
     k = k + 1;

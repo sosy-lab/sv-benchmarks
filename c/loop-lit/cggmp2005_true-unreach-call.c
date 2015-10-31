@@ -9,8 +9,8 @@ int main() {
     i = 1;
     j = 10;
     while (j >= i) {
-	i = i + 2;
-	j = -1 + j;
+        i = i + 2;
+        j = -1 + j;
     }
     __VERIFIER_assert(j == 6);
     return 0;
