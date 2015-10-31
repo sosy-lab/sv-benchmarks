@@ -21,6 +21,6 @@ int main() {
         }
         i = i + 1;
     }
-    assert(a + b == 3*n);
+    __VERIFIER_assert(a + b == 3*n);
     return 0;
 }
