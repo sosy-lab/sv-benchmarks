@@ -10,7 +10,7 @@ extern void __VERIFIER_error() __attribute__ ((__noreturn__));
 
 extern int __VERIFIER_nondet_int(void);
 
-long long addition(long long m, long long n) {
+int addition(int m, int n) {
     if (n == 0) {
         return m;
     }
@@ -26,7 +26,7 @@ long long addition(long long m, long long n) {
 int main() {
     int m = __VERIFIER_nondet_int();
     int n = __VERIFIER_nondet_int();
-    long long result = addition(m,n);
+    int result = addition(m,n);
     if (m < 100 || n < 100 || result >= 200) {
         return 0;
     } else {
