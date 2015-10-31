@@ -2,8 +2,11 @@ termination-crafted/*_false-termination*.c
 termination-crafted/*_true-termination*.c
 termination-crafted-lit/*_false-termination*.c
 termination-crafted-lit/*_true-termination*.c
+termination-libowfat/*_true-termination*.c.i
 termination-memory-alloca/*_false-termination*.c.i
 termination-memory-alloca/*_true-termination*.c.i
-# termination-numeric/*_false-termination*.c
 termination-numeric/*_true-termination*.c
-
+termination-restricted-stroeder-2015/*_true-termination*.c
+termination-restricted-stroeder-2015/*_false-termination*.c
+termination-stroeder-2015/*_true-termination*.c.i
+termination-stroeder-2015/*_false-termination*.c.i
