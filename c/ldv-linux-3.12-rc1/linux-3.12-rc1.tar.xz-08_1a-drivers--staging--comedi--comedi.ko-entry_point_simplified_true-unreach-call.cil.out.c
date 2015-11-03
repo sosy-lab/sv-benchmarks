@@ -11955,7 +11955,7 @@ void ldv_initialize_device_attribute_6(void)
 #line 2691
   dev_attr_read_buffer_kb_group1 = (struct device_attribute *)tmp___0;
 #line 2692
-  return 0;
+  return;
 }
 }
 #line 2702
