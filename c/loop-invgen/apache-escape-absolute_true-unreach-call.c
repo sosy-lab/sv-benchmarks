@@ -65,5 +65,5 @@ int main()
     }
 
 END:
-    return;
+    return 0;
 }
