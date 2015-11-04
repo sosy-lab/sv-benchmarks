@@ -31,7 +31,7 @@ void *thread_ath9k(void *arg) {
       }
     }
 exit_thread_ath9k:
-    return;
+    return 0;
 }
 
 int ieee80211_register_hw(void) {
@@ -104,7 +104,7 @@ exit_thread_usb:
     //not a race
     pdev = 9;
     ldv_assert(pdev==9);
-    return;
+    return 0;
 }
 
 

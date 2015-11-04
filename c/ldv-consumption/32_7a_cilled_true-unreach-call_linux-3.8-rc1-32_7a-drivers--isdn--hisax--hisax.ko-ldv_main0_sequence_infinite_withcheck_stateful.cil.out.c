@@ -10129,7 +10129,7 @@ int main(void)
 #line 3678
   ldv_check_final_state();
 #line 3681
-  return;
+  return 0;
 }
 }
 #line 3685 "/home/mikhail/launches/cpachecker-regression2/launcher-working-dir/ldv-manager-work-dir/work/current--X--drivers/isdn/hisax/hisax.ko--X--regression-testlinux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/54/dscv_tempdir/dscv/ri/32_7a/drivers/isdn/hisax/config.c.prepared"
@@ -76949,7 +76949,7 @@ static int hfcpci_empty_fifo_trans(struct BCState *bcs , bzfifo_type *bz , u_cha
 }
 }
 #line 481 "/home/mikhail/launches/cpachecker-regression2/launcher-working-dir/ldv-manager-work-dir/work/current--X--drivers/isdn/hisax/hisax.ko--X--regression-testlinux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/54/dscv_tempdir/dscv/ri/32_7a/drivers/isdn/hisax/hfc_pci.c.prepared"
-static int main_rec_hfcpci(struct BCState *bcs ) 
+static void main_rec_hfcpci(struct BCState *bcs ) 
 { 
   struct IsdnCardState *cs ;
   int rcnt ;
@@ -80754,7 +80754,7 @@ static int receive_dmsg___0(struct IsdnCardState *cs )
 }
 }
 #line 507 "/home/mikhail/launches/cpachecker-regression2/launcher-working-dir/ldv-manager-work-dir/work/current--X--drivers/isdn/hisax/hisax.ko--X--regression-testlinux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/54/dscv_tempdir/dscv/ri/32_7a/drivers/isdn/hisax/hfc_sx.c.prepared"
-static int main_rec_hfcsx(struct BCState *bcs ) 
+static void main_rec_hfcsx(struct BCState *bcs )
 { 
   struct IsdnCardState *cs ;
   int count ;
@@ -80804,7 +80804,7 @@ static int main_rec_hfcsx(struct BCState *bcs )
 
   }
 #line 532
-  return 0;
+  return;
 }
 }
 #line 539 "/home/mikhail/launches/cpachecker-regression2/launcher-working-dir/ldv-manager-work-dir/work/current--X--drivers/isdn/hisax/hisax.ko--X--regression-testlinux-3.8-rc1--X--32_7a--X--cpachecker/linux-3.8-rc1/csd_deg_dscv/54/dscv_tempdir/dscv/ri/32_7a/drivers/isdn/hisax/hfc_sx.c.prepared"
