@@ -1,3 +1,5 @@
+extern void __VERIFIER_assume(int);
+extern int __VERIFIER_nondet_int(void);
 extern void __VERIFIER_error() __attribute__ ((__noreturn__));
 
 //http://www.ibm.com/developerworks/java/library/j-jtp04186/index.html
