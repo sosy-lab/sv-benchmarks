@@ -1,3 +1,6 @@
+extern void __VERIFIER_error(void) __attribute__ ((__noreturn__));
+void __VERIFIER_assert(int cond) { if (!(cond)) { ERROR: __VERIFIER_error(); } return; }
+extern void __VERIFIER_assume(int);
 // Copyright (c) 2015 Michael Tautschnig <michael.tautschnig@qmul.ac.uk>
 // 
 // Licensed under the Apache License, Version 2.0 (the "License");
@@ -72,7 +75,6 @@ OD;
 OUTPUT a
 */
 
-extern void __VERIFIER_error() __attribute__ ((__noreturn__));
 
 extern unsigned int __VERIFIER_nondet_uint();
 
