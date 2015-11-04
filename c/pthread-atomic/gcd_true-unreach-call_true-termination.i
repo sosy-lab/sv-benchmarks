@@ -1,5 +1,4 @@
 extern void __VERIFIER_error(void) __attribute__ ((__noreturn__));
-void __VERIFIER_assert(int cond) { if (!(cond)) { ERROR: __VERIFIER_error(); } return; }
 extern void __VERIFIER_assume(int);
 # 1 "gcd_true-unreach-call_true-termination.c"
 # 1 "<built-in>"

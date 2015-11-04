@@ -1,5 +1,4 @@
 extern void __VERIFIER_error(void) __attribute__ ((__noreturn__));
-void __VERIFIER_assert(int cond) { if (!(cond)) { ERROR: __VERIFIER_error(); } return; }
 extern void __VERIFIER_assume(int);
 // Copyright (c) 2015 Michael Tautschnig <michael.tautschnig@qmul.ac.uk>
 // 
