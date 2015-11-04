@@ -1,3 +1,6 @@
+extern _Bool __VERIFIER_nondet_bool(void);
+extern void __VERIFIER_assume(int);
+extern void * __VERIFIER_nondet_pointer(void);
 extern void __VERIFIER_error() __attribute__ ((__noreturn__));
 void __VERIFIER_assert(int expression) { if (!expression) { ERROR: __VERIFIER_error(); }; return; }
 int __global_lock;
