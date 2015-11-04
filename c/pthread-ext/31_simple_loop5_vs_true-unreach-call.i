@@ -1,3 +1,4 @@
+extern void __VERIFIER_assume(int);
 extern void __VERIFIER_error() __attribute__ ((__noreturn__));
 
 typedef unsigned char __u_char;

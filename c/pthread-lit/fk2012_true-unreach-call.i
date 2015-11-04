@@ -1,3 +1,7 @@
+extern void __VERIFIER_error(void) __attribute__ ((__noreturn__));
+void __VERIFIER_assert(int cond) { if (!(cond)) { ERROR: __VERIFIER_error(); } return; }
+extern void __VERIFIER_assume(int);
+extern int __VERIFIER_nondet_int(void);
 typedef long unsigned int size_t;
 typedef int wchar_t;
 
