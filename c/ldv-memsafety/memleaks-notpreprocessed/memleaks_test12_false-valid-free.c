@@ -168,7 +168,7 @@ int alloc_12(struct ldv_i2c_client *client) {
 	ldv_i2c_set_clientdata(client, priv);
 	return 0;
 err:
-	kfree(priv);
+	free(priv);
 	ldv_i2c_set_clientdata(client, 0);
 	return ret;
 }

@@ -193,12 +193,15 @@ void ldv_msg_free(struct ldv_msg *msg) {
 int ldv_submit_msg(struct ldv_msg *msg) {
 		if(__VERIFIER_nondet_int()) {
 			ldv_list_add(&msg->list, &ldv_global_msg_list);
+			return 0;
 		}
+		return -1;
 }
 
 void ldv_destroy_msgs(void) {
 	struct ldv_msg *msg;
-	ldv_list_for_each_entry(msg, &ldv_global_msg_list, list) {
+	struct ldv_msg *n;
+	ldv_list_for_each_entry_safe(msg, n, &ldv_global_msg_list, list) {
 		ldv_list_del(&msg->list);
 		//ldv_free_msg(msg); alexeybor:
 		ldv_msg_free(msg);

@@ -1306,18 +1306,21 @@ void ldv_msg_free(struct ldv_msg *msg) {
 int ldv_submit_msg(struct ldv_msg *msg) {
   if(__VERIFIER_nondet_int()) {
    ldv_list_add(&msg->list, &ldv_global_msg_list);
+   return 0;
   }
+  return -1;
 }
 
 void ldv_destroy_msgs(void) {
  struct ldv_msg *msg;
- for (msg = ({ const typeof( ((typeof(*msg) *)0)->list ) *__mptr = ((&ldv_global_msg_list)->next); (typeof(*msg) *)( (char *)__mptr - ((size_t) &((typeof(*msg) *)0)->list) );}); &msg->list != (&ldv_global_msg_list); msg = ({ const typeof( ((typeof(*(msg)) *)0)->list ) *__mptr = ((msg)->list.next); (typeof(*(msg)) *)( (char *)__mptr - ((size_t) &((typeof(*(msg)) *)0)->list) );})) {
+ struct ldv_msg *n;
+ for (msg = ({ const typeof( ((typeof(*msg) *)0)->list ) *__mptr = ((&ldv_global_msg_list)->next); (typeof(*msg) *)( (char *)__mptr - ((size_t) &((typeof(*msg) *)0)->list) );}), n = ({ const typeof( ((typeof(*(msg)) *)0)->list ) *__mptr = ((msg)->list.next); (typeof(*(msg)) *)( (char *)__mptr - ((size_t) &((typeof(*(msg)) *)0)->list) );}); &msg->list != (&ldv_global_msg_list); msg = n, n = ({ const typeof( ((typeof(*(n)) *)0)->list ) *__mptr = ((n)->list.next); (typeof(*(n)) *)( (char *)__mptr - ((size_t) &((typeof(*(n)) *)0)->list) );})) {
   ldv_list_del(&msg->list);
 
   ldv_msg_free(msg);
  }
 }
-# 216 "header.h"
+# 219 "header.h"
 struct ldv_device {
  void *platform_data;
  void *driver_data;
@@ -1473,7 +1476,7 @@ static void ldv_kobject_cleanup(struct ldv_kobject *kobj)
 {
 
         char *name = kobj->name;
-# 382 "header.h"
+# 385 "header.h"
         free(kobj);
 
 
@@ -1532,14 +1535,14 @@ void ldv_kobject_init(struct ldv_kobject *kobj)
 
                 goto error;
         }
-# 450 "header.h"
+# 453 "header.h"
         ldv_kobject_init_internal(kobj);
 
         return;
 error:
  return;
 }
-# 468 "header.h"
+# 471 "header.h"
 struct ldv_kobject *ldv_kobject_create(void)
 {
         struct ldv_kobject *kobj;
@@ -1701,7 +1704,7 @@ int alloc_12(struct ldv_i2c_client *client) {
  ldv_i2c_set_clientdata(client, priv);
  return 0;
 err:
- kfree(priv);
+ free(priv);
  ldv_i2c_set_clientdata(client, 0);
  return ret;
 }
