@@ -1706,7 +1706,7 @@ int alloc_fix_12(struct ldv_i2c_client *client) {
  return 0;
 err:
  free(priv);
- ldv_i2c_set_clientdata(client, 0);
+
  return ret;
 }
 
