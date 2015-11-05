@@ -70,12 +70,12 @@ DIRS += signedintegeroverflow-regression
 DIRS += ssh
 DIRS += ssh-simplified
 DIRS += systemc
+DIRS += termination-15
 DIRS += termination-crafted
 DIRS += termination-crafted-lit
 DIRS += termination-libowfat
 DIRS += termination-memory-alloca
 DIRS += termination-numeric
-DIRS += termination-restricted-stroeder-15
-DIRS += termination-stroeder-2015
+DIRS += termination-restricted-15
 
 include $(LEVEL)/Makefile.config
