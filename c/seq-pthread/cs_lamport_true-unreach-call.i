@@ -1,3 +1,5 @@
+extern void * __VERIFIER_nondet_pointer(void);
+extern unsigned char __VERIFIER_nondet_uchar(void);
 extern void __VERIFIER_error() __attribute__ ((__noreturn__));
 
 extern void __VERIFIER_assume(int);
