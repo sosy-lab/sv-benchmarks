@@ -108,10 +108,8 @@ ifeq ($(SUPPRESS_WARNINGS),0)
 
   ifeq ($(CC_IS_GCC),1)
     CC.Warnings += $(GCC_ONLY_WARNINGS)
-    CC.Flags += $(GCC_ONLY_WARNINGS_AS_ERRORS)
   else ifeq ($(CC_IS_CLANG),1)
     CC.Warnings += $(CLANG_ONLY_WARNINGS)
-    CC.Flags += $(CLANG_ONLY_WARNINGS_AS_ERRORS)
   else
     $(error Compiler "$(CC)" was not identified as gcc or clang)
   endif
@@ -123,17 +121,27 @@ else
   CC.Warnings := -w
 endif
 
-# Warnings as errors are always passed to the compiler
-CC.Flags += $(COMMON_WARNINGS_AS_ERRORS)
+# Specific Warnings as errors are always passed to the compiler
+# regardless of the value of SUPPRESS_WARNINGS
+CC.WarningsAsErrors := $(COMMON_WARNINGS_AS_ERRORS)
+ifeq ($(CC_IS_GCC),1)
+  CC.WarningsAsErrors += $(GCC_ONLY_WARNINGS_AS_ERRORS)
+else ifeq ($(CC_IS_CLANG),1)
+  CC.WarningsAsErrors += $(CLANG_ONLY_WARNINGS_AS_ERRORS)
+else
+  $(error Compiler "$(CC)" was not identified as gcc or clang)
+endif
+
+ifneq ($(WARNINGS_AS_ERRORS),0)
+  CC.WarningsAsErrors += -Werror
+endif
 
 CC.Flags += -std=$(CC.Standard) \
             -m$(CC.Arch) \
+            $(CC.WarningsAsErrors) \
             $(CC.Warnings) \
             -include $(ROOT_DIR)/decls.h
 
-ifneq ($(WARNINGS_AS_ERRORS),0)
-  CC.Flags += -Werror
-endif
 
 # Handle emission of LLVM Bitcode rather than native code
 ifneq ($(EMIT_LLVM),0)
@@ -241,6 +249,8 @@ debug_vars:
 	@echo "I_SRCS := $(I_SRCS)"
 	@echo "C_I_COMMON_SRCS := $(C_I_COMMON_SRCS)"
 	@echo "CC.Flags := $(CC.Flags)"
+	@echo "CC.Warnings := $(CC.Warnings)"
+	@echo "CC.WarningsAsErrors := $(CC.WarningsAsErrors)"
 	@echo "CC_IS_CLANG := $(CC_IS_CLANG)"
 	@echo "CC_IS_GCC := $(CC_IS_GCC)"
 	@echo "CURRENT_DIR := $(CURRENT_DIR)"
