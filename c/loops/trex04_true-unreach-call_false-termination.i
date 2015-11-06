@@ -1,4 +1,5 @@
 extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+extern int __VERIFIER_assume(int cond);
 void __VERIFIER_assert(int cond) {
   if (!(cond)) {
     ERROR: __VERIFIER_error();
@@ -19,6 +20,7 @@ int main()
 {
   int d = 1;
   int x = __VERIFIER_nondet_int();
+  __VERIFIER_assume(x <= 1000000 && x >= -1000000);
   _Bool c1=__VERIFIER_nondet_bool(), c2=__VERIFIER_nondet_bool();
   if (c1) d = d - 1;
   if (c2) foo();

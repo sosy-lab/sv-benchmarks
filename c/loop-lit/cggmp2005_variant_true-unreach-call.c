@@ -8,7 +8,7 @@ int main() {
     int lo, mid, hi;
     lo = 0;
     mid = __VERIFIER_nondet_int();
-    __VERIFIER_assume(mid > 0 && mid <= __VERIFIER_nondet_int());
+    __VERIFIER_assume(mid > 0 && mid <= LARGE_INT);
     hi = 2*mid;
     
     while (mid > 0) {
