@@ -1,3 +1,5 @@
+extern void __VERIFIER_assume(int);
+extern _Bool __VERIFIER_nondet_bool(void);
 # 1 "dancing_true-unreach-call.c"
 # 1 "<built-in>"
 # 1 "<command-line>"
