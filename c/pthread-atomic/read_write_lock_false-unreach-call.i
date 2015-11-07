@@ -642,12 +642,12 @@ void __VERIFIER_atomic_take_read_lock() {
   __VERIFIER_assume(w==0);
   r = r+1;
 }
-void *writer() {
+void *writer(void *arg) {
   __VERIFIER_atomic_take_write_lock();
   x = 3;
   w = 0;
 }
-void *reader() {
+void *reader(void *arg) {
   int l;
   __VERIFIER_atomic_take_read_lock();
   l = x;

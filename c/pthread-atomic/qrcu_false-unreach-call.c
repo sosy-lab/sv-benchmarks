@@ -71,7 +71,7 @@ void __VERIFIER_atomic_check_progress2(int readerstart2) {
   return;
 }
 
-void *qrcu_reader1() {
+void *qrcu_reader1(void* arg) {
   int myidx;
   /* rcu_read_lock */
   while (1) {
@@ -93,7 +93,7 @@ void *qrcu_reader1() {
   return 0;
 }
 
-void *qrcu_reader2() {
+void *qrcu_reader2(void* arg) {
   int myidx;
   /* rcu_read_lock */
   while (1) {
@@ -115,7 +115,7 @@ void *qrcu_reader2() {
   return 0;
 }
 
-void* qrcu_updater() {
+void* qrcu_updater(void* arg) {
   int i;
   int readerstart1=__VERIFIER_nondet_int(), readerstart2=__VERIFIER_nondet_int();
   int sum;
