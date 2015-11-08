@@ -20,6 +20,9 @@ that are worth knowing about
                        ``0`` the ``*.c`` file will be used.
 * ``REPORT_CC_FILE`` - If ``1`` report the file being compiled on
                        standard output. If ``0`` do not report.
+                       If ``2`` report compilation in a way that keeps
+                       output small which is useful for the TravisCI build
+                       which sets a limit of the log size.
 * ``SET_FILES`` - See "Set files mode" section.
 * ``SUPPRESS_WARNINGS`` - If ``1`` suppress all compiler warnings. If
                           ``0`` do not suppress compiler warnings and
