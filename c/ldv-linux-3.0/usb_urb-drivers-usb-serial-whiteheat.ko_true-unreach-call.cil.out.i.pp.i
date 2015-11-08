@@ -2356,7 +2356,10 @@ struct device_private;
 # 29 "include/linux/device.h"
 struct device_private;
 # 29 "include/linux/device.h"
-struct device_private;
+struct device_private {
+  void *driver_data;
+  struct device *device;
+};
 # 30 "include/linux/device.h"
 struct device_driver;
 # 30 "include/linux/device.h"
@@ -5009,9 +5012,32 @@ void cleanup_module(void) ;
 # 99 "include/linux/module.h"
 extern struct module __this_module ;
 # 705 "include/linux/device.h"
-extern void *dev_get_drvdata(struct device const *dev ) __attribute__((__ldv_model__)) ;
+int device_private_init(struct device *dev)
+{
+  dev->p = kzalloc(sizeof(*dev->p), 208U);
+  if (!dev->p)
+    return -12;
+  dev->p->device = dev;
+  return 0;
+}
+
+void *dev_get_drvdata(struct device const *dev ) __attribute__((__ldv_model__)) {
+   if (dev && dev->p)
+     return dev->p->driver_data;
+   return 0;
+}
 # 706 "include/linux/device.h"
-extern int dev_set_drvdata(struct device *dev , void *data ) ;
+extern int dev_set_drvdata(struct device *dev , void *data ) {
+   int error;
+ 
+   if (!dev->p) {
+     error = device_private_init(dev);
+     if (error)
+       return error;
+   }
+   dev->p->driver_data = data;
+   return 0;
+}
 # 788 "include/linux/device.h"
 extern int dev_printk(char const *level , struct device const *dev , char const *fmt
                       , ...) ;
@@ -8444,7 +8470,7 @@ static int firm_send_command(struct usb_serial_port *port , __u8 command , __u8 
     }
     while_break___1: ;
   } else {
-
+ 
   }
 # 1153 "/anthill/stuff/tacas-comp/work/current--X--drivers/usb/serial/whiteheat.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/usb/serial/whiteheat.c.common.c"
   t = (int )__ret___0;
@@ -10126,6 +10152,7 @@ int main(void)
         if (ldv_s_whiteheat_device_usb_serial_driver == 2) {
           {
 # 2174 "/anthill/stuff/tacas-comp/work/current--X--drivers/usb/serial/whiteheat.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/usb/serial/whiteheat.c.common.c"
+          whiteheat_attach(var_group1);
           whiteheat_release(var_group1);
 # 2175 "/anthill/stuff/tacas-comp/work/current--X--drivers/usb/serial/whiteheat.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/usb/serial/whiteheat.c.common.c"
           ldv_s_whiteheat_device_usb_serial_driver = 0;
