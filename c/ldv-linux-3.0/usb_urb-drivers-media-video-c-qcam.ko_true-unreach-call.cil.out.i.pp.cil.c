@@ -6006,7 +6006,7 @@ __inline static struct thread_info *current_thread_info(void)
             goto switch_break;
             case_2: 
 #line 222
-            __asm__  ("mov"
+            /* __asm__  ("mov"
                       "w "
                       "%%"
                       "gs"
@@ -6014,6 +6014,7 @@ __inline static struct thread_info *current_thread_info(void)
                       "%P"
                       "1"
                       ",%0": "=r" (pfo_ret__): "p" (& kernel_stack));
+*/
 #line 222
             goto switch_break;
             case_4: 
