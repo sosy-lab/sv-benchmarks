@@ -5419,7 +5419,7 @@ __inline static struct task_struct *( __attribute__((__always_inline__)) get_cur
             goto switch_break;
             case_2: 
 #line 14
-            __asm__  ("mov"
+            /* __asm__  ("mov"
                       "w "
                       "%%"
                       "gs"
@@ -5427,6 +5427,7 @@ __inline static struct task_struct *( __attribute__((__always_inline__)) get_cur
                       "%P"
                       "1"
                       ",%0": "=r" (pfo_ret__): "p" (& current_task));
+*/
 #line 14
             goto switch_break;
             case_4: 
@@ -7183,7 +7184,7 @@ int msp_sleep(struct msp_state *state , int timeout )
 #line 306
                 __ptr___0 = (u16 volatile   *)__cil_tmp25;
 #line 306
-                __asm__  volatile   ("xchgw %0,%1": "=r" (__x), "+m" (*__ptr___0): "0" (__x): "memory");
+                __asm__  volatile   ("xchgw %0,%1": "=r" (*((u16*) &__x)), "+m" (*__ptr___0): "0" (*((u16*) &__x)): "memory");
                 }
 #line 306
                 goto switch_break;

@@ -6341,7 +6341,7 @@ __inline static struct task_struct *( __attribute__((__always_inline__)) get_cur
             goto switch_break;
             case_2: 
 #line 14
-            __asm__  ("mov"
+            /* __asm__  ("mov"
                       "w "
                       "%%"
                       "gs"
@@ -6349,6 +6349,7 @@ __inline static struct task_struct *( __attribute__((__always_inline__)) get_cur
                       "%P"
                       "1"
                       ",%0": "=r" (pfo_ret__): "p" (& current_task));
+*/
 #line 14
             goto switch_break;
             case_4: 
@@ -6501,7 +6502,7 @@ __inline static struct thread_info *current_thread_info(void)
             goto switch_break;
             case_2: 
 #line 222
-            __asm__  ("mov"
+            /*__asm__  ("mov"
                       "w "
                       "%%"
                       "gs"
@@ -6509,6 +6510,7 @@ __inline static struct thread_info *current_thread_info(void)
                       "%P"
                       "1"
                       ",%0": "=r" (pfo_ret__): "p" (& kernel_stack));
+*/
 #line 222
             goto switch_break;
             case_4: 
@@ -9145,7 +9147,7 @@ static int vhost_worker(void *data )
 #line 194
                 __ptr___0 = (u16 volatile   *)__cil_tmp27;
 #line 194
-                __asm__  volatile   ("xchgw %0,%1": "=r" (__x), "+m" (*__ptr___0): "0" (__x): "memory");
+                __asm__  volatile   ("xchgw %0,%1": "=r" (*((u16*) &__x)), "+m" (*__ptr___0): "0" (*((u16*) &__x)): "memory");
                 }
 #line 194
                 goto switch_break;
