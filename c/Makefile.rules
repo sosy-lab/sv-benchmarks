@@ -80,7 +80,8 @@ all::
 		if [ $(REPORT_CC_FILE) -eq 2 ]; then \
 			echo "make[$$((( $(MAKELEVEL) + 1)))]: Entering directory '$$dir'"; \
 			($(MAKE) --no-print-directory -C $$dir $@ ) || exit 1; \
-			echo -e "\nmake[$$((( $(MAKELEVEL) + 1)))]: Leaving directory '$$dir'"; \
+			echo "" ;\
+			echo "make[$$((( $(MAKELEVEL) + 1)))]: Leaving directory '$$dir'"; \
 		else \
 			($(MAKE) -C $$dir $@ ) || exit 1; \
 		fi; \
