@@ -77,7 +77,14 @@ endif
 # all Directory Recursion target
 all::
 	$(Verb) for dir in $(DIRS); do \
-		($(MAKE) -C $$dir $@ ) || exit 1; \
+		if [ $(REPORT_CC_FILE) -eq 2 ]; then \
+			echo "make[$$((( $(MAKELEVEL) + 1)))]: Entering directory '$$dir'"; \
+			($(MAKE) --no-print-directory -C $$dir $@ ) || exit 1; \
+			echo "" ;\
+			echo "make[$$((( $(MAKELEVEL) + 1)))]: Leaving directory '$$dir'"; \
+		else \
+			($(MAKE) -C $$dir $@ ) || exit 1; \
+		fi; \
 	done
 
 # clean Directory Recursion target
@@ -108,10 +115,8 @@ ifeq ($(SUPPRESS_WARNINGS),0)
 
   ifeq ($(CC_IS_GCC),1)
     CC.Warnings += $(GCC_ONLY_WARNINGS)
-    CC.Flags += $(GCC_ONLY_WARNINGS_AS_ERRORS)
   else ifeq ($(CC_IS_CLANG),1)
     CC.Warnings += $(CLANG_ONLY_WARNINGS)
-    CC.Flags += $(CLANG_ONLY_WARNINGS_AS_ERRORS)
   else
     $(error Compiler "$(CC)" was not identified as gcc or clang)
   endif
@@ -123,17 +128,27 @@ else
   CC.Warnings := -w
 endif
 
-# Warnings as errors are always passed to the compiler
-CC.Flags += $(COMMON_WARNINGS_AS_ERRORS)
+# Specific Warnings as errors are always passed to the compiler
+# regardless of the value of SUPPRESS_WARNINGS
+CC.WarningsAsErrors := $(COMMON_WARNINGS_AS_ERRORS)
+ifeq ($(CC_IS_GCC),1)
+  CC.WarningsAsErrors += $(GCC_ONLY_WARNINGS_AS_ERRORS)
+else ifeq ($(CC_IS_CLANG),1)
+  CC.WarningsAsErrors += $(CLANG_ONLY_WARNINGS_AS_ERRORS)
+else
+  $(error Compiler "$(CC)" was not identified as gcc or clang)
+endif
+
+ifneq ($(WARNINGS_AS_ERRORS),0)
+  CC.WarningsAsErrors += -Werror
+endif
 
 CC.Flags += -std=$(CC.Standard) \
             -m$(CC.Arch) \
+            $(CC.WarningsAsErrors) \
             $(CC.Warnings) \
             -include $(ROOT_DIR)/decls.h
 
-ifneq ($(WARNINGS_AS_ERRORS),0)
-  CC.Flags += -Werror
-endif
 
 # Handle emission of LLVM Bitcode rather than native code
 ifneq ($(EMIT_LLVM),0)
@@ -200,15 +215,21 @@ build_at_level: $(C_OBJS) $(I_OBJS)
 # -fsyntax-only is used as Clang doesn't seem to emit a file
 # to $@
 $(LOCAL_BUILD_DIR)/%.oc: %.c
-	@( [ $(REPORT_CC_FILE) -ne 0 ] && \
-    echo "$(CC) building $(LOCAL_BUILD_DIR_SUFFIX)/$<") || exit 0
+	@if [ $(REPORT_CC_FILE) -eq 1 ]; then \
+		echo "$(CC) building $(LOCAL_BUILD_DIR_SUFFIX)/$<" ; \
+	elif [ $(REPORT_CC_FILE) -eq 2 ]; then \
+		echo -n "."; \
+	fi
 	$(Verb) $(MKDIR) -p $(LOCAL_BUILD_DIR)
 	$(Verb) $(CC) $(CC.Flags) -c $< -o $@ -MP -MMD -MF $(LOCAL_BUILD_DIR)/$*.dc
 	$(Verb) $(TOUCH) $@
 
 $(LOCAL_BUILD_DIR)/%.oi: %.i
-	@( [ $(REPORT_CC_FILE) -ne 0 ] && \
-    echo "$(CC) building $(LOCAL_BUILD_DIR_SUFFIX)/$<") || exit 0
+	@if [ $(REPORT_CC_FILE) -eq 1 ]; then \
+		echo "$(CC) building $(LOCAL_BUILD_DIR_SUFFIX)/$<" ; \
+	elif [ $(REPORT_CC_FILE) -eq 2 ]; then \
+		echo -n "."; \
+	fi
 	$(Verb) $(MKDIR) -p $(LOCAL_BUILD_DIR)
 	$(Verb) $(CC) $(CC.Flags) -c $< -o $@ -MP -MMD -MF $(LOCAL_BUILD_DIR)/$*.di
 	$(Verb) $(TOUCH) $@
@@ -241,6 +262,8 @@ debug_vars:
 	@echo "I_SRCS := $(I_SRCS)"
 	@echo "C_I_COMMON_SRCS := $(C_I_COMMON_SRCS)"
 	@echo "CC.Flags := $(CC.Flags)"
+	@echo "CC.Warnings := $(CC.Warnings)"
+	@echo "CC.WarningsAsErrors := $(CC.WarningsAsErrors)"
 	@echo "CC_IS_CLANG := $(CC_IS_CLANG)"
 	@echo "CC_IS_GCC := $(CC_IS_GCC)"
 	@echo "CURRENT_DIR := $(CURRENT_DIR)"
