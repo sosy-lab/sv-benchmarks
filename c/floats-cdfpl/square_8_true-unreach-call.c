@@ -2,9 +2,7 @@ extern void __VERIFIER_assume(int);
 extern void __VERIFIER_error(void);
 //APPROXIMATES sqroot(1+x)
 
-#ifndef NR
-#error PLEASE DEFINE THE NR OF THE BENCHMARK (FLAG -DNR=[1,8])
-#endif
+#define NR 8
 
 
 #if NR == 1

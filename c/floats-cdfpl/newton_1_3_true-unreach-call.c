@@ -1,9 +1,7 @@
 extern void __VERIFIER_error(void);
 extern void __VERIFIER_assume(int);
 
-#ifndef NR
-//#error PLEASE DEFINE THE NR OF THE BENCHMARK (FLAG -DNR=[1,8])
-#endif
+#define NR 3
 
 #if NR == 1
 #define VAL 0.2f
@@ -23,9 +21,7 @@ extern void __VERIFIER_assume(int);
 #define VAL 2.0f
 #endif
 
-#ifndef ITERATIONS
-#error please set number of iterations (between 2 and 3) 
-#endif 
+#define ITERATIONS 1
 
 #if !(ITERATIONS >= 1 && ITERATIONS <= 3)
 #error Number of iterations must be between 1 and 3
