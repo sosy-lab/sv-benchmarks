@@ -1,3 +1,5 @@
+extern void __VERIFIER_assume(int);
+extern _Bool __VERIFIER_nondet_bool(void);
 // Copyright (c) 2015 Michael Tautschnig <michael.tautschnig@qmul.ac.uk>
 // 
 // Licensed under the Apache License, Version 2.0 (the "License");

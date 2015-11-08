@@ -1,3 +1,5 @@
+extern char __VERIFIER_nondet_char(void);
+extern void __VERIFIER_assume(int);
 # 1 "tee_false-unreach-call.c"
 # 1 "<built-in>"
 # 1 "<command-line>"
