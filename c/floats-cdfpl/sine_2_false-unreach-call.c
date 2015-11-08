@@ -2,9 +2,7 @@ extern void __VERIFIER_error(void);
 extern void __VERIFIER_assume(int);
 #define HALFPI 1.57079632679f
 
-#ifndef NR
-#error PLEASE DEFINE THE NR OF THE BENCHMARK (FLAG -DNR=[1,8])
-#endif
+#define NR 2
 
 
 #if NR == 1
