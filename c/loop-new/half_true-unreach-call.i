@@ -11,7 +11,7 @@ int main() {
     int i = 0;
     int n = 0;
     int k = __VERIFIER_nondet_int();
-    __VERIFIER_assume(k <= 1000000);
+    __VERIFIER_assume(k <= 1000000 && k >= -1000000);
     for(i = 0; i < 2*k; i++) {
  if (i % 2 == 0) {
      n ++;

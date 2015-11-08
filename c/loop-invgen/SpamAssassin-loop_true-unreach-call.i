@@ -14,9 +14,9 @@ int main()
   int j;
   int bufsize;
   bufsize = __VERIFIER_nondet_int();
+  if (bufsize < 0) return 0;
   len = __VERIFIER_nondet_int();
   int limit = bufsize - 4;
-  if (bufsize < 0) return 0;
   for (i = 0; i < len; ) {
     for (j = 0; i < len && j < limit; ){
       if (i + 1 < len){
