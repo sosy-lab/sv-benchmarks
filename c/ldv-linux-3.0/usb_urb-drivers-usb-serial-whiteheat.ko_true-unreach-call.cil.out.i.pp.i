@@ -5021,7 +5021,8 @@ int device_private_init(struct device *dev)
   return 0;
 }
 
-void *dev_get_drvdata(struct device const *dev ) __attribute__((__ldv_model__)) {
+void *dev_get_drvdata(struct device const *dev ) __attribute__((__ldv_model__));
+void *dev_get_drvdata(struct device const *dev ) {
    if (dev && dev->p)
      return dev->p->driver_data;
    return 0;
