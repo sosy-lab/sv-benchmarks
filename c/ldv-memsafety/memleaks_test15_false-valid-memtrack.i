@@ -1649,11 +1649,11 @@ void ldv_arvo_remove(struct ldv_hid_device *hdev) {
 }
 
 void entry_point(void) {
- struct ldv_hid_device *hdev = (struct ldv_hid_device *)ldv_malloc(sizeof(struct ldv_hid_device));
+ struct ldv_hid_device *hdev = (struct ldv_hid_device *)ldv_zalloc(sizeof(struct ldv_hid_device));
  if(!hdev) goto err_hdev;
- struct ldv_usb_interface *intf = (struct ldv_usb_interface*)ldv_malloc(sizeof(struct ldv_usb_interface));
+ struct ldv_usb_interface *intf = (struct ldv_usb_interface*)ldv_zalloc(sizeof(struct ldv_usb_interface));
  if(!intf) goto err_intf;
- intf->cur_altsetting = (struct ldv_usb_host_interface *)ldv_malloc(sizeof(struct ldv_usb_host_interface));
+ intf->cur_altsetting = (struct ldv_usb_host_interface *)ldv_zalloc(sizeof(struct ldv_usb_host_interface));
  if(!intf->cur_altsetting) goto err_cur_alt;
 
  intf->cur_altsetting->desc.bInterfaceProtocol = (char)__VERIFIER_nondet_int();
