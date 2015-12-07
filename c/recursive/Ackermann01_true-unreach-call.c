@@ -7,6 +7,7 @@ extern void __VERIFIER_error() __attribute__ ((__noreturn__));
  * Author: Matthias Heizmann
  * Date: 2013-07-13
  * 
+ * Copied from termination-numeric/Ackermann01_true-termination.c
  */
 
 extern int __VERIFIER_nondet_int(void);
