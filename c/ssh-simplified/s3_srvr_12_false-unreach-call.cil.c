@@ -536,7 +536,9 @@ int ssl3_accept(int initial_state )
                                                                                 _L___2: 
                                                                                 {
 #line 401
-                                                                                //__cil_tmp61 = (unsigned long )s__s3__tmp__new_cipher__algorithms;
+                                                                                  s__s3__tmp__new_cipher__algorithms = __VERIFIER_nondet_int();
+                                                                                  __cil_tmp61 = (unsigned long )s__s3__tmp__new_cipher__algorithms;
+                                                                                  
 #line 401
                                                                                 if (__cil_tmp61 + 256UL) {
 										__cil_tmp61 = 9021;
