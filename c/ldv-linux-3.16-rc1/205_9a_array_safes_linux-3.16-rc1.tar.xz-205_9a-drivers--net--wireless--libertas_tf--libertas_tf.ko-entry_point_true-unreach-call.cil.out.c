@@ -7477,6 +7477,7 @@ void *ldv_malloc(size_t size )
   }
 }
 }
+
 #line 42 "/home/ldvuser/ldv/inst-cpa/kernel-rules/verifier/sv-comp.h"
 void *ldv_zalloc(size_t size ) 
 { 
@@ -7503,6 +7504,23 @@ void *ldv_zalloc(size_t size )
   }
 }
 }
+
+void *ldv_successfull_zalloc(size_t size ) 
+{ 
+  void *p ;
+  void *tmp ;
+
+  {
+  tmp = ldv_zalloc(size);
+#line 46
+  p = tmp;
+#line 47
+  __VERIFIER_assume((unsigned long )p != (unsigned long )((void *)0));
+#line 48
+  return (p);
+}
+}
+
 #line 52 "/home/ldvuser/ldv/inst-cpa/kernel-rules/verifier/sv-comp.h"
 int ldv_undef_int(void) 
 { 
@@ -9941,11 +9959,11 @@ void ldv_initialize_ieee80211_ops_2(void)
 
   {
 #line 903
-  tmp = ldv_zalloc(144UL);
+  tmp = ldv_successfull_zalloc(144UL);
 #line 903
   lbtf_ops_group0 = (struct ieee80211_hw *)tmp;
 #line 904
-  tmp___0 = ldv_zalloc(280UL);
+  tmp___0 = ldv_successfull_zalloc(280UL);
 #line 904
   lbtf_ops_group1 = (struct ieee80211_vif *)tmp___0;
 #line 905
@@ -10128,15 +10146,15 @@ int main(void)
 
   {
 #line 987
-  tmp = ldv_zalloc(4UL);
+  tmp = ldv_successfull_zalloc(4UL);
 #line 987
   ldvarg7 = (unsigned int *)tmp;
 #line 988
-  tmp___0 = ldv_zalloc(232UL);
+  tmp___0 = ldv_successfull_zalloc(232UL);
 #line 988
   ldvarg3 = (struct ieee80211_bss_conf *)tmp___0;
 #line 989
-  tmp___1 = ldv_zalloc(232UL);
+  tmp___1 = ldv_successfull_zalloc(232UL);
 #line 989
   ldvarg0 = (struct sk_buff *)tmp___1;
 #line 990
@@ -10148,15 +10166,15 @@ int main(void)
 #line 992
   ldvarg8 = tmp___3;
 #line 993
-  tmp___4 = ldv_zalloc(8UL);
+  tmp___4 = ldv_successfull_zalloc(8UL);
 #line 993
   ldvarg1 = (struct ieee80211_tx_control *)tmp___4;
 #line 994
-  tmp___5 = ldv_zalloc(56UL);
+  tmp___5 = ldv_successfull_zalloc(56UL);
 #line 994
   ldvarg4 = (struct survey_info *)tmp___5;
 #line 995
-  tmp___6 = ldv_zalloc(24UL);
+  tmp___6 = ldv_successfull_zalloc(24UL);
 #line 995
   ldvarg10 = (struct netdev_hw_addr_list *)tmp___6;
 #line 996
