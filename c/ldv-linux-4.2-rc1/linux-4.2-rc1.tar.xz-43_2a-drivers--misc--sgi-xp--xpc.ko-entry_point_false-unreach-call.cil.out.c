@@ -6110,6 +6110,9 @@ void choose_timer_1(struct timer_list *timer )
 
 
   {
+  if (ldv_timer_state_1 != 1) {
+    return;
+  }
   LDV_IN_INTERRUPT = 2;
   (*(timer->function))(timer->data);
   LDV_IN_INTERRUPT = 1;
@@ -6132,6 +6135,9 @@ void choose_timer_2(struct timer_list *timer )
 
 
   {
+  if (ldv_timer_state_2 != 1) {
+    return;
+  }
   LDV_IN_INTERRUPT = 2;
   (*(timer->function))(timer->data);
   LDV_IN_INTERRUPT = 1;
