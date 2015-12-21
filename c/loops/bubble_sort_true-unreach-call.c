@@ -6,15 +6,9 @@ void __VERIFIER_assert(int cond) {
   }
   return;
 }
-# 1 "main.c"
-# 1 "<command-line>"
-# 1 "main.c"
-# 1 "q1.h" 1
 
 
 
-# 1 "bubblesort.h" 1
-# 11 "bubblesort.h"
 void bubblesort(int size, int item[])
 {
  int a, b, t;
@@ -54,7 +48,6 @@ void bubblesort1(int size, int item[])
   item[i+1] = pivot;
  }
 }
-# 5 "q1.h" 2
 int __VERIFIER_nondet_int();
 void q1(int argc, char* argv[])
 {
@@ -90,7 +83,6 @@ void q1(int argc, char* argv[])
   bubblesort(N, a);
 
 }
-# 2 "main.c" 2
 
 int main (int argc, char* argv[])
 {
