@@ -1,51 +1,21 @@
 extern void __VERIFIER_error() __attribute__ ((__noreturn__));
 
-# 1 "reorder_bad.c"
-# 1 "<built-in>"
-# 1 "<command line>"
-# 1 "reorder_bad.c"
-# 1 "/usr/include/stdio.h" 1 3 4
-# 28 "/usr/include/stdio.h" 3 4
-# 1 "/usr/include/features.h" 1 3 4
-# 329 "/usr/include/features.h" 3 4
-# 1 "/usr/include/sys/cdefs.h" 1 3 4
-# 313 "/usr/include/sys/cdefs.h" 3 4
-# 1 "/usr/include/bits/wordsize.h" 1 3 4
-# 314 "/usr/include/sys/cdefs.h" 2 3 4
-# 330 "/usr/include/features.h" 2 3 4
-# 352 "/usr/include/features.h" 3 4
-# 1 "/usr/include/gnu/stubs.h" 1 3 4
-
-
-
-# 1 "/usr/include/bits/wordsize.h" 1 3 4
-# 5 "/usr/include/gnu/stubs.h" 2 3 4
-
-
-
-
-# 1 "/usr/include/gnu/stubs-64.h" 1 3 4
-# 10 "/usr/include/gnu/stubs.h" 2 3 4
-# 353 "/usr/include/features.h" 2 3 4
-# 29 "/usr/include/stdio.h" 2 3 4
 
 
 
 
 
-# 1 "/usr/lib/gcc/x86_64-redhat-linux/4.1.2/include/stddef.h" 1 3 4
-# 214 "/usr/lib/gcc/x86_64-redhat-linux/4.1.2/include/stddef.h" 3 4
+
+
+
+
+
+
+
 typedef long unsigned int size_t;
-# 35 "/usr/include/stdio.h" 2 3 4
-
-# 1 "/usr/include/bits/types.h" 1 3 4
-# 28 "/usr/include/bits/types.h" 3 4
-# 1 "/usr/include/bits/wordsize.h" 1 3 4
-# 29 "/usr/include/bits/types.h" 2 3 4
 
 
-# 1 "/usr/lib/gcc/x86_64-redhat-linux/4.1.2/include/stddef.h" 1 3 4
-# 32 "/usr/include/bits/types.h" 2 3 4
+
 
 
 typedef unsigned char __u_char;
@@ -72,9 +42,6 @@ typedef unsigned long int __uint64_t;
 
 typedef long int __quad_t;
 typedef unsigned long int __u_quad_t;
-# 134 "/usr/include/bits/types.h" 3 4
-# 1 "/usr/include/bits/typesizes.h" 1 3 4
-# 135 "/usr/include/bits/types.h" 2 3 4
 
 
 typedef unsigned long int __dev_t;
@@ -136,7 +103,6 @@ typedef long int __intptr_t;
 
 
 typedef unsigned int __socklen_t;
-# 37 "/usr/include/stdio.h" 2 3 4
 
 
 
@@ -152,28 +118,10 @@ typedef struct _IO_FILE FILE;
 
 
 
-# 62 "/usr/include/stdio.h" 3 4
 typedef struct _IO_FILE __FILE;
-# 72 "/usr/include/stdio.h" 3 4
-# 1 "/usr/include/libio.h" 1 3 4
-# 32 "/usr/include/libio.h" 3 4
-# 1 "/usr/include/_G_config.h" 1 3 4
-# 14 "/usr/include/_G_config.h" 3 4
-# 1 "/usr/lib/gcc/x86_64-redhat-linux/4.1.2/include/stddef.h" 1 3 4
-# 326 "/usr/lib/gcc/x86_64-redhat-linux/4.1.2/include/stddef.h" 3 4
 typedef int wchar_t;
-# 355 "/usr/lib/gcc/x86_64-redhat-linux/4.1.2/include/stddef.h" 3 4
 typedef unsigned int wint_t;
-# 15 "/usr/include/_G_config.h" 2 3 4
-# 24 "/usr/include/_G_config.h" 3 4
-# 1 "/usr/include/wchar.h" 1 3 4
-# 48 "/usr/include/wchar.h" 3 4
-# 1 "/usr/lib/gcc/x86_64-redhat-linux/4.1.2/include/stddef.h" 1 3 4
-# 49 "/usr/include/wchar.h" 2 3 4
 
-# 1 "/usr/include/bits/wchar.h" 1 3 4
-# 51 "/usr/include/wchar.h" 2 3 4
-# 76 "/usr/include/wchar.h" 3 4
 typedef struct
 {
   int __count;
@@ -183,7 +131,6 @@ typedef struct
     char __wchb[4];
   } __value;
 } __mbstate_t;
-# 25 "/usr/include/_G_config.h" 2 3 4
 
 typedef struct
 {
@@ -195,18 +142,8 @@ typedef struct
   __off64_t __pos;
   __mbstate_t __state;
 } _G_fpos64_t;
-# 44 "/usr/include/_G_config.h" 3 4
-# 1 "/usr/include/gconv.h" 1 3 4
-# 28 "/usr/include/gconv.h" 3 4
-# 1 "/usr/include/wchar.h" 1 3 4
-# 48 "/usr/include/wchar.h" 3 4
-# 1 "/usr/lib/gcc/x86_64-redhat-linux/4.1.2/include/stddef.h" 1 3 4
-# 49 "/usr/include/wchar.h" 2 3 4
-# 29 "/usr/include/gconv.h" 2 3 4
 
 
-# 1 "/usr/lib/gcc/x86_64-redhat-linux/4.1.2/include/stddef.h" 1 3 4
-# 32 "/usr/include/gconv.h" 2 3 4
 
 
 
@@ -353,7 +290,6 @@ typedef struct __gconv_info
   struct __gconv_step *__steps;
   __extension__ struct __gconv_step_data __data [];
 } *__gconv_t;
-# 45 "/usr/include/_G_config.h" 2 3 4
 typedef union
 {
   struct __gconv_info __cd;
@@ -368,15 +304,8 @@ typedef int _G_int16_t __attribute__ ((__mode__ (__HI__)));
 typedef int _G_int32_t __attribute__ ((__mode__ (__SI__)));
 typedef unsigned int _G_uint16_t __attribute__ ((__mode__ (__HI__)));
 typedef unsigned int _G_uint32_t __attribute__ ((__mode__ (__SI__)));
-# 33 "/usr/include/libio.h" 2 3 4
-# 53 "/usr/include/libio.h" 3 4
-# 1 "/usr/lib/gcc/x86_64-redhat-linux/4.1.2/include/stdarg.h" 1 3 4
-# 43 "/usr/lib/gcc/x86_64-redhat-linux/4.1.2/include/stdarg.h" 3 4
 typedef __builtin_va_list __gnuc_va_list;
-# 54 "/usr/include/libio.h" 2 3 4
-# 167 "/usr/include/libio.h" 3 4
 struct _IO_jump_t; struct _IO_FILE;
-# 177 "/usr/include/libio.h" 3 4
 typedef void _IO_lock_t;
 
 
@@ -390,7 +319,6 @@ struct _IO_marker {
 
 
   int _pos;
-# 200 "/usr/include/libio.h" 3 4
 };
 
 
@@ -401,7 +329,6 @@ enum __codecvt_result
   __codecvt_error,
   __codecvt_noconv
 };
-# 268 "/usr/include/libio.h" 3 4
 struct _IO_FILE {
   int _flags;
 
@@ -442,9 +369,7 @@ struct _IO_FILE {
 
 
   _IO_lock_t *_lock;
-# 316 "/usr/include/libio.h" 3 4
   __off64_t _offset;
-# 325 "/usr/include/libio.h" 3 4
   void *__pad1;
   void *__pad2;
   void *__pad3;
@@ -466,7 +391,6 @@ struct _IO_FILE_plus;
 extern struct _IO_FILE_plus _IO_2_1_stdin_;
 extern struct _IO_FILE_plus _IO_2_1_stdout_;
 extern struct _IO_FILE_plus _IO_2_1_stderr_;
-# 361 "/usr/include/libio.h" 3 4
 typedef __ssize_t __io_read_fn (void *__cookie, char *__buf, size_t __nbytes);
 
 
@@ -488,14 +412,12 @@ typedef int __io_seek_fn (void *__cookie, __off64_t *__pos, int __w);
 
 
 typedef int __io_close_fn (void *__cookie);
-# 413 "/usr/include/libio.h" 3 4
 extern int __underflow (_IO_FILE *);
 extern int __uflow (_IO_FILE *);
 extern int __overflow (_IO_FILE *, int);
 extern wint_t __wunderflow (_IO_FILE *);
 extern wint_t __wuflow (_IO_FILE *);
 extern wint_t __woverflow (_IO_FILE *, wint_t);
-# 451 "/usr/include/libio.h" 3 4
 extern int _IO_getc (_IO_FILE *__fp);
 extern int _IO_putc (int __c, _IO_FILE *__fp);
 extern int _IO_feof (_IO_FILE *__fp) __attribute__ ((__nothrow__));
@@ -510,7 +432,6 @@ extern int _IO_peekc_locked (_IO_FILE *__fp);
 extern void _IO_flockfile (_IO_FILE *) __attribute__ ((__nothrow__));
 extern void _IO_funlockfile (_IO_FILE *) __attribute__ ((__nothrow__));
 extern int _IO_ftrylockfile (_IO_FILE *) __attribute__ ((__nothrow__));
-# 481 "/usr/include/libio.h" 3 4
 extern int _IO_vfscanf (_IO_FILE * __restrict, const char * __restrict,
    __gnuc_va_list, int *__restrict);
 extern int _IO_vfprintf (_IO_FILE *__restrict, const char *__restrict,
@@ -522,8 +443,6 @@ extern __off64_t _IO_seekoff (_IO_FILE *, __off64_t, int, int);
 extern __off64_t _IO_seekpos (_IO_FILE *, __off64_t, int);
 
 extern void _IO_free_backup_area (_IO_FILE *) __attribute__ ((__nothrow__));
-# 73 "/usr/include/stdio.h" 2 3 4
-# 86 "/usr/include/stdio.h" 3 4
 
 
 typedef _G_fpos_t fpos_t;
@@ -531,9 +450,6 @@ typedef _G_fpos_t fpos_t;
 
 
 
-# 138 "/usr/include/stdio.h" 3 4
-# 1 "/usr/include/bits/stdio_lim.h" 1 3 4
-# 139 "/usr/include/stdio.h" 2 3 4
 
 
 
@@ -567,7 +483,6 @@ extern int rename (__const char *__old, __const char *__new) __attribute__ ((__n
 
 
 extern FILE *tmpfile (void);
-# 185 "/usr/include/stdio.h" 3 4
 extern char *tmpnam (char *__s) __attribute__ ((__nothrow__));
 
 
@@ -575,7 +490,6 @@ extern char *tmpnam (char *__s) __attribute__ ((__nothrow__));
 
 
 extern char *tmpnam_r (char *__s) __attribute__ ((__nothrow__));
-# 203 "/usr/include/stdio.h" 3 4
 extern char *tempnam (__const char *__dir, __const char *__pfx)
      __attribute__ ((__nothrow__)) __attribute__ ((__malloc__));
 
@@ -593,9 +507,7 @@ extern int fclose (FILE *__stream);
 
 extern int fflush (FILE *__stream);
 
-# 228 "/usr/include/stdio.h" 3 4
 extern int fflush_unlocked (FILE *__stream);
-# 242 "/usr/include/stdio.h" 3 4
 
 
 
@@ -611,11 +523,8 @@ extern FILE *fopen (__const char *__restrict __filename,
 extern FILE *freopen (__const char *__restrict __filename,
         __const char *__restrict __modes,
         FILE *__restrict __stream);
-# 269 "/usr/include/stdio.h" 3 4
 
-# 280 "/usr/include/stdio.h" 3 4
 extern FILE *fdopen (int __fd, __const char *__modes) __attribute__ ((__nothrow__));
-# 300 "/usr/include/stdio.h" 3 4
 
 
 
@@ -681,7 +590,6 @@ extern int vsnprintf (char *__restrict __s, size_t __maxlen,
         __const char *__restrict __format, __gnuc_va_list __arg)
      __attribute__ ((__nothrow__)) __attribute__ ((__format__ (__printf__, 3, 0)));
 
-# 394 "/usr/include/stdio.h" 3 4
 
 
 
@@ -698,7 +606,6 @@ extern int scanf (__const char *__restrict __format, ...) ;
 extern int sscanf (__const char *__restrict __s,
      __const char *__restrict __format, ...) __attribute__ ((__nothrow__));
 
-# 436 "/usr/include/stdio.h" 3 4
 
 
 
@@ -713,10 +620,8 @@ extern int getc (FILE *__stream);
 
 extern int getchar (void);
 
-# 460 "/usr/include/stdio.h" 3 4
 extern int getc_unlocked (FILE *__stream);
 extern int getchar_unlocked (void);
-# 471 "/usr/include/stdio.h" 3 4
 extern int fgetc_unlocked (FILE *__stream);
 
 
@@ -738,7 +643,6 @@ extern int putc (int __c, FILE *__stream);
 
 extern int putchar (int __c);
 
-# 504 "/usr/include/stdio.h" 3 4
 extern int fputc_unlocked (int __c, FILE *__stream);
 
 
@@ -777,7 +681,6 @@ extern char *fgets (char *__restrict __s, int __n, FILE *__restrict __stream)
 
 extern char *gets (char *__s) ;
 
-# 585 "/usr/include/stdio.h" 3 4
 
 
 
@@ -812,7 +715,6 @@ extern size_t fread (void *__restrict __ptr, size_t __size,
 extern size_t fwrite (__const void *__restrict __ptr, size_t __size,
         size_t __n, FILE *__restrict __s) ;
 
-# 638 "/usr/include/stdio.h" 3 4
 extern size_t fread_unlocked (void *__restrict __ptr, size_t __size,
          size_t __n, FILE *__restrict __stream) ;
 extern size_t fwrite_unlocked (__const void *__restrict __ptr, size_t __size,
@@ -837,14 +739,12 @@ extern long int ftell (FILE *__stream) ;
 
 extern void rewind (FILE *__stream);
 
-# 674 "/usr/include/stdio.h" 3 4
 extern int fseeko (FILE *__stream, __off_t __off, int __whence);
 
 
 
 
 extern __off_t ftello (FILE *__stream) ;
-# 693 "/usr/include/stdio.h" 3 4
 
 
 
@@ -857,9 +757,7 @@ extern int fgetpos (FILE *__restrict __stream, fpos_t *__restrict __pos);
 
 
 extern int fsetpos (FILE *__stream, __const fpos_t *__pos);
-# 716 "/usr/include/stdio.h" 3 4
 
-# 725 "/usr/include/stdio.h" 3 4
 
 
 extern void clearerr (FILE *__stream) __attribute__ ((__nothrow__));
@@ -889,11 +787,8 @@ extern void perror (__const char *__s);
 
 
 
-# 1 "/usr/include/bits/sys_errlist.h" 1 3 4
-# 27 "/usr/include/bits/sys_errlist.h" 3 4
 extern int sys_nerr;
 extern __const char *__const sys_errlist[];
-# 755 "/usr/include/stdio.h" 2 3 4
 
 
 
@@ -904,7 +799,6 @@ extern int fileno (FILE *__stream) __attribute__ ((__nothrow__)) ;
 
 
 extern int fileno_unlocked (FILE *__stream) __attribute__ ((__nothrow__)) ;
-# 774 "/usr/include/stdio.h" 3 4
 extern FILE *popen (__const char *__command, __const char *__modes) ;
 
 
@@ -918,7 +812,6 @@ extern int pclose (FILE *__stream);
 
 
 extern char *ctermid (char *__s) __attribute__ ((__nothrow__));
-# 814 "/usr/include/stdio.h" 3 4
 extern void flockfile (FILE *__stream) __attribute__ ((__nothrow__));
 
 
@@ -927,16 +820,9 @@ extern int ftrylockfile (FILE *__stream) __attribute__ ((__nothrow__)) ;
 
 
 extern void funlockfile (FILE *__stream) __attribute__ ((__nothrow__));
-# 844 "/usr/include/stdio.h" 3 4
-
-# 2 "reorder_bad.c" 2
-# 1 "/usr/include/stdlib.h" 1 3 4
-# 33 "/usr/include/stdlib.h" 3 4
-# 1 "/usr/lib/gcc/x86_64-redhat-linux/4.1.2/include/stddef.h" 1 3 4
-# 34 "/usr/include/stdlib.h" 2 3 4
 
 
-# 96 "/usr/include/stdlib.h" 3 4
+
 
 
 typedef struct
@@ -955,7 +841,6 @@ typedef struct
 
 
 
-# 140 "/usr/include/stdlib.h" 3 4
 extern size_t __ctype_get_mb_cur_max (void) __attribute__ ((__nothrow__)) ;
 
 
@@ -985,7 +870,6 @@ extern double strtod (__const char *__restrict __nptr,
         char **__restrict __endptr)
      __attribute__ ((__nothrow__)) __attribute__ ((__nonnull__ (1))) ;
 
-# 182 "/usr/include/stdlib.h" 3 4
 
 
 extern long int strtol (__const char *__restrict __nptr,
@@ -1023,7 +907,6 @@ extern unsigned long long int strtoull (__const char *__restrict __nptr,
      char **__restrict __endptr, int __base)
      __attribute__ ((__nothrow__)) __attribute__ ((__nonnull__ (1))) ;
 
-# 279 "/usr/include/stdlib.h" 3 4
 extern double __strtod_internal (__const char *__restrict __nptr,
      char **__restrict __endptr, int __group)
      __attribute__ ((__nothrow__)) __attribute__ ((__nonnull__ (1))) ;
@@ -1064,7 +947,6 @@ extern unsigned long long int __strtoull_internal (__const char *
          char **__restrict __endptr,
          int __base, int __group)
      __attribute__ ((__nothrow__)) __attribute__ ((__nonnull__ (1))) ;
-# 429 "/usr/include/stdlib.h" 3 4
 extern char *l64a (long int __n) __attribute__ ((__nothrow__)) ;
 
 
@@ -1074,8 +956,6 @@ extern long int a64l (__const char *__s)
 
 
 
-# 1 "/usr/include/sys/types.h" 1 3 4
-# 29 "/usr/include/sys/types.h" 3 4
 
 
 
@@ -1098,7 +978,6 @@ typedef __loff_t loff_t;
 
 
 typedef __ino_t ino_t;
-# 62 "/usr/include/sys/types.h" 3 4
 typedef __dev_t dev_t;
 
 
@@ -1126,7 +1005,6 @@ typedef __uid_t uid_t;
 
 
 typedef __off_t off_t;
-# 100 "/usr/include/sys/types.h" 3 4
 typedef __pid_t pid_t;
 
 
@@ -1151,30 +1029,20 @@ typedef __caddr_t caddr_t;
 
 
 typedef __key_t key_t;
-# 133 "/usr/include/sys/types.h" 3 4
-# 1 "/usr/include/time.h" 1 3 4
-# 75 "/usr/include/time.h" 3 4
 
 
 typedef __time_t time_t;
 
 
 
-# 93 "/usr/include/time.h" 3 4
 typedef __clockid_t clockid_t;
-# 105 "/usr/include/time.h" 3 4
 typedef __timer_t timer_t;
-# 134 "/usr/include/sys/types.h" 2 3 4
-# 147 "/usr/include/sys/types.h" 3 4
-# 1 "/usr/lib/gcc/x86_64-redhat-linux/4.1.2/include/stddef.h" 1 3 4
-# 148 "/usr/include/sys/types.h" 2 3 4
 
 
 
 typedef unsigned long int ulong;
 typedef unsigned short int ushort;
 typedef unsigned int uint;
-# 195 "/usr/include/sys/types.h" 3 4
 typedef int int8_t __attribute__ ((__mode__ (__QI__)));
 typedef int int16_t __attribute__ ((__mode__ (__HI__)));
 typedef int int32_t __attribute__ ((__mode__ (__SI__)));
@@ -1187,22 +1055,10 @@ typedef unsigned int u_int32_t __attribute__ ((__mode__ (__SI__)));
 typedef unsigned int u_int64_t __attribute__ ((__mode__ (__DI__)));
 
 typedef int register_t __attribute__ ((__mode__ (__word__)));
-# 217 "/usr/include/sys/types.h" 3 4
-# 1 "/usr/include/endian.h" 1 3 4
-# 37 "/usr/include/endian.h" 3 4
-# 1 "/usr/include/bits/endian.h" 1 3 4
-# 38 "/usr/include/endian.h" 2 3 4
-# 218 "/usr/include/sys/types.h" 2 3 4
 
 
-# 1 "/usr/include/sys/select.h" 1 3 4
-# 31 "/usr/include/sys/select.h" 3 4
-# 1 "/usr/include/bits/select.h" 1 3 4
-# 32 "/usr/include/sys/select.h" 2 3 4
 
 
-# 1 "/usr/include/bits/sigset.h" 1 3 4
-# 23 "/usr/include/bits/sigset.h" 3 4
 typedef int __sig_atomic_t;
 
 
@@ -1212,7 +1068,6 @@ typedef struct
   {
     unsigned long int __val[(1024 / (8 * sizeof (unsigned long int)))];
   } __sigset_t;
-# 35 "/usr/include/sys/select.h" 2 3 4
 
 
 
@@ -1222,23 +1077,17 @@ typedef __sigset_t sigset_t;
 
 
 
-# 1 "/usr/include/time.h" 1 3 4
-# 121 "/usr/include/time.h" 3 4
 struct timespec
   {
     __time_t tv_sec;
     long int tv_nsec;
   };
-# 45 "/usr/include/sys/select.h" 2 3 4
 
-# 1 "/usr/include/bits/time.h" 1 3 4
-# 69 "/usr/include/bits/time.h" 3 4
 struct timeval
   {
     __time_t tv_sec;
     __suseconds_t tv_usec;
   };
-# 47 "/usr/include/sys/select.h" 2 3 4
 
 
 typedef __suseconds_t suseconds_t;
@@ -1248,7 +1097,6 @@ typedef __suseconds_t suseconds_t;
 
 
 typedef long int __fd_mask;
-# 67 "/usr/include/sys/select.h" 3 4
 typedef struct
   {
 
@@ -1268,14 +1116,11 @@ typedef struct
 
 
 typedef __fd_mask fd_mask;
-# 99 "/usr/include/sys/select.h" 3 4
 
-# 109 "/usr/include/sys/select.h" 3 4
 extern int select (int __nfds, fd_set *__restrict __readfds,
      fd_set *__restrict __writefds,
      fd_set *__restrict __exceptfds,
      struct timeval *__restrict __timeout);
-# 121 "/usr/include/sys/select.h" 3 4
 extern int pselect (int __nfds, fd_set *__restrict __readfds,
       fd_set *__restrict __writefds,
       fd_set *__restrict __exceptfds,
@@ -1284,11 +1129,8 @@ extern int pselect (int __nfds, fd_set *__restrict __readfds,
 
 
 
-# 221 "/usr/include/sys/types.h" 2 3 4
 
 
-# 1 "/usr/include/sys/sysmacros.h" 1 3 4
-# 29 "/usr/include/sys/sysmacros.h" 3 4
 __extension__
 extern __inline unsigned int gnu_dev_major (unsigned long long int __dev)
      __attribute__ ((__nothrow__));
@@ -1320,8 +1162,6 @@ __attribute__ ((__nothrow__)) gnu_dev_makedev (unsigned int __major, unsigned in
    | (((unsigned long long int) (__minor & ~0xff)) << 12)
    | (((unsigned long long int) (__major & ~0xfff)) << 32));
 }
-# 224 "/usr/include/sys/types.h" 2 3 4
-# 235 "/usr/include/sys/types.h" 3 4
 typedef __blkcnt_t blkcnt_t;
 
 
@@ -1331,12 +1171,6 @@ typedef __fsblkcnt_t fsblkcnt_t;
 
 
 typedef __fsfilcnt_t fsfilcnt_t;
-# 270 "/usr/include/sys/types.h" 3 4
-# 1 "/usr/include/bits/pthreadtypes.h" 1 3 4
-# 23 "/usr/include/bits/pthreadtypes.h" 3 4
-# 1 "/usr/include/bits/wordsize.h" 1 3 4
-# 24 "/usr/include/bits/pthreadtypes.h" 2 3 4
-# 50 "/usr/include/bits/pthreadtypes.h" 3 4
 typedef unsigned long int pthread_t;
 
 
@@ -1353,7 +1187,6 @@ typedef struct __pthread_internal_list
   struct __pthread_internal_list *__prev;
   struct __pthread_internal_list *__next;
 } __pthread_list_t;
-# 76 "/usr/include/bits/pthreadtypes.h" 3 4
 typedef union
 {
   struct __pthread_mutex_s
@@ -1370,7 +1203,6 @@ typedef union
 
     int __spins;
     __pthread_list_t __list;
-# 101 "/usr/include/bits/pthreadtypes.h" 3 4
   } __data;
   char __size[40];
   long int __align;
@@ -1439,7 +1271,6 @@ typedef union
 
     unsigned int __flags;
   } __data;
-# 184 "/usr/include/bits/pthreadtypes.h" 3 4
   char __size[56];
   long int __align;
 } pthread_rwlock_t;
@@ -1470,11 +1301,9 @@ typedef union
   char __size[4];
   int __align;
 } pthread_barrierattr_t;
-# 271 "/usr/include/sys/types.h" 2 3 4
 
 
 
-# 439 "/usr/include/stdlib.h" 2 3 4
 
 
 
@@ -1648,10 +1477,6 @@ extern void cfree (void *__ptr) __attribute__ ((__nothrow__));
 
 
 
-# 1 "/usr/include/alloca.h" 1 3 4
-# 25 "/usr/include/alloca.h" 3 4
-# 1 "/usr/lib/gcc/x86_64-redhat-linux/4.1.2/include/stddef.h" 1 3 4
-# 26 "/usr/include/alloca.h" 2 3 4
 
 
 
@@ -1666,7 +1491,6 @@ extern void *alloca (size_t __size) __attribute__ ((__nothrow__));
 
 
 
-# 613 "/usr/include/stdlib.h" 2 3 4
 
 
 
@@ -1702,7 +1526,6 @@ extern int on_exit (void (*__func) (int __status, void *__arg), void *__arg)
 
 extern void exit (int __status) __attribute__ ((__nothrow__)) __attribute__ ((__noreturn__));
 
-# 658 "/usr/include/stdlib.h" 3 4
 
 
 extern char *getenv (__const char *__name) __attribute__ ((__nothrow__)) __attribute__ ((__nonnull__ (1))) ;
@@ -1735,11 +1558,8 @@ extern int unsetenv (__const char *__name) __attribute__ ((__nothrow__));
 
 
 extern int clearenv (void) __attribute__ ((__nothrow__));
-# 698 "/usr/include/stdlib.h" 3 4
 extern char *mktemp (char *__template) __attribute__ ((__nothrow__)) __attribute__ ((__nonnull__ (1))) ;
-# 709 "/usr/include/stdlib.h" 3 4
 extern int mkstemp (char *__template) __attribute__ ((__nonnull__ (1))) ;
-# 729 "/usr/include/stdlib.h" 3 4
 extern char *mkdtemp (char *__template) __attribute__ ((__nothrow__)) __attribute__ ((__nonnull__ (1))) ;
 
 
@@ -1751,7 +1571,6 @@ extern char *mkdtemp (char *__template) __attribute__ ((__nothrow__)) __attribut
 
 extern int system (__const char *__command) ;
 
-# 756 "/usr/include/stdlib.h" 3 4
 extern char *realpath (__const char *__restrict __name,
          char *__restrict __resolved) __attribute__ ((__nothrow__)) ;
 
@@ -1800,7 +1619,6 @@ extern div_t div (int __numer, int __denom)
 extern ldiv_t ldiv (long int __numer, long int __denom)
      __attribute__ ((__nothrow__)) __attribute__ ((__const__)) ;
 
-# 821 "/usr/include/stdlib.h" 3 4
 extern char *ecvt (double __value, int __ndigit, int *__restrict __decpt,
      int *__restrict __sign) __attribute__ ((__nothrow__)) __attribute__ ((__nonnull__ (3, 4))) ;
 
@@ -1879,24 +1697,12 @@ extern size_t wcstombs (char *__restrict __s,
 
 
 extern int rpmatch (__const char *__response) __attribute__ ((__nothrow__)) __attribute__ ((__nonnull__ (1))) ;
-# 926 "/usr/include/stdlib.h" 3 4
 extern int posix_openpt (int __oflag) ;
-# 961 "/usr/include/stdlib.h" 3 4
 extern int getloadavg (double __loadavg[], int __nelem)
      __attribute__ ((__nothrow__)) __attribute__ ((__nonnull__ (1)));
-# 977 "/usr/include/stdlib.h" 3 4
-
-# 3 "reorder_bad.c" 2
-# 1 "/usr/include/pthread.h" 1 3 4
-# 23 "/usr/include/pthread.h" 3 4
-# 1 "/usr/include/sched.h" 1 3 4
-# 29 "/usr/include/sched.h" 3 4
-# 1 "/usr/include/time.h" 1 3 4
-# 30 "/usr/include/sched.h" 2 3 4
 
 
-# 1 "/usr/include/bits/sched.h" 1 3 4
-# 65 "/usr/include/bits/sched.h" 3 4
+
 struct sched_param
   {
     int __sched_priority;
@@ -1925,7 +1731,6 @@ struct __sched_param
   {
     int __sched_priority;
   };
-# 104 "/usr/include/bits/sched.h" 3 4
 typedef unsigned long int __cpu_mask;
 
 
@@ -1937,7 +1742,6 @@ typedef struct
 {
   __cpu_mask __bits[1024 / (8 * sizeof (__cpu_mask))];
 } cpu_set_t;
-# 33 "/usr/include/sched.h" 2 3 4
 
 
 
@@ -1969,11 +1773,6 @@ extern int sched_get_priority_min (int __algorithm) __attribute__ ((__nothrow__)
 
 
 extern int sched_rr_get_interval (__pid_t __pid, struct timespec *__t) __attribute__ ((__nothrow__));
-# 84 "/usr/include/sched.h" 3 4
-
-# 24 "/usr/include/pthread.h" 2 3 4
-# 1 "/usr/include/time.h" 1 3 4
-# 31 "/usr/include/time.h" 3 4
 
 
 
@@ -1982,21 +1781,16 @@ extern int sched_rr_get_interval (__pid_t __pid, struct timespec *__t) __attribu
 
 
 
-# 1 "/usr/lib/gcc/x86_64-redhat-linux/4.1.2/include/stddef.h" 1 3 4
-# 40 "/usr/include/time.h" 2 3 4
 
 
 
-# 1 "/usr/include/bits/time.h" 1 3 4
-# 44 "/usr/include/time.h" 2 3 4
-# 59 "/usr/include/time.h" 3 4
+
 
 
 typedef __clock_t clock_t;
 
 
 
-# 132 "/usr/include/time.h" 3 4
 
 
 struct tm
@@ -2035,7 +1829,6 @@ struct itimerspec
 
 
 struct sigevent;
-# 181 "/usr/include/time.h" 3 4
 
 
 
@@ -2059,7 +1852,6 @@ extern size_t strftime (char *__restrict __s, size_t __maxsize,
    __const char *__restrict __format,
    __const struct tm *__restrict __tp) __attribute__ ((__nothrow__));
 
-# 229 "/usr/include/time.h" 3 4
 
 
 
@@ -2129,7 +1921,6 @@ extern long int timezone;
 
 
 extern int stime (__const time_t *__when) __attribute__ ((__nothrow__));
-# 312 "/usr/include/time.h" 3 4
 extern time_t timegm (struct tm *__tp) __attribute__ ((__nothrow__));
 
 
@@ -2137,7 +1928,6 @@ extern time_t timelocal (struct tm *__tp) __attribute__ ((__nothrow__));
 
 
 extern int dysize (int __year) __attribute__ ((__nothrow__)) __attribute__ ((__const__));
-# 327 "/usr/include/time.h" 3 4
 extern int nanosleep (__const struct timespec *__requested_time,
         struct timespec *__remaining);
 
@@ -2185,33 +1975,18 @@ extern int timer_gettime (timer_t __timerid, struct itimerspec *__value)
 
 
 extern int timer_getoverrun (timer_t __timerid) __attribute__ ((__nothrow__));
-# 416 "/usr/include/time.h" 3 4
-
-# 25 "/usr/include/pthread.h" 2 3 4
 
 
-# 1 "/usr/include/signal.h" 1 3 4
-# 31 "/usr/include/signal.h" 3 4
 
 
-# 1 "/usr/include/bits/sigset.h" 1 3 4
-# 34 "/usr/include/signal.h" 2 3 4
-# 400 "/usr/include/signal.h" 3 4
 
-# 28 "/usr/include/pthread.h" 2 3 4
 
-# 1 "/usr/include/bits/setjmp.h" 1 3 4
-# 27 "/usr/include/bits/setjmp.h" 3 4
-# 1 "/usr/include/bits/wordsize.h" 1 3 4
-# 28 "/usr/include/bits/setjmp.h" 2 3 4
+
 
 
 
 
 typedef long int __jmp_buf[8];
-# 30 "/usr/include/pthread.h" 2 3 4
-# 1 "/usr/include/bits/wordsize.h" 1 3 4
-# 31 "/usr/include/pthread.h" 2 3 4
 
 
 
@@ -2231,9 +2006,7 @@ enum
   PTHREAD_MUTEX_RECURSIVE_NP,
   PTHREAD_MUTEX_ERRORCHECK_NP,
   PTHREAD_MUTEX_ADAPTIVE_NP
-# 61 "/usr/include/pthread.h" 3 4
 };
-# 113 "/usr/include/pthread.h" 3 4
 enum
 {
   PTHREAD_RWLOCK_PREFER_READER_NP,
@@ -2241,7 +2014,6 @@ enum
   PTHREAD_RWLOCK_PREFER_WRITER_NONRECURSIVE_NP,
   PTHREAD_RWLOCK_DEFAULT_NP = PTHREAD_RWLOCK_PREFER_READER_NP
 };
-# 143 "/usr/include/pthread.h" 3 4
 enum
 {
   PTHREAD_INHERIT_SCHED,
@@ -2269,7 +2041,6 @@ enum
   PTHREAD_PROCESS_SHARED
 
 };
-# 178 "/usr/include/pthread.h" 3 4
 struct _pthread_cleanup_buffer
 {
   void (*__routine) (void *);
@@ -2293,7 +2064,6 @@ enum
   PTHREAD_CANCEL_ASYNCHRONOUS
 
 };
-# 216 "/usr/include/pthread.h" 3 4
 
 
 
@@ -2317,7 +2087,6 @@ extern void pthread_exit (void *__retval) __attribute__ ((__noreturn__));
 
 
 extern int pthread_join (pthread_t __th, void **__thread_return);
-# 259 "/usr/include/pthread.h" 3 4
 extern int pthread_detach (pthread_t __th) __attribute__ ((__nothrow__));
 
 
@@ -2438,7 +2207,6 @@ extern int pthread_attr_getstack (__const pthread_attr_t *__restrict __attr,
 
 extern int pthread_attr_setstack (pthread_attr_t *__attr, void *__stackaddr,
       size_t __stacksize) __attribute__ ((__nothrow__)) __attribute__ ((__nonnull__ (1)));
-# 409 "/usr/include/pthread.h" 3 4
 extern int pthread_setschedparam (pthread_t __target_thread, int __policy,
       __const struct sched_param *__param)
      __attribute__ ((__nothrow__)) __attribute__ ((__nonnull__ (3)));
@@ -2452,10 +2220,8 @@ extern int pthread_getschedparam (pthread_t __target_thread,
 
 extern int pthread_setschedprio (pthread_t __target_thread, int __prio)
      __attribute__ ((__nothrow__));
-# 462 "/usr/include/pthread.h" 3 4
 extern int pthread_once (pthread_once_t *__once_control,
     void (*__init_routine) (void)) __attribute__ ((__nonnull__ (1, 2)));
-# 474 "/usr/include/pthread.h" 3 4
 extern int pthread_setcancelstate (int __state, int *__oldstate);
 
 
@@ -2482,7 +2248,6 @@ typedef struct
   } __cancel_jmp_buf[1];
   void *__pad[4];
 } __pthread_unwind_buf_t __attribute__ ((__aligned__));
-# 508 "/usr/include/pthread.h" 3 4
 struct __pthread_cleanup_frame
 {
   void (*__cancel_routine) (void *);
@@ -2490,13 +2255,10 @@ struct __pthread_cleanup_frame
   int __do_it;
   int __cancel_type;
 };
-# 648 "/usr/include/pthread.h" 3 4
 extern void __pthread_register_cancel (__pthread_unwind_buf_t *__buf)
      ;
-# 659 "/usr/include/pthread.h" 3 4
 extern void __pthread_unregister_cancel (__pthread_unwind_buf_t *__buf)
   ;
-# 699 "/usr/include/pthread.h" 3 4
 extern void __pthread_unwind_next (__pthread_unwind_buf_t *__buf)
      __attribute__ ((__noreturn__))
 
@@ -2539,7 +2301,6 @@ extern int pthread_mutex_timedlock (pthread_mutex_t *__restrict __mutex,
 
 extern int pthread_mutex_unlock (pthread_mutex_t *__mutex)
      __attribute__ ((__nothrow__)) __attribute__ ((__nonnull__ (1)));
-# 770 "/usr/include/pthread.h" 3 4
 extern int pthread_mutexattr_init (pthread_mutexattr_t *__attr)
      __attribute__ ((__nothrow__)) __attribute__ ((__nonnull__ (1)));
 
@@ -2557,7 +2318,6 @@ extern int pthread_mutexattr_getpshared (__const pthread_mutexattr_t *
 extern int pthread_mutexattr_setpshared (pthread_mutexattr_t *__attr,
       int __pshared)
      __attribute__ ((__nothrow__)) __attribute__ ((__nonnull__ (1)));
-# 842 "/usr/include/pthread.h" 3 4
 extern int pthread_rwlock_init (pthread_rwlock_t *__restrict __rwlock,
     __const pthread_rwlockattr_t *__restrict
     __attr) __attribute__ ((__nothrow__)) __attribute__ ((__nonnull__ (1)));
@@ -2662,7 +2422,6 @@ extern int pthread_cond_broadcast (pthread_cond_t *__cond)
 extern int pthread_cond_wait (pthread_cond_t *__restrict __cond,
          pthread_mutex_t *__restrict __mutex)
      __attribute__ ((__nonnull__ (1, 2)));
-# 954 "/usr/include/pthread.h" 3 4
 extern int pthread_cond_timedwait (pthread_cond_t *__restrict __cond,
        pthread_mutex_t *__restrict __mutex,
        __const struct timespec *__restrict
@@ -2699,7 +2458,6 @@ extern int pthread_condattr_getclock (__const pthread_condattr_t *
 extern int pthread_condattr_setclock (pthread_condattr_t *__attr,
           __clockid_t __clock_id)
      __attribute__ ((__nothrow__)) __attribute__ ((__nonnull__ (1)));
-# 998 "/usr/include/pthread.h" 3 4
 extern int pthread_spin_init (pthread_spinlock_t *__lock, int __pshared)
      __attribute__ ((__nothrow__)) __attribute__ ((__nonnull__ (1)));
 
@@ -2756,7 +2514,6 @@ extern int pthread_barrierattr_getpshared (__const pthread_barrierattr_t *
 extern int pthread_barrierattr_setpshared (pthread_barrierattr_t *__attr,
                                            int __pshared)
      __attribute__ ((__nothrow__)) __attribute__ ((__nonnull__ (1)));
-# 1065 "/usr/include/pthread.h" 3 4
 extern int pthread_key_create (pthread_key_t *__key,
           void (*__destr_function) (void *))
      __attribute__ ((__nothrow__)) __attribute__ ((__nonnull__ (1)));
@@ -2777,13 +2534,10 @@ extern int pthread_setspecific (pthread_key_t __key,
 extern int pthread_getcpuclockid (pthread_t __thread_id,
       __clockid_t *__clock_id)
      __attribute__ ((__nothrow__)) __attribute__ ((__nonnull__ (2)));
-# 1099 "/usr/include/pthread.h" 3 4
 extern int pthread_atfork (void (*__prepare) (void),
       void (*__parent) (void),
       void (*__child) (void)) __attribute__ ((__nothrow__));
-# 1113 "/usr/include/pthread.h" 3 4
 
-# 4 "reorder_bad.c" 2
 
 
 

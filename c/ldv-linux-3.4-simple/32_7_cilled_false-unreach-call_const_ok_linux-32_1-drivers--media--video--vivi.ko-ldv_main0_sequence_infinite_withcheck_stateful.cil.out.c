@@ -4,172 +4,96 @@ extern void __VERIFIER_error() __attribute__ ((__noreturn__));
 /* print_CIL_Input is true */
 
 extern void *__VERIFIER_nondet_pointer(void) ;
-#line 19 "include/asm-generic/int-ll64.h"
 typedef signed char __s8;
-#line 20 "include/asm-generic/int-ll64.h"
 typedef unsigned char __u8;
-#line 22 "include/asm-generic/int-ll64.h"
 typedef short __s16;
-#line 23 "include/asm-generic/int-ll64.h"
 typedef unsigned short __u16;
-#line 25 "include/asm-generic/int-ll64.h"
 typedef int __s32;
-#line 26 "include/asm-generic/int-ll64.h"
 typedef unsigned int __u32;
-#line 29 "include/asm-generic/int-ll64.h"
 typedef long long __s64;
-#line 30 "include/asm-generic/int-ll64.h"
 typedef unsigned long long __u64;
-#line 43 "include/asm-generic/int-ll64.h"
 typedef unsigned char u8;
-#line 45 "include/asm-generic/int-ll64.h"
 typedef short s16;
-#line 46 "include/asm-generic/int-ll64.h"
 typedef unsigned short u16;
-#line 48 "include/asm-generic/int-ll64.h"
 typedef int s32;
-#line 49 "include/asm-generic/int-ll64.h"
 typedef unsigned int u32;
-#line 51 "include/asm-generic/int-ll64.h"
 typedef long long s64;
-#line 52 "include/asm-generic/int-ll64.h"
 typedef unsigned long long u64;
-#line 14 "include/asm-generic/posix_types.h"
 typedef long __kernel_long_t;
-#line 15 "include/asm-generic/posix_types.h"
 typedef unsigned long __kernel_ulong_t;
-#line 31 "include/asm-generic/posix_types.h"
 typedef int __kernel_pid_t;
-#line 44 "include/asm-generic/posix_types.h"
 typedef __kernel_long_t __kernel_suseconds_t;
-#line 52 "include/asm-generic/posix_types.h"
 typedef unsigned int __kernel_uid32_t;
-#line 53 "include/asm-generic/posix_types.h"
 typedef unsigned int __kernel_gid32_t;
-#line 75 "include/asm-generic/posix_types.h"
 typedef __kernel_ulong_t __kernel_size_t;
-#line 76 "include/asm-generic/posix_types.h"
 typedef __kernel_long_t __kernel_ssize_t;
-#line 91 "include/asm-generic/posix_types.h"
 typedef long long __kernel_loff_t;
-#line 92 "include/asm-generic/posix_types.h"
 typedef __kernel_long_t __kernel_time_t;
-#line 93 "include/asm-generic/posix_types.h"
 typedef __kernel_long_t __kernel_clock_t;
-#line 94 "include/asm-generic/posix_types.h"
 typedef int __kernel_timer_t;
-#line 95 "include/asm-generic/posix_types.h"
 typedef int __kernel_clockid_t;
-#line 21 "include/linux/types.h"
 typedef __u32 __kernel_dev_t;
-#line 24 "include/linux/types.h"
 typedef __kernel_dev_t dev_t;
-#line 27 "include/linux/types.h"
 typedef unsigned short umode_t;
-#line 30 "include/linux/types.h"
 typedef __kernel_pid_t pid_t;
-#line 35 "include/linux/types.h"
 typedef __kernel_clockid_t clockid_t;
-#line 38 "include/linux/types.h"
 typedef _Bool bool;
-#line 40 "include/linux/types.h"
 typedef __kernel_uid32_t uid_t;
-#line 41 "include/linux/types.h"
 typedef __kernel_gid32_t gid_t;
-#line 54 "include/linux/types.h"
 typedef __kernel_loff_t loff_t;
-#line 63 "include/linux/types.h"
 typedef __kernel_size_t size_t;
-#line 68 "include/linux/types.h"
 typedef __kernel_ssize_t ssize_t;
-#line 78 "include/linux/types.h"
 typedef __kernel_time_t time_t;
-#line 111 "include/linux/types.h"
 typedef __s32 int32_t;
-#line 117 "include/linux/types.h"
 typedef __u32 uint32_t;
-#line 142 "include/linux/types.h"
 typedef unsigned long sector_t;
-#line 143 "include/linux/types.h"
 typedef unsigned long blkcnt_t;
-#line 202 "include/linux/types.h"
 typedef unsigned int gfp_t;
-#line 203 "include/linux/types.h"
 typedef unsigned int fmode_t;
-#line 219 "include/linux/types.h"
 struct __anonstruct_atomic_t_7 {
    int counter ;
 };
-#line 219 "include/linux/types.h"
 typedef struct __anonstruct_atomic_t_7 atomic_t;
-#line 224 "include/linux/types.h"
 struct __anonstruct_atomic64_t_8 {
    long counter ;
 };
-#line 224 "include/linux/types.h"
 typedef struct __anonstruct_atomic64_t_8 atomic64_t;
-#line 229 "include/linux/types.h"
 struct list_head {
    struct list_head *next ;
    struct list_head *prev ;
 };
-#line 233
 struct hlist_node;
-#line 233 "include/linux/types.h"
 struct hlist_head {
    struct hlist_node *first ;
 };
-#line 237 "include/linux/types.h"
 struct hlist_node {
    struct hlist_node *next ;
    struct hlist_node **pprev ;
 };
-#line 253 "include/linux/types.h"
 struct rcu_head {
    struct rcu_head *next ;
    void (*func)(struct rcu_head *head ) ;
 };
-#line 56 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/alternative.h"
 struct module;
-#line 56
 struct module;
-#line 146 "include/linux/init.h"
 typedef void (*ctor_fn_t)(void);
-#line 47 "include/linux/dynamic_debug.h"
 struct device;
-#line 47
 struct device;
-#line 135 "include/linux/kernel.h"
 struct completion;
-#line 135
 struct completion;
-#line 136
 struct pt_regs;
-#line 136
 struct pt_regs;
-#line 349
 struct pid;
-#line 349
 struct pid;
-#line 12 "include/linux/thread_info.h"
 struct timespec;
-#line 12
 struct timespec;
-#line 18 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/page.h"
 struct page;
-#line 18
 struct page;
-#line 20 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/thread_info.h"
 struct task_struct;
-#line 20
 struct task_struct;
-#line 7 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/processor.h"
 struct task_struct;
-#line 8
 struct mm_struct;
-#line 8
 struct mm_struct;
-#line 99 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/ptrace.h"
 struct pt_regs {
    unsigned long r15 ;
    unsigned long r14 ;
@@ -193,12 +117,10 @@ struct pt_regs {
    unsigned long sp ;
    unsigned long ss ;
 };
-#line 22 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/desc_defs.h"
 struct __anonstruct____missing_field_name_15 {
    unsigned int a ;
    unsigned int b ;
 };
-#line 22 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/desc_defs.h"
 struct __anonstruct____missing_field_name_16 {
    u16 limit0 ;
    u16 base0 ;
@@ -214,64 +136,39 @@ struct __anonstruct____missing_field_name_16 {
    unsigned int g : 1 ;
    unsigned int base2 : 8 ;
 };
-#line 22 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/desc_defs.h"
 union __anonunion____missing_field_name_14 {
    struct __anonstruct____missing_field_name_15 __annonCompField5 ;
    struct __anonstruct____missing_field_name_16 __annonCompField6 ;
 };
-#line 22 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/desc_defs.h"
 struct desc_struct {
    union __anonunion____missing_field_name_14 __annonCompField7 ;
 } __attribute__((__packed__)) ;
-#line 13 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/pgtable_64_types.h"
 typedef unsigned long pgdval_t;
-#line 14 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/pgtable_64_types.h"
 typedef unsigned long pgprotval_t;
-#line 192 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/pgtable_types.h"
 struct pgprot {
    pgprotval_t pgprot ;
 };
-#line 192 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/pgtable_types.h"
 typedef struct pgprot pgprot_t;
-#line 194 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/pgtable_types.h"
 struct __anonstruct_pgd_t_20 {
    pgdval_t pgd ;
 };
-#line 194 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/pgtable_types.h"
 typedef struct __anonstruct_pgd_t_20 pgd_t;
-#line 282 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/pgtable_types.h"
 typedef struct page *pgtable_t;
-#line 295
 struct file;
-#line 295
 struct file;
-#line 313
 struct seq_file;
-#line 313
 struct seq_file;
-#line 46 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/paravirt_types.h"
 struct page;
-#line 47
 struct thread_struct;
-#line 47
 struct thread_struct;
-#line 50
 struct mm_struct;
-#line 51
 struct desc_struct;
-#line 52
 struct task_struct;
-#line 53
 struct cpumask;
-#line 53
 struct cpumask;
-#line 329
 struct arch_spinlock;
-#line 329
 struct arch_spinlock;
-#line 139 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/ptrace.h"
 struct task_struct;
-#line 141 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/vm86.h"
 struct kernel_vm86_regs {
    struct pt_regs pt ;
    unsigned short es ;
@@ -283,42 +180,30 @@ struct kernel_vm86_regs {
    unsigned short gs ;
    unsigned short __gsh ;
 };
-#line 11 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/math_emu.h"
 union __anonunion____missing_field_name_24 {
    struct pt_regs *regs ;
    struct kernel_vm86_regs *vm86 ;
 };
-#line 11 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/math_emu.h"
 struct math_emu_info {
    long ___orig_eip ;
    union __anonunion____missing_field_name_24 __annonCompField8 ;
 };
-#line 8 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/current.h"
 struct task_struct;
-#line 10 "include/asm-generic/bug.h"
 struct bug_entry {
    int bug_addr_disp ;
    int file_disp ;
    unsigned short line ;
    unsigned short flags ;
 };
-#line 12 "include/linux/bug.h"
 struct pt_regs;
-#line 14 "include/linux/cpumask.h"
 struct cpumask {
    unsigned long bits[((4096UL + 8UL * sizeof(long )) - 1UL) / (8UL * sizeof(long ))] ;
 };
-#line 14 "include/linux/cpumask.h"
 typedef struct cpumask cpumask_t;
-#line 637 "include/linux/cpumask.h"
 typedef struct cpumask *cpumask_var_t;
-#line 234 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/paravirt.h"
 struct static_key;
-#line 234
 struct static_key;
-#line 11 "include/linux/personality.h"
 struct pt_regs;
-#line 290 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/processor.h"
 struct i387_fsave_struct {
    u32 cwd ;
    u32 swd ;
@@ -330,29 +215,24 @@ struct i387_fsave_struct {
    u32 st_space[20] ;
    u32 status ;
 };
-#line 306 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/processor.h"
 struct __anonstruct____missing_field_name_31 {
    u64 rip ;
    u64 rdp ;
 };
-#line 306 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/processor.h"
 struct __anonstruct____missing_field_name_32 {
    u32 fip ;
    u32 fcs ;
    u32 foo ;
    u32 fos ;
 };
-#line 306 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/processor.h"
 union __anonunion____missing_field_name_30 {
    struct __anonstruct____missing_field_name_31 __annonCompField12 ;
    struct __anonstruct____missing_field_name_32 __annonCompField13 ;
 };
-#line 306 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/processor.h"
 union __anonunion____missing_field_name_33 {
    u32 padding1[12] ;
    u32 sw_reserved[12] ;
 };
-#line 306 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/processor.h"
 struct i387_fxsave_struct {
    u16 cwd ;
    u16 swd ;
@@ -366,7 +246,6 @@ struct i387_fxsave_struct {
    u32 padding[12] ;
    union __anonunion____missing_field_name_33 __annonCompField15 ;
 } __attribute__((__aligned__(16))) ;
-#line 341 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/processor.h"
 struct i387_soft_struct {
    u32 cwd ;
    u32 swd ;
@@ -385,42 +264,33 @@ struct i387_soft_struct {
    struct math_emu_info *info ;
    u32 entry_eip ;
 };
-#line 361 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/processor.h"
 struct ymmh_struct {
    u32 ymmh_space[64] ;
 };
-#line 366 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/processor.h"
 struct xsave_hdr_struct {
    u64 xstate_bv ;
    u64 reserved1[2] ;
    u64 reserved2[5] ;
 } __attribute__((__packed__)) ;
-#line 372 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/processor.h"
 struct xsave_struct {
    struct i387_fxsave_struct i387 ;
    struct xsave_hdr_struct xsave_hdr ;
    struct ymmh_struct ymmh ;
 } __attribute__((__packed__, __aligned__(64))) ;
-#line 379 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/processor.h"
 union thread_xstate {
    struct i387_fsave_struct fsave ;
    struct i387_fxsave_struct fxsave ;
    struct i387_soft_struct soft ;
    struct xsave_struct xsave ;
 };
-#line 386 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/processor.h"
 struct fpu {
    unsigned int last_cpu ;
    unsigned int has_fpu ;
    union thread_xstate *state ;
 };
-#line 433
 struct kmem_cache;
-#line 435
 struct perf_event;
-#line 435
 struct perf_event;
-#line 437 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/processor.h"
 struct thread_struct {
    struct desc_struct tls_array[3] ;
    unsigned long sp0 ;
@@ -443,91 +313,67 @@ struct thread_struct {
    unsigned long iopl ;
    unsigned int io_bitmap_max ;
 };
-#line 23 "include/asm-generic/atomic-long.h"
 typedef atomic64_t atomic_long_t;
-#line 14 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/spinlock_types.h"
 typedef u16 __ticket_t;
-#line 15 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/spinlock_types.h"
 typedef u32 __ticketpair_t;
-#line 20 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/spinlock_types.h"
 struct __raw_tickets {
    __ticket_t head ;
    __ticket_t tail ;
 };
-#line 20 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/spinlock_types.h"
 union __anonunion____missing_field_name_36 {
    __ticketpair_t head_tail ;
    struct __raw_tickets tickets ;
 };
-#line 20 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/spinlock_types.h"
 struct arch_spinlock {
    union __anonunion____missing_field_name_36 __annonCompField17 ;
 };
-#line 20 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/spinlock_types.h"
 typedef struct arch_spinlock arch_spinlock_t;
-#line 27 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/rwlock.h"
 struct __anonstruct____missing_field_name_38 {
    u32 read ;
    s32 write ;
 };
-#line 27 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/rwlock.h"
 union __anonunion_arch_rwlock_t_37 {
    s64 lock ;
    struct __anonstruct____missing_field_name_38 __annonCompField18 ;
 };
-#line 27 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/rwlock.h"
 typedef union __anonunion_arch_rwlock_t_37 arch_rwlock_t;
-#line 12 "include/linux/lockdep.h"
 struct task_struct;
-#line 391 "include/linux/lockdep.h"
 struct lock_class_key {
 
 };
-#line 20 "include/linux/spinlock_types.h"
 struct raw_spinlock {
    arch_spinlock_t raw_lock ;
    unsigned int magic ;
    unsigned int owner_cpu ;
    void *owner ;
 };
-#line 20 "include/linux/spinlock_types.h"
 typedef struct raw_spinlock raw_spinlock_t;
-#line 64 "include/linux/spinlock_types.h"
 union __anonunion____missing_field_name_39 {
    struct raw_spinlock rlock ;
 };
-#line 64 "include/linux/spinlock_types.h"
 struct spinlock {
    union __anonunion____missing_field_name_39 __annonCompField19 ;
 };
-#line 64 "include/linux/spinlock_types.h"
 typedef struct spinlock spinlock_t;
-#line 11 "include/linux/rwlock_types.h"
 struct __anonstruct_rwlock_t_40 {
    arch_rwlock_t raw_lock ;
    unsigned int magic ;
    unsigned int owner_cpu ;
    void *owner ;
 };
-#line 11 "include/linux/rwlock_types.h"
 typedef struct __anonstruct_rwlock_t_40 rwlock_t;
-#line 119 "include/linux/seqlock.h"
 struct seqcount {
    unsigned int sequence ;
 };
-#line 119 "include/linux/seqlock.h"
 typedef struct seqcount seqcount_t;
-#line 14 "include/linux/time.h"
 struct timespec {
    __kernel_time_t tv_sec ;
    long tv_nsec ;
 };
-#line 20 "include/linux/time.h"
 struct timeval {
    __kernel_time_t tv_sec ;
    __kernel_suseconds_t tv_usec ;
 };
-#line 62 "include/linux/stat.h"
 struct kstat {
    u64 ino ;
    dev_t dev ;
@@ -543,35 +389,25 @@ struct kstat {
    unsigned long blksize ;
    unsigned long long blocks ;
 };
-#line 27 "include/linux/wait.h"
 struct __wait_queue;
-#line 27 "include/linux/wait.h"
 typedef struct __wait_queue wait_queue_t;
-#line 31 "include/linux/wait.h"
 struct __wait_queue {
    unsigned int flags ;
    void *private ;
    int (*func)(wait_queue_t *wait , unsigned int mode , int flags , void *key ) ;
    struct list_head task_list ;
 };
-#line 49 "include/linux/wait.h"
 struct __wait_queue_head {
    spinlock_t lock ;
    struct list_head task_list ;
 };
-#line 53 "include/linux/wait.h"
 typedef struct __wait_queue_head wait_queue_head_t;
-#line 55
 struct task_struct;
-#line 98 "include/linux/nodemask.h"
 struct __anonstruct_nodemask_t_42 {
    unsigned long bits[(((unsigned long )(1 << 10) + 8UL * sizeof(long )) - 1UL) / (8UL * sizeof(long ))] ;
 };
-#line 98 "include/linux/nodemask.h"
 typedef struct __anonstruct_nodemask_t_42 nodemask_t;
-#line 60 "include/linux/pageblock-flags.h"
 struct page;
-#line 48 "include/linux/mutex.h"
 struct mutex {
    atomic_t count ;
    spinlock_t wait_lock ;
@@ -580,44 +416,31 @@ struct mutex {
    char    *name ;
    void *magic ;
 };
-#line 69 "include/linux/mutex.h"
 struct mutex_waiter {
    struct list_head list ;
    struct task_struct *task ;
    void *magic ;
 };
-#line 19 "include/linux/rwsem.h"
 struct rw_semaphore;
-#line 19
 struct rw_semaphore;
-#line 25 "include/linux/rwsem.h"
 struct rw_semaphore {
    long count ;
    raw_spinlock_t wait_lock ;
    struct list_head wait_list ;
 };
-#line 25 "include/linux/completion.h"
 struct completion {
    unsigned int done ;
    wait_queue_head_t wait ;
 };
-#line 9 "include/linux/memory_hotplug.h"
 struct page;
-#line 202 "include/linux/ioport.h"
 struct device;
-#line 103 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/mpspec.h"
 struct device;
-#line 46 "include/linux/ktime.h"
 union ktime {
    s64 tv64 ;
 };
-#line 59 "include/linux/ktime.h"
 typedef union ktime ktime_t;
-#line 10 "include/linux/timer.h"
 struct tvec_base;
-#line 10
 struct tvec_base;
-#line 12 "include/linux/timer.h"
 struct timer_list {
    struct list_head entry ;
    unsigned long expires ;
@@ -629,36 +452,25 @@ struct timer_list {
    void *start_site ;
    char start_comm[16] ;
 };
-#line 289
 struct hrtimer;
-#line 289
 struct hrtimer;
-#line 290
 enum hrtimer_restart;
-#line 17 "include/linux/workqueue.h"
 struct work_struct;
-#line 17
 struct work_struct;
-#line 79 "include/linux/workqueue.h"
 struct work_struct {
    atomic_long_t data ;
    struct list_head entry ;
    void (*func)(struct work_struct *work ) ;
 };
-#line 92 "include/linux/workqueue.h"
 struct delayed_work {
    struct work_struct work ;
    struct timer_list timer ;
 };
-#line 42 "include/linux/pm.h"
 struct device;
-#line 50 "include/linux/pm.h"
 struct pm_message {
    int event ;
 };
-#line 50 "include/linux/pm.h"
 typedef struct pm_message pm_message_t;
-#line 264 "include/linux/pm.h"
 struct dev_pm_ops {
    int (*prepare)(struct device *dev ) ;
    void (*complete)(struct device *dev ) ;
@@ -684,14 +496,12 @@ struct dev_pm_ops {
    int (*runtime_resume)(struct device *dev ) ;
    int (*runtime_idle)(struct device *dev ) ;
 };
-#line 458
 enum rpm_status {
     RPM_ACTIVE = 0,
     RPM_RESUMING = 1,
     RPM_SUSPENDED = 2,
     RPM_SUSPENDING = 3
 } ;
-#line 480
 enum rpm_request {
     RPM_REQ_NONE = 0,
     RPM_REQ_IDLE = 1,
@@ -699,20 +509,14 @@ enum rpm_request {
     RPM_REQ_AUTOSUSPEND = 3,
     RPM_REQ_RESUME = 4
 } ;
-#line 488
 struct wakeup_source;
-#line 488
 struct wakeup_source;
-#line 495 "include/linux/pm.h"
 struct pm_subsys_data {
    spinlock_t lock ;
    unsigned int refcount ;
 };
-#line 506
 struct dev_pm_qos_request;
-#line 506
 struct pm_qos_raints;
-#line 506 "include/linux/pm.h"
 struct dev_pm_info {
    pm_message_t power_state ;
    unsigned int can_wakeup : 1 ;
@@ -755,11 +559,9 @@ struct dev_pm_info {
    struct pm_subsys_data *subsys_data ;
    struct pm_qos_raints *raints ;
 };
-#line 564 "include/linux/pm.h"
 struct dev_pm_domain {
    struct dev_pm_ops ops ;
 };
-#line 11 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/mmu.h"
 struct __anonstruct_mm_context_t_112 {
    void *ldt ;
    int size ;
@@ -767,49 +569,30 @@ struct __anonstruct_mm_context_t_112 {
    struct mutex lock ;
    void *vdso ;
 };
-#line 11 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/mmu.h"
 typedef struct __anonstruct_mm_context_t_112 mm_context_t;
-#line 8 "include/linux/vmalloc.h"
 struct vm_area_struct;
-#line 8
 struct vm_area_struct;
-#line 994 "include/linux/mmzone.h"
 struct page;
-#line 10 "include/linux/gfp.h"
 struct vm_area_struct;
-#line 29 "include/linux/sysctl.h"
 struct completion;
-#line 100 "include/linux/rbtree.h"
 struct rb_node {
    unsigned long rb_parent_color ;
    struct rb_node *rb_right ;
    struct rb_node *rb_left ;
 } __attribute__((__aligned__(sizeof(long )))) ;
-#line 110 "include/linux/rbtree.h"
 struct rb_root {
    struct rb_node *rb_node ;
 };
-#line 939 "include/linux/sysctl.h"
 struct nsproxy;
-#line 939
 struct nsproxy;
-#line 48 "include/linux/kmod.h"
 struct cred;
-#line 48
 struct cred;
-#line 49
 struct file;
-#line 270 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/elf.h"
 struct task_struct;
-#line 18 "include/linux/elf.h"
 typedef __u64 Elf64_Addr;
-#line 19 "include/linux/elf.h"
 typedef __u16 Elf64_Half;
-#line 23 "include/linux/elf.h"
 typedef __u32 Elf64_Word;
-#line 24 "include/linux/elf.h"
 typedef __u64 Elf64_Xword;
-#line 194 "include/linux/elf.h"
 struct elf64_sym {
    Elf64_Word st_name ;
    unsigned char st_info ;
@@ -818,25 +601,17 @@ struct elf64_sym {
    Elf64_Addr st_value ;
    Elf64_Xword st_size ;
 };
-#line 194 "include/linux/elf.h"
 typedef struct elf64_sym Elf64_Sym;
-#line 438
 struct file;
-#line 20 "include/linux/kobject_ns.h"
 struct sock;
-#line 20
 struct sock;
-#line 21
 struct kobject;
-#line 21
 struct kobject;
-#line 27
 enum kobj_ns_type {
     KOBJ_NS_TYPE_NONE = 0,
     KOBJ_NS_TYPE_NET = 1,
     KOBJ_NS_TYPES = 2
 } ;
-#line 40 "include/linux/kobject_ns.h"
 struct kobj_ns_type_operations {
    enum kobj_ns_type type ;
    void *(*grab_current_ns)(void) ;
@@ -844,28 +619,20 @@ struct kobj_ns_type_operations {
    void    *(*initial_ns)(void) ;
    void (*drop_ns)(void * ) ;
 };
-#line 22 "include/linux/sysfs.h"
 struct kobject;
-#line 23
 struct module;
-#line 24
 enum kobj_ns_type;
-#line 26 "include/linux/sysfs.h"
 struct attribute {
    char    *name ;
    umode_t mode ;
 };
-#line 56 "include/linux/sysfs.h"
 struct attribute_group {
    char    *name ;
    umode_t (*is_visible)(struct kobject * , struct attribute * , int  ) ;
    struct attribute **attrs ;
 };
-#line 85
 struct file;
-#line 86
 struct vm_area_struct;
-#line 88 "include/linux/sysfs.h"
 struct bin_attribute {
    struct attribute attr ;
    size_t size ;
@@ -876,25 +643,18 @@ struct bin_attribute {
                     loff_t  , size_t  ) ;
    int (*mmap)(struct file * , struct kobject * , struct bin_attribute *attr , struct vm_area_struct *vma ) ;
 };
-#line 112 "include/linux/sysfs.h"
 struct sysfs_ops {
    ssize_t (*show)(struct kobject * , struct attribute * , char * ) ;
    ssize_t (*store)(struct kobject * , struct attribute * , char    * , size_t  ) ;
    void    *(*namespace)(struct kobject * , struct attribute    * ) ;
 };
-#line 118
 struct sysfs_dirent;
-#line 118
 struct sysfs_dirent;
-#line 22 "include/linux/kref.h"
 struct kref {
    atomic_t refcount ;
 };
-#line 60 "include/linux/kobject.h"
 struct kset;
-#line 60
 struct kobj_type;
-#line 60 "include/linux/kobject.h"
 struct kobject {
    char    *name ;
    struct list_head entry ;
@@ -909,7 +669,6 @@ struct kobject {
    unsigned int state_remove_uevent_sent : 1 ;
    unsigned int uevent_suppress : 1 ;
 };
-#line 108 "include/linux/kobject.h"
 struct kobj_type {
    void (*release)(struct kobject *kobj ) ;
    struct sysfs_ops    *sysfs_ops ;
@@ -917,49 +676,38 @@ struct kobj_type {
    struct kobj_ns_type_operations    *(*child_ns_type)(struct kobject *kobj ) ;
    void    *(*namespace)(struct kobject *kobj ) ;
 };
-#line 116 "include/linux/kobject.h"
 struct kobj_uevent_env {
    char *envp[32] ;
    int envp_idx ;
    char buf[2048] ;
    int buflen ;
 };
-#line 123 "include/linux/kobject.h"
 struct kset_uevent_ops {
    int (*   filter)(struct kset *kset , struct kobject *kobj ) ;
    char    *(*   name)(struct kset *kset , struct kobject *kobj ) ;
    int (*   uevent)(struct kset *kset , struct kobject *kobj , struct kobj_uevent_env *env ) ;
 };
-#line 140
 struct sock;
-#line 159 "include/linux/kobject.h"
 struct kset {
    struct list_head list ;
    spinlock_t list_lock ;
    struct kobject kobj ;
    struct kset_uevent_ops    *uevent_ops ;
 };
-#line 39 "include/linux/moduleparam.h"
 struct kernel_param;
-#line 39
 struct kernel_param;
-#line 41 "include/linux/moduleparam.h"
 struct kernel_param_ops {
    int (*set)(char    *val , struct kernel_param    *kp ) ;
    int (*get)(char *buffer , struct kernel_param    *kp ) ;
    void (*free)(void *arg ) ;
 };
-#line 50
 struct kparam_string;
-#line 50
 struct kparam_array;
-#line 50 "include/linux/moduleparam.h"
 union __anonunion____missing_field_name_199 {
    void *arg ;
    struct kparam_string    *str ;
    struct kparam_array    *arr ;
 };
-#line 50 "include/linux/moduleparam.h"
 struct kernel_param {
    char    *name ;
    struct kernel_param_ops    *ops ;
@@ -967,12 +715,10 @@ struct kernel_param {
    s16 level ;
    union __anonunion____missing_field_name_199 __annonCompField32 ;
 };
-#line 63 "include/linux/moduleparam.h"
 struct kparam_string {
    unsigned int maxlen ;
    char *string ;
 };
-#line 69 "include/linux/moduleparam.h"
 struct kparam_array {
    unsigned int max ;
    unsigned int elemsize ;
@@ -980,26 +726,18 @@ struct kparam_array {
    struct kernel_param_ops    *ops ;
    void *elem ;
 };
-#line 445
 struct module;
-#line 80 "include/linux/jump_label.h"
 struct module;
-#line 143 "include/linux/jump_label.h"
 struct static_key {
    atomic_t enabled ;
 };
-#line 22 "include/linux/tracepoint.h"
 struct module;
-#line 23
 struct tracepoint;
-#line 23
 struct tracepoint;
-#line 25 "include/linux/tracepoint.h"
 struct tracepoint_func {
    void *func ;
    void *data ;
 };
-#line 30 "include/linux/tracepoint.h"
 struct tracepoint {
    char    *name ;
    struct static_key key ;
@@ -1007,27 +745,21 @@ struct tracepoint {
    void (*unregfunc)(void) ;
    struct tracepoint_func *funcs ;
 };
-#line 19 "include/linux/export.h"
 struct kernel_symbol {
    unsigned long value ;
    char    *name ;
 };
-#line 8 "include/asm-generic/module.h"
 struct mod_arch_specific {
 
 };
-#line 35 "include/linux/module.h"
 struct module;
-#line 37
 struct module_param_attrs;
-#line 37 "include/linux/module.h"
 struct module_kobject {
    struct kobject kobj ;
    struct module *mod ;
    struct kobject *drivers_dir ;
    struct module_param_attrs *mp ;
 };
-#line 44 "include/linux/module.h"
 struct module_attribute {
    struct attribute attr ;
    ssize_t (*show)(struct module_attribute * , struct module_kobject * , char * ) ;
@@ -1037,28 +769,20 @@ struct module_attribute {
    int (*test)(struct module * ) ;
    void (*free)(struct module * ) ;
 };
-#line 71
 struct exception_table_entry;
-#line 71
 struct exception_table_entry;
-#line 199
 enum module_state {
     MODULE_STATE_LIVE = 0,
     MODULE_STATE_COMING = 1,
     MODULE_STATE_GOING = 2
 } ;
-#line 215 "include/linux/module.h"
 struct module_ref {
    unsigned long incs ;
    unsigned long decs ;
 } __attribute__((__aligned__((2) *  (sizeof(unsigned long )) ))) ;
-#line 220
 struct module_sect_attrs;
-#line 220
 struct module_notes_attrs;
-#line 220
 struct ftrace_event_call;
-#line 220 "include/linux/module.h"
 struct module {
    enum module_state state ;
    struct list_head list ;
@@ -1126,31 +850,21 @@ struct module {
    ctor_fn_t *ctors ;
    unsigned int num_ctors ;
 };
-#line 18 "include/linux/capability.h"
 struct task_struct;
-#line 94 "include/linux/capability.h"
 struct kernel_cap_struct {
    __u32 cap[2] ;
 };
-#line 94 "include/linux/capability.h"
 typedef struct kernel_cap_struct kernel_cap_t;
-#line 377
 struct dentry;
-#line 377
 struct dentry;
-#line 378
 struct user_namespace;
-#line 378
 struct user_namespace;
-#line 14 "include/linux/prio_tree.h"
 struct prio_tree_node;
-#line 14 "include/linux/prio_tree.h"
 struct raw_prio_tree_node {
    struct prio_tree_node *left ;
    struct prio_tree_node *right ;
    struct prio_tree_node *parent ;
 };
-#line 20 "include/linux/prio_tree.h"
 struct prio_tree_node {
    struct prio_tree_node *left ;
    struct prio_tree_node *right ;
@@ -1158,65 +872,52 @@ struct prio_tree_node {
    unsigned long start ;
    unsigned long last ;
 };
-#line 28 "include/linux/prio_tree.h"
 struct prio_tree_root {
    struct prio_tree_node *prio_tree_node ;
    unsigned short index_bits ;
    unsigned short raw ;
 };
-#line 23 "include/linux/mm_types.h"
 struct address_space;
-#line 23
 struct address_space;
-#line 40 "include/linux/mm_types.h"
 union __anonunion____missing_field_name_203 {
    unsigned long index ;
    void *freelist ;
 };
-#line 40 "include/linux/mm_types.h"
 struct __anonstruct____missing_field_name_207 {
    unsigned int inuse : 16 ;
    unsigned int objects : 15 ;
    unsigned int frozen : 1 ;
 };
-#line 40 "include/linux/mm_types.h"
 union __anonunion____missing_field_name_206 {
    atomic_t _mapcount ;
    struct __anonstruct____missing_field_name_207 __annonCompField34 ;
 };
-#line 40 "include/linux/mm_types.h"
 struct __anonstruct____missing_field_name_205 {
    union __anonunion____missing_field_name_206 __annonCompField35 ;
    atomic_t _count ;
 };
-#line 40 "include/linux/mm_types.h"
 union __anonunion____missing_field_name_204 {
    unsigned long counters ;
    struct __anonstruct____missing_field_name_205 __annonCompField36 ;
 };
-#line 40 "include/linux/mm_types.h"
 struct __anonstruct____missing_field_name_202 {
    union __anonunion____missing_field_name_203 __annonCompField33 ;
    union __anonunion____missing_field_name_204 __annonCompField37 ;
 };
-#line 40 "include/linux/mm_types.h"
 struct __anonstruct____missing_field_name_209 {
    struct page *next ;
    int pages ;
    int pobjects ;
 };
-#line 40 "include/linux/mm_types.h"
 union __anonunion____missing_field_name_208 {
    struct list_head lru ;
    struct __anonstruct____missing_field_name_209 __annonCompField39 ;
 };
-#line 40 "include/linux/mm_types.h"
 union __anonunion____missing_field_name_210 {
    unsigned long private ;
    struct kmem_cache *slab ;
    struct page *first_page ;
 };
-#line 40 "include/linux/mm_types.h"
 struct page {
    unsigned long flags ;
    struct address_space *mapping ;
@@ -1225,24 +926,18 @@ struct page {
    union __anonunion____missing_field_name_210 __annonCompField41 ;
    unsigned long debug_flags ;
 } __attribute__((__aligned__((2) *  (sizeof(unsigned long )) ))) ;
-#line 200 "include/linux/mm_types.h"
 struct __anonstruct_vm_set_212 {
    struct list_head list ;
    void *parent ;
    struct vm_area_struct *head ;
 };
-#line 200 "include/linux/mm_types.h"
 union __anonunion_shared_211 {
    struct __anonstruct_vm_set_212 vm_set ;
    struct raw_prio_tree_node prio_tree_node ;
 };
-#line 200
 struct anon_vma;
-#line 200
 struct vm_operations_struct;
-#line 200
 struct mempolicy;
-#line 200 "include/linux/mm_types.h"
 struct vm_area_struct {
    struct mm_struct *vm_mm ;
    unsigned long vm_start ;
@@ -1261,26 +956,20 @@ struct vm_area_struct {
    void *vm_private_data ;
    struct mempolicy *vm_policy ;
 };
-#line 257 "include/linux/mm_types.h"
 struct core_thread {
    struct task_struct *task ;
    struct core_thread *next ;
 };
-#line 262 "include/linux/mm_types.h"
 struct core_state {
    atomic_t nr_threads ;
    struct core_thread dumper ;
    struct completion startup ;
 };
-#line 284 "include/linux/mm_types.h"
 struct mm_rss_stat {
    atomic_long_t count[3] ;
 };
-#line 288
 struct linux_binfmt;
-#line 288
 struct mmu_notifier_mm;
-#line 288 "include/linux/mm_types.h"
 struct mm_struct {
    struct vm_area_struct *mmap ;
    struct rb_root mm_rb ;
@@ -1340,58 +1029,40 @@ struct mm_struct {
    pgtable_t pmd_huge_pte ;
    struct cpumask cpumask_allocation ;
 };
-#line 7 "include/asm-generic/cputime.h"
 typedef unsigned long cputime_t;
-#line 84 "include/linux/sem.h"
 struct task_struct;
-#line 101
 struct sem_undo_list;
-#line 101 "include/linux/sem.h"
 struct sysv_sem {
    struct sem_undo_list *undo_list ;
 };
-#line 10 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/signal.h"
 struct siginfo;
-#line 10
 struct siginfo;
-#line 30 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/signal.h"
 struct __anonstruct_sigset_t_214 {
    unsigned long sig[1] ;
 };
-#line 30 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/signal.h"
 typedef struct __anonstruct_sigset_t_214 sigset_t;
-#line 17 "include/asm-generic/signal-defs.h"
 typedef void __signalfn_t(int  );
-#line 18 "include/asm-generic/signal-defs.h"
 typedef __signalfn_t *__sighandler_t;
-#line 20 "include/asm-generic/signal-defs.h"
 typedef void __restorefn_t(void);
-#line 21 "include/asm-generic/signal-defs.h"
 typedef __restorefn_t *__sigrestore_t;
-#line 167 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/signal.h"
 struct sigaction {
    __sighandler_t sa_handler ;
    unsigned long sa_flags ;
    __sigrestore_t sa_restorer ;
    sigset_t sa_mask ;
 };
-#line 174 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/signal.h"
 struct k_sigaction {
    struct sigaction sa ;
 };
-#line 7 "include/asm-generic/siginfo.h"
 union sigval {
    int sival_int ;
    void *sival_ptr ;
 };
-#line 7 "include/asm-generic/siginfo.h"
 typedef union sigval sigval_t;
-#line 48 "include/asm-generic/siginfo.h"
 struct __anonstruct__kill_216 {
    __kernel_pid_t _pid ;
    __kernel_uid32_t _uid ;
 };
-#line 48 "include/asm-generic/siginfo.h"
 struct __anonstruct__timer_217 {
    __kernel_timer_t _tid ;
    int _overrun ;
@@ -1399,13 +1070,11 @@ struct __anonstruct__timer_217 {
    sigval_t _sigval ;
    int _sys_private ;
 };
-#line 48 "include/asm-generic/siginfo.h"
 struct __anonstruct__rt_218 {
    __kernel_pid_t _pid ;
    __kernel_uid32_t _uid ;
    sigval_t _sigval ;
 };
-#line 48 "include/asm-generic/siginfo.h"
 struct __anonstruct__sigchld_219 {
    __kernel_pid_t _pid ;
    __kernel_uid32_t _uid ;
@@ -1413,17 +1082,14 @@ struct __anonstruct__sigchld_219 {
    __kernel_clock_t _utime ;
    __kernel_clock_t _stime ;
 };
-#line 48 "include/asm-generic/siginfo.h"
 struct __anonstruct__sigfault_220 {
    void *_addr ;
    short _addr_lsb ;
 };
-#line 48 "include/asm-generic/siginfo.h"
 struct __anonstruct__sigpoll_221 {
    long _band ;
    int _fd ;
 };
-#line 48 "include/asm-generic/siginfo.h"
 union __anonunion__sifields_215 {
    int _pad[(128UL - 4UL * sizeof(int )) / sizeof(int )] ;
    struct __anonstruct__kill_216 _kill ;
@@ -1433,46 +1099,34 @@ union __anonunion__sifields_215 {
    struct __anonstruct__sigfault_220 _sigfault ;
    struct __anonstruct__sigpoll_221 _sigpoll ;
 };
-#line 48 "include/asm-generic/siginfo.h"
 struct siginfo {
    int si_signo ;
    int si_errno ;
    int si_code ;
    union __anonunion__sifields_215 _sifields ;
 };
-#line 48 "include/asm-generic/siginfo.h"
 typedef struct siginfo siginfo_t;
-#line 288
 struct siginfo;
-#line 10 "include/linux/signal.h"
 struct task_struct;
-#line 18
 struct user_struct;
-#line 28 "include/linux/signal.h"
 struct sigpending {
    struct list_head list ;
    sigset_t signal ;
 };
-#line 239
 struct timespec;
-#line 240
 struct pt_regs;
-#line 6 "include/linux/pid.h"
 enum pid_type {
     PIDTYPE_PID = 0,
     PIDTYPE_PGID = 1,
     PIDTYPE_SID = 2,
     PIDTYPE_MAX = 3
 } ;
-#line 50
 struct pid_namespace;
-#line 50 "include/linux/pid.h"
 struct upid {
    int nr ;
    struct pid_namespace *ns ;
    struct hlist_node pid_chain ;
 };
-#line 57 "include/linux/pid.h"
 struct pid {
    atomic_t count ;
    unsigned int level ;
@@ -1480,64 +1134,46 @@ struct pid {
    struct rcu_head rcu ;
    struct upid numbers[1] ;
 };
-#line 69 "include/linux/pid.h"
 struct pid_link {
    struct hlist_node node ;
    struct pid *pid ;
 };
-#line 100
 struct pid_namespace;
-#line 10 "include/linux/seccomp.h"
 struct __anonstruct_seccomp_t_224 {
    int mode ;
 };
-#line 10 "include/linux/seccomp.h"
 typedef struct __anonstruct_seccomp_t_224 seccomp_t;
-#line 81 "include/linux/plist.h"
 struct plist_head {
    struct list_head node_list ;
 };
-#line 85 "include/linux/plist.h"
 struct plist_node {
    int prio ;
    struct list_head prio_list ;
    struct list_head node_list ;
 };
-#line 40 "include/linux/rtmutex.h"
 struct rt_mutex_waiter;
-#line 40
 struct rt_mutex_waiter;
-#line 42 "include/linux/resource.h"
 struct rlimit {
    unsigned long rlim_cur ;
    unsigned long rlim_max ;
 };
-#line 81
 struct task_struct;
-#line 8 "include/linux/timerqueue.h"
 struct timerqueue_node {
    struct rb_node node ;
    ktime_t expires ;
 };
-#line 13 "include/linux/timerqueue.h"
 struct timerqueue_head {
    struct rb_root head ;
    struct timerqueue_node *next ;
 };
-#line 27 "include/linux/hrtimer.h"
 struct hrtimer_clock_base;
-#line 27
 struct hrtimer_clock_base;
-#line 28
 struct hrtimer_cpu_base;
-#line 28
 struct hrtimer_cpu_base;
-#line 44
 enum hrtimer_restart {
     HRTIMER_NORESTART = 0,
     HRTIMER_RESTART = 1
 } ;
-#line 108 "include/linux/hrtimer.h"
 struct hrtimer {
    struct timerqueue_node node ;
    ktime_t _softexpires ;
@@ -1548,7 +1184,6 @@ struct hrtimer {
    void *start_site ;
    char start_comm[16] ;
 };
-#line 145 "include/linux/hrtimer.h"
 struct hrtimer_clock_base {
    struct hrtimer_cpu_base *cpu_base ;
    int index ;
@@ -1559,7 +1194,6 @@ struct hrtimer_clock_base {
    ktime_t softirq_time ;
    ktime_t offset ;
 };
-#line 178 "include/linux/hrtimer.h"
 struct hrtimer_cpu_base {
    raw_spinlock_t lock ;
    unsigned long active_bases ;
@@ -1572,7 +1206,6 @@ struct hrtimer_cpu_base {
    ktime_t max_hang_time ;
    struct hrtimer_clock_base clock_base[3] ;
 };
-#line 11 "include/linux/task_io_accounting.h"
 struct task_io_accounting {
    u64 rchar ;
    u64 wchar ;
@@ -1582,63 +1215,43 @@ struct task_io_accounting {
    u64 write_bytes ;
    u64 cancelled_write_bytes ;
 };
-#line 13 "include/linux/latencytop.h"
 struct task_struct;
-#line 20 "include/linux/latencytop.h"
 struct latency_record {
    unsigned long backtrace[12] ;
    unsigned int count ;
    unsigned long time ;
    unsigned long max ;
 };
-#line 29 "include/linux/key.h"
 typedef int32_t key_serial_t;
-#line 32 "include/linux/key.h"
 typedef uint32_t key_perm_t;
-#line 34
 struct key;
-#line 34
 struct key;
-#line 74
 struct seq_file;
-#line 75
 struct user_struct;
-#line 76
 struct signal_struct;
-#line 76
 struct signal_struct;
-#line 77
 struct cred;
-#line 79
 struct key_type;
-#line 79
 struct key_type;
-#line 81
 struct keyring_list;
-#line 81
 struct keyring_list;
-#line 124
 struct key_user;
-#line 124 "include/linux/key.h"
 union __anonunion____missing_field_name_225 {
    time_t expiry ;
    time_t revoked_at ;
 };
-#line 124 "include/linux/key.h"
 union __anonunion_type_data_226 {
    struct list_head link ;
    unsigned long x[2] ;
    void *p[2] ;
    int reject_error ;
 };
-#line 124 "include/linux/key.h"
 union __anonunion_payload_227 {
    unsigned long value ;
    void *rcudata ;
    void *data ;
    struct keyring_list *subscriptions ;
 };
-#line 124 "include/linux/key.h"
 struct key {
    atomic_t usage ;
    key_serial_t serial ;
@@ -1658,19 +1271,12 @@ struct key {
    union __anonunion_type_data_226 type_data ;
    union __anonunion_payload_227 payload ;
 };
-#line 18 "include/linux/selinux.h"
 struct audit_context;
-#line 18
 struct audit_context;
-#line 21 "include/linux/cred.h"
 struct user_struct;
-#line 22
 struct cred;
-#line 23
 struct inode;
-#line 23
 struct inode;
-#line 31 "include/linux/cred.h"
 struct group_info {
    atomic_t usage ;
    int ngroups ;
@@ -1678,7 +1284,6 @@ struct group_info {
    gid_t small_block[32] ;
    gid_t *blocks[0] ;
 };
-#line 83 "include/linux/cred.h"
 struct thread_group_cred {
    atomic_t usage ;
    pid_t tgid ;
@@ -1687,7 +1292,6 @@ struct thread_group_cred {
    struct key *process_keyring ;
    struct rcu_head rcu ;
 };
-#line 116 "include/linux/cred.h"
 struct cred {
    atomic_t usage ;
    atomic_t subscribers ;
@@ -1716,72 +1320,45 @@ struct cred {
    struct group_info *group_info ;
    struct rcu_head rcu ;
 };
-#line 61 "include/linux/llist.h"
 struct llist_node;
-#line 65 "include/linux/llist.h"
 struct llist_node {
    struct llist_node *next ;
 };
-#line 97 "include/linux/sched.h"
 struct futex_pi_state;
-#line 97
 struct futex_pi_state;
-#line 98
 struct robust_list_head;
-#line 98
 struct robust_list_head;
-#line 99
 struct bio_list;
-#line 99
 struct bio_list;
-#line 100
 struct fs_struct;
-#line 100
 struct fs_struct;
-#line 101
 struct perf_event_context;
-#line 101
 struct perf_event_context;
-#line 102
 struct blk_plug;
-#line 102
 struct blk_plug;
-#line 150
 struct seq_file;
-#line 151
 struct cfs_rq;
-#line 151
 struct cfs_rq;
-#line 259
 struct task_struct;
-#line 366
 struct nsproxy;
-#line 367
 struct user_namespace;
-#line 58 "include/linux/aio_abi.h"
 struct io_event {
    __u64 data ;
    __u64 obj ;
    __s64 res ;
    __s64 res2 ;
 };
-#line 16 "include/linux/uio.h"
 struct iovec {
    void *iov_base ;
    __kernel_size_t iov_len ;
 };
-#line 15 "include/linux/aio.h"
 struct kioctx;
-#line 15
 struct kioctx;
-#line 87 "include/linux/aio.h"
 union __anonunion_ki_obj_229 {
    void *user ;
    struct task_struct *tsk ;
 };
-#line 87
 struct eventfd_ctx;
-#line 87 "include/linux/aio.h"
 struct kiocb {
    struct list_head ki_run_list ;
    unsigned long ki_flags ;
@@ -1808,7 +1385,6 @@ struct kiocb {
    struct list_head ki_batch ;
    struct eventfd_ctx *ki_eventfd ;
 };
-#line 166 "include/linux/aio.h"
 struct aio_ring_info {
    unsigned long mmap_base ;
    unsigned long mmap_size ;
@@ -1819,7 +1395,6 @@ struct aio_ring_info {
    unsigned int tail ;
    struct page *internal_pages[8] ;
 };
-#line 179 "include/linux/aio.h"
 struct kioctx {
    atomic_t users ;
    int dead ;
@@ -1836,16 +1411,13 @@ struct kioctx {
    struct delayed_work wq ;
    struct rcu_head rcu_head ;
 };
-#line 214
 struct mm_struct;
-#line 443 "include/linux/sched.h"
 struct sighand_struct {
    atomic_t count ;
    struct k_sigaction action[64] ;
    spinlock_t siglock ;
    wait_queue_head_t signalfd_wqh ;
 };
-#line 450 "include/linux/sched.h"
 struct pacct_struct {
    int ac_flag ;
    long ac_exitcode ;
@@ -1855,36 +1427,27 @@ struct pacct_struct {
    unsigned long ac_minflt ;
    unsigned long ac_majflt ;
 };
-#line 458 "include/linux/sched.h"
 struct cpu_itimer {
    cputime_t expires ;
    cputime_t incr ;
    u32 error ;
    u32 incr_error ;
 };
-#line 476 "include/linux/sched.h"
 struct task_cputime {
    cputime_t utime ;
    cputime_t stime ;
    unsigned long long sum_exec_runtime ;
 };
-#line 512 "include/linux/sched.h"
 struct thread_group_cputimer {
    struct task_cputime cputime ;
    int running ;
    raw_spinlock_t lock ;
 };
-#line 519
 struct autogroup;
-#line 519
 struct autogroup;
-#line 528
 struct tty_struct;
-#line 528
 struct taskstats;
-#line 528
 struct tty_audit_buf;
-#line 528 "include/linux/sched.h"
 struct signal_struct {
    atomic_t sigcnt ;
    atomic_t live ;
@@ -1946,7 +1509,6 @@ struct signal_struct {
    int oom_score_adj_min ;
    struct mutex cred_guard_mutex ;
 };
-#line 703 "include/linux/sched.h"
 struct user_struct {
    atomic_t __count ;
    atomic_t processes ;
@@ -1965,22 +1527,16 @@ struct user_struct {
    struct user_namespace *user_ns ;
    atomic_long_t locked_vm ;
 };
-#line 747
 struct backing_dev_info;
-#line 747
 struct backing_dev_info;
-#line 748
 struct reclaim_state;
-#line 748
 struct reclaim_state;
-#line 751 "include/linux/sched.h"
 struct sched_info {
    unsigned long pcount ;
    unsigned long long run_delay ;
    unsigned long long last_arrival ;
    unsigned long long last_queued ;
 };
-#line 763 "include/linux/sched.h"
 struct task_delay_info {
    spinlock_t lock ;
    unsigned int flags ;
@@ -1995,23 +1551,14 @@ struct task_delay_info {
    u64 freepages_delay ;
    u32 freepages_count ;
 };
-#line 1088
 struct io_context;
-#line 1088
 struct io_context;
-#line 1097
 struct audit_context;
-#line 1098
 struct mempolicy;
-#line 1099
 struct pipe_inode_info;
-#line 1099
 struct pipe_inode_info;
-#line 1102
 struct rq;
-#line 1102
 struct rq;
-#line 1122 "include/linux/sched.h"
 struct sched_class {
    struct sched_class    *next ;
    void (*enqueue_task)(struct rq *rq , struct task_struct *p , int flags ) ;
@@ -2038,12 +1585,10 @@ struct sched_class {
    unsigned int (*get_rr_interval)(struct rq *rq , struct task_struct *task ) ;
    void (*task_move_group)(struct task_struct *p , int on_rq ) ;
 };
-#line 1167 "include/linux/sched.h"
 struct load_weight {
    unsigned long weight ;
    unsigned long inv_weight ;
 };
-#line 1172 "include/linux/sched.h"
 struct sched_statistics {
    u64 wait_start ;
    u64 wait_max ;
@@ -2073,7 +1618,6 @@ struct sched_statistics {
    u64 nr_wakeups_passive ;
    u64 nr_wakeups_idle ;
 };
-#line 1207 "include/linux/sched.h"
 struct sched_entity {
    struct load_weight load ;
    struct rb_node run_node ;
@@ -2089,9 +1633,7 @@ struct sched_entity {
    struct cfs_rq *cfs_rq ;
    struct cfs_rq *my_q ;
 };
-#line 1233
 struct rt_rq;
-#line 1233 "include/linux/sched.h"
 struct sched_rt_entity {
    struct list_head run_list ;
    unsigned long timeout ;
@@ -2102,22 +1644,16 @@ struct sched_rt_entity {
    struct rt_rq *rt_rq ;
    struct rt_rq *my_q ;
 };
-#line 1264
 struct files_struct;
-#line 1264
 struct css_set;
-#line 1264
 struct compat_robust_list_head;
-#line 1264
 struct mem_cgroup;
-#line 1264 "include/linux/sched.h"
 struct memcg_batch_info {
    int do_batch ;
    struct mem_cgroup *memcg ;
    unsigned long nr_pages ;
    unsigned long memsw_nr_pages ;
 };
-#line 1264 "include/linux/sched.h"
 struct task_struct {
    long volatile   state ;
    void *stack ;
@@ -2278,9 +1814,7 @@ struct task_struct {
    struct memcg_batch_info memcg_batch ;
    atomic_t ptrace_bp_refcnt ;
 };
-#line 1681
 struct pid_namespace;
-#line 46 "include/linux/slub_def.h"
 struct kmem_cache_cpu {
    void **freelist ;
    unsigned long tid ;
@@ -2289,7 +1823,6 @@ struct kmem_cache_cpu {
    int node ;
    unsigned int stat[26] ;
 };
-#line 57 "include/linux/slub_def.h"
 struct kmem_cache_node {
    spinlock_t list_lock ;
    unsigned long nr_partial ;
@@ -2298,11 +1831,9 @@ struct kmem_cache_node {
    atomic_long_t total_objects ;
    struct list_head full ;
 };
-#line 73 "include/linux/slub_def.h"
 struct kmem_cache_order_objects {
    unsigned long x ;
 };
-#line 80 "include/linux/slub_def.h"
 struct kmem_cache {
    struct kmem_cache_cpu *cpu_slab ;
    unsigned long flags ;
@@ -2326,7 +1857,6 @@ struct kmem_cache {
    int remote_node_defrag_ratio ;
    struct kmem_cache_node *node[1 << 10] ;
 };
-#line 16 "include/linux/font.h"
 struct font_desc {
    int idx ;
    char    *name ;
@@ -2335,7 +1865,6 @@ struct font_desc {
    void    *data ;
    int pref ;
 };
-#line 107 "include/linux/videodev2.h"
 enum v4l2_field {
     V4L2_FIELD_ANY = 0,
     V4L2_FIELD_NONE = 1,
@@ -2348,7 +1877,6 @@ enum v4l2_field {
     V4L2_FIELD_INTERLACED_TB = 8,
     V4L2_FIELD_INTERLACED_BT = 9
 } ;
-#line 149
 enum v4l2_buf_type {
     V4L2_BUF_TYPE_VIDEO_CAPTURE = 1,
     V4L2_BUF_TYPE_VIDEO_OUTPUT = 2,
@@ -2362,19 +1890,16 @@ enum v4l2_buf_type {
     V4L2_BUF_TYPE_VIDEO_OUTPUT_MPLANE = 10,
     V4L2_BUF_TYPE_PRIVATE = 128
 } ;
-#line 178
 enum v4l2_tuner_type {
     V4L2_TUNER_RADIO = 1,
     V4L2_TUNER_ANALOG_TV = 2,
     V4L2_TUNER_DIGITAL_TV = 3
 } ;
-#line 184
 enum v4l2_memory {
     V4L2_MEMORY_MMAP = 1,
     V4L2_MEMORY_USERPTR = 2,
     V4L2_MEMORY_OVERLAY = 3
 } ;
-#line 191
 enum v4l2_colorspace {
     V4L2_COLORSPACE_SMPTE170M = 1,
     V4L2_COLORSPACE_SMPTE240M = 2,
@@ -2385,7 +1910,6 @@ enum v4l2_colorspace {
     V4L2_COLORSPACE_JPEG = 7,
     V4L2_COLORSPACE_SRGB = 8
 } ;
-#line 218
 enum v4l2_priority {
     V4L2_PRIORITY_UNSET = 0,
     V4L2_PRIORITY_BACKGROUND = 1,
@@ -2393,19 +1917,16 @@ enum v4l2_priority {
     V4L2_PRIORITY_RECORD = 3,
     V4L2_PRIORITY_DEFAULT = 2
 } ;
-#line 226 "include/linux/videodev2.h"
 struct v4l2_rect {
    __s32 left ;
    __s32 top ;
    __s32 width ;
    __s32 height ;
 };
-#line 233 "include/linux/videodev2.h"
 struct v4l2_fract {
    __u32 numerator ;
    __u32 denominator ;
 };
-#line 249 "include/linux/videodev2.h"
 struct v4l2_capability {
    __u8 driver[16] ;
    __u8 card[32] ;
@@ -2415,7 +1936,6 @@ struct v4l2_capability {
    __u32 device_caps ;
    __u32 reserved[3] ;
 };
-#line 291 "include/linux/videodev2.h"
 struct v4l2_pix_format {
    __u32 width ;
    __u32 height ;
@@ -2426,7 +1946,6 @@ struct v4l2_pix_format {
    enum v4l2_colorspace colorspace ;
    __u32 priv ;
 };
-#line 433 "include/linux/videodev2.h"
 struct v4l2_fmtdesc {
    __u32 index ;
    enum v4l2_buf_type type ;
@@ -2435,12 +1954,10 @@ struct v4l2_fmtdesc {
    __u32 pixelformat ;
    __u32 reserved[4] ;
 };
-#line 456 "include/linux/videodev2.h"
 struct v4l2_frmsize_discrete {
    __u32 width ;
    __u32 height ;
 };
-#line 461 "include/linux/videodev2.h"
 struct v4l2_frmsize_stepwise {
    __u32 min_width ;
    __u32 max_width ;
@@ -2449,12 +1966,10 @@ struct v4l2_frmsize_stepwise {
    __u32 max_height ;
    __u32 step_height ;
 };
-#line 470 "include/linux/videodev2.h"
 union __anonunion____missing_field_name_231 {
    struct v4l2_frmsize_discrete discrete ;
    struct v4l2_frmsize_stepwise stepwise ;
 };
-#line 470 "include/linux/videodev2.h"
 struct v4l2_frmsizeenum {
    __u32 index ;
    __u32 pixel_format ;
@@ -2462,18 +1977,15 @@ struct v4l2_frmsizeenum {
    union __anonunion____missing_field_name_231 __annonCompField44 ;
    __u32 reserved[2] ;
 };
-#line 492 "include/linux/videodev2.h"
 struct v4l2_frmival_stepwise {
    struct v4l2_fract min ;
    struct v4l2_fract max ;
    struct v4l2_fract step ;
 };
-#line 498 "include/linux/videodev2.h"
 union __anonunion____missing_field_name_232 {
    struct v4l2_fract discrete ;
    struct v4l2_frmival_stepwise stepwise ;
 };
-#line 498 "include/linux/videodev2.h"
 struct v4l2_frmivalenum {
    __u32 index ;
    __u32 pixel_format ;
@@ -2483,7 +1995,6 @@ struct v4l2_frmivalenum {
    union __anonunion____missing_field_name_232 __annonCompField45 ;
    __u32 reserved[2] ;
 };
-#line 517 "include/linux/videodev2.h"
 struct v4l2_timecode {
    __u32 type ;
    __u32 flags ;
@@ -2493,7 +2004,6 @@ struct v4l2_timecode {
    __u8 hours ;
    __u8 userbits[4] ;
 };
-#line 542 "include/linux/videodev2.h"
 struct v4l2_jpegcompression {
    int quality ;
    int APPn ;
@@ -2503,19 +2013,16 @@ struct v4l2_jpegcompression {
    char COM_data[60] ;
    __u32 jpeg_markers ;
 };
-#line 574 "include/linux/videodev2.h"
 struct v4l2_requestbuffers {
    __u32 count ;
    enum v4l2_buf_type type ;
    enum v4l2_memory memory ;
    __u32 reserved[2] ;
 };
-#line 599 "include/linux/videodev2.h"
 union __anonunion_m_233 {
    __u32 mem_offset ;
    unsigned long userptr ;
 };
-#line 599 "include/linux/videodev2.h"
 struct v4l2_plane {
    __u32 bytesused ;
    __u32 length ;
@@ -2523,13 +2030,11 @@ struct v4l2_plane {
    __u32 data_offset ;
    __u32 reserved[11] ;
 };
-#line 637 "include/linux/videodev2.h"
 union __anonunion_m_234 {
    __u32 offset ;
    unsigned long userptr ;
    struct v4l2_plane *planes ;
 };
-#line 637 "include/linux/videodev2.h"
 struct v4l2_buffer {
    __u32 index ;
    enum v4l2_buf_type type ;
@@ -2545,19 +2050,16 @@ struct v4l2_buffer {
    __u32 input ;
    __u32 reserved ;
 };
-#line 678 "include/linux/videodev2.h"
 struct v4l2_framebuffer {
    __u32 capability ;
    __u32 flags ;
    void *base ;
    struct v4l2_pix_format fmt ;
 };
-#line 704 "include/linux/videodev2.h"
 struct v4l2_clip {
    struct v4l2_rect c ;
    struct v4l2_clip *next ;
 };
-#line 709 "include/linux/videodev2.h"
 struct v4l2_window {
    struct v4l2_rect w ;
    enum v4l2_field field ;
@@ -2567,7 +2069,6 @@ struct v4l2_window {
    void *bitmap ;
    __u8 global_alpha ;
 };
-#line 722 "include/linux/videodev2.h"
 struct v4l2_captureparm {
    __u32 capability ;
    __u32 capturemode ;
@@ -2576,7 +2077,6 @@ struct v4l2_captureparm {
    __u32 readbuffers ;
    __u32 reserved[4] ;
 };
-#line 735 "include/linux/videodev2.h"
 struct v4l2_outputparm {
    __u32 capability ;
    __u32 outputmode ;
@@ -2585,19 +2085,16 @@ struct v4l2_outputparm {
    __u32 writebuffers ;
    __u32 reserved[4] ;
 };
-#line 747 "include/linux/videodev2.h"
 struct v4l2_cropcap {
    enum v4l2_buf_type type ;
    struct v4l2_rect bounds ;
    struct v4l2_rect defrect ;
    struct v4l2_fract pixelaspect ;
 };
-#line 754 "include/linux/videodev2.h"
 struct v4l2_crop {
    enum v4l2_buf_type type ;
    struct v4l2_rect c ;
 };
-#line 792 "include/linux/videodev2.h"
 struct v4l2_selection {
    __u32 type ;
    __u32 target ;
@@ -2605,14 +2102,11 @@ struct v4l2_selection {
    struct v4l2_rect r ;
    __u32 reserved[9] ;
 };
-#line 805 "include/linux/videodev2.h"
 typedef __u64 v4l2_std_id;
-#line 945 "include/linux/videodev2.h"
 struct v4l2_dv_preset {
    __u32 preset ;
    __u32 reserved[4] ;
 };
-#line 953 "include/linux/videodev2.h"
 struct v4l2_dv_enum_preset {
    __u32 index ;
    __u32 preset ;
@@ -2621,7 +2115,6 @@ struct v4l2_dv_enum_preset {
    __u32 height ;
    __u32 reserved[4] ;
 };
-#line 990 "include/linux/videodev2.h"
 struct v4l2_bt_timings {
    __u32 width ;
    __u32 height ;
@@ -2639,17 +2132,14 @@ struct v4l2_bt_timings {
    __u32 il_vbackporch ;
    __u32 reserved[16] ;
 } __attribute__((__packed__)) ;
-#line 1024 "include/linux/videodev2.h"
 union __anonunion____missing_field_name_235 {
    struct v4l2_bt_timings bt ;
    __u32 reserved[32] ;
 };
-#line 1024 "include/linux/videodev2.h"
 struct v4l2_dv_timings {
    __u32 type ;
    union __anonunion____missing_field_name_235 __annonCompField46 ;
 } __attribute__((__packed__)) ;
-#line 1038 "include/linux/videodev2.h"
 struct v4l2_input {
    __u32 index ;
    __u8 name[32] ;
@@ -2661,7 +2151,6 @@ struct v4l2_input {
    __u32 capabilities ;
    __u32 reserved[3] ;
 };
-#line 1086 "include/linux/videodev2.h"
 struct v4l2_output {
    __u32 index ;
    __u8 name[32] ;
@@ -2672,25 +2161,21 @@ struct v4l2_output {
    __u32 capabilities ;
    __u32 reserved[3] ;
 };
-#line 1109 "include/linux/videodev2.h"
 struct v4l2_control {
    __u32 id ;
    __s32 value ;
 };
-#line 1114 "include/linux/videodev2.h"
 union __anonunion____missing_field_name_236 {
    __s32 value ;
    __s64 value64 ;
    char *string ;
 };
-#line 1114 "include/linux/videodev2.h"
 struct v4l2_ext_control {
    __u32 id ;
    __u32 size ;
    __u32 reserved2[1] ;
    union __anonunion____missing_field_name_236 __annonCompField47 ;
 } __attribute__((__packed__)) ;
-#line 1125 "include/linux/videodev2.h"
 struct v4l2_ext_controls {
    __u32 ctrl_class ;
    __u32 count ;
@@ -2698,7 +2183,6 @@ struct v4l2_ext_controls {
    __u32 reserved[2] ;
    struct v4l2_ext_control *controls ;
 };
-#line 1145
 enum v4l2_ctrl_type {
     V4L2_CTRL_TYPE_INTEGER = 1,
     V4L2_CTRL_TYPE_BOOLEAN = 2,
@@ -2709,7 +2193,6 @@ enum v4l2_ctrl_type {
     V4L2_CTRL_TYPE_STRING = 7,
     V4L2_CTRL_TYPE_BITMASK = 8
 } ;
-#line 1157 "include/linux/videodev2.h"
 struct v4l2_queryctrl {
    __u32 id ;
    enum v4l2_ctrl_type type ;
@@ -2721,14 +2204,12 @@ struct v4l2_queryctrl {
    __u32 flags ;
    __u32 reserved[2] ;
 };
-#line 1170 "include/linux/videodev2.h"
 struct v4l2_querymenu {
    __u32 id ;
    __u32 index ;
    __u8 name[32] ;
    __u32 reserved ;
 };
-#line 1788 "include/linux/videodev2.h"
 struct v4l2_tuner {
    __u32 index ;
    __u8 name[32] ;
@@ -2742,7 +2223,6 @@ struct v4l2_tuner {
    __s32 afc ;
    __u32 reserved[4] ;
 };
-#line 1802 "include/linux/videodev2.h"
 struct v4l2_modulator {
    __u32 index ;
    __u8 name[32] ;
@@ -2752,14 +2232,12 @@ struct v4l2_modulator {
    __u32 txsubchans ;
    __u32 reserved[4] ;
 };
-#line 1839 "include/linux/videodev2.h"
 struct v4l2_frequency {
    __u32 tuner ;
    enum v4l2_tuner_type type ;
    __u32 frequency ;
    __u32 reserved[8] ;
 };
-#line 1846 "include/linux/videodev2.h"
 struct v4l2_hw_freq_seek {
    __u32 tuner ;
    enum v4l2_tuner_type type ;
@@ -2768,7 +2246,6 @@ struct v4l2_hw_freq_seek {
    __u32 spacing ;
    __u32 reserved[7] ;
 };
-#line 1879 "include/linux/videodev2.h"
 struct v4l2_audio {
    __u32 index ;
    __u8 name[32] ;
@@ -2776,7 +2253,6 @@ struct v4l2_audio {
    __u32 mode ;
    __u32 reserved[2] ;
 };
-#line 1894 "include/linux/videodev2.h"
 struct v4l2_audioout {
    __u32 index ;
    __u8 name[32] ;
@@ -2784,7 +2260,6 @@ struct v4l2_audioout {
    __u32 mode ;
    __u32 reserved[2] ;
 };
-#line 1913 "include/linux/videodev2.h"
 struct v4l2_enc_idx_entry {
    __u64 offset ;
    __u64 pts ;
@@ -2792,53 +2267,43 @@ struct v4l2_enc_idx_entry {
    __u32 flags ;
    __u32 reserved[2] ;
 };
-#line 1922 "include/linux/videodev2.h"
 struct v4l2_enc_idx {
    __u32 entries ;
    __u32 entries_cap ;
    __u32 reserved[4] ;
    struct v4l2_enc_idx_entry entry[64] ;
 };
-#line 1938 "include/linux/videodev2.h"
 struct __anonstruct_raw_238 {
    __u32 data[8] ;
 };
-#line 1938 "include/linux/videodev2.h"
 union __anonunion____missing_field_name_237 {
    struct __anonstruct_raw_238 raw ;
 };
-#line 1938 "include/linux/videodev2.h"
 struct v4l2_encoder_cmd {
    __u32 cmd ;
    __u32 flags ;
    union __anonunion____missing_field_name_237 __annonCompField48 ;
 };
-#line 1973 "include/linux/videodev2.h"
 struct __anonstruct_stop_240 {
    __u64 pts ;
 };
-#line 1973 "include/linux/videodev2.h"
 struct __anonstruct_start_241 {
    __s32 speed ;
    __u32 format ;
 };
-#line 1973 "include/linux/videodev2.h"
 struct __anonstruct_raw_242 {
    __u32 data[16] ;
 };
-#line 1973 "include/linux/videodev2.h"
 union __anonunion____missing_field_name_239 {
    struct __anonstruct_stop_240 stop ;
    struct __anonstruct_start_241 start ;
    struct __anonstruct_raw_242 raw ;
 };
-#line 1973 "include/linux/videodev2.h"
 struct v4l2_decoder_cmd {
    __u32 cmd ;
    __u32 flags ;
    union __anonunion____missing_field_name_239 __annonCompField49 ;
 };
-#line 2006 "include/linux/videodev2.h"
 struct v4l2_vbi_format {
    __u32 sampling_rate ;
    __u32 offset ;
@@ -2849,21 +2314,18 @@ struct v4l2_vbi_format {
    __u32 flags ;
    __u32 reserved[2] ;
 };
-#line 2028 "include/linux/videodev2.h"
 struct v4l2_sliced_vbi_format {
    __u16 service_set ;
    __u16 service_lines[2][24] ;
    __u32 io_size ;
    __u32 reserved[2] ;
 };
-#line 2052 "include/linux/videodev2.h"
 struct v4l2_sliced_vbi_cap {
    __u16 service_set ;
    __u16 service_lines[2][24] ;
    enum v4l2_buf_type type ;
    __u32 reserved[3] ;
 };
-#line 2063 "include/linux/videodev2.h"
 struct v4l2_sliced_vbi_data {
    __u32 id ;
    __u32 field ;
@@ -2871,13 +2333,11 @@ struct v4l2_sliced_vbi_data {
    __u32 reserved ;
    __u8 data[48] ;
 };
-#line 2129 "include/linux/videodev2.h"
 struct v4l2_plane_pix_format {
    __u32 sizeimage ;
    __u16 bytesperline ;
    __u16 reserved[7] ;
 } __attribute__((__packed__)) ;
-#line 2145 "include/linux/videodev2.h"
 struct v4l2_pix_format_mplane {
    __u32 width ;
    __u32 height ;
@@ -2888,7 +2348,6 @@ struct v4l2_pix_format_mplane {
    __u8 num_planes ;
    __u8 reserved[11] ;
 } __attribute__((__packed__)) ;
-#line 2167 "include/linux/videodev2.h"
 union __anonunion_fmt_244 {
    struct v4l2_pix_format pix ;
    struct v4l2_pix_format_mplane pix_mp ;
@@ -2897,53 +2356,44 @@ union __anonunion_fmt_244 {
    struct v4l2_sliced_vbi_format sliced ;
    __u8 raw_data[200] ;
 };
-#line 2167 "include/linux/videodev2.h"
 struct v4l2_format {
    enum v4l2_buf_type type ;
    union __anonunion_fmt_244 fmt ;
 };
-#line 2181 "include/linux/videodev2.h"
 union __anonunion_parm_245 {
    struct v4l2_captureparm capture ;
    struct v4l2_outputparm output ;
    __u8 raw_data[200] ;
 };
-#line 2181 "include/linux/videodev2.h"
 struct v4l2_streamparm {
    enum v4l2_buf_type type ;
    union __anonunion_parm_245 parm ;
 };
-#line 2247 "include/linux/videodev2.h"
 struct v4l2_event_subscription {
    __u32 type ;
    __u32 id ;
    __u32 flags ;
    __u32 reserved[5] ;
 };
-#line 2268 "include/linux/videodev2.h"
 union __anonunion____missing_field_name_248 {
    __u32 addr ;
    char name[32] ;
 };
-#line 2268 "include/linux/videodev2.h"
 struct v4l2_dbg_match {
    __u32 type ;
    union __anonunion____missing_field_name_248 __annonCompField52 ;
 } __attribute__((__packed__)) ;
-#line 2276 "include/linux/videodev2.h"
 struct v4l2_dbg_register {
    struct v4l2_dbg_match match ;
    __u32 size ;
    __u64 reg ;
    __u64 val ;
 } __attribute__((__packed__)) ;
-#line 2284 "include/linux/videodev2.h"
 struct v4l2_dbg_chip_ident {
    struct v4l2_dbg_match match ;
    __u32 ident ;
    __u32 revision ;
 } __attribute__((__packed__)) ;
-#line 2299 "include/linux/videodev2.h"
 struct v4l2_create_buffers {
    __u32 index ;
    __u32 count ;
@@ -2951,51 +2401,34 @@ struct v4l2_create_buffers {
    struct v4l2_format format ;
    __u32 reserved[8] ;
 };
-#line 15 "include/linux/blk_types.h"
 struct page;
-#line 16
 struct block_device;
-#line 16
 struct block_device;
-#line 33 "include/linux/list_bl.h"
 struct hlist_bl_node;
-#line 33 "include/linux/list_bl.h"
 struct hlist_bl_head {
    struct hlist_bl_node *first ;
 };
-#line 37 "include/linux/list_bl.h"
 struct hlist_bl_node {
    struct hlist_bl_node *next ;
    struct hlist_bl_node **pprev ;
 };
-#line 13 "include/linux/dcache.h"
 struct nameidata;
-#line 13
 struct nameidata;
-#line 14
 struct path;
-#line 14
 struct path;
-#line 15
 struct vfsmount;
-#line 15
 struct vfsmount;
-#line 35 "include/linux/dcache.h"
 struct qstr {
    unsigned int hash ;
    unsigned int len ;
    unsigned char    *name ;
 };
-#line 88
 struct dentry_operations;
-#line 88
 struct super_block;
-#line 88 "include/linux/dcache.h"
 union __anonunion_d_u_249 {
    struct list_head d_child ;
    struct rcu_head d_rcu ;
 };
-#line 88 "include/linux/dcache.h"
 struct dentry {
    unsigned int d_flags ;
    seqcount_t d_seq ;
@@ -3015,7 +2448,6 @@ struct dentry {
    struct list_head d_subdirs ;
    struct list_head d_alias ;
 };
-#line 131 "include/linux/dcache.h"
 struct dentry_operations {
    int (*d_revalidate)(struct dentry * , struct nameidata * ) ;
    int (*d_hash)(struct dentry    * , struct inode    * , struct qstr * ) ;
@@ -3029,24 +2461,18 @@ struct dentry_operations {
    struct vfsmount *(*d_automount)(struct path * ) ;
    int (*d_manage)(struct dentry * , bool  ) ;
 } __attribute__((__aligned__((1) <<  (6) ))) ;
-#line 4 "include/linux/path.h"
 struct dentry;
-#line 5
 struct vfsmount;
-#line 7 "include/linux/path.h"
 struct path {
    struct vfsmount *mnt ;
    struct dentry *dentry ;
 };
-#line 64 "include/linux/radix-tree.h"
 struct radix_tree_node;
-#line 64 "include/linux/radix-tree.h"
 struct radix_tree_root {
    unsigned int height ;
    gfp_t gfp_mask ;
    struct radix_tree_node *rnode ;
 };
-#line 16 "include/linux/fiemap.h"
 struct fiemap_extent {
    __u64 fe_logical ;
    __u64 fe_physical ;
@@ -3055,12 +2481,10 @@ struct fiemap_extent {
    __u32 fe_flags ;
    __u32 fe_reserved[3] ;
 };
-#line 8 "include/linux/shrinker.h"
 struct shrink_control {
    gfp_t gfp_mask ;
    unsigned long nr_to_scan ;
 };
-#line 31 "include/linux/shrinker.h"
 struct shrinker {
    int (*shrink)(struct shrinker * , struct shrink_control *sc ) ;
    int seeks ;
@@ -3068,41 +2492,25 @@ struct shrinker {
    struct list_head list ;
    atomic_long_t nr_in_batch ;
 };
-#line 10 "include/linux/migrate_mode.h"
 enum migrate_mode {
     MIGRATE_ASYNC = 0,
     MIGRATE_SYNC_LIGHT = 1,
     MIGRATE_SYNC = 2
 } ;
-#line 408 "include/linux/fs.h"
 struct export_operations;
-#line 408
 struct export_operations;
-#line 410
 struct iovec;
-#line 411
 struct nameidata;
-#line 412
 struct kiocb;
-#line 413
 struct kobject;
-#line 414
 struct pipe_inode_info;
-#line 415
 struct poll_table_struct;
-#line 415
 struct poll_table_struct;
-#line 416
 struct kstatfs;
-#line 416
 struct kstatfs;
-#line 417
 struct vm_area_struct;
-#line 418
 struct vfsmount;
-#line 419
 struct cred;
-#line 469 "include/linux/fs.h"
 struct iattr {
    unsigned int ia_valid ;
    umode_t ia_mode ;
@@ -3114,14 +2522,12 @@ struct iattr {
    struct timespec ia_ctime ;
    struct file *ia_file ;
 };
-#line 129 "include/linux/quota.h"
 struct if_dqinfo {
    __u64 dqi_bgrace ;
    __u64 dqi_igrace ;
    __u32 dqi_flags ;
    __u32 dqi_valid ;
 };
-#line 50 "include/linux/dqblk_xfs.h"
 struct fs_disk_quota {
    __s8 d_version ;
    __s8 d_flags ;
@@ -3146,15 +2552,12 @@ struct fs_disk_quota {
    __s16 d_padding3 ;
    char d_padding4[8] ;
 };
-#line 146 "include/linux/dqblk_xfs.h"
 struct fs_qfilestat {
    __u64 qfs_ino ;
    __u64 qfs_nblks ;
    __u32 qfs_nextents ;
 };
-#line 146 "include/linux/dqblk_xfs.h"
 typedef struct fs_qfilestat fs_qfilestat_t;
-#line 152 "include/linux/dqblk_xfs.h"
 struct fs_quota_stat {
    __s8 qs_version ;
    __u16 qs_flags ;
@@ -3168,15 +2571,10 @@ struct fs_quota_stat {
    __u16 qs_bwarnlimit ;
    __u16 qs_iwarnlimit ;
 };
-#line 17 "include/linux/dqblk_qtree.h"
 struct dquot;
-#line 17
 struct dquot;
-#line 185 "include/linux/quota.h"
 typedef __kernel_uid32_t qid_t;
-#line 186 "include/linux/quota.h"
 typedef long long qsize_t;
-#line 200 "include/linux/quota.h"
 struct mem_dqblk {
    qsize_t dqb_bhardlimit ;
    qsize_t dqb_bsoftlimit ;
@@ -3188,11 +2586,8 @@ struct mem_dqblk {
    time_t dqb_btime ;
    time_t dqb_itime ;
 };
-#line 215
 struct quota_format_type;
-#line 215
 struct quota_format_type;
-#line 217 "include/linux/quota.h"
 struct mem_dqinfo {
    struct quota_format_type *dqi_format ;
    int dqi_fmt_id ;
@@ -3204,9 +2599,7 @@ struct mem_dqinfo {
    qsize_t dqi_maxilimit ;
    void *dqi_priv ;
 };
-#line 230
 struct super_block;
-#line 288 "include/linux/quota.h"
 struct dquot {
    struct hlist_node dq_hash ;
    struct list_head dq_inuse ;
@@ -3222,7 +2615,6 @@ struct dquot {
    short dq_type ;
    struct mem_dqblk dq_dqb ;
 };
-#line 305 "include/linux/quota.h"
 struct quota_format_ops {
    int (*check_quota_file)(struct super_block *sb , int type ) ;
    int (*read_file_info)(struct super_block *sb , int type ) ;
@@ -3232,7 +2624,6 @@ struct quota_format_ops {
    int (*commit_dqblk)(struct dquot *dquot ) ;
    int (*release_dqblk)(struct dquot *dquot ) ;
 };
-#line 316 "include/linux/quota.h"
 struct dquot_operations {
    int (*write_dquot)(struct dquot * ) ;
    struct dquot *(*alloc_dquot)(struct super_block * , int  ) ;
@@ -3243,9 +2634,7 @@ struct dquot_operations {
    int (*write_info)(struct super_block * , int  ) ;
    qsize_t *(*get_reserved_space)(struct inode * ) ;
 };
-#line 329
 struct path;
-#line 332 "include/linux/quota.h"
 struct quotactl_ops {
    int (*quota_on)(struct super_block * , int  , int  , struct path * ) ;
    int (*quota_on_meta)(struct super_block * , int  , int  ) ;
@@ -3258,14 +2647,12 @@ struct quotactl_ops {
    int (*get_xstate)(struct super_block * , struct fs_quota_stat * ) ;
    int (*set_xstate)(struct super_block * , unsigned int  , int  ) ;
 };
-#line 345 "include/linux/quota.h"
 struct quota_format_type {
    int qf_fmt_id ;
    struct quota_format_ops    *qf_ops ;
    struct module *qf_owner ;
    struct quota_format_type *qf_next ;
 };
-#line 399 "include/linux/quota.h"
 struct quota_info {
    unsigned int flags ;
    struct mutex dqio_mutex ;
@@ -3275,29 +2662,21 @@ struct quota_info {
    struct mem_dqinfo info[2] ;
    struct quota_format_ops    *ops[2] ;
 };
-#line 532 "include/linux/fs.h"
 struct page;
-#line 533
 struct address_space;
-#line 534
 struct writeback_control;
-#line 534
 struct writeback_control;
-#line 577 "include/linux/fs.h"
 union __anonunion_arg_256 {
    char *buf ;
    void *data ;
 };
-#line 577 "include/linux/fs.h"
 struct __anonstruct_read_descriptor_t_255 {
    size_t written ;
    size_t count ;
    union __anonunion_arg_256 arg ;
    int error ;
 };
-#line 577 "include/linux/fs.h"
 typedef struct __anonstruct_read_descriptor_t_255 read_descriptor_t;
-#line 590 "include/linux/fs.h"
 struct address_space_operations {
    int (*writepage)(struct page *page , struct writeback_control *wbc ) ;
    int (*readpage)(struct file * , struct page * ) ;
@@ -3322,9 +2701,7 @@ struct address_space_operations {
    int (*is_partially_uptodate)(struct page * , read_descriptor_t * , unsigned long  ) ;
    int (*error_remove_page)(struct address_space * , struct page * ) ;
 };
-#line 645
 struct backing_dev_info;
-#line 646 "include/linux/fs.h"
 struct address_space {
    struct inode *host ;
    struct radix_tree_root page_tree ;
@@ -3342,15 +2719,10 @@ struct address_space {
    struct list_head private_list ;
    struct address_space *assoc_mapping ;
 } __attribute__((__aligned__(sizeof(long )))) ;
-#line 669
 struct request_queue;
-#line 669
 struct request_queue;
-#line 671
 struct hd_struct;
-#line 671
 struct gendisk;
-#line 671 "include/linux/fs.h"
 struct block_device {
    dev_t bd_dev ;
    int bd_openers ;
@@ -3375,35 +2747,25 @@ struct block_device {
    int bd_fsfreeze_count ;
    struct mutex bd_fsfreeze_mutex ;
 };
-#line 749
 struct posix_acl;
-#line 749
 struct posix_acl;
-#line 761
 struct inode_operations;
-#line 761 "include/linux/fs.h"
 union __anonunion____missing_field_name_257 {
    unsigned int    i_nlink ;
    unsigned int __i_nlink ;
 };
-#line 761 "include/linux/fs.h"
 union __anonunion____missing_field_name_258 {
    struct list_head i_dentry ;
    struct rcu_head i_rcu ;
 };
-#line 761
 struct file_operations;
-#line 761
 struct file_lock;
-#line 761
 struct cdev;
-#line 761 "include/linux/fs.h"
 union __anonunion____missing_field_name_259 {
    struct pipe_inode_info *i_pipe ;
    struct block_device *i_bdev ;
    struct cdev *i_cdev ;
 };
-#line 761 "include/linux/fs.h"
 struct inode {
    umode_t i_mode ;
    unsigned short i_opflags ;
@@ -3451,7 +2813,6 @@ struct inode {
    atomic_t i_readcount ;
    void *i_private ;
 };
-#line 942 "include/linux/fs.h"
 struct fown_struct {
    rwlock_t lock ;
    struct pid *pid ;
@@ -3460,7 +2821,6 @@ struct fown_struct {
    uid_t euid ;
    int signum ;
 };
-#line 953 "include/linux/fs.h"
 struct file_ra_state {
    unsigned long start ;
    unsigned int size ;
@@ -3469,12 +2829,10 @@ struct file_ra_state {
    unsigned int mmap_miss ;
    loff_t prev_pos ;
 };
-#line 976 "include/linux/fs.h"
 union __anonunion_f_u_260 {
    struct list_head fu_list ;
    struct rcu_head fu_rcuhead ;
 };
-#line 976 "include/linux/fs.h"
 struct file {
    union __anonunion_f_u_260 f_u ;
    struct path f_path ;
@@ -3496,14 +2854,11 @@ struct file {
    struct address_space *f_mapping ;
    unsigned long f_mnt_write_state ;
 };
-#line 1111 "include/linux/fs.h"
 typedef struct files_struct *fl_owner_t;
-#line 1113 "include/linux/fs.h"
 struct file_lock_operations {
    void (*fl_copy_lock)(struct file_lock * , struct file_lock * ) ;
    void (*fl_release_private)(struct file_lock * ) ;
 };
-#line 1118 "include/linux/fs.h"
 struct lock_manager_operations {
    int (*lm_compare_owner)(struct file_lock * , struct file_lock * ) ;
    void (*lm_notify)(struct file_lock * ) ;
@@ -3512,38 +2867,28 @@ struct lock_manager_operations {
    void (*lm_break)(struct file_lock * ) ;
    int (*lm_change)(struct file_lock ** , int  ) ;
 };
-#line 4 "include/linux/nfs_fs_i.h"
 struct nlm_lockowner;
-#line 4
 struct nlm_lockowner;
-#line 9 "include/linux/nfs_fs_i.h"
 struct nfs_lock_info {
    u32 state ;
    struct nlm_lockowner *owner ;
    struct list_head list ;
 };
-#line 15
 struct nfs4_lock_state;
-#line 15
 struct nfs4_lock_state;
-#line 16 "include/linux/nfs_fs_i.h"
 struct nfs4_lock_info {
    struct nfs4_lock_state *owner ;
 };
-#line 1138 "include/linux/fs.h"
 struct fasync_struct;
-#line 1138 "include/linux/fs.h"
 struct __anonstruct_afs_262 {
    struct list_head link ;
    int state ;
 };
-#line 1138 "include/linux/fs.h"
 union __anonunion_fl_u_261 {
    struct nfs_lock_info nfs_fl ;
    struct nfs4_lock_info nfs4_fl ;
    struct __anonstruct_afs_262 afs ;
 };
-#line 1138 "include/linux/fs.h"
 struct file_lock {
    struct file_lock *fl_next ;
    struct list_head fl_link ;
@@ -3564,7 +2909,6 @@ struct file_lock {
    struct lock_manager_operations    *fl_lmops ;
    union __anonunion_fl_u_261 fl_u ;
 };
-#line 1378 "include/linux/fs.h"
 struct fasync_struct {
    spinlock_t fa_lock ;
    int magic ;
@@ -3573,15 +2917,10 @@ struct fasync_struct {
    struct file *fa_file ;
    struct rcu_head fa_rcu ;
 };
-#line 1418
 struct file_system_type;
-#line 1418
 struct super_operations;
-#line 1418
 struct xattr_handler;
-#line 1418
 struct mtd_info;
-#line 1418 "include/linux/fs.h"
 struct super_block {
    struct list_head s_list ;
    dev_t s_dev ;
@@ -3634,14 +2973,12 @@ struct super_block {
    atomic_long_t s_remove_count ;
    int s_readonly_remount ;
 };
-#line 1567 "include/linux/fs.h"
 struct fiemap_extent_info {
    unsigned int fi_flags ;
    unsigned int fi_extents_mapped ;
    unsigned int fi_extents_max ;
    struct fiemap_extent *fi_extents_start ;
 };
-#line 1609 "include/linux/fs.h"
 struct file_operations {
    struct module *owner ;
    loff_t (*llseek)(struct file * , loff_t  , int  ) ;
@@ -3677,7 +3014,6 @@ struct file_operations {
    int (*setlease)(struct file * , long  , struct file_lock ** ) ;
    long (*fallocate)(struct file *file , int mode , loff_t offset , loff_t len ) ;
 };
-#line 1639 "include/linux/fs.h"
 struct inode_operations {
    struct dentry *(*lookup)(struct inode * , struct dentry * , struct nameidata * ) ;
    void *(*follow_link)(struct dentry * , struct nameidata * ) ;
@@ -3703,9 +3039,7 @@ struct inode_operations {
    void (*truncate_range)(struct inode * , loff_t  , loff_t  ) ;
    int (*fiemap)(struct inode * , struct fiemap_extent_info * , u64 start , u64 len ) ;
 } __attribute__((__aligned__((1) <<  (6) ))) ;
-#line 1669
 struct seq_file;
-#line 1684 "include/linux/fs.h"
 struct super_operations {
    struct inode *(*alloc_inode)(struct super_block *sb ) ;
    void (*destroy_inode)(struct inode * ) ;
@@ -3732,7 +3066,6 @@ struct super_operations {
    int (*nr_cached_objects)(struct super_block * ) ;
    void (*free_cached_objects)(struct super_block * , int  ) ;
 };
-#line 1835 "include/linux/fs.h"
 struct file_system_type {
    char    *name ;
    int fs_flags ;
@@ -3748,25 +3081,18 @@ struct file_system_type {
    struct lock_class_key i_mutex_key ;
    struct lock_class_key i_mutex_dir_key ;
 };
-#line 94 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/uaccess.h"
 struct exception_table_entry {
    unsigned long insn ;
    unsigned long fixup ;
 };
-#line 28 "include/linux/poll.h"
 struct poll_table_struct;
-#line 39 "include/linux/poll.h"
 struct poll_table_struct {
    void (*_qproc)(struct file * , wait_queue_head_t * , struct poll_table_struct * ) ;
    unsigned long _key ;
 };
-#line 39 "include/linux/poll.h"
 typedef struct poll_table_struct poll_table;
-#line 21 "include/media/videobuf2-core.h"
 struct vb2_fileio_data;
-#line 21
 struct vb2_fileio_data;
-#line 60 "include/media/videobuf2-core.h"
 struct vb2_mem_ops {
    void *(*alloc)(void *alloc_ctx , unsigned long size ) ;
    void (*put)(void *buf_priv ) ;
@@ -3778,11 +3104,9 @@ struct vb2_mem_ops {
    unsigned int (*num_users)(void *buf_priv ) ;
    int (*mmap)(void *buf_priv , struct vm_area_struct *vma ) ;
 };
-#line 76 "include/media/videobuf2-core.h"
 struct vb2_plane {
    void *mem_priv ;
 };
-#line 118
 enum vb2_buffer_state {
     VB2_BUF_STATE_DEQUEUED = 0,
     VB2_BUF_STATE_PREPARED = 1,
@@ -3791,11 +3115,8 @@ enum vb2_buffer_state {
     VB2_BUF_STATE_DONE = 4,
     VB2_BUF_STATE_ERROR = 5
 } ;
-#line 127
 struct vb2_queue;
-#line 127
 struct vb2_queue;
-#line 152 "include/media/videobuf2-core.h"
 struct vb2_buffer {
    struct v4l2_buffer v4l2_buf ;
    struct v4l2_plane v4l2_planes[8] ;
@@ -3806,7 +3127,6 @@ struct vb2_buffer {
    struct list_head done_entry ;
    struct vb2_plane planes[8] ;
 };
-#line 228 "include/media/videobuf2-core.h"
 struct vb2_ops {
    int (*queue_setup)(struct vb2_queue *q , struct v4l2_format    *fmt , unsigned int *num_buffers ,
                       unsigned int *num_planes , unsigned int *sizes , void **alloc_ctxs ) ;
@@ -3820,7 +3140,6 @@ struct vb2_ops {
    int (*stop_streaming)(struct vb2_queue *q ) ;
    void (*buf_queue)(struct vb2_buffer *vb ) ;
 };
-#line 272 "include/media/videobuf2-core.h"
 struct vb2_queue {
    enum v4l2_buf_type type ;
    unsigned int io_modes ;
@@ -3842,71 +3161,44 @@ struct vb2_queue {
    unsigned int streaming : 1 ;
    struct vb2_fileio_data *fileio ;
 };
-#line 19 "include/linux/klist.h"
 struct klist_node;
-#line 19
 struct klist_node;
-#line 39 "include/linux/klist.h"
 struct klist_node {
    void *n_klist ;
    struct list_head n_node ;
    struct kref n_ref ;
 };
-#line 4 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/device.h"
 struct dma_map_ops;
-#line 4 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/device.h"
 struct dev_archdata {
    void *acpi_handle ;
    struct dma_map_ops *dma_ops ;
    void *iommu ;
 };
-#line 28 "include/linux/device.h"
 struct device;
-#line 29
 struct device_private;
-#line 29
 struct device_private;
-#line 30
 struct device_driver;
-#line 30
 struct device_driver;
-#line 31
 struct driver_private;
-#line 31
 struct driver_private;
-#line 32
 struct module;
-#line 33
 struct class;
-#line 33
 struct class;
-#line 34
 struct subsys_private;
-#line 34
 struct subsys_private;
-#line 35
 struct bus_type;
-#line 35
 struct bus_type;
-#line 36
 struct device_node;
-#line 36
 struct device_node;
-#line 37
 struct iommu_ops;
-#line 37
 struct iommu_ops;
-#line 39 "include/linux/device.h"
 struct bus_attribute {
    struct attribute attr ;
    ssize_t (*show)(struct bus_type *bus , char *buf ) ;
    ssize_t (*store)(struct bus_type *bus , char    *buf , size_t count ) ;
 };
-#line 89
 struct device_attribute;
-#line 89
 struct driver_attribute;
-#line 89 "include/linux/device.h"
 struct bus_type {
    char    *name ;
    char    *dev_name ;
@@ -3925,11 +3217,8 @@ struct bus_type {
    struct iommu_ops *iommu_ops ;
    struct subsys_private *p ;
 };
-#line 127
 struct device_type;
-#line 214
 struct of_device_id;
-#line 214 "include/linux/device.h"
 struct device_driver {
    char    *name ;
    struct bus_type *bus ;
@@ -3946,15 +3235,12 @@ struct device_driver {
    struct dev_pm_ops    *pm ;
    struct driver_private *p ;
 };
-#line 249 "include/linux/device.h"
 struct driver_attribute {
    struct attribute attr ;
    ssize_t (*show)(struct device_driver *driver , char *buf ) ;
    ssize_t (*store)(struct device_driver *driver , char    *buf , size_t count ) ;
 };
-#line 330
 struct class_attribute;
-#line 330 "include/linux/device.h"
 struct class {
    char    *name ;
    struct module *owner ;
@@ -3973,7 +3259,6 @@ struct class {
    struct dev_pm_ops    *pm ;
    struct subsys_private *p ;
 };
-#line 397 "include/linux/device.h"
 struct class_attribute {
    struct attribute attr ;
    ssize_t (*show)(struct class *class , struct class_attribute *attr , char *buf ) ;
@@ -3981,7 +3266,6 @@ struct class_attribute {
                     size_t count ) ;
    void    *(*namespace)(struct class *class , struct class_attribute    *attr ) ;
 };
-#line 465 "include/linux/device.h"
 struct device_type {
    char    *name ;
    struct attribute_group    **groups ;
@@ -3990,21 +3274,17 @@ struct device_type {
    void (*release)(struct device *dev ) ;
    struct dev_pm_ops    *pm ;
 };
-#line 476 "include/linux/device.h"
 struct device_attribute {
    struct attribute attr ;
    ssize_t (*show)(struct device *dev , struct device_attribute *attr , char *buf ) ;
    ssize_t (*store)(struct device *dev , struct device_attribute *attr , char    *buf ,
                     size_t count ) ;
 };
-#line 559 "include/linux/device.h"
 struct device_dma_parameters {
    unsigned int max_segment_size ;
    unsigned long segment_boundary_mask ;
 };
-#line 627
 struct dma_coherent_mem;
-#line 627 "include/linux/device.h"
 struct device {
    struct device *parent ;
    struct device_private *p ;
@@ -4034,7 +3314,6 @@ struct device {
    struct attribute_group    **groups ;
    void (*release)(struct device *dev ) ;
 };
-#line 43 "include/linux/pm_wakeup.h"
 struct wakeup_source {
    char    *name ;
    struct list_head entry ;
@@ -4050,13 +3329,9 @@ struct wakeup_source {
    unsigned long hit_count ;
    unsigned int active : 1 ;
 };
-#line 8 "include/linux/cdev.h"
 struct file_operations;
-#line 9
 struct inode;
-#line 10
 struct module;
-#line 12 "include/linux/cdev.h"
 struct cdev {
    struct kobject kobj ;
    struct module *owner ;
@@ -4065,7 +3340,6 @@ struct cdev {
    dev_t dev ;
    unsigned int count ;
 };
-#line 43 "include/media/media-devnode.h"
 struct media_file_operations {
    struct module *owner ;
    ssize_t (*read)(struct file * , char * , size_t  , loff_t * ) ;
@@ -4075,7 +3349,6 @@ struct media_file_operations {
    int (*open)(struct file * ) ;
    int (*release)(struct file * ) ;
 };
-#line 64 "include/media/media-devnode.h"
 struct media_devnode {
    struct media_file_operations    *fops ;
    struct device dev ;
@@ -4085,58 +3358,46 @@ struct media_devnode {
    unsigned long flags ;
    void (*release)(struct media_devnode *mdev ) ;
 };
-#line 29 "include/media/media-entity.h"
 struct media_pipeline {
 
 };
-#line 32
 struct media_pad;
-#line 32 "include/media/media-entity.h"
 struct media_link {
    struct media_pad *source ;
    struct media_pad *sink ;
    struct media_link *reverse ;
    unsigned long flags ;
 };
-#line 39
 struct media_entity;
-#line 39 "include/media/media-entity.h"
 struct media_pad {
    struct media_entity *entity ;
    u16 index ;
    unsigned long flags ;
 };
-#line 45 "include/media/media-entity.h"
 struct media_entity_operations {
    int (*link_setup)(struct media_entity *entity , struct media_pad    *local ,
                      struct media_pad    *remote , u32 flags ) ;
 };
-#line 51
 struct media_device;
-#line 51 "include/media/media-entity.h"
 struct __anonstruct_v4l_271 {
    u32 major ;
    u32 minor ;
 };
-#line 51 "include/media/media-entity.h"
 struct __anonstruct_fb_272 {
    u32 major ;
    u32 minor ;
 };
-#line 51 "include/media/media-entity.h"
 struct __anonstruct_alsa_273 {
    u32 card ;
    u32 device ;
    u32 subdevice ;
 };
-#line 51 "include/media/media-entity.h"
 union __anonunion_info_270 {
    struct __anonstruct_v4l_271 v4l ;
    struct __anonstruct_fb_272 fb ;
    struct __anonstruct_alsa_273 alsa ;
    int dvb ;
 };
-#line 51 "include/media/media-entity.h"
 struct media_entity {
    struct list_head list ;
    struct media_device *parent ;
@@ -4158,9 +3419,7 @@ struct media_entity {
    struct media_pipeline *pipe ;
    union __anonunion_info_270 info ;
 };
-#line 33 "include/media/media-device.h"
 struct device;
-#line 59 "include/media/media-device.h"
 struct media_device {
    struct device *dev ;
    struct media_devnode devnode ;
@@ -4175,7 +3434,6 @@ struct media_device {
    struct mutex graph_mutex ;
    int (*link_notify)(struct media_pad *source , struct media_pad *sink , u32 flags ) ;
 };
-#line 37 "include/linux/v4l2-mediabus.h"
 enum v4l2_mbus_pixelcode {
     V4L2_MBUS_FMT_FIXED = 1,
     V4L2_MBUS_FMT_RGB444_2X8_PADHI_BE = 4097,
@@ -4227,7 +3485,6 @@ enum v4l2_mbus_pixelcode {
     V4L2_MBUS_FMT_SRGGB12_1X12 = 12306,
     V4L2_MBUS_FMT_JPEG_1X8 = 16385
 } ;
-#line 105 "include/linux/v4l2-mediabus.h"
 struct v4l2_mbus_framefmt {
    __u32 width ;
    __u32 height ;
@@ -4236,28 +3493,24 @@ struct v4l2_mbus_framefmt {
    __u32 colorspace ;
    __u32 reserved[7] ;
 };
-#line 46 "include/linux/v4l2-subdev.h"
 struct v4l2_subdev_format {
    __u32 which ;
    __u32 pad ;
    struct v4l2_mbus_framefmt format ;
    __u32 reserved[8] ;
 };
-#line 59 "include/linux/v4l2-subdev.h"
 struct v4l2_subdev_crop {
    __u32 which ;
    __u32 pad ;
    struct v4l2_rect rect ;
    __u32 reserved[8] ;
 };
-#line 72 "include/linux/v4l2-subdev.h"
 struct v4l2_subdev_mbus_code_enum {
    __u32 pad ;
    __u32 index ;
    __u32 code ;
    __u32 reserved[9] ;
 };
-#line 85 "include/linux/v4l2-subdev.h"
 struct v4l2_subdev_frame_size_enum {
    __u32 index ;
    __u32 pad ;
@@ -4268,13 +3521,11 @@ struct v4l2_subdev_frame_size_enum {
    __u32 max_height ;
    __u32 reserved[9] ;
 };
-#line 101 "include/linux/v4l2-subdev.h"
 struct v4l2_subdev_frame_interval {
    __u32 pad ;
    struct v4l2_fract interval ;
    __u32 reserved[9] ;
 };
-#line 116 "include/linux/v4l2-subdev.h"
 struct v4l2_subdev_frame_interval_enum {
    __u32 index ;
    __u32 pad ;
@@ -4284,23 +3535,15 @@ struct v4l2_subdev_frame_interval_enum {
    struct v4l2_fract interval ;
    __u32 reserved[9] ;
 };
-#line 30 "include/media/v4l2-dev.h"
 struct video_device;
-#line 30
 struct video_device;
-#line 31
 struct v4l2_device;
-#line 31
 struct v4l2_device;
-#line 32
 struct v4l2_ctrl_handler;
-#line 32
 struct v4l2_ctrl_handler;
-#line 45 "include/media/v4l2-dev.h"
 struct v4l2_prio_state {
    atomic_t prios[4] ;
 };
-#line 58 "include/media/v4l2-dev.h"
 struct v4l2_file_operations {
    struct module *owner ;
    ssize_t (*read)(struct file * , char * , size_t  , loff_t * ) ;
@@ -4315,9 +3558,7 @@ struct v4l2_file_operations {
    int (*open)(struct file * ) ;
    int (*release)(struct file * ) ;
 };
-#line 81
 struct v4l2_ioctl_ops;
-#line 81 "include/media/v4l2-dev.h"
 struct video_device {
    struct media_entity entity ;
    struct v4l2_file_operations    *fops ;
@@ -4342,33 +3583,23 @@ struct video_device {
    struct v4l2_ioctl_ops    *ioctl_ops ;
    struct mutex *lock ;
 };
-#line 119 "include/media/v4l2-common.h"
 struct v4l2_device;
-#line 120
 struct v4l2_subdev;
-#line 120
 struct v4l2_subdev;
-#line 121
 struct v4l2_subdev_ops;
-#line 121
 struct v4l2_subdev_ops;
-#line 219 "include/linux/mod_devicetable.h"
 struct of_device_id {
    char name[32] ;
    char type[32] ;
    char compatible[128] ;
    void *data ;
 };
-#line 182 "include/media/v4l2-common.h"
 struct v4l2_priv_tun_config {
    int tuner ;
    void *priv ;
 };
-#line 31 "include/media/v4l2-fh.h"
 struct video_device;
-#line 32
 struct v4l2_ctrl_handler;
-#line 34 "include/media/v4l2-fh.h"
 struct v4l2_fh {
    struct list_head list ;
    struct video_device *vdev ;
@@ -4380,43 +3611,30 @@ struct v4l2_fh {
    unsigned int navailable ;
    u32 sequence ;
 };
-#line 71 "include/media/v4l2-mediabus.h"
 enum v4l2_mbus_type {
     V4L2_MBUS_PARALLEL = 0,
     V4L2_MBUS_BT656 = 1,
     V4L2_MBUS_CSI2 = 2
 } ;
-#line 82 "include/media/v4l2-mediabus.h"
 struct v4l2_mbus_config {
    enum v4l2_mbus_type type ;
    unsigned int flags ;
 };
-#line 41 "include/media/v4l2-subdev.h"
 struct v4l2_device;
-#line 42
 struct v4l2_ctrl_handler;
-#line 43
 struct v4l2_event_subscription;
-#line 44
 struct v4l2_fh;
-#line 45
 struct v4l2_subdev;
-#line 46
 struct v4l2_subdev_fh;
-#line 46
 struct v4l2_subdev_fh;
-#line 47
 struct tuner_setup;
-#line 47
 struct tuner_setup;
-#line 50 "include/media/v4l2-subdev.h"
 struct v4l2_decode_vbi_line {
    u32 is_second_field ;
    u8 *p ;
    u32 line ;
    u32 type ;
 };
-#line 108 "include/media/v4l2-subdev.h"
 struct v4l2_subdev_io_pin_config {
    u32 flags ;
    u8 pin ;
@@ -4424,7 +3642,6 @@ struct v4l2_subdev_io_pin_config {
    u8 value ;
    u8 strength ;
 };
-#line 145 "include/media/v4l2-subdev.h"
 struct v4l2_subdev_core_ops {
    int (*g_chip_ident)(struct v4l2_subdev *sd , struct v4l2_dbg_chip_ident *chip ) ;
    int (*log_status)(struct v4l2_subdev *sd ) ;
@@ -4450,7 +3667,6 @@ struct v4l2_subdev_core_ops {
    int (*subscribe_event)(struct v4l2_subdev *sd , struct v4l2_fh *fh , struct v4l2_event_subscription *sub ) ;
    int (*unsubscribe_event)(struct v4l2_subdev *sd , struct v4l2_fh *fh , struct v4l2_event_subscription *sub ) ;
 };
-#line 190 "include/media/v4l2-subdev.h"
 struct v4l2_subdev_tuner_ops {
    int (*s_radio)(struct v4l2_subdev *sd ) ;
    int (*s_frequency)(struct v4l2_subdev *sd , struct v4l2_frequency *freq ) ;
@@ -4462,14 +3678,12 @@ struct v4l2_subdev_tuner_ops {
    int (*s_type_addr)(struct v4l2_subdev *sd , struct tuner_setup *type ) ;
    int (*s_config)(struct v4l2_subdev *sd , struct v4l2_priv_tun_config    *config ) ;
 };
-#line 222 "include/media/v4l2-subdev.h"
 struct v4l2_subdev_audio_ops {
    int (*s_clock_freq)(struct v4l2_subdev *sd , u32 freq ) ;
    int (*s_i2s_clock_freq)(struct v4l2_subdev *sd , u32 freq ) ;
    int (*s_routing)(struct v4l2_subdev *sd , u32 input , u32 output , u32 config ) ;
    int (*s_stream)(struct v4l2_subdev *sd , int enable ) ;
 };
-#line 278 "include/media/v4l2-subdev.h"
 struct v4l2_subdev_video_ops {
    int (*s_routing)(struct v4l2_subdev *sd , u32 input , u32 output , u32 config ) ;
    int (*s_crystal_freq)(struct v4l2_subdev *sd , u32 freq , u32 flags ) ;
@@ -4502,7 +3716,6 @@ struct v4l2_subdev_video_ops {
    int (*g_mbus_config)(struct v4l2_subdev *sd , struct v4l2_mbus_config *cfg ) ;
    int (*s_mbus_config)(struct v4l2_subdev *sd , struct v4l2_mbus_config    *cfg ) ;
 };
-#line 355 "include/media/v4l2-subdev.h"
 struct v4l2_subdev_vbi_ops {
    int (*decode_vbi_line)(struct v4l2_subdev *sd , struct v4l2_decode_vbi_line *vbi_line ) ;
    int (*s_vbi_data)(struct v4l2_subdev *sd , struct v4l2_sliced_vbi_data    *vbi_data ) ;
@@ -4512,16 +3725,13 @@ struct v4l2_subdev_vbi_ops {
    int (*g_sliced_fmt)(struct v4l2_subdev *sd , struct v4l2_sliced_vbi_format *fmt ) ;
    int (*s_sliced_fmt)(struct v4l2_subdev *sd , struct v4l2_sliced_vbi_format *fmt ) ;
 };
-#line 375 "include/media/v4l2-subdev.h"
 struct v4l2_subdev_sensor_ops {
    int (*g_skip_top_lines)(struct v4l2_subdev *sd , u32 *lines ) ;
    int (*g_skip_frames)(struct v4l2_subdev *sd , u32 *frames ) ;
 };
-#line 403
 enum v4l2_subdev_ir_mode {
     V4L2_SUBDEV_IR_MODE_PULSE_WIDTH = 0
 } ;
-#line 407 "include/media/v4l2-subdev.h"
 struct v4l2_subdev_ir_parameters {
    unsigned int bytes_per_data_element ;
    enum v4l2_subdev_ir_mode mode ;
@@ -4539,7 +3749,6 @@ struct v4l2_subdev_ir_parameters {
    unsigned int carrier_range_upper ;
    u32 resolution ;
 };
-#line 432 "include/media/v4l2-subdev.h"
 struct v4l2_subdev_ir_ops {
    int (*rx_read)(struct v4l2_subdev *sd , u8 *buf , size_t count , ssize_t *num ) ;
    int (*rx_g_parameters)(struct v4l2_subdev *sd , struct v4l2_subdev_ir_parameters *params ) ;
@@ -4548,7 +3757,6 @@ struct v4l2_subdev_ir_ops {
    int (*tx_g_parameters)(struct v4l2_subdev *sd , struct v4l2_subdev_ir_parameters *params ) ;
    int (*tx_s_parameters)(struct v4l2_subdev *sd , struct v4l2_subdev_ir_parameters *params ) ;
 };
-#line 452 "include/media/v4l2-subdev.h"
 struct v4l2_subdev_pad_ops {
    int (*enum_mbus_code)(struct v4l2_subdev *sd , struct v4l2_subdev_fh *fh , struct v4l2_subdev_mbus_code_enum *code ) ;
    int (*enum_frame_size)(struct v4l2_subdev *sd , struct v4l2_subdev_fh *fh , struct v4l2_subdev_frame_size_enum *fse ) ;
@@ -4559,7 +3767,6 @@ struct v4l2_subdev_pad_ops {
    int (*set_crop)(struct v4l2_subdev *sd , struct v4l2_subdev_fh *fh , struct v4l2_subdev_crop *crop ) ;
    int (*get_crop)(struct v4l2_subdev *sd , struct v4l2_subdev_fh *fh , struct v4l2_subdev_crop *crop ) ;
 };
-#line 471 "include/media/v4l2-subdev.h"
 struct v4l2_subdev_ops {
    struct v4l2_subdev_core_ops    *core ;
    struct v4l2_subdev_tuner_ops    *tuner ;
@@ -4570,14 +3777,12 @@ struct v4l2_subdev_ops {
    struct v4l2_subdev_sensor_ops    *sensor ;
    struct v4l2_subdev_pad_ops    *pad ;
 };
-#line 496 "include/media/v4l2-subdev.h"
 struct v4l2_subdev_internal_ops {
    int (*registered)(struct v4l2_subdev *sd ) ;
    void (*unregistered)(struct v4l2_subdev *sd ) ;
    int (*open)(struct v4l2_subdev *sd , struct v4l2_subdev_fh *fh ) ;
    int (*close)(struct v4l2_subdev *sd , struct v4l2_subdev_fh *fh ) ;
 };
-#line 517 "include/media/v4l2-subdev.h"
 struct v4l2_subdev {
    struct media_entity entity ;
    struct list_head list ;
@@ -4593,15 +3798,12 @@ struct v4l2_subdev {
    void *host_priv ;
    struct video_device *devnode ;
 };
-#line 549 "include/media/v4l2-subdev.h"
 struct v4l2_subdev_fh {
    struct v4l2_fh vfh ;
    struct v4l2_mbus_framefmt *try_fmt ;
    struct v4l2_rect *try_crop ;
 };
-#line 37 "include/media/v4l2-device.h"
 struct v4l2_ctrl_handler;
-#line 39 "include/media/v4l2-device.h"
 struct v4l2_device {
    struct device *dev ;
    struct media_device *mdev ;
@@ -4615,9 +3817,7 @@ struct v4l2_device {
    struct kref ref ;
    void (*release)(struct v4l2_device *v4l2_dev ) ;
 };
-#line 18 "include/media/v4l2-ioctl.h"
 struct v4l2_fh;
-#line 20 "include/media/v4l2-ioctl.h"
 struct v4l2_ioctl_ops {
    int (*vidioc_querycap)(struct file *file , void *fh , struct v4l2_capability *cap ) ;
    int (*vidioc_g_priority)(struct file *file , void *fh , enum v4l2_priority *p ) ;
@@ -4733,48 +3933,34 @@ struct v4l2_ioctl_ops {
    long (*vidioc_default)(struct file *file , void *fh , bool valid_prio , int cmd ,
                           void *arg ) ;
 };
-#line 28 "include/media/v4l2-ctrls.h"
 struct v4l2_ctrl_handler;
-#line 29
 struct v4l2_ctrl_helper;
-#line 29
 struct v4l2_ctrl_helper;
-#line 30
 struct v4l2_ctrl;
-#line 30
 struct v4l2_ctrl;
-#line 31
 struct video_device;
-#line 32
 struct v4l2_subdev;
-#line 34
 struct v4l2_fh;
-#line 35
 struct poll_table_struct;
-#line 49 "include/media/v4l2-ctrls.h"
 struct v4l2_ctrl_ops {
    int (*g_volatile_ctrl)(struct v4l2_ctrl *ctrl ) ;
    int (*try_ctrl)(struct v4l2_ctrl *ctrl ) ;
    int (*s_ctrl)(struct v4l2_ctrl *ctrl ) ;
 };
-#line 108 "include/media/v4l2-ctrls.h"
 union __anonunion____missing_field_name_276 {
    u32 step ;
    u32 menu_skip_mask ;
 };
-#line 108 "include/media/v4l2-ctrls.h"
 union __anonunion_cur_277 {
    s32 val ;
    s64 val64 ;
    char *string ;
 };
-#line 108 "include/media/v4l2-ctrls.h"
 union __anonunion____missing_field_name_278 {
    s32 val ;
    s64 val64 ;
    char *string ;
 };
-#line 108 "include/media/v4l2-ctrls.h"
 struct v4l2_ctrl {
    struct list_head node ;
    struct list_head ev_subs ;
@@ -4801,14 +3987,12 @@ struct v4l2_ctrl {
    union __anonunion____missing_field_name_278 __annonCompField58 ;
    void *priv ;
 };
-#line 157 "include/media/v4l2-ctrls.h"
 struct v4l2_ctrl_ref {
    struct list_head node ;
    struct v4l2_ctrl_ref *next ;
    struct v4l2_ctrl *ctrl ;
    struct v4l2_ctrl_helper *helper ;
 };
-#line 177 "include/media/v4l2-ctrls.h"
 struct v4l2_ctrl_handler {
    struct mutex lock ;
    struct list_head ctrls ;
@@ -4818,7 +4002,6 @@ struct v4l2_ctrl_handler {
    u16 nr_of_buckets ;
    int error ;
 };
-#line 210 "include/media/v4l2-ctrls.h"
 struct v4l2_ctrl_config {
    struct v4l2_ctrl_ops    *ops ;
    u32 id ;
@@ -4833,31 +4016,24 @@ struct v4l2_ctrl_config {
    char    *   *qmenu ;
    unsigned int is_private : 1 ;
 };
-#line 66 "include/media/v4l2-event.h"
 struct v4l2_fh;
-#line 68
 struct video_device;
-#line 81 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/15067/dscv_tempdir/dscv/ri/32_1/drivers/media/video/vivi.c.common.c"
 struct vivi_fmt {
    char *name ;
    u32 fourcc ;
    int depth ;
 };
-#line 125 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/15067/dscv_tempdir/dscv/ri/32_1/drivers/media/video/vivi.c.common.c"
 struct __anonstruct_287 {
    int  : 0 ;
 };
-#line 131 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/15067/dscv_tempdir/dscv/ri/32_1/drivers/media/video/vivi.c.common.c"
 struct __anonstruct_288 {
    int  : 0 ;
 };
-#line 138 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/15067/dscv_tempdir/dscv/ri/32_1/drivers/media/video/vivi.c.common.c"
 struct vivi_buffer {
    struct vb2_buffer vb ;
    struct list_head list ;
    struct vivi_fmt *fmt ;
 };
-#line 145 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/15067/dscv_tempdir/dscv/ri/32_1/drivers/media/video/vivi.c.common.c"
 struct vivi_dmaqueue {
    struct list_head active ;
    struct task_struct *kthread ;
@@ -4865,12 +4041,10 @@ struct vivi_dmaqueue {
    int frame ;
    int ini_jiffies ;
 };
-#line 158 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/15067/dscv_tempdir/dscv/ri/32_1/drivers/media/video/vivi.c.common.c"
 struct __anonstruct____missing_field_name_289 {
    struct v4l2_ctrl *autogain ;
    struct v4l2_ctrl *gain ;
 };
-#line 158 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/15067/dscv_tempdir/dscv/ri/32_1/drivers/media/video/vivi.c.common.c"
 struct vivi_dev {
    struct list_head vivi_devlist ;
    struct v4l2_device v4l2_dev ;
@@ -4906,51 +4080,35 @@ struct vivi_dev {
    u8 bars[9][3] ;
    u8 line[7680] ;
 };
-#line 239 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/15067/dscv_tempdir/dscv/ri/32_1/drivers/media/video/vivi.c.common.c"
 struct bar_std {
    u8 bar[9][3] ;
 };
-#line 834 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/15067/dscv_tempdir/dscv/ri/32_1/drivers/media/video/vivi.c.common.c"
 struct __anonstruct_290 {
    int  : 0 ;
 };
-#line 972 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/15067/dscv_tempdir/dscv/ri/32_1/drivers/media/video/vivi.c.common.c"
 struct __anonstruct_291 {
    int  : 0 ;
 };
-#line 993 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/15067/dscv_tempdir/dscv/ri/32_1/drivers/media/video/vivi.c.common.c"
 struct __anonstruct_292 {
    int  : 0 ;
 };
-#line 1 "<compiler builtins>"
 
-#line 1
 long ldv__builtin_expect(long val , long res ) ;
-#line 24 "include/linux/list.h"
 __inline static void INIT_LIST_HEAD(struct list_head *list )  __attribute__((__no_instrument_function__)) ;
-#line 24 "include/linux/list.h"
 __inline static void INIT_LIST_HEAD(struct list_head *list ) 
 { unsigned long __cil_tmp2 ;
   unsigned long __cil_tmp3 ;
 
   {
-#line 26
   *((struct list_head **)list) = list;
-#line 27
   __cil_tmp2 = (unsigned long )list;
-#line 27
   __cil_tmp3 = __cil_tmp2 + 8;
-#line 27
   *((struct list_head **)__cil_tmp3) = list;
-#line 28
   return;
 }
 }
-#line 47
 extern void __list_add(struct list_head *new , struct list_head *prev , struct list_head *next ) ;
-#line 74
 __inline static void list_add_tail(struct list_head *new , struct list_head *head )  __attribute__((__no_instrument_function__)) ;
-#line 74 "include/linux/list.h"
 __inline static void list_add_tail(struct list_head *new , struct list_head *head ) 
 { unsigned long __cil_tmp3 ;
   unsigned long __cil_tmp4 ;
@@ -4958,24 +4116,16 @@ __inline static void list_add_tail(struct list_head *new , struct list_head *hea
 
   {
   {
-#line 76
   __cil_tmp3 = (unsigned long )head;
-#line 76
   __cil_tmp4 = __cil_tmp3 + 8;
-#line 76
   __cil_tmp5 = *((struct list_head **)__cil_tmp4);
-#line 76
   __list_add(new, __cil_tmp5, head);
   }
-#line 77
   return;
 }
 }
-#line 112
 extern void list_del(struct list_head *entry ) ;
-#line 186
 __inline static int list_empty(struct list_head    *head )  __attribute__((__no_instrument_function__)) ;
-#line 186 "include/linux/list.h"
 __inline static int list_empty(struct list_head    *head ) 
 { unsigned long __cil_tmp2 ;
   struct list_head *   __cil_tmp3 ;
@@ -4983,29 +4133,21 @@ __inline static int list_empty(struct list_head    *head )
 
   {
   {
-#line 188
   __cil_tmp2 = (unsigned long )head;
-#line 188
   __cil_tmp3 = *((struct list_head *   *)head);
-#line 188
   __cil_tmp4 = (unsigned long )__cil_tmp3;
-#line 188
   return (__cil_tmp4 == __cil_tmp2);
   }
 }
 }
-#line 59 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/bitops.h"
 __inline static void ( __attribute__((__always_inline__)) set_bit)(unsigned int nr ,
                                                                    unsigned long volatile   *addr )  __attribute__((__no_instrument_function__)) ;
-#line 59 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/bitops.h"
 __inline static void ( __attribute__((__always_inline__)) set_bit)(unsigned int nr ,
                                                                    unsigned long volatile   *addr ) 
 { long volatile   *__cil_tmp3 ;
 
   {
-#line 68
   __cil_tmp3 = (long volatile   *)addr;
-#line 68
   __asm__  volatile   (".section .smp_locks,\"a\"\n"
                        ".balign 4\n"
                        ".long 671f - .\n"
@@ -5013,57 +4155,37 @@ __inline static void ( __attribute__((__always_inline__)) set_bit)(unsigned int 
                        "671:"
                        "\n\tlock; "
                        "bts %1,%0": "+m" (*__cil_tmp3): "Ir" (nr): "memory");
-#line 71
   return;
 }
 }
-#line 100 "include/linux/printk.h"
 extern int ( /* format attribute */  printk)(char    *fmt  , ...) ;
-#line 147 "include/linux/kernel.h"
 extern void __might_sleep(char    *file , int line , int preempt_offset ) ;
-#line 320
 extern int ( /* format attribute */  sprintf)(char *buf , char    *fmt  , ...) ;
-#line 322
 extern int ( /* format attribute */  snprintf)(char *buf , size_t size , char    *fmt 
                                                , ...) ;
-#line 88 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/percpu.h"
 extern void __bad_percpu_size(void) ;
-#line 10 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/current.h"
 extern struct task_struct *current_task  __attribute__((__section__(".data..percpu"))) ;
-#line 12
 __inline static struct task_struct *( __attribute__((__always_inline__)) get_current)(void)  __attribute__((__no_instrument_function__)) ;
-#line 12 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/current.h"
 __inline static struct task_struct *( __attribute__((__always_inline__)) get_current)(void) 
 { struct task_struct *pfo_ret__ ;
 
   {
-#line 14
   if ((int )8UL == 1) {
-#line 14
     goto case_1;
   } else
-#line 14
   if ((int )8UL == 2) {
-#line 14
     goto case_2;
   } else
-#line 14
   if ((int )8UL == 4) {
-#line 14
     goto case_4;
   } else
-#line 14
   if ((int )8UL == 8) {
-#line 14
     goto case_8;
   } else {
     {
-#line 14
     goto switch_default;
-#line 14
     if (0) {
       case_1: /* CIL Label */ 
-#line 14
       __asm__  ("mov"
                 "b "
                 "%%"
@@ -5072,10 +4194,8 @@ __inline static struct task_struct *( __attribute__((__always_inline__)) get_cur
                 "%P"
                 "1"
                 ",%0": "=q" (pfo_ret__): "p" (& current_task));
-#line 14
       goto switch_break;
       case_2: /* CIL Label */ 
-#line 14
       __asm__  ("mov"
                 "w "
                 "%%"
@@ -5084,10 +4204,8 @@ __inline static struct task_struct *( __attribute__((__always_inline__)) get_cur
                 "%P"
                 "1"
                 ",%0": "=r" (pfo_ret__): "p" (& current_task));
-#line 14
       goto switch_break;
       case_4: /* CIL Label */ 
-#line 14
       __asm__  ("mov"
                 "l "
                 "%%"
@@ -5096,10 +4214,8 @@ __inline static struct task_struct *( __attribute__((__always_inline__)) get_cur
                 "%P"
                 "1"
                 ",%0": "=r" (pfo_ret__): "p" (& current_task));
-#line 14
       goto switch_break;
       case_8: /* CIL Label */ 
-#line 14
       __asm__  ("mov"
                 "q "
                 "%%"
@@ -5108,11 +4224,9 @@ __inline static struct task_struct *( __attribute__((__always_inline__)) get_cur
                 "%P"
                 "1"
                 ",%0": "=r" (pfo_ret__): "p" (& current_task));
-#line 14
       goto switch_break;
       switch_default: /* CIL Label */ 
       {
-#line 14
       __bad_percpu_size();
       }
     } else {
@@ -5120,32 +4234,22 @@ __inline static struct task_struct *( __attribute__((__always_inline__)) get_cur
     }
     }
   }
-#line 14
   return (pfo_ret__);
 }
 }
-#line 55 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/string_64.h"
 extern void *memset(void *s , int c , size_t n ) ;
-#line 61
 extern unsigned long strlen(char    *s ) ;
-#line 62
 extern char *strcpy(char *dest , char    *src ) ;
-#line 30 "include/linux/string.h"
 extern size_t strlcpy(char * , char    * , size_t  ) ;
-#line 27 "include/linux/err.h"
 __inline static long __attribute__((__warn_unused_result__))  PTR_ERR(void    *ptr )  __attribute__((__no_instrument_function__)) ;
-#line 27 "include/linux/err.h"
 __inline static long __attribute__((__warn_unused_result__))  PTR_ERR(void    *ptr ) 
 { 
 
   {
-#line 29
   return ((long )ptr);
 }
 }
-#line 32
 __inline static long __attribute__((__warn_unused_result__))  IS_ERR(void    *ptr )  __attribute__((__no_instrument_function__)) ;
-#line 32 "include/linux/err.h"
 __inline static long __attribute__((__warn_unused_result__))  IS_ERR(void    *ptr ) 
 { long tmp ;
   unsigned long __cil_tmp3 ;
@@ -5156,26 +4260,17 @@ __inline static long __attribute__((__warn_unused_result__))  IS_ERR(void    *pt
 
   {
   {
-#line 34
   __cil_tmp3 = (unsigned long )ptr;
-#line 34
   __cil_tmp4 = __cil_tmp3 >= 0xfffffffffffff001UL;
-#line 34
   __cil_tmp5 = ! __cil_tmp4;
-#line 34
   __cil_tmp6 = ! __cil_tmp5;
-#line 34
   __cil_tmp7 = (long )__cil_tmp6;
-#line 34
   tmp = ldv__builtin_expect(__cil_tmp7, 0L);
   }
-#line 34
   return (tmp);
 }
 }
-#line 23 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/atomic.h"
 __inline static int atomic_read(atomic_t    *v )  __attribute__((__no_instrument_function__)) ;
-#line 23 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/atomic.h"
 __inline static int atomic_read(atomic_t    *v ) 
 { int    *__cil_tmp2 ;
   int volatile   *__cil_tmp3 ;
@@ -5183,181 +4278,119 @@ __inline static int atomic_read(atomic_t    *v )
 
   {
   {
-#line 25
   __cil_tmp2 = (int    *)v;
-#line 25
   __cil_tmp3 = (int volatile   *)__cil_tmp2;
-#line 25
   __cil_tmp4 = *__cil_tmp3;
-#line 25
   return ((int )__cil_tmp4);
   }
 }
 }
-#line 93 "include/linux/spinlock.h"
 extern void __raw_spin_lock_init(raw_spinlock_t *lock , char    *name , struct lock_class_key *key ) ;
-#line 32 "include/linux/spinlock_api_smp.h"
 extern unsigned long _raw_spin_lock_irqsave(raw_spinlock_t *lock )  __attribute__((__section__(".spinlock.text"))) ;
-#line 42
 extern void _raw_spin_unlock_irqrestore(raw_spinlock_t *lock , unsigned long flags )  __attribute__((__section__(".spinlock.text"))) ;
-#line 272 "include/linux/spinlock.h"
 __inline static raw_spinlock_t *spinlock_check(spinlock_t *lock )  __attribute__((__no_instrument_function__)) ;
-#line 272 "include/linux/spinlock.h"
 __inline static raw_spinlock_t *spinlock_check(spinlock_t *lock ) 
 { 
 
   {
-#line 274
   return ((struct raw_spinlock *)lock);
 }
 }
-#line 338
 __inline static void spin_unlock_irqrestore(spinlock_t *lock , unsigned long flags )  __attribute__((__no_instrument_function__)) ;
-#line 338 "include/linux/spinlock.h"
 __inline static void spin_unlock_irqrestore(spinlock_t *lock , unsigned long flags ) 
 { struct raw_spinlock *__cil_tmp5 ;
 
   {
   {
-#line 340
   while (1) {
     while_continue: /* CIL Label */ ;
     {
-#line 340
     __cil_tmp5 = (struct raw_spinlock *)lock;
-#line 340
     _raw_spin_unlock_irqrestore(__cil_tmp5, flags);
     }
-#line 340
     goto while_break;
   }
   while_break: /* CIL Label */ ;
   }
-#line 341
   return;
 }
 }
-#line 148 "include/linux/time.h"
 extern void do_gettimeofday(struct timeval *tv ) ;
-#line 29 "include/linux/wait.h"
 extern int default_wake_function(wait_queue_t *wait , unsigned int mode , int flags ,
                                  void *key ) ;
-#line 79
 extern void __init_waitqueue_head(wait_queue_head_t *q , char    *name , struct lock_class_key * ) ;
-#line 117
 extern void add_wait_queue(wait_queue_head_t *q , wait_queue_t *wait ) ;
-#line 119
 extern void remove_wait_queue(wait_queue_head_t *q , wait_queue_t *wait ) ;
-#line 155
 extern void __wake_up(wait_queue_head_t *q , unsigned int mode , int nr , void *key ) ;
-#line 115 "include/linux/mutex.h"
 extern void __mutex_init(struct mutex *lock , char    *name , struct lock_class_key *key ) ;
-#line 152
 void mutex_lock(struct mutex *lock ) ;
-#line 153
 int __attribute__((__warn_unused_result__))  mutex_lock_interruptible(struct mutex *lock ) ;
-#line 154
 int __attribute__((__warn_unused_result__))  mutex_lock_killable(struct mutex *lock ) ;
-#line 168
 int mutex_trylock(struct mutex *lock ) ;
-#line 169
 void mutex_unlock(struct mutex *lock ) ;
-#line 170
 int atomic_dec_and_mutex_lock(atomic_t *cnt , struct mutex *lock ) ;
-#line 82 "include/linux/jiffies.h"
 extern unsigned long volatile   jiffies  __attribute__((__section__(".data"))) ;
-#line 296
 extern unsigned int jiffies_to_msecs(unsigned long    j ) ;
-#line 298
 extern unsigned long msecs_to_jiffies(unsigned int    m ) ;
-#line 80 "include/linux/kobject.h"
 __inline static char    *kobject_name(struct kobject    *kobj )  __attribute__((__no_instrument_function__)) ;
-#line 80 "include/linux/kobject.h"
 __inline static char    *kobject_name(struct kobject    *kobj ) 
 { char    *   __cil_tmp2 ;
 
   {
   {
-#line 82
   __cil_tmp2 = *((char    *   *)kobj);
-#line 82
   return ((char    *)__cil_tmp2);
   }
 }
 }
-#line 361 "include/linux/moduleparam.h"
 extern struct kernel_param_ops param_ops_uint ;
-#line 26 "include/linux/export.h"
 extern struct module __this_module ;
-#line 67 "include/linux/module.h"
 int init_module(void) ;
-#line 68
 void cleanup_module(void) ;
-#line 359 "include/linux/sched.h"
 extern long schedule_timeout_interruptible(long timeout ) ;
-#line 2194
 extern int wake_up_process(struct task_struct *tsk ) ;
-#line 161 "include/linux/slab.h"
 extern void kfree(void    * ) ;
-#line 221 "include/linux/slub_def.h"
 extern void *__kmalloc(size_t size , gfp_t flags ) ;
-#line 268
 __inline static void *( __attribute__((__always_inline__)) kmalloc)(size_t size ,
                                                                     gfp_t flags )  __attribute__((__no_instrument_function__)) ;
-#line 268 "include/linux/slub_def.h"
 __inline static void *( __attribute__((__always_inline__)) kmalloc)(size_t size ,
                                                                     gfp_t flags ) 
 { void *tmp___10 ;
 
   {
   {
-#line 283
   tmp___10 = __kmalloc(size, flags);
   }
-#line 283
   return (tmp___10);
 }
 }
-#line 349 "include/linux/slab.h"
 __inline static void *kzalloc(size_t size , gfp_t flags )  __attribute__((__no_instrument_function__)) ;
-#line 349 "include/linux/slab.h"
 __inline static void *kzalloc(size_t size , gfp_t flags ) 
 { void *tmp___7 ;
   unsigned int __cil_tmp4 ;
 
   {
   {
-#line 351
   __cil_tmp4 = flags | 32768U;
-#line 351
   tmp___7 = kmalloc(size, __cil_tmp4);
   }
-#line 351
   return (tmp___7);
 }
 }
-#line 48 "include/linux/font.h"
 struct font_desc    *find_font(char    *name )
 {
 	return __VERIFIER_nondet_pointer();
 }
-#line 7 "include/linux/kthread.h"
 extern struct task_struct *( /* format attribute */  kthread_create_on_node)(int (*threadfn)(void *data ) ,
                                                                              void *data ,
                                                                              int node ,
                                                                              char    *namefmt 
                                                                              , ...) ;
-#line 36
 extern int kthread_stop(struct task_struct *k ) ;
-#line 37
 extern int kthread_should_stop(void) ;
-#line 11 "include/linux/freezer.h"
 extern atomic_t system_freezing_cnt ;
-#line 23
 extern bool freezing_slow_path(struct task_struct *p ) ;
-#line 28
 __inline static bool freezing(struct task_struct *p )  __attribute__((__no_instrument_function__)) ;
-#line 28 "include/linux/freezer.h"
 __inline static bool freezing(struct task_struct *p ) 
 { int tmp___7 ;
   int tmp___8 ;
@@ -5368,45 +4401,31 @@ __inline static bool freezing(struct task_struct *p )
 
   {
   {
-#line 30
   __cil_tmp6 = (atomic_t    *)(& system_freezing_cnt);
-#line 30
   tmp___7 = atomic_read(__cil_tmp6);
   }
-#line 30
   if (tmp___7) {
-#line 30
     tmp___8 = 0;
   } else {
-#line 30
     tmp___8 = 1;
   }
   {
-#line 30
   __cil_tmp7 = (long )tmp___8;
-#line 30
   tmp___9 = ldv__builtin_expect(__cil_tmp7, 1L);
   }
-#line 30
   if (tmp___9) {
-#line 31
     return ((bool )0);
   } else {
 
   }
   {
-#line 32
   tmp___10 = freezing_slow_path(p);
   }
-#line 32
   return (tmp___10);
 }
 }
-#line 38
 extern bool __refrigerator(bool check_kthr_stop ) ;
-#line 44
 __inline static bool try_to_freeze(void)  __attribute__((__no_instrument_function__)) ;
-#line 44 "include/linux/freezer.h"
 __inline static bool try_to_freeze(void) 
 { struct task_struct *tmp___7 ;
   bool tmp___8 ;
@@ -5418,85 +4437,60 @@ __inline static bool try_to_freeze(void)
 
   {
   {
-#line 46
   while (1) {
     while_continue: /* CIL Label */ ;
     {
-#line 46
     __might_sleep("include/linux/freezer.h", 46, 0);
     }
     {
-#line 46
     while (1) {
       while_continue___0: /* CIL Label */ ;
-#line 46
       goto while_break___0;
     }
     while_break___0: /* CIL Label */ ;
     }
-#line 46
     goto while_break;
   }
   while_break: /* CIL Label */ ;
   }
   {
-#line 47
   tmp___7 = get_current();
-#line 47
   tmp___8 = freezing(tmp___7);
   }
-#line 47
   if (tmp___8) {
-#line 47
     tmp___9 = 0;
   } else {
-#line 47
     tmp___9 = 1;
   }
   {
-#line 47
   __cil_tmp6 = (long )tmp___9;
-#line 47
   tmp___10 = ldv__builtin_expect(__cil_tmp6, 1L);
   }
-#line 47
   if (tmp___10) {
-#line 48
     return ((bool )0);
   } else {
 
   }
   {
-#line 49
   __cil_tmp7 = (bool )0;
-#line 49
   tmp___11 = __refrigerator(__cil_tmp7);
   }
-#line 49
   return (tmp___11);
 }
 }
-#line 53
 extern bool set_freezable(void) ;
-#line 44 "include/linux/poll.h"
 __inline static void poll_wait(struct file *filp , wait_queue_head_t *wait_address ,
                                poll_table *p )  __attribute__((__no_instrument_function__)) ;
-#line 44 "include/linux/poll.h"
 __inline static void poll_wait(struct file *filp , wait_queue_head_t *wait_address ,
                                poll_table *p ) 
 { void (*__cil_tmp4)(struct file * , wait_queue_head_t * , struct poll_table_struct * ) ;
 
   {
-#line 46
   if (p) {
-#line 46
     if (*((void (**)(struct file * , wait_queue_head_t * , struct poll_table_struct * ))p)) {
-#line 46
       if (wait_address) {
         {
-#line 47
         __cil_tmp4 = *((void (**)(struct file * , wait_queue_head_t * , struct poll_table_struct * ))p);
-#line 47
         (*__cil_tmp4)(filp, wait_address, p);
         }
       } else {
@@ -5508,40 +4502,24 @@ __inline static void poll_wait(struct file *filp , wait_queue_head_t *wait_addre
   } else {
 
   }
-#line 48
   return;
 }
 }
-#line 302 "include/media/videobuf2-core.h"
 extern void *vb2_plane_vaddr(struct vb2_buffer *vb , unsigned int plane_no ) ;
-#line 305
 extern void vb2_buffer_done(struct vb2_buffer *vb , enum vb2_buffer_state state ) ;
-#line 308
 extern int vb2_querybuf(struct vb2_queue *q , struct v4l2_buffer *b ) ;
-#line 309
 extern int vb2_reqbufs(struct vb2_queue *q , struct v4l2_requestbuffers *req ) ;
-#line 314
 extern int vb2_queue_init(struct vb2_queue *q ) ;
-#line 316
 extern void vb2_queue_release(struct vb2_queue *q ) ;
-#line 318
 extern int vb2_qbuf(struct vb2_queue *q , struct v4l2_buffer *b ) ;
-#line 319
 extern int vb2_dqbuf(struct vb2_queue *q , struct v4l2_buffer *b , bool nonblocking ) ;
-#line 321
 extern int vb2_streamon(struct vb2_queue *q , enum v4l2_buf_type type ) ;
-#line 322
 extern int vb2_streamoff(struct vb2_queue *q , enum v4l2_buf_type type ) ;
-#line 324
 extern int vb2_mmap(struct vb2_queue *q , struct vm_area_struct *vma ) ;
-#line 332
 extern unsigned int vb2_poll(struct vb2_queue *q , struct file *file , poll_table *wait ) ;
-#line 333
 extern size_t vb2_read(struct vb2_queue *q , char *data , size_t count , loff_t *ppos ,
                        int nonblock ) ;
-#line 342
 __inline static bool vb2_is_streaming(struct vb2_queue *q )  __attribute__((__no_instrument_function__)) ;
-#line 342 "include/media/videobuf2-core.h"
 __inline static bool vb2_is_streaming(struct vb2_queue *q ) 
 { unsigned long __cil_tmp2 ;
   unsigned long __cil_tmp3 ;
@@ -5549,39 +4527,28 @@ __inline static bool vb2_is_streaming(struct vb2_queue *q )
 
   {
   {
-#line 344
   __cil_tmp2 = (unsigned long )q;
-#line 344
   __cil_tmp3 = __cil_tmp2 + 512;
-#line 344
   __cil_tmp4 = *((unsigned int *)__cil_tmp3);
-#line 344
   return ((bool )__cil_tmp4);
   }
 }
 }
-#line 362
 __inline static void *vb2_get_drv_priv(struct vb2_queue *q )  __attribute__((__no_instrument_function__)) ;
-#line 362 "include/media/videobuf2-core.h"
 __inline static void *vb2_get_drv_priv(struct vb2_queue *q ) 
 { unsigned long __cil_tmp2 ;
   unsigned long __cil_tmp3 ;
 
   {
   {
-#line 364
   __cil_tmp2 = (unsigned long )q;
-#line 364
   __cil_tmp3 = __cil_tmp2 + 32;
-#line 364
   return (*((void **)__cil_tmp3));
   }
 }
 }
-#line 373
 __inline static void vb2_set_plane_payload(struct vb2_buffer *vb , unsigned int plane_no ,
                                            unsigned long size )  __attribute__((__no_instrument_function__)) ;
-#line 373 "include/media/videobuf2-core.h"
 __inline static void vb2_set_plane_payload(struct vb2_buffer *vb , unsigned int plane_no ,
                                            unsigned long size ) 
 { unsigned long __cil_tmp4 ;
@@ -5594,35 +4561,23 @@ __inline static void vb2_set_plane_payload(struct vb2_buffer *vb , unsigned int 
 
   {
   {
-#line 376
   __cil_tmp4 = (unsigned long )vb;
-#line 376
   __cil_tmp5 = __cil_tmp4 + 608;
-#line 376
   __cil_tmp6 = *((unsigned int *)__cil_tmp5);
-#line 376
   if (plane_no < __cil_tmp6) {
-#line 377
     __cil_tmp7 = plane_no * 64UL;
-#line 377
     __cil_tmp8 = 88 + __cil_tmp7;
-#line 377
     __cil_tmp9 = (unsigned long )vb;
-#line 377
     __cil_tmp10 = __cil_tmp9 + __cil_tmp8;
-#line 377
     *((__u32 *)__cil_tmp10) = (__u32 )size;
   } else {
 
   }
   }
-#line 378
   return;
 }
 }
-#line 399
 __inline static unsigned long vb2_plane_size(struct vb2_buffer *vb , unsigned int plane_no )  __attribute__((__no_instrument_function__)) ;
-#line 399 "include/media/videobuf2-core.h"
 __inline static unsigned long vb2_plane_size(struct vb2_buffer *vb , unsigned int plane_no ) 
 { unsigned long __cil_tmp3 ;
   unsigned long __cil_tmp4 ;
@@ -5636,43 +4591,28 @@ __inline static unsigned long vb2_plane_size(struct vb2_buffer *vb , unsigned in
 
   {
   {
-#line 402
   __cil_tmp3 = (unsigned long )vb;
-#line 402
   __cil_tmp4 = __cil_tmp3 + 608;
-#line 402
   __cil_tmp5 = *((unsigned int *)__cil_tmp4);
-#line 402
   if (plane_no < __cil_tmp5) {
     {
-#line 403
     __cil_tmp6 = plane_no * 64UL;
-#line 403
     __cil_tmp7 = __cil_tmp6 + 4;
-#line 403
     __cil_tmp8 = 88 + __cil_tmp7;
-#line 403
     __cil_tmp9 = (unsigned long )vb;
-#line 403
     __cil_tmp10 = __cil_tmp9 + __cil_tmp8;
-#line 403
     __cil_tmp11 = *((__u32 *)__cil_tmp10);
-#line 403
     return ((unsigned long )__cil_tmp11);
     }
   } else {
 
   }
   }
-#line 404
   return (0UL);
 }
 }
-#line 18 "include/media/videobuf2-vmalloc.h"
 extern struct vb2_mem_ops    vb2_vmalloc_memops ;
-#line 685 "include/linux/device.h"
 __inline static char    *dev_name(struct device    *dev )  __attribute__((__no_instrument_function__)) ;
-#line 685 "include/linux/device.h"
 __inline static char    *dev_name(struct device    *dev ) 
 { char    *tmp___7 ;
   unsigned long __cil_tmp3 ;
@@ -5686,20 +4626,13 @@ __inline static char    *dev_name(struct device    *dev )
 
   {
   {
-#line 688
   __cil_tmp3 = (unsigned long )dev;
-#line 688
   __cil_tmp4 = __cil_tmp3 + 80;
-#line 688
   if (*((char    *   *)__cil_tmp4)) {
     {
-#line 689
     __cil_tmp5 = (unsigned long )dev;
-#line 689
     __cil_tmp6 = __cil_tmp5 + 80;
-#line 689
     __cil_tmp7 = *((char    *   *)__cil_tmp6);
-#line 689
     return ((char    *)__cil_tmp7);
     }
   } else {
@@ -5707,34 +4640,24 @@ __inline static char    *dev_name(struct device    *dev )
   }
   }
   {
-#line 691
   __cil_tmp8 = (unsigned long )dev;
-#line 691
   __cil_tmp9 = __cil_tmp8 + 16;
-#line 691
   __cil_tmp10 = (struct kobject    *)__cil_tmp9;
-#line 691
   tmp___7 = kobject_name(__cil_tmp10);
   }
-#line 691
   return (tmp___7);
 }
 }
-#line 792
 extern void *dev_get_drvdata(struct device    *dev ) ;
-#line 793
 extern int dev_set_drvdata(struct device *dev , void *data ) ;
-#line 139 "include/media/v4l2-dev.h"
 extern int __attribute__((__warn_unused_result__))  __video_register_device(struct video_device *vdev ,
                                                                             int type ,
                                                                             int nr ,
                                                                             int warn_if_nr_in_use ,
                                                                             struct module *owner ) ;
-#line 146
 __inline static int __attribute__((__warn_unused_result__))  video_register_device(struct video_device *vdev ,
                                                                                    int type ,
                                                                                    int nr )  __attribute__((__no_instrument_function__)) ;
-#line 146 "include/media/v4l2-dev.h"
 __inline static int __attribute__((__warn_unused_result__))  video_register_device(struct video_device *vdev ,
                                                                                    int type ,
                                                                                    int nr ) 
@@ -5747,32 +4670,20 @@ __inline static int __attribute__((__warn_unused_result__))  video_register_devi
 
   {
   {
-#line 149
   __cil_tmp5 = (unsigned long )vdev;
-#line 149
   __cil_tmp6 = __cil_tmp5 + 128;
-#line 149
   __cil_tmp7 = *((struct v4l2_file_operations    **)__cil_tmp6);
-#line 149
   __cil_tmp8 = *((struct module *   *)__cil_tmp7);
-#line 149
   __cil_tmp9 = (struct module *)__cil_tmp8;
-#line 149
   tmp___7 = (int )__video_register_device(vdev, type, nr, 1, __cil_tmp9);
   }
-#line 149
   return (tmp___7);
 }
 }
-#line 162
 extern void video_unregister_device(struct video_device *vdev ) ;
-#line 166
 extern struct video_device * __attribute__((__warn_unused_result__)) video_device_alloc(void) ;
-#line 169
 extern void video_device_release(struct video_device *vdev ) ;
-#line 177
 __inline static void *video_get_drvdata(struct video_device *vdev )  __attribute__((__no_instrument_function__)) ;
-#line 177 "include/media/v4l2-dev.h"
 __inline static void *video_get_drvdata(struct video_device *vdev ) 
 { void *tmp___7 ;
   unsigned long __cil_tmp3 ;
@@ -5782,24 +4693,16 @@ __inline static void *video_get_drvdata(struct video_device *vdev )
 
   {
   {
-#line 179
   __cil_tmp3 = (unsigned long )vdev;
-#line 179
   __cil_tmp4 = __cil_tmp3 + 136;
-#line 179
   __cil_tmp5 = (struct device *)__cil_tmp4;
-#line 179
   __cil_tmp6 = (struct device    *)__cil_tmp5;
-#line 179
   tmp___7 = dev_get_drvdata(__cil_tmp6);
   }
-#line 179
   return (tmp___7);
 }
 }
-#line 182
 __inline static void video_set_drvdata(struct video_device *vdev , void *data )  __attribute__((__no_instrument_function__)) ;
-#line 182 "include/media/v4l2-dev.h"
 __inline static void video_set_drvdata(struct video_device *vdev , void *data ) 
 { unsigned long __cil_tmp3 ;
   unsigned long __cil_tmp4 ;
@@ -5807,42 +4710,29 @@ __inline static void video_set_drvdata(struct video_device *vdev , void *data )
 
   {
   {
-#line 184
   __cil_tmp3 = (unsigned long )vdev;
-#line 184
   __cil_tmp4 = __cil_tmp3 + 136;
-#line 184
   __cil_tmp5 = (struct device *)__cil_tmp4;
-#line 184
   dev_set_drvdata(__cil_tmp5, data);
   }
-#line 185
   return;
 }
 }
-#line 187
 extern struct video_device *video_devdata(struct file *file ) ;
-#line 191
 __inline static void *video_drvdata(struct file *file )  __attribute__((__no_instrument_function__)) ;
-#line 191 "include/media/v4l2-dev.h"
 __inline static void *video_drvdata(struct file *file ) 
 { struct video_device *tmp___7 ;
   void *tmp___8 ;
 
   {
   {
-#line 193
   tmp___7 = video_devdata(file);
-#line 193
   tmp___8 = video_get_drvdata(tmp___7);
   }
-#line 193
   return (tmp___8);
 }
 }
-#line 196
 __inline static char    *video_device_node_name(struct video_device *vdev )  __attribute__((__no_instrument_function__)) ;
-#line 196 "include/media/v4l2-dev.h"
 __inline static char    *video_device_node_name(struct video_device *vdev ) 
 { char    *tmp___7 ;
   unsigned long __cil_tmp3 ;
@@ -5852,34 +4742,22 @@ __inline static char    *video_device_node_name(struct video_device *vdev )
 
   {
   {
-#line 198
   __cil_tmp3 = (unsigned long )vdev;
-#line 198
   __cil_tmp4 = __cil_tmp3 + 136;
-#line 198
   __cil_tmp5 = (struct device *)__cil_tmp4;
-#line 198
   __cil_tmp6 = (struct device    *)__cil_tmp5;
-#line 198
   tmp___7 = dev_name(__cil_tmp6);
   }
-#line 198
   return (tmp___7);
 }
 }
-#line 199 "include/media/v4l2-common.h"
 extern void v4l_bound_align_image(unsigned int *w , unsigned int wmin , unsigned int wmax ,
                                   unsigned int walign , unsigned int *h , unsigned int hmin ,
                                   unsigned int hmax , unsigned int halign , unsigned int salign ) ;
-#line 65 "include/media/v4l2-fh.h"
 extern int v4l2_fh_open(struct file *filp ) ;
-#line 86
 extern int v4l2_fh_release(struct file *filp ) ;
-#line 91
 extern int v4l2_fh_is_singular(struct v4l2_fh *fh ) ;
-#line 96
 __inline static int v4l2_fh_is_singular_file(struct file *filp )  __attribute__((__no_instrument_function__)) ;
-#line 96 "include/media/v4l2-fh.h"
 __inline static int v4l2_fh_is_singular_file(struct file *filp ) 
 { int tmp___7 ;
   unsigned long __cil_tmp3 ;
@@ -5889,56 +4767,35 @@ __inline static int v4l2_fh_is_singular_file(struct file *filp )
 
   {
   {
-#line 98
   __cil_tmp3 = (unsigned long )filp;
-#line 98
   __cil_tmp4 = __cil_tmp3 + 200;
-#line 98
   __cil_tmp5 = *((void **)__cil_tmp4);
-#line 98
   __cil_tmp6 = (struct v4l2_fh *)__cil_tmp5;
-#line 98
   tmp___7 = v4l2_fh_is_singular(__cil_tmp6);
   }
-#line 98
   return (tmp___7);
 }
 }
-#line 79 "include/media/v4l2-device.h"
 extern int __attribute__((__warn_unused_result__))  v4l2_device_register(struct device *dev ,
                                                                          struct v4l2_device *v4l2_dev ) ;
-#line 106
 extern void v4l2_device_unregister(struct v4l2_device *v4l2_dev ) ;
-#line 333 "include/media/v4l2-ioctl.h"
 extern long video_ioctl2(struct file *file , unsigned int cmd , unsigned long arg ) ;
-#line 256 "include/media/v4l2-ctrls.h"
 extern int v4l2_ctrl_handler_init(struct v4l2_ctrl_handler *hdl , unsigned int nr_of_controls_hint ) ;
-#line 265
 extern void v4l2_ctrl_handler_free(struct v4l2_ctrl_handler *hdl ) ;
-#line 300
 extern struct v4l2_ctrl *v4l2_ctrl_new_custom(struct v4l2_ctrl_handler *hdl , struct v4l2_ctrl_config    *cfg ,
                                               void *priv ) ;
-#line 320
 extern struct v4l2_ctrl *v4l2_ctrl_new_std(struct v4l2_ctrl_handler *hdl , struct v4l2_ctrl_ops    *ops ,
                                            u32 id , s32 min , s32 max , u32 step ,
                                            s32 def ) ;
-#line 407
 extern void v4l2_ctrl_auto_cluster(unsigned int ncontrols , struct v4l2_ctrl **controls ,
                                    u8 manual_val , bool set_volatile ) ;
-#line 475
 extern s32 v4l2_ctrl_g_ctrl(struct v4l2_ctrl *ctrl ) ;
-#line 497
 extern int v4l2_ctrl_log_status(struct file *file , void *fh ) ;
-#line 501
 extern int v4l2_ctrl_subscribe_event(struct v4l2_fh *fh , struct v4l2_event_subscription *sub ) ;
-#line 116 "include/media/v4l2-event.h"
 extern int v4l2_event_pending(struct v4l2_fh *fh ) ;
-#line 119
 extern int v4l2_event_unsubscribe(struct v4l2_fh *fh , struct v4l2_event_subscription *sub ) ;
-#line 50 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/15067/dscv_tempdir/dscv/ri/32_1/drivers/media/video/vivi.c.common.c"
 static char    __mod_description50[66]  __attribute__((__used__, __unused__,
 __section__(".modinfo"), __aligned__(1)))  = 
-#line 50 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/15067/dscv_tempdir/dscv/ri/32_1/drivers/media/video/vivi.c.common.c"
   {      (char    )'d',      (char    )'e',      (char const   )'s',      (char const   )'c', 
         (char    )'r',      (char    )'i',      (char const   )'p',      (char const   )'t', 
         (char    )'i',      (char    )'o',      (char const   )'n',      (char const   )'=', 
@@ -5956,10 +4813,8 @@ __section__(".modinfo"), __aligned__(1)))  =
         (char    )'u',      (char    )'r',      (char const   )'e',      (char const   )' ', 
         (char    )'B',      (char    )'o',      (char const   )'a',      (char const   )'r', 
         (char    )'d',      (char    )'\000'};
-#line 51 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/15067/dscv_tempdir/dscv/ri/32_1/drivers/media/video/vivi.c.common.c"
 static char    __mod_author51[57]  __attribute__((__used__, __unused__, __section__(".modinfo"),
 __aligned__(1)))  = 
-#line 51
   {      (char    )'a',      (char    )'u',      (char const   )'t',      (char const   )'h', 
         (char    )'o',      (char    )'r',      (char const   )'=',      (char const   )'M', 
         (char    )'a',      (char    )'u',      (char const   )'r',      (char const   )'o', 
@@ -5975,50 +4830,38 @@ __aligned__(1)))  =
         (char    )'h',      (char    )'n',      (char const   )' ',      (char const   )'S', 
         (char    )'o',      (char    )'k',      (char const   )'o',      (char const   )'l', 
         (char    )'\000'};
-#line 52 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/15067/dscv_tempdir/dscv/ri/32_1/drivers/media/video/vivi.c.common.c"
 static char    __mod_license52[21]  __attribute__((__used__, __unused__, __section__(".modinfo"),
 __aligned__(1)))  = 
-#line 52
   {      (char    )'l',      (char    )'i',      (char const   )'c',      (char const   )'e', 
         (char    )'n',      (char    )'s',      (char const   )'e',      (char const   )'=', 
         (char    )'D',      (char    )'u',      (char const   )'a',      (char const   )'l', 
         (char    )' ',      (char    )'B',      (char const   )'S',      (char const   )'D', 
         (char    )'/',      (char    )'G',      (char const   )'P',      (char const   )'L', 
         (char    )'\000'};
-#line 53 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/15067/dscv_tempdir/dscv/ri/32_1/drivers/media/video/vivi.c.common.c"
 static char    __mod_version53[14]  __attribute__((__used__, __unused__, __section__(".modinfo"),
 __aligned__(1)))  = 
-#line 53
   {      (char    )'v',      (char    )'e',      (char const   )'r',      (char const   )'s', 
         (char    )'i',      (char    )'o',      (char const   )'n',      (char const   )'=', 
         (char    )'0',      (char    )'.',      (char const   )'8',      (char const   )'.', 
         (char    )'1',      (char    )'\000'};
-#line 55 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/15067/dscv_tempdir/dscv/ri/32_1/drivers/media/video/vivi.c.common.c"
 static unsigned int video_nr  =    4294967295U;
-#line 56 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/15067/dscv_tempdir/dscv/ri/32_1/drivers/media/video/vivi.c.common.c"
 static char    __param_str_video_nr[9]  = 
-#line 56
   {      (char    )'v',      (char    )'i',      (char const   )'d',      (char const   )'e', 
         (char    )'o',      (char    )'_',      (char const   )'n',      (char const   )'r', 
         (char    )'\000'};
-#line 56 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/15067/dscv_tempdir/dscv/ri/32_1/drivers/media/video/vivi.c.common.c"
 static struct kernel_param    __param_video_nr  __attribute__((__used__, __unused__,
 __section__("__param"), __aligned__(sizeof(void *))))  =    {__param_str_video_nr, (struct kernel_param_ops    *)(& param_ops_uint), (u16 )420,
     (s16 )0, {(void *)(& video_nr)}};
-#line 56 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/15067/dscv_tempdir/dscv/ri/32_1/drivers/media/video/vivi.c.common.c"
 static char    __mod_video_nrtype56[23]  __attribute__((__used__, __unused__,
 __section__(".modinfo"), __aligned__(1)))  = 
-#line 56
   {      (char    )'p',      (char    )'a',      (char const   )'r',      (char const   )'m', 
         (char    )'t',      (char    )'y',      (char const   )'p',      (char const   )'e', 
         (char    )'=',      (char    )'v',      (char const   )'i',      (char const   )'d', 
         (char    )'e',      (char    )'o',      (char const   )'_',      (char const   )'n', 
         (char    )'r',      (char    )':',      (char const   )'u',      (char const   )'i', 
         (char    )'n',      (char    )'t',      (char const   )'\000'};
-#line 57 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/15067/dscv_tempdir/dscv/ri/32_1/drivers/media/video/vivi.c.common.c"
 static char    __mod_video_nr57[52]  __attribute__((__used__, __unused__, __section__(".modinfo"),
 __aligned__(1)))  = 
-#line 57
   {      (char    )'p',      (char    )'a',      (char const   )'r',      (char const   )'m', 
         (char    )'=',      (char    )'v',      (char const   )'i',      (char const   )'d', 
         (char    )'e',      (char    )'o',      (char const   )'_',      (char const   )'n', 
@@ -6032,29 +4875,22 @@ __aligned__(1)))  =
         (char    )' ',      (char    )'a',      (char const   )'u',      (char const   )'t', 
         (char    )'o',      (char    )'d',      (char const   )'e',      (char const   )'t', 
         (char    )'e',      (char    )'c',      (char const   )'t',      (char const   )'\000'};
-#line 59 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/15067/dscv_tempdir/dscv/ri/32_1/drivers/media/video/vivi.c.common.c"
 static unsigned int n_devs  =    1U;
-#line 60 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/15067/dscv_tempdir/dscv/ri/32_1/drivers/media/video/vivi.c.common.c"
 static char    __param_str_n_devs[7]  = {      (char    )'n',      (char const   )'_',      (char const   )'d',      (char const   )'e', 
         (char    )'v',      (char    )'s',      (char const   )'\000'};
-#line 60 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/15067/dscv_tempdir/dscv/ri/32_1/drivers/media/video/vivi.c.common.c"
 static struct kernel_param    __param_n_devs  __attribute__((__used__, __unused__,
 __section__("__param"), __aligned__(sizeof(void *))))  =    {__param_str_n_devs, (struct kernel_param_ops    *)(& param_ops_uint), (u16 )420,
     (s16 )0, {(void *)(& n_devs)}};
-#line 60 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/15067/dscv_tempdir/dscv/ri/32_1/drivers/media/video/vivi.c.common.c"
 static char    __mod_n_devstype60[21]  __attribute__((__used__, __unused__, __section__(".modinfo"),
 __aligned__(1)))  = 
-#line 60
   {      (char    )'p',      (char    )'a',      (char const   )'r',      (char const   )'m', 
         (char    )'t',      (char    )'y',      (char const   )'p',      (char const   )'e', 
         (char    )'=',      (char    )'n',      (char const   )'_',      (char const   )'d', 
         (char    )'e',      (char    )'v',      (char const   )'s',      (char const   )':', 
         (char    )'u',      (char    )'i',      (char const   )'n',      (char const   )'t', 
         (char    )'\000'};
-#line 61 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/15067/dscv_tempdir/dscv/ri/32_1/drivers/media/video/vivi.c.common.c"
 static char    __mod_n_devs61[46]  __attribute__((__used__, __unused__, __section__(".modinfo"),
 __aligned__(1)))  = 
-#line 61
   {      (char    )'p',      (char    )'a',      (char const   )'r',      (char const   )'m', 
         (char    )'=',      (char    )'n',      (char const   )'_',      (char const   )'d', 
         (char    )'e',      (char    )'v',      (char const   )'s',      (char const   )':', 
@@ -6067,28 +4903,21 @@ __aligned__(1)))  =
         (char    )'t',      (char    )'o',      (char const   )' ',      (char const   )'c', 
         (char    )'r',      (char    )'e',      (char const   )'a',      (char const   )'t', 
         (char    )'e',      (char    )'\000'};
-#line 63 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/15067/dscv_tempdir/dscv/ri/32_1/drivers/media/video/vivi.c.common.c"
 static unsigned int debug  ;
-#line 64 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/15067/dscv_tempdir/dscv/ri/32_1/drivers/media/video/vivi.c.common.c"
 static char    __param_str_debug[6]  = {      (char    )'d',      (char const   )'e',      (char const   )'b',      (char const   )'u', 
         (char    )'g',      (char    )'\000'};
-#line 64 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/15067/dscv_tempdir/dscv/ri/32_1/drivers/media/video/vivi.c.common.c"
 static struct kernel_param    __param_debug  __attribute__((__used__, __unused__,
 __section__("__param"), __aligned__(sizeof(void *))))  =    {__param_str_debug, (struct kernel_param_ops    *)(& param_ops_uint), (u16 )420,
     (s16 )0, {(void *)(& debug)}};
-#line 64 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/15067/dscv_tempdir/dscv/ri/32_1/drivers/media/video/vivi.c.common.c"
 static char    __mod_debugtype64[20]  __attribute__((__used__, __unused__, __section__(".modinfo"),
 __aligned__(1)))  = 
-#line 64
   {      (char    )'p',      (char    )'a',      (char const   )'r',      (char const   )'m', 
         (char    )'t',      (char    )'y',      (char const   )'p',      (char const   )'e', 
         (char    )'=',      (char    )'d',      (char const   )'e',      (char const   )'b', 
         (char    )'u',      (char    )'g',      (char const   )':',      (char const   )'u', 
         (char    )'i',      (char    )'n',      (char const   )'t',      (char const   )'\000'};
-#line 65 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/15067/dscv_tempdir/dscv/ri/32_1/drivers/media/video/vivi.c.common.c"
 static char    __mod_debug65[32]  __attribute__((__used__, __unused__, __section__(".modinfo"),
 __aligned__(1)))  = 
-#line 65
   {      (char    )'p',      (char    )'a',      (char const   )'r',      (char const   )'m', 
         (char    )'=',      (char    )'d',      (char const   )'e',      (char const   )'b', 
         (char    )'u',      (char    )'g',      (char const   )':',      (char const   )'a', 
@@ -6097,32 +4926,24 @@ __aligned__(1)))  =
         (char    )' ',      (char    )'d',      (char const   )'e',      (char const   )'b', 
         (char    )'u',      (char    )'g',      (char const   )' ',      (char const   )'i', 
         (char    )'n',      (char    )'f',      (char const   )'o',      (char const   )'\000'};
-#line 67 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/15067/dscv_tempdir/dscv/ri/32_1/drivers/media/video/vivi.c.common.c"
 static unsigned int vid_limit  =    16U;
-#line 68 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/15067/dscv_tempdir/dscv/ri/32_1/drivers/media/video/vivi.c.common.c"
 static char    __param_str_vid_limit[10]  = 
-#line 68
   {      (char    )'v',      (char    )'i',      (char const   )'d',      (char const   )'_', 
         (char    )'l',      (char    )'i',      (char const   )'m',      (char const   )'i', 
         (char    )'t',      (char    )'\000'};
-#line 68 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/15067/dscv_tempdir/dscv/ri/32_1/drivers/media/video/vivi.c.common.c"
 static struct kernel_param    __param_vid_limit  __attribute__((__used__, __unused__,
 __section__("__param"), __aligned__(sizeof(void *))))  =    {__param_str_vid_limit, (struct kernel_param_ops    *)(& param_ops_uint),
     (u16 )420, (s16 )0, {(void *)(& vid_limit)}};
-#line 68 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/15067/dscv_tempdir/dscv/ri/32_1/drivers/media/video/vivi.c.common.c"
 static char    __mod_vid_limittype68[24]  __attribute__((__used__, __unused__,
 __section__(".modinfo"), __aligned__(1)))  = 
-#line 68
   {      (char    )'p',      (char    )'a',      (char const   )'r',      (char const   )'m', 
         (char    )'t',      (char    )'y',      (char const   )'p',      (char const   )'e', 
         (char    )'=',      (char    )'v',      (char const   )'i',      (char const   )'d', 
         (char    )'_',      (char    )'l',      (char const   )'i',      (char const   )'m', 
         (char    )'i',      (char    )'t',      (char const   )':',      (char const   )'u', 
         (char    )'i',      (char    )'n',      (char const   )'t',      (char const   )'\000'};
-#line 69 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/15067/dscv_tempdir/dscv/ri/32_1/drivers/media/video/vivi.c.common.c"
 static char    __mod_vid_limit69[49]  __attribute__((__used__, __unused__, __section__(".modinfo"),
 __aligned__(1)))  = 
-#line 69
   {      (char    )'p',      (char    )'a',      (char const   )'r',      (char const   )'m', 
         (char    )'=',      (char    )'v',      (char const   )'i',      (char const   )'d', 
         (char    )'_',      (char    )'l',      (char const   )'i',      (char const   )'m', 
@@ -6136,9 +4957,7 @@ __aligned__(1)))  =
         (char    )'e',      (char    )'g',      (char const   )'a',      (char const   )'b', 
         (char    )'y',      (char    )'t',      (char const   )'e',      (char const   )'s', 
         (char    )'\000'};
-#line 72 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/15067/dscv_tempdir/dscv/ri/32_1/drivers/media/video/vivi.c.common.c"
 static u8    *font8x16  ;
-#line 87 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/15067/dscv_tempdir/dscv/ri/32_1/drivers/media/video/vivi.c.common.c"
 static struct vivi_fmt formats[6]  = {      {(char *)"4:2:2, packed, YUYV", ((89U | (85U << 8)) | (89U << 16)) | (86U << 24),
       16}, 
         {(char *)"4:2:2, packed, UYVY", ((85U | (89U << 8)) | (86U << 16)) | (89U << 24),
@@ -6149,7 +4968,6 @@ static struct vivi_fmt formats[6]  = {      {(char *)"4:2:2, packed, YUYV", ((89
         {(char *)"RGB555 (LE)", ((82U | (71U << 8)) | (66U << 16)) | (79U << 24), 16}, 
         {(char *)"RGB555 (BE)",
       ((82U | (71U << 8)) | (66U << 16)) | (81U << 24), 16}};
-#line 120 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/15067/dscv_tempdir/dscv/ri/32_1/drivers/media/video/vivi.c.common.c"
 static struct vivi_fmt *get_format(struct v4l2_format *f ) 
 { struct vivi_fmt *fmt ;
   unsigned int k ;
@@ -6174,76 +4992,49 @@ static struct vivi_fmt *get_format(struct v4l2_format *f )
   unsigned long __cil_tmp22 ;
 
   {
-#line 125
   k = 0U;
   {
-#line 125
   while (1) {
     while_continue: /* CIL Label */ ;
     {
-#line 125
     __cil_tmp4 = 96UL / 16UL;
-#line 125
     __cil_tmp5 = __cil_tmp4 + 0UL;
-#line 125
     __cil_tmp6 = (unsigned long )k;
-#line 125
     if (__cil_tmp6 < __cil_tmp5) {
 
     } else {
-#line 125
       goto while_break;
     }
     }
-#line 126
     __cil_tmp7 = k * 16UL;
-#line 126
     __cil_tmp8 = (unsigned long )(formats) + __cil_tmp7;
-#line 126
     fmt = (struct vivi_fmt *)__cil_tmp8;
     {
-#line 127
     __cil_tmp9 = 0 + 8;
-#line 127
     __cil_tmp10 = 8 + __cil_tmp9;
-#line 127
     __cil_tmp11 = (unsigned long )f;
-#line 127
     __cil_tmp12 = __cil_tmp11 + __cil_tmp10;
-#line 127
     __cil_tmp13 = *((__u32 *)__cil_tmp12);
-#line 127
     __cil_tmp14 = (unsigned long )fmt;
-#line 127
     __cil_tmp15 = __cil_tmp14 + 8;
-#line 127
     __cil_tmp16 = *((u32 *)__cil_tmp15);
-#line 127
     if (__cil_tmp16 == __cil_tmp13) {
-#line 128
       goto while_break;
     } else {
 
     }
     }
-#line 125
     k = k + 1U;
   }
   while_break: /* CIL Label */ ;
   }
   {
-#line 131
   __cil_tmp17 = 96UL / 16UL;
-#line 131
   __cil_tmp18 = __cil_tmp17 + 0UL;
-#line 131
   __cil_tmp19 = (unsigned long )k;
-#line 131
   if (__cil_tmp19 == __cil_tmp18) {
     {
-#line 132
     __cil_tmp20 = (void *)0;
-#line 132
     return ((struct vivi_fmt *)__cil_tmp20);
     }
   } else {
@@ -6251,18 +5042,13 @@ static struct vivi_fmt *get_format(struct v4l2_format *f )
   }
   }
   {
-#line 134
   __cil_tmp21 = k * 16UL;
-#line 134
   __cil_tmp22 = (unsigned long )(formats) + __cil_tmp21;
-#line 134
   return ((struct vivi_fmt *)__cil_tmp22);
   }
 }
 }
-#line 156 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/15067/dscv_tempdir/dscv/ri/32_1/drivers/media/video/vivi.c.common.c"
 static struct list_head vivi_devlist  =    {& vivi_devlist, & vivi_devlist};
-#line 245 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/15067/dscv_tempdir/dscv/ri/32_1/drivers/media/video/vivi.c.common.c"
 static struct bar_std bars[4]  = {      {{{(u8 )204, (u8 )204, (u8 )204}, {(u8 )208, (u8 )208, (u8 )0}, {(u8 )0, (u8 )206,
                                                                       (u8 )206}, {(u8 )0,
                                                                                   (u8 )239,
@@ -6299,7 +5085,6 @@ static struct bar_std bars[4]  = {      {{{(u8 )204, (u8 )204, (u8 )204}, {(u8 )
                                                                           (u8 )239,
                                                                           (u8 )0},
        {(u8 )0, (u8 )0, (u8 )0}}}};
-#line 273 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/15067/dscv_tempdir/dscv/ri/32_1/drivers/media/video/vivi.c.common.c"
 static void precalculate_bars(struct vivi_dev *dev ) 
 { u8 r ;
   u8 g ;
@@ -6455,416 +5240,228 @@ static void precalculate_bars(struct vivi_dev *dev )
   unsigned long __cil_tmp153 ;
 
   {
-#line 278
   k = 0;
   {
-#line 278
   while (1) {
     while_continue: /* CIL Label */ ;
-#line 278
     if (k < 9) {
 
     } else {
-#line 278
       goto while_break;
     }
-#line 279
     __cil_tmp7 = 0 * 1UL;
-#line 279
     __cil_tmp8 = k * 3UL;
-#line 279
     __cil_tmp9 = __cil_tmp8 + __cil_tmp7;
-#line 279
     __cil_tmp10 = 0 + __cil_tmp9;
-#line 279
     __cil_tmp11 = (unsigned long )dev;
-#line 279
     __cil_tmp12 = __cil_tmp11 + 672;
-#line 279
     __cil_tmp13 = *((int *)__cil_tmp12);
-#line 279
     __cil_tmp14 = __cil_tmp13 * 27UL;
-#line 279
     __cil_tmp15 = __cil_tmp14 + __cil_tmp10;
-#line 279
     __cil_tmp16 = (unsigned long )(bars) + __cil_tmp15;
-#line 279
     r = *((u8 *)__cil_tmp16);
-#line 280
     __cil_tmp17 = 1 * 1UL;
-#line 280
     __cil_tmp18 = k * 3UL;
-#line 280
     __cil_tmp19 = __cil_tmp18 + __cil_tmp17;
-#line 280
     __cil_tmp20 = 0 + __cil_tmp19;
-#line 280
     __cil_tmp21 = (unsigned long )dev;
-#line 280
     __cil_tmp22 = __cil_tmp21 + 672;
-#line 280
     __cil_tmp23 = *((int *)__cil_tmp22);
-#line 280
     __cil_tmp24 = __cil_tmp23 * 27UL;
-#line 280
     __cil_tmp25 = __cil_tmp24 + __cil_tmp20;
-#line 280
     __cil_tmp26 = (unsigned long )(bars) + __cil_tmp25;
-#line 280
     g = *((u8 *)__cil_tmp26);
-#line 281
     __cil_tmp27 = 2 * 1UL;
-#line 281
     __cil_tmp28 = k * 3UL;
-#line 281
     __cil_tmp29 = __cil_tmp28 + __cil_tmp27;
-#line 281
     __cil_tmp30 = 0 + __cil_tmp29;
-#line 281
     __cil_tmp31 = (unsigned long )dev;
-#line 281
     __cil_tmp32 = __cil_tmp31 + 672;
-#line 281
     __cil_tmp33 = *((int *)__cil_tmp32);
-#line 281
     __cil_tmp34 = __cil_tmp33 * 27UL;
-#line 281
     __cil_tmp35 = __cil_tmp34 + __cil_tmp30;
-#line 281
     __cil_tmp36 = (unsigned long )(bars) + __cil_tmp35;
-#line 281
     b = *((u8 *)__cil_tmp36);
-#line 282
     is_yuv = 0;
     {
-#line 284
     __cil_tmp37 = (unsigned long )dev;
-#line 284
     __cil_tmp38 = __cil_tmp37 + 680;
-#line 284
     __cil_tmp39 = *((struct vivi_fmt **)__cil_tmp38);
-#line 284
     __cil_tmp40 = (unsigned long )__cil_tmp39;
-#line 284
     __cil_tmp41 = __cil_tmp40 + 8;
-#line 284
     __cil_tmp42 = *((u32 *)__cil_tmp41);
-#line 285
     if ((int )__cil_tmp42 == (__cil_tmp47 | __cil_tmp43)) {
-#line 285
       goto case_exp;
     } else
-#line 286
     if ((int )__cil_tmp42 == (__cil_tmp52 | __cil_tmp48)) {
-#line 286
       goto case_exp;
     } else
-#line 289
     if ((int )__cil_tmp42 == (__cil_tmp63 | __cil_tmp59)) {
-#line 289
       goto case_exp___1;
     } else
-#line 290
     if ((int )__cil_tmp42 == (__cil_tmp68 | __cil_tmp64)) {
-#line 290
       goto case_exp___1;
     } else
-#line 295
     if ((int )__cil_tmp42 == (__cil_tmp79 | __cil_tmp75)) {
-#line 295
       goto case_exp___3;
     } else
-#line 296
     if ((int )__cil_tmp42 == (__cil_tmp84 | __cil_tmp80)) {
-#line 296
       goto case_exp___3;
     } else
-#line 284
     if (0) {
       case_exp: /* CIL Label */ 
       case_exp___0: /* CIL Label */ 
       {
-#line 287
       __cil_tmp43 = 86U << 24;
-#line 287
       __cil_tmp44 = 89U << 16;
-#line 287
       __cil_tmp45 = 85U << 8;
-#line 287
       __cil_tmp46 = 89U | __cil_tmp45;
-#line 287
       __cil_tmp47 = __cil_tmp46 | __cil_tmp44;
-#line 287
       __cil_tmp48 = 89U << 24;
-#line 287
       __cil_tmp49 = 86U << 16;
-#line 287
       __cil_tmp50 = 89U << 8;
-#line 287
       __cil_tmp51 = 85U | __cil_tmp50;
-#line 287
       __cil_tmp52 = __cil_tmp51 | __cil_tmp49;
-#line 287
       is_yuv = 1;
       }
-#line 288
       goto switch_break;
       case_exp___1: /* CIL Label */ 
       case_exp___2: /* CIL Label */ 
       {
-#line 291
       __cil_tmp59 = 80U << 24;
-#line 291
       __cil_tmp60 = 66U << 16;
-#line 291
       __cil_tmp61 = 71U << 8;
-#line 291
       __cil_tmp62 = 82U | __cil_tmp61;
-#line 291
       __cil_tmp63 = __cil_tmp62 | __cil_tmp60;
-#line 291
       __cil_tmp64 = 82U << 24;
-#line 291
       __cil_tmp65 = 66U << 16;
-#line 291
       __cil_tmp66 = 71U << 8;
-#line 291
       __cil_tmp67 = 82U | __cil_tmp66;
-#line 291
       __cil_tmp68 = __cil_tmp67 | __cil_tmp65;
-#line 291
       __cil_tmp53 = (int )r;
-#line 291
       __cil_tmp54 = __cil_tmp53 >> 3;
-#line 291
       r = (u8 )__cil_tmp54;
-#line 292
       __cil_tmp55 = (int )g;
-#line 292
       __cil_tmp56 = __cil_tmp55 >> 2;
-#line 292
       g = (u8 )__cil_tmp56;
-#line 293
       __cil_tmp57 = (int )b;
-#line 293
       __cil_tmp58 = __cil_tmp57 >> 3;
-#line 293
       b = (u8 )__cil_tmp58;
       }
-#line 294
       goto switch_break;
       case_exp___3: /* CIL Label */ 
       case_exp___4: /* CIL Label */ 
       {
-#line 297
       __cil_tmp75 = 79U << 24;
-#line 297
       __cil_tmp76 = 66U << 16;
-#line 297
       __cil_tmp77 = 71U << 8;
-#line 297
       __cil_tmp78 = 82U | __cil_tmp77;
-#line 297
       __cil_tmp79 = __cil_tmp78 | __cil_tmp76;
-#line 297
       __cil_tmp80 = 81U << 24;
-#line 297
       __cil_tmp81 = 66U << 16;
-#line 297
       __cil_tmp82 = 71U << 8;
-#line 297
       __cil_tmp83 = 82U | __cil_tmp82;
-#line 297
       __cil_tmp84 = __cil_tmp83 | __cil_tmp81;
-#line 297
       __cil_tmp69 = (int )r;
-#line 297
       __cil_tmp70 = __cil_tmp69 >> 3;
-#line 297
       r = (u8 )__cil_tmp70;
-#line 298
       __cil_tmp71 = (int )g;
-#line 298
       __cil_tmp72 = __cil_tmp71 >> 3;
-#line 298
       g = (u8 )__cil_tmp72;
-#line 299
       __cil_tmp73 = (int )b;
-#line 299
       __cil_tmp74 = __cil_tmp73 >> 3;
-#line 299
       b = (u8 )__cil_tmp74;
       }
-#line 300
       goto switch_break;
     } else {
       switch_break: /* CIL Label */ ;
     }
     }
-#line 303
     if (is_yuv) {
-#line 304
       __cil_tmp85 = 0 * 1UL;
-#line 304
       __cil_tmp86 = k * 3UL;
-#line 304
       __cil_tmp87 = __cil_tmp86 + __cil_tmp85;
-#line 304
       __cil_tmp88 = 1232 + __cil_tmp87;
-#line 304
       __cil_tmp89 = (unsigned long )dev;
-#line 304
       __cil_tmp90 = __cil_tmp89 + __cil_tmp88;
-#line 304
       __cil_tmp91 = (int )b;
-#line 304
       __cil_tmp92 = 6416 * __cil_tmp91;
-#line 304
       __cil_tmp93 = (int )g;
-#line 304
       __cil_tmp94 = 33039 * __cil_tmp93;
-#line 304
       __cil_tmp95 = (int )r;
-#line 304
       __cil_tmp96 = 16829 * __cil_tmp95;
-#line 304
       __cil_tmp97 = __cil_tmp96 + __cil_tmp94;
-#line 304
       __cil_tmp98 = __cil_tmp97 + __cil_tmp92;
-#line 304
       __cil_tmp99 = __cil_tmp98 + 32768;
-#line 304
       __cil_tmp100 = __cil_tmp99 >> 16;
-#line 304
       __cil_tmp101 = __cil_tmp100 + 16;
-#line 304
       *((u8 *)__cil_tmp90) = (u8 )__cil_tmp101;
-#line 305
       __cil_tmp102 = 1 * 1UL;
-#line 305
       __cil_tmp103 = k * 3UL;
-#line 305
       __cil_tmp104 = __cil_tmp103 + __cil_tmp102;
-#line 305
       __cil_tmp105 = 1232 + __cil_tmp104;
-#line 305
       __cil_tmp106 = (unsigned long )dev;
-#line 305
       __cil_tmp107 = __cil_tmp106 + __cil_tmp105;
-#line 305
       __cil_tmp108 = (int )b;
-#line 305
       __cil_tmp109 = 28784 * __cil_tmp108;
-#line 305
       __cil_tmp110 = (int )g;
-#line 305
       __cil_tmp111 = 19070 * __cil_tmp110;
-#line 305
       __cil_tmp112 = (int )r;
-#line 305
       __cil_tmp113 = -9714 * __cil_tmp112;
-#line 305
       __cil_tmp114 = __cil_tmp113 - __cil_tmp111;
-#line 305
       __cil_tmp115 = __cil_tmp114 + __cil_tmp109;
-#line 305
       __cil_tmp116 = __cil_tmp115 + 32768;
-#line 305
       __cil_tmp117 = __cil_tmp116 >> 16;
-#line 305
       __cil_tmp118 = __cil_tmp117 + 128;
-#line 305
       *((u8 *)__cil_tmp107) = (u8 )__cil_tmp118;
-#line 306
       __cil_tmp119 = 2 * 1UL;
-#line 306
       __cil_tmp120 = k * 3UL;
-#line 306
       __cil_tmp121 = __cil_tmp120 + __cil_tmp119;
-#line 306
       __cil_tmp122 = 1232 + __cil_tmp121;
-#line 306
       __cil_tmp123 = (unsigned long )dev;
-#line 306
       __cil_tmp124 = __cil_tmp123 + __cil_tmp122;
-#line 306
       __cil_tmp125 = (int )b;
-#line 306
       __cil_tmp126 = 4681 * __cil_tmp125;
-#line 306
       __cil_tmp127 = (int )g;
-#line 306
       __cil_tmp128 = 24103 * __cil_tmp127;
-#line 306
       __cil_tmp129 = (int )r;
-#line 306
       __cil_tmp130 = 28784 * __cil_tmp129;
-#line 306
       __cil_tmp131 = __cil_tmp130 - __cil_tmp128;
-#line 306
       __cil_tmp132 = __cil_tmp131 - __cil_tmp126;
-#line 306
       __cil_tmp133 = __cil_tmp132 + 32768;
-#line 306
       __cil_tmp134 = __cil_tmp133 >> 16;
-#line 306
       __cil_tmp135 = __cil_tmp134 + 128;
-#line 306
       *((u8 *)__cil_tmp124) = (u8 )__cil_tmp135;
     } else {
-#line 308
       __cil_tmp136 = 0 * 1UL;
-#line 308
       __cil_tmp137 = k * 3UL;
-#line 308
       __cil_tmp138 = __cil_tmp137 + __cil_tmp136;
-#line 308
       __cil_tmp139 = 1232 + __cil_tmp138;
-#line 308
       __cil_tmp140 = (unsigned long )dev;
-#line 308
       __cil_tmp141 = __cil_tmp140 + __cil_tmp139;
-#line 308
       *((u8 *)__cil_tmp141) = r;
-#line 309
       __cil_tmp142 = 1 * 1UL;
-#line 309
       __cil_tmp143 = k * 3UL;
-#line 309
       __cil_tmp144 = __cil_tmp143 + __cil_tmp142;
-#line 309
       __cil_tmp145 = 1232 + __cil_tmp144;
-#line 309
       __cil_tmp146 = (unsigned long )dev;
-#line 309
       __cil_tmp147 = __cil_tmp146 + __cil_tmp145;
-#line 309
       *((u8 *)__cil_tmp147) = g;
-#line 310
       __cil_tmp148 = 2 * 1UL;
-#line 310
       __cil_tmp149 = k * 3UL;
-#line 310
       __cil_tmp150 = __cil_tmp149 + __cil_tmp148;
-#line 310
       __cil_tmp151 = 1232 + __cil_tmp150;
-#line 310
       __cil_tmp152 = (unsigned long )dev;
-#line 310
       __cil_tmp153 = __cil_tmp152 + __cil_tmp151;
-#line 310
       *((u8 *)__cil_tmp153) = b;
     }
-#line 278
     k = k + 1;
   }
   while_break: /* CIL Label */ ;
   }
-#line 313
   return;
 }
 }
-#line 320 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/15067/dscv_tempdir/dscv/ri/32_1/drivers/media/video/vivi.c.common.c"
 static void gen_twopix(struct vivi_dev *dev , u8 *buf , int colorpos ) 
 { u8 r_y ;
   u8 g_u ;
@@ -6963,514 +5560,312 @@ static void gen_twopix(struct vivi_dev *dev , u8 *buf , int colorpos )
   unsigned int __cil_tmp98 ;
 
   {
-#line 326
   __cil_tmp9 = 0 * 1UL;
-#line 326
   __cil_tmp10 = colorpos * 3UL;
-#line 326
   __cil_tmp11 = __cil_tmp10 + __cil_tmp9;
-#line 326
   __cil_tmp12 = 1232 + __cil_tmp11;
-#line 326
   __cil_tmp13 = (unsigned long )dev;
-#line 326
   __cil_tmp14 = __cil_tmp13 + __cil_tmp12;
-#line 326
   r_y = *((u8 *)__cil_tmp14);
-#line 327
   __cil_tmp15 = 1 * 1UL;
-#line 327
   __cil_tmp16 = colorpos * 3UL;
-#line 327
   __cil_tmp17 = __cil_tmp16 + __cil_tmp15;
-#line 327
   __cil_tmp18 = 1232 + __cil_tmp17;
-#line 327
   __cil_tmp19 = (unsigned long )dev;
-#line 327
   __cil_tmp20 = __cil_tmp19 + __cil_tmp18;
-#line 327
   g_u = *((u8 *)__cil_tmp20);
-#line 328
   __cil_tmp21 = 2 * 1UL;
-#line 328
   __cil_tmp22 = colorpos * 3UL;
-#line 328
   __cil_tmp23 = __cil_tmp22 + __cil_tmp21;
-#line 328
   __cil_tmp24 = 1232 + __cil_tmp23;
-#line 328
   __cil_tmp25 = (unsigned long )dev;
-#line 328
   __cil_tmp26 = __cil_tmp25 + __cil_tmp24;
-#line 328
   b_v = *((u8 *)__cil_tmp26);
-#line 330
   color = 0;
   {
-#line 330
   while (1) {
     while_continue: /* CIL Label */ ;
-#line 330
     if (color < 4) {
 
     } else {
-#line 330
       goto while_break;
     }
-#line 331
     p = buf + color;
     {
-#line 333
     __cil_tmp27 = (unsigned long )dev;
-#line 333
     __cil_tmp28 = __cil_tmp27 + 680;
-#line 333
     __cil_tmp29 = *((struct vivi_fmt **)__cil_tmp28);
-#line 333
     __cil_tmp30 = (unsigned long )__cil_tmp29;
-#line 333
     __cil_tmp31 = __cil_tmp30 + 8;
-#line 333
     __cil_tmp32 = *((u32 *)__cil_tmp31);
-#line 334
     if ((int )__cil_tmp32 == (__cil_tmp37 | __cil_tmp33)) {
-#line 334
       goto case_exp;
     } else
-#line 348
     if ((int )__cil_tmp32 == (__cil_tmp42 | __cil_tmp38)) {
-#line 348
       goto case_exp___0;
     } else
-#line 362
     if ((int )__cil_tmp32 == (__cil_tmp56 | __cil_tmp52)) {
-#line 362
       goto case_exp___1;
     } else
-#line 374
     if ((int )__cil_tmp32 == (__cil_tmp70 | __cil_tmp66)) {
-#line 374
       goto case_exp___2;
     } else
-#line 386
     if ((int )__cil_tmp32 == (__cil_tmp84 | __cil_tmp80)) {
-#line 386
       goto case_exp___3;
     } else
-#line 398
     if ((int )__cil_tmp32 == (__cil_tmp98 | __cil_tmp94)) {
-#line 398
       goto case_exp___4;
     } else
-#line 333
     if (0) {
       case_exp: /* CIL Label */ 
       {
-#line 335
       __cil_tmp33 = 86U << 24;
-#line 335
       __cil_tmp34 = 89U << 16;
-#line 335
       __cil_tmp35 = 85U << 8;
-#line 335
       __cil_tmp36 = 89U | __cil_tmp35;
-#line 335
       __cil_tmp37 = __cil_tmp36 | __cil_tmp34;
-#line 336
       if (color == 0) {
-#line 336
         goto case_0;
       } else
-#line 337
       if (color == 2) {
-#line 337
         goto case_0;
       } else
-#line 340
       if (color == 1) {
-#line 340
         goto case_1;
       } else
-#line 343
       if (color == 3) {
-#line 343
         goto case_3;
       } else
-#line 335
       if (0) {
         case_0: /* CIL Label */ 
         case_2: /* CIL Label */ 
-#line 338
         *p = r_y;
-#line 339
         goto switch_break___0;
         case_1: /* CIL Label */ 
-#line 341
         *p = g_u;
-#line 342
         goto switch_break___0;
         case_3: /* CIL Label */ 
-#line 344
         *p = b_v;
-#line 345
         goto switch_break___0;
       } else {
         switch_break___0: /* CIL Label */ ;
       }
       }
-#line 347
       goto switch_break;
       case_exp___0: /* CIL Label */ 
       {
-#line 349
       __cil_tmp38 = 89U << 24;
-#line 349
       __cil_tmp39 = 86U << 16;
-#line 349
       __cil_tmp40 = 89U << 8;
-#line 349
       __cil_tmp41 = 85U | __cil_tmp40;
-#line 349
       __cil_tmp42 = __cil_tmp41 | __cil_tmp39;
-#line 350
       if (color == 1) {
-#line 350
         goto case_1___0;
       } else
-#line 351
       if (color == 3) {
-#line 351
         goto case_1___0;
       } else
-#line 354
       if (color == 0) {
-#line 354
         goto case_0___0;
       } else
-#line 357
       if (color == 2) {
-#line 357
         goto case_2___0;
       } else
-#line 349
       if (0) {
         case_1___0: /* CIL Label */ 
         case_3___0: /* CIL Label */ 
-#line 352
         *p = r_y;
-#line 353
         goto switch_break___1;
         case_0___0: /* CIL Label */ 
-#line 355
         *p = g_u;
-#line 356
         goto switch_break___1;
         case_2___0: /* CIL Label */ 
-#line 358
         *p = b_v;
-#line 359
         goto switch_break___1;
       } else {
         switch_break___1: /* CIL Label */ ;
       }
       }
-#line 361
       goto switch_break;
       case_exp___1: /* CIL Label */ 
       {
-#line 363
       __cil_tmp52 = 80U << 24;
-#line 363
       __cil_tmp53 = 66U << 16;
-#line 363
       __cil_tmp54 = 71U << 8;
-#line 363
       __cil_tmp55 = 82U | __cil_tmp54;
-#line 363
       __cil_tmp56 = __cil_tmp55 | __cil_tmp53;
-#line 364
       if (color == 0) {
-#line 364
         goto case_0___1;
       } else
-#line 365
       if (color == 2) {
-#line 365
         goto case_0___1;
       } else
-#line 368
       if (color == 1) {
-#line 368
         goto case_1___1;
       } else
-#line 369
       if (color == 3) {
-#line 369
         goto case_1___1;
       } else
-#line 363
       if (0) {
         case_0___1: /* CIL Label */ 
         case_2___1: /* CIL Label */ 
-#line 366
         __cil_tmp43 = (int )b_v;
-#line 366
         __cil_tmp44 = (int )g_u;
-#line 366
         __cil_tmp45 = __cil_tmp44 << 5;
-#line 366
         __cil_tmp46 = __cil_tmp45 | __cil_tmp43;
-#line 366
         *p = (u8 )__cil_tmp46;
-#line 367
         goto switch_break___2;
         case_1___1: /* CIL Label */ 
         case_3___1: /* CIL Label */ 
-#line 370
         __cil_tmp47 = (int )g_u;
-#line 370
         __cil_tmp48 = __cil_tmp47 >> 3;
-#line 370
         __cil_tmp49 = (int )r_y;
-#line 370
         __cil_tmp50 = __cil_tmp49 << 3;
-#line 370
         __cil_tmp51 = __cil_tmp50 | __cil_tmp48;
-#line 370
         *p = (u8 )__cil_tmp51;
-#line 371
         goto switch_break___2;
       } else {
         switch_break___2: /* CIL Label */ ;
       }
       }
-#line 373
       goto switch_break;
       case_exp___2: /* CIL Label */ 
       {
-#line 375
       __cil_tmp66 = 82U << 24;
-#line 375
       __cil_tmp67 = 66U << 16;
-#line 375
       __cil_tmp68 = 71U << 8;
-#line 375
       __cil_tmp69 = 82U | __cil_tmp68;
-#line 375
       __cil_tmp70 = __cil_tmp69 | __cil_tmp67;
-#line 376
       if (color == 0) {
-#line 376
         goto case_0___2;
       } else
-#line 377
       if (color == 2) {
-#line 377
         goto case_0___2;
       } else
-#line 380
       if (color == 1) {
-#line 380
         goto case_1___2;
       } else
-#line 381
       if (color == 3) {
-#line 381
         goto case_1___2;
       } else
-#line 375
       if (0) {
         case_0___2: /* CIL Label */ 
         case_2___2: /* CIL Label */ 
-#line 378
         __cil_tmp57 = (int )g_u;
-#line 378
         __cil_tmp58 = __cil_tmp57 >> 3;
-#line 378
         __cil_tmp59 = (int )r_y;
-#line 378
         __cil_tmp60 = __cil_tmp59 << 3;
-#line 378
         __cil_tmp61 = __cil_tmp60 | __cil_tmp58;
-#line 378
         *p = (u8 )__cil_tmp61;
-#line 379
         goto switch_break___3;
         case_1___2: /* CIL Label */ 
         case_3___2: /* CIL Label */ 
-#line 382
         __cil_tmp62 = (int )b_v;
-#line 382
         __cil_tmp63 = (int )g_u;
-#line 382
         __cil_tmp64 = __cil_tmp63 << 5;
-#line 382
         __cil_tmp65 = __cil_tmp64 | __cil_tmp62;
-#line 382
         *p = (u8 )__cil_tmp65;
-#line 383
         goto switch_break___3;
       } else {
         switch_break___3: /* CIL Label */ ;
       }
       }
-#line 385
       goto switch_break;
       case_exp___3: /* CIL Label */ 
       {
-#line 387
       __cil_tmp80 = 79U << 24;
-#line 387
       __cil_tmp81 = 66U << 16;
-#line 387
       __cil_tmp82 = 71U << 8;
-#line 387
       __cil_tmp83 = 82U | __cil_tmp82;
-#line 387
       __cil_tmp84 = __cil_tmp83 | __cil_tmp81;
-#line 388
       if (color == 0) {
-#line 388
         goto case_0___3;
       } else
-#line 389
       if (color == 2) {
-#line 389
         goto case_0___3;
       } else
-#line 392
       if (color == 1) {
-#line 392
         goto case_1___3;
       } else
-#line 393
       if (color == 3) {
-#line 393
         goto case_1___3;
       } else
-#line 387
       if (0) {
         case_0___3: /* CIL Label */ 
         case_2___3: /* CIL Label */ 
-#line 390
         __cil_tmp71 = (int )b_v;
-#line 390
         __cil_tmp72 = (int )g_u;
-#line 390
         __cil_tmp73 = __cil_tmp72 << 5;
-#line 390
         __cil_tmp74 = __cil_tmp73 | __cil_tmp71;
-#line 390
         *p = (u8 )__cil_tmp74;
-#line 391
         goto switch_break___4;
         case_1___3: /* CIL Label */ 
         case_3___3: /* CIL Label */ 
-#line 394
         __cil_tmp75 = (int )g_u;
-#line 394
         __cil_tmp76 = __cil_tmp75 >> 3;
-#line 394
         __cil_tmp77 = (int )r_y;
-#line 394
         __cil_tmp78 = __cil_tmp77 << 2;
-#line 394
         __cil_tmp79 = __cil_tmp78 | __cil_tmp76;
-#line 394
         *p = (u8 )__cil_tmp79;
-#line 395
         goto switch_break___4;
       } else {
         switch_break___4: /* CIL Label */ ;
       }
       }
-#line 397
       goto switch_break;
       case_exp___4: /* CIL Label */ 
       {
-#line 399
       __cil_tmp94 = 81U << 24;
-#line 399
       __cil_tmp95 = 66U << 16;
-#line 399
       __cil_tmp96 = 71U << 8;
-#line 399
       __cil_tmp97 = 82U | __cil_tmp96;
-#line 399
       __cil_tmp98 = __cil_tmp97 | __cil_tmp95;
-#line 400
       if (color == 0) {
-#line 400
         goto case_0___4;
       } else
-#line 401
       if (color == 2) {
-#line 401
         goto case_0___4;
       } else
-#line 404
       if (color == 1) {
-#line 404
         goto case_1___4;
       } else
-#line 405
       if (color == 3) {
-#line 405
         goto case_1___4;
       } else
-#line 399
       if (0) {
         case_0___4: /* CIL Label */ 
         case_2___4: /* CIL Label */ 
-#line 402
         __cil_tmp85 = (int )g_u;
-#line 402
         __cil_tmp86 = __cil_tmp85 >> 3;
-#line 402
         __cil_tmp87 = (int )r_y;
-#line 402
         __cil_tmp88 = __cil_tmp87 << 2;
-#line 402
         __cil_tmp89 = __cil_tmp88 | __cil_tmp86;
-#line 402
         *p = (u8 )__cil_tmp89;
-#line 403
         goto switch_break___5;
         case_1___4: /* CIL Label */ 
         case_3___4: /* CIL Label */ 
-#line 406
         __cil_tmp90 = (int )b_v;
-#line 406
         __cil_tmp91 = (int )g_u;
-#line 406
         __cil_tmp92 = __cil_tmp91 << 5;
-#line 406
         __cil_tmp93 = __cil_tmp92 | __cil_tmp90;
-#line 406
         *p = (u8 )__cil_tmp93;
-#line 407
         goto switch_break___5;
       } else {
         switch_break___5: /* CIL Label */ ;
       }
       }
-#line 409
       goto switch_break;
     } else {
       switch_break: /* CIL Label */ ;
     }
     }
-#line 330
     color = color + 1;
   }
   while_break: /* CIL Label */ ;
   }
-#line 412
   return;
 }
 }
-#line 414 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/15067/dscv_tempdir/dscv/ri/32_1/drivers/media/video/vivi.c.common.c"
 static void precalculate_line(struct vivi_dev *dev ) 
 { int w ;
   int colorpos ;
@@ -7495,75 +5890,47 @@ static void precalculate_line(struct vivi_dev *dev )
   u8 *__cil_tmp22 ;
 
   {
-#line 418
   w = 0;
   {
-#line 418
   while (1) {
     while_continue: /* CIL Label */ ;
     {
-#line 418
     __cil_tmp4 = (unsigned long )dev;
-#line 418
     __cil_tmp5 = __cil_tmp4 + 688;
-#line 418
     __cil_tmp6 = *((unsigned int *)__cil_tmp5);
-#line 418
     __cil_tmp7 = __cil_tmp6 * 2U;
-#line 418
     __cil_tmp8 = (unsigned int )w;
-#line 418
     if (__cil_tmp8 < __cil_tmp7) {
 
     } else {
-#line 418
       goto while_break;
     }
     }
     {
-#line 419
     __cil_tmp9 = (unsigned long )dev;
-#line 419
     __cil_tmp10 = __cil_tmp9 + 688;
-#line 419
     __cil_tmp11 = *((unsigned int *)__cil_tmp10);
-#line 419
     __cil_tmp12 = __cil_tmp11 / 8U;
-#line 419
     __cil_tmp13 = (unsigned int )w;
-#line 419
     __cil_tmp14 = __cil_tmp13 / __cil_tmp12;
-#line 419
     __cil_tmp15 = __cil_tmp14 % 8U;
-#line 419
     colorpos = (int )__cil_tmp15;
-#line 421
     __cil_tmp16 = w * 2;
-#line 421
     __cil_tmp17 = 0 * 1UL;
-#line 421
     __cil_tmp18 = 1259 + __cil_tmp17;
-#line 421
     __cil_tmp19 = (unsigned long )dev;
-#line 421
     __cil_tmp20 = __cil_tmp19 + __cil_tmp18;
-#line 421
     __cil_tmp21 = (u8 *)__cil_tmp20;
-#line 421
     __cil_tmp22 = __cil_tmp21 + __cil_tmp16;
-#line 421
     gen_twopix(dev, __cil_tmp22, colorpos);
-#line 418
     w = w + 2;
     }
   }
   while_break: /* CIL Label */ ;
   }
-#line 423
   return;
 }
 }
-#line 425 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/15067/dscv_tempdir/dscv/ri/32_1/drivers/media/video/vivi.c.common.c"
 static void gen_text(struct vivi_dev *dev , char *basep , int y , int x , char *text ) 
 { int line ;
   unsigned long tmp___7 ;
@@ -7613,45 +5980,27 @@ static void gen_text(struct vivi_dev *dev , char *basep , int y , int x , char *
 
   {
   {
-#line 431
   __cil_tmp13 = (unsigned long )dev;
-#line 431
   __cil_tmp14 = __cil_tmp13 + 692;
-#line 431
   __cil_tmp15 = *((unsigned int *)__cil_tmp14);
-#line 431
   __cil_tmp16 = y + 16;
-#line 431
   __cil_tmp17 = (unsigned int )__cil_tmp16;
-#line 431
   if (__cil_tmp17 >= __cil_tmp15) {
-#line 432
     return;
   } else {
     {
-#line 431
     __cil_tmp18 = (char    *)text;
-#line 431
     tmp___7 = strlen(__cil_tmp18);
     }
     {
-#line 431
     __cil_tmp19 = (unsigned long )dev;
-#line 431
     __cil_tmp20 = __cil_tmp19 + 688;
-#line 431
     __cil_tmp21 = *((unsigned int *)__cil_tmp20);
-#line 431
     __cil_tmp22 = (unsigned long )__cil_tmp21;
-#line 431
     __cil_tmp23 = tmp___7 * 8UL;
-#line 431
     __cil_tmp24 = (unsigned long )x;
-#line 431
     __cil_tmp25 = __cil_tmp24 + __cil_tmp23;
-#line 431
     if (__cil_tmp25 >= __cil_tmp22) {
-#line 432
       return;
     } else {
 
@@ -7659,139 +6008,90 @@ static void gen_text(struct vivi_dev *dev , char *basep , int y , int x , char *
     }
   }
   }
-#line 435
   line = y;
   {
-#line 435
   while (1) {
     while_continue: /* CIL Label */ ;
     {
-#line 435
     __cil_tmp26 = y + 16;
-#line 435
     if (line < __cil_tmp26) {
 
     } else {
-#line 435
       goto while_break;
     }
     }
-#line 436
     j = 0;
-#line 437
     __cil_tmp27 = x * 2;
-#line 437
     __cil_tmp28 = (unsigned long )dev;
-#line 437
     __cil_tmp29 = __cil_tmp28 + 688;
-#line 437
     __cil_tmp30 = *((unsigned int *)__cil_tmp29);
-#line 437
     __cil_tmp31 = (unsigned int )line;
-#line 437
     __cil_tmp32 = __cil_tmp31 * __cil_tmp30;
-#line 437
     __cil_tmp33 = __cil_tmp32 * 2U;
-#line 437
     __cil_tmp34 = basep + __cil_tmp33;
-#line 437
     pos = __cil_tmp34 + __cil_tmp27;
-#line 440
     s = text;
     {
-#line 440
     while (1) {
       while_continue___0: /* CIL Label */ ;
-#line 440
       if (*s) {
 
       } else {
-#line 440
         goto while_break___0;
       }
-#line 441
       __cil_tmp35 = *s;
-#line 441
       __cil_tmp36 = (int )__cil_tmp35;
-#line 441
       __cil_tmp37 = __cil_tmp36 * 16;
-#line 441
       __cil_tmp38 = __cil_tmp37 + line;
-#line 441
       __cil_tmp39 = __cil_tmp38 - y;
-#line 441
       __cil_tmp40 = font8x16 + __cil_tmp39;
-#line 441
       __cil_tmp41 = *__cil_tmp40;
-#line 441
       chr = (u8 )__cil_tmp41;
-#line 444
       i = 0;
       {
-#line 444
       while (1) {
         while_continue___1: /* CIL Label */ ;
-#line 444
         if (i < 7) {
 
         } else {
-#line 444
           goto while_break___1;
         }
         {
-#line 446
         __cil_tmp42 = 7 - i;
-#line 446
         __cil_tmp43 = 1 << __cil_tmp42;
-#line 446
         __cil_tmp44 = (int )chr;
-#line 446
         if (__cil_tmp44 & __cil_tmp43) {
           {
-#line 447
           __cil_tmp45 = j * 2;
-#line 447
           __cil_tmp46 = pos + __cil_tmp45;
-#line 447
           __cil_tmp47 = (u8 *)__cil_tmp46;
-#line 447
           gen_twopix(dev, __cil_tmp47, 0);
           }
         } else {
           {
-#line 449
           __cil_tmp48 = j * 2;
-#line 449
           __cil_tmp49 = pos + __cil_tmp48;
-#line 449
           __cil_tmp50 = (u8 *)__cil_tmp49;
-#line 449
           gen_twopix(dev, __cil_tmp50, 8);
           }
         }
         }
-#line 444
         i = i + 1;
-#line 444
         j = j + 1;
       }
       while_break___1: /* CIL Label */ ;
       }
-#line 440
       s = s + 1;
     }
     while_break___0: /* CIL Label */ ;
     }
-#line 435
     line = line + 1;
   }
   while_break: /* CIL Label */ ;
   }
-#line 453
   return;
 }
 }
-#line 455 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/15067/dscv_tempdir/dscv/ri/32_1/drivers/media/video/vivi.c.common.c"
 static void vivi_fillbuff(struct vivi_dev *dev , struct vivi_buffer *buf ) 
 { int wmax ;
   int hmax ;
@@ -8051,544 +6351,286 @@ static void vivi_fillbuff(struct vivi_dev *dev , struct vivi_buffer *buf )
 
   {
   {
-#line 457
   __cil_tmp23 = (unsigned long )dev;
-#line 457
   __cil_tmp24 = __cil_tmp23 + 688;
-#line 457
   __cil_tmp25 = *((unsigned int *)__cil_tmp24);
-#line 457
   wmax = (int )__cil_tmp25;
-#line 458
   __cil_tmp26 = (unsigned long )dev;
-#line 458
   __cil_tmp27 = __cil_tmp26 + 692;
-#line 458
   __cil_tmp28 = *((unsigned int *)__cil_tmp27);
-#line 458
   hmax = (int )__cil_tmp28;
-#line 460
   __cil_tmp29 = (struct vb2_buffer *)buf;
-#line 460
   tmp___7 = vb2_plane_vaddr(__cil_tmp29, 0U);
-#line 460
   vbuf = tmp___7;
-#line 463
   line = 1;
   }
-#line 466
   if (! vbuf) {
-#line 467
     return;
   } else {
 
   }
-#line 469
   h = 0;
   {
-#line 469
   while (1) {
     while_continue: /* CIL Label */ ;
-#line 469
     if (h < hmax) {
 
     } else {
-#line 469
       goto while_break;
     }
     {
-#line 470
     __cil_tmp30 = wmax * 2;
-#line 470
     __len = (size_t )__cil_tmp30;
-#line 470
     __cil_tmp31 = h * wmax;
-#line 470
     __cil_tmp32 = __cil_tmp31 * 2;
-#line 470
     __cil_tmp33 = vbuf + __cil_tmp32;
-#line 470
     __cil_tmp34 = (unsigned long )dev;
-#line 470
     __cil_tmp35 = __cil_tmp34 + 668;
-#line 470
     __cil_tmp36 = *((int *)__cil_tmp35);
-#line 470
     __cil_tmp37 = __cil_tmp36 % wmax;
-#line 470
     __cil_tmp38 = __cil_tmp37 * 2;
-#line 470
     __cil_tmp39 = 0 * 1UL;
-#line 470
     __cil_tmp40 = 1259 + __cil_tmp39;
-#line 470
     __cil_tmp41 = (unsigned long )dev;
-#line 470
     __cil_tmp42 = __cil_tmp41 + __cil_tmp40;
-#line 470
     __cil_tmp43 = (u8 *)__cil_tmp42;
-#line 470
     __cil_tmp44 = __cil_tmp43 + __cil_tmp38;
-#line 470
     __cil_tmp45 = (void    *)__cil_tmp44;
-#line 470
     __ret = __builtin_memcpy(__cil_tmp33, __cil_tmp45, __len);
-#line 469
     h = h + 1;
     }
   }
   while_break: /* CIL Label */ ;
   }
   {
-#line 474
   __cil_tmp46 = (unsigned long )dev;
-#line 474
   __cil_tmp47 = __cil_tmp46 + 656;
-#line 474
   __cil_tmp48 = *((unsigned long *)__cil_tmp47);
-#line 474
   __cil_tmp49 = (unsigned long volatile   )__cil_tmp48;
-#line 474
   __cil_tmp50 = jiffies - __cil_tmp49;
-#line 474
   __cil_tmp51 = (unsigned long    )__cil_tmp50;
-#line 474
   tmp___8 = jiffies_to_msecs(__cil_tmp51);
-#line 474
   __cil_tmp52 = (unsigned long )dev;
-#line 474
   __cil_tmp53 = __cil_tmp52 + 648;
-#line 474
   __cil_tmp54 = (unsigned long )dev;
-#line 474
   __cil_tmp55 = __cil_tmp54 + 648;
-#line 474
   __cil_tmp56 = *((unsigned int *)__cil_tmp55);
-#line 474
   *((unsigned int *)__cil_tmp53) = __cil_tmp56 + tmp___8;
-#line 475
   __cil_tmp57 = (unsigned long )dev;
-#line 475
   __cil_tmp58 = __cil_tmp57 + 656;
-#line 475
   *((unsigned long *)__cil_tmp58) = (unsigned long )jiffies;
-#line 476
   __cil_tmp59 = (unsigned long )dev;
-#line 476
   __cil_tmp60 = __cil_tmp59 + 648;
-#line 476
   ms = *((unsigned int *)__cil_tmp60);
-#line 477
   __cil_tmp61 = 0 * 1UL;
-#line 477
   __cil_tmp62 = (unsigned long )(str) + __cil_tmp61;
-#line 477
   __cil_tmp63 = (char *)__cil_tmp62;
-#line 477
   __cil_tmp64 = ms / 3600000U;
-#line 477
   __cil_tmp65 = __cil_tmp64 % 24U;
-#line 477
   __cil_tmp66 = ms / 60000U;
-#line 477
   __cil_tmp67 = __cil_tmp66 % 60U;
-#line 477
   __cil_tmp68 = ms / 1000U;
-#line 477
   __cil_tmp69 = __cil_tmp68 % 60U;
-#line 477
   __cil_tmp70 = ms % 1000U;
-#line 477
   snprintf(__cil_tmp63, 100UL, " %02d:%02d:%02d:%03d ", __cil_tmp65, __cil_tmp67,
            __cil_tmp69, __cil_tmp70);
-#line 482
   tmp___9 = line;
-#line 482
   line = line + 1;
-#line 482
   __cil_tmp71 = (char *)vbuf;
-#line 482
   __cil_tmp72 = tmp___9 * 16;
-#line 482
   __cil_tmp73 = 0 * 1UL;
-#line 482
   __cil_tmp74 = (unsigned long )(str) + __cil_tmp73;
-#line 482
   __cil_tmp75 = (char *)__cil_tmp74;
-#line 482
   gen_text(dev, __cil_tmp71, __cil_tmp72, 16, __cil_tmp75);
-#line 483
   __cil_tmp76 = 0 * 1UL;
-#line 483
   __cil_tmp77 = (unsigned long )(str) + __cil_tmp76;
-#line 483
   __cil_tmp78 = (char *)__cil_tmp77;
-#line 483
   __cil_tmp79 = (unsigned long )dev;
-#line 483
   __cil_tmp80 = __cil_tmp79 + 688;
-#line 483
   __cil_tmp81 = *((unsigned int *)__cil_tmp80);
-#line 483
   __cil_tmp82 = (unsigned long )dev;
-#line 483
   __cil_tmp83 = __cil_tmp82 + 692;
-#line 483
   __cil_tmp84 = *((unsigned int *)__cil_tmp83);
-#line 483
   __cil_tmp85 = (unsigned long )dev;
-#line 483
   __cil_tmp86 = __cil_tmp85 + 672;
-#line 483
   __cil_tmp87 = *((int *)__cil_tmp86);
-#line 483
   snprintf(__cil_tmp78, 100UL, " %dx%d, input %d ", __cil_tmp81, __cil_tmp84, __cil_tmp87);
-#line 485
   tmp___10 = line;
-#line 485
   line = line + 1;
-#line 485
   __cil_tmp88 = (char *)vbuf;
-#line 485
   __cil_tmp89 = tmp___10 * 16;
-#line 485
   __cil_tmp90 = 0 * 1UL;
-#line 485
   __cil_tmp91 = (unsigned long )(str) + __cil_tmp90;
-#line 485
   __cil_tmp92 = (char *)__cil_tmp91;
-#line 485
   gen_text(dev, __cil_tmp88, __cil_tmp89, 16, __cil_tmp92);
-#line 487
   __cil_tmp93 = 392 + 8;
-#line 487
   __cil_tmp94 = (unsigned long )dev;
-#line 487
   __cil_tmp95 = __cil_tmp94 + __cil_tmp93;
-#line 487
   __cil_tmp96 = *((struct v4l2_ctrl **)__cil_tmp95);
-#line 487
   gain = v4l2_ctrl_g_ctrl(__cil_tmp96);
-#line 488
   __cil_tmp97 = (unsigned long )dev;
-#line 488
   __cil_tmp98 = __cil_tmp97 + 232;
-#line 488
   __cil_tmp99 = (struct mutex *)__cil_tmp98;
-#line 488
   mutex_lock(__cil_tmp99);
-#line 489
   __cil_tmp100 = 0 * 1UL;
-#line 489
   __cil_tmp101 = (unsigned long )(str) + __cil_tmp100;
-#line 489
   __cil_tmp102 = (char *)__cil_tmp101;
-#line 489
   __cil_tmp103 = (unsigned long )dev;
-#line 489
   __cil_tmp104 = __cil_tmp103 + 360;
-#line 489
   __cil_tmp105 = *((struct v4l2_ctrl **)__cil_tmp104);
-#line 489
   __cil_tmp106 = (unsigned long )__cil_tmp105;
-#line 489
   __cil_tmp107 = __cil_tmp106 + 120;
-#line 489
   __cil_tmp108 = *((s32 *)__cil_tmp107);
-#line 489
   __cil_tmp109 = (unsigned long )dev;
-#line 489
   __cil_tmp110 = __cil_tmp109 + 368;
-#line 489
   __cil_tmp111 = *((struct v4l2_ctrl **)__cil_tmp110);
-#line 489
   __cil_tmp112 = (unsigned long )__cil_tmp111;
-#line 489
   __cil_tmp113 = __cil_tmp112 + 120;
-#line 489
   __cil_tmp114 = *((s32 *)__cil_tmp113);
-#line 489
   __cil_tmp115 = (unsigned long )dev;
-#line 489
   __cil_tmp116 = __cil_tmp115 + 376;
-#line 489
   __cil_tmp117 = *((struct v4l2_ctrl **)__cil_tmp116);
-#line 489
   __cil_tmp118 = (unsigned long )__cil_tmp117;
-#line 489
   __cil_tmp119 = __cil_tmp118 + 120;
-#line 489
   __cil_tmp120 = *((s32 *)__cil_tmp119);
-#line 489
   __cil_tmp121 = (unsigned long )dev;
-#line 489
   __cil_tmp122 = __cil_tmp121 + 384;
-#line 489
   __cil_tmp123 = *((struct v4l2_ctrl **)__cil_tmp122);
-#line 489
   __cil_tmp124 = (unsigned long )__cil_tmp123;
-#line 489
   __cil_tmp125 = __cil_tmp124 + 120;
-#line 489
   __cil_tmp126 = *((s32 *)__cil_tmp125);
-#line 489
   snprintf(__cil_tmp102, 100UL, " brightness %3d, contrast %3d, saturation %3d, hue %d ",
            __cil_tmp108, __cil_tmp114, __cil_tmp120, __cil_tmp126);
-#line 494
   tmp___11 = line;
-#line 494
   line = line + 1;
-#line 494
   __cil_tmp127 = (char *)vbuf;
-#line 494
   __cil_tmp128 = tmp___11 * 16;
-#line 494
   __cil_tmp129 = 0 * 1UL;
-#line 494
   __cil_tmp130 = (unsigned long )(str) + __cil_tmp129;
-#line 494
   __cil_tmp131 = (char *)__cil_tmp130;
-#line 494
   gen_text(dev, __cil_tmp127, __cil_tmp128, 16, __cil_tmp131);
-#line 495
   __cil_tmp132 = 0 * 1UL;
-#line 495
   __cil_tmp133 = (unsigned long )(str) + __cil_tmp132;
-#line 495
   __cil_tmp134 = (char *)__cil_tmp133;
-#line 495
   __cil_tmp135 = (unsigned long )dev;
-#line 495
   __cil_tmp136 = __cil_tmp135 + 392;
-#line 495
   __cil_tmp137 = *((struct v4l2_ctrl **)__cil_tmp136);
-#line 495
   __cil_tmp138 = (unsigned long )__cil_tmp137;
-#line 495
   __cil_tmp139 = __cil_tmp138 + 120;
-#line 495
   __cil_tmp140 = *((s32 *)__cil_tmp139);
-#line 495
   __cil_tmp141 = (unsigned long )dev;
-#line 495
   __cil_tmp142 = __cil_tmp141 + 408;
-#line 495
   __cil_tmp143 = *((struct v4l2_ctrl **)__cil_tmp142);
-#line 495
   __cil_tmp144 = (unsigned long )__cil_tmp143;
-#line 495
   __cil_tmp145 = __cil_tmp144 + 120;
-#line 495
   __cil_tmp146 = *((s32 *)__cil_tmp145);
-#line 495
   snprintf(__cil_tmp134, 100UL, " autogain %d, gain %3d, volume %3d ", __cil_tmp140,
            gain, __cil_tmp146);
-#line 497
   tmp___12 = line;
-#line 497
   line = line + 1;
-#line 497
   __cil_tmp147 = (char *)vbuf;
-#line 497
   __cil_tmp148 = tmp___12 * 16;
-#line 497
   __cil_tmp149 = 0 * 1UL;
-#line 497
   __cil_tmp150 = (unsigned long )(str) + __cil_tmp149;
-#line 497
   __cil_tmp151 = (char *)__cil_tmp150;
-#line 497
   gen_text(dev, __cil_tmp147, __cil_tmp148, 16, __cil_tmp151);
-#line 498
   __cil_tmp152 = 0 * 1UL;
-#line 498
   __cil_tmp153 = (unsigned long )(str) + __cil_tmp152;
-#line 498
   __cil_tmp154 = (char *)__cil_tmp153;
-#line 498
   __cil_tmp155 = (unsigned long )dev;
-#line 498
   __cil_tmp156 = __cil_tmp155 + 432;
-#line 498
   __cil_tmp157 = *((struct v4l2_ctrl **)__cil_tmp156);
-#line 498
   __cil_tmp158 = (unsigned long )__cil_tmp157;
-#line 498
   __cil_tmp159 = __cil_tmp158 + 120;
-#line 498
   __cil_tmp160 = *((s32 *)__cil_tmp159);
-#line 498
   __cil_tmp161 = (unsigned long )dev;
-#line 498
   __cil_tmp162 = __cil_tmp161 + 440;
-#line 498
   __cil_tmp163 = *((struct v4l2_ctrl **)__cil_tmp162);
-#line 498
   __cil_tmp164 = (unsigned long )__cil_tmp163;
-#line 498
   __cil_tmp165 = __cil_tmp164 + 120;
-#line 498
   __cil_tmp166 = *((s64 *)__cil_tmp165);
-#line 498
   __cil_tmp167 = (unsigned long )dev;
-#line 498
   __cil_tmp168 = __cil_tmp167 + 464;
-#line 498
   __cil_tmp169 = *((struct v4l2_ctrl **)__cil_tmp168);
-#line 498
   __cil_tmp170 = (unsigned long )__cil_tmp169;
-#line 498
   __cil_tmp171 = __cil_tmp170 + 120;
-#line 498
   __cil_tmp172 = *((s32 *)__cil_tmp171);
-#line 498
   snprintf(__cil_tmp154, 100UL, " int32 %d, int64 %lld, bitmask %08x ", __cil_tmp160,
            __cil_tmp166, __cil_tmp172);
-#line 502
   tmp___13 = line;
-#line 502
   line = line + 1;
-#line 502
   __cil_tmp173 = (char *)vbuf;
-#line 502
   __cil_tmp174 = tmp___13 * 16;
-#line 502
   __cil_tmp175 = 0 * 1UL;
-#line 502
   __cil_tmp176 = (unsigned long )(str) + __cil_tmp175;
-#line 502
   __cil_tmp177 = (char *)__cil_tmp176;
-#line 502
   gen_text(dev, __cil_tmp173, __cil_tmp174, 16, __cil_tmp177);
-#line 503
   __cil_tmp178 = 0 * 1UL;
-#line 503
   __cil_tmp179 = (unsigned long )(str) + __cil_tmp178;
-#line 503
   __cil_tmp180 = (char *)__cil_tmp179;
-#line 503
   __cil_tmp181 = (unsigned long )dev;
-#line 503
   __cil_tmp182 = __cil_tmp181 + 424;
-#line 503
   __cil_tmp183 = *((struct v4l2_ctrl **)__cil_tmp182);
-#line 503
   __cil_tmp184 = (unsigned long )__cil_tmp183;
-#line 503
   __cil_tmp185 = __cil_tmp184 + 120;
-#line 503
   __cil_tmp186 = *((s32 *)__cil_tmp185);
-#line 503
   __cil_tmp187 = (unsigned long )dev;
-#line 503
   __cil_tmp188 = __cil_tmp187 + 448;
-#line 503
   __cil_tmp189 = *((struct v4l2_ctrl **)__cil_tmp188);
-#line 503
   __cil_tmp190 = (unsigned long )__cil_tmp189;
-#line 503
   __cil_tmp191 = __cil_tmp190 + 120;
-#line 503
   __cil_tmp192 = *((s32 *)__cil_tmp191);
-#line 503
   __cil_tmp193 = (unsigned long )dev;
-#line 503
   __cil_tmp194 = __cil_tmp193 + 448;
-#line 503
   __cil_tmp195 = *((struct v4l2_ctrl **)__cil_tmp194);
-#line 503
   __cil_tmp196 = (unsigned long )__cil_tmp195;
-#line 503
   __cil_tmp197 = __cil_tmp196 + 104;
-#line 503
   __cil_tmp198 = *((char    *   **)__cil_tmp197);
-#line 503
   __cil_tmp199 = __cil_tmp198 + __cil_tmp192;
-#line 503
   __cil_tmp200 = *__cil_tmp199;
-#line 503
   __cil_tmp201 = (unsigned long )dev;
-#line 503
   __cil_tmp202 = __cil_tmp201 + 456;
-#line 503
   __cil_tmp203 = *((struct v4l2_ctrl **)__cil_tmp202);
-#line 503
   __cil_tmp204 = (unsigned long )__cil_tmp203;
-#line 503
   __cil_tmp205 = __cil_tmp204 + 120;
-#line 503
   __cil_tmp206 = *((char **)__cil_tmp205);
-#line 503
   snprintf(__cil_tmp180, 100UL, " boolean %d, menu %s, string \"%s\" ", __cil_tmp186,
            __cil_tmp200, __cil_tmp206);
-#line 507
   __cil_tmp207 = (unsigned long )dev;
-#line 507
   __cil_tmp208 = __cil_tmp207 + 232;
-#line 507
   __cil_tmp209 = (struct mutex *)__cil_tmp208;
-#line 507
   mutex_unlock(__cil_tmp209);
-#line 508
   tmp___14 = line;
-#line 508
   line = line + 1;
-#line 508
   __cil_tmp210 = (char *)vbuf;
-#line 508
   __cil_tmp211 = tmp___14 * 16;
-#line 508
   __cil_tmp212 = 0 * 1UL;
-#line 508
   __cil_tmp213 = (unsigned long )(str) + __cil_tmp212;
-#line 508
   __cil_tmp214 = (char *)__cil_tmp213;
-#line 508
   gen_text(dev, __cil_tmp210, __cil_tmp211, 16, __cil_tmp214);
   }
   {
-#line 509
   __cil_tmp215 = (unsigned long )dev;
-#line 509
   __cil_tmp216 = __cil_tmp215 + 664;
-#line 509
   if (*((unsigned int *)__cil_tmp216)) {
     {
-#line 510
     __cil_tmp217 = (unsigned long )dev;
-#line 510
     __cil_tmp218 = __cil_tmp217 + 664;
-#line 510
     __cil_tmp219 = (unsigned long )dev;
-#line 510
     __cil_tmp220 = __cil_tmp219 + 664;
-#line 510
     __cil_tmp221 = *((unsigned int *)__cil_tmp220);
-#line 510
     *((unsigned int *)__cil_tmp218) = __cil_tmp221 - 1U;
-#line 511
     __cil_tmp222 = 0 * 1UL;
-#line 511
     __cil_tmp223 = (unsigned long )(str) + __cil_tmp222;
-#line 511
     __cil_tmp224 = (char *)__cil_tmp223;
-#line 511
     snprintf(__cil_tmp224, 100UL, " button pressed!");
-#line 512
     tmp___15 = line;
-#line 512
     line = line + 1;
-#line 512
     __cil_tmp225 = (char *)vbuf;
-#line 512
     __cil_tmp226 = tmp___15 * 16;
-#line 512
     __cil_tmp227 = 0 * 1UL;
-#line 512
     __cil_tmp228 = (unsigned long )(str) + __cil_tmp227;
-#line 512
     __cil_tmp229 = (char *)__cil_tmp228;
-#line 512
     gen_text(dev, __cil_tmp225, __cil_tmp226, 16, __cil_tmp229);
     }
   } else {
@@ -8596,80 +6638,44 @@ static void vivi_fillbuff(struct vivi_dev *dev , struct vivi_buffer *buf )
   }
   }
   {
-#line 515
   __cil_tmp230 = (unsigned long )dev;
-#line 515
   __cil_tmp231 = __cil_tmp230 + 668;
-#line 515
   __cil_tmp232 = (unsigned long )dev;
-#line 515
   __cil_tmp233 = __cil_tmp232 + 668;
-#line 515
   __cil_tmp234 = *((int *)__cil_tmp233);
-#line 515
   *((int *)__cil_tmp231) = __cil_tmp234 + 2;
-#line 517
   __cil_tmp235 = 0 + 16;
-#line 517
   __cil_tmp236 = 0 + __cil_tmp235;
-#line 517
   __cil_tmp237 = (unsigned long )buf;
-#line 517
   __cil_tmp238 = __cil_tmp237 + __cil_tmp236;
-#line 517
   __cil_tmp239 = (unsigned long )dev;
-#line 517
   __cil_tmp240 = __cil_tmp239 + 1224;
-#line 517
   *((enum v4l2_field *)__cil_tmp238) = *((enum v4l2_field *)__cil_tmp240);
-#line 518
   __cil_tmp241 = (unsigned long )dev;
-#line 518
   __cil_tmp242 = __cil_tmp241 + 1228;
-#line 518
   __cil_tmp243 = (unsigned long )dev;
-#line 518
   __cil_tmp244 = __cil_tmp243 + 1228;
-#line 518
   __cil_tmp245 = *((unsigned int *)__cil_tmp244);
-#line 518
   *((unsigned int *)__cil_tmp242) = __cil_tmp245 + 1U;
-#line 519
   __cil_tmp246 = 0 + 56;
-#line 519
   __cil_tmp247 = 0 + __cil_tmp246;
-#line 519
   __cil_tmp248 = (unsigned long )buf;
-#line 519
   __cil_tmp249 = __cil_tmp248 + __cil_tmp247;
-#line 519
   __cil_tmp250 = (unsigned long )dev;
-#line 519
   __cil_tmp251 = __cil_tmp250 + 1228;
-#line 519
   __cil_tmp252 = *((unsigned int *)__cil_tmp251);
-#line 519
   *((__u32 *)__cil_tmp249) = __cil_tmp252 >> 1;
-#line 520
   do_gettimeofday(& ts);
-#line 521
   __cil_tmp253 = 0 + 24;
-#line 521
   __cil_tmp254 = 0 + __cil_tmp253;
-#line 521
   __cil_tmp255 = (unsigned long )buf;
-#line 521
   __cil_tmp256 = __cil_tmp255 + __cil_tmp254;
-#line 521
   __cil_tmp257 = & ts;
-#line 521
   *((struct timeval *)__cil_tmp256) = *__cil_tmp257;
   }
-#line 522
   return;
 }
 }
-#line 524 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/15067/dscv_tempdir/dscv/ri/32_1/drivers/media/video/vivi.c.common.c"
 static void vivi_thread_tick(struct vivi_dev *dev ) 
 { struct vivi_dmaqueue *dma_q ;
   struct vivi_buffer *buf ;
@@ -8743,280 +6749,179 @@ static void vivi_thread_tick(struct vivi_dev *dev )
   __u32 __cil_tmp73 ;
 
   {
-#line 526
   __cil_tmp10 = (unsigned long )dev;
-#line 526
   __cil_tmp11 = __cil_tmp10 + 576;
-#line 526
   dma_q = (struct vivi_dmaqueue *)__cil_tmp11;
-#line 528
   flags = 0UL;
   {
-#line 530
   while (1) {
     while_continue: /* CIL Label */ ;
     {
-#line 530
     __cil_tmp12 = & debug;
-#line 530
     __cil_tmp13 = *__cil_tmp12;
-#line 530
     if (__cil_tmp13 >= 1U) {
       {
-#line 530
       __cil_tmp14 = 0 * 1UL;
-#line 530
       __cil_tmp15 = 56 + __cil_tmp14;
-#line 530
       __cil_tmp16 = 16 + __cil_tmp15;
-#line 530
       __cil_tmp17 = (unsigned long )dev;
-#line 530
       __cil_tmp18 = __cil_tmp17 + __cil_tmp16;
-#line 530
       __cil_tmp19 = (char *)__cil_tmp18;
-#line 530
       printk("<7>%s: Thread tick\n", __cil_tmp19);
       }
     } else {
 
     }
     }
-#line 530
     goto while_break;
   }
   while_break: /* CIL Label */ ;
   }
   {
-#line 532
   while (1) {
     while_continue___0: /* CIL Label */ ;
     {
-#line 532
     while (1) {
       while_continue___1: /* CIL Label */ ;
       {
-#line 532
       __cil_tmp20 = (unsigned long )dev;
-#line 532
       __cil_tmp21 = __cil_tmp20 + 472;
-#line 532
       __cil_tmp22 = (spinlock_t *)__cil_tmp21;
-#line 532
       tmp___7 = spinlock_check(__cil_tmp22);
-#line 532
       flags = _raw_spin_lock_irqsave(tmp___7);
       }
-#line 532
       goto while_break___1;
     }
     while_break___1: /* CIL Label */ ;
     }
-#line 532
     goto while_break___0;
   }
   while_break___0: /* CIL Label */ ;
   }
   {
-#line 533
   __cil_tmp23 = (struct list_head *)dma_q;
-#line 533
   __cil_tmp24 = (struct list_head    *)__cil_tmp23;
-#line 533
   tmp___8 = list_empty(__cil_tmp24);
   }
-#line 533
   if (tmp___8) {
     {
-#line 534
     while (1) {
       while_continue___2: /* CIL Label */ ;
       {
-#line 534
       __cil_tmp25 = & debug;
-#line 534
       __cil_tmp26 = *__cil_tmp25;
-#line 534
       if (__cil_tmp26 >= 1U) {
         {
-#line 534
         __cil_tmp27 = 0 * 1UL;
-#line 534
         __cil_tmp28 = 56 + __cil_tmp27;
-#line 534
         __cil_tmp29 = 16 + __cil_tmp28;
-#line 534
         __cil_tmp30 = (unsigned long )dev;
-#line 534
         __cil_tmp31 = __cil_tmp30 + __cil_tmp29;
-#line 534
         __cil_tmp32 = (char *)__cil_tmp31;
-#line 534
         printk("<7>%s: No active queue to serve\n", __cil_tmp32);
         }
       } else {
 
       }
       }
-#line 534
       goto while_break___2;
     }
     while_break___2: /* CIL Label */ ;
     }
     {
-#line 535
     __cil_tmp33 = (unsigned long )dev;
-#line 535
     __cil_tmp34 = __cil_tmp33 + 472;
-#line 535
     __cil_tmp35 = (spinlock_t *)__cil_tmp34;
-#line 535
     spin_unlock_irqrestore(__cil_tmp35, flags);
     }
-#line 536
     return;
   } else {
 
   }
   {
-#line 539
   __cil_tmp36 = *((struct list_head **)dma_q);
-#line 539
   __mptr = (struct list_head    *)__cil_tmp36;
-#line 539
   __cil_tmp37 = (struct vivi_buffer *)0;
-#line 539
   __cil_tmp38 = (unsigned long )__cil_tmp37;
-#line 539
   __cil_tmp39 = __cil_tmp38 + 712;
-#line 539
   __cil_tmp40 = (struct list_head *)__cil_tmp39;
-#line 539
   __cil_tmp41 = (unsigned int )__cil_tmp40;
-#line 539
   __cil_tmp42 = (char *)__mptr;
-#line 539
   __cil_tmp43 = __cil_tmp42 - __cil_tmp41;
-#line 539
   buf = (struct vivi_buffer *)__cil_tmp43;
-#line 540
   __cil_tmp44 = (unsigned long )buf;
-#line 540
   __cil_tmp45 = __cil_tmp44 + 712;
-#line 540
   __cil_tmp46 = (struct list_head *)__cil_tmp45;
-#line 540
   list_del(__cil_tmp46);
-#line 541
   __cil_tmp47 = (unsigned long )dev;
-#line 541
   __cil_tmp48 = __cil_tmp47 + 472;
-#line 541
   __cil_tmp49 = (spinlock_t *)__cil_tmp48;
-#line 541
   spin_unlock_irqrestore(__cil_tmp49, flags);
-#line 543
   __cil_tmp50 = 0 + 24;
-#line 543
   __cil_tmp51 = 0 + __cil_tmp50;
-#line 543
   __cil_tmp52 = (unsigned long )buf;
-#line 543
   __cil_tmp53 = __cil_tmp52 + __cil_tmp51;
-#line 543
   __cil_tmp54 = (struct timeval *)__cil_tmp53;
-#line 543
   do_gettimeofday(__cil_tmp54);
-#line 546
   vivi_fillbuff(dev, buf);
   }
   {
-#line 547
   while (1) {
     while_continue___3: /* CIL Label */ ;
     {
-#line 547
     __cil_tmp55 = & debug;
-#line 547
     __cil_tmp56 = *__cil_tmp55;
-#line 547
     if (__cil_tmp56 >= 1U) {
       {
-#line 547
       __cil_tmp57 = 0 * 1UL;
-#line 547
       __cil_tmp58 = 56 + __cil_tmp57;
-#line 547
       __cil_tmp59 = 16 + __cil_tmp58;
-#line 547
       __cil_tmp60 = (unsigned long )dev;
-#line 547
       __cil_tmp61 = __cil_tmp60 + __cil_tmp59;
-#line 547
       __cil_tmp62 = (char *)__cil_tmp61;
-#line 547
       printk("<7>%s: filled buffer %p\n", __cil_tmp62, buf);
       }
     } else {
 
     }
     }
-#line 547
     goto while_break___3;
   }
   while_break___3: /* CIL Label */ ;
   }
   {
-#line 549
   __cil_tmp63 = (struct vb2_buffer *)buf;
-#line 549
   __cil_tmp64 = (enum vb2_buffer_state )4;
-#line 549
   vb2_buffer_done(__cil_tmp63, __cil_tmp64);
   }
   {
-#line 550
   while (1) {
     while_continue___4: /* CIL Label */ ;
     {
-#line 550
     __cil_tmp65 = & debug;
-#line 550
     __cil_tmp66 = *__cil_tmp65;
-#line 550
     if (__cil_tmp66 >= 2U) {
       {
-#line 550
       __cil_tmp67 = 0 * 1UL;
-#line 550
       __cil_tmp68 = 56 + __cil_tmp67;
-#line 550
       __cil_tmp69 = 16 + __cil_tmp68;
-#line 550
       __cil_tmp70 = (unsigned long )dev;
-#line 550
       __cil_tmp71 = __cil_tmp70 + __cil_tmp69;
-#line 550
       __cil_tmp72 = (char *)__cil_tmp71;
-#line 550
       __cil_tmp73 = *((__u32 *)buf);
-#line 550
       printk("<7>%s: [%p/%d] done\n", __cil_tmp72, buf, __cil_tmp73);
       }
     } else {
 
     }
     }
-#line 550
     goto while_break___4;
   }
   while_break___4: /* CIL Label */ ;
   }
-#line 551
   return;
 }
 }
-#line 556 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/15067/dscv_tempdir/dscv/ri/32_1/drivers/media/video/vivi.c.common.c"
 static void vivi_sleep(struct vivi_dev *dev ) 
 { struct vivi_dmaqueue *dma_q ;
   int timeout ;
@@ -9054,130 +6959,80 @@ static void vivi_sleep(struct vivi_dev *dev )
 
   {
   {
-#line 558
   __cil_tmp8 = (unsigned long )dev;
-#line 558
   __cil_tmp9 = __cil_tmp8 + 576;
-#line 558
   dma_q = (struct vivi_dmaqueue *)__cil_tmp9;
-#line 560
   tmp___7 = get_current();
-#line 560
   __cil_tmp10 = & wait;
-#line 560
   *((unsigned int *)__cil_tmp10) = 0U;
-#line 560
   __cil_tmp11 = (unsigned long )(& wait) + 8;
-#line 560
   *((void **)__cil_tmp11) = (void *)tmp___7;
-#line 560
   __cil_tmp12 = (unsigned long )(& wait) + 16;
-#line 560
   *((int (**)(wait_queue_t *wait , unsigned int mode , int flags , void *key ))__cil_tmp12) = & default_wake_function;
-#line 560
   __cil_tmp13 = (unsigned long )(& wait) + 24;
-#line 560
   __cil_tmp14 = (void *)0;
-#line 560
   *((struct list_head **)__cil_tmp13) = (struct list_head *)__cil_tmp14;
-#line 560
   __cil_tmp15 = 24 + 8;
-#line 560
   __cil_tmp16 = (unsigned long )(& wait) + __cil_tmp15;
-#line 560
   __cil_tmp17 = (void *)0;
-#line 560
   *((struct list_head **)__cil_tmp16) = (struct list_head *)__cil_tmp17;
   }
   {
-#line 562
   while (1) {
     while_continue: /* CIL Label */ ;
     {
-#line 562
     __cil_tmp18 = & debug;
-#line 562
     __cil_tmp19 = *__cil_tmp18;
-#line 562
     if (__cil_tmp19 >= 1U) {
       {
-#line 562
       __cil_tmp20 = 0 * 1UL;
-#line 562
       __cil_tmp21 = 56 + __cil_tmp20;
-#line 562
       __cil_tmp22 = 16 + __cil_tmp21;
-#line 562
       __cil_tmp23 = (unsigned long )dev;
-#line 562
       __cil_tmp24 = __cil_tmp23 + __cil_tmp22;
-#line 562
       __cil_tmp25 = (char *)__cil_tmp24;
-#line 562
       __cil_tmp26 = (unsigned long )dma_q;
-#line 562
       printk("<7>%s: %s dma_q=0x%08lx\n", __cil_tmp25, "vivi_sleep", __cil_tmp26);
       }
     } else {
 
     }
     }
-#line 562
     goto while_break;
   }
   while_break: /* CIL Label */ ;
   }
   {
-#line 565
   __cil_tmp27 = (unsigned long )dma_q;
-#line 565
   __cil_tmp28 = __cil_tmp27 + 24;
-#line 565
   __cil_tmp29 = (wait_queue_head_t *)__cil_tmp28;
-#line 565
   add_wait_queue(__cil_tmp29, & wait);
-#line 566
   tmp___8 = kthread_should_stop();
   }
-#line 566
   if (tmp___8) {
-#line 567
     goto stop_task;
   } else {
 
   }
   {
-#line 570
   __cil_tmp30 = (unsigned int    )29;
-#line 570
   tmp___9 = msecs_to_jiffies(__cil_tmp30);
-#line 570
   timeout = (int )tmp___9;
-#line 572
   vivi_thread_tick(dev);
-#line 574
   __cil_tmp31 = (long )timeout;
-#line 574
   schedule_timeout_interruptible(__cil_tmp31);
   }
   stop_task: 
   {
-#line 577
   __cil_tmp32 = (unsigned long )dma_q;
-#line 577
   __cil_tmp33 = __cil_tmp32 + 24;
-#line 577
   __cil_tmp34 = (wait_queue_head_t *)__cil_tmp33;
-#line 577
   remove_wait_queue(__cil_tmp34, & wait);
-#line 578
   try_to_freeze();
   }
-#line 579
   return;
 }
 }
-#line 581 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/15067/dscv_tempdir/dscv/ri/32_1/drivers/media/video/vivi.c.common.c"
 static int vivi_thread(void *data ) 
 { struct vivi_dev *dev ;
   int tmp___7 ;
@@ -9199,61 +7054,42 @@ static int vivi_thread(void *data )
   char *__cil_tmp19 ;
 
   {
-#line 583
   dev = (struct vivi_dev *)data;
   {
-#line 585
   while (1) {
     while_continue: /* CIL Label */ ;
     {
-#line 585
     __cil_tmp4 = & debug;
-#line 585
     __cil_tmp5 = *__cil_tmp4;
-#line 585
     if (__cil_tmp5 >= 1U) {
       {
-#line 585
       __cil_tmp6 = 0 * 1UL;
-#line 585
       __cil_tmp7 = 56 + __cil_tmp6;
-#line 585
       __cil_tmp8 = 16 + __cil_tmp7;
-#line 585
       __cil_tmp9 = (unsigned long )dev;
-#line 585
       __cil_tmp10 = __cil_tmp9 + __cil_tmp8;
-#line 585
       __cil_tmp11 = (char *)__cil_tmp10;
-#line 585
       printk("<7>%s: thread started\n", __cil_tmp11);
       }
     } else {
 
     }
     }
-#line 585
     goto while_break;
   }
   while_break: /* CIL Label */ ;
   }
   {
-#line 587
   set_freezable();
   }
   {
-#line 589
   while (1) {
     while_continue___0: /* CIL Label */ ;
     {
-#line 590
     vivi_sleep(dev);
-#line 592
     tmp___7 = kthread_should_stop();
     }
-#line 592
     if (tmp___7) {
-#line 593
       goto while_break___0;
     } else {
 
@@ -9262,46 +7098,32 @@ static int vivi_thread(void *data )
   while_break___0: /* CIL Label */ ;
   }
   {
-#line 595
   while (1) {
     while_continue___1: /* CIL Label */ ;
     {
-#line 595
     __cil_tmp12 = & debug;
-#line 595
     __cil_tmp13 = *__cil_tmp12;
-#line 595
     if (__cil_tmp13 >= 1U) {
       {
-#line 595
       __cil_tmp14 = 0 * 1UL;
-#line 595
       __cil_tmp15 = 56 + __cil_tmp14;
-#line 595
       __cil_tmp16 = 16 + __cil_tmp15;
-#line 595
       __cil_tmp17 = (unsigned long )dev;
-#line 595
       __cil_tmp18 = __cil_tmp17 + __cil_tmp16;
-#line 595
       __cil_tmp19 = (char *)__cil_tmp18;
-#line 595
       printk("<7>%s: thread: exit\n", __cil_tmp19);
       }
     } else {
 
     }
     }
-#line 595
     goto while_break___1;
   }
   while_break___1: /* CIL Label */ ;
   }
-#line 596
   return (0);
 }
 }
-#line 599 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/15067/dscv_tempdir/dscv/ri/32_1/drivers/media/video/vivi.c.common.c"
 static int vivi_start_generating(struct vivi_dev *dev ) 
 { struct vivi_dmaqueue *dma_q ;
   struct task_struct *__k ;
@@ -9368,217 +7190,132 @@ static int vivi_start_generating(struct vivi_dev *dev )
   char *__cil_tmp64 ;
 
   {
-#line 601
   __cil_tmp8 = (unsigned long )dev;
-#line 601
   __cil_tmp9 = __cil_tmp8 + 576;
-#line 601
   dma_q = (struct vivi_dmaqueue *)__cil_tmp9;
   {
-#line 603
   while (1) {
     while_continue: /* CIL Label */ ;
     {
-#line 603
     __cil_tmp10 = & debug;
-#line 603
     __cil_tmp11 = *__cil_tmp10;
-#line 603
     if (__cil_tmp11 >= 1U) {
       {
-#line 603
       __cil_tmp12 = 0 * 1UL;
-#line 603
       __cil_tmp13 = 56 + __cil_tmp12;
-#line 603
       __cil_tmp14 = 16 + __cil_tmp13;
-#line 603
       __cil_tmp15 = (unsigned long )dev;
-#line 603
       __cil_tmp16 = __cil_tmp15 + __cil_tmp14;
-#line 603
       __cil_tmp17 = (char *)__cil_tmp16;
-#line 603
       printk("<7>%s: %s\n", __cil_tmp17, "vivi_start_generating");
       }
     } else {
 
     }
     }
-#line 603
     goto while_break;
   }
   while_break: /* CIL Label */ ;
   }
   {
-#line 606
   __cil_tmp18 = (unsigned long )dev;
-#line 606
   __cil_tmp19 = __cil_tmp18 + 648;
-#line 606
   *((unsigned int *)__cil_tmp19) = 0U;
-#line 607
   __cil_tmp20 = (unsigned long )dev;
-#line 607
   __cil_tmp21 = __cil_tmp20 + 668;
-#line 607
   *((int *)__cil_tmp21) = 0;
-#line 608
   __cil_tmp22 = (unsigned long )dev;
-#line 608
   __cil_tmp23 = __cil_tmp22 + 656;
-#line 608
   *((unsigned long *)__cil_tmp23) = (unsigned long )jiffies;
-#line 610
   __cil_tmp24 = (unsigned long )dma_q;
-#line 610
   __cil_tmp25 = __cil_tmp24 + 64;
-#line 610
   *((int *)__cil_tmp25) = 0;
-#line 611
   __cil_tmp26 = (unsigned long )dma_q;
-#line 611
   __cil_tmp27 = __cil_tmp26 + 68;
-#line 611
   *((int *)__cil_tmp27) = (int )jiffies;
-#line 612
   __cil_tmp28 = (void *)dev;
-#line 612
   __cil_tmp29 = 0 * 1UL;
-#line 612
   __cil_tmp30 = 56 + __cil_tmp29;
-#line 612
   __cil_tmp31 = 16 + __cil_tmp30;
-#line 612
   __cil_tmp32 = (unsigned long )dev;
-#line 612
   __cil_tmp33 = __cil_tmp32 + __cil_tmp31;
-#line 612
   __cil_tmp34 = (char *)__cil_tmp33;
-#line 612
   __cil_tmp35 = (char    *)__cil_tmp34;
-#line 612
   tmp___7 = kthread_create_on_node(& vivi_thread, __cil_tmp28, -1, __cil_tmp35);
-#line 612
   __k = tmp___7;
-#line 612
   __cil_tmp36 = (void    *)__k;
-#line 612
   tmp___8 = (long )IS_ERR(__cil_tmp36);
   }
-#line 612
   if (tmp___8) {
 
   } else {
     {
-#line 612
     wake_up_process(__k);
     }
   }
   {
-#line 612
   __cil_tmp37 = (unsigned long )dma_q;
-#line 612
   __cil_tmp38 = __cil_tmp37 + 16;
-#line 612
   *((struct task_struct **)__cil_tmp38) = __k;
-#line 614
   __cil_tmp39 = (unsigned long )dma_q;
-#line 614
   __cil_tmp40 = __cil_tmp39 + 16;
-#line 614
   __cil_tmp41 = *((struct task_struct **)__cil_tmp40);
-#line 614
   __cil_tmp42 = (void    *)__cil_tmp41;
-#line 614
   tmp___10 = (long )IS_ERR(__cil_tmp42);
   }
-#line 614
   if (tmp___10) {
     {
-#line 615
     __cil_tmp43 = 0 * 1UL;
-#line 615
     __cil_tmp44 = 56 + __cil_tmp43;
-#line 615
     __cil_tmp45 = 16 + __cil_tmp44;
-#line 615
     __cil_tmp46 = (unsigned long )dev;
-#line 615
     __cil_tmp47 = __cil_tmp46 + __cil_tmp45;
-#line 615
     __cil_tmp48 = (char *)__cil_tmp47;
-#line 615
     printk("<3>%s: kernel_thread() failed\n", __cil_tmp48);
-#line 616
     __cil_tmp49 = (unsigned long )dma_q;
-#line 616
     __cil_tmp50 = __cil_tmp49 + 16;
-#line 616
     __cil_tmp51 = *((struct task_struct **)__cil_tmp50);
-#line 616
     __cil_tmp52 = (void    *)__cil_tmp51;
-#line 616
     tmp___9 = (long )PTR_ERR(__cil_tmp52);
     }
-#line 616
     return ((int )tmp___9);
   } else {
 
   }
   {
-#line 619
   __cil_tmp53 = (unsigned long )dma_q;
-#line 619
   __cil_tmp54 = __cil_tmp53 + 24;
-#line 619
   __cil_tmp55 = (wait_queue_head_t *)__cil_tmp54;
-#line 619
   __cil_tmp56 = (void *)0;
-#line 619
   __wake_up(__cil_tmp55, 1U, 1, __cil_tmp56);
   }
   {
-#line 621
   while (1) {
     while_continue___0: /* CIL Label */ ;
     {
-#line 621
     __cil_tmp57 = & debug;
-#line 621
     __cil_tmp58 = *__cil_tmp57;
-#line 621
     if (__cil_tmp58 >= 1U) {
       {
-#line 621
       __cil_tmp59 = 0 * 1UL;
-#line 621
       __cil_tmp60 = 56 + __cil_tmp59;
-#line 621
       __cil_tmp61 = 16 + __cil_tmp60;
-#line 621
       __cil_tmp62 = (unsigned long )dev;
-#line 621
       __cil_tmp63 = __cil_tmp62 + __cil_tmp61;
-#line 621
       __cil_tmp64 = (char *)__cil_tmp63;
-#line 621
       printk("<7>%s: returning from %s\n", __cil_tmp64, "vivi_start_generating");
       }
     } else {
 
     }
     }
-#line 621
     goto while_break___0;
   }
   while_break___0: /* CIL Label */ ;
   }
-#line 622
   return (0);
 }
 }
-#line 625 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/15067/dscv_tempdir/dscv/ri/32_1/drivers/media/video/vivi.c.common.c"
 static void vivi_stop_generating(struct vivi_dev *dev ) 
 { struct vivi_dmaqueue *dma_q ;
   struct vivi_buffer *buf ;
@@ -9628,71 +7365,45 @@ static void vivi_stop_generating(struct vivi_dev *dev )
   __u32 __cil_tmp47 ;
 
   {
-#line 627
   __cil_tmp6 = (unsigned long )dev;
-#line 627
   __cil_tmp7 = __cil_tmp6 + 576;
-#line 627
   dma_q = (struct vivi_dmaqueue *)__cil_tmp7;
   {
-#line 629
   while (1) {
     while_continue: /* CIL Label */ ;
     {
-#line 629
     __cil_tmp8 = & debug;
-#line 629
     __cil_tmp9 = *__cil_tmp8;
-#line 629
     if (__cil_tmp9 >= 1U) {
       {
-#line 629
       __cil_tmp10 = 0 * 1UL;
-#line 629
       __cil_tmp11 = 56 + __cil_tmp10;
-#line 629
       __cil_tmp12 = 16 + __cil_tmp11;
-#line 629
       __cil_tmp13 = (unsigned long )dev;
-#line 629
       __cil_tmp14 = __cil_tmp13 + __cil_tmp12;
-#line 629
       __cil_tmp15 = (char *)__cil_tmp14;
-#line 629
       printk("<7>%s: %s\n", __cil_tmp15, "vivi_stop_generating");
       }
     } else {
 
     }
     }
-#line 629
     goto while_break;
   }
   while_break: /* CIL Label */ ;
   }
   {
-#line 632
   __cil_tmp16 = (unsigned long )dma_q;
-#line 632
   __cil_tmp17 = __cil_tmp16 + 16;
-#line 632
   if (*((struct task_struct **)__cil_tmp17)) {
     {
-#line 633
     __cil_tmp18 = (unsigned long )dma_q;
-#line 633
     __cil_tmp19 = __cil_tmp18 + 16;
-#line 633
     __cil_tmp20 = *((struct task_struct **)__cil_tmp19);
-#line 633
     kthread_stop(__cil_tmp20);
-#line 634
     __cil_tmp21 = (unsigned long )dma_q;
-#line 634
     __cil_tmp22 = __cil_tmp21 + 16;
-#line 634
     __cil_tmp23 = (void *)0;
-#line 634
     *((struct task_struct **)__cil_tmp22) = (struct task_struct *)__cil_tmp23;
     }
   } else {
@@ -9700,94 +7411,58 @@ static void vivi_stop_generating(struct vivi_dev *dev )
   }
   }
   {
-#line 643
   while (1) {
     while_continue___0: /* CIL Label */ ;
     {
-#line 643
     __cil_tmp24 = (struct list_head *)dma_q;
-#line 643
     __cil_tmp25 = (struct list_head    *)__cil_tmp24;
-#line 643
     tmp___7 = list_empty(__cil_tmp25);
     }
-#line 643
     if (tmp___7) {
-#line 643
       goto while_break___0;
     } else {
 
     }
     {
-#line 645
     __cil_tmp26 = *((struct list_head **)dma_q);
-#line 645
     __mptr = (struct list_head    *)__cil_tmp26;
-#line 645
     __cil_tmp27 = (struct vivi_buffer *)0;
-#line 645
     __cil_tmp28 = (unsigned long )__cil_tmp27;
-#line 645
     __cil_tmp29 = __cil_tmp28 + 712;
-#line 645
     __cil_tmp30 = (struct list_head *)__cil_tmp29;
-#line 645
     __cil_tmp31 = (unsigned int )__cil_tmp30;
-#line 645
     __cil_tmp32 = (char *)__mptr;
-#line 645
     __cil_tmp33 = __cil_tmp32 - __cil_tmp31;
-#line 645
     buf = (struct vivi_buffer *)__cil_tmp33;
-#line 646
     __cil_tmp34 = (unsigned long )buf;
-#line 646
     __cil_tmp35 = __cil_tmp34 + 712;
-#line 646
     __cil_tmp36 = (struct list_head *)__cil_tmp35;
-#line 646
     list_del(__cil_tmp36);
-#line 647
     __cil_tmp37 = (struct vb2_buffer *)buf;
-#line 647
     __cil_tmp38 = (enum vb2_buffer_state )5;
-#line 647
     vb2_buffer_done(__cil_tmp37, __cil_tmp38);
     }
     {
-#line 648
     while (1) {
       while_continue___1: /* CIL Label */ ;
       {
-#line 648
       __cil_tmp39 = & debug;
-#line 648
       __cil_tmp40 = *__cil_tmp39;
-#line 648
       if (__cil_tmp40 >= 2U) {
         {
-#line 648
         __cil_tmp41 = 0 * 1UL;
-#line 648
         __cil_tmp42 = 56 + __cil_tmp41;
-#line 648
         __cil_tmp43 = 16 + __cil_tmp42;
-#line 648
         __cil_tmp44 = (unsigned long )dev;
-#line 648
         __cil_tmp45 = __cil_tmp44 + __cil_tmp43;
-#line 648
         __cil_tmp46 = (char *)__cil_tmp45;
-#line 648
         __cil_tmp47 = *((__u32 *)buf);
-#line 648
         printk("<7>%s: [%p/%d] done\n", __cil_tmp46, buf, __cil_tmp47);
         }
       } else {
 
       }
       }
-#line 648
       goto while_break___1;
     }
     while_break___1: /* CIL Label */ ;
@@ -9795,11 +7470,9 @@ static void vivi_stop_generating(struct vivi_dev *dev )
   }
   while_break___0: /* CIL Label */ ;
   }
-#line 650
   return;
 }
 }
-#line 654 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/15067/dscv_tempdir/dscv/ri/32_1/drivers/media/video/vivi.c.common.c"
 static int queue_setup(struct vb2_queue *vq , struct v4l2_format    *fmt , unsigned int *nbuffers ,
                        unsigned int *nplanes , unsigned int *sizes , void **alloc_ctxs ) 
 { struct vivi_dev *dev ;
@@ -9836,109 +7509,67 @@ static int queue_setup(struct vb2_queue *vq , struct v4l2_format    *fmt , unsig
 
   {
   {
-#line 658
   tmp___7 = vb2_get_drv_priv(vq);
-#line 658
   dev = (struct vivi_dev *)tmp___7;
-#line 661
   __cil_tmp10 = (unsigned long )dev;
-#line 661
   __cil_tmp11 = __cil_tmp10 + 692;
-#line 661
   __cil_tmp12 = *((unsigned int *)__cil_tmp11);
-#line 661
   __cil_tmp13 = (unsigned long )dev;
-#line 661
   __cil_tmp14 = __cil_tmp13 + 688;
-#line 661
   __cil_tmp15 = *((unsigned int *)__cil_tmp14);
-#line 661
   __cil_tmp16 = __cil_tmp15 * __cil_tmp12;
-#line 661
   __cil_tmp17 = __cil_tmp16 * 2U;
-#line 661
   size = (unsigned long )__cil_tmp17;
   }
   {
-#line 663
   __cil_tmp18 = *nbuffers;
-#line 663
   if (0U == __cil_tmp18) {
-#line 664
     *nbuffers = 32U;
   } else {
 
   }
   }
   {
-#line 666
   while (1) {
     while_continue: /* CIL Label */ ;
     {
-#line 666
     __cil_tmp19 = & vid_limit;
-#line 666
     __cil_tmp20 = *__cil_tmp19;
-#line 666
     __cil_tmp21 = __cil_tmp20 * 1024U;
-#line 666
     __cil_tmp22 = __cil_tmp21 * 1024U;
-#line 666
     __cil_tmp23 = (unsigned long )__cil_tmp22;
-#line 666
     __cil_tmp24 = *nbuffers;
-#line 666
     __cil_tmp25 = (unsigned long )__cil_tmp24;
-#line 666
     __cil_tmp26 = size * __cil_tmp25;
-#line 666
     if (__cil_tmp26 > __cil_tmp23) {
 
     } else {
-#line 666
       goto while_break;
     }
     }
-#line 667
     __cil_tmp27 = *nbuffers;
-#line 667
     *nbuffers = __cil_tmp27 - 1U;
   }
   while_break: /* CIL Label */ ;
   }
-#line 669
   *nplanes = 1U;
-#line 671
   __cil_tmp28 = sizes + 0;
-#line 671
   *__cil_tmp28 = (unsigned int )size;
   {
-#line 678
   while (1) {
     while_continue___0: /* CIL Label */ ;
     {
-#line 678
     __cil_tmp29 = & debug;
-#line 678
     __cil_tmp30 = *__cil_tmp29;
-#line 678
     if (__cil_tmp30 >= 1U) {
       {
-#line 678
       __cil_tmp31 = 0 * 1UL;
-#line 678
       __cil_tmp32 = 56 + __cil_tmp31;
-#line 678
       __cil_tmp33 = 16 + __cil_tmp32;
-#line 678
       __cil_tmp34 = (unsigned long )dev;
-#line 678
       __cil_tmp35 = __cil_tmp34 + __cil_tmp33;
-#line 678
       __cil_tmp36 = (char *)__cil_tmp35;
-#line 678
       __cil_tmp37 = *nbuffers;
-#line 678
       printk("<7>%s: %s, count=%d, size=%ld\n", __cil_tmp36, "queue_setup", __cil_tmp37,
              size);
       }
@@ -9946,16 +7577,13 @@ static int queue_setup(struct vb2_queue *vq , struct v4l2_format    *fmt , unsig
 
     }
     }
-#line 678
     goto while_break___0;
   }
   while_break___0: /* CIL Label */ ;
   }
-#line 681
   return (0);
 }
 }
-#line 684 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/15067/dscv_tempdir/dscv/ri/32_1/drivers/media/video/vivi.c.common.c"
 static int buffer_init(struct vb2_buffer *vb ) 
 { struct vivi_dev *dev ;
   void *tmp___7 ;
@@ -9976,52 +7604,32 @@ static int buffer_init(struct vb2_buffer *vb )
 
   {
   {
-#line 686
   __cil_tmp5 = (unsigned long )vb;
-#line 686
   __cil_tmp6 = __cil_tmp5 + 600;
-#line 686
   __cil_tmp7 = *((struct vb2_queue **)__cil_tmp6);
-#line 686
   tmp___7 = vb2_get_drv_priv(__cil_tmp7);
-#line 686
   dev = (struct vivi_dev *)tmp___7;
   }
   {
-#line 688
   while (1) {
     while_continue: /* CIL Label */ ;
     {
-#line 688
     __cil_tmp8 = (unsigned long )dev;
-#line 688
     __cil_tmp9 = __cil_tmp8 + 680;
-#line 688
     __cil_tmp10 = *((struct vivi_fmt **)__cil_tmp9);
-#line 688
     __cil_tmp11 = (unsigned long )__cil_tmp10;
-#line 688
     __cil_tmp12 = (void *)0;
-#line 688
     __cil_tmp13 = (unsigned long )__cil_tmp12;
-#line 688
     __cil_tmp14 = __cil_tmp13 == __cil_tmp11;
-#line 688
     __cil_tmp15 = ! __cil_tmp14;
-#line 688
     __cil_tmp16 = ! __cil_tmp15;
-#line 688
     __cil_tmp17 = (long )__cil_tmp16;
-#line 688
     tmp___8 = ldv__builtin_expect(__cil_tmp17, 0L);
     }
-#line 688
     if (tmp___8) {
       {
-#line 688
       while (1) {
         while_continue___0: /* CIL Label */ ;
-#line 688
         __asm__  volatile   ("1:\tud2\n"
                              ".pushsection __bug_table,\"a\"\n"
                              "2:\t.long 1b - 2b, %c0 - 2b\n"
@@ -10030,13 +7638,11 @@ static int buffer_init(struct vb2_buffer *vb )
                              ".popsection": : "i" ("/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/15067/dscv_tempdir/dscv/ri/32_1/drivers/media/video/vivi.c.common.c"),
                              "i" (688), "i" (12UL));
         {
-#line 688
         while (1) {
           while_continue___1: /* CIL Label */ ;
         }
         while_break___1: /* CIL Label */ ;
         }
-#line 688
         goto while_break___0;
       }
       while_break___0: /* CIL Label */ ;
@@ -10044,16 +7650,13 @@ static int buffer_init(struct vb2_buffer *vb )
     } else {
 
     }
-#line 688
     goto while_break;
   }
   while_break: /* CIL Label */ ;
   }
-#line 702
   return (0);
 }
 }
-#line 705 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/15067/dscv_tempdir/dscv/ri/32_1/drivers/media/video/vivi.c.common.c"
 static int buffer_prepare(struct vb2_buffer *vb ) 
 { struct vivi_dev *dev ;
   void *tmp___7 ;
@@ -10130,112 +7733,68 @@ static int buffer_prepare(struct vb2_buffer *vb )
 
   {
   {
-#line 707
   __cil_tmp10 = (unsigned long )vb;
-#line 707
   __cil_tmp11 = __cil_tmp10 + 600;
-#line 707
   __cil_tmp12 = *((struct vb2_queue **)__cil_tmp11);
-#line 707
   tmp___7 = vb2_get_drv_priv(__cil_tmp12);
-#line 707
   dev = (struct vivi_dev *)tmp___7;
-#line 708
   __mptr = (struct vb2_buffer    *)vb;
-#line 708
   __cil_tmp13 = (struct vivi_buffer *)0;
-#line 708
   __cil_tmp14 = (struct vb2_buffer *)__cil_tmp13;
-#line 708
   __cil_tmp15 = (unsigned int )__cil_tmp14;
-#line 708
   __cil_tmp16 = (char *)__mptr;
-#line 708
   __cil_tmp17 = __cil_tmp16 - __cil_tmp15;
-#line 708
   buf = (struct vivi_buffer *)__cil_tmp17;
   }
   {
-#line 711
   while (1) {
     while_continue: /* CIL Label */ ;
     {
-#line 711
     __cil_tmp18 = & debug;
-#line 711
     __cil_tmp19 = *__cil_tmp18;
-#line 711
     if (__cil_tmp19 >= 1U) {
       {
-#line 711
       __cil_tmp20 = 0 * 1UL;
-#line 711
       __cil_tmp21 = 56 + __cil_tmp20;
-#line 711
       __cil_tmp22 = 16 + __cil_tmp21;
-#line 711
       __cil_tmp23 = (unsigned long )dev;
-#line 711
       __cil_tmp24 = __cil_tmp23 + __cil_tmp22;
-#line 711
       __cil_tmp25 = (char *)__cil_tmp24;
-#line 711
       __cil_tmp26 = 0 + 16;
-#line 711
       __cil_tmp27 = (unsigned long )vb;
-#line 711
       __cil_tmp28 = __cil_tmp27 + __cil_tmp26;
-#line 711
       __cil_tmp29 = *((enum v4l2_field *)__cil_tmp28);
-#line 711
       __cil_tmp30 = (unsigned int )__cil_tmp29;
-#line 711
       printk("<7>%s: %s, field=%d\n", __cil_tmp25, "buffer_prepare", __cil_tmp30);
       }
     } else {
 
     }
     }
-#line 711
     goto while_break;
   }
   while_break: /* CIL Label */ ;
   }
   {
-#line 713
   while (1) {
     while_continue___0: /* CIL Label */ ;
     {
-#line 713
     __cil_tmp31 = (unsigned long )dev;
-#line 713
     __cil_tmp32 = __cil_tmp31 + 680;
-#line 713
     __cil_tmp33 = *((struct vivi_fmt **)__cil_tmp32);
-#line 713
     __cil_tmp34 = (unsigned long )__cil_tmp33;
-#line 713
     __cil_tmp35 = (void *)0;
-#line 713
     __cil_tmp36 = (unsigned long )__cil_tmp35;
-#line 713
     __cil_tmp37 = __cil_tmp36 == __cil_tmp34;
-#line 713
     __cil_tmp38 = ! __cil_tmp37;
-#line 713
     __cil_tmp39 = ! __cil_tmp38;
-#line 713
     __cil_tmp40 = (long )__cil_tmp39;
-#line 713
     tmp___8 = ldv__builtin_expect(__cil_tmp40, 0L);
     }
-#line 713
     if (tmp___8) {
       {
-#line 713
       while (1) {
         while_continue___1: /* CIL Label */ ;
-#line 713
         __asm__  volatile   ("1:\tud2\n"
                              ".pushsection __bug_table,\"a\"\n"
                              "2:\t.long 1b - 2b, %c0 - 2b\n"
@@ -10244,13 +7803,11 @@ static int buffer_prepare(struct vb2_buffer *vb )
                              ".popsection": : "i" ("/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/15067/dscv_tempdir/dscv/ri/32_1/drivers/media/video/vivi.c.common.c"),
                              "i" (713), "i" (12UL));
         {
-#line 713
         while (1) {
           while_continue___2: /* CIL Label */ ;
         }
         while_break___2: /* CIL Label */ ;
         }
-#line 713
         goto while_break___1;
       }
       while_break___1: /* CIL Label */ ;
@@ -10258,57 +7815,36 @@ static int buffer_prepare(struct vb2_buffer *vb )
     } else {
 
     }
-#line 713
     goto while_break___0;
   }
   while_break___0: /* CIL Label */ ;
   }
   {
-#line 721
   __cil_tmp41 = (unsigned long )dev;
-#line 721
   __cil_tmp42 = __cil_tmp41 + 688;
-#line 721
   __cil_tmp43 = *((unsigned int *)__cil_tmp42);
-#line 721
   if (__cil_tmp43 < 48U) {
-#line 723
     return (-22);
   } else {
     {
-#line 721
     __cil_tmp44 = (unsigned long )dev;
-#line 721
     __cil_tmp45 = __cil_tmp44 + 688;
-#line 721
     __cil_tmp46 = *((unsigned int *)__cil_tmp45);
-#line 721
     if (__cil_tmp46 > 1920U) {
-#line 723
       return (-22);
     } else {
       {
-#line 721
       __cil_tmp47 = (unsigned long )dev;
-#line 721
       __cil_tmp48 = __cil_tmp47 + 692;
-#line 721
       __cil_tmp49 = *((unsigned int *)__cil_tmp48);
-#line 721
       if (__cil_tmp49 < 32U) {
-#line 723
         return (-22);
       } else {
         {
-#line 721
         __cil_tmp50 = (unsigned long )dev;
-#line 721
         __cil_tmp51 = __cil_tmp50 + 692;
-#line 721
         __cil_tmp52 = *((unsigned int *)__cil_tmp51);
-#line 721
         if (__cil_tmp52 > 1200U) {
-#line 723
           return (-22);
         } else {
 
@@ -10321,56 +7857,33 @@ static int buffer_prepare(struct vb2_buffer *vb )
   }
   }
   {
-#line 725
   __cil_tmp53 = (unsigned long )dev;
-#line 725
   __cil_tmp54 = __cil_tmp53 + 692;
-#line 725
   __cil_tmp55 = *((unsigned int *)__cil_tmp54);
-#line 725
   __cil_tmp56 = (unsigned long )dev;
-#line 725
   __cil_tmp57 = __cil_tmp56 + 688;
-#line 725
   __cil_tmp58 = *((unsigned int *)__cil_tmp57);
-#line 725
   __cil_tmp59 = __cil_tmp58 * __cil_tmp55;
-#line 725
   __cil_tmp60 = __cil_tmp59 * 2U;
-#line 725
   size = (unsigned long )__cil_tmp60;
-#line 726
   tmp___10 = vb2_plane_size(vb, 0U);
   }
-#line 726
   if (tmp___10 < size) {
     {
-#line 727
     while (1) {
       while_continue___3: /* CIL Label */ ;
       {
-#line 727
       __cil_tmp61 = & debug;
-#line 727
       __cil_tmp62 = *__cil_tmp61;
-#line 727
       if (__cil_tmp62 >= 1U) {
         {
-#line 727
         tmp___9 = vb2_plane_size(vb, 0U);
-#line 727
         __cil_tmp63 = 0 * 1UL;
-#line 727
         __cil_tmp64 = 56 + __cil_tmp63;
-#line 727
         __cil_tmp65 = 16 + __cil_tmp64;
-#line 727
         __cil_tmp66 = (unsigned long )dev;
-#line 727
         __cil_tmp67 = __cil_tmp66 + __cil_tmp65;
-#line 727
         __cil_tmp68 = (char *)__cil_tmp67;
-#line 727
         printk("<7>%s: %s data will not fit into plane (%lu < %lu)\n", __cil_tmp68,
                "buffer_prepare", tmp___9, size);
         }
@@ -10378,41 +7891,28 @@ static int buffer_prepare(struct vb2_buffer *vb )
 
       }
       }
-#line 727
       goto while_break___3;
     }
     while_break___3: /* CIL Label */ ;
     }
-#line 729
     return (-22);
   } else {
 
   }
   {
-#line 732
   __cil_tmp69 = (struct vb2_buffer *)buf;
-#line 732
   vb2_set_plane_payload(__cil_tmp69, 0U, size);
-#line 734
   __cil_tmp70 = (unsigned long )buf;
-#line 734
   __cil_tmp71 = __cil_tmp70 + 728;
-#line 734
   __cil_tmp72 = (unsigned long )dev;
-#line 734
   __cil_tmp73 = __cil_tmp72 + 680;
-#line 734
   *((struct vivi_fmt **)__cil_tmp71) = *((struct vivi_fmt **)__cil_tmp73);
-#line 736
   precalculate_bars(dev);
-#line 737
   precalculate_line(dev);
   }
-#line 739
   return (0);
 }
 }
-#line 742 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/15067/dscv_tempdir/dscv/ri/32_1/drivers/media/video/vivi.c.common.c"
 static int buffer_finish(struct vb2_buffer *vb ) 
 { struct vivi_dev *dev ;
   void *tmp___7 ;
@@ -10430,58 +7930,39 @@ static int buffer_finish(struct vb2_buffer *vb )
 
   {
   {
-#line 744
   __cil_tmp4 = (unsigned long )vb;
-#line 744
   __cil_tmp5 = __cil_tmp4 + 600;
-#line 744
   __cil_tmp6 = *((struct vb2_queue **)__cil_tmp5);
-#line 744
   tmp___7 = vb2_get_drv_priv(__cil_tmp6);
-#line 744
   dev = (struct vivi_dev *)tmp___7;
   }
   {
-#line 745
   while (1) {
     while_continue: /* CIL Label */ ;
     {
-#line 745
     __cil_tmp7 = & debug;
-#line 745
     __cil_tmp8 = *__cil_tmp7;
-#line 745
     if (__cil_tmp8 >= 1U) {
       {
-#line 745
       __cil_tmp9 = 0 * 1UL;
-#line 745
       __cil_tmp10 = 56 + __cil_tmp9;
-#line 745
       __cil_tmp11 = 16 + __cil_tmp10;
-#line 745
       __cil_tmp12 = (unsigned long )dev;
-#line 745
       __cil_tmp13 = __cil_tmp12 + __cil_tmp11;
-#line 745
       __cil_tmp14 = (char *)__cil_tmp13;
-#line 745
       printk("<7>%s: %s\n", __cil_tmp14, "buffer_finish");
       }
     } else {
 
     }
     }
-#line 745
     goto while_break;
   }
   while_break: /* CIL Label */ ;
   }
-#line 746
   return (0);
 }
 }
-#line 749 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/15067/dscv_tempdir/dscv/ri/32_1/drivers/media/video/vivi.c.common.c"
 static void buffer_cleanup(struct vb2_buffer *vb ) 
 { struct vivi_dev *dev ;
   void *tmp___7 ;
@@ -10499,58 +7980,39 @@ static void buffer_cleanup(struct vb2_buffer *vb )
 
   {
   {
-#line 751
   __cil_tmp4 = (unsigned long )vb;
-#line 751
   __cil_tmp5 = __cil_tmp4 + 600;
-#line 751
   __cil_tmp6 = *((struct vb2_queue **)__cil_tmp5);
-#line 751
   tmp___7 = vb2_get_drv_priv(__cil_tmp6);
-#line 751
   dev = (struct vivi_dev *)tmp___7;
   }
   {
-#line 752
   while (1) {
     while_continue: /* CIL Label */ ;
     {
-#line 752
     __cil_tmp7 = & debug;
-#line 752
     __cil_tmp8 = *__cil_tmp7;
-#line 752
     if (__cil_tmp8 >= 1U) {
       {
-#line 752
       __cil_tmp9 = 0 * 1UL;
-#line 752
       __cil_tmp10 = 56 + __cil_tmp9;
-#line 752
       __cil_tmp11 = 16 + __cil_tmp10;
-#line 752
       __cil_tmp12 = (unsigned long )dev;
-#line 752
       __cil_tmp13 = __cil_tmp12 + __cil_tmp11;
-#line 752
       __cil_tmp14 = (char *)__cil_tmp13;
-#line 752
       printk("<7>%s: %s\n", __cil_tmp14, "buffer_cleanup");
       }
     } else {
 
     }
     }
-#line 752
     goto while_break;
   }
   while_break: /* CIL Label */ ;
   }
-#line 754
   return;
 }
 }
-#line 756 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/15067/dscv_tempdir/dscv/ri/32_1/drivers/media/video/vivi.c.common.c"
 static void buffer_queue(struct vb2_buffer *vb ) 
 { struct vivi_dev *dev ;
   void *tmp___7 ;
@@ -10590,130 +8052,82 @@ static void buffer_queue(struct vb2_buffer *vb )
 
   {
   {
-#line 758
   __cil_tmp11 = (unsigned long )vb;
-#line 758
   __cil_tmp12 = __cil_tmp11 + 600;
-#line 758
   __cil_tmp13 = *((struct vb2_queue **)__cil_tmp12);
-#line 758
   tmp___7 = vb2_get_drv_priv(__cil_tmp13);
-#line 758
   dev = (struct vivi_dev *)tmp___7;
-#line 759
   __mptr = (struct vb2_buffer    *)vb;
-#line 759
   __cil_tmp14 = (struct vivi_buffer *)0;
-#line 759
   __cil_tmp15 = (struct vb2_buffer *)__cil_tmp14;
-#line 759
   __cil_tmp16 = (unsigned int )__cil_tmp15;
-#line 759
   __cil_tmp17 = (char *)__mptr;
-#line 759
   __cil_tmp18 = __cil_tmp17 - __cil_tmp16;
-#line 759
   buf = (struct vivi_buffer *)__cil_tmp18;
-#line 760
   __cil_tmp19 = (unsigned long )dev;
-#line 760
   __cil_tmp20 = __cil_tmp19 + 576;
-#line 760
   vidq = (struct vivi_dmaqueue *)__cil_tmp20;
-#line 761
   flags = 0UL;
   }
   {
-#line 763
   while (1) {
     while_continue: /* CIL Label */ ;
     {
-#line 763
     __cil_tmp21 = & debug;
-#line 763
     __cil_tmp22 = *__cil_tmp21;
-#line 763
     if (__cil_tmp22 >= 1U) {
       {
-#line 763
       __cil_tmp23 = 0 * 1UL;
-#line 763
       __cil_tmp24 = 56 + __cil_tmp23;
-#line 763
       __cil_tmp25 = 16 + __cil_tmp24;
-#line 763
       __cil_tmp26 = (unsigned long )dev;
-#line 763
       __cil_tmp27 = __cil_tmp26 + __cil_tmp25;
-#line 763
       __cil_tmp28 = (char *)__cil_tmp27;
-#line 763
       printk("<7>%s: %s\n", __cil_tmp28, "buffer_queue");
       }
     } else {
 
     }
     }
-#line 763
     goto while_break;
   }
   while_break: /* CIL Label */ ;
   }
   {
-#line 765
   while (1) {
     while_continue___0: /* CIL Label */ ;
     {
-#line 765
     while (1) {
       while_continue___1: /* CIL Label */ ;
       {
-#line 765
       __cil_tmp29 = (unsigned long )dev;
-#line 765
       __cil_tmp30 = __cil_tmp29 + 472;
-#line 765
       __cil_tmp31 = (spinlock_t *)__cil_tmp30;
-#line 765
       tmp___8 = spinlock_check(__cil_tmp31);
-#line 765
       flags = _raw_spin_lock_irqsave(tmp___8);
       }
-#line 765
       goto while_break___1;
     }
     while_break___1: /* CIL Label */ ;
     }
-#line 765
     goto while_break___0;
   }
   while_break___0: /* CIL Label */ ;
   }
   {
-#line 766
   __cil_tmp32 = (unsigned long )buf;
-#line 766
   __cil_tmp33 = __cil_tmp32 + 712;
-#line 766
   __cil_tmp34 = (struct list_head *)__cil_tmp33;
-#line 766
   __cil_tmp35 = (struct list_head *)vidq;
-#line 766
   list_add_tail(__cil_tmp34, __cil_tmp35);
-#line 767
   __cil_tmp36 = (unsigned long )dev;
-#line 767
   __cil_tmp37 = __cil_tmp36 + 472;
-#line 767
   __cil_tmp38 = (spinlock_t *)__cil_tmp37;
-#line 767
   spin_unlock_irqrestore(__cil_tmp38, flags);
   }
-#line 768
   return;
 }
 }
-#line 770 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/15067/dscv_tempdir/dscv/ri/32_1/drivers/media/video/vivi.c.common.c"
 static int start_streaming(struct vb2_queue *vq , unsigned int count ) 
 { struct vivi_dev *dev ;
   void *tmp___7 ;
@@ -10729,56 +8143,39 @@ static int start_streaming(struct vb2_queue *vq , unsigned int count )
 
   {
   {
-#line 772
   tmp___7 = vb2_get_drv_priv(vq);
-#line 772
   dev = (struct vivi_dev *)tmp___7;
   }
   {
-#line 773
   while (1) {
     while_continue: /* CIL Label */ ;
     {
-#line 773
     __cil_tmp6 = & debug;
-#line 773
     __cil_tmp7 = *__cil_tmp6;
-#line 773
     if (__cil_tmp7 >= 1U) {
       {
-#line 773
       __cil_tmp8 = 0 * 1UL;
-#line 773
       __cil_tmp9 = 56 + __cil_tmp8;
-#line 773
       __cil_tmp10 = 16 + __cil_tmp9;
-#line 773
       __cil_tmp11 = (unsigned long )dev;
-#line 773
       __cil_tmp12 = __cil_tmp11 + __cil_tmp10;
-#line 773
       __cil_tmp13 = (char *)__cil_tmp12;
-#line 773
       printk("<7>%s: %s\n", __cil_tmp13, "start_streaming");
       }
     } else {
 
     }
     }
-#line 773
     goto while_break;
   }
   while_break: /* CIL Label */ ;
   }
   {
-#line 774
   tmp___8 = vivi_start_generating(dev);
   }
-#line 774
   return (tmp___8);
 }
 }
-#line 778 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/15067/dscv_tempdir/dscv/ri/32_1/drivers/media/video/vivi.c.common.c"
 static int stop_streaming(struct vb2_queue *vq ) 
 { struct vivi_dev *dev ;
   void *tmp___7 ;
@@ -10793,56 +8190,39 @@ static int stop_streaming(struct vb2_queue *vq )
 
   {
   {
-#line 780
   tmp___7 = vb2_get_drv_priv(vq);
-#line 780
   dev = (struct vivi_dev *)tmp___7;
   }
   {
-#line 781
   while (1) {
     while_continue: /* CIL Label */ ;
     {
-#line 781
     __cil_tmp4 = & debug;
-#line 781
     __cil_tmp5 = *__cil_tmp4;
-#line 781
     if (__cil_tmp5 >= 1U) {
       {
-#line 781
       __cil_tmp6 = 0 * 1UL;
-#line 781
       __cil_tmp7 = 56 + __cil_tmp6;
-#line 781
       __cil_tmp8 = 16 + __cil_tmp7;
-#line 781
       __cil_tmp9 = (unsigned long )dev;
-#line 781
       __cil_tmp10 = __cil_tmp9 + __cil_tmp8;
-#line 781
       __cil_tmp11 = (char *)__cil_tmp10;
-#line 781
       printk("<7>%s: %s\n", __cil_tmp11, "stop_streaming");
       }
     } else {
 
     }
     }
-#line 781
     goto while_break;
   }
   while_break: /* CIL Label */ ;
   }
   {
-#line 782
   vivi_stop_generating(dev);
   }
-#line 783
   return (0);
 }
 }
-#line 786 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/15067/dscv_tempdir/dscv/ri/32_1/drivers/media/video/vivi.c.common.c"
 static void vivi_lock(struct vb2_queue *vq ) 
 { struct vivi_dev *dev ;
   void *tmp___7 ;
@@ -10852,24 +8232,16 @@ static void vivi_lock(struct vb2_queue *vq )
 
   {
   {
-#line 788
   tmp___7 = vb2_get_drv_priv(vq);
-#line 788
   dev = (struct vivi_dev *)tmp___7;
-#line 789
   __cil_tmp4 = (unsigned long )dev;
-#line 789
   __cil_tmp5 = __cil_tmp4 + 496;
-#line 789
   __cil_tmp6 = (struct mutex *)__cil_tmp5;
-#line 789
   mutex_lock(__cil_tmp6);
   }
-#line 790
   return;
 }
 }
-#line 792 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/15067/dscv_tempdir/dscv/ri/32_1/drivers/media/video/vivi.c.common.c"
 static void vivi_unlock(struct vb2_queue *vq ) 
 { struct vivi_dev *dev ;
   void *tmp___7 ;
@@ -10879,29 +8251,19 @@ static void vivi_unlock(struct vb2_queue *vq )
 
   {
   {
-#line 794
   tmp___7 = vb2_get_drv_priv(vq);
-#line 794
   dev = (struct vivi_dev *)tmp___7;
-#line 795
   __cil_tmp4 = (unsigned long )dev;
-#line 795
   __cil_tmp5 = __cil_tmp4 + 496;
-#line 795
   __cil_tmp6 = (struct mutex *)__cil_tmp5;
-#line 795
   mutex_unlock(__cil_tmp6);
   }
-#line 796
   return;
 }
 }
-#line 799 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/15067/dscv_tempdir/dscv/ri/32_1/drivers/media/video/vivi.c.common.c"
 static struct vb2_ops vivi_video_qops  = 
-#line 799
      {& queue_setup, & vivi_unlock, & vivi_lock, & buffer_init, & buffer_prepare, & buffer_finish,
     & buffer_cleanup, & start_streaming, & stop_streaming, & buffer_queue};
-#line 815 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/15067/dscv_tempdir/dscv/ri/32_1/drivers/media/video/vivi.c.common.c"
 static int vidioc_querycap(struct file *file , void *priv , struct v4l2_capability *cap ) 
 { struct vivi_dev *dev ;
   void *tmp___7 ;
@@ -10940,90 +8302,49 @@ static int vidioc_querycap(struct file *file , void *priv , struct v4l2_capabili
 
   {
   {
-#line 818
   tmp___7 = video_drvdata(file);
-#line 818
   dev = (struct vivi_dev *)tmp___7;
-#line 820
   __cil_tmp6 = 0 * 1UL;
-#line 820
   __cil_tmp7 = 0 + __cil_tmp6;
-#line 820
   __cil_tmp8 = (unsigned long )cap;
-#line 820
   __cil_tmp9 = __cil_tmp8 + __cil_tmp7;
-#line 820
   __cil_tmp10 = (__u8 *)__cil_tmp9;
-#line 820
   __cil_tmp11 = (char *)__cil_tmp10;
-#line 820
   strcpy(__cil_tmp11, "vivi");
-#line 821
   __cil_tmp12 = 0 * 1UL;
-#line 821
   __cil_tmp13 = 16 + __cil_tmp12;
-#line 821
   __cil_tmp14 = (unsigned long )cap;
-#line 821
   __cil_tmp15 = __cil_tmp14 + __cil_tmp13;
-#line 821
   __cil_tmp16 = (__u8 *)__cil_tmp15;
-#line 821
   __cil_tmp17 = (char *)__cil_tmp16;
-#line 821
   strcpy(__cil_tmp17, "vivi");
-#line 822
   __cil_tmp18 = 0 * 1UL;
-#line 822
   __cil_tmp19 = 48 + __cil_tmp18;
-#line 822
   __cil_tmp20 = (unsigned long )cap;
-#line 822
   __cil_tmp21 = __cil_tmp20 + __cil_tmp19;
-#line 822
   __cil_tmp22 = (__u8 *)__cil_tmp21;
-#line 822
   __cil_tmp23 = (char *)__cil_tmp22;
-#line 822
   __cil_tmp24 = 0 * 1UL;
-#line 822
   __cil_tmp25 = 56 + __cil_tmp24;
-#line 822
   __cil_tmp26 = 16 + __cil_tmp25;
-#line 822
   __cil_tmp27 = (unsigned long )dev;
-#line 822
   __cil_tmp28 = __cil_tmp27 + __cil_tmp26;
-#line 822
   __cil_tmp29 = (char *)__cil_tmp28;
-#line 822
   __cil_tmp30 = (char    *)__cil_tmp29;
-#line 822
   strlcpy(__cil_tmp23, __cil_tmp30, 32UL);
-#line 823
   __cil_tmp31 = (unsigned long )cap;
-#line 823
   __cil_tmp32 = __cil_tmp31 + 88;
-#line 823
   *((__u32 *)__cil_tmp32) = (__u32 )83886081;
-#line 825
   __cil_tmp33 = (unsigned long )cap;
-#line 825
   __cil_tmp34 = __cil_tmp33 + 84;
-#line 825
   __cil_tmp35 = (unsigned long )cap;
-#line 825
   __cil_tmp36 = __cil_tmp35 + 88;
-#line 825
   __cil_tmp37 = *((__u32 *)__cil_tmp36);
-#line 825
   *((__u32 *)__cil_tmp34) = __cil_tmp37 | 2147483648U;
   }
-#line 826
   return (0);
 }
 }
-#line 829 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/15067/dscv_tempdir/dscv/ri/32_1/drivers/media/video/vivi.c.common.c"
 static int vidioc_enum_fmt_vid_cap(struct file *file , void *priv , struct v4l2_fmtdesc *f ) 
 { struct vivi_fmt *fmt ;
   unsigned long __cil_tmp5 ;
@@ -11048,65 +8369,39 @@ static int vidioc_enum_fmt_vid_cap(struct file *file , void *priv , struct v4l2_
 
   {
   {
-#line 834
   __cil_tmp5 = 96UL / 16UL;
-#line 834
   __cil_tmp6 = __cil_tmp5 + 0UL;
-#line 834
   __cil_tmp7 = *((__u32 *)f);
-#line 834
   __cil_tmp8 = (unsigned long )__cil_tmp7;
-#line 834
   if (__cil_tmp8 >= __cil_tmp6) {
-#line 835
     return (-22);
   } else {
 
   }
   }
   {
-#line 837
   __cil_tmp9 = *((__u32 *)f);
-#line 837
   __cil_tmp10 = __cil_tmp9 * 16UL;
-#line 837
   __cil_tmp11 = (unsigned long )(formats) + __cil_tmp10;
-#line 837
   fmt = (struct vivi_fmt *)__cil_tmp11;
-#line 839
   __cil_tmp12 = 0 * 1UL;
-#line 839
   __cil_tmp13 = 12 + __cil_tmp12;
-#line 839
   __cil_tmp14 = (unsigned long )f;
-#line 839
   __cil_tmp15 = __cil_tmp14 + __cil_tmp13;
-#line 839
   __cil_tmp16 = (__u8 *)__cil_tmp15;
-#line 839
   __cil_tmp17 = (char *)__cil_tmp16;
-#line 839
   __cil_tmp18 = *((char **)fmt);
-#line 839
   __cil_tmp19 = (char    *)__cil_tmp18;
-#line 839
   strlcpy(__cil_tmp17, __cil_tmp19, 32UL);
-#line 840
   __cil_tmp20 = (unsigned long )f;
-#line 840
   __cil_tmp21 = __cil_tmp20 + 44;
-#line 840
   __cil_tmp22 = (unsigned long )fmt;
-#line 840
   __cil_tmp23 = __cil_tmp22 + 8;
-#line 840
   *((__u32 *)__cil_tmp21) = *((u32 *)__cil_tmp23);
   }
-#line 841
   return (0);
 }
 }
-#line 844 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/15067/dscv_tempdir/dscv/ri/32_1/drivers/media/video/vivi.c.common.c"
 static int vidioc_g_fmt_vid_cap(struct file *file , void *priv , struct v4l2_format *f ) 
 { struct vivi_dev *dev ;
   void *tmp___7 ;
@@ -11203,226 +8498,121 @@ static int vidioc_g_fmt_vid_cap(struct file *file , void *priv , struct v4l2_for
 
   {
   {
-#line 847
   tmp___7 = video_drvdata(file);
-#line 847
   dev = (struct vivi_dev *)tmp___7;
-#line 849
   __cil_tmp6 = (unsigned long )f;
-#line 849
   __cil_tmp7 = __cil_tmp6 + 8;
-#line 849
   __cil_tmp8 = (unsigned long )dev;
-#line 849
   __cil_tmp9 = __cil_tmp8 + 688;
-#line 849
   *((__u32 *)__cil_tmp7) = *((unsigned int *)__cil_tmp9);
-#line 850
   __cil_tmp10 = 0 + 4;
-#line 850
   __cil_tmp11 = 8 + __cil_tmp10;
-#line 850
   __cil_tmp12 = (unsigned long )f;
-#line 850
   __cil_tmp13 = __cil_tmp12 + __cil_tmp11;
-#line 850
   __cil_tmp14 = (unsigned long )dev;
-#line 850
   __cil_tmp15 = __cil_tmp14 + 692;
-#line 850
   *((__u32 *)__cil_tmp13) = *((unsigned int *)__cil_tmp15);
-#line 851
   __cil_tmp16 = 0 + 12;
-#line 851
   __cil_tmp17 = 8 + __cil_tmp16;
-#line 851
   __cil_tmp18 = (unsigned long )f;
-#line 851
   __cil_tmp19 = __cil_tmp18 + __cil_tmp17;
-#line 851
   __cil_tmp20 = (unsigned long )dev;
-#line 851
   __cil_tmp21 = __cil_tmp20 + 1224;
-#line 851
   *((enum v4l2_field *)__cil_tmp19) = *((enum v4l2_field *)__cil_tmp21);
-#line 852
   __cil_tmp22 = 0 + 8;
-#line 852
   __cil_tmp23 = 8 + __cil_tmp22;
-#line 852
   __cil_tmp24 = (unsigned long )f;
-#line 852
   __cil_tmp25 = __cil_tmp24 + __cil_tmp23;
-#line 852
   __cil_tmp26 = (unsigned long )dev;
-#line 852
   __cil_tmp27 = __cil_tmp26 + 680;
-#line 852
   __cil_tmp28 = *((struct vivi_fmt **)__cil_tmp27);
-#line 852
   __cil_tmp29 = (unsigned long )__cil_tmp28;
-#line 852
   __cil_tmp30 = __cil_tmp29 + 8;
-#line 852
   *((__u32 *)__cil_tmp25) = *((u32 *)__cil_tmp30);
-#line 853
   __cil_tmp31 = 0 + 16;
-#line 853
   __cil_tmp32 = 8 + __cil_tmp31;
-#line 853
   __cil_tmp33 = (unsigned long )f;
-#line 853
   __cil_tmp34 = __cil_tmp33 + __cil_tmp32;
-#line 853
   __cil_tmp35 = (unsigned long )dev;
-#line 853
   __cil_tmp36 = __cil_tmp35 + 680;
-#line 853
   __cil_tmp37 = *((struct vivi_fmt **)__cil_tmp36);
-#line 853
   __cil_tmp38 = (unsigned long )__cil_tmp37;
-#line 853
   __cil_tmp39 = __cil_tmp38 + 12;
-#line 853
   __cil_tmp40 = *((int *)__cil_tmp39);
-#line 853
   __cil_tmp41 = (__u32 )__cil_tmp40;
-#line 853
   __cil_tmp42 = (unsigned long )f;
-#line 853
   __cil_tmp43 = __cil_tmp42 + 8;
-#line 853
   __cil_tmp44 = *((__u32 *)__cil_tmp43);
-#line 853
   __cil_tmp45 = __cil_tmp44 * __cil_tmp41;
-#line 853
   *((__u32 *)__cil_tmp34) = __cil_tmp45 >> 3;
-#line 855
   __cil_tmp46 = 0 + 20;
-#line 855
   __cil_tmp47 = 8 + __cil_tmp46;
-#line 855
   __cil_tmp48 = (unsigned long )f;
-#line 855
   __cil_tmp49 = __cil_tmp48 + __cil_tmp47;
-#line 855
   __cil_tmp50 = 0 + 16;
-#line 855
   __cil_tmp51 = 8 + __cil_tmp50;
-#line 855
   __cil_tmp52 = (unsigned long )f;
-#line 855
   __cil_tmp53 = __cil_tmp52 + __cil_tmp51;
-#line 855
   __cil_tmp54 = *((__u32 *)__cil_tmp53);
-#line 855
   __cil_tmp55 = 0 + 4;
-#line 855
   __cil_tmp56 = 8 + __cil_tmp55;
-#line 855
   __cil_tmp57 = (unsigned long )f;
-#line 855
   __cil_tmp58 = __cil_tmp57 + __cil_tmp56;
-#line 855
   __cil_tmp59 = *((__u32 *)__cil_tmp58);
-#line 855
   *((__u32 *)__cil_tmp49) = __cil_tmp59 * __cil_tmp54;
   }
   {
-#line 857
   __cil_tmp60 = 86U << 24;
-#line 857
   __cil_tmp61 = 89U << 16;
-#line 857
   __cil_tmp62 = 85U << 8;
-#line 857
   __cil_tmp63 = 89U | __cil_tmp62;
-#line 857
   __cil_tmp64 = __cil_tmp63 | __cil_tmp61;
-#line 857
   __cil_tmp65 = __cil_tmp64 | __cil_tmp60;
-#line 857
   __cil_tmp66 = (unsigned long )dev;
-#line 857
   __cil_tmp67 = __cil_tmp66 + 680;
-#line 857
   __cil_tmp68 = *((struct vivi_fmt **)__cil_tmp67);
-#line 857
   __cil_tmp69 = (unsigned long )__cil_tmp68;
-#line 857
   __cil_tmp70 = __cil_tmp69 + 8;
-#line 857
   __cil_tmp71 = *((u32 *)__cil_tmp70);
-#line 857
   if (__cil_tmp71 == __cil_tmp65) {
-#line 859
     __cil_tmp72 = 0 + 24;
-#line 859
     __cil_tmp73 = 8 + __cil_tmp72;
-#line 859
     __cil_tmp74 = (unsigned long )f;
-#line 859
     __cil_tmp75 = __cil_tmp74 + __cil_tmp73;
-#line 859
     *((enum v4l2_colorspace *)__cil_tmp75) = (enum v4l2_colorspace )1;
   } else {
     {
-#line 857
     __cil_tmp76 = 89U << 24;
-#line 857
     __cil_tmp77 = 86U << 16;
-#line 857
     __cil_tmp78 = 89U << 8;
-#line 857
     __cil_tmp79 = 85U | __cil_tmp78;
-#line 857
     __cil_tmp80 = __cil_tmp79 | __cil_tmp77;
-#line 857
     __cil_tmp81 = __cil_tmp80 | __cil_tmp76;
-#line 857
     __cil_tmp82 = (unsigned long )dev;
-#line 857
     __cil_tmp83 = __cil_tmp82 + 680;
-#line 857
     __cil_tmp84 = *((struct vivi_fmt **)__cil_tmp83);
-#line 857
     __cil_tmp85 = (unsigned long )__cil_tmp84;
-#line 857
     __cil_tmp86 = __cil_tmp85 + 8;
-#line 857
     __cil_tmp87 = *((u32 *)__cil_tmp86);
-#line 857
     if (__cil_tmp87 == __cil_tmp81) {
-#line 859
       __cil_tmp88 = 0 + 24;
-#line 859
       __cil_tmp89 = 8 + __cil_tmp88;
-#line 859
       __cil_tmp90 = (unsigned long )f;
-#line 859
       __cil_tmp91 = __cil_tmp90 + __cil_tmp89;
-#line 859
       *((enum v4l2_colorspace *)__cil_tmp91) = (enum v4l2_colorspace )1;
     } else {
-#line 861
       __cil_tmp92 = 0 + 24;
-#line 861
       __cil_tmp93 = 8 + __cil_tmp92;
-#line 861
       __cil_tmp94 = (unsigned long )f;
-#line 861
       __cil_tmp95 = __cil_tmp94 + __cil_tmp93;
-#line 861
       *((enum v4l2_colorspace *)__cil_tmp95) = (enum v4l2_colorspace )8;
     }
     }
   }
   }
-#line 862
   return (0);
 }
 }
-#line 865 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/15067/dscv_tempdir/dscv/ri/32_1/drivers/media/video/vivi.c.common.c"
 static int vidioc_try_fmt_vid_cap(struct file *file , void *priv , struct v4l2_format *f ) 
 { struct vivi_dev *dev ;
   void *tmp___7 ;
@@ -11526,126 +8716,81 @@ static int vidioc_try_fmt_vid_cap(struct file *file , void *priv , struct v4l2_f
 
   {
   {
-#line 868
   tmp___7 = video_drvdata(file);
-#line 868
   dev = (struct vivi_dev *)tmp___7;
-#line 872
   fmt = get_format(f);
   }
-#line 873
   if (! fmt) {
     {
-#line 874
     while (1) {
       while_continue: /* CIL Label */ ;
       {
-#line 874
       __cil_tmp8 = & debug;
-#line 874
       __cil_tmp9 = *__cil_tmp8;
-#line 874
       if (__cil_tmp9 >= 1U) {
         {
-#line 874
         __cil_tmp10 = 0 * 1UL;
-#line 874
         __cil_tmp11 = 56 + __cil_tmp10;
-#line 874
         __cil_tmp12 = 16 + __cil_tmp11;
-#line 874
         __cil_tmp13 = (unsigned long )dev;
-#line 874
         __cil_tmp14 = __cil_tmp13 + __cil_tmp12;
-#line 874
         __cil_tmp15 = (char *)__cil_tmp14;
-#line 874
         __cil_tmp16 = 0 + 8;
-#line 874
         __cil_tmp17 = 8 + __cil_tmp16;
-#line 874
         __cil_tmp18 = (unsigned long )f;
-#line 874
         __cil_tmp19 = __cil_tmp18 + __cil_tmp17;
-#line 874
         __cil_tmp20 = *((__u32 *)__cil_tmp19);
-#line 874
         printk("<7>%s: Fourcc format (0x%08x) invalid.\n", __cil_tmp15, __cil_tmp20);
         }
       } else {
 
       }
       }
-#line 874
       goto while_break;
     }
     while_break: /* CIL Label */ ;
     }
-#line 876
     return (-22);
   } else {
 
   }
-#line 879
   __cil_tmp21 = 0 + 12;
-#line 879
   __cil_tmp22 = 8 + __cil_tmp21;
-#line 879
   __cil_tmp23 = (unsigned long )f;
-#line 879
   __cil_tmp24 = __cil_tmp23 + __cil_tmp22;
-#line 879
   field = *((enum v4l2_field *)__cil_tmp24);
   {
-#line 881
   __cil_tmp25 = (unsigned int )field;
-#line 881
   if (__cil_tmp25 == 0U) {
-#line 882
     field = (enum v4l2_field )4;
   } else {
     {
-#line 883
     __cil_tmp26 = (unsigned int )field;
-#line 883
     if (4U != __cil_tmp26) {
       {
-#line 884
       while (1) {
         while_continue___0: /* CIL Label */ ;
         {
-#line 884
         __cil_tmp27 = & debug;
-#line 884
         __cil_tmp28 = *__cil_tmp27;
-#line 884
         if (__cil_tmp28 >= 1U) {
           {
-#line 884
           __cil_tmp29 = 0 * 1UL;
-#line 884
           __cil_tmp30 = 56 + __cil_tmp29;
-#line 884
           __cil_tmp31 = 16 + __cil_tmp30;
-#line 884
           __cil_tmp32 = (unsigned long )dev;
-#line 884
           __cil_tmp33 = __cil_tmp32 + __cil_tmp31;
-#line 884
           __cil_tmp34 = (char *)__cil_tmp33;
-#line 884
           printk("<7>%s: Field type invalid.\n", __cil_tmp34);
           }
         } else {
 
         }
         }
-#line 884
         goto while_break___0;
       }
       while_break___0: /* CIL Label */ ;
       }
-#line 885
       return (-22);
     } else {
 
@@ -11654,175 +8799,96 @@ static int vidioc_try_fmt_vid_cap(struct file *file , void *priv , struct v4l2_f
   }
   }
   {
-#line 888
   __cil_tmp35 = 0 + 12;
-#line 888
   __cil_tmp36 = 8 + __cil_tmp35;
-#line 888
   __cil_tmp37 = (unsigned long )f;
-#line 888
   __cil_tmp38 = __cil_tmp37 + __cil_tmp36;
-#line 888
   *((enum v4l2_field *)__cil_tmp38) = field;
-#line 889
   __cil_tmp39 = (unsigned long )f;
-#line 889
   __cil_tmp40 = __cil_tmp39 + 8;
-#line 889
   __cil_tmp41 = (__u32 *)__cil_tmp40;
-#line 889
   __cil_tmp42 = 0 + 4;
-#line 889
   __cil_tmp43 = 8 + __cil_tmp42;
-#line 889
   __cil_tmp44 = (unsigned long )f;
-#line 889
   __cil_tmp45 = __cil_tmp44 + __cil_tmp43;
-#line 889
   __cil_tmp46 = (__u32 *)__cil_tmp45;
-#line 889
   v4l_bound_align_image(__cil_tmp41, 48U, 1920U, 2U, __cil_tmp46, 32U, 1200U, 0U,
                         0U);
-#line 891
   __cil_tmp47 = 0 + 16;
-#line 891
   __cil_tmp48 = 8 + __cil_tmp47;
-#line 891
   __cil_tmp49 = (unsigned long )f;
-#line 891
   __cil_tmp50 = __cil_tmp49 + __cil_tmp48;
-#line 891
   __cil_tmp51 = (unsigned long )fmt;
-#line 891
   __cil_tmp52 = __cil_tmp51 + 12;
-#line 891
   __cil_tmp53 = *((int *)__cil_tmp52);
-#line 891
   __cil_tmp54 = (__u32 )__cil_tmp53;
-#line 891
   __cil_tmp55 = (unsigned long )f;
-#line 891
   __cil_tmp56 = __cil_tmp55 + 8;
-#line 891
   __cil_tmp57 = *((__u32 *)__cil_tmp56);
-#line 891
   __cil_tmp58 = __cil_tmp57 * __cil_tmp54;
-#line 891
   *((__u32 *)__cil_tmp50) = __cil_tmp58 >> 3;
-#line 893
   __cil_tmp59 = 0 + 20;
-#line 893
   __cil_tmp60 = 8 + __cil_tmp59;
-#line 893
   __cil_tmp61 = (unsigned long )f;
-#line 893
   __cil_tmp62 = __cil_tmp61 + __cil_tmp60;
-#line 893
   __cil_tmp63 = 0 + 16;
-#line 893
   __cil_tmp64 = 8 + __cil_tmp63;
-#line 893
   __cil_tmp65 = (unsigned long )f;
-#line 893
   __cil_tmp66 = __cil_tmp65 + __cil_tmp64;
-#line 893
   __cil_tmp67 = *((__u32 *)__cil_tmp66);
-#line 893
   __cil_tmp68 = 0 + 4;
-#line 893
   __cil_tmp69 = 8 + __cil_tmp68;
-#line 893
   __cil_tmp70 = (unsigned long )f;
-#line 893
   __cil_tmp71 = __cil_tmp70 + __cil_tmp69;
-#line 893
   __cil_tmp72 = *((__u32 *)__cil_tmp71);
-#line 893
   *((__u32 *)__cil_tmp62) = __cil_tmp72 * __cil_tmp67;
   }
   {
-#line 895
   __cil_tmp73 = 86U << 24;
-#line 895
   __cil_tmp74 = 89U << 16;
-#line 895
   __cil_tmp75 = 85U << 8;
-#line 895
   __cil_tmp76 = 89U | __cil_tmp75;
-#line 895
   __cil_tmp77 = __cil_tmp76 | __cil_tmp74;
-#line 895
   __cil_tmp78 = __cil_tmp77 | __cil_tmp73;
-#line 895
   __cil_tmp79 = (unsigned long )fmt;
-#line 895
   __cil_tmp80 = __cil_tmp79 + 8;
-#line 895
   __cil_tmp81 = *((u32 *)__cil_tmp80);
-#line 895
   if (__cil_tmp81 == __cil_tmp78) {
-#line 897
     __cil_tmp82 = 0 + 24;
-#line 897
     __cil_tmp83 = 8 + __cil_tmp82;
-#line 897
     __cil_tmp84 = (unsigned long )f;
-#line 897
     __cil_tmp85 = __cil_tmp84 + __cil_tmp83;
-#line 897
     *((enum v4l2_colorspace *)__cil_tmp85) = (enum v4l2_colorspace )1;
   } else {
     {
-#line 895
     __cil_tmp86 = 89U << 24;
-#line 895
     __cil_tmp87 = 86U << 16;
-#line 895
     __cil_tmp88 = 89U << 8;
-#line 895
     __cil_tmp89 = 85U | __cil_tmp88;
-#line 895
     __cil_tmp90 = __cil_tmp89 | __cil_tmp87;
-#line 895
     __cil_tmp91 = __cil_tmp90 | __cil_tmp86;
-#line 895
     __cil_tmp92 = (unsigned long )fmt;
-#line 895
     __cil_tmp93 = __cil_tmp92 + 8;
-#line 895
     __cil_tmp94 = *((u32 *)__cil_tmp93);
-#line 895
     if (__cil_tmp94 == __cil_tmp91) {
-#line 897
       __cil_tmp95 = 0 + 24;
-#line 897
       __cil_tmp96 = 8 + __cil_tmp95;
-#line 897
       __cil_tmp97 = (unsigned long )f;
-#line 897
       __cil_tmp98 = __cil_tmp97 + __cil_tmp96;
-#line 897
       *((enum v4l2_colorspace *)__cil_tmp98) = (enum v4l2_colorspace )1;
     } else {
-#line 899
       __cil_tmp99 = 0 + 24;
-#line 899
       __cil_tmp100 = 8 + __cil_tmp99;
-#line 899
       __cil_tmp101 = (unsigned long )f;
-#line 899
       __cil_tmp102 = __cil_tmp101 + __cil_tmp100;
-#line 899
       *((enum v4l2_colorspace *)__cil_tmp102) = (enum v4l2_colorspace )8;
     }
     }
   }
   }
-#line 900
   return (0);
 }
 }
-#line 903 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/15067/dscv_tempdir/dscv/ri/32_1/drivers/media/video/vivi.c.common.c"
 static int vidioc_s_fmt_vid_cap(struct file *file , void *priv , struct v4l2_format *f ) 
 { struct vivi_dev *dev ;
   void *tmp___7 ;
@@ -11861,126 +8927,78 @@ static int vidioc_s_fmt_vid_cap(struct file *file , void *priv , struct v4l2_for
 
   {
   {
-#line 906
   tmp___7 = video_drvdata(file);
-#line 906
   dev = (struct vivi_dev *)tmp___7;
-#line 907
   __cil_tmp10 = (unsigned long )dev;
-#line 907
   __cil_tmp11 = __cil_tmp10 + 696;
-#line 907
   q = (struct vb2_queue *)__cil_tmp11;
-#line 909
   tmp___8 = vidioc_try_fmt_vid_cap(file, priv, f);
-#line 909
   ret = tmp___8;
   }
-#line 910
   if (ret < 0) {
-#line 911
     return (ret);
   } else {
 
   }
   {
-#line 913
   tmp___9 = vb2_is_streaming(q);
   }
-#line 913
   if (tmp___9) {
     {
-#line 914
     while (1) {
       while_continue: /* CIL Label */ ;
       {
-#line 914
       __cil_tmp12 = & debug;
-#line 914
       __cil_tmp13 = *__cil_tmp12;
-#line 914
       if (__cil_tmp13 >= 1U) {
         {
-#line 914
         __cil_tmp14 = 0 * 1UL;
-#line 914
         __cil_tmp15 = 56 + __cil_tmp14;
-#line 914
         __cil_tmp16 = 16 + __cil_tmp15;
-#line 914
         __cil_tmp17 = (unsigned long )dev;
-#line 914
         __cil_tmp18 = __cil_tmp17 + __cil_tmp16;
-#line 914
         __cil_tmp19 = (char *)__cil_tmp18;
-#line 914
         printk("<7>%s: %s device busy\n", __cil_tmp19, "vidioc_s_fmt_vid_cap");
         }
       } else {
 
       }
       }
-#line 914
       goto while_break;
     }
     while_break: /* CIL Label */ ;
     }
-#line 915
     return (-16);
   } else {
 
   }
   {
-#line 918
   __cil_tmp20 = (unsigned long )dev;
-#line 918
   __cil_tmp21 = __cil_tmp20 + 680;
-#line 918
   *((struct vivi_fmt **)__cil_tmp21) = get_format(f);
-#line 919
   __cil_tmp22 = (unsigned long )dev;
-#line 919
   __cil_tmp23 = __cil_tmp22 + 688;
-#line 919
   __cil_tmp24 = (unsigned long )f;
-#line 919
   __cil_tmp25 = __cil_tmp24 + 8;
-#line 919
   *((unsigned int *)__cil_tmp23) = *((__u32 *)__cil_tmp25);
-#line 920
   __cil_tmp26 = (unsigned long )dev;
-#line 920
   __cil_tmp27 = __cil_tmp26 + 692;
-#line 920
   __cil_tmp28 = 0 + 4;
-#line 920
   __cil_tmp29 = 8 + __cil_tmp28;
-#line 920
   __cil_tmp30 = (unsigned long )f;
-#line 920
   __cil_tmp31 = __cil_tmp30 + __cil_tmp29;
-#line 920
   *((unsigned int *)__cil_tmp27) = *((__u32 *)__cil_tmp31);
-#line 921
   __cil_tmp32 = (unsigned long )dev;
-#line 921
   __cil_tmp33 = __cil_tmp32 + 1224;
-#line 921
   __cil_tmp34 = 0 + 12;
-#line 921
   __cil_tmp35 = 8 + __cil_tmp34;
-#line 921
   __cil_tmp36 = (unsigned long )f;
-#line 921
   __cil_tmp37 = __cil_tmp36 + __cil_tmp35;
-#line 921
   *((enum v4l2_field *)__cil_tmp33) = *((enum v4l2_field *)__cil_tmp37);
   }
-#line 923
   return (0);
 }
 }
-#line 926 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/15067/dscv_tempdir/dscv/ri/32_1/drivers/media/video/vivi.c.common.c"
 static int vidioc_reqbufs(struct file *file , void *priv , struct v4l2_requestbuffers *p ) 
 { struct vivi_dev *dev ;
   void *tmp___7 ;
@@ -11991,24 +9009,16 @@ static int vidioc_reqbufs(struct file *file , void *priv , struct v4l2_requestbu
 
   {
   {
-#line 929
   tmp___7 = video_drvdata(file);
-#line 929
   dev = (struct vivi_dev *)tmp___7;
-#line 930
   __cil_tmp7 = (unsigned long )dev;
-#line 930
   __cil_tmp8 = __cil_tmp7 + 696;
-#line 930
   __cil_tmp9 = (struct vb2_queue *)__cil_tmp8;
-#line 930
   tmp___8 = vb2_reqbufs(__cil_tmp9, p);
   }
-#line 930
   return (tmp___8);
 }
 }
-#line 933 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/15067/dscv_tempdir/dscv/ri/32_1/drivers/media/video/vivi.c.common.c"
 static int vidioc_querybuf(struct file *file , void *priv , struct v4l2_buffer *p ) 
 { struct vivi_dev *dev ;
   void *tmp___7 ;
@@ -12019,24 +9029,16 @@ static int vidioc_querybuf(struct file *file , void *priv , struct v4l2_buffer *
 
   {
   {
-#line 935
   tmp___7 = video_drvdata(file);
-#line 935
   dev = (struct vivi_dev *)tmp___7;
-#line 936
   __cil_tmp7 = (unsigned long )dev;
-#line 936
   __cil_tmp8 = __cil_tmp7 + 696;
-#line 936
   __cil_tmp9 = (struct vb2_queue *)__cil_tmp8;
-#line 936
   tmp___8 = vb2_querybuf(__cil_tmp9, p);
   }
-#line 936
   return (tmp___8);
 }
 }
-#line 939 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/15067/dscv_tempdir/dscv/ri/32_1/drivers/media/video/vivi.c.common.c"
 static int vidioc_qbuf(struct file *file , void *priv , struct v4l2_buffer *p ) 
 { struct vivi_dev *dev ;
   void *tmp___7 ;
@@ -12047,24 +9049,16 @@ static int vidioc_qbuf(struct file *file , void *priv , struct v4l2_buffer *p )
 
   {
   {
-#line 941
   tmp___7 = video_drvdata(file);
-#line 941
   dev = (struct vivi_dev *)tmp___7;
-#line 942
   __cil_tmp7 = (unsigned long )dev;
-#line 942
   __cil_tmp8 = __cil_tmp7 + 696;
-#line 942
   __cil_tmp9 = (struct vb2_queue *)__cil_tmp8;
-#line 942
   tmp___8 = vb2_qbuf(__cil_tmp9, p);
   }
-#line 942
   return (tmp___8);
 }
 }
-#line 945 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/15067/dscv_tempdir/dscv/ri/32_1/drivers/media/video/vivi.c.common.c"
 static int vidioc_dqbuf(struct file *file , void *priv , struct v4l2_buffer *p ) 
 { struct vivi_dev *dev ;
   void *tmp___7 ;
@@ -12080,34 +9074,21 @@ static int vidioc_dqbuf(struct file *file , void *priv , struct v4l2_buffer *p )
 
   {
   {
-#line 947
   tmp___7 = video_drvdata(file);
-#line 947
   dev = (struct vivi_dev *)tmp___7;
-#line 948
   __cil_tmp7 = (unsigned long )dev;
-#line 948
   __cil_tmp8 = __cil_tmp7 + 696;
-#line 948
   __cil_tmp9 = (struct vb2_queue *)__cil_tmp8;
-#line 948
   __cil_tmp10 = (unsigned long )file;
-#line 948
   __cil_tmp11 = __cil_tmp10 + 80;
-#line 948
   __cil_tmp12 = *((unsigned int *)__cil_tmp11);
-#line 948
   __cil_tmp13 = __cil_tmp12 & 2048U;
-#line 948
   __cil_tmp14 = (bool )__cil_tmp13;
-#line 948
   tmp___8 = vb2_dqbuf(__cil_tmp9, p, __cil_tmp14);
   }
-#line 948
   return (tmp___8);
 }
 }
-#line 951 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/15067/dscv_tempdir/dscv/ri/32_1/drivers/media/video/vivi.c.common.c"
 static int vidioc_streamon(struct file *file , void *priv , enum v4l2_buf_type i ) 
 { struct vivi_dev *dev ;
   void *tmp___7 ;
@@ -12118,24 +9099,16 @@ static int vidioc_streamon(struct file *file , void *priv , enum v4l2_buf_type i
 
   {
   {
-#line 953
   tmp___7 = video_drvdata(file);
-#line 953
   dev = (struct vivi_dev *)tmp___7;
-#line 954
   __cil_tmp7 = (unsigned long )dev;
-#line 954
   __cil_tmp8 = __cil_tmp7 + 696;
-#line 954
   __cil_tmp9 = (struct vb2_queue *)__cil_tmp8;
-#line 954
   tmp___8 = vb2_streamon(__cil_tmp9, i);
   }
-#line 954
   return (tmp___8);
 }
 }
-#line 957 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/15067/dscv_tempdir/dscv/ri/32_1/drivers/media/video/vivi.c.common.c"
 static int vidioc_streamoff(struct file *file , void *priv , enum v4l2_buf_type i ) 
 { struct vivi_dev *dev ;
   void *tmp___7 ;
@@ -12146,33 +9119,23 @@ static int vidioc_streamoff(struct file *file , void *priv , enum v4l2_buf_type 
 
   {
   {
-#line 959
   tmp___7 = video_drvdata(file);
-#line 959
   dev = (struct vivi_dev *)tmp___7;
-#line 960
   __cil_tmp7 = (unsigned long )dev;
-#line 960
   __cil_tmp8 = __cil_tmp7 + 696;
-#line 960
   __cil_tmp9 = (struct vb2_queue *)__cil_tmp8;
-#line 960
   tmp___8 = vb2_streamoff(__cil_tmp9, i);
   }
-#line 960
   return (tmp___8);
 }
 }
-#line 963 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/15067/dscv_tempdir/dscv/ri/32_1/drivers/media/video/vivi.c.common.c"
 static int vidioc_s_std(struct file *file , void *priv , v4l2_std_id *i ) 
 { 
 
   {
-#line 965
   return (0);
 }
 }
-#line 969 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/15067/dscv_tempdir/dscv/ri/32_1/drivers/media/video/vivi.c.common.c"
 static int vidioc_enum_input(struct file *file , void *priv , struct v4l2_input *inp ) 
 { unsigned long __cil_tmp4 ;
   unsigned long __cil_tmp5 ;
@@ -12192,57 +9155,35 @@ static int vidioc_enum_input(struct file *file , void *priv , struct v4l2_input 
 
   {
   {
-#line 972
   __cil_tmp4 = 108UL / 27UL;
-#line 972
   __cil_tmp5 = __cil_tmp4 + 0UL;
-#line 972
   __cil_tmp6 = *((__u32 *)inp);
-#line 972
   __cil_tmp7 = (unsigned long )__cil_tmp6;
-#line 972
   if (__cil_tmp7 >= __cil_tmp5) {
-#line 973
     return (-22);
   } else {
 
   }
   }
   {
-#line 975
   __cil_tmp8 = (unsigned long )inp;
-#line 975
   __cil_tmp9 = __cil_tmp8 + 36;
-#line 975
   *((__u32 *)__cil_tmp9) = (__u32 )2;
-#line 976
   __cil_tmp10 = (unsigned long )inp;
-#line 976
   __cil_tmp11 = __cil_tmp10 + 48;
-#line 976
   *((v4l2_std_id *)__cil_tmp11) = 63744ULL;
-#line 977
   __cil_tmp12 = 0 * 1UL;
-#line 977
   __cil_tmp13 = 4 + __cil_tmp12;
-#line 977
   __cil_tmp14 = (unsigned long )inp;
-#line 977
   __cil_tmp15 = __cil_tmp14 + __cil_tmp13;
-#line 977
   __cil_tmp16 = (__u8 *)__cil_tmp15;
-#line 977
   __cil_tmp17 = (char *)__cil_tmp16;
-#line 977
   __cil_tmp18 = *((__u32 *)inp);
-#line 977
   sprintf(__cil_tmp17, "Camera %u", __cil_tmp18);
   }
-#line 978
   return (0);
 }
 }
-#line 981 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/15067/dscv_tempdir/dscv/ri/32_1/drivers/media/video/vivi.c.common.c"
 static int vidioc_g_input(struct file *file , void *priv , unsigned int *i ) 
 { struct vivi_dev *dev ;
   void *tmp___7 ;
@@ -12252,24 +9193,16 @@ static int vidioc_g_input(struct file *file , void *priv , unsigned int *i )
 
   {
   {
-#line 983
   tmp___7 = video_drvdata(file);
-#line 983
   dev = (struct vivi_dev *)tmp___7;
-#line 985
   __cil_tmp6 = (unsigned long )dev;
-#line 985
   __cil_tmp7 = __cil_tmp6 + 672;
-#line 985
   __cil_tmp8 = *((int *)__cil_tmp7);
-#line 985
   *i = (unsigned int )__cil_tmp8;
   }
-#line 986
   return (0);
 }
 }
-#line 989 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/15067/dscv_tempdir/dscv/ri/32_1/drivers/media/video/vivi.c.common.c"
 static int vidioc_s_input(struct file *file , void *priv , unsigned int i ) 
 { struct vivi_dev *dev ;
   void *tmp___7 ;
@@ -12285,60 +9218,40 @@ static int vidioc_s_input(struct file *file , void *priv , unsigned int i )
 
   {
   {
-#line 991
   tmp___7 = video_drvdata(file);
-#line 991
   dev = (struct vivi_dev *)tmp___7;
   }
   {
-#line 993
   __cil_tmp6 = 108UL / 27UL;
-#line 993
   __cil_tmp7 = __cil_tmp6 + 0UL;
-#line 993
   __cil_tmp8 = (unsigned long )i;
-#line 993
   if (__cil_tmp8 >= __cil_tmp7) {
-#line 994
     return (-22);
   } else {
 
   }
   }
   {
-#line 996
   __cil_tmp9 = (unsigned long )dev;
-#line 996
   __cil_tmp10 = __cil_tmp9 + 672;
-#line 996
   __cil_tmp11 = *((int *)__cil_tmp10);
-#line 996
   __cil_tmp12 = (unsigned int )__cil_tmp11;
-#line 996
   if (i == __cil_tmp12) {
-#line 997
     return (0);
   } else {
 
   }
   }
   {
-#line 999
   __cil_tmp13 = (unsigned long )dev;
-#line 999
   __cil_tmp14 = __cil_tmp13 + 672;
-#line 999
   *((int *)__cil_tmp14) = (int )i;
-#line 1000
   precalculate_bars(dev);
-#line 1001
   precalculate_line(dev);
   }
-#line 1002
   return (0);
 }
 }
-#line 1007 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/15067/dscv_tempdir/dscv/ri/32_1/drivers/media/video/vivi.c.common.c"
 static int vivi_g_volatile_ctrl(struct v4l2_ctrl *ctrl ) 
 { struct vivi_dev *dev ;
   struct v4l2_ctrl_handler    *__mptr ;
@@ -12367,70 +9280,41 @@ static int vivi_g_volatile_ctrl(struct v4l2_ctrl *ctrl )
   unsigned long volatile   __cil_tmp26 ;
 
   {
-#line 1009
   __cil_tmp4 = (unsigned long )ctrl;
-#line 1009
   __cil_tmp5 = __cil_tmp4 + 32;
-#line 1009
   __cil_tmp6 = *((struct v4l2_ctrl_handler **)__cil_tmp5);
-#line 1009
   __mptr = (struct v4l2_ctrl_handler    *)__cil_tmp6;
-#line 1009
   __cil_tmp7 = (struct vivi_dev *)0;
-#line 1009
   __cil_tmp8 = (unsigned long )__cil_tmp7;
-#line 1009
   __cil_tmp9 = __cil_tmp8 + 232;
-#line 1009
   __cil_tmp10 = (struct v4l2_ctrl_handler *)__cil_tmp9;
-#line 1009
   __cil_tmp11 = (unsigned int )__cil_tmp10;
-#line 1009
   __cil_tmp12 = (char *)__mptr;
-#line 1009
   __cil_tmp13 = __cil_tmp12 - __cil_tmp11;
-#line 1009
   dev = (struct vivi_dev *)__cil_tmp13;
   {
-#line 1011
   __cil_tmp14 = (unsigned long )dev;
-#line 1011
   __cil_tmp15 = __cil_tmp14 + 392;
-#line 1011
   __cil_tmp16 = *((struct v4l2_ctrl **)__cil_tmp15);
-#line 1011
   __cil_tmp17 = (unsigned long )__cil_tmp16;
-#line 1011
   __cil_tmp18 = (unsigned long )ctrl;
-#line 1011
   if (__cil_tmp18 == __cil_tmp17) {
-#line 1012
     __cil_tmp19 = 392 + 8;
-#line 1012
     __cil_tmp20 = (unsigned long )dev;
-#line 1012
     __cil_tmp21 = __cil_tmp20 + __cil_tmp19;
-#line 1012
     __cil_tmp22 = *((struct v4l2_ctrl **)__cil_tmp21);
-#line 1012
     __cil_tmp23 = (unsigned long )__cil_tmp22;
-#line 1012
     __cil_tmp24 = __cil_tmp23 + 128;
-#line 1012
     __cil_tmp25 = (unsigned long volatile   )255;
-#line 1012
     __cil_tmp26 = jiffies & __cil_tmp25;
-#line 1012
     *((s32 *)__cil_tmp24) = (s32 )__cil_tmp26;
   } else {
 
   }
   }
-#line 1013
   return (0);
 }
 }
-#line 1016 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/15067/dscv_tempdir/dscv/ri/32_1/drivers/media/video/vivi.c.common.c"
 static int vivi_s_ctrl(struct v4l2_ctrl *ctrl ) 
 { struct vivi_dev *dev ;
   struct v4l2_ctrl_handler    *__mptr ;
@@ -12453,58 +9337,35 @@ static int vivi_s_ctrl(struct v4l2_ctrl *ctrl )
   unsigned long __cil_tmp20 ;
 
   {
-#line 1018
   __cil_tmp4 = (unsigned long )ctrl;
-#line 1018
   __cil_tmp5 = __cil_tmp4 + 32;
-#line 1018
   __cil_tmp6 = *((struct v4l2_ctrl_handler **)__cil_tmp5);
-#line 1018
   __mptr = (struct v4l2_ctrl_handler    *)__cil_tmp6;
-#line 1018
   __cil_tmp7 = (struct vivi_dev *)0;
-#line 1018
   __cil_tmp8 = (unsigned long )__cil_tmp7;
-#line 1018
   __cil_tmp9 = __cil_tmp8 + 232;
-#line 1018
   __cil_tmp10 = (struct v4l2_ctrl_handler *)__cil_tmp9;
-#line 1018
   __cil_tmp11 = (unsigned int )__cil_tmp10;
-#line 1018
   __cil_tmp12 = (char *)__mptr;
-#line 1018
   __cil_tmp13 = __cil_tmp12 - __cil_tmp11;
-#line 1018
   dev = (struct vivi_dev *)__cil_tmp13;
   {
-#line 1020
   __cil_tmp14 = (unsigned long )dev;
-#line 1020
   __cil_tmp15 = __cil_tmp14 + 416;
-#line 1020
   __cil_tmp16 = *((struct v4l2_ctrl **)__cil_tmp15);
-#line 1020
   __cil_tmp17 = (unsigned long )__cil_tmp16;
-#line 1020
   __cil_tmp18 = (unsigned long )ctrl;
-#line 1020
   if (__cil_tmp18 == __cil_tmp17) {
-#line 1021
     __cil_tmp19 = (unsigned long )dev;
-#line 1021
     __cil_tmp20 = __cil_tmp19 + 664;
-#line 1021
     *((unsigned int *)__cil_tmp20) = 30U;
   } else {
 
   }
   }
-#line 1022
   return (0);
 }
 }
-#line 1029 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/15067/dscv_tempdir/dscv/ri/32_1/drivers/media/video/vivi.c.common.c"
 static ssize_t vivi_read(struct file *file , char *data , size_t count , loff_t *ppos ) 
 { struct vivi_dev *dev ;
   void *tmp___7 ;
@@ -12528,72 +9389,47 @@ static ssize_t vivi_read(struct file *file , char *data , size_t count , loff_t 
 
   {
   {
-#line 1032
   tmp___7 = video_drvdata(file);
-#line 1032
   dev = (struct vivi_dev *)tmp___7;
   }
   {
-#line 1034
   while (1) {
     while_continue: /* CIL Label */ ;
     {
-#line 1034
     __cil_tmp8 = & debug;
-#line 1034
     __cil_tmp9 = *__cil_tmp8;
-#line 1034
     if (__cil_tmp9 >= 1U) {
       {
-#line 1034
       __cil_tmp10 = 0 * 1UL;
-#line 1034
       __cil_tmp11 = 56 + __cil_tmp10;
-#line 1034
       __cil_tmp12 = 16 + __cil_tmp11;
-#line 1034
       __cil_tmp13 = (unsigned long )dev;
-#line 1034
       __cil_tmp14 = __cil_tmp13 + __cil_tmp12;
-#line 1034
       __cil_tmp15 = (char *)__cil_tmp14;
-#line 1034
       printk("<7>%s: read called\n", __cil_tmp15);
       }
     } else {
 
     }
     }
-#line 1034
     goto while_break;
   }
   while_break: /* CIL Label */ ;
   }
   {
-#line 1035
   __cil_tmp16 = (unsigned long )dev;
-#line 1035
   __cil_tmp17 = __cil_tmp16 + 696;
-#line 1035
   __cil_tmp18 = (struct vb2_queue *)__cil_tmp17;
-#line 1035
   __cil_tmp19 = (unsigned long )file;
-#line 1035
   __cil_tmp20 = __cil_tmp19 + 80;
-#line 1035
   __cil_tmp21 = *((unsigned int *)__cil_tmp20);
-#line 1035
   __cil_tmp22 = __cil_tmp21 & 2048U;
-#line 1035
   __cil_tmp23 = (int )__cil_tmp22;
-#line 1035
   tmp___8 = vb2_read(__cil_tmp18, data, count, ppos, __cil_tmp23);
   }
-#line 1035
   return ((ssize_t )tmp___8);
 }
 }
-#line 1039 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/15067/dscv_tempdir/dscv/ri/32_1/drivers/media/video/vivi.c.common.c"
 static unsigned int vivi_poll(struct file *file , struct poll_table_struct *wait ) 
 { struct vivi_dev *dev ;
   void *tmp___7 ;
@@ -12620,88 +9456,57 @@ static unsigned int vivi_poll(struct file *file , struct poll_table_struct *wait
 
   {
   {
-#line 1042
   tmp___7 = video_drvdata(file);
-#line 1042
   dev = (struct vivi_dev *)tmp___7;
-#line 1043
   __cil_tmp9 = (unsigned long )file;
-#line 1043
   __cil_tmp10 = __cil_tmp9 + 200;
-#line 1043
   __cil_tmp11 = *((void **)__cil_tmp10);
-#line 1043
   fh = (struct v4l2_fh *)__cil_tmp11;
-#line 1044
   __cil_tmp12 = (unsigned long )dev;
-#line 1044
   __cil_tmp13 = __cil_tmp12 + 696;
-#line 1044
   q = (struct vb2_queue *)__cil_tmp13;
   }
   {
-#line 1047
   while (1) {
     while_continue: /* CIL Label */ ;
     {
-#line 1047
     __cil_tmp14 = & debug;
-#line 1047
     __cil_tmp15 = *__cil_tmp14;
-#line 1047
     if (__cil_tmp15 >= 1U) {
       {
-#line 1047
       __cil_tmp16 = 0 * 1UL;
-#line 1047
       __cil_tmp17 = 56 + __cil_tmp16;
-#line 1047
       __cil_tmp18 = 16 + __cil_tmp17;
-#line 1047
       __cil_tmp19 = (unsigned long )dev;
-#line 1047
       __cil_tmp20 = __cil_tmp19 + __cil_tmp18;
-#line 1047
       __cil_tmp21 = (char *)__cil_tmp20;
-#line 1047
       printk("<7>%s: %s\n", __cil_tmp21, "vivi_poll");
       }
     } else {
 
     }
     }
-#line 1047
     goto while_break;
   }
   while_break: /* CIL Label */ ;
   }
   {
-#line 1048
   res = vb2_poll(q, file, wait);
-#line 1049
   tmp___8 = v4l2_event_pending(fh);
   }
-#line 1049
   if (tmp___8) {
-#line 1050
     res = res | 2U;
   } else {
     {
-#line 1052
     __cil_tmp22 = (unsigned long )fh;
-#line 1052
     __cil_tmp23 = __cil_tmp22 + 40;
-#line 1052
     __cil_tmp24 = (wait_queue_head_t *)__cil_tmp23;
-#line 1052
     poll_wait(file, __cil_tmp24, wait);
     }
   }
-#line 1053
   return (res);
 }
 }
-#line 1056 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/15067/dscv_tempdir/dscv/ri/32_1/drivers/media/video/vivi.c.common.c"
 static int vivi_close(struct file *file ) 
 { struct video_device *vdev ;
   struct video_device *tmp___7 ;
@@ -12724,81 +9529,55 @@ static int vivi_close(struct file *file )
 
   {
   {
-#line 1058
   tmp___7 = video_devdata(file);
-#line 1058
   vdev = tmp___7;
-#line 1059
   tmp___8 = video_drvdata(file);
-#line 1059
   dev = (struct vivi_dev *)tmp___8;
   }
   {
-#line 1061
   while (1) {
     while_continue: /* CIL Label */ ;
     {
-#line 1061
     __cil_tmp9 = & debug;
-#line 1061
     __cil_tmp10 = *__cil_tmp9;
-#line 1061
     if (__cil_tmp10 >= 1U) {
       {
-#line 1061
       tmp___9 = video_device_node_name(vdev);
-#line 1061
       __cil_tmp11 = 0 * 1UL;
-#line 1061
       __cil_tmp12 = 56 + __cil_tmp11;
-#line 1061
       __cil_tmp13 = 16 + __cil_tmp12;
-#line 1061
       __cil_tmp14 = (unsigned long )dev;
-#line 1061
       __cil_tmp15 = __cil_tmp14 + __cil_tmp13;
-#line 1061
       __cil_tmp16 = (char *)__cil_tmp15;
-#line 1061
       printk("<7>%s: close called (dev=%s), file %p\n", __cil_tmp16, tmp___9, file);
       }
     } else {
 
     }
     }
-#line 1061
     goto while_break;
   }
   while_break: /* CIL Label */ ;
   }
   {
-#line 1064
   tmp___10 = v4l2_fh_is_singular_file(file);
   }
-#line 1064
   if (tmp___10) {
     {
-#line 1065
     __cil_tmp17 = (unsigned long )dev;
-#line 1065
     __cil_tmp18 = __cil_tmp17 + 696;
-#line 1065
     __cil_tmp19 = (struct vb2_queue *)__cil_tmp18;
-#line 1065
     vb2_queue_release(__cil_tmp19);
     }
   } else {
 
   }
   {
-#line 1066
   tmp___11 = v4l2_fh_release(file);
   }
-#line 1066
   return (tmp___11);
 }
 }
-#line 1069 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/15067/dscv_tempdir/dscv/ri/32_1/drivers/media/video/vivi.c.common.c"
 static int vivi_mmap(struct file *file , struct vm_area_struct *vma ) 
 { struct vivi_dev *dev ;
   void *tmp___7 ;
@@ -12836,104 +9615,64 @@ static int vivi_mmap(struct file *file , struct vm_area_struct *vma )
 
   {
   {
-#line 1071
   tmp___7 = video_drvdata(file);
-#line 1071
   dev = (struct vivi_dev *)tmp___7;
   }
   {
-#line 1074
   while (1) {
     while_continue: /* CIL Label */ ;
     {
-#line 1074
     __cil_tmp6 = & debug;
-#line 1074
     __cil_tmp7 = *__cil_tmp6;
-#line 1074
     if (__cil_tmp7 >= 1U) {
       {
-#line 1074
       __cil_tmp8 = 0 * 1UL;
-#line 1074
       __cil_tmp9 = 56 + __cil_tmp8;
-#line 1074
       __cil_tmp10 = 16 + __cil_tmp9;
-#line 1074
       __cil_tmp11 = (unsigned long )dev;
-#line 1074
       __cil_tmp12 = __cil_tmp11 + __cil_tmp10;
-#line 1074
       __cil_tmp13 = (char *)__cil_tmp12;
-#line 1074
       __cil_tmp14 = (unsigned long )vma;
-#line 1074
       printk("<7>%s: mmap called, vma=0x%08lx\n", __cil_tmp13, __cil_tmp14);
       }
     } else {
 
     }
     }
-#line 1074
     goto while_break;
   }
   while_break: /* CIL Label */ ;
   }
   {
-#line 1076
   __cil_tmp15 = (unsigned long )dev;
-#line 1076
   __cil_tmp16 = __cil_tmp15 + 696;
-#line 1076
   __cil_tmp17 = (struct vb2_queue *)__cil_tmp16;
-#line 1076
   ret = vb2_mmap(__cil_tmp17, vma);
   }
   {
-#line 1077
   while (1) {
     while_continue___0: /* CIL Label */ ;
     {
-#line 1077
     __cil_tmp18 = & debug;
-#line 1077
     __cil_tmp19 = *__cil_tmp18;
-#line 1077
     if (__cil_tmp19 >= 1U) {
       {
-#line 1077
       __cil_tmp20 = 0 * 1UL;
-#line 1077
       __cil_tmp21 = 56 + __cil_tmp20;
-#line 1077
       __cil_tmp22 = 16 + __cil_tmp21;
-#line 1077
       __cil_tmp23 = (unsigned long )dev;
-#line 1077
       __cil_tmp24 = __cil_tmp23 + __cil_tmp22;
-#line 1077
       __cil_tmp25 = (char *)__cil_tmp24;
-#line 1077
       __cil_tmp26 = (unsigned long )vma;
-#line 1077
       __cil_tmp27 = __cil_tmp26 + 8;
-#line 1077
       __cil_tmp28 = *((unsigned long *)__cil_tmp27);
-#line 1077
       __cil_tmp29 = (unsigned long )vma;
-#line 1077
       __cil_tmp30 = __cil_tmp29 + 8;
-#line 1077
       __cil_tmp31 = *((unsigned long *)__cil_tmp30);
-#line 1077
       __cil_tmp32 = (unsigned long )vma;
-#line 1077
       __cil_tmp33 = __cil_tmp32 + 16;
-#line 1077
       __cil_tmp34 = *((unsigned long *)__cil_tmp33);
-#line 1077
       __cil_tmp35 = __cil_tmp34 - __cil_tmp31;
-#line 1077
       printk("<7>%s: vma start=0x%08lx, size=%ld, ret=%d\n", __cil_tmp25, __cil_tmp28,
              __cil_tmp35, ret);
       }
@@ -12941,58 +9680,38 @@ static int vivi_mmap(struct file *file , struct vm_area_struct *vma )
 
     }
     }
-#line 1077
     goto while_break___0;
   }
   while_break___0: /* CIL Label */ ;
   }
-#line 1081
   return (ret);
 }
 }
-#line 1084 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/15067/dscv_tempdir/dscv/ri/32_1/drivers/media/video/vivi.c.common.c"
 static struct v4l2_ctrl_ops    vivi_ctrl_ops  =    {& vivi_g_volatile_ctrl, (int (*)(struct v4l2_ctrl *ctrl ))0, & vivi_s_ctrl};
-#line 1091 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/15067/dscv_tempdir/dscv/ri/32_1/drivers/media/video/vivi.c.common.c"
 static struct v4l2_ctrl_config    vivi_ctrl_button  = 
-#line 1091
      {& vivi_ctrl_ops, (u32 )10025216, "Button", (enum v4l2_ctrl_type )4, 0, 0, 0U,
     0, 0U, 0U, (char    *   *)0, 0U};
-#line 1098 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/15067/dscv_tempdir/dscv/ri/32_1/drivers/media/video/vivi.c.common.c"
 static struct v4l2_ctrl_config    vivi_ctrl_boolean  = 
-#line 1098
      {& vivi_ctrl_ops, (u32 )10025217, "Boolean", (enum v4l2_ctrl_type )2, 0, 1, (u32 )1,
     1, 0U, 0U, (char    *   *)0, 0U};
-#line 1109 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/15067/dscv_tempdir/dscv/ri/32_1/drivers/media/video/vivi.c.common.c"
 static struct v4l2_ctrl_config    vivi_ctrl_int32  = 
-#line 1109
      {& vivi_ctrl_ops, (u32 )10025218, "Integer 32 Bits", (enum v4l2_ctrl_type )1, (-0x7FFFFFFF-1),
     2147483647, (u32 )1, 0, 0U, 0U, (char    *   *)0, 0U};
-#line 1119 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/15067/dscv_tempdir/dscv/ri/32_1/drivers/media/video/vivi.c.common.c"
 static struct v4l2_ctrl_config    vivi_ctrl_int64  = 
-#line 1119
      {& vivi_ctrl_ops, (u32 )10025219, "Integer 64 Bits", (enum v4l2_ctrl_type )5, 0,
     0, 0U, 0, 0U, 0U, (char    *   *)0, 0U};
-#line 1126 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/15067/dscv_tempdir/dscv/ri/32_1/drivers/media/video/vivi.c.common.c"
 static char    *   vivi_ctrl_menu_strings[7]  = {      (char const   * const  )"Menu Item 0 (Skipped)",      (char const   * const  )"Menu Item 1",      (char const   * const  )"Menu Item 2 (Skipped)",      (char const   * const  )"Menu Item 3", 
         (char    *   )"Menu Item 4",      (char const   * const  )"Menu Item 5 (Skipped)",      (char const   * const  )((void *)0)};
-#line 1136 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/15067/dscv_tempdir/dscv/ri/32_1/drivers/media/video/vivi.c.common.c"
 static struct v4l2_ctrl_config    vivi_ctrl_menu  = 
-#line 1136
      {& vivi_ctrl_ops, (u32 )10025220, "Menu", (enum v4l2_ctrl_type )3, 1, 4, 0U, 3,
     0U, (u32 )4, vivi_ctrl_menu_strings, 0U};
-#line 1148 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/15067/dscv_tempdir/dscv/ri/32_1/drivers/media/video/vivi.c.common.c"
 static struct v4l2_ctrl_config    vivi_ctrl_string  = 
-#line 1148
      {& vivi_ctrl_ops, (u32 )10025221, "String", (enum v4l2_ctrl_type )7, 2, 4, (u32 )1,
     0, 0U, 0U, (char    *   *)0, 0U};
-#line 1158 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/15067/dscv_tempdir/dscv/ri/32_1/drivers/media/video/vivi.c.common.c"
 static struct v4l2_ctrl_config    vivi_ctrl_bitmask  = 
-#line 1158
      {& vivi_ctrl_ops, (u32 )10025222, "Bitmask", (enum v4l2_ctrl_type )8, 0, (s32 )2151686160U,
     (u32 )0, (s32 )2147491840U, 0U, 0U, (char    *   *)0, 0U};
-#line 1169 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/15067/dscv_tempdir/dscv/ri/32_1/drivers/media/video/vivi.c.common.c"
 static struct v4l2_file_operations    vivi_fops  = 
-#line 1169
      {& __this_module, & vivi_read, (ssize_t (*)(struct file * , char    * , size_t  ,
                                                loff_t * ))0, & vivi_poll, (long (*)(struct file * ,
                                                                                     unsigned int  ,
@@ -13000,9 +9719,7 @@ static struct v4l2_file_operations    vivi_fops  =
     & video_ioctl2, (long (*)(struct file * , unsigned int  , unsigned long  ))0,
     (unsigned long (*)(struct file * , unsigned long  , unsigned long  , unsigned long  ,
                        unsigned long  ))0, & vivi_mmap, & v4l2_fh_open, & vivi_close};
-#line 1179 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/15067/dscv_tempdir/dscv/ri/32_1/drivers/media/video/vivi.c.common.c"
 static struct v4l2_ioctl_ops    vivi_ioctl_ops  = 
-#line 1179
      {& vidioc_querycap, (int (*)(struct file *file , void *fh , enum v4l2_priority *p ))0,
     (int (*)(struct file *file , void *fh , enum v4l2_priority p ))0, & vidioc_enum_fmt_vid_cap,
     (int (*)(struct file *file , void *fh , struct v4l2_fmtdesc *f ))0, (int (*)(struct file *file ,
@@ -13141,9 +9858,7 @@ static struct v4l2_ioctl_ops    vivi_ioctl_ops  =
     (int (*)(struct file *file , void *fh , struct v4l2_dv_timings *timings ))0, & v4l2_ctrl_subscribe_event,
     & v4l2_event_unsubscribe, (long (*)(struct file *file , void *fh , bool valid_prio ,
                                         int cmd , void *arg ))0};
-#line 1200 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/15067/dscv_tempdir/dscv/ri/32_1/drivers/media/video/vivi.c.common.c"
 static struct video_device vivi_template  = 
-#line 1200
      {{{(struct list_head *)0, (struct list_head *)0}, (struct media_device *)0, 0U,
      (char    *)0, 0U, 0U, 0UL, 0U, (unsigned short)0, (unsigned short)0, (unsigned short)0,
      (unsigned short)0, (struct media_pad *)0, (struct media_link *)0, (struct media_entity_operations    *)0,
@@ -13290,7 +10005,6 @@ static struct video_device vivi_template  =
                                   (char )'\000'}, 0, 0, (unsigned short)0, 0UL, 0,
     {{{{{0U}}, 0U, 0U, (void *)0}}}, {(struct list_head *)0, (struct list_head *)0},
     0, 63744ULL, (v4l2_std_id )4096, & video_device_release, & vivi_ioctl_ops, (struct mutex *)0};
-#line 1214 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/15067/dscv_tempdir/dscv/ri/32_1/drivers/media/video/vivi.c.common.c"
 static int vivi_release(void) 
 { struct vivi_dev *dev ;
   struct list_head *list ;
@@ -13326,111 +10040,65 @@ static int vivi_release(void)
 
   {
   {
-#line 1219
   while (1) {
     while_continue: /* CIL Label */ ;
     {
-#line 1219
     __cil_tmp6 = (struct list_head    *)(& vivi_devlist);
-#line 1219
     tmp___8 = list_empty(__cil_tmp6);
     }
-#line 1219
     if (tmp___8) {
-#line 1219
       goto while_break;
     } else {
 
     }
     {
-#line 1220
     __cil_tmp7 = & vivi_devlist;
-#line 1220
     list = *((struct list_head **)__cil_tmp7);
-#line 1221
     list_del(list);
-#line 1222
     __mptr = (struct list_head    *)list;
-#line 1222
     __cil_tmp8 = (struct vivi_dev *)0;
-#line 1222
     __cil_tmp9 = (struct list_head *)__cil_tmp8;
-#line 1222
     __cil_tmp10 = (unsigned int )__cil_tmp9;
-#line 1222
     __cil_tmp11 = (char *)__mptr;
-#line 1222
     __cil_tmp12 = __cil_tmp11 - __cil_tmp10;
-#line 1222
     dev = (struct vivi_dev *)__cil_tmp12;
-#line 1224
     __cil_tmp13 = (unsigned long )dev;
-#line 1224
     __cil_tmp14 = __cil_tmp13 + 568;
-#line 1224
     __cil_tmp15 = *((struct video_device **)__cil_tmp14);
-#line 1224
     tmp___7 = video_device_node_name(__cil_tmp15);
-#line 1224
     __cil_tmp16 = 0 * 1UL;
-#line 1224
     __cil_tmp17 = 56 + __cil_tmp16;
-#line 1224
     __cil_tmp18 = 16 + __cil_tmp17;
-#line 1224
     __cil_tmp19 = (unsigned long )dev;
-#line 1224
     __cil_tmp20 = __cil_tmp19 + __cil_tmp18;
-#line 1224
     __cil_tmp21 = (char *)__cil_tmp20;
-#line 1224
     printk("<6>%s: unregistering %s\n", __cil_tmp21, tmp___7);
-#line 1226
     __cil_tmp22 = (unsigned long )dev;
-#line 1226
     __cil_tmp23 = __cil_tmp22 + 568;
-#line 1226
     __cil_tmp24 = *((struct video_device **)__cil_tmp23);
-#line 1226
     video_unregister_device(__cil_tmp24);
-#line 1227
     __cil_tmp25 = (unsigned long )dev;
-#line 1227
     __cil_tmp26 = __cil_tmp25 + 16;
-#line 1227
     __cil_tmp27 = (struct v4l2_device *)__cil_tmp26;
-#line 1227
     v4l2_device_unregister(__cil_tmp27);
-#line 1228
     __cil_tmp28 = (unsigned long )dev;
-#line 1228
     __cil_tmp29 = __cil_tmp28 + 232;
-#line 1228
     __cil_tmp30 = (struct v4l2_ctrl_handler *)__cil_tmp29;
-#line 1228
     v4l2_ctrl_handler_free(__cil_tmp30);
-#line 1229
     __cil_tmp31 = (void    *)dev;
-#line 1229
     kfree(__cil_tmp31);
     }
   }
   while_break: /* CIL Label */ ;
   }
-#line 1232
   return (0);
 }
 }
-#line 1287 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/15067/dscv_tempdir/dscv/ri/32_1/drivers/media/video/vivi.c.common.c"
 static struct lock_class_key __key___4  ;
-#line 1301 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/15067/dscv_tempdir/dscv/ri/32_1/drivers/media/video/vivi.c.common.c"
 static struct lock_class_key __key___5  ;
-#line 1305 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/15067/dscv_tempdir/dscv/ri/32_1/drivers/media/video/vivi.c.common.c"
 static struct lock_class_key __key___6  ;
-#line 1235
 static int vivi_create_instance(int inst )  __attribute__((__section__(".init.text"),
 __no_instrument_function__)) ;
-#line 1235 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/15067/dscv_tempdir/dscv/ri/32_1/drivers/media/video/vivi.c.common.c"
 static int vivi_create_instance(int inst ) 
 { struct vivi_dev *dev ;
   struct video_device *vfd ;
@@ -13592,562 +10260,331 @@ static int vivi_create_instance(int inst )
 
   {
   {
-#line 1243
   tmp___7 = kzalloc(8944UL, 208U);
-#line 1243
   dev = (struct vivi_dev *)tmp___7;
   }
-#line 1244
   if (! dev) {
-#line 1245
     return (-12);
   } else {
 
   }
   {
-#line 1247
   __cil_tmp9 = 0 * 1UL;
-#line 1247
   __cil_tmp10 = 56 + __cil_tmp9;
-#line 1247
   __cil_tmp11 = 16 + __cil_tmp10;
-#line 1247
   __cil_tmp12 = (unsigned long )dev;
-#line 1247
   __cil_tmp13 = __cil_tmp12 + __cil_tmp11;
-#line 1247
   __cil_tmp14 = (char *)__cil_tmp13;
-#line 1247
   snprintf(__cil_tmp14, 36UL, "%s-%03d", "vivi", inst);
-#line 1249
   __cil_tmp15 = (void *)0;
-#line 1249
   __cil_tmp16 = (struct device *)__cil_tmp15;
-#line 1249
   __cil_tmp17 = (unsigned long )dev;
-#line 1249
   __cil_tmp18 = __cil_tmp17 + 16;
-#line 1249
   __cil_tmp19 = (struct v4l2_device *)__cil_tmp18;
-#line 1249
   ret = (int )v4l2_device_register(__cil_tmp16, __cil_tmp19);
   }
-#line 1250
   if (ret) {
-#line 1251
     goto free_dev;
   } else {
 
   }
   {
-#line 1253
   __cil_tmp20 = (unsigned long )dev;
-#line 1253
   __cil_tmp21 = __cil_tmp20 + 680;
-#line 1253
   __cil_tmp22 = 0 * 16UL;
-#line 1253
   __cil_tmp23 = (unsigned long )(formats) + __cil_tmp22;
-#line 1253
   *((struct vivi_fmt **)__cil_tmp21) = (struct vivi_fmt *)__cil_tmp23;
-#line 1254
   __cil_tmp24 = (unsigned long )dev;
-#line 1254
   __cil_tmp25 = __cil_tmp24 + 688;
-#line 1254
   *((unsigned int *)__cil_tmp25) = 640U;
-#line 1255
   __cil_tmp26 = (unsigned long )dev;
-#line 1255
   __cil_tmp27 = __cil_tmp26 + 692;
-#line 1255
   *((unsigned int *)__cil_tmp27) = 480U;
-#line 1256
   __cil_tmp28 = (unsigned long )dev;
-#line 1256
   __cil_tmp29 = __cil_tmp28 + 232;
-#line 1256
   hdl = (struct v4l2_ctrl_handler *)__cil_tmp29;
-#line 1257
   v4l2_ctrl_handler_init(hdl, 11U);
-#line 1258
   __cil_tmp30 = (unsigned long )dev;
-#line 1258
   __cil_tmp31 = __cil_tmp30 + 408;
-#line 1258
   __cil_tmp32 = (u32 )9963781;
-#line 1258
   __cil_tmp33 = (u32 )1;
-#line 1258
   *((struct v4l2_ctrl **)__cil_tmp31) = v4l2_ctrl_new_std(hdl, & vivi_ctrl_ops, __cil_tmp32,
                                                           0, 255, __cil_tmp33, 200);
-#line 1260
   __cil_tmp34 = (unsigned long )dev;
-#line 1260
   __cil_tmp35 = __cil_tmp34 + 360;
-#line 1260
   __cil_tmp36 = (u32 )9963776;
-#line 1260
   __cil_tmp37 = (u32 )1;
-#line 1260
   *((struct v4l2_ctrl **)__cil_tmp35) = v4l2_ctrl_new_std(hdl, & vivi_ctrl_ops, __cil_tmp36,
                                                           0, 255, __cil_tmp37, 127);
-#line 1262
   __cil_tmp38 = (unsigned long )dev;
-#line 1262
   __cil_tmp39 = __cil_tmp38 + 368;
-#line 1262
   __cil_tmp40 = (u32 )9963777;
-#line 1262
   __cil_tmp41 = (u32 )1;
-#line 1262
   *((struct v4l2_ctrl **)__cil_tmp39) = v4l2_ctrl_new_std(hdl, & vivi_ctrl_ops, __cil_tmp40,
                                                           0, 255, __cil_tmp41, 16);
-#line 1264
   __cil_tmp42 = (unsigned long )dev;
-#line 1264
   __cil_tmp43 = __cil_tmp42 + 376;
-#line 1264
   __cil_tmp44 = (u32 )9963778;
-#line 1264
   __cil_tmp45 = (u32 )1;
-#line 1264
   *((struct v4l2_ctrl **)__cil_tmp43) = v4l2_ctrl_new_std(hdl, & vivi_ctrl_ops, __cil_tmp44,
                                                           0, 255, __cil_tmp45, 127);
-#line 1266
   __cil_tmp46 = (unsigned long )dev;
-#line 1266
   __cil_tmp47 = __cil_tmp46 + 384;
-#line 1266
   __cil_tmp48 = (u32 )9963779;
-#line 1266
   __cil_tmp49 = (u32 )1;
-#line 1266
   *((struct v4l2_ctrl **)__cil_tmp47) = v4l2_ctrl_new_std(hdl, & vivi_ctrl_ops, __cil_tmp48,
                                                           -128, 127, __cil_tmp49,
                                                           0);
-#line 1268
   __cil_tmp50 = (unsigned long )dev;
-#line 1268
   __cil_tmp51 = __cil_tmp50 + 392;
-#line 1268
   __cil_tmp52 = (u32 )9963794;
-#line 1268
   __cil_tmp53 = (u32 )1;
-#line 1268
   *((struct v4l2_ctrl **)__cil_tmp51) = v4l2_ctrl_new_std(hdl, & vivi_ctrl_ops, __cil_tmp52,
                                                           0, 1, __cil_tmp53, 1);
-#line 1270
   __cil_tmp54 = 392 + 8;
-#line 1270
   __cil_tmp55 = (unsigned long )dev;
-#line 1270
   __cil_tmp56 = __cil_tmp55 + __cil_tmp54;
-#line 1270
   __cil_tmp57 = (u32 )9963795;
-#line 1270
   __cil_tmp58 = (u32 )1;
-#line 1270
   *((struct v4l2_ctrl **)__cil_tmp56) = v4l2_ctrl_new_std(hdl, & vivi_ctrl_ops, __cil_tmp57,
                                                           0, 255, __cil_tmp58, 100);
-#line 1272
   __cil_tmp59 = (unsigned long )dev;
-#line 1272
   __cil_tmp60 = __cil_tmp59 + 416;
-#line 1272
   __cil_tmp61 = (void *)0;
-#line 1272
   *((struct v4l2_ctrl **)__cil_tmp60) = v4l2_ctrl_new_custom(hdl, & vivi_ctrl_button,
                                                              __cil_tmp61);
-#line 1273
   __cil_tmp62 = (unsigned long )dev;
-#line 1273
   __cil_tmp63 = __cil_tmp62 + 432;
-#line 1273
   __cil_tmp64 = (void *)0;
-#line 1273
   *((struct v4l2_ctrl **)__cil_tmp63) = v4l2_ctrl_new_custom(hdl, & vivi_ctrl_int32,
                                                              __cil_tmp64);
-#line 1274
   __cil_tmp65 = (unsigned long )dev;
-#line 1274
   __cil_tmp66 = __cil_tmp65 + 440;
-#line 1274
   __cil_tmp67 = (void *)0;
-#line 1274
   *((struct v4l2_ctrl **)__cil_tmp66) = v4l2_ctrl_new_custom(hdl, & vivi_ctrl_int64,
                                                              __cil_tmp67);
-#line 1275
   __cil_tmp68 = (unsigned long )dev;
-#line 1275
   __cil_tmp69 = __cil_tmp68 + 424;
-#line 1275
   __cil_tmp70 = (void *)0;
-#line 1275
   *((struct v4l2_ctrl **)__cil_tmp69) = v4l2_ctrl_new_custom(hdl, & vivi_ctrl_boolean,
                                                              __cil_tmp70);
-#line 1276
   __cil_tmp71 = (unsigned long )dev;
-#line 1276
   __cil_tmp72 = __cil_tmp71 + 448;
-#line 1276
   __cil_tmp73 = (void *)0;
-#line 1276
   *((struct v4l2_ctrl **)__cil_tmp72) = v4l2_ctrl_new_custom(hdl, & vivi_ctrl_menu,
                                                              __cil_tmp73);
-#line 1277
   __cil_tmp74 = (unsigned long )dev;
-#line 1277
   __cil_tmp75 = __cil_tmp74 + 456;
-#line 1277
   __cil_tmp76 = (void *)0;
-#line 1277
   *((struct v4l2_ctrl **)__cil_tmp75) = v4l2_ctrl_new_custom(hdl, & vivi_ctrl_string,
                                                              __cil_tmp76);
-#line 1278
   __cil_tmp77 = (unsigned long )dev;
-#line 1278
   __cil_tmp78 = __cil_tmp77 + 464;
-#line 1278
   __cil_tmp79 = (void *)0;
-#line 1278
   *((struct v4l2_ctrl **)__cil_tmp78) = v4l2_ctrl_new_custom(hdl, & vivi_ctrl_bitmask,
                                                              __cil_tmp79);
   }
   {
-#line 1279
   __cil_tmp80 = (unsigned long )hdl;
-#line 1279
   __cil_tmp81 = __cil_tmp80 + 124;
-#line 1279
   if (*((int *)__cil_tmp81)) {
-#line 1280
     __cil_tmp82 = (unsigned long )hdl;
-#line 1280
     __cil_tmp83 = __cil_tmp82 + 124;
-#line 1280
     ret = *((int *)__cil_tmp83);
-#line 1281
     goto unreg_dev;
   } else {
 
   }
   }
   {
-#line 1283
   __cil_tmp84 = (unsigned long )dev;
-#line 1283
   __cil_tmp85 = __cil_tmp84 + 392;
-#line 1283
   __cil_tmp86 = (struct v4l2_ctrl **)__cil_tmp85;
-#line 1283
   __cil_tmp87 = (u8 )0;
-#line 1283
   __cil_tmp88 = (bool )1;
-#line 1283
   v4l2_ctrl_auto_cluster(2U, __cil_tmp86, __cil_tmp87, __cil_tmp88);
-#line 1284
   __cil_tmp89 = 16 + 104;
-#line 1284
   __cil_tmp90 = (unsigned long )dev;
-#line 1284
   __cil_tmp91 = __cil_tmp90 + __cil_tmp89;
-#line 1284
   *((struct v4l2_ctrl_handler **)__cil_tmp91) = hdl;
   }
   {
-#line 1287
   while (1) {
     while_continue: /* CIL Label */ ;
     {
-#line 1287
     __cil_tmp92 = (unsigned long )dev;
-#line 1287
     __cil_tmp93 = __cil_tmp92 + 472;
-#line 1287
     __cil_tmp94 = (spinlock_t *)__cil_tmp93;
-#line 1287
     spinlock_check(__cil_tmp94);
     }
     {
-#line 1287
     while (1) {
       while_continue___0: /* CIL Label */ ;
       {
-#line 1287
       __cil_tmp95 = (unsigned long )dev;
-#line 1287
       __cil_tmp96 = __cil_tmp95 + 472;
-#line 1287
       __cil_tmp97 = (struct raw_spinlock *)__cil_tmp96;
-#line 1287
       __raw_spin_lock_init(__cil_tmp97, "&(&dev->slock)->rlock", & __key___4);
       }
-#line 1287
       goto while_break___0;
     }
     while_break___0: /* CIL Label */ ;
     }
-#line 1287
     goto while_break;
   }
   while_break: /* CIL Label */ ;
   }
   {
-#line 1290
   __cil_tmp98 = (unsigned long )dev;
-#line 1290
   __cil_tmp99 = __cil_tmp98 + 696;
-#line 1290
   q = (struct vb2_queue *)__cil_tmp99;
-#line 1291
   __cil_tmp100 = (void *)q;
-#line 1291
   memset(__cil_tmp100, 0, 528UL);
-#line 1292
   *((enum v4l2_buf_type *)q) = (enum v4l2_buf_type )1;
-#line 1293
   __cil_tmp101 = (unsigned long )q;
-#line 1293
   __cil_tmp102 = __cil_tmp101 + 4;
-#line 1293
   *((unsigned int *)__cil_tmp102) = 7U;
-#line 1294
   __cil_tmp103 = (unsigned long )q;
-#line 1294
   __cil_tmp104 = __cil_tmp103 + 32;
-#line 1294
   *((void **)__cil_tmp104) = (void *)dev;
-#line 1295
   __cil_tmp105 = (unsigned long )q;
-#line 1295
   __cil_tmp106 = __cil_tmp105 + 40;
-#line 1295
   *((unsigned int *)__cil_tmp106) = (unsigned int )736UL;
-#line 1296
   __cil_tmp107 = (unsigned long )q;
-#line 1296
   __cil_tmp108 = __cil_tmp107 + 16;
-#line 1296
   *((struct vb2_ops    **)__cil_tmp108) = (struct vb2_ops    *)(& vivi_video_qops);
-#line 1297
   __cil_tmp109 = (unsigned long )q;
-#line 1297
   __cil_tmp110 = __cil_tmp109 + 24;
-#line 1297
   *((struct vb2_mem_ops    **)__cil_tmp110) = & vb2_vmalloc_memops;
-#line 1299
   vb2_queue_init(q);
   }
   {
-#line 1301
   while (1) {
     while_continue___1: /* CIL Label */ ;
     {
-#line 1301
     __cil_tmp111 = (unsigned long )dev;
-#line 1301
     __cil_tmp112 = __cil_tmp111 + 496;
-#line 1301
     __cil_tmp113 = (struct mutex *)__cil_tmp112;
-#line 1301
     __mutex_init(__cil_tmp113, "&dev->mutex", & __key___5);
     }
-#line 1301
     goto while_break___1;
   }
   while_break___1: /* CIL Label */ ;
   }
   {
-#line 1304
   __cil_tmp114 = (unsigned long )dev;
-#line 1304
   __cil_tmp115 = __cil_tmp114 + 576;
-#line 1304
   __cil_tmp116 = (struct list_head *)__cil_tmp115;
-#line 1304
   INIT_LIST_HEAD(__cil_tmp116);
   }
   {
-#line 1305
   while (1) {
     while_continue___2: /* CIL Label */ ;
     {
-#line 1305
     __cil_tmp117 = 576 + 24;
-#line 1305
     __cil_tmp118 = (unsigned long )dev;
-#line 1305
     __cil_tmp119 = __cil_tmp118 + __cil_tmp117;
-#line 1305
     __cil_tmp120 = (wait_queue_head_t *)__cil_tmp119;
-#line 1305
     __init_waitqueue_head(__cil_tmp120, "&dev->vidq.wq", & __key___6);
     }
-#line 1305
     goto while_break___2;
   }
   while_break___2: /* CIL Label */ ;
   }
   {
-#line 1307
   ret = -12;
-#line 1308
   vfd = (struct video_device *)video_device_alloc();
   }
-#line 1309
   if (! vfd) {
-#line 1310
     goto unreg_dev;
   } else {
 
   }
   {
-#line 1312
   *vfd = vivi_template;
-#line 1313
   __cil_tmp121 = (unsigned long )vfd;
-#line 1313
   __cil_tmp122 = __cil_tmp121 + 1048;
-#line 1313
   __cil_tmp123 = & debug;
-#line 1313
   __cil_tmp124 = *__cil_tmp123;
-#line 1313
   *((int *)__cil_tmp122) = (int )__cil_tmp124;
-#line 1314
   __cil_tmp125 = (unsigned long )vfd;
-#line 1314
   __cil_tmp126 = __cil_tmp125 + 920;
-#line 1314
   __cil_tmp127 = (unsigned long )dev;
-#line 1314
   __cil_tmp128 = __cil_tmp127 + 16;
-#line 1314
   *((struct v4l2_device **)__cil_tmp126) = (struct v4l2_device *)__cil_tmp128;
-#line 1315
   __cil_tmp129 = (unsigned long )vfd;
-#line 1315
   __cil_tmp130 = __cil_tmp129 + 992;
-#line 1315
   __cil_tmp131 = (unsigned long *)__cil_tmp130;
-#line 1315
   __cil_tmp132 = (unsigned long volatile   *)__cil_tmp131;
-#line 1315
   set_bit(2U, __cil_tmp132);
-#line 1321
   __cil_tmp133 = (unsigned long )vfd;
-#line 1321
   __cil_tmp134 = __cil_tmp133 + 1088;
-#line 1321
   __cil_tmp135 = (unsigned long )dev;
-#line 1321
   __cil_tmp136 = __cil_tmp135 + 496;
-#line 1321
   *((struct mutex **)__cil_tmp134) = (struct mutex *)__cil_tmp136;
-#line 1323
   __cil_tmp137 = & video_nr;
-#line 1323
   __cil_tmp138 = *__cil_tmp137;
-#line 1323
   __cil_tmp139 = (int )__cil_tmp138;
-#line 1323
   ret = (int )video_register_device(vfd, 0, __cil_tmp139);
   }
-#line 1324
   if (ret < 0) {
-#line 1325
     goto rel_vdev;
   } else {
 
   }
   {
-#line 1327
   __cil_tmp140 = (void *)dev;
-#line 1327
   video_set_drvdata(vfd, __cil_tmp140);
-#line 1330
   __cil_tmp141 = (struct list_head *)dev;
-#line 1330
   list_add_tail(__cil_tmp141, & vivi_devlist);
   }
   {
-#line 1332
   __cil_tmp142 = & video_nr;
-#line 1332
   __cil_tmp143 = *__cil_tmp142;
-#line 1332
   if (__cil_tmp143 != 4294967295U) {
-#line 1333
     __cil_tmp144 = & video_nr;
-#line 1333
     __cil_tmp145 = & video_nr;
-#line 1333
     __cil_tmp146 = *__cil_tmp145;
-#line 1333
     *__cil_tmp144 = __cil_tmp146 + 1U;
   } else {
 
   }
   }
   {
-#line 1335
   __cil_tmp147 = (unsigned long )dev;
-#line 1335
   __cil_tmp148 = __cil_tmp147 + 568;
-#line 1335
   *((struct video_device **)__cil_tmp148) = vfd;
-#line 1336
   tmp___8 = video_device_node_name(vfd);
-#line 1336
   __cil_tmp149 = 0 * 1UL;
-#line 1336
   __cil_tmp150 = 56 + __cil_tmp149;
-#line 1336
   __cil_tmp151 = 16 + __cil_tmp150;
-#line 1336
   __cil_tmp152 = (unsigned long )dev;
-#line 1336
   __cil_tmp153 = __cil_tmp152 + __cil_tmp151;
-#line 1336
   __cil_tmp154 = (char *)__cil_tmp153;
-#line 1336
   printk("<6>%s: V4L2 device registered as %s\n", __cil_tmp154, tmp___8);
   }
-#line 1338
   return (0);
   rel_vdev: 
   {
-#line 1341
   video_device_release(vfd);
   }
   unreg_dev: 
   {
-#line 1343
   v4l2_ctrl_handler_free(hdl);
-#line 1344
   __cil_tmp155 = (unsigned long )dev;
-#line 1344
   __cil_tmp156 = __cil_tmp155 + 16;
-#line 1344
   __cil_tmp157 = (struct v4l2_device *)__cil_tmp156;
-#line 1344
   v4l2_device_unregister(__cil_tmp157);
   }
   free_dev: 
   {
-#line 1346
   __cil_tmp158 = (void    *)dev;
-#line 1346
   kfree(__cil_tmp158);
   }
-#line 1347
   return (ret);
 }
 }
-#line 1356
 static int vivi_init(void)  __attribute__((__section__(".init.text"), __no_instrument_function__)) ;
-#line 1356 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/15067/dscv_tempdir/dscv/ri/32_1/drivers/media/video/vivi.c.common.c"
 static int vivi_init(void) 
 { struct font_desc    *font ;
   struct font_desc    *tmp___7 ;
@@ -14169,176 +10606,123 @@ static int vivi_init(void)
 
   {
   {
-#line 1358
   tmp___7 = find_font("VGA8x16");
-#line 1358
   font = tmp___7;
-#line 1359
   ret = 0;
   }
   {
-#line 1361
   __cil_tmp5 = (void *)0;
-#line 1361
   __cil_tmp6 = (unsigned long )__cil_tmp5;
-#line 1361
   __cil_tmp7 = (unsigned long )font;
-#line 1361
   if (__cil_tmp7 == __cil_tmp6) {
     {
-#line 1362
     printk("<3>vivi: could not find font\n");
     }
-#line 1363
     return (-19);
   } else {
 
   }
   }
-#line 1365
   __cil_tmp8 = (unsigned long )font;
-#line 1365
   __cil_tmp9 = __cil_tmp8 + 24;
-#line 1365
   __cil_tmp10 = *((void    *   *)__cil_tmp9);
-#line 1365
   font8x16 = (u8    *)__cil_tmp10;
   {
-#line 1367
   __cil_tmp11 = & n_devs;
-#line 1367
   __cil_tmp12 = *__cil_tmp11;
-#line 1367
   if (__cil_tmp12 <= 0U) {
-#line 1368
     __cil_tmp13 = & n_devs;
-#line 1368
     *__cil_tmp13 = 1U;
   } else {
 
   }
   }
-#line 1370
   i = 0;
   {
-#line 1370
   while (1) {
     while_continue: /* CIL Label */ ;
     {
-#line 1370
     __cil_tmp14 = & n_devs;
-#line 1370
     __cil_tmp15 = *__cil_tmp14;
-#line 1370
     __cil_tmp16 = (unsigned int )i;
-#line 1370
     if (__cil_tmp16 < __cil_tmp15) {
 
     } else {
-#line 1370
       goto while_break;
     }
     }
     {
-#line 1371
     ret = vivi_create_instance(i);
     }
-#line 1372
     if (ret) {
-#line 1374
       if (i) {
-#line 1375
         ret = 0;
       } else {
 
       }
-#line 1376
       goto while_break;
     } else {
 
     }
-#line 1370
     i = i + 1;
   }
   while_break: /* CIL Label */ ;
   }
-#line 1380
   if (ret < 0) {
     {
-#line 1381
     printk("<3>vivi: error %d while loading driver\n", ret);
     }
-#line 1382
     return (ret);
   } else {
 
   }
   {
-#line 1385
   printk("<6>Video Technology Magazine Virtual Video Capture Board ver %s successfully loaded.\n",
          "0.8.1");
-#line 1390
   __cil_tmp17 = & n_devs;
-#line 1390
   *__cil_tmp17 = (unsigned int )i;
   }
-#line 1392
   return (ret);
 }
 }
-#line 1395
 static void vivi_exit(void)  __attribute__((__section__(".exit.text"), __no_instrument_function__)) ;
-#line 1395 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/15067/dscv_tempdir/dscv/ri/32_1/drivers/media/video/vivi.c.common.c"
 static void vivi_exit(void) 
 { 
 
   {
   {
-#line 1397
   vivi_release();
   }
-#line 1398
   return;
 }
 }
-#line 1400 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/15067/dscv_tempdir/dscv/ri/32_1/drivers/media/video/vivi.c.common.c"
 int init_module(void) 
 { int tmp___7 ;
 
   {
   {
-#line 1400
   tmp___7 = vivi_init();
   }
-#line 1400
   return (tmp___7);
 }
 }
-#line 1401 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/15067/dscv_tempdir/dscv/ri/32_1/drivers/media/video/vivi.c.common.c"
 void cleanup_module(void) 
 { 
 
   {
   {
-#line 1401
   vivi_exit();
   }
-#line 1401
   return;
 }
 }
-#line 1419
 void ldv_check_final_state(void) ;
-#line 1425
 extern void ldv_initialize(void) ;
-#line 1428
 extern int __VERIFIER_nondet_int(void) ;
 extern unsigned int __VERIFIER_nondet_uint(void) ;
 extern unsigned long __VERIFIER_nondet_ulong(void) ;
 extern void *__VERIFIER_nondet_pointer(void) ;
-#line 1431 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/15067/dscv_tempdir/dscv/ri/32_1/drivers/media/video/vivi.c.common.c"
 int LDV_IN_INTERRUPT  ;
-#line 1434 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/15067/dscv_tempdir/dscv/ri/32_1/drivers/media/video/vivi.c.common.c"
 void main(void) 
 { struct vb2_buffer *var_group1 = __VERIFIER_nondet_pointer();
   struct vb2_queue *var_group2 = __VERIFIER_nondet_pointer();
@@ -14388,424 +10772,286 @@ void main(void)
 
   {
   {
-#line 2614
   LDV_IN_INTERRUPT = 1;
-#line 2623
   ldv_initialize();
-#line 2661
   tmp___7 = vivi_init();
   }
-#line 2661
   if (tmp___7) {
-#line 2662
     goto ldv_final;
   } else {
 
   }
-#line 2667
   ldv_s_vivi_fops_v4l2_file_operations = 0;
   {
-#line 2673
   while (1) {
     while_continue: /* CIL Label */ ;
     {
-#line 2673
     tmp___9 = __VERIFIER_nondet_int();
     }
-#line 2673
     if (tmp___9) {
 
     } else {
       {
-#line 2673
       __cil_tmp45 = ldv_s_vivi_fops_v4l2_file_operations == 0;
-#line 2673
       if (! __cil_tmp45) {
 
       } else {
-#line 2673
         goto while_break;
       }
       }
     }
     {
-#line 2677
     tmp___8 = __VERIFIER_nondet_int();
     }
-#line 2679
     if (tmp___8 == 0) {
-#line 2679
       goto case_0;
     } else
-#line 2729
     if (tmp___8 == 1) {
-#line 2729
       goto case_1;
     } else
-#line 2779
     if (tmp___8 == 2) {
-#line 2779
       goto case_2;
     } else
-#line 2829
     if (tmp___8 == 3) {
-#line 2829
       goto case_3;
     } else
-#line 2879
     if (tmp___8 == 4) {
-#line 2879
       goto case_4;
     } else
-#line 2929
     if (tmp___8 == 5) {
-#line 2929
       goto case_5;
     } else
-#line 2979
     if (tmp___8 == 6) {
-#line 2979
       goto case_6;
     } else
-#line 3029
     if (tmp___8 == 7) {
-#line 3029
       goto case_7;
     } else
-#line 3079
     if (tmp___8 == 8) {
-#line 3079
       goto case_8;
     } else
-#line 3129
     if (tmp___8 == 9) {
-#line 3129
       goto case_9;
     } else
-#line 3179
     if (tmp___8 == 10) {
-#line 3179
       goto case_10;
     } else
-#line 3229
     if (tmp___8 == 11) {
-#line 3229
       goto case_11;
     } else
-#line 3279
     if (tmp___8 == 12) {
-#line 3279
       goto case_12;
     } else
-#line 3329
     if (tmp___8 == 13) {
-#line 3329
       goto case_13;
     } else
-#line 3379
     if (tmp___8 == 14) {
-#line 3379
       goto case_14;
     } else
-#line 3429
     if (tmp___8 == 15) {
-#line 3429
       goto case_15;
     } else
-#line 3479
     if (tmp___8 == 16) {
-#line 3479
       goto case_16;
     } else
-#line 3529
     if (tmp___8 == 17) {
-#line 3529
       goto case_17;
     } else
-#line 3579
     if (tmp___8 == 18) {
-#line 3579
       goto case_18;
     } else
-#line 3629
     if (tmp___8 == 19) {
-#line 3629
       goto case_19;
     } else
-#line 3679
     if (tmp___8 == 20) {
-#line 3679
       goto case_20;
     } else
-#line 3729
     if (tmp___8 == 21) {
-#line 3729
       goto case_21;
     } else
-#line 3779
     if (tmp___8 == 22) {
-#line 3779
       goto case_22;
     } else
-#line 3829
     if (tmp___8 == 23) {
-#line 3829
       goto case_23;
     } else
-#line 3879
     if (tmp___8 == 24) {
-#line 3879
       goto case_24;
     } else
-#line 3929
     if (tmp___8 == 25) {
-#line 3929
       goto case_25;
     } else
-#line 3979
     if (tmp___8 == 26) {
-#line 3979
       goto case_26;
     } else
-#line 4029
     if (tmp___8 == 27) {
-#line 4029
       goto case_27;
     } else
-#line 4079
     if (tmp___8 == 28) {
-#line 4079
       goto case_28;
     } else
-#line 4129
     if (tmp___8 == 29) {
-#line 4129
       goto case_29;
     } else {
       {
-#line 4179
       goto switch_default;
-#line 2677
       if (0) {
         case_0: /* CIL Label */ 
         {
-#line 2718
         buffer_init(var_group1);
         }
-#line 2728
         goto switch_break;
         case_1: /* CIL Label */ 
         {
-#line 2768
         buffer_prepare(var_group1);
         }
-#line 2778
         goto switch_break;
         case_2: /* CIL Label */ 
         {
-#line 2818
         buffer_finish(var_group1);
         }
-#line 2828
         goto switch_break;
         case_3: /* CIL Label */ 
         {
-#line 2868
         buffer_cleanup(var_group1);
         }
-#line 2878
         goto switch_break;
         case_4: /* CIL Label */ 
         {
-#line 2918
         buffer_queue(var_group1);
         }
-#line 2928
         goto switch_break;
         case_5: /* CIL Label */ 
         {
-#line 2968
         start_streaming(var_group2, var_start_streaming_16_p1);
         }
-#line 2978
         goto switch_break;
         case_6: /* CIL Label */ 
         {
-#line 3018
         stop_streaming(var_group2);
         }
-#line 3028
         goto switch_break;
         case_7: /* CIL Label */ 
         {
-#line 3068
         vivi_unlock(var_group2);
         }
-#line 3078
         goto switch_break;
         case_8: /* CIL Label */ 
         {
-#line 3118
         vivi_lock(var_group2);
         }
-#line 3128
         goto switch_break;
         case_9: /* CIL Label */ 
         {
-#line 3168
         vivi_g_volatile_ctrl(var_group3);
         }
-#line 3178
         goto switch_break;
         case_10: /* CIL Label */ 
         {
-#line 3218
         vivi_s_ctrl(var_group3);
         }
-#line 3228
         goto switch_break;
         case_11: /* CIL Label */ 
-#line 3232
         if (ldv_s_vivi_fops_v4l2_file_operations == 0) {
           {
-#line 3268
           vivi_close(var_group4);
-#line 3272
           ldv_s_vivi_fops_v4l2_file_operations = 0;
           }
         } else {
 
         }
-#line 3278
         goto switch_break;
         case_12: /* CIL Label */ 
         {
-#line 3318
         vivi_read(var_group4, var_vivi_read_37_p1, var_vivi_read_37_p2, var_vivi_read_37_p3);
         }
-#line 3328
         goto switch_break;
         case_13: /* CIL Label */ 
         {
-#line 3368
         vivi_poll(var_group4, var_group5);
         }
-#line 3378
         goto switch_break;
         case_14: /* CIL Label */ 
         {
-#line 3418
         vivi_mmap(var_group4, var_group6);
         }
-#line 3428
         goto switch_break;
         case_15: /* CIL Label */ 
         {
-#line 3468
         vidioc_querycap(var_group4, var_vidioc_querycap_20_p1, var_vidioc_querycap_20_p2);
         }
-#line 3478
         goto switch_break;
         case_16: /* CIL Label */ 
         {
-#line 3518
         vidioc_enum_fmt_vid_cap(var_group4, var_vidioc_enum_fmt_vid_cap_21_p1, var_vidioc_enum_fmt_vid_cap_21_p2);
         }
-#line 3528
         goto switch_break;
         case_17: /* CIL Label */ 
         {
-#line 3568
         vidioc_g_fmt_vid_cap(var_group4, var_vidioc_g_fmt_vid_cap_22_p1, var_vidioc_g_fmt_vid_cap_22_p2);
         }
-#line 3578
         goto switch_break;
         case_18: /* CIL Label */ 
         {
-#line 3618
         vidioc_try_fmt_vid_cap(var_group4, var_vidioc_try_fmt_vid_cap_23_p1, var_vidioc_try_fmt_vid_cap_23_p2);
         }
-#line 3628
         goto switch_break;
         case_19: /* CIL Label */ 
         {
-#line 3668
         vidioc_s_fmt_vid_cap(var_group4, var_vidioc_s_fmt_vid_cap_24_p1, var_vidioc_s_fmt_vid_cap_24_p2);
         }
-#line 3678
         goto switch_break;
         case_20: /* CIL Label */ 
         {
-#line 3718
         vidioc_reqbufs(var_group4, var_vidioc_reqbufs_25_p1, var_vidioc_reqbufs_25_p2);
         }
-#line 3728
         goto switch_break;
         case_21: /* CIL Label */ 
         {
-#line 3768
         vidioc_querybuf(var_group4, var_vidioc_querybuf_26_p1, var_vidioc_querybuf_26_p2);
         }
-#line 3778
         goto switch_break;
         case_22: /* CIL Label */ 
         {
-#line 3818
         vidioc_qbuf(var_group4, var_vidioc_qbuf_27_p1, var_vidioc_qbuf_27_p2);
         }
-#line 3828
         goto switch_break;
         case_23: /* CIL Label */ 
         {
-#line 3868
         vidioc_dqbuf(var_group4, var_vidioc_dqbuf_28_p1, var_vidioc_dqbuf_28_p2);
         }
-#line 3878
         goto switch_break;
         case_24: /* CIL Label */ 
         {
-#line 3918
         vidioc_s_std(var_group4, var_vidioc_s_std_31_p1, var_vidioc_s_std_31_p2);
         }
-#line 3928
         goto switch_break;
         case_25: /* CIL Label */ 
         {
-#line 3968
         vidioc_enum_input(var_group4, var_vidioc_enum_input_32_p1, var_vidioc_enum_input_32_p2);
         }
-#line 3978
         goto switch_break;
         case_26: /* CIL Label */ 
         {
-#line 4018
         vidioc_g_input(var_group4, var_vidioc_g_input_33_p1, var_vidioc_g_input_33_p2);
         }
-#line 4028
         goto switch_break;
         case_27: /* CIL Label */ 
         {
-#line 4068
         vidioc_s_input(var_group4, var_vidioc_s_input_34_p1, var_vidioc_s_input_34_p2);
         }
-#line 4078
         goto switch_break;
         case_28: /* CIL Label */ 
         {
-#line 4118
         vidioc_streamon(var_group4, var_vidioc_streamon_29_p1, var_vidioc_streamon_29_p2);
         }
-#line 4128
         goto switch_break;
         case_29: /* CIL Label */ 
         {
-#line 4168
         vidioc_streamoff(var_group4, var_vidioc_streamoff_30_p1, var_vidioc_streamoff_30_p2);
         }
-#line 4178
         goto switch_break;
         switch_default: /* CIL Label */ 
-#line 4179
         goto switch_break;
       } else {
         switch_break: /* CIL Label */ ;
@@ -14816,19 +11062,15 @@ void main(void)
   while_break: /* CIL Label */ ;
   }
   {
-#line 4223
   vivi_exit();
   }
   ldv_final: 
   {
-#line 4226
   ldv_check_final_state();
   }
-#line 4229
   return;
 }
 }
-#line 5 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/15067/dscv_tempdir/dscv/ri/32_1/kernel-rules/files/engine-blast-assert.h"
 void ldv_blast_assert(void) 
 { 
 
@@ -14836,195 +11078,145 @@ void ldv_blast_assert(void)
   ERROR: __VERIFIER_error();
 }
 }
-#line 6 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/15067/dscv_tempdir/dscv/ri/32_1/kernel-rules/files/engine-blast.h"
 extern int __VERIFIER_nondet_int(void) ;
-#line 19 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/15067/dscv_tempdir/dscv/ri/32_1/kernel-rules/files/model0032.c"
 int ldv_mutex  =    1;
-#line 22 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/15067/dscv_tempdir/dscv/ri/32_1/kernel-rules/files/model0032.c"
 int __attribute__((__warn_unused_result__))  mutex_lock_interruptible(struct mutex *lock ) 
 { int nondetermined ;
 
   {
-#line 29
   if (ldv_mutex == 1) {
 
   } else {
     {
-#line 29
     ldv_blast_assert();
     }
   }
   {
-#line 32
   nondetermined = __VERIFIER_nondet_int();
   }
-#line 35
   if (nondetermined) {
-#line 38
     ldv_mutex = 2;
-#line 40
     return (0);
   } else {
-#line 45
     return (-4);
   }
 }
 }
-#line 50 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/15067/dscv_tempdir/dscv/ri/32_1/kernel-rules/files/model0032.c"
 int __attribute__((__warn_unused_result__))  mutex_lock_killable(struct mutex *lock ) 
 { int nondetermined ;
 
   {
-#line 57
   if (ldv_mutex == 1) {
 
   } else {
     {
-#line 57
     ldv_blast_assert();
     }
   }
   {
-#line 60
   nondetermined = __VERIFIER_nondet_int();
   }
-#line 63
   if (nondetermined) {
-#line 66
     ldv_mutex = 2;
-#line 68
     return (0);
   } else {
-#line 73
     return (-4);
   }
 }
 }
-#line 78 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/15067/dscv_tempdir/dscv/ri/32_1/kernel-rules/files/model0032.c"
 int atomic_dec_and_mutex_lock(atomic_t *cnt , struct mutex *lock ) 
 { int atomic_value_after_dec ;
 
   {
-#line 83
   if (ldv_mutex == 1) {
 
   } else {
     {
-#line 83
     ldv_blast_assert();
     }
   }
   {
-#line 86
   atomic_value_after_dec = __VERIFIER_nondet_int();
   }
-#line 89
   if (atomic_value_after_dec == 0) {
-#line 92
     ldv_mutex = 2;
-#line 94
     return (1);
   } else {
 
   }
-#line 98
   return (0);
 }
 }
-#line 103 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/15067/dscv_tempdir/dscv/ri/32_1/kernel-rules/files/model0032.c"
 void mutex_lock(struct mutex *lock ) 
 { 
 
   {
-#line 108
   if (ldv_mutex == 1) {
 
   } else {
     {
-#line 108
     ldv_blast_assert();
     }
   }
-#line 110
   ldv_mutex = 2;
-#line 111
   return;
 }
 }
-#line 114 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/15067/dscv_tempdir/dscv/ri/32_1/kernel-rules/files/model0032.c"
 int mutex_trylock(struct mutex *lock ) 
 { int nondetermined ;
 
   {
-#line 121
   if (ldv_mutex == 1) {
 
   } else {
     {
-#line 121
     ldv_blast_assert();
     }
   }
   {
-#line 124
   nondetermined = __VERIFIER_nondet_int();
   }
-#line 127
   if (nondetermined) {
-#line 130
     ldv_mutex = 2;
-#line 132
     return (1);
   } else {
-#line 137
     return (0);
   }
 }
 }
-#line 142 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/15067/dscv_tempdir/dscv/ri/32_1/kernel-rules/files/model0032.c"
 void mutex_unlock(struct mutex *lock ) 
 { 
 
   {
-#line 147
   if (ldv_mutex == 2) {
 
   } else {
     {
-#line 147
     ldv_blast_assert();
     }
   }
-#line 149
   ldv_mutex = 1;
-#line 150
   return;
 }
 }
-#line 153 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/15067/dscv_tempdir/dscv/ri/32_1/kernel-rules/files/model0032.c"
 void ldv_check_final_state(void) 
 { 
 
   {
-#line 156
   if (ldv_mutex == 1) {
 
   } else {
     {
-#line 156
     ldv_blast_assert();
     }
   }
-#line 157
   return;
 }
 }
-#line 4238 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/15067/dscv_tempdir/dscv/ri/32_1/drivers/media/video/vivi.c.common.c"
 long ldv__builtin_expect(long val , long res ) 
 { 
 
   {
-#line 4239
   return (val);
 }
 }
