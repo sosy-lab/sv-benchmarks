@@ -1,7 +1,3 @@
-# 1 "avg60_true-unreach-call.c"
-# 1 "<command-line>"
-# 1 "avg60_true-unreach-call.c"
-# 16 "avg60_true-unreach-call.c"
 extern void __VERIFIER_error() __attribute__ ((__noreturn__));
 
 int avg (int x[60])

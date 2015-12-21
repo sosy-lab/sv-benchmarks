@@ -1,12 +1,5 @@
 extern void __VERIFIER_assume(int);
 extern _Bool __VERIFIER_nondet_bool(void);
-# 1 "dancing_true-unreach-call.c"
-# 1 "<built-in>"
-# 1 "<command-line>"
-# 1 "/usr/include/stdc-predef.h" 1 3 4
-# 1 "<command-line>" 2
-# 1 "dancing_true-unreach-call.c"
-# 55 "dancing_true-unreach-call.c"
 extern void __VERIFIER_error() __attribute__ ((__noreturn__));
 
 void __VERIFIER_assert(int cond) {
@@ -16,27 +9,6 @@ void __VERIFIER_assert(int cond) {
   return;
 }
 
-# 1 "/usr/include/stdlib.h" 1 3 4
-# 24 "/usr/include/stdlib.h" 3 4
-# 1 "/usr/include/features.h" 1 3 4
-# 374 "/usr/include/features.h" 3 4
-# 1 "/usr/include/sys/cdefs.h" 1 3 4
-# 385 "/usr/include/sys/cdefs.h" 3 4
-# 1 "/usr/include/bits/wordsize.h" 1 3 4
-# 386 "/usr/include/sys/cdefs.h" 2 3 4
-# 375 "/usr/include/features.h" 2 3 4
-# 398 "/usr/include/features.h" 3 4
-# 1 "/usr/include/gnu/stubs.h" 1 3 4
-
-
-
-
-
-
-# 1 "/usr/include/gnu/stubs-32.h" 1 3 4
-# 8 "/usr/include/gnu/stubs.h" 2 3 4
-# 399 "/usr/include/features.h" 2 3 4
-# 25 "/usr/include/stdlib.h" 2 3 4
 
 
 
@@ -44,12 +16,14 @@ void __VERIFIER_assert(int cond) {
 
 
 
-# 1 "/usr/lib/gcc/x86_64-linux-gnu/4.9/include/stddef.h" 1 3 4
-# 212 "/usr/lib/gcc/x86_64-linux-gnu/4.9/include/stddef.h" 3 4
+
+
+
+
+
+
 typedef unsigned int size_t;
-# 324 "/usr/lib/gcc/x86_64-linux-gnu/4.9/include/stddef.h" 3 4
 typedef long int wchar_t;
-# 33 "/usr/include/stdlib.h" 2 3 4
 
 
 
@@ -58,28 +32,12 @@ typedef long int wchar_t;
 
 
 
-# 1 "/usr/include/bits/waitflags.h" 1 3 4
-# 50 "/usr/include/bits/waitflags.h" 3 4
 typedef enum
 {
   P_ALL,
   P_PID,
   P_PGID
 } idtype_t;
-# 42 "/usr/include/stdlib.h" 2 3 4
-# 1 "/usr/include/bits/waitstatus.h" 1 3 4
-# 64 "/usr/include/bits/waitstatus.h" 3 4
-# 1 "/usr/include/endian.h" 1 3 4
-# 36 "/usr/include/endian.h" 3 4
-# 1 "/usr/include/bits/endian.h" 1 3 4
-# 37 "/usr/include/endian.h" 2 3 4
-# 60 "/usr/include/endian.h" 3 4
-# 1 "/usr/include/bits/byteswap.h" 1 3 4
-# 27 "/usr/include/bits/byteswap.h" 3 4
-# 1 "/usr/include/bits/types.h" 1 3 4
-# 27 "/usr/include/bits/types.h" 3 4
-# 1 "/usr/include/bits/wordsize.h" 1 3 4
-# 28 "/usr/include/bits/types.h" 2 3 4
 
 
 typedef unsigned char __u_char;
@@ -109,9 +67,6 @@ __extension__ typedef unsigned long long int __uint64_t;
 
 __extension__ typedef long long int __quad_t;
 __extension__ typedef unsigned long long int __u_quad_t;
-# 121 "/usr/include/bits/types.h" 3 4
-# 1 "/usr/include/bits/typesizes.h" 1 3 4
-# 122 "/usr/include/bits/types.h" 2 3 4
 
 
 __extension__ typedef __u_quad_t __dev_t;
@@ -180,31 +135,22 @@ __extension__ typedef int __intptr_t;
 
 
 __extension__ typedef unsigned int __socklen_t;
-# 28 "/usr/include/bits/byteswap.h" 2 3 4
-# 1 "/usr/include/bits/wordsize.h" 1 3 4
-# 29 "/usr/include/bits/byteswap.h" 2 3 4
 
 
 
 
 
 
-# 1 "/usr/include/bits/byteswap-16.h" 1 3 4
-# 36 "/usr/include/bits/byteswap.h" 2 3 4
-# 44 "/usr/include/bits/byteswap.h" 3 4
 static __inline unsigned int
 __bswap_32 (unsigned int __bsx)
 {
   return __builtin_bswap32 (__bsx);
 }
-# 108 "/usr/include/bits/byteswap.h" 3 4
 static __inline __uint64_t
 __bswap_64 (__uint64_t __bsx)
 {
   return __builtin_bswap64 (__bsx);
 }
-# 61 "/usr/include/endian.h" 2 3 4
-# 65 "/usr/include/bits/waitstatus.h" 2 3 4
 
 union wait
   {
@@ -238,14 +184,11 @@ union wait
 
       } __wait_stopped;
   };
-# 43 "/usr/include/stdlib.h" 2 3 4
-# 67 "/usr/include/stdlib.h" 3 4
 typedef union
   {
     union wait *__uptr;
     int *__iptr;
   } __WAIT_STATUS __attribute__ ((__transparent_union__));
-# 95 "/usr/include/stdlib.h" 3 4
 
 
 typedef struct
@@ -275,7 +218,6 @@ __extension__ typedef struct
   } lldiv_t;
 
 
-# 139 "/usr/include/stdlib.h" 3 4
 extern size_t __ctype_get_mb_cur_max (void) __attribute__ ((__nothrow__ , __leaf__)) ;
 
 
@@ -355,7 +297,6 @@ extern unsigned long long int strtoull (const char *__restrict __nptr,
      char **__restrict __endptr, int __base)
      __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1)));
 
-# 305 "/usr/include/stdlib.h" 3 4
 extern char *l64a (long int __n) __attribute__ ((__nothrow__ , __leaf__)) ;
 
 
@@ -365,8 +306,6 @@ extern long int a64l (const char *__s)
 
 
 
-# 1 "/usr/include/sys/types.h" 1 3 4
-# 27 "/usr/include/sys/types.h" 3 4
 
 
 
@@ -389,7 +328,6 @@ typedef __loff_t loff_t;
 
 
 typedef __ino_t ino_t;
-# 60 "/usr/include/sys/types.h" 3 4
 typedef __dev_t dev_t;
 
 
@@ -417,7 +355,6 @@ typedef __uid_t uid_t;
 
 
 typedef __off_t off_t;
-# 98 "/usr/include/sys/types.h" 3 4
 typedef __pid_t pid_t;
 
 
@@ -443,37 +380,26 @@ typedef __caddr_t caddr_t;
 
 
 typedef __key_t key_t;
-# 132 "/usr/include/sys/types.h" 3 4
-# 1 "/usr/include/time.h" 1 3 4
-# 57 "/usr/include/time.h" 3 4
 
 
 typedef __clock_t clock_t;
 
 
 
-# 73 "/usr/include/time.h" 3 4
 
 
 typedef __time_t time_t;
 
 
 
-# 91 "/usr/include/time.h" 3 4
 typedef __clockid_t clockid_t;
-# 103 "/usr/include/time.h" 3 4
 typedef __timer_t timer_t;
-# 133 "/usr/include/sys/types.h" 2 3 4
-# 146 "/usr/include/sys/types.h" 3 4
-# 1 "/usr/lib/gcc/x86_64-linux-gnu/4.9/include/stddef.h" 1 3 4
-# 147 "/usr/include/sys/types.h" 2 3 4
 
 
 
 typedef unsigned long int ulong;
 typedef unsigned short int ushort;
 typedef unsigned int uint;
-# 194 "/usr/include/sys/types.h" 3 4
 typedef int int8_t __attribute__ ((__mode__ (__QI__)));
 typedef int int16_t __attribute__ ((__mode__ (__HI__)));
 typedef int int32_t __attribute__ ((__mode__ (__SI__)));
@@ -486,18 +412,8 @@ typedef unsigned int u_int32_t __attribute__ ((__mode__ (__SI__)));
 typedef unsigned int u_int64_t __attribute__ ((__mode__ (__DI__)));
 
 typedef int register_t __attribute__ ((__mode__ (__word__)));
-# 219 "/usr/include/sys/types.h" 3 4
-# 1 "/usr/include/sys/select.h" 1 3 4
-# 30 "/usr/include/sys/select.h" 3 4
-# 1 "/usr/include/bits/select.h" 1 3 4
-# 22 "/usr/include/bits/select.h" 3 4
-# 1 "/usr/include/bits/wordsize.h" 1 3 4
-# 23 "/usr/include/bits/select.h" 2 3 4
-# 31 "/usr/include/sys/select.h" 2 3 4
 
 
-# 1 "/usr/include/bits/sigset.h" 1 3 4
-# 22 "/usr/include/bits/sigset.h" 3 4
 typedef int __sig_atomic_t;
 
 
@@ -507,7 +423,6 @@ typedef struct
   {
     unsigned long int __val[(1024 / (8 * sizeof (unsigned long int)))];
   } __sigset_t;
-# 34 "/usr/include/sys/select.h" 2 3 4
 
 
 
@@ -517,23 +432,17 @@ typedef __sigset_t sigset_t;
 
 
 
-# 1 "/usr/include/time.h" 1 3 4
-# 120 "/usr/include/time.h" 3 4
 struct timespec
   {
     __time_t tv_sec;
     __syscall_slong_t tv_nsec;
   };
-# 44 "/usr/include/sys/select.h" 2 3 4
 
-# 1 "/usr/include/bits/time.h" 1 3 4
-# 30 "/usr/include/bits/time.h" 3 4
 struct timeval
   {
     __time_t tv_sec;
     __suseconds_t tv_usec;
   };
-# 46 "/usr/include/sys/select.h" 2 3 4
 
 
 typedef __suseconds_t suseconds_t;
@@ -543,7 +452,6 @@ typedef __suseconds_t suseconds_t;
 
 
 typedef long int __fd_mask;
-# 64 "/usr/include/sys/select.h" 3 4
 typedef struct
   {
 
@@ -563,26 +471,19 @@ typedef struct
 
 
 typedef __fd_mask fd_mask;
-# 96 "/usr/include/sys/select.h" 3 4
 
-# 106 "/usr/include/sys/select.h" 3 4
 extern int select (int __nfds, fd_set *__restrict __readfds,
      fd_set *__restrict __writefds,
      fd_set *__restrict __exceptfds,
      struct timeval *__restrict __timeout);
-# 118 "/usr/include/sys/select.h" 3 4
 extern int pselect (int __nfds, fd_set *__restrict __readfds,
       fd_set *__restrict __writefds,
       fd_set *__restrict __exceptfds,
       const struct timespec *__restrict __timeout,
       const __sigset_t *__restrict __sigmask);
-# 131 "/usr/include/sys/select.h" 3 4
-
-# 220 "/usr/include/sys/types.h" 2 3 4
 
 
-# 1 "/usr/include/sys/sysmacros.h" 1 3 4
-# 24 "/usr/include/sys/sysmacros.h" 3 4
+
 
 
 __extension__
@@ -595,9 +496,7 @@ __extension__
 extern unsigned long long int gnu_dev_makedev (unsigned int __major,
             unsigned int __minor)
      __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__));
-# 58 "/usr/include/sys/sysmacros.h" 3 4
 
-# 223 "/usr/include/sys/types.h" 2 3 4
 
 
 
@@ -619,12 +518,6 @@ typedef __fsblkcnt_t fsblkcnt_t;
 
 
 typedef __fsfilcnt_t fsfilcnt_t;
-# 270 "/usr/include/sys/types.h" 3 4
-# 1 "/usr/include/bits/pthreadtypes.h" 1 3 4
-# 21 "/usr/include/bits/pthreadtypes.h" 3 4
-# 1 "/usr/include/bits/wordsize.h" 1 3 4
-# 22 "/usr/include/bits/pthreadtypes.h" 2 3 4
-# 60 "/usr/include/bits/pthreadtypes.h" 3 4
 typedef unsigned long int pthread_t;
 
 
@@ -635,7 +528,6 @@ union pthread_attr_t
 };
 
 typedef union pthread_attr_t pthread_attr_t;
-# 81 "/usr/include/bits/pthreadtypes.h" 3 4
 typedef struct __pthread_internal_slist
 {
   struct __pthread_internal_slist *__next;
@@ -730,7 +622,6 @@ typedef int pthread_once_t;
 
 typedef union
 {
-# 194 "/usr/include/bits/pthreadtypes.h" 3 4
   struct
   {
     int __lock;
@@ -778,11 +669,9 @@ typedef union
   char __size[4];
   int __align;
 } pthread_barrierattr_t;
-# 271 "/usr/include/sys/types.h" 2 3 4
 
 
 
-# 315 "/usr/include/stdlib.h" 2 3 4
 
 
 
@@ -960,10 +849,6 @@ extern void cfree (void *__ptr) __attribute__ ((__nothrow__ , __leaf__));
 
 
 
-# 1 "/usr/include/alloca.h" 1 3 4
-# 24 "/usr/include/alloca.h" 3 4
-# 1 "/usr/lib/gcc/x86_64-linux-gnu/4.9/include/stddef.h" 1 3 4
-# 25 "/usr/include/alloca.h" 2 3 4
 
 
 
@@ -978,7 +863,6 @@ extern void *alloca (size_t __size) __attribute__ ((__nothrow__ , __leaf__));
 
 
 
-# 493 "/usr/include/stdlib.h" 2 3 4
 
 
 
@@ -991,7 +875,6 @@ extern void *valloc (size_t __size) __attribute__ ((__nothrow__ , __leaf__)) __a
 
 extern int posix_memalign (void **__memptr, size_t __alignment, size_t __size)
      __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1))) ;
-# 513 "/usr/include/stdlib.h" 3 4
 
 
 extern void abort (void) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__noreturn__));
@@ -999,7 +882,6 @@ extern void abort (void) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ 
 
 
 extern int atexit (void (*__func) (void)) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1)));
-# 530 "/usr/include/stdlib.h" 3 4
 
 
 
@@ -1036,7 +918,6 @@ extern void _Exit (int __status) __attribute__ ((__nothrow__ , __leaf__)) __attr
 
 extern char *getenv (const char *__name) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1))) ;
 
-# 578 "/usr/include/stdlib.h" 3 4
 extern int putenv (char *__string) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1)));
 
 
@@ -1055,15 +936,10 @@ extern int unsetenv (const char *__name) __attribute__ ((__nothrow__ , __leaf__)
 
 
 extern int clearenv (void) __attribute__ ((__nothrow__ , __leaf__));
-# 606 "/usr/include/stdlib.h" 3 4
 extern char *mktemp (char *__template) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1)));
-# 620 "/usr/include/stdlib.h" 3 4
 extern int mkstemp (char *__template) __attribute__ ((__nonnull__ (1))) ;
-# 642 "/usr/include/stdlib.h" 3 4
 extern int mkstemps (char *__template, int __suffixlen) __attribute__ ((__nonnull__ (1))) ;
-# 663 "/usr/include/stdlib.h" 3 4
 extern char *mkdtemp (char *__template) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1))) ;
-# 712 "/usr/include/stdlib.h" 3 4
 
 
 
@@ -1071,7 +947,6 @@ extern char *mkdtemp (char *__template) __attribute__ ((__nothrow__ , __leaf__))
 
 extern int system (const char *__command) ;
 
-# 734 "/usr/include/stdlib.h" 3 4
 extern char *realpath (const char *__restrict __name,
          char *__restrict __resolved) __attribute__ ((__nothrow__ , __leaf__)) ;
 
@@ -1081,7 +956,6 @@ extern char *realpath (const char *__restrict __name,
 
 
 typedef int (*__compar_fn_t) (const void *, const void *);
-# 752 "/usr/include/stdlib.h" 3 4
 
 
 
@@ -1097,7 +971,6 @@ extern void *bsearch (const void *__key, const void *__base,
 
 extern void qsort (void *__base, size_t __nmemb, size_t __size,
      __compar_fn_t __compar) __attribute__ ((__nonnull__ (1, 4)));
-# 775 "/usr/include/stdlib.h" 3 4
 extern int abs (int __x) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__)) ;
 extern long int labs (long int __x) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__)) ;
 
@@ -1124,7 +997,6 @@ __extension__ extern lldiv_t lldiv (long long int __numer,
         long long int __denom)
      __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__)) ;
 
-# 812 "/usr/include/stdlib.h" 3 4
 extern char *ecvt (double __value, int __ndigit, int *__restrict __decpt,
      int *__restrict __sign) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (3, 4))) ;
 
@@ -1202,21 +1074,15 @@ extern size_t wcstombs (char *__restrict __s,
 
 
 extern int rpmatch (const char *__response) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1))) ;
-# 899 "/usr/include/stdlib.h" 3 4
 extern int getsubopt (char **__restrict __optionp,
         char *const *__restrict __tokens,
         char **__restrict __valuep)
      __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1, 2, 3))) ;
-# 951 "/usr/include/stdlib.h" 3 4
 extern int getloadavg (double __loadavg[], int __nelem)
      __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1)));
 
 
-# 1 "/usr/include/bits/stdlib-float.h" 1 3 4
-# 956 "/usr/include/stdlib.h" 2 3 4
-# 968 "/usr/include/stdlib.h" 3 4
 
-# 65 "dancing_true-unreach-call.c" 2
 
 struct node
 {

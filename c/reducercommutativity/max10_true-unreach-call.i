@@ -1,7 +1,3 @@
-# 1 "max10_true-unreach-call.c"
-# 1 "<command-line>"
-# 1 "max10_true-unreach-call.c"
-# 16 "max10_true-unreach-call.c"
 extern void __VERIFIER_error() __attribute__ ((__noreturn__));
 
 int max (int x[10])

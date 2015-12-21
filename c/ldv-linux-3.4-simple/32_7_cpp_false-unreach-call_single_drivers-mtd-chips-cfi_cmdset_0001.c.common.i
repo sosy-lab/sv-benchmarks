@@ -1,52 +1,24 @@
 extern void __VERIFIER_error() __attribute__ ((__noreturn__));
 
-# 1 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/5348/dscv_tempdir/dscv/ri/32_1/drivers/mtd/chips/cfi_cmdset_0001.c.common.c"
-# 1 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4//"
-# 1 "<built-in>"
 long ldv__builtin_expect(long val, long res);
-# 1 "<command-line>"
-# 1 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/include/linux/kconfig.h" 1
-
-
-
-# 1 "include/generated/autoconf.h" 1
-# 5 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/include/linux/kconfig.h" 2
-# 1 "<command-line>" 2
-# 1 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/5348/dscv_tempdir/dscv/ri/32_1/kernel-rules/./files/model0032-config.h" 1
-# 17 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/5348/dscv_tempdir/dscv/ri/32_1/kernel-rules/./files/model0032-config.h"
-# 1 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/5348/dscv_tempdir/dscv/ri/32_1/kernel-rules/./files/config-tracers.h" 1
-# 17 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/5348/dscv_tempdir/dscv/ri/32_1/kernel-rules/./files/model0032-config.h" 2
-# 1 "<command-line>" 2
-# 1 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/5348/dscv_tempdir/dscv/ri/32_1/drivers/mtd/chips/cfi_cmdset_0001.c.common.c"
-# 21 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/5348/dscv_tempdir/dscv/ri/32_1/drivers/mtd/chips/cfi_cmdset_0001.c.common.c"
-# 1 "include/linux/module.h" 1
-# 9 "include/linux/module.h"
-# 1 "include/linux/list.h" 1
-
-
-
-# 1 "include/linux/types.h" 1
-
-
-
-# 1 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/types.h" 1
-
-
-
-# 1 "include/asm-generic/types.h" 1
 
 
 
 
 
 
-# 1 "include/asm-generic/int-ll64.h" 1
-# 11 "include/asm-generic/int-ll64.h"
-# 1 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/bitsperlong.h" 1
-# 10 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/bitsperlong.h"
-# 1 "include/asm-generic/bitsperlong.h" 1
-# 11 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/bitsperlong.h" 2
-# 12 "include/asm-generic/int-ll64.h" 2
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -66,7 +38,6 @@ typedef unsigned int __u32;
 
 __extension__ typedef __signed__ long long __s64;
 __extension__ typedef unsigned long long __u64;
-# 42 "include/asm-generic/int-ll64.h"
 typedef signed char s8;
 typedef unsigned char u8;
 
@@ -78,26 +49,12 @@ typedef unsigned int u32;
 
 typedef signed long long s64;
 typedef unsigned long long u64;
-# 8 "include/asm-generic/types.h" 2
-# 5 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/types.h" 2
-# 5 "include/linux/types.h" 2
-# 17 "include/linux/types.h"
-# 1 "include/linux/posix_types.h" 1
 
 
 
-# 1 "include/linux/stddef.h" 1
 
 
 
-# 1 "include/linux/compiler.h" 1
-# 48 "include/linux/compiler.h"
-# 1 "include/linux/compiler-gcc.h" 1
-# 100 "include/linux/compiler-gcc.h"
-# 1 "include/linux/compiler-gcc4.h" 1
-# 101 "include/linux/compiler-gcc.h" 2
-# 49 "include/linux/compiler.h" 2
-# 66 "include/linux/compiler.h"
 struct ftrace_branch_data {
  const char *func;
  const char *file;
@@ -114,7 +71,6 @@ struct ftrace_branch_data {
   unsigned long miss_hit[2];
  };
 };
-# 5 "include/linux/stddef.h" 2
 
 
 
@@ -125,8 +81,6 @@ enum {
  false = 0,
  true = 1
 };
-# 5 "include/linux/posix_types.h" 2
-# 36 "include/linux/posix_types.h"
 typedef struct {
  unsigned long fds_bits [(1024/(8 * sizeof(unsigned long)))];
 } __kernel_fd_set;
@@ -138,13 +92,10 @@ typedef void (*__kernel_sighandler_t)(int);
 typedef int __kernel_key_t;
 typedef int __kernel_mqd_t;
 
-# 1 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/posix_types.h" 1
 
 
 
 
-# 1 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/posix_types_64.h" 1
-# 10 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/posix_types_64.h"
 typedef unsigned short __kernel_old_uid_t;
 typedef unsigned short __kernel_old_gid_t;
 
@@ -152,8 +103,6 @@ typedef unsigned short __kernel_old_gid_t;
 typedef unsigned long __kernel_old_dev_t;
 
 
-# 1 "include/asm-generic/posix_types.h" 1
-# 14 "include/asm-generic/posix_types.h"
 typedef long __kernel_long_t;
 typedef unsigned long __kernel_ulong_t;
 
@@ -194,7 +143,6 @@ typedef int __kernel_daddr_t;
 
 typedef unsigned int __kernel_uid32_t;
 typedef unsigned int __kernel_gid32_t;
-# 75 "include/asm-generic/posix_types.h"
 typedef __kernel_ulong_t __kernel_size_t;
 typedef __kernel_long_t __kernel_ssize_t;
 typedef __kernel_long_t __kernel_ptrdiff_t;
@@ -219,10 +167,6 @@ typedef int __kernel_clockid_t;
 typedef char * __kernel_caddr_t;
 typedef unsigned short __kernel_uid16_t;
 typedef unsigned short __kernel_gid16_t;
-# 18 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/posix_types_64.h" 2
-# 6 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/posix_types.h" 2
-# 48 "include/linux/posix_types.h" 2
-# 18 "include/linux/types.h" 2
 
 
 
@@ -260,7 +204,6 @@ typedef __kernel_old_gid_t old_gid_t;
 
 
 typedef __kernel_loff_t loff_t;
-# 63 "include/linux/types.h"
 typedef __kernel_size_t size_t;
 
 
@@ -321,12 +264,9 @@ typedef __u32 uint32_t;
 typedef __u64 uint64_t;
 typedef __u64 u_int64_t;
 typedef __s64 int64_t;
-# 142 "include/linux/types.h"
 typedef unsigned long sector_t;
 typedef unsigned long blkcnt_t;
-# 155 "include/linux/types.h"
 typedef u64 dma_addr_t;
-# 178 "include/linux/types.h"
 typedef __u16 __le16;
 typedef __u16 __be16;
 typedef __u32 __le32;
@@ -336,7 +276,6 @@ typedef __u64 __be64;
 
 typedef __u16 __sum16;
 typedef __u32 __wsum;
-# 202 "include/linux/types.h"
 typedef unsigned gfp_t;
 typedef unsigned fmode_t;
 
@@ -392,42 +331,30 @@ struct rcu_head {
  struct rcu_head *next;
  void (*func)(struct rcu_head *head);
 };
-# 5 "include/linux/list.h" 2
 
-# 1 "include/linux/poison.h" 1
-# 7 "include/linux/list.h" 2
-# 1 "include/linux/const.h" 1
-# 8 "include/linux/list.h" 2
-# 24 "include/linux/list.h"
 static inline __attribute__((no_instrument_function)) void INIT_LIST_HEAD(struct list_head *list)
 {
  list->next = list;
  list->prev = list;
 }
-# 47 "include/linux/list.h"
 extern void __list_add(struct list_head *new,
          struct list_head *prev,
          struct list_head *next);
-# 60 "include/linux/list.h"
 static inline __attribute__((no_instrument_function)) void list_add(struct list_head *new, struct list_head *head)
 {
  __list_add(new, head, head->next);
 }
-# 74 "include/linux/list.h"
 static inline __attribute__((no_instrument_function)) void list_add_tail(struct list_head *new, struct list_head *head)
 {
  __list_add(new, head->prev, head);
 }
-# 86 "include/linux/list.h"
 static inline __attribute__((no_instrument_function)) void __list_del(struct list_head * prev, struct list_head * next)
 {
  next->prev = prev;
  prev->next = next;
 }
-# 111 "include/linux/list.h"
 extern void __list_del_entry(struct list_head *entry);
 extern void list_del(struct list_head *entry);
-# 122 "include/linux/list.h"
 static inline __attribute__((no_instrument_function)) void list_replace(struct list_head *old,
     struct list_head *new)
 {
@@ -496,7 +423,6 @@ static inline __attribute__((no_instrument_function)) int list_empty(const struc
 {
  return head->next == head;
 }
-# 204 "include/linux/list.h"
 static inline __attribute__((no_instrument_function)) int list_empty_careful(const struct list_head *head)
 {
  struct list_head *next = head->next;
@@ -537,7 +463,6 @@ static inline __attribute__((no_instrument_function)) void __list_cut_position(s
  head->next = new_first;
  new_first->prev = head;
 }
-# 259 "include/linux/list.h"
 static inline __attribute__((no_instrument_function)) void list_cut_position(struct list_head *list,
   struct list_head *head, struct list_head *entry)
 {
@@ -589,7 +514,6 @@ static inline __attribute__((no_instrument_function)) void list_splice_tail(stru
  if (!list_empty(list))
   __list_splice(list, head->prev, head);
 }
-# 318 "include/linux/list.h"
 static inline __attribute__((no_instrument_function)) void list_splice_init(struct list_head *list,
         struct list_head *head)
 {
@@ -598,7 +522,6 @@ static inline __attribute__((no_instrument_function)) void list_splice_init(stru
   INIT_LIST_HEAD(list);
  }
 }
-# 335 "include/linux/list.h"
 static inline __attribute__((no_instrument_function)) void list_splice_tail_init(struct list_head *list,
       struct list_head *head)
 {
@@ -607,7 +530,6 @@ static inline __attribute__((no_instrument_function)) void list_splice_tail_init
   INIT_LIST_HEAD(list);
  }
 }
-# 570 "include/linux/list.h"
 static inline __attribute__((no_instrument_function)) void INIT_HLIST_NODE(struct hlist_node *h)
 {
  h->next = ((void *)0);
@@ -697,15 +619,11 @@ static inline __attribute__((no_instrument_function)) void hlist_move_list(struc
   new->first->pprev = &new->first;
  old->first = ((void *)0);
 }
-# 10 "include/linux/module.h" 2
-# 1 "include/linux/stat.h" 1
 
 
 
 
 
-# 1 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/stat.h" 1
-# 68 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/stat.h"
 struct stat {
  unsigned long st_dev;
  unsigned long st_ino;
@@ -751,24 +669,18 @@ struct __old_kernel_stat {
  unsigned int st_ctime;
 
 };
-# 7 "include/linux/stat.h" 2
-# 60 "include/linux/stat.h"
-# 1 "include/linux/time.h" 1
 
 
 
 
 
 
-# 1 "include/linux/cache.h" 1
 
 
 
-# 1 "include/linux/kernel.h" 1
 
 
 
-# 1 "include/linux/sysinfo.h" 1
 
 
 
@@ -791,32 +703,18 @@ struct sysinfo {
  __u32 mem_unit;
  char _f[20-2*sizeof(__kernel_ulong_t)-sizeof(__u32)];
 };
-# 5 "include/linux/kernel.h" 2
-# 14 "include/linux/kernel.h"
-# 1 "/usr/lib64/gcc/x86_64-suse-linux/4.6/include/stdarg.h" 1 3 4
-# 40 "/usr/lib64/gcc/x86_64-suse-linux/4.6/include/stdarg.h" 3 4
 typedef __builtin_va_list __gnuc_va_list;
-# 102 "/usr/lib64/gcc/x86_64-suse-linux/4.6/include/stdarg.h" 3 4
 typedef __gnuc_va_list va_list;
-# 15 "include/linux/kernel.h" 2
-# 1 "include/linux/linkage.h" 1
 
 
 
 
-# 1 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/linkage.h" 1
 
 
 
-# 1 "include/linux/stringify.h" 1
-# 5 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/linkage.h" 2
-# 6 "include/linux/linkage.h" 2
-# 16 "include/linux/kernel.h" 2
 
 
 
-# 1 "include/linux/bitops.h" 1
-# 13 "include/linux/bitops.h"
 extern unsigned int __sw_hweight8(unsigned int w);
 extern unsigned int __sw_hweight16(unsigned int w);
 extern unsigned int __sw_hweight32(unsigned int w);
@@ -826,18 +724,12 @@ extern unsigned long __sw_hweight64(__u64 w);
 
 
 
-# 1 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/bitops.h" 1
-# 16 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/bitops.h"
-# 1 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/alternative.h" 1
 
 
 
 
 
 
-# 1 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/asm.h" 1
-# 8 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/alternative.h" 2
-# 45 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/alternative.h"
 struct alt_instr {
  s32 instr_offset;
  s32 repl_offset;
@@ -859,26 +751,17 @@ extern void alternatives_smp_module_del(struct module *mod);
 extern void alternatives_smp_switch(int smp);
 extern int alternatives_text_reserved(void *start, void *end);
 extern bool skip_smp_alternatives;
-# 100 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/alternative.h"
-# 1 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/cpufeature.h" 1
 
 
 
 
 
 
-# 1 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/required-features.h" 1
-# 8 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/cpufeature.h" 2
-# 214 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/cpufeature.h"
-# 1 "include/linux/bitops.h" 1
-# 215 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/cpufeature.h" 2
 
 extern const char * const x86_cap_flags[10*32];
 extern const char * const x86_power_flags[32];
-# 342 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/cpufeature.h"
 static inline __attribute__((no_instrument_function)) __attribute__((always_inline)) __attribute__((pure)) bool __static_cpu_has(u16 bit)
 {
-# 360 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/cpufeature.h"
   u8 flag;
 
   asm volatile("1: movb $0,%0\n"
@@ -901,15 +784,11 @@ static inline __attribute__((no_instrument_function)) __attribute__((always_inli
   return flag;
 
 }
-# 101 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/alternative.h" 2
-# 154 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/alternative.h"
 struct paravirt_patch_site;
 
 void apply_paravirt(struct paravirt_patch_site *start,
       struct paravirt_patch_site *end);
-# 166 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/alternative.h"
 extern void *text_poke_early(void *addr, const void *opcode, size_t len);
-# 185 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/alternative.h"
 struct text_poke_param {
  void *addr;
  const void *opcode;
@@ -919,8 +798,6 @@ struct text_poke_param {
 extern void *text_poke(void *addr, const void *opcode, size_t len);
 extern void *text_poke_smp(void *addr, const void *opcode, size_t len);
 extern void text_poke_smp_batch(struct text_poke_param *params, int n);
-# 17 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/bitops.h" 2
-# 59 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/bitops.h"
 static inline __attribute__((no_instrument_function)) __attribute__((always_inline)) void
 set_bit(unsigned int nr, volatile unsigned long *addr)
 {
@@ -934,12 +811,10 @@ set_bit(unsigned int nr, volatile unsigned long *addr)
    : "+m" (*(volatile long *) (addr)) : "Ir" (nr) : "memory");
  }
 }
-# 82 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/bitops.h"
 static inline __attribute__((no_instrument_function)) void __set_bit(int nr, volatile unsigned long *addr)
 {
  asm volatile("bts %1,%0" : "+m" (*(volatile long *) (addr)) : "Ir" (nr) : "memory");
 }
-# 97 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/bitops.h"
 static inline __attribute__((no_instrument_function)) __attribute__((always_inline)) void
 clear_bit(int nr, volatile unsigned long *addr)
 {
@@ -953,7 +828,6 @@ clear_bit(int nr, volatile unsigned long *addr)
    : "Ir" (nr));
  }
 }
-# 119 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/bitops.h"
 static inline __attribute__((no_instrument_function)) void clear_bit_unlock(unsigned nr, volatile unsigned long *addr)
 {
  __asm__ __volatile__("": : :"memory");
@@ -964,18 +838,15 @@ static inline __attribute__((no_instrument_function)) void __clear_bit(int nr, v
 {
  asm volatile("btr %1,%0" : "+m" (*(volatile long *) (addr)) : "Ir" (nr));
 }
-# 142 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/bitops.h"
 static inline __attribute__((no_instrument_function)) void __clear_bit_unlock(unsigned nr, volatile unsigned long *addr)
 {
  __asm__ __volatile__("": : :"memory");
  __clear_bit(nr, addr);
 }
-# 160 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/bitops.h"
 static inline __attribute__((no_instrument_function)) void __change_bit(int nr, volatile unsigned long *addr)
 {
  asm volatile("btc %1,%0" : "+m" (*(volatile long *) (addr)) : "Ir" (nr));
 }
-# 174 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/bitops.h"
 static inline __attribute__((no_instrument_function)) void change_bit(int nr, volatile unsigned long *addr)
 {
  if ((__builtin_constant_p(nr))) {
@@ -988,7 +859,6 @@ static inline __attribute__((no_instrument_function)) void change_bit(int nr, vo
    : "Ir" (nr));
  }
 }
-# 195 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/bitops.h"
 static inline __attribute__((no_instrument_function)) int test_and_set_bit(int nr, volatile unsigned long *addr)
 {
  int oldbit;
@@ -998,13 +868,11 @@ static inline __attribute__((no_instrument_function)) int test_and_set_bit(int n
 
  return oldbit;
 }
-# 212 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/bitops.h"
 static inline __attribute__((no_instrument_function)) __attribute__((always_inline)) int
 test_and_set_bit_lock(int nr, volatile unsigned long *addr)
 {
  return test_and_set_bit(nr, addr);
 }
-# 227 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/bitops.h"
 static inline __attribute__((no_instrument_function)) int __test_and_set_bit(int nr, volatile unsigned long *addr)
 {
  int oldbit;
@@ -1015,7 +883,6 @@ static inline __attribute__((no_instrument_function)) int __test_and_set_bit(int
      : "Ir" (nr));
  return oldbit;
 }
-# 246 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/bitops.h"
 static inline __attribute__((no_instrument_function)) int test_and_clear_bit(int nr, volatile unsigned long *addr)
 {
  int oldbit;
@@ -1026,7 +893,6 @@ static inline __attribute__((no_instrument_function)) int test_and_clear_bit(int
 
  return oldbit;
 }
-# 266 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/bitops.h"
 static inline __attribute__((no_instrument_function)) int __test_and_clear_bit(int nr, volatile unsigned long *addr)
 {
  int oldbit;
@@ -1050,7 +916,6 @@ static inline __attribute__((no_instrument_function)) int __test_and_change_bit(
 
  return oldbit;
 }
-# 298 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/bitops.h"
 static inline __attribute__((no_instrument_function)) int test_and_change_bit(int nr, volatile unsigned long *addr)
 {
  int oldbit;
@@ -1079,7 +944,6 @@ static inline __attribute__((no_instrument_function)) int variable_test_bit(int 
 
  return oldbit;
 }
-# 347 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/bitops.h"
 static inline __attribute__((no_instrument_function)) unsigned long __ffs(unsigned long word)
 {
  asm("bsf %1,%0"
@@ -1115,31 +979,24 @@ static inline __attribute__((no_instrument_function)) unsigned long __fls(unsign
      : "rm" (word));
  return word;
 }
-# 397 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/bitops.h"
 static inline __attribute__((no_instrument_function)) int ffs(int x)
 {
  int r;
-# 411 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/bitops.h"
  //long tmp = -1;
  asm("bsfl %1,%0"
      : "=r" (r)
      : "rm" (x), "0" (-1));
-# 425 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/bitops.h"
  return r + 1;
 }
-# 439 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/bitops.h"
 static inline __attribute__((no_instrument_function)) int fls(int x)
 {
  int r;
-# 453 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/bitops.h"
  //long tmp = -1;
  asm("bsrl %1,%0"
      : "=r" (r)
      : "rm" (x), "0" (-1));
-# 467 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/bitops.h"
  return r + 1;
 }
-# 482 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/bitops.h"
 static inline __attribute__((no_instrument_function)) __attribute__((always_inline)) int fls64(__u64 x)
 {
  long bitpos = -1;
@@ -1157,37 +1014,25 @@ static inline __attribute__((no_instrument_function)) __attribute__((always_inli
 
 
 
-# 1 "include/asm-generic/bitops/find.h" 1
-# 11 "include/asm-generic/bitops/find.h"
 extern unsigned long find_next_bit(const unsigned long *addr, unsigned long
   size, unsigned long offset);
-# 22 "include/asm-generic/bitops/find.h"
 extern unsigned long find_next_zero_bit(const unsigned long *addr, unsigned
   long size, unsigned long offset);
-# 35 "include/asm-generic/bitops/find.h"
 extern unsigned long find_first_bit(const unsigned long *addr,
         unsigned long size);
-# 45 "include/asm-generic/bitops/find.h"
 extern unsigned long find_first_zero_bit(const unsigned long *addr,
       unsigned long size);
-# 500 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/bitops.h" 2
 
-# 1 "include/asm-generic/bitops/sched.h" 1
-# 12 "include/asm-generic/bitops/sched.h"
 static inline __attribute__((no_instrument_function)) int sched_find_first_bit(const unsigned long *b)
 {
 
  if (b[0])
   return __ffs(b[0]);
  return __ffs(b[1]) + 64;
-# 29 "include/asm-generic/bitops/sched.h"
 }
-# 502 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/bitops.h" 2
 
 
 
-# 1 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/arch_hweight.h" 1
-# 24 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/arch_hweight.h"
 static inline __attribute__((no_instrument_function)) unsigned int __arch_hweight32(unsigned int w)
 {
  unsigned int res = 0;
@@ -1224,29 +1069,20 @@ static inline __attribute__((no_instrument_function)) unsigned long __arch_hweig
 
  return res;
 }
-# 506 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/bitops.h" 2
-
-# 1 "include/asm-generic/bitops/const_hweight.h" 1
-# 508 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/bitops.h" 2
-
-# 1 "include/asm-generic/bitops/le.h" 1
-
-
-
-
-# 1 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/byteorder.h" 1
-
-
-
-# 1 "include/linux/byteorder/little_endian.h" 1
-# 12 "include/linux/byteorder/little_endian.h"
-# 1 "include/linux/swab.h" 1
 
 
 
 
 
-# 1 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/swab.h" 1
+
+
+
+
+
+
+
+
+
 
 
 
@@ -1255,7 +1091,6 @@ static inline __attribute__((no_instrument_function)) unsigned long __arch_hweig
 
 static inline __attribute__((no_instrument_function)) __attribute__((__const__)) __u32 __arch_swab32(__u32 val)
 {
-# 21 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/swab.h"
  asm("bswapl %0"
      : "=r" (val)
      : "0" (val));
@@ -1266,15 +1101,12 @@ static inline __attribute__((no_instrument_function)) __attribute__((__const__))
 
 static inline __attribute__((no_instrument_function)) __attribute__((__const__)) __u64 __arch_swab64(__u64 val)
 {
-# 53 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/swab.h"
  asm("bswapq %0"
      : "=r" (val)
      : "0" (val));
  return val;
 
 }
-# 7 "include/linux/swab.h" 2
-# 46 "include/linux/swab.h"
 static inline __attribute__((no_instrument_function)) __attribute__((__const__)) __u16 __fswab16(__u16 val)
 {
 
@@ -1323,7 +1155,6 @@ static inline __attribute__((no_instrument_function)) __attribute__((__const__))
  return ((__u32)( (((__u32)(val) & (__u32)0x00ff00ffUL) << 8) | (((__u32)(val) & (__u32)0xff00ff00UL) >> 8)));
 
 }
-# 148 "include/linux/swab.h"
 static inline __attribute__((no_instrument_function)) __u16 __swab16p(const __u16 *p)
 {
 
@@ -1456,8 +1287,6 @@ static inline __attribute__((no_instrument_function)) void __swahb32s(__u32 *p)
  *p = __swahb32p(p);
 
 }
-# 13 "include/linux/byteorder/little_endian.h" 2
-# 43 "include/linux/byteorder/little_endian.h"
 static inline __attribute__((no_instrument_function)) __le64 __cpu_to_le64p(const __u64 *p)
 {
  return ( __le64)*p;
@@ -1506,9 +1335,6 @@ static inline __attribute__((no_instrument_function)) __u16 __be16_to_cpup(const
 {
  return __swab16p((__u16 *)p);
 }
-# 105 "include/linux/byteorder/little_endian.h"
-# 1 "include/linux/byteorder/generic.h" 1
-# 143 "include/linux/byteorder/generic.h"
 static inline __attribute__((no_instrument_function)) void le16_add_cpu(__le16 *var, u16 val)
 {
  *var = (( __le16)(__u16)((( __u16)(__le16)(*var)) + val));
@@ -1538,9 +1364,6 @@ static inline __attribute__((no_instrument_function)) void be64_add_cpu(__be64 *
 {
  *var = (( __be64)(__builtin_constant_p((__u64)(((__builtin_constant_p((__u64)(( __u64)(__be64)(*var))) ? ((__u64)( (((__u64)(( __u64)(__be64)(*var)) & (__u64)0x00000000000000ffULL) << 56) | (((__u64)(( __u64)(__be64)(*var)) & (__u64)0x000000000000ff00ULL) << 40) | (((__u64)(( __u64)(__be64)(*var)) & (__u64)0x0000000000ff0000ULL) << 24) | (((__u64)(( __u64)(__be64)(*var)) & (__u64)0x00000000ff000000ULL) << 8) | (((__u64)(( __u64)(__be64)(*var)) & (__u64)0x000000ff00000000ULL) >> 8) | (((__u64)(( __u64)(__be64)(*var)) & (__u64)0x0000ff0000000000ULL) >> 24) | (((__u64)(( __u64)(__be64)(*var)) & (__u64)0x00ff000000000000ULL) >> 40) | (((__u64)(( __u64)(__be64)(*var)) & (__u64)0xff00000000000000ULL) >> 56))) : __fswab64(( __u64)(__be64)(*var))) + val))) ? ((__u64)( (((__u64)(((__builtin_constant_p((__u64)(( __u64)(__be64)(*var))) ? ((__u64)( (((__u64)(( __u64)(__be64)(*var)) & (__u64)0x00000000000000ffULL) << 56) | (((__u64)(( __u64)(__be64)(*var)) & (__u64)0x000000000000ff00ULL) << 40) | (((__u64)(( __u64)(__be64)(*var)) & (__u64)0x0000000000ff0000ULL) << 24) | (((__u64)(( __u64)(__be64)(*var)) & (__u64)0x00000000ff000000ULL) << 8) | (((__u64)(( __u64)(__be64)(*var)) & (__u64)0x000000ff00000000ULL) >> 8) | (((__u64)(( __u64)(__be64)(*var)) & (__u64)0x0000ff0000000000ULL) >> 24) | (((__u64)(( __u64)(__be64)(*var)) & (__u64)0x00ff000000000000ULL) >> 40) | (((__u64)(( __u64)(__be64)(*var)) & (__u64)0xff00000000000000ULL) >> 56))) : __fswab64(( __u64)(__be64)(*var))) + val)) & (__u64)0x00000000000000ffULL) << 56) | (((__u64)(((__builtin_constant_p((__u64)(( __u64)(__be64)(*var))) ? ((__u64)( (((__u64)(( __u64)(__be64)(*var)) & (__u64)0x00000000000000ffULL) << 56) | (((__u64)(( __u64)(__be64)(*var)) & (__u64)0x000000000000ff00ULL) << 40) | (((__u64)(( __u64)(__be64)(*var)) & (__u64)0x0000000000ff0000ULL) << 24) | (((__u64)(( __u64)(__be64)(*var)) & (__u64)0x00000000ff000000ULL) << 8) | (((__u64)(( __u64)(__be64)(*var)) & (__u64)0x000000ff00000000ULL) >> 8) | (((__u64)(( __u64)(__be64)(*var)) & (__u64)0x0000ff0000000000ULL) >> 24) | (((__u64)(( __u64)(__be64)(*var)) & (__u64)0x00ff000000000000ULL) >> 40) | (((__u64)(( __u64)(__be64)(*var)) & (__u64)0xff00000000000000ULL) >> 56))) : __fswab64(( __u64)(__be64)(*var))) + val)) & (__u64)0x000000000000ff00ULL) << 40) | (((__u64)(((__builtin_constant_p((__u64)(( __u64)(__be64)(*var))) ? ((__u64)( (((__u64)(( __u64)(__be64)(*var)) & (__u64)0x00000000000000ffULL) << 56) | (((__u64)(( __u64)(__be64)(*var)) & (__u64)0x000000000000ff00ULL) << 40) | (((__u64)(( __u64)(__be64)(*var)) & (__u64)0x0000000000ff0000ULL) << 24) | (((__u64)(( __u64)(__be64)(*var)) & (__u64)0x00000000ff000000ULL) << 8) | (((__u64)(( __u64)(__be64)(*var)) & (__u64)0x000000ff00000000ULL) >> 8) | (((__u64)(( __u64)(__be64)(*var)) & (__u64)0x0000ff0000000000ULL) >> 24) | (((__u64)(( __u64)(__be64)(*var)) & (__u64)0x00ff000000000000ULL) >> 40) | (((__u64)(( __u64)(__be64)(*var)) & (__u64)0xff00000000000000ULL) >> 56))) : __fswab64(( __u64)(__be64)(*var))) + val)) & (__u64)0x0000000000ff0000ULL) << 24) | (((__u64)(((__builtin_constant_p((__u64)(( __u64)(__be64)(*var))) ? ((__u64)( (((__u64)(( __u64)(__be64)(*var)) & (__u64)0x00000000000000ffULL) << 56) | (((__u64)(( __u64)(__be64)(*var)) & (__u64)0x000000000000ff00ULL) << 40) | (((__u64)(( __u64)(__be64)(*var)) & (__u64)0x0000000000ff0000ULL) << 24) | (((__u64)(( __u64)(__be64)(*var)) & (__u64)0x00000000ff000000ULL) << 8) | (((__u64)(( __u64)(__be64)(*var)) & (__u64)0x000000ff00000000ULL) >> 8) | (((__u64)(( __u64)(__be64)(*var)) & (__u64)0x0000ff0000000000ULL) >> 24) | (((__u64)(( __u64)(__be64)(*var)) & (__u64)0x00ff000000000000ULL) >> 40) | (((__u64)(( __u64)(__be64)(*var)) & (__u64)0xff00000000000000ULL) >> 56))) : __fswab64(( __u64)(__be64)(*var))) + val)) & (__u64)0x00000000ff000000ULL) << 8) | (((__u64)(((__builtin_constant_p((__u64)(( __u64)(__be64)(*var))) ? ((__u64)( (((__u64)(( __u64)(__be64)(*var)) & (__u64)0x00000000000000ffULL) << 56) | (((__u64)(( __u64)(__be64)(*var)) & (__u64)0x000000000000ff00ULL) << 40) | (((__u64)(( __u64)(__be64)(*var)) & (__u64)0x0000000000ff0000ULL) << 24) | (((__u64)(( __u64)(__be64)(*var)) & (__u64)0x00000000ff000000ULL) << 8) | (((__u64)(( __u64)(__be64)(*var)) & (__u64)0x000000ff00000000ULL) >> 8) | (((__u64)(( __u64)(__be64)(*var)) & (__u64)0x0000ff0000000000ULL) >> 24) | (((__u64)(( __u64)(__be64)(*var)) & (__u64)0x00ff000000000000ULL) >> 40) | (((__u64)(( __u64)(__be64)(*var)) & (__u64)0xff00000000000000ULL) >> 56))) : __fswab64(( __u64)(__be64)(*var))) + val)) & (__u64)0x000000ff00000000ULL) >> 8) | (((__u64)(((__builtin_constant_p((__u64)(( __u64)(__be64)(*var))) ? ((__u64)( (((__u64)(( __u64)(__be64)(*var)) & (__u64)0x00000000000000ffULL) << 56) | (((__u64)(( __u64)(__be64)(*var)) & (__u64)0x000000000000ff00ULL) << 40) | (((__u64)(( __u64)(__be64)(*var)) & (__u64)0x0000000000ff0000ULL) << 24) | (((__u64)(( __u64)(__be64)(*var)) & (__u64)0x00000000ff000000ULL) << 8) | (((__u64)(( __u64)(__be64)(*var)) & (__u64)0x000000ff00000000ULL) >> 8) | (((__u64)(( __u64)(__be64)(*var)) & (__u64)0x0000ff0000000000ULL) >> 24) | (((__u64)(( __u64)(__be64)(*var)) & (__u64)0x00ff000000000000ULL) >> 40) | (((__u64)(( __u64)(__be64)(*var)) & (__u64)0xff00000000000000ULL) >> 56))) : __fswab64(( __u64)(__be64)(*var))) + val)) & (__u64)0x0000ff0000000000ULL) >> 24) | (((__u64)(((__builtin_constant_p((__u64)(( __u64)(__be64)(*var))) ? ((__u64)( (((__u64)(( __u64)(__be64)(*var)) & (__u64)0x00000000000000ffULL) << 56) | (((__u64)(( __u64)(__be64)(*var)) & (__u64)0x000000000000ff00ULL) << 40) | (((__u64)(( __u64)(__be64)(*var)) & (__u64)0x0000000000ff0000ULL) << 24) | (((__u64)(( __u64)(__be64)(*var)) & (__u64)0x00000000ff000000ULL) << 8) | (((__u64)(( __u64)(__be64)(*var)) & (__u64)0x000000ff00000000ULL) >> 8) | (((__u64)(( __u64)(__be64)(*var)) & (__u64)0x0000ff0000000000ULL) >> 24) | (((__u64)(( __u64)(__be64)(*var)) & (__u64)0x00ff000000000000ULL) >> 40) | (((__u64)(( __u64)(__be64)(*var)) & (__u64)0xff00000000000000ULL) >> 56))) : __fswab64(( __u64)(__be64)(*var))) + val)) & (__u64)0x00ff000000000000ULL) >> 40) | (((__u64)(((__builtin_constant_p((__u64)(( __u64)(__be64)(*var))) ? ((__u64)( (((__u64)(( __u64)(__be64)(*var)) & (__u64)0x00000000000000ffULL) << 56) | (((__u64)(( __u64)(__be64)(*var)) & (__u64)0x000000000000ff00ULL) << 40) | (((__u64)(( __u64)(__be64)(*var)) & (__u64)0x0000000000ff0000ULL) << 24) | (((__u64)(( __u64)(__be64)(*var)) & (__u64)0x00000000ff000000ULL) << 8) | (((__u64)(( __u64)(__be64)(*var)) & (__u64)0x000000ff00000000ULL) >> 8) | (((__u64)(( __u64)(__be64)(*var)) & (__u64)0x0000ff0000000000ULL) >> 24) | (((__u64)(( __u64)(__be64)(*var)) & (__u64)0x00ff000000000000ULL) >> 40) | (((__u64)(( __u64)(__be64)(*var)) & (__u64)0xff00000000000000ULL) >> 56))) : __fswab64(( __u64)(__be64)(*var))) + val)) & (__u64)0xff00000000000000ULL) >> 56))) : __fswab64(((__builtin_constant_p((__u64)(( __u64)(__be64)(*var))) ? ((__u64)( (((__u64)(( __u64)(__be64)(*var)) & (__u64)0x00000000000000ffULL) << 56) | (((__u64)(( __u64)(__be64)(*var)) & (__u64)0x000000000000ff00ULL) << 40) | (((__u64)(( __u64)(__be64)(*var)) & (__u64)0x0000000000ff0000ULL) << 24) | (((__u64)(( __u64)(__be64)(*var)) & (__u64)0x00000000ff000000ULL) << 8) | (((__u64)(( __u64)(__be64)(*var)) & (__u64)0x000000ff00000000ULL) >> 8) | (((__u64)(( __u64)(__be64)(*var)) & (__u64)0x0000ff0000000000ULL) >> 24) | (((__u64)(( __u64)(__be64)(*var)) & (__u64)0x00ff000000000000ULL) >> 40) | (((__u64)(( __u64)(__be64)(*var)) & (__u64)0xff00000000000000ULL) >> 56))) : __fswab64(( __u64)(__be64)(*var))) + val))));
 }
-# 106 "include/linux/byteorder/little_endian.h" 2
-# 5 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/byteorder.h" 2
-# 6 "include/asm-generic/bitops/le.h" 2
 
 
 
@@ -1563,7 +1386,6 @@ static inline __attribute__((no_instrument_function)) unsigned long find_first_z
 {
  return find_first_zero_bit(addr, size);
 }
-# 52 "include/asm-generic/bitops/le.h"
 static inline __attribute__((no_instrument_function)) int test_bit_le(int nr, const void *addr)
 {
  return (__builtin_constant_p((nr ^ 0)) ? constant_test_bit((nr ^ 0), (addr)) : variable_test_bit((nr ^ 0), (addr)));
@@ -1598,12 +1420,7 @@ static inline __attribute__((no_instrument_function)) int __test_and_clear_bit_l
 {
  return __test_and_clear_bit(nr ^ 0, addr);
 }
-# 510 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/bitops.h" 2
 
-# 1 "include/asm-generic/bitops/ext2-atomic-setbit.h" 1
-# 512 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/bitops.h" 2
-# 23 "include/linux/bitops.h" 2
-# 46 "include/linux/bitops.h"
 static __inline__ __attribute__((no_instrument_function)) int get_bitmask_order(unsigned int count)
 {
  int order;
@@ -1724,7 +1541,6 @@ static inline __attribute__((no_instrument_function)) unsigned fls_long(unsigned
   return fls(l);
  return fls64(l);
 }
-# 175 "include/linux/bitops.h"
 static inline __attribute__((no_instrument_function)) unsigned long __ffs64(u64 word)
 {
 
@@ -1735,15 +1551,10 @@ static inline __attribute__((no_instrument_function)) unsigned long __ffs64(u64 
 
  return __ffs((unsigned long)word);
 }
-# 196 "include/linux/bitops.h"
 extern unsigned long find_last_bit(const unsigned long *addr,
        unsigned long size);
-# 20 "include/linux/kernel.h" 2
-# 1 "include/linux/log2.h" 1
-# 21 "include/linux/log2.h"
 extern __attribute__((const, noreturn))
 int ____ilog2_NaN(void);
-# 31 "include/linux/log2.h"
 static inline __attribute__((no_instrument_function)) __attribute__((const))
 int __ilog2_u32(u32 n)
 {
@@ -1787,15 +1598,9 @@ unsigned long __rounddown_pow_of_two(unsigned long n)
 {
  return 1UL << (fls_long(n) - 1);
 }
-# 21 "include/linux/kernel.h" 2
-# 1 "include/linux/typecheck.h" 1
-# 22 "include/linux/kernel.h" 2
-# 1 "include/linux/printk.h" 1
 
 
 
-# 1 "include/linux/init.h" 1
-# 139 "include/linux/init.h"
 typedef int (*initcall_t)(void);
 typedef void (*exitcall_t)(void);
 
@@ -1818,11 +1623,9 @@ void prepare_namespace(void);
 extern void (*late_time_init)(void);
 
 extern bool initcall_debug;
-# 5 "include/linux/printk.h" 2
 
 extern const char linux_banner[];
 extern const char linux_proc_banner[];
-# 27 "include/linux/printk.h"
 extern int console_printk[];
 
 
@@ -1845,7 +1648,6 @@ struct va_format {
  const char *fmt;
  va_list *va;
 };
-# 85 "include/linux/printk.h"
 static inline __attribute__((no_instrument_function)) __attribute__((format(printf, 1, 2)))
 int no_printk(const char *fmt, ...)
 {
@@ -1885,9 +1687,7 @@ extern int kptr_restrict;
 
 void log_buf_kexec_setup(void);
 void __attribute__ ((__section__(".init.text"))) __attribute__((no_instrument_function)) setup_log_buf(int early);
-# 159 "include/linux/printk.h"
 extern void dump_stack(void) ;
-# 292 "include/linux/printk.h"
 enum {
  DUMP_PREFIX_NONE,
  DUMP_PREFIX_ADDRESS,
@@ -1902,9 +1702,6 @@ extern void print_hex_dump(const char *level, const char *prefix_str,
       const void *buf, size_t len, bool ascii);
 extern void print_hex_dump_bytes(const char *prefix_str, int prefix_type,
      const void *buf, size_t len);
-# 23 "include/linux/kernel.h" 2
-# 1 "include/linux/dynamic_debug.h" 1
-# 9 "include/linux/dynamic_debug.h"
 struct _ddebug {
 
 
@@ -1915,7 +1712,6 @@ struct _ddebug {
  const char *filename;
  const char *format;
  unsigned int lineno:18;
-# 35 "include/linux/dynamic_debug.h"
  unsigned int flags:8;
 } __attribute__((aligned(8)));
 
@@ -1940,14 +1736,10 @@ extern __attribute__((format(printf, 3, 4)))
 int __dynamic_netdev_dbg(struct _ddebug *descriptor,
     const struct net_device *dev,
     const char *fmt, ...);
-# 24 "include/linux/kernel.h" 2
-# 135 "include/linux/kernel.h"
 struct completion;
 struct pt_regs;
 struct user;
-# 147 "include/linux/kernel.h"
   void __might_sleep(const char *file, int line, int preempt_offset);
-# 194 "include/linux/kernel.h"
 static inline __attribute__((no_instrument_function)) void might_fault(void)
 {
  do { __might_sleep("include/linux/kernel.h", 196, 0); do { } while (0); } while (0);
@@ -2133,7 +1925,6 @@ extern enum system_states {
  SYSTEM_RESTART,
  SYSTEM_SUSPEND_DISK,
 } system_state;
-# 394 "include/linux/kernel.h"
 extern const char hex_asc[];
 
 
@@ -2152,7 +1943,6 @@ static inline __attribute__((no_instrument_function)) char * __attribute__((depr
 
 extern int hex_to_bin(char ch);
 extern int __attribute__((warn_unused_result)) hex2bin(u8 *dst, const char *src, size_t count);
-# 434 "include/linux/kernel.h"
 void tracing_off_permanent(void);
 
 
@@ -2177,7 +1967,6 @@ static inline __attribute__((no_instrument_function)) __attribute__((format(prin
 void ____trace_printk_check_format(const char *fmt, ...)
 {
 }
-# 494 "include/linux/kernel.h"
 extern __attribute__((format(printf, 2, 3)))
 int __trace_bprintk(unsigned long ip, const char *fmt, ...);
 
@@ -2185,7 +1974,6 @@ extern __attribute__((format(printf, 2, 3)))
 int __trace_printk(unsigned long ip, const char *fmt, ...);
 
 extern void trace_dump_stack(void);
-# 519 "include/linux/kernel.h"
 extern int
 __ftrace_vbprintk(unsigned long ip, const char *fmt, va_list ap);
 
@@ -2193,20 +1981,7 @@ extern int
 __ftrace_vprintk(unsigned long ip, const char *fmt, va_list ap);
 
 extern void ftrace_dump(enum ftrace_dump_mode oops_dump_mode);
-# 706 "include/linux/kernel.h"
 extern int do_sysinfo(struct sysinfo *info);
-# 5 "include/linux/cache.h" 2
-# 1 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/cache.h" 1
-# 6 "include/linux/cache.h" 2
-# 8 "include/linux/time.h" 2
-# 1 "include/linux/seqlock.h" 1
-# 29 "include/linux/seqlock.h"
-# 1 "include/linux/spinlock.h" 1
-# 50 "include/linux/spinlock.h"
-# 1 "include/linux/preempt.h" 1
-# 9 "include/linux/preempt.h"
-# 1 "include/linux/thread_info.h" 1
-# 12 "include/linux/thread_info.h"
 struct timespec;
 struct compat_timespec;
 
@@ -2248,9 +2023,6 @@ struct restart_block {
 extern long do_no_restart_syscall(struct restart_block *parm);
 
 
-# 1 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/thread_info.h" 1
-# 11 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/thread_info.h"
-# 1 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/page.h" 1
 
 
 
@@ -2258,10 +2030,6 @@ extern long do_no_restart_syscall(struct restart_block *parm);
 
 
 
-# 1 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/page_types.h" 1
-# 37 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/page_types.h"
-# 1 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/page_64_types.h" 1
-# 54 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/page_64_types.h"
 void clear_page(void *page);
 void copy_page(void *to, void *from);
 
@@ -2276,7 +2044,6 @@ extern unsigned long __phys_addr(unsigned long);
 
 extern void init_extra_mapping_uc(unsigned long phys, unsigned long size);
 extern void init_extra_mapping_wb(unsigned long phys, unsigned long size);
-# 38 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/page_types.h" 2
 
 
 
@@ -2297,11 +2064,8 @@ extern unsigned long init_memory_mapping(unsigned long start,
       unsigned long end);
 
 extern void initmem_init(void);
-# 9 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/page.h" 2
 
 
-# 1 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/page_64.h" 1
-# 12 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/page.h" 2
 
 
 
@@ -2321,16 +2085,11 @@ static inline __attribute__((no_instrument_function)) void copy_user_page(void *
 {
  copy_page(to, from);
 }
-# 60 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/page.h"
 extern bool __virt_addr_valid(unsigned long kaddr);
 
 
 
 
-# 1 "include/asm-generic/memory_model.h" 1
-# 66 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/page.h" 2
-# 1 "include/asm-generic/getorder.h" 1
-# 12 "include/asm-generic/getorder.h"
 static inline __attribute__((no_instrument_function)) __attribute__((__const__))
 int __get_order(unsigned long size)
 {
@@ -2345,24 +2104,16 @@ int __get_order(unsigned long size)
 
  return order;
 }
-# 67 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/page.h" 2
-# 12 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/thread_info.h" 2
-# 20 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/thread_info.h"
 struct task_struct;
 struct exec_domain;
-# 1 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/processor.h" 1
 
 
 
-# 1 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/processor-flags.h" 1
-# 5 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/processor.h" 2
 
 
 struct task_struct;
 struct mm_struct;
 
-# 1 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/vm86.h" 1
-# 62 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/vm86.h"
 struct vm86_regs {
 
 
@@ -2431,28 +2182,20 @@ struct vm86plus_struct {
 
 
 
-# 1 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/ptrace.h" 1
 
 
 
 
-# 1 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/ptrace-abi.h" 1
-# 6 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/ptrace.h" 2
 
 
 
-# 1 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/segment.h" 1
-# 214 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/segment.h"
 extern const char early_idt_handlers[32][10];
-# 262 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/segment.h"
 static inline __attribute__((no_instrument_function)) unsigned long get_limit(unsigned long segment)
 {
  unsigned long __limit;
  asm("lsll %1,%0" : "=r" (__limit) : "r" (segment));
  return __limit + 1;
 }
-# 10 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/ptrace.h" 2
-# 99 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/ptrace.h"
 struct pt_regs {
  unsigned long r15;
  unsigned long r14;
@@ -2480,11 +2223,6 @@ struct pt_regs {
  unsigned long ss;
 
 };
-# 135 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/ptrace.h"
-# 1 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/paravirt_types.h" 1
-# 42 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/paravirt_types.h"
-# 1 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/desc_defs.h" 1
-# 22 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/desc_defs.h"
 struct desc_struct {
  union {
   struct {
@@ -2547,13 +2285,10 @@ struct ldttss_desc64 {
 typedef struct gate_struct64 gate_desc;
 typedef struct ldttss_desc64 ldt_desc;
 typedef struct ldttss_desc64 tss_desc;
-# 94 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/desc_defs.h"
 struct desc_ptr {
  unsigned short size;
  unsigned long address;
 } __attribute__((packed)) ;
-# 43 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/paravirt_types.h" 2
-# 1 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/kmap_types.h" 1
 
 
 
@@ -2561,8 +2296,6 @@ struct desc_ptr {
 
 
 
-# 1 "include/asm-generic/kmap_types.h" 1
-# 10 "include/asm-generic/kmap_types.h"
 enum km_type {
  KM_BOUNCE_READ,
  KM_SKB_SUNRPC_DATA,
@@ -2590,12 +2323,6 @@ enum km_type {
 
  KM_TYPE_NR
 };
-# 9 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/kmap_types.h" 2
-# 44 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/paravirt_types.h" 2
-# 1 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/pgtable_types.h" 1
-# 179 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/pgtable_types.h"
-# 1 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/pgtable_64_types.h" 1
-# 10 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/pgtable_64_types.h"
 typedef unsigned long pteval_t;
 typedef unsigned long pmdval_t;
 typedef unsigned long pudval_t;
@@ -2603,8 +2330,6 @@ typedef unsigned long pgdval_t;
 typedef unsigned long pgprotval_t;
 
 typedef struct { pteval_t pte; } pte_t;
-# 180 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/pgtable_types.h" 2
-# 192 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/pgtable_types.h"
 typedef struct pgprot { pgprotval_t pgprot; } pgprot_t;
 
 typedef struct { pgdval_t pgd; } pgd_t;
@@ -2636,7 +2361,6 @@ static inline __attribute__((no_instrument_function)) pudval_t native_pud_val(pu
 {
  return pud.pud;
 }
-# 233 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/pgtable_types.h"
 typedef struct { pmdval_t pmd; } pmd_t;
 
 static inline __attribute__((no_instrument_function)) pmd_t native_make_pmd(pmdval_t val)
@@ -2648,7 +2372,6 @@ static inline __attribute__((no_instrument_function)) pmdval_t native_pmd_val(pm
 {
  return pmd.pmd;
 }
-# 253 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/pgtable_types.h"
 static inline __attribute__((no_instrument_function)) pudval_t pud_flags(pud_t pud)
 {
  return native_pud_val(pud) & (~((pteval_t)(((signed long)(~(((1UL) << 12)-1))) & ((phys_addr_t)((1ULL << 46) - 1)))));
@@ -2701,7 +2424,6 @@ int phys_mem_access_prot_allowed(struct file *file, unsigned long pfn,
 void set_pte_vaddr(unsigned long vaddr, pte_t pte);
 
 extern void native_pagetable_reserve(u64 start, u64 end);
-# 313 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/pgtable_types.h"
 struct seq_file;
 extern void arch_report_meminfo(struct seq_file *m);
 
@@ -2715,9 +2437,7 @@ enum {
 
 
 extern void update_page_count(int level, unsigned long pages);
-# 336 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/pgtable_types.h"
 extern pte_t *lookup_address(unsigned long address, unsigned int *level);
-# 45 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/paravirt_types.h" 2
 
 struct page;
 struct thread_struct;
@@ -2750,7 +2470,6 @@ struct pv_info {
 };
 
 struct pv_init_ops {
-# 85 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/paravirt_types.h"
  unsigned (*patch)(u8 type, u16 clobber, void *insnbuf,
      unsigned long addr, unsigned len);
 };
@@ -2865,7 +2584,6 @@ struct pv_cpu_ops {
 };
 
 struct pv_irq_ops {
-# 208 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/paravirt_types.h"
  struct paravirt_callee_save save_fl;
  struct paravirt_callee_save restore_fl;
  struct paravirt_callee_save irq_disable;
@@ -2954,7 +2672,6 @@ struct pv_mmu_ops {
 
  struct paravirt_callee_save pgd_val;
  struct paravirt_callee_save make_pgd;
-# 306 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/paravirt_types.h"
  void (*set_pud)(pud_t *pudp, pud_t pudval);
 
  struct paravirt_callee_save pmd_val;
@@ -3009,7 +2726,6 @@ extern struct pv_irq_ops pv_irq_ops;
 extern struct pv_apic_ops pv_apic_ops;
 extern struct pv_mmu_ops pv_mmu_ops;
 extern struct pv_lock_ops pv_lock_ops;
-# 393 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/paravirt_types.h"
 unsigned paravirt_patch_nop(void);
 unsigned paravirt_patch_ident_32(void *insnbuf, unsigned len);
 unsigned paravirt_patch_ident_64(void *insnbuf, unsigned len);
@@ -3030,7 +2746,6 @@ unsigned native_patch(u8 type, u16 clobbers, void *ibuf,
         unsigned long addr, unsigned len);
 
 int paravirt_disable_iospace(void);
-# 671 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/paravirt_types.h"
 enum paravirt_lazy_mode {
  PARAVIRT_LAZY_NONE,
  PARAVIRT_LAZY_MMU,
@@ -3060,7 +2775,6 @@ struct paravirt_patch_site {
 
 extern struct paravirt_patch_site __parainstructions[],
  __parainstructions_end[];
-# 136 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/ptrace.h" 2
 
 
 struct cpuinfo_x86;
@@ -3081,7 +2795,6 @@ static inline __attribute__((no_instrument_function)) unsigned long regs_return_
 {
  return regs->ax;
 }
-# 164 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/ptrace.h"
 static inline __attribute__((no_instrument_function)) int user_mode(struct pt_regs *regs)
 {
 
@@ -3113,11 +2826,9 @@ static inline __attribute__((no_instrument_function)) int v8086_mode(struct pt_r
 
 static inline __attribute__((no_instrument_function)) bool user_64bit_mode(struct pt_regs *regs)
 {
-# 203 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/ptrace.h"
  return regs->cs == (6*8+3) || regs->cs == pv_info.extra_user_64bit_cs;
 
 }
-# 215 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/ptrace.h"
 static inline __attribute__((no_instrument_function)) unsigned long kernel_stack_pointer(struct pt_regs *regs)
 {
 
@@ -3131,8 +2842,6 @@ static inline __attribute__((no_instrument_function)) unsigned long kernel_stack
 
 
 
-# 1 "include/asm-generic/ptrace.h" 1
-# 22 "include/asm-generic/ptrace.h"
 static inline __attribute__((no_instrument_function)) unsigned long instruction_pointer(struct pt_regs *regs)
 {
  return ((regs)->ip);
@@ -3142,7 +2851,6 @@ static inline __attribute__((no_instrument_function)) void instruction_pointer_s
 {
  (((regs)->ip) = (val));
 }
-# 44 "include/asm-generic/ptrace.h"
 static inline __attribute__((no_instrument_function)) unsigned long user_stack_pointer(struct pt_regs *regs)
 {
  return ((regs)->sp);
@@ -3152,7 +2860,6 @@ static inline __attribute__((no_instrument_function)) void user_stack_pointer_se
 {
  (((regs)->sp) = (val));
 }
-# 62 "include/asm-generic/ptrace.h"
 static inline __attribute__((no_instrument_function)) unsigned long frame_pointer(struct pt_regs *regs)
 {
  return ((regs)->bp);
@@ -3162,12 +2869,10 @@ static inline __attribute__((no_instrument_function)) void frame_pointer_set(str
 {
  (((regs)->bp) = (val));
 }
-# 229 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/ptrace.h" 2
 
 
 extern int regs_query_register_offset(const char *name);
 extern const char *regs_query_register_name(unsigned int offset);
-# 244 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/ptrace.h"
 static inline __attribute__((no_instrument_function)) unsigned long regs_get_register(struct pt_regs *regs,
            unsigned int offset)
 {
@@ -3175,14 +2880,12 @@ static inline __attribute__((no_instrument_function)) unsigned long regs_get_reg
   return 0;
  return *(unsigned long *)((unsigned long)regs + offset);
 }
-# 260 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/ptrace.h"
 static inline __attribute__((no_instrument_function)) int regs_within_kernel_stack(struct pt_regs *regs,
         unsigned long addr)
 {
  return ((addr & ~((((1UL) << 12) << 1) - 1)) ==
   (kernel_stack_pointer(regs) & ~((((1UL) << 12) << 1) - 1)));
 }
-# 276 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/ptrace.h"
 static inline __attribute__((no_instrument_function)) unsigned long regs_get_kernel_stack_nth(struct pt_regs *regs,
             unsigned int n)
 {
@@ -3193,14 +2896,11 @@ static inline __attribute__((no_instrument_function)) unsigned long regs_get_ker
  else
   return 0;
 }
-# 296 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/ptrace.h"
 struct user_desc;
 extern int do_get_thread_area(struct task_struct *p, int idx,
          struct user_desc *info);
 extern int do_set_thread_area(struct task_struct *p, int idx,
          struct user_desc *info, int can_allocate);
-# 131 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/vm86.h" 2
-# 141 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/vm86.h"
 struct kernel_vm86_regs {
 
 
@@ -3217,7 +2917,6 @@ struct kernel_vm86_regs {
 
 struct kernel_vm86_struct {
  struct kernel_vm86_regs regs;
-# 166 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/vm86.h"
  unsigned long flags;
  unsigned long screen_bitmap;
  unsigned long cpu_type;
@@ -3225,16 +2924,11 @@ struct kernel_vm86_struct {
  struct revectored_struct int21_revectored;
  struct vm86plus_info_struct vm86plus;
  struct pt_regs *regs32;
-# 183 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/vm86.h"
 };
-# 199 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/vm86.h"
 static inline __attribute__((no_instrument_function)) int handle_vm86_trap(struct kernel_vm86_regs *a, long b, int c)
 {
  return 0;
 }
-# 11 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/processor.h" 2
-# 1 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/math_emu.h" 1
-# 11 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/math_emu.h"
 struct math_emu_info {
  long ___orig_eip;
  union {
@@ -3242,11 +2936,8 @@ struct math_emu_info {
   struct kernel_vm86_regs *vm86;
  };
 };
-# 12 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/processor.h" 2
 
 
-# 1 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/sigcontext.h" 1
-# 23 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/sigcontext.h"
 struct _fpx_sw_bytes {
  __u32 magic1;
  __u32 extended_size;
@@ -3264,7 +2955,6 @@ struct _fpx_sw_bytes {
 
  __u32 padding[7];
 };
-# 169 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/sigcontext.h"
 struct _fpstate {
  __u16 cwd;
  __u16 swd;
@@ -3313,11 +3003,9 @@ struct sigcontext {
  unsigned long trapno;
  unsigned long oldmask;
  unsigned long cr2;
-# 225 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/sigcontext.h"
  void *fpstate;
  unsigned long reserved1[8];
 };
-# 269 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/sigcontext.h"
 struct _xsave_hdr {
  __u64 xstate_bv;
  __u64 reserved1[2];
@@ -3341,16 +3029,11 @@ struct _xstate {
  struct _ymmh_state ymmh;
 
 };
-# 15 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/processor.h" 2
-# 1 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/current.h" 1
 
 
 
 
-# 1 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/percpu.h" 1
-# 88 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/percpu.h"
 extern void __bad_percpu_size(void);
-# 510 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/percpu.h"
 static inline __attribute__((no_instrument_function)) __attribute__((always_inline)) int x86_this_cpu_constant_test_bit(unsigned int nr,
                         const unsigned long *addr)
 {
@@ -3378,24 +3061,15 @@ static inline __attribute__((no_instrument_function)) int x86_this_cpu_variable_
 
 
 
-# 1 "include/asm-generic/percpu.h" 1
 
 
 
 
-# 1 "include/linux/threads.h" 1
-# 6 "include/asm-generic/percpu.h" 2
-# 1 "include/linux/percpu-defs.h" 1
-# 7 "include/asm-generic/percpu.h" 2
-# 18 "include/asm-generic/percpu.h"
 extern unsigned long __per_cpu_offset[4096];
-# 72 "include/asm-generic/percpu.h"
 extern void setup_per_cpu_areas(void);
-# 538 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/percpu.h" 2
 
 
 extern __attribute__((section(".discard"), unused)) char __pcpu_scope_this_cpu_off; extern __attribute__((section(".data..percpu" ""))) __typeof__(unsigned long) this_cpu_off;
-# 6 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/current.h" 2
 
 
 struct task_struct;
@@ -3406,32 +3080,21 @@ static inline __attribute__((no_instrument_function)) __attribute__((always_inli
 {
  return ({ typeof(current_task) pfo_ret__; switch (sizeof(current_task)) { case 1: asm("mov" "b ""%%""gs"":" "%P" "1"",%0" : "=q" (pfo_ret__) : "p" (&(current_task))); break; case 2: asm("mov" "w ""%%""gs"":" "%P" "1"",%0" : "=r" (pfo_ret__) : "p" (&(current_task))); break; case 4: asm("mov" "l ""%%""gs"":" "%P" "1"",%0" : "=r" (pfo_ret__) : "p" (&(current_task))); break; case 8: asm("mov" "q ""%%""gs"":" "%P" "1"",%0" : "=r" (pfo_ret__) : "p" (&(current_task))); break; default: __bad_percpu_size(); } pfo_ret__; });
 }
-# 16 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/processor.h" 2
 
 
 
 
-# 1 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/msr.h" 1
-
-
-
-# 1 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/msr-index.h" 1
-# 5 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/msr.h" 2
 
 
 
 
-# 1 "include/linux/ioctl.h" 1
 
 
 
-# 1 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/ioctl.h" 1
-# 1 "include/asm-generic/ioctl.h" 1
-# 73 "include/asm-generic/ioctl.h"
+
+
+
 extern unsigned int __invalid_size_argument_for_IOC;
-# 1 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/ioctl.h" 2
-# 5 "include/linux/ioctl.h" 2
-# 10 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/msr.h" 2
 
 
 
@@ -3439,22 +3102,6 @@ extern unsigned int __invalid_size_argument_for_IOC;
 
 
 
-# 1 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/errno.h" 1
-# 1 "include/asm-generic/errno.h" 1
-
-
-
-# 1 "include/asm-generic/errno-base.h" 1
-# 5 "include/asm-generic/errno.h" 2
-# 1 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/errno.h" 2
-# 18 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/msr.h" 2
-# 1 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/cpumask.h" 1
-
-
-
-# 1 "include/linux/cpumask.h" 1
-# 11 "include/linux/cpumask.h"
-# 1 "include/linux/bitmap.h" 1
 
 
 
@@ -3462,20 +3109,21 @@ extern unsigned int __invalid_size_argument_for_IOC;
 
 
 
-# 1 "include/linux/string.h" 1
-# 15 "include/linux/string.h"
+
+
+
+
+
+
 extern char *strndup_user(const char *, long);
 extern void *memdup_user(const void *, size_t);
 
 
 
 
-# 1 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/string.h" 1
 
 
 
-# 1 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/string_64.h" 1
-# 9 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/string_64.h"
 static inline __attribute__((no_instrument_function)) __attribute__((always_inline)) void *__inline_memcpy(void *to, const void *from, size_t n)
 {
  unsigned long d0, d1, d2;
@@ -3492,9 +3140,7 @@ static inline __attribute__((no_instrument_function)) __attribute__((always_inli
        : "memory");
  return to;
 }
-# 34 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/string_64.h"
 extern void *__memcpy(void *to, const void *from, size_t len);
-# 55 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/string_64.h"
 void *memset(void *s, int c, size_t n);
 
 
@@ -3505,8 +3151,6 @@ size_t strlen(const char *s);
 char *strcpy(char *dest, const char *src);
 char *strcat(char *dest, const char *src);
 int strcmp(const char *cs, const char *ct);
-# 5 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/string.h" 2
-# 22 "include/linux/string.h" 2
 
 
 extern char * strcpy(char *,const char *);
@@ -3582,7 +3226,6 @@ extern __kernel_size_t strspn(const char *,const char *);
 
 
 extern __kernel_size_t strcspn(const char *,const char *);
-# 109 "include/linux/string.h"
 extern void * memscan(void *,int,__kernel_size_t);
 
 
@@ -3621,8 +3264,6 @@ static inline __attribute__((no_instrument_function)) bool strstarts(const char 
 {
  return strncmp(str, prefix, strlen(prefix)) == 0;
 }
-# 9 "include/linux/bitmap.h" 2
-# 91 "include/linux/bitmap.h"
 extern int __bitmap_empty(const unsigned long *bitmap, int bits);
 extern int __bitmap_full(const unsigned long *bitmap, int bits);
 extern int __bitmap_equal(const unsigned long *bitmap1,
@@ -3680,7 +3321,6 @@ extern void bitmap_release_region(unsigned long *bitmap, int pos, int order);
 extern int bitmap_allocate_region(unsigned long *bitmap, int pos, int order);
 extern void bitmap_copy_le(void *dst, const unsigned long *src, int nbits);
 extern int bitmap_ord_to_pos(const unsigned long *bitmap, int n, int bits);
-# 159 "include/linux/bitmap.h"
 static inline __attribute__((no_instrument_function)) void bitmap_zero(unsigned long *dst, int nbits)
 {
  if ((__builtin_constant_p(nbits) && (nbits) <= 64))
@@ -3828,15 +3468,9 @@ static inline __attribute__((no_instrument_function)) int bitmap_parse(const cha
 {
  return __bitmap_parse(buf, buflen, 0, maskp, nmaskbits);
 }
-# 12 "include/linux/cpumask.h" 2
-# 1 "include/linux/bug.h" 1
 
 
 
-# 1 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/bug.h" 1
-# 38 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/bug.h"
-# 1 "include/asm-generic/bug.h" 1
-# 10 "include/asm-generic/bug.h"
 struct bug_entry {
 
 
@@ -3853,7 +3487,6 @@ struct bug_entry {
 
  unsigned short flags;
 };
-# 64 "include/asm-generic/bug.h"
 extern __attribute__((format(printf, 3, 4)))
 void warn_slowpath_fmt(const char *file, const int line,
          const char *fmt, ...);
@@ -3861,11 +3494,9 @@ extern __attribute__((format(printf, 4, 5)))
 void warn_slowpath_fmt_taint(const char *file, const int line, unsigned taint,
         const char *fmt, ...);
 extern void warn_slowpath_null(const char *file, const int line);
-# 39 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/bug.h" 2
 
 
 extern void show_regs_common(void);
-# 5 "include/linux/bug.h" 2
 
 enum bug_trap_type {
  BUG_TRAP_TYPE_NONE = 0,
@@ -3874,7 +3505,6 @@ enum bug_trap_type {
 };
 
 struct pt_regs;
-# 78 "include/linux/bug.h"
 static inline __attribute__((no_instrument_function)) int is_warning_bug(const struct bug_entry *bug)
 {
  return bug->flags & (1 << 0);
@@ -3886,17 +3516,13 @@ enum bug_trap_type report_bug(unsigned long bug_addr, struct pt_regs *regs);
 
 
 int is_valid_bugaddr(unsigned long addr);
-# 13 "include/linux/cpumask.h" 2
 
 typedef struct cpumask { unsigned long bits[(((4096) + (8 * sizeof(long)) - 1) / (8 * sizeof(long)))]; } cpumask_t;
-# 28 "include/linux/cpumask.h"
 extern int nr_cpu_ids;
-# 79 "include/linux/cpumask.h"
 extern const struct cpumask *const cpu_possible_mask;
 extern const struct cpumask *const cpu_online_mask;
 extern const struct cpumask *const cpu_present_mask;
 extern const struct cpumask *const cpu_active_mask;
-# 105 "include/linux/cpumask.h"
 static inline __attribute__((no_instrument_function)) unsigned int cpumask_check(unsigned int cpu)
 {
 
@@ -3904,12 +3530,10 @@ static inline __attribute__((no_instrument_function)) unsigned int cpumask_check
 
  return cpu;
 }
-# 158 "include/linux/cpumask.h"
 static inline __attribute__((no_instrument_function)) unsigned int cpumask_first(const struct cpumask *srcp)
 {
  return find_first_bit(((srcp)->bits), nr_cpu_ids);
 }
-# 170 "include/linux/cpumask.h"
 static inline __attribute__((no_instrument_function)) unsigned int cpumask_next(int n, const struct cpumask *srcp)
 {
 
@@ -3917,7 +3541,6 @@ static inline __attribute__((no_instrument_function)) unsigned int cpumask_next(
   cpumask_check(n);
  return find_next_bit(((srcp)->bits), nr_cpu_ids, n+1);
 }
-# 185 "include/linux/cpumask.h"
 static inline __attribute__((no_instrument_function)) unsigned int cpumask_next_zero(int n, const struct cpumask *srcp)
 {
 
@@ -3928,7 +3551,6 @@ static inline __attribute__((no_instrument_function)) unsigned int cpumask_next_
 
 int cpumask_next_and(int n, const struct cpumask *, const struct cpumask *);
 int cpumask_any_but(const struct cpumask *mask, unsigned int cpu);
-# 255 "include/linux/cpumask.h"
 static inline __attribute__((no_instrument_function)) void cpumask_set_cpu(unsigned int cpu, struct cpumask *dstp)
 {
  set_bit(cpumask_check(cpu), ((dstp)->bits));
@@ -3943,12 +3565,10 @@ static inline __attribute__((no_instrument_function)) void cpumask_clear_cpu(int
 {
  clear_bit(cpumask_check(cpu), ((dstp)->bits));
 }
-# 287 "include/linux/cpumask.h"
 static inline __attribute__((no_instrument_function)) int cpumask_test_and_set_cpu(int cpu, struct cpumask *cpumask)
 {
  return test_and_set_bit(cpumask_check(cpu), ((cpumask)->bits));
 }
-# 299 "include/linux/cpumask.h"
 static inline __attribute__((no_instrument_function)) int cpumask_test_and_clear_cpu(int cpu, struct cpumask *cpumask)
 {
  return test_and_clear_bit(cpumask_check(cpu), ((cpumask)->bits));
@@ -4138,33 +3758,28 @@ static inline __attribute__((no_instrument_function)) void cpumask_copy(struct c
 {
  bitmap_copy(((dstp)->bits), ((srcp)->bits), nr_cpu_ids);
 }
-# 530 "include/linux/cpumask.h"
 static inline __attribute__((no_instrument_function)) int cpumask_scnprintf(char *buf, int len,
         const struct cpumask *srcp)
 {
  return bitmap_scnprintf(buf, len, ((srcp)->bits), nr_cpu_ids);
 }
-# 544 "include/linux/cpumask.h"
 static inline __attribute__((no_instrument_function)) int cpumask_parse_user(const char *buf, int len,
          struct cpumask *dstp)
 {
  return bitmap_parse_user(buf, len, ((dstp)->bits), nr_cpu_ids);
 }
-# 558 "include/linux/cpumask.h"
 static inline __attribute__((no_instrument_function)) int cpumask_parselist_user(const char *buf, int len,
          struct cpumask *dstp)
 {
  return bitmap_parselist_user(buf, len, ((dstp)->bits),
        nr_cpu_ids);
 }
-# 574 "include/linux/cpumask.h"
 static inline __attribute__((no_instrument_function)) int cpulist_scnprintf(char *buf, int len,
         const struct cpumask *srcp)
 {
  return bitmap_scnlistprintf(buf, len, ((srcp)->bits),
         nr_cpu_ids);
 }
-# 589 "include/linux/cpumask.h"
 static inline __attribute__((no_instrument_function)) int cpulist_parse(const char *buf, struct cpumask *dstp)
 {
  return bitmap_parselist(buf, ((dstp)->bits), nr_cpu_ids);
@@ -4181,7 +3796,6 @@ static inline __attribute__((no_instrument_function)) size_t cpumask_size(void)
 
  return (((4096) + (8 * sizeof(long)) - 1) / (8 * sizeof(long))) * sizeof(long);
 }
-# 637 "include/linux/cpumask.h"
 typedef struct cpumask *cpumask_var_t;
 
 bool alloc_cpumask_var_node(cpumask_var_t *mask, gfp_t flags, int node);
@@ -4191,9 +3805,7 @@ bool zalloc_cpumask_var(cpumask_var_t *mask, gfp_t flags);
 void alloc_bootmem_cpumask_var(cpumask_var_t *mask);
 void free_cpumask_var(cpumask_var_t mask);
 void free_bootmem_cpumask_var(cpumask_var_t mask);
-# 689 "include/linux/cpumask.h"
 extern const unsigned long cpu_all_bits[(((4096) + (8 * sizeof(long)) - 1) / (8 * sizeof(long)))];
-# 700 "include/linux/cpumask.h"
 void set_cpu_possible(unsigned int cpu, bool possible);
 void set_cpu_present(unsigned int cpu, bool present);
 void set_cpu_online(unsigned int cpu, bool online);
@@ -4201,12 +3813,10 @@ void set_cpu_active(unsigned int cpu, bool active);
 void init_cpu_present(const struct cpumask *src);
 void init_cpu_possible(const struct cpumask *src);
 void init_cpu_online(const struct cpumask *src);
-# 722 "include/linux/cpumask.h"
 static inline __attribute__((no_instrument_function)) int __check_is_bitmap(const unsigned long *bitmap)
 {
  return 1;
 }
-# 734 "include/linux/cpumask.h"
 extern const unsigned long
  cpu_bit_bitmap[64 +1][(((4096) + (8 * sizeof(long)) - 1) / (8 * sizeof(long)))];
 
@@ -4216,12 +3826,9 @@ static inline __attribute__((no_instrument_function)) const struct cpumask *get_
  p -= cpu / 64;
  return ((struct cpumask *)(1 ? (p) : (void *)sizeof(__check_is_bitmap(p))));
 }
-# 805 "include/linux/cpumask.h"
 int __first_cpu(const cpumask_t *srcp);
 int __next_cpu(int n, const cpumask_t *srcp);
-# 823 "include/linux/cpumask.h"
 int __next_cpu_nr(int n, const cpumask_t *srcp);
-# 834 "include/linux/cpumask.h"
 static inline __attribute__((no_instrument_function)) void __cpu_set(int cpu, volatile cpumask_t *dstp)
 {
  set_bit(cpu, dstp->bits);
@@ -4323,7 +3930,6 @@ static inline __attribute__((no_instrument_function)) void __cpus_shift_left(cpu
 {
  bitmap_shift_left(dstp->bits, srcp->bits, n, nbits);
 }
-# 5 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/cpumask.h" 2
 
 extern cpumask_var_t cpu_callin_mask;
 extern cpumask_var_t cpu_callout_mask;
@@ -4331,7 +3937,6 @@ extern cpumask_var_t cpu_initialized_mask;
 extern cpumask_var_t cpu_sibling_setup_mask;
 
 extern void setup_cpu_local_masks(void);
-# 19 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/msr.h" 2
 
 struct msr {
  union {
@@ -4362,7 +3967,6 @@ static inline __attribute__((no_instrument_function)) unsigned long long native_
        : "=a" (low), "=d" (high), "=c" (*aux));
  return low | ((u64)high << 32);
 }
-# 68 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/msr.h"
 static inline __attribute__((no_instrument_function)) unsigned long long native_read_msr(unsigned int msr)
 {
  unsigned low, high;
@@ -4434,8 +4038,6 @@ static inline __attribute__((no_instrument_function)) unsigned long long native_
 }
 
 
-# 1 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/paravirt.h" 1
-# 17 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/paravirt.h"
 static inline __attribute__((no_instrument_function)) int paravirt_enabled(void)
 {
  return pv_info.paravirt_enabled;
@@ -4564,7 +4166,6 @@ static inline __attribute__((no_instrument_function)) int paravirt_wrmsr_regs(u3
 {
  return ({ int __ret; unsigned long __edi = __edi, __esi = __esi, __edx = __edx, __ecx = __ecx, __eax = __eax; do { if (ldv__builtin_expect(!!(pv_cpu_ops.wrmsr_regs == ((void *)0)), 0)) do { asm volatile("1:\tud2\n" ".pushsection __bug_table,\"a\"\n" "2:\t.long 1b - 2b, %c0 - 2b\n" "\t.word %c1, 0\n" "\t.org 2b+%c2\n" ".popsection" : : "i" ("/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/paravirt.h"), "i" (143), "i" (sizeof(struct bug_entry))); do { } while (1); } while (0); } while(0); if (sizeof(int) > sizeof(unsigned long)) { asm volatile("" "771:\n\t" "call *%c[paravirt_opptr];" "\n" "772:\n" ".pushsection .parainstructions,\"a\"\n" " " ".balign 8" " " "\n" " " ".quad" " " " 771b\n" "  .byte " "%c[paravirt_typenum]" "\n" "  .byte 772b-771b\n" "  .short " "%c[paravirt_clobber]" "\n" ".popsection\n" "" : "=D" (__edi), "=S" (__esi), "=d" (__edx), "=c" (__ecx), "=a" (__eax) : [paravirt_typenum] "i" ((__builtin_offsetof(struct paravirt_patch_template,pv_cpu_ops.wrmsr_regs) / sizeof(void *))), [paravirt_opptr] "i" (&(pv_cpu_ops.wrmsr_regs)), [paravirt_clobber] "i" (((1 << 9) - 1)), "D" ((unsigned long)(regs)) : "memory", "cc" , "r8", "r9", "r10", "r11"); __ret = (int)((((u64)__edx) << 32) | __eax); } else { asm volatile("" "771:\n\t" "call *%c[paravirt_opptr];" "\n" "772:\n" ".pushsection .parainstructions,\"a\"\n" " " ".balign 8" " " "\n" " " ".quad" " " " 771b\n" "  .byte " "%c[paravirt_typenum]" "\n" "  .byte 772b-771b\n" "  .short " "%c[paravirt_clobber]" "\n" ".popsection\n" "" : "=D" (__edi), "=S" (__esi), "=d" (__edx), "=c" (__ecx), "=a" (__eax) : [paravirt_typenum] "i" ((__builtin_offsetof(struct paravirt_patch_template,pv_cpu_ops.wrmsr_regs) / sizeof(void *))), [paravirt_opptr] "i" (&(pv_cpu_ops.wrmsr_regs)), [paravirt_clobber] "i" (((1 << 9) - 1)), "D" ((unsigned long)(regs)) : "memory", "cc" , "r8", "r9", "r10", "r11"); __ret = (int)__eax; } __ret; });
 }
-# 182 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/paravirt.h"
 static inline __attribute__((no_instrument_function)) int rdmsrl_safe(unsigned msr, unsigned long long *p)
 {
  int err;
@@ -4603,7 +4204,6 @@ static inline __attribute__((no_instrument_function)) u64 paravirt_read_tsc(void
 {
  return ({ u64 __ret; unsigned long __edi = __edi, __esi = __esi, __edx = __edx, __ecx = __ecx, __eax = __eax; do { if (ldv__builtin_expect(!!(pv_cpu_ops.read_tsc == ((void *)0)), 0)) do { asm volatile("1:\tud2\n" ".pushsection __bug_table,\"a\"\n" "2:\t.long 1b - 2b, %c0 - 2b\n" "\t.word %c1, 0\n" "\t.org 2b+%c2\n" ".popsection" : : "i" ("/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/paravirt.h"), "i" (218), "i" (sizeof(struct bug_entry))); do { } while (1); } while (0); } while(0); if (sizeof(u64) > sizeof(unsigned long)) { asm volatile("" "771:\n\t" "call *%c[paravirt_opptr];" "\n" "772:\n" ".pushsection .parainstructions,\"a\"\n" " " ".balign 8" " " "\n" " " ".quad" " " " 771b\n" "  .byte " "%c[paravirt_typenum]" "\n" "  .byte 772b-771b\n" "  .short " "%c[paravirt_clobber]" "\n" ".popsection\n" "" : "=D" (__edi), "=S" (__esi), "=d" (__edx), "=c" (__ecx), "=a" (__eax) : [paravirt_typenum] "i" ((__builtin_offsetof(struct paravirt_patch_template,pv_cpu_ops.read_tsc) / sizeof(void *))), [paravirt_opptr] "i" (&(pv_cpu_ops.read_tsc)), [paravirt_clobber] "i" (((1 << 9) - 1)) : "memory", "cc" , "r8", "r9", "r10", "r11"); __ret = (u64)((((u64)__edx) << 32) | __eax); } else { asm volatile("" "771:\n\t" "call *%c[paravirt_opptr];" "\n" "772:\n" ".pushsection .parainstructions,\"a\"\n" " " ".balign 8" " " "\n" " " ".quad" " " " 771b\n" "  .byte " "%c[paravirt_typenum]" "\n" "  .byte 772b-771b\n" "  .short " "%c[paravirt_clobber]" "\n" ".popsection\n" "" : "=D" (__edi), "=S" (__esi), "=d" (__edx), "=c" (__ecx), "=a" (__eax) : [paravirt_typenum] "i" ((__builtin_offsetof(struct paravirt_patch_template,pv_cpu_ops.read_tsc) / sizeof(void *))), [paravirt_opptr] "i" (&(pv_cpu_ops.read_tsc)), [paravirt_clobber] "i" (((1 << 9) - 1)) : "memory", "cc" , "r8", "r9", "r10", "r11"); __ret = (u64)__eax; } __ret; });
 }
-# 229 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/paravirt.h"
 static inline __attribute__((no_instrument_function)) unsigned long long paravirt_sched_clock(void)
 {
  return ({ unsigned long long __ret; unsigned long __edi = __edi, __esi = __esi, __edx = __edx, __ecx = __ecx, __eax = __eax; do { if (ldv__builtin_expect(!!(pv_time_ops.sched_clock == ((void *)0)), 0)) do { asm volatile("1:\tud2\n" ".pushsection __bug_table,\"a\"\n" "2:\t.long 1b - 2b, %c0 - 2b\n" "\t.word %c1, 0\n" "\t.org 2b+%c2\n" ".popsection" : : "i" ("/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/paravirt.h"), "i" (231), "i" (sizeof(struct bug_entry))); do { } while (1); } while (0); } while(0); if (sizeof(unsigned long long) > sizeof(unsigned long)) { asm volatile("" "771:\n\t" "call *%c[paravirt_opptr];" "\n" "772:\n" ".pushsection .parainstructions,\"a\"\n" " " ".balign 8" " " "\n" " " ".quad" " " " 771b\n" "  .byte " "%c[paravirt_typenum]" "\n" "  .byte 772b-771b\n" "  .short " "%c[paravirt_clobber]" "\n" ".popsection\n" "" : "=D" (__edi), "=S" (__esi), "=d" (__edx), "=c" (__ecx), "=a" (__eax) : [paravirt_typenum] "i" ((__builtin_offsetof(struct paravirt_patch_template,pv_time_ops.sched_clock) / sizeof(void *))), [paravirt_opptr] "i" (&(pv_time_ops.sched_clock)), [paravirt_clobber] "i" (((1 << 9) - 1)) : "memory", "cc" , "r8", "r9", "r10", "r11"); __ret = (unsigned long long)((((u64)__edx) << 32) | __eax); } else { asm volatile("" "771:\n\t" "call *%c[paravirt_opptr];" "\n" "772:\n" ".pushsection .parainstructions,\"a\"\n" " " ".balign 8" " " "\n" " " ".quad" " " " 771b\n" "  .byte " "%c[paravirt_typenum]" "\n" "  .byte 772b-771b\n" "  .short " "%c[paravirt_clobber]" "\n" ".popsection\n" "" : "=D" (__edi), "=S" (__esi), "=d" (__edx), "=c" (__ecx), "=a" (__eax) : [paravirt_typenum] "i" ((__builtin_offsetof(struct paravirt_patch_template,pv_time_ops.sched_clock) / sizeof(void *))), [paravirt_opptr] "i" (&(pv_time_ops.sched_clock)), [paravirt_clobber] "i" (((1 << 9) - 1)) : "memory", "cc" , "r8", "r9", "r10", "r11"); __ret = (unsigned long long)__eax; } __ret; });
@@ -4622,12 +4222,10 @@ static inline __attribute__((no_instrument_function)) unsigned long long paravir
 {
  return ({ u64 __ret; unsigned long __edi = __edi, __esi = __esi, __edx = __edx, __ecx = __ecx, __eax = __eax; do { if (ldv__builtin_expect(!!(pv_cpu_ops.read_pmc == ((void *)0)), 0)) do { asm volatile("1:\tud2\n" ".pushsection __bug_table,\"a\"\n" "2:\t.long 1b - 2b, %c0 - 2b\n" "\t.word %c1, 0\n" "\t.org 2b+%c2\n" ".popsection" : : "i" ("/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/paravirt.h"), "i" (245), "i" (sizeof(struct bug_entry))); do { } while (1); } while (0); } while(0); if (sizeof(u64) > sizeof(unsigned long)) { asm volatile("" "771:\n\t" "call *%c[paravirt_opptr];" "\n" "772:\n" ".pushsection .parainstructions,\"a\"\n" " " ".balign 8" " " "\n" " " ".quad" " " " 771b\n" "  .byte " "%c[paravirt_typenum]" "\n" "  .byte 772b-771b\n" "  .short " "%c[paravirt_clobber]" "\n" ".popsection\n" "" : "=D" (__edi), "=S" (__esi), "=d" (__edx), "=c" (__ecx), "=a" (__eax) : [paravirt_typenum] "i" ((__builtin_offsetof(struct paravirt_patch_template,pv_cpu_ops.read_pmc) / sizeof(void *))), [paravirt_opptr] "i" (&(pv_cpu_ops.read_pmc)), [paravirt_clobber] "i" (((1 << 9) - 1)), "D" ((unsigned long)(counter)) : "memory", "cc" , "r8", "r9", "r10", "r11"); __ret = (u64)((((u64)__edx) << 32) | __eax); } else { asm volatile("" "771:\n\t" "call *%c[paravirt_opptr];" "\n" "772:\n" ".pushsection .parainstructions,\"a\"\n" " " ".balign 8" " " "\n" " " ".quad" " " " 771b\n" "  .byte " "%c[paravirt_typenum]" "\n" "  .byte 772b-771b\n" "  .short " "%c[paravirt_clobber]" "\n" ".popsection\n" "" : "=D" (__edi), "=S" (__esi), "=d" (__edx), "=c" (__ecx), "=a" (__eax) : [paravirt_typenum] "i" ((__builtin_offsetof(struct paravirt_patch_template,pv_cpu_ops.read_pmc) / sizeof(void *))), [paravirt_opptr] "i" (&(pv_cpu_ops.read_pmc)), [paravirt_clobber] "i" (((1 << 9) - 1)), "D" ((unsigned long)(counter)) : "memory", "cc" , "r8", "r9", "r10", "r11"); __ret = (u64)__eax; } __ret; });
 }
-# 255 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/paravirt.h"
 static inline __attribute__((no_instrument_function)) unsigned long long paravirt_rdtscp(unsigned int *aux)
 {
  return ({ u64 __ret; unsigned long __edi = __edi, __esi = __esi, __edx = __edx, __ecx = __ecx, __eax = __eax; do { if (ldv__builtin_expect(!!(pv_cpu_ops.read_tscp == ((void *)0)), 0)) do { asm volatile("1:\tud2\n" ".pushsection __bug_table,\"a\"\n" "2:\t.long 1b - 2b, %c0 - 2b\n" "\t.word %c1, 0\n" "\t.org 2b+%c2\n" ".popsection" : : "i" ("/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/paravirt.h"), "i" (257), "i" (sizeof(struct bug_entry))); do { } while (1); } while (0); } while(0); if (sizeof(u64) > sizeof(unsigned long)) { asm volatile("" "771:\n\t" "call *%c[paravirt_opptr];" "\n" "772:\n" ".pushsection .parainstructions,\"a\"\n" " " ".balign 8" " " "\n" " " ".quad" " " " 771b\n" "  .byte " "%c[paravirt_typenum]" "\n" "  .byte 772b-771b\n" "  .short " "%c[paravirt_clobber]" "\n" ".popsection\n" "" : "=D" (__edi), "=S" (__esi), "=d" (__edx), "=c" (__ecx), "=a" (__eax) : [paravirt_typenum] "i" ((__builtin_offsetof(struct paravirt_patch_template,pv_cpu_ops.read_tscp) / sizeof(void *))), [paravirt_opptr] "i" (&(pv_cpu_ops.read_tscp)), [paravirt_clobber] "i" (((1 << 9) - 1)), "D" ((unsigned long)(aux)) : "memory", "cc" , "r8", "r9", "r10", "r11"); __ret = (u64)((((u64)__edx) << 32) | __eax); } else { asm volatile("" "771:\n\t" "call *%c[paravirt_opptr];" "\n" "772:\n" ".pushsection .parainstructions,\"a\"\n" " " ".balign 8" " " "\n" " " ".quad" " " " 771b\n" "  .byte " "%c[paravirt_typenum]" "\n" "  .byte 772b-771b\n" "  .short " "%c[paravirt_clobber]" "\n" ".popsection\n" "" : "=D" (__edi), "=S" (__esi), "=d" (__edx), "=c" (__ecx), "=a" (__eax) : [paravirt_typenum] "i" ((__builtin_offsetof(struct paravirt_patch_template,pv_cpu_ops.read_tscp) / sizeof(void *))), [paravirt_opptr] "i" (&(pv_cpu_ops.read_tscp)), [paravirt_clobber] "i" (((1 << 9) - 1)), "D" ((unsigned long)(aux)) : "memory", "cc" , "r8", "r9", "r10", "r11"); __ret = (u64)__eax; } __ret; });
 }
-# 276 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/paravirt.h"
 static inline __attribute__((no_instrument_function)) void paravirt_alloc_ldt(struct desc_struct *ldt, unsigned entries)
 {
  ({ unsigned long __edi = __edi, __esi = __esi, __edx = __edx, __ecx = __ecx, __eax = __eax; do { if (ldv__builtin_expect(!!(pv_cpu_ops.alloc_ldt == ((void *)0)), 0)) do { asm volatile("1:\tud2\n" ".pushsection __bug_table,\"a\"\n" "2:\t.long 1b - 2b, %c0 - 2b\n" "\t.word %c1, 0\n" "\t.org 2b+%c2\n" ".popsection" : : "i" ("/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/paravirt.h"), "i" (278), "i" (sizeof(struct bug_entry))); do { } while (1); } while (0); } while(0); asm volatile("" "771:\n\t" "call *%c[paravirt_opptr];" "\n" "772:\n" ".pushsection .parainstructions,\"a\"\n" " " ".balign 8" " " "\n" " " ".quad" " " " 771b\n" "  .byte " "%c[paravirt_typenum]" "\n" "  .byte 772b-771b\n" "  .short " "%c[paravirt_clobber]" "\n" ".popsection\n" "" : "=D" (__edi), "=S" (__esi), "=d" (__edx), "=c" (__ecx) : [paravirt_typenum] "i" ((__builtin_offsetof(struct paravirt_patch_template,pv_cpu_ops.alloc_ldt) / sizeof(void *))), [paravirt_opptr] "i" (&(pv_cpu_ops.alloc_ldt)), [paravirt_clobber] "i" (((1 << 9) - 1)), "D" ((unsigned long)(ldt)), "S" ((unsigned long)(entries)) : "memory", "cc" , "rax", "r8", "r9", "r10", "r11"); });
@@ -4717,10 +4315,8 @@ static inline __attribute__((no_instrument_function)) void startup_ipi_hook(int 
 {
  ({ unsigned long __edi = __edi, __esi = __esi, __edx = __edx, __ecx = __ecx, __eax = __eax; do { if (ldv__builtin_expect(!!(pv_apic_ops.startup_ipi_hook == ((void *)0)), 0)) do { asm volatile("1:\tud2\n" ".pushsection __bug_table,\"a\"\n" "2:\t.long 1b - 2b, %c0 - 2b\n" "\t.word %c1, 0\n" "\t.org 2b+%c2\n" ".popsection" : : "i" (
  "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/paravirt.h"
-# 363 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/paravirt.h"
  ), "i" (
  364
-# 363 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/paravirt.h"
  ), "i" (sizeof(struct bug_entry))); do { } while (1); } while (0); } while(0); asm volatile("" "771:\n\t" "call *%c[paravirt_opptr];" "\n" "772:\n" ".pushsection .parainstructions,\"a\"\n" " " ".balign 8" " " "\n" " " ".quad" " " " 771b\n" "  .byte " "%c[paravirt_typenum]" "\n" "  .byte 772b-771b\n" "  .short " "%c[paravirt_clobber]" "\n" ".popsection\n" "" : "=D" (__edi), "=S" (__esi), "=d" (__edx), "=c" (__ecx) : [paravirt_typenum] "i" ((__builtin_offsetof(struct paravirt_patch_template,pv_apic_ops.startup_ipi_hook) / sizeof(void *))), [paravirt_opptr] "i" (&(pv_apic_ops.startup_ipi_hook)), [paravirt_clobber] "i" (((1 << 9) - 1)), "D" ((unsigned long)(phys_apicid)), "S" ((unsigned long)(start_eip)), "d" ((unsigned long)(start_esp)) : "memory", "cc" , "rax", "r8", "r9", "r10", "r11"); })
                                         ;
 }
@@ -4832,11 +4428,9 @@ static inline __attribute__((no_instrument_function)) pte_t __pte(pteval_t val)
   ret = ({ pteval_t __ret; unsigned long __edi = __edi, __esi = __esi, __edx = __edx, __ecx = __ecx, __eax = __eax; do { if (ldv__builtin_expect(!!(pv_mmu_ops.make_pte.func == ((void *)0)), 0)) do { asm volatile("1:\tud2\n" ".pushsection __bug_table,\"a\"\n" "2:\t.long 1b - 2b, %c0 - 2b\n" "\t.word %c1, 0\n" "\t.org 2b+%c2\n" ".popsection" : : "i" (
 
  "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/paravirt.h"
-# 471 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/paravirt.h"
         ), "i" (
 
  473
-# 471 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/paravirt.h"
         ), "i" (sizeof(struct bug_entry))); do { } while (1); } while (0); } while(0); if (sizeof(pteval_t) > sizeof(unsigned long)) { asm volatile("" "771:\n\t" "call *%c[paravirt_opptr];" "\n" "772:\n" ".pushsection .parainstructions,\"a\"\n" " " ".balign 8" " " "\n" " " ".quad" " " " 771b\n" "  .byte " "%c[paravirt_typenum]" "\n" "  .byte 772b-771b\n" "  .short " "%c[paravirt_clobber]" "\n" ".popsection\n" "" : "=a" (__eax) : [paravirt_typenum] "i" ((__builtin_offsetof(struct paravirt_patch_template,pv_mmu_ops.make_pte.func) / sizeof(void *))), [paravirt_opptr] "i" (&(pv_mmu_ops.make_pte.func)), [paravirt_clobber] "i" (((1 << 0))), "D" ((unsigned long)(val)), "S" ((unsigned long)((u64)val >> 32)) : "memory", "cc" ); __ret = (pteval_t)((((u64)__edx) << 32) | __eax); } else { asm volatile("" "771:\n\t" "call *%c[paravirt_opptr];" "\n" "772:\n" ".pushsection .parainstructions,\"a\"\n" " " ".balign 8" " " "\n" " " ".quad" " " " 771b\n" "  .byte " "%c[paravirt_typenum]" "\n" "  .byte 772b-771b\n" "  .short " "%c[paravirt_clobber]" "\n" ".popsection\n" "" : "=a" (__eax) : [paravirt_typenum] "i" ((__builtin_offsetof(struct paravirt_patch_template,pv_mmu_ops.make_pte.func) / sizeof(void *))), [paravirt_opptr] "i" (&(pv_mmu_ops.make_pte.func)), [paravirt_clobber] "i" (((1 << 0))), "D" ((unsigned long)(val)), "S" ((unsigned long)((u64)val >> 32)) : "memory", "cc" ); __ret = (pteval_t)__eax; } __ret; })
 
                            ;
@@ -4844,11 +4438,9 @@ static inline __attribute__((no_instrument_function)) pte_t __pte(pteval_t val)
   ret = ({ pteval_t __ret; unsigned long __edi = __edi, __esi = __esi, __edx = __edx, __ecx = __ecx, __eax = __eax; do { if (ldv__builtin_expect(!!(pv_mmu_ops.make_pte.func == ((void *)0)), 0)) do { asm volatile("1:\tud2\n" ".pushsection __bug_table,\"a\"\n" "2:\t.long 1b - 2b, %c0 - 2b\n" "\t.word %c1, 0\n" "\t.org 2b+%c2\n" ".popsection" : : "i" (
 
  "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/paravirt.h"
-# 475 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/paravirt.h"
         ), "i" (
 
  477
-# 475 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/paravirt.h"
         ), "i" (sizeof(struct bug_entry))); do { } while (1); } while (0); } while(0); if (sizeof(pteval_t) > sizeof(unsigned long)) { asm volatile("" "771:\n\t" "call *%c[paravirt_opptr];" "\n" "772:\n" ".pushsection .parainstructions,\"a\"\n" " " ".balign 8" " " "\n" " " ".quad" " " " 771b\n" "  .byte " "%c[paravirt_typenum]" "\n" "  .byte 772b-771b\n" "  .short " "%c[paravirt_clobber]" "\n" ".popsection\n" "" : "=a" (__eax) : [paravirt_typenum] "i" ((__builtin_offsetof(struct paravirt_patch_template,pv_mmu_ops.make_pte.func) / sizeof(void *))), [paravirt_opptr] "i" (&(pv_mmu_ops.make_pte.func)), [paravirt_clobber] "i" (((1 << 0))), "D" ((unsigned long)(val)) : "memory", "cc" ); __ret = (pteval_t)((((u64)__edx) << 32) | __eax); } else { asm volatile("" "771:\n\t" "call *%c[paravirt_opptr];" "\n" "772:\n" ".pushsection .parainstructions,\"a\"\n" " " ".balign 8" " " "\n" " " ".quad" " " " 771b\n" "  .byte " "%c[paravirt_typenum]" "\n" "  .byte 772b-771b\n" "  .short " "%c[paravirt_clobber]" "\n" ".popsection\n" "" : "=a" (__eax) : [paravirt_typenum] "i" ((__builtin_offsetof(struct paravirt_patch_template,pv_mmu_ops.make_pte.func) / sizeof(void *))), [paravirt_opptr] "i" (&(pv_mmu_ops.make_pte.func)), [paravirt_clobber] "i" (((1 << 0))), "D" ((unsigned long)(val)) : "memory", "cc" ); __ret = (pteval_t)__eax; } __ret; })
 
            ;
@@ -4863,19 +4455,15 @@ static inline __attribute__((no_instrument_function)) pteval_t pte_val(pte_t pte
  if (sizeof(pteval_t) > sizeof(long))
   ret = ({ pteval_t __ret; unsigned long __edi = __edi, __esi = __esi, __edx = __edx, __ecx = __ecx, __eax = __eax; do { if (ldv__builtin_expect(!!(pv_mmu_ops.pte_val.func == ((void *)0)), 0)) do { asm volatile("1:\tud2\n" ".pushsection __bug_table,\"a\"\n" "2:\t.long 1b - 2b, %c0 - 2b\n" "\t.word %c1, 0\n" "\t.org 2b+%c2\n" ".popsection" : : "i" (
  "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/paravirt.h"
-# 487 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/paravirt.h"
         ), "i" (
  488
-# 487 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/paravirt.h"
         ), "i" (sizeof(struct bug_entry))); do { } while (1); } while (0); } while(0); if (sizeof(pteval_t) > sizeof(unsigned long)) { asm volatile("" "771:\n\t" "call *%c[paravirt_opptr];" "\n" "772:\n" ".pushsection .parainstructions,\"a\"\n" " " ".balign 8" " " "\n" " " ".quad" " " " 771b\n" "  .byte " "%c[paravirt_typenum]" "\n" "  .byte 772b-771b\n" "  .short " "%c[paravirt_clobber]" "\n" ".popsection\n" "" : "=a" (__eax) : [paravirt_typenum] "i" ((__builtin_offsetof(struct paravirt_patch_template,pv_mmu_ops.pte_val.func) / sizeof(void *))), [paravirt_opptr] "i" (&(pv_mmu_ops.pte_val.func)), [paravirt_clobber] "i" (((1 << 0))), "D" ((unsigned long)(pte.pte)), "S" ((unsigned long)((u64)pte.pte >> 32)) : "memory", "cc" ); __ret = (pteval_t)((((u64)__edx) << 32) | __eax); } else { asm volatile("" "771:\n\t" "call *%c[paravirt_opptr];" "\n" "772:\n" ".pushsection .parainstructions,\"a\"\n" " " ".balign 8" " " "\n" " " ".quad" " " " 771b\n" "  .byte " "%c[paravirt_typenum]" "\n" "  .byte 772b-771b\n" "  .short " "%c[paravirt_clobber]" "\n" ".popsection\n" "" : "=a" (__eax) : [paravirt_typenum] "i" ((__builtin_offsetof(struct paravirt_patch_template,pv_mmu_ops.pte_val.func) / sizeof(void *))), [paravirt_opptr] "i" (&(pv_mmu_ops.pte_val.func)), [paravirt_clobber] "i" (((1 << 0))), "D" ((unsigned long)(pte.pte)), "S" ((unsigned long)((u64)pte.pte >> 32)) : "memory", "cc" ); __ret = (pteval_t)__eax; } __ret; })
                                    ;
  else
   ret = ({ pteval_t __ret; unsigned long __edi = __edi, __esi = __esi, __edx = __edx, __ecx = __ecx, __eax = __eax; do { if (ldv__builtin_expect(!!(pv_mmu_ops.pte_val.func == ((void *)0)), 0)) do { asm volatile("1:\tud2\n" ".pushsection __bug_table,\"a\"\n" "2:\t.long 1b - 2b, %c0 - 2b\n" "\t.word %c1, 0\n" "\t.org 2b+%c2\n" ".popsection" : : "i" (
  "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/paravirt.h"
-# 490 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/paravirt.h"
         ), "i" (
  491
-# 490 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/paravirt.h"
         ), "i" (sizeof(struct bug_entry))); do { } while (1); } while (0); } while(0); if (sizeof(pteval_t) > sizeof(unsigned long)) { asm volatile("" "771:\n\t" "call *%c[paravirt_opptr];" "\n" "772:\n" ".pushsection .parainstructions,\"a\"\n" " " ".balign 8" " " "\n" " " ".quad" " " " 771b\n" "  .byte " "%c[paravirt_typenum]" "\n" "  .byte 772b-771b\n" "  .short " "%c[paravirt_clobber]" "\n" ".popsection\n" "" : "=a" (__eax) : [paravirt_typenum] "i" ((__builtin_offsetof(struct paravirt_patch_template,pv_mmu_ops.pte_val.func) / sizeof(void *))), [paravirt_opptr] "i" (&(pv_mmu_ops.pte_val.func)), [paravirt_clobber] "i" (((1 << 0))), "D" ((unsigned long)(pte.pte)) : "memory", "cc" ); __ret = (pteval_t)((((u64)__edx) << 32) | __eax); } else { asm volatile("" "771:\n\t" "call *%c[paravirt_opptr];" "\n" "772:\n" ".pushsection .parainstructions,\"a\"\n" " " ".balign 8" " " "\n" " " ".quad" " " " 771b\n" "  .byte " "%c[paravirt_typenum]" "\n" "  .byte 772b-771b\n" "  .short " "%c[paravirt_clobber]" "\n" ".popsection\n" "" : "=a" (__eax) : [paravirt_typenum] "i" ((__builtin_offsetof(struct paravirt_patch_template,pv_mmu_ops.pte_val.func) / sizeof(void *))), [paravirt_opptr] "i" (&(pv_mmu_ops.pte_val.func)), [paravirt_clobber] "i" (((1 << 0))), "D" ((unsigned long)(pte.pte)) : "memory", "cc" ); __ret = (pteval_t)__eax; } __ret; })
                ;
 
@@ -4889,19 +4477,15 @@ static inline __attribute__((no_instrument_function)) pgd_t __pgd(pgdval_t val)
  if (sizeof(pgdval_t) > sizeof(long))
   ret = ({ pgdval_t __ret; unsigned long __edi = __edi, __esi = __esi, __edx = __edx, __ecx = __ecx, __eax = __eax; do { if (ldv__builtin_expect(!!(pv_mmu_ops.make_pgd.func == ((void *)0)), 0)) do { asm volatile("1:\tud2\n" ".pushsection __bug_table,\"a\"\n" "2:\t.long 1b - 2b, %c0 - 2b\n" "\t.word %c1, 0\n" "\t.org 2b+%c2\n" ".popsection" : : "i" (
  "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/paravirt.h"
-# 501 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/paravirt.h"
         ), "i" (
  502
-# 501 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/paravirt.h"
         ), "i" (sizeof(struct bug_entry))); do { } while (1); } while (0); } while(0); if (sizeof(pgdval_t) > sizeof(unsigned long)) { asm volatile("" "771:\n\t" "call *%c[paravirt_opptr];" "\n" "772:\n" ".pushsection .parainstructions,\"a\"\n" " " ".balign 8" " " "\n" " " ".quad" " " " 771b\n" "  .byte " "%c[paravirt_typenum]" "\n" "  .byte 772b-771b\n" "  .short " "%c[paravirt_clobber]" "\n" ".popsection\n" "" : "=a" (__eax) : [paravirt_typenum] "i" ((__builtin_offsetof(struct paravirt_patch_template,pv_mmu_ops.make_pgd.func) / sizeof(void *))), [paravirt_opptr] "i" (&(pv_mmu_ops.make_pgd.func)), [paravirt_clobber] "i" (((1 << 0))), "D" ((unsigned long)(val)), "S" ((unsigned long)((u64)val >> 32)) : "memory", "cc" ); __ret = (pgdval_t)((((u64)__edx) << 32) | __eax); } else { asm volatile("" "771:\n\t" "call *%c[paravirt_opptr];" "\n" "772:\n" ".pushsection .parainstructions,\"a\"\n" " " ".balign 8" " " "\n" " " ".quad" " " " 771b\n" "  .byte " "%c[paravirt_typenum]" "\n" "  .byte 772b-771b\n" "  .short " "%c[paravirt_clobber]" "\n" ".popsection\n" "" : "=a" (__eax) : [paravirt_typenum] "i" ((__builtin_offsetof(struct paravirt_patch_template,pv_mmu_ops.make_pgd.func) / sizeof(void *))), [paravirt_opptr] "i" (&(pv_mmu_ops.make_pgd.func)), [paravirt_clobber] "i" (((1 << 0))), "D" ((unsigned long)(val)), "S" ((unsigned long)((u64)val >> 32)) : "memory", "cc" ); __ret = (pgdval_t)__eax; } __ret; })
                            ;
  else
   ret = ({ pgdval_t __ret; unsigned long __edi = __edi, __esi = __esi, __edx = __edx, __ecx = __ecx, __eax = __eax; do { if (ldv__builtin_expect(!!(pv_mmu_ops.make_pgd.func == ((void *)0)), 0)) do { asm volatile("1:\tud2\n" ".pushsection __bug_table,\"a\"\n" "2:\t.long 1b - 2b, %c0 - 2b\n" "\t.word %c1, 0\n" "\t.org 2b+%c2\n" ".popsection" : : "i" (
  "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/paravirt.h"
-# 504 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/paravirt.h"
         ), "i" (
  505
-# 504 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/paravirt.h"
         ), "i" (sizeof(struct bug_entry))); do { } while (1); } while (0); } while(0); if (sizeof(pgdval_t) > sizeof(unsigned long)) { asm volatile("" "771:\n\t" "call *%c[paravirt_opptr];" "\n" "772:\n" ".pushsection .parainstructions,\"a\"\n" " " ".balign 8" " " "\n" " " ".quad" " " " 771b\n" "  .byte " "%c[paravirt_typenum]" "\n" "  .byte 772b-771b\n" "  .short " "%c[paravirt_clobber]" "\n" ".popsection\n" "" : "=a" (__eax) : [paravirt_typenum] "i" ((__builtin_offsetof(struct paravirt_patch_template,pv_mmu_ops.make_pgd.func) / sizeof(void *))), [paravirt_opptr] "i" (&(pv_mmu_ops.make_pgd.func)), [paravirt_clobber] "i" (((1 << 0))), "D" ((unsigned long)(val)) : "memory", "cc" ); __ret = (pgdval_t)((((u64)__edx) << 32) | __eax); } else { asm volatile("" "771:\n\t" "call *%c[paravirt_opptr];" "\n" "772:\n" ".pushsection .parainstructions,\"a\"\n" " " ".balign 8" " " "\n" " " ".quad" " " " 771b\n" "  .byte " "%c[paravirt_typenum]" "\n" "  .byte 772b-771b\n" "  .short " "%c[paravirt_clobber]" "\n" ".popsection\n" "" : "=a" (__eax) : [paravirt_typenum] "i" ((__builtin_offsetof(struct paravirt_patch_template,pv_mmu_ops.make_pgd.func) / sizeof(void *))), [paravirt_opptr] "i" (&(pv_mmu_ops.make_pgd.func)), [paravirt_clobber] "i" (((1 << 0))), "D" ((unsigned long)(val)) : "memory", "cc" ); __ret = (pgdval_t)__eax; } __ret; })
            ;
 
@@ -4915,19 +4499,15 @@ static inline __attribute__((no_instrument_function)) pgdval_t pgd_val(pgd_t pgd
  if (sizeof(pgdval_t) > sizeof(long))
   ret = ({ pgdval_t __ret; unsigned long __edi = __edi, __esi = __esi, __edx = __edx, __ecx = __ecx, __eax = __eax; do { if (ldv__builtin_expect(!!(pv_mmu_ops.pgd_val.func == ((void *)0)), 0)) do { asm volatile("1:\tud2\n" ".pushsection __bug_table,\"a\"\n" "2:\t.long 1b - 2b, %c0 - 2b\n" "\t.word %c1, 0\n" "\t.org 2b+%c2\n" ".popsection" : : "i" (
  "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/paravirt.h"
-# 515 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/paravirt.h"
          ), "i" (
  516
-# 515 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/paravirt.h"
          ), "i" (sizeof(struct bug_entry))); do { } while (1); } while (0); } while(0); if (sizeof(pgdval_t) > sizeof(unsigned long)) { asm volatile("" "771:\n\t" "call *%c[paravirt_opptr];" "\n" "772:\n" ".pushsection .parainstructions,\"a\"\n" " " ".balign 8" " " "\n" " " ".quad" " " " 771b\n" "  .byte " "%c[paravirt_typenum]" "\n" "  .byte 772b-771b\n" "  .short " "%c[paravirt_clobber]" "\n" ".popsection\n" "" : "=a" (__eax) : [paravirt_typenum] "i" ((__builtin_offsetof(struct paravirt_patch_template,pv_mmu_ops.pgd_val.func) / sizeof(void *))), [paravirt_opptr] "i" (&(pv_mmu_ops.pgd_val.func)), [paravirt_clobber] "i" (((1 << 0))), "D" ((unsigned long)(pgd.pgd)), "S" ((unsigned long)((u64)pgd.pgd >> 32)) : "memory", "cc" ); __ret = (pgdval_t)((((u64)__edx) << 32) | __eax); } else { asm volatile("" "771:\n\t" "call *%c[paravirt_opptr];" "\n" "772:\n" ".pushsection .parainstructions,\"a\"\n" " " ".balign 8" " " "\n" " " ".quad" " " " 771b\n" "  .byte " "%c[paravirt_typenum]" "\n" "  .byte 772b-771b\n" "  .short " "%c[paravirt_clobber]" "\n" ".popsection\n" "" : "=a" (__eax) : [paravirt_typenum] "i" ((__builtin_offsetof(struct paravirt_patch_template,pv_mmu_ops.pgd_val.func) / sizeof(void *))), [paravirt_opptr] "i" (&(pv_mmu_ops.pgd_val.func)), [paravirt_clobber] "i" (((1 << 0))), "D" ((unsigned long)(pgd.pgd)), "S" ((unsigned long)((u64)pgd.pgd >> 32)) : "memory", "cc" ); __ret = (pgdval_t)__eax; } __ret; })
                                     ;
  else
   ret = ({ pgdval_t __ret; unsigned long __edi = __edi, __esi = __esi, __edx = __edx, __ecx = __ecx, __eax = __eax; do { if (ldv__builtin_expect(!!(pv_mmu_ops.pgd_val.func == ((void *)0)), 0)) do { asm volatile("1:\tud2\n" ".pushsection __bug_table,\"a\"\n" "2:\t.long 1b - 2b, %c0 - 2b\n" "\t.word %c1, 0\n" "\t.org 2b+%c2\n" ".popsection" : : "i" (
  "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/paravirt.h"
-# 518 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/paravirt.h"
          ), "i" (
  519
-# 518 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/paravirt.h"
          ), "i" (sizeof(struct bug_entry))); do { } while (1); } while (0); } while(0); if (sizeof(pgdval_t) > sizeof(unsigned long)) { asm volatile("" "771:\n\t" "call *%c[paravirt_opptr];" "\n" "772:\n" ".pushsection .parainstructions,\"a\"\n" " " ".balign 8" " " "\n" " " ".quad" " " " 771b\n" "  .byte " "%c[paravirt_typenum]" "\n" "  .byte 772b-771b\n" "  .short " "%c[paravirt_clobber]" "\n" ".popsection\n" "" : "=a" (__eax) : [paravirt_typenum] "i" ((__builtin_offsetof(struct paravirt_patch_template,pv_mmu_ops.pgd_val.func) / sizeof(void *))), [paravirt_opptr] "i" (&(pv_mmu_ops.pgd_val.func)), [paravirt_clobber] "i" (((1 << 0))), "D" ((unsigned long)(pgd.pgd)) : "memory", "cc" ); __ret = (pgdval_t)((((u64)__edx) << 32) | __eax); } else { asm volatile("" "771:\n\t" "call *%c[paravirt_opptr];" "\n" "772:\n" ".pushsection .parainstructions,\"a\"\n" " " ".balign 8" " " "\n" " " ".quad" " " " 771b\n" "  .byte " "%c[paravirt_typenum]" "\n" "  .byte 772b-771b\n" "  .short " "%c[paravirt_clobber]" "\n" ".popsection\n" "" : "=a" (__eax) : [paravirt_typenum] "i" ((__builtin_offsetof(struct paravirt_patch_template,pv_mmu_ops.pgd_val.func) / sizeof(void *))), [paravirt_opptr] "i" (&(pv_mmu_ops.pgd_val.func)), [paravirt_clobber] "i" (((1 << 0))), "D" ((unsigned long)(pgd.pgd)) : "memory", "cc" ); __ret = (pgdval_t)__eax; } __ret; })
                 ;
 
@@ -4942,10 +4522,8 @@ static inline __attribute__((no_instrument_function)) pte_t ptep_modify_prot_sta
 
  ret = ({ pteval_t __ret; unsigned long __edi = __edi, __esi = __esi, __edx = __edx, __ecx = __ecx, __eax = __eax; do { if (ldv__builtin_expect(!!(pv_mmu_ops.ptep_modify_prot_start == ((void *)0)), 0)) do { asm volatile("1:\tud2\n" ".pushsection __bug_table,\"a\"\n" "2:\t.long 1b - 2b, %c0 - 2b\n" "\t.word %c1, 0\n" "\t.org 2b+%c2\n" ".popsection" : : "i" (
  "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/paravirt.h"
-# 530 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/paravirt.h"
        ), "i" (
  531
-# 530 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/paravirt.h"
        ), "i" (sizeof(struct bug_entry))); do { } while (1); } while (0); } while(0); if (sizeof(pteval_t) > sizeof(unsigned long)) { asm volatile("" "771:\n\t" "call *%c[paravirt_opptr];" "\n" "772:\n" ".pushsection .parainstructions,\"a\"\n" " " ".balign 8" " " "\n" " " ".quad" " " " 771b\n" "  .byte " "%c[paravirt_typenum]" "\n" "  .byte 772b-771b\n" "  .short " "%c[paravirt_clobber]" "\n" ".popsection\n" "" : "=D" (__edi), "=S" (__esi), "=d" (__edx), "=c" (__ecx), "=a" (__eax) : [paravirt_typenum] "i" ((__builtin_offsetof(struct paravirt_patch_template,pv_mmu_ops.ptep_modify_prot_start) / sizeof(void *))), [paravirt_opptr] "i" (&(pv_mmu_ops.ptep_modify_prot_start)), [paravirt_clobber] "i" (((1 << 9) - 1)), "D" ((unsigned long)(mm)), "S" ((unsigned long)(addr)), "d" ((unsigned long)(ptep)) : "memory", "cc" , "r8", "r9", "r10", "r11"); __ret = (pteval_t)((((u64)__edx) << 32) | __eax); } else { asm volatile("" "771:\n\t" "call *%c[paravirt_opptr];" "\n" "772:\n" ".pushsection .parainstructions,\"a\"\n" " " ".balign 8" " " "\n" " " ".quad" " " " 771b\n" "  .byte " "%c[paravirt_typenum]" "\n" "  .byte 772b-771b\n" "  .short " "%c[paravirt_clobber]" "\n" ".popsection\n" "" : "=D" (__edi), "=S" (__esi), "=d" (__edx), "=c" (__ecx), "=a" (__eax) : [paravirt_typenum] "i" ((__builtin_offsetof(struct paravirt_patch_template,pv_mmu_ops.ptep_modify_prot_start) / sizeof(void *))), [paravirt_opptr] "i" (&(pv_mmu_ops.ptep_modify_prot_start)), [paravirt_clobber] "i" (((1 << 9) - 1)), "D" ((unsigned long)(mm)), "S" ((unsigned long)(addr)), "d" ((unsigned long)(ptep)) : "memory", "cc" , "r8", "r9", "r10", "r11"); __ret = (pteval_t)__eax; } __ret; })
                    ;
 
@@ -4961,10 +4539,8 @@ static inline __attribute__((no_instrument_function)) void ptep_modify_prot_comm
  else
   ({ unsigned long __edi = __edi, __esi = __esi, __edx = __edx, __ecx = __ecx, __eax = __eax; do { if (ldv__builtin_expect(!!(pv_mmu_ops.ptep_modify_prot_commit == ((void *)0)), 0)) do { asm volatile("1:\tud2\n" ".pushsection __bug_table,\"a\"\n" "2:\t.long 1b - 2b, %c0 - 2b\n" "\t.word %c1, 0\n" "\t.org 2b+%c2\n" ".popsection" : : "i" (
  "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/paravirt.h"
-# 543 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/paravirt.h"
   ), "i" (
  544
-# 543 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/paravirt.h"
   ), "i" (sizeof(struct bug_entry))); do { } while (1); } while (0); } while(0); asm volatile("" "771:\n\t" "call *%c[paravirt_opptr];" "\n" "772:\n" ".pushsection .parainstructions,\"a\"\n" " " ".balign 8" " " "\n" " " ".quad" " " " 771b\n" "  .byte " "%c[paravirt_typenum]" "\n" "  .byte 772b-771b\n" "  .short " "%c[paravirt_clobber]" "\n" ".popsection\n" "" : "=D" (__edi), "=S" (__esi), "=d" (__edx), "=c" (__ecx) : [paravirt_typenum] "i" ((__builtin_offsetof(struct paravirt_patch_template,pv_mmu_ops.ptep_modify_prot_commit) / sizeof(void *))), [paravirt_opptr] "i" (&(pv_mmu_ops.ptep_modify_prot_commit)), [paravirt_clobber] "i" (((1 << 9) - 1)), "D" ((unsigned long)(mm)), "S" ((unsigned long)(addr)), "d" ((unsigned long)(ptep)), "c" ((unsigned long)(pte.pte)) : "memory", "cc" , "rax", "r8", "r9", "r10", "r11"); })
                                ;
 }
@@ -4974,19 +4550,15 @@ static inline __attribute__((no_instrument_function)) void set_pte(pte_t *ptep, 
  if (sizeof(pteval_t) > sizeof(long))
   ({ unsigned long __edi = __edi, __esi = __esi, __edx = __edx, __ecx = __ecx, __eax = __eax; do { if (ldv__builtin_expect(!!(pv_mmu_ops.set_pte == ((void *)0)), 0)) do { asm volatile("1:\tud2\n" ".pushsection __bug_table,\"a\"\n" "2:\t.long 1b - 2b, %c0 - 2b\n" "\t.word %c1, 0\n" "\t.org 2b+%c2\n" ".popsection" : : "i" (
  "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/paravirt.h"
-# 550 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/paravirt.h"
   ), "i" (
  551
-# 550 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/paravirt.h"
   ), "i" (sizeof(struct bug_entry))); do { } while (1); } while (0); } while(0); asm volatile("" "771:\n\t" "call *%c[paravirt_opptr];" "\n" "772:\n" ".pushsection .parainstructions,\"a\"\n" " " ".balign 8" " " "\n" " " ".quad" " " " 771b\n" "  .byte " "%c[paravirt_typenum]" "\n" "  .byte 772b-771b\n" "  .short " "%c[paravirt_clobber]" "\n" ".popsection\n" "" : "=D" (__edi), "=S" (__esi), "=d" (__edx), "=c" (__ecx) : [paravirt_typenum] "i" ((__builtin_offsetof(struct paravirt_patch_template,pv_mmu_ops.set_pte) / sizeof(void *))), [paravirt_opptr] "i" (&(pv_mmu_ops.set_pte)), [paravirt_clobber] "i" (((1 << 9) - 1)), "D" ((unsigned long)(ptep)), "S" ((unsigned long)(pte.pte)), "d" ((unsigned long)((u64)pte.pte >> 32)) : "memory", "cc" , "rax", "r8", "r9", "r10", "r11"); })
                                    ;
  else
   ({ unsigned long __edi = __edi, __esi = __esi, __edx = __edx, __ecx = __ecx, __eax = __eax; do { if (ldv__builtin_expect(!!(pv_mmu_ops.set_pte == ((void *)0)), 0)) do { asm volatile("1:\tud2\n" ".pushsection __bug_table,\"a\"\n" "2:\t.long 1b - 2b, %c0 - 2b\n" "\t.word %c1, 0\n" "\t.org 2b+%c2\n" ".popsection" : : "i" (
  "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/paravirt.h"
-# 553 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/paravirt.h"
   ), "i" (
  554
-# 553 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/paravirt.h"
   ), "i" (sizeof(struct bug_entry))); do { } while (1); } while (0); } while(0); asm volatile("" "771:\n\t" "call *%c[paravirt_opptr];" "\n" "772:\n" ".pushsection .parainstructions,\"a\"\n" " " ".balign 8" " " "\n" " " ".quad" " " " 771b\n" "  .byte " "%c[paravirt_typenum]" "\n" "  .byte 772b-771b\n" "  .short " "%c[paravirt_clobber]" "\n" ".popsection\n" "" : "=D" (__edi), "=S" (__esi), "=d" (__edx), "=c" (__ecx) : [paravirt_typenum] "i" ((__builtin_offsetof(struct paravirt_patch_template,pv_mmu_ops.set_pte) / sizeof(void *))), [paravirt_opptr] "i" (&(pv_mmu_ops.set_pte)), [paravirt_clobber] "i" (((1 << 9) - 1)), "D" ((unsigned long)(ptep)), "S" ((unsigned long)(pte.pte)) : "memory", "cc" , "rax", "r8", "r9", "r10", "r11"); })
                ;
 }
@@ -5011,10 +4583,8 @@ static inline __attribute__((no_instrument_function)) void set_pmd_at(struct mm_
  else
   ({ unsigned long __edi = __edi, __esi = __esi, __edx = __edx, __ecx = __ecx, __eax = __eax; do { if (ldv__builtin_expect(!!(pv_mmu_ops.set_pmd_at == ((void *)0)), 0)) do { asm volatile("1:\tud2\n" ".pushsection __bug_table,\"a\"\n" "2:\t.long 1b - 2b, %c0 - 2b\n" "\t.word %c1, 0\n" "\t.org 2b+%c2\n" ".popsection" : : "i" (
  "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/paravirt.h"
-# 575 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/paravirt.h"
   ), "i" (
  576
-# 575 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/paravirt.h"
   ), "i" (sizeof(struct bug_entry))); do { } while (1); } while (0); } while(0); asm volatile("" "771:\n\t" "call *%c[paravirt_opptr];" "\n" "772:\n" ".pushsection .parainstructions,\"a\"\n" " " ".balign 8" " " "\n" " " ".quad" " " " 771b\n" "  .byte " "%c[paravirt_typenum]" "\n" "  .byte 772b-771b\n" "  .short " "%c[paravirt_clobber]" "\n" ".popsection\n" "" : "=D" (__edi), "=S" (__esi), "=d" (__edx), "=c" (__ecx) : [paravirt_typenum] "i" ((__builtin_offsetof(struct paravirt_patch_template,pv_mmu_ops.set_pmd_at) / sizeof(void *))), [paravirt_opptr] "i" (&(pv_mmu_ops.set_pmd_at)), [paravirt_clobber] "i" (((1 << 9) - 1)), "D" ((unsigned long)(mm)), "S" ((unsigned long)(addr)), "d" ((unsigned long)(pmdp)), "c" ((unsigned long)(native_pmd_val(pmd))) : "memory", "cc" , "rax", "r8", "r9", "r10", "r11"); })
                            ;
 }
@@ -5038,19 +4608,15 @@ static inline __attribute__((no_instrument_function)) pmd_t __pmd(pmdval_t val)
  if (sizeof(pmdval_t) > sizeof(long))
   ret = ({ pmdval_t __ret; unsigned long __edi = __edi, __esi = __esi, __edx = __edx, __ecx = __ecx, __eax = __eax; do { if (ldv__builtin_expect(!!(pv_mmu_ops.make_pmd.func == ((void *)0)), 0)) do { asm volatile("1:\tud2\n" ".pushsection __bug_table,\"a\"\n" "2:\t.long 1b - 2b, %c0 - 2b\n" "\t.word %c1, 0\n" "\t.org 2b+%c2\n" ".popsection" : : "i" (
  "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/paravirt.h"
-# 596 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/paravirt.h"
         ), "i" (
  597
-# 596 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/paravirt.h"
         ), "i" (sizeof(struct bug_entry))); do { } while (1); } while (0); } while(0); if (sizeof(pmdval_t) > sizeof(unsigned long)) { asm volatile("" "771:\n\t" "call *%c[paravirt_opptr];" "\n" "772:\n" ".pushsection .parainstructions,\"a\"\n" " " ".balign 8" " " "\n" " " ".quad" " " " 771b\n" "  .byte " "%c[paravirt_typenum]" "\n" "  .byte 772b-771b\n" "  .short " "%c[paravirt_clobber]" "\n" ".popsection\n" "" : "=a" (__eax) : [paravirt_typenum] "i" ((__builtin_offsetof(struct paravirt_patch_template,pv_mmu_ops.make_pmd.func) / sizeof(void *))), [paravirt_opptr] "i" (&(pv_mmu_ops.make_pmd.func)), [paravirt_clobber] "i" (((1 << 0))), "D" ((unsigned long)(val)), "S" ((unsigned long)((u64)val >> 32)) : "memory", "cc" ); __ret = (pmdval_t)((((u64)__edx) << 32) | __eax); } else { asm volatile("" "771:\n\t" "call *%c[paravirt_opptr];" "\n" "772:\n" ".pushsection .parainstructions,\"a\"\n" " " ".balign 8" " " "\n" " " ".quad" " " " 771b\n" "  .byte " "%c[paravirt_typenum]" "\n" "  .byte 772b-771b\n" "  .short " "%c[paravirt_clobber]" "\n" ".popsection\n" "" : "=a" (__eax) : [paravirt_typenum] "i" ((__builtin_offsetof(struct paravirt_patch_template,pv_mmu_ops.make_pmd.func) / sizeof(void *))), [paravirt_opptr] "i" (&(pv_mmu_ops.make_pmd.func)), [paravirt_clobber] "i" (((1 << 0))), "D" ((unsigned long)(val)), "S" ((unsigned long)((u64)val >> 32)) : "memory", "cc" ); __ret = (pmdval_t)__eax; } __ret; })
                            ;
  else
   ret = ({ pmdval_t __ret; unsigned long __edi = __edi, __esi = __esi, __edx = __edx, __ecx = __ecx, __eax = __eax; do { if (ldv__builtin_expect(!!(pv_mmu_ops.make_pmd.func == ((void *)0)), 0)) do { asm volatile("1:\tud2\n" ".pushsection __bug_table,\"a\"\n" "2:\t.long 1b - 2b, %c0 - 2b\n" "\t.word %c1, 0\n" "\t.org 2b+%c2\n" ".popsection" : : "i" (
  "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/paravirt.h"
-# 599 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/paravirt.h"
         ), "i" (
  600
-# 599 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/paravirt.h"
         ), "i" (sizeof(struct bug_entry))); do { } while (1); } while (0); } while(0); if (sizeof(pmdval_t) > sizeof(unsigned long)) { asm volatile("" "771:\n\t" "call *%c[paravirt_opptr];" "\n" "772:\n" ".pushsection .parainstructions,\"a\"\n" " " ".balign 8" " " "\n" " " ".quad" " " " 771b\n" "  .byte " "%c[paravirt_typenum]" "\n" "  .byte 772b-771b\n" "  .short " "%c[paravirt_clobber]" "\n" ".popsection\n" "" : "=a" (__eax) : [paravirt_typenum] "i" ((__builtin_offsetof(struct paravirt_patch_template,pv_mmu_ops.make_pmd.func) / sizeof(void *))), [paravirt_opptr] "i" (&(pv_mmu_ops.make_pmd.func)), [paravirt_clobber] "i" (((1 << 0))), "D" ((unsigned long)(val)) : "memory", "cc" ); __ret = (pmdval_t)((((u64)__edx) << 32) | __eax); } else { asm volatile("" "771:\n\t" "call *%c[paravirt_opptr];" "\n" "772:\n" ".pushsection .parainstructions,\"a\"\n" " " ".balign 8" " " "\n" " " ".quad" " " " 771b\n" "  .byte " "%c[paravirt_typenum]" "\n" "  .byte 772b-771b\n" "  .short " "%c[paravirt_clobber]" "\n" ".popsection\n" "" : "=a" (__eax) : [paravirt_typenum] "i" ((__builtin_offsetof(struct paravirt_patch_template,pv_mmu_ops.make_pmd.func) / sizeof(void *))), [paravirt_opptr] "i" (&(pv_mmu_ops.make_pmd.func)), [paravirt_clobber] "i" (((1 << 0))), "D" ((unsigned long)(val)) : "memory", "cc" ); __ret = (pmdval_t)__eax; } __ret; })
            ;
 
@@ -5064,19 +4630,15 @@ static inline __attribute__((no_instrument_function)) pmdval_t pmd_val(pmd_t pmd
  if (sizeof(pmdval_t) > sizeof(long))
   ret = ({ pmdval_t __ret; unsigned long __edi = __edi, __esi = __esi, __edx = __edx, __ecx = __ecx, __eax = __eax; do { if (ldv__builtin_expect(!!(pv_mmu_ops.pmd_val.func == ((void *)0)), 0)) do { asm volatile("1:\tud2\n" ".pushsection __bug_table,\"a\"\n" "2:\t.long 1b - 2b, %c0 - 2b\n" "\t.word %c1, 0\n" "\t.org 2b+%c2\n" ".popsection" : : "i" (
  "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/paravirt.h"
-# 610 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/paravirt.h"
          ), "i" (
  611
-# 610 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/paravirt.h"
          ), "i" (sizeof(struct bug_entry))); do { } while (1); } while (0); } while(0); if (sizeof(pmdval_t) > sizeof(unsigned long)) { asm volatile("" "771:\n\t" "call *%c[paravirt_opptr];" "\n" "772:\n" ".pushsection .parainstructions,\"a\"\n" " " ".balign 8" " " "\n" " " ".quad" " " " 771b\n" "  .byte " "%c[paravirt_typenum]" "\n" "  .byte 772b-771b\n" "  .short " "%c[paravirt_clobber]" "\n" ".popsection\n" "" : "=a" (__eax) : [paravirt_typenum] "i" ((__builtin_offsetof(struct paravirt_patch_template,pv_mmu_ops.pmd_val.func) / sizeof(void *))), [paravirt_opptr] "i" (&(pv_mmu_ops.pmd_val.func)), [paravirt_clobber] "i" (((1 << 0))), "D" ((unsigned long)(pmd.pmd)), "S" ((unsigned long)((u64)pmd.pmd >> 32)) : "memory", "cc" ); __ret = (pmdval_t)((((u64)__edx) << 32) | __eax); } else { asm volatile("" "771:\n\t" "call *%c[paravirt_opptr];" "\n" "772:\n" ".pushsection .parainstructions,\"a\"\n" " " ".balign 8" " " "\n" " " ".quad" " " " 771b\n" "  .byte " "%c[paravirt_typenum]" "\n" "  .byte 772b-771b\n" "  .short " "%c[paravirt_clobber]" "\n" ".popsection\n" "" : "=a" (__eax) : [paravirt_typenum] "i" ((__builtin_offsetof(struct paravirt_patch_template,pv_mmu_ops.pmd_val.func) / sizeof(void *))), [paravirt_opptr] "i" (&(pv_mmu_ops.pmd_val.func)), [paravirt_clobber] "i" (((1 << 0))), "D" ((unsigned long)(pmd.pmd)), "S" ((unsigned long)((u64)pmd.pmd >> 32)) : "memory", "cc" ); __ret = (pmdval_t)__eax; } __ret; })
                                     ;
  else
   ret = ({ pmdval_t __ret; unsigned long __edi = __edi, __esi = __esi, __edx = __edx, __ecx = __ecx, __eax = __eax; do { if (ldv__builtin_expect(!!(pv_mmu_ops.pmd_val.func == ((void *)0)), 0)) do { asm volatile("1:\tud2\n" ".pushsection __bug_table,\"a\"\n" "2:\t.long 1b - 2b, %c0 - 2b\n" "\t.word %c1, 0\n" "\t.org 2b+%c2\n" ".popsection" : : "i" (
  "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/paravirt.h"
-# 613 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/paravirt.h"
          ), "i" (
  614
-# 613 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/paravirt.h"
          ), "i" (sizeof(struct bug_entry))); do { } while (1); } while (0); } while(0); if (sizeof(pmdval_t) > sizeof(unsigned long)) { asm volatile("" "771:\n\t" "call *%c[paravirt_opptr];" "\n" "772:\n" ".pushsection .parainstructions,\"a\"\n" " " ".balign 8" " " "\n" " " ".quad" " " " 771b\n" "  .byte " "%c[paravirt_typenum]" "\n" "  .byte 772b-771b\n" "  .short " "%c[paravirt_clobber]" "\n" ".popsection\n" "" : "=a" (__eax) : [paravirt_typenum] "i" ((__builtin_offsetof(struct paravirt_patch_template,pv_mmu_ops.pmd_val.func) / sizeof(void *))), [paravirt_opptr] "i" (&(pv_mmu_ops.pmd_val.func)), [paravirt_clobber] "i" (((1 << 0))), "D" ((unsigned long)(pmd.pmd)) : "memory", "cc" ); __ret = (pmdval_t)((((u64)__edx) << 32) | __eax); } else { asm volatile("" "771:\n\t" "call *%c[paravirt_opptr];" "\n" "772:\n" ".pushsection .parainstructions,\"a\"\n" " " ".balign 8" " " "\n" " " ".quad" " " " 771b\n" "  .byte " "%c[paravirt_typenum]" "\n" "  .byte 772b-771b\n" "  .short " "%c[paravirt_clobber]" "\n" ".popsection\n" "" : "=a" (__eax) : [paravirt_typenum] "i" ((__builtin_offsetof(struct paravirt_patch_template,pv_mmu_ops.pmd_val.func) / sizeof(void *))), [paravirt_opptr] "i" (&(pv_mmu_ops.pmd_val.func)), [paravirt_clobber] "i" (((1 << 0))), "D" ((unsigned long)(pmd.pmd)) : "memory", "cc" ); __ret = (pmdval_t)__eax; } __ret; })
                 ;
 
@@ -5090,19 +4652,15 @@ static inline __attribute__((no_instrument_function)) void set_pud(pud_t *pudp, 
  if (sizeof(pudval_t) > sizeof(long))
   ({ unsigned long __edi = __edi, __esi = __esi, __edx = __edx, __ecx = __ecx, __eax = __eax; do { if (ldv__builtin_expect(!!(pv_mmu_ops.set_pud == ((void *)0)), 0)) do { asm volatile("1:\tud2\n" ".pushsection __bug_table,\"a\"\n" "2:\t.long 1b - 2b, %c0 - 2b\n" "\t.word %c1, 0\n" "\t.org 2b+%c2\n" ".popsection" : : "i" (
  "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/paravirt.h"
-# 624 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/paravirt.h"
   ), "i" (
  625
-# 624 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/paravirt.h"
   ), "i" (sizeof(struct bug_entry))); do { } while (1); } while (0); } while(0); asm volatile("" "771:\n\t" "call *%c[paravirt_opptr];" "\n" "772:\n" ".pushsection .parainstructions,\"a\"\n" " " ".balign 8" " " "\n" " " ".quad" " " " 771b\n" "  .byte " "%c[paravirt_typenum]" "\n" "  .byte 772b-771b\n" "  .short " "%c[paravirt_clobber]" "\n" ".popsection\n" "" : "=D" (__edi), "=S" (__esi), "=d" (__edx), "=c" (__ecx) : [paravirt_typenum] "i" ((__builtin_offsetof(struct paravirt_patch_template,pv_mmu_ops.set_pud) / sizeof(void *))), [paravirt_opptr] "i" (&(pv_mmu_ops.set_pud)), [paravirt_clobber] "i" (((1 << 9) - 1)), "D" ((unsigned long)(pudp)), "S" ((unsigned long)(val)), "d" ((unsigned long)((u64)val >> 32)) : "memory", "cc" , "rax", "r8", "r9", "r10", "r11"); })
                            ;
  else
   ({ unsigned long __edi = __edi, __esi = __esi, __edx = __edx, __ecx = __ecx, __eax = __eax; do { if (ldv__builtin_expect(!!(pv_mmu_ops.set_pud == ((void *)0)), 0)) do { asm volatile("1:\tud2\n" ".pushsection __bug_table,\"a\"\n" "2:\t.long 1b - 2b, %c0 - 2b\n" "\t.word %c1, 0\n" "\t.org 2b+%c2\n" ".popsection" : : "i" (
  "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/paravirt.h"
-# 627 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/paravirt.h"
   ), "i" (
  628
-# 627 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/paravirt.h"
   ), "i" (sizeof(struct bug_entry))); do { } while (1); } while (0); } while(0); asm volatile("" "771:\n\t" "call *%c[paravirt_opptr];" "\n" "772:\n" ".pushsection .parainstructions,\"a\"\n" " " ".balign 8" " " "\n" " " ".quad" " " " 771b\n" "  .byte " "%c[paravirt_typenum]" "\n" "  .byte 772b-771b\n" "  .short " "%c[paravirt_clobber]" "\n" ".popsection\n" "" : "=D" (__edi), "=S" (__esi), "=d" (__edx), "=c" (__ecx) : [paravirt_typenum] "i" ((__builtin_offsetof(struct paravirt_patch_template,pv_mmu_ops.set_pud) / sizeof(void *))), [paravirt_opptr] "i" (&(pv_mmu_ops.set_pud)), [paravirt_clobber] "i" (((1 << 9) - 1)), "D" ((unsigned long)(pudp)), "S" ((unsigned long)(val)) : "memory", "cc" , "rax", "r8", "r9", "r10", "r11"); })
            ;
 }
@@ -5114,19 +4672,15 @@ static inline __attribute__((no_instrument_function)) pud_t __pud(pudval_t val)
  if (sizeof(pudval_t) > sizeof(long))
   ret = ({ pudval_t __ret; unsigned long __edi = __edi, __esi = __esi, __edx = __edx, __ecx = __ecx, __eax = __eax; do { if (ldv__builtin_expect(!!(pv_mmu_ops.make_pud.func == ((void *)0)), 0)) do { asm volatile("1:\tud2\n" ".pushsection __bug_table,\"a\"\n" "2:\t.long 1b - 2b, %c0 - 2b\n" "\t.word %c1, 0\n" "\t.org 2b+%c2\n" ".popsection" : : "i" (
  "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/paravirt.h"
-# 636 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/paravirt.h"
         ), "i" (
  637
-# 636 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/paravirt.h"
         ), "i" (sizeof(struct bug_entry))); do { } while (1); } while (0); } while(0); if (sizeof(pudval_t) > sizeof(unsigned long)) { asm volatile("" "771:\n\t" "call *%c[paravirt_opptr];" "\n" "772:\n" ".pushsection .parainstructions,\"a\"\n" " " ".balign 8" " " "\n" " " ".quad" " " " 771b\n" "  .byte " "%c[paravirt_typenum]" "\n" "  .byte 772b-771b\n" "  .short " "%c[paravirt_clobber]" "\n" ".popsection\n" "" : "=a" (__eax) : [paravirt_typenum] "i" ((__builtin_offsetof(struct paravirt_patch_template,pv_mmu_ops.make_pud.func) / sizeof(void *))), [paravirt_opptr] "i" (&(pv_mmu_ops.make_pud.func)), [paravirt_clobber] "i" (((1 << 0))), "D" ((unsigned long)(val)), "S" ((unsigned long)((u64)val >> 32)) : "memory", "cc" ); __ret = (pudval_t)((((u64)__edx) << 32) | __eax); } else { asm volatile("" "771:\n\t" "call *%c[paravirt_opptr];" "\n" "772:\n" ".pushsection .parainstructions,\"a\"\n" " " ".balign 8" " " "\n" " " ".quad" " " " 771b\n" "  .byte " "%c[paravirt_typenum]" "\n" "  .byte 772b-771b\n" "  .short " "%c[paravirt_clobber]" "\n" ".popsection\n" "" : "=a" (__eax) : [paravirt_typenum] "i" ((__builtin_offsetof(struct paravirt_patch_template,pv_mmu_ops.make_pud.func) / sizeof(void *))), [paravirt_opptr] "i" (&(pv_mmu_ops.make_pud.func)), [paravirt_clobber] "i" (((1 << 0))), "D" ((unsigned long)(val)), "S" ((unsigned long)((u64)val >> 32)) : "memory", "cc" ); __ret = (pudval_t)__eax; } __ret; })
                            ;
  else
   ret = ({ pudval_t __ret; unsigned long __edi = __edi, __esi = __esi, __edx = __edx, __ecx = __ecx, __eax = __eax; do { if (ldv__builtin_expect(!!(pv_mmu_ops.make_pud.func == ((void *)0)), 0)) do { asm volatile("1:\tud2\n" ".pushsection __bug_table,\"a\"\n" "2:\t.long 1b - 2b, %c0 - 2b\n" "\t.word %c1, 0\n" "\t.org 2b+%c2\n" ".popsection" : : "i" (
  "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/paravirt.h"
-# 639 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/paravirt.h"
         ), "i" (
  640
-# 639 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/paravirt.h"
         ), "i" (sizeof(struct bug_entry))); do { } while (1); } while (0); } while(0); if (sizeof(pudval_t) > sizeof(unsigned long)) { asm volatile("" "771:\n\t" "call *%c[paravirt_opptr];" "\n" "772:\n" ".pushsection .parainstructions,\"a\"\n" " " ".balign 8" " " "\n" " " ".quad" " " " 771b\n" "  .byte " "%c[paravirt_typenum]" "\n" "  .byte 772b-771b\n" "  .short " "%c[paravirt_clobber]" "\n" ".popsection\n" "" : "=a" (__eax) : [paravirt_typenum] "i" ((__builtin_offsetof(struct paravirt_patch_template,pv_mmu_ops.make_pud.func) / sizeof(void *))), [paravirt_opptr] "i" (&(pv_mmu_ops.make_pud.func)), [paravirt_clobber] "i" (((1 << 0))), "D" ((unsigned long)(val)) : "memory", "cc" ); __ret = (pudval_t)((((u64)__edx) << 32) | __eax); } else { asm volatile("" "771:\n\t" "call *%c[paravirt_opptr];" "\n" "772:\n" ".pushsection .parainstructions,\"a\"\n" " " ".balign 8" " " "\n" " " ".quad" " " " 771b\n" "  .byte " "%c[paravirt_typenum]" "\n" "  .byte 772b-771b\n" "  .short " "%c[paravirt_clobber]" "\n" ".popsection\n" "" : "=a" (__eax) : [paravirt_typenum] "i" ((__builtin_offsetof(struct paravirt_patch_template,pv_mmu_ops.make_pud.func) / sizeof(void *))), [paravirt_opptr] "i" (&(pv_mmu_ops.make_pud.func)), [paravirt_clobber] "i" (((1 << 0))), "D" ((unsigned long)(val)) : "memory", "cc" ); __ret = (pudval_t)__eax; } __ret; })
            ;
 
@@ -5140,19 +4694,15 @@ static inline __attribute__((no_instrument_function)) pudval_t pud_val(pud_t pud
  if (sizeof(pudval_t) > sizeof(long))
   ret = ({ pudval_t __ret; unsigned long __edi = __edi, __esi = __esi, __edx = __edx, __ecx = __ecx, __eax = __eax; do { if (ldv__builtin_expect(!!(pv_mmu_ops.pud_val.func == ((void *)0)), 0)) do { asm volatile("1:\tud2\n" ".pushsection __bug_table,\"a\"\n" "2:\t.long 1b - 2b, %c0 - 2b\n" "\t.word %c1, 0\n" "\t.org 2b+%c2\n" ".popsection" : : "i" (
  "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/paravirt.h"
-# 650 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/paravirt.h"
          ), "i" (
  651
-# 650 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/paravirt.h"
          ), "i" (sizeof(struct bug_entry))); do { } while (1); } while (0); } while(0); if (sizeof(pudval_t) > sizeof(unsigned long)) { asm volatile("" "771:\n\t" "call *%c[paravirt_opptr];" "\n" "772:\n" ".pushsection .parainstructions,\"a\"\n" " " ".balign 8" " " "\n" " " ".quad" " " " 771b\n" "  .byte " "%c[paravirt_typenum]" "\n" "  .byte 772b-771b\n" "  .short " "%c[paravirt_clobber]" "\n" ".popsection\n" "" : "=a" (__eax) : [paravirt_typenum] "i" ((__builtin_offsetof(struct paravirt_patch_template,pv_mmu_ops.pud_val.func) / sizeof(void *))), [paravirt_opptr] "i" (&(pv_mmu_ops.pud_val.func)), [paravirt_clobber] "i" (((1 << 0))), "D" ((unsigned long)(pud.pud)), "S" ((unsigned long)((u64)pud.pud >> 32)) : "memory", "cc" ); __ret = (pudval_t)((((u64)__edx) << 32) | __eax); } else { asm volatile("" "771:\n\t" "call *%c[paravirt_opptr];" "\n" "772:\n" ".pushsection .parainstructions,\"a\"\n" " " ".balign 8" " " "\n" " " ".quad" " " " 771b\n" "  .byte " "%c[paravirt_typenum]" "\n" "  .byte 772b-771b\n" "  .short " "%c[paravirt_clobber]" "\n" ".popsection\n" "" : "=a" (__eax) : [paravirt_typenum] "i" ((__builtin_offsetof(struct paravirt_patch_template,pv_mmu_ops.pud_val.func) / sizeof(void *))), [paravirt_opptr] "i" (&(pv_mmu_ops.pud_val.func)), [paravirt_clobber] "i" (((1 << 0))), "D" ((unsigned long)(pud.pud)), "S" ((unsigned long)((u64)pud.pud >> 32)) : "memory", "cc" ); __ret = (pudval_t)__eax; } __ret; })
                                     ;
  else
   ret = ({ pudval_t __ret; unsigned long __edi = __edi, __esi = __esi, __edx = __edx, __ecx = __ecx, __eax = __eax; do { if (ldv__builtin_expect(!!(pv_mmu_ops.pud_val.func == ((void *)0)), 0)) do { asm volatile("1:\tud2\n" ".pushsection __bug_table,\"a\"\n" "2:\t.long 1b - 2b, %c0 - 2b\n" "\t.word %c1, 0\n" "\t.org 2b+%c2\n" ".popsection" : : "i" (
  "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/paravirt.h"
-# 653 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/paravirt.h"
          ), "i" (
  654
-# 653 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/paravirt.h"
          ), "i" (sizeof(struct bug_entry))); do { } while (1); } while (0); } while(0); if (sizeof(pudval_t) > sizeof(unsigned long)) { asm volatile("" "771:\n\t" "call *%c[paravirt_opptr];" "\n" "772:\n" ".pushsection .parainstructions,\"a\"\n" " " ".balign 8" " " "\n" " " ".quad" " " " 771b\n" "  .byte " "%c[paravirt_typenum]" "\n" "  .byte 772b-771b\n" "  .short " "%c[paravirt_clobber]" "\n" ".popsection\n" "" : "=a" (__eax) : [paravirt_typenum] "i" ((__builtin_offsetof(struct paravirt_patch_template,pv_mmu_ops.pud_val.func) / sizeof(void *))), [paravirt_opptr] "i" (&(pv_mmu_ops.pud_val.func)), [paravirt_clobber] "i" (((1 << 0))), "D" ((unsigned long)(pud.pud)) : "memory", "cc" ); __ret = (pudval_t)((((u64)__edx) << 32) | __eax); } else { asm volatile("" "771:\n\t" "call *%c[paravirt_opptr];" "\n" "772:\n" ".pushsection .parainstructions,\"a\"\n" " " ".balign 8" " " "\n" " " ".quad" " " " 771b\n" "  .byte " "%c[paravirt_typenum]" "\n" "  .byte 772b-771b\n" "  .short " "%c[paravirt_clobber]" "\n" ".popsection\n" "" : "=a" (__eax) : [paravirt_typenum] "i" ((__builtin_offsetof(struct paravirt_patch_template,pv_mmu_ops.pud_val.func) / sizeof(void *))), [paravirt_opptr] "i" (&(pv_mmu_ops.pud_val.func)), [paravirt_clobber] "i" (((1 << 0))), "D" ((unsigned long)(pud.pud)) : "memory", "cc" ); __ret = (pudval_t)__eax; } __ret; })
                 ;
 
@@ -5166,19 +4716,15 @@ static inline __attribute__((no_instrument_function)) void set_pgd(pgd_t *pgdp, 
  if (sizeof(pgdval_t) > sizeof(long))
   ({ unsigned long __edi = __edi, __esi = __esi, __edx = __edx, __ecx = __ecx, __eax = __eax; do { if (ldv__builtin_expect(!!(pv_mmu_ops.set_pgd == ((void *)0)), 0)) do { asm volatile("1:\tud2\n" ".pushsection __bug_table,\"a\"\n" "2:\t.long 1b - 2b, %c0 - 2b\n" "\t.word %c1, 0\n" "\t.org 2b+%c2\n" ".popsection" : : "i" (
  "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/paravirt.h"
-# 664 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/paravirt.h"
   ), "i" (
  665
-# 664 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/paravirt.h"
   ), "i" (sizeof(struct bug_entry))); do { } while (1); } while (0); } while(0); asm volatile("" "771:\n\t" "call *%c[paravirt_opptr];" "\n" "772:\n" ".pushsection .parainstructions,\"a\"\n" " " ".balign 8" " " "\n" " " ".quad" " " " 771b\n" "  .byte " "%c[paravirt_typenum]" "\n" "  .byte 772b-771b\n" "  .short " "%c[paravirt_clobber]" "\n" ".popsection\n" "" : "=D" (__edi), "=S" (__esi), "=d" (__edx), "=c" (__ecx) : [paravirt_typenum] "i" ((__builtin_offsetof(struct paravirt_patch_template,pv_mmu_ops.set_pgd) / sizeof(void *))), [paravirt_opptr] "i" (&(pv_mmu_ops.set_pgd)), [paravirt_clobber] "i" (((1 << 9) - 1)), "D" ((unsigned long)(pgdp)), "S" ((unsigned long)(val)), "d" ((unsigned long)((u64)val >> 32)) : "memory", "cc" , "rax", "r8", "r9", "r10", "r11"); })
                            ;
  else
   ({ unsigned long __edi = __edi, __esi = __esi, __edx = __edx, __ecx = __ecx, __eax = __eax; do { if (ldv__builtin_expect(!!(pv_mmu_ops.set_pgd == ((void *)0)), 0)) do { asm volatile("1:\tud2\n" ".pushsection __bug_table,\"a\"\n" "2:\t.long 1b - 2b, %c0 - 2b\n" "\t.word %c1, 0\n" "\t.org 2b+%c2\n" ".popsection" : : "i" (
  "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/paravirt.h"
-# 667 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/paravirt.h"
   ), "i" (
  668
-# 667 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/paravirt.h"
   ), "i" (sizeof(struct bug_entry))); do { } while (1); } while (0); } while(0); asm volatile("" "771:\n\t" "call *%c[paravirt_opptr];" "\n" "772:\n" ".pushsection .parainstructions,\"a\"\n" " " ".balign 8" " " "\n" " " ".quad" " " " 771b\n" "  .byte " "%c[paravirt_typenum]" "\n" "  .byte 772b-771b\n" "  .short " "%c[paravirt_clobber]" "\n" ".popsection\n" "" : "=D" (__edi), "=S" (__esi), "=d" (__edx), "=c" (__ecx) : [paravirt_typenum] "i" ((__builtin_offsetof(struct paravirt_patch_template,pv_mmu_ops.set_pgd) / sizeof(void *))), [paravirt_opptr] "i" (&(pv_mmu_ops.set_pgd)), [paravirt_clobber] "i" (((1 << 9) - 1)), "D" ((unsigned long)(pgdp)), "S" ((unsigned long)(val)) : "memory", "cc" , "rax", "r8", "r9", "r10", "r11"); })
            ;
 }
@@ -5192,7 +4738,6 @@ static inline __attribute__((no_instrument_function)) void pud_clear(pud_t *pudp
 {
  set_pud(pudp, __pud(0));
 }
-# 705 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/paravirt.h"
 static inline __attribute__((no_instrument_function)) void set_pte_atomic(pte_t *ptep, pte_t pte)
 {
  set_pte(ptep, pte);
@@ -5273,7 +4818,6 @@ static inline __attribute__((no_instrument_function)) __attribute__((always_inli
 {
  ({ unsigned long __edi = __edi, __esi = __esi, __edx = __edx, __ecx = __ecx, __eax = __eax; do { if (ldv__builtin_expect(!!(pv_lock_ops.spin_unlock == ((void *)0)), 0)) do { asm volatile("1:\tud2\n" ".pushsection __bug_table,\"a\"\n" "2:\t.long 1b - 2b, %c0 - 2b\n" "\t.word %c1, 0\n" "\t.org 2b+%c2\n" ".popsection" : : "i" ("/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/paravirt.h"), "i" (783), "i" (sizeof(struct bug_entry))); do { } while (1); } while (0); } while(0); asm volatile("" "771:\n\t" "call *%c[paravirt_opptr];" "\n" "772:\n" ".pushsection .parainstructions,\"a\"\n" " " ".balign 8" " " "\n" " " ".quad" " " " 771b\n" "  .byte " "%c[paravirt_typenum]" "\n" "  .byte 772b-771b\n" "  .short " "%c[paravirt_clobber]" "\n" ".popsection\n" "" : "=D" (__edi), "=S" (__esi), "=d" (__edx), "=c" (__ecx) : [paravirt_typenum] "i" ((__builtin_offsetof(struct paravirt_patch_template,pv_lock_ops.spin_unlock) / sizeof(void *))), [paravirt_opptr] "i" (&(pv_lock_ops.spin_unlock)), [paravirt_clobber] "i" (((1 << 9) - 1)), "D" ((unsigned long)(lock)) : "memory", "cc" , "rax", "r8", "r9", "r10", "r11"); });
 }
-# 861 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/paravirt.h"
 static inline __attribute__((no_instrument_function)) __attribute__((no_instrument_function)) unsigned long arch_local_save_flags(void)
 {
  return ({ unsigned long __ret; unsigned long __edi = __edi, __esi = __esi, __edx = __edx, __ecx = __ecx, __eax = __eax; do { if (ldv__builtin_expect(!!(pv_irq_ops.save_fl.func == ((void *)0)), 0)) do { asm volatile("1:\tud2\n" ".pushsection __bug_table,\"a\"\n" "2:\t.long 1b - 2b, %c0 - 2b\n" "\t.word %c1, 0\n" "\t.org 2b+%c2\n" ".popsection" : : "i" ("/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/paravirt.h"), "i" (863), "i" (sizeof(struct bug_entry))); do { } while (1); } while (0); } while(0); if (sizeof(unsigned long) > sizeof(unsigned long)) { asm volatile("" "771:\n\t" "call *%c[paravirt_opptr];" "\n" "772:\n" ".pushsection .parainstructions,\"a\"\n" " " ".balign 8" " " "\n" " " ".quad" " " " 771b\n" "  .byte " "%c[paravirt_typenum]" "\n" "  .byte 772b-771b\n" "  .short " "%c[paravirt_clobber]" "\n" ".popsection\n" "" : "=a" (__eax) : [paravirt_typenum] "i" ((__builtin_offsetof(struct paravirt_patch_template,pv_irq_ops.save_fl.func) / sizeof(void *))), [paravirt_opptr] "i" (&(pv_irq_ops.save_fl.func)), [paravirt_clobber] "i" (((1 << 0))) : "memory", "cc" ); __ret = (unsigned long)((((u64)__edx) << 32) | __eax); } else { asm volatile("" "771:\n\t" "call *%c[paravirt_opptr];" "\n" "772:\n" ".pushsection .parainstructions,\"a\"\n" " " ".balign 8" " " "\n" " " ".quad" " " " 771b\n" "  .byte " "%c[paravirt_typenum]" "\n" "  .byte 772b-771b\n" "  .short " "%c[paravirt_clobber]" "\n" ".popsection\n" "" : "=a" (__eax) : [paravirt_typenum] "i" ((__builtin_offsetof(struct paravirt_patch_template,pv_irq_ops.save_fl.func) / sizeof(void *))), [paravirt_opptr] "i" (&(pv_irq_ops.save_fl.func)), [paravirt_clobber] "i" (((1 << 0))) : "memory", "cc" ); __ret = (unsigned long)__eax; } __ret; });
@@ -5302,10 +4846,7 @@ static inline __attribute__((no_instrument_function)) __attribute__((no_instrume
  arch_local_irq_disable();
  return f;
 }
-# 906 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/paravirt.h"
 extern void default_banner(void);
-# 140 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/msr.h" 2
-# 266 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/msr.h"
 struct msr *msrs_alloc(void);
 void msrs_free(struct msr *msrs);
 
@@ -5318,14 +4859,9 @@ int rdmsr_safe_on_cpu(unsigned int cpu, u32 msr_no, u32 *l, u32 *h);
 int wrmsr_safe_on_cpu(unsigned int cpu, u32 msr_no, u32 l, u32 h);
 int rdmsr_safe_regs_on_cpu(unsigned int cpu, u32 regs[8]);
 int wrmsr_safe_regs_on_cpu(unsigned int cpu, u32 regs[8]);
-# 21 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/processor.h" 2
 
-# 1 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/nops.h" 1
-# 138 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/nops.h"
 extern const unsigned char * const *ideal_nops;
 extern void arch_init_ideal_nops(void);
-# 23 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/processor.h" 2
-# 1 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/special_insns.h" 1
 
 
 
@@ -5336,7 +4872,6 @@ static inline __attribute__((no_instrument_function)) void native_clts(void)
 {
  asm volatile("clts");
 }
-# 19 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/special_insns.h"
 static unsigned long __force_order;
 
 static inline __attribute__((no_instrument_function)) unsigned long native_read_cr0(void)
@@ -5385,7 +4920,6 @@ static inline __attribute__((no_instrument_function)) unsigned long native_read_
 static inline __attribute__((no_instrument_function)) unsigned long native_read_cr4_safe(void)
 {
  unsigned long val;
-# 75 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/special_insns.h"
  val = native_read_cr4();
 
  return val;
@@ -5416,22 +4950,17 @@ static inline __attribute__((no_instrument_function)) void native_wbinvd(void)
 }
 
 extern void native_load_gs_index(unsigned);
-# 189 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/special_insns.h"
 static inline __attribute__((no_instrument_function)) void clflush(volatile void *__p)
 {
  asm volatile("clflush %0" : "+m" (*(volatile char *)__p));
 }
-# 24 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/processor.h" 2
 
-# 1 "include/linux/personality.h" 1
-# 10 "include/linux/personality.h"
 struct exec_domain;
 struct pt_regs;
 
 extern int register_exec_domain(struct exec_domain *);
 extern int unregister_exec_domain(struct exec_domain *);
 extern int __set_personality(unsigned int);
-# 24 "include/linux/personality.h"
 enum {
  UNAME26 = 0x0020000,
  ADDR_NO_RANDOMIZE = 0x0040000,
@@ -5447,7 +4976,6 @@ enum {
  STICKY_TIMEOUTS = 0x4000000,
  ADDR_LIMIT_3GB = 0x8000000,
 };
-# 55 "include/linux/personality.h"
 enum {
  PER_LINUX = 0x0000,
  PER_LINUX_32BIT = 0x0000 | ADDR_LIMIT_32BIT,
@@ -5474,7 +5002,6 @@ enum {
  PER_HPUX = 0x0010,
  PER_MASK = 0x00ff,
 };
-# 90 "include/linux/personality.h"
 typedef void (*handler_t)(int, struct pt_regs *);
 
 struct exec_domain {
@@ -5491,21 +5018,13 @@ struct exec_domain {
  struct module *module;
  struct exec_domain *next;
 };
-# 26 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/processor.h" 2
-
-
-
-# 1 "include/linux/math64.h" 1
 
 
 
 
-# 1 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/div64.h" 1
-# 63 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/div64.h"
-# 1 "include/asm-generic/div64.h" 1
-# 64 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/div64.h" 2
-# 6 "include/linux/math64.h" 2
-# 17 "include/linux/math64.h"
+
+
+
 static inline __attribute__((no_instrument_function)) u64 div_u64_rem(u64 dividend, u32 divisor, u32 *remainder)
 {
  *remainder = dividend % divisor;
@@ -5536,7 +5055,6 @@ static inline __attribute__((no_instrument_function)) s64 div64_s64(s64 dividend
 {
  return dividend / divisor;
 }
-# 82 "include/linux/math64.h"
 static inline __attribute__((no_instrument_function)) u64 div_u64(u64 dividend, u32 divisor)
 {
  u32 remainder;
@@ -5575,17 +5093,12 @@ __iter_div_u64_rem(u64 dividend, u32 divisor, u64 *remainder)
 
  return ret;
 }
-# 30 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/processor.h" 2
-
-# 1 "include/linux/err.h" 1
 
 
 
 
 
-# 1 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/errno.h" 1
-# 7 "include/linux/err.h" 2
-# 22 "include/linux/err.h"
+
 static inline __attribute__((no_instrument_function)) void * __attribute__((warn_unused_result)) ERR_PTR(long error)
 {
  return (void *) error;
@@ -5605,7 +5118,6 @@ static inline __attribute__((no_instrument_function)) long __attribute__((warn_u
 {
  return !ptr || ldv__builtin_expect(!!(((unsigned long)ptr) >= (unsigned long)-4095), 0);
 }
-# 49 "include/linux/err.h"
 static inline __attribute__((no_instrument_function)) void * __attribute__((warn_unused_result)) ERR_CAST(const void *ptr)
 {
 
@@ -5619,11 +5131,6 @@ static inline __attribute__((no_instrument_function)) int __attribute__((warn_un
  else
   return 0;
 }
-# 32 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/processor.h" 2
-# 1 "include/linux/irqflags.h" 1
-# 15 "include/linux/irqflags.h"
-# 1 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/irqflags.h" 1
-# 11 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/irqflags.h"
 static inline __attribute__((no_instrument_function)) unsigned long native_save_fl(void)
 {
  unsigned long flags;
@@ -5669,7 +5176,6 @@ static inline __attribute__((no_instrument_function)) void native_halt(void)
 {
  asm volatile("hlt": : :"memory");
 }
-# 155 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/irqflags.h"
 static inline __attribute__((no_instrument_function)) int arch_irqs_disabled_flags(unsigned long flags)
 {
  return !(flags & 0x00000200);
@@ -5681,15 +5187,12 @@ static inline __attribute__((no_instrument_function)) int arch_irqs_disabled(voi
 
  return arch_irqs_disabled_flags(flags);
 }
-# 16 "include/linux/irqflags.h" 2
 
 
   extern void trace_softirqs_on(unsigned long ip);
   extern void trace_softirqs_off(unsigned long ip);
   extern void trace_hardirqs_on(void);
   extern void trace_hardirqs_off(void);
-# 33 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/processor.h" 2
-# 47 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/processor.h"
 static inline __attribute__((no_instrument_function)) void *current_text_addr(void)
 {
  void *pc;
@@ -5698,13 +5201,11 @@ static inline __attribute__((no_instrument_function)) void *current_text_addr(vo
 
  return pc;
 }
-# 70 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/processor.h"
 struct cpuinfo_x86 {
  __u8 x86;
  __u8 x86_vendor;
  __u8 x86_model;
  __u8 x86_mask;
-# 88 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/processor.h"
  int x86_tlbsize;
 
  __u8 x86_virt_bits;
@@ -5740,7 +5241,6 @@ struct cpuinfo_x86 {
  u16 cpu_index;
  u32 microcode;
 } __attribute__((__aligned__((1 << (6)))));
-# 138 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/processor.h"
 extern struct cpuinfo_x86 boot_cpu_data;
 extern struct cpuinfo_x86 new_cpu_data;
 
@@ -5802,7 +5302,6 @@ static inline __attribute__((no_instrument_function)) void load_cr3(pgd_t *pgdir
 {
  write_cr3(__phys_addr((unsigned long)(pgdir)));
 }
-# 234 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/processor.h"
 struct x86_hw_tss {
  u32 reserved1;
  u64 sp0;
@@ -5816,7 +5315,6 @@ struct x86_hw_tss {
  u16 io_bitmap_base;
 
 } __attribute__((packed)) __attribute__((__aligned__((1 << (6)))));
-# 258 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/processor.h"
 struct tss_struct {
 
 
@@ -5974,7 +5472,6 @@ extern __attribute__((section(".discard"), unused)) char __pcpu_scope_irq_stack_
 extern __attribute__((section(".discard"), unused)) char __pcpu_scope_irq_count; extern __attribute__((section(".data..percpu" ""))) __typeof__(unsigned int) irq_count;
 extern unsigned long kernel_eflags;
 extern void ignore_sysret(void);
-# 431 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/processor.h"
 extern unsigned int xstate_size;
 extern void free_thread_xstate(struct task_struct *);
 extern struct kmem_cache *task_xstate_cachep;
@@ -6014,7 +5511,6 @@ struct thread_struct {
  unsigned long error_code;
 
  struct fpu fpu;
-# 481 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/processor.h"
  unsigned long *io_bitmap_ptr;
  unsigned long iopl;
 
@@ -6026,7 +5522,6 @@ struct thread_struct {
 
 static inline __attribute__((no_instrument_function)) void native_set_iopl_mask(unsigned mask)
 {
-# 504 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/processor.h"
 }
 
 static inline __attribute__((no_instrument_function)) void
@@ -6048,7 +5543,6 @@ static inline __attribute__((no_instrument_function)) void native_swapgs(void)
  asm volatile("swapgs" ::: "memory");
 
 }
-# 547 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/processor.h"
 extern unsigned long mmu_cr4_features;
 
 static inline __attribute__((no_instrument_function)) void set_in_cr4(unsigned long mask)
@@ -6167,7 +5661,6 @@ static inline __attribute__((no_instrument_function)) void cpu_relax(void)
 static inline __attribute__((no_instrument_function)) void sync_core(void)
 {
  int tmp;
-# 676 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/processor.h"
   asm volatile("cpuid" : "=a" (tmp) : "0" (1)
         : "ebx", "ecx", "edx", "memory");
 }
@@ -6252,7 +5745,6 @@ extern int bootloader_type;
 extern int bootloader_version;
 
 extern char ignore_fpu_irq;
-# 778 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/processor.h"
 static inline __attribute__((no_instrument_function)) void prefetch(const void *x)
 {
  asm volatile ("661:\n\t" "prefetcht0 (%1)" "\n662:\n" ".section .altinstructions,\"a\"\n" "	 .long 661b - .\n" "	 .long 663f - .\n" "	 .word " "(0*32+25)" "\n" "	 .byte 662b-661b\n" "	 .byte 664f-663f\n" ".previous\n" ".section .discard,\"aw\",@progbits\n" "	 .byte 0xff + (664f-663f) - (662b-661b)\n" ".previous\n" ".section .altinstr_replacement, \"ax\"\n" "663:\n\t" "prefetchnta (%1)" "\n664:\n" ".previous" : : "i" (0), "r" (x))
@@ -6278,7 +5770,6 @@ static inline __attribute__((no_instrument_function)) void spin_lock_prefetch(co
 {
  prefetchw(x);
 }
-# 899 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/processor.h"
 extern unsigned long KSTK_ESP(struct task_struct *task);
 
 
@@ -6290,7 +5781,6 @@ extern __attribute__((section(".discard"), unused)) char __pcpu_scope_old_rsp; e
 
 extern void start_thread(struct pt_regs *regs, unsigned long new_ip,
             unsigned long new_sp);
-# 923 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/processor.h"
 extern int get_tsc_mode(unsigned long adr);
 extern int set_tsc_mode(unsigned int val);
 
@@ -6332,7 +5822,6 @@ unsigned long calc_aperfmperf_ratio(struct aperfmperf *old,
 extern const int amd_erratum_383[];
 extern const int amd_erratum_400[];
 extern bool cpu_has_amd_erratum(const int *);
-# 977 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/processor.h"
 void cpu_idle_wait(void);
 
 extern unsigned long arch_align_stack(unsigned long sp);
@@ -6342,14 +5831,6 @@ void default_idle(void);
 bool set_pm_idle_to_default(void);
 
 void stop_this_cpu(void *dummy);
-# 23 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/thread_info.h" 2
-# 1 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/ftrace.h" 1
-# 24 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/thread_info.h" 2
-# 1 "include/linux/atomic.h" 1
-
-
-
-# 1 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/atomic.h" 1
 
 
 
@@ -6357,8 +5838,9 @@ void stop_this_cpu(void *dummy);
 
 
 
-# 1 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/cmpxchg.h" 1
-# 11 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/cmpxchg.h"
+
+
+
 extern void __xchg_wrong_size(void)
  ;
 extern void __cmpxchg_wrong_size(void)
@@ -6367,8 +5849,6 @@ extern void __xadd_wrong_size(void)
  ;
 extern void __add_wrong_size(void)
  ;
-# 143 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/cmpxchg.h"
-# 1 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/cmpxchg_64.h" 1
 
 
 
@@ -6376,33 +5856,26 @@ static inline __attribute__((no_instrument_function)) void set_64bit(volatile u6
 {
  *ptr = val;
 }
-# 144 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/cmpxchg.h" 2
-# 9 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/atomic.h" 2
-# 23 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/atomic.h"
 static inline __attribute__((no_instrument_function)) int atomic_read(const atomic_t *v)
 {
  return (*(volatile int *)&(v)->counter);
 }
-# 35 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/atomic.h"
 static inline __attribute__((no_instrument_function)) void atomic_set(atomic_t *v, int i)
 {
  v->counter = i;
 }
-# 47 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/atomic.h"
 static inline __attribute__((no_instrument_function)) void atomic_add(int i, atomic_t *v)
 {
  asm volatile(".section .smp_locks,\"a\"\n" ".balign 4\n" ".long 671f - .\n" ".previous\n" "671:" "\n\tlock; " "addl %1,%0"
        : "+m" (v->counter)
        : "ir" (i));
 }
-# 61 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/atomic.h"
 static inline __attribute__((no_instrument_function)) void atomic_sub(int i, atomic_t *v)
 {
  asm volatile(".section .smp_locks,\"a\"\n" ".balign 4\n" ".long 671f - .\n" ".previous\n" "671:" "\n\tlock; " "subl %1,%0"
        : "+m" (v->counter)
        : "ir" (i));
 }
-# 77 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/atomic.h"
 static inline __attribute__((no_instrument_function)) int atomic_sub_and_test(int i, atomic_t *v)
 {
  unsigned char c;
@@ -6436,7 +5909,6 @@ static inline __attribute__((no_instrument_function)) void atomic_dec(atomic_t *
  asm volatile(".section .smp_locks,\"a\"\n" ".balign 4\n" ".long 671f - .\n" ".previous\n" "671:" "\n\tlock; " "decl %0"
        : "+m" (v->counter));
 }
-# 119 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/atomic.h"
 static inline __attribute__((no_instrument_function)) int atomic_dec_and_test(atomic_t *v)
 {
  unsigned char c;
@@ -6446,7 +5918,6 @@ static inline __attribute__((no_instrument_function)) int atomic_dec_and_test(at
        : : "memory");
  return c != 0;
 }
-# 137 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/atomic.h"
 static inline __attribute__((no_instrument_function)) int atomic_inc_and_test(atomic_t *v)
 {
  unsigned char c;
@@ -6456,7 +5927,6 @@ static inline __attribute__((no_instrument_function)) int atomic_inc_and_test(at
        : : "memory");
  return c != 0;
 }
-# 156 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/atomic.h"
 static inline __attribute__((no_instrument_function)) int atomic_add_negative(int i, atomic_t *v)
 {
  unsigned char c;
@@ -6466,7 +5936,6 @@ static inline __attribute__((no_instrument_function)) int atomic_add_negative(in
        : "ir" (i) : "memory");
  return c;
 }
-# 173 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/atomic.h"
 static inline __attribute__((no_instrument_function)) int atomic_add_return(int i, atomic_t *v)
 {
 
@@ -6477,9 +5946,7 @@ static inline __attribute__((no_instrument_function)) int atomic_add_return(int 
 
 
  return i + ({ __typeof__ (*(((&v->counter)))) __ret = (((i))); switch (sizeof(*(((&v->counter))))) { case 1: asm volatile (".section .smp_locks,\"a\"\n" ".balign 4\n" ".long 671f - .\n" ".previous\n" "671:" "\n\tlock; " "xadd" "b %b0, %1\n" : "+q" (__ret), "+m" (*(((&v->counter)))) : : "memory", "cc"); break; case 2: asm volatile (".section .smp_locks,\"a\"\n" ".balign 4\n" ".long 671f - .\n" ".previous\n" "671:" "\n\tlock; " "xadd" "w %w0, %1\n" : "+r" (__ret), "+m" (*(((&v->counter)))) : : "memory", "cc"); break; case 4: asm volatile (".section .smp_locks,\"a\"\n" ".balign 4\n" ".long 671f - .\n" ".previous\n" "671:" "\n\tlock; " "xadd" "l %0, %1\n" : "+r" (__ret), "+m" (*(((&v->counter)))) : : "memory", "cc"); break; case 8: asm volatile (".section .smp_locks,\"a\"\n" ".balign 4\n" ".long 671f - .\n" ".previous\n" "671:" "\n\tlock; " "xadd" "q %q0, %1\n" : "+r" (__ret), "+m" (*(((&v->counter)))) : : "memory", "cc"); break; default: __xadd_wrong_size(); } __ret; });
-# 192 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/atomic.h"
 }
-# 201 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/atomic.h"
 static inline __attribute__((no_instrument_function)) int atomic_sub_return(int i, atomic_t *v)
 {
  return atomic_add_return(-i, v);
@@ -6497,7 +5964,6 @@ static inline __attribute__((no_instrument_function)) int atomic_xchg(atomic_t *
 {
  return ({ __typeof__ (*((&v->counter))) __ret = ((new)); switch (sizeof(*((&v->counter)))) { case 1: asm volatile ("" "xchg" "b %b0, %1\n" : "+q" (__ret), "+m" (*((&v->counter))) : : "memory", "cc"); break; case 2: asm volatile ("" "xchg" "w %w0, %1\n" : "+r" (__ret), "+m" (*((&v->counter))) : : "memory", "cc"); break; case 4: asm volatile ("" "xchg" "l %0, %1\n" : "+r" (__ret), "+m" (*((&v->counter))) : : "memory", "cc"); break; case 8: asm volatile ("" "xchg" "q %q0, %1\n" : "+r" (__ret), "+m" (*((&v->counter))) : : "memory", "cc"); break; default: __xchg_wrong_size(); } __ret; });
 }
-# 228 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/atomic.h"
 static inline __attribute__((no_instrument_function)) int __atomic_add_unless(atomic_t *v, int a, int u)
 {
  int c, old;
@@ -6512,7 +5978,6 @@ static inline __attribute__((no_instrument_function)) int __atomic_add_unless(at
  }
  return c;
 }
-# 251 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/atomic.h"
 static inline __attribute__((no_instrument_function)) int atomic_dec_if_positive(atomic_t *v)
 {
  int c, old, dec;
@@ -6528,44 +5993,35 @@ static inline __attribute__((no_instrument_function)) int atomic_dec_if_positive
  }
  return dec;
 }
-# 274 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/atomic.h"
 static inline __attribute__((no_instrument_function)) short int atomic_inc_short(short int *v)
 {
  asm(".section .smp_locks,\"a\"\n" ".balign 4\n" ".long 671f - .\n" ".previous\n" "671:" "\n\tlock; " "addw $1, %0" : "+m" (*v));
  return *v;
 }
-# 289 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/atomic.h"
 static inline __attribute__((no_instrument_function)) void atomic_or_long(unsigned long *v1, unsigned long v2)
 {
  asm(".section .smp_locks,\"a\"\n" ".balign 4\n" ".long 671f - .\n" ".previous\n" "671:" "\n\tlock; " "orq %1, %0" : "+m" (*v1) : "r" (v2));
 }
-# 314 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/atomic.h"
-# 1 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/atomic64_64.h" 1
-# 19 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/atomic64_64.h"
 static inline __attribute__((no_instrument_function)) long atomic64_read(const atomic64_t *v)
 {
  return (*(volatile long *)&(v)->counter);
 }
-# 31 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/atomic64_64.h"
 static inline __attribute__((no_instrument_function)) void atomic64_set(atomic64_t *v, long i)
 {
  v->counter = i;
 }
-# 43 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/atomic64_64.h"
 static inline __attribute__((no_instrument_function)) void atomic64_add(long i, atomic64_t *v)
 {
  asm volatile(".section .smp_locks,\"a\"\n" ".balign 4\n" ".long 671f - .\n" ".previous\n" "671:" "\n\tlock; " "addq %1,%0"
        : "=m" (v->counter)
        : "er" (i), "m" (v->counter));
 }
-# 57 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/atomic64_64.h"
 static inline __attribute__((no_instrument_function)) void atomic64_sub(long i, atomic64_t *v)
 {
  asm volatile(".section .smp_locks,\"a\"\n" ".balign 4\n" ".long 671f - .\n" ".previous\n" "671:" "\n\tlock; " "subq %1,%0"
        : "=m" (v->counter)
        : "er" (i), "m" (v->counter));
 }
-# 73 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/atomic64_64.h"
 static inline __attribute__((no_instrument_function)) int atomic64_sub_and_test(long i, atomic64_t *v)
 {
  unsigned char c;
@@ -6601,7 +6057,6 @@ static inline __attribute__((no_instrument_function)) void atomic64_dec(atomic64
        : "=m" (v->counter)
        : "m" (v->counter));
 }
-# 117 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/atomic64_64.h"
 static inline __attribute__((no_instrument_function)) int atomic64_dec_and_test(atomic64_t *v)
 {
  unsigned char c;
@@ -6611,7 +6066,6 @@ static inline __attribute__((no_instrument_function)) int atomic64_dec_and_test(
        : "m" (v->counter) : "memory");
  return c != 0;
 }
-# 135 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/atomic64_64.h"
 static inline __attribute__((no_instrument_function)) int atomic64_inc_and_test(atomic64_t *v)
 {
  unsigned char c;
@@ -6621,7 +6075,6 @@ static inline __attribute__((no_instrument_function)) int atomic64_inc_and_test(
        : "m" (v->counter) : "memory");
  return c != 0;
 }
-# 154 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/atomic64_64.h"
 static inline __attribute__((no_instrument_function)) int atomic64_add_negative(long i, atomic64_t *v)
 {
  unsigned char c;
@@ -6631,7 +6084,6 @@ static inline __attribute__((no_instrument_function)) int atomic64_add_negative(
        : "er" (i), "m" (v->counter) : "memory");
  return c;
 }
-# 171 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/atomic64_64.h"
 static inline __attribute__((no_instrument_function)) long atomic64_add_return(long i, atomic64_t *v)
 {
  return i + ({ __typeof__ (*(((&v->counter)))) __ret = (((i))); switch (sizeof(*(((&v->counter))))) { case 1: asm volatile (".section .smp_locks,\"a\"\n" ".balign 4\n" ".long 671f - .\n" ".previous\n" "671:" "\n\tlock; " "xadd" "b %b0, %1\n" : "+q" (__ret), "+m" (*(((&v->counter)))) : : "memory", "cc"); break; case 2: asm volatile (".section .smp_locks,\"a\"\n" ".balign 4\n" ".long 671f - .\n" ".previous\n" "671:" "\n\tlock; " "xadd" "w %w0, %1\n" : "+r" (__ret), "+m" (*(((&v->counter)))) : : "memory", "cc"); break; case 4: asm volatile (".section .smp_locks,\"a\"\n" ".balign 4\n" ".long 671f - .\n" ".previous\n" "671:" "\n\tlock; " "xadd" "l %0, %1\n" : "+r" (__ret), "+m" (*(((&v->counter)))) : : "memory", "cc"); break; case 8: asm volatile (".section .smp_locks,\"a\"\n" ".balign 4\n" ".long 671f - .\n" ".previous\n" "671:" "\n\tlock; " "xadd" "q %q0, %1\n" : "+r" (__ret), "+m" (*(((&v->counter)))) : : "memory", "cc"); break; default: __xadd_wrong_size(); } __ret; });
@@ -6654,7 +6106,6 @@ static inline __attribute__((no_instrument_function)) long atomic64_xchg(atomic6
 {
  return ({ __typeof__ (*((&v->counter))) __ret = ((new)); switch (sizeof(*((&v->counter)))) { case 1: asm volatile ("" "xchg" "b %b0, %1\n" : "+q" (__ret), "+m" (*((&v->counter))) : : "memory", "cc"); break; case 2: asm volatile ("" "xchg" "w %w0, %1\n" : "+r" (__ret), "+m" (*((&v->counter))) : : "memory", "cc"); break; case 4: asm volatile ("" "xchg" "l %0, %1\n" : "+r" (__ret), "+m" (*((&v->counter))) : : "memory", "cc"); break; case 8: asm volatile ("" "xchg" "q %q0, %1\n" : "+r" (__ret), "+m" (*((&v->counter))) : : "memory", "cc"); break; default: __xchg_wrong_size(); } __ret; });
 }
-# 203 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/atomic64_64.h"
 static inline __attribute__((no_instrument_function)) int atomic64_add_unless(atomic64_t *v, long a, long u)
 {
  long c, old;
@@ -6669,7 +6120,6 @@ static inline __attribute__((no_instrument_function)) int atomic64_add_unless(at
  }
  return c != (u);
 }
-# 227 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/atomic64_64.h"
 static inline __attribute__((no_instrument_function)) long atomic64_dec_if_positive(atomic64_t *v)
 {
  long c, old, dec;
@@ -6685,14 +6135,10 @@ static inline __attribute__((no_instrument_function)) long atomic64_dec_if_posit
  }
  return dec;
 }
-# 315 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/atomic.h" 2
-# 5 "include/linux/atomic.h" 2
-# 15 "include/linux/atomic.h"
 static inline __attribute__((no_instrument_function)) int atomic_add_unless(atomic_t *v, int a, int u)
 {
  return __atomic_add_unless(v, a, u) != u;
 }
-# 44 "include/linux/atomic.h"
 static inline __attribute__((no_instrument_function)) int atomic_inc_not_zero_hint(atomic_t *v, int hint)
 {
  int val, c = hint;
@@ -6751,8 +6197,6 @@ static inline __attribute__((no_instrument_function)) void atomic_or(int i, atom
 }
 
 
-# 1 "include/asm-generic/atomic-long.h" 1
-# 23 "include/asm-generic/atomic-long.h"
 typedef atomic64_t atomic_long_t;
 
 
@@ -6861,8 +6305,6 @@ static inline __attribute__((no_instrument_function)) long atomic_long_add_unles
 
  return (long)atomic64_add_unless(v, a, u);
 }
-# 103 "include/linux/atomic.h" 2
-# 25 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/thread_info.h" 2
 
 struct thread_info {
  struct task_struct *task;
@@ -6884,7 +6326,6 @@ struct thread_info {
  unsigned int sig_on_uaccess_error:1;
  unsigned int uaccess_err:1;
 };
-# 220 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/thread_info.h"
 extern __attribute__((section(".discard"), unused)) char __pcpu_scope_kernel_stack; extern __attribute__((section(".data..percpu" ""))) __typeof__(unsigned long) kernel_stack;
 
 static inline __attribute__((no_instrument_function)) struct thread_info *current_thread_info(void)
@@ -6894,7 +6335,6 @@ static inline __attribute__((no_instrument_function)) struct thread_info *curren
         (5*8) - (((1UL) << 12) << 1));
  return ti;
 }
-# 263 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/thread_info.h"
 static inline __attribute__((no_instrument_function)) void set_restore_sigmask(void)
 {
  struct thread_info *ti = current_thread_info();
@@ -6919,8 +6359,6 @@ static inline __attribute__((no_instrument_function)) bool is_ia32_task(void)
 extern void arch_task_cache_init(void);
 extern void free_thread_info(struct thread_info *ti);
 extern int arch_dup_task_struct(struct task_struct *dst, struct task_struct *src);
-# 54 "include/linux/thread_info.h" 2
-# 62 "include/linux/thread_info.h"
 static inline __attribute__((no_instrument_function)) void set_ti_thread_flag(struct thread_info *ti, int flag)
 {
  set_bit(flag, (unsigned long *)&ti->flags);
@@ -6945,16 +6383,12 @@ static inline __attribute__((no_instrument_function)) int test_ti_thread_flag(st
 {
  return (__builtin_constant_p((flag)) ? constant_test_bit((flag), ((unsigned long *)&ti->flags)) : variable_test_bit((flag), ((unsigned long *)&ti->flags)));
 }
-# 10 "include/linux/preempt.h" 2
-# 109 "include/linux/preempt.h"
 struct preempt_notifier;
-# 125 "include/linux/preempt.h"
 struct preempt_ops {
  void (*sched_in)(struct preempt_notifier *notifier, int cpu);
  void (*sched_out)(struct preempt_notifier *notifier,
      struct task_struct *next);
 };
-# 138 "include/linux/preempt.h"
 struct preempt_notifier {
  struct hlist_node link;
  struct preempt_ops *ops;
@@ -6969,14 +6403,12 @@ static inline __attribute__((no_instrument_function)) void preempt_notifier_init
  INIT_HLIST_NODE(&notifier->link);
  notifier->ops = ops;
 }
-# 51 "include/linux/spinlock.h" 2
 
 
 
 
 
 
-# 1 "include/linux/bottom_half.h" 1
 
 
 
@@ -6984,20 +6416,11 @@ extern void local_bh_disable(void);
 extern void _local_bh_enable(void);
 extern void local_bh_enable(void);
 extern void local_bh_enable_ip(unsigned long ip);
-# 58 "include/linux/spinlock.h" 2
-# 1 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/barrier.h" 1
-# 110 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/barrier.h"
 static inline __attribute__((no_instrument_function)) __attribute__((always_inline)) void rdtsc_barrier(void)
 {
  asm volatile ("661:\n\t" ".byte " "0x66,0x66,0x90" "\n" "\n662:\n" ".section .altinstructions,\"a\"\n" "	 .long 661b - .\n" "	 .long 663f - .\n" "	 .word " "(3*32+17)" "\n" "	 .byte 662b-661b\n" "	 .byte 664f-663f\n" ".previous\n" ".section .discard,\"aw\",@progbits\n" "	 .byte 0xff + (664f-663f) - (662b-661b)\n" ".previous\n" ".section .altinstr_replacement, \"ax\"\n" "663:\n\t" "mfence" "\n664:\n" ".previous" : : : "memory");
  asm volatile ("661:\n\t" ".byte " "0x66,0x66,0x90" "\n" "\n662:\n" ".section .altinstructions,\"a\"\n" "	 .long 661b - .\n" "	 .long 663f - .\n" "	 .word " "(3*32+18)" "\n" "	 .byte 662b-661b\n" "	 .byte 664f-663f\n" ".previous\n" ".section .discard,\"aw\",@progbits\n" "	 .byte 0xff + (664f-663f) - (662b-661b)\n" ".previous\n" ".section .altinstr_replacement, \"ax\"\n" "663:\n\t" "lfence" "\n664:\n" ".previous" : : : "memory");
 }
-# 59 "include/linux/spinlock.h" 2
-# 81 "include/linux/spinlock.h"
-# 1 "include/linux/spinlock_types.h" 1
-# 13 "include/linux/spinlock_types.h"
-# 1 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/spinlock_types.h" 1
-# 14 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/spinlock_types.h"
 typedef u16 __ticket_t;
 typedef u32 __ticketpair_t;
 
@@ -7015,8 +6438,6 @@ typedef struct arch_spinlock {
 
 
 
-# 1 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/rwlock.h" 1
-# 27 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/rwlock.h"
 typedef union {
  s64 lock;
  struct {
@@ -7024,21 +6445,16 @@ typedef union {
   s32 write;
  };
 } arch_rwlock_t;
-# 32 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/spinlock_types.h" 2
-# 14 "include/linux/spinlock_types.h" 2
 
 
 
 
-# 1 "include/linux/lockdep.h" 1
-# 12 "include/linux/lockdep.h"
 struct task_struct;
 struct lockdep_map;
 
 
 extern int prove_locking;
 extern int lock_stat;
-# 350 "include/linux/lockdep.h"
 static inline __attribute__((no_instrument_function)) void lockdep_off(void)
 {
 }
@@ -7046,11 +6462,8 @@ static inline __attribute__((no_instrument_function)) void lockdep_off(void)
 static inline __attribute__((no_instrument_function)) void lockdep_on(void)
 {
 }
-# 391 "include/linux/lockdep.h"
 struct lock_class_key { };
-# 443 "include/linux/lockdep.h"
 extern void print_irqtrace_events(struct task_struct *curr);
-# 19 "include/linux/spinlock_types.h" 2
 
 typedef struct raw_spinlock {
  arch_spinlock_t raw_lock;
@@ -7065,16 +6478,11 @@ typedef struct raw_spinlock {
 
 
 } raw_spinlock_t;
-# 64 "include/linux/spinlock_types.h"
 typedef struct spinlock {
  union {
   struct raw_spinlock rlock;
-# 75 "include/linux/spinlock_types.h"
  };
 } spinlock_t;
-# 86 "include/linux/spinlock_types.h"
-# 1 "include/linux/rwlock_types.h" 1
-# 11 "include/linux/rwlock_types.h"
 typedef struct {
  arch_rwlock_t raw_lock;
 
@@ -7088,15 +6496,11 @@ typedef struct {
 
 
 } rwlock_t;
-# 87 "include/linux/spinlock_types.h" 2
-# 82 "include/linux/spinlock.h" 2
 
 
 
 
 
-# 1 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/spinlock.h" 1
-# 53 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/spinlock.h"
 static inline __attribute__((no_instrument_function)) __attribute__((always_inline)) void __ticket_spin_lock(arch_spinlock_t *lock)
 {
  register struct __raw_tickets inc = { .tail = 1 };
@@ -7144,13 +6548,11 @@ static inline __attribute__((no_instrument_function)) int __ticket_spin_is_conte
 
  return (__ticket_t)(tmp.tail - tmp.head) > 1;
 }
-# 137 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/spinlock.h"
 static inline __attribute__((no_instrument_function)) void arch_spin_unlock_wait(arch_spinlock_t *lock)
 {
  while (arch_spin_is_locked(lock))
   cpu_relax();
 }
-# 161 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/spinlock.h"
 static inline __attribute__((no_instrument_function)) int arch_read_can_lock(arch_rwlock_t *lock)
 {
  return lock->lock > 0;
@@ -7215,9 +6617,7 @@ static inline __attribute__((no_instrument_function)) void arch_write_unlock(arc
  asm volatile(".section .smp_locks,\"a\"\n" ".balign 4\n" ".long 671f - .\n" ".previous\n" "671:" "\n\tlock; " " " "incl" " " "%0"
        : "+m" (rw->write) : "i" (((1L) << 32)) : "memory");
 }
-# 240 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/spinlock.h"
 static inline __attribute__((no_instrument_function)) void smp_mb__after_lock(void) { }
-# 88 "include/linux/spinlock.h" 2
 
 
 
@@ -7225,17 +6625,12 @@ static inline __attribute__((no_instrument_function)) void smp_mb__after_lock(vo
 
   extern void __raw_spin_lock_init(raw_spinlock_t *lock, const char *name,
        struct lock_class_key *key);
-# 132 "include/linux/spinlock.h"
  extern void do_raw_spin_lock(raw_spinlock_t *lock) ;
 
  extern int do_raw_spin_trylock(raw_spinlock_t *lock);
  extern void do_raw_spin_unlock(raw_spinlock_t *lock) ;
-# 257 "include/linux/spinlock.h"
-# 1 "include/linux/rwlock.h" 1
-# 18 "include/linux/rwlock.h"
   extern void __rwlock_init(rwlock_t *lock, const char *name,
        struct lock_class_key *key);
-# 32 "include/linux/rwlock.h"
  extern void do_raw_read_lock(rwlock_t *lock) ;
 
  extern int do_raw_read_trylock(rwlock_t *lock);
@@ -7244,14 +6639,11 @@ static inline __attribute__((no_instrument_function)) void smp_mb__after_lock(vo
 
  extern int do_raw_write_trylock(rwlock_t *lock);
  extern void do_raw_write_unlock(rwlock_t *lock) ;
-# 258 "include/linux/spinlock.h" 2
 
 
 
 
 
-# 1 "include/linux/spinlock_api_smp.h" 1
-# 18 "include/linux/spinlock_api_smp.h"
 int in_lock_functions(unsigned long addr);
 
 
@@ -7279,7 +6671,6 @@ void __attribute__((section(".spinlock.text"))) _raw_spin_unlock_irq(raw_spinloc
 void __attribute__((section(".spinlock.text")))
 _raw_spin_unlock_irqrestore(raw_spinlock_t *lock, unsigned long flags)
         ;
-# 86 "include/linux/spinlock_api_smp.h"
 static inline __attribute__((no_instrument_function)) int __raw_spin_trylock(raw_spinlock_t *lock)
 {
  do { do { (current_thread_info()->preempt_count) += (1); } while (0); __asm__ __volatile__("": : :"memory"); } while (0);
@@ -7290,7 +6681,6 @@ static inline __attribute__((no_instrument_function)) int __raw_spin_trylock(raw
  do { do { __asm__ __volatile__("": : :"memory"); do { (current_thread_info()->preempt_count) -= (1); } while (0); } while (0); __asm__ __volatile__("": : :"memory"); do { } while (0); } while (0);
  return 0;
 }
-# 104 "include/linux/spinlock_api_smp.h"
 static inline __attribute__((no_instrument_function)) unsigned long __raw_spin_lock_irqsave(raw_spinlock_t *lock)
 {
  unsigned long flags;
@@ -7298,7 +6688,6 @@ static inline __attribute__((no_instrument_function)) unsigned long __raw_spin_l
  do { do { ({ unsigned long __dummy; typeof(flags) __dummy2; (void)(&__dummy == &__dummy2); 1; }); flags = arch_local_irq_save(); } while (0); trace_hardirqs_off(); } while (0);
  do { do { (current_thread_info()->preempt_count) += (1); } while (0); __asm__ __volatile__("": : :"memory"); } while (0);
  do { } while (0);
-# 119 "include/linux/spinlock_api_smp.h"
  do_raw_spin_lock(lock);
 
  return flags;
@@ -7374,8 +6763,6 @@ static inline __attribute__((no_instrument_function)) int __raw_spin_trylock_bh(
  return 0;
 }
 
-# 1 "include/linux/rwlock_api_smp.h" 1
-# 18 "include/linux/rwlock_api_smp.h"
 void __attribute__((section(".spinlock.text"))) _raw_read_lock(rwlock_t *lock) ;
 void __attribute__((section(".spinlock.text"))) _raw_write_lock(rwlock_t *lock) ;
 void __attribute__((section(".spinlock.text"))) _raw_read_lock_bh(rwlock_t *lock) ;
@@ -7400,7 +6787,6 @@ _raw_read_unlock_irqrestore(rwlock_t *lock, unsigned long flags)
 void __attribute__((section(".spinlock.text")))
 _raw_write_unlock_irqrestore(rwlock_t *lock, unsigned long flags)
        ;
-# 117 "include/linux/rwlock_api_smp.h"
 static inline __attribute__((no_instrument_function)) int __raw_read_trylock(rwlock_t *lock)
 {
  do { do { (current_thread_info()->preempt_count) += (1); } while (0); __asm__ __volatile__("": : :"memory"); } while (0);
@@ -7422,7 +6808,6 @@ static inline __attribute__((no_instrument_function)) int __raw_write_trylock(rw
  do { do { __asm__ __volatile__("": : :"memory"); do { (current_thread_info()->preempt_count) -= (1); } while (0); } while (0); __asm__ __volatile__("": : :"memory"); do { } while (0); } while (0);
  return 0;
 }
-# 146 "include/linux/rwlock_api_smp.h"
 static inline __attribute__((no_instrument_function)) void __raw_read_lock(rwlock_t *lock)
 {
  do { do { (current_thread_info()->preempt_count) += (1); } while (0); __asm__ __volatile__("": : :"memory"); } while (0);
@@ -7558,9 +6943,6 @@ static inline __attribute__((no_instrument_function)) void __raw_write_unlock_bh
  do { __asm__ __volatile__("": : :"memory"); do { (current_thread_info()->preempt_count) -= (1); } while (0); } while (0);
  local_bh_enable_ip((unsigned long)__builtin_return_address(0));
 }
-# 195 "include/linux/spinlock_api_smp.h" 2
-# 264 "include/linux/spinlock.h" 2
-# 272 "include/linux/spinlock.h"
 static inline __attribute__((no_instrument_function)) raw_spinlock_t *spinlock_check(spinlock_t *lock)
 {
  return &lock->rlock;
@@ -7586,12 +6968,10 @@ static inline __attribute__((no_instrument_function)) int spin_trylock(spinlock_
 {
  return (_raw_spin_trylock(&lock->rlock));
 }
-# 308 "include/linux/spinlock.h"
 static inline __attribute__((no_instrument_function)) void spin_lock_irq(spinlock_t *lock)
 {
  _raw_spin_lock_irq(&lock->rlock);
 }
-# 323 "include/linux/spinlock.h"
 static inline __attribute__((no_instrument_function)) void spin_unlock(spinlock_t *lock)
 {
  _raw_spin_unlock(&lock->rlock);
@@ -7646,9 +7026,7 @@ static inline __attribute__((no_instrument_function)) int spin_can_lock(spinlock
 {
  return (!arch_spin_is_locked(&(&lock->rlock)->raw_lock));
 }
-# 393 "include/linux/spinlock.h"
 extern int _atomic_dec_and_lock(atomic_t *atomic, spinlock_t *lock);
-# 30 "include/linux/seqlock.h" 2
 
 
 
@@ -7656,7 +7034,6 @@ typedef struct {
  unsigned sequence;
  spinlock_t lock;
 } seqlock_t;
-# 58 "include/linux/seqlock.h"
 static inline __attribute__((no_instrument_function)) void write_seqlock(seqlock_t *sl)
 {
  spin_lock(&sl->lock);
@@ -7709,11 +7086,9 @@ static inline __attribute__((no_instrument_function)) __attribute__((always_inli
 
  return ldv__builtin_expect(!!(sl->sequence != start), 0);
 }
-# 119 "include/linux/seqlock.h"
 typedef struct seqcount {
  unsigned sequence;
 } seqcount_t;
-# 139 "include/linux/seqlock.h"
 static inline __attribute__((no_instrument_function)) unsigned __read_seqcount_begin(const seqcount_t *s)
 {
  unsigned ret;
@@ -7726,26 +7101,22 @@ repeat:
  }
  return ret;
 }
-# 161 "include/linux/seqlock.h"
 static inline __attribute__((no_instrument_function)) unsigned read_seqcount_begin(const seqcount_t *s)
 {
  unsigned ret = __read_seqcount_begin(s);
  __asm__ __volatile__("": : :"memory");
  return ret;
 }
-# 182 "include/linux/seqlock.h"
 static inline __attribute__((no_instrument_function)) unsigned raw_seqcount_begin(const seqcount_t *s)
 {
  unsigned ret = (*(volatile typeof(s->sequence) *)&(s->sequence));
  __asm__ __volatile__("": : :"memory");
  return ret & ~1;
 }
-# 203 "include/linux/seqlock.h"
 static inline __attribute__((no_instrument_function)) int __read_seqcount_retry(const seqcount_t *s, unsigned start)
 {
  return ldv__builtin_expect(!!(s->sequence != start), 0);
 }
-# 218 "include/linux/seqlock.h"
 static inline __attribute__((no_instrument_function)) int read_seqcount_retry(const seqcount_t *s, unsigned start)
 {
  __asm__ __volatile__("": : :"memory");
@@ -7769,13 +7140,11 @@ static inline __attribute__((no_instrument_function)) void write_seqcount_end(se
  __asm__ __volatile__("": : :"memory");
  s->sequence++;
 }
-# 249 "include/linux/seqlock.h"
 static inline __attribute__((no_instrument_function)) void write_seqcount_barrier(seqcount_t *s)
 {
  __asm__ __volatile__("": : :"memory");
  s->sequence+=2;
 }
-# 9 "include/linux/time.h" 2
 
 
 
@@ -7800,7 +7169,6 @@ struct timezone {
 
 
 extern struct timezone sys_tz;
-# 45 "include/linux/time.h"
 static inline __attribute__((no_instrument_function)) int timespec_equal(const struct timespec *a,
                                  const struct timespec *b)
 {
@@ -7885,7 +7253,6 @@ struct timespec get_monotonic_coarse(void);
 void get_xtime_and_monotonic_and_sleep_offset(struct timespec *xtim,
     struct timespec *wtom, struct timespec *sleep);
 void timekeeping_inject_sleeptime(struct timespec *delta);
-# 145 "include/linux/time.h"
 static inline __attribute__((no_instrument_function)) u32 arch_gettimeoffset(void) { return 0; }
 
 
@@ -7944,12 +7311,10 @@ struct tm {
 };
 
 void time_to_tm(time_t totalsecs, int offset, struct tm *result);
-# 211 "include/linux/time.h"
 static inline __attribute__((no_instrument_function)) s64 timespec_to_ns(const struct timespec *ts)
 {
  return ((s64) ts->tv_sec * 1000000000L) + ts->tv_nsec;
 }
-# 223 "include/linux/time.h"
 static inline __attribute__((no_instrument_function)) s64 timeval_to_ns(const struct timeval *tv)
 {
  return ((s64) tv->tv_sec * 1000000000L) +
@@ -7971,13 +7336,11 @@ extern struct timespec ns_to_timespec(const s64 nsec);
 
 
 extern struct timeval ns_to_timeval(const s64 nsec);
-# 253 "include/linux/time.h"
 static inline __attribute__((no_instrument_function)) __attribute__((always_inline)) void timespec_add_ns(struct timespec *a, u64 ns)
 {
  a->tv_sec += __iter_div_u64_rem(a->tv_nsec + ns, 1000000000L, &ns);
  a->tv_nsec = ns;
 }
-# 277 "include/linux/time.h"
 struct itimerspec {
  struct timespec it_interval;
  struct timespec it_value;
@@ -7987,7 +7350,6 @@ struct itimerval {
  struct timeval it_interval;
  struct timeval it_value;
 };
-# 61 "include/linux/stat.h" 2
 
 struct kstat {
  u64 ino;
@@ -8004,19 +7366,11 @@ struct kstat {
  unsigned long blksize;
  unsigned long long blocks;
 };
-# 11 "include/linux/module.h" 2
-
-
-# 1 "include/linux/kmod.h" 1
-# 22 "include/linux/kmod.h"
-# 1 "include/linux/gfp.h" 1
 
 
 
-# 1 "include/linux/mmzone.h" 1
-# 9 "include/linux/mmzone.h"
-# 1 "include/linux/wait.h" 1
-# 27 "include/linux/wait.h"
+
+
 typedef struct __wait_queue wait_queue_t;
 typedef int (*wait_queue_func_t)(wait_queue_t *wait, unsigned mode, int flags, void *key);
 int default_wake_function(wait_queue_t *wait, unsigned mode, int flags, void *key);
@@ -8046,9 +7400,7 @@ struct __wait_queue_head {
 typedef struct __wait_queue_head wait_queue_head_t;
 
 struct task_struct;
-# 79 "include/linux/wait.h"
 extern void __init_waitqueue_head(wait_queue_head_t *q, const char *name, struct lock_class_key *);
-# 97 "include/linux/wait.h"
 static inline __attribute__((no_instrument_function)) void init_waitqueue_entry(wait_queue_t *q, struct task_struct *p)
 {
  q->flags = 0;
@@ -8120,7 +7472,6 @@ void wake_up_bit(void *, int);
 int out_of_line_wait_on_bit(void *, int, int (*)(void *), unsigned);
 int out_of_line_wait_on_bit_lock(void *, int, int (*)(void *), unsigned);
 wait_queue_head_t *bit_waitqueue(void *, int);
-# 574 "include/linux/wait.h"
 extern void sleep_on(wait_queue_head_t *q);
 extern long sleep_on_timeout(wait_queue_head_t *q,
           signed long timeout);
@@ -8138,7 +7489,6 @@ void abort_exclusive_wait(wait_queue_head_t *q, wait_queue_t *wait,
    unsigned int mode, void *key);
 int autoremove_wake_function(wait_queue_t *wait, unsigned mode, int sync, void *key);
 int wake_bit_function(wait_queue_t *wait, unsigned mode, int sync, void *key);
-# 634 "include/linux/wait.h"
 static inline __attribute__((no_instrument_function)) int wait_on_bit(void *word, int bit,
     int (*action)(void *), unsigned mode)
 {
@@ -8146,7 +7496,6 @@ static inline __attribute__((no_instrument_function)) int wait_on_bit(void *word
   return 0;
  return out_of_line_wait_on_bit(word, bit, action, mode);
 }
-# 658 "include/linux/wait.h"
 static inline __attribute__((no_instrument_function)) int wait_on_bit_lock(void *word, int bit,
     int (*action)(void *), unsigned mode)
 {
@@ -8154,16 +7503,11 @@ static inline __attribute__((no_instrument_function)) int wait_on_bit_lock(void 
   return 0;
  return out_of_line_wait_on_bit_lock(word, bit, action, mode);
 }
-# 10 "include/linux/mmzone.h" 2
 
 
 
-# 1 "include/linux/numa.h" 1
-# 14 "include/linux/mmzone.h" 2
 
 
-# 1 "include/linux/nodemask.h" 1
-# 98 "include/linux/nodemask.h"
 typedef struct { unsigned long bits[((((1 << 10)) + (8 * sizeof(long)) - 1) / (8 * sizeof(long)))]; } nodemask_t;
 extern nodemask_t _unused_nodemask_arg_;
 
@@ -8319,13 +7663,11 @@ static inline __attribute__((no_instrument_function)) void init_nodemask_of_node
  __nodes_clear(&(*mask), (1 << 10));
  __node_set((node), &(*mask));
 }
-# 266 "include/linux/nodemask.h"
 static inline __attribute__((no_instrument_function)) int __first_unset_node(const nodemask_t *maskp)
 {
  return ({ int __min1 = ((1 << 10)); int __min2 = (find_first_zero_bit(maskp->bits, (1 << 10))); __min1 < __min2 ? __min1: __min2; })
                                                   ;
 }
-# 300 "include/linux/nodemask.h"
 static inline __attribute__((no_instrument_function)) int __nodemask_scnprintf(char *buf, int len,
      const nodemask_t *srcp, int nbits)
 {
@@ -8385,7 +7727,6 @@ static inline __attribute__((no_instrument_function)) void __nodes_fold(nodemask
 {
  bitmap_fold(dstp->bits, origp->bits, sz, nbits);
 }
-# 374 "include/linux/nodemask.h"
 enum node_states {
  N_POSSIBLE,
  N_ONLINE,
@@ -8447,23 +7788,17 @@ static inline __attribute__((no_instrument_function)) void node_set_offline(int 
  node_clear_state(nid, N_ONLINE);
  nr_online_nodes = num_node_state(N_ONLINE);
 }
-# 470 "include/linux/nodemask.h"
 extern int node_random(const nodemask_t *maskp);
-# 504 "include/linux/nodemask.h"
 struct nodemask_scratch {
  nodemask_t mask1;
  nodemask_t mask2;
 };
-# 17 "include/linux/mmzone.h" 2
-# 1 "include/linux/pageblock-flags.h" 1
-# 29 "include/linux/pageblock-flags.h"
 enum pageblock_bits {
  PB_migrate,
  PB_migrate_end = PB_migrate + 3 - 1,
 
  NR_PAGEBLOCK_BITS
 };
-# 60 "include/linux/pageblock-flags.h"
 struct page;
 
 
@@ -8471,10 +7806,6 @@ unsigned long get_pageblock_flags_group(struct page *page,
      int start_bitidx, int end_bitidx);
 void set_pageblock_flags_group(struct page *page, unsigned long flags,
      int start_bitidx, int end_bitidx);
-# 18 "include/linux/mmzone.h" 2
-# 1 "include/generated/bounds.h" 1
-# 19 "include/linux/mmzone.h" 2
-# 50 "include/linux/mmzone.h"
 extern int page_group_by_mobility_disabled;
 
 static inline __attribute__((no_instrument_function)) int get_pageblock_migratetype(struct page *page)
@@ -8488,7 +7819,6 @@ struct free_area {
 };
 
 struct pglist_data;
-# 71 "include/linux/mmzone.h"
 struct zone_padding {
  char x[0];
 } __attribute__((__aligned__(1 << (12))));
@@ -8538,7 +7868,6 @@ enum zone_stat_item {
 
  NR_ANON_TRANSPARENT_HUGEPAGES,
  NR_VM_ZONE_STAT_ITEMS };
-# 134 "include/linux/mmzone.h"
 enum lru_list {
  LRU_INACTIVE_ANON = 0,
  LRU_ACTIVE_ANON = 0 + 1,
@@ -8570,7 +7899,6 @@ static inline __attribute__((no_instrument_function)) int is_unevictable_lru(enu
 struct lruvec {
  struct list_head lists[NR_LRU_LISTS];
 };
-# 184 "include/linux/mmzone.h"
 typedef unsigned isolate_mode_t;
 
 enum zone_watermarks {
@@ -8607,7 +7935,6 @@ struct per_cpu_pageset {
 
 
 enum zone_type {
-# 239 "include/linux/mmzone.h"
  ZONE_DMA,
 
 
@@ -8624,13 +7951,10 @@ enum zone_type {
 
 
  ZONE_NORMAL,
-# 266 "include/linux/mmzone.h"
  ZONE_MOVABLE,
  __MAX_NR_ZONES
 };
-# 290 "include/linux/mmzone.h"
 struct zone_reclaim_stat {
-# 299 "include/linux/mmzone.h"
  unsigned long recent_rotated[2];
  unsigned long recent_scanned[2];
 };
@@ -8647,7 +7971,6 @@ struct zone {
 
 
  unsigned long percpu_drift_mark;
-# 324 "include/linux/mmzone.h"
  unsigned long lowmem_reserve[4];
 
 
@@ -8675,7 +7998,6 @@ struct zone {
  seqlock_t span_seqlock;
 
  struct free_area free_area[11];
-# 366 "include/linux/mmzone.h"
  unsigned int compact_considered;
  unsigned int compact_defer_shift;
  int compact_order_failed;
@@ -8703,7 +8025,6 @@ struct zone {
 
 
  struct zone_padding _pad2_;
-# 419 "include/linux/mmzone.h"
  wait_queue_head_t * wait_table;
  unsigned long wait_table_hash_nr_entries;
  unsigned long wait_table_bits;
@@ -8714,7 +8035,6 @@ struct zone {
  struct pglist_data *zone_pgdat;
 
  unsigned long zone_start_pfn;
-# 440 "include/linux/mmzone.h"
  unsigned long spanned_pages;
  unsigned long present_pages;
 
@@ -8761,18 +8081,15 @@ static inline __attribute__((no_instrument_function)) int zone_is_oom_locked(con
 {
  return (__builtin_constant_p((ZONE_OOM_LOCKED)) ? constant_test_bit((ZONE_OOM_LOCKED), (&zone->flags)) : variable_test_bit((ZONE_OOM_LOCKED), (&zone->flags)));
 }
-# 568 "include/linux/mmzone.h"
 struct zonelist_cache {
  unsigned short z_to_n[((1 << 10) * 4)];
  unsigned long fullzones[(((((1 << 10) * 4)) + (8 * sizeof(long)) - 1) / (8 * sizeof(long)))];
  unsigned long last_full_zap;
 };
-# 582 "include/linux/mmzone.h"
 struct zoneref {
  struct zone *zone;
  int zone_idx;
 };
-# 604 "include/linux/mmzone.h"
 struct zonelist {
  struct zonelist_cache *zlcache_ptr;
  struct zoneref _zonerefs[((1 << 10) * 4) + 1];
@@ -8792,13 +8109,11 @@ struct node_active_region {
 
 
 extern struct page *mem_map;
-# 636 "include/linux/mmzone.h"
 struct bootmem_data;
 typedef struct pglist_data {
  struct zone node_zones[4];
  struct zonelist node_zonelists[2];
  int nr_zones;
-# 658 "include/linux/mmzone.h"
  spinlock_t node_size_lock;
 
  unsigned long node_start_pfn;
@@ -8811,25 +8126,13 @@ typedef struct pglist_data {
  int kswapd_max_order;
  enum zone_type classzone_idx;
 } pg_data_t;
-# 687 "include/linux/mmzone.h"
-# 1 "include/linux/memory_hotplug.h" 1
 
 
 
-# 1 "include/linux/mmzone.h" 1
-# 5 "include/linux/memory_hotplug.h" 2
-
-# 1 "include/linux/notifier.h" 1
-# 12 "include/linux/notifier.h"
-# 1 "include/linux/errno.h" 1
 
 
 
-# 1 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/errno.h" 1
-# 5 "include/linux/errno.h" 2
-# 13 "include/linux/notifier.h" 2
-# 1 "include/linux/mutex.h" 1
-# 48 "include/linux/mutex.h"
+
 struct mutex {
 
  atomic_t count;
@@ -8860,11 +8163,7 @@ struct mutex_waiter {
 };
 
 
-# 1 "include/linux/mutex-debug.h" 1
-# 21 "include/linux/mutex-debug.h"
 extern void mutex_destroy(struct mutex *lock);
-# 79 "include/linux/mutex.h" 2
-# 115 "include/linux/mutex.h"
 extern void __mutex_init(struct mutex *lock, const char *name,
     struct lock_class_key *key);
 
@@ -8878,17 +8177,12 @@ static inline __attribute__((no_instrument_function)) int mutex_is_locked(struct
 {
  return atomic_read(&lock->count) != 1;
 }
-# 152 "include/linux/mutex.h"
 extern void mutex_lock(struct mutex *lock);
 extern int __attribute__((warn_unused_result)) mutex_lock_interruptible(struct mutex *lock);
 extern int __attribute__((warn_unused_result)) mutex_lock_killable(struct mutex *lock);
-# 168 "include/linux/mutex.h"
 extern int mutex_trylock(struct mutex *lock);
 extern void mutex_unlock(struct mutex *lock);
 extern int atomic_dec_and_mutex_lock(atomic_t *cnt, struct mutex *lock);
-# 14 "include/linux/notifier.h" 2
-# 1 "include/linux/rwsem.h" 1
-# 19 "include/linux/rwsem.h"
 struct rw_semaphore;
 
 
@@ -8910,8 +8204,6 @@ extern struct rw_semaphore *rwsem_wake(struct rw_semaphore *);
 extern struct rw_semaphore *rwsem_downgrade_wake(struct rw_semaphore *sem);
 
 
-# 1 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/rwsem.h" 1
-# 63 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/rwsem.h"
 static inline __attribute__((no_instrument_function)) void __down_read(struct rw_semaphore *sem)
 {
  asm volatile("# beginning down_read\n\t"
@@ -9058,17 +8350,14 @@ static inline __attribute__((no_instrument_function)) long rwsem_atomic_update(l
 {
  return delta + ({ __typeof__ (*(((&sem->count)))) __ret = (((delta))); switch (sizeof(*(((&sem->count))))) { case 1: asm volatile (".section .smp_locks,\"a\"\n" ".balign 4\n" ".long 671f - .\n" ".previous\n" "671:" "\n\tlock; " "xadd" "b %b0, %1\n" : "+q" (__ret), "+m" (*(((&sem->count)))) : : "memory", "cc"); break; case 2: asm volatile (".section .smp_locks,\"a\"\n" ".balign 4\n" ".long 671f - .\n" ".previous\n" "671:" "\n\tlock; " "xadd" "w %w0, %1\n" : "+r" (__ret), "+m" (*(((&sem->count)))) : : "memory", "cc"); break; case 4: asm volatile (".section .smp_locks,\"a\"\n" ".balign 4\n" ".long 671f - .\n" ".previous\n" "671:" "\n\tlock; " "xadd" "l %0, %1\n" : "+r" (__ret), "+m" (*(((&sem->count)))) : : "memory", "cc"); break; case 8: asm volatile (".section .smp_locks,\"a\"\n" ".balign 4\n" ".long 671f - .\n" ".previous\n" "671:" "\n\tlock; " "xadd" "q %q0, %1\n" : "+r" (__ret), "+m" (*(((&sem->count)))) : : "memory", "cc"); break; default: __xadd_wrong_size(); } __ret; });
 }
-# 41 "include/linux/rwsem.h" 2
 
 
 static inline __attribute__((no_instrument_function)) int rwsem_is_locked(struct rw_semaphore *sem)
 {
  return sem->count != 0;
 }
-# 67 "include/linux/rwsem.h"
 extern void __init_rwsem(struct rw_semaphore *sem, const char *name,
     struct lock_class_key *key);
-# 80 "include/linux/rwsem.h"
 extern void down_read(struct rw_semaphore *sem);
 
 
@@ -9100,18 +8389,10 @@ extern void up_write(struct rw_semaphore *sem);
 
 
 extern void downgrade_write(struct rw_semaphore *sem);
-# 15 "include/linux/notifier.h" 2
-# 1 "include/linux/srcu.h" 1
-# 31 "include/linux/srcu.h"
-# 1 "include/linux/rcupdate.h" 1
-# 43 "include/linux/rcupdate.h"
-# 1 "include/linux/completion.h" 1
-# 25 "include/linux/completion.h"
 struct completion {
  unsigned int done;
  wait_queue_head_t wait;
 };
-# 73 "include/linux/completion.h"
 static inline __attribute__((no_instrument_function)) void init_completion(struct completion *x)
 {
  x->done = 0;
@@ -9132,8 +8413,6 @@ extern bool completion_done(struct completion *x);
 
 extern void complete(struct completion *);
 extern void complete_all(struct completion *);
-# 44 "include/linux/rcupdate.h" 2
-# 1 "include/linux/debugobjects.h" 1
 
 
 
@@ -9151,7 +8430,6 @@ enum debug_obj_state {
 };
 
 struct debug_obj_descr;
-# 27 "include/linux/debugobjects.h"
 struct debug_obj {
  struct hlist_node node;
  enum debug_obj_state state;
@@ -9159,7 +8437,6 @@ struct debug_obj {
  void *object;
  struct debug_obj_descr *descr;
 };
-# 52 "include/linux/debugobjects.h"
 struct debug_obj_descr {
  const char *name;
  void *(*debug_hint) (void *addr);
@@ -9191,23 +8468,17 @@ debug_object_active_state(void *addr, struct debug_obj_descr *descr,
 
 extern void debug_objects_early_init(void);
 extern void debug_objects_mem_init(void);
-# 104 "include/linux/debugobjects.h"
 extern void debug_check_no_obj_freed(const void *address, unsigned long size);
-# 45 "include/linux/rcupdate.h" 2
-# 53 "include/linux/rcupdate.h"
 extern void rcutorture_record_test_transition(void);
 extern void rcutorture_record_progress(unsigned long vernum);
 extern void do_trace_rcu_torture_read(char *rcutorturename,
           struct rcu_head *rhp);
-# 122 "include/linux/rcupdate.h"
 extern void call_rcu_bh(struct rcu_head *head,
    void (*func)(struct rcu_head *head));
-# 141 "include/linux/rcupdate.h"
 extern void call_rcu_sched(struct rcu_head *head,
       void (*func)(struct rcu_head *rcu));
 
 extern void synchronize_sched(void);
-# 162 "include/linux/rcupdate.h"
 static inline __attribute__((no_instrument_function)) void __rcu_read_lock(void)
 {
  do { do { (current_thread_info()->preempt_count) += (1); } while (0); __asm__ __volatile__("": : :"memory"); } while (0);
@@ -9239,14 +8510,11 @@ extern void rcu_idle_enter(void);
 extern void rcu_idle_exit(void);
 extern void rcu_irq_enter(void);
 extern void rcu_irq_exit(void);
-# 226 "include/linux/rcupdate.h"
 typedef void call_rcu_func_t(struct rcu_head *head,
         void (*func)(struct rcu_head *head));
 void wait_rcu_gp(call_rcu_func_t crf);
 
 
-# 1 "include/linux/rcutree.h" 1
-# 33 "include/linux/rcutree.h"
 extern void rcu_init(void);
 extern void rcu_note_context_switch(int cpu);
 extern int rcu_needs_cpu(int cpu);
@@ -9279,7 +8547,6 @@ extern void synchronize_sched_expedited(void);
 extern void synchronize_rcu_expedited(void);
 
 void kfree_call_rcu(struct rcu_head *head, void (*func)(struct rcu_head *rcu));
-# 82 "include/linux/rcutree.h"
 static inline __attribute__((no_instrument_function)) void synchronize_rcu_bh_expedited(void)
 {
  synchronize_sched_expedited();
@@ -9308,16 +8575,12 @@ static inline __attribute__((no_instrument_function)) int rcu_blocking_is_gp(voi
 
 extern void rcu_scheduler_starting(void);
 extern int rcu_scheduler_active __attribute__((__section__(".data..read_mostly")));
-# 232 "include/linux/rcupdate.h" 2
-# 245 "include/linux/rcupdate.h"
 extern void init_rcu_head_on_stack(struct rcu_head *head);
 extern void destroy_rcu_head_on_stack(struct rcu_head *head);
-# 260 "include/linux/rcupdate.h"
 static inline __attribute__((no_instrument_function)) bool rcu_lockdep_current_cpu_online(void)
 {
  return 1;
 }
-# 387 "include/linux/rcupdate.h"
 static inline __attribute__((no_instrument_function)) int rcu_read_lock_held(void)
 {
  return 1;
@@ -9333,7 +8596,6 @@ static inline __attribute__((no_instrument_function)) int rcu_read_lock_sched_he
 {
  return (current_thread_info()->preempt_count) != 0 || ({ unsigned long _flags; do { ({ unsigned long __dummy; typeof(_flags) __dummy2; (void)(&__dummy == &__dummy2); 1; }); _flags = arch_local_save_flags(); } while (0); ({ ({ unsigned long __dummy; typeof(_flags) __dummy2; (void)(&__dummy == &__dummy2); 1; }); arch_irqs_disabled_flags(_flags); }); });
 }
-# 723 "include/linux/rcupdate.h"
 static inline __attribute__((no_instrument_function)) void rcu_read_lock(void)
 {
  __rcu_read_lock();
@@ -9342,7 +8604,6 @@ static inline __attribute__((no_instrument_function)) void rcu_read_lock(void)
  do { } while (0)
                                                   ;
 }
-# 747 "include/linux/rcupdate.h"
 static inline __attribute__((no_instrument_function)) void rcu_read_unlock(void)
 {
  do { } while (0)
@@ -9351,7 +8612,6 @@ static inline __attribute__((no_instrument_function)) void rcu_read_unlock(void)
  (void)0;
  __rcu_read_unlock();
 }
-# 773 "include/linux/rcupdate.h"
 static inline __attribute__((no_instrument_function)) void rcu_read_lock_bh(void)
 {
  local_bh_disable();
@@ -9374,7 +8634,6 @@ static inline __attribute__((no_instrument_function)) void rcu_read_unlock_bh(vo
  (void)0;
  local_bh_enable();
 }
-# 809 "include/linux/rcupdate.h"
 static inline __attribute__((no_instrument_function)) void rcu_read_lock_sched(void)
 {
  do { do { (current_thread_info()->preempt_count) += (1); } while (0); __asm__ __volatile__("": : :"memory"); } while (0);
@@ -9411,7 +8670,6 @@ static inline __attribute__((no_instrument_function)) __attribute__((no_instrume
  (void)0;
  do { do { __asm__ __volatile__("": : :"memory"); do { (current_thread_info()->preempt_count) -= (1); } while (0); } while (0); __asm__ __volatile__("": : :"memory"); do { } while (0); } while (0);
 }
-# 907 "include/linux/rcupdate.h"
 static inline __attribute__((no_instrument_function)) __attribute__((always_inline)) bool __is_kfree_rcu_offset(unsigned long offset)
 {
  return offset < 4096;
@@ -9429,7 +8687,6 @@ void __kfree_rcu(struct rcu_head *head, unsigned long offset)
 
  kfree_call_rcu(head, (rcu_callback)offset);
 }
-# 32 "include/linux/srcu.h" 2
 
 struct srcu_struct_array {
  int c[2];
@@ -9443,7 +8700,6 @@ struct srcu_struct {
 
 
 };
-# 66 "include/linux/srcu.h"
 int init_srcu_struct(struct srcu_struct *sp);
 
 
@@ -9454,12 +8710,10 @@ void __srcu_read_unlock(struct srcu_struct *sp, int idx) ;
 void synchronize_srcu(struct srcu_struct *sp);
 void synchronize_srcu_expedited(struct srcu_struct *sp);
 long srcu_batches_completed(struct srcu_struct *sp);
-# 119 "include/linux/srcu.h"
 static inline __attribute__((no_instrument_function)) int srcu_read_lock_held(struct srcu_struct *sp)
 {
  return 1;
 }
-# 170 "include/linux/srcu.h"
 static inline __attribute__((no_instrument_function)) int srcu_read_lock(struct srcu_struct *sp)
 {
  int retval = __srcu_read_lock(sp);
@@ -9469,7 +8723,6 @@ static inline __attribute__((no_instrument_function)) int srcu_read_lock(struct 
                                                    ;
  return retval;
 }
-# 187 "include/linux/srcu.h"
 static inline __attribute__((no_instrument_function)) void srcu_read_unlock(struct srcu_struct *sp, int idx)
 
 {
@@ -9478,7 +8731,6 @@ static inline __attribute__((no_instrument_function)) void srcu_read_unlock(stru
  do { } while (0);
  __srcu_read_unlock(sp, idx);
 }
-# 211 "include/linux/srcu.h"
 static inline __attribute__((no_instrument_function)) int srcu_read_lock_raw(struct srcu_struct *sp)
 {
  unsigned long flags;
@@ -9489,7 +8741,6 @@ static inline __attribute__((no_instrument_function)) int srcu_read_lock_raw(str
  do { if (({ ({ unsigned long __dummy; typeof(flags) __dummy2; (void)(&__dummy == &__dummy2); 1; }); arch_irqs_disabled_flags(flags); })) { do { ({ unsigned long __dummy; typeof(flags) __dummy2; (void)(&__dummy == &__dummy2); 1; }); arch_local_irq_restore(flags); } while (0); trace_hardirqs_off(); } else { trace_hardirqs_on(); do { ({ unsigned long __dummy; typeof(flags) __dummy2; (void)(&__dummy == &__dummy2); 1; }); arch_local_irq_restore(flags); } while (0); } } while (0);
  return ret;
 }
-# 230 "include/linux/srcu.h"
 static inline __attribute__((no_instrument_function)) void srcu_read_unlock_raw(struct srcu_struct *sp, int idx)
 {
  unsigned long flags;
@@ -9498,8 +8749,6 @@ static inline __attribute__((no_instrument_function)) void srcu_read_unlock_raw(
  __srcu_read_unlock(sp, idx);
  do { if (({ ({ unsigned long __dummy; typeof(flags) __dummy2; (void)(&__dummy == &__dummy2); 1; }); arch_irqs_disabled_flags(flags); })) { do { ({ unsigned long __dummy; typeof(flags) __dummy2; (void)(&__dummy == &__dummy2); 1; }); arch_local_irq_restore(flags); } while (0); trace_hardirqs_off(); } else { trace_hardirqs_on(); do { ({ unsigned long __dummy; typeof(flags) __dummy2; (void)(&__dummy == &__dummy2); 1; }); arch_local_irq_restore(flags); } while (0); } } while (0);
 }
-# 16 "include/linux/notifier.h" 2
-# 50 "include/linux/notifier.h"
 struct notifier_block {
  int (*notifier_call)(struct notifier_block *, unsigned long, void *);
  struct notifier_block *next;
@@ -9525,9 +8774,7 @@ struct srcu_notifier_head {
  struct srcu_struct srcu;
  struct notifier_block *head;
 };
-# 89 "include/linux/notifier.h"
 extern void srcu_init_notifier_head(struct srcu_notifier_head *nh);
-# 115 "include/linux/notifier.h"
 extern int atomic_notifier_chain_register(struct atomic_notifier_head *nh,
   struct notifier_block *nb);
 extern int blocking_notifier_chain_register(struct blocking_notifier_head *nh,
@@ -9566,7 +8813,6 @@ extern int srcu_notifier_call_chain(struct srcu_notifier_head *nh,
   unsigned long val, void *v);
 extern int __srcu_notifier_call_chain(struct srcu_notifier_head *nh,
  unsigned long val, void *v, int nr_to_call, int *nr_calls);
-# 165 "include/linux/notifier.h"
 static inline __attribute__((no_instrument_function)) int notifier_from_errno(int err)
 {
  if (err)
@@ -9581,9 +8827,7 @@ static inline __attribute__((no_instrument_function)) int notifier_to_errno(int 
  ret &= ~0x8000;
  return ret > 0x0001 ? 0x0001 - ret : 0;
 }
-# 209 "include/linux/notifier.h"
 extern struct blocking_notifier_head reboot_notifier_list;
-# 7 "include/linux/memory_hotplug.h" 2
 
 
 struct page;
@@ -9674,25 +8918,20 @@ extern int __remove_pages(struct zone *zone, unsigned long start_pfn,
 
 
 extern int memory_add_physaddr_to_nid(u64 start);
-# 141 "include/linux/memory_hotplug.h"
 extern pg_data_t *node_data[];
 static inline __attribute__((no_instrument_function)) void arch_refresh_nodedata(int nid, pg_data_t *pgdat)
 {
  node_data[nid] = pgdat;
 }
-# 165 "include/linux/memory_hotplug.h"
 static inline __attribute__((no_instrument_function)) void register_page_bootmem_info_node(struct pglist_data *pgdat)
 {
 }
 static inline __attribute__((no_instrument_function)) void put_page_bootmem(struct page *page)
 {
 }
-# 182 "include/linux/memory_hotplug.h"
 void lock_memory_hotplug(void);
 void unlock_memory_hotplug(void);
-# 223 "include/linux/memory_hotplug.h"
 extern int is_mem_section_removable(unsigned long pfn, unsigned long nr_pages);
-# 233 "include/linux/memory_hotplug.h"
 extern int mem_online_node(int nid);
 extern int add_memory(int nid, u64 start, u64 size);
 extern int arch_add_memory(int nid, u64 start, u64 size);
@@ -9702,7 +8941,6 @@ extern int sparse_add_one_section(struct zone *zone, unsigned long start_pfn,
 extern void sparse_remove_one_section(struct zone *zone, struct mem_section *ms);
 extern struct page *sparse_decode_mem_map(unsigned long coded_mem_map,
        unsigned long pnum);
-# 688 "include/linux/mmzone.h" 2
 
 extern struct mutex zonelists_mutex;
 void build_all_zonelists(void *data);
@@ -9729,7 +8967,6 @@ void memory_present(int nid, unsigned long start, unsigned long end);
 
 
 static inline __attribute__((no_instrument_function)) int local_memory_node(int node_id) { return node_id; };
-# 725 "include/linux/mmzone.h"
 static inline __attribute__((no_instrument_function)) int populated_zone(struct zone *zone)
 {
  return (!!zone->present_pages);
@@ -9819,25 +9056,14 @@ int sysctl_min_slab_ratio_sysctl_handler(struct ctl_table *, int,
 extern int numa_zonelist_order_handler(struct ctl_table *, int,
    void *, size_t *, loff_t *);
 extern char numa_zonelist_order[];
-# 824 "include/linux/mmzone.h"
-# 1 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/mmzone.h" 1
-
-
-
-# 1 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/mmzone_64.h" 1
-# 9 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/mmzone_64.h"
-# 1 "include/linux/mmdebug.h" 1
-# 10 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/mmzone_64.h" 2
-# 1 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/smp.h" 1
-# 12 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/smp.h"
-# 1 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/mpspec.h" 1
 
 
 
 
 
-# 1 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/mpspec_def.h" 1
-# 21 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/mpspec_def.h"
+
+
+
 struct mpf_intel {
  char signature[4];
  unsigned int physptr;
@@ -9866,7 +9092,6 @@ struct mpc_table {
  unsigned int lapic;
  unsigned int reserved;
 };
-# 67 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/mpspec_def.h"
 struct mpc_cpu {
  unsigned char type;
  unsigned char apicid;
@@ -9882,7 +9107,6 @@ struct mpc_bus {
  unsigned char busid;
  unsigned char bustype[6];
 };
-# 105 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/mpspec_def.h"
 struct mpc_ioapic {
  unsigned char type;
  unsigned char apicid;
@@ -9933,26 +9157,20 @@ struct mpc_oemtable {
  char checksum;
  char mpc[8];
 };
-# 168 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/mpspec_def.h"
 enum mp_bustype {
  MP_BUS_ISA = 1,
  MP_BUS_EISA,
  MP_BUS_PCI,
  MP_BUS_MCA,
 };
-# 7 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/mpspec.h" 2
-# 1 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/x86_init.h" 1
 
 
 
 
-# 1 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/bootparam.h" 1
 
 
 
 
-# 1 "include/linux/screen_info.h" 1
-# 10 "include/linux/screen_info.h"
 struct screen_info {
  __u8 orig_x;
  __u8 orig_y;
@@ -9991,11 +9209,7 @@ struct screen_info {
  __u32 capabilities;
  __u8 _reserved[6];
 } __attribute__((packed));
-# 72 "include/linux/screen_info.h"
 extern struct screen_info screen_info;
-# 6 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/bootparam.h" 2
-# 1 "include/linux/apm_bios.h" 1
-# 21 "include/linux/apm_bios.h"
 typedef unsigned short apm_event_t;
 typedef unsigned short apm_eventinfo_t;
 
@@ -10010,7 +9224,6 @@ struct apm_bios_info {
  __u16 cseg_16_len;
  __u16 dseg_len;
 };
-# 52 "include/linux/apm_bios.h"
 struct apm_info {
  struct apm_bios_info bios;
  unsigned short connection_version;
@@ -10021,11 +9234,7 @@ struct apm_info {
  int realmode_power_off;
  int disabled;
 };
-# 111 "include/linux/apm_bios.h"
 extern struct apm_info apm_info;
-# 7 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/bootparam.h" 2
-# 1 "include/linux/edd.h" 1
-# 71 "include/linux/edd.h"
 struct edd_device_params {
  __u16 length;
  __u16 info_flags;
@@ -10146,9 +9355,6 @@ struct edd {
 
 
 extern struct edd edd;
-# 8 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/bootparam.h" 2
-# 1 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/e820.h" 1
-# 58 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/e820.h"
 struct e820entry {
  __u64 addr;
  __u64 size;
@@ -10159,7 +9365,6 @@ struct e820map {
  __u32 nr_map;
  struct e820entry map[(128 + 3 * (1 << 10))];
 };
-# 80 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/e820.h"
 extern struct e820map e820;
 extern struct e820map e820_saved;
 
@@ -10224,8 +9429,6 @@ static inline __attribute__((no_instrument_function)) bool is_ISA_range(u64 s, u
 
 
 
-# 1 "include/linux/ioport.h" 1
-# 18 "include/linux/ioport.h"
 struct resource {
  resource_size_t start;
  resource_size_t end;
@@ -10233,7 +9436,6 @@ struct resource {
  unsigned long flags;
  struct resource *parent, *sibling, *child;
 };
-# 137 "include/linux/ioport.h"
 extern struct resource ioport_resource;
 extern struct resource iomem_resource;
 
@@ -10268,7 +9470,6 @@ static inline __attribute__((no_instrument_function)) unsigned long resource_typ
 {
  return res->flags & 0x00001f00;
 }
-# 181 "include/linux/ioport.h"
 extern struct resource * __request_region(struct resource *,
      resource_size_t start,
      resource_size_t n,
@@ -10313,10 +9514,6 @@ extern int iomem_is_exclusive(u64 addr);
 extern int
 walk_system_ram_range(unsigned long start_pfn, unsigned long nr_pages,
   void *arg, int (*func)(unsigned long, unsigned long, void *));
-# 145 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/e820.h" 2
-# 9 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/bootparam.h" 2
-# 1 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/ist.h" 1
-# 22 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/ist.h"
 struct ist_info {
  __u32 signature;
  __u32 command;
@@ -10327,8 +9524,6 @@ struct ist_info {
 
 
 extern struct ist_info ist_info;
-# 10 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/bootparam.h" 2
-# 1 "include/video/edid.h" 1
 
 
 
@@ -10339,7 +9534,6 @@ struct edid_info {
 
 
 extern struct edid_info edid_info;
-# 11 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/bootparam.h" 2
 
 
 
@@ -10462,13 +9656,11 @@ enum {
  X86_SUBARCH_CE4100,
  X86_NR_SUBARCHS,
 };
-# 6 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/x86_init.h" 2
 
 struct mpc_bus;
 struct mpc_cpu;
 struct mpc_table;
 struct cpuinfo_x86;
-# 23 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/x86_init.h"
 struct x86_init_mpparse {
  void (*mpc_record)(unsigned int mode);
  void (*setup_ioapic_ids)(void);
@@ -10479,13 +9671,11 @@ struct x86_init_mpparse {
  void (*find_smp_config)(void);
  void (*get_smp_config)(unsigned int early);
 };
-# 42 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/x86_init.h"
 struct x86_init_resources {
  void (*probe_roms)(void);
  void (*reserve_resources)(void);
  char *(*memory_setup)(void);
 };
-# 55 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/x86_init.h"
 struct x86_init_irqs {
  void (*pre_vector_init)(void);
  void (*intr_init)(void);
@@ -10501,7 +9691,6 @@ struct x86_init_oem {
  void (*arch_setup)(void);
  void (*banner)(void);
 };
-# 78 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/x86_init.h"
 struct x86_init_mapping {
  void (*pagetable_reserve)(u64 start, u64 end);
 };
@@ -10515,7 +9704,6 @@ struct x86_init_paging {
  void (*pagetable_setup_start)(pgd_t *base);
  void (*pagetable_setup_done)(pgd_t *base);
 };
-# 100 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/x86_init.h"
 struct x86_init_timers {
  void (*setup_percpu_clockev)(void);
  void (*tsc_pre_init)(void);
@@ -10530,7 +9718,6 @@ struct x86_init_timers {
 struct x86_init_iommu {
  int (*iommu_init)(void);
 };
-# 122 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/x86_init.h"
 struct x86_init_pci {
  int (*arch_init)(void);
  int (*init)(void);
@@ -10564,7 +9751,6 @@ struct x86_cpuinit_ops {
  void (*early_percpu_clock_init)(void);
  void (*fixup_cpu_id)(struct cpuinfo_x86 *c, int node);
 };
-# 168 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/x86_init.h"
 struct x86_platform_ops {
  unsigned long (*calibrate_tsc)(void);
  void (*wallclock_init)(void);
@@ -10595,9 +9781,6 @@ extern struct x86_msi_ops x86_msi;
 
 extern void x86_init_noop(void);
 extern void x86_init_uint_noop(unsigned int unused);
-# 8 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/mpspec.h" 2
-# 1 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/apicdef.h" 1
-# 178 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/apicdef.h"
 struct local_apic {
 
         struct { unsigned int __reserved[4]; } __reserved_01;
@@ -10845,7 +10028,6 @@ struct local_apic {
         struct { unsigned int __reserved[4]; } __reserved_20;
 
 } __attribute__ ((packed));
-# 434 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/apicdef.h"
 enum ioapic_irq_destination_types {
  dest_Fixed = 0,
  dest_LowestPrio = 1,
@@ -10856,11 +10038,9 @@ enum ioapic_irq_destination_types {
  dest__reserved_2 = 6,
  dest_ExtINT = 7
 };
-# 9 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/mpspec.h" 2
 
 extern int apic_version[];
 extern int pic_mode;
-# 47 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/mpspec.h"
 extern unsigned long mp_bus_not_pci[(((256) + (8 * sizeof(long)) - 1) / (8 * sizeof(long)))];
 
 extern unsigned int boot_cpu_physical_apicid;
@@ -10901,7 +10081,6 @@ extern void default_mpc_oem_bus_info(struct mpc_bus *m, char *str);
 
 extern void default_find_smp_config(void);
 extern void default_get_smp_config(unsigned int early);
-# 97 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/mpspec.h"
 void __attribute__ ((__section__(".cpuinit.text"))) __attribute__((no_instrument_function)) generic_processor_info(int apicid, int version);
 
 extern void mp_register_ioapic(int id, u32 address, u32 gsi_base);
@@ -10920,7 +10099,6 @@ struct physid_mask {
 };
 
 typedef struct physid_mask physid_mask_t;
-# 149 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/mpspec.h"
 static inline __attribute__((no_instrument_function)) unsigned long physids_coerce(physid_mask_t *map)
 {
  return map->mask[0];
@@ -10946,15 +10124,6 @@ extern physid_mask_t phys_cpu_present_map;
 extern int generic_mps_oem_check(struct mpc_table *, char *, char *);
 
 extern int default_acpi_madt_oem_check(char *, char *);
-# 13 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/smp.h" 2
-# 1 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/apic.h" 1
-
-
-
-
-# 1 "include/linux/pm.h" 1
-# 25 "include/linux/pm.h"
-# 1 "include/linux/workqueue.h" 1
 
 
 
@@ -10962,14 +10131,6 @@ extern int default_acpi_madt_oem_check(char *, char *);
 
 
 
-# 1 "include/linux/timer.h" 1
-
-
-
-
-# 1 "include/linux/ktime.h" 1
-# 25 "include/linux/ktime.h"
-# 1 "include/linux/jiffies.h" 1
 
 
 
@@ -10977,8 +10138,14 @@ extern int default_acpi_madt_oem_check(char *, char *);
 
 
 
-# 1 "include/linux/timex.h" 1
-# 64 "include/linux/timex.h"
+
+
+
+
+
+
+
+
 struct timex {
  unsigned int modes;
  long offset;
@@ -11009,24 +10176,14 @@ struct timex {
  int :32; int :32; int :32; int :32;
  int :32; int :32; int :32;
 };
-# 172 "include/linux/timex.h"
-# 1 "include/linux/param.h" 1
-
-
-
-# 1 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/param.h" 1
-# 1 "include/asm-generic/param.h" 1
-# 1 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/param.h" 2
-# 5 "include/linux/param.h" 2
-# 173 "include/linux/timex.h" 2
-
-# 1 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/timex.h" 1
 
 
 
 
-# 1 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/tsc.h" 1
-# 15 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/tsc.h"
+
+
+
+
 typedef unsigned long long cycles_t;
 
 extern unsigned int cpu_khz;
@@ -11049,7 +10206,6 @@ static inline __attribute__((no_instrument_function)) cycles_t get_cycles(void)
 
 static inline __attribute__((no_instrument_function)) __attribute__((always_inline)) cycles_t vget_cycles(void)
 {
-# 45 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/tsc.h"
  return (cycles_t)__native_read_tsc();
 }
 
@@ -11071,15 +10227,11 @@ extern void check_tsc_sync_target(void);
 extern int notsc_setup(char *);
 extern void tsc_save_sched_clock_state(void);
 extern void tsc_restore_sched_clock_state(void);
-# 6 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/timex.h" 2
-# 175 "include/linux/timex.h" 2
-# 234 "include/linux/timex.h"
 extern unsigned long tick_usec;
 extern unsigned long tick_nsec;
 
 extern void ntp_init(void);
 extern void ntp_clear(void);
-# 253 "include/linux/timex.h"
 extern u64 ntp_tick_length(void);
 
 extern int second_overflow(unsigned long secs);
@@ -11087,10 +10239,6 @@ extern int do_adjtimex(struct timex *);
 extern void hardpps(const struct timespec *, const struct timespec *);
 
 int read_current_timer(unsigned long *timer_val);
-# 9 "include/linux/jiffies.h" 2
-# 1 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/param.h" 1
-# 10 "include/linux/jiffies.h" 2
-# 81 "include/linux/jiffies.h"
 extern u64 __attribute__((section(".data"))) jiffies_64;
 extern unsigned long volatile __attribute__((section(".data"))) jiffies;
 
@@ -11101,9 +10249,7 @@ static inline __attribute__((no_instrument_function)) u64 get_jiffies_64(void)
 {
  return (u64)jiffies;
 }
-# 183 "include/linux/jiffies.h"
 extern unsigned long preset_lpj;
-# 296 "include/linux/jiffies.h"
 extern unsigned int jiffies_to_msecs(const unsigned long j);
 extern unsigned int jiffies_to_usecs(const unsigned long j);
 extern unsigned long msecs_to_jiffies(const unsigned int m);
@@ -11120,15 +10266,11 @@ extern u64 jiffies_64_to_clock_t(u64 x);
 extern u64 nsec_to_clock_t(u64 x);
 extern u64 nsecs_to_jiffies64(u64 n);
 extern unsigned long nsecs_to_jiffies(u64 n);
-# 26 "include/linux/ktime.h" 2
-# 46 "include/linux/ktime.h"
 union ktime {
  s64 tv64;
-# 57 "include/linux/ktime.h"
 };
 
 typedef union ktime ktime_t;
-# 81 "include/linux/ktime.h"
 static inline __attribute__((no_instrument_function)) ktime_t ktime_set(const long secs, const unsigned long nsecs)
 {
 
@@ -11137,7 +10279,6 @@ static inline __attribute__((no_instrument_function)) ktime_t ktime_set(const lo
 
  return (ktime_t) { .tv64 = (s64)secs * 1000000000L + (s64)nsecs };
 }
-# 113 "include/linux/ktime.h"
 static inline __attribute__((no_instrument_function)) ktime_t timespec_to_ktime(struct timespec ts)
 {
  return ktime_set(ts.tv_sec, ts.tv_nsec);
@@ -11148,7 +10289,6 @@ static inline __attribute__((no_instrument_function)) ktime_t timeval_to_ktime(s
 {
  return ktime_set(tv.tv_sec, tv.tv_usec * 1000L);
 }
-# 287 "include/linux/ktime.h"
 static inline __attribute__((no_instrument_function)) int ktime_equal(const ktime_t cmp1, const ktime_t cmp2)
 {
  return cmp1.tv64 == cmp2.tv64;
@@ -11182,7 +10322,6 @@ static inline __attribute__((no_instrument_function)) ktime_t ktime_sub_us(const
 }
 
 extern ktime_t ktime_add_safe(const ktime_t lhs, const ktime_t rhs);
-# 331 "include/linux/ktime.h"
 extern void ktime_get_ts(struct timespec *ts);
 
 
@@ -11193,7 +10332,6 @@ static inline __attribute__((no_instrument_function)) ktime_t ns_to_ktime(u64 ns
  static const ktime_t ktime_zero = { .tv64 = 0 };
  return ({ (ktime_t){ .tv64 = (ktime_zero).tv64 + (ns) }; });
 }
-# 6 "include/linux/timer.h" 2
 
 
 
@@ -11225,19 +10363,16 @@ struct timer_list {
 };
 
 extern struct tvec_base boot_tvec_bases;
-# 91 "include/linux/timer.h"
 void init_timer_key(struct timer_list *timer,
       const char *name,
       struct lock_class_key *key);
 void init_timer_deferrable_key(struct timer_list *timer,
           const char *name,
           struct lock_class_key *key);
-# 152 "include/linux/timer.h"
 extern void init_timer_on_stack_key(struct timer_list *timer,
         const char *name,
         struct lock_class_key *key);
 extern void destroy_timer_on_stack(struct timer_list *timer);
-# 166 "include/linux/timer.h"
 static inline __attribute__((no_instrument_function)) void setup_timer_key(struct timer_list * timer,
     const char *name,
     struct lock_class_key *key,
@@ -11265,7 +10400,6 @@ extern void setup_deferrable_timer_on_stack_key(struct timer_list *timer,
       struct lock_class_key *key,
       void (*function)(unsigned long),
       unsigned long data);
-# 204 "include/linux/timer.h"
 static inline __attribute__((no_instrument_function)) int timer_pending(const struct timer_list * timer)
 {
  return timer->entry.next != ((void *)0);
@@ -11278,7 +10412,6 @@ extern int mod_timer_pending(struct timer_list *timer, unsigned long expires);
 extern int mod_timer_pinned(struct timer_list *timer, unsigned long expires);
 
 extern void set_timer_slack(struct timer_list *time, int slack_hz);
-# 230 "include/linux/timer.h"
 extern unsigned long get_next_timer_interrupt(unsigned long now);
 
 
@@ -11310,7 +10443,6 @@ static inline __attribute__((no_instrument_function)) void timer_stats_timer_cle
 {
  timer->start_site = ((void *)0);
 }
-# 275 "include/linux/timer.h"
 extern void add_timer(struct timer_list *timer);
 
 extern int try_to_del_timer_sync(struct timer_list *timer);
@@ -11337,7 +10469,6 @@ unsigned long __round_jiffies_up(unsigned long j, int cpu);
 unsigned long __round_jiffies_up_relative(unsigned long j, int cpu);
 unsigned long round_jiffies_up(unsigned long j);
 unsigned long round_jiffies_up_relative(unsigned long j);
-# 9 "include/linux/workqueue.h" 2
 
 
 
@@ -11375,7 +10506,6 @@ enum {
  WORK_STRUCT_LINKED = 1 << WORK_STRUCT_LINKED_BIT,
 
  WORK_STRUCT_STATIC = 1 << WORK_STRUCT_STATIC_BIT,
-# 54 "include/linux/workqueue.h"
  WORK_NR_COLORS = (1 << WORK_STRUCT_COLOR_BITS) - 1,
  WORK_NO_COLOR = WORK_NR_COLORS,
 
@@ -11427,14 +10557,12 @@ static inline __attribute__((no_instrument_function)) struct delayed_work *to_de
 struct execute_work {
  struct work_struct work;
 };
-# 156 "include/linux/workqueue.h"
 extern void __init_work(struct work_struct *work, int onstack);
 extern void destroy_work_on_stack(struct work_struct *work);
 static inline __attribute__((no_instrument_function)) unsigned int work_static(struct work_struct *work)
 {
  return *((unsigned long *)(&(work)->data)) & WORK_STRUCT_STATIC;
 }
-# 250 "include/linux/workqueue.h"
 enum {
  WQ_NON_REENTRANT = 1 << 0,
  WQ_UNBOUND = 1 << 1,
@@ -11450,7 +10578,6 @@ enum {
  WQ_MAX_UNBOUND_PER_CPU = 4,
  WQ_DFL_ACTIVE = WQ_MAX_ACTIVE / 2,
 };
-# 296 "include/linux/workqueue.h"
 extern struct workqueue_struct *system_wq;
 extern struct workqueue_struct *system_long_wq;
 extern struct workqueue_struct *system_nrt_wq;
@@ -11461,7 +10588,6 @@ extern struct workqueue_struct *system_nrt_freezable_wq;
 extern struct workqueue_struct *
 __alloc_workqueue_key(const char *fmt, unsigned int flags, int max_active,
  struct lock_class_key *key, const char *lock_name, ...) __attribute__((format(printf, 1, 6)));
-# 366 "include/linux/workqueue.h"
 extern void destroy_workqueue(struct workqueue_struct *wq);
 
 extern int queue_work(struct workqueue_struct *wq, struct work_struct *work);
@@ -11544,8 +10670,6 @@ long work_on_cpu(unsigned int cpu, long (*fn)(void *), void *arg);
 extern void freeze_workqueues_begin(void);
 extern bool freeze_workqueues_busy(void);
 extern void thaw_workqueues(void);
-# 26 "include/linux/pm.h" 2
-# 34 "include/linux/pm.h"
 extern void (*pm_idle)(void);
 extern void (*pm_power_off)(void);
 extern void (*pm_power_off_prepare)(void);
@@ -11565,7 +10689,6 @@ extern const char power_group_name[];
 typedef struct pm_message {
  int event;
 } pm_message_t;
-# 264 "include/linux/pm.h"
 struct dev_pm_ops {
  int (*prepare)(struct device *dev);
  void (*complete)(struct device *dev);
@@ -11591,14 +10714,12 @@ struct dev_pm_ops {
  int (*runtime_resume)(struct device *dev);
  int (*runtime_idle)(struct device *dev);
 };
-# 458 "include/linux/pm.h"
 enum rpm_status {
  RPM_ACTIVE = 0,
  RPM_RESUMING,
  RPM_SUSPENDED,
  RPM_SUSPENDING,
 };
-# 480 "include/linux/pm.h"
 enum rpm_request {
  RPM_REQ_NONE = 0,
  RPM_REQ_IDLE,
@@ -11686,7 +10807,6 @@ extern int dev_pm_put_subsys_data(struct device *dev);
 struct dev_pm_domain {
  struct dev_pm_ops ops;
 };
-# 623 "include/linux/pm.h"
 extern void device_pm_lock(void);
 extern void dpm_resume_start(pm_message_t state);
 extern void dpm_resume_end(pm_message_t state);
@@ -11728,35 +10848,24 @@ extern int pm_generic_poweroff_noirq(struct device *dev);
 extern int pm_generic_poweroff_late(struct device *dev);
 extern int pm_generic_poweroff(struct device *dev);
 extern void pm_generic_complete(struct device *dev);
-# 693 "include/linux/pm.h"
 enum dpm_order {
  DPM_ORDER_NONE,
  DPM_ORDER_DEV_AFTER_PARENT,
  DPM_ORDER_PARENT_BEFORE_DEV,
  DPM_ORDER_DEV_LAST,
 };
-# 6 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/apic.h" 2
 
 
 
 
 
 
-# 1 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/fixmap.h" 1
-# 19 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/fixmap.h"
-# 1 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/acpi.h" 1
-# 26 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/acpi.h"
-# 1 "include/acpi/pdc_intel.h" 1
-# 27 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/acpi.h" 2
-
-# 1 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/numa.h" 1
 
 
 
 
 
-# 1 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/topology.h" 1
-# 51 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/topology.h"
+
 extern __attribute__((section(".discard"), unused)) char __pcpu_scope_x86_cpu_to_node_map; extern __attribute__((section(".data..percpu" ""))) __typeof__(int) x86_cpu_to_node_map; extern __typeof__(int) *x86_cpu_to_node_map_early_ptr; extern __typeof__(int) x86_cpu_to_node_map_early_map[];
 
 
@@ -11767,34 +10876,23 @@ extern int __cpu_to_node(int cpu);
 
 
 extern int early_cpu_to_node(int cpu);
-# 73 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/topology.h"
 extern cpumask_var_t node_to_cpumask_map[(1 << 10)];
 
 
 extern const struct cpumask *cpumask_of_node(int node);
-# 85 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/topology.h"
 extern void setup_node_to_cpumask_map(void);
-# 133 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/topology.h"
 extern int __node_distance(int, int);
-# 156 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/topology.h"
-# 1 "include/asm-generic/topology.h" 1
-# 157 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/topology.h" 2
 
 extern const struct cpumask *cpu_coregroup_mask(int cpu);
-# 170 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/topology.h"
 static inline __attribute__((no_instrument_function)) void arch_fix_phys_package_id(int num, u32 slot)
 {
 }
 
 struct pci_bus;
 void x86_pci_root_bus_resources(int bus, struct list_head *resources);
-# 184 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/topology.h"
 extern int get_mp_bus_to_node(int busnum);
 extern void set_mp_bus_to_node(int busnum, int node);
-# 7 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/numa.h" 2
-# 21 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/numa.h"
 extern int numa_off;
-# 31 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/numa.h"
 extern s16 __apicid_to_node[32768];
 extern nodemask_t numa_nodes_parsed __attribute__ ((__section__(".init.data")));
 
@@ -11807,13 +10905,10 @@ static inline __attribute__((no_instrument_function)) void set_apicid_to_node(in
 }
 
 extern int __attribute__ ((__section__(".cpuinit.text"))) __attribute__((no_instrument_function)) numa_cpu_node(int cpu);
-# 58 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/numa.h"
-# 1 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/numa_64.h" 1
 
 
 
 extern unsigned long numa_free_all_bootmem(void);
-# 59 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/numa.h" 2
 
 
 
@@ -11822,7 +10917,6 @@ extern void __attribute__ ((__section__(".cpuinit.text"))) __attribute__((no_ins
 extern void __attribute__ ((__section__(".init.text"))) __attribute__((no_instrument_function)) init_cpu_to_node(void);
 extern void __attribute__ ((__section__(".cpuinit.text"))) __attribute__((no_instrument_function)) numa_add_cpu(int cpu);
 extern void __attribute__ ((__section__(".cpuinit.text"))) __attribute__((no_instrument_function)) numa_remove_cpu(int cpu);
-# 76 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/numa.h"
 void debug_cpumask_set_cpu(int cpu, int node, bool enable);
 
 
@@ -11830,10 +10924,7 @@ void debug_cpumask_set_cpu(int cpu, int node, bool enable);
 
 
 void numa_emu_cmdline(char *);
-# 29 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/acpi.h" 2
 
-# 1 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/mmu.h" 1
-# 11 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/mmu.h"
 typedef struct {
  void *ldt;
  int size;
@@ -11849,17 +10940,13 @@ typedef struct {
 
 
 void leave_mm(int cpu);
-# 31 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/acpi.h" 2
-
-# 1 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/trampoline.h" 1
 
 
 
 
 
 
-# 1 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/io.h" 1
-# 53 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/io.h"
+
 static inline __attribute__((no_instrument_function)) unsigned char readb(const volatile void *addr) { unsigned char ret; asm volatile("mov" "b" " %1,%0":"=q" (ret) :"m" (*(volatile unsigned char *)addr) :"memory"); return ret; }
 static inline __attribute__((no_instrument_function)) unsigned short readw(const volatile void *addr) { unsigned short ret; asm volatile("mov" "w" " %1,%0":"=r" (ret) :"m" (*(volatile unsigned short *)addr) :"memory"); return ret; }
 static inline __attribute__((no_instrument_function)) unsigned int readl(const volatile void *addr) { unsigned int ret; asm volatile("mov" "l" " %1,%0":"=r" (ret) :"m" (*(volatile unsigned int *)addr) :"memory"); return ret; }
@@ -11875,25 +10962,20 @@ static inline __attribute__((no_instrument_function)) void writel(unsigned int v
 static inline __attribute__((no_instrument_function)) void __writeb(unsigned char val, volatile void *addr) { asm volatile("mov" "b" " %0,%1": :"q" (val), "m" (*(volatile unsigned char *)addr) ); }
 static inline __attribute__((no_instrument_function)) void __writew(unsigned short val, volatile void *addr) { asm volatile("mov" "w" " %0,%1": :"r" (val), "m" (*(volatile unsigned short *)addr) ); }
 static inline __attribute__((no_instrument_function)) void __writel(unsigned int val, volatile void *addr) { asm volatile("mov" "l" " %0,%1": :"r" (val), "m" (*(volatile unsigned int *)addr) ); }
-# 84 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/io.h"
 static inline __attribute__((no_instrument_function)) unsigned long readq(const volatile void *addr) { unsigned long ret; asm volatile("mov" "q" " %1,%0":"=r" (ret) :"m" (*(volatile unsigned long *)addr) :"memory"); return ret; }
 static inline __attribute__((no_instrument_function)) void writeq(unsigned long val, volatile void *addr) { asm volatile("mov" "q" " %0,%1": :"r" (val), "m" (*(volatile unsigned long *)addr) :"memory"); }
-# 111 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/io.h"
 static inline __attribute__((no_instrument_function)) phys_addr_t virt_to_phys(volatile void *address)
 {
  return __phys_addr((unsigned long)(address));
 }
-# 129 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/io.h"
 static inline __attribute__((no_instrument_function)) void *phys_to_virt(phys_addr_t address)
 {
  return ((void *)((unsigned long)(address)+((unsigned long)(0xffff880000000000UL))));
 }
-# 144 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/io.h"
 static inline __attribute__((no_instrument_function)) unsigned int isa_virt_to_bus(volatile void *address)
 {
  return (unsigned int)virt_to_phys(address);
 }
-# 174 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/io.h"
 extern void *ioremap_nocache(resource_size_t offset, unsigned long size);
 extern void *ioremap_cache(resource_size_t offset, unsigned long size);
 extern void *ioremap_prot(resource_size_t offset, unsigned long size,
@@ -11913,8 +10995,6 @@ extern void set_iounmap_nonlazy(void);
 
 
 
-# 1 "include/asm-generic/iomap.h" 1
-# 28 "include/asm-generic/iomap.h"
 extern unsigned int ioread8(void *);
 extern unsigned int ioread16(void *);
 extern unsigned int ioread16be(void *);
@@ -11926,7 +11006,6 @@ extern void iowrite16(u16, void *);
 extern void iowrite16be(u16, void *);
 extern void iowrite32(u32, void *);
 extern void iowrite32be(u32, void *);
-# 51 "include/asm-generic/iomap.h"
 extern void ioread8_rep(void *port, void *buf, unsigned long count);
 extern void ioread16_rep(void *port, void *buf, unsigned long count);
 extern void ioread32_rep(void *port, void *buf, unsigned long count);
@@ -11939,7 +11018,6 @@ extern void iowrite32_rep(void *port, const void *buf, unsigned long count);
 
 extern void *ioport_map(unsigned long port, unsigned int nr);
 extern void ioport_unmap(void *);
-# 71 "include/asm-generic/iomap.h"
 struct pci_dev;
 extern void pci_iounmap(struct pci_dev *dev, void *);
 
@@ -11948,16 +11026,11 @@ extern void pci_iounmap(struct pci_dev *dev, void *);
 
 
 
-# 1 "include/asm-generic/pci_iomap.h" 1
-# 14 "include/asm-generic/pci_iomap.h"
 struct pci_dev;
 
 
 extern void *pci_iomap(struct pci_dev *dev, int bar, unsigned long max);
-# 80 "include/asm-generic/iomap.h" 2
-# 194 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/io.h" 2
 
-# 1 "include/linux/vmalloc.h" 1
 
 
 
@@ -11966,7 +11039,6 @@ extern void *pci_iomap(struct pci_dev *dev, int bar, unsigned long max);
 
 
 struct vm_area_struct;
-# 27 "include/linux/vmalloc.h"
 struct vm_struct {
  struct vm_struct *next;
  void *addr;
@@ -12044,7 +11116,6 @@ extern int map_kernel_range_noflush(unsigned long start, unsigned long size,
         pgprot_t prot, struct page **pages);
 extern void unmap_kernel_range_noflush(unsigned long addr, unsigned long size);
 extern void unmap_kernel_range(unsigned long addr, unsigned long size);
-# 122 "include/linux/vmalloc.h"
 extern struct vm_struct *alloc_vm_area(size_t size, pte_t **ptes);
 extern void free_vm_area(struct vm_struct *area);
 
@@ -12067,7 +11138,6 @@ struct vm_struct **pcpu_get_vm_areas(const unsigned long *offsets,
          size_t align);
 
 void pcpu_free_vm_areas(struct vm_struct **vms, int nr_vms);
-# 196 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/io.h" 2
 
 
 
@@ -12091,7 +11161,6 @@ memcpy_toio(volatile void *dst, const void *src, size_t count)
 {
  ({ size_t __len = (count); void *__ret; if (__builtin_constant_p(count) && __len >= 64) __ret = __memcpy(((void *)dst), (src), __len); else __ret = __builtin_memcpy(((void *)dst), (src), __len); __ret; });
 }
-# 238 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/io.h"
 static inline __attribute__((no_instrument_function)) void flush_write_buffers(void)
 {
 
@@ -12105,7 +11174,6 @@ extern void native_io_delay(void);
 
 extern int io_delay_type;
 extern void io_delay_init(void);
-# 308 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/io.h"
 static inline __attribute__((no_instrument_function)) void outb(unsigned char value, int port) { asm volatile("out" "b" " %" "b" "0, %w1" : : "a"(value), "Nd"(port)); } static inline __attribute__((no_instrument_function)) unsigned char inb(int port) { unsigned char value; asm volatile("in" "b" " %w1, %" "b" "0" : "=a"(value) : "Nd"(port)); return value; } static inline __attribute__((no_instrument_function)) void outb_p(unsigned char value, int port) { outb(value, port); slow_down_io(); } static inline __attribute__((no_instrument_function)) unsigned char inb_p(int port) { unsigned char value = inb(port); slow_down_io(); return value; } static inline __attribute__((no_instrument_function)) void outsb(int port, const void *addr, unsigned long count) { asm volatile("rep; outs" "b" : "+S"(addr), "+c"(count) : "d"(port)); } static inline __attribute__((no_instrument_function)) void insb(int port, void *addr, unsigned long count) { asm volatile("rep; ins" "b" : "+D"(addr), "+c"(count) : "d"(port)); }
 static inline __attribute__((no_instrument_function)) void outw(unsigned short value, int port) { asm volatile("out" "w" " %" "w" "0, %w1" : : "a"(value), "Nd"(port)); } static inline __attribute__((no_instrument_function)) unsigned short inw(int port) { unsigned short value; asm volatile("in" "w" " %w1, %" "w" "0" : "=a"(value) : "Nd"(port)); return value; } static inline __attribute__((no_instrument_function)) void outw_p(unsigned short value, int port) { outw(value, port); slow_down_io(); } static inline __attribute__((no_instrument_function)) unsigned short inw_p(int port) { unsigned short value = inw(port); slow_down_io(); return value; } static inline __attribute__((no_instrument_function)) void outsw(int port, const void *addr, unsigned long count) { asm volatile("rep; outs" "w" : "+S"(addr), "+c"(count) : "d"(port)); } static inline __attribute__((no_instrument_function)) void insw(int port, void *addr, unsigned long count) { asm volatile("rep; ins" "w" : "+D"(addr), "+c"(count) : "d"(port)); }
 static inline __attribute__((no_instrument_function)) void outl(unsigned int value, int port) { asm volatile("out" "l" " %" "" "0, %w1" : : "a"(value), "Nd"(port)); } static inline __attribute__((no_instrument_function)) unsigned int inl(int port) { unsigned int value; asm volatile("in" "l" " %w1, %" "" "0" : "=a"(value) : "Nd"(port)); return value; } static inline __attribute__((no_instrument_function)) void outl_p(unsigned int value, int port) { outl(value, port); slow_down_io(); } static inline __attribute__((no_instrument_function)) unsigned int inl_p(int port) { unsigned int value = inl(port); slow_down_io(); return value; } static inline __attribute__((no_instrument_function)) void outsl(int port, const void *addr, unsigned long count) { asm volatile("rep; outs" "l" : "+S"(addr), "+c"(count) : "d"(port)); } static inline __attribute__((no_instrument_function)) void insl(int port, void *addr, unsigned long count) { asm volatile("rep; ins" "l" : "+D"(addr), "+c"(count) : "d"(port)); }
@@ -12133,7 +11201,6 @@ extern void fixup_early_ioremap(void);
 extern bool is_early_ioremap_ptep(pte_t *ptep);
 
 
-# 1 "include/xen/xen.h" 1
 
 
 
@@ -12145,11 +11212,6 @@ enum xen_domain_type {
 
 
 extern enum xen_domain_type xen_domain_type;
-# 23 "include/xen/xen.h"
-# 1 "include/xen/interface/xen.h" 1
-# 12 "include/xen/interface/xen.h"
-# 1 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/xen/interface.h" 1
-# 51 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/xen/interface.h"
 typedef unsigned char * __guest_handle_uchar;
 typedef unsigned int * __guest_handle_uint;
 typedef unsigned long * __guest_handle_ulong;
@@ -12159,7 +11221,6 @@ typedef long * __guest_handle_long;
 typedef void * __guest_handle_void;
 typedef uint64_t * __guest_handle_uint64_t;
 typedef uint32_t * __guest_handle_uint32_t;
-# 102 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/xen/interface.h"
 struct trap_info {
     uint8_t vector;
     uint8_t flags;
@@ -12179,14 +11240,11 @@ struct arch_shared_info {
 
 
 
-# 1 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/xen/interface_64.h" 1
-# 81 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/xen/interface_64.h"
 struct iret_context {
 
     uint64_t rax, r11, rcx, flags, rip, cs, rflags, rsp, ss;
 
 };
-# 98 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/xen/interface_64.h"
 struct cpu_user_regs {
     uint64_t r15;
     uint64_t r14;
@@ -12230,7 +11288,6 @@ struct arch_vcpu_info {
 };
 
 typedef unsigned long xen_callback_t;
-# 122 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/xen/interface.h" 2
 
 
 
@@ -12272,9 +11329,6 @@ struct vcpu_guest_context {
 
 };
 typedef struct vcpu_guest_context * __guest_handle_vcpu_guest_context;
-# 13 "include/xen/interface/xen.h" 2
-# 1 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/pvclock-abi.h" 1
-# 25 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/pvclock-abi.h"
 struct pvclock_vcpu_time_info {
  u32 version;
  u32 pad0;
@@ -12291,8 +11345,6 @@ struct pvclock_wall_clock {
  u32 sec;
  u32 nsec;
 } __attribute__((__packed__));
-# 14 "include/xen/interface/xen.h" 2
-# 188 "include/xen/interface/xen.h"
 struct mmuext_op {
  unsigned int cmd;
  union {
@@ -12309,9 +11361,7 @@ struct mmuext_op {
  } arg2;
 };
 typedef struct mmuext_op * __guest_handle_mmuext_op;
-# 236 "include/xen/interface/xen.h"
 typedef uint16_t domid_t;
-# 267 "include/xen/interface/xen.h"
 struct mmu_update {
     uint64_t ptr;
     uint64_t val;
@@ -12336,7 +11386,6 @@ typedef struct multicall_entry * __guest_handle_multicall_entry;
 
 
 struct vcpu_time_info {
-# 301 "include/xen/interface/xen.h"
  uint32_t version;
  uint32_t pad0;
  uint64_t tsc_timestamp;
@@ -12353,7 +11402,6 @@ struct vcpu_time_info {
 };
 
 struct vcpu_info {
-# 342 "include/xen/interface/xen.h"
  uint8_t evtchn_upcall_pending;
  uint8_t evtchn_upcall_mask;
  unsigned long evtchn_pending_sel;
@@ -12367,7 +11415,6 @@ struct vcpu_info {
 
 struct shared_info {
  struct vcpu_info vcpu_info[32];
-# 387 "include/xen/interface/xen.h"
  unsigned long evtchn_pending[sizeof(unsigned long) * 8];
  unsigned long evtchn_mask[sizeof(unsigned long) * 8];
 
@@ -12380,7 +11427,6 @@ struct shared_info {
  struct arch_shared_info arch;
 
 };
-# 426 "include/xen/interface/xen.h"
 struct start_info {
 
  char magic[32];
@@ -12482,9 +11528,6 @@ struct tmem_op {
 };
 
 typedef u64 * __guest_handle_u64;
-# 24 "include/xen/xen.h" 2
-# 1 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/xen/hypervisor.h" 1
-# 37 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/xen/hypervisor.h"
 extern struct shared_info *HYPERVISOR_shared_info;
 extern struct start_info *xen_start_info;
 
@@ -12516,13 +11559,10 @@ static inline __attribute__((no_instrument_function)) bool xen_x2apic_para_avail
 {
  return xen_hvm_need_lapic();
 }
-# 25 "include/xen/xen.h" 2
-# 336 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/io.h" 2
 struct bio_vec;
 
 extern bool xen_biovec_phys_mergeable(const struct bio_vec *vec1,
           const struct bio_vec *vec2);
-# 8 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/trampoline.h" 2
 
 
 
@@ -12551,11 +11591,8 @@ static inline __attribute__((no_instrument_function)) unsigned long trampoline_a
 {
  return virt_to_phys(((void *)(x86_trampoline_base + ((const unsigned char *)(trampoline_data) - x86_trampoline_start))));
 }
-# 33 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/acpi.h" 2
-# 58 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/acpi.h"
 int __acpi_acquire_global_lock(unsigned int *lock);
 int __acpi_release_global_lock(unsigned int *lock);
-# 84 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/acpi.h"
 extern int acpi_lapic;
 extern int acpi_ioapic;
 extern int acpi_noirq;
@@ -12645,17 +11682,14 @@ static inline __attribute__((no_instrument_function)) void arch_acpi_set_pdc_bit
  if (!(__builtin_constant_p((4*32+ 3)) && ( ((((4*32+ 3))>>5)==0 && (1UL<<(((4*32+ 3))&31) & ((1<<((0*32+ 0) & 31))|0|(1<<((0*32+ 5) & 31))|(1<<((0*32+ 6) & 31))| (1<<((0*32+ 8) & 31))|0|(1<<((0*32+24) & 31))|(1<<((0*32+15) & 31))| (1<<((0*32+25) & 31))|(1<<((0*32+26) & 31))))) || ((((4*32+ 3))>>5)==1 && (1UL<<(((4*32+ 3))&31) & ((1<<((1*32+29) & 31))|0))) || ((((4*32+ 3))>>5)==2 && (1UL<<(((4*32+ 3))&31) & 0)) || ((((4*32+ 3))>>5)==3 && (1UL<<(((4*32+ 3))&31) & ((1<<((3*32+20) & 31))))) || ((((4*32+ 3))>>5)==4 && (1UL<<(((4*32+ 3))&31) & 0)) || ((((4*32+ 3))>>5)==5 && (1UL<<(((4*32+ 3))&31) & 0)) || ((((4*32+ 3))>>5)==6 && (1UL<<(((4*32+ 3))&31) & 0)) || ((((4*32+ 3))>>5)==7 && (1UL<<(((4*32+ 3))&31) & 0)) || ((((4*32+ 3))>>5)==8 && (1UL<<(((4*32+ 3))&31) & 0)) || ((((4*32+ 3))>>5)==9 && (1UL<<(((4*32+ 3))&31) & 0)) ) ? 1 : (__builtin_constant_p(((4*32+ 3))) ? constant_test_bit(((4*32+ 3)), ((unsigned long *)((c)->x86_capability))) : variable_test_bit(((4*32+ 3)), ((unsigned long *)((c)->x86_capability))))))
   buf[2] &= ~((0x0200));
 }
-# 187 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/acpi.h"
 extern int acpi_numa;
 extern int x86_acpi_numa_init(void);
-# 20 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/fixmap.h" 2
 
 
 
 
 
 
-# 1 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/vsyscall.h" 1
 
 
 
@@ -12664,16 +11698,12 @@ enum vsyscall_num {
  __NR_vtime,
  __NR_vgetcpu,
 };
-# 23 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/vsyscall.h"
 extern int vgetcpu_mode;
 extern struct timezone sys_tz;
 
-# 1 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/vvar.h" 1
-# 46 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/vvar.h"
 static volatile unsigned long const * const vvaraddr_jiffies = (void *)((-10*1024*1024 - 4096) + (0));
 static int const * const vvaraddr_vgetcpu_mode = (void *)((-10*1024*1024 - 4096) + (16));
 static struct vsyscall_gtod_data const * const vvaraddr_vsyscall_gtod_data = (void *)((-10*1024*1024 - 4096) + (128));
-# 27 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/vsyscall.h" 2
 
 extern void map_vsyscall(void);
 
@@ -12682,8 +11712,6 @@ extern void map_vsyscall(void);
 
 
 extern bool emulate_vsyscall(struct pt_regs *regs, unsigned long address);
-# 27 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/fixmap.h" 2
-# 73 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/fixmap.h"
 enum fixed_addresses {
 
 
@@ -12706,7 +11734,6 @@ enum fixed_addresses {
 
  FIX_IO_APIC_BASE_0,
  FIX_IO_APIC_BASE_END = FIX_IO_APIC_BASE_0 + 128 - 1,
-# 116 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/fixmap.h"
  FIX_PARAVIRT_BOOTMAP,
 
  FIX_TEXT_POKE1,
@@ -12715,7 +11742,6 @@ enum fixed_addresses {
 
 
  __end_of_permanent_fixed_addresses,
-# 135 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/fixmap.h"
  FIX_BTMAP_END =
   (__end_of_permanent_fixed_addresses ^
    (__end_of_permanent_fixed_addresses + (64 * 4) - 1)) &
@@ -12750,7 +11776,6 @@ extern pte_t *pkmap_page_table;
 void __native_set_fixmap(enum fixed_addresses idx, pte_t pte);
 void native_set_fixmap(enum fixed_addresses idx,
          phys_addr_t phys, pgprot_t flags);
-# 193 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/fixmap.h"
 extern void __this_fixmap_does_not_exist(void);
 
 
@@ -12760,7 +11785,6 @@ extern void __this_fixmap_does_not_exist(void);
 
 static inline __attribute__((no_instrument_function)) __attribute__((always_inline)) unsigned long fix_to_virt(const unsigned int idx)
 {
-# 211 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/fixmap.h"
  if (idx >= __end_of_fixed_addresses)
   __this_fixmap_does_not_exist();
 
@@ -12780,8 +11804,6 @@ __set_fixmap_offset(enum fixed_addresses idx, phys_addr_t phys, pgprot_t flags)
  __set_fixmap(idx, phys, flags);
  return fix_to_virt(idx) + (phys & (((1UL) << 12) - 1));
 }
-# 13 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/apic.h" 2
-# 40 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/apic.h"
 static inline __attribute__((no_instrument_function)) void generic_apic_probe(void)
 {
 }
@@ -12808,12 +11830,10 @@ static inline __attribute__((no_instrument_function)) void default_inquire_remot
  if (apic_verbosity >= 2)
   __inquire_remote_apic(apicid);
 }
-# 75 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/apic.h"
 static inline __attribute__((no_instrument_function)) bool apic_from_smp_config(void)
 {
  return smp_found_config && !disable_apic;
 }
-# 88 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/apic.h"
 extern int is_vsmp_box(void);
 
 
@@ -12926,7 +11946,6 @@ static inline __attribute__((no_instrument_function)) void x2apic_force_phys(voi
 {
  x2apic_phys = 1;
 }
-# 223 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/apic.h"
 extern void enable_IR_x2apic(void);
 
 extern int get_physical_broadcast(void);
@@ -12963,7 +11982,6 @@ extern int apic_is_clustered_box(void);
 
 
 extern int setup_APIC_eilvt(u8 lvt_off, u8 vector, u8 msg_type, u8 mask);
-# 285 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/apic.h"
 struct apic {
  char *name;
 
@@ -13037,7 +12055,6 @@ struct apic {
  void (*icr_write)(u32 low, u32 high);
  void (*wait_icr_idle)(void);
  u32 (*safe_wait_icr_idle)(void);
-# 380 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/apic.h"
 };
 
 
@@ -13046,7 +12063,6 @@ struct apic {
 
 
 extern struct apic *apic;
-# 407 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/apic.h"
 extern struct apic *__apicdrivers[], *__apicdrivers_end[];
 
 
@@ -13088,7 +12104,6 @@ static inline __attribute__((no_instrument_function)) u32 safe_apic_wait_icr_idl
 {
  return apic->safe_wait_icr_idle();
 }
-# 460 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/apic.h"
 static inline __attribute__((no_instrument_function)) void ack_APIC_irq(void)
 {
 
@@ -13109,7 +12124,6 @@ static inline __attribute__((no_instrument_function)) unsigned default_get_apic_
  else
   return (x >> 24) & 0x0F;
 }
-# 488 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/apic.h"
 extern int default_acpi_madt_oem_check(char *, char *);
 
 extern void apic_send_IPI_self(int vector);
@@ -13132,8 +12146,6 @@ extern void generic_bigsmp_probe(void);
 
 
 
-# 1 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/smp.h" 1
-# 511 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/apic.h" 2
 
 
 
@@ -13166,7 +12178,6 @@ static inline __attribute__((no_instrument_function)) int default_apic_id_valid(
 extern void default_setup_apic_routing(void);
 
 extern struct apic apic_noop;
-# 572 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/apic.h"
 static inline __attribute__((no_instrument_function)) unsigned int
 default_cpu_mask_to_apicid(const struct cpumask *cpumask)
 {
@@ -13212,26 +12223,19 @@ __default_check_phys_apicid_present(int phys_apicid)
 {
  return (__builtin_constant_p((phys_apicid)) ? constant_test_bit((phys_apicid), ((phys_cpu_present_map).mask)) : variable_test_bit((phys_apicid), ((phys_cpu_present_map).mask)));
 }
-# 630 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/apic.h"
 extern int default_cpu_present_to_apicid(int mps_cpu);
 extern int default_check_phys_apicid_present(int phys_apicid);
-# 14 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/smp.h" 2
-
-# 1 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/io_apic.h" 1
 
 
 
 
 
 
-# 1 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/irq_vectors.h" 1
-# 141 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/irq_vectors.h"
+
 static inline __attribute__((no_instrument_function)) int invalid_vm86_irq(int irq)
 {
  return irq < 3 || irq > 15;
 }
-# 8 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/io_apic.h" 2
-# 24 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/io_apic.h"
 struct io_apic_ops {
  void (*init) (void);
  unsigned int (*read) (unsigned int apic, unsigned int reg);
@@ -13314,7 +12318,6 @@ struct IR_IO_APIC_route_entry {
   format : 1,
   index : 15;
 } __attribute__ ((packed));
-# 116 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/io_apic.h"
 extern int nr_ioapics;
 
 extern int mpc_ioapic_id(int ioapic);
@@ -13346,7 +12349,6 @@ extern int noioapicreroute;
 
 
 extern int timer_through_8259;
-# 155 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/io_apic.h"
 struct io_apic_irq_attr;
 extern int io_apic_set_pci_routing(struct device *dev, int irq,
    struct io_apic_irq_attr *irq_attr);
@@ -13379,7 +12381,6 @@ extern void __attribute__ ((__section__(".init.text"))) __attribute__((no_instru
 extern void mp_save_irq(struct mpc_intsrc *m);
 
 extern void disable_ioapic_support(void);
-# 16 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/smp.h" 2
 
 
 
@@ -13538,24 +12539,17 @@ static inline __attribute__((no_instrument_function)) int num_booting_cpus(void)
 {
  return cpumask_weight(cpu_callout_mask);
 }
-# 183 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/smp.h"
 extern unsigned disabled_cpus __attribute__ ((__section__(".cpuinit.data")));
-# 218 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/smp.h"
 extern int hard_smp_processor_id(void);
-# 229 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/smp.h"
 extern void nmi_selftest(void);
-# 11 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/mmzone_64.h" 2
 
 extern struct pglist_data *node_data[];
-# 5 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/mmzone.h" 2
-# 825 "include/linux/mmzone.h" 2
 
 
 
 extern struct pglist_data *first_online_pgdat(void);
 extern struct pglist_data *next_online_pgdat(struct pglist_data *pgdat);
 extern struct zone *next_zone(struct zone *zone);
-# 860 "include/linux/mmzone.h"
 static inline __attribute__((no_instrument_function)) struct zone *zonelist_zone(struct zoneref *zoneref)
 {
  return zoneref->zone;
@@ -13575,12 +12569,10 @@ static inline __attribute__((no_instrument_function)) int zonelist_node_idx(stru
 
 
 }
-# 893 "include/linux/mmzone.h"
 struct zoneref *next_zones_zonelist(struct zoneref *z,
      enum zone_type highest_zoneidx,
      nodemask_t *nodes,
      struct zone **zone);
-# 910 "include/linux/mmzone.h"
 static inline __attribute__((no_instrument_function)) struct zoneref *first_zones_zonelist(struct zonelist *zonelist,
      enum zone_type highest_zoneidx,
      nodemask_t *nodes,
@@ -13589,14 +12581,9 @@ static inline __attribute__((no_instrument_function)) struct zoneref *first_zone
  return next_zones_zonelist(zonelist->_zonerefs, highest_zoneidx, nodes,
         zone);
 }
-# 948 "include/linux/mmzone.h"
-# 1 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/sparsemem.h" 1
-# 949 "include/linux/mmzone.h" 2
-# 994 "include/linux/mmzone.h"
 struct page;
 struct page_cgroup;
 struct mem_section {
-# 1009 "include/linux/mmzone.h"
  unsigned long section_mem_map;
 
 
@@ -13610,7 +12597,6 @@ struct mem_section {
  unsigned long pad;
 
 };
-# 1034 "include/linux/mmzone.h"
 extern struct mem_section *mem_section[((((1UL << (46 - 27))) + ((((1UL) << 12) / sizeof (struct mem_section))) - 1) / ((((1UL) << 12) / sizeof (struct mem_section))))];
 
 
@@ -13624,7 +12610,6 @@ static inline __attribute__((no_instrument_function)) struct mem_section *__nr_t
 }
 extern int __section_nr(struct mem_section* ms);
 extern unsigned long usemap_size(void);
-# 1059 "include/linux/mmzone.h"
 static inline __attribute__((no_instrument_function)) struct page *__section_mem_map_addr(struct mem_section *section)
 {
  unsigned long map = section->section_mem_map;
@@ -13672,7 +12657,6 @@ static inline __attribute__((no_instrument_function)) int pfn_present(unsigned l
   return 0;
  return present_section(__nr_to_section(((pfn) >> (27 - 12))));
 }
-# 1123 "include/linux/mmzone.h"
 void sparse_init(void);
 
 
@@ -13681,22 +12665,15 @@ void sparse_init(void);
 
 
 bool early_pfn_in_nid(unsigned long pfn, int nid);
-# 1139 "include/linux/mmzone.h"
 void memory_present(int nid, unsigned long start, unsigned long end);
 unsigned long __attribute__ ((__section__(".init.text"))) __attribute__((no_instrument_function)) node_memmap_size_bytes(int, unsigned long, unsigned long);
-# 1173 "include/linux/mmzone.h"
 static inline __attribute__((no_instrument_function)) int memmap_valid_within(unsigned long pfn,
      struct page *page, struct zone *zone)
 {
  return 1;
 }
-# 5 "include/linux/gfp.h" 2
 
 
-# 1 "include/linux/topology.h" 1
-# 33 "include/linux/topology.h"
-# 1 "include/linux/smp.h" 1
-# 15 "include/linux/smp.h"
 extern void cpu_idle(void);
 
 typedef void (*smp_call_func_t)(void *info);
@@ -13713,7 +12690,6 @@ extern unsigned int total_cpus;
 
 int smp_call_function_single(int cpuid, smp_call_func_t func, void *info,
         int wait);
-# 48 "include/linux/smp.h"
 extern void smp_send_stop(void);
 
 
@@ -13795,21 +12771,15 @@ void smp_prepare_boot_cpu(void);
 extern unsigned int setup_max_cpus;
 extern void __attribute__ ((__section__(".init.text"))) __attribute__((no_instrument_function)) setup_nr_cpu_ids(void);
 extern void __attribute__ ((__section__(".init.text"))) __attribute__((no_instrument_function)) smp_init(void);
-# 226 "include/linux/smp.h"
 extern void arch_disable_smp_support(void);
 
 void smp_setup_processor_id(void);
-# 34 "include/linux/topology.h" 2
-# 1 "include/linux/percpu.h" 1
 
 
 
 
 
 
-# 1 "include/linux/pfn.h" 1
-# 8 "include/linux/percpu.h" 2
-# 81 "include/linux/percpu.h"
 extern void *pcpu_base_addr;
 extern const unsigned long *pcpu_unit_offsets;
 
@@ -13869,7 +12839,6 @@ extern int __attribute__ ((__section__(".init.text"))) __attribute__((no_instrum
     pcpu_fc_alloc_fn_t alloc_fn,
     pcpu_fc_free_fn_t free_fn,
     pcpu_fc_populate_pte_fn_t populate_pte_fn);
-# 153 "include/linux/percpu.h"
 extern void *__alloc_reserved_percpu(size_t size, size_t align);
 extern bool is_kernel_percpu_address(unsigned long addr);
 
@@ -13881,12 +12850,8 @@ extern void __attribute__ ((__section__(".init.text"))) __attribute__((no_instru
 extern void *__alloc_percpu(size_t size, size_t align);
 extern void free_percpu(void *__pdata);
 extern phys_addr_t per_cpu_ptr_to_phys(void *addr);
-# 227 "include/linux/percpu.h"
 extern void __bad_size_call_parameter(void);
-# 35 "include/linux/topology.h" 2
-# 49 "include/linux/topology.h"
 int arch_update_cpu_topology(void);
-# 222 "include/linux/topology.h"
 extern __attribute__((section(".discard"), unused)) char __pcpu_scope_numa_node; extern __attribute__((section(".data..percpu" ""))) __typeof__(int) numa_node;
 
 
@@ -13895,7 +12860,6 @@ static inline __attribute__((no_instrument_function)) int numa_node_id(void)
 {
  return ({ typeof((numa_node)) pscr_ret__; do { const void *__vpp_verify = (typeof(&((numa_node))))((void *)0); (void)__vpp_verify; } while (0); switch(sizeof((numa_node))) { case 1: pscr_ret__ = ({ typeof(((numa_node))) pfo_ret__; switch (sizeof(((numa_node)))) { case 1: asm("mov" "b ""%%""gs"":" "%P" "1"",%0" : "=q" (pfo_ret__) : "m"((numa_node))); break; case 2: asm("mov" "w ""%%""gs"":" "%P" "1"",%0" : "=r" (pfo_ret__) : "m"((numa_node))); break; case 4: asm("mov" "l ""%%""gs"":" "%P" "1"",%0" : "=r" (pfo_ret__) : "m"((numa_node))); break; case 8: asm("mov" "q ""%%""gs"":" "%P" "1"",%0" : "=r" (pfo_ret__) : "m"((numa_node))); break; default: __bad_percpu_size(); } pfo_ret__; });break; case 2: pscr_ret__ = ({ typeof(((numa_node))) pfo_ret__; switch (sizeof(((numa_node)))) { case 1: asm("mov" "b ""%%""gs"":" "%P" "1"",%0" : "=q" (pfo_ret__) : "m"((numa_node))); break; case 2: asm("mov" "w ""%%""gs"":" "%P" "1"",%0" : "=r" (pfo_ret__) : "m"((numa_node))); break; case 4: asm("mov" "l ""%%""gs"":" "%P" "1"",%0" : "=r" (pfo_ret__) : "m"((numa_node))); break; case 8: asm("mov" "q ""%%""gs"":" "%P" "1"",%0" : "=r" (pfo_ret__) : "m"((numa_node))); break; default: __bad_percpu_size(); } pfo_ret__; });break; case 4: pscr_ret__ = ({ typeof(((numa_node))) pfo_ret__; switch (sizeof(((numa_node)))) { case 1: asm("mov" "b ""%%""gs"":" "%P" "1"",%0" : "=q" (pfo_ret__) : "m"((numa_node))); break; case 2: asm("mov" "w ""%%""gs"":" "%P" "1"",%0" : "=r" (pfo_ret__) : "m"((numa_node))); break; case 4: asm("mov" "l ""%%""gs"":" "%P" "1"",%0" : "=r" (pfo_ret__) : "m"((numa_node))); break; case 8: asm("mov" "q ""%%""gs"":" "%P" "1"",%0" : "=r" (pfo_ret__) : "m"((numa_node))); break; default: __bad_percpu_size(); } pfo_ret__; });break; case 8: pscr_ret__ = ({ typeof(((numa_node))) pfo_ret__; switch (sizeof(((numa_node)))) { case 1: asm("mov" "b ""%%""gs"":" "%P" "1"",%0" : "=q" (pfo_ret__) : "m"((numa_node))); break; case 2: asm("mov" "w ""%%""gs"":" "%P" "1"",%0" : "=r" (pfo_ret__) : "m"((numa_node))); break; case 4: asm("mov" "l ""%%""gs"":" "%P" "1"",%0" : "=r" (pfo_ret__) : "m"((numa_node))); break; case 8: asm("mov" "q ""%%""gs"":" "%P" "1"",%0" : "=r" (pfo_ret__) : "m"((numa_node))); break; default: __bad_percpu_size(); } pfo_ret__; });break; default: __bad_size_call_parameter();break; } pscr_ret__; });
 }
-# 240 "include/linux/topology.h"
 static inline __attribute__((no_instrument_function)) void set_numa_node(int node)
 {
  do { typedef typeof(numa_node) pto_T__; if (0) { pto_T__ pto_tmp__; pto_tmp__ = (node); (void)pto_tmp__; } switch (sizeof(numa_node)) { case 1: asm("mov" "b %1,""%%""gs"":" "%P" "0" : "+m" (numa_node) : "qi" ((pto_T__)(node))); break; case 2: asm("mov" "w %1,""%%""gs"":" "%P" "0" : "+m" (numa_node) : "ri" ((pto_T__)(node))); break; case 4: asm("mov" "l %1,""%%""gs"":" "%P" "0" : "+m" (numa_node) : "ri" ((pto_T__)(node))); break; case 8: asm("mov" "q %1,""%%""gs"":" "%P" "0" : "+m" (numa_node) : "re" ((pto_T__)(node))); break; default: __bad_percpu_size(); } } while (0);
@@ -13907,7 +12871,6 @@ static inline __attribute__((no_instrument_function)) void set_cpu_numa_node(int
 {
  (*({ do { const void *__vpp_verify = (typeof((&(numa_node))))((void *)0); (void)__vpp_verify; } while (0); ({ unsigned long __ptr; __asm__ ("" : "=r"(__ptr) : "0"((typeof(*(&(numa_node))) *)(&(numa_node)))); (typeof((typeof(*(&(numa_node))) *)(&(numa_node)))) (__ptr + (((__per_cpu_offset[cpu])))); }); })) = node;
 }
-# 307 "include/linux/topology.h"
 static inline __attribute__((no_instrument_function)) int numa_mem_id(void)
 {
  return numa_node_id();
@@ -13919,11 +12882,9 @@ static inline __attribute__((no_instrument_function)) int cpu_to_mem(int cpu)
 {
  return __cpu_to_node(cpu);
 }
-# 8 "include/linux/gfp.h" 2
 
 
 struct vm_area_struct;
-# 152 "include/linux/gfp.h"
 static inline __attribute__((no_instrument_function)) int allocflags_to_migratetype(gfp_t gfp_flags)
 {
  ({ int __ret_warn_on = !!((gfp_flags & ((( gfp_t)0x80000u)|(( gfp_t)0x08u))) == ((( gfp_t)0x80000u)|(( gfp_t)0x08u))); if (ldv__builtin_expect(!!(__ret_warn_on), 0)) warn_slowpath_null("include/linux/gfp.h", 154); ldv__builtin_expect(!!(__ret_warn_on), 0); });
@@ -13935,7 +12896,6 @@ static inline __attribute__((no_instrument_function)) int allocflags_to_migratet
  return (((gfp_flags & (( gfp_t)0x08u)) != 0) << 1) |
   ((gfp_flags & (( gfp_t)0x80000u)) != 0);
 }
-# 247 "include/linux/gfp.h"
 static inline __attribute__((no_instrument_function)) enum zone_type gfp_zone(gfp_t flags)
 {
  enum zone_type z;
@@ -13946,7 +12906,6 @@ static inline __attribute__((no_instrument_function)) enum zone_type gfp_zone(gf
  do { if (ldv__builtin_expect(!!((( 1 << (0x01u | 0x02u) | 1 << (0x01u | 0x04u) | 1 << (0x04u | 0x02u) | 1 << (0x01u | 0x04u | 0x02u) | 1 << (0x08u | 0x02u | 0x01u) | 1 << (0x08u | 0x04u | 0x01u) | 1 << (0x08u | 0x04u | 0x02u) | 1 << (0x08u | 0x04u | 0x01u | 0x02u) ) >> bit) & 1), 0)) do { asm volatile("1:\tud2\n" ".pushsection __bug_table,\"a\"\n" "2:\t.long 1b - 2b, %c0 - 2b\n" "\t.word %c1, 0\n" "\t.org 2b+%c2\n" ".popsection" : : "i" ("include/linux/gfp.h"), "i" (254), "i" (sizeof(struct bug_entry))); do { } while (1); } while (0); } while(0);
  return z;
 }
-# 265 "include/linux/gfp.h"
 static inline __attribute__((no_instrument_function)) int gfp_zonelist(gfp_t flags)
 {
  if (1 && ldv__builtin_expect(!!(flags & (( gfp_t)0x40000u)), 0))
@@ -13954,7 +12913,6 @@ static inline __attribute__((no_instrument_function)) int gfp_zonelist(gfp_t fla
 
  return 0;
 }
-# 282 "include/linux/gfp.h"
 static inline __attribute__((no_instrument_function)) struct zonelist *node_zonelist(int nid, gfp_t flags)
 {
  return (node_data[nid])->node_zonelists + gfp_zonelist(flags);
@@ -14007,7 +12965,6 @@ alloc_pages(gfp_t gfp_mask, unsigned int order)
 extern struct page *alloc_pages_vma(gfp_t gfp_mask, int order,
    struct vm_area_struct *vma, unsigned long addr,
    int node);
-# 346 "include/linux/gfp.h"
 extern unsigned long __get_free_pages(gfp_t gfp_mask, unsigned int order);
 extern unsigned long get_zeroed_page(gfp_t gfp_mask);
 
@@ -14034,7 +12991,6 @@ void page_alloc_init(void);
 void drain_zone_pages(struct zone *zone, struct per_cpu_pages *pcp);
 void drain_all_pages(void);
 void drain_local_pages(void *dummy);
-# 380 "include/linux/gfp.h"
 extern gfp_t gfp_allowed_mask;
 
 extern void pm_restrict_gfp_mask(void);
@@ -14042,13 +12998,10 @@ extern void pm_restore_gfp_mask(void);
 
 
 extern bool pm_suspended_storage(void);
-# 23 "include/linux/kmod.h" 2
 
 
 
 
-# 1 "include/linux/sysctl.h" 1
-# 29 "include/linux/sysctl.h"
 struct completion;
 
 
@@ -14955,8 +13908,6 @@ enum
 
 
 
-# 1 "include/linux/rbtree.h" 1
-# 100 "include/linux/rbtree.h"
 struct rb_node
 {
  unsigned long rb_parent_color;
@@ -14971,7 +13922,6 @@ struct rb_root
 {
  struct rb_node *rb_node;
 };
-# 123 "include/linux/rbtree.h"
 static inline __attribute__((no_instrument_function)) void rb_set_parent(struct rb_node *rb, struct rb_node *p)
 {
  rb->rb_parent_color = (rb->rb_parent_color & 3) | (unsigned long)p;
@@ -14980,7 +13930,6 @@ static inline __attribute__((no_instrument_function)) void rb_set_color(struct r
 {
  rb->rb_parent_color = (rb->rb_parent_color & ~1) | color;
 }
-# 139 "include/linux/rbtree.h"
 static inline __attribute__((no_instrument_function)) void rb_init_node(struct rb_node *rb)
 {
  rb->rb_parent_color = 0;
@@ -15018,7 +13967,6 @@ static inline __attribute__((no_instrument_function)) void rb_link_node(struct r
 
  *rb_link = node;
 }
-# 936 "include/linux/sysctl.h" 2
 
 
 struct ctl_table;
@@ -15050,7 +13998,6 @@ extern int proc_doulongvec_ms_jiffies_minmax(struct ctl_table *table, int,
           void *, size_t *, loff_t *);
 extern int proc_do_large_bitmap(struct ctl_table *, int,
     void *, size_t *, loff_t *);
-# 996 "include/linux/sysctl.h"
 struct ctl_table_poll {
  atomic_t event;
  wait_queue_head_t wait;
@@ -15060,7 +14007,6 @@ static inline __attribute__((no_instrument_function)) void *proc_sys_poll_event(
 {
  return (void *)(unsigned long)atomic_read(&poll->event);
 }
-# 1014 "include/linux/sysctl.h"
 struct ctl_table
 {
  const char *procname;
@@ -15148,7 +14094,6 @@ struct ctl_table_header *register_sysctl_paths(const struct ctl_path *path,
 void unregister_sysctl_table(struct ctl_table_header * table);
 
 extern int sysctl_init(void);
-# 28 "include/linux/kmod.h" 2
 
 
 
@@ -15158,7 +14103,6 @@ extern char modprobe_path[];
 
 extern __attribute__((format(printf, 2, 3)))
 int __request_module(bool wait, const char *name, ...);
-# 48 "include/linux/kmod.h"
 struct cred;
 struct file;
 
@@ -15248,26 +14192,17 @@ static inline __attribute__((no_instrument_function)) void usermodehelper_enable
 extern int usermodehelper_read_trylock(void);
 extern long usermodehelper_read_lock_wait(long timeout);
 extern void usermodehelper_read_unlock(void);
-# 14 "include/linux/module.h" 2
-# 1 "include/linux/elf.h" 1
-
-
-
-
-# 1 "include/linux/elf-em.h" 1
-# 6 "include/linux/elf.h" 2
-
-# 1 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/elf.h" 1
-# 10 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/elf.h"
-# 1 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/user.h" 1
 
 
 
 
 
 
-# 1 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/user_64.h" 1
-# 50 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/user_64.h"
+
+
+
+
+
 struct user_i387_struct {
  unsigned short cwd;
  unsigned short swd;
@@ -15350,7 +14285,6 @@ struct user {
   unsigned long error_code;
   unsigned long fault_address;
 };
-# 8 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/user.h" 2
 
 
 
@@ -15365,7 +14299,6 @@ struct user_xsave_hdr {
  __u64 reserved1[2];
  __u64 reserved2[5];
 };
-# 53 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/user.h"
 struct user_xstateregs {
  struct {
   __u64 fpx_space[58];
@@ -15375,9 +14308,6 @@ struct user_xstateregs {
  struct user_ymmh_regs ymmh;
 
 };
-# 11 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/elf.h" 2
-# 1 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/auxvec.h" 1
-# 12 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/elf.h" 2
 
 typedef unsigned long elf_greg_t;
 
@@ -15385,14 +14315,11 @@ typedef unsigned long elf_greg_t;
 typedef elf_greg_t elf_gregset_t[(sizeof(struct user_regs_struct) / sizeof(elf_greg_t))];
 
 typedef struct user_i387_struct elf_fpregset_t;
-# 76 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/elf.h"
-# 1 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/vdso.h" 1
 
 
 
 
 extern const char VDSO32_PRELINK[];
-# 22 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/vdso.h"
 extern void __kernel_sigreturn;
 extern void __kernel_rt_sigreturn;
 
@@ -15403,10 +14330,8 @@ extern void __kernel_rt_sigreturn;
 extern const char vdso32_int80_start, vdso32_int80_end;
 extern const char vdso32_syscall_start, vdso32_syscall_end;
 extern const char vdso32_sysenter_start, vdso32_sysenter_end;
-# 77 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/elf.h" 2
 
 extern unsigned int vdso_enabled;
-# 165 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/elf.h"
 static inline __attribute__((no_instrument_function)) void elf_common_init(struct thread_struct *t,
        struct pt_regs *regs, const u16 ds)
 {
@@ -15429,13 +14354,10 @@ void start_thread_ia32(struct pt_regs *regs, u32 new_ip, u32 new_sp);
 
 
 void set_personality_ia32(bool);
-# 232 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/elf.h"
 extern void set_personality_64bit(void);
 extern unsigned int sysctl_vsyscall32;
 extern int force_personality32;
-# 270 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/elf.h"
 struct task_struct;
-# 328 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/elf.h"
 struct linux_binprm;
 
 
@@ -15480,7 +14402,6 @@ struct va_alignment {
 
 extern struct va_alignment va_align;
 extern unsigned long align_addr(unsigned long, struct file *, enum align_flags);
-# 8 "include/linux/elf.h" 2
 
 
 
@@ -15499,7 +14420,6 @@ typedef __s32 Elf64_Sword;
 typedef __u32 Elf64_Word;
 typedef __u64 Elf64_Xword;
 typedef __s64 Elf64_Sxword;
-# 140 "include/linux/elf.h"
 typedef struct dynamic{
   Elf32_Sword d_tag;
   union{
@@ -15515,7 +14435,6 @@ typedef struct {
     Elf64_Addr d_ptr;
   } d_un;
 } Elf64_Dyn;
-# 163 "include/linux/elf.h"
 typedef struct elf32_rel {
   Elf32_Addr r_offset;
   Elf32_Word r_info;
@@ -15620,7 +14539,6 @@ typedef struct elf64_phdr {
   Elf64_Xword p_memsz;
   Elf64_Xword p_align;
 } Elf64_Phdr;
-# 302 "include/linux/elf.h"
 typedef struct elf32_shdr {
   Elf32_Word sh_name;
   Elf32_Word sh_type;
@@ -15646,7 +14564,6 @@ typedef struct elf64_shdr {
   Elf64_Xword sh_addralign;
   Elf64_Xword sh_entsize;
 } Elf64_Shdr;
-# 394 "include/linux/elf.h"
 typedef struct elf32_note {
   Elf32_Word n_namesz;
   Elf32_Word n_descsz;
@@ -15659,23 +14576,14 @@ typedef struct elf64_note {
   Elf64_Word n_descsz;
   Elf64_Word n_type;
 } Elf64_Nhdr;
-# 427 "include/linux/elf.h"
 extern Elf64_Dyn _DYNAMIC [];
-# 438 "include/linux/elf.h"
 struct file;
 
 
 static inline __attribute__((no_instrument_function)) int elf_coredump_extra_notes_size(void) { return 0; }
 static inline __attribute__((no_instrument_function)) int elf_coredump_extra_notes_write(struct file *file,
    loff_t *foffset) { return 0; }
-# 15 "include/linux/module.h" 2
 
-# 1 "include/linux/kobject.h" 1
-# 21 "include/linux/kobject.h"
-# 1 "include/linux/sysfs.h" 1
-# 19 "include/linux/sysfs.h"
-# 1 "include/linux/kobject_ns.h" 1
-# 20 "include/linux/kobject_ns.h"
 struct sock;
 struct kobject;
 
@@ -15688,7 +14596,6 @@ enum kobj_ns_type {
  KOBJ_NS_TYPE_NET,
  KOBJ_NS_TYPES
 };
-# 40 "include/linux/kobject_ns.h"
 struct kobj_ns_type_operations {
  enum kobj_ns_type type;
  void *(*grab_current_ns)(void);
@@ -15706,7 +14613,6 @@ void *kobj_ns_grab_current(enum kobj_ns_type type);
 const void *kobj_ns_netlink(enum kobj_ns_type type, struct sock *sk);
 const void *kobj_ns_initial(enum kobj_ns_type type);
 void kobj_ns_drop(enum kobj_ns_type type, void *ns);
-# 20 "include/linux/sysfs.h" 2
 
 
 struct kobject;
@@ -15721,14 +14627,12 @@ struct attribute {
 
 
 };
-# 56 "include/linux/sysfs.h"
 struct attribute_group {
  const char *name;
  umode_t (*is_visible)(struct kobject *,
            struct attribute *, int);
  struct attribute **attrs;
 };
-# 85 "include/linux/sysfs.h"
 struct file;
 struct vm_area_struct;
 
@@ -15743,7 +14647,6 @@ struct bin_attribute {
  int (*mmap)(struct file *, struct kobject *, struct bin_attribute *attr,
       struct vm_area_struct *vma);
 };
-# 112 "include/linux/sysfs.h"
 struct sysfs_ops {
  ssize_t (*show)(struct kobject *, struct attribute *,char *);
  ssize_t (*store)(struct kobject *,struct attribute *,const char *, size_t);
@@ -15814,11 +14717,8 @@ struct sysfs_dirent *sysfs_get(struct sysfs_dirent *sd);
 void sysfs_put(struct sysfs_dirent *sd);
 
 int __attribute__((warn_unused_result)) sysfs_init(void);
-# 22 "include/linux/kobject.h" 2
 
 
-# 1 "include/linux/kref.h" 1
-# 22 "include/linux/kref.h"
 struct kref {
  atomic_t refcount;
 };
@@ -15841,7 +14741,6 @@ static inline __attribute__((no_instrument_function)) void kref_get(struct kref 
  ({ int __ret_warn_on = !!(!atomic_read(&kref->refcount)); if (ldv__builtin_expect(!!(__ret_warn_on), 0)) warn_slowpath_null("include/linux/kref.h", 41); ldv__builtin_expect(!!(__ret_warn_on), 0); });
  atomic_inc(&kref->refcount);
 }
-# 63 "include/linux/kref.h"
 static inline __attribute__((no_instrument_function)) int kref_sub(struct kref *kref, unsigned int count,
       void (*release)(struct kref *kref))
 {
@@ -15853,18 +14752,14 @@ static inline __attribute__((no_instrument_function)) int kref_sub(struct kref *
  }
  return 0;
 }
-# 92 "include/linux/kref.h"
 static inline __attribute__((no_instrument_function)) int kref_put(struct kref *kref, void (*release)(struct kref *kref))
 {
  return kref_sub(kref, 1, release);
 }
-# 25 "include/linux/kobject.h" 2
-# 35 "include/linux/kobject.h"
 extern char uevent_helper[];
 
 
 extern u64 uevent_seqnum;
-# 50 "include/linux/kobject.h"
 enum kobject_action {
  KOBJ_ADD,
  KOBJ_REMOVE,
@@ -15956,7 +14851,6 @@ struct kobj_attribute {
 extern const struct sysfs_ops kobj_sysfs_ops;
 
 struct sock;
-# 159 "include/linux/kobject.h"
 struct kset {
  struct list_head list;
  spinlock_t list_lock;
@@ -16014,9 +14908,6 @@ int add_uevent_var(struct kobj_uevent_env *env, const char *format, ...);
 
 int kobject_action_type(const char *buf, size_t count,
    enum kobject_action *type);
-# 17 "include/linux/module.h" 2
-# 1 "include/linux/moduleparam.h" 1
-# 39 "include/linux/moduleparam.h"
 struct kernel_param;
 
 struct kernel_param_ops {
@@ -16055,18 +14946,14 @@ struct kparam_array
  const struct kernel_param_ops *ops;
  void *elem;
 };
-# 198 "include/linux/moduleparam.h"
 static inline __attribute__((no_instrument_function)) int
 __check_old_set_param(int (*oldset)(const char *, struct kernel_param *))
 {
  return 0;
 }
-# 249 "include/linux/moduleparam.h"
 extern void __kernel_param_lock(void);
 extern void __kernel_param_unlock(void);
-# 304 "include/linux/moduleparam.h"
 extern bool parameq(const char *name1, const char *name2);
-# 314 "include/linux/moduleparam.h"
 extern bool parameqn(const char *name1, const char *name2, size_t n);
 
 
@@ -16081,7 +14968,6 @@ extern int parse_args(const char *name,
 
 
 extern void destroy_params(const struct kernel_param *params, unsigned num);
-# 341 "include/linux/moduleparam.h"
 extern struct kernel_param_ops param_ops_byte;
 extern int param_set_byte(const char *val, const struct kernel_param *kp);
 extern int param_get_byte(char *buffer, const struct kernel_param *kp);
@@ -16136,7 +15022,6 @@ extern int param_get_invbool(char *buffer, const struct kernel_param *kp);
 
 extern struct kernel_param_ops param_ops_bint;
 extern int param_set_bint(const char *val, const struct kernel_param *kp);
-# 437 "include/linux/moduleparam.h"
 extern struct kernel_param_ops param_array_ops;
 
 extern struct kernel_param_ops param_ops_string;
@@ -16153,19 +15038,12 @@ extern int module_param_sysfs_setup(struct module *mod,
         unsigned int num_params);
 
 extern void module_param_sysfs_remove(struct module *mod);
-# 18 "include/linux/module.h" 2
-# 1 "include/linux/tracepoint.h" 1
-# 20 "include/linux/tracepoint.h"
-# 1 "include/linux/static_key.h" 1
-# 1 "include/linux/jump_label.h" 1
-# 75 "include/linux/jump_label.h"
 enum jump_label_type {
  JUMP_LABEL_DISABLE = 0,
  JUMP_LABEL_ENABLE,
 };
 
 struct module;
-# 143 "include/linux/jump_label.h"
 struct static_key {
  atomic_t enabled;
 };
@@ -16233,13 +15111,10 @@ jump_label_rate_limit(struct static_key_deferred *key,
   unsigned long rl)
 {
 }
-# 221 "include/linux/jump_label.h"
 static inline __attribute__((no_instrument_function)) bool static_key_enabled(struct static_key *key)
 {
  return (atomic_read(&key->enabled) > 0);
 }
-# 1 "include/linux/static_key.h" 2
-# 21 "include/linux/tracepoint.h" 2
 
 struct module;
 struct tracepoint;
@@ -16305,9 +15180,6 @@ static inline __attribute__((no_instrument_function)) void tracepoint_synchroniz
 {
  synchronize_sched();
 }
-# 19 "include/linux/module.h" 2
-# 1 "include/linux/export.h" 1
-# 19 "include/linux/export.h"
 struct kernel_symbol
 {
  unsigned long value;
@@ -16316,14 +15188,11 @@ struct kernel_symbol
 
 
 extern struct module __this_module;
-# 20 "include/linux/module.h" 2
-
-
-# 1 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/module.h" 1
 
 
 
-# 1 "include/asm-generic/module.h" 1
+
+
 
 
 
@@ -16334,8 +15203,6 @@ extern struct module __this_module;
 struct mod_arch_specific
 {
 };
-# 5 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/module.h" 2
-# 23 "include/linux/module.h" 2
 
 
 
@@ -16394,7 +15261,6 @@ void sort_extable(struct exception_table_entry *start,
     struct exception_table_entry *finish);
 void sort_main_extable(void);
 void trim_init_extable(struct module *m);
-# 180 "include/linux/module.h"
 const struct exception_table_entry *search_exception_tables(unsigned long add);
 
 struct notifier_block;
@@ -16420,7 +15286,6 @@ enum module_state
  MODULE_STATE_COMING,
  MODULE_STATE_GOING,
 };
-# 215 "include/linux/module.h"
 struct module_ref {
  unsigned long incs;
  unsigned long decs;
@@ -16506,7 +15371,6 @@ struct module
  unsigned num_bugs;
  struct list_head bug_list;
  struct bug_entry *bug_table;
-# 308 "include/linux/module.h"
  Elf64_Sym *symtab, *core_symtab;
  unsigned int num_symtab, core_num_syms;
  char *strtab, *core_strtab;
@@ -16543,7 +15407,6 @@ struct module
 
  struct ftrace_event_call **trace_events;
  unsigned int num_trace_events;
-# 352 "include/linux/module.h"
  struct list_head source_list;
 
  struct list_head target_list;
@@ -16652,9 +15515,7 @@ extern void __module_get(struct module *module);
 extern bool try_module_get(struct module *module);
 
 extern void module_put(struct module *module);
-# 476 "include/linux/module.h"
 int ref_module(struct module *a, struct module *b);
-# 488 "include/linux/module.h"
 const char *module_address_lookup(unsigned long addr,
        unsigned long *symbolsize,
        unsigned long *offset,
@@ -16670,11 +15531,9 @@ int register_module_notifier(struct notifier_block * nb);
 int unregister_module_notifier(struct notifier_block * nb);
 
 extern void print_modules(void);
-# 617 "include/linux/module.h"
 extern struct kset *module_kset;
 extern struct kobj_type module_ktype;
 extern int module_sysfs_initialized;
-# 629 "include/linux/module.h"
 extern void set_all_modules_text_rw(void);
 extern void set_all_modules_text_ro(void);
 
@@ -16686,22 +15545,14 @@ extern void set_all_modules_text_ro(void);
 void module_bug_finalize(const Elf64_Ehdr *, const Elf64_Shdr *,
     struct module *);
 void module_bug_cleanup(struct module *);
-# 22 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/5348/dscv_tempdir/dscv/ri/32_1/drivers/mtd/chips/cfi_cmdset_0001.c.common.c" 2
 
 
-# 1 "include/linux/sched.h" 1
-# 47 "include/linux/sched.h"
 struct sched_param {
  int sched_priority;
 };
 
-# 1 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/param.h" 1
-# 52 "include/linux/sched.h" 2
 
-# 1 "include/linux/capability.h" 1
-# 18 "include/linux/capability.h"
 struct task_struct;
-# 40 "include/linux/capability.h"
 typedef struct __user_cap_header_struct {
  __u32 version;
  int pid;
@@ -16712,7 +15563,6 @@ typedef struct __user_cap_data_struct {
         __u32 permitted;
         __u32 inheritable;
 } *cap_user_data_t;
-# 69 "include/linux/capability.h"
 struct vfs_cap_data {
  __le32 magic_etc;
  struct {
@@ -16720,7 +15570,6 @@ struct vfs_cap_data {
   __le32 inheritable;
  } data[2];
 };
-# 92 "include/linux/capability.h"
 extern int file_caps_enabled;
 
 typedef struct kernel_cap_struct {
@@ -16733,7 +15582,6 @@ struct cpu_vfs_cap_data {
  kernel_cap_t permitted;
  kernel_cap_t inheritable;
 };
-# 377 "include/linux/capability.h"
 struct dentry;
 struct user_namespace;
 
@@ -16741,7 +15589,6 @@ struct user_namespace *current_user_ns(void);
 
 extern const kernel_cap_t __cap_empty_set;
 extern const kernel_cap_t __cap_init_eff_set;
-# 451 "include/linux/capability.h"
 static inline __attribute__((no_instrument_function)) kernel_cap_t cap_combine(const kernel_cap_t a,
            const kernel_cap_t b)
 {
@@ -16782,7 +15629,6 @@ static inline __attribute__((no_instrument_function)) int cap_isclear(const kern
  }
  return 1;
 }
-# 499 "include/linux/capability.h"
 static inline __attribute__((no_instrument_function)) int cap_issubset(const kernel_cap_t a, const kernel_cap_t set)
 {
  kernel_cap_t dest;
@@ -16838,20 +15684,13 @@ extern bool nsown_capable(int cap);
 
 
 extern int get_vfs_caps_from_disk(const struct dentry *dentry, struct cpu_vfs_cap_data *cpu_caps);
-# 54 "include/linux/sched.h" 2
-# 64 "include/linux/sched.h"
-# 1 "include/linux/mm_types.h" 1
-
-
-
-# 1 "include/linux/auxvec.h" 1
-# 5 "include/linux/mm_types.h" 2
 
 
 
 
-# 1 "include/linux/prio_tree.h" 1
-# 14 "include/linux/prio_tree.h"
+
+
+
 struct raw_prio_tree_node {
  struct prio_tree_node *left;
  struct prio_tree_node *right;
@@ -16895,7 +15734,6 @@ static inline __attribute__((no_instrument_function)) void prio_tree_iter_init(s
  iter->h_index = h_index;
  iter->cur = ((void *)0);
 }
-# 84 "include/linux/prio_tree.h"
 static inline __attribute__((no_instrument_function)) int prio_tree_empty(const struct prio_tree_root *root)
 {
  return root->prio_tree_node == ((void *)0);
@@ -16923,21 +15761,15 @@ struct prio_tree_node *prio_tree_insert(struct prio_tree_root *root,
                 struct prio_tree_node *node);
 void prio_tree_remove(struct prio_tree_root *root, struct prio_tree_node *node);
 struct prio_tree_node *prio_tree_next(struct prio_tree_iter *iter);
-# 10 "include/linux/mm_types.h" 2
 
 
 
 
-# 1 "include/linux/page-debug-flags.h" 1
-# 14 "include/linux/page-debug-flags.h"
 enum page_debug_flags {
  PAGE_DEBUG_FLAG_POISON,
  PAGE_DEBUG_FLAG_GUARD,
 };
-# 15 "include/linux/mm_types.h" 2
-# 23 "include/linux/mm_types.h"
 struct address_space;
-# 40 "include/linux/mm_types.h"
 struct page {
 
  unsigned long flags;
@@ -16963,7 +15795,6 @@ struct page {
    struct {
 
     union {
-# 81 "include/linux/mm_types.h"
      atomic_t _mapcount;
 
      struct {
@@ -16997,13 +15828,10 @@ struct page {
 
  union {
   unsigned long private;
-# 123 "include/linux/mm_types.h"
   struct kmem_cache *slab;
   struct page *first_page;
  };
-# 142 "include/linux/mm_types.h"
  unsigned long debug_flags;
-# 152 "include/linux/mm_types.h"
 }
 
 
@@ -17126,7 +15954,6 @@ enum {
  MM_SWAPENTS,
  NR_MM_COUNTERS
 };
-# 284 "include/linux/mm_types.h"
 struct mm_rss_stat {
  atomic_long_t count[NR_MM_COUNTERS];
 };
@@ -17189,7 +16016,6 @@ struct mm_struct {
 
 
  mm_context_t context;
-# 354 "include/linux/mm_types.h"
  unsigned int faultstamp;
  unsigned int token_priority;
  unsigned int last_interval;
@@ -17200,7 +16026,6 @@ struct mm_struct {
 
  spinlock_t ioctx_lock;
  struct hlist_head ioctx_list;
-# 376 "include/linux/mm_types.h"
  struct task_struct *owner;
 
 
@@ -17230,12 +16055,9 @@ static inline __attribute__((no_instrument_function)) cpumask_t *mm_cpumask(stru
 {
  return mm->cpu_vm_mask_var;
 }
-# 65 "include/linux/sched.h" 2
 
 
 
-# 1 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/cputime.h" 1
-# 1 "include/asm-generic/cputime.h" 1
 
 
 
@@ -17250,16 +16072,11 @@ typedef unsigned long cputime_t;
 
 
 typedef u64 cputime64_t;
-# 1 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/cputime.h" 2
-# 69 "include/linux/sched.h" 2
-
-
-# 1 "include/linux/sem.h" 1
 
 
 
-# 1 "include/linux/ipc.h" 1
-# 9 "include/linux/ipc.h"
+
+
 struct ipc_perm
 {
  __kernel_key_t key;
@@ -17272,9 +16089,6 @@ struct ipc_perm
 };
 
 
-# 1 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/ipcbuf.h" 1
-# 1 "include/asm-generic/ipcbuf.h" 1
-# 19 "include/asm-generic/ipcbuf.h"
 struct ipc64_perm {
  __kernel_key_t key;
  __kernel_uid32_t uid;
@@ -17289,14 +16103,10 @@ struct ipc64_perm {
  unsigned long __unused1;
  unsigned long __unused2;
 };
-# 1 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/ipcbuf.h" 2
-# 22 "include/linux/ipc.h" 2
-# 57 "include/linux/ipc.h"
 struct ipc_kludge {
  struct msgbuf *msgp;
  long msgtyp;
 };
-# 86 "include/linux/ipc.h"
 struct kern_ipc_perm
 {
  spinlock_t lock;
@@ -17311,8 +16121,6 @@ struct kern_ipc_perm
  unsigned long seq;
  void *security;
 };
-# 5 "include/linux/sem.h" 2
-# 23 "include/linux/sem.h"
 struct semid_ds {
  struct ipc_perm sem_perm;
  __kernel_time_t sem_otime;
@@ -17325,8 +16133,6 @@ struct semid_ds {
 };
 
 
-# 1 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/sembuf.h" 1
-# 13 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/sembuf.h"
 struct semid64_ds {
  struct ipc64_perm sem_perm;
  __kernel_time_t sem_otime;
@@ -17337,7 +16143,6 @@ struct semid64_ds {
  unsigned long __unused3;
  unsigned long __unused4;
 };
-# 36 "include/linux/sem.h" 2
 
 
 struct sembuf {
@@ -17367,7 +16172,6 @@ struct seminfo {
  int semvmx;
  int semaem;
 };
-# 84 "include/linux/sem.h"
 struct task_struct;
 
 
@@ -17391,35 +16195,25 @@ struct sysv_sem {
 
 extern int copy_semundo(unsigned long clone_flags, struct task_struct *tsk);
 extern void exit_sem(struct task_struct *tsk);
-# 72 "include/linux/sched.h" 2
-# 1 "include/linux/signal.h" 1
 
 
 
-# 1 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/signal.h" 1
-# 10 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/signal.h"
 struct siginfo;
-# 28 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/signal.h"
 typedef unsigned long old_sigset_t;
 
 typedef struct {
  unsigned long sig[(64 / 64)];
 } sigset_t;
-# 120 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/signal.h"
-# 1 "include/asm-generic/signal-defs.h" 1
-# 17 "include/asm-generic/signal-defs.h"
 typedef void __signalfn_t(int);
 typedef __signalfn_t *__sighandler_t;
 
 typedef void __restorefn_t(void);
 typedef __restorefn_t *__sigrestore_t;
-# 121 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/signal.h" 2
 
 
 
 
 extern void do_notify_resume(struct pt_regs *, void *, __u32);
-# 167 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/signal.h"
 struct sigaction {
  __sighandler_t sa_handler;
  unsigned long sa_flags;
@@ -17438,10 +16232,6 @@ typedef struct sigaltstack {
  int ss_flags;
  size_t ss_size;
 } stack_t;
-# 5 "include/linux/signal.h" 2
-# 1 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/siginfo.h" 1
-# 14 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/siginfo.h"
-# 1 "include/asm-generic/siginfo.h" 1
 
 
 
@@ -17452,7 +16242,6 @@ typedef union sigval {
  int sival_int;
  void *sival_ptr;
 } sigval_t;
-# 48 "include/asm-generic/siginfo.h"
 typedef struct siginfo {
  int si_signo;
  int si_errno;
@@ -17508,7 +16297,6 @@ typedef struct siginfo {
   } _sigpoll;
  } _sifields;
 } siginfo_t;
-# 267 "include/asm-generic/siginfo.h"
 typedef struct sigevent {
  sigval_t sigev_value;
  int sigev_signo;
@@ -17549,8 +16337,6 @@ static inline __attribute__((no_instrument_function)) void copy_siginfo(struct s
 
 
 extern int copy_siginfo_to_user(struct siginfo *to, struct siginfo *from);
-# 15 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/siginfo.h" 2
-# 6 "include/linux/signal.h" 2
 
 
 
@@ -17577,7 +16363,6 @@ struct sigpending {
  struct list_head list;
  sigset_t signal;
 };
-# 42 "include/linux/signal.h"
 static inline __attribute__((no_instrument_function)) void sigaddset(sigset_t *set, int _sig)
 {
  unsigned long sig = _sig - 1;
@@ -17628,7 +16413,6 @@ static inline __attribute__((no_instrument_function)) int sigisemptyset(sigset_t
   return 0;
  }
 }
-# 123 "include/linux/signal.h"
 static inline __attribute__((no_instrument_function)) void sigorsets(sigset_t *r, const sigset_t *a, const sigset_t *b) { extern void _NSIG_WORDS_is_unsupported_size(void); unsigned long a0, a1, a2, a3, b0, b1, b2, b3; switch ((64 / 64)) { case 4: a3 = a->sig[3]; a2 = a->sig[2]; b3 = b->sig[3]; b2 = b->sig[2]; r->sig[3] = ((a3) | (b3)); r->sig[2] = ((a2) | (b2)); case 2: a1 = a->sig[1]; b1 = b->sig[1]; r->sig[1] = ((a1) | (b1)); case 1: a0 = a->sig[0]; b0 = b->sig[0]; r->sig[0] = ((a0) | (b0)); break; default: _NSIG_WORDS_is_unsupported_size(); } }
 
 
@@ -17636,7 +16420,6 @@ static inline __attribute__((no_instrument_function)) void sigandsets(sigset_t *
 
 
 static inline __attribute__((no_instrument_function)) void sigandnsets(sigset_t *r, const sigset_t *a, const sigset_t *b) { extern void _NSIG_WORDS_is_unsupported_size(void); unsigned long a0, a1, a2, a3, b0, b1, b2, b3; switch ((64 / 64)) { case 4: a3 = a->sig[3]; a2 = a->sig[2]; b3 = b->sig[3]; b2 = b->sig[2]; r->sig[3] = ((a3) & ~(b3)); r->sig[2] = ((a2) & ~(b2)); case 2: a1 = a->sig[1]; b1 = b->sig[1]; r->sig[1] = ((a1) & ~(b1)); case 1: a0 = a->sig[0]; b0 = b->sig[0]; r->sig[0] = ((a0) & ~(b0)); break; default: _NSIG_WORDS_is_unsupported_size(); } }
-# 153 "include/linux/signal.h"
 static inline __attribute__((no_instrument_function)) void signotset(sigset_t *set) { extern void _NSIG_WORDS_is_unsupported_size(void); switch ((64 / 64)) { case 4: set->sig[3] = (~(set->sig[3])); set->sig[2] = (~(set->sig[2])); case 2: set->sig[1] = (~(set->sig[1])); case 1: set->sig[0] = (~(set->sig[0])); break; default: _NSIG_WORDS_is_unsupported_size(); } }
 
 
@@ -17747,12 +16530,9 @@ extern void exit_signals(struct task_struct *tsk);
 extern struct kmem_cache *sighand_cachep;
 
 int unhandled_signal(struct task_struct *tsk, int sig);
-# 387 "include/linux/signal.h"
 void signals_init(void);
-# 73 "include/linux/sched.h" 2
 
 
-# 1 "include/linux/pid.h" 1
 
 
 
@@ -17765,7 +16545,6 @@ enum pid_type
  PIDTYPE_SID,
  PIDTYPE_MAX
 };
-# 50 "include/linux/pid.h"
 struct upid {
 
  int nr;
@@ -17818,7 +16597,6 @@ extern void transfer_pid(struct task_struct *old, struct task_struct *new,
 
 struct pid_namespace;
 extern struct pid_namespace init_pid_ns;
-# 112 "include/linux/pid.h"
 extern struct pid *find_pid_ns(int nr, struct pid_namespace *ns);
 extern struct pid *find_vpid(int nr);
 
@@ -17831,7 +16609,6 @@ int next_pidmap(struct pid_namespace *pid_ns, unsigned int last);
 
 extern struct pid *alloc_pid(struct pid_namespace *ns);
 extern void free_pid(struct pid *pid);
-# 135 "include/linux/pid.h"
 static inline __attribute__((no_instrument_function)) struct pid_namespace *ns_of_pid(struct pid *pid)
 {
  struct pid_namespace *ns = ((void *)0);
@@ -17850,7 +16627,6 @@ static inline __attribute__((no_instrument_function)) bool is_child_reaper(struc
 {
  return pid->numbers[pid->level].nr == 1;
 }
-# 165 "include/linux/pid.h"
 static inline __attribute__((no_instrument_function)) pid_t pid_nr(struct pid *pid)
 {
  pid_t nr = 0;
@@ -17861,13 +16637,8 @@ static inline __attribute__((no_instrument_function)) pid_t pid_nr(struct pid *p
 
 pid_t pid_nr_ns(struct pid *pid, struct pid_namespace *ns);
 pid_t pid_vnr(struct pid *pid);
-# 76 "include/linux/sched.h" 2
 
 
-# 1 "include/linux/proportions.h" 1
-# 12 "include/linux/proportions.h"
-# 1 "include/linux/percpu_counter.h" 1
-# 18 "include/linux/percpu_counter.h"
 struct percpu_counter {
  raw_spinlock_t lock;
  s64 count;
@@ -17881,7 +16652,6 @@ extern int percpu_counter_batch;
 
 int __percpu_counter_init(struct percpu_counter *fbc, s64 amount,
      struct lock_class_key *key);
-# 39 "include/linux/percpu_counter.h"
 void percpu_counter_destroy(struct percpu_counter *fbc);
 void percpu_counter_set(struct percpu_counter *fbc, s64 amount);
 void __percpu_counter_add(struct percpu_counter *fbc, s64 amount, s32 batch);
@@ -17928,7 +16698,6 @@ static inline __attribute__((no_instrument_function)) int percpu_counter_initial
 {
  return (fbc->counters != ((void *)0));
 }
-# 162 "include/linux/percpu_counter.h"
 static inline __attribute__((no_instrument_function)) void percpu_counter_inc(struct percpu_counter *fbc)
 {
  percpu_counter_add(fbc, 1);
@@ -17943,7 +16712,6 @@ static inline __attribute__((no_instrument_function)) void percpu_counter_sub(st
 {
  percpu_counter_add(fbc, -amount);
 }
-# 13 "include/linux/proportions.h" 2
 
 
 
@@ -18010,7 +16778,6 @@ void prop_inc_percpu(struct prop_descriptor *pd, struct prop_local_percpu *pl)
  __prop_inc_percpu(pd, pl);
  do { if (({ ({ unsigned long __dummy; typeof(flags) __dummy2; (void)(&__dummy == &__dummy2); 1; }); arch_irqs_disabled_flags(flags); })) { do { ({ unsigned long __dummy; typeof(flags) __dummy2; (void)(&__dummy == &__dummy2); 1; }); arch_local_irq_restore(flags); } while (0); trace_hardirqs_off(); } else { trace_hardirqs_on(); do { ({ unsigned long __dummy; typeof(flags) __dummy2; (void)(&__dummy == &__dummy2); 1; }); arch_local_irq_restore(flags); } while (0); } } while (0);
 }
-# 93 "include/linux/proportions.h"
 void __prop_inc_percpu_max(struct prop_descriptor *pd,
       struct prop_local_percpu *pl, long frac);
 
@@ -18053,8 +16820,6 @@ void prop_inc_single(struct prop_descriptor *pd, struct prop_local_single *pl)
  __prop_inc_single(pd, pl);
  do { if (({ ({ unsigned long __dummy; typeof(flags) __dummy2; (void)(&__dummy == &__dummy2); 1; }); arch_irqs_disabled_flags(flags); })) { do { ({ unsigned long __dummy; typeof(flags) __dummy2; (void)(&__dummy == &__dummy2); 1; }); arch_local_irq_restore(flags); } while (0); trace_hardirqs_off(); } else { trace_hardirqs_on(); do { ({ unsigned long __dummy; typeof(flags) __dummy2; (void)(&__dummy == &__dummy2); 1; }); arch_local_irq_restore(flags); } while (0); } } while (0);
 }
-# 79 "include/linux/sched.h" 2
-# 1 "include/linux/seccomp.h" 1
 
 
 
@@ -18062,36 +16827,18 @@ void prop_inc_single(struct prop_descriptor *pd, struct prop_local_single *pl)
 
 
 
-# 1 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/seccomp.h" 1
-
-
-
-# 1 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/seccomp_64.h" 1
-
-
-
-# 1 "include/linux/unistd.h" 1
 
 
 
 
 
 
-# 1 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/unistd.h" 1
-# 26 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/unistd.h"
-# 1 "arch/x86/include/generated/asm/unistd_64.h" 1
-# 27 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/unistd.h" 2
-# 1 "arch/x86/include/generated/asm/unistd_64_x32.h" 1
-# 28 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/unistd.h" 2
-# 8 "include/linux/unistd.h" 2
-# 5 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/seccomp_64.h" 2
-# 1 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/ia32_unistd.h" 1
-# 9 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/ia32_unistd.h"
-# 1 "arch/x86/include/generated/asm/unistd_32_ia32.h" 1
-# 10 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/ia32_unistd.h" 2
-# 6 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/seccomp_64.h" 2
-# 5 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/seccomp.h" 2
-# 9 "include/linux/seccomp.h" 2
+
+
+
+
+
+
 
 typedef struct { int mode; } seccomp_t;
 
@@ -18109,10 +16856,7 @@ static inline __attribute__((no_instrument_function)) int seccomp_mode(seccomp_t
 {
  return s->mode;
 }
-# 80 "include/linux/sched.h" 2
 
-# 1 "include/linux/rculist.h" 1
-# 33 "include/linux/rculist.h"
 static inline __attribute__((no_instrument_function)) void __list_add_rcu(struct list_head *new,
   struct list_head *prev, struct list_head *next)
 {
@@ -18121,24 +16865,20 @@ static inline __attribute__((no_instrument_function)) void __list_add_rcu(struct
  ({ __asm__ __volatile__("": : :"memory"); (((*((struct list_head **)(&(prev)->next))))) = (typeof(*(new)) *)((new)); });
  next->prev = new;
 }
-# 58 "include/linux/rculist.h"
 static inline __attribute__((no_instrument_function)) void list_add_rcu(struct list_head *new, struct list_head *head)
 {
  __list_add_rcu(new, head, head->next);
 }
-# 79 "include/linux/rculist.h"
 static inline __attribute__((no_instrument_function)) void list_add_tail_rcu(struct list_head *new,
      struct list_head *head)
 {
  __list_add_rcu(new, head->prev, head);
 }
-# 109 "include/linux/rculist.h"
 static inline __attribute__((no_instrument_function)) void list_del_rcu(struct list_head *entry)
 {
  __list_del(entry->prev, entry->next);
  entry->prev = ((void *) 0x00200200 + (0xdead000000000000UL));
 }
-# 135 "include/linux/rculist.h"
 static inline __attribute__((no_instrument_function)) void hlist_del_init_rcu(struct hlist_node *n)
 {
  if (!hlist_unhashed(n)) {
@@ -18146,7 +16886,6 @@ static inline __attribute__((no_instrument_function)) void hlist_del_init_rcu(st
   n->pprev = ((void *)0);
  }
 }
-# 151 "include/linux/rculist.h"
 static inline __attribute__((no_instrument_function)) void list_replace_rcu(struct list_head *old,
     struct list_head *new)
 {
@@ -18156,7 +16895,6 @@ static inline __attribute__((no_instrument_function)) void list_replace_rcu(stru
  new->next->prev = new;
  old->prev = ((void *) 0x00200200 + (0xdead000000000000UL));
 }
-# 178 "include/linux/rculist.h"
 static inline __attribute__((no_instrument_function)) void list_splice_init_rcu(struct list_head *list,
      struct list_head *head,
      void (*sync)(void))
@@ -18171,21 +16909,17 @@ static inline __attribute__((no_instrument_function)) void list_splice_init_rcu(
 
 
  INIT_LIST_HEAD(list);
-# 200 "include/linux/rculist.h"
  sync();
-# 210 "include/linux/rculist.h"
  last->next = at;
  ({ __asm__ __volatile__("": : :"memory"); (((*((struct list_head **)(&(head)->next))))) = (typeof(*(first)) *)((first)); });
  first->prev = head;
  at->prev = last;
 }
-# 309 "include/linux/rculist.h"
 static inline __attribute__((no_instrument_function)) void hlist_del_rcu(struct hlist_node *n)
 {
  __hlist_del(n);
  n->pprev = ((void *) 0x00200200 + (0xdead000000000000UL));
 }
-# 322 "include/linux/rculist.h"
 static inline __attribute__((no_instrument_function)) void hlist_replace_rcu(struct hlist_node *old,
      struct hlist_node *new)
 {
@@ -18198,7 +16932,6 @@ static inline __attribute__((no_instrument_function)) void hlist_replace_rcu(str
   new->next->pprev = &new->next;
  old->pprev = ((void *) 0x00200200 + (0xdead000000000000UL));
 }
-# 361 "include/linux/rculist.h"
 static inline __attribute__((no_instrument_function)) void hlist_add_head_rcu(struct hlist_node *n,
      struct hlist_head *h)
 {
@@ -18210,7 +16943,6 @@ static inline __attribute__((no_instrument_function)) void hlist_add_head_rcu(st
  if (first)
   first->pprev = &n->next;
 }
-# 391 "include/linux/rculist.h"
 static inline __attribute__((no_instrument_function)) void hlist_add_before_rcu(struct hlist_node *n,
      struct hlist_node *next)
 {
@@ -18219,7 +16951,6 @@ static inline __attribute__((no_instrument_function)) void hlist_add_before_rcu(
  ({ __asm__ __volatile__("": : :"memory"); (((*((struct hlist_node **)((n)->pprev))))) = (typeof(*(n)) *)((n)); });
  next->pprev = &n->next;
 }
-# 418 "include/linux/rculist.h"
 static inline __attribute__((no_instrument_function)) void hlist_add_after_rcu(struct hlist_node *prev,
            struct hlist_node *n)
 {
@@ -18229,11 +16960,6 @@ static inline __attribute__((no_instrument_function)) void hlist_add_after_rcu(s
  if (n->next)
   n->next->pprev = &n->next;
 }
-# 82 "include/linux/sched.h" 2
-# 1 "include/linux/rtmutex.h" 1
-# 16 "include/linux/rtmutex.h"
-# 1 "include/linux/plist.h" 1
-# 81 "include/linux/plist.h"
 struct plist_head {
  struct list_head node_list;
 };
@@ -18243,7 +16969,6 @@ struct plist_node {
  struct list_head prio_list;
  struct list_head node_list;
 };
-# 116 "include/linux/plist.h"
 static inline __attribute__((no_instrument_function)) void
 plist_head_init(struct plist_head *head)
 {
@@ -18264,7 +16989,6 @@ static inline __attribute__((no_instrument_function)) void plist_node_init(struc
 
 extern void plist_add(struct plist_node *node, struct plist_head *head);
 extern void plist_del(struct plist_node *node, struct plist_head *head);
-# 181 "include/linux/plist.h"
 static inline __attribute__((no_instrument_function)) int plist_head_empty(const struct plist_head *head)
 {
  return list_empty(&head->node_list);
@@ -18278,7 +17002,6 @@ static inline __attribute__((no_instrument_function)) int plist_node_empty(const
 {
  return list_empty(&node->node_list);
 }
-# 237 "include/linux/plist.h"
 static inline __attribute__((no_instrument_function)) struct plist_node *plist_first(const struct plist_head *head)
 {
  return ({ const typeof( ((struct plist_node *)0)->node_list ) *__mptr = (head->node_list.next); (struct plist_node *)( (char *)__mptr - __builtin_offsetof(struct plist_node,node_list) );})
@@ -18296,11 +17019,9 @@ static inline __attribute__((no_instrument_function)) struct plist_node *plist_l
  return ({ const typeof( ((struct plist_node *)0)->node_list ) *__mptr = (head->node_list.prev); (struct plist_node *)( (char *)__mptr - __builtin_offsetof(struct plist_node,node_list) );})
                                   ;
 }
-# 17 "include/linux/rtmutex.h" 2
 
 
 extern int max_lock_depth;
-# 28 "include/linux/rtmutex.h"
 struct rt_mutex {
  raw_spinlock_t wait_lock;
  struct plist_head wait_list;
@@ -18320,9 +17041,7 @@ struct hrtimer_sleeper;
  extern int rt_mutex_debug_check_no_locks_freed(const void *from,
       unsigned long len);
  extern void rt_mutex_debug_check_no_locks_held(struct task_struct *task);
-# 60 "include/linux/rtmutex.h"
  extern void rt_mutex_debug_task_free(struct task_struct *tsk);
-# 82 "include/linux/rtmutex.h"
 static inline __attribute__((no_instrument_function)) int rt_mutex_is_locked(struct rt_mutex *lock)
 {
  return lock->owner != ((void *)0);
@@ -18341,12 +17060,9 @@ extern int rt_mutex_timed_lock(struct rt_mutex *lock,
 extern int rt_mutex_trylock(struct rt_mutex *lock);
 
 extern void rt_mutex_unlock(struct rt_mutex *lock);
-# 83 "include/linux/sched.h" 2
 
 
 
-# 1 "include/linux/resource.h" 1
-# 23 "include/linux/resource.h"
 struct rusage {
  struct timeval ru_utime;
  struct timeval ru_stime;
@@ -18377,11 +17093,6 @@ struct rlimit64 {
  __u64 rlim_cur;
  __u64 rlim_max;
 };
-# 77 "include/linux/resource.h"
-# 1 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/resource.h" 1
-# 1 "include/asm-generic/resource.h" 1
-# 1 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/resource.h" 2
-# 78 "include/linux/resource.h" 2
 
 
 
@@ -18390,11 +17101,7 @@ struct task_struct;
 int getrusage(struct task_struct *p, int who, struct rusage *ru);
 int do_prlimit(struct task_struct *tsk, unsigned int resource,
   struct rlimit *new_rlim, struct rlimit *old_rlim);
-# 87 "include/linux/sched.h" 2
 
-# 1 "include/linux/hrtimer.h" 1
-# 25 "include/linux/hrtimer.h"
-# 1 "include/linux/timerqueue.h" 1
 
 
 
@@ -18419,7 +17126,6 @@ extern void timerqueue_del(struct timerqueue_head *head,
     struct timerqueue_node *node);
 extern struct timerqueue_node *timerqueue_iterate_next(
       struct timerqueue_node *node);
-# 34 "include/linux/timerqueue.h"
 static inline __attribute__((no_instrument_function))
 struct timerqueue_node *timerqueue_getnext(struct timerqueue_head *head)
 {
@@ -18436,7 +17142,6 @@ static inline __attribute__((no_instrument_function)) void timerqueue_init_head(
  head->head = (struct rb_root) { ((void *)0), };
  head->next = ((void *)0);
 }
-# 26 "include/linux/hrtimer.h" 2
 
 struct hrtimer_clock_base;
 struct hrtimer_cpu_base;
@@ -18459,7 +17164,6 @@ enum hrtimer_restart {
  HRTIMER_NORESTART,
  HRTIMER_RESTART,
 };
-# 108 "include/linux/hrtimer.h"
 struct hrtimer {
  struct timerqueue_node node;
  ktime_t _softexpires;
@@ -18472,12 +17176,10 @@ struct hrtimer {
  char start_comm[16];
 
 };
-# 128 "include/linux/hrtimer.h"
 struct hrtimer_sleeper {
  struct hrtimer timer;
  struct task_struct *task;
 };
-# 145 "include/linux/hrtimer.h"
 struct hrtimer_clock_base {
  struct hrtimer_cpu_base *cpu_base;
  int index;
@@ -18495,7 +17197,6 @@ enum hrtimer_base_type {
  HRTIMER_BASE_BOOTTIME,
  HRTIMER_MAX_CLOCK_BASES,
 };
-# 178 "include/linux/hrtimer.h"
 struct hrtimer_cpu_base {
  raw_spinlock_t lock;
  unsigned long active_bases;
@@ -18595,7 +17296,6 @@ static inline __attribute__((no_instrument_function)) int hrtimer_is_hres_active
 }
 
 extern void hrtimer_peek_ahead_timers(void);
-# 311 "include/linux/hrtimer.h"
 extern void clock_was_set(void);
 
 extern void timerfd_clock_was_set(void);
@@ -18623,7 +17323,6 @@ extern void hrtimer_init_on_stack(struct hrtimer *timer, clockid_t which_clock,
       enum hrtimer_mode mode);
 
 extern void destroy_hrtimer_on_stack(struct hrtimer *timer);
-# 349 "include/linux/hrtimer.h"
 extern int hrtimer_start(struct hrtimer *timer, ktime_t tim,
     const enum hrtimer_mode mode);
 extern int hrtimer_start_range_ns(struct hrtimer *timer, ktime_t tim,
@@ -18718,11 +17417,7 @@ extern void hrtimer_run_pending(void);
 
 
 extern void __attribute__ ((__section__(".init.text"))) __attribute__((no_instrument_function)) hrtimers_init(void);
-# 451 "include/linux/hrtimer.h"
 extern void sysrq_timer_list_show(void);
-# 89 "include/linux/sched.h" 2
-# 1 "include/linux/task_io_accounting.h" 1
-# 11 "include/linux/task_io_accounting.h"
 struct task_io_accounting {
 
 
@@ -18747,13 +17442,9 @@ struct task_io_accounting {
 
 
  u64 write_bytes;
-# 43 "include/linux/task_io_accounting.h"
  u64 cancelled_write_bytes;
 
 };
-# 90 "include/linux/sched.h" 2
-# 1 "include/linux/latencytop.h" 1
-# 13 "include/linux/latencytop.h"
 struct task_struct;
 
 
@@ -18780,18 +17471,12 @@ account_scheduler_latency(struct task_struct *task, int usecs, int inter)
 }
 
 void clear_all_latency_tracing(struct task_struct *p);
-# 91 "include/linux/sched.h" 2
-# 1 "include/linux/cred.h" 1
-# 17 "include/linux/cred.h"
-# 1 "include/linux/key.h" 1
-# 29 "include/linux/key.h"
 typedef int32_t key_serial_t;
 
 
 typedef uint32_t key_perm_t;
 
 struct key;
-# 74 "include/linux/key.h"
 struct seq_file;
 struct user_struct;
 struct signal_struct;
@@ -18801,7 +17486,6 @@ struct key_type;
 struct key_owner;
 struct keyring_list;
 struct keyring_name;
-# 98 "include/linux/key.h"
 typedef struct __key_reference_with_attributes *key_ref_t;
 
 static inline __attribute__((no_instrument_function)) key_ref_t make_key_ref(const struct key *key,
@@ -18819,7 +17503,6 @@ static inline __attribute__((no_instrument_function)) unsigned long is_key_posse
 {
  return (unsigned long) key_ref & 1UL;
 }
-# 124 "include/linux/key.h"
 struct key {
  atomic_t usage;
  key_serial_t serial;
@@ -18837,9 +17520,7 @@ struct key {
  key_perm_t perm;
  unsigned short quotalen;
  unsigned short datalen;
-# 151 "include/linux/key.h"
  unsigned long flags;
-# 165 "include/linux/key.h"
  char *description;
 
 
@@ -18956,13 +17637,11 @@ static inline __attribute__((no_instrument_function)) key_serial_t key_serial(co
 }
 
 extern void key_set_timeout(struct key *, unsigned);
-# 289 "include/linux/key.h"
 static inline __attribute__((no_instrument_function)) bool key_is_instantiated(const struct key *key)
 {
  return (__builtin_constant_p((0)) ? constant_test_bit((0), (&key->flags)) : variable_test_bit((0), (&key->flags))) &&
   !(__builtin_constant_p((5)) ? constant_test_bit((5), (&key->flags)) : variable_test_bit((5), (&key->flags)));
 }
-# 303 "include/linux/key.h"
 extern ctl_table key_sysctls[];
 
 
@@ -18975,9 +17654,6 @@ extern int install_thread_keyring_to_cred(struct cred *cred);
 extern void key_fsuid_changed(struct task_struct *tsk);
 extern void key_fsgid_changed(struct task_struct *tsk);
 extern void key_init(void);
-# 18 "include/linux/cred.h" 2
-# 1 "include/linux/selinux.h" 1
-# 17 "include/linux/selinux.h"
 struct selinux_audit_rule;
 struct audit_context;
 struct kern_ipc_perm;
@@ -18988,7 +17664,6 @@ struct kern_ipc_perm;
 
 
 bool selinux_is_enabled(void);
-# 19 "include/linux/cred.h" 2
 
 
 struct user_struct;
@@ -19008,13 +17683,11 @@ struct group_info {
  gid_t small_block[32];
  gid_t *blocks[0];
 };
-# 48 "include/linux/cred.h"
 static inline __attribute__((no_instrument_function)) struct group_info *get_group_info(struct group_info *gi)
 {
  atomic_inc(&gi->usage);
  return gi;
 }
-# 64 "include/linux/cred.h"
 extern struct group_info *groups_alloc(int);
 extern struct group_info init_groups;
 extern void groups_free(struct group_info *);
@@ -19042,7 +17715,6 @@ struct thread_group_cred {
  struct key *process_keyring;
  struct rcu_head rcu;
 };
-# 116 "include/linux/cred.h"
 struct cred {
  atomic_t usage;
 
@@ -19115,22 +17787,18 @@ static inline __attribute__((no_instrument_function)) void __validate_creds(cons
  if (ldv__builtin_expect(!!(creds_are_invalid(cred)), 0))
   __invalid_creds(cred, file, line);
 }
-# 199 "include/linux/cred.h"
 extern void validate_creds_for_do_exit(struct task_struct *);
-# 219 "include/linux/cred.h"
 static inline __attribute__((no_instrument_function)) struct cred *get_new_cred(struct cred *cred)
 {
  atomic_inc(&cred->usage);
  return cred;
 }
-# 238 "include/linux/cred.h"
 static inline __attribute__((no_instrument_function)) const struct cred *get_cred(const struct cred *cred)
 {
  struct cred *nonconst_cred = (struct cred *) cred;
  do { __validate_creds((cred), "include/linux/cred.h", 241); } while(0);
  return get_new_cred(nonconst_cred);
 }
-# 256 "include/linux/cred.h"
 static inline __attribute__((no_instrument_function)) void put_cred(const struct cred *_cred)
 {
  struct cred *cred = (struct cred *) _cred;
@@ -19139,9 +17807,6 @@ static inline __attribute__((no_instrument_function)) void put_cred(const struct
  if (atomic_dec_and_test(&(cred)->usage))
   __put_cred(cred);
 }
-# 92 "include/linux/sched.h" 2
-# 1 "include/linux/llist.h" 1
-# 61 "include/linux/llist.h"
 struct llist_head {
  struct llist_node *first;
 };
@@ -19149,12 +17814,10 @@ struct llist_head {
 struct llist_node {
  struct llist_node *next;
 };
-# 76 "include/linux/llist.h"
 static inline __attribute__((no_instrument_function)) void init_llist_head(struct llist_head *list)
 {
  list->first = ((void *)0);
 }
-# 135 "include/linux/llist.h"
 static inline __attribute__((no_instrument_function)) bool llist_empty(const struct llist_head *head)
 {
  return (*(volatile typeof(head->first) *)&(head->first)) == ((void *)0);
@@ -19164,7 +17827,6 @@ static inline __attribute__((no_instrument_function)) struct llist_node *llist_n
 {
  return node->next;
 }
-# 152 "include/linux/llist.h"
 static inline __attribute__((no_instrument_function)) bool llist_add(struct llist_node *new, struct llist_head *head)
 {
  struct llist_node *entry, *old_entry;
@@ -19180,7 +17842,6 @@ static inline __attribute__((no_instrument_function)) bool llist_add(struct llis
 
  return old_entry == ((void *)0);
 }
-# 176 "include/linux/llist.h"
 static inline __attribute__((no_instrument_function)) struct llist_node *llist_del_all(struct llist_head *head)
 {
  return ({ __typeof__ (*((&head->first))) __ret = ((((void *)0))); switch (sizeof(*((&head->first)))) { case 1: asm volatile ("" "xchg" "b %b0, %1\n" : "+q" (__ret), "+m" (*((&head->first))) : : "memory", "cc"); break; case 2: asm volatile ("" "xchg" "w %w0, %1\n" : "+r" (__ret), "+m" (*((&head->first))) : : "memory", "cc"); break; case 4: asm volatile ("" "xchg" "l %0, %1\n" : "+r" (__ret), "+m" (*((&head->first))) : : "memory", "cc"); break; case 8: asm volatile ("" "xchg" "q %q0, %1\n" : "+r" (__ret), "+m" (*((&head->first))) : : "memory", "cc"); break; default: __xchg_wrong_size(); } __ret; });
@@ -19190,7 +17851,6 @@ extern bool llist_add_batch(struct llist_node *new_first,
        struct llist_node *new_last,
        struct llist_head *head);
 extern struct llist_node *llist_del_first(struct llist_head *head);
-# 93 "include/linux/sched.h" 2
 
 
 
@@ -19201,10 +17861,8 @@ struct bio_list;
 struct fs_struct;
 struct perf_event_context;
 struct blk_plug;
-# 120 "include/linux/sched.h"
 extern unsigned long avenrun[];
 extern void get_avenrun(unsigned long *loads, unsigned long offset, int shift);
-# 135 "include/linux/sched.h"
 extern unsigned long total_forks;
 extern int nr_threads;
 extern __attribute__((section(".discard"), unused)) char __pcpu_scope_process_counts; extern __attribute__((section(".data..percpu" ""))) __typeof__(unsigned long) process_counts;
@@ -19228,10 +17886,8 @@ extern void proc_sched_show_task(struct task_struct *p, struct seq_file *m);
 extern void proc_sched_set_task(struct task_struct *p);
 extern void
 print_cfs_rq(struct seq_file *m, int cpu, struct cfs_rq *cfs_rq);
-# 198 "include/linux/sched.h"
 extern char ___assert_task_state[1 - 2*!!(
   sizeof("RSDTtZXxKW")-1 != ( __builtin_constant_p(512) ? ( (512) < 1 ? ____ilog2_NaN() : (512) & (1ULL << 63) ? 63 : (512) & (1ULL << 62) ? 62 : (512) & (1ULL << 61) ? 61 : (512) & (1ULL << 60) ? 60 : (512) & (1ULL << 59) ? 59 : (512) & (1ULL << 58) ? 58 : (512) & (1ULL << 57) ? 57 : (512) & (1ULL << 56) ? 56 : (512) & (1ULL << 55) ? 55 : (512) & (1ULL << 54) ? 54 : (512) & (1ULL << 53) ? 53 : (512) & (1ULL << 52) ? 52 : (512) & (1ULL << 51) ? 51 : (512) & (1ULL << 50) ? 50 : (512) & (1ULL << 49) ? 49 : (512) & (1ULL << 48) ? 48 : (512) & (1ULL << 47) ? 47 : (512) & (1ULL << 46) ? 46 : (512) & (1ULL << 45) ? 45 : (512) & (1ULL << 44) ? 44 : (512) & (1ULL << 43) ? 43 : (512) & (1ULL << 42) ? 42 : (512) & (1ULL << 41) ? 41 : (512) & (1ULL << 40) ? 40 : (512) & (1ULL << 39) ? 39 : (512) & (1ULL << 38) ? 38 : (512) & (1ULL << 37) ? 37 : (512) & (1ULL << 36) ? 36 : (512) & (1ULL << 35) ? 35 : (512) & (1ULL << 34) ? 34 : (512) & (1ULL << 33) ? 33 : (512) & (1ULL << 32) ? 32 : (512) & (1ULL << 31) ? 31 : (512) & (1ULL << 30) ? 30 : (512) & (1ULL << 29) ? 29 : (512) & (1ULL << 28) ? 28 : (512) & (1ULL << 27) ? 27 : (512) & (1ULL << 26) ? 26 : (512) & (1ULL << 25) ? 25 : (512) & (1ULL << 24) ? 24 : (512) & (1ULL << 23) ? 23 : (512) & (1ULL << 22) ? 22 : (512) & (1ULL << 21) ? 21 : (512) & (1ULL << 20) ? 20 : (512) & (1ULL << 19) ? 19 : (512) & (1ULL << 18) ? 18 : (512) & (1ULL << 17) ? 17 : (512) & (1ULL << 16) ? 16 : (512) & (1ULL << 15) ? 15 : (512) & (1ULL << 14) ? 14 : (512) & (1ULL << 13) ? 13 : (512) & (1ULL << 12) ? 12 : (512) & (1ULL << 11) ? 11 : (512) & (1ULL << 10) ? 10 : (512) & (1ULL << 9) ? 9 : (512) & (1ULL << 8) ? 8 : (512) & (1ULL << 7) ? 7 : (512) & (1ULL << 6) ? 6 : (512) & (1ULL << 5) ? 5 : (512) & (1ULL << 4) ? 4 : (512) & (1ULL << 3) ? 3 : (512) & (1ULL << 2) ? 2 : (512) & (1ULL << 1) ? 1 : (512) & (1ULL << 0) ? 0 : ____ilog2_NaN() ) : (sizeof(512) <= 4) ? __ilog2_u32(512) : __ilog2_u64(512) )+1)];
-# 256 "include/linux/sched.h"
 extern rwlock_t tasklist_lock;
 extern spinlock_t mmlist_lock;
 
@@ -19253,7 +17909,6 @@ extern int runqueue_is_locked(int cpu);
 extern void select_nohz_load_balancer(int stop_tick);
 extern void set_cpu_sd_state_idle(void);
 extern int get_nohz_timer_target(void);
-# 285 "include/linux/sched.h"
 extern void show_state_filter(unsigned long state_filter);
 
 static inline __attribute__((no_instrument_function)) void show_state(void)
@@ -19289,7 +17944,6 @@ extern int proc_dowatchdog_thresh(struct ctl_table *table, int write,
       size_t *lenp, loff_t *ppos);
 extern unsigned int softlockup_panic;
 void lockup_detector_init(void);
-# 336 "include/linux/sched.h"
 extern unsigned int sysctl_hung_task_panic;
 extern unsigned long sysctl_hung_task_check_count;
 extern unsigned long sysctl_hung_task_timeout_secs;
@@ -19297,7 +17951,6 @@ extern unsigned long sysctl_hung_task_warnings;
 extern int proc_dohung_task_timeout_secs(struct ctl_table *table, int write,
       void *buffer,
       size_t *lenp, loff_t *ppos);
-# 352 "include/linux/sched.h"
 extern char __sched_text_start[], __sched_text_end[];
 
 
@@ -19314,17 +17967,13 @@ extern int mutex_spin_on_owner(struct mutex *lock, struct task_struct *owner);
 
 struct nsproxy;
 struct user_namespace;
-# 384 "include/linux/sched.h"
 extern int sysctl_max_map_count;
 
-# 1 "include/linux/aio.h" 1
 
 
 
 
 
-# 1 "include/linux/aio_abi.h" 1
-# 33 "include/linux/aio_abi.h"
 typedef __kernel_ulong_t aio_context_t;
 
 enum {
@@ -19340,14 +17989,12 @@ enum {
  IOCB_CMD_PREADV = 7,
  IOCB_CMD_PWRITEV = 8,
 };
-# 58 "include/linux/aio_abi.h"
 struct io_event {
  __u64 data;
  __u64 obj;
  __s64 res;
  __s64 res2;
 };
-# 79 "include/linux/aio_abi.h"
 struct iocb {
 
  __u64 aio_data;
@@ -19375,20 +18022,15 @@ struct iocb {
 
  __u32 aio_resfd;
 };
-# 7 "include/linux/aio.h" 2
-# 1 "include/linux/uio.h" 1
-# 16 "include/linux/uio.h"
 struct iovec
 {
  void *iov_base;
  __kernel_size_t iov_len;
 };
-# 31 "include/linux/uio.h"
 struct kvec {
  void *iov_base;
  size_t iov_len;
 };
-# 43 "include/linux/uio.h"
 static inline __attribute__((no_instrument_function)) size_t iov_length(const struct iovec *iov, unsigned long nr_segs)
 {
  unsigned long seg;
@@ -19400,7 +18042,6 @@ static inline __attribute__((no_instrument_function)) size_t iov_length(const st
 }
 
 unsigned long iov_shorten(struct iovec *iov, unsigned long nr_segs, size_t to);
-# 8 "include/linux/aio.h" 2
 
 
 
@@ -19409,7 +18050,6 @@ unsigned long iov_shorten(struct iovec *iov, unsigned long nr_segs, size_t to);
 
 
 struct kioctx;
-# 87 "include/linux/aio.h"
 struct kiocb {
  struct list_head ki_run_list;
  unsigned long ki_flags;
@@ -19451,7 +18091,6 @@ struct kiocb {
 
  struct eventfd_ctx *ki_eventfd;
 };
-# 148 "include/linux/aio.h"
 struct aio_ring {
  unsigned id;
  unsigned nr;
@@ -19522,7 +18161,6 @@ struct mm_struct;
 extern void exit_aio(struct mm_struct *mm);
 extern long do_io_submit(aio_context_t ctx_id, long nr,
     struct iocb * *iocbpp, bool compat);
-# 230 "include/linux/aio.h"
 static inline __attribute__((no_instrument_function)) struct kiocb *list_kiocb(struct list_head *h)
 {
  return ({ const typeof( ((struct kiocb *)0)->ki_list ) *__mptr = (h); (struct kiocb *)( (char *)__mptr - __builtin_offsetof(struct kiocb,ki_list) );});
@@ -19531,7 +18169,6 @@ static inline __attribute__((no_instrument_function)) struct kiocb *list_kiocb(s
 
 extern unsigned long aio_nr;
 extern unsigned long aio_max_nr;
-# 387 "include/linux/sched.h" 2
 
 
 extern void arch_pick_mmap_layout(struct mm_struct *mm);
@@ -19551,7 +18188,6 @@ extern void arch_unmap_area_topdown(struct mm_struct *, unsigned long);
 
 extern void set_dumpable(struct mm_struct *mm, int value);
 extern int get_dumpable(struct mm_struct *mm);
-# 443 "include/linux/sched.h"
 struct sighand_struct {
  atomic_t count;
  struct k_sigaction action[64];
@@ -19573,13 +18209,11 @@ struct cpu_itimer {
  u32 error;
  u32 incr_error;
 };
-# 476 "include/linux/sched.h"
 struct task_cputime {
  cputime_t utime;
  cputime_t stime;
  unsigned long long sum_exec_runtime;
 };
-# 512 "include/linux/sched.h"
 struct thread_group_cputimer {
  struct task_cputime cputime;
  int running;
@@ -19588,7 +18222,6 @@ struct thread_group_cputimer {
 
 
 struct autogroup;
-# 528 "include/linux/sched.h"
 struct signal_struct {
  atomic_t sigcnt;
  atomic_t live;
@@ -19615,7 +18248,6 @@ struct signal_struct {
 
  int group_stop_count;
  unsigned int flags;
-# 564 "include/linux/sched.h"
  unsigned int is_child_subreaper:1;
  unsigned int has_child_subreaper:1;
 
@@ -19680,7 +18312,6 @@ struct signal_struct {
 
 
  unsigned long long sum_sched_runtime;
-# 638 "include/linux/sched.h"
  struct rlimit rlim[16];
 
 
@@ -19692,7 +18323,6 @@ struct signal_struct {
 
  unsigned audit_tty;
  struct tty_audit_buf *tty_audit_buf;
-# 660 "include/linux/sched.h"
  struct rw_semaphore group_rwsem;
 
 
@@ -19705,7 +18335,6 @@ struct signal_struct {
 
 
 };
-# 694 "include/linux/sched.h"
 static inline __attribute__((no_instrument_function)) int signal_group_exit(const struct signal_struct *sig)
 {
  return (sig->flags & 0x00000004) ||
@@ -19778,7 +18407,6 @@ struct sched_info {
 struct task_delay_info {
  spinlock_t lock;
  unsigned int flags;
-# 782 "include/linux/sched.h"
  struct timespec blkio_start, blkio_end;
  u64 blkio_delay;
  u64 swapin_delay;
@@ -19811,7 +18439,6 @@ enum cpu_idle_type {
  CPU_NEWLY_IDLE,
  CPU_MAX_IDLE_TYPES
 };
-# 865 "include/linux/sched.h"
 enum powersavings_balance_level {
  POWERSAVINGS_BALANCE_NONE = 0,
  POWERSAVINGS_BALANCE_BASIC,
@@ -19880,7 +18507,6 @@ struct sched_group {
 
  unsigned int group_weight;
  struct sched_group_power *sgp;
-# 941 "include/linux/sched.h"
  unsigned long cpumask[0];
 };
 
@@ -20009,7 +18635,6 @@ unsigned long default_scale_freq_power(struct sched_domain *sd, int cpu);
 unsigned long default_scale_smt_power(struct sched_domain *sd, int cpu);
 
 bool cpus_share_cache(int this_cpu, int that_cpu);
-# 1088 "include/linux/sched.h"
 struct io_context;
 
 
@@ -20026,7 +18651,6 @@ struct uts_namespace;
 
 struct rq;
 struct sched_domain;
-# 1122 "include/linux/sched.h"
 struct sched_class {
  const struct sched_class *next;
 
@@ -20191,7 +18815,6 @@ struct task_struct {
 
 
  struct hlist_head preempt_notifiers;
-# 1296 "include/linux/sched.h"
  unsigned char fpu_counter;
 
 
@@ -20199,7 +18822,6 @@ struct task_struct {
 
  unsigned int policy;
  cpumask_t cpus_allowed;
-# 1317 "include/linux/sched.h"
  struct sched_info sched_info;
 
 
@@ -20373,7 +18995,6 @@ struct task_struct {
  unsigned int softirq_enable_event;
  int softirqs_enabled;
  int softirq_context;
-# 1501 "include/linux/sched.h"
  void *journal_info;
 
 
@@ -20461,7 +19082,6 @@ struct task_struct {
  unsigned long default_timer_slack_ns;
 
  struct list_head *scm_work_list;
-# 1605 "include/linux/sched.h"
  unsigned long trace;
 
  unsigned long trace_recursion;
@@ -20478,7 +19098,6 @@ struct task_struct {
  atomic_t ptrace_bp_refcnt;
 
 };
-# 1644 "include/linux/sched.h"
 static inline __attribute__((no_instrument_function)) int rt_prio(int prio)
 {
  if (ldv__builtin_expect(!!(prio < 100), 0))
@@ -20517,7 +19136,6 @@ static inline __attribute__((no_instrument_function)) struct pid *task_session(s
 }
 
 struct pid_namespace;
-# 1696 "include/linux/sched.h"
 pid_t __task_pid_nr_ns(struct task_struct *task, enum pid_type type,
    struct pid_namespace *ns);
 
@@ -20579,7 +19197,6 @@ static inline __attribute__((no_instrument_function)) pid_t task_pgrp_nr(struct 
 {
  return task_pgrp_nr_ns(tsk, &init_pid_ns);
 }
-# 1766 "include/linux/sched.h"
 static inline __attribute__((no_instrument_function)) int pid_alive(struct task_struct *p)
 {
  return p->pids[PIDTYPE_PID].pid != ((void *)0);
@@ -20617,13 +19234,11 @@ static inline __attribute__((no_instrument_function)) void put_task_struct(struc
 
 extern void task_times(struct task_struct *p, cputime_t *ut, cputime_t *st);
 extern void thread_group_times(struct task_struct *p, cputime_t *ut, cputime_t *st);
-# 1884 "include/linux/sched.h"
 extern bool task_set_jobctl_pending(struct task_struct *task,
         unsigned int mask);
 extern void task_clear_jobctl_trapping(struct task_struct *task);
 extern void task_clear_jobctl_pending(struct task_struct *task,
           unsigned int mask);
-# 1910 "include/linux/sched.h"
 static inline __attribute__((no_instrument_function)) void rcu_copy_process(struct task_struct *p)
 {
 }
@@ -20636,7 +19251,6 @@ extern void do_set_cpus_allowed(struct task_struct *p,
 
 extern int set_cpus_allowed_ptr(struct task_struct *p,
     const struct cpumask *new_mask);
-# 1951 "include/linux/sched.h"
 extern unsigned long long __attribute__((no_instrument_function)) sched_clock(void);
 
 
@@ -20647,13 +19261,11 @@ extern u64 sched_clock_cpu(int cpu);
 
 
 extern void sched_clock_init(void);
-# 1981 "include/linux/sched.h"
 extern int sched_clock_stable;
 
 extern void sched_clock_tick(void);
 extern void sched_clock_idle_sleep_event(void);
 extern void sched_clock_idle_wakeup_event(u64 delta_ns);
-# 1994 "include/linux/sched.h"
 extern void enable_sched_clock_irqtime(void);
 extern void disable_sched_clock_irqtime(void);
 
@@ -20738,7 +19350,6 @@ extern void sched_autogroup_exit(struct signal_struct *sig);
 
 extern void proc_sched_autogroup_show_task(struct task_struct *p, struct seq_file *m);
 extern int proc_sched_autogroup_set_nice(struct task_struct *p, int nice);
-# 2087 "include/linux/sched.h"
 extern unsigned int sysctl_sched_cfs_bandwidth_slice;
 
 
@@ -20750,7 +19361,6 @@ static inline __attribute__((no_instrument_function)) bool tsk_is_pi_blocked(str
 {
  return tsk->pi_blocked_on != ((void *)0);
 }
-# 2110 "include/linux/sched.h"
 extern bool yield_to(struct task_struct *p, bool preempt);
 extern void set_user_nice(struct task_struct *p, long nice);
 extern int task_prio(const struct task_struct *p);
@@ -20802,7 +19412,6 @@ extern struct task_struct init_task;
 extern struct mm_struct init_mm;
 
 extern struct pid_namespace init_pid_ns;
-# 2173 "include/linux/sched.h"
 extern struct task_struct *find_task_by_vpid(pid_t nr);
 extern struct task_struct *find_task_by_pid_ns(pid_t nr,
   struct pid_namespace *ns);
@@ -20882,7 +19491,6 @@ static inline __attribute__((no_instrument_function)) int kill_cad_pid(int sig, 
 {
  return kill_pid(cad_pid, sig, priv);
 }
-# 2261 "include/linux/sched.h"
 static inline __attribute__((no_instrument_function)) int on_sig_stack(unsigned long sp)
 {
 
@@ -20957,9 +19565,7 @@ extern char *get_task_comm(char *to, struct task_struct *tsk);
 
 void scheduler_ipi(void);
 extern unsigned long wait_task_inactive(struct task_struct *, long match_state);
-# 2350 "include/linux/sched.h"
 extern bool current_is_single_threaded(void);
-# 2362 "include/linux/sched.h"
 static inline __attribute__((no_instrument_function)) int get_nr_threads(struct task_struct *tsk)
 {
  return tsk->signal->nr_threads;
@@ -20997,7 +19603,6 @@ static inline __attribute__((no_instrument_function)) int thread_group_empty(str
 {
  return list_empty(&p->thread_group);
 }
-# 2413 "include/linux/sched.h"
 static inline __attribute__((no_instrument_function)) void task_lock(struct task_struct *p)
 {
  spin_lock(&p->alloc_lock);
@@ -21036,7 +19641,6 @@ static inline __attribute__((no_instrument_function)) void threadgroup_change_en
 {
  up_read(&tsk->signal->group_rwsem);
 }
-# 2472 "include/linux/sched.h"
 static inline __attribute__((no_instrument_function)) void threadgroup_lock(struct task_struct *tsk)
 {
 
@@ -21058,7 +19662,6 @@ static inline __attribute__((no_instrument_function)) void threadgroup_unlock(st
  up_write(&tsk->signal->group_rwsem);
  mutex_unlock(&tsk->signal->cred_guard_mutex);
 }
-# 2505 "include/linux/sched.h"
 static inline __attribute__((no_instrument_function)) void setup_thread_stack(struct task_struct *p, struct task_struct *org)
 {
  *((struct thread_info *)(p)->stack) = *((struct thread_info *)(org)->stack);
@@ -21172,7 +19775,6 @@ static inline __attribute__((no_instrument_function)) int need_resched(void)
 {
  return ldv__builtin_expect(!!(test_ti_thread_flag(current_thread_info(), 3)), 0);
 }
-# 2626 "include/linux/sched.h"
 extern int _cond_resched(void);
 
 
@@ -21181,9 +19783,7 @@ extern int _cond_resched(void);
 
 
 extern int __cond_resched_lock(spinlock_t *lock);
-# 2646 "include/linux/sched.h"
 extern int __cond_resched_softirq(void);
-# 2658 "include/linux/sched.h"
 static inline __attribute__((no_instrument_function)) int spin_needbreak(spinlock_t *lock)
 {
 
@@ -21226,7 +19826,6 @@ static inline __attribute__((no_instrument_function)) unsigned int task_cpu(cons
 }
 
 extern void set_task_cpu(struct task_struct *p, unsigned int cpu);
-# 2714 "include/linux/sched.h"
 extern long sched_setaffinity(pid_t pid, const struct cpumask *new_mask);
 extern long sched_getaffinity(pid_t pid, struct cpumask *mask);
 
@@ -21277,10 +19876,8 @@ static inline __attribute__((no_instrument_function)) void inc_syscw(struct task
 {
  tsk->ioac.syscw++;
 }
-# 2787 "include/linux/sched.h"
 extern void mm_update_next_owner(struct mm_struct *mm);
 extern void mm_init_owner(struct mm_struct *mm, struct task_struct *p);
-# 2799 "include/linux/sched.h"
 static inline __attribute__((no_instrument_function)) unsigned long task_rlimit(const struct task_struct *tsk,
   unsigned int limit)
 {
@@ -21302,14 +19899,11 @@ static inline __attribute__((no_instrument_function)) unsigned long rlimit_max(u
 {
  return task_rlimit_max(get_current(), limit);
 }
-# 25 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/5348/dscv_tempdir/dscv/ri/32_1/drivers/mtd/chips/cfi_cmdset_0001.c.common.c" 2
 
 
 
 
 
-# 1 "include/linux/slab.h" 1
-# 98 "include/linux/slab.h"
 void __attribute__ ((__section__(".init.text"))) __attribute__((no_instrument_function)) kmem_cache_init(void);
 int slab_is_available(void);
 
@@ -21320,17 +19914,11 @@ void kmem_cache_destroy(struct kmem_cache *);
 int kmem_cache_shrink(struct kmem_cache *);
 void kmem_cache_free(struct kmem_cache *, void *);
 unsigned int kmem_cache_size(struct kmem_cache *);
-# 159 "include/linux/slab.h"
 void * __attribute__((warn_unused_result)) __krealloc(const void *, size_t, gfp_t);
 void * __attribute__((warn_unused_result)) krealloc(const void *, size_t, gfp_t);
 void kfree(const void *);
 void kzfree(const void *);
 size_t ksize(const void *);
-# 185 "include/linux/slab.h"
-# 1 "include/linux/slub_def.h" 1
-# 15 "include/linux/slub_def.h"
-# 1 "include/linux/kmemleak.h" 1
-# 26 "include/linux/kmemleak.h"
 extern void kmemleak_init(void) __attribute__ ((__section__(".ref.text"))) __attribute__((noinline));
 extern void kmemleak_alloc(const void *ptr, size_t size, int min_count,
       gfp_t gfp) __attribute__ ((__section__(".ref.text"))) __attribute__((noinline));
@@ -21363,7 +19951,6 @@ static inline __attribute__((no_instrument_function)) void kmemleak_erase(void *
 {
  *ptr = ((void *)0);
 }
-# 16 "include/linux/slub_def.h" 2
 
 enum stat_item {
  ALLOC_FASTPATH,
@@ -21462,7 +20049,6 @@ struct kmem_cache {
 
  struct kmem_cache_node *node[(1 << 10)];
 };
-# 150 "include/linux/slub_def.h"
 extern struct kmem_cache *kmalloc_caches[(12 + 2)];
 
 
@@ -21507,7 +20093,6 @@ static inline __attribute__((no_instrument_function)) __attribute__((always_inli
  if (size <= 2 * 1024 * 1024) return 21;
  do { asm volatile("1:\tud2\n" ".pushsection __bug_table,\"a\"\n" "2:\t.long 1b - 2b, %c0 - 2b\n" "\t.word %c1, 0\n" "\t.org 2b+%c2\n" ".popsection" : : "i" ("include/linux/slub_def.h"), "i" (192), "i" (sizeof(struct bug_entry))); do { } while (1); } while (0);
  return -1;
-# 202 "include/linux/slub_def.h"
 }
 
 
@@ -21543,11 +20128,9 @@ kmalloc_order(size_t size, gfp_t flags, unsigned int order)
 
 
 extern bool verify_mem_not_deleted(const void *x);
-# 245 "include/linux/slub_def.h"
 extern void *
 kmem_cache_alloc_trace(struct kmem_cache *s, gfp_t gfpflags, size_t size);
 extern void *kmalloc_order_trace(size_t size, gfp_t flags, unsigned int order);
-# 262 "include/linux/slub_def.h"
 static inline __attribute__((no_instrument_function)) __attribute__((always_inline)) void *kmalloc_large(size_t size, gfp_t flags)
 {
  unsigned int order = ( __builtin_constant_p(size) ? ( ((size) == 0UL) ? 64 - 12 : (((size) < (1UL << 12)) ? 0 : ( __builtin_constant_p((size) - 1) ? ( ((size) - 1) < 1 ? ____ilog2_NaN() : ((size) - 1) & (1ULL << 63) ? 63 : ((size) - 1) & (1ULL << 62) ? 62 : ((size) - 1) & (1ULL << 61) ? 61 : ((size) - 1) & (1ULL << 60) ? 60 : ((size) - 1) & (1ULL << 59) ? 59 : ((size) - 1) & (1ULL << 58) ? 58 : ((size) - 1) & (1ULL << 57) ? 57 : ((size) - 1) & (1ULL << 56) ? 56 : ((size) - 1) & (1ULL << 55) ? 55 : ((size) - 1) & (1ULL << 54) ? 54 : ((size) - 1) & (1ULL << 53) ? 53 : ((size) - 1) & (1ULL << 52) ? 52 : ((size) - 1) & (1ULL << 51) ? 51 : ((size) - 1) & (1ULL << 50) ? 50 : ((size) - 1) & (1ULL << 49) ? 49 : ((size) - 1) & (1ULL << 48) ? 48 : ((size) - 1) & (1ULL << 47) ? 47 : ((size) - 1) & (1ULL << 46) ? 46 : ((size) - 1) & (1ULL << 45) ? 45 : ((size) - 1) & (1ULL << 44) ? 44 : ((size) - 1) & (1ULL << 43) ? 43 : ((size) - 1) & (1ULL << 42) ? 42 : ((size) - 1) & (1ULL << 41) ? 41 : ((size) - 1) & (1ULL << 40) ? 40 : ((size) - 1) & (1ULL << 39) ? 39 : ((size) - 1) & (1ULL << 38) ? 38 : ((size) - 1) & (1ULL << 37) ? 37 : ((size) - 1) & (1ULL << 36) ? 36 : ((size) - 1) & (1ULL << 35) ? 35 : ((size) - 1) & (1ULL << 34) ? 34 : ((size) - 1) & (1ULL << 33) ? 33 : ((size) - 1) & (1ULL << 32) ? 32 : ((size) - 1) & (1ULL << 31) ? 31 : ((size) - 1) & (1ULL << 30) ? 30 : ((size) - 1) & (1ULL << 29) ? 29 : ((size) - 1) & (1ULL << 28) ? 28 : ((size) - 1) & (1ULL << 27) ? 27 : ((size) - 1) & (1ULL << 26) ? 26 : ((size) - 1) & (1ULL << 25) ? 25 : ((size) - 1) & (1ULL << 24) ? 24 : ((size) - 1) & (1ULL << 23) ? 23 : ((size) - 1) & (1ULL << 22) ? 22 : ((size) - 1) & (1ULL << 21) ? 21 : ((size) - 1) & (1ULL << 20) ? 20 : ((size) - 1) & (1ULL << 19) ? 19 : ((size) - 1) & (1ULL << 18) ? 18 : ((size) - 1) & (1ULL << 17) ? 17 : ((size) - 1) & (1ULL << 16) ? 16 : ((size) - 1) & (1ULL << 15) ? 15 : ((size) - 1) & (1ULL << 14) ? 14 : ((size) - 1) & (1ULL << 13) ? 13 : ((size) - 1) & (1ULL << 12) ? 12 : ((size) - 1) & (1ULL << 11) ? 11 : ((size) - 1) & (1ULL << 10) ? 10 : ((size) - 1) & (1ULL << 9) ? 9 : ((size) - 1) & (1ULL << 8) ? 8 : ((size) - 1) & (1ULL << 7) ? 7 : ((size) - 1) & (1ULL << 6) ? 6 : ((size) - 1) & (1ULL << 5) ? 5 : ((size) - 1) & (1ULL << 4) ? 4 : ((size) - 1) & (1ULL << 3) ? 3 : ((size) - 1) & (1ULL << 2) ? 2 : ((size) - 1) & (1ULL << 1) ? 1 : ((size) - 1) & (1ULL << 0) ? 0 : ____ilog2_NaN() ) : (sizeof((size) - 1) <= 4) ? __ilog2_u32((size) - 1) : __ilog2_u64((size) - 1) ) - 12 + 1) ) : __get_order(size) );
@@ -21580,7 +20163,6 @@ void *kmem_cache_alloc_node(struct kmem_cache *, gfp_t flags, int node);
 extern void *kmem_cache_alloc_node_trace(struct kmem_cache *s,
         gfp_t gfpflags,
         int node, size_t size);
-# 304 "include/linux/slub_def.h"
 static inline __attribute__((no_instrument_function)) __attribute__((always_inline)) void *kmalloc_node(size_t size, gfp_t flags, int node)
 {
  if (__builtin_constant_p(size) &&
@@ -21594,8 +20176,6 @@ static inline __attribute__((no_instrument_function)) __attribute__((always_inli
  }
  return __kmalloc_node(size, flags, node);
 }
-# 186 "include/linux/slab.h" 2
-# 243 "include/linux/slab.h"
 static inline __attribute__((no_instrument_function)) void *kmalloc_array(size_t n, size_t size, gfp_t flags)
 {
  if (size != 0 && n > (~0UL) / size)
@@ -21613,11 +20193,8 @@ static inline __attribute__((no_instrument_function)) void *kcalloc(size_t n, si
 {
  return kmalloc_array(n, size, flags | (( gfp_t)0x8000u));
 }
-# 301 "include/linux/slab.h"
 extern void *__kmalloc_track_caller(size_t, gfp_t, unsigned long);
-# 320 "include/linux/slab.h"
 extern void *__kmalloc_node_track_caller(size_t, gfp_t, int, unsigned long);
-# 339 "include/linux/slab.h"
 static inline __attribute__((no_instrument_function)) void *kmem_cache_zalloc(struct kmem_cache *k, gfp_t flags)
 {
  return kmem_cache_alloc(k, flags | (( gfp_t)0x8000u));
@@ -21645,16 +20222,11 @@ static inline __attribute__((no_instrument_function)) void *kzalloc_node(size_t 
 }
 
 void __attribute__ ((__section__(".init.text"))) __attribute__((no_instrument_function)) kmem_cache_init_late(void);
-# 31 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/5348/dscv_tempdir/dscv/ri/32_1/drivers/mtd/chips/cfi_cmdset_0001.c.common.c" 2
-# 1 "include/linux/delay.h" 1
-# 12 "include/linux/delay.h"
 extern unsigned long loops_per_jiffy;
 
-# 1 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/delay.h" 1
 
 
 
-# 1 "include/asm-generic/delay.h" 1
 
 
 
@@ -21666,11 +20238,8 @@ extern void __udelay(unsigned long usecs);
 extern void __ndelay(unsigned long nsecs);
 extern void __const_udelay(unsigned long xloops);
 extern void __delay(unsigned long loops);
-# 5 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/delay.h" 2
 
 void use_tsc_delay(void);
-# 15 "include/linux/delay.h" 2
-# 44 "include/linux/delay.h"
 extern unsigned long lpj_fine;
 void calibrate_delay(void);
 void msleep(unsigned int msecs);
@@ -21681,11 +20250,6 @@ static inline __attribute__((no_instrument_function)) void ssleep(unsigned int s
 {
  msleep(seconds * 1000);
 }
-# 32 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/5348/dscv_tempdir/dscv/ri/32_1/drivers/mtd/chips/cfi_cmdset_0001.c.common.c" 2
-# 1 "include/linux/interrupt.h" 1
-# 10 "include/linux/interrupt.h"
-# 1 "include/linux/irqreturn.h" 1
-# 10 "include/linux/irqreturn.h"
 enum irqreturn {
  IRQ_NONE = (0 << 0),
  IRQ_HANDLED = (1 << 0),
@@ -21693,38 +20257,24 @@ enum irqreturn {
 };
 
 typedef enum irqreturn irqreturn_t;
-# 11 "include/linux/interrupt.h" 2
-# 1 "include/linux/irqnr.h" 1
-# 26 "include/linux/irqnr.h"
 extern int nr_irqs;
 extern struct irq_desc *irq_to_desc(unsigned int irq);
 unsigned int irq_get_next_irq(unsigned int offset);
-# 12 "include/linux/interrupt.h" 2
-# 1 "include/linux/hardirq.h" 1
 
 
 
 
 
-# 1 "include/linux/ftrace_irq.h" 1
-# 9 "include/linux/ftrace_irq.h"
 static inline __attribute__((no_instrument_function)) void ftrace_nmi_enter(void) { }
 static inline __attribute__((no_instrument_function)) void ftrace_nmi_exit(void) { }
-# 7 "include/linux/hardirq.h" 2
-# 1 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/hardirq.h" 1
 
 
 
 
-# 1 "include/linux/irq.h" 1
-# 27 "include/linux/irq.h"
-# 1 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/irq.h" 1
-# 13 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/irq.h"
 static inline __attribute__((no_instrument_function)) int irq_canonicalize(int irq)
 {
  return ((irq == 2) ? 9 : irq);
 }
-# 28 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/irq.h"
 extern void fixup_irqs(void);
 extern void irq_force_complete_move(int);
 
@@ -21740,10 +20290,7 @@ extern unsigned long used_vectors[(((256) + (8 * sizeof(long)) - 1) / (8 * sizeo
 extern int vector_used_by_percpu_irq(unsigned int vector);
 
 extern void init_ISA_irqs(void);
-# 28 "include/linux/irq.h" 2
 
-# 1 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/irq_regs.h" 1
-# 14 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/irq_regs.h"
 extern __attribute__((section(".discard"), unused)) char __pcpu_scope_irq_regs; extern __attribute__((section(".data..percpu" ""))) __typeof__(struct pt_regs *) irq_regs;
 
 static inline __attribute__((no_instrument_function)) struct pt_regs *get_irq_regs(void)
@@ -21760,7 +20307,6 @@ static inline __attribute__((no_instrument_function)) struct pt_regs *set_irq_re
 
  return old_regs;
 }
-# 30 "include/linux/irq.h" 2
 
 struct seq_file;
 struct module;
@@ -21769,7 +20315,6 @@ struct irq_data;
 typedef void (*irq_flow_handler_t)(unsigned int irq,
          struct irq_desc *desc);
 typedef void (*irq_preflow_handler_t)(struct irq_data *data);
-# 77 "include/linux/irq.h"
 enum {
  IRQ_TYPE_NONE = 0x00000000,
  IRQ_TYPE_EDGE_RISING = 0x00000001,
@@ -21794,7 +20339,6 @@ enum {
  IRQ_NOTHREAD = (1 << 16),
  IRQ_PER_CPU_DEVID = (1 << 17),
 };
-# 115 "include/linux/irq.h"
 enum {
  IRQ_SET_MASK_OK = 0,
  IRQ_SET_MASK_OK_NOCOPY,
@@ -21802,7 +20346,6 @@ enum {
 
 struct msi_desc;
 struct irq_domain;
-# 143 "include/linux/irq.h"
 struct irq_data {
  unsigned int irq;
  unsigned long hwirq;
@@ -21817,7 +20360,6 @@ struct irq_data {
  cpumask_var_t affinity;
 
 };
-# 175 "include/linux/irq.h"
 enum {
  IRQD_TRIGGER_MASK = 0xf,
  IRQD_SETAFFINITY_PENDING = (1 << 8),
@@ -21920,7 +20462,6 @@ static inline __attribute__((no_instrument_function)) irq_hw_number_t irqd_to_hw
 {
  return d->hwirq;
 }
-# 307 "include/linux/irq.h"
 struct irq_chip {
  const char *name;
  unsigned int (*irq_startup)(struct irq_data *data);
@@ -21958,7 +20499,6 @@ struct irq_chip {
 
 
 };
-# 355 "include/linux/irq.h"
 enum {
  IRQCHIP_SET_TYPE_MASKED = (1 << 0),
  IRQCHIP_EOI_IF_HANDLED = (1 << 1),
@@ -21968,13 +20508,10 @@ enum {
 };
 
 
-# 1 "include/linux/irqdesc.h" 1
-# 11 "include/linux/irqdesc.h"
 struct irq_affinity_notify;
 struct proc_dir_entry;
 struct timer_rand_state;
 struct module;
-# 40 "include/linux/irqdesc.h"
 struct irq_desc {
  struct irq_data irq_data;
  struct timer_rand_state *timer_rand_state;
@@ -22100,17 +20637,10 @@ irq_set_lockdep_class(unsigned int irq, struct lock_class_key *class)
  if (desc)
   do { (void)(class); } while (0);
 }
-# 365 "include/linux/irq.h" 2
 
 
 
 
-# 1 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/hw_irq.h" 1
-# 21 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/hw_irq.h"
-# 1 "include/linux/profile.h" 1
-# 9 "include/linux/profile.h"
-# 1 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/errno.h" 1
-# 10 "include/linux/profile.h" 2
 
 
 
@@ -22124,7 +20654,6 @@ struct notifier_block;
 
 void create_prof_cpu_mask(struct proc_dir_entry *de);
 int create_proc_profile(void);
-# 34 "include/linux/profile.h"
 enum profile_type {
  PROFILE_TASK_EXIT,
  PROFILE_MUNMAP
@@ -22180,16 +20709,13 @@ int register_timer_hook(int (*hook)(struct pt_regs *));
 void unregister_timer_hook(int (*hook)(struct pt_regs *));
 
 struct pt_regs;
-# 22 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/hw_irq.h" 2
 
 
 
 
-# 1 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/sections.h" 1
 
 
 
-# 1 "include/asm-generic/sections.h" 1
 
 
 
@@ -22209,7 +20735,6 @@ extern char __start_rodata[], __end_rodata[];
 
 
 extern char __ctors_start[], __ctors_end[];
-# 30 "include/asm-generic/sections.h"
 static inline __attribute__((no_instrument_function)) int arch_is_kernel_text(unsigned long addr)
 {
  return 0;
@@ -22221,21 +20746,16 @@ static inline __attribute__((no_instrument_function)) int arch_is_kernel_data(un
 {
  return 0;
 }
-# 5 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/sections.h" 2
-# 1 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/uaccess.h" 1
-# 94 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/uaccess.h"
 struct exception_table_entry {
  unsigned long insn, fixup;
 };
 
 extern int fixup_exception(struct pt_regs *regs);
-# 115 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/uaccess.h"
 extern int __get_user_1(void);
 extern int __get_user_2(void);
 extern int __get_user_4(void);
 extern int __get_user_8(void);
 extern int __get_user_bad(void);
-# 220 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/uaccess.h"
 extern void __put_user_bad(void);
 
 
@@ -22246,16 +20766,11 @@ extern void __put_user_1(void);
 extern void __put_user_2(void);
 extern void __put_user_4(void);
 extern void __put_user_8(void);
-# 431 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/uaccess.h"
 struct __large_struct { unsigned long buf[100]; };
-# 558 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/uaccess.h"
 extern unsigned long
 copy_from_user_nmi(void *to, const void *from, unsigned long n);
 extern __attribute__((warn_unused_result)) long
 strncpy_from_user(char *dst, const char *src, long count);
-# 577 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/uaccess.h"
-# 1 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/uaccess_64.h" 1
-# 19 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/uaccess_64.h"
 __attribute__((warn_unused_result)) unsigned long
 copy_user_generic_string(void *to, const void *from, unsigned len);
 __attribute__((warn_unused_result)) unsigned long
@@ -22485,15 +21000,12 @@ __copy_from_user_inatomic_nocache(void *dst, const void *src,
 
 unsigned long
 copy_user_handle_tail(char *to, char *from, unsigned len, unsigned zerorest);
-# 578 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/uaccess.h" 2
-# 6 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/sections.h" 2
 
 extern char __brk_base[], __brk_limit[];
 extern struct exception_table_entry __stop___ex_table[];
 
 
 extern char __end_rodata_hpage_align[];
-# 27 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/hw_irq.h" 2
 
 
 extern void apic_timer_interrupt(void);
@@ -22641,8 +21153,6 @@ extern void setup_vector_irq(int cpu);
 extern void lock_vector_lock(void);
 extern void unlock_vector_lock(void);
 extern void __setup_vector_irq(int cpu);
-# 370 "include/linux/irq.h" 2
-# 381 "include/linux/irq.h"
 struct irqaction;
 extern int setup_irq(unsigned int irq, struct irqaction *new);
 extern void remove_irq(unsigned int irq, struct irqaction *act);
@@ -22843,7 +21353,6 @@ static inline __attribute__((no_instrument_function)) struct msi_desc *irq_data_
 
 int __irq_alloc_descs(int irq, unsigned int from, unsigned int cnt, int node,
   struct module *owner);
-# 595 "include/linux/irq.h"
 void irq_free_descs(unsigned int irq, unsigned int cnt);
 int irq_reserve_irqs(unsigned int from, unsigned int cnt);
 
@@ -22856,7 +21365,6 @@ static inline __attribute__((no_instrument_function)) int irq_reserve_irq(unsign
 {
  return irq_reserve_irqs(irq, 1);
 }
-# 625 "include/linux/irq.h"
 struct irq_chip_regs {
  unsigned long enable;
  unsigned long disable;
@@ -22866,14 +21374,12 @@ struct irq_chip_regs {
  unsigned long type;
  unsigned long polarity;
 };
-# 646 "include/linux/irq.h"
 struct irq_chip_type {
  struct irq_chip chip;
  struct irq_chip_regs regs;
  irq_flow_handler_t handler;
  u32 type;
 };
-# 675 "include/linux/irq.h"
 struct irq_chip_generic {
  raw_spinlock_t lock;
  void *reg_base;
@@ -22889,7 +21395,6 @@ struct irq_chip_generic {
  struct list_head list;
  struct irq_chip_type chip_types[0];
 };
-# 698 "include/linux/irq.h"
 enum irq_gc_flags {
  IRQ_GC_INIT_MASK_CACHE = 1 << 0,
  IRQ_GC_INIT_NESTED_LOCK = 1 << 1,
@@ -22935,7 +21440,6 @@ static inline __attribute__((no_instrument_function)) void irq_gc_unlock(struct 
 {
  _raw_spin_unlock(&gc->lock);
 }
-# 6 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/hardirq.h" 2
 
 typedef struct {
  unsigned int __softirq_pending;
@@ -22962,15 +21466,12 @@ typedef struct {
 } __attribute__((__aligned__((1 << (6))))) irq_cpustat_t;
 
 extern __attribute__((section(".discard"), unused)) char __pcpu_scope_irq_stat; extern __attribute__((section(".data..percpu" ""))) __typeof__(irq_cpustat_t) irq_stat __attribute__((__aligned__((1 << (6)))));
-# 47 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/hardirq.h"
 extern void ack_bad_irq(unsigned int irq);
 
 extern u64 arch_irq_stat_cpu(unsigned int cpu);
 
 
 extern u64 arch_irq_stat(void);
-# 8 "include/linux/hardirq.h" 2
-# 127 "include/linux/hardirq.h"
 extern void synchronize_irq(unsigned int irq);
 
 
@@ -22984,22 +21485,16 @@ struct task_struct;
 
 
 extern void account_system_vtime(struct task_struct *tsk);
-# 153 "include/linux/hardirq.h"
 extern void rcu_nmi_enter(void);
 extern void rcu_nmi_exit(void);
-# 173 "include/linux/hardirq.h"
 extern void irq_enter(void);
-# 188 "include/linux/hardirq.h"
 extern void irq_exit(void);
-# 13 "include/linux/interrupt.h" 2
-# 86 "include/linux/interrupt.h"
 enum {
  IRQC_IS_HARDIRQ = 0,
  IRQC_IS_NESTED,
 };
 
 typedef irqreturn_t (*irq_handler_t)(int, void *);
-# 108 "include/linux/interrupt.h"
 struct irqaction {
  irq_handler_t handler;
  unsigned long flags;
@@ -23039,7 +21534,6 @@ request_percpu_irq(unsigned int irq, irq_handler_t handler,
      const char *devname, void *percpu_dev_id);
 
 extern void exit_irq_thread(void);
-# 184 "include/linux/interrupt.h"
 extern void free_irq(unsigned int, void *);
 extern void free_percpu_irq(unsigned int, void *);
 
@@ -23060,7 +21554,6 @@ devm_request_irq(struct device *dev, unsigned int irq, irq_handler_t handler,
 }
 
 extern void devm_free_irq(struct device *dev, unsigned int irq, void *dev_id);
-# 223 "include/linux/interrupt.h"
 extern void disable_irq_nosync(unsigned int irq);
 extern void disable_irq(unsigned int irq);
 extern void disable_percpu_irq(unsigned int irq);
@@ -23073,7 +21566,6 @@ extern void suspend_device_irqs(void);
 extern void resume_device_irqs(void);
 
 extern int check_wakeup_irqs(void);
-# 246 "include/linux/interrupt.h"
 extern cpumask_var_t irq_default_affinity;
 
 extern int irq_set_affinity(unsigned int irq, const struct cpumask *cpumask);
@@ -23081,7 +21573,6 @@ extern int irq_can_set_affinity(unsigned int irq);
 extern int irq_select_affinity(unsigned int irq);
 
 extern int irq_set_affinity_hint(unsigned int irq, const struct cpumask *m);
-# 266 "include/linux/interrupt.h"
 struct irq_affinity_notify {
  unsigned int irq;
  struct kref kref;
@@ -23097,7 +21588,6 @@ static inline __attribute__((no_instrument_function)) void irq_run_affinity_noti
 {
  flush_scheduled_work();
 }
-# 315 "include/linux/interrupt.h"
 static inline __attribute__((no_instrument_function)) void disable_irq_nosync_lockdep(unsigned int irq)
 {
  disable_irq_nosync(irq);
@@ -23150,9 +21640,7 @@ static inline __attribute__((no_instrument_function)) int disable_irq_wake(unsig
 {
  return irq_set_irq_wake(irq, 0);
 }
-# 397 "include/linux/interrupt.h"
 extern bool force_irqthreads;
-# 423 "include/linux/interrupt.h"
 enum
 {
  HI_SOFTIRQ=0,
@@ -23191,7 +21679,6 @@ extern void __raise_softirq_irqoff(unsigned int nr);
 
 extern void raise_softirq_irqoff(unsigned int nr);
 extern void raise_softirq(unsigned int nr);
-# 469 "include/linux/interrupt.h"
 extern __attribute__((section(".discard"), unused)) char __pcpu_scope_softirq_work_list; extern __attribute__((section(".data..percpu" ""))) __typeof__(struct list_head [NR_SOFTIRQS]) softirq_work_list;
 
 extern __attribute__((section(".discard"), unused)) char __pcpu_scope_ksoftirqd; extern __attribute__((section(".data..percpu" ""))) __typeof__(struct task_struct *) ksoftirqd;
@@ -23211,7 +21698,6 @@ extern void send_remote_softirq(struct call_single_data *cp, int cpu, int softir
 
 extern void __send_remote_softirq(struct call_single_data *cp, int cpu,
       int this_cpu, int softirq);
-# 509 "include/linux/interrupt.h"
 struct tasklet_struct
 {
  struct tasklet_struct *next;
@@ -23220,7 +21706,6 @@ struct tasklet_struct
  void (*func)(unsigned long);
  unsigned long data;
 };
-# 525 "include/linux/interrupt.h"
 enum
 {
  TASKLET_STATE_SCHED,
@@ -23334,7 +21819,6 @@ void tasklet_hrtimer_cancel(struct tasklet_hrtimer *ttimer)
  hrtimer_cancel(&ttimer->timer);
  tasklet_kill(&ttimer->tasklet);
 }
-# 681 "include/linux/interrupt.h"
 extern unsigned long probe_irq_on(void);
 extern int probe_irq_off(unsigned long);
 extern unsigned int probe_irq_mask(unsigned long);
@@ -23356,9 +21840,6 @@ int arch_show_interrupts(struct seq_file *p, int prec);
 extern int early_irq_init(void);
 extern int arch_probe_nr_irqs(void);
 extern int arch_early_irq_init(void);
-# 33 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/5348/dscv_tempdir/dscv/ri/32_1/drivers/mtd/chips/cfi_cmdset_0001.c.common.c" 2
-# 1 "include/linux/reboot.h" 1
-# 47 "include/linux/reboot.h"
 extern int register_reboot_notifier(struct notifier_block *);
 extern int unregister_reboot_notifier(struct notifier_block *);
 
@@ -23397,7 +21878,6 @@ extern int orderly_poweroff(bool force);
 
 
 extern void emergency_restart(void);
-# 1 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/emergency-restart.h" 1
 
 
 
@@ -23416,14 +21896,6 @@ enum reboot_type {
 extern enum reboot_type reboot_type;
 
 extern void machine_emergency_restart(void);
-# 86 "include/linux/reboot.h" 2
-# 34 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/5348/dscv_tempdir/dscv/ri/32_1/drivers/mtd/chips/cfi_cmdset_0001.c.common.c" 2
-
-# 1 "include/linux/mtd/xip.h" 1
-# 36 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/5348/dscv_tempdir/dscv/ri/32_1/drivers/mtd/chips/cfi_cmdset_0001.c.common.c" 2
-# 1 "include/linux/mtd/map.h" 1
-# 31 "include/linux/mtd/map.h"
-# 1 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/unaligned.h" 1
 
 
 
@@ -23431,7 +21903,7 @@ extern void machine_emergency_restart(void);
 
 
 
-# 1 "include/linux/unaligned/access_ok.h" 1
+
 
 
 
@@ -23497,8 +21969,6 @@ static inline __attribute__((no_instrument_function)) void put_unaligned_be64(u6
 {
  *((__be64 *)p) = (( __be64)(__builtin_constant_p((__u64)((val))) ? ((__u64)( (((__u64)((val)) & (__u64)0x00000000000000ffULL) << 56) | (((__u64)((val)) & (__u64)0x000000000000ff00ULL) << 40) | (((__u64)((val)) & (__u64)0x0000000000ff0000ULL) << 24) | (((__u64)((val)) & (__u64)0x00000000ff000000ULL) << 8) | (((__u64)((val)) & (__u64)0x000000ff00000000ULL) >> 8) | (((__u64)((val)) & (__u64)0x0000ff0000000000ULL) >> 24) | (((__u64)((val)) & (__u64)0x00ff000000000000ULL) >> 40) | (((__u64)((val)) & (__u64)0xff00000000000000ULL) >> 56))) : __fswab64((val))));
 }
-# 9 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/unaligned.h" 2
-# 1 "include/linux/unaligned/generic.h" 1
 
 
 
@@ -23507,9 +21977,6 @@ static inline __attribute__((no_instrument_function)) void put_unaligned_be64(u6
 
 
 extern void __bad_unaligned_access_size(void);
-# 10 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/unaligned.h" 2
-# 32 "include/linux/mtd/map.h" 2
-# 156 "include/linux/mtd/map.h"
 static inline __attribute__((no_instrument_function)) int map_bankwidth_supported(int w)
 {
  switch (w) {
@@ -23543,7 +22010,6 @@ static inline __attribute__((no_instrument_function)) int map_bankwidth_supporte
 typedef union {
  unsigned long x[( ((32*8) + 64 - 1) / 64 )];
 } map_word;
-# 208 "include/linux/mtd/map.h"
 struct map_info {
  const char *name;
  unsigned long size;
@@ -23565,7 +22031,6 @@ struct map_info {
 
  void (*write)(struct map_info *, const map_word, unsigned long);
  void (*copy_to)(struct map_info *, unsigned long, const void *, ssize_t);
-# 239 "include/linux/mtd/map.h"
  void (*inval_cache)(struct map_info *, unsigned long, ssize_t);
 
 
@@ -23592,7 +22057,6 @@ void unregister_mtd_chip_driver(struct mtd_chip_driver *);
 
 struct mtd_info *do_map_probe(const char *name, struct map_info *map);
 void map_destroy(struct mtd_info *mtd);
-# 273 "include/linux/mtd/map.h"
 static inline __attribute__((no_instrument_function)) int map_word_equal(struct map_info *map, map_word val1, map_word val2)
 {
  int i;
@@ -23771,13 +22235,6 @@ static inline __attribute__((no_instrument_function)) void inline_map_copy_to(st
 
 
 extern void simple_map_init(struct map_info *);
-# 37 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/5348/dscv_tempdir/dscv/ri/32_1/drivers/mtd/chips/cfi_cmdset_0001.c.common.c" 2
-# 1 "include/linux/mtd/mtd.h" 1
-# 26 "include/linux/mtd/mtd.h"
-# 1 "include/linux/device.h" 1
-# 18 "include/linux/device.h"
-# 1 "include/linux/klist.h" 1
-# 19 "include/linux/klist.h"
 struct klist_node;
 struct klist {
  spinlock_t k_lock;
@@ -23785,7 +22242,6 @@ struct klist {
  void (*get)(struct klist_node *);
  void (*put)(struct klist_node *);
 } __attribute__ ((aligned (sizeof(void *))));
-# 36 "include/linux/klist.h"
 extern void klist_init(struct klist *k, void (*get)(struct klist_node *),
          void (*put)(struct klist_node *));
 
@@ -23817,7 +22273,6 @@ extern void klist_iter_init_node(struct klist *k, struct klist_iter *i,
      struct klist_node *n);
 extern void klist_iter_exit(struct klist_iter *i);
 extern struct klist_node *klist_next(struct klist_iter *i);
-# 19 "include/linux/device.h" 2
 
 
 
@@ -23825,7 +22280,6 @@ extern struct klist_node *klist_next(struct klist_iter *i);
 
 
 
-# 1 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/arch/x86/include/asm/device.h" 1
 
 
 
@@ -23843,7 +22297,6 @@ struct dma_map_ops *dma_ops;
 
 struct pdev_archdata {
 };
-# 27 "include/linux/device.h" 2
 
 struct device;
 struct device_private;
@@ -23868,7 +22321,6 @@ struct bus_attribute {
 extern int __attribute__((warn_unused_result)) bus_create_file(struct bus_type *,
      struct bus_attribute *);
 extern void bus_remove_file(struct bus_type *, struct bus_attribute *);
-# 89 "include/linux/device.h"
 struct bus_type {
  const char *name;
  const char *dev_name;
@@ -23892,7 +22344,6 @@ struct bus_type {
 
  struct subsys_private *p;
 };
-# 120 "include/linux/device.h"
 extern int __attribute__((warn_unused_result)) __bus_register(struct bus_type *bus,
            struct lock_class_key *key);
 extern void bus_unregister(struct bus_type *bus);
@@ -23938,10 +22389,8 @@ extern int bus_register_notifier(struct bus_type *bus,
      struct notifier_block *nb);
 extern int bus_unregister_notifier(struct bus_type *bus,
        struct notifier_block *nb);
-# 180 "include/linux/device.h"
 extern struct kset *bus_get_kset(struct bus_type *bus);
 extern struct klist *bus_get_device_klist(struct bus_type *bus);
-# 214 "include/linux/device.h"
 struct device_driver {
  const char *name;
  struct bus_type *bus;
@@ -24001,7 +22450,6 @@ extern int __attribute__((warn_unused_result)) driver_for_each_device(struct dev
 struct device *driver_find_device(struct device_driver *drv,
       struct device *start, void *data,
       int (*match)(struct device *dev, void *data));
-# 287 "include/linux/device.h"
 struct subsys_interface {
  const char *name;
  struct bus_type *subsys;
@@ -24015,7 +22463,6 @@ void subsys_interface_unregister(struct subsys_interface *sif);
 
 int subsys_system_register(struct bus_type *subsys,
       const struct attribute_group **groups);
-# 330 "include/linux/device.h"
 struct class {
  const char *name;
  struct module *owner;
@@ -24052,7 +22499,6 @@ extern struct kobject *sysfs_dev_char_kobj;
 extern int __attribute__((warn_unused_result)) __class_register(struct class *class,
       struct lock_class_key *key);
 extern void class_unregister(struct class *class);
-# 375 "include/linux/device.h"
 struct class_compat;
 struct class_compat *class_compat_register(const char *name);
 void class_compat_unregister(struct class_compat *cls);
@@ -24099,7 +22545,6 @@ struct class_attribute_string {
  struct class_attribute attr;
  char *str;
 };
-# 429 "include/linux/device.h"
 extern ssize_t show_class_attr_string(struct class *class, struct class_attribute *attr,
                         char *buf);
 
@@ -24118,7 +22563,6 @@ extern struct class * __attribute__((warn_unused_result)) __class_create(struct 
         const char *name,
         struct lock_class_key *key);
 extern void class_destroy(struct class *cls);
-# 465 "include/linux/device.h"
 struct device_type {
  const char *name;
  const struct attribute_group **groups;
@@ -24151,7 +22595,6 @@ ssize_t device_show_int(struct device *dev, struct device_attribute *attr,
    char *buf);
 ssize_t device_store_int(struct device *dev, struct device_attribute *attr,
     const char *buf, size_t count);
-# 507 "include/linux/device.h"
 extern int device_create_file(struct device *device,
          const struct device_attribute *entry);
 extern void device_remove_file(struct device *dev,
@@ -24212,7 +22655,6 @@ struct device_dma_parameters {
  unsigned int max_segment_size;
  unsigned long segment_boundary_mask;
 };
-# 627 "include/linux/device.h"
 struct device {
  struct device *parent;
 
@@ -24269,8 +22711,6 @@ struct device {
 };
 
 
-# 1 "include/linux/pm_wakeup.h" 1
-# 43 "include/linux/pm_wakeup.h"
 struct wakeup_source {
  const char *name;
  struct list_head entry;
@@ -24323,7 +22763,6 @@ extern void __pm_relax(struct wakeup_source *ws);
 extern void pm_relax(struct device *dev);
 extern void __pm_wakeup_event(struct wakeup_source *ws, unsigned int msec);
 extern void pm_wakeup_event(struct device *dev, unsigned int msec);
-# 175 "include/linux/pm_wakeup.h"
 static inline __attribute__((no_instrument_function)) void wakeup_source_init(struct wakeup_source *ws,
           const char *name)
 {
@@ -24336,7 +22775,6 @@ static inline __attribute__((no_instrument_function)) void wakeup_source_trash(s
  wakeup_source_remove(ws);
  wakeup_source_drop(ws);
 }
-# 684 "include/linux/device.h" 2
 
 static inline __attribute__((no_instrument_function)) const char *dev_name(const struct device *dev)
 {
@@ -24359,7 +22797,6 @@ static inline __attribute__((no_instrument_function)) void set_dev_node(struct d
 {
  dev->numa_node = node;
 }
-# 716 "include/linux/device.h"
 static inline __attribute__((no_instrument_function)) struct pm_subsys_data *dev_to_psd(struct device *dev)
 {
  return dev ? dev->power.subsys_data : ((void *)0);
@@ -24444,7 +22881,6 @@ extern int dev_set_drvdata(struct device *dev, void *data);
 
 extern struct device *__root_device_register(const char *name,
           struct module *owner);
-# 808 "include/linux/device.h"
 extern void root_device_unregister(struct device *root);
 
 static inline __attribute__((no_instrument_function)) void *dev_get_platdata(const struct device *dev)
@@ -24536,12 +22972,8 @@ extern __attribute__((format(printf, 2, 3)))
 int dev_notice(const struct device *dev, const char *fmt, ...);
 extern __attribute__((format(printf, 2, 3)))
 int _dev_info(const struct device *dev, const char *fmt, ...);
-# 990 "include/linux/device.h"
 extern long sysfs_deprecated;
-# 27 "include/linux/mtd/mtd.h" 2
 
-# 1 "include/mtd/mtd-abi.h" 1
-# 25 "include/mtd/mtd-abi.h"
 struct erase_info_user {
  __u32 start;
  __u32 length;
@@ -24564,13 +22996,11 @@ struct mtd_oob_buf64 {
  __u32 length;
  __u64 usr_ptr;
 };
-# 61 "include/mtd/mtd-abi.h"
 enum {
  MTD_OPS_PLACE_OOB = 0,
  MTD_OPS_AUTO_OOB = 1,
  MTD_OPS_RAW = 2,
 };
-# 83 "include/mtd/mtd-abi.h"
 struct mtd_write_req {
  __u64 start;
  __u64 len;
@@ -24580,7 +23010,6 @@ struct mtd_write_req {
  __u8 mode;
  __u8 padding[7];
 };
-# 125 "include/mtd/mtd-abi.h"
 struct mtd_info_user {
  __u8 type;
  __u32 flags;
@@ -24604,7 +23033,6 @@ struct otp_info {
  __u32 length;
  __u32 locked;
 };
-# 210 "include/mtd/mtd-abi.h"
 struct nand_oobinfo {
  __u32 useecc;
  __u32 eccbytes;
@@ -24616,29 +23044,24 @@ struct nand_oobfree {
  __u32 offset;
  __u32 length;
 };
-# 232 "include/mtd/mtd-abi.h"
 struct nand_ecclayout_user {
  __u32 eccbytes;
  __u32 eccpos[64];
  __u32 oobavail;
  struct nand_oobfree oobfree[8];
 };
-# 247 "include/mtd/mtd-abi.h"
 struct mtd_ecc_stats {
  __u32 corrected;
  __u32 failed;
  __u32 badblocks;
  __u32 bbtblocks;
 };
-# 271 "include/mtd/mtd-abi.h"
 enum mtd_file_modes {
  MTD_FILE_MODE_NORMAL = 0,
  MTD_FILE_MODE_OTP_FACTORY = 1,
  MTD_FILE_MODE_OTP_USER = 2,
  MTD_FILE_MODE_RAW,
 };
-# 29 "include/linux/mtd/mtd.h" 2
-# 48 "include/linux/mtd/mtd.h"
 struct erase_info {
  struct mtd_info *mtd;
  uint64_t addr;
@@ -24660,7 +23083,6 @@ struct mtd_erase_region_info {
  uint32_t numblocks;
  unsigned long *lockmap;
 };
-# 89 "include/linux/mtd/mtd.h"
 struct mtd_oob_ops {
  unsigned int mode;
  size_t len;
@@ -24671,7 +23093,6 @@ struct mtd_oob_ops {
  uint8_t *datbuf;
  uint8_t *oobbuf;
 };
-# 108 "include/linux/mtd/mtd.h"
 struct nand_ecclayout {
  __u32 eccbytes;
  __u32 eccpos[448];
@@ -24699,7 +23120,6 @@ struct mtd_info {
 
 
  uint32_t writesize;
-# 145 "include/linux/mtd/mtd.h"
  uint32_t writebufsize;
 
  uint32_t oobsize;
@@ -24956,11 +23376,6 @@ static inline __attribute__((no_instrument_function)) int mtd_is_eccerr(int err)
 static inline __attribute__((no_instrument_function)) int mtd_is_bitflip_or_eccerr(int err) {
  return mtd_is_bitflip(err) || mtd_is_eccerr(err);
 }
-# 38 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/5348/dscv_tempdir/dscv/ri/32_1/drivers/mtd/chips/cfi_cmdset_0001.c.common.c" 2
-# 1 "include/linux/mtd/cfi.h" 1
-# 27 "include/linux/mtd/cfi.h"
-# 1 "include/linux/mtd/flashchip.h" 1
-# 31 "include/linux/mtd/flashchip.h"
 typedef enum {
  FL_READY,
  FL_STATUS,
@@ -25003,7 +23418,6 @@ typedef enum {
 
 struct flchip {
  unsigned long start;
-# 81 "include/linux/mtd/flashchip.h"
  int ref_point_counter;
  flstate_t state;
  flstate_t oldstate;
@@ -25033,11 +23447,7 @@ struct flchip_shared {
  struct flchip *writing;
  struct flchip *erasing;
 };
-# 28 "include/linux/mtd/cfi.h" 2
 
-# 1 "include/linux/mtd/cfi_endian.h" 1
-# 30 "include/linux/mtd/cfi.h" 2
-# 84 "include/linux/mtd/cfi.h"
 static inline __attribute__((no_instrument_function)) int cfi_interleave_supported(int i)
 {
  switch (i) {
@@ -25059,7 +23469,6 @@ static inline __attribute__((no_instrument_function)) int cfi_interleave_support
   return 0;
  }
 }
-# 133 "include/linux/mtd/cfi.h"
 struct cfi_ident {
  uint8_t qry[3];
  uint16_t P_ID;
@@ -25187,7 +23596,6 @@ struct cfi_bri_query {
  uint8_t NumFields;
  uint32_t ConfField[1];
 } __attribute__((packed));
-# 280 "include/linux/mtd/cfi.h"
 struct cfi_private {
  uint16_t cmdset;
  void *cmdset_priv;
@@ -25358,7 +23766,6 @@ static inline __attribute__((no_instrument_function)) unsigned long cfi_merge_st
  }
  return res;
 }
-# 461 "include/linux/mtd/cfi.h"
 static inline __attribute__((no_instrument_function)) uint32_t cfi_send_gen_cmd(u_char cmd, uint32_t cmd_addr, uint32_t base,
     struct map_info *map, struct cfi_private *cfi,
     int type, map_word *prev_val)
@@ -25431,7 +23838,6 @@ struct cfi_fixup {
  uint16_t id;
  void (*fixup)(struct mtd_info *mtd);
 };
-# 555 "include/linux/mtd/cfi.h"
 void cfi_fixup(struct mtd_info *mtd, struct cfi_fixup* fixups);
 
 typedef int (*varsize_frob_t)(struct map_info *map, struct flchip *chip,
@@ -25439,8 +23845,6 @@ typedef int (*varsize_frob_t)(struct map_info *map, struct flchip *chip,
 
 int cfi_varsize_frob(struct mtd_info *mtd, varsize_frob_t frob,
  loff_t ofs, size_t len, void *thunk);
-# 39 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/5348/dscv_tempdir/dscv/ri/32_1/drivers/mtd/chips/cfi_cmdset_0001.c.common.c" 2
-# 58 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/5348/dscv_tempdir/dscv/ri/32_1/drivers/mtd/chips/cfi_cmdset_0001.c.common.c"
 static int cfi_intelext_read (struct mtd_info *, loff_t, size_t, size_t *, u_char *);
 static int cfi_intelext_write_words(struct mtd_info *, loff_t, size_t, size_t *, const u_char *);
 static int cfi_intelext_write_buffers(struct mtd_info *, loff_t, size_t, size_t *, const u_char *);
@@ -25479,7 +23883,6 @@ static int cfi_intelext_unpoint(struct mtd_info *mtd, loff_t from, size_t len);
 static int chip_ready (struct map_info *map, struct flchip *chip, unsigned long adr, int mode);
 static int get_chip(struct map_info *map, struct flchip *chip, unsigned long adr, int mode);
 static void put_chip(struct map_info *map, struct flchip *chip, unsigned long adr);
-# 1 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/drivers/mtd/chips/fwh_lock.h" 1
 
 
 
@@ -25495,7 +23898,6 @@ struct fwh_xxlock_thunk {
  enum fwh_lock_state val;
  flstate_t state;
 };
-# 28 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/drivers/mtd/chips/fwh_lock.h"
 static int fwh_xxlock_oneblock(struct map_info *map, struct flchip *chip,
  unsigned long adr, int len, void *thunk)
 {
@@ -25507,15 +23909,12 @@ static int fwh_xxlock_oneblock(struct map_info *map, struct flchip *chip,
  if (chip->start < 0x400000) {
   do { static struct _ddebug __attribute__((__used__)) __attribute__((aligned(8))) __attribute__((section("__verbose"))) descriptor = { .modname = "cfi_cmdset_0001", .function = __func__, .filename =
  "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/drivers/mtd/chips/fwh_lock.h"
-# 37 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/drivers/mtd/chips/fwh_lock.h"
   , .format = ("MTD %s(): chip->start: %lx wanted >= 0x400000\n"), .lineno =
  38
-# 37 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/drivers/mtd/chips/fwh_lock.h"
   , .flags = 0, }; if (ldv__builtin_expect(!!(descriptor.flags & (1<<0)), 0)) __dynamic_pr_debug(&descriptor, "MTD %s(): chip->start: %lx wanted >= 0x400000\n", __func__, chip->start); } while (0)
                           ;
   return -5;
  }
-# 52 "/home/zakharov/launch/inst/current/envs/linux-3.4/linux-3.4/drivers/mtd/chips/fwh_lock.h"
  adr = (adr & ~0xffffUL) | 0x2;
  adr += chip->start - 0x400000;
 
@@ -25571,7 +23970,6 @@ static void fixup_use_fwh_lock(struct mtd_info *mtd)
  mtd->_lock = fwh_lock_varsize;
  mtd->_unlock = fwh_unlock_varsize;
 }
-# 97 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/5348/dscv_tempdir/dscv/ri/32_1/drivers/mtd/chips/cfi_cmdset_0001.c.common.c" 2
 
 
 
@@ -25585,7 +23983,6 @@ static struct mtd_chip_driver cfi_intelext_chipdrv = {
  .name = "cfi_cmdset_0001",
  .module = (&__this_module)
 };
-# 166 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/5348/dscv_tempdir/dscv/ri/32_1/drivers/mtd/chips/cfi_cmdset_0001.c.common.c"
 static void fixup_convert_atmel_pri(struct mtd_info *mtd)
 {
  struct map_info *map = mtd->priv;
@@ -25635,7 +24032,6 @@ static void fixup_at49bv640dx_lock(struct mtd_info *mtd)
  cfip->FeatureSupport |= (1 << 5);
  mtd->flags |= 0x2000;
 }
-# 244 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/5348/dscv_tempdir/dscv/ri/32_1/drivers/mtd/chips/cfi_cmdset_0001.c.common.c"
 static void fixup_st_m28w320ct(struct mtd_info *mtd)
 {
  struct map_info *map = mtd->priv;
@@ -26026,7 +24422,6 @@ static int cfi_intelext_partition_fixup(struct mtd_info *mtd,
  struct map_info *map = mtd->priv;
  struct cfi_private *cfi = *pcfi;
  struct cfi_pri_intelext *extp = cfi->cmdset_priv;
-# 646 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/5348/dscv_tempdir/dscv/ri/32_1/drivers/mtd/chips/cfi_cmdset_0001.c.common.c"
  if (extp && extp->MajorVersion == '1' && extp->MinorVersion >= '3'
      && extp->FeatureSupport & (1 << 9)) {
   struct cfi_private *newcfi;
@@ -26251,13 +24646,11 @@ static int get_chip(struct map_info *map, struct flchip *chip, unsigned long adr
  if (chip->priv &&
      (mode == FL_WRITING || mode == FL_ERASING || mode == FL_OTP_WRITE
      || mode == FL_SHUTDOWN) && chip->state != FL_SYNCING) {
-# 888 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/5348/dscv_tempdir/dscv/ri/32_1/drivers/mtd/chips/cfi_cmdset_0001.c.common.c"
   struct flchip_shared *shared = chip->priv;
   struct flchip *contender;
   mutex_lock(&shared->lock);
   contender = shared->writing;
   if (contender && contender != chip) {
-# 902 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/5348/dscv_tempdir/dscv/ri/32_1/drivers/mtd/chips/cfi_cmdset_0001.c.common.c"
    ret = mutex_trylock(&contender->mutex);
    mutex_unlock(&shared->lock);
    if (!ret)
@@ -26354,7 +24747,6 @@ static void put_chip(struct map_info *map, struct flchip *chip, unsigned long ad
 
  switch(chip->oldstate) {
  case FL_ERASING:
-# 1007 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/5348/dscv_tempdir/dscv/ri/32_1/drivers/mtd/chips/cfi_cmdset_0001.c.common.c"
   (map)->write(map, cfi_build_cmd((0xd0), map, cfi), adr);
   (map)->write(map, cfi_build_cmd((0x70), map, cfi), adr);
   chip->oldstate = FL_READY;
@@ -26375,7 +24767,6 @@ static void put_chip(struct map_info *map, struct flchip *chip, unsigned long ad
  }
  __wake_up(&chip->wq, (1 | 2), 1, ((void *)0));
 }
-# 1206 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/5348/dscv_tempdir/dscv/ri/32_1/drivers/mtd/chips/cfi_cmdset_0001.c.common.c"
 static int inval_cache_and_wait_for_operation(
   struct map_info *map, struct flchip *chip,
   unsigned long cmd_adr, unsigned long inval_adr, int inval_len,
@@ -27196,7 +25587,6 @@ static int do_getlockstatus_oneblock(struct map_info *map,
  ;
  return status;
 }
-# 2042 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/5348/dscv_tempdir/dscv/ri/32_1/drivers/mtd/chips/cfi_cmdset_0001.c.common.c"
 static int do_xxlock_oneblock(struct map_info *map, struct flchip *chip,
            unsigned long adr, int len, void *thunk)
 {
@@ -27252,20 +25642,16 @@ static int do_xxlock_oneblock(struct map_info *map, struct flchip *chip,
 static int cfi_intelext_lock(struct mtd_info *mtd, loff_t ofs, uint64_t len)
 {
  int ret;
-# 2105 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/5348/dscv_tempdir/dscv/ri/32_1/drivers/mtd/chips/cfi_cmdset_0001.c.common.c"
  ret = cfi_varsize_frob(mtd, do_xxlock_oneblock,
   ofs, len, ((void *) 1));
-# 2115 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/5348/dscv_tempdir/dscv/ri/32_1/drivers/mtd/chips/cfi_cmdset_0001.c.common.c"
  return ret;
 }
 
 static int cfi_intelext_unlock(struct mtd_info *mtd, loff_t ofs, uint64_t len)
 {
  int ret;
-# 2129 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/5348/dscv_tempdir/dscv/ri/32_1/drivers/mtd/chips/cfi_cmdset_0001.c.common.c"
  ret = cfi_varsize_frob(mtd, do_xxlock_oneblock,
      ofs, len, ((void *) 2));
-# 2139 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/5348/dscv_tempdir/dscv/ri/32_1/drivers/mtd/chips/cfi_cmdset_0001.c.common.c"
  return ret;
 }
 
@@ -27753,7 +26139,6 @@ static const char __mod_author2622[] __attribute__((__used__)) __attribute__((se
 static const char __mod_description2623[] __attribute__((__used__)) __attribute__((section(".modinfo"), unused, aligned(1))) = "description" "=" "MTD chip driver for Intel/Sharp flash chips";
 static const char __mod_alias2624[] __attribute__((__used__)) __attribute__((section(".modinfo"), unused, aligned(1))) = "alias" "=" "cfi_cmdset_0003";
 static const char __mod_alias2625[] __attribute__((__used__)) __attribute__((section(".modinfo"), unused, aligned(1))) = "alias" "=" "cfi_cmdset_0200";
-# 2643 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/5348/dscv_tempdir/dscv/ri/32_1/drivers/mtd/chips/cfi_cmdset_0001.c.common.c"
 void ldv_check_final_state(void);
 
 
@@ -27770,7 +26155,6 @@ int LDV_IN_INTERRUPT;
 
 
 void main(void) {
-# 2723 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/5348/dscv_tempdir/dscv/ri/32_1/drivers/mtd/chips/cfi_cmdset_0001.c.common.c"
  struct mtd_info * var_group1;
 
 
@@ -27780,7 +26164,6 @@ void main(void) {
 
 
  LDV_IN_INTERRUPT=1;
-# 2740 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/5348/dscv_tempdir/dscv/ri/32_1/drivers/mtd/chips/cfi_cmdset_0001.c.common.c"
  ldv_initialize();
 
 
@@ -27791,7 +26174,6 @@ void main(void) {
   switch(__VERIFIER_nondet_int()) {
 
    case 0: {
-# 2812 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/5348/dscv_tempdir/dscv/ri/32_1/drivers/mtd/chips/cfi_cmdset_0001.c.common.c"
     cfi_intelext_destroy( var_group1);
 
 
@@ -27818,11 +26200,9 @@ void main(void) {
 
 
 
-# 1 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/5348/dscv_tempdir/dscv/ri/32_1/kernel-rules/files/engine-blast.h" 1
 
 
 
-# 1 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/5348/dscv_tempdir/dscv/ri/32_1/kernel-rules/files/engine-blast-assert.h" 1
 
 
 
@@ -27830,14 +26210,10 @@ void main(void) {
 void ldv_blast_assert(void) {
 ERROR: __VERIFIER_error();
 }
-# 5 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/5348/dscv_tempdir/dscv/ri/32_1/kernel-rules/files/engine-blast.h" 2
 
 int __VERIFIER_nondet_int(void);
 void *__VERIFIER_nondet_pointer(void);
 unsigned long ldv_undefined_ulong(void);
-# 2839 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/5348/dscv_tempdir/dscv/ri/32_1/drivers/mtd/chips/cfi_cmdset_0001.c.common.c" 2
-# 1 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/5348/dscv_tempdir/dscv/ri/32_1/kernel-rules/files/model0032.c" 1
-# 19 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/5348/dscv_tempdir/dscv/ri/32_1/kernel-rules/files/model0032.c"
 int ldv_mutex = 1;
 
 
@@ -27977,7 +26353,6 @@ void ldv_check_final_state(void)
 
   ((ldv_mutex == 1) ? 0 : ldv_blast_assert());
 }
-# 2840 "/home/zakharov/launch/work/current--X--drivers/--X--defaultlinux-3.4--X--32_1--X--cpachecker/linux-3.4/csd_deg_dscv/5348/dscv_tempdir/dscv/ri/32_1/drivers/mtd/chips/cfi_cmdset_0001.c.common.c" 2
 
 long ldv__builtin_expect(long val, long res) {
  return val;

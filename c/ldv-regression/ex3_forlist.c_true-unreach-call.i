@@ -1,17 +1,10 @@
 extern void __VERIFIER_error() __attribute__ ((__noreturn__));
 
-# 1 "files/ex3_forlist.c"
-# 1 "<built-in>"
-# 1 "<command-line>"
-# 1 "files/ex3_forlist.c"
-# 1 "./assert.h" 1
 
 void __blast_assert()
 {
  ERROR: __VERIFIER_error();
 }
-# 2 "files/ex3_forlist.c" 2
-# 10 "files/ex3_forlist.c"
 
 
 

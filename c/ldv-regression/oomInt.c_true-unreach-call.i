@@ -1,9 +1,5 @@
 extern void __VERIFIER_error() __attribute__ ((__noreturn__));
 
-# 1 "files/oomInt.c"
-# 1 "<built-in>"
-# 1 "<command-line>"
-# 1 "files/oomInt.c"
 
 
 
@@ -14,7 +10,6 @@ extern void __VERIFIER_error() __attribute__ ((__noreturn__));
   ERROR: __VERIFIER_error();
  }
   }
-# 20 "files/oomInt.c"
 
 
 

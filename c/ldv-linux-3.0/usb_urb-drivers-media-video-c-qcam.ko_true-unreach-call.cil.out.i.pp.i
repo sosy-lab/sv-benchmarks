@@ -1,191 +1,104 @@
 extern void __VERIFIER_error() __attribute__ ((__noreturn__));
 
-# 1 "ldv/68_1/drivers/media/video/c-qcam.ko/safe.cil.out.i"
-# 1 "<built-in>"
-# 1 "<command-line>"
-# 1 "ldv/68_1/drivers/media/video/c-qcam.ko/safe.cil.out.i"
-# 19 "include/asm-generic/int-ll64.h"
 typedef signed char __s8;
-# 20 "include/asm-generic/int-ll64.h"
 typedef unsigned char __u8;
-# 22 "include/asm-generic/int-ll64.h"
 typedef short __s16;
-# 23 "include/asm-generic/int-ll64.h"
 typedef unsigned short __u16;
-# 25 "include/asm-generic/int-ll64.h"
 typedef int __s32;
-# 26 "include/asm-generic/int-ll64.h"
 typedef unsigned int __u32;
-# 29 "include/asm-generic/int-ll64.h"
 typedef long long __s64;
-# 30 "include/asm-generic/int-ll64.h"
 typedef unsigned long long __u64;
-# 43 "include/asm-generic/int-ll64.h"
 typedef unsigned char u8;
-# 46 "include/asm-generic/int-ll64.h"
 typedef unsigned short u16;
-# 48 "include/asm-generic/int-ll64.h"
 typedef int s32;
-# 49 "include/asm-generic/int-ll64.h"
 typedef unsigned int u32;
-# 51 "include/asm-generic/int-ll64.h"
 typedef long long s64;
-# 52 "include/asm-generic/int-ll64.h"
 typedef unsigned long long u64;
-# 11 "include/asm-generic/types.h"
 typedef unsigned short umode_t;
-# 11 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/posix_types_64.h"
 typedef unsigned int __kernel_mode_t;
-# 12 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/posix_types_64.h"
 typedef unsigned long __kernel_nlink_t;
-# 13 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/posix_types_64.h"
 typedef long __kernel_off_t;
-# 14 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/posix_types_64.h"
 typedef int __kernel_pid_t;
-# 16 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/posix_types_64.h"
 typedef unsigned int __kernel_uid_t;
-# 17 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/posix_types_64.h"
 typedef unsigned int __kernel_gid_t;
-# 18 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/posix_types_64.h"
 typedef unsigned long __kernel_size_t;
-# 19 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/posix_types_64.h"
 typedef long __kernel_ssize_t;
-# 21 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/posix_types_64.h"
 typedef long __kernel_time_t;
-# 22 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/posix_types_64.h"
 typedef long __kernel_suseconds_t;
-# 23 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/posix_types_64.h"
 typedef long __kernel_clock_t;
-# 24 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/posix_types_64.h"
 typedef int __kernel_timer_t;
-# 25 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/posix_types_64.h"
 typedef int __kernel_clockid_t;
-# 32 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/posix_types_64.h"
 typedef long long __kernel_loff_t;
-# 41 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/posix_types_64.h"
 typedef __kernel_uid_t __kernel_uid32_t;
-# 42 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/posix_types_64.h"
 typedef __kernel_gid_t __kernel_gid32_t;
-# 21 "include/linux/types.h"
 typedef __u32 __kernel_dev_t;
-# 24 "include/linux/types.h"
 typedef __kernel_dev_t dev_t;
-# 26 "include/linux/types.h"
 typedef __kernel_mode_t mode_t;
-# 27 "include/linux/types.h"
 typedef __kernel_nlink_t nlink_t;
-# 28 "include/linux/types.h"
 typedef __kernel_off_t off_t;
-# 29 "include/linux/types.h"
 typedef __kernel_pid_t pid_t;
-# 34 "include/linux/types.h"
 typedef __kernel_clockid_t clockid_t;
-# 37 "include/linux/types.h"
 typedef _Bool bool;
-# 39 "include/linux/types.h"
 typedef __kernel_uid32_t uid_t;
-# 40 "include/linux/types.h"
 typedef __kernel_gid32_t gid_t;
-# 53 "include/linux/types.h"
 typedef __kernel_loff_t loff_t;
-# 62 "include/linux/types.h"
 typedef __kernel_size_t size_t;
-# 67 "include/linux/types.h"
 typedef __kernel_ssize_t ssize_t;
-# 77 "include/linux/types.h"
 typedef __kernel_time_t time_t;
-# 110 "include/linux/types.h"
 typedef __s32 int32_t;
-# 116 "include/linux/types.h"
 typedef __u32 uint32_t;
-# 141 "include/linux/types.h"
 typedef unsigned long sector_t;
-# 142 "include/linux/types.h"
 typedef unsigned long blkcnt_t;
-# 154 "include/linux/types.h"
 typedef u64 dma_addr_t;
-# 177 "include/linux/types.h"
 typedef __u16 __le16;
-# 201 "include/linux/types.h"
 typedef unsigned int gfp_t;
-# 202 "include/linux/types.h"
 typedef unsigned int fmode_t;
-# 212 "include/linux/types.h"
 struct __anonstruct_atomic_t_7 {
    int counter ;
 };
-# 212 "include/linux/types.h"
 typedef struct __anonstruct_atomic_t_7 atomic_t;
-# 217 "include/linux/types.h"
 struct __anonstruct_atomic64_t_8 {
    long counter ;
 };
-# 217 "include/linux/types.h"
 typedef struct __anonstruct_atomic64_t_8 atomic64_t;
-# 222 "include/linux/types.h"
 struct list_head {
    struct list_head *next ;
    struct list_head *prev ;
 };
-# 226 "include/linux/types.h"
 struct hlist_node;
-# 226 "include/linux/types.h"
 struct hlist_node;
-# 226 "include/linux/types.h"
 struct hlist_head {
    struct hlist_node *first ;
 };
-# 230 "include/linux/types.h"
 struct hlist_node {
    struct hlist_node *next ;
    struct hlist_node **pprev ;
 };
-# 59 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/alternative.h"
 struct module;
-# 59 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/alternative.h"
 struct module;
-# 59 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/alternative.h"
 struct module;
-# 145 "include/linux/init.h"
 typedef void (*ctor_fn_t)(void);
-# 10 "include/asm-generic/bug.h"
 struct bug_entry {
    int bug_addr_disp ;
    int file_disp ;
    unsigned short line ;
    unsigned short flags ;
 };
-# 113 "include/linux/kernel.h"
 struct completion;
-# 113 "include/linux/kernel.h"
 struct completion;
-# 113 "include/linux/kernel.h"
 struct completion;
-# 114 "include/linux/kernel.h"
 struct pt_regs;
-# 114 "include/linux/kernel.h"
 struct pt_regs;
-# 114 "include/linux/kernel.h"
 struct pt_regs;
-# 322 "include/linux/kernel.h"
 struct pid;
-# 322 "include/linux/kernel.h"
 struct pid;
-# 322 "include/linux/kernel.h"
 struct pid;
-# 12 "include/linux/thread_info.h"
 struct timespec;
-# 12 "include/linux/thread_info.h"
 struct timespec;
-# 12 "include/linux/thread_info.h"
 struct timespec;
-# 13 "include/linux/thread_info.h"
 struct compat_timespec;
-# 13 "include/linux/thread_info.h"
 struct compat_timespec;
-# 13 "include/linux/thread_info.h"
 struct compat_timespec;
-# 18 "include/linux/thread_info.h"
 struct __anonstruct_futex_11 {
    u32 *uaddr ;
    u32 val ;
@@ -194,18 +107,14 @@ struct __anonstruct_futex_11 {
    u64 time ;
    u32 *uaddr2 ;
 };
-# 18 "include/linux/thread_info.h"
 struct __anonstruct_nanosleep_12 {
    clockid_t clockid ;
    struct timespec *rmtp ;
    struct compat_timespec *compat_rmtp ;
    u64 expires ;
 };
-# 18 "include/linux/thread_info.h"
 struct pollfd;
-# 18 "include/linux/thread_info.h"
 struct pollfd;
-# 18 "include/linux/thread_info.h"
 struct __anonstruct_poll_13 {
    struct pollfd *ufds ;
    int nfds ;
@@ -213,44 +122,28 @@ struct __anonstruct_poll_13 {
    unsigned long tv_sec ;
    unsigned long tv_nsec ;
 };
-# 18 "include/linux/thread_info.h"
 union __anonunion____missing_field_name_10 {
    struct __anonstruct_futex_11 futex ;
    struct __anonstruct_nanosleep_12 nanosleep ;
    struct __anonstruct_poll_13 poll ;
 };
-# 18 "include/linux/thread_info.h"
 struct restart_block {
    long (*fn)(struct restart_block * ) ;
    union __anonunion____missing_field_name_10 __annonCompField4 ;
 };
-# 18 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/page.h"
 struct page;
-# 18 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/page.h"
 struct page;
-# 18 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/page.h"
 struct page;
-# 20 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/thread_info.h"
 struct task_struct;
-# 20 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/thread_info.h"
 struct task_struct;
-# 20 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/thread_info.h"
 struct task_struct;
-# 21 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/thread_info.h"
 struct exec_domain;
-# 21 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/thread_info.h"
 struct exec_domain;
-# 21 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/thread_info.h"
 struct exec_domain;
-# 7 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/processor.h"
 struct task_struct;
-# 8 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/processor.h"
 struct mm_struct;
-# 8 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/processor.h"
 struct mm_struct;
-# 8 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/processor.h"
 struct mm_struct;
-# 99 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/ptrace.h"
 struct pt_regs {
    unsigned long r15 ;
    unsigned long r14 ;
@@ -274,9 +167,7 @@ struct pt_regs {
    unsigned long sp ;
    unsigned long ss ;
 };
-# 136 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/ptrace.h"
 struct task_struct;
-# 141 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/vm86.h"
 struct kernel_vm86_regs {
    struct pt_regs pt ;
    unsigned short es ;
@@ -288,54 +179,36 @@ struct kernel_vm86_regs {
    unsigned short gs ;
    unsigned short __gsh ;
 };
-# 11 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/math_emu.h"
 union __anonunion____missing_field_name_14 {
    struct pt_regs *regs ;
    struct kernel_vm86_regs *vm86 ;
 };
-# 11 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/math_emu.h"
 struct math_emu_info {
    long ___orig_eip ;
    union __anonunion____missing_field_name_14 __annonCompField5 ;
 };
-# 8 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/current.h"
 struct task_struct;
-# 13 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/pgtable_64_types.h"
 typedef unsigned long pgdval_t;
-# 14 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/pgtable_64_types.h"
 typedef unsigned long pgprotval_t;
-# 190 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/pgtable_types.h"
 struct pgprot {
    pgprotval_t pgprot ;
 };
-# 190 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/pgtable_types.h"
 typedef struct pgprot pgprot_t;
-# 192 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/pgtable_types.h"
 struct __anonstruct_pgd_t_17 {
    pgdval_t pgd ;
 };
-# 192 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/pgtable_types.h"
 typedef struct __anonstruct_pgd_t_17 pgd_t;
-# 280 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/pgtable_types.h"
 typedef struct page *pgtable_t;
-# 293 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/pgtable_types.h"
 struct file;
-# 293 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/pgtable_types.h"
 struct file;
-# 293 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/pgtable_types.h"
 struct file;
-# 311 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/pgtable_types.h"
 struct seq_file;
-# 311 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/pgtable_types.h"
 struct seq_file;
-# 311 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/pgtable_types.h"
 struct seq_file;
-# 22 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/desc_defs.h"
 struct __anonstruct____missing_field_name_22 {
    unsigned int a ;
    unsigned int b ;
 };
-# 22 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/desc_defs.h"
 struct __anonstruct____missing_field_name_23 {
    u16 limit0 ;
    u16 base0 ;
@@ -351,60 +224,36 @@ struct __anonstruct____missing_field_name_23 {
    unsigned int g : 1 ;
    unsigned int base2 : 8 ;
 };
-# 22 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/desc_defs.h"
 union __anonunion____missing_field_name_21 {
    struct __anonstruct____missing_field_name_22 __annonCompField7 ;
    struct __anonstruct____missing_field_name_23 __annonCompField8 ;
 };
-# 22 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/desc_defs.h"
 struct desc_struct {
    union __anonunion____missing_field_name_21 __annonCompField9 ;
 } __attribute__((__packed__)) ;
-# 45 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/paravirt_types.h"
 struct page;
-# 46 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/paravirt_types.h"
 struct thread_struct;
-# 46 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/paravirt_types.h"
 struct thread_struct;
-# 46 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/paravirt_types.h"
 struct thread_struct;
-# 49 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/paravirt_types.h"
 struct mm_struct;
-# 50 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/paravirt_types.h"
 struct desc_struct;
-# 51 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/paravirt_types.h"
 struct task_struct;
-# 52 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/paravirt_types.h"
 struct cpumask;
-# 52 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/paravirt_types.h"
 struct cpumask;
-# 52 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/paravirt_types.h"
 struct cpumask;
-# 322 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/paravirt_types.h"
 struct arch_spinlock;
-# 322 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/paravirt_types.h"
 struct arch_spinlock;
-# 322 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/paravirt_types.h"
 struct arch_spinlock;
-# 13 "include/linux/cpumask.h"
 struct cpumask {
    unsigned long bits[((4096UL + 8UL * sizeof(long )) - 1UL) / (8UL * sizeof(long ))] ;
 };
-# 13 "include/linux/cpumask.h"
 typedef struct cpumask cpumask_t;
-# 622 "include/linux/cpumask.h"
 typedef struct cpumask *cpumask_var_t;
-# 20 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/system.h"
 struct task_struct;
-# 10 "include/linux/personality.h"
 struct exec_domain;
-# 11 "include/linux/personality.h"
 struct pt_regs;
-# 91 "include/linux/personality.h"
 struct map_segment;
-# 91 "include/linux/personality.h"
 struct map_segment;
-# 91 "include/linux/personality.h"
 struct exec_domain {
    char const *name ;
    void (*handler)(int , struct pt_regs * ) ;
@@ -419,7 +268,6 @@ struct exec_domain {
    struct module *module ;
    struct exec_domain *next ;
 };
-# 280 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/processor.h"
 struct i387_fsave_struct {
    u32 cwd ;
    u32 swd ;
@@ -431,29 +279,24 @@ struct i387_fsave_struct {
    u32 st_space[20] ;
    u32 status ;
 };
-# 296 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/processor.h"
 struct __anonstruct____missing_field_name_31 {
    u64 rip ;
    u64 rdp ;
 };
-# 296 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/processor.h"
 struct __anonstruct____missing_field_name_32 {
    u32 fip ;
    u32 fcs ;
    u32 foo ;
    u32 fos ;
 };
-# 296 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/processor.h"
 union __anonunion____missing_field_name_30 {
    struct __anonstruct____missing_field_name_31 __annonCompField12 ;
    struct __anonstruct____missing_field_name_32 __annonCompField13 ;
 };
-# 296 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/processor.h"
 union __anonunion____missing_field_name_33 {
    u32 padding1[12] ;
    u32 sw_reserved[12] ;
 };
-# 296 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/processor.h"
 struct i387_fxsave_struct {
    u16 cwd ;
    u16 swd ;
@@ -467,7 +310,6 @@ struct i387_fxsave_struct {
    u32 padding[12] ;
    union __anonunion____missing_field_name_33 __annonCompField15 ;
 } __attribute__((__aligned__(16))) ;
-# 331 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/processor.h"
 struct i387_soft_struct {
    u32 cwd ;
    u32 swd ;
@@ -486,44 +328,33 @@ struct i387_soft_struct {
    struct math_emu_info *info ;
    u32 entry_eip ;
 };
-# 351 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/processor.h"
 struct ymmh_struct {
    u32 ymmh_space[64] ;
 };
-# 356 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/processor.h"
 struct xsave_hdr_struct {
    u64 xstate_bv ;
    u64 reserved1[2] ;
    u64 reserved2[5] ;
 } __attribute__((__packed__)) ;
-# 362 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/processor.h"
 struct xsave_struct {
    struct i387_fxsave_struct i387 ;
    struct xsave_hdr_struct xsave_hdr ;
    struct ymmh_struct ymmh ;
 } __attribute__((__packed__, __aligned__(64))) ;
-# 369 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/processor.h"
 union thread_xstate {
    struct i387_fsave_struct fsave ;
    struct i387_fxsave_struct fxsave ;
    struct i387_soft_struct soft ;
    struct xsave_struct xsave ;
 };
-# 376 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/processor.h"
 struct fpu {
    union thread_xstate *state ;
 };
-# 421 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/processor.h"
 struct kmem_cache;
-# 421 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/processor.h"
 struct kmem_cache;
-# 423 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/processor.h"
 struct perf_event;
-# 423 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/processor.h"
 struct perf_event;
-# 423 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/processor.h"
 struct perf_event;
-# 425 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/processor.h"
 struct thread_struct {
    struct desc_struct tls_array[3] ;
    unsigned long sp0 ;
@@ -546,15 +377,11 @@ struct thread_struct {
    unsigned long iopl ;
    unsigned int io_bitmap_max ;
 };
-# 620 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/processor.h"
 struct __anonstruct_mm_segment_t_35 {
    unsigned long seg ;
 };
-# 620 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/processor.h"
 typedef struct __anonstruct_mm_segment_t_35 mm_segment_t;
-# 23 "include/asm-generic/atomic-long.h"
 typedef atomic64_t atomic_long_t;
-# 26 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/thread_info.h"
 struct thread_info {
    struct task_struct *task ;
    struct exec_domain *exec_domain ;
@@ -567,52 +394,35 @@ struct thread_info {
    void *sysenter_return ;
    int uaccess_err ;
 };
-# 8 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/spinlock_types.h"
 struct arch_spinlock {
    unsigned int slock ;
 };
-# 8 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/spinlock_types.h"
 typedef struct arch_spinlock arch_spinlock_t;
-# 14 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/spinlock_types.h"
 struct __anonstruct_arch_rwlock_t_36 {
    unsigned int lock ;
 };
-# 14 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/spinlock_types.h"
 typedef struct __anonstruct_arch_rwlock_t_36 arch_rwlock_t;
-# 12 "include/linux/lockdep.h"
 struct task_struct;
-# 13 "include/linux/lockdep.h"
 struct lockdep_map;
-# 13 "include/linux/lockdep.h"
 struct lockdep_map;
-# 13 "include/linux/lockdep.h"
 struct lockdep_map;
-# 8 "include/linux/debug_locks.h"
 struct task_struct;
-# 48 "include/linux/debug_locks.h"
 struct task_struct;
-# 4 "include/linux/stacktrace.h"
 struct task_struct;
-# 5 "include/linux/stacktrace.h"
 struct pt_regs;
-# 8 "include/linux/stacktrace.h"
 struct task_struct;
-# 10 "include/linux/stacktrace.h"
 struct stack_trace {
    unsigned int nr_entries ;
    unsigned int max_entries ;
    unsigned long *entries ;
    int skip ;
 };
-# 50 "include/linux/lockdep.h"
 struct lockdep_subclass_key {
    char __one_byte ;
 } __attribute__((__packed__)) ;
-# 54 "include/linux/lockdep.h"
 struct lock_class_key {
    struct lockdep_subclass_key subkeys[8UL] ;
 };
-# 65 "include/linux/lockdep.h"
 struct lock_class {
    struct list_head hash_entry ;
    struct list_head lock_entry ;
@@ -630,7 +440,6 @@ struct lock_class {
    unsigned long contention_point[4] ;
    unsigned long contending_point[4] ;
 };
-# 150 "include/linux/lockdep.h"
 struct lockdep_map {
    struct lock_class_key *key ;
    struct lock_class *class_cache[2] ;
@@ -638,7 +447,6 @@ struct lockdep_map {
    int cpu ;
    unsigned long ip ;
 };
-# 196 "include/linux/lockdep.h"
 struct held_lock {
    u64 prev_chain_key ;
    unsigned long acquire_ip ;
@@ -654,7 +462,6 @@ struct held_lock {
    unsigned int hardirqs_off : 1 ;
    unsigned int references : 11 ;
 };
-# 20 "include/linux/spinlock_types.h"
 struct raw_spinlock {
    arch_spinlock_t raw_lock ;
    unsigned int magic ;
@@ -662,25 +469,19 @@ struct raw_spinlock {
    void *owner ;
    struct lockdep_map dep_map ;
 };
-# 20 "include/linux/spinlock_types.h"
 typedef struct raw_spinlock raw_spinlock_t;
-# 64 "include/linux/spinlock_types.h"
 struct __anonstruct____missing_field_name_38 {
    u8 __padding[(unsigned int )(& ((struct raw_spinlock *)0)->dep_map)] ;
    struct lockdep_map dep_map ;
 };
-# 64 "include/linux/spinlock_types.h"
 union __anonunion____missing_field_name_37 {
    struct raw_spinlock rlock ;
    struct __anonstruct____missing_field_name_38 __annonCompField17 ;
 };
-# 64 "include/linux/spinlock_types.h"
 struct spinlock {
    union __anonunion____missing_field_name_37 __annonCompField18 ;
 };
-# 64 "include/linux/spinlock_types.h"
 typedef struct spinlock spinlock_t;
-# 11 "include/linux/rwlock_types.h"
 struct __anonstruct_rwlock_t_39 {
    arch_rwlock_t raw_lock ;
    unsigned int magic ;
@@ -688,25 +489,19 @@ struct __anonstruct_rwlock_t_39 {
    void *owner ;
    struct lockdep_map dep_map ;
 };
-# 11 "include/linux/rwlock_types.h"
 typedef struct __anonstruct_rwlock_t_39 rwlock_t;
-# 119 "include/linux/seqlock.h"
 struct seqcount {
    unsigned int sequence ;
 };
-# 119 "include/linux/seqlock.h"
 typedef struct seqcount seqcount_t;
-# 14 "include/linux/time.h"
 struct timespec {
    __kernel_time_t tv_sec ;
    long tv_nsec ;
 };
-# 20 "include/linux/time.h"
 struct timeval {
    __kernel_time_t tv_sec ;
    __kernel_suseconds_t tv_usec ;
 };
-# 62 "include/linux/stat.h"
 struct kstat {
    u64 ino ;
    dev_t dev ;
@@ -722,24 +517,17 @@ struct kstat {
    unsigned long blksize ;
    unsigned long long blocks ;
 };
-# 50 "include/linux/wait.h"
 struct __wait_queue_head {
    spinlock_t lock ;
    struct list_head task_list ;
 };
-# 54 "include/linux/wait.h"
 typedef struct __wait_queue_head wait_queue_head_t;
-# 56 "include/linux/wait.h"
 struct task_struct;
-# 96 "include/linux/nodemask.h"
 struct __anonstruct_nodemask_t_41 {
    unsigned long bits[(((unsigned long )(1 << 10) + 8UL * sizeof(long )) - 1UL) / (8UL * sizeof(long ))] ;
 };
-# 96 "include/linux/nodemask.h"
 typedef struct __anonstruct_nodemask_t_41 nodemask_t;
-# 60 "include/linux/pageblock-flags.h"
 struct page;
-# 48 "include/linux/mutex.h"
 struct mutex {
    atomic_t count ;
    spinlock_t wait_lock ;
@@ -749,48 +537,32 @@ struct mutex {
    void *magic ;
    struct lockdep_map dep_map ;
 };
-# 69 "include/linux/mutex.h"
 struct mutex_waiter {
    struct list_head list ;
    struct task_struct *task ;
    void *magic ;
 };
-# 20 "include/linux/rwsem.h"
 struct rw_semaphore;
-# 20 "include/linux/rwsem.h"
 struct rw_semaphore;
-# 20 "include/linux/rwsem.h"
 struct rw_semaphore;
-# 26 "include/linux/rwsem.h"
 struct rw_semaphore {
    long count ;
    spinlock_t wait_lock ;
    struct list_head wait_list ;
    struct lockdep_map dep_map ;
 };
-# 8 "include/linux/memory_hotplug.h"
 struct page;
-# 177 "include/linux/ioport.h"
 struct device;
-# 177 "include/linux/ioport.h"
 struct device;
-# 177 "include/linux/ioport.h"
 struct device;
-# 103 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/mpspec.h"
 struct device;
-# 46 "include/linux/ktime.h"
 union ktime {
    s64 tv64 ;
 };
-# 59 "include/linux/ktime.h"
 typedef union ktime ktime_t;
-# 10 "include/linux/timer.h"
 struct tvec_base;
-# 10 "include/linux/timer.h"
 struct tvec_base;
-# 10 "include/linux/timer.h"
 struct tvec_base;
-# 12 "include/linux/timer.h"
 struct timer_list {
    struct list_head entry ;
    unsigned long expires ;
@@ -803,48 +575,33 @@ struct timer_list {
    char start_comm[16] ;
    struct lockdep_map lockdep_map ;
 };
-# 289 "include/linux/timer.h"
 struct hrtimer;
-# 289 "include/linux/timer.h"
 struct hrtimer;
-# 289 "include/linux/timer.h"
 struct hrtimer;
-# 290 "include/linux/timer.h"
 enum hrtimer_restart;
-# 290 "include/linux/timer.h"
 enum hrtimer_restart;
-# 17 "include/linux/workqueue.h"
 struct work_struct;
-# 17 "include/linux/workqueue.h"
 struct work_struct;
-# 17 "include/linux/workqueue.h"
 struct work_struct;
-# 79 "include/linux/workqueue.h"
 struct work_struct {
    atomic_long_t data ;
    struct list_head entry ;
    void (*func)(struct work_struct *work ) ;
    struct lockdep_map lockdep_map ;
 };
-# 92 "include/linux/workqueue.h"
 struct delayed_work {
    struct work_struct work ;
    struct timer_list timer ;
 };
-# 25 "include/linux/completion.h"
 struct completion {
    unsigned int done ;
    wait_queue_head_t wait ;
 };
-# 42 "include/linux/pm.h"
 struct device;
-# 50 "include/linux/pm.h"
 struct pm_message {
    int event ;
 };
-# 50 "include/linux/pm.h"
 typedef struct pm_message pm_message_t;
-# 204 "include/linux/pm.h"
 struct dev_pm_ops {
    int (*prepare)(struct device *dev ) ;
    void (*complete)(struct device *dev ) ;
@@ -864,14 +621,12 @@ struct dev_pm_ops {
    int (*runtime_resume)(struct device *dev ) ;
    int (*runtime_idle)(struct device *dev ) ;
 };
-# 392 "include/linux/pm.h"
 enum rpm_status {
     RPM_ACTIVE = 0,
     RPM_RESUMING = 1,
     RPM_SUSPENDED = 2,
     RPM_SUSPENDING = 3
 } ;
-# 414 "include/linux/pm.h"
 enum rpm_request {
     RPM_REQ_NONE = 0,
     RPM_REQ_IDLE = 1,
@@ -879,13 +634,9 @@ enum rpm_request {
     RPM_REQ_AUTOSUSPEND = 3,
     RPM_REQ_RESUME = 4
 } ;
-# 422 "include/linux/pm.h"
 struct wakeup_source;
-# 422 "include/linux/pm.h"
 struct wakeup_source;
-# 422 "include/linux/pm.h"
 struct wakeup_source;
-# 424 "include/linux/pm.h"
 struct dev_pm_info {
    pm_message_t power_state ;
    unsigned int can_wakeup : 1 ;
@@ -923,11 +674,9 @@ struct dev_pm_info {
    unsigned long accounting_timestamp ;
    void *subsys_data ;
 };
-# 475 "include/linux/pm.h"
 struct dev_power_domain {
    struct dev_pm_ops ops ;
 };
-# 11 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/mmu.h"
 struct __anonstruct_mm_context_t_111 {
    void *ldt ;
    int size ;
@@ -935,52 +684,30 @@ struct __anonstruct_mm_context_t_111 {
    struct mutex lock ;
    void *vdso ;
 };
-# 11 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/mmu.h"
 typedef struct __anonstruct_mm_context_t_111 mm_context_t;
-# 8 "include/linux/vmalloc.h"
 struct vm_area_struct;
-# 8 "include/linux/vmalloc.h"
 struct vm_area_struct;
-# 8 "include/linux/vmalloc.h"
 struct vm_area_struct;
-# 964 "include/linux/mmzone.h"
 struct page;
-# 10 "include/linux/gfp.h"
 struct vm_area_struct;
-# 29 "include/linux/sysctl.h"
 struct completion;
-# 72 "include/linux/rcupdate.h"
 struct rcu_head {
    struct rcu_head *next ;
    void (*func)(struct rcu_head *head ) ;
 };
-# 937 "include/linux/sysctl.h"
 struct nsproxy;
-# 937 "include/linux/sysctl.h"
 struct nsproxy;
-# 937 "include/linux/sysctl.h"
 struct nsproxy;
-# 48 "include/linux/kmod.h"
 struct cred;
-# 48 "include/linux/kmod.h"
 struct cred;
-# 48 "include/linux/kmod.h"
 struct cred;
-# 49 "include/linux/kmod.h"
 struct file;
-# 264 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/elf.h"
 struct task_struct;
-# 10 "include/linux/elf.h"
 struct file;
-# 27 "include/linux/elf.h"
 typedef __u64 Elf64_Addr;
-# 28 "include/linux/elf.h"
 typedef __u16 Elf64_Half;
-# 32 "include/linux/elf.h"
 typedef __u32 Elf64_Word;
-# 33 "include/linux/elf.h"
 typedef __u64 Elf64_Xword;
-# 203 "include/linux/elf.h"
 struct elf64_sym {
    Elf64_Word st_name ;
    unsigned char st_info ;
@@ -989,27 +716,18 @@ struct elf64_sym {
    Elf64_Addr st_value ;
    Elf64_Xword st_size ;
 };
-# 203 "include/linux/elf.h"
 typedef struct elf64_sym Elf64_Sym;
-# 20 "include/linux/kobject_ns.h"
 struct sock;
-# 20 "include/linux/kobject_ns.h"
 struct sock;
-# 20 "include/linux/kobject_ns.h"
 struct sock;
-# 21 "include/linux/kobject_ns.h"
 struct kobject;
-# 21 "include/linux/kobject_ns.h"
 struct kobject;
-# 21 "include/linux/kobject_ns.h"
 struct kobject;
-# 27 "include/linux/kobject_ns.h"
 enum kobj_ns_type {
     KOBJ_NS_TYPE_NONE = 0,
     KOBJ_NS_TYPE_NET = 1,
     KOBJ_NS_TYPES = 2
 } ;
-# 40 "include/linux/kobject_ns.h"
 struct kobj_ns_type_operations {
    enum kobj_ns_type type ;
    void *(*grab_current_ns)(void) ;
@@ -1017,30 +735,22 @@ struct kobj_ns_type_operations {
    void const *(*initial_ns)(void) ;
    void (*drop_ns)(void * ) ;
 };
-# 22 "include/linux/sysfs.h"
 struct kobject;
-# 23 "include/linux/sysfs.h"
 struct module;
-# 24 "include/linux/sysfs.h"
 enum kobj_ns_type;
-# 26 "include/linux/sysfs.h"
 struct attribute {
    char const *name ;
    mode_t mode ;
    struct lock_class_key *key ;
    struct lock_class_key skey ;
 };
-# 56 "include/linux/sysfs.h"
 struct attribute_group {
    char const *name ;
    mode_t (*is_visible)(struct kobject * , struct attribute * , int ) ;
    struct attribute **attrs ;
 };
-# 85 "include/linux/sysfs.h"
 struct file;
-# 86 "include/linux/sysfs.h"
 struct vm_area_struct;
-# 88 "include/linux/sysfs.h"
 struct bin_attribute {
    struct attribute attr ;
    size_t size ;
@@ -1051,30 +761,20 @@ struct bin_attribute {
                     loff_t , size_t ) ;
    int (*mmap)(struct file * , struct kobject * , struct bin_attribute *attr , struct vm_area_struct *vma ) ;
 };
-# 112 "include/linux/sysfs.h"
 struct sysfs_ops {
    ssize_t (*show)(struct kobject * , struct attribute * , char * ) ;
    ssize_t (*store)(struct kobject * , struct attribute * , char const * , size_t ) ;
 };
-# 117 "include/linux/sysfs.h"
 struct sysfs_dirent;
-# 117 "include/linux/sysfs.h"
 struct sysfs_dirent;
-# 117 "include/linux/sysfs.h"
 struct sysfs_dirent;
-# 20 "include/linux/kref.h"
 struct kref {
    atomic_t refcount ;
 };
-# 60 "include/linux/kobject.h"
 struct kset;
-# 60 "include/linux/kobject.h"
 struct kset;
-# 60 "include/linux/kobject.h"
 struct kobj_type;
-# 60 "include/linux/kobject.h"
 struct kobj_type;
-# 60 "include/linux/kobject.h"
 struct kobject {
    char const *name ;
    struct list_head entry ;
@@ -1089,7 +789,6 @@ struct kobject {
    unsigned int state_remove_uevent_sent : 1 ;
    unsigned int uevent_suppress : 1 ;
 };
-# 110 "include/linux/kobject.h"
 struct kobj_type {
    void (*release)(struct kobject *kobj ) ;
    struct sysfs_ops const *sysfs_ops ;
@@ -1097,55 +796,41 @@ struct kobj_type {
    struct kobj_ns_type_operations const *(*child_ns_type)(struct kobject *kobj ) ;
    void const *(*namespace)(struct kobject *kobj ) ;
 };
-# 118 "include/linux/kobject.h"
 struct kobj_uevent_env {
    char *envp[32] ;
    int envp_idx ;
    char buf[2048] ;
    int buflen ;
 };
-# 125 "include/linux/kobject.h"
 struct kset_uevent_ops {
    int (* const filter)(struct kset *kset , struct kobject *kobj ) ;
    char const *(* const name)(struct kset *kset , struct kobject *kobj ) ;
    int (* const uevent)(struct kset *kset , struct kobject *kobj , struct kobj_uevent_env *env ) ;
 };
-# 142 "include/linux/kobject.h"
 struct sock;
-# 161 "include/linux/kobject.h"
 struct kset {
    struct list_head list ;
    spinlock_t list_lock ;
    struct kobject kobj ;
    struct kset_uevent_ops const *uevent_ops ;
 };
-# 34 "include/linux/moduleparam.h"
 struct kernel_param;
-# 34 "include/linux/moduleparam.h"
 struct kernel_param;
-# 34 "include/linux/moduleparam.h"
 struct kernel_param;
-# 36 "include/linux/moduleparam.h"
 struct kernel_param_ops {
    int (*set)(char const *val , struct kernel_param const *kp ) ;
    int (*get)(char *buffer , struct kernel_param const *kp ) ;
    void (*free)(void *arg ) ;
 };
-# 48 "include/linux/moduleparam.h"
 struct kparam_string;
-# 48 "include/linux/moduleparam.h"
 struct kparam_string;
-# 48 "include/linux/moduleparam.h"
 struct kparam_array;
-# 48 "include/linux/moduleparam.h"
 struct kparam_array;
-# 48 "include/linux/moduleparam.h"
 union __anonunion____missing_field_name_195 {
    void *arg ;
    struct kparam_string const *str ;
    struct kparam_array const *arr ;
 };
-# 48 "include/linux/moduleparam.h"
 struct kernel_param {
    char const *name ;
    struct kernel_param_ops const *ops ;
@@ -1153,12 +838,10 @@ struct kernel_param {
    u16 flags ;
    union __anonunion____missing_field_name_195 __annonCompField31 ;
 };
-# 61 "include/linux/moduleparam.h"
 struct kparam_string {
    unsigned int maxlen ;
    char *string ;
 };
-# 67 "include/linux/moduleparam.h"
 struct kparam_array {
    unsigned int max ;
    unsigned int elemsize ;
@@ -1166,28 +849,19 @@ struct kparam_array {
    struct kernel_param_ops const *ops ;
    void *elem ;
 };
-# 391 "include/linux/moduleparam.h"
 struct module;
-# 26 "include/linux/jump_label.h"
 struct module;
-# 61 "include/linux/jump_label.h"
 struct jump_label_key {
    atomic_t enabled ;
 };
-# 22 "include/linux/tracepoint.h"
 struct module;
-# 23 "include/linux/tracepoint.h"
 struct tracepoint;
-# 23 "include/linux/tracepoint.h"
 struct tracepoint;
-# 23 "include/linux/tracepoint.h"
 struct tracepoint;
-# 25 "include/linux/tracepoint.h"
 struct tracepoint_func {
    void *func ;
    void *data ;
 };
-# 30 "include/linux/tracepoint.h"
 struct tracepoint {
    char const *name ;
    struct jump_label_key key ;
@@ -1195,20 +869,15 @@ struct tracepoint {
    void (*unregfunc)(void) ;
    struct tracepoint_func *funcs ;
 };
-# 8 "include/asm-generic/module.h"
 struct mod_arch_specific {
 
 };
-# 21 "include/trace/events/module.h"
 struct module;
-# 37 "include/linux/module.h"
 struct kernel_symbol {
    unsigned long value ;
    char const *name ;
 };
-# 49 "include/linux/module.h"
 struct module;
-# 51 "include/linux/module.h"
 struct module_attribute {
    struct attribute attr ;
    ssize_t (*show)(struct module_attribute * , struct module * , char * ) ;
@@ -1218,47 +887,32 @@ struct module_attribute {
    int (*test)(struct module * ) ;
    void (*free)(struct module * ) ;
 };
-# 70 "include/linux/module.h"
 struct module_param_attrs;
-# 70 "include/linux/module.h"
 struct module_param_attrs;
-# 70 "include/linux/module.h"
 struct module_kobject {
    struct kobject kobj ;
    struct module *mod ;
    struct kobject *drivers_dir ;
    struct module_param_attrs *mp ;
 };
-# 83 "include/linux/module.h"
 struct exception_table_entry;
-# 83 "include/linux/module.h"
 struct exception_table_entry;
-# 83 "include/linux/module.h"
 struct exception_table_entry;
-# 265 "include/linux/module.h"
 enum module_state {
     MODULE_STATE_LIVE = 0,
     MODULE_STATE_COMING = 1,
     MODULE_STATE_GOING = 2
 } ;
-# 272 "include/linux/module.h"
 struct module_sect_attrs;
-# 272 "include/linux/module.h"
 struct module_sect_attrs;
-# 272 "include/linux/module.h"
 struct module_notes_attrs;
-# 272 "include/linux/module.h"
 struct module_notes_attrs;
-# 272 "include/linux/module.h"
 struct ftrace_event_call;
-# 272 "include/linux/module.h"
 struct ftrace_event_call;
-# 272 "include/linux/module.h"
 struct module_ref {
    unsigned int incs ;
    unsigned int decs ;
 };
-# 272 "include/linux/module.h"
 struct module {
    enum module_state state ;
    struct list_head list ;
@@ -1328,69 +982,43 @@ struct module {
    ctor_fn_t *ctors ;
    unsigned int num_ctors ;
 };
-# 15 "include/linux/blk_types.h"
 struct page;
-# 16 "include/linux/blk_types.h"
 struct block_device;
-# 16 "include/linux/blk_types.h"
 struct block_device;
-# 16 "include/linux/blk_types.h"
 struct block_device;
-# 33 "include/linux/list_bl.h"
 struct hlist_bl_node;
-# 33 "include/linux/list_bl.h"
 struct hlist_bl_node;
-# 33 "include/linux/list_bl.h"
 struct hlist_bl_head {
    struct hlist_bl_node *first ;
 };
-# 37 "include/linux/list_bl.h"
 struct hlist_bl_node {
    struct hlist_bl_node *next ;
    struct hlist_bl_node **pprev ;
 };
-# 13 "include/linux/dcache.h"
 struct nameidata;
-# 13 "include/linux/dcache.h"
 struct nameidata;
-# 13 "include/linux/dcache.h"
 struct nameidata;
-# 14 "include/linux/dcache.h"
 struct path;
-# 14 "include/linux/dcache.h"
 struct path;
-# 14 "include/linux/dcache.h"
 struct path;
-# 15 "include/linux/dcache.h"
 struct vfsmount;
-# 15 "include/linux/dcache.h"
 struct vfsmount;
-# 15 "include/linux/dcache.h"
 struct vfsmount;
-# 35 "include/linux/dcache.h"
 struct qstr {
    unsigned int hash ;
    unsigned int len ;
    unsigned char const *name ;
 };
-# 116 "include/linux/dcache.h"
 struct inode;
-# 116 "include/linux/dcache.h"
 struct inode;
-# 116 "include/linux/dcache.h"
 struct dentry_operations;
-# 116 "include/linux/dcache.h"
 struct dentry_operations;
-# 116 "include/linux/dcache.h"
 struct super_block;
-# 116 "include/linux/dcache.h"
 struct super_block;
-# 116 "include/linux/dcache.h"
 union __anonunion_d_u_197 {
    struct list_head d_child ;
    struct rcu_head d_rcu ;
 };
-# 116 "include/linux/dcache.h"
 struct dentry {
    unsigned int d_flags ;
    seqcount_t d_seq ;
@@ -1410,7 +1038,6 @@ struct dentry {
    struct list_head d_subdirs ;
    struct list_head d_alias ;
 };
-# 159 "include/linux/dcache.h"
 struct dentry_operations {
    int (*d_revalidate)(struct dentry * , struct nameidata * ) ;
    int (*d_hash)(struct dentry const * , struct inode const * , struct qstr * ) ;
@@ -1423,36 +1050,26 @@ struct dentry_operations {
    struct vfsmount *(*d_automount)(struct path * ) ;
    int (*d_manage)(struct dentry * , bool ) ;
 } __attribute__((__aligned__((1) << (6) ))) ;
-# 4 "include/linux/path.h"
 struct dentry;
-# 5 "include/linux/path.h"
 struct vfsmount;
-# 7 "include/linux/path.h"
 struct path {
    struct vfsmount *mnt ;
    struct dentry *dentry ;
 };
-# 57 "include/linux/radix-tree.h"
 struct radix_tree_node;
-# 57 "include/linux/radix-tree.h"
 struct radix_tree_node;
-# 57 "include/linux/radix-tree.h"
 struct radix_tree_root {
    unsigned int height ;
    gfp_t gfp_mask ;
    struct radix_tree_node *rnode ;
 };
-# 14 "include/linux/prio_tree.h"
 struct prio_tree_node;
-# 14 "include/linux/prio_tree.h"
 struct prio_tree_node;
-# 14 "include/linux/prio_tree.h"
 struct raw_prio_tree_node {
    struct prio_tree_node *left ;
    struct prio_tree_node *right ;
    struct prio_tree_node *parent ;
 };
-# 20 "include/linux/prio_tree.h"
 struct prio_tree_node {
    struct prio_tree_node *left ;
    struct prio_tree_node *right ;
@@ -1460,30 +1077,24 @@ struct prio_tree_node {
    unsigned long start ;
    unsigned long last ;
 };
-# 28 "include/linux/prio_tree.h"
 struct prio_tree_root {
    struct prio_tree_node *prio_tree_node ;
    unsigned short index_bits ;
    unsigned short raw ;
 };
-# 6 "include/linux/pid.h"
 enum pid_type {
     PIDTYPE_PID = 0,
     PIDTYPE_PGID = 1,
     PIDTYPE_SID = 2,
     PIDTYPE_MAX = 3
 } ;
-# 50 "include/linux/pid.h"
 struct pid_namespace;
-# 50 "include/linux/pid.h"
 struct pid_namespace;
-# 50 "include/linux/pid.h"
 struct upid {
    int nr ;
    struct pid_namespace *ns ;
    struct hlist_node pid_chain ;
 };
-# 57 "include/linux/pid.h"
 struct pid {
    atomic_t count ;
    unsigned int level ;
@@ -1491,36 +1102,25 @@ struct pid {
    struct rcu_head rcu ;
    struct upid numbers[1] ;
 };
-# 69 "include/linux/pid.h"
 struct pid_link {
    struct hlist_node node ;
    struct pid *pid ;
 };
-# 100 "include/linux/pid.h"
 struct pid_namespace;
-# 18 "include/linux/capability.h"
 struct task_struct;
-# 94 "include/linux/capability.h"
 struct kernel_cap_struct {
    __u32 cap[2] ;
 };
-# 94 "include/linux/capability.h"
 typedef struct kernel_cap_struct kernel_cap_t;
-# 376 "include/linux/capability.h"
 struct dentry;
-# 377 "include/linux/capability.h"
 struct user_namespace;
-# 377 "include/linux/capability.h"
 struct user_namespace;
-# 377 "include/linux/capability.h"
 struct user_namespace;
-# 16 "include/linux/semaphore.h"
 struct semaphore {
    spinlock_t lock ;
    unsigned int count ;
    struct list_head wait_list ;
 };
-# 16 "include/linux/fiemap.h"
 struct fiemap_extent {
    __u64 fe_logical ;
    __u64 fe_physical ;
@@ -1529,53 +1129,29 @@ struct fiemap_extent {
    __u32 fe_flags ;
    __u32 fe_reserved[3] ;
 };
-# 399 "include/linux/fs.h"
 struct export_operations;
-# 399 "include/linux/fs.h"
 struct export_operations;
-# 399 "include/linux/fs.h"
 struct export_operations;
-# 401 "include/linux/fs.h"
 struct iovec;
-# 401 "include/linux/fs.h"
 struct iovec;
-# 401 "include/linux/fs.h"
 struct iovec;
-# 402 "include/linux/fs.h"
 struct nameidata;
-# 403 "include/linux/fs.h"
 struct kiocb;
-# 403 "include/linux/fs.h"
 struct kiocb;
-# 403 "include/linux/fs.h"
 struct kiocb;
-# 404 "include/linux/fs.h"
 struct kobject;
-# 405 "include/linux/fs.h"
 struct pipe_inode_info;
-# 405 "include/linux/fs.h"
 struct pipe_inode_info;
-# 405 "include/linux/fs.h"
 struct pipe_inode_info;
-# 406 "include/linux/fs.h"
 struct poll_table_struct;
-# 406 "include/linux/fs.h"
 struct poll_table_struct;
-# 406 "include/linux/fs.h"
 struct poll_table_struct;
-# 407 "include/linux/fs.h"
 struct kstatfs;
-# 407 "include/linux/fs.h"
 struct kstatfs;
-# 407 "include/linux/fs.h"
 struct kstatfs;
-# 408 "include/linux/fs.h"
 struct vm_area_struct;
-# 409 "include/linux/fs.h"
 struct vfsmount;
-# 410 "include/linux/fs.h"
 struct cred;
-# 460 "include/linux/fs.h"
 struct iattr {
    unsigned int ia_valid ;
    umode_t ia_mode ;
@@ -1587,14 +1163,12 @@ struct iattr {
    struct timespec ia_ctime ;
    struct file *ia_file ;
 };
-# 129 "include/linux/quota.h"
 struct if_dqinfo {
    __u64 dqi_bgrace ;
    __u64 dqi_igrace ;
    __u32 dqi_flags ;
    __u32 dqi_valid ;
 };
-# 50 "include/linux/dqblk_xfs.h"
 struct fs_disk_quota {
    __s8 d_version ;
    __s8 d_flags ;
@@ -1619,15 +1193,12 @@ struct fs_disk_quota {
    __s16 d_padding3 ;
    char d_padding4[8] ;
 };
-# 146 "include/linux/dqblk_xfs.h"
 struct fs_qfilestat {
    __u64 qfs_ino ;
    __u64 qfs_nblks ;
    __u32 qfs_nextents ;
 };
-# 146 "include/linux/dqblk_xfs.h"
 typedef struct fs_qfilestat fs_qfilestat_t;
-# 152 "include/linux/dqblk_xfs.h"
 struct fs_quota_stat {
    __s8 qs_version ;
    __u16 qs_flags ;
@@ -1641,17 +1212,11 @@ struct fs_quota_stat {
    __u16 qs_bwarnlimit ;
    __u16 qs_iwarnlimit ;
 };
-# 17 "include/linux/dqblk_qtree.h"
 struct dquot;
-# 17 "include/linux/dqblk_qtree.h"
 struct dquot;
-# 17 "include/linux/dqblk_qtree.h"
 struct dquot;
-# 185 "include/linux/quota.h"
 typedef __kernel_uid32_t qid_t;
-# 186 "include/linux/quota.h"
 typedef long long qsize_t;
-# 200 "include/linux/quota.h"
 struct mem_dqblk {
    qsize_t dqb_bhardlimit ;
    qsize_t dqb_bsoftlimit ;
@@ -1663,13 +1228,9 @@ struct mem_dqblk {
    time_t dqb_btime ;
    time_t dqb_itime ;
 };
-# 215 "include/linux/quota.h"
 struct quota_format_type;
-# 215 "include/linux/quota.h"
 struct quota_format_type;
-# 215 "include/linux/quota.h"
 struct quota_format_type;
-# 217 "include/linux/quota.h"
 struct mem_dqinfo {
    struct quota_format_type *dqi_format ;
    int dqi_fmt_id ;
@@ -1681,9 +1242,7 @@ struct mem_dqinfo {
    qsize_t dqi_maxilimit ;
    void *dqi_priv ;
 };
-# 230 "include/linux/quota.h"
 struct super_block;
-# 284 "include/linux/quota.h"
 struct dquot {
    struct hlist_node dq_hash ;
    struct list_head dq_inuse ;
@@ -1699,7 +1258,6 @@ struct dquot {
    short dq_type ;
    struct mem_dqblk dq_dqb ;
 };
-# 301 "include/linux/quota.h"
 struct quota_format_ops {
    int (*check_quota_file)(struct super_block *sb , int type ) ;
    int (*read_file_info)(struct super_block *sb , int type ) ;
@@ -1709,7 +1267,6 @@ struct quota_format_ops {
    int (*commit_dqblk)(struct dquot *dquot ) ;
    int (*release_dqblk)(struct dquot *dquot ) ;
 };
-# 312 "include/linux/quota.h"
 struct dquot_operations {
    int (*write_dquot)(struct dquot * ) ;
    struct dquot *(*alloc_dquot)(struct super_block * , int ) ;
@@ -1720,9 +1277,7 @@ struct dquot_operations {
    int (*write_info)(struct super_block * , int ) ;
    qsize_t *(*get_reserved_space)(struct inode * ) ;
 };
-# 325 "include/linux/quota.h"
 struct path;
-# 328 "include/linux/quota.h"
 struct quotactl_ops {
    int (*quota_on)(struct super_block * , int , int , struct path * ) ;
    int (*quota_on_meta)(struct super_block * , int , int ) ;
@@ -1735,14 +1290,12 @@ struct quotactl_ops {
    int (*get_xstate)(struct super_block * , struct fs_quota_stat * ) ;
    int (*set_xstate)(struct super_block * , unsigned int , int ) ;
 };
-# 341 "include/linux/quota.h"
 struct quota_format_type {
    int qf_fmt_id ;
    struct quota_format_ops const *qf_ops ;
    struct module *qf_owner ;
    struct quota_format_type *qf_next ;
 };
-# 395 "include/linux/quota.h"
 struct quota_info {
    unsigned int flags ;
    struct mutex dqio_mutex ;
@@ -1752,35 +1305,24 @@ struct quota_info {
    struct mem_dqinfo info[2] ;
    struct quota_format_ops const *ops[2] ;
 };
-# 523 "include/linux/fs.h"
 struct page;
-# 524 "include/linux/fs.h"
 struct address_space;
-# 524 "include/linux/fs.h"
 struct address_space;
-# 524 "include/linux/fs.h"
 struct address_space;
-# 525 "include/linux/fs.h"
 struct writeback_control;
-# 525 "include/linux/fs.h"
 struct writeback_control;
-# 525 "include/linux/fs.h"
 struct writeback_control;
-# 568 "include/linux/fs.h"
 union __anonunion_arg_205 {
    char *buf ;
    void *data ;
 };
-# 568 "include/linux/fs.h"
 struct __anonstruct_read_descriptor_t_204 {
    size_t written ;
    size_t count ;
    union __anonunion_arg_205 arg ;
    int error ;
 };
-# 568 "include/linux/fs.h"
 typedef struct __anonstruct_read_descriptor_t_204 read_descriptor_t;
-# 581 "include/linux/fs.h"
 struct address_space_operations {
    int (*writepage)(struct page *page , struct writeback_control *wbc ) ;
    int (*readpage)(struct file * , struct page * ) ;
@@ -1805,13 +1347,9 @@ struct address_space_operations {
    int (*is_partially_uptodate)(struct page * , read_descriptor_t * , unsigned long ) ;
    int (*error_remove_page)(struct address_space * , struct page * ) ;
 };
-# 633 "include/linux/fs.h"
 struct backing_dev_info;
-# 633 "include/linux/fs.h"
 struct backing_dev_info;
-# 633 "include/linux/fs.h"
 struct backing_dev_info;
-# 634 "include/linux/fs.h"
 struct address_space {
    struct inode *host ;
    struct radix_tree_root page_tree ;
@@ -1829,15 +1367,10 @@ struct address_space {
    struct list_head private_list ;
    struct address_space *assoc_mapping ;
 } __attribute__((__aligned__(sizeof(long )))) ;
-# 658 "include/linux/fs.h"
 struct hd_struct;
-# 658 "include/linux/fs.h"
 struct hd_struct;
-# 658 "include/linux/fs.h"
 struct gendisk;
-# 658 "include/linux/fs.h"
 struct gendisk;
-# 658 "include/linux/fs.h"
 struct block_device {
    dev_t bd_dev ;
    int bd_openers ;
@@ -1861,40 +1394,26 @@ struct block_device {
    int bd_fsfreeze_count ;
    struct mutex bd_fsfreeze_mutex ;
 };
-# 735 "include/linux/fs.h"
 struct posix_acl;
-# 735 "include/linux/fs.h"
 struct posix_acl;
-# 735 "include/linux/fs.h"
 struct posix_acl;
-# 738 "include/linux/fs.h"
 struct inode_operations;
-# 738 "include/linux/fs.h"
 struct inode_operations;
-# 738 "include/linux/fs.h"
 union __anonunion____missing_field_name_206 {
    struct list_head i_dentry ;
    struct rcu_head i_rcu ;
 };
-# 738 "include/linux/fs.h"
 struct file_operations;
-# 738 "include/linux/fs.h"
 struct file_operations;
-# 738 "include/linux/fs.h"
 struct file_lock;
-# 738 "include/linux/fs.h"
 struct file_lock;
-# 738 "include/linux/fs.h"
 struct cdev;
-# 738 "include/linux/fs.h"
 struct cdev;
-# 738 "include/linux/fs.h"
 union __anonunion____missing_field_name_207 {
    struct pipe_inode_info *i_pipe ;
    struct block_device *i_bdev ;
    struct cdev *i_cdev ;
 };
-# 738 "include/linux/fs.h"
 struct inode {
    umode_t i_mode ;
    uid_t i_uid ;
@@ -1941,7 +1460,6 @@ struct inode {
    struct posix_acl *i_default_acl ;
    void *i_private ;
 };
-# 903 "include/linux/fs.h"
 struct fown_struct {
    rwlock_t lock ;
    struct pid *pid ;
@@ -1950,7 +1468,6 @@ struct fown_struct {
    uid_t euid ;
    int signum ;
 };
-# 914 "include/linux/fs.h"
 struct file_ra_state {
    unsigned long start ;
    unsigned int size ;
@@ -1959,12 +1476,10 @@ struct file_ra_state {
    unsigned int mmap_miss ;
    loff_t prev_pos ;
 };
-# 937 "include/linux/fs.h"
 union __anonunion_f_u_208 {
    struct list_head fu_list ;
    struct rcu_head fu_rcuhead ;
 };
-# 937 "include/linux/fs.h"
 struct file {
    union __anonunion_f_u_208 f_u ;
    struct path f_path ;
@@ -1985,18 +1500,13 @@ struct file {
    struct address_space *f_mapping ;
    unsigned long f_mnt_write_state ;
 };
-# 1064 "include/linux/fs.h"
 struct files_struct;
-# 1064 "include/linux/fs.h"
 struct files_struct;
-# 1064 "include/linux/fs.h"
 typedef struct files_struct *fl_owner_t;
-# 1066 "include/linux/fs.h"
 struct file_lock_operations {
    void (*fl_copy_lock)(struct file_lock * , struct file_lock * ) ;
    void (*fl_release_private)(struct file_lock * ) ;
 };
-# 1071 "include/linux/fs.h"
 struct lock_manager_operations {
    int (*fl_compare_owner)(struct file_lock * , struct file_lock * ) ;
    void (*fl_notify)(struct file_lock * ) ;
@@ -2005,44 +1515,31 @@ struct lock_manager_operations {
    void (*fl_break)(struct file_lock * ) ;
    int (*fl_change)(struct file_lock ** , int ) ;
 };
-# 8 "include/linux/nfs_fs_i.h"
 struct nlm_lockowner;
-# 8 "include/linux/nfs_fs_i.h"
 struct nlm_lockowner;
-# 8 "include/linux/nfs_fs_i.h"
 struct nlm_lockowner;
-# 13 "include/linux/nfs_fs_i.h"
 struct nfs_lock_info {
    u32 state ;
    struct nlm_lockowner *owner ;
    struct list_head list ;
 };
-# 19 "include/linux/nfs_fs_i.h"
 struct nfs4_lock_state;
-# 19 "include/linux/nfs_fs_i.h"
 struct nfs4_lock_state;
-# 19 "include/linux/nfs_fs_i.h"
 struct nfs4_lock_state;
-# 20 "include/linux/nfs_fs_i.h"
 struct nfs4_lock_info {
    struct nfs4_lock_state *owner ;
 };
-# 1091 "include/linux/fs.h"
 struct fasync_struct;
-# 1091 "include/linux/fs.h"
 struct fasync_struct;
-# 1091 "include/linux/fs.h"
 struct __anonstruct_afs_210 {
    struct list_head link ;
    int state ;
 };
-# 1091 "include/linux/fs.h"
 union __anonunion_fl_u_209 {
    struct nfs_lock_info nfs_fl ;
    struct nfs4_lock_info nfs4_fl ;
    struct __anonstruct_afs_210 afs ;
 };
-# 1091 "include/linux/fs.h"
 struct file_lock {
    struct file_lock *fl_next ;
    struct list_head fl_link ;
@@ -2062,7 +1559,6 @@ struct file_lock {
    struct lock_manager_operations const *fl_lmops ;
    union __anonunion_fl_u_209 fl_u ;
 };
-# 1324 "include/linux/fs.h"
 struct fasync_struct {
    spinlock_t fa_lock ;
    int magic ;
@@ -2071,23 +1567,14 @@ struct fasync_struct {
    struct file *fa_file ;
    struct rcu_head fa_rcu ;
 };
-# 1364 "include/linux/fs.h"
 struct file_system_type;
-# 1364 "include/linux/fs.h"
 struct file_system_type;
-# 1364 "include/linux/fs.h"
 struct super_operations;
-# 1364 "include/linux/fs.h"
 struct super_operations;
-# 1364 "include/linux/fs.h"
 struct xattr_handler;
-# 1364 "include/linux/fs.h"
 struct xattr_handler;
-# 1364 "include/linux/fs.h"
 struct mtd_info;
-# 1364 "include/linux/fs.h"
 struct mtd_info;
-# 1364 "include/linux/fs.h"
 struct super_block {
    struct list_head s_list ;
    dev_t s_dev ;
@@ -2132,14 +1619,12 @@ struct super_block {
    struct dentry_operations const *s_d_op ;
    int cleancache_poolid ;
 };
-# 1499 "include/linux/fs.h"
 struct fiemap_extent_info {
    unsigned int fi_flags ;
    unsigned int fi_extents_mapped ;
    unsigned int fi_extents_max ;
    struct fiemap_extent *fi_extents_start ;
 };
-# 1546 "include/linux/fs.h"
 struct file_operations {
    struct module *owner ;
    loff_t (*llseek)(struct file * , loff_t , int ) ;
@@ -2175,7 +1660,6 @@ struct file_operations {
    int (*setlease)(struct file * , long , struct file_lock ** ) ;
    long (*fallocate)(struct file *file , int mode , loff_t offset , loff_t len ) ;
 };
-# 1578 "include/linux/fs.h"
 struct inode_operations {
    struct dentry *(*lookup)(struct inode * , struct dentry * , struct nameidata * ) ;
    void *(*follow_link)(struct dentry * , struct nameidata * ) ;
@@ -2201,9 +1685,7 @@ struct inode_operations {
    void (*truncate_range)(struct inode * , loff_t , loff_t ) ;
    int (*fiemap)(struct inode * , struct fiemap_extent_info * , u64 start , u64 len ) ;
 } __attribute__((__aligned__((1) << (6) ))) ;
-# 1608 "include/linux/fs.h"
 struct seq_file;
-# 1622 "include/linux/fs.h"
 struct super_operations {
    struct inode *(*alloc_inode)(struct super_block *sb ) ;
    void (*destroy_inode)(struct inode * ) ;
@@ -2228,7 +1710,6 @@ struct super_operations {
                           loff_t ) ;
    int (*bdev_try_to_free_page)(struct super_block * , struct page * , gfp_t ) ;
 };
-# 1802 "include/linux/fs.h"
 struct file_system_type {
    char const *name ;
    int fs_flags ;
@@ -2245,7 +1726,6 @@ struct file_system_type {
    struct lock_class_key i_mutex_dir_key ;
    struct lock_class_key i_alloc_sem_key ;
 };
-# 38 "include/linux/slub_def.h"
 struct kmem_cache_cpu {
    void **freelist ;
    unsigned long tid ;
@@ -2253,7 +1733,6 @@ struct kmem_cache_cpu {
    int node ;
    unsigned int stat[19] ;
 };
-# 48 "include/linux/slub_def.h"
 struct kmem_cache_node {
    spinlock_t list_lock ;
    unsigned long nr_partial ;
@@ -2262,11 +1741,9 @@ struct kmem_cache_node {
    atomic_long_t total_objects ;
    struct list_head full ;
 };
-# 64 "include/linux/slub_def.h"
 struct kmem_cache_order_objects {
    unsigned long x ;
 };
-# 71 "include/linux/slub_def.h"
 struct kmem_cache {
    struct kmem_cache_cpu *cpu_slab ;
    unsigned long flags ;
@@ -2289,45 +1766,36 @@ struct kmem_cache {
    int remote_node_defrag_ratio ;
    struct kmem_cache_node *node[1 << 10] ;
 };
-# 100 "include/linux/rbtree.h"
 struct rb_node {
    unsigned long rb_parent_color ;
    struct rb_node *rb_right ;
    struct rb_node *rb_left ;
 } __attribute__((__aligned__(sizeof(long )))) ;
-# 110 "include/linux/rbtree.h"
 struct rb_root {
    struct rb_node *rb_node ;
 };
-# 23 "include/linux/mm_types.h"
 struct address_space;
-# 34 "include/linux/mm_types.h"
 struct __anonstruct____missing_field_name_214 {
    u16 inuse ;
    u16 objects ;
 };
-# 34 "include/linux/mm_types.h"
 union __anonunion____missing_field_name_213 {
    atomic_t _mapcount ;
    struct __anonstruct____missing_field_name_214 __annonCompField34 ;
 };
-# 34 "include/linux/mm_types.h"
 struct __anonstruct____missing_field_name_216 {
    unsigned long private ;
    struct address_space *mapping ;
 };
-# 34 "include/linux/mm_types.h"
 union __anonunion____missing_field_name_215 {
    struct __anonstruct____missing_field_name_216 __annonCompField36 ;
    struct kmem_cache *slab ;
    struct page *first_page ;
 };
-# 34 "include/linux/mm_types.h"
 union __anonunion____missing_field_name_217 {
    unsigned long index ;
    void *freelist ;
 };
-# 34 "include/linux/mm_types.h"
 struct page {
    unsigned long flags ;
    atomic_t _count ;
@@ -2336,30 +1804,21 @@ struct page {
    union __anonunion____missing_field_name_217 __annonCompField38 ;
    struct list_head lru ;
 };
-# 132 "include/linux/mm_types.h"
 struct __anonstruct_vm_set_219 {
    struct list_head list ;
    void *parent ;
    struct vm_area_struct *head ;
 };
-# 132 "include/linux/mm_types.h"
 union __anonunion_shared_218 {
    struct __anonstruct_vm_set_219 vm_set ;
    struct raw_prio_tree_node prio_tree_node ;
 };
-# 132 "include/linux/mm_types.h"
 struct anon_vma;
-# 132 "include/linux/mm_types.h"
 struct anon_vma;
-# 132 "include/linux/mm_types.h"
 struct vm_operations_struct;
-# 132 "include/linux/mm_types.h"
 struct vm_operations_struct;
-# 132 "include/linux/mm_types.h"
 struct mempolicy;
-# 132 "include/linux/mm_types.h"
 struct mempolicy;
-# 132 "include/linux/mm_types.h"
 struct vm_area_struct {
    struct mm_struct *vm_mm ;
    unsigned long vm_start ;
@@ -2378,30 +1837,22 @@ struct vm_area_struct {
    void *vm_private_data ;
    struct mempolicy *vm_policy ;
 };
-# 189 "include/linux/mm_types.h"
 struct core_thread {
    struct task_struct *task ;
    struct core_thread *next ;
 };
-# 194 "include/linux/mm_types.h"
 struct core_state {
    atomic_t nr_threads ;
    struct core_thread dumper ;
    struct completion startup ;
 };
-# 216 "include/linux/mm_types.h"
 struct mm_rss_stat {
    atomic_long_t count[3] ;
 };
-# 220 "include/linux/mm_types.h"
 struct linux_binfmt;
-# 220 "include/linux/mm_types.h"
 struct linux_binfmt;
-# 220 "include/linux/mm_types.h"
 struct mmu_notifier_mm;
-# 220 "include/linux/mm_types.h"
 struct mmu_notifier_mm;
-# 220 "include/linux/mm_types.h"
 struct mm_struct {
    struct vm_area_struct *mmap ;
    struct rb_root mm_rb ;
@@ -2461,32 +1912,21 @@ struct mm_struct {
    pgtable_t pmd_huge_pte ;
    struct cpumask cpumask_allocation ;
 };
-# 19 "include/linux/mm.h"
 struct mempolicy;
-# 20 "include/linux/mm.h"
 struct anon_vma;
-# 21 "include/linux/mm.h"
 struct file_ra_state;
-# 22 "include/linux/mm.h"
 struct user_struct;
-# 22 "include/linux/mm.h"
 struct user_struct;
-# 22 "include/linux/mm.h"
 struct user_struct;
-# 23 "include/linux/mm.h"
 struct writeback_control;
-# 41 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/pgtable_64.h"
 struct mm_struct;
-# 656 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/pgtable.h"
 struct vm_area_struct;
-# 185 "include/linux/mm.h"
 struct vm_fault {
    unsigned int flags ;
    unsigned long pgoff ;
    void *virtual_address ;
    struct page *page ;
 };
-# 202 "include/linux/mm.h"
 struct vm_operations_struct {
    void (*open)(struct vm_area_struct *area ) ;
    void (*close)(struct vm_area_struct *area ) ;
@@ -2499,11 +1939,8 @@ struct vm_operations_struct {
    int (*migrate)(struct vm_area_struct *vma , nodemask_t const *from , nodemask_t const *to ,
                   unsigned long flags ) ;
 };
-# 244 "include/linux/mm.h"
 struct inode;
-# 197 "include/linux/page-flags.h"
 struct page;
-# 37 "include/linux/parport.h"
 enum __anonenum_parport_device_class_221 {
     PARPORT_CLASS_LEGACY = 0,
     PARPORT_CLASS_PRINTER = 1,
@@ -2520,19 +1957,13 @@ enum __anonenum_parport_device_class_221 {
     PARPORT_CLASS_UNSPEC = 12,
     PARPORT_CLASS_SCSIADAPTER = 13
 } ;
-# 37 "include/linux/parport.h"
 typedef enum __anonenum_parport_device_class_221 parport_device_class;
-# 11 "include/linux/proc_fs.h"
 struct completion;
-# 12 "include/linux/proc_fs.h"
 struct mm_struct;
-# 46 "include/linux/proc_fs.h"
 typedef int read_proc_t(char *page , char **start , off_t off , int count , int *eof ,
                         void *data );
-# 48 "include/linux/proc_fs.h"
 typedef int write_proc_t(struct file *file , char const *buffer , unsigned long count ,
                          void *data );
-# 51 "include/linux/proc_fs.h"
 struct proc_dir_entry {
    unsigned int low_ino ;
    unsigned int namelen ;
@@ -2556,58 +1987,42 @@ struct proc_dir_entry {
    struct completion *pde_unload_completion ;
    struct list_head pde_openers ;
 };
-# 117 "include/linux/proc_fs.h"
 struct pid_namespace;
-# 243 "include/linux/proc_fs.h"
 struct nsproxy;
-# 10 "include/linux/irqreturn.h"
 enum irqreturn {
     IRQ_NONE = 0,
     IRQ_HANDLED = 1,
     IRQ_WAKE_THREAD = 2
 } ;
-# 16 "include/linux/irqreturn.h"
 typedef enum irqreturn irqreturn_t;
-# 107 "include/linux/parport.h"
 struct parport;
-# 107 "include/linux/parport.h"
 struct parport;
-# 107 "include/linux/parport.h"
 struct parport;
-# 108 "include/linux/parport.h"
 struct pardevice;
-# 108 "include/linux/parport.h"
 struct pardevice;
-# 108 "include/linux/parport.h"
 struct pardevice;
-# 110 "include/linux/parport.h"
 struct pc_parport_state {
    unsigned int ctr ;
    unsigned int ecr ;
 };
-# 115 "include/linux/parport.h"
 struct ax_parport_state {
    unsigned int ctr ;
    unsigned int ecr ;
    unsigned int dcsr ;
 };
-# 122 "include/linux/parport.h"
 struct amiga_parport_state {
    unsigned char data ;
    unsigned char datadir ;
    unsigned char status ;
    unsigned char statusdir ;
 };
-# 129 "include/linux/parport.h"
 struct ax88796_parport_state {
    unsigned char cpr ;
 };
-# 133 "include/linux/parport.h"
 struct ip32_parport_state {
    unsigned int dcr ;
    unsigned int ecr ;
 };
-# 138 "include/linux/parport.h"
 union __anonunion_u_223 {
    struct pc_parport_state pc ;
    struct ax_parport_state ax ;
@@ -2616,11 +2031,9 @@ union __anonunion_u_223 {
    struct ip32_parport_state ip32 ;
    void *misc ;
 };
-# 138 "include/linux/parport.h"
 struct parport_state {
    union __anonunion_u_223 u ;
 };
-# 151 "include/linux/parport.h"
 struct parport_operations {
    void (*write_data)(struct parport * , unsigned char ) ;
    unsigned char (*read_data)(struct parport * ) ;
@@ -2652,7 +2065,6 @@ struct parport_operations {
    size_t (*byte_read_data)(struct parport *port , void *buf , size_t len , int flags ) ;
    struct module *owner ;
 };
-# 202 "include/linux/parport.h"
 struct parport_device_info {
    parport_device_class class ;
    char const *class_name ;
@@ -2661,7 +2073,6 @@ struct parport_device_info {
    char const *cmdset ;
    char const *description ;
 };
-# 224 "include/linux/parport.h"
 struct pardevice {
    char const *name ;
    struct parport *port ;
@@ -2683,7 +2094,6 @@ struct pardevice {
    struct pardevice *waitnext ;
    void *sysctl_table ;
 };
-# 250 "include/linux/parport.h"
 enum ieee1284_phase {
     IEEE1284_PH_FWD_DATA = 0,
     IEEE1284_PH_FWD_IDLE = 1,
@@ -2698,13 +2108,11 @@ enum ieee1284_phase {
     IEEE1284_PH_ECP_REV_TO_FWD = 10,
     IEEE1284_PH_ECP_DIR_UNKNOWN = 11
 } ;
-# 264 "include/linux/parport.h"
 struct ieee1284_info {
    int mode ;
    enum ieee1284_phase volatile phase ;
    struct semaphore irq ;
 };
-# 271 "include/linux/parport.h"
 struct parport {
    unsigned long base ;
    unsigned long base_hi ;
@@ -2741,75 +2149,53 @@ struct parport {
    struct list_head full_list ;
    struct parport *slaves[3] ;
 };
-# 337 "include/linux/parport.h"
 struct parport_driver {
    char const *name ;
    void (*attach)(struct parport * ) ;
    void (*detach)(struct parport * ) ;
    struct list_head list ;
 };
-# 7 "include/asm-generic/cputime.h"
 typedef unsigned long cputime_t;
-# 84 "include/linux/sem.h"
 struct task_struct;
-# 122 "include/linux/sem.h"
 struct sem_undo_list;
-# 122 "include/linux/sem.h"
 struct sem_undo_list;
-# 135 "include/linux/sem.h"
 struct sem_undo_list {
    atomic_t refcnt ;
    spinlock_t lock ;
    struct list_head list_proc ;
 };
-# 141 "include/linux/sem.h"
 struct sysv_sem {
    struct sem_undo_list *undo_list ;
 };
-# 10 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/signal.h"
 struct siginfo;
-# 10 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/signal.h"
 struct siginfo;
-# 10 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/signal.h"
 struct siginfo;
-# 30 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/signal.h"
 struct __anonstruct_sigset_t_224 {
    unsigned long sig[1] ;
 };
-# 30 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/signal.h"
 typedef struct __anonstruct_sigset_t_224 sigset_t;
-# 17 "include/asm-generic/signal-defs.h"
 typedef void __signalfn_t(int );
-# 18 "include/asm-generic/signal-defs.h"
 typedef __signalfn_t *__sighandler_t;
-# 20 "include/asm-generic/signal-defs.h"
 typedef void __restorefn_t(void);
-# 21 "include/asm-generic/signal-defs.h"
 typedef __restorefn_t *__sigrestore_t;
-# 167 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/signal.h"
 struct sigaction {
    __sighandler_t sa_handler ;
    unsigned long sa_flags ;
    __sigrestore_t sa_restorer ;
    sigset_t sa_mask ;
 };
-# 174 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/signal.h"
 struct k_sigaction {
    struct sigaction sa ;
 };
-# 7 "include/asm-generic/siginfo.h"
 union sigval {
    int sival_int ;
    void *sival_ptr ;
 };
-# 7 "include/asm-generic/siginfo.h"
 typedef union sigval sigval_t;
-# 40 "include/asm-generic/siginfo.h"
 struct __anonstruct__kill_226 {
    __kernel_pid_t _pid ;
    __kernel_uid32_t _uid ;
 };
-# 40 "include/asm-generic/siginfo.h"
 struct __anonstruct__timer_227 {
    __kernel_timer_t _tid ;
    int _overrun ;
@@ -2817,13 +2203,11 @@ struct __anonstruct__timer_227 {
    sigval_t _sigval ;
    int _sys_private ;
 };
-# 40 "include/asm-generic/siginfo.h"
 struct __anonstruct__rt_228 {
    __kernel_pid_t _pid ;
    __kernel_uid32_t _uid ;
    sigval_t _sigval ;
 };
-# 40 "include/asm-generic/siginfo.h"
 struct __anonstruct__sigchld_229 {
    __kernel_pid_t _pid ;
    __kernel_uid32_t _uid ;
@@ -2831,17 +2215,14 @@ struct __anonstruct__sigchld_229 {
    __kernel_clock_t _utime ;
    __kernel_clock_t _stime ;
 };
-# 40 "include/asm-generic/siginfo.h"
 struct __anonstruct__sigfault_230 {
    void *_addr ;
    short _addr_lsb ;
 };
-# 40 "include/asm-generic/siginfo.h"
 struct __anonstruct__sigpoll_231 {
    long _band ;
    int _fd ;
 };
-# 40 "include/asm-generic/siginfo.h"
 union __anonunion__sifields_225 {
    int _pad[(128UL - 4UL * sizeof(int )) / sizeof(int )] ;
    struct __anonstruct__kill_226 _kill ;
@@ -2851,94 +2232,67 @@ union __anonunion__sifields_225 {
    struct __anonstruct__sigfault_230 _sigfault ;
    struct __anonstruct__sigpoll_231 _sigpoll ;
 };
-# 40 "include/asm-generic/siginfo.h"
 struct siginfo {
    int si_signo ;
    int si_errno ;
    int si_code ;
    union __anonunion__sifields_225 _sifields ;
 };
-# 40 "include/asm-generic/siginfo.h"
 typedef struct siginfo siginfo_t;
-# 280 "include/asm-generic/siginfo.h"
 struct siginfo;
-# 10 "include/linux/signal.h"
 struct task_struct;
-# 28 "include/linux/signal.h"
 struct sigpending {
    struct list_head list ;
    sigset_t signal ;
 };
-# 239 "include/linux/signal.h"
 struct timespec;
-# 240 "include/linux/signal.h"
 struct pt_regs;
-# 97 "include/linux/proportions.h"
 struct prop_local_single {
    unsigned long events ;
    unsigned long period ;
    int shift ;
    spinlock_t lock ;
 };
-# 10 "include/linux/seccomp.h"
 struct __anonstruct_seccomp_t_234 {
    int mode ;
 };
-# 10 "include/linux/seccomp.h"
 typedef struct __anonstruct_seccomp_t_234 seccomp_t;
-# 82 "include/linux/plist.h"
 struct plist_head {
    struct list_head node_list ;
    raw_spinlock_t *rawlock ;
    spinlock_t *spinlock ;
 };
-# 90 "include/linux/plist.h"
 struct plist_node {
    int prio ;
    struct list_head prio_list ;
    struct list_head node_list ;
 };
-# 40 "include/linux/rtmutex.h"
 struct rt_mutex_waiter;
-# 40 "include/linux/rtmutex.h"
 struct rt_mutex_waiter;
-# 40 "include/linux/rtmutex.h"
 struct rt_mutex_waiter;
-# 42 "include/linux/resource.h"
 struct rlimit {
    unsigned long rlim_cur ;
    unsigned long rlim_max ;
 };
-# 81 "include/linux/resource.h"
 struct task_struct;
-# 8 "include/linux/timerqueue.h"
 struct timerqueue_node {
    struct rb_node node ;
    ktime_t expires ;
 };
-# 13 "include/linux/timerqueue.h"
 struct timerqueue_head {
    struct rb_root head ;
    struct timerqueue_node *next ;
 };
-# 27 "include/linux/hrtimer.h"
 struct hrtimer_clock_base;
-# 27 "include/linux/hrtimer.h"
 struct hrtimer_clock_base;
-# 27 "include/linux/hrtimer.h"
 struct hrtimer_clock_base;
-# 28 "include/linux/hrtimer.h"
 struct hrtimer_cpu_base;
-# 28 "include/linux/hrtimer.h"
 struct hrtimer_cpu_base;
-# 28 "include/linux/hrtimer.h"
 struct hrtimer_cpu_base;
-# 44 "include/linux/hrtimer.h"
 enum hrtimer_restart {
     HRTIMER_NORESTART = 0,
     HRTIMER_RESTART = 1
 } ;
-# 108 "include/linux/hrtimer.h"
 struct hrtimer {
    struct timerqueue_node node ;
    ktime_t _softexpires ;
@@ -2949,7 +2303,6 @@ struct hrtimer {
    void *start_site ;
    char start_comm[16] ;
 };
-# 145 "include/linux/hrtimer.h"
 struct hrtimer_clock_base {
    struct hrtimer_cpu_base *cpu_base ;
    int index ;
@@ -2960,7 +2313,6 @@ struct hrtimer_clock_base {
    ktime_t softirq_time ;
    ktime_t offset ;
 };
-# 178 "include/linux/hrtimer.h"
 struct hrtimer_cpu_base {
    raw_spinlock_t lock ;
    unsigned long active_bases ;
@@ -2973,7 +2325,6 @@ struct hrtimer_cpu_base {
    ktime_t max_hang_time ;
    struct hrtimer_clock_base clock_base[3] ;
 };
-# 11 "include/linux/task_io_accounting.h"
 struct task_io_accounting {
    u64 rchar ;
    u64 wchar ;
@@ -2983,73 +2334,48 @@ struct task_io_accounting {
    u64 write_bytes ;
    u64 cancelled_write_bytes ;
 };
-# 18 "include/linux/latencytop.h"
 struct latency_record {
    unsigned long backtrace[12] ;
    unsigned int count ;
    unsigned long time ;
    unsigned long max ;
 };
-# 26 "include/linux/latencytop.h"
 struct task_struct;
-# 29 "include/linux/key.h"
 typedef int32_t key_serial_t;
-# 32 "include/linux/key.h"
 typedef uint32_t key_perm_t;
-# 34 "include/linux/key.h"
 struct key;
-# 34 "include/linux/key.h"
 struct key;
-# 34 "include/linux/key.h"
 struct key;
-# 74 "include/linux/key.h"
 struct seq_file;
-# 75 "include/linux/key.h"
 struct user_struct;
-# 76 "include/linux/key.h"
 struct signal_struct;
-# 76 "include/linux/key.h"
 struct signal_struct;
-# 76 "include/linux/key.h"
 struct signal_struct;
-# 77 "include/linux/key.h"
 struct cred;
-# 79 "include/linux/key.h"
 struct key_type;
-# 79 "include/linux/key.h"
 struct key_type;
-# 79 "include/linux/key.h"
 struct key_type;
-# 81 "include/linux/key.h"
 struct keyring_list;
-# 81 "include/linux/key.h"
 struct keyring_list;
-# 81 "include/linux/key.h"
 struct keyring_list;
-# 124 "include/linux/key.h"
 struct key_user;
-# 124 "include/linux/key.h"
 struct key_user;
-# 124 "include/linux/key.h"
 union __anonunion____missing_field_name_235 {
    time_t expiry ;
    time_t revoked_at ;
 };
-# 124 "include/linux/key.h"
 union __anonunion_type_data_236 {
    struct list_head link ;
    unsigned long x[2] ;
    void *p[2] ;
    int reject_error ;
 };
-# 124 "include/linux/key.h"
 union __anonunion_payload_237 {
    unsigned long value ;
    void *rcudata ;
    void *data ;
    struct keyring_list *subscriptions ;
 };
-# 124 "include/linux/key.h"
 struct key {
    atomic_t usage ;
    key_serial_t serial ;
@@ -3069,19 +2395,12 @@ struct key {
    union __anonunion_type_data_236 type_data ;
    union __anonunion_payload_237 payload ;
 };
-# 18 "include/linux/selinux.h"
 struct audit_context;
-# 18 "include/linux/selinux.h"
 struct audit_context;
-# 18 "include/linux/selinux.h"
 struct audit_context;
-# 21 "include/linux/cred.h"
 struct user_struct;
-# 22 "include/linux/cred.h"
 struct cred;
-# 23 "include/linux/cred.h"
 struct inode;
-# 31 "include/linux/cred.h"
 struct group_info {
    atomic_t usage ;
    int ngroups ;
@@ -3089,7 +2408,6 @@ struct group_info {
    gid_t small_block[32] ;
    gid_t *blocks[0] ;
 };
-# 83 "include/linux/cred.h"
 struct thread_group_cred {
    atomic_t usage ;
    pid_t tgid ;
@@ -3098,7 +2416,6 @@ struct thread_group_cred {
    struct key *process_keyring ;
    struct rcu_head rcu ;
 };
-# 116 "include/linux/cred.h"
 struct cred {
    atomic_t usage ;
    atomic_t subscribers ;
@@ -3127,86 +2444,51 @@ struct cred {
    struct group_info *group_info ;
    struct rcu_head rcu ;
 };
-# 96 "include/linux/sched.h"
 struct exec_domain;
-# 97 "include/linux/sched.h"
 struct futex_pi_state;
-# 97 "include/linux/sched.h"
 struct futex_pi_state;
-# 97 "include/linux/sched.h"
 struct futex_pi_state;
-# 98 "include/linux/sched.h"
 struct robust_list_head;
-# 98 "include/linux/sched.h"
 struct robust_list_head;
-# 98 "include/linux/sched.h"
 struct robust_list_head;
-# 99 "include/linux/sched.h"
 struct bio_list;
-# 99 "include/linux/sched.h"
 struct bio_list;
-# 99 "include/linux/sched.h"
 struct bio_list;
-# 100 "include/linux/sched.h"
 struct fs_struct;
-# 100 "include/linux/sched.h"
 struct fs_struct;
-# 100 "include/linux/sched.h"
 struct fs_struct;
-# 101 "include/linux/sched.h"
 struct perf_event_context;
-# 101 "include/linux/sched.h"
 struct perf_event_context;
-# 101 "include/linux/sched.h"
 struct perf_event_context;
-# 102 "include/linux/sched.h"
 struct blk_plug;
-# 102 "include/linux/sched.h"
 struct blk_plug;
-# 102 "include/linux/sched.h"
 struct blk_plug;
-# 150 "include/linux/sched.h"
 struct seq_file;
-# 151 "include/linux/sched.h"
 struct cfs_rq;
-# 151 "include/linux/sched.h"
 struct cfs_rq;
-# 151 "include/linux/sched.h"
 struct cfs_rq;
-# 259 "include/linux/sched.h"
 struct task_struct;
-# 364 "include/linux/sched.h"
 struct nsproxy;
-# 365 "include/linux/sched.h"
 struct user_namespace;
-# 58 "include/linux/aio_abi.h"
 struct io_event {
    __u64 data ;
    __u64 obj ;
    __s64 res ;
    __s64 res2 ;
 };
-# 16 "include/linux/uio.h"
 struct iovec {
    void *iov_base ;
    __kernel_size_t iov_len ;
 };
-# 15 "include/linux/aio.h"
 struct kioctx;
-# 15 "include/linux/aio.h"
 struct kioctx;
-# 15 "include/linux/aio.h"
 struct kioctx;
-# 87 "include/linux/aio.h"
 union __anonunion_ki_obj_239 {
    void *user ;
    struct task_struct *tsk ;
 };
-# 87 "include/linux/aio.h"
 struct eventfd_ctx;
-# 87 "include/linux/aio.h"
 struct eventfd_ctx;
-# 87 "include/linux/aio.h"
 struct kiocb {
    struct list_head ki_run_list ;
    unsigned long ki_flags ;
@@ -3232,7 +2514,6 @@ struct kiocb {
    struct list_head ki_list ;
    struct eventfd_ctx *ki_eventfd ;
 };
-# 165 "include/linux/aio.h"
 struct aio_ring_info {
    unsigned long mmap_base ;
    unsigned long mmap_size ;
@@ -3243,7 +2524,6 @@ struct aio_ring_info {
    unsigned int tail ;
    struct page *internal_pages[8] ;
 };
-# 178 "include/linux/aio.h"
 struct kioctx {
    atomic_t users ;
    int dead ;
@@ -3260,16 +2540,13 @@ struct kioctx {
    struct delayed_work wq ;
    struct rcu_head rcu_head ;
 };
-# 213 "include/linux/aio.h"
 struct mm_struct;
-# 441 "include/linux/sched.h"
 struct sighand_struct {
    atomic_t count ;
    struct k_sigaction action[64] ;
    spinlock_t siglock ;
    wait_queue_head_t signalfd_wqh ;
 };
-# 448 "include/linux/sched.h"
 struct pacct_struct {
    int ac_flag ;
    long ac_exitcode ;
@@ -3279,44 +2556,31 @@ struct pacct_struct {
    unsigned long ac_minflt ;
    unsigned long ac_majflt ;
 };
-# 456 "include/linux/sched.h"
 struct cpu_itimer {
    cputime_t expires ;
    cputime_t incr ;
    u32 error ;
    u32 incr_error ;
 };
-# 474 "include/linux/sched.h"
 struct task_cputime {
    cputime_t utime ;
    cputime_t stime ;
    unsigned long long sum_exec_runtime ;
 };
-# 510 "include/linux/sched.h"
 struct thread_group_cputimer {
    struct task_cputime cputime ;
    int running ;
    spinlock_t lock ;
 };
-# 517 "include/linux/sched.h"
 struct autogroup;
-# 517 "include/linux/sched.h"
 struct autogroup;
-# 517 "include/linux/sched.h"
 struct autogroup;
-# 526 "include/linux/sched.h"
 struct tty_struct;
-# 526 "include/linux/sched.h"
 struct tty_struct;
-# 526 "include/linux/sched.h"
 struct taskstats;
-# 526 "include/linux/sched.h"
 struct taskstats;
-# 526 "include/linux/sched.h"
 struct tty_audit_buf;
-# 526 "include/linux/sched.h"
 struct tty_audit_buf;
-# 526 "include/linux/sched.h"
 struct signal_struct {
    atomic_t sigcnt ;
    atomic_t live ;
@@ -3376,7 +2640,6 @@ struct signal_struct {
    int oom_score_adj_min ;
    struct mutex cred_guard_mutex ;
 };
-# 687 "include/linux/sched.h"
 struct user_struct {
    atomic_t __count ;
    atomic_t processes ;
@@ -3395,22 +2658,16 @@ struct user_struct {
    struct user_namespace *user_ns ;
    atomic_long_t locked_vm ;
 };
-# 731 "include/linux/sched.h"
 struct backing_dev_info;
-# 732 "include/linux/sched.h"
 struct reclaim_state;
-# 732 "include/linux/sched.h"
 struct reclaim_state;
-# 732 "include/linux/sched.h"
 struct reclaim_state;
-# 735 "include/linux/sched.h"
 struct sched_info {
    unsigned long pcount ;
    unsigned long long run_delay ;
    unsigned long long last_arrival ;
    unsigned long long last_queued ;
 };
-# 747 "include/linux/sched.h"
 struct task_delay_info {
    spinlock_t lock ;
    unsigned int flags ;
@@ -3425,25 +2682,15 @@ struct task_delay_info {
    u64 freepages_delay ;
    u32 freepages_count ;
 };
-# 1050 "include/linux/sched.h"
 struct io_context;
-# 1050 "include/linux/sched.h"
 struct io_context;
-# 1050 "include/linux/sched.h"
 struct io_context;
-# 1059 "include/linux/sched.h"
 struct audit_context;
-# 1060 "include/linux/sched.h"
 struct mempolicy;
-# 1061 "include/linux/sched.h"
 struct pipe_inode_info;
-# 1064 "include/linux/sched.h"
 struct rq;
-# 1064 "include/linux/sched.h"
 struct rq;
-# 1064 "include/linux/sched.h"
 struct rq;
-# 1084 "include/linux/sched.h"
 struct sched_class {
    struct sched_class const *next ;
    void (*enqueue_task)(struct rq *rq , struct task_struct *p , int flags ) ;
@@ -3470,12 +2717,10 @@ struct sched_class {
    unsigned int (*get_rr_interval)(struct rq *rq , struct task_struct *task ) ;
    void (*task_move_group)(struct task_struct *p , int on_rq ) ;
 };
-# 1129 "include/linux/sched.h"
 struct load_weight {
    unsigned long weight ;
    unsigned long inv_weight ;
 };
-# 1134 "include/linux/sched.h"
 struct sched_statistics {
    u64 wait_start ;
    u64 wait_max ;
@@ -3505,7 +2750,6 @@ struct sched_statistics {
    u64 nr_wakeups_passive ;
    u64 nr_wakeups_idle ;
 };
-# 1169 "include/linux/sched.h"
 struct sched_entity {
    struct load_weight load ;
    struct rb_node run_node ;
@@ -3521,11 +2765,8 @@ struct sched_entity {
    struct cfs_rq *cfs_rq ;
    struct cfs_rq *my_q ;
 };
-# 1195 "include/linux/sched.h"
 struct rt_rq;
-# 1195 "include/linux/sched.h"
 struct rt_rq;
-# 1195 "include/linux/sched.h"
 struct sched_rt_entity {
    struct list_head run_list ;
    unsigned long timeout ;
@@ -3536,34 +2777,22 @@ struct sched_rt_entity {
    struct rt_rq *rt_rq ;
    struct rt_rq *my_q ;
 };
-# 1220 "include/linux/sched.h"
 struct irqaction;
-# 1220 "include/linux/sched.h"
 struct irqaction;
-# 1220 "include/linux/sched.h"
 struct css_set;
-# 1220 "include/linux/sched.h"
 struct css_set;
-# 1220 "include/linux/sched.h"
 struct compat_robust_list_head;
-# 1220 "include/linux/sched.h"
 struct compat_robust_list_head;
-# 1220 "include/linux/sched.h"
 struct ftrace_ret_stack;
-# 1220 "include/linux/sched.h"
 struct ftrace_ret_stack;
-# 1220 "include/linux/sched.h"
 struct mem_cgroup;
-# 1220 "include/linux/sched.h"
 struct mem_cgroup;
-# 1220 "include/linux/sched.h"
 struct memcg_batch_info {
    int do_batch ;
    struct mem_cgroup *memcg ;
    unsigned long nr_pages ;
    unsigned long memsw_nr_pages ;
 };
-# 1220 "include/linux/sched.h"
 struct task_struct {
    long volatile state ;
    void *stack ;
@@ -3734,9 +2963,7 @@ struct task_struct {
    struct memcg_batch_info memcg_batch ;
    atomic_t ptrace_bp_refcnt ;
 };
-# 1634 "include/linux/sched.h"
 struct pid_namespace;
-# 107 "include/linux/videodev2.h"
 enum v4l2_field {
     V4L2_FIELD_ANY = 0,
     V4L2_FIELD_NONE = 1,
@@ -3749,7 +2976,6 @@ enum v4l2_field {
     V4L2_FIELD_INTERLACED_TB = 8,
     V4L2_FIELD_INTERLACED_BT = 9
 } ;
-# 149 "include/linux/videodev2.h"
 enum v4l2_buf_type {
     V4L2_BUF_TYPE_VIDEO_CAPTURE = 1,
     V4L2_BUF_TYPE_VIDEO_OUTPUT = 2,
@@ -3763,19 +2989,16 @@ enum v4l2_buf_type {
     V4L2_BUF_TYPE_VIDEO_OUTPUT_MPLANE = 10,
     V4L2_BUF_TYPE_PRIVATE = 128
 } ;
-# 178 "include/linux/videodev2.h"
 enum v4l2_tuner_type {
     V4L2_TUNER_RADIO = 1,
     V4L2_TUNER_ANALOG_TV = 2,
     V4L2_TUNER_DIGITAL_TV = 3
 } ;
-# 184 "include/linux/videodev2.h"
 enum v4l2_memory {
     V4L2_MEMORY_MMAP = 1,
     V4L2_MEMORY_USERPTR = 2,
     V4L2_MEMORY_OVERLAY = 3
 } ;
-# 191 "include/linux/videodev2.h"
 enum v4l2_colorspace {
     V4L2_COLORSPACE_SMPTE170M = 1,
     V4L2_COLORSPACE_SMPTE240M = 2,
@@ -3786,7 +3009,6 @@ enum v4l2_colorspace {
     V4L2_COLORSPACE_JPEG = 7,
     V4L2_COLORSPACE_SRGB = 8
 } ;
-# 218 "include/linux/videodev2.h"
 enum v4l2_priority {
     V4L2_PRIORITY_UNSET = 0,
     V4L2_PRIORITY_BACKGROUND = 1,
@@ -3794,19 +3016,16 @@ enum v4l2_priority {
     V4L2_PRIORITY_RECORD = 3,
     V4L2_PRIORITY_DEFAULT = 2
 } ;
-# 226 "include/linux/videodev2.h"
 struct v4l2_rect {
    __s32 left ;
    __s32 top ;
    __s32 width ;
    __s32 height ;
 };
-# 233 "include/linux/videodev2.h"
 struct v4l2_fract {
    __u32 numerator ;
    __u32 denominator ;
 };
-# 241 "include/linux/videodev2.h"
 struct v4l2_capability {
    __u8 driver[16] ;
    __u8 card[32] ;
@@ -3815,7 +3034,6 @@ struct v4l2_capability {
    __u32 capabilities ;
    __u32 reserved[4] ;
 };
-# 280 "include/linux/videodev2.h"
 struct v4l2_pix_format {
    __u32 width ;
    __u32 height ;
@@ -3826,7 +3044,6 @@ struct v4l2_pix_format {
    enum v4l2_colorspace colorspace ;
    __u32 priv ;
 };
-# 409 "include/linux/videodev2.h"
 struct v4l2_fmtdesc {
    __u32 index ;
    enum v4l2_buf_type type ;
@@ -3835,12 +3052,10 @@ struct v4l2_fmtdesc {
    __u32 pixelformat ;
    __u32 reserved[4] ;
 };
-# 432 "include/linux/videodev2.h"
 struct v4l2_frmsize_discrete {
    __u32 width ;
    __u32 height ;
 };
-# 437 "include/linux/videodev2.h"
 struct v4l2_frmsize_stepwise {
    __u32 min_width ;
    __u32 max_width ;
@@ -3849,12 +3064,10 @@ struct v4l2_frmsize_stepwise {
    __u32 max_height ;
    __u32 step_height ;
 };
-# 446 "include/linux/videodev2.h"
 union __anonunion____missing_field_name_241 {
    struct v4l2_frmsize_discrete discrete ;
    struct v4l2_frmsize_stepwise stepwise ;
 };
-# 446 "include/linux/videodev2.h"
 struct v4l2_frmsizeenum {
    __u32 index ;
    __u32 pixel_format ;
@@ -3862,18 +3075,15 @@ struct v4l2_frmsizeenum {
    union __anonunion____missing_field_name_241 __annonCompField41 ;
    __u32 reserved[2] ;
 };
-# 468 "include/linux/videodev2.h"
 struct v4l2_frmival_stepwise {
    struct v4l2_fract min ;
    struct v4l2_fract max ;
    struct v4l2_fract step ;
 };
-# 474 "include/linux/videodev2.h"
 union __anonunion____missing_field_name_242 {
    struct v4l2_fract discrete ;
    struct v4l2_frmival_stepwise stepwise ;
 };
-# 474 "include/linux/videodev2.h"
 struct v4l2_frmivalenum {
    __u32 index ;
    __u32 pixel_format ;
@@ -3883,7 +3093,6 @@ struct v4l2_frmivalenum {
    union __anonunion____missing_field_name_242 __annonCompField42 ;
    __u32 reserved[2] ;
 };
-# 493 "include/linux/videodev2.h"
 struct v4l2_timecode {
    __u32 type ;
    __u32 flags ;
@@ -3893,7 +3102,6 @@ struct v4l2_timecode {
    __u8 hours ;
    __u8 userbits[4] ;
 };
-# 518 "include/linux/videodev2.h"
 struct v4l2_jpegcompression {
    int quality ;
    int APPn ;
@@ -3903,19 +3111,16 @@ struct v4l2_jpegcompression {
    char COM_data[60] ;
    __u32 jpeg_markers ;
 };
-# 550 "include/linux/videodev2.h"
 struct v4l2_requestbuffers {
    __u32 count ;
    enum v4l2_buf_type type ;
    enum v4l2_memory memory ;
    __u32 reserved[2] ;
 };
-# 575 "include/linux/videodev2.h"
 union __anonunion_m_243 {
    __u32 mem_offset ;
    unsigned long userptr ;
 };
-# 575 "include/linux/videodev2.h"
 struct v4l2_plane {
    __u32 bytesused ;
    __u32 length ;
@@ -3923,13 +3128,11 @@ struct v4l2_plane {
    __u32 data_offset ;
    __u32 reserved[11] ;
 };
-# 613 "include/linux/videodev2.h"
 union __anonunion_m_244 {
    __u32 offset ;
    unsigned long userptr ;
    struct v4l2_plane *planes ;
 };
-# 613 "include/linux/videodev2.h"
 struct v4l2_buffer {
    __u32 index ;
    enum v4l2_buf_type type ;
@@ -3945,19 +3148,16 @@ struct v4l2_buffer {
    __u32 input ;
    __u32 reserved ;
 };
-# 650 "include/linux/videodev2.h"
 struct v4l2_framebuffer {
    __u32 capability ;
    __u32 flags ;
    void *base ;
    struct v4l2_pix_format fmt ;
 };
-# 676 "include/linux/videodev2.h"
 struct v4l2_clip {
    struct v4l2_rect c ;
    struct v4l2_clip *next ;
 };
-# 681 "include/linux/videodev2.h"
 struct v4l2_window {
    struct v4l2_rect w ;
    enum v4l2_field field ;
@@ -3967,7 +3167,6 @@ struct v4l2_window {
    void *bitmap ;
    __u8 global_alpha ;
 };
-# 694 "include/linux/videodev2.h"
 struct v4l2_captureparm {
    __u32 capability ;
    __u32 capturemode ;
@@ -3976,7 +3175,6 @@ struct v4l2_captureparm {
    __u32 readbuffers ;
    __u32 reserved[4] ;
 };
-# 707 "include/linux/videodev2.h"
 struct v4l2_outputparm {
    __u32 capability ;
    __u32 outputmode ;
@@ -3985,26 +3183,21 @@ struct v4l2_outputparm {
    __u32 writebuffers ;
    __u32 reserved[4] ;
 };
-# 719 "include/linux/videodev2.h"
 struct v4l2_cropcap {
    enum v4l2_buf_type type ;
    struct v4l2_rect bounds ;
    struct v4l2_rect defrect ;
    struct v4l2_fract pixelaspect ;
 };
-# 726 "include/linux/videodev2.h"
 struct v4l2_crop {
    enum v4l2_buf_type type ;
    struct v4l2_rect c ;
 };
-# 735 "include/linux/videodev2.h"
 typedef __u64 v4l2_std_id;
-# 836 "include/linux/videodev2.h"
 struct v4l2_dv_preset {
    __u32 preset ;
    __u32 reserved[4] ;
 };
-# 844 "include/linux/videodev2.h"
 struct v4l2_dv_enum_preset {
    __u32 index ;
    __u32 preset ;
@@ -4013,7 +3206,6 @@ struct v4l2_dv_enum_preset {
    __u32 height ;
    __u32 reserved[4] ;
 };
-# 881 "include/linux/videodev2.h"
 struct v4l2_bt_timings {
    __u32 width ;
    __u32 height ;
@@ -4031,17 +3223,14 @@ struct v4l2_bt_timings {
    __u32 il_vbackporch ;
    __u32 reserved[16] ;
 } __attribute__((__packed__)) ;
-# 915 "include/linux/videodev2.h"
 union __anonunion____missing_field_name_245 {
    struct v4l2_bt_timings bt ;
    __u32 reserved[32] ;
 };
-# 915 "include/linux/videodev2.h"
 struct v4l2_dv_timings {
    __u32 type ;
    union __anonunion____missing_field_name_245 __annonCompField43 ;
 } __attribute__((__packed__)) ;
-# 929 "include/linux/videodev2.h"
 struct v4l2_input {
    __u32 index ;
    __u8 name[32] ;
@@ -4053,7 +3242,6 @@ struct v4l2_input {
    __u32 capabilities ;
    __u32 reserved[3] ;
 };
-# 977 "include/linux/videodev2.h"
 struct v4l2_output {
    __u32 index ;
    __u8 name[32] ;
@@ -4064,25 +3252,21 @@ struct v4l2_output {
    __u32 capabilities ;
    __u32 reserved[3] ;
 };
-# 1000 "include/linux/videodev2.h"
 struct v4l2_control {
    __u32 id ;
    __s32 value ;
 };
-# 1005 "include/linux/videodev2.h"
 union __anonunion____missing_field_name_246 {
    __s32 value ;
    __s64 value64 ;
    char *string ;
 };
-# 1005 "include/linux/videodev2.h"
 struct v4l2_ext_control {
    __u32 id ;
    __u32 size ;
    __u32 reserved2[1] ;
    union __anonunion____missing_field_name_246 __annonCompField44 ;
 } __attribute__((__packed__)) ;
-# 1016 "include/linux/videodev2.h"
 struct v4l2_ext_controls {
    __u32 ctrl_class ;
    __u32 count ;
@@ -4090,7 +3274,6 @@ struct v4l2_ext_controls {
    __u32 reserved[2] ;
    struct v4l2_ext_control *controls ;
 };
-# 1034 "include/linux/videodev2.h"
 enum v4l2_ctrl_type {
     V4L2_CTRL_TYPE_INTEGER = 1,
     V4L2_CTRL_TYPE_BOOLEAN = 2,
@@ -4100,7 +3283,6 @@ enum v4l2_ctrl_type {
     V4L2_CTRL_TYPE_CTRL_CLASS = 6,
     V4L2_CTRL_TYPE_STRING = 7
 } ;
-# 1045 "include/linux/videodev2.h"
 struct v4l2_queryctrl {
    __u32 id ;
    enum v4l2_ctrl_type type ;
@@ -4112,14 +3294,12 @@ struct v4l2_queryctrl {
    __u32 flags ;
    __u32 reserved[2] ;
 };
-# 1058 "include/linux/videodev2.h"
 struct v4l2_querymenu {
    __u32 id ;
    __u32 index ;
    __u8 name[32] ;
    __u32 reserved ;
 };
-# 1433 "include/linux/videodev2.h"
 struct v4l2_tuner {
    __u32 index ;
    __u8 name[32] ;
@@ -4133,7 +3313,6 @@ struct v4l2_tuner {
    __s32 afc ;
    __u32 reserved[4] ;
 };
-# 1447 "include/linux/videodev2.h"
 struct v4l2_modulator {
    __u32 index ;
    __u8 name[32] ;
@@ -4143,14 +3322,12 @@ struct v4l2_modulator {
    __u32 txsubchans ;
    __u32 reserved[4] ;
 };
-# 1484 "include/linux/videodev2.h"
 struct v4l2_frequency {
    __u32 tuner ;
    enum v4l2_tuner_type type ;
    __u32 frequency ;
    __u32 reserved[8] ;
 };
-# 1491 "include/linux/videodev2.h"
 struct v4l2_hw_freq_seek {
    __u32 tuner ;
    enum v4l2_tuner_type type ;
@@ -4159,7 +3336,6 @@ struct v4l2_hw_freq_seek {
    __u32 spacing ;
    __u32 reserved[7] ;
 };
-# 1524 "include/linux/videodev2.h"
 struct v4l2_audio {
    __u32 index ;
    __u8 name[32] ;
@@ -4167,7 +3343,6 @@ struct v4l2_audio {
    __u32 mode ;
    __u32 reserved[2] ;
 };
-# 1539 "include/linux/videodev2.h"
 struct v4l2_audioout {
    __u32 index ;
    __u8 name[32] ;
@@ -4175,7 +3350,6 @@ struct v4l2_audioout {
    __u32 mode ;
    __u32 reserved[2] ;
 };
-# 1558 "include/linux/videodev2.h"
 struct v4l2_enc_idx_entry {
    __u64 offset ;
    __u64 pts ;
@@ -4183,28 +3357,23 @@ struct v4l2_enc_idx_entry {
    __u32 flags ;
    __u32 reserved[2] ;
 };
-# 1567 "include/linux/videodev2.h"
 struct v4l2_enc_idx {
    __u32 entries ;
    __u32 entries_cap ;
    __u32 reserved[4] ;
    struct v4l2_enc_idx_entry entry[64] ;
 };
-# 1583 "include/linux/videodev2.h"
 struct __anonstruct_raw_248 {
    __u32 data[8] ;
 };
-# 1583 "include/linux/videodev2.h"
 union __anonunion____missing_field_name_247 {
    struct __anonstruct_raw_248 raw ;
 };
-# 1583 "include/linux/videodev2.h"
 struct v4l2_encoder_cmd {
    __u32 cmd ;
    __u32 flags ;
    union __anonunion____missing_field_name_247 __annonCompField45 ;
 };
-# 1603 "include/linux/videodev2.h"
 struct v4l2_vbi_format {
    __u32 sampling_rate ;
    __u32 offset ;
@@ -4215,21 +3384,18 @@ struct v4l2_vbi_format {
    __u32 flags ;
    __u32 reserved[2] ;
 };
-# 1625 "include/linux/videodev2.h"
 struct v4l2_sliced_vbi_format {
    __u16 service_set ;
    __u16 service_lines[2][24] ;
    __u32 io_size ;
    __u32 reserved[2] ;
 };
-# 1649 "include/linux/videodev2.h"
 struct v4l2_sliced_vbi_cap {
    __u16 service_set ;
    __u16 service_lines[2][24] ;
    enum v4l2_buf_type type ;
    __u32 reserved[3] ;
 };
-# 1660 "include/linux/videodev2.h"
 struct v4l2_sliced_vbi_data {
    __u32 id ;
    __u32 field ;
@@ -4237,13 +3403,11 @@ struct v4l2_sliced_vbi_data {
    __u32 reserved ;
    __u8 data[48] ;
 };
-# 1726 "include/linux/videodev2.h"
 struct v4l2_plane_pix_format {
    __u32 sizeimage ;
    __u16 bytesperline ;
    __u16 reserved[7] ;
 } __attribute__((__packed__)) ;
-# 1742 "include/linux/videodev2.h"
 struct v4l2_pix_format_mplane {
    __u32 width ;
    __u32 height ;
@@ -4254,7 +3418,6 @@ struct v4l2_pix_format_mplane {
    __u8 num_planes ;
    __u8 reserved[11] ;
 } __attribute__((__packed__)) ;
-# 1764 "include/linux/videodev2.h"
 union __anonunion_fmt_250 {
    struct v4l2_pix_format pix ;
    struct v4l2_pix_format_mplane pix_mp ;
@@ -4263,140 +3426,95 @@ union __anonunion_fmt_250 {
    struct v4l2_sliced_vbi_format sliced ;
    __u8 raw_data[200] ;
 };
-# 1764 "include/linux/videodev2.h"
 struct v4l2_format {
    enum v4l2_buf_type type ;
    union __anonunion_fmt_250 fmt ;
 };
-# 1778 "include/linux/videodev2.h"
 union __anonunion_parm_251 {
    struct v4l2_captureparm capture ;
    struct v4l2_outputparm output ;
    __u8 raw_data[200] ;
 };
-# 1778 "include/linux/videodev2.h"
 struct v4l2_streamparm {
    enum v4l2_buf_type type ;
    union __anonunion_parm_251 parm ;
 };
-# 1814 "include/linux/videodev2.h"
 struct v4l2_event_subscription {
    __u32 type ;
    __u32 reserved[7] ;
 };
-# 1833 "include/linux/videodev2.h"
 union __anonunion____missing_field_name_253 {
    __u32 addr ;
    char name[32] ;
 };
-# 1833 "include/linux/videodev2.h"
 struct v4l2_dbg_match {
    __u32 type ;
    union __anonunion____missing_field_name_253 __annonCompField47 ;
 } __attribute__((__packed__)) ;
-# 1841 "include/linux/videodev2.h"
 struct v4l2_dbg_register {
    struct v4l2_dbg_match match ;
    __u32 size ;
    __u64 reg ;
    __u64 val ;
 } __attribute__((__packed__)) ;
-# 1849 "include/linux/videodev2.h"
 struct v4l2_dbg_chip_ident {
    struct v4l2_dbg_match match ;
    __u32 ident ;
    __u32 revision ;
 } __attribute__((__packed__)) ;
-# 94 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/uaccess.h"
 struct exception_table_entry {
    unsigned long insn ;
    unsigned long fixup ;
 };
-# 431 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/uaccess.h"
 struct __large_struct {
    unsigned long buf[100] ;
 };
-# 19 "include/linux/klist.h"
 struct klist_node;
-# 19 "include/linux/klist.h"
 struct klist_node;
-# 19 "include/linux/klist.h"
 struct klist_node;
-# 39 "include/linux/klist.h"
 struct klist_node {
    void *n_klist ;
    struct list_head n_node ;
    struct kref n_ref ;
 };
-# 4 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/device.h"
 struct dma_map_ops;
-# 4 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/device.h"
 struct dma_map_ops;
-# 4 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/device.h"
 struct dev_archdata {
    void *acpi_handle ;
    struct dma_map_ops *dma_ops ;
    void *iommu ;
 };
-# 28 "include/linux/device.h"
 struct device;
-# 29 "include/linux/device.h"
 struct device_private;
-# 29 "include/linux/device.h"
 struct device_private;
-# 29 "include/linux/device.h"
 struct device_private;
-# 30 "include/linux/device.h"
 struct device_driver;
-# 30 "include/linux/device.h"
 struct device_driver;
-# 30 "include/linux/device.h"
 struct device_driver;
-# 31 "include/linux/device.h"
 struct driver_private;
-# 31 "include/linux/device.h"
 struct driver_private;
-# 31 "include/linux/device.h"
 struct driver_private;
-# 32 "include/linux/device.h"
 struct class;
-# 32 "include/linux/device.h"
 struct class;
-# 32 "include/linux/device.h"
 struct class;
-# 33 "include/linux/device.h"
 struct subsys_private;
-# 33 "include/linux/device.h"
 struct subsys_private;
-# 33 "include/linux/device.h"
 struct subsys_private;
-# 34 "include/linux/device.h"
 struct bus_type;
-# 34 "include/linux/device.h"
 struct bus_type;
-# 34 "include/linux/device.h"
 struct bus_type;
-# 35 "include/linux/device.h"
 struct device_node;
-# 35 "include/linux/device.h"
 struct device_node;
-# 35 "include/linux/device.h"
 struct device_node;
-# 37 "include/linux/device.h"
 struct bus_attribute {
    struct attribute attr ;
    ssize_t (*show)(struct bus_type *bus , char *buf ) ;
    ssize_t (*store)(struct bus_type *bus , char const *buf , size_t count ) ;
 };
-# 82 "include/linux/device.h"
 struct device_attribute;
-# 82 "include/linux/device.h"
 struct device_attribute;
-# 82 "include/linux/device.h"
 struct driver_attribute;
-# 82 "include/linux/device.h"
 struct driver_attribute;
-# 82 "include/linux/device.h"
 struct bus_type {
    char const *name ;
    struct bus_attribute *bus_attrs ;
@@ -4412,11 +3530,8 @@ struct bus_type {
    struct dev_pm_ops const *pm ;
    struct subsys_private *p ;
 };
-# 185 "include/linux/device.h"
 struct of_device_id;
-# 185 "include/linux/device.h"
 struct of_device_id;
-# 185 "include/linux/device.h"
 struct device_driver {
    char const *name ;
    struct bus_type *bus ;
@@ -4433,17 +3548,13 @@ struct device_driver {
    struct dev_pm_ops const *pm ;
    struct driver_private *p ;
 };
-# 222 "include/linux/device.h"
 struct driver_attribute {
    struct attribute attr ;
    ssize_t (*show)(struct device_driver *driver , char *buf ) ;
    ssize_t (*store)(struct device_driver *driver , char const *buf , size_t count ) ;
 };
-# 280 "include/linux/device.h"
 struct class_attribute;
-# 280 "include/linux/device.h"
 struct class_attribute;
-# 280 "include/linux/device.h"
 struct class {
    char const *name ;
    struct module *owner ;
@@ -4462,18 +3573,14 @@ struct class {
    struct dev_pm_ops const *pm ;
    struct subsys_private *p ;
 };
-# 306 "include/linux/device.h"
 struct device_type;
-# 306 "include/linux/device.h"
 struct device_type;
-# 347 "include/linux/device.h"
 struct class_attribute {
    struct attribute attr ;
    ssize_t (*show)(struct class *class , struct class_attribute *attr , char *buf ) ;
    ssize_t (*store)(struct class *class , struct class_attribute *attr , char const *buf ,
                     size_t count ) ;
 };
-# 413 "include/linux/device.h"
 struct device_type {
    char const *name ;
    struct attribute_group const **groups ;
@@ -4482,23 +3589,18 @@ struct device_type {
    void (*release)(struct device *dev ) ;
    struct dev_pm_ops const *pm ;
 };
-# 424 "include/linux/device.h"
 struct device_attribute {
    struct attribute attr ;
    ssize_t (*show)(struct device *dev , struct device_attribute *attr , char *buf ) ;
    ssize_t (*store)(struct device *dev , struct device_attribute *attr , char const *buf ,
                     size_t count ) ;
 };
-# 484 "include/linux/device.h"
 struct device_dma_parameters {
    unsigned int max_segment_size ;
    unsigned long segment_boundary_mask ;
 };
-# 551 "include/linux/device.h"
 struct dma_coherent_mem;
-# 551 "include/linux/device.h"
 struct dma_coherent_mem;
-# 551 "include/linux/device.h"
 struct device {
    struct device *parent ;
    struct device_private *p ;
@@ -4527,7 +3629,6 @@ struct device {
    struct attribute_group const **groups ;
    void (*release)(struct device *dev ) ;
 };
-# 43 "include/linux/pm_wakeup.h"
 struct wakeup_source {
    char *name ;
    struct list_head entry ;
@@ -4543,26 +3644,19 @@ struct wakeup_source {
    unsigned long hit_count ;
    unsigned int active : 1 ;
 };
-# 31 "include/asm-generic/poll.h"
 struct pollfd {
    int fd ;
    short events ;
    short revents ;
 };
-# 28 "include/linux/poll.h"
 struct poll_table_struct;
-# 35 "include/linux/poll.h"
 struct poll_table_struct {
    void (*qproc)(struct file * , wait_queue_head_t * , struct poll_table_struct * ) ;
    unsigned long key ;
 };
-# 8 "include/linux/cdev.h"
 struct file_operations;
-# 9 "include/linux/cdev.h"
 struct inode;
-# 10 "include/linux/cdev.h"
 struct module;
-# 12 "include/linux/cdev.h"
 struct cdev {
    struct kobject kobj ;
    struct module *owner ;
@@ -4571,7 +3665,6 @@ struct cdev {
    dev_t dev ;
    unsigned int count ;
 };
-# 43 "include/media/media-devnode.h"
 struct media_file_operations {
    struct module *owner ;
    ssize_t (*read)(struct file * , char * , size_t , loff_t * ) ;
@@ -4581,7 +3674,6 @@ struct media_file_operations {
    int (*open)(struct file * ) ;
    int (*release)(struct file * ) ;
 };
-# 64 "include/media/media-devnode.h"
 struct media_devnode {
    struct media_file_operations const *fops ;
    struct device dev ;
@@ -4591,64 +3683,49 @@ struct media_devnode {
    unsigned long flags ;
    void (*release)(struct media_devnode *mdev ) ;
 };
-# 29 "include/media/media-entity.h"
 struct media_pipeline {
 
 };
-# 32 "include/media/media-entity.h"
 struct media_pad;
-# 32 "include/media/media-entity.h"
 struct media_pad;
-# 32 "include/media/media-entity.h"
 struct media_link {
    struct media_pad *source ;
    struct media_pad *sink ;
    struct media_link *reverse ;
    unsigned long flags ;
 };
-# 39 "include/media/media-entity.h"
 struct media_entity;
-# 39 "include/media/media-entity.h"
 struct media_entity;
-# 39 "include/media/media-entity.h"
 struct media_pad {
    struct media_entity *entity ;
    u16 index ;
    unsigned long flags ;
 };
-# 45 "include/media/media-entity.h"
 struct media_entity_operations {
    int (*link_setup)(struct media_entity *entity , struct media_pad const *local ,
                      struct media_pad const *remote , u32 flags ) ;
 };
-# 51 "include/media/media-entity.h"
 struct media_device;
-# 51 "include/media/media-entity.h"
 struct media_device;
-# 51 "include/media/media-entity.h"
 struct __anonstruct_v4l_260 {
    u32 major ;
    u32 minor ;
 };
-# 51 "include/media/media-entity.h"
 struct __anonstruct_fb_261 {
    u32 major ;
    u32 minor ;
 };
-# 51 "include/media/media-entity.h"
 struct __anonstruct_alsa_262 {
    u32 card ;
    u32 device ;
    u32 subdevice ;
 };
-# 51 "include/media/media-entity.h"
 union __anonunion____missing_field_name_259 {
    struct __anonstruct_v4l_260 v4l ;
    struct __anonstruct_fb_261 fb ;
    struct __anonstruct_alsa_262 alsa ;
    int dvb ;
 };
-# 51 "include/media/media-entity.h"
 struct media_entity {
    struct list_head list ;
    struct media_device *parent ;
@@ -4670,7 +3747,6 @@ struct media_entity {
    struct media_pipeline *pipe ;
    union __anonunion____missing_field_name_259 __annonCompField49 ;
 };
-# 58 "include/media/media-device.h"
 struct media_device {
    struct device *dev ;
    struct media_devnode devnode ;
@@ -4685,7 +3761,6 @@ struct media_device {
    struct mutex graph_mutex ;
    int (*link_notify)(struct media_pad *source , struct media_pad *sink , u32 flags ) ;
 };
-# 37 "include/linux/v4l2-mediabus.h"
 enum v4l2_mbus_pixelcode {
     V4L2_MBUS_FMT_FIXED = 1,
     V4L2_MBUS_FMT_RGB444_2X8_PADHI_BE = 4097,
@@ -4737,7 +3812,6 @@ enum v4l2_mbus_pixelcode {
     V4L2_MBUS_FMT_SRGGB12_1X12 = 12306,
     V4L2_MBUS_FMT_JPEG_1X8 = 16385
 } ;
-# 105 "include/linux/v4l2-mediabus.h"
 struct v4l2_mbus_framefmt {
    __u32 width ;
    __u32 height ;
@@ -4746,28 +3820,24 @@ struct v4l2_mbus_framefmt {
    __u32 colorspace ;
    __u32 reserved[7] ;
 };
-# 46 "include/linux/v4l2-subdev.h"
 struct v4l2_subdev_format {
    __u32 which ;
    __u32 pad ;
    struct v4l2_mbus_framefmt format ;
    __u32 reserved[8] ;
 };
-# 59 "include/linux/v4l2-subdev.h"
 struct v4l2_subdev_crop {
    __u32 which ;
    __u32 pad ;
    struct v4l2_rect rect ;
    __u32 reserved[8] ;
 };
-# 72 "include/linux/v4l2-subdev.h"
 struct v4l2_subdev_mbus_code_enum {
    __u32 pad ;
    __u32 index ;
    __u32 code ;
    __u32 reserved[9] ;
 };
-# 85 "include/linux/v4l2-subdev.h"
 struct v4l2_subdev_frame_size_enum {
    __u32 index ;
    __u32 pad ;
@@ -4778,13 +3848,11 @@ struct v4l2_subdev_frame_size_enum {
    __u32 max_height ;
    __u32 reserved[9] ;
 };
-# 101 "include/linux/v4l2-subdev.h"
 struct v4l2_subdev_frame_interval {
    __u32 pad ;
    struct v4l2_fract interval ;
    __u32 reserved[9] ;
 };
-# 116 "include/linux/v4l2-subdev.h"
 struct v4l2_subdev_frame_interval_enum {
    __u32 index ;
    __u32 pad ;
@@ -4794,29 +3862,18 @@ struct v4l2_subdev_frame_interval_enum {
    struct v4l2_fract interval ;
    __u32 reserved[9] ;
 };
-# 30 "include/media/v4l2-dev.h"
 struct video_device;
-# 30 "include/media/v4l2-dev.h"
 struct video_device;
-# 30 "include/media/v4l2-dev.h"
 struct video_device;
-# 31 "include/media/v4l2-dev.h"
 struct v4l2_device;
-# 31 "include/media/v4l2-dev.h"
 struct v4l2_device;
-# 31 "include/media/v4l2-dev.h"
 struct v4l2_device;
-# 32 "include/media/v4l2-dev.h"
 struct v4l2_ctrl_handler;
-# 32 "include/media/v4l2-dev.h"
 struct v4l2_ctrl_handler;
-# 32 "include/media/v4l2-dev.h"
 struct v4l2_ctrl_handler;
-# 45 "include/media/v4l2-dev.h"
 struct v4l2_prio_state {
    atomic_t prios[4] ;
 };
-# 58 "include/media/v4l2-dev.h"
 struct v4l2_file_operations {
    struct module *owner ;
    ssize_t (*read)(struct file * , char * , size_t , loff_t * ) ;
@@ -4830,11 +3887,8 @@ struct v4l2_file_operations {
    int (*open)(struct file * ) ;
    int (*release)(struct file * ) ;
 };
-# 78 "include/media/v4l2-dev.h"
 struct v4l2_ioctl_ops;
-# 78 "include/media/v4l2-dev.h"
 struct v4l2_ioctl_ops;
-# 78 "include/media/v4l2-dev.h"
 struct video_device {
    struct media_entity entity ;
    struct v4l2_file_operations const *fops ;
@@ -4859,77 +3913,50 @@ struct video_device {
    struct v4l2_ioctl_ops const *ioctl_ops ;
    struct mutex *lock ;
 };
-# 119 "include/media/v4l2-common.h"
 struct v4l2_device;
-# 120 "include/media/v4l2-common.h"
 struct v4l2_subdev;
-# 120 "include/media/v4l2-common.h"
 struct v4l2_subdev;
-# 120 "include/media/v4l2-common.h"
 struct v4l2_subdev;
-# 121 "include/media/v4l2-common.h"
 struct v4l2_subdev_ops;
-# 121 "include/media/v4l2-common.h"
 struct v4l2_subdev_ops;
-# 121 "include/media/v4l2-common.h"
 struct v4l2_subdev_ops;
-# 219 "include/linux/mod_devicetable.h"
 struct of_device_id {
    char name[32] ;
    char type[32] ;
    char compatible[128] ;
    void *data ;
 };
-# 182 "include/media/v4l2-common.h"
 struct v4l2_priv_tun_config {
    int tuner ;
    void *priv ;
 };
-# 31 "include/media/v4l2-fh.h"
 struct video_device;
-# 32 "include/media/v4l2-fh.h"
 struct v4l2_events;
-# 32 "include/media/v4l2-fh.h"
 struct v4l2_events;
-# 32 "include/media/v4l2-fh.h"
 struct v4l2_events;
-# 34 "include/media/v4l2-fh.h"
 struct v4l2_fh {
    struct list_head list ;
    struct video_device *vdev ;
    struct v4l2_events *events ;
    enum v4l2_priority prio ;
 };
-# 41 "include/media/v4l2-subdev.h"
 struct v4l2_device;
-# 42 "include/media/v4l2-subdev.h"
 struct v4l2_ctrl_handler;
-# 43 "include/media/v4l2-subdev.h"
 struct v4l2_event_subscription;
-# 44 "include/media/v4l2-subdev.h"
 struct v4l2_fh;
-# 45 "include/media/v4l2-subdev.h"
 struct v4l2_subdev;
-# 46 "include/media/v4l2-subdev.h"
 struct v4l2_subdev_fh;
-# 46 "include/media/v4l2-subdev.h"
 struct v4l2_subdev_fh;
-# 46 "include/media/v4l2-subdev.h"
 struct v4l2_subdev_fh;
-# 47 "include/media/v4l2-subdev.h"
 struct tuner_setup;
-# 47 "include/media/v4l2-subdev.h"
 struct tuner_setup;
-# 47 "include/media/v4l2-subdev.h"
 struct tuner_setup;
-# 50 "include/media/v4l2-subdev.h"
 struct v4l2_decode_vbi_line {
    u32 is_second_field ;
    u8 *p ;
    u32 line ;
    u32 type ;
 };
-# 108 "include/media/v4l2-subdev.h"
 struct v4l2_subdev_io_pin_config {
    u32 flags ;
    u8 pin ;
@@ -4937,7 +3964,6 @@ struct v4l2_subdev_io_pin_config {
    u8 value ;
    u8 strength ;
 };
-# 145 "include/media/v4l2-subdev.h"
 struct v4l2_subdev_core_ops {
    int (*g_chip_ident)(struct v4l2_subdev *sd , struct v4l2_dbg_chip_ident *chip ) ;
    int (*log_status)(struct v4l2_subdev *sd ) ;
@@ -4962,7 +3988,6 @@ struct v4l2_subdev_core_ops {
    int (*subscribe_event)(struct v4l2_subdev *sd , struct v4l2_fh *fh , struct v4l2_event_subscription *sub ) ;
    int (*unsubscribe_event)(struct v4l2_subdev *sd , struct v4l2_fh *fh , struct v4l2_event_subscription *sub ) ;
 };
-# 189 "include/media/v4l2-subdev.h"
 struct v4l2_subdev_tuner_ops {
    int (*s_radio)(struct v4l2_subdev *sd ) ;
    int (*s_frequency)(struct v4l2_subdev *sd , struct v4l2_frequency *freq ) ;
@@ -4974,14 +3999,12 @@ struct v4l2_subdev_tuner_ops {
    int (*s_type_addr)(struct v4l2_subdev *sd , struct tuner_setup *type ) ;
    int (*s_config)(struct v4l2_subdev *sd , struct v4l2_priv_tun_config const *config ) ;
 };
-# 221 "include/media/v4l2-subdev.h"
 struct v4l2_subdev_audio_ops {
    int (*s_clock_freq)(struct v4l2_subdev *sd , u32 freq ) ;
    int (*s_i2s_clock_freq)(struct v4l2_subdev *sd , u32 freq ) ;
    int (*s_routing)(struct v4l2_subdev *sd , u32 input , u32 output , u32 config ) ;
    int (*s_stream)(struct v4l2_subdev *sd , int enable ) ;
 };
-# 263 "include/media/v4l2-subdev.h"
 struct v4l2_subdev_video_ops {
    int (*s_routing)(struct v4l2_subdev *sd , u32 input , u32 output , u32 config ) ;
    int (*s_crystal_freq)(struct v4l2_subdev *sd , u32 freq , u32 flags ) ;
@@ -5009,7 +4032,6 @@ struct v4l2_subdev_video_ops {
    int (*try_mbus_fmt)(struct v4l2_subdev *sd , struct v4l2_mbus_framefmt *fmt ) ;
    int (*s_mbus_fmt)(struct v4l2_subdev *sd , struct v4l2_mbus_framefmt *fmt ) ;
 };
-# 332 "include/media/v4l2-subdev.h"
 struct v4l2_subdev_vbi_ops {
    int (*decode_vbi_line)(struct v4l2_subdev *sd , struct v4l2_decode_vbi_line *vbi_line ) ;
    int (*s_vbi_data)(struct v4l2_subdev *sd , struct v4l2_sliced_vbi_data const *vbi_data ) ;
@@ -5019,16 +4041,13 @@ struct v4l2_subdev_vbi_ops {
    int (*g_sliced_fmt)(struct v4l2_subdev *sd , struct v4l2_sliced_vbi_format *fmt ) ;
    int (*s_sliced_fmt)(struct v4l2_subdev *sd , struct v4l2_sliced_vbi_format *fmt ) ;
 };
-# 352 "include/media/v4l2-subdev.h"
 struct v4l2_subdev_sensor_ops {
    int (*g_skip_top_lines)(struct v4l2_subdev *sd , u32 *lines ) ;
    int (*g_skip_frames)(struct v4l2_subdev *sd , u32 *frames ) ;
 };
-# 380 "include/media/v4l2-subdev.h"
 enum v4l2_subdev_ir_mode {
     V4L2_SUBDEV_IR_MODE_PULSE_WIDTH = 0
 } ;
-# 384 "include/media/v4l2-subdev.h"
 struct v4l2_subdev_ir_parameters {
    unsigned int bytes_per_data_element ;
    enum v4l2_subdev_ir_mode mode ;
@@ -5046,7 +4065,6 @@ struct v4l2_subdev_ir_parameters {
    unsigned int carrier_range_upper ;
    u32 resolution ;
 };
-# 409 "include/media/v4l2-subdev.h"
 struct v4l2_subdev_ir_ops {
    int (*rx_read)(struct v4l2_subdev *sd , u8 *buf , size_t count , ssize_t *num ) ;
    int (*rx_g_parameters)(struct v4l2_subdev *sd , struct v4l2_subdev_ir_parameters *params ) ;
@@ -5055,7 +4073,6 @@ struct v4l2_subdev_ir_ops {
    int (*tx_g_parameters)(struct v4l2_subdev *sd , struct v4l2_subdev_ir_parameters *params ) ;
    int (*tx_s_parameters)(struct v4l2_subdev *sd , struct v4l2_subdev_ir_parameters *params ) ;
 };
-# 429 "include/media/v4l2-subdev.h"
 struct v4l2_subdev_pad_ops {
    int (*enum_mbus_code)(struct v4l2_subdev *sd , struct v4l2_subdev_fh *fh , struct v4l2_subdev_mbus_code_enum *code ) ;
    int (*enum_frame_size)(struct v4l2_subdev *sd , struct v4l2_subdev_fh *fh , struct v4l2_subdev_frame_size_enum *fse ) ;
@@ -5066,7 +4083,6 @@ struct v4l2_subdev_pad_ops {
    int (*set_crop)(struct v4l2_subdev *sd , struct v4l2_subdev_fh *fh , struct v4l2_subdev_crop *crop ) ;
    int (*get_crop)(struct v4l2_subdev *sd , struct v4l2_subdev_fh *fh , struct v4l2_subdev_crop *crop ) ;
 };
-# 448 "include/media/v4l2-subdev.h"
 struct v4l2_subdev_ops {
    struct v4l2_subdev_core_ops const *core ;
    struct v4l2_subdev_tuner_ops const *tuner ;
@@ -5077,14 +4093,12 @@ struct v4l2_subdev_ops {
    struct v4l2_subdev_sensor_ops const *sensor ;
    struct v4l2_subdev_pad_ops const *pad ;
 };
-# 473 "include/media/v4l2-subdev.h"
 struct v4l2_subdev_internal_ops {
    int (*registered)(struct v4l2_subdev *sd ) ;
    void (*unregistered)(struct v4l2_subdev *sd ) ;
    int (*open)(struct v4l2_subdev *sd , struct v4l2_subdev_fh *fh ) ;
    int (*close)(struct v4l2_subdev *sd , struct v4l2_subdev_fh *fh ) ;
 };
-# 494 "include/media/v4l2-subdev.h"
 struct v4l2_subdev {
    struct media_entity entity ;
    struct list_head list ;
@@ -5101,15 +4115,12 @@ struct v4l2_subdev {
    struct video_device devnode ;
    unsigned int nevents ;
 };
-# 528 "include/media/v4l2-subdev.h"
 struct v4l2_subdev_fh {
    struct v4l2_fh vfh ;
    struct v4l2_mbus_framefmt *try_fmt ;
    struct v4l2_rect *try_crop ;
 };
-# 37 "include/media/v4l2-device.h"
 struct v4l2_ctrl_handler;
-# 39 "include/media/v4l2-device.h"
 struct v4l2_device {
    struct device *dev ;
    struct media_device *mdev ;
@@ -5123,9 +4134,7 @@ struct v4l2_device {
    struct kref ref ;
    void (*release)(struct v4l2_device *v4l2_dev ) ;
 };
-# 19 "include/media/v4l2-ioctl.h"
 struct v4l2_fh;
-# 21 "include/media/v4l2-ioctl.h"
 struct v4l2_ioctl_ops {
    int (*vidioc_querycap)(struct file *file , void *fh , struct v4l2_capability *cap ) ;
    int (*vidioc_g_priority)(struct file *file , void *fh , enum v4l2_priority *p ) ;
@@ -5235,7 +4244,6 @@ struct v4l2_ioctl_ops {
    long (*vidioc_default)(struct file *file , void *fh , bool valid_prio , int cmd ,
                           void *arg ) ;
 };
-# 46 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
 struct qcam {
    struct v4l2_device v4l2_dev ;
    struct video_device vdev ;
@@ -5254,11 +4262,9 @@ struct qcam {
    unsigned int bidirectional ;
    struct mutex lock ;
 };
-# 84 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
 struct __anonstruct_265 {
    int : 0 ;
 };
-# 244 "include/linux/usb/ch9.h"
 struct usb_device_descriptor {
    __u8 bLength ;
    __u8 bDescriptorType ;
@@ -5275,7 +4281,6 @@ struct usb_device_descriptor {
    __u8 iSerialNumber ;
    __u8 bNumConfigurations ;
 } __attribute__((__packed__)) ;
-# 300 "include/linux/usb/ch9.h"
 struct usb_config_descriptor {
    __u8 bLength ;
    __u8 bDescriptorType ;
@@ -5286,7 +4291,6 @@ struct usb_config_descriptor {
    __u8 bmAttributes ;
    __u8 bMaxPower ;
 } __attribute__((__packed__)) ;
-# 337 "include/linux/usb/ch9.h"
 struct usb_interface_descriptor {
    __u8 bLength ;
    __u8 bDescriptorType ;
@@ -5298,7 +4302,6 @@ struct usb_interface_descriptor {
    __u8 bInterfaceProtocol ;
    __u8 iInterface ;
 } __attribute__((__packed__)) ;
-# 355 "include/linux/usb/ch9.h"
 struct usb_endpoint_descriptor {
    __u8 bLength ;
    __u8 bDescriptorType ;
@@ -5309,7 +4312,6 @@ struct usb_endpoint_descriptor {
    __u8 bRefresh ;
    __u8 bSynchAddress ;
 } __attribute__((__packed__)) ;
-# 576 "include/linux/usb/ch9.h"
 struct usb_ss_ep_comp_descriptor {
    __u8 bLength ;
    __u8 bDescriptorType ;
@@ -5317,7 +4319,6 @@ struct usb_ss_ep_comp_descriptor {
    __u8 bmAttributes ;
    __le16 wBytesPerInterval ;
 } __attribute__((__packed__)) ;
-# 637 "include/linux/usb/ch9.h"
 struct usb_interface_assoc_descriptor {
    __u8 bLength ;
    __u8 bDescriptorType ;
@@ -5328,7 +4329,6 @@ struct usb_interface_assoc_descriptor {
    __u8 bFunctionProtocol ;
    __u8 iFunction ;
 } __attribute__((__packed__)) ;
-# 846 "include/linux/usb/ch9.h"
 enum usb_device_speed {
     USB_SPEED_UNKNOWN = 0,
     USB_SPEED_LOW = 1,
@@ -5337,7 +4337,6 @@ enum usb_device_speed {
     USB_SPEED_WIRELESS = 4,
     USB_SPEED_SUPER = 5
 } ;
-# 854 "include/linux/usb/ch9.h"
 enum usb_device_state {
     USB_STATE_NOTATTACHED = 0,
     USB_STATE_ATTACHED = 1,
@@ -5349,27 +4348,16 @@ enum usb_device_state {
     USB_STATE_CONFIGURED = 7,
     USB_STATE_SUSPENDED = 8
 } ;
-# 31 "include/linux/irq.h"
 struct seq_file;
-# 12 "include/linux/irqdesc.h"
 struct proc_dir_entry;
-# 16 "include/linux/profile.h"
 struct proc_dir_entry;
-# 17 "include/linux/profile.h"
 struct pt_regs;
-# 65 "include/linux/profile.h"
 struct task_struct;
-# 66 "include/linux/profile.h"
 struct mm_struct;
-# 88 "include/linux/profile.h"
 struct pt_regs;
-# 363 "include/linux/irq.h"
 struct irqaction;
-# 132 "include/linux/hardirq.h"
 struct task_struct;
-# 9 "include/trace/events/irq.h"
 struct irqaction;
-# 106 "include/linux/interrupt.h"
 struct irqaction {
    irqreturn_t (*handler)(int , void * ) ;
    unsigned long flags ;
@@ -5383,29 +4371,17 @@ struct irqaction {
    char const *name ;
    struct proc_dir_entry *dir ;
 } __attribute__((__aligned__((1) << (12) ))) ;
-# 172 "include/linux/interrupt.h"
 struct device;
-# 682 "include/linux/interrupt.h"
 struct seq_file;
-# 25 "include/linux/usb.h"
 struct usb_device;
-# 25 "include/linux/usb.h"
 struct usb_device;
-# 25 "include/linux/usb.h"
 struct usb_device;
-# 27 "include/linux/usb.h"
 struct wusb_dev;
-# 27 "include/linux/usb.h"
 struct wusb_dev;
-# 27 "include/linux/usb.h"
 struct wusb_dev;
-# 47 "include/linux/usb.h"
 struct ep_device;
-# 47 "include/linux/usb.h"
 struct ep_device;
-# 47 "include/linux/usb.h"
 struct ep_device;
-# 64 "include/linux/usb.h"
 struct usb_host_endpoint {
    struct usb_endpoint_descriptor desc ;
    struct usb_ss_ep_comp_descriptor ss_ep_comp ;
@@ -5416,7 +4392,6 @@ struct usb_host_endpoint {
    int extralen ;
    int enabled ;
 };
-# 77 "include/linux/usb.h"
 struct usb_host_interface {
    struct usb_interface_descriptor desc ;
    struct usb_host_endpoint *endpoint ;
@@ -5424,14 +4399,12 @@ struct usb_host_interface {
    unsigned char *extra ;
    int extralen ;
 };
-# 90 "include/linux/usb.h"
 enum usb_interface_condition {
     USB_INTERFACE_UNBOUND = 0,
     USB_INTERFACE_BINDING = 1,
     USB_INTERFACE_BOUND = 2,
     USB_INTERFACE_UNBINDING = 3
 } ;
-# 159 "include/linux/usb.h"
 struct usb_interface {
    struct usb_host_interface *altsetting ;
    struct usb_host_interface *cur_altsetting ;
@@ -5452,13 +4425,11 @@ struct usb_interface {
    atomic_t pm_usage_cnt ;
    struct work_struct reset_ws ;
 };
-# 222 "include/linux/usb.h"
 struct usb_interface_cache {
    unsigned int num_altsetting ;
    struct kref ref ;
    struct usb_host_interface altsetting[0] ;
 };
-# 274 "include/linux/usb.h"
 struct usb_host_config {
    struct usb_config_descriptor desc ;
    char *string ;
@@ -5468,15 +4439,11 @@ struct usb_host_config {
    unsigned char *extra ;
    int extralen ;
 };
-# 305 "include/linux/usb.h"
 struct usb_devmap {
    unsigned long devicemap[128UL / (8UL * sizeof(unsigned long ))] ;
 };
-# 312 "include/linux/usb.h"
 struct mon_bus;
-# 312 "include/linux/usb.h"
 struct mon_bus;
-# 312 "include/linux/usb.h"
 struct usb_bus {
    struct device *controller ;
    int busnum ;
@@ -5499,13 +4466,9 @@ struct usb_bus {
    struct mon_bus *mon_bus ;
    int monitored ;
 };
-# 367 "include/linux/usb.h"
 struct usb_tt;
-# 367 "include/linux/usb.h"
 struct usb_tt;
-# 367 "include/linux/usb.h"
 struct usb_tt;
-# 426 "include/linux/usb.h"
 struct usb_device {
    int devnum ;
    char devpath[16] ;
@@ -5552,31 +4515,23 @@ struct usb_device {
    struct wusb_dev *wusb_dev ;
    int slot_id ;
 };
-# 983 "include/linux/usb.h"
 struct usb_iso_packet_descriptor {
    unsigned int offset ;
    unsigned int length ;
    unsigned int actual_length ;
    int status ;
 };
-# 990 "include/linux/usb.h"
 struct urb;
-# 990 "include/linux/usb.h"
 struct urb;
-# 990 "include/linux/usb.h"
 struct urb;
-# 992 "include/linux/usb.h"
 struct usb_anchor {
    struct list_head urb_list ;
    wait_queue_head_t wait ;
    spinlock_t lock ;
    unsigned int poisoned : 1 ;
 };
-# 1183 "include/linux/usb.h"
 struct scatterlist;
-# 1183 "include/linux/usb.h"
 struct scatterlist;
-# 1183 "include/linux/usb.h"
 struct urb {
    struct kref kref ;
    void *hcpriv ;
@@ -5608,56 +4563,35 @@ struct urb {
    void (*complete)(struct urb * ) ;
    struct usb_iso_packet_descriptor iso_frame_desc[0] ;
 };
-# 1388 "include/linux/usb.h"
 struct scatterlist;
-# 1 "<compiler builtins>"
 
-# 100 "include/linux/printk.h"
 extern int printk(char const *fmt , ...) ;
-# 125 "include/linux/kernel.h"
 extern void __might_sleep(char const *file , int line , int preempt_offset ) ;
-# 170 "include/linux/kernel.h"
 extern void might_fault(void) ;
-# 88 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/percpu.h"
 extern void __bad_percpu_size(void) ;
-# 64 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/string_64.h"
 extern int strcmp(char const *cs , char const *ct ) ;
-# 30 "include/linux/string.h"
 extern size_t strlcpy(char * , char const * , size_t ) ;
-# 217 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/thread_info.h"
 extern unsigned long kernel_stack __attribute__((__section__(".data..percpu"))) ;
-# 219 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/thread_info.h"
 __inline static struct thread_info *current_thread_info(void)
 { struct thread_info *ti ;
   unsigned long pfo_ret__ ;
 
   {
-# 222 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/thread_info.h"
   if ((int )sizeof(kernel_stack) == 1) {
-# 222 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/thread_info.h"
     goto case_1;
   } else
-# 222 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/thread_info.h"
   if ((int )sizeof(kernel_stack) == 2) {
-# 222 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/thread_info.h"
     goto case_2;
   } else
-# 222 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/thread_info.h"
   if ((int )sizeof(kernel_stack) == 4) {
-# 222 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/thread_info.h"
     goto case_4;
   } else
-# 222 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/thread_info.h"
   if ((int )sizeof(kernel_stack) == 8) {
-# 222 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/thread_info.h"
     goto case_8;
   } else {
-# 222 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/thread_info.h"
     goto switch_default;
-# 222 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/thread_info.h"
     if (0) {
       case_1:
-# 222 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/thread_info.h"
       __asm__ ("mov"
                 "b "
                 "%%"
@@ -5666,10 +4600,8 @@ __inline static struct thread_info *current_thread_info(void)
                 "%P"
                 "1"
                 ",%0": "=q" (pfo_ret__): "p" (& kernel_stack));
-# 222 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/thread_info.h"
       goto switch_break;
       case_2:
-# 222 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/thread_info.h"
       __asm__ ("mov"
                 "w "
                 "%%"
@@ -5678,10 +4610,8 @@ __inline static struct thread_info *current_thread_info(void)
                 "%P"
                 "1"
                 ",%0": "=r" (pfo_ret__): "p" (& kernel_stack));
-# 222 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/thread_info.h"
       goto switch_break;
       case_4:
-# 222 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/thread_info.h"
       __asm__ ("mov"
                 "l "
                 "%%"
@@ -5690,10 +4620,8 @@ __inline static struct thread_info *current_thread_info(void)
                 "%P"
                 "1"
                 ",%0": "=r" (pfo_ret__): "p" (& kernel_stack));
-# 222 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/thread_info.h"
       goto switch_break;
       case_8:
-# 222 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/thread_info.h"
       __asm__ ("mov"
                 "q "
                 "%%"
@@ -5702,124 +4630,85 @@ __inline static struct thread_info *current_thread_info(void)
                 "%P"
                 "1"
                 ",%0": "=r" (pfo_ret__): "p" (& kernel_stack));
-# 222 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/thread_info.h"
       goto switch_break;
       switch_default:
       {
-# 222 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/thread_info.h"
       __bad_percpu_size();
       }
     } else {
       switch_break: ;
     }
   }
-# 222 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/thread_info.h"
   ti = (struct thread_info *)((void *)((pfo_ret__ + 40UL) - ((1UL << 12) << 1)));
-# 224 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/thread_info.h"
   return (ti);
 }
 }
-# 115 "include/linux/mutex.h"
 extern void __mutex_init(struct mutex *lock , char const *name , struct lock_class_key *key ) ;
-# 134 "include/linux/mutex.h"
 extern void mutex_lock_nested(struct mutex *lock , unsigned int subclass ) ;
-# 169 "include/linux/mutex.h"
 extern void mutex_unlock(struct mutex *lock ) ;
-# 82 "include/linux/jiffies.h"
 extern unsigned long volatile jiffies __attribute__((__section__(".data"))) ;
-# 298 "include/linux/jiffies.h"
 extern unsigned long msecs_to_jiffies(unsigned int const m ) ;
-# 830 "include/linux/rcupdate.h"
 extern void kfree(void const * ) ;
-# 80 "include/linux/kobject.h"
 __inline static char const *kobject_name(struct kobject const *kobj )
 {
 
   {
-# 82 "include/linux/kobject.h"
   return ((char const *)kobj->name);
 }
 }
-# 303 "include/linux/moduleparam.h"
 extern struct kernel_param_ops param_ops_int ;
-# 329 "include/linux/moduleparam.h"
 extern struct kernel_param_ops param_ops_bool ;
-# 383 "include/linux/moduleparam.h"
 extern struct kernel_param_ops param_array_ops ;
-# 79 "include/linux/module.h"
 int init_module(void) ;
-# 80 "include/linux/module.h"
 void cleanup_module(void) ;
-# 99 "include/linux/module.h"
 extern struct module __this_module ;
-# 16 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/delay.h"
 extern void __const_udelay(unsigned long xloops ) ;
-# 47 "include/linux/delay.h"
 extern unsigned long msleep_interruptible(unsigned int msecs ) ;
-# 221 "include/linux/slub_def.h"
 extern void *__kmalloc(size_t size , gfp_t flags ) ;
-# 255 "include/linux/slub_def.h"
 __inline static void *( __attribute__((__always_inline__)) kmalloc)(size_t size ,
                                                                     gfp_t flags )
 { void *tmp___2 ;
 
   {
   {
-# 270 "include/linux/slub_def.h"
   tmp___2 = __kmalloc(size, flags);
   }
-# 270 "include/linux/slub_def.h"
   return (tmp___2);
 }
 }
-# 318 "include/linux/slab.h"
 __inline static void *kzalloc(size_t size , gfp_t flags )
 { void *tmp ;
 
   {
   {
-# 320 "include/linux/slab.h"
   tmp = kmalloc(size, flags | 32768U);
   }
-# 320 "include/linux/slab.h"
   return (tmp);
 }
 }
-# 362 "include/linux/parport.h"
 extern int parport_register_driver(struct parport_driver * ) ;
-# 365 "include/linux/parport.h"
 extern void parport_unregister_driver(struct parport_driver * ) ;
-# 385 "include/linux/parport.h"
 extern struct pardevice *parport_register_device(struct parport *port , char const *name ,
                                                  int (*pf)(void * ) , void (*kf)(void * ) ,
                                                  void (*irq_func)(void * ) , int flags ,
                                                  void *handle ) ;
-# 392 "include/linux/parport.h"
 extern void parport_unregister_device(struct pardevice *dev ) ;
-# 403 "include/linux/parport.h"
 extern int parport_claim_or_block(struct pardevice *dev ) ;
-# 413 "include/linux/parport.h"
 extern void parport_release(struct pardevice *dev ) ;
-# 361 "include/linux/sched.h"
 extern void schedule(void) ;
-# 2504 "include/linux/sched.h"
 extern int _cond_resched(void) ;
-# 19 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/uaccess_64.h"
 extern unsigned long __attribute__((__warn_unused_result__)) copy_user_generic_string(void *to ,
                                                                                        void const *from ,
                                                                                        unsigned int len ) ;
-# 21 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/uaccess_64.h"
 extern unsigned long __attribute__((__warn_unused_result__)) copy_user_generic_unrolled(void *to ,
                                                                                          void const *from ,
                                                                                          unsigned int len ) ;
-# 24 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/uaccess_64.h"
 __inline static unsigned long __attribute__((__warn_unused_result__)) ( __attribute__((__always_inline__)) copy_user_generic)(void *to ,
                                                                                                                                void const *from ,
                                                                                                                                unsigned int len )
 { unsigned int ret ;
 
   {
-# 29 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/uaccess_64.h"
   __asm__ volatile ("661:\n\t"
                        "call %P[old]"
                        "\n662:\n"
@@ -5852,11 +4741,9 @@ __inline static unsigned long __attribute__((__warn_unused_result__)) ( __attrib
                        ".previous": "=a" (ret), "=D" (to), "=S" (from), "=d" (len): [old] "i" (& copy_user_generic_unrolled),
                        [new] "i" (& copy_user_generic_string), "1" (to), "2" (from),
                        "3" (len): "memory", "rcx", "r8", "r9", "r10", "r11");
-# 36 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/uaccess_64.h"
   return ((unsigned long )ret);
 }
 }
-# 114 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/uaccess_64.h"
 __inline static int __attribute__((__warn_unused_result__)) ( __attribute__((__always_inline__)) __copy_to_user)(void *dst ,
                                                                                                                   void const *src ,
                                                                                                                   unsigned int size )
@@ -5870,53 +4757,33 @@ __inline static int __attribute__((__warn_unused_result__)) ( __attribute__((__a
 
   {
   {
-# 117 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/uaccess_64.h"
   ret = 0;
-# 119 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/uaccess_64.h"
   might_fault();
-# 121 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/uaccess_64.h"
   tmp = (unsigned long )copy_user_generic(dst, src, size);
-# 121 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/uaccess_64.h"
   tmp___7 = tmp;
   }
-# 121 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/uaccess_64.h"
   return ((int )tmp___7);
-# 123 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/uaccess_64.h"
   if ((int )size == 1) {
-# 123 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/uaccess_64.h"
     goto case_1;
   } else
-# 126 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/uaccess_64.h"
   if ((int )size == 2) {
-# 126 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/uaccess_64.h"
     goto case_2;
   } else
-# 129 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/uaccess_64.h"
   if ((int )size == 4) {
-# 129 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/uaccess_64.h"
     goto case_4;
   } else
-# 132 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/uaccess_64.h"
   if ((int )size == 8) {
-# 132 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/uaccess_64.h"
     goto case_8;
   } else
-# 135 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/uaccess_64.h"
   if ((int )size == 10) {
-# 135 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/uaccess_64.h"
     goto case_10;
   } else
-# 144 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/uaccess_64.h"
   if ((int )size == 16) {
-# 144 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/uaccess_64.h"
     goto case_16;
   } else {
-# 153 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/uaccess_64.h"
     goto switch_default;
-# 122 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/uaccess_64.h"
     if (0) {
       case_1:
-# 123 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/uaccess_64.h"
       __asm__ volatile ("1:\tmov"
                            "b"
                            " %"
@@ -5941,10 +4808,8 @@ __inline static int __attribute__((__warn_unused_result__)) ( __attribute__((__a
                            "\n"
                            " .previous\n": "=r" (ret): "iq" (*((u8 *)src)), "m" (*((struct __large_struct *)((u8 *)dst))),
                            "i" (1), "0" (ret));
-# 125 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/uaccess_64.h"
       return (ret);
       case_2:
-# 126 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/uaccess_64.h"
       __asm__ volatile ("1:\tmov"
                            "w"
                            " %"
@@ -5969,10 +4834,8 @@ __inline static int __attribute__((__warn_unused_result__)) ( __attribute__((__a
                            "\n"
                            " .previous\n": "=r" (ret): "ir" (*((u16 *)src)), "m" (*((struct __large_struct *)((u16 *)dst))),
                            "i" (2), "0" (ret));
-# 128 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/uaccess_64.h"
       return (ret);
       case_4:
-# 129 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/uaccess_64.h"
       __asm__ volatile ("1:\tmov"
                            "l"
                            " %"
@@ -5997,10 +4860,8 @@ __inline static int __attribute__((__warn_unused_result__)) ( __attribute__((__a
                            "\n"
                            " .previous\n": "=r" (ret): "ir" (*((u32 *)src)), "m" (*((struct __large_struct *)((u32 *)dst))),
                            "i" (4), "0" (ret));
-# 131 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/uaccess_64.h"
       return (ret);
       case_8:
-# 132 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/uaccess_64.h"
       __asm__ volatile ("1:\tmov"
                            "q"
                            " %"
@@ -6025,11 +4886,9 @@ __inline static int __attribute__((__warn_unused_result__)) ( __attribute__((__a
                            "\n"
                            " .previous\n": "=r" (ret): "er" (*((u64 *)src)), "m" (*((struct __large_struct *)((u64 *)dst))),
                            "i" (8), "0" (ret));
-# 134 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/uaccess_64.h"
       return (ret);
       case_10:
       {
-# 136 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/uaccess_64.h"
       __asm__ volatile ("1:\tmov"
                            "q"
                            " %"
@@ -6054,19 +4913,14 @@ __inline static int __attribute__((__warn_unused_result__)) ( __attribute__((__a
                            "\n"
                            " .previous\n": "=r" (ret): "er" (*((u64 *)src)), "m" (*((struct __large_struct *)((u64 *)dst))),
                            "i" (10), "0" (ret));
-# 138 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/uaccess_64.h"
       tmp___8 = __builtin_expect((long )(! (! ret)), 0L);
       }
-# 138 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/uaccess_64.h"
       if (tmp___8) {
-# 139 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/uaccess_64.h"
         return (ret);
       } else {
 
       }
-# 140 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/uaccess_64.h"
       __asm__ ("": : : "memory");
-# 141 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/uaccess_64.h"
       __asm__ volatile ("1:\tmov"
                            "w"
                            " %"
@@ -6091,11 +4945,9 @@ __inline static int __attribute__((__warn_unused_result__)) ( __attribute__((__a
                            "\n"
                            " .previous\n": "=r" (ret): "ir" (*((u16 *)src + 4)), "m" (*((struct __large_struct *)((u16 *)dst + 4))),
                            "i" (2), "0" (ret));
-# 143 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/uaccess_64.h"
       return (ret);
       case_16:
       {
-# 145 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/uaccess_64.h"
       __asm__ volatile ("1:\tmov"
                            "q"
                            " %"
@@ -6120,19 +4972,14 @@ __inline static int __attribute__((__warn_unused_result__)) ( __attribute__((__a
                            "\n"
                            " .previous\n": "=r" (ret): "er" (*((u64 *)src)), "m" (*((struct __large_struct *)((u64 *)dst))),
                            "i" (16), "0" (ret));
-# 147 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/uaccess_64.h"
       tmp___9 = __builtin_expect((long )(! (! ret)), 0L);
       }
-# 147 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/uaccess_64.h"
       if (tmp___9) {
-# 148 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/uaccess_64.h"
         return (ret);
       } else {
 
       }
-# 149 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/uaccess_64.h"
       __asm__ ("": : : "memory");
-# 150 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/uaccess_64.h"
       __asm__ volatile ("1:\tmov"
                            "q"
                            " %"
@@ -6157,16 +5004,12 @@ __inline static int __attribute__((__warn_unused_result__)) ( __attribute__((__a
                            "\n"
                            " .previous\n": "=r" (ret): "er" (*((u64 *)src + 1)), "m" (*((struct __large_struct *)((u64 *)dst + 1))),
                            "i" (8), "0" (ret));
-# 152 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/uaccess_64.h"
       return (ret);
       switch_default:
       {
-# 154 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/uaccess_64.h"
       tmp___11 = (unsigned long )copy_user_generic(dst, src, size);
-# 154 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/uaccess_64.h"
       tmp___10 = tmp___11;
       }
-# 154 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/uaccess_64.h"
       return ((int )tmp___10);
     } else {
 
@@ -6174,37 +5017,28 @@ __inline static int __attribute__((__warn_unused_result__)) ( __attribute__((__a
   }
 }
 }
-# 608 "include/linux/device.h"
 __inline static char const *dev_name(struct device const *dev )
 { char const *tmp___7 ;
 
   {
-# 611 "include/linux/device.h"
   if (dev->init_name) {
-# 612 "include/linux/device.h"
     return ((char const *)dev->init_name);
   } else {
 
   }
   {
-# 614 "include/linux/device.h"
   tmp___7 = kobject_name(& dev->kobj);
   }
-# 614 "include/linux/device.h"
   return (tmp___7);
 }
 }
-# 705 "include/linux/device.h"
 extern void *dev_get_drvdata(struct device const *dev ) __attribute__((__ldv_model__)) ;
-# 706 "include/linux/device.h"
 extern int dev_set_drvdata(struct device *dev , void *data ) ;
-# 136 "include/media/v4l2-dev.h"
 extern int __attribute__((__warn_unused_result__)) __video_register_device(struct video_device *vdev ,
                                                                             int type ,
                                                                             int nr ,
                                                                             int warn_if_nr_in_use ,
                                                                             struct module *owner ) ;
-# 143 "include/media/v4l2-dev.h"
 __inline static int __attribute__((__warn_unused_result__)) video_register_device(struct video_device *vdev ,
                                                                                    int type ,
                                                                                    int nr )
@@ -6213,96 +5047,68 @@ __inline static int __attribute__((__warn_unused_result__)) video_register_devic
 
   {
   {
-# 146 "include/media/v4l2-dev.h"
   tmp = (int )__video_register_device(vdev, type, nr, 1, (struct module *)(vdev->fops)->owner);
-# 146 "include/media/v4l2-dev.h"
   tmp___7 = tmp;
   }
-# 146 "include/media/v4l2-dev.h"
   return (tmp___7);
 }
 }
-# 159 "include/media/v4l2-dev.h"
 extern void video_unregister_device(struct video_device *vdev ) ;
-# 171 "include/media/v4l2-dev.h"
 extern void video_device_release_empty(struct video_device *vdev ) ;
-# 174 "include/media/v4l2-dev.h"
 __inline static void *video_get_drvdata(struct video_device *vdev )
 { void *tmp___7 ;
 
   {
   {
-# 176 "include/media/v4l2-dev.h"
   tmp___7 = dev_get_drvdata((struct device const *)(& vdev->dev));
   }
-# 176 "include/media/v4l2-dev.h"
   return (tmp___7);
 }
 }
-# 179 "include/media/v4l2-dev.h"
 __inline static void video_set_drvdata(struct video_device *vdev , void *data )
 {
 
   {
   {
-# 181 "include/media/v4l2-dev.h"
   dev_set_drvdata(& vdev->dev, data);
   }
-# 182 "include/media/v4l2-dev.h"
   return;
 }
 }
-# 184 "include/media/v4l2-dev.h"
 extern struct video_device *video_devdata(struct file *file ) ;
-# 188 "include/media/v4l2-dev.h"
 __inline static void *video_drvdata(struct file *file )
 { struct video_device *tmp___7 ;
   void *tmp___8 ;
 
   {
   {
-# 190 "include/media/v4l2-dev.h"
   tmp___7 = video_devdata(file);
-# 190 "include/media/v4l2-dev.h"
   tmp___8 = video_get_drvdata(tmp___7);
   }
-# 190 "include/media/v4l2-dev.h"
   return (tmp___8);
 }
 }
-# 193 "include/media/v4l2-dev.h"
 __inline static char const *video_device_node_name(struct video_device *vdev )
 { char const *tmp___7 ;
 
   {
   {
-# 195 "include/media/v4l2-dev.h"
   tmp___7 = dev_name((struct device const *)(& vdev->dev));
   }
-# 195 "include/media/v4l2-dev.h"
   return (tmp___7);
 }
 }
-# 89 "include/media/v4l2-common.h"
 extern int v4l2_ctrl_query_fill(struct v4l2_queryctrl *qctrl , s32 min , s32 max ,
                                 s32 step , s32 def ) ;
-# 79 "include/media/v4l2-device.h"
 extern int __attribute__((__warn_unused_result__)) v4l2_device_register(struct device *dev ,
                                                                          struct v4l2_device *v4l2_dev ) ;
-# 324 "include/media/v4l2-ioctl.h"
 extern long video_ioctl2(struct file *file , unsigned int cmd , unsigned long arg ) ;
-# 75 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
 static int parport[4] = { 0, -1, -1, -1};
-# 76 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
 static int probe = 2;
-# 77 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
 static int force_rgb ;
-# 78 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
 static int video_nr = -1;
-# 81 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
 static char const __mod_parport83[155] __attribute__((__used__, __unused__, __section__(".modinfo"),
 __aligned__(1))) =
-# 81 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   { (char const )'p', (char const )'a', (char const )'r', (char const )'m',
         (char const )'=', (char const )'p', (char const )'a', (char const )'r',
         (char const )'p', (char const )'o', (char const )'r', (char const )'t',
@@ -6342,23 +5148,17 @@ __aligned__(1))) =
         (char const )'f', (char const )'a', (char const )'u', (char const )'l',
         (char const )'t', (char const )' ', (char const )'B', (char const )'G',
         (char const )'R', (char const )')', (char const )'\000'};
-# 84 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
 static struct kparam_array const __param_arr_parport = {(unsigned int )(sizeof(parport) / sizeof(parport[0]) + sizeof(struct __anonstruct_265 )),
     (unsigned int )sizeof(parport[0]), (unsigned int *)((void *)0), (struct kernel_param_ops const *)(& param_ops_int),
     (void *)(parport)};
-# 84 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
 static char const __param_str_parport[8] =
-# 84 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   { (char const )'p', (char const )'a', (char const )'r', (char const )'p',
         (char const )'o', (char const )'r', (char const )'t', (char const )'\000'};
-# 84 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
 static struct kernel_param const __param_parport __attribute__((__used__, __unused__,
 __section__("__param"), __aligned__(sizeof(void *)))) = {__param_str_parport, (struct kernel_param_ops const *)(& param_array_ops), (u16 )0,
     (u16 )0, {.arr = & __param_arr_parport}};
-# 84 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
 static char const __mod_parporttype84[30] __attribute__((__used__, __unused__,
 __section__(".modinfo"), __aligned__(1))) =
-# 84 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   { (char const )'p', (char const )'a', (char const )'r', (char const )'m',
         (char const )'t', (char const )'y', (char const )'p', (char const )'e',
         (char const )'=', (char const )'p', (char const )'a', (char const )'r',
@@ -6367,132 +5167,97 @@ __section__(".modinfo"), __aligned__(1))) =
         (char const )'a', (char const )'y', (char const )' ', (char const )'o',
         (char const )'f', (char const )' ', (char const )'i', (char const )'n',
         (char const )'t', (char const )'\000'};
-# 85 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
 static char const __param_str_probe[6] = { (char const )'p', (char const )'r', (char const )'o', (char const )'b',
         (char const )'e', (char const )'\000'};
-# 85 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
 static struct kernel_param const __param_probe __attribute__((__used__, __unused__,
 __section__("__param"), __aligned__(sizeof(void *)))) = {__param_str_probe, (struct kernel_param_ops const *)(& param_ops_int), (u16 )0,
     (u16 )0, {(void *)(& probe)}};
-# 85 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
 static char const __mod_probetype85[19] __attribute__((__used__, __unused__, __section__(".modinfo"),
 __aligned__(1))) =
-# 85 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   { (char const )'p', (char const )'a', (char const )'r', (char const )'m',
         (char const )'t', (char const )'y', (char const )'p', (char const )'e',
         (char const )'=', (char const )'p', (char const )'r', (char const )'o',
         (char const )'b', (char const )'e', (char const )':', (char const )'i',
         (char const )'n', (char const )'t', (char const )'\000'};
-# 86 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
 static char const __param_str_force_rgb[10] =
-# 86 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   { (char const )'f', (char const )'o', (char const )'r', (char const )'c',
         (char const )'e', (char const )'_', (char const )'r', (char const )'g',
         (char const )'b', (char const )'\000'};
-# 86 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
 static struct kernel_param const __param_force_rgb __attribute__((__used__, __unused__,
 __section__("__param"), __aligned__(sizeof(void *)))) = {__param_str_force_rgb, (struct kernel_param_ops const *)(& param_ops_bool),
     (u16 )0, (u16 )0, {(void *)(& force_rgb)}};
-# 86 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
 static char const __mod_force_rgbtype86[24] __attribute__((__used__, __unused__,
 __section__(".modinfo"), __aligned__(1))) =
-# 86 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   { (char const )'p', (char const )'a', (char const )'r', (char const )'m',
         (char const )'t', (char const )'y', (char const )'p', (char const )'e',
         (char const )'=', (char const )'f', (char const )'o', (char const )'r',
         (char const )'c', (char const )'e', (char const )'_', (char const )'r',
         (char const )'g', (char const )'b', (char const )':', (char const )'b',
         (char const )'o', (char const )'o', (char const )'l', (char const )'\000'};
-# 87 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
 static char const __param_str_video_nr[9] =
-# 87 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   { (char const )'v', (char const )'i', (char const )'d', (char const )'e',
         (char const )'o', (char const )'_', (char const )'n', (char const )'r',
         (char const )'\000'};
-# 87 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
 static struct kernel_param const __param_video_nr __attribute__((__used__, __unused__,
 __section__("__param"), __aligned__(sizeof(void *)))) = {__param_str_video_nr, (struct kernel_param_ops const *)(& param_ops_int), (u16 )0,
     (u16 )0, {(void *)(& video_nr)}};
-# 87 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
 static char const __mod_video_nrtype87[22] __attribute__((__used__, __unused__,
 __section__(".modinfo"), __aligned__(1))) =
-# 87 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   { (char const )'p', (char const )'a', (char const )'r', (char const )'m',
         (char const )'t', (char const )'y', (char const )'p', (char const )'e',
         (char const )'=', (char const )'v', (char const )'i', (char const )'d',
         (char const )'e', (char const )'o', (char const )'_', (char const )'n',
         (char const )'r', (char const )':', (char const )'i', (char const )'n',
         (char const )'t', (char const )'\000'};
-# 89 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
 static struct qcam *qcams[4] ;
-# 90 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
 static unsigned int num_cams ;
-# 92 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
 __inline static void qcam_set_ack(struct qcam *qcam , unsigned int i )
 { int tmp___7 ;
 
   {
-# 96 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   if (i) {
-# 96 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
     tmp___7 = 8;
   } else {
-# 96 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
     tmp___7 = 0;
   }
   {
-# 96 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   (*(((qcam->pport)->ops)->frob_control))(qcam->pport, (unsigned char)8, (unsigned char )tmp___7);
   }
-# 97 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   return;
 }
 }
-# 99 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
 __inline static unsigned int qcam_ready1(struct qcam *qcam )
 { int tmp___8 ;
   unsigned char tmp___9 ;
 
   {
   {
-# 101 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   tmp___9 = (*(((qcam->pport)->ops)->read_status))(qcam->pport);
   }
-# 101 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   if ((int )tmp___9 & 8) {
-# 101 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
     tmp___8 = 1;
   } else {
-# 101 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
     tmp___8 = 0;
   }
-# 101 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   return ((unsigned int )tmp___8);
 }
 }
-# 104 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
 __inline static unsigned int qcam_ready2(struct qcam *qcam )
 { int tmp___8 ;
   unsigned char tmp___9 ;
 
   {
   {
-# 106 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   tmp___9 = (*(((qcam->pport)->ops)->read_data))(qcam->pport);
   }
-# 106 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   if ((int )tmp___9 & 1) {
-# 106 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
     tmp___8 = 1;
   } else {
-# 106 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
     tmp___8 = 0;
   }
-# 106 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   return ((unsigned int )tmp___8);
 }
 }
-# 109 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
 static unsigned int qcam_await_ready1(struct qcam *qcam , int value )
 { struct v4l2_device *v4l2_dev ;
   unsigned long oldjiffies ;
@@ -6504,34 +5269,24 @@ static unsigned int qcam_await_ready1(struct qcam *qcam , int value )
   unsigned char tmp___12 ;
 
   {
-# 111 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   v4l2_dev = & qcam->v4l2_dev;
-# 112 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   oldjiffies = (unsigned long )jiffies;
-# 115 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   oldjiffies = (unsigned long )jiffies;
   {
-# 116 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   while (1) {
     while_continue: ;
     {
-# 116 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
     tmp___9 = msecs_to_jiffies((unsigned int const )40);
     }
-# 116 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
     if ((long )jiffies - (long )(oldjiffies + tmp___9) < 0L) {
 
     } else {
-# 115 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
       goto while_break;
     }
     {
-# 117 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
     tmp___7 = qcam_ready1(qcam);
     }
-# 117 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
     if (tmp___7 == (unsigned int )value) {
-# 118 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
       return (0U);
     } else {
 
@@ -6540,34 +5295,25 @@ static unsigned int qcam_await_ready1(struct qcam *qcam , int value )
   while_break___1: ;
   }
   while_break:
-# 122 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   i = 0U;
   {
-# 122 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   while (1) {
     while_continue___0: ;
-# 122 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
     if (i < 50U) {
 
     } else {
-# 122 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
       goto while_break___0;
     }
     {
-# 123 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
     tmp___10 = qcam_ready1(qcam);
     }
-# 123 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
     if (tmp___10 == (unsigned int )value) {
-# 124 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
       return (0U);
     } else {
 
     }
     {
-# 125 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
     msleep_interruptible(100U);
-# 122 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
     i = i + 1U;
     }
   }
@@ -6575,19 +5321,14 @@ static unsigned int qcam_await_ready1(struct qcam *qcam , int value )
   }
   while_break___0:
   {
-# 129 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   tmp___11 = (*(((qcam->pport)->ops)->read_control))(qcam->pport);
-# 129 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   tmp___12 = (*(((qcam->pport)->ops)->read_status))(qcam->pport);
-# 129 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   printk("<3>%s: ready1 timeout (%d) %x %x\n", v4l2_dev->name, value, (int )tmp___12,
          (int )tmp___11);
   }
-# 132 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   return (1U);
 }
 }
-# 135 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
 static unsigned int qcam_await_ready2(struct qcam *qcam , int value )
 { struct v4l2_device *v4l2_dev ;
   unsigned long oldjiffies ;
@@ -6600,34 +5341,24 @@ static unsigned int qcam_await_ready2(struct qcam *qcam , int value )
   unsigned char tmp___13 ;
 
   {
-# 137 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   v4l2_dev = & qcam->v4l2_dev;
-# 138 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   oldjiffies = (unsigned long )jiffies;
-# 141 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   oldjiffies = (unsigned long )jiffies;
   {
-# 142 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   while (1) {
     while_continue: ;
     {
-# 142 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
     tmp___9 = msecs_to_jiffies((unsigned int const )40);
     }
-# 142 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
     if ((long )jiffies - (long )(oldjiffies + tmp___9) < 0L) {
 
     } else {
-# 141 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
       goto while_break;
     }
     {
-# 143 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
     tmp___7 = qcam_ready2(qcam);
     }
-# 143 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
     if (tmp___7 == (unsigned int )value) {
-# 144 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
       return (0U);
     } else {
 
@@ -6636,34 +5367,25 @@ static unsigned int qcam_await_ready2(struct qcam *qcam , int value )
   while_break___1: ;
   }
   while_break:
-# 148 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   i = 0U;
   {
-# 148 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   while (1) {
     while_continue___0: ;
-# 148 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
     if (i < 50U) {
 
     } else {
-# 148 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
       goto while_break___0;
     }
     {
-# 149 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
     tmp___10 = qcam_ready2(qcam);
     }
-# 149 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
     if (tmp___10 == (unsigned int )value) {
-# 150 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
       return (0U);
     } else {
 
     }
     {
-# 151 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
     msleep_interruptible(100U);
-# 148 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
     i = i + 1U;
     }
   }
@@ -6671,21 +5393,15 @@ static unsigned int qcam_await_ready2(struct qcam *qcam , int value )
   }
   while_break___0:
   {
-# 155 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   tmp___11 = (*(((qcam->pport)->ops)->read_data))(qcam->pport);
-# 155 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   tmp___12 = (*(((qcam->pport)->ops)->read_control))(qcam->pport);
-# 155 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   tmp___13 = (*(((qcam->pport)->ops)->read_status))(qcam->pport);
-# 155 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   printk("<3>%s: ready2 timeout (%d) %x %x %x\n", v4l2_dev->name, value, (int )tmp___13,
          (int )tmp___12, (int )tmp___11);
   }
-# 159 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   return (1U);
 }
 }
-# 162 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
 static int qcam_read_data(struct qcam *qcam )
 { unsigned int idata ;
   unsigned int tmp___7 ;
@@ -6695,46 +5411,32 @@ static int qcam_read_data(struct qcam *qcam )
 
   {
   {
-# 166 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   qcam_set_ack(qcam, 0U);
-# 167 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   tmp___7 = qcam_await_ready1(qcam, 1);
   }
-# 167 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   if (tmp___7) {
-# 168 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
     return (-1);
   } else {
 
   }
   {
-# 169 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   tmp___8 = (*(((qcam->pport)->ops)->read_status))(qcam->pport);
-# 169 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   idata = (unsigned int )((int )tmp___8 & 240);
-# 170 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   qcam_set_ack(qcam, 1U);
-# 171 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   tmp___9 = qcam_await_ready1(qcam, 0);
   }
-# 171 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   if (tmp___9) {
-# 172 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
     return (-1);
   } else {
 
   }
   {
-# 173 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   tmp___10 = (*(((qcam->pport)->ops)->read_status))(qcam->pport);
-# 173 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   idata = idata | (unsigned int )((int )tmp___10 >> 4);
   }
-# 174 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   return ((int )idata);
 }
 }
-# 177 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
 static int qcam_write_data(struct qcam *qcam , unsigned int data )
 { struct v4l2_device *v4l2_dev ;
   unsigned int idata ;
@@ -6742,88 +5444,65 @@ static int qcam_write_data(struct qcam *qcam , unsigned int data )
 
   {
   {
-# 179 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   v4l2_dev = & qcam->v4l2_dev;
-# 182 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   (*(((qcam->pport)->ops)->write_data))(qcam->pport, (unsigned char )data);
-# 183 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   tmp___7 = qcam_read_data(qcam);
-# 183 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   idata = (unsigned int )tmp___7;
   }
-# 184 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   if (data != idata) {
     {
-# 185 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
     printk("<4>%s: sent %x but received %x\n", v4l2_dev->name, data, idata);
     }
-# 187 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
     return (1);
   } else {
 
   }
-# 189 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   return (0);
 }
 }
-# 192 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
 __inline static int qcam_set(struct qcam *qcam , unsigned int cmd , unsigned int data )
 { int tmp___7 ;
   int tmp___8 ;
 
   {
   {
-# 194 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   tmp___7 = qcam_write_data(qcam, cmd);
   }
-# 194 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   if (tmp___7) {
-# 195 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
     return (-1);
   } else {
 
   }
   {
-# 196 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   tmp___8 = qcam_write_data(qcam, data);
   }
-# 196 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   if (tmp___8) {
-# 197 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
     return (-1);
   } else {
 
   }
-# 198 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   return (0);
 }
 }
-# 201 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
 __inline static int qcam_get(struct qcam *qcam , unsigned int cmd )
 { int tmp___7 ;
   int tmp___8 ;
 
   {
   {
-# 203 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   tmp___7 = qcam_write_data(qcam, cmd);
   }
-# 203 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   if (tmp___7) {
-# 204 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
     return (-1);
   } else {
 
   }
   {
-# 205 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   tmp___8 = qcam_read_data(qcam);
   }
-# 205 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   return (tmp___8);
 }
 }
-# 208 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
 static int qc_detect(struct qcam *qcam )
 { unsigned int stat ;
   unsigned int ostat ;
@@ -6836,25 +5515,18 @@ static int qc_detect(struct qcam *qcam )
   unsigned char tmp___15 ;
 
   {
-# 210 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   count = 0U;
-# 217 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   if ((unsigned int )(qcam->pport)->probe_info[0].class == 6U) {
-# 217 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
     if ((qcam->pport)->probe_info[0].model) {
       {
-# 217 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
       tmp___7 = strcmp(((qcam->pdev)->port)->probe_info[0].model, "Color QuickCam 2.0");
       }
-# 217 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
       if (tmp___7) {
 
       } else {
         {
-# 221 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
         printk("<7>QuickCam: Found by IEEE1284 probe.\n");
         }
-# 222 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
         return (1);
       }
     } else {
@@ -6863,184 +5535,123 @@ static int qc_detect(struct qcam *qcam )
   } else {
 
   }
-# 225 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   if (probe < 2) {
-# 226 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
     return (0);
   } else {
 
   }
   {
-# 228 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   (*(((qcam->pport)->ops)->write_control))(qcam->pport, (unsigned char)12);
-# 231 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   tmp___8 = (*(((qcam->pport)->ops)->read_status))(qcam->pport);
-# 231 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   stat = (unsigned int )tmp___8;
-# 231 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   ostat = stat;
-# 232 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   i = 0U;
   }
   {
-# 232 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   while (1) {
     while_continue: ;
-# 232 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
     if (i < 250U) {
 
     } else {
-# 232 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
       goto while_break;
     }
     {
-# 233 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
     __const_udelay(4295000UL);
-# 234 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
     tmp___10 = (*(((qcam->pport)->ops)->read_status))(qcam->pport);
-# 234 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
     stat = (unsigned int )tmp___10;
     }
-# 235 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
     if (ostat != stat) {
-# 236 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
       count = count + 1U;
-# 236 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
       if (count >= 3U) {
-# 237 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
         return (1);
       } else {
 
       }
-# 238 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
       ostat = stat;
     } else {
 
     }
-# 232 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
     i = i + 1U;
   }
   while_break___1: ;
   }
   while_break:
   {
-# 243 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   (*(((qcam->pport)->ops)->write_control))(qcam->pport, (unsigned char)12);
-# 244 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   (*(((qcam->pport)->ops)->write_control))(qcam->pport, (unsigned char)8);
-# 245 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   __const_udelay(4295000UL);
-# 246 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   (*(((qcam->pport)->ops)->write_control))(qcam->pport, (unsigned char)12);
-# 247 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   __const_udelay(4295000UL);
-# 248 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   count = 0U;
-# 250 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   tmp___13 = (*(((qcam->pport)->ops)->read_status))(qcam->pport);
-# 250 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   stat = (unsigned int )tmp___13;
-# 250 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   ostat = stat;
-# 251 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   i = 0U;
   }
   {
-# 251 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   while (1) {
     while_continue___0: ;
-# 251 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
     if (i < 250U) {
 
     } else {
-# 251 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
       goto while_break___0;
     }
     {
-# 252 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
     __const_udelay(4295000UL);
-# 253 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
     tmp___15 = (*(((qcam->pport)->ops)->read_status))(qcam->pport);
-# 253 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
     stat = (unsigned int )tmp___15;
     }
-# 254 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
     if (ostat != stat) {
-# 255 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
       count = count + 1U;
-# 255 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
       if (count >= 3U) {
-# 256 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
         return (1);
       } else {
 
       }
-# 257 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
       ostat = stat;
     } else {
 
     }
-# 251 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
     i = i + 1U;
   }
   while_break___2: ;
   }
   while_break___0: ;
-# 262 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   return (0);
 }
 }
-# 265 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
 static void qc_reset(struct qcam *qcam )
 {
 
   {
   {
-# 267 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   (*(((qcam->pport)->ops)->write_control))(qcam->pport, (unsigned char)12);
-# 268 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   (*(((qcam->pport)->ops)->write_control))(qcam->pport, (unsigned char)8);
-# 269 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   __const_udelay(4295000UL);
-# 270 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   (*(((qcam->pport)->ops)->write_control))(qcam->pport, (unsigned char)12);
-# 271 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   __const_udelay(4295000UL);
   }
-# 272 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   return;
 }
 }
-# 277 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
 static void qc_setup(struct qcam *qcam )
 {
 
   {
   {
-# 279 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   qc_reset(qcam);
-# 282 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   qcam_set(qcam, 11U, (unsigned int )qcam->brightness);
-# 286 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   qcam_set(qcam, 17U, (unsigned int )qcam->ccd_height);
-# 287 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   qcam_set(qcam, 19U, (unsigned int )(qcam->ccd_width / 2));
-# 290 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   qcam_set(qcam, 13U, (unsigned int )qcam->top);
-# 291 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   qcam_set(qcam, 15U, (unsigned int )qcam->left);
-# 294 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   qcam_set(qcam, 25U, (unsigned int )qcam->contrast);
-# 295 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   qcam_set(qcam, 31U, (unsigned int )qcam->whitebal);
-# 298 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   qcam_set(qcam, 45U, 2U);
   }
-# 299 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   return;
 }
 }
-# 305 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
 static unsigned int qcam_read_bytes(struct qcam *qcam , unsigned char *buf , unsigned int nbytes )
 { unsigned int bytes ;
   unsigned int lo1 ;
@@ -7081,112 +5692,68 @@ static unsigned int qcam_read_bytes(struct qcam *qcam , unsigned char *buf , uns
 
   {
   {
-# 307 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   bytes = 0U;
-# 309 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   qcam_set_ack(qcam, 0U);
   }
-# 310 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   if (qcam->bidirectional) {
     {
-# 312 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
     while (1) {
       while_continue: ;
-# 312 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
       if (bytes < nbytes) {
 
       } else {
-# 312 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
         goto while_break;
       }
       {
-# 316 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
       tmp___7 = qcam_await_ready2(qcam, 1);
       }
-# 316 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
       if (tmp___7) {
-# 317 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
         return (bytes);
       } else {
 
       }
       {
-# 318 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
       tmp___8 = (*(((qcam->pport)->ops)->read_data))(qcam->pport);
-# 318 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
       lo1 = (unsigned int )((int )tmp___8 >> 1);
-# 319 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
       tmp___9 = (*(((qcam->pport)->ops)->read_status))(qcam->pport);
-# 319 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
       hi1 = (unsigned int )((((int )tmp___9 >> 3) & 31) ^ 16);
-# 320 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
       qcam_set_ack(qcam, 1U);
-# 321 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
       tmp___10 = qcam_await_ready2(qcam, 0);
       }
-# 321 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
       if (tmp___10) {
-# 322 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
         return (bytes);
       } else {
 
       }
       {
-# 323 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
       tmp___11 = (*(((qcam->pport)->ops)->read_data))(qcam->pport);
-# 323 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
       lo2 = (unsigned int )((int )tmp___11 >> 1);
-# 324 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
       tmp___12 = (*(((qcam->pport)->ops)->read_status))(qcam->pport);
-# 324 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
       hi2 = (unsigned int )((((int )tmp___12 >> 3) & 31) ^ 16);
-# 325 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
       qcam_set_ack(qcam, 0U);
-# 326 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
       r = (unsigned char )(lo1 | ((hi1 & 1U) << 7));
-# 327 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
       g = (unsigned char )(((hi1 & 30U) << 3) | ((hi2 & 30U) >> 1));
-# 328 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
       b = (unsigned char )(lo2 | ((hi2 & 1U) << 7));
       }
-# 329 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
       if (force_rgb) {
-# 330 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
         tmp___13 = bytes;
-# 330 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
         bytes = bytes + 1U;
-# 330 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
         *(buf + tmp___13) = r;
-# 331 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
         tmp___14 = bytes;
-# 331 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
         bytes = bytes + 1U;
-# 331 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
         *(buf + tmp___14) = g;
-# 332 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
         tmp___15 = bytes;
-# 332 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
         bytes = bytes + 1U;
-# 332 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
         *(buf + tmp___15) = b;
       } else {
-# 334 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
         tmp___16 = bytes;
-# 334 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
         bytes = bytes + 1U;
-# 334 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
         *(buf + tmp___16) = b;
-# 335 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
         tmp___17 = bytes;
-# 335 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
         bytes = bytes + 1U;
-# 335 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
         *(buf + tmp___17) = g;
-# 336 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
         tmp___18 = bytes;
-# 336 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
         bytes = bytes + 1U;
-# 336 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
         *(buf + tmp___18) = r;
       }
     }
@@ -7194,106 +5761,65 @@ static unsigned int qcam_read_bytes(struct qcam *qcam , unsigned char *buf , uns
     }
     while_break: ;
   } else {
-# 341 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
     i = 0;
-# 341 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
     n = (int )bytes;
     {
-# 344 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
     while (1) {
       while_continue___0: ;
-# 344 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
       if (bytes < nbytes) {
 
       } else {
-# 344 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
         goto while_break___0;
       }
       {
-# 347 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
       tmp___19 = qcam_await_ready1(qcam, 1);
       }
-# 347 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
       if (tmp___19) {
-# 348 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
         return (bytes);
       } else {
 
       }
       {
-# 349 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
       tmp___20 = (*(((qcam->pport)->ops)->read_status))(qcam->pport);
-# 349 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
       hi = (unsigned int )((int )tmp___20 & 240);
-# 350 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
       qcam_set_ack(qcam, 1U);
-# 351 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
       tmp___21 = qcam_await_ready1(qcam, 0);
       }
-# 351 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
       if (tmp___21) {
-# 352 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
         return (bytes);
       } else {
 
       }
       {
-# 353 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
       tmp___22 = (*(((qcam->pport)->ops)->read_status))(qcam->pport);
-# 353 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
       lo = (unsigned int )((int )tmp___22 & 240);
-# 354 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
       qcam_set_ack(qcam, 0U);
-# 356 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
       tmp___23 = bytes;
-# 356 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
       bytes = bytes + 1U;
-# 356 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
       i = (int )(tmp___23 % 3U);
-# 356 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
       rgb[i] = (unsigned char )((hi | (lo >> 4)) ^ 136U);
       }
-# 357 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
       if (i >= 2) {
         get_fragment:
-# 359 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
         if (force_rgb) {
-# 360 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
           tmp___24 = n;
-# 360 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
           n = n + 1;
-# 360 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
           *(buf + tmp___24) = rgb[0];
-# 361 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
           tmp___25 = n;
-# 361 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
           n = n + 1;
-# 361 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
           *(buf + tmp___25) = rgb[1];
-# 362 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
           tmp___26 = n;
-# 362 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
           n = n + 1;
-# 362 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
           *(buf + tmp___26) = rgb[2];
         } else {
-# 364 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
           tmp___27 = n;
-# 364 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
           n = n + 1;
-# 364 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
           *(buf + tmp___27) = rgb[2];
-# 365 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
           tmp___28 = n;
-# 365 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
           n = n + 1;
-# 365 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
           *(buf + tmp___28) = rgb[1];
-# 366 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
           tmp___29 = n;
-# 366 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
           n = n + 1;
-# 366 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
           *(buf + tmp___29) = rgb[0];
         }
       } else {
@@ -7303,21 +5829,16 @@ static unsigned int qcam_read_bytes(struct qcam *qcam , unsigned char *buf , uns
     while_break___2: ;
     }
     while_break___0: ;
-# 370 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
     if (i) {
-# 371 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
       i = 0;
-# 372 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
       goto get_fragment;
     } else {
 
     }
   }
-# 375 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   return (bytes);
 }
 }
-# 380 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
 static long qc_capture(struct qcam *qcam , char *buf , unsigned long len )
 { struct v4l2_device *v4l2_dev ;
   unsigned int lines ;
@@ -7354,140 +5875,96 @@ static long qc_capture(struct qcam *qcam , char *buf , unsigned long len )
 
   {
   {
-# 382 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   v4l2_dev = & qcam->v4l2_dev;
-# 384 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   is_bi_dir = qcam->bidirectional;
-# 385 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   outptr = (size_t )0;
-# 388 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   tmp___7 = current_thread_info();
-# 388 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   __asm__ ("add %3,%1 ; sbb %0,%0 ; cmp %1,%4 ; sbb $0,%0": "=&r" (flag), "=r" (roksum): "1" (buf),
             "g" ((long )len), "rm" (tmp___7->addr_limit.seg));
   }
-# 388 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   if (flag == 0UL) {
-# 388 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
     tmp___8 = 1;
   } else {
-# 388 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
     tmp___8 = 0;
   }
   {
-# 388 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   tmp___9 = __builtin_expect((long )tmp___8, 1L);
   }
-# 388 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   if (tmp___9) {
 
   } else {
-# 389 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
     return (-14L);
   }
   {
-# 392 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   while (1) {
     while_continue: ;
     {
-# 393 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
     tmp___10 = qcam_get(qcam, 41U);
-# 393 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
     i = tmp___10;
     }
-# 395 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
     if (i == -1) {
       {
-# 396 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
       qc_setup(qcam);
       }
-# 397 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
       return (-5L);
     } else {
 
     }
-# 399 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
     if ((i & 128) == 0) {
-# 400 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
       goto while_break;
     } else {
 
     }
     {
-# 401 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
     schedule();
     }
   }
   while_break___3: ;
   }
   while_break: ;
-# 404 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   if (is_bi_dir) {
-# 404 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
     tmp___11 = 1;
   } else {
-# 404 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
     tmp___11 = 0;
   }
   {
-# 404 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   tmp___12 = qcam_set(qcam, 7U, (unsigned int )((qcam->mode | tmp___11) + 1));
   }
-# 404 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   if (tmp___12) {
-# 405 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
     return (-5L);
   } else {
 
   }
-# 407 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   lines = (unsigned int )qcam->height;
-# 408 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   pixelsperline = (unsigned int )qcam->width;
-# 409 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   if (is_bi_dir) {
-# 409 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
     bitsperxfer = 24U;
   } else {
-# 409 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
     bitsperxfer = 8U;
   }
-# 411 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   if (is_bi_dir) {
     {
-# 413 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
     (*(((qcam->pport)->ops)->data_reverse))(qcam->pport);
-# 414 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
     __const_udelay(12885000UL);
-# 415 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
     qcam_set_ack(qcam, 0U);
-# 416 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
     tmp___14 = qcam_await_ready1(qcam, 1);
     }
-# 416 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
     if (tmp___14) {
       {
-# 417 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
       qc_setup(qcam);
       }
-# 418 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
       return (-5L);
     } else {
 
     }
     {
-# 420 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
     qcam_set_ack(qcam, 1U);
-# 421 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
     tmp___15 = qcam_await_ready1(qcam, 0);
     }
-# 421 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
     if (tmp___15) {
       {
-# 422 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
       qc_setup(qcam);
       }
-# 423 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
       return (-5L);
     } else {
 
@@ -7495,271 +5972,192 @@ static long qc_capture(struct qcam *qcam , char *buf , unsigned long len )
   } else {
 
   }
-# 427 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   wantlen = (size_t )(((lines * pixelsperline) * 24U) / 8U);
   {
-# 429 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   while (1) {
     while_continue___0: ;
-# 429 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
     if (wantlen) {
 
     } else {
-# 429 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
       goto while_break___0;
     }
-# 432 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
     if (wantlen > 150UL) {
-# 432 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
       s = (size_t )150;
     } else {
-# 432 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
       s = wantlen;
     }
     {
-# 433 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
     tmp___16 = qcam_read_bytes(qcam, (unsigned char *)(tmpbuf), (unsigned int )s);
-# 433 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
     t = (size_t )tmp___16;
     }
-# 434 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
     if (outptr < len) {
-# 435 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
       sz = len - outptr;
-# 437 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
       if (sz > t) {
-# 438 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
         sz = t;
       } else {
 
       }
       {
-# 439 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
       tmp = (int )__copy_to_user((void *)(buf + outptr), (void const *)(tmpbuf),
                                  (unsigned int )sz);
-# 439 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
       tmp___17 = tmp;
       }
-# 439 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
       if (tmp___17) {
-# 440 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
         goto while_break___0;
       } else {
 
       }
-# 441 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
       outptr = outptr + sz;
     } else {
 
     }
-# 443 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
     wantlen = wantlen - t;
-# 444 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
     if (t < s) {
-# 445 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
       goto while_break___0;
     } else {
 
     }
     {
-# 446 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
     __might_sleep("/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c",
                   446, 0);
-# 446 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
     _cond_resched();
     }
   }
   while_break___4: ;
   }
   while_break___0:
-# 449 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   len = outptr;
-# 451 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   if (wantlen) {
     {
-# 452 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
     printk("<3>%s: short read.\n", v4l2_dev->name);
     }
-# 453 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
     if (is_bi_dir) {
       {
-# 454 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
       (*(((qcam->pport)->ops)->data_forward))(qcam->pport);
       }
     } else {
 
     }
     {
-# 455 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
     qc_setup(qcam);
     }
-# 456 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
     return ((long )len);
   } else {
 
   }
-# 459 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   if (is_bi_dir) {
     {
-# 462 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
     while (1) {
       while_continue___1: ;
       {
-# 463 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
       tmp___18 = qcam_read_bytes(qcam, (unsigned char *)(tmpbuf), 3U);
-# 463 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
       l = (int )tmp___18;
-# 464 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
       __might_sleep("/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c",
                     464, 0);
-# 464 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
       _cond_resched();
       }
-# 462 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
       if (l) {
-# 462 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
         if ((int )tmpbuf[0] == 126) {
 
         } else
-# 462 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
         if ((int )tmpbuf[1] == 126) {
 
         } else
-# 462 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
         if ((int )tmpbuf[2] == 126) {
 
         } else {
-# 462 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
           goto while_break___1;
         }
       } else {
-# 462 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
         goto while_break___1;
       }
     }
     while_break___5: ;
     }
     while_break___1: ;
-# 466 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
     if (force_rgb) {
-# 467 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
       if ((int )tmpbuf[0] != 14) {
         {
-# 468 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
         printk("<3>%s: bad EOF\n", v4l2_dev->name);
         }
       } else
-# 467 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
       if ((int )tmpbuf[1] != 0) {
         {
-# 468 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
         printk("<3>%s: bad EOF\n", v4l2_dev->name);
         }
       } else
-# 467 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
       if ((int )tmpbuf[2] != 15) {
         {
-# 468 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
         printk("<3>%s: bad EOF\n", v4l2_dev->name);
         }
       } else {
 
       }
     } else
-# 470 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
     if ((int )tmpbuf[0] != 15) {
       {
-# 471 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
       printk("<3>%s: bad EOF\n", v4l2_dev->name);
       }
     } else
-# 470 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
     if ((int )tmpbuf[1] != 0) {
       {
-# 471 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
       printk("<3>%s: bad EOF\n", v4l2_dev->name);
       }
     } else
-# 470 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
     if ((int )tmpbuf[2] != 14) {
       {
-# 471 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
       printk("<3>%s: bad EOF\n", v4l2_dev->name);
       }
     } else {
 
     }
     {
-# 473 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
     qcam_set_ack(qcam, 0U);
-# 474 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
     tmp___19 = qcam_await_ready1(qcam, 1);
     }
-# 474 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
     if (tmp___19) {
       {
-# 475 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
       printk("<3>%s: no ack after EOF\n", v4l2_dev->name);
-# 476 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
       (*(((qcam->pport)->ops)->data_forward))(qcam->pport);
-# 477 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
       qc_setup(qcam);
       }
-# 478 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
       return ((long )len);
     } else {
 
     }
     {
-# 480 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
     (*(((qcam->pport)->ops)->data_forward))(qcam->pport);
-# 481 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
     __const_udelay(12885000UL);
-# 482 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
     qcam_set_ack(qcam, 1U);
-# 483 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
     tmp___21 = qcam_await_ready1(qcam, 0);
     }
-# 483 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
     if (tmp___21) {
       {
-# 484 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
       printk("<3>%s: no ack to port turnaround\n", v4l2_dev->name);
-# 485 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
       qc_setup(qcam);
       }
-# 486 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
       return ((long )len);
     } else {
 
     }
   } else {
     {
-# 491 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
     while (1) {
       while_continue___2: ;
       {
-# 492 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
       tmp___22 = qcam_read_bytes(qcam, (unsigned char *)(tmpbuf), 1U);
-# 492 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
       l___0 = (int )tmp___22;
-# 493 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
       __might_sleep("/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c",
                     493, 0);
-# 493 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
       _cond_resched();
       }
-# 491 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
       if (l___0) {
-# 491 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
         if ((int )tmpbuf[0] == 126) {
 
         } else {
-# 491 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
           goto while_break___2;
         }
       } else {
-# 491 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
         goto while_break___2;
       }
     }
@@ -7767,55 +6165,40 @@ static long qc_capture(struct qcam *qcam , char *buf , unsigned long len )
     }
     while_break___2:
     {
-# 495 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
     tmp___23 = qcam_read_bytes(qcam, (unsigned char *)(tmpbuf + 1), 2U);
-# 495 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
     l___0 = (int )tmp___23;
     }
-# 496 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
     if (force_rgb) {
-# 497 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
       if ((int )tmpbuf[0] != 14) {
         {
-# 498 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
         printk("<3>%s: bad EOF\n", v4l2_dev->name);
         }
       } else
-# 497 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
       if ((int )tmpbuf[1] != 0) {
         {
-# 498 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
         printk("<3>%s: bad EOF\n", v4l2_dev->name);
         }
       } else
-# 497 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
       if ((int )tmpbuf[2] != 15) {
         {
-# 498 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
         printk("<3>%s: bad EOF\n", v4l2_dev->name);
         }
       } else {
 
       }
     } else
-# 500 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
     if ((int )tmpbuf[0] != 15) {
       {
-# 501 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
       printk("<3>%s: bad EOF\n", v4l2_dev->name);
       }
     } else
-# 500 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
     if ((int )tmpbuf[1] != 0) {
       {
-# 501 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
       printk("<3>%s: bad EOF\n", v4l2_dev->name);
       }
     } else
-# 500 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
     if ((int )tmpbuf[2] != 14) {
       {
-# 501 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
       printk("<3>%s: bad EOF\n", v4l2_dev->name);
       }
     } else {
@@ -7823,150 +6206,105 @@ static long qc_capture(struct qcam *qcam , char *buf , unsigned long len )
     }
   }
   {
-# 505 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   qcam_write_data(qcam, 0U);
   }
-# 506 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   return ((long )len);
 }
 }
-# 513 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
 static int qcam_querycap(struct file *file , void *priv , struct v4l2_capability *vcap )
 { struct qcam *qcam ;
   void *tmp___7 ;
 
   {
   {
-# 516 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   tmp___7 = video_drvdata(file);
-# 516 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   qcam = (struct qcam *)tmp___7;
-# 518 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   strlcpy((char *)(vcap->driver), (char const *)(qcam->v4l2_dev.name), sizeof(vcap->driver));
-# 519 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   strlcpy((char *)(vcap->card), "Color Quickcam", sizeof(vcap->card));
-# 520 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   strlcpy((char *)(vcap->bus_info), "parport", sizeof(vcap->bus_info));
-# 521 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   vcap->version = (__u32 )3;
-# 522 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   vcap->capabilities = (__u32 )16777217;
   }
-# 523 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   return (0);
 }
 }
-# 526 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
 static int qcam_enum_input(struct file *file , void *fh , struct v4l2_input *vin )
 {
 
   {
-# 528 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   if (vin->index > 0U) {
-# 529 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
     return (-22);
   } else {
 
   }
   {
-# 530 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   strlcpy((char *)(vin->name), "Camera", sizeof(vin->name));
-# 531 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   vin->type = (__u32 )2;
-# 532 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   vin->audioset = (__u32 )0;
-# 533 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   vin->tuner = (__u32 )0;
-# 534 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   vin->std = (v4l2_std_id )0;
-# 535 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   vin->status = (__u32 )0;
   }
-# 536 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   return (0);
 }
 }
-# 539 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
 static int qcam_g_input(struct file *file , void *fh , unsigned int *inp )
 {
 
   {
-# 541 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   *inp = 0U;
-# 542 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   return (0);
 }
 }
-# 545 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
 static int qcam_s_input(struct file *file , void *fh , unsigned int inp )
 { int tmp___7 ;
 
   {
-# 547 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   if (inp > 0U) {
-# 547 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
     tmp___7 = -22;
   } else {
-# 547 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
     tmp___7 = 0;
   }
-# 547 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   return (tmp___7);
 }
 }
-# 550 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
 static int qcam_queryctrl(struct file *file , void *priv , struct v4l2_queryctrl *qc )
 { int tmp___7 ;
   int tmp___8 ;
   int tmp___9 ;
 
   {
-# 554 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   if ((int )qc->id == 9963776) {
-# 554 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
     goto case_9963776;
   } else
-# 556 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   if ((int )qc->id == 9963777) {
-# 556 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
     goto case_9963777;
   } else
-# 558 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   if ((int )qc->id == 9963792) {
-# 558 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
     goto case_9963792;
   } else
-# 553 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   if (0) {
     case_9963776:
     {
-# 555 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
     tmp___7 = v4l2_ctrl_query_fill(qc, 0, 255, 1, 240);
     }
-# 555 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
     return (tmp___7);
     case_9963777:
     {
-# 557 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
     tmp___8 = v4l2_ctrl_query_fill(qc, 0, 255, 1, 192);
     }
-# 557 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
     return (tmp___8);
     case_9963792:
     {
-# 559 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
     tmp___9 = v4l2_ctrl_query_fill(qc, 0, 255, 1, 128);
     }
-# 559 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
     return (tmp___9);
   } else {
 
   }
-# 561 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   return (-22);
 }
 }
-# 564 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
 static int qcam_g_ctrl(struct file *file , void *priv , struct v4l2_control *ctrl )
 { struct qcam *qcam ;
   void *tmp___7 ;
@@ -7974,61 +6312,40 @@ static int qcam_g_ctrl(struct file *file , void *priv , struct v4l2_control *ctr
 
   {
   {
-# 567 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   tmp___7 = video_drvdata(file);
-# 567 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   qcam = (struct qcam *)tmp___7;
-# 568 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   ret = 0;
   }
-# 571 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   if ((int )ctrl->id == 9963776) {
-# 571 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
     goto case_9963776;
   } else
-# 574 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   if ((int )ctrl->id == 9963777) {
-# 574 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
     goto case_9963777;
   } else
-# 577 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   if ((int )ctrl->id == 9963792) {
-# 577 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
     goto case_9963792;
   } else {
-# 580 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
     goto switch_default;
-# 570 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
     if (0) {
       case_9963776:
-# 572 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
       ctrl->value = qcam->brightness;
-# 573 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
       goto switch_break;
       case_9963777:
-# 575 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
       ctrl->value = qcam->contrast;
-# 576 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
       goto switch_break;
       case_9963792:
-# 578 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
       ctrl->value = qcam->whitebal;
-# 579 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
       goto switch_break;
       switch_default:
-# 581 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
       ret = -22;
-# 582 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
       goto switch_break;
     } else {
       switch_break: ;
     }
   }
-# 584 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   return (ret);
 }
 }
-# 587 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
 static int qcam_s_ctrl(struct file *file , void *priv , struct v4l2_control *ctrl )
 { struct qcam *qcam ;
   void *tmp___7 ;
@@ -8036,80 +6353,53 @@ static int qcam_s_ctrl(struct file *file , void *priv , struct v4l2_control *ctr
 
   {
   {
-# 590 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   tmp___7 = video_drvdata(file);
-# 590 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   qcam = (struct qcam *)tmp___7;
-# 591 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   ret = 0;
-# 593 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   mutex_lock_nested(& qcam->lock, 0U);
   }
-# 595 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   if ((int )ctrl->id == 9963776) {
-# 595 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
     goto case_9963776;
   } else
-# 598 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   if ((int )ctrl->id == 9963777) {
-# 598 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
     goto case_9963777;
   } else
-# 601 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   if ((int )ctrl->id == 9963792) {
-# 601 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
     goto case_9963792;
   } else {
-# 604 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
     goto switch_default;
-# 594 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
     if (0) {
       case_9963776:
-# 596 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
       qcam->brightness = ctrl->value;
-# 597 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
       goto switch_break;
       case_9963777:
-# 599 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
       qcam->contrast = ctrl->value;
-# 600 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
       goto switch_break;
       case_9963792:
-# 602 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
       qcam->whitebal = ctrl->value;
-# 603 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
       goto switch_break;
       switch_default:
-# 605 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
       ret = -22;
-# 606 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
       goto switch_break;
     } else {
       switch_break: ;
     }
   }
-# 608 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   if (ret == 0) {
     {
-# 609 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
     parport_claim_or_block(qcam->pdev);
-# 610 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
     qc_setup(qcam);
-# 611 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
     parport_release(qcam->pdev);
     }
   } else {
 
   }
   {
-# 613 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   mutex_unlock(& qcam->lock);
   }
-# 614 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   return (ret);
 }
 }
-# 617 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
 static int qcam_g_fmt_vid_cap(struct file *file , void *fh , struct v4l2_format *fmt )
 { struct qcam *qcam ;
   void *tmp___7 ;
@@ -8117,86 +6407,52 @@ static int qcam_g_fmt_vid_cap(struct file *file , void *fh , struct v4l2_format 
 
   {
   {
-# 619 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   tmp___7 = video_drvdata(file);
-# 619 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   qcam = (struct qcam *)tmp___7;
-# 620 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   pix = & fmt->fmt.pix;
-# 622 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   pix->width = (__u32 )qcam->width;
-# 623 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   pix->height = (__u32 )qcam->height;
-# 624 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   pix->pixelformat = ((82U | (71U << 8)) | (66U << 16)) | (51U << 24);
-# 625 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   pix->field = (enum v4l2_field )1;
-# 626 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   pix->bytesperline = (__u32 )(3 * qcam->width);
-# 627 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   pix->sizeimage = (__u32 )((3 * qcam->width) * qcam->height);
-# 629 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   pix->colorspace = (enum v4l2_colorspace )8;
   }
-# 630 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   return (0);
 }
 }
-# 633 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
 static int qcam_try_fmt_vid_cap(struct file *file , void *fh , struct v4l2_format *fmt )
 { struct v4l2_pix_format *pix ;
 
   {
-# 635 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   pix = & fmt->fmt.pix;
-# 637 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   if (pix->height < 60U) {
-# 638 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
     pix->height = (__u32 )60;
-# 639 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
     pix->width = (__u32 )80;
   } else
-# 637 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   if (pix->width < 80U) {
-# 638 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
     pix->height = (__u32 )60;
-# 639 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
     pix->width = (__u32 )80;
   } else
-# 640 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   if (pix->height < 120U) {
-# 641 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
     pix->height = (__u32 )120;
-# 642 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
     pix->width = (__u32 )160;
   } else
-# 640 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   if (pix->width < 160U) {
-# 641 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
     pix->height = (__u32 )120;
-# 642 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
     pix->width = (__u32 )160;
   } else {
-# 644 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
     pix->height = (__u32 )240;
-# 645 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
     pix->width = (__u32 )320;
   }
-# 647 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   pix->pixelformat = ((82U | (71U << 8)) | (66U << 16)) | (51U << 24);
-# 648 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   pix->field = (enum v4l2_field )1;
-# 649 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   pix->bytesperline = 3U * pix->width;
-# 650 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   pix->sizeimage = (3U * pix->width) * pix->height;
-# 652 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   pix->colorspace = (enum v4l2_colorspace )8;
-# 653 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   return (0);
 }
 }
-# 656 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
 static int qcam_s_fmt_vid_cap(struct file *file , void *fh , struct v4l2_format *fmt )
 { struct qcam *qcam ;
   void *tmp___7 ;
@@ -8206,110 +6462,72 @@ static int qcam_s_fmt_vid_cap(struct file *file , void *fh , struct v4l2_format 
 
   {
   {
-# 658 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   tmp___7 = video_drvdata(file);
-# 658 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   qcam = (struct qcam *)tmp___7;
-# 659 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   pix = & fmt->fmt.pix;
-# 660 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   tmp___8 = qcam_try_fmt_vid_cap(file, fh, fmt);
-# 660 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   ret = tmp___8;
   }
-# 662 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   if (ret) {
-# 663 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
     return (ret);
   } else {
 
   }
-# 665 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   if ((int )pix->height == 60) {
-# 665 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
     goto case_60;
   } else
-# 668 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   if ((int )pix->height == 120) {
-# 668 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
     goto case_120;
   } else {
-# 671 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
     goto switch_default;
-# 664 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
     if (0) {
       case_60:
-# 666 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
       qcam->mode = 4;
-# 667 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
       goto switch_break;
       case_120:
-# 669 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
       qcam->mode = 2;
-# 670 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
       goto switch_break;
       switch_default:
-# 672 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
       qcam->mode = 0;
-# 673 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
       goto switch_break;
     } else {
       switch_break: ;
     }
   }
   {
-# 676 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   mutex_lock_nested(& qcam->lock, 0U);
-# 677 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   qcam->mode = qcam->mode | 24;
-# 678 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   qcam->height = (int )pix->height;
-# 679 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   qcam->width = (int )pix->width;
-# 680 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   parport_claim_or_block(qcam->pdev);
-# 681 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   qc_setup(qcam);
-# 682 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   parport_release(qcam->pdev);
-# 683 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   mutex_unlock(& qcam->lock);
   }
-# 684 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   return (0);
 }
 }
-# 689 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
 static int qcam_enum_fmt_vid_cap(struct file *file , void *fh , struct v4l2_fmtdesc *fmt ) ;
-# 689 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
 static struct v4l2_fmtdesc formats[1] = { {(__u32 )0, (enum v4l2_buf_type )0, (__u32 )0, {(__u8 )'R', (__u8 )'G', (__u8 )'B',
                                                      (__u8 )' ', (__u8 )'8', (__u8 )':',
                                                      (__u8 )'8', (__u8 )':', (__u8 )'8',
                                                      (__u8 )'\000'}, ((82U | (71U << 8)) | (66U << 16)) | (51U << 24),
       {(__u32 )0, (__u32 )0, (__u32 )0, (__u32 )0}}};
-# 687 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
 static int qcam_enum_fmt_vid_cap(struct file *file , void *fh , struct v4l2_fmtdesc *fmt )
 { enum v4l2_buf_type type ;
 
   {
-# 695 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   type = fmt->type;
-# 697 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   if (fmt->index > 0U) {
-# 698 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
     return (-22);
   } else {
 
   }
-# 700 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   *fmt = formats[fmt->index];
-# 701 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   fmt->type = type;
-# 702 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   return (0);
 }
 }
-# 705 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
 static ssize_t qcam_read(struct file *file , char *buf , size_t count , loff_t *ppos )
 { struct qcam *qcam ;
   void *tmp___7 ;
@@ -8318,30 +6536,19 @@ static ssize_t qcam_read(struct file *file , char *buf , size_t count , loff_t *
 
   {
   {
-# 708 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   tmp___7 = video_drvdata(file);
-# 708 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   qcam = (struct qcam *)tmp___7;
-# 711 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   mutex_lock_nested(& qcam->lock, 0U);
-# 712 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   parport_claim_or_block(qcam->pdev);
-# 714 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   tmp___8 = qc_capture(qcam, buf, count);
-# 714 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   len = (int )tmp___8;
-# 715 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   parport_release(qcam->pdev);
-# 716 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   mutex_unlock(& qcam->lock);
   }
-# 717 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   return ((ssize_t )len);
 }
 }
-# 720 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
 static struct v4l2_file_operations const qcam_fops =
-# 720 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
      {& __this_module, & qcam_read, (ssize_t (*)(struct file * , char const * , size_t ,
                                                loff_t * ))0, (unsigned int (*)(struct file * ,
                                                                                struct poll_table_struct * ))0,
@@ -8349,9 +6556,7 @@ static struct v4l2_file_operations const qcam_fops =
     (unsigned long (*)(struct file * , unsigned long , unsigned long , unsigned long ,
                        unsigned long ))0, (int (*)(struct file * , struct vm_area_struct * ))0,
     (int (*)(struct file * ))0, (int (*)(struct file * ))0};
-# 726 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
 static struct v4l2_ioctl_ops const qcam_ioctl_ops =
-# 726 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
      {& qcam_querycap, (int (*)(struct file *file , void *fh , enum v4l2_priority *p ))0,
     (int (*)(struct file *file , void *fh , enum v4l2_priority p ))0, & qcam_enum_fmt_vid_cap,
     (int (*)(struct file *file , void *fh , struct v4l2_fmtdesc *f ))0, (int (*)(struct file *file ,
@@ -8492,9 +6697,7 @@ static struct v4l2_ioctl_ops const qcam_ioctl_ops =
                                                                                      bool valid_prio ,
                                                                                      int cmd ,
                                                                                      void *arg ))0};
-# 778 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
 static struct lock_class_key __key___5 ;
-# 742 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
 static struct qcam *qcam_init(struct parport *port )
 { struct qcam *qcam ;
   struct v4l2_device *v4l2_dev ;
@@ -8506,125 +6709,82 @@ static struct qcam *qcam_init(struct parport *port )
 
   {
   {
-# 747 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   tmp___7 = kzalloc(sizeof(*qcam), 208U);
-# 747 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   qcam = (struct qcam *)tmp___7;
   }
-# 748 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   if ((unsigned long )qcam == (unsigned long )((void *)0)) {
-# 749 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
     return ((struct qcam *)((void *)0));
   } else {
 
   }
   {
-# 751 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   v4l2_dev = & qcam->v4l2_dev;
-# 752 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   strlcpy(v4l2_dev->name, "c-qcam", sizeof(v4l2_dev->name));
-# 754 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   tmp = (int )v4l2_device_register((struct device *)((void *)0), v4l2_dev);
-# 754 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   tmp___8 = tmp;
   }
-# 754 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   if (tmp___8 < 0) {
     {
-# 755 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
     printk("<3>%s: Could not register v4l2_device\n", v4l2_dev->name);
     }
-# 756 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
     return ((struct qcam *)((void *)0));
   } else {
 
   }
   {
-# 759 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   qcam->pport = port;
-# 760 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   qcam->pdev = parport_register_device(port, "c-qcam", (int (*)(void * ))((void *)0),
                                        (void (*)(void * ))((void *)0), (void (*)(void * ))((void *)0),
                                        0, (void *)0);
   }
-# 763 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   if ((qcam->pport)->modes & (unsigned int )(1 << 1)) {
-# 763 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
     qcam->bidirectional = 1U;
   } else {
-# 763 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
     qcam->bidirectional = 0U;
   }
-# 765 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   if ((unsigned long )qcam->pdev == (unsigned long )((void *)0)) {
     {
-# 766 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
     printk("<3>%s: couldn\'t register for %s.\n", v4l2_dev->name, port->name);
-# 767 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
     kfree((void const *)qcam);
     }
-# 768 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
     return ((struct qcam *)((void *)0));
   } else {
 
   }
   {
-# 771 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   strlcpy(qcam->vdev.name, "Colour QuickCam", sizeof(qcam->vdev.name));
-# 772 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   qcam->vdev.v4l2_dev = v4l2_dev;
-# 773 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   qcam->vdev.fops = & qcam_fops;
-# 774 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   qcam->vdev.ioctl_ops = & qcam_ioctl_ops;
-# 775 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   qcam->vdev.release = & video_device_release_empty;
-# 776 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   video_set_drvdata(& qcam->vdev, (void *)qcam);
   }
   {
-# 778 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   while (1) {
     while_continue: ;
     {
-# 778 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
     __mutex_init(& qcam->lock, "&qcam->lock", & __key___5);
     }
-# 778 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
     goto while_break;
   }
   while_break___0: ;
   }
   while_break:
-# 779 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   tmp___9 = 320;
-# 779 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   qcam->ccd_width = tmp___9;
-# 779 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   qcam->width = tmp___9;
-# 780 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   tmp___10 = 240;
-# 780 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   qcam->ccd_height = tmp___10;
-# 780 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   qcam->height = tmp___10;
-# 781 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   qcam->mode = 24;
-# 782 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   qcam->contrast = 192;
-# 783 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   qcam->brightness = 240;
-# 784 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   qcam->whitebal = 128;
-# 785 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   qcam->top = 1;
-# 786 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   qcam->left = 14;
-# 787 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   return (qcam);
 }
 }
-# 790 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
 static int init_cqcam(struct parport *port )
 { struct qcam *qcam ;
   struct v4l2_device *v4l2_dev ;
@@ -8637,45 +6797,32 @@ static int init_cqcam(struct parport *port )
   int tmp ;
 
   {
-# 795 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   if (parport[0] != -1) {
-# 797 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
     found = 0;
-# 799 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
     i = 0;
     {
-# 799 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
     while (1) {
       while_continue: ;
-# 799 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
       if (i < 4) {
-# 799 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
         if (parport[i] != -1) {
 
         } else {
-# 799 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
           goto while_break;
         }
       } else {
-# 799 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
         goto while_break;
       }
-# 800 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
       if (parport[0] == port->number) {
-# 801 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
         found = 1;
       } else {
 
       }
-# 799 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
       i = i + 1;
     }
     while_break___0: ;
     }
     while_break: ;
-# 803 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
     if (! found) {
-# 804 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
       return (-19);
     } else {
 
@@ -8683,49 +6830,34 @@ static int init_cqcam(struct parport *port )
   } else {
 
   }
-# 807 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   if (num_cams == 4U) {
-# 808 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
     return (-28);
   } else {
 
   }
   {
-# 810 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   qcam = qcam_init(port);
   }
-# 811 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   if ((unsigned long )qcam == (unsigned long )((void *)0)) {
-# 812 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
     return (-19);
   } else {
 
   }
   {
-# 814 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   v4l2_dev = & qcam->v4l2_dev;
-# 816 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   parport_claim_or_block(qcam->pdev);
-# 818 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   qc_reset(qcam);
   }
-# 820 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   if (probe) {
     {
-# 820 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
     tmp___7 = qc_detect(qcam);
     }
-# 820 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
     if (tmp___7 == 0) {
       {
-# 821 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
       parport_release(qcam->pdev);
-# 822 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
       parport_unregister_device(qcam->pdev);
-# 823 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
       kfree((void const *)qcam);
       }
-# 824 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
       return (-19);
     } else {
 
@@ -8734,132 +6866,91 @@ static int init_cqcam(struct parport *port )
 
   }
   {
-# 827 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   qc_setup(qcam);
-# 829 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   parport_release(qcam->pdev);
-# 831 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   tmp = (int )video_register_device(& qcam->vdev, 0, video_nr);
-# 831 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   tmp___8 = tmp;
   }
-# 831 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   if (tmp___8 < 0) {
     {
-# 832 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
     printk("<3>%s: Unable to register Colour QuickCam on %s\n", v4l2_dev->name, (qcam->pport)->name);
-# 834 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
     parport_unregister_device(qcam->pdev);
-# 835 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
     kfree((void const *)qcam);
     }
-# 836 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
     return (-19);
   } else {
 
   }
   {
-# 839 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   tmp___9 = video_device_node_name(& qcam->vdev);
-# 839 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   printk("<6>%s: %s: Colour QuickCam found on %s\n", v4l2_dev->name, tmp___9, (qcam->pport)->name);
-# 842 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   tmp___10 = num_cams;
-# 842 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   num_cams = num_cams + 1U;
-# 842 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   qcams[tmp___10] = qcam;
   }
-# 844 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   return (0);
 }
 }
-# 847 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
 static void close_cqcam(struct qcam *qcam )
 {
 
   {
   {
-# 849 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   video_unregister_device(& qcam->vdev);
-# 850 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   parport_unregister_device(qcam->pdev);
-# 851 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   kfree((void const *)qcam);
   }
-# 852 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   return;
 }
 }
-# 854 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
 static void cq_attach(struct parport *port )
 {
 
   {
   {
-# 856 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   init_cqcam(port);
   }
-# 857 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   return;
 }
 }
-# 859 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
 static void cq_detach(struct parport *port )
 {
 
   {
-# 862 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   return;
 }
 }
-# 864 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
 static struct parport_driver cqcam_driver = {"cqcam", & cq_attach, & cq_detach, {(struct list_head *)0, (struct list_head *)0}};
-# 870 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
 static int cqcam_init(void) __attribute__((__section__(".init.text"), __no_instrument_function__)) ;
-# 870 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
 static int cqcam_init(void) __attribute__((__section__(".init.text"), __no_instrument_function__)) ;
-# 870 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
 static int cqcam_init(void)
 { int tmp___7 ;
 
   {
   {
-# 872 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   printk("<6>Colour QuickCam for Video4Linux v0.06\n");
-# 874 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   tmp___7 = parport_register_driver(& cqcam_driver);
   }
-# 874 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   return (tmp___7);
 }
 }
-# 877 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
 static void cqcam_cleanup(void) __attribute__((__section__(".exit.text"), __no_instrument_function__)) ;
-# 877 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
 static void cqcam_cleanup(void) __attribute__((__section__(".exit.text"), __no_instrument_function__)) ;
-# 877 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
 static void cqcam_cleanup(void)
 { unsigned int i ;
 
   {
-# 881 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   i = 0U;
   {
-# 881 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   while (1) {
     while_continue: ;
-# 881 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
     if (i < num_cams) {
 
     } else {
-# 881 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
       goto while_break;
     }
     {
-# 882 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
     close_cqcam(qcams[i]);
-# 881 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
     i = i + 1U;
     }
   }
@@ -8867,17 +6958,13 @@ static void cqcam_cleanup(void)
   }
   while_break:
   {
-# 884 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   parport_unregister_driver(& cqcam_driver);
   }
-# 885 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   return;
 }
 }
-# 887 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
 static char const __mod_author887[39] __attribute__((__used__, __unused__, __section__(".modinfo"),
 __aligned__(1))) =
-# 887 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   { (char const )'a', (char const )'u', (char const )'t', (char const )'h',
         (char const )'o', (char const )'r', (char const )'=', (char const )'P',
         (char const )'h', (char const )'i', (char const )'l', (char const )'i',
@@ -8888,10 +6975,8 @@ __aligned__(1))) =
         (char const )'b', (char const )'@', (char const )'g', (char const )'n',
         (char const )'u', (char const )'.', (char const )'o', (char const )'r',
         (char const )'g', (char const )'>', (char const )'\000'};
-# 888 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
 static char const __mod_description888[50] __attribute__((__used__, __unused__,
 __section__(".modinfo"), __aligned__(1))) =
-# 888 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   { (char const )'d', (char const )'e', (char const )'s', (char const )'c',
         (char const )'r', (char const )'i', (char const )'p', (char const )'t',
         (char const )'i', (char const )'o', (char const )'n', (char const )'=',
@@ -8905,48 +6990,35 @@ __section__(".modinfo"), __aligned__(1))) =
         (char const )'n', (char const )'u', (char const )'x', (char const )' ',
         (char const )'v', (char const )'0', (char const )'.', (char const )'0',
         (char const )'6', (char const )'\000'};
-# 889 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
 static char const __mod_license889[12] __attribute__((__used__, __unused__, __section__(".modinfo"),
 __aligned__(1))) =
-# 889 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   { (char const )'l', (char const )'i', (char const )'c', (char const )'e',
         (char const )'n', (char const )'s', (char const )'e', (char const )'=',
         (char const )'G', (char const )'P', (char const )'L', (char const )'\000'};
-# 891 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
 int init_module(void)
 { int tmp___7 ;
 
   {
   {
-# 891 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   tmp___7 = cqcam_init();
   }
-# 891 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   return (tmp___7);
 }
 }
-# 892 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
 void cleanup_module(void)
 {
 
   {
   {
-# 892 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   cqcam_cleanup();
   }
-# 892 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   return;
 }
 }
-# 910 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
 void ldv_check_final_state(void) __attribute__((__ldv_model__)) ;
-# 916 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
 extern void ldv_initialize(void) ;
-# 919 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
 extern int __VERIFIER_nondet_int(void) ;
-# 922 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
 int LDV_IN_INTERRUPT ;
-# 925 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
 int main(void)
 { struct file *var_group1 ;
   char *var_qcam_read_25_p1 ;
@@ -8981,213 +7053,144 @@ int main(void)
 
   {
   {
-# 1165 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   LDV_IN_INTERRUPT = 1;
-# 1174 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   ldv_initialize();
-# 1190 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   tmp___7 = cqcam_init();
   }
-# 1190 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   if (tmp___7) {
-# 1191 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
     goto ldv_final;
   } else {
 
   }
   {
-# 1199 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   while (1) {
     while_continue: ;
     {
-# 1199 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
     tmp___9 = __VERIFIER_nondet_int();
     }
-# 1199 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
     if (tmp___9) {
 
     } else {
-# 1199 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
       goto while_break;
     }
     {
-# 1202 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
     tmp___8 = __VERIFIER_nondet_int();
     }
-# 1204 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
     if (tmp___8 == 0) {
-# 1204 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
       goto case_0;
     } else
-# 1230 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
     if (tmp___8 == 1) {
-# 1230 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
       goto case_1;
     } else
-# 1256 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
     if (tmp___8 == 2) {
-# 1256 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
       goto case_2;
     } else
-# 1282 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
     if (tmp___8 == 3) {
-# 1282 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
       goto case_3;
     } else
-# 1308 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
     if (tmp___8 == 4) {
-# 1308 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
       goto case_4;
     } else
-# 1334 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
     if (tmp___8 == 5) {
-# 1334 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
       goto case_5;
     } else
-# 1360 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
     if (tmp___8 == 6) {
-# 1360 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
       goto case_6;
     } else
-# 1386 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
     if (tmp___8 == 7) {
-# 1386 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
       goto case_7;
     } else
-# 1412 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
     if (tmp___8 == 8) {
-# 1412 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
       goto case_8;
     } else
-# 1438 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
     if (tmp___8 == 9) {
-# 1438 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
       goto case_9;
     } else
-# 1464 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
     if (tmp___8 == 10) {
-# 1464 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
       goto case_10;
     } else
-# 1490 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
     if (tmp___8 == 11) {
-# 1490 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
       goto case_11;
     } else
-# 1516 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
     if (tmp___8 == 12) {
-# 1516 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
       goto case_12;
     } else
-# 1542 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
     if (tmp___8 == 13) {
-# 1542 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
       goto case_13;
     } else {
-# 1568 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
       goto switch_default;
-# 1202 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
       if (0) {
         case_0:
         {
-# 1222 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
         qcam_read(var_group1, var_qcam_read_25_p1, var_qcam_read_25_p2, var_qcam_read_25_p3);
         }
-# 1229 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
         goto switch_break;
         case_1:
         {
-# 1248 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
         qcam_querycap(var_group1, var_qcam_querycap_14_p1, var_qcam_querycap_14_p2);
         }
-# 1255 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
         goto switch_break;
         case_2:
         {
-# 1274 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
         qcam_g_input(var_group1, var_qcam_g_input_16_p1, var_qcam_g_input_16_p2);
         }
-# 1281 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
         goto switch_break;
         case_3:
         {
-# 1300 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
         qcam_s_input(var_group1, var_qcam_s_input_17_p1, var_qcam_s_input_17_p2);
         }
-# 1307 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
         goto switch_break;
         case_4:
         {
-# 1326 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
         qcam_enum_input(var_group1, var_qcam_enum_input_15_p1, var_qcam_enum_input_15_p2);
         }
-# 1333 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
         goto switch_break;
         case_5:
         {
-# 1352 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
         qcam_queryctrl(var_group1, var_qcam_queryctrl_18_p1, var_qcam_queryctrl_18_p2);
         }
-# 1359 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
         goto switch_break;
         case_6:
         {
-# 1378 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
         qcam_g_ctrl(var_group1, var_qcam_g_ctrl_19_p1, var_qcam_g_ctrl_19_p2);
         }
-# 1385 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
         goto switch_break;
         case_7:
         {
-# 1404 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
         qcam_s_ctrl(var_group1, var_qcam_s_ctrl_20_p1, var_qcam_s_ctrl_20_p2);
         }
-# 1411 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
         goto switch_break;
         case_8:
         {
-# 1430 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
         qcam_enum_fmt_vid_cap(var_group1, var_qcam_enum_fmt_vid_cap_24_p1, var_qcam_enum_fmt_vid_cap_24_p2);
         }
-# 1437 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
         goto switch_break;
         case_9:
         {
-# 1456 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
         qcam_g_fmt_vid_cap(var_group1, var_qcam_g_fmt_vid_cap_21_p1, var_qcam_g_fmt_vid_cap_21_p2);
         }
-# 1463 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
         goto switch_break;
         case_10:
         {
-# 1482 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
         qcam_s_fmt_vid_cap(var_group1, var_qcam_s_fmt_vid_cap_23_p1, var_qcam_s_fmt_vid_cap_23_p2);
         }
-# 1489 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
         goto switch_break;
         case_11:
         {
-# 1508 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
         qcam_try_fmt_vid_cap(var_group1, var_qcam_try_fmt_vid_cap_22_p1, var_qcam_try_fmt_vid_cap_22_p2);
         }
-# 1515 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
         goto switch_break;
         case_12:
         {
-# 1534 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
         cq_attach(var_group2);
         }
-# 1541 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
         goto switch_break;
         case_13:
         {
-# 1560 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
         cq_detach(var_group2);
         }
-# 1567 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
         goto switch_break;
         switch_default:
-# 1568 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
         goto switch_break;
       } else {
         switch_break: ;
@@ -9198,19 +7201,15 @@ int main(void)
   }
   while_break:
   {
-# 1590 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   cqcam_cleanup();
   }
   ldv_final:
   {
-# 1593 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   ldv_check_final_state();
   }
-# 1596 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/drivers/media/video/c-qcam.c.common.c"
   return 0;
 }
 }
-# 5 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/kernel-rules/files/engine-blast-assert.h"
 void ldv_blast_assert(void)
 {
 
@@ -9218,39 +7217,26 @@ void ldv_blast_assert(void)
   ERROR: __VERIFIER_error();
 }
 }
-# 7 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/kernel-rules/files/engine-blast.h"
 extern void *ldv_undefined_pointer(void) ;
-# 1332 "include/linux/usb.h"
 struct urb *usb_alloc_urb(int iso_packets , gfp_t mem_flags ) __attribute__((__ldv_model__)) ;
-# 1333 "include/linux/usb.h"
 void usb_free_urb(struct urb *urb ) __attribute__((__ldv_model__)) ;
-# 1377 "include/linux/usb.h"
 void *usb_alloc_coherent(struct usb_device *dev , size_t size , gfp_t mem_flags ,
                          dma_addr_t *dma ) __attribute__((__ldv_model__)) ;
-# 1379 "include/linux/usb.h"
 void usb_free_coherent(struct usb_device *dev , size_t size , void *addr , dma_addr_t dma ) __attribute__((__ldv_model__)) ;
-# 10 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/kernel-rules/files/model0068.c"
 void ldv_assume_stop(void) __attribute__((__ldv_model_inline__)) ;
-# 22 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/kernel-rules/files/model0068.c"
 void ldv_assume_stop(void) __attribute__((__ldv_model_inline__)) ;
-# 22 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/kernel-rules/files/model0068.c"
 void ldv_assume_stop(void)
 {
 
   {
   LDV_STOP:
-# 23 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/kernel-rules/files/model0068.c"
   goto LDV_STOP;
 }
 }
-# 29 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/kernel-rules/files/model0068.c"
 int ldv_urb_state = 0;
-# 31 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/kernel-rules/files/model0068.c"
 int ldv_coherent_state = 0;
-# 62 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/kernel-rules/files/model0068.c"
 void *usb_alloc_coherent(struct usb_device *dev , size_t size , gfp_t mem_flags ,
                          dma_addr_t *dma ) __attribute__((__ldv_model__)) ;
-# 62 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/kernel-rules/files/model0068.c"
 void *usb_alloc_coherent(struct usb_device *dev , size_t size , gfp_t mem_flags ,
                          dma_addr_t *dma )
 { void *arbitrary_memory ;
@@ -9258,193 +7244,144 @@ void *usb_alloc_coherent(struct usb_device *dev , size_t size , gfp_t mem_flags 
 
   {
   {
-# 64 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/kernel-rules/files/model0068.c"
   while (1) {
     while_continue: ;
     {
-# 64 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/kernel-rules/files/model0068.c"
     tmp___7 = ldv_undefined_pointer();
-# 64 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/kernel-rules/files/model0068.c"
     arbitrary_memory = tmp___7;
     }
-# 64 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/kernel-rules/files/model0068.c"
     if (! arbitrary_memory) {
-# 64 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/kernel-rules/files/model0068.c"
       return ((void *)0);
     } else {
 
     }
-# 64 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/kernel-rules/files/model0068.c"
     ldv_coherent_state = ldv_coherent_state + 1;
-# 64 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/kernel-rules/files/model0068.c"
     return (arbitrary_memory);
-# 64 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/kernel-rules/files/model0068.c"
     goto while_break;
   }
   while_break___0: ;
   }
   while_break: ;
-# 65 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/kernel-rules/files/model0068.c"
   return ((void *)0);
 }
 }
-# 68 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/kernel-rules/files/model0068.c"
 void usb_free_coherent(struct usb_device *dev , size_t size , void *addr , dma_addr_t dma ) __attribute__((__ldv_model__)) ;
-# 68 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/kernel-rules/files/model0068.c"
 void usb_free_coherent(struct usb_device *dev , size_t size , void *addr , dma_addr_t dma )
 {
 
   {
   {
-# 70 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/kernel-rules/files/model0068.c"
   while (1) {
     while_continue: ;
-# 70 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/kernel-rules/files/model0068.c"
     if (! ((unsigned long )addr != (unsigned long )((void *)0))) {
       {
-# 70 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/kernel-rules/files/model0068.c"
       ldv_assume_stop();
       }
     } else {
 
     }
-# 70 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/kernel-rules/files/model0068.c"
     if (addr) {
-# 70 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/kernel-rules/files/model0068.c"
       if (ldv_coherent_state >= 1) {
 
       } else {
         {
-# 70 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/kernel-rules/files/model0068.c"
         ldv_blast_assert();
         }
       }
-# 70 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/kernel-rules/files/model0068.c"
       ldv_coherent_state = ldv_coherent_state - 1;
     } else {
 
     }
-# 70 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/kernel-rules/files/model0068.c"
     goto while_break;
   }
   while_break___0: ;
   }
   while_break: ;
-# 71 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/kernel-rules/files/model0068.c"
   return;
 }
 }
-# 74 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/kernel-rules/files/model0068.c"
 struct urb *usb_alloc_urb(int iso_packets , gfp_t mem_flags ) __attribute__((__ldv_model__)) ;
-# 74 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/kernel-rules/files/model0068.c"
 struct urb *usb_alloc_urb(int iso_packets , gfp_t mem_flags )
 { void *arbitrary_memory ;
   void *tmp___7 ;
 
   {
   {
-# 75 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/kernel-rules/files/model0068.c"
   while (1) {
     while_continue: ;
     {
-# 75 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/kernel-rules/files/model0068.c"
     tmp___7 = ldv_undefined_pointer();
-# 75 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/kernel-rules/files/model0068.c"
     arbitrary_memory = tmp___7;
     }
-# 75 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/kernel-rules/files/model0068.c"
     if (! arbitrary_memory) {
-# 75 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/kernel-rules/files/model0068.c"
       return ((struct urb *)((void *)0));
     } else {
 
     }
-# 75 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/kernel-rules/files/model0068.c"
     ldv_urb_state = ldv_urb_state + 1;
-# 75 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/kernel-rules/files/model0068.c"
     return ((struct urb *)arbitrary_memory);
-# 75 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/kernel-rules/files/model0068.c"
     goto while_break;
   }
   while_break___0: ;
   }
   while_break: ;
-# 76 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/kernel-rules/files/model0068.c"
   return ((struct urb *)0);
 }
 }
-# 79 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/kernel-rules/files/model0068.c"
 void usb_free_urb(struct urb *urb ) __attribute__((__ldv_model__)) ;
-# 79 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/kernel-rules/files/model0068.c"
 void usb_free_urb(struct urb *urb )
 {
 
   {
   {
-# 80 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/kernel-rules/files/model0068.c"
   while (1) {
     while_continue: ;
-# 80 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/kernel-rules/files/model0068.c"
     if (! ((unsigned long )urb != (unsigned long )((struct urb *)0))) {
       {
-# 80 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/kernel-rules/files/model0068.c"
       ldv_assume_stop();
       }
     } else {
 
     }
-# 80 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/kernel-rules/files/model0068.c"
     if (urb) {
-# 80 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/kernel-rules/files/model0068.c"
       if (ldv_urb_state >= 1) {
 
       } else {
         {
-# 80 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/kernel-rules/files/model0068.c"
         ldv_blast_assert();
         }
       }
-# 80 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/kernel-rules/files/model0068.c"
       ldv_urb_state = ldv_urb_state - 1;
     } else {
 
     }
-# 80 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/kernel-rules/files/model0068.c"
     goto while_break;
   }
   while_break___0: ;
   }
   while_break: ;
-# 81 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/kernel-rules/files/model0068.c"
   return;
 }
 }
-# 84 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/kernel-rules/files/model0068.c"
 void ldv_check_final_state(void) __attribute__((__ldv_model__)) ;
-# 84 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/kernel-rules/files/model0068.c"
 void ldv_check_final_state(void)
 {
 
   {
-# 86 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/kernel-rules/files/model0068.c"
   if (ldv_urb_state == 0) {
 
   } else {
     {
-# 86 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/kernel-rules/files/model0068.c"
     ldv_blast_assert();
     }
   }
-# 88 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/kernel-rules/files/model0068.c"
   if (ldv_coherent_state == 0) {
 
   } else {
     {
-# 88 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/kernel-rules/files/model0068.c"
     ldv_blast_assert();
     }
   }
-# 89 "/anthill/stuff/tacas-comp/work/current--X--drivers/media/video/c-qcam.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/11/dscv_tempdir/dscv/ri/68_1/kernel-rules/files/model0068.c"
   return;
 }
 }

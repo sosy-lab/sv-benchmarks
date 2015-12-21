@@ -1,13 +1,5 @@
-# 1 "newton.c"
-# 1 "<built-in>" 1
-# 1 "<built-in>" 3
-# 170 "<built-in>" 3
-# 1 "<command line>" 1
-# 1 "<built-in>" 2
-# 1 "newton.c" 2
 extern void __VERIFIER_error(void);
 extern void __VERIFIER_assume(int);
-# 33 "newton.c"
 float f(float x)
 {
   return x - (x*x*x)/6.0f + (x*x*x*x*x)/120.0f + (x*x*x*x*x*x*x)/5040.0f;

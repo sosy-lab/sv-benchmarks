@@ -1,13 +1,5 @@
-# 1 "sine.c"
-# 1 "<built-in>" 1
-# 1 "<built-in>" 3
-# 170 "<built-in>" 3
-# 1 "<command line>" 1
-# 1 "<built-in>" 2
-# 1 "sine.c" 2
 extern void __VERIFIER_error(void);
 extern void __VERIFIER_assume(int);
-# 27 "sine.c"
 int main()
 {
   float IN;

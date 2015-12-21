@@ -1,9 +1,5 @@
 extern void __VERIFIER_error() __attribute__ ((__noreturn__));
 
-# 1 "files/volatile_alias.c"
-# 1 "<built-in>"
-# 1 "<command-line>"
-# 1 "files/volatile_alias.c"
 
 
 

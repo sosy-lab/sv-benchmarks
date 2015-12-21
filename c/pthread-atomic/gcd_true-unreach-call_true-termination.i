@@ -1,12 +1,5 @@
 extern void __VERIFIER_error(void) __attribute__ ((__noreturn__));
 extern void __VERIFIER_assume(int);
-# 1 "gcd_true-unreach-call_true-termination.c"
-# 1 "<built-in>"
-# 1 "<command-line>"
-# 1 "/usr/include/stdc-predef.h" 1 3 4
-# 1 "<command-line>" 2
-# 1 "gcd_true-unreach-call_true-termination.c"
-# 75 "gcd_true-unreach-call_true-termination.c"
 
 void __VERIFIER_assert(int cond) {
   if (!(cond)) {
@@ -17,38 +10,12 @@ void __VERIFIER_assert(int cond) {
 
 extern unsigned int __VERIFIER_nondet_uint();
 
-# 1 "/usr/include/pthread.h" 1 3 4
-# 21 "/usr/include/pthread.h" 3 4
-# 1 "/usr/include/features.h" 1 3 4
-# 374 "/usr/include/features.h" 3 4
-# 1 "/usr/include/sys/cdefs.h" 1 3 4
-# 385 "/usr/include/sys/cdefs.h" 3 4
-# 1 "/usr/include/bits/wordsize.h" 1 3 4
-# 386 "/usr/include/sys/cdefs.h" 2 3 4
-# 375 "/usr/include/features.h" 2 3 4
-# 398 "/usr/include/features.h" 3 4
-# 1 "/usr/include/gnu/stubs.h" 1 3 4
 
 
 
 
 
 
-# 1 "/usr/include/gnu/stubs-32.h" 1 3 4
-# 8 "/usr/include/gnu/stubs.h" 2 3 4
-# 399 "/usr/include/features.h" 2 3 4
-# 22 "/usr/include/pthread.h" 2 3 4
-# 1 "/usr/include/endian.h" 1 3 4
-# 36 "/usr/include/endian.h" 3 4
-# 1 "/usr/include/bits/endian.h" 1 3 4
-# 37 "/usr/include/endian.h" 2 3 4
-# 60 "/usr/include/endian.h" 3 4
-# 1 "/usr/include/bits/byteswap.h" 1 3 4
-# 27 "/usr/include/bits/byteswap.h" 3 4
-# 1 "/usr/include/bits/types.h" 1 3 4
-# 27 "/usr/include/bits/types.h" 3 4
-# 1 "/usr/include/bits/wordsize.h" 1 3 4
-# 28 "/usr/include/bits/types.h" 2 3 4
 
 
 typedef unsigned char __u_char;
@@ -78,9 +45,6 @@ __extension__ typedef unsigned long long int __uint64_t;
 
 __extension__ typedef long long int __quad_t;
 __extension__ typedef unsigned long long int __u_quad_t;
-# 121 "/usr/include/bits/types.h" 3 4
-# 1 "/usr/include/bits/typesizes.h" 1 3 4
-# 122 "/usr/include/bits/types.h" 2 3 4
 
 
 __extension__ typedef __u_quad_t __dev_t;
@@ -149,55 +113,37 @@ __extension__ typedef int __intptr_t;
 
 
 __extension__ typedef unsigned int __socklen_t;
-# 28 "/usr/include/bits/byteswap.h" 2 3 4
-# 1 "/usr/include/bits/wordsize.h" 1 3 4
-# 29 "/usr/include/bits/byteswap.h" 2 3 4
 
 
 
 
 
 
-# 1 "/usr/include/bits/byteswap-16.h" 1 3 4
-# 36 "/usr/include/bits/byteswap.h" 2 3 4
-# 44 "/usr/include/bits/byteswap.h" 3 4
 static __inline unsigned int
 __bswap_32 (unsigned int __bsx)
 {
   return __builtin_bswap32 (__bsx);
 }
-# 108 "/usr/include/bits/byteswap.h" 3 4
 static __inline __uint64_t
 __bswap_64 (__uint64_t __bsx)
 {
   return __builtin_bswap64 (__bsx);
 }
-# 61 "/usr/include/endian.h" 2 3 4
-# 23 "/usr/include/pthread.h" 2 3 4
-# 1 "/usr/include/sched.h" 1 3 4
-# 28 "/usr/include/sched.h" 3 4
-# 1 "/usr/lib/gcc/x86_64-linux-gnu/4.9/include/stddef.h" 1 3 4
-# 212 "/usr/lib/gcc/x86_64-linux-gnu/4.9/include/stddef.h" 3 4
 typedef unsigned int size_t;
-# 29 "/usr/include/sched.h" 2 3 4
 
 
 
-# 1 "/usr/include/time.h" 1 3 4
-# 73 "/usr/include/time.h" 3 4
 
 
 typedef __time_t time_t;
 
 
 
-# 120 "/usr/include/time.h" 3 4
 struct timespec
   {
     __time_t tv_sec;
     __syscall_slong_t tv_nsec;
   };
-# 33 "/usr/include/sched.h" 2 3 4
 
 
 typedef __pid_t pid_t;
@@ -206,15 +152,12 @@ typedef __pid_t pid_t;
 
 
 
-# 1 "/usr/include/bits/sched.h" 1 3 4
-# 72 "/usr/include/bits/sched.h" 3 4
 struct sched_param
   {
     int __sched_priority;
   };
 
 
-# 95 "/usr/include/bits/sched.h" 3 4
 
 
 
@@ -227,7 +170,6 @@ struct __sched_param
   {
     int __sched_priority;
   };
-# 118 "/usr/include/bits/sched.h" 3 4
 typedef unsigned long int __cpu_mask;
 
 
@@ -239,7 +181,6 @@ typedef struct
 {
   __cpu_mask __bits[1024 / (8 * sizeof (__cpu_mask))];
 } cpu_set_t;
-# 201 "/usr/include/bits/sched.h" 3 4
 
 
 extern int __sched_cpucount (size_t __setsize, const cpu_set_t *__setp)
@@ -248,7 +189,6 @@ extern cpu_set_t *__sched_cpualloc (size_t __count) __attribute__ ((__nothrow__ 
 extern void __sched_cpufree (cpu_set_t *__set) __attribute__ ((__nothrow__ , __leaf__));
 
 
-# 42 "/usr/include/sched.h" 2 3 4
 
 
 
@@ -280,11 +220,6 @@ extern int sched_get_priority_min (int __algorithm) __attribute__ ((__nothrow__ 
 
 
 extern int sched_rr_get_interval (__pid_t __pid, struct timespec *__t) __attribute__ ((__nothrow__ , __leaf__));
-# 124 "/usr/include/sched.h" 3 4
-
-# 24 "/usr/include/pthread.h" 2 3 4
-# 1 "/usr/include/time.h" 1 3 4
-# 29 "/usr/include/time.h" 3 4
 
 
 
@@ -293,25 +228,18 @@ extern int sched_rr_get_interval (__pid_t __pid, struct timespec *__t) __attribu
 
 
 
-# 1 "/usr/lib/gcc/x86_64-linux-gnu/4.9/include/stddef.h" 1 3 4
-# 38 "/usr/include/time.h" 2 3 4
 
 
 
-# 1 "/usr/include/bits/time.h" 1 3 4
-# 42 "/usr/include/time.h" 2 3 4
-# 57 "/usr/include/time.h" 3 4
+
 
 
 typedef __clock_t clock_t;
 
 
 
-# 91 "/usr/include/time.h" 3 4
 typedef __clockid_t clockid_t;
-# 103 "/usr/include/time.h" 3 4
 typedef __timer_t timer_t;
-# 131 "/usr/include/time.h" 3 4
 
 
 struct tm
@@ -350,7 +278,6 @@ struct itimerspec
 
 
 struct sigevent;
-# 186 "/usr/include/time.h" 3 4
 
 
 
@@ -374,9 +301,6 @@ extern size_t strftime (char *__restrict __s, size_t __maxsize,
    const char *__restrict __format,
    const struct tm *__restrict __tp) __attribute__ ((__nothrow__ , __leaf__));
 
-# 221 "/usr/include/time.h" 3 4
-# 1 "/usr/include/xlocale.h" 1 3 4
-# 27 "/usr/include/xlocale.h" 3 4
 typedef struct __locale_struct
 {
 
@@ -393,13 +317,11 @@ typedef struct __locale_struct
 
 
 typedef __locale_t locale_t;
-# 222 "/usr/include/time.h" 2 3 4
 
 extern size_t strftime_l (char *__restrict __s, size_t __maxsize,
      const char *__restrict __format,
      const struct tm *__restrict __tp,
      __locale_t __loc) __attribute__ ((__nothrow__ , __leaf__));
-# 236 "/usr/include/time.h" 3 4
 
 
 
@@ -469,7 +391,6 @@ extern long int timezone;
 
 
 extern int stime (const time_t *__when) __attribute__ ((__nothrow__ , __leaf__));
-# 319 "/usr/include/time.h" 3 4
 extern time_t timegm (struct tm *__tp) __attribute__ ((__nothrow__ , __leaf__));
 
 
@@ -477,7 +398,6 @@ extern time_t timelocal (struct tm *__tp) __attribute__ ((__nothrow__ , __leaf__
 
 
 extern int dysize (int __year) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__));
-# 334 "/usr/include/time.h" 3 4
 extern int nanosleep (const struct timespec *__requested_time,
         struct timespec *__remaining);
 
@@ -525,15 +445,8 @@ extern int timer_gettime (timer_t __timerid, struct itimerspec *__value)
 
 
 extern int timer_getoverrun (timer_t __timerid) __attribute__ ((__nothrow__ , __leaf__));
-# 430 "/usr/include/time.h" 3 4
 
-# 25 "/usr/include/pthread.h" 2 3 4
 
-# 1 "/usr/include/bits/pthreadtypes.h" 1 3 4
-# 21 "/usr/include/bits/pthreadtypes.h" 3 4
-# 1 "/usr/include/bits/wordsize.h" 1 3 4
-# 22 "/usr/include/bits/pthreadtypes.h" 2 3 4
-# 60 "/usr/include/bits/pthreadtypes.h" 3 4
 typedef unsigned long int pthread_t;
 
 
@@ -544,7 +457,6 @@ union pthread_attr_t
 };
 
 typedef union pthread_attr_t pthread_attr_t;
-# 81 "/usr/include/bits/pthreadtypes.h" 3 4
 typedef struct __pthread_internal_slist
 {
   struct __pthread_internal_slist *__next;
@@ -639,7 +551,6 @@ typedef int pthread_once_t;
 
 typedef union
 {
-# 194 "/usr/include/bits/pthreadtypes.h" 3 4
   struct
   {
     int __lock;
@@ -687,16 +598,7 @@ typedef union
   char __size[4];
   int __align;
 } pthread_barrierattr_t;
-# 27 "/usr/include/pthread.h" 2 3 4
-# 1 "/usr/include/bits/setjmp.h" 1 3 4
-# 26 "/usr/include/bits/setjmp.h" 3 4
-# 1 "/usr/include/bits/wordsize.h" 1 3 4
-# 27 "/usr/include/bits/setjmp.h" 2 3 4
-# 35 "/usr/include/bits/setjmp.h" 3 4
 typedef int __jmp_buf[6];
-# 28 "/usr/include/pthread.h" 2 3 4
-# 1 "/usr/include/bits/wordsize.h" 1 3 4
-# 29 "/usr/include/pthread.h" 2 3 4
 
 
 
@@ -750,7 +652,6 @@ enum
   PTHREAD_PRIO_INHERIT,
   PTHREAD_PRIO_PROTECT
 };
-# 125 "/usr/include/pthread.h" 3 4
 enum
 {
   PTHREAD_RWLOCK_PREFER_READER_NP,
@@ -758,7 +659,6 @@ enum
   PTHREAD_RWLOCK_PREFER_WRITER_NONRECURSIVE_NP,
   PTHREAD_RWLOCK_DEFAULT_NP = PTHREAD_RWLOCK_PREFER_READER_NP
 };
-# 166 "/usr/include/pthread.h" 3 4
 enum
 {
   PTHREAD_INHERIT_SCHED,
@@ -786,7 +686,6 @@ enum
   PTHREAD_PROCESS_SHARED
 
 };
-# 201 "/usr/include/pthread.h" 3 4
 struct _pthread_cleanup_buffer
 {
   void (*__routine) (void *);
@@ -810,7 +709,6 @@ enum
   PTHREAD_CANCEL_ASYNCHRONOUS
 
 };
-# 239 "/usr/include/pthread.h" 3 4
 
 
 
@@ -834,7 +732,6 @@ extern void pthread_exit (void *__retval) __attribute__ ((__noreturn__));
 
 
 extern int pthread_join (pthread_t __th, void **__thread_return);
-# 282 "/usr/include/pthread.h" 3 4
 extern int pthread_detach (pthread_t __th) __attribute__ ((__nothrow__ , __leaf__));
 
 
@@ -955,7 +852,6 @@ extern int pthread_attr_getstack (const pthread_attr_t *__restrict __attr,
 
 extern int pthread_attr_setstack (pthread_attr_t *__attr, void *__stackaddr,
       size_t __stacksize) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1)));
-# 440 "/usr/include/pthread.h" 3 4
 extern int pthread_setschedparam (pthread_t __target_thread, int __policy,
       const struct sched_param *__param)
      __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (3)));
@@ -969,10 +865,8 @@ extern int pthread_getschedparam (pthread_t __target_thread,
 
 extern int pthread_setschedprio (pthread_t __target_thread, int __prio)
      __attribute__ ((__nothrow__ , __leaf__));
-# 505 "/usr/include/pthread.h" 3 4
 extern int pthread_once (pthread_once_t *__once_control,
     void (*__init_routine) (void)) __attribute__ ((__nonnull__ (1, 2)));
-# 517 "/usr/include/pthread.h" 3 4
 extern int pthread_setcancelstate (int __state, int *__oldstate);
 
 
@@ -999,7 +893,6 @@ typedef struct
   } __cancel_jmp_buf[1];
   void *__pad[4];
 } __pthread_unwind_buf_t __attribute__ ((__aligned__));
-# 551 "/usr/include/pthread.h" 3 4
 struct __pthread_cleanup_frame
 {
   void (*__cancel_routine) (void *);
@@ -1007,13 +900,10 @@ struct __pthread_cleanup_frame
   int __do_it;
   int __cancel_type;
 };
-# 691 "/usr/include/pthread.h" 3 4
 extern void __pthread_register_cancel (__pthread_unwind_buf_t *__buf)
      __attribute__ ((__regparm__ (1)));
-# 703 "/usr/include/pthread.h" 3 4
 extern void __pthread_unregister_cancel (__pthread_unwind_buf_t *__buf)
   __attribute__ ((__regparm__ (1)));
-# 744 "/usr/include/pthread.h" 3 4
 extern void __pthread_unwind_next (__pthread_unwind_buf_t *__buf)
      __attribute__ ((__regparm__ (1))) __attribute__ ((__noreturn__))
 
@@ -1076,7 +966,6 @@ extern int pthread_mutex_setprioceiling (pthread_mutex_t *__restrict __mutex,
 
 extern int pthread_mutex_consistent (pthread_mutex_t *__mutex)
      __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1)));
-# 817 "/usr/include/pthread.h" 3 4
 extern int pthread_mutexattr_init (pthread_mutexattr_t *__attr)
      __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1)));
 
@@ -1146,7 +1035,6 @@ extern int pthread_mutexattr_getrobust (const pthread_mutexattr_t *__attr,
 extern int pthread_mutexattr_setrobust (pthread_mutexattr_t *__attr,
      int __robustness)
      __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1)));
-# 899 "/usr/include/pthread.h" 3 4
 extern int pthread_rwlock_init (pthread_rwlock_t *__restrict __rwlock,
     const pthread_rwlockattr_t *__restrict
     __attr) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1)));
@@ -1251,7 +1139,6 @@ extern int pthread_cond_broadcast (pthread_cond_t *__cond)
 extern int pthread_cond_wait (pthread_cond_t *__restrict __cond,
          pthread_mutex_t *__restrict __mutex)
      __attribute__ ((__nonnull__ (1, 2)));
-# 1011 "/usr/include/pthread.h" 3 4
 extern int pthread_cond_timedwait (pthread_cond_t *__restrict __cond,
        pthread_mutex_t *__restrict __mutex,
        const struct timespec *__restrict __abstime)
@@ -1288,7 +1175,6 @@ extern int pthread_condattr_getclock (const pthread_condattr_t *
 extern int pthread_condattr_setclock (pthread_condattr_t *__attr,
           __clockid_t __clock_id)
      __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1)));
-# 1055 "/usr/include/pthread.h" 3 4
 extern int pthread_spin_init (pthread_spinlock_t *__lock, int __pshared)
      __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1)));
 
@@ -1345,7 +1231,6 @@ extern int pthread_barrierattr_getpshared (const pthread_barrierattr_t *
 extern int pthread_barrierattr_setpshared (pthread_barrierattr_t *__attr,
         int __pshared)
      __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1)));
-# 1122 "/usr/include/pthread.h" 3 4
 extern int pthread_key_create (pthread_key_t *__key,
           void (*__destr_function) (void *))
      __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1)));
@@ -1366,13 +1251,10 @@ extern int pthread_setspecific (pthread_key_t __key,
 extern int pthread_getcpuclockid (pthread_t __thread_id,
       __clockid_t *__clock_id)
      __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (2)));
-# 1156 "/usr/include/pthread.h" 3 4
 extern int pthread_atfork (void (*__prepare) (void),
       void (*__parent) (void),
       void (*__child) (void)) __attribute__ ((__nothrow__ , __leaf__));
-# 1170 "/usr/include/pthread.h" 3 4
 
-# 85 "gcd_true-unreach-call_true-termination.c" 2
 
 unsigned a, b;
 
