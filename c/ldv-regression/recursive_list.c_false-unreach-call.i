@@ -1,10 +1,5 @@
 extern void __VERIFIER_error() __attribute__ ((__noreturn__));
 
-# 1 "files/recursive_list.c"
-# 1 "<built-in>"
-# 1 "<command-line>"
-# 1 "files/recursive_list.c"
-# 9 "files/recursive_list.c"
 
 typedef unsigned int size_t;
 extern  __attribute__((__nothrow__)) void *malloc(size_t __size ) __attribute__((__malloc__));

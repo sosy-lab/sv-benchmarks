@@ -1,7 +1,3 @@
-# 1 "sep40_true-unreach-call.c"
-# 1 "<command-line>"
-# 1 "sep40_true-unreach-call.c"
-# 16 "sep40_true-unreach-call.c"
 extern void __VERIFIER_error() __attribute__ ((__noreturn__));
 
 int sep (int x[40])

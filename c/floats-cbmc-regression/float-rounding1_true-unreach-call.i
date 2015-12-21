@@ -1,65 +1,28 @@
-# 1 "float-rounding1_true-unreach-call.c"
-# 1 "<built-in>"
-# 1 "<command-line>"
-# 1 "/usr/include/stdc-predef.h" 1 3 4
-# 1 "<command-line>" 2
-# 1 "float-rounding1_true-unreach-call.c"
 extern void __VERIFIER_assume(int);
 extern void __VERIFIER_error(void);
 
-# 1 "/usr/include/math.h" 1 3 4
-# 26 "/usr/include/math.h" 3 4
-# 1 "/usr/include/features.h" 1 3 4
-# 374 "/usr/include/features.h" 3 4
-# 1 "/usr/include/sys/cdefs.h" 1 3 4
-# 385 "/usr/include/sys/cdefs.h" 3 4
-# 1 "/usr/include/bits/wordsize.h" 1 3 4
-# 386 "/usr/include/sys/cdefs.h" 2 3 4
-# 375 "/usr/include/features.h" 2 3 4
-# 398 "/usr/include/features.h" 3 4
-# 1 "/usr/include/gnu/stubs.h" 1 3 4
 
 
 
 
 
 
-# 1 "/usr/include/gnu/stubs-32.h" 1 3 4
-# 8 "/usr/include/gnu/stubs.h" 2 3 4
-# 399 "/usr/include/features.h" 2 3 4
-# 27 "/usr/include/math.h" 2 3 4
 
 
 
 
 
-# 1 "/usr/include/bits/huge_val.h" 1 3 4
-# 33 "/usr/include/math.h" 2 3 4
-
-# 1 "/usr/include/bits/huge_valf.h" 1 3 4
-# 35 "/usr/include/math.h" 2 3 4
-# 1 "/usr/include/bits/huge_vall.h" 1 3 4
-# 36 "/usr/include/math.h" 2 3 4
-
-
-# 1 "/usr/include/bits/inf.h" 1 3 4
-# 39 "/usr/include/math.h" 2 3 4
-
-
-# 1 "/usr/include/bits/nan.h" 1 3 4
-# 42 "/usr/include/math.h" 2 3 4
 
 
 
-# 1 "/usr/include/bits/mathdef.h" 1 3 4
-# 35 "/usr/include/bits/mathdef.h" 3 4
+
+
+
+
+
 typedef long double float_t;
 
 typedef long double double_t;
-# 46 "/usr/include/math.h" 2 3 4
-# 69 "/usr/include/math.h" 3 4
-# 1 "/usr/include/bits/mathcalls.h" 1 3 4
-# 52 "/usr/include/bits/mathcalls.h" 3 4
 
 
 extern double acos (double __x) __attribute__ ((__nothrow__ , __leaf__)); extern double __acos (double __x) __attribute__ ((__nothrow__ , __leaf__));
@@ -86,7 +49,6 @@ extern double sinh (double __x) __attribute__ ((__nothrow__ , __leaf__)); extern
 
 extern double tanh (double __x) __attribute__ ((__nothrow__ , __leaf__)); extern double __tanh (double __x) __attribute__ ((__nothrow__ , __leaf__));
 
-# 86 "/usr/include/bits/mathcalls.h" 3 4
 
 
 extern double acosh (double __x) __attribute__ ((__nothrow__ , __leaf__)); extern double __acosh (double __x) __attribute__ ((__nothrow__ , __leaf__));
@@ -118,7 +80,6 @@ extern double log10 (double __x) __attribute__ ((__nothrow__ , __leaf__)); exter
 
 extern double modf (double __x, double *__iptr) __attribute__ ((__nothrow__ , __leaf__)); extern double __modf (double __x, double *__iptr) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (2)));
 
-# 126 "/usr/include/bits/mathcalls.h" 3 4
 
 
 extern double expm1 (double __x) __attribute__ ((__nothrow__ , __leaf__)); extern double __expm1 (double __x) __attribute__ ((__nothrow__ , __leaf__));
@@ -354,12 +315,7 @@ extern double fma (double __x, double __y, double __z) __attribute__ ((__nothrow
 
 
 
-# 371 "/usr/include/bits/mathcalls.h" 3 4
 extern double scalb (double __x, double __n) __attribute__ ((__nothrow__ , __leaf__)); extern double __scalb (double __x, double __n) __attribute__ ((__nothrow__ , __leaf__));
-# 70 "/usr/include/math.h" 2 3 4
-# 88 "/usr/include/math.h" 3 4
-# 1 "/usr/include/bits/mathcalls.h" 1 3 4
-# 52 "/usr/include/bits/mathcalls.h" 3 4
 
 
 extern float acosf (float __x) __attribute__ ((__nothrow__ , __leaf__)); extern float __acosf (float __x) __attribute__ ((__nothrow__ , __leaf__));
@@ -386,7 +342,6 @@ extern float sinhf (float __x) __attribute__ ((__nothrow__ , __leaf__)); extern 
 
 extern float tanhf (float __x) __attribute__ ((__nothrow__ , __leaf__)); extern float __tanhf (float __x) __attribute__ ((__nothrow__ , __leaf__));
 
-# 86 "/usr/include/bits/mathcalls.h" 3 4
 
 
 extern float acoshf (float __x) __attribute__ ((__nothrow__ , __leaf__)); extern float __acoshf (float __x) __attribute__ ((__nothrow__ , __leaf__));
@@ -418,7 +373,6 @@ extern float log10f (float __x) __attribute__ ((__nothrow__ , __leaf__)); extern
 
 extern float modff (float __x, float *__iptr) __attribute__ ((__nothrow__ , __leaf__)); extern float __modff (float __x, float *__iptr) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (2)));
 
-# 126 "/usr/include/bits/mathcalls.h" 3 4
 
 
 extern float expm1f (float __x) __attribute__ ((__nothrow__ , __leaf__)); extern float __expm1f (float __x) __attribute__ ((__nothrow__ , __leaf__));
@@ -654,12 +608,7 @@ extern float fmaf (float __x, float __y, float __z) __attribute__ ((__nothrow__ 
 
 
 
-# 371 "/usr/include/bits/mathcalls.h" 3 4
 extern float scalbf (float __x, float __n) __attribute__ ((__nothrow__ , __leaf__)); extern float __scalbf (float __x, float __n) __attribute__ ((__nothrow__ , __leaf__));
-# 89 "/usr/include/math.h" 2 3 4
-# 132 "/usr/include/math.h" 3 4
-# 1 "/usr/include/bits/mathcalls.h" 1 3 4
-# 52 "/usr/include/bits/mathcalls.h" 3 4
 
 
 extern long double acosl (long double __x) __attribute__ ((__nothrow__ , __leaf__)); extern long double __acosl (long double __x) __attribute__ ((__nothrow__ , __leaf__));
@@ -686,7 +635,6 @@ extern long double sinhl (long double __x) __attribute__ ((__nothrow__ , __leaf_
 
 extern long double tanhl (long double __x) __attribute__ ((__nothrow__ , __leaf__)); extern long double __tanhl (long double __x) __attribute__ ((__nothrow__ , __leaf__));
 
-# 86 "/usr/include/bits/mathcalls.h" 3 4
 
 
 extern long double acoshl (long double __x) __attribute__ ((__nothrow__ , __leaf__)); extern long double __acoshl (long double __x) __attribute__ ((__nothrow__ , __leaf__));
@@ -718,7 +666,6 @@ extern long double log10l (long double __x) __attribute__ ((__nothrow__ , __leaf
 
 extern long double modfl (long double __x, long double *__iptr) __attribute__ ((__nothrow__ , __leaf__)); extern long double __modfl (long double __x, long double *__iptr) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (2)));
 
-# 126 "/usr/include/bits/mathcalls.h" 3 4
 
 
 extern long double expm1l (long double __x) __attribute__ ((__nothrow__ , __leaf__)); extern long double __expm1l (long double __x) __attribute__ ((__nothrow__ , __leaf__));
@@ -954,12 +901,8 @@ extern long double fmal (long double __x, long double __y, long double __z) __at
 
 
 
-# 371 "/usr/include/bits/mathcalls.h" 3 4
 extern long double scalbl (long double __x, long double __n) __attribute__ ((__nothrow__ , __leaf__)); extern long double __scalbl (long double __x, long double __n) __attribute__ ((__nothrow__ , __leaf__));
-# 133 "/usr/include/math.h" 2 3 4
-# 148 "/usr/include/math.h" 3 4
 extern int signgam;
-# 189 "/usr/include/math.h" 3 4
 enum
   {
     FP_NAN =
@@ -978,7 +921,6 @@ enum
 
       4
   };
-# 301 "/usr/include/math.h" 3 4
 typedef enum
 {
   _IEEE_ = -1,
@@ -992,7 +934,6 @@ typedef enum
 
 
 extern _LIB_VERSION_TYPE _LIB_VERSION;
-# 326 "/usr/include/math.h" 3 4
 struct exception
 
   {
@@ -1007,13 +948,7 @@ struct exception
 
 
 extern int matherr (struct exception *__exc);
-# 488 "/usr/include/math.h" 3 4
 
-# 5 "float-rounding1_true-unreach-call.c" 2
-# 1 "/usr/include/fenv.h" 1 3 4
-# 57 "/usr/include/fenv.h" 3 4
-# 1 "/usr/include/bits/fenv.h" 1 3 4
-# 24 "/usr/include/bits/fenv.h" 3 4
 enum
   {
     FE_INVALID =
@@ -1085,7 +1020,6 @@ typedef struct
 
   }
 fenv_t;
-# 58 "/usr/include/fenv.h" 2 3 4
 
 
 
@@ -1138,9 +1072,7 @@ extern int fesetenv (const fenv_t *__envp) __attribute__ ((__nothrow__ , __leaf_
 
 
 extern int feupdateenv (const fenv_t *__envp) __attribute__ ((__nothrow__ , __leaf__));
-# 133 "/usr/include/fenv.h" 3 4
 
-# 6 "float-rounding1_true-unreach-call.c" 2
 
 float __VERIFIER_nondet_float();
 

@@ -1,9 +1,5 @@
 extern void __VERIFIER_error() __attribute__ ((__noreturn__));
 
-# 1 "./implicitunsignedconversion_unsafe.c"
-# 1 "<eingebaut>"
-# 1 "<Kommandozeile>"
-# 1 "./implicitunsignedconversion_unsafe.c"
 int main() {
   unsigned int plus_one = 1;
   int minus_one = -1;

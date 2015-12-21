@@ -1,158 +1,85 @@
 extern void __VERIFIER_error() __attribute__ ((__noreturn__));
 
-# 1 "ldv/68_1/drivers/vhost/vhost_net.ko/safe.cil.out.i"
-# 1 "<built-in>"
-# 1 "<command-line>"
-# 1 "ldv/68_1/drivers/vhost/vhost_net.ko/safe.cil.out.i"
-# 19 "include/asm-generic/int-ll64.h"
 typedef signed char __s8;
-# 20 "include/asm-generic/int-ll64.h"
 typedef unsigned char __u8;
-# 22 "include/asm-generic/int-ll64.h"
 typedef short __s16;
-# 23 "include/asm-generic/int-ll64.h"
 typedef unsigned short __u16;
-# 25 "include/asm-generic/int-ll64.h"
 typedef int __s32;
-# 26 "include/asm-generic/int-ll64.h"
 typedef unsigned int __u32;
-# 29 "include/asm-generic/int-ll64.h"
 typedef long long __s64;
-# 30 "include/asm-generic/int-ll64.h"
 typedef unsigned long long __u64;
-# 43 "include/asm-generic/int-ll64.h"
 typedef unsigned char u8;
-# 46 "include/asm-generic/int-ll64.h"
 typedef unsigned short u16;
-# 48 "include/asm-generic/int-ll64.h"
 typedef int s32;
-# 49 "include/asm-generic/int-ll64.h"
 typedef unsigned int u32;
-# 51 "include/asm-generic/int-ll64.h"
 typedef long long s64;
-# 52 "include/asm-generic/int-ll64.h"
 typedef unsigned long long u64;
-# 11 "include/asm-generic/types.h"
 typedef unsigned short umode_t;
-# 11 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/posix_types_64.h"
 typedef unsigned int __kernel_mode_t;
-# 12 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/posix_types_64.h"
 typedef unsigned long __kernel_nlink_t;
-# 13 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/posix_types_64.h"
 typedef long __kernel_off_t;
-# 14 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/posix_types_64.h"
 typedef int __kernel_pid_t;
-# 16 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/posix_types_64.h"
 typedef unsigned int __kernel_uid_t;
-# 17 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/posix_types_64.h"
 typedef unsigned int __kernel_gid_t;
-# 18 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/posix_types_64.h"
 typedef unsigned long __kernel_size_t;
-# 19 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/posix_types_64.h"
 typedef long __kernel_ssize_t;
-# 21 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/posix_types_64.h"
 typedef long __kernel_time_t;
-# 23 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/posix_types_64.h"
 typedef long __kernel_clock_t;
-# 24 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/posix_types_64.h"
 typedef int __kernel_timer_t;
-# 25 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/posix_types_64.h"
 typedef int __kernel_clockid_t;
-# 32 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/posix_types_64.h"
 typedef long long __kernel_loff_t;
-# 41 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/posix_types_64.h"
 typedef __kernel_uid_t __kernel_uid32_t;
-# 42 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/posix_types_64.h"
 typedef __kernel_gid_t __kernel_gid32_t;
-# 21 "include/linux/types.h"
 typedef __u32 __kernel_dev_t;
-# 24 "include/linux/types.h"
 typedef __kernel_dev_t dev_t;
-# 26 "include/linux/types.h"
 typedef __kernel_mode_t mode_t;
-# 27 "include/linux/types.h"
 typedef __kernel_nlink_t nlink_t;
-# 28 "include/linux/types.h"
 typedef __kernel_off_t off_t;
-# 29 "include/linux/types.h"
 typedef __kernel_pid_t pid_t;
-# 34 "include/linux/types.h"
 typedef __kernel_clockid_t clockid_t;
-# 37 "include/linux/types.h"
 typedef _Bool bool;
-# 39 "include/linux/types.h"
 typedef __kernel_uid32_t uid_t;
-# 40 "include/linux/types.h"
 typedef __kernel_gid32_t gid_t;
-# 53 "include/linux/types.h"
 typedef __kernel_loff_t loff_t;
-# 62 "include/linux/types.h"
 typedef __kernel_size_t size_t;
-# 67 "include/linux/types.h"
 typedef __kernel_ssize_t ssize_t;
-# 77 "include/linux/types.h"
 typedef __kernel_time_t time_t;
-# 110 "include/linux/types.h"
 typedef __s32 int32_t;
-# 116 "include/linux/types.h"
 typedef __u32 uint32_t;
-# 141 "include/linux/types.h"
 typedef unsigned long sector_t;
-# 142 "include/linux/types.h"
 typedef unsigned long blkcnt_t;
-# 154 "include/linux/types.h"
 typedef u64 dma_addr_t;
-# 177 "include/linux/types.h"
 typedef __u16 __le16;
-# 201 "include/linux/types.h"
 typedef unsigned int gfp_t;
-# 202 "include/linux/types.h"
 typedef unsigned int fmode_t;
-# 205 "include/linux/types.h"
 typedef u64 phys_addr_t;
-# 212 "include/linux/types.h"
 struct __anonstruct_atomic_t_7 {
    int counter ;
 };
-# 212 "include/linux/types.h"
 typedef struct __anonstruct_atomic_t_7 atomic_t;
-# 217 "include/linux/types.h"
 struct __anonstruct_atomic64_t_8 {
    long counter ;
 };
-# 217 "include/linux/types.h"
 typedef struct __anonstruct_atomic64_t_8 atomic64_t;
-# 222 "include/linux/types.h"
 struct list_head {
    struct list_head *next ;
    struct list_head *prev ;
 };
-# 226 "include/linux/types.h"
 struct hlist_node;
-# 226 "include/linux/types.h"
 struct hlist_head {
    struct hlist_node *first ;
 };
-# 230 "include/linux/types.h"
 struct hlist_node {
    struct hlist_node *next ;
    struct hlist_node **pprev ;
 };
-# 12 "include/linux/file.h"
 struct file;
-# 17 "include/linux/file.h"
 struct file_operations;
-# 18 "include/linux/file.h"
 struct vfsmount;
-# 19 "include/linux/file.h"
 struct dentry;
-# 20 "include/linux/file.h"
 struct path;
-# 12 "include/linux/thread_info.h"
 struct timespec;
-# 13 "include/linux/thread_info.h"
 struct compat_timespec;
-# 18 "include/linux/thread_info.h"
 struct __anonstruct_futex_10 {
    u32 *uaddr ;
    u32 val ;
@@ -161,16 +88,13 @@ struct __anonstruct_futex_10 {
    u64 time ;
    u32 *uaddr2 ;
 };
-# 18 "include/linux/thread_info.h"
 struct __anonstruct_nanosleep_11 {
    clockid_t clockid ;
    struct timespec *rmtp ;
    struct compat_timespec *compat_rmtp ;
    u64 expires ;
 };
-# 18 "include/linux/thread_info.h"
 struct pollfd;
-# 18 "include/linux/thread_info.h"
 struct __anonstruct_poll_12 {
    struct pollfd *ufds ;
    int nfds ;
@@ -178,28 +102,20 @@ struct __anonstruct_poll_12 {
    unsigned long tv_sec ;
    unsigned long tv_nsec ;
 };
-# 18 "include/linux/thread_info.h"
 union __anonunion____missing_field_name_9 {
    struct __anonstruct_futex_10 futex ;
    struct __anonstruct_nanosleep_11 nanosleep ;
    struct __anonstruct_poll_12 poll ;
 };
-# 18 "include/linux/thread_info.h"
 struct restart_block {
    long (*fn)(struct restart_block * ) ;
    union __anonunion____missing_field_name_9 __annonCompField4 ;
 };
-# 59 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/alternative.h"
 struct module;
-# 18 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/page.h"
 struct page;
-# 20 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/thread_info.h"
 struct task_struct;
-# 21 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/thread_info.h"
 struct exec_domain;
-# 8 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/processor.h"
 struct mm_struct;
-# 99 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/ptrace.h"
 struct pt_regs {
    unsigned long r15 ;
    unsigned long r14 ;
@@ -223,9 +139,7 @@ struct pt_regs {
    unsigned long sp ;
    unsigned long ss ;
 };
-# 145 "include/linux/init.h"
 typedef void (*ctor_fn_t)(void);
-# 141 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/vm86.h"
 struct kernel_vm86_regs {
    struct pt_regs pt ;
    unsigned short es ;
@@ -237,17 +151,14 @@ struct kernel_vm86_regs {
    unsigned short gs ;
    unsigned short __gsh ;
 };
-# 11 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/math_emu.h"
 union __anonunion____missing_field_name_13 {
    struct pt_regs *regs ;
    struct kernel_vm86_regs *vm86 ;
 };
-# 11 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/math_emu.h"
 struct math_emu_info {
    long ___orig_eip ;
    union __anonunion____missing_field_name_13 __annonCompField5 ;
 };
-# 16 "include/linux/dynamic_debug.h"
 struct _ddebug {
    char const *modname ;
    char const *function ;
@@ -257,43 +168,30 @@ struct _ddebug {
    unsigned int flags : 8 ;
    char enabled ;
 } __attribute__((__aligned__(8))) ;
-# 10 "include/asm-generic/bug.h"
 struct bug_entry {
    int bug_addr_disp ;
    int file_disp ;
    unsigned short line ;
    unsigned short flags ;
 };
-# 113 "include/linux/kernel.h"
 struct completion;
-# 322 "include/linux/kernel.h"
 struct pid;
-# 13 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/pgtable_64_types.h"
 typedef unsigned long pgdval_t;
-# 14 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/pgtable_64_types.h"
 typedef unsigned long pgprotval_t;
-# 190 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/pgtable_types.h"
 struct pgprot {
    pgprotval_t pgprot ;
 };
-# 190 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/pgtable_types.h"
 typedef struct pgprot pgprot_t;
-# 192 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/pgtable_types.h"
 struct __anonstruct_pgd_t_17 {
    pgdval_t pgd ;
 };
-# 192 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/pgtable_types.h"
 typedef struct __anonstruct_pgd_t_17 pgd_t;
-# 280 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/pgtable_types.h"
 typedef struct page *pgtable_t;
-# 311 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/pgtable_types.h"
 struct seq_file;
-# 22 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/desc_defs.h"
 struct __anonstruct____missing_field_name_22 {
    unsigned int a ;
    unsigned int b ;
 };
-# 22 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/desc_defs.h"
 struct __anonstruct____missing_field_name_23 {
    u16 limit0 ;
    u16 base0 ;
@@ -309,32 +207,22 @@ struct __anonstruct____missing_field_name_23 {
    unsigned int g : 1 ;
    unsigned int base2 : 8 ;
 };
-# 22 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/desc_defs.h"
 union __anonunion____missing_field_name_21 {
    struct __anonstruct____missing_field_name_22 __annonCompField7 ;
    struct __anonstruct____missing_field_name_23 __annonCompField8 ;
 };
-# 22 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/desc_defs.h"
 struct desc_struct {
    union __anonunion____missing_field_name_21 __annonCompField9 ;
 } __attribute__((__packed__)) ;
-# 46 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/paravirt_types.h"
 struct thread_struct;
-# 52 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/paravirt_types.h"
 struct cpumask;
-# 322 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/paravirt_types.h"
 struct arch_spinlock;
-# 13 "include/linux/cpumask.h"
 struct cpumask {
    unsigned long bits[((4096UL + 8UL * sizeof(long )) - 1UL) / (8UL * sizeof(long ))] ;
 };
-# 13 "include/linux/cpumask.h"
 typedef struct cpumask cpumask_t;
-# 622 "include/linux/cpumask.h"
 typedef struct cpumask *cpumask_var_t;
-# 91 "include/linux/personality.h"
 struct map_segment;
-# 91 "include/linux/personality.h"
 struct exec_domain {
    char const *name ;
    void (*handler)(int , struct pt_regs * ) ;
@@ -349,9 +237,7 @@ struct exec_domain {
    struct module *module ;
    struct exec_domain *next ;
 };
-# 145 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/processor.h"
 struct seq_operations;
-# 280 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/processor.h"
 struct i387_fsave_struct {
    u32 cwd ;
    u32 swd ;
@@ -363,29 +249,24 @@ struct i387_fsave_struct {
    u32 st_space[20] ;
    u32 status ;
 };
-# 296 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/processor.h"
 struct __anonstruct____missing_field_name_31 {
    u64 rip ;
    u64 rdp ;
 };
-# 296 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/processor.h"
 struct __anonstruct____missing_field_name_32 {
    u32 fip ;
    u32 fcs ;
    u32 foo ;
    u32 fos ;
 };
-# 296 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/processor.h"
 union __anonunion____missing_field_name_30 {
    struct __anonstruct____missing_field_name_31 __annonCompField12 ;
    struct __anonstruct____missing_field_name_32 __annonCompField13 ;
 };
-# 296 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/processor.h"
 union __anonunion____missing_field_name_33 {
    u32 padding1[12] ;
    u32 sw_reserved[12] ;
 };
-# 296 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/processor.h"
 struct i387_fxsave_struct {
    u16 cwd ;
    u16 swd ;
@@ -399,7 +280,6 @@ struct i387_fxsave_struct {
    u32 padding[12] ;
    union __anonunion____missing_field_name_33 __annonCompField15 ;
 } __attribute__((__aligned__(16))) ;
-# 331 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/processor.h"
 struct i387_soft_struct {
    u32 cwd ;
    u32 swd ;
@@ -418,38 +298,30 @@ struct i387_soft_struct {
    struct math_emu_info *info ;
    u32 entry_eip ;
 };
-# 351 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/processor.h"
 struct ymmh_struct {
    u32 ymmh_space[64] ;
 };
-# 356 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/processor.h"
 struct xsave_hdr_struct {
    u64 xstate_bv ;
    u64 reserved1[2] ;
    u64 reserved2[5] ;
 } __attribute__((__packed__)) ;
-# 362 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/processor.h"
 struct xsave_struct {
    struct i387_fxsave_struct i387 ;
    struct xsave_hdr_struct xsave_hdr ;
    struct ymmh_struct ymmh ;
 } __attribute__((__packed__, __aligned__(64))) ;
-# 369 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/processor.h"
 union thread_xstate {
    struct i387_fsave_struct fsave ;
    struct i387_fxsave_struct fxsave ;
    struct i387_soft_struct soft ;
    struct xsave_struct xsave ;
 };
-# 376 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/processor.h"
 struct fpu {
    union thread_xstate *state ;
 };
-# 421 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/processor.h"
 struct kmem_cache;
-# 423 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/processor.h"
 struct perf_event;
-# 425 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/processor.h"
 struct thread_struct {
    struct desc_struct tls_array[3] ;
    unsigned long sp0 ;
@@ -472,15 +344,11 @@ struct thread_struct {
    unsigned long iopl ;
    unsigned int io_bitmap_max ;
 };
-# 620 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/processor.h"
 struct __anonstruct_mm_segment_t_35 {
    unsigned long seg ;
 };
-# 620 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/processor.h"
 typedef struct __anonstruct_mm_segment_t_35 mm_segment_t;
-# 23 "include/asm-generic/atomic-long.h"
 typedef atomic64_t atomic_long_t;
-# 26 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/thread_info.h"
 struct thread_info {
    struct task_struct *task ;
    struct exec_domain *exec_domain ;
@@ -493,36 +361,27 @@ struct thread_info {
    void *sysenter_return ;
    int uaccess_err ;
 };
-# 8 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/spinlock_types.h"
 struct arch_spinlock {
    unsigned int slock ;
 };
-# 8 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/spinlock_types.h"
 typedef struct arch_spinlock arch_spinlock_t;
-# 14 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/spinlock_types.h"
 struct __anonstruct_arch_rwlock_t_36 {
    unsigned int lock ;
 };
-# 14 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/spinlock_types.h"
 typedef struct __anonstruct_arch_rwlock_t_36 arch_rwlock_t;
-# 13 "include/linux/lockdep.h"
 struct lockdep_map;
-# 10 "include/linux/stacktrace.h"
 struct stack_trace {
    unsigned int nr_entries ;
    unsigned int max_entries ;
    unsigned long *entries ;
    int skip ;
 };
-# 50 "include/linux/lockdep.h"
 struct lockdep_subclass_key {
    char __one_byte ;
 } __attribute__((__packed__)) ;
-# 54 "include/linux/lockdep.h"
 struct lock_class_key {
    struct lockdep_subclass_key subkeys[8UL] ;
 };
-# 65 "include/linux/lockdep.h"
 struct lock_class {
    struct list_head hash_entry ;
    struct list_head lock_entry ;
@@ -540,7 +399,6 @@ struct lock_class {
    unsigned long contention_point[4] ;
    unsigned long contending_point[4] ;
 };
-# 150 "include/linux/lockdep.h"
 struct lockdep_map {
    struct lock_class_key *key ;
    struct lock_class *class_cache[2] ;
@@ -548,7 +406,6 @@ struct lockdep_map {
    int cpu ;
    unsigned long ip ;
 };
-# 196 "include/linux/lockdep.h"
 struct held_lock {
    u64 prev_chain_key ;
    unsigned long acquire_ip ;
@@ -564,7 +421,6 @@ struct held_lock {
    unsigned int hardirqs_off : 1 ;
    unsigned int references : 11 ;
 };
-# 20 "include/linux/spinlock_types.h"
 struct raw_spinlock {
    arch_spinlock_t raw_lock ;
    unsigned int magic ;
@@ -572,25 +428,19 @@ struct raw_spinlock {
    void *owner ;
    struct lockdep_map dep_map ;
 };
-# 20 "include/linux/spinlock_types.h"
 typedef struct raw_spinlock raw_spinlock_t;
-# 64 "include/linux/spinlock_types.h"
 struct __anonstruct____missing_field_name_38 {
    u8 __padding[(unsigned int )(& ((struct raw_spinlock *)0)->dep_map)] ;
    struct lockdep_map dep_map ;
 };
-# 64 "include/linux/spinlock_types.h"
 union __anonunion____missing_field_name_37 {
    struct raw_spinlock rlock ;
    struct __anonstruct____missing_field_name_38 __annonCompField17 ;
 };
-# 64 "include/linux/spinlock_types.h"
 struct spinlock {
    union __anonunion____missing_field_name_37 __annonCompField18 ;
 };
-# 64 "include/linux/spinlock_types.h"
 typedef struct spinlock spinlock_t;
-# 11 "include/linux/rwlock_types.h"
 struct __anonstruct_rwlock_t_39 {
    arch_rwlock_t raw_lock ;
    unsigned int magic ;
@@ -598,29 +448,21 @@ struct __anonstruct_rwlock_t_39 {
    void *owner ;
    struct lockdep_map dep_map ;
 };
-# 11 "include/linux/rwlock_types.h"
 typedef struct __anonstruct_rwlock_t_39 rwlock_t;
-# 28 "include/linux/wait.h"
 struct __wait_queue;
-# 28 "include/linux/wait.h"
 typedef struct __wait_queue wait_queue_t;
-# 32 "include/linux/wait.h"
 struct __wait_queue {
    unsigned int flags ;
    void *private ;
    int (*func)(wait_queue_t *wait , unsigned int mode , int flags , void *key ) ;
    struct list_head task_list ;
 };
-# 50 "include/linux/wait.h"
 struct __wait_queue_head {
    spinlock_t lock ;
    struct list_head task_list ;
 };
-# 54 "include/linux/wait.h"
 typedef struct __wait_queue_head wait_queue_head_t;
-# 32 "include/linux/eventfd.h"
 struct eventfd_ctx;
-# 6 "include/asm-generic/scatterlist.h"
 struct scatterlist {
    unsigned long sg_magic ;
    unsigned long page_link ;
@@ -629,19 +471,14 @@ struct scatterlist {
    dma_addr_t dma_address ;
    unsigned int dma_length ;
 };
-# 119 "include/linux/seqlock.h"
 struct seqcount {
    unsigned int sequence ;
 };
-# 119 "include/linux/seqlock.h"
 typedef struct seqcount seqcount_t;
-# 96 "include/linux/nodemask.h"
 struct __anonstruct_nodemask_t_41 {
    unsigned long bits[(((unsigned long )(1 << 10) + 8UL * sizeof(long )) - 1UL) / (8UL * sizeof(long ))] ;
 };
-# 96 "include/linux/nodemask.h"
 typedef struct __anonstruct_nodemask_t_41 nodemask_t;
-# 48 "include/linux/mutex.h"
 struct mutex {
    atomic_t count ;
    spinlock_t wait_lock ;
@@ -651,37 +488,28 @@ struct mutex {
    void *magic ;
    struct lockdep_map dep_map ;
 };
-# 69 "include/linux/mutex.h"
 struct mutex_waiter {
    struct list_head list ;
    struct task_struct *task ;
    void *magic ;
 };
-# 20 "include/linux/rwsem.h"
 struct rw_semaphore;
-# 26 "include/linux/rwsem.h"
 struct rw_semaphore {
    long count ;
    spinlock_t wait_lock ;
    struct list_head wait_list ;
    struct lockdep_map dep_map ;
 };
-# 177 "include/linux/ioport.h"
 struct device;
-# 14 "include/linux/time.h"
 struct timespec {
    __kernel_time_t tv_sec ;
    long tv_nsec ;
 };
-# 46 "include/linux/ktime.h"
 union ktime {
    s64 tv64 ;
 };
-# 59 "include/linux/ktime.h"
 typedef union ktime ktime_t;
-# 10 "include/linux/timer.h"
 struct tvec_base;
-# 12 "include/linux/timer.h"
 struct timer_list {
    struct list_head entry ;
    unsigned long expires ;
@@ -694,38 +522,28 @@ struct timer_list {
    char start_comm[16] ;
    struct lockdep_map lockdep_map ;
 };
-# 289 "include/linux/timer.h"
 struct hrtimer;
-# 290 "include/linux/timer.h"
 enum hrtimer_restart;
-# 290 "include/linux/timer.h"
 enum hrtimer_restart;
-# 17 "include/linux/workqueue.h"
 struct work_struct;
-# 79 "include/linux/workqueue.h"
 struct work_struct {
    atomic_long_t data ;
    struct list_head entry ;
    void (*func)(struct work_struct *work ) ;
    struct lockdep_map lockdep_map ;
 };
-# 92 "include/linux/workqueue.h"
 struct delayed_work {
    struct work_struct work ;
    struct timer_list timer ;
 };
-# 25 "include/linux/completion.h"
 struct completion {
    unsigned int done ;
    wait_queue_head_t wait ;
 };
-# 50 "include/linux/pm.h"
 struct pm_message {
    int event ;
 };
-# 50 "include/linux/pm.h"
 typedef struct pm_message pm_message_t;
-# 204 "include/linux/pm.h"
 struct dev_pm_ops {
    int (*prepare)(struct device *dev ) ;
    void (*complete)(struct device *dev ) ;
@@ -745,14 +563,12 @@ struct dev_pm_ops {
    int (*runtime_resume)(struct device *dev ) ;
    int (*runtime_idle)(struct device *dev ) ;
 };
-# 392 "include/linux/pm.h"
 enum rpm_status {
     RPM_ACTIVE = 0,
     RPM_RESUMING = 1,
     RPM_SUSPENDED = 2,
     RPM_SUSPENDING = 3
 } ;
-# 414 "include/linux/pm.h"
 enum rpm_request {
     RPM_REQ_NONE = 0,
     RPM_REQ_IDLE = 1,
@@ -760,9 +576,7 @@ enum rpm_request {
     RPM_REQ_AUTOSUSPEND = 3,
     RPM_REQ_RESUME = 4
 } ;
-# 422 "include/linux/pm.h"
 struct wakeup_source;
-# 424 "include/linux/pm.h"
 struct dev_pm_info {
    pm_message_t power_state ;
    unsigned int can_wakeup : 1 ;
@@ -800,11 +614,9 @@ struct dev_pm_info {
    unsigned long accounting_timestamp ;
    void *subsys_data ;
 };
-# 475 "include/linux/pm.h"
 struct dev_power_domain {
    struct dev_pm_ops ops ;
 };
-# 11 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/mmu.h"
 struct __anonstruct_mm_context_t_111 {
    void *ldt ;
    int size ;
@@ -812,29 +624,22 @@ struct __anonstruct_mm_context_t_111 {
    struct mutex lock ;
    void *vdso ;
 };
-# 11 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/mmu.h"
 typedef struct __anonstruct_mm_context_t_111 mm_context_t;
-# 8 "include/linux/vmalloc.h"
 struct vm_area_struct;
-# 100 "include/linux/rbtree.h"
 struct rb_node {
    unsigned long rb_parent_color ;
    struct rb_node *rb_right ;
    struct rb_node *rb_left ;
 } __attribute__((__aligned__(sizeof(long )))) ;
-# 110 "include/linux/rbtree.h"
 struct rb_root {
    struct rb_node *rb_node ;
 };
-# 14 "include/linux/prio_tree.h"
 struct prio_tree_node;
-# 14 "include/linux/prio_tree.h"
 struct raw_prio_tree_node {
    struct prio_tree_node *left ;
    struct prio_tree_node *right ;
    struct prio_tree_node *parent ;
 };
-# 20 "include/linux/prio_tree.h"
 struct prio_tree_node {
    struct prio_tree_node *left ;
    struct prio_tree_node *right ;
@@ -842,41 +647,33 @@ struct prio_tree_node {
    unsigned long start ;
    unsigned long last ;
 };
-# 28 "include/linux/prio_tree.h"
 struct prio_tree_root {
    struct prio_tree_node *prio_tree_node ;
    unsigned short index_bits ;
    unsigned short raw ;
 };
-# 23 "include/linux/mm_types.h"
 struct address_space;
-# 34 "include/linux/mm_types.h"
 struct __anonstruct____missing_field_name_136 {
    u16 inuse ;
    u16 objects ;
 };
-# 34 "include/linux/mm_types.h"
 union __anonunion____missing_field_name_135 {
    atomic_t _mapcount ;
    struct __anonstruct____missing_field_name_136 __annonCompField29 ;
 };
-# 34 "include/linux/mm_types.h"
 struct __anonstruct____missing_field_name_138 {
    unsigned long private ;
    struct address_space *mapping ;
 };
-# 34 "include/linux/mm_types.h"
 union __anonunion____missing_field_name_137 {
    struct __anonstruct____missing_field_name_138 __annonCompField31 ;
    struct kmem_cache *slab ;
    struct page *first_page ;
 };
-# 34 "include/linux/mm_types.h"
 union __anonunion____missing_field_name_139 {
    unsigned long index ;
    void *freelist ;
 };
-# 34 "include/linux/mm_types.h"
 struct page {
    unsigned long flags ;
    atomic_t _count ;
@@ -885,24 +682,18 @@ struct page {
    union __anonunion____missing_field_name_139 __annonCompField33 ;
    struct list_head lru ;
 };
-# 132 "include/linux/mm_types.h"
 struct __anonstruct_vm_set_141 {
    struct list_head list ;
    void *parent ;
    struct vm_area_struct *head ;
 };
-# 132 "include/linux/mm_types.h"
 union __anonunion_shared_140 {
    struct __anonstruct_vm_set_141 vm_set ;
    struct raw_prio_tree_node prio_tree_node ;
 };
-# 132 "include/linux/mm_types.h"
 struct anon_vma;
-# 132 "include/linux/mm_types.h"
 struct vm_operations_struct;
-# 132 "include/linux/mm_types.h"
 struct mempolicy;
-# 132 "include/linux/mm_types.h"
 struct vm_area_struct {
    struct mm_struct *vm_mm ;
    unsigned long vm_start ;
@@ -921,26 +712,20 @@ struct vm_area_struct {
    void *vm_private_data ;
    struct mempolicy *vm_policy ;
 };
-# 189 "include/linux/mm_types.h"
 struct core_thread {
    struct task_struct *task ;
    struct core_thread *next ;
 };
-# 194 "include/linux/mm_types.h"
 struct core_state {
    atomic_t nr_threads ;
    struct core_thread dumper ;
    struct completion startup ;
 };
-# 216 "include/linux/mm_types.h"
 struct mm_rss_stat {
    atomic_long_t count[3] ;
 };
-# 220 "include/linux/mm_types.h"
 struct linux_binfmt;
-# 220 "include/linux/mm_types.h"
 struct mmu_notifier_mm;
-# 220 "include/linux/mm_types.h"
 struct mm_struct {
    struct vm_area_struct *mmap ;
    struct rb_root mm_rb ;
@@ -1000,20 +785,15 @@ struct mm_struct {
    pgtable_t pmd_huge_pte ;
    struct cpumask cpumask_allocation ;
 };
-# 21 "include/linux/mm.h"
 struct file_ra_state;
-# 22 "include/linux/mm.h"
 struct user_struct;
-# 23 "include/linux/mm.h"
 struct writeback_control;
-# 185 "include/linux/mm.h"
 struct vm_fault {
    unsigned int flags ;
    unsigned long pgoff ;
    void *virtual_address ;
    struct page *page ;
 };
-# 202 "include/linux/mm.h"
 struct vm_operations_struct {
    void (*open)(struct vm_area_struct *area ) ;
    void (*close)(struct vm_area_struct *area ) ;
@@ -1026,19 +806,14 @@ struct vm_operations_struct {
    int (*migrate)(struct vm_area_struct *vma , nodemask_t const *from , nodemask_t const *to ,
                   unsigned long flags ) ;
 };
-# 244 "include/linux/mm.h"
 struct inode;
-# 20 "include/linux/kobject_ns.h"
 struct sock;
-# 21 "include/linux/kobject_ns.h"
 struct kobject;
-# 27 "include/linux/kobject_ns.h"
 enum kobj_ns_type {
     KOBJ_NS_TYPE_NONE = 0,
     KOBJ_NS_TYPE_NET = 1,
     KOBJ_NS_TYPES = 2
 } ;
-# 40 "include/linux/kobject_ns.h"
 struct kobj_ns_type_operations {
    enum kobj_ns_type type ;
    void *(*grab_current_ns)(void) ;
@@ -1046,22 +821,18 @@ struct kobj_ns_type_operations {
    void const *(*initial_ns)(void) ;
    void (*drop_ns)(void * ) ;
 };
-# 24 "include/linux/sysfs.h"
 enum kobj_ns_type;
-# 26 "include/linux/sysfs.h"
 struct attribute {
    char const *name ;
    mode_t mode ;
    struct lock_class_key *key ;
    struct lock_class_key skey ;
 };
-# 56 "include/linux/sysfs.h"
 struct attribute_group {
    char const *name ;
    mode_t (*is_visible)(struct kobject * , struct attribute * , int ) ;
    struct attribute **attrs ;
 };
-# 88 "include/linux/sysfs.h"
 struct bin_attribute {
    struct attribute attr ;
    size_t size ;
@@ -1072,22 +843,16 @@ struct bin_attribute {
                     loff_t , size_t ) ;
    int (*mmap)(struct file * , struct kobject * , struct bin_attribute *attr , struct vm_area_struct *vma ) ;
 };
-# 112 "include/linux/sysfs.h"
 struct sysfs_ops {
    ssize_t (*show)(struct kobject * , struct attribute * , char * ) ;
    ssize_t (*store)(struct kobject * , struct attribute * , char const * , size_t ) ;
 };
-# 117 "include/linux/sysfs.h"
 struct sysfs_dirent;
-# 20 "include/linux/kref.h"
 struct kref {
    atomic_t refcount ;
 };
-# 60 "include/linux/kobject.h"
 struct kset;
-# 60 "include/linux/kobject.h"
 struct kobj_type;
-# 60 "include/linux/kobject.h"
 struct kobject {
    char const *name ;
    struct list_head entry ;
@@ -1102,7 +867,6 @@ struct kobject {
    unsigned int state_remove_uevent_sent : 1 ;
    unsigned int uevent_suppress : 1 ;
 };
-# 110 "include/linux/kobject.h"
 struct kobj_type {
    void (*release)(struct kobject *kobj ) ;
    struct sysfs_ops const *sysfs_ops ;
@@ -1110,35 +874,29 @@ struct kobj_type {
    struct kobj_ns_type_operations const *(*child_ns_type)(struct kobject *kobj ) ;
    void const *(*namespace)(struct kobject *kobj ) ;
 };
-# 118 "include/linux/kobject.h"
 struct kobj_uevent_env {
    char *envp[32] ;
    int envp_idx ;
    char buf[2048] ;
    int buflen ;
 };
-# 125 "include/linux/kobject.h"
 struct kset_uevent_ops {
    int (* const filter)(struct kset *kset , struct kobject *kobj ) ;
    char const *(* const name)(struct kset *kset , struct kobject *kobj ) ;
    int (* const uevent)(struct kset *kset , struct kobject *kobj , struct kobj_uevent_env *env ) ;
 };
-# 161 "include/linux/kobject.h"
 struct kset {
    struct list_head list ;
    spinlock_t list_lock ;
    struct kobject kobj ;
    struct kset_uevent_ops const *uevent_ops ;
 };
-# 19 "include/linux/klist.h"
 struct klist_node;
-# 39 "include/linux/klist.h"
 struct klist_node {
    void *n_klist ;
    struct list_head n_node ;
    struct kref n_ref ;
 };
-# 62 "include/linux/stat.h"
 struct kstat {
    u64 ino ;
    dev_t dev ;
@@ -1154,24 +912,16 @@ struct kstat {
    unsigned long blksize ;
    unsigned long long blocks ;
 };
-# 72 "include/linux/rcupdate.h"
 struct rcu_head {
    struct rcu_head *next ;
    void (*func)(struct rcu_head *head ) ;
 };
-# 937 "include/linux/sysctl.h"
 struct nsproxy;
-# 48 "include/linux/kmod.h"
 struct cred;
-# 27 "include/linux/elf.h"
 typedef __u64 Elf64_Addr;
-# 28 "include/linux/elf.h"
 typedef __u16 Elf64_Half;
-# 32 "include/linux/elf.h"
 typedef __u32 Elf64_Word;
-# 33 "include/linux/elf.h"
 typedef __u64 Elf64_Xword;
-# 203 "include/linux/elf.h"
 struct elf64_sym {
    Elf64_Word st_name ;
    unsigned char st_info ;
@@ -1180,27 +930,20 @@ struct elf64_sym {
    Elf64_Addr st_value ;
    Elf64_Xword st_size ;
 };
-# 203 "include/linux/elf.h"
 typedef struct elf64_sym Elf64_Sym;
-# 34 "include/linux/moduleparam.h"
 struct kernel_param;
-# 36 "include/linux/moduleparam.h"
 struct kernel_param_ops {
    int (*set)(char const *val , struct kernel_param const *kp ) ;
    int (*get)(char *buffer , struct kernel_param const *kp ) ;
    void (*free)(void *arg ) ;
 };
-# 48 "include/linux/moduleparam.h"
 struct kparam_string;
-# 48 "include/linux/moduleparam.h"
 struct kparam_array;
-# 48 "include/linux/moduleparam.h"
 union __anonunion____missing_field_name_203 {
    void *arg ;
    struct kparam_string const *str ;
    struct kparam_array const *arr ;
 };
-# 48 "include/linux/moduleparam.h"
 struct kernel_param {
    char const *name ;
    struct kernel_param_ops const *ops ;
@@ -1208,12 +951,10 @@ struct kernel_param {
    u16 flags ;
    union __anonunion____missing_field_name_203 __annonCompField36 ;
 };
-# 61 "include/linux/moduleparam.h"
 struct kparam_string {
    unsigned int maxlen ;
    char *string ;
 };
-# 67 "include/linux/moduleparam.h"
 struct kparam_array {
    unsigned int max ;
    unsigned int elemsize ;
@@ -1221,18 +962,14 @@ struct kparam_array {
    struct kernel_param_ops const *ops ;
    void *elem ;
 };
-# 61 "include/linux/jump_label.h"
 struct jump_label_key {
    atomic_t enabled ;
 };
-# 23 "include/linux/tracepoint.h"
 struct tracepoint;
-# 25 "include/linux/tracepoint.h"
 struct tracepoint_func {
    void *func ;
    void *data ;
 };
-# 30 "include/linux/tracepoint.h"
 struct tracepoint {
    char const *name ;
    struct jump_label_key key ;
@@ -1240,16 +977,13 @@ struct tracepoint {
    void (*unregfunc)(void) ;
    struct tracepoint_func *funcs ;
 };
-# 8 "include/asm-generic/module.h"
 struct mod_arch_specific {
 
 };
-# 37 "include/linux/module.h"
 struct kernel_symbol {
    unsigned long value ;
    char const *name ;
 };
-# 51 "include/linux/module.h"
 struct module_attribute {
    struct attribute attr ;
    ssize_t (*show)(struct module_attribute * , struct module * , char * ) ;
@@ -1259,35 +993,26 @@ struct module_attribute {
    int (*test)(struct module * ) ;
    void (*free)(struct module * ) ;
 };
-# 70 "include/linux/module.h"
 struct module_param_attrs;
-# 70 "include/linux/module.h"
 struct module_kobject {
    struct kobject kobj ;
    struct module *mod ;
    struct kobject *drivers_dir ;
    struct module_param_attrs *mp ;
 };
-# 83 "include/linux/module.h"
 struct exception_table_entry;
-# 265 "include/linux/module.h"
 enum module_state {
     MODULE_STATE_LIVE = 0,
     MODULE_STATE_COMING = 1,
     MODULE_STATE_GOING = 2
 } ;
-# 272 "include/linux/module.h"
 struct module_sect_attrs;
-# 272 "include/linux/module.h"
 struct module_notes_attrs;
-# 272 "include/linux/module.h"
 struct ftrace_event_call;
-# 272 "include/linux/module.h"
 struct module_ref {
    unsigned int incs ;
    unsigned int decs ;
 };
-# 272 "include/linux/module.h"
 struct module {
    enum module_state state ;
    struct list_head list ;
@@ -1357,39 +1082,26 @@ struct module {
    ctor_fn_t *ctors ;
    unsigned int num_ctors ;
 };
-# 4 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/device.h"
 struct dma_map_ops;
-# 4 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/device.h"
 struct dev_archdata {
    void *acpi_handle ;
    struct dma_map_ops *dma_ops ;
    void *iommu ;
 };
-# 29 "include/linux/device.h"
 struct device_private;
-# 30 "include/linux/device.h"
 struct device_driver;
-# 31 "include/linux/device.h"
 struct driver_private;
-# 32 "include/linux/device.h"
 struct class;
-# 33 "include/linux/device.h"
 struct subsys_private;
-# 34 "include/linux/device.h"
 struct bus_type;
-# 35 "include/linux/device.h"
 struct device_node;
-# 37 "include/linux/device.h"
 struct bus_attribute {
    struct attribute attr ;
    ssize_t (*show)(struct bus_type *bus , char *buf ) ;
    ssize_t (*store)(struct bus_type *bus , char const *buf , size_t count ) ;
 };
-# 82 "include/linux/device.h"
 struct device_attribute;
-# 82 "include/linux/device.h"
 struct driver_attribute;
-# 82 "include/linux/device.h"
 struct bus_type {
    char const *name ;
    struct bus_attribute *bus_attrs ;
@@ -1405,9 +1117,7 @@ struct bus_type {
    struct dev_pm_ops const *pm ;
    struct subsys_private *p ;
 };
-# 185 "include/linux/device.h"
 struct of_device_id;
-# 185 "include/linux/device.h"
 struct device_driver {
    char const *name ;
    struct bus_type *bus ;
@@ -1424,15 +1134,12 @@ struct device_driver {
    struct dev_pm_ops const *pm ;
    struct driver_private *p ;
 };
-# 222 "include/linux/device.h"
 struct driver_attribute {
    struct attribute attr ;
    ssize_t (*show)(struct device_driver *driver , char *buf ) ;
    ssize_t (*store)(struct device_driver *driver , char const *buf , size_t count ) ;
 };
-# 280 "include/linux/device.h"
 struct class_attribute;
-# 280 "include/linux/device.h"
 struct class {
    char const *name ;
    struct module *owner ;
@@ -1451,16 +1158,13 @@ struct class {
    struct dev_pm_ops const *pm ;
    struct subsys_private *p ;
 };
-# 306 "include/linux/device.h"
 struct device_type;
-# 347 "include/linux/device.h"
 struct class_attribute {
    struct attribute attr ;
    ssize_t (*show)(struct class *class , struct class_attribute *attr , char *buf ) ;
    ssize_t (*store)(struct class *class , struct class_attribute *attr , char const *buf ,
                     size_t count ) ;
 };
-# 413 "include/linux/device.h"
 struct device_type {
    char const *name ;
    struct attribute_group const **groups ;
@@ -1469,21 +1173,17 @@ struct device_type {
    void (*release)(struct device *dev ) ;
    struct dev_pm_ops const *pm ;
 };
-# 424 "include/linux/device.h"
 struct device_attribute {
    struct attribute attr ;
    ssize_t (*show)(struct device *dev , struct device_attribute *attr , char *buf ) ;
    ssize_t (*store)(struct device *dev , struct device_attribute *attr , char const *buf ,
                     size_t count ) ;
 };
-# 484 "include/linux/device.h"
 struct device_dma_parameters {
    unsigned int max_segment_size ;
    unsigned long segment_boundary_mask ;
 };
-# 551 "include/linux/device.h"
 struct dma_coherent_mem;
-# 551 "include/linux/device.h"
 struct device {
    struct device *parent ;
    struct device_private *p ;
@@ -1512,7 +1212,6 @@ struct device {
    struct attribute_group const **groups ;
    void (*release)(struct device *dev ) ;
 };
-# 43 "include/linux/pm_wakeup.h"
 struct wakeup_source {
    char *name ;
    struct list_head entry ;
@@ -1528,56 +1227,46 @@ struct wakeup_source {
    unsigned long hit_count ;
    unsigned int active : 1 ;
 };
-# 219 "include/linux/mod_devicetable.h"
 struct of_device_id {
    char name[32] ;
    char type[32] ;
    char compatible[128] ;
    void *data ;
 };
-# 62 "include/linux/virtio_ring.h"
 struct vring_desc {
    __u64 addr ;
    __u32 len ;
    __u16 flags ;
    __u16 next ;
 };
-# 73 "include/linux/virtio_ring.h"
 struct vring_avail {
    __u16 flags ;
    __u16 idx ;
    __u16 ring[] ;
 };
-# 80 "include/linux/virtio_ring.h"
 struct vring_used_elem {
    __u32 id ;
    __u32 len ;
 };
-# 87 "include/linux/virtio_ring.h"
 struct vring_used {
    __u16 flags ;
    __u16 idx ;
    struct vring_used_elem ring[] ;
 };
-# 10 "include/linux/irqreturn.h"
 enum irqreturn {
     IRQ_NONE = 0,
     IRQ_HANDLED = 1,
     IRQ_WAKE_THREAD = 2
 } ;
-# 16 "include/linux/irqreturn.h"
 typedef enum irqreturn irqreturn_t;
-# 19 "include/linux/vhost.h"
 struct vhost_vring_state {
    unsigned int index ;
    unsigned int num ;
 };
-# 24 "include/linux/vhost.h"
 struct vhost_vring_file {
    unsigned int index ;
    int fd ;
 };
-# 30 "include/linux/vhost.h"
 struct vhost_vring_addr {
    unsigned int index ;
    unsigned int flags ;
@@ -1586,33 +1275,25 @@ struct vhost_vring_addr {
    __u64 avail_user_addr ;
    __u64 log_guest_addr ;
 };
-# 50 "include/linux/vhost.h"
 struct vhost_memory_region {
    __u64 guest_phys_addr ;
    __u64 memory_size ;
    __u64 userspace_addr ;
    __u64 flags_padding ;
 };
-# 60 "include/linux/vhost.h"
 struct vhost_memory {
    __u32 nregions ;
    __u32 padding ;
    struct vhost_memory_region regions[0] ;
 };
-# 16 "include/linux/uio.h"
 struct iovec {
    void *iov_base ;
    __kernel_size_t iov_len ;
 };
-# 65 "include/linux/net.h"
 struct poll_table_struct;
-# 66 "include/linux/net.h"
 struct pipe_inode_info;
-# 121 "include/linux/net.h"
 struct fasync_struct;
-# 156 "include/linux/net.h"
 struct kiocb;
-# 38 "include/linux/slub_def.h"
 struct kmem_cache_cpu {
    void **freelist ;
    unsigned long tid ;
@@ -1620,7 +1301,6 @@ struct kmem_cache_cpu {
    int node ;
    unsigned int stat[19] ;
 };
-# 48 "include/linux/slub_def.h"
 struct kmem_cache_node {
    spinlock_t list_lock ;
    unsigned long nr_partial ;
@@ -1629,11 +1309,9 @@ struct kmem_cache_node {
    atomic_long_t total_objects ;
    struct list_head full ;
 };
-# 64 "include/linux/slub_def.h"
 struct kmem_cache_order_objects {
    unsigned long x ;
 };
-# 71 "include/linux/slub_def.h"
 struct kmem_cache {
    struct kmem_cache_cpu *cpu_slab ;
    unsigned long flags ;
@@ -1656,27 +1334,22 @@ struct kmem_cache {
    int remote_node_defrag_ratio ;
    struct kmem_cache_node *node[1 << 10] ;
 };
-# 94 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/uaccess.h"
 struct exception_table_entry {
    unsigned long insn ;
    unsigned long fixup ;
 };
-# 431 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/uaccess.h"
 struct __large_struct {
    unsigned long buf[100] ;
 };
-# 25 "include/linux/dma-attrs.h"
 struct dma_attrs {
    unsigned long flags[((2UL + 8UL * sizeof(long )) - 1UL) / (8UL * sizeof(long ))] ;
 };
-# 11 "include/linux/dma-mapping.h"
 enum dma_data_direction {
     DMA_BIDIRECTIONAL = 0,
     DMA_TO_DEVICE = 1,
     DMA_FROM_DEVICE = 2,
     DMA_NONE = 3
 } ;
-# 18 "include/linux/dma-mapping.h"
 struct dma_map_ops {
    void *(*alloc_coherent)(struct device *dev , size_t size , dma_addr_t *dma_handle ,
                            gfp_t gfp ) ;
@@ -1702,26 +1375,20 @@ struct dma_map_ops {
    int (*set_dma_mask)(struct device *dev , u64 mask ) ;
    int is_phys ;
 };
-# 8 "include/linux/timerqueue.h"
 struct timerqueue_node {
    struct rb_node node ;
    ktime_t expires ;
 };
-# 13 "include/linux/timerqueue.h"
 struct timerqueue_head {
    struct rb_root head ;
    struct timerqueue_node *next ;
 };
-# 27 "include/linux/hrtimer.h"
 struct hrtimer_clock_base;
-# 28 "include/linux/hrtimer.h"
 struct hrtimer_cpu_base;
-# 44 "include/linux/hrtimer.h"
 enum hrtimer_restart {
     HRTIMER_NORESTART = 0,
     HRTIMER_RESTART = 1
 } ;
-# 108 "include/linux/hrtimer.h"
 struct hrtimer {
    struct timerqueue_node node ;
    ktime_t _softexpires ;
@@ -1732,7 +1399,6 @@ struct hrtimer {
    void *start_site ;
    char start_comm[16] ;
 };
-# 145 "include/linux/hrtimer.h"
 struct hrtimer_clock_base {
    struct hrtimer_cpu_base *cpu_base ;
    int index ;
@@ -1743,7 +1409,6 @@ struct hrtimer_clock_base {
    ktime_t softirq_time ;
    ktime_t offset ;
 };
-# 178 "include/linux/hrtimer.h"
 struct hrtimer_cpu_base {
    raw_spinlock_t lock ;
    unsigned long active_bases ;
@@ -1756,7 +1421,6 @@ struct hrtimer_cpu_base {
    ktime_t max_hang_time ;
    struct hrtimer_clock_base clock_base[3] ;
 };
-# 64 "include/linux/virtio_net.h"
 struct virtio_net_hdr {
    __u8 flags ;
    __u8 gso_type ;
@@ -1765,48 +1429,36 @@ struct virtio_net_hdr {
    __u16 csum_start ;
    __u16 csum_offset ;
 };
-# 81 "include/linux/virtio_net.h"
 struct virtio_net_hdr_mrg_rxbuf {
    struct virtio_net_hdr hdr ;
    __u16 num_buffers ;
 };
-# 31 "include/asm-generic/poll.h"
 struct pollfd {
    int fd ;
    short events ;
    short revents ;
 };
-# 16 "include/linux/blk_types.h"
 struct block_device;
-# 33 "include/linux/list_bl.h"
 struct hlist_bl_node;
-# 33 "include/linux/list_bl.h"
 struct hlist_bl_head {
    struct hlist_bl_node *first ;
 };
-# 37 "include/linux/list_bl.h"
 struct hlist_bl_node {
    struct hlist_bl_node *next ;
    struct hlist_bl_node **pprev ;
 };
-# 13 "include/linux/dcache.h"
 struct nameidata;
-# 35 "include/linux/dcache.h"
 struct qstr {
    unsigned int hash ;
    unsigned int len ;
    unsigned char const *name ;
 };
-# 116 "include/linux/dcache.h"
 struct dentry_operations;
-# 116 "include/linux/dcache.h"
 struct super_block;
-# 116 "include/linux/dcache.h"
 union __anonunion_d_u_215 {
    struct list_head d_child ;
    struct rcu_head d_rcu ;
 };
-# 116 "include/linux/dcache.h"
 struct dentry {
    unsigned int d_flags ;
    seqcount_t d_seq ;
@@ -1826,7 +1478,6 @@ struct dentry {
    struct list_head d_subdirs ;
    struct list_head d_alias ;
 };
-# 159 "include/linux/dcache.h"
 struct dentry_operations {
    int (*d_revalidate)(struct dentry * , struct nameidata * ) ;
    int (*d_hash)(struct dentry const * , struct inode const * , struct qstr * ) ;
@@ -1839,35 +1490,28 @@ struct dentry_operations {
    struct vfsmount *(*d_automount)(struct path * ) ;
    int (*d_manage)(struct dentry * , bool ) ;
 } __attribute__((__aligned__((1) << (6) ))) ;
-# 7 "include/linux/path.h"
 struct path {
    struct vfsmount *mnt ;
    struct dentry *dentry ;
 };
-# 57 "include/linux/radix-tree.h"
 struct radix_tree_node;
-# 57 "include/linux/radix-tree.h"
 struct radix_tree_root {
    unsigned int height ;
    gfp_t gfp_mask ;
    struct radix_tree_node *rnode ;
 };
-# 6 "include/linux/pid.h"
 enum pid_type {
     PIDTYPE_PID = 0,
     PIDTYPE_PGID = 1,
     PIDTYPE_SID = 2,
     PIDTYPE_MAX = 3
 } ;
-# 50 "include/linux/pid.h"
 struct pid_namespace;
-# 50 "include/linux/pid.h"
 struct upid {
    int nr ;
    struct pid_namespace *ns ;
    struct hlist_node pid_chain ;
 };
-# 57 "include/linux/pid.h"
 struct pid {
    atomic_t count ;
    unsigned int level ;
@@ -1875,20 +1519,15 @@ struct pid {
    struct rcu_head rcu ;
    struct upid numbers[1] ;
 };
-# 69 "include/linux/pid.h"
 struct pid_link {
    struct hlist_node node ;
    struct pid *pid ;
 };
-# 94 "include/linux/capability.h"
 struct kernel_cap_struct {
    __u32 cap[2] ;
 };
-# 94 "include/linux/capability.h"
 typedef struct kernel_cap_struct kernel_cap_t;
-# 377 "include/linux/capability.h"
 struct user_namespace;
-# 16 "include/linux/fiemap.h"
 struct fiemap_extent {
    __u64 fe_logical ;
    __u64 fe_physical ;
@@ -1897,11 +1536,8 @@ struct fiemap_extent {
    __u32 fe_flags ;
    __u32 fe_reserved[3] ;
 };
-# 399 "include/linux/fs.h"
 struct export_operations;
-# 407 "include/linux/fs.h"
 struct kstatfs;
-# 460 "include/linux/fs.h"
 struct iattr {
    unsigned int ia_valid ;
    umode_t ia_mode ;
@@ -1913,14 +1549,12 @@ struct iattr {
    struct timespec ia_ctime ;
    struct file *ia_file ;
 };
-# 129 "include/linux/quota.h"
 struct if_dqinfo {
    __u64 dqi_bgrace ;
    __u64 dqi_igrace ;
    __u32 dqi_flags ;
    __u32 dqi_valid ;
 };
-# 50 "include/linux/dqblk_xfs.h"
 struct fs_disk_quota {
    __s8 d_version ;
    __s8 d_flags ;
@@ -1945,15 +1579,12 @@ struct fs_disk_quota {
    __s16 d_padding3 ;
    char d_padding4[8] ;
 };
-# 146 "include/linux/dqblk_xfs.h"
 struct fs_qfilestat {
    __u64 qfs_ino ;
    __u64 qfs_nblks ;
    __u32 qfs_nextents ;
 };
-# 146 "include/linux/dqblk_xfs.h"
 typedef struct fs_qfilestat fs_qfilestat_t;
-# 152 "include/linux/dqblk_xfs.h"
 struct fs_quota_stat {
    __s8 qs_version ;
    __u16 qs_flags ;
@@ -1967,13 +1598,9 @@ struct fs_quota_stat {
    __u16 qs_bwarnlimit ;
    __u16 qs_iwarnlimit ;
 };
-# 17 "include/linux/dqblk_qtree.h"
 struct dquot;
-# 185 "include/linux/quota.h"
 typedef __kernel_uid32_t qid_t;
-# 186 "include/linux/quota.h"
 typedef long long qsize_t;
-# 200 "include/linux/quota.h"
 struct mem_dqblk {
    qsize_t dqb_bhardlimit ;
    qsize_t dqb_bsoftlimit ;
@@ -1985,9 +1612,7 @@ struct mem_dqblk {
    time_t dqb_btime ;
    time_t dqb_itime ;
 };
-# 215 "include/linux/quota.h"
 struct quota_format_type;
-# 217 "include/linux/quota.h"
 struct mem_dqinfo {
    struct quota_format_type *dqi_format ;
    int dqi_fmt_id ;
@@ -1999,7 +1624,6 @@ struct mem_dqinfo {
    qsize_t dqi_maxilimit ;
    void *dqi_priv ;
 };
-# 284 "include/linux/quota.h"
 struct dquot {
    struct hlist_node dq_hash ;
    struct list_head dq_inuse ;
@@ -2015,7 +1639,6 @@ struct dquot {
    short dq_type ;
    struct mem_dqblk dq_dqb ;
 };
-# 301 "include/linux/quota.h"
 struct quota_format_ops {
    int (*check_quota_file)(struct super_block *sb , int type ) ;
    int (*read_file_info)(struct super_block *sb , int type ) ;
@@ -2025,7 +1648,6 @@ struct quota_format_ops {
    int (*commit_dqblk)(struct dquot *dquot ) ;
    int (*release_dqblk)(struct dquot *dquot ) ;
 };
-# 312 "include/linux/quota.h"
 struct dquot_operations {
    int (*write_dquot)(struct dquot * ) ;
    struct dquot *(*alloc_dquot)(struct super_block * , int ) ;
@@ -2036,7 +1658,6 @@ struct dquot_operations {
    int (*write_info)(struct super_block * , int ) ;
    qsize_t *(*get_reserved_space)(struct inode * ) ;
 };
-# 328 "include/linux/quota.h"
 struct quotactl_ops {
    int (*quota_on)(struct super_block * , int , int , struct path * ) ;
    int (*quota_on_meta)(struct super_block * , int , int ) ;
@@ -2049,14 +1670,12 @@ struct quotactl_ops {
    int (*get_xstate)(struct super_block * , struct fs_quota_stat * ) ;
    int (*set_xstate)(struct super_block * , unsigned int , int ) ;
 };
-# 341 "include/linux/quota.h"
 struct quota_format_type {
    int qf_fmt_id ;
    struct quota_format_ops const *qf_ops ;
    struct module *qf_owner ;
    struct quota_format_type *qf_next ;
 };
-# 395 "include/linux/quota.h"
 struct quota_info {
    unsigned int flags ;
    struct mutex dqio_mutex ;
@@ -2066,21 +1685,17 @@ struct quota_info {
    struct mem_dqinfo info[2] ;
    struct quota_format_ops const *ops[2] ;
 };
-# 568 "include/linux/fs.h"
 union __anonunion_arg_223 {
    char *buf ;
    void *data ;
 };
-# 568 "include/linux/fs.h"
 struct __anonstruct_read_descriptor_t_222 {
    size_t written ;
    size_t count ;
    union __anonunion_arg_223 arg ;
    int error ;
 };
-# 568 "include/linux/fs.h"
 typedef struct __anonstruct_read_descriptor_t_222 read_descriptor_t;
-# 581 "include/linux/fs.h"
 struct address_space_operations {
    int (*writepage)(struct page *page , struct writeback_control *wbc ) ;
    int (*readpage)(struct file * , struct page * ) ;
@@ -2105,9 +1720,7 @@ struct address_space_operations {
    int (*is_partially_uptodate)(struct page * , read_descriptor_t * , unsigned long ) ;
    int (*error_remove_page)(struct address_space * , struct page * ) ;
 };
-# 633 "include/linux/fs.h"
 struct backing_dev_info;
-# 634 "include/linux/fs.h"
 struct address_space {
    struct inode *host ;
    struct radix_tree_root page_tree ;
@@ -2125,11 +1738,8 @@ struct address_space {
    struct list_head private_list ;
    struct address_space *assoc_mapping ;
 } __attribute__((__aligned__(sizeof(long )))) ;
-# 658 "include/linux/fs.h"
 struct hd_struct;
-# 658 "include/linux/fs.h"
 struct gendisk;
-# 658 "include/linux/fs.h"
 struct block_device {
    dev_t bd_dev ;
    int bd_openers ;
@@ -2153,26 +1763,19 @@ struct block_device {
    int bd_fsfreeze_count ;
    struct mutex bd_fsfreeze_mutex ;
 };
-# 735 "include/linux/fs.h"
 struct posix_acl;
-# 738 "include/linux/fs.h"
 struct inode_operations;
-# 738 "include/linux/fs.h"
 union __anonunion____missing_field_name_224 {
    struct list_head i_dentry ;
    struct rcu_head i_rcu ;
 };
-# 738 "include/linux/fs.h"
 struct file_lock;
-# 738 "include/linux/fs.h"
 struct cdev;
-# 738 "include/linux/fs.h"
 union __anonunion____missing_field_name_225 {
    struct pipe_inode_info *i_pipe ;
    struct block_device *i_bdev ;
    struct cdev *i_cdev ;
 };
-# 738 "include/linux/fs.h"
 struct inode {
    umode_t i_mode ;
    uid_t i_uid ;
@@ -2219,7 +1822,6 @@ struct inode {
    struct posix_acl *i_default_acl ;
    void *i_private ;
 };
-# 903 "include/linux/fs.h"
 struct fown_struct {
    rwlock_t lock ;
    struct pid *pid ;
@@ -2228,7 +1830,6 @@ struct fown_struct {
    uid_t euid ;
    int signum ;
 };
-# 914 "include/linux/fs.h"
 struct file_ra_state {
    unsigned long start ;
    unsigned int size ;
@@ -2237,12 +1838,10 @@ struct file_ra_state {
    unsigned int mmap_miss ;
    loff_t prev_pos ;
 };
-# 937 "include/linux/fs.h"
 union __anonunion_f_u_226 {
    struct list_head fu_list ;
    struct rcu_head fu_rcuhead ;
 };
-# 937 "include/linux/fs.h"
 struct file {
    union __anonunion_f_u_226 f_u ;
    struct path f_path ;
@@ -2263,16 +1862,12 @@ struct file {
    struct address_space *f_mapping ;
    unsigned long f_mnt_write_state ;
 };
-# 1064 "include/linux/fs.h"
 struct files_struct;
-# 1064 "include/linux/fs.h"
 typedef struct files_struct *fl_owner_t;
-# 1066 "include/linux/fs.h"
 struct file_lock_operations {
    void (*fl_copy_lock)(struct file_lock * , struct file_lock * ) ;
    void (*fl_release_private)(struct file_lock * ) ;
 };
-# 1071 "include/linux/fs.h"
 struct lock_manager_operations {
    int (*fl_compare_owner)(struct file_lock * , struct file_lock * ) ;
    void (*fl_notify)(struct file_lock * ) ;
@@ -2281,32 +1876,25 @@ struct lock_manager_operations {
    void (*fl_break)(struct file_lock * ) ;
    int (*fl_change)(struct file_lock ** , int ) ;
 };
-# 8 "include/linux/nfs_fs_i.h"
 struct nlm_lockowner;
-# 13 "include/linux/nfs_fs_i.h"
 struct nfs_lock_info {
    u32 state ;
    struct nlm_lockowner *owner ;
    struct list_head list ;
 };
-# 19 "include/linux/nfs_fs_i.h"
 struct nfs4_lock_state;
-# 20 "include/linux/nfs_fs_i.h"
 struct nfs4_lock_info {
    struct nfs4_lock_state *owner ;
 };
-# 1091 "include/linux/fs.h"
 struct __anonstruct_afs_228 {
    struct list_head link ;
    int state ;
 };
-# 1091 "include/linux/fs.h"
 union __anonunion_fl_u_227 {
    struct nfs_lock_info nfs_fl ;
    struct nfs4_lock_info nfs4_fl ;
    struct __anonstruct_afs_228 afs ;
 };
-# 1091 "include/linux/fs.h"
 struct file_lock {
    struct file_lock *fl_next ;
    struct list_head fl_link ;
@@ -2326,7 +1914,6 @@ struct file_lock {
    struct lock_manager_operations const *fl_lmops ;
    union __anonunion_fl_u_227 fl_u ;
 };
-# 1324 "include/linux/fs.h"
 struct fasync_struct {
    spinlock_t fa_lock ;
    int magic ;
@@ -2335,15 +1922,10 @@ struct fasync_struct {
    struct file *fa_file ;
    struct rcu_head fa_rcu ;
 };
-# 1364 "include/linux/fs.h"
 struct file_system_type;
-# 1364 "include/linux/fs.h"
 struct super_operations;
-# 1364 "include/linux/fs.h"
 struct xattr_handler;
-# 1364 "include/linux/fs.h"
 struct mtd_info;
-# 1364 "include/linux/fs.h"
 struct super_block {
    struct list_head s_list ;
    dev_t s_dev ;
@@ -2388,14 +1970,12 @@ struct super_block {
    struct dentry_operations const *s_d_op ;
    int cleancache_poolid ;
 };
-# 1499 "include/linux/fs.h"
 struct fiemap_extent_info {
    unsigned int fi_flags ;
    unsigned int fi_extents_mapped ;
    unsigned int fi_extents_max ;
    struct fiemap_extent *fi_extents_start ;
 };
-# 1546 "include/linux/fs.h"
 struct file_operations {
    struct module *owner ;
    loff_t (*llseek)(struct file * , loff_t , int ) ;
@@ -2431,7 +2011,6 @@ struct file_operations {
    int (*setlease)(struct file * , long , struct file_lock ** ) ;
    long (*fallocate)(struct file *file , int mode , loff_t offset , loff_t len ) ;
 };
-# 1578 "include/linux/fs.h"
 struct inode_operations {
    struct dentry *(*lookup)(struct inode * , struct dentry * , struct nameidata * ) ;
    void *(*follow_link)(struct dentry * , struct nameidata * ) ;
@@ -2457,7 +2036,6 @@ struct inode_operations {
    void (*truncate_range)(struct inode * , loff_t , loff_t ) ;
    int (*fiemap)(struct inode * , struct fiemap_extent_info * , u64 start , u64 len ) ;
 } __attribute__((__aligned__((1) << (6) ))) ;
-# 1622 "include/linux/fs.h"
 struct super_operations {
    struct inode *(*alloc_inode)(struct super_block *sb ) ;
    void (*destroy_inode)(struct inode * ) ;
@@ -2482,7 +2060,6 @@ struct super_operations {
                           loff_t ) ;
    int (*bdev_try_to_free_page)(struct super_block * , struct page * , gfp_t ) ;
 };
-# 1802 "include/linux/fs.h"
 struct file_system_type {
    char const *name ;
    int fs_flags ;
@@ -2499,71 +2076,50 @@ struct file_system_type {
    struct lock_class_key i_mutex_dir_key ;
    struct lock_class_key i_alloc_sem_key ;
 };
-# 35 "include/linux/poll.h"
 struct poll_table_struct {
    void (*qproc)(struct file * , wait_queue_head_t * , struct poll_table_struct * ) ;
    unsigned long key ;
 };
-# 35 "include/linux/poll.h"
 typedef struct poll_table_struct poll_table;
-# 12 "include/linux/irqdesc.h"
 struct proc_dir_entry;
-# 39 "include/linux/irqdesc.h"
 struct irqaction;
-# 7 "include/asm-generic/cputime.h"
 typedef unsigned long cputime_t;
-# 122 "include/linux/sem.h"
 struct sem_undo_list;
-# 135 "include/linux/sem.h"
 struct sem_undo_list {
    atomic_t refcnt ;
    spinlock_t lock ;
    struct list_head list_proc ;
 };
-# 141 "include/linux/sem.h"
 struct sysv_sem {
    struct sem_undo_list *undo_list ;
 };
-# 10 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/signal.h"
 struct siginfo;
-# 30 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/signal.h"
 struct __anonstruct_sigset_t_237 {
    unsigned long sig[1] ;
 };
-# 30 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/signal.h"
 typedef struct __anonstruct_sigset_t_237 sigset_t;
-# 17 "include/asm-generic/signal-defs.h"
 typedef void __signalfn_t(int );
-# 18 "include/asm-generic/signal-defs.h"
 typedef __signalfn_t *__sighandler_t;
-# 20 "include/asm-generic/signal-defs.h"
 typedef void __restorefn_t(void);
-# 21 "include/asm-generic/signal-defs.h"
 typedef __restorefn_t *__sigrestore_t;
-# 167 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/signal.h"
 struct sigaction {
    __sighandler_t sa_handler ;
    unsigned long sa_flags ;
    __sigrestore_t sa_restorer ;
    sigset_t sa_mask ;
 };
-# 174 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/signal.h"
 struct k_sigaction {
    struct sigaction sa ;
 };
-# 7 "include/asm-generic/siginfo.h"
 union sigval {
    int sival_int ;
    void *sival_ptr ;
 };
-# 7 "include/asm-generic/siginfo.h"
 typedef union sigval sigval_t;
-# 40 "include/asm-generic/siginfo.h"
 struct __anonstruct__kill_239 {
    __kernel_pid_t _pid ;
    __kernel_uid32_t _uid ;
 };
-# 40 "include/asm-generic/siginfo.h"
 struct __anonstruct__timer_240 {
    __kernel_timer_t _tid ;
    int _overrun ;
@@ -2571,13 +2127,11 @@ struct __anonstruct__timer_240 {
    sigval_t _sigval ;
    int _sys_private ;
 };
-# 40 "include/asm-generic/siginfo.h"
 struct __anonstruct__rt_241 {
    __kernel_pid_t _pid ;
    __kernel_uid32_t _uid ;
    sigval_t _sigval ;
 };
-# 40 "include/asm-generic/siginfo.h"
 struct __anonstruct__sigchld_242 {
    __kernel_pid_t _pid ;
    __kernel_uid32_t _uid ;
@@ -2585,17 +2139,14 @@ struct __anonstruct__sigchld_242 {
    __kernel_clock_t _utime ;
    __kernel_clock_t _stime ;
 };
-# 40 "include/asm-generic/siginfo.h"
 struct __anonstruct__sigfault_243 {
    void *_addr ;
    short _addr_lsb ;
 };
-# 40 "include/asm-generic/siginfo.h"
 struct __anonstruct__sigpoll_244 {
    long _band ;
    int _fd ;
 };
-# 40 "include/asm-generic/siginfo.h"
 union __anonunion__sifields_238 {
    int _pad[(128UL - 4UL * sizeof(int )) / sizeof(int )] ;
    struct __anonstruct__kill_239 _kill ;
@@ -2605,53 +2156,42 @@ union __anonunion__sifields_238 {
    struct __anonstruct__sigfault_243 _sigfault ;
    struct __anonstruct__sigpoll_244 _sigpoll ;
 };
-# 40 "include/asm-generic/siginfo.h"
 struct siginfo {
    int si_signo ;
    int si_errno ;
    int si_code ;
    union __anonunion__sifields_238 _sifields ;
 };
-# 40 "include/asm-generic/siginfo.h"
 typedef struct siginfo siginfo_t;
-# 28 "include/linux/signal.h"
 struct sigpending {
    struct list_head list ;
    sigset_t signal ;
 };
-# 97 "include/linux/proportions.h"
 struct prop_local_single {
    unsigned long events ;
    unsigned long period ;
    int shift ;
    spinlock_t lock ;
 };
-# 10 "include/linux/seccomp.h"
 struct __anonstruct_seccomp_t_247 {
    int mode ;
 };
-# 10 "include/linux/seccomp.h"
 typedef struct __anonstruct_seccomp_t_247 seccomp_t;
-# 82 "include/linux/plist.h"
 struct plist_head {
    struct list_head node_list ;
    raw_spinlock_t *rawlock ;
    spinlock_t *spinlock ;
 };
-# 90 "include/linux/plist.h"
 struct plist_node {
    int prio ;
    struct list_head prio_list ;
    struct list_head node_list ;
 };
-# 40 "include/linux/rtmutex.h"
 struct rt_mutex_waiter;
-# 42 "include/linux/resource.h"
 struct rlimit {
    unsigned long rlim_cur ;
    unsigned long rlim_max ;
 };
-# 11 "include/linux/task_io_accounting.h"
 struct task_io_accounting {
    u64 rchar ;
    u64 wchar ;
@@ -2661,47 +2201,35 @@ struct task_io_accounting {
    u64 write_bytes ;
    u64 cancelled_write_bytes ;
 };
-# 18 "include/linux/latencytop.h"
 struct latency_record {
    unsigned long backtrace[12] ;
    unsigned int count ;
    unsigned long time ;
    unsigned long max ;
 };
-# 29 "include/linux/key.h"
 typedef int32_t key_serial_t;
-# 32 "include/linux/key.h"
 typedef uint32_t key_perm_t;
-# 34 "include/linux/key.h"
 struct key;
-# 76 "include/linux/key.h"
 struct signal_struct;
-# 79 "include/linux/key.h"
 struct key_type;
-# 81 "include/linux/key.h"
 struct keyring_list;
-# 124 "include/linux/key.h"
 struct key_user;
-# 124 "include/linux/key.h"
 union __anonunion____missing_field_name_248 {
    time_t expiry ;
    time_t revoked_at ;
 };
-# 124 "include/linux/key.h"
 union __anonunion_type_data_249 {
    struct list_head link ;
    unsigned long x[2] ;
    void *p[2] ;
    int reject_error ;
 };
-# 124 "include/linux/key.h"
 union __anonunion_payload_250 {
    unsigned long value ;
    void *rcudata ;
    void *data ;
    struct keyring_list *subscriptions ;
 };
-# 124 "include/linux/key.h"
 struct key {
    atomic_t usage ;
    key_serial_t serial ;
@@ -2721,9 +2249,7 @@ struct key {
    union __anonunion_type_data_249 type_data ;
    union __anonunion_payload_250 payload ;
 };
-# 18 "include/linux/selinux.h"
 struct audit_context;
-# 31 "include/linux/cred.h"
 struct group_info {
    atomic_t usage ;
    int ngroups ;
@@ -2731,7 +2257,6 @@ struct group_info {
    gid_t small_block[32] ;
    gid_t *blocks[0] ;
 };
-# 83 "include/linux/cred.h"
 struct thread_group_cred {
    atomic_t usage ;
    pid_t tgid ;
@@ -2740,7 +2265,6 @@ struct thread_group_cred {
    struct key *process_keyring ;
    struct rcu_head rcu ;
 };
-# 116 "include/linux/cred.h"
 struct cred {
    atomic_t usage ;
    atomic_t subscribers ;
@@ -2769,35 +2293,24 @@ struct cred {
    struct group_info *group_info ;
    struct rcu_head rcu ;
 };
-# 97 "include/linux/sched.h"
 struct futex_pi_state;
-# 98 "include/linux/sched.h"
 struct robust_list_head;
-# 99 "include/linux/sched.h"
 struct bio_list;
-# 100 "include/linux/sched.h"
 struct fs_struct;
-# 101 "include/linux/sched.h"
 struct perf_event_context;
-# 102 "include/linux/sched.h"
 struct blk_plug;
-# 151 "include/linux/sched.h"
 struct cfs_rq;
-# 58 "include/linux/aio_abi.h"
 struct io_event {
    __u64 data ;
    __u64 obj ;
    __s64 res ;
    __s64 res2 ;
 };
-# 15 "include/linux/aio.h"
 struct kioctx;
-# 87 "include/linux/aio.h"
 union __anonunion_ki_obj_252 {
    void *user ;
    struct task_struct *tsk ;
 };
-# 87 "include/linux/aio.h"
 struct kiocb {
    struct list_head ki_run_list ;
    unsigned long ki_flags ;
@@ -2823,7 +2336,6 @@ struct kiocb {
    struct list_head ki_list ;
    struct eventfd_ctx *ki_eventfd ;
 };
-# 165 "include/linux/aio.h"
 struct aio_ring_info {
    unsigned long mmap_base ;
    unsigned long mmap_size ;
@@ -2834,7 +2346,6 @@ struct aio_ring_info {
    unsigned int tail ;
    struct page *internal_pages[8] ;
 };
-# 178 "include/linux/aio.h"
 struct kioctx {
    atomic_t users ;
    int dead ;
@@ -2851,14 +2362,12 @@ struct kioctx {
    struct delayed_work wq ;
    struct rcu_head rcu_head ;
 };
-# 441 "include/linux/sched.h"
 struct sighand_struct {
    atomic_t count ;
    struct k_sigaction action[64] ;
    spinlock_t siglock ;
    wait_queue_head_t signalfd_wqh ;
 };
-# 448 "include/linux/sched.h"
 struct pacct_struct {
    int ac_flag ;
    long ac_exitcode ;
@@ -2868,34 +2377,26 @@ struct pacct_struct {
    unsigned long ac_minflt ;
    unsigned long ac_majflt ;
 };
-# 456 "include/linux/sched.h"
 struct cpu_itimer {
    cputime_t expires ;
    cputime_t incr ;
    u32 error ;
    u32 incr_error ;
 };
-# 474 "include/linux/sched.h"
 struct task_cputime {
    cputime_t utime ;
    cputime_t stime ;
    unsigned long long sum_exec_runtime ;
 };
-# 510 "include/linux/sched.h"
 struct thread_group_cputimer {
    struct task_cputime cputime ;
    int running ;
    spinlock_t lock ;
 };
-# 517 "include/linux/sched.h"
 struct autogroup;
-# 526 "include/linux/sched.h"
 struct tty_struct;
-# 526 "include/linux/sched.h"
 struct taskstats;
-# 526 "include/linux/sched.h"
 struct tty_audit_buf;
-# 526 "include/linux/sched.h"
 struct signal_struct {
    atomic_t sigcnt ;
    atomic_t live ;
@@ -2955,7 +2456,6 @@ struct signal_struct {
    int oom_score_adj_min ;
    struct mutex cred_guard_mutex ;
 };
-# 687 "include/linux/sched.h"
 struct user_struct {
    atomic_t __count ;
    atomic_t processes ;
@@ -2974,16 +2474,13 @@ struct user_struct {
    struct user_namespace *user_ns ;
    atomic_long_t locked_vm ;
 };
-# 732 "include/linux/sched.h"
 struct reclaim_state;
-# 735 "include/linux/sched.h"
 struct sched_info {
    unsigned long pcount ;
    unsigned long long run_delay ;
    unsigned long long last_arrival ;
    unsigned long long last_queued ;
 };
-# 747 "include/linux/sched.h"
 struct task_delay_info {
    spinlock_t lock ;
    unsigned int flags ;
@@ -2998,11 +2495,8 @@ struct task_delay_info {
    u64 freepages_delay ;
    u32 freepages_count ;
 };
-# 1050 "include/linux/sched.h"
 struct io_context;
-# 1064 "include/linux/sched.h"
 struct rq;
-# 1084 "include/linux/sched.h"
 struct sched_class {
    struct sched_class const *next ;
    void (*enqueue_task)(struct rq *rq , struct task_struct *p , int flags ) ;
@@ -3029,12 +2523,10 @@ struct sched_class {
    unsigned int (*get_rr_interval)(struct rq *rq , struct task_struct *task ) ;
    void (*task_move_group)(struct task_struct *p , int on_rq ) ;
 };
-# 1129 "include/linux/sched.h"
 struct load_weight {
    unsigned long weight ;
    unsigned long inv_weight ;
 };
-# 1134 "include/linux/sched.h"
 struct sched_statistics {
    u64 wait_start ;
    u64 wait_max ;
@@ -3064,7 +2556,6 @@ struct sched_statistics {
    u64 nr_wakeups_passive ;
    u64 nr_wakeups_idle ;
 };
-# 1169 "include/linux/sched.h"
 struct sched_entity {
    struct load_weight load ;
    struct rb_node run_node ;
@@ -3080,9 +2571,7 @@ struct sched_entity {
    struct cfs_rq *cfs_rq ;
    struct cfs_rq *my_q ;
 };
-# 1195 "include/linux/sched.h"
 struct rt_rq;
-# 1195 "include/linux/sched.h"
 struct sched_rt_entity {
    struct list_head run_list ;
    unsigned long timeout ;
@@ -3093,22 +2582,16 @@ struct sched_rt_entity {
    struct rt_rq *rt_rq ;
    struct rt_rq *my_q ;
 };
-# 1220 "include/linux/sched.h"
 struct css_set;
-# 1220 "include/linux/sched.h"
 struct compat_robust_list_head;
-# 1220 "include/linux/sched.h"
 struct ftrace_ret_stack;
-# 1220 "include/linux/sched.h"
 struct mem_cgroup;
-# 1220 "include/linux/sched.h"
 struct memcg_batch_info {
    int do_batch ;
    struct mem_cgroup *memcg ;
    unsigned long nr_pages ;
    unsigned long memsw_nr_pages ;
 };
-# 1220 "include/linux/sched.h"
 struct task_struct {
    long volatile state ;
    void *stack ;
@@ -3279,7 +2762,6 @@ struct task_struct {
    struct memcg_batch_info memcg_batch ;
    atomic_t ptrace_bp_refcnt ;
 };
-# 40 "include/linux/taskstats.h"
 struct taskstats {
    __u16 version ;
    __u32 ac_exitcode ;
@@ -3325,20 +2807,15 @@ struct taskstats {
    __u64 freepages_count ;
    __u64 freepages_delay_total ;
 };
-# 22 "include/linux/cgroup.h"
 struct cgroupfs_root;
-# 25 "include/linux/cgroup.h"
 struct cgroup;
-# 26 "include/linux/cgroup.h"
 struct css_id;
-# 60 "include/linux/cgroup.h"
 struct cgroup_subsys_state {
    struct cgroup *cgroup ;
    atomic_t refcnt ;
    unsigned long flags ;
    struct css_id *id ;
 };
-# 195 "include/linux/cgroup.h"
 struct cgroup {
    unsigned long flags ;
    atomic_t count ;
@@ -3357,7 +2834,6 @@ struct cgroup {
    struct list_head event_list ;
    spinlock_t event_list_lock ;
 };
-# 256 "include/linux/cgroup.h"
 struct css_set {
    atomic_t refcount ;
    struct hlist_node hlist ;
@@ -3366,34 +2842,25 @@ struct css_set {
    struct cgroup_subsys_state *subsys[8UL * sizeof(unsigned long )] ;
    struct rcu_head rcu_head ;
 };
-# 16 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/compat.h"
 typedef s32 compat_time_t;
-# 37 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/compat.h"
 typedef s32 compat_long_t;
-# 43 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/compat.h"
 struct compat_timespec {
    compat_time_t tv_sec ;
    s32 tv_nsec ;
 };
-# 196 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/compat.h"
 typedef u32 compat_uptr_t;
-# 206 "include/linux/compat.h"
 struct compat_robust_list {
    compat_uptr_t next ;
 };
-# 210 "include/linux/compat.h"
 struct compat_robust_list_head {
    struct compat_robust_list list ;
    compat_long_t futex_offset ;
    compat_uptr_t list_op_pending ;
 };
-# 46 "include/linux/proc_fs.h"
 typedef int read_proc_t(char *page , char **start , off_t off , int count , int *eof ,
                         void *data );
-# 48 "include/linux/proc_fs.h"
 typedef int write_proc_t(struct file *file , char const *buffer , unsigned long count ,
                          void *data );
-# 51 "include/linux/proc_fs.h"
 struct proc_dir_entry {
    unsigned int low_ino ;
    unsigned int namelen ;
@@ -3417,7 +2884,6 @@ struct proc_dir_entry {
    struct completion *pde_unload_completion ;
    struct list_head pde_openers ;
 };
-# 16 "include/linux/seq_file.h"
 struct seq_file {
    char *buf ;
    size_t size ;
@@ -3430,14 +2896,12 @@ struct seq_file {
    struct seq_operations const *op ;
    void *private ;
 };
-# 29 "include/linux/seq_file.h"
 struct seq_operations {
    void *(*start)(struct seq_file *m , loff_t *pos ) ;
    void (*stop)(struct seq_file *m , void *v ) ;
    void *(*next)(struct seq_file *m , void *v , loff_t *pos ) ;
    int (*show)(struct seq_file *m , void *v ) ;
 };
-# 106 "include/linux/interrupt.h"
 struct irqaction {
    irqreturn_t (*handler)(int , void * ) ;
    unsigned long flags ;
@@ -3451,9 +2915,7 @@ struct irqaction {
    char const *name ;
    struct proc_dir_entry *dir ;
 } __attribute__((__aligned__((1) << (12) ))) ;
-# 18 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/drivers/vhost/vhost.h"
 struct vhost_work;
-# 21 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/drivers/vhost/vhost.h"
 struct vhost_work {
    struct list_head node ;
    void (*fn)(struct vhost_work *work ) ;
@@ -3462,9 +2924,7 @@ struct vhost_work {
    unsigned int queue_seq ;
    unsigned int done_seq ;
 };
-# 32 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/drivers/vhost/vhost.h"
 struct vhost_dev;
-# 32 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/drivers/vhost/vhost.h"
 struct vhost_poll {
    poll_table table ;
    wait_queue_head_t *wqh ;
@@ -3473,12 +2933,10 @@ struct vhost_poll {
    unsigned long mask ;
    struct vhost_dev *dev ;
 };
-# 48 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/drivers/vhost/vhost.h"
 struct vhost_log {
    u64 addr ;
    u64 len ;
 };
-# 54 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/drivers/vhost/vhost.h"
 struct vhost_virtqueue {
    struct vhost_dev *dev ;
    struct mutex mutex ;
@@ -3512,7 +2970,6 @@ struct vhost_virtqueue {
    void *log_base ;
    struct vhost_log *log ;
 };
-# 119 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/drivers/vhost/vhost.h"
 struct vhost_dev {
    struct vhost_memory *memory ;
    struct mm_struct *mm ;
@@ -3526,13 +2983,11 @@ struct vhost_dev {
    struct list_head work_list ;
    struct task_struct *worker ;
 };
-# 308 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
 struct vhost_attach_cgroups_struct {
    struct vhost_work work ;
    struct task_struct *owner ;
    int ret ;
 };
-# 244 "include/linux/usb/ch9.h"
 struct usb_device_descriptor {
    __u8 bLength ;
    __u8 bDescriptorType ;
@@ -3549,7 +3004,6 @@ struct usb_device_descriptor {
    __u8 iSerialNumber ;
    __u8 bNumConfigurations ;
 } __attribute__((__packed__)) ;
-# 300 "include/linux/usb/ch9.h"
 struct usb_config_descriptor {
    __u8 bLength ;
    __u8 bDescriptorType ;
@@ -3560,7 +3014,6 @@ struct usb_config_descriptor {
    __u8 bmAttributes ;
    __u8 bMaxPower ;
 } __attribute__((__packed__)) ;
-# 337 "include/linux/usb/ch9.h"
 struct usb_interface_descriptor {
    __u8 bLength ;
    __u8 bDescriptorType ;
@@ -3572,7 +3025,6 @@ struct usb_interface_descriptor {
    __u8 bInterfaceProtocol ;
    __u8 iInterface ;
 } __attribute__((__packed__)) ;
-# 355 "include/linux/usb/ch9.h"
 struct usb_endpoint_descriptor {
    __u8 bLength ;
    __u8 bDescriptorType ;
@@ -3583,7 +3035,6 @@ struct usb_endpoint_descriptor {
    __u8 bRefresh ;
    __u8 bSynchAddress ;
 } __attribute__((__packed__)) ;
-# 576 "include/linux/usb/ch9.h"
 struct usb_ss_ep_comp_descriptor {
    __u8 bLength ;
    __u8 bDescriptorType ;
@@ -3591,7 +3042,6 @@ struct usb_ss_ep_comp_descriptor {
    __u8 bmAttributes ;
    __le16 wBytesPerInterval ;
 } __attribute__((__packed__)) ;
-# 637 "include/linux/usb/ch9.h"
 struct usb_interface_assoc_descriptor {
    __u8 bLength ;
    __u8 bDescriptorType ;
@@ -3602,7 +3052,6 @@ struct usb_interface_assoc_descriptor {
    __u8 bFunctionProtocol ;
    __u8 iFunction ;
 } __attribute__((__packed__)) ;
-# 846 "include/linux/usb/ch9.h"
 enum usb_device_speed {
     USB_SPEED_UNKNOWN = 0,
     USB_SPEED_LOW = 1,
@@ -3611,7 +3060,6 @@ enum usb_device_speed {
     USB_SPEED_WIRELESS = 4,
     USB_SPEED_SUPER = 5
 } ;
-# 854 "include/linux/usb/ch9.h"
 enum usb_device_state {
     USB_STATE_NOTATTACHED = 0,
     USB_STATE_ATTACHED = 1,
@@ -3623,13 +3071,9 @@ enum usb_device_state {
     USB_STATE_CONFIGURED = 7,
     USB_STATE_SUSPENDED = 8
 } ;
-# 25 "include/linux/usb.h"
 struct usb_device;
-# 27 "include/linux/usb.h"
 struct wusb_dev;
-# 47 "include/linux/usb.h"
 struct ep_device;
-# 64 "include/linux/usb.h"
 struct usb_host_endpoint {
    struct usb_endpoint_descriptor desc ;
    struct usb_ss_ep_comp_descriptor ss_ep_comp ;
@@ -3640,7 +3084,6 @@ struct usb_host_endpoint {
    int extralen ;
    int enabled ;
 };
-# 77 "include/linux/usb.h"
 struct usb_host_interface {
    struct usb_interface_descriptor desc ;
    struct usb_host_endpoint *endpoint ;
@@ -3648,14 +3091,12 @@ struct usb_host_interface {
    unsigned char *extra ;
    int extralen ;
 };
-# 90 "include/linux/usb.h"
 enum usb_interface_condition {
     USB_INTERFACE_UNBOUND = 0,
     USB_INTERFACE_BINDING = 1,
     USB_INTERFACE_BOUND = 2,
     USB_INTERFACE_UNBINDING = 3
 } ;
-# 159 "include/linux/usb.h"
 struct usb_interface {
    struct usb_host_interface *altsetting ;
    struct usb_host_interface *cur_altsetting ;
@@ -3676,13 +3117,11 @@ struct usb_interface {
    atomic_t pm_usage_cnt ;
    struct work_struct reset_ws ;
 };
-# 222 "include/linux/usb.h"
 struct usb_interface_cache {
    unsigned int num_altsetting ;
    struct kref ref ;
    struct usb_host_interface altsetting[0] ;
 };
-# 274 "include/linux/usb.h"
 struct usb_host_config {
    struct usb_config_descriptor desc ;
    char *string ;
@@ -3692,13 +3131,10 @@ struct usb_host_config {
    unsigned char *extra ;
    int extralen ;
 };
-# 305 "include/linux/usb.h"
 struct usb_devmap {
    unsigned long devicemap[128UL / (8UL * sizeof(unsigned long ))] ;
 };
-# 312 "include/linux/usb.h"
 struct mon_bus;
-# 312 "include/linux/usb.h"
 struct usb_bus {
    struct device *controller ;
    int busnum ;
@@ -3721,9 +3157,7 @@ struct usb_bus {
    struct mon_bus *mon_bus ;
    int monitored ;
 };
-# 367 "include/linux/usb.h"
 struct usb_tt;
-# 426 "include/linux/usb.h"
 struct usb_device {
    int devnum ;
    char devpath[16] ;
@@ -3770,23 +3204,19 @@ struct usb_device {
    struct wusb_dev *wusb_dev ;
    int slot_id ;
 };
-# 983 "include/linux/usb.h"
 struct usb_iso_packet_descriptor {
    unsigned int offset ;
    unsigned int length ;
    unsigned int actual_length ;
    int status ;
 };
-# 990 "include/linux/usb.h"
 struct urb;
-# 992 "include/linux/usb.h"
 struct usb_anchor {
    struct list_head urb_list ;
    wait_queue_head_t wait ;
    spinlock_t lock ;
    unsigned int poisoned : 1 ;
 };
-# 1183 "include/linux/usb.h"
 struct urb {
    struct kref kref ;
    void *hcpriv ;
@@ -3818,29 +3248,20 @@ struct urb {
    void (*complete)(struct urb * ) ;
    struct usb_iso_packet_descriptor iso_frame_desc[0] ;
 };
-# 178 "include/linux/types.h"
 typedef __u16 __be16;
-# 180 "include/linux/types.h"
 typedef __u32 __be32;
-# 185 "include/linux/types.h"
 typedef __u32 __wsum;
-# 33 "include/linux/seqlock.h"
 struct __anonstruct_seqlock_t_40 {
    unsigned int sequence ;
    spinlock_t lock ;
 };
-# 33 "include/linux/seqlock.h"
 typedef struct __anonstruct_seqlock_t_40 seqlock_t;
-# 11 "include/linux/socket.h"
 struct sockaddr;
-# 38 "include/linux/socket.h"
 typedef unsigned short sa_family_t;
-# 44 "include/linux/socket.h"
 struct sockaddr {
    sa_family_t sa_family ;
    char sa_data[14] ;
 };
-# 62 "include/linux/socket.h"
 struct msghdr {
    void *msg_name ;
    int msg_namelen ;
@@ -3850,31 +3271,24 @@ struct msghdr {
    __kernel_size_t msg_controllen ;
    unsigned int msg_flags ;
 };
-# 37 "include/linux/hdlc/ioctl.h"
 struct __anonstruct_sync_serial_settings_41 {
    unsigned int clock_rate ;
    unsigned int clock_type ;
    unsigned short loopback ;
 };
-# 37 "include/linux/hdlc/ioctl.h"
 typedef struct __anonstruct_sync_serial_settings_41 sync_serial_settings;
-# 43 "include/linux/hdlc/ioctl.h"
 struct __anonstruct_te1_settings_42 {
    unsigned int clock_rate ;
    unsigned int clock_type ;
    unsigned short loopback ;
    unsigned int slot_map ;
 };
-# 43 "include/linux/hdlc/ioctl.h"
 typedef struct __anonstruct_te1_settings_42 te1_settings;
-# 50 "include/linux/hdlc/ioctl.h"
 struct __anonstruct_raw_hdlc_proto_43 {
    unsigned short encoding ;
    unsigned short parity ;
 };
-# 50 "include/linux/hdlc/ioctl.h"
 typedef struct __anonstruct_raw_hdlc_proto_43 raw_hdlc_proto;
-# 55 "include/linux/hdlc/ioctl.h"
 struct __anonstruct_fr_proto_44 {
    unsigned int t391 ;
    unsigned int t392 ;
@@ -3884,29 +3298,21 @@ struct __anonstruct_fr_proto_44 {
    unsigned short lmi ;
    unsigned short dce ;
 };
-# 55 "include/linux/hdlc/ioctl.h"
 typedef struct __anonstruct_fr_proto_44 fr_proto;
-# 65 "include/linux/hdlc/ioctl.h"
 struct __anonstruct_fr_proto_pvc_45 {
    unsigned int dlci ;
 };
-# 65 "include/linux/hdlc/ioctl.h"
 typedef struct __anonstruct_fr_proto_pvc_45 fr_proto_pvc;
-# 69 "include/linux/hdlc/ioctl.h"
 struct __anonstruct_fr_proto_pvc_info_46 {
    unsigned int dlci ;
    char master[16] ;
 };
-# 69 "include/linux/hdlc/ioctl.h"
 typedef struct __anonstruct_fr_proto_pvc_info_46 fr_proto_pvc_info;
-# 74 "include/linux/hdlc/ioctl.h"
 struct __anonstruct_cisco_proto_47 {
    unsigned int interval ;
    unsigned int timeout ;
 };
-# 74 "include/linux/hdlc/ioctl.h"
 typedef struct __anonstruct_cisco_proto_47 cisco_proto;
-# 134 "include/linux/if.h"
 struct ifmap {
    unsigned long mem_start ;
    unsigned long mem_end ;
@@ -3915,7 +3321,6 @@ struct ifmap {
    unsigned char dma ;
    unsigned char port ;
 };
-# 144 "include/linux/if.h"
 union __anonunion_ifs_ifsu_50 {
    raw_hdlc_proto *raw_hdlc ;
    cisco_proto *cisco ;
@@ -3925,17 +3330,14 @@ union __anonunion_ifs_ifsu_50 {
    sync_serial_settings *sync ;
    te1_settings *te1 ;
 };
-# 144 "include/linux/if.h"
 struct if_settings {
    unsigned int type ;
    unsigned int size ;
    union __anonunion_ifs_ifsu_50 ifs_ifsu ;
 };
-# 168 "include/linux/if.h"
 union __anonunion_ifr_ifrn_51 {
    char ifrn_name[16] ;
 };
-# 168 "include/linux/if.h"
 union __anonunion_ifr_ifru_52 {
    struct sockaddr ifru_addr ;
    struct sockaddr ifru_dstaddr ;
@@ -3951,38 +3353,28 @@ union __anonunion_ifr_ifru_52 {
    void *ifru_data ;
    struct if_settings ifru_settings ;
 };
-# 168 "include/linux/if.h"
 struct ifreq {
    union __anonunion_ifr_ifrn_51 ifr_ifrn ;
    union __anonunion_ifr_ifru_52 ifr_ifru ;
 };
-# 290 "include/linux/timer.h"
 enum hrtimer_restart;
-# 290 "include/linux/timer.h"
 enum hrtimer_restart;
-# 18 "include/linux/percpu_counter.h"
 struct percpu_counter {
    spinlock_t lock ;
    s64 count ;
    struct list_head list ;
    s32 *counters ;
 };
-# 2574 "include/linux/fs.h"
 struct ctl_table;
-# 938 "include/linux/sysctl.h"
 struct ctl_table_root;
-# 940 "include/linux/sysctl.h"
 struct ctl_table_set {
    struct list_head list ;
    struct ctl_table_set *parent ;
    int (*is_seen)(struct ctl_table_set * ) ;
 };
-# 950 "include/linux/sysctl.h"
 struct ctl_table_header;
-# 965 "include/linux/sysctl.h"
 typedef int proc_handler(struct ctl_table *ctl , int write , void *buffer , size_t *lenp ,
                          loff_t *ppos );
-# 1015 "include/linux/sysctl.h"
 struct ctl_table {
    char const *procname ;
    void *data ;
@@ -3994,26 +3386,22 @@ struct ctl_table {
    void *extra1 ;
    void *extra2 ;
 };
-# 1028 "include/linux/sysctl.h"
 struct ctl_table_root {
    struct list_head root_list ;
    struct ctl_table_set default_set ;
    struct ctl_table_set *(*lookup)(struct ctl_table_root *root , struct nsproxy *namespaces ) ;
    int (*permissions)(struct ctl_table_root *root , struct nsproxy *namespaces , struct ctl_table *table ) ;
 };
-# 1039 "include/linux/sysctl.h"
 struct __anonstruct____missing_field_name_239 {
    struct ctl_table *ctl_table ;
    struct list_head ctl_entry ;
    int used ;
    int count ;
 };
-# 1039 "include/linux/sysctl.h"
 union __anonunion____missing_field_name_238 {
    struct __anonstruct____missing_field_name_239 __annonCompField36 ;
    struct rcu_head rcu ;
 };
-# 1039 "include/linux/sysctl.h"
 struct ctl_table_header {
    union __anonunion____missing_field_name_238 __annonCompField37 ;
    struct completion *unregistering ;
@@ -4024,17 +3412,13 @@ struct ctl_table_header {
    struct ctl_table *attached_to ;
    struct ctl_table_header *parent ;
 };
-# 24 "include/linux/sysfs.h"
 enum kobj_ns_type;
-# 311 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/elf.h"
 struct linux_binprm;
-# 119 "include/linux/if_ether.h"
 struct ethhdr {
    unsigned char h_dest[6] ;
    unsigned char h_source[6] ;
    __be16 h_proto ;
 } __attribute__((__packed__)) ;
-# 47 "include/linux/net.h"
 enum __anonenum_socket_state_257 {
     SS_FREE = 0,
     SS_UNCONNECTED = 1,
@@ -4042,19 +3426,14 @@ enum __anonenum_socket_state_257 {
     SS_CONNECTED = 3,
     SS_DISCONNECTING = 4
 } ;
-# 47 "include/linux/net.h"
 typedef enum __anonenum_socket_state_257 socket_state;
-# 68 "include/linux/net.h"
 struct net;
-# 121 "include/linux/net.h"
 struct socket_wq {
    wait_queue_head_t wait ;
    struct fasync_struct *fasync_list ;
    struct rcu_head rcu ;
 } __attribute__((__aligned__((1) << (6) ))) ;
-# 138 "include/linux/net.h"
 struct proto_ops;
-# 138 "include/linux/net.h"
 struct socket {
    socket_state state ;
    short type ;
@@ -4064,7 +3443,6 @@ struct socket {
    struct sock *sk ;
    struct proto_ops const *ops ;
 };
-# 161 "include/linux/net.h"
 struct proto_ops {
    int family ;
    struct module *owner ;
@@ -4098,17 +3476,12 @@ struct proto_ops {
    ssize_t (*splice_read)(struct socket *sock , loff_t *ppos , struct pipe_inode_info *pipe ,
                           size_t len , unsigned int flags ) ;
 };
-# 109 "include/net/checksum.h"
 struct sk_buff;
-# 33 "include/linux/dmaengine.h"
 typedef s32 dma_cookie_t;
-# 94 "include/linux/skbuff.h"
 struct net_device;
-# 99 "include/linux/skbuff.h"
 struct nf_conntrack {
    atomic_t use ;
 };
-# 105 "include/linux/skbuff.h"
 struct nf_bridge_info {
    atomic_t use ;
    struct net_device *physindev ;
@@ -4116,33 +3489,26 @@ struct nf_bridge_info {
    unsigned int mask ;
    unsigned long data[32UL / sizeof(unsigned long )] ;
 };
-# 114 "include/linux/skbuff.h"
 struct sk_buff_head {
    struct sk_buff *next ;
    struct sk_buff *prev ;
    __u32 qlen ;
    spinlock_t lock ;
 };
-# 259 "include/linux/skbuff.h"
 typedef unsigned int sk_buff_data_t;
-# 325 "include/linux/skbuff.h"
 struct sec_path;
-# 325 "include/linux/skbuff.h"
 struct __anonstruct____missing_field_name_264 {
    __u16 csum_start ;
    __u16 csum_offset ;
 };
-# 325 "include/linux/skbuff.h"
 union __anonunion____missing_field_name_263 {
    __wsum csum ;
    struct __anonstruct____missing_field_name_264 __annonCompField41 ;
 };
-# 325 "include/linux/skbuff.h"
 union __anonunion____missing_field_name_265 {
    __u32 mark ;
    __u32 dropcount ;
 };
-# 325 "include/linux/skbuff.h"
 struct sk_buff {
    struct sk_buff *next ;
    struct sk_buff *prev ;
@@ -4194,11 +3560,8 @@ struct sk_buff {
    unsigned int truesize ;
    atomic_t users ;
 };
-# 450 "include/linux/skbuff.h"
 struct dst_entry;
-# 485 "include/linux/skbuff.h"
 struct rtable;
-# 47 "include/linux/miscdevice.h"
 struct miscdevice {
    int minor ;
    char const *name ;
@@ -4209,7 +3572,6 @@ struct miscdevice {
    char const *nodename ;
    mode_t mode ;
 };
-# 12 "include/linux/if_packet.h"
 struct sockaddr_ll {
    unsigned short sll_family ;
    __be16 sll_protocol ;
@@ -4219,12 +3581,10 @@ struct sockaddr_ll {
    unsigned char sll_halen ;
    unsigned char sll_addr[8] ;
 };
-# 125 "include/linux/netlink.h"
 struct nlattr {
    __u16 nla_len ;
    __u16 nla_type ;
 };
-# 41 "include/linux/if_link.h"
 struct rtnl_link_stats64 {
    __u64 rx_packets ;
    __u64 tx_packets ;
@@ -4250,7 +3610,6 @@ struct rtnl_link_stats64 {
    __u64 rx_compressed ;
    __u64 tx_compressed ;
 };
-# 303 "include/linux/if_link.h"
 struct ifla_vf_info {
    __u32 vf ;
    __u8 mac[32] ;
@@ -4258,12 +3617,10 @@ struct ifla_vf_info {
    __u32 qos ;
    __u32 tx_rate ;
 };
-# 23 "include/linux/pm_qos_params.h"
 struct pm_qos_request_list {
    struct plist_node list ;
    int pm_qos_class ;
 };
-# 23 "include/linux/ethtool.h"
 struct ethtool_cmd {
    __u32 cmd ;
    __u32 supported ;
@@ -4283,7 +3640,6 @@ struct ethtool_cmd {
    __u32 lp_advertising ;
    __u32 reserved[2] ;
 };
-# 65 "include/linux/ethtool.h"
 struct ethtool_drvinfo {
    __u32 cmd ;
    char driver[32] ;
@@ -4298,21 +3654,18 @@ struct ethtool_drvinfo {
    __u32 eedump_len ;
    __u32 regdump_len ;
 };
-# 90 "include/linux/ethtool.h"
 struct ethtool_wolinfo {
    __u32 cmd ;
    __u32 supported ;
    __u32 wolopts ;
    __u8 sopass[6] ;
 };
-# 104 "include/linux/ethtool.h"
 struct ethtool_regs {
    __u32 cmd ;
    __u32 version ;
    __u32 len ;
    __u8 data[0] ;
 };
-# 112 "include/linux/ethtool.h"
 struct ethtool_eeprom {
    __u32 cmd ;
    __u32 magic ;
@@ -4320,7 +3673,6 @@ struct ethtool_eeprom {
    __u32 len ;
    __u8 data[0] ;
 };
-# 121 "include/linux/ethtool.h"
 struct ethtool_coalesce {
    __u32 cmd ;
    __u32 rx_coalesce_usecs ;
@@ -4346,7 +3698,6 @@ struct ethtool_coalesce {
    __u32 tx_max_coalesced_frames_high ;
    __u32 rate_sample_interval ;
 };
-# 217 "include/linux/ethtool.h"
 struct ethtool_ringparam {
    __u32 cmd ;
    __u32 rx_max_pending ;
@@ -4358,7 +3709,6 @@ struct ethtool_ringparam {
    __u32 rx_jumbo_pending ;
    __u32 tx_pending ;
 };
-# 254 "include/linux/ethtool.h"
 struct ethtool_channels {
    __u32 cmd ;
    __u32 max_rx ;
@@ -4370,14 +3720,12 @@ struct ethtool_channels {
    __u32 other_count ;
    __u32 combined_count ;
 };
-# 267 "include/linux/ethtool.h"
 struct ethtool_pauseparam {
    __u32 cmd ;
    __u32 autoneg ;
    __u32 rx_pause ;
    __u32 tx_pause ;
 };
-# 319 "include/linux/ethtool.h"
 struct ethtool_test {
    __u32 cmd ;
    __u32 flags ;
@@ -4385,13 +3733,11 @@ struct ethtool_test {
    __u32 len ;
    __u64 data[0] ;
 };
-# 328 "include/linux/ethtool.h"
 struct ethtool_stats {
    __u32 cmd ;
    __u32 n_stats ;
    __u64 data[0] ;
 };
-# 373 "include/linux/ethtool.h"
 struct ethtool_tcpip4_spec {
    __be32 ip4src ;
    __be32 ip4dst ;
@@ -4399,14 +3745,12 @@ struct ethtool_tcpip4_spec {
    __be16 pdst ;
    __u8 tos ;
 };
-# 390 "include/linux/ethtool.h"
 struct ethtool_ah_espip4_spec {
    __be32 ip4src ;
    __be32 ip4dst ;
    __be32 spi ;
    __u8 tos ;
 };
-# 408 "include/linux/ethtool.h"
 struct ethtool_usrip4_spec {
    __be32 ip4src ;
    __be32 ip4dst ;
@@ -4415,7 +3759,6 @@ struct ethtool_usrip4_spec {
    __u8 ip_ver ;
    __u8 proto ;
 };
-# 417 "include/linux/ethtool.h"
 union ethtool_flow_union {
    struct ethtool_tcpip4_spec tcp_ip4_spec ;
    struct ethtool_tcpip4_spec udp_ip4_spec ;
@@ -4426,13 +3769,11 @@ union ethtool_flow_union {
    struct ethhdr ether_spec ;
    __u8 hdata[60] ;
 };
-# 428 "include/linux/ethtool.h"
 struct ethtool_flow_ext {
    __be16 vlan_etype ;
    __be16 vlan_tci ;
    __be32 data[2] ;
 };
-# 447 "include/linux/ethtool.h"
 struct ethtool_rx_flow_spec {
    __u32 flow_type ;
    union ethtool_flow_union h_u ;
@@ -4442,7 +3783,6 @@ struct ethtool_rx_flow_spec {
    __u64 ring_cookie ;
    __u32 location ;
 };
-# 496 "include/linux/ethtool.h"
 struct ethtool_rxnfc {
    __u32 cmd ;
    __u32 flow_type ;
@@ -4451,13 +3791,11 @@ struct ethtool_rxnfc {
    __u32 rule_cnt ;
    __u32 rule_locs[0] ;
 };
-# 537 "include/linux/ethtool.h"
 struct ethtool_rxfh_indir {
    __u32 cmd ;
    __u32 size ;
    __u32 ring_index[0] ;
 };
-# 559 "include/linux/ethtool.h"
 union __anonunion_h_u_280 {
    struct ethtool_tcpip4_spec tcp_ip4_spec ;
    struct ethtool_tcpip4_spec udp_ip4_spec ;
@@ -4468,7 +3806,6 @@ union __anonunion_h_u_280 {
    struct ethhdr ether_spec ;
    __u8 hdata[72] ;
 };
-# 559 "include/linux/ethtool.h"
 struct ethtool_rx_ntuple_flow_spec {
    __u32 flow_type ;
    union __anonunion_h_u_280 h_u ;
@@ -4479,18 +3816,15 @@ struct ethtool_rx_ntuple_flow_spec {
    __u64 data_mask ;
    __s32 action ;
 };
-# 587 "include/linux/ethtool.h"
 struct ethtool_rx_ntuple {
    __u32 cmd ;
    struct ethtool_rx_ntuple_flow_spec fs ;
 };
-# 598 "include/linux/ethtool.h"
 struct ethtool_flash {
    __u32 cmd ;
    __u32 region ;
    char data[128] ;
 };
-# 616 "include/linux/ethtool.h"
 struct ethtool_dump {
    __u32 cmd ;
    __u32 version ;
@@ -4498,19 +3832,16 @@ struct ethtool_dump {
    __u32 len ;
    __u8 data[0] ;
 };
-# 722 "include/linux/ethtool.h"
 struct ethtool_rx_ntuple_list {
    struct list_head list ;
    unsigned int count ;
 };
-# 738 "include/linux/ethtool.h"
 enum ethtool_phys_id_state {
     ETHTOOL_ID_INACTIVE = 0,
     ETHTOOL_ID_ACTIVE = 1,
     ETHTOOL_ID_ON = 2,
     ETHTOOL_ID_OFF = 3
 } ;
-# 891 "include/linux/ethtool.h"
 struct ethtool_ops {
    int (*get_settings)(struct net_device * , struct ethtool_cmd * ) ;
    int (*set_settings)(struct net_device * , struct ethtool_cmd * ) ;
@@ -4567,56 +3898,43 @@ struct ethtool_ops {
    int (*get_dump_data)(struct net_device * , struct ethtool_dump * , void * ) ;
    int (*set_dump)(struct net_device * , struct ethtool_dump * ) ;
 };
-# 5 "include/net/netns/core.h"
 struct prot_inuse;
-# 7 "include/net/netns/core.h"
 struct netns_core {
    struct ctl_table_header *sysctl_hdr ;
    int sysctl_somaxconn ;
    struct prot_inuse *inuse ;
 };
-# 64 "include/linux/u64_stats_sync.h"
 struct u64_stats_sync {
 
 };
-# 56 "include/net/snmp.h"
 struct ipstats_mib {
    u64 mibs[31] ;
    struct u64_stats_sync syncp ;
 };
-# 64 "include/net/snmp.h"
 struct icmp_mib {
    unsigned long mibs[27] ;
 };
-# 69 "include/net/snmp.h"
 struct icmpmsg_mib {
    unsigned long mibs[512] ;
 };
-# 76 "include/net/snmp.h"
 struct icmpv6_mib {
    unsigned long mibs[5] ;
 };
-# 86 "include/net/snmp.h"
 struct icmpv6msg_mib {
    unsigned long mibs[512] ;
 };
-# 97 "include/net/snmp.h"
 struct tcp_mib {
    unsigned long mibs[15] ;
 };
-# 103 "include/net/snmp.h"
 struct udp_mib {
    unsigned long mibs[7] ;
 };
-# 109 "include/net/snmp.h"
 struct linux_mib {
    unsigned long mibs[80] ;
 };
-# 115 "include/net/snmp.h"
 struct linux_xfrm_mib {
    unsigned long mibs[27] ;
 };
-# 6 "include/net/netns/mib.h"
 struct netns_mib {
    struct tcp_mib *tcp_statistics[2] ;
    struct ipstats_mib *ip_statistics[2] ;
@@ -4633,17 +3951,14 @@ struct netns_mib {
    struct icmpv6msg_mib *icmpv6msg_statistics[2] ;
    struct linux_xfrm_mib *xfrm_statistics[2] ;
 };
-# 8 "include/net/netns/unix.h"
 struct netns_unix {
    int sysctl_max_dgram_qlen ;
    struct ctl_table_header *ctl ;
 };
-# 10 "include/net/netns/packet.h"
 struct netns_packet {
    spinlock_t sklist_lock ;
    struct hlist_head sklist ;
 };
-# 4 "include/net/inet_frag.h"
 struct netns_frags {
    int nqueues ;
    atomic_t mem ;
@@ -4652,13 +3967,9 @@ struct netns_frags {
    int high_thresh ;
    int low_thresh ;
 };
-# 11 "include/net/netns/ipv4.h"
 struct ipv4_devconf;
-# 12 "include/net/netns/ipv4.h"
 struct fib_rules_ops;
-# 16 "include/net/netns/ipv4.h"
 struct xt_table;
-# 16 "include/net/netns/ipv4.h"
 struct netns_ipv4 {
    struct ctl_table_header *forw_hdr ;
    struct ctl_table_header *frags_hdr ;
@@ -4694,7 +4005,6 @@ struct netns_ipv4 {
    struct list_head mr_tables ;
    struct fib_rules_ops *mr_rules_ops ;
 };
-# 12 "include/net/dst_ops.h"
 struct dst_ops {
    unsigned short family ;
    __be16 protocol ;
@@ -4713,7 +4023,6 @@ struct dst_ops {
    struct kmem_cache *kmem_cachep ;
    struct percpu_counter pcpuc_entries __attribute__((__aligned__((1) << (6) ))) ;
 };
-# 13 "include/net/netns/ipv6.h"
 struct netns_sysctl_ipv6 {
    struct ctl_table_header *table ;
    struct ctl_table_header *frags_hdr ;
@@ -4728,15 +4037,10 @@ struct netns_sysctl_ipv6 {
    int ip6_rt_min_advmss ;
    int icmpv6_time ;
 };
-# 30 "include/net/netns/ipv6.h"
 struct ipv6_devconf;
-# 30 "include/net/netns/ipv6.h"
 struct rt6_info;
-# 30 "include/net/netns/ipv6.h"
 struct rt6_statistics;
-# 30 "include/net/netns/ipv6.h"
 struct fib6_table;
-# 30 "include/net/netns/ipv6.h"
 struct netns_ipv6 {
    struct netns_sysctl_ipv6 sysctl ;
    struct ipv6_devconf *devconf_all ;
@@ -4765,34 +4069,26 @@ struct netns_ipv6 {
    struct list_head mr6_tables ;
    struct fib_rules_ops *mr6_rules_ops ;
 };
-# 6 "include/net/netns/dccp.h"
 struct netns_dccp {
    struct sock *v4_ctl_sk ;
    struct sock *v6_ctl_sk ;
 };
-# 7 "include/net/netns/x_tables.h"
 struct ebt_table;
-# 9 "include/net/netns/x_tables.h"
 struct netns_xt {
    struct list_head tables[13] ;
    struct ebt_table *broute_table ;
    struct ebt_table *frame_filter ;
    struct ebt_table *frame_nat ;
 };
-# 17 "include/linux/list_nulls.h"
 struct hlist_nulls_node;
-# 17 "include/linux/list_nulls.h"
 struct hlist_nulls_head {
    struct hlist_nulls_node *first ;
 };
-# 21 "include/linux/list_nulls.h"
 struct hlist_nulls_node {
    struct hlist_nulls_node *next ;
    struct hlist_nulls_node **pprev ;
 };
-# 11 "include/net/netns/conntrack.h"
 struct ip_conntrack_stat;
-# 11 "include/net/netns/conntrack.h"
 struct netns_ct {
    atomic_t count ;
    unsigned int expect_count ;
@@ -4815,12 +4111,10 @@ struct netns_ct {
    struct ctl_table_header *event_sysctl_header ;
    char *slabname ;
 };
-# 12 "include/net/netns/xfrm.h"
 struct xfrm_policy_hash {
    struct hlist_head *table ;
    unsigned int hmask ;
 };
-# 17 "include/net/netns/xfrm.h"
 struct netns_xfrm {
    struct list_head state_all ;
    struct hlist_head *state_bydst ;
@@ -4849,11 +4143,8 @@ struct netns_xfrm {
    struct dst_ops xfrm4_dst_ops ;
    struct dst_ops xfrm6_dst_ops ;
 };
-# 29 "include/net/net_namespace.h"
 struct net_generic;
-# 31 "include/net/net_namespace.h"
 struct netns_ipvs;
-# 37 "include/net/net_namespace.h"
 struct net {
    atomic_t passive ;
    atomic_t count ;
@@ -4887,7 +4178,6 @@ struct net {
    struct netns_xfrm xfrm ;
    struct netns_ipvs *ipvs ;
 };
-# 57 "include/linux/dcbnl.h"
 struct ieee_ets {
    __u8 willing ;
    __u8 ets_cap ;
@@ -4900,7 +4190,6 @@ struct ieee_ets {
    __u8 tc_reco_tsa[8] ;
    __u8 reco_prio_tc[8] ;
 };
-# 81 "include/linux/dcbnl.h"
 struct ieee_pfc {
    __u8 pfc_cap ;
    __u8 pfc_en ;
@@ -4909,7 +4198,6 @@ struct ieee_pfc {
    __u64 requests[8] ;
    __u64 indications[8] ;
 };
-# 104 "include/linux/dcbnl.h"
 struct cee_pg {
    __u8 willing ;
    __u8 error ;
@@ -4918,25 +4206,21 @@ struct cee_pg {
    __u8 pg_bw[8] ;
    __u8 prio_pg[8] ;
 };
-# 121 "include/linux/dcbnl.h"
 struct cee_pfc {
    __u8 willing ;
    __u8 error ;
    __u8 pfc_en ;
    __u8 tcs_supported ;
 };
-# 151 "include/linux/dcbnl.h"
 struct dcb_app {
    __u8 selector ;
    __u8 priority ;
    __u16 protocol ;
 };
-# 166 "include/linux/dcbnl.h"
 struct dcb_peer_app_info {
    __u8 willing ;
    __u8 error ;
 };
-# 38 "include/net/dcbnl.h"
 struct dcbnl_rtnl_ops {
    int (*ieee_getets)(struct net_device * , struct ieee_ets * ) ;
    int (*ieee_setets)(struct net_device * , struct ieee_ets * ) ;
@@ -4980,24 +4264,17 @@ struct dcbnl_rtnl_ops {
    int (*cee_peer_getpg)(struct net_device * , struct cee_pg * ) ;
    int (*cee_peer_getpfc)(struct net_device * , struct cee_pfc * ) ;
 };
-# 55 "include/linux/netdevice.h"
 struct vlan_group;
-# 56 "include/linux/netdevice.h"
 struct netpoll_info;
-# 57 "include/linux/netdevice.h"
 struct phy_device;
-# 59 "include/linux/netdevice.h"
 struct wireless_dev;
-# 111 "include/linux/netdevice.h"
 enum netdev_tx {
     __NETDEV_TX_MIN = (-0x7FFFFFFF-1),
     NETDEV_TX_OK = 0,
     NETDEV_TX_BUSY = 16,
     NETDEV_TX_LOCKED = 32
 } ;
-# 117 "include/linux/netdevice.h"
 typedef enum netdev_tx netdev_tx_t;
-# 176 "include/linux/netdevice.h"
 struct net_device_stats {
    unsigned long rx_packets ;
    unsigned long tx_packets ;
@@ -5023,16 +4300,12 @@ struct net_device_stats {
    unsigned long rx_compressed ;
    unsigned long tx_compressed ;
 };
-# 221 "include/linux/netdevice.h"
 struct neighbour;
-# 222 "include/linux/netdevice.h"
 struct neigh_parms;
-# 240 "include/linux/netdevice.h"
 struct netdev_hw_addr_list {
    struct list_head list ;
    int count ;
 };
-# 260 "include/linux/netdevice.h"
 struct hh_cache {
    struct hh_cache *hh_next ;
    atomic_t hh_refcnt ;
@@ -5042,7 +4315,6 @@ struct hh_cache {
    seqlock_t hh_lock ;
    unsigned long hh_data[128UL / sizeof(long )] ;
 };
-# 311 "include/linux/netdevice.h"
 struct header_ops {
    int (*create)(struct sk_buff *skb , struct net_device *dev , unsigned short type ,
                  void const *daddr , void const *saddr , unsigned int len ) ;
@@ -5051,20 +4323,15 @@ struct header_ops {
    int (*cache)(struct neighbour const *neigh , struct hh_cache *hh ) ;
    void (*cache_update)(struct hh_cache *hh , struct net_device const *dev , unsigned char const *haddr ) ;
 };
-# 434 "include/linux/netdevice.h"
 enum rx_handler_result {
     RX_HANDLER_CONSUMED = 0,
     RX_HANDLER_ANOTHER = 1,
     RX_HANDLER_EXACT = 2,
     RX_HANDLER_PASS = 3
 } ;
-# 440 "include/linux/netdevice.h"
 typedef enum rx_handler_result rx_handler_result_t;
-# 441 "include/linux/netdevice.h"
 typedef rx_handler_result_t rx_handler_func_t(struct sk_buff **pskb );
-# 551 "include/linux/netdevice.h"
 struct Qdisc;
-# 551 "include/linux/netdevice.h"
 struct netdev_queue {
    struct net_device *dev ;
    struct Qdisc *qdisc ;
@@ -5076,50 +4343,42 @@ struct netdev_queue {
    int xmit_lock_owner ;
    unsigned long trans_start ;
 } __attribute__((__aligned__((1) << (6) ))) ;
-# 597 "include/linux/netdevice.h"
 struct rps_map {
    unsigned int len ;
    struct rcu_head rcu ;
    u16 cpus[0] ;
 };
-# 609 "include/linux/netdevice.h"
 struct rps_dev_flow {
    u16 cpu ;
    u16 filter ;
    unsigned int last_qtail ;
 };
-# 619 "include/linux/netdevice.h"
 struct rps_dev_flow_table {
    unsigned int mask ;
    struct rcu_head rcu ;
    struct work_struct free_work ;
    struct rps_dev_flow flows[0] ;
 };
-# 670 "include/linux/netdevice.h"
 struct netdev_rx_queue {
    struct rps_map *rps_map ;
    struct rps_dev_flow_table *rps_flow_table ;
    struct kobject kobj ;
    struct net_device *dev ;
 } __attribute__((__aligned__((1) << (6) ))) ;
-# 683 "include/linux/netdevice.h"
 struct xps_map {
    unsigned int len ;
    unsigned int alloc_len ;
    struct rcu_head rcu ;
    u16 queues[0] ;
 };
-# 696 "include/linux/netdevice.h"
 struct xps_dev_maps {
    struct rcu_head rcu ;
    struct xps_map *cpu_map[0] ;
 };
-# 707 "include/linux/netdevice.h"
 struct netdev_tc_txq {
    u16 count ;
    u16 offset ;
 };
-# 892 "include/linux/netdevice.h"
 struct net_device_ops {
    int (*ndo_init)(struct net_device *dev ) ;
    void (*ndo_uninit)(struct net_device *dev ) ;
@@ -5167,19 +4426,12 @@ struct net_device_ops {
    u32 (*ndo_fix_features)(struct net_device *dev , u32 features ) ;
    int (*ndo_set_features)(struct net_device *dev , u32 features ) ;
 };
-# 993 "include/linux/netdevice.h"
 struct iw_handler_def;
-# 993 "include/linux/netdevice.h"
 struct iw_public_data;
-# 993 "include/linux/netdevice.h"
 struct in_device;
-# 993 "include/linux/netdevice.h"
 struct dn_dev;
-# 993 "include/linux/netdevice.h"
 struct inet6_dev;
-# 993 "include/linux/netdevice.h"
 struct cpu_rmap;
-# 993 "include/linux/netdevice.h"
 enum __anonenum_reg_state_304 {
     NETREG_UNINITIALIZED = 0,
     NETREG_REGISTERED = 1,
@@ -5188,29 +4440,21 @@ enum __anonenum_reg_state_304 {
     NETREG_RELEASED = 4,
     NETREG_DUMMY = 5
 } ;
-# 993 "include/linux/netdevice.h"
 enum __anonenum_rtnl_link_state_305 {
     RTNL_LINK_INITIALIZED = 0,
     RTNL_LINK_INITIALIZING = 1
 } ;
-# 993 "include/linux/netdevice.h"
 struct pcpu_lstats;
-# 993 "include/linux/netdevice.h"
 struct pcpu_tstats;
-# 993 "include/linux/netdevice.h"
 struct pcpu_dstats;
-# 993 "include/linux/netdevice.h"
 union __anonunion____missing_field_name_306 {
    void *ml_priv ;
    struct pcpu_lstats *lstats ;
    struct pcpu_tstats *tstats ;
    struct pcpu_dstats *dstats ;
 };
-# 993 "include/linux/netdevice.h"
 struct garp_port;
-# 993 "include/linux/netdevice.h"
 struct rtnl_link_ops;
-# 993 "include/linux/netdevice.h"
 struct net_device {
    char name[16] ;
    struct pm_qos_request_list pm_qos_req ;
@@ -5317,14 +4561,12 @@ struct net_device {
    struct phy_device *phydev ;
    int group ;
 };
-# 26 "include/linux/filter.h"
 struct sock_filter {
    __u16 code ;
    __u8 jt ;
    __u8 jf ;
    __u32 k ;
 };
-# 138 "include/linux/filter.h"
 struct sk_filter {
    atomic_t refcnt ;
    unsigned int len ;
@@ -5332,12 +4574,10 @@ struct sk_filter {
    struct rcu_head rcu ;
    struct sock_filter insns[0] ;
 };
-# 205 "include/net/netlink.h"
 struct nla_policy {
    u16 type ;
    u16 len ;
 };
-# 28 "include/linux/binfmts.h"
 struct linux_binprm {
    char buf[128] ;
    struct vm_area_struct *vma ;
@@ -5360,7 +4600,6 @@ struct linux_binprm {
    unsigned long loader ;
    unsigned long exec ;
 };
-# 73 "include/linux/binfmts.h"
 struct coredump_params {
    long signr ;
    struct pt_regs *regs ;
@@ -5368,7 +4607,6 @@ struct coredump_params {
    unsigned long limit ;
    unsigned long mm_flags ;
 };
-# 85 "include/linux/binfmts.h"
 struct linux_binfmt {
    struct list_head lh ;
    struct module *module ;
@@ -5377,11 +4615,8 @@ struct linux_binfmt {
    int (*core_dump)(struct coredump_params *cprm ) ;
    unsigned long min_coredump ;
 };
-# 92 "include/linux/security.h"
 struct xfrm_policy;
-# 93 "include/linux/security.h"
 struct xfrm_state;
-# 45 "include/net/rtnetlink.h"
 struct rtnl_link_ops {
    struct list_head list ;
    char const *kind ;
@@ -5401,9 +4636,7 @@ struct rtnl_link_ops {
    int (*get_tx_queues)(struct net *net , struct nlattr **tb , unsigned int *tx_queues ,
                         unsigned int *real_tx_queues ) ;
 };
-# 40 "include/net/neighbour.h"
 struct neigh_table;
-# 40 "include/net/neighbour.h"
 struct neigh_parms {
    struct net *net ;
    struct net_device *dev ;
@@ -5429,7 +4662,6 @@ struct neigh_parms {
    int proxy_qlen ;
    int locktime ;
 };
-# 72 "include/net/neighbour.h"
 struct neigh_statistics {
    unsigned long allocs ;
    unsigned long destroys ;
@@ -5443,9 +4675,7 @@ struct neigh_statistics {
    unsigned long forced_gc_runs ;
    unsigned long unres_discards ;
 };
-# 93 "include/net/neighbour.h"
 struct neigh_ops;
-# 93 "include/net/neighbour.h"
 struct neighbour {
    struct neighbour *next ;
    struct neigh_table *tbl ;
@@ -5471,7 +4701,6 @@ struct neighbour {
    struct net_device *dev ;
    u8 primary_key[0] ;
 };
-# 119 "include/net/neighbour.h"
 struct neigh_ops {
    int family ;
    void (*solicit)(struct neighbour * , struct sk_buff * ) ;
@@ -5481,7 +4710,6 @@ struct neigh_ops {
    int (*hh_output)(struct sk_buff * ) ;
    int (*queue_xmit)(struct sk_buff * ) ;
 };
-# 129 "include/net/neighbour.h"
 struct pneigh_entry {
    struct pneigh_entry *next ;
    struct net *net ;
@@ -5489,14 +4717,12 @@ struct pneigh_entry {
    u8 flags ;
    u8 key[0] ;
 };
-# 143 "include/net/neighbour.h"
 struct neigh_hash_table {
    struct neighbour **hash_buckets ;
    unsigned int hash_mask ;
    __u32 hash_rnd ;
    struct rcu_head rcu ;
 };
-# 151 "include/net/neighbour.h"
 struct neigh_table {
    struct neigh_table *next ;
    int family ;
@@ -5525,16 +4751,13 @@ struct neigh_table {
    struct neigh_hash_table *nht ;
    struct pneigh_entry **phash_buckets ;
 };
-# 32 "include/net/dst.h"
 struct dn_route;
-# 32 "include/net/dst.h"
 union __anonunion____missing_field_name_336 {
    struct dst_entry *next ;
    struct rtable *rt_next ;
    struct rt6_info *rt6_next ;
    struct dn_route *dn_next ;
 };
-# 32 "include/net/dst.h"
 struct dst_entry {
    struct rcu_head rcu_head ;
    struct dst_entry *child ;
@@ -5560,33 +4783,26 @@ struct dst_entry {
    int flags ;
    union __anonunion____missing_field_name_336 __annonCompField48 ;
 };
-# 88 "include/net/sock.h"
 struct __anonstruct_socket_lock_t_338 {
    spinlock_t slock ;
    int owned ;
    wait_queue_head_t wq ;
    struct lockdep_map dep_map ;
 };
-# 88 "include/net/sock.h"
 typedef struct __anonstruct_socket_lock_t_338 socket_lock_t;
-# 104 "include/net/sock.h"
 struct proto;
-# 129 "include/net/sock.h"
 union __anonunion____missing_field_name_339 {
    unsigned int skc_hash ;
    __u16 skc_u16hashes[2] ;
 };
-# 129 "include/net/sock.h"
 union __anonunion____missing_field_name_340 {
    struct hlist_node skc_bind_node ;
    struct hlist_nulls_node skc_portaddr_node ;
 };
-# 129 "include/net/sock.h"
 union __anonunion____missing_field_name_341 {
    struct hlist_node skc_node ;
    struct hlist_nulls_node skc_nulls_node ;
 };
-# 129 "include/net/sock.h"
 struct sock_common {
    __be32 skc_daddr ;
    __be32 skc_rcv_saddr ;
@@ -5604,14 +4820,12 @@ struct sock_common {
    atomic_t skc_refcnt ;
    int skc_dontcopy_end[0] ;
 };
-# 238 "include/net/sock.h"
 struct __anonstruct_sk_backlog_342 {
    atomic_t rmem_alloc ;
    int len ;
    struct sk_buff *head ;
    struct sk_buff *tail ;
 };
-# 238 "include/net/sock.h"
 struct sock {
    struct sock_common __sk_common ;
    socket_lock_t sk_lock ;
@@ -5676,23 +4890,16 @@ struct sock {
    int (*sk_backlog_rcv)(struct sock *sk , struct sk_buff *skb ) ;
    void (*sk_destruct)(struct sock *sk ) ;
 };
-# 717 "include/net/sock.h"
 struct request_sock_ops;
-# 718 "include/net/sock.h"
 struct timewait_sock_ops;
-# 719 "include/net/sock.h"
 struct inet_hashinfo;
-# 720 "include/net/sock.h"
 struct raw_hashinfo;
-# 726 "include/net/sock.h"
 struct udp_table;
-# 726 "include/net/sock.h"
 union __anonunion_h_343 {
    struct inet_hashinfo *hashinfo ;
    struct udp_table *udp_table ;
    struct raw_hashinfo *raw_hash ;
 };
-# 726 "include/net/sock.h"
 struct proto {
    void (*close)(struct sock *sk , long timeout ) ;
    int (*connect)(struct sock *sk , struct sockaddr *uaddr , int addr_len ) ;
@@ -5742,101 +4949,75 @@ struct proto {
    char name[32] ;
    struct list_head node ;
 };
-# 42 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
 enum vhost_net_poll_state {
     VHOST_NET_POLL_DISABLED = 0,
     VHOST_NET_POLL_STARTED = 1,
     VHOST_NET_POLL_STOPPED = 2
 } ;
-# 48 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
 struct vhost_net {
    struct vhost_dev dev ;
    struct vhost_virtqueue vqs[2] ;
    struct vhost_poll poll[2] ;
    enum vhost_net_poll_state tx_poll_state ;
 };
-# 155 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
 struct __anonstruct_346 {
    int : 0 ;
 };
-# 256 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
 struct __anonstruct_347 {
    int : 0 ;
 };
-# 540 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
 struct __anonstruct_uaddr_348 {
    struct sockaddr_ll sa ;
    char buf[32] ;
 };
-# 1 "<compiler builtins>"
 
-# 1 "<compiler builtins>"
 
-# 1 "<compiler builtins>"
 
-# 14 "include/linux/file.h"
 extern void fput(struct file * ) ;
-# 24 "include/linux/list.h"
 __inline static void INIT_LIST_HEAD(struct list_head *list )
 {
 
   {
-# 26 "include/linux/list.h"
   list->next = list;
-# 27 "include/linux/list.h"
   list->prev = list;
-# 28 "include/linux/list.h"
   return;
 }
 }
-# 47 "include/linux/list.h"
 extern void __list_add(struct list_head *new , struct list_head *prev , struct list_head *next ) ;
-# 74 "include/linux/list.h"
 __inline static void list_add_tail(struct list_head *new , struct list_head *head )
 {
 
   {
   {
-# 76 "include/linux/list.h"
   __list_add(new, head->prev, head);
   }
-# 77 "include/linux/list.h"
   return;
 }
 }
-# 111 "include/linux/list.h"
 extern void __list_del_entry(struct list_head *entry ) ;
-# 142 "include/linux/list.h"
 __inline static void list_del_init(struct list_head *entry )
 {
 
   {
   {
-# 144 "include/linux/list.h"
   __list_del_entry(entry);
-# 145 "include/linux/list.h"
   INIT_LIST_HEAD(entry);
   }
-# 146 "include/linux/list.h"
   return;
 }
 }
-# 186 "include/linux/list.h"
 __inline static int list_empty(struct list_head const *head )
 {
 
   {
-# 188 "include/linux/list.h"
   return ((unsigned long )head->next == (unsigned long )head);
 }
 }
-# 59 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/bitops.h"
 __inline static void ( __attribute__((__always_inline__)) set_bit)(unsigned int nr ,
                                                                    unsigned long volatile *addr )
 {
 
   {
-# 68 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/bitops.h"
   __asm__ volatile (".section .smp_locks,\"a\"\n"
                        ".balign 4\n"
                        ".long 671f - .\n"
@@ -5844,54 +5025,35 @@ __inline static void ( __attribute__((__always_inline__)) set_bit)(unsigned int 
                        "671:"
                        "\n\tlock; "
                        "bts %1,%0": "+m" (*((long volatile *)addr)): "Ir" (nr): "memory");
-# 71 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/bitops.h"
   return;
 }
 }
-# 47 "include/linux/dynamic_debug.h"
 extern int __dynamic_pr_debug(struct _ddebug *descriptor , char const *fmt , ...) ;
-# 64 "include/asm-generic/bug.h"
 extern void warn_slowpath_fmt(char const *file , int const line , char const *fmt
                               , ...) ;
-# 69 "include/asm-generic/bug.h"
 extern void warn_slowpath_null(char const *file , int const line ) ;
-# 170 "include/linux/kernel.h"
 extern void might_fault(void) ;
-# 88 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/percpu.h"
 extern void __bad_percpu_size(void) ;
-# 10 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/current.h"
 extern struct task_struct *current_task __attribute__((__section__(".data..percpu"))) ;
-# 12 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/current.h"
 __inline static struct task_struct *( __attribute__((__always_inline__)) get_current)(void)
 { struct task_struct *pfo_ret__ ;
 
   {
-# 14 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/current.h"
   if ((int )sizeof(current_task) == 1) {
-# 14 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/current.h"
     goto case_1;
   } else
-# 14 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/current.h"
   if ((int )sizeof(current_task) == 2) {
-# 14 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/current.h"
     goto case_2;
   } else
-# 14 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/current.h"
   if ((int )sizeof(current_task) == 4) {
-# 14 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/current.h"
     goto case_4;
   } else
-# 14 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/current.h"
   if ((int )sizeof(current_task) == 8) {
-# 14 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/current.h"
     goto case_8;
   } else {
-# 14 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/current.h"
     goto switch_default;
-# 14 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/current.h"
     if (0) {
       case_1:
-# 14 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/current.h"
       __asm__ ("mov"
                 "b "
                 "%%"
@@ -5900,10 +5062,8 @@ __inline static struct task_struct *( __attribute__((__always_inline__)) get_cur
                 "%P"
                 "1"
                 ",%0": "=q" (pfo_ret__): "p" (& current_task));
-# 14 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/current.h"
       goto switch_break;
       case_2:
-# 14 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/current.h"
       __asm__ ("mov"
                 "w "
                 "%%"
@@ -5912,10 +5072,8 @@ __inline static struct task_struct *( __attribute__((__always_inline__)) get_cur
                 "%P"
                 "1"
                 ",%0": "=r" (pfo_ret__): "p" (& current_task));
-# 14 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/current.h"
       goto switch_break;
       case_4:
-# 14 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/current.h"
       __asm__ ("mov"
                 "l "
                 "%%"
@@ -5924,10 +5082,8 @@ __inline static struct task_struct *( __attribute__((__always_inline__)) get_cur
                 "%P"
                 "1"
                 ",%0": "=r" (pfo_ret__): "p" (& current_task));
-# 14 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/current.h"
       goto switch_break;
       case_8:
-# 14 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/current.h"
       __asm__ ("mov"
                 "q "
                 "%%"
@@ -5936,80 +5092,58 @@ __inline static struct task_struct *( __attribute__((__always_inline__)) get_cur
                 "%P"
                 "1"
                 ",%0": "=r" (pfo_ret__): "p" (& current_task));
-# 14 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/current.h"
       goto switch_break;
       switch_default:
       {
-# 14 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/current.h"
       __bad_percpu_size();
       }
     } else {
       switch_break: ;
     }
   }
-# 14 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/current.h"
   return (pfo_ret__);
 }
 }
-# 11 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/cmpxchg_64.h"
 extern void __xchg_wrong_size(void) ;
-# 27 "include/linux/err.h"
 __inline static long __attribute__((__warn_unused_result__)) PTR_ERR(void const *ptr )
 {
 
   {
-# 29 "include/linux/err.h"
   return ((long )ptr);
 }
 }
-# 32 "include/linux/err.h"
 __inline static long __attribute__((__warn_unused_result__)) IS_ERR(void const *ptr )
 { long tmp ;
 
   {
   {
-# 34 "include/linux/err.h"
   tmp = __builtin_expect((long )(! (! ((unsigned long )ptr >= 0x0ffffffffffff001UL))),
                          0L);
   }
-# 34 "include/linux/err.h"
   return (tmp);
 }
 }
-# 217 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/thread_info.h"
 extern unsigned long kernel_stack __attribute__((__section__(".data..percpu"))) ;
-# 219 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/thread_info.h"
 __inline static struct thread_info *current_thread_info(void)
 { struct thread_info *ti ;
   unsigned long pfo_ret__ ;
 
   {
-# 222 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/thread_info.h"
   if ((int )sizeof(kernel_stack) == 1) {
-# 222 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/thread_info.h"
     goto case_1;
   } else
-# 222 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/thread_info.h"
   if ((int )sizeof(kernel_stack) == 2) {
-# 222 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/thread_info.h"
     goto case_2;
   } else
-# 222 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/thread_info.h"
   if ((int )sizeof(kernel_stack) == 4) {
-# 222 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/thread_info.h"
     goto case_4;
   } else
-# 222 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/thread_info.h"
   if ((int )sizeof(kernel_stack) == 8) {
-# 222 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/thread_info.h"
     goto case_8;
   } else {
-# 222 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/thread_info.h"
     goto switch_default;
-# 222 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/thread_info.h"
     if (0) {
       case_1:
-# 222 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/thread_info.h"
       __asm__ ("mov"
                 "b "
                 "%%"
@@ -6018,10 +5152,8 @@ __inline static struct thread_info *current_thread_info(void)
                 "%P"
                 "1"
                 ",%0": "=q" (pfo_ret__): "p" (& kernel_stack));
-# 222 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/thread_info.h"
       goto switch_break;
       case_2:
-# 222 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/thread_info.h"
       __asm__ ("mov"
                 "w "
                 "%%"
@@ -6030,10 +5162,8 @@ __inline static struct thread_info *current_thread_info(void)
                 "%P"
                 "1"
                 ",%0": "=r" (pfo_ret__): "p" (& kernel_stack));
-# 222 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/thread_info.h"
       goto switch_break;
       case_4:
-# 222 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/thread_info.h"
       __asm__ ("mov"
                 "l "
                 "%%"
@@ -6042,10 +5172,8 @@ __inline static struct thread_info *current_thread_info(void)
                 "%P"
                 "1"
                 ",%0": "=r" (pfo_ret__): "p" (& kernel_stack));
-# 222 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/thread_info.h"
       goto switch_break;
       case_8:
-# 222 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/thread_info.h"
       __asm__ ("mov"
                 "q "
                 "%%"
@@ -6054,103 +5182,75 @@ __inline static struct thread_info *current_thread_info(void)
                 "%P"
                 "1"
                 ",%0": "=r" (pfo_ret__): "p" (& kernel_stack));
-# 222 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/thread_info.h"
       goto switch_break;
       switch_default:
       {
-# 222 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/thread_info.h"
       __bad_percpu_size();
       }
     } else {
       switch_break: ;
     }
   }
-# 222 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/thread_info.h"
   ti = (struct thread_info *)((void *)((pfo_ret__ + 40UL) - ((1UL << 12) << 1)));
-# 224 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/thread_info.h"
   return (ti);
 }
 }
-# 315 "include/linux/lockdep.h"
 extern void lock_acquire(struct lockdep_map *lock , unsigned int subclass , int trylock ,
                          int read , int check , struct lockdep_map *nest_lock , unsigned long ip ) ;
-# 319 "include/linux/lockdep.h"
 extern void lock_release(struct lockdep_map *lock , int nested , unsigned long ip ) ;
-# 324 "include/linux/lockdep.h"
 extern int lock_is_held(struct lockdep_map *lock ) ;
-# 551 "include/linux/lockdep.h"
 extern void lockdep_rcu_dereference(char const *file , int const line ) ;
-# 93 "include/linux/spinlock.h"
 extern void __raw_spin_lock_init(raw_spinlock_t *lock , char const *name , struct lock_class_key *key ) ;
-# 29 "include/linux/spinlock_api_smp.h"
 extern void _raw_spin_lock_irq(raw_spinlock_t *lock ) __attribute__((__section__(".spinlock.text"))) ;
-# 32 "include/linux/spinlock_api_smp.h"
 extern unsigned long _raw_spin_lock_irqsave(raw_spinlock_t *lock ) __attribute__((__section__(".spinlock.text"))) ;
-# 41 "include/linux/spinlock_api_smp.h"
 extern void _raw_spin_unlock_irq(raw_spinlock_t *lock ) __attribute__((__section__(".spinlock.text"))) ;
-# 42 "include/linux/spinlock_api_smp.h"
 extern void _raw_spin_unlock_irqrestore(raw_spinlock_t *lock , unsigned long flags ) __attribute__((__section__(".spinlock.text"))) ;
-# 272 "include/linux/spinlock.h"
 __inline static raw_spinlock_t *spinlock_check(spinlock_t *lock )
 {
 
   {
-# 274 "include/linux/spinlock.h"
   return (& lock->__annonCompField18.rlock);
 }
 }
-# 308 "include/linux/spinlock.h"
 __inline static void spin_lock_irq(spinlock_t *lock )
 {
 
   {
   {
-# 310 "include/linux/spinlock.h"
   _raw_spin_lock_irq(& lock->__annonCompField18.rlock);
   }
-# 311 "include/linux/spinlock.h"
   return;
 }
 }
-# 333 "include/linux/spinlock.h"
 __inline static void spin_unlock_irq(spinlock_t *lock )
 {
 
   {
   {
-# 335 "include/linux/spinlock.h"
   _raw_spin_unlock_irq(& lock->__annonCompField18.rlock);
   }
-# 336 "include/linux/spinlock.h"
   return;
 }
 }
-# 338 "include/linux/spinlock.h"
 __inline static void spin_unlock_irqrestore(spinlock_t *lock , unsigned long flags )
 {
 
   {
   {
-# 340 "include/linux/spinlock.h"
   while (1) {
     while_continue: ;
     {
-# 340 "include/linux/spinlock.h"
     _raw_spin_unlock_irqrestore(& lock->__annonCompField18.rlock, flags);
     }
-# 340 "include/linux/spinlock.h"
     goto while_break;
   }
   while_break___0: ;
   }
   while_break: ;
-# 341 "include/linux/spinlock.h"
   return;
 }
 }
-# 80 "include/linux/wait.h"
 extern void __init_waitqueue_head(wait_queue_head_t *q , struct lock_class_key * ) ;
-# 105 "include/linux/wait.h"
 __inline static void init_waitqueue_func_entry(wait_queue_t *q , int (*func)(wait_queue_t *wait ,
                                                                              unsigned int mode ,
                                                                              int flags ,
@@ -6158,200 +5258,140 @@ __inline static void init_waitqueue_func_entry(wait_queue_t *q , int (*func)(wai
 {
 
   {
-# 108 "include/linux/wait.h"
   q->flags = 0U;
-# 109 "include/linux/wait.h"
   q->private = (void *)0;
-# 110 "include/linux/wait.h"
   q->func = func;
-# 111 "include/linux/wait.h"
   return;
 }
 }
-# 118 "include/linux/wait.h"
 extern void add_wait_queue(wait_queue_head_t *q , wait_queue_t *wait ) ;
-# 120 "include/linux/wait.h"
 extern void remove_wait_queue(wait_queue_head_t *q , wait_queue_t *wait ) ;
-# 156 "include/linux/wait.h"
 extern void __wake_up(wait_queue_head_t *q , unsigned int mode , int nr , void *key ) ;
-# 584 "include/linux/wait.h"
 extern void prepare_to_wait(wait_queue_head_t *q , wait_queue_t *wait , int state ) ;
-# 586 "include/linux/wait.h"
 extern void finish_wait(wait_queue_head_t *q , wait_queue_t *wait ) ;
-# 589 "include/linux/wait.h"
 extern int autoremove_wake_function(wait_queue_t *wait , unsigned int mode , int sync ,
                                     void *key ) ;
-# 33 "include/linux/eventfd.h"
 extern void eventfd_ctx_put(struct eventfd_ctx *ctx ) ;
-# 34 "include/linux/eventfd.h"
 extern struct file *eventfd_fget(int fd ) ;
-# 36 "include/linux/eventfd.h"
 extern struct eventfd_ctx *eventfd_ctx_fileget(struct file *file ) ;
-# 37 "include/linux/eventfd.h"
 extern int eventfd_signal(struct eventfd_ctx *ctx , int n ) ;
-# 115 "include/linux/mutex.h"
 extern void __mutex_init(struct mutex *lock , char const *name , struct lock_class_key *key ) ;
-# 134 "include/linux/mutex.h"
 extern void mutex_lock_nested(struct mutex *lock , unsigned int subclass ) ;
-# 169 "include/linux/mutex.h"
 extern void mutex_unlock(struct mutex *lock ) ;
-# 433 "include/linux/mm.h"
 extern void put_page(struct page *page ) ;
-# 720 "include/linux/mm.h"
 __inline static void *( __attribute__((__always_inline__)) lowmem_page_address)(struct page *page )
 {
 
   {
-# 722 "include/linux/mm.h"
   return ((void *)((unsigned long )((phys_addr_t )((unsigned long )(page - (struct page *)0x0fffea0000000000UL)) << 12) + 0x0fff880000000000UL));
 }
 }
-# 985 "include/linux/mm.h"
 extern int get_user_pages_fast(unsigned long start , int nr_pages , int write , struct page **pages ) ;
-# 1001 "include/linux/mm.h"
 extern int set_page_dirty_lock(struct page *page ) ;
-# 80 "include/linux/rcupdate.h"
 extern void synchronize_sched(void) ;
-# 110 "include/linux/rcupdate.h"
 __inline static void __rcu_read_lock(void)
 {
 
   {
   {
-# 112 "include/linux/rcupdate.h"
   while (1) {
     while_continue: ;
-# 112 "include/linux/rcupdate.h"
     goto while_break;
   }
   while_break___0: ;
   }
   while_break: ;
-# 113 "include/linux/rcupdate.h"
   return;
 }
 }
-# 120 "include/linux/rcupdate.h"
 __inline static void synchronize_rcu(void)
 {
 
   {
   {
-# 122 "include/linux/rcupdate.h"
   synchronize_sched();
   }
-# 123 "include/linux/rcupdate.h"
   return;
 }
 }
-# 184 "include/linux/rcupdate.h"
 extern struct lockdep_map rcu_lock_map ;
-# 200 "include/linux/rcupdate.h"
 extern int debug_lockdep_rcu_enabled(void) ;
-# 214 "include/linux/rcupdate.h"
 __inline static int rcu_read_lock_held(void)
 { int tmp ;
   int tmp___0 ;
 
   {
   {
-# 216 "include/linux/rcupdate.h"
   tmp = debug_lockdep_rcu_enabled();
   }
-# 216 "include/linux/rcupdate.h"
   if (tmp) {
 
   } else {
-# 217 "include/linux/rcupdate.h"
     return (1);
   }
   {
-# 218 "include/linux/rcupdate.h"
   tmp___0 = lock_is_held(& rcu_lock_map);
   }
-# 218 "include/linux/rcupdate.h"
   return (tmp___0);
 }
 }
-# 590 "include/linux/rcupdate.h"
 __inline static void rcu_read_lock(void)
 {
 
   {
   {
-# 592 "include/linux/rcupdate.h"
   __rcu_read_lock();
-# 594 "include/linux/rcupdate.h"
   lock_acquire(& rcu_lock_map, 0U, 0, 2, 1, (struct lockdep_map *)((void *)0), (unsigned long )((void *)0));
   }
-# 595 "include/linux/rcupdate.h"
   return;
 }
 }
-# 612 "include/linux/rcupdate.h"
 __inline static void rcu_read_unlock(void)
 {
 
   {
   {
-# 614 "include/linux/rcupdate.h"
   lock_release(& rcu_lock_map, 1, (unsigned long )((void *)0));
-# 616 "include/linux/rcupdate.h"
   __rcu_read_lock();
   }
-# 617 "include/linux/rcupdate.h"
   return;
 }
 }
-# 830 "include/linux/rcupdate.h"
 extern void kfree(void const * ) ;
-# 153 "include/linux/virtio_ring.h"
 __inline static int vring_need_event(__u16 event_idx , __u16 new_idx , __u16 old )
 {
 
   {
-# 160 "include/linux/virtio_ring.h"
   return ((int )((__u16 )(((int )new_idx - (int )event_idx) - 1)) < (int )((__u16 )((int )new_idx - (int )old)));
 }
 }
-# 317 "include/linux/socket.h"
 extern int memcpy_fromiovec(unsigned char *kdata , struct iovec *iov , int len ) ;
-# 221 "include/linux/slub_def.h"
 extern void *__kmalloc(size_t size , gfp_t flags ) ;
-# 255 "include/linux/slub_def.h"
 __inline static void *( __attribute__((__always_inline__)) kmalloc)(size_t size ,
                                                                     gfp_t flags )
 { void *tmp___2 ;
 
   {
   {
-# 270 "include/linux/slub_def.h"
   tmp___2 = __kmalloc(size, flags);
   }
-# 270 "include/linux/slub_def.h"
   return (tmp___2);
 }
 }
-# 119 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/uaccess.h"
 extern int __get_user_bad(void) ;
-# 220 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/uaccess.h"
 extern void __put_user_bad(void) ;
-# 19 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/uaccess_64.h"
 extern unsigned long __attribute__((__warn_unused_result__)) copy_user_generic_string(void *to ,
                                                                                        void const *from ,
                                                                                        unsigned int len ) ;
-# 21 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/uaccess_64.h"
 extern unsigned long __attribute__((__warn_unused_result__)) copy_user_generic_unrolled(void *to ,
                                                                                          void const *from ,
                                                                                          unsigned int len ) ;
-# 24 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/uaccess_64.h"
 __inline static unsigned long __attribute__((__warn_unused_result__)) ( __attribute__((__always_inline__)) copy_user_generic)(void *to ,
                                                                                                                                void const *from ,
                                                                                                                                unsigned int len )
 { unsigned int ret ;
 
   {
-# 29 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/uaccess_64.h"
   __asm__ volatile ("661:\n\t"
                        "call %P[old]"
                        "\n662:\n"
@@ -6384,19 +5424,15 @@ __inline static unsigned long __attribute__((__warn_unused_result__)) ( __attrib
                        ".previous": "=a" (ret), "=D" (to), "=S" (from), "=d" (len): [old] "i" (& copy_user_generic_unrolled),
                        [new] "i" (& copy_user_generic_string), "1" (to), "2" (from),
                        "3" (len): "memory", "rcx", "r8", "r9", "r10", "r11");
-# 36 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/uaccess_64.h"
   return ((unsigned long )ret);
 }
 }
-# 39 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/uaccess_64.h"
 extern unsigned long __attribute__((__warn_unused_result__)) _copy_to_user(void *to ,
                                                                             void const *from ,
                                                                             unsigned int len ) ;
-# 41 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/uaccess_64.h"
 extern unsigned long __attribute__((__warn_unused_result__)) _copy_from_user(void *to ,
                                                                               void const *from ,
                                                                               unsigned int len ) ;
-# 46 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/uaccess_64.h"
 __inline static unsigned long __attribute__((__warn_unused_result__)) copy_from_user(void *to ,
                                                                                       void const *from ,
                                                                                       unsigned long n )
@@ -6410,49 +5446,33 @@ __inline static unsigned long __attribute__((__warn_unused_result__)) copy_from_
 
   {
   {
-# 50 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/uaccess_64.h"
   tmp = __builtin_object_size(to, 0);
-# 50 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/uaccess_64.h"
   sz = (int )tmp;
-# 52 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/uaccess_64.h"
   might_fault();
   }
-# 53 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/uaccess_64.h"
   if (sz == -1) {
-# 53 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/uaccess_64.h"
     tmp___1 = 1;
   } else
-# 53 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/uaccess_64.h"
   if ((unsigned long )sz >= n) {
-# 53 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/uaccess_64.h"
     tmp___1 = 1;
   } else {
-# 53 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/uaccess_64.h"
     tmp___1 = 0;
   }
   {
-# 53 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/uaccess_64.h"
   tmp___2 = __builtin_expect((long )tmp___1, 1L);
   }
-# 53 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/uaccess_64.h"
   if (tmp___2) {
     {
-# 54 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/uaccess_64.h"
     tmp___3 = (unsigned long )_copy_from_user(to, from, (unsigned int )n);
-# 54 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/uaccess_64.h"
     n = tmp___3;
     }
   } else {
     {
-# 57 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/uaccess_64.h"
     __ret_warn_on = 1;
-# 57 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/uaccess_64.h"
     tmp___0 = __builtin_expect((long )(! (! __ret_warn_on)), 0L);
     }
-# 57 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/uaccess_64.h"
     if (tmp___0) {
       {
-# 57 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/uaccess_64.h"
       warn_slowpath_fmt("/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/uaccess_64.h",
                         (int const )57, "Buffer overflow detected!\n");
       }
@@ -6460,15 +5480,12 @@ __inline static unsigned long __attribute__((__warn_unused_result__)) copy_from_
 
     }
     {
-# 57 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/uaccess_64.h"
     __builtin_expect((long )(! (! __ret_warn_on)), 0L);
     }
   }
-# 59 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/uaccess_64.h"
   return (n);
 }
 }
-# 62 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/uaccess_64.h"
 __inline static int __attribute__((__warn_unused_result__)) ( __attribute__((__always_inline__)) copy_to_user)(void *dst ,
                                                                                                                 void const *src ,
                                                                                                                 unsigned int size )
@@ -6477,18 +5494,13 @@ __inline static int __attribute__((__warn_unused_result__)) ( __attribute__((__a
 
   {
   {
-# 65 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/uaccess_64.h"
   might_fault();
-# 67 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/uaccess_64.h"
   tmp___0 = (unsigned long )_copy_to_user(dst, src, size);
-# 67 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/uaccess_64.h"
   tmp = tmp___0;
   }
-# 67 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/uaccess_64.h"
   return ((int )tmp);
 }
 }
-# 70 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/uaccess_64.h"
 __inline static int __attribute__((__warn_unused_result__)) ( __attribute__((__always_inline__)) __copy_from_user)(void *dst ,
                                                                                                                     void const *src ,
                                                                                                                     unsigned int size )
@@ -6502,54 +5514,34 @@ __inline static int __attribute__((__warn_unused_result__)) ( __attribute__((__a
 
   {
   {
-# 73 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/uaccess_64.h"
   ret = 0;
-# 75 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/uaccess_64.h"
   might_fault();
-# 77 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/uaccess_64.h"
   tmp___3 = (unsigned long )copy_user_generic(dst, (void const *)((void *)src),
                                               size);
-# 77 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/uaccess_64.h"
   tmp = tmp___3;
   }
-# 77 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/uaccess_64.h"
   return ((int )tmp);
-# 79 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/uaccess_64.h"
   if ((int )size == 1) {
-# 79 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/uaccess_64.h"
     goto case_1;
   } else
-# 82 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/uaccess_64.h"
   if ((int )size == 2) {
-# 82 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/uaccess_64.h"
     goto case_2;
   } else
-# 85 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/uaccess_64.h"
   if ((int )size == 4) {
-# 85 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/uaccess_64.h"
     goto case_4;
   } else
-# 88 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/uaccess_64.h"
   if ((int )size == 8) {
-# 88 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/uaccess_64.h"
     goto case_8;
   } else
-# 91 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/uaccess_64.h"
   if ((int )size == 10) {
-# 91 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/uaccess_64.h"
     goto case_10;
   } else
-# 100 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/uaccess_64.h"
   if ((int )size == 16) {
-# 100 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/uaccess_64.h"
     goto case_16;
   } else {
-# 109 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/uaccess_64.h"
     goto switch_default;
-# 78 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/uaccess_64.h"
     if (0) {
       case_1:
-# 79 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/uaccess_64.h"
       __asm__ volatile ("1:\tmov"
                            "b"
                            " %2,%"
@@ -6581,10 +5573,8 @@ __inline static int __attribute__((__warn_unused_result__)) ( __attribute__((__a
                            "\n"
                            " .previous\n": "=r" (ret), "=q" (*((u8 *)dst)): "m" (*((struct __large_struct *)((u8 *)src))),
                            "i" (1), "0" (ret));
-# 81 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/uaccess_64.h"
       return (ret);
       case_2:
-# 82 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/uaccess_64.h"
       __asm__ volatile ("1:\tmov"
                            "w"
                            " %2,%"
@@ -6616,10 +5606,8 @@ __inline static int __attribute__((__warn_unused_result__)) ( __attribute__((__a
                            "\n"
                            " .previous\n": "=r" (ret), "=r" (*((u16 *)dst)): "m" (*((struct __large_struct *)((u16 *)src))),
                            "i" (2), "0" (ret));
-# 84 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/uaccess_64.h"
       return (ret);
       case_4:
-# 85 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/uaccess_64.h"
       __asm__ volatile ("1:\tmov"
                            "l"
                            " %2,%"
@@ -6651,10 +5639,8 @@ __inline static int __attribute__((__warn_unused_result__)) ( __attribute__((__a
                            "\n"
                            " .previous\n": "=r" (ret), "=r" (*((u32 *)dst)): "m" (*((struct __large_struct *)((u32 *)src))),
                            "i" (4), "0" (ret));
-# 87 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/uaccess_64.h"
       return (ret);
       case_8:
-# 88 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/uaccess_64.h"
       __asm__ volatile ("1:\tmov"
                            "q"
                            " %2,%"
@@ -6686,11 +5672,9 @@ __inline static int __attribute__((__warn_unused_result__)) ( __attribute__((__a
                            "\n"
                            " .previous\n": "=r" (ret), "=r" (*((u64 *)dst)): "m" (*((struct __large_struct *)((u64 *)src))),
                            "i" (8), "0" (ret));
-# 90 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/uaccess_64.h"
       return (ret);
       case_10:
       {
-# 92 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/uaccess_64.h"
       __asm__ volatile ("1:\tmov"
                            "q"
                            " %2,%"
@@ -6722,17 +5706,13 @@ __inline static int __attribute__((__warn_unused_result__)) ( __attribute__((__a
                            "\n"
                            " .previous\n": "=r" (ret), "=r" (*((u64 *)dst)): "m" (*((struct __large_struct *)((u64 *)src))),
                            "i" (10), "0" (ret));
-# 94 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/uaccess_64.h"
       tmp___0 = __builtin_expect((long )(! (! ret)), 0L);
       }
-# 94 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/uaccess_64.h"
       if (tmp___0) {
-# 95 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/uaccess_64.h"
         return (ret);
       } else {
 
       }
-# 96 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/uaccess_64.h"
       __asm__ volatile ("1:\tmov"
                            "w"
                            " %2,%"
@@ -6764,11 +5744,9 @@ __inline static int __attribute__((__warn_unused_result__)) ( __attribute__((__a
                            "\n"
                            " .previous\n": "=r" (ret), "=r" (*((u16 *)((char *)dst + 8))): "m" (*((struct __large_struct *)((u16 *)((char *)src + 8)))),
                            "i" (2), "0" (ret));
-# 99 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/uaccess_64.h"
       return (ret);
       case_16:
       {
-# 101 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/uaccess_64.h"
       __asm__ volatile ("1:\tmov"
                            "q"
                            " %2,%"
@@ -6800,17 +5778,13 @@ __inline static int __attribute__((__warn_unused_result__)) ( __attribute__((__a
                            "\n"
                            " .previous\n": "=r" (ret), "=r" (*((u64 *)dst)): "m" (*((struct __large_struct *)((u64 *)src))),
                            "i" (16), "0" (ret));
-# 103 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/uaccess_64.h"
       tmp___1 = __builtin_expect((long )(! (! ret)), 0L);
       }
-# 103 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/uaccess_64.h"
       if (tmp___1) {
-# 104 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/uaccess_64.h"
         return (ret);
       } else {
 
       }
-# 105 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/uaccess_64.h"
       __asm__ volatile ("1:\tmov"
                            "q"
                            " %2,%"
@@ -6842,17 +5816,13 @@ __inline static int __attribute__((__warn_unused_result__)) ( __attribute__((__a
                            "\n"
                            " .previous\n": "=r" (ret), "=r" (*((u64 *)((char *)dst + 8))): "m" (*((struct __large_struct *)((u64 *)((char *)src + 8)))),
                            "i" (8), "0" (ret));
-# 108 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/uaccess_64.h"
       return (ret);
       switch_default:
       {
-# 110 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/uaccess_64.h"
       tmp___4 = (unsigned long )copy_user_generic(dst, (void const *)((void *)src),
                                                   size);
-# 110 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/uaccess_64.h"
       tmp___2 = tmp___4;
       }
-# 110 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/uaccess_64.h"
       return ((int )tmp___2);
     } else {
 
@@ -6860,7 +5830,6 @@ __inline static int __attribute__((__warn_unused_result__)) ( __attribute__((__a
   }
 }
 }
-# 114 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/uaccess_64.h"
 __inline static int __attribute__((__warn_unused_result__)) ( __attribute__((__always_inline__)) __copy_to_user)(void *dst ,
                                                                                                                   void const *src ,
                                                                                                                   unsigned int size )
@@ -6874,53 +5843,33 @@ __inline static int __attribute__((__warn_unused_result__)) ( __attribute__((__a
 
   {
   {
-# 117 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/uaccess_64.h"
   ret = 0;
-# 119 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/uaccess_64.h"
   might_fault();
-# 121 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/uaccess_64.h"
   tmp___3 = (unsigned long )copy_user_generic(dst, src, size);
-# 121 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/uaccess_64.h"
   tmp = tmp___3;
   }
-# 121 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/uaccess_64.h"
   return ((int )tmp);
-# 123 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/uaccess_64.h"
   if ((int )size == 1) {
-# 123 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/uaccess_64.h"
     goto case_1;
   } else
-# 126 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/uaccess_64.h"
   if ((int )size == 2) {
-# 126 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/uaccess_64.h"
     goto case_2;
   } else
-# 129 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/uaccess_64.h"
   if ((int )size == 4) {
-# 129 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/uaccess_64.h"
     goto case_4;
   } else
-# 132 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/uaccess_64.h"
   if ((int )size == 8) {
-# 132 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/uaccess_64.h"
     goto case_8;
   } else
-# 135 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/uaccess_64.h"
   if ((int )size == 10) {
-# 135 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/uaccess_64.h"
     goto case_10;
   } else
-# 144 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/uaccess_64.h"
   if ((int )size == 16) {
-# 144 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/uaccess_64.h"
     goto case_16;
   } else {
-# 153 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/uaccess_64.h"
     goto switch_default;
-# 122 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/uaccess_64.h"
     if (0) {
       case_1:
-# 123 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/uaccess_64.h"
       __asm__ volatile ("1:\tmov"
                            "b"
                            " %"
@@ -6945,10 +5894,8 @@ __inline static int __attribute__((__warn_unused_result__)) ( __attribute__((__a
                            "\n"
                            " .previous\n": "=r" (ret): "iq" (*((u8 *)src)), "m" (*((struct __large_struct *)((u8 *)dst))),
                            "i" (1), "0" (ret));
-# 125 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/uaccess_64.h"
       return (ret);
       case_2:
-# 126 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/uaccess_64.h"
       __asm__ volatile ("1:\tmov"
                            "w"
                            " %"
@@ -6973,10 +5920,8 @@ __inline static int __attribute__((__warn_unused_result__)) ( __attribute__((__a
                            "\n"
                            " .previous\n": "=r" (ret): "ir" (*((u16 *)src)), "m" (*((struct __large_struct *)((u16 *)dst))),
                            "i" (2), "0" (ret));
-# 128 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/uaccess_64.h"
       return (ret);
       case_4:
-# 129 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/uaccess_64.h"
       __asm__ volatile ("1:\tmov"
                            "l"
                            " %"
@@ -7001,10 +5946,8 @@ __inline static int __attribute__((__warn_unused_result__)) ( __attribute__((__a
                            "\n"
                            " .previous\n": "=r" (ret): "ir" (*((u32 *)src)), "m" (*((struct __large_struct *)((u32 *)dst))),
                            "i" (4), "0" (ret));
-# 131 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/uaccess_64.h"
       return (ret);
       case_8:
-# 132 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/uaccess_64.h"
       __asm__ volatile ("1:\tmov"
                            "q"
                            " %"
@@ -7029,11 +5972,9 @@ __inline static int __attribute__((__warn_unused_result__)) ( __attribute__((__a
                            "\n"
                            " .previous\n": "=r" (ret): "er" (*((u64 *)src)), "m" (*((struct __large_struct *)((u64 *)dst))),
                            "i" (8), "0" (ret));
-# 134 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/uaccess_64.h"
       return (ret);
       case_10:
       {
-# 136 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/uaccess_64.h"
       __asm__ volatile ("1:\tmov"
                            "q"
                            " %"
@@ -7058,19 +5999,14 @@ __inline static int __attribute__((__warn_unused_result__)) ( __attribute__((__a
                            "\n"
                            " .previous\n": "=r" (ret): "er" (*((u64 *)src)), "m" (*((struct __large_struct *)((u64 *)dst))),
                            "i" (10), "0" (ret));
-# 138 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/uaccess_64.h"
       tmp___0 = __builtin_expect((long )(! (! ret)), 0L);
       }
-# 138 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/uaccess_64.h"
       if (tmp___0) {
-# 139 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/uaccess_64.h"
         return (ret);
       } else {
 
       }
-# 140 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/uaccess_64.h"
       __asm__ ("": : : "memory");
-# 141 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/uaccess_64.h"
       __asm__ volatile ("1:\tmov"
                            "w"
                            " %"
@@ -7095,11 +6031,9 @@ __inline static int __attribute__((__warn_unused_result__)) ( __attribute__((__a
                            "\n"
                            " .previous\n": "=r" (ret): "ir" (*((u16 *)src + 4)), "m" (*((struct __large_struct *)((u16 *)dst + 4))),
                            "i" (2), "0" (ret));
-# 143 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/uaccess_64.h"
       return (ret);
       case_16:
       {
-# 145 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/uaccess_64.h"
       __asm__ volatile ("1:\tmov"
                            "q"
                            " %"
@@ -7124,19 +6058,14 @@ __inline static int __attribute__((__warn_unused_result__)) ( __attribute__((__a
                            "\n"
                            " .previous\n": "=r" (ret): "er" (*((u64 *)src)), "m" (*((struct __large_struct *)((u64 *)dst))),
                            "i" (16), "0" (ret));
-# 147 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/uaccess_64.h"
       tmp___1 = __builtin_expect((long )(! (! ret)), 0L);
       }
-# 147 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/uaccess_64.h"
       if (tmp___1) {
-# 148 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/uaccess_64.h"
         return (ret);
       } else {
 
       }
-# 149 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/uaccess_64.h"
       __asm__ ("": : : "memory");
-# 150 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/uaccess_64.h"
       __asm__ volatile ("1:\tmov"
                            "q"
                            " %"
@@ -7161,16 +6090,12 @@ __inline static int __attribute__((__warn_unused_result__)) ( __attribute__((__a
                            "\n"
                            " .previous\n": "=r" (ret): "er" (*((u64 *)src + 1)), "m" (*((struct __large_struct *)((u64 *)dst + 1))),
                            "i" (8), "0" (ret));
-# 152 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/uaccess_64.h"
       return (ret);
       switch_default:
       {
-# 154 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/uaccess_64.h"
       tmp___4 = (unsigned long )copy_user_generic(dst, src, size);
-# 154 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/uaccess_64.h"
       tmp___2 = tmp___4;
       }
-# 154 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/uaccess_64.h"
       return ((int )tmp___2);
     } else {
 
@@ -7178,390 +6103,274 @@ __inline static int __attribute__((__warn_unused_result__)) ( __attribute__((__a
   }
 }
 }
-# 6 "include/linux/mmu_context.h"
 extern void use_mm(struct mm_struct *mm ) ;
-# 7 "include/linux/mmu_context.h"
 extern void unuse_mm(struct mm_struct *mm ) ;
-# 46 "include/linux/poll.h"
 __inline static void init_poll_funcptr(poll_table *pt , void (*qproc)(struct file * ,
                                                                       wait_queue_head_t * ,
                                                                       struct poll_table_struct * ) )
 {
 
   {
-# 48 "include/linux/poll.h"
   pt->qproc = qproc;
-# 49 "include/linux/poll.h"
   pt->key = ~ 0UL;
-# 50 "include/linux/poll.h"
   return;
 }
 }
-# 16 "include/linux/uaccess.h"
 __inline static void pagefault_disable(void)
 { struct thread_info *tmp ;
 
   {
   {
-# 18 "include/linux/uaccess.h"
   while (1) {
     while_continue: ;
     {
-# 18 "include/linux/uaccess.h"
     tmp = current_thread_info();
-# 18 "include/linux/uaccess.h"
     tmp->preempt_count = tmp->preempt_count + 1;
     }
-# 18 "include/linux/uaccess.h"
     goto while_break;
   }
   while_break___0: ;
   }
   while_break:
-# 23 "include/linux/uaccess.h"
   __asm__ volatile ("": : : "memory");
-# 24 "include/linux/uaccess.h"
   return;
 }
 }
-# 26 "include/linux/uaccess.h"
 __inline static void pagefault_enable(void)
 { struct thread_info *tmp ;
 
   {
-# 32 "include/linux/uaccess.h"
   __asm__ volatile ("": : : "memory");
   {
-# 33 "include/linux/uaccess.h"
   while (1) {
     while_continue: ;
     {
-# 33 "include/linux/uaccess.h"
     tmp = current_thread_info();
-# 33 "include/linux/uaccess.h"
     tmp->preempt_count = tmp->preempt_count - 1;
     }
-# 33 "include/linux/uaccess.h"
     goto while_break;
   }
   while_break___1: ;
   }
   while_break:
-# 37 "include/linux/uaccess.h"
   __asm__ volatile ("": : : "memory");
   {
-# 38 "include/linux/uaccess.h"
   while (1) {
     while_continue___0: ;
-# 38 "include/linux/uaccess.h"
     goto while_break___0;
   }
   while_break___2: ;
   }
   while_break___0: ;
-# 39 "include/linux/uaccess.h"
   return;
 }
 }
-# 58 "include/linux/highmem.h"
 __inline static void *__kmap_atomic(struct page *page )
 { void *tmp ;
 
   {
   {
-# 60 "include/linux/highmem.h"
   pagefault_disable();
-# 61 "include/linux/highmem.h"
   tmp = lowmem_page_address(page);
   }
-# 61 "include/linux/highmem.h"
   return (tmp);
 }
 }
-# 65 "include/linux/highmem.h"
 __inline static void __kunmap_atomic(void *addr )
 {
 
   {
   {
-# 67 "include/linux/highmem.h"
   pagefault_enable();
   }
-# 68 "include/linux/highmem.h"
   return;
 }
 }
-# 361 "include/linux/sched.h"
 extern void schedule(void) ;
-# 2112 "include/linux/sched.h"
 extern int wake_up_process(struct task_struct *tsk ) ;
-# 2209 "include/linux/sched.h"
 extern void mmput(struct mm_struct * ) ;
-# 2211 "include/linux/sched.h"
 extern struct mm_struct *get_task_mm(struct task_struct *task ) ;
-# 7 "include/linux/kthread.h"
 extern struct task_struct *kthread_create_on_node(int (*threadfn)(void *data ) , void *data ,
                                                   int node , char const *namefmt
                                                   , ...) ;
-# 36 "include/linux/kthread.h"
 extern int kthread_stop(struct task_struct *k ) ;
-# 37 "include/linux/kthread.h"
 extern int kthread_should_stop(void) ;
-# 585 "include/linux/cgroup.h"
 extern int cgroup_attach_task_all(struct task_struct *from , struct task_struct * ) ;
-# 41 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/drivers/vhost/vhost.h"
 void vhost_poll_init(struct vhost_poll *poll , void (*fn)(struct vhost_work *work ) ,
                      unsigned long mask , struct vhost_dev *dev ) ;
-# 43 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/drivers/vhost/vhost.h"
 void vhost_poll_start(struct vhost_poll *poll , struct file *file ) ;
-# 44 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/drivers/vhost/vhost.h"
 void vhost_poll_stop(struct vhost_poll *poll ) ;
-# 45 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/drivers/vhost/vhost.h"
 void vhost_poll_flush(struct vhost_poll *poll ) ;
-# 46 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/drivers/vhost/vhost.h"
 void vhost_poll_queue(struct vhost_poll *poll ) ;
-# 136 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/drivers/vhost/vhost.h"
 long vhost_dev_init(struct vhost_dev *dev , struct vhost_virtqueue *vqs , int nvqs ) ;
-# 137 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/drivers/vhost/vhost.h"
 long vhost_dev_check_owner(struct vhost_dev *dev ) ;
-# 138 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/drivers/vhost/vhost.h"
 long vhost_dev_reset_owner(struct vhost_dev *dev ) ;
-# 139 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/drivers/vhost/vhost.h"
 void vhost_dev_cleanup(struct vhost_dev *dev ) ;
-# 140 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/drivers/vhost/vhost.h"
 long vhost_dev_ioctl(struct vhost_dev *d , unsigned int ioctl , unsigned long arg ) ;
-# 141 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/drivers/vhost/vhost.h"
 int vhost_vq_access_ok(struct vhost_virtqueue *vq ) ;
-# 142 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/drivers/vhost/vhost.h"
 int vhost_log_access_ok(struct vhost_dev *dev ) ;
-# 144 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/drivers/vhost/vhost.h"
 int vhost_get_vq_desc(struct vhost_dev *dev , struct vhost_virtqueue *vq , struct iovec *iov ,
                       unsigned int iov_size , unsigned int *out_num , unsigned int *in_num ,
                       struct vhost_log *log , unsigned int *log_num ) ;
-# 148 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/drivers/vhost/vhost.h"
 void vhost_discard_vq_desc(struct vhost_virtqueue *vq , int n ) ;
-# 150 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/drivers/vhost/vhost.h"
 int vhost_add_used(struct vhost_virtqueue *vq , unsigned int head , int len ) ;
-# 151 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/drivers/vhost/vhost.h"
 int vhost_add_used_n(struct vhost_virtqueue *vq , struct vring_used_elem *heads ,
                      unsigned int count ) ;
-# 153 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/drivers/vhost/vhost.h"
 void vhost_add_used_and_signal(struct vhost_dev *dev , struct vhost_virtqueue *vq ,
                                unsigned int head , int len ) ;
-# 155 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/drivers/vhost/vhost.h"
 void vhost_add_used_and_signal_n(struct vhost_dev *dev , struct vhost_virtqueue *vq ,
                                  struct vring_used_elem *heads , unsigned int count ) ;
-# 157 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/drivers/vhost/vhost.h"
 void vhost_signal(struct vhost_dev *dev , struct vhost_virtqueue *vq ) ;
-# 158 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/drivers/vhost/vhost.h"
 void vhost_disable_notify(struct vhost_dev *dev , struct vhost_virtqueue *vq ) ;
-# 159 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/drivers/vhost/vhost.h"
 bool vhost_enable_notify(struct vhost_dev *dev , struct vhost_virtqueue *vq ) ;
-# 161 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/drivers/vhost/vhost.h"
 int vhost_log_write(struct vhost_virtqueue *vq , struct vhost_log *log , unsigned int log_num ,
                     u64 len ) ;
-# 179 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/drivers/vhost/vhost.h"
 __inline static int vhost_has_feature(struct vhost_dev *dev , int bit )
 { unsigned int acked_features ;
   unsigned int _________p1 ;
   int tmp___7 ;
 
   {
-# 185 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/drivers/vhost/vhost.h"
   _________p1 = (unsigned int )*((unsigned int volatile *)(& dev->acked_features));
   {
-# 185 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/drivers/vhost/vhost.h"
   while (1) {
     while_continue: ;
     {
-# 185 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/drivers/vhost/vhost.h"
     tmp___7 = debug_lockdep_rcu_enabled();
     }
-# 185 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/drivers/vhost/vhost.h"
     goto while_break;
   }
   while_break___1: ;
   }
   while_break: ;
   {
-# 185 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/drivers/vhost/vhost.h"
   while (1) {
     while_continue___0: ;
-# 185 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/drivers/vhost/vhost.h"
     goto while_break___0;
   }
   while_break___2: ;
   }
   while_break___0:
-# 185 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/drivers/vhost/vhost.h"
   acked_features = _________p1;
-# 186 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/drivers/vhost/vhost.h"
   return ((int )(acked_features & (unsigned int )(1 << bit)));
 }
 }
-# 43 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
 static void vhost_poll_func(struct file *file , wait_queue_head_t *wqh , poll_table *pt )
 { struct vhost_poll *poll ;
   poll_table const *__mptr ;
 
   {
   {
-# 48 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   __mptr = (poll_table const *)pt;
-# 48 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   poll = (struct vhost_poll *)((char *)__mptr - (unsigned int )(& ((struct vhost_poll *)0)->table));
-# 49 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   poll->wqh = wqh;
-# 50 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   add_wait_queue(wqh, & poll->wait);
   }
-# 51 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   return;
 }
 }
-# 53 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
 static int vhost_poll_wakeup(wait_queue_t *wait , unsigned int mode , int sync , void *key )
 { struct vhost_poll *poll ;
   wait_queue_t const *__mptr ;
 
   {
-# 56 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   __mptr = (wait_queue_t const *)wait;
-# 56 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   poll = (struct vhost_poll *)((char *)__mptr - (unsigned int )(& ((struct vhost_poll *)0)->wait));
-# 58 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   if (! ((unsigned long )key & poll->mask)) {
-# 59 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     return (0);
   } else {
 
   }
   {
-# 61 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   vhost_poll_queue(poll);
   }
-# 62 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   return (0);
 }
 }
-# 69 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
 static struct lock_class_key __key___7 ;
-# 65 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
 static void vhost_work_init(struct vhost_work *work , void (*fn)(struct vhost_work *work ) )
 { unsigned int tmp___7 ;
 
   {
   {
-# 67 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   INIT_LIST_HEAD(& work->node);
-# 68 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   work->fn = fn;
   }
   {
-# 69 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   while (1) {
     while_continue: ;
     {
-# 69 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     __init_waitqueue_head(& work->done, & __key___7);
     }
-# 69 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     goto while_break;
   }
   while_break___0: ;
   }
   while_break:
-# 70 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   work->flushing = 0;
-# 71 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   tmp___7 = 0U;
-# 71 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   work->done_seq = tmp___7;
-# 71 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   work->queue_seq = tmp___7;
-# 72 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   return;
 }
 }
-# 75 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
 void vhost_poll_init(struct vhost_poll *poll , void (*fn)(struct vhost_work *work ) ,
                      unsigned long mask , struct vhost_dev *dev )
 {
 
   {
   {
-# 78 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   init_waitqueue_func_entry(& poll->wait, & vhost_poll_wakeup);
-# 79 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   init_poll_funcptr(& poll->table, & vhost_poll_func);
-# 80 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   poll->mask = mask;
-# 81 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   poll->dev = dev;
-# 83 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   vhost_work_init(& poll->work, fn);
   }
-# 84 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   return;
 }
 }
-# 88 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
 void vhost_poll_start(struct vhost_poll *poll , struct file *file )
 { unsigned long mask ;
   unsigned int tmp___7 ;
 
   {
   {
-# 92 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   tmp___7 = (*((file->f_op)->poll))(file, & poll->table);
-# 92 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   mask = (unsigned long )tmp___7;
   }
-# 93 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   if (mask) {
     {
-# 94 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     vhost_poll_wakeup(& poll->wait, 0U, 0, (void *)mask);
     }
   } else {
 
   }
-# 95 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   return;
 }
 }
-# 99 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
 void vhost_poll_stop(struct vhost_poll *poll )
 {
 
   {
   {
-# 101 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   remove_wait_queue(poll->wqh, & poll->wait);
   }
-# 102 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   return;
 }
 }
-# 104 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
 static bool vhost_work_seq_done(struct vhost_dev *dev , struct vhost_work *work ,
                                 unsigned int seq )
 { int left ;
 
   {
   {
-# 109 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   spin_lock_irq(& dev->work_lock);
-# 110 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   left = (int )(seq - work->done_seq);
-# 111 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   spin_unlock_irq(& dev->work_lock);
   }
-# 112 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   return ((bool )(left <= 0));
 }
 }
-# 115 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
 static void vhost_work_flush(struct vhost_dev *dev , struct vhost_work *work )
 { unsigned int seq ;
   int flushing ;
@@ -7573,67 +6382,46 @@ static void vhost_work_flush(struct vhost_dev *dev , struct vhost_work *work )
 
   {
   {
-# 120 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   spin_lock_irq(& dev->work_lock);
-# 121 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   seq = work->queue_seq;
-# 122 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   work->flushing = work->flushing + 1;
-# 123 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   spin_unlock_irq(& dev->work_lock);
   }
   {
-# 124 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   while (1) {
     while_continue: ;
     {
-# 124 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     tmp___7 = vhost_work_seq_done(dev, work, seq);
     }
-# 124 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     if (tmp___7) {
-# 124 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       goto while_break;
     } else {
 
     }
     {
-# 124 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     while (1) {
       while_continue___0: ;
       {
-# 124 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       tmp___8 = get_current();
-# 124 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       __wait.flags = 0U;
-# 124 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       __wait.private = (void *)tmp___8;
-# 124 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       __wait.func = & autoremove_wake_function;
-# 124 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       __wait.task_list.next = & __wait.task_list;
-# 124 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       __wait.task_list.prev = & __wait.task_list;
       }
       {
-# 124 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       while (1) {
         while_continue___1: ;
         {
-# 124 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         prepare_to_wait(& work->done, & __wait, 2);
-# 124 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         tmp___9 = vhost_work_seq_done(dev, work, seq);
         }
-# 124 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         if (tmp___9) {
-# 124 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
           goto while_break___1;
         } else {
 
         }
         {
-# 124 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         schedule();
         }
       }
@@ -7641,46 +6429,34 @@ static void vhost_work_flush(struct vhost_dev *dev , struct vhost_work *work )
       }
       while_break___1:
       {
-# 124 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       finish_wait(& work->done, & __wait);
       }
-# 124 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       goto while_break___0;
     }
     while_break___5: ;
     }
     while_break___0: ;
-# 124 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     goto while_break;
   }
   while_break___4: ;
   }
   while_break:
   {
-# 125 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   spin_lock_irq(& dev->work_lock);
-# 126 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   work->flushing = work->flushing - 1;
-# 126 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   flushing = work->flushing;
-# 127 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   spin_unlock_irq(& dev->work_lock);
   }
   {
-# 128 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   while (1) {
     while_continue___2: ;
     {
-# 128 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     tmp___10 = __builtin_expect((long )(! (! (flushing < 0))), 0L);
     }
-# 128 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     if (tmp___10) {
       {
-# 128 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       while (1) {
         while_continue___3: ;
-# 128 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         __asm__ volatile ("1:\tud2\n"
                              ".pushsection __bug_table,\"a\"\n"
                              "2:\t.long 1b - 2b, %c0 - 2b\n"
@@ -7689,14 +6465,12 @@ static void vhost_work_flush(struct vhost_dev *dev , struct vhost_work *work )
                              ".popsection": : "i" ("/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"),
                              "i" (128), "i" (sizeof(struct bug_entry )));
         {
-# 128 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         while (1) {
           while_continue___4: ;
 
         }
         while_break___9: ;
         }
-# 128 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         goto while_break___3;
       }
       while_break___8: ;
@@ -7705,30 +6479,24 @@ static void vhost_work_flush(struct vhost_dev *dev , struct vhost_work *work )
     } else {
 
     }
-# 128 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     goto while_break___2;
   }
   while_break___7: ;
   }
   while_break___2: ;
-# 129 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   return;
 }
 }
-# 133 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
 void vhost_poll_flush(struct vhost_poll *poll )
 {
 
   {
   {
-# 135 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   vhost_work_flush(poll->dev, & poll->work);
   }
-# 136 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   return;
 }
 }
-# 138 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
 __inline static void vhost_work_queue(struct vhost_dev *dev , struct vhost_work *work )
 { unsigned long flags ;
   raw_spinlock_t *tmp___7 ;
@@ -7736,124 +6504,83 @@ __inline static void vhost_work_queue(struct vhost_dev *dev , struct vhost_work 
 
   {
   {
-# 143 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   while (1) {
     while_continue: ;
 
     {
-# 143 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     while (1) {
       while_continue___0: ;
       {
-# 143 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       tmp___7 = spinlock_check(& dev->work_lock);
-# 143 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       flags = _raw_spin_lock_irqsave(tmp___7);
       }
-# 143 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       goto while_break___0;
     }
     while_break___2: ;
     }
     while_break___0: ;
-# 143 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     goto while_break;
   }
   while_break___1: ;
   }
   while_break:
   {
-# 144 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   tmp___8 = list_empty((struct list_head const *)(& work->node));
   }
-# 144 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   if (tmp___8) {
     {
-# 145 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     list_add_tail(& work->node, & dev->work_list);
-# 146 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     work->queue_seq = work->queue_seq + 1U;
-# 147 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     wake_up_process(dev->worker);
     }
   } else {
 
   }
   {
-# 149 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   spin_unlock_irqrestore(& dev->work_lock, flags);
   }
-# 150 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   return;
 }
 }
-# 152 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
 void vhost_poll_queue(struct vhost_poll *poll )
 {
 
   {
   {
-# 154 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   vhost_work_queue(poll->dev, & poll->work);
   }
-# 155 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   return;
 }
 }
-# 157 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
 static void vhost_vq_reset(struct vhost_dev *dev , struct vhost_virtqueue *vq )
 {
 
   {
-# 160 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   vq->num = 1U;
-# 161 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   vq->desc = (struct vring_desc *)((void *)0);
-# 162 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   vq->avail = (struct vring_avail *)((void *)0);
-# 163 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   vq->used = (struct vring_used *)((void *)0);
-# 164 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   vq->last_avail_idx = (u16 )0;
-# 165 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   vq->avail_idx = (u16 )0;
-# 166 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   vq->last_used_idx = (u16 )0;
-# 167 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   vq->signalled_used = (u16 )0;
-# 168 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   vq->signalled_used_valid = (bool )0;
-# 169 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   vq->used_flags = (u16 )0;
-# 170 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   vq->log_used = (bool )0;
-# 171 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   vq->log_addr = 0x0fffffffffffffffULL;
-# 172 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   vq->vhost_hlen = (size_t )0;
-# 173 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   vq->sock_hlen = (size_t )0;
-# 174 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   vq->private_data = (void *)0;
-# 175 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   vq->log_base = (void *)0;
-# 176 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   vq->error_ctx = (struct eventfd_ctx *)((void *)0);
-# 177 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   vq->error = (struct file *)((void *)0);
-# 178 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   vq->kick = (struct file *)((void *)0);
-# 179 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   vq->call_ctx = (struct eventfd_ctx *)((void *)0);
-# 180 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   vq->call = (struct file *)((void *)0);
-# 181 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   vq->log_ctx = (struct eventfd_ctx *)((void *)0);
-# 182 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   return;
 }
 }
-# 184 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
 static int vhost_worker(void *data )
 { struct vhost_dev *dev ;
   struct vhost_work *work ;
@@ -7876,121 +6603,81 @@ static int vhost_worker(void *data )
 
   {
   {
-# 186 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   dev = (struct vhost_dev *)data;
-# 187 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   work = (struct vhost_work *)((void *)0);
-# 188 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   seq = seq;
-# 190 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   use_mm(dev->mm);
   }
   {
-# 192 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   while (1) {
     while_continue: ;
 
     {
-# 194 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     while (1) {
       while_continue___0: ;
-# 194 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       __x = (long volatile )1;
-# 194 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       if ((int )sizeof(tmp___8->state) == 1) {
-# 194 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         goto case_1;
       } else
-# 194 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       if ((int )sizeof(tmp___8->state) == 2) {
-# 194 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         goto case_2;
       } else
-# 194 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       if ((int )sizeof(tmp___8->state) == 4) {
-# 194 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         goto case_4;
       } else
-# 194 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       if ((int )sizeof(tmp___8->state) == 8) {
-# 194 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         goto case_8;
       } else {
-# 194 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         goto switch_default;
-# 194 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         if (0) {
           case_1:
           {
-# 194 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
           tmp___9 = get_current();
-# 194 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
           __ptr = (u8 volatile *)(& tmp___9->state);
-# 194 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
           __asm__ volatile ("xchgb %0,%1": "=q" (__x), "+m" (*__ptr): "0" (__x): "memory");
           }
-# 194 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
           goto switch_break;
           case_2:
           {
-# 194 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
           tmp___10 = get_current();
-# 194 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
           __ptr___0 = (u16 volatile *)(& tmp___10->state);
-# 194 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
           __asm__ volatile ("xchgw %0,%1": "=r" (__x), "+m" (*__ptr___0): "0" (__x): "memory");
           }
-# 194 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
           goto switch_break;
           case_4:
           {
-# 194 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
           tmp___11 = get_current();
-# 194 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
           __ptr___1 = (u32 volatile *)(& tmp___11->state);
-# 194 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
           __asm__ volatile ("xchgl %0,%1": "=r" (__x), "+m" (*__ptr___1): "0" (__x): "memory");
           }
-# 194 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
           goto switch_break;
           case_8:
           {
-# 194 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
           tmp___12 = get_current();
-# 194 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
           __ptr___2 = (u64 volatile *)(& tmp___12->state);
-# 194 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
           __asm__ volatile ("xchgq %0,%1": "=r" (__x), "+m" (*__ptr___2): "0" (__x): "memory");
           }
-# 194 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
           goto switch_break;
           switch_default:
           {
-# 194 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
           __xchg_wrong_size();
           }
         } else {
           switch_break: ;
         }
       }
-# 194 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       goto while_break___0;
     }
     while_break___4: ;
     }
     while_break___0:
     {
-# 196 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     spin_lock_irq(& dev->work_lock);
     }
-# 197 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     if (work) {
-# 198 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       work->done_seq = seq;
-# 199 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       if (work->flushing) {
         {
-# 200 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         __wake_up(& work->done, 3U, 0, (void *)0);
         }
       } else {
@@ -8000,85 +6687,62 @@ static int vhost_worker(void *data )
 
     }
     {
-# 203 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     tmp___14 = kthread_should_stop();
     }
-# 203 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     if (tmp___14) {
       {
-# 204 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       spin_unlock_irq(& dev->work_lock);
       }
       {
-# 205 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       while (1) {
         while_continue___1: ;
         {
-# 205 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         tmp___13 = get_current();
-# 205 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         tmp___13->state = (long volatile )0;
         }
-# 205 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         goto while_break___1;
       }
       while_break___5: ;
       }
       while_break___1: ;
-# 206 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       goto while_break;
     } else {
 
     }
     {
-# 208 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     tmp___15 = list_empty((struct list_head const *)(& dev->work_list));
     }
-# 208 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     if (tmp___15) {
-# 214 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       work = (struct vhost_work *)((void *)0);
     } else {
       {
-# 209 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       __mptr = (struct list_head const *)dev->work_list.next;
-# 209 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       work = (struct vhost_work *)((char *)__mptr - (unsigned int )(& ((struct vhost_work *)0)->node));
-# 211 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       list_del_init(& work->node);
-# 212 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       seq = work->queue_seq;
       }
     }
     {
-# 215 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     spin_unlock_irq(& dev->work_lock);
     }
-# 217 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     if (work) {
       {
-# 218 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       while (1) {
         while_continue___2: ;
         {
-# 218 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         tmp___16 = get_current();
-# 218 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         tmp___16->state = (long volatile )0;
         }
-# 218 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         goto while_break___2;
       }
       while_break___6: ;
       }
       while_break___2:
       {
-# 219 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       (*(work->fn))(work);
       }
     } else {
       {
-# 221 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       schedule();
       }
     }
@@ -8087,14 +6751,11 @@ static int vhost_worker(void *data )
   }
   while_break:
   {
-# 224 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   unuse_mm(dev->mm);
   }
-# 225 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   return (0);
 }
 }
-# 229 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
 static long vhost_dev_alloc_iovecs(struct vhost_dev *dev )
 { int i ;
   void *tmp___7 ;
@@ -8102,283 +6763,200 @@ static long vhost_dev_alloc_iovecs(struct vhost_dev *dev )
   void *tmp___9 ;
 
   {
-# 233 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   i = 0;
   {
-# 233 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   while (1) {
     while_continue: ;
-# 233 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     if (i < dev->nvqs) {
 
     } else {
-# 233 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       goto while_break;
     }
     {
-# 234 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     tmp___7 = kmalloc(sizeof(*((dev->vqs + i)->indirect)) * 1024UL, 208U);
-# 234 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     (dev->vqs + i)->indirect = (struct iovec *)tmp___7;
-# 236 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     tmp___8 = kmalloc(sizeof(*((dev->vqs + i)->log)) * 1024UL, 208U);
-# 236 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     (dev->vqs + i)->log = (struct vhost_log *)tmp___8;
-# 238 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     tmp___9 = kmalloc(sizeof(*((dev->vqs + i)->heads)) * 1024UL, 208U);
-# 238 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     (dev->vqs + i)->heads = (struct vring_used_elem *)tmp___9;
     }
-# 241 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     if (! (dev->vqs + i)->indirect) {
-# 243 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       goto err_nomem;
     } else
-# 241 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     if (! (dev->vqs + i)->log) {
-# 243 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       goto err_nomem;
     } else
-# 241 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     if (! (dev->vqs + i)->heads) {
-# 243 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       goto err_nomem;
     } else {
 
     }
-# 233 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     i = i + 1;
   }
   while_break___1: ;
   }
   while_break: ;
-# 245 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   return (0L);
   err_nomem:
   {
-# 248 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   while (1) {
     while_continue___0: ;
-# 248 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     if (i >= 0) {
 
     } else {
-# 248 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       goto while_break___0;
     }
     {
-# 249 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     kfree((void const *)(dev->vqs + i)->indirect);
-# 250 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     kfree((void const *)(dev->vqs + i)->log);
-# 251 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     kfree((void const *)(dev->vqs + i)->heads);
-# 248 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     i = i - 1;
     }
   }
   while_break___2: ;
   }
   while_break___0: ;
-# 253 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   return (-12L);
 }
 }
-# 256 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
 static void vhost_dev_free_iovecs(struct vhost_dev *dev )
 { int i ;
 
   {
-# 260 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   i = 0;
   {
-# 260 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   while (1) {
     while_continue: ;
-# 260 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     if (i < dev->nvqs) {
 
     } else {
-# 260 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       goto while_break;
     }
     {
-# 261 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     kfree((void const *)(dev->vqs + i)->indirect);
-# 262 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     (dev->vqs + i)->indirect = (struct iovec *)((void *)0);
-# 263 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     kfree((void const *)(dev->vqs + i)->log);
-# 264 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     (dev->vqs + i)->log = (struct vhost_log *)((void *)0);
-# 265 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     kfree((void const *)(dev->vqs + i)->heads);
-# 266 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     (dev->vqs + i)->heads = (struct vring_used_elem *)((void *)0);
-# 260 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     i = i + 1;
     }
   }
   while_break___0: ;
   }
   while_break: ;
-# 268 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   return;
 }
 }
-# 277 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
 static struct lock_class_key __key___8 ;
-# 282 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
 static struct lock_class_key __key___9 ;
-# 291 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
 static struct lock_class_key __key___10 ;
-# 270 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
 long vhost_dev_init(struct vhost_dev *dev , struct vhost_virtqueue *vqs , int nvqs )
 { int i ;
 
   {
-# 275 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   dev->vqs = vqs;
-# 276 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   dev->nvqs = nvqs;
   {
-# 277 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   while (1) {
     while_continue: ;
     {
-# 277 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     __mutex_init(& dev->mutex, "&dev->mutex", & __key___8);
     }
-# 277 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     goto while_break;
   }
   while_break___4: ;
   }
   while_break:
-# 278 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   dev->log_ctx = (struct eventfd_ctx *)((void *)0);
-# 279 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   dev->log_file = (struct file *)((void *)0);
-# 280 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   dev->memory = (struct vhost_memory *)((void *)0);
-# 281 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   dev->mm = (struct mm_struct *)((void *)0);
   {
-# 282 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   while (1) {
     while_continue___0: ;
     {
-# 282 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     spinlock_check(& dev->work_lock);
     }
     {
-# 282 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     while (1) {
       while_continue___1: ;
       {
-# 282 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       __raw_spin_lock_init(& dev->work_lock.__annonCompField18.rlock, "&(&dev->work_lock)->rlock",
                            & __key___9);
       }
-# 282 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       goto while_break___1;
     }
     while_break___6: ;
     }
     while_break___1: ;
-# 282 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     goto while_break___0;
   }
   while_break___5: ;
   }
   while_break___0:
   {
-# 283 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   INIT_LIST_HEAD(& dev->work_list);
-# 284 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   dev->worker = (struct task_struct *)((void *)0);
-# 286 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   i = 0;
   }
   {
-# 286 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   while (1) {
     while_continue___2: ;
-# 286 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     if (i < dev->nvqs) {
 
     } else {
-# 286 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       goto while_break___2;
     }
-# 287 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     (dev->vqs + i)->log = (struct vhost_log *)((void *)0);
-# 288 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     (dev->vqs + i)->indirect = (struct iovec *)((void *)0);
-# 289 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     (dev->vqs + i)->heads = (struct vring_used_elem *)((void *)0);
-# 290 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     (dev->vqs + i)->dev = dev;
     {
-# 291 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     while (1) {
       while_continue___3: ;
       {
-# 291 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       __mutex_init(& (dev->vqs + i)->mutex, "&dev->vqs[i].mutex", & __key___10);
       }
-# 291 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       goto while_break___3;
     }
     while_break___8: ;
     }
     while_break___3:
     {
-# 292 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     vhost_vq_reset(dev, dev->vqs + i);
     }
-# 293 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     if ((dev->vqs + i)->handle_kick) {
       {
-# 294 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       vhost_poll_init(& (dev->vqs + i)->poll, (dev->vqs + i)->handle_kick, 1UL, dev);
       }
     } else {
 
     }
-# 286 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     i = i + 1;
   }
   while_break___7: ;
   }
   while_break___2: ;
-# 298 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   return (0L);
 }
 }
-# 302 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
 long vhost_dev_check_owner(struct vhost_dev *dev )
 { int tmp___8 ;
   struct task_struct *tmp___9 ;
 
   {
   {
-# 305 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   tmp___9 = get_current();
   }
-# 305 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   if ((unsigned long )dev->mm == (unsigned long )tmp___9->mm) {
-# 305 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     tmp___8 = 0;
   } else {
-# 305 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     tmp___8 = -1;
   }
-# 305 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   return ((long )tmp___8);
 }
 }
-# 314 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
 static void vhost_attach_cgroups_work(struct vhost_work *work )
 { struct vhost_attach_cgroups_struct *s ;
   struct vhost_work const *__mptr ;
@@ -8386,39 +6964,27 @@ static void vhost_attach_cgroups_work(struct vhost_work *work )
 
   {
   {
-# 318 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   __mptr = (struct vhost_work const *)work;
-# 318 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   s = (struct vhost_attach_cgroups_struct *)((char *)__mptr - (unsigned int )(& ((struct vhost_attach_cgroups_struct *)0)->work));
-# 319 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   tmp___7 = get_current();
-# 319 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   s->ret = cgroup_attach_task_all(s->owner, tmp___7);
   }
-# 320 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   return;
 }
 }
-# 322 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
 static int vhost_attach_cgroups(struct vhost_dev *dev )
 { struct vhost_attach_cgroups_struct attach ;
 
   {
   {
-# 326 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   attach.owner = get_current();
-# 327 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   vhost_work_init(& attach.work, & vhost_attach_cgroups_work);
-# 328 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   vhost_work_queue(dev, & attach.work);
-# 329 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   vhost_work_flush(dev, & attach.work);
   }
-# 330 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   return (attach.ret);
 }
 }
-# 334 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
 static long vhost_dev_set_owner(struct vhost_dev *dev )
 { struct task_struct *worker ;
   int err ;
@@ -8431,133 +6997,92 @@ static long vhost_dev_set_owner(struct vhost_dev *dev )
   long tmp___12 ;
 
   {
-# 340 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   if (dev->mm) {
-# 341 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     err = -16;
-# 342 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     goto err_mm;
   } else {
 
   }
   {
-# 346 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   tmp___7 = get_current();
-# 346 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   dev->mm = get_task_mm(tmp___7);
-# 347 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   tmp___8 = get_current();
-# 347 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   worker = kthread_create_on_node(& vhost_worker, (void *)dev, -1, "vhost-%d", tmp___8->pid);
-# 348 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   tmp = (long )IS_ERR((void const *)worker);
-# 348 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   tmp___10 = tmp;
   }
-# 348 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   if (tmp___10) {
     {
-# 349 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     tmp___12 = (long )PTR_ERR((void const *)worker);
-# 349 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     tmp___9 = tmp___12;
-# 349 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     err = (int )tmp___9;
     }
-# 350 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     goto err_worker;
   } else {
 
   }
   {
-# 353 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   dev->worker = worker;
-# 354 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   wake_up_process(worker);
-# 356 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   err = vhost_attach_cgroups(dev);
   }
-# 357 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   if (err) {
-# 358 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     goto err_cgroup;
   } else {
 
   }
   {
-# 360 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   tmp___11 = vhost_dev_alloc_iovecs(dev);
-# 360 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   err = (int )tmp___11;
   }
-# 361 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   if (err) {
-# 362 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     goto err_cgroup;
   } else {
 
   }
-# 364 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   return (0L);
   err_cgroup:
   {
-# 366 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   kthread_stop(worker);
-# 367 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   dev->worker = (struct task_struct *)((void *)0);
   }
   err_worker:
-# 369 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   if (dev->mm) {
     {
-# 370 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     mmput(dev->mm);
     }
   } else {
 
   }
-# 371 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   dev->mm = (struct mm_struct *)((void *)0);
   err_mm:
-# 373 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   return ((long )err);
 }
 }
-# 377 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
 long vhost_dev_reset_owner(struct vhost_dev *dev )
 { struct vhost_memory *memory ;
   void *tmp___7 ;
 
   {
   {
-# 382 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   tmp___7 = kmalloc((size_t )((unsigned int )(& ((struct vhost_memory *)0)->regions)),
                     208U);
-# 382 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   memory = (struct vhost_memory *)tmp___7;
   }
-# 383 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   if (! memory) {
-# 384 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     return (-12L);
   } else {
 
   }
   {
-# 386 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   vhost_dev_cleanup(dev);
-# 388 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   memory->nregions = (__u32 )0;
-# 389 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   dev->memory = memory;
   }
-# 390 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   return (0L);
 }
 }
-# 423 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
 static bool __warned___22 ;
-# 394 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
 void vhost_dev_cleanup(struct vhost_dev *dev )
 { int i ;
   int tmp___7 ;
@@ -8568,27 +7093,19 @@ void vhost_dev_cleanup(struct vhost_dev *dev )
   long tmp___11 ;
 
   {
-# 398 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   i = 0;
   {
-# 398 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   while (1) {
     while_continue: ;
-# 398 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     if (i < dev->nvqs) {
 
     } else {
-# 398 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       goto while_break;
     }
-# 399 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     if ((dev->vqs + i)->kick) {
-# 399 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       if ((dev->vqs + i)->handle_kick) {
         {
-# 400 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         vhost_poll_stop(& (dev->vqs + i)->poll);
-# 401 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         vhost_poll_flush(& (dev->vqs + i)->poll);
         }
       } else {
@@ -8597,55 +7114,43 @@ void vhost_dev_cleanup(struct vhost_dev *dev )
     } else {
 
     }
-# 403 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     if ((dev->vqs + i)->error_ctx) {
       {
-# 404 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       eventfd_ctx_put((dev->vqs + i)->error_ctx);
       }
     } else {
 
     }
-# 405 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     if ((dev->vqs + i)->error) {
       {
-# 406 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       fput((dev->vqs + i)->error);
       }
     } else {
 
     }
-# 407 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     if ((dev->vqs + i)->kick) {
       {
-# 408 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       fput((dev->vqs + i)->kick);
       }
     } else {
 
     }
-# 409 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     if ((dev->vqs + i)->call_ctx) {
       {
-# 410 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       eventfd_ctx_put((dev->vqs + i)->call_ctx);
       }
     } else {
 
     }
-# 411 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     if ((dev->vqs + i)->call) {
       {
-# 412 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       fput((dev->vqs + i)->call);
       }
     } else {
 
     }
     {
-# 413 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     vhost_vq_reset(dev, dev->vqs + i);
-# 398 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     i = i + 1;
     }
   }
@@ -8653,55 +7158,40 @@ void vhost_dev_cleanup(struct vhost_dev *dev )
   }
   while_break:
   {
-# 415 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   vhost_dev_free_iovecs(dev);
   }
-# 416 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   if (dev->log_ctx) {
     {
-# 417 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     eventfd_ctx_put(dev->log_ctx);
     }
   } else {
 
   }
-# 418 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   dev->log_ctx = (struct eventfd_ctx *)((void *)0);
-# 419 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   if (dev->log_file) {
     {
-# 420 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     fput(dev->log_file);
     }
   } else {
 
   }
-# 421 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   dev->log_file = (struct file *)((void *)0);
   {
-# 423 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   while (1) {
     while_continue___0: ;
     {
-# 423 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     tmp___7 = debug_lockdep_rcu_enabled();
     }
-# 423 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     if (tmp___7) {
-# 423 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       if (! __warned___22) {
         {
-# 423 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         tmp___8 = lock_is_held(& dev->mutex.dep_map);
         }
-# 423 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         if (tmp___8) {
 
         } else {
           {
-# 423 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
           __warned___22 = (bool )1;
-# 423 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
           lockdep_rcu_dereference("/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c",
                                   (int const )424);
           }
@@ -8712,38 +7202,27 @@ void vhost_dev_cleanup(struct vhost_dev *dev )
     } else {
 
     }
-# 423 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     goto while_break___0;
   }
   while_break___2: ;
   }
   while_break___0:
   {
-# 423 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   kfree((void const *)dev->memory);
-# 425 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   dev->memory = (struct vhost_memory *)((void *)0);
-# 426 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   tmp___9 = list_empty((struct list_head const *)(& dev->work_list));
   }
-# 426 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   if (tmp___9) {
-# 426 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     tmp___10 = 0;
   } else {
-# 426 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     tmp___10 = 1;
   }
   {
-# 426 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   __ret_warn_on = tmp___10;
-# 426 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   tmp___11 = __builtin_expect((long )(! (! __ret_warn_on)), 0L);
   }
-# 426 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   if (tmp___11) {
     {
-# 426 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     warn_slowpath_null("/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c",
                        (int const )426);
     }
@@ -8751,36 +7230,27 @@ void vhost_dev_cleanup(struct vhost_dev *dev )
 
   }
   {
-# 426 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   __builtin_expect((long )(! (! __ret_warn_on)), 0L);
   }
-# 427 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   if (dev->worker) {
     {
-# 428 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     kthread_stop(dev->worker);
-# 429 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     dev->worker = (struct task_struct *)((void *)0);
     }
   } else {
 
   }
-# 431 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   if (dev->mm) {
     {
-# 432 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     mmput(dev->mm);
     }
   } else {
 
   }
-# 433 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   dev->mm = (struct mm_struct *)((void *)0);
-# 434 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   return;
 }
 }
-# 436 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
 static int log_access_ok(void *log_base , u64 addr , unsigned long sz )
 { u64 a ;
   unsigned long flag ;
@@ -8790,44 +7260,31 @@ static int log_access_ok(void *log_base , u64 addr , unsigned long sz )
   long tmp___9 ;
 
   {
-# 438 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   a = (addr / 4096ULL) / 8ULL;
-# 441 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   if (a > (u64 )(0x0fffffffffffffffUL - (unsigned long )log_base)) {
-# 443 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     return (0);
   } else
-# 441 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   if (a + (u64 )((unsigned long )log_base) > 0x0fffffffffffffffULL) {
-# 443 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     return (0);
   } else {
 
   }
   {
-# 445 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   tmp___7 = current_thread_info();
-# 445 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   __asm__ ("add %3,%1 ; sbb %0,%0 ; cmp %1,%4 ; sbb $0,%0": "=&r" (flag), "=r" (roksum): "1" (log_base + a),
             "g" ((long )((((sz + 32768UL) - 1UL) / 4096UL) / 8UL)), "rm" (tmp___7->addr_limit.seg));
   }
-# 445 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   if (flag == 0UL) {
-# 445 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     tmp___8 = 1;
   } else {
-# 445 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     tmp___8 = 0;
   }
   {
-# 445 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   tmp___9 = __builtin_expect((long )tmp___8, 1L);
   }
-# 445 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   return ((int )tmp___9);
 }
 }
-# 450 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
 static int vq_memory_access_ok(void *log_base , struct vhost_memory *mem , int log_all )
 { int i ;
   struct vhost_memory_region *m ;
@@ -8840,142 +7297,103 @@ static int vq_memory_access_ok(void *log_base , struct vhost_memory *mem , int l
   long tmp___10 ;
 
   {
-# 455 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   if (! mem) {
-# 456 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     return (0);
   } else {
 
   }
-# 458 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   i = 0;
   {
-# 458 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   while (1) {
     while_continue: ;
-# 458 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     if ((__u32 )i < mem->nregions) {
 
     } else {
-# 458 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       goto while_break;
     }
-# 459 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     m = mem->regions + i;
-# 460 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     a = (unsigned long )m->userspace_addr;
-# 461 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     if (m->memory_size > 0x0fffffffffffffffULL) {
-# 462 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       return (0);
     } else {
       {
-# 463 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       tmp___8 = current_thread_info();
-# 463 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       __asm__ ("add %3,%1 ; sbb %0,%0 ; cmp %1,%4 ; sbb $0,%0": "=&r" (flag), "=r" (roksum): "1" ((void *)a),
                 "g" ((long )m->memory_size), "rm" (tmp___8->addr_limit.seg));
       }
-# 463 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       if (flag == 0UL) {
-# 463 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         tmp___9 = 1;
       } else {
-# 463 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         tmp___9 = 0;
       }
       {
-# 463 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       tmp___10 = __builtin_expect((long )tmp___9, 1L);
       }
-# 463 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       if (tmp___10) {
-# 466 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         if (log_all) {
           {
-# 466 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
           tmp___7 = log_access_ok(log_base, m->guest_phys_addr, (unsigned long )m->memory_size);
           }
-# 466 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
           if (tmp___7) {
 
           } else {
-# 469 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
             return (0);
           }
         } else {
 
         }
       } else {
-# 465 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         return (0);
       }
     }
-# 458 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     i = i + 1;
   }
   while_break___0: ;
   }
   while_break: ;
-# 471 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   return (1);
 }
 }
-# 476 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
 static int memory_access_ok(struct vhost_dev *d , struct vhost_memory *mem , int log_all )
 { int i ;
   int ok ;
 
   {
-# 481 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   i = 0;
   {
-# 481 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   while (1) {
     while_continue: ;
-# 481 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     if (i < d->nvqs) {
 
     } else {
-# 481 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       goto while_break;
     }
     {
-# 483 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     mutex_lock_nested(& (d->vqs + i)->mutex, 0U);
     }
-# 485 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     if ((d->vqs + i)->private_data) {
       {
-# 486 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       ok = vq_memory_access_ok((d->vqs + i)->log_base, mem, log_all);
       }
     } else {
-# 489 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       ok = 1;
     }
     {
-# 490 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     mutex_unlock(& (d->vqs + i)->mutex);
     }
-# 491 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     if (! ok) {
-# 492 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       return (0);
     } else {
 
     }
-# 481 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     i = i + 1;
   }
   while_break___0: ;
   }
   while_break: ;
-# 494 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   return (1);
 }
 }
-# 497 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
 static int vq_access_ok(struct vhost_dev *d , unsigned int num , struct vring_desc *desc ,
                         struct vring_avail *avail , struct vring_used *used )
 { size_t s ;
@@ -9000,105 +7418,72 @@ static int vq_access_ok(struct vhost_dev *d , unsigned int num , struct vring_de
 
   {
   {
-# 502 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   tmp___9 = vhost_has_feature(d, 29);
   }
-# 502 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   if (tmp___9) {
-# 502 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     tmp___8 = 2;
   } else {
-# 502 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     tmp___8 = 0;
   }
   {
-# 502 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   s = (size_t )tmp___8;
-# 503 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   tmp___10 = current_thread_info();
-# 503 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   __asm__ ("add %3,%1 ; sbb %0,%0 ; cmp %1,%4 ; sbb $0,%0": "=&r" (flag), "=r" (roksum): "1" (desc),
             "g" ((long )((unsigned long )num * sizeof(*desc))), "rm" (tmp___10->addr_limit.seg));
   }
-# 503 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   if (flag == 0UL) {
-# 503 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     tmp___11 = 1;
   } else {
-# 503 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     tmp___11 = 0;
   }
   {
-# 503 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   tmp___12 = __builtin_expect((long )tmp___11, 1L);
   }
-# 506 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   if (tmp___12) {
     {
-# 504 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     tmp___13 = current_thread_info();
-# 504 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     __asm__ ("add %3,%1 ; sbb %0,%0 ; cmp %1,%4 ; sbb $0,%0": "=&r" (flag___0), "=r" (roksum___0): "1" (avail),
               "g" ((long )((sizeof(*avail) + (unsigned long )num * sizeof(avail->ring[0])) + s)),
               "rm" (tmp___13->addr_limit.seg));
     }
-# 504 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     if (flag___0 == 0UL) {
-# 504 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       tmp___14 = 1;
     } else {
-# 504 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       tmp___14 = 0;
     }
     {
-# 504 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     tmp___15 = __builtin_expect((long )tmp___14, 1L);
     }
-# 506 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     if (tmp___15) {
       {
-# 506 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       tmp___16 = current_thread_info();
-# 506 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       __asm__ ("add %3,%1 ; sbb %0,%0 ; cmp %1,%4 ; sbb $0,%0": "=&r" (flag___1),
                 "=r" (roksum___1): "1" (used), "g" ((long )((sizeof(*used) + (unsigned long )num * sizeof(used->ring[0])) + s)),
                 "rm" (tmp___16->addr_limit.seg));
       }
-# 506 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       if (flag___1 == 0UL) {
-# 506 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         tmp___17 = 1;
       } else {
-# 506 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         tmp___17 = 0;
       }
       {
-# 506 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       tmp___18 = __builtin_expect((long )tmp___17, 1L);
       }
-# 506 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       if (tmp___18) {
-# 506 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         tmp___19 = 1;
       } else {
-# 506 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         tmp___19 = 0;
       }
     } else {
-# 506 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       tmp___19 = 0;
     }
   } else {
-# 506 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     tmp___19 = 0;
   }
-# 503 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   return (tmp___19);
 }
 }
-# 516 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
 static bool __warned___23 ;
-# 512 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
 int vhost_log_access_ok(struct vhost_dev *dev )
 { struct vhost_memory *mp ;
   int tmp___7 ;
@@ -9107,29 +7492,21 @@ int vhost_log_access_ok(struct vhost_dev *dev )
 
   {
   {
-# 516 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   while (1) {
     while_continue: ;
     {
-# 516 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     tmp___7 = debug_lockdep_rcu_enabled();
     }
-# 516 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     if (tmp___7) {
-# 516 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       if (! __warned___23) {
         {
-# 516 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         tmp___8 = lock_is_held(& dev->mutex.dep_map);
         }
-# 516 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         if (tmp___8) {
 
         } else {
           {
-# 516 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
           __warned___23 = (bool )1;
-# 516 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
           lockdep_rcu_dereference("/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c",
                                   (int const )517);
           }
@@ -9140,25 +7517,19 @@ int vhost_log_access_ok(struct vhost_dev *dev )
     } else {
 
     }
-# 516 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     goto while_break;
   }
   while_break___0: ;
   }
   while_break:
   {
-# 516 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   mp = dev->memory;
-# 518 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   tmp___9 = memory_access_ok(dev, mp, 1);
   }
-# 518 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   return (tmp___9);
 }
 }
-# 529 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
 static bool __warned___24 ;
-# 523 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
 static int vq_log_access_ok(struct vhost_dev *d , struct vhost_virtqueue *vq , void *log_base )
 { struct vhost_memory *mp ;
   size_t s ;
@@ -9173,43 +7544,30 @@ static int vq_log_access_ok(struct vhost_dev *d , struct vhost_virtqueue *vq , v
 
   {
   {
-# 527 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   tmp___9 = vhost_has_feature(d, 29);
   }
-# 527 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   if (tmp___9) {
-# 527 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     tmp___8 = 2;
   } else {
-# 527 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     tmp___8 = 0;
   }
-# 527 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   s = (size_t )tmp___8;
   {
-# 529 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   while (1) {
     while_continue: ;
     {
-# 529 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     tmp___10 = debug_lockdep_rcu_enabled();
     }
-# 529 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     if (tmp___10) {
-# 529 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       if (! __warned___24) {
         {
-# 529 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         tmp___11 = lock_is_held(& vq->mutex.dep_map);
         }
-# 529 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         if (tmp___11) {
 
         } else {
           {
-# 529 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
           __warned___24 = (bool )1;
-# 529 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
           lockdep_rcu_dereference("/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c",
                                   (int const )530);
           }
@@ -9220,49 +7578,35 @@ static int vq_log_access_ok(struct vhost_dev *d , struct vhost_virtqueue *vq , v
     } else {
 
     }
-# 529 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     goto while_break;
   }
   while_break___0: ;
   }
   while_break:
   {
-# 529 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   mp = (vq->dev)->memory;
-# 531 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   tmp___12 = vhost_has_feature(vq->dev, 26);
-# 531 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   tmp___13 = vq_memory_access_ok(log_base, mp, tmp___12);
   }
-# 531 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   if (tmp___13) {
-# 531 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     if (! vq->log_used) {
-# 531 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       tmp___15 = 1;
     } else {
       {
-# 531 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       tmp___14 = log_access_ok(log_base, vq->log_addr, (sizeof(*(vq->used)) + (unsigned long )vq->num * sizeof((vq->used)->ring[0])) + s);
       }
-# 531 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       if (tmp___14) {
-# 531 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         tmp___15 = 1;
       } else {
-# 531 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         tmp___15 = 0;
       }
     }
   } else {
-# 531 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     tmp___15 = 0;
   }
-# 531 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   return (tmp___15);
 }
 }
-# 540 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
 int vhost_vq_access_ok(struct vhost_virtqueue *vq )
 { int tmp___7 ;
   int tmp___8 ;
@@ -9270,34 +7614,24 @@ int vhost_vq_access_ok(struct vhost_virtqueue *vq )
 
   {
   {
-# 542 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   tmp___7 = vq_access_ok(vq->dev, vq->num, vq->desc, vq->avail, vq->used);
   }
-# 542 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   if (tmp___7) {
     {
-# 542 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     tmp___8 = vq_log_access_ok(vq->dev, vq, vq->log_base);
     }
-# 542 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     if (tmp___8) {
-# 542 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       tmp___9 = 1;
     } else {
-# 542 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       tmp___9 = 0;
     }
   } else {
-# 542 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     tmp___9 = 0;
   }
-# 542 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   return (tmp___9);
 }
 }
-# 573 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
 static bool __warned___25 ;
-# 546 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
 static long vhost_set_memory(struct vhost_dev *d , struct vhost_memory *m )
 { struct vhost_memory mem ;
   struct vhost_memory *newmem ;
@@ -9317,110 +7651,77 @@ static long vhost_set_memory(struct vhost_dev *d , struct vhost_memory *m )
 
   {
   {
-# 549 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   size = (unsigned long )((unsigned int )(& ((struct vhost_memory *)0)->regions));
-# 551 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   tmp = (unsigned long )copy_from_user((void *)(& mem), (void const *)m, size);
-# 551 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   tmp___7 = tmp;
   }
-# 551 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   if (tmp___7) {
-# 552 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     return (-14L);
   } else {
 
   }
-# 553 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   if (mem.padding) {
-# 554 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     return (-95L);
   } else {
 
   }
-# 555 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   if (mem.nregions > 64U) {
-# 556 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     return (-7L);
   } else {
 
   }
   {
-# 557 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   tmp___8 = kmalloc(size + (unsigned long )mem.nregions * sizeof(m->regions[0]), 208U);
-# 557 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   newmem = (struct vhost_memory *)tmp___8;
   }
-# 558 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   if (! newmem) {
-# 559 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     return (-12L);
   } else {
 
   }
   {
-# 561 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   __len = size;
-# 561 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   __ret = __builtin_memcpy((void *)newmem, (void const *)(& mem), __len);
-# 562 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   tmp___14 = (unsigned long )copy_from_user((void *)(newmem->regions), (void const *)(m->regions),
                                             (unsigned long )mem.nregions * sizeof(m->regions[0]));
-# 562 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   tmp___9 = tmp___14;
   }
-# 562 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   if (tmp___9) {
     {
-# 564 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     kfree((void const *)newmem);
     }
-# 565 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     return (-14L);
   } else {
 
   }
   {
-# 568 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   tmp___10 = vhost_has_feature(d, 26);
-# 568 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   tmp___11 = memory_access_ok(d, newmem, tmp___10);
   }
-# 568 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   if (tmp___11) {
 
   } else {
     {
-# 570 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     kfree((void const *)newmem);
     }
-# 571 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     return (-14L);
   }
   {
-# 573 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   while (1) {
     while_continue: ;
     {
-# 573 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     tmp___12 = debug_lockdep_rcu_enabled();
     }
-# 573 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     if (tmp___12) {
-# 573 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       if (! __warned___25) {
         {
-# 573 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         tmp___13 = lock_is_held(& d->mutex.dep_map);
         }
-# 573 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         if (tmp___13) {
 
         } else {
           {
-# 573 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
           __warned___25 = (bool )1;
-# 573 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
           lockdep_rcu_dereference("/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c",
                                   (int const )574);
           }
@@ -9431,29 +7732,21 @@ static long vhost_set_memory(struct vhost_dev *d , struct vhost_memory *m )
     } else {
 
     }
-# 573 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     goto while_break;
   }
   while_break___0: ;
   }
   while_break:
   {
-# 573 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   oldmem = d->memory;
-# 575 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   __asm__ volatile ("": : : "memory");
-# 575 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   d->memory = newmem;
-# 576 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   synchronize_rcu();
-# 577 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   kfree((void const *)oldmem);
   }
-# 578 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   return (0L);
 }
 }
-# 581 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
 static int init_used(struct vhost_virtqueue *vq , struct vring_used *used )
 { int r ;
   int __ret_pu ;
@@ -9463,149 +7756,99 @@ static int init_used(struct vhost_virtqueue *vq , struct vring_used *used )
 
   {
   {
-# 584 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   might_fault();
-# 584 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   __pu_val = vq->used_flags;
   }
-# 584 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   if ((int )sizeof(used->flags) == 1) {
-# 584 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     goto case_1;
   } else
-# 584 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   if ((int )sizeof(used->flags) == 2) {
-# 584 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     goto case_2;
   } else
-# 584 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   if ((int )sizeof(used->flags) == 4) {
-# 584 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     goto case_4;
   } else
-# 584 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   if ((int )sizeof(used->flags) == 8) {
-# 584 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     goto case_8;
   } else {
-# 584 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     goto switch_default;
-# 584 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     if (0) {
       case_1:
-# 584 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       __asm__ volatile ("call __put_user_"
                            "1": "=a" (__ret_pu): "0" (__pu_val), "c" (& used->flags): "ebx");
-# 584 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       goto switch_break;
       case_2:
-# 584 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       __asm__ volatile ("call __put_user_"
                            "2": "=a" (__ret_pu): "0" (__pu_val), "c" (& used->flags): "ebx");
-# 584 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       goto switch_break;
       case_4:
-# 584 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       __asm__ volatile ("call __put_user_"
                            "4": "=a" (__ret_pu): "0" (__pu_val), "c" (& used->flags): "ebx");
-# 584 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       goto switch_break;
       case_8:
-# 584 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       __asm__ volatile ("call __put_user_"
                            "8": "=a" (__ret_pu): "0" (__pu_val), "c" (& used->flags): "ebx");
-# 584 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       goto switch_break;
       switch_default:
-# 584 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       __asm__ volatile ("call __put_user_"
                            "X": "=a" (__ret_pu): "0" (__pu_val), "c" (& used->flags): "ebx");
-# 584 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       goto switch_break;
     } else {
       switch_break: ;
     }
   }
-# 584 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   r = __ret_pu;
-# 586 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   if (r) {
-# 587 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     return (r);
   } else {
 
   }
   {
-# 588 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   vq->signalled_used_valid = (bool )0;
-# 589 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   might_fault();
   }
-# 589 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   if ((int )sizeof(used->idx) == 1) {
-# 589 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     goto case_1___0;
   } else
-# 589 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   if ((int )sizeof(used->idx) == 2) {
-# 589 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     goto case_2___0;
   } else
-# 589 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   if ((int )sizeof(used->idx) == 4) {
-# 589 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     goto case_4___0;
   } else
-# 589 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   if ((int )sizeof(used->idx) == 8) {
-# 589 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     goto case_8___0;
   } else {
-# 589 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     goto switch_default___0;
-# 589 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     if (0) {
       case_1___0:
-# 589 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       __asm__ volatile ("call __get_user_"
                            "1": "=a" (__ret_gu), "=d" (__val_gu): "0" (& used->idx));
-# 589 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       goto switch_break___0;
       case_2___0:
-# 589 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       __asm__ volatile ("call __get_user_"
                            "2": "=a" (__ret_gu), "=d" (__val_gu): "0" (& used->idx));
-# 589 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       goto switch_break___0;
       case_4___0:
-# 589 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       __asm__ volatile ("call __get_user_"
                            "4": "=a" (__ret_gu), "=d" (__val_gu): "0" (& used->idx));
-# 589 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       goto switch_break___0;
       case_8___0:
-# 589 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       __asm__ volatile ("call __get_user_"
                            "8": "=a" (__ret_gu), "=d" (__val_gu): "0" (& used->idx));
-# 589 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       goto switch_break___0;
       switch_default___0:
-# 589 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       __asm__ volatile ("call __get_user_"
                            "X": "=a" (__ret_gu), "=d" (__val_gu): "0" (& used->idx));
-# 589 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       goto switch_break___0;
     } else {
       switch_break___0: ;
     }
   }
-# 589 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   vq->last_used_idx = (__u16 )__val_gu;
-# 589 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   return (__ret_gu);
 }
 }
-# 592 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
 static long vhost_set_vring(struct vhost_dev *d , int ioctl , void *argp )
 { struct file *eventfp ;
   struct file *filep ;
@@ -9656,355 +7899,229 @@ static long vhost_set_vring(struct vhost_dev *d , int ioctl , void *argp )
 
   {
   {
-# 594 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   filep = (struct file *)((void *)0);
-# 594 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   pollstart = (struct file *)((void *)0);
-# 594 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   pollstop = (struct file *)((void *)0);
-# 596 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   ctx = (struct eventfd_ctx *)((void *)0);
-# 597 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   idxp = (u32 *)argp;
-# 605 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   might_fault();
   }
-# 605 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   if ((int )sizeof(*idxp) == 1) {
-# 605 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     goto case_1;
   } else
-# 605 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   if ((int )sizeof(*idxp) == 2) {
-# 605 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     goto case_2;
   } else
-# 605 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   if ((int )sizeof(*idxp) == 4) {
-# 605 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     goto case_4;
   } else
-# 605 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   if ((int )sizeof(*idxp) == 8) {
-# 605 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     goto case_8;
   } else {
-# 605 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     goto switch_default;
-# 605 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     if (0) {
       case_1:
-# 605 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       __asm__ volatile ("call __get_user_"
                            "1": "=a" (__ret_gu), "=d" (__val_gu): "0" (idxp));
-# 605 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       goto switch_break;
       case_2:
-# 605 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       __asm__ volatile ("call __get_user_"
                            "2": "=a" (__ret_gu), "=d" (__val_gu): "0" (idxp));
-# 605 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       goto switch_break;
       case_4:
-# 605 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       __asm__ volatile ("call __get_user_"
                            "4": "=a" (__ret_gu), "=d" (__val_gu): "0" (idxp));
-# 605 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       goto switch_break;
       case_8:
-# 605 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       __asm__ volatile ("call __get_user_"
                            "8": "=a" (__ret_gu), "=d" (__val_gu): "0" (idxp));
-# 605 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       goto switch_break;
       switch_default:
-# 605 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       __asm__ volatile ("call __get_user_"
                            "X": "=a" (__ret_gu), "=d" (__val_gu): "0" (idxp));
-# 605 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       goto switch_break;
     } else {
       switch_break: ;
     }
   }
-# 605 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   idx = (u32 )__val_gu;
-# 605 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   r = (long )__ret_gu;
-# 606 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   if (r < 0L) {
-# 607 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     return (r);
   } else {
 
   }
-# 608 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   if (idx >= (u32 )d->nvqs) {
-# 609 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     return (-105L);
   } else {
 
   }
   {
-# 611 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   vq = d->vqs + idx;
-# 613 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   mutex_lock_nested(& vq->mutex, 0U);
   }
-# 616 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   if ((unsigned long )ioctl == ((unsigned long )(((1U << 30) | (unsigned int )(175 << 8)) | 16U) | (sizeof(struct vhost_vring_state ) << 16))) {
-# 616 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     goto case_exp;
   } else
-# 633 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   if ((unsigned long )ioctl == ((unsigned long )(((1U << 30) | (unsigned int )(175 << 8)) | 18U) | (sizeof(struct vhost_vring_state ) << 16))) {
-# 633 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     goto case_exp___0;
   } else
-# 652 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   if ((unsigned long )ioctl == ((unsigned long )(((3U << 30) | (unsigned int )(175 << 8)) | 18U) | (sizeof(struct vhost_vring_state ) << 16))) {
-# 652 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     goto case_exp___1;
   } else
-# 658 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   if ((unsigned long )ioctl == ((unsigned long )(((1U << 30) | (unsigned int )(175 << 8)) | 17U) | (sizeof(struct vhost_vring_addr ) << 16))) {
-# 658 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     goto case_exp___2;
   } else
-# 714 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   if ((unsigned long )ioctl == ((unsigned long )(((1U << 30) | (unsigned int )(175 << 8)) | 32U) | (sizeof(struct vhost_vring_file ) << 16))) {
-# 714 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     goto case_exp___3;
   } else
-# 730 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   if ((unsigned long )ioctl == ((unsigned long )(((1U << 30) | (unsigned int )(175 << 8)) | 33U) | (sizeof(struct vhost_vring_file ) << 16))) {
-# 730 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     goto case_exp___4;
   } else
-# 749 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   if ((unsigned long )ioctl == ((unsigned long )(((1U << 30) | (unsigned int )(175 << 8)) | 34U) | (sizeof(struct vhost_vring_file ) << 16))) {
-# 749 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     goto case_exp___5;
   } else {
-# 768 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     goto switch_default___0;
-# 615 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     if (0) {
       case_exp:
-# 619 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       if (vq->private_data) {
-# 620 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         r = -16L;
-# 621 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         goto switch_break___0;
       } else {
 
       }
       {
-# 623 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       tmp = (unsigned long )copy_from_user((void *)(& s), (void const *)argp, sizeof(s));
-# 623 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       tmp___7 = tmp;
       }
-# 623 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       if (tmp___7) {
-# 624 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         r = -14L;
-# 625 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         goto switch_break___0;
       } else {
 
       }
-# 627 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       if (! s.num) {
-# 628 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         r = -22L;
-# 629 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         goto switch_break___0;
       } else
-# 627 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       if (s.num > 65535U) {
-# 628 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         r = -22L;
-# 629 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         goto switch_break___0;
       } else
-# 627 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       if (s.num & (s.num - 1U)) {
-# 628 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         r = -22L;
-# 629 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         goto switch_break___0;
       } else {
 
       }
-# 631 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       vq->num = s.num;
-# 632 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       goto switch_break___0;
       case_exp___0:
-# 636 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       if (vq->private_data) {
-# 637 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         r = -16L;
-# 638 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         goto switch_break___0;
       } else {
 
       }
       {
-# 640 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       tmp___26 = (unsigned long )copy_from_user((void *)(& s), (void const *)argp,
                                                 sizeof(s));
-# 640 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       tmp___8 = tmp___26;
       }
-# 640 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       if (tmp___8) {
-# 641 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         r = -14L;
-# 642 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         goto switch_break___0;
       } else {
 
       }
-# 644 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       if (s.num > 65535U) {
-# 645 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         r = -22L;
-# 646 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         goto switch_break___0;
       } else {
 
       }
-# 648 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       vq->last_avail_idx = (u16 )s.num;
-# 650 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       vq->avail_idx = vq->last_avail_idx;
-# 651 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       goto switch_break___0;
       case_exp___1:
       {
-# 653 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       s.index = idx;
-# 654 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       s.num = (unsigned int )vq->last_avail_idx;
-# 655 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       tmp___27 = (int )copy_to_user(argp, (void const *)(& s), (unsigned int )sizeof(s));
-# 655 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       tmp___9 = tmp___27;
       }
-# 655 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       if (tmp___9) {
-# 656 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         r = -14L;
       } else {
 
       }
-# 657 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       goto switch_break___0;
       case_exp___2:
       {
-# 659 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       tmp___28 = (unsigned long )copy_from_user((void *)(& a), (void const *)argp,
                                                 sizeof(a));
-# 659 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       tmp___10 = tmp___28;
       }
-# 659 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       if (tmp___10) {
-# 660 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         r = -14L;
-# 661 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         goto switch_break___0;
       } else {
 
       }
-# 663 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       if (a.flags & 4294967294U) {
-# 664 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         r = -95L;
-# 665 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         goto switch_break___0;
       } else {
 
       }
-# 669 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       if ((u64 )((unsigned long )a.desc_user_addr) != a.desc_user_addr) {
-# 672 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         r = -14L;
-# 673 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         goto switch_break___0;
       } else
-# 669 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       if ((u64 )((unsigned long )a.used_user_addr) != a.used_user_addr) {
-# 672 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         r = -14L;
-# 673 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         goto switch_break___0;
       } else
-# 669 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       if ((u64 )((unsigned long )a.avail_user_addr) != a.avail_user_addr) {
-# 672 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         r = -14L;
-# 673 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         goto switch_break___0;
       } else {
 
       }
-# 675 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       if (a.avail_user_addr & (unsigned long long )(sizeof((vq->avail)->ring[0]) - 1UL)) {
-# 678 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         r = -22L;
-# 679 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         goto switch_break___0;
       } else
-# 675 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       if (a.used_user_addr & (unsigned long long )(sizeof((vq->used)->ring[0]) - 1UL)) {
-# 678 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         r = -22L;
-# 679 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         goto switch_break___0;
       } else
-# 675 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       if (a.log_guest_addr & (unsigned long long )(sizeof((vq->used)->ring[0]) - 1UL)) {
-# 678 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         r = -22L;
-# 679 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         goto switch_break___0;
       } else {
 
       }
-# 685 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       if (vq->private_data) {
         {
-# 686 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         tmp___11 = vq_access_ok(d, vq->num, (struct vring_desc *)((void *)((unsigned long )a.desc_user_addr)),
                                 (struct vring_avail *)((void *)((unsigned long )a.avail_user_addr)),
                                 (struct vring_used *)((void *)((unsigned long )a.used_user_addr)));
         }
-# 686 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         if (tmp___11) {
 
         } else {
-# 690 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
           r = -22L;
-# 691 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
           goto switch_break___0;
         }
-# 695 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         if (a.flags & 1U) {
           {
-# 695 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
           tmp___12 = log_access_ok(vq->log_base, a.log_guest_addr, sizeof(*(vq->used)) + (unsigned long )vq->num * sizeof((vq->used)->ring[0]));
           }
-# 695 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
           if (tmp___12) {
 
           } else {
-# 699 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
             r = -22L;
-# 700 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
             goto switch_break___0;
           }
         } else {
@@ -10014,257 +8131,170 @@ static long vhost_set_vring(struct vhost_dev *d , int ioctl , void *argp )
 
       }
       {
-# 704 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       tmp___13 = init_used(vq, (struct vring_used *)((unsigned long )a.used_user_addr));
-# 704 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       r = (long )tmp___13;
       }
-# 706 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       if (r) {
-# 707 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         goto switch_break___0;
       } else {
 
       }
-# 708 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       vq->log_used = (bool )(! (! (a.flags & 1U)));
-# 709 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       vq->desc = (struct vring_desc *)((void *)((unsigned long )a.desc_user_addr));
-# 710 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       vq->avail = (struct vring_avail *)((void *)((unsigned long )a.avail_user_addr));
-# 711 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       vq->log_addr = a.log_guest_addr;
-# 712 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       vq->used = (struct vring_used *)((void *)((unsigned long )a.used_user_addr));
-# 713 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       goto switch_break___0;
       case_exp___3:
       {
-# 715 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       tmp___29 = (unsigned long )copy_from_user((void *)(& f), (void const *)argp,
                                                 sizeof(f));
-# 715 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       tmp___14 = tmp___29;
       }
-# 715 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       if (tmp___14) {
-# 716 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         r = -14L;
-# 717 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         goto switch_break___0;
       } else {
 
       }
-# 719 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       if (f.fd == -1) {
-# 719 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         eventfp = (struct file *)((void *)0);
       } else {
         {
-# 719 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         tmp___15 = eventfd_fget(f.fd);
-# 719 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         eventfp = tmp___15;
         }
       }
       {
-# 720 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       tmp___30 = (long )IS_ERR((void const *)eventfp);
-# 720 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       tmp___16 = tmp___30;
       }
-# 720 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       if (tmp___16) {
         {
-# 721 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         tmp___31 = (long )PTR_ERR((void const *)eventfp);
-# 721 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         r = tmp___31;
         }
-# 722 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         goto switch_break___0;
       } else {
 
       }
-# 724 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       if ((unsigned long )eventfp != (unsigned long )vq->kick) {
-# 725 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         filep = vq->kick;
-# 725 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         pollstop = filep;
-# 726 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         tmp___17 = eventfp;
-# 726 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         vq->kick = tmp___17;
-# 726 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         pollstart = tmp___17;
       } else {
-# 728 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         filep = eventfp;
       }
-# 729 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       goto switch_break___0;
       case_exp___4:
       {
-# 731 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       tmp___32 = (unsigned long )copy_from_user((void *)(& f), (void const *)argp,
                                                 sizeof(f));
-# 731 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       tmp___18 = tmp___32;
       }
-# 731 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       if (tmp___18) {
-# 732 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         r = -14L;
-# 733 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         goto switch_break___0;
       } else {
 
       }
-# 735 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       if (f.fd == -1) {
-# 735 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         eventfp = (struct file *)((void *)0);
       } else {
         {
-# 735 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         tmp___19 = eventfd_fget(f.fd);
-# 735 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         eventfp = tmp___19;
         }
       }
       {
-# 736 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       tmp___33 = (long )IS_ERR((void const *)eventfp);
-# 736 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       tmp___20 = tmp___33;
       }
-# 736 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       if (tmp___20) {
         {
-# 737 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         tmp___34 = (long )PTR_ERR((void const *)eventfp);
-# 737 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         r = tmp___34;
         }
-# 738 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         goto switch_break___0;
       } else {
 
       }
-# 740 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       if ((unsigned long )eventfp != (unsigned long )vq->call) {
-# 741 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         filep = vq->call;
-# 742 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         ctx = vq->call_ctx;
-# 743 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         vq->call = eventfp;
-# 744 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         if (eventfp) {
           {
-# 744 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
           tmp___21 = eventfd_ctx_fileget(eventfp);
-# 744 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
           vq->call_ctx = tmp___21;
           }
         } else {
-# 744 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
           vq->call_ctx = (struct eventfd_ctx *)((void *)0);
         }
       } else {
-# 747 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         filep = eventfp;
       }
-# 748 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       goto switch_break___0;
       case_exp___5:
       {
-# 750 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       tmp___35 = (unsigned long )copy_from_user((void *)(& f), (void const *)argp,
                                                 sizeof(f));
-# 750 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       tmp___22 = tmp___35;
       }
-# 750 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       if (tmp___22) {
-# 751 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         r = -14L;
-# 752 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         goto switch_break___0;
       } else {
 
       }
-# 754 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       if (f.fd == -1) {
-# 754 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         eventfp = (struct file *)((void *)0);
       } else {
         {
-# 754 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         tmp___23 = eventfd_fget(f.fd);
-# 754 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         eventfp = tmp___23;
         }
       }
       {
-# 755 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       tmp___36 = (long )IS_ERR((void const *)eventfp);
-# 755 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       tmp___24 = tmp___36;
       }
-# 755 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       if (tmp___24) {
         {
-# 756 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         tmp___37 = (long )PTR_ERR((void const *)eventfp);
-# 756 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         r = tmp___37;
         }
-# 757 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         goto switch_break___0;
       } else {
 
       }
-# 759 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       if ((unsigned long )eventfp != (unsigned long )vq->error) {
-# 760 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         filep = vq->error;
-# 761 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         vq->error = eventfp;
-# 762 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         ctx = vq->error_ctx;
-# 763 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         if (eventfp) {
           {
-# 763 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
           tmp___25 = eventfd_ctx_fileget(eventfp);
-# 763 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
           vq->error_ctx = tmp___25;
           }
         } else {
-# 763 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
           vq->error_ctx = (struct eventfd_ctx *)((void *)0);
         }
       } else {
-# 766 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         filep = eventfp;
       }
-# 767 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       goto switch_break___0;
       switch_default___0:
-# 769 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       r = -515L;
     } else {
       switch_break___0: ;
     }
   }
-# 772 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   if (pollstop) {
-# 772 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     if (vq->handle_kick) {
       {
-# 773 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       vhost_poll_stop(& vq->poll);
       }
     } else {
@@ -10273,30 +8303,23 @@ static long vhost_set_vring(struct vhost_dev *d , int ioctl , void *argp )
   } else {
 
   }
-# 775 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   if (ctx) {
     {
-# 776 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     eventfd_ctx_put(ctx);
     }
   } else {
 
   }
-# 777 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   if (filep) {
     {
-# 778 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     fput(filep);
     }
   } else {
 
   }
-# 780 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   if (pollstart) {
-# 780 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     if (vq->handle_kick) {
       {
-# 781 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       vhost_poll_start(& vq->poll, vq->kick);
       }
     } else {
@@ -10306,15 +8329,11 @@ static long vhost_set_vring(struct vhost_dev *d , int ioctl , void *argp )
 
   }
   {
-# 783 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   mutex_unlock(& vq->mutex);
   }
-# 785 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   if (pollstop) {
-# 785 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     if (vq->handle_kick) {
       {
-# 786 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       vhost_poll_flush(& vq->poll);
       }
     } else {
@@ -10323,11 +8342,9 @@ static long vhost_set_vring(struct vhost_dev *d , int ioctl , void *argp )
   } else {
 
   }
-# 787 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   return (r);
 }
 }
-# 791 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
 long vhost_dev_ioctl(struct vhost_dev *d , unsigned int ioctl , unsigned long arg )
 { void *argp ;
   struct file *eventfp ;
@@ -10351,353 +8368,242 @@ long vhost_dev_ioctl(struct vhost_dev *d , unsigned int ioctl , unsigned long ar
   long tmp___13 ;
 
   {
-# 793 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   argp = (void *)arg;
-# 794 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   filep = (struct file *)((void *)0);
-# 795 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   ctx = (struct eventfd_ctx *)((void *)0);
-# 801 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   if (ioctl == ((unsigned int )(175 << 8) | 1U)) {
     {
-# 802 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     r = vhost_dev_set_owner(d);
     }
-# 803 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     goto done;
   } else {
 
   }
   {
-# 807 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   r = vhost_dev_check_owner(d);
   }
-# 808 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   if (r) {
-# 809 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     goto done;
   } else {
 
   }
-# 812 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   if ((unsigned long )((int )ioctl) == ((unsigned long )(((1U << 30) | (unsigned int )(175 << 8)) | 3U) | (sizeof(struct vhost_memory ) << 16))) {
-# 812 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     goto case_exp;
   } else
-# 815 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   if ((unsigned long )((int )ioctl) == ((unsigned long )(((1U << 30) | (unsigned int )(175 << 8)) | 4U) | (sizeof(__u64 ) << 16))) {
-# 815 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     goto case_exp___0;
   } else
-# 837 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   if ((unsigned long )((int )ioctl) == ((unsigned long )(((1U << 30) | (unsigned int )(175 << 8)) | 7U) | (sizeof(int ) << 16))) {
-# 837 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     goto case_exp___1;
   } else {
-# 863 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     goto switch_default___0;
-# 811 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     if (0) {
       case_exp:
       {
-# 813 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       r = vhost_set_memory(d, (struct vhost_memory *)argp);
       }
-# 814 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       goto switch_break;
       case_exp___0:
       {
-# 816 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       tmp = (unsigned long )copy_from_user((void *)(& p), (void const *)argp, sizeof(p));
-# 816 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       tmp___7 = tmp;
       }
-# 816 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       if (tmp___7) {
-# 817 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         r = -14L;
-# 818 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         goto switch_break;
       } else {
 
       }
-# 820 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       if ((u64 )((unsigned long )p) != p) {
-# 821 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         r = -14L;
-# 822 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         goto switch_break;
       } else {
 
       }
-# 824 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       i = 0;
       {
-# 824 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       while (1) {
         while_continue: ;
-# 824 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         if (i < d->nvqs) {
 
         } else {
-# 824 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
           goto while_break;
         }
         {
-# 826 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         base = (void *)((unsigned long )p);
-# 827 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         vq = d->vqs + i;
-# 828 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         mutex_lock_nested(& vq->mutex, 0U);
         }
-# 830 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         if (vq->private_data) {
           {
-# 830 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
           tmp___8 = vq_log_access_ok(d, vq, base);
           }
-# 830 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
           if (tmp___8) {
-# 833 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
             vq->log_base = base;
           } else {
-# 831 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
             r = -14L;
           }
         } else {
-# 833 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
           vq->log_base = base;
         }
         {
-# 834 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         mutex_unlock(& vq->mutex);
-# 824 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         i = i + 1;
         }
       }
       while_break___1: ;
       }
       while_break: ;
-# 836 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       goto switch_break;
       case_exp___1:
       {
-# 838 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       might_fault();
       }
-# 838 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       if ((int )sizeof(*((int *)argp)) == 1) {
-# 838 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         goto case_1;
       } else
-# 838 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       if ((int )sizeof(*((int *)argp)) == 2) {
-# 838 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         goto case_2;
       } else
-# 838 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       if ((int )sizeof(*((int *)argp)) == 4) {
-# 838 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         goto case_4;
       } else
-# 838 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       if ((int )sizeof(*((int *)argp)) == 8) {
-# 838 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         goto case_8;
       } else {
-# 838 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         goto switch_default;
-# 838 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         if (0) {
           case_1:
-# 838 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
           __asm__ volatile ("call __get_user_"
                                "1": "=a" (__ret_gu), "=d" (__val_gu): "0" ((int *)argp));
-# 838 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
           goto switch_break___0;
           case_2:
-# 838 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
           __asm__ volatile ("call __get_user_"
                                "2": "=a" (__ret_gu), "=d" (__val_gu): "0" ((int *)argp));
-# 838 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
           goto switch_break___0;
           case_4:
-# 838 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
           __asm__ volatile ("call __get_user_"
                                "4": "=a" (__ret_gu), "=d" (__val_gu): "0" ((int *)argp));
-# 838 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
           goto switch_break___0;
           case_8:
-# 838 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
           __asm__ volatile ("call __get_user_"
                                "8": "=a" (__ret_gu), "=d" (__val_gu): "0" ((int *)argp));
-# 838 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
           goto switch_break___0;
           switch_default:
-# 838 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
           __asm__ volatile ("call __get_user_"
                                "X": "=a" (__ret_gu), "=d" (__val_gu): "0" ((int *)argp));
-# 838 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
           goto switch_break___0;
         } else {
           switch_break___0: ;
         }
       }
-# 838 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       fd = (int )__val_gu;
-# 838 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       r = (long )__ret_gu;
-# 839 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       if (r < 0L) {
-# 840 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         goto switch_break;
       } else {
 
       }
-# 841 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       if (fd == -1) {
-# 841 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         eventfp = (struct file *)((void *)0);
       } else {
         {
-# 841 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         tmp___9 = eventfd_fget(fd);
-# 841 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         eventfp = tmp___9;
         }
       }
       {
-# 842 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       tmp___12 = (long )IS_ERR((void const *)eventfp);
-# 842 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       tmp___10 = tmp___12;
       }
-# 842 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       if (tmp___10) {
         {
-# 843 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         tmp___13 = (long )PTR_ERR((void const *)eventfp);
-# 843 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         r = tmp___13;
         }
-# 844 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         goto switch_break;
       } else {
 
       }
-# 846 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       if ((unsigned long )eventfp != (unsigned long )d->log_file) {
-# 847 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         filep = d->log_file;
-# 848 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         ctx = d->log_ctx;
-# 849 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         if (eventfp) {
           {
-# 849 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
           tmp___11 = eventfd_ctx_fileget(eventfp);
-# 849 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
           d->log_ctx = tmp___11;
           }
         } else {
-# 849 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
           d->log_ctx = (struct eventfd_ctx *)((void *)0);
         }
       } else {
-# 852 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         filep = eventfp;
       }
-# 853 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       i = 0;
       {
-# 853 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       while (1) {
         while_continue___0: ;
-# 853 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         if (i < d->nvqs) {
 
         } else {
-# 853 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
           goto while_break___0;
         }
         {
-# 854 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         mutex_lock_nested(& (d->vqs + i)->mutex, 0U);
-# 855 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         (d->vqs + i)->log_ctx = d->log_ctx;
-# 856 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         mutex_unlock(& (d->vqs + i)->mutex);
-# 853 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         i = i + 1;
         }
       }
       while_break___2: ;
       }
       while_break___0: ;
-# 858 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       if (ctx) {
         {
-# 859 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         eventfd_ctx_put(ctx);
         }
       } else {
 
       }
-# 860 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       if (filep) {
         {
-# 861 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         fput(filep);
         }
       } else {
 
       }
-# 862 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       goto switch_break;
       switch_default___0:
       {
-# 864 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       r = vhost_set_vring(d, (int )ioctl, argp);
       }
-# 865 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       goto switch_break;
     } else {
       switch_break: ;
     }
   }
   done:
-# 868 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   return (r);
 }
 }
-# 871 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
 static struct vhost_memory_region const *find_region(struct vhost_memory *mem ,
                                                        __u64 addr , __u32 len )
 { struct vhost_memory_region *reg ;
   int i ;
 
   {
-# 879 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   i = 0;
   {
-# 879 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   while (1) {
     while_continue: ;
-# 879 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     if ((__u32 )i < mem->nregions) {
 
     } else {
-# 879 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       goto while_break;
     }
-# 880 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     reg = mem->regions + i;
-# 881 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     if (reg->guest_phys_addr <= addr) {
-# 881 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       if ((reg->guest_phys_addr + reg->memory_size) - 1ULL >= addr) {
-# 883 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         return ((struct vhost_memory_region const *)reg);
       } else {
 
@@ -10705,17 +8611,14 @@ static struct vhost_memory_region const *find_region(struct vhost_memory *mem ,
     } else {
 
     }
-# 879 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     i = i + 1;
   }
   while_break___0: ;
   }
   while_break: ;
-# 885 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   return ((struct vhost_memory_region const *)((void *)0));
 }
 }
-# 892 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
 static int set_bit_to_user(int nr , void *addr )
 { unsigned long log ;
   struct page *page ;
@@ -10726,35 +8629,25 @@ static int set_bit_to_user(int nr , void *addr )
 
   {
   {
-# 894 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   log = (unsigned long )addr;
-# 897 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   bit = (int )((unsigned long )nr + (log % (1UL << 12)) * 8UL);
-# 900 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   r = get_user_pages_fast(log, 1, 1, & page);
   }
-# 901 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   if (r < 0) {
-# 902 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     return (r);
   } else {
 
   }
   {
-# 903 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   while (1) {
     while_continue: ;
     {
-# 903 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     tmp___7 = __builtin_expect((long )(! (! (r != 1))), 0L);
     }
-# 903 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     if (tmp___7) {
       {
-# 903 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       while (1) {
         while_continue___0: ;
-# 903 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         __asm__ volatile ("1:\tud2\n"
                              ".pushsection __bug_table,\"a\"\n"
                              "2:\t.long 1b - 2b, %c0 - 2b\n"
@@ -10763,14 +8656,12 @@ static int set_bit_to_user(int nr , void *addr )
                              ".popsection": : "i" ("/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"),
                              "i" (903), "i" (sizeof(struct bug_entry )));
         {
-# 903 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         while (1) {
           while_continue___1: ;
 
         }
         while_break___5: ;
         }
-# 903 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         goto while_break___0;
       }
       while_break___4: ;
@@ -10779,43 +8670,33 @@ static int set_bit_to_user(int nr , void *addr )
     } else {
 
     }
-# 903 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     goto while_break;
   }
   while_break___3: ;
   }
   while_break:
   {
-# 904 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   base = __kmap_atomic(page);
-# 905 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   set_bit((unsigned int )bit, (unsigned long volatile *)base);
   }
   {
-# 906 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   while (1) {
     while_continue___2: ;
     {
-# 906 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     __kunmap_atomic(base);
     }
-# 906 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     goto while_break___2;
   }
   while_break___6: ;
   }
   while_break___2:
   {
-# 907 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   set_page_dirty_lock(page);
-# 908 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   put_page(page);
   }
-# 909 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   return (0);
 }
 }
-# 912 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
 static int log_write(void *log_base , u64 write_address , u64 write_length )
 { u64 write_page ;
   int r ;
@@ -10824,65 +8705,46 @@ static int log_write(void *log_base , u64 write_address , u64 write_length )
   int bit ;
 
   {
-# 915 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   write_page = write_address / 4096ULL;
-# 918 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   if (! write_length) {
-# 919 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     return (0);
   } else {
 
   }
-# 920 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   write_length = write_length + write_address % 4096ULL;
   {
-# 921 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   while (1) {
     while_continue: ;
-# 922 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     base = (u64 )((unsigned long )log_base);
-# 923 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     log = base + write_page / 8ULL;
-# 924 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     bit = (int )(write_page % 8ULL);
-# 925 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     if ((u64 )((unsigned long )log) != log) {
-# 926 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       return (-14);
     } else {
 
     }
     {
-# 927 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     r = set_bit_to_user(bit, (void *)((unsigned long )log));
     }
-# 928 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     if (r < 0) {
-# 929 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       return (r);
     } else {
 
     }
-# 930 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     if (write_length <= 4096ULL) {
-# 931 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       goto while_break;
     } else {
 
     }
-# 932 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     write_length = write_length - 4096ULL;
-# 933 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     write_page = write_page + 1ULL;
   }
   while_break___0: ;
   }
   while_break: ;
-# 935 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   return (r);
 }
 }
-# 938 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
 int vhost_log_write(struct vhost_virtqueue *vq , struct vhost_log *log , unsigned int log_num ,
                     u64 len )
 { int i ;
@@ -10893,75 +8755,53 @@ int vhost_log_write(struct vhost_virtqueue *vq , struct vhost_log *log , unsigne
   u64 tmp___7 ;
 
   {
-# 944 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   __asm__ volatile ("": : : "memory");
-# 945 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   i = 0;
   {
-# 945 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   while (1) {
     while_continue: ;
-# 945 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     if ((unsigned int )i < log_num) {
 
     } else {
-# 945 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       goto while_break;
     }
-# 946 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     _min1 = (log + i)->len;
-# 946 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     _min2 = len;
-# 946 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     if (_min1 < _min2) {
-# 946 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       tmp___7 = _min1;
     } else {
-# 946 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       tmp___7 = _min2;
     }
     {
-# 946 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     l = tmp___7;
-# 947 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     r = log_write(vq->log_base, (log + i)->addr, l);
     }
-# 948 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     if (r < 0) {
-# 949 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       return (r);
     } else {
 
     }
-# 950 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     len = len - l;
-# 951 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     if (! len) {
-# 952 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       if (vq->log_ctx) {
         {
-# 953 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         eventfd_signal(vq->log_ctx, 1);
         }
       } else {
 
       }
-# 954 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       return (0);
     } else {
 
     }
-# 945 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     i = i + 1;
   }
   while_break___1: ;
   }
   while_break: ;
   {
-# 958 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   while (1) {
     while_continue___0: ;
-# 958 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     __asm__ volatile ("1:\tud2\n"
                          ".pushsection __bug_table,\"a\"\n"
                          "2:\t.long 1b - 2b, %c0 - 2b\n"
@@ -10970,26 +8810,21 @@ int vhost_log_write(struct vhost_virtqueue *vq , struct vhost_log *log , unsigne
                          ".popsection": : "i" ("/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"),
                          "i" (958), "i" (sizeof(struct bug_entry )));
     {
-# 958 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     while (1) {
       while_continue___1: ;
 
     }
     while_break___3: ;
     }
-# 958 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     goto while_break___0;
   }
   while_break___2: ;
   }
   while_break___0: ;
-# 959 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   return (0);
 }
 }
-# 973 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
 static bool __warned___26 ;
-# 962 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
 static int translate_desc(struct vhost_dev *dev , u64 addr , u32 len , struct iovec *iov ,
                           int iov_size )
 { struct vhost_memory_region const *reg ;
@@ -11009,39 +8844,27 @@ static int translate_desc(struct vhost_dev *dev , u64 addr , u32 len , struct io
 
   {
   {
-# 968 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   s = (u64 )0;
-# 969 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   ret = 0;
-# 971 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   rcu_read_lock();
-# 973 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   _________p1 = (struct vhost_memory *)*((struct vhost_memory * volatile *)(& dev->memory));
   }
   {
-# 973 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   while (1) {
     while_continue: ;
     {
-# 973 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     tmp___7 = debug_lockdep_rcu_enabled();
     }
-# 973 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     if (tmp___7) {
-# 973 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       if (! __warned___26) {
         {
-# 973 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         tmp___8 = rcu_read_lock_held();
         }
-# 973 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         if (tmp___8) {
 
         } else {
           {
-# 973 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
           __warned___26 = (bool )1;
-# 973 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
           lockdep_rcu_dereference("/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c",
                                   (int const )973);
           }
@@ -11052,167 +8875,120 @@ static int translate_desc(struct vhost_dev *dev , u64 addr , u32 len , struct io
     } else {
 
     }
-# 973 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     goto while_break;
   }
   while_break___2: ;
   }
   while_break: ;
   {
-# 973 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   while (1) {
     while_continue___0: ;
-# 973 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     goto while_break___0;
   }
   while_break___3: ;
   }
   while_break___0:
-# 973 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   mem = _________p1;
   {
-# 974 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   while (1) {
     while_continue___1: ;
-# 974 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     if ((u64 )len > s) {
 
     } else {
-# 974 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       goto while_break___1;
     }
     {
-# 976 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     tmp___9 = __builtin_expect((long )(! (! (ret >= iov_size))), 0L);
     }
-# 976 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     if (tmp___9) {
-# 977 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       ret = -105;
-# 978 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       goto while_break___1;
     } else {
 
     }
     {
-# 980 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     reg = find_region(mem, addr, len);
-# 981 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     tmp___10 = __builtin_expect((long )(! (! (! reg))), 0L);
     }
-# 981 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     if (tmp___10) {
-# 982 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       ret = -14;
-# 983 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       goto while_break___1;
     } else {
 
     }
-# 985 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     _iov = iov + ret;
-# 986 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     size = (u64 )((reg->memory_size - (__u64 const )addr) + reg->guest_phys_addr);
-# 987 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     _min1 = (u64 )len;
-# 987 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     _min2 = size;
-# 987 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     if (_min1 < _min2) {
-# 987 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       tmp___11 = _min1;
     } else {
-# 987 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       tmp___11 = _min2;
     }
-# 987 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     _iov->iov_len = (__kernel_size_t )tmp___11;
-# 988 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     _iov->iov_base = (void *)((unsigned long )((reg->userspace_addr + (__u64 const )addr) - reg->guest_phys_addr));
-# 990 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     s = s + size;
-# 991 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     addr = addr + size;
-# 992 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     ret = ret + 1;
   }
   while_break___4: ;
   }
   while_break___1:
   {
-# 995 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   rcu_read_unlock();
   }
-# 996 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   return (ret);
 }
 }
-# 1002 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
 static unsigned int next_desc(struct vring_desc *desc )
 { unsigned int next ;
 
   {
-# 1007 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   if (! ((int )desc->flags & 1)) {
-# 1008 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     return (4294967295U);
   } else {
 
   }
-# 1011 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   next = (unsigned int )desc->next;
   {
-# 1015 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   while (1) {
     while_continue: ;
-# 1015 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     goto while_break;
   }
   while_break___0: ;
   }
   while_break: ;
-# 1017 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   return (next);
 }
 }
-# 1032 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
 static int get_indirect(struct vhost_dev *dev , struct vhost_virtqueue *vq , struct iovec *iov ,
                         unsigned int iov_size , unsigned int *out_num , unsigned int *in_num ,
                         struct vhost_log *log , unsigned int *log_num , struct vring_desc *indirect ) ;
-# 1032 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
 static struct _ddebug descriptor __attribute__((__used__, __section__("__verbose"),
 __aligned__(8))) = {"vhost_net", "get_indirect", "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c",
     "Invalid length in indirect descriptor: len 0x%llx not multiple of 0x%zx\n", 1035U,
     0U, (char)0};
-# 1042 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
 static struct _ddebug descriptor___0 __attribute__((__used__, __section__("__verbose"),
 __aligned__(8))) = {"vhost_net", "get_indirect", "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c",
     "Translation failure %d in indirect.\n", 1042U, 0U, (char)0};
-# 1054 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
 static struct _ddebug descriptor___1 __attribute__((__used__, __section__("__verbose"),
 __aligned__(8))) = {"vhost_net", "get_indirect", "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c",
     "Indirect buffer length too big: %d\n", 1055U, 0U, (char)0};
-# 1062 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
 static struct _ddebug descriptor___2 __attribute__((__used__, __section__("__verbose"),
 __aligned__(8))) = {"vhost_net", "get_indirect", "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c",
     "Loop detected: last one at %u indirect size %u\n", 1064U, 0U, (char)0};
-# 1069 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
 static struct _ddebug descriptor___3 __attribute__((__used__, __section__("__verbose"),
 __aligned__(8))) = {"vhost_net", "get_indirect", "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c",
     "Failed indirect descriptor: idx %d, %zx\n", 1070U, 0U, (char)0};
-# 1074 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
 static struct _ddebug descriptor___4 __attribute__((__used__, __section__("__verbose"),
 __aligned__(8))) = {"vhost_net", "get_indirect", "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c",
     "Nested indirect descriptor: idx %d, %zx\n", 1075U, 0U, (char)0};
-# 1082 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
 static struct _ddebug descriptor___5 __attribute__((__used__, __section__("__verbose"),
 __aligned__(8))) = {"vhost_net", "get_indirect", "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c",
     "Translation failure %d indirect idx %d\n", 1083U, 0U, (char)0};
-# 1098 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
 static struct _ddebug descriptor___6 __attribute__((__used__, __section__("__verbose"),
 __aligned__(8))) = {"vhost_net", "get_indirect", "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c",
     "Indirect descriptor has out after in: idx %d\n", 1099U, 0U, (char)0};
-# 1020 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
 static int get_indirect(struct vhost_dev *dev , struct vhost_virtqueue *vq , struct iovec *iov ,
                         unsigned int iov_size , unsigned int *out_num , unsigned int *in_num ,
                         struct vhost_log *log , unsigned int *log_num , struct vring_desc *indirect )
@@ -11245,577 +9021,441 @@ static int get_indirect(struct vhost_dev *dev , struct vhost_virtqueue *vq , str
 
   {
   {
-# 1027 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   i = 0U;
-# 1027 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   found = 0U;
-# 1031 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   tmp___8 = __builtin_expect((long )(! (! ((unsigned long )indirect->len % sizeof(desc)))),
                              0L);
   }
-# 1031 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   if (tmp___8) {
     {
-# 1032 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     while (1) {
       while_continue: ;
 
       {
-# 1032 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       while (1) {
         while_continue___0: ;
         {
-# 1032 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         tmp___7 = __builtin_expect((long )(! (! descriptor.enabled)), 0L);
         }
-# 1032 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         if (tmp___7) {
           {
-# 1032 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
           __dynamic_pr_debug(& descriptor, "Invalid length in indirect descriptor: len 0x%llx not multiple of 0x%zx\n",
                              (unsigned long long )indirect->len, sizeof(desc));
           }
         } else {
 
         }
-# 1032 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         goto while_break___0;
       }
       while_break___18: ;
       }
       while_break___0: ;
-# 1032 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       if (vq->error_ctx) {
         {
-# 1032 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         eventfd_signal(vq->error_ctx, 1);
         }
       } else {
 
       }
-# 1032 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       goto while_break;
     }
     while_break___17: ;
     }
     while_break: ;
-# 1036 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     return (-22);
   } else {
 
   }
   {
-# 1039 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   ret = translate_desc(dev, indirect->addr, indirect->len, vq->indirect, 1024);
-# 1041 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   tmp___10 = __builtin_expect((long )(! (! (ret < 0))), 0L);
   }
-# 1041 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   if (tmp___10) {
     {
-# 1042 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     while (1) {
       while_continue___1: ;
 
       {
-# 1042 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       while (1) {
         while_continue___2: ;
         {
-# 1042 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         tmp___9 = __builtin_expect((long )(! (! descriptor___0.enabled)), 0L);
         }
-# 1042 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         if (tmp___9) {
           {
-# 1042 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
           __dynamic_pr_debug(& descriptor___0, "Translation failure %d in indirect.\n",
                              ret);
           }
         } else {
 
         }
-# 1042 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         goto while_break___2;
       }
       while_break___20: ;
       }
       while_break___2: ;
-# 1042 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       if (vq->error_ctx) {
         {
-# 1042 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         eventfd_signal(vq->error_ctx, 1);
         }
       } else {
 
       }
-# 1042 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       goto while_break___1;
     }
     while_break___19: ;
     }
     while_break___1: ;
-# 1043 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     return (ret);
   } else {
 
   }
   {
-# 1048 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   while (1) {
     while_continue___3: ;
-# 1048 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     goto while_break___3;
   }
   while_break___21: ;
   }
   while_break___3:
   {
-# 1050 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   count = (unsigned int )((unsigned long )indirect->len / sizeof(desc));
-# 1053 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   tmp___12 = __builtin_expect((long )(! (! (count > 65536U))), 0L);
   }
-# 1053 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   if (tmp___12) {
     {
-# 1054 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     while (1) {
       while_continue___4: ;
 
       {
-# 1054 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       while (1) {
         while_continue___5: ;
         {
-# 1054 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         tmp___11 = __builtin_expect((long )(! (! descriptor___1.enabled)), 0L);
         }
-# 1054 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         if (tmp___11) {
           {
-# 1054 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
           __dynamic_pr_debug(& descriptor___1, "Indirect buffer length too big: %d\n",
                              indirect->len);
           }
         } else {
 
         }
-# 1054 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         goto while_break___5;
       }
       while_break___23: ;
       }
       while_break___5: ;
-# 1054 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       if (vq->error_ctx) {
         {
-# 1054 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         eventfd_signal(vq->error_ctx, 1);
         }
       } else {
 
       }
-# 1054 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       goto while_break___4;
     }
     while_break___22: ;
     }
     while_break___4: ;
-# 1056 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     return (-7);
   } else {
 
   }
   {
-# 1059 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   while (1) {
     while_continue___6: ;
-# 1060 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     iov_count = *in_num + *out_num;
-# 1061 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     found = found + 1U;
-# 1061 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     if (found > count) {
-# 1061 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       tmp___14 = 1;
     } else {
-# 1061 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       tmp___14 = 0;
     }
     {
-# 1061 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     tmp___15 = __builtin_expect((long )tmp___14, 0L);
     }
-# 1061 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     if (tmp___15) {
       {
-# 1062 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       while (1) {
         while_continue___7: ;
 
         {
-# 1062 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         while (1) {
           while_continue___8: ;
           {
-# 1062 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
           tmp___13 = __builtin_expect((long )(! (! descriptor___2.enabled)), 0L);
           }
-# 1062 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
           if (tmp___13) {
             {
-# 1062 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
             __dynamic_pr_debug(& descriptor___2, "Loop detected: last one at %u indirect size %u\n",
                                i, count);
             }
           } else {
 
           }
-# 1062 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
           goto while_break___8;
         }
         while_break___26: ;
         }
         while_break___8: ;
-# 1062 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         if (vq->error_ctx) {
           {
-# 1062 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
           eventfd_signal(vq->error_ctx, 1);
           }
         } else {
 
         }
-# 1062 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         goto while_break___7;
       }
       while_break___25: ;
       }
       while_break___7: ;
-# 1065 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       return (-22);
     } else {
 
     }
     {
-# 1067 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     tmp___17 = memcpy_fromiovec((unsigned char *)(& desc), vq->indirect, (int )sizeof(desc));
     }
-# 1067 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     if (tmp___17) {
-# 1067 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       tmp___18 = 1;
     } else {
-# 1067 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       tmp___18 = 0;
     }
     {
-# 1067 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     tmp___19 = __builtin_expect((long )tmp___18, 0L);
     }
-# 1067 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     if (tmp___19) {
       {
-# 1069 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       while (1) {
         while_continue___9: ;
 
         {
-# 1069 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         while (1) {
           while_continue___10: ;
           {
-# 1069 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
           tmp___16 = __builtin_expect((long )(! (! descriptor___3.enabled)), 0L);
           }
-# 1069 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
           if (tmp___16) {
             {
-# 1069 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
             __dynamic_pr_debug(& descriptor___3, "Failed indirect descriptor: idx %d, %zx\n",
                                i, (size_t )indirect->addr + (unsigned long )i * sizeof(desc));
             }
           } else {
 
           }
-# 1069 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
           goto while_break___10;
         }
         while_break___28: ;
         }
         while_break___10: ;
-# 1069 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         if (vq->error_ctx) {
           {
-# 1069 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
           eventfd_signal(vq->error_ctx, 1);
           }
         } else {
 
         }
-# 1069 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         goto while_break___9;
       }
       while_break___27: ;
       }
       while_break___9: ;
-# 1071 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       return (-22);
     } else {
 
     }
     {
-# 1073 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     tmp___21 = __builtin_expect((long )(! (! ((int )desc.flags & 4))), 0L);
     }
-# 1073 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     if (tmp___21) {
       {
-# 1074 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       while (1) {
         while_continue___11: ;
 
         {
-# 1074 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         while (1) {
           while_continue___12: ;
           {
-# 1074 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
           tmp___20 = __builtin_expect((long )(! (! descriptor___4.enabled)), 0L);
           }
-# 1074 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
           if (tmp___20) {
             {
-# 1074 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
             __dynamic_pr_debug(& descriptor___4, "Nested indirect descriptor: idx %d, %zx\n",
                                i, (size_t )indirect->addr + (unsigned long )i * sizeof(desc));
             }
           } else {
 
           }
-# 1074 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
           goto while_break___12;
         }
         while_break___30: ;
         }
         while_break___12: ;
-# 1074 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         if (vq->error_ctx) {
           {
-# 1074 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
           eventfd_signal(vq->error_ctx, 1);
           }
         } else {
 
         }
-# 1074 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         goto while_break___11;
       }
       while_break___29: ;
       }
       while_break___11: ;
-# 1076 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       return (-22);
     } else {
 
     }
     {
-# 1079 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     ret = translate_desc(dev, desc.addr, desc.len, iov + iov_count, (int )(iov_size - iov_count));
-# 1081 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     tmp___23 = __builtin_expect((long )(! (! (ret < 0))), 0L);
     }
-# 1081 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     if (tmp___23) {
       {
-# 1082 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       while (1) {
         while_continue___13: ;
 
         {
-# 1082 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         while (1) {
           while_continue___14: ;
           {
-# 1082 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
           tmp___22 = __builtin_expect((long )(! (! descriptor___5.enabled)), 0L);
           }
-# 1082 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
           if (tmp___22) {
             {
-# 1082 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
             __dynamic_pr_debug(& descriptor___5, "Translation failure %d indirect idx %d\n",
                                ret, i);
             }
           } else {
 
           }
-# 1082 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
           goto while_break___14;
         }
         while_break___32: ;
         }
         while_break___14: ;
-# 1082 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         if (vq->error_ctx) {
           {
-# 1082 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
           eventfd_signal(vq->error_ctx, 1);
           }
         } else {
 
         }
-# 1082 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         goto while_break___13;
       }
       while_break___31: ;
       }
       while_break___13: ;
-# 1084 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       return (ret);
     } else {
 
     }
-# 1087 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     if ((int )desc.flags & 2) {
       {
-# 1088 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       *in_num = *in_num + (unsigned int )ret;
-# 1089 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       tmp___24 = __builtin_expect((long )(! (! log)), 0L);
       }
-# 1089 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       if (tmp___24) {
-# 1090 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         (log + *log_num)->addr = desc.addr;
-# 1091 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         (log + *log_num)->len = (u64 )desc.len;
-# 1092 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         *log_num = *log_num + 1U;
       } else {
 
       }
     } else {
       {
-# 1097 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       tmp___26 = __builtin_expect((long )(! (! *in_num)), 0L);
       }
-# 1097 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       if (tmp___26) {
         {
-# 1098 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         while (1) {
           while_continue___15: ;
 
           {
-# 1098 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
           while (1) {
             while_continue___16: ;
             {
-# 1098 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
             tmp___25 = __builtin_expect((long )(! (! descriptor___6.enabled)), 0L);
             }
-# 1098 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
             if (tmp___25) {
               {
-# 1098 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
               __dynamic_pr_debug(& descriptor___6, "Indirect descriptor has out after in: idx %d\n",
                                  i);
               }
             } else {
 
             }
-# 1098 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
             goto while_break___16;
           }
           while_break___34: ;
           }
           while_break___16: ;
-# 1098 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
           if (vq->error_ctx) {
             {
-# 1098 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
             eventfd_signal(vq->error_ctx, 1);
             }
           } else {
 
           }
-# 1098 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
           goto while_break___15;
         }
         while_break___33: ;
         }
         while_break___15: ;
-# 1100 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         return (-22);
       } else {
 
       }
-# 1102 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       *out_num = *out_num + (unsigned int )ret;
     }
     {
-# 1059 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     i = next_desc(& desc);
     }
-# 1059 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     if (i != 4294967295U) {
 
     } else {
-# 1059 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       goto while_break___6;
     }
   }
   while_break___24: ;
   }
   while_break___6: ;
-# 1105 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   return (0);
 }
 }
-# 1129 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
 static struct _ddebug descriptor___7 __attribute__((__used__, __section__("__verbose"),
 __aligned__(8))) = {"vhost_net", "vhost_get_vq_desc", "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c",
     "Failed to access avail idx at %p\n", 1130U, 0U, (char)0};
-# 1135 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
 static struct _ddebug descriptor___8 __attribute__((__used__, __section__("__verbose"),
 __aligned__(8))) = {"vhost_net", "vhost_get_vq_desc", "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c",
     "Guest moved used index from %u to %u", 1136U, 0U, (char)0};
-# 1151 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
 static struct _ddebug descriptor___9 __attribute__((__used__, __section__("__verbose"),
 __aligned__(8))) = {"vhost_net", "vhost_get_vq_desc", "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c",
     "Failed to read head: idx %d address %p\n", 1153U, 0U, (char)0};
-# 1159 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
 static struct _ddebug descriptor___10 __attribute__((__used__, __section__("__verbose"),
 __aligned__(8))) = {"vhost_net", "vhost_get_vq_desc", "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c",
     "Guest says index %u > %u is available", 1160U, 0U, (char)0};
-# 1173 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
 static struct _ddebug descriptor___11 __attribute__((__used__, __section__("__verbose"),
 __aligned__(8))) = {"vhost_net", "vhost_get_vq_desc", "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c",
     "Desc index is %u > %u, head = %u", 1174U, 0U, (char)0};
-# 1178 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
 static struct _ddebug descriptor___12 __attribute__((__used__, __section__("__verbose"),
 __aligned__(8))) = {"vhost_net", "vhost_get_vq_desc", "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c",
     "Loop detected: last one at %u vq size %u head %u\n", 1180U, 0U, (char)0};
-# 1185 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
 static struct _ddebug descriptor___13 __attribute__((__used__, __section__("__verbose"),
 __aligned__(8))) = {"vhost_net", "vhost_get_vq_desc", "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c",
     "Failed to get descriptor: idx %d addr %p\n", 1186U, 0U, (char)0};
-# 1194 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
 static struct _ddebug descriptor___14 __attribute__((__used__, __section__("__verbose"),
 __aligned__(8))) = {"vhost_net", "vhost_get_vq_desc", "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c",
     "Failure detected in indirect descriptor at idx %d\n", 1195U, 0U, (char)0};
-# 1204 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
 static struct _ddebug descriptor___15 __attribute__((__used__, __section__("__verbose"),
 __aligned__(8))) = {"vhost_net", "vhost_get_vq_desc", "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c",
     "Translation failure %d descriptor idx %d\n", 1205U, 0U, (char)0};
-# 1221 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
 static struct _ddebug descriptor___16 __attribute__((__used__, __section__("__verbose"),
 __aligned__(8))) = {"vhost_net", "vhost_get_vq_desc", "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c",
     "Descriptor has out after in: idx %d\n", 1222U, 0U, (char)0};
-# 1116 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
 int vhost_get_vq_desc(struct vhost_dev *dev , struct vhost_virtqueue *vq , struct iovec *iov ,
                       unsigned int iov_size , unsigned int *out_num , unsigned int *in_num ,
                       struct vhost_log *log , unsigned int *log_num )
@@ -11862,42 +9502,27 @@ int vhost_get_vq_desc(struct vhost_dev *dev , struct vhost_virtqueue *vq , struc
   int tmp ;
 
   {
-# 1122 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   found = 0U;
-# 1127 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   last_avail_idx = vq->last_avail_idx;
   {
-# 1128 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   while (1) {
     while_continue: ;
-# 1128 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     __gu_err = 0;
-# 1128 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     if ((int )sizeof((vq->avail)->idx) == 1) {
-# 1128 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       goto case_1;
     } else
-# 1128 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     if ((int )sizeof((vq->avail)->idx) == 2) {
-# 1128 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       goto case_2;
     } else
-# 1128 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     if ((int )sizeof((vq->avail)->idx) == 4) {
-# 1128 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       goto case_4;
     } else
-# 1128 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     if ((int )sizeof((vq->avail)->idx) == 8) {
-# 1128 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       goto case_8;
     } else {
-# 1128 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       goto switch_default;
-# 1128 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       if (0) {
         case_1:
-# 1128 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         __asm__ volatile ("1:\tmov"
                              "b"
                              " %2,%"
@@ -11929,10 +9554,8 @@ int vhost_get_vq_desc(struct vhost_dev *dev , struct vhost_virtqueue *vq , struc
                              "\n"
                              " .previous\n": "=r" (__gu_err), "=q" (__gu_val): "m" (*((struct __large_struct *)(& (vq->avail)->idx))),
                              "i" (-14), "0" (__gu_err));
-# 1128 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         goto switch_break;
         case_2:
-# 1128 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         __asm__ volatile ("1:\tmov"
                              "w"
                              " %2,%"
@@ -11964,10 +9587,8 @@ int vhost_get_vq_desc(struct vhost_dev *dev , struct vhost_virtqueue *vq , struc
                              "\n"
                              " .previous\n": "=r" (__gu_err), "=r" (__gu_val): "m" (*((struct __large_struct *)(& (vq->avail)->idx))),
                              "i" (-14), "0" (__gu_err));
-# 1128 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         goto switch_break;
         case_4:
-# 1128 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         __asm__ volatile ("1:\tmov"
                              "l"
                              " %2,%"
@@ -11999,10 +9620,8 @@ int vhost_get_vq_desc(struct vhost_dev *dev , struct vhost_virtqueue *vq , struc
                              "\n"
                              " .previous\n": "=r" (__gu_err), "=r" (__gu_val): "m" (*((struct __large_struct *)(& (vq->avail)->idx))),
                              "i" (-14), "0" (__gu_err));
-# 1128 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         goto switch_break;
         case_8:
-# 1128 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         __asm__ volatile ("1:\tmov"
                              "q"
                              " %2,%"
@@ -12034,187 +9653,139 @@ int vhost_get_vq_desc(struct vhost_dev *dev , struct vhost_virtqueue *vq , struc
                              "\n"
                              " .previous\n": "=r" (__gu_err), "=r" (__gu_val): "m" (*((struct __large_struct *)(& (vq->avail)->idx))),
                              "i" (-14), "0" (__gu_err));
-# 1128 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         goto switch_break;
         switch_default:
         {
-# 1128 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         tmp___8 = __get_user_bad();
-# 1128 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         __gu_val = (unsigned long )tmp___8;
         }
       } else {
         switch_break: ;
       }
     }
-# 1128 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     goto while_break;
   }
   while_break___24: ;
   }
   while_break:
-# 1128 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   vq->avail_idx = (__u16 )__gu_val;
-# 1128 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   if (__gu_err) {
-# 1128 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     tmp___9 = 1;
   } else {
-# 1128 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     tmp___9 = 0;
   }
   {
-# 1128 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   tmp___10 = __builtin_expect((long )tmp___9, 0L);
   }
-# 1128 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   if (tmp___10) {
     {
-# 1129 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     while (1) {
       while_continue___0: ;
 
       {
-# 1129 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       while (1) {
         while_continue___1: ;
         {
-# 1129 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         tmp___7 = __builtin_expect((long )(! (! descriptor___7.enabled)), 0L);
         }
-# 1129 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         if (tmp___7) {
           {
-# 1129 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
           __dynamic_pr_debug(& descriptor___7, "Failed to access avail idx at %p\n",
                              & (vq->avail)->idx);
           }
         } else {
 
         }
-# 1129 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         goto while_break___1;
       }
       while_break___26: ;
       }
       while_break___1: ;
-# 1129 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       if (vq->error_ctx) {
         {
-# 1129 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         eventfd_signal(vq->error_ctx, 1);
         }
       } else {
 
       }
-# 1129 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       goto while_break___0;
     }
     while_break___25: ;
     }
     while_break___0: ;
-# 1131 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     return (-14);
   } else {
 
   }
   {
-# 1134 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   tmp___12 = __builtin_expect((long )(! (! ((unsigned int )((u16 )((int )vq->avail_idx - (int )last_avail_idx)) > vq->num))),
                               0L);
   }
-# 1134 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   if (tmp___12) {
     {
-# 1135 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     while (1) {
       while_continue___2: ;
 
       {
-# 1135 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       while (1) {
         while_continue___3: ;
         {
-# 1135 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         tmp___11 = __builtin_expect((long )(! (! descriptor___8.enabled)), 0L);
         }
-# 1135 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         if (tmp___11) {
           {
-# 1135 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
           __dynamic_pr_debug(& descriptor___8, "Guest moved used index from %u to %u",
                              (int )last_avail_idx, (int )vq->avail_idx);
           }
         } else {
 
         }
-# 1135 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         goto while_break___3;
       }
       while_break___28: ;
       }
       while_break___3: ;
-# 1135 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       if (vq->error_ctx) {
         {
-# 1135 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         eventfd_signal(vq->error_ctx, 1);
         }
       } else {
 
       }
-# 1135 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       goto while_break___2;
     }
     while_break___27: ;
     }
     while_break___2: ;
-# 1137 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     return (-14);
   } else {
 
   }
-# 1141 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   if ((int )vq->avail_idx == (int )last_avail_idx) {
-# 1142 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     return ((int )vq->num);
   } else {
 
   }
-# 1145 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   __asm__ volatile ("": : : "memory");
   {
-# 1149 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   while (1) {
     while_continue___4: ;
-# 1149 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     __gu_err___0 = 0;
-# 1149 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     if ((int )sizeof((vq->avail)->ring[(unsigned int )last_avail_idx % vq->num]) == 1) {
-# 1149 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       goto case_1___0;
     } else
-# 1149 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     if ((int )sizeof((vq->avail)->ring[(unsigned int )last_avail_idx % vq->num]) == 2) {
-# 1149 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       goto case_2___0;
     } else
-# 1149 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     if ((int )sizeof((vq->avail)->ring[(unsigned int )last_avail_idx % vq->num]) == 4) {
-# 1149 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       goto case_4___0;
     } else
-# 1149 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     if ((int )sizeof((vq->avail)->ring[(unsigned int )last_avail_idx % vq->num]) == 8) {
-# 1149 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       goto case_8___0;
     } else {
-# 1149 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       goto switch_default___0;
-# 1149 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       if (0) {
         case_1___0:
-# 1149 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         __asm__ volatile ("1:\tmov"
                              "b"
                              " %2,%"
@@ -12246,10 +9817,8 @@ int vhost_get_vq_desc(struct vhost_dev *dev , struct vhost_virtqueue *vq , struc
                              "\n"
                              " .previous\n": "=r" (__gu_err___0), "=q" (__gu_val___0): "m" (*((struct __large_struct *)(& (vq->avail)->ring[(unsigned int )last_avail_idx % vq->num]))),
                              "i" (-14), "0" (__gu_err___0));
-# 1149 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         goto switch_break___0;
         case_2___0:
-# 1149 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         __asm__ volatile ("1:\tmov"
                              "w"
                              " %2,%"
@@ -12281,10 +9850,8 @@ int vhost_get_vq_desc(struct vhost_dev *dev , struct vhost_virtqueue *vq , struc
                              "\n"
                              " .previous\n": "=r" (__gu_err___0), "=r" (__gu_val___0): "m" (*((struct __large_struct *)(& (vq->avail)->ring[(unsigned int )last_avail_idx % vq->num]))),
                              "i" (-14), "0" (__gu_err___0));
-# 1149 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         goto switch_break___0;
         case_4___0:
-# 1149 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         __asm__ volatile ("1:\tmov"
                              "l"
                              " %2,%"
@@ -12316,10 +9883,8 @@ int vhost_get_vq_desc(struct vhost_dev *dev , struct vhost_virtqueue *vq , struc
                              "\n"
                              " .previous\n": "=r" (__gu_err___0), "=r" (__gu_val___0): "m" (*((struct __large_struct *)(& (vq->avail)->ring[(unsigned int )last_avail_idx % vq->num]))),
                              "i" (-14), "0" (__gu_err___0));
-# 1149 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         goto switch_break___0;
         case_8___0:
-# 1149 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         __asm__ volatile ("1:\tmov"
                              "q"
                              " %2,%"
@@ -12351,582 +9916,442 @@ int vhost_get_vq_desc(struct vhost_dev *dev , struct vhost_virtqueue *vq , struc
                              "\n"
                              " .previous\n": "=r" (__gu_err___0), "=r" (__gu_val___0): "m" (*((struct __large_struct *)(& (vq->avail)->ring[(unsigned int )last_avail_idx % vq->num]))),
                              "i" (-14), "0" (__gu_err___0));
-# 1149 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         goto switch_break___0;
         switch_default___0:
         {
-# 1149 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         tmp___14 = __get_user_bad();
-# 1149 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         __gu_val___0 = (unsigned long )tmp___14;
         }
       } else {
         switch_break___0: ;
       }
     }
-# 1149 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     goto while_break___4;
   }
   while_break___29: ;
   }
   while_break___4:
-# 1149 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   head = (unsigned int )((__u16 )__gu_val___0);
-# 1149 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   if (__gu_err___0) {
-# 1149 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     tmp___15 = 1;
   } else {
-# 1149 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     tmp___15 = 0;
   }
   {
-# 1149 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   tmp___16 = __builtin_expect((long )tmp___15, 0L);
   }
-# 1149 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   if (tmp___16) {
     {
-# 1151 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     while (1) {
       while_continue___5: ;
 
       {
-# 1151 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       while (1) {
         while_continue___6: ;
         {
-# 1151 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         tmp___13 = __builtin_expect((long )(! (! descriptor___9.enabled)), 0L);
         }
-# 1151 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         if (tmp___13) {
           {
-# 1151 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
           __dynamic_pr_debug(& descriptor___9, "Failed to read head: idx %d address %p\n",
                              (int )last_avail_idx, & (vq->avail)->ring[(unsigned int )last_avail_idx % vq->num]);
           }
         } else {
 
         }
-# 1151 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         goto while_break___6;
       }
       while_break___31: ;
       }
       while_break___6: ;
-# 1151 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       if (vq->error_ctx) {
         {
-# 1151 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         eventfd_signal(vq->error_ctx, 1);
         }
       } else {
 
       }
-# 1151 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       goto while_break___5;
     }
     while_break___30: ;
     }
     while_break___5: ;
-# 1154 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     return (-14);
   } else {
 
   }
   {
-# 1158 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   tmp___18 = __builtin_expect((long )(! (! (head >= vq->num))), 0L);
   }
-# 1158 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   if (tmp___18) {
     {
-# 1159 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     while (1) {
       while_continue___7: ;
 
       {
-# 1159 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       while (1) {
         while_continue___8: ;
         {
-# 1159 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         tmp___17 = __builtin_expect((long )(! (! descriptor___10.enabled)), 0L);
         }
-# 1159 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         if (tmp___17) {
           {
-# 1159 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
           __dynamic_pr_debug(& descriptor___10, "Guest says index %u > %u is available",
                              head, vq->num);
           }
         } else {
 
         }
-# 1159 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         goto while_break___8;
       }
       while_break___33: ;
       }
       while_break___8: ;
-# 1159 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       if (vq->error_ctx) {
         {
-# 1159 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         eventfd_signal(vq->error_ctx, 1);
         }
       } else {
 
       }
-# 1159 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       goto while_break___7;
     }
     while_break___32: ;
     }
     while_break___7: ;
-# 1161 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     return (-22);
   } else {
 
   }
   {
-# 1165 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   tmp___19 = 0U;
-# 1165 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   *in_num = tmp___19;
-# 1165 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   *out_num = tmp___19;
-# 1166 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   tmp___20 = __builtin_expect((long )(! (! log)), 0L);
   }
-# 1166 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   if (tmp___20) {
-# 1167 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     *log_num = 0U;
   } else {
 
   }
-# 1169 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   i = head;
   {
-# 1170 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   while (1) {
     while_continue___9: ;
     {
-# 1171 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     iov_count = *in_num + *out_num;
-# 1172 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     tmp___22 = __builtin_expect((long )(! (! (i >= vq->num))), 0L);
     }
-# 1172 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     if (tmp___22) {
       {
-# 1173 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       while (1) {
         while_continue___10: ;
 
         {
-# 1173 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         while (1) {
           while_continue___11: ;
           {
-# 1173 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
           tmp___21 = __builtin_expect((long )(! (! descriptor___11.enabled)), 0L);
           }
-# 1173 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
           if (tmp___21) {
             {
-# 1173 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
             __dynamic_pr_debug(& descriptor___11, "Desc index is %u > %u, head = %u",
                                i, vq->num, head);
             }
           } else {
 
           }
-# 1173 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
           goto while_break___11;
         }
         while_break___36: ;
         }
         while_break___11: ;
-# 1173 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         if (vq->error_ctx) {
           {
-# 1173 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
           eventfd_signal(vq->error_ctx, 1);
           }
         } else {
 
         }
-# 1173 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         goto while_break___10;
       }
       while_break___35: ;
       }
       while_break___10: ;
-# 1175 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       return (-22);
     } else {
 
     }
-# 1177 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     found = found + 1U;
-# 1177 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     if (found > vq->num) {
-# 1177 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       tmp___24 = 1;
     } else {
-# 1177 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       tmp___24 = 0;
     }
     {
-# 1177 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     tmp___25 = __builtin_expect((long )tmp___24, 0L);
     }
-# 1177 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     if (tmp___25) {
       {
-# 1178 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       while (1) {
         while_continue___12: ;
 
         {
-# 1178 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         while (1) {
           while_continue___13: ;
           {
-# 1178 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
           tmp___23 = __builtin_expect((long )(! (! descriptor___12.enabled)), 0L);
           }
-# 1178 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
           if (tmp___23) {
             {
-# 1178 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
             __dynamic_pr_debug(& descriptor___12, "Loop detected: last one at %u vq size %u head %u\n",
                                i, vq->num, head);
             }
           } else {
 
           }
-# 1178 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
           goto while_break___13;
         }
         while_break___38: ;
         }
         while_break___13: ;
-# 1178 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         if (vq->error_ctx) {
           {
-# 1178 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
           eventfd_signal(vq->error_ctx, 1);
           }
         } else {
 
         }
-# 1178 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         goto while_break___12;
       }
       while_break___37: ;
       }
       while_break___12: ;
-# 1181 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       return (-22);
     } else {
 
     }
     {
-# 1183 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     tmp = (int )__copy_from_user((void *)(& desc), (void const *)(vq->desc + i),
                                  (unsigned int )sizeof(desc));
-# 1183 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     ret = tmp;
-# 1184 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     tmp___27 = __builtin_expect((long )(! (! ret)), 0L);
     }
-# 1184 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     if (tmp___27) {
       {
-# 1185 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       while (1) {
         while_continue___14: ;
 
         {
-# 1185 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         while (1) {
           while_continue___15: ;
           {
-# 1185 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
           tmp___26 = __builtin_expect((long )(! (! descriptor___13.enabled)), 0L);
           }
-# 1185 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
           if (tmp___26) {
             {
-# 1185 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
             __dynamic_pr_debug(& descriptor___13, "Failed to get descriptor: idx %d addr %p\n",
                                i, vq->desc + i);
             }
           } else {
 
           }
-# 1185 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
           goto while_break___15;
         }
         while_break___40: ;
         }
         while_break___15: ;
-# 1185 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         if (vq->error_ctx) {
           {
-# 1185 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
           eventfd_signal(vq->error_ctx, 1);
           }
         } else {
 
         }
-# 1185 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         goto while_break___14;
       }
       while_break___39: ;
       }
       while_break___14: ;
-# 1187 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       return (-14);
     } else {
 
     }
-# 1189 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     if ((int )desc.flags & 4) {
       {
-# 1190 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       ret = get_indirect(dev, vq, iov, iov_size, out_num, in_num, log, log_num, & desc);
-# 1193 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       tmp___29 = __builtin_expect((long )(! (! (ret < 0))), 0L);
       }
-# 1193 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       if (tmp___29) {
         {
-# 1194 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         while (1) {
           while_continue___16: ;
 
           {
-# 1194 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
           while (1) {
             while_continue___17: ;
             {
-# 1194 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
             tmp___28 = __builtin_expect((long )(! (! descriptor___14.enabled)), 0L);
             }
-# 1194 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
             if (tmp___28) {
               {
-# 1194 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
               __dynamic_pr_debug(& descriptor___14, "Failure detected in indirect descriptor at idx %d\n",
                                  i);
               }
             } else {
 
             }
-# 1194 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
             goto while_break___17;
           }
           while_break___42: ;
           }
           while_break___17: ;
-# 1194 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
           if (vq->error_ctx) {
             {
-# 1194 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
             eventfd_signal(vq->error_ctx, 1);
             }
           } else {
 
           }
-# 1194 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
           goto while_break___16;
         }
         while_break___41: ;
         }
         while_break___16: ;
-# 1196 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         return (ret);
       } else {
 
       }
-# 1198 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       goto __Cont;
     } else {
 
     }
     {
-# 1201 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     ret = translate_desc(dev, desc.addr, desc.len, iov + iov_count, (int )(iov_size - iov_count));
-# 1203 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     tmp___31 = __builtin_expect((long )(! (! (ret < 0))), 0L);
     }
-# 1203 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     if (tmp___31) {
       {
-# 1204 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       while (1) {
         while_continue___18: ;
 
         {
-# 1204 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         while (1) {
           while_continue___19: ;
           {
-# 1204 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
           tmp___30 = __builtin_expect((long )(! (! descriptor___15.enabled)), 0L);
           }
-# 1204 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
           if (tmp___30) {
             {
-# 1204 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
             __dynamic_pr_debug(& descriptor___15, "Translation failure %d descriptor idx %d\n",
                                ret, i);
             }
           } else {
 
           }
-# 1204 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
           goto while_break___19;
         }
         while_break___44: ;
         }
         while_break___19: ;
-# 1204 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         if (vq->error_ctx) {
           {
-# 1204 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
           eventfd_signal(vq->error_ctx, 1);
           }
         } else {
 
         }
-# 1204 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         goto while_break___18;
       }
       while_break___43: ;
       }
       while_break___18: ;
-# 1206 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       return (ret);
     } else {
 
     }
-# 1208 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     if ((int )desc.flags & 2) {
       {
-# 1211 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       *in_num = *in_num + (unsigned int )ret;
-# 1212 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       tmp___32 = __builtin_expect((long )(! (! log)), 0L);
       }
-# 1212 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       if (tmp___32) {
-# 1213 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         (log + *log_num)->addr = desc.addr;
-# 1214 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         (log + *log_num)->len = (u64 )desc.len;
-# 1215 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         *log_num = *log_num + 1U;
       } else {
 
       }
     } else {
       {
-# 1220 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       tmp___34 = __builtin_expect((long )(! (! *in_num)), 0L);
       }
-# 1220 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       if (tmp___34) {
         {
-# 1221 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         while (1) {
           while_continue___20: ;
 
           {
-# 1221 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
           while (1) {
             while_continue___21: ;
             {
-# 1221 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
             tmp___33 = __builtin_expect((long )(! (! descriptor___16.enabled)), 0L);
             }
-# 1221 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
             if (tmp___33) {
               {
-# 1221 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
               __dynamic_pr_debug(& descriptor___16, "Descriptor has out after in: idx %d\n",
                                  i);
               }
             } else {
 
             }
-# 1221 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
             goto while_break___21;
           }
           while_break___46: ;
           }
           while_break___21: ;
-# 1221 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
           if (vq->error_ctx) {
             {
-# 1221 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
             eventfd_signal(vq->error_ctx, 1);
             }
           } else {
 
           }
-# 1221 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
           goto while_break___20;
         }
         while_break___45: ;
         }
         while_break___20: ;
-# 1223 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         return (-22);
       } else {
 
       }
-# 1225 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       *out_num = *out_num + (unsigned int )ret;
     }
     __Cont:
     {
-# 1170 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     i = next_desc(& desc);
     }
-# 1170 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     if (i != 4294967295U) {
 
     } else {
-# 1170 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       goto while_break___9;
     }
   }
   while_break___34: ;
   }
   while_break___9:
-# 1230 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   vq->last_avail_idx = (u16 )((int )vq->last_avail_idx + 1);
   {
-# 1234 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   while (1) {
     while_continue___22: ;
     {
-# 1234 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     tmp___35 = __builtin_expect((long )(! (! (! ((int )vq->used_flags & 1)))), 0L);
     }
-# 1234 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     if (tmp___35) {
       {
-# 1234 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       while (1) {
         while_continue___23: ;
-# 1234 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         __asm__ volatile ("1:\tud2\n"
                              ".pushsection __bug_table,\"a\"\n"
                              "2:\t.long 1b - 2b, %c0 - 2b\n"
@@ -12935,14 +10360,12 @@ int vhost_get_vq_desc(struct vhost_dev *dev , struct vhost_virtqueue *vq , struc
                              ".popsection": : "i" ("/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"),
                              "i" (1234), "i" (sizeof(struct bug_entry )));
         {
-# 1234 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         while (1) {
           while_continue___24: ;
 
         }
         while_break___49: ;
         }
-# 1234 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         goto while_break___23;
       }
       while_break___48: ;
@@ -12951,40 +10374,31 @@ int vhost_get_vq_desc(struct vhost_dev *dev , struct vhost_virtqueue *vq , struc
     } else {
 
     }
-# 1234 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     goto while_break___22;
   }
   while_break___47: ;
   }
   while_break___22: ;
-# 1235 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   return ((int )head);
 }
 }
-# 1239 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
 void vhost_discard_vq_desc(struct vhost_virtqueue *vq , int n )
 {
 
   {
-# 1241 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   vq->last_avail_idx = (u16 )((int )vq->last_avail_idx - n);
-# 1242 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   return;
 }
 }
-# 1254 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
 static struct _ddebug descriptor___17 __attribute__((__used__, __section__("__verbose"),
 __aligned__(8))) = {"vhost_net", "vhost_add_used", "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c",
     "Failed to write used id", 1254U, 0U, (char)0};
-# 1258 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
 static struct _ddebug descriptor___18 __attribute__((__used__, __section__("__verbose"),
 __aligned__(8))) = {"vhost_net", "vhost_add_used", "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c",
     "Failed to write used len", 1258U, 0U, (char)0};
-# 1264 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
 static struct _ddebug descriptor___19 __attribute__((__used__, __section__("__verbose"),
 __aligned__(8))) = {"vhost_net", "vhost_add_used", "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c",
     "Failed to increment used idx", 1264U, 0U, (char)0};
-# 1246 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
 int vhost_add_used(struct vhost_virtqueue *vq , unsigned int head , int len )
 { struct vring_used_elem *used ;
   long tmp___7 ;
@@ -12997,40 +10411,26 @@ int vhost_add_used(struct vhost_virtqueue *vq , unsigned int head , int len )
   long tmp___11 ;
 
   {
-# 1252 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   used = & (vq->used)->ring[(unsigned int )vq->last_used_idx % vq->num];
   {
-# 1253 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   while (1) {
     while_continue: ;
-# 1253 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     __pu_err = 0;
-# 1253 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     if ((int )sizeof(used->id) == 1) {
-# 1253 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       goto case_1;
     } else
-# 1253 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     if ((int )sizeof(used->id) == 2) {
-# 1253 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       goto case_2;
     } else
-# 1253 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     if ((int )sizeof(used->id) == 4) {
-# 1253 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       goto case_4;
     } else
-# 1253 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     if ((int )sizeof(used->id) == 8) {
-# 1253 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       goto case_8;
     } else {
-# 1253 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       goto switch_default;
-# 1253 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       if (0) {
         case_1:
-# 1253 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         __asm__ volatile ("1:\tmov"
                              "b"
                              " %"
@@ -13055,10 +10455,8 @@ int vhost_add_used(struct vhost_virtqueue *vq , unsigned int head , int len )
                              "\n"
                              " .previous\n": "=r" (__pu_err): "iq" (head), "m" (*((struct __large_struct *)(& used->id))),
                              "i" (-14), "0" (__pu_err));
-# 1253 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         goto switch_break;
         case_2:
-# 1253 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         __asm__ volatile ("1:\tmov"
                              "w"
                              " %"
@@ -13083,10 +10481,8 @@ int vhost_add_used(struct vhost_virtqueue *vq , unsigned int head , int len )
                              "\n"
                              " .previous\n": "=r" (__pu_err): "ir" (head), "m" (*((struct __large_struct *)(& used->id))),
                              "i" (-14), "0" (__pu_err));
-# 1253 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         goto switch_break;
         case_4:
-# 1253 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         __asm__ volatile ("1:\tmov"
                              "l"
                              " %"
@@ -13111,10 +10507,8 @@ int vhost_add_used(struct vhost_virtqueue *vq , unsigned int head , int len )
                              "\n"
                              " .previous\n": "=r" (__pu_err): "ir" (head), "m" (*((struct __large_struct *)(& used->id))),
                              "i" (-14), "0" (__pu_err));
-# 1253 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         goto switch_break;
         case_8:
-# 1253 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         __asm__ volatile ("1:\tmov"
                              "q"
                              " %"
@@ -13139,105 +10533,78 @@ int vhost_add_used(struct vhost_virtqueue *vq , unsigned int head , int len )
                              "\n"
                              " .previous\n": "=r" (__pu_err): "er" (head), "m" (*((struct __large_struct *)(& used->id))),
                              "i" (-14), "0" (__pu_err));
-# 1253 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         goto switch_break;
         switch_default:
         {
-# 1253 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         __put_user_bad();
         }
       } else {
         switch_break: ;
       }
     }
-# 1253 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     goto while_break;
   }
   while_break___8: ;
   }
   while_break: ;
-# 1253 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   if (__pu_err) {
     {
-# 1254 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     while (1) {
       while_continue___0: ;
 
       {
-# 1254 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       while (1) {
         while_continue___1: ;
         {
-# 1254 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         tmp___7 = __builtin_expect((long )(! (! descriptor___17.enabled)), 0L);
         }
-# 1254 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         if (tmp___7) {
           {
-# 1254 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
           __dynamic_pr_debug(& descriptor___17, "Failed to write used id");
           }
         } else {
 
         }
-# 1254 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         goto while_break___1;
       }
       while_break___10: ;
       }
       while_break___1: ;
-# 1254 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       if (vq->error_ctx) {
         {
-# 1254 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         eventfd_signal(vq->error_ctx, 1);
         }
       } else {
 
       }
-# 1254 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       goto while_break___0;
     }
     while_break___9: ;
     }
     while_break___0: ;
-# 1255 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     return (-14);
   } else {
 
   }
   {
-# 1257 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   while (1) {
     while_continue___2: ;
-# 1257 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     __pu_err___0 = 0;
-# 1257 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     if ((int )sizeof(used->len) == 1) {
-# 1257 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       goto case_1___0;
     } else
-# 1257 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     if ((int )sizeof(used->len) == 2) {
-# 1257 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       goto case_2___0;
     } else
-# 1257 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     if ((int )sizeof(used->len) == 4) {
-# 1257 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       goto case_4___0;
     } else
-# 1257 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     if ((int )sizeof(used->len) == 8) {
-# 1257 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       goto case_8___0;
     } else {
-# 1257 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       goto switch_default___0;
-# 1257 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       if (0) {
         case_1___0:
-# 1257 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         __asm__ volatile ("1:\tmov"
                              "b"
                              " %"
@@ -13263,10 +10630,8 @@ int vhost_add_used(struct vhost_virtqueue *vq , unsigned int head , int len )
                              " .previous\n": "=r" (__pu_err___0): "iq" ((__u32 )len),
                              "m" (*((struct __large_struct *)(& used->len))), "i" (-14),
                              "0" (__pu_err___0));
-# 1257 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         goto switch_break___0;
         case_2___0:
-# 1257 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         __asm__ volatile ("1:\tmov"
                              "w"
                              " %"
@@ -13292,10 +10657,8 @@ int vhost_add_used(struct vhost_virtqueue *vq , unsigned int head , int len )
                              " .previous\n": "=r" (__pu_err___0): "ir" ((__u32 )len),
                              "m" (*((struct __large_struct *)(& used->len))), "i" (-14),
                              "0" (__pu_err___0));
-# 1257 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         goto switch_break___0;
         case_4___0:
-# 1257 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         __asm__ volatile ("1:\tmov"
                              "l"
                              " %"
@@ -13321,10 +10684,8 @@ int vhost_add_used(struct vhost_virtqueue *vq , unsigned int head , int len )
                              " .previous\n": "=r" (__pu_err___0): "ir" ((__u32 )len),
                              "m" (*((struct __large_struct *)(& used->len))), "i" (-14),
                              "0" (__pu_err___0));
-# 1257 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         goto switch_break___0;
         case_8___0:
-# 1257 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         __asm__ volatile ("1:\tmov"
                              "q"
                              " %"
@@ -13350,107 +10711,79 @@ int vhost_add_used(struct vhost_virtqueue *vq , unsigned int head , int len )
                              " .previous\n": "=r" (__pu_err___0): "er" ((__u32 )len),
                              "m" (*((struct __large_struct *)(& used->len))), "i" (-14),
                              "0" (__pu_err___0));
-# 1257 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         goto switch_break___0;
         switch_default___0:
         {
-# 1257 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         __put_user_bad();
         }
       } else {
         switch_break___0: ;
       }
     }
-# 1257 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     goto while_break___2;
   }
   while_break___11: ;
   }
   while_break___2: ;
-# 1257 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   if (__pu_err___0) {
     {
-# 1258 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     while (1) {
       while_continue___3: ;
 
       {
-# 1258 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       while (1) {
         while_continue___4: ;
         {
-# 1258 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         tmp___8 = __builtin_expect((long )(! (! descriptor___18.enabled)), 0L);
         }
-# 1258 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         if (tmp___8) {
           {
-# 1258 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
           __dynamic_pr_debug(& descriptor___18, "Failed to write used len");
           }
         } else {
 
         }
-# 1258 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         goto while_break___4;
       }
       while_break___13: ;
       }
       while_break___4: ;
-# 1258 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       if (vq->error_ctx) {
         {
-# 1258 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         eventfd_signal(vq->error_ctx, 1);
         }
       } else {
 
       }
-# 1258 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       goto while_break___3;
     }
     while_break___12: ;
     }
     while_break___3: ;
-# 1259 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     return (-14);
   } else {
 
   }
-# 1262 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   __asm__ volatile ("": : : "memory");
   {
-# 1263 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   while (1) {
     while_continue___5: ;
-# 1263 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     __pu_err___1 = 0;
-# 1263 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     if ((int )sizeof((vq->used)->idx) == 1) {
-# 1263 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       goto case_1___1;
     } else
-# 1263 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     if ((int )sizeof((vq->used)->idx) == 2) {
-# 1263 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       goto case_2___1;
     } else
-# 1263 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     if ((int )sizeof((vq->used)->idx) == 4) {
-# 1263 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       goto case_4___1;
     } else
-# 1263 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     if ((int )sizeof((vq->used)->idx) == 8) {
-# 1263 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       goto case_8___1;
     } else {
-# 1263 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       goto switch_default___1;
-# 1263 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       if (0) {
         case_1___1:
-# 1263 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         __asm__ volatile ("1:\tmov"
                              "b"
                              " %"
@@ -13476,10 +10809,8 @@ int vhost_add_used(struct vhost_virtqueue *vq , unsigned int head , int len )
                              " .previous\n": "=r" (__pu_err___1): "iq" ((__u16 )((int )vq->last_used_idx + 1)),
                              "m" (*((struct __large_struct *)(& (vq->used)->idx))),
                              "i" (-14), "0" (__pu_err___1));
-# 1263 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         goto switch_break___1;
         case_2___1:
-# 1263 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         __asm__ volatile ("1:\tmov"
                              "w"
                              " %"
@@ -13505,10 +10836,8 @@ int vhost_add_used(struct vhost_virtqueue *vq , unsigned int head , int len )
                              " .previous\n": "=r" (__pu_err___1): "ir" ((__u16 )((int )vq->last_used_idx + 1)),
                              "m" (*((struct __large_struct *)(& (vq->used)->idx))),
                              "i" (-14), "0" (__pu_err___1));
-# 1263 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         goto switch_break___1;
         case_4___1:
-# 1263 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         __asm__ volatile ("1:\tmov"
                              "l"
                              " %"
@@ -13534,10 +10863,8 @@ int vhost_add_used(struct vhost_virtqueue *vq , unsigned int head , int len )
                              " .previous\n": "=r" (__pu_err___1): "ir" ((__u16 )((int )vq->last_used_idx + 1)),
                              "m" (*((struct __large_struct *)(& (vq->used)->idx))),
                              "i" (-14), "0" (__pu_err___1));
-# 1263 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         goto switch_break___1;
         case_8___1:
-# 1263 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         __asm__ volatile ("1:\tmov"
                              "q"
                              " %"
@@ -13563,93 +10890,72 @@ int vhost_add_used(struct vhost_virtqueue *vq , unsigned int head , int len )
                              " .previous\n": "=r" (__pu_err___1): "er" ((__u16 )((int )vq->last_used_idx + 1)),
                              "m" (*((struct __large_struct *)(& (vq->used)->idx))),
                              "i" (-14), "0" (__pu_err___1));
-# 1263 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         goto switch_break___1;
         switch_default___1:
         {
-# 1263 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         __put_user_bad();
         }
       } else {
         switch_break___1: ;
       }
     }
-# 1263 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     goto while_break___5;
   }
   while_break___14: ;
   }
   while_break___5: ;
-# 1263 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   if (__pu_err___1) {
     {
-# 1264 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     while (1) {
       while_continue___6: ;
 
       {
-# 1264 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       while (1) {
         while_continue___7: ;
         {
-# 1264 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         tmp___9 = __builtin_expect((long )(! (! descriptor___19.enabled)), 0L);
         }
-# 1264 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         if (tmp___9) {
           {
-# 1264 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
           __dynamic_pr_debug(& descriptor___19, "Failed to increment used idx");
           }
         } else {
 
         }
-# 1264 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         goto while_break___7;
       }
       while_break___16: ;
       }
       while_break___7: ;
-# 1264 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       if (vq->error_ctx) {
         {
-# 1264 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         eventfd_signal(vq->error_ctx, 1);
         }
       } else {
 
       }
-# 1264 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       goto while_break___6;
     }
     while_break___15: ;
     }
     while_break___6: ;
-# 1265 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     return (-14);
   } else {
 
   }
   {
-# 1267 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   tmp___10 = __builtin_expect((long )(! (! vq->log_used)), 0L);
   }
-# 1267 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   if (tmp___10) {
     {
-# 1269 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     __asm__ volatile ("": : : "memory");
-# 1271 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     log_write(vq->log_base, vq->log_addr + (u64 )((void *)used - (void *)vq->used),
               (u64 )sizeof(*used));
-# 1276 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     log_write(vq->log_base, vq->log_addr + (u64 )((unsigned int )(& ((struct vring_used *)0)->idx)),
               (u64 )sizeof((vq->used)->idx));
     }
-# 1279 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     if (vq->log_ctx) {
       {
-# 1280 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       eventfd_signal(vq->log_ctx, 1);
       }
     } else {
@@ -13659,31 +10965,23 @@ int vhost_add_used(struct vhost_virtqueue *vq , unsigned int head , int len )
 
   }
   {
-# 1282 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   vq->last_used_idx = (u16 )((int )vq->last_used_idx + 1);
-# 1287 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   tmp___11 = __builtin_expect((long )(! (! ((int )vq->last_used_idx == (int )vq->signalled_used))),
                               0L);
   }
-# 1287 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   if (tmp___11) {
-# 1288 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     vq->signalled_used_valid = (bool )0;
   } else {
 
   }
-# 1289 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   return (0);
 }
 }
-# 1303 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
 static int __vhost_add_used_n(struct vhost_virtqueue *vq , struct vring_used_elem *heads ,
                               unsigned int count ) ;
-# 1303 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
 static struct _ddebug descriptor___20 __attribute__((__used__, __section__("__verbose"),
 __aligned__(8))) = {"vhost_net", "__vhost_add_used_n", "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c",
     "Failed to write used", 1303U, 0U, (char)0};
-# 1292 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
 static int __vhost_add_used_n(struct vhost_virtqueue *vq , struct vring_used_elem *heads ,
                               unsigned int count )
 { struct vring_used_elem *used ;
@@ -13699,75 +10997,56 @@ static int __vhost_add_used_n(struct vhost_virtqueue *vq , struct vring_used_ele
 
   {
   {
-# 1300 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   start = (int )((unsigned int )vq->last_used_idx % vq->num);
-# 1301 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   used = (vq->used)->ring + start;
-# 1302 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   tmp = (int )__copy_to_user((void *)used, (void const *)heads, (unsigned int )((unsigned long )count * sizeof(*used)));
-# 1302 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   tmp___8 = tmp;
   }
-# 1302 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   if (tmp___8) {
     {
-# 1303 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     while (1) {
       while_continue: ;
 
       {
-# 1303 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       while (1) {
         while_continue___0: ;
         {
-# 1303 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         tmp___7 = __builtin_expect((long )(! (! descriptor___20.enabled)), 0L);
         }
-# 1303 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         if (tmp___7) {
           {
-# 1303 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
           __dynamic_pr_debug(& descriptor___20, "Failed to write used");
           }
         } else {
 
         }
-# 1303 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         goto while_break___0;
       }
       while_break___2: ;
       }
       while_break___0: ;
-# 1303 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       if (vq->error_ctx) {
         {
-# 1303 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         eventfd_signal(vq->error_ctx, 1);
         }
       } else {
 
       }
-# 1303 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       goto while_break;
     }
     while_break___1: ;
     }
     while_break: ;
-# 1304 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     return (-14);
   } else {
 
   }
   {
-# 1306 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   tmp___9 = __builtin_expect((long )(! (! vq->log_used)), 0L);
   }
-# 1306 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   if (tmp___9) {
     {
-# 1308 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     __asm__ volatile ("": : : "memory");
-# 1310 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     log_write(vq->log_base, vq->log_addr + (u64 )((void *)used - (void *)vq->used),
               (u64 )((unsigned long )count * sizeof(*used)));
     }
@@ -13775,34 +11054,24 @@ static int __vhost_add_used_n(struct vhost_virtqueue *vq , struct vring_used_ele
 
   }
   {
-# 1315 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   old = vq->last_used_idx;
-# 1316 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   tmp___10 = (u16 )((unsigned int )vq->last_used_idx + count);
-# 1316 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   vq->last_used_idx = tmp___10;
-# 1316 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   new = tmp___10;
-# 1321 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   tmp___11 = __builtin_expect((long )(! (! ((int )((u16 )((int )new - (int )vq->signalled_used)) < (int )((u16 )((int )new - (int )old))))),
                               0L);
   }
-# 1321 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   if (tmp___11) {
-# 1322 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     vq->signalled_used_valid = (bool )0;
   } else {
 
   }
-# 1323 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   return (0);
 }
 }
-# 1347 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
 static struct _ddebug descriptor___21 __attribute__((__used__, __section__("__verbose"),
 __aligned__(8))) = {"vhost_net", "vhost_add_used_n", "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c",
     "Failed to increment used idx", 1347U, 0U, (char)0};
-# 1328 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
 int vhost_add_used_n(struct vhost_virtqueue *vq , struct vring_used_elem *heads ,
                      unsigned int count )
 { int start ;
@@ -13814,163 +11083,115 @@ int vhost_add_used_n(struct vhost_virtqueue *vq , struct vring_used_elem *heads 
   long tmp___8 ;
 
   {
-# 1333 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   start = (int )((unsigned int )vq->last_used_idx % vq->num);
-# 1334 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   n = (int )(vq->num - (unsigned int )start);
-# 1335 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   if ((unsigned int )n < count) {
     {
-# 1336 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     r = __vhost_add_used_n(vq, heads, (unsigned int )n);
     }
-# 1337 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     if (r < 0) {
-# 1338 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       return (r);
     } else {
 
     }
-# 1339 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     heads = heads + n;
-# 1340 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     count = count - (unsigned int )n;
   } else {
 
   }
   {
-# 1342 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   r = __vhost_add_used_n(vq, heads, count);
-# 1345 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   __asm__ volatile ("": : : "memory");
-# 1346 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   might_fault();
-# 1346 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   __pu_val = vq->last_used_idx;
   }
-# 1346 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   if ((int )sizeof((vq->used)->idx) == 1) {
-# 1346 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     goto case_1;
   } else
-# 1346 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   if ((int )sizeof((vq->used)->idx) == 2) {
-# 1346 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     goto case_2;
   } else
-# 1346 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   if ((int )sizeof((vq->used)->idx) == 4) {
-# 1346 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     goto case_4;
   } else
-# 1346 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   if ((int )sizeof((vq->used)->idx) == 8) {
-# 1346 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     goto case_8;
   } else {
-# 1346 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     goto switch_default;
-# 1346 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     if (0) {
       case_1:
-# 1346 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       __asm__ volatile ("call __put_user_"
                            "1": "=a" (__ret_pu): "0" (__pu_val), "c" (& (vq->used)->idx): "ebx");
-# 1346 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       goto switch_break;
       case_2:
-# 1346 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       __asm__ volatile ("call __put_user_"
                            "2": "=a" (__ret_pu): "0" (__pu_val), "c" (& (vq->used)->idx): "ebx");
-# 1346 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       goto switch_break;
       case_4:
-# 1346 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       __asm__ volatile ("call __put_user_"
                            "4": "=a" (__ret_pu): "0" (__pu_val), "c" (& (vq->used)->idx): "ebx");
-# 1346 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       goto switch_break;
       case_8:
-# 1346 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       __asm__ volatile ("call __put_user_"
                            "8": "=a" (__ret_pu): "0" (__pu_val), "c" (& (vq->used)->idx): "ebx");
-# 1346 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       goto switch_break;
       switch_default:
-# 1346 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       __asm__ volatile ("call __put_user_"
                            "X": "=a" (__ret_pu): "0" (__pu_val), "c" (& (vq->used)->idx): "ebx");
-# 1346 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       goto switch_break;
     } else {
       switch_break: ;
     }
   }
-# 1346 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   if (__ret_pu) {
     {
-# 1347 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     while (1) {
       while_continue: ;
 
       {
-# 1347 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       while (1) {
         while_continue___0: ;
         {
-# 1347 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         tmp___7 = __builtin_expect((long )(! (! descriptor___21.enabled)), 0L);
         }
-# 1347 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         if (tmp___7) {
           {
-# 1347 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
           __dynamic_pr_debug(& descriptor___21, "Failed to increment used idx");
           }
         } else {
 
         }
-# 1347 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         goto while_break___0;
       }
       while_break___2: ;
       }
       while_break___0: ;
-# 1347 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       if (vq->error_ctx) {
         {
-# 1347 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         eventfd_signal(vq->error_ctx, 1);
         }
       } else {
 
       }
-# 1347 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       goto while_break;
     }
     while_break___1: ;
     }
     while_break: ;
-# 1348 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     return (-14);
   } else {
 
   }
   {
-# 1350 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   tmp___8 = __builtin_expect((long )(! (! vq->log_used)), 0L);
   }
-# 1350 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   if (tmp___8) {
     {
-# 1352 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     log_write(vq->log_base, vq->log_addr + (u64 )((unsigned int )(& ((struct vring_used *)0)->idx)),
               (u64 )sizeof((vq->used)->idx));
     }
-# 1355 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     if (vq->log_ctx) {
       {
-# 1356 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       eventfd_signal(vq->log_ctx, 1);
       }
     } else {
@@ -13979,21 +11200,16 @@ int vhost_add_used_n(struct vhost_virtqueue *vq , struct vring_used_elem *heads 
   } else {
 
   }
-# 1358 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   return (r);
 }
 }
-# 1377 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
 static bool vhost_notify(struct vhost_dev *dev , struct vhost_virtqueue *vq ) ;
-# 1377 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
 static struct _ddebug descriptor___22 __attribute__((__used__, __section__("__verbose"),
 __aligned__(8))) = {"vhost_net", "vhost_notify", "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c",
     "Failed to get flags", 1377U, 0U, (char)0};
-# 1391 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
 static struct _ddebug descriptor___23 __attribute__((__used__, __section__("__verbose"),
 __aligned__(8))) = {"vhost_net", "vhost_notify", "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c",
     "Failed to get used event idx", 1391U, 0U, (char)0};
-# 1361 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
 static bool vhost_notify(struct vhost_dev *dev , struct vhost_virtqueue *vq )
 { __u16 old ;
   __u16 new ;
@@ -14016,21 +11232,15 @@ static bool vhost_notify(struct vhost_dev *dev , struct vhost_virtqueue *vq )
 
   {
   {
-# 1368 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   __asm__ volatile ("mfence": : : "memory");
-# 1370 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   tmp___7 = vhost_has_feature(dev, 24);
   }
-# 1370 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   if (tmp___7) {
     {
-# 1370 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     tmp___8 = __builtin_expect((long )(! (! ((int )vq->avail_idx == (int )vq->last_avail_idx))),
                                0L);
     }
-# 1370 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     if (tmp___8) {
-# 1372 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       return ((bool )1);
     } else {
 
@@ -14039,45 +11249,30 @@ static bool vhost_notify(struct vhost_dev *dev , struct vhost_virtqueue *vq )
 
   }
   {
-# 1374 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   tmp___11 = vhost_has_feature(dev, 29);
   }
-# 1374 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   if (tmp___11) {
 
   } else {
     {
-# 1376 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     while (1) {
       while_continue: ;
-# 1376 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       __gu_err = 0;
-# 1376 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       if ((int )sizeof((vq->avail)->flags) == 1) {
-# 1376 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         goto case_1;
       } else
-# 1376 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       if ((int )sizeof((vq->avail)->flags) == 2) {
-# 1376 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         goto case_2;
       } else
-# 1376 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       if ((int )sizeof((vq->avail)->flags) == 4) {
-# 1376 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         goto case_4;
       } else
-# 1376 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       if ((int )sizeof((vq->avail)->flags) == 8) {
-# 1376 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         goto case_8;
       } else {
-# 1376 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         goto switch_default;
-# 1376 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         if (0) {
           case_1:
-# 1376 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
           __asm__ volatile ("1:\tmov"
                                "b"
                                " %2,%"
@@ -14109,10 +11304,8 @@ static bool vhost_notify(struct vhost_dev *dev , struct vhost_virtqueue *vq )
                                "\n"
                                " .previous\n": "=r" (__gu_err), "=q" (__gu_val): "m" (*((struct __large_struct *)(& (vq->avail)->flags))),
                                "i" (-14), "0" (__gu_err));
-# 1376 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
           goto switch_break;
           case_2:
-# 1376 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
           __asm__ volatile ("1:\tmov"
                                "w"
                                " %2,%"
@@ -14144,10 +11337,8 @@ static bool vhost_notify(struct vhost_dev *dev , struct vhost_virtqueue *vq )
                                "\n"
                                " .previous\n": "=r" (__gu_err), "=r" (__gu_val): "m" (*((struct __large_struct *)(& (vq->avail)->flags))),
                                "i" (-14), "0" (__gu_err));
-# 1376 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
           goto switch_break;
           case_4:
-# 1376 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
           __asm__ volatile ("1:\tmov"
                                "l"
                                " %2,%"
@@ -14179,10 +11370,8 @@ static bool vhost_notify(struct vhost_dev *dev , struct vhost_virtqueue *vq )
                                "\n"
                                " .previous\n": "=r" (__gu_err), "=r" (__gu_val): "m" (*((struct __large_struct *)(& (vq->avail)->flags))),
                                "i" (-14), "0" (__gu_err));
-# 1376 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
           goto switch_break;
           case_8:
-# 1376 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
           __asm__ volatile ("1:\tmov"
                                "q"
                                " %2,%"
@@ -14214,240 +11403,174 @@ static bool vhost_notify(struct vhost_dev *dev , struct vhost_virtqueue *vq )
                                "\n"
                                " .previous\n": "=r" (__gu_err), "=r" (__gu_val): "m" (*((struct __large_struct *)(& (vq->avail)->flags))),
                                "i" (-14), "0" (__gu_err));
-# 1376 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
           goto switch_break;
           switch_default:
           {
-# 1376 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
           tmp___10 = __get_user_bad();
-# 1376 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
           __gu_val = (unsigned long )tmp___10;
           }
         } else {
           switch_break: ;
         }
       }
-# 1376 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       goto while_break;
     }
     while_break___4: ;
     }
     while_break:
-# 1376 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     flags = (__u16 )__gu_val;
-# 1376 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     if (__gu_err) {
       {
-# 1377 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       while (1) {
         while_continue___0: ;
 
         {
-# 1377 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         while (1) {
           while_continue___1: ;
           {
-# 1377 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
           tmp___9 = __builtin_expect((long )(! (! descriptor___22.enabled)), 0L);
           }
-# 1377 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
           if (tmp___9) {
             {
-# 1377 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
             __dynamic_pr_debug(& descriptor___22, "Failed to get flags");
             }
           } else {
 
           }
-# 1377 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
           goto while_break___1;
         }
         while_break___6: ;
         }
         while_break___1: ;
-# 1377 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         if (vq->error_ctx) {
           {
-# 1377 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
           eventfd_signal(vq->error_ctx, 1);
           }
         } else {
 
         }
-# 1377 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         goto while_break___0;
       }
       while_break___5: ;
       }
       while_break___0: ;
-# 1378 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       return ((bool )1);
     } else {
 
     }
-# 1380 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     return ((bool )(! ((int )flags & 1)));
   }
   {
-# 1382 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   old = vq->signalled_used;
-# 1383 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   v = vq->signalled_used_valid;
-# 1384 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   tmp___12 = vq->last_used_idx;
-# 1384 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   vq->signalled_used = tmp___12;
-# 1384 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   new = tmp___12;
-# 1385 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   vq->signalled_used_valid = (bool )1;
-# 1387 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   tmp___13 = __builtin_expect((long )(! (! (! v))), 0L);
   }
-# 1387 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   if (tmp___13) {
-# 1388 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     return ((bool )1);
   } else {
 
   }
   {
-# 1390 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   might_fault();
   }
-# 1390 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   if ((int )sizeof((vq->avail)->ring[vq->num]) == 1) {
-# 1390 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     goto case_1___0;
   } else
-# 1390 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   if ((int )sizeof((vq->avail)->ring[vq->num]) == 2) {
-# 1390 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     goto case_2___0;
   } else
-# 1390 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   if ((int )sizeof((vq->avail)->ring[vq->num]) == 4) {
-# 1390 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     goto case_4___0;
   } else
-# 1390 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   if ((int )sizeof((vq->avail)->ring[vq->num]) == 8) {
-# 1390 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     goto case_8___0;
   } else {
-# 1390 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     goto switch_default___0;
-# 1390 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     if (0) {
       case_1___0:
-# 1390 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       __asm__ volatile ("call __get_user_"
                            "1": "=a" (__ret_gu), "=d" (__val_gu): "0" (& (vq->avail)->ring[vq->num]));
-# 1390 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       goto switch_break___0;
       case_2___0:
-# 1390 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       __asm__ volatile ("call __get_user_"
                            "2": "=a" (__ret_gu), "=d" (__val_gu): "0" (& (vq->avail)->ring[vq->num]));
-# 1390 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       goto switch_break___0;
       case_4___0:
-# 1390 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       __asm__ volatile ("call __get_user_"
                            "4": "=a" (__ret_gu), "=d" (__val_gu): "0" (& (vq->avail)->ring[vq->num]));
-# 1390 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       goto switch_break___0;
       case_8___0:
-# 1390 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       __asm__ volatile ("call __get_user_"
                            "8": "=a" (__ret_gu), "=d" (__val_gu): "0" (& (vq->avail)->ring[vq->num]));
-# 1390 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       goto switch_break___0;
       switch_default___0:
-# 1390 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       __asm__ volatile ("call __get_user_"
                            "X": "=a" (__ret_gu), "=d" (__val_gu): "0" (& (vq->avail)->ring[vq->num]));
-# 1390 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       goto switch_break___0;
     } else {
       switch_break___0: ;
     }
   }
-# 1390 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   event = (u16 )__val_gu;
-# 1390 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   if (__ret_gu) {
     {
-# 1391 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     while (1) {
       while_continue___2: ;
 
       {
-# 1391 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       while (1) {
         while_continue___3: ;
         {
-# 1391 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         tmp___14 = __builtin_expect((long )(! (! descriptor___23.enabled)), 0L);
         }
-# 1391 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         if (tmp___14) {
           {
-# 1391 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
           __dynamic_pr_debug(& descriptor___23, "Failed to get used event idx");
           }
         } else {
 
         }
-# 1391 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         goto while_break___3;
       }
       while_break___8: ;
       }
       while_break___3: ;
-# 1391 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       if (vq->error_ctx) {
         {
-# 1391 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         eventfd_signal(vq->error_ctx, 1);
         }
       } else {
 
       }
-# 1391 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       goto while_break___2;
     }
     while_break___7: ;
     }
     while_break___2: ;
-# 1392 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     return ((bool )1);
   } else {
 
   }
   {
-# 1394 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   tmp___15 = vring_need_event(event, new, old);
   }
-# 1394 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   return ((bool )tmp___15);
 }
 }
-# 1398 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
 void vhost_signal(struct vhost_dev *dev , struct vhost_virtqueue *vq )
 { bool tmp___7 ;
 
   {
-# 1401 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   if (vq->call_ctx) {
     {
-# 1401 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     tmp___7 = vhost_notify(dev, vq);
     }
-# 1401 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     if (tmp___7) {
       {
-# 1402 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       eventfd_signal(vq->call_ctx, 1);
       }
     } else {
@@ -14456,55 +11579,42 @@ void vhost_signal(struct vhost_dev *dev , struct vhost_virtqueue *vq )
   } else {
 
   }
-# 1403 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   return;
 }
 }
-# 1406 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
 void vhost_add_used_and_signal(struct vhost_dev *dev , struct vhost_virtqueue *vq ,
                                unsigned int head , int len )
 {
 
   {
   {
-# 1410 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   vhost_add_used(vq, head, len);
-# 1411 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   vhost_signal(dev, vq);
   }
-# 1412 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   return;
 }
 }
-# 1415 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
 void vhost_add_used_and_signal_n(struct vhost_dev *dev , struct vhost_virtqueue *vq ,
                                  struct vring_used_elem *heads , unsigned int count )
 {
 
   {
   {
-# 1419 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   vhost_add_used_n(vq, heads, count);
-# 1420 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   vhost_signal(dev, vq);
   }
-# 1421 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   return;
 }
 }
-# 1435 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
 static struct _ddebug descriptor___24 __attribute__((__used__, __section__("__verbose"),
 __aligned__(8))) = {"vhost_net", "vhost_enable_notify", "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c",
     "Failed to enable notification at %p: %d\n", 1436U, 0U, (char)0};
-# 1442 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
 static struct _ddebug descriptor___25 __attribute__((__used__, __section__("__verbose"),
 __aligned__(8))) = {"vhost_net", "vhost_enable_notify", "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c",
     "Failed to update avail event index at %p: %d\n", 1443U, 0U, (char)0};
-# 1466 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
 static struct _ddebug descriptor___26 __attribute__((__used__, __section__("__verbose"),
 __aligned__(8))) = {"vhost_net", "vhost_enable_notify", "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c",
     "Failed to check avail idx at %p: %d\n", 1467U, 0U, (char)0};
-# 1424 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
 bool vhost_enable_notify(struct vhost_dev *dev , struct vhost_virtqueue *vq )
 { u16 avail_idx ;
   int r ;
@@ -14524,285 +11634,202 @@ bool vhost_enable_notify(struct vhost_dev *dev , struct vhost_virtqueue *vq )
   long tmp___14 ;
 
   {
-# 1429 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   if (! ((int )vq->used_flags & 1)) {
-# 1430 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     return ((bool )0);
   } else {
 
   }
   {
-# 1431 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   vq->used_flags = (u16 )((int )vq->used_flags & -2);
-# 1432 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   tmp___9 = vhost_has_feature(dev, 29);
   }
-# 1432 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   if (tmp___9) {
     {
-# 1440 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     might_fault();
-# 1440 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     __pu_val___0 = vq->avail_idx;
     }
-# 1440 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     if ((int )sizeof(*((u16 *)(& (vq->used)->ring[vq->num]))) == 1) {
-# 1440 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       goto case_1;
     } else
-# 1440 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     if ((int )sizeof(*((u16 *)(& (vq->used)->ring[vq->num]))) == 2) {
-# 1440 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       goto case_2;
     } else
-# 1440 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     if ((int )sizeof(*((u16 *)(& (vq->used)->ring[vq->num]))) == 4) {
-# 1440 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       goto case_4;
     } else
-# 1440 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     if ((int )sizeof(*((u16 *)(& (vq->used)->ring[vq->num]))) == 8) {
-# 1440 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       goto case_8;
     } else {
-# 1440 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       goto switch_default;
-# 1440 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       if (0) {
         case_1:
-# 1440 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         __asm__ volatile ("call __put_user_"
                              "1": "=a" (__ret_pu___0): "0" (__pu_val___0), "c" ((u16 *)(& (vq->used)->ring[vq->num])): "ebx");
-# 1440 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         goto switch_break;
         case_2:
-# 1440 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         __asm__ volatile ("call __put_user_"
                              "2": "=a" (__ret_pu___0): "0" (__pu_val___0), "c" ((u16 *)(& (vq->used)->ring[vq->num])): "ebx");
-# 1440 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         goto switch_break;
         case_4:
-# 1440 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         __asm__ volatile ("call __put_user_"
                              "4": "=a" (__ret_pu___0): "0" (__pu_val___0), "c" ((u16 *)(& (vq->used)->ring[vq->num])): "ebx");
-# 1440 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         goto switch_break;
         case_8:
-# 1440 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         __asm__ volatile ("call __put_user_"
                              "8": "=a" (__ret_pu___0): "0" (__pu_val___0), "c" ((u16 *)(& (vq->used)->ring[vq->num])): "ebx");
-# 1440 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         goto switch_break;
         switch_default:
-# 1440 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         __asm__ volatile ("call __put_user_"
                              "X": "=a" (__ret_pu___0): "0" (__pu_val___0), "c" ((u16 *)(& (vq->used)->ring[vq->num])): "ebx");
-# 1440 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         goto switch_break;
       } else {
         switch_break: ;
       }
     }
-# 1440 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     r = __ret_pu___0;
-# 1441 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     if (r) {
       {
-# 1442 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       while (1) {
         while_continue: ;
 
         {
-# 1442 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         while (1) {
           while_continue___0: ;
           {
-# 1442 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
           tmp___8 = __builtin_expect((long )(! (! descriptor___25.enabled)), 0L);
           }
-# 1442 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
           if (tmp___8) {
             {
-# 1442 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
             __dynamic_pr_debug(& descriptor___25, "Failed to update avail event index at %p: %d\n",
                                (u16 *)(& (vq->used)->ring[vq->num]), r);
             }
           } else {
 
           }
-# 1442 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
           goto while_break___0;
         }
         while_break___7: ;
         }
         while_break___0: ;
-# 1442 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         if (vq->error_ctx) {
           {
-# 1442 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
           eventfd_signal(vq->error_ctx, 1);
           }
         } else {
 
         }
-# 1442 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         goto while_break;
       }
       while_break___6: ;
       }
       while_break: ;
-# 1444 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       return ((bool )0);
     } else {
 
     }
   } else {
     {
-# 1433 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     might_fault();
-# 1433 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     __pu_val = vq->used_flags;
     }
-# 1433 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     if ((int )sizeof((vq->used)->flags) == 1) {
-# 1433 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       goto case_1___0;
     } else
-# 1433 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     if ((int )sizeof((vq->used)->flags) == 2) {
-# 1433 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       goto case_2___0;
     } else
-# 1433 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     if ((int )sizeof((vq->used)->flags) == 4) {
-# 1433 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       goto case_4___0;
     } else
-# 1433 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     if ((int )sizeof((vq->used)->flags) == 8) {
-# 1433 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       goto case_8___0;
     } else {
-# 1433 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       goto switch_default___0;
-# 1433 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       if (0) {
         case_1___0:
-# 1433 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         __asm__ volatile ("call __put_user_"
                              "1": "=a" (__ret_pu): "0" (__pu_val), "c" (& (vq->used)->flags): "ebx");
-# 1433 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         goto switch_break___0;
         case_2___0:
-# 1433 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         __asm__ volatile ("call __put_user_"
                              "2": "=a" (__ret_pu): "0" (__pu_val), "c" (& (vq->used)->flags): "ebx");
-# 1433 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         goto switch_break___0;
         case_4___0:
-# 1433 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         __asm__ volatile ("call __put_user_"
                              "4": "=a" (__ret_pu): "0" (__pu_val), "c" (& (vq->used)->flags): "ebx");
-# 1433 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         goto switch_break___0;
         case_8___0:
-# 1433 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         __asm__ volatile ("call __put_user_"
                              "8": "=a" (__ret_pu): "0" (__pu_val), "c" (& (vq->used)->flags): "ebx");
-# 1433 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         goto switch_break___0;
         switch_default___0:
-# 1433 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         __asm__ volatile ("call __put_user_"
                              "X": "=a" (__ret_pu): "0" (__pu_val), "c" (& (vq->used)->flags): "ebx");
-# 1433 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         goto switch_break___0;
       } else {
         switch_break___0: ;
       }
     }
-# 1433 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     r = __ret_pu;
-# 1434 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     if (r) {
       {
-# 1435 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       while (1) {
         while_continue___1: ;
 
         {
-# 1435 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         while (1) {
           while_continue___2: ;
           {
-# 1435 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
           tmp___7 = __builtin_expect((long )(! (! descriptor___24.enabled)), 0L);
           }
-# 1435 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
           if (tmp___7) {
             {
-# 1435 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
             __dynamic_pr_debug(& descriptor___24, "Failed to enable notification at %p: %d\n",
                                & (vq->used)->flags, r);
             }
           } else {
 
           }
-# 1435 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
           goto while_break___2;
         }
         while_break___9: ;
         }
         while_break___2: ;
-# 1435 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         if (vq->error_ctx) {
           {
-# 1435 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
           eventfd_signal(vq->error_ctx, 1);
           }
         } else {
 
         }
-# 1435 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         goto while_break___1;
       }
       while_break___8: ;
       }
       while_break___1: ;
-# 1437 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       return ((bool )0);
     } else {
 
     }
   }
   {
-# 1447 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   tmp___12 = __builtin_expect((long )(! (! vq->log_used)), 0L);
   }
-# 1447 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   if (tmp___12) {
     {
-# 1450 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     __asm__ volatile ("": : : "memory");
-# 1451 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     tmp___11 = vhost_has_feature(dev, 29);
     }
-# 1451 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     if (tmp___11) {
-# 1451 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       used = (void *)(& (vq->used)->flags);
     } else {
-# 1451 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       used = (void *)((u16 *)(& (vq->used)->ring[vq->num]));
     }
     {
-# 1455 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     log_write(vq->log_base, vq->log_addr + (u64 )(used - (void *)vq->used), (u64 )sizeof(u16 ));
     }
-# 1458 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     if (vq->log_ctx) {
       {
-# 1459 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       eventfd_signal(vq->log_ctx, 1);
       }
     } else {
@@ -14811,40 +11838,26 @@ bool vhost_enable_notify(struct vhost_dev *dev , struct vhost_virtqueue *vq )
   } else {
 
   }
-# 1463 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   __asm__ volatile ("mfence": : : "memory");
   {
-# 1464 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   while (1) {
     while_continue___3: ;
-# 1464 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     __gu_err = 0;
-# 1464 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     if ((int )sizeof((vq->avail)->idx) == 1) {
-# 1464 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       goto case_1___1;
     } else
-# 1464 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     if ((int )sizeof((vq->avail)->idx) == 2) {
-# 1464 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       goto case_2___1;
     } else
-# 1464 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     if ((int )sizeof((vq->avail)->idx) == 4) {
-# 1464 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       goto case_4___1;
     } else
-# 1464 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     if ((int )sizeof((vq->avail)->idx) == 8) {
-# 1464 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       goto case_8___1;
     } else {
-# 1464 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       goto switch_default___1;
-# 1464 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       if (0) {
         case_1___1:
-# 1464 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         __asm__ volatile ("1:\tmov"
                              "b"
                              " %2,%"
@@ -14876,10 +11889,8 @@ bool vhost_enable_notify(struct vhost_dev *dev , struct vhost_virtqueue *vq )
                              "\n"
                              " .previous\n": "=r" (__gu_err), "=q" (__gu_val): "m" (*((struct __large_struct *)(& (vq->avail)->idx))),
                              "i" (-14), "0" (__gu_err));
-# 1464 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         goto switch_break___1;
         case_2___1:
-# 1464 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         __asm__ volatile ("1:\tmov"
                              "w"
                              " %2,%"
@@ -14911,10 +11922,8 @@ bool vhost_enable_notify(struct vhost_dev *dev , struct vhost_virtqueue *vq )
                              "\n"
                              " .previous\n": "=r" (__gu_err), "=r" (__gu_val): "m" (*((struct __large_struct *)(& (vq->avail)->idx))),
                              "i" (-14), "0" (__gu_err));
-# 1464 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         goto switch_break___1;
         case_4___1:
-# 1464 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         __asm__ volatile ("1:\tmov"
                              "l"
                              " %2,%"
@@ -14946,10 +11955,8 @@ bool vhost_enable_notify(struct vhost_dev *dev , struct vhost_virtqueue *vq )
                              "\n"
                              " .previous\n": "=r" (__gu_err), "=r" (__gu_val): "m" (*((struct __large_struct *)(& (vq->avail)->idx))),
                              "i" (-14), "0" (__gu_err));
-# 1464 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         goto switch_break___1;
         case_8___1:
-# 1464 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         __asm__ volatile ("1:\tmov"
                              "q"
                              " %2,%"
@@ -14981,89 +11988,69 @@ bool vhost_enable_notify(struct vhost_dev *dev , struct vhost_virtqueue *vq )
                              "\n"
                              " .previous\n": "=r" (__gu_err), "=r" (__gu_val): "m" (*((struct __large_struct *)(& (vq->avail)->idx))),
                              "i" (-14), "0" (__gu_err));
-# 1464 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         goto switch_break___1;
         switch_default___1:
         {
-# 1464 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         tmp___13 = __get_user_bad();
-# 1464 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         __gu_val = (unsigned long )tmp___13;
         }
       } else {
         switch_break___1: ;
       }
     }
-# 1464 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     goto while_break___3;
   }
   while_break___10: ;
   }
   while_break___3:
-# 1464 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   avail_idx = (__u16 )__gu_val;
-# 1464 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   r = __gu_err;
-# 1465 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   if (r) {
     {
-# 1466 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     while (1) {
       while_continue___4: ;
 
       {
-# 1466 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       while (1) {
         while_continue___5: ;
         {
-# 1466 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         tmp___14 = __builtin_expect((long )(! (! descriptor___26.enabled)), 0L);
         }
-# 1466 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         if (tmp___14) {
           {
-# 1466 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
           __dynamic_pr_debug(& descriptor___26, "Failed to check avail idx at %p: %d\n",
                              & (vq->avail)->idx, r);
           }
         } else {
 
         }
-# 1466 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         goto while_break___5;
       }
       while_break___12: ;
       }
       while_break___5: ;
-# 1466 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       if (vq->error_ctx) {
         {
-# 1466 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         eventfd_signal(vq->error_ctx, 1);
         }
       } else {
 
       }
-# 1466 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       goto while_break___4;
     }
     while_break___11: ;
     }
     while_break___4: ;
-# 1468 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     return ((bool )0);
   } else {
 
   }
-# 1471 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   return ((bool )((int )avail_idx != (int )vq->avail_idx));
 }
 }
-# 1485 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
 static struct _ddebug descriptor___27 __attribute__((__used__, __section__("__verbose"),
 __aligned__(8))) = {"vhost_net", "vhost_disable_notify", "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c",
     "Failed to enable notification at %p: %d\n", 1486U, 0U, (char)0};
-# 1475 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
 void vhost_disable_notify(struct vhost_dev *dev , struct vhost_virtqueue *vq )
 { int r ;
   int __ret_pu ;
@@ -15072,130 +12059,92 @@ void vhost_disable_notify(struct vhost_dev *dev , struct vhost_virtqueue *vq )
   int tmp___8 ;
 
   {
-# 1479 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   if ((int )vq->used_flags & 1) {
-# 1480 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     return;
   } else {
 
   }
   {
-# 1481 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   vq->used_flags = (u16 )((int )vq->used_flags | 1);
-# 1482 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   tmp___8 = vhost_has_feature(dev, 29);
   }
-# 1482 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   if (tmp___8) {
 
   } else {
     {
-# 1483 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     might_fault();
-# 1483 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     __pu_val = vq->used_flags;
     }
-# 1483 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     if ((int )sizeof((vq->used)->flags) == 1) {
-# 1483 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       goto case_1;
     } else
-# 1483 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     if ((int )sizeof((vq->used)->flags) == 2) {
-# 1483 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       goto case_2;
     } else
-# 1483 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     if ((int )sizeof((vq->used)->flags) == 4) {
-# 1483 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       goto case_4;
     } else
-# 1483 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     if ((int )sizeof((vq->used)->flags) == 8) {
-# 1483 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       goto case_8;
     } else {
-# 1483 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       goto switch_default;
-# 1483 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       if (0) {
         case_1:
-# 1483 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         __asm__ volatile ("call __put_user_"
                              "1": "=a" (__ret_pu): "0" (__pu_val), "c" (& (vq->used)->flags): "ebx");
-# 1483 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         goto switch_break;
         case_2:
-# 1483 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         __asm__ volatile ("call __put_user_"
                              "2": "=a" (__ret_pu): "0" (__pu_val), "c" (& (vq->used)->flags): "ebx");
-# 1483 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         goto switch_break;
         case_4:
-# 1483 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         __asm__ volatile ("call __put_user_"
                              "4": "=a" (__ret_pu): "0" (__pu_val), "c" (& (vq->used)->flags): "ebx");
-# 1483 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         goto switch_break;
         case_8:
-# 1483 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         __asm__ volatile ("call __put_user_"
                              "8": "=a" (__ret_pu): "0" (__pu_val), "c" (& (vq->used)->flags): "ebx");
-# 1483 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         goto switch_break;
         switch_default:
-# 1483 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         __asm__ volatile ("call __put_user_"
                              "X": "=a" (__ret_pu): "0" (__pu_val), "c" (& (vq->used)->flags): "ebx");
-# 1483 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         goto switch_break;
       } else {
         switch_break: ;
       }
     }
-# 1483 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     r = __ret_pu;
-# 1484 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
     if (r) {
       {
-# 1485 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
       while (1) {
         while_continue: ;
 
         {
-# 1485 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         while (1) {
           while_continue___0: ;
           {
-# 1485 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
           tmp___7 = __builtin_expect((long )(! (! descriptor___27.enabled)), 0L);
           }
-# 1485 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
           if (tmp___7) {
             {
-# 1485 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
             __dynamic_pr_debug(& descriptor___27, "Failed to enable notification at %p: %d\n",
                                & (vq->used)->flags, r);
             }
           } else {
 
           }
-# 1485 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
           goto while_break___0;
         }
         while_break___2: ;
         }
         while_break___0: ;
-# 1485 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         if (vq->error_ctx) {
           {
-# 1485 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
           eventfd_signal(vq->error_ctx, 1);
           }
         } else {
 
         }
-# 1485 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
         goto while_break;
       }
       while_break___1: ;
@@ -15205,11 +12154,9 @@ void vhost_disable_notify(struct vhost_dev *dev , struct vhost_virtqueue *vq )
 
     }
   }
-# 1488 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/vhost.c.common.c"
   return;
 }
 }
-# 5 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/kernel-rules/files/engine-blast-assert.h"
 void ldv_blast_assert(void)
 {
 
@@ -15217,41 +12164,27 @@ void ldv_blast_assert(void)
   ERROR: __VERIFIER_error();
 }
 }
-# 7 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/kernel-rules/files/engine-blast.h"
 extern void *ldv_undefined_pointer(void) ;
-# 1332 "include/linux/usb.h"
 struct urb *usb_alloc_urb(int iso_packets , gfp_t mem_flags ) __attribute__((__ldv_model__)) ;
-# 1333 "include/linux/usb.h"
 void usb_free_urb(struct urb *urb ) __attribute__((__ldv_model__)) ;
-# 1377 "include/linux/usb.h"
 void *usb_alloc_coherent(struct usb_device *dev , size_t size , gfp_t mem_flags ,
                          dma_addr_t *dma ) __attribute__((__ldv_model__)) ;
-# 1379 "include/linux/usb.h"
 void usb_free_coherent(struct usb_device *dev , size_t size , void *addr , dma_addr_t dma ) __attribute__((__ldv_model__)) ;
-# 10 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/kernel-rules/files/model0068.c"
 void ldv_assume_stop(void) __attribute__((__ldv_model_inline__)) ;
-# 17 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/kernel-rules/files/model0068.c"
 void ldv_check_final_state(void) __attribute__((__ldv_model__)) ;
-# 22 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/kernel-rules/files/model0068.c"
 void ldv_assume_stop(void) __attribute__((__ldv_model_inline__)) ;
-# 22 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/kernel-rules/files/model0068.c"
 void ldv_assume_stop(void)
 {
 
   {
   LDV_STOP:
-# 23 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/kernel-rules/files/model0068.c"
   goto LDV_STOP;
 }
 }
-# 29 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/kernel-rules/files/model0068.c"
 int ldv_urb_state = 0;
-# 31 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/kernel-rules/files/model0068.c"
 int ldv_coherent_state = 0;
-# 62 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/kernel-rules/files/model0068.c"
 void *usb_alloc_coherent(struct usb_device *dev , size_t size , gfp_t mem_flags ,
                          dma_addr_t *dma ) __attribute__((__ldv_model__)) ;
-# 62 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/kernel-rules/files/model0068.c"
 void *usb_alloc_coherent(struct usb_device *dev , size_t size , gfp_t mem_flags ,
                          dma_addr_t *dma )
 { void *arbitrary_memory ;
@@ -15259,298 +12192,217 @@ void *usb_alloc_coherent(struct usb_device *dev , size_t size , gfp_t mem_flags 
 
   {
   {
-# 64 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/kernel-rules/files/model0068.c"
   while (1) {
     while_continue: ;
     {
-# 64 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/kernel-rules/files/model0068.c"
     tmp___7 = ldv_undefined_pointer();
-# 64 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/kernel-rules/files/model0068.c"
     arbitrary_memory = tmp___7;
     }
-# 64 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/kernel-rules/files/model0068.c"
     if (! arbitrary_memory) {
-# 64 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/kernel-rules/files/model0068.c"
       return ((void *)0);
     } else {
 
     }
-# 64 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/kernel-rules/files/model0068.c"
     ldv_coherent_state = ldv_coherent_state + 1;
-# 64 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/kernel-rules/files/model0068.c"
     return (arbitrary_memory);
-# 64 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/kernel-rules/files/model0068.c"
     goto while_break;
   }
   while_break___0: ;
   }
   while_break: ;
-# 65 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/kernel-rules/files/model0068.c"
   return ((void *)0);
 }
 }
-# 68 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/kernel-rules/files/model0068.c"
 void usb_free_coherent(struct usb_device *dev , size_t size , void *addr , dma_addr_t dma ) __attribute__((__ldv_model__)) ;
-# 68 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/kernel-rules/files/model0068.c"
 void usb_free_coherent(struct usb_device *dev , size_t size , void *addr , dma_addr_t dma )
 {
 
   {
   {
-# 70 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/kernel-rules/files/model0068.c"
   while (1) {
     while_continue: ;
-# 70 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/kernel-rules/files/model0068.c"
     if (! ((unsigned long )addr != (unsigned long )((void *)0))) {
       {
-# 70 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/kernel-rules/files/model0068.c"
       ldv_assume_stop();
       }
     } else {
 
     }
-# 70 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/kernel-rules/files/model0068.c"
     if (addr) {
-# 70 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/kernel-rules/files/model0068.c"
       if (ldv_coherent_state >= 1) {
 
       } else {
         {
-# 70 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/kernel-rules/files/model0068.c"
         ldv_blast_assert();
         }
       }
-# 70 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/kernel-rules/files/model0068.c"
       ldv_coherent_state = ldv_coherent_state - 1;
     } else {
 
     }
-# 70 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/kernel-rules/files/model0068.c"
     goto while_break;
   }
   while_break___0: ;
   }
   while_break: ;
-# 71 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/kernel-rules/files/model0068.c"
   return;
 }
 }
-# 74 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/kernel-rules/files/model0068.c"
 struct urb *usb_alloc_urb(int iso_packets , gfp_t mem_flags ) __attribute__((__ldv_model__)) ;
-# 74 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/kernel-rules/files/model0068.c"
 struct urb *usb_alloc_urb(int iso_packets , gfp_t mem_flags )
 { void *arbitrary_memory ;
   void *tmp___7 ;
 
   {
   {
-# 75 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/kernel-rules/files/model0068.c"
   while (1) {
     while_continue: ;
     {
-# 75 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/kernel-rules/files/model0068.c"
     tmp___7 = ldv_undefined_pointer();
-# 75 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/kernel-rules/files/model0068.c"
     arbitrary_memory = tmp___7;
     }
-# 75 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/kernel-rules/files/model0068.c"
     if (! arbitrary_memory) {
-# 75 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/kernel-rules/files/model0068.c"
       return ((struct urb *)((void *)0));
     } else {
 
     }
-# 75 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/kernel-rules/files/model0068.c"
     ldv_urb_state = ldv_urb_state + 1;
-# 75 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/kernel-rules/files/model0068.c"
     return ((struct urb *)arbitrary_memory);
-# 75 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/kernel-rules/files/model0068.c"
     goto while_break;
   }
   while_break___0: ;
   }
   while_break: ;
-# 76 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/kernel-rules/files/model0068.c"
   return ((struct urb *)0);
 }
 }
-# 79 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/kernel-rules/files/model0068.c"
 void usb_free_urb(struct urb *urb ) __attribute__((__ldv_model__)) ;
-# 79 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/kernel-rules/files/model0068.c"
 void usb_free_urb(struct urb *urb )
 {
 
   {
   {
-# 80 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/kernel-rules/files/model0068.c"
   while (1) {
     while_continue: ;
-# 80 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/kernel-rules/files/model0068.c"
     if (! ((unsigned long )urb != (unsigned long )((struct urb *)0))) {
       {
-# 80 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/kernel-rules/files/model0068.c"
       ldv_assume_stop();
       }
     } else {
 
     }
-# 80 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/kernel-rules/files/model0068.c"
     if (urb) {
-# 80 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/kernel-rules/files/model0068.c"
       if (ldv_urb_state >= 1) {
 
       } else {
         {
-# 80 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/kernel-rules/files/model0068.c"
         ldv_blast_assert();
         }
       }
-# 80 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/kernel-rules/files/model0068.c"
       ldv_urb_state = ldv_urb_state - 1;
     } else {
 
     }
-# 80 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/kernel-rules/files/model0068.c"
     goto while_break;
   }
   while_break___0: ;
   }
   while_break: ;
-# 81 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/kernel-rules/files/model0068.c"
   return;
 }
 }
-# 84 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/kernel-rules/files/model0068.c"
 void ldv_check_final_state(void) __attribute__((__ldv_model__)) ;
-# 84 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/kernel-rules/files/model0068.c"
 void ldv_check_final_state(void)
 {
 
   {
-# 86 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/kernel-rules/files/model0068.c"
   if (ldv_urb_state == 0) {
 
   } else {
     {
-# 86 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/kernel-rules/files/model0068.c"
     ldv_blast_assert();
     }
   }
-# 88 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/kernel-rules/files/model0068.c"
   if (ldv_coherent_state == 0) {
 
   } else {
     {
-# 88 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/kernel-rules/files/model0068.c"
     ldv_blast_assert();
     }
   }
-# 89 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/kernel-rules/files/model0068.c"
   return;
 }
 }
-# 22 "include/linux/err.h"
 __inline static void * __attribute__((__warn_unused_result__)) ERR_PTR(long error )
 {
 
   {
-# 24 "include/linux/err.h"
   return ((void *)error);
 }
 }
-# 23 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/atomic.h"
 __inline static int atomic_read(atomic_t const *v )
 {
 
   {
-# 25 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/atomic.h"
   return ((int )*((int volatile *)(& v->counter)));
 }
 }
-# 43 "include/linux/uio.h"
 __inline static size_t iov_length(struct iovec const *iov , unsigned long nr_segs )
 { unsigned long seg ;
   size_t ret ;
 
   {
-# 46 "include/linux/uio.h"
   ret = (size_t )0;
-# 48 "include/linux/uio.h"
   seg = 0UL;
   {
-# 48 "include/linux/uio.h"
   while (1) {
     while_continue: ;
-# 48 "include/linux/uio.h"
     if (seg < nr_segs) {
 
     } else {
-# 48 "include/linux/uio.h"
       goto while_break;
     }
-# 49 "include/linux/uio.h"
     ret = ret + (size_t )(iov + seg)->iov_len;
-# 48 "include/linux/uio.h"
     seg = seg + 1UL;
   }
   while_break___0: ;
   }
   while_break: ;
-# 50 "include/linux/uio.h"
   return (ret);
 }
 }
-# 327 "include/linux/socket.h"
 extern int memcpy_toiovecend(struct iovec const *v , unsigned char *kdata , int offset ,
                              int len ) ;
-# 2336 "include/linux/fs.h"
 extern loff_t noop_llseek(struct file *file , loff_t offset , int origin ) ;
-# 198 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/compat.h"
 __inline static void *compat_ptr(compat_uptr_t uptr )
 {
 
   {
-# 200 "/anthill/stuff/tacas-comp/inst/current/envs/linux-3.0.1/linux-3.0.1/arch/x86/include/asm/compat.h"
   return ((void *)((unsigned long )uptr));
 }
 }
-# 30 "include/linux/file.h"
 extern struct file *fget(unsigned int fd ) ;
-# 79 "include/linux/module.h"
 int init_module(void) ;
-# 80 "include/linux/module.h"
 void cleanup_module(void) ;
-# 99 "include/linux/module.h"
 extern struct module __this_module ;
-# 248 "include/linux/net.h"
 extern struct socket *sockfd_lookup(int fd , int *err ) ;
-# 808 "include/linux/skbuff.h"
 __inline static struct sk_buff *skb_peek(struct sk_buff_head *list_ )
 { struct sk_buff *list ;
 
   {
-# 810 "include/linux/skbuff.h"
   list = ((struct sk_buff *)list_)->next;
-# 811 "include/linux/skbuff.h"
   if ((unsigned long )list == (unsigned long )((struct sk_buff *)list_)) {
-# 812 "include/linux/skbuff.h"
     list = (struct sk_buff *)((void *)0);
   } else {
 
   }
-# 813 "include/linux/skbuff.h"
   return (list);
 }
 }
-# 58 "include/linux/miscdevice.h"
 extern int misc_register(struct miscdevice *misc ) ;
-# 59 "include/linux/miscdevice.h"
 extern int misc_deregister(struct miscdevice *misc ) ;
-# 96 "include/linux/if_tun.h"
 extern struct socket *tun_get_socket(struct file * ) ;
-# 12 "include/linux/if_macvlan.h"
 extern struct socket *macvtap_get_socket(struct file * ) ;
-# 59 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
 static int move_iovec_hdr(struct iovec *from , struct iovec *to , size_t len , int iov_count )
 { int seg ;
   size_t size ;
@@ -15559,64 +12411,42 @@ static int move_iovec_hdr(struct iovec *from , struct iovec *to , size_t len , i
   __kernel_size_t tmp___7 ;
 
   {
-# 62 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   seg = 0;
   {
-# 65 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   while (1) {
     while_continue: ;
-# 65 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
     if (len) {
-# 65 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
       if (seg < iov_count) {
 
       } else {
-# 65 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
         goto while_break;
       }
     } else {
-# 65 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
       goto while_break;
     }
-# 66 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
     _min1 = from->iov_len;
-# 66 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
     _min2 = len;
-# 66 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
     if (_min1 < _min2) {
-# 66 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
       tmp___7 = _min1;
     } else {
-# 66 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
       tmp___7 = _min2;
     }
-# 66 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
     size = tmp___7;
-# 67 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
     to->iov_base = from->iov_base;
-# 68 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
     to->iov_len = size;
-# 69 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
     from->iov_len = from->iov_len - size;
-# 70 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
     from->iov_base = from->iov_base + size;
-# 71 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
     len = len - size;
-# 72 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
     from = from + 1;
-# 73 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
     to = to + 1;
-# 74 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
     seg = seg + 1;
   }
   while_break___0: ;
   }
   while_break: ;
-# 76 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   return (seg);
 }
 }
-# 79 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
 static void copy_iovec_hdr(struct iovec const *from , struct iovec *to , size_t len ,
                            int iovcount )
 { int seg ;
@@ -15626,130 +12456,91 @@ static void copy_iovec_hdr(struct iovec const *from , struct iovec *to , size_t 
   __kernel_size_t tmp___7 ;
 
   {
-# 82 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   seg = 0;
   {
-# 85 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   while (1) {
     while_continue: ;
-# 85 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
     if (len) {
-# 85 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
       if (seg < iovcount) {
 
       } else {
-# 85 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
         goto while_break;
       }
     } else {
-# 85 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
       goto while_break;
     }
-# 86 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
     _min1 = (__kernel_size_t )from->iov_len;
-# 86 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
     _min2 = len;
-# 86 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
     if (_min1 < _min2) {
-# 86 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
       tmp___7 = _min1;
     } else {
-# 86 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
       tmp___7 = _min2;
     }
-# 86 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
     size = tmp___7;
-# 87 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
     to->iov_base = (void *)from->iov_base;
-# 88 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
     to->iov_len = size;
-# 89 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
     len = len - size;
-# 90 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
     from = from + 1;
-# 91 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
     to = to + 1;
-# 92 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
     seg = seg + 1;
   }
   while_break___0: ;
   }
   while_break: ;
-# 94 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   return;
 }
 }
-# 97 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
 static void tx_poll_stop(struct vhost_net *net )
 { long tmp___7 ;
 
   {
   {
-# 99 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   tmp___7 = __builtin_expect((long )(! (! ((unsigned int )net->tx_poll_state != 1U))),
                              1L);
   }
-# 99 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   if (tmp___7) {
-# 100 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
     return;
   } else {
 
   }
   {
-# 101 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   vhost_poll_stop(net->poll + 1);
-# 102 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   net->tx_poll_state = (enum vhost_net_poll_state )2;
   }
-# 103 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   return;
 }
 }
-# 106 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
 static void tx_poll_start(struct vhost_net *net , struct socket *sock )
 { long tmp___7 ;
 
   {
   {
-# 108 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   tmp___7 = __builtin_expect((long )(! (! ((unsigned int )net->tx_poll_state != 2U))),
                              0L);
   }
-# 108 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   if (tmp___7) {
-# 109 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
     return;
   } else {
 
   }
   {
-# 110 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   vhost_poll_start(net->poll + 1, sock->file);
-# 111 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   net->tx_poll_state = (enum vhost_net_poll_state )1;
   }
-# 112 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   return;
 }
 }
-# 135 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
 static bool __warned___29 ;
-# 177 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
 static void handle_tx(struct vhost_net *net ) ;
-# 177 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
 static struct _ddebug descriptor___28 __attribute__((__used__, __section__("__verbose"),
 __aligned__(8))) = {"vhost_net", "handle_tx", "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c",
     "Unexpected descriptor format for TX: out %d, int %d\n", 178U, 0U, (char)0};
-# 187 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
 static struct _ddebug descriptor___29 __attribute__((__used__, __section__("__verbose"),
 __aligned__(8))) = {"vhost_net", "handle_tx", "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c",
     "Unexpected header len for TX: %zd expected %zd\n", 189U, 0U, (char)0};
-# 200 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
 static struct _ddebug descriptor___30 __attribute__((__used__, __section__("__verbose"),
 __aligned__(8))) = {"vhost_net", "handle_tx", "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c",
     "Truncated TX packet:  len %d != %zd\n", 201U, 0U, (char)0};
-# 116 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
 static void handle_tx(struct vhost_net *net )
 { struct vhost_virtqueue *vq ;
   unsigned int out ;
@@ -15779,40 +12570,25 @@ static void handle_tx(struct vhost_net *net )
   long tmp___19 ;
 
   {
-# 118 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   vq = net->dev.vqs + 1;
-# 121 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   msg.msg_name = (void *)0;
-# 121 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   msg.msg_namelen = 0;
-# 121 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   msg.msg_iov = vq->iov;
-# 121 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   msg.msg_iovlen = 0UL;
-# 121 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   msg.msg_control = (void *)0;
-# 121 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   msg.msg_controllen = (__kernel_size_t )0;
-# 121 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   msg.msg_flags = 64U;
-# 129 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   total_len = (size_t )0;
-# 135 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   _________p1 = (void *)*((void * volatile *)(& vq->private_data));
   {
-# 135 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   while (1) {
     while_continue: ;
     {
-# 135 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
     tmp___7 = debug_lockdep_rcu_enabled();
     }
-# 135 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
     if (tmp___7) {
-# 135 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
       if (! __warned___29) {
         {
-# 135 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
         tmp___8 = rcu_read_lock_held();
         }
       } else {
@@ -15821,290 +12597,214 @@ static void handle_tx(struct vhost_net *net )
     } else {
 
     }
-# 135 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
     goto while_break;
   }
   while_break___7: ;
   }
   while_break: ;
   {
-# 135 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   while (1) {
     while_continue___0: ;
-# 135 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
     goto while_break___0;
   }
   while_break___8: ;
   }
   while_break___0:
-# 135 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   sock = (struct socket *)_________p1;
-# 136 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   if (! sock) {
-# 137 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
     return;
   } else {
 
   }
   {
-# 139 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   wmem = atomic_read((atomic_t const *)(& (sock->sk)->sk_wmem_alloc));
   }
-# 140 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   if (wmem >= (sock->sk)->sk_sndbuf) {
     {
-# 141 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
     mutex_lock_nested(& vq->mutex, 0U);
-# 142 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
     tx_poll_start(net, sock);
-# 143 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
     mutex_unlock(& vq->mutex);
     }
-# 144 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
     return;
   } else {
 
   }
   {
-# 147 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   mutex_lock_nested(& vq->mutex, 0U);
-# 148 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   vhost_disable_notify(& net->dev, vq);
   }
-# 150 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   if (wmem < (sock->sk)->sk_sndbuf / 2) {
     {
-# 151 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
     tx_poll_stop(net);
     }
   } else {
 
   }
-# 152 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   hdr_size = vq->vhost_hlen;
   {
-# 154 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   while (1) {
     while_continue___1: ;
     {
-# 155 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
     head = vhost_get_vq_desc(& net->dev, vq, vq->iov, (unsigned int )(sizeof(vq->iov) / sizeof(vq->iov[0]) + sizeof(struct __anonstruct_346 )),
                              & out, & in, (struct vhost_log *)((void *)0), (unsigned int *)((void *)0));
-# 160 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
     tmp___9 = __builtin_expect((long )(! (! (head < 0))), 0L);
     }
-# 160 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
     if (tmp___9) {
-# 161 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
       goto while_break___1;
     } else {
 
     }
-# 163 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
     if ((unsigned int )head == vq->num) {
       {
-# 164 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
       wmem = atomic_read((atomic_t const *)(& (sock->sk)->sk_wmem_alloc));
       }
-# 165 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
       if (wmem >= ((sock->sk)->sk_sndbuf * 3) / 4) {
         {
-# 166 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
         tx_poll_start(net, sock);
-# 167 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
         set_bit(0U, (unsigned long volatile *)(& sock->flags));
         }
-# 168 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
         goto while_break___1;
       } else {
 
       }
       {
-# 170 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
       tmp___10 = vhost_enable_notify(& net->dev, vq);
       }
-# 170 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
       if (tmp___10) {
-# 170 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
         tmp___11 = 1;
       } else {
-# 170 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
         tmp___11 = 0;
       }
       {
-# 170 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
       tmp___12 = __builtin_expect((long )tmp___11, 0L);
       }
-# 170 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
       if (tmp___12) {
         {
-# 171 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
         vhost_disable_notify(& net->dev, vq);
         }
-# 172 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
         goto __Cont;
       } else {
 
       }
-# 174 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
       goto while_break___1;
     } else {
 
     }
-# 176 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
     if (in) {
       {
-# 177 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
       while (1) {
         while_continue___2: ;
 
         {
-# 177 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
         while (1) {
           while_continue___3: ;
           {
-# 177 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
           tmp___13 = __builtin_expect((long )(! (! descriptor___28.enabled)), 0L);
           }
-# 177 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
           if (tmp___13) {
             {
-# 177 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
             __dynamic_pr_debug(& descriptor___28, "Unexpected descriptor format for TX: out %d, int %d\n",
                                out, in);
             }
           } else {
 
           }
-# 177 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
           goto while_break___3;
         }
         while_break___11: ;
         }
         while_break___3: ;
-# 177 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
         if (vq->error_ctx) {
           {
-# 177 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
           eventfd_signal(vq->error_ctx, 1);
           }
         } else {
 
         }
-# 177 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
         goto while_break___2;
       }
       while_break___10: ;
       }
       while_break___2: ;
-# 179 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
       goto while_break___1;
     } else {
 
     }
     {
-# 182 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
     tmp___14 = move_iovec_hdr(vq->iov, vq->hdr, hdr_size, (int )out);
-# 182 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
     s = (unsigned int )tmp___14;
-# 183 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
     msg.msg_iovlen = (__kernel_size_t )out;
-# 184 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
     len = iov_length((struct iovec const *)(vq->iov), (unsigned long )out);
     }
-# 186 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
     if (! len) {
       {
-# 187 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
       while (1) {
         while_continue___4: ;
 
         {
-# 187 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
         while (1) {
           while_continue___5: ;
           {
-# 187 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
           tmp___16 = __builtin_expect((long )(! (! descriptor___29.enabled)), 0L);
           }
-# 187 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
           if (tmp___16) {
             {
-# 187 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
             tmp___15 = iov_length((struct iovec const *)(vq->hdr), (unsigned long )s);
-# 187 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
             __dynamic_pr_debug(& descriptor___29, "Unexpected header len for TX: %zd expected %zd\n",
                                tmp___15, hdr_size);
             }
           } else {
 
           }
-# 187 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
           goto while_break___5;
         }
         while_break___13: ;
         }
         while_break___5: ;
-# 187 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
         if (vq->error_ctx) {
           {
-# 187 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
           eventfd_signal(vq->error_ctx, 1);
           }
         } else {
 
         }
-# 187 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
         goto while_break___4;
       }
       while_break___12: ;
       }
       while_break___4: ;
-# 190 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
       goto while_break___1;
     } else {
 
     }
     {
-# 193 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
     err = (*((sock->ops)->sendmsg))((struct kiocb *)((void *)0), sock, & msg, len);
-# 194 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
     tmp___17 = __builtin_expect((long )(! (! (err < 0))), 0L);
     }
-# 194 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
     if (tmp___17) {
       {
-# 195 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
       vhost_discard_vq_desc(vq, 1);
-# 196 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
       tx_poll_start(net, sock);
       }
-# 197 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
       goto while_break___1;
     } else {
 
     }
-# 199 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
     if ((size_t )err != len) {
       {
-# 200 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
       while (1) {
         while_continue___6: ;
         {
-# 200 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
         tmp___18 = __builtin_expect((long )(! (! descriptor___30.enabled)), 0L);
         }
-# 200 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
         if (tmp___18) {
           {
-# 200 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
           __dynamic_pr_debug(& descriptor___30, "Truncated TX packet:  len %d != %zd\n",
                              err, len);
           }
         } else {
 
         }
-# 200 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
         goto while_break___6;
       }
       while_break___14: ;
@@ -16114,20 +12814,14 @@ static void handle_tx(struct vhost_net *net )
 
     }
     {
-# 202 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
     vhost_add_used_and_signal(& net->dev, vq, (unsigned int )head, 0);
-# 203 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
     total_len = total_len + len;
-# 204 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
     tmp___19 = __builtin_expect((long )(! (! (total_len >= 524288UL))), 0L);
     }
-# 204 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
     if (tmp___19) {
       {
-# 205 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
       vhost_poll_queue(& vq->poll);
       }
-# 206 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
       goto while_break___1;
     } else {
 
@@ -16138,14 +12832,11 @@ static void handle_tx(struct vhost_net *net )
   }
   while_break___1:
   {
-# 210 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   mutex_unlock(& vq->mutex);
   }
-# 211 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   return;
 }
 }
-# 213 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
 static int peek_head_len(struct sock *sk )
 { struct sk_buff *head ;
   int len ;
@@ -16154,65 +12845,49 @@ static int peek_head_len(struct sock *sk )
   long tmp___8 ;
 
   {
-# 216 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   len = 0;
   {
-# 219 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   while (1) {
     while_continue: ;
 
     {
-# 219 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
     while (1) {
       while_continue___0: ;
       {
-# 219 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
       tmp___7 = spinlock_check(& sk->sk_receive_queue.lock);
-# 219 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
       flags = _raw_spin_lock_irqsave(tmp___7);
       }
-# 219 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
       goto while_break___0;
     }
     while_break___2: ;
     }
     while_break___0: ;
-# 219 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
     goto while_break;
   }
   while_break___1: ;
   }
   while_break:
   {
-# 220 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   head = skb_peek(& sk->sk_receive_queue);
-# 221 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   tmp___8 = __builtin_expect((long )(! (! head)), 1L);
   }
-# 221 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   if (tmp___8) {
-# 222 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
     len = (int )head->len;
   } else {
 
   }
   {
-# 223 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   spin_unlock_irqrestore(& sk->sk_receive_queue.lock, flags);
   }
-# 224 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   return (len);
 }
 }
-# 264 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
 static int get_rx_bufs(struct vhost_virtqueue *vq , struct vring_used_elem *heads ,
                        int datalen , unsigned int *iovcount , struct vhost_log *log ,
                        unsigned int *log_num , unsigned int quota ) ;
-# 264 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
 static struct _ddebug descriptor___31 __attribute__((__used__, __section__("__verbose"),
 __aligned__(8))) = {"vhost_net", "get_rx_bufs", "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c",
     "unexpected descriptor format for RX: out %d, in %d\n", 265U, 0U, (char)0};
-# 237 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
 static int get_rx_bufs(struct vhost_virtqueue *vq , struct vring_used_elem *heads ,
                        int datalen , unsigned int *iovcount , struct vhost_log *log ,
                        unsigned int *log_num , unsigned int quota )
@@ -16233,153 +12908,108 @@ static int get_rx_bufs(struct vhost_virtqueue *vq , struct vring_used_elem *head
   long tmp___14 ;
 
   {
-# 246 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   seg = 0;
-# 247 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   headcount = 0;
-# 249 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   nlogs = 0;
   {
-# 251 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   while (1) {
     while_continue: ;
-# 251 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
     if (datalen > 0) {
-# 251 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
       if ((unsigned int )headcount < quota) {
 
       } else {
-# 251 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
         goto while_break;
       }
     } else {
-# 251 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
       goto while_break;
     }
     {
-# 252 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
     tmp___7 = __builtin_expect((long )(! (! (seg >= 1024))), 0L);
     }
-# 252 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
     if (tmp___7) {
-# 253 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
       r = -105;
-# 254 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
       goto err;
     } else {
 
     }
     {
-# 256 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
     tmp___8 = vhost_get_vq_desc(vq->dev, vq, vq->iov + seg, (unsigned int )((sizeof(vq->iov) / sizeof(vq->iov[0]) + sizeof(struct __anonstruct_347 )) - (unsigned long )seg),
                                 & out, & in, log, log_num);
-# 256 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
     d = (unsigned int )tmp___8;
     }
-# 259 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
     if (d == vq->num) {
-# 260 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
       r = 0;
-# 261 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
       goto err;
     } else {
 
     }
-# 263 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
     if (out) {
-# 263 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
       tmp___10 = 1;
     } else
-# 263 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
     if (in <= 0U) {
-# 263 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
       tmp___10 = 1;
     } else {
-# 263 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
       tmp___10 = 0;
     }
     {
-# 263 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
     tmp___11 = __builtin_expect((long )tmp___10, 0L);
     }
-# 263 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
     if (tmp___11) {
       {
-# 264 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
       while (1) {
         while_continue___0: ;
 
         {
-# 264 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
         while (1) {
           while_continue___1: ;
           {
-# 264 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
           tmp___9 = __builtin_expect((long )(! (! descriptor___31.enabled)), 0L);
           }
-# 264 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
           if (tmp___9) {
             {
-# 264 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
             __dynamic_pr_debug(& descriptor___31, "unexpected descriptor format for RX: out %d, in %d\n",
                                out, in);
             }
           } else {
 
           }
-# 264 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
           goto while_break___1;
         }
         while_break___4: ;
         }
         while_break___1: ;
-# 264 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
         if (vq->error_ctx) {
           {
-# 264 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
           eventfd_signal(vq->error_ctx, 1);
           }
         } else {
 
         }
-# 264 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
         goto while_break___0;
       }
       while_break___3: ;
       }
       while_break___0:
-# 266 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
       r = -22;
-# 267 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
       goto err;
     } else {
 
     }
     {
-# 269 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
     tmp___12 = __builtin_expect((long )(! (! log)), 0L);
     }
-# 269 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
     if (tmp___12) {
-# 270 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
       nlogs = (int )((unsigned int )nlogs + *log_num);
-# 271 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
       log = log + *log_num;
     } else {
 
     }
     {
-# 273 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
     (heads + headcount)->id = d;
-# 274 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
     tmp___13 = iov_length((struct iovec const *)(vq->iov + seg), (unsigned long )in);
-# 274 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
     (heads + headcount)->len = (__u32 )tmp___13;
-# 275 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
     datalen = (int )((__u32 )datalen - (heads + headcount)->len);
-# 276 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
     headcount = headcount + 1;
-# 277 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
     seg = (int )((unsigned int )seg + in);
     }
   }
@@ -16387,48 +13017,34 @@ static int get_rx_bufs(struct vhost_virtqueue *vq , struct vring_used_elem *head
   }
   while_break:
   {
-# 279 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   (heads + (headcount - 1))->len = (heads + (headcount - 1))->len + (__u32 )datalen;
-# 280 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   *iovcount = (unsigned int )seg;
-# 281 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   tmp___14 = __builtin_expect((long )(! (! log)), 0L);
   }
-# 281 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   if (tmp___14) {
-# 282 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
     *log_num = (unsigned int )nlogs;
   } else {
 
   }
-# 283 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   return (headcount);
   err:
   {
-# 285 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   vhost_discard_vq_desc(vq, headcount);
   }
-# 286 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   return (r);
 }
 }
-# 313 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
 static bool __warned___30 ;
-# 363 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
 static void handle_rx(struct vhost_net *net ) ;
-# 363 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
 static struct _ddebug descriptor___32 __attribute__((__used__, __section__("__verbose"),
 __aligned__(8))) = {"vhost_net", "handle_rx", "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c",
     "Discarded rx packet:  len %d, expected %zd\n", 364U, 0U, (char)0};
-# 371 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
 static struct _ddebug descriptor___33 __attribute__((__used__, __section__("__verbose"),
 __aligned__(8))) = {"vhost_net", "handle_rx", "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c",
     "Unable to write vnet_hdr at addr %p\n", 372U, 0U, (char)0};
-# 380 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
 static struct _ddebug descriptor___34 __attribute__((__used__, __section__("__verbose"),
 __aligned__(8))) = {"vhost_net", "handle_rx", "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c",
     "Failed num_buffers write", 380U, 0U, (char)0};
-# 291 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
 static void handle_rx(struct vhost_net *net )
 { struct vhost_virtqueue *vq ;
   unsigned int in ;
@@ -16471,56 +13087,33 @@ static void handle_rx(struct vhost_net *net )
   int tmp___33 ;
 
   {
-# 293 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   vq = net->dev.vqs + 0;
-# 294 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   in = in;
-# 296 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   msg.msg_name = (void *)0;
-# 296 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   msg.msg_namelen = 0;
-# 296 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   msg.msg_iov = vq->iov;
-# 296 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   msg.msg_iovlen = 0UL;
-# 296 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   msg.msg_control = (void *)0;
-# 296 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   msg.msg_controllen = (__kernel_size_t )0;
-# 296 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   msg.msg_flags = 64U;
-# 304 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   hdr.hdr.flags = (__u8 )0;
-# 304 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   hdr.hdr.gso_type = (__u8 )0;
-# 304 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   hdr.hdr.hdr_len = (unsigned short)0;
-# 304 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   hdr.hdr.gso_size = (unsigned short)0;
-# 304 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   hdr.hdr.csum_start = (unsigned short)0;
-# 304 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   hdr.hdr.csum_offset = (unsigned short)0;
-# 304 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   hdr.num_buffers = (unsigned short)0;
-# 308 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   total_len = (size_t )0;
-# 313 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   _________p1 = (void *)*((void * volatile *)(& vq->private_data));
   {
-# 313 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   while (1) {
     while_continue: ;
     {
-# 313 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
     tmp___7 = debug_lockdep_rcu_enabled();
     }
-# 313 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
     if (tmp___7) {
-# 313 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
       if (! __warned___30) {
         {
-# 313 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
         tmp___8 = rcu_read_lock_held();
         }
       } else {
@@ -16529,266 +13122,193 @@ static void handle_rx(struct vhost_net *net )
     } else {
 
     }
-# 313 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
     goto while_break;
   }
   while_break___7: ;
   }
   while_break: ;
   {
-# 313 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   while (1) {
     while_continue___2: ;
-# 313 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
     goto while_break___0;
   }
   while_break___8: ;
   }
   while_break___0:
-# 313 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   sock = (struct socket *)_________p1;
-# 315 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   if (! sock) {
-# 316 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
     return;
   } else {
 
   }
   {
-# 318 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   mutex_lock_nested(& vq->mutex, 0U);
-# 319 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   vhost_disable_notify(& net->dev, vq);
-# 320 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   vhost_hlen = vq->vhost_hlen;
-# 321 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   sock_hlen = vq->sock_hlen;
-# 323 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   tmp___12 = vhost_has_feature(& net->dev, 26);
   }
-# 323 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   if (tmp___12) {
-# 323 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
     tmp___13 = 1;
   } else {
-# 323 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
     tmp___13 = 0;
   }
   {
-# 323 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   tmp___14 = __builtin_expect((long )tmp___13, 0L);
   }
-# 323 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   if (tmp___14) {
-# 323 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
     vq_log = vq->log;
   } else {
-# 323 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
     vq_log = (struct vhost_log *)((void *)0);
   }
   {
-# 325 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   mergeable = vhost_has_feature(& net->dev, 15);
   }
   {
-# 327 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   while (1) {
     while_continue___3: ;
     while_continue___1:
     {
-# 327 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
     tmp___33 = peek_head_len(sock->sk);
-# 327 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
     sock_len = (size_t )tmp___33;
     }
-# 327 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
     if (sock_len) {
 
     } else {
-# 327 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
       goto while_break___1;
     }
     {
-# 328 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
     sock_len = sock_len + sock_hlen;
-# 329 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
     vhost_len = sock_len + vhost_hlen;
-# 330 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
     tmp___17 = __builtin_expect((long )(! (! mergeable)), 1L);
     }
-# 330 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
     if (tmp___17) {
-# 330 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
       tmp___16 = 1024;
     } else {
-# 330 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
       tmp___16 = 1;
     }
     {
-# 330 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
     headcount = get_rx_bufs(vq, vq->heads, (int )vhost_len, & in, vq_log, & log, (unsigned int )tmp___16);
-# 334 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
     tmp___18 = __builtin_expect((long )(! (! (headcount < 0))), 0L);
     }
-# 334 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
     if (tmp___18) {
-# 335 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
       goto while_break___1;
     } else {
 
     }
-# 337 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
     if (! headcount) {
       {
-# 338 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
       tmp___19 = vhost_enable_notify(& net->dev, vq);
       }
-# 338 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
       if (tmp___19) {
-# 338 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
         tmp___20 = 1;
       } else {
-# 338 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
         tmp___20 = 0;
       }
       {
-# 338 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
       tmp___21 = __builtin_expect((long )tmp___20, 0L);
       }
-# 338 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
       if (tmp___21) {
         {
-# 341 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
         vhost_disable_notify(& net->dev, vq);
         }
-# 342 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
         goto while_continue___1;
       } else {
 
       }
-# 346 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
       goto while_break___1;
     } else {
 
     }
     {
-# 349 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
     tmp___22 = __builtin_expect((long )(! (! vhost_hlen)), 0L);
     }
-# 349 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
     if (tmp___22) {
       {
-# 351 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
       move_iovec_hdr(vq->iov, vq->hdr, vhost_hlen, (int )in);
       }
     } else {
       {
-# 355 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
       copy_iovec_hdr((struct iovec const *)(vq->iov), vq->hdr, sock_hlen, (int )in);
       }
     }
     {
-# 356 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
     msg.msg_iovlen = (__kernel_size_t )in;
-# 357 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
     err = (*((sock->ops)->recvmsg))((struct kiocb *)((void *)0), sock, & msg, sock_len,
                                     96);
-# 362 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
     tmp___24 = __builtin_expect((long )(! (! ((size_t )err != sock_len))), 0L);
     }
-# 362 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
     if (tmp___24) {
       {
-# 363 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
       while (1) {
         while_continue___4: ;
         {
-# 363 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
         tmp___23 = __builtin_expect((long )(! (! descriptor___32.enabled)), 0L);
         }
-# 363 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
         if (tmp___23) {
           {
-# 363 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
           __dynamic_pr_debug(& descriptor___32, "Discarded rx packet:  len %d, expected %zd\n",
                              err, sock_len);
           }
         } else {
 
         }
-# 363 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
         goto while_break___2;
       }
       while_break___10: ;
       }
       while_break___2:
       {
-# 365 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
       vhost_discard_vq_desc(vq, headcount);
       }
-# 366 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
       goto while_continue___1;
     } else {
 
     }
     {
-# 368 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
     tmp___26 = __builtin_expect((long )(! (! vhost_hlen)), 0L);
     }
-# 368 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
     if (tmp___26) {
       {
-# 368 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
       tmp___27 = memcpy_toiovecend((struct iovec const *)(vq->hdr), (unsigned char *)(& hdr),
                                    0, (int )vhost_hlen);
       }
-# 368 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
       if (tmp___27) {
         {
-# 371 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
         while (1) {
           while_continue___5: ;
 
           {
-# 371 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
           while (1) {
             while_continue___6: ;
             {
-# 371 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
             tmp___25 = __builtin_expect((long )(! (! descriptor___33.enabled)), 0L);
             }
-# 371 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
             if (tmp___25) {
               {
-# 371 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
               __dynamic_pr_debug(& descriptor___33, "Unable to write vnet_hdr at addr %p\n",
                                  vq->iov[0].iov_base);
               }
             } else {
 
             }
-# 371 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
             goto while_break___4;
           }
           while_break___12: ;
           }
           while_break___4: ;
-# 371 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
           if (vq->error_ctx) {
             {
-# 371 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
             eventfd_signal(vq->error_ctx, 1);
             }
           } else {
 
           }
-# 371 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
           goto while_break___3;
         }
         while_break___11: ;
         }
         while_break___3: ;
-# 373 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
         goto while_break___1;
       } else {
 
@@ -16797,67 +13317,52 @@ static void handle_rx(struct vhost_net *net )
 
     }
     {
-# 376 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
     tmp___29 = __builtin_expect((long )(! (! mergeable)), 1L);
     }
-# 376 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
     if (tmp___29) {
       {
-# 376 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
       tmp___30 = memcpy_toiovecend((struct iovec const *)(vq->hdr), (unsigned char *)(& headcount),
                                    (int )((unsigned int )(& ((struct virtio_net_hdr_mrg_rxbuf *)0)->num_buffers)),
                                    (int )sizeof(hdr.num_buffers));
       }
-# 376 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
       if (tmp___30) {
         {
-# 380 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
         while (1) {
           while_continue___7: ;
 
           {
-# 380 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
           while (1) {
             while_continue___8: ;
             {
-# 380 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
             tmp___28 = __builtin_expect((long )(! (! descriptor___34.enabled)), 0L);
             }
-# 380 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
             if (tmp___28) {
               {
-# 380 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
               __dynamic_pr_debug(& descriptor___34, "Failed num_buffers write");
               }
             } else {
 
             }
-# 380 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
             goto while_break___6;
           }
           while_break___14: ;
           }
           while_break___6: ;
-# 380 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
           if (vq->error_ctx) {
             {
-# 380 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
             eventfd_signal(vq->error_ctx, 1);
             }
           } else {
 
           }
-# 380 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
           goto while_break___5;
         }
         while_break___13: ;
         }
         while_break___5:
         {
-# 381 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
         vhost_discard_vq_desc(vq, headcount);
         }
-# 382 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
         goto while_break___1;
       } else {
 
@@ -16866,33 +13371,24 @@ static void handle_rx(struct vhost_net *net )
 
     }
     {
-# 384 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
     vhost_add_used_and_signal_n(& net->dev, vq, vq->heads, (unsigned int )headcount);
-# 386 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
     tmp___31 = __builtin_expect((long )(! (! vq_log)), 0L);
     }
-# 386 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
     if (tmp___31) {
       {
-# 387 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
       vhost_log_write(vq, vq_log, log, (u64 )vhost_len);
       }
     } else {
 
     }
     {
-# 388 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
     total_len = total_len + vhost_len;
-# 389 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
     tmp___32 = __builtin_expect((long )(! (! (total_len >= 524288UL))), 0L);
     }
-# 389 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
     if (tmp___32) {
       {
-# 390 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
       vhost_poll_queue(& vq->poll);
       }
-# 391 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
       goto while_break___1;
     } else {
 
@@ -16902,14 +13398,11 @@ static void handle_rx(struct vhost_net *net )
   }
   while_break___1:
   {
-# 395 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   mutex_unlock(& vq->mutex);
   }
-# 396 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   return;
 }
 }
-# 398 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
 static void handle_tx_kick(struct vhost_work *work )
 { struct vhost_virtqueue *vq ;
   struct vhost_work const *__mptr ;
@@ -16918,22 +13411,15 @@ static void handle_tx_kick(struct vhost_work *work )
 
   {
   {
-# 400 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   __mptr = (struct vhost_work const *)work;
-# 400 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   vq = (struct vhost_virtqueue *)((char *)__mptr - (unsigned int )(& ((struct vhost_virtqueue *)0)->poll.work));
-# 402 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   __mptr___0 = (struct vhost_dev const *)vq->dev;
-# 402 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   net = (struct vhost_net *)((char *)__mptr___0 - (unsigned int )(& ((struct vhost_net *)0)->dev));
-# 404 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   handle_tx(net);
   }
-# 405 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   return;
 }
 }
-# 407 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
 static void handle_rx_kick(struct vhost_work *work )
 { struct vhost_virtqueue *vq ;
   struct vhost_work const *__mptr ;
@@ -16942,58 +13428,41 @@ static void handle_rx_kick(struct vhost_work *work )
 
   {
   {
-# 409 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   __mptr = (struct vhost_work const *)work;
-# 409 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   vq = (struct vhost_virtqueue *)((char *)__mptr - (unsigned int )(& ((struct vhost_virtqueue *)0)->poll.work));
-# 411 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   __mptr___0 = (struct vhost_dev const *)vq->dev;
-# 411 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   net = (struct vhost_net *)((char *)__mptr___0 - (unsigned int )(& ((struct vhost_net *)0)->dev));
-# 413 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   handle_rx(net);
   }
-# 414 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   return;
 }
 }
-# 416 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
 static void handle_tx_net(struct vhost_work *work )
 { struct vhost_net *net ;
   struct vhost_work const *__mptr ;
 
   {
   {
-# 418 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   __mptr = (struct vhost_work const *)work;
-# 418 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   net = (struct vhost_net *)((char *)__mptr - (unsigned int )(& ((struct vhost_net *)0)->poll[1].work));
-# 420 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   handle_tx(net);
   }
-# 421 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   return;
 }
 }
-# 423 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
 static void handle_rx_net(struct vhost_work *work )
 { struct vhost_net *net ;
   struct vhost_work const *__mptr ;
 
   {
   {
-# 425 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   __mptr = (struct vhost_work const *)work;
-# 425 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   net = (struct vhost_net *)((char *)__mptr - (unsigned int )(& ((struct vhost_net *)0)->poll[0].work));
-# 427 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   handle_rx(net);
   }
-# 428 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   return;
 }
 }
-# 430 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
 static int vhost_net_open(struct inode *inode , struct file *f )
 { struct vhost_net *n ;
   void *tmp___7 ;
@@ -17003,88 +13472,61 @@ static int vhost_net_open(struct inode *inode , struct file *f )
 
   {
   {
-# 432 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   tmp___7 = kmalloc(sizeof(*n), 208U);
-# 432 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   n = (struct vhost_net *)tmp___7;
   }
-# 436 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   if (! n) {
-# 437 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
     return (-12);
   } else {
 
   }
   {
-# 439 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   dev = & n->dev;
-# 440 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   n->vqs[1].handle_kick = & handle_tx_kick;
-# 441 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   n->vqs[0].handle_kick = & handle_rx_kick;
-# 442 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   tmp___8 = vhost_dev_init(dev, n->vqs, 2);
-# 442 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   r = (int )tmp___8;
   }
-# 443 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   if (r < 0) {
     {
-# 444 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
     kfree((void const *)n);
     }
-# 445 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
     return (r);
   } else {
 
   }
   {
-# 448 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   vhost_poll_init(n->poll + 1, & handle_tx_net, 4UL, dev);
-# 449 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   vhost_poll_init(n->poll + 0, & handle_rx_net, 1UL, dev);
-# 450 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   n->tx_poll_state = (enum vhost_net_poll_state )0;
-# 452 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   f->private_data = (void *)n;
   }
-# 454 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   return (0);
 }
 }
-# 457 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
 static void vhost_net_disable_vq(struct vhost_net *n , struct vhost_virtqueue *vq )
 {
 
   {
-# 460 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   if (! vq->private_data) {
-# 461 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
     return;
   } else {
 
   }
-# 462 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   if ((unsigned long )vq == (unsigned long )(n->vqs + 1)) {
     {
-# 463 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
     tx_poll_stop(n);
-# 464 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
     n->tx_poll_state = (enum vhost_net_poll_state )0;
     }
   } else {
     {
-# 466 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
     vhost_poll_stop(n->poll + 0);
     }
   }
-# 467 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   return;
 }
 }
-# 474 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
 static bool __warned___31 ;
-# 469 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
 static void vhost_net_enable_vq(struct vhost_net *n , struct vhost_virtqueue *vq )
 { struct socket *sock ;
   int tmp___7 ;
@@ -17092,29 +13534,21 @@ static void vhost_net_enable_vq(struct vhost_net *n , struct vhost_virtqueue *vq
 
   {
   {
-# 474 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   while (1) {
     while_continue: ;
     {
-# 474 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
     tmp___7 = debug_lockdep_rcu_enabled();
     }
-# 474 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
     if (tmp___7) {
-# 474 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
       if (! __warned___31) {
         {
-# 474 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
         tmp___8 = lock_is_held(& vq->mutex.dep_map);
         }
-# 474 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
         if (tmp___8) {
 
         } else {
           {
-# 474 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
           __warned___31 = (bool )1;
-# 474 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
           lockdep_rcu_dereference("/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c",
                                   (int const )475);
           }
@@ -17125,42 +13559,31 @@ static void vhost_net_enable_vq(struct vhost_net *n , struct vhost_virtqueue *vq
     } else {
 
     }
-# 474 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
     goto while_break;
   }
   while_break___0: ;
   }
   while_break:
-# 474 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   sock = (struct socket *)vq->private_data;
-# 476 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   if (! sock) {
-# 477 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
     return;
   } else {
 
   }
-# 478 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   if ((unsigned long )vq == (unsigned long )(n->vqs + 1)) {
     {
-# 479 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
     n->tx_poll_state = (enum vhost_net_poll_state )2;
-# 480 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
     tx_poll_start(n, sock);
     }
   } else {
     {
-# 482 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
     vhost_poll_start(n->poll + 0, sock->file);
     }
   }
-# 483 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   return;
 }
 }
-# 491 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
 static bool __warned___32 ;
-# 485 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
 static struct socket *vhost_net_stop_vq(struct vhost_net *n , struct vhost_virtqueue *vq )
 { struct socket *sock ;
   int tmp___7 ;
@@ -17168,33 +13591,24 @@ static struct socket *vhost_net_stop_vq(struct vhost_net *n , struct vhost_virtq
 
   {
   {
-# 490 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   mutex_lock_nested(& vq->mutex, 0U);
   }
   {
-# 491 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   while (1) {
     while_continue: ;
     {
-# 491 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
     tmp___7 = debug_lockdep_rcu_enabled();
     }
-# 491 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
     if (tmp___7) {
-# 491 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
       if (! __warned___32) {
         {
-# 491 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
         tmp___8 = lock_is_held(& vq->mutex.dep_map);
         }
-# 491 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
         if (tmp___8) {
 
         } else {
           {
-# 491 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
           __warned___32 = (bool )1;
-# 491 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
           lockdep_rcu_dereference("/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c",
                                   (int const )492);
           }
@@ -17205,74 +13619,54 @@ static struct socket *vhost_net_stop_vq(struct vhost_net *n , struct vhost_virtq
     } else {
 
     }
-# 491 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
     goto while_break;
   }
   while_break___0: ;
   }
   while_break:
   {
-# 491 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   sock = (struct socket *)vq->private_data;
-# 493 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   vhost_net_disable_vq(n, vq);
-# 494 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   __asm__ volatile ("": : : "memory");
-# 494 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   vq->private_data = (void *)0;
-# 495 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   mutex_unlock(& vq->mutex);
   }
-# 496 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   return (sock);
 }
 }
-# 499 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
 static void vhost_net_stop(struct vhost_net *n , struct socket **tx_sock , struct socket **rx_sock )
 {
 
   {
   {
-# 502 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   *tx_sock = vhost_net_stop_vq(n, n->vqs + 1);
-# 503 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   *rx_sock = vhost_net_stop_vq(n, n->vqs + 0);
   }
-# 504 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   return;
 }
 }
-# 506 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
 static void vhost_net_flush_vq(struct vhost_net *n , int index )
 {
 
   {
   {
-# 508 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   vhost_poll_flush(n->poll + index);
-# 509 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   vhost_poll_flush(& (n->dev.vqs + index)->poll);
   }
-# 510 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   return;
 }
 }
-# 512 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
 static void vhost_net_flush(struct vhost_net *n )
 {
 
   {
   {
-# 514 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   vhost_net_flush_vq(n, 1);
-# 515 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   vhost_net_flush_vq(n, 0);
   }
-# 516 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   return;
 }
 }
-# 518 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
 static int vhost_net_release(struct inode *inode , struct file *f )
 { struct vhost_net *n ;
   struct socket *tx_sock ;
@@ -17280,44 +13674,32 @@ static int vhost_net_release(struct inode *inode , struct file *f )
 
   {
   {
-# 520 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   n = (struct vhost_net *)f->private_data;
-# 524 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   vhost_net_stop(n, & tx_sock, & rx_sock);
-# 525 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   vhost_net_flush(n);
-# 526 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   vhost_dev_cleanup(& n->dev);
   }
-# 527 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   if (tx_sock) {
     {
-# 528 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
     fput(tx_sock->file);
     }
   } else {
 
   }
-# 529 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   if (rx_sock) {
     {
-# 530 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
     fput(rx_sock->file);
     }
   } else {
 
   }
   {
-# 533 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   vhost_net_flush(n);
-# 534 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   kfree((void const *)n);
   }
-# 535 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   return (0);
 }
 }
-# 538 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
 static struct socket *get_raw_socket(int fd )
 { struct __anonstruct_uaddr_348 uaddr ;
   int uaddr_len ;
@@ -17331,72 +13713,50 @@ static struct socket *get_raw_socket(int fd )
 
   {
   {
-# 544 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   uaddr_len = (int )sizeof(uaddr);
-# 545 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   tmp___7 = sockfd_lookup(fd, & r);
-# 545 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   sock = tmp___7;
   }
-# 547 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   if (! sock) {
     {
-# 548 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
     tmp = (void *)ERR_PTR(-88L);
-# 548 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
     tmp___8 = tmp;
     }
-# 548 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
     return ((struct socket *)tmp___8);
   } else {
 
   }
-# 551 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   if ((sock->sk)->sk_type != 3U) {
-# 552 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
     r = -94;
-# 553 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
     goto err;
   } else {
 
   }
   {
-# 556 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   r = (*((sock->ops)->getname))(sock, (struct sockaddr *)(& uaddr.sa), & uaddr_len,
                                 0);
   }
-# 558 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   if (r) {
-# 559 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
     goto err;
   } else {
 
   }
-# 561 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   if ((int )uaddr.sa.sll_family != 17) {
-# 562 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
     r = -96;
-# 563 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
     goto err;
   } else {
 
   }
-# 565 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   return (sock);
   err:
   {
-# 567 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   fput(sock->file);
-# 568 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   tmp___10 = (void *)ERR_PTR((long )r);
-# 568 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   tmp___9 = tmp___10;
   }
-# 568 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   return ((struct socket *)tmp___9);
 }
 }
-# 571 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
 static struct socket *get_tap_socket(int fd )
 { struct file *file ;
   struct file *tmp___7 ;
@@ -17410,61 +13770,43 @@ static struct socket *get_tap_socket(int fd )
 
   {
   {
-# 573 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   tmp___7 = fget((unsigned int )fd);
-# 573 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   file = tmp___7;
   }
-# 576 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   if (! file) {
     {
-# 577 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
     tmp = (void *)ERR_PTR(-9L);
-# 577 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
     tmp___8 = tmp;
     }
-# 577 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
     return ((struct socket *)tmp___8);
   } else {
 
   }
   {
-# 578 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   sock = tun_get_socket(file);
-# 579 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   tmp___11 = (long )IS_ERR((void const *)sock);
-# 579 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   tmp___9 = tmp___11;
   }
-# 579 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   if (tmp___9) {
 
   } else {
-# 580 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
     return (sock);
   }
   {
-# 581 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   sock = macvtap_get_socket(file);
-# 582 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   tmp___12 = (long )IS_ERR((void const *)sock);
-# 582 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   tmp___10 = tmp___12;
   }
-# 582 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   if (tmp___10) {
     {
-# 583 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
     fput(file);
     }
   } else {
 
   }
-# 584 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   return (sock);
 }
 }
-# 587 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
 static struct socket *get_socket(int fd )
 { struct socket *sock ;
   long tmp___7 ;
@@ -17475,56 +13817,39 @@ static struct socket *get_socket(int fd )
   void *tmp___11 ;
 
   {
-# 592 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   if (fd == -1) {
-# 593 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
     return ((struct socket *)((void *)0));
   } else {
 
   }
   {
-# 594 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   sock = get_raw_socket(fd);
-# 595 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   tmp = (long )IS_ERR((void const *)sock);
-# 595 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   tmp___7 = tmp;
   }
-# 595 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   if (tmp___7) {
 
   } else {
-# 596 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
     return (sock);
   }
   {
-# 597 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   sock = get_tap_socket(fd);
-# 598 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   tmp___10 = (long )IS_ERR((void const *)sock);
-# 598 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   tmp___8 = tmp___10;
   }
-# 598 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   if (tmp___8) {
 
   } else {
-# 599 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
     return (sock);
   }
   {
-# 600 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   tmp___11 = (void *)ERR_PTR(-88L);
-# 600 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   tmp___9 = tmp___11;
   }
-# 600 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   return ((struct socket *)tmp___9);
 }
 }
-# 633 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
 static bool __warned___33 ;
-# 603 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
 static long vhost_net_set_backend(struct vhost_net *n , unsigned int index , int fd )
 { struct socket *sock ;
   struct socket *oldsock ;
@@ -17541,93 +13866,63 @@ static long vhost_net_set_backend(struct vhost_net *n , unsigned int index , int
 
   {
   {
-# 609 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   mutex_lock_nested(& n->dev.mutex, 0U);
-# 610 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   tmp___7 = vhost_dev_check_owner(& n->dev);
-# 610 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   r = (int )tmp___7;
   }
-# 611 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   if (r) {
-# 612 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
     goto err;
   } else {
 
   }
-# 614 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   if (index >= 2U) {
-# 615 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
     r = -105;
-# 616 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
     goto err;
   } else {
 
   }
   {
-# 618 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   vq = n->vqs + index;
-# 619 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   mutex_lock_nested(& vq->mutex, 0U);
-# 622 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   tmp___8 = vhost_vq_access_ok(vq);
   }
-# 622 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   if (tmp___8) {
 
   } else {
-# 623 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
     r = -14;
-# 624 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
     goto err_vq;
   }
   {
-# 626 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   sock = get_socket(fd);
-# 627 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   tmp = (long )IS_ERR((void const *)sock);
-# 627 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   tmp___10 = tmp;
   }
-# 627 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   if (tmp___10) {
     {
-# 628 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
     tmp___13 = (long )PTR_ERR((void const *)sock);
-# 628 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
     tmp___9 = tmp___13;
-# 628 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
     r = (int )tmp___9;
     }
-# 629 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
     goto err_vq;
   } else {
 
   }
   {
-# 633 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   while (1) {
     while_continue: ;
     {
-# 633 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
     tmp___11 = debug_lockdep_rcu_enabled();
     }
-# 633 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
     if (tmp___11) {
-# 633 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
       if (! __warned___33) {
         {
-# 633 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
         tmp___12 = lock_is_held(& vq->mutex.dep_map);
         }
-# 633 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
         if (tmp___12) {
 
         } else {
           {
-# 633 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
           __warned___33 = (bool )1;
-# 633 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
           lockdep_rcu_dereference("/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c",
                                   (int const )634);
           }
@@ -17638,65 +13933,48 @@ static long vhost_net_set_backend(struct vhost_net *n , unsigned int index , int
     } else {
 
     }
-# 633 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
     goto while_break;
   }
   while_break___0: ;
   }
   while_break:
-# 633 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   oldsock = (struct socket *)vq->private_data;
-# 635 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   if ((unsigned long )sock != (unsigned long )oldsock) {
     {
-# 636 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
     vhost_net_disable_vq(n, vq);
-# 637 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
     __asm__ volatile ("": : : "memory");
-# 637 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
     vq->private_data = (void *)sock;
-# 638 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
     vhost_net_enable_vq(n, vq);
     }
   } else {
 
   }
   {
-# 641 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   mutex_unlock(& vq->mutex);
   }
-# 643 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   if (oldsock) {
     {
-# 644 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
     vhost_net_flush_vq(n, (int )index);
-# 645 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
     fput(oldsock->file);
     }
   } else {
 
   }
   {
-# 648 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   mutex_unlock(& n->dev.mutex);
   }
-# 649 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   return (0L);
   err_vq:
   {
-# 652 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   mutex_unlock(& vq->mutex);
   }
   err:
   {
-# 654 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   mutex_unlock(& n->dev.mutex);
   }
-# 655 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   return ((long )r);
 }
 }
-# 658 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
 static long vhost_net_reset_owner(struct vhost_net *n )
 { struct socket *tx_sock ;
   struct socket *rx_sock ;
@@ -17704,58 +13982,42 @@ static long vhost_net_reset_owner(struct vhost_net *n )
 
   {
   {
-# 660 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   tx_sock = (struct socket *)((void *)0);
-# 661 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   rx_sock = (struct socket *)((void *)0);
-# 664 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   mutex_lock_nested(& n->dev.mutex, 0U);
-# 665 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   err = vhost_dev_check_owner(& n->dev);
   }
-# 666 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   if (err) {
-# 667 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
     goto done;
   } else {
 
   }
   {
-# 668 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   vhost_net_stop(n, & tx_sock, & rx_sock);
-# 669 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   vhost_net_flush(n);
-# 670 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   err = vhost_dev_reset_owner(& n->dev);
   }
   done:
   {
-# 672 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   mutex_unlock(& n->dev.mutex);
   }
-# 673 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   if (tx_sock) {
     {
-# 674 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
     fput(tx_sock->file);
     }
   } else {
 
   }
-# 675 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   if (rx_sock) {
     {
-# 676 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
     fput(rx_sock->file);
     }
   } else {
 
   }
-# 677 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   return (err);
 }
 }
-# 680 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
 static int vhost_net_set_features(struct vhost_net *n , u64 features )
 { size_t vhost_hlen ;
   size_t sock_hlen ;
@@ -17764,77 +14026,52 @@ static int vhost_net_set_features(struct vhost_net *n , u64 features )
   int tmp___7 ;
 
   {
-# 685 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   if (features & (unsigned long long )(1 << 15)) {
-# 685 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
     hdr_len = sizeof(struct virtio_net_hdr_mrg_rxbuf );
   } else {
-# 685 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
     hdr_len = sizeof(struct virtio_net_hdr );
   }
-# 688 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   if (features & (unsigned long long )(1 << 27)) {
-# 690 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
     vhost_hlen = hdr_len;
-# 691 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
     sock_hlen = (size_t )0;
   } else {
-# 694 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
     vhost_hlen = (size_t )0;
-# 695 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
     sock_hlen = hdr_len;
   }
   {
-# 697 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   mutex_lock_nested(& n->dev.mutex, 0U);
   }
-# 698 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   if (features & (unsigned long long )(1 << 26)) {
     {
-# 698 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
     tmp___7 = vhost_log_access_ok(& n->dev);
     }
-# 698 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
     if (tmp___7) {
 
     } else {
       {
-# 700 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
       mutex_unlock(& n->dev.mutex);
       }
-# 701 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
       return (-14);
     }
   } else {
 
   }
-# 703 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   n->dev.acked_features = (unsigned int )features;
-# 704 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   __asm__ volatile ("": : : "memory");
-# 705 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   i = 0;
   {
-# 705 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   while (1) {
     while_continue: ;
-# 705 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
     if (i < 2) {
 
     } else {
-# 705 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
       goto while_break;
     }
     {
-# 706 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
     mutex_lock_nested(& n->vqs[i].mutex, 0U);
-# 707 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
     n->vqs[i].vhost_hlen = vhost_hlen;
-# 708 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
     n->vqs[i].sock_hlen = sock_hlen;
-# 709 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
     mutex_unlock(& n->vqs[i].mutex);
-# 705 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
     i = i + 1;
     }
   }
@@ -17842,16 +14079,12 @@ static int vhost_net_set_features(struct vhost_net *n , u64 features )
   }
   while_break:
   {
-# 711 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   vhost_net_flush(n);
-# 712 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   mutex_unlock(& n->dev.mutex);
   }
-# 713 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   return (0);
 }
 }
-# 716 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
 static long vhost_net_ioctl(struct file *f , unsigned int ioctl , unsigned long arg )
 { struct vhost_net *n ;
   void *argp ;
@@ -17871,125 +14104,84 @@ static long vhost_net_ioctl(struct file *f , unsigned int ioctl , unsigned long 
   unsigned long tmp___15 ;
 
   {
-# 719 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   n = (struct vhost_net *)f->private_data;
-# 720 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   argp = (void *)arg;
-# 721 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   featurep = (u64 *)argp;
-# 727 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   if ((unsigned long )((int )ioctl) == ((unsigned long )(((1U << 30) | (unsigned int )(175 << 8)) | 48U) | (sizeof(struct vhost_vring_file ) << 16))) {
-# 727 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
     goto case_exp;
   } else
-# 731 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   if ((unsigned long )((int )ioctl) == ((unsigned long )((2U << 30) | (unsigned int )(175 << 8)) | (sizeof(__u64 ) << 16))) {
-# 731 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
     goto case_exp___0;
   } else
-# 736 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   if ((unsigned long )((int )ioctl) == ((unsigned long )((1U << 30) | (unsigned int )(175 << 8)) | (sizeof(__u64 ) << 16))) {
-# 736 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
     goto case_exp___1;
   } else
-# 742 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   if ((unsigned int )((int )ioctl) == ((unsigned int )(175 << 8) | 2U)) {
-# 742 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
     goto case_exp___2;
   } else {
-# 744 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
     goto switch_default;
-# 726 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
     if (0) {
       case_exp:
       {
-# 728 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
       tmp = (unsigned long )copy_from_user((void *)(& backend), (void const *)argp,
                                            sizeof(backend));
-# 728 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
       tmp___7 = tmp;
       }
-# 728 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
       if (tmp___7) {
-# 729 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
         return (-14L);
       } else {
 
       }
       {
-# 730 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
       tmp___8 = vhost_net_set_backend(n, backend.index, backend.fd);
       }
-# 730 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
       return (tmp___8);
       case_exp___0:
       {
-# 732 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
       features = (u64 )1023442944;
-# 733 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
       tmp___14 = (int )copy_to_user((void *)featurep, (void const *)(& features),
                                     (unsigned int )sizeof(features));
-# 733 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
       tmp___9 = tmp___14;
       }
-# 733 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
       if (tmp___9) {
-# 734 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
         return (-14L);
       } else {
 
       }
-# 735 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
       return (0L);
       case_exp___1:
       {
-# 737 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
       tmp___15 = (unsigned long )copy_from_user((void *)(& features), (void const *)featurep,
                                                 sizeof(features));
-# 737 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
       tmp___10 = tmp___15;
       }
-# 737 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
       if (tmp___10) {
-# 738 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
         return (-14L);
       } else {
 
       }
-# 739 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
       if (features & 0x0fffffffc2ff7fffULL) {
-# 740 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
         return (-95L);
       } else {
 
       }
       {
-# 741 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
       tmp___11 = vhost_net_set_features(n, features);
       }
-# 741 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
       return ((long )tmp___11);
       case_exp___2:
       {
-# 743 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
       tmp___12 = vhost_net_reset_owner(n);
       }
-# 743 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
       return (tmp___12);
       switch_default:
       {
-# 745 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
       mutex_lock_nested(& n->dev.mutex, 0U);
-# 746 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
       tmp___13 = vhost_dev_ioctl(& n->dev, ioctl, arg);
-# 746 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
       r = (int )tmp___13;
-# 747 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
       vhost_net_flush(n);
-# 748 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
       mutex_unlock(& n->dev.mutex);
       }
-# 749 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
       return ((long )r);
     } else {
 
@@ -17997,25 +14189,19 @@ static long vhost_net_ioctl(struct file *f , unsigned int ioctl , unsigned long 
   }
 }
 }
-# 754 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
 static long vhost_net_compat_ioctl(struct file *f , unsigned int ioctl , unsigned long arg )
 { void *tmp___7 ;
   long tmp___8 ;
 
   {
   {
-# 757 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   tmp___7 = compat_ptr((compat_uptr_t )arg);
-# 757 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   tmp___8 = vhost_net_ioctl(f, ioctl, (unsigned long )tmp___7);
   }
-# 757 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   return (tmp___8);
 }
 }
-# 761 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
 static struct file_operations const vhost_net_fops =
-# 761 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
      {& __this_module, & noop_llseek, (ssize_t (*)(struct file * , char * , size_t ,
                                                  loff_t * ))0, (ssize_t (*)(struct file * ,
                                                                             char const * ,
@@ -18040,83 +14226,63 @@ static struct file_operations const vhost_net_fops =
                                                                         int mode ,
                                                                         loff_t offset ,
                                                                         loff_t len ))0};
-# 772 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
 static struct miscdevice vhost_net_misc =
-# 772 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
      {255, "vhost-net", & vhost_net_fops, {(struct list_head *)0, (struct list_head *)0},
     (struct device *)0, (struct device *)0, (char const *)0, 0U};
-# 778 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
 static int vhost_net_init(void)
 { int tmp___7 ;
 
   {
   {
-# 780 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   tmp___7 = misc_register(& vhost_net_misc);
   }
-# 780 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   return (tmp___7);
 }
 }
-# 782 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
 int init_module(void)
 { int tmp___7 ;
 
   {
   {
-# 782 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   tmp___7 = vhost_net_init();
   }
-# 782 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   return (tmp___7);
 }
 }
-# 784 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
 static void vhost_net_exit(void)
 {
 
   {
   {
-# 786 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   misc_deregister(& vhost_net_misc);
   }
-# 787 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   return;
 }
 }
-# 788 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
 void cleanup_module(void)
 {
 
   {
   {
-# 788 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   vhost_net_exit();
   }
-# 788 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   return;
 }
 }
-# 790 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
 static char const __mod_version790[14] __attribute__((__used__, __unused__, __section__(".modinfo"),
 __aligned__(1))) =
-# 790 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   { (char const )'v', (char const )'e', (char const )'r', (char const )'s',
         (char const )'i', (char const )'o', (char const )'n', (char const )'=',
         (char const )'0', (char const )'.', (char const )'0', (char const )'.',
         (char const )'1', (char const )'\000'};
-# 791 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
 static char const __mod_license791[15] __attribute__((__used__, __unused__, __section__(".modinfo"),
 __aligned__(1))) =
-# 791 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   { (char const )'l', (char const )'i', (char const )'c', (char const )'e',
         (char const )'n', (char const )'s', (char const )'e', (char const )'=',
         (char const )'G', (char const )'P', (char const )'L', (char const )' ',
         (char const )'v', (char const )'2', (char const )'\000'};
-# 792 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
 static char const __mod_author792[26] __attribute__((__used__, __unused__, __section__(".modinfo"),
 __aligned__(1))) =
-# 792 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   { (char const )'a', (char const )'u', (char const )'t', (char const )'h',
         (char const )'o', (char const )'r', (char const )'=', (char const )'M',
         (char const )'i', (char const )'c', (char const )'h', (char const )'a',
@@ -18124,10 +14290,8 @@ __aligned__(1))) =
         (char const )'.', (char const )' ', (char const )'T', (char const )'s',
         (char const )'i', (char const )'r', (char const )'k', (char const )'i',
         (char const )'n', (char const )'\000'};
-# 793 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
 static char const __mod_description793[51] __attribute__((__used__, __unused__,
 __section__(".modinfo"), __aligned__(1))) =
-# 793 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   { (char const )'d', (char const )'e', (char const )'s', (char const )'c',
         (char const )'r', (char const )'i', (char const )'p', (char const )'t',
         (char const )'i', (char const )'o', (char const )'n', (char const )'=',
@@ -18141,17 +14305,11 @@ __section__(".modinfo"), __aligned__(1))) =
         (char const )'v', (char const )'i', (char const )'r', (char const )'t',
         (char const )'i', (char const )'o', (char const )' ', (char const )'n',
         (char const )'e', (char const )'t', (char const )'\000'};
-# 814 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
 extern void ldv_check_return_value(int res ) ;
-# 817 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
 extern void ldv_initialize(void) ;
-# 820 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
 extern int __VERIFIER_nondet_int(void) ;
-# 823 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
 int LDV_IN_INTERRUPT ;
-# 880 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
 static int res_vhost_net_open_12 ;
-# 826 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
 int main(void)
 { struct inode *var_group1 ;
   struct file *var_group2 ;
@@ -18166,122 +14324,84 @@ int main(void)
 
   {
   {
-# 894 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   LDV_IN_INTERRUPT = 1;
-# 903 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   ldv_initialize();
-# 915 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   tmp___7 = vhost_net_init();
   }
-# 915 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   if (tmp___7) {
-# 916 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
     goto ldv_final;
   } else {
 
   }
-# 917 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   ldv_s_vhost_net_fops_file_operations = 0;
   {
-# 921 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   while (1) {
     while_continue: ;
     {
-# 921 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
     tmp___9 = __VERIFIER_nondet_int();
     }
-# 921 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
     if (tmp___9) {
 
     } else
-# 921 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
     if (! (ldv_s_vhost_net_fops_file_operations == 0)) {
 
     } else {
-# 921 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
       goto while_break;
     }
     {
-# 925 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
     tmp___8 = __VERIFIER_nondet_int();
     }
-# 927 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
     if (tmp___8 == 0) {
-# 927 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
       goto case_0;
     } else
-# 954 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
     if (tmp___8 == 1) {
-# 954 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
       goto case_1;
     } else
-# 978 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
     if (tmp___8 == 2) {
-# 978 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
       goto case_2;
     } else
-# 1002 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
     if (tmp___8 == 3) {
-# 1002 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
       goto case_3;
     } else {
-# 1026 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
       goto switch_default;
-# 925 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
       if (0) {
         case_0:
-# 930 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
         if (ldv_s_vhost_net_fops_file_operations == 0) {
           {
-# 937 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
           res_vhost_net_open_12 = vhost_net_open(var_group1, var_group2);
-# 938 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
           ldv_check_return_value(res_vhost_net_open_12);
           }
-# 939 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
           if (res_vhost_net_open_12) {
-# 940 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
             goto ldv_module_exit;
           } else {
 
           }
-# 947 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
           ldv_s_vhost_net_fops_file_operations = ldv_s_vhost_net_fops_file_operations + 1;
         } else {
 
         }
-# 953 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
         goto switch_break;
         case_1:
-# 957 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
         if (ldv_s_vhost_net_fops_file_operations == 1) {
           {
-# 964 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
           vhost_net_release(var_group1, var_group2);
-# 971 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
           ldv_s_vhost_net_fops_file_operations = 0;
           }
         } else {
 
         }
-# 977 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
         goto switch_break;
         case_2:
         {
-# 988 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
         vhost_net_ioctl(var_group2, var_vhost_net_ioctl_26_p1, var_vhost_net_ioctl_26_p2);
         }
-# 1001 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
         goto switch_break;
         case_3:
         {
-# 1013 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
         vhost_net_compat_ioctl(var_group2, var_vhost_net_compat_ioctl_27_p1, var_vhost_net_compat_ioctl_27_p2);
         }
-# 1025 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
         goto switch_break;
         switch_default:
-# 1026 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
         goto switch_break;
       } else {
         switch_break: ;
@@ -18293,15 +14413,12 @@ int main(void)
   while_break: ;
   ldv_module_exit:
   {
-# 1044 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   vhost_net_exit();
   }
   ldv_final:
   {
-# 1047 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   ldv_check_final_state();
   }
-# 1050 "/anthill/stuff/tacas-comp/work/current--X--drivers/vhost/vhost_net.ko--X--bulklinux-3.0.1--X--68_1/linux-3.0.1/csd_deg_dscv/12/dscv_tempdir/dscv/ri/68_1/drivers/vhost/net.c"
   return 0;
 }
 }

@@ -1,7 +1,3 @@
-# 1 "rangesum20_false-unreach-call.c"
-# 1 "<command-line>"
-# 1 "rangesum20_false-unreach-call.c"
-# 16 "rangesum20_false-unreach-call.c"
 extern void __VERIFIER_error() __attribute__ ((__noreturn__));
 
 int rangesum (int x[20])

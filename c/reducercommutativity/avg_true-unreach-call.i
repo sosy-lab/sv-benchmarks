@@ -1,7 +1,3 @@
-# 1 "avg_true-unreach-call.c"
-# 1 "<command-line>"
-# 1 "avg_true-unreach-call.c"
-# 15 "avg_true-unreach-call.c"
 extern void __VERIFIER_error() __attribute__ ((__noreturn__));
 extern int __VERIFIER_nondet_int(void);
 

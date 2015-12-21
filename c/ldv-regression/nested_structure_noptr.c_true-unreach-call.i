@@ -1,20 +1,14 @@
 extern void __VERIFIER_error() __attribute__ ((__noreturn__));
 
-# 1 "files/nested_structure_noptr.c"
-# 1 "<built-in>"
-# 1 "<command-line>"
-# 1 "files/nested_structure_noptr.c"
 
 
 
 
-# 1 "./assert.h" 1
 
 void __blast_assert()
 {
  ERROR: __VERIFIER_error();
 }
-# 6 "files/nested_structure_noptr.c" 2
 
 
 

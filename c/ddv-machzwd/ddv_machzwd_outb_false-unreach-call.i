@@ -2,15 +2,6 @@ extern void __VERIFIER_error() __attribute__ ((__noreturn__));
 
 /* SUPPOSED TO FAIL */
 
-# 1 "preprocessed_VERIFIER.c"
-# 1 "<built-in>"
-# 1 "<command-line>"
-# 1 "preprocessed_VERIFIER.c"
-# 1 "concatenated.c"
-# 1 "<built-in>"
-# 1 "<command-line>"
-# 1 "concatenated.c"
-# 1 "/ddverify-2010-04-30/models/seq1/include/ddverify/ddverify.h" 1
 
 extern void __VERIFIER_assume(int);
 void __VERIFIER_assert(int expression, char* x) { if (!expression) { ERROR: __VERIFIER_error();}; return; }
@@ -22,7 +13,6 @@ void __VERIFIER_assert(int expression, char* x) { if (!expression) { ERROR: __VE
 
 
 int current_execution_context;
-# 32 "/ddverify-2010-04-30/models/seq1/include/ddverify/ddverify.h"
 static inline assert_context_process()
 {
 }
@@ -37,31 +27,21 @@ int (* _ddv_module_init)(void);
 void (* _ddv_module_exit)(void);
 
 int call_ddv();
-# 2 "concatenated.c" 2
-# 1 "machzwd.c" 1
-# 31 "machzwd.c"
-# 1 "/ddverify-2010-04-30/models/seq1/include/linux/module.h" 1
 
 
 
-# 1 "/ddverify-2010-04-30/models/seq1/include/linux/sched.h" 1
 
 
 
-# 1 "/ddverify-2010-04-30/models/seq1/include/linux/capability.h" 1
-# 16 "/ddverify-2010-04-30/models/seq1/include/linux/capability.h"
-# 1 "/ddverify-2010-04-30/models/seq1/include/linux/types.h" 1
 
 
 
-# 1 "/ddverify-2010-04-30/models/seq1/include/linux/posix_types.h" 1
 
 
 
 typedef int __kernel_key_t;
 typedef int __kernel_mqd_t;
 
-# 1 "/ddverify-2010-04-30/models/seq1/include/asm/posix_types.h" 1
 
 
 
@@ -91,9 +71,6 @@ typedef unsigned int __kernel_gid32_t;
 typedef unsigned short __kernel_old_uid_t;
 typedef unsigned short __kernel_old_gid_t;
 typedef unsigned short __kernel_old_dev_t;
-# 8 "/ddverify-2010-04-30/models/seq1/include/linux/posix_types.h" 2
-# 5 "/ddverify-2010-04-30/models/seq1/include/linux/types.h" 2
-# 1 "/ddverify-2010-04-30/models/seq1/include/asm/types.h" 1
 
 
 
@@ -127,7 +104,6 @@ typedef unsigned long long u64;
 
 typedef u32 dma_addr_t;
 typedef u64 dma64_addr_t;
-# 6 "/ddverify-2010-04-30/models/seq1/include/linux/types.h" 2
 
 
 
@@ -226,20 +202,12 @@ typedef __u32 __le32;
 typedef __u32 __be32;
 typedef __u64 __le64;
 typedef __u64 __be64;
-# 17 "/ddverify-2010-04-30/models/seq1/include/linux/capability.h" 2
-# 1 "/ddverify-2010-04-30/models/seq1/include/linux/compiler.h" 1
-# 18 "/ddverify-2010-04-30/models/seq1/include/linux/compiler.h"
 void barrier(void);
-# 18 "/ddverify-2010-04-30/models/seq1/include/linux/capability.h" 2
-# 242 "/ddverify-2010-04-30/models/seq1/include/linux/capability.h"
 int capable(int cap);
-# 5 "/ddverify-2010-04-30/models/seq1/include/linux/sched.h" 2
-
-# 1 "/ddverify-2010-04-30/models/seq1/include/linux/jiffies.h" 1
 
 
 
-# 1 "/ddverify-2010-04-30/models/seq1/include/linux/time.h" 1
+
 
 
 
@@ -254,14 +222,9 @@ struct timeval {
     time_t tv_sec;
     suseconds_t tv_usec;
 };
-# 27 "/ddverify-2010-04-30/models/seq1/include/linux/time.h"
 void do_gettimeofday(struct timeval *tv);
-# 5 "/ddverify-2010-04-30/models/seq1/include/linux/jiffies.h" 2
-# 1 "/ddverify-2010-04-30/models/seq1/include/asm/param.h" 1
-# 6 "/ddverify-2010-04-30/models/seq1/include/linux/jiffies.h" 2
 
 unsigned long jiffies;
-# 36 "/ddverify-2010-04-30/models/seq1/include/linux/jiffies.h"
 static inline unsigned int jiffies_to_msecs(const unsigned long j)
 {
 
@@ -309,26 +272,16 @@ static inline unsigned long usecs_to_jiffies(const unsigned int u)
 
 
 }
-# 7 "/ddverify-2010-04-30/models/seq1/include/linux/sched.h" 2
-# 1 "/ddverify-2010-04-30/models/seq1/include/linux/errno.h" 1
 
 
 
-# 1 "/ddverify-2010-04-30/models/seq1/include/asm/errno.h" 1
 
 
 
-# 1 "/ddverify-2010-04-30/models/seq1/include/asm-generic/errno.h" 1
 
 
 
-# 1 "/ddverify-2010-04-30/models/seq1/include/asm-generic/errno-base.h" 1
-# 5 "/ddverify-2010-04-30/models/seq1/include/asm-generic/errno.h" 2
-# 5 "/ddverify-2010-04-30/models/seq1/include/asm/errno.h" 2
-# 5 "/ddverify-2010-04-30/models/seq1/include/linux/errno.h" 2
-# 8 "/ddverify-2010-04-30/models/seq1/include/linux/sched.h" 2
 
-# 1 "/ddverify-2010-04-30/models/seq1/include/linux/timer.h" 1
 
 
 
@@ -340,24 +293,17 @@ struct timer_list {
     short __ddv_active;
     short __ddv_init;
 };
-# 26 "/ddverify-2010-04-30/models/seq1/include/linux/timer.h"
 void init_timer(struct timer_list * timer);
 void add_timer_on(struct timer_list *timer, int cpu);
 void add_timer(struct timer_list *timer);
 int del_timer(struct timer_list * timer);
 int mod_timer(struct timer_list *timer, unsigned long expires);
-# 10 "/ddverify-2010-04-30/models/seq1/include/linux/sched.h" 2
-# 1 "/ddverify-2010-04-30/models/seq1/include/linux/percpu.h" 1
 
 
 
-# 1 "/ddverify-2010-04-30/models/seq1/include/linux/spinlock.h" 1
 
 
 
-# 1 "/ddverify-2010-04-30/models/seq1/include/linux/stringify.h" 1
-# 5 "/ddverify-2010-04-30/models/seq1/include/linux/spinlock.h" 2
-# 1 "/ddverify-2010-04-30/models/seq1/include/linux/spinlock_types.h" 1
 
 
 
@@ -369,7 +315,6 @@ typedef struct {
 typedef struct {
   int something;
 } rwlock_t;
-# 6 "/ddverify-2010-04-30/models/seq1/include/linux/spinlock.h" 2
 
 
 
@@ -383,37 +328,26 @@ void spin_unlock(spinlock_t *);
 void spin_unlock_irqrestore(spinlock_t *, unsigned long);
 void spin_unlock_irq(spinlock_t *);
 void spin_unlock_bh(spinlock_t *);
-# 5 "/ddverify-2010-04-30/models/seq1/include/linux/percpu.h" 2
-# 1 "/ddverify-2010-04-30/models/seq1/include/linux/slab.h" 1
-
-
-
-# 1 "/ddverify-2010-04-30/models/seq1/include/linux/gfp.h" 1
-
-
-
-# 1 "/ddverify-2010-04-30/models/seq1/include/linux/mmzone.h" 1
-
-
-
-# 1 "/ddverify-2010-04-30/models/seq1/include/linux/config.h" 1
-# 5 "/ddverify-2010-04-30/models/seq1/include/linux/mmzone.h" 2
-
-
-# 1 "/ddverify-2010-04-30/models/seq1/include/linux/wait.h" 1
-
-
-
-# 1 "/ddverify-2010-04-30/models/seq1/include/linux/config.h" 1
-# 5 "/ddverify-2010-04-30/models/seq1/include/linux/wait.h" 2
-# 1 "/ddverify-2010-04-30/models/seq1/include/linux/list.h" 1
 
 
 
 
 
 
-# 1 "/ddverify-2010-04-30/models/seq1/include/asm/system.h" 1
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -421,7 +355,6 @@ void rmb(void);
 void read_barrier_depends(void);
 void wmb(void);
 void mb(void);
-# 8 "/ddverify-2010-04-30/models/seq1/include/linux/list.h" 2
 
 struct list_head {
  struct list_head *next, *prev;
@@ -438,7 +371,6 @@ static inline void INIT_LIST_HEAD(struct list_head *list)
  list->next = list;
  list->prev = list;
 }
-# 49 "/ddverify-2010-04-30/models/seq1/include/linux/list.h"
 static inline void __list_add(struct list_head *new,
          struct list_head *prev,
          struct list_head *next)
@@ -448,12 +380,10 @@ static inline void __list_add(struct list_head *new,
  new->prev = prev;
  prev->next = new;
 }
-# 68 "/ddverify-2010-04-30/models/seq1/include/linux/list.h"
 static inline void list_add(struct list_head *new, struct list_head *head)
 {
  __list_add(new, head, head->next);
 }
-# 81 "/ddverify-2010-04-30/models/seq1/include/linux/list.h"
 static inline void __list_del(struct list_head * prev, struct list_head * next)
 {
  next->prev = prev;
@@ -478,23 +408,16 @@ static inline int list_empty(const struct list_head *head)
 {
  return head->next == head;
 }
-# 6 "/ddverify-2010-04-30/models/seq1/include/linux/wait.h" 2
-# 1 "/ddverify-2010-04-30/models/seq1/include/linux/stddef.h" 1
-# 7 "/ddverify-2010-04-30/models/seq1/include/linux/wait.h" 2
-
-
-# 1 "/ddverify-2010-04-30/models/seq1/include/asm/current.h" 1
 
 
 
 
-# 1 "/ddverify-2010-04-30/models/seq1/include/linux/sched.h" 1
-# 6 "/ddverify-2010-04-30/models/seq1/include/asm/current.h" 2
+
+
 
 struct task_struct;
 
 struct task_struct *get_current(void);
-# 10 "/ddverify-2010-04-30/models/seq1/include/linux/wait.h" 2
 
 struct __wait_queue {
     int something;
@@ -508,7 +431,6 @@ struct __wait_queue_head {
   int init;
 };
 typedef struct __wait_queue_head wait_queue_head_t;
-# 62 "/ddverify-2010-04-30/models/seq1/include/linux/wait.h"
 void init_waitqueue_head(wait_queue_head_t *q);
 
 void prepare_to_wait(wait_queue_head_t *q, wait_queue_t *wait, int state);
@@ -536,31 +458,20 @@ int waitqueue_active(wait_queue_head_t *q);
 void sleep_on(wait_queue_head_t *q);
 
 void interruptible_sleep_on(wait_queue_head_t *q);
-# 8 "/ddverify-2010-04-30/models/seq1/include/linux/mmzone.h" 2
-
-# 1 "/ddverify-2010-04-30/models/seq1/include/linux/threads.h" 1
-# 10 "/ddverify-2010-04-30/models/seq1/include/linux/mmzone.h" 2
-
-# 1 "/ddverify-2010-04-30/models/seq1/include/linux/init.h" 1
-
-
-
-# 1 "/ddverify-2010-04-30/models/seq1/include/linux/config.h" 1
-# 5 "/ddverify-2010-04-30/models/seq1/include/linux/init.h" 2
-# 12 "/ddverify-2010-04-30/models/seq1/include/linux/mmzone.h" 2
-
-# 1 "/ddverify-2010-04-30/models/seq1/include/asm/atomic.h" 1
-
-
-
-# 1 "/ddverify-2010-04-30/models/seq1/include/ddverify/satabs.h" 1
 
 
 
 
 
-# 1 "/ddverify-2010-04-30/models/seq1/include/ddverify/pthread.h" 1
-# 15 "/ddverify-2010-04-30/models/seq1/include/ddverify/pthread.h"
+
+
+
+
+
+
+
+
+
 struct __pthread_t_struct
 {
   int id;
@@ -794,7 +705,6 @@ extern int pthread_atfork(void (*__prepare)(void),
      void (*__child)(void));
 
 extern void pthread_kill_other_threads_np(void);
-# 7 "/ddverify-2010-04-30/models/seq1/include/ddverify/satabs.h" 2
 
 
 
@@ -830,15 +740,12 @@ void noop();
 
 void __VERIFIER_atomic_begin();
 void __VERIFIER_atomic_end();
-# 5 "/ddverify-2010-04-30/models/seq1/include/asm/atomic.h" 2
 
 typedef int atomic_t;
-# 34 "/ddverify-2010-04-30/models/seq1/include/asm/atomic.h"
 static __inline__ void atomic_add(int i, atomic_t *v)
 {
     (*v) = (*v) + i;
 }
-# 46 "/ddverify-2010-04-30/models/seq1/include/asm/atomic.h"
 static __inline__ void atomic_sub(int i, atomic_t *v)
 {
     (*v) = (*v) - i;
@@ -865,7 +772,6 @@ static __inline__ void atomic_dec(atomic_t *v)
 {
     (*v)--;
 }
-# 81 "/ddverify-2010-04-30/models/seq1/include/asm/atomic.h"
 static __inline__ int atomic_dec_and_test(atomic_t *v)
 {
     int ret;
@@ -882,7 +788,6 @@ static __inline__ int atomic_dec_and_test(atomic_t *v)
 
     return ret;
 }
-# 106 "/ddverify-2010-04-30/models/seq1/include/asm/atomic.h"
 static __inline__ int atomic_inc_and_test(atomic_t *v)
 {
     int ret;
@@ -899,7 +804,6 @@ static __inline__ int atomic_inc_and_test(atomic_t *v)
 
     return ret;
 }
-# 132 "/ddverify-2010-04-30/models/seq1/include/asm/atomic.h"
 static __inline__ int atomic_add_negative(int i, atomic_t *v)
 {
    int ret;
@@ -916,7 +820,6 @@ static __inline__ int atomic_add_negative(int i, atomic_t *v)
 
     return ret;
 }
-# 156 "/ddverify-2010-04-30/models/seq1/include/asm/atomic.h"
 static __inline__ int atomic_add_return(int i, atomic_t *v)
 {
     return (*v) + i;
@@ -926,13 +829,8 @@ static __inline__ int atomic_sub_return(int i, atomic_t *v)
 {
     return (*v) - i;
 }
-# 14 "/ddverify-2010-04-30/models/seq1/include/linux/mmzone.h" 2
-# 5 "/ddverify-2010-04-30/models/seq1/include/linux/gfp.h" 2
 
 
-# 1 "/ddverify-2010-04-30/models/seq1/include/linux/config.h" 1
-# 8 "/ddverify-2010-04-30/models/seq1/include/linux/gfp.h" 2
-# 55 "/ddverify-2010-04-30/models/seq1/include/linux/gfp.h"
 unsigned long __get_free_pages(gfp_t gfp_mask, unsigned int order);
 
 unsigned long __get_free_page(gfp_t gfp_mask);
@@ -951,7 +849,6 @@ static struct page *alloc_pages_node(int nid, gfp_t gfp_mask,
 struct page * alloc_pages(gfp_t gfp_mask, unsigned int order);
 
 struct page * alloc_page(gfp_t gfp_mask);
-# 5 "/ddverify-2010-04-30/models/seq1/include/linux/slab.h" 2
 
 
 
@@ -962,20 +859,16 @@ void *kmalloc(size_t size, gfp_t flags);
 void *kzalloc(size_t size, gfp_t flags);
 
 unsigned int ksize(const void *);
-# 6 "/ddverify-2010-04-30/models/seq1/include/linux/percpu.h" 2
-
-# 1 "/ddverify-2010-04-30/models/seq1/include/linux/string.h" 1
 
 
 
 
 
-# 1 "/ddverify-2010-04-30/models/seq1/include/asm/string.h" 1
+
 
 
 
 void *memset(void *s, int c, size_t n);
-# 7 "/ddverify-2010-04-30/models/seq1/include/linux/string.h" 2
 
 extern char * strcpy(char *,const char *);
 extern char * strncpy(char *,const char *, __kernel_size_t);
@@ -1004,22 +897,14 @@ extern void * memmove(void *,const void *,__kernel_size_t);
 extern void * memscan(void *,int,__kernel_size_t);
 extern int memcmp(const void *,const void *,__kernel_size_t);
 extern void * memchr(const void *,int,__kernel_size_t);
-# 8 "/ddverify-2010-04-30/models/seq1/include/linux/percpu.h" 2
-# 11 "/ddverify-2010-04-30/models/seq1/include/linux/sched.h" 2
-
-# 1 "/ddverify-2010-04-30/models/seq1/include/asm/processor.h" 1
 
 
 
-# 1 "/ddverify-2010-04-30/models/seq1/include/asm/msr.h" 1
-# 5 "/ddverify-2010-04-30/models/seq1/include/asm/processor.h" 2
-# 13 "/ddverify-2010-04-30/models/seq1/include/linux/sched.h" 2
-
-# 1 "/ddverify-2010-04-30/models/seq1/include/linux/signal.h" 1
 
 
 
-# 1 "/ddverify-2010-04-30/models/seq1/include/asm/signal.h" 1
+
+
 
 
 
@@ -1032,27 +917,19 @@ typedef unsigned long old_sigset_t;
 typedef struct {
  unsigned long sig[(64 / 32)];
 } sigset_t;
-# 5 "/ddverify-2010-04-30/models/seq1/include/linux/signal.h" 2
-# 1 "/ddverify-2010-04-30/models/seq1/include/asm/siginfo.h" 1
 
 
 
-# 1 "/ddverify-2010-04-30/models/seq1/include/asm-generic/siginfo.h" 1
-# 114 "/ddverify-2010-04-30/models/seq1/include/asm-generic/siginfo.h"
 typedef struct siginfo {
     int something;
 } siginfo_t;
-# 5 "/ddverify-2010-04-30/models/seq1/include/asm/siginfo.h" 2
-# 6 "/ddverify-2010-04-30/models/seq1/include/linux/signal.h" 2
 
 
 
 
-# 1 "/ddverify-2010-04-30/models/seq1/include/linux/bitops.h" 1
 
 
 
-# 1 "/ddverify-2010-04-30/models/seq1/include/asm/bitops.h" 1
 
 
 
@@ -1064,9 +941,6 @@ int test_and_change_bit(int nr, unsigned long* addr);
 int test_bit(int nr, const void * addr);
 void clear_bit(int nr, volatile unsigned long * addr);
 int find_first_zero_bit(const unsigned long *addr, unsigned size);
-# 5 "/ddverify-2010-04-30/models/seq1/include/linux/bitops.h" 2
-# 11 "/ddverify-2010-04-30/models/seq1/include/linux/signal.h" 2
-# 23 "/ddverify-2010-04-30/models/seq1/include/linux/signal.h"
 static inline void sigfillset(sigset_t *set)
 {
  switch ((64 / 32)) {
@@ -1095,8 +969,6 @@ static inline int sigtestsetmask(sigset_t *set, unsigned long mask)
 {
  return (set->sig[0] & mask) != 0;
 }
-# 15 "/ddverify-2010-04-30/models/seq1/include/linux/sched.h" 2
-# 24 "/ddverify-2010-04-30/models/seq1/include/linux/sched.h"
 struct sighand_struct {
     spinlock_t siglock;
 };
@@ -1135,46 +1007,26 @@ void set_current_state(int);
 extern int kill_proc(pid_t, int, int);
 
 extern void recalc_sigpending(void);
-# 5 "/ddverify-2010-04-30/models/seq1/include/linux/module.h" 2
-
-
-# 1 "/ddverify-2010-04-30/models/seq1/include/linux/moduleparam.h" 1
-
-
-
-
-
-# 1 "/ddverify-2010-04-30/models/seq1/include/linux/kernel.h" 1
-# 12 "/ddverify-2010-04-30/models/seq1/include/linux/kernel.h"
-# 1 "/ddverify-2010-04-30/models/seq1/include/asm/byteorder.h" 1
 
 
 
 
 
 
-# 1 "/ddverify-2010-04-30/models/seq1/include/linux/byteorder/little_endian.h" 1
-# 28 "/ddverify-2010-04-30/models/seq1/include/linux/byteorder/little_endian.h"
-# 1 "/ddverify-2010-04-30/models/seq1/include/linux/byteorder/generic.h" 1
-# 29 "/ddverify-2010-04-30/models/seq1/include/linux/byteorder/little_endian.h" 2
-# 8 "/ddverify-2010-04-30/models/seq1/include/asm/byteorder.h" 2
-# 13 "/ddverify-2010-04-30/models/seq1/include/linux/kernel.h" 2
-# 1 "/ddverify-2010-04-30/models/seq1/include/asm/bug.h" 1
-
-
-
-# 1 "/ddverify-2010-04-30/models/seq1/include/linux/config.h" 1
-# 5 "/ddverify-2010-04-30/models/seq1/include/asm/bug.h" 2
-# 1 "/ddverify-2010-04-30/models/seq1/include/asm-generic/bug.h" 1
 
 
 
 
-# 1 "/ddverify-2010-04-30/models/seq1/include/linux/config.h" 1
-# 6 "/ddverify-2010-04-30/models/seq1/include/asm-generic/bug.h" 2
-# 6 "/ddverify-2010-04-30/models/seq1/include/asm/bug.h" 2
-# 14 "/ddverify-2010-04-30/models/seq1/include/linux/kernel.h" 2
-# 29 "/ddverify-2010-04-30/models/seq1/include/linux/kernel.h"
+
+
+
+
+
+
+
+
+
+
 unsigned long simple_strtoul(const char *,char **,unsigned int);
 long simple_strtol(const char *,char **,unsigned int);
 unsigned long long simple_strtoull(const char *,char **,unsigned int);
@@ -1198,18 +1050,11 @@ extern enum system_states {
  SYSTEM_RESTART,
  SYSTEM_SUSPEND_DISK,
 } system_state;
-# 60 "/ddverify-2010-04-30/models/seq1/include/linux/kernel.h"
 extern void dump_stack(void);
-# 7 "/ddverify-2010-04-30/models/seq1/include/linux/moduleparam.h" 2
-# 8 "/ddverify-2010-04-30/models/seq1/include/linux/module.h" 2
-
-# 1 "/ddverify-2010-04-30/models/seq1/include/linux/stat.h" 1
 
 
 
-# 1 "/ddverify-2010-04-30/models/seq1/include/asm/stat.h" 1
-# 5 "/ddverify-2010-04-30/models/seq1/include/linux/stat.h" 2
-# 50 "/ddverify-2010-04-30/models/seq1/include/linux/stat.h"
+
 struct kstat {
  unsigned long ino;
  dev_t dev;
@@ -1225,8 +1070,6 @@ struct kstat {
  unsigned long blksize;
  unsigned long blocks;
 };
-# 10 "/ddverify-2010-04-30/models/seq1/include/linux/module.h" 2
-# 24 "/ddverify-2010-04-30/models/seq1/include/linux/module.h"
 struct module {
     int something;
 };
@@ -1234,18 +1077,13 @@ struct module {
 
 
 void __module_get(struct module *module);
-# 32 "machzwd.c" 2
 
 
 
 
-# 1 "/ddverify-2010-04-30/models/seq1/include/linux/miscdevice.h" 1
 
 
 
-# 1 "/ddverify-2010-04-30/models/seq1/include/linux/major.h" 1
-# 5 "/ddverify-2010-04-30/models/seq1/include/linux/miscdevice.h" 2
-# 34 "/ddverify-2010-04-30/models/seq1/include/linux/miscdevice.h"
 struct miscdevice {
     int minor;
     const char *name;
@@ -1254,22 +1092,13 @@ struct miscdevice {
 
 extern int misc_register(struct miscdevice * misc);
 extern int misc_deregister(struct miscdevice * misc);
-# 37 "machzwd.c" 2
-# 1 "/ddverify-2010-04-30/models/seq1/include/linux/watchdog.h" 1
 
 
 
-# 1 "/ddverify-2010-04-30/models/seq1/include/linux/ioctl.h" 1
 
 
 
-# 1 "/ddverify-2010-04-30/models/seq1/include/asm/ioctl.h" 1
-# 1 "/ddverify-2010-04-30/models/seq1/include/asm-generic/ioctl.h" 1
-# 51 "/ddverify-2010-04-30/models/seq1/include/asm-generic/ioctl.h"
 extern unsigned int __invalid_size_argument_for_IOC;
-# 1 "/ddverify-2010-04-30/models/seq1/include/asm/ioctl.h" 2
-# 5 "/ddverify-2010-04-30/models/seq1/include/linux/ioctl.h" 2
-# 5 "/ddverify-2010-04-30/models/seq1/include/linux/watchdog.h" 2
 
 
 
@@ -1279,12 +1108,6 @@ struct watchdog_info {
  __u32 firmware_version;
  __u8 identity[32];
 };
-# 38 "machzwd.c" 2
-# 1 "/ddverify-2010-04-30/models/seq1/include/linux/fs.h" 1
-# 13 "/ddverify-2010-04-30/models/seq1/include/linux/fs.h"
-# 1 "/ddverify-2010-04-30/models/seq1/include/linux/kdev_t.h" 1
-# 14 "/ddverify-2010-04-30/models/seq1/include/linux/fs.h" 2
-# 1 "/ddverify-2010-04-30/models/seq1/include/linux/dcache.h" 1
 
 
 
@@ -1292,12 +1115,10 @@ struct dentry {
     struct inode *d_inode;
 
 };
-# 15 "/ddverify-2010-04-30/models/seq1/include/linux/fs.h" 2
 
 
 
 
-# 1 "/ddverify-2010-04-30/models/seq1/include/asm/semaphore.h" 1
 
 
 
@@ -1305,7 +1126,6 @@ struct semaphore {
     int init;
     int locked;
 };
-# 23 "/ddverify-2010-04-30/models/seq1/include/asm/semaphore.h"
 void sema_init(struct semaphore *sem, int val);
 
 void init_MUTEX(struct semaphore * sem);
@@ -1319,25 +1139,14 @@ int down_interruptible(struct semaphore * sem);
 int down_trylock(struct semaphore * sem);
 
 void up(struct semaphore * sem);
-# 20 "/ddverify-2010-04-30/models/seq1/include/linux/fs.h" 2
-
-
-# 1 "/ddverify-2010-04-30/models/seq1/include/linux/fcntl.h" 1
 
 
 
-# 1 "/ddverify-2010-04-30/models/seq1/include/asm/fcntl.h" 1
-# 1 "/ddverify-2010-04-30/models/seq1/include/asm-generic/fcntl.h" 1
 
 
 
-# 1 "/ddverify-2010-04-30/models/seq1/include/linux/config.h" 1
-# 5 "/ddverify-2010-04-30/models/seq1/include/asm-generic/fcntl.h" 2
-# 1 "/ddverify-2010-04-30/models/seq1/include/asm/fcntl.h" 2
-# 5 "/ddverify-2010-04-30/models/seq1/include/linux/fcntl.h" 2
-# 23 "/ddverify-2010-04-30/models/seq1/include/linux/fs.h" 2
-# 1 "/ddverify-2010-04-30/models/seq1/include/linux/err.h" 1
-# 12 "/ddverify-2010-04-30/models/seq1/include/linux/err.h"
+
+
 static inline void *ERR_PTR(long error)
 {
  return (void *) error;
@@ -1352,8 +1161,6 @@ static inline long IS_ERR(const void *ptr)
 {
  return ((unsigned long)ptr) >= (unsigned long)-4095;
 }
-# 24 "/ddverify-2010-04-30/models/seq1/include/linux/fs.h" 2
-# 82 "/ddverify-2010-04-30/models/seq1/include/linux/fs.h"
 struct hd_geometry;
 struct iovec;
 struct poll_table_struct;
@@ -1459,7 +1266,6 @@ struct fasync_struct {
 };
 
 extern int fasync_helper(int, struct file *, int, struct fasync_struct **);
-# 195 "/ddverify-2010-04-30/models/seq1/include/linux/fs.h"
 int alloc_chrdev_region(dev_t *, unsigned, unsigned, const char *);
 int register_chrdev_region(dev_t, unsigned, const char *);
 void unregister_chrdev_region(dev_t, unsigned);
@@ -1503,16 +1309,12 @@ int nonseekable_open(struct inode * inode, struct file * filp);
 loff_t i_size_read(struct inode *inode);
 
 int set_blocksize(struct block_device *, int);
-# 39 "machzwd.c" 2
-# 1 "/ddverify-2010-04-30/models/seq1/include/linux/ioport.h" 1
-# 18 "/ddverify-2010-04-30/models/seq1/include/linux/ioport.h"
 struct resource {
  const char *name;
  unsigned long start, end;
  unsigned long flags;
 
 };
-# 90 "/ddverify-2010-04-30/models/seq1/include/linux/ioport.h"
 struct resource *request_region(unsigned long, unsigned long, const char *);
 
 void release_region(unsigned long, unsigned long);
@@ -1522,18 +1324,12 @@ void release_region(unsigned long, unsigned long);
 struct resource *request_mem_region(unsigned long start, unsigned long len, const char *name);
 
 void release_mem_region(unsigned long start, unsigned long len);
-# 40 "machzwd.c" 2
-# 1 "/ddverify-2010-04-30/models/seq1/include/linux/notifier.h" 1
-# 15 "/ddverify-2010-04-30/models/seq1/include/linux/notifier.h"
 struct notifier_block
 {
     int (*notifier_call)(struct notifier_block *self, unsigned long, void *);
     struct notifier_block *next;
     int priority;
 };
-# 41 "machzwd.c" 2
-# 1 "/ddverify-2010-04-30/models/seq1/include/linux/reboot.h" 1
-# 40 "/ddverify-2010-04-30/models/seq1/include/linux/reboot.h"
 extern int register_reboot_notifier(struct notifier_block *);
 extern int unregister_reboot_notifier(struct notifier_block *);
 
@@ -1567,10 +1363,8 @@ void ctrl_alt_del(void);
 
 
 extern void emergency_restart(void);
-# 42 "machzwd.c" 2
 
 
-# 1 "/ddverify-2010-04-30/models/seq1/include/asm/io.h" 1
 
 
 
@@ -1638,21 +1432,14 @@ unsigned int readl(const void *);
 void writeb(unsigned char, void *);
 void writew(unsigned short, void *);
 void writel(unsigned int, void *);
-# 45 "machzwd.c" 2
-# 1 "/ddverify-2010-04-30/models/seq1/include/asm/uaccess.h" 1
 
 
 
 
 
 
-# 1 "/ddverify-2010-04-30/models/seq1/include/linux/config.h" 1
-# 8 "/ddverify-2010-04-30/models/seq1/include/asm/uaccess.h" 2
 
 
-# 1 "/ddverify-2010-04-30/models/seq1/include/asm/page.h" 1
-# 11 "/ddverify-2010-04-30/models/seq1/include/asm/uaccess.h" 2
-# 35 "/ddverify-2010-04-30/models/seq1/include/asm/uaccess.h"
 int access_ok(int type, const void *addr, unsigned long size);
 
 
@@ -1672,8 +1459,6 @@ int put_user(int size, void *ptr);
 unsigned long copy_to_user(void *to, const void *from, unsigned long n);
 
 unsigned long copy_from_user(void *to, void *from, unsigned long n);
-# 46 "machzwd.c" 2
-# 84 "machzwd.c"
 static unsigned short zf_readw(unsigned char port)
 {
  outb(port, 0x218);
@@ -1695,7 +1480,6 @@ static struct watchdog_info zf_info = {
  .firmware_version = 1,
  .identity = "ZF-Logic watchdog",
 };
-# 117 "machzwd.c"
 static int action = 0;
 char _ddv_module_param_action [] = "after watchdog resets, generate: 0 = RESET(*)  1 = SMI  2 = NMI  3 = SCI";
 
@@ -1706,7 +1490,6 @@ static spinlock_t zf_lock;
 static spinlock_t zf_port_lock;
 static struct timer_list zf_timer;
 static unsigned long next_heartbeat = 0;
-# 146 "machzwd.c"
 static inline void zf_set_status(unsigned char new)
 {
  { outb(0x12, 0x218); outb(new, 0x219); };
@@ -2056,7 +1839,6 @@ static void zf_exit(void)
 
 int (* _ddv_tmp_init)(void) = zf_init;
 void (* _ddv_tmp_exit)(void) = zf_exit;
-# 3 "concatenated.c" 2
 
 int main()
 {
@@ -2069,12 +1851,10 @@ int main()
 
 
 
-# 1 "/ddverify-2010-04-30/models/seq1/include/ddverify/cdev.h" 1
 
 
 
 
-# 1 "/ddverify-2010-04-30/models/seq1/include/linux/cdev.h" 1
 
 
 
@@ -2096,16 +1876,12 @@ int cdev_add(struct cdev *, dev_t, unsigned);
 void cdev_del(struct cdev *);
 
 void cd_forget(struct inode *);
-# 6 "/ddverify-2010-04-30/models/seq1/include/ddverify/cdev.h" 2
 
 
 
-# 1 "/ddverify-2010-04-30/models/seq1/include/ddverify/fixed_cdev.h" 1
 
 
 
-# 1 "/ddverify-2010-04-30/models/seq1/include/ddverify/cdev.h" 1
-# 5 "/ddverify-2010-04-30/models/seq1/include/ddverify/fixed_cdev.h" 2
 
 
 
@@ -2115,7 +1891,6 @@ void cd_forget(struct inode *);
 
 struct cdev fixed_cdev[1];
 int fixed_cdev_used = 0;
-# 10 "/ddverify-2010-04-30/models/seq1/include/ddverify/cdev.h" 2
 
 short number_cdev_registered = 0;
 
@@ -2131,28 +1906,19 @@ struct ddv_cdev {
 struct ddv_cdev cdev_registered[1];
 
 void call_cdev_functions();
-# 16 "concatenated.c" 2
-# 1 "/ddverify-2010-04-30/models/seq1/include/ddverify/genhd.h" 1
-
-
-
-# 1 "/ddverify-2010-04-30/models/seq1/include/linux/blkdev.h" 1
 
 
 
 
 
-# 1 "/ddverify-2010-04-30/models/seq1/include/linux/genhd.h" 1
 
 
 
 
 
-# 1 "/ddverify-2010-04-30/models/seq1/include/linux/device.h" 1
-# 15 "/ddverify-2010-04-30/models/seq1/include/linux/device.h"
-# 1 "/ddverify-2010-04-30/models/seq1/include/linux/kobject.h" 1
-# 21 "/ddverify-2010-04-30/models/seq1/include/linux/kobject.h"
-# 1 "/ddverify-2010-04-30/models/seq1/include/linux/sysfs.h" 1
+
+
+
 
 
 
@@ -2172,30 +1938,23 @@ struct attribute_group {
  const char * name;
  struct attribute ** attrs;
 };
-# 22 "/ddverify-2010-04-30/models/seq1/include/linux/kobject.h" 2
-# 30 "/ddverify-2010-04-30/models/seq1/include/linux/kobject.h"
 struct kobject {
   int something;
 };
-# 16 "/ddverify-2010-04-30/models/seq1/include/linux/device.h" 2
 
 
 
 
 
-# 1 "/ddverify-2010-04-30/models/seq1/include/linux/pm.h" 1
 
 
 
-# 1 "/ddverify-2010-04-30/models/seq1/include/linux/config.h" 1
-# 5 "/ddverify-2010-04-30/models/seq1/include/linux/pm.h" 2
 
 
 
 typedef struct pm_message {
  int event;
 } pm_message_t;
-# 22 "/ddverify-2010-04-30/models/seq1/include/linux/device.h" 2
 
 
 
@@ -2265,8 +2024,6 @@ static inline void dev_set_drvdata (struct device *dev, void *data)
 }
 
 extern const char *dev_driver_string(struct device *dev);
-# 7 "/ddverify-2010-04-30/models/seq1/include/linux/genhd.h" 2
-# 17 "/ddverify-2010-04-30/models/seq1/include/linux/genhd.h"
 struct gendisk {
  int major;
  int first_minor;
@@ -2298,11 +2055,8 @@ void set_capacity(struct gendisk *disk, sector_t size);
 
 
 void add_disk_randomness(struct gendisk *disk);
-# 7 "/ddverify-2010-04-30/models/seq1/include/linux/blkdev.h" 2
 
 
-# 1 "/ddverify-2010-04-30/models/seq1/include/linux/workqueue.h" 1
-# 12 "/ddverify-2010-04-30/models/seq1/include/linux/workqueue.h"
 struct work_struct {
     unsigned long pending;
     void (*func)(void *);
@@ -2310,75 +2064,54 @@ struct work_struct {
 
     int init;
 };
-# 46 "/ddverify-2010-04-30/models/seq1/include/linux/workqueue.h"
 int schedule_work(struct work_struct *work);
 
 void flush_scheduled_work(void);
-# 10 "/ddverify-2010-04-30/models/seq1/include/linux/blkdev.h" 2
-# 1 "/ddverify-2010-04-30/models/seq1/include/linux/pagemap.h" 1
 
 
 
 
 
 
-# 1 "/ddverify-2010-04-30/models/seq1/include/linux/mm.h" 1
-# 10 "/ddverify-2010-04-30/models/seq1/include/linux/mm.h"
-# 1 "/ddverify-2010-04-30/models/seq1/include/linux/mutex.h" 1
-# 20 "/ddverify-2010-04-30/models/seq1/include/linux/mutex.h"
 struct mutex {
     int locked;
     int init;
 };
-# 32 "/ddverify-2010-04-30/models/seq1/include/linux/mutex.h"
 void mutex_init(struct mutex *lock);
 
 void mutex_lock(struct mutex *lock);
 
 void mutex_unlock(struct mutex *lock);
-# 11 "/ddverify-2010-04-30/models/seq1/include/linux/mm.h" 2
-# 1 "/ddverify-2010-04-30/models/seq1/include/linux/mm_types.h" 1
-# 9 "/ddverify-2010-04-30/models/seq1/include/linux/mm_types.h"
 struct page {
     int something;
 };
-# 12 "/ddverify-2010-04-30/models/seq1/include/linux/mm.h" 2
 
 
 
 void *page_address(struct page *page);
-# 8 "/ddverify-2010-04-30/models/seq1/include/linux/pagemap.h" 2
-
-
-# 1 "/ddverify-2010-04-30/models/seq1/include/linux/highmem.h" 1
 
 
 
 
 
 
-# 1 "/ddverify-2010-04-30/models/seq1/include/asm/highmem.h" 1
-
-
-
-# 1 "/ddverify-2010-04-30/models/seq1/include/linux/interrupt.h" 1
 
 
 
 
-# 1 "/ddverify-2010-04-30/models/seq1/include/linux/config.h" 1
-# 6 "/ddverify-2010-04-30/models/seq1/include/linux/interrupt.h" 2
 
 
-# 1 "/ddverify-2010-04-30/models/seq1/include/asm/ptrace.h" 1
+
+
+
+
+
 
 
 
 struct pt_regs {
     int something;
 };
-# 9 "/ddverify-2010-04-30/models/seq1/include/linux/interrupt.h" 2
-# 28 "/ddverify-2010-04-30/models/seq1/include/linux/interrupt.h"
 typedef int irqreturn_t;
 
 
@@ -2393,7 +2126,6 @@ struct tasklet_struct
 
     int init;
 };
-# 50 "/ddverify-2010-04-30/models/seq1/include/linux/interrupt.h"
 void tasklet_schedule(struct tasklet_struct *t);
 
 static inline void tasklet_disable(struct tasklet_struct *t)
@@ -2439,9 +2171,7 @@ void sti(void);
 void save_flags(unsigned long x);
 
 void restore_flags(unsigned long x);
-# 5 "/ddverify-2010-04-30/models/seq1/include/asm/highmem.h" 2
 
-# 1 "/ddverify-2010-04-30/models/seq1/include/asm/kmap_types.h" 1
 
 
 
@@ -2463,7 +2193,6 @@ enum km_type {
  KM_DUMP,
  KM_TYPE_NR
 };
-# 7 "/ddverify-2010-04-30/models/seq1/include/asm/highmem.h" 2
 
 
 
@@ -2473,20 +2202,13 @@ void *kmap_atomic(struct page *page, enum km_type type);
 void kunmap_atomic(void *kvaddr, enum km_type type);
 void *kmap_atomic_pfn(unsigned long pfn, enum km_type type);
 struct page *kmap_atomic_to_page(void *ptr);
-# 8 "/ddverify-2010-04-30/models/seq1/include/linux/highmem.h" 2
-# 11 "/ddverify-2010-04-30/models/seq1/include/linux/pagemap.h" 2
-# 11 "/ddverify-2010-04-30/models/seq1/include/linux/blkdev.h" 2
-# 1 "/ddverify-2010-04-30/models/seq1/include/linux/backing-dev.h" 1
-# 11 "/ddverify-2010-04-30/models/seq1/include/linux/backing-dev.h"
 struct backing_dev_info {
     unsigned long ra_pages;
     unsigned long state;
     unsigned int capabilities;
 };
-# 12 "/ddverify-2010-04-30/models/seq1/include/linux/blkdev.h" 2
 
 
-# 1 "/ddverify-2010-04-30/models/seq1/include/linux/bio.h" 1
 
 
 
@@ -2526,18 +2248,15 @@ struct bio {
 
     void *bi_private;
 };
-# 103 "/ddverify-2010-04-30/models/seq1/include/linux/bio.h"
 void * __bio_kmap_atomic(struct bio *, int, enum km_type);
 void __bio_kunmap_atomic(char *buffer, enum km_type);
 
 void bio_endio(struct bio *, unsigned int, int);
 
 int bio_cur_sectors(struct bio *);
-# 15 "/ddverify-2010-04-30/models/seq1/include/linux/blkdev.h" 2
 
 
 
-# 1 "/ddverify-2010-04-30/models/seq1/include/asm/scatterlist.h" 1
 
 
 
@@ -2547,14 +2266,11 @@ struct scatterlist {
     dma_addr_t dma_address;
     unsigned int length;
 };
-# 19 "/ddverify-2010-04-30/models/seq1/include/linux/blkdev.h" 2
 
-# 1 "/ddverify-2010-04-30/models/seq1/include/linux/elevator.h" 1
 
 
 
 struct request *elv_next_request(struct request_queue *q);
-# 21 "/ddverify-2010-04-30/models/seq1/include/linux/blkdev.h" 2
 
 struct request_queue;
 typedef struct request_queue request_queue_t;
@@ -2608,7 +2324,6 @@ struct request_queue {
     int __ddv_genhd_no;
     int __ddv_queue_alive;
 };
-# 90 "/ddverify-2010-04-30/models/seq1/include/linux/blkdev.h"
 struct request {
     struct list_head queuelist;
     struct list_head donelist;
@@ -2676,7 +2391,6 @@ enum rq_flag_bits {
  __REQ_ORDERED_COLOR,
  __REQ_NR_BITS,
 };
-# 192 "/ddverify-2010-04-30/models/seq1/include/linux/blkdev.h"
 request_queue_t *blk_alloc_queue(gfp_t);
 
 request_queue_t *blk_init_queue(request_fn_proc *, spinlock_t *);
@@ -2719,7 +2433,6 @@ void blk_queue_max_hw_segments(request_queue_t *, unsigned short);
 
 
 int blk_rq_map_sg(request_queue_t *, struct request *, struct scatterlist *);
-# 5 "/ddverify-2010-04-30/models/seq1/include/ddverify/genhd.h" 2
 
 
 
@@ -2743,25 +2456,17 @@ struct gendisk fixed_gendisk[10];
 struct ddv_genhd genhd_registered[10];
 
 void call_genhd_functions();
-# 17 "concatenated.c" 2
-# 1 "/ddverify-2010-04-30/models/seq1/include/ddverify/ioctl.h" 1
-# 18 "concatenated.c" 2
-# 1 "/ddverify-2010-04-30/models/seq1/include/ddverify/pci.h" 1
-
-
-
-# 1 "/ddverify-2010-04-30/models/seq1/include/linux/pci.h" 1
 
 
 
 
-# 1 "/ddverify-2010-04-30/models/seq1/include/linux/config.h" 1
-# 6 "/ddverify-2010-04-30/models/seq1/include/linux/pci.h" 2
 
 
 
 
-# 1 "/ddverify-2010-04-30/models/seq1/include/linux/mod_devicetable.h" 1
+
+
+
 
 
 
@@ -2777,18 +2482,10 @@ struct pci_device_id {
  __u32 class, class_mask;
  kernel_ulong_t driver_data;
 };
-# 11 "/ddverify-2010-04-30/models/seq1/include/linux/pci.h" 2
-# 1 "/ddverify-2010-04-30/models/seq1/include/linux/scatterlist.h" 1
-# 12 "/ddverify-2010-04-30/models/seq1/include/linux/pci.h" 2
 
 
-# 1 "/ddverify-2010-04-30/models/seq1/include/linux/pci_regs.h" 1
-# 15 "/ddverify-2010-04-30/models/seq1/include/linux/pci.h" 2
 
 
-# 1 "/ddverify-2010-04-30/models/seq1/include/linux/pci_ids.h" 1
-# 18 "/ddverify-2010-04-30/models/seq1/include/linux/pci.h" 2
-# 40 "/ddverify-2010-04-30/models/seq1/include/linux/pci.h"
 typedef int pci_power_t;
 
 
@@ -2910,9 +2607,6 @@ int pci_request_region(struct pci_dev *, int, const char *);
 void pci_release_region(struct pci_dev *, int);
 
 
-# 1 "/ddverify-2010-04-30/models/seq1/include/asm/pci.h" 1
-# 14 "/ddverify-2010-04-30/models/seq1/include/asm/pci.h"
-# 1 "/ddverify-2010-04-30/models/seq1/include/asm-generic/pci-dma-compat.h" 1
 
 
 
@@ -2932,9 +2626,6 @@ dma_addr_t pci_map_page(struct pci_dev *hwdev, struct page *page,
    unsigned long offset, size_t size, int direction);
 void pci_unmap_page(struct pci_dev *hwdev, dma_addr_t dma_address,
       size_t size, int direction);
-# 15 "/ddverify-2010-04-30/models/seq1/include/asm/pci.h" 2
-# 162 "/ddverify-2010-04-30/models/seq1/include/linux/pci.h" 2
-# 5 "/ddverify-2010-04-30/models/seq1/include/ddverify/pci.h" 2
 
 struct ddv_pci_driver {
     struct pci_driver *pci_driver;
@@ -2950,9 +2641,6 @@ int pci_probe_device();
 void pci_remove_device();
 
 void call_pci_functions();
-# 19 "concatenated.c" 2
-# 1 "/ddverify-2010-04-30/models/seq1/include/ddverify/interrupt.h" 1
-# 9 "/ddverify-2010-04-30/models/seq1/include/ddverify/interrupt.h"
 struct registered_irq {
   irq_handler_t handler;
   void *dev_id;
@@ -2961,8 +2649,6 @@ struct registered_irq {
 struct registered_irq registered_irq[16];
 
 void call_interrupt_handler();
-# 20 "concatenated.c" 2
-# 1 "/ddverify-2010-04-30/models/seq1/include/ddverify/tasklet.h" 1
 
 
 
@@ -2980,8 +2666,6 @@ struct ddv_tasklet {
 struct ddv_tasklet tasklet_registered[1];
 
 void call_tasklet_functions();
-# 21 "concatenated.c" 2
-# 1 "/ddverify-2010-04-30/models/seq1/include/ddverify/timer.h" 1
 
 
 
@@ -2998,8 +2682,6 @@ struct ddv_timer {
 struct ddv_timer timer_registered[1];
 
 void call_timer_functions();
-# 22 "concatenated.c" 2
-# 1 "/ddverify-2010-04-30/models/seq1/include/ddverify/workqueue.h" 1
 
 
 
@@ -3010,9 +2692,7 @@ void call_timer_functions();
 struct work_struct *shared_workqueue[10];
 
 void call_shared_workqueue_functions();
-# 23 "concatenated.c" 2
 
-# 1 "/ddverify-2010-04-30/models/seq1/include/linux/smp_lock.h" 1
 
 
 
@@ -3020,7 +2700,6 @@ void call_shared_workqueue_functions();
 
 
 spinlock_t kernel_lock;
-# 25 "concatenated.c" 2
 
 void init_kernel()
 {
@@ -3076,7 +2755,6 @@ void ddv()
   current_execution_context = 2;
   call_tasklet_functions();
   break;
-# 88 "concatenated.c"
      default:
   break;
  }
@@ -3261,7 +2939,6 @@ void call_cdev_functions()
     }
 }
 
-# 1 "/ddverify-2010-04-30/models/seq1/include/linux/hdreg.h" 1
 
 
 
@@ -3271,7 +2948,6 @@ struct hd_geometry {
       unsigned short cylinders;
       unsigned long start;
 };
-# 273 "concatenated.c" 2
 
 
 
@@ -3390,7 +3066,6 @@ void call_genhd_functions()
      break;
     }
 }
-# 400 "concatenated.c"
 void call_interrupt_handler()
 {
     unsigned short i;
@@ -3404,7 +3079,6 @@ void call_interrupt_handler()
                                                   ;
     }
 }
-# 438 "concatenated.c"
 void create_pci_dev()
 {
 }
@@ -3705,7 +3379,6 @@ void del_gendisk(struct gendisk *gp)
 
 
 
-# 1 "/ddverify-2010-04-30/models/seq1/include/ddverify/blkdev.h" 1
 
 
 
@@ -3714,7 +3387,6 @@ void del_gendisk(struct gendisk *gp)
 request_queue_t fixed_request_queue[10];
 
 int number_request_queue_used = 0;
-# 739 "concatenated.c" 2
 
 request_queue_t *get_fixed_request_queue()
 {
@@ -3788,7 +3460,6 @@ void blk_cleanup_queue(request_queue_t *q)
 
 
 
-# 1 "/ddverify-2010-04-30/models/seq1/include/linux/proc_fs.h" 1
 
 
 
@@ -3816,8 +3487,6 @@ struct proc_dir_entry *create_proc_entry(const char *name,
 
 void remove_proc_entry(const char *name, struct proc_dir_entry *parent);
 struct proc_dir_entry *proc_mkdir(const char *,struct proc_dir_entry *);
-# 813 "concatenated.c" 2
-# 1 "/ddverify-2010-04-30/models/seq1/include/linux/seq_file.h" 1
 
 
 
@@ -3851,7 +3520,6 @@ int seq_putc(struct seq_file *m, char c);
 int seq_puts(struct seq_file *m, const char *s);
 
 int seq_printf(struct seq_file *, const char *, ...);
-# 814 "concatenated.c" 2
 
 
 
@@ -3859,8 +3527,6 @@ int seq_printf(struct seq_file *, const char *, ...);
 
 
 
-# 1 "/ddverify-2010-04-30/models/seq1/include/ddverify/miscdevice.h" 1
-# 822 "concatenated.c" 2
 
 int misc_register(struct miscdevice * misc)
 {
@@ -3881,22 +3547,18 @@ int misc_register(struct miscdevice * misc)
     return -1;
   }
 }
-# 1 "/ddverify-2010-04-30/models/seq1/include/linux/tty.h" 1
 
 
 
 
 
-# 1 "/ddverify-2010-04-30/models/seq1/include/linux/termios.h" 1
 
 
 
 
-# 1 "/ddverify-2010-04-30/models/seq1/include/asm/termios.h" 1
 
 
 
-# 1 "/ddverify-2010-04-30/models/seq1/include/asm/termbits.h" 1
 
 
 
@@ -3915,16 +3577,11 @@ struct termios {
  cc_t c_line;
  cc_t c_cc[19];
 };
-# 5 "/ddverify-2010-04-30/models/seq1/include/asm/termios.h" 2
-# 1 "/ddverify-2010-04-30/models/seq1/include/asm/ioctls.h" 1
 
 
 
 
 
-# 1 "/ddverify-2010-04-30/models/seq1/include/asm/ioctl.h" 1
-# 7 "/ddverify-2010-04-30/models/seq1/include/asm/ioctls.h" 2
-# 6 "/ddverify-2010-04-30/models/seq1/include/asm/termios.h" 2
 
 
 struct termio {
@@ -3935,11 +3592,7 @@ struct termio {
  unsigned char c_line;
  unsigned char c_cc[8];
 };
-# 6 "/ddverify-2010-04-30/models/seq1/include/linux/termios.h" 2
-# 7 "/ddverify-2010-04-30/models/seq1/include/linux/tty.h" 2
 
-# 1 "/ddverify-2010-04-30/models/seq1/include/linux/tty_driver.h" 1
-# 9 "/ddverify-2010-04-30/models/seq1/include/linux/tty_driver.h"
 struct tty_struct;
 
 
@@ -4034,8 +3687,6 @@ void put_tty_driver(struct tty_driver *driver);
 
 void tty_set_operations(struct tty_driver *driver,
    const struct tty_operations *op);
-# 9 "/ddverify-2010-04-30/models/seq1/include/linux/tty.h" 2
-# 1 "/ddverify-2010-04-30/models/seq1/include/linux/tty_ldisc.h" 1
 
 
 
@@ -4078,8 +3729,6 @@ struct tty_ldisc {
 
  int refcount;
 };
-# 10 "/ddverify-2010-04-30/models/seq1/include/linux/tty.h" 2
-# 113 "/ddverify-2010-04-30/models/seq1/include/linux/tty.h"
 struct tty_struct {
  int magic;
  struct tty_driver *driver;
@@ -4099,7 +3748,6 @@ struct tty_struct {
 
  unsigned char closing:1;
 };
-# 160 "/ddverify-2010-04-30/models/seq1/include/linux/tty.h"
 extern struct termios tty_std_termios;
 
 
@@ -4120,8 +3768,6 @@ extern int tty_get_baud_rate(struct tty_struct *tty);
 
 extern void tty_wakeup(struct tty_struct *tty);
 extern void tty_ldisc_flush(struct tty_struct *tty);
-# 843 "concatenated.c" 2
-# 1 "/ddverify-2010-04-30/models/seq1/include/ddverify/tty.h" 1
 
 
 
@@ -4135,7 +3781,6 @@ struct ddv_tty_driver {
 };
 
 struct ddv_tty_driver global_tty_driver;
-# 844 "concatenated.c" 2
 
 struct tty_driver *alloc_tty_driver(int lines)
 {
@@ -4174,7 +3819,6 @@ void tty_set_operations(struct tty_driver *driver,
   driver->tiocmget = op->tiocmget;
   driver->tiocmset = op->tiocmset;
 }
-# 890 "concatenated.c"
 inline int alloc_chrdev_region(dev_t *dev, unsigned baseminor, unsigned count, const char *name)
 {
     int major;
@@ -4314,8 +3958,6 @@ inline void mutex_unlock(struct mutex *lock)
 
 
 
-# 1 "/ddverify-2010-04-30/models/seq1/include/ddverify/ioport.h" 1
-# 1030 "concatenated.c" 2
 
 int ddv_ioport_request_start;
 int ddv_ioport_request_len;
@@ -4859,7 +4501,6 @@ void * kzalloc(size_t size, gfp_t flags)
 
     return malloc(size);
 }
-# 1 "/ddverify-2010-04-30/models/seq1/include/linux/vmalloc.h" 1
 
 
 
@@ -4867,7 +4508,6 @@ void * kzalloc(size_t size, gfp_t flags)
 
 void *vmalloc(unsigned long size);
 void vfree(void *addr);
-# 1602 "concatenated.c" 2
 
 
 
