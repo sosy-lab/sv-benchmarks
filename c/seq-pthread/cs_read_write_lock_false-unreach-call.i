@@ -790,7 +790,7 @@ void __VERIFIER_atomic_take_read_lock()
  r[__CS_round] = r[__CS_round] + 1;
  if (__CS_ret) r[__CS_round]= __CS_u.r[__CS_round];
 }
-void *writer()
+void *writer(void *arg)
 {
  __CS_cs(); if (__CS_ret != 0) return 0;
  __VERIFIER_atomic_take_write_lock();
@@ -800,7 +800,7 @@ void *writer()
  w[__CS_round] = 0;
  __CS_cs(); if (__CS_ret != 0) return 0;
 }
-void *reader()
+void *reader(void *arg)
 {
  int l;
  __CS_cs(); if (__CS_ret != 0) return 0;
