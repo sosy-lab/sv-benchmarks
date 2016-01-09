@@ -1,0 +1,5 @@
+termination-crafted/*_false-termination*.c
+termination-crafted-lit/*_false-termination*.c
+termination-memory-alloca/*_false-termination*.c.i
+termination-restricted-15/*_false-termination*.c
+termination-15/*_false-termination*.c.i

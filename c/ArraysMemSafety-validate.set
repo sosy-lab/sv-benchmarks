@@ -1,0 +1,3 @@
+array-memsafety/*_false-valid-deref*.i
+# array-memsafety/*_false-valid-free*.i
+# array-memsafety/*_false-valid-memtrack*.i
