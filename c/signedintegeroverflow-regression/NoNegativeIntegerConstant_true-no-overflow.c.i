@@ -329,8 +329,7 @@ extern int ftrylockfile (FILE *__stream) __attribute__ ((__nothrow__ , __leaf__)
 extern void funlockfile (FILE *__stream) __attribute__ ((__nothrow__ , __leaf__));
 
 int main() {
- int x = -2147483647 - 1;
- x--;
- printf("%d\n", x);
+ long x = -2147483648 - 1;
+ printf("%ld\n", x);
  return 0;
 }
