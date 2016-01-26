@@ -1,4 +1,5 @@
 extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+extern void __VERIFIER_assume(int);
 
 extern char __VERIFIER_nondet_char(void);
 extern int __VERIFIER_nondet_int(void);
@@ -44,7 +45,7 @@ int ssl3_accept(int initial_state )
   unsigned long Time ;
   unsigned long tmp ;
   int cb ;
-  long num1 ;
+  long num1 = __VERIFIER_nondet_long() ;
   int ret ;
   int new_state ;
   int state ;

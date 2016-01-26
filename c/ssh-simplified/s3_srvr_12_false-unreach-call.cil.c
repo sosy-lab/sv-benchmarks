@@ -24,9 +24,9 @@ int ssl3_accept(int initial_state )
   int s__shutdown ;
   int s__cert = __VERIFIER_nondet_int() ;
   int s__options = __VERIFIER_nondet_int() ;
-  int s__verify_mode ;
+  int s__verify_mode = __VERIFIER_nondet_int() ;
   int s__session__peer = __VERIFIER_nondet_int() ;
-  int s__cert__pkeys__AT0__privatekey ;
+  int s__cert__pkeys__AT0__privatekey = __VERIFIER_nondet_int() ;
   int s__ctx__info_callback = __VERIFIER_nondet_int() ;
   int s__ctx__stats__sess_accept_renegotiate = __VERIFIER_nondet_int() ;
   int s__ctx__stats__sess_accept = __VERIFIER_nondet_int() ;
@@ -44,7 +44,7 @@ int ssl3_accept(int initial_state )
   unsigned long Time ;
   unsigned long tmp ;
   int cb ;
-  long num1 ;
+  long num1 = __VERIFIER_nondet_long() ;
   int ret ;
   int new_state ;
   int state ;
@@ -67,7 +67,7 @@ int ssl3_accept(int initial_state )
   unsigned long __cil_tmp58 ;
   unsigned long __cil_tmp59 ;
   int __cil_tmp60 ;
-  unsigned long __cil_tmp61 ;
+  unsigned long __cil_tmp61 = __VERIFIER_nondet_ulong() ;
 
   {
   //s__s3__tmp__new_cipher__algorithms = 0;
