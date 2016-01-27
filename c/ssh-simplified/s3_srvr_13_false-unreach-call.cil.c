@@ -44,7 +44,7 @@ int ssl3_accept(int initial_state )
   unsigned long Time ;
   unsigned long tmp ;
   int cb ;
-  long num1 ;
+  long num1 = __VERIFIER_nondet_long() ;
   int ret ;
   int new_state ;
   int state ;
@@ -56,7 +56,7 @@ int ssl3_accept(int initial_state )
   int tmp___4 = __VERIFIER_nondet_int() ;
   int tmp___5 = __VERIFIER_nondet_int() ;
   int tmp___6 = __VERIFIER_nondet_int() ;
-  int tmp___7 ;
+  int tmp___7 = __VERIFIER_nondet_int() ;
   long tmp___8 = __VERIFIER_nondet_long() ;
   int tmp___9 = __VERIFIER_nondet_int() ;
   int tmp___10 = __VERIFIER_nondet_int() ;
