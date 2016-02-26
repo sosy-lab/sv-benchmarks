@@ -673,13 +673,16 @@ int BCSP_IoIncrement() {
     }
     return 0;
 }
-int __VERIFIER_atomic_dec() {
+int dec() {
+    __VERIFIER_atomic_begin();
     pendingIo--;
-    return pendingIo;
+    int tmp = pendingIo;
+    __VERIFIER_atomic_end();
+    return tmp;
 }
 void BCSP_IoDecrement() {
     int pending;
-    pending = __VERIFIER_atomic_dec();
+    pending = dec();
     if (pending == 0) {
  stoppingEvent = 1;
     }

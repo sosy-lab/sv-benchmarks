@@ -665,28 +665,34 @@ volatile int stoppingFlag;
 volatile int pendingIo;
 volatile int stoppingEvent;
 volatile int stopped;
-int __VERIFIER_atomic_BCSP_IoIncrement() {
+int BCSP_IoIncrement() {
+    __VERIFIER_atomic_begin();
     if (stoppingFlag) {
+        __VERIFIER_atomic_end();
  return -1;
     } else {
  pendingIo = pendingIo + 1;
     }
+    __VERIFIER_atomic_end();
     return 0;
 }
-int __VERIFIER_atomic_dec() {
+int dec() {
+    __VERIFIER_atomic_begin();
     pendingIo--;
-    return pendingIo;
+    int tmp = pendingIo;
+    __VERIFIER_atomic_end();
+    return tmp;
 }
 void BCSP_IoDecrement() {
     int pending;
-    pending = __VERIFIER_atomic_dec();
+    pending = dec();
     if (pending == 0) {
  stoppingEvent = 1;
     }
 }
 void* BCSP_PnpAdd(void* arg) {
     int status;
-    status = __VERIFIER_atomic_BCSP_IoIncrement();
+    status = BCSP_IoIncrement();
     if (status == 0) {
  __VERIFIER_assert(!stopped);
     }
