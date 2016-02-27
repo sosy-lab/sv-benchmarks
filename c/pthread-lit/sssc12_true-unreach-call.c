@@ -10,14 +10,18 @@ volatile int len;
 volatile int next;
 volatile int lock;
 
-void __VERIFIER_atomic_acquire() {
+void acquire() {
+    __VERIFIER_atomic_begin();
     __VERIFIER_assume(lock == 0);
     lock = 1;
+    __VERIFIER_atomic_end();
 }
 
-void __VERIFIER_atomic_release() {
+void release() {
+    __VERIFIER_atomic_begin();
     __VERIFIER_assume(lock == 1);
     lock = 0;
+    __VERIFIER_atomic_end();
 }
 
 void* thr(void* arg) {
@@ -25,12 +29,12 @@ void* thr(void* arg) {
     c = 0;
     end = 0;
     
-    __VERIFIER_atomic_acquire();
+    acquire();
     if (next + 10 <= len) {
 	c = next;
 	next = end = next + 10;
     }
-    __VERIFIER_atomic_release();
+    release();
     while (c < end) {
 	__VERIFIER_assert(0 <= c && c < len);
 	data[c] = 0;

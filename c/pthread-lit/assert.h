@@ -6,10 +6,4 @@ void __VERIFIER_assert(int cond) {
   }
   return;
 }
-void __VERIFIER_atomic_assert(int cond) {
-  if (!(cond)) {
-    ERROR: __VERIFIER_error();
-  }
-  return;
-}
 int __VERIFIER_nondet_int();

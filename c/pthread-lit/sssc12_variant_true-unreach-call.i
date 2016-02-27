@@ -656,35 +656,33 @@ void __VERIFIER_assert(int cond) {
   }
   return;
 }
-void __VERIFIER_atomic_assert(int cond) {
-  if (!(cond)) {
-    ERROR: __VERIFIER_error();
-  }
-  return;
-}
 int __VERIFIER_nondet_int();
 int *data;
 volatile int len;
 volatile int next;
 volatile int lock;
-void __VERIFIER_atomic_acquire() {
+void acquire() {
+    __VERIFIER_atomic_begin();
     __VERIFIER_assume(lock == 0);
     lock = 1;
+    __VERIFIER_atomic_end();
 }
-void __VERIFIER_atomic_release() {
+void release() {
+    __VERIFIER_atomic_begin();
     __VERIFIER_assume(lock == 1);
     lock = 0;
+    __VERIFIER_atomic_end();
 }
 void* thr(void* arg) {
     int c, end;
     c = 0;
     end = 0;
-    __VERIFIER_atomic_acquire();
+    acquire();
     if (next + 10 <= len) {
  c = next;
  next = end = next + 10;
     }
-    __VERIFIER_atomic_release();
+    release();
     while (c < end) {
  data[c] = 0;
  data[c] = 1;

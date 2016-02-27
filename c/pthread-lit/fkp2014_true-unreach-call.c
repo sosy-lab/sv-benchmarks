@@ -8,17 +8,21 @@ volatile int s;
 volatile int t;
 
 
-void __VERIFIER_atomic_inct() {
+void inct() {
+    __VERIFIER_atomic_begin();
     t++;
+    __VERIFIER_atomic_end();
 }
-void __VERIFIER_atomic_incs() {
+void incs() {
+    __VERIFIER_atomic_begin();
     s++;
+    __VERIFIER_atomic_end();
 }
 
 void* thr(void* arg) {
-    __VERIFIER_atomic_inct();
-    __VERIFIER_atomic_assert(s < t);
-    __VERIFIER_atomic_incs();
+    inct();
+    __VERIFIER_assert(s < t);
+    incs();
 }
 
 int main() {
