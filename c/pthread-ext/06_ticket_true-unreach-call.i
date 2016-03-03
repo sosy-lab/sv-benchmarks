@@ -1,5 +1,8 @@
 extern void __VERIFIER_assume(int);
 extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+int __global_lock;
+void __VERIFIER_atomic_begin() { __VERIFIER_assume(__global_lock==0); __global_lock=1; return; }
+void __VERIFIER_atomic_end() { __VERIFIER_assume(__global_lock==1); __global_lock=0; return; }
 
 typedef unsigned char __u_char;
 typedef unsigned short int __u_short;
@@ -636,6 +639,7 @@ extern int pthread_atfork (void (*__prepare) (void),
 volatile unsigned next_ticket = 0;
 volatile unsigned now_serving = 0;
 unsigned __VERIFIER_atomic_fetch_and_increment__next_ticket(){
+ __VERIFIER_atomic_begin();
  unsigned value;
   if(((next_ticket + 1) % 3) == now_serving){
    value = 3;
@@ -645,11 +649,12 @@ unsigned __VERIFIER_atomic_fetch_and_increment__next_ticket(){
    value = next_ticket;
    next_ticket = ((next_ticket + 1) % 3);
   }
+ __VERIFIER_atomic_end();
  return value;
 }
 inline void acquire_lock(){
  unsigned my_ticket;
- my_ticket = __VERIFIER_atomic_fetch_and_increment__next_ticket();
+ my_ticket = fetch_and_increment__next_ticket();
  if(my_ticket == 3){
   __VERIFIER_assume(0);
  }else{
