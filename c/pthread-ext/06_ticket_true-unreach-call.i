@@ -638,7 +638,7 @@ extern int pthread_atfork (void (*__prepare) (void),
 
 volatile unsigned next_ticket = 0;
 volatile unsigned now_serving = 0;
-unsigned __VERIFIER_atomic_fetch_and_increment__next_ticket(){
+unsigned fetch_and_increment__next_ticket(){
  __VERIFIER_atomic_begin();
  unsigned value;
   if(((next_ticket + 1) % 3) == now_serving){
