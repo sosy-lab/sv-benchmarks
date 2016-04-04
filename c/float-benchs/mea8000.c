@@ -3,10 +3,10 @@ extern void __VERIFIER_error() __attribute__ ((__noreturn__));
    From the MAME / MESS project.
  */
 
-int __VERIFIER_nondet_int(void) { int val; return val; }
-unsigned char __VERIFIER_nondet_unsigned_char(void) { unsigned char val; return val; }
-double __VERIFIER_nondet_double();
-void __VERIFIER_assume(int expression) { if (!expression) { LOOP: goto LOOP; }; return; }
+extern int __VERIFIER_nondet_int(void);
+extern unsigned char __VERIFIER_nondet_unsigned_char(void);
+extern double __VERIFIER_nondet_double();
+extern void __VERIFIER_assume(int expression);
 void __VERIFIER_assert(int cond) { if (!(cond)) { ERROR: __VERIFIER_error(); } return; }
 
 

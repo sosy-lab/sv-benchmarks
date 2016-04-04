@@ -3,9 +3,9 @@ extern void __VERIFIER_error() __attribute__ ((__noreturn__));
    Miné, Monniaux, and Rival, published in ESOP 05.
  */
 
-int  __VERIFIER_nondet_int(void) { int val; return val; }
-float __VERIFIER_nondet_float(void) { float val; return val; }
-void __VERIFIER_assume(int expression) { if (!expression) { LOOP: goto LOOP; }; return; }
+extern int  __VERIFIER_nondet_int(void);
+extern float __VERIFIER_nondet_float(void);
+extern void __VERIFIER_assume(int expression);
 void __VERIFIER_assert(int cond) { if (!(cond)) { ERROR: __VERIFIER_error(); } return; }
 
 void wait_for_clock() { }

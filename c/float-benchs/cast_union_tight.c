@@ -3,7 +3,7 @@ extern void __VERIFIER_error() __attribute__ ((__noreturn__));
    Floating-point Operations" by Miné, published in WING 12.
 */
 
-int  __VERIFIER_nondet_int(void) { int val; return val; }
+extern int  __VERIFIER_nondet_int(void);
 void __VERIFIER_assert(int cond) { if (!(cond)) { ERROR: __VERIFIER_error(); } return; }
 
 union u { 

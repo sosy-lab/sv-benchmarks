@@ -6,8 +6,8 @@ extern void __VERIFIER_error() __attribute__ ((__noreturn__));
    Particular case of a polynomial approximation of square root.
  */
 
-double __VERIFIER_nondet_double();
-void __VERIFIER_assume(int expression) { if (!expression) { LOOP: goto LOOP; }; return; }
+extern double __VERIFIER_nondet_double();
+extern void __VERIFIER_assume(int expression);
 void __VERIFIER_assert(int cond) { if (!(cond)) { ERROR: __VERIFIER_error(); } return; }
 
 double sqrt2 = 1.414213538169860839843750;

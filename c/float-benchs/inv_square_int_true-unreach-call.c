@@ -3,8 +3,8 @@ extern void __VERIFIER_error() __attribute__ ((__noreturn__));
   The assertion is correct.
  */
 
-int __VERIFIER_nondet_int(void) { int val; return val; }
-void __VERIFIER_assume(int expression) { if (!expression) { LOOP: goto LOOP; }; return; }
+extern int __VERIFIER_nondet_int(void);
+extern void __VERIFIER_assume(int expression);
 void __VERIFIER_assert(int cond) { if (!(cond)) { ERROR: __VERIFIER_error(); } return; }
 
 int main()
