@@ -1,0 +1,16 @@
+architectures:
+  - x86_64
+categories:
+  - examples
+language: c99
+memory_model: precise
+name: unsigned_overflow64_example
+schema_version: 0
+sources:
+  - main.c
+verification_tasks:
+  no_reach_error_function:
+    correct: true
+comments: |
+  This benchmark checks that an unsigned 64-bit integer
+  correctly overflows.
