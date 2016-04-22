@@ -1,37 +1,29 @@
-language: cpp
+language: c
 env:
-###############################################################################
   # FIXME: If we want to check assembly too SYNTAX_ONLY needs to be 0
   # FIXME: We'd like to build with WARNINGS_AS_ERRORS=1 but there are too
   # many warnings firing right now
   # Note: Can't use CC variable as TravisCI will override it
-  - C_COMPILER=gcc SYNTAX_ONLY=1 WARNINGS_AS_ERRORS=0 VERBOSE=0 SUPPRESS_WARNINGS=1 REPORT_CC_FILE=2
+  - C_COMPILER=gcc-4.8 SYNTAX_ONLY=1 WARNINGS_AS_ERRORS=0 VERBOSE=0 SUPPRESS_WARNINGS=1 REPORT_CC_FILE=2
   # FIXME: Remove CLANG_BUILD_HACK once we can build all the benchmarks
   - C_COMPILER=clang-3.7 CLANG_BUILD_HACK=1 SYNTAX_ONLY=1 WARNINGS_AS_ERRORS=0 VERBOSE=0 SUPPRESS_WARNINGS=1 REPORT_CC_FILE=2
-###############################################################################
-  # Proposed "preproc" benchmarks
-  # Must manually specifiy Python path otherwise we pick up TravisCI's install in /opt
-  # which does not have our yaml and jsonschema modules :(
-  - C_COMPILER=gcc CXX_COMPILER=g++ PREPROC=1 ARCH=x86_64 CONFIGURE_ONLY=0 PYTHON_EXECUTABLE=/usr/bin/python2
-  - C_COMPILER=gcc CXX_COMPILER=g++ PREPROC=1 ARCH=i686 CONFIGURE_ONLY=0 PYTHON_EXECUTABLE=/usr/bin/python2
-  # FIXME: Need to find a way to install LLVM's OpenMP library so Clang can build OpenMP benchmarks
-  - C_COMPILER=clang-3.7 CXX_COMPILER=clang++-3.7 PREPROC=1 ARCH=x86_64 CONFIGURE_ONLY=0 PYTHON_EXECUTABLE=/usr/bin/python2
-  - C_COMPILER=clang-3.7 CXX_COMPILER=clang++-3.7 PREPROC=1 ARCH=i686 CONFIGURE_ONLY=0 PYTHON_EXECUTABLE=/usr/bin/python2
-  # Try different python versions without building
-  - C_COMPILER=gcc CXX_COMPILER=g++ PREPROC=1 ARCH=i686 CONFIGURE_ONLY=1 PYTHON_EXECUTABLE=/usr/bin/python2
-  - C_COMPILER=gcc CXX_COMPILER=g++ PREPROC=1 ARCH=i686 CONFIGURE_ONLY=1 PYTHON_EXECUTABLE=/usr/bin/python3
-###############################################################################
-# Use TravisCI legacy infrastructure so we can install the packages we need, the apt add-ons
-# doesn't work with Ubuntu 14.04 (Trusty)
-sudo: required
-dist: trusty
-before_install:
-  - sudo echo "deb http://llvm.org/apt/trusty/ llvm-toolchain-trusty-3.7 main"
-  - sudo sh -c 'echo "deb http://llvm.org/apt/trusty/ llvm-toolchain-trusty-3.7 main" >> /etc/apt/sources.list.d/llvm.list'
-  - wget -O - http://llvm.org/apt/llvm-snapshot.gpg.key|sudo apt-key add -
-  - sudo apt-get -qq update
-  - sudo apt-get install -y g++-multilib gcc-multilib libc6-dev-i386 clang-3.7 doxygen libyaml-dev python-pip python3-pip python python3
-  - sudo pip2 install jsonschema pyyaml
-  - sudo pip3 install jsonschema pyyaml
+# Hint to TravisCI that we want to use their container infrastructure
+sudo: false
+addons:
+  apt:
+    sources:
+      # For gcc-4.8
+      - ubuntu-toolchain-r-test
+      # For Clang 3.7
+      - llvm-toolchain-precise-3.7
+    packages:
+      # These are needed for compiling with -m32
+      # otherwise including system header files might result in
+      # errors (e.g. ``fatal error: bits/predefs.h: No such file or directory``)
+      - libc6-dev-i386
+      - gcc-4.8
+      - g++-4.8
+      - clang-3.7
 script:
-  - scripts/travisci-build.sh
+  - ${C_COMPILER} -v --version
+  - cd c/ && make -j2 CC=${C_COMPILER}
