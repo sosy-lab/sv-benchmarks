@@ -146,8 +146,7 @@ endif
 CC.Flags += -std=$(CC.Standard) \
             -m$(CC.Arch) \
             $(CC.WarningsAsErrors) \
-            $(CC.Warnings) \
-            -include $(ROOT_DIR)/decls.h
+            $(CC.Warnings)
 
 
 # Handle emission of LLVM Bitcode rather than native code
