@@ -1,29 +1,23 @@
 language: c
 env:
+###############################################################################
   # FIXME: If we want to check assembly too SYNTAX_ONLY needs to be 0
   # FIXME: We'd like to build with WARNINGS_AS_ERRORS=1 but there are too
   # many warnings firing right now
   # Note: Can't use CC variable as TravisCI will override it
-  - C_COMPILER=gcc-4.8 SYNTAX_ONLY=1 WARNINGS_AS_ERRORS=0 VERBOSE=0 SUPPRESS_WARNINGS=1 REPORT_CC_FILE=2
+  - C_COMPILER=gcc SYNTAX_ONLY=1 WARNINGS_AS_ERRORS=0 VERBOSE=0 SUPPRESS_WARNINGS=1 REPORT_CC_FILE=2
   # FIXME: Remove CLANG_BUILD_HACK once we can build all the benchmarks
   - C_COMPILER=clang-3.7 CLANG_BUILD_HACK=1 SYNTAX_ONLY=1 WARNINGS_AS_ERRORS=0 VERBOSE=0 SUPPRESS_WARNINGS=1 REPORT_CC_FILE=2
-# Hint to TravisCI that we want to use their container infrastructure
-sudo: false
-addons:
-  apt:
-    sources:
-      # For gcc-4.8
-      - ubuntu-toolchain-r-test
-      # For Clang 3.7
-      - llvm-toolchain-precise-3.7
-    packages:
-      # These are needed for compiling with -m32
-      # otherwise including system header files might result in
-      # errors (e.g. ``fatal error: bits/predefs.h: No such file or directory``)
-      - libc6-dev-i386
-      - gcc-4.8
-      - g++-4.8
-      - clang-3.7
+###############################################################################
+# Use TravisCI legacy infrastructure so we can install the packages we need, the apt add-ons
+# doesn't work with Ubuntu 14.04 (Trusty)
+sudo: required
+dist: trusty
+before_install:
+  - sudo echo "deb http://llvm.org/apt/trusty/ llvm-toolchain-trusty-3.7 main"
+  - sudo sh -c 'echo "deb http://llvm.org/apt/trusty/ llvm-toolchain-trusty-3.7 main" >> /etc/apt/sources.list.d/llvm.list'
+  - wget -O - http://llvm.org/apt/llvm-snapshot.gpg.key|sudo apt-key add -
+  - sudo apt-get -qq update
+  - sudo apt-get install -y g++-multilib gcc-multilib libc6-dev-i386 clang-3.7
 script:
-  - ${C_COMPILER} -v --version
-  - cd c/ && make -j2 CC=${C_COMPILER}
+  - CC=${C_COMPILER} scripts/travisci-build.sh
