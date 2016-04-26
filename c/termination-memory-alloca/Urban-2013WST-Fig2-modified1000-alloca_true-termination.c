@@ -1,4 +1,5 @@
 #include <stdlib.h>
+#include <alloca.h>
 
 int main() {
     int* x1 = alloca(sizeof(int));

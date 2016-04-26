@@ -1,4 +1,5 @@
 #include <stdlib.h>
+#include <alloca.h>
 
 /*
  * Program from Ex.2.3 of

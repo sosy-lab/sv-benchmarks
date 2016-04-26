@@ -4,6 +4,7 @@
  */
  
 #include <stdlib.h>
+#include <alloca.h>
 
 extern int __VERIFIER_nondet_int();
 

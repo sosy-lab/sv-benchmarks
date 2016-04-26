@@ -1,5 +1,6 @@
 #include <stddef.h>
 #include <stdlib.h>
+#include <alloca.h>
 
 #define __unlikely(x) (x)
 #define __likely(x) (x)

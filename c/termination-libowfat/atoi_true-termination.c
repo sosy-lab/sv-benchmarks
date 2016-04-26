@@ -1,5 +1,6 @@
 #include <stddef.h>
 #include <stdlib.h>
+#include <alloca.h>
 
 
 extern int nondet_int();
