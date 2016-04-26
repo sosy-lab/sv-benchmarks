@@ -33,4 +33,10 @@ ${CC} -v --version
 
 # Build benchmarks
 cd c
+if [ "X${ITERATIVE_BUILD}" = "X1" ]; then
+  echo "Not removing old build"
+else
+  # Clean up any old builds to ensure we do a fresh build
+  make clean
+fi
 make -j2 CC=${CC}
