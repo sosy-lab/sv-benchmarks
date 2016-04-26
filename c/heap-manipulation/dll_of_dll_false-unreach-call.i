@@ -2,7 +2,6 @@ extern void __VERIFIER_error() __attribute__ ((__noreturn__));
 typedef unsigned int size_t;
 typedef long int wchar_t;
 
-
 typedef enum
 {
   P_ALL,
@@ -259,8 +258,6 @@ extern unsigned long long int gnu_dev_makedev (unsigned int __major,
 typedef __blksize_t blksize_t;
 typedef __blkcnt_t blkcnt_t;
 typedef __fsblkcnt_t fsblkcnt_t;
-
-
 typedef __fsfilcnt_t fsfilcnt_t;
 typedef unsigned long int pthread_t;
 union pthread_attr_t
@@ -363,16 +360,7 @@ extern long int random (void) __attribute__ ((__nothrow__ , __leaf__));
 extern void srandom (unsigned int __seed) __attribute__ ((__nothrow__ , __leaf__));
 extern char *initstate (unsigned int __seed, char *__statebuf,
    size_t __statelen) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (2)));
-
-
 extern char *setstate (char *__statebuf) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1)));
-
-
-
-
-
-
-
 struct random_data
   {
     int32_t *fptr;
@@ -383,65 +371,34 @@ struct random_data
     int rand_sep;
     int32_t *end_ptr;
   };
-
 extern int random_r (struct random_data *__restrict __buf,
        int32_t *__restrict __result) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1, 2)));
-
 extern int srandom_r (unsigned int __seed, struct random_data *__buf)
      __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (2)));
-
 extern int initstate_r (unsigned int __seed, char *__restrict __statebuf,
    size_t __statelen,
    struct random_data *__restrict __buf)
      __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (2, 4)));
-
 extern int setstate_r (char *__restrict __statebuf,
          struct random_data *__restrict __buf)
      __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1, 2)));
 
-
-
-
-
-
 extern int rand (void) __attribute__ ((__nothrow__ , __leaf__));
-
 extern void srand (unsigned int __seed) __attribute__ ((__nothrow__ , __leaf__));
 
-
-
-
 extern int rand_r (unsigned int *__seed) __attribute__ ((__nothrow__ , __leaf__));
-
-
-
-
-
-
-
 extern double drand48 (void) __attribute__ ((__nothrow__ , __leaf__));
 extern double erand48 (unsigned short int __xsubi[3]) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1)));
-
-
 extern long int lrand48 (void) __attribute__ ((__nothrow__ , __leaf__));
 extern long int nrand48 (unsigned short int __xsubi[3])
      __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1)));
-
-
 extern long int mrand48 (void) __attribute__ ((__nothrow__ , __leaf__));
 extern long int jrand48 (unsigned short int __xsubi[3])
      __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1)));
-
-
 extern void srand48 (long int __seedval) __attribute__ ((__nothrow__ , __leaf__));
 extern unsigned short int *seed48 (unsigned short int __seed16v[3])
      __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1)));
 extern void lcong48 (unsigned short int __param[7]) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1)));
-
-
-
-
-
 struct drand48_data
   {
     unsigned short int __x[3];
@@ -450,15 +407,11 @@ struct drand48_data
     unsigned short int __init;
     __extension__ unsigned long long int __a;
   };
-
-
 extern int drand48_r (struct drand48_data *__restrict __buffer,
         double *__restrict __result) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1, 2)));
 extern int erand48_r (unsigned short int __xsubi[3],
         struct drand48_data *__restrict __buffer,
         double *__restrict __result) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1, 2)));
-
-
 extern int lrand48_r (struct drand48_data *__restrict __buffer,
         long int *__restrict __result)
      __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1, 2)));
@@ -466,8 +419,6 @@ extern int nrand48_r (unsigned short int __xsubi[3],
         struct drand48_data *__restrict __buffer,
         long int *__restrict __result)
      __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1, 2)));
-
-
 extern int mrand48_r (struct drand48_data *__restrict __buffer,
         long int *__restrict __result)
      __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1, 2)));
@@ -475,73 +426,32 @@ extern int jrand48_r (unsigned short int __xsubi[3],
         struct drand48_data *__restrict __buffer,
         long int *__restrict __result)
      __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1, 2)));
-
-
 extern int srand48_r (long int __seedval, struct drand48_data *__buffer)
      __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (2)));
-
 extern int seed48_r (unsigned short int __seed16v[3],
        struct drand48_data *__buffer) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1, 2)));
-
 extern int lcong48_r (unsigned short int __param[7],
         struct drand48_data *__buffer)
      __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1, 2)));
 
-
-
-
-
-
-
-
-
 extern void *malloc (size_t __size) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__malloc__)) ;
-
 extern void *calloc (size_t __nmemb, size_t __size)
      __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__malloc__)) ;
 
 
-
-
-
-
-
-
-
-
 extern void *realloc (void *__ptr, size_t __size)
      __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__warn_unused_result__));
-
 extern void free (void *__ptr) __attribute__ ((__nothrow__ , __leaf__));
-
-
-
 
 extern void cfree (void *__ptr) __attribute__ ((__nothrow__ , __leaf__));
 
 extern void *alloca (size_t __size) __attribute__ ((__nothrow__ , __leaf__));
 
-
-
-
-
-
-
 extern void *valloc (size_t __size) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__malloc__)) ;
-
-
-
-
 extern int posix_memalign (void **__memptr, size_t __alignment, size_t __size)
      __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1))) ;
 
-
-
-
 extern void abort (void) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__noreturn__));
-
-
-
 extern int atexit (void (*__func) (void)) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1)));
 
 extern int on_exit (void (*__func) (int __status, void *__arg), void *__arg)
