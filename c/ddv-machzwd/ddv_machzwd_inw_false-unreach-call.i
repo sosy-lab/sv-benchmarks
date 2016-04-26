@@ -13,11 +13,11 @@ void __VERIFIER_assert(int expression, char* x) { if (!expression) { ERROR: __VE
 
 
 int current_execution_context;
-static inline assert_context_process()
+static inline void assert_context_process()
 {
 }
 
-static inline assert_context_interrupt()
+static inline void assert_context_interrupt()
 {
 }
 
@@ -2952,6 +2952,7 @@ struct hd_geometry {
 
 
 
+void
 create_request(int genhd_no)
 {
     struct request rq;
