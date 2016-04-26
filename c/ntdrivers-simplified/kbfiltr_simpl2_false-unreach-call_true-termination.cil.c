@@ -4,6 +4,18 @@ extern char __VERIFIER_nondet_char(void);
 extern int __VERIFIER_nondet_int(void);
 extern long __VERIFIER_nondet_long(void);
 extern void *__VERIFIER_nondet_pointer(void);
+
+int KbFilter_PnP(int DeviceObject , int Irp );
+int IofCallDriver(int DeviceObject , int Irp );
+int KeSetEvent(int Event , int Increment , int Wait );
+int KeWaitForSingleObject(int Object , int WaitReason , int WaitMode , int Alertable ,
+                          int Timeout );
+int KbFilter_Complete(int DeviceObject , int Irp , int Context );
+int KbFilter_CreateClose(int DeviceObject , int Irp );
+int KbFilter_DispatchPassThrough(int DeviceObject , int Irp );
+int KbFilter_Power(int DeviceObject , int Irp );
+int PoCallDriver(int DeviceObject , int Irp );
+int KbFilter_InternIoCtl(int DeviceObject , int Irp );
 void errorFn(void) ;
 void IofCompleteRequest(int Irp , int PriorityBoost );
 extern int __VERIFIER_nondet_int();

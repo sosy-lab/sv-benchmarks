@@ -4,6 +4,32 @@ extern char __VERIFIER_nondet_char(void);
 extern int __VERIFIER_nondet_int(void);
 extern long __VERIFIER_nondet_long(void);
 extern void *__VERIFIER_nondet_pointer(void);
+
+int FlAcpiConfigureFloppy(int DisketteExtension , int FdcInfo );
+int FlQueueIrpToThread(int Irp , int DisketteExtension );
+int FloppyPnp(int DeviceObject , int Irp );
+int FloppyStartDevice(int DeviceObject , int Irp );
+int FloppyPnpComplete(int DeviceObject , int Irp , int Context );
+int FlFdcDeviceIo(int DeviceObject , int Ioctl , int Data );
+int IoBuildDeviceIoControlRequest(int IoControlCode , int DeviceObject , int InputBuffer ,
+                                  int InputBufferLength , int OutputBuffer , int OutputBufferLength ,
+                                  int InternalDeviceIoControl , int Event , int IoStatusBlock );
+int IoDeleteSymbolicLink(int SymbolicLinkName );
+int IoQueryDeviceDescription(int BusType , int BusNumber , int ControllerType , int ControllerNumber ,
+                             int PeripheralType , int PeripheralNumber , int CalloutRoutine ,
+                             int Context );
+int IoRegisterDeviceInterface(int PhysicalDeviceObject , int InterfaceClassGuid ,
+                              int ReferenceString , int SymbolicLinkName );
+int IoSetDeviceInterfaceState(int SymbolicLinkName , int Enable );
+int IofCallDriver(int DeviceObject , int Irp );
+int KeSetEvent(int Event , int Increment , int Wait );
+int KeWaitForSingleObject(int Object , int WaitReason , int WaitMode , int Alertable ,
+                          int Timeout );
+int ObReferenceObjectByHandle(int Handle , int DesiredAccess , int ObjectType , int AccessMode ,
+                              int Object , int HandleInformation );
+int PsCreateSystemThread(int ThreadHandle , int DesiredAccess , int ObjectAttributes ,
+                         int ProcessHandle , int ClientId , int StartRoutine , int StartContext );
+int ZwClose(int Handle );
 void IofCompleteRequest(int Irp , int PriorityBoost );
 extern int __VERIFIER_nondet_int();
 int FloppyThread  ;

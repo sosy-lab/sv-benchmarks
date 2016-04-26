@@ -4,6 +4,28 @@ extern char __VERIFIER_nondet_char(void);
 extern int __VERIFIER_nondet_int(void);
 extern long __VERIFIER_nondet_long(void);
 extern void *__VERIFIER_nondet_pointer(void);
+
+int SendSrbSynchronous(int Extension , int Srb , int Buffer , int BufferLength );
+int CdAudioSignalCompletion(int DeviceObject , int Irp , int Event );
+int CdAudioStartDevice(int DeviceObject , int Irp );
+int CdAudioPnp(int DeviceObject , int Irp );
+int CdAudioDeviceControl(int DeviceObject , int Irp );
+int CdAudioSendToNextDriver(int DeviceObject , int Irp );
+int CdAudioIsPlayActive(int DeviceObject );
+int CdAudio535DeviceControl(int DeviceObject , int Irp );
+int AG_SetStatusAndReturn(int status , int Irp , int deviceExtension__TargetDeviceObject );
+int CdAudio435DeviceControl(int DeviceObject , int Irp );
+int CdAudioAtapiDeviceControl(int DeviceObject , int Irp );
+int HPCdrCompletion(int DeviceObject , int Irp , int Context );
+int CdAudioHPCdrDeviceControl(int DeviceObject , int Irp );
+int CdAudioForwardIrpSynchronous(int DeviceObject , int Irp );
+int CdAudioPower(int DeviceObject , int Irp );
+int IofCallDriver(int DeviceObject , int Irp );
+int KeSetEvent(int Event , int Increment , int Wait );
+int KeWaitForSingleObject(int Object , int WaitReason , int WaitMode , int Alertable ,
+                          int Timeout );
+int PoCallDriver(int DeviceObject , int Irp );
+int ZwClose(int Handle );
 void IofCompleteRequest(int Irp , int PriorityBoost ) ;
 int __VERIFIER_nondet_int()  ;
 int s  ;

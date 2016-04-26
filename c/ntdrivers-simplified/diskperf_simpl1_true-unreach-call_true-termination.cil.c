@@ -4,6 +4,27 @@ extern char __VERIFIER_nondet_char(void);
 extern int __VERIFIER_nondet_int(void);
 extern long __VERIFIER_nondet_long(void);
 extern void *__VERIFIER_nondet_pointer(void);
+
+int DiskPerfDispatchPnp(int DeviceObject , int Irp );
+int DiskPerfIrpCompletion(int DeviceObject , int Irp , int Context );
+int DiskPerfStartDevice(int DeviceObject , int Irp );
+int DiskPerfRemoveDevice(int DeviceObject , int Irp );
+int DiskPerfSendToNextDriver(int DeviceObject , int Irp );
+int DiskPerfDispatchPower(int DeviceObject , int Irp );
+int DiskPerfForwardIrpSynchronous(int DeviceObject , int Irp );
+int DiskPerfCreate(int DeviceObject , int Irp );
+int DiskPerfIoCompletion(int DeviceObject , int Irp , int Context );
+int DiskPerfDeviceControl(int DeviceObject , int Irp );
+int DiskPerfShutdownFlush(int DeviceObject , int Irp );
+int DiskPerfRegisterDevice(int DeviceObject );
+int IoBuildDeviceIoControlRequest(int IoControlCode , int DeviceObject , int InputBuffer ,
+                                  int InputBufferLength , int OutputBuffer , int OutputBufferLength ,
+                                  int InternalDeviceIoControl , int Event , int IoStatusBlock );
+int IofCallDriver(int DeviceObject , int Irp );
+int KeSetEvent(int Event , int Increment , int Wait );
+int KeWaitForSingleObject(int Object , int WaitReason , int WaitMode , int Alertable ,
+                          int Timeout );
+int PoCallDriver(int DeviceObject , int Irp );
 void IofCompleteRequest(int Irp , int PriorityBoost );
 int __VERIFIER_nondet_int()  ;
 int s  ;
