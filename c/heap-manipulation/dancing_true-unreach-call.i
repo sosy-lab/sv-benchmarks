@@ -606,10 +606,10 @@ typedef union
 {
   char __size[4];
   int __align;
+
+
+
 } pthread_condattr_t;
-
-
-
 typedef unsigned int pthread_key_t;
 
 
