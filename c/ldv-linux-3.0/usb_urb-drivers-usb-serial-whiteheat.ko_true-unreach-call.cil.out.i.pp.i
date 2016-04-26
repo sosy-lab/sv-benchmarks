@@ -3966,6 +3966,7 @@ extern void mutex_unlock(struct mutex *lock ) ;
 extern void __init_work(struct work_struct *work , int onstack ) ;
 extern int schedule_work(struct work_struct *work ) ;
 extern void kfree(void const * ) ;
+extern void *kzalloc(size_t size , gfp_t flags ) ;
 extern void *__kmalloc(size_t size , gfp_t flags ) ;
 __inline static void *( __attribute__((__always_inline__)) kmalloc)(size_t size ,
                                                                     gfp_t flags )

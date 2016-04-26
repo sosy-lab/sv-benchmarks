@@ -1,3 +1,4 @@
+extern int __VERIFIER_nondet_int();
 extern void __VERIFIER_error() __attribute__ ((__noreturn__));
 
 typedef long unsigned int size_t;

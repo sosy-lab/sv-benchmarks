@@ -1,3 +1,4 @@
+extern int __VERIFIER_nondet_int(void) ;
 extern void __VERIFIER_error() __attribute__ ((__noreturn__));
 
 
@@ -7453,7 +7454,6 @@ __inline static void ldv_error(void)
   ERROR: __VERIFIER_error();
 }
 }
-extern int __VERIFIER_nondet_int(void) ;
 long ldv__builtin_expect(long exp , long c ) 
 { 
 

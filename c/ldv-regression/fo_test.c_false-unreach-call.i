@@ -1140,6 +1140,7 @@ extern int lockf (int __fd, int __cmd, __off_t __len);
 extern int posix_fadvise (int __fd, __off_t __offset, __off_t __len,
      int __advise) __attribute__ ((__nothrow__));
 extern int posix_fallocate (int __fd, __off_t __offset, __off_t __len);
+extern int read(int fd, void *buffer, int nbyte);
 
 
 extern int __VERIFIER_nondet_int(void);
