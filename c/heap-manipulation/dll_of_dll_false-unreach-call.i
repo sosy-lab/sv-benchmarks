@@ -46,57 +46,57 @@ __extension__ typedef struct
 
 extern size_t __ctype_get_mb_cur_max (void) __attribute__ ((__nothrow__ , __leaf__)) ;
 
-extern double atof (__const char *__nptr)
+extern double atof (const char *__nptr)
      __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__pure__)) __attribute__ ((__nonnull__ (1))) ;
-extern int atoi (__const char *__nptr)
+extern int atoi (const char *__nptr)
      __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__pure__)) __attribute__ ((__nonnull__ (1))) ;
-extern long int atol (__const char *__nptr)
-     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__pure__)) __attribute__ ((__nonnull__ (1))) ;
-
-
-__extension__ extern long long int atoll (__const char *__nptr)
+extern long int atol (const char *__nptr)
      __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__pure__)) __attribute__ ((__nonnull__ (1))) ;
 
 
-extern double strtod (__const char *__restrict __nptr,
+__extension__ extern long long int atoll (const char *__nptr)
+     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__pure__)) __attribute__ ((__nonnull__ (1))) ;
+
+
+extern double strtod (const char *__restrict __nptr,
         char **__restrict __endptr)
      __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1))) ;
 
 
-extern float strtof (__const char *__restrict __nptr,
+extern float strtof (const char *__restrict __nptr,
        char **__restrict __endptr) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1))) ;
-extern long double strtold (__const char *__restrict __nptr,
+extern long double strtold (const char *__restrict __nptr,
        char **__restrict __endptr)
      __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1))) ;
 
 
-extern long int strtol (__const char *__restrict __nptr,
+extern long int strtol (const char *__restrict __nptr,
    char **__restrict __endptr, int __base)
      __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1))) ;
-extern unsigned long int strtoul (__const char *__restrict __nptr,
+extern unsigned long int strtoul (const char *__restrict __nptr,
       char **__restrict __endptr, int __base)
      __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1))) ;
 
 __extension__
-extern long long int strtoq (__const char *__restrict __nptr,
+extern long long int strtoq (const char *__restrict __nptr,
         char **__restrict __endptr, int __base)
      __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1))) ;
 __extension__
-extern unsigned long long int strtouq (__const char *__restrict __nptr,
+extern unsigned long long int strtouq (const char *__restrict __nptr,
            char **__restrict __endptr, int __base)
      __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1))) ;
 
 __extension__
-extern long long int strtoll (__const char *__restrict __nptr,
+extern long long int strtoll (const char *__restrict __nptr,
          char **__restrict __endptr, int __base)
      __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1))) ;
 __extension__
-extern unsigned long long int strtoull (__const char *__restrict __nptr,
+extern unsigned long long int strtoull (const char *__restrict __nptr,
      char **__restrict __endptr, int __base)
      __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1))) ;
 
 extern char *l64a (long int __n) __attribute__ ((__nothrow__ , __leaf__)) ;
-extern long int a64l (__const char *__s)
+extern long int a64l (const char *__s)
      __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__pure__)) __attribute__ ((__nonnull__ (1))) ;
 
 typedef unsigned char __u_char;
@@ -528,27 +528,27 @@ extern void exit (int __status) __attribute__ ((__nothrow__ , __leaf__)) __attri
 extern void _Exit (int __status) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__noreturn__));
 
 
-extern char *getenv (__const char *__name) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1))) ;
+extern char *getenv (const char *__name) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1))) ;
 
-extern char *__secure_getenv (__const char *__name)
+extern char *__secure_getenv (const char *__name)
      __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1))) ;
 extern int putenv (char *__string) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1)));
-extern int setenv (__const char *__name, __const char *__value, int __replace)
+extern int setenv (const char *__name, const char *__value, int __replace)
      __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (2)));
-extern int unsetenv (__const char *__name) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1)));
+extern int unsetenv (const char *__name) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1)));
 extern int clearenv (void) __attribute__ ((__nothrow__ , __leaf__));
 extern char *mktemp (char *__template) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1))) ;
 extern int mkstemp (char *__template) __attribute__ ((__nonnull__ (1))) ;
 extern int mkstemps (char *__template, int __suffixlen) __attribute__ ((__nonnull__ (1))) ;
 extern char *mkdtemp (char *__template) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1))) ;
 
-extern int system (__const char *__command) ;
+extern int system (const char *__command) ;
 
-extern char *realpath (__const char *__restrict __name,
+extern char *realpath (const char *__restrict __name,
          char *__restrict __resolved) __attribute__ ((__nothrow__ , __leaf__)) ;
-typedef int (*__compar_fn_t) (__const void *, __const void *);
+typedef int (*__compar_fn_t) (const void *, const void *);
 
-extern void *bsearch (__const void *__key, __const void *__base,
+extern void *bsearch (const void *__key, const void *__base,
         size_t __nmemb, size_t __size, __compar_fn_t __compar)
      __attribute__ ((__nonnull__ (1, 2, 5))) ;
 extern void qsort (void *__base, size_t __nmemb, size_t __size,
@@ -598,19 +598,19 @@ extern int qfcvt_r (long double __value, int __ndigit,
       char *__restrict __buf, size_t __len)
      __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (3, 4, 5)));
 
-extern int mblen (__const char *__s, size_t __n) __attribute__ ((__nothrow__ , __leaf__)) ;
+extern int mblen (const char *__s, size_t __n) __attribute__ ((__nothrow__ , __leaf__)) ;
 extern int mbtowc (wchar_t *__restrict __pwc,
-     __const char *__restrict __s, size_t __n) __attribute__ ((__nothrow__ , __leaf__)) ;
+     const char *__restrict __s, size_t __n) __attribute__ ((__nothrow__ , __leaf__)) ;
 extern int wctomb (char *__s, wchar_t __wchar) __attribute__ ((__nothrow__ , __leaf__)) ;
 extern size_t mbstowcs (wchar_t *__restrict __pwcs,
-   __const char *__restrict __s, size_t __n) __attribute__ ((__nothrow__ , __leaf__));
+   const char *__restrict __s, size_t __n) __attribute__ ((__nothrow__ , __leaf__));
 extern size_t wcstombs (char *__restrict __s,
-   __const wchar_t *__restrict __pwcs, size_t __n)
+   const wchar_t *__restrict __pwcs, size_t __n)
      __attribute__ ((__nothrow__ , __leaf__));
 
-extern int rpmatch (__const char *__response) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1))) ;
+extern int rpmatch (const char *__response) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1))) ;
 extern int getsubopt (char **__restrict __optionp,
-        char *__const *__restrict __tokens,
+        char *const *__restrict __tokens,
         char **__restrict __valuep)
      __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1, 2, 3))) ;
 extern int getloadavg (double __loadavg[], int __nelem)
