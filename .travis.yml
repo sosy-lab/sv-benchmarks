@@ -1,13 +1,9 @@
 language: c
 env:
 ###############################################################################
-  # FIXME: If we want to check assembly too SYNTAX_ONLY needs to be 0
-  # FIXME: We'd like to build with WARNINGS_AS_ERRORS=1 but there are too
-  # many warnings firing right now
   # Note: Can't use CC variable as TravisCI will override it
-  - C_COMPILER=gcc SYNTAX_ONLY=1 WARNINGS_AS_ERRORS=0 VERBOSE=0 SUPPRESS_WARNINGS=1 REPORT_CC_FILE=2
-  # FIXME: Remove CLANG_BUILD_HACK once we can build all the benchmarks
-  - C_COMPILER=clang-3.7 CLANG_BUILD_HACK=1 SYNTAX_ONLY=1 WARNINGS_AS_ERRORS=0 VERBOSE=0 SUPPRESS_WARNINGS=1 REPORT_CC_FILE=2
+  - C_COMPILER=gcc
+  - C_COMPILER=clang-3.7
 ###############################################################################
 # Use TravisCI legacy infrastructure so we can install the packages we need, the apt add-ons
 # doesn't work with Ubuntu 14.04 (Trusty)
