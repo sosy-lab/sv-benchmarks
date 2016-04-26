@@ -97,18 +97,17 @@ clean::
 		$(RM) -r $(LOCAL_BUILD_DIR) ;\
 	fi
 
+# Detect Compiler
+# FIXME: Not sure $(GREP) accepts these flags on OSX
+CC_COMPILER_OUTPUT :=$(shell $(CC) -E $(ROOT_DIR)/Makefile-detect-compiler.c -o -)
+CC_IS_GCC:=$(shell echo '$(CC_COMPILER_OUTPUT)' | $(GREP) -c SVCOMP_C_COMPILER_IS_GCC)
+CC_IS_CLANG:=$(shell echo '$(CC_COMPILER_OUTPUT)' | $(GREP) -c SVCOMP_C_COMPILER_IS_CLANG)
+
 ################################################################################
 # Begin ifndef SKIP_LEVEL
 ################################################################################
 ifndef SKIP_LEVEL
 all:: build_at_level
-
-
-# Detect Compiler
-# FIXME: Not sure $(GREP) accepts these flags on OSX
-CC_VERSION_INFO :=$(shell $(CC) --version)
-CC_IS_GCC:=$(shell echo '$(CC_VERSION_INFO)' | $(GREP) -ic gcc)
-CC_IS_CLANG:=$(shell echo '$(CC_VERSION_INFO)' | $(GREP) -ic clang)
 
 ifeq ($(SUPPRESS_WARNINGS),0)
   CC.Warnings := $(COMMON_WARNINGS)
