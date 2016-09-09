@@ -880,13 +880,13 @@ const unsigned char __THREAD_UNUSED = 0x00;
 const unsigned char __THREAD_RUNNING = 0x01;
 const unsigned char __THREAD_FINISHED = 0x02;
 unsigned char *__CS_thread_lockedon[2][2 +1];
-int nondet_int();
+int __VERIFIER_nondet_int();
 void __CS_cs(void)
 {
  unsigned char k = __VERIFIER_nondet_uchar();
  __VERIFIER_assume(__CS_round+k < 2);
  __CS_round += k;
- __CS_ret = (nondet_int() && __CS_round == 2 -1)?__CS_ret_PREEMPTED:__CS_ret;
+ __CS_ret = (__VERIFIER_nondet_int() && __CS_round == 2 -1)?__CS_ret_PREEMPTED:__CS_ret;
 }
 int __CS_pthread_mutex_init(unsigned char *mutex, void *attr)
 {
@@ -1011,7 +1011,7 @@ typedef struct __CS_anonstruct_0
  int amount;
 } QType;
 unsigned char m[2];
-int nondet_int();
+int __VERIFIER_nondet_int();
 int stored_elements[2][20];
 _Bool enqueue_flag[2];
 _Bool dequeue_flag[2];
@@ -1123,7 +1123,7 @@ void *t1(void *arg)
   for (i = 0; i < 20; i++)
   {
    __CS_cs(); if (__CS_ret != 0) return 0;
-   value = nondet_int();
+   value = __VERIFIER_nondet_int();
    __CS_cs(); if (__CS_ret != 0) return 0;
    enqueue(&queue[__CS_round], value);
    __CS_cs(); if (__CS_ret != 0) return 0;

@@ -81,7 +81,7 @@ unsigned int __CS_SwitchDone;
 */
 
 //cseq: function declarations
-int nondet_int();
+int __VERIFIER_nondet_int();
 
 void __CS_cs(void)
 {
@@ -91,8 +91,8 @@ void __CS_cs(void)
 	__CS_round += k;
 	 // this is removed when not needed
 
-	// __CS_ret = (nondet_int() && __CS_round == __CS_ROUNDS-1)?1:__CS_ret;  // preemption
-	__CS_ret = (nondet_int() && __CS_round == __CS_ROUNDS-1)?__CS_ret_PREEMPTED:__CS_ret;
+	// __CS_ret = (__VERIFIER_nondet_int() && __CS_round == __CS_ROUNDS-1)?1:__CS_ret;  // preemption
+	__CS_ret = (__VERIFIER_nondet_int() && __CS_round == __CS_ROUNDS-1)?__CS_ret_PREEMPTED:__CS_ret;
 }
 /*
 void __CS_cs(void)
@@ -248,7 +248,7 @@ int __CS_pthread_join(__CS_pthread_t thread, void **value_ptr)
 
 int __CS_pthread_create(__CS_pthread_t *id1, void *attr, void *(*t1)(void*), void *arg)
 {
-	/* if (nondet_int()) { *id = -1; return -1; } */
+	/* if (__VERIFIER_nondet_int()) { *id = -1; return -1; } */
 
 	/*
 	if (__CS_thread_index == __CS_THREADS+1) {

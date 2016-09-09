@@ -82,7 +82,7 @@ unsigned int __CS_SwitchDone;
 */
 
 //cseq: function declarations
-int nondet_int();
+int __VERIFIER_nondet_int();
 
 void __CS_cs(void)
 {
@@ -92,8 +92,8 @@ void __CS_cs(void)
 	__CS_round += k;
 	 // this is removed when not needed
 
-	// __CS_ret = (nondet_int() && __CS_round == __CS_ROUNDS-1)?1:__CS_ret;  // preemption
-	__CS_ret = (nondet_int() && __CS_round == __CS_ROUNDS-1)?__CS_ret_PREEMPTED:__CS_ret;
+	// __CS_ret = (__VERIFIER_nondet_int() && __CS_round == __CS_ROUNDS-1)?1:__CS_ret;  // preemption
+	__CS_ret = (__VERIFIER_nondet_int() && __CS_round == __CS_ROUNDS-1)?__CS_ret_PREEMPTED:__CS_ret;
 }
 /*
 void __CS_cs(void)
@@ -249,7 +249,7 @@ int __CS_pthread_join(__CS_pthread_t thread, void **value_ptr)
 
 int __CS_pthread_create(__CS_pthread_t *id1, void *attr, void *(*t1)(void*), void *arg)
 {
-	/* if (nondet_int()) { *id = -1; return -1; } */
+	/* if (__VERIFIER_nondet_int()) { *id = -1; return -1; } */
 
 	/*
 	if (__CS_thread_index == __CS_THREADS+1) {
@@ -308,7 +308,7 @@ typedef struct __CS_anonstruct_0
 	int amount;
 } QType;
 __CS_pthread_mutex_t m[__CS_ROUNDS];
-int nondet_int();
+int __VERIFIER_nondet_int();
 int stored_elements[__CS_ROUNDS][20];
 _Bool enqueue_flag[__CS_ROUNDS];
 _Bool dequeue_flag[__CS_ROUNDS];
@@ -424,7 +424,7 @@ void *t1(void *arg)
 	__CS_cs(); if (__CS_ret != 0) return 0;
 	__CS_pthread_mutex_lock(&m[__CS_round]);
 	__CS_cs(); if (__CS_ret != 0) return 0;
-	value = nondet_int();
+	value = __VERIFIER_nondet_int();
 	__CS_cs(); if (__CS_ret != 0) return 0;
 	if (enqueue(&queue[__CS_round], value))
 	{
@@ -452,7 +452,7 @@ void *t1(void *arg)
 		if (enqueue_flag[__CS_round])
 		{
 			__CS_cs(); if (__CS_ret != 0) return 0;
-			value = nondet_int();
+			value = __VERIFIER_nondet_int();
 			__CS_cs(); if (__CS_ret != 0) return 0;
 			enqueue(&queue[__CS_round], value);
 			__CS_cs(); if (__CS_ret != 0) return 0;
