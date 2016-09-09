@@ -59,7 +59,7 @@ DM-0000575
 /* print_CIL_Input is true */
 
 _Bool __VERIFIER_nondet__Bool(void) ;
-char __VERIFIER_nondet_msg_t(void) ;
+char __VERIFIER_nondet_char(void) ;
 char __VERIFIER_nondet_char(void) ;
 void assert(_Bool arg ) ;
 void __VERIFIER_assume(int arg ) ;
@@ -301,17 +301,17 @@ int main(void)
   r1 = __VERIFIER_nondet_char();
   id1 = __VERIFIER_nondet_char();
   st1 = __VERIFIER_nondet_char();
-  send1 = __VERIFIER_nondet_msg_t();
+  send1 = __VERIFIER_nondet_char();
   mode1 = __VERIFIER_nondet__Bool();
   alive1 = __VERIFIER_nondet__Bool();
   id2 = __VERIFIER_nondet_char();
   st2 = __VERIFIER_nondet_char();
-  send2 = __VERIFIER_nondet_msg_t();
+  send2 = __VERIFIER_nondet_char();
   mode2 = __VERIFIER_nondet__Bool();
   alive2 = __VERIFIER_nondet__Bool();
   id3 = __VERIFIER_nondet_char();
   st3 = __VERIFIER_nondet_char();
-  send3 = __VERIFIER_nondet_msg_t();
+  send3 = __VERIFIER_nondet_char();
   mode3 = __VERIFIER_nondet__Bool();
   alive3 = __VERIFIER_nondet__Bool();
   i2 = init();

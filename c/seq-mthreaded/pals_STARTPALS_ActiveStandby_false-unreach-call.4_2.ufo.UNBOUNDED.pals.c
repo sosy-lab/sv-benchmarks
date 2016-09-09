@@ -59,7 +59,7 @@ DM-0000575
 /* print_CIL_Input is true */
 
 char __VERIFIER_nondet_int8_t(void) ;
-char __VERIFIER_nondet_msg_t(void) ;
+char __VERIFIER_nondet_char(void) ;
 _Bool __VERIFIER_nondet__Bool(void) ;
 typedef char int8_t;
 typedef int8_t msg_t;
@@ -589,8 +589,8 @@ int main(void)
   c1 = 0;
   side1Failed = __VERIFIER_nondet__Bool();
   side2Failed = __VERIFIER_nondet__Bool();
-  side1_written = __VERIFIER_nondet_msg_t();
-  side2_written = __VERIFIER_nondet_msg_t();
+  side1_written = __VERIFIER_nondet_char();
+  side2_written = __VERIFIER_nondet_char();
   side1Failed_History_0 = __VERIFIER_nondet__Bool();
   side1Failed_History_1 = __VERIFIER_nondet__Bool();
   side1Failed_History_2 = __VERIFIER_nondet__Bool();
@@ -600,9 +600,9 @@ int main(void)
   active_side_History_0 = __VERIFIER_nondet_int8_t();
   active_side_History_1 = __VERIFIER_nondet_int8_t();
   active_side_History_2 = __VERIFIER_nondet_int8_t();
-  manual_selection_History_0 = __VERIFIER_nondet_msg_t();
-  manual_selection_History_1 = __VERIFIER_nondet_msg_t();
-  manual_selection_History_2 = __VERIFIER_nondet_msg_t();
+  manual_selection_History_0 = __VERIFIER_nondet_char();
+  manual_selection_History_1 = __VERIFIER_nondet_char();
+  manual_selection_History_2 = __VERIFIER_nondet_char();
   i2 = init();
   __VERIFIER_assume(i2);
   cs1_old = nomsg;
