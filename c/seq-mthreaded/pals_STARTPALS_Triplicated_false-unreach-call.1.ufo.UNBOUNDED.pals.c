@@ -76,7 +76,7 @@ port_t g3v  ;
 int8_t g3v_old ;
 int8_t g3v_new ;
 extern _Bool __VERIFIER_nondet_bool() ;
-extern msg_t __VERIFIER_nondet_int8_t() ;
+extern msg_t __VERIFIER_nondet_char() ;
 extern void __VERIFIER_assume(int arg ) ;
 _Bool gate1Failed  ;
 _Bool gate2Failed  ;
@@ -391,7 +391,7 @@ void gate1_each_pals_period(void)
     g1v_new = nomsg != nomsg && g1v_new == nomsg ? nomsg : g1v_new;
     return;
   }
-  tmp = __VERIFIER_nondet_int8_t();
+  tmp = __VERIFIER_nondet_char();
   next_state = tmp;
   if ((int )next_state == 0) {
     tmp___0 = 1;
@@ -422,7 +422,7 @@ void gate2_each_pals_period(void)
     g2v_new = nomsg != nomsg && g2v_new == nomsg ? nomsg : g2v_new;
     return;
   }
-  tmp = __VERIFIER_nondet_int8_t();
+  tmp = __VERIFIER_nondet_char();
   next_state = tmp;
   if ((int )next_state == 0) {
     tmp___0 = 1;
@@ -453,7 +453,7 @@ void gate3_each_pals_period(void)
     g3v_new = nomsg != nomsg && g3v_new == nomsg ? nomsg : g3v_new;
     return;
   }
-  tmp = __VERIFIER_nondet_int8_t();
+  tmp = __VERIFIER_nondet_char();
   next_state = tmp;
   if ((int )next_state == 0) {
     tmp___0 = 1;
@@ -539,9 +539,9 @@ int main(void)
   gate3Failed_History_0 = __VERIFIER_nondet__Bool();
   gate3Failed_History_1 = __VERIFIER_nondet__Bool();
   gate3Failed_History_2 = __VERIFIER_nondet__Bool();
-  votedValue_History_0 = __VERIFIER_nondet_int8_t();
-  votedValue_History_1 = __VERIFIER_nondet_int8_t();
-  votedValue_History_2 = __VERIFIER_nondet_int8_t();
+  votedValue_History_0 = __VERIFIER_nondet_char();
+  votedValue_History_1 = __VERIFIER_nondet_char();
+  votedValue_History_2 = __VERIFIER_nondet_char();
   i2 = init();
   __VERIFIER_assume(i2);
   g1v_old = nomsg;
