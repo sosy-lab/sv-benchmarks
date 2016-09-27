@@ -7773,8 +7773,10 @@ int main(void)
         case_4:
         if (ldv_s_whiteheat_device_usb_serial_driver == 2) {
           {
-          whiteheat_attach(var_group1);
-          whiteheat_release(var_group1);
+          int attach_status = whiteheat_attach(var_group1);
+          if (attach_status != -19 && attach_status != -12) {
+            whiteheat_release(var_group1);
+          }
           ldv_s_whiteheat_device_usb_serial_driver = 0;
           }
         } else {
