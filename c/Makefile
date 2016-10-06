@@ -77,5 +77,6 @@ DIRS += termination-libowfat
 DIRS += termination-memory-alloca
 DIRS += termination-numeric
 DIRS += termination-restricted-15
+DIRS += termination-recursive-malloc
 
 include $(LEVEL)/Makefile.config
