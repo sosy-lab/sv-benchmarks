@@ -654,12 +654,9 @@ void __VERIFIER_assert(int cond) {
   }
   return;
 }
-void __VERIFIER_atomic_assert(int cond) {
-  if (!(cond)) {
-    ERROR: __VERIFIER_error();
-  }
-  return;
-}
+int __global_lock;
+void __VERIFIER_atomic_begin() { __VERIFIER_assume(__global_lock==0); __global_lock=1; return; }
+void __VERIFIER_atomic_end() { __VERIFIER_assume(__global_lock==1); __global_lock=0; return; }
 int __VERIFIER_nondet_int();
 volatile int stoppingFlag;
 volatile int pendingIo;
@@ -673,13 +670,16 @@ int BCSP_IoIncrement() {
     }
     return 0;
 }
-int __VERIFIER_atomic_dec() {
+int dec() {
+    __VERIFIER_atomic_begin();
     pendingIo--;
-    return pendingIo;
+    int tmp = pendingIo;
+    __VERIFIER_atomic_end();
+    return tmp;
 }
 void BCSP_IoDecrement() {
     int pending;
-    pending = __VERIFIER_atomic_dec();
+    pending = dec();
     if (pending == 0) {
  stoppingEvent = 1;
     }

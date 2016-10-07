@@ -1,5 +1,8 @@
 extern void __VERIFIER_assume(int);
 extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+int __global_lock;
+void __VERIFIER_atomic_begin() { __VERIFIER_assume(__global_lock==0); __global_lock=1; return; }
+void __VERIFIER_atomic_end() { __VERIFIER_assume(__global_lock==1); __global_lock=0; return; }
 
 //Ticket lock with proportional backoff
 //
@@ -19,7 +22,8 @@ volatile unsigned now_serving = 0;
 #define NEXT(e) ((e + 1) % FAILED)
 // #define NEXT(e) ((e+1 == FAILED)?0:e+1)
 
-unsigned __VERIFIER_atomic_fetch_and_increment__next_ticket(){
+unsigned fetch_and_increment__next_ticket(){
+        __VERIFIER_atomic_begin();
 	unsigned value;
 
 		if(NEXT(next_ticket) == now_serving){ 
@@ -31,13 +35,14 @@ unsigned __VERIFIER_atomic_fetch_and_increment__next_ticket(){
 			next_ticket = NEXT(next_ticket);
 		}
 
+	__VERIFIER_atomic_end();
 	return value;
 }
 
 inline void acquire_lock(){
 	unsigned my_ticket; 
 
-	my_ticket = __VERIFIER_atomic_fetch_and_increment__next_ticket(); //returns old value; arithmetic overflow is harmless (Alex: it is not if we have 2^64 threads)
+	my_ticket = fetch_and_increment__next_ticket(); //returns old value; arithmetic overflow is harmless (Alex: it is not if we have 2^64 threads)
 
 	if(my_ticket == FAILED){
 		assume(0);

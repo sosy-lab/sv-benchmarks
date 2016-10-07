@@ -654,25 +654,26 @@ void __VERIFIER_assert(int cond) {
   }
   return;
 }
-void __VERIFIER_atomic_assert(int cond) {
-  if (!(cond)) {
-    ERROR: __VERIFIER_error();
-  }
-  return;
-}
+int __global_lock;
+void __VERIFIER_atomic_begin() { __VERIFIER_assume(__global_lock==0); __global_lock=1; return; }
+void __VERIFIER_atomic_end() { __VERIFIER_assume(__global_lock==1); __global_lock=0; return; }
 int __VERIFIER_nondet_int();
 volatile int s;
 volatile int t;
-void __VERIFIER_atomic_inct() {
+void inct() {
+    __VERIFIER_atomic_begin();
     t++;
+    __VERIFIER_atomic_end();
 }
-void __VERIFIER_atomic_incs() {
+void incs() {
+    __VERIFIER_atomic_begin();
     s++;
+    __VERIFIER_atomic_end();
 }
 void* thr(void* arg) {
-    __VERIFIER_atomic_inct();
-    __VERIFIER_atomic_assert(s < t);
-    __VERIFIER_atomic_incs();
+    inct();
+    __VERIFIER_assert(s < t);
+    incs();
 }
 int main() {
     pthread_t t;
