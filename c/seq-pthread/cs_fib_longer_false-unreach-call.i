@@ -650,13 +650,13 @@ const unsigned char __THREAD_UNUSED = 0x00;
 const unsigned char __THREAD_RUNNING = 0x01;
 const unsigned char __THREAD_FINISHED = 0x02;
 unsigned char *__CS_thread_lockedon[7][2 +1];
-int nondet_int();
+int __VERIFIER_nondet_int();
 void __CS_cs(void)
 {
  unsigned char k;
  __VERIFIER_assume(__CS_round+k < 7);
  __CS_round += k;
- __CS_ret = (nondet_int() && __CS_round == 7 -1)?__CS_ret_PREEMPTED:__CS_ret;
+ __CS_ret = (__VERIFIER_nondet_int() && __CS_round == 7 -1)?__CS_ret_PREEMPTED:__CS_ret;
 }
 int __CS_pthread_mutex_init(unsigned char *mutex, void *attr)
 {
