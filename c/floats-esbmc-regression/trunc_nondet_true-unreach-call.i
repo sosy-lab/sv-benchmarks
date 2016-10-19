@@ -1067,6 +1067,7 @@ extern int fesetenv (const fenv_t *__envp) __attribute__ ((__nothrow__ ));
 extern int feupdateenv (const fenv_t *__envp) __attribute__ ((__nothrow__ ));
 # 3 "trunc_nondet_true-unreach-call.c" 2
 
+extern void __VERIFIER_assume(int);
 extern void __VERIFIER_error() __attribute__ ((__noreturn__));
 void __VERIFIER_assert(int cond) { if (!(cond)) { ERROR: __VERIFIER_error(); } return; }
 

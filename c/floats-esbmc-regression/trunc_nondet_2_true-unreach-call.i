@@ -1086,6 +1086,7 @@ extern int feupdateenv (const fenv_t *__envp) __attribute__ ((__nothrow__ ));
 # 38 "/home/mramalho/clang-3.9.0-64/bin/../lib/clang/3.9.0/include/limits.h" 2 3
 # 4 "trunc_nondet_2_true-unreach-call.c" 2
 
+extern void __VERIFIER_assume(int);
 extern void __VERIFIER_error() __attribute__ ((__noreturn__));
 void __VERIFIER_assert(int cond) { if (!(cond)) { ERROR: __VERIFIER_error(); } return; }
 

@@ -938,6 +938,7 @@ struct exception
 extern int matherr (struct exception *__exc);
 # 2 "fmod3_true-unreach-call.c" 2
 
+extern void __VERIFIER_assume(int);
 extern void __VERIFIER_error() __attribute__ ((__noreturn__));
 void __VERIFIER_assert(int cond) { if (!(cond)) { ERROR: __VERIFIER_error(); } return; }
 
