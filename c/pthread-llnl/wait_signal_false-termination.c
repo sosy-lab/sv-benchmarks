@@ -42,7 +42,7 @@ void *inc_count(void *idp)
     pthread_mutex_unlock(&count_mutex);
 
     /* Do some work so threads can alternate on mutex lock */
-    sleep(1);
+    //sleep(1);
     }
   pthread_exit(NULL);
 }

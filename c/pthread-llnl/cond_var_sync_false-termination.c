@@ -29,7 +29,7 @@ void *sub1(void *t)
   double myresult=0.0;
  
   /* do some work */
-  sleep(1);
+  //sleep(1);
   /*
   Lock mutex and wait for signal only if count is what is expected.  Note
   that the pthread_cond_wait routine will automatically and atomically
