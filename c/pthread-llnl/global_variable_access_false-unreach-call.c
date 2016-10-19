@@ -1,3 +1,7 @@
+extern void __VERIFIER_assume(int);
+extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+
+
 /*****************************************************************************
 * FILE: bug6.c
 * DESCRIPTION:
@@ -13,7 +17,7 @@
 #include <stdlib.h>
 
 /* Define global data where everyone can see them */
-
+#define assert(e) if (!(e)) ERROR: __VERIFIER_error();
 #define NUMTHRDS 3
 #define VECLEN 4
 
@@ -76,6 +80,7 @@ for(i=0; i<NUMTHRDS; i++)
 
 /* After joining, print out the results and cleanup */
 printf ("Final Global Sum=%li\n",sum);
+assert(sum == NUMTHRDS*VECLEN);
 free (a);
 free (b);
 pthread_exit(NULL);
