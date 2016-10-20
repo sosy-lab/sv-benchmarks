@@ -6,6 +6,7 @@ extern void __VERIFIER_error() __attribute__ ((__noreturn__));
  */
 
 #include <stdlib.h>
+#include <stddef.h>     // offsetof
 
 extern int __VERIFIER_nondet_int(void);
 
@@ -19,7 +20,7 @@ struct list_head {
     struct list_head name = LIST_HEAD_INIT(name)
 
 #define list_entry(ptr, type, member) \
-	((type *)((char *)(ptr)-(unsigned long)(&((type *)0)->member)))
+	((type *)((char *)(ptr)-offsetof(type,member)))
 
 static inline void __list_add(struct list_head *new,
                               struct list_head *prev,

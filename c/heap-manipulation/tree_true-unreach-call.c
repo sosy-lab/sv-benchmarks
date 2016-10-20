@@ -1,18 +1,11 @@
 extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+extern int __VERIFIER_nondet_int(void);
 
 #include <stdlib.h>
 
 /* Builds a tree with parent links and
  * checks whether the values are still correct.
  */
-
-//extern int __VERIFIER_nondet_int(void);
-
-int __VERIFIER_nondet_int(void) {
-    return rand() / 1000;
-}
-
-
 
 static void fail(void) {
 ERROR: __VERIFIER_error();
