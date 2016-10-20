@@ -1,7 +1,7 @@
-Data structures on heap. Nodes of data structures contain data
+Data structures on heap. Nodes of some data structures contain data
 and a correctness of program may depend on a relation between data.
-The examples check ability of tools to entail predicates about
-heap data structures.
-Both types of examples are included, correct ones and also buggy ones.
+The examples check an ability of tools to use precise but powerful
+abstraction or refine abstraction to make abstraction more precise.
+Both types of examples are included, correct ones and buggy ones.
 
 Contributed by the Forester team.
