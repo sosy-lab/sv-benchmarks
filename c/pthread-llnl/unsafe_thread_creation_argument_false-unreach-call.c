@@ -19,14 +19,14 @@ extern void __VERIFIER_error() __attribute__ ((__noreturn__));
 #include <stdio.h>
 #include <stdlib.h>
 #define NUM_THREADS	2
-#define assert(e) if (!(e)) ERROR: __VERIFIER_error();
+#define __VERIFIER_assert(expr) if (!(expr)) VERIFIER_error();
 
 void *PrintHello(void *threadid)
 {
    long taskid = *((long*)threadid);
    //sleep(1);
    printf("Hello from thread %ld\n", taskid);
-   assert((taskid != NUM_THREADS));
+   __VERIFIER_assert((taskid != NUM_THREADS));
    pthread_exit(NULL);
 }
 
@@ -42,7 +42,7 @@ for(t=0;t<NUM_THREADS;t++) {
   if (rc) {
     //printf("ERROR; return code from pthread_create() is %d\n", rc);
     //exit(-1);
-      __VERIFIER_error()
+      __VERIFIER_error();
     }
    }
 
