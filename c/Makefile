@@ -52,6 +52,7 @@ DIRS += ntdrivers
 DIRS += ntdrivers-simplified
 DIRS += product-lines
 DIRS += pthread
+DIRS += pthread-complex
 DIRS += pthread-atomic
 DIRS += pthread-ext
 DIRS += pthread-lit
