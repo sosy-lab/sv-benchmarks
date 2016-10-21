@@ -19,7 +19,7 @@ extern void __VERIFIER_error() __attribute__ ((__noreturn__));
 #include <stdio.h>
 #include <stdlib.h>
 #define NUM_THREADS	2
-#define __VERIFIER_assert(expr) if (!(expr)) VERIFIER_error();
+#define __VERIFIER_assert(expr) if (!(expr)) __VERIFIER_error();
 
 void *PrintHello(void *threadid)
 {

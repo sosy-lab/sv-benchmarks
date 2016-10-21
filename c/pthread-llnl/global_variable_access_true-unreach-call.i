@@ -2273,7 +2273,7 @@ int main (int argc, char *argv[])
     }
 
     printf ("Final Global Sum=%li\n",sum);
-    if (!(sum == 3*4)) ERROR: __VERIFIER_error();;
+    if (!(sum == 3*4)) __VERIFIER_error();
     free (a);
     free (b);
     pthread_mutex_destroy(&mutexsum);

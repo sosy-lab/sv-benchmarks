@@ -2649,7 +2649,7 @@ for(t=0;t<5;t++){
 
 
       __VERIFIER_error();
-    }
+  }
   }
 printf("Main: Done.\n");
 }

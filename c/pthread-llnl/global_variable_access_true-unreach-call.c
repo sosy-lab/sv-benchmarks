@@ -15,7 +15,7 @@ extern void __VERIFIER_error() __attribute__ ((__noreturn__));
 #include <stdlib.h>
 
 /* Define global data where everyone can see them */
-#define __VERIFIER_assert(expr) if (!(expr)) VERIFIER_error()
+#define __VERIFIER_assert(expr) if (!(expr)) __VERIFIER_error()
 #define NUMTHRDS 3
 #define VECLEN 4
 pthread_mutex_t mutexsum;

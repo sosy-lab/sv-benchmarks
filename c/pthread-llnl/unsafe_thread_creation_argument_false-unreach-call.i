@@ -2211,7 +2211,7 @@ void *PrintHello(void *threadid)
    long taskid = *((long*)threadid);
 
    printf("Hello from thread %ld\n", taskid);
-   if (!((taskid != 2))) ERROR: __VERIFIER_error();;
+   if (!((taskid != 2))) __VERIFIER_error();;
    pthread_exit(((void *)0));
 }
 
@@ -2227,7 +2227,7 @@ for(t=0;t<2;t++) {
   if (rc) {
 
 
-      __VERIFIER_error()
+      __VERIFIER_error();
     }
    }
 

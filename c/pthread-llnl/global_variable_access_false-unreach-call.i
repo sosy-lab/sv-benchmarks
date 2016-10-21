@@ -2268,7 +2268,7 @@ for(i=0; i<3; i++)
 
 
 printf ("Final Global Sum=%li\n",sum);
-if (!(sum == 3*4)) ERROR: __VERIFIER_error();;
+if (!(sum == 3*4)) __VERIFIER_error();
 free (a);
 free (b);
 pthread_exit(((void *)0));
