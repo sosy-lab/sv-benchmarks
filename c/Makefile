@@ -21,6 +21,7 @@ DIRS += eca-rers2012
 DIRS += float-benchs
 DIRS += floats-cbmc-regression
 DIRS += floats-cdfpl
+DIRS += forester-heap
 DIRS += heap-manipulation
 DIRS += ldv-challenges
 DIRS += ldv-commit-tester
