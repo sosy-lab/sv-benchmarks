@@ -5,7 +5,7 @@
 # 1 "<command line>" 1
 # 1 "<built-in>" 2
 # 1 "cond_var_sync_false-termination.c" 2
-# 10 "cond_var_sync_false-termination.c"
+# 21 "cond_var_sync_false-termination.c"
 # 1 "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk/usr/include/pthread.h" 1 3 4
 # 55 "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk/usr/include/pthread.h" 3 4
 # 1 "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk/usr/include/_types.h" 1 3 4
@@ -765,7 +765,7 @@ int pthread_sigmask(int, const sigset_t * _Nullable, sigset_t * _Nullable)
 
 __attribute__((availability(macosx,introduced=10.4)))
 void pthread_yield_np(void);
-# 11 "cond_var_sync_false-termination.c" 2
+# 22 "cond_var_sync_false-termination.c" 2
 # 1 "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk/usr/include/stdio.h" 1 3 4
 # 71 "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk/usr/include/stdio.h" 3 4
 # 1 "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk/usr/include/sys/_types/_va_list.h" 1 3 4
@@ -1017,7 +1017,7 @@ extern int __vsprintf_chk (char * restrict, int, size_t,
 extern int __vsnprintf_chk (char * restrict, size_t, int, size_t,
        const char * restrict, va_list);
 # 499 "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk/usr/include/stdio.h" 2 3 4
-# 12 "cond_var_sync_false-termination.c" 2
+# 23 "cond_var_sync_false-termination.c" 2
 # 1 "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk/usr/include/stdlib.h" 1 3 4
 # 65 "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk/usr/include/stdlib.h" 3 4
 # 1 "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk/usr/include/sys/wait.h" 1 3 4
@@ -2200,7 +2200,7 @@ unsigned long long
 
 extern char *suboptarg;
 void *valloc(size_t);
-# 13 "cond_var_sync_false-termination.c" 2
+# 24 "cond_var_sync_false-termination.c" 2
 # 1 "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk/usr/include/math.h" 1 3 4
 # 44 "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk/usr/include/math.h" 3 4
     typedef float float_t;
@@ -2622,410 +2622,8 @@ struct exception {
 };
 
 extern int matherr(struct exception *) __attribute__((availability(macosx,introduced=10.0,deprecated=10.9)));
-# 14 "cond_var_sync_false-termination.c" 2
-# 1 "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk/usr/include/unistd.h" 1 3 4
-# 72 "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk/usr/include/unistd.h" 3 4
-# 1 "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk/usr/include/sys/unistd.h" 1 3 4
-# 84 "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk/usr/include/sys/unistd.h" 3 4
-# 1 "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk/usr/include/sys/_types/_posix_vdisable.h" 1 3 4
-# 85 "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk/usr/include/sys/unistd.h" 2 3 4
-# 122 "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk/usr/include/sys/unistd.h" 3 4
-# 1 "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk/usr/include/sys/_types/_seek_set.h" 1 3 4
-# 123 "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk/usr/include/sys/unistd.h" 2 3 4
-# 132 "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk/usr/include/sys/unistd.h" 3 4
-struct accessx_descriptor {
- unsigned int ad_name_offset;
- int ad_flags;
- int ad_pad[2];
-};
-# 185 "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk/usr/include/sys/unistd.h" 3 4
-int getattrlistbulk(int, void *, void *, size_t, uint64_t) __attribute__((availability(macosx,introduced=10.10)));
-# 198 "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk/usr/include/sys/unistd.h" 3 4
-# 1 "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk/usr/include/sys/_types/_gid_t.h" 1 3 4
-# 30 "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk/usr/include/sys/_types/_gid_t.h" 3 4
-typedef __darwin_gid_t gid_t;
-# 199 "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk/usr/include/sys/unistd.h" 2 3 4
+# 25 "cond_var_sync_false-termination.c" 2
 
-
-
-
-int faccessat(int, const char *, int, int) __attribute__((availability(macosx,introduced=10.10)));
-int fchownat(int, const char *, uid_t, gid_t, int) __attribute__((availability(macosx,introduced=10.10)));
-int linkat(int, const char *, int, const char *, int) __attribute__((availability(macosx,introduced=10.10)));
-ssize_t readlinkat(int, const char *, char *, size_t) __attribute__((availability(macosx,introduced=10.10)));
-int symlinkat(const char *, int, const char *) __attribute__((availability(macosx,introduced=10.10)));
-int unlinkat(int, const char *, int) __attribute__((availability(macosx,introduced=10.10)));
-int getattrlistat(int, const char *, void *, void *, size_t, unsigned long) __attribute__((availability(macosx,introduced=10.10)));
-# 73 "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk/usr/include/unistd.h" 2 3 4
-# 83 "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk/usr/include/unistd.h" 3 4
-# 1 "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk/usr/include/sys/_types/_useconds_t.h" 1 3 4
-# 30 "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk/usr/include/sys/_types/_useconds_t.h" 3 4
-typedef __darwin_useconds_t useconds_t;
-# 84 "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk/usr/include/unistd.h" 2 3 4
-# 429 "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk/usr/include/unistd.h" 3 4
-void _exit(int) __attribute__((noreturn));
-int access(const char *, int);
-unsigned int
-  alarm(unsigned int);
-int chdir(const char *);
-int chown(const char *, uid_t, gid_t);
-
-int close(int) __asm("_" "close" );
-
-int dup(int);
-int dup2(int, int);
-int execl(const char * __path, const char * __arg0, ...) __attribute__((availability(watchos,unavailable))) __attribute__((availability(tvos,unavailable)));
-int execle(const char * __path, const char * __arg0, ...) __attribute__((availability(watchos,unavailable))) __attribute__((availability(tvos,unavailable)));
-int execlp(const char * __file, const char * __arg0, ...) __attribute__((availability(watchos,unavailable))) __attribute__((availability(tvos,unavailable)));
-int execv(const char * __path, char * const * __argv) __attribute__((availability(watchos,unavailable))) __attribute__((availability(tvos,unavailable)));
-int execve(const char * __file, char * const * __argv, char * const * __envp) __attribute__((availability(watchos,unavailable))) __attribute__((availability(tvos,unavailable)));
-int execvp(const char * __file, char * const * __argv) __attribute__((availability(watchos,unavailable))) __attribute__((availability(tvos,unavailable)));
-pid_t fork(void) __attribute__((availability(watchos,unavailable))) __attribute__((availability(tvos,unavailable)));
-long fpathconf(int, int);
-char *getcwd(char *, size_t);
-gid_t getegid(void);
-uid_t geteuid(void);
-gid_t getgid(void);
-
-
-
-int getgroups(int, gid_t []);
-
-char *getlogin(void);
-pid_t getpgrp(void);
-pid_t getpid(void);
-pid_t getppid(void);
-uid_t getuid(void);
-int isatty(int);
-int link(const char *, const char *);
-off_t lseek(int, off_t, int);
-long pathconf(const char *, int);
-
-int pause(void) __asm("_" "pause" );
-
-int pipe(int [2]);
-
-ssize_t read(int, void *, size_t) __asm("_" "read" );
-
-int rmdir(const char *);
-int setgid(gid_t);
-int setpgid(pid_t, pid_t);
-pid_t setsid(void);
-int setuid(uid_t);
-
-unsigned int
-  sleep(unsigned int) __asm("_" "sleep" );
-
-long sysconf(int);
-pid_t tcgetpgrp(int);
-int tcsetpgrp(int, pid_t);
-char *ttyname(int);
-
-
-int ttyname_r(int, char *, size_t) __asm("_" "ttyname_r" );
-
-
-
-
-int unlink(const char *);
-
-ssize_t write(int __fd, const void * __buf, size_t __nbyte) __asm("_" "write" );
-# 506 "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk/usr/include/unistd.h" 3 4
-size_t confstr(int, char *, size_t) __asm("_" "confstr" );
-
-int getopt(int, char * const [], const char *) __asm("_" "getopt" );
-
-extern char *optarg;
-extern int optind, opterr, optopt;
-# 536 "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk/usr/include/unistd.h" 3 4
-__attribute__((deprecated)) __attribute__((availability(watchos,unavailable))) __attribute__((availability(tvos,unavailable)))
-
-void *brk(const void *);
-int chroot(const char *) ;
-
-
-char *crypt(const char *, const char *);
-
-
-
-
-
-
-void encrypt(char *, int) __asm("_" "encrypt" );
-
-
-
-int fchdir(int);
-long gethostid(void);
-pid_t getpgid(pid_t);
-pid_t getsid(pid_t);
-
-
-
-int getdtablesize(void) ;
-int getpagesize(void) __attribute__((const)) ;
-char *getpass(const char *) ;
-
-
-
-
-char *getwd(char *) ;
-
-
-int lchown(const char *, uid_t, gid_t) __asm("_" "lchown" );
-
-int lockf(int, int, off_t) __asm("_" "lockf" );
-
-int nice(int) __asm("_" "nice" );
-
-ssize_t pread(int __fd, void * __buf, size_t __nbyte, off_t __offset) __asm("_" "pread" );
-
-ssize_t pwrite(int __fd, const void * __buf, size_t __nbyte, off_t __offset) __asm("_" "pwrite" );
-
-
-
-
-
-
-__attribute__((deprecated)) __attribute__((availability(watchos,unavailable))) __attribute__((availability(tvos,unavailable)))
-
-void *sbrk(int);
-
-
-
-pid_t setpgrp(void) __asm("_" "setpgrp" );
-
-
-
-
-int setregid(gid_t, gid_t) __asm("_" "setregid" );
-
-int setreuid(uid_t, uid_t) __asm("_" "setreuid" );
-
-void swab(const void * restrict, void * restrict, ssize_t);
-void sync(void);
-int truncate(const char *, off_t);
-useconds_t ualarm(useconds_t, useconds_t);
-int usleep(useconds_t) __asm("_" "usleep" );
-pid_t vfork(void) __attribute__((availability(watchos,unavailable))) __attribute__((availability(tvos,unavailable)));
-
-
-int fsync(int) __asm("_" "fsync" );
-
-int ftruncate(int, off_t);
-int getlogin_r(char *, size_t);
-# 624 "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk/usr/include/unistd.h" 3 4
-int fchown(int, uid_t, gid_t);
-int gethostname(char *, size_t);
-ssize_t readlink(const char * restrict, char * restrict, size_t);
-int setegid(gid_t);
-int seteuid(uid_t);
-int symlink(const char *, const char *);
-# 638 "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk/usr/include/unistd.h" 3 4
-# 1 "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk/usr/include/sys/select.h" 1 3 4
-# 75 "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk/usr/include/sys/select.h" 3 4
-# 1 "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk/usr/include/sys/_types/_fd_def.h" 1 3 4
-# 46 "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk/usr/include/sys/_types/_fd_def.h" 3 4
-typedef struct fd_set {
- __int32_t fds_bits[((((1024) % ((sizeof(__int32_t) * 8))) == 0) ? ((1024) / ((sizeof(__int32_t) * 8))) : (((1024) / ((sizeof(__int32_t) * 8))) + 1))];
-} fd_set;
-
-
-
-static __inline int
-__darwin_fd_isset(int _n, const struct fd_set *_p)
-{
- return (_p->fds_bits[(unsigned long)_n/(sizeof(__int32_t) * 8)] & ((__int32_t)(((unsigned long)1)<<((unsigned long)_n % (sizeof(__int32_t) * 8)))));
-}
-# 76 "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk/usr/include/sys/select.h" 2 3 4
-# 85 "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk/usr/include/sys/select.h" 3 4
-# 1 "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk/usr/include/sys/_types/_suseconds_t.h" 1 3 4
-# 30 "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk/usr/include/sys/_types/_suseconds_t.h" 3 4
-typedef __darwin_suseconds_t suseconds_t;
-# 86 "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk/usr/include/sys/select.h" 2 3 4
-# 100 "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk/usr/include/sys/select.h" 3 4
-# 1 "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk/usr/include/sys/_types/_fd_setsize.h" 1 3 4
-# 101 "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk/usr/include/sys/select.h" 2 3 4
-# 1 "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk/usr/include/sys/_types/_fd_set.h" 1 3 4
-# 102 "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk/usr/include/sys/select.h" 2 3 4
-# 1 "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk/usr/include/sys/_types/_fd_clr.h" 1 3 4
-# 103 "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk/usr/include/sys/select.h" 2 3 4
-# 1 "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk/usr/include/sys/_types/_fd_isset.h" 1 3 4
-# 104 "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk/usr/include/sys/select.h" 2 3 4
-# 1 "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk/usr/include/sys/_types/_fd_zero.h" 1 3 4
-# 105 "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk/usr/include/sys/select.h" 2 3 4
-
-
-# 1 "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk/usr/include/sys/_types/_fd_copy.h" 1 3 4
-# 108 "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk/usr/include/sys/select.h" 2 3 4
-
-
-
-
-
-
-int pselect(int, fd_set * restrict, fd_set * restrict,
-  fd_set * restrict, const struct timespec * restrict,
-  const sigset_t * restrict)
-
-
-
-
-  __asm("_" "pselect" "$1050")
-
-
-
-
-  ;
-
-
-
-# 1 "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk/usr/include/sys/_select.h" 1 3 4
-# 39 "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk/usr/include/sys/_select.h" 3 4
-int select(int, fd_set * restrict, fd_set * restrict,
-  fd_set * restrict, struct timeval * restrict)
-
-
-
-
-  __asm("_" "select" "$1050")
-
-
-
-
-  ;
-# 130 "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk/usr/include/sys/select.h" 2 3 4
-# 639 "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk/usr/include/unistd.h" 2 3 4
-
-
-
-# 1 "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk/usr/include/sys/_types/_uuid_t.h" 1 3 4
-# 30 "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk/usr/include/sys/_types/_uuid_t.h" 3 4
-typedef __darwin_uuid_t uuid_t;
-# 643 "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk/usr/include/unistd.h" 2 3 4
-
-
-void _Exit(int) __attribute__((noreturn));
-int accessx_np(const struct accessx_descriptor *, size_t, int *, uid_t);
-int acct(const char *);
-int add_profil(char *, size_t, unsigned long, unsigned int) __attribute__((availability(watchos,unavailable))) __attribute__((availability(tvos,unavailable)));
-void endusershell(void);
-int execvP(const char * __file, const char * __searchpath, char * const * __argv) __attribute__((availability(watchos,unavailable))) __attribute__((availability(tvos,unavailable)));
-char *fflagstostr(unsigned long);
-int getdomainname(char *, int);
-int getgrouplist(const char *, int, int *, int *);
-
-
-
-
-
-# 1 "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk/usr/include/gethostuuid.h" 1 3 4
-# 39 "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk/usr/include/gethostuuid.h" 3 4
-int gethostuuid(uuid_t, const struct timespec *) __attribute__((availability(macosx,introduced=10.5)));
-# 659 "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk/usr/include/unistd.h" 2 3 4
-
-
-
-
-mode_t getmode(const void *, mode_t);
-int getpeereid(int, uid_t *, gid_t *);
-int getsgroups_np(int *, uuid_t);
-char *getusershell(void);
-int getwgroups_np(int *, uuid_t);
-int initgroups(const char *, int);
-int issetugid(void);
-char *mkdtemp(char *);
-int mknod(const char *, mode_t, dev_t);
-int mkpath_np(const char *path, mode_t omode) __attribute__((availability(macosx,introduced=10.8)));
-int mkpathat_np(int dfd, const char *path, mode_t omode)
-  __attribute__((availability(macosx,introduced=10.12))) __attribute__((availability(ios,introduced=10.0)))
-  __attribute__((availability(tvos,introduced=10.0))) __attribute__((availability(watchos,introduced=3.0)));
-int mkstemp(char *);
-int mkstemps(char *, int);
-char *mktemp(char *);
-int mkostemp(char *path, int oflags)
-  __attribute__((availability(macosx,introduced=10.12))) __attribute__((availability(ios,introduced=10.0)))
-  __attribute__((availability(tvos,introduced=10.0))) __attribute__((availability(watchos,introduced=3.0)));
-int mkostemps(char *path, int slen, int oflags)
-  __attribute__((availability(macosx,introduced=10.12))) __attribute__((availability(ios,introduced=10.0)))
-  __attribute__((availability(tvos,introduced=10.0))) __attribute__((availability(watchos,introduced=3.0)));
-
-int mkstemp_dprotected_np(char *path, int dpclass, int dpflags)
-  __attribute__((availability(macosx,unavailable))) __attribute__((availability(ios,introduced=10.0)))
-  __attribute__((availability(tvos,introduced=10.0))) __attribute__((availability(watchos,introduced=3.0)));
-int nfssvc(int, void *);
-int profil(char *, size_t, unsigned long, unsigned int);
-int pthread_setugid_np(uid_t, gid_t);
-int pthread_getugid_np( uid_t *, gid_t *);
-int reboot(int);
-int revoke(const char *);
-
-__attribute__((deprecated)) int rcmd(char **, int, const char *, const char *, const char *, int *);
-__attribute__((deprecated)) int rcmd_af(char **, int, const char *, const char *, const char *, int *,
-  int);
-__attribute__((deprecated)) int rresvport(int *);
-__attribute__((deprecated)) int rresvport_af(int *, int);
-__attribute__((deprecated)) int iruserok(unsigned long, int, const char *, const char *);
-__attribute__((deprecated)) int iruserok_sa(const void *, int, int, const char *, const char *);
-__attribute__((deprecated)) int ruserok(const char *, int, const char *, const char *);
-
-int setdomainname(const char *, int);
-int setgroups(int, const gid_t *);
-void sethostid(long);
-int sethostname(const char *, int);
-
-void setkey(const char *) __asm("_" "setkey" );
-
-
-
-int setlogin(const char *);
-void *setmode(const char *) __asm("_" "setmode" );
-int setrgid(gid_t);
-int setruid(uid_t);
-int setsgroups_np(int, const uuid_t);
-void setusershell(void);
-int setwgroups_np(int, const uuid_t);
-int strtofflags(char **, unsigned long *, unsigned long *);
-int swapon(const char *);
-int ttyslot(void);
-int undelete(const char *);
-int unwhiteout(const char *);
-void *valloc(size_t);
-
-__attribute__((availability(watchos,unavailable))) __attribute__((availability(tvos,unavailable)))
-__attribute__((availability(ios,deprecated=10.0,message="syscall(2) is unsupported; " "please switch to a supported interface. For SYS_kdebug_trace use kdebug_signpost().")))
-
-__attribute__((availability(macosx,deprecated=10.12,message="syscall(2) is unsupported; " "please switch to a supported interface. For SYS_kdebug_trace use kdebug_signpost().")))
-
-int syscall(int, ...);
-
-extern char *suboptarg;
-int getsubopt(char **, char * const *, char **);
-
-
-
-int fgetattrlist(int,void*,void*,size_t,unsigned int) __attribute__((availability(macosx,introduced=10.6)));
-int fsetattrlist(int,void*,void*,size_t,unsigned int) __attribute__((availability(macosx,introduced=10.6)));
-int getattrlist(const char*,void*,void*,size_t,unsigned int) __asm("_" "getattrlist" );
-int setattrlist(const char*,void*,void*,size_t,unsigned int) __asm("_" "setattrlist" );
-int exchangedata(const char*,const char*,unsigned int) __attribute__((availability(watchos,unavailable))) __attribute__((availability(tvos,unavailable)));
-int getdirentriesattr(int,void*,void*,size_t,unsigned int*,unsigned int*,unsigned int*,unsigned int) __attribute__((availability(watchos,unavailable))) __attribute__((availability(tvos,unavailable)));
-# 757 "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk/usr/include/unistd.h" 3 4
-struct fssearchblock;
-struct searchstate;
-
-int searchfs(const char *, struct fssearchblock *, unsigned long *, unsigned int, unsigned int, struct searchstate *) __attribute__((availability(watchos,unavailable))) __attribute__((availability(tvos,unavailable)));
-int fsctl(const char *,unsigned long,void*,unsigned int);
-int ffsctl(int,unsigned long,void*,unsigned int) __attribute__((availability(macosx,introduced=10.6)));
-
-
-
-
-int fsync_volume_np(int, int) __attribute__((availability(macosx,introduced=10.8)));
-int sync_volume_np(const char *, int) __attribute__((availability(macosx,introduced=10.8)));
-
-extern int optreset;
-# 15 "cond_var_sync_false-termination.c" 2
 
 
 
@@ -3041,7 +2639,7 @@ void *sub1(void *t)
   int i;
   long tid = (long)t;
   double myresult=0.0;
-# 41 "cond_var_sync_false-termination.c"
+# 52 "cond_var_sync_false-termination.c"
   pthread_mutex_lock(&count_mutex);
   printf("sub1: thread=%ld going into wait. count=%d\n",tid,count);
   pthread_cond_wait(&count_condvar, &count_mutex);

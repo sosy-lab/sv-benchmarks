@@ -9,6 +9,12 @@
 *   et al. O'Reilly and Associates.
 * LAST REVISED: 07/06/05  Blaise Barney
 ******************************************************************************/
+
+/* Edited by Wenhao Wu on 10/21/2016 for SV-COMP:
+ *   Comments out the function call: sleep(1);
+ *
+ */
+
 #include <pthread.h>
 #include <stdio.h>
 #include <stdlib.h>

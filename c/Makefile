@@ -56,6 +56,7 @@ DIRS += pthread-atomic
 DIRS += pthread-ext
 DIRS += pthread-lit
 DIRS += pthread-wmm
+DIRS += pthread-llnl
 DIRS += recursive
 DIRS += recursive-simple
 DIRS += reducercommutativity

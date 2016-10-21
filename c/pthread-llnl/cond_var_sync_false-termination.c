@@ -7,11 +7,22 @@
 * SOURCE: 07/06/05 Blaise Barney
 * LAST REVISED: 01/29/09  Blaise Barney
 ******************************************************************************/
+
+/* Edited by Wenhao Wu on 10/21/2016 for SV-COMP:
+ *   removed the use of unistd.h, which as just one call to sleep(1).
+ *
+ * Note that: 
+ *   this will reduce the possibility of the presence of hanging.
+ *
+ * Modification:
+ *   Comments out #include <unistd.h> and sleep(1);
+ */
+
 #include <pthread.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
-#include <unistd.h>
+//#include <unistd.h>
 
 /* Define and scope what needs to be seen by everyone */
 #define NUM_THREADS  3

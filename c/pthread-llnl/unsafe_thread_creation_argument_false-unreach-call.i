@@ -7,7 +7,7 @@
 # 1 "unsafe_thread_creation_argument_false-unreach-call.c" 2
 extern void __VERIFIER_assume(int);
 extern void __VERIFIER_error() __attribute__ ((__noreturn__));
-# 15 "unsafe_thread_creation_argument_false-unreach-call.c"
+# 18 "unsafe_thread_creation_argument_false-unreach-call.c"
 # 1 "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk/usr/include/pthread.h" 1 3 4
 # 55 "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk/usr/include/pthread.h" 3 4
 # 1 "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk/usr/include/_types.h" 1 3 4
@@ -767,7 +767,7 @@ int pthread_sigmask(int, const sigset_t * _Nullable, sigset_t * _Nullable)
 
 __attribute__((availability(macosx,introduced=10.4)))
 void pthread_yield_np(void);
-# 16 "unsafe_thread_creation_argument_false-unreach-call.c" 2
+# 19 "unsafe_thread_creation_argument_false-unreach-call.c" 2
 # 1 "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk/usr/include/stdio.h" 1 3 4
 # 71 "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk/usr/include/stdio.h" 3 4
 # 1 "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk/usr/include/sys/_types/_va_list.h" 1 3 4
@@ -1019,7 +1019,7 @@ extern int __vsprintf_chk (char * restrict, int, size_t,
 extern int __vsnprintf_chk (char * restrict, size_t, int, size_t,
        const char * restrict, va_list);
 # 499 "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk/usr/include/stdio.h" 2 3 4
-# 17 "unsafe_thread_creation_argument_false-unreach-call.c" 2
+# 20 "unsafe_thread_creation_argument_false-unreach-call.c" 2
 # 1 "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk/usr/include/stdlib.h" 1 3 4
 # 65 "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk/usr/include/stdlib.h" 3 4
 # 1 "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk/usr/include/sys/wait.h" 1 3 4
@@ -2202,7 +2202,7 @@ unsigned long long
 
 extern char *suboptarg;
 void *valloc(size_t);
-# 18 "unsafe_thread_creation_argument_false-unreach-call.c" 2
+# 21 "unsafe_thread_creation_argument_false-unreach-call.c" 2
 
 
 

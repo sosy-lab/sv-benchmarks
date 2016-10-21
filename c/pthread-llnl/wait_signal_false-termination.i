@@ -5,7 +5,7 @@
 # 1 "<command line>" 1
 # 1 "<built-in>" 2
 # 1 "wait_signal_false-termination.c" 2
-# 12 "wait_signal_false-termination.c"
+# 18 "wait_signal_false-termination.c"
 # 1 "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk/usr/include/pthread.h" 1 3 4
 # 55 "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk/usr/include/pthread.h" 3 4
 # 1 "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk/usr/include/_types.h" 1 3 4
@@ -765,7 +765,7 @@ int pthread_sigmask(int, const sigset_t * _Nullable, sigset_t * _Nullable)
 
 __attribute__((availability(macosx,introduced=10.4)))
 void pthread_yield_np(void);
-# 13 "wait_signal_false-termination.c" 2
+# 19 "wait_signal_false-termination.c" 2
 # 1 "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk/usr/include/stdio.h" 1 3 4
 # 71 "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk/usr/include/stdio.h" 3 4
 # 1 "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk/usr/include/sys/_types/_va_list.h" 1 3 4
@@ -1017,7 +1017,7 @@ extern int __vsprintf_chk (char * restrict, int, size_t,
 extern int __vsnprintf_chk (char * restrict, size_t, int, size_t,
        const char * restrict, va_list);
 # 499 "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk/usr/include/stdio.h" 2 3 4
-# 14 "wait_signal_false-termination.c" 2
+# 20 "wait_signal_false-termination.c" 2
 # 1 "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk/usr/include/stdlib.h" 1 3 4
 # 65 "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk/usr/include/stdlib.h" 3 4
 # 1 "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk/usr/include/sys/wait.h" 1 3 4
@@ -2200,7 +2200,7 @@ unsigned long long
 
 extern char *suboptarg;
 void *valloc(size_t);
-# 15 "wait_signal_false-termination.c" 2
+# 21 "wait_signal_false-termination.c" 2
 
 
 
@@ -2241,7 +2241,7 @@ void *watch_count(void *idp)
   long my_id = (long)idp;
 
   printf("Starting watch_count(): thread %ld\n", my_id);
-# 63 "wait_signal_false-termination.c"
+# 69 "wait_signal_false-termination.c"
   pthread_mutex_lock(&count_mutex);
     printf("***Before cond_wait: thread %ld\n", my_id);
     pthread_cond_wait(&count_threshold_cv, &count_mutex);

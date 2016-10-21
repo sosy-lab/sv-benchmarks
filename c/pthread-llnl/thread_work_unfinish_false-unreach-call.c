@@ -7,7 +7,13 @@ extern void __VERIFIER_error() __attribute__ ((__noreturn__));
 *   work. Figure out why.
 * AUTHOR: 07/06/05 Blaise Barney
 * LAST REVISED: 07/11/12
-******************************************************************************/
+ ******************************************************************************/
+
+/* Edited by Wenhao Wu on 10/21/2016 for SV-COMP:
+ *   error message and exit(-1) are replaced by extern __VERIFIER_error()
+ *
+ */
+
 #include <pthread.h>
 #include <stdio.h>
 #include <stdlib.h>

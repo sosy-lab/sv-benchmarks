@@ -1,9 +1,6 @@
 extern void __VERIFIER_assume(int);
 extern void __VERIFIER_error() __attribute__ ((__noreturn__));
 
-#ifdef _CIVL
-#include <civlc.cvh>
-#endif
 /*****************************************************************************
 * FILE: bug3.c
 * DESCRIPTION:
@@ -12,6 +9,12 @@ extern void __VERIFIER_error() __attribute__ ((__noreturn__));
 * AUTHOR: Blaise Barney
 * LAST REVISED: 01/29/09
 ******************************************************************************/
+
+/* Edited by Wenhao Wu on 10/21/2016 for SV-COMP:
+ *   error message and exit(-1) are replaced by extern __VERIFIER_error()
+ *
+ */
+
 #include <pthread.h>
 #include <stdio.h>
 #include <stdlib.h>

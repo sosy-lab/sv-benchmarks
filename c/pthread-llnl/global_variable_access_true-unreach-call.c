@@ -1,7 +1,6 @@
 extern void __VERIFIER_assume(int);
 extern void __VERIFIER_error() __attribute__ ((__noreturn__));
 
-
 /*****************************************************************************
  * FILE: bug6fix.c
  * DESCRIPTION:

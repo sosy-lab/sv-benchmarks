@@ -1,7 +1,6 @@
 extern void __VERIFIER_assume(int);
 extern void __VERIFIER_error() __attribute__ ((__noreturn__));
 
-
 /*****************************************************************************
 * FILE: bug6.c
 * DESCRIPTION:
@@ -12,6 +11,7 @@ extern void __VERIFIER_error() __attribute__ ((__noreturn__));
 * SOURCE: 07/06/05 Blaise Barney
 * LAST REVISED: 01/29/09 Blaise Barney
 ******************************************************************************/
+
 #include <pthread.h>
 #include <stdio.h>
 #include <stdlib.h>
