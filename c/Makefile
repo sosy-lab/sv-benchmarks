@@ -20,6 +20,7 @@ DIRS += ddv-machzwd
 DIRS += eca-rers2012
 DIRS += float-benchs
 DIRS += floats-cbmc-regression
+DIRS += floats-esbmc-regression
 DIRS += floats-cdfpl
 DIRS += heap-manipulation
 DIRS += ldv-challenges
