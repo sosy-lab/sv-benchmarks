@@ -43,7 +43,7 @@ for(t=0;t<NUM_THREADS;t++){
     //printf("ERROR; return code from pthread_create() is %d\n", rc);
     //exit(-1);
       __VERIFIER_error();
-    }
+  }
   }
 printf("Main: Done.\n");
 }

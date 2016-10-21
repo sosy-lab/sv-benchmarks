@@ -2648,7 +2648,7 @@ for(t=0;t<5;t++){
   if (rc){
 
 
-      __VERIFIER_error()
+      __VERIFIER_error();
     }
   }
 printf("Main: Done.\n");
