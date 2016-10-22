@@ -5120,6 +5120,43 @@ extern int pthread_atfork (void (*__prepare) (void),
 # 1170 "/usr/include/pthread.h" 3 4
 
 # 47 "kmeans_false-uncreach-call.c" 2
+# 1 "/usr/include/getopt.h" 1 3 4
+# 57 "/usr/include/getopt.h" 3 4
+extern char *optarg;
+# 71 "/usr/include/getopt.h" 3 4
+extern int optind;
+
+
+
+
+extern int opterr;
+
+
+
+extern int optopt;
+# 104 "/usr/include/getopt.h" 3 4
+struct option
+{
+  const char *name;
+
+
+  int has_arg;
+  int *flag;
+  int val;
+};
+# 150 "/usr/include/getopt.h" 3 4
+extern int getopt (int ___argc, char *const *___argv, const char *__shortopts)
+       __attribute__ ((__nothrow__ , __leaf__));
+# 173 "/usr/include/getopt.h" 3 4
+extern int getopt_long (int ___argc, char *const *___argv,
+   const char *__shortopts,
+          const struct option *__longopts, int *__longind)
+       __attribute__ ((__nothrow__ , __leaf__));
+extern int getopt_long_only (int ___argc, char *const *___argv,
+        const char *__shortopts,
+               const struct option *__longopts, int *__longind)
+       __attribute__ ((__nothrow__ , __leaf__));
+# 48 "kmeans_false-uncreach-call.c" 2
 # 1 "stddefines.h" 1
 extern void __VERIFIER_error() __attribute__ ((__noreturn__));
 # 58 "stddefines.h"
@@ -5143,8 +5180,8 @@ inline void * REALLOC(void *ptr, size_t size)
    if (!(temp)) __VERIFIER_error();
    return temp;
 }
-# 48 "kmeans_false-uncreach-call.c" 2
-# 58 "kmeans_false-uncreach-call.c"
+# 49 "kmeans_false-uncreach-call.c" 2
+# 59 "kmeans_false-uncreach-call.c"
 int num_points;
 int dim;
 int num_means;
@@ -5161,7 +5198,7 @@ typedef struct {
    int num_pts;
    int *sum;
 } thread_arg;
-# 95 "kmeans_false-uncreach-call.c"
+# 96 "kmeans_false-uncreach-call.c"
 void parse_args(int argc, char **argv)
 {
    int c;
