@@ -1,0 +1,6 @@
+adder_mpi-true-termination.c: A manager-worker pattern program adds up all elements in an array.
+
+diffusion1d_mpi-true-termination.c: An MPI version of diffusion1d solver
+
+diffusion2d_mpi-true-termination.c: An MPI version of diffusion2d solver
+
