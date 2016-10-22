@@ -1,0 +1,7 @@
+absolute_dl_false-termination.c : simple program with absolute deadlock
+absolute_dl_true-termination.c : simple program is deadlock-free, np>=2
+any_src_false-termination.c : uses MPI_ANY_SOURCE, may deadlock, np>=3
+any_src_true-termination.c : uses MPI_ANY_SOUCE right, np>=2
+assertion_false-unreach-call.c : assertion violated for np>=3; np>=3
+assertion_true-unreach-call.c : assertion always holds
+

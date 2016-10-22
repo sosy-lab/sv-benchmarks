@@ -17,6 +17,7 @@ DIRS += bitvector-loops
 DIRS += bitvector-regression
 DIRS += busybox-1.22.0
 DIRS += concur-mpi
+DIRS += concur-mpi-small
 DIRS += ddv-machzwd
 DIRS += eca-rers2012
 DIRS += float-benchs
