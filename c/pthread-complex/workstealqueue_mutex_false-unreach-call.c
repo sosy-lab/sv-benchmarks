@@ -5,6 +5,8 @@
 ********************************************************/
 
 extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+extern void __VERIFIER_atomic_begin(void);
+extern void __VERIFIER_atomic_end(void);
 #define assert(X) if(!(X)) __VERIFIER_error()
 
 #include <stdio.h>
