@@ -1,4 +1,6 @@
 extern void __VERIFIER_error() __attribute__ ((__noreturn__));
+extern void __VERIFIER_atomic_begin(void);
+extern void __VERIFIER_atomic_end(void);
 
 typedef unsigned int size_t;
 typedef unsigned char __u_char;
