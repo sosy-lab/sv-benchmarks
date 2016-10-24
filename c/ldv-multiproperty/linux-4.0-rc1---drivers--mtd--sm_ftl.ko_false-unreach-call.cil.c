@@ -3813,7 +3813,7 @@ struct ldv_thread {
    void (*function)(void * ) ;
 };
 typedef _Bool ldv_set;
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 void ldv_assume(int expression ) ;
 void ldv_stop(void) ;
 void ldv_linux_alloc_irq_check_alloc_flags(gfp_t flags ) ;
@@ -4031,7 +4031,6 @@ extern size_t strlen(char const   * ) ;
 extern char *strncpy(char * , char const   * , __kernel_size_t  ) ;
 extern char *kstrndup(char const   * , size_t  , gfp_t  ) ;
 extern void warn_slowpath_null(char const   * , int const    ) ;
-extern int ( /* missing proto */  __builtin_unreachable)() ;
 __inline static void *ERR_PTR(long error ) ;
 __inline static long PTR_ERR(void const   *ptr ) ;
 __inline static bool IS_ERR(void const   *ptr ) 
@@ -4040,7 +4039,7 @@ __inline static bool IS_ERR(void const   *ptr )
 
   {
   {
-  tmp = __builtin_expect((unsigned long )ptr > 0xfffffffffffff000UL, 0L);
+  tmp = ldv__builtin_expect((unsigned long )ptr > 0xfffffffffffff000UL, 0L);
   }
   return (tmp != 0L);
 }
@@ -4460,7 +4459,7 @@ static void sm_write_lba(struct sm_oob *oob , uint16_t lba )
   {
   {
   __ret_warn_on = (unsigned int )lba > 999U;
-  tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -4470,7 +4469,7 @@ static void sm_write_lba(struct sm_oob *oob , uint16_t lba )
 
   }
   {
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
   tmp[0] = (uint8_t )(((int )((signed char )((int )lba >> 7)) & 7) | 16);
   tmp[1] = (uint8_t )((int )lba << 1);
   tmp___1 = __arch_hweight16((unsigned int )*((uint16_t *)(& tmp)));
@@ -4503,7 +4502,7 @@ static loff_t sm_mkoffset(struct sm_ftl *ftl , int zone , int block , int boffse
   {
   {
   __ret_warn_on = (boffset & 511) != 0;
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp != 0L) {
     {
@@ -4513,9 +4512,9 @@ static loff_t sm_mkoffset(struct sm_ftl *ftl , int zone , int block , int boffse
 
   }
   {
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
   __ret_warn_on___0 = zone < 0 || zone >= ftl->zone_count;
-  tmp___0 = __builtin_expect(__ret_warn_on___0 != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on___0 != 0, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -4525,9 +4524,9 @@ static loff_t sm_mkoffset(struct sm_ftl *ftl , int zone , int block , int boffse
 
   }
   {
-  __builtin_expect(__ret_warn_on___0 != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on___0 != 0, 0L);
   __ret_warn_on___1 = block >= ftl->zone_size;
-  tmp___1 = __builtin_expect(__ret_warn_on___1 != 0, 0L);
+  tmp___1 = ldv__builtin_expect(__ret_warn_on___1 != 0, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -4537,9 +4536,9 @@ static loff_t sm_mkoffset(struct sm_ftl *ftl , int zone , int block , int boffse
 
   }
   {
-  __builtin_expect(__ret_warn_on___1 != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on___1 != 0, 0L);
   __ret_warn_on___2 = boffset >= ftl->block_size;
-  tmp___2 = __builtin_expect(__ret_warn_on___2 != 0, 0L);
+  tmp___2 = ldv__builtin_expect(__ret_warn_on___2 != 0, 0L);
   }
   if (tmp___2 != 0L) {
     {
@@ -4549,7 +4548,7 @@ static loff_t sm_mkoffset(struct sm_ftl *ftl , int zone , int block , int boffse
 
   }
   {
-  __builtin_expect(__ret_warn_on___2 != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on___2 != 0, 0L);
   }
   if (block == -1) {
     return (-1LL);
@@ -4722,7 +4721,7 @@ static int sm_read_sector(struct sm_ftl *ftl , int zone , int block , int boffse
   }
   {
   __ret_warn_on = ops.oobretlen != 16UL;
-  tmp___5 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___5 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp___5 != 0L) {
     {
@@ -4732,9 +4731,9 @@ static int sm_read_sector(struct sm_ftl *ftl , int zone , int block , int boffse
 
   }
   {
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
   __ret_warn_on___0 = (unsigned long )buffer != (unsigned long )((uint8_t *)0U) && ops.retlen != 512UL;
-  tmp___6 = __builtin_expect(__ret_warn_on___0 != 0, 0L);
+  tmp___6 = ldv__builtin_expect(__ret_warn_on___0 != 0, 0L);
   }
   if (tmp___6 != 0L) {
     {
@@ -4744,7 +4743,7 @@ static int sm_read_sector(struct sm_ftl *ftl , int zone , int block , int boffse
 
   }
   {
-  __builtin_expect(__ret_warn_on___0 != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on___0 != 0, 0L);
   }
   if ((unsigned long )buffer == (unsigned long )((uint8_t *)0U)) {
     return (0);
@@ -4813,7 +4812,7 @@ static int sm_write_sector(struct sm_ftl *ftl , int zone , int block , int boffs
   {
   {
   mtd = (ftl->trans)->mtd;
-  tmp = __builtin_expect((long )ftl->readonly, 0L);
+  tmp = ldv__builtin_expect((long )ftl->readonly, 0L);
   }
   if (tmp != 0L) {
     {
@@ -4869,7 +4868,7 @@ static int sm_write_sector(struct sm_ftl *ftl , int zone , int block , int boffs
   }
   {
   __ret_warn_on = ops.oobretlen != 16UL;
-  tmp___1 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___1 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -4879,9 +4878,9 @@ static int sm_write_sector(struct sm_ftl *ftl , int zone , int block , int boffs
 
   }
   {
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
   __ret_warn_on___0 = (unsigned long )buffer != (unsigned long )((uint8_t *)0U) && ops.retlen != 512UL;
-  tmp___2 = __builtin_expect(__ret_warn_on___0 != 0, 0L);
+  tmp___2 = ldv__builtin_expect(__ret_warn_on___0 != 0, 0L);
   }
   if (tmp___2 != 0L) {
     {
@@ -4891,7 +4890,7 @@ static int sm_write_sector(struct sm_ftl *ftl , int zone , int block , int boffs
 
   }
   {
-  __builtin_expect(__ret_warn_on___0 != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on___0 != 0, 0L);
   }
   return (0);
 }
@@ -5056,7 +5055,7 @@ static int sm_erase_block(struct sm_ftl *ftl , int zone_num , uint16_t block , i
 
   }
   {
-  tmp___0 = __builtin_expect((long )ftl->readonly, 0L);
+  tmp___0 = ldv__builtin_expect((long )ftl->readonly, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -5744,7 +5743,7 @@ static int sm_init_zone(struct sm_ftl *ftl , int zone_num )
   tmp___8 = __kfifo_uint_must_check_helper(tmp___7);
   len = (int )tmp___8;
   __ret_warn_on = len != 2;
-  tmp___9 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___9 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp___9 != 0L) {
     {
@@ -5754,7 +5753,7 @@ static int sm_init_zone(struct sm_ftl *ftl , int zone_num )
 
   }
   {
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
   __tmp___2 = & zone->free_sectors;
   __buf___1 = (void const   *)(& block);
   __n___1 = 2UL;
@@ -5783,7 +5782,7 @@ static struct ftl_zone *sm_get_zone(struct sm_ftl *ftl , int zone_num )
 
   {
   {
-  tmp = __builtin_expect(zone_num >= ftl->zone_count, 0L);
+  tmp = ldv__builtin_expect(zone_num >= ftl->zone_count, 0L);
   }
   if (tmp != 0L) {
     {
@@ -5892,7 +5891,7 @@ static int sm_cache_flush(struct sm_ftl *ftl )
 
   }
   {
-  tmp = __builtin_expect(zone_num < 0, 0L);
+  tmp = ldv__builtin_expect(zone_num < 0, 0L);
   }
   if (tmp != 0L) {
     {
@@ -6108,7 +6107,7 @@ static int sm_write(struct mtd_blktrans_dev *dev , unsigned long sec_no , char *
   {
   ftl = (struct sm_ftl *)dev->priv;
   error = 0;
-  tmp = __builtin_expect((long )ftl->readonly, 0L);
+  tmp = ldv__builtin_expect((long )ftl->readonly, 0L);
   }
   if (tmp != 0L) {
     {
@@ -6514,7 +6513,7 @@ void ldv_dummy_resourceless_instance_callback_0_9(int (*arg0)(struct mtd_blktran
                                                   struct mtd_blktrans_dev *arg1 ,
                                                   unsigned long arg2 , char *arg3 ) ;
 void ldv_entry_EMGentry_7(void *arg0 ) ;
-void main(void) ;
+int main(void) ;
 int ldv_mod_timer(int arg0 , struct timer_list *arg1 , unsigned long arg2 ) ;
 int ldv_register_mtd_blktrans(int arg0 , struct mtd_blktrans_ops *arg1 ) ;
 void ldv_struct_mtd_blktrans_ops_dummy_resourceless_instance_0(void *arg0 ) ;
@@ -6751,7 +6750,7 @@ void ldv_entry_EMGentry_7(void *arg0 )
   return;
 }
 }
-void main(void) 
+int main(void) 
 { 
 
 
@@ -6760,7 +6759,7 @@ void main(void)
   ldv_ldv_initialize_105();
   ldv_entry_EMGentry_7((void *)0);
   }
-  return;
+return 0;
 }
 }
 int ldv_mod_timer(int arg0 , struct timer_list *arg1 , unsigned long arg2 ) 
@@ -9353,7 +9352,7 @@ void ldv_linux_usb_urb_check_final_state(void)
 }
 }
 extern void ldv_assert(char const   * , int  ) ;
-void __builtin_trap(void) ;
+void ldv__builtin_trap(void) ;
 void ldv_assume(int expression ) 
 { 
 
@@ -9377,7 +9376,7 @@ void ldv_stop(void)
   goto ldv_stop_label;
 }
 }
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 
@@ -9385,7 +9384,7 @@ long __builtin_expect(long exp , long c )
   return (exp);
 }
 }
-void __builtin_trap(void) 
+void ldv__builtin_trap(void) 
 { 
 
 

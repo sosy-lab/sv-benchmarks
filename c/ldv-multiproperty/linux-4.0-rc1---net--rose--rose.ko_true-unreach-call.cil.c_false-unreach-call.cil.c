@@ -6827,7 +6827,7 @@ struct ldv_thread {
    void (*function)(void * ) ;
 };
 typedef _Bool ldv_set;
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 void ldv_assume(int expression ) ;
 void ldv_stop(void) ;
 void ldv_linux_alloc_irq_check_alloc_flags(gfp_t flags ) ;
@@ -7218,7 +7218,7 @@ __inline static int signal_pending(struct task_struct *p )
   {
   {
   tmp = test_tsk_thread_flag(p, 2);
-  tmp___0 = __builtin_expect(tmp != 0, 0L);
+  tmp___0 = ldv__builtin_expect(tmp != 0, 0L);
   }
   return ((int )tmp___0);
 }
@@ -7241,7 +7241,7 @@ __inline static unsigned long copy_from_user(void *to , void const   *from , uns
   {
   sz = -1;
   might_fault();
-  tmp = __builtin_expect(sz < 0, 1L);
+  tmp = ldv__builtin_expect(sz < 0, 1L);
   }
   if (tmp != 0L) {
     {
@@ -7249,7 +7249,7 @@ __inline static unsigned long copy_from_user(void *to , void const   *from , uns
     }
   } else {
     {
-    tmp___0 = __builtin_expect((unsigned long )sz >= n, 1L);
+    tmp___0 = ldv__builtin_expect((unsigned long )sz >= n, 1L);
     }
     if (tmp___0 != 0L) {
       {
@@ -7274,7 +7274,7 @@ __inline static unsigned long copy_to_user(void *to , void const   *from , unsig
   {
   sz = -1;
   might_fault();
-  tmp = __builtin_expect(sz < 0, 1L);
+  tmp = ldv__builtin_expect(sz < 0, 1L);
   }
   if (tmp != 0L) {
     {
@@ -7282,7 +7282,7 @@ __inline static unsigned long copy_to_user(void *to , void const   *from , unsig
     }
   } else {
     {
-    tmp___0 = __builtin_expect((unsigned long )sz >= n, 1L);
+    tmp___0 = ldv__builtin_expect((unsigned long )sz >= n, 1L);
     }
     if (tmp___0 != 0L) {
       {
@@ -7643,7 +7643,7 @@ __inline static bool sk_del_node_init(struct sock *sk )
     {
     tmp___0 = atomic_read((atomic_t const   *)(& sk->__sk_common.skc_refcnt));
     __ret_warn_on = tmp___0 == 1;
-    tmp___1 = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp___1 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
     if (tmp___1 != 0L) {
       {
@@ -7653,7 +7653,7 @@ __inline static bool sk_del_node_init(struct sock *sk )
 
     }
     {
-    __builtin_expect(__ret_warn_on != 0, 0L);
+    ldv__builtin_expect(__ret_warn_on != 0, 0L);
     __sock_put(sk);
     }
   } else {
@@ -7937,7 +7937,7 @@ __inline static int sock_error(struct sock *sk )
 
   {
   {
-  tmp = __builtin_expect(sk->sk_err == 0, 1L);
+  tmp = ldv__builtin_expect(sk->sk_err == 0, 1L);
   }
   if (tmp != 0L) {
     return (0);
@@ -11115,7 +11115,7 @@ void ldv_dummy_resourceless_instance_callback_7_9(int (*arg0)(struct socket * , 
                                                   struct sockaddr *arg2 , int arg3 ,
                                                   int arg4 ) ;
 void ldv_entry_EMGentry_27(void *arg0 ) ;
-void main(void) ;
+int main(void) ;
 void ldv_file_operations_file_operations_instance_0(void *arg0 ) ;
 void ldv_file_operations_file_operations_instance_1(void *arg0 ) ;
 void ldv_file_operations_file_operations_instance_2(void *arg0 ) ;
@@ -12320,7 +12320,7 @@ void ldv_entry_EMGentry_27(void *arg0 )
   return;
 }
 }
-void main(void) 
+int main(void) 
 { 
 
 
@@ -12329,7 +12329,7 @@ void main(void)
   ldv_ldv_initialize_160();
   ldv_entry_EMGentry_27((void *)0);
   }
-  return;
+return 0;
 }
 }
 void ldv_file_operations_file_operations_instance_0(void *arg0 ) 
@@ -14612,7 +14612,6 @@ __inline static int constant_test_bit(long nr , unsigned long const volatile   *
 }
 }
 extern int memcmp(void const   * , void const   * , size_t  ) ;
-extern int ( /* missing proto */  __builtin_unreachable)() ;
 __inline static void atomic_add(int i , atomic_t *v ) ;
 extern void consume_skb(struct sk_buff * ) ;
 static struct sk_buff *ldv_skb_clone_126(struct sk_buff *ldv_func_arg1 , gfp_t flags ) ;
@@ -14629,7 +14628,7 @@ __inline static void skb_orphan(struct sk_buff *skb )
     }
   } else {
     {
-    tmp = __builtin_expect((unsigned long )skb->sk != (unsigned long )((struct sock *)0),
+    tmp = ldv__builtin_expect((unsigned long )skb->sk != (unsigned long )((struct sock *)0),
                            0L);
     }
     if (tmp != 0L) {
@@ -14686,7 +14685,7 @@ __inline static void netif_tx_stop_queue(struct netdev_queue *dev_queue )
   {
   {
   __ret_warn_on = (unsigned long )dev_queue == (unsigned long )((struct netdev_queue *)0);
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp != 0L) {
     {
@@ -14696,7 +14695,7 @@ __inline static void netif_tx_stop_queue(struct netdev_queue *dev_queue )
 
   }
   {
-  tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -21249,7 +21248,7 @@ int rose_parse_facilities(unsigned char *p , unsigned int packet_len , struct ro
   }
   {
   __ret_warn_on = len >= facilities_len;
-  tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -21259,7 +21258,7 @@ int rose_parse_facilities(unsigned char *p , unsigned int packet_len , struct ro
 
   }
   {
-  tmp___1 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___1 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp___1 != 0L) {
     return (0);
@@ -24143,7 +24142,7 @@ void ldv_linux_usb_urb_check_final_state(void)
 }
 }
 extern void ldv_assert(char const   * , int  ) ;
-void __builtin_trap(void) ;
+void ldv__builtin_trap(void) ;
 void ldv_assume(int expression ) 
 { 
 
@@ -24167,7 +24166,7 @@ void ldv_stop(void)
   goto ldv_stop_label;
 }
 }
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 
@@ -24175,7 +24174,7 @@ long __builtin_expect(long exp , long c )
   return (exp);
 }
 }
-void __builtin_trap(void) 
+void ldv__builtin_trap(void) 
 { 
 
 

@@ -5763,7 +5763,7 @@ struct ldv_thread {
    int identifier ;
    void (*function)(void * ) ;
 };
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 extern struct module __this_module ;
 extern struct pv_irq_ops pv_irq_ops ;
 __inline static void set_bit(long nr , unsigned long volatile   *addr ) 
@@ -5812,7 +5812,6 @@ extern void *memset(void * , int  , size_t  ) ;
 extern size_t strlen(char const   * ) ;
 extern size_t strlcpy(char * , char const   * , size_t  ) ;
 extern void warn_slowpath_null(char const   * , int const    ) ;
-extern int ( /* missing proto */  __builtin_unreachable)() ;
 __inline static unsigned long arch_local_save_flags(void) 
 { 
   unsigned long __ret ;
@@ -5830,7 +5829,7 @@ __inline static unsigned long arch_local_save_flags(void)
   __edx = __edx;
   __ecx = __ecx;
   __eax = __eax;
-  tmp = __builtin_expect((unsigned long )pv_irq_ops.save_fl.func == (unsigned long )((void *)0),
+  tmp = ldv__builtin_expect((unsigned long )pv_irq_ops.save_fl.func == (unsigned long )((void *)0),
                          0L);
   }
   if (tmp != 0L) {
@@ -5865,7 +5864,7 @@ __inline static void arch_local_irq_restore(unsigned long f )
   __edx = __edx;
   __ecx = __ecx;
   __eax = __eax;
-  tmp = __builtin_expect((unsigned long )pv_irq_ops.restore_fl.func == (unsigned long )((void *)0),
+  tmp = ldv__builtin_expect((unsigned long )pv_irq_ops.restore_fl.func == (unsigned long )((void *)0),
                          0L);
   }
   if (tmp != 0L) {
@@ -5899,7 +5898,7 @@ __inline static void arch_local_irq_disable(void)
   __edx = __edx;
   __ecx = __ecx;
   __eax = __eax;
-  tmp = __builtin_expect((unsigned long )pv_irq_ops.irq_disable.func == (unsigned long )((void *)0),
+  tmp = ldv__builtin_expect((unsigned long )pv_irq_ops.irq_disable.func == (unsigned long )((void *)0),
                          0L);
   }
   if (tmp != 0L) {
@@ -6260,7 +6259,7 @@ __inline static void netif_tx_stop_queue(struct netdev_queue *dev_queue )
   {
   {
   __ret_warn_on = (unsigned long )dev_queue == (unsigned long )((struct netdev_queue *)0);
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp != 0L) {
     {
@@ -6270,7 +6269,7 @@ __inline static void netif_tx_stop_queue(struct netdev_queue *dev_queue )
 
   }
   {
-  tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -6435,7 +6434,7 @@ static int smc91c92_probe(struct pcmcia_device *link )
   descriptor.format = "smc91c92_attach()\n";
   descriptor.lineno = 307U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -6488,7 +6487,7 @@ static void smc91c92_detach(struct pcmcia_device *link )
   descriptor.format = "smc91c92_detach\n";
   descriptor.lineno = 337U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -7119,7 +7118,7 @@ static int osi_setup(struct pcmcia_device *link , u_short manfid , u_short cardi
     descriptor.format = "AUI/PWR: %4.4x RESET/ISR: %4.4x\n";
     descriptor.lineno = 704U;
     descriptor.flags = 0U;
-    tmp___4 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___4 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp___4 != 0L) {
       {
@@ -7332,7 +7331,7 @@ static int smc91c92_config(struct pcmcia_device *link )
   descriptor.format = "smc91c92_config\n";
   descriptor.lineno = 814U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -7639,7 +7638,7 @@ static int smc91c92_config(struct pcmcia_device *link )
       descriptor___0.format = "  MII transceiver at index %d, status %x\n";
       descriptor___0.lineno = 938U;
       descriptor___0.flags = 0U;
-      tmp___5 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+      tmp___5 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
       }
       if (tmp___5 != 0L) {
         {
@@ -7686,7 +7685,7 @@ static void smc91c92_release(struct pcmcia_device *link )
   descriptor.format = "smc91c92_release\n";
   descriptor.lineno = 955U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -7854,7 +7853,7 @@ static int smc_open(struct net_device *dev )
   descriptor.format = "%s: smc_open(%p), ID/Window %4.4x.\n";
   descriptor.lineno = 1053U;
   descriptor.flags = 0U;
-  tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -7923,7 +7922,7 @@ static int smc_close(struct net_device *dev )
   descriptor.format = "%s: smc_close(), status %4.4x.\n";
   descriptor.lineno = 1091U;
   descriptor.flags = 0U;
-  tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -8008,7 +8007,7 @@ static void smc_hardware_send_packet(struct net_device *dev )
   descriptor.format = "Trying to xmit packet of length %d\n";
   descriptor.lineno = 1157U;
   descriptor.flags = 0U;
-  tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -8091,7 +8090,7 @@ static netdev_tx_t smc_start_xmit(struct sk_buff *skb , struct net_device *dev )
   descriptor.format = "smc_start_xmit(length = %d) called, status %04x\n";
   descriptor.lineno = 1210U;
   descriptor.flags = 0U;
-  tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -8111,7 +8110,7 @@ static netdev_tx_t smc_start_xmit(struct sk_buff *skb , struct net_device *dev )
     descriptor___0.format = "Internal error -- sent packet while busy\n";
     descriptor___0.lineno = 1215U;
     descriptor___0.flags = 0U;
-    tmp___2 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___2 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___2 != 0L) {
       {
@@ -8185,7 +8184,7 @@ static netdev_tx_t smc_start_xmit(struct sk_buff *skb , struct net_device *dev )
   descriptor___1.format = "memory allocation deferred.\n";
   descriptor___1.lineno = 1255U;
   descriptor___1.flags = 0U;
-  tmp___4 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+  tmp___4 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
   }
   if (tmp___4 != 0L) {
     {
@@ -8289,7 +8288,7 @@ static void smc_eph_irq(struct net_device *dev )
   descriptor.format = "Ethernet protocol handler interrupt, status %4.4x.\n";
   descriptor.lineno = 1319U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -8373,7 +8372,7 @@ static irqreturn_t smc_interrupt(int irq , void *dev_id )
   descriptor.format = "SMC91c92 interrupt %d at %#x.\n";
   descriptor.lineno = 1359U;
   descriptor.flags = 0U;
-  tmp___2 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___2 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___2 != 0L) {
     {
@@ -8396,7 +8395,7 @@ static irqreturn_t smc_interrupt(int irq , void *dev_id )
     descriptor___0.format = "SMC91c92 interrupt %d for non-existent/ejected device.\n";
     descriptor___0.lineno = 1368U;
     descriptor___0.flags = 0U;
-    tmp___3 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___3 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___3 != 0L) {
       {
@@ -8428,7 +8427,7 @@ static irqreturn_t smc_interrupt(int irq , void *dev_id )
   descriptor___1.format = "Status is %#2.2x (mask %#2.2x).\n";
   descriptor___1.lineno = 1382U;
   descriptor___1.flags = 0U;
-  tmp___6 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+  tmp___6 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
   }
   if (tmp___6 != 0L) {
     {
@@ -8519,7 +8518,7 @@ static irqreturn_t smc_interrupt(int irq , void *dev_id )
   descriptor___2.format = "  Restoring saved registers mask %2.2x bank %4.4x pointer %4.4x.\n";
   descriptor___2.lineno = 1427U;
   descriptor___2.flags = 0U;
-  tmp___7 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+  tmp___7 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
   }
   if (tmp___7 != 0L) {
     {
@@ -8539,7 +8538,7 @@ static irqreturn_t smc_interrupt(int irq , void *dev_id )
   descriptor___3.format = "Exiting interrupt IRQ%d.\n";
   descriptor___3.lineno = 1434U;
   descriptor___3.flags = 0U;
-  tmp___8 = __builtin_expect((long )descriptor___3.flags & 1L, 0L);
+  tmp___8 = ldv__builtin_expect((long )descriptor___3.flags & 1L, 0L);
   }
   if (tmp___8 != 0L) {
     {
@@ -8628,7 +8627,7 @@ static void smc_rx(struct net_device *dev )
   descriptor.format = "Receive status %4.4x length %d.\n";
   descriptor.lineno = 1493U;
   descriptor.flags = 0U;
-  tmp___2 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___2 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___2 != 0L) {
     {
@@ -8650,7 +8649,7 @@ static void smc_rx(struct net_device *dev )
       descriptor___0.format = "Low memory, packet dropped.\n";
       descriptor___0.lineno = 1503U;
       descriptor___0.flags = 0U;
-      tmp___3 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+      tmp___3 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
       }
       if (tmp___3 != 0L) {
         {
@@ -8888,7 +8887,7 @@ static void smc_reset(struct net_device *dev )
   descriptor.format = "smc91c92 reset called.\n";
   descriptor.lineno = 1644U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -9700,7 +9699,7 @@ void ldv_dummy_resourceless_instance_callback_2_9(int (*arg0)(struct net_device 
                                                               struct ethtool_cmd * ) ,
                                                   struct net_device *arg1 , struct ethtool_cmd *arg2 ) ;
 void ldv_entry_EMGentry_13(void *arg0 ) ;
-void main(void) ;
+int main(void) ;
 void ldv_free_netdev(void *arg0 , struct net_device *arg1 ) ;
 void ldv_iio_triggered_buffer_iio_triggered_buffer_instance_0(void *arg0 ) ;
 enum irqreturn ldv_iio_triggered_buffer_instance_handler_0_5(enum irqreturn (*arg0)(int  ,
@@ -10334,7 +10333,7 @@ void ldv_entry_EMGentry_13(void *arg0 )
   return;
 }
 }
-void main(void) 
+int main(void) 
 { 
   int tmp ;
 
@@ -11911,7 +11910,7 @@ void *ldv_kzalloc(size_t size , gfp_t flags )
 }
 }
 extern void ldv_assert(char const   * , int  ) ;
-void __builtin_trap(void) ;
+void ldv__builtin_trap(void) ;
 void ldv_assume(int expression ) 
 { 
 
@@ -11935,7 +11934,7 @@ void ldv_stop(void)
   goto ldv_stop_label;
 }
 }
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 
@@ -11943,7 +11942,7 @@ long __builtin_expect(long exp , long c )
   return (exp);
 }
 }
-void __builtin_trap(void) 
+void ldv__builtin_trap(void) 
 { 
 
 

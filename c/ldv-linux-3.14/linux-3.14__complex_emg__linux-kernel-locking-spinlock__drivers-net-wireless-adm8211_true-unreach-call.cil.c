@@ -6347,7 +6347,7 @@ struct ldv_thread {
    int identifier ;
    void (*function)(void * ) ;
 };
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 void *ldv_dev_get_drvdata(struct device  const  *dev ) ;
 int ldv_dev_set_drvdata(struct device *dev , void *data ) ;
 extern struct module __this_module ;
@@ -6357,7 +6357,6 @@ extern unsigned long __phys_addr(unsigned long  ) ;
 extern void *memcpy(void * , void const   * , size_t  ) ;
 extern void *memset(void * , int  , size_t  ) ;
 extern void warn_slowpath_null(char const   * , int const    ) ;
-extern int ( /* missing proto */  __builtin_unreachable)() ;
 __inline static unsigned long arch_local_save_flags(void) 
 { 
   unsigned long __ret ;
@@ -6375,7 +6374,7 @@ __inline static unsigned long arch_local_save_flags(void)
   __edx = __edx;
   __ecx = __ecx;
   __eax = __eax;
-  tmp = __builtin_expect((unsigned long )pv_irq_ops.save_fl.func == (unsigned long )((void *)0),
+  tmp = ldv__builtin_expect((unsigned long )pv_irq_ops.save_fl.func == (unsigned long )((void *)0),
                          0L);
   }
   if (tmp != 0L) {
@@ -6597,7 +6596,7 @@ __inline static struct dma_map_ops *get_dma_ops(struct device *dev )
 
   {
   {
-  tmp = __builtin_expect((unsigned long )dev == (unsigned long )((struct device *)0),
+  tmp = ldv__builtin_expect((unsigned long )dev == (unsigned long )((struct device *)0),
                          0L);
   }
   if (tmp != 0L || (unsigned long )dev->archdata.dma_ops == (unsigned long )((struct dma_map_ops *)0)) {
@@ -6624,7 +6623,7 @@ __inline static dma_addr_t dma_map_single_attrs(struct device *dev , void *ptr ,
   ops = tmp;
   kmemcheck_mark_initialized(ptr, (unsigned int )size);
   tmp___0 = valid_dma_direction((int )dir);
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -6660,7 +6659,7 @@ __inline static void dma_unmap_single_attrs(struct device *dev , dma_addr_t addr
   tmp = get_dma_ops(dev);
   ops = tmp;
   tmp___0 = valid_dma_direction((int )dir);
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -6700,7 +6699,7 @@ __inline static void dma_sync_single_for_cpu(struct device *dev , dma_addr_t add
   tmp = get_dma_ops(dev);
   ops = tmp;
   tmp___0 = valid_dma_direction((int )dir);
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -6740,7 +6739,7 @@ __inline static void dma_sync_single_for_device(struct device *dev , dma_addr_t 
   tmp = get_dma_ops(dev);
   ops = tmp;
   tmp___0 = valid_dma_direction((int )dir);
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -6867,7 +6866,7 @@ __inline static void dma_free_attrs(struct device *dev , size_t size , void *vad
   _flags = arch_local_save_flags();
   tmp___0 = arch_irqs_disabled_flags(_flags);
   __ret_warn_on = tmp___0 != 0;
-  tmp___1 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___1 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -6878,7 +6877,7 @@ __inline static void dma_free_attrs(struct device *dev , size_t size , void *vad
 
   }
   {
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
   debug_dma_free_coherent(dev, size, vaddr, bus);
   }
   if ((unsigned long )ops->free != (unsigned long )((void (*)(struct device * , size_t  ,
@@ -7333,12 +7332,12 @@ __inline static struct ieee80211_rate *ieee80211_get_tx_rate(struct ieee80211_hw
   {
   {
   __ret_warn_once = (int )((signed char )c->__annonCompField81.control.__annonCompField79.__annonCompField78.rates[0].idx) < 0;
-  tmp___1 = __builtin_expect(__ret_warn_once != 0, 0L);
+  tmp___1 = ldv__builtin_expect(__ret_warn_once != 0, 0L);
   }
   if (tmp___1 != 0L) {
     {
     __ret_warn_on = ! __warned;
-    tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
     if (tmp != 0L) {
       {
@@ -7348,7 +7347,7 @@ __inline static struct ieee80211_rate *ieee80211_get_tx_rate(struct ieee80211_hw
 
     }
     {
-    tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
     if (tmp___0 != 0L) {
       __warned = 1;
@@ -7359,7 +7358,7 @@ __inline static struct ieee80211_rate *ieee80211_get_tx_rate(struct ieee80211_hw
 
   }
   {
-  tmp___2 = __builtin_expect(__ret_warn_once != 0, 0L);
+  tmp___2 = ldv__builtin_expect(__ret_warn_once != 0, 0L);
   }
   if (tmp___2 != 0L) {
     return ((struct ieee80211_rate *)0);
@@ -8149,7 +8148,7 @@ static irqreturn_t adm8211_interrupt(int irq , void *dev_id )
 
   }
   {
-  tmp___0 = __builtin_expect((int )stsr < 0, 0L);
+  tmp___0 = ldv__builtin_expect((int )stsr < 0, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -8159,7 +8158,7 @@ static irqreturn_t adm8211_interrupt(int irq , void *dev_id )
 
   }
   {
-  tmp___1 = __builtin_expect((stsr & 1073741824U) != 0U, 0L);
+  tmp___1 = ldv__builtin_expect((stsr & 1073741824U) != 0U, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -8169,7 +8168,7 @@ static irqreturn_t adm8211_interrupt(int irq , void *dev_id )
 
   }
   {
-  tmp___2 = __builtin_expect((stsr & 536870912U) != 0U, 0L);
+  tmp___2 = ldv__builtin_expect((stsr & 536870912U) != 0U, 0L);
   }
   if (tmp___2 != 0L) {
     {
@@ -8179,7 +8178,7 @@ static irqreturn_t adm8211_interrupt(int irq , void *dev_id )
 
   }
   {
-  tmp___3 = __builtin_expect((stsr & 134217728U) != 0U, 0L);
+  tmp___3 = ldv__builtin_expect((stsr & 134217728U) != 0U, 0L);
   }
   if (tmp___3 != 0L) {
     {
@@ -8189,7 +8188,7 @@ static irqreturn_t adm8211_interrupt(int irq , void *dev_id )
 
   }
   {
-  tmp___4 = __builtin_expect((stsr & 67108864U) != 0U, 0L);
+  tmp___4 = ldv__builtin_expect((stsr & 67108864U) != 0U, 0L);
   }
   if (tmp___4 != 0L) {
     {
@@ -8199,7 +8198,7 @@ static irqreturn_t adm8211_interrupt(int irq , void *dev_id )
 
   }
   {
-  tmp___5 = __builtin_expect((stsr & 33554432U) != 0U, 0L);
+  tmp___5 = ldv__builtin_expect((stsr & 33554432U) != 0U, 0L);
   }
   if (tmp___5 != 0L) {
     {
@@ -8209,7 +8208,7 @@ static irqreturn_t adm8211_interrupt(int irq , void *dev_id )
 
   }
   {
-  tmp___6 = __builtin_expect((stsr & 8388608U) != 0U, 0L);
+  tmp___6 = ldv__builtin_expect((stsr & 8388608U) != 0U, 0L);
   }
   if (tmp___6 != 0L) {
     {
@@ -8219,7 +8218,7 @@ static irqreturn_t adm8211_interrupt(int irq , void *dev_id )
 
   }
   {
-  tmp___7 = __builtin_expect((stsr & 4194304U) != 0U, 0L);
+  tmp___7 = ldv__builtin_expect((stsr & 4194304U) != 0U, 0L);
   }
   if (tmp___7 != 0L) {
     {
@@ -8229,7 +8228,7 @@ static irqreturn_t adm8211_interrupt(int irq , void *dev_id )
 
   }
   {
-  tmp___8 = __builtin_expect((stsr & 2097152U) != 0U, 0L);
+  tmp___8 = ldv__builtin_expect((stsr & 2097152U) != 0U, 0L);
   }
   if (tmp___8 != 0L) {
     {
@@ -8239,7 +8238,7 @@ static irqreturn_t adm8211_interrupt(int irq , void *dev_id )
 
   }
   {
-  tmp___9 = __builtin_expect((stsr & 16384U) != 0U, 0L);
+  tmp___9 = ldv__builtin_expect((stsr & 16384U) != 0U, 0L);
   }
   if (tmp___9 != 0L) {
     {
@@ -8249,7 +8248,7 @@ static irqreturn_t adm8211_interrupt(int irq , void *dev_id )
 
   }
   {
-  tmp___10 = __builtin_expect((stsr & 8192U) != 0U, 0L);
+  tmp___10 = ldv__builtin_expect((stsr & 8192U) != 0U, 0L);
   }
   if (tmp___10 != 0L) {
     {
@@ -8259,7 +8258,7 @@ static irqreturn_t adm8211_interrupt(int irq , void *dev_id )
 
   }
   {
-  tmp___11 = __builtin_expect((stsr & 4096U) != 0U, 0L);
+  tmp___11 = ldv__builtin_expect((stsr & 4096U) != 0U, 0L);
   }
   if (tmp___11 != 0L) {
     {
@@ -8269,7 +8268,7 @@ static irqreturn_t adm8211_interrupt(int irq , void *dev_id )
 
   }
   {
-  tmp___12 = __builtin_expect((stsr & 2048U) != 0U, 0L);
+  tmp___12 = ldv__builtin_expect((stsr & 2048U) != 0U, 0L);
   }
   if (tmp___12 != 0L) {
     {
@@ -8279,7 +8278,7 @@ static irqreturn_t adm8211_interrupt(int irq , void *dev_id )
 
   }
   {
-  tmp___13 = __builtin_expect((stsr & 256U) != 0U, 0L);
+  tmp___13 = ldv__builtin_expect((stsr & 256U) != 0U, 0L);
   }
   if (tmp___13 != 0L) {
     {
@@ -8289,7 +8288,7 @@ static irqreturn_t adm8211_interrupt(int irq , void *dev_id )
 
   }
   {
-  tmp___14 = __builtin_expect((stsr & 128U) != 0U, 0L);
+  tmp___14 = ldv__builtin_expect((stsr & 128U) != 0U, 0L);
   }
   if (tmp___14 != 0L) {
     {
@@ -8299,7 +8298,7 @@ static irqreturn_t adm8211_interrupt(int irq , void *dev_id )
 
   }
   {
-  tmp___15 = __builtin_expect((stsr & 32U) != 0U, 0L);
+  tmp___15 = ldv__builtin_expect((stsr & 32U) != 0U, 0L);
   }
   if (tmp___15 != 0L) {
     {
@@ -8309,7 +8308,7 @@ static irqreturn_t adm8211_interrupt(int irq , void *dev_id )
 
   }
   {
-  tmp___16 = __builtin_expect((stsr & 2U) != 0U, 0L);
+  tmp___16 = ldv__builtin_expect((stsr & 2U) != 0U, 0L);
   }
   if (tmp___16 != 0L) {
     {
@@ -10602,7 +10601,7 @@ void ldv_dispatch_irq_register_6_2(int arg0 , enum irqreturn (*arg1)(int  , void
 void ldv_dispatch_register_4_3(struct ieee80211_tx_control *arg0 ) ;
 void ldv_dispatch_register_8_2(struct pci_driver *arg0 ) ;
 void ldv_entry_EMGentry_9(void *arg0 ) ;
-void main(void) ;
+int main(void) ;
 void ldv_free_irq(void *arg0 , int arg1 , void *arg2 ) ;
 struct ieee80211_hw *ldv_ieee80211_alloc_hw(struct ieee80211_hw *arg0 , unsigned long arg1 ,
                                             struct ieee80211_ops *arg2 ) ;
@@ -10948,7 +10947,7 @@ void ldv_entry_EMGentry_9(void *arg0 )
   return;
 }
 }
-void main(void) 
+int main(void) 
 { 
   int tmp ;
 
@@ -12515,7 +12514,7 @@ void *ldv_kzalloc(size_t size , gfp_t flags )
 }
 }
 extern void ldv_assert(char const   * , int  ) ;
-void __builtin_trap(void) ;
+void ldv__builtin_trap(void) ;
 void ldv_assume(int expression ) 
 { 
 
@@ -12539,7 +12538,7 @@ void ldv_stop(void)
   goto ldv_stop_label;
 }
 }
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 
@@ -12547,7 +12546,7 @@ long __builtin_expect(long exp , long c )
   return (exp);
 }
 }
-void __builtin_trap(void) 
+void ldv__builtin_trap(void) 
 { 
 
 

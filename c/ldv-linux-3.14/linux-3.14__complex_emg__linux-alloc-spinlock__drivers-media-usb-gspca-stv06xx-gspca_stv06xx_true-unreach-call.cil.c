@@ -6010,7 +6010,7 @@ void ldv_dummy_resourceless_instance_callback_8_3(int (*arg0)(struct v4l2_ctrl *
 void ldv_dummy_resourceless_instance_callback_9_3(int (*arg0)(struct v4l2_ctrl * ) ,
                                                   struct v4l2_ctrl *arg1 ) ;
 void ldv_entry_EMGentry_14(void *arg0 ) ;
-void main(void) ;
+int main(void) ;
 void ldv_initialize_external_data(void) ;
 void ldv_io_instance_callback_4_4(int (*arg0)(struct sd * ) , struct sd *arg1 ) ;
 void ldv_struct_sd_desc_dummy_resourceless_instance_0(void *arg0 ) ;
@@ -6623,7 +6623,7 @@ void ldv_entry_EMGentry_14(void *arg0 )
   return;
 }
 }
-void main(void) 
+int main(void) 
 { 
   int tmp ;
 
@@ -8708,7 +8708,7 @@ void ldv_switch_automaton_state_5_5(void)
   return;
 }
 }
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 extern void ldv_after_alloc(void * ) ;
 __inline static void *kmalloc(size_t size , gfp_t flags ) ;
 static int hdcs_probe_1x00(struct sd *sd ) ;
@@ -8758,13 +8758,13 @@ static int hdcs_reg_write_seq(struct sd *sd , u8 reg , u8 *vals , u8 len )
 
   {
   {
-  tmp = __builtin_expect((unsigned int )len - 1U > 14U, 0L);
+  tmp = ldv__builtin_expect((unsigned int )len - 1U > 14U, 0L);
   }
   if (tmp != 0L) {
     return (-22);
   } else {
     {
-    tmp___0 = __builtin_expect((int )reg + (int )len > 255, 0L);
+    tmp___0 = ldv__builtin_expect((int )reg + (int )len > 255, 0L);
     }
     if (tmp___0 != 0L) {
       return (-22);
@@ -11587,7 +11587,7 @@ void *ldv_kzalloc(size_t size , gfp_t flags )
 }
 }
 extern void ldv_assert(char const   * , int  ) ;
-void __builtin_trap(void) ;
+void ldv__builtin_trap(void) ;
 void ldv_assume(int expression ) 
 { 
 
@@ -11611,7 +11611,7 @@ void ldv_stop(void)
   goto ldv_stop_label;
 }
 }
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 
@@ -11619,7 +11619,7 @@ long __builtin_expect(long exp , long c )
   return (exp);
 }
 }
-void __builtin_trap(void) 
+void ldv__builtin_trap(void) 
 { 
 
 

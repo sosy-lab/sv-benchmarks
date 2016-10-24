@@ -4293,7 +4293,7 @@ struct ldv_thread {
    void (*function)(void * ) ;
 };
 typedef _Bool ldv_set;
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 void ldv_assume(int expression ) ;
 void ldv_linux_alloc_irq_check_alloc_flags(gfp_t flags ) ;
 void ldv_linux_alloc_irq_check_alloc_nonatomic(void) ;
@@ -4641,7 +4641,7 @@ int squashfs_read_data(struct super_block *sb , u64 index , int length , u64 *ne
     descriptor.format = "SQUASHFS: Block @ 0x%llx, %scompressed size %d, src size %d\n";
     descriptor.lineno = 115U;
     descriptor.flags = 0U;
-    tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -4710,7 +4710,7 @@ int squashfs_read_data(struct super_block *sb , u64 index , int length , u64 *ne
     descriptor___0.format = "SQUASHFS: Block @ 0x%llx, %scompressed size %d\n";
     descriptor___0.lineno = 147U;
     descriptor___0.flags = 0U;
-    tmp___1 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___1 != 0L) {
       {
@@ -5182,7 +5182,7 @@ struct squashfs_cache_entry *squashfs_cache_get(struct super_block *sb , struct 
   descriptor.format = "SQUASHFS: Got %s %d, start block %lld, refcount %d, error %d\n";
   descriptor.lineno = 174U;
   descriptor.flags = 0U;
-  tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -5479,7 +5479,7 @@ int squashfs_read_metadata(struct super_block *sb , void *buffer , u64 *block , 
   descriptor.format = "SQUASHFS: Entered squashfs_read_metadata [%llx:%x]\n";
   descriptor.lineno = 351U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -5779,7 +5779,7 @@ static int get_dir_index_using_offset(struct super_block *sb , u64 *next_block ,
   descriptor.format = "SQUASHFS: Entered get_dir_index_using_offset, i_count %d, f_pos %lld\n";
   descriptor.lineno = 61U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -5889,7 +5889,7 @@ static int squashfs_readdir(struct file *file , struct dir_context *ctx )
   descriptor.format = "SQUASHFS: Entered squashfs_readdir [%llx:%x]\n";
   descriptor.lineno = 120U;
   descriptor.flags = 0U;
-  tmp___2 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___2 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___2 != 0L) {
     {
@@ -6302,7 +6302,7 @@ __inline static bool IS_ERR(void const   *ptr )
 
   {
   {
-  tmp = __builtin_expect((unsigned long )ptr > 0xfffffffffffff000UL, 0L);
+  tmp = ldv__builtin_expect((unsigned long )ptr > 0xfffffffffffff000UL, 0L);
   }
   return (tmp != 0L);
 }
@@ -6337,7 +6337,7 @@ static long long squashfs_inode_lookup(struct super_block *sb , int ino_num )
   descriptor.format = "SQUASHFS: Entered squashfs_inode_lookup, inode_number = %d\n";
   descriptor.lineno = 61U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -6362,7 +6362,7 @@ static long long squashfs_inode_lookup(struct super_block *sb , int ino_num )
   descriptor___0.format = "SQUASHFS: squashfs_inode_lookup, inode = 0x%llx\n";
   descriptor___0.lineno = 68U;
   descriptor___0.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -6394,7 +6394,7 @@ static struct dentry *squashfs_export_iget(struct super_block *sb , unsigned int
   descriptor.format = "SQUASHFS: Entered squashfs_export_iget\n";
   descriptor.lineno = 80U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -6491,7 +6491,7 @@ __le64 *squashfs_read_inode_lookup_table(struct super_block *sb , u64 lookup_tab
   descriptor.format = "SQUASHFS: In read_inode_lookup_table, length %d\n";
   descriptor.lineno = 129U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -6932,7 +6932,7 @@ static struct meta_index *locate_meta_index(struct inode *inode , int offset , i
   descriptor.format = "SQUASHFS: locate_meta_index: index %d, offset %d\n";
   descriptor.lineno = 69U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -6958,7 +6958,7 @@ static struct meta_index *locate_meta_index(struct inode *inode , int offset , i
     descriptor___0.format = "SQUASHFS: locate_meta_index: entry %d, offset %d\n";
     descriptor___0.lineno = 80U;
     descriptor___0.flags = 0U;
-    tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -7017,7 +7017,7 @@ static struct meta_index *empty_meta_index(struct inode *inode , int offset , in
   descriptor.format = "SQUASHFS: empty_meta_index: offset %d, skip %d\n";
   descriptor.lineno = 108U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -7076,7 +7076,7 @@ static struct meta_index *empty_meta_index(struct inode *inode , int offset , in
     descriptor___0.format = "SQUASHFS: empty_meta_index: failed!\n";
     descriptor___0.lineno = 136U;
     descriptor___0.flags = 0U;
-    tmp___1 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___1 != 0L) {
       {
@@ -7096,7 +7096,7 @@ static struct meta_index *empty_meta_index(struct inode *inode , int offset , in
   descriptor___1.format = "SQUASHFS: empty_meta_index: returned meta entry %d, %p\n";
   descriptor___1.lineno = 142U;
   descriptor___1.flags = 0U;
-  tmp___2 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+  tmp___2 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
   }
   if (tmp___2 != 0L) {
     {
@@ -7291,7 +7291,7 @@ static int fill_meta_index(struct inode *inode , int index , u64 *index_block , 
     descriptor.format = "SQUASHFS: get_meta_index: offset %d, meta->offset %d, meta->entries %d\n";
     descriptor.lineno = 271U;
     descriptor.flags = 0U;
-    tmp___4 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___4 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp___4 != 0L) {
       {
@@ -7308,7 +7308,7 @@ static int fill_meta_index(struct inode *inode , int index , u64 *index_block , 
     descriptor___0.format = "SQUASHFS: get_meta_index: index_block 0x%llx, offset 0x%x data_block 0x%llx\n";
     descriptor___0.lineno = 274U;
     descriptor___0.flags = 0U;
-    tmp___5 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___5 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___5 != 0L) {
       {
@@ -7359,7 +7359,7 @@ static int fill_meta_index(struct inode *inode , int index , u64 *index_block , 
   descriptor___1.format = "SQUASHFS: get_meta_index: meta->offset %d, meta->entries %d\n";
   descriptor___1.lineno = 310U;
   descriptor___1.flags = 0U;
-  tmp___7 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+  tmp___7 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
   }
   if (tmp___7 != 0L) {
     {
@@ -7412,7 +7412,7 @@ static int read_blocklist(struct inode *inode , int index , u64 *block )
   descriptor.format = "SQUASHFS: read_blocklist: res %d, index %d, start 0x%llx, offset 0x%x, block 0x%llx\n";
   descriptor.lineno = 345U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -7497,7 +7497,7 @@ void squashfs_copy_cache(struct page *page , struct squashfs_cache_entry *buffer
   descriptor.format = "SQUASHFS: bytes %d, i %d, available_bytes %d\n";
   descriptor.lineno = 394U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -7676,7 +7676,7 @@ static int squashfs_readpage(struct file *file , struct page *page )
   descriptor.format = "SQUASHFS: Entered squashfs_readpage, page index %lx, start block %llx\n";
   descriptor.lineno = 463U;
   descriptor.flags = 0U;
-  tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -7977,7 +7977,7 @@ __le64 *squashfs_read_id_index_table(struct super_block *sb , u64 id_table_start
   descriptor.format = "SQUASHFS: In read_id_index_table, length %d\n";
   descriptor.lineno = 74U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -8133,7 +8133,7 @@ struct inode *squashfs_iget(struct super_block *sb , long long ino , unsigned in
   descriptor.format = "SQUASHFS: Entered squashfs_iget\n";
   descriptor.lineno = 90U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -8270,7 +8270,7 @@ int squashfs_read_inode(struct inode *inode , long long ino )
   descriptor.format = "SQUASHFS: Entered squashfs_read_inode\n";
   descriptor.lineno = 122U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -8422,7 +8422,7 @@ int squashfs_read_inode(struct inode *inode , long long ino )
   descriptor___0.format = "SQUASHFS: File inode %x:%x, start_block %llx, block_list_start %llx, offset %x\n";
   descriptor___0.lineno = 181U;
   descriptor___0.flags = 0U;
-  tmp___7 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___7 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
   }
   if (tmp___7 != 0L) {
     {
@@ -8489,7 +8489,7 @@ int squashfs_read_inode(struct inode *inode , long long ino )
   descriptor___1.format = "SQUASHFS: File inode %x:%x, start_block %llx, block_list_start %llx, offset %x\n";
   descriptor___1.lineno = 228U;
   descriptor___1.flags = 0U;
-  tmp___15 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+  tmp___15 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
   }
   if (tmp___15 != 0L) {
     {
@@ -8532,7 +8532,7 @@ int squashfs_read_inode(struct inode *inode , long long ino )
   descriptor___2.format = "SQUASHFS: Directory inode %x:%x, start_block %llx, offset %x\n";
   descriptor___2.lineno = 252U;
   descriptor___2.flags = 0U;
-  tmp___21 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+  tmp___21 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
   }
   if (tmp___21 != 0L) {
     {
@@ -8579,7 +8579,7 @@ int squashfs_read_inode(struct inode *inode , long long ino )
   descriptor___3.format = "SQUASHFS: Long directory inode %x:%x, start_block %llx, offset %x\n";
   descriptor___3.lineno = 279U;
   descriptor___3.flags = 0U;
-  tmp___29 = __builtin_expect((long )descriptor___3.flags & 1L, 0L);
+  tmp___29 = ldv__builtin_expect((long )descriptor___3.flags & 1L, 0L);
   }
   if (tmp___29 != 0L) {
     {
@@ -8641,7 +8641,7 @@ int squashfs_read_inode(struct inode *inode , long long ino )
   descriptor___4.format = "SQUASHFS: Symbolic link inode %x:%x, start_block %llx, offset %x\n";
   descriptor___4.lineno = 315U;
   descriptor___4.flags = 0U;
-  tmp___32 = __builtin_expect((long )descriptor___4.flags & 1L, 0L);
+  tmp___32 = ldv__builtin_expect((long )descriptor___4.flags & 1L, 0L);
   }
   if (tmp___32 != 0L) {
     {
@@ -8679,7 +8679,7 @@ int squashfs_read_inode(struct inode *inode , long long ino )
   descriptor___5.format = "SQUASHFS: Device inode %x:%x, rdev %x\n";
   descriptor___5.lineno = 337U;
   descriptor___5.flags = 0U;
-  tmp___34 = __builtin_expect((long )descriptor___5.flags & 1L, 0L);
+  tmp___34 = ldv__builtin_expect((long )descriptor___5.flags & 1L, 0L);
   }
   if (tmp___34 != 0L) {
     {
@@ -8719,7 +8719,7 @@ int squashfs_read_inode(struct inode *inode , long long ino )
   descriptor___6.format = "SQUASHFS: Device inode %x:%x, rdev %x\n";
   descriptor___6.lineno = 361U;
   descriptor___6.flags = 0U;
-  tmp___36 = __builtin_expect((long )descriptor___6.flags & 1L, 0L);
+  tmp___36 = ldv__builtin_expect((long )descriptor___6.flags & 1L, 0L);
   }
   if (tmp___36 != 0L) {
     {
@@ -8848,7 +8848,7 @@ static int get_dir_index_using_name(struct super_block *sb , u64 *next_block , i
   descriptor.format = "SQUASHFS: Entered get_dir_index_using_name, i_count %d\n";
   descriptor.lineno = 87U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -8982,7 +8982,7 @@ static struct dentry *squashfs_lookup(struct inode *dir , struct dentry *dentry 
   descriptor.format = "SQUASHFS: Entered squashfs_lookup [%llx:%x]\n";
   descriptor.lineno = 153U;
   descriptor.flags = 0U;
-  tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -9084,7 +9084,7 @@ static struct dentry *squashfs_lookup(struct inode *dir , struct dentry *dentry 
       descriptor___0.format = "SQUASHFS: calling squashfs_iget for directory entry %s, inode  %x:%x, %d\n";
       descriptor___0.lineno = 223U;
       descriptor___0.flags = 0U;
-      tmp___7 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+      tmp___7 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
       }
       if (tmp___7 != 0L) {
         {
@@ -9389,7 +9389,7 @@ static int squashfs_fill_super(struct super_block *sb , void *data , int silent 
   descriptor.format = "SQUASHFS: Entered squashfs_fill_superblock\n";
   descriptor.lineno = 91U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -9513,7 +9513,7 @@ static int squashfs_fill_super(struct super_block *sb , void *data , int silent 
   descriptor___0.format = "SQUASHFS: Found valid superblock on %s\n";
   descriptor___0.lineno = 181U;
   descriptor___0.flags = 0U;
-  tmp___7 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___7 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
   }
   if (tmp___7 != 0L) {
     {
@@ -9531,7 +9531,7 @@ static int squashfs_fill_super(struct super_block *sb , void *data , int silent 
   descriptor___1.format = "SQUASHFS: Inodes are %scompressed\n";
   descriptor___1.lineno = 183U;
   descriptor___1.flags = 0U;
-  tmp___8 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+  tmp___8 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
   }
   if (tmp___8 != 0L) {
     {
@@ -9548,7 +9548,7 @@ static int squashfs_fill_super(struct super_block *sb , void *data , int silent 
   descriptor___2.format = "SQUASHFS: Data is %scompressed\n";
   descriptor___2.lineno = 185U;
   descriptor___2.flags = 0U;
-  tmp___9 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+  tmp___9 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
   }
   if (tmp___9 != 0L) {
     {
@@ -9565,7 +9565,7 @@ static int squashfs_fill_super(struct super_block *sb , void *data , int silent 
   descriptor___3.format = "SQUASHFS: Filesystem size %lld bytes\n";
   descriptor___3.lineno = 186U;
   descriptor___3.flags = 0U;
-  tmp___10 = __builtin_expect((long )descriptor___3.flags & 1L, 0L);
+  tmp___10 = ldv__builtin_expect((long )descriptor___3.flags & 1L, 0L);
   }
   if (tmp___10 != 0L) {
     {
@@ -9582,7 +9582,7 @@ static int squashfs_fill_super(struct super_block *sb , void *data , int silent 
   descriptor___4.format = "SQUASHFS: Block size %d\n";
   descriptor___4.lineno = 187U;
   descriptor___4.flags = 0U;
-  tmp___11 = __builtin_expect((long )descriptor___4.flags & 1L, 0L);
+  tmp___11 = ldv__builtin_expect((long )descriptor___4.flags & 1L, 0L);
   }
   if (tmp___11 != 0L) {
     {
@@ -9598,7 +9598,7 @@ static int squashfs_fill_super(struct super_block *sb , void *data , int silent 
   descriptor___5.format = "SQUASHFS: Number of inodes %d\n";
   descriptor___5.lineno = 188U;
   descriptor___5.flags = 0U;
-  tmp___12 = __builtin_expect((long )descriptor___5.flags & 1L, 0L);
+  tmp___12 = ldv__builtin_expect((long )descriptor___5.flags & 1L, 0L);
   }
   if (tmp___12 != 0L) {
     {
@@ -9615,7 +9615,7 @@ static int squashfs_fill_super(struct super_block *sb , void *data , int silent 
   descriptor___6.format = "SQUASHFS: Number of fragments %d\n";
   descriptor___6.lineno = 189U;
   descriptor___6.flags = 0U;
-  tmp___13 = __builtin_expect((long )descriptor___6.flags & 1L, 0L);
+  tmp___13 = ldv__builtin_expect((long )descriptor___6.flags & 1L, 0L);
   }
   if (tmp___13 != 0L) {
     {
@@ -9632,7 +9632,7 @@ static int squashfs_fill_super(struct super_block *sb , void *data , int silent 
   descriptor___7.format = "SQUASHFS: Number of ids %d\n";
   descriptor___7.lineno = 190U;
   descriptor___7.flags = 0U;
-  tmp___14 = __builtin_expect((long )descriptor___7.flags & 1L, 0L);
+  tmp___14 = ldv__builtin_expect((long )descriptor___7.flags & 1L, 0L);
   }
   if (tmp___14 != 0L) {
     {
@@ -9649,7 +9649,7 @@ static int squashfs_fill_super(struct super_block *sb , void *data , int silent 
   descriptor___8.format = "SQUASHFS: sblk->inode_table_start %llx\n";
   descriptor___8.lineno = 191U;
   descriptor___8.flags = 0U;
-  tmp___15 = __builtin_expect((long )descriptor___8.flags & 1L, 0L);
+  tmp___15 = ldv__builtin_expect((long )descriptor___8.flags & 1L, 0L);
   }
   if (tmp___15 != 0L) {
     {
@@ -9666,7 +9666,7 @@ static int squashfs_fill_super(struct super_block *sb , void *data , int silent 
   descriptor___9.format = "SQUASHFS: sblk->directory_table_start %llx\n";
   descriptor___9.lineno = 192U;
   descriptor___9.flags = 0U;
-  tmp___16 = __builtin_expect((long )descriptor___9.flags & 1L, 0L);
+  tmp___16 = ldv__builtin_expect((long )descriptor___9.flags & 1L, 0L);
   }
   if (tmp___16 != 0L) {
     {
@@ -9683,7 +9683,7 @@ static int squashfs_fill_super(struct super_block *sb , void *data , int silent 
   descriptor___10.format = "SQUASHFS: sblk->fragment_table_start %llx\n";
   descriptor___10.lineno = 194U;
   descriptor___10.flags = 0U;
-  tmp___17 = __builtin_expect((long )descriptor___10.flags & 1L, 0L);
+  tmp___17 = ldv__builtin_expect((long )descriptor___10.flags & 1L, 0L);
   }
   if (tmp___17 != 0L) {
     {
@@ -9700,7 +9700,7 @@ static int squashfs_fill_super(struct super_block *sb , void *data , int silent 
   descriptor___11.format = "SQUASHFS: sblk->id_table_start %llx\n";
   descriptor___11.lineno = 196U;
   descriptor___11.flags = 0U;
-  tmp___18 = __builtin_expect((long )descriptor___11.flags & 1L, 0L);
+  tmp___18 = ldv__builtin_expect((long )descriptor___11.flags & 1L, 0L);
   }
   if (tmp___18 != 0L) {
     {
@@ -9907,7 +9907,7 @@ static int squashfs_fill_super(struct super_block *sb , void *data , int silent 
   descriptor___12.format = "SQUASHFS: Leaving squashfs_fill_super\n";
   descriptor___12.lineno = 333U;
   descriptor___12.flags = 0U;
-  tmp___31 = __builtin_expect((long )descriptor___12.flags & 1L, 0L);
+  tmp___31 = ldv__builtin_expect((long )descriptor___12.flags & 1L, 0L);
   }
   if (tmp___31 != 0L) {
     {
@@ -9957,7 +9957,7 @@ static int squashfs_statfs(struct dentry *dentry , struct kstatfs *buf )
   descriptor.format = "SQUASHFS: Entered squashfs_statfs\n";
   descriptor.lineno = 358U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -10332,7 +10332,7 @@ void ldv_dummy_resourceless_instance_callback_9_9(int (*arg0)(struct squashfs_sb
                                                   int arg4 , int arg5 , int arg6 ,
                                                   struct squashfs_page_actor *arg7 ) ;
 void ldv_entry_EMGentry_16(void *arg0 ) ;
-void main(void) ;
+int main(void) ;
 void ldv_iio_triggered_buffer_iio_triggered_buffer_instance_1(void *arg0 ) ;
 enum irqreturn ldv_iio_triggered_buffer_instance_handler_1_5(enum irqreturn (*arg0)(int  ,
                                                                                     void * ) ,
@@ -10729,7 +10729,7 @@ void ldv_entry_EMGentry_16(void *arg0 )
   return;
 }
 }
-void main(void) 
+int main(void) 
 { 
 
 
@@ -10738,7 +10738,7 @@ void main(void)
   ldv_ldv_initialize_103();
   ldv_entry_EMGentry_16((void *)0);
   }
-  return;
+return 0;
 }
 }
 int ldv_file_operations_instance_probe_0_12(int (*arg0)(struct inode * , struct file * ) ,
@@ -12324,7 +12324,7 @@ static int squashfs_symlink_readpage(struct file *file , struct page *page )
   descriptor.format = "SQUASHFS: Entered squashfs_symlink_readpage, page index %ld, start block %llx, offset %x\n";
   descriptor.lineno = 60U;
   descriptor.flags = 0U;
-  tmp___2 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___2 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___2 != 0L) {
     {
@@ -13481,7 +13481,7 @@ __le64 *squashfs_read_xattr_id_table(struct super_block *sb , u64 start , u64 *x
   descriptor.format = "SQUASHFS: In read_xattr_index_table, length %d\n";
   descriptor.lineno = 92U;
   descriptor.flags = 0U;
-  tmp___3 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___3 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___3 != 0L) {
     {
@@ -16569,7 +16569,7 @@ void ldv_linux_usb_urb_check_final_state(void)
 }
 }
 extern void ldv_assert(char const   * , int  ) ;
-void __builtin_trap(void) ;
+void ldv__builtin_trap(void) ;
 void ldv_assume(int expression ) 
 { 
 
@@ -16593,7 +16593,7 @@ void ldv_stop(void)
   goto ldv_stop_label;
 }
 }
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 
@@ -16601,7 +16601,7 @@ long __builtin_expect(long exp , long c )
   return (exp);
 }
 }
-void __builtin_trap(void) 
+void ldv__builtin_trap(void) 
 { 
 
 

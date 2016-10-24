@@ -4663,8 +4663,7 @@ struct ldv_thread {
    void (*function)(void * ) ;
 };
 typedef _Bool ldv_set;
-int __builtin_bswap32(int  ) ;
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 void ldv_assume(int expression ) ;
 void ldv_linux_alloc_irq_check_alloc_flags(gfp_t flags ) ;
 void ldv_linux_alloc_irq_check_alloc_nonatomic(void) ;
@@ -4923,7 +4922,7 @@ static int rsxx_save_config(struct rsxx_cardinfo *card )
   {
   {
   __memcpy((void *)(& cfg), (void const   *)(& card->config), 36UL);
-  tmp = __builtin_expect(cfg.hdr.version != 4U, 0L);
+  tmp = ldv__builtin_expect(cfg.hdr.version != 4U, 0L);
   }
   if (tmp != 0L) {
     {
@@ -5032,7 +5031,7 @@ int rsxx_load_config(struct rsxx_cardinfo *card )
   descriptor.format = "version:     x%08x\n";
   descriptor.lineno = 191U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -5049,7 +5048,7 @@ int rsxx_load_config(struct rsxx_cardinfo *card )
   descriptor___0.format = "crc:         x%08x\n";
   descriptor___0.lineno = 193U;
   descriptor___0.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -5066,7 +5065,7 @@ int rsxx_load_config(struct rsxx_cardinfo *card )
   descriptor___1.format = "block_size:  x%08x\n";
   descriptor___1.lineno = 195U;
   descriptor___1.flags = 0U;
-  tmp___1 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -5083,7 +5082,7 @@ int rsxx_load_config(struct rsxx_cardinfo *card )
   descriptor___2.format = "stripe_size: x%08x\n";
   descriptor___2.lineno = 197U;
   descriptor___2.flags = 0U;
-  tmp___2 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+  tmp___2 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
   }
   if (tmp___2 != 0L) {
     {
@@ -5100,7 +5099,7 @@ int rsxx_load_config(struct rsxx_cardinfo *card )
   descriptor___3.format = "vendor_id:   x%08x\n";
   descriptor___3.lineno = 199U;
   descriptor___3.flags = 0U;
-  tmp___3 = __builtin_expect((long )descriptor___3.flags & 1L, 0L);
+  tmp___3 = ldv__builtin_expect((long )descriptor___3.flags & 1L, 0L);
   }
   if (tmp___3 != 0L) {
     {
@@ -5117,7 +5116,7 @@ int rsxx_load_config(struct rsxx_cardinfo *card )
   descriptor___4.format = "cache_order: x%08x\n";
   descriptor___4.lineno = 201U;
   descriptor___4.flags = 0U;
-  tmp___4 = __builtin_expect((long )descriptor___4.flags & 1L, 0L);
+  tmp___4 = ldv__builtin_expect((long )descriptor___4.flags & 1L, 0L);
   }
   if (tmp___4 != 0L) {
     {
@@ -5134,7 +5133,7 @@ int rsxx_load_config(struct rsxx_cardinfo *card )
   descriptor___5.format = "mode:        x%08x\n";
   descriptor___5.lineno = 203U;
   descriptor___5.flags = 0U;
-  tmp___5 = __builtin_expect((long )descriptor___5.flags & 1L, 0L);
+  tmp___5 = ldv__builtin_expect((long )descriptor___5.flags & 1L, 0L);
   }
   if (tmp___5 != 0L) {
     {
@@ -5151,7 +5150,7 @@ int rsxx_load_config(struct rsxx_cardinfo *card )
   descriptor___6.format = "count:       x%08x\n";
   descriptor___6.lineno = 205U;
   descriptor___6.flags = 0U;
-  tmp___6 = __builtin_expect((long )descriptor___6.flags & 1L, 0L);
+  tmp___6 = ldv__builtin_expect((long )descriptor___6.flags & 1L, 0L);
   }
   if (tmp___6 != 0L) {
     {
@@ -5168,7 +5167,7 @@ int rsxx_load_config(struct rsxx_cardinfo *card )
   descriptor___7.format = "latency:     x%08x\n";
   descriptor___7.lineno = 207U;
   descriptor___7.flags = 0U;
-  tmp___7 = __builtin_expect((long )descriptor___7.flags & 1L, 0L);
+  tmp___7 = ldv__builtin_expect((long )descriptor___7.flags & 1L, 0L);
   }
   if (tmp___7 != 0L) {
     {
@@ -5252,7 +5251,6 @@ __inline static int list_empty(struct list_head  const  *head )
 }
 }
 extern void warn_slowpath_null(char const   * , int const    ) ;
-extern int ( /* missing proto */  __builtin_unreachable)() ;
 __inline static unsigned long arch_local_save_flags(void) 
 { 
   unsigned long __ret ;
@@ -5270,7 +5268,7 @@ __inline static unsigned long arch_local_save_flags(void)
   __edx = __edx;
   __ecx = __ecx;
   __eax = __eax;
-  tmp = __builtin_expect((unsigned long )pv_irq_ops.save_fl.func == (unsigned long )((void *)0),
+  tmp = ldv__builtin_expect((unsigned long )pv_irq_ops.save_fl.func == (unsigned long )((void *)0),
                          0L);
   }
   if (tmp != 0L) {
@@ -5299,7 +5297,7 @@ __inline static bool IS_ERR_OR_NULL(void const   *ptr )
     tmp___0 = 1;
   } else {
     {
-    tmp = __builtin_expect((unsigned long )ptr > 0xfffffffffffff000UL, 0L);
+    tmp = ldv__builtin_expect((unsigned long )ptr > 0xfffffffffffff000UL, 0L);
     }
     if (tmp != 0L) {
       tmp___0 = 1;
@@ -5578,7 +5576,7 @@ __inline static struct dma_map_ops *get_dma_ops(struct device *dev )
 
   {
   {
-  tmp = __builtin_expect((unsigned long )dev == (unsigned long )((struct device *)0),
+  tmp = ldv__builtin_expect((unsigned long )dev == (unsigned long )((struct device *)0),
                          0L);
   }
   if (tmp != 0L || (unsigned long )dev->archdata.dma_ops == (unsigned long )((struct dma_map_ops *)0)) {
@@ -5606,7 +5604,7 @@ __inline static void dma_free_attrs(struct device *dev , size_t size , void *vad
   _flags = arch_local_save_flags();
   tmp___0 = arch_irqs_disabled_flags(_flags);
   __ret_warn_on = tmp___0 != 0;
-  tmp___1 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___1 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -5616,7 +5614,7 @@ __inline static void dma_free_attrs(struct device *dev , size_t size , void *vad
 
   }
   {
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
   debug_dma_free_coherent(dev, size, vaddr, bus);
   }
   if ((unsigned long )ops->free != (unsigned long )((void (*)(struct device * , size_t  ,
@@ -5699,7 +5697,7 @@ __inline static unsigned long copy_from_user(void *to , void const   *from , uns
   {
   sz = -1;
   might_fault();
-  tmp = __builtin_expect(sz < 0, 1L);
+  tmp = ldv__builtin_expect(sz < 0, 1L);
   }
   if (tmp != 0L) {
     {
@@ -5707,7 +5705,7 @@ __inline static unsigned long copy_from_user(void *to , void const   *from , uns
     }
   } else {
     {
-    tmp___0 = __builtin_expect((unsigned long )sz >= n, 1L);
+    tmp___0 = ldv__builtin_expect((unsigned long )sz >= n, 1L);
     }
     if (tmp___0 != 0L) {
       {
@@ -5732,7 +5730,7 @@ __inline static unsigned long copy_to_user(void *to , void const   *from , unsig
   {
   sz = -1;
   might_fault();
-  tmp = __builtin_expect(sz < 0, 1L);
+  tmp = ldv__builtin_expect(sz < 0, 1L);
   }
   if (tmp != 0L) {
     {
@@ -5740,7 +5738,7 @@ __inline static unsigned long copy_to_user(void *to , void const   *from , unsig
     }
   } else {
     {
-    tmp___0 = __builtin_expect((unsigned long )sz >= n, 1L);
+    tmp___0 = ldv__builtin_expect((unsigned long )sz >= n, 1L);
     }
     if (tmp___0 != 0L) {
       {
@@ -6220,13 +6218,13 @@ void rsxx_enable_ier(struct rsxx_cardinfo *card , unsigned int intr )
 
   {
   {
-  tmp = __builtin_expect(card->halt != 0U, 0L);
+  tmp = ldv__builtin_expect(card->halt != 0U, 0L);
   }
   if (tmp != 0L) {
     return;
   } else {
     {
-    tmp___0 = __builtin_expect(card->eeh_state != 0U, 0L);
+    tmp___0 = ldv__builtin_expect(card->eeh_state != 0U, 0L);
     }
     if (tmp___0 != 0L) {
       return;
@@ -6247,7 +6245,7 @@ void rsxx_disable_ier(struct rsxx_cardinfo *card , unsigned int intr )
 
   {
   {
-  tmp = __builtin_expect(card->eeh_state != 0U, 0L);
+  tmp = ldv__builtin_expect(card->eeh_state != 0U, 0L);
   }
   if (tmp != 0L) {
     return;
@@ -6268,13 +6266,13 @@ void rsxx_enable_ier_and_isr(struct rsxx_cardinfo *card , unsigned int intr )
 
   {
   {
-  tmp = __builtin_expect(card->halt != 0U, 0L);
+  tmp = ldv__builtin_expect(card->halt != 0U, 0L);
   }
   if (tmp != 0L) {
     return;
   } else {
     {
-    tmp___0 = __builtin_expect(card->eeh_state != 0U, 0L);
+    tmp___0 = ldv__builtin_expect(card->eeh_state != 0U, 0L);
     }
     if (tmp___0 != 0L) {
       return;
@@ -6296,7 +6294,7 @@ void rsxx_disable_ier_and_isr(struct rsxx_cardinfo *card , unsigned int intr )
 
   {
   {
-  tmp = __builtin_expect(card->eeh_state != 0U, 0L);
+  tmp = ldv__builtin_expect(card->eeh_state != 0U, 0L);
   }
   if (tmp != 0L) {
     return;
@@ -6332,7 +6330,7 @@ static irqreturn_t rsxx_isr(int irq , void *pdata )
   ldv_35408: 
   {
   reread_isr = 0;
-  tmp = __builtin_expect(card->eeh_state != 0U, 0L);
+  tmp = ldv__builtin_expect(card->eeh_state != 0U, 0L);
   }
   if (tmp != 0L) {
     goto ldv_35404;
@@ -6563,7 +6561,7 @@ static void card_event_handler(struct work_struct *work )
   {
   __mptr = (struct work_struct  const  *)work;
   card = (struct rsxx_cardinfo *)__mptr + 0xfffffffffffffcc8UL;
-  tmp = __builtin_expect(card->halt != 0U, 0L);
+  tmp = ldv__builtin_expect(card->halt != 0U, 0L);
   }
   if (tmp != 0L) {
     return;
@@ -7599,7 +7597,7 @@ void ldv_dispatch_irq_register_9_2(int arg0 , enum irqreturn (*arg1)(int  , void
 void ldv_dispatch_register_11_2(struct pci_driver *arg0 ) ;
 void ldv_dispatch_register_file_operations_instance_5_12_5(void) ;
 void ldv_entry_EMGentry_12(void *arg0 ) ;
-void main(void) ;
+int main(void) ;
 void ldv_file_operations_file_operations_instance_0(void *arg0 ) ;
 void ldv_file_operations_file_operations_instance_1(void *arg0 ) ;
 void ldv_file_operations_file_operations_instance_2(void *arg0 ) ;
@@ -7881,7 +7879,7 @@ void ldv_entry_EMGentry_12(void *arg0 )
   return;
 }
 }
-void main(void) 
+int main(void) 
 { 
 
 
@@ -7890,7 +7888,7 @@ void main(void)
   ldv_ldv_initialize_135();
   ldv_entry_EMGentry_12((void *)0);
   }
-  return;
+return 0;
 }
 }
 void ldv_file_operations_file_operations_instance_0(void *arg0 ) 
@@ -9636,7 +9634,7 @@ static int copy_to_creg_data(struct rsxx_cardinfo *card , int cnt8 , void *buf ,
   {
   i = 0;
   data = (u32 *)buf;
-  tmp = __builtin_expect(card->eeh_state != 0U, 0L);
+  tmp = ldv__builtin_expect(card->eeh_state != 0U, 0L);
   }
   if (tmp != 0L) {
     return (-5);
@@ -9682,7 +9680,7 @@ static int copy_from_creg_data(struct rsxx_cardinfo *card , int cnt8 , void *buf
   {
   i = 0;
   data = (u32 *)buf;
-  tmp = __builtin_expect(card->eeh_state != 0U, 0L);
+  tmp = ldv__builtin_expect(card->eeh_state != 0U, 0L);
   }
   if (tmp != 0L) {
     return (-5);
@@ -9723,7 +9721,7 @@ static void creg_issue_cmd(struct rsxx_cardinfo *card , struct creg_cmd *cmd )
 
   {
   {
-  tmp = __builtin_expect(card->eeh_state != 0U, 0L);
+  tmp = ldv__builtin_expect(card->eeh_state != 0U, 0L);
   }
   if (tmp != 0L) {
     return;
@@ -9751,7 +9749,7 @@ static void creg_issue_cmd(struct rsxx_cardinfo *card , struct creg_cmd *cmd )
 
   }
   {
-  tmp___0 = __builtin_expect(card->eeh_state != 0U, 0L);
+  tmp___0 = ldv__builtin_expect(card->eeh_state != 0U, 0L);
   }
   if (tmp___0 != 0L) {
     return;
@@ -9808,7 +9806,7 @@ static int creg_queue_cmd(struct rsxx_cardinfo *card , unsigned int op , unsigne
 
   {
   {
-  tmp = __builtin_expect(card->halt != 0U, 0L);
+  tmp = ldv__builtin_expect(card->halt != 0U, 0L);
   }
   if (tmp != 0L) {
     return (-22);
@@ -10100,7 +10098,7 @@ static void creg_cmd_done_cb(struct rsxx_cardinfo *card , struct creg_cmd *cmd ,
   {
   {
   cmd_completion = (struct creg_completion *)cmd->cb_private;
-  tmp = __builtin_expect((unsigned long )cmd_completion == (unsigned long )((struct creg_completion *)0),
+  tmp = ldv__builtin_expect((unsigned long )cmd_completion == (unsigned long )((struct creg_completion *)0),
                          0L);
   }
   if (tmp != 0L) {
@@ -10392,7 +10390,7 @@ static void hw_log_msg(struct rsxx_cardinfo *card , char const   *str , int len 
   descriptor.format = "HW: %.*s";
   descriptor.lineno = 580U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -11374,7 +11372,7 @@ static void rsxx_make_request(struct request_queue *q , struct bio *bio )
 
   }
   {
-  tmp___0 = __builtin_expect(card->halt != 0U, 0L);
+  tmp___0 = ldv__builtin_expect(card->halt != 0U, 0L);
   }
   if (tmp___0 != 0L) {
     st = -14;
@@ -11383,7 +11381,7 @@ static void rsxx_make_request(struct request_queue *q , struct bio *bio )
 
   }
   {
-  tmp___1 = __builtin_expect(card->dma_fault != 0U, 0L);
+  tmp___1 = ldv__builtin_expect(card->dma_fault != 0U, 0L);
   }
   if (tmp___1 != 0L) {
     st = -14;
@@ -11414,7 +11412,7 @@ static void rsxx_make_request(struct request_queue *q , struct bio *bio )
   atomic_set(& bio_meta->error, 0);
   atomic_set(& bio_meta->pending_dmas, 0);
   bio_meta->start_time = jiffies;
-  tmp___3 = __builtin_expect(card->halt != 0U, 0L);
+  tmp___3 = ldv__builtin_expect(card->halt != 0U, 0L);
   }
   if (tmp___3 == 0L) {
     {
@@ -11430,7 +11428,7 @@ static void rsxx_make_request(struct request_queue *q , struct bio *bio )
   descriptor.format = "BIO[%c]: meta: %p addr8: x%llx size: %d\n";
   descriptor.lineno = 190U;
   descriptor.flags = 0U;
-  tmp___4 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___4 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___4 != 0L) {
     {
@@ -12082,7 +12080,7 @@ __inline static dma_addr_t dma_map_page(struct device *dev , struct page *page ,
   tmp___0 = lowmem_page_address((struct page  const  *)page);
   kmemcheck_mark_initialized(tmp___0 + offset, (unsigned int )size);
   tmp___1 = valid_dma_direction((int )dir);
-  tmp___2 = __builtin_expect(tmp___1 == 0, 0L);
+  tmp___2 = ldv__builtin_expect(tmp___1 == 0, 0L);
   }
   if (tmp___2 != 0L) {
     {
@@ -12113,7 +12111,7 @@ __inline static void dma_unmap_page(struct device *dev , dma_addr_t addr , size_
   tmp = get_dma_ops(dev);
   ops = tmp;
   tmp___0 = valid_dma_direction((int )dir);
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -12312,12 +12310,12 @@ __inline static void bvec_iter_advance(struct bio_vec *bv , struct bvec_iter *it
   {
   {
   __ret_warn_once = bytes > iter->bi_size;
-  tmp___1 = __builtin_expect(__ret_warn_once != 0, 0L);
+  tmp___1 = ldv__builtin_expect(__ret_warn_once != 0, 0L);
   }
   if (tmp___1 != 0L) {
     {
     __ret_warn_on = ! __warned;
-    tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
     if (tmp != 0L) {
       {
@@ -12327,7 +12325,7 @@ __inline static void bvec_iter_advance(struct bio_vec *bv , struct bvec_iter *it
 
     }
     {
-    tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
     if (tmp___0 != 0L) {
       __warned = 1;
@@ -12338,7 +12336,7 @@ __inline static void bvec_iter_advance(struct bio_vec *bv , struct bvec_iter *it
 
   }
   {
-  __builtin_expect(__ret_warn_once != 0, 0L);
+  ldv__builtin_expect(__ret_warn_once != 0, 0L);
   }
   goto ldv_33144;
   ldv_33143: 
@@ -12510,7 +12508,7 @@ static void dma_intr_coal_auto_tune(struct rsxx_cardinfo *card )
     return;
   } else {
     {
-    tmp = __builtin_expect(card->eeh_state != 0U, 0L);
+    tmp = ldv__builtin_expect(card->eeh_state != 0U, 0L);
     }
     if (tmp != 0L) {
       return;
@@ -12676,7 +12674,7 @@ static void rsxx_handle_dma_error(struct rsxx_dma_ctrl *ctrl , struct rsxx_dma *
   descriptor.format = "Handling DMA error(cmd x%02x, laddr x%08x st:x%02x)\n";
   descriptor.lineno = 297U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -12799,7 +12797,7 @@ static void dma_engine_stalled(unsigned long data )
     return;
   } else {
     {
-    tmp___0 = __builtin_expect((ctrl->card)->eeh_state != 0U, 0L);
+    tmp___0 = ldv__builtin_expect((ctrl->card)->eeh_state != 0U, 0L);
     }
     if (tmp___0 != 0L) {
       return;
@@ -12862,13 +12860,13 @@ static void rsxx_issue_dmas(struct rsxx_dma_ctrl *ctrl )
   {
   cmds_pending = 0;
   hw_cmd_buf = (struct hw_cmd *)ctrl->cmd.buf;
-  tmp = __builtin_expect((ctrl->card)->halt != 0U, 0L);
+  tmp = ldv__builtin_expect((ctrl->card)->halt != 0U, 0L);
   }
   if (tmp != 0L) {
     return;
   } else {
     {
-    tmp___0 = __builtin_expect((ctrl->card)->eeh_state != 0U, 0L);
+    tmp___0 = ldv__builtin_expect((ctrl->card)->eeh_state != 0U, 0L);
     }
     if (tmp___0 != 0L) {
       return;
@@ -12905,7 +12903,7 @@ static void rsxx_issue_dmas(struct rsxx_dma_ctrl *ctrl )
   list_del(& dma->list);
   ctrl->stats.sw_q_depth = ctrl->stats.sw_q_depth - 1U;
   ldv_spin_unlock_bh_101(& ctrl->queue_lock);
-  tmp___2 = __builtin_expect((ctrl->card)->dma_fault != 0U, 0L);
+  tmp___2 = ldv__builtin_expect((ctrl->card)->dma_fault != 0U, 0L);
   }
   if (tmp___2 != 0L) {
     {
@@ -12953,7 +12951,7 @@ static void rsxx_issue_dmas(struct rsxx_dma_ctrl *ctrl )
   descriptor.format = "Issue DMA%d(laddr %d tag %d) to idx %d\n";
   descriptor.lineno = 480U;
   descriptor.flags = 0U;
-  tmp___4 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___4 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___4 != 0L) {
     {
@@ -12982,7 +12980,7 @@ static void rsxx_issue_dmas(struct rsxx_dma_ctrl *ctrl )
     atomic_add(cmds_pending, & ctrl->stats.hw_q_depth);
     tmp___5 = msecs_to_jiffies(10000U);
     ldv_mod_timer_110(& ctrl->activity_timer, (unsigned long )jiffies + tmp___5);
-    tmp___6 = __builtin_expect((ctrl->card)->eeh_state != 0U, 0L);
+    tmp___6 = ldv__builtin_expect((ctrl->card)->eeh_state != 0U, 0L);
     }
     if (tmp___6 != 0L) {
       {
@@ -13021,19 +13019,19 @@ static void rsxx_dma_done(struct rsxx_dma_ctrl *ctrl )
   {
   {
   hw_st_buf = (struct hw_status *)ctrl->status.buf;
-  tmp = __builtin_expect((ctrl->card)->halt != 0U, 0L);
+  tmp = ldv__builtin_expect((ctrl->card)->halt != 0U, 0L);
   }
   if (tmp != 0L) {
     return;
   } else {
     {
-    tmp___0 = __builtin_expect((ctrl->card)->dma_fault != 0U, 0L);
+    tmp___0 = ldv__builtin_expect((ctrl->card)->dma_fault != 0U, 0L);
     }
     if (tmp___0 != 0L) {
       return;
     } else {
       {
-      tmp___1 = __builtin_expect((ctrl->card)->eeh_state != 0U, 0L);
+      tmp___1 = ldv__builtin_expect((ctrl->card)->eeh_state != 0U, 0L);
       }
       if (tmp___1 != 0L) {
         return;
@@ -13070,7 +13068,7 @@ static void rsxx_dma_done(struct rsxx_dma_ctrl *ctrl )
   descriptor.format = "Completing DMA%d(laddr x%x tag %d st: x%x cnt: x%04x) from idx %d.\n";
   descriptor.lineno = 556U;
   descriptor.flags = 0U;
-  tmp___2 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___2 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___2 != 0L) {
     {
@@ -13206,7 +13204,7 @@ static int rsxx_queue_discard(struct rsxx_cardinfo *card , struct list_head *q ,
   descriptor.format = "Queuing[D] laddr %x\n";
   descriptor.lineno = 636U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -13259,7 +13257,7 @@ static int rsxx_queue_dma(struct rsxx_cardinfo *card , struct list_head *q , int
   descriptor.format = "Queuing[%c] laddr %x off %d cnt %d page %p pg_off %d\n";
   descriptor.lineno = 672U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -13654,7 +13652,7 @@ static int rsxx_dma_stripe_setup(struct rsxx_cardinfo *card , unsigned int strip
   descriptor.format = "_stripe.lower_mask   = x%016llx\n";
   descriptor.lineno = 881U;
   descriptor.flags = 0U;
-  tmp___3 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___3 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___3 != 0L) {
     {
@@ -13671,7 +13669,7 @@ static int rsxx_dma_stripe_setup(struct rsxx_cardinfo *card , unsigned int strip
   descriptor___0.format = "_stripe.upper_shift  = x%016llx\n";
   descriptor___0.lineno = 883U;
   descriptor___0.flags = 0U;
-  tmp___4 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___4 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
   }
   if (tmp___4 != 0L) {
     {
@@ -13688,7 +13686,7 @@ static int rsxx_dma_stripe_setup(struct rsxx_cardinfo *card , unsigned int strip
   descriptor___1.format = "_stripe.upper_mask   = x%016llx\n";
   descriptor___1.lineno = 885U;
   descriptor___1.flags = 0U;
-  tmp___5 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+  tmp___5 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
   }
   if (tmp___5 != 0L) {
     {
@@ -13705,7 +13703,7 @@ static int rsxx_dma_stripe_setup(struct rsxx_cardinfo *card , unsigned int strip
   descriptor___2.format = "_stripe.target_mask  = x%016llx\n";
   descriptor___2.lineno = 887U;
   descriptor___2.flags = 0U;
-  tmp___6 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+  tmp___6 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
   }
   if (tmp___6 != 0L) {
     {
@@ -13722,7 +13720,7 @@ static int rsxx_dma_stripe_setup(struct rsxx_cardinfo *card , unsigned int strip
   descriptor___3.format = "_stripe.target_shift = x%016llx\n";
   descriptor___3.lineno = 889U;
   descriptor___3.flags = 0U;
-  tmp___7 = __builtin_expect((long )descriptor___3.flags & 1L, 0L);
+  tmp___7 = ldv__builtin_expect((long )descriptor___3.flags & 1L, 0L);
   }
   if (tmp___7 != 0L) {
     {
@@ -16337,7 +16335,7 @@ void ldv_linux_usb_urb_check_final_state(void)
 }
 }
 extern void ldv_assert(char const   * , int  ) ;
-void __builtin_trap(void) ;
+void ldv__builtin_trap(void) ;
 void ldv_assume(int expression ) 
 { 
 
@@ -16361,7 +16359,7 @@ void ldv_stop(void)
   goto ldv_stop_label;
 }
 }
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 
@@ -16369,7 +16367,7 @@ long __builtin_expect(long exp , long c )
   return (exp);
 }
 }
-void __builtin_trap(void) 
+void ldv__builtin_trap(void) 
 { 
 
 

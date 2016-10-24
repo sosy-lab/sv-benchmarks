@@ -3882,8 +3882,7 @@ struct ldv_thread {
    void (*function)(void * ) ;
 };
 typedef _Bool ldv_set;
-int __builtin_bswap32(int  ) ;
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 void ldv_assume(int expression ) ;
 void ldv_stop(void) ;
 void ldv_linux_alloc_irq_check_alloc_flags(gfp_t flags ) ;
@@ -4077,7 +4076,7 @@ __inline static bool IS_ERR(void const   *ptr )
 
   {
   {
-  tmp = __builtin_expect((unsigned long )ptr > 0xfffffffffffff000UL, 0L);
+  tmp = ldv__builtin_expect((unsigned long )ptr > 0xfffffffffffff000UL, 0L);
   }
   return (tmp != 0L);
 }
@@ -5702,7 +5701,7 @@ static void applesmc_brightness_set(struct led_classdev *led_cdev , enum led_bri
     descriptor.format = "work was already on the queue.\n";
     descriptor.lineno = 946U;
     descriptor.flags = 1U;
-    tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -6709,7 +6708,7 @@ void ldv_dummy_resourceless_instance_callback_3_3(void (*arg0)(struct led_classd
 void ldv_dummy_resourceless_instance_callback_4_3(void (*arg0)(struct work_struct * ) ,
                                                   struct work_struct *arg1 ) ;
 void ldv_entry_EMGentry_9(void *arg0 ) ;
-void main(void) ;
+int main(void) ;
 int ldv_led_classdev_register(int arg0 , struct device *arg1 , struct led_classdev *arg2 ) ;
 void ldv_led_classdev_unregister(void *arg0 , struct led_classdev *arg1 ) ;
 void ldv_platform_driver_unregister(void *arg0 , struct platform_driver *arg1 ) ;
@@ -6991,7 +6990,7 @@ void ldv_entry_EMGentry_9(void *arg0 )
   return;
 }
 }
-void main(void) 
+int main(void) 
 { 
 
 
@@ -7000,7 +6999,7 @@ void main(void)
   ldv_ldv_initialize_108();
   ldv_entry_EMGentry_9((void *)0);
   }
-  return;
+return 0;
 }
 }
 int ldv_led_classdev_register(int arg0 , struct device *arg1 , struct led_classdev *arg2 ) 
@@ -10046,7 +10045,7 @@ void ldv_linux_usb_urb_check_final_state(void)
 }
 }
 extern void ldv_assert(char const   * , int  ) ;
-void __builtin_trap(void) ;
+void ldv__builtin_trap(void) ;
 void ldv_assume(int expression ) 
 { 
 
@@ -10070,7 +10069,7 @@ void ldv_stop(void)
   goto ldv_stop_label;
 }
 }
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 
@@ -10078,7 +10077,7 @@ long __builtin_expect(long exp , long c )
   return (exp);
 }
 }
-void __builtin_trap(void) 
+void ldv__builtin_trap(void) 
 { 
 
 

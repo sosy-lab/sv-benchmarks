@@ -4644,7 +4644,7 @@ struct ldv_thread {
    int identifier ;
    void (*function)(void * ) ;
 };
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 void *ldv_dev_get_drvdata(struct device  const  *dev ) ;
 int ldv_dev_set_drvdata(struct device *dev , void *data ) ;
 void *ldv_kzalloc(size_t size , gfp_t flags ) ;
@@ -4687,7 +4687,6 @@ extern int __dynamic_dev_dbg(struct _ddebug * , struct device  const  * , char c
                              , ...) ;
 extern void __bad_percpu_size(void) ;
 extern size_t strlcpy(char * , char const   * , size_t  ) ;
-extern int ( /* missing proto */  __builtin_unreachable)() ;
 extern void __xadd_wrong_size(void) ;
 __inline static void atomic_set(atomic_t *v , int i ) 
 { 
@@ -5320,7 +5319,7 @@ static void free_buffer(struct videobuf_queue *vq , struct videobuf_buffer *vb )
   {
   {
   tmp = preempt_count();
-  tmp___0 = __builtin_expect(((unsigned long )tmp & 2096896UL) != 0UL, 0L);
+  tmp___0 = ldv__builtin_expect(((unsigned long )tmp & 2096896UL) != 0UL, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -5371,7 +5370,7 @@ static int sh_vou_buf_setup(struct videobuf_queue *vq , unsigned int *count , un
   descriptor.format = "%s(): count=%d, size=%d\n";
   descriptor.lineno = 258U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -5413,7 +5412,7 @@ static int sh_vou_buf_prepare(struct videobuf_queue *vq , struct videobuf_buffer
   descriptor.format = "%s()\n";
   descriptor.lineno = 274U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -5471,7 +5470,7 @@ static int sh_vou_buf_prepare(struct videobuf_queue *vq , struct videobuf_buffer
   descriptor___0.format = "%s(): fmt #%d, %u bytes per line, phys %pad, type %d, state %d\n";
   descriptor___0.lineno = 308U;
   descriptor___0.flags = 0U;
-  tmp___2 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___2 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
   }
   if (tmp___2 != 0L) {
     {
@@ -5513,7 +5512,7 @@ static void sh_vou_buf_queue(struct videobuf_queue *vq , struct videobuf_buffer 
   descriptor.format = "%s()\n";
   descriptor.lineno = 320U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -5540,7 +5539,7 @@ static void sh_vou_buf_queue(struct videobuf_queue *vq , struct videobuf_buffer 
     descriptor___0.format = "%s: first buffer status 0x%x\n";
     descriptor___0.lineno = 332U;
     descriptor___0.flags = 0U;
-    tmp___2 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___2 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___2 != 0L) {
       {
@@ -5566,7 +5565,7 @@ static void sh_vou_buf_queue(struct videobuf_queue *vq , struct videobuf_buffer 
     descriptor___1.format = "%s: second buffer status 0x%x\n";
     descriptor___1.lineno = 343U;
     descriptor___1.flags = 0U;
-    tmp___4 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___4 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
     }
     if (tmp___4 != 0L) {
       {
@@ -5608,7 +5607,7 @@ static void sh_vou_buf_release(struct videobuf_queue *vq , struct videobuf_buffe
   descriptor.format = "%s()\n";
   descriptor.lineno = 361U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -5663,7 +5662,7 @@ static int sh_vou_querycap(struct file *file , void *priv , struct v4l2_capabili
   descriptor.format = "%s()\n";
   descriptor.lineno = 396U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -5704,7 +5703,7 @@ static int sh_vou_enum_fmt_vid_out(struct file *file , void *priv , struct v4l2_
   descriptor.format = "%s()\n";
   descriptor.lineno = 412U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -5740,7 +5739,7 @@ static int sh_vou_g_fmt_vid_out(struct file *file , void *priv , struct v4l2_for
   descriptor.format = "%s()\n";
   descriptor.lineno = 427U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -5807,7 +5806,7 @@ static void sh_vou_configure_geometry(struct sh_vou_device *vou_dev , int pix_id
   descriptor.format = "image %ux%u, black %u:%u, offset %u:%u, display %ux%u\n";
   descriptor.lineno = 492U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -5842,7 +5841,7 @@ static void sh_vou_configure_geometry(struct sh_vou_device *vou_dev , int pix_id
   descriptor___0.format = "%s: scaling 0x%x\n";
   descriptor___0.lineno = 510U;
   descriptor___0.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -6041,7 +6040,7 @@ static void vou_adjust_output(struct sh_vou_geometry *geo , v4l2_std_id std )
   descriptor.format = "%s(): W %u * %u/%u = %u\n";
   descriptor.lineno = 640U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -6099,7 +6098,7 @@ static void vou_adjust_output(struct sh_vou_geometry *geo , v4l2_std_id std )
   descriptor___0.format = "%s(): H %u * %u/%u = %u\n";
   descriptor___0.lineno = 670U;
   descriptor___0.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -6158,7 +6157,7 @@ static int sh_vou_s_fmt_vid_out(struct file *file , void *priv , struct v4l2_for
   descriptor.format = "%s(): %ux%u -> %ux%u\n";
   descriptor.lineno = 691U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -6256,7 +6255,7 @@ static int sh_vou_s_fmt_vid_out(struct file *file , void *priv , struct v4l2_for
   descriptor___0.format = "%s(): %ux%u -> %ux%u\n";
   descriptor___0.lineno = 731U;
   descriptor___0.flags = 0U;
-  tmp___2 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___2 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
   }
   if (tmp___2 != 0L) {
     {
@@ -6291,7 +6290,7 @@ static int sh_vou_s_fmt_vid_out(struct file *file , void *priv , struct v4l2_for
   descriptor___1.format = "%s(): %ux%u\n";
   descriptor___1.lineno = 753U;
   descriptor___1.flags = 0U;
-  tmp___3 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+  tmp___3 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
   }
   if (tmp___3 != 0L) {
     {
@@ -6329,7 +6328,7 @@ static int sh_vou_try_fmt_vid_out(struct file *file , void *priv , struct v4l2_f
   descriptor.format = "%s()\n";
   descriptor.lineno = 772U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -6383,7 +6382,7 @@ static int sh_vou_reqbufs(struct file *file , void *priv , struct v4l2_requestbu
   descriptor.format = "%s()\n";
   descriptor.lineno = 795U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -6424,7 +6423,7 @@ static int sh_vou_querybuf(struct file *file , void *priv , struct v4l2_buffer *
   descriptor.format = "%s()\n";
   descriptor.lineno = 809U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -6460,7 +6459,7 @@ static int sh_vou_qbuf(struct file *file , void *priv , struct v4l2_buffer *b )
   descriptor.format = "%s()\n";
   descriptor.lineno = 819U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -6496,7 +6495,7 @@ static int sh_vou_dqbuf(struct file *file , void *priv , struct v4l2_buffer *b )
   descriptor.format = "%s()\n";
   descriptor.lineno = 829U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -6538,7 +6537,7 @@ static int sh_vou_streamon(struct file *file , void *priv , enum v4l2_buf_type b
   descriptor.format = "%s()\n";
   descriptor.lineno = 841U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -6612,7 +6611,7 @@ static int sh_vou_streamoff(struct file *file , void *priv , enum v4l2_buf_type 
   descriptor.format = "%s()\n";
   descriptor.lineno = 858U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -6717,7 +6716,7 @@ static int sh_vou_s_std(struct file *file , void *priv , v4l2_std_id std_id )
   descriptor.format = "%s(): 0x%llx\n";
   descriptor.lineno = 890U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -6797,7 +6796,7 @@ static int sh_vou_g_std(struct file *file , void *priv , v4l2_std_id *std )
   descriptor.format = "%s()\n";
   descriptor.lineno = 916U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -6828,7 +6827,7 @@ static int sh_vou_g_crop(struct file *file , void *fh , struct v4l2_crop *a )
   descriptor.format = "%s()\n";
   descriptor.lineno = 927U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -6898,7 +6897,7 @@ static int sh_vou_s_crop(struct file *file , void *fh , struct v4l2_crop  const 
   descriptor.format = "%s(): %ux%u@%u:%u\n";
   descriptor.lineno = 954U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -7036,7 +7035,7 @@ static int sh_vou_cropcap(struct file *file , void *priv , struct v4l2_cropcap *
   descriptor.format = "%s()\n";
   descriptor.lineno = 1032U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -7146,7 +7145,7 @@ static irqreturn_t sh_vou_isr(int irq , void *dev_id )
   descriptor.format = "IRQ status 0x%x -> 0x%x, VOU status 0x%x, cnt %d\n";
   descriptor.lineno = 1080U;
   descriptor.flags = 0U;
-  tmp___4 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___4 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___4 != 0L) {
     {
@@ -7176,7 +7175,7 @@ static irqreturn_t sh_vou_isr(int irq , void *dev_id )
     descriptor___0.format = "%s: queue empty after %d\n";
     descriptor___0.lineno = 1099U;
     descriptor___0.flags = 0U;
-    tmp___5 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___5 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___5 != 0L) {
       {
@@ -7265,7 +7264,7 @@ static int sh_vou_hw_init(struct sh_vou_device *vou_dev )
   descriptor.format = "Reset took %dus\n";
   descriptor.lineno = 1140U;
   descriptor.flags = 0U;
-  tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -7329,7 +7328,7 @@ static int sh_vou_open(struct file *file )
   descriptor.format = "%s()\n";
   descriptor.lineno = 1168U;
   descriptor.flags = 0U;
-  tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -7400,7 +7399,7 @@ static int sh_vou_release(struct file *file )
   descriptor.format = "%s()\n";
   descriptor.lineno = 1205U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -7452,7 +7451,7 @@ static int sh_vou_mmap(struct file *file , struct vm_area_struct *vma )
   descriptor.format = "%s()\n";
   descriptor.lineno = 1228U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -7497,7 +7496,7 @@ static unsigned int sh_vou_poll(struct file *file , poll_table *wait )
   descriptor.format = "%s()\n";
   descriptor.lineno = 1243U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -7902,7 +7901,7 @@ void ldv_dummy_resourceless_instance_callback_3_9(int (*arg0)(struct videobuf_qu
                                                   struct videobuf_queue *arg1 , unsigned int *arg2 ,
                                                   unsigned int *arg3 ) ;
 void ldv_entry_EMGentry_9(void *arg0 ) ;
-void main(void) ;
+int main(void) ;
 void ldv_free_irq(void *arg0 , int arg1 , void *arg2 ) ;
 void ldv_initialize_external_data(void) ;
 enum irqreturn ldv_interrupt_instance_handler_0_5(enum irqreturn (*arg0)(int  , void * ) ,
@@ -8491,7 +8490,7 @@ void ldv_entry_EMGentry_9(void *arg0 )
   return;
 }
 }
-void main(void) 
+int main(void) 
 { 
   int tmp ;
 
@@ -11190,7 +11189,7 @@ void *ldv_kzalloc(size_t size , gfp_t flags )
 }
 }
 extern void ldv_assert(char const   * , int  ) ;
-void __builtin_trap(void) ;
+void ldv__builtin_trap(void) ;
 void ldv_assume(int expression ) 
 { 
 
@@ -11214,7 +11213,7 @@ void ldv_stop(void)
   goto ldv_stop_label;
 }
 }
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 
@@ -11222,7 +11221,7 @@ long __builtin_expect(long exp , long c )
   return (exp);
 }
 }
-void __builtin_trap(void) 
+void ldv__builtin_trap(void) 
 { 
 
 

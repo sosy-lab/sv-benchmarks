@@ -6003,9 +6003,8 @@ struct ldv_thread {
    int identifier ;
    void (*function)(void * ) ;
 };
-int __builtin_bswap32(int  ) ;
 void __builtin_prefetch(void const   *  , ...) ;
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 void ldv_atomic_inc(atomic_t *v ) ;
 void *ldv_dev_get_drvdata(struct device  const  *dev ) ;
 int ldv_dev_set_drvdata(struct device *dev , void *data ) ;
@@ -6110,7 +6109,6 @@ extern void *memcpy(void * , void const   * , size_t  ) ;
 extern void *memset(void * , int  , size_t  ) ;
 extern size_t strlcpy(char * , char const   * , size_t  ) ;
 extern void warn_slowpath_null(char const   * , int const    ) ;
-extern int ( /* missing proto */  __builtin_unreachable)() ;
 __inline static unsigned long arch_local_save_flags(void) 
 { 
   unsigned long __ret ;
@@ -6128,7 +6126,7 @@ __inline static unsigned long arch_local_save_flags(void)
   __edx = __edx;
   __ecx = __ecx;
   __eax = __eax;
-  tmp = __builtin_expect((unsigned long )pv_irq_ops.save_fl.func == (unsigned long )((void *)0),
+  tmp = ldv__builtin_expect((unsigned long )pv_irq_ops.save_fl.func == (unsigned long )((void *)0),
                          0L);
   }
   if (tmp != 0L) {
@@ -6246,7 +6244,7 @@ __inline static int __atomic_add_unless(atomic_t *v , int a , int u )
   }
   ldv_5740: 
   {
-  tmp = __builtin_expect(c == u, 0L);
+  tmp = ldv__builtin_expect(c == u, 0L);
   }
   if (tmp != 0L) {
     goto ldv_5739;
@@ -6255,7 +6253,7 @@ __inline static int __atomic_add_unless(atomic_t *v , int a , int u )
   }
   {
   old = atomic_cmpxchg(v, c, c + a);
-  tmp___0 = __builtin_expect(old == c, 1L);
+  tmp___0 = ldv__builtin_expect(old == c, 1L);
   }
   if (tmp___0 != 0L) {
     goto ldv_5739;
@@ -6502,7 +6500,7 @@ __inline static struct dma_map_ops *get_dma_ops(struct device *dev )
 
   {
   {
-  tmp = __builtin_expect((unsigned long )dev == (unsigned long )((struct device *)0),
+  tmp = ldv__builtin_expect((unsigned long )dev == (unsigned long )((struct device *)0),
                          0L);
   }
   if (tmp != 0L || (unsigned long )dev->archdata.dma_ops == (unsigned long )((struct dma_map_ops *)0)) {
@@ -6529,7 +6527,7 @@ __inline static dma_addr_t dma_map_single_attrs(struct device *dev , void *ptr ,
   ops = tmp;
   kmemcheck_mark_initialized(ptr, (unsigned int )size);
   tmp___0 = valid_dma_direction((int )dir);
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -6565,7 +6563,7 @@ __inline static void dma_unmap_single_attrs(struct device *dev , dma_addr_t addr
   tmp = get_dma_ops(dev);
   ops = tmp;
   tmp___0 = valid_dma_direction((int )dir);
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -6605,7 +6603,7 @@ __inline static void dma_sync_single_for_cpu(struct device *dev , dma_addr_t add
   tmp = get_dma_ops(dev);
   ops = tmp;
   tmp___0 = valid_dma_direction((int )dir);
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -6645,7 +6643,7 @@ __inline static void dma_sync_single_for_device(struct device *dev , dma_addr_t 
   tmp = get_dma_ops(dev);
   ops = tmp;
   tmp___0 = valid_dma_direction((int )dir);
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -6795,7 +6793,7 @@ __inline static void dma_free_attrs(struct device *dev , size_t size , void *vad
   _flags = arch_local_save_flags();
   tmp___0 = arch_irqs_disabled_flags(_flags);
   __ret_warn_on = tmp___0 != 0;
-  tmp___1 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___1 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -6806,7 +6804,7 @@ __inline static void dma_free_attrs(struct device *dev , size_t size , void *vad
 
   }
   {
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
   debug_dma_free_coherent(dev, size, vaddr, bus);
   }
   if ((unsigned long )ops->free != (unsigned long )((void (*)(struct device * , size_t  ,
@@ -6914,7 +6912,7 @@ __inline static int skb_padto(struct sk_buff *skb , unsigned int len )
   {
   {
   size = skb->len;
-  tmp = __builtin_expect(size >= len, 1L);
+  tmp = ldv__builtin_expect(size >= len, 1L);
   }
   if (tmp != 0L) {
     return (0);
@@ -7119,7 +7117,7 @@ __inline static void napi_enable(struct napi_struct *n )
   {
   {
   tmp = constant_test_bit(0L, (unsigned long const volatile   *)(& n->state));
-  tmp___0 = __builtin_expect(tmp == 0, 0L);
+  tmp___0 = ldv__builtin_expect(tmp == 0, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -7237,7 +7235,7 @@ __inline static void netif_tx_stop_queue(struct netdev_queue *dev_queue )
   {
   {
   __ret_warn_on = (unsigned long )dev_queue == (unsigned long )((struct netdev_queue *)0);
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp != 0L) {
     {
@@ -7247,7 +7245,7 @@ __inline static void netif_tx_stop_queue(struct netdev_queue *dev_queue )
 
   }
   {
-  tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -8543,7 +8541,7 @@ static void rtl_eri_write(struct rtl8169_private *tp , int addr , u32 mask , u32
   {
   {
   ioaddr = tp->mmio_addr;
-  tmp = __builtin_expect((long )((addr & 3) != 0 || mask == 0U), 0L);
+  tmp = ldv__builtin_expect((long )((addr & 3) != 0 || mask == 0U), 0L);
   }
   if (tmp != 0L) {
     {
@@ -9855,7 +9853,7 @@ static void rtl8169_get_ethtool_stats(struct net_device *dev , struct ethtool_st
   tmp = netdev_priv((struct net_device  const  *)dev);
   tp = (struct rtl8169_private *)tmp;
   tmp___0 = rtnl_is_locked();
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -12685,7 +12683,7 @@ static void rtl_phy_work(struct rtl8169_private *tp )
     descriptor.format = "PHY reset until link up\n";
     descriptor.lineno = 3697U;
     descriptor.flags = 0U;
-    tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp___1 != 0L) {
       {
@@ -16997,7 +16995,7 @@ static struct sk_buff *rtl8169_alloc_rx_data(struct rtl8169_private *tp , struct
   tmp___2 = rtl8169_align(data);
   mapping = dma_map_single_attrs(d, tmp___2, (size_t )rx_buf_sz, 2, (struct dma_attrs *)0);
   tmp___4 = dma_mapping_error(d, mapping);
-  tmp___5 = __builtin_expect(tmp___4 != 0, 0L);
+  tmp___5 = ldv__builtin_expect(tmp___4 != 0, 0L);
   }
   if (tmp___5 != 0L) {
     {
@@ -17290,7 +17288,7 @@ static int rtl8169_xmit_frags(struct rtl8169_private *tp , struct sk_buff *skb ,
   addr = skb_frag_address(frag);
   mapping = dma_map_single_attrs(d, addr, (size_t )len, 1, (struct dma_attrs *)0);
   tmp___1 = dma_mapping_error(d, mapping);
-  tmp___2 = __builtin_expect(tmp___1 != 0, 0L);
+  tmp___2 = ldv__builtin_expect(tmp___1 != 0, 0L);
   }
   if (tmp___2 != 0L) {
     {
@@ -17409,7 +17407,7 @@ __inline static bool rtl8169_tso_csum(struct rtl8169_private *tp , struct sk_buf
     tmp___0 = ip_hdr((struct sk_buff  const  *)skb);
     ip = (struct iphdr  const  *)tmp___0;
     tmp___4 = rtl_test_hw_pad_bug(tp, skb);
-    tmp___5 = __builtin_expect((long )tmp___4, 0L);
+    tmp___5 = ldv__builtin_expect((long )tmp___4, 0L);
     }
     if (tmp___5 != 0L) {
       {
@@ -17439,12 +17437,12 @@ __inline static bool rtl8169_tso_csum(struct rtl8169_private *tp , struct sk_buf
     } else {
       {
       __ret_warn_once = 1;
-      tmp___8 = __builtin_expect(__ret_warn_once != 0, 0L);
+      tmp___8 = ldv__builtin_expect(__ret_warn_once != 0, 0L);
       }
       if (tmp___8 != 0L) {
         {
         __ret_warn_on = ! __warned;
-        tmp___6 = __builtin_expect(__ret_warn_on != 0, 0L);
+        tmp___6 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
         }
         if (tmp___6 != 0L) {
           {
@@ -17454,7 +17452,7 @@ __inline static bool rtl8169_tso_csum(struct rtl8169_private *tp , struct sk_buf
 
         }
         {
-        tmp___7 = __builtin_expect(__ret_warn_on != 0, 0L);
+        tmp___7 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
         }
         if (tmp___7 != 0L) {
           __warned = 1;
@@ -17465,13 +17463,13 @@ __inline static bool rtl8169_tso_csum(struct rtl8169_private *tp , struct sk_buf
 
       }
       {
-      __builtin_expect(__ret_warn_once != 0, 0L);
+      ldv__builtin_expect(__ret_warn_once != 0, 0L);
       }
     }
   } else {
     {
     tmp___10 = rtl_test_hw_pad_bug(tp, skb);
-    tmp___11 = __builtin_expect((long )tmp___10, 0L);
+    tmp___11 = ldv__builtin_expect((long )tmp___10, 0L);
     }
     if (tmp___11 != 0L) {
       {
@@ -17516,7 +17514,7 @@ static netdev_tx_t rtl8169_start_xmit(struct sk_buff *skb , struct net_device *d
   ioaddr = tp->mmio_addr;
   d = & (tp->pci_dev)->dev;
   tmp___0 = skb_end_pointer((struct sk_buff  const  *)skb);
-  tmp___1 = __builtin_expect((tp->dirty_tx - tp->cur_tx) + 64U < (u32 )((int )((struct skb_shared_info *)tmp___0)->nr_frags + 1),
+  tmp___1 = ldv__builtin_expect((tp->dirty_tx - tp->cur_tx) + 64U < (u32 )((int )((struct skb_shared_info *)tmp___0)->nr_frags + 1),
                              0L);
   }
   if (tmp___1 != 0L) {
@@ -17532,7 +17530,7 @@ static netdev_tx_t rtl8169_start_xmit(struct sk_buff *skb , struct net_device *d
 
   }
   {
-  tmp___2 = __builtin_expect((int )txd->opts1 < 0, 0L);
+  tmp___2 = ldv__builtin_expect((int )txd->opts1 < 0, 0L);
   }
   if (tmp___2 != 0L) {
     goto err_stop_0;
@@ -17558,7 +17556,7 @@ static netdev_tx_t rtl8169_start_xmit(struct sk_buff *skb , struct net_device *d
   len = skb_headlen((struct sk_buff  const  *)skb);
   mapping = dma_map_single_attrs(d, (void *)skb->data, (size_t )len, 1, (struct dma_attrs *)0);
   tmp___6 = dma_mapping_error(d, mapping);
-  tmp___7 = __builtin_expect(tmp___6 != 0, 0L);
+  tmp___7 = ldv__builtin_expect(tmp___6 != 0, 0L);
   }
   if (tmp___7 != 0L) {
     {
@@ -17861,7 +17859,7 @@ static int rtl_rx(struct net_device *dev , struct rtl8169_private *tp , u32 budg
 
   }
   {
-  tmp___2 = __builtin_expect((status & 2097152U) != 0U, 0L);
+  tmp___2 = ldv__builtin_expect((status & 2097152U) != 0U, 0L);
   }
   if (tmp___2 != 0L) {
     if ((tp->msg_enable & 64U) != 0U) {
@@ -17899,7 +17897,7 @@ static int rtl_rx(struct net_device *dev , struct rtl8169_private *tp , u32 budg
     process_pkt: 
     {
     addr = desc->addr;
-    tmp = __builtin_expect((dev->features & 34359738368ULL) == 0ULL, 1L);
+    tmp = ldv__builtin_expect((dev->features & 34359738368ULL) == 0ULL, 1L);
     }
     if (tmp != 0L) {
       pkt_size = (int )((status & 16383U) - 4U);
@@ -17908,7 +17906,7 @@ static int rtl_rx(struct net_device *dev , struct rtl8169_private *tp , u32 budg
     }
     {
     tmp___0 = rtl8169_fragmented_frame(status);
-    tmp___1 = __builtin_expect(tmp___0 != 0, 0L);
+    tmp___1 = ldv__builtin_expect(tmp___0 != 0, 0L);
     }
     if (tmp___1 != 0L) {
       dev->stats.rx_dropped = dev->stats.rx_dropped + 1UL;
@@ -18005,7 +18003,7 @@ static void rtl_slow_event_work(struct rtl8169_private *tp )
   tmp = rtl_get_events(tp);
   status = (u16 )((int )tmp & (int )tp->event_slow);
   rtl_ack_events(tp, (int )status);
-  tmp___0 = __builtin_expect(((int )status & 64) != 0, 0L);
+  tmp___0 = ldv__builtin_expect(((int )status & 64) != 0, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -18029,7 +18027,7 @@ static void rtl_slow_event_work(struct rtl8169_private *tp )
 
   }
   {
-  tmp___1 = __builtin_expect((int )((short )status) < 0, 0L);
+  tmp___1 = ldv__builtin_expect((int )((short )status) < 0, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -19657,7 +19655,7 @@ void ldv_dummy_resourceless_instance_callback_8_3(_Bool (*arg0)(struct rtl8169_p
 void ldv_dummy_resourceless_instance_callback_9_3(_Bool (*arg0)(struct rtl8169_private * ) ,
                                                   struct rtl8169_private *arg1 ) ;
 void ldv_entry_EMGentry_33(void *arg0 ) ;
-void main(void) ;
+int main(void) ;
 void ldv_free_irq(void *arg0 , int arg1 , void *arg2 ) ;
 void ldv_free_netdev(void *arg0 , struct net_device *arg1 ) ;
 void ldv_initialize_external_data(void) ;
@@ -21971,7 +21969,7 @@ void ldv_entry_EMGentry_33(void *arg0 )
   return;
 }
 }
-void main(void) 
+int main(void) 
 { 
   int tmp ;
 
@@ -27357,7 +27355,7 @@ void ldv_check_final_state(void)
 }
 }
 extern void ldv_assert(char const   * , int  ) ;
-void __builtin_trap(void) ;
+void ldv__builtin_trap(void) ;
 void ldv_assume(int expression ) 
 { 
 
@@ -27381,7 +27379,7 @@ void ldv_stop(void)
   goto ldv_stop_label;
 }
 }
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 
@@ -27389,7 +27387,7 @@ long __builtin_expect(long exp , long c )
   return (exp);
 }
 }
-void __builtin_trap(void) 
+void ldv__builtin_trap(void) 
 { 
 
 

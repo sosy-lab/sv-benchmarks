@@ -3872,7 +3872,7 @@ struct ldv_thread {
    void (*function)(void * ) ;
 };
 typedef _Bool ldv_set;
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 void ldv_assume(int expression ) ;
 void ldv_stop(void) ;
 void ldv_linux_alloc_irq_check_alloc_flags(gfp_t flags ) ;
@@ -4078,7 +4078,6 @@ __inline static int __get_order(unsigned long size )
 }
 }
 extern void *__memset(void * , int  , size_t  ) ;
-extern int ( /* missing proto */  __builtin_unreachable)() ;
 __inline static unsigned long arch_local_save_flags(void) 
 { 
   unsigned long __ret ;
@@ -4096,7 +4095,7 @@ __inline static unsigned long arch_local_save_flags(void)
   __edx = __edx;
   __ecx = __ecx;
   __eax = __eax;
-  tmp = __builtin_expect((unsigned long )pv_irq_ops.save_fl.func == (unsigned long )((void *)0),
+  tmp = ldv__builtin_expect((unsigned long )pv_irq_ops.save_fl.func == (unsigned long )((void *)0),
                          0L);
   }
   if (tmp != 0L) {
@@ -4131,7 +4130,7 @@ __inline static void arch_local_irq_restore(unsigned long f )
   __edx = __edx;
   __ecx = __ecx;
   __eax = __eax;
-  tmp = __builtin_expect((unsigned long )pv_irq_ops.restore_fl.func == (unsigned long )((void *)0),
+  tmp = ldv__builtin_expect((unsigned long )pv_irq_ops.restore_fl.func == (unsigned long )((void *)0),
                          0L);
   }
   if (tmp != 0L) {
@@ -4165,7 +4164,7 @@ __inline static void arch_local_irq_disable(void)
   __edx = __edx;
   __ecx = __ecx;
   __eax = __eax;
-  tmp = __builtin_expect((unsigned long )pv_irq_ops.irq_disable.func == (unsigned long )((void *)0),
+  tmp = ldv__builtin_expect((unsigned long )pv_irq_ops.irq_disable.func == (unsigned long )((void *)0),
                          0L);
   }
   if (tmp != 0L) {
@@ -4205,7 +4204,7 @@ __inline static bool IS_ERR_OR_NULL(void const   *ptr )
     tmp___0 = 1;
   } else {
     {
-    tmp = __builtin_expect((unsigned long )ptr > 0xfffffffffffff000UL, 0L);
+    tmp = ldv__builtin_expect((unsigned long )ptr > 0xfffffffffffff000UL, 0L);
     }
     if (tmp != 0L) {
       tmp___0 = 1;
@@ -4341,7 +4340,7 @@ __inline static void sg_assign_page(struct scatterlist *sg , struct page *page )
   {
   {
   page_link = sg->page_link & 3UL;
-  tmp = __builtin_expect(((unsigned long )page & 3UL) != 0UL, 0L);
+  tmp = ldv__builtin_expect(((unsigned long )page & 3UL) != 0UL, 0L);
   }
   if (tmp != 0L) {
     {
@@ -4353,7 +4352,7 @@ __inline static void sg_assign_page(struct scatterlist *sg , struct page *page )
 
   }
   {
-  tmp___0 = __builtin_expect(sg->sg_magic != 2271560481UL, 0L);
+  tmp___0 = ldv__builtin_expect(sg->sg_magic != 2271560481UL, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -4365,7 +4364,7 @@ __inline static void sg_assign_page(struct scatterlist *sg , struct page *page )
 
   }
   {
-  tmp___1 = __builtin_expect((long )((int )sg->page_link) & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )((int )sg->page_link) & 1L, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -4400,7 +4399,7 @@ __inline static void sg_mark_end(struct scatterlist *sg )
 
   {
   {
-  tmp = __builtin_expect(sg->sg_magic != 2271560481UL, 0L);
+  tmp = ldv__builtin_expect(sg->sg_magic != 2271560481UL, 0L);
   }
   if (tmp != 0L) {
     {
@@ -4447,14 +4446,14 @@ static void mmc_test_prepare_mrq(struct mmc_test_card *test , struct mmc_request
 
   {
   {
-  tmp = __builtin_expect((unsigned long )mrq == (unsigned long )((struct mmc_request *)0),
+  tmp = ldv__builtin_expect((unsigned long )mrq == (unsigned long )((struct mmc_request *)0),
                          0L);
   }
   if (tmp != 0L) {
     tmp___1 = 1;
   } else {
     {
-    tmp___0 = __builtin_expect((unsigned long )mrq->cmd == (unsigned long )((struct mmc_command *)0),
+    tmp___0 = ldv__builtin_expect((unsigned long )mrq->cmd == (unsigned long )((struct mmc_command *)0),
                                0L);
     }
     if (tmp___0 != 0L) {
@@ -4467,7 +4466,7 @@ static void mmc_test_prepare_mrq(struct mmc_test_card *test , struct mmc_request
     tmp___3 = 1;
   } else {
     {
-    tmp___2 = __builtin_expect((unsigned long )mrq->data == (unsigned long )((struct mmc_data *)0),
+    tmp___2 = ldv__builtin_expect((unsigned long )mrq->data == (unsigned long )((struct mmc_data *)0),
                                0L);
     }
     if (tmp___2 != 0L) {
@@ -4484,7 +4483,7 @@ static void mmc_test_prepare_mrq(struct mmc_test_card *test , struct mmc_request
     }
   } else {
     {
-    tmp___4 = __builtin_expect((unsigned long )mrq->stop == (unsigned long )((struct mmc_command *)0),
+    tmp___4 = ldv__builtin_expect((unsigned long )mrq->stop == (unsigned long )((struct mmc_command *)0),
                                0L);
     }
     if (tmp___4 != 0L) {
@@ -5303,14 +5302,14 @@ static void mmc_test_prepare_broken_mrq(struct mmc_test_card *test , struct mmc_
 
   {
   {
-  tmp = __builtin_expect((unsigned long )mrq == (unsigned long )((struct mmc_request *)0),
+  tmp = ldv__builtin_expect((unsigned long )mrq == (unsigned long )((struct mmc_request *)0),
                          0L);
   }
   if (tmp != 0L) {
     tmp___1 = 1;
   } else {
     {
-    tmp___0 = __builtin_expect((unsigned long )mrq->cmd == (unsigned long )((struct mmc_command *)0),
+    tmp___0 = ldv__builtin_expect((unsigned long )mrq->cmd == (unsigned long )((struct mmc_command *)0),
                                0L);
     }
     if (tmp___0 != 0L) {
@@ -5327,7 +5326,7 @@ static void mmc_test_prepare_broken_mrq(struct mmc_test_card *test , struct mmc_
     }
   } else {
     {
-    tmp___2 = __builtin_expect((unsigned long )mrq->data == (unsigned long )((struct mmc_data *)0),
+    tmp___2 = ldv__builtin_expect((unsigned long )mrq->data == (unsigned long )((struct mmc_data *)0),
                                0L);
     }
     if (tmp___2 != 0L) {
@@ -5360,14 +5359,14 @@ static int mmc_test_check_result(struct mmc_test_card *test , struct mmc_request
 
   {
   {
-  tmp = __builtin_expect((unsigned long )mrq == (unsigned long )((struct mmc_request *)0),
+  tmp = ldv__builtin_expect((unsigned long )mrq == (unsigned long )((struct mmc_request *)0),
                          0L);
   }
   if (tmp != 0L) {
     tmp___1 = 1;
   } else {
     {
-    tmp___0 = __builtin_expect((unsigned long )mrq->cmd == (unsigned long )((struct mmc_command *)0),
+    tmp___0 = ldv__builtin_expect((unsigned long )mrq->cmd == (unsigned long )((struct mmc_command *)0),
                                0L);
     }
     if (tmp___0 != 0L) {
@@ -5384,7 +5383,7 @@ static int mmc_test_check_result(struct mmc_test_card *test , struct mmc_request
     }
   } else {
     {
-    tmp___2 = __builtin_expect((unsigned long )mrq->data == (unsigned long )((struct mmc_data *)0),
+    tmp___2 = ldv__builtin_expect((unsigned long )mrq->data == (unsigned long )((struct mmc_data *)0),
                                0L);
     }
     if (tmp___2 != 0L) {
@@ -5452,14 +5451,14 @@ static int mmc_test_check_broken_result(struct mmc_test_card *test , struct mmc_
 
   {
   {
-  tmp = __builtin_expect((unsigned long )mrq == (unsigned long )((struct mmc_request *)0),
+  tmp = ldv__builtin_expect((unsigned long )mrq == (unsigned long )((struct mmc_request *)0),
                          0L);
   }
   if (tmp != 0L) {
     tmp___1 = 1;
   } else {
     {
-    tmp___0 = __builtin_expect((unsigned long )mrq->cmd == (unsigned long )((struct mmc_command *)0),
+    tmp___0 = ldv__builtin_expect((unsigned long )mrq->cmd == (unsigned long )((struct mmc_command *)0),
                                0L);
     }
     if (tmp___0 != 0L) {
@@ -5476,7 +5475,7 @@ static int mmc_test_check_broken_result(struct mmc_test_card *test , struct mmc_
     }
   } else {
     {
-    tmp___2 = __builtin_expect((unsigned long )mrq->data == (unsigned long )((struct mmc_data *)0),
+    tmp___2 = ldv__builtin_expect((unsigned long )mrq->data == (unsigned long )((struct mmc_data *)0),
                                0L);
     }
     if (tmp___2 != 0L) {
@@ -9082,7 +9081,7 @@ void ldv_dummy_resourceless_instance_callback_9_7(int (*arg0)(struct mmc_test_ca
 void ldv_dummy_resourceless_instance_callback_9_8(int (*arg0)(struct mmc_test_card * ) ,
                                                   struct mmc_test_card *arg1 ) ;
 void ldv_entry_EMGentry_46(void *arg0 ) ;
-void main(void) ;
+int main(void) ;
 void ldv_file_operations_file_operations_instance_1(void *arg0 ) ;
 void ldv_file_operations_file_operations_instance_2(void *arg0 ) ;
 void ldv_file_operations_instance_callback_1_22(long (*arg0)(struct file * , char * ,
@@ -11098,7 +11097,7 @@ void ldv_entry_EMGentry_46(void *arg0 )
   return;
 }
 }
-void main(void) 
+int main(void) 
 { 
 
 
@@ -11107,7 +11106,7 @@ void main(void)
   ldv_ldv_initialize_112();
   ldv_entry_EMGentry_46((void *)0);
   }
-  return;
+return 0;
 }
 }
 void ldv_file_operations_file_operations_instance_1(void *arg0 ) 
@@ -16577,7 +16576,7 @@ void ldv_linux_usb_urb_check_final_state(void)
 }
 }
 extern void ldv_assert(char const   * , int  ) ;
-void __builtin_trap(void) ;
+void ldv__builtin_trap(void) ;
 void ldv_assume(int expression ) 
 { 
 
@@ -16601,7 +16600,7 @@ void ldv_stop(void)
   goto ldv_stop_label;
 }
 }
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 
@@ -16609,7 +16608,7 @@ long __builtin_expect(long exp , long c )
   return (exp);
 }
 }
-void __builtin_trap(void) 
+void ldv__builtin_trap(void) 
 { 
 
 

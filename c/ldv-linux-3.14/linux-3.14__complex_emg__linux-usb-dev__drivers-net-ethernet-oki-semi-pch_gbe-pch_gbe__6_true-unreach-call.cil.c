@@ -6315,7 +6315,7 @@ struct ldv_thread {
    int identifier ;
    void (*function)(void * ) ;
 };
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 extern int __dynamic_netdev_dbg(struct _ddebug * , struct net_device  const  * , char const   * 
                                 , ...) ;
 extern void __const_udelay(unsigned long  ) ;
@@ -6384,7 +6384,7 @@ s32 pch_gbe_phy_get_id(struct pch_gbe_hw *hw )
   descriptor.format = "phy->id : 0x%08x  phy->revision : 0x%08x\n";
   descriptor.lineno = 129U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -6566,7 +6566,7 @@ static int pch_gbe_phy_tx_clk_delay(struct pch_gbe_hw *hw )
   descriptor.format = "Configuring AR803X PHY for 2ns TX clock delay\n";
   descriptor.lineno = 279U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -6708,7 +6708,7 @@ int pch_gbe_phy_disable_hibernate(struct pch_gbe_hw *hw )
   descriptor.format = "Disabling hibernation for AR803X PHY\n";
   descriptor.lineno = 355U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -7819,7 +7819,6 @@ __inline static void *kzalloc(size_t size , gfp_t flags )
   return (tmp);
 }
 }
-extern int ( /* missing proto */  __builtin_unreachable)() ;
 void pch_gbe_check_options(struct pch_gbe_adapter *adapter ) ;
 static int TxDescriptors  =    -1;
 static int RxDescriptors  =    -1;
@@ -7933,7 +7932,7 @@ static int pch_gbe_validate_option(int *value , struct pch_gbe_option  const  *o
   descriptor.format = "%s Enabled\n";
   descriptor.lineno = 239U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -7952,7 +7951,7 @@ static int pch_gbe_validate_option(int *value , struct pch_gbe_option  const  *o
   descriptor___0.format = "%s Disabled\n";
   descriptor___0.lineno = 242U;
   descriptor___0.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -7975,7 +7974,7 @@ static int pch_gbe_validate_option(int *value , struct pch_gbe_option  const  *o
     descriptor___1.format = "%s set to %i\n";
     descriptor___1.lineno = 249U;
     descriptor___1.flags = 0U;
-    tmp___1 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
     }
     if (tmp___1 != 0L) {
       {
@@ -8004,7 +8003,7 @@ static int pch_gbe_validate_option(int *value , struct pch_gbe_option  const  *o
       descriptor___2.format = "%s\n";
       descriptor___2.lineno = 262U;
       descriptor___2.flags = 0U;
-      tmp___2 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+      tmp___2 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
       }
       if (tmp___2 != 0L) {
         {
@@ -8046,7 +8045,7 @@ static int pch_gbe_validate_option(int *value , struct pch_gbe_option  const  *o
   descriptor___3.format = "Invalid %s value specified (%i) %s\n";
   descriptor___3.lineno = 273U;
   descriptor___3.flags = 0U;
-  tmp___3 = __builtin_expect((long )descriptor___3.flags & 1L, 0L);
+  tmp___3 = ldv__builtin_expect((long )descriptor___3.flags & 1L, 0L);
   }
   if (tmp___3 != 0L) {
     {
@@ -8149,7 +8148,7 @@ static void pch_gbe_check_copper_options(struct pch_gbe_adapter *adapter )
     descriptor.format = "AutoNeg specified along with Speed or Duplex, AutoNeg parameter ignored\n";
     descriptor.lineno = 323U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -8241,7 +8240,7 @@ static void pch_gbe_check_copper_options(struct pch_gbe_adapter *adapter )
     descriptor___0.format = "Speed and duplex autonegotiation enabled\n";
     descriptor___0.lineno = 338U;
     descriptor___0.flags = 0U;
-    tmp___2 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___2 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___2 != 0L) {
       {
@@ -8265,7 +8264,7 @@ static void pch_gbe_check_copper_options(struct pch_gbe_adapter *adapter )
   descriptor___1.format = "Half Duplex specified without Speed\n";
   descriptor___1.lineno = 344U;
   descriptor___1.flags = 0U;
-  tmp___3 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+  tmp___3 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
   }
   if (tmp___3 != 0L) {
     {
@@ -8282,7 +8281,7 @@ static void pch_gbe_check_copper_options(struct pch_gbe_adapter *adapter )
   descriptor___2.format = "Using Autonegotiation at Half Duplex only\n";
   descriptor___2.lineno = 346U;
   descriptor___2.flags = 0U;
-  tmp___4 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+  tmp___4 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
   }
   if (tmp___4 != 0L) {
     {
@@ -8307,7 +8306,7 @@ static void pch_gbe_check_copper_options(struct pch_gbe_adapter *adapter )
   descriptor___3.format = "Full Duplex specified without Speed\n";
   descriptor___3.lineno = 355U;
   descriptor___3.flags = 0U;
-  tmp___6 = __builtin_expect((long )descriptor___3.flags & 1L, 0L);
+  tmp___6 = ldv__builtin_expect((long )descriptor___3.flags & 1L, 0L);
   }
   if (tmp___6 != 0L) {
     {
@@ -8324,7 +8323,7 @@ static void pch_gbe_check_copper_options(struct pch_gbe_adapter *adapter )
   descriptor___4.format = "Using Autonegotiation at Full Duplex only\n";
   descriptor___4.lineno = 357U;
   descriptor___4.flags = 0U;
-  tmp___7 = __builtin_expect((long )descriptor___4.flags & 1L, 0L);
+  tmp___7 = ldv__builtin_expect((long )descriptor___4.flags & 1L, 0L);
   }
   if (tmp___7 != 0L) {
     {
@@ -8349,7 +8348,7 @@ static void pch_gbe_check_copper_options(struct pch_gbe_adapter *adapter )
   descriptor___5.format = "10 Mbps Speed specified without Duplex\n";
   descriptor___5.lineno = 367U;
   descriptor___5.flags = 0U;
-  tmp___9 = __builtin_expect((long )descriptor___5.flags & 1L, 0L);
+  tmp___9 = ldv__builtin_expect((long )descriptor___5.flags & 1L, 0L);
   }
   if (tmp___9 != 0L) {
     {
@@ -8366,7 +8365,7 @@ static void pch_gbe_check_copper_options(struct pch_gbe_adapter *adapter )
   descriptor___6.format = "Using Autonegotiation at 10 Mbps only\n";
   descriptor___6.lineno = 369U;
   descriptor___6.flags = 0U;
-  tmp___10 = __builtin_expect((long )descriptor___6.flags & 1L, 0L);
+  tmp___10 = ldv__builtin_expect((long )descriptor___6.flags & 1L, 0L);
   }
   if (tmp___10 != 0L) {
     {
@@ -8391,7 +8390,7 @@ static void pch_gbe_check_copper_options(struct pch_gbe_adapter *adapter )
   descriptor___7.format = "Forcing to 10 Mbps Half Duplex\n";
   descriptor___7.lineno = 377U;
   descriptor___7.flags = 0U;
-  tmp___12 = __builtin_expect((long )descriptor___7.flags & 1L, 0L);
+  tmp___12 = ldv__builtin_expect((long )descriptor___7.flags & 1L, 0L);
   }
   if (tmp___12 != 0L) {
     {
@@ -8416,7 +8415,7 @@ static void pch_gbe_check_copper_options(struct pch_gbe_adapter *adapter )
   descriptor___8.format = "Forcing to 10 Mbps Full Duplex\n";
   descriptor___8.lineno = 384U;
   descriptor___8.flags = 0U;
-  tmp___14 = __builtin_expect((long )descriptor___8.flags & 1L, 0L);
+  tmp___14 = ldv__builtin_expect((long )descriptor___8.flags & 1L, 0L);
   }
   if (tmp___14 != 0L) {
     {
@@ -8441,7 +8440,7 @@ static void pch_gbe_check_copper_options(struct pch_gbe_adapter *adapter )
   descriptor___9.format = "100 Mbps Speed specified without Duplex\n";
   descriptor___9.lineno = 392U;
   descriptor___9.flags = 0U;
-  tmp___16 = __builtin_expect((long )descriptor___9.flags & 1L, 0L);
+  tmp___16 = ldv__builtin_expect((long )descriptor___9.flags & 1L, 0L);
   }
   if (tmp___16 != 0L) {
     {
@@ -8458,7 +8457,7 @@ static void pch_gbe_check_copper_options(struct pch_gbe_adapter *adapter )
   descriptor___10.format = "Using Autonegotiation at 100 Mbps only\n";
   descriptor___10.lineno = 394U;
   descriptor___10.flags = 0U;
-  tmp___17 = __builtin_expect((long )descriptor___10.flags & 1L, 0L);
+  tmp___17 = ldv__builtin_expect((long )descriptor___10.flags & 1L, 0L);
   }
   if (tmp___17 != 0L) {
     {
@@ -8483,7 +8482,7 @@ static void pch_gbe_check_copper_options(struct pch_gbe_adapter *adapter )
   descriptor___11.format = "Forcing to 100 Mbps Half Duplex\n";
   descriptor___11.lineno = 403U;
   descriptor___11.flags = 0U;
-  tmp___19 = __builtin_expect((long )descriptor___11.flags & 1L, 0L);
+  tmp___19 = ldv__builtin_expect((long )descriptor___11.flags & 1L, 0L);
   }
   if (tmp___19 != 0L) {
     {
@@ -8508,7 +8507,7 @@ static void pch_gbe_check_copper_options(struct pch_gbe_adapter *adapter )
   descriptor___12.format = "Forcing to 100 Mbps Full Duplex\n";
   descriptor___12.lineno = 411U;
   descriptor___12.flags = 0U;
-  tmp___21 = __builtin_expect((long )descriptor___12.flags & 1L, 0L);
+  tmp___21 = ldv__builtin_expect((long )descriptor___12.flags & 1L, 0L);
   }
   if (tmp___21 != 0L) {
     {
@@ -8533,7 +8532,7 @@ static void pch_gbe_check_copper_options(struct pch_gbe_adapter *adapter )
   descriptor___13.format = "1000 Mbps Speed specified without Duplex\n";
   descriptor___13.lineno = 419U;
   descriptor___13.flags = 0U;
-  tmp___23 = __builtin_expect((long )descriptor___13.flags & 1L, 0L);
+  tmp___23 = ldv__builtin_expect((long )descriptor___13.flags & 1L, 0L);
   }
   if (tmp___23 != 0L) {
     {
@@ -8552,7 +8551,7 @@ static void pch_gbe_check_copper_options(struct pch_gbe_adapter *adapter )
   descriptor___14.format = "Half Duplex is not supported at 1000 Mbps\n";
   descriptor___14.lineno = 423U;
   descriptor___14.flags = 0U;
-  tmp___24 = __builtin_expect((long )descriptor___14.flags & 1L, 0L);
+  tmp___24 = ldv__builtin_expect((long )descriptor___14.flags & 1L, 0L);
   }
   if (tmp___24 != 0L) {
     {
@@ -8571,7 +8570,7 @@ static void pch_gbe_check_copper_options(struct pch_gbe_adapter *adapter )
   descriptor___15.format = "Using Autonegotiation at 1000 Mbps Full Duplex only\n";
   descriptor___15.lineno = 428U;
   descriptor___15.flags = 0U;
-  tmp___25 = __builtin_expect((long )descriptor___15.flags & 1L, 0L);
+  tmp___25 = ldv__builtin_expect((long )descriptor___15.flags & 1L, 0L);
   }
   if (tmp___25 != 0L) {
     {
@@ -9099,7 +9098,6 @@ void ldv_dummy_resourceless_instance_callback_5_9(void (*arg0)(struct pch_gbe_hw
   return;
 }
 }
-int __builtin_bswap32(int  ) ;
 void ldv_atomic_inc(atomic_t *v ) ;
 int ldv_atomic_dec_and_test(atomic_t *v ) ;
 void *ldv_dev_get_drvdata(struct device  const  *dev ) ;
@@ -9209,7 +9207,7 @@ __inline static unsigned long arch_local_save_flags(void)
   __edx = __edx;
   __ecx = __ecx;
   __eax = __eax;
-  tmp = __builtin_expect((unsigned long )pv_irq_ops.save_fl.func == (unsigned long )((void *)0),
+  tmp = ldv__builtin_expect((unsigned long )pv_irq_ops.save_fl.func == (unsigned long )((void *)0),
                          0L);
   }
   if (tmp != 0L) {
@@ -9244,7 +9242,7 @@ __inline static void arch_local_irq_restore(unsigned long f )
   __edx = __edx;
   __ecx = __ecx;
   __eax = __eax;
-  tmp = __builtin_expect((unsigned long )pv_irq_ops.restore_fl.func == (unsigned long )((void *)0),
+  tmp = ldv__builtin_expect((unsigned long )pv_irq_ops.restore_fl.func == (unsigned long )((void *)0),
                          0L);
   }
   if (tmp != 0L) {
@@ -9278,7 +9276,7 @@ __inline static void arch_local_irq_disable(void)
   __edx = __edx;
   __ecx = __ecx;
   __eax = __eax;
-  tmp = __builtin_expect((unsigned long )pv_irq_ops.irq_disable.func == (unsigned long )((void *)0),
+  tmp = ldv__builtin_expect((unsigned long )pv_irq_ops.irq_disable.func == (unsigned long )((void *)0),
                          0L);
   }
   if (tmp != 0L) {
@@ -9501,7 +9499,7 @@ __inline static unsigned long copy_from_user(void *to , void const   *from , uns
   {
   sz = -1;
   might_fault();
-  tmp = __builtin_expect(sz < 0, 1L);
+  tmp = ldv__builtin_expect(sz < 0, 1L);
   }
   if (tmp != 0L) {
     {
@@ -9509,7 +9507,7 @@ __inline static unsigned long copy_from_user(void *to , void const   *from , uns
     }
   } else {
     {
-    tmp___0 = __builtin_expect((unsigned long )sz >= n, 1L);
+    tmp___0 = ldv__builtin_expect((unsigned long )sz >= n, 1L);
     }
     if (tmp___0 != 0L) {
       {
@@ -9534,7 +9532,7 @@ __inline static unsigned long copy_to_user(void *to , void const   *from , unsig
   {
   sz = -1;
   might_fault();
-  tmp = __builtin_expect(sz < 0, 1L);
+  tmp = ldv__builtin_expect(sz < 0, 1L);
   }
   if (tmp != 0L) {
     {
@@ -9542,7 +9540,7 @@ __inline static unsigned long copy_to_user(void *to , void const   *from , unsig
     }
   } else {
     {
-    tmp___0 = __builtin_expect((unsigned long )sz >= n, 1L);
+    tmp___0 = ldv__builtin_expect((unsigned long )sz >= n, 1L);
     }
     if (tmp___0 != 0L) {
       {
@@ -9622,7 +9620,7 @@ __inline static struct dma_map_ops *get_dma_ops(struct device *dev )
 
   {
   {
-  tmp = __builtin_expect((unsigned long )dev == (unsigned long )((struct device *)0),
+  tmp = ldv__builtin_expect((unsigned long )dev == (unsigned long )((struct device *)0),
                          0L);
   }
   if (tmp != 0L || (unsigned long )dev->archdata.dma_ops == (unsigned long )((struct dma_map_ops *)0)) {
@@ -9649,7 +9647,7 @@ __inline static dma_addr_t dma_map_single_attrs(struct device *dev , void *ptr ,
   ops = tmp;
   kmemcheck_mark_initialized(ptr, (unsigned int )size);
   tmp___0 = valid_dma_direction((int )dir);
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -9685,7 +9683,7 @@ __inline static void dma_unmap_single_attrs(struct device *dev , dma_addr_t addr
   tmp = get_dma_ops(dev);
   ops = tmp;
   tmp___0 = valid_dma_direction((int )dir);
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -9836,7 +9834,7 @@ __inline static void dma_free_attrs(struct device *dev , size_t size , void *vad
   _flags = arch_local_save_flags();
   tmp___0 = arch_irqs_disabled_flags(_flags);
   __ret_warn_on = tmp___0 != 0;
-  tmp___1 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___1 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -9847,7 +9845,7 @@ __inline static void dma_free_attrs(struct device *dev , size_t size , void *vad
 
   }
   {
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
   debug_dma_free_coherent(dev, size, vaddr, bus);
   }
   if ((unsigned long )ops->free != (unsigned long )((void (*)(struct device * , size_t  ,
@@ -10048,7 +10046,7 @@ __inline static void napi_enable(struct napi_struct *n )
   {
   {
   tmp = constant_test_bit(0L, (unsigned long const volatile   *)(& n->state));
-  tmp___0 = __builtin_expect(tmp == 0, 0L);
+  tmp___0 = ldv__builtin_expect(tmp == 0, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -10157,7 +10155,7 @@ __inline static void netif_tx_stop_queue(struct netdev_queue *dev_queue )
   {
   {
   __ret_warn_on = (unsigned long )dev_queue == (unsigned long )((struct netdev_queue *)0);
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp != 0L) {
     {
@@ -10167,7 +10165,7 @@ __inline static void netif_tx_stop_queue(struct netdev_queue *dev_queue )
 
   }
   {
-  tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -10668,13 +10666,13 @@ static void pch_tx_timestamp(struct pch_gbe_adapter *adapter , struct sk_buff *s
   {
   tmp = skb_end_pointer((struct sk_buff  const  *)skb);
   shtx = (struct skb_shared_info *)tmp;
-  tmp___0 = __builtin_expect(((int )shtx->tx_flags & 1) == 0, 1L);
+  tmp___0 = ldv__builtin_expect(((int )shtx->tx_flags & 1) == 0, 1L);
   }
   if (tmp___0 != 0L) {
     return;
   } else {
     {
-    tmp___1 = __builtin_expect(adapter->hwts_tx_en == 0, 1L);
+    tmp___1 = ldv__builtin_expect(adapter->hwts_tx_en == 0, 1L);
     }
     if (tmp___1 != 0L) {
       return;
@@ -10864,7 +10862,7 @@ s32 pch_gbe_mac_read_mac_addr(struct pch_gbe_hw *hw )
   descriptor.format = "hw->mac.addr : %pM\n";
   descriptor.lineno = 312U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -10934,7 +10932,7 @@ static void pch_gbe_mac_mar_set(struct pch_gbe_hw *hw , u8 *addr , u32 index )
   descriptor.format = "index : 0x%x\n";
   descriptor.lineno = 344U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -11086,7 +11084,7 @@ s32 pch_gbe_mac_force_mac_fc(struct pch_gbe_hw *hw )
   descriptor.format = "mac->fc = %u\n";
   descriptor.lineno = 474U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -11158,7 +11156,7 @@ s32 pch_gbe_mac_force_mac_fc(struct pch_gbe_hw *hw )
   descriptor___0.format = "RX_FCTRL reg : 0x%08x  mac->tx_fc_enable : %d\n";
   descriptor___0.lineno = 505U;
   descriptor___0.flags = 0U;
-  tmp___1 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -11192,7 +11190,7 @@ static void pch_gbe_mac_set_wol_event(struct pch_gbe_hw *hw , u32 wu_evt )
   descriptor.format = "wu_evt : 0x%08x  ADDR_MASK reg : 0x%08x\n";
   descriptor.lineno = 520U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -11304,7 +11302,7 @@ u16 pch_gbe_mac_ctrl_miim(struct pch_gbe_hw *hw , u32 addr , u32 dir , u32 reg ,
   descriptor.format = "PHY %s: reg=%d, data=0x%04X\n";
   descriptor.lineno = 582U;
   descriptor.flags = 0U;
-  tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -11355,7 +11353,7 @@ static void pch_gbe_mac_set_pause_packet(struct pch_gbe_hw *hw )
   descriptor.format = "PAUSE_PKT1-5 reg : 0x%08x 0x%08x 0x%08x 0x%08x 0x%08x\n";
   descriptor.lineno = 620U;
   descriptor.flags = 0U;
-  tmp___4 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___4 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___4 != 0L) {
     {
@@ -11461,7 +11459,7 @@ static int pch_gbe_init_phy(struct pch_gbe_adapter *adapter )
   descriptor.format = "phy_addr = %d\n";
   descriptor.lineno = 680U;
   descriptor.flags = 0U;
-  tmp___2 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___2 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___2 != 0L) {
     {
@@ -11613,7 +11611,7 @@ static void pch_gbe_free_irq(struct pch_gbe_adapter *adapter )
     descriptor.format = "call pci_disable_msi\n";
     descriptor.lineno = 791U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -11648,7 +11646,7 @@ static void pch_gbe_irq_disable(struct pch_gbe_adapter *adapter )
   descriptor.format = "INT_EN reg : 0x%08x\n";
   descriptor.lineno = 809U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -11675,7 +11673,7 @@ static void pch_gbe_irq_enable(struct pch_gbe_adapter *adapter )
   {
   hw = & adapter->hw;
   tmp = atomic_dec_and_test(& adapter->irq_sem);
-  tmp___0 = __builtin_expect(tmp != 0, 1L);
+  tmp___0 = ldv__builtin_expect(tmp != 0, 1L);
   }
   if (tmp___0 != 0L) {
     {
@@ -11692,7 +11690,7 @@ static void pch_gbe_irq_enable(struct pch_gbe_adapter *adapter )
   descriptor.format = "INT_EN reg : 0x%08x\n";
   descriptor.lineno = 824U;
   descriptor.flags = 0U;
-  tmp___2 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___2 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___2 != 0L) {
     {
@@ -11742,7 +11740,7 @@ static void pch_gbe_configure_tx(struct pch_gbe_adapter *adapter )
   descriptor.format = "dma addr = 0x%08llx  size = 0x%08x\n";
   descriptor.lineno = 863U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -11807,7 +11805,7 @@ static void pch_gbe_configure_rx(struct pch_gbe_adapter *adapter )
   descriptor.format = "dma adr = 0x%08llx  size = 0x%08x\n";
   descriptor.lineno = 911U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -11830,7 +11828,7 @@ static void pch_gbe_configure_rx(struct pch_gbe_adapter *adapter )
   descriptor___0.format = "MAC_RX_EN reg = 0x%08x  DMA_CTRL reg = 0x%08x\n";
   descriptor___0.lineno = 925U;
   descriptor___0.flags = 0U;
-  tmp___2 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___2 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
   }
   if (tmp___2 != 0L) {
     {
@@ -11935,7 +11933,7 @@ static void pch_gbe_clean_tx_ring(struct pch_gbe_adapter *adapter , struct pch_g
   descriptor.format = "call pch_gbe_unmap_and_free_tx_resource() %d count\n";
   descriptor.lineno = 994U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -11989,7 +11987,7 @@ static void pch_gbe_clean_rx_ring(struct pch_gbe_adapter *adapter , struct pch_g
   descriptor.format = "call pch_gbe_unmap_and_free_rx_resource() %d count\n";
   descriptor.lineno = 1027U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -12139,7 +12137,7 @@ static void pch_gbe_watchdog(unsigned long data )
   descriptor.format = "right now = %ld\n";
   descriptor.lineno = 1105U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -12207,7 +12205,7 @@ static void pch_gbe_watchdog(unsigned long data )
       descriptor___0.format = "Link is Up %d Mbps %s-Duplex\n";
       descriptor___0.lineno = 1130U;
       descriptor___0.flags = 0U;
-      tmp___3 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+      tmp___3 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
       }
       if (tmp___3 != 0L) {
         {
@@ -12242,7 +12240,7 @@ static void pch_gbe_watchdog(unsigned long data )
         descriptor___1.format = "NIC Link is Down\n";
         descriptor___1.lineno = 1135U;
         descriptor___1.flags = 0U;
-        tmp___4 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+        tmp___4 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
         }
         if (tmp___4 != 0L) {
           {
@@ -12298,7 +12296,7 @@ static void pch_gbe_tx_queue(struct pch_gbe_adapter *adapter , struct pch_gbe_tx
   {
   hw = & adapter->hw;
   frame_ctrl = 0U;
-  tmp = __builtin_expect(skb->len <= 63U, 0L);
+  tmp = ldv__builtin_expect(skb->len <= 63U, 0L);
   }
   if (tmp != 0L) {
     frame_ctrl = frame_ctrl | 1U;
@@ -12355,7 +12353,7 @@ static void pch_gbe_tx_queue(struct pch_gbe_adapter *adapter , struct pch_gbe_tx
   }
   {
   ring_num = tx_ring->next_to_use;
-  tmp___6 = __builtin_expect(ring_num + 1U == tx_ring->count, 0L);
+  tmp___6 = ldv__builtin_expect(ring_num + 1U == tx_ring->count, 0L);
   }
   if (tmp___6 != 0L) {
     tx_ring->next_to_use = 0U;
@@ -12396,7 +12394,7 @@ static void pch_gbe_tx_queue(struct pch_gbe_adapter *adapter , struct pch_gbe_tx
   tx_desc->tx_frame_ctrl = (u16 )frame_ctrl;
   tx_desc->gbec_status = 49152U;
   ring_num = ring_num + 1U;
-  tmp___8 = __builtin_expect(ring_num == tx_ring->count, 0L);
+  tmp___8 = ldv__builtin_expect(ring_num == tx_ring->count, 0L);
   }
   if (tmp___8 != 0L) {
     ring_num = 0U;
@@ -12511,7 +12509,7 @@ static irqreturn_t pch_gbe_intr(int irq , void *data )
   int_st = ioread32((void *)(& (hw->reg)->INT_ST));
   tmp___0 = ioread32((void *)(& (hw->reg)->INT_EN));
   int_st = int_st & tmp___0;
-  tmp___1 = __builtin_expect(int_st == 0U, 0L);
+  tmp___1 = ldv__builtin_expect(int_st == 0U, 0L);
   }
   if (tmp___1 != 0L) {
     return (0);
@@ -12525,7 +12523,7 @@ static irqreturn_t pch_gbe_intr(int irq , void *data )
   descriptor.format = "%s occur int_st = 0x%08x\n";
   descriptor.lineno = 1351U;
   descriptor.flags = 0U;
-  tmp___2 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___2 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___2 != 0L) {
     {
@@ -12550,7 +12548,7 @@ static irqreturn_t pch_gbe_intr(int irq , void *data )
       descriptor___0.format = "Rx fifo over run\n";
       descriptor___0.lineno = 1357U;
       descriptor___0.flags = 0U;
-      tmp___3 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+      tmp___3 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
       }
       if (tmp___3 != 0L) {
         {
@@ -12605,7 +12603,7 @@ static irqreturn_t pch_gbe_intr(int irq , void *data )
     descriptor___1.format = "Rx descriptor is empty\n";
     descriptor___1.lineno = 1377U;
     descriptor___1.flags = 0U;
-    tmp___6 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___6 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
     }
     if (tmp___6 != 0L) {
       {
@@ -12632,7 +12630,7 @@ static irqreturn_t pch_gbe_intr(int irq , void *data )
   if ((int_st & 257U) != 0U || (int )adapter->rx_stop_flag) {
     {
     tmp___7 = napi_schedule_prep(& adapter->napi);
-    tmp___8 = __builtin_expect((long )tmp___7, 1L);
+    tmp___8 = ldv__builtin_expect((long )tmp___7, 1L);
     }
     if (tmp___8 != 0L) {
       {
@@ -12655,7 +12653,7 @@ static irqreturn_t pch_gbe_intr(int irq , void *data )
   descriptor___2.format = "return = 0x%08x  INT_EN reg = 0x%08x\n";
   descriptor___2.lineno = 1401U;
   descriptor___2.flags = 0U;
-  tmp___10 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+  tmp___10 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
   }
   if (tmp___10 != 0L) {
     {
@@ -12701,7 +12699,7 @@ static void pch_gbe_alloc_rx_buffers(struct pch_gbe_adapter *adapter , struct pc
   {
   buffer_info = rx_ring->buffer_info + (unsigned long )i;
   skb = netdev_alloc_skb(netdev, bufsz);
-  tmp = __builtin_expect((unsigned long )skb == (unsigned long )((struct sk_buff *)0),
+  tmp = ldv__builtin_expect((unsigned long )skb == (unsigned long )((struct sk_buff *)0),
                          0L);
   }
   if (tmp != 0L) {
@@ -12739,7 +12737,7 @@ static void pch_gbe_alloc_rx_buffers(struct pch_gbe_adapter *adapter , struct pc
   descriptor.format = "i = %d  buffer_info->dma = 0x08%llx  buffer_info->length = 0x%x\n";
   descriptor.lineno = 1458U;
   descriptor.flags = 0U;
-  tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -12751,7 +12749,7 @@ static void pch_gbe_alloc_rx_buffers(struct pch_gbe_adapter *adapter , struct pc
   }
   {
   i = i + 1U;
-  tmp___2 = __builtin_expect(i == rx_ring->count, 0L);
+  tmp___2 = ldv__builtin_expect(i == rx_ring->count, 0L);
   }
   if (tmp___2 != 0L) {
     i = 0U;
@@ -12768,14 +12766,14 @@ static void pch_gbe_alloc_rx_buffers(struct pch_gbe_adapter *adapter , struct pc
   }
   ldv_53344: 
   {
-  tmp___6 = __builtin_expect(rx_ring->next_to_use != i, 1L);
+  tmp___6 = ldv__builtin_expect(rx_ring->next_to_use != i, 1L);
   }
   if (tmp___6 != 0L) {
     {
     rx_ring->next_to_use = i;
     tmp___4 = i;
     i = i - 1U;
-    tmp___5 = __builtin_expect(tmp___4 == 0U, 0L);
+    tmp___5 = ldv__builtin_expect(tmp___4 == 0U, 0L);
     }
     if (tmp___5 != 0L) {
       i = rx_ring->count - 1U;
@@ -12915,7 +12913,7 @@ static bool pch_gbe_clean_tx(struct pch_gbe_adapter *adapter , struct pch_gbe_tx
   descriptor.format = "next_to_clean : %d\n";
   descriptor.lineno = 1551U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -12934,7 +12932,7 @@ static bool pch_gbe_clean_tx(struct pch_gbe_adapter *adapter , struct pch_gbe_tx
   descriptor___0.format = "gbec_status:0x%04x  dma_status:0x%04x\n";
   descriptor___0.lineno = 1556U;
   descriptor___0.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -12956,7 +12954,7 @@ static bool pch_gbe_clean_tx(struct pch_gbe_adapter *adapter , struct pch_gbe_tx
       descriptor___1.format = "clean_tx: transmit queue warning (%x,%x) unused=%d\n";
       descriptor___1.lineno = 1567U;
       descriptor___1.flags = 0U;
-      tmp___1 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+      tmp___1 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
       }
       if (tmp___1 != 0L) {
         {
@@ -13002,7 +13000,7 @@ static bool pch_gbe_clean_tx(struct pch_gbe_adapter *adapter , struct pch_gbe_tx
       descriptor___2.format = "clean_tx: unused=%d loops=%d found tx_desc[%x,%x:%x].gbec_status=%04x\n";
       descriptor___2.lineno = 1582U;
       descriptor___2.flags = 0U;
-      tmp___2 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+      tmp___2 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
       }
       if (tmp___2 != 0L) {
         {
@@ -13029,7 +13027,7 @@ static bool pch_gbe_clean_tx(struct pch_gbe_adapter *adapter , struct pch_gbe_tx
   descriptor___3.format = "gbec_status:0x%04x\n";
   descriptor___3.lineno = 1589U;
   descriptor___3.flags = 0U;
-  tmp___3 = __builtin_expect((long )descriptor___3.flags & 1L, 0L);
+  tmp___3 = ldv__builtin_expect((long )descriptor___3.flags & 1L, 0L);
   }
   if (tmp___3 != 0L) {
     {
@@ -13071,7 +13069,7 @@ static bool pch_gbe_clean_tx(struct pch_gbe_adapter *adapter , struct pch_gbe_tx
     descriptor___4.format = "Transfer Collision\n";
     descriptor___4.lineno = 1613U;
     descriptor___4.flags = 0U;
-    tmp___4 = __builtin_expect((long )descriptor___4.flags & 1L, 0L);
+    tmp___4 = ldv__builtin_expect((long )descriptor___4.flags & 1L, 0L);
     }
     if (tmp___4 != 0L) {
       {
@@ -13096,7 +13094,7 @@ static bool pch_gbe_clean_tx(struct pch_gbe_adapter *adapter , struct pch_gbe_tx
     descriptor___5.format = "unmap buffer_info->dma : %d\n";
     descriptor___5.lineno = 1621U;
     descriptor___5.flags = 0U;
-    tmp___5 = __builtin_expect((long )descriptor___5.flags & 1L, 0L);
+    tmp___5 = ldv__builtin_expect((long )descriptor___5.flags & 1L, 0L);
     }
     if (tmp___5 != 0L) {
       {
@@ -13122,7 +13120,7 @@ static bool pch_gbe_clean_tx(struct pch_gbe_adapter *adapter , struct pch_gbe_tx
     descriptor___6.format = "trim buffer_info->skb : %d\n";
     descriptor___6.lineno = 1628U;
     descriptor___6.flags = 0U;
-    tmp___6 = __builtin_expect((long )descriptor___6.flags & 1L, 0L);
+    tmp___6 = ldv__builtin_expect((long )descriptor___6.flags & 1L, 0L);
     }
     if (tmp___6 != 0L) {
       {
@@ -13141,7 +13139,7 @@ static bool pch_gbe_clean_tx(struct pch_gbe_adapter *adapter , struct pch_gbe_tx
   {
   tx_desc->gbec_status = 49152U;
   i = i + 1U;
-  tmp___7 = __builtin_expect(i == tx_ring->count, 0L);
+  tmp___7 = ldv__builtin_expect(i == tx_ring->count, 0L);
   }
   if (tmp___7 != 0L) {
     i = 0U;
@@ -13171,7 +13169,7 @@ static bool pch_gbe_clean_tx(struct pch_gbe_adapter *adapter , struct pch_gbe_tx
   descriptor___7.format = "called pch_gbe_unmap_and_free_tx_resource() %d count\n";
   descriptor___7.lineno = 1644U;
   descriptor___7.flags = 0U;
-  tmp___9 = __builtin_expect((long )descriptor___7.flags & 1L, 0L);
+  tmp___9 = ldv__builtin_expect((long )descriptor___7.flags & 1L, 0L);
   }
   if (tmp___9 != 0L) {
     {
@@ -13185,12 +13183,12 @@ static bool pch_gbe_clean_tx(struct pch_gbe_adapter *adapter , struct pch_gbe_tx
   if (cleaned_count != 0U) {
     {
     spin_lock(& tx_ring->tx_lock);
-    tmp___11 = __builtin_expect((long )cleaned, 0L);
+    tmp___11 = ldv__builtin_expect((long )cleaned, 0L);
     }
     if (tmp___11 != 0L) {
       {
       tmp___12 = netif_queue_stopped((struct net_device  const  *)adapter->netdev);
-      tmp___13 = __builtin_expect((long )tmp___12, 0L);
+      tmp___13 = ldv__builtin_expect((long )tmp___12, 0L);
       }
       if (tmp___13 != 0L) {
         {
@@ -13202,7 +13200,7 @@ static bool pch_gbe_clean_tx(struct pch_gbe_adapter *adapter , struct pch_gbe_tx
         descriptor___8.format = "Tx wake queue\n";
         descriptor___8.lineno = 1652U;
         descriptor___8.flags = 0U;
-        tmp___10 = __builtin_expect((long )descriptor___8.flags & 1L, 0L);
+        tmp___10 = ldv__builtin_expect((long )descriptor___8.flags & 1L, 0L);
         }
         if (tmp___10 != 0L) {
           {
@@ -13226,7 +13224,7 @@ static bool pch_gbe_clean_tx(struct pch_gbe_adapter *adapter , struct pch_gbe_tx
     descriptor___9.format = "next_to_clean : %d\n";
     descriptor___9.lineno = 1658U;
     descriptor___9.flags = 0U;
-    tmp___14 = __builtin_expect((long )descriptor___9.flags & 1L, 0L);
+    tmp___14 = ldv__builtin_expect((long )descriptor___9.flags & 1L, 0L);
     }
     if (tmp___14 != 0L) {
       {
@@ -13302,7 +13300,7 @@ static bool pch_gbe_clean_rx(struct pch_gbe_adapter *adapter , struct pch_gbe_rx
   descriptor.format = "RxDecNo = 0x%04x  Status[DMA:0x%02x GBE:0x%04x TCP:0x%08x]  BufInf = 0x%p\n";
   descriptor.lineno = 1718U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -13313,7 +13311,7 @@ static bool pch_gbe_clean_rx(struct pch_gbe_adapter *adapter , struct pch_gbe_rx
 
   }
   {
-  tmp___3 = __builtin_expect(((int )gbec_status & 4) != 0, 0L);
+  tmp___3 = ldv__builtin_expect(((int )gbec_status & 4) != 0, 0L);
   }
   if (tmp___3 != 0L) {
     {
@@ -13322,7 +13320,7 @@ static bool pch_gbe_clean_rx(struct pch_gbe_adapter *adapter , struct pch_gbe_rx
     }
   } else {
     {
-    tmp___2 = __builtin_expect(((int )gbec_status & 2) != 0, 0L);
+    tmp___2 = ldv__builtin_expect(((int )gbec_status & 2) != 0, 0L);
     }
     if (tmp___2 != 0L) {
       {
@@ -13331,7 +13329,7 @@ static bool pch_gbe_clean_rx(struct pch_gbe_adapter *adapter , struct pch_gbe_rx
       }
     } else {
       {
-      tmp___1 = __builtin_expect((long )gbec_status & 1L, 0L);
+      tmp___1 = ldv__builtin_expect((long )gbec_status & 1L, 0L);
       }
       if (tmp___1 != 0L) {
         {
@@ -13374,7 +13372,7 @@ static bool pch_gbe_clean_rx(struct pch_gbe_adapter *adapter , struct pch_gbe_rx
         descriptor___0.format = "Receive skb->ip_summed: %d length: %d\n";
         descriptor___0.lineno = 1763U;
         descriptor___0.flags = 0U;
-        tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+        tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
         }
         if (tmp___0 != 0L) {
           {
@@ -13389,7 +13387,7 @@ static bool pch_gbe_clean_rx(struct pch_gbe_adapter *adapter , struct pch_gbe_rx
     }
   }
   {
-  tmp___4 = __builtin_expect(cleaned_count > 15U, 0L);
+  tmp___4 = ldv__builtin_expect(cleaned_count > 15U, 0L);
   }
   if (tmp___4 != 0L) {
     {
@@ -13487,7 +13485,7 @@ int pch_gbe_setup_tx_resources(struct pch_gbe_adapter *adapter , struct pch_gbe_
   descriptor.format = "tx_ring->desc = 0x%p  tx_ring->dma = 0x%08llx next_to_clean = 0x%08x  next_to_use = 0x%08x\n";
   descriptor.lineno = 1821U;
   descriptor.flags = 0U;
-  tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -13559,7 +13557,7 @@ int pch_gbe_setup_rx_resources(struct pch_gbe_adapter *adapter , struct pch_gbe_
   descriptor.format = "rx_ring->desc = 0x%p  rx_ring->dma = 0x%08llx next_to_clean = 0x%08x  next_to_use = 0x%08x\n";
   descriptor.lineno = 1862U;
   descriptor.flags = 0U;
-  tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -13629,7 +13627,7 @@ static int pch_gbe_request_irq(struct pch_gbe_adapter *adapter )
   descriptor.format = "call pci_enable_msi\n";
   descriptor.lineno = 1916U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -13646,7 +13644,7 @@ static int pch_gbe_request_irq(struct pch_gbe_adapter *adapter )
     descriptor___0.format = "call pci_enable_msi - Error: %d\n";
     descriptor___0.lineno = 1918U;
     descriptor___0.flags = 0U;
-    tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -13679,7 +13677,7 @@ static int pch_gbe_request_irq(struct pch_gbe_adapter *adapter )
   descriptor___1.format = "adapter->have_msi : %d  flags : 0x%04x  return : 0x%04x\n";
   descriptor___1.lineno = 1930U;
   descriptor___1.flags = 0U;
-  tmp___1 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -13867,7 +13865,7 @@ static int pch_gbe_sw_init(struct pch_gbe_adapter *adapter )
   descriptor.format = "rx_buffer_len : %d  mac.min_frame_size : %d  mac.max_frame_size : %d\n";
   descriptor.lineno = 2067U;
   descriptor.flags = 0U;
-  tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -13926,7 +13924,7 @@ static int pch_gbe_open(struct net_device *netdev )
   descriptor.format = "Success End\n";
   descriptor.lineno = 2096U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -14035,7 +14033,7 @@ static int pch_gbe_xmit_frame(struct sk_buff *skb , struct net_device *netdev )
 
   }
   {
-  tmp___7 = __builtin_expect(((tx_ring->next_to_clean <= tx_ring->next_to_use ? tx_ring->count : 0U) + tx_ring->next_to_clean) - tx_ring->next_to_use == 1U,
+  tmp___7 = ldv__builtin_expect(((tx_ring->next_to_clean <= tx_ring->next_to_use ? tx_ring->count : 0U) + tx_ring->next_to_clean) - tx_ring->next_to_use == 1U,
                              0L);
   }
   if (tmp___7 != 0L) {
@@ -14048,7 +14046,7 @@ static int pch_gbe_xmit_frame(struct sk_buff *skb , struct net_device *netdev )
     descriptor.format = "Return : BUSY  next_to use : 0x%08x  next_to clean : 0x%08x\n";
     descriptor.lineno = 2153U;
     descriptor.flags = 0U;
-    tmp___6 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___6 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp___6 != 0L) {
       {
@@ -14108,7 +14106,7 @@ static void pch_gbe_set_multi(struct net_device *netdev )
   descriptor.format = "netdev->flags : 0x%08x\n";
   descriptor.lineno = 2188U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -14187,7 +14185,7 @@ static void pch_gbe_set_multi(struct net_device *netdev )
   descriptor___0.format = "RX_MODE reg(check bit31,30 ADD,MLT) : 0x%08x  netdev->mc_count : 0x%08x\n";
   descriptor___0.lineno = 2230U;
   descriptor___0.flags = 0U;
-  tmp___4 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___4 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
   }
   if (tmp___4 != 0L) {
     {
@@ -14250,7 +14248,7 @@ static int pch_gbe_set_mac(struct net_device *netdev , void *addr )
   descriptor.format = "ret_val : 0x%08x\n";
   descriptor.lineno = 2255U;
   descriptor.flags = 0U;
-  tmp___2 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___2 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___2 != 0L) {
     {
@@ -14267,7 +14265,7 @@ static int pch_gbe_set_mac(struct net_device *netdev , void *addr )
   descriptor___0.format = "dev_addr : %pM\n";
   descriptor___0.lineno = 2256U;
   descriptor___0.flags = 0U;
-  tmp___3 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___3 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
   }
   if (tmp___3 != 0L) {
     {
@@ -14284,7 +14282,7 @@ static int pch_gbe_set_mac(struct net_device *netdev , void *addr )
   descriptor___1.format = "mac_addr : %pM\n";
   descriptor___1.lineno = 2257U;
   descriptor___1.flags = 0U;
-  tmp___4 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+  tmp___4 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
   }
   if (tmp___4 != 0L) {
     {
@@ -14301,7 +14299,7 @@ static int pch_gbe_set_mac(struct net_device *netdev , void *addr )
   descriptor___2.format = "MAC_ADR1AB reg : 0x%08x 0x%08x\n";
   descriptor___2.lineno = 2260U;
   descriptor___2.flags = 0U;
-  tmp___7 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+  tmp___7 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
   }
   if (tmp___7 != 0L) {
     {
@@ -14385,7 +14383,7 @@ static int pch_gbe_change_mtu(struct net_device *netdev , int new_mtu )
   descriptor.format = "max_frame : %d  rx_buffer_len : %d  mtu : %d  max_frame_size : %d\n";
   descriptor.lineno = 2314U;
   descriptor.flags = 0U;
-  tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -14452,7 +14450,7 @@ static int pch_gbe_ioctl(struct net_device *netdev , struct ifreq *ifr , int cmd
   descriptor.format = "cmd : 0x%04x\n";
   descriptor.lineno = 2355U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -14517,7 +14515,7 @@ static int pch_gbe_napi_poll(struct napi_struct *napi , int budget )
   descriptor.format = "budget : %d\n";
   descriptor.lineno = 2392U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -14564,7 +14562,7 @@ static int pch_gbe_napi_poll(struct napi_struct *napi , int budget )
   descriptor___0.format = "poll_end_flag : %d  work_done : %d  budget : %d\n";
   descriptor___0.lineno = 2417U;
   descriptor___0.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -14697,7 +14695,7 @@ static void pch_gbe_io_resume(struct pci_dev *pdev )
       descriptor.format = "can\'t bring device back up after reset\n";
       descriptor.lineno = 2495U;
       descriptor.flags = 0U;
-      tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+      tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
       }
       if (tmp___1 != 0L) {
         {
@@ -15078,7 +15076,7 @@ static int pch_gbe_probe(struct pci_dev *pdev , struct pci_device_id  const  *pc
   descriptor.format = "PCH Network Connection\n";
   descriptor.lineno = 2708U;
   descriptor.flags = 0U;
-  tmp___7 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___7 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___7 != 0L) {
     {
@@ -15253,7 +15251,7 @@ void ldv_dummy_resourceless_instance_callback_1_36(enum netdev_tx (*arg0)(struct
 void ldv_dummy_resourceless_instance_callback_1_37(void (*arg0)(struct net_device * ) ,
                                                    struct net_device *arg1 ) ;
 void ldv_entry_EMGentry_17(void *arg0 ) ;
-void main(void) ;
+int main(void) ;
 void ldv_free_irq(void *arg0 , int arg1 , void *arg2 ) ;
 void ldv_free_netdev(void *arg0 , struct net_device *arg1 ) ;
 void ldv_initialize_external_data(void) ;
@@ -15960,7 +15958,7 @@ void ldv_entry_EMGentry_17(void *arg0 )
   return;
 }
 }
-void main(void) 
+int main(void) 
 { 
   int tmp ;
 
@@ -19389,7 +19387,7 @@ void ldv_check_final_state(void)
 }
 }
 extern void ldv_assert(char const   * , int  ) ;
-void __builtin_trap(void) ;
+void ldv__builtin_trap(void) ;
 void ldv_assume(int expression ) 
 { 
 
@@ -19413,7 +19411,7 @@ void ldv_stop(void)
   goto ldv_stop_label;
 }
 }
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 
@@ -19421,7 +19419,7 @@ long __builtin_expect(long exp , long c )
   return (exp);
 }
 }
-void __builtin_trap(void) 
+void ldv__builtin_trap(void) 
 { 
 
 

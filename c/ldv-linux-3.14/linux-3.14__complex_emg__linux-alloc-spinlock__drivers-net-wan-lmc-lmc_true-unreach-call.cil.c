@@ -7571,7 +7571,7 @@ void ldv_dummy_resourceless_instance_callback_6_9(void (*arg0)(struct lmc___soft
   return;
 }
 }
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 extern void ldv_initialize(void) ;
 int ldv_post_init(int init_ret_val ) ;
 extern void ldv_pre_probe(void) ;
@@ -7762,7 +7762,7 @@ __inline static unsigned long copy_from_user(void *to , void const   *from , uns
   {
   sz = -1;
   might_fault();
-  tmp = __builtin_expect(sz < 0, 1L);
+  tmp = ldv__builtin_expect(sz < 0, 1L);
   }
   if (tmp != 0L) {
     {
@@ -7770,7 +7770,7 @@ __inline static unsigned long copy_from_user(void *to , void const   *from , uns
     }
   } else {
     {
-    tmp___0 = __builtin_expect((unsigned long )sz >= n, 1L);
+    tmp___0 = ldv__builtin_expect((unsigned long )sz >= n, 1L);
     }
     if (tmp___0 != 0L) {
       {
@@ -7795,7 +7795,7 @@ __inline static unsigned long copy_to_user(void *to , void const   *from , unsig
   {
   sz = -1;
   might_fault();
-  tmp = __builtin_expect(sz < 0, 1L);
+  tmp = ldv__builtin_expect(sz < 0, 1L);
   }
   if (tmp != 0L) {
     {
@@ -7803,7 +7803,7 @@ __inline static unsigned long copy_to_user(void *to , void const   *from , unsig
     }
   } else {
     {
-    tmp___0 = __builtin_expect((unsigned long )sz >= n, 1L);
+    tmp___0 = ldv__builtin_expect((unsigned long )sz >= n, 1L);
     }
     if (tmp___0 != 0L) {
       {
@@ -7988,7 +7988,7 @@ __inline static void netif_tx_stop_queue(struct netdev_queue *dev_queue )
   {
   {
   __ret_warn_on = (unsigned long )dev_queue == (unsigned long )((struct netdev_queue *)0);
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp != 0L) {
     {
@@ -7998,7 +7998,7 @@ __inline static void netif_tx_stop_queue(struct netdev_queue *dev_queue )
 
   }
   {
-  tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -10472,7 +10472,7 @@ void ldv_dummy_resourceless_instance_callback_3_21(void (*arg0)(struct lmc___sof
                                                                 int  ) , struct lmc___softc *arg1 ,
                                                    int arg2 ) ;
 void ldv_entry_EMGentry_17(void *arg0 ) ;
-void main(void) ;
+int main(void) ;
 void ldv_free_irq(void *arg0 , int arg1 , void *arg2 ) ;
 void ldv_free_netdev(void *arg0 , struct net_device *arg1 ) ;
 void ldv_initialize_external_data(void) ;
@@ -11076,7 +11076,7 @@ void ldv_entry_EMGentry_17(void *arg0 )
   return;
 }
 }
-void main(void) 
+int main(void) 
 { 
   int tmp ;
 
@@ -13934,7 +13934,7 @@ void *ldv_kzalloc(size_t size , gfp_t flags )
 }
 }
 extern void ldv_assert(char const   * , int  ) ;
-void __builtin_trap(void) ;
+void ldv__builtin_trap(void) ;
 void ldv_assume(int expression ) 
 { 
 
@@ -13958,7 +13958,7 @@ void ldv_stop(void)
   goto ldv_stop_label;
 }
 }
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 
@@ -13966,7 +13966,7 @@ long __builtin_expect(long exp , long c )
   return (exp);
 }
 }
-void __builtin_trap(void) 
+void ldv__builtin_trap(void) 
 { 
 
 

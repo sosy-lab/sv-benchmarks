@@ -6132,7 +6132,7 @@ struct ldv_thread {
    int identifier ;
    void (*function)(void * ) ;
 };
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 extern void ldv_initialize(void) ;
 int ldv_post_init(int init_ret_val ) ;
 extern void ldv_pre_probe(void) ;
@@ -6210,7 +6210,6 @@ extern void *memset(void * , int  , size_t  ) ;
 extern char *strcat(char * , char const   * ) ;
 extern size_t strlcpy(char * , char const   * , size_t  ) ;
 extern void warn_slowpath_null(char const   * , int const    ) ;
-extern int ( /* missing proto */  __builtin_unreachable)() ;
 __inline static unsigned long arch_local_save_flags(void) 
 { 
   unsigned long __ret ;
@@ -6228,7 +6227,7 @@ __inline static unsigned long arch_local_save_flags(void)
   __edx = __edx;
   __ecx = __ecx;
   __eax = __eax;
-  tmp = __builtin_expect((unsigned long )pv_irq_ops.save_fl.func == (unsigned long )((void *)0),
+  tmp = ldv__builtin_expect((unsigned long )pv_irq_ops.save_fl.func == (unsigned long )((void *)0),
                          0L);
   }
   if (tmp != 0L) {
@@ -6263,7 +6262,7 @@ __inline static void arch_local_irq_restore(unsigned long f )
   __edx = __edx;
   __ecx = __ecx;
   __eax = __eax;
-  tmp = __builtin_expect((unsigned long )pv_irq_ops.restore_fl.func == (unsigned long )((void *)0),
+  tmp = ldv__builtin_expect((unsigned long )pv_irq_ops.restore_fl.func == (unsigned long )((void *)0),
                          0L);
   }
   if (tmp != 0L) {
@@ -6297,7 +6296,7 @@ __inline static void arch_local_irq_disable(void)
   __edx = __edx;
   __ecx = __ecx;
   __eax = __eax;
-  tmp = __builtin_expect((unsigned long )pv_irq_ops.irq_disable.func == (unsigned long )((void *)0),
+  tmp = ldv__builtin_expect((unsigned long )pv_irq_ops.irq_disable.func == (unsigned long )((void *)0),
                          0L);
   }
   if (tmp != 0L) {
@@ -6614,7 +6613,7 @@ __inline static struct dma_map_ops *get_dma_ops(struct device *dev )
 
   {
   {
-  tmp = __builtin_expect((unsigned long )dev == (unsigned long )((struct device *)0),
+  tmp = ldv__builtin_expect((unsigned long )dev == (unsigned long )((struct device *)0),
                          0L);
   }
   if (tmp != 0L || (unsigned long )dev->archdata.dma_ops == (unsigned long )((struct dma_map_ops *)0)) {
@@ -6641,7 +6640,7 @@ __inline static dma_addr_t dma_map_page(struct device *dev , struct page *page ,
   tmp___0 = lowmem_page_address((struct page  const  *)page);
   kmemcheck_mark_initialized(tmp___0 + offset, (unsigned int )size);
   tmp___1 = valid_dma_direction((int )dir);
-  tmp___2 = __builtin_expect(tmp___1 == 0, 0L);
+  tmp___2 = ldv__builtin_expect(tmp___1 == 0, 0L);
   }
   if (tmp___2 != 0L) {
     {
@@ -6672,7 +6671,7 @@ __inline static void dma_unmap_page(struct device *dev , dma_addr_t addr , size_
   tmp = get_dma_ops(dev);
   ops = tmp;
   tmp___0 = valid_dma_direction((int )dir);
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -6712,7 +6711,7 @@ __inline static void dma_sync_single_for_cpu(struct device *dev , dma_addr_t add
   tmp = get_dma_ops(dev);
   ops = tmp;
   tmp___0 = valid_dma_direction((int )dir);
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -6752,7 +6751,7 @@ __inline static void dma_sync_single_for_device(struct device *dev , dma_addr_t 
   tmp = get_dma_ops(dev);
   ops = tmp;
   tmp___0 = valid_dma_direction((int )dir);
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -6903,7 +6902,7 @@ __inline static void dma_free_attrs(struct device *dev , size_t size , void *vad
   _flags = arch_local_save_flags();
   tmp___0 = arch_irqs_disabled_flags(_flags);
   __ret_warn_on = tmp___0 != 0;
-  tmp___1 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___1 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -6914,7 +6913,7 @@ __inline static void dma_free_attrs(struct device *dev , size_t size , void *vad
 
   }
   {
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
   debug_dma_free_coherent(dev, size, vaddr, bus);
   }
   if ((unsigned long )ops->free != (unsigned long )((void (*)(struct device * , size_t  ,
@@ -7198,7 +7197,7 @@ __inline static void napi_enable(struct napi_struct *n )
   {
   {
   tmp = constant_test_bit(0L, (unsigned long const volatile   *)(& n->state));
-  tmp___0 = __builtin_expect(tmp == 0, 0L);
+  tmp___0 = ldv__builtin_expect(tmp == 0, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -7315,7 +7314,7 @@ __inline static void netif_tx_stop_queue(struct netdev_queue *dev_queue )
   {
   {
   __ret_warn_on = (unsigned long )dev_queue == (unsigned long )((struct netdev_queue *)0);
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp != 0L) {
     {
@@ -7325,7 +7324,7 @@ __inline static void netif_tx_stop_queue(struct netdev_queue *dev_queue )
 
   }
   {
-  tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -8737,7 +8736,7 @@ static int jme_setup_tx_resources(struct jme_adapter *jme )
   atomic_set(& txring->nr_free, (int )jme->tx_ring_size);
   tmp = kmalloc((unsigned long )jme->tx_ring_size * 32UL, 32U);
   txring->bufinf = (struct jme_buffer_info *)tmp;
-  tmp___0 = __builtin_expect((unsigned long )txring->bufinf == (unsigned long )((struct jme_buffer_info *)0),
+  tmp___0 = ldv__builtin_expect((unsigned long )txring->bufinf == (unsigned long )((struct jme_buffer_info *)0),
                              0L);
   }
   if (tmp___0 != 0L) {
@@ -8948,7 +8947,7 @@ static int jme_make_new_rx_buf(struct jme_adapter *jme , int i )
   rxring = (struct jme_ring *)(& jme->rxring);
   rxbi = rxring->bufinf + (unsigned long )i;
   skb = netdev_alloc_skb(jme->dev, (jme->dev)->mtu + 36U);
-  tmp = __builtin_expect((unsigned long )skb == (unsigned long )((struct sk_buff *)0),
+  tmp = ldv__builtin_expect((unsigned long )skb == (unsigned long )((struct sk_buff *)0),
                          0L);
   }
   if (tmp != 0L) {
@@ -8962,7 +8961,7 @@ static int jme_make_new_rx_buf(struct jme_adapter *jme , int i )
   mapping = pci_map_page(jme->pdev, (struct page *)-24189255811072L + (tmp___1 >> 12),
                          (unsigned long )skb->data & 4095UL, (size_t )tmp___0, 2);
   tmp___2 = pci_dma_mapping_error(jme->pdev, mapping);
-  tmp___3 = __builtin_expect(tmp___2 != 0, 0L);
+  tmp___3 = ldv__builtin_expect(tmp___2 != 0, 0L);
   }
   if (tmp___3 != 0L) {
     {
@@ -8973,7 +8972,7 @@ static int jme_make_new_rx_buf(struct jme_adapter *jme , int i )
 
   }
   {
-  tmp___4 = __builtin_expect(rxbi->mapping != 0ULL, 1L);
+  tmp___4 = ldv__builtin_expect(rxbi->mapping != 0ULL, 1L);
   }
   if (tmp___4 != 0L) {
     {
@@ -9087,7 +9086,7 @@ static int jme_setup_rx_resources(struct jme_adapter *jme )
   atomic_set(& rxring->next_to_clean, 0);
   tmp = kmalloc((unsigned long )jme->rx_ring_size * 32UL, 32U);
   rxring->bufinf = (struct jme_buffer_info *)tmp;
-  tmp___0 = __builtin_expect((unsigned long )rxring->bufinf == (unsigned long )((struct jme_buffer_info *)0),
+  tmp___0 = ldv__builtin_expect((unsigned long )rxring->bufinf == (unsigned long )((struct jme_buffer_info *)0),
                              0L);
   }
   if (tmp___0 != 0L) {
@@ -9103,7 +9102,7 @@ static int jme_setup_rx_resources(struct jme_adapter *jme )
   ldv_51378: 
   {
   tmp___1 = jme_make_new_rx_buf(jme, i);
-  tmp___2 = __builtin_expect(tmp___1 != 0, 0L);
+  tmp___2 = ldv__builtin_expect(tmp___1 != 0, 0L);
   }
   if (tmp___2 != 0L) {
     {
@@ -9299,7 +9298,7 @@ static int jme_rxsum_ok(struct jme_adapter *jme , u16 flags , struct sk_buff *sk
 
   }
   {
-  tmp = __builtin_expect(((int )flags & 12800) == 4096, 0L);
+  tmp = ldv__builtin_expect(((int )flags & 12800) == 4096, 0L);
   }
   if (tmp != 0L) {
     if (((int )flags & 64) != 0) {
@@ -9318,7 +9317,7 @@ static int jme_rxsum_ok(struct jme_adapter *jme , u16 flags , struct sk_buff *sk
 
   }
   {
-  tmp___0 = __builtin_expect(((int )flags & 10496) == 2048, 0L);
+  tmp___0 = ldv__builtin_expect(((int )flags & 10496) == 2048, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -9344,7 +9343,7 @@ static int jme_rxsum_ok(struct jme_adapter *jme , u16 flags , struct sk_buff *sk
 
   }
   {
-  tmp___2 = __builtin_expect(((int )flags & 1088) == 64, 0L);
+  tmp___2 = ldv__builtin_expect(((int )flags & 1088) == 64, 0L);
   }
   if (tmp___2 != 0L) {
     if ((jme->msg_enable & 64U) != 0U) {
@@ -9383,7 +9382,7 @@ static void jme_alloc_and_feed_skb(struct jme_adapter *jme , int idx )
   skb = rxbi->skb;
   pci_dma_sync_single_for_cpu(jme->pdev, rxbi->mapping, (size_t )rxbi->len, 2);
   tmp___0 = jme_make_new_rx_buf(jme, idx);
-  tmp___1 = __builtin_expect(tmp___0 != 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 != 0, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -9457,7 +9456,7 @@ static int jme_process_receive(struct jme_adapter *jme , int limit )
   rxdesc = (struct rxdesc *)rxring->desc;
   mask = (int )jme->rx_ring_mask;
   tmp = atomic_dec_and_test(& jme->rx_cleaning);
-  tmp___0 = __builtin_expect(tmp == 0, 0L);
+  tmp___0 = ldv__builtin_expect(tmp == 0, 0L);
   }
   if (tmp___0 != 0L) {
     goto out_inc;
@@ -9466,7 +9465,7 @@ static int jme_process_receive(struct jme_adapter *jme , int limit )
   }
   {
   tmp___1 = atomic_read((atomic_t const   *)(& jme->link_changing));
-  tmp___2 = __builtin_expect(tmp___1 != 1, 0L);
+  tmp___2 = ldv__builtin_expect(tmp___1 != 1, 0L);
   }
   if (tmp___2 != 0L) {
     goto out_inc;
@@ -9482,7 +9481,7 @@ static int jme_process_receive(struct jme_adapter *jme , int limit )
     tmp___4 = 1;
   }
   {
-  tmp___5 = __builtin_expect((long )tmp___4, 0L);
+  tmp___5 = ldv__builtin_expect((long )tmp___4, 0L);
   }
   if (tmp___5 != 0L) {
     goto out_inc;
@@ -9505,13 +9504,13 @@ static int jme_process_receive(struct jme_adapter *jme , int limit )
   limit = limit - 1;
   __asm__  volatile   ("lfence": : : "memory");
   desccnt = (int )rxdesc->__annonCompField92.descwb.desccnt & 127;
-  tmp___7 = __builtin_expect(desccnt > 1, 0L);
+  tmp___7 = ldv__builtin_expect(desccnt > 1, 0L);
   }
   if (tmp___7 != 0L) {
     goto _L;
   } else {
     {
-    tmp___8 = __builtin_expect((unsigned int )rxdesc->__annonCompField92.descwb.errstat != 0U,
+    tmp___8 = ldv__builtin_expect((unsigned int )rxdesc->__annonCompField92.descwb.errstat != 0U,
                                0L);
     }
     if (tmp___8 != 0L) {
@@ -9577,7 +9576,7 @@ static void jme_attempt_pcc(struct dynpcc_info *dpi , int atmp )
 
   {
   {
-  tmp = __builtin_expect(atmp == (int )dpi->cur, 1L);
+  tmp = ldv__builtin_expect(atmp == (int )dpi->cur, 1L);
   }
   if (tmp != 0L) {
     dpi->cnt = 0U;
@@ -9617,11 +9616,11 @@ static void jme_dynamic_pcc(struct jme_adapter *jme )
     }
   }
   {
-  tmp = __builtin_expect((int )dpi->attempt != (int )dpi->cur, 0L);
+  tmp = ldv__builtin_expect((int )dpi->attempt != (int )dpi->cur, 0L);
   }
   if (tmp != 0L) {
     {
-    tmp___0 = __builtin_expect((unsigned int )dpi->cnt > 5U, 0L);
+    tmp___0 = ldv__builtin_expect((unsigned int )dpi->cnt > 5U, 0L);
     }
     if (tmp___0 != 0L) {
       if ((int )dpi->attempt < (int )dpi->cur) {
@@ -9708,7 +9707,7 @@ static void jme_pcc_tasklet(unsigned long arg )
   jme = (struct jme_adapter *)arg;
   netdev = jme->dev;
   tmp = constant_test_bit(6L, (unsigned long const volatile   *)(& jme->flags));
-  tmp___0 = __builtin_expect(tmp != 0, 0L);
+  tmp___0 = ldv__builtin_expect(tmp != 0, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -9727,7 +9726,7 @@ static void jme_pcc_tasklet(unsigned long arg )
     tmp___2 = 1;
   }
   {
-  tmp___3 = __builtin_expect((long )tmp___2, 0L);
+  tmp___3 = ldv__builtin_expect((long )tmp___2, 0L);
   }
   if (tmp___3 != 0L) {
     {
@@ -9737,7 +9736,7 @@ static void jme_pcc_tasklet(unsigned long arg )
   } else {
     {
     tmp___4 = atomic_read((atomic_t const   *)(& jme->link_changing));
-    tmp___5 = __builtin_expect(tmp___4 != 1, 0L);
+    tmp___5 = ldv__builtin_expect(tmp___4 != 1, 0L);
     }
     if (tmp___5 != 0L) {
       {
@@ -10095,7 +10094,7 @@ static void jme_rx_empty_tasklet(unsigned long arg )
   {
   jme = (struct jme_adapter *)arg;
   tmp = atomic_read((atomic_t const   *)(& jme->link_changing));
-  tmp___0 = __builtin_expect(tmp != 1, 0L);
+  tmp___0 = ldv__builtin_expect(tmp != 1, 0L);
   }
   if (tmp___0 != 0L) {
     return;
@@ -10111,7 +10110,7 @@ static void jme_rx_empty_tasklet(unsigned long arg )
     tmp___2 = 1;
   }
   {
-  tmp___3 = __builtin_expect((long )tmp___2, 0L);
+  tmp___3 = ldv__builtin_expect((long )tmp___2, 0L);
   }
   if (tmp___3 != 0L) {
     return;
@@ -10163,12 +10162,12 @@ static void jme_wake_queue_if_stopped(struct jme_adapter *jme )
   txring = (struct jme_ring *)(& jme->txring);
   __asm__  volatile   ("": : : "memory");
   tmp = netif_queue_stopped((struct net_device  const  *)jme->dev);
-  tmp___0 = __builtin_expect((long )tmp, 0L);
+  tmp___0 = ldv__builtin_expect((long )tmp, 0L);
   }
   if (tmp___0 != 0L) {
     {
     tmp___1 = atomic_read((atomic_t const   *)(& txring->nr_free));
-    tmp___2 = __builtin_expect((u32 )tmp___1 >= jme->tx_wake_threshold, 0L);
+    tmp___2 = ldv__builtin_expect((u32 )tmp___1 >= jme->tx_wake_threshold, 0L);
     }
     if (tmp___2 != 0L) {
       if ((jme->msg_enable & 1024U) != 0U) {
@@ -10224,7 +10223,7 @@ static void jme_tx_clean_tasklet(unsigned long arg )
   txbi = txring->bufinf;
   cnt = 0;
   tmp = atomic_dec_and_test(& jme->tx_cleaning);
-  tmp___0 = __builtin_expect(tmp == 0, 0L);
+  tmp___0 = ldv__builtin_expect(tmp == 0, 0L);
   }
   if (tmp___0 != 0L) {
     goto out;
@@ -10233,7 +10232,7 @@ static void jme_tx_clean_tasklet(unsigned long arg )
   }
   {
   tmp___1 = atomic_read((atomic_t const   *)(& jme->link_changing));
-  tmp___2 = __builtin_expect(tmp___1 != 1, 0L);
+  tmp___2 = ldv__builtin_expect(tmp___1 != 1, 0L);
   }
   if (tmp___2 != 0L) {
     goto out;
@@ -10249,7 +10248,7 @@ static void jme_tx_clean_tasklet(unsigned long arg )
     tmp___4 = 1;
   }
   {
-  tmp___5 = __builtin_expect((long )tmp___4, 0L);
+  tmp___5 = ldv__builtin_expect((long )tmp___4, 0L);
   }
   if (tmp___5 != 0L) {
     goto out;
@@ -10266,12 +10265,12 @@ static void jme_tx_clean_tasklet(unsigned long arg )
   ldv_51539: 
   {
   ctxbi = txbi + (unsigned long )i;
-  tmp___8 = __builtin_expect((unsigned long )ctxbi->skb != (unsigned long )((struct sk_buff *)0),
+  tmp___8 = ldv__builtin_expect((unsigned long )ctxbi->skb != (unsigned long )((struct sk_buff *)0),
                              1L);
   }
   if (tmp___8 != 0L) {
     {
-    tmp___9 = __builtin_expect((int )((signed char )(txdesc + (unsigned long )i)->__annonCompField91.descwb.flags) >= 0,
+    tmp___9 = ldv__builtin_expect((int )((signed char )(txdesc + (unsigned long )i)->__annonCompField91.descwb.flags) >= 0,
                                1L);
     }
     if (tmp___9 != 0L) {
@@ -10296,7 +10295,7 @@ static void jme_tx_clean_tasklet(unsigned long arg )
       {
       consume_skb(ctxbi->skb);
       cnt = cnt + ctxbi->nr_desc;
-      tmp___7 = __builtin_expect(err != 0, 0L);
+      tmp___7 = ldv__builtin_expect(err != 0, 0L);
       }
       if (tmp___7 != 0L) {
         (jme->dev)->stats.tx_carrier_errors = (jme->dev)->stats.tx_carrier_errors + 1UL;
@@ -10390,7 +10389,7 @@ static void jme_intr_msi(struct jme_adapter *jme , u32 intrstat )
     if ((intrstat & 34607104U) != 0U) {
       {
       tmp = napi_schedule_prep(& jme->napi);
-      tmp___0 = __builtin_expect((long )tmp, 1L);
+      tmp___0 = ldv__builtin_expect((long )tmp, 1L);
       }
       if (tmp___0 != 0L) {
         {
@@ -10439,7 +10438,7 @@ static irqreturn_t jme_intr(int irq , void *dev_id )
   tmp = netdev_priv((struct net_device  const  *)netdev);
   jme = (struct jme_adapter *)tmp;
   intrstat = jread32(jme, 2080U);
-  tmp___0 = __builtin_expect((intrstat & 3794866176U) == 0U, 0L);
+  tmp___0 = ldv__builtin_expect((intrstat & 3794866176U) == 0U, 0L);
   }
   if (tmp___0 != 0L) {
     return (0);
@@ -10447,7 +10446,7 @@ static irqreturn_t jme_intr(int irq , void *dev_id )
 
   }
   {
-  tmp___1 = __builtin_expect(intrstat == 4294967295U, 0L);
+  tmp___1 = ldv__builtin_expect(intrstat == 4294967295U, 0L);
   }
   if (tmp___1 != 0L) {
     return (0);
@@ -11047,7 +11046,7 @@ static int jme_alloc_txdesc(struct jme_adapter *jme , struct sk_buff *skb )
   tmp = skb_end_pointer((struct sk_buff  const  *)skb);
   nr_alloc = (int )((struct skb_shared_info *)tmp)->nr_frags + 2;
   tmp___0 = atomic_read((atomic_t const   *)(& txring->nr_free));
-  tmp___1 = __builtin_expect(tmp___0 < nr_alloc, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 < nr_alloc, 0L);
   }
   if (tmp___1 != 0L) {
     return (-1);
@@ -11168,13 +11167,13 @@ static int jme_expand_header(struct jme_adapter *jme , struct sk_buff *skb )
   {
   {
   tmp = skb_end_pointer((struct sk_buff  const  *)skb);
-  tmp___0 = __builtin_expect((unsigned int )((struct skb_shared_info *)tmp)->gso_size != 0U,
+  tmp___0 = ldv__builtin_expect((unsigned int )((struct skb_shared_info *)tmp)->gso_size != 0U,
                              0L);
   }
   if (tmp___0 != 0L) {
     {
     tmp___1 = skb_header_cloned((struct sk_buff  const  *)skb);
-    tmp___2 = __builtin_expect(tmp___1 != 0, 0L);
+    tmp___2 = ldv__builtin_expect(tmp___1 != 0, 0L);
     }
     if (tmp___2 != 0L) {
       tmp___3 = 1;
@@ -11187,7 +11186,7 @@ static int jme_expand_header(struct jme_adapter *jme , struct sk_buff *skb )
   if (tmp___3 != 0) {
     {
     tmp___4 = ldv_pskb_expand_head_109(skb, 0, 0, 32U);
-    tmp___5 = __builtin_expect(tmp___4 != 0, 0L);
+    tmp___5 = ldv__builtin_expect(tmp___4 != 0, 0L);
     }
     if (tmp___5 != 0L) {
       {
@@ -11408,7 +11407,7 @@ static void jme_stop_queue_if_full(struct jme_adapter *jme )
   txbi = txbi + (unsigned long )idx;
   __asm__  volatile   ("": : : "memory");
   tmp___1 = atomic_read((atomic_t const   *)(& txring->nr_free));
-  tmp___2 = __builtin_expect((unsigned int )tmp___1 <= 18U, 0L);
+  tmp___2 = ldv__builtin_expect((unsigned int )tmp___1 <= 18U, 0L);
   }
   if (tmp___2 != 0L) {
     {
@@ -11443,11 +11442,11 @@ static void jme_stop_queue_if_full(struct jme_adapter *jme )
 
   }
   {
-  tmp___3 = __builtin_expect(txbi->start_xmit != 0UL, 0L);
+  tmp___3 = ldv__builtin_expect(txbi->start_xmit != 0UL, 0L);
   }
   if (tmp___3 != 0L) {
     {
-    tmp___4 = __builtin_expect((unsigned long )jiffies - txbi->start_xmit > 1249UL,
+    tmp___4 = ldv__builtin_expect((unsigned long )jiffies - txbi->start_xmit > 1249UL,
                                0L);
     }
     if (tmp___4 != 0L) {
@@ -11460,7 +11459,7 @@ static void jme_stop_queue_if_full(struct jme_adapter *jme )
   }
   if (tmp___5 != 0) {
     {
-    tmp___6 = __builtin_expect((unsigned long )txbi->skb != (unsigned long )((struct sk_buff *)0),
+    tmp___6 = ldv__builtin_expect((unsigned long )txbi->skb != (unsigned long )((struct sk_buff *)0),
                                0L);
     }
     if (tmp___6 != 0L) {
@@ -11498,7 +11497,7 @@ static netdev_tx_t jme_start_xmit(struct sk_buff *skb , struct net_device *netde
   tmp = netdev_priv((struct net_device  const  *)netdev);
   jme = (struct jme_adapter *)tmp;
   tmp___0 = jme_expand_header(jme, skb);
-  tmp___1 = __builtin_expect(tmp___0 != 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 != 0, 0L);
   }
   if (tmp___1 != 0L) {
     (jme->dev)->stats.tx_dropped = (jme->dev)->stats.tx_dropped + 1UL;
@@ -11508,7 +11507,7 @@ static netdev_tx_t jme_start_xmit(struct sk_buff *skb , struct net_device *netde
   }
   {
   idx = jme_alloc_txdesc(jme, skb);
-  tmp___2 = __builtin_expect(idx < 0, 0L);
+  tmp___2 = ldv__builtin_expect(idx < 0, 0L);
   }
   if (tmp___2 != 0L) {
     {
@@ -13284,7 +13283,7 @@ void ldv_dummy_resourceless_instance_callback_1_8(int (*arg0)(struct net_device 
                                                   struct net_device *arg1 , struct ethtool_eeprom *arg2 ,
                                                   unsigned char *arg3 ) ;
 void ldv_entry_EMGentry_13(void *arg0 ) ;
-void main(void) ;
+int main(void) ;
 void ldv_free_irq(void *arg0 , int arg1 , void *arg2 ) ;
 void ldv_free_netdev(void *arg0 , struct net_device *arg1 ) ;
 void ldv_initialize_external_data(void) ;
@@ -14190,7 +14189,7 @@ void ldv_entry_EMGentry_13(void *arg0 )
   return;
 }
 }
-void main(void) 
+int main(void) 
 { 
   int tmp ;
 
@@ -17067,7 +17066,7 @@ void *ldv_kzalloc(size_t size , gfp_t flags )
 }
 }
 extern void ldv_assert(char const   * , int  ) ;
-void __builtin_trap(void) ;
+void ldv__builtin_trap(void) ;
 void ldv_assume(int expression ) 
 { 
 
@@ -17091,7 +17090,7 @@ void ldv_stop(void)
   goto ldv_stop_label;
 }
 }
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 
@@ -17099,7 +17098,7 @@ long __builtin_expect(long exp , long c )
   return (exp);
 }
 }
-void __builtin_trap(void) 
+void ldv__builtin_trap(void) 
 { 
 
 

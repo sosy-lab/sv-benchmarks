@@ -4364,7 +4364,7 @@ struct ldv_thread {
    void (*function)(void * ) ;
 };
 typedef _Bool ldv_set;
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 void ldv_assume(int expression ) ;
 void ldv_stop(void) ;
 void ldv_linux_alloc_irq_check_alloc_flags(gfp_t flags ) ;
@@ -4893,7 +4893,7 @@ static int vx_read_status(struct vx_core *chip , struct vx_rmh *rmh )
   }
   {
   __ret_warn_on = size > 15;
-  tmp___2 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___2 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp___2 != 0L) {
     {
@@ -4903,7 +4903,7 @@ static int vx_read_status(struct vx_core *chip , struct vx_rmh *rmh )
 
   }
   {
-  tmp___3 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___3 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp___3 != 0L) {
     return (-22);
@@ -5404,7 +5404,7 @@ static void vx_reset_board(struct vx_core *chip , int cold_reset )
   {
   __ret_warn_on = (unsigned long )(chip->ops)->reset_board == (unsigned long )((void (*)(struct vx_core * ,
                                                                                          int  ))0);
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp != 0L) {
     {
@@ -5414,7 +5414,7 @@ static void vx_reset_board(struct vx_core *chip , int cold_reset )
 
   }
   {
-  tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp___0 != 0L) {
     return;
@@ -5778,7 +5778,7 @@ struct vx_core *snd_vx_create(struct snd_card *card , struct snd_vx_hardware *hw
   {
   {
   __ret_warn_on = ((unsigned long )card == (unsigned long )((struct snd_card *)0) || (unsigned long )hw == (unsigned long )((struct snd_vx_hardware *)0)) || (unsigned long )ops == (unsigned long )((struct snd_vx_ops *)0);
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp != 0L) {
     {
@@ -5788,7 +5788,7 @@ struct vx_core *snd_vx_create(struct snd_card *card , struct snd_vx_hardware *hw
 
   }
   {
-  tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp___0 != 0L) {
     return ((struct vx_core *)0);
@@ -5851,7 +5851,7 @@ int ldv_EMGentry_init_alsa_vx_core_init_2_9(int (*arg0)(void) ) ;
 void ldv_dispatch_deregister_io_instance_1_2_4(void) ;
 void ldv_dispatch_register_io_instance_1_2_5(void) ;
 void ldv_entry_EMGentry_2(void *arg0 ) ;
-void main(void) ;
+int main(void) ;
 void ldv_struct_snd_pcm_ops_io_instance_0(void *arg0 ) ;
 void ldv_struct_snd_pcm_ops_io_instance_1(void *arg0 ) ;
 struct ldv_thread ldv_thread_2  ;
@@ -5948,7 +5948,7 @@ void ldv_entry_EMGentry_2(void *arg0 )
   return;
 }
 }
-void main(void) 
+int main(void) 
 { 
 
 
@@ -5957,7 +5957,7 @@ void main(void)
   ldv_ldv_initialize_106();
   ldv_entry_EMGentry_2((void *)0);
   }
-  return;
+return 0;
 }
 }
 __inline static void *kzalloc(size_t size , gfp_t flags ) 
@@ -6596,7 +6596,7 @@ static int vx_set_format(struct vx_core *chip , struct vx_pipe *pipe , struct sn
   switch_default: /* CIL Label */ 
   {
   __ret_warn_on = 1;
-  tmp___1 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___1 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -6606,7 +6606,7 @@ static int vx_set_format(struct vx_core *chip , struct vx_pipe *pipe , struct sn
 
   }
   {
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   return (-22);
   switch_break: /* CIL Label */ ;
@@ -7013,7 +7013,7 @@ static int vx_pcm_playback_open(struct snd_pcm_substream *subs )
   {
   audio = (unsigned int )((subs->pcm)->device * 2);
   __ret_warn_on = audio >= chip->audio_outs;
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp != 0L) {
     {
@@ -7023,7 +7023,7 @@ static int vx_pcm_playback_open(struct snd_pcm_substream *subs )
 
   }
   {
-  tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp___0 != 0L) {
     return (-22);
@@ -7314,7 +7314,7 @@ static int vx_pcm_trigger(struct snd_pcm_substream *subs , int cmd )
     descriptor.format = "vx: cannot start stream\n";
     descriptor.lineno = 746U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -7338,7 +7338,7 @@ static int vx_pcm_trigger(struct snd_pcm_substream *subs , int cmd )
     descriptor___0.format = "vx: cannot start pipe\n";
     descriptor___0.lineno = 751U;
     descriptor___0.flags = 0U;
-    tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -7555,7 +7555,7 @@ static int vx_pcm_capture_open(struct snd_pcm_substream *subs )
   {
   audio = (unsigned int )((subs->pcm)->device * 2);
   __ret_warn_on = audio >= chip->audio_ins;
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp != 0L) {
     {
@@ -7565,7 +7565,7 @@ static int vx_pcm_capture_open(struct snd_pcm_substream *subs )
 
   }
   {
-  tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp___0 != 0L) {
     return (-22);
@@ -7883,7 +7883,7 @@ void vx_pcm_update_intr(struct vx_core *chip , unsigned int events )
     }
     {
     __ret_warn_on = p < 0 || (unsigned int )p >= chip->audio_outs;
-    tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -7893,7 +7893,7 @@ void vx_pcm_update_intr(struct vx_core *chip , unsigned int events )
 
     }
     {
-    tmp___1 = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp___1 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
     if (tmp___1 != 0L) {
       goto ldv_31877;
@@ -8796,7 +8796,7 @@ static void vx_write_codec_reg(struct vx_core *chip , int codec , unsigned int d
   __ret_warn_on = (unsigned long )(chip->ops)->write_codec == (unsigned long )((void (*)(struct vx_core * ,
                                                                                          int  ,
                                                                                          unsigned int  ))0);
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp != 0L) {
     {
@@ -8806,7 +8806,7 @@ static void vx_write_codec_reg(struct vx_core *chip , int codec , unsigned int d
 
   }
   {
-  tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp___0 != 0L) {
     return;
@@ -10539,7 +10539,7 @@ void vx_init_rmh(struct vx_rmh *rmh , unsigned int cmd )
   {
   {
   __ret_warn_on = cmd > 58U;
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp != 0L) {
     {
@@ -10549,7 +10549,7 @@ void vx_init_rmh(struct vx_rmh *rmh , unsigned int cmd )
 
   }
   {
-  tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp___0 != 0L) {
     return;
@@ -10767,7 +10767,7 @@ static int vx_calc_clock_from_freq(struct vx_core *chip , int freq )
   {
   {
   __ret_warn_on = freq <= 0;
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp != 0L) {
     {
@@ -10777,7 +10777,7 @@ static int vx_calc_clock_from_freq(struct vx_core *chip , int freq )
 
   }
   {
-  tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp___0 != 0L) {
     return (0);
@@ -10788,7 +10788,7 @@ static int vx_calc_clock_from_freq(struct vx_core *chip , int freq )
   hexfreq = 282240000 / freq;
   hexfreq = (hexfreq + 5) / 10;
   __ret_warn_on___0 = hexfreq <= 512;
-  tmp___1 = __builtin_expect(__ret_warn_on___0 != 0, 0L);
+  tmp___1 = ldv__builtin_expect(__ret_warn_on___0 != 0, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -10798,7 +10798,7 @@ static int vx_calc_clock_from_freq(struct vx_core *chip , int freq )
 
   }
   {
-  tmp___2 = __builtin_expect(__ret_warn_on___0 != 0, 0L);
+  tmp___2 = ldv__builtin_expect(__ret_warn_on___0 != 0, 0L);
   }
   if (tmp___2 != 0L) {
     return (0);
@@ -13067,7 +13067,7 @@ void ldv_linux_usb_urb_check_final_state(void)
 }
 }
 extern void ldv_assert(char const   * , int  ) ;
-void __builtin_trap(void) ;
+void ldv__builtin_trap(void) ;
 void ldv_assume(int expression ) 
 { 
 
@@ -13091,7 +13091,7 @@ void ldv_stop(void)
   goto ldv_stop_label;
 }
 }
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 
@@ -13099,7 +13099,7 @@ long __builtin_expect(long exp , long c )
   return (exp);
 }
 }
-void __builtin_trap(void) 
+void ldv__builtin_trap(void) 
 { 
 
 

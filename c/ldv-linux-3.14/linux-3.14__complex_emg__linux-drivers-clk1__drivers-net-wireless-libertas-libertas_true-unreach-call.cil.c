@@ -6781,7 +6781,7 @@ struct ldv_thread {
    void (*function)(void * ) ;
 };
 struct clk;
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 void *ldv_err_ptr(long error ) ;
 void *ldv_kzalloc(size_t size , gfp_t flags ) ;
 int ldv_filter_err_code(int ret_val ) ;
@@ -6860,7 +6860,6 @@ extern void *memcpy(void * , void const   * , size_t  ) ;
 extern void *memset(void * , int  , size_t  ) ;
 extern int memcmp(void const   * , void const   * , size_t  ) ;
 extern void warn_slowpath_null(char const   * , int const    ) ;
-extern int ( /* missing proto */  __builtin_unreachable)() ;
 extern void lockdep_init_map(struct lockdep_map * , char const   * , struct lock_class_key * ,
                              int  ) ;
 extern void lock_acquire(struct lockdep_map * , unsigned int  , int  , int  , int  ,
@@ -7323,7 +7322,7 @@ __inline static void netif_tx_stop_queue(struct netdev_queue *dev_queue )
   {
   {
   __ret_warn_on = (unsigned long )dev_queue == (unsigned long )((struct netdev_queue *)0);
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp != 0L) {
     {
@@ -7333,7 +7332,7 @@ __inline static void netif_tx_stop_queue(struct netdev_queue *dev_queue )
 
   }
   {
-  tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -7461,7 +7460,7 @@ __inline static enum nl80211_channel_type cfg80211_get_chandef_type(struct cfg80
   switch_default: /* CIL Label */ 
   {
   __ret_warn_on = 1;
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp != 0L) {
     {
@@ -7471,7 +7470,7 @@ __inline static enum nl80211_channel_type cfg80211_get_chandef_type(struct cfg80
 
   }
   {
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   return (0);
   switch_break: /* CIL Label */ ;
@@ -7485,7 +7484,7 @@ __inline static void *wiphy_priv(struct wiphy *wiphy )
 
   {
   {
-  tmp = __builtin_expect((unsigned long )wiphy == (unsigned long )((struct wiphy *)0),
+  tmp = ldv__builtin_expect((unsigned long )wiphy == (unsigned long )((struct wiphy *)0),
                          0L);
   }
   if (tmp != 0L) {
@@ -8631,7 +8630,7 @@ void lbs_scan_done(struct lbs_private *priv )
   {
   {
   __ret_warn_on = (unsigned long )priv->scan_req == (unsigned long )((struct cfg80211_scan_request *)0);
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp != 0L) {
     {
@@ -8641,7 +8640,7 @@ void lbs_scan_done(struct lbs_private *priv )
 
   }
   {
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if ((int )priv->internal_scan) {
     {
@@ -12489,7 +12488,7 @@ int lbs_set_deep_sleep(struct lbs_private *priv , int deep_sleep )
 
       }
       {
-      tmp___1 = __builtin_expect((unsigned long )priv->enter_deep_sleep == (unsigned long )((int (*)(struct lbs_private * ))0),
+      tmp___1 = ldv__builtin_expect((unsigned long )priv->enter_deep_sleep == (unsigned long )((int (*)(struct lbs_private * ))0),
                                  0L);
       }
       if (tmp___1 != 0L) {
@@ -12528,7 +12527,7 @@ int lbs_set_deep_sleep(struct lbs_private *priv , int deep_sleep )
 
     }
     {
-    tmp___3 = __builtin_expect((unsigned long )priv->exit_deep_sleep == (unsigned long )((int (*)(struct lbs_private * ))0),
+    tmp___3 = ldv__builtin_expect((unsigned long )priv->exit_deep_sleep == (unsigned long )((int (*)(struct lbs_private * ))0),
                                0L);
     }
     if (tmp___3 != 0L) {
@@ -13265,7 +13264,7 @@ int lbs_get_rssi(struct lbs_private *priv , s8 *rssi , s8 *nf )
 
   }
   {
-  tmp___0 = __builtin_expect((unsigned long )rssi == (unsigned long )((s8 *)0), 0L);
+  tmp___0 = ldv__builtin_expect((unsigned long )rssi == (unsigned long )((s8 *)0), 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -13277,7 +13276,7 @@ int lbs_get_rssi(struct lbs_private *priv , s8 *rssi , s8 *nf )
 
   }
   {
-  tmp___1 = __builtin_expect((unsigned long )nf == (unsigned long )((s8 *)0), 0L);
+  tmp___1 = ldv__builtin_expect((unsigned long )nf == (unsigned long )((s8 *)0), 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -13522,7 +13521,7 @@ int lbs_get_reg(struct lbs_private *priv , u16 reg , u16 offset , u32 *value )
 
   }
   {
-  tmp___0 = __builtin_expect((unsigned long )value == (unsigned long )((u32 *)0U),
+  tmp___0 = ldv__builtin_expect((unsigned long )value == (unsigned long )((u32 *)0U),
                              0L);
   }
   if (tmp___0 != 0L) {
@@ -15960,7 +15959,7 @@ __inline static unsigned long copy_from_user(void *to , void const   *from , uns
   {
   sz = -1;
   might_fault();
-  tmp = __builtin_expect(sz < 0, 1L);
+  tmp = ldv__builtin_expect(sz < 0, 1L);
   }
   if (tmp != 0L) {
     {
@@ -15968,7 +15967,7 @@ __inline static unsigned long copy_from_user(void *to , void const   *from , uns
     }
   } else {
     {
-    tmp___0 = __builtin_expect((unsigned long )sz >= n, 1L);
+    tmp___0 = ldv__builtin_expect((unsigned long )sz >= n, 1L);
     }
     if (tmp___0 != 0L) {
       {
@@ -23346,7 +23345,7 @@ __inline static void *wdev_priv(struct wireless_dev *wdev )
 
   {
   {
-  tmp = __builtin_expect((unsigned long )wdev == (unsigned long )((struct wireless_dev *)0),
+  tmp = ldv__builtin_expect((unsigned long )wdev == (unsigned long )((struct wireless_dev *)0),
                          0L);
   }
   if (tmp != 0L) {
@@ -25851,7 +25850,7 @@ void lbs_notify_command_response(struct lbs_private *priv , u8 resp_idx )
 
   }
   {
-  tmp___0 = __builtin_expect((unsigned int )resp_idx > 1U, 0L);
+  tmp___0 = ldv__builtin_expect((unsigned int )resp_idx > 1U, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -25979,7 +25978,7 @@ void ldv_dummy_resourceless_instance_callback_16_26(enum netdev_tx (*arg0)(struc
 void ldv_dummy_resourceless_instance_callback_16_27(int (*arg0)(struct net_device * ) ,
                                                     struct net_device *arg1 ) ;
 void ldv_entry_EMGentry_38(void *arg0 ) ;
-void main(void) ;
+int main(void) ;
 extern void ldv_free_netdev(void * , struct net_device * ) ;
 void ldv_initialize_external_data(void) ;
 void ldv_net_dummy_resourceless_instance_16(void *arg0 ) ;
@@ -27061,7 +27060,7 @@ void ldv_entry_EMGentry_38(void *arg0 )
   return;
 }
 }
-void main(void) 
+int main(void) 
 { 
   int tmp ;
 
@@ -28370,7 +28369,7 @@ int lbs_process_rxed_packet(struct lbs_private *priv , struct sk_buff *skb )
 
   }
   {
-  tmp___0 = __builtin_expect((unsigned long )skb == (unsigned long )((struct sk_buff *)0),
+  tmp___0 = ldv__builtin_expect((unsigned long )skb == (unsigned long )((struct sk_buff *)0),
                              0L);
   }
   if (tmp___0 != 0L) {
@@ -28746,7 +28745,7 @@ __inline static void skb_orphan(struct sk_buff *skb )
     }
   } else {
     {
-    tmp = __builtin_expect((unsigned long )skb->sk != (unsigned long )((struct sock *)0),
+    tmp = ldv__builtin_expect((unsigned long )skb->sk != (unsigned long )((struct sock *)0),
                            0L);
     }
     if (tmp != 0L) {
@@ -29424,7 +29423,7 @@ int lbs_get_firmware(struct device *dev , u32 card_model , struct lbs_fw_table  
 
   {
   {
-  tmp = __builtin_expect((unsigned long )helper == (unsigned long )((struct firmware  const  **)0),
+  tmp = ldv__builtin_expect((unsigned long )helper == (unsigned long )((struct firmware  const  **)0),
                          0L);
   }
   if (tmp != 0L) {
@@ -29437,7 +29436,7 @@ int lbs_get_firmware(struct device *dev , u32 card_model , struct lbs_fw_table  
 
   }
   {
-  tmp___0 = __builtin_expect((unsigned long )mainfw == (unsigned long )((struct firmware  const  **)0),
+  tmp___0 = ldv__builtin_expect((unsigned long )mainfw == (unsigned long )((struct firmware  const  **)0),
                              0L);
   }
   if (tmp___0 != 0L) {
@@ -33179,7 +33178,7 @@ void *ldv_kzalloc(size_t size , gfp_t flags )
 }
 }
 extern void ldv_assert(char const   * , int  ) ;
-void __builtin_trap(void) ;
+void ldv__builtin_trap(void) ;
 void ldv_assume(int expression ) 
 { 
 
@@ -33203,7 +33202,7 @@ void ldv_stop(void)
   goto ldv_stop_label;
 }
 }
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 
@@ -33211,7 +33210,7 @@ long __builtin_expect(long exp , long c )
   return (exp);
 }
 }
-void __builtin_trap(void) 
+void ldv__builtin_trap(void) 
 { 
 
 

@@ -5013,7 +5013,7 @@ struct ldv_thread {
    int identifier ;
    void (*function)(void * ) ;
 };
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 extern void ldv_initialize(void) ;
 int ldv_post_init(int init_ret_val ) ;
 int ldv_filter_err_code(int ret_val ) ;
@@ -5079,7 +5079,6 @@ extern void __bad_percpu_size(void) ;
 extern void *memset(void * , int  , size_t  ) ;
 extern size_t strlcpy(char * , char const   * , size_t  ) ;
 extern void warn_slowpath_null(char const   * , int const    ) ;
-extern int ( /* missing proto */  __builtin_unreachable)() ;
 __inline static unsigned long arch_local_save_flags(void) 
 { 
   unsigned long __ret ;
@@ -5097,7 +5096,7 @@ __inline static unsigned long arch_local_save_flags(void)
   __edx = __edx;
   __ecx = __ecx;
   __eax = __eax;
-  tmp = __builtin_expect((unsigned long )pv_irq_ops.save_fl.func == (unsigned long )((void *)0),
+  tmp = ldv__builtin_expect((unsigned long )pv_irq_ops.save_fl.func == (unsigned long )((void *)0),
                          0L);
   }
   if (tmp != 0L) {
@@ -5274,7 +5273,7 @@ __inline static struct dma_map_ops *get_dma_ops(struct device *dev )
 
   {
   {
-  tmp = __builtin_expect((unsigned long )dev == (unsigned long )((struct device *)0),
+  tmp = ldv__builtin_expect((unsigned long )dev == (unsigned long )((struct device *)0),
                          0L);
   }
   if (tmp != 0L || (unsigned long )dev->archdata.dma_ops == (unsigned long )((struct dma_map_ops *)0)) {
@@ -5382,7 +5381,7 @@ __inline static void dma_free_attrs(struct device *dev , size_t size , void *vad
   _flags = arch_local_save_flags();
   tmp___0 = arch_irqs_disabled_flags(_flags);
   __ret_warn_on = tmp___0 != 0;
-  tmp___1 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___1 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -5393,7 +5392,7 @@ __inline static void dma_free_attrs(struct device *dev , size_t size , void *vad
 
   }
   {
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
   debug_dma_free_coherent(dev, size, vaddr, bus);
   }
   if ((unsigned long )ops->free != (unsigned long )((void (*)(struct device * , size_t  ,
@@ -5579,7 +5578,7 @@ int saa7146_res_get(struct saa7146_fh *fh , unsigned int bit )
       descriptor.format = "%s(): already allocated! want: 0x%02x, cur:0x%02x\n";
       descriptor.lineno = 16U;
       descriptor.flags = 0U;
-      tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+      tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
       }
       if (tmp != 0L) {
         {
@@ -5605,7 +5604,7 @@ int saa7146_res_get(struct saa7146_fh *fh , unsigned int bit )
       descriptor___0.format = "%s(): locked! vv->resources:0x%02x, we want:0x%02x\n";
       descriptor___0.lineno = 24U;
       descriptor___0.flags = 0U;
-      tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+      tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
       }
       if (tmp___0 != 0L) {
         {
@@ -5632,7 +5631,7 @@ int saa7146_res_get(struct saa7146_fh *fh , unsigned int bit )
     descriptor___1.format = "%s(): res: get 0x%02x, cur:0x%02x\n";
     descriptor___1.lineno = 31U;
     descriptor___1.flags = 0U;
-    tmp___1 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
     }
     if (tmp___1 != 0L) {
       {
@@ -5660,7 +5659,7 @@ void saa7146_res_free(struct saa7146_fh *fh , unsigned int bits )
   {
   dev = fh->dev;
   vv = dev->vv_data;
-  tmp = __builtin_expect((fh->resources & bits) != bits, 0L);
+  tmp = ldv__builtin_expect((fh->resources & bits) != bits, 0L);
   }
   if (tmp != 0L) {
     {
@@ -5681,7 +5680,7 @@ void saa7146_res_free(struct saa7146_fh *fh , unsigned int bits )
     descriptor.format = "%s(): res: put 0x%02x, cur:0x%02x\n";
     descriptor.lineno = 44U;
     descriptor.flags = 0U;
-    tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -5719,7 +5718,7 @@ void saa7146_dma_free(struct saa7146_dev *dev , struct videobuf_queue *q , struc
     descriptor.format = "%s(): dev:%p, buf:%p\n";
     descriptor.lineno = 55U;
     descriptor.flags = 0U;
-    tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -5734,7 +5733,7 @@ void saa7146_dma_free(struct saa7146_dev *dev , struct videobuf_queue *q , struc
   }
   {
   tmp___1 = preempt_count();
-  tmp___2 = __builtin_expect(((unsigned long )tmp___1 & 2096896UL) != 0UL, 0L);
+  tmp___2 = ldv__builtin_expect(((unsigned long )tmp___1 & 2096896UL) != 0UL, 0L);
   }
   if (tmp___2 != 0L) {
     {
@@ -5769,7 +5768,7 @@ int saa7146_buffer_queue(struct saa7146_dev *dev , struct saa7146_dmaqueue *q , 
   {
   {
   tmp = arch_spin_is_locked(& dev->slock.__annonCompField19.rlock.raw_lock);
-  tmp___0 = __builtin_expect(tmp == 0, 0L);
+  tmp___0 = ldv__builtin_expect(tmp == 0, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -5788,7 +5787,7 @@ int saa7146_buffer_queue(struct saa7146_dev *dev , struct saa7146_dmaqueue *q , 
     descriptor.format = "%s(): dev:%p, dmaq:%p, buf:%p\n";
     descriptor.lineno = 74U;
     descriptor.flags = 0U;
-    tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp___1 != 0L) {
       {
@@ -5802,7 +5801,7 @@ int saa7146_buffer_queue(struct saa7146_dev *dev , struct saa7146_dmaqueue *q , 
 
   }
   {
-  tmp___2 = __builtin_expect((unsigned long )q == (unsigned long )((struct saa7146_dmaqueue *)0),
+  tmp___2 = ldv__builtin_expect((unsigned long )q == (unsigned long )((struct saa7146_dmaqueue *)0),
                              0L);
   }
   if (tmp___2 != 0L) {
@@ -5824,7 +5823,7 @@ int saa7146_buffer_queue(struct saa7146_dev *dev , struct saa7146_dmaqueue *q , 
       descriptor___0.format = "%s(): immediately activating buffer %p\n";
       descriptor___0.lineno = 80U;
       descriptor___0.flags = 0U;
-      tmp___3 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+      tmp___3 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
       }
       if (tmp___3 != 0L) {
         {
@@ -5853,7 +5852,7 @@ int saa7146_buffer_queue(struct saa7146_dev *dev , struct saa7146_dmaqueue *q , 
       descriptor___1.format = "%s(): adding buffer %p to queue. (active buffer present)\n";
       descriptor___1.lineno = 86U;
       descriptor___1.flags = 0U;
-      tmp___4 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+      tmp___4 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
       }
       if (tmp___4 != 0L) {
         {
@@ -5886,7 +5885,7 @@ void saa7146_buffer_finish(struct saa7146_dev *dev , struct saa7146_dmaqueue *q 
   {
   {
   tmp = arch_spin_is_locked(& dev->slock.__annonCompField19.rlock.raw_lock);
-  tmp___0 = __builtin_expect(tmp == 0, 0L);
+  tmp___0 = ldv__builtin_expect(tmp == 0, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -5905,7 +5904,7 @@ void saa7146_buffer_finish(struct saa7146_dev *dev , struct saa7146_dmaqueue *q 
     descriptor.format = "%s(): dev:%p, dmaq:%p, state:%d\n";
     descriptor.lineno = 96U;
     descriptor.flags = 0U;
-    tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp___1 != 0L) {
       {
@@ -5926,7 +5925,7 @@ void saa7146_buffer_finish(struct saa7146_dev *dev , struct saa7146_dmaqueue *q 
     descriptor___0.format = "%s(): q->curr:%p\n";
     descriptor___0.lineno = 97U;
     descriptor___0.flags = 0U;
-    tmp___2 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___2 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___2 != 0L) {
       {
@@ -5940,7 +5939,7 @@ void saa7146_buffer_finish(struct saa7146_dev *dev , struct saa7146_dmaqueue *q 
 
   }
   {
-  tmp___3 = __builtin_expect((unsigned long )q->curr == (unsigned long )((struct saa7146_buf *)0),
+  tmp___3 = ldv__builtin_expect((unsigned long )q->curr == (unsigned long )((struct saa7146_buf *)0),
                              0L);
   }
   if (tmp___3 != 0L) {
@@ -5961,7 +5960,7 @@ void saa7146_buffer_finish(struct saa7146_dev *dev , struct saa7146_dmaqueue *q 
       descriptor___1.format = "%s(): aiii. no current buffer\n";
       descriptor___1.lineno = 103U;
       descriptor___1.flags = 0U;
-      tmp___4 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+      tmp___4 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
       }
       if (tmp___4 != 0L) {
         {
@@ -6008,7 +6007,7 @@ void saa7146_buffer_next(struct saa7146_dev *dev , struct saa7146_dmaqueue *q , 
   {
   {
   next = (struct saa7146_buf *)0;
-  tmp = __builtin_expect((unsigned long )q == (unsigned long )((struct saa7146_dmaqueue *)0),
+  tmp = ldv__builtin_expect((unsigned long )q == (unsigned long )((struct saa7146_dmaqueue *)0),
                          0L);
   }
   if (tmp != 0L) {
@@ -6028,7 +6027,7 @@ void saa7146_buffer_next(struct saa7146_dev *dev , struct saa7146_dmaqueue *q , 
     descriptor.format = "%s(): dev:%p, dmaq:%p, vbi:%d\n";
     descriptor.lineno = 121U;
     descriptor.flags = 0U;
-    tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -6043,7 +6042,7 @@ void saa7146_buffer_next(struct saa7146_dev *dev , struct saa7146_dmaqueue *q , 
   }
   {
   tmp___1 = arch_spin_is_locked(& dev->slock.__annonCompField19.rlock.raw_lock);
-  tmp___2 = __builtin_expect(tmp___1 == 0, 0L);
+  tmp___2 = ldv__builtin_expect(tmp___1 == 0, 0L);
   }
   if (tmp___2 != 0L) {
     {
@@ -6079,7 +6078,7 @@ void saa7146_buffer_next(struct saa7146_dev *dev , struct saa7146_dmaqueue *q , 
       descriptor___0.format = "%s(): next buffer: buf:%p, prev:%p, next:%p\n";
       descriptor___0.lineno = 132U;
       descriptor___0.flags = 0U;
-      tmp___4 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+      tmp___4 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
       }
       if (tmp___4 != 0L) {
         {
@@ -6104,7 +6103,7 @@ void saa7146_buffer_next(struct saa7146_dev *dev , struct saa7146_dmaqueue *q , 
       descriptor___1.format = "%s(): no next buffer. stopping.\n";
       descriptor___1.lineno = 135U;
       descriptor___1.flags = 0U;
-      tmp___5 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+      tmp___5 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
       }
       if (tmp___5 != 0L) {
         {
@@ -6157,7 +6156,7 @@ void saa7146_buffer_timeout(unsigned long data )
     descriptor.format = "%s(): dev:%p, dmaq:%p\n";
     descriptor.lineno = 172U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -6182,7 +6181,7 @@ void saa7146_buffer_timeout(unsigned long data )
       descriptor___0.format = "%s(): timeout on %p\n";
       descriptor___0.lineno = 176U;
       descriptor___0.flags = 0U;
-      tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+      tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
       }
       if (tmp___0 != 0L) {
         {
@@ -6250,7 +6249,7 @@ static int fops_open(struct file *file )
     descriptor.format = "%s(): file:%p, dev:%s\n";
     descriptor.lineno = 202U;
     descriptor.flags = 0U;
-    tmp___2 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___2 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp___2 != 0L) {
       {
@@ -6280,7 +6279,7 @@ static int fops_open(struct file *file )
     descriptor___0.format = "%s(): using: %p\n";
     descriptor___0.lineno = 207U;
     descriptor___0.flags = 0U;
-    tmp___4 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___4 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___4 != 0L) {
       {
@@ -6302,7 +6301,7 @@ static int fops_open(struct file *file )
       descriptor___1.format = "%s(): no extension registered for this device\n";
       descriptor___1.lineno = 211U;
       descriptor___1.flags = 0U;
-      tmp___5 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+      tmp___5 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
       }
       if (tmp___5 != 0L) {
         {
@@ -6333,7 +6332,7 @@ static int fops_open(struct file *file )
       descriptor___2.format = "%s(): cannot allocate memory for per open data\n";
       descriptor___2.lineno = 219U;
       descriptor___2.flags = 0U;
-      tmp___7 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+      tmp___7 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
       }
       if (tmp___7 != 0L) {
         {
@@ -6365,7 +6364,7 @@ static int fops_open(struct file *file )
       descriptor___3.format = "%s(): initializing vbi...\n";
       descriptor___3.lineno = 230U;
       descriptor___3.flags = 0U;
-      tmp___8 = __builtin_expect((long )descriptor___3.flags & 1L, 0L);
+      tmp___8 = ldv__builtin_expect((long )descriptor___3.flags & 1L, 0L);
       }
       if (tmp___8 != 0L) {
         {
@@ -6401,7 +6400,7 @@ static int fops_open(struct file *file )
       descriptor___4.format = "%s(): initializing video...\n";
       descriptor___4.lineno = 236U;
       descriptor___4.flags = 0U;
-      tmp___9 = __builtin_expect((long )descriptor___4.flags & 1L, 0L);
+      tmp___9 = ldv__builtin_expect((long )descriptor___4.flags & 1L, 0L);
       }
       if (tmp___9 != 0L) {
         {
@@ -6480,7 +6479,7 @@ static int fops_release(struct file *file )
     descriptor.format = "%s(): file:%p\n";
     descriptor.lineno = 266U;
     descriptor.flags = 0U;
-    tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -6567,7 +6566,7 @@ static int fops_mmap(struct file *file , struct vm_area_struct *vma )
     descriptor.format = "%s(): V4L2_BUF_TYPE_VIDEO_CAPTURE: file:%p, vma:%p\n";
     descriptor.lineno = 300U;
     descriptor.flags = 0U;
-    tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -6591,7 +6590,7 @@ static int fops_mmap(struct file *file , struct vm_area_struct *vma )
     descriptor___0.format = "%s(): V4L2_BUF_TYPE_VBI_CAPTURE: file:%p, vma:%p\n";
     descriptor___0.lineno = 306U;
     descriptor___0.flags = 0U;
-    tmp___1 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___1 != 0L) {
       {
@@ -6676,7 +6675,7 @@ static unsigned int __fops_poll(struct file *file , struct poll_table_struct *wa
     descriptor.format = "%s(): file:%p, poll:%p\n";
     descriptor.lineno = 332U;
     descriptor.flags = 0U;
-    tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp___1 != 0L) {
       {
@@ -6713,7 +6712,7 @@ static unsigned int __fops_poll(struct file *file , struct poll_table_struct *wa
       descriptor___0.format = "%s(): using video queue\n";
       descriptor___0.lineno = 341U;
       descriptor___0.flags = 0U;
-      tmp___3 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+      tmp___3 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
       }
       if (tmp___3 != 0L) {
         {
@@ -6746,7 +6745,7 @@ static unsigned int __fops_poll(struct file *file , struct poll_table_struct *wa
       descriptor___1.format = "%s(): buf == NULL!\n";
       descriptor___1.lineno = 349U;
       descriptor___1.flags = 0U;
-      tmp___5 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+      tmp___5 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
       }
       if (tmp___5 != 0L) {
         {
@@ -6774,7 +6773,7 @@ static unsigned int __fops_poll(struct file *file , struct poll_table_struct *wa
       descriptor___2.format = "%s(): poll succeeded!\n";
       descriptor___2.lineno = 355U;
       descriptor___2.flags = 0U;
-      tmp___6 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+      tmp___6 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
       }
       if (tmp___6 != 0L) {
         {
@@ -6799,7 +6798,7 @@ static unsigned int __fops_poll(struct file *file , struct poll_table_struct *wa
     descriptor___3.format = "%s(): nothing to poll for, buf->state:%d\n";
     descriptor___3.lineno = 359U;
     descriptor___3.flags = 0U;
-    tmp___7 = __builtin_expect((long )descriptor___3.flags & 1L, 0L);
+    tmp___7 = ldv__builtin_expect((long )descriptor___3.flags & 1L, 0L);
     }
     if (tmp___7 != 0L) {
       {
@@ -6987,7 +6986,7 @@ static void vv_callback(struct saa7146_dev *dev , unsigned long status )
     descriptor.format = "%s(): dev:%p, isr:0x%08x\n";
     descriptor.lineno = 446U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -7009,7 +7008,7 @@ static void vv_callback(struct saa7146_dev *dev , unsigned long status )
       descriptor___0.format = "%s(): irq: RPS0 (0x%08x)\n";
       descriptor___0.lineno = 449U;
       descriptor___0.flags = 0U;
-      tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+      tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
       }
       if (tmp___0 != 0L) {
         {
@@ -7042,7 +7041,7 @@ static void vv_callback(struct saa7146_dev *dev , unsigned long status )
         descriptor___1.format = "%s(): irq: RPS1 vbi workaround (0x%08x)\n";
         descriptor___1.lineno = 456U;
         descriptor___1.flags = 0U;
-        tmp___2 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+        tmp___2 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
         }
         if (tmp___2 != 0L) {
           {
@@ -7071,7 +7070,7 @@ static void vv_callback(struct saa7146_dev *dev , unsigned long status )
       descriptor___2.format = "%s(): irq: RPS1 (0x%08x)\n";
       descriptor___2.lineno = 461U;
       descriptor___2.flags = 0U;
-      tmp___3 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+      tmp___3 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
       }
       if (tmp___3 != 0L) {
         {
@@ -7160,7 +7159,7 @@ int saa7146_vv_init(struct saa7146_dev *dev , struct saa7146_ext_vv *ext_vv )
     descriptor.format = "%s(): dev:%p\n";
     descriptor.lineno = 510U;
     descriptor.flags = 0U;
-    tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -7258,7 +7257,7 @@ int saa7146_vv_release(struct saa7146_dev *dev )
     descriptor.format = "%s(): dev:%p\n";
     descriptor.lineno = 580U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -7309,7 +7308,7 @@ int saa7146_register_device(struct video_device **vid , struct saa7146_dev *dev 
     descriptor.format = "%s(): dev:%p, name:\'%s\', type:%d\n";
     descriptor.lineno = 600U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -7400,7 +7399,7 @@ int saa7146_unregister_device(struct video_device **vid , struct saa7146_dev *de
     descriptor.format = "%s(): dev:%p\n";
     descriptor.lineno = 639U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -7572,7 +7571,7 @@ void ldv_dummy_resourceless_instance_callback_3_9(int (*arg0)(struct videobuf_qu
                                                   struct videobuf_queue *arg1 , unsigned int *arg2 ,
                                                   unsigned int *arg3 ) ;
 void ldv_entry_EMGentry_9(void *arg0 ) ;
-void main(void) ;
+int main(void) ;
 void ldv_file_operations_file_operations_instance_0(void *arg0 ) ;
 int ldv_file_operations_instance_probe_0_12(int (*arg0)(struct inode * , struct file * ) ,
                                             struct inode *arg1 , struct file *arg2 ) ;
@@ -8301,7 +8300,7 @@ void ldv_entry_EMGentry_9(void *arg0 )
   return;
 }
 }
-void main(void) 
+int main(void) 
 { 
   int tmp ;
 
@@ -10630,7 +10629,7 @@ __inline static unsigned long copy_from_user(void *to , void const   *from , uns
   {
   sz = -1;
   might_fault();
-  tmp = __builtin_expect(sz < 0, 1L);
+  tmp = ldv__builtin_expect(sz < 0, 1L);
   }
   if (tmp != 0L) {
     {
@@ -10638,7 +10637,7 @@ __inline static unsigned long copy_from_user(void *to , void const   *from , uns
     }
   } else {
     {
-    tmp___0 = __builtin_expect((unsigned long )sz >= n, 1L);
+    tmp___0 = ldv__builtin_expect((unsigned long )sz >= n, 1L);
     }
     if (tmp___0 != 0L) {
       {
@@ -10759,7 +10758,7 @@ struct saa7146_format *saa7146_format_by_fourcc(struct saa7146_dev *dev , int fo
     descriptor.format = "%s(): unknown pixelformat:\'%4.4s\'\n";
     descriptor.lineno = 101U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -10814,7 +10813,7 @@ int saa7146_start_preview(struct saa7146_fh *fh )
     descriptor.format = "%s(): dev:%p, fh:%p\n";
     descriptor.lineno = 114U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -10836,7 +10835,7 @@ int saa7146_start_preview(struct saa7146_fh *fh )
       descriptor___0.format = "%s(): no overlay data available. try S_FMT first.\n";
       descriptor___0.lineno = 118U;
       descriptor___0.flags = 0U;
-      tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+      tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
       }
       if (tmp___0 != 0L) {
         {
@@ -10862,7 +10861,7 @@ int saa7146_start_preview(struct saa7146_fh *fh )
       descriptor___1.format = "%s(): streaming capture is active\n";
       descriptor___1.lineno = 124U;
       descriptor___1.flags = 0U;
-      tmp___1 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+      tmp___1 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
       }
       if (tmp___1 != 0L) {
         {
@@ -10889,7 +10888,7 @@ int saa7146_start_preview(struct saa7146_fh *fh )
         descriptor___2.format = "%s(): overlay is already active\n";
         descriptor___2.lineno = 131U;
         descriptor___2.flags = 0U;
-        tmp___2 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+        tmp___2 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
         }
         if (tmp___2 != 0L) {
           {
@@ -10914,7 +10913,7 @@ int saa7146_start_preview(struct saa7146_fh *fh )
       descriptor___3.format = "%s(): overlay is already active in another open\n";
       descriptor___3.lineno = 134U;
       descriptor___3.flags = 0U;
-      tmp___3 = __builtin_expect((long )descriptor___3.flags & 1L, 0L);
+      tmp___3 = ldv__builtin_expect((long )descriptor___3.flags & 1L, 0L);
       }
       if (tmp___3 != 0L) {
         {
@@ -10943,7 +10942,7 @@ int saa7146_start_preview(struct saa7146_fh *fh )
       descriptor___4.format = "%s(): cannot get necessary overlay resources\n";
       descriptor___4.lineno = 139U;
       descriptor___4.flags = 0U;
-      tmp___4 = __builtin_expect((long )descriptor___4.flags & 1L, 0L);
+      tmp___4 = ldv__builtin_expect((long )descriptor___4.flags & 1L, 0L);
       }
       if (tmp___4 != 0L) {
         {
@@ -10981,7 +10980,7 @@ int saa7146_start_preview(struct saa7146_fh *fh )
     descriptor___5.format = "%s(): %dx%d+%d+%d %s field=%s\n";
     descriptor___5.lineno = 154U;
     descriptor___5.flags = 0U;
-    tmp___6 = __builtin_expect((long )descriptor___5.flags & 1L, 0L);
+    tmp___6 = ldv__builtin_expect((long )descriptor___5.flags & 1L, 0L);
     }
     if (tmp___6 != 0L) {
       {
@@ -11008,7 +11007,7 @@ int saa7146_start_preview(struct saa7146_fh *fh )
       descriptor___6.format = "%s(): enabling overlay failed: %d\n";
       descriptor___6.lineno = 157U;
       descriptor___6.flags = 0U;
-      tmp___7 = __builtin_expect((long )descriptor___6.flags & 1L, 0L);
+      tmp___7 = ldv__builtin_expect((long )descriptor___6.flags & 1L, 0L);
       }
       if (tmp___7 != 0L) {
         {
@@ -11066,7 +11065,7 @@ int saa7146_stop_preview(struct saa7146_fh *fh )
     descriptor.format = "%s(): dev:%p, fh:%p\n";
     descriptor.lineno = 174U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -11088,7 +11087,7 @@ int saa7146_stop_preview(struct saa7146_fh *fh )
       descriptor___0.format = "%s(): streaming capture is active\n";
       descriptor___0.lineno = 178U;
       descriptor___0.flags = 0U;
-      tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+      tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
       }
       if (tmp___0 != 0L) {
         {
@@ -11114,7 +11113,7 @@ int saa7146_stop_preview(struct saa7146_fh *fh )
       descriptor___1.format = "%s(): no active overlay\n";
       descriptor___1.lineno = 184U;
       descriptor___1.flags = 0U;
-      tmp___1 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+      tmp___1 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
       }
       if (tmp___1 != 0L) {
         {
@@ -11140,7 +11139,7 @@ int saa7146_stop_preview(struct saa7146_fh *fh )
       descriptor___2.format = "%s(): overlay is active, but in another open\n";
       descriptor___2.lineno = 189U;
       descriptor___2.flags = 0U;
-      tmp___2 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+      tmp___2 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
       }
       if (tmp___2 != 0L) {
         {
@@ -11226,7 +11225,7 @@ static int saa7146_pgtable_build(struct saa7146_dev *dev , struct saa7146_buf *b
     descriptor.format = "%s(): dev:%p, buf:%p, sg_len:%d\n";
     descriptor.lineno = 215U;
     descriptor.flags = 0U;
-    tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp___1 != 0L) {
       {
@@ -11270,7 +11269,7 @@ static int saa7146_pgtable_build(struct saa7146_dev *dev , struct saa7146_buf *b
       descriptor___0.format = "%s(): size:%d, m1:%d, m2:%d, m3:%d, o1:%d, o2:%d\n";
       descriptor___0.lineno = 236U;
       descriptor___0.flags = 0U;
-      tmp___2 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+      tmp___2 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
       }
       if (tmp___2 != 0L) {
         {
@@ -11298,7 +11297,7 @@ static int saa7146_pgtable_build(struct saa7146_dev *dev , struct saa7146_buf *b
       descriptor___1.format = "%s(): size:%d, m1:%d, m2:%d, m3:%d, o1:%d, o2:%d\n";
       descriptor___1.lineno = 247U;
       descriptor___1.flags = 0U;
-      tmp___3 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+      tmp___3 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
       }
       if (tmp___3 != 0L) {
         {
@@ -11457,7 +11456,7 @@ static int video_begin(struct saa7146_fh *fh )
     descriptor.format = "%s(): dev:%p, fh:%p\n";
     descriptor.lineno = 336U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -11480,7 +11479,7 @@ static int video_begin(struct saa7146_fh *fh )
         descriptor___0.format = "%s(): already capturing\n";
         descriptor___0.lineno = 340U;
         descriptor___0.flags = 0U;
-        tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+        tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
         }
         if (tmp___0 != 0L) {
           {
@@ -11505,7 +11504,7 @@ static int video_begin(struct saa7146_fh *fh )
       descriptor___1.format = "%s(): already capturing in another open\n";
       descriptor___1.lineno = 343U;
       descriptor___1.flags = 0U;
-      tmp___1 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+      tmp___1 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
       }
       if (tmp___1 != 0L) {
         {
@@ -11531,7 +11530,7 @@ static int video_begin(struct saa7146_fh *fh )
       descriptor___2.format = "%s(): warning: suspending overlay video for streaming capture\n";
       descriptor___2.lineno = 348U;
       descriptor___2.flags = 0U;
-      tmp___2 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+      tmp___2 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
       }
       if (tmp___2 != 0L) {
         {
@@ -11557,7 +11556,7 @@ static int video_begin(struct saa7146_fh *fh )
         descriptor___3.format = "%s(): suspending video failed. aborting\n";
         descriptor___3.lineno = 352U;
         descriptor___3.flags = 0U;
-        tmp___3 = __builtin_expect((long )descriptor___3.flags & 1L, 0L);
+        tmp___3 = ldv__builtin_expect((long )descriptor___3.flags & 1L, 0L);
         }
         if (tmp___3 != 0L) {
           {
@@ -11579,7 +11578,7 @@ static int video_begin(struct saa7146_fh *fh )
   }
   {
   fmt = saa7146_format_by_fourcc(dev, (int )vv->video_fmt.pixelformat);
-  tmp___4 = __builtin_expect((unsigned long )fmt == (unsigned long )((struct saa7146_format *)0),
+  tmp___4 = ldv__builtin_expect((unsigned long )fmt == (unsigned long )((struct saa7146_format *)0),
                              0L);
   }
   if (tmp___4 != 0L) {
@@ -11608,7 +11607,7 @@ static int video_begin(struct saa7146_fh *fh )
       descriptor___4.format = "%s(): cannot get capture resource %d\n";
       descriptor___4.lineno = 369U;
       descriptor___4.flags = 0U;
-      tmp___5 = __builtin_expect((long )descriptor___4.flags & 1L, 0L);
+      tmp___5 = ldv__builtin_expect((long )descriptor___4.flags & 1L, 0L);
       }
       if (tmp___5 != 0L) {
         {
@@ -11671,7 +11670,7 @@ static int video_end(struct saa7146_fh *fh , struct file *file )
     descriptor.format = "%s(): dev:%p, fh:%p\n";
     descriptor.lineno = 397U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -11693,7 +11692,7 @@ static int video_end(struct saa7146_fh *fh , struct file *file )
       descriptor___0.format = "%s(): not capturing\n";
       descriptor___0.lineno = 400U;
       descriptor___0.flags = 0U;
-      tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+      tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
       }
       if (tmp___0 != 0L) {
         {
@@ -11719,7 +11718,7 @@ static int video_end(struct saa7146_fh *fh , struct file *file )
       descriptor___1.format = "%s(): capturing, but in another open\n";
       descriptor___1.lineno = 405U;
       descriptor___1.flags = 0U;
-      tmp___1 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+      tmp___1 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
       }
       if (tmp___1 != 0L) {
         {
@@ -11738,7 +11737,7 @@ static int video_end(struct saa7146_fh *fh , struct file *file )
   }
   {
   fmt = saa7146_format_by_fourcc(dev, (int )vv->video_fmt.pixelformat);
-  tmp___2 = __builtin_expect((unsigned long )fmt == (unsigned long )((struct saa7146_format *)0),
+  tmp___2 = ldv__builtin_expect((unsigned long )fmt == (unsigned long )((struct saa7146_format *)0),
                              0L);
   }
   if (tmp___2 != 0L) {
@@ -11849,7 +11848,7 @@ static int vidioc_s_fbuf(struct file *file , void *fh , struct v4l2_framebuffer 
     descriptor.format = "%s(): VIDIOC_S_FBUF\n";
     descriptor.lineno = 487U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -11903,7 +11902,7 @@ static int vidioc_s_fbuf(struct file *file , void *fh , struct v4l2_framebuffer 
       descriptor___0.format = "%s(): planar pixelformat \'%4.4s\' not allowed for overlay\n";
       descriptor___0.lineno = 500U;
       descriptor___0.flags = 0U;
-      tmp___4 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+      tmp___4 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
       }
       if (tmp___4 != 0L) {
         {
@@ -11929,7 +11928,7 @@ static int vidioc_s_fbuf(struct file *file , void *fh , struct v4l2_framebuffer 
         descriptor___1.format = "%s(): refusing to change framebuffer informations while overlay is active in another open\n";
         descriptor___1.lineno = 505U;
         descriptor___1.flags = 0U;
-        tmp___5 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+        tmp___5 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
         }
         if (tmp___5 != 0L) {
           {
@@ -11961,7 +11960,7 @@ static int vidioc_s_fbuf(struct file *file , void *fh , struct v4l2_framebuffer 
       descriptor___2.format = "%s(): setting bytesperline to %d\n";
       descriptor___2.lineno = 516U;
       descriptor___2.flags = 0U;
-      tmp___6 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+      tmp___6 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
       }
       if (tmp___6 != 0L) {
         {
@@ -12179,7 +12178,7 @@ static int vidioc_try_fmt_vid_cap(struct file *file , void *fh , struct v4l2_for
     descriptor.format = "%s(): V4L2_BUF_TYPE_VIDEO_CAPTURE: dev:%p, fh:%p\n";
     descriptor.lineno = 639U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -12251,7 +12250,7 @@ static int vidioc_try_fmt_vid_cap(struct file *file , void *fh , struct v4l2_for
     descriptor___0.format = "%s(): no known field mode \'%d\'\n";
     descriptor___0.lineno = 668U;
     descriptor___0.flags = 0U;
-    tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -12300,7 +12299,7 @@ static int vidioc_try_fmt_vid_cap(struct file *file , void *fh , struct v4l2_for
     descriptor___1.format = "%s(): w:%d, h:%d, bytesperline:%d, sizeimage:%d\n";
     descriptor___1.lineno = 690U;
     descriptor___1.flags = 0U;
-    tmp___1 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
     }
     if (tmp___1 != 0L) {
       {
@@ -12350,7 +12349,7 @@ static int vidioc_try_fmt_vid_overlay(struct file *file , void *fh , struct v4l2
     descriptor.format = "%s(): dev:%p\n";
     descriptor.lineno = 704U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -12372,7 +12371,7 @@ static int vidioc_try_fmt_vid_overlay(struct file *file , void *fh , struct v4l2
       descriptor___0.format = "%s(): no fb base set\n";
       descriptor___0.lineno = 707U;
       descriptor___0.flags = 0U;
-      tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+      tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
       }
       if (tmp___0 != 0L) {
         {
@@ -12398,7 +12397,7 @@ static int vidioc_try_fmt_vid_overlay(struct file *file , void *fh , struct v4l2
       descriptor___1.format = "%s(): no fb fmt set\n";
       descriptor___1.lineno = 711U;
       descriptor___1.flags = 0U;
-      tmp___1 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+      tmp___1 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
       }
       if (tmp___1 != 0L) {
         {
@@ -12424,7 +12423,7 @@ static int vidioc_try_fmt_vid_overlay(struct file *file , void *fh , struct v4l2
       descriptor___2.format = "%s(): min width/height. (%d,%d)\n";
       descriptor___2.lineno = 716U;
       descriptor___2.flags = 0U;
-      tmp___2 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+      tmp___2 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
       }
       if (tmp___2 != 0L) {
         {
@@ -12450,7 +12449,7 @@ static int vidioc_try_fmt_vid_overlay(struct file *file , void *fh , struct v4l2
       descriptor___3.format = "%s(): clipcount too big\n";
       descriptor___3.lineno = 720U;
       descriptor___3.flags = 0U;
-      tmp___3 = __builtin_expect((long )descriptor___3.flags & 1L, 0L);
+      tmp___3 = ldv__builtin_expect((long )descriptor___3.flags & 1L, 0L);
       }
       if (tmp___3 != 0L) {
         {
@@ -12513,7 +12512,7 @@ static int vidioc_try_fmt_vid_overlay(struct file *file , void *fh , struct v4l2
     descriptor___4.format = "%s(): no known field mode \'%d\'\n";
     descriptor___4.lineno = 742U;
     descriptor___4.flags = 0U;
-    tmp___4 = __builtin_expect((long )descriptor___4.flags & 1L, 0L);
+    tmp___4 = ldv__builtin_expect((long )descriptor___4.flags & 1L, 0L);
     }
     if (tmp___4 != 0L) {
       {
@@ -12569,7 +12568,7 @@ static int vidioc_s_fmt_vid_cap(struct file *file , void *__fh , struct v4l2_for
     descriptor.format = "%s(): V4L2_BUF_TYPE_VIDEO_CAPTURE: dev:%p, fh:%p\n";
     descriptor.lineno = 762U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -12591,7 +12590,7 @@ static int vidioc_s_fmt_vid_cap(struct file *file , void *__fh , struct v4l2_for
       descriptor___0.format = "%s(): streaming capture is active\n";
       descriptor___0.lineno = 764U;
       descriptor___0.flags = 0U;
-      tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+      tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
       }
       if (tmp___0 != 0L) {
         {
@@ -12625,7 +12624,7 @@ static int vidioc_s_fmt_vid_cap(struct file *file , void *__fh , struct v4l2_for
     descriptor___1.format = "%s(): set to pixelformat \'%4.4s\'\n";
     descriptor___1.lineno = 772U;
     descriptor___1.flags = 0U;
-    tmp___1 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
     }
     if (tmp___1 != 0L) {
       {
@@ -12663,7 +12662,7 @@ static int vidioc_s_fmt_vid_overlay(struct file *file , void *__fh , struct v4l2
     descriptor.format = "%s(): V4L2_BUF_TYPE_VIDEO_OVERLAY: dev:%p, fh:%p\n";
     descriptor.lineno = 783U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -12754,7 +12753,7 @@ static int vidioc_s_std(struct file *file , void *fh , v4l2_std_id id )
     descriptor.format = "%s(): VIDIOC_S_STD\n";
     descriptor.lineno = 841U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -12775,7 +12774,7 @@ static int vidioc_s_std(struct file *file , void *fh , v4l2_std_id id )
       descriptor___0.format = "%s(): cannot change video standard while streaming capture is active\n";
       descriptor___0.lineno = 844U;
       descriptor___0.flags = 0U;
-      tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+      tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
       }
       if (tmp___0 != 0L) {
         {
@@ -12806,7 +12805,7 @@ static int vidioc_s_std(struct file *file , void *fh , v4l2_std_id id )
         descriptor___1.format = "%s(): suspending video failed. aborting\n";
         descriptor___1.lineno = 852U;
         descriptor___1.flags = 0U;
-        tmp___1 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+        tmp___1 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
         }
         if (tmp___1 != 0L) {
           {
@@ -12873,7 +12872,7 @@ static int vidioc_s_std(struct file *file , void *fh , v4l2_std_id id )
       descriptor___2.format = "%s(): VIDIOC_S_STD: standard not found\n";
       descriptor___2.lineno = 873U;
       descriptor___2.flags = 0U;
-      tmp___2 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+      tmp___2 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
       }
       if (tmp___2 != 0L) {
         {
@@ -12898,7 +12897,7 @@ static int vidioc_s_std(struct file *file , void *fh , v4l2_std_id id )
     descriptor___3.format = "%s(): VIDIOC_S_STD: set to standard to \'%s\'\n";
     descriptor___3.lineno = 877U;
     descriptor___3.flags = 0U;
-    tmp___3 = __builtin_expect((long )descriptor___3.flags & 1L, 0L);
+    tmp___3 = ldv__builtin_expect((long )descriptor___3.flags & 1L, 0L);
     }
     if (tmp___3 != 0L) {
       {
@@ -12929,7 +12928,7 @@ static int vidioc_overlay(struct file *file , void *fh , unsigned int on )
     descriptor.format = "%s(): VIDIOC_OVERLAY on:%d\n";
     descriptor.lineno = 885U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -13081,7 +13080,7 @@ static int vidioc_streamon(struct file *file , void *__fh , enum v4l2_buf_type t
     descriptor.format = "%s(): VIDIOC_STREAMON, type:%d\n";
     descriptor.lineno = 942U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -13148,7 +13147,7 @@ static int vidioc_streamoff(struct file *file , void *__fh , enum v4l2_buf_type 
     descriptor.format = "%s(): VIDIOC_STREAMOFF, type:%d\n";
     descriptor.lineno = 961U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -13170,7 +13169,7 @@ static int vidioc_streamoff(struct file *file , void *__fh , enum v4l2_buf_type 
       descriptor___0.format = "%s(): not capturing\n";
       descriptor___0.lineno = 967U;
       descriptor___0.flags = 0U;
-      tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+      tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
       }
       if (tmp___0 != 0L) {
         {
@@ -13196,7 +13195,7 @@ static int vidioc_streamoff(struct file *file , void *__fh , enum v4l2_buf_type 
       descriptor___1.format = "%s(): capturing, but in another open\n";
       descriptor___1.lineno = 972U;
       descriptor___1.flags = 0U;
-      tmp___1 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+      tmp___1 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
       }
       if (tmp___1 != 0L) {
         {
@@ -13235,7 +13234,7 @@ static int vidioc_streamoff(struct file *file , void *__fh , enum v4l2_buf_type 
       descriptor___2.format = "%s(): warning: videobuf_streamoff() failed\n";
       descriptor___2.lineno = 982U;
       descriptor___2.flags = 0U;
-      tmp___2 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+      tmp___2 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
       }
       if (tmp___2 != 0L) {
         {
@@ -13342,7 +13341,7 @@ static int buffer_prepare(struct videobuf_queue *q , struct videobuf_buffer *vb 
     descriptor.format = "%s(): vbuf:%p\n";
     descriptor.lineno = 1067U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -13364,7 +13363,7 @@ static int buffer_prepare(struct videobuf_queue *q , struct videobuf_buffer *vb 
       descriptor___0.format = "%s(): w (%d) / h (%d) out of bounds\n";
       descriptor___0.lineno = 1075U;
       descriptor___0.flags = 0U;
-      tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+      tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
       }
       if (tmp___0 != 0L) {
         {
@@ -13391,7 +13390,7 @@ static int buffer_prepare(struct videobuf_queue *q , struct videobuf_buffer *vb 
       descriptor___1.format = "%s(): size mismatch\n";
       descriptor___1.lineno = 1081U;
       descriptor___1.flags = 0U;
-      tmp___1 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+      tmp___1 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
       }
       if (tmp___1 != 0L) {
         {
@@ -13416,7 +13415,7 @@ static int buffer_prepare(struct videobuf_queue *q , struct videobuf_buffer *vb 
     descriptor___2.format = "%s(): buffer_prepare [size=%dx%d,bytes=%d,fields=%s]\n";
     descriptor___2.lineno = 1087U;
     descriptor___2.flags = 0U;
-    tmp___2 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+    tmp___2 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
     }
     if (tmp___2 != 0L) {
       {
@@ -13491,7 +13490,7 @@ static int buffer_prepare(struct videobuf_queue *q , struct videobuf_buffer *vb 
     descriptor___3.format = "%s(): error out\n";
     descriptor___3.lineno = 1133U;
     descriptor___3.flags = 0U;
-    tmp___3 = __builtin_expect((long )descriptor___3.flags & 1L, 0L);
+    tmp___3 = ldv__builtin_expect((long )descriptor___3.flags & 1L, 0L);
     }
     if (tmp___3 != 0L) {
       {
@@ -13540,7 +13539,7 @@ static int buffer_setup(struct videobuf_queue *q , unsigned int *count , unsigne
     descriptor.format = "%s(): %d buffers, %d bytes each\n";
     descriptor.lineno = 1155U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -13580,7 +13579,7 @@ static void buffer_queue(struct videobuf_queue *q , struct videobuf_buffer *vb )
     descriptor.format = "%s(): vbuf:%p\n";
     descriptor.lineno = 1168U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -13621,7 +13620,7 @@ static void buffer_release(struct videobuf_queue *q , struct videobuf_buffer *vb
     descriptor.format = "%s(): vbuf:%p\n";
     descriptor.lineno = 1179U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -13723,7 +13722,7 @@ static void video_irq_done(struct saa7146_dev *dev , unsigned long st )
     descriptor.format = "%s(): called\n";
     descriptor.lineno = 1251U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -13777,7 +13776,7 @@ static ssize_t video_read(struct file *file , char *data , size_t count , loff_t
     descriptor.format = "%s(): called\n";
     descriptor.lineno = 1269U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -13799,7 +13798,7 @@ static ssize_t video_read(struct file *file , char *data , size_t count , loff_t
         descriptor___0.format = "%s(): already capturing\n";
         descriptor___0.lineno = 1274U;
         descriptor___0.flags = 0U;
-        tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+        tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
         }
         if (tmp___0 != 0L) {
           {
@@ -13824,7 +13823,7 @@ static ssize_t video_read(struct file *file , char *data , size_t count , loff_t
       descriptor___1.format = "%s(): already capturing in another open\n";
       descriptor___1.lineno = 1277U;
       descriptor___1.flags = 0U;
-      tmp___1 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+      tmp___1 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
       }
       if (tmp___1 != 0L) {
         {
@@ -15452,7 +15451,7 @@ static int calculate_video_dma_grab_packed(struct saa7146_dev *dev , struct saa7
     descriptor.format = "%s(): [size=%dx%d,fields=%s]\n";
     descriptor.lineno = 719U;
     descriptor.flags = 0U;
-    tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -15602,7 +15601,7 @@ static int calculate_video_dma_grab_planar(struct saa7146_dev *dev , struct saa7
   width = (int )(buf->fmt)->width;
   height = (int )(buf->fmt)->height;
   field = (buf->fmt)->field;
-  tmp___0 = __builtin_expect(buf->pt[0].dma == 0ULL, 0L);
+  tmp___0 = ldv__builtin_expect(buf->pt[0].dma == 0ULL, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -15614,7 +15613,7 @@ static int calculate_video_dma_grab_planar(struct saa7146_dev *dev , struct saa7
 
   }
   {
-  tmp___1 = __builtin_expect(buf->pt[1].dma == 0ULL, 0L);
+  tmp___1 = ldv__builtin_expect(buf->pt[1].dma == 0ULL, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -15626,7 +15625,7 @@ static int calculate_video_dma_grab_planar(struct saa7146_dev *dev , struct saa7
 
   }
   {
-  tmp___2 = __builtin_expect(buf->pt[2].dma == 0ULL, 0L);
+  tmp___2 = ldv__builtin_expect(buf->pt[2].dma == 0ULL, 0L);
   }
   if (tmp___2 != 0L) {
     {
@@ -15645,7 +15644,7 @@ static int calculate_video_dma_grab_planar(struct saa7146_dev *dev , struct saa7
     descriptor.format = "%s(): [size=%dx%d,fields=%s]\n";
     descriptor.lineno = 845U;
     descriptor.flags = 0U;
-    tmp___3 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___3 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp___3 != 0L) {
       {
@@ -15933,7 +15932,7 @@ void saa7146_set_capture(struct saa7146_dev *dev , struct saa7146_buf *buf , str
     descriptor.format = "%s(): buf:%p, next:%p\n";
     descriptor.lineno = 1005U;
     descriptor.flags = 0U;
-    tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -15958,7 +15957,7 @@ void saa7146_set_capture(struct saa7146_dev *dev , struct saa7146_buf *buf , str
       descriptor___0.format = "%s(): forcing sync to new frame\n";
       descriptor___0.lineno = 1010U;
       descriptor___0.flags = 0U;
-      tmp___1 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+      tmp___1 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
       }
       if (tmp___1 != 0L) {
         {
@@ -16118,7 +16117,7 @@ __inline static int signal_pending(struct task_struct *p )
   {
   {
   tmp = test_tsk_thread_flag(p, 2);
-  tmp___0 = __builtin_expect(tmp != 0, 0L);
+  tmp___0 = ldv__builtin_expect(tmp != 0, 0L);
   }
   return ((int )tmp___0);
 }
@@ -16222,7 +16221,7 @@ static int vbi_workaround(struct saa7146_dev *dev )
     descriptor.format = "%s(): dev:%p\n";
     descriptor.lineno = 17U;
     descriptor.flags = 0U;
-    tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -16267,7 +16266,7 @@ static int vbi_workaround(struct saa7146_dev *dev )
       descriptor___0.format = "%s(): ...using port b\n";
       descriptor___0.lineno = 43U;
       descriptor___0.flags = 0U;
-      tmp___4 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+      tmp___4 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
       }
       if (tmp___4 != 0L) {
         {
@@ -16294,7 +16293,7 @@ static int vbi_workaround(struct saa7146_dev *dev )
       descriptor___1.format = "%s(): ...using port a\n";
       descriptor___1.lineno = 50U;
       descriptor___1.flags = 0U;
-      tmp___7 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+      tmp___7 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
       }
       if (tmp___7 != 0L) {
         {
@@ -16378,7 +16377,7 @@ static int vbi_workaround(struct saa7146_dev *dev )
     descriptor___2.format = "%s(): brs bug workaround %d/1\n";
     descriptor___2.lineno = 106U;
     descriptor___2.flags = 0U;
-    tmp___25 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+    tmp___25 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
     }
     if (tmp___25 != 0L) {
       {
@@ -16409,7 +16408,7 @@ static int vbi_workaround(struct saa7146_dev *dev )
       descriptor___3.format = "%s(): aborted (rps:0x%08x)\n";
       descriptor___3.lineno = 120U;
       descriptor___3.flags = 0U;
-      tmp___28 = __builtin_expect((long )descriptor___3.flags & 1L, 0L);
+      tmp___28 = ldv__builtin_expect((long )descriptor___3.flags & 1L, 0L);
       }
       if (tmp___28 != 0L) {
         {
@@ -16528,7 +16527,7 @@ static int buffer_activate___0(struct saa7146_dev *dev , struct saa7146_buf *buf
     descriptor.format = "%s(): dev:%p, buf:%p, next:%p\n";
     descriptor.lineno = 211U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -16585,7 +16584,7 @@ static int buffer_prepare___0(struct videobuf_queue *q , struct videobuf_buffer 
     descriptor.format = "%s(): vb:%p\n";
     descriptor.lineno = 232U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -16606,7 +16605,7 @@ static int buffer_prepare___0(struct videobuf_queue *q , struct videobuf_buffer 
       descriptor___0.format = "%s(): size mismatch\n";
       descriptor___0.lineno = 235U;
       descriptor___0.flags = 0U;
-      tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+      tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
       }
       if (tmp___0 != 0L) {
         {
@@ -16670,7 +16669,7 @@ static int buffer_prepare___0(struct videobuf_queue *q , struct videobuf_buffer 
     descriptor___1.format = "%s(): error out\n";
     descriptor___1.lineno = 267U;
     descriptor___1.flags = 0U;
-    tmp___2 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___2 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
     }
     if (tmp___2 != 0L) {
       {
@@ -16708,7 +16707,7 @@ static int buffer_setup___0(struct videobuf_queue *q , unsigned int *count , uns
     descriptor.format = "%s(): count:%d, size:%d\n";
     descriptor.lineno = 283U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -16748,7 +16747,7 @@ static void buffer_queue___0(struct videobuf_queue *q , struct videobuf_buffer *
     descriptor.format = "%s(): vb:%p\n";
     descriptor.lineno = 296U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -16788,7 +16787,7 @@ static void buffer_release___0(struct videobuf_queue *q , struct videobuf_buffer
     descriptor.format = "%s(): vb:%p\n";
     descriptor.lineno = 307U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -16826,7 +16825,7 @@ static void vbi_stop(struct saa7146_fh *fh , struct file *file )
     descriptor.format = "%s(): dev:%p, fh:%p\n";
     descriptor.lineno = 325U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -16881,7 +16880,7 @@ static void vbi_read_timeout(unsigned long data )
     descriptor.format = "%s(): dev:%p, fh:%p\n";
     descriptor.lineno = 357U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -16916,7 +16915,7 @@ static void vbi_init(struct saa7146_dev *dev , struct saa7146_vv *vv )
     descriptor.format = "%s(): dev:%p\n";
     descriptor.lineno = 364U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -16969,7 +16968,7 @@ static int vbi_open(struct saa7146_dev *dev , struct file *file )
     descriptor.format = "%s(): dev:%p, fh:%p\n";
     descriptor.lineno = 384U;
     descriptor.flags = 0U;
-    tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -16993,7 +16992,7 @@ static int vbi_open(struct saa7146_dev *dev , struct file *file )
       descriptor___0.format = "%s(): cannot get vbi RESOURCE_DMA3_BRS resource\n";
       descriptor___0.lineno = 388U;
       descriptor___0.flags = 0U;
-      tmp___1 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+      tmp___1 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
       }
       if (tmp___1 != 0L) {
         {
@@ -17039,7 +17038,7 @@ static int vbi_open(struct saa7146_dev *dev , struct file *file )
         descriptor___1.format = "%s(): vbi workaround failed!\n";
         descriptor___1.lineno = 415U;
         descriptor___1.flags = 0U;
-        tmp___2 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+        tmp___2 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
         }
         if (tmp___2 != 0L) {
           {
@@ -17079,7 +17078,7 @@ static void vbi_close(struct saa7146_dev *dev , struct file *file )
     descriptor.format = "%s(): dev:%p, fh:%p\n";
     descriptor.lineno = 429U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -17127,7 +17126,7 @@ static void vbi_irq_done(struct saa7146_dev *dev , unsigned long status )
       descriptor.format = "%s(): dev:%p, curr:%p\n";
       descriptor.lineno = 443U;
       descriptor.flags = 0U;
-      tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+      tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
       }
       if (tmp != 0L) {
         {
@@ -17154,7 +17153,7 @@ static void vbi_irq_done(struct saa7146_dev *dev , unsigned long status )
     descriptor___0.format = "%s(): dev:%p\n";
     descriptor___0.lineno = 449U;
     descriptor___0.flags = 0U;
-    tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -17197,7 +17196,7 @@ static ssize_t vbi_read(struct file *file , char *data , size_t count , loff_t *
     descriptor.format = "%s(): dev:%p, fh:%p\n";
     descriptor.lineno = 463U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -17223,7 +17222,7 @@ static ssize_t vbi_read(struct file *file , char *data , size_t count , loff_t *
       descriptor___0.format = "%s(): open %p is already using vbi capture\n";
       descriptor___0.lineno = 473U;
       descriptor___0.flags = 0U;
-      tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+      tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
       }
       if (tmp___0 != 0L) {
         {
@@ -17637,7 +17636,7 @@ void *ldv_kzalloc(size_t size , gfp_t flags )
 }
 }
 extern void ldv_assert(char const   * , int  ) ;
-void __builtin_trap(void) ;
+void ldv__builtin_trap(void) ;
 void ldv_assume(int expression ) 
 { 
 
@@ -17661,7 +17660,7 @@ void ldv_stop(void)
   goto ldv_stop_label;
 }
 }
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 
@@ -17669,7 +17668,7 @@ long __builtin_expect(long exp , long c )
   return (exp);
 }
 }
-void __builtin_trap(void) 
+void ldv__builtin_trap(void) 
 { 
 
 

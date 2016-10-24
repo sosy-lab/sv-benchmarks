@@ -5042,7 +5042,7 @@ struct ldv_thread {
    int identifier ;
    void (*function)(void * ) ;
 };
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 void *ldv_dev_get_drvdata(struct device  const  *dev ) ;
 int ldv_dev_set_drvdata(struct device *dev , void *data ) ;
 long ldv_is_err(void const   *ptr ) ;
@@ -5292,7 +5292,7 @@ __inline static struct vsp1_pipeline *to_vsp1_pipeline(struct media_entity *e )
 
   {
   {
-  tmp = __builtin_expect((unsigned long )e->pipe != (unsigned long )((struct media_pipeline *)0),
+  tmp = ldv__builtin_expect((unsigned long )e->pipe != (unsigned long )((struct media_pipeline *)0),
                          1L);
   }
   if (tmp != 0L) {
@@ -6014,7 +6014,7 @@ static int vsp1_pm_suspend(struct device *dev )
   vsp1 = (struct vsp1_device *)tmp;
   tmp___0 = mutex_is_locked(& vsp1->lock);
   __ret_warn_on = tmp___0 != 0;
-  tmp___1 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___1 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -6024,7 +6024,7 @@ static int vsp1_pm_suspend(struct device *dev )
 
   }
   {
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (vsp1->ref_count == 0) {
     return (0);
@@ -6052,7 +6052,7 @@ static int vsp1_pm_resume(struct device *dev )
   vsp1 = (struct vsp1_device *)tmp;
   tmp___0 = mutex_is_locked(& vsp1->lock);
   __ret_warn_on = tmp___0 != 0;
-  tmp___1 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___1 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -6062,7 +6062,7 @@ static int vsp1_pm_resume(struct device *dev )
 
   }
   {
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (vsp1->ref_count != 0) {
     return (0);
@@ -6452,7 +6452,7 @@ void ldv_dummy_resourceless_instance_callback_9_3(int (*arg0)(struct v4l2_subdev
                                                   struct v4l2_subdev *arg1 , struct v4l2_subdev_fh *arg2 ,
                                                   struct v4l2_subdev_frame_size_enum *arg3 ) ;
 void ldv_entry_EMGentry_28(void *arg0 ) ;
-void main(void) ;
+int main(void) ;
 void ldv_iio_triggered_buffer_iio_triggered_buffer_instance_0(void *arg0 ) ;
 enum irqreturn ldv_iio_triggered_buffer_instance_handler_0_5(enum irqreturn (*arg0)(int  ,
                                                                                     void * ) ,
@@ -7905,7 +7905,7 @@ void ldv_entry_EMGentry_28(void *arg0 )
   return;
 }
 }
-void main(void) 
+int main(void) 
 { 
   int tmp ;
 
@@ -12158,7 +12158,6 @@ static void ldv_platform_driver_unregister_54(struct platform_driver *ldv_func_a
 }
 }
 extern void *memset(void * , int  , size_t  ) ;
-extern int ( /* missing proto */  __builtin_unreachable)() ;
 static void *ldv_dev_get_drvdata_37(struct device  const  *dev ) ;
 extern int media_entity_init(struct media_entity * , u16  , struct media_pad * , u16  ) ;
 extern void media_entity_cleanup(struct media_entity * ) ;
@@ -12183,7 +12182,7 @@ __inline static struct v4l2_mbus_framefmt *v4l2_subdev_get_try_format(struct v4l
   {
   {
   tmp = video_get_drvdata(fh->vfh.vdev);
-  tmp___0 = __builtin_expect(pad >= (unsigned int )((struct v4l2_subdev *)tmp)->entity.num_pads,
+  tmp___0 = ldv__builtin_expect(pad >= (unsigned int )((struct v4l2_subdev *)tmp)->entity.num_pads,
                              0L);
   }
   if (tmp___0 != 0L) {
@@ -15348,7 +15347,7 @@ __inline static struct v4l2_mbus_framefmt *v4l2_subdev_get_try_format___0(struct
   {
   {
   tmp = video_get_drvdata___1(fh->vfh.vdev);
-  tmp___0 = __builtin_expect(pad >= (unsigned int )((struct v4l2_subdev *)tmp)->entity.num_pads,
+  tmp___0 = ldv__builtin_expect(pad >= (unsigned int )((struct v4l2_subdev *)tmp)->entity.num_pads,
                              0L);
   }
   if (tmp___0 != 0L) {
@@ -15372,7 +15371,7 @@ __inline static struct v4l2_rect *v4l2_subdev_get_try_crop(struct v4l2_subdev_fh
   {
   {
   tmp = video_get_drvdata___1(fh->vfh.vdev);
-  tmp___0 = __builtin_expect(pad >= (unsigned int )((struct v4l2_subdev *)tmp)->entity.num_pads,
+  tmp___0 = ldv__builtin_expect(pad >= (unsigned int )((struct v4l2_subdev *)tmp)->entity.num_pads,
                              0L);
   }
   if (tmp___0 != 0L) {
@@ -16848,7 +16847,7 @@ __inline static struct v4l2_mbus_framefmt *v4l2_subdev_get_try_format___1(struct
   {
   {
   tmp = video_get_drvdata___2(fh->vfh.vdev);
-  tmp___0 = __builtin_expect(pad >= (unsigned int )((struct v4l2_subdev *)tmp)->entity.num_pads,
+  tmp___0 = ldv__builtin_expect(pad >= (unsigned int )((struct v4l2_subdev *)tmp)->entity.num_pads,
                              0L);
   }
   if (tmp___0 != 0L) {
@@ -17605,7 +17604,7 @@ __inline static struct v4l2_mbus_framefmt *v4l2_subdev_get_try_format___2(struct
   {
   {
   tmp = video_get_drvdata___3(fh->vfh.vdev);
-  tmp___0 = __builtin_expect(pad >= (unsigned int )((struct v4l2_subdev *)tmp)->entity.num_pads,
+  tmp___0 = ldv__builtin_expect(pad >= (unsigned int )((struct v4l2_subdev *)tmp)->entity.num_pads,
                              0L);
   }
   if (tmp___0 != 0L) {
@@ -18012,7 +18011,7 @@ __inline static struct v4l2_mbus_framefmt *v4l2_subdev_get_try_format___3(struct
   {
   {
   tmp = video_get_drvdata___4(fh->vfh.vdev);
-  tmp___0 = __builtin_expect(pad >= (unsigned int )((struct v4l2_subdev *)tmp)->entity.num_pads,
+  tmp___0 = ldv__builtin_expect(pad >= (unsigned int )((struct v4l2_subdev *)tmp)->entity.num_pads,
                              0L);
   }
   if (tmp___0 != 0L) {
@@ -18673,7 +18672,7 @@ __inline static struct v4l2_mbus_framefmt *v4l2_subdev_get_try_format___4(struct
   {
   {
   tmp = video_get_drvdata___5(fh->vfh.vdev);
-  tmp___0 = __builtin_expect(pad >= (unsigned int )((struct v4l2_subdev *)tmp)->entity.num_pads,
+  tmp___0 = ldv__builtin_expect(pad >= (unsigned int )((struct v4l2_subdev *)tmp)->entity.num_pads,
                              0L);
   }
   if (tmp___0 != 0L) {
@@ -19178,7 +19177,7 @@ __inline static struct v4l2_mbus_framefmt *v4l2_subdev_get_try_format___5(struct
   {
   {
   tmp = video_get_drvdata___6(fh->vfh.vdev);
-  tmp___0 = __builtin_expect(pad >= (unsigned int )((struct v4l2_subdev *)tmp)->entity.num_pads,
+  tmp___0 = ldv__builtin_expect(pad >= (unsigned int )((struct v4l2_subdev *)tmp)->entity.num_pads,
                              0L);
   }
   if (tmp___0 != 0L) {
@@ -19291,7 +19290,7 @@ static void uds_compute_ratios(struct vsp1_uds *uds )
   descriptor.format = "hscale %u vscale %u\n";
   descriptor.lineno = 118U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -19845,7 +19844,7 @@ void *ldv_kzalloc(size_t size , gfp_t flags )
 }
 }
 extern void ldv_assert(char const   * , int  ) ;
-void __builtin_trap(void) ;
+void ldv__builtin_trap(void) ;
 void ldv_assume(int expression ) 
 { 
 
@@ -19869,7 +19868,7 @@ void ldv_stop(void)
   goto ldv_stop_label;
 }
 }
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 
@@ -19877,7 +19876,7 @@ long __builtin_expect(long exp , long c )
   return (exp);
 }
 }
-void __builtin_trap(void) 
+void ldv__builtin_trap(void) 
 { 
 
 

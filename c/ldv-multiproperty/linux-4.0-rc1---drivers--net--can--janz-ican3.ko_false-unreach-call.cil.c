@@ -6511,7 +6511,7 @@ struct ldv_thread {
    void (*function)(void * ) ;
 };
 typedef _Bool ldv_set;
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 void ldv_assume(int expression ) ;
 void ldv_stop(void) ;
 void ldv_linux_alloc_irq_check_alloc_flags(gfp_t flags ) ;
@@ -6718,7 +6718,6 @@ extern void *__memcpy(void * , void const   * , size_t  ) ;
 extern void *__memset(void * , int  , size_t  ) ;
 extern int memcmp(void const   * , void const   * , size_t  ) ;
 extern void warn_slowpath_null(char const   * , int const    ) ;
-extern int ( /* missing proto */  __builtin_unreachable)() ;
 __inline static int atomic_read(atomic_t const   *v ) 
 { 
   int __var ;
@@ -7013,7 +7012,7 @@ __inline static void napi_enable(struct napi_struct *n )
   {
   {
   tmp = constant_test_bit(0L, (unsigned long const volatile   *)(& n->state));
-  tmp___0 = __builtin_expect(tmp == 0, 0L);
+  tmp___0 = ldv__builtin_expect(tmp == 0, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -7096,7 +7095,7 @@ __inline static void netif_tx_stop_queue(struct netdev_queue *dev_queue )
   {
   {
   __ret_warn_on = (unsigned long )dev_queue == (unsigned long )((struct netdev_queue *)0);
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp != 0L) {
     {
@@ -7106,7 +7105,7 @@ __inline static void netif_tx_stop_queue(struct netdev_queue *dev_queue )
 
   }
   {
-  tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -7207,13 +7206,13 @@ __inline static int can_dropped_invalid_skb(struct net_device *dev , struct sk_b
   cfd = (struct canfd_frame  const  *)skb->data;
   if ((unsigned int )skb->protocol == 3072U) {
     {
-    tmp = __builtin_expect(skb->len != 16U, 0L);
+    tmp = ldv__builtin_expect(skb->len != 16U, 0L);
     }
     if (tmp != 0L) {
       goto inval_skb;
     } else {
       {
-      tmp___0 = __builtin_expect((unsigned int )((unsigned char )cfd->len) > 8U, 0L);
+      tmp___0 = ldv__builtin_expect((unsigned int )((unsigned char )cfd->len) > 8U, 0L);
       }
       if (tmp___0 != 0L) {
         goto inval_skb;
@@ -7224,13 +7223,13 @@ __inline static int can_dropped_invalid_skb(struct net_device *dev , struct sk_b
   } else
   if ((unsigned int )skb->protocol == 3328U) {
     {
-    tmp___1 = __builtin_expect(skb->len != 72U, 0L);
+    tmp___1 = ldv__builtin_expect(skb->len != 72U, 0L);
     }
     if (tmp___1 != 0L) {
       goto inval_skb;
     } else {
       {
-      tmp___2 = __builtin_expect((unsigned int )((unsigned char )cfd->len) > 64U,
+      tmp___2 = ldv__builtin_expect((unsigned int )((unsigned char )cfd->len) > 64U,
                                  0L);
       }
       if (tmp___2 != 0L) {
@@ -7334,7 +7333,7 @@ __inline static struct sk_buff *can_create_echo_skb(struct sk_buff *skb )
     {
     tmp = ldv_skb_clone_125(skb, 32U);
     nskb = tmp;
-    tmp___0 = __builtin_expect((unsigned long )nskb != (unsigned long )((struct sk_buff *)0),
+    tmp___0 = ldv__builtin_expect((unsigned long )nskb != (unsigned long )((struct sk_buff *)0),
                                1L);
     }
     if (tmp___0 != 0L) {
@@ -7361,7 +7360,7 @@ __inline static void ican3_set_page(struct ican3_dev *mod , unsigned int page )
 
   {
   {
-  tmp = __builtin_expect(page > 255U, 0L);
+  tmp = ldv__builtin_expect(page > 255U, 0L);
   }
   if (tmp != 0L) {
     {
@@ -7407,7 +7406,7 @@ static int ican3_old_recv_msg(struct ican3_dev *mod , struct ican3_msg *msg )
     descriptor.format = "no mbox for reading\n";
     descriptor.lineno = 295U;
     descriptor.flags = 1U;
-    tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp___1 != 0L) {
       {
@@ -7677,7 +7676,7 @@ static int ican3_new_send_msg(struct ican3_dev *mod , struct ican3_msg *msg )
     descriptor.format = "%s: no free buffers\n";
     descriptor.lineno = 542U;
     descriptor.flags = 1U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -7723,7 +7722,7 @@ static int ican3_new_recv_msg(struct ican3_dev *mod , struct ican3_msg *msg )
     descriptor.format = "%s: no buffers to recv\n";
     descriptor.lineno = 573U;
     descriptor.flags = 1U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -7839,7 +7838,7 @@ static int ican3_msg_newhostif(struct ican3_dev *mod )
   msg.spec = 8U;
   msg.len = 0U;
   __ret_warn_on = mod->iftype != 0U;
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp != 0L) {
     {
@@ -7849,7 +7848,7 @@ static int ican3_msg_newhostif(struct ican3_dev *mod )
 
   }
   {
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
   ret = ican3_send_msg(mod, & msg);
   }
   if (ret != 0) {
@@ -7885,7 +7884,7 @@ static int ican3_msg_fasthostif(struct ican3_dev *mod )
   msg.data[6] = (u8 )(addr >> 16);
   msg.data[7] = (u8 )(addr >> 24);
   __ret_warn_on = mod->iftype != 1U;
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp != 0L) {
     {
@@ -7895,7 +7894,7 @@ static int ican3_msg_fasthostif(struct ican3_dev *mod )
 
   }
   {
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
   tmp___0 = ican3_send_msg(mod, & msg);
   }
   return (tmp___0);
@@ -8108,7 +8107,7 @@ static void ican3_handle_idvers(struct ican3_dev *mod , struct ican3_msg *msg )
   descriptor.format = "IDVERS response: %s\n";
   descriptor.lineno = 883U;
   descriptor.flags = 1U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -8211,7 +8210,7 @@ static int ican3_handle_cevtind(struct ican3_dev *mod , struct ican3_msg *msg )
     descriptor.format = "bus error interrupt\n";
     descriptor.lineno = 967U;
     descriptor.flags = 1U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -8264,7 +8263,7 @@ static int ican3_handle_cevtind(struct ican3_dev *mod , struct ican3_msg *msg )
     descriptor___0.format = "data overrun interrupt\n";
     descriptor___0.lineno = 998U;
     descriptor___0.flags = 1U;
-    tmp___1 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___1 != 0L) {
       {
@@ -8289,7 +8288,7 @@ static int ican3_handle_cevtind(struct ican3_dev *mod , struct ican3_msg *msg )
     descriptor___1.format = "error warning + passive interrupt\n";
     descriptor___1.lineno = 1007U;
     descriptor___1.flags = 1U;
-    tmp___2 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___2 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
     }
     if (tmp___2 != 0L) {
       {
@@ -8458,7 +8457,7 @@ static void ican3_handle_message(struct ican3_dev *mod , struct ican3_msg *msg )
   descriptor.format = "%s: modno %d spec 0x%.2x len %d bytes\n";
   descriptor.lineno = 1107U;
   descriptor.flags = 1U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -8683,7 +8682,7 @@ static int ican3_recv_skb(struct ican3_dev *mod )
   }
   {
   skb = alloc_can_skb(ndev, & cf);
-  tmp = __builtin_expect((unsigned long )skb == (unsigned long )((struct sk_buff *)0),
+  tmp = ldv__builtin_expect((unsigned long )skb == (unsigned long )((struct sk_buff *)0),
                          0L);
   }
   if (tmp != 0L) {
@@ -9348,7 +9347,7 @@ static int ican3_probe(struct platform_device *pdev )
   descriptor.format = "probe: module number %d\n";
   descriptor.lineno = 1762U;
   descriptor.flags = 1U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -9602,7 +9601,7 @@ void ldv_dummy_resourceless_instance_callback_4_9(long (*arg0)(struct device * ,
                                                   struct device *arg1 , struct device_attribute *arg2 ,
                                                   char *arg3 , unsigned long arg4 ) ;
 void ldv_entry_EMGentry_11(void *arg0 ) ;
-void main(void) ;
+int main(void) ;
 void ldv_free_irq(void *arg0 , int arg1 , void *arg2 ) ;
 enum irqreturn ldv_interrupt_instance_handler_0_5(enum irqreturn (*arg0)(int  , void * ) ,
                                                   int arg1 , void *arg2 ) ;
@@ -9924,7 +9923,7 @@ void ldv_entry_EMGentry_11(void *arg0 )
   return;
 }
 }
-void main(void) 
+int main(void) 
 { 
 
 
@@ -9933,7 +9932,7 @@ void main(void)
   ldv_ldv_initialize_161();
   ldv_entry_EMGentry_11((void *)0);
   }
-  return;
+return 0;
 }
 }
 void ldv_free_irq(void *arg0 , int arg1 , void *arg2 ) 
@@ -13341,7 +13340,7 @@ void ldv_linux_usb_urb_check_final_state(void)
 }
 }
 extern void ldv_assert(char const   * , int  ) ;
-void __builtin_trap(void) ;
+void ldv__builtin_trap(void) ;
 void ldv_assume(int expression ) 
 { 
 
@@ -13365,7 +13364,7 @@ void ldv_stop(void)
   goto ldv_stop_label;
 }
 }
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 
@@ -13373,7 +13372,7 @@ long __builtin_expect(long exp , long c )
   return (exp);
 }
 }
-void __builtin_trap(void) 
+void ldv__builtin_trap(void) 
 { 
 
 

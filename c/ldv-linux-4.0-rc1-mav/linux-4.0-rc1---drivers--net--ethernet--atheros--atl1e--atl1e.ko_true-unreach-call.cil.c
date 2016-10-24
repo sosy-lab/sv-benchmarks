@@ -7066,7 +7066,7 @@ struct ldv_thread {
    void (*function)(void * ) ;
 };
 typedef _Bool ldv_set;
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 void ldv_assume(int expression ) ;
 void ldv_stop(void) ;
 void ldv_linux_alloc_irq_check_alloc_flags(gfp_t flags ) ;
@@ -7276,7 +7276,6 @@ extern unsigned long __phys_addr(unsigned long  ) ;
 extern void *__memcpy(void * , void const   * , size_t  ) ;
 extern void *__memset(void * , int  , size_t  ) ;
 extern void warn_slowpath_null(char const   * , int const    ) ;
-extern int ( /* missing proto */  __builtin_unreachable)() ;
 __inline static unsigned long arch_local_save_flags(void) 
 { 
   unsigned long __ret ;
@@ -7294,7 +7293,7 @@ __inline static unsigned long arch_local_save_flags(void)
   __edx = __edx;
   __ecx = __ecx;
   __eax = __eax;
-  tmp = __builtin_expect((unsigned long )pv_irq_ops.save_fl.func == (unsigned long )((void *)0),
+  tmp = ldv__builtin_expect((unsigned long )pv_irq_ops.save_fl.func == (unsigned long )((void *)0),
                          0L);
   }
   if (tmp != 0L) {
@@ -7632,7 +7631,7 @@ __inline static struct dma_map_ops *get_dma_ops(struct device *dev )
 
   {
   {
-  tmp = __builtin_expect((unsigned long )dev == (unsigned long )((struct device *)0),
+  tmp = ldv__builtin_expect((unsigned long )dev == (unsigned long )((struct device *)0),
                          0L);
   }
   if (tmp != 0L || (unsigned long )dev->archdata.dma_ops == (unsigned long )((struct dma_map_ops *)0)) {
@@ -7659,7 +7658,7 @@ __inline static dma_addr_t dma_map_single_attrs(struct device *dev , void *ptr ,
   ops = tmp;
   kmemcheck_mark_initialized(ptr, (unsigned int )size);
   tmp___0 = valid_dma_direction((int )dir);
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -7695,7 +7694,7 @@ __inline static void dma_unmap_single_attrs(struct device *dev , dma_addr_t addr
   tmp = get_dma_ops(dev);
   ops = tmp;
   tmp___0 = valid_dma_direction((int )dir);
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -7739,7 +7738,7 @@ __inline static dma_addr_t dma_map_page(struct device *dev , struct page *page ,
   tmp___0 = lowmem_page_address((struct page  const  *)page);
   kmemcheck_mark_initialized(tmp___0 + offset, (unsigned int )size);
   tmp___1 = valid_dma_direction((int )dir);
-  tmp___2 = __builtin_expect(tmp___1 == 0, 0L);
+  tmp___2 = ldv__builtin_expect(tmp___1 == 0, 0L);
   }
   if (tmp___2 != 0L) {
     {
@@ -7770,7 +7769,7 @@ __inline static void dma_unmap_page(struct device *dev , dma_addr_t addr , size_
   tmp = get_dma_ops(dev);
   ops = tmp;
   tmp___0 = valid_dma_direction((int )dir);
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -7840,7 +7839,7 @@ __inline static void dma_free_attrs(struct device *dev , size_t size , void *vad
   _flags = arch_local_save_flags();
   tmp___0 = arch_irqs_disabled_flags(_flags);
   __ret_warn_on = tmp___0 != 0;
-  tmp___1 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___1 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -7850,7 +7849,7 @@ __inline static void dma_free_attrs(struct device *dev , size_t size , void *vad
 
   }
   {
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
   debug_dma_free_coherent(dev, size, vaddr, bus);
   }
   if ((unsigned long )ops->free != (unsigned long )((void (*)(struct device * , size_t  ,
@@ -8027,12 +8026,12 @@ __inline static void __skb_trim(struct sk_buff *skb , unsigned int len )
   {
   {
   tmp___0 = skb_is_nonlinear((struct sk_buff  const  *)skb);
-  tmp___1 = __builtin_expect((long )tmp___0, 0L);
+  tmp___1 = ldv__builtin_expect((long )tmp___0, 0L);
   }
   if (tmp___1 != 0L) {
     {
     __ret_warn_on = 1;
-    tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
     if (tmp != 0L) {
       {
@@ -8042,7 +8041,7 @@ __inline static void __skb_trim(struct sk_buff *skb , unsigned int len )
 
     }
     {
-    __builtin_expect(__ret_warn_on != 0, 0L);
+    ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
     return;
   } else {
@@ -8307,7 +8306,7 @@ __inline static void napi_enable(struct napi_struct *n )
   {
   {
   tmp = constant_test_bit(0L, (unsigned long const volatile   *)(& n->state));
-  tmp___0 = __builtin_expect(tmp == 0, 0L);
+  tmp___0 = ldv__builtin_expect(tmp == 0, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -8370,7 +8369,7 @@ __inline static void netif_tx_stop_queue(struct netdev_queue *dev_queue )
   {
   {
   __ret_warn_on = (unsigned long )dev_queue == (unsigned long )((struct netdev_queue *)0);
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp != 0L) {
     {
@@ -8380,7 +8379,7 @@ __inline static void netif_tx_stop_queue(struct netdev_queue *dev_queue )
 
   }
   {
-  tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -8830,7 +8829,7 @@ __inline static void atl1e_irq_enable(struct atl1e_adapter *adapter )
   {
   {
   tmp = atomic_dec_and_test(& adapter->irq_sem);
-  tmp___0 = __builtin_expect(tmp != 0, 1L);
+  tmp___0 = ldv__builtin_expect(tmp != 0, 1L);
   }
   if (tmp___0 != 0L) {
     {
@@ -8900,7 +8899,7 @@ void atl1e_reinit_locked(struct atl1e_adapter *adapter )
   {
   tmp = preempt_count();
   __ret_warn_on = ((unsigned long )tmp & 2096896UL) != 0UL;
-  tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -8910,7 +8909,7 @@ void atl1e_reinit_locked(struct atl1e_adapter *adapter )
 
   }
   {
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   goto ldv_54870;
   ldv_54869: 
@@ -8989,7 +8988,7 @@ static int atl1e_check_link(struct atl1e_adapter *adapter )
   } else {
     {
     err = atl1e_get_speed_and_duplex(hw, & speed, & duplex);
-    tmp___0 = __builtin_expect(err != 0, 0L);
+    tmp___0 = ldv__builtin_expect(err != 0, 0L);
     }
     if (tmp___0 != 0L) {
       return (err);
@@ -9206,7 +9205,7 @@ static void atl1e_rx_mode(struct net_device *netdev , netdev_features_t features
   descriptor.format = "%s\n";
   descriptor.lineno = 334U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -9258,7 +9257,7 @@ static void atl1e_vlan_mode(struct net_device *netdev , netdev_features_t featur
   descriptor.format = "%s\n";
   descriptor.lineno = 361U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -9291,7 +9290,7 @@ static void atl1e_restore_vlan(struct atl1e_adapter *adapter )
   descriptor.format = "%s\n";
   descriptor.lineno = 372U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -9557,7 +9556,7 @@ static int atl1e_mii_ioctl(struct net_device *netdev , struct ifreq *ifr , int c
   descriptor.format = "<atl1e_mii_ioctl> write %x %x\n";
   descriptor.lineno = 516U;
   descriptor.flags = 0U;
-  tmp___4 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___4 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___4 != 0L) {
     {
@@ -10069,7 +10068,7 @@ static int atl1e_setup_ring_resources(struct atl1e_adapter *adapter )
 
   }
   {
-  tmp___0 = __builtin_expect(offset > adapter->ring_size, 0L);
+  tmp___0 = ldv__builtin_expect(offset > adapter->ring_size, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -10370,7 +10369,7 @@ static int atl1e_configure(struct atl1e_adapter *adapter )
   atl1e_configure_dma(adapter);
   writel(hw->smb_timer, (void volatile   *)hw->hw_addr + 5572U);
   intr_status_data = readl((void const volatile   *)hw->hw_addr + 5632U);
-  tmp = __builtin_expect((intr_status_data & 268435456U) != 0U, 0L);
+  tmp = ldv__builtin_expect((intr_status_data & 268435456U) != 0U, 0L);
   }
   if (tmp != 0L) {
     {
@@ -10664,7 +10663,7 @@ static irqreturn_t atl1e_intr(int irq , void *data )
     writel(268590341U, (void volatile   *)hw->hw_addr + 5636U);
     readl((void const volatile   *)hw->hw_addr);
     tmp___1 = napi_schedule_prep(& adapter->napi);
-    tmp___2 = __builtin_expect((long )tmp___1, 1L);
+    tmp___2 = ldv__builtin_expect((long )tmp___1, 1L);
     }
     if (tmp___2 != 0L) {
       {
@@ -10777,7 +10776,7 @@ static void atl1e_clean_rx_irq(struct atl1e_adapter *adapter , u8 que , int *wor
   tmp = atl1e_get_rx_page(adapter, (int )que);
   rx_page = tmp;
   write_offset = *(rx_page->write_offset_addr);
-  tmp___3 = __builtin_expect(rx_page->read_offset < write_offset, 1L);
+  tmp___3 = ldv__builtin_expect(rx_page->read_offset < write_offset, 1L);
   }
   if (tmp___3 != 0L) {
     ldv_55258: ;
@@ -10816,7 +10815,7 @@ static void atl1e_clean_rx_irq(struct atl1e_adapter *adapter , u8 que , int *wor
     }
     {
     packet_size = (prrs->word1 >> 16) & 16383U;
-    tmp___0 = __builtin_expect((netdev->features & 137438953472ULL) == 0ULL, 1L);
+    tmp___0 = ldv__builtin_expect((netdev->features & 137438953472ULL) == 0ULL, 1L);
     }
     if (tmp___0 != 0L) {
       packet_size = packet_size - 4U;
@@ -10846,7 +10845,7 @@ static void atl1e_clean_rx_irq(struct atl1e_adapter *adapter , u8 que , int *wor
       descriptor.format = "RXD VLAN TAG<RRD>=0x%04x\n";
       descriptor.lineno = 1479U;
       descriptor.flags = 0U;
-      tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+      tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
       }
       if (tmp___1 != 0L) {
         {
@@ -11164,7 +11163,7 @@ static int atl1e_tso_csum(struct atl1e_adapter *adapter , struct sk_buff *skb , 
       tmp___3 = skb_transport_offset((struct sk_buff  const  *)skb);
       tmp___4 = tcp_hdrlen((struct sk_buff  const  *)skb);
       hdr_len = (int )((u8 )tmp___3) + (int )((u8 )tmp___4);
-      tmp___14 = __builtin_expect(skb->len == (unsigned int )hdr_len, 0L);
+      tmp___14 = ldv__builtin_expect(skb->len == (unsigned int )hdr_len, 0L);
       }
       if (tmp___14 != 0L) {
         {
@@ -11200,14 +11199,14 @@ static int atl1e_tso_csum(struct atl1e_adapter *adapter , struct sk_buff *skb , 
   }
   check_sum: 
   {
-  tmp___18 = __builtin_expect((unsigned int )*((unsigned char *)skb + 145UL) == 6U,
+  tmp___18 = ldv__builtin_expect((unsigned int )*((unsigned char *)skb + 145UL) == 6U,
                               1L);
   }
   if (tmp___18 != 0L) {
     {
     tmp___16 = skb_checksum_start_offset((struct sk_buff  const  *)skb);
     cso = (u8 )tmp___16;
-    tmp___17 = __builtin_expect((long )cso & 1L, 0L);
+    tmp___17 = ldv__builtin_expect((long )cso & 1L, 0L);
     }
     if (tmp___17 != 0L) {
       {
@@ -11361,7 +11360,7 @@ static int atl1e_tx_map(struct atl1e_adapter *adapter , struct sk_buff *skb , st
   use_tpd = atl1e_get_tpd(adapter);
   __memcpy((void *)use_tpd, (void const   *)tpd, 16UL);
   tx_buffer = atl1e_get_tx_buffer(adapter, use_tpd);
-  tmp___7 = __builtin_expect((unsigned long )tx_buffer->skb != (unsigned long )((struct sk_buff *)0),
+  tmp___7 = ldv__builtin_expect((unsigned long )tx_buffer->skb != (unsigned long )((struct sk_buff *)0),
                              0L);
   }
   if (tmp___7 != 0L) {
@@ -11478,7 +11477,7 @@ static netdev_tx_t atl1e_xmit_frame(struct sk_buff *skb , struct net_device *net
 
   }
   {
-  tmp___1 = __builtin_expect(skb->len == 0U, 0L);
+  tmp___1 = ldv__builtin_expect(skb->len == 0U, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -11605,7 +11604,7 @@ static int atl1e_request_irq(struct atl1e_adapter *adapter )
     descriptor.format = "Unable to allocate interrupt Error: %d\n";
     descriptor.lineno = 1948U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -11626,7 +11625,7 @@ static int atl1e_request_irq(struct atl1e_adapter *adapter )
   descriptor___0.format = "atl1e_request_irq OK\n";
   descriptor___0.lineno = 1951U;
   descriptor___0.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -11727,7 +11726,7 @@ static int atl1e_open(struct net_device *netdev )
   {
   atl1e_init_ring_resources(adapter);
   err = atl1e_setup_ring_resources(adapter);
-  tmp___1 = __builtin_expect(err != 0, 0L);
+  tmp___1 = ldv__builtin_expect(err != 0, 0L);
   }
   if (tmp___1 != 0L) {
     return (err);
@@ -11736,7 +11735,7 @@ static int atl1e_open(struct net_device *netdev )
   }
   {
   err = atl1e_request_irq(adapter);
-  tmp___2 = __builtin_expect(err != 0, 0L);
+  tmp___2 = ldv__builtin_expect(err != 0, 0L);
   }
   if (tmp___2 != 0L) {
     goto err_req_irq;
@@ -11745,7 +11744,7 @@ static int atl1e_open(struct net_device *netdev )
   }
   {
   err = atl1e_up(adapter);
-  tmp___3 = __builtin_expect(err != 0, 0L);
+  tmp___3 = ldv__builtin_expect(err != 0, 0L);
   }
   if (tmp___3 != 0L) {
     goto err_up;
@@ -11779,7 +11778,7 @@ static int atl1e_close(struct net_device *netdev )
   adapter = (struct atl1e_adapter *)tmp;
   tmp___0 = constant_test_bit(2L, (unsigned long const volatile   *)(& adapter->flags));
   __ret_warn_on = tmp___0 != 0;
-  tmp___1 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___1 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -11789,7 +11788,7 @@ static int atl1e_close(struct net_device *netdev )
 
   }
   {
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
   atl1e_down(adapter);
   atl1e_free_irq(adapter);
   atl1e_free_ring_resources(adapter);
@@ -11855,7 +11854,7 @@ static int atl1e_suspend(struct pci_dev *pdev , pm_message_t state )
     {
     tmp___1 = constant_test_bit(2L, (unsigned long const volatile   *)(& adapter->flags));
     __ret_warn_on = tmp___1 != 0;
-    tmp___2 = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp___2 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
     if (tmp___2 != 0L) {
       {
@@ -11865,7 +11864,7 @@ static int atl1e_suspend(struct pci_dev *pdev , pm_message_t state )
 
     }
     {
-    __builtin_expect(__ret_warn_on != 0, 0L);
+    ldv__builtin_expect(__ret_warn_on != 0, 0L);
     atl1e_down(adapter);
     }
   } else {
@@ -11908,7 +11907,7 @@ static int atl1e_suspend(struct pci_dev *pdev , pm_message_t state )
           descriptor.format = "set phy register failed\n";
           descriptor.lineno = 2121U;
           descriptor.flags = 0U;
-          tmp___4 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+          tmp___4 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
           }
           if (tmp___4 != 0L) {
             {
@@ -11960,7 +11959,7 @@ static int atl1e_suspend(struct pci_dev *pdev , pm_message_t state )
           descriptor___0.format = "Link may change when suspend\n";
           descriptor___0.lineno = 2144U;
           descriptor___0.flags = 0U;
-          tmp___8 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+          tmp___8 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
           }
           if (tmp___8 != 0L) {
             {
@@ -11988,7 +11987,7 @@ static int atl1e_suspend(struct pci_dev *pdev , pm_message_t state )
         descriptor___1.format = "read write phy register failed\n";
         descriptor___1.lineno = 2150U;
         descriptor___1.flags = 0U;
-        tmp___9 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+        tmp___9 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
         }
         if (tmp___9 != 0L) {
           {
@@ -12024,7 +12023,7 @@ static int atl1e_suspend(struct pci_dev *pdev , pm_message_t state )
     descriptor___2.format = "suspend MAC=0x%x\n";
     descriptor___2.lineno = 2171U;
     descriptor___2.flags = 0U;
-    tmp___11 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+    tmp___11 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
     }
     if (tmp___11 != 0L) {
       {
@@ -12340,7 +12339,7 @@ static int atl1e_probe(struct pci_dev *pdev , struct pci_device_id  const  *ent 
   descriptor.format = "mac address : %pM\n";
   descriptor.lineno = 2412U;
   descriptor.flags = 0U;
-  tmp___4 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___4 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___4 != 0L) {
     {
@@ -12657,7 +12656,7 @@ void ldv_dummy_resourceless_instance_callback_1_7(int (*arg0)(struct net_device 
                                                   struct net_device *arg1 , struct ethtool_eeprom *arg2 ,
                                                   unsigned char *arg3 ) ;
 void ldv_entry_EMGentry_14(void *arg0 ) ;
-void main(void) ;
+int main(void) ;
 void ldv_free_irq(void *arg0 , int arg1 , void *arg2 ) ;
 void ldv_free_netdev(void *arg0 , struct net_device *arg1 ) ;
 enum irqreturn ldv_interrupt_instance_handler_0_5(enum irqreturn (*arg0)(int  , void * ) ,
@@ -13084,7 +13083,7 @@ void ldv_entry_EMGentry_14(void *arg0 )
   return;
 }
 }
-void main(void) 
+int main(void) 
 { 
 
 
@@ -13093,7 +13092,7 @@ void main(void)
   ldv_ldv_initialize_153();
   ldv_entry_EMGentry_14((void *)0);
   }
-  return;
+return 0;
 }
 }
 void ldv_free_irq(void *arg0 , int arg1 , void *arg2 ) 
@@ -14714,7 +14713,6 @@ static int ldv_ldv_post_probe_155(int retval )
   return (tmp);
 }
 }
-int __builtin_bswap32(int  ) ;
 __inline static __u32 __fswab32(__u32 val ) 
 { 
   int tmp ;
@@ -15378,7 +15376,7 @@ s32 atl1e_phy_init(struct atl1e_hw *hw )
   descriptor.format = "Restarting Auto-Negotiation\n";
   descriptor.lineno = 498U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -18598,7 +18596,7 @@ void ldv_linux_usb_urb_check_final_state(void)
 }
 }
 extern void ldv_assert(char const   * , int  ) ;
-void __builtin_trap(void) ;
+void ldv__builtin_trap(void) ;
 void ldv_assume(int expression ) 
 { 
 
@@ -18622,7 +18620,7 @@ void ldv_stop(void)
   goto ldv_stop_label;
 }
 }
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 
@@ -18630,7 +18628,7 @@ long __builtin_expect(long exp , long c )
   return (exp);
 }
 }
-void __builtin_trap(void) 
+void ldv__builtin_trap(void) 
 { 
 
 

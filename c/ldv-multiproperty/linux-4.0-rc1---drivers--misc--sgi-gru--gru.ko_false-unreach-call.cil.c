@@ -4607,7 +4607,7 @@ struct ldv_thread {
    void (*function)(void * ) ;
 };
 typedef _Bool ldv_set;
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 void ldv_assume(int expression ) ;
 void ldv_stop(void) ;
 void ldv_linux_alloc_irq_check_alloc_flags(gfp_t flags ) ;
@@ -4842,12 +4842,12 @@ __inline static unsigned int cpumask_check(unsigned int cpu )
   {
   {
   __ret_warn_once = cpu >= (unsigned int )nr_cpu_ids;
-  tmp___1 = __builtin_expect(__ret_warn_once != 0, 0L);
+  tmp___1 = ldv__builtin_expect(__ret_warn_once != 0, 0L);
   }
   if (tmp___1 != 0L) {
     {
     __ret_warn_on = ! __warned;
-    tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
     if (tmp != 0L) {
       {
@@ -4857,7 +4857,7 @@ __inline static unsigned int cpumask_check(unsigned int cpu )
 
     }
     {
-    tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
     if (tmp___0 != 0L) {
       __warned = 1;
@@ -4868,7 +4868,7 @@ __inline static unsigned int cpumask_check(unsigned int cpu )
 
   }
   {
-  __builtin_expect(__ret_warn_once != 0, 0L);
+  ldv__builtin_expect(__ret_warn_once != 0, 0L);
   }
   return (cpu);
 }
@@ -4903,7 +4903,6 @@ __inline static unsigned int cpumask_weight(struct cpumask  const  *srcp )
   return ((unsigned int )tmp);
 }
 }
-extern int ( /* missing proto */  __builtin_unreachable)() ;
 __inline static void atomic64_inc(atomic64_t *v ) 
 { 
 
@@ -5203,7 +5202,7 @@ __inline static int gfp_zonelist(gfp_t flags )
 
   {
   {
-  tmp = __builtin_expect((flags & 262144U) != 0U, 0L);
+  tmp = ldv__builtin_expect((flags & 262144U) != 0U, 0L);
   }
   if (tmp != 0L) {
     return (1);
@@ -5281,7 +5280,7 @@ __inline static unsigned long copy_from_user(void *to , void const   *from , uns
   {
   sz = -1;
   might_fault();
-  tmp = __builtin_expect(sz < 0, 1L);
+  tmp = ldv__builtin_expect(sz < 0, 1L);
   }
   if (tmp != 0L) {
     {
@@ -5289,7 +5288,7 @@ __inline static unsigned long copy_from_user(void *to , void const   *from , uns
     }
   } else {
     {
-    tmp___0 = __builtin_expect((unsigned long )sz >= n, 1L);
+    tmp___0 = ldv__builtin_expect((unsigned long )sz >= n, 1L);
     }
     if (tmp___0 != 0L) {
       {
@@ -5314,7 +5313,7 @@ __inline static unsigned long copy_to_user(void *to , void const   *from , unsig
   {
   sz = -1;
   might_fault();
-  tmp = __builtin_expect(sz < 0, 1L);
+  tmp = ldv__builtin_expect(sz < 0, 1L);
   }
   if (tmp != 0L) {
     {
@@ -5322,7 +5321,7 @@ __inline static unsigned long copy_to_user(void *to , void const   *from , unsig
     }
   } else {
     {
-    tmp___0 = __builtin_expect((unsigned long )sz >= n, 1L);
+    tmp___0 = ldv__builtin_expect((unsigned long )sz >= n, 1L);
     }
     if (tmp___0 != 0L) {
       {
@@ -7351,7 +7350,7 @@ void ldv_dummy_resourceless_instance_callback_12_7(int (*arg0)(struct vm_area_st
                                                                struct vm_fault * ) ,
                                                    struct vm_area_struct *arg1 , struct vm_fault *arg2 ) ;
 void ldv_entry_EMGentry_20(void *arg0 ) ;
-void main(void) ;
+int main(void) ;
 void ldv_file_operations_file_operations_instance_0(void *arg0 ) ;
 void ldv_file_operations_file_operations_instance_1(void *arg0 ) ;
 void ldv_file_operations_file_operations_instance_2(void *arg0 ) ;
@@ -7708,7 +7707,7 @@ void ldv_entry_EMGentry_20(void *arg0 )
   return;
 }
 }
-void main(void) 
+int main(void) 
 { 
 
 
@@ -7717,7 +7716,7 @@ void main(void)
   ldv_ldv_initialize_105();
   ldv_entry_EMGentry_20((void *)0);
   }
-  return;
+return 0;
 }
 }
 void ldv_file_operations_instance_callback_0_22(int (*arg0)(struct file * , struct vm_area_struct * ) ,
@@ -8570,7 +8569,7 @@ __inline static bool IS_ERR(void const   *ptr )
 
   {
   {
-  tmp = __builtin_expect((unsigned long )ptr > 0xfffffffffffff000UL, 0L);
+  tmp = ldv__builtin_expect((unsigned long )ptr > 0xfffffffffffff000UL, 0L);
   }
   return (tmp != 0L);
 }
@@ -10676,7 +10675,7 @@ static int gru_load_mm_tracker(struct gru_state *gru , struct gru_thread_state *
   }
   {
   ldv_spin_unlock_98(& gru->gs_asid_lock);
-  tmp = __builtin_expect((unsigned int )((int )asids->mt_ctxbitmap & (int )ctxbitmap) != 0U,
+  tmp = ldv__builtin_expect((unsigned int )((int )asids->mt_ctxbitmap & (int )ctxbitmap) != 0U,
                          0L);
   }
   if (tmp != 0L) {
@@ -10941,7 +10940,7 @@ static void gru_unload_mm_tracker(struct gru_state *gru , struct gru_thread_stat
   ctxbitmap = (unsigned short )(1 << gts->ts_ctxnum);
   ldv_spin_lock_96(& gms->ms_asid_lock);
   ldv_spin_lock_97(& gru->gs_asid_lock);
-  tmp = __builtin_expect(((int )asids->mt_ctxbitmap & (int )ctxbitmap) != (int )ctxbitmap,
+  tmp = ldv__builtin_expect(((int )asids->mt_ctxbitmap & (int )ctxbitmap) != (int )ctxbitmap,
                          0L);
   }
   if (tmp != 0L) {
@@ -12530,7 +12529,7 @@ static void gru_free_gru_context(struct gru_thread_state *gts )
   gru->gs_gts[gts->ts_ctxnum] = (struct gru_thread_state *)0;
   free_gru_resources(gru, gts);
   tmp___0 = variable_test_bit((long )gts->ts_ctxnum, (unsigned long const volatile   *)(& gru->gs_context_map));
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -15857,7 +15856,7 @@ __inline static pteval_t pte_val(pte_t pte )
   __edx___0 = __edx___0;
   __ecx___0 = __ecx___0;
   __eax___0 = __eax___0;
-  tmp___0 = __builtin_expect((unsigned long )pv_mmu_ops.pte_val.func == (unsigned long )((void *)0),
+  tmp___0 = ldv__builtin_expect((unsigned long )pv_mmu_ops.pte_val.func == (unsigned long )((void *)0),
                              0L);
   }
   if (tmp___0 != 0L) {
@@ -15895,7 +15894,7 @@ __inline static pgdval_t pgd_val(pgd_t pgd )
   __edx___0 = __edx___0;
   __ecx___0 = __ecx___0;
   __eax___0 = __eax___0;
-  tmp___0 = __builtin_expect((unsigned long )pv_mmu_ops.pgd_val.func == (unsigned long )((void *)0),
+  tmp___0 = ldv__builtin_expect((unsigned long )pv_mmu_ops.pgd_val.func == (unsigned long )((void *)0),
                              0L);
   }
   if (tmp___0 != 0L) {
@@ -15933,7 +15932,7 @@ __inline static pmdval_t pmd_val(pmd_t pmd )
   __edx___0 = __edx___0;
   __ecx___0 = __ecx___0;
   __eax___0 = __eax___0;
-  tmp___0 = __builtin_expect((unsigned long )pv_mmu_ops.pmd_val.func == (unsigned long )((void *)0),
+  tmp___0 = ldv__builtin_expect((unsigned long )pv_mmu_ops.pmd_val.func == (unsigned long )((void *)0),
                              0L);
   }
   if (tmp___0 != 0L) {
@@ -15971,7 +15970,7 @@ __inline static pudval_t pud_val(pud_t pud )
   __edx___0 = __edx___0;
   __ecx___0 = __ecx___0;
   __eax___0 = __eax___0;
-  tmp___0 = __builtin_expect((unsigned long )pv_mmu_ops.pud_val.func == (unsigned long )((void *)0),
+  tmp___0 = ldv__builtin_expect((unsigned long )pv_mmu_ops.pud_val.func == (unsigned long )((void *)0),
                              0L);
   }
   if (tmp___0 != 0L) {
@@ -16669,7 +16668,7 @@ static int atomic_pte_lookup(struct vm_area_struct *vma , unsigned long vaddr , 
   {
   pgdp = (vma->vm_mm)->pgd + ((vaddr >> 39) & 511UL);
   tmp = pgd_none(*pgdp);
-  tmp___0 = __builtin_expect(tmp != 0, 0L);
+  tmp___0 = ldv__builtin_expect(tmp != 0, 0L);
   }
   if (tmp___0 != 0L) {
     goto err;
@@ -16679,7 +16678,7 @@ static int atomic_pte_lookup(struct vm_area_struct *vma , unsigned long vaddr , 
   {
   pudp = pud_offset(pgdp, vaddr);
   tmp___1 = pud_none(*pudp);
-  tmp___2 = __builtin_expect(tmp___1 != 0, 0L);
+  tmp___2 = ldv__builtin_expect(tmp___1 != 0, 0L);
   }
   if (tmp___2 != 0L) {
     goto err;
@@ -16689,7 +16688,7 @@ static int atomic_pte_lookup(struct vm_area_struct *vma , unsigned long vaddr , 
   {
   pmdp = pmd_offset(pudp, vaddr);
   tmp___3 = pmd_none(*pmdp);
-  tmp___4 = __builtin_expect(tmp___3 != 0, 0L);
+  tmp___4 = ldv__builtin_expect(tmp___3 != 0, 0L);
   }
   if (tmp___4 != 0L) {
     goto err;
@@ -16698,7 +16697,7 @@ static int atomic_pte_lookup(struct vm_area_struct *vma , unsigned long vaddr , 
   }
   {
   tmp___6 = pmd_large(*pmdp);
-  tmp___7 = __builtin_expect(tmp___6 != 0, 0L);
+  tmp___7 = ldv__builtin_expect(tmp___6 != 0, 0L);
   }
   if (tmp___7 != 0L) {
     pte = *((pte_t *)pmdp);
@@ -16710,25 +16709,25 @@ static int atomic_pte_lookup(struct vm_area_struct *vma , unsigned long vaddr , 
   }
   {
   tmp___8 = pte_present(pte);
-  tmp___9 = __builtin_expect(tmp___8 == 0, 0L);
+  tmp___9 = ldv__builtin_expect(tmp___8 == 0, 0L);
   }
   if (tmp___9 != 0L) {
     return (1);
   } else {
     {
-    tmp___10 = __builtin_expect(write != 0, 0L);
+    tmp___10 = ldv__builtin_expect(write != 0, 0L);
     }
     if (tmp___10 != 0L) {
       {
       tmp___11 = pte_write(pte);
-      tmp___12 = __builtin_expect(tmp___11 == 0, 0L);
+      tmp___12 = ldv__builtin_expect(tmp___11 == 0, 0L);
       }
       if (tmp___12 != 0L) {
         tmp___15 = 1;
       } else {
         {
         tmp___13 = pte_dirty(pte);
-        tmp___14 = __builtin_expect(tmp___13 == 0, 0L);
+        tmp___14 = ldv__builtin_expect(tmp___13 == 0, 0L);
         }
         if (tmp___14 != 0L) {
           tmp___15 = 1;
@@ -16829,7 +16828,7 @@ static void gru_flush_cache_cbe(struct gru_control_block_extended *cbe )
 
   {
   {
-  tmp = __builtin_expect((unsigned long )cbe != (unsigned long )((struct gru_control_block_extended *)0),
+  tmp = ldv__builtin_expect((unsigned long )cbe != (unsigned long )((struct gru_control_block_extended *)0),
                          0L);
   }
   if (tmp != 0L) {
@@ -17207,7 +17206,7 @@ static int gru_try_dropin(struct gru_state *gru , struct gru_thread_state *gts ,
   atomic = (unsigned long )cbk == (unsigned long )((struct gru_instruction_bits *)0);
   gpa = 0UL;
   vaddr = 0UL;
-  tmp = __builtin_expect((unsigned int )tlb_preload_count != 0U, 0L);
+  tmp = ldv__builtin_expect((unsigned int )tlb_preload_count != 0U, 0L);
   }
   if (tmp != 0L) {
     {
@@ -17298,7 +17297,7 @@ static int gru_try_dropin(struct gru_state *gru , struct gru_thread_state *gts ,
 
   }
   {
-  tmp___2 = __builtin_expect((unsigned long )cbe != (unsigned long )((struct gru_control_block_extended *)0),
+  tmp___2 = ldv__builtin_expect((unsigned long )cbe != (unsigned long )((struct gru_control_block_extended *)0),
                              0L);
   }
   if (tmp___2 != 0L && pageshift == 12) {
@@ -22285,7 +22284,7 @@ __inline static u64 paravirt_read_tsc(void)
   __edx = __edx;
   __ecx = __ecx;
   __eax = __eax;
-  tmp = __builtin_expect((unsigned long )pv_cpu_ops.read_tsc == (unsigned long )((u64 (*)(void))0),
+  tmp = ldv__builtin_expect((unsigned long )pv_cpu_ops.read_tsc == (unsigned long )((u64 (*)(void))0),
                          0L);
   }
   if (tmp != 0L) {
@@ -29133,7 +29132,7 @@ static int gru_get_cpu_resources(int dsr_bytes , void **cb , void **dsr )
 
   {
   {
-  tmp = __builtin_expect(dsr_bytes > 256, 0L);
+  tmp = ldv__builtin_expect(dsr_bytes > 256, 0L);
   }
   if (tmp != 0L) {
     {
@@ -29321,7 +29320,7 @@ int gru_get_cb_exception_detail(void *cb , struct control_block_extended_exc_det
   }
   ldv_33762: 
   {
-  tmp___0 = __builtin_expect((unsigned long )kgts == (unsigned long )((struct gru_thread_state *)0),
+  tmp___0 = ldv__builtin_expect((unsigned long )kgts == (unsigned long )((struct gru_thread_state *)0),
                              0L);
   }
   if (tmp___0 != 0L) {
@@ -30283,7 +30282,7 @@ int gru_send_message_gpa(struct gru_message_queue_desc *mqd , void *mesg , unsig
 
   }
   {
-  tmp = __builtin_expect(bytes - 4U > 124U, 0L);
+  tmp = ldv__builtin_expect(bytes - 4U > 124U, 0L);
   }
   if (tmp != 0L) {
     {
@@ -32597,7 +32596,7 @@ static int quicktest2(unsigned long arg )
 
   }
   {
-  tmp___1 = __builtin_expect(cmp.done != 0U, 0L);
+  tmp___1 = ldv__builtin_expect(cmp.done != 0U, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -35708,7 +35707,7 @@ void ldv_linux_usb_urb_check_final_state(void)
 }
 }
 extern void ldv_assert(char const   * , int  ) ;
-void __builtin_trap(void) ;
+void ldv__builtin_trap(void) ;
 void ldv_assume(int expression ) 
 { 
 
@@ -35732,7 +35731,7 @@ void ldv_stop(void)
   goto ldv_stop_label;
 }
 }
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 
@@ -35740,7 +35739,7 @@ long __builtin_expect(long exp , long c )
   return (exp);
 }
 }
-void __builtin_trap(void) 
+void ldv__builtin_trap(void) 
 { 
 
 

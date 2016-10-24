@@ -5024,9 +5024,7 @@ struct ldv_thread {
    void (*function)(void * ) ;
 };
 typedef _Bool ldv_set;
-int __builtin_bswap32(int  ) ;
-long __builtin_bswap64(long  ) ;
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 void ldv_assume(int expression ) ;
 void ldv_stop(void) ;
 void ldv_linux_alloc_irq_check_alloc_flags(gfp_t flags ) ;
@@ -5307,7 +5305,6 @@ extern size_t strlen(char const   * ) ;
 extern char *strcpy(char * , char const   * ) ;
 extern char *strcat(char * , char const   * ) ;
 extern void warn_slowpath_null(char const   * , int const    ) ;
-extern int ( /* missing proto */  __builtin_unreachable)() ;
 __inline static unsigned long arch_local_save_flags(void) 
 { 
   unsigned long __ret ;
@@ -5325,7 +5322,7 @@ __inline static unsigned long arch_local_save_flags(void)
   __edx = __edx;
   __ecx = __ecx;
   __eax = __eax;
-  tmp = __builtin_expect((unsigned long )pv_irq_ops.save_fl.func == (unsigned long )((void *)0),
+  tmp = ldv__builtin_expect((unsigned long )pv_irq_ops.save_fl.func == (unsigned long )((void *)0),
                          0L);
   }
   if (tmp != 0L) {
@@ -5701,7 +5698,7 @@ __inline static void sg_assign_page(struct scatterlist *sg , struct page *page )
   {
   {
   page_link = sg->page_link & 3UL;
-  tmp = __builtin_expect(((unsigned long )page & 3UL) != 0UL, 0L);
+  tmp = ldv__builtin_expect(((unsigned long )page & 3UL) != 0UL, 0L);
   }
   if (tmp != 0L) {
     {
@@ -5713,7 +5710,7 @@ __inline static void sg_assign_page(struct scatterlist *sg , struct page *page )
 
   }
   {
-  tmp___0 = __builtin_expect(sg->sg_magic != 2271560481UL, 0L);
+  tmp___0 = ldv__builtin_expect(sg->sg_magic != 2271560481UL, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -5725,7 +5722,7 @@ __inline static void sg_assign_page(struct scatterlist *sg , struct page *page )
 
   }
   {
-  tmp___1 = __builtin_expect((long )((int )sg->page_link) & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )((int )sg->page_link) & 1L, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -5761,7 +5758,7 @@ __inline static struct page *sg_page(struct scatterlist *sg )
 
   {
   {
-  tmp = __builtin_expect(sg->sg_magic != 2271560481UL, 0L);
+  tmp = ldv__builtin_expect(sg->sg_magic != 2271560481UL, 0L);
   }
   if (tmp != 0L) {
     {
@@ -5773,7 +5770,7 @@ __inline static struct page *sg_page(struct scatterlist *sg )
 
   }
   {
-  tmp___0 = __builtin_expect((long )((int )sg->page_link) & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )((int )sg->page_link) & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -5852,7 +5849,7 @@ __inline static struct dma_map_ops *get_dma_ops(struct device *dev )
 
   {
   {
-  tmp = __builtin_expect((unsigned long )dev == (unsigned long )((struct device *)0),
+  tmp = ldv__builtin_expect((unsigned long )dev == (unsigned long )((struct device *)0),
                          0L);
   }
   if (tmp != 0L || (unsigned long )dev->archdata.dma_ops == (unsigned long )((struct dma_map_ops *)0)) {
@@ -5897,7 +5894,7 @@ __inline static int dma_map_sg_attrs(struct device *dev , struct scatterlist *sg
   }
   {
   tmp___1 = valid_dma_direction((int )dir);
-  tmp___2 = __builtin_expect(tmp___1 == 0, 0L);
+  tmp___2 = ldv__builtin_expect(tmp___1 == 0, 0L);
   }
   if (tmp___2 != 0L) {
     {
@@ -5929,7 +5926,7 @@ __inline static void dma_unmap_sg_attrs(struct device *dev , struct scatterlist 
   tmp = get_dma_ops(dev);
   ops = tmp;
   tmp___0 = valid_dma_direction((int )dir);
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -5969,7 +5966,7 @@ __inline static void dma_sync_sg_for_cpu(struct device *dev , struct scatterlist
   tmp = get_dma_ops(dev);
   ops = tmp;
   tmp___0 = valid_dma_direction((int )dir);
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -6095,7 +6092,7 @@ __inline static void dma_free_attrs(struct device *dev , size_t size , void *vad
   _flags = arch_local_save_flags();
   tmp___0 = arch_irqs_disabled_flags(_flags);
   __ret_warn_on = tmp___0 != 0;
-  tmp___1 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___1 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -6105,7 +6102,7 @@ __inline static void dma_free_attrs(struct device *dev , size_t size , void *vad
 
   }
   {
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
   debug_dma_free_coherent(dev, size, vaddr, bus);
   }
   if ((unsigned long )ops->free != (unsigned long )((void (*)(struct device * , size_t  ,
@@ -6387,7 +6384,7 @@ __inline static int __copy_from_user_nocheck(void *dst , void const   *src , uns
   __asm__  volatile   ("661:\n\t.byte 0x66,0x66,0x90\n\n662:\n.pushsection .altinstructions,\"a\"\n .long 661b - .\n .long 6631f - .\n .word ( 9*32+20)\n .byte 662b-661b\n .byte 6641f-6631f\n.popsection\n.pushsection .discard,\"aw\",@progbits\n .byte 0xff + (6641f-6631f) - (662b-661b)\n.popsection\n.pushsection .altinstr_replacement, \"ax\"\n6631:\n\t.byte 0x0f,0x01,0xcb\n6641:\n\t.popsection\n1:\tmovq %2,%1\n2: 661:\n\t.byte 0x66,0x66,0x90\n\n662:\n.pushsection .altinstructions,\"a\"\n .long 661b - .\n .long 6631f - .\n .word ( 9*32+20)\n .byte 662b-661b\n .byte 6641f-6631f\n.popsection\n.pushsection .discard,\"aw\",@progbits\n .byte 0xff + (6641f-6631f) - (662b-661b)\n.popsection\n.pushsection .altinstr_replacement, \"ax\"\n6631:\n\t.byte 0x0f,0x01,0xca\n6641:\n\t.popsection\n.section .fixup,\"ax\"\n3:\tmov %3,%0\n\txorq %1,%1\n\tjmp 2b\n.previous\n .pushsection \"__ex_table\",\"a\"\n .balign 8\n .long (1b) - .\n .long (3b) - .\n .popsection\n": "=r" (ret),
                        "=r" (*((u64 *)dst)): "m" (*((struct __large_struct *)src)),
                        "i" (10), "0" (ret));
-  tmp___0 = __builtin_expect(ret != 0, 0L);
+  tmp___0 = ldv__builtin_expect(ret != 0, 0L);
   }
   if (tmp___0 != 0L) {
     return (ret);
@@ -6403,7 +6400,7 @@ __inline static int __copy_from_user_nocheck(void *dst , void const   *src , uns
   __asm__  volatile   ("661:\n\t.byte 0x66,0x66,0x90\n\n662:\n.pushsection .altinstructions,\"a\"\n .long 661b - .\n .long 6631f - .\n .word ( 9*32+20)\n .byte 662b-661b\n .byte 6641f-6631f\n.popsection\n.pushsection .discard,\"aw\",@progbits\n .byte 0xff + (6641f-6631f) - (662b-661b)\n.popsection\n.pushsection .altinstr_replacement, \"ax\"\n6631:\n\t.byte 0x0f,0x01,0xcb\n6641:\n\t.popsection\n1:\tmovq %2,%1\n2: 661:\n\t.byte 0x66,0x66,0x90\n\n662:\n.pushsection .altinstructions,\"a\"\n .long 661b - .\n .long 6631f - .\n .word ( 9*32+20)\n .byte 662b-661b\n .byte 6641f-6631f\n.popsection\n.pushsection .discard,\"aw\",@progbits\n .byte 0xff + (6641f-6631f) - (662b-661b)\n.popsection\n.pushsection .altinstr_replacement, \"ax\"\n6631:\n\t.byte 0x0f,0x01,0xca\n6641:\n\t.popsection\n.section .fixup,\"ax\"\n3:\tmov %3,%0\n\txorq %1,%1\n\tjmp 2b\n.previous\n .pushsection \"__ex_table\",\"a\"\n .balign 8\n .long (1b) - .\n .long (3b) - .\n .popsection\n": "=r" (ret),
                        "=r" (*((u64 *)dst)): "m" (*((struct __large_struct *)src)),
                        "i" (16), "0" (ret));
-  tmp___1 = __builtin_expect(ret != 0, 0L);
+  tmp___1 = ldv__builtin_expect(ret != 0, 0L);
   }
   if (tmp___1 != 0L) {
     return (ret);
@@ -6501,7 +6498,7 @@ __inline static int __copy_to_user_nocheck(void *dst , void const   *src , unsig
   {
   __asm__  volatile   ("661:\n\t.byte 0x66,0x66,0x90\n\n662:\n.pushsection .altinstructions,\"a\"\n .long 661b - .\n .long 6631f - .\n .word ( 9*32+20)\n .byte 662b-661b\n .byte 6641f-6631f\n.popsection\n.pushsection .discard,\"aw\",@progbits\n .byte 0xff + (6641f-6631f) - (662b-661b)\n.popsection\n.pushsection .altinstr_replacement, \"ax\"\n6631:\n\t.byte 0x0f,0x01,0xcb\n6641:\n\t.popsection\n1:\tmovq %1,%2\n2: 661:\n\t.byte 0x66,0x66,0x90\n\n662:\n.pushsection .altinstructions,\"a\"\n .long 661b - .\n .long 6631f - .\n .word ( 9*32+20)\n .byte 662b-661b\n .byte 6641f-6631f\n.popsection\n.pushsection .discard,\"aw\",@progbits\n .byte 0xff + (6641f-6631f) - (662b-661b)\n.popsection\n.pushsection .altinstr_replacement, \"ax\"\n6631:\n\t.byte 0x0f,0x01,0xca\n6641:\n\t.popsection\n.section .fixup,\"ax\"\n3:\tmov %3,%0\n\tjmp 2b\n.previous\n .pushsection \"__ex_table\",\"a\"\n .balign 8\n .long (1b) - .\n .long (3b) - .\n .popsection\n": "=r" (ret): "er" (*((u64 *)src)),
                        "m" (*((struct __large_struct *)dst)), "i" (10), "0" (ret));
-  tmp___0 = __builtin_expect(ret != 0, 0L);
+  tmp___0 = ldv__builtin_expect(ret != 0, 0L);
   }
   if (tmp___0 != 0L) {
     return (ret);
@@ -6516,7 +6513,7 @@ __inline static int __copy_to_user_nocheck(void *dst , void const   *src , unsig
   {
   __asm__  volatile   ("661:\n\t.byte 0x66,0x66,0x90\n\n662:\n.pushsection .altinstructions,\"a\"\n .long 661b - .\n .long 6631f - .\n .word ( 9*32+20)\n .byte 662b-661b\n .byte 6641f-6631f\n.popsection\n.pushsection .discard,\"aw\",@progbits\n .byte 0xff + (6641f-6631f) - (662b-661b)\n.popsection\n.pushsection .altinstr_replacement, \"ax\"\n6631:\n\t.byte 0x0f,0x01,0xcb\n6641:\n\t.popsection\n1:\tmovq %1,%2\n2: 661:\n\t.byte 0x66,0x66,0x90\n\n662:\n.pushsection .altinstructions,\"a\"\n .long 661b - .\n .long 6631f - .\n .word ( 9*32+20)\n .byte 662b-661b\n .byte 6641f-6631f\n.popsection\n.pushsection .discard,\"aw\",@progbits\n .byte 0xff + (6641f-6631f) - (662b-661b)\n.popsection\n.pushsection .altinstr_replacement, \"ax\"\n6631:\n\t.byte 0x0f,0x01,0xca\n6641:\n\t.popsection\n.section .fixup,\"ax\"\n3:\tmov %3,%0\n\tjmp 2b\n.previous\n .pushsection \"__ex_table\",\"a\"\n .balign 8\n .long (1b) - .\n .long (3b) - .\n .popsection\n": "=r" (ret): "er" (*((u64 *)src)),
                        "m" (*((struct __large_struct *)dst)), "i" (16), "0" (ret));
-  tmp___1 = __builtin_expect(ret != 0, 0L);
+  tmp___1 = ldv__builtin_expect(ret != 0, 0L);
   }
   if (tmp___1 != 0L) {
     return (ret);
@@ -6560,7 +6557,7 @@ __inline static unsigned long copy_from_user(void *to , void const   *from , uns
   {
   sz = -1;
   might_fault();
-  tmp = __builtin_expect(sz < 0, 1L);
+  tmp = ldv__builtin_expect(sz < 0, 1L);
   }
   if (tmp != 0L) {
     {
@@ -6568,7 +6565,7 @@ __inline static unsigned long copy_from_user(void *to , void const   *from , uns
     }
   } else {
     {
-    tmp___0 = __builtin_expect((unsigned long )sz >= n, 1L);
+    tmp___0 = ldv__builtin_expect((unsigned long )sz >= n, 1L);
     }
     if (tmp___0 != 0L) {
       {
@@ -6606,7 +6603,7 @@ __inline static void queue_lockdep_assert_held(struct request_queue *q )
     }
     {
     __ret_warn_on = tmp___0;
-    tmp___1 = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp___1 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
     if (tmp___1 != 0L) {
       {
@@ -6616,7 +6613,7 @@ __inline static void queue_lockdep_assert_held(struct request_queue *q )
 
     }
     {
-    __builtin_expect(__ret_warn_on != 0, 0L);
+    ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
   } else {
 
@@ -6781,7 +6778,7 @@ __inline static u32 skd_reg_read32(struct skd_device *skdev , u32 offset )
 
   {
   {
-  tmp___1 = __builtin_expect(skdev->dbg_level <= 1, 1L);
+  tmp___1 = ldv__builtin_expect(skdev->dbg_level <= 1, 1L);
   }
   if (tmp___1 != 0L) {
     {
@@ -6799,7 +6796,7 @@ __inline static u32 skd_reg_read32(struct skd_device *skdev , u32 offset )
     descriptor.format = "%s:%s:%d offset %x = %x\n";
     descriptor.lineno = 371U;
     descriptor.flags = 0U;
-    tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -6821,7 +6818,7 @@ __inline static void skd_reg_write32(struct skd_device *skdev , u32 val , u32 of
 
   {
   {
-  tmp___0 = __builtin_expect(skdev->dbg_level <= 1, 1L);
+  tmp___0 = ldv__builtin_expect(skdev->dbg_level <= 1, 1L);
   }
   if (tmp___0 != 0L) {
     {
@@ -6839,7 +6836,7 @@ __inline static void skd_reg_write32(struct skd_device *skdev , u32 val , u32 of
     descriptor.format = "%s:%s:%d offset %x = %x\n";
     descriptor.lineno = 388U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -6861,7 +6858,7 @@ __inline static void skd_reg_write64(struct skd_device *skdev , u64 val , u32 of
 
   {
   {
-  tmp___0 = __builtin_expect(skdev->dbg_level <= 1, 1L);
+  tmp___0 = ldv__builtin_expect(skdev->dbg_level <= 1, 1L);
   }
   if (tmp___0 != 0L) {
     {
@@ -6879,7 +6876,7 @@ __inline static void skd_reg_write64(struct skd_device *skdev , u64 val , u32 of
     descriptor.format = "%s:%s:%d offset %x = %016llx\n";
     descriptor.lineno = 403U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -7130,7 +7127,7 @@ static void skd_request_fn(struct request_queue *q )
   descriptor.format = "%s:%s:%d new req=%p lba=%u(0x%x) count=%u(0x%x) dir=%d\n";
   descriptor.lineno = 638U;
   descriptor.flags = 0U;
-  tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -7149,7 +7146,7 @@ static void skd_request_fn(struct request_queue *q )
     descriptor___0.format = "%s:%s:%d qdepth %d, limit %d\n";
     descriptor___0.lineno = 646U;
     descriptor___0.flags = 0U;
-    tmp___2 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___2 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___2 != 0L) {
       {
@@ -7172,7 +7169,7 @@ static void skd_request_fn(struct request_queue *q )
     descriptor___1.format = "%s:%s:%d Out of req=%p\n";
     descriptor___1.lineno = 654U;
     descriptor___1.flags = 0U;
-    tmp___3 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___3 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
     }
     if (tmp___3 != 0L) {
       {
@@ -7187,7 +7184,7 @@ static void skd_request_fn(struct request_queue *q )
 
   }
   {
-  tmp___4 = __builtin_expect((unsigned int )skreq->state != 0U, 0L);
+  tmp___4 = ldv__builtin_expect((unsigned int )skreq->state != 0U, 0L);
   }
   if (tmp___4 != 0L) {
     {
@@ -7198,7 +7195,7 @@ static void skd_request_fn(struct request_queue *q )
 
   }
   {
-  tmp___5 = __builtin_expect(((int )skreq->id & 1024) != 0, 0L);
+  tmp___5 = ldv__builtin_expect(((int )skreq->id & 1024) != 0, 0L);
   }
   if (tmp___5 != 0L) {
     {
@@ -7217,7 +7214,7 @@ static void skd_request_fn(struct request_queue *q )
       descriptor___2.format = "%s:%s:%d Out of msg\n";
       descriptor___2.lineno = 664U;
       descriptor___2.flags = 0U;
-      tmp___6 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+      tmp___6 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
       }
       if (tmp___6 != 0L) {
         {
@@ -7253,7 +7250,7 @@ static void skd_request_fn(struct request_queue *q )
       descriptor___3.format = "%s:%s:%d Out of msg skdev=%p\n";
       descriptor___3.lineno = 692U;
       descriptor___3.flags = 0U;
-      tmp___7 = __builtin_expect((long )descriptor___3.flags & 1L, 0L);
+      tmp___7 = ldv__builtin_expect((long )descriptor___3.flags & 1L, 0L);
       }
       if (tmp___7 != 0L) {
         {
@@ -7268,7 +7265,7 @@ static void skd_request_fn(struct request_queue *q )
 
     }
     {
-    tmp___8 = __builtin_expect((unsigned int )skmsg->state != 0U, 0L);
+    tmp___8 = ldv__builtin_expect((unsigned int )skmsg->state != 0U, 0L);
     }
     if (tmp___8 != 0L) {
       {
@@ -7279,7 +7276,7 @@ static void skd_request_fn(struct request_queue *q )
 
     }
     {
-    tmp___9 = __builtin_expect((skmsg->id & 1024U) != 0U, 0L);
+    tmp___9 = ldv__builtin_expect((skmsg->id & 1024U) != 0U, 0L);
     }
     if (tmp___9 != 0L) {
       {
@@ -7343,7 +7340,7 @@ static void skd_request_fn(struct request_queue *q )
   if (flush == 1) {
     {
     skd_prep_zerosize_flush_cdb(scsi_req, skreq);
-    tmp___13 = __builtin_expect((unsigned int )skreq->flush_cmd != 1U, 0L);
+    tmp___13 = ldv__builtin_expect((unsigned int )skreq->flush_cmd != 1U, 0L);
     }
     if (tmp___13 != 0L) {
       {
@@ -7379,7 +7376,7 @@ static void skd_request_fn(struct request_queue *q )
     descriptor___4.format = "%s:%s:%d error Out\n";
     descriptor___4.lineno = 776U;
     descriptor___4.flags = 0U;
-    tmp___14 = __builtin_expect((long )descriptor___4.flags & 1L, 0L);
+    tmp___14 = ldv__builtin_expect((long )descriptor___4.flags & 1L, 0L);
     }
     if (tmp___14 != 0L) {
       {
@@ -7415,7 +7412,7 @@ static void skd_request_fn(struct request_queue *q )
   descriptor___5.format = "%s:%s:%d req=0x%x busy=%d\n";
   descriptor___5.lineno = 803U;
   descriptor___5.flags = 0U;
-  tmp___16 = __builtin_expect((long )descriptor___5.flags & 1L, 0L);
+  tmp___16 = ldv__builtin_expect((long )descriptor___5.flags & 1L, 0L);
   }
   if (tmp___16 != 0L) {
     {
@@ -7446,7 +7443,7 @@ static void skd_request_fn(struct request_queue *q )
       descriptor___6.format = "%s:%s:%d sending msg=%p, len %d\n";
       descriptor___6.lineno = 827U;
       descriptor___6.flags = 0U;
-      tmp___17 = __builtin_expect((long )descriptor___6.flags & 1L, 0L);
+      tmp___17 = ldv__builtin_expect((long )descriptor___6.flags & 1L, 0L);
       }
       if (tmp___17 != 0L) {
         {
@@ -7510,7 +7507,7 @@ static void skd_end_request(struct skd_device *skdev , struct skd_request_contex
     descriptor.format = "%s:%s:%d, free the page!";
     descriptor.lineno = 860U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -7527,7 +7524,7 @@ static void skd_end_request(struct skd_device *skdev , struct skd_request_contex
 
   }
   {
-  tmp___4 = __builtin_expect(error != 0, 0L);
+  tmp___4 = ldv__builtin_expect(error != 0, 0L);
   }
   if (tmp___4 != 0L) {
     {
@@ -7549,7 +7546,7 @@ static void skd_end_request(struct skd_device *skdev , struct skd_request_contex
     descriptor___0.format = "%s:%s:%d id=0x%x error=%d\n";
     descriptor___0.lineno = 874U;
     descriptor___0.flags = 0U;
-    tmp___3 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___3 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___3 != 0L) {
       {
@@ -7608,7 +7605,7 @@ static int skd_preop_sg_list(struct skd_device *skdev , struct skd_request_conte
 
   }
   {
-  tmp = __builtin_expect(n_sg > skdev->sgs_per_request, 0L);
+  tmp = ldv__builtin_expect(n_sg > skdev->sgs_per_request, 0L);
   }
   if (tmp != 0L) {
     {
@@ -7640,7 +7637,7 @@ static int skd_preop_sg_list(struct skd_device *skdev , struct skd_request_conte
   {
   (skreq->sksg_list + ((unsigned long )n_sg + 0xffffffffffffffffUL))->next_desc_ptr = 0ULL;
   (skreq->sksg_list + ((unsigned long )n_sg + 0xffffffffffffffffUL))->control = 1038U;
-  tmp___2 = __builtin_expect(skdev->dbg_level > 1, 0L);
+  tmp___2 = ldv__builtin_expect(skdev->dbg_level > 1, 0L);
   }
   if (tmp___2 != 0L) {
     {
@@ -7650,7 +7647,7 @@ static int skd_preop_sg_list(struct skd_device *skdev , struct skd_request_conte
     descriptor.format = "%s:%s:%d skreq=%x sksg_list=%p sksg_dma=%llx\n";
     descriptor.lineno = 928U;
     descriptor.flags = 0U;
-    tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -7672,7 +7669,7 @@ static int skd_preop_sg_list(struct skd_device *skdev , struct skd_request_conte
     descriptor___0.format = "%s:%s:%d   sg[%d] count=%u ctrl=0x%x addr=0x%llx next=0x%llx\n";
     descriptor___0.lineno = 935U;
     descriptor___0.flags = 0U;
-    tmp___1 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___1 != 0L) {
       {
@@ -7721,7 +7718,7 @@ static void skd_request_fn_not_online(struct request_queue *q )
   {
   {
   skdev = (struct skd_device *)q->queuedata;
-  tmp = __builtin_expect((unsigned int )skdev->state == 4U, 0L);
+  tmp = ldv__builtin_expect((unsigned int )skdev->state == 4U, 0L);
   }
   if (tmp != 0L) {
     {
@@ -7887,7 +7884,7 @@ static void skd_timer_tick(ulong arg )
   descriptor.format = "%s:%s:%d found %d timeouts, draining busy=%d\n";
   descriptor.lineno = 1052U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -8035,7 +8032,7 @@ static void skd_timer_tick_not_online(struct skd_device *skdev )
   descriptor.format = "%s:%s:%d drive busy sanitize[%x], driver[%x]\n";
   descriptor.lineno = 1077U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -8066,7 +8063,7 @@ static void skd_timer_tick_not_online(struct skd_device *skdev )
   descriptor___0.format = "%s:%s:%d busy[%x], countdown=%d\n";
   descriptor___0.lineno = 1093U;
   descriptor___0.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -8090,7 +8087,7 @@ static void skd_timer_tick_not_online(struct skd_device *skdev )
   descriptor___1.format = "%s:%s:%d busy[%x], timedout=%d, restarting device.";
   descriptor___1.lineno = 1100U;
   descriptor___1.flags = 0U;
-  tmp___1 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -8135,7 +8132,7 @@ static void skd_timer_tick_not_online(struct skd_device *skdev )
   descriptor___2.format = "%s:%s:%d draining busy [%d] tick[%d] qdb[%d] tmls[%d]\n";
   descriptor___2.lineno = 1139U;
   descriptor___2.flags = 0U;
-  tmp___3 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+  tmp___3 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
   }
   if (tmp___3 != 0L) {
     {
@@ -8155,7 +8152,7 @@ static void skd_timer_tick_not_online(struct skd_device *skdev )
     descriptor___3.format = "%s:%s:%d Slot drained, starting queue.\n";
     descriptor___3.lineno = 1143U;
     descriptor___3.flags = 0U;
-    tmp___4 = __builtin_expect((long )descriptor___3.flags & 1L, 0L);
+    tmp___4 = ldv__builtin_expect((long )descriptor___3.flags & 1L, 0L);
     }
     if (tmp___4 != 0L) {
       {
@@ -8301,7 +8298,7 @@ static int skd_bdev_ioctl(struct block_device *bdev , fmode_t mode , uint cmd_in
   descriptor.format = "%s:%s:%d %s: CMD[%s] ioctl  mode 0x%x, cmd 0x%x arg %0lx\n";
   descriptor.lineno = 1268U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -8373,7 +8370,7 @@ static int skd_bdev_ioctl(struct block_device *bdev , fmode_t mode , uint cmd_in
   descriptor___0.format = "%s:%s:%d %s:  completion rc %d\n";
   descriptor___0.lineno = 1289U;
   descriptor___0.flags = 0U;
-  tmp___3 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___3 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
   }
   if (tmp___3 != 0L) {
     {
@@ -8423,7 +8420,7 @@ static int skd_ioctl_sg_io(struct skd_device *skdev , fmode_t mode , void *argp 
   descriptor.format = "%s:%s:%d drive not online\n";
   descriptor.lineno = 1311U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -8580,7 +8577,7 @@ static int skd_sg_io_get_and_check_args(struct skd_device *skdev , struct skd_sg
     tmp___2 = 1;
   }
   {
-  tmp___3 = __builtin_expect((long )tmp___2, 1L);
+  tmp___3 = ldv__builtin_expect((long )tmp___2, 1L);
   }
   if (tmp___3 == 0L) {
     {
@@ -8590,7 +8587,7 @@ static int skd_sg_io_get_and_check_args(struct skd_device *skdev , struct skd_sg
     descriptor.format = "%s:%s:%d access sg failed %p\n";
     descriptor.lineno = 1366U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -8615,7 +8612,7 @@ static int skd_sg_io_get_and_check_args(struct skd_device *skdev , struct skd_sg
     descriptor___0.format = "%s:%s:%d copy_from_user sg failed %p\n";
     descriptor___0.lineno = 1372U;
     descriptor___0.flags = 0U;
-    tmp___4 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___4 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___4 != 0L) {
       {
@@ -8638,7 +8635,7 @@ static int skd_sg_io_get_and_check_args(struct skd_device *skdev , struct skd_sg
     descriptor___1.format = "%s:%s:%d interface_id invalid 0x%x\n";
     descriptor___1.lineno = 1378U;
     descriptor___1.flags = 0U;
-    tmp___6 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___6 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
     }
     if (tmp___6 != 0L) {
       {
@@ -8661,7 +8658,7 @@ static int skd_sg_io_get_and_check_args(struct skd_device *skdev , struct skd_sg
     descriptor___2.format = "%s:%s:%d cmd_len invalid %d\n";
     descriptor___2.lineno = 1384U;
     descriptor___2.flags = 0U;
-    tmp___7 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+    tmp___7 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
     }
     if (tmp___7 != 0L) {
       {
@@ -8683,7 +8680,7 @@ static int skd_sg_io_get_and_check_args(struct skd_device *skdev , struct skd_sg
     descriptor___3.format = "%s:%s:%d iovec_count invalid %d\n";
     descriptor___3.lineno = 1390U;
     descriptor___3.flags = 0U;
-    tmp___8 = __builtin_expect((long )descriptor___3.flags & 1L, 0L);
+    tmp___8 = ldv__builtin_expect((long )descriptor___3.flags & 1L, 0L);
     }
     if (tmp___8 != 0L) {
       {
@@ -8705,7 +8702,7 @@ static int skd_sg_io_get_and_check_args(struct skd_device *skdev , struct skd_sg
     descriptor___4.format = "%s:%s:%d dxfer_len invalid %d\n";
     descriptor___4.lineno = 1396U;
     descriptor___4.flags = 0U;
-    tmp___9 = __builtin_expect((long )descriptor___4.flags & 1L, 0L);
+    tmp___9 = ldv__builtin_expect((long )descriptor___4.flags & 1L, 0L);
     }
     if (tmp___9 != 0L) {
       {
@@ -8759,7 +8756,7 @@ static int skd_sg_io_get_and_check_args(struct skd_device *skdev , struct skd_sg
   descriptor___5.format = "%s:%s:%d dxfer_dir invalid %d\n";
   descriptor___5.lineno = 1416U;
   descriptor___5.flags = 0U;
-  tmp___10 = __builtin_expect((long )descriptor___5.flags & 1L, 0L);
+  tmp___10 = ldv__builtin_expect((long )descriptor___5.flags & 1L, 0L);
   }
   if (tmp___10 != 0L) {
     {
@@ -8784,7 +8781,7 @@ static int skd_sg_io_get_and_check_args(struct skd_device *skdev , struct skd_sg
     descriptor___6.format = "%s:%s:%d copy_from_user cmdp failed %p\n";
     descriptor___6.lineno = 1422U;
     descriptor___6.flags = 0U;
-    tmp___11 = __builtin_expect((long )descriptor___6.flags & 1L, 0L);
+    tmp___11 = ldv__builtin_expect((long )descriptor___6.flags & 1L, 0L);
     }
     if (tmp___11 != 0L) {
       {
@@ -8811,7 +8808,7 @@ static int skd_sg_io_get_and_check_args(struct skd_device *skdev , struct skd_sg
       tmp___16 = 1;
     }
     {
-    tmp___17 = __builtin_expect((long )tmp___16, 1L);
+    tmp___17 = ldv__builtin_expect((long )tmp___16, 1L);
     }
     if (tmp___17 == 0L) {
       {
@@ -8821,7 +8818,7 @@ static int skd_sg_io_get_and_check_args(struct skd_device *skdev , struct skd_sg
       descriptor___7.format = "%s:%s:%d access sbp failed %p\n";
       descriptor___7.lineno = 1429U;
       descriptor___7.flags = 0U;
-      tmp___13 = __builtin_expect((long )descriptor___7.flags & 1L, 0L);
+      tmp___13 = ldv__builtin_expect((long )descriptor___7.flags & 1L, 0L);
       }
       if (tmp___13 != 0L) {
         {
@@ -8857,7 +8854,7 @@ static int skd_sg_io_get_and_check_args(struct skd_device *skdev , struct skd_sg
       descriptor___8.format = "%s:%s:%d alloc iovec failed %d\n";
       descriptor___8.lineno = 1448U;
       descriptor___8.flags = 0U;
-      tmp___19 = __builtin_expect((long )descriptor___8.flags & 1L, 0L);
+      tmp___19 = ldv__builtin_expect((long )descriptor___8.flags & 1L, 0L);
       }
       if (tmp___19 != 0L) {
         {
@@ -8884,7 +8881,7 @@ static int skd_sg_io_get_and_check_args(struct skd_device *skdev , struct skd_sg
       descriptor___9.format = "%s:%s:%d copy_from_user iovec failed %p\n";
       descriptor___9.lineno = 1456U;
       descriptor___9.flags = 0U;
-      tmp___20 = __builtin_expect((long )descriptor___9.flags & 1L, 0L);
+      tmp___20 = ldv__builtin_expect((long )descriptor___9.flags & 1L, 0L);
       }
       if (tmp___20 != 0L) {
         {
@@ -8944,7 +8941,7 @@ static int skd_sg_io_get_and_check_args(struct skd_device *skdev , struct skd_sg
       tmp___26 = 1;
     }
     {
-    tmp___27 = __builtin_expect((long )tmp___26, 1L);
+    tmp___27 = ldv__builtin_expect((long )tmp___26, 1L);
     }
     if (tmp___27 == 0L) {
       {
@@ -8954,7 +8951,7 @@ static int skd_sg_io_get_and_check_args(struct skd_device *skdev , struct skd_sg
       descriptor___10.format = "%s:%s:%d access data failed %p/%d\n";
       descriptor___10.lineno = 1486U;
       descriptor___10.flags = 0U;
-      tmp___23 = __builtin_expect((long )descriptor___10.flags & 1L, 0L);
+      tmp___23 = ldv__builtin_expect((long )descriptor___10.flags & 1L, 0L);
       }
       if (tmp___23 != 0L) {
         {
@@ -9035,7 +9032,7 @@ static int skd_sg_io_obtain_skspcl(struct skd_device *skdev , struct skd_sg_io *
   descriptor.format = "%s:%s:%d blocking\n";
   descriptor.lineno = 1522U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -9105,7 +9102,7 @@ static int skd_sg_io_obtain_skspcl(struct skd_device *skdev , struct skd_sg_io *
   descriptor___0.format = "%s:%s:%d unblocking, rc=%d\n";
   descriptor___0.lineno = 1530U;
   descriptor___0.flags = 0U;
-  tmp___3 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___3 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
   }
   if (tmp___3 != 0L) {
     {
@@ -9200,7 +9197,7 @@ static int skd_skreq_prep_buffering(struct skd_device *skdev , struct skd_reques
 
   }
   {
-  tmp___1 = __builtin_expect(skdev->dbg_level > 1, 0L);
+  tmp___1 = ldv__builtin_expect(skdev->dbg_level > 1, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -9210,7 +9207,7 @@ static int skd_skreq_prep_buffering(struct skd_device *skdev , struct skd_reques
     descriptor.format = "%s:%s:%d skreq=%x sksg_list=%p sksg_dma=%llx\n";
     descriptor.lineno = 1609U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -9232,7 +9229,7 @@ static int skd_skreq_prep_buffering(struct skd_device *skdev , struct skd_reques
     descriptor___0.format = "%s:%s:%d   sg[%d] count=%u ctrl=0x%x addr=0x%llx next=0x%llx\n";
     descriptor___0.lineno = 1617U;
     descriptor___0.flags = 0U;
-    tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -9496,7 +9493,7 @@ static int skd_sg_io_await(struct skd_device *skdev , struct skd_sg_io *sksgio )
     descriptor.format = "%s:%s:%d skspcl %p aborted\n";
     descriptor.lineno = 1740U;
     descriptor.flags = 0U;
-    tmp___2 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___2 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp___2 != 0L) {
       {
@@ -9529,7 +9526,7 @@ static int skd_sg_io_await(struct skd_device *skdev , struct skd_sg_io *sksgio )
       descriptor___0.format = "%s:%s:%d timed out %p (%u ms)\n";
       descriptor___0.lineno = 1767U;
       descriptor___0.flags = 0U;
-      tmp___3 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+      tmp___3 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
       }
       if (tmp___3 != 0L) {
         {
@@ -9548,7 +9545,7 @@ static int skd_sg_io_await(struct skd_device *skdev , struct skd_sg_io *sksgio )
       descriptor___1.format = "%s:%s:%d cntlc %p\n";
       descriptor___1.lineno = 1771U;
       descriptor___1.flags = 0U;
-      tmp___4 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+      tmp___4 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
       }
       if (tmp___4 != 0L) {
         {
@@ -9614,7 +9611,7 @@ static int skd_sg_io_put_status(struct skd_device *skdev , struct skd_sg_io *sks
   descriptor.format = "%s:%s:%d status %x masked %x resid 0x%x\n";
   descriptor.lineno = 1803U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -9644,7 +9641,7 @@ static int skd_sg_io_put_status(struct skd_device *skdev , struct skd_sg_io *sks
         descriptor___0.format = "%s:%s:%d copy_to_user sense failed %p\n";
         descriptor___0.lineno = 1817U;
         descriptor___0.flags = 0U;
-        tmp___1 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+        tmp___1 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
         }
         if (tmp___1 != 0L) {
           {
@@ -9676,7 +9673,7 @@ static int skd_sg_io_put_status(struct skd_device *skdev , struct skd_sg_io *sks
     descriptor___1.format = "%s:%s:%d copy_to_user sg failed %p\n";
     descriptor___1.lineno = 1825U;
     descriptor___1.flags = 0U;
-    tmp___3 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___3 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
     }
     if (tmp___3 != 0L) {
       {
@@ -9765,7 +9762,7 @@ static void skd_send_internal_skspcl(struct skd_device *skdev , struct skd_speci
 
   }
   {
-  tmp = __builtin_expect(((int )skspcl->req.id & 1024) != 0, 0L);
+  tmp = ldv__builtin_expect(((int )skspcl->req.id & 1024) != 0, 0L);
   }
   if (tmp != 0L) {
     {
@@ -9984,7 +9981,7 @@ static void skd_complete_internal(struct skd_device *skdev , struct fit_completi
   {
   buf = (u8 *)skspcl->data_buf;
   scsi = (struct skd_scsi_request *)skspcl->msg_buf + 64U;
-  tmp = __builtin_expect((unsigned long )skspcl != (unsigned long )(& skdev->internal_skspcl),
+  tmp = ldv__builtin_expect((unsigned long )skspcl != (unsigned long )(& skdev->internal_skspcl),
                          0L);
   }
   if (tmp != 0L) {
@@ -10002,7 +9999,7 @@ static void skd_complete_internal(struct skd_device *skdev , struct fit_completi
   descriptor.format = "%s:%s:%d complete internal %x\n";
   descriptor.lineno = 2014U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -10071,7 +10068,7 @@ static void skd_complete_internal(struct skd_device *skdev , struct fit_completi
       descriptor___0.format = "%s:%s:%d TUR failed, don\'t send anymore state 0x%x\n";
       descriptor___0.lineno = 2036U;
       descriptor___0.flags = 0U;
-      tmp___1 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+      tmp___1 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
       }
       if (tmp___1 != 0L) {
         {
@@ -10093,7 +10090,7 @@ static void skd_complete_internal(struct skd_device *skdev , struct fit_completi
     descriptor___1.format = "%s:%s:%d **** TUR failed, retry skerr\n";
     descriptor___1.lineno = 2040U;
     descriptor___1.flags = 0U;
-    tmp___2 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___2 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
     }
     if (tmp___2 != 0L) {
       {
@@ -10122,7 +10119,7 @@ static void skd_complete_internal(struct skd_device *skdev , struct fit_completi
       descriptor___2.format = "%s:%s:%d write buffer failed, don\'t send anymore state 0x%x\n";
       descriptor___2.lineno = 2052U;
       descriptor___2.flags = 0U;
-      tmp___3 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+      tmp___3 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
       }
       if (tmp___3 != 0L) {
         {
@@ -10144,7 +10141,7 @@ static void skd_complete_internal(struct skd_device *skdev , struct fit_completi
     descriptor___3.format = "%s:%s:%d **** write buffer failed, retry skerr\n";
     descriptor___3.lineno = 2056U;
     descriptor___3.flags = 0U;
-    tmp___4 = __builtin_expect((long )descriptor___3.flags & 1L, 0L);
+    tmp___4 = ldv__builtin_expect((long )descriptor___3.flags & 1L, 0L);
     }
     if (tmp___4 != 0L) {
       {
@@ -10195,7 +10192,7 @@ static void skd_complete_internal(struct skd_device *skdev , struct fit_completi
       descriptor___4.format = "%s:%s:%d read buffer failed, don\'t send anymore state 0x%x\n";
       descriptor___4.lineno = 2087U;
       descriptor___4.flags = 0U;
-      tmp___8 = __builtin_expect((long )descriptor___4.flags & 1L, 0L);
+      tmp___8 = ldv__builtin_expect((long )descriptor___4.flags & 1L, 0L);
       }
       if (tmp___8 != 0L) {
         {
@@ -10217,7 +10214,7 @@ static void skd_complete_internal(struct skd_device *skdev , struct fit_completi
     descriptor___5.format = "%s:%s:%d **** read buffer failed, retry skerr\n";
     descriptor___5.lineno = 2092U;
     descriptor___5.flags = 0U;
-    tmp___9 = __builtin_expect((long )descriptor___5.flags & 1L, 0L);
+    tmp___9 = ldv__builtin_expect((long )descriptor___5.flags & 1L, 0L);
     }
     if (tmp___9 != 0L) {
       {
@@ -10244,7 +10241,7 @@ static void skd_complete_internal(struct skd_device *skdev , struct fit_completi
     descriptor___6.format = "%s:%s:%d last lba %d, bs %d\n";
     descriptor___6.lineno = 2110U;
     descriptor___6.flags = 0U;
-    tmp___10 = __builtin_expect((long )descriptor___6.flags & 1L, 0L);
+    tmp___10 = ldv__builtin_expect((long )descriptor___6.flags & 1L, 0L);
     }
     if (tmp___10 != 0L) {
       {
@@ -10271,7 +10268,7 @@ static void skd_complete_internal(struct skd_device *skdev , struct fit_completi
     descriptor___7.format = "%s:%s:%d **** MEDIUM ERROR caused READCAP to fail, ignore failure and continue to inquiry\n";
     descriptor___7.lineno = 2123U;
     descriptor___7.flags = 0U;
-    tmp___11 = __builtin_expect((long )descriptor___7.flags & 1L, 0L);
+    tmp___11 = ldv__builtin_expect((long )descriptor___7.flags & 1L, 0L);
     }
     if (tmp___11 != 0L) {
       {
@@ -10292,7 +10289,7 @@ static void skd_complete_internal(struct skd_device *skdev , struct fit_completi
     descriptor___8.format = "%s:%s:%d **** READCAP failed, retry TUR\n";
     descriptor___8.lineno = 2127U;
     descriptor___8.flags = 0U;
-    tmp___12 = __builtin_expect((long )descriptor___8.flags & 1L, 0L);
+    tmp___12 = ldv__builtin_expect((long )descriptor___8.flags & 1L, 0L);
     }
     if (tmp___12 != 0L) {
       {
@@ -10337,7 +10334,7 @@ static void skd_complete_internal(struct skd_device *skdev , struct fit_completi
     descriptor___9.format = "%s:%s:%d **** failed, to ONLINE device\n";
     descriptor___9.lineno = 2145U;
     descriptor___9.flags = 0U;
-    tmp___13 = __builtin_expect((long )descriptor___9.flags & 1L, 0L);
+    tmp___13 = ldv__builtin_expect((long )descriptor___9.flags & 1L, 0L);
     }
     if (tmp___13 != 0L) {
       {
@@ -10391,7 +10388,7 @@ static void skd_send_fitmsg(struct skd_device *skdev , struct skd_fitmsg_context
   descriptor.format = "%s:%s:%d dma address 0x%llx, busy=%d\n";
   descriptor.lineno = 2177U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -10408,7 +10405,7 @@ static void skd_send_fitmsg(struct skd_device *skdev , struct skd_fitmsg_context
   descriptor___0.format = "%s:%s:%d msg_buf 0x%p, offset %x\n";
   descriptor___0.lineno = 2180U;
   descriptor___0.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -10423,7 +10420,7 @@ static void skd_send_fitmsg(struct skd_device *skdev , struct skd_fitmsg_context
   qcmd = qcmd;
   fmh = (struct fit_msg_hdr *)skmsg->msg_buf;
   skmsg->outstanding = (u16 )fmh->num_protocol_cmds_coalesced;
-  tmp___2 = __builtin_expect(skdev->dbg_level > 1, 0L);
+  tmp___2 = ldv__builtin_expect(skdev->dbg_level > 1, 0L);
   }
   if (tmp___2 != 0L) {
     bp = skmsg->msg_buf;
@@ -10437,7 +10434,7 @@ static void skd_send_fitmsg(struct skd_device *skdev , struct skd_fitmsg_context
     descriptor___1.format = "%s:%s:%d msg[%2d] %02x %02x %02x %02x %02x %02x %02x %02x\n";
     descriptor___1.lineno = 2197U;
     descriptor___1.flags = 0U;
-    tmp___1 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
     }
     if (tmp___1 != 0L) {
       {
@@ -10500,7 +10497,7 @@ static void skd_send_special_fitmsg(struct skd_device *skdev , struct skd_specia
 
   {
   {
-  tmp___2 = __builtin_expect(skdev->dbg_level > 1, 0L);
+  tmp___2 = ldv__builtin_expect(skdev->dbg_level > 1, 0L);
   }
   if (tmp___2 != 0L) {
     bp = skspcl->msg_buf;
@@ -10514,7 +10511,7 @@ static void skd_send_special_fitmsg(struct skd_device *skdev , struct skd_specia
     descriptor.format = "%s:%s:%d  spcl[%2d] %02x %02x %02x %02x  %02x %02x %02x %02x\n";
     descriptor.lineno = 2235U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -10547,7 +10544,7 @@ static void skd_send_special_fitmsg(struct skd_device *skdev , struct skd_specia
     descriptor___0.format = "%s:%s:%d skspcl=%p id=%04x sksg_list=%p sksg_dma=%llx\n";
     descriptor___0.lineno = 2243U;
     descriptor___0.flags = 0U;
-    tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -10569,7 +10566,7 @@ static void skd_send_special_fitmsg(struct skd_device *skdev , struct skd_specia
     descriptor___1.format = "%s:%s:%d   sg[%d] count=%u ctrl=0x%x addr=0x%llx next=0x%llx\n";
     descriptor___1.lineno = 2252U;
     descriptor___1.flags = 0U;
-    tmp___1 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
     }
     if (tmp___1 != 0L) {
       {
@@ -10637,7 +10634,7 @@ static enum skd_check_status_action skd_check_status(struct skd_device *skdev , 
   descriptor.format = "%s:%s:%d stat: t=%02x stat=%02x k=%02x c=%02x q=%02x fruc=%02x\n";
   descriptor.lineno = 2333U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -10726,7 +10723,7 @@ static enum skd_check_status_action skd_check_status(struct skd_device *skdev , 
     descriptor___0.format = "%s:%s:%d status check: error\n";
     descriptor___0.lineno = 2374U;
     descriptor___0.flags = 0U;
-    tmp___2 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___2 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___2 != 0L) {
       {
@@ -10747,7 +10744,7 @@ static enum skd_check_status_action skd_check_status(struct skd_device *skdev , 
   descriptor___1.format = "%s:%s:%d status check good default\n";
   descriptor___1.lineno = 2379U;
   descriptor___1.flags = 0U;
-  tmp___3 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+  tmp___3 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
   }
   if (tmp___3 != 0L) {
     {
@@ -10852,7 +10849,7 @@ static void skd_release_skreq(struct skd_device *skdev , struct skd_request_cont
   {
   {
   msg_slot = skreq->fitmsg_id & 255U;
-  tmp = __builtin_expect(msg_slot >= skdev->num_fitmsg_context, 0L);
+  tmp = ldv__builtin_expect(msg_slot >= skdev->num_fitmsg_context, 0L);
   }
   if (tmp != 0L) {
     {
@@ -10865,7 +10862,7 @@ static void skd_release_skreq(struct skd_device *skdev , struct skd_request_cont
   skmsg = skdev->skmsg_table + (unsigned long )msg_slot;
   if (skmsg->id == skreq->fitmsg_id) {
     {
-    tmp___0 = __builtin_expect((unsigned int )skmsg->state != 1U, 0L);
+    tmp___0 = ldv__builtin_expect((unsigned int )skmsg->state != 1U, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -10876,7 +10873,7 @@ static void skd_release_skreq(struct skd_device *skdev , struct skd_request_cont
 
     }
     {
-    tmp___1 = __builtin_expect((unsigned int )skmsg->outstanding == 0U, 0L);
+    tmp___1 = ldv__builtin_expect((unsigned int )skmsg->outstanding == 0U, 0L);
     }
     if (tmp___1 != 0L) {
       {
@@ -10899,7 +10896,7 @@ static void skd_release_skreq(struct skd_device *skdev , struct skd_request_cont
 
   }
   {
-  tmp___2 = __builtin_expect(skdev->in_flight == 0U, 0L);
+  tmp___2 = ldv__builtin_expect(skdev->in_flight == 0U, 0L);
   }
   if (tmp___2 != 0L) {
     {
@@ -10912,7 +10909,7 @@ static void skd_release_skreq(struct skd_device *skdev , struct skd_request_cont
   {
   skdev->in_flight = skdev->in_flight - 1U;
   timo_slot = skreq->timeout_stamp & 3U;
-  tmp___3 = __builtin_expect(skdev->timeout_slot[timo_slot] == 0U, 0L);
+  tmp___3 = ldv__builtin_expect(skdev->timeout_slot[timo_slot] == 0U, 0L);
   }
   if (tmp___3 != 0L) {
     {
@@ -10954,7 +10951,7 @@ static void skd_do_inq_page_00(struct skd_device *skdev , struct fit_completion_
   descriptor.format = "%s:%s:%d skd_do_driver_inquiry: modify supported pages.\n";
   descriptor.lineno = 2498U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -11114,7 +11111,7 @@ static void skd_do_inq_page_da(struct skd_device *skdev , struct fit_completion_
   descriptor.format = "%s:%s:%d skd_do_driver_inquiry: return driver page\n";
   descriptor.lineno = 2597U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -11288,7 +11285,7 @@ static int skd_isr_completion_posted(struct skd_device *skdev , int limit , int 
   processed = 0;
   ldv_39190: 
   {
-  tmp = __builtin_expect(skdev->skcomp_ix > 255U, 0L);
+  tmp = ldv__builtin_expect(skdev->skcomp_ix > 255U, 0L);
   }
   if (tmp != 0L) {
     {
@@ -11312,7 +11309,7 @@ static int skd_isr_completion_posted(struct skd_device *skdev , int limit , int 
   descriptor.format = "%s:%s:%d cycle=%d ix=%d got cycle=%d cmdctxt=0x%x stat=%d busy=%d rbytes=0x%x proto=%d\n";
   descriptor.lineno = 2718U;
   descriptor.flags = 0U;
-  tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -11333,7 +11330,7 @@ static int skd_isr_completion_posted(struct skd_device *skdev , int limit , int 
     descriptor___0.format = "%s:%s:%d end of completions\n";
     descriptor___0.lineno = 2722U;
     descriptor___0.flags = 0U;
-    tmp___2 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___2 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___2 != 0L) {
       {
@@ -11373,7 +11370,7 @@ static int skd_isr_completion_posted(struct skd_device *skdev , int limit , int 
     descriptor___1.format = "%s:%s:%d mismatch comp_id=0x%x req_id=0x%x\n";
     descriptor___1.lineno = 2760U;
     descriptor___1.flags = 0U;
-    tmp___3 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___3 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
     }
     if (tmp___3 != 0L) {
       {
@@ -11395,7 +11392,7 @@ static int skd_isr_completion_posted(struct skd_device *skdev , int limit , int 
 
   }
   {
-  tmp___5 = __builtin_expect((unsigned int )skreq->state != 2U, 0L);
+  tmp___5 = ldv__builtin_expect((unsigned int )skreq->state != 2U, 0L);
   }
   if (tmp___5 != 0L) {
     {
@@ -11413,7 +11410,7 @@ static int skd_isr_completion_posted(struct skd_device *skdev , int limit , int 
     descriptor___2.format = "%s:%s:%d reclaim req %p id=%04x\n";
     descriptor___2.lineno = 2777U;
     descriptor___2.flags = 0U;
-    tmp___6 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+    tmp___6 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
     }
     if (tmp___6 != 0L) {
       {
@@ -11432,7 +11429,7 @@ static int skd_isr_completion_posted(struct skd_device *skdev , int limit , int 
   }
   {
   skreq->completion = *skcmp;
-  tmp___7 = __builtin_expect((unsigned int )cmp_status == 2U, 0L);
+  tmp___7 = ldv__builtin_expect((unsigned int )cmp_status == 2U, 0L);
   }
   if (tmp___7 != 0L) {
     {
@@ -11458,7 +11455,7 @@ static int skd_isr_completion_posted(struct skd_device *skdev , int limit , int 
     descriptor___3.format = "%s:%s:%d NULL backptr skdreq %p, req=0x%x req_id=0x%x\n";
     descriptor___3.lineno = 2799U;
     descriptor___3.flags = 0U;
-    tmp___8 = __builtin_expect((long )descriptor___3.flags & 1L, 0L);
+    tmp___8 = ldv__builtin_expect((long )descriptor___3.flags & 1L, 0L);
     }
     if (tmp___8 != 0L) {
       {
@@ -11471,7 +11468,7 @@ static int skd_isr_completion_posted(struct skd_device *skdev , int limit , int 
     }
   } else {
     {
-    tmp___9 = __builtin_expect((unsigned int )cmp_status == 0U, 1L);
+    tmp___9 = ldv__builtin_expect((unsigned int )cmp_status == 0U, 1L);
     }
     if (tmp___9 != 0L) {
       {
@@ -11533,7 +11530,7 @@ static void skd_complete_other(struct skd_device *skdev , struct fit_completion_
   descriptor.format = "%s:%s:%d table=0x%x id=0x%x slot=%d\n";
   descriptor.lineno = 2850U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -11623,7 +11620,7 @@ static void skd_complete_special(struct skd_device *skdev , struct fit_completio
   descriptor.format = "%s:%s:%d  completing special request %p\n";
   descriptor.lineno = 2919U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -11641,7 +11638,7 @@ static void skd_complete_special(struct skd_device *skdev , struct fit_completio
     descriptor___0.format = "%s:%s:%d release orphaned %p\n";
     descriptor___0.lineno = 2925U;
     descriptor___0.flags = 0U;
-    tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -11708,7 +11705,7 @@ static void skd_release_special(struct skd_device *skdev , struct skd_special_co
     descriptor.format = "%s:%s:%d skspcl was depleted\n";
     descriptor.lineno = 2963U;
     descriptor.flags = 0U;
-    tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -11796,7 +11793,7 @@ static irqreturn_t skd_isr(int irq , void *ptr )
   descriptor.format = "%s:%s:%d intstat=0x%x ack=0x%x\n";
   descriptor.lineno = 3029U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -11809,7 +11806,7 @@ static irqreturn_t skd_isr(int irq , void *ptr )
   if (ack == 0U) {
     if (rc == 0) {
       {
-      tmp___0 = __builtin_expect((unsigned int )skdev->state == 4U, 1L);
+      tmp___0 = ldv__builtin_expect((unsigned int )skdev->state == 4U, 1L);
       }
       if (tmp___0 != 0L) {
         deferred = 1;
@@ -11826,7 +11823,7 @@ static irqreturn_t skd_isr(int irq , void *ptr )
   {
   rc = 1;
   skd_reg_write32(skdev, ack, 1312U);
-  tmp___1 = __builtin_expect((long )((unsigned int )skdev->state != 0U && (unsigned int )skdev->state != 10U),
+  tmp___1 = ldv__builtin_expect((long )((unsigned int )skdev->state != 0U && (unsigned int )skdev->state != 10U),
                              1L);
   }
   if (tmp___1 != 0L) {
@@ -11869,7 +11866,7 @@ static irqreturn_t skd_isr(int irq , void *ptr )
   goto ldv_39257;
   ldv_39256: 
   {
-  tmp___2 = __builtin_expect(flush_enqueued != 0, 0L);
+  tmp___2 = ldv__builtin_expect(flush_enqueued != 0, 0L);
   }
   if (tmp___2 != 0L) {
     {
@@ -12122,7 +12119,7 @@ static void skd_isr_fwstate(struct skd_device *skdev )
   descriptor.format = "%s:%s:%d ISR FIT_SR_DRIVE_FW_BOOTING %s\n";
   descriptor.lineno = 3190U;
   descriptor.flags = 0U;
-  tmp___3 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___3 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___3 != 0L) {
     {
@@ -12192,7 +12189,7 @@ static void skd_recover_requests(struct skd_device *skdev , int requeue )
   if ((unsigned int )skreq->state == 2U) {
     {
     skd_log_skreq(skdev, skreq, "recover");
-    tmp = __builtin_expect(((int )skreq->id & 1024) == 0, 0L);
+    tmp = ldv__builtin_expect(((int )skreq->id & 1024) == 0, 0L);
     }
     if (tmp != 0L) {
       {
@@ -12203,7 +12200,7 @@ static void skd_recover_requests(struct skd_device *skdev , int requeue )
 
     }
     {
-    tmp___0 = __builtin_expect((unsigned long )skreq->req == (unsigned long )((struct request *)0),
+    tmp___0 = ldv__builtin_expect((unsigned long )skreq->req == (unsigned long )((struct request *)0),
                                0L);
     }
     if (tmp___0 != 0L) {
@@ -12264,7 +12261,7 @@ static void skd_recover_requests(struct skd_device *skdev , int requeue )
   if ((unsigned int )skmsg->state == 1U) {
     {
     skd_log_skmsg(skdev, skmsg, "salvaged");
-    tmp___1 = __builtin_expect((skmsg->id & 1024U) == 0U, 0L);
+    tmp___1 = ldv__builtin_expect((skmsg->id & 1024U) == 0U, 0L);
     }
     if (tmp___1 != 0L) {
       {
@@ -12306,7 +12303,7 @@ static void skd_recover_requests(struct skd_device *skdev , int requeue )
       descriptor.format = "%s:%s:%d orphaned %p\n";
       descriptor.lineno = 3290U;
       descriptor.flags = 0U;
-      tmp___2 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+      tmp___2 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
       }
       if (tmp___2 != 0L) {
         {
@@ -12327,7 +12324,7 @@ static void skd_recover_requests(struct skd_device *skdev , int requeue )
       descriptor___0.format = "%s:%s:%d not orphaned %p\n";
       descriptor___0.lineno = 3295U;
       descriptor___0.flags = 0U;
-      tmp___3 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+      tmp___3 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
       }
       if (tmp___3 != 0L) {
         {
@@ -12384,7 +12381,7 @@ static void skd_isr_msg_from_dev(struct skd_device *skdev )
   descriptor.format = "%s:%s:%d mfd=0x%x last_mtd=0x%x\n";
   descriptor.lineno = 3317U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -12544,7 +12541,7 @@ static void skd_disable_interrupts(struct skd_device *skdev )
   descriptor.format = "%s:%s:%d sense 0x%x\n";
   descriptor.lineno = 3413U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -12578,7 +12575,7 @@ static void skd_enable_interrupts(struct skd_device *skdev )
   descriptor.format = "%s:%s:%d interrupt mask=0x%x\n";
   descriptor.lineno = 3433U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -12597,7 +12594,7 @@ static void skd_enable_interrupts(struct skd_device *skdev )
   descriptor___0.format = "%s:%s:%d control=0x%x\n";
   descriptor___0.lineno = 3438U;
   descriptor___0.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -12629,7 +12626,7 @@ static void skd_soft_reset(struct skd_device *skdev )
   descriptor.format = "%s:%s:%d control=0x%x\n";
   descriptor.lineno = 3455U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -12686,7 +12683,7 @@ static void skd_start_device(struct skd_device *skdev )
   descriptor.format = "%s:%s:%d initial status=0x%x\n";
   descriptor.lineno = 3473U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -12770,7 +12767,7 @@ static void skd_start_device(struct skd_device *skdev )
   descriptor___0.format = "%s:%s:%d FIT_SR_DRIVE_FW_BOOTING %s\n";
   descriptor___0.lineno = 3491U;
   descriptor___0.flags = 0U;
-  tmp___1 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -12828,7 +12825,7 @@ static void skd_start_device(struct skd_device *skdev )
   descriptor___1.format = "%s:%s:%d starting %s queue\n";
   descriptor___1.lineno = 3533U;
   descriptor___1.flags = 0U;
-  tmp___6 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+  tmp___6 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
   }
   if (tmp___6 != 0L) {
     {
@@ -12853,7 +12850,7 @@ static void skd_start_device(struct skd_device *skdev )
   descriptor___2.format = "%s:%s:%d starting %s queue to error-out reqs\n";
   descriptor___2.lineno = 3545U;
   descriptor___2.flags = 0U;
-  tmp___7 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+  tmp___7 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
   }
   if (tmp___7 != 0L) {
     {
@@ -12886,7 +12883,7 @@ static void skd_start_device(struct skd_device *skdev )
   descriptor___3.format = "%s:%s:%d FIT Control Status=0x%x\n";
   descriptor___3.lineno = 3559U;
   descriptor___3.flags = 0U;
-  tmp___9 = __builtin_expect((long )descriptor___3.flags & 1L, 0L);
+  tmp___9 = ldv__builtin_expect((long )descriptor___3.flags & 1L, 0L);
   }
   if (tmp___9 != 0L) {
     {
@@ -12904,7 +12901,7 @@ static void skd_start_device(struct skd_device *skdev )
   descriptor___4.format = "%s:%s:%d Intr Status=0x%x\n";
   descriptor___4.lineno = 3563U;
   descriptor___4.flags = 0U;
-  tmp___10 = __builtin_expect((long )descriptor___4.flags & 1L, 0L);
+  tmp___10 = ldv__builtin_expect((long )descriptor___4.flags & 1L, 0L);
   }
   if (tmp___10 != 0L) {
     {
@@ -12922,7 +12919,7 @@ static void skd_start_device(struct skd_device *skdev )
   descriptor___5.format = "%s:%s:%d Intr Mask=0x%x\n";
   descriptor___5.lineno = 3567U;
   descriptor___5.flags = 0U;
-  tmp___11 = __builtin_expect((long )descriptor___5.flags & 1L, 0L);
+  tmp___11 = ldv__builtin_expect((long )descriptor___5.flags & 1L, 0L);
   }
   if (tmp___11 != 0L) {
     {
@@ -12940,7 +12937,7 @@ static void skd_start_device(struct skd_device *skdev )
   descriptor___6.format = "%s:%s:%d Msg from Dev=0x%x\n";
   descriptor___6.lineno = 3571U;
   descriptor___6.flags = 0U;
-  tmp___12 = __builtin_expect((long )descriptor___6.flags & 1L, 0L);
+  tmp___12 = ldv__builtin_expect((long )descriptor___6.flags & 1L, 0L);
   }
   if (tmp___12 != 0L) {
     {
@@ -12958,7 +12955,7 @@ static void skd_start_device(struct skd_device *skdev )
   descriptor___7.format = "%s:%s:%d HW version=0x%x\n";
   descriptor___7.lineno = 3575U;
   descriptor___7.flags = 0U;
-  tmp___13 = __builtin_expect((long )descriptor___7.flags & 1L, 0L);
+  tmp___13 = ldv__builtin_expect((long )descriptor___7.flags & 1L, 0L);
   }
   if (tmp___13 != 0L) {
     {
@@ -13238,7 +13235,7 @@ static void skd_restart_device(struct skd_device *skdev )
   descriptor.format = "%s:%s:%d drive status=0x%x\n";
   descriptor.lineno = 3669U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -13330,7 +13327,7 @@ static int skd_quiesce_dev(struct skd_device *skdev )
   descriptor.format = "%s:%s:%d stopping %s queue\n";
   descriptor.lineno = 3690U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -13361,7 +13358,7 @@ static int skd_quiesce_dev(struct skd_device *skdev )
   descriptor___0.format = "%s:%s:%d state [%d] not implemented\n";
   descriptor___0.lineno = 3704U;
   descriptor___0.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -13408,7 +13405,7 @@ static int skd_unquiesce_dev(struct skd_device *skdev )
     descriptor.format = "%s:%s:%d **** device already ONLINE\n";
     descriptor.lineno = 3717U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -13431,7 +13428,7 @@ static int skd_unquiesce_dev(struct skd_device *skdev )
     descriptor___0.format = "%s:%s:%d drive BUSY state\n";
     descriptor___0.lineno = 3731U;
     descriptor___0.flags = 0U;
-    tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -13519,7 +13516,7 @@ static int skd_unquiesce_dev(struct skd_device *skdev )
   descriptor___1.format = "%s:%s:%d **** device ONLINE...starting block queue\n";
   descriptor___1.lineno = 3756U;
   descriptor___1.flags = 0U;
-  tmp___4 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+  tmp___4 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
   }
   if (tmp___4 != 0L) {
     {
@@ -13536,7 +13533,7 @@ static int skd_unquiesce_dev(struct skd_device *skdev )
   descriptor___2.format = "%s:%s:%d starting %s queue\n";
   descriptor___2.lineno = 3758U;
   descriptor___2.flags = 0U;
-  tmp___5 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+  tmp___5 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
   }
   if (tmp___5 != 0L) {
     {
@@ -13563,7 +13560,7 @@ static int skd_unquiesce_dev(struct skd_device *skdev )
   descriptor___3.format = "%s:%s:%d **** driver state %d, not implemented \n";
   descriptor___3.lineno = 3769U;
   descriptor___3.flags = 0U;
-  tmp___7 = __builtin_expect((long )descriptor___3.flags & 1L, 0L);
+  tmp___7 = ldv__builtin_expect((long )descriptor___3.flags & 1L, 0L);
   }
   if (tmp___7 != 0L) {
     {
@@ -13600,7 +13597,7 @@ static irqreturn_t skd_reserved_isr(int irq , void *skd_host_data )
   descriptor.format = "%s:%s:%d MSIX = 0x%x\n";
   descriptor.lineno = 3789U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -13639,7 +13636,7 @@ static irqreturn_t skd_statec_isr(int irq , void *skd_host_data )
   descriptor.format = "%s:%s:%d MSIX = 0x%x\n";
   descriptor.lineno = 3805U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -13679,7 +13676,7 @@ static irqreturn_t skd_comp_q(int irq , void *skd_host_data )
   descriptor.format = "%s:%s:%d MSIX = 0x%x\n";
   descriptor.lineno = 3822U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -13737,7 +13734,7 @@ static irqreturn_t skd_msg_isr(int irq , void *skd_host_data )
   descriptor.format = "%s:%s:%d MSIX = 0x%x\n";
   descriptor.lineno = 3847U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -13774,7 +13771,7 @@ static irqreturn_t skd_qfull_isr(int irq , void *skd_host_data )
   descriptor.format = "%s:%s:%d MSIX = 0x%x\n";
   descriptor.lineno = 3862U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -13933,7 +13930,7 @@ static int skd_acquire_msix(struct skd_device *skdev )
   descriptor.format = "%s:%s:%d %s: <%s> msix (%d) vec %d, entry %x\n";
   descriptor.lineno = 3973U;
   descriptor.flags = 0U;
-  tmp___4 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___4 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___4 != 0L) {
     {
@@ -13987,7 +13984,7 @@ static int skd_acquire_msix(struct skd_device *skdev )
   descriptor___0.format = "%s:%s:%d %s: <%s> msix %d irq(s) enabled\n";
   descriptor___0.lineno = 3997U;
   descriptor___0.flags = 0U;
-  tmp___7 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___7 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
   }
   if (tmp___7 != 0L) {
     {
@@ -14202,7 +14199,7 @@ static int skd_cons_skcomp(struct skd_device *skdev )
   descriptor.format = "%s:%s:%d comp pci_alloc, total bytes %d entries %d\n";
   descriptor.lineno = 4113U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -14247,7 +14244,7 @@ static int skd_cons_skmsg(struct skd_device *skdev )
   descriptor.format = "%s:%s:%d skmsg_table kzalloc, struct %lu, count %u total %lu\n";
   descriptor.lineno = 4141U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -14367,7 +14364,7 @@ static int skd_cons_skreq(struct skd_device *skdev )
   descriptor.format = "%s:%s:%d skreq_table kzalloc, struct %lu, count %u total %lu\n";
   descriptor.lineno = 4225U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -14395,7 +14392,7 @@ static int skd_cons_skreq(struct skd_device *skdev )
   descriptor___0.format = "%s:%s:%d alloc sg_table sg_per_req %u scatlist %lu total %lu\n";
   descriptor___0.lineno = 4237U;
   descriptor___0.flags = 0U;
-  tmp___1 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -14467,7 +14464,7 @@ static int skd_cons_skspcl(struct skd_device *skdev )
   descriptor.format = "%s:%s:%d skspcl_table kzalloc, struct %lu, count %u total %lu\n";
   descriptor.lineno = 4284U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -14652,7 +14649,7 @@ static int skd_cons_disk(struct skd_device *skdev )
   descriptor.format = "%s:%s:%d stopping %s queue\n";
   descriptor.lineno = 4433U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -14749,7 +14746,7 @@ static struct skd_device *skd_construct(struct pci_dev *pdev )
   descriptor.format = "%s:%s:%d skcomp\n";
   descriptor.lineno = 4481U;
   descriptor.flags = 0U;
-  tmp___2 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___2 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___2 != 0L) {
     {
@@ -14774,7 +14771,7 @@ static struct skd_device *skd_construct(struct pci_dev *pdev )
   descriptor___0.format = "%s:%s:%d skmsg\n";
   descriptor___0.lineno = 4486U;
   descriptor___0.flags = 0U;
-  tmp___3 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___3 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
   }
   if (tmp___3 != 0L) {
     {
@@ -14799,7 +14796,7 @@ static struct skd_device *skd_construct(struct pci_dev *pdev )
   descriptor___1.format = "%s:%s:%d skreq\n";
   descriptor___1.lineno = 4491U;
   descriptor___1.flags = 0U;
-  tmp___4 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+  tmp___4 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
   }
   if (tmp___4 != 0L) {
     {
@@ -14824,7 +14821,7 @@ static struct skd_device *skd_construct(struct pci_dev *pdev )
   descriptor___2.format = "%s:%s:%d skspcl\n";
   descriptor___2.lineno = 4496U;
   descriptor___2.flags = 0U;
-  tmp___5 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+  tmp___5 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
   }
   if (tmp___5 != 0L) {
     {
@@ -14849,7 +14846,7 @@ static struct skd_device *skd_construct(struct pci_dev *pdev )
   descriptor___3.format = "%s:%s:%d sksb\n";
   descriptor___3.lineno = 4501U;
   descriptor___3.flags = 0U;
-  tmp___6 = __builtin_expect((long )descriptor___3.flags & 1L, 0L);
+  tmp___6 = ldv__builtin_expect((long )descriptor___3.flags & 1L, 0L);
   }
   if (tmp___6 != 0L) {
     {
@@ -14874,7 +14871,7 @@ static struct skd_device *skd_construct(struct pci_dev *pdev )
   descriptor___4.format = "%s:%s:%d disk\n";
   descriptor___4.lineno = 4506U;
   descriptor___4.flags = 0U;
-  tmp___7 = __builtin_expect((long )descriptor___4.flags & 1L, 0L);
+  tmp___7 = ldv__builtin_expect((long )descriptor___4.flags & 1L, 0L);
   }
   if (tmp___7 != 0L) {
     {
@@ -14899,7 +14896,7 @@ static struct skd_device *skd_construct(struct pci_dev *pdev )
   descriptor___5.format = "%s:%s:%d VICTORY\n";
   descriptor___5.lineno = 4511U;
   descriptor___5.flags = 0U;
-  tmp___8 = __builtin_expect((long )descriptor___5.flags & 1L, 0L);
+  tmp___8 = ldv__builtin_expect((long )descriptor___5.flags & 1L, 0L);
   }
   if (tmp___8 != 0L) {
     {
@@ -14918,7 +14915,7 @@ static struct skd_device *skd_construct(struct pci_dev *pdev )
   descriptor___6.format = "%s:%s:%d construct failed\n";
   descriptor___6.lineno = 4516U;
   descriptor___6.flags = 0U;
-  tmp___9 = __builtin_expect((long )descriptor___6.flags & 1L, 0L);
+  tmp___9 = ldv__builtin_expect((long )descriptor___6.flags & 1L, 0L);
   }
   if (tmp___9 != 0L) {
     {
@@ -15189,7 +15186,7 @@ static void skd_destruct(struct skd_device *skdev )
   descriptor.format = "%s:%s:%d disk\n";
   descriptor.lineno = 4700U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -15207,7 +15204,7 @@ static void skd_destruct(struct skd_device *skdev )
   descriptor___0.format = "%s:%s:%d sksb\n";
   descriptor___0.lineno = 4703U;
   descriptor___0.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -15225,7 +15222,7 @@ static void skd_destruct(struct skd_device *skdev )
   descriptor___1.format = "%s:%s:%d skspcl\n";
   descriptor___1.lineno = 4706U;
   descriptor___1.flags = 0U;
-  tmp___1 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -15243,7 +15240,7 @@ static void skd_destruct(struct skd_device *skdev )
   descriptor___2.format = "%s:%s:%d skreq\n";
   descriptor___2.lineno = 4709U;
   descriptor___2.flags = 0U;
-  tmp___2 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+  tmp___2 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
   }
   if (tmp___2 != 0L) {
     {
@@ -15261,7 +15258,7 @@ static void skd_destruct(struct skd_device *skdev )
   descriptor___3.format = "%s:%s:%d skmsg\n";
   descriptor___3.lineno = 4712U;
   descriptor___3.flags = 0U;
-  tmp___3 = __builtin_expect((long )descriptor___3.flags & 1L, 0L);
+  tmp___3 = ldv__builtin_expect((long )descriptor___3.flags & 1L, 0L);
   }
   if (tmp___3 != 0L) {
     {
@@ -15279,7 +15276,7 @@ static void skd_destruct(struct skd_device *skdev )
   descriptor___4.format = "%s:%s:%d skcomp\n";
   descriptor___4.lineno = 4715U;
   descriptor___4.flags = 0U;
-  tmp___4 = __builtin_expect((long )descriptor___4.flags & 1L, 0L);
+  tmp___4 = ldv__builtin_expect((long )descriptor___4.flags & 1L, 0L);
   }
   if (tmp___4 != 0L) {
     {
@@ -15297,7 +15294,7 @@ static void skd_destruct(struct skd_device *skdev )
   descriptor___5.format = "%s:%s:%d skdev\n";
   descriptor___5.lineno = 4718U;
   descriptor___5.flags = 0U;
-  tmp___5 = __builtin_expect((long )descriptor___5.flags & 1L, 0L);
+  tmp___5 = ldv__builtin_expect((long )descriptor___5.flags & 1L, 0L);
   }
   if (tmp___5 != 0L) {
     {
@@ -15331,7 +15328,7 @@ static int skd_bdev_getgeo(struct block_device *bdev , struct hd_geometry *geo )
   descriptor.format = "%s:%s:%d %s: CMD[%s] getgeo device\n";
   descriptor.lineno = 4737U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -15371,7 +15368,7 @@ static int skd_bdev_attach(struct skd_device *skdev )
   descriptor.format = "%s:%s:%d add_disk\n";
   descriptor.lineno = 4752U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -15526,7 +15523,7 @@ static int skd_pci_probe(struct pci_dev *pdev , struct pci_device_id  const  *en
 
     }
     {
-    tmp___3 = __builtin_expect(rc == 0, 0L);
+    tmp___3 = ldv__builtin_expect(rc == 0, 0L);
     }
     if (tmp___3 != 0L) {
       {
@@ -15596,7 +15593,7 @@ static int skd_pci_probe(struct pci_dev *pdev , struct pci_device_id  const  *en
   descriptor.format = "%s:%s:%d mem_map=%p, phyd=%016llx, size=%d\n";
   descriptor.lineno = 4888U;
   descriptor.flags = 0U;
-  tmp___8 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___8 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___8 != 0L) {
     {
@@ -15990,7 +15987,7 @@ static int skd_pci_resume(struct pci_dev *pdev )
   descriptor.format = "%s:%s:%d mem_map=%p, phyd=%016llx, size=%d\n";
   descriptor.lineno = 5085U;
   descriptor.flags = 0U;
-  tmp___6 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___6 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___6 != 0L) {
     {
@@ -16483,7 +16480,7 @@ static void skd_log_skdev(struct skd_device *skdev , char const   *event )
   descriptor.format = "%s:%s:%d (%s) skdev=%p event=\'%s\'\n";
   descriptor.lineno = 5286U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -16500,7 +16497,7 @@ static void skd_log_skdev(struct skd_device *skdev , char const   *event )
   descriptor___0.format = "%s:%s:%d   drive_state=%s(%d) driver_state=%s(%d)\n";
   descriptor___0.lineno = 5290U;
   descriptor___0.flags = 0U;
-  tmp___2 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___2 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
   }
   if (tmp___2 != 0L) {
     {
@@ -16520,7 +16517,7 @@ static void skd_log_skdev(struct skd_device *skdev , char const   *event )
   descriptor___1.format = "%s:%s:%d   busy=%d limit=%d dev=%d lowat=%d\n";
   descriptor___1.lineno = 5294U;
   descriptor___1.flags = 0U;
-  tmp___3 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+  tmp___3 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
   }
   if (tmp___3 != 0L) {
     {
@@ -16538,7 +16535,7 @@ static void skd_log_skdev(struct skd_device *skdev , char const   *event )
   descriptor___2.format = "%s:%s:%d   timestamp=0x%x cycle=%d cycle_ix=%d\n";
   descriptor___2.lineno = 5297U;
   descriptor___2.flags = 0U;
-  tmp___4 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+  tmp___4 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
   }
   if (tmp___4 != 0L) {
     {
@@ -16569,7 +16566,7 @@ static void skd_log_skmsg(struct skd_device *skdev , struct skd_fitmsg_context *
   descriptor.format = "%s:%s:%d (%s) skmsg=%p event=\'%s\'\n";
   descriptor.lineno = 5304U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -16586,7 +16583,7 @@ static void skd_log_skmsg(struct skd_device *skdev , struct skd_fitmsg_context *
   descriptor___0.format = "%s:%s:%d   state=%s(%d) id=0x%04x length=%d\n";
   descriptor___0.lineno = 5308U;
   descriptor___0.flags = 0U;
-  tmp___1 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -16629,7 +16626,7 @@ static void skd_log_skreq(struct skd_device *skdev , struct skd_request_context 
   descriptor.format = "%s:%s:%d (%s) skreq=%p event=\'%s\'\n";
   descriptor.lineno = 5315U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -16646,7 +16643,7 @@ static void skd_log_skreq(struct skd_device *skdev , struct skd_request_context 
   descriptor___0.format = "%s:%s:%d   state=%s(%d) id=0x%04x fitmsg=0x%04x\n";
   descriptor___0.lineno = 5319U;
   descriptor___0.flags = 0U;
-  tmp___1 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -16665,7 +16662,7 @@ static void skd_log_skreq(struct skd_device *skdev , struct skd_request_context 
   descriptor___1.format = "%s:%s:%d   timo=0x%x sg_dir=%d n_sg=%d\n";
   descriptor___1.lineno = 5322U;
   descriptor___1.flags = 0U;
-  tmp___2 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+  tmp___2 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
   }
   if (tmp___2 != 0L) {
     {
@@ -16689,7 +16686,7 @@ static void skd_log_skreq(struct skd_device *skdev , struct skd_request_context 
     descriptor___2.format = "%s:%s:%d req=%p lba=%u(0x%x) count=%u(0x%x) dir=%d\n";
     descriptor___2.lineno = 5333U;
     descriptor___2.flags = 0U;
-    tmp___5 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+    tmp___5 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
     }
     if (tmp___5 != 0L) {
       {
@@ -16708,7 +16705,7 @@ static void skd_log_skreq(struct skd_device *skdev , struct skd_request_context 
     descriptor___3.format = "%s:%s:%d req=NULL\n";
     descriptor___3.lineno = 5336U;
     descriptor___3.flags = 0U;
-    tmp___6 = __builtin_expect((long )descriptor___3.flags & 1L, 0L);
+    tmp___6 = ldv__builtin_expect((long )descriptor___3.flags & 1L, 0L);
     }
     if (tmp___6 != 0L) {
       {
@@ -16873,7 +16870,7 @@ void ldv_dummy_resourceless_instance_callback_3_7(int (*arg0)(struct block_devic
                                                   unsigned int arg2 , unsigned int arg3 ,
                                                   unsigned long arg4 ) ;
 void ldv_entry_EMGentry_16(void *arg0 ) ;
-void main(void) ;
+int main(void) ;
 void ldv_iio_triggered_buffer_iio_triggered_buffer_instance_0(void *arg0 ) ;
 enum irqreturn ldv_iio_triggered_buffer_instance_handler_0_5(enum irqreturn (*arg0)(int  ,
                                                                                     void * ) ,
@@ -17262,7 +17259,7 @@ void ldv_entry_EMGentry_16(void *arg0 )
   return;
 }
 }
-void main(void) 
+int main(void) 
 { 
 
 
@@ -17271,7 +17268,7 @@ void main(void)
   ldv_ldv_initialize_150();
   ldv_entry_EMGentry_16((void *)0);
   }
-  return;
+return 0;
 }
 }
 void ldv_iio_triggered_buffer_iio_triggered_buffer_instance_0(void *arg0 ) 
@@ -20904,7 +20901,7 @@ void ldv_linux_usb_urb_check_final_state(void)
 }
 }
 extern void ldv_assert(char const   * , int  ) ;
-void __builtin_trap(void) ;
+void ldv__builtin_trap(void) ;
 void ldv_assume(int expression ) 
 { 
 
@@ -20928,7 +20925,7 @@ void ldv_stop(void)
   goto ldv_stop_label;
 }
 }
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 
@@ -20936,7 +20933,7 @@ long __builtin_expect(long exp , long c )
   return (exp);
 }
 }
-void __builtin_trap(void) 
+void ldv__builtin_trap(void) 
 { 
 
 

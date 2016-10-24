@@ -6970,7 +6970,7 @@ struct ldv_thread {
    void (*function)(void * ) ;
 };
 typedef _Bool ldv_set;
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 void ldv_assume(int expression ) ;
 void ldv_stop(void) ;
 void ldv_linux_alloc_irq_check_alloc_flags(gfp_t flags ) ;
@@ -7159,7 +7159,6 @@ extern void list_del(struct list_head * ) ;
 extern void *__memcpy(void * , void const   * , size_t  ) ;
 extern void *__memset(void * , int  , size_t  ) ;
 extern void warn_slowpath_null(char const   * , int const    ) ;
-extern int ( /* missing proto */  __builtin_unreachable)() ;
 __inline static unsigned long arch_local_save_flags(void) 
 { 
   unsigned long __ret ;
@@ -7177,7 +7176,7 @@ __inline static unsigned long arch_local_save_flags(void)
   __edx = __edx;
   __ecx = __ecx;
   __eax = __eax;
-  tmp = __builtin_expect((unsigned long )pv_irq_ops.save_fl.func == (unsigned long )((void *)0),
+  tmp = ldv__builtin_expect((unsigned long )pv_irq_ops.save_fl.func == (unsigned long )((void *)0),
                          0L);
   }
   if (tmp != 0L) {
@@ -7345,7 +7344,7 @@ __inline static struct dma_map_ops *get_dma_ops(struct device *dev )
 
   {
   {
-  tmp = __builtin_expect((unsigned long )dev == (unsigned long )((struct device *)0),
+  tmp = ldv__builtin_expect((unsigned long )dev == (unsigned long )((struct device *)0),
                          0L);
   }
   if (tmp != 0L || (unsigned long )dev->archdata.dma_ops == (unsigned long )((struct dma_map_ops *)0)) {
@@ -7374,7 +7373,7 @@ __inline static void dma_free_attrs(struct device *dev , size_t size , void *vad
   _flags = arch_local_save_flags();
   tmp___0 = arch_irqs_disabled_flags(_flags);
   __ret_warn_on = tmp___0 != 0;
-  tmp___1 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___1 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -7384,7 +7383,7 @@ __inline static void dma_free_attrs(struct device *dev , size_t size , void *vad
 
   }
   {
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
   debug_dma_free_coherent(dev, size, vaddr, bus);
   }
   if ((unsigned long )ops->free != (unsigned long )((void (*)(struct device * , size_t  ,
@@ -7693,7 +7692,7 @@ static void pm8001_tasklet(unsigned long opaque )
   {
   irq_vector = (struct isr_param *)opaque;
   pm8001_ha = irq_vector->drv_inst;
-  tmp = __builtin_expect((unsigned long )pm8001_ha == (unsigned long )((struct pm8001_hba_info *)0),
+  tmp = ldv__builtin_expect((unsigned long )pm8001_ha == (unsigned long )((struct pm8001_hba_info *)0),
                          0L);
   }
   if (tmp != 0L) {
@@ -7724,7 +7723,7 @@ static irqreturn_t pm8001_interrupt_handler_msix(int irq , void *opaque )
   ret = 1;
   irq_vector = (struct isr_param *)opaque;
   pm8001_ha = irq_vector->drv_inst;
-  tmp = __builtin_expect((unsigned long )pm8001_ha == (unsigned long )((struct pm8001_hba_info *)0),
+  tmp = ldv__builtin_expect((unsigned long )pm8001_ha == (unsigned long )((struct pm8001_hba_info *)0),
                          0L);
   }
   if (tmp != 0L) {
@@ -7759,7 +7758,7 @@ static irqreturn_t pm8001_interrupt_handler_intx(int irq , void *dev_id )
   ret = 1;
   sha = (struct sas_ha_struct *)dev_id;
   pm8001_ha = (struct pm8001_hba_info *)sha->lldd_ha;
-  tmp = __builtin_expect((unsigned long )pm8001_ha == (unsigned long )((struct pm8001_hba_info *)0),
+  tmp = ldv__builtin_expect((unsigned long )pm8001_ha == (unsigned long )((struct pm8001_hba_info *)0),
                          0L);
   }
   if (tmp != 0L) {
@@ -7799,7 +7798,7 @@ static int pm8001_alloc(struct pm8001_hba_info *pm8001_ha , struct pci_device_id
   spinlock_check(& pm8001_ha->bitmap_lock);
   __raw_spin_lock_init(& pm8001_ha->bitmap_lock.__annonCompField18.rlock, "&(&pm8001_ha->bitmap_lock)->rlock",
                        & __key___0);
-  tmp = __builtin_expect((pm8001_ha->logging_level & 2U) != 0U, 0L);
+  tmp = ldv__builtin_expect((pm8001_ha->logging_level & 2U) != 0U, 0L);
   }
   if (tmp != 0L) {
     {
@@ -7917,7 +7916,7 @@ static int pm8001_alloc(struct pm8001_hba_info *pm8001_ha , struct pci_device_id
   }
   if (tmp___2 != 0) {
     {
-    tmp___1 = __builtin_expect((long )((int )pm8001_ha->logging_level) & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )((int )pm8001_ha->logging_level) & 1L, 0L);
     }
     if (tmp___1 != 0L) {
       {
@@ -8003,7 +8002,7 @@ static int pm8001_ioremap(struct pm8001_hba_info *pm8001_ha )
     pm8001_ha->io_mem[logicalBar].memsize = pdev->resource[bar].start != 0ULL || pdev->resource[bar].end != pdev->resource[bar].start ? ((u32 )pdev->resource[bar].end - (u32 )pdev->resource[bar].start) + 1U : 0U;
     pm8001_ha->io_mem[logicalBar].memvirtaddr = ioremap(pm8001_ha->io_mem[logicalBar].membase,
                                                         (unsigned long )pm8001_ha->io_mem[logicalBar].memsize);
-    tmp = __builtin_expect((pm8001_ha->logging_level & 2U) != 0U, 0L);
+    tmp = ldv__builtin_expect((pm8001_ha->logging_level & 2U) != 0U, 0L);
     }
     if (tmp != 0L) {
       {
@@ -8014,7 +8013,7 @@ static int pm8001_ioremap(struct pm8001_hba_info *pm8001_ha )
 
     }
     {
-    tmp___0 = __builtin_expect((pm8001_ha->logging_level & 2U) != 0U, 0L);
+    tmp___0 = ldv__builtin_expect((pm8001_ha->logging_level & 2U) != 0U, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -8305,7 +8304,7 @@ static void pm8001_init_sas_add(struct pm8001_hba_info *pm8001_ha )
   }
   if ((unsigned long )payload.func_specific == (unsigned long )((u8 *)0U)) {
     {
-    tmp___0 = __builtin_expect((pm8001_ha->logging_level & 2U) != 0U, 0L);
+    tmp___0 = ldv__builtin_expect((pm8001_ha->logging_level & 2U) != 0U, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -8324,7 +8323,7 @@ static void pm8001_init_sas_add(struct pm8001_hba_info *pm8001_ha )
   if (rc != 0) {
     {
     kfree((void const   *)payload.func_specific);
-    tmp___1 = __builtin_expect((pm8001_ha->logging_level & 2U) != 0U, 0L);
+    tmp___1 = ldv__builtin_expect((pm8001_ha->logging_level & 2U) != 0U, 0L);
     }
     if (tmp___1 != 0L) {
       {
@@ -8370,7 +8369,7 @@ static void pm8001_init_sas_add(struct pm8001_hba_info *pm8001_ha )
   {
   __memcpy((void *)(& pm8001_ha->phy[(int )i].dev_sas_addr), (void const   *)(& pm8001_ha->sas_addr),
            8UL);
-  tmp___2 = __builtin_expect((pm8001_ha->logging_level & 2U) != 0U, 0L);
+  tmp___2 = ldv__builtin_expect((pm8001_ha->logging_level & 2U) != 0U, 0L);
   }
   if (tmp___2 != 0L) {
     {
@@ -8423,7 +8422,7 @@ static int pm8001_get_phy_settings_info(struct pm8001_hba_info *pm8001_ha )
   if (rc != 0) {
     {
     kfree((void const   *)payload.func_specific);
-    tmp___0 = __builtin_expect((pm8001_ha->logging_level & 2U) != 0U, 0L);
+    tmp___0 = ldv__builtin_expect((pm8001_ha->logging_level & 2U) != 0U, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -8488,7 +8487,7 @@ static u32 pm8001_setup_msix(struct pm8001_hba_info *pm8001_ha )
 
   }
   {
-  tmp = __builtin_expect((pm8001_ha->logging_level & 2U) != 0U, 0L);
+  tmp = ldv__builtin_expect((pm8001_ha->logging_level & 2U) != 0U, 0L);
   }
   if (tmp != 0L) {
     {
@@ -8557,7 +8556,7 @@ static u32 pm8001_request_irq(struct pm8001_hba_info *pm8001_ha )
     return (tmp);
   } else {
     {
-    tmp___0 = __builtin_expect((pm8001_ha->logging_level & 2U) != 0U, 0L);
+    tmp___0 = ldv__builtin_expect((pm8001_ha->logging_level & 2U) != 0U, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -8680,7 +8679,7 @@ static int pm8001_pci_probe(struct pci_dev *pdev , struct pci_device_id  const  
   }
   if (rc != 0U) {
     {
-    tmp___5 = __builtin_expect((long )((int )pm8001_ha->logging_level) & 1L, 0L);
+    tmp___5 = ldv__builtin_expect((long )((int )pm8001_ha->logging_level) & 1L, 0L);
     }
     if (tmp___5 != 0L) {
       {
@@ -8708,7 +8707,7 @@ static int pm8001_pci_probe(struct pci_dev *pdev , struct pci_device_id  const  
   }
   if (rc != 0U) {
     {
-    tmp___7 = __builtin_expect((long )((int )pm8001_ha->logging_level) & 1L, 0L);
+    tmp___7 = ldv__builtin_expect((long )((int )pm8001_ha->logging_level) & 1L, 0L);
     }
     if (tmp___7 != 0L) {
       {
@@ -9028,7 +9027,7 @@ static int pm8001_pci_resume(struct pci_dev *pdev )
   if (pm8001_ha->chip_id == 0U) {
     {
     (*(((pm8001_ha->chip)->dispatch)->chip_soft_rst))(pm8001_ha);
-    tmp___0 = __builtin_expect((pm8001_ha->logging_level & 2U) != 0U, 0L);
+    tmp___0 = ldv__builtin_expect((pm8001_ha->logging_level & 2U) != 0U, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -9541,7 +9540,7 @@ void ldv_dummy_resourceless_instance_callback_9_9(long (*arg0)(struct device * ,
                                                   struct device *arg1 , struct device_attribute *arg2 ,
                                                   char *arg3 , unsigned long arg4 ) ;
 void ldv_entry_EMGentry_34(void *arg0 ) ;
-void main(void) ;
+int main(void) ;
 void ldv_free_irq(void *arg0 , int arg1 , void *arg2 ) ;
 enum irqreturn ldv_interrupt_instance_handler_0_5(enum irqreturn (*arg0)(int  , void * ) ,
                                                   int arg1 , void *arg2 ) ;
@@ -10392,7 +10391,7 @@ void ldv_entry_EMGentry_34(void *arg0 )
   return;
 }
 }
-void main(void) 
+int main(void) 
 { 
 
 
@@ -10401,7 +10400,7 @@ void main(void)
   ldv_ldv_initialize_121();
   ldv_entry_EMGentry_34((void *)0);
   }
-  return;
+return 0;
 }
 }
 void ldv_free_irq(void *arg0 , int arg1 , void *arg2 ) 
@@ -13304,7 +13303,6 @@ static int ldv_ldv_post_probe_125(int retval )
   return (tmp);
 }
 }
-long __builtin_bswap64(long  ) ;
 void ldv_linux_kernel_sched_completion_wait_for_completion_completion_of_sas_task_slow(void) ;
 void ldv_linux_kernel_sched_completion_init_completion_completion_setstate(void) ;
 void ldv_linux_kernel_sched_completion_wait_for_completion_completion_setstate(void) ;
@@ -13451,7 +13449,7 @@ __inline static struct page *sg_page(struct scatterlist *sg )
 
   {
   {
-  tmp = __builtin_expect(sg->sg_magic != 2271560481UL, 0L);
+  tmp = ldv__builtin_expect(sg->sg_magic != 2271560481UL, 0L);
   }
   if (tmp != 0L) {
     {
@@ -13463,7 +13461,7 @@ __inline static struct page *sg_page(struct scatterlist *sg )
 
   }
   {
-  tmp___0 = __builtin_expect((long )((int )sg->page_link) & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )((int )sg->page_link) & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -13545,7 +13543,7 @@ __inline static int dma_map_sg_attrs(struct device *dev , struct scatterlist *sg
   }
   {
   tmp___1 = valid_dma_direction((int )dir);
-  tmp___2 = __builtin_expect(tmp___1 == 0, 0L);
+  tmp___2 = ldv__builtin_expect(tmp___1 == 0, 0L);
   }
   if (tmp___2 != 0L) {
     {
@@ -13577,7 +13575,7 @@ __inline static void dma_unmap_sg_attrs(struct device *dev , struct scatterlist 
   tmp = get_dma_ops(dev);
   ops = tmp;
   tmp___0 = valid_dma_direction((int )dir);
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -14150,7 +14148,7 @@ static int pm8001_task_exec(struct sas_task *task , gfp_t gfp_flags , int is_tmf
   }
   {
   pm8001_ha = pm8001_find_ha_by_dev(task->dev);
-  tmp = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+  tmp = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
   }
   if (tmp != 0L) {
     {
@@ -14289,7 +14287,7 @@ static int pm8001_task_exec(struct sas_task *task , gfp_t gfp_flags , int is_tmf
   ldv_46023: ;
   if (rc != 0U) {
     {
-    tmp___9 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+    tmp___9 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
     }
     if (tmp___9 != 0L) {
       {
@@ -14450,7 +14448,7 @@ struct pm8001_device *pm8001_alloc_dev(struct pm8001_hba_info *pm8001_ha )
 
   if (dev == 2048U) {
     {
-    tmp = __builtin_expect((long )((int )pm8001_ha->logging_level) & 1L, 0L);
+    tmp = ldv__builtin_expect((long )((int )pm8001_ha->logging_level) & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -14490,7 +14488,7 @@ struct pm8001_device *pm8001_find_dev(struct pm8001_hba_info *pm8001_ha , u32 de
 
   if (dev == 2048U) {
     {
-    tmp = __builtin_expect((long )((int )pm8001_ha->logging_level) & 1L, 0L);
+    tmp = ldv__builtin_expect((long )((int )pm8001_ha->logging_level) & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -14588,7 +14586,7 @@ static int pm8001_dev_found_notify(struct domain_device *dev )
     ldv_46080: ;
     if (phy_id == (int )parent_dev->__annonCompField94.ex_dev.num_phys) {
       {
-      tmp___3 = __builtin_expect((long )((int )pm8001_ha->logging_level) & 1L, 0L);
+      tmp___3 = ldv__builtin_expect((long )((int )pm8001_ha->logging_level) & 1L, 0L);
       }
       if (tmp___3 != 0L) {
         {
@@ -14612,7 +14610,7 @@ static int pm8001_dev_found_notify(struct domain_device *dev )
 
   }
   {
-  tmp___4 = __builtin_expect((pm8001_ha->logging_level & 4U) != 0U, 0L);
+  tmp___4 = ldv__builtin_expect((pm8001_ha->logging_level & 4U) != 0U, 0L);
   }
   if (tmp___4 != 0L) {
     {
@@ -14737,7 +14735,7 @@ static int pm8001_exec_internal_tmf_task(struct domain_device *dev , void *param
   if (res != 0) {
     {
     ldv_del_timer_124(& (task->slow_task)->timer);
-    tmp___0 = __builtin_expect((long )((int )pm8001_ha->logging_level) & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )((int )pm8001_ha->logging_level) & 1L, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -14767,7 +14765,7 @@ static int pm8001_exec_internal_tmf_task(struct domain_device *dev , void *param
   if ((task->task_state_flags & 4U) != 0U) {
     if ((task->task_state_flags & 2U) == 0U) {
       {
-      tmp___1 = __builtin_expect((long )((int )pm8001_ha->logging_level) & 1L, 0L);
+      tmp___1 = ldv__builtin_expect((long )((int )pm8001_ha->logging_level) & 1L, 0L);
       }
       if (tmp___1 != 0L) {
         {
@@ -14798,7 +14796,7 @@ static int pm8001_exec_internal_tmf_task(struct domain_device *dev , void *param
   }
   if ((int )task->task_status.resp == 0 && (unsigned int )task->task_status.stat == 130U) {
     {
-    tmp___2 = __builtin_expect((long )((int )pm8001_ha->logging_level) & 1L, 0L);
+    tmp___2 = ldv__builtin_expect((long )((int )pm8001_ha->logging_level) & 1L, 0L);
     }
     if (tmp___2 != 0L) {
       {
@@ -14812,7 +14810,7 @@ static int pm8001_exec_internal_tmf_task(struct domain_device *dev , void *param
     goto ldv_46109;
   } else {
     {
-    tmp___4 = __builtin_expect((pm8001_ha->logging_level & 16U) != 0U, 0L);
+    tmp___4 = ldv__builtin_expect((pm8001_ha->logging_level & 16U) != 0U, 0L);
     }
     if (tmp___4 != 0L) {
       {
@@ -14839,7 +14837,7 @@ static int pm8001_exec_internal_tmf_task(struct domain_device *dev , void *param
   ldv_46109: ;
   ex_err: 
   {
-  tmp___5 = __builtin_expect((long )(retry == 3 && (unsigned long )task != (unsigned long )((struct sas_task *)0)),
+  tmp___5 = ldv__builtin_expect((long )(retry == 3 && (unsigned long )task != (unsigned long )((struct sas_task *)0)),
                              0L);
   }
   if (tmp___5 != 0L) {
@@ -14911,7 +14909,7 @@ static int pm8001_exec_internal_task_abort(struct pm8001_hba_info *pm8001_ha , s
   if (res != 0) {
     {
     ldv_del_timer_127(& (task->slow_task)->timer);
-    tmp = __builtin_expect((long )((int )pm8001_ha->logging_level) & 1L, 0L);
+    tmp = ldv__builtin_expect((long )((int )pm8001_ha->logging_level) & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -14932,7 +14930,7 @@ static int pm8001_exec_internal_task_abort(struct pm8001_hba_info *pm8001_ha , s
   if ((task->task_state_flags & 4U) != 0U) {
     if ((task->task_state_flags & 2U) == 0U) {
       {
-      tmp___0 = __builtin_expect((long )((int )pm8001_ha->logging_level) & 1L, 0L);
+      tmp___0 = ldv__builtin_expect((long )((int )pm8001_ha->logging_level) & 1L, 0L);
       }
       if (tmp___0 != 0L) {
         {
@@ -14954,7 +14952,7 @@ static int pm8001_exec_internal_task_abort(struct pm8001_hba_info *pm8001_ha , s
     goto ldv_46126;
   } else {
     {
-    tmp___2 = __builtin_expect((pm8001_ha->logging_level & 16U) != 0U, 0L);
+    tmp___2 = ldv__builtin_expect((pm8001_ha->logging_level & 16U) != 0U, 0L);
     }
     if (tmp___2 != 0L) {
       {
@@ -14981,7 +14979,7 @@ static int pm8001_exec_internal_task_abort(struct pm8001_hba_info *pm8001_ha , s
   ldv_46126: ;
   ex_err: 
   {
-  tmp___3 = __builtin_expect((long )(retry == 3 && (unsigned long )task != (unsigned long )((struct sas_task *)0)),
+  tmp___3 = ldv__builtin_expect((long )(retry == 3 && (unsigned long )task != (unsigned long )((struct sas_task *)0)),
                              0L);
   }
   if (tmp___3 != 0L) {
@@ -15018,7 +15016,7 @@ static void pm8001_dev_gone_notify(struct domain_device *dev )
   if ((unsigned long )pm8001_dev != (unsigned long )((struct pm8001_device *)0)) {
     {
     device_id = pm8001_dev->device_id;
-    tmp = __builtin_expect((pm8001_ha->logging_level & 4U) != 0U, 0L);
+    tmp = ldv__builtin_expect((pm8001_ha->logging_level & 4U) != 0U, 0L);
     }
     if (tmp != 0L) {
       {
@@ -15043,7 +15041,7 @@ static void pm8001_dev_gone_notify(struct domain_device *dev )
     }
   } else {
     {
-    tmp___0 = __builtin_expect((pm8001_ha->logging_level & 4U) != 0U, 0L);
+    tmp___0 = ldv__builtin_expect((pm8001_ha->logging_level & 4U) != 0U, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -15166,7 +15164,7 @@ void pm8001_open_reject_retry(struct pm8001_hba_info *pm8001_ha , struct sas_tas
   task->task_state_flags = task->task_state_flags & 4294967294U;
   task->task_state_flags = task->task_state_flags & 4294967279U;
   task->task_state_flags = task->task_state_flags | 2U;
-  tmp = __builtin_expect((task->task_state_flags & 4U) != 0U, 0L);
+  tmp = ldv__builtin_expect((task->task_state_flags & 4U) != 0U, 0L);
   }
   if (tmp != 0L) {
     {
@@ -15249,7 +15247,7 @@ int pm8001_I_T_nexus_reset(struct domain_device *dev )
     }
   }
   {
-  tmp___1 = __builtin_expect((pm8001_ha->logging_level & 16U) != 0U, 0L);
+  tmp___1 = ldv__builtin_expect((pm8001_ha->logging_level & 16U) != 0U, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -15291,7 +15289,7 @@ int pm8001_I_T_nexus_event_handler(struct domain_device *dev )
   pm8001_dev = (struct pm8001_device *)dev->lldd_dev;
   device_id = pm8001_dev->device_id;
   pm8001_ha = pm8001_find_ha_by_dev(dev);
-  tmp = __builtin_expect((pm8001_ha->logging_level & 16U) != 0U, 0L);
+  tmp = ldv__builtin_expect((pm8001_ha->logging_level & 16U) != 0U, 0L);
   }
   if (tmp != 0L) {
     {
@@ -15338,7 +15336,7 @@ int pm8001_I_T_nexus_event_handler(struct domain_device *dev )
     }
   }
   {
-  tmp___2 = __builtin_expect((pm8001_ha->logging_level & 16U) != 0U, 0L);
+  tmp___2 = ldv__builtin_expect((pm8001_ha->logging_level & 16U) != 0U, 0L);
   }
   if (tmp___2 != 0L) {
     {
@@ -15397,7 +15395,7 @@ int pm8001_lu_reset(struct domain_device *dev , u8 *lun )
     }
   }
   {
-  tmp___2 = __builtin_expect((pm8001_ha->logging_level & 16U) != 0U, 0L);
+  tmp___2 = ldv__builtin_expect((pm8001_ha->logging_level & 16U) != 0U, 0L);
   }
   if (tmp___2 != 0L) {
     {
@@ -15434,14 +15432,14 @@ int pm8001_query_task(struct sas_task *task )
   tag = 3735928559U;
   i = 0;
   rc = 5;
-  tmp = __builtin_expect((unsigned long )task == (unsigned long )((struct sas_task *)0),
+  tmp = ldv__builtin_expect((unsigned long )task == (unsigned long )((struct sas_task *)0),
                          0L);
   }
   if (tmp != 0L) {
     tmp___1 = 1;
   } else {
     {
-    tmp___0 = __builtin_expect((unsigned long )task->lldd_task == (unsigned long )((void *)0),
+    tmp___0 = ldv__builtin_expect((unsigned long )task->lldd_task == (unsigned long )((void *)0),
                                0L);
     }
     if (tmp___0 != 0L) {
@@ -15454,7 +15452,7 @@ int pm8001_query_task(struct sas_task *task )
     return (rc);
   } else {
     {
-    tmp___2 = __builtin_expect((unsigned long )task->dev == (unsigned long )((struct domain_device *)0),
+    tmp___2 = ldv__builtin_expect((unsigned long )task->dev == (unsigned long )((struct domain_device *)0),
                                0L);
     }
     if (tmp___2 != 0L) {
@@ -15479,7 +15477,7 @@ int pm8001_query_task(struct sas_task *task )
 
     }
     {
-    tmp___4 = __builtin_expect((pm8001_ha->logging_level & 16U) != 0U, 0L);
+    tmp___4 = ldv__builtin_expect((pm8001_ha->logging_level & 16U) != 0U, 0L);
     }
     if (tmp___4 != 0L) {
       {
@@ -15526,7 +15524,7 @@ int pm8001_query_task(struct sas_task *task )
     goto switch_break;
     case_8: /* CIL Label */ 
     {
-    tmp___5 = __builtin_expect((pm8001_ha->logging_level & 16U) != 0U, 0L);
+    tmp___5 = ldv__builtin_expect((pm8001_ha->logging_level & 16U) != 0U, 0L);
     }
     if (tmp___5 != 0L) {
       {
@@ -15539,7 +15537,7 @@ int pm8001_query_task(struct sas_task *task )
     case_5: /* CIL Label */ ;
     case_0: /* CIL Label */ 
     {
-    tmp___6 = __builtin_expect((pm8001_ha->logging_level & 16U) != 0U, 0L);
+    tmp___6 = ldv__builtin_expect((pm8001_ha->logging_level & 16U) != 0U, 0L);
     }
     if (tmp___6 != 0L) {
       {
@@ -15586,14 +15584,14 @@ int pm8001_abort_task(struct sas_task *task )
   tag = 3735928559U;
   pm8001_ha = (struct pm8001_hba_info *)0;
   rc = 5;
-  tmp = __builtin_expect((unsigned long )task == (unsigned long )((struct sas_task *)0),
+  tmp = ldv__builtin_expect((unsigned long )task == (unsigned long )((struct sas_task *)0),
                          0L);
   }
   if (tmp != 0L) {
     tmp___1 = 1;
   } else {
     {
-    tmp___0 = __builtin_expect((unsigned long )task->lldd_task == (unsigned long )((void *)0),
+    tmp___0 = ldv__builtin_expect((unsigned long )task->lldd_task == (unsigned long )((void *)0),
                                0L);
     }
     if (tmp___0 != 0L) {
@@ -15606,7 +15604,7 @@ int pm8001_abort_task(struct sas_task *task )
     return (rc);
   } else {
     {
-    tmp___2 = __builtin_expect((unsigned long )task->dev == (unsigned long )((struct domain_device *)0),
+    tmp___2 = ldv__builtin_expect((unsigned long )task->dev == (unsigned long )((struct domain_device *)0),
                                0L);
     }
     if (tmp___2 != 0L) {
@@ -15651,7 +15649,7 @@ int pm8001_abort_task(struct sas_task *task )
     }
     {
     device_id = pm8001_dev->device_id;
-    tmp___3 = __builtin_expect((pm8001_ha->logging_level & 16U) != 0U, 0L);
+    tmp___3 = ldv__builtin_expect((pm8001_ha->logging_level & 16U) != 0U, 0L);
     }
     if (tmp___3 != 0L) {
       {
@@ -15767,7 +15765,7 @@ int pm8001_clear_task_set(struct domain_device *dev , u8 *lun )
   pm8001_dev = (struct pm8001_device *)dev->lldd_dev;
   tmp = pm8001_find_ha_by_dev(dev);
   pm8001_ha = tmp;
-  tmp___0 = __builtin_expect((pm8001_ha->logging_level & 16U) != 0U, 0L);
+  tmp___0 = ldv__builtin_expect((pm8001_ha->logging_level & 16U) != 0U, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -16202,7 +16200,6 @@ static void ldv___ldv_linux_kernel_locking_spinlock_spin_lock_146(spinlock_t *ld
   return;
 }
 }
-int __builtin_bswap32(int  ) ;
 __inline static __u32 __fswab32(__u32 val ) 
 { 
   int tmp ;
@@ -17126,7 +17123,7 @@ static ssize_t pm8001_store_update_fw(struct device *cdev , struct device_attrib
   }
   if (ret != 0) {
     {
-    tmp___4 = __builtin_expect((long )((int )pm8001_ha->logging_level) & 1L, 0L);
+    tmp___4 = ldv__builtin_expect((long )((int )pm8001_ha->logging_level) & 1L, 0L);
     }
     if (tmp___4 != 0L) {
       {
@@ -18805,7 +18802,7 @@ __inline static int dma_map_sg_attrs___0(struct device *dev , struct scatterlist
   }
   {
   tmp___1 = valid_dma_direction((int )dir);
-  tmp___2 = __builtin_expect(tmp___1 == 0, 0L);
+  tmp___2 = ldv__builtin_expect(tmp___1 == 0, 0L);
   }
   if (tmp___2 != 0L) {
     {
@@ -19298,7 +19295,7 @@ int pm8001_bar4_shift(struct pm8001_hba_info *pm8001_ha , u32 shiftValue )
 
   if (regVal != shiftValue) {
     {
-    tmp = __builtin_expect((pm8001_ha->logging_level & 2U) != 0U, 0L);
+    tmp = ldv__builtin_expect((pm8001_ha->logging_level & 2U) != 0U, 0L);
     }
     if (tmp != 0L) {
       {
@@ -19587,7 +19584,7 @@ static void init_pci_device_addresses(struct pm8001_hba_info *pm8001_ha )
   {
   value = pm8001_cr32(pm8001_ha, 0U, 68U);
   offset = value & 67108863U;
-  tmp = __builtin_expect((pm8001_ha->logging_level & 2U) != 0U, 0L);
+  tmp = ldv__builtin_expect((pm8001_ha->logging_level & 2U) != 0U, 0L);
   }
   if (tmp != 0L) {
     {
@@ -19600,7 +19597,7 @@ static void init_pci_device_addresses(struct pm8001_hba_info *pm8001_ha )
   {
   pcilogic = value >> 26;
   pcibar = get_pci_bar_index(pcilogic);
-  tmp___0 = __builtin_expect((pm8001_ha->logging_level & 2U) != 0U, 0L);
+  tmp___0 = ldv__builtin_expect((pm8001_ha->logging_level & 2U) != 0U, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -19645,7 +19642,7 @@ static int pm8001_chip_init(struct pm8001_hba_info *pm8001_ha )
     }
     if (tmp___0 == -1) {
       {
-      tmp = __builtin_expect((long )((int )pm8001_ha->logging_level) & 1L, 0L);
+      tmp = ldv__builtin_expect((long )((int )pm8001_ha->logging_level) & 1L, 0L);
       }
       if (tmp != 0L) {
         {
@@ -19667,7 +19664,7 @@ static int pm8001_chip_init(struct pm8001_hba_info *pm8001_ha )
   }
   if (tmp___2 == -1) {
     {
-    tmp___1 = __builtin_expect((long )((int )pm8001_ha->logging_level) & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )((int )pm8001_ha->logging_level) & 1L, 0L);
     }
     if (tmp___1 != 0L) {
       {
@@ -19729,7 +19726,7 @@ static int pm8001_chip_init(struct pm8001_hba_info *pm8001_ha )
   }
   if (tmp___4 == 0) {
     {
-    tmp___3 = __builtin_expect((pm8001_ha->logging_level & 2U) != 0U, 0L);
+    tmp___3 = ldv__builtin_expect((pm8001_ha->logging_level & 2U) != 0U, 0L);
     }
     if (tmp___3 != 0L) {
       {
@@ -19770,7 +19767,7 @@ static int mpi_uninit_check(struct pm8001_hba_info *pm8001_ha )
     }
     if (tmp___0 == -1) {
       {
-      tmp = __builtin_expect((long )((int )pm8001_ha->logging_level) & 1L, 0L);
+      tmp = ldv__builtin_expect((long )((int )pm8001_ha->logging_level) & 1L, 0L);
       }
       if (tmp != 0L) {
         {
@@ -19811,7 +19808,7 @@ static int mpi_uninit_check(struct pm8001_hba_info *pm8001_ha )
   ldv_46571: ;
   if (max_wait_count == 0U) {
     {
-    tmp___1 = __builtin_expect((long )((int )pm8001_ha->logging_level) & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )((int )pm8001_ha->logging_level) & 1L, 0L);
     }
     if (tmp___1 != 0L) {
       {
@@ -19845,7 +19842,7 @@ static int mpi_uninit_check(struct pm8001_hba_info *pm8001_ha )
   ldv_46572: ;
   if (max_wait_count == 0U) {
     {
-    tmp___2 = __builtin_expect((long )((int )pm8001_ha->logging_level) & 1L, 0L);
+    tmp___2 = ldv__builtin_expect((long )((int )pm8001_ha->logging_level) & 1L, 0L);
     }
     if (tmp___2 != 0L) {
       {
@@ -19889,7 +19886,7 @@ static u32 soft_reset_ready_check(struct pm8001_hba_info *pm8001_ha )
   }
   if (tmp___0 != 0) {
     {
-    tmp = __builtin_expect((long )((int )pm8001_ha->logging_level) & 1L, 0L);
+    tmp = ldv__builtin_expect((long )((int )pm8001_ha->logging_level) & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -19909,7 +19906,7 @@ static u32 soft_reset_ready_check(struct pm8001_hba_info *pm8001_ha )
   }
   if (regVal == 4U) {
     {
-    tmp___2 = __builtin_expect((pm8001_ha->logging_level & 2U) != 0U, 0L);
+    tmp___2 = ldv__builtin_expect((pm8001_ha->logging_level & 2U) != 0U, 0L);
     }
     if (tmp___2 != 0L) {
       {
@@ -19927,7 +19924,7 @@ static u32 soft_reset_ready_check(struct pm8001_hba_info *pm8001_ha )
     if (tmp___4 == -1) {
       {
       ldv_spin_unlock_irqrestore_109(& pm8001_ha->lock, flags);
-      tmp___3 = __builtin_expect((long )((int )pm8001_ha->logging_level) & 1L, 0L);
+      tmp___3 = ldv__builtin_expect((long )((int )pm8001_ha->logging_level) & 1L, 0L);
       }
       if (tmp___3 != 0L) {
         {
@@ -19967,7 +19964,7 @@ static u32 soft_reset_ready_check(struct pm8001_hba_info *pm8001_ha )
       {
       regVal1 = pm8001_cr32(pm8001_ha, 0U, 72U);
       regVal2 = pm8001_cr32(pm8001_ha, 0U, 76U);
-      tmp___7 = __builtin_expect((long )((int )pm8001_ha->logging_level) & 1L, 0L);
+      tmp___7 = ldv__builtin_expect((long )((int )pm8001_ha->logging_level) & 1L, 0L);
       }
       if (tmp___7 != 0L) {
         {
@@ -19978,7 +19975,7 @@ static u32 soft_reset_ready_check(struct pm8001_hba_info *pm8001_ha )
 
       }
       {
-      tmp___9 = __builtin_expect((long )((int )pm8001_ha->logging_level) & 1L, 0L);
+      tmp___9 = ldv__builtin_expect((long )((int )pm8001_ha->logging_level) & 1L, 0L);
       }
       if (tmp___9 != 0L) {
         {
@@ -19990,7 +19987,7 @@ static u32 soft_reset_ready_check(struct pm8001_hba_info *pm8001_ha )
 
       }
       {
-      tmp___11 = __builtin_expect((long )((int )pm8001_ha->logging_level) & 1L, 0L);
+      tmp___11 = ldv__builtin_expect((long )((int )pm8001_ha->logging_level) & 1L, 0L);
       }
       if (tmp___11 != 0L) {
         {
@@ -20100,7 +20097,7 @@ static int pm8001_chip_soft_rst(struct pm8001_hba_info *pm8001_ha )
   }
   if (tmp___0 != 0U) {
     {
-    tmp = __builtin_expect((long )((int )pm8001_ha->logging_level) & 1L, 0L);
+    tmp = ldv__builtin_expect((long )((int )pm8001_ha->logging_level) & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -20120,7 +20117,7 @@ static int pm8001_chip_soft_rst(struct pm8001_hba_info *pm8001_ha )
   if (tmp___2 == -1) {
     {
     ldv_spin_unlock_irqrestore_109(& pm8001_ha->lock, flags);
-    tmp___1 = __builtin_expect((long )((int )pm8001_ha->logging_level) & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )((int )pm8001_ha->logging_level) & 1L, 0L);
     }
     if (tmp___1 != 0L) {
       {
@@ -20136,7 +20133,7 @@ static int pm8001_chip_soft_rst(struct pm8001_hba_info *pm8001_ha )
   }
   {
   regVal = pm8001_cr32(pm8001_ha, 2U, 1048U);
-  tmp___3 = __builtin_expect((pm8001_ha->logging_level & 2U) != 0U, 0L);
+  tmp___3 = ldv__builtin_expect((pm8001_ha->logging_level & 2U) != 0U, 0L);
   }
   if (tmp___3 != 0L) {
     {
@@ -20153,7 +20150,7 @@ static int pm8001_chip_soft_rst(struct pm8001_hba_info *pm8001_ha )
   if (tmp___5 == -1) {
     {
     ldv_spin_unlock_irqrestore_109(& pm8001_ha->lock, flags);
-    tmp___4 = __builtin_expect((long )((int )pm8001_ha->logging_level) & 1L, 0L);
+    tmp___4 = ldv__builtin_expect((long )((int )pm8001_ha->logging_level) & 1L, 0L);
     }
     if (tmp___4 != 0L) {
       {
@@ -20169,7 +20166,7 @@ static int pm8001_chip_soft_rst(struct pm8001_hba_info *pm8001_ha )
   }
   {
   regVal = pm8001_cr32(pm8001_ha, 2U, 1048U);
-  tmp___6 = __builtin_expect((pm8001_ha->logging_level & 2U) != 0U, 0L);
+  tmp___6 = ldv__builtin_expect((pm8001_ha->logging_level & 2U) != 0U, 0L);
   }
   if (tmp___6 != 0L) {
     {
@@ -20182,7 +20179,7 @@ static int pm8001_chip_soft_rst(struct pm8001_hba_info *pm8001_ha )
   {
   pm8001_cw32(pm8001_ha, 2U, 1048U, 0U);
   regVal = pm8001_cr32(pm8001_ha, 1U, 12352U);
-  tmp___7 = __builtin_expect((pm8001_ha->logging_level & 2U) != 0U, 0L);
+  tmp___7 = ldv__builtin_expect((pm8001_ha->logging_level & 2U) != 0U, 0L);
   }
   if (tmp___7 != 0L) {
     {
@@ -20195,7 +20192,7 @@ static int pm8001_chip_soft_rst(struct pm8001_hba_info *pm8001_ha )
   {
   pm8001_cw32(pm8001_ha, 1U, 12352U, 0U);
   regVal = pm8001_cr32(pm8001_ha, 1U, 12356U);
-  tmp___8 = __builtin_expect((pm8001_ha->logging_level & 2U) != 0U, 0L);
+  tmp___8 = ldv__builtin_expect((pm8001_ha->logging_level & 2U) != 0U, 0L);
   }
   if (tmp___8 != 0L) {
     {
@@ -20208,7 +20205,7 @@ static int pm8001_chip_soft_rst(struct pm8001_hba_info *pm8001_ha )
   {
   pm8001_cw32(pm8001_ha, 1U, 12356U, regVal);
   regVal = pm8001_cr32(pm8001_ha, 1U, 12360U);
-  tmp___9 = __builtin_expect((pm8001_ha->logging_level & 2U) != 0U, 0L);
+  tmp___9 = ldv__builtin_expect((pm8001_ha->logging_level & 2U) != 0U, 0L);
   }
   if (tmp___9 != 0L) {
     {
@@ -20221,7 +20218,7 @@ static int pm8001_chip_soft_rst(struct pm8001_hba_info *pm8001_ha )
   {
   pm8001_cw32(pm8001_ha, 1U, 12360U, 0U);
   regVal = pm8001_cr32(pm8001_ha, 1U, 12364U);
-  tmp___10 = __builtin_expect((pm8001_ha->logging_level & 2U) != 0U, 0L);
+  tmp___10 = ldv__builtin_expect((pm8001_ha->logging_level & 2U) != 0U, 0L);
   }
   if (tmp___10 != 0L) {
     {
@@ -20242,7 +20239,7 @@ static int pm8001_chip_soft_rst(struct pm8001_hba_info *pm8001_ha )
   if (tmp___13 == -1) {
     {
     ldv_spin_unlock_irqrestore_109(& pm8001_ha->lock, flags);
-    tmp___12 = __builtin_expect((long )((int )pm8001_ha->logging_level) & 1L, 0L);
+    tmp___12 = ldv__builtin_expect((long )((int )pm8001_ha->logging_level) & 1L, 0L);
     }
     if (tmp___12 != 0L) {
       {
@@ -20257,7 +20254,7 @@ static int pm8001_chip_soft_rst(struct pm8001_hba_info *pm8001_ha )
 
   }
   {
-  tmp___15 = __builtin_expect((pm8001_ha->logging_level & 2U) != 0U, 0L);
+  tmp___15 = ldv__builtin_expect((pm8001_ha->logging_level & 2U) != 0U, 0L);
   }
   if (tmp___15 != 0L) {
     {
@@ -20272,7 +20269,7 @@ static int pm8001_chip_soft_rst(struct pm8001_hba_info *pm8001_ha )
   regVal = pm8001_cr32(pm8001_ha, 2U, 0U);
   regVal = regVal & 4294952191U;
   pm8001_cw32(pm8001_ha, 2U, 0U, regVal);
-  tmp___17 = __builtin_expect((pm8001_ha->logging_level & 2U) != 0U, 0L);
+  tmp___17 = ldv__builtin_expect((pm8001_ha->logging_level & 2U) != 0U, 0L);
   }
   if (tmp___17 != 0L) {
     {
@@ -20285,7 +20282,7 @@ static int pm8001_chip_soft_rst(struct pm8001_hba_info *pm8001_ha )
   }
   {
   regVal1 = pm8001_cr32(pm8001_ha, 2U, 56U);
-  tmp___18 = __builtin_expect((pm8001_ha->logging_level & 2U) != 0U, 0L);
+  tmp___18 = ldv__builtin_expect((pm8001_ha->logging_level & 2U) != 0U, 0L);
   }
   if (tmp___18 != 0L) {
     {
@@ -20297,7 +20294,7 @@ static int pm8001_chip_soft_rst(struct pm8001_hba_info *pm8001_ha )
   }
   {
   pm8001_cw32(pm8001_ha, 2U, 56U, 0U);
-  tmp___20 = __builtin_expect((pm8001_ha->logging_level & 2U) != 0U, 0L);
+  tmp___20 = ldv__builtin_expect((pm8001_ha->logging_level & 2U) != 0U, 0L);
   }
   if (tmp___20 != 0L) {
     {
@@ -20310,7 +20307,7 @@ static int pm8001_chip_soft_rst(struct pm8001_hba_info *pm8001_ha )
   }
   {
   regVal2 = pm8001_cr32(pm8001_ha, 2U, 64U);
-  tmp___21 = __builtin_expect((pm8001_ha->logging_level & 2U) != 0U, 0L);
+  tmp___21 = ldv__builtin_expect((pm8001_ha->logging_level & 2U) != 0U, 0L);
   }
   if (tmp___21 != 0L) {
     {
@@ -20322,7 +20319,7 @@ static int pm8001_chip_soft_rst(struct pm8001_hba_info *pm8001_ha )
   }
   {
   pm8001_cw32(pm8001_ha, 2U, 64U, 0U);
-  tmp___23 = __builtin_expect((pm8001_ha->logging_level & 2U) != 0U, 0L);
+  tmp___23 = ldv__builtin_expect((pm8001_ha->logging_level & 2U) != 0U, 0L);
   }
   if (tmp___23 != 0L) {
     {
@@ -20335,7 +20332,7 @@ static int pm8001_chip_soft_rst(struct pm8001_hba_info *pm8001_ha )
   }
   {
   regVal3 = pm8001_cr32(pm8001_ha, 2U, 72U);
-  tmp___24 = __builtin_expect((pm8001_ha->logging_level & 2U) != 0U, 0L);
+  tmp___24 = ldv__builtin_expect((pm8001_ha->logging_level & 2U) != 0U, 0L);
   }
   if (tmp___24 != 0L) {
     {
@@ -20347,7 +20344,7 @@ static int pm8001_chip_soft_rst(struct pm8001_hba_info *pm8001_ha )
   }
   {
   pm8001_cw32(pm8001_ha, 2U, 72U, 0U);
-  tmp___26 = __builtin_expect((pm8001_ha->logging_level & 2U) != 0U, 0L);
+  tmp___26 = ldv__builtin_expect((pm8001_ha->logging_level & 2U) != 0U, 0L);
   }
   if (tmp___26 != 0L) {
     {
@@ -20365,7 +20362,7 @@ static int pm8001_chip_soft_rst(struct pm8001_hba_info *pm8001_ha )
   if (tmp___28 == -1) {
     {
     ldv_spin_unlock_irqrestore_109(& pm8001_ha->lock, flags);
-    tmp___27 = __builtin_expect((pm8001_ha->logging_level & 2U) != 0U, 0L);
+    tmp___27 = ldv__builtin_expect((pm8001_ha->logging_level & 2U) != 0U, 0L);
     }
     if (tmp___27 != 0L) {
       {
@@ -20381,7 +20378,7 @@ static int pm8001_chip_soft_rst(struct pm8001_hba_info *pm8001_ha )
   }
   {
   regVal = pm8001_cr32(pm8001_ha, 2U, 268U);
-  tmp___29 = __builtin_expect((pm8001_ha->logging_level & 2U) != 0U, 0L);
+  tmp___29 = ldv__builtin_expect((pm8001_ha->logging_level & 2U) != 0U, 0L);
   }
   if (tmp___29 != 0L) {
     {
@@ -20399,7 +20396,7 @@ static int pm8001_chip_soft_rst(struct pm8001_hba_info *pm8001_ha )
   if (tmp___31 == -1) {
     {
     ldv_spin_unlock_irqrestore_109(& pm8001_ha->lock, flags);
-    tmp___30 = __builtin_expect((long )((int )pm8001_ha->logging_level) & 1L, 0L);
+    tmp___30 = ldv__builtin_expect((long )((int )pm8001_ha->logging_level) & 1L, 0L);
     }
     if (tmp___30 != 0L) {
       {
@@ -20415,7 +20412,7 @@ static int pm8001_chip_soft_rst(struct pm8001_hba_info *pm8001_ha )
   }
   {
   regVal = pm8001_cr32(pm8001_ha, 2U, 0U);
-  tmp___32 = __builtin_expect((pm8001_ha->logging_level & 2U) != 0U, 0L);
+  tmp___32 = ldv__builtin_expect((pm8001_ha->logging_level & 2U) != 0U, 0L);
   }
   if (tmp___32 != 0L) {
     {
@@ -20429,7 +20426,7 @@ static int pm8001_chip_soft_rst(struct pm8001_hba_info *pm8001_ha )
   regVal = regVal & 4294967271U;
   pm8001_cw32(pm8001_ha, 2U, 0U, regVal);
   regVal = pm8001_cr32(pm8001_ha, 2U, 0U);
-  tmp___33 = __builtin_expect((pm8001_ha->logging_level & 2U) != 0U, 0L);
+  tmp___33 = ldv__builtin_expect((pm8001_ha->logging_level & 2U) != 0U, 0L);
   }
   if (tmp___33 != 0L) {
     {
@@ -20444,7 +20441,7 @@ static int pm8001_chip_soft_rst(struct pm8001_hba_info *pm8001_ha )
   pm8001_cw32(pm8001_ha, 2U, 0U, regVal);
   __const_udelay(42950UL);
   regVal = pm8001_cr32(pm8001_ha, 2U, 0U);
-  tmp___34 = __builtin_expect((pm8001_ha->logging_level & 2U) != 0U, 0L);
+  tmp___34 = ldv__builtin_expect((pm8001_ha->logging_level & 2U) != 0U, 0L);
   }
   if (tmp___34 != 0L) {
     {
@@ -20463,7 +20460,7 @@ static int pm8001_chip_soft_rst(struct pm8001_hba_info *pm8001_ha )
   if (tmp___36 == -1) {
     {
     ldv_spin_unlock_irqrestore_109(& pm8001_ha->lock, flags);
-    tmp___35 = __builtin_expect((long )((int )pm8001_ha->logging_level) & 1L, 0L);
+    tmp___35 = ldv__builtin_expect((long )((int )pm8001_ha->logging_level) & 1L, 0L);
     }
     if (tmp___35 != 0L) {
       {
@@ -20478,7 +20475,7 @@ static int pm8001_chip_soft_rst(struct pm8001_hba_info *pm8001_ha )
 
   }
   {
-  tmp___38 = __builtin_expect((pm8001_ha->logging_level & 2U) != 0U, 0L);
+  tmp___38 = ldv__builtin_expect((pm8001_ha->logging_level & 2U) != 0U, 0L);
   }
   if (tmp___38 != 0L) {
     {
@@ -20493,7 +20490,7 @@ static int pm8001_chip_soft_rst(struct pm8001_hba_info *pm8001_ha )
   regVal = pm8001_cr32(pm8001_ha, 2U, 0U);
   regVal = regVal | 15104U;
   pm8001_cw32(pm8001_ha, 2U, 0U, regVal);
-  tmp___40 = __builtin_expect((pm8001_ha->logging_level & 2U) != 0U, 0L);
+  tmp___40 = ldv__builtin_expect((pm8001_ha->logging_level & 2U) != 0U, 0L);
   }
   if (tmp___40 != 0L) {
     {
@@ -20506,7 +20503,7 @@ static int pm8001_chip_soft_rst(struct pm8001_hba_info *pm8001_ha )
   }
   {
   regVal = pm8001_cr32(pm8001_ha, 2U, 56U);
-  tmp___41 = __builtin_expect((pm8001_ha->logging_level & 2U) != 0U, 0L);
+  tmp___41 = ldv__builtin_expect((pm8001_ha->logging_level & 2U) != 0U, 0L);
   }
   if (tmp___41 != 0L) {
     {
@@ -20518,7 +20515,7 @@ static int pm8001_chip_soft_rst(struct pm8001_hba_info *pm8001_ha )
   }
   {
   pm8001_cw32(pm8001_ha, 2U, 56U, regVal1);
-  tmp___43 = __builtin_expect((pm8001_ha->logging_level & 2U) != 0U, 0L);
+  tmp___43 = ldv__builtin_expect((pm8001_ha->logging_level & 2U) != 0U, 0L);
   }
   if (tmp___43 != 0L) {
     {
@@ -20532,7 +20529,7 @@ static int pm8001_chip_soft_rst(struct pm8001_hba_info *pm8001_ha )
   {
   regVal = pm8001_cr32(pm8001_ha, 2U, 64U);
   pm8001_cw32(pm8001_ha, 2U, 64U, regVal2);
-  tmp___45 = __builtin_expect((pm8001_ha->logging_level & 2U) != 0U, 0L);
+  tmp___45 = ldv__builtin_expect((pm8001_ha->logging_level & 2U) != 0U, 0L);
   }
   if (tmp___45 != 0L) {
     {
@@ -20546,7 +20543,7 @@ static int pm8001_chip_soft_rst(struct pm8001_hba_info *pm8001_ha )
   {
   regVal = pm8001_cr32(pm8001_ha, 2U, 72U);
   pm8001_cw32(pm8001_ha, 2U, 72U, regVal3);
-  tmp___47 = __builtin_expect((pm8001_ha->logging_level & 2U) != 0U, 0L);
+  tmp___47 = ldv__builtin_expect((pm8001_ha->logging_level & 2U) != 0U, 0L);
   }
   if (tmp___47 != 0L) {
     {
@@ -20563,7 +20560,7 @@ static int pm8001_chip_soft_rst(struct pm8001_hba_info *pm8001_ha )
   if (tmp___49 == -1) {
     {
     ldv_spin_unlock_irqrestore_109(& pm8001_ha->lock, flags);
-    tmp___48 = __builtin_expect((long )((int )pm8001_ha->logging_level) & 1L, 0L);
+    tmp___48 = ldv__builtin_expect((long )((int )pm8001_ha->logging_level) & 1L, 0L);
     }
     if (tmp___48 != 0L) {
       {
@@ -20605,7 +20602,7 @@ static int pm8001_chip_soft_rst(struct pm8001_hba_info *pm8001_ha )
     if (max_wait_count == 0U) {
       {
       regVal = pm8001_cr32(pm8001_ha, 0U, 72U);
-      tmp___51 = __builtin_expect((long )((int )pm8001_ha->logging_level) & 1L, 0L);
+      tmp___51 = ldv__builtin_expect((long )((int )pm8001_ha->logging_level) & 1L, 0L);
       }
       if (tmp___51 != 0L) {
         {
@@ -20616,7 +20613,7 @@ static int pm8001_chip_soft_rst(struct pm8001_hba_info *pm8001_ha )
 
       }
       {
-      tmp___53 = __builtin_expect((long )((int )pm8001_ha->logging_level) & 1L, 0L);
+      tmp___53 = ldv__builtin_expect((long )((int )pm8001_ha->logging_level) & 1L, 0L);
       }
       if (tmp___53 != 0L) {
         {
@@ -20628,7 +20625,7 @@ static int pm8001_chip_soft_rst(struct pm8001_hba_info *pm8001_ha )
 
       }
       {
-      tmp___55 = __builtin_expect((long )((int )pm8001_ha->logging_level) & 1L, 0L);
+      tmp___55 = ldv__builtin_expect((long )((int )pm8001_ha->logging_level) & 1L, 0L);
       }
       if (tmp___55 != 0L) {
         {
@@ -20640,7 +20637,7 @@ static int pm8001_chip_soft_rst(struct pm8001_hba_info *pm8001_ha )
 
       }
       {
-      tmp___57 = __builtin_expect((long )((int )pm8001_ha->logging_level) & 1L, 0L);
+      tmp___57 = ldv__builtin_expect((long )((int )pm8001_ha->logging_level) & 1L, 0L);
       }
       if (tmp___57 != 0L) {
         {
@@ -20666,7 +20663,7 @@ static int pm8001_chip_soft_rst(struct pm8001_hba_info *pm8001_ha )
     if (tmp___64 == -1) {
       {
       regVal = pm8001_cr32(pm8001_ha, 0U, 72U);
-      tmp___58 = __builtin_expect((pm8001_ha->logging_level & 2U) != 0U, 0L);
+      tmp___58 = ldv__builtin_expect((pm8001_ha->logging_level & 2U) != 0U, 0L);
       }
       if (tmp___58 != 0L) {
         {
@@ -20678,7 +20675,7 @@ static int pm8001_chip_soft_rst(struct pm8001_hba_info *pm8001_ha )
       }
       {
       regVal = pm8001_cr32(pm8001_ha, 0U, 76U);
-      tmp___59 = __builtin_expect((pm8001_ha->logging_level & 2U) != 0U, 0L);
+      tmp___59 = ldv__builtin_expect((pm8001_ha->logging_level & 2U) != 0U, 0L);
       }
       if (tmp___59 != 0L) {
         {
@@ -20689,7 +20686,7 @@ static int pm8001_chip_soft_rst(struct pm8001_hba_info *pm8001_ha )
 
       }
       {
-      tmp___61 = __builtin_expect((pm8001_ha->logging_level & 2U) != 0U, 0L);
+      tmp___61 = ldv__builtin_expect((pm8001_ha->logging_level & 2U) != 0U, 0L);
       }
       if (tmp___61 != 0L) {
         {
@@ -20701,7 +20698,7 @@ static int pm8001_chip_soft_rst(struct pm8001_hba_info *pm8001_ha )
 
       }
       {
-      tmp___63 = __builtin_expect((pm8001_ha->logging_level & 2U) != 0U, 0L);
+      tmp___63 = ldv__builtin_expect((pm8001_ha->logging_level & 2U) != 0U, 0L);
       }
       if (tmp___63 != 0L) {
         {
@@ -20725,7 +20722,7 @@ static int pm8001_chip_soft_rst(struct pm8001_hba_info *pm8001_ha )
   {
   pm8001_bar4_shift(pm8001_ha, 0U);
   ldv_spin_unlock_irqrestore_109(& pm8001_ha->lock, flags);
-  tmp___65 = __builtin_expect((pm8001_ha->logging_level & 2U) != 0U, 0L);
+  tmp___65 = ldv__builtin_expect((pm8001_ha->logging_level & 2U) != 0U, 0L);
   }
   if (tmp___65 != 0L) {
     {
@@ -20748,7 +20745,7 @@ static void pm8001_hw_chip_rst(struct pm8001_hba_info *pm8001_ha )
 
   {
   {
-  tmp = __builtin_expect((pm8001_ha->logging_level & 2U) != 0U, 0L);
+  tmp = ldv__builtin_expect((pm8001_ha->logging_level & 2U) != 0U, 0L);
   }
   if (tmp != 0L) {
     {
@@ -20797,7 +20794,7 @@ static void pm8001_hw_chip_rst(struct pm8001_hba_info *pm8001_ha )
 
   }
   {
-  tmp___1 = __builtin_expect((pm8001_ha->logging_level & 2U) != 0U, 0L);
+  tmp___1 = ldv__builtin_expect((pm8001_ha->logging_level & 2U) != 0U, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -20983,7 +20980,7 @@ int pm8001_mpi_build_cmd(struct pm8001_hba_info *pm8001_ha , struct inbound_queu
   }
   if (tmp___0 < 0) {
     {
-    tmp = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+    tmp = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
     }
     if (tmp != 0L) {
       {
@@ -20997,7 +20994,7 @@ int pm8001_mpi_build_cmd(struct pm8001_hba_info *pm8001_ha , struct inbound_queu
 
   }
   {
-  tmp___1 = __builtin_expect((unsigned long )payload == (unsigned long )((void *)0),
+  tmp___1 = ldv__builtin_expect((unsigned long )payload == (unsigned long )((void *)0),
                              0L);
   }
   if (tmp___1 != 0L) {
@@ -21014,7 +21011,7 @@ int pm8001_mpi_build_cmd(struct pm8001_hba_info *pm8001_ha , struct inbound_queu
   Header = (((((hpriority << 30) | ((bc & 31U) << 24)) | ((responseQueue & 63U) << 16)) | ((category << 12) & 65535U)) | (opCode & 4095U)) | 2147483648U;
   pm8001_write_32(pMessage + 0xfffffffffffffffcUL, 0U, Header);
   pm8001_cw32(pm8001_ha, circularQ->pi_pci_bar, circularQ->pi_offset, circularQ->producer_idx);
-  tmp___2 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+  tmp___2 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
   }
   if (tmp___2 != 0L) {
     {
@@ -21042,7 +21039,7 @@ u32 pm8001_mpi_msg_free_set(struct pm8001_hba_info *pm8001_ha , void *pMsg , str
   pOutBoundMsgHeader = (struct mpi_msg_hdr *)circularQ->base_virt + (unsigned long )(circularQ->consumer_idx * pm8001_ha->iomb_size);
   if ((unsigned long )pOutBoundMsgHeader != (unsigned long )msgHeader) {
     {
-    tmp = __builtin_expect((long )((int )pm8001_ha->logging_level) & 1L, 0L);
+    tmp = ldv__builtin_expect((long )((int )pm8001_ha->logging_level) & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -21055,7 +21052,7 @@ u32 pm8001_mpi_msg_free_set(struct pm8001_hba_info *pm8001_ha , void *pMsg , str
     {
     producer_index = pm8001_read_32(circularQ->pi_virt);
     circularQ->producer_index = producer_index;
-    tmp___0 = __builtin_expect((long )((int )pm8001_ha->logging_level) & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )((int )pm8001_ha->logging_level) & 1L, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -21075,7 +21072,7 @@ u32 pm8001_mpi_msg_free_set(struct pm8001_hba_info *pm8001_ha , void *pMsg , str
   pm8001_cw32(pm8001_ha, circularQ->ci_pci_bar, circularQ->ci_offset, circularQ->consumer_idx);
   producer_index = pm8001_read_32(circularQ->pi_virt);
   circularQ->producer_index = producer_index;
-  tmp___1 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+  tmp___1 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -21111,7 +21108,7 @@ u32 pm8001_mpi_msg_consume(struct pm8001_hba_info *pm8001_ha , struct outbound_q
         {
         *messagePtr1 = (void *)msgHeader + 4U;
         *pBC = (unsigned int )((unsigned char )(msgHeader_tmp >> 24)) & 31U;
-        tmp = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+        tmp = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
         }
         if (tmp != 0L) {
           {
@@ -21246,7 +21243,7 @@ void pm8001_work_fn(struct work_struct *work )
   {
   ldv___ldv_linux_kernel_locking_spinlock_spin_lock_124(& pm8001_ha->lock);
   ldv___ldv_linux_kernel_locking_spinlock_spin_lock_125(& t->task_state_lock);
-  tmp___0 = __builtin_expect((t->task_state_flags & 2U) != 0U, 0L);
+  tmp___0 = ldv__builtin_expect((t->task_state_flags & 2U) != 0U, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -21301,12 +21298,12 @@ void pm8001_work_fn(struct work_struct *work )
   t->task_state_flags = t->task_state_flags & 4294967294U;
   t->task_state_flags = t->task_state_flags & 4294967279U;
   t->task_state_flags = t->task_state_flags | 2U;
-  tmp___2 = __builtin_expect((t->task_state_flags & 4U) != 0U, 0L);
+  tmp___2 = ldv__builtin_expect((t->task_state_flags & 4U) != 0U, 0L);
   }
   if (tmp___2 != 0L) {
     {
     ldv_spin_unlock_irqrestore_135(& t->task_state_lock, flags1);
-    tmp___1 = __builtin_expect((long )((int )pm8001_ha->logging_level) & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )((int )pm8001_ha->logging_level) & 1L, 0L);
     }
     if (tmp___1 != 0L) {
       {
@@ -21335,7 +21332,7 @@ void pm8001_work_fn(struct work_struct *work )
   t___0 = (struct sas_task *)pm8001_dev;
   pm8001_ha___0 = pw->pm8001_ha;
   ret = 0;
-  tmp___3 = __builtin_expect((pm8001_ha___0->logging_level & 8U) != 0U, 0L);
+  tmp___3 = ldv__builtin_expect((pm8001_ha___0->logging_level & 8U) != 0U, 0L);
   }
   if (tmp___3 != 0L) {
     {
@@ -21346,7 +21343,7 @@ void pm8001_work_fn(struct work_struct *work )
   }
   {
   ret = pm8001_query_task(t___0);
-  tmp___4 = __builtin_expect((pm8001_ha___0->logging_level & 8U) != 0U, 0L);
+  tmp___4 = ldv__builtin_expect((pm8001_ha___0->logging_level & 8U) != 0U, 0L);
   }
   if (tmp___4 != 0L) {
     {
@@ -21385,7 +21382,7 @@ void pm8001_work_fn(struct work_struct *work )
   {
   ldv___ldv_linux_kernel_locking_spinlock_spin_lock_135(& pm8001_ha___0->lock);
   ldv___ldv_linux_kernel_locking_spinlock_spin_lock_136(& t___0->task_state_lock);
-  tmp___5 = __builtin_expect((t___0->task_state_flags & 2U) != 0U, 0L);
+  tmp___5 = ldv__builtin_expect((t___0->task_state_flags & 2U) != 0U, 0L);
   }
   if (tmp___5 != 0L) {
     {
@@ -21479,7 +21476,7 @@ void pm8001_work_fn(struct work_struct *work )
   switch_default___0: /* CIL Label */ 
   {
   ret = 5;
-  tmp___6 = __builtin_expect((pm8001_ha___0->logging_level & 8U) != 0U, 0L);
+  tmp___6 = ldv__builtin_expect((pm8001_ha___0->logging_level & 8U) != 0U, 0L);
   }
   if (tmp___6 != 0L) {
     {
@@ -21505,7 +21502,7 @@ void pm8001_work_fn(struct work_struct *work )
   {
   ldv_spin_unlock_irqrestore_109(& pm8001_ha___0->lock, flags___0);
   ret = 5;
-  tmp___7 = __builtin_expect((pm8001_ha___0->logging_level & 8U) != 0U, 0L);
+  tmp___7 = ldv__builtin_expect((pm8001_ha___0->logging_level & 8U) != 0U, 0L);
   }
   if (tmp___7 != 0L) {
     {
@@ -21527,7 +21524,7 @@ void pm8001_work_fn(struct work_struct *work )
   }
   {
   pm8001_open_reject_retry(pm8001_ha___0, t___0, pm8001_dev);
-  tmp___8 = __builtin_expect((pm8001_ha___0->logging_level & 8U) != 0U, 0L);
+  tmp___8 = ldv__builtin_expect((pm8001_ha___0->logging_level & 8U) != 0U, 0L);
   }
   if (tmp___8 != 0L) {
     {
@@ -21621,7 +21618,7 @@ static void pm8001_send_abort_all(struct pm8001_hba_info *pm8001_ha , struct pm8
   opc = 24U;
   if ((unsigned long )pm8001_ha_dev == (unsigned long )((struct pm8001_device *)0)) {
     {
-    tmp = __builtin_expect((long )((int )pm8001_ha->logging_level) & 1L, 0L);
+    tmp = ldv__builtin_expect((long )((int )pm8001_ha->logging_level) & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -21639,7 +21636,7 @@ static void pm8001_send_abort_all(struct pm8001_hba_info *pm8001_ha , struct pm8
   }
   if ((unsigned long )task == (unsigned long )((struct sas_task *)0)) {
     {
-    tmp___0 = __builtin_expect((long )((int )pm8001_ha->logging_level) & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )((int )pm8001_ha->logging_level) & 1L, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -21707,7 +21704,7 @@ static void pm8001_send_read_log(struct pm8001_hba_info *pm8001_ha , struct pm80
   }
   if ((unsigned long )task == (unsigned long )((struct sas_task *)0)) {
     {
-    tmp = __builtin_expect((long )((int )pm8001_ha->logging_level) & 1L, 0L);
+    tmp = ldv__builtin_expect((long )((int )pm8001_ha->logging_level) & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -21728,7 +21725,7 @@ static void pm8001_send_read_log(struct pm8001_hba_info *pm8001_ha , struct pm80
   if (res != 0) {
     {
     sas_free_task(task);
-    tmp___0 = __builtin_expect((long )((int )pm8001_ha->logging_level) & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )((int )pm8001_ha->logging_level) & 1L, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -21750,7 +21747,7 @@ static void pm8001_send_read_log(struct pm8001_hba_info *pm8001_ha , struct pm80
     {
     sas_free_task(task);
     pm8001_tag_free(pm8001_ha, ccb_tag);
-    tmp___2 = __builtin_expect((long )((int )pm8001_ha->logging_level) & 1L, 0L);
+    tmp___2 = ldv__builtin_expect((long )((int )pm8001_ha->logging_level) & 1L, 0L);
     }
     if (tmp___2 != 0L) {
       {
@@ -21863,7 +21860,7 @@ static void mpi_ssp_completion(struct pm8001_hba_info *pm8001_ha , void *piomb )
   t = ccb->task;
   if (status != 0U && status != 3U) {
     {
-    tmp = __builtin_expect((long )((int )pm8001_ha->logging_level) & 1L, 0L);
+    tmp = ldv__builtin_expect((long )((int )pm8001_ha->logging_level) & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -21877,14 +21874,14 @@ static void mpi_ssp_completion(struct pm8001_hba_info *pm8001_ha , void *piomb )
 
   }
   {
-  tmp___0 = __builtin_expect((unsigned long )t == (unsigned long )((struct sas_task *)0),
+  tmp___0 = ldv__builtin_expect((unsigned long )t == (unsigned long )((struct sas_task *)0),
                              0L);
   }
   if (tmp___0 != 0L) {
     tmp___2 = 1;
   } else {
     {
-    tmp___1 = __builtin_expect((unsigned long )t->lldd_task == (unsigned long )((void *)0),
+    tmp___1 = ldv__builtin_expect((unsigned long )t->lldd_task == (unsigned long )((void *)0),
                                0L);
     }
     if (tmp___1 != 0L) {
@@ -21897,7 +21894,7 @@ static void mpi_ssp_completion(struct pm8001_hba_info *pm8001_ha , void *piomb )
     return;
   } else {
     {
-    tmp___3 = __builtin_expect((unsigned long )t->dev == (unsigned long )((struct domain_device *)0),
+    tmp___3 = ldv__builtin_expect((unsigned long )t->dev == (unsigned long )((struct domain_device *)0),
                                0L);
     }
     if (tmp___3 != 0L) {
@@ -21909,7 +21906,7 @@ static void mpi_ssp_completion(struct pm8001_hba_info *pm8001_ha , void *piomb )
   ts = & t->task_status;
   if ((status != 0U && status != 2U) && status != 3U) {
     {
-    tmp___5 = __builtin_expect((long )((int )pm8001_ha->logging_level) & 1L, 0L);
+    tmp___5 = ldv__builtin_expect((long )((int )pm8001_ha->logging_level) & 1L, 0L);
     }
     if (tmp___5 != 0L) {
       {
@@ -22047,7 +22044,7 @@ static void mpi_ssp_completion(struct pm8001_hba_info *pm8001_ha , void *piomb )
   goto switch_default;
   case_0: /* CIL Label */ 
   {
-  tmp___6 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+  tmp___6 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
   }
   if (tmp___6 != 0L) {
     {
@@ -22077,7 +22074,7 @@ static void mpi_ssp_completion(struct pm8001_hba_info *pm8001_ha , void *piomb )
   goto ldv_46794;
   case_1: /* CIL Label */ 
   {
-  tmp___7 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+  tmp___7 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
   }
   if (tmp___7 != 0L) {
     {
@@ -22091,7 +22088,7 @@ static void mpi_ssp_completion(struct pm8001_hba_info *pm8001_ha , void *piomb )
   goto ldv_46794;
   case_3: /* CIL Label */ 
   {
-  tmp___8 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+  tmp___8 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
   }
   if (tmp___8 != 0L) {
     {
@@ -22112,7 +22109,7 @@ static void mpi_ssp_completion(struct pm8001_hba_info *pm8001_ha , void *piomb )
   goto ldv_46794;
   case_7: /* CIL Label */ 
   {
-  tmp___9 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+  tmp___9 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
   }
   if (tmp___9 != 0L) {
     {
@@ -22126,7 +22123,7 @@ static void mpi_ssp_completion(struct pm8001_hba_info *pm8001_ha , void *piomb )
   goto ldv_46794;
   case_14: /* CIL Label */ 
   {
-  tmp___10 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+  tmp___10 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
   }
   if (tmp___10 != 0L) {
     {
@@ -22141,7 +22138,7 @@ static void mpi_ssp_completion(struct pm8001_hba_info *pm8001_ha , void *piomb )
   goto ldv_46794;
   case_15: /* CIL Label */ 
   {
-  tmp___11 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+  tmp___11 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
   }
   if (tmp___11 != 0L) {
     {
@@ -22157,7 +22154,7 @@ static void mpi_ssp_completion(struct pm8001_hba_info *pm8001_ha , void *piomb )
   goto ldv_46794;
   case_16: /* CIL Label */ 
   {
-  tmp___12 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+  tmp___12 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
   }
   if (tmp___12 != 0L) {
     {
@@ -22173,7 +22170,7 @@ static void mpi_ssp_completion(struct pm8001_hba_info *pm8001_ha , void *piomb )
   goto ldv_46794;
   case_17: /* CIL Label */ 
   {
-  tmp___13 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+  tmp___13 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
   }
   if (tmp___13 != 0L) {
     {
@@ -22189,7 +22186,7 @@ static void mpi_ssp_completion(struct pm8001_hba_info *pm8001_ha , void *piomb )
   goto ldv_46794;
   case_18: /* CIL Label */ 
   {
-  tmp___14 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+  tmp___14 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
   }
   if (tmp___14 != 0L) {
     {
@@ -22204,7 +22201,7 @@ static void mpi_ssp_completion(struct pm8001_hba_info *pm8001_ha , void *piomb )
   goto ldv_46794;
   case_19: /* CIL Label */ 
   {
-  tmp___15 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+  tmp___15 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
   }
   if (tmp___15 != 0L) {
     {
@@ -22227,7 +22224,7 @@ static void mpi_ssp_completion(struct pm8001_hba_info *pm8001_ha , void *piomb )
   goto ldv_46794;
   case_20: /* CIL Label */ 
   {
-  tmp___16 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+  tmp___16 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
   }
   if (tmp___16 != 0L) {
     {
@@ -22243,7 +22240,7 @@ static void mpi_ssp_completion(struct pm8001_hba_info *pm8001_ha , void *piomb )
   goto ldv_46794;
   case_21: /* CIL Label */ 
   {
-  tmp___17 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+  tmp___17 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
   }
   if (tmp___17 != 0L) {
     {
@@ -22259,7 +22256,7 @@ static void mpi_ssp_completion(struct pm8001_hba_info *pm8001_ha , void *piomb )
   goto ldv_46794;
   case_23: /* CIL Label */ 
   {
-  tmp___18 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+  tmp___18 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
   }
   if (tmp___18 != 0L) {
     {
@@ -22275,7 +22272,7 @@ static void mpi_ssp_completion(struct pm8001_hba_info *pm8001_ha , void *piomb )
   goto ldv_46794;
   case_25: /* CIL Label */ 
   {
-  tmp___19 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+  tmp___19 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
   }
   if (tmp___19 != 0L) {
     {
@@ -22291,7 +22288,7 @@ static void mpi_ssp_completion(struct pm8001_hba_info *pm8001_ha , void *piomb )
   goto ldv_46794;
   case_26: /* CIL Label */ 
   {
-  tmp___20 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+  tmp___20 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
   }
   if (tmp___20 != 0L) {
     {
@@ -22306,7 +22303,7 @@ static void mpi_ssp_completion(struct pm8001_hba_info *pm8001_ha , void *piomb )
   goto ldv_46794;
   case_29: /* CIL Label */ 
   {
-  tmp___21 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+  tmp___21 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
   }
   if (tmp___21 != 0L) {
     {
@@ -22320,7 +22317,7 @@ static void mpi_ssp_completion(struct pm8001_hba_info *pm8001_ha , void *piomb )
   goto ldv_46794;
   case_36: /* CIL Label */ 
   {
-  tmp___22 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+  tmp___22 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
   }
   if (tmp___22 != 0L) {
     {
@@ -22336,7 +22333,7 @@ static void mpi_ssp_completion(struct pm8001_hba_info *pm8001_ha , void *piomb )
   goto ldv_46794;
   case_52: /* CIL Label */ 
   {
-  tmp___23 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+  tmp___23 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
   }
   if (tmp___23 != 0L) {
     {
@@ -22351,7 +22348,7 @@ static void mpi_ssp_completion(struct pm8001_hba_info *pm8001_ha , void *piomb )
   goto ldv_46794;
   case_56: /* CIL Label */ 
   {
-  tmp___24 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+  tmp___24 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
   }
   if (tmp___24 != 0L) {
     {
@@ -22365,7 +22362,7 @@ static void mpi_ssp_completion(struct pm8001_hba_info *pm8001_ha , void *piomb )
   goto ldv_46794;
   case_57: /* CIL Label */ 
   {
-  tmp___25 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+  tmp___25 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
   }
   if (tmp___25 != 0L) {
     {
@@ -22386,7 +22383,7 @@ static void mpi_ssp_completion(struct pm8001_hba_info *pm8001_ha , void *piomb )
   goto ldv_46794;
   case_58: /* CIL Label */ 
   {
-  tmp___26 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+  tmp___26 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
   }
   if (tmp___26 != 0L) {
     {
@@ -22400,7 +22397,7 @@ static void mpi_ssp_completion(struct pm8001_hba_info *pm8001_ha , void *piomb )
   goto ldv_46794;
   case_59: /* CIL Label */ 
   {
-  tmp___27 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+  tmp___27 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
   }
   if (tmp___27 != 0L) {
     {
@@ -22414,7 +22411,7 @@ static void mpi_ssp_completion(struct pm8001_hba_info *pm8001_ha , void *piomb )
   goto ldv_46794;
   case_61: /* CIL Label */ 
   {
-  tmp___28 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+  tmp___28 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
   }
   if (tmp___28 != 0L) {
     {
@@ -22429,7 +22426,7 @@ static void mpi_ssp_completion(struct pm8001_hba_info *pm8001_ha , void *piomb )
   goto ldv_46794;
   case_63: /* CIL Label */ 
   {
-  tmp___29 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+  tmp___29 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
   }
   if (tmp___29 != 0L) {
     {
@@ -22445,7 +22442,7 @@ static void mpi_ssp_completion(struct pm8001_hba_info *pm8001_ha , void *piomb )
   goto ldv_46794;
   switch_default: /* CIL Label */ 
   {
-  tmp___30 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+  tmp___30 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
   }
   if (tmp___30 != 0L) {
     {
@@ -22461,7 +22458,7 @@ static void mpi_ssp_completion(struct pm8001_hba_info *pm8001_ha , void *piomb )
   }
   ldv_46794: 
   {
-  tmp___31 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+  tmp___31 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
   }
   if (tmp___31 != 0L) {
     {
@@ -22475,12 +22472,12 @@ static void mpi_ssp_completion(struct pm8001_hba_info *pm8001_ha , void *piomb )
   t->task_state_flags = t->task_state_flags & 4294967294U;
   t->task_state_flags = t->task_state_flags & 4294967279U;
   t->task_state_flags = t->task_state_flags | 2U;
-  tmp___33 = __builtin_expect((t->task_state_flags & 4U) != 0U, 0L);
+  tmp___33 = ldv__builtin_expect((t->task_state_flags & 4U) != 0U, 0L);
   }
   if (tmp___33 != 0L) {
     {
     ldv_spin_unlock_irqrestore_135(& t->task_state_lock, flags);
-    tmp___32 = __builtin_expect((long )((int )pm8001_ha->logging_level) & 1L, 0L);
+    tmp___32 = ldv__builtin_expect((long )((int )pm8001_ha->logging_level) & 1L, 0L);
     }
     if (tmp___32 != 0L) {
       {
@@ -22557,7 +22554,7 @@ static void mpi_ssp_event(struct pm8001_hba_info *pm8001_ha , void *piomb )
   pm8001_dev = ccb->device;
   if (event != 0U) {
     {
-    tmp = __builtin_expect((long )((int )pm8001_ha->logging_level) & 1L, 0L);
+    tmp = ldv__builtin_expect((long )((int )pm8001_ha->logging_level) & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -22570,14 +22567,14 @@ static void mpi_ssp_event(struct pm8001_hba_info *pm8001_ha , void *piomb )
 
   }
   {
-  tmp___0 = __builtin_expect((unsigned long )t == (unsigned long )((struct sas_task *)0),
+  tmp___0 = ldv__builtin_expect((unsigned long )t == (unsigned long )((struct sas_task *)0),
                              0L);
   }
   if (tmp___0 != 0L) {
     tmp___2 = 1;
   } else {
     {
-    tmp___1 = __builtin_expect((unsigned long )t->lldd_task == (unsigned long )((void *)0),
+    tmp___1 = ldv__builtin_expect((unsigned long )t->lldd_task == (unsigned long )((void *)0),
                                0L);
     }
     if (tmp___1 != 0L) {
@@ -22590,7 +22587,7 @@ static void mpi_ssp_event(struct pm8001_hba_info *pm8001_ha , void *piomb )
     return;
   } else {
     {
-    tmp___3 = __builtin_expect((unsigned long )t->dev == (unsigned long )((struct domain_device *)0),
+    tmp___3 = ldv__builtin_expect((unsigned long )t->dev == (unsigned long )((struct domain_device *)0),
                                0L);
     }
     if (tmp___3 != 0L) {
@@ -22601,7 +22598,7 @@ static void mpi_ssp_event(struct pm8001_hba_info *pm8001_ha , void *piomb )
   }
   {
   ts = & t->task_status;
-  tmp___4 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+  tmp___4 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
   }
   if (tmp___4 != 0L) {
     {
@@ -22715,7 +22712,7 @@ static void mpi_ssp_event(struct pm8001_hba_info *pm8001_ha , void *piomb )
   goto switch_default;
   case_2: /* CIL Label */ 
   {
-  tmp___5 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+  tmp___5 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
   }
   if (tmp___5 != 0L) {
     {
@@ -22735,7 +22732,7 @@ static void mpi_ssp_event(struct pm8001_hba_info *pm8001_ha , void *piomb )
   goto ldv_46835;
   case_14: /* CIL Label */ 
   {
-  tmp___6 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+  tmp___6 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
   }
   if (tmp___6 != 0L) {
     {
@@ -22750,7 +22747,7 @@ static void mpi_ssp_event(struct pm8001_hba_info *pm8001_ha , void *piomb )
   return;
   case_15: /* CIL Label */ 
   {
-  tmp___7 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+  tmp___7 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
   }
   if (tmp___7 != 0L) {
     {
@@ -22765,7 +22762,7 @@ static void mpi_ssp_event(struct pm8001_hba_info *pm8001_ha , void *piomb )
   goto ldv_46835;
   case_16: /* CIL Label */ 
   {
-  tmp___8 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+  tmp___8 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
   }
   if (tmp___8 != 0L) {
     {
@@ -22781,7 +22778,7 @@ static void mpi_ssp_event(struct pm8001_hba_info *pm8001_ha , void *piomb )
   goto ldv_46835;
   case_17: /* CIL Label */ 
   {
-  tmp___9 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+  tmp___9 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
   }
   if (tmp___9 != 0L) {
     {
@@ -22797,7 +22794,7 @@ static void mpi_ssp_event(struct pm8001_hba_info *pm8001_ha , void *piomb )
   goto ldv_46835;
   case_18: /* CIL Label */ 
   {
-  tmp___10 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+  tmp___10 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
   }
   if (tmp___10 != 0L) {
     {
@@ -22812,7 +22809,7 @@ static void mpi_ssp_event(struct pm8001_hba_info *pm8001_ha , void *piomb )
   goto ldv_46835;
   case_19: /* CIL Label */ 
   {
-  tmp___11 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+  tmp___11 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
   }
   if (tmp___11 != 0L) {
     {
@@ -22835,7 +22832,7 @@ static void mpi_ssp_event(struct pm8001_hba_info *pm8001_ha , void *piomb )
   goto ldv_46835;
   case_20: /* CIL Label */ 
   {
-  tmp___12 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+  tmp___12 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
   }
   if (tmp___12 != 0L) {
     {
@@ -22851,7 +22848,7 @@ static void mpi_ssp_event(struct pm8001_hba_info *pm8001_ha , void *piomb )
   goto ldv_46835;
   case_21: /* CIL Label */ 
   {
-  tmp___13 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+  tmp___13 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
   }
   if (tmp___13 != 0L) {
     {
@@ -22867,7 +22864,7 @@ static void mpi_ssp_event(struct pm8001_hba_info *pm8001_ha , void *piomb )
   goto ldv_46835;
   case_23: /* CIL Label */ 
   {
-  tmp___14 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+  tmp___14 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
   }
   if (tmp___14 != 0L) {
     {
@@ -22883,7 +22880,7 @@ static void mpi_ssp_event(struct pm8001_hba_info *pm8001_ha , void *piomb )
   goto ldv_46835;
   case_25: /* CIL Label */ 
   {
-  tmp___15 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+  tmp___15 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
   }
   if (tmp___15 != 0L) {
     {
@@ -22898,7 +22895,7 @@ static void mpi_ssp_event(struct pm8001_hba_info *pm8001_ha , void *piomb )
   goto ldv_46835;
   case_26: /* CIL Label */ 
   {
-  tmp___16 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+  tmp___16 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
   }
   if (tmp___16 != 0L) {
     {
@@ -22912,7 +22909,7 @@ static void mpi_ssp_event(struct pm8001_hba_info *pm8001_ha , void *piomb )
   goto ldv_46835;
   case_36: /* CIL Label */ 
   {
-  tmp___17 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+  tmp___17 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
   }
   if (tmp___17 != 0L) {
     {
@@ -22927,7 +22924,7 @@ static void mpi_ssp_event(struct pm8001_hba_info *pm8001_ha , void *piomb )
   return;
   case_38: /* CIL Label */ 
   {
-  tmp___18 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+  tmp___18 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
   }
   if (tmp___18 != 0L) {
     {
@@ -22941,7 +22938,7 @@ static void mpi_ssp_event(struct pm8001_hba_info *pm8001_ha , void *piomb )
   goto ldv_46835;
   case_39: /* CIL Label */ 
   {
-  tmp___19 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+  tmp___19 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
   }
   if (tmp___19 != 0L) {
     {
@@ -22955,7 +22952,7 @@ static void mpi_ssp_event(struct pm8001_hba_info *pm8001_ha , void *piomb )
   goto ldv_46835;
   case_40: /* CIL Label */ 
   {
-  tmp___20 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+  tmp___20 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
   }
   if (tmp___20 != 0L) {
     {
@@ -22970,7 +22967,7 @@ static void mpi_ssp_event(struct pm8001_hba_info *pm8001_ha , void *piomb )
   goto ldv_46835;
   case_48: /* CIL Label */ 
   {
-  tmp___21 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+  tmp___21 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
   }
   if (tmp___21 != 0L) {
     {
@@ -22985,7 +22982,7 @@ static void mpi_ssp_event(struct pm8001_hba_info *pm8001_ha , void *piomb )
   goto ldv_46835;
   case_52: /* CIL Label */ 
   {
-  tmp___22 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+  tmp___22 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
   }
   if (tmp___22 != 0L) {
     {
@@ -22999,7 +22996,7 @@ static void mpi_ssp_event(struct pm8001_hba_info *pm8001_ha , void *piomb )
   goto ldv_46835;
   case_53: /* CIL Label */ 
   {
-  tmp___23 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+  tmp___23 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
   }
   if (tmp___23 != 0L) {
     {
@@ -23014,7 +23011,7 @@ static void mpi_ssp_event(struct pm8001_hba_info *pm8001_ha , void *piomb )
   goto ldv_46835;
   case_54: /* CIL Label */ 
   {
-  tmp___24 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+  tmp___24 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
   }
   if (tmp___24 != 0L) {
     {
@@ -23026,7 +23023,7 @@ static void mpi_ssp_event(struct pm8001_hba_info *pm8001_ha , void *piomb )
   return;
   switch_default: /* CIL Label */ 
   {
-  tmp___25 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+  tmp___25 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
   }
   if (tmp___25 != 0L) {
     {
@@ -23046,12 +23043,12 @@ static void mpi_ssp_event(struct pm8001_hba_info *pm8001_ha , void *piomb )
   t->task_state_flags = t->task_state_flags & 4294967294U;
   t->task_state_flags = t->task_state_flags & 4294967279U;
   t->task_state_flags = t->task_state_flags | 2U;
-  tmp___27 = __builtin_expect((t->task_state_flags & 4U) != 0U, 0L);
+  tmp___27 = ldv__builtin_expect((t->task_state_flags & 4U) != 0U, 0L);
   }
   if (tmp___27 != 0L) {
     {
     ldv_spin_unlock_irqrestore_135(& t->task_state_lock, flags);
-    tmp___26 = __builtin_expect((long )((int )pm8001_ha->logging_level) & 1L, 0L);
+    tmp___26 = ldv__builtin_expect((long )((int )pm8001_ha->logging_level) & 1L, 0L);
     }
     if (tmp___26 != 0L) {
       {
@@ -23146,7 +23143,7 @@ static void mpi_sata_completion(struct pm8001_hba_info *pm8001_ha , void *piomb 
   tag = psataPayload->tag;
   if (tag == 0U) {
     {
-    tmp = __builtin_expect((long )((int )pm8001_ha->logging_level) & 1L, 0L);
+    tmp = ldv__builtin_expect((long )((int )pm8001_ha->logging_level) & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -23166,7 +23163,7 @@ static void mpi_sata_completion(struct pm8001_hba_info *pm8001_ha , void *piomb 
     pm8001_dev = ccb->device;
   } else {
     {
-    tmp___0 = __builtin_expect((long )((int )pm8001_ha->logging_level) & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )((int )pm8001_ha->logging_level) & 1L, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -23185,7 +23182,7 @@ static void mpi_sata_completion(struct pm8001_hba_info *pm8001_ha , void *piomb 
     }
   } else {
     {
-    tmp___1 = __builtin_expect((long )((int )pm8001_ha->logging_level) & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )((int )pm8001_ha->logging_level) & 1L, 0L);
     }
     if (tmp___1 != 0L) {
       {
@@ -23198,14 +23195,14 @@ static void mpi_sata_completion(struct pm8001_hba_info *pm8001_ha , void *piomb 
   }
   if ((unsigned long )pm8001_dev != (unsigned long )((struct pm8001_device *)0) && (int )pm8001_dev->id >= 0) {
     {
-    tmp___3 = __builtin_expect((unsigned long )t == (unsigned long )((struct sas_task *)0),
+    tmp___3 = ldv__builtin_expect((unsigned long )t == (unsigned long )((struct sas_task *)0),
                                0L);
     }
     if (tmp___3 != 0L) {
       tmp___5 = 1;
     } else {
       {
-      tmp___4 = __builtin_expect((unsigned long )t->lldd_task == (unsigned long )((void *)0),
+      tmp___4 = ldv__builtin_expect((unsigned long )t->lldd_task == (unsigned long )((void *)0),
                                  0L);
       }
       if (tmp___4 != 0L) {
@@ -23218,13 +23215,13 @@ static void mpi_sata_completion(struct pm8001_hba_info *pm8001_ha , void *piomb 
       goto _L;
     } else {
       {
-      tmp___6 = __builtin_expect((unsigned long )t->dev == (unsigned long )((struct domain_device *)0),
+      tmp___6 = ldv__builtin_expect((unsigned long )t->dev == (unsigned long )((struct domain_device *)0),
                                  0L);
       }
       if (tmp___6 != 0L) {
         _L: /* CIL Label */ 
         {
-        tmp___2 = __builtin_expect((long )((int )pm8001_ha->logging_level) & 1L, 0L);
+        tmp___2 = ldv__builtin_expect((long )((int )pm8001_ha->logging_level) & 1L, 0L);
         }
         if (tmp___2 != 0L) {
           {
@@ -23244,7 +23241,7 @@ static void mpi_sata_completion(struct pm8001_hba_info *pm8001_ha , void *piomb 
   ts = & t->task_status;
   if ((unsigned long )ts == (unsigned long )((struct task_status_struct *)0)) {
     {
-    tmp___7 = __builtin_expect((long )((int )pm8001_ha->logging_level) & 1L, 0L);
+    tmp___7 = ldv__builtin_expect((long )((int )pm8001_ha->logging_level) & 1L, 0L);
     }
     if (tmp___7 != 0L) {
       {
@@ -23291,7 +23288,7 @@ static void mpi_sata_completion(struct pm8001_hba_info *pm8001_ha , void *piomb 
       __memcpy((void *)(& temp_sata_addr_hi), (void const   *)(& sata_addr_hi), 4UL);
       temp_sata_addr_hi = (((temp_sata_addr_hi >> 24) | ((temp_sata_addr_hi << 8) & 16711680U)) | ((temp_sata_addr_hi >> 8) & 65280U)) | (temp_sata_addr_hi << 24);
       temp_sata_addr_low = (((((temp_sata_addr_low >> 24) | ((temp_sata_addr_low << 8) & 16711680U)) | ((temp_sata_addr_low >> 8) & 65280U)) | (temp_sata_addr_low << 24)) + pm8001_dev->attached_phy) + 16U;
-      tmp___8 = __builtin_expect((long )((int )pm8001_ha->logging_level) & 1L, 0L);
+      tmp___8 = ldv__builtin_expect((long )((int )pm8001_ha->logging_level) & 1L, 0L);
       }
       if (tmp___8 != 0L) {
         {
@@ -23303,7 +23300,7 @@ static void mpi_sata_completion(struct pm8001_hba_info *pm8001_ha , void *piomb 
       }
     } else {
       {
-      tmp___10 = __builtin_expect((long )((int )pm8001_ha->logging_level) & 1L, 0L);
+      tmp___10 = ldv__builtin_expect((long )((int )pm8001_ha->logging_level) & 1L, 0L);
       }
       if (tmp___10 != 0L) {
         {
@@ -23447,7 +23444,7 @@ static void mpi_sata_completion(struct pm8001_hba_info *pm8001_ha , void *piomb 
   goto switch_default;
   case_0: /* CIL Label */ 
   {
-  tmp___11 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+  tmp___11 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
   }
   if (tmp___11 != 0L) {
     {
@@ -23476,7 +23473,7 @@ static void mpi_sata_completion(struct pm8001_hba_info *pm8001_ha , void *piomb 
     ts->resp = 0;
     ts->stat = 137;
     ts->residual = param;
-    tmp___12 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+    tmp___12 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
     }
     if (tmp___12 != 0L) {
       {
@@ -23491,7 +23488,7 @@ static void mpi_sata_completion(struct pm8001_hba_info *pm8001_ha , void *piomb 
     if ((unsigned int )*((unsigned char *)t + 125UL) == 0U && (unsigned int )*((unsigned char *)t + 184UL) == 2U) {
       {
       len = 19U;
-      tmp___13 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+      tmp___13 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
       }
       if (tmp___13 != 0L) {
         {
@@ -23505,7 +23502,7 @@ static void mpi_sata_completion(struct pm8001_hba_info *pm8001_ha , void *piomb 
     if ((unsigned int )*((unsigned char *)t + 125UL) != 0U) {
       {
       len = 8U;
-      tmp___14 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+      tmp___14 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
       }
       if (tmp___14 != 0L) {
         {
@@ -23517,7 +23514,7 @@ static void mpi_sata_completion(struct pm8001_hba_info *pm8001_ha , void *piomb 
     } else {
       {
       len = 20U;
-      tmp___15 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+      tmp___15 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
       }
       if (tmp___15 != 0L) {
         {
@@ -23541,7 +23538,7 @@ static void mpi_sata_completion(struct pm8001_hba_info *pm8001_ha , void *piomb 
   goto ldv_46886;
   case_1: /* CIL Label */ 
   {
-  tmp___17 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+  tmp___17 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
   }
   if (tmp___17 != 0L) {
     {
@@ -23560,7 +23557,7 @@ static void mpi_sata_completion(struct pm8001_hba_info *pm8001_ha , void *piomb 
   goto ldv_46886;
   case_3: /* CIL Label */ 
   {
-  tmp___18 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+  tmp___18 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
   }
   if (tmp___18 != 0L) {
     {
@@ -23581,7 +23578,7 @@ static void mpi_sata_completion(struct pm8001_hba_info *pm8001_ha , void *piomb 
   goto ldv_46886;
   case_7: /* CIL Label */ 
   {
-  tmp___19 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+  tmp___19 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
   }
   if (tmp___19 != 0L) {
     {
@@ -23595,7 +23592,7 @@ static void mpi_sata_completion(struct pm8001_hba_info *pm8001_ha , void *piomb 
   goto ldv_46886;
   case_14: /* CIL Label */ 
   {
-  tmp___20 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+  tmp___20 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
   }
   if (tmp___20 != 0L) {
     {
@@ -23609,7 +23606,7 @@ static void mpi_sata_completion(struct pm8001_hba_info *pm8001_ha , void *piomb 
   goto ldv_46886;
   case_15: /* CIL Label */ 
   {
-  tmp___21 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+  tmp___21 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
   }
   if (tmp___21 != 0L) {
     {
@@ -23625,7 +23622,7 @@ static void mpi_sata_completion(struct pm8001_hba_info *pm8001_ha , void *piomb 
   goto ldv_46886;
   case_16: /* CIL Label */ 
   {
-  tmp___22 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+  tmp___22 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
   }
   if (tmp___22 != 0L) {
     {
@@ -23641,7 +23638,7 @@ static void mpi_sata_completion(struct pm8001_hba_info *pm8001_ha , void *piomb 
   goto ldv_46886;
   case_17: /* CIL Label */ 
   {
-  tmp___23 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+  tmp___23 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
   }
   if (tmp___23 != 0L) {
     {
@@ -23657,7 +23654,7 @@ static void mpi_sata_completion(struct pm8001_hba_info *pm8001_ha , void *piomb 
   goto ldv_46886;
   case_18: /* CIL Label */ 
   {
-  tmp___24 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+  tmp___24 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
   }
   if (tmp___24 != 0L) {
     {
@@ -23672,7 +23669,7 @@ static void mpi_sata_completion(struct pm8001_hba_info *pm8001_ha , void *piomb 
   goto ldv_46886;
   case_19: /* CIL Label */ 
   {
-  tmp___25 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+  tmp___25 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
   }
   if (tmp___25 != 0L) {
     {
@@ -23698,7 +23695,7 @@ static void mpi_sata_completion(struct pm8001_hba_info *pm8001_ha , void *piomb 
   goto ldv_46886;
   case_20: /* CIL Label */ 
   {
-  tmp___26 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+  tmp___26 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
   }
   if (tmp___26 != 0L) {
     {
@@ -23725,7 +23722,7 @@ static void mpi_sata_completion(struct pm8001_hba_info *pm8001_ha , void *piomb 
   goto ldv_46886;
   case_21: /* CIL Label */ 
   {
-  tmp___27 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+  tmp___27 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
   }
   if (tmp___27 != 0L) {
     {
@@ -23741,7 +23738,7 @@ static void mpi_sata_completion(struct pm8001_hba_info *pm8001_ha , void *piomb 
   goto ldv_46886;
   case_22: /* CIL Label */ 
   {
-  tmp___28 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+  tmp___28 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
   }
   if (tmp___28 != 0L) {
     {
@@ -23767,7 +23764,7 @@ static void mpi_sata_completion(struct pm8001_hba_info *pm8001_ha , void *piomb 
   goto ldv_46886;
   case_23: /* CIL Label */ 
   {
-  tmp___29 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+  tmp___29 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
   }
   if (tmp___29 != 0L) {
     {
@@ -23783,7 +23780,7 @@ static void mpi_sata_completion(struct pm8001_hba_info *pm8001_ha , void *piomb 
   goto ldv_46886;
   case_25: /* CIL Label */ 
   {
-  tmp___30 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+  tmp___30 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
   }
   if (tmp___30 != 0L) {
     {
@@ -23798,7 +23795,7 @@ static void mpi_sata_completion(struct pm8001_hba_info *pm8001_ha , void *piomb 
   goto ldv_46886;
   case_26: /* CIL Label */ 
   {
-  tmp___31 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+  tmp___31 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
   }
   if (tmp___31 != 0L) {
     {
@@ -23813,7 +23810,7 @@ static void mpi_sata_completion(struct pm8001_hba_info *pm8001_ha , void *piomb 
   goto ldv_46886;
   case_29: /* CIL Label */ 
   {
-  tmp___32 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+  tmp___32 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
   }
   if (tmp___32 != 0L) {
     {
@@ -23827,7 +23824,7 @@ static void mpi_sata_completion(struct pm8001_hba_info *pm8001_ha , void *piomb 
   goto ldv_46886;
   case_31: /* CIL Label */ 
   {
-  tmp___33 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+  tmp___33 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
   }
   if (tmp___33 != 0L) {
     {
@@ -23842,7 +23839,7 @@ static void mpi_sata_completion(struct pm8001_hba_info *pm8001_ha , void *piomb 
   goto ldv_46886;
   case_33: /* CIL Label */ 
   {
-  tmp___34 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+  tmp___34 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
   }
   if (tmp___34 != 0L) {
     {
@@ -23857,7 +23854,7 @@ static void mpi_sata_completion(struct pm8001_hba_info *pm8001_ha , void *piomb 
   goto ldv_46886;
   case_36: /* CIL Label */ 
   {
-  tmp___35 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+  tmp___35 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
   }
   if (tmp___35 != 0L) {
     {
@@ -23872,7 +23869,7 @@ static void mpi_sata_completion(struct pm8001_hba_info *pm8001_ha , void *piomb 
   goto ldv_46886;
   case_56: /* CIL Label */ 
   {
-  tmp___36 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+  tmp___36 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
   }
   if (tmp___36 != 0L) {
     {
@@ -23886,7 +23883,7 @@ static void mpi_sata_completion(struct pm8001_hba_info *pm8001_ha , void *piomb 
   goto ldv_46886;
   case_57: /* CIL Label */ 
   {
-  tmp___37 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+  tmp___37 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
   }
   if (tmp___37 != 0L) {
     {
@@ -23911,7 +23908,7 @@ static void mpi_sata_completion(struct pm8001_hba_info *pm8001_ha , void *piomb 
   goto ldv_46886;
   case_58: /* CIL Label */ 
   {
-  tmp___38 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+  tmp___38 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
   }
   if (tmp___38 != 0L) {
     {
@@ -23925,7 +23922,7 @@ static void mpi_sata_completion(struct pm8001_hba_info *pm8001_ha , void *piomb 
   goto ldv_46886;
   case_62: /* CIL Label */ 
   {
-  tmp___39 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+  tmp___39 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
   }
   if (tmp___39 != 0L) {
     {
@@ -23950,7 +23947,7 @@ static void mpi_sata_completion(struct pm8001_hba_info *pm8001_ha , void *piomb 
   goto ldv_46886;
   case_63: /* CIL Label */ 
   {
-  tmp___40 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+  tmp___40 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
   }
   if (tmp___40 != 0L) {
     {
@@ -23965,7 +23962,7 @@ static void mpi_sata_completion(struct pm8001_hba_info *pm8001_ha , void *piomb 
   ts->open_rej_reason = 18;
   switch_default: /* CIL Label */ 
   {
-  tmp___41 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+  tmp___41 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
   }
   if (tmp___41 != 0L) {
     {
@@ -23986,12 +23983,12 @@ static void mpi_sata_completion(struct pm8001_hba_info *pm8001_ha , void *piomb 
   t->task_state_flags = t->task_state_flags & 4294967294U;
   t->task_state_flags = t->task_state_flags & 4294967279U;
   t->task_state_flags = t->task_state_flags | 2U;
-  tmp___43 = __builtin_expect((t->task_state_flags & 4U) != 0U, 0L);
+  tmp___43 = ldv__builtin_expect((t->task_state_flags & 4U) != 0U, 0L);
   }
   if (tmp___43 != 0L) {
     {
     ldv_spin_unlock_irqrestore_135(& t->task_state_lock, flags);
-    tmp___42 = __builtin_expect((long )((int )pm8001_ha->logging_level) & 1L, 0L);
+    tmp___42 = ldv__builtin_expect((long )((int )pm8001_ha->logging_level) & 1L, 0L);
     }
     if (tmp___42 != 0L) {
       {
@@ -24070,7 +24067,7 @@ static void mpi_sata_event(struct pm8001_hba_info *pm8001_ha , void *piomb )
     pm8001_dev = ccb->device;
   } else {
     {
-    tmp = __builtin_expect((long )((int )pm8001_ha->logging_level) & 1L, 0L);
+    tmp = ldv__builtin_expect((long )((int )pm8001_ha->logging_level) & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -24082,7 +24079,7 @@ static void mpi_sata_event(struct pm8001_hba_info *pm8001_ha , void *piomb )
   }
   if (event != 0U) {
     {
-    tmp___0 = __builtin_expect((long )((int )pm8001_ha->logging_level) & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )((int )pm8001_ha->logging_level) & 1L, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -24114,7 +24111,7 @@ static void mpi_sata_event(struct pm8001_hba_info *pm8001_ha , void *piomb )
   pm8001_dev = ccb->device;
   if (event != 0U) {
     {
-    tmp___1 = __builtin_expect((long )((int )pm8001_ha->logging_level) & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )((int )pm8001_ha->logging_level) & 1L, 0L);
     }
     if (tmp___1 != 0L) {
       {
@@ -24127,14 +24124,14 @@ static void mpi_sata_event(struct pm8001_hba_info *pm8001_ha , void *piomb )
 
   }
   {
-  tmp___2 = __builtin_expect((unsigned long )t == (unsigned long )((struct sas_task *)0),
+  tmp___2 = ldv__builtin_expect((unsigned long )t == (unsigned long )((struct sas_task *)0),
                              0L);
   }
   if (tmp___2 != 0L) {
     tmp___4 = 1;
   } else {
     {
-    tmp___3 = __builtin_expect((unsigned long )t->lldd_task == (unsigned long )((void *)0),
+    tmp___3 = ldv__builtin_expect((unsigned long )t->lldd_task == (unsigned long )((void *)0),
                                0L);
     }
     if (tmp___3 != 0L) {
@@ -24147,7 +24144,7 @@ static void mpi_sata_event(struct pm8001_hba_info *pm8001_ha , void *piomb )
     return;
   } else {
     {
-    tmp___5 = __builtin_expect((unsigned long )t->dev == (unsigned long )((struct domain_device *)0),
+    tmp___5 = ldv__builtin_expect((unsigned long )t->dev == (unsigned long )((struct domain_device *)0),
                                0L);
     }
     if (tmp___5 != 0L) {
@@ -24158,7 +24155,7 @@ static void mpi_sata_event(struct pm8001_hba_info *pm8001_ha , void *piomb )
   }
   {
   ts = & t->task_status;
-  tmp___6 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+  tmp___6 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
   }
   if (tmp___6 != 0L) {
     {
@@ -24277,7 +24274,7 @@ static void mpi_sata_event(struct pm8001_hba_info *pm8001_ha , void *piomb )
   goto switch_default;
   case_2: /* CIL Label */ 
   {
-  tmp___7 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+  tmp___7 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
   }
   if (tmp___7 != 0L) {
     {
@@ -24297,7 +24294,7 @@ static void mpi_sata_event(struct pm8001_hba_info *pm8001_ha , void *piomb )
   goto ldv_46928;
   case_14: /* CIL Label */ 
   {
-  tmp___8 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+  tmp___8 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
   }
   if (tmp___8 != 0L) {
     {
@@ -24311,7 +24308,7 @@ static void mpi_sata_event(struct pm8001_hba_info *pm8001_ha , void *piomb )
   goto ldv_46928;
   case_15: /* CIL Label */ 
   {
-  tmp___9 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+  tmp___9 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
   }
   if (tmp___9 != 0L) {
     {
@@ -24326,7 +24323,7 @@ static void mpi_sata_event(struct pm8001_hba_info *pm8001_ha , void *piomb )
   goto ldv_46928;
   case_16: /* CIL Label */ 
   {
-  tmp___10 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+  tmp___10 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
   }
   if (tmp___10 != 0L) {
     {
@@ -24342,7 +24339,7 @@ static void mpi_sata_event(struct pm8001_hba_info *pm8001_ha , void *piomb )
   goto ldv_46928;
   case_17: /* CIL Label */ 
   {
-  tmp___11 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+  tmp___11 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
   }
   if (tmp___11 != 0L) {
     {
@@ -24358,7 +24355,7 @@ static void mpi_sata_event(struct pm8001_hba_info *pm8001_ha , void *piomb )
   goto ldv_46928;
   case_18: /* CIL Label */ 
   {
-  tmp___12 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+  tmp___12 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
   }
   if (tmp___12 != 0L) {
     {
@@ -24373,7 +24370,7 @@ static void mpi_sata_event(struct pm8001_hba_info *pm8001_ha , void *piomb )
   goto ldv_46928;
   case_19: /* CIL Label */ 
   {
-  tmp___13 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+  tmp___13 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
   }
   if (tmp___13 != 0L) {
     {
@@ -24399,7 +24396,7 @@ static void mpi_sata_event(struct pm8001_hba_info *pm8001_ha , void *piomb )
   goto ldv_46928;
   case_20: /* CIL Label */ 
   {
-  tmp___14 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+  tmp___14 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
   }
   if (tmp___14 != 0L) {
     {
@@ -24415,7 +24412,7 @@ static void mpi_sata_event(struct pm8001_hba_info *pm8001_ha , void *piomb )
   goto ldv_46928;
   case_21: /* CIL Label */ 
   {
-  tmp___15 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+  tmp___15 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
   }
   if (tmp___15 != 0L) {
     {
@@ -24431,7 +24428,7 @@ static void mpi_sata_event(struct pm8001_hba_info *pm8001_ha , void *piomb )
   goto ldv_46928;
   case_23: /* CIL Label */ 
   {
-  tmp___16 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+  tmp___16 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
   }
   if (tmp___16 != 0L) {
     {
@@ -24447,7 +24444,7 @@ static void mpi_sata_event(struct pm8001_hba_info *pm8001_ha , void *piomb )
   goto ldv_46928;
   case_25: /* CIL Label */ 
   {
-  tmp___17 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+  tmp___17 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
   }
   if (tmp___17 != 0L) {
     {
@@ -24461,7 +24458,7 @@ static void mpi_sata_event(struct pm8001_hba_info *pm8001_ha , void *piomb )
   goto ldv_46928;
   case_27: /* CIL Label */ 
   {
-  tmp___18 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+  tmp___18 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
   }
   if (tmp___18 != 0L) {
     {
@@ -24475,7 +24472,7 @@ static void mpi_sata_event(struct pm8001_hba_info *pm8001_ha , void *piomb )
   goto ldv_46928;
   case_33: /* CIL Label */ 
   {
-  tmp___19 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+  tmp___19 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
   }
   if (tmp___19 != 0L) {
     {
@@ -24490,7 +24487,7 @@ static void mpi_sata_event(struct pm8001_hba_info *pm8001_ha , void *piomb )
   goto ldv_46928;
   case_36: /* CIL Label */ 
   {
-  tmp___20 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+  tmp___20 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
   }
   if (tmp___20 != 0L) {
     {
@@ -24504,7 +24501,7 @@ static void mpi_sata_event(struct pm8001_hba_info *pm8001_ha , void *piomb )
   goto ldv_46928;
   case_38: /* CIL Label */ 
   {
-  tmp___21 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+  tmp___21 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
   }
   if (tmp___21 != 0L) {
     {
@@ -24519,7 +24516,7 @@ static void mpi_sata_event(struct pm8001_hba_info *pm8001_ha , void *piomb )
   goto ldv_46928;
   case_39: /* CIL Label */ 
   {
-  tmp___22 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+  tmp___22 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
   }
   if (tmp___22 != 0L) {
     {
@@ -24534,7 +24531,7 @@ static void mpi_sata_event(struct pm8001_hba_info *pm8001_ha , void *piomb )
   goto ldv_46928;
   case_40: /* CIL Label */ 
   {
-  tmp___23 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+  tmp___23 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
   }
   if (tmp___23 != 0L) {
     {
@@ -24549,7 +24546,7 @@ static void mpi_sata_event(struct pm8001_hba_info *pm8001_ha , void *piomb )
   goto ldv_46928;
   case_52: /* CIL Label */ 
   {
-  tmp___24 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+  tmp___24 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
   }
   if (tmp___24 != 0L) {
     {
@@ -24563,7 +24560,7 @@ static void mpi_sata_event(struct pm8001_hba_info *pm8001_ha , void *piomb )
   goto ldv_46928;
   case_53: /* CIL Label */ 
   {
-  tmp___25 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+  tmp___25 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
   }
   if (tmp___25 != 0L) {
     {
@@ -24578,7 +24575,7 @@ static void mpi_sata_event(struct pm8001_hba_info *pm8001_ha , void *piomb )
   goto ldv_46928;
   case_54: /* CIL Label */ 
   {
-  tmp___26 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+  tmp___26 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
   }
   if (tmp___26 != 0L) {
     {
@@ -24590,7 +24587,7 @@ static void mpi_sata_event(struct pm8001_hba_info *pm8001_ha , void *piomb )
   goto ldv_46928;
   case_60: /* CIL Label */ 
   {
-  tmp___27 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+  tmp___27 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
   }
   if (tmp___27 != 0L) {
     {
@@ -24604,7 +24601,7 @@ static void mpi_sata_event(struct pm8001_hba_info *pm8001_ha , void *piomb )
   goto ldv_46928;
   switch_default: /* CIL Label */ 
   {
-  tmp___28 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+  tmp___28 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
   }
   if (tmp___28 != 0L) {
     {
@@ -24624,12 +24621,12 @@ static void mpi_sata_event(struct pm8001_hba_info *pm8001_ha , void *piomb )
   t->task_state_flags = t->task_state_flags & 4294967294U;
   t->task_state_flags = t->task_state_flags & 4294967279U;
   t->task_state_flags = t->task_state_flags | 2U;
-  tmp___30 = __builtin_expect((t->task_state_flags & 4U) != 0U, 0L);
+  tmp___30 = ldv__builtin_expect((t->task_state_flags & 4U) != 0U, 0L);
   }
   if (tmp___30 != 0L) {
     {
     ldv_spin_unlock_irqrestore_135(& t->task_state_lock, flags);
-    tmp___29 = __builtin_expect((long )((int )pm8001_ha->logging_level) & 1L, 0L);
+    tmp___29 = ldv__builtin_expect((long )((int )pm8001_ha->logging_level) & 1L, 0L);
     }
     if (tmp___29 != 0L) {
       {
@@ -24703,7 +24700,7 @@ static void mpi_smp_completion(struct pm8001_hba_info *pm8001_ha , void *piomb )
   pm8001_dev = ccb->device;
   if (status != 0U) {
     {
-    tmp = __builtin_expect((long )((int )pm8001_ha->logging_level) & 1L, 0L);
+    tmp = ldv__builtin_expect((long )((int )pm8001_ha->logging_level) & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -24717,14 +24714,14 @@ static void mpi_smp_completion(struct pm8001_hba_info *pm8001_ha , void *piomb )
 
   }
   {
-  tmp___0 = __builtin_expect((unsigned long )t == (unsigned long )((struct sas_task *)0),
+  tmp___0 = ldv__builtin_expect((unsigned long )t == (unsigned long )((struct sas_task *)0),
                              0L);
   }
   if (tmp___0 != 0L) {
     tmp___2 = 1;
   } else {
     {
-    tmp___1 = __builtin_expect((unsigned long )t->lldd_task == (unsigned long )((void *)0),
+    tmp___1 = ldv__builtin_expect((unsigned long )t->lldd_task == (unsigned long )((void *)0),
                                0L);
     }
     if (tmp___1 != 0L) {
@@ -24737,7 +24734,7 @@ static void mpi_smp_completion(struct pm8001_hba_info *pm8001_ha , void *piomb )
     return;
   } else {
     {
-    tmp___3 = __builtin_expect((unsigned long )t->dev == (unsigned long )((struct domain_device *)0),
+    tmp___3 = ldv__builtin_expect((unsigned long )t->dev == (unsigned long )((struct domain_device *)0),
                                0L);
     }
     if (tmp___3 != 0L) {
@@ -24855,7 +24852,7 @@ static void mpi_smp_completion(struct pm8001_hba_info *pm8001_ha , void *piomb )
   goto switch_default;
   case_0: /* CIL Label */ 
   {
-  tmp___4 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+  tmp___4 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
   }
   if (tmp___4 != 0L) {
     {
@@ -24874,7 +24871,7 @@ static void mpi_smp_completion(struct pm8001_hba_info *pm8001_ha , void *piomb )
   goto ldv_46965;
   case_1: /* CIL Label */ 
   {
-  tmp___5 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+  tmp___5 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
   }
   if (tmp___5 != 0L) {
     {
@@ -24893,7 +24890,7 @@ static void mpi_smp_completion(struct pm8001_hba_info *pm8001_ha , void *piomb )
   goto ldv_46965;
   case_2: /* CIL Label */ 
   {
-  tmp___6 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+  tmp___6 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
   }
   if (tmp___6 != 0L) {
     {
@@ -24913,7 +24910,7 @@ static void mpi_smp_completion(struct pm8001_hba_info *pm8001_ha , void *piomb )
   goto ldv_46965;
   case_7: /* CIL Label */ 
   {
-  tmp___7 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+  tmp___7 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
   }
   if (tmp___7 != 0L) {
     {
@@ -24927,7 +24924,7 @@ static void mpi_smp_completion(struct pm8001_hba_info *pm8001_ha , void *piomb )
   goto ldv_46965;
   case_13: /* CIL Label */ 
   {
-  tmp___8 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+  tmp___8 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
   }
   if (tmp___8 != 0L) {
     {
@@ -24941,7 +24938,7 @@ static void mpi_smp_completion(struct pm8001_hba_info *pm8001_ha , void *piomb )
   goto ldv_46965;
   case_14: /* CIL Label */ 
   {
-  tmp___9 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+  tmp___9 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
   }
   if (tmp___9 != 0L) {
     {
@@ -24955,7 +24952,7 @@ static void mpi_smp_completion(struct pm8001_hba_info *pm8001_ha , void *piomb )
   goto ldv_46965;
   case_15: /* CIL Label */ 
   {
-  tmp___10 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+  tmp___10 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
   }
   if (tmp___10 != 0L) {
     {
@@ -24970,7 +24967,7 @@ static void mpi_smp_completion(struct pm8001_hba_info *pm8001_ha , void *piomb )
   goto ldv_46965;
   case_16: /* CIL Label */ 
   {
-  tmp___11 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+  tmp___11 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
   }
   if (tmp___11 != 0L) {
     {
@@ -24986,7 +24983,7 @@ static void mpi_smp_completion(struct pm8001_hba_info *pm8001_ha , void *piomb )
   goto ldv_46965;
   case_17: /* CIL Label */ 
   {
-  tmp___12 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+  tmp___12 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
   }
   if (tmp___12 != 0L) {
     {
@@ -25002,7 +24999,7 @@ static void mpi_smp_completion(struct pm8001_hba_info *pm8001_ha , void *piomb )
   goto ldv_46965;
   case_18: /* CIL Label */ 
   {
-  tmp___13 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+  tmp___13 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
   }
   if (tmp___13 != 0L) {
     {
@@ -25017,7 +25014,7 @@ static void mpi_smp_completion(struct pm8001_hba_info *pm8001_ha , void *piomb )
   goto ldv_46965;
   case_19: /* CIL Label */ 
   {
-  tmp___14 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+  tmp___14 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
   }
   if (tmp___14 != 0L) {
     {
@@ -25036,7 +25033,7 @@ static void mpi_smp_completion(struct pm8001_hba_info *pm8001_ha , void *piomb )
   goto ldv_46965;
   case_20: /* CIL Label */ 
   {
-  tmp___15 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+  tmp___15 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
   }
   if (tmp___15 != 0L) {
     {
@@ -25052,7 +25049,7 @@ static void mpi_smp_completion(struct pm8001_hba_info *pm8001_ha , void *piomb )
   goto ldv_46965;
   case_21: /* CIL Label */ 
   {
-  tmp___16 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+  tmp___16 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
   }
   if (tmp___16 != 0L) {
     {
@@ -25068,7 +25065,7 @@ static void mpi_smp_completion(struct pm8001_hba_info *pm8001_ha , void *piomb )
   goto ldv_46965;
   case_23: /* CIL Label */ 
   {
-  tmp___17 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+  tmp___17 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
   }
   if (tmp___17 != 0L) {
     {
@@ -25084,7 +25081,7 @@ static void mpi_smp_completion(struct pm8001_hba_info *pm8001_ha , void *piomb )
   goto ldv_46965;
   case_28: /* CIL Label */ 
   {
-  tmp___18 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+  tmp___18 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
   }
   if (tmp___18 != 0L) {
     {
@@ -25098,7 +25095,7 @@ static void mpi_smp_completion(struct pm8001_hba_info *pm8001_ha , void *piomb )
   goto ldv_46965;
   case_36: /* CIL Label */ 
   {
-  tmp___19 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+  tmp___19 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
   }
   if (tmp___19 != 0L) {
     {
@@ -25114,7 +25111,7 @@ static void mpi_smp_completion(struct pm8001_hba_info *pm8001_ha , void *piomb )
   goto ldv_46965;
   case_55: /* CIL Label */ 
   {
-  tmp___20 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+  tmp___20 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
   }
   if (tmp___20 != 0L) {
     {
@@ -25129,7 +25126,7 @@ static void mpi_smp_completion(struct pm8001_hba_info *pm8001_ha , void *piomb )
   goto ldv_46965;
   case_56: /* CIL Label */ 
   {
-  tmp___21 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+  tmp___21 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
   }
   if (tmp___21 != 0L) {
     {
@@ -25144,7 +25141,7 @@ static void mpi_smp_completion(struct pm8001_hba_info *pm8001_ha , void *piomb )
   goto ldv_46965;
   case_57: /* CIL Label */ 
   {
-  tmp___22 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+  tmp___22 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
   }
   if (tmp___22 != 0L) {
     {
@@ -25158,7 +25155,7 @@ static void mpi_smp_completion(struct pm8001_hba_info *pm8001_ha , void *piomb )
   goto ldv_46965;
   case_58: /* CIL Label */ 
   {
-  tmp___23 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+  tmp___23 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
   }
   if (tmp___23 != 0L) {
     {
@@ -25173,7 +25170,7 @@ static void mpi_smp_completion(struct pm8001_hba_info *pm8001_ha , void *piomb )
   goto ldv_46965;
   case_63: /* CIL Label */ 
   {
-  tmp___24 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+  tmp___24 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
   }
   if (tmp___24 != 0L) {
     {
@@ -25189,7 +25186,7 @@ static void mpi_smp_completion(struct pm8001_hba_info *pm8001_ha , void *piomb )
   goto ldv_46965;
   switch_default: /* CIL Label */ 
   {
-  tmp___25 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+  tmp___25 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
   }
   if (tmp___25 != 0L) {
     {
@@ -25209,12 +25206,12 @@ static void mpi_smp_completion(struct pm8001_hba_info *pm8001_ha , void *piomb )
   t->task_state_flags = t->task_state_flags & 4294967294U;
   t->task_state_flags = t->task_state_flags & 4294967279U;
   t->task_state_flags = t->task_state_flags | 2U;
-  tmp___27 = __builtin_expect((t->task_state_flags & 4U) != 0U, 0L);
+  tmp___27 = ldv__builtin_expect((t->task_state_flags & 4U) != 0U, 0L);
   }
   if (tmp___27 != 0L) {
     {
     ldv_spin_unlock_irqrestore_135(& t->task_state_lock, flags);
-    tmp___26 = __builtin_expect((long )((int )pm8001_ha->logging_level) & 1L, 0L);
+    tmp___26 = ldv__builtin_expect((long )((int )pm8001_ha->logging_level) & 1L, 0L);
     }
     if (tmp___26 != 0L) {
       {
@@ -25260,7 +25257,7 @@ void pm8001_mpi_set_dev_state_resp(struct pm8001_hba_info *pm8001_ha , void *pio
   device_id = pPayload->device_id;
   pds = (unsigned int )((u8 )pPayload->pds_nds) & 240U;
   nds = (unsigned int )((u8 )pPayload->pds_nds) & 15U;
-  tmp = __builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
+  tmp = ldv__builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
   }
   if (tmp != 0L) {
     {
@@ -25296,7 +25293,7 @@ void pm8001_mpi_set_nvmd_resp(struct pm8001_hba_info *pm8001_ha , void *piomb )
   ccb = pm8001_ha->ccb_info + (unsigned long )tag;
   dlen_status = pPayload->dlen_status;
   complete(pm8001_ha->nvmd_completion);
-  tmp = __builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
+  tmp = ldv__builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
   }
   if (tmp != 0L) {
     {
@@ -25308,7 +25305,7 @@ void pm8001_mpi_set_nvmd_resp(struct pm8001_hba_info *pm8001_ha , void *piomb )
   }
   if ((dlen_status & 65535U) != 0U) {
     {
-    tmp___0 = __builtin_expect((long )((int )pm8001_ha->logging_level) & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )((int )pm8001_ha->logging_level) & 1L, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -25355,7 +25352,7 @@ void pm8001_mpi_get_nvmd_resp(struct pm8001_hba_info *pm8001_ha , void *piomb )
   ir_tds_bn_dps_das_nvm = pPayload->ir_tda_bn_dps_das_nvm;
   virt_addr = pm8001_ha->memoryMap.region[2].virt_ptr;
   fw_control_context = ccb->fw_control_context;
-  tmp = __builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
+  tmp = ldv__builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
   }
   if (tmp != 0L) {
     {
@@ -25367,7 +25364,7 @@ void pm8001_mpi_get_nvmd_resp(struct pm8001_hba_info *pm8001_ha , void *piomb )
   }
   if ((dlen_status & 65535U) != 0U) {
     {
-    tmp___0 = __builtin_expect((long )((int )pm8001_ha->logging_level) & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )((int )pm8001_ha->logging_level) & 1L, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -25386,7 +25383,7 @@ void pm8001_mpi_get_nvmd_resp(struct pm8001_hba_info *pm8001_ha , void *piomb )
   }
   if ((int )ir_tds_bn_dps_das_nvm < 0) {
     {
-    tmp___1 = __builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
+    tmp___1 = ldv__builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
     }
     if (tmp___1 != 0L) {
       {
@@ -25401,7 +25398,7 @@ void pm8001_mpi_get_nvmd_resp(struct pm8001_hba_info *pm8001_ha , void *piomb )
         {
         __memcpy((void *)(& pm8001_ha->sas_addr), (void const   *)virt_addr + 4U,
                  8UL);
-        tmp___2 = __builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
+        tmp___2 = ldv__builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
         }
         if (tmp___2 != 0L) {
           {
@@ -25422,7 +25419,7 @@ void pm8001_mpi_get_nvmd_resp(struct pm8001_hba_info *pm8001_ha , void *piomb )
 
     } else {
       {
-      tmp___3 = __builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
+      tmp___3 = ldv__builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
       }
       if (tmp___3 != 0L) {
         {
@@ -25435,7 +25432,7 @@ void pm8001_mpi_get_nvmd_resp(struct pm8001_hba_info *pm8001_ha , void *piomb )
     }
   } else {
     {
-    tmp___4 = __builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
+    tmp___4 = ldv__builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
     }
     if (tmp___4 != 0L) {
       {
@@ -25474,7 +25471,7 @@ int pm8001_mpi_local_phy_ctl(struct pm8001_hba_info *pm8001_ha , void *piomb )
   phy_op = pPayload->phyop_phyid & 65280U;
   if (status != 0U) {
     {
-    tmp = __builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
+    tmp = ldv__builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
     }
     if (tmp != 0L) {
       {
@@ -25486,7 +25483,7 @@ int pm8001_mpi_local_phy_ctl(struct pm8001_hba_info *pm8001_ha , void *piomb )
     }
   } else {
     {
-    tmp___0 = __builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
+    tmp___0 = ldv__builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -25537,7 +25534,7 @@ void pm8001_bytes_dmaed(struct pm8001_hba_info *pm8001_ha , int i )
 
   }
   {
-  tmp = __builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
+  tmp = ldv__builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
   }
   if (tmp != 0L) {
     {
@@ -25688,7 +25685,7 @@ static void hw_event_sas_phy_up(struct pm8001_hba_info *pm8001_ha , void *piomb 
   deviceType = pPayload->sas_identify.dev_type;
   port->port_state = portstate;
   phy->phy_state = 1U;
-  tmp = __builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
+  tmp = ldv__builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
   }
   if (tmp != 0L) {
     {
@@ -25722,7 +25719,7 @@ static void hw_event_sas_phy_up(struct pm8001_hba_info *pm8001_ha , void *piomb 
   goto switch_default;
   case_0: /* CIL Label */ 
   {
-  tmp___0 = __builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
+  tmp___0 = ldv__builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -25734,7 +25731,7 @@ static void hw_event_sas_phy_up(struct pm8001_hba_info *pm8001_ha , void *piomb 
   goto ldv_47090;
   case_1: /* CIL Label */ 
   {
-  tmp___1 = __builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
+  tmp___1 = ldv__builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -25751,7 +25748,7 @@ static void hw_event_sas_phy_up(struct pm8001_hba_info *pm8001_ha , void *piomb 
   goto ldv_47090;
   case_2: /* CIL Label */ 
   {
-  tmp___2 = __builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
+  tmp___2 = ldv__builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
   }
   if (tmp___2 != 0L) {
     {
@@ -25767,7 +25764,7 @@ static void hw_event_sas_phy_up(struct pm8001_hba_info *pm8001_ha , void *piomb 
   goto ldv_47090;
   case_3: /* CIL Label */ 
   {
-  tmp___3 = __builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
+  tmp___3 = ldv__builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
   }
   if (tmp___3 != 0L) {
     {
@@ -25783,7 +25780,7 @@ static void hw_event_sas_phy_up(struct pm8001_hba_info *pm8001_ha , void *piomb 
   goto ldv_47090;
   switch_default: /* CIL Label */ 
   {
-  tmp___4 = __builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
+  tmp___4 = ldv__builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
   }
   if (tmp___4 != 0L) {
     {
@@ -25870,7 +25867,7 @@ static void hw_event_sata_phy_up(struct pm8001_hba_info *pm8001_ha , void *piomb
   port = (struct pm8001_port *)(& pm8001_ha->port) + (unsigned long )port_id;
   sas_ha = pm8001_ha->sas;
   phy = (struct pm8001_phy *)(& pm8001_ha->phy) + (unsigned long )phy_id;
-  tmp = __builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
+  tmp = ldv__builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
   }
   if (tmp != 0L) {
     {
@@ -25967,7 +25964,7 @@ static void hw_event_phy_down(struct pm8001_hba_info *pm8001_ha , void *piomb )
   goto ldv_47128;
   case_8: /* CIL Label */ 
   {
-  tmp = __builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
+  tmp = ldv__builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
   }
   if (tmp != 0L) {
     {
@@ -25978,7 +25975,7 @@ static void hw_event_phy_down(struct pm8001_hba_info *pm8001_ha , void *piomb )
 
   }
   {
-  tmp___0 = __builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
+  tmp___0 = ldv__builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -25995,7 +25992,7 @@ static void hw_event_phy_down(struct pm8001_hba_info *pm8001_ha , void *piomb )
   goto ldv_47128;
   case_4: /* CIL Label */ 
   {
-  tmp___1 = __builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
+  tmp___1 = ldv__builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -26008,7 +26005,7 @@ static void hw_event_phy_down(struct pm8001_hba_info *pm8001_ha , void *piomb )
   goto ldv_47128;
   case_0: /* CIL Label */ 
   {
-  tmp___2 = __builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
+  tmp___2 = ldv__builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
   }
   if (tmp___2 != 0L) {
     {
@@ -26022,7 +26019,7 @@ static void hw_event_phy_down(struct pm8001_hba_info *pm8001_ha , void *piomb )
   goto ldv_47128;
   case_2: /* CIL Label */ 
   {
-  tmp___3 = __builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
+  tmp___3 = ldv__builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
   }
   if (tmp___3 != 0L) {
     {
@@ -26033,7 +26030,7 @@ static void hw_event_phy_down(struct pm8001_hba_info *pm8001_ha , void *piomb )
 
   }
   {
-  tmp___4 = __builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
+  tmp___4 = ldv__builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
   }
   if (tmp___4 != 0L) {
     {
@@ -26051,7 +26048,7 @@ static void hw_event_phy_down(struct pm8001_hba_info *pm8001_ha , void *piomb )
   switch_default: /* CIL Label */ 
   {
   port->port_attached = 0U;
-  tmp___5 = __builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
+  tmp___5 = ldv__builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
   }
   if (tmp___5 != 0L) {
     {
@@ -26095,7 +26092,7 @@ int pm8001_mpi_reg_resp(struct pm8001_hba_info *pm8001_ha , void *piomb )
   pm8001_dev = ccb->device;
   status = registerRespPayload->status;
   device_id = registerRespPayload->device_id;
-  tmp = __builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
+  tmp = ldv__builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
   }
   if (tmp != 0L) {
     {
@@ -26149,7 +26146,7 @@ int pm8001_mpi_reg_resp(struct pm8001_hba_info *pm8001_ha , void *piomb )
   goto switch_default;
   case_0: /* CIL Label */ 
   {
-  tmp___0 = __builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
+  tmp___0 = ldv__builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -26162,7 +26159,7 @@ int pm8001_mpi_reg_resp(struct pm8001_hba_info *pm8001_ha , void *piomb )
   goto ldv_47147;
   case_1: /* CIL Label */ 
   {
-  tmp___1 = __builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
+  tmp___1 = ldv__builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -26175,7 +26172,7 @@ int pm8001_mpi_reg_resp(struct pm8001_hba_info *pm8001_ha , void *piomb )
   goto ldv_47147;
   case_2: /* CIL Label */ 
   {
-  tmp___2 = __builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
+  tmp___2 = ldv__builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
   }
   if (tmp___2 != 0L) {
     {
@@ -26188,7 +26185,7 @@ int pm8001_mpi_reg_resp(struct pm8001_hba_info *pm8001_ha , void *piomb )
   goto ldv_47147;
   case_3: /* CIL Label */ 
   {
-  tmp___3 = __builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
+  tmp___3 = ldv__builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
   }
   if (tmp___3 != 0L) {
     {
@@ -26201,7 +26198,7 @@ int pm8001_mpi_reg_resp(struct pm8001_hba_info *pm8001_ha , void *piomb )
   goto ldv_47147;
   case_4: /* CIL Label */ 
   {
-  tmp___4 = __builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
+  tmp___4 = ldv__builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
   }
   if (tmp___4 != 0L) {
     {
@@ -26214,7 +26211,7 @@ int pm8001_mpi_reg_resp(struct pm8001_hba_info *pm8001_ha , void *piomb )
   goto ldv_47147;
   case_5: /* CIL Label */ 
   {
-  tmp___5 = __builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
+  tmp___5 = ldv__builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
   }
   if (tmp___5 != 0L) {
     {
@@ -26227,7 +26224,7 @@ int pm8001_mpi_reg_resp(struct pm8001_hba_info *pm8001_ha , void *piomb )
   goto ldv_47147;
   case_6: /* CIL Label */ 
   {
-  tmp___6 = __builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
+  tmp___6 = ldv__builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
   }
   if (tmp___6 != 0L) {
     {
@@ -26240,7 +26237,7 @@ int pm8001_mpi_reg_resp(struct pm8001_hba_info *pm8001_ha , void *piomb )
   goto ldv_47147;
   case_7: /* CIL Label */ 
   {
-  tmp___7 = __builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
+  tmp___7 = ldv__builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
   }
   if (tmp___7 != 0L) {
     {
@@ -26253,7 +26250,7 @@ int pm8001_mpi_reg_resp(struct pm8001_hba_info *pm8001_ha , void *piomb )
   goto ldv_47147;
   switch_default: /* CIL Label */ 
   {
-  tmp___8 = __builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
+  tmp___8 = ldv__builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
   }
   if (tmp___8 != 0L) {
     {
@@ -26289,7 +26286,7 @@ int pm8001_mpi_dereg_resp(struct pm8001_hba_info *pm8001_ha , void *piomb )
   device_id = registerRespPayload->device_id;
   if (status != 0U) {
     {
-    tmp = __builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
+    tmp = ldv__builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
     }
     if (tmp != 0L) {
       {
@@ -26376,7 +26373,7 @@ int pm8001_mpi_fw_flash_update_resp(struct pm8001_hba_info *pm8001_ha , void *pi
   goto switch_default;
   case_0: /* CIL Label */ 
   {
-  tmp = __builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
+  tmp = ldv__builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
   }
   if (tmp != 0L) {
     {
@@ -26389,7 +26386,7 @@ int pm8001_mpi_fw_flash_update_resp(struct pm8001_hba_info *pm8001_ha , void *pi
   goto ldv_47174;
   case_1: /* CIL Label */ 
   {
-  tmp___0 = __builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
+  tmp___0 = ldv__builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -26402,7 +26399,7 @@ int pm8001_mpi_fw_flash_update_resp(struct pm8001_hba_info *pm8001_ha , void *pi
   goto ldv_47174;
   case_2: /* CIL Label */ 
   {
-  tmp___1 = __builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
+  tmp___1 = ldv__builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -26415,7 +26412,7 @@ int pm8001_mpi_fw_flash_update_resp(struct pm8001_hba_info *pm8001_ha , void *pi
   goto ldv_47174;
   case_3: /* CIL Label */ 
   {
-  tmp___2 = __builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
+  tmp___2 = ldv__builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
   }
   if (tmp___2 != 0L) {
     {
@@ -26428,7 +26425,7 @@ int pm8001_mpi_fw_flash_update_resp(struct pm8001_hba_info *pm8001_ha , void *pi
   goto ldv_47174;
   case_4: /* CIL Label */ 
   {
-  tmp___3 = __builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
+  tmp___3 = ldv__builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
   }
   if (tmp___3 != 0L) {
     {
@@ -26441,7 +26438,7 @@ int pm8001_mpi_fw_flash_update_resp(struct pm8001_hba_info *pm8001_ha , void *pi
   goto ldv_47174;
   case_5: /* CIL Label */ 
   {
-  tmp___4 = __builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
+  tmp___4 = ldv__builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
   }
   if (tmp___4 != 0L) {
     {
@@ -26454,7 +26451,7 @@ int pm8001_mpi_fw_flash_update_resp(struct pm8001_hba_info *pm8001_ha , void *pi
   goto ldv_47174;
   case_6: /* CIL Label */ 
   {
-  tmp___5 = __builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
+  tmp___5 = ldv__builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
   }
   if (tmp___5 != 0L) {
     {
@@ -26467,7 +26464,7 @@ int pm8001_mpi_fw_flash_update_resp(struct pm8001_hba_info *pm8001_ha , void *pi
   goto ldv_47174;
   case_16: /* CIL Label */ 
   {
-  tmp___6 = __builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
+  tmp___6 = ldv__builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
   }
   if (tmp___6 != 0L) {
     {
@@ -26480,7 +26477,7 @@ int pm8001_mpi_fw_flash_update_resp(struct pm8001_hba_info *pm8001_ha , void *pi
   goto ldv_47174;
   case_17: /* CIL Label */ 
   {
-  tmp___7 = __builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
+  tmp___7 = ldv__builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
   }
   if (tmp___7 != 0L) {
     {
@@ -26493,7 +26490,7 @@ int pm8001_mpi_fw_flash_update_resp(struct pm8001_hba_info *pm8001_ha , void *pi
   goto ldv_47174;
   switch_default: /* CIL Label */ 
   {
-  tmp___8 = __builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
+  tmp___8 = ldv__builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
   }
   if (tmp___8 != 0L) {
     {
@@ -26529,7 +26526,7 @@ int pm8001_mpi_general_event(struct pm8001_hba_info *pm8001_ha , void *piomb )
   {
   pPayload = (struct general_event_resp *)piomb + 4U;
   status = pPayload->status;
-  tmp = __builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
+  tmp = ldv__builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
   }
   if (tmp != 0L) {
     {
@@ -26543,7 +26540,7 @@ int pm8001_mpi_general_event(struct pm8001_hba_info *pm8001_ha , void *piomb )
   goto ldv_47193;
   ldv_47192: 
   {
-  tmp___0 = __builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
+  tmp___0 = ldv__builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -26587,7 +26584,7 @@ int pm8001_mpi_task_abort_resp(struct pm8001_hba_info *pm8001_ha , void *piomb )
   tag = pPayload->tag;
   if (tag == 0U) {
     {
-    tmp = __builtin_expect((long )((int )pm8001_ha->logging_level) & 1L, 0L);
+    tmp = ldv__builtin_expect((long )((int )pm8001_ha->logging_level) & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -26607,7 +26604,7 @@ int pm8001_mpi_task_abort_resp(struct pm8001_hba_info *pm8001_ha , void *piomb )
   pm8001_dev = ccb->device;
   if ((unsigned long )t == (unsigned long )((struct sas_task *)0)) {
     {
-    tmp___0 = __builtin_expect((long )((int )pm8001_ha->logging_level) & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )((int )pm8001_ha->logging_level) & 1L, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -26624,7 +26621,7 @@ int pm8001_mpi_task_abort_resp(struct pm8001_hba_info *pm8001_ha , void *piomb )
   ts = & t->task_status;
   if (status != 0U) {
     {
-    tmp___1 = __builtin_expect((long )((int )pm8001_ha->logging_level) & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )((int )pm8001_ha->logging_level) & 1L, 0L);
     }
     if (tmp___1 != 0L) {
       {
@@ -26651,7 +26648,7 @@ int pm8001_mpi_task_abort_resp(struct pm8001_hba_info *pm8001_ha , void *piomb )
   goto switch_break;
   case_0: /* CIL Label */ 
   {
-  tmp___2 = __builtin_expect((pm8001_ha->logging_level & 16U) != 0U, 0L);
+  tmp___2 = ldv__builtin_expect((pm8001_ha->logging_level & 16U) != 0U, 0L);
   }
   if (tmp___2 != 0L) {
     {
@@ -26665,7 +26662,7 @@ int pm8001_mpi_task_abort_resp(struct pm8001_hba_info *pm8001_ha , void *piomb )
   goto ldv_47210;
   case_6: /* CIL Label */ 
   {
-  tmp___3 = __builtin_expect((pm8001_ha->logging_level & 16U) != 0U, 0L);
+  tmp___3 = ldv__builtin_expect((pm8001_ha->logging_level & 16U) != 0U, 0L);
   }
   if (tmp___3 != 0L) {
     {
@@ -26753,7 +26750,7 @@ static int mpi_hw_event(struct pm8001_hba_info *pm8001_ha , void *piomb )
   sas_ha = pm8001_ha->sas;
   phy = (struct pm8001_phy *)(& pm8001_ha->phy) + (unsigned long )phy_id;
   sas_phy = *(sas_ha->sas_phy + (unsigned long )phy_id);
-  tmp = __builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
+  tmp = ldv__builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
   }
   if (tmp != 0L) {
     {
@@ -26892,7 +26889,7 @@ static int mpi_hw_event(struct pm8001_hba_info *pm8001_ha , void *piomb )
   goto switch_default;
   case_17: /* CIL Label */ 
   {
-  tmp___0 = __builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
+  tmp___0 = ldv__builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -26917,7 +26914,7 @@ static int mpi_hw_event(struct pm8001_hba_info *pm8001_ha , void *piomb )
   goto ldv_47228;
   case_4: /* CIL Label */ 
   {
-  tmp___1 = __builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
+  tmp___1 = ldv__builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -26932,7 +26929,7 @@ static int mpi_hw_event(struct pm8001_hba_info *pm8001_ha , void *piomb )
   goto ldv_47228;
   case_5: /* CIL Label */ 
   {
-  tmp___2 = __builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
+  tmp___2 = ldv__builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
   }
   if (tmp___2 != 0L) {
     {
@@ -26947,7 +26944,7 @@ static int mpi_hw_event(struct pm8001_hba_info *pm8001_ha , void *piomb )
   goto ldv_47228;
   case_3: /* CIL Label */ 
   {
-  tmp___3 = __builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
+  tmp___3 = ldv__builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
   }
   if (tmp___3 != 0L) {
     {
@@ -26965,7 +26962,7 @@ static int mpi_hw_event(struct pm8001_hba_info *pm8001_ha , void *piomb )
   goto ldv_47228;
   case_6: /* CIL Label */ 
   {
-  tmp___4 = __builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
+  tmp___4 = ldv__builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
   }
   if (tmp___4 != 0L) {
     {
@@ -26980,7 +26977,7 @@ static int mpi_hw_event(struct pm8001_hba_info *pm8001_ha , void *piomb )
   goto ldv_47228;
   case_7: /* CIL Label */ 
   {
-  tmp___5 = __builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
+  tmp___5 = ldv__builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
   }
   if (tmp___5 != 0L) {
     {
@@ -26998,7 +26995,7 @@ static int mpi_hw_event(struct pm8001_hba_info *pm8001_ha , void *piomb )
   goto ldv_47228;
   case_8: /* CIL Label */ 
   {
-  tmp___6 = __builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
+  tmp___6 = ldv__builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
   }
   if (tmp___6 != 0L) {
     {
@@ -27015,7 +27012,7 @@ static int mpi_hw_event(struct pm8001_hba_info *pm8001_ha , void *piomb )
   goto ldv_47228;
   case_9: /* CIL Label */ 
   {
-  tmp___7 = __builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
+  tmp___7 = ldv__builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
   }
   if (tmp___7 != 0L) {
     {
@@ -27034,7 +27031,7 @@ static int mpi_hw_event(struct pm8001_hba_info *pm8001_ha , void *piomb )
   goto ldv_47228;
   case_10: /* CIL Label */ 
   {
-  tmp___8 = __builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
+  tmp___8 = ldv__builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
   }
   if (tmp___8 != 0L) {
     {
@@ -27051,7 +27048,7 @@ static int mpi_hw_event(struct pm8001_hba_info *pm8001_ha , void *piomb )
   goto ldv_47228;
   case_16: /* CIL Label */ 
   {
-  tmp___9 = __builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
+  tmp___9 = ldv__builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
   }
   if (tmp___9 != 0L) {
     {
@@ -27069,7 +27066,7 @@ static int mpi_hw_event(struct pm8001_hba_info *pm8001_ha , void *piomb )
   goto ldv_47228;
   case_18: /* CIL Label */ 
   {
-  tmp___10 = __builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
+  tmp___10 = ldv__builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
   }
   if (tmp___10 != 0L) {
     {
@@ -27087,7 +27084,7 @@ static int mpi_hw_event(struct pm8001_hba_info *pm8001_ha , void *piomb )
   goto ldv_47228;
   case_19: /* CIL Label */ 
   {
-  tmp___11 = __builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
+  tmp___11 = ldv__builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
   }
   if (tmp___11 != 0L) {
     {
@@ -27106,7 +27103,7 @@ static int mpi_hw_event(struct pm8001_hba_info *pm8001_ha , void *piomb )
   goto ldv_47228;
   case_20: /* CIL Label */ 
   {
-  tmp___12 = __builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
+  tmp___12 = ldv__builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
   }
   if (tmp___12 != 0L) {
     {
@@ -27125,7 +27122,7 @@ static int mpi_hw_event(struct pm8001_hba_info *pm8001_ha , void *piomb )
   goto ldv_47228;
   case_21: /* CIL Label */ 
   {
-  tmp___13 = __builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
+  tmp___13 = ldv__builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
   }
   if (tmp___13 != 0L) {
     {
@@ -27144,7 +27141,7 @@ static int mpi_hw_event(struct pm8001_hba_info *pm8001_ha , void *piomb )
   goto ldv_47228;
   case_14: /* CIL Label */ 
   {
-  tmp___14 = __builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
+  tmp___14 = ldv__builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
   }
   if (tmp___14 != 0L) {
     {
@@ -27156,7 +27153,7 @@ static int mpi_hw_event(struct pm8001_hba_info *pm8001_ha , void *piomb )
   goto ldv_47228;
   case_11: /* CIL Label */ 
   {
-  tmp___15 = __builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
+  tmp___15 = ldv__builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
   }
   if (tmp___15 != 0L) {
     {
@@ -27174,7 +27171,7 @@ static int mpi_hw_event(struct pm8001_hba_info *pm8001_ha , void *piomb )
   goto ldv_47228;
   case_12: /* CIL Label */ 
   {
-  tmp___16 = __builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
+  tmp___16 = ldv__builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
   }
   if (tmp___16 != 0L) {
     {
@@ -27189,7 +27186,7 @@ static int mpi_hw_event(struct pm8001_hba_info *pm8001_ha , void *piomb )
   goto ldv_47228;
   case_13: /* CIL Label */ 
   {
-  tmp___17 = __builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
+  tmp___17 = ldv__builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
   }
   if (tmp___17 != 0L) {
     {
@@ -27204,7 +27201,7 @@ static int mpi_hw_event(struct pm8001_hba_info *pm8001_ha , void *piomb )
   goto ldv_47228;
   case_15: /* CIL Label */ 
   {
-  tmp___18 = __builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
+  tmp___18 = ldv__builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
   }
   if (tmp___18 != 0L) {
     {
@@ -27221,7 +27218,7 @@ static int mpi_hw_event(struct pm8001_hba_info *pm8001_ha , void *piomb )
   goto ldv_47228;
   case_22: /* CIL Label */ 
   {
-  tmp___19 = __builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
+  tmp___19 = ldv__builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
   }
   if (tmp___19 != 0L) {
     {
@@ -27240,7 +27237,7 @@ static int mpi_hw_event(struct pm8001_hba_info *pm8001_ha , void *piomb )
   goto ldv_47228;
   case_25: /* CIL Label */ 
   {
-  tmp___20 = __builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
+  tmp___20 = ldv__builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
   }
   if (tmp___20 != 0L) {
     {
@@ -27257,7 +27254,7 @@ static int mpi_hw_event(struct pm8001_hba_info *pm8001_ha , void *piomb )
   goto ldv_47228;
   case_23: /* CIL Label */ 
   {
-  tmp___21 = __builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
+  tmp___21 = ldv__builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
   }
   if (tmp___21 != 0L) {
     {
@@ -27275,7 +27272,7 @@ static int mpi_hw_event(struct pm8001_hba_info *pm8001_ha , void *piomb )
   goto ldv_47228;
   case_24: /* CIL Label */ 
   {
-  tmp___22 = __builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
+  tmp___22 = ldv__builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
   }
   if (tmp___22 != 0L) {
     {
@@ -27287,7 +27284,7 @@ static int mpi_hw_event(struct pm8001_hba_info *pm8001_ha , void *piomb )
   goto ldv_47228;
   case_32: /* CIL Label */ 
   {
-  tmp___23 = __builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
+  tmp___23 = ldv__builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
   }
   if (tmp___23 != 0L) {
     {
@@ -27299,7 +27296,7 @@ static int mpi_hw_event(struct pm8001_hba_info *pm8001_ha , void *piomb )
   goto ldv_47228;
   case_33: /* CIL Label */ 
   {
-  tmp___24 = __builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
+  tmp___24 = ldv__builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
   }
   if (tmp___24 != 0L) {
     {
@@ -27311,7 +27308,7 @@ static int mpi_hw_event(struct pm8001_hba_info *pm8001_ha , void *piomb )
   goto ldv_47228;
   switch_default: /* CIL Label */ 
   {
-  tmp___25 = __builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
+  tmp___25 = ldv__builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
   }
   if (tmp___25 != 0L) {
     {
@@ -27371,7 +27368,7 @@ static void process_one_iomb(struct pm8001_hba_info *pm8001_ha , void *piomb )
   {
   pHeader = *((__le32 *)piomb);
   opc = (unsigned char )pHeader;
-  tmp = __builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
+  tmp = ldv__builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
   }
   if (tmp != 0L) {
     {
@@ -27549,7 +27546,7 @@ static void process_one_iomb(struct pm8001_hba_info *pm8001_ha , void *piomb )
   goto switch_default;
   case_1: /* CIL Label */ 
   {
-  tmp___0 = __builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
+  tmp___0 = ldv__builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -27561,7 +27558,7 @@ static void process_one_iomb(struct pm8001_hba_info *pm8001_ha , void *piomb )
   goto ldv_47262;
   case_4: /* CIL Label */ 
   {
-  tmp___1 = __builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
+  tmp___1 = ldv__builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -27576,7 +27573,7 @@ static void process_one_iomb(struct pm8001_hba_info *pm8001_ha , void *piomb )
   goto ldv_47262;
   case_5: /* CIL Label */ 
   {
-  tmp___2 = __builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
+  tmp___2 = ldv__builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
   }
   if (tmp___2 != 0L) {
     {
@@ -27591,7 +27588,7 @@ static void process_one_iomb(struct pm8001_hba_info *pm8001_ha , void *piomb )
   goto ldv_47262;
   case_6: /* CIL Label */ 
   {
-  tmp___3 = __builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
+  tmp___3 = ldv__builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
   }
   if (tmp___3 != 0L) {
     {
@@ -27606,7 +27603,7 @@ static void process_one_iomb(struct pm8001_hba_info *pm8001_ha , void *piomb )
   goto ldv_47262;
   case_7: /* CIL Label */ 
   {
-  tmp___4 = __builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
+  tmp___4 = ldv__builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
   }
   if (tmp___4 != 0L) {
     {
@@ -27621,7 +27618,7 @@ static void process_one_iomb(struct pm8001_hba_info *pm8001_ha , void *piomb )
   goto ldv_47262;
   case_10: /* CIL Label */ 
   {
-  tmp___5 = __builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
+  tmp___5 = ldv__builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
   }
   if (tmp___5 != 0L) {
     {
@@ -27636,7 +27633,7 @@ static void process_one_iomb(struct pm8001_hba_info *pm8001_ha , void *piomb )
   goto ldv_47262;
   case_11: /* CIL Label */ 
   {
-  tmp___6 = __builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
+  tmp___6 = ldv__builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
   }
   if (tmp___6 != 0L) {
     {
@@ -27651,7 +27648,7 @@ static void process_one_iomb(struct pm8001_hba_info *pm8001_ha , void *piomb )
   goto ldv_47262;
   case_12: /* CIL Label */ 
   {
-  tmp___7 = __builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
+  tmp___7 = ldv__builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
   }
   if (tmp___7 != 0L) {
     {
@@ -27663,7 +27660,7 @@ static void process_one_iomb(struct pm8001_hba_info *pm8001_ha , void *piomb )
   goto ldv_47262;
   case_13: /* CIL Label */ 
   {
-  tmp___8 = __builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
+  tmp___8 = ldv__builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
   }
   if (tmp___8 != 0L) {
     {
@@ -27678,7 +27675,7 @@ static void process_one_iomb(struct pm8001_hba_info *pm8001_ha , void *piomb )
   goto ldv_47262;
   case_14: /* CIL Label */ 
   {
-  tmp___9 = __builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
+  tmp___9 = ldv__builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
   }
   if (tmp___9 != 0L) {
     {
@@ -27693,7 +27690,7 @@ static void process_one_iomb(struct pm8001_hba_info *pm8001_ha , void *piomb )
   goto ldv_47262;
   case_15: /* CIL Label */ 
   {
-  tmp___10 = __builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
+  tmp___10 = ldv__builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
   }
   if (tmp___10 != 0L) {
     {
@@ -27708,7 +27705,7 @@ static void process_one_iomb(struct pm8001_hba_info *pm8001_ha , void *piomb )
   goto ldv_47262;
   case_16: /* CIL Label */ 
   {
-  tmp___11 = __builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
+  tmp___11 = ldv__builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
   }
   if (tmp___11 != 0L) {
     {
@@ -27720,7 +27717,7 @@ static void process_one_iomb(struct pm8001_hba_info *pm8001_ha , void *piomb )
   goto ldv_47262;
   case_18: /* CIL Label */ 
   {
-  tmp___12 = __builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
+  tmp___12 = ldv__builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
   }
   if (tmp___12 != 0L) {
     {
@@ -27732,7 +27729,7 @@ static void process_one_iomb(struct pm8001_hba_info *pm8001_ha , void *piomb )
   goto ldv_47262;
   case_19: /* CIL Label */ 
   {
-  tmp___13 = __builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
+  tmp___13 = ldv__builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
   }
   if (tmp___13 != 0L) {
     {
@@ -27744,7 +27741,7 @@ static void process_one_iomb(struct pm8001_hba_info *pm8001_ha , void *piomb )
   goto ldv_47262;
   case_20: /* CIL Label */ 
   {
-  tmp___14 = __builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
+  tmp___14 = ldv__builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
   }
   if (tmp___14 != 0L) {
     {
@@ -27759,7 +27756,7 @@ static void process_one_iomb(struct pm8001_hba_info *pm8001_ha , void *piomb )
   goto ldv_47262;
   case_22: /* CIL Label */ 
   {
-  tmp___15 = __builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
+  tmp___15 = ldv__builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
   }
   if (tmp___15 != 0L) {
     {
@@ -27771,7 +27768,7 @@ static void process_one_iomb(struct pm8001_hba_info *pm8001_ha , void *piomb )
   goto ldv_47262;
   case_23: /* CIL Label */ 
   {
-  tmp___16 = __builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
+  tmp___16 = ldv__builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
   }
   if (tmp___16 != 0L) {
     {
@@ -27783,7 +27780,7 @@ static void process_one_iomb(struct pm8001_hba_info *pm8001_ha , void *piomb )
   goto ldv_47262;
   case_24: /* CIL Label */ 
   {
-  tmp___17 = __builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
+  tmp___17 = ldv__builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
   }
   if (tmp___17 != 0L) {
     {
@@ -27798,7 +27795,7 @@ static void process_one_iomb(struct pm8001_hba_info *pm8001_ha , void *piomb )
   goto ldv_47262;
   case_26: /* CIL Label */ 
   {
-  tmp___18 = __builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
+  tmp___18 = ldv__builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
   }
   if (tmp___18 != 0L) {
     {
@@ -27813,7 +27810,7 @@ static void process_one_iomb(struct pm8001_hba_info *pm8001_ha , void *piomb )
   goto ldv_47262;
   case_27: /* CIL Label */ 
   {
-  tmp___19 = __builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
+  tmp___19 = ldv__builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
   }
   if (tmp___19 != 0L) {
     {
@@ -27828,7 +27825,7 @@ static void process_one_iomb(struct pm8001_hba_info *pm8001_ha , void *piomb )
   goto ldv_47262;
   case_28: /* CIL Label */ 
   {
-  tmp___20 = __builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
+  tmp___20 = ldv__builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
   }
   if (tmp___20 != 0L) {
     {
@@ -27841,7 +27838,7 @@ static void process_one_iomb(struct pm8001_hba_info *pm8001_ha , void *piomb )
   goto ldv_47262;
   case_29: /* CIL Label */ 
   {
-  tmp___21 = __builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
+  tmp___21 = ldv__builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
   }
   if (tmp___21 != 0L) {
     {
@@ -27853,7 +27850,7 @@ static void process_one_iomb(struct pm8001_hba_info *pm8001_ha , void *piomb )
   goto ldv_47262;
   case_30: /* CIL Label */ 
   {
-  tmp___22 = __builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
+  tmp___22 = ldv__builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
   }
   if (tmp___22 != 0L) {
     {
@@ -27865,7 +27862,7 @@ static void process_one_iomb(struct pm8001_hba_info *pm8001_ha , void *piomb )
   goto ldv_47262;
   case_31: /* CIL Label */ 
   {
-  tmp___23 = __builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
+  tmp___23 = ldv__builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
   }
   if (tmp___23 != 0L) {
     {
@@ -27877,7 +27874,7 @@ static void process_one_iomb(struct pm8001_hba_info *pm8001_ha , void *piomb )
   goto ldv_47262;
   case_32: /* CIL Label */ 
   {
-  tmp___24 = __builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
+  tmp___24 = ldv__builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
   }
   if (tmp___24 != 0L) {
     {
@@ -27889,7 +27886,7 @@ static void process_one_iomb(struct pm8001_hba_info *pm8001_ha , void *piomb )
   goto ldv_47262;
   case_34: /* CIL Label */ 
   {
-  tmp___25 = __builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
+  tmp___25 = ldv__builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
   }
   if (tmp___25 != 0L) {
     {
@@ -27904,7 +27901,7 @@ static void process_one_iomb(struct pm8001_hba_info *pm8001_ha , void *piomb )
   goto ldv_47262;
   case_35: /* CIL Label */ 
   {
-  tmp___26 = __builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
+  tmp___26 = ldv__builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
   }
   if (tmp___26 != 0L) {
     {
@@ -27919,7 +27916,7 @@ static void process_one_iomb(struct pm8001_hba_info *pm8001_ha , void *piomb )
   goto ldv_47262;
   case_36: /* CIL Label */ 
   {
-  tmp___27 = __builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
+  tmp___27 = ldv__builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
   }
   if (tmp___27 != 0L) {
     {
@@ -27934,7 +27931,7 @@ static void process_one_iomb(struct pm8001_hba_info *pm8001_ha , void *piomb )
   goto ldv_47262;
   case_37: /* CIL Label */ 
   {
-  tmp___28 = __builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
+  tmp___28 = ldv__builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
   }
   if (tmp___28 != 0L) {
     {
@@ -27947,7 +27944,7 @@ static void process_one_iomb(struct pm8001_hba_info *pm8001_ha , void *piomb )
   goto ldv_47262;
   case_38: /* CIL Label */ 
   {
-  tmp___29 = __builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
+  tmp___29 = ldv__builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
   }
   if (tmp___29 != 0L) {
     {
@@ -27962,7 +27959,7 @@ static void process_one_iomb(struct pm8001_hba_info *pm8001_ha , void *piomb )
   goto ldv_47262;
   case_39: /* CIL Label */ 
   {
-  tmp___30 = __builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
+  tmp___30 = ldv__builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
   }
   if (tmp___30 != 0L) {
     {
@@ -27974,7 +27971,7 @@ static void process_one_iomb(struct pm8001_hba_info *pm8001_ha , void *piomb )
   goto ldv_47262;
   case_40: /* CIL Label */ 
   {
-  tmp___31 = __builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
+  tmp___31 = ldv__builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
   }
   if (tmp___31 != 0L) {
     {
@@ -27986,7 +27983,7 @@ static void process_one_iomb(struct pm8001_hba_info *pm8001_ha , void *piomb )
   goto ldv_47262;
   case_41: /* CIL Label */ 
   {
-  tmp___32 = __builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
+  tmp___32 = ldv__builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
   }
   if (tmp___32 != 0L) {
     {
@@ -27998,7 +27995,7 @@ static void process_one_iomb(struct pm8001_hba_info *pm8001_ha , void *piomb )
   goto ldv_47262;
   switch_default: /* CIL Label */ 
   {
-  tmp___33 = __builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
+  tmp___33 = ldv__builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
   }
   if (tmp___33 != 0L) {
     {
@@ -28295,7 +28292,7 @@ static int pm8001_chip_sata_req(struct pm8001_hba_info *pm8001_ha , struct pm800
   if ((unsigned int )*((unsigned char *)task + 184UL) == 3U) {
     {
     ATAP = 4U;
-    tmp = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+    tmp = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
     }
     if (tmp != 0L) {
       {
@@ -28306,14 +28303,14 @@ static int pm8001_chip_sata_req(struct pm8001_hba_info *pm8001_ha , struct pm800
     }
   } else {
     {
-    tmp___3 = __builtin_expect((unsigned int )*((unsigned char *)task + 125UL) == 0U,
+    tmp___3 = ldv__builtin_expect((unsigned int )*((unsigned char *)task + 125UL) == 0U,
                                1L);
     }
     if (tmp___3 != 0L) {
       if ((unsigned int )*((unsigned char *)task + 125UL) != 0U) {
         {
         ATAP = 6U;
-        tmp___0 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+        tmp___0 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
         }
         if (tmp___0 != 0L) {
           {
@@ -28325,7 +28322,7 @@ static int pm8001_chip_sata_req(struct pm8001_hba_info *pm8001_ha , struct pm800
       } else {
         {
         ATAP = 5U;
-        tmp___1 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+        tmp___1 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
         }
         if (tmp___1 != 0L) {
           {
@@ -28338,7 +28335,7 @@ static int pm8001_chip_sata_req(struct pm8001_hba_info *pm8001_ha , struct pm800
       if ((unsigned int )*((unsigned char *)task + 125UL) != 0U && dev->__annonCompField94.sata_dev.class != 3U) {
         {
         ATAP = 7U;
-        tmp___2 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+        tmp___2 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
         }
         if (tmp___2 != 0L) {
           {
@@ -28374,7 +28371,7 @@ static int pm8001_chip_sata_req(struct pm8001_hba_info *pm8001_ha , struct pm800
   sata_cmd.data_len = task->total_xfer_len;
   sata_cmd.ncqtag_atap_dir_m = (((ncg_tag & 255U) << 16) | ((ATAP << 10) & 65535U)) | dir;
   sata_cmd.sata_fis = task->__annonCompField95.ata_task.fis;
-  tmp___5 = __builtin_expect((unsigned int )*((unsigned char *)task + 125UL) == 0U,
+  tmp___5 = ldv__builtin_expect((unsigned int )*((unsigned char *)task + 125UL) == 0U,
                              1L);
   }
   if (tmp___5 != 0L) {
@@ -28418,12 +28415,12 @@ static int pm8001_chip_sata_req(struct pm8001_hba_info *pm8001_ha , struct pm800
       task->task_state_flags = task->task_state_flags & 4294967294U;
       task->task_state_flags = task->task_state_flags & 4294967279U;
       task->task_state_flags = task->task_state_flags | 2U;
-      tmp___7 = __builtin_expect((task->task_state_flags & 4U) != 0U, 0L);
+      tmp___7 = ldv__builtin_expect((task->task_state_flags & 4U) != 0U, 0L);
       }
       if (tmp___7 != 0L) {
         {
         ldv_spin_unlock_irqrestore_135(& task->task_state_lock, flags);
-        tmp___6 = __builtin_expect((long )((int )pm8001_ha->logging_level) & 1L, 0L);
+        tmp___6 = ldv__builtin_expect((long )((int )pm8001_ha->logging_level) & 1L, 0L);
         }
         if (tmp___6 != 0L) {
           {
@@ -28586,7 +28583,7 @@ int pm8001_chip_dereg_dev_req(struct pm8001_hba_info *pm8001_ha , u32 device_id 
   __memset((void *)(& payload), 0, 60UL);
   payload.tag = 1U;
   payload.device_id = device_id;
-  tmp = __builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
+  tmp = ldv__builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
   }
   if (tmp != 0L) {
     {
@@ -28695,7 +28692,7 @@ int pm8001_chip_abort_task(struct pm8001_hba_info *pm8001_ha , struct pm8001_dev
   {
   {
   rc = 5;
-  tmp = __builtin_expect((pm8001_ha->logging_level & 16U) != 0U, 0L);
+  tmp = ldv__builtin_expect((pm8001_ha->logging_level & 16U) != 0U, 0L);
   }
   if (tmp != 0L) {
     {
@@ -28719,7 +28716,7 @@ int pm8001_chip_abort_task(struct pm8001_hba_info *pm8001_ha , struct pm8001_dev
   }
   if (rc != 0) {
     {
-    tmp___0 = __builtin_expect((pm8001_ha->logging_level & 16U) != 0U, 0L);
+    tmp___0 = ldv__builtin_expect((pm8001_ha->logging_level & 16U) != 0U, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -29933,7 +29930,7 @@ __inline static int dma_map_sg_attrs___1(struct device *dev , struct scatterlist
   }
   {
   tmp___1 = valid_dma_direction((int )dir);
-  tmp___2 = __builtin_expect(tmp___1 == 0, 0L);
+  tmp___2 = ldv__builtin_expect(tmp___1 == 0, 0L);
   }
   if (tmp___2 != 0L) {
     {
@@ -29991,7 +29988,7 @@ int pm80xx_bar4_shift(struct pm8001_hba_info *pm8001_ha , u32 shift_value )
 
   if (reg_val != shift_value) {
     {
-    tmp = __builtin_expect((long )((int )pm8001_ha->logging_level) & 1L, 0L);
+    tmp = ldv__builtin_expect((long )((int )pm8001_ha->logging_level) & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -30092,7 +30089,7 @@ ssize_t pm80xx_get_fatal_dump(struct device *cdev , struct device_attribute *att
   }
   if (pm8001_ha->forensic_info.__annonCompField96.data_buf.direct_offset == 0U) {
     {
-    tmp___0 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+    tmp___0 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -30118,7 +30115,7 @@ ssize_t pm80xx_get_fatal_dump(struct device *cdev , struct device_attribute *att
   }
   {
   accum_len = pm8001_mr32(fatal_table_address, 20U);
-  tmp___1 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+  tmp___1 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -30129,7 +30126,7 @@ ssize_t pm80xx_get_fatal_dump(struct device *cdev , struct device_attribute *att
   }
   if (accum_len == 4294967295U) {
     {
-    tmp___2 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+    tmp___2 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
     }
     if (tmp___2 != 0L) {
       {
@@ -30272,7 +30269,7 @@ ssize_t pm80xx_get_fatal_dump(struct device *cdev , struct device_attribute *att
 
     if (reg_val != 0U) {
       {
-      tmp___10 = __builtin_expect((long )((int )pm8001_ha->logging_level) & 1L, 0L);
+      tmp___10 = ldv__builtin_expect((long )((int )pm8001_ha->logging_level) & 1L, 0L);
       }
       if (tmp___10 != 0L) {
         {
@@ -30738,7 +30735,7 @@ static int check_fw_ready___0(struct pm8001_hba_info *pm8001_ha )
     ret = -1;
   } else {
     {
-    tmp = __builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
+    tmp = ldv__builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
     }
     if (tmp != 0L) {
       {
@@ -30771,7 +30768,7 @@ static int check_fw_ready___0(struct pm8001_hba_info *pm8001_ha )
     ret = -1;
   } else {
     {
-    tmp___0 = __builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
+    tmp___0 = ldv__builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -30804,7 +30801,7 @@ static int check_fw_ready___0(struct pm8001_hba_info *pm8001_ha )
     ret = -1;
   } else {
     {
-    tmp___1 = __builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
+    tmp___1 = ldv__builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
     }
     if (tmp___1 != 0L) {
       {
@@ -30838,7 +30835,7 @@ static int check_fw_ready___0(struct pm8001_hba_info *pm8001_ha )
       ret = -1;
     } else {
       {
-      tmp___2 = __builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
+      tmp___2 = ldv__builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
       }
       if (tmp___2 != 0L) {
         {
@@ -30888,7 +30885,7 @@ static void init_pci_device_addresses___0(struct pm8001_hba_info *pm8001_ha )
   {
   value = pm8001_cr32(pm8001_ha, 0U, 68U);
   offset = value & 67108863U;
-  tmp = __builtin_expect((pm8001_ha->logging_level & 2U) != 0U, 0L);
+  tmp = ldv__builtin_expect((pm8001_ha->logging_level & 2U) != 0U, 0L);
   }
   if (tmp != 0L) {
     {
@@ -30901,7 +30898,7 @@ static void init_pci_device_addresses___0(struct pm8001_hba_info *pm8001_ha )
   {
   pcilogic = value >> 26;
   pcibar = get_pci_bar_index(pcilogic);
-  tmp___0 = __builtin_expect((pm8001_ha->logging_level & 2U) != 0U, 0L);
+  tmp___0 = ldv__builtin_expect((pm8001_ha->logging_level & 2U) != 0U, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -30926,7 +30923,7 @@ static void init_pci_device_addresses___0(struct pm8001_hba_info *pm8001_ha )
   pm8001_ha->pspa_q_tbl_addr = base_addr + ((unsigned long )tmp___5 & 16777215UL);
   tmp___6 = pm8001_cr32(pm8001_ha, pcibar, offset + 160U);
   pm8001_ha->fatal_tbl_addr = base_addr + ((unsigned long )tmp___6 & 16777215UL);
-  tmp___8 = __builtin_expect((pm8001_ha->logging_level & 2U) != 0U, 0L);
+  tmp___8 = ldv__builtin_expect((pm8001_ha->logging_level & 2U) != 0U, 0L);
   }
   if (tmp___8 != 0L) {
     {
@@ -30938,7 +30935,7 @@ static void init_pci_device_addresses___0(struct pm8001_hba_info *pm8001_ha )
 
   }
   {
-  tmp___10 = __builtin_expect((pm8001_ha->logging_level & 2U) != 0U, 0L);
+  tmp___10 = ldv__builtin_expect((pm8001_ha->logging_level & 2U) != 0U, 0L);
   }
   if (tmp___10 != 0L) {
     {
@@ -30950,7 +30947,7 @@ static void init_pci_device_addresses___0(struct pm8001_hba_info *pm8001_ha )
 
   }
   {
-  tmp___12 = __builtin_expect((pm8001_ha->logging_level & 2U) != 0U, 0L);
+  tmp___12 = ldv__builtin_expect((pm8001_ha->logging_level & 2U) != 0U, 0L);
   }
   if (tmp___12 != 0L) {
     {
@@ -30962,7 +30959,7 @@ static void init_pci_device_addresses___0(struct pm8001_hba_info *pm8001_ha )
 
   }
   {
-  tmp___14 = __builtin_expect((pm8001_ha->logging_level & 2U) != 0U, 0L);
+  tmp___14 = ldv__builtin_expect((pm8001_ha->logging_level & 2U) != 0U, 0L);
   }
   if (tmp___14 != 0L) {
     {
@@ -30974,7 +30971,7 @@ static void init_pci_device_addresses___0(struct pm8001_hba_info *pm8001_ha )
 
   }
   {
-  tmp___16 = __builtin_expect((pm8001_ha->logging_level & 2U) != 0U, 0L);
+  tmp___16 = ldv__builtin_expect((pm8001_ha->logging_level & 2U) != 0U, 0L);
   }
   if (tmp___16 != 0L) {
     {
@@ -30986,7 +30983,7 @@ static void init_pci_device_addresses___0(struct pm8001_hba_info *pm8001_ha )
 
   }
   {
-  tmp___17 = __builtin_expect((pm8001_ha->logging_level & 2U) != 0U, 0L);
+  tmp___17 = ldv__builtin_expect((pm8001_ha->logging_level & 2U) != 0U, 0L);
   }
   if (tmp___17 != 0L) {
     {
@@ -30997,7 +30994,7 @@ static void init_pci_device_addresses___0(struct pm8001_hba_info *pm8001_ha )
 
   }
   {
-  tmp___18 = __builtin_expect((pm8001_ha->logging_level & 2U) != 0U, 0L);
+  tmp___18 = ldv__builtin_expect((pm8001_ha->logging_level & 2U) != 0U, 0L);
   }
   if (tmp___18 != 0L) {
     {
@@ -31008,7 +31005,7 @@ static void init_pci_device_addresses___0(struct pm8001_hba_info *pm8001_ha )
 
   }
   {
-  tmp___19 = __builtin_expect((pm8001_ha->logging_level & 2U) != 0U, 0L);
+  tmp___19 = ldv__builtin_expect((pm8001_ha->logging_level & 2U) != 0U, 0L);
   }
   if (tmp___19 != 0L) {
     {
@@ -31104,7 +31101,7 @@ static int pm80xx_set_sas_protocol_timer_config(struct pm8001_hba_info *pm8001_h
   SASConfigPage.Data_Cmd_OPNRJT_RTRY_TMO = 8388736U;
   SASConfigPage.Data_Cmd_OPNRJT_RTRY_THR = 1536056206U;
   SASConfigPage.MAX_AIP = 2097152U;
-  tmp = __builtin_expect((pm8001_ha->logging_level & 2U) != 0U, 0L);
+  tmp = ldv__builtin_expect((pm8001_ha->logging_level & 2U) != 0U, 0L);
   }
   if (tmp != 0L) {
     {
@@ -31115,7 +31112,7 @@ static int pm80xx_set_sas_protocol_timer_config(struct pm8001_hba_info *pm8001_h
 
   }
   {
-  tmp___0 = __builtin_expect((pm8001_ha->logging_level & 2U) != 0U, 0L);
+  tmp___0 = ldv__builtin_expect((pm8001_ha->logging_level & 2U) != 0U, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -31126,7 +31123,7 @@ static int pm80xx_set_sas_protocol_timer_config(struct pm8001_hba_info *pm8001_h
 
   }
   {
-  tmp___1 = __builtin_expect((pm8001_ha->logging_level & 2U) != 0U, 0L);
+  tmp___1 = ldv__builtin_expect((pm8001_ha->logging_level & 2U) != 0U, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -31137,7 +31134,7 @@ static int pm80xx_set_sas_protocol_timer_config(struct pm8001_hba_info *pm8001_h
 
   }
   {
-  tmp___2 = __builtin_expect((pm8001_ha->logging_level & 2U) != 0U, 0L);
+  tmp___2 = ldv__builtin_expect((pm8001_ha->logging_level & 2U) != 0U, 0L);
   }
   if (tmp___2 != 0L) {
     {
@@ -31148,7 +31145,7 @@ static int pm80xx_set_sas_protocol_timer_config(struct pm8001_hba_info *pm8001_h
 
   }
   {
-  tmp___3 = __builtin_expect((pm8001_ha->logging_level & 2U) != 0U, 0L);
+  tmp___3 = ldv__builtin_expect((pm8001_ha->logging_level & 2U) != 0U, 0L);
   }
   if (tmp___3 != 0L) {
     {
@@ -31159,7 +31156,7 @@ static int pm80xx_set_sas_protocol_timer_config(struct pm8001_hba_info *pm8001_h
 
   }
   {
-  tmp___4 = __builtin_expect((pm8001_ha->logging_level & 2U) != 0U, 0L);
+  tmp___4 = ldv__builtin_expect((pm8001_ha->logging_level & 2U) != 0U, 0L);
   }
   if (tmp___4 != 0L) {
     {
@@ -31170,7 +31167,7 @@ static int pm80xx_set_sas_protocol_timer_config(struct pm8001_hba_info *pm8001_h
 
   }
   {
-  tmp___5 = __builtin_expect((pm8001_ha->logging_level & 2U) != 0U, 0L);
+  tmp___5 = ldv__builtin_expect((pm8001_ha->logging_level & 2U) != 0U, 0L);
   }
   if (tmp___5 != 0L) {
     {
@@ -31181,7 +31178,7 @@ static int pm80xx_set_sas_protocol_timer_config(struct pm8001_hba_info *pm8001_h
 
   }
   {
-  tmp___6 = __builtin_expect((pm8001_ha->logging_level & 2U) != 0U, 0L);
+  tmp___6 = ldv__builtin_expect((pm8001_ha->logging_level & 2U) != 0U, 0L);
   }
   if (tmp___6 != 0L) {
     {
@@ -31192,7 +31189,7 @@ static int pm80xx_set_sas_protocol_timer_config(struct pm8001_hba_info *pm8001_h
 
   }
   {
-  tmp___7 = __builtin_expect((pm8001_ha->logging_level & 2U) != 0U, 0L);
+  tmp___7 = ldv__builtin_expect((pm8001_ha->logging_level & 2U) != 0U, 0L);
   }
   if (tmp___7 != 0L) {
     {
@@ -31253,7 +31250,7 @@ static int pm80xx_get_encrypt_info(struct pm8001_hba_info *pm8001_ha )
     }
     {
     pm8001_ha->encrypt_info.status = 0U;
-    tmp = __builtin_expect((pm8001_ha->logging_level & 2U) != 0U, 0L);
+    tmp = ldv__builtin_expect((pm8001_ha->logging_level & 2U) != 0U, 0L);
     }
     if (tmp != 0L) {
       {
@@ -31268,7 +31265,7 @@ static int pm80xx_get_encrypt_info(struct pm8001_hba_info *pm8001_ha )
   } else
   if ((scratch3_value & 3U) == 0U) {
     {
-    tmp___0 = __builtin_expect((pm8001_ha->logging_level & 2U) != 0U, 0L);
+    tmp___0 = ldv__builtin_expect((pm8001_ha->logging_level & 2U) != 0U, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -31306,7 +31303,7 @@ static int pm80xx_get_encrypt_info(struct pm8001_hba_info *pm8001_ha )
 
     }
     {
-    tmp___1 = __builtin_expect((pm8001_ha->logging_level & 2U) != 0U, 0L);
+    tmp___1 = ldv__builtin_expect((pm8001_ha->logging_level & 2U) != 0U, 0L);
     }
     if (tmp___1 != 0L) {
       {
@@ -31341,7 +31338,7 @@ static int pm80xx_get_encrypt_info(struct pm8001_hba_info *pm8001_ha )
 
     }
     {
-    tmp___2 = __builtin_expect((pm8001_ha->logging_level & 2U) != 0U, 0L);
+    tmp___2 = ldv__builtin_expect((pm8001_ha->logging_level & 2U) != 0U, 0L);
     }
     if (tmp___2 != 0L) {
       {
@@ -31412,7 +31409,7 @@ static int pm80xx_chip_init(struct pm8001_hba_info *pm8001_ha )
   }
   if (tmp___0 == -1) {
     {
-    tmp = __builtin_expect((long )((int )pm8001_ha->logging_level) & 1L, 0L);
+    tmp = ldv__builtin_expect((long )((int )pm8001_ha->logging_level) & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -31466,7 +31463,7 @@ static int pm80xx_chip_init(struct pm8001_hba_info *pm8001_ha )
   }
   if (tmp___2 == 0) {
     {
-    tmp___1 = __builtin_expect((pm8001_ha->logging_level & 2U) != 0U, 0L);
+    tmp___1 = ldv__builtin_expect((pm8001_ha->logging_level & 2U) != 0U, 0L);
     }
     if (tmp___1 != 0L) {
       {
@@ -31484,7 +31481,7 @@ static int pm80xx_chip_init(struct pm8001_hba_info *pm8001_ha )
   }
   if ((unsigned int )(pm8001_ha->chip)->encrypt != 0U) {
     {
-    tmp___3 = __builtin_expect((pm8001_ha->logging_level & 2U) != 0U, 0L);
+    tmp___3 = ldv__builtin_expect((pm8001_ha->logging_level & 2U) != 0U, 0L);
     }
     if (tmp___3 != 0L) {
       {
@@ -31498,7 +31495,7 @@ static int pm80xx_chip_init(struct pm8001_hba_info *pm8001_ha )
     }
     if (ret == -1) {
       {
-      tmp___4 = __builtin_expect((pm8001_ha->logging_level & 2U) != 0U, 0L);
+      tmp___4 = ldv__builtin_expect((pm8001_ha->logging_level & 2U) != 0U, 0L);
       }
       if (tmp___4 != 0L) {
         {
@@ -31509,7 +31506,7 @@ static int pm80xx_chip_init(struct pm8001_hba_info *pm8001_ha )
       }
       if (pm8001_ha->encrypt_info.status == 129U) {
         {
-        tmp___5 = __builtin_expect((pm8001_ha->logging_level & 2U) != 0U, 0L);
+        tmp___5 = ldv__builtin_expect((pm8001_ha->logging_level & 2U) != 0U, 0L);
         }
         if (tmp___5 != 0L) {
           {
@@ -31571,7 +31568,7 @@ static int mpi_uninit_check___0(struct pm8001_hba_info *pm8001_ha )
   ldv_46505: ;
   if (max_wait_count == 0U) {
     {
-    tmp = __builtin_expect((long )((int )pm8001_ha->logging_level) & 1L, 0L);
+    tmp = ldv__builtin_expect((long )((int )pm8001_ha->logging_level) & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -31605,7 +31602,7 @@ static int mpi_uninit_check___0(struct pm8001_hba_info *pm8001_ha )
   ldv_46507: ;
   if (max_wait_count == 0U) {
     {
-    tmp___0 = __builtin_expect((long )((int )pm8001_ha->logging_level) & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )((int )pm8001_ha->logging_level) & 1L, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -31653,7 +31650,7 @@ static int pm80xx_chip_soft_rst(struct pm8001_hba_info *pm8001_ha )
   }
   if (tmp___0 != 0) {
     {
-    tmp = __builtin_expect((long )((int )pm8001_ha->logging_level) & 1L, 0L);
+    tmp = ldv__builtin_expect((long )((int )pm8001_ha->logging_level) & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -31669,7 +31666,7 @@ static int pm80xx_chip_soft_rst(struct pm8001_hba_info *pm8001_ha )
   }
   {
   regval = pm8001_cr32(pm8001_ha, 0U, 4096U);
-  tmp___1 = __builtin_expect((pm8001_ha->logging_level & 2U) != 0U, 0L);
+  tmp___1 = ldv__builtin_expect((pm8001_ha->logging_level & 2U) != 0U, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -31698,7 +31695,7 @@ static int pm80xx_chip_soft_rst(struct pm8001_hba_info *pm8001_ha )
   }
   {
   regval = pm8001_cr32(pm8001_ha, 0U, 4096U);
-  tmp___3 = __builtin_expect((pm8001_ha->logging_level & 2U) != 0U, 0L);
+  tmp___3 = ldv__builtin_expect((pm8001_ha->logging_level & 2U) != 0U, 0L);
   }
   if (tmp___3 != 0L) {
     {
@@ -31710,7 +31707,7 @@ static int pm80xx_chip_soft_rst(struct pm8001_hba_info *pm8001_ha )
   }
   if ((regval & 192U) == 64U) {
     {
-    tmp___4 = __builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
+    tmp___4 = ldv__builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
     }
     if (tmp___4 != 0L) {
       {
@@ -31722,7 +31719,7 @@ static int pm80xx_chip_soft_rst(struct pm8001_hba_info *pm8001_ha )
     }
   } else {
     {
-    tmp___5 = __builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
+    tmp___5 = ldv__builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
     }
     if (tmp___5 != 0L) {
       {
@@ -31738,7 +31735,7 @@ static int pm80xx_chip_soft_rst(struct pm8001_hba_info *pm8001_ha )
     }
     if (bootloader_state == 16U) {
       {
-      tmp___7 = __builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
+      tmp___7 = ldv__builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
       }
       if (tmp___7 != 0L) {
         {
@@ -31751,7 +31748,7 @@ static int pm80xx_chip_soft_rst(struct pm8001_hba_info *pm8001_ha )
     } else
     if (bootloader_state == 32U) {
       {
-      tmp___8 = __builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
+      tmp___8 = ldv__builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
       }
       if (tmp___8 != 0L) {
         {
@@ -31764,7 +31761,7 @@ static int pm80xx_chip_soft_rst(struct pm8001_hba_info *pm8001_ha )
     } else
     if (bootloader_state == 48U) {
       {
-      tmp___9 = __builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
+      tmp___9 = ldv__builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
       }
       if (tmp___9 != 0L) {
         {
@@ -31777,7 +31774,7 @@ static int pm80xx_chip_soft_rst(struct pm8001_hba_info *pm8001_ha )
     } else
     if (bootloader_state == 64U) {
       {
-      tmp___10 = __builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
+      tmp___10 = ldv__builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
       }
       if (tmp___10 != 0L) {
         {
@@ -31797,7 +31794,7 @@ static int pm80xx_chip_soft_rst(struct pm8001_hba_info *pm8001_ha )
   }
   if (tmp___14 == -1) {
     {
-    tmp___11 = __builtin_expect((long )((int )pm8001_ha->logging_level) & 1L, 0L);
+    tmp___11 = ldv__builtin_expect((long )((int )pm8001_ha->logging_level) & 1L, 0L);
     }
     if (tmp___11 != 0L) {
       {
@@ -31814,7 +31811,7 @@ static int pm80xx_chip_soft_rst(struct pm8001_hba_info *pm8001_ha )
       }
       if ((ibutton0 | ibutton1) == 0U) {
         {
-        tmp___12 = __builtin_expect((long )((int )pm8001_ha->logging_level) & 1L,
+        tmp___12 = ldv__builtin_expect((long )((int )pm8001_ha->logging_level) & 1L,
                                     0L);
         }
         if (tmp___12 != 0L) {
@@ -31831,7 +31828,7 @@ static int pm80xx_chip_soft_rst(struct pm8001_hba_info *pm8001_ha )
       }
       if (ibutton0 == 3735928559U && ibutton1 == 3735928559U) {
         {
-        tmp___13 = __builtin_expect((long )((int )pm8001_ha->logging_level) & 1L,
+        tmp___13 = ldv__builtin_expect((long )((int )pm8001_ha->logging_level) & 1L,
                                     0L);
         }
         if (tmp___13 != 0L) {
@@ -31853,7 +31850,7 @@ static int pm80xx_chip_soft_rst(struct pm8001_hba_info *pm8001_ha )
 
   }
   {
-  tmp___15 = __builtin_expect((pm8001_ha->logging_level & 2U) != 0U, 0L);
+  tmp___15 = ldv__builtin_expect((pm8001_ha->logging_level & 2U) != 0U, 0L);
   }
   if (tmp___15 != 0L) {
     {
@@ -31877,7 +31874,7 @@ static void pm80xx_hw_chip_rst(struct pm8001_hba_info *pm8001_ha )
 
   {
   {
-  tmp = __builtin_expect((pm8001_ha->logging_level & 2U) != 0U, 0L);
+  tmp = ldv__builtin_expect((pm8001_ha->logging_level & 2U) != 0U, 0L);
   }
   if (tmp != 0L) {
     {
@@ -31888,7 +31885,7 @@ static void pm80xx_hw_chip_rst(struct pm8001_hba_info *pm8001_ha )
   }
   {
   pm8001_cw32(pm8001_ha, 0U, 4096U, 17U);
-  tmp___0 = __builtin_expect((pm8001_ha->logging_level & 2U) != 0U, 0L);
+  tmp___0 = ldv__builtin_expect((pm8001_ha->logging_level & 2U) != 0U, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -31930,7 +31927,7 @@ static void pm80xx_hw_chip_rst(struct pm8001_hba_info *pm8001_ha )
 
   }
   {
-  tmp___2 = __builtin_expect((pm8001_ha->logging_level & 2U) != 0U, 0L);
+  tmp___2 = ldv__builtin_expect((pm8001_ha->logging_level & 2U) != 0U, 0L);
   }
   if (tmp___2 != 0L) {
     {
@@ -32017,7 +32014,7 @@ static void pm80xx_send_abort_all(struct pm8001_hba_info *pm8001_ha , struct pm8
   opc = 24U;
   if ((unsigned long )pm8001_ha_dev == (unsigned long )((struct pm8001_device *)0)) {
     {
-    tmp = __builtin_expect((long )((int )pm8001_ha->logging_level) & 1L, 0L);
+    tmp = ldv__builtin_expect((long )((int )pm8001_ha->logging_level) & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -32035,7 +32032,7 @@ static void pm80xx_send_abort_all(struct pm8001_hba_info *pm8001_ha , struct pm8
   }
   if ((unsigned long )task == (unsigned long )((struct sas_task *)0)) {
     {
-    tmp___0 = __builtin_expect((long )((int )pm8001_ha->logging_level) & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )((int )pm8001_ha->logging_level) & 1L, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -32107,7 +32104,7 @@ static void pm80xx_send_read_log(struct pm8001_hba_info *pm8001_ha , struct pm80
   }
   if ((unsigned long )task == (unsigned long )((struct sas_task *)0)) {
     {
-    tmp = __builtin_expect((long )((int )pm8001_ha->logging_level) & 1L, 0L);
+    tmp = ldv__builtin_expect((long )((int )pm8001_ha->logging_level) & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -32128,7 +32125,7 @@ static void pm80xx_send_read_log(struct pm8001_hba_info *pm8001_ha , struct pm80
   if (res != 0) {
     {
     sas_free_task(task);
-    tmp___0 = __builtin_expect((long )((int )pm8001_ha->logging_level) & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )((int )pm8001_ha->logging_level) & 1L, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -32150,7 +32147,7 @@ static void pm80xx_send_read_log(struct pm8001_hba_info *pm8001_ha , struct pm80
     {
     sas_free_task(task);
     pm8001_tag_free(pm8001_ha, ccb_tag);
-    tmp___2 = __builtin_expect((long )((int )pm8001_ha->logging_level) & 1L, 0L);
+    tmp___2 = ldv__builtin_expect((long )((int )pm8001_ha->logging_level) & 1L, 0L);
     }
     if (tmp___2 != 0L) {
       {
@@ -32263,7 +32260,7 @@ static void mpi_ssp_completion___0(struct pm8001_hba_info *pm8001_ha , void *pio
   t = ccb->task;
   if (status != 0U && status != 3U) {
     {
-    tmp = __builtin_expect((long )((int )pm8001_ha->logging_level) & 1L, 0L);
+    tmp = ldv__builtin_expect((long )((int )pm8001_ha->logging_level) & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -32277,14 +32274,14 @@ static void mpi_ssp_completion___0(struct pm8001_hba_info *pm8001_ha , void *pio
 
   }
   {
-  tmp___0 = __builtin_expect((unsigned long )t == (unsigned long )((struct sas_task *)0),
+  tmp___0 = ldv__builtin_expect((unsigned long )t == (unsigned long )((struct sas_task *)0),
                              0L);
   }
   if (tmp___0 != 0L) {
     tmp___2 = 1;
   } else {
     {
-    tmp___1 = __builtin_expect((unsigned long )t->lldd_task == (unsigned long )((void *)0),
+    tmp___1 = ldv__builtin_expect((unsigned long )t->lldd_task == (unsigned long )((void *)0),
                                0L);
     }
     if (tmp___1 != 0L) {
@@ -32297,7 +32294,7 @@ static void mpi_ssp_completion___0(struct pm8001_hba_info *pm8001_ha , void *pio
     return;
   } else {
     {
-    tmp___3 = __builtin_expect((unsigned long )t->dev == (unsigned long )((struct domain_device *)0),
+    tmp___3 = ldv__builtin_expect((unsigned long )t->dev == (unsigned long )((struct domain_device *)0),
                                0L);
     }
     if (tmp___3 != 0L) {
@@ -32309,7 +32306,7 @@ static void mpi_ssp_completion___0(struct pm8001_hba_info *pm8001_ha , void *pio
   ts = & t->task_status;
   if ((status != 0U && status != 2U) && status != 3U) {
     {
-    tmp___5 = __builtin_expect((long )((int )pm8001_ha->logging_level) & 1L, 0L);
+    tmp___5 = ldv__builtin_expect((long )((int )pm8001_ha->logging_level) & 1L, 0L);
     }
     if (tmp___5 != 0L) {
       {
@@ -32472,7 +32469,7 @@ static void mpi_ssp_completion___0(struct pm8001_hba_info *pm8001_ha , void *pio
   goto switch_default;
   case_0: /* CIL Label */ 
   {
-  tmp___6 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+  tmp___6 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
   }
   if (tmp___6 != 0L) {
     {
@@ -32502,7 +32499,7 @@ static void mpi_ssp_completion___0(struct pm8001_hba_info *pm8001_ha , void *pio
   goto ldv_46591;
   case_1: /* CIL Label */ 
   {
-  tmp___7 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+  tmp___7 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
   }
   if (tmp___7 != 0L) {
     {
@@ -32516,7 +32513,7 @@ static void mpi_ssp_completion___0(struct pm8001_hba_info *pm8001_ha , void *pio
   goto ldv_46591;
   case_3: /* CIL Label */ 
   {
-  tmp___8 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+  tmp___8 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
   }
   if (tmp___8 != 0L) {
     {
@@ -32537,7 +32534,7 @@ static void mpi_ssp_completion___0(struct pm8001_hba_info *pm8001_ha , void *pio
   goto ldv_46591;
   case_7: /* CIL Label */ 
   {
-  tmp___9 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+  tmp___9 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
   }
   if (tmp___9 != 0L) {
     {
@@ -32551,7 +32548,7 @@ static void mpi_ssp_completion___0(struct pm8001_hba_info *pm8001_ha , void *pio
   goto ldv_46591;
   case_14: /* CIL Label */ 
   {
-  tmp___10 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+  tmp___10 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
   }
   if (tmp___10 != 0L) {
     {
@@ -32566,7 +32563,7 @@ static void mpi_ssp_completion___0(struct pm8001_hba_info *pm8001_ha , void *pio
   goto ldv_46591;
   case_15: /* CIL Label */ 
   {
-  tmp___11 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+  tmp___11 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
   }
   if (tmp___11 != 0L) {
     {
@@ -32582,7 +32579,7 @@ static void mpi_ssp_completion___0(struct pm8001_hba_info *pm8001_ha , void *pio
   goto ldv_46591;
   case_16: /* CIL Label */ 
   {
-  tmp___12 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+  tmp___12 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
   }
   if (tmp___12 != 0L) {
     {
@@ -32598,7 +32595,7 @@ static void mpi_ssp_completion___0(struct pm8001_hba_info *pm8001_ha , void *pio
   goto ldv_46591;
   case_17: /* CIL Label */ 
   {
-  tmp___13 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+  tmp___13 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
   }
   if (tmp___13 != 0L) {
     {
@@ -32614,7 +32611,7 @@ static void mpi_ssp_completion___0(struct pm8001_hba_info *pm8001_ha , void *pio
   goto ldv_46591;
   case_18: /* CIL Label */ 
   {
-  tmp___14 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+  tmp___14 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
   }
   if (tmp___14 != 0L) {
     {
@@ -32634,7 +32631,7 @@ static void mpi_ssp_completion___0(struct pm8001_hba_info *pm8001_ha , void *pio
   case_71: /* CIL Label */ ;
   case_72: /* CIL Label */ 
   {
-  tmp___15 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+  tmp___15 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
   }
   if (tmp___15 != 0L) {
     {
@@ -32657,7 +32654,7 @@ static void mpi_ssp_completion___0(struct pm8001_hba_info *pm8001_ha , void *pio
   goto ldv_46591;
   case_20: /* CIL Label */ 
   {
-  tmp___16 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+  tmp___16 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
   }
   if (tmp___16 != 0L) {
     {
@@ -32673,7 +32670,7 @@ static void mpi_ssp_completion___0(struct pm8001_hba_info *pm8001_ha , void *pio
   goto ldv_46591;
   case_21: /* CIL Label */ 
   {
-  tmp___17 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+  tmp___17 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
   }
   if (tmp___17 != 0L) {
     {
@@ -32689,7 +32686,7 @@ static void mpi_ssp_completion___0(struct pm8001_hba_info *pm8001_ha , void *pio
   goto ldv_46591;
   case_23: /* CIL Label */ 
   {
-  tmp___18 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+  tmp___18 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
   }
   if (tmp___18 != 0L) {
     {
@@ -32705,7 +32702,7 @@ static void mpi_ssp_completion___0(struct pm8001_hba_info *pm8001_ha , void *pio
   goto ldv_46591;
   case_25: /* CIL Label */ 
   {
-  tmp___19 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+  tmp___19 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
   }
   if (tmp___19 != 0L) {
     {
@@ -32721,7 +32718,7 @@ static void mpi_ssp_completion___0(struct pm8001_hba_info *pm8001_ha , void *pio
   goto ldv_46591;
   case_26: /* CIL Label */ 
   {
-  tmp___20 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+  tmp___20 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
   }
   if (tmp___20 != 0L) {
     {
@@ -32736,7 +32733,7 @@ static void mpi_ssp_completion___0(struct pm8001_hba_info *pm8001_ha , void *pio
   goto ldv_46591;
   case_29: /* CIL Label */ 
   {
-  tmp___21 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+  tmp___21 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
   }
   if (tmp___21 != 0L) {
     {
@@ -32750,7 +32747,7 @@ static void mpi_ssp_completion___0(struct pm8001_hba_info *pm8001_ha , void *pio
   goto ldv_46591;
   case_36: /* CIL Label */ 
   {
-  tmp___22 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+  tmp___22 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
   }
   if (tmp___22 != 0L) {
     {
@@ -32766,7 +32763,7 @@ static void mpi_ssp_completion___0(struct pm8001_hba_info *pm8001_ha , void *pio
   goto ldv_46591;
   case_52: /* CIL Label */ 
   {
-  tmp___23 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+  tmp___23 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
   }
   if (tmp___23 != 0L) {
     {
@@ -32781,7 +32778,7 @@ static void mpi_ssp_completion___0(struct pm8001_hba_info *pm8001_ha , void *pio
   goto ldv_46591;
   case_56: /* CIL Label */ 
   {
-  tmp___24 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+  tmp___24 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
   }
   if (tmp___24 != 0L) {
     {
@@ -32795,7 +32792,7 @@ static void mpi_ssp_completion___0(struct pm8001_hba_info *pm8001_ha , void *pio
   goto ldv_46591;
   case_57: /* CIL Label */ 
   {
-  tmp___25 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+  tmp___25 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
   }
   if (tmp___25 != 0L) {
     {
@@ -32816,7 +32813,7 @@ static void mpi_ssp_completion___0(struct pm8001_hba_info *pm8001_ha , void *pio
   goto ldv_46591;
   case_58: /* CIL Label */ 
   {
-  tmp___26 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+  tmp___26 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
   }
   if (tmp___26 != 0L) {
     {
@@ -32830,7 +32827,7 @@ static void mpi_ssp_completion___0(struct pm8001_hba_info *pm8001_ha , void *pio
   goto ldv_46591;
   case_59: /* CIL Label */ 
   {
-  tmp___27 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+  tmp___27 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
   }
   if (tmp___27 != 0L) {
     {
@@ -32844,7 +32841,7 @@ static void mpi_ssp_completion___0(struct pm8001_hba_info *pm8001_ha , void *pio
   goto ldv_46591;
   case_61: /* CIL Label */ 
   {
-  tmp___28 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+  tmp___28 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
   }
   if (tmp___28 != 0L) {
     {
@@ -32859,7 +32856,7 @@ static void mpi_ssp_completion___0(struct pm8001_hba_info *pm8001_ha , void *pio
   goto ldv_46591;
   case_63: /* CIL Label */ 
   {
-  tmp___29 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+  tmp___29 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
   }
   if (tmp___29 != 0L) {
     {
@@ -32875,7 +32872,7 @@ static void mpi_ssp_completion___0(struct pm8001_hba_info *pm8001_ha , void *pio
   goto ldv_46591;
   switch_default: /* CIL Label */ 
   {
-  tmp___30 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+  tmp___30 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
   }
   if (tmp___30 != 0L) {
     {
@@ -32891,7 +32888,7 @@ static void mpi_ssp_completion___0(struct pm8001_hba_info *pm8001_ha , void *pio
   }
   ldv_46591: 
   {
-  tmp___31 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+  tmp___31 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
   }
   if (tmp___31 != 0L) {
     {
@@ -32905,12 +32902,12 @@ static void mpi_ssp_completion___0(struct pm8001_hba_info *pm8001_ha , void *pio
   t->task_state_flags = t->task_state_flags & 4294967294U;
   t->task_state_flags = t->task_state_flags & 4294967279U;
   t->task_state_flags = t->task_state_flags | 2U;
-  tmp___33 = __builtin_expect((t->task_state_flags & 4U) != 0U, 0L);
+  tmp___33 = ldv__builtin_expect((t->task_state_flags & 4U) != 0U, 0L);
   }
   if (tmp___33 != 0L) {
     {
     ldv_spin_unlock_irqrestore_135(& t->task_state_lock, flags);
-    tmp___32 = __builtin_expect((long )((int )pm8001_ha->logging_level) & 1L, 0L);
+    tmp___32 = ldv__builtin_expect((long )((int )pm8001_ha->logging_level) & 1L, 0L);
     }
     if (tmp___32 != 0L) {
       {
@@ -32986,7 +32983,7 @@ static void mpi_ssp_event___0(struct pm8001_hba_info *pm8001_ha , void *piomb )
   pm8001_dev = ccb->device;
   if (event != 0U) {
     {
-    tmp = __builtin_expect((long )((int )pm8001_ha->logging_level) & 1L, 0L);
+    tmp = ldv__builtin_expect((long )((int )pm8001_ha->logging_level) & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -32999,14 +32996,14 @@ static void mpi_ssp_event___0(struct pm8001_hba_info *pm8001_ha , void *piomb )
 
   }
   {
-  tmp___0 = __builtin_expect((unsigned long )t == (unsigned long )((struct sas_task *)0),
+  tmp___0 = ldv__builtin_expect((unsigned long )t == (unsigned long )((struct sas_task *)0),
                              0L);
   }
   if (tmp___0 != 0L) {
     tmp___2 = 1;
   } else {
     {
-    tmp___1 = __builtin_expect((unsigned long )t->lldd_task == (unsigned long )((void *)0),
+    tmp___1 = ldv__builtin_expect((unsigned long )t->lldd_task == (unsigned long )((void *)0),
                                0L);
     }
     if (tmp___1 != 0L) {
@@ -33019,7 +33016,7 @@ static void mpi_ssp_event___0(struct pm8001_hba_info *pm8001_ha , void *piomb )
     return;
   } else {
     {
-    tmp___3 = __builtin_expect((unsigned long )t->dev == (unsigned long )((struct domain_device *)0),
+    tmp___3 = ldv__builtin_expect((unsigned long )t->dev == (unsigned long )((struct domain_device *)0),
                                0L);
     }
     if (tmp___3 != 0L) {
@@ -33030,7 +33027,7 @@ static void mpi_ssp_event___0(struct pm8001_hba_info *pm8001_ha , void *piomb )
   }
   {
   ts = & t->task_status;
-  tmp___4 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+  tmp___4 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
   }
   if (tmp___4 != 0L) {
     {
@@ -33174,7 +33171,7 @@ static void mpi_ssp_event___0(struct pm8001_hba_info *pm8001_ha , void *piomb )
   goto switch_default;
   case_2: /* CIL Label */ 
   {
-  tmp___5 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+  tmp___5 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
   }
   if (tmp___5 != 0L) {
     {
@@ -33194,7 +33191,7 @@ static void mpi_ssp_event___0(struct pm8001_hba_info *pm8001_ha , void *piomb )
   goto ldv_46636;
   case_14: /* CIL Label */ 
   {
-  tmp___6 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+  tmp___6 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
   }
   if (tmp___6 != 0L) {
     {
@@ -33209,7 +33206,7 @@ static void mpi_ssp_event___0(struct pm8001_hba_info *pm8001_ha , void *piomb )
   return;
   case_15: /* CIL Label */ 
   {
-  tmp___7 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+  tmp___7 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
   }
   if (tmp___7 != 0L) {
     {
@@ -33224,7 +33221,7 @@ static void mpi_ssp_event___0(struct pm8001_hba_info *pm8001_ha , void *piomb )
   goto ldv_46636;
   case_16: /* CIL Label */ 
   {
-  tmp___8 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+  tmp___8 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
   }
   if (tmp___8 != 0L) {
     {
@@ -33240,7 +33237,7 @@ static void mpi_ssp_event___0(struct pm8001_hba_info *pm8001_ha , void *piomb )
   goto ldv_46636;
   case_17: /* CIL Label */ 
   {
-  tmp___9 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+  tmp___9 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
   }
   if (tmp___9 != 0L) {
     {
@@ -33256,7 +33253,7 @@ static void mpi_ssp_event___0(struct pm8001_hba_info *pm8001_ha , void *piomb )
   goto ldv_46636;
   case_18: /* CIL Label */ 
   {
-  tmp___10 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+  tmp___10 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
   }
   if (tmp___10 != 0L) {
     {
@@ -33276,7 +33273,7 @@ static void mpi_ssp_event___0(struct pm8001_hba_info *pm8001_ha , void *piomb )
   case_71: /* CIL Label */ ;
   case_72: /* CIL Label */ 
   {
-  tmp___11 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+  tmp___11 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
   }
   if (tmp___11 != 0L) {
     {
@@ -33299,7 +33296,7 @@ static void mpi_ssp_event___0(struct pm8001_hba_info *pm8001_ha , void *piomb )
   goto ldv_46636;
   case_20: /* CIL Label */ 
   {
-  tmp___12 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+  tmp___12 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
   }
   if (tmp___12 != 0L) {
     {
@@ -33315,7 +33312,7 @@ static void mpi_ssp_event___0(struct pm8001_hba_info *pm8001_ha , void *piomb )
   goto ldv_46636;
   case_21: /* CIL Label */ 
   {
-  tmp___13 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+  tmp___13 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
   }
   if (tmp___13 != 0L) {
     {
@@ -33331,7 +33328,7 @@ static void mpi_ssp_event___0(struct pm8001_hba_info *pm8001_ha , void *piomb )
   goto ldv_46636;
   case_23: /* CIL Label */ 
   {
-  tmp___14 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+  tmp___14 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
   }
   if (tmp___14 != 0L) {
     {
@@ -33347,7 +33344,7 @@ static void mpi_ssp_event___0(struct pm8001_hba_info *pm8001_ha , void *piomb )
   goto ldv_46636;
   case_25: /* CIL Label */ 
   {
-  tmp___15 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+  tmp___15 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
   }
   if (tmp___15 != 0L) {
     {
@@ -33362,7 +33359,7 @@ static void mpi_ssp_event___0(struct pm8001_hba_info *pm8001_ha , void *piomb )
   goto ldv_46636;
   case_26: /* CIL Label */ 
   {
-  tmp___16 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+  tmp___16 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
   }
   if (tmp___16 != 0L) {
     {
@@ -33376,7 +33373,7 @@ static void mpi_ssp_event___0(struct pm8001_hba_info *pm8001_ha , void *piomb )
   goto ldv_46636;
   case_36: /* CIL Label */ 
   {
-  tmp___17 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+  tmp___17 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
   }
   if (tmp___17 != 0L) {
     {
@@ -33391,7 +33388,7 @@ static void mpi_ssp_event___0(struct pm8001_hba_info *pm8001_ha , void *piomb )
   return;
   case_38: /* CIL Label */ 
   {
-  tmp___18 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+  tmp___18 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
   }
   if (tmp___18 != 0L) {
     {
@@ -33405,7 +33402,7 @@ static void mpi_ssp_event___0(struct pm8001_hba_info *pm8001_ha , void *piomb )
   goto ldv_46636;
   case_39: /* CIL Label */ 
   {
-  tmp___19 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+  tmp___19 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
   }
   if (tmp___19 != 0L) {
     {
@@ -33419,7 +33416,7 @@ static void mpi_ssp_event___0(struct pm8001_hba_info *pm8001_ha , void *piomb )
   goto ldv_46636;
   case_40: /* CIL Label */ 
   {
-  tmp___20 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+  tmp___20 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
   }
   if (tmp___20 != 0L) {
     {
@@ -33434,7 +33431,7 @@ static void mpi_ssp_event___0(struct pm8001_hba_info *pm8001_ha , void *piomb )
   goto ldv_46636;
   case_48: /* CIL Label */ 
   {
-  tmp___21 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+  tmp___21 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
   }
   if (tmp___21 != 0L) {
     {
@@ -33449,7 +33446,7 @@ static void mpi_ssp_event___0(struct pm8001_hba_info *pm8001_ha , void *piomb )
   goto ldv_46636;
   case_52: /* CIL Label */ 
   {
-  tmp___22 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+  tmp___22 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
   }
   if (tmp___22 != 0L) {
     {
@@ -33463,7 +33460,7 @@ static void mpi_ssp_event___0(struct pm8001_hba_info *pm8001_ha , void *piomb )
   goto ldv_46636;
   case_53: /* CIL Label */ 
   {
-  tmp___23 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+  tmp___23 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
   }
   if (tmp___23 != 0L) {
     {
@@ -33478,7 +33475,7 @@ static void mpi_ssp_event___0(struct pm8001_hba_info *pm8001_ha , void *piomb )
   goto ldv_46636;
   case_84: /* CIL Label */ 
   {
-  tmp___24 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+  tmp___24 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
   }
   if (tmp___24 != 0L) {
     {
@@ -33493,7 +33490,7 @@ static void mpi_ssp_event___0(struct pm8001_hba_info *pm8001_ha , void *piomb )
   goto ldv_46636;
   case_54: /* CIL Label */ 
   {
-  tmp___25 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+  tmp___25 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
   }
   if (tmp___25 != 0L) {
     {
@@ -33505,7 +33502,7 @@ static void mpi_ssp_event___0(struct pm8001_hba_info *pm8001_ha , void *piomb )
   return;
   switch_default: /* CIL Label */ 
   {
-  tmp___26 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+  tmp___26 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
   }
   if (tmp___26 != 0L) {
     {
@@ -33525,12 +33522,12 @@ static void mpi_ssp_event___0(struct pm8001_hba_info *pm8001_ha , void *piomb )
   t->task_state_flags = t->task_state_flags & 4294967294U;
   t->task_state_flags = t->task_state_flags & 4294967279U;
   t->task_state_flags = t->task_state_flags | 2U;
-  tmp___28 = __builtin_expect((t->task_state_flags & 4U) != 0U, 0L);
+  tmp___28 = ldv__builtin_expect((t->task_state_flags & 4U) != 0U, 0L);
   }
   if (tmp___28 != 0L) {
     {
     ldv_spin_unlock_irqrestore_135(& t->task_state_lock, flags);
-    tmp___27 = __builtin_expect((long )((int )pm8001_ha->logging_level) & 1L, 0L);
+    tmp___27 = ldv__builtin_expect((long )((int )pm8001_ha->logging_level) & 1L, 0L);
     }
     if (tmp___27 != 0L) {
       {
@@ -33625,7 +33622,7 @@ static void mpi_sata_completion___0(struct pm8001_hba_info *pm8001_ha , void *pi
   tag = psataPayload->tag;
   if (tag == 0U) {
     {
-    tmp = __builtin_expect((long )((int )pm8001_ha->logging_level) & 1L, 0L);
+    tmp = ldv__builtin_expect((long )((int )pm8001_ha->logging_level) & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -33645,7 +33642,7 @@ static void mpi_sata_completion___0(struct pm8001_hba_info *pm8001_ha , void *pi
     pm8001_dev = ccb->device;
   } else {
     {
-    tmp___0 = __builtin_expect((long )((int )pm8001_ha->logging_level) & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )((int )pm8001_ha->logging_level) & 1L, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -33664,7 +33661,7 @@ static void mpi_sata_completion___0(struct pm8001_hba_info *pm8001_ha , void *pi
     }
   } else {
     {
-    tmp___1 = __builtin_expect((long )((int )pm8001_ha->logging_level) & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )((int )pm8001_ha->logging_level) & 1L, 0L);
     }
     if (tmp___1 != 0L) {
       {
@@ -33677,14 +33674,14 @@ static void mpi_sata_completion___0(struct pm8001_hba_info *pm8001_ha , void *pi
   }
   if ((unsigned long )pm8001_dev != (unsigned long )((struct pm8001_device *)0) && (int )pm8001_dev->id >= 0) {
     {
-    tmp___3 = __builtin_expect((unsigned long )t == (unsigned long )((struct sas_task *)0),
+    tmp___3 = ldv__builtin_expect((unsigned long )t == (unsigned long )((struct sas_task *)0),
                                0L);
     }
     if (tmp___3 != 0L) {
       tmp___5 = 1;
     } else {
       {
-      tmp___4 = __builtin_expect((unsigned long )t->lldd_task == (unsigned long )((void *)0),
+      tmp___4 = ldv__builtin_expect((unsigned long )t->lldd_task == (unsigned long )((void *)0),
                                  0L);
       }
       if (tmp___4 != 0L) {
@@ -33697,13 +33694,13 @@ static void mpi_sata_completion___0(struct pm8001_hba_info *pm8001_ha , void *pi
       goto _L;
     } else {
       {
-      tmp___6 = __builtin_expect((unsigned long )t->dev == (unsigned long )((struct domain_device *)0),
+      tmp___6 = ldv__builtin_expect((unsigned long )t->dev == (unsigned long )((struct domain_device *)0),
                                  0L);
       }
       if (tmp___6 != 0L) {
         _L: /* CIL Label */ 
         {
-        tmp___2 = __builtin_expect((long )((int )pm8001_ha->logging_level) & 1L, 0L);
+        tmp___2 = ldv__builtin_expect((long )((int )pm8001_ha->logging_level) & 1L, 0L);
         }
         if (tmp___2 != 0L) {
           {
@@ -33723,7 +33720,7 @@ static void mpi_sata_completion___0(struct pm8001_hba_info *pm8001_ha , void *pi
   ts = & t->task_status;
   if ((unsigned long )ts == (unsigned long )((struct task_status_struct *)0)) {
     {
-    tmp___7 = __builtin_expect((long )((int )pm8001_ha->logging_level) & 1L, 0L);
+    tmp___7 = ldv__builtin_expect((long )((int )pm8001_ha->logging_level) & 1L, 0L);
     }
     if (tmp___7 != 0L) {
       {
@@ -33770,7 +33767,7 @@ static void mpi_sata_completion___0(struct pm8001_hba_info *pm8001_ha , void *pi
       __memcpy((void *)(& temp_sata_addr_hi), (void const   *)(& sata_addr_hi), 4UL);
       temp_sata_addr_hi = (((temp_sata_addr_hi >> 24) | ((temp_sata_addr_hi << 8) & 16711680U)) | ((temp_sata_addr_hi >> 8) & 65280U)) | (temp_sata_addr_hi << 24);
       temp_sata_addr_low = (((((temp_sata_addr_low >> 24) | ((temp_sata_addr_low << 8) & 16711680U)) | ((temp_sata_addr_low >> 8) & 65280U)) | (temp_sata_addr_low << 24)) + pm8001_dev->attached_phy) + 16U;
-      tmp___8 = __builtin_expect((long )((int )pm8001_ha->logging_level) & 1L, 0L);
+      tmp___8 = ldv__builtin_expect((long )((int )pm8001_ha->logging_level) & 1L, 0L);
       }
       if (tmp___8 != 0L) {
         {
@@ -33782,7 +33779,7 @@ static void mpi_sata_completion___0(struct pm8001_hba_info *pm8001_ha , void *pi
       }
     } else {
       {
-      tmp___10 = __builtin_expect((long )((int )pm8001_ha->logging_level) & 1L, 0L);
+      tmp___10 = ldv__builtin_expect((long )((int )pm8001_ha->logging_level) & 1L, 0L);
       }
       if (tmp___10 != 0L) {
         {
@@ -33951,7 +33948,7 @@ static void mpi_sata_completion___0(struct pm8001_hba_info *pm8001_ha , void *pi
   goto switch_default;
   case_0: /* CIL Label */ 
   {
-  tmp___11 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+  tmp___11 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
   }
   if (tmp___11 != 0L) {
     {
@@ -33980,7 +33977,7 @@ static void mpi_sata_completion___0(struct pm8001_hba_info *pm8001_ha , void *pi
     ts->resp = 0;
     ts->stat = 137;
     ts->residual = param;
-    tmp___12 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+    tmp___12 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
     }
     if (tmp___12 != 0L) {
       {
@@ -33995,7 +33992,7 @@ static void mpi_sata_completion___0(struct pm8001_hba_info *pm8001_ha , void *pi
     if ((unsigned int )*((unsigned char *)t + 125UL) == 0U && (unsigned int )*((unsigned char *)t + 184UL) == 2U) {
       {
       len = 19U;
-      tmp___13 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+      tmp___13 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
       }
       if (tmp___13 != 0L) {
         {
@@ -34009,7 +34006,7 @@ static void mpi_sata_completion___0(struct pm8001_hba_info *pm8001_ha , void *pi
     if ((unsigned int )*((unsigned char *)t + 125UL) != 0U) {
       {
       len = 8U;
-      tmp___14 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+      tmp___14 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
       }
       if (tmp___14 != 0L) {
         {
@@ -34021,7 +34018,7 @@ static void mpi_sata_completion___0(struct pm8001_hba_info *pm8001_ha , void *pi
     } else {
       {
       len = 20U;
-      tmp___15 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+      tmp___15 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
       }
       if (tmp___15 != 0L) {
         {
@@ -34045,7 +34042,7 @@ static void mpi_sata_completion___0(struct pm8001_hba_info *pm8001_ha , void *pi
   goto ldv_46693;
   case_1: /* CIL Label */ 
   {
-  tmp___17 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+  tmp___17 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
   }
   if (tmp___17 != 0L) {
     {
@@ -34064,7 +34061,7 @@ static void mpi_sata_completion___0(struct pm8001_hba_info *pm8001_ha , void *pi
   goto ldv_46693;
   case_3: /* CIL Label */ 
   {
-  tmp___18 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+  tmp___18 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
   }
   if (tmp___18 != 0L) {
     {
@@ -34085,7 +34082,7 @@ static void mpi_sata_completion___0(struct pm8001_hba_info *pm8001_ha , void *pi
   goto ldv_46693;
   case_7: /* CIL Label */ 
   {
-  tmp___19 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+  tmp___19 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
   }
   if (tmp___19 != 0L) {
     {
@@ -34099,7 +34096,7 @@ static void mpi_sata_completion___0(struct pm8001_hba_info *pm8001_ha , void *pi
   goto ldv_46693;
   case_14: /* CIL Label */ 
   {
-  tmp___20 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+  tmp___20 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
   }
   if (tmp___20 != 0L) {
     {
@@ -34113,7 +34110,7 @@ static void mpi_sata_completion___0(struct pm8001_hba_info *pm8001_ha , void *pi
   goto ldv_46693;
   case_15: /* CIL Label */ 
   {
-  tmp___21 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+  tmp___21 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
   }
   if (tmp___21 != 0L) {
     {
@@ -34129,7 +34126,7 @@ static void mpi_sata_completion___0(struct pm8001_hba_info *pm8001_ha , void *pi
   goto ldv_46693;
   case_16: /* CIL Label */ 
   {
-  tmp___22 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+  tmp___22 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
   }
   if (tmp___22 != 0L) {
     {
@@ -34145,7 +34142,7 @@ static void mpi_sata_completion___0(struct pm8001_hba_info *pm8001_ha , void *pi
   goto ldv_46693;
   case_17: /* CIL Label */ 
   {
-  tmp___23 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+  tmp___23 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
   }
   if (tmp___23 != 0L) {
     {
@@ -34161,7 +34158,7 @@ static void mpi_sata_completion___0(struct pm8001_hba_info *pm8001_ha , void *pi
   goto ldv_46693;
   case_18: /* CIL Label */ 
   {
-  tmp___24 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+  tmp___24 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
   }
   if (tmp___24 != 0L) {
     {
@@ -34181,7 +34178,7 @@ static void mpi_sata_completion___0(struct pm8001_hba_info *pm8001_ha , void *pi
   case_71: /* CIL Label */ ;
   case_72: /* CIL Label */ 
   {
-  tmp___25 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+  tmp___25 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
   }
   if (tmp___25 != 0L) {
     {
@@ -34207,7 +34204,7 @@ static void mpi_sata_completion___0(struct pm8001_hba_info *pm8001_ha , void *pi
   goto ldv_46693;
   case_20: /* CIL Label */ 
   {
-  tmp___26 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+  tmp___26 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
   }
   if (tmp___26 != 0L) {
     {
@@ -34234,7 +34231,7 @@ static void mpi_sata_completion___0(struct pm8001_hba_info *pm8001_ha , void *pi
   goto ldv_46693;
   case_21: /* CIL Label */ 
   {
-  tmp___27 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+  tmp___27 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
   }
   if (tmp___27 != 0L) {
     {
@@ -34250,7 +34247,7 @@ static void mpi_sata_completion___0(struct pm8001_hba_info *pm8001_ha , void *pi
   goto ldv_46693;
   case_22: /* CIL Label */ 
   {
-  tmp___28 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+  tmp___28 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
   }
   if (tmp___28 != 0L) {
     {
@@ -34276,7 +34273,7 @@ static void mpi_sata_completion___0(struct pm8001_hba_info *pm8001_ha , void *pi
   goto ldv_46693;
   case_23: /* CIL Label */ 
   {
-  tmp___29 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+  tmp___29 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
   }
   if (tmp___29 != 0L) {
     {
@@ -34292,7 +34289,7 @@ static void mpi_sata_completion___0(struct pm8001_hba_info *pm8001_ha , void *pi
   goto ldv_46693;
   case_25: /* CIL Label */ 
   {
-  tmp___30 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+  tmp___30 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
   }
   if (tmp___30 != 0L) {
     {
@@ -34307,7 +34304,7 @@ static void mpi_sata_completion___0(struct pm8001_hba_info *pm8001_ha , void *pi
   goto ldv_46693;
   case_26: /* CIL Label */ 
   {
-  tmp___31 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+  tmp___31 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
   }
   if (tmp___31 != 0L) {
     {
@@ -34322,7 +34319,7 @@ static void mpi_sata_completion___0(struct pm8001_hba_info *pm8001_ha , void *pi
   goto ldv_46693;
   case_29: /* CIL Label */ 
   {
-  tmp___32 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+  tmp___32 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
   }
   if (tmp___32 != 0L) {
     {
@@ -34336,7 +34333,7 @@ static void mpi_sata_completion___0(struct pm8001_hba_info *pm8001_ha , void *pi
   goto ldv_46693;
   case_31: /* CIL Label */ 
   {
-  tmp___33 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+  tmp___33 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
   }
   if (tmp___33 != 0L) {
     {
@@ -34351,7 +34348,7 @@ static void mpi_sata_completion___0(struct pm8001_hba_info *pm8001_ha , void *pi
   goto ldv_46693;
   case_33: /* CIL Label */ 
   {
-  tmp___34 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+  tmp___34 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
   }
   if (tmp___34 != 0L) {
     {
@@ -34366,7 +34363,7 @@ static void mpi_sata_completion___0(struct pm8001_hba_info *pm8001_ha , void *pi
   goto ldv_46693;
   case_36: /* CIL Label */ 
   {
-  tmp___35 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+  tmp___35 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
   }
   if (tmp___35 != 0L) {
     {
@@ -34381,7 +34378,7 @@ static void mpi_sata_completion___0(struct pm8001_hba_info *pm8001_ha , void *pi
   goto ldv_46693;
   case_56: /* CIL Label */ 
   {
-  tmp___36 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+  tmp___36 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
   }
   if (tmp___36 != 0L) {
     {
@@ -34395,7 +34392,7 @@ static void mpi_sata_completion___0(struct pm8001_hba_info *pm8001_ha , void *pi
   goto ldv_46693;
   case_57: /* CIL Label */ 
   {
-  tmp___37 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+  tmp___37 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
   }
   if (tmp___37 != 0L) {
     {
@@ -34420,7 +34417,7 @@ static void mpi_sata_completion___0(struct pm8001_hba_info *pm8001_ha , void *pi
   goto ldv_46693;
   case_58: /* CIL Label */ 
   {
-  tmp___38 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+  tmp___38 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
   }
   if (tmp___38 != 0L) {
     {
@@ -34434,7 +34431,7 @@ static void mpi_sata_completion___0(struct pm8001_hba_info *pm8001_ha , void *pi
   goto ldv_46693;
   case_62: /* CIL Label */ 
   {
-  tmp___39 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+  tmp___39 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
   }
   if (tmp___39 != 0L) {
     {
@@ -34459,7 +34456,7 @@ static void mpi_sata_completion___0(struct pm8001_hba_info *pm8001_ha , void *pi
   goto ldv_46693;
   case_63: /* CIL Label */ 
   {
-  tmp___40 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+  tmp___40 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
   }
   if (tmp___40 != 0L) {
     {
@@ -34474,7 +34471,7 @@ static void mpi_sata_completion___0(struct pm8001_hba_info *pm8001_ha , void *pi
   ts->open_rej_reason = 18;
   switch_default: /* CIL Label */ 
   {
-  tmp___41 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+  tmp___41 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
   }
   if (tmp___41 != 0L) {
     {
@@ -34495,12 +34492,12 @@ static void mpi_sata_completion___0(struct pm8001_hba_info *pm8001_ha , void *pi
   t->task_state_flags = t->task_state_flags & 4294967294U;
   t->task_state_flags = t->task_state_flags & 4294967279U;
   t->task_state_flags = t->task_state_flags | 2U;
-  tmp___43 = __builtin_expect((t->task_state_flags & 4U) != 0U, 0L);
+  tmp___43 = ldv__builtin_expect((t->task_state_flags & 4U) != 0U, 0L);
   }
   if (tmp___43 != 0L) {
     {
     ldv_spin_unlock_irqrestore_135(& t->task_state_lock, flags);
-    tmp___42 = __builtin_expect((long )((int )pm8001_ha->logging_level) & 1L, 0L);
+    tmp___42 = ldv__builtin_expect((long )((int )pm8001_ha->logging_level) & 1L, 0L);
     }
     if (tmp___42 != 0L) {
       {
@@ -34581,7 +34578,7 @@ static void mpi_sata_event___0(struct pm8001_hba_info *pm8001_ha , void *piomb )
     pm8001_dev = ccb->device;
   } else {
     {
-    tmp = __builtin_expect((long )((int )pm8001_ha->logging_level) & 1L, 0L);
+    tmp = ldv__builtin_expect((long )((int )pm8001_ha->logging_level) & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -34594,7 +34591,7 @@ static void mpi_sata_event___0(struct pm8001_hba_info *pm8001_ha , void *piomb )
   }
   if (event != 0U) {
     {
-    tmp___0 = __builtin_expect((long )((int )pm8001_ha->logging_level) & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )((int )pm8001_ha->logging_level) & 1L, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -34622,14 +34619,14 @@ static void mpi_sata_event___0(struct pm8001_hba_info *pm8001_ha , void *piomb )
 
   }
   {
-  tmp___2 = __builtin_expect((unsigned long )t == (unsigned long )((struct sas_task *)0),
+  tmp___2 = ldv__builtin_expect((unsigned long )t == (unsigned long )((struct sas_task *)0),
                              0L);
   }
   if (tmp___2 != 0L) {
     tmp___4 = 1;
   } else {
     {
-    tmp___3 = __builtin_expect((unsigned long )t->lldd_task == (unsigned long )((void *)0),
+    tmp___3 = ldv__builtin_expect((unsigned long )t->lldd_task == (unsigned long )((void *)0),
                                0L);
     }
     if (tmp___3 != 0L) {
@@ -34642,13 +34639,13 @@ static void mpi_sata_event___0(struct pm8001_hba_info *pm8001_ha , void *piomb )
     goto _L;
   } else {
     {
-    tmp___5 = __builtin_expect((unsigned long )t->dev == (unsigned long )((struct domain_device *)0),
+    tmp___5 = ldv__builtin_expect((unsigned long )t->dev == (unsigned long )((struct domain_device *)0),
                                0L);
     }
     if (tmp___5 != 0L) {
       _L: /* CIL Label */ 
       {
-      tmp___1 = __builtin_expect((long )((int )pm8001_ha->logging_level) & 1L, 0L);
+      tmp___1 = ldv__builtin_expect((long )((int )pm8001_ha->logging_level) & 1L, 0L);
       }
       if (tmp___1 != 0L) {
         {
@@ -34664,7 +34661,7 @@ static void mpi_sata_event___0(struct pm8001_hba_info *pm8001_ha , void *piomb )
   }
   {
   ts = & t->task_status;
-  tmp___6 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+  tmp___6 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
   }
   if (tmp___6 != 0L) {
     {
@@ -34818,7 +34815,7 @@ static void mpi_sata_event___0(struct pm8001_hba_info *pm8001_ha , void *piomb )
   goto switch_default;
   case_2: /* CIL Label */ 
   {
-  tmp___7 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+  tmp___7 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
   }
   if (tmp___7 != 0L) {
     {
@@ -34838,7 +34835,7 @@ static void mpi_sata_event___0(struct pm8001_hba_info *pm8001_ha , void *piomb )
   goto ldv_46740;
   case_14: /* CIL Label */ 
   {
-  tmp___8 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+  tmp___8 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
   }
   if (tmp___8 != 0L) {
     {
@@ -34852,7 +34849,7 @@ static void mpi_sata_event___0(struct pm8001_hba_info *pm8001_ha , void *piomb )
   goto ldv_46740;
   case_15: /* CIL Label */ 
   {
-  tmp___9 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+  tmp___9 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
   }
   if (tmp___9 != 0L) {
     {
@@ -34867,7 +34864,7 @@ static void mpi_sata_event___0(struct pm8001_hba_info *pm8001_ha , void *piomb )
   goto ldv_46740;
   case_16: /* CIL Label */ 
   {
-  tmp___10 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+  tmp___10 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
   }
   if (tmp___10 != 0L) {
     {
@@ -34883,7 +34880,7 @@ static void mpi_sata_event___0(struct pm8001_hba_info *pm8001_ha , void *piomb )
   goto ldv_46740;
   case_17: /* CIL Label */ 
   {
-  tmp___11 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+  tmp___11 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
   }
   if (tmp___11 != 0L) {
     {
@@ -34899,7 +34896,7 @@ static void mpi_sata_event___0(struct pm8001_hba_info *pm8001_ha , void *piomb )
   goto ldv_46740;
   case_18: /* CIL Label */ 
   {
-  tmp___12 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+  tmp___12 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
   }
   if (tmp___12 != 0L) {
     {
@@ -34919,7 +34916,7 @@ static void mpi_sata_event___0(struct pm8001_hba_info *pm8001_ha , void *piomb )
   case_71: /* CIL Label */ ;
   case_72: /* CIL Label */ 
   {
-  tmp___13 = __builtin_expect((long )((int )pm8001_ha->logging_level) & 1L, 0L);
+  tmp___13 = ldv__builtin_expect((long )((int )pm8001_ha->logging_level) & 1L, 0L);
   }
   if (tmp___13 != 0L) {
     {
@@ -34945,7 +34942,7 @@ static void mpi_sata_event___0(struct pm8001_hba_info *pm8001_ha , void *piomb )
   goto ldv_46740;
   case_20: /* CIL Label */ 
   {
-  tmp___14 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+  tmp___14 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
   }
   if (tmp___14 != 0L) {
     {
@@ -34961,7 +34958,7 @@ static void mpi_sata_event___0(struct pm8001_hba_info *pm8001_ha , void *piomb )
   goto ldv_46740;
   case_21: /* CIL Label */ 
   {
-  tmp___15 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+  tmp___15 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
   }
   if (tmp___15 != 0L) {
     {
@@ -34977,7 +34974,7 @@ static void mpi_sata_event___0(struct pm8001_hba_info *pm8001_ha , void *piomb )
   goto ldv_46740;
   case_23: /* CIL Label */ 
   {
-  tmp___16 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+  tmp___16 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
   }
   if (tmp___16 != 0L) {
     {
@@ -34993,7 +34990,7 @@ static void mpi_sata_event___0(struct pm8001_hba_info *pm8001_ha , void *piomb )
   goto ldv_46740;
   case_25: /* CIL Label */ 
   {
-  tmp___17 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+  tmp___17 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
   }
   if (tmp___17 != 0L) {
     {
@@ -35007,7 +35004,7 @@ static void mpi_sata_event___0(struct pm8001_hba_info *pm8001_ha , void *piomb )
   goto ldv_46740;
   case_27: /* CIL Label */ 
   {
-  tmp___18 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+  tmp___18 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
   }
   if (tmp___18 != 0L) {
     {
@@ -35021,7 +35018,7 @@ static void mpi_sata_event___0(struct pm8001_hba_info *pm8001_ha , void *piomb )
   goto ldv_46740;
   case_33: /* CIL Label */ 
   {
-  tmp___19 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+  tmp___19 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
   }
   if (tmp___19 != 0L) {
     {
@@ -35036,7 +35033,7 @@ static void mpi_sata_event___0(struct pm8001_hba_info *pm8001_ha , void *piomb )
   goto ldv_46740;
   case_36: /* CIL Label */ 
   {
-  tmp___20 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+  tmp___20 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
   }
   if (tmp___20 != 0L) {
     {
@@ -35050,7 +35047,7 @@ static void mpi_sata_event___0(struct pm8001_hba_info *pm8001_ha , void *piomb )
   goto ldv_46740;
   case_38: /* CIL Label */ 
   {
-  tmp___21 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+  tmp___21 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
   }
   if (tmp___21 != 0L) {
     {
@@ -35065,7 +35062,7 @@ static void mpi_sata_event___0(struct pm8001_hba_info *pm8001_ha , void *piomb )
   goto ldv_46740;
   case_39: /* CIL Label */ 
   {
-  tmp___22 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+  tmp___22 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
   }
   if (tmp___22 != 0L) {
     {
@@ -35080,7 +35077,7 @@ static void mpi_sata_event___0(struct pm8001_hba_info *pm8001_ha , void *piomb )
   goto ldv_46740;
   case_40: /* CIL Label */ 
   {
-  tmp___23 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+  tmp___23 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
   }
   if (tmp___23 != 0L) {
     {
@@ -35095,7 +35092,7 @@ static void mpi_sata_event___0(struct pm8001_hba_info *pm8001_ha , void *piomb )
   goto ldv_46740;
   case_52: /* CIL Label */ 
   {
-  tmp___24 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+  tmp___24 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
   }
   if (tmp___24 != 0L) {
     {
@@ -35109,7 +35106,7 @@ static void mpi_sata_event___0(struct pm8001_hba_info *pm8001_ha , void *piomb )
   goto ldv_46740;
   case_53: /* CIL Label */ 
   {
-  tmp___25 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+  tmp___25 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
   }
   if (tmp___25 != 0L) {
     {
@@ -35124,7 +35121,7 @@ static void mpi_sata_event___0(struct pm8001_hba_info *pm8001_ha , void *piomb )
   goto ldv_46740;
   case_54: /* CIL Label */ 
   {
-  tmp___26 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+  tmp___26 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
   }
   if (tmp___26 != 0L) {
     {
@@ -35136,7 +35133,7 @@ static void mpi_sata_event___0(struct pm8001_hba_info *pm8001_ha , void *piomb )
   goto ldv_46740;
   case_60: /* CIL Label */ 
   {
-  tmp___27 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+  tmp___27 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
   }
   if (tmp___27 != 0L) {
     {
@@ -35150,7 +35147,7 @@ static void mpi_sata_event___0(struct pm8001_hba_info *pm8001_ha , void *piomb )
   goto ldv_46740;
   case_84: /* CIL Label */ 
   {
-  tmp___28 = __builtin_expect((long )((int )pm8001_ha->logging_level) & 1L, 0L);
+  tmp___28 = ldv__builtin_expect((long )((int )pm8001_ha->logging_level) & 1L, 0L);
   }
   if (tmp___28 != 0L) {
     {
@@ -35165,7 +35162,7 @@ static void mpi_sata_event___0(struct pm8001_hba_info *pm8001_ha , void *piomb )
   goto ldv_46740;
   case_83: /* CIL Label */ 
   {
-  tmp___29 = __builtin_expect((long )((int )pm8001_ha->logging_level) & 1L, 0L);
+  tmp___29 = ldv__builtin_expect((long )((int )pm8001_ha->logging_level) & 1L, 0L);
   }
   if (tmp___29 != 0L) {
     {
@@ -35179,7 +35176,7 @@ static void mpi_sata_event___0(struct pm8001_hba_info *pm8001_ha , void *piomb )
   goto ldv_46740;
   switch_default: /* CIL Label */ 
   {
-  tmp___30 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+  tmp___30 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
   }
   if (tmp___30 != 0L) {
     {
@@ -35199,12 +35196,12 @@ static void mpi_sata_event___0(struct pm8001_hba_info *pm8001_ha , void *piomb )
   t->task_state_flags = t->task_state_flags & 4294967294U;
   t->task_state_flags = t->task_state_flags & 4294967279U;
   t->task_state_flags = t->task_state_flags | 2U;
-  tmp___32 = __builtin_expect((t->task_state_flags & 4U) != 0U, 0L);
+  tmp___32 = ldv__builtin_expect((t->task_state_flags & 4U) != 0U, 0L);
   }
   if (tmp___32 != 0L) {
     {
     ldv_spin_unlock_irqrestore_135(& t->task_state_lock, flags);
-    tmp___31 = __builtin_expect((long )((int )pm8001_ha->logging_level) & 1L, 0L);
+    tmp___31 = ldv__builtin_expect((long )((int )pm8001_ha->logging_level) & 1L, 0L);
     }
     if (tmp___31 != 0L) {
       {
@@ -35284,7 +35281,7 @@ static void mpi_smp_completion___0(struct pm8001_hba_info *pm8001_ha , void *pio
   pm8001_dev = ccb->device;
   if (status != 0U) {
     {
-    tmp = __builtin_expect((long )((int )pm8001_ha->logging_level) & 1L, 0L);
+    tmp = ldv__builtin_expect((long )((int )pm8001_ha->logging_level) & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -35298,14 +35295,14 @@ static void mpi_smp_completion___0(struct pm8001_hba_info *pm8001_ha , void *pio
 
   }
   {
-  tmp___0 = __builtin_expect((unsigned long )t == (unsigned long )((struct sas_task *)0),
+  tmp___0 = ldv__builtin_expect((unsigned long )t == (unsigned long )((struct sas_task *)0),
                              0L);
   }
   if (tmp___0 != 0L) {
     tmp___2 = 1;
   } else {
     {
-    tmp___1 = __builtin_expect((unsigned long )t->lldd_task == (unsigned long )((void *)0),
+    tmp___1 = ldv__builtin_expect((unsigned long )t->lldd_task == (unsigned long )((void *)0),
                                0L);
     }
     if (tmp___1 != 0L) {
@@ -35318,7 +35315,7 @@ static void mpi_smp_completion___0(struct pm8001_hba_info *pm8001_ha , void *pio
     return;
   } else {
     {
-    tmp___3 = __builtin_expect((unsigned long )t->dev == (unsigned long )((struct domain_device *)0),
+    tmp___3 = ldv__builtin_expect((unsigned long )t->dev == (unsigned long )((struct domain_device *)0),
                                0L);
     }
     if (tmp___3 != 0L) {
@@ -35461,7 +35458,7 @@ static void mpi_smp_completion___0(struct pm8001_hba_info *pm8001_ha , void *pio
   goto switch_default;
   case_0: /* CIL Label */ 
   {
-  tmp___4 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+  tmp___4 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
   }
   if (tmp___4 != 0L) {
     {
@@ -35479,7 +35476,7 @@ static void mpi_smp_completion___0(struct pm8001_hba_info *pm8001_ha , void *pio
   }
   if (pm8001_ha->smp_exp_mode == 1U) {
     {
-    tmp___5 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+    tmp___5 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
     }
     if (tmp___5 != 0L) {
       {
@@ -35498,7 +35495,7 @@ static void mpi_smp_completion___0(struct pm8001_hba_info *pm8001_ha , void *pio
     ldv_46786: 
     {
     *(pdma_respaddr + (unsigned long )i) = (char )psmpPayload->_r_a[i];
-    tmp___7 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+    tmp___7 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
     }
     if (tmp___7 != 0L) {
       {
@@ -35522,7 +35519,7 @@ static void mpi_smp_completion___0(struct pm8001_hba_info *pm8001_ha , void *pio
   goto ldv_46789;
   case_1: /* CIL Label */ 
   {
-  tmp___8 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+  tmp___8 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
   }
   if (tmp___8 != 0L) {
     {
@@ -35541,7 +35538,7 @@ static void mpi_smp_completion___0(struct pm8001_hba_info *pm8001_ha , void *pio
   goto ldv_46789;
   case_2: /* CIL Label */ 
   {
-  tmp___9 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+  tmp___9 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
   }
   if (tmp___9 != 0L) {
     {
@@ -35561,7 +35558,7 @@ static void mpi_smp_completion___0(struct pm8001_hba_info *pm8001_ha , void *pio
   goto ldv_46789;
   case_7: /* CIL Label */ 
   {
-  tmp___10 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+  tmp___10 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
   }
   if (tmp___10 != 0L) {
     {
@@ -35575,7 +35572,7 @@ static void mpi_smp_completion___0(struct pm8001_hba_info *pm8001_ha , void *pio
   goto ldv_46789;
   case_13: /* CIL Label */ 
   {
-  tmp___11 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+  tmp___11 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
   }
   if (tmp___11 != 0L) {
     {
@@ -35589,7 +35586,7 @@ static void mpi_smp_completion___0(struct pm8001_hba_info *pm8001_ha , void *pio
   goto ldv_46789;
   case_14: /* CIL Label */ 
   {
-  tmp___12 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+  tmp___12 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
   }
   if (tmp___12 != 0L) {
     {
@@ -35603,7 +35600,7 @@ static void mpi_smp_completion___0(struct pm8001_hba_info *pm8001_ha , void *pio
   goto ldv_46789;
   case_15: /* CIL Label */ 
   {
-  tmp___13 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+  tmp___13 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
   }
   if (tmp___13 != 0L) {
     {
@@ -35618,7 +35615,7 @@ static void mpi_smp_completion___0(struct pm8001_hba_info *pm8001_ha , void *pio
   goto ldv_46789;
   case_16: /* CIL Label */ 
   {
-  tmp___14 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+  tmp___14 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
   }
   if (tmp___14 != 0L) {
     {
@@ -35634,7 +35631,7 @@ static void mpi_smp_completion___0(struct pm8001_hba_info *pm8001_ha , void *pio
   goto ldv_46789;
   case_17: /* CIL Label */ 
   {
-  tmp___15 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+  tmp___15 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
   }
   if (tmp___15 != 0L) {
     {
@@ -35650,7 +35647,7 @@ static void mpi_smp_completion___0(struct pm8001_hba_info *pm8001_ha , void *pio
   goto ldv_46789;
   case_18: /* CIL Label */ 
   {
-  tmp___16 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+  tmp___16 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
   }
   if (tmp___16 != 0L) {
     {
@@ -35670,7 +35667,7 @@ static void mpi_smp_completion___0(struct pm8001_hba_info *pm8001_ha , void *pio
   case_71: /* CIL Label */ ;
   case_72: /* CIL Label */ 
   {
-  tmp___17 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+  tmp___17 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
   }
   if (tmp___17 != 0L) {
     {
@@ -35689,7 +35686,7 @@ static void mpi_smp_completion___0(struct pm8001_hba_info *pm8001_ha , void *pio
   goto ldv_46789;
   case_20: /* CIL Label */ 
   {
-  tmp___18 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+  tmp___18 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
   }
   if (tmp___18 != 0L) {
     {
@@ -35705,7 +35702,7 @@ static void mpi_smp_completion___0(struct pm8001_hba_info *pm8001_ha , void *pio
   goto ldv_46789;
   case_21: /* CIL Label */ 
   {
-  tmp___19 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+  tmp___19 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
   }
   if (tmp___19 != 0L) {
     {
@@ -35721,7 +35718,7 @@ static void mpi_smp_completion___0(struct pm8001_hba_info *pm8001_ha , void *pio
   goto ldv_46789;
   case_23: /* CIL Label */ 
   {
-  tmp___20 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+  tmp___20 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
   }
   if (tmp___20 != 0L) {
     {
@@ -35737,7 +35734,7 @@ static void mpi_smp_completion___0(struct pm8001_hba_info *pm8001_ha , void *pio
   goto ldv_46789;
   case_28: /* CIL Label */ 
   {
-  tmp___21 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+  tmp___21 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
   }
   if (tmp___21 != 0L) {
     {
@@ -35751,7 +35748,7 @@ static void mpi_smp_completion___0(struct pm8001_hba_info *pm8001_ha , void *pio
   goto ldv_46789;
   case_36: /* CIL Label */ 
   {
-  tmp___22 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+  tmp___22 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
   }
   if (tmp___22 != 0L) {
     {
@@ -35767,7 +35764,7 @@ static void mpi_smp_completion___0(struct pm8001_hba_info *pm8001_ha , void *pio
   goto ldv_46789;
   case_55: /* CIL Label */ 
   {
-  tmp___23 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+  tmp___23 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
   }
   if (tmp___23 != 0L) {
     {
@@ -35782,7 +35779,7 @@ static void mpi_smp_completion___0(struct pm8001_hba_info *pm8001_ha , void *pio
   goto ldv_46789;
   case_56: /* CIL Label */ 
   {
-  tmp___24 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+  tmp___24 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
   }
   if (tmp___24 != 0L) {
     {
@@ -35797,7 +35794,7 @@ static void mpi_smp_completion___0(struct pm8001_hba_info *pm8001_ha , void *pio
   goto ldv_46789;
   case_57: /* CIL Label */ 
   {
-  tmp___25 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+  tmp___25 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
   }
   if (tmp___25 != 0L) {
     {
@@ -35811,7 +35808,7 @@ static void mpi_smp_completion___0(struct pm8001_hba_info *pm8001_ha , void *pio
   goto ldv_46789;
   case_58: /* CIL Label */ 
   {
-  tmp___26 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+  tmp___26 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
   }
   if (tmp___26 != 0L) {
     {
@@ -35826,7 +35823,7 @@ static void mpi_smp_completion___0(struct pm8001_hba_info *pm8001_ha , void *pio
   goto ldv_46789;
   case_63: /* CIL Label */ 
   {
-  tmp___27 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+  tmp___27 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
   }
   if (tmp___27 != 0L) {
     {
@@ -35842,7 +35839,7 @@ static void mpi_smp_completion___0(struct pm8001_hba_info *pm8001_ha , void *pio
   goto ldv_46789;
   switch_default: /* CIL Label */ 
   {
-  tmp___28 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+  tmp___28 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
   }
   if (tmp___28 != 0L) {
     {
@@ -35862,12 +35859,12 @@ static void mpi_smp_completion___0(struct pm8001_hba_info *pm8001_ha , void *pio
   t->task_state_flags = t->task_state_flags & 4294967294U;
   t->task_state_flags = t->task_state_flags & 4294967279U;
   t->task_state_flags = t->task_state_flags | 2U;
-  tmp___30 = __builtin_expect((t->task_state_flags & 4U) != 0U, 0L);
+  tmp___30 = ldv__builtin_expect((t->task_state_flags & 4U) != 0U, 0L);
   }
   if (tmp___30 != 0L) {
     {
     ldv_spin_unlock_irqrestore_135(& t->task_state_lock, flags);
-    tmp___29 = __builtin_expect((long )((int )pm8001_ha->logging_level) & 1L, 0L);
+    tmp___29 = ldv__builtin_expect((long )((int )pm8001_ha->logging_level) & 1L, 0L);
     }
     if (tmp___29 != 0L) {
       {
@@ -35953,7 +35950,7 @@ static void hw_event_sas_phy_up___0(struct pm8001_hba_info *pm8001_ha , void *pi
   deviceType = pPayload->sas_identify.dev_type;
   port->port_state = portstate;
   phy->phy_state = 2U;
-  tmp = __builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
+  tmp = ldv__builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
   }
   if (tmp != 0L) {
     {
@@ -35988,7 +35985,7 @@ static void hw_event_sas_phy_up___0(struct pm8001_hba_info *pm8001_ha , void *pi
   goto switch_default;
   case_0: /* CIL Label */ 
   {
-  tmp___0 = __builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
+  tmp___0 = ldv__builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -36000,7 +35997,7 @@ static void hw_event_sas_phy_up___0(struct pm8001_hba_info *pm8001_ha , void *pi
   goto ldv_46850;
   case_1: /* CIL Label */ 
   {
-  tmp___1 = __builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
+  tmp___1 = ldv__builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -36017,7 +36014,7 @@ static void hw_event_sas_phy_up___0(struct pm8001_hba_info *pm8001_ha , void *pi
   goto ldv_46850;
   case_2: /* CIL Label */ 
   {
-  tmp___2 = __builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
+  tmp___2 = ldv__builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
   }
   if (tmp___2 != 0L) {
     {
@@ -36033,7 +36030,7 @@ static void hw_event_sas_phy_up___0(struct pm8001_hba_info *pm8001_ha , void *pi
   goto ldv_46850;
   case_3: /* CIL Label */ 
   {
-  tmp___3 = __builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
+  tmp___3 = ldv__builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
   }
   if (tmp___3 != 0L) {
     {
@@ -36049,7 +36046,7 @@ static void hw_event_sas_phy_up___0(struct pm8001_hba_info *pm8001_ha , void *pi
   goto ldv_46850;
   switch_default: /* CIL Label */ 
   {
-  tmp___4 = __builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
+  tmp___4 = ldv__builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
   }
   if (tmp___4 != 0L) {
     {
@@ -36136,7 +36133,7 @@ static void hw_event_sata_phy_up___0(struct pm8001_hba_info *pm8001_ha , void *p
   port = (struct pm8001_port *)(& pm8001_ha->port) + (unsigned long )port_id;
   sas_ha = pm8001_ha->sas;
   phy = (struct pm8001_phy *)(& pm8001_ha->phy) + (unsigned long )phy_id;
-  tmp = __builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
+  tmp = ldv__builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
   }
   if (tmp != 0L) {
     {
@@ -36234,7 +36231,7 @@ static void hw_event_phy_down___0(struct pm8001_hba_info *pm8001_ha , void *piom
   goto ldv_46888;
   case_8: /* CIL Label */ 
   {
-  tmp = __builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
+  tmp = ldv__builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
   }
   if (tmp != 0L) {
     {
@@ -36245,7 +36242,7 @@ static void hw_event_phy_down___0(struct pm8001_hba_info *pm8001_ha , void *piom
 
   }
   {
-  tmp___0 = __builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
+  tmp___0 = ldv__builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -36262,7 +36259,7 @@ static void hw_event_phy_down___0(struct pm8001_hba_info *pm8001_ha , void *piom
   goto ldv_46888;
   case_4: /* CIL Label */ 
   {
-  tmp___1 = __builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
+  tmp___1 = ldv__builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -36275,7 +36272,7 @@ static void hw_event_phy_down___0(struct pm8001_hba_info *pm8001_ha , void *piom
   goto ldv_46888;
   case_0: /* CIL Label */ 
   {
-  tmp___2 = __builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
+  tmp___2 = ldv__builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
   }
   if (tmp___2 != 0L) {
     {
@@ -36289,7 +36286,7 @@ static void hw_event_phy_down___0(struct pm8001_hba_info *pm8001_ha , void *piom
   goto ldv_46888;
   case_2: /* CIL Label */ 
   {
-  tmp___3 = __builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
+  tmp___3 = ldv__builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
   }
   if (tmp___3 != 0L) {
     {
@@ -36300,7 +36297,7 @@ static void hw_event_phy_down___0(struct pm8001_hba_info *pm8001_ha , void *piom
 
   }
   {
-  tmp___4 = __builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
+  tmp___4 = ldv__builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
   }
   if (tmp___4 != 0L) {
     {
@@ -36318,7 +36315,7 @@ static void hw_event_phy_down___0(struct pm8001_hba_info *pm8001_ha , void *piom
   switch_default: /* CIL Label */ 
   {
   port->port_attached = 0U;
-  tmp___5 = __builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
+  tmp___5 = ldv__builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
   }
   if (tmp___5 != 0L) {
     {
@@ -36349,7 +36346,7 @@ static int mpi_phy_start_resp(struct pm8001_hba_info *pm8001_ha , void *piomb )
   status = pPayload->status;
   phy_id = pPayload->phyid;
   phy = (struct pm8001_phy *)(& pm8001_ha->phy) + (unsigned long )phy_id;
-  tmp = __builtin_expect((pm8001_ha->logging_level & 2U) != 0U, 0L);
+  tmp = ldv__builtin_expect((pm8001_ha->logging_level & 2U) != 0U, 0L);
   }
   if (tmp != 0L) {
     {
@@ -36390,7 +36387,7 @@ static int mpi_thermal_hw_event(struct pm8001_hba_info *pm8001_ha , void *piomb 
   rht_lht = pPayload->rht_lht;
   if ((thermal_event & 64U) != 0U) {
     {
-    tmp = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+    tmp = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
     }
     if (tmp != 0L) {
       {
@@ -36401,7 +36398,7 @@ static int mpi_thermal_hw_event(struct pm8001_hba_info *pm8001_ha , void *piomb 
 
     }
     {
-    tmp___0 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+    tmp___0 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -36416,7 +36413,7 @@ static int mpi_thermal_hw_event(struct pm8001_hba_info *pm8001_ha , void *piomb 
   }
   if ((thermal_event & 16U) != 0U) {
     {
-    tmp___1 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+    tmp___1 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
     }
     if (tmp___1 != 0L) {
       {
@@ -36427,7 +36424,7 @@ static int mpi_thermal_hw_event(struct pm8001_hba_info *pm8001_ha , void *piomb 
 
     }
     {
-    tmp___2 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+    tmp___2 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
     }
     if (tmp___2 != 0L) {
       {
@@ -36494,7 +36491,7 @@ static int mpi_hw_event___0(struct pm8001_hba_info *pm8001_ha , void *piomb )
   sas_ha = pm8001_ha->sas;
   phy = (struct pm8001_phy *)(& pm8001_ha->phy) + (unsigned long )phy_id;
   sas_phy = *(sas_ha->sas_phy + (unsigned long )phy_id);
-  tmp = __builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
+  tmp = ldv__builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
   }
   if (tmp != 0L) {
     {
@@ -36623,7 +36620,7 @@ static int mpi_hw_event___0(struct pm8001_hba_info *pm8001_ha , void *piomb )
   goto switch_default;
   case_4: /* CIL Label */ 
   {
-  tmp___0 = __builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
+  tmp___0 = ldv__builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -36638,7 +36635,7 @@ static int mpi_hw_event___0(struct pm8001_hba_info *pm8001_ha , void *piomb )
   goto ldv_46929;
   case_5: /* CIL Label */ 
   {
-  tmp___1 = __builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
+  tmp___1 = ldv__builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -36653,7 +36650,7 @@ static int mpi_hw_event___0(struct pm8001_hba_info *pm8001_ha , void *piomb )
   goto ldv_46929;
   case_6: /* CIL Label */ 
   {
-  tmp___2 = __builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
+  tmp___2 = ldv__builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
   }
   if (tmp___2 != 0L) {
     {
@@ -36668,7 +36665,7 @@ static int mpi_hw_event___0(struct pm8001_hba_info *pm8001_ha , void *piomb )
   goto ldv_46929;
   case_7: /* CIL Label */ 
   {
-  tmp___3 = __builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
+  tmp___3 = ldv__builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
   }
   if (tmp___3 != 0L) {
     {
@@ -36686,7 +36683,7 @@ static int mpi_hw_event___0(struct pm8001_hba_info *pm8001_ha , void *piomb )
   goto ldv_46929;
   case_8: /* CIL Label */ 
   {
-  tmp___4 = __builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
+  tmp___4 = ldv__builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
   }
   if (tmp___4 != 0L) {
     {
@@ -36703,7 +36700,7 @@ static int mpi_hw_event___0(struct pm8001_hba_info *pm8001_ha , void *piomb )
   goto ldv_46929;
   case_9: /* CIL Label */ 
   {
-  tmp___5 = __builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
+  tmp___5 = ldv__builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
   }
   if (tmp___5 != 0L) {
     {
@@ -36722,7 +36719,7 @@ static int mpi_hw_event___0(struct pm8001_hba_info *pm8001_ha , void *piomb )
   goto ldv_46929;
   case_10: /* CIL Label */ 
   {
-  tmp___6 = __builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
+  tmp___6 = ldv__builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
   }
   if (tmp___6 != 0L) {
     {
@@ -36739,7 +36736,7 @@ static int mpi_hw_event___0(struct pm8001_hba_info *pm8001_ha , void *piomb )
   goto ldv_46929;
   case_16: /* CIL Label */ 
   {
-  tmp___7 = __builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
+  tmp___7 = ldv__builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
   }
   if (tmp___7 != 0L) {
     {
@@ -36757,7 +36754,7 @@ static int mpi_hw_event___0(struct pm8001_hba_info *pm8001_ha , void *piomb )
   goto ldv_46929;
   case_18: /* CIL Label */ 
   {
-  tmp___8 = __builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
+  tmp___8 = ldv__builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
   }
   if (tmp___8 != 0L) {
     {
@@ -36775,7 +36772,7 @@ static int mpi_hw_event___0(struct pm8001_hba_info *pm8001_ha , void *piomb )
   goto ldv_46929;
   case_19: /* CIL Label */ 
   {
-  tmp___9 = __builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
+  tmp___9 = ldv__builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
   }
   if (tmp___9 != 0L) {
     {
@@ -36794,7 +36791,7 @@ static int mpi_hw_event___0(struct pm8001_hba_info *pm8001_ha , void *piomb )
   goto ldv_46929;
   case_20: /* CIL Label */ 
   {
-  tmp___10 = __builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
+  tmp___10 = ldv__builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
   }
   if (tmp___10 != 0L) {
     {
@@ -36813,7 +36810,7 @@ static int mpi_hw_event___0(struct pm8001_hba_info *pm8001_ha , void *piomb )
   goto ldv_46929;
   case_21: /* CIL Label */ 
   {
-  tmp___11 = __builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
+  tmp___11 = ldv__builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
   }
   if (tmp___11 != 0L) {
     {
@@ -36832,7 +36829,7 @@ static int mpi_hw_event___0(struct pm8001_hba_info *pm8001_ha , void *piomb )
   goto ldv_46929;
   case_14: /* CIL Label */ 
   {
-  tmp___12 = __builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
+  tmp___12 = ldv__builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
   }
   if (tmp___12 != 0L) {
     {
@@ -36844,7 +36841,7 @@ static int mpi_hw_event___0(struct pm8001_hba_info *pm8001_ha , void *piomb )
   goto ldv_46929;
   case_11: /* CIL Label */ 
   {
-  tmp___13 = __builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
+  tmp___13 = ldv__builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
   }
   if (tmp___13 != 0L) {
     {
@@ -36862,7 +36859,7 @@ static int mpi_hw_event___0(struct pm8001_hba_info *pm8001_ha , void *piomb )
   goto ldv_46929;
   case_12: /* CIL Label */ 
   {
-  tmp___14 = __builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
+  tmp___14 = ldv__builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
   }
   if (tmp___14 != 0L) {
     {
@@ -36877,7 +36874,7 @@ static int mpi_hw_event___0(struct pm8001_hba_info *pm8001_ha , void *piomb )
   goto ldv_46929;
   case_13: /* CIL Label */ 
   {
-  tmp___15 = __builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
+  tmp___15 = ldv__builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
   }
   if (tmp___15 != 0L) {
     {
@@ -36892,7 +36889,7 @@ static int mpi_hw_event___0(struct pm8001_hba_info *pm8001_ha , void *piomb )
   goto ldv_46929;
   case_15: /* CIL Label */ 
   {
-  tmp___16 = __builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
+  tmp___16 = ldv__builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
   }
   if (tmp___16 != 0L) {
     {
@@ -36909,7 +36906,7 @@ static int mpi_hw_event___0(struct pm8001_hba_info *pm8001_ha , void *piomb )
   goto ldv_46929;
   case_22: /* CIL Label */ 
   {
-  tmp___17 = __builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
+  tmp___17 = ldv__builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
   }
   if (tmp___17 != 0L) {
     {
@@ -36928,7 +36925,7 @@ static int mpi_hw_event___0(struct pm8001_hba_info *pm8001_ha , void *piomb )
   goto ldv_46929;
   case_25: /* CIL Label */ 
   {
-  tmp___18 = __builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
+  tmp___18 = ldv__builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
   }
   if (tmp___18 != 0L) {
     {
@@ -36945,7 +36942,7 @@ static int mpi_hw_event___0(struct pm8001_hba_info *pm8001_ha , void *piomb )
   goto ldv_46929;
   case_23: /* CIL Label */ 
   {
-  tmp___19 = __builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
+  tmp___19 = ldv__builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
   }
   if (tmp___19 != 0L) {
     {
@@ -36964,7 +36961,7 @@ static int mpi_hw_event___0(struct pm8001_hba_info *pm8001_ha , void *piomb )
   goto ldv_46929;
   case_24: /* CIL Label */ 
   {
-  tmp___20 = __builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
+  tmp___20 = ldv__builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
   }
   if (tmp___20 != 0L) {
     {
@@ -36976,7 +36973,7 @@ static int mpi_hw_event___0(struct pm8001_hba_info *pm8001_ha , void *piomb )
   goto ldv_46929;
   case_32: /* CIL Label */ 
   {
-  tmp___21 = __builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
+  tmp___21 = ldv__builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
   }
   if (tmp___21 != 0L) {
     {
@@ -36988,7 +36985,7 @@ static int mpi_hw_event___0(struct pm8001_hba_info *pm8001_ha , void *piomb )
   goto ldv_46929;
   case_33: /* CIL Label */ 
   {
-  tmp___22 = __builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
+  tmp___22 = ldv__builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
   }
   if (tmp___22 != 0L) {
     {
@@ -37000,7 +36997,7 @@ static int mpi_hw_event___0(struct pm8001_hba_info *pm8001_ha , void *piomb )
   goto ldv_46929;
   switch_default: /* CIL Label */ 
   {
-  tmp___23 = __builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
+  tmp___23 = ldv__builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
   }
   if (tmp___23 != 0L) {
     {
@@ -37030,7 +37027,7 @@ static int mpi_phy_stop_resp(struct pm8001_hba_info *pm8001_ha , void *piomb )
   status = pPayload->status;
   phyid = pPayload->phyid;
   phy = (struct pm8001_phy *)(& pm8001_ha->phy) + (unsigned long )phyid;
-  tmp = __builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
+  tmp = ldv__builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
   }
   if (tmp != 0L) {
     {
@@ -37060,7 +37057,7 @@ static int mpi_set_controller_config_resp(struct pm8001_hba_info *pm8001_ha , vo
   pPayload = (struct set_ctrl_cfg_resp *)piomb + 4U;
   status = pPayload->status;
   err_qlfr_pgcd = pPayload->err_qlfr_pgcd;
-  tmp = __builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
+  tmp = ldv__builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
   }
   if (tmp != 0L) {
     {
@@ -37079,7 +37076,7 @@ static int mpi_get_controller_config_resp(struct pm8001_hba_info *pm8001_ha , vo
 
   {
   {
-  tmp = __builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
+  tmp = ldv__builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
   }
   if (tmp != 0L) {
     {
@@ -37098,7 +37095,7 @@ static int mpi_get_phy_profile_resp(struct pm8001_hba_info *pm8001_ha , void *pi
 
   {
   {
-  tmp = __builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
+  tmp = ldv__builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
   }
   if (tmp != 0L) {
     {
@@ -37117,7 +37114,7 @@ static int mpi_flash_op_ext_resp(struct pm8001_hba_info *pm8001_ha , void *piomb
 
   {
   {
-  tmp = __builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
+  tmp = ldv__builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
   }
   if (tmp != 0L) {
     {
@@ -37146,7 +37143,7 @@ static int mpi_set_phy_profile_resp(struct pm8001_hba_info *pm8001_ha , void *pi
   page_code = (unsigned char )((ppc_phyid & 65280U) >> 8);
   if (status != 0U) {
     {
-    tmp = __builtin_expect((long )((int )pm8001_ha->logging_level) & 1L, 0L);
+    tmp = ldv__builtin_expect((long )((int )pm8001_ha->logging_level) & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -37160,7 +37157,7 @@ static int mpi_set_phy_profile_resp(struct pm8001_hba_info *pm8001_ha , void *pi
   } else
   if ((unsigned int )page_code != 4U) {
     {
-    tmp___0 = __builtin_expect((long )((int )pm8001_ha->logging_level) & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )((int )pm8001_ha->logging_level) & 1L, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -37191,7 +37188,7 @@ static int mpi_kek_management_resp(struct pm8001_hba_info *pm8001_ha , void *pio
   status = pPayload->status;
   kidx_new_curr_ksop = pPayload->kidx_new_curr_ksop;
   err_qlfr = pPayload->err_qlfr;
-  tmp = __builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
+  tmp = ldv__builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
   }
   if (tmp != 0L) {
     {
@@ -37210,7 +37207,7 @@ static int mpi_dek_management_resp(struct pm8001_hba_info *pm8001_ha , void *pio
 
   {
   {
-  tmp = __builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
+  tmp = ldv__builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
   }
   if (tmp != 0L) {
     {
@@ -37229,7 +37226,7 @@ static int ssp_coalesced_comp_resp(struct pm8001_hba_info *pm8001_ha , void *pio
 
   {
   {
-  tmp = __builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
+  tmp = ldv__builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
   }
   if (tmp != 0L) {
     {
@@ -37507,7 +37504,7 @@ static void process_one_iomb___0(struct pm8001_hba_info *pm8001_ha , void *piomb
   goto switch_default;
   case_1: /* CIL Label */ 
   {
-  tmp = __builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
+  tmp = ldv__builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
   }
   if (tmp != 0L) {
     {
@@ -37519,7 +37516,7 @@ static void process_one_iomb___0(struct pm8001_hba_info *pm8001_ha , void *piomb
   goto ldv_47021;
   case_1792: /* CIL Label */ 
   {
-  tmp___0 = __builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
+  tmp___0 = ldv__builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -37534,7 +37531,7 @@ static void process_one_iomb___0(struct pm8001_hba_info *pm8001_ha , void *piomb
   goto ldv_47021;
   case_1840: /* CIL Label */ 
   {
-  tmp___1 = __builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
+  tmp___1 = ldv__builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -37549,7 +37546,7 @@ static void process_one_iomb___0(struct pm8001_hba_info *pm8001_ha , void *piomb
   goto ldv_47021;
   case_5: /* CIL Label */ 
   {
-  tmp___2 = __builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
+  tmp___2 = ldv__builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
   }
   if (tmp___2 != 0L) {
     {
@@ -37564,7 +37561,7 @@ static void process_one_iomb___0(struct pm8001_hba_info *pm8001_ha , void *piomb
   goto ldv_47021;
   case_6: /* CIL Label */ 
   {
-  tmp___3 = __builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
+  tmp___3 = ldv__builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
   }
   if (tmp___3 != 0L) {
     {
@@ -37579,7 +37576,7 @@ static void process_one_iomb___0(struct pm8001_hba_info *pm8001_ha , void *piomb
   goto ldv_47021;
   case_7: /* CIL Label */ 
   {
-  tmp___4 = __builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
+  tmp___4 = ldv__builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
   }
   if (tmp___4 != 0L) {
     {
@@ -37594,7 +37591,7 @@ static void process_one_iomb___0(struct pm8001_hba_info *pm8001_ha , void *piomb
   goto ldv_47021;
   case_2098: /* CIL Label */ 
   {
-  tmp___5 = __builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
+  tmp___5 = ldv__builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
   }
   if (tmp___5 != 0L) {
     {
@@ -37609,7 +37606,7 @@ static void process_one_iomb___0(struct pm8001_hba_info *pm8001_ha , void *piomb
   goto ldv_47021;
   case_11: /* CIL Label */ 
   {
-  tmp___6 = __builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
+  tmp___6 = ldv__builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
   }
   if (tmp___6 != 0L) {
     {
@@ -37624,7 +37621,7 @@ static void process_one_iomb___0(struct pm8001_hba_info *pm8001_ha , void *piomb
   goto ldv_47021;
   case_12: /* CIL Label */ 
   {
-  tmp___7 = __builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
+  tmp___7 = ldv__builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
   }
   if (tmp___7 != 0L) {
     {
@@ -37636,7 +37633,7 @@ static void process_one_iomb___0(struct pm8001_hba_info *pm8001_ha , void *piomb
   goto ldv_47021;
   case_13: /* CIL Label */ 
   {
-  tmp___8 = __builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
+  tmp___8 = ldv__builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
   }
   if (tmp___8 != 0L) {
     {
@@ -37651,7 +37648,7 @@ static void process_one_iomb___0(struct pm8001_hba_info *pm8001_ha , void *piomb
   goto ldv_47021;
   case_14: /* CIL Label */ 
   {
-  tmp___9 = __builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
+  tmp___9 = ldv__builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
   }
   if (tmp___9 != 0L) {
     {
@@ -37666,7 +37663,7 @@ static void process_one_iomb___0(struct pm8001_hba_info *pm8001_ha , void *piomb
   goto ldv_47021;
   case_15: /* CIL Label */ 
   {
-  tmp___10 = __builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
+  tmp___10 = ldv__builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
   }
   if (tmp___10 != 0L) {
     {
@@ -37681,7 +37678,7 @@ static void process_one_iomb___0(struct pm8001_hba_info *pm8001_ha , void *piomb
   goto ldv_47021;
   case_1824: /* CIL Label */ 
   {
-  tmp___11 = __builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
+  tmp___11 = ldv__builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
   }
   if (tmp___11 != 0L) {
     {
@@ -37693,7 +37690,7 @@ static void process_one_iomb___0(struct pm8001_hba_info *pm8001_ha , void *piomb
   goto ldv_47021;
   case_18: /* CIL Label */ 
   {
-  tmp___12 = __builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
+  tmp___12 = ldv__builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
   }
   if (tmp___12 != 0L) {
     {
@@ -37705,7 +37702,7 @@ static void process_one_iomb___0(struct pm8001_hba_info *pm8001_ha , void *piomb
   goto ldv_47021;
   case_20: /* CIL Label */ 
   {
-  tmp___13 = __builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
+  tmp___13 = ldv__builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
   }
   if (tmp___13 != 0L) {
     {
@@ -37720,7 +37717,7 @@ static void process_one_iomb___0(struct pm8001_hba_info *pm8001_ha , void *piomb
   goto ldv_47021;
   case_22: /* CIL Label */ 
   {
-  tmp___14 = __builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
+  tmp___14 = ldv__builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
   }
   if (tmp___14 != 0L) {
     {
@@ -37732,7 +37729,7 @@ static void process_one_iomb___0(struct pm8001_hba_info *pm8001_ha , void *piomb
   goto ldv_47021;
   case_23: /* CIL Label */ 
   {
-  tmp___15 = __builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
+  tmp___15 = ldv__builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
   }
   if (tmp___15 != 0L) {
     {
@@ -37744,7 +37741,7 @@ static void process_one_iomb___0(struct pm8001_hba_info *pm8001_ha , void *piomb
   goto ldv_47021;
   case_24: /* CIL Label */ 
   {
-  tmp___16 = __builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
+  tmp___16 = ldv__builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
   }
   if (tmp___16 != 0L) {
     {
@@ -37759,7 +37756,7 @@ static void process_one_iomb___0(struct pm8001_hba_info *pm8001_ha , void *piomb
   goto ldv_47021;
   case_26: /* CIL Label */ 
   {
-  tmp___17 = __builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
+  tmp___17 = ldv__builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
   }
   if (tmp___17 != 0L) {
     {
@@ -37774,7 +37771,7 @@ static void process_one_iomb___0(struct pm8001_hba_info *pm8001_ha , void *piomb
   goto ldv_47021;
   case_27: /* CIL Label */ 
   {
-  tmp___18 = __builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
+  tmp___18 = ldv__builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
   }
   if (tmp___18 != 0L) {
     {
@@ -37789,7 +37786,7 @@ static void process_one_iomb___0(struct pm8001_hba_info *pm8001_ha , void *piomb
   goto ldv_47021;
   case_28: /* CIL Label */ 
   {
-  tmp___19 = __builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
+  tmp___19 = ldv__builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
   }
   if (tmp___19 != 0L) {
     {
@@ -37802,7 +37799,7 @@ static void process_one_iomb___0(struct pm8001_hba_info *pm8001_ha , void *piomb
   goto ldv_47021;
   case_29: /* CIL Label */ 
   {
-  tmp___20 = __builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
+  tmp___20 = ldv__builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
   }
   if (tmp___20 != 0L) {
     {
@@ -37814,7 +37811,7 @@ static void process_one_iomb___0(struct pm8001_hba_info *pm8001_ha , void *piomb
   goto ldv_47021;
   case_30: /* CIL Label */ 
   {
-  tmp___21 = __builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
+  tmp___21 = ldv__builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
   }
   if (tmp___21 != 0L) {
     {
@@ -37826,7 +37823,7 @@ static void process_one_iomb___0(struct pm8001_hba_info *pm8001_ha , void *piomb
   goto ldv_47021;
   case_2099: /* CIL Label */ 
   {
-  tmp___22 = __builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
+  tmp___22 = ldv__builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
   }
   if (tmp___22 != 0L) {
     {
@@ -37838,7 +37835,7 @@ static void process_one_iomb___0(struct pm8001_hba_info *pm8001_ha , void *piomb
   goto ldv_47021;
   case_32: /* CIL Label */ 
   {
-  tmp___23 = __builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
+  tmp___23 = ldv__builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
   }
   if (tmp___23 != 0L) {
     {
@@ -37850,7 +37847,7 @@ static void process_one_iomb___0(struct pm8001_hba_info *pm8001_ha , void *piomb
   goto ldv_47021;
   case_34: /* CIL Label */ 
   {
-  tmp___24 = __builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
+  tmp___24 = ldv__builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
   }
   if (tmp___24 != 0L) {
     {
@@ -37865,7 +37862,7 @@ static void process_one_iomb___0(struct pm8001_hba_info *pm8001_ha , void *piomb
   goto ldv_47021;
   case_35: /* CIL Label */ 
   {
-  tmp___25 = __builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
+  tmp___25 = ldv__builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
   }
   if (tmp___25 != 0L) {
     {
@@ -37880,7 +37877,7 @@ static void process_one_iomb___0(struct pm8001_hba_info *pm8001_ha , void *piomb
   goto ldv_47021;
   case_36: /* CIL Label */ 
   {
-  tmp___26 = __builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
+  tmp___26 = ldv__builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
   }
   if (tmp___26 != 0L) {
     {
@@ -37895,7 +37892,7 @@ static void process_one_iomb___0(struct pm8001_hba_info *pm8001_ha , void *piomb
   goto ldv_47021;
   case_37: /* CIL Label */ 
   {
-  tmp___27 = __builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
+  tmp___27 = ldv__builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
   }
   if (tmp___27 != 0L) {
     {
@@ -37908,7 +37905,7 @@ static void process_one_iomb___0(struct pm8001_hba_info *pm8001_ha , void *piomb
   goto ldv_47021;
   case_38: /* CIL Label */ 
   {
-  tmp___28 = __builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
+  tmp___28 = ldv__builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
   }
   if (tmp___28 != 0L) {
     {
@@ -37923,7 +37920,7 @@ static void process_one_iomb___0(struct pm8001_hba_info *pm8001_ha , void *piomb
   goto ldv_47021;
   case_39: /* CIL Label */ 
   {
-  tmp___29 = __builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
+  tmp___29 = ldv__builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
   }
   if (tmp___29 != 0L) {
     {
@@ -37935,7 +37932,7 @@ static void process_one_iomb___0(struct pm8001_hba_info *pm8001_ha , void *piomb
   goto ldv_47021;
   case_40: /* CIL Label */ 
   {
-  tmp___30 = __builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
+  tmp___30 = ldv__builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
   }
   if (tmp___30 != 0L) {
     {
@@ -37947,7 +37944,7 @@ static void process_one_iomb___0(struct pm8001_hba_info *pm8001_ha , void *piomb
   goto ldv_47021;
   case_2052: /* CIL Label */ 
   {
-  tmp___31 = __builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
+  tmp___31 = ldv__builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
   }
   if (tmp___31 != 0L) {
     {
@@ -37963,7 +37960,7 @@ static void process_one_iomb___0(struct pm8001_hba_info *pm8001_ha , void *piomb
   goto ldv_47021;
   case_2053: /* CIL Label */ 
   {
-  tmp___32 = __builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
+  tmp___32 = ldv__builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
   }
   if (tmp___32 != 0L) {
     {
@@ -37979,7 +37976,7 @@ static void process_one_iomb___0(struct pm8001_hba_info *pm8001_ha , void *piomb
   goto ldv_47021;
   case_2096: /* CIL Label */ 
   {
-  tmp___33 = __builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
+  tmp___33 = ldv__builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
   }
   if (tmp___33 != 0L) {
     {
@@ -37995,7 +37992,7 @@ static void process_one_iomb___0(struct pm8001_hba_info *pm8001_ha , void *piomb
   goto ldv_47021;
   case_2097: /* CIL Label */ 
   {
-  tmp___34 = __builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
+  tmp___34 = ldv__builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
   }
   if (tmp___34 != 0L) {
     {
@@ -38011,7 +38008,7 @@ static void process_one_iomb___0(struct pm8001_hba_info *pm8001_ha , void *piomb
   goto ldv_47021;
   case_2101: /* CIL Label */ 
   {
-  tmp___35 = __builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
+  tmp___35 = ldv__builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
   }
   if (tmp___35 != 0L) {
     {
@@ -38027,7 +38024,7 @@ static void process_one_iomb___0(struct pm8001_hba_info *pm8001_ha , void *piomb
   goto ldv_47021;
   case_2102: /* CIL Label */ 
   {
-  tmp___36 = __builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
+  tmp___36 = ldv__builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
   }
   if (tmp___36 != 0L) {
     {
@@ -38043,7 +38040,7 @@ static void process_one_iomb___0(struct pm8001_hba_info *pm8001_ha , void *piomb
   goto ldv_47021;
   case_2103: /* CIL Label */ 
   {
-  tmp___37 = __builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
+  tmp___37 = ldv__builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
   }
   if (tmp___37 != 0L) {
     {
@@ -38059,7 +38056,7 @@ static void process_one_iomb___0(struct pm8001_hba_info *pm8001_ha , void *piomb
   goto ldv_47021;
   case_2304: /* CIL Label */ 
   {
-  tmp___38 = __builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
+  tmp___38 = ldv__builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
   }
   if (tmp___38 != 0L) {
     {
@@ -38075,7 +38072,7 @@ static void process_one_iomb___0(struct pm8001_hba_info *pm8001_ha , void *piomb
   goto ldv_47021;
   case_2305: /* CIL Label */ 
   {
-  tmp___39 = __builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
+  tmp___39 = ldv__builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
   }
   if (tmp___39 != 0L) {
     {
@@ -38091,7 +38088,7 @@ static void process_one_iomb___0(struct pm8001_hba_info *pm8001_ha , void *piomb
   goto ldv_47021;
   case_2306: /* CIL Label */ 
   {
-  tmp___40 = __builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
+  tmp___40 = ldv__builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
   }
   if (tmp___40 != 0L) {
     {
@@ -38107,7 +38104,7 @@ static void process_one_iomb___0(struct pm8001_hba_info *pm8001_ha , void *piomb
   goto ldv_47021;
   switch_default: /* CIL Label */ 
   {
-  tmp___41 = __builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
+  tmp___41 = ldv__builtin_expect((pm8001_ha->logging_level & 64U) != 0U, 0L);
   }
   if (tmp___41 != 0L) {
     {
@@ -38253,7 +38250,7 @@ static int pm80xx_chip_smp_req(struct pm8001_hba_info *pm8001_ha , struct pm8001
   circularQ = (struct inbound_queue_table *)(& pm8001_ha->inbnd_q_tbl);
   smp_cmd.tag = ccb->ccb_tag;
   length = sg_req->length;
-  tmp = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+  tmp = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
   }
   if (tmp != 0L) {
     {
@@ -38275,7 +38272,7 @@ static int pm80xx_chip_smp_req(struct pm8001_hba_info *pm8001_ha , struct pm8001
   }
   if (pm8001_ha->smp_exp_mode == 2U) {
     {
-    tmp___1 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+    tmp___1 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
     }
     if (tmp___1 != 0L) {
       {
@@ -38308,7 +38305,7 @@ static int pm80xx_chip_smp_req(struct pm8001_hba_info *pm8001_ha , struct pm8001
   }
   if (pm8001_ha->smp_exp_mode == 1U) {
     {
-    tmp___2 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+    tmp___2 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
     }
     if (tmp___2 != 0L) {
       {
@@ -38324,7 +38321,7 @@ static int pm80xx_chip_smp_req(struct pm8001_hba_info *pm8001_ha , struct pm8001
     if (i <= 15U) {
       {
       smp_cmd.smp_req16[i] = (u8 )*(preq_dma_addr + (unsigned long )i);
-      tmp___3 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+      tmp___3 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
       }
       if (tmp___3 != 0L) {
         {
@@ -38337,7 +38334,7 @@ static int pm80xx_chip_smp_req(struct pm8001_hba_info *pm8001_ha , struct pm8001
     } else {
       {
       smp_cmd.__annonCompField97.smp_req[i] = (u8 )*(preq_dma_addr + (unsigned long )i);
-      tmp___4 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+      tmp___4 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
       }
       if (tmp___4 != 0L) {
         {
@@ -38533,7 +38530,7 @@ static int pm80xx_chip_ssp_io_req(struct pm8001_hba_info *pm8001_ha , struct pm8
     }
     if (tmp___3 != 0) {
       {
-      tmp = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+      tmp = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
       }
       if (tmp != 0L) {
         {
@@ -38566,7 +38563,7 @@ static int pm80xx_chip_ssp_io_req(struct pm8001_hba_info *pm8001_ha , struct pm8
         end_addr_high = (unsigned int )(end_addr >> 32ULL);
         if (end_addr_high != ssp_cmd.enc_addr_high) {
           {
-          tmp___0 = __builtin_expect((long )((int )pm8001_ha->logging_level) & 1L,
+          tmp___0 = ldv__builtin_expect((long )((int )pm8001_ha->logging_level) & 1L,
                                      0L);
           }
           if (tmp___0 != 0L) {
@@ -38605,7 +38602,7 @@ static int pm80xx_chip_ssp_io_req(struct pm8001_hba_info *pm8001_ha , struct pm8
   } else {
     _L: /* CIL Label */ 
     {
-    tmp___1 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+    tmp___1 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
     }
     if (tmp___1 != 0L) {
       {
@@ -38636,7 +38633,7 @@ static int pm80xx_chip_ssp_io_req(struct pm8001_hba_info *pm8001_ha , struct pm8
       end_addr_high = (unsigned int )(end_addr >> 32ULL);
       if (end_addr_high != ssp_cmd.addr_high) {
         {
-        tmp___2 = __builtin_expect((long )((int )pm8001_ha->logging_level) & 1L, 0L);
+        tmp___2 = ldv__builtin_expect((long )((int )pm8001_ha->logging_level) & 1L, 0L);
         }
         if (tmp___2 != 0L) {
           {
@@ -38729,7 +38726,7 @@ static int pm80xx_chip_sata_req(struct pm8001_hba_info *pm8001_ha , struct pm800
   if ((unsigned int )*((unsigned char *)task + 184UL) == 3U) {
     {
     ATAP = 4U;
-    tmp = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+    tmp = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
     }
     if (tmp != 0L) {
       {
@@ -38740,14 +38737,14 @@ static int pm80xx_chip_sata_req(struct pm8001_hba_info *pm8001_ha , struct pm800
     }
   } else {
     {
-    tmp___3 = __builtin_expect((unsigned int )*((unsigned char *)task + 125UL) == 0U,
+    tmp___3 = ldv__builtin_expect((unsigned int )*((unsigned char *)task + 125UL) == 0U,
                                1L);
     }
     if (tmp___3 != 0L) {
       if ((unsigned int )*((unsigned char *)task + 125UL) != 0U) {
         {
         ATAP = 6U;
-        tmp___0 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+        tmp___0 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
         }
         if (tmp___0 != 0L) {
           {
@@ -38759,7 +38756,7 @@ static int pm80xx_chip_sata_req(struct pm8001_hba_info *pm8001_ha , struct pm800
       } else {
         {
         ATAP = 5U;
-        tmp___1 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+        tmp___1 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
         }
         if (tmp___1 != 0L) {
           {
@@ -38772,7 +38769,7 @@ static int pm80xx_chip_sata_req(struct pm8001_hba_info *pm8001_ha , struct pm800
       if ((unsigned int )*((unsigned char *)task + 125UL) != 0U && dev->__annonCompField94.sata_dev.class != 3U) {
         {
         ATAP = 7U;
-        tmp___2 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+        tmp___2 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
         }
         if (tmp___2 != 0L) {
           {
@@ -38807,7 +38804,7 @@ static int pm80xx_chip_sata_req(struct pm8001_hba_info *pm8001_ha , struct pm800
   sata_cmd.device_id = pm8001_ha_dev->device_id;
   sata_cmd.data_len = task->total_xfer_len;
   sata_cmd.sata_fis = task->__annonCompField95.ata_task.fis;
-  tmp___5 = __builtin_expect((unsigned int )*((unsigned char *)task + 125UL) == 0U,
+  tmp___5 = ldv__builtin_expect((unsigned int )*((unsigned char *)task + 125UL) == 0U,
                              1L);
   }
   if (tmp___5 != 0L) {
@@ -38822,7 +38819,7 @@ static int pm80xx_chip_sata_req(struct pm8001_hba_info *pm8001_ha , struct pm800
     }
     if (tmp___10 != 0) {
       {
-      tmp___6 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+      tmp___6 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
       }
       if (tmp___6 != 0L) {
         {
@@ -38855,7 +38852,7 @@ static int pm80xx_chip_sata_req(struct pm8001_hba_info *pm8001_ha , struct pm800
         end_addr_high = (unsigned int )(end_addr >> 32ULL);
         if (end_addr_high != sata_cmd.enc_addr_high) {
           {
-          tmp___7 = __builtin_expect((long )((int )pm8001_ha->logging_level) & 1L,
+          tmp___7 = ldv__builtin_expect((long )((int )pm8001_ha->logging_level) & 1L,
                                      0L);
           }
           if (tmp___7 != 0L) {
@@ -38895,7 +38892,7 @@ static int pm80xx_chip_sata_req(struct pm8001_hba_info *pm8001_ha , struct pm800
   } else {
     _L: /* CIL Label */ 
     {
-    tmp___8 = __builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
+    tmp___8 = ldv__builtin_expect((pm8001_ha->logging_level & 8U) != 0U, 0L);
     }
     if (tmp___8 != 0L) {
       {
@@ -38927,7 +38924,7 @@ static int pm80xx_chip_sata_req(struct pm8001_hba_info *pm8001_ha , struct pm800
       end_addr_high = (unsigned int )(end_addr >> 32ULL);
       if (end_addr_high != sata_cmd.addr_high) {
         {
-        tmp___9 = __builtin_expect((long )((int )pm8001_ha->logging_level) & 1L, 0L);
+        tmp___9 = ldv__builtin_expect((long )((int )pm8001_ha->logging_level) & 1L, 0L);
         }
         if (tmp___9 != 0L) {
           {
@@ -38973,12 +38970,12 @@ static int pm80xx_chip_sata_req(struct pm8001_hba_info *pm8001_ha , struct pm800
       task->task_state_flags = task->task_state_flags & 4294967294U;
       task->task_state_flags = task->task_state_flags & 4294967279U;
       task->task_state_flags = task->task_state_flags | 2U;
-      tmp___12 = __builtin_expect((task->task_state_flags & 4U) != 0U, 0L);
+      tmp___12 = ldv__builtin_expect((task->task_state_flags & 4U) != 0U, 0L);
       }
       if (tmp___12 != 0L) {
         {
         ldv_spin_unlock_irqrestore_135(& task->task_state_lock, flags);
-        tmp___11 = __builtin_expect((long )((int )pm8001_ha->logging_level) & 1L,
+        tmp___11 = ldv__builtin_expect((long )((int )pm8001_ha->logging_level) & 1L,
                                     0L);
         }
         if (tmp___11 != 0L) {
@@ -39029,7 +39026,7 @@ static int pm80xx_chip_phy_start_req(struct pm8001_hba_info *pm8001_ha , u8 phy_
   circularQ = (struct inbound_queue_table *)(& pm8001_ha->inbnd_q_tbl);
   __memset((void *)(& payload), 0, 128UL);
   payload.tag = tag;
-  tmp = __builtin_expect((pm8001_ha->logging_level & 2U) != 0U, 0L);
+  tmp = ldv__builtin_expect((pm8001_ha->logging_level & 2U) != 0U, 0L);
   }
   if (tmp != 0L) {
     {
@@ -39224,7 +39221,7 @@ void mpi_set_phy_profile_req(struct pm8001_hba_info *pm8001_ha , u32 operation ,
   }
   if (rc != 0) {
     {
-    tmp = __builtin_expect((long )((int )pm8001_ha->logging_level) & 1L, 0L);
+    tmp = ldv__builtin_expect((long )((int )pm8001_ha->logging_level) & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -39240,7 +39237,7 @@ void mpi_set_phy_profile_req(struct pm8001_hba_info *pm8001_ha , u32 operation ,
   circularQ = (struct inbound_queue_table *)(& pm8001_ha->inbnd_q_tbl);
   payload.tag = tag;
   payload.ppc_phyid = ((operation & 15U) << 8) | (phyid & 255U);
-  tmp___0 = __builtin_expect((pm8001_ha->logging_level & 2U) != 0U, 0L);
+  tmp___0 = ldv__builtin_expect((pm8001_ha->logging_level & 2U) != 0U, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -39298,7 +39295,7 @@ void pm8001_set_phy_profile(struct pm8001_hba_info *pm8001_ha , u32 length , u8 
 
   }
   {
-  tmp = __builtin_expect((pm8001_ha->logging_level & 2U) != 0U, 0L);
+  tmp = ldv__builtin_expect((pm8001_ha->logging_level & 2U) != 0U, 0L);
   }
   if (tmp != 0L) {
     {
@@ -41907,7 +41904,7 @@ void ldv_linux_usb_urb_check_final_state(void)
 }
 }
 extern void ldv_assert(char const   * , int  ) ;
-void __builtin_trap(void) ;
+void ldv__builtin_trap(void) ;
 void ldv_assume(int expression ) 
 { 
 
@@ -41931,7 +41928,7 @@ void ldv_stop(void)
   goto ldv_stop_label;
 }
 }
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 
@@ -41939,7 +41936,7 @@ long __builtin_expect(long exp , long c )
   return (exp);
 }
 }
-void __builtin_trap(void) 
+void ldv__builtin_trap(void) 
 { 
 
 

@@ -4205,7 +4205,7 @@ struct ldv_thread {
    void (*function)(void * ) ;
 };
 typedef _Bool ldv_set;
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 void ldv_assume(int expression ) ;
 void ldv_stop(void) ;
 void ldv_linux_alloc_irq_check_alloc_flags(gfp_t flags ) ;
@@ -4430,7 +4430,6 @@ __inline static int list_empty(struct list_head  const  *head )
 }
 extern void *__memset(void * , int  , size_t  ) ;
 extern void warn_slowpath_null(char const   * , int const    ) ;
-extern int ( /* missing proto */  __builtin_unreachable)() ;
 __inline static unsigned long arch_local_save_flags(void) 
 { 
   unsigned long __ret ;
@@ -4448,7 +4447,7 @@ __inline static unsigned long arch_local_save_flags(void)
   __edx = __edx;
   __ecx = __ecx;
   __eax = __eax;
-  tmp = __builtin_expect((unsigned long )pv_irq_ops.save_fl.func == (unsigned long )((void *)0),
+  tmp = ldv__builtin_expect((unsigned long )pv_irq_ops.save_fl.func == (unsigned long )((void *)0),
                          0L);
   }
   if (tmp != 0L) {
@@ -4677,12 +4676,12 @@ __inline static void kref_get(struct kref *kref )
   {
   tmp = atomic_add_return(1, & kref->refcount);
   __ret_warn_once = tmp <= 1;
-  tmp___2 = __builtin_expect(__ret_warn_once != 0, 0L);
+  tmp___2 = ldv__builtin_expect(__ret_warn_once != 0, 0L);
   }
   if (tmp___2 != 0L) {
     {
     __ret_warn_on = ! __warned;
-    tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -4692,7 +4691,7 @@ __inline static void kref_get(struct kref *kref )
 
     }
     {
-    tmp___1 = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp___1 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
     if (tmp___1 != 0L) {
       __warned = 1;
@@ -4703,7 +4702,7 @@ __inline static void kref_get(struct kref *kref )
 
   }
   {
-  __builtin_expect(__ret_warn_once != 0, 0L);
+  ldv__builtin_expect(__ret_warn_once != 0, 0L);
   }
   return;
 }
@@ -4717,7 +4716,7 @@ __inline static int kref_sub(struct kref *kref , unsigned int count , void (*rel
   {
   {
   __ret_warn_on = (unsigned long )release == (unsigned long )((void (*)(struct kref * ))0);
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp != 0L) {
     {
@@ -4727,7 +4726,7 @@ __inline static int kref_sub(struct kref *kref , unsigned int count , void (*rel
 
   }
   {
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
   tmp___0 = atomic_sub_and_test((int )count, & kref->refcount);
   }
   if (tmp___0 != 0) {
@@ -10360,7 +10359,7 @@ void ldv_dispatch_register_5_2(struct platform_driver *arg0 ) ;
 void ldv_dispatch_register_dummy_factory_7_7_6(void) ;
 void ldv_dispatch_register_io_instance_5_7_7(void) ;
 void ldv_entry_EMGentry_7(void *arg0 ) ;
-void main(void) ;
+int main(void) ;
 void ldv_io_instance_callback_2_17(int (*arg0)(struct usb_hcd * ) , struct usb_hcd *arg1 ) ;
 void ldv_io_instance_callback_2_18(void (*arg0)(struct usb_hcd * , struct usb_host_endpoint * ) ,
                                    struct usb_hcd *arg1 , struct usb_host_endpoint *arg2 ) ;
@@ -10628,7 +10627,7 @@ void ldv_entry_EMGentry_7(void *arg0 )
   return;
 }
 }
-void main(void) 
+int main(void) 
 { 
 
 
@@ -10637,7 +10636,7 @@ void main(void)
   ldv_ldv_initialize_259();
   ldv_entry_EMGentry_7((void *)0);
   }
-  return;
+return 0;
 }
 }
 void ldv_io_instance_callback_2_17(int (*arg0)(struct usb_hcd * ) , struct usb_hcd *arg1 ) 
@@ -15497,7 +15496,7 @@ void ldv_linux_usb_urb_check_final_state(void)
 }
 }
 extern void ldv_assert(char const   * , int  ) ;
-void __builtin_trap(void) ;
+void ldv__builtin_trap(void) ;
 void ldv_assume(int expression ) 
 { 
 
@@ -15521,7 +15520,7 @@ void ldv_stop(void)
   goto ldv_stop_label;
 }
 }
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 
@@ -15529,7 +15528,7 @@ long __builtin_expect(long exp , long c )
   return (exp);
 }
 }
-void __builtin_trap(void) 
+void ldv__builtin_trap(void) 
 { 
 
 

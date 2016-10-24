@@ -4247,8 +4247,7 @@ struct ldv_thread {
    void (*function)(void * ) ;
 };
 typedef _Bool ldv_set;
-int __builtin_bswap32(int  ) ;
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 void ldv_assume(int expression ) ;
 void ldv_stop(void) ;
 void ldv_linux_alloc_irq_check_alloc_flags(gfp_t flags ) ;
@@ -5263,7 +5262,7 @@ static void ims_pcu_handle_response(struct ims_pcu *pcu )
   goto switch_default;
   case_224: /* CIL Label */ 
   {
-  tmp = __builtin_expect((long )pcu->setup_complete, 1L);
+  tmp = ldv__builtin_expect((long )pcu->setup_complete, 1L);
   }
   if (tmp != 0L) {
     {
@@ -5422,7 +5421,7 @@ static int ims_pcu_send_cmd_chunk(struct ims_pcu *pcu , u8 command , int chunk ,
     descriptor.format = "Sending 0x%02x command failed at chunk %d: %d\n";
     descriptor.lineno = 527U;
     descriptor.flags = 0U;
-    tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -5611,7 +5610,7 @@ static int __ims_pcu_execute_command(struct ims_pcu *pcu , u8 command , void con
       descriptor.format = "Command 0x%02x timed out\n";
       descriptor.lineno = 616U;
       descriptor.flags = 0U;
-      tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+      tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
       }
       if (tmp != 0L) {
         {
@@ -6753,7 +6752,7 @@ static void ims_pcu_irq(struct urb *urb )
   descriptor.format = "%s - urb shutting down with status: %d\n";
   descriptor.lineno = 1504U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -6772,7 +6771,7 @@ static void ims_pcu_irq(struct urb *urb )
   descriptor___0.format = "%s - nonzero urb status received: %d\n";
   descriptor___0.lineno = 1508U;
   descriptor___0.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -6793,7 +6792,7 @@ static void ims_pcu_irq(struct urb *urb )
   descriptor___1.format = "%s: received %d: %*ph\n";
   descriptor___1.lineno = 1513U;
   descriptor___1.flags = 0U;
-  tmp___1 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -6988,7 +6987,7 @@ static struct usb_cdc_union_desc  const  *ims_pcu_get_cdc_union_desc(struct usb_
     descriptor.format = "Found union header\n";
     descriptor.lineno = 1643U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -7260,7 +7259,7 @@ static int ims_pcu_get_device_info(struct ims_pcu *pcu )
   descriptor.format = "P/N: %s, MD: %s, S/N: %s, FW: %s, BL: %s, RR: %s\n";
   descriptor.lineno = 1830U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -7302,7 +7301,7 @@ static int ims_pcu_identify_type(struct ims_pcu *pcu , u8 *device_id )
   descriptor.format = "Detected device ID: %d\n";
   descriptor.lineno = 1847U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -7807,7 +7806,7 @@ void ldv_dummy_resourceless_instance_callback_7_9(long (*arg0)(struct device * ,
                                                   struct device *arg1 , struct device_attribute *arg2 ,
                                                   char *arg3 , unsigned long arg4 ) ;
 void ldv_entry_EMGentry_12(void *arg0 ) ;
-void main(void) ;
+int main(void) ;
 void ldv_struct_attribute_group_dummy_resourceless_instance_0(void *arg0 ) ;
 void ldv_struct_ims_pcu_ofn_bit_attribute_dummy_resourceless_instance_1(void *arg0 ) ;
 void ldv_struct_ims_pcu_ofn_bit_attribute_dummy_resourceless_instance_2(void *arg0 ) ;
@@ -8240,7 +8239,7 @@ void ldv_entry_EMGentry_12(void *arg0 )
   return;
 }
 }
-void main(void) 
+int main(void) 
 { 
 
 
@@ -8249,7 +8248,7 @@ void main(void)
   ldv_ldv_initialize_145();
   ldv_entry_EMGentry_12((void *)0);
   }
-  return;
+return 0;
 }
 }
 void ldv_struct_attribute_group_dummy_resourceless_instance_0(void *arg0 ) 
@@ -11612,7 +11611,7 @@ void ldv_linux_usb_urb_check_final_state(void)
 }
 }
 extern void ldv_assert(char const   * , int  ) ;
-void __builtin_trap(void) ;
+void ldv__builtin_trap(void) ;
 void ldv_assume(int expression ) 
 { 
 
@@ -11636,7 +11635,7 @@ void ldv_stop(void)
   goto ldv_stop_label;
 }
 }
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 
@@ -11644,7 +11643,7 @@ long __builtin_expect(long exp , long c )
   return (exp);
 }
 }
-void __builtin_trap(void) 
+void ldv__builtin_trap(void) 
 { 
 
 

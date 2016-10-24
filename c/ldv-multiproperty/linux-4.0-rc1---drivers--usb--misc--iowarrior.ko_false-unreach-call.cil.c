@@ -4007,7 +4007,7 @@ struct ldv_thread {
    void (*function)(void * ) ;
 };
 typedef _Bool ldv_set;
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 void ldv_assume(int expression ) ;
 void ldv_stop(void) ;
 void ldv_linux_alloc_irq_check_alloc_flags(gfp_t flags ) ;
@@ -4374,7 +4374,7 @@ __inline static unsigned long copy_from_user(void *to , void const   *from , uns
   {
   sz = -1;
   might_fault();
-  tmp = __builtin_expect(sz < 0, 1L);
+  tmp = ldv__builtin_expect(sz < 0, 1L);
   }
   if (tmp != 0L) {
     {
@@ -4382,7 +4382,7 @@ __inline static unsigned long copy_from_user(void *to , void const   *from , uns
     }
   } else {
     {
-    tmp___0 = __builtin_expect((unsigned long )sz >= n, 1L);
+    tmp___0 = ldv__builtin_expect((unsigned long )sz >= n, 1L);
     }
     if (tmp___0 != 0L) {
       {
@@ -4407,7 +4407,7 @@ __inline static unsigned long copy_to_user(void *to , void const   *from , unsig
   {
   sz = -1;
   might_fault();
-  tmp = __builtin_expect(sz < 0, 1L);
+  tmp = ldv__builtin_expect(sz < 0, 1L);
   }
   if (tmp != 0L) {
     {
@@ -4415,7 +4415,7 @@ __inline static unsigned long copy_to_user(void *to , void const   *from , unsig
     }
   } else {
     {
-    tmp___0 = __builtin_expect((unsigned long )sz >= n, 1L);
+    tmp___0 = ldv__builtin_expect((unsigned long )sz >= n, 1L);
     }
     if (tmp___0 != 0L) {
       {
@@ -4780,7 +4780,7 @@ static void iowarrior_write_callback(struct urb *urb )
     descriptor.format = "nonzero write bulk status received: %d\n";
     descriptor.lineno = 232U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -4815,7 +4815,7 @@ __inline static void iowarrior_delete(struct iowarrior *dev )
   descriptor.format = "minor %d\n";
   descriptor.lineno = 247U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -4877,7 +4877,7 @@ static ssize_t iowarrior_read(struct file *file , char *buffer , size_t count , 
   descriptor.format = "minor %d, count = %zd\n";
   descriptor.lineno = 285U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -5050,7 +5050,7 @@ static ssize_t iowarrior_write(struct file *file , char const   *user_buffer , s
   descriptor.format = "minor %d, count = %zd\n";
   descriptor.lineno = 354U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -5227,7 +5227,7 @@ static ssize_t iowarrior_write(struct file *file , char const   *user_buffer , s
     descriptor___0.format = "Unable to allocate urb\n";
     descriptor___0.lineno = 417U;
     descriptor___0.flags = 0U;
-    tmp___6 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___6 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___6 != 0L) {
       {
@@ -5255,7 +5255,7 @@ static ssize_t iowarrior_write(struct file *file , char const   *user_buffer , s
     descriptor___1.format = "Unable to allocate buffer\n";
     descriptor___1.lineno = 425U;
     descriptor___1.flags = 0U;
-    tmp___8 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___8 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
     }
     if (tmp___8 != 0L) {
       {
@@ -5293,7 +5293,7 @@ static ssize_t iowarrior_write(struct file *file , char const   *user_buffer , s
     descriptor___2.format = "submit error %d for urb nr.%d\n";
     descriptor___2.lineno = 443U;
     descriptor___2.flags = 0U;
-    tmp___12 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+    tmp___12 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
     }
     if (tmp___12 != 0L) {
       {
@@ -5392,7 +5392,7 @@ static long iowarrior_ioctl(struct file *file , unsigned int cmd , unsigned long
   descriptor.format = "minor %d, cmd 0x%.4x, arg %ld\n";
   descriptor.lineno = 504U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -5607,7 +5607,7 @@ static int iowarrior_release(struct inode *inode , struct file *file )
   descriptor.format = "minor %d\n";
   descriptor.lineno = 661U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -5957,7 +5957,7 @@ void ldv_dispatch_instance_register_2_3(struct usb_driver *arg0 ) ;
 void ldv_dispatch_register_4_2(struct usb_driver *arg0 ) ;
 void ldv_dispatch_register_file_operations_instance_3_5_5(void) ;
 void ldv_entry_EMGentry_5(void *arg0 ) ;
-void main(void) ;
+int main(void) ;
 void ldv_file_operations_file_operations_instance_0(void *arg0 ) ;
 void ldv_file_operations_instance_callback_0_22(long long (*arg0)(struct file * ,
                                                                   long long  , int  ) ,
@@ -6132,7 +6132,7 @@ void ldv_entry_EMGentry_5(void *arg0 )
   return;
 }
 }
-void main(void) 
+int main(void) 
 { 
 
 
@@ -6141,7 +6141,7 @@ void main(void)
   ldv_ldv_initialize_137();
   ldv_entry_EMGentry_5((void *)0);
   }
-  return;
+return 0;
 }
 }
 void ldv_file_operations_file_operations_instance_0(void *arg0 ) 
@@ -9289,7 +9289,7 @@ void ldv_linux_usb_urb_check_final_state(void)
 }
 }
 extern void ldv_assert(char const   * , int  ) ;
-void __builtin_trap(void) ;
+void ldv__builtin_trap(void) ;
 void ldv_assume(int expression ) 
 { 
 
@@ -9313,7 +9313,7 @@ void ldv_stop(void)
   goto ldv_stop_label;
 }
 }
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 
@@ -9321,7 +9321,7 @@ long __builtin_expect(long exp , long c )
   return (exp);
 }
 }
-void __builtin_trap(void) 
+void ldv__builtin_trap(void) 
 { 
 
 

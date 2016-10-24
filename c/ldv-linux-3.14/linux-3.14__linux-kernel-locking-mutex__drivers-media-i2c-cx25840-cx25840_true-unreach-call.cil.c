@@ -12493,7 +12493,7 @@ void ldv_dummy_resourceless_instance_callback_3_9(int (*arg0)(struct v4l2_subdev
                                                               unsigned int * ) , struct v4l2_subdev *arg1 ,
                                                   unsigned int *arg2 ) ;
 void ldv_entry_EMGentry_6(void *arg0 ) ;
-void main(void) ;
+int main(void) ;
 void ldv_i2c_io_instance_0(void *arg0 ) ;
 int ldv_i2c_register_driver(int arg0 , struct module *arg1 , struct i2c_driver *arg2 ) ;
 int ldv_io_instance_probe_0_11(int (*arg0)(struct i2c_client * , struct i2c_device_id * ) ,
@@ -13037,7 +13037,7 @@ void ldv_entry_EMGentry_6(void *arg0 )
   return;
 }
 }
-void main(void) 
+int main(void) 
 { 
 
 
@@ -13046,7 +13046,7 @@ void main(void)
   ldv_initialize();
   ldv_entry_EMGentry_6((void *)0);
   }
-  return;
+return 0;
 }
 }
 void ldv_i2c_io_instance_0(void *arg0 ) 
@@ -18254,9 +18254,9 @@ void *ldv_kzalloc(size_t size , gfp_t flags )
   return (res);
 }
 }
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 extern void ldv_assert(char const   * , int  ) ;
-void __builtin_trap(void) ;
+void ldv__builtin_trap(void) ;
 void ldv_assume(int expression ) 
 { 
 
@@ -18280,7 +18280,7 @@ void ldv_stop(void)
   goto ldv_stop_label;
 }
 }
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 
@@ -18288,7 +18288,7 @@ long __builtin_expect(long exp , long c )
   return (exp);
 }
 }
-void __builtin_trap(void) 
+void ldv__builtin_trap(void) 
 { 
 
 

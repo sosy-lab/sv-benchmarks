@@ -6205,9 +6205,8 @@ struct ldv_thread {
    int identifier ;
    void (*function)(void * ) ;
 };
-int __builtin_bswap32(int  ) ;
 void __builtin_prefetch(void const   *  , ...) ;
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 void *ldv_dev_get_drvdata(struct device  const  *dev ) ;
 int ldv_dev_set_drvdata(struct device *dev , void *data ) ;
 long ldv_is_err(void const   *ptr ) ;
@@ -6307,7 +6306,6 @@ extern size_t strlcpy(char * , char const   * , size_t  ) ;
 extern char *strchr(char const   * , int  ) ;
 extern char *kstrdup(char const   * , gfp_t  ) ;
 extern void warn_slowpath_null(char const   * , int const    ) ;
-extern int ( /* missing proto */  __builtin_unreachable)() ;
 __inline static unsigned long arch_local_save_flags(void) 
 { 
   unsigned long __ret ;
@@ -6325,7 +6323,7 @@ __inline static unsigned long arch_local_save_flags(void)
   __edx = __edx;
   __ecx = __ecx;
   __eax = __eax;
-  tmp = __builtin_expect((unsigned long )pv_irq_ops.save_fl.func == (unsigned long )((void *)0),
+  tmp = ldv__builtin_expect((unsigned long )pv_irq_ops.save_fl.func == (unsigned long )((void *)0),
                          0L);
   }
   if (tmp != 0L) {
@@ -6854,14 +6852,14 @@ __inline static struct page *compound_head(struct page *page )
   {
   {
   tmp___1 = PageTail((struct page  const  *)page);
-  tmp___2 = __builtin_expect(tmp___1 != 0, 0L);
+  tmp___2 = ldv__builtin_expect(tmp___1 != 0, 0L);
   }
   if (tmp___2 != 0L) {
     {
     head = page->__annonCompField46.first_page;
     __asm__  volatile   ("": : : "memory");
     tmp = PageTail((struct page  const  *)page);
-    tmp___0 = __builtin_expect(tmp != 0, 1L);
+    tmp___0 = ldv__builtin_expect(tmp != 0, 1L);
     }
     if (tmp___0 != 0L) {
       return (head);
@@ -6887,12 +6885,12 @@ __inline static void get_page(struct page *page )
   {
   {
   tmp___1 = PageTail((struct page  const  *)page);
-  tmp___2 = __builtin_expect(tmp___1 != 0, 0L);
+  tmp___2 = ldv__builtin_expect(tmp___1 != 0, 0L);
   }
   if (tmp___2 != 0L) {
     {
     tmp = __get_page_tail(page);
-    tmp___0 = __builtin_expect((long )tmp, 1L);
+    tmp___0 = ldv__builtin_expect((long )tmp, 1L);
     }
     if (tmp___0 != 0L) {
       return;
@@ -6904,7 +6902,7 @@ __inline static void get_page(struct page *page )
   }
   {
   tmp___3 = atomic_read((atomic_t const   *)(& page->__annonCompField43.__annonCompField42.__annonCompField41._count));
-  tmp___4 = __builtin_expect(tmp___3 <= 0, 0L);
+  tmp___4 = ldv__builtin_expect(tmp___3 <= 0, 0L);
   }
   if (tmp___4 != 0L) {
     {
@@ -7042,7 +7040,7 @@ __inline static struct dma_map_ops *get_dma_ops(struct device *dev )
 
   {
   {
-  tmp = __builtin_expect((unsigned long )dev == (unsigned long )((struct device *)0),
+  tmp = ldv__builtin_expect((unsigned long )dev == (unsigned long )((struct device *)0),
                          0L);
   }
   if (tmp != 0L || (unsigned long )dev->archdata.dma_ops == (unsigned long )((struct dma_map_ops *)0)) {
@@ -7069,7 +7067,7 @@ __inline static dma_addr_t dma_map_single_attrs(struct device *dev , void *ptr ,
   ops = tmp;
   kmemcheck_mark_initialized(ptr, (unsigned int )size);
   tmp___0 = valid_dma_direction((int )dir);
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -7105,7 +7103,7 @@ __inline static void dma_unmap_single_attrs(struct device *dev , dma_addr_t addr
   tmp = get_dma_ops(dev);
   ops = tmp;
   tmp___0 = valid_dma_direction((int )dir);
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -7149,7 +7147,7 @@ __inline static dma_addr_t dma_map_page(struct device *dev , struct page *page ,
   tmp___0 = lowmem_page_address((struct page  const  *)page);
   kmemcheck_mark_initialized(tmp___0 + offset, (unsigned int )size);
   tmp___1 = valid_dma_direction((int )dir);
-  tmp___2 = __builtin_expect(tmp___1 == 0, 0L);
+  tmp___2 = ldv__builtin_expect(tmp___1 == 0, 0L);
   }
   if (tmp___2 != 0L) {
     {
@@ -7180,7 +7178,7 @@ __inline static void dma_unmap_page(struct device *dev , dma_addr_t addr , size_
   tmp = get_dma_ops(dev);
   ops = tmp;
   tmp___0 = valid_dma_direction((int )dir);
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -7307,7 +7305,7 @@ __inline static void dma_free_attrs(struct device *dev , size_t size , void *vad
   _flags = arch_local_save_flags();
   tmp___0 = arch_irqs_disabled_flags(_flags);
   __ret_warn_on = tmp___0 != 0;
-  tmp___1 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___1 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -7318,7 +7316,7 @@ __inline static void dma_free_attrs(struct device *dev , size_t size , void *vad
 
   }
   {
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
   debug_dma_free_coherent(dev, size, vaddr, bus);
   }
   if ((unsigned long )ops->free != (unsigned long )((void (*)(struct device * , size_t  ,
@@ -7525,7 +7523,7 @@ __inline static int skb_padto(struct sk_buff *skb , unsigned int len )
   {
   {
   size = skb->len;
-  tmp = __builtin_expect(size >= len, 1L);
+  tmp = ldv__builtin_expect(size >= len, 1L);
   }
   if (tmp != 0L) {
     return (0);
@@ -7733,7 +7731,7 @@ __inline static void napi_enable(struct napi_struct *n )
   {
   {
   tmp = constant_test_bit(0L, (unsigned long const volatile   *)(& n->state));
-  tmp___0 = __builtin_expect(tmp == 0, 0L);
+  tmp___0 = ldv__builtin_expect(tmp == 0, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -7853,7 +7851,7 @@ __inline static void netif_tx_stop_queue(struct netdev_queue *dev_queue )
   {
   {
   __ret_warn_on = (unsigned long )dev_queue == (unsigned long )((struct netdev_queue *)0);
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp != 0L) {
     {
@@ -7863,7 +7861,7 @@ __inline static void netif_tx_stop_queue(struct netdev_queue *dev_queue )
 
   }
   {
-  tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -8007,7 +8005,7 @@ __inline static bool __netif_tx_trylock(struct netdev_queue *txq )
   {
   tmp = ldv_spin_trylock_48(& txq->_xmit_lock);
   ok = tmp != 0;
-  tmp___0 = __builtin_expect((long )ok, 1L);
+  tmp___0 = ldv__builtin_expect((long )ok, 1L);
   }
   if (tmp___0 != 0L) {
     __vpp_verify = (void const   *)0;
@@ -9698,7 +9696,7 @@ __inline static bool myri10ge_ss_lock_napi(struct myri10ge_slice_state *ss )
   if ((ss->state & 3U) != 0U) {
     {
     __ret_warn_on = (int )ss->state & 1;
-    tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
     if (tmp != 0L) {
       {
@@ -9708,7 +9706,7 @@ __inline static bool myri10ge_ss_lock_napi(struct myri10ge_slice_state *ss )
 
     }
     {
-    __builtin_expect(__ret_warn_on != 0, 0L);
+    ldv__builtin_expect(__ret_warn_on != 0, 0L);
     ss->state = ss->state | 4U;
     rc = 0;
     ss->lock_napi_yield = ss->lock_napi_yield + 1UL;
@@ -9731,7 +9729,7 @@ __inline static void myri10ge_ss_unlock_napi(struct myri10ge_slice_state *ss )
   {
   ldv_spin_lock_77(& ss->lock);
   __ret_warn_on = (ss->state & 6U) != 0U;
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp != 0L) {
     {
@@ -9741,7 +9739,7 @@ __inline static void myri10ge_ss_unlock_napi(struct myri10ge_slice_state *ss )
 
   }
   {
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
   ss->state = 0U;
   ldv_spin_unlock_78(& ss->lock);
   }
@@ -9779,7 +9777,7 @@ __inline static void myri10ge_ss_unlock_poll(struct myri10ge_slice_state *ss )
   {
   ldv_spin_lock_bh_81(& ss->lock);
   __ret_warn_on = (int )ss->state & 1;
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp != 0L) {
     {
@@ -9789,7 +9787,7 @@ __inline static void myri10ge_ss_unlock_poll(struct myri10ge_slice_state *ss )
 
   }
   {
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
   ss->state = 0U;
   ldv_spin_unlock_bh_82(& ss->lock);
   }
@@ -9804,7 +9802,7 @@ __inline static bool myri10ge_ss_busy_polling(struct myri10ge_slice_state *ss )
   {
   {
   __ret_warn_on = (ss->state & 3U) == 0U;
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp != 0L) {
     {
@@ -9814,7 +9812,7 @@ __inline static bool myri10ge_ss_busy_polling(struct myri10ge_slice_state *ss )
 
   }
   {
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   return ((ss->state & 10U) != 0U);
 }
@@ -10427,7 +10425,7 @@ static void myri10ge_alloc_rx_pages(struct myri10ge_priv *mgp , struct myri10ge_
 
   {
   {
-  tmp = __builtin_expect((long )(rx->watchdog_needed != 0 && watchdog == 0), 0L);
+  tmp = ldv__builtin_expect((long )(rx->watchdog_needed != 0 && watchdog == 0), 0L);
   }
   if (tmp != 0L) {
     return;
@@ -10444,7 +10442,7 @@ static void myri10ge_alloc_rx_pages(struct myri10ge_priv *mgp , struct myri10ge_
   } else {
     {
     page = alloc_pages(16416U, 0U);
-    tmp___0 = __builtin_expect((unsigned long )page == (unsigned long )((struct page *)0),
+    tmp___0 = ldv__builtin_expect((unsigned long )page == (unsigned long )((struct page *)0),
                                0L);
     }
     if (tmp___0 != 0L) {
@@ -10599,7 +10597,7 @@ __inline static int myri10ge_rx_done(struct myri10ge_slice_state *ss , int len ,
     }
   }
   {
-  tmp___0 = __builtin_expect((unsigned long )skb == (unsigned long )((struct sk_buff *)0),
+  tmp___0 = ldv__builtin_expect((unsigned long )skb == (unsigned long )((struct sk_buff *)0),
                              0L);
   }
   if (tmp___0 != 0L) {
@@ -10863,7 +10861,7 @@ __inline static void myri10ge_check_statblock(struct myri10ge_priv *mgp )
   {
   {
   stats = (mgp->ss)->fw_stats;
-  tmp___2 = __builtin_expect((unsigned int )stats->stats_updated != 0U, 0L);
+  tmp___2 = ldv__builtin_expect((unsigned int )stats->stats_updated != 0U, 0L);
   }
   if (tmp___2 != 0L) {
     {
@@ -11045,7 +11043,7 @@ static irqreturn_t myri10ge_intr(int irq , void *arg )
 
   }
   {
-  tmp = __builtin_expect((unsigned int )stats->valid == 0U, 0L);
+  tmp = ldv__builtin_expect((unsigned int )stats->valid == 0U, 0L);
   }
   if (tmp != 0L) {
     return (0);
@@ -11087,7 +11085,7 @@ static irqreturn_t myri10ge_intr(int irq , void *arg )
 
   }
   {
-  tmp___1 = __builtin_expect(i > myri10ge_max_irq_loops, 0L);
+  tmp___1 = ldv__builtin_expect(i > myri10ge_max_irq_loops, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -11099,7 +11097,7 @@ static irqreturn_t myri10ge_intr(int irq , void *arg )
 
   }
   {
-  tmp___2 = __builtin_expect((unsigned int )stats->valid == 0U, 1L);
+  tmp___2 = ldv__builtin_expect((unsigned int )stats->valid == 0U, 1L);
   }
   if (tmp___2 != 0L) {
     goto ldv_53326;
@@ -13190,7 +13188,7 @@ static netdev_tx_t myri10ge_xmit(struct sk_buff *skb , struct net_device *dev )
 
   }
   {
-  tmp___2 = __builtin_expect(avail < max_segments, 0L);
+  tmp___2 = ldv__builtin_expect(avail < max_segments, 0L);
   }
   if (tmp___2 != 0L) {
     {
@@ -13206,7 +13204,7 @@ static netdev_tx_t myri10ge_xmit(struct sk_buff *skb , struct net_device *dev )
   pseudo_hdr_offset = 0U;
   odd_flag = 0U;
   flags = 18U;
-  tmp___7 = __builtin_expect((unsigned int )*((unsigned char *)skb + 124UL) == 12U,
+  tmp___7 = ldv__builtin_expect((unsigned int )*((unsigned char *)skb + 124UL) == 12U,
                              1L);
   }
   if (tmp___7 != 0L) {
@@ -13214,11 +13212,11 @@ static netdev_tx_t myri10ge_xmit(struct sk_buff *skb , struct net_device *dev )
     tmp___3 = skb_checksum_start_offset((struct sk_buff  const  *)skb);
     cksum_offset = (u16 )tmp___3;
     pseudo_hdr_offset = (int )cksum_offset + (int )skb->__annonCompField68.__annonCompField67.csum_offset;
-    tmp___5 = __builtin_expect(mss == 0, 0L);
+    tmp___5 = ldv__builtin_expect(mss == 0, 0L);
     }
     if (tmp___5 != 0L) {
       {
-      tmp___6 = __builtin_expect((long )((unsigned int )cksum_offset > 255U || (unsigned int )pseudo_hdr_offset > 127U),
+      tmp___6 = ldv__builtin_expect((long )((unsigned int )cksum_offset > 255U || (unsigned int )pseudo_hdr_offset > 127U),
                                  0L);
       }
       if (tmp___6 != 0L) {
@@ -13256,7 +13254,7 @@ static netdev_tx_t myri10ge_xmit(struct sk_buff *skb , struct net_device *dev )
       {
       tmp___10 = tcp_hdrlen((struct sk_buff  const  *)skb);
       cksum_offset = (u16 )tmp___10;
-      tmp___12 = __builtin_expect((u32 )(- cum_len) > mgp->max_tso6, 0L);
+      tmp___12 = ldv__builtin_expect((u32 )(- cum_len) > mgp->max_tso6, 0L);
       }
       if (tmp___12 != 0L) {
         {
@@ -13274,7 +13272,7 @@ static netdev_tx_t myri10ge_xmit(struct sk_buff *skb , struct net_device *dev )
   if (skb->len <= 1520U) {
     {
     flags = (u8 )((unsigned int )flags | 1U);
-    tmp___15 = __builtin_expect(skb->len <= 59U, 0L);
+    tmp___15 = ldv__builtin_expect(skb->len <= 59U, 0L);
     }
     if (tmp___15 != 0L) {
       {
@@ -13315,7 +13313,7 @@ static netdev_tx_t myri10ge_xmit(struct sk_buff *skb , struct net_device *dev )
   goto ldv_53650;
   ldv_53649: 
   {
-  tmp___18 = __builtin_expect(count == max_segments, 0L);
+  tmp___18 = ldv__builtin_expect(count == max_segments, 0L);
   }
   if (tmp___18 != 0L) {
     goto abort_linearize;
@@ -13334,7 +13332,7 @@ static netdev_tx_t myri10ge_xmit(struct sk_buff *skb , struct net_device *dev )
   if (mss != 0) {
     {
     (req + - ((unsigned long )rdma_count))->rdma_count = (unsigned int )((u8 )rdma_count) + 1U;
-    tmp___20 = __builtin_expect(cum_len >= 0, 1L);
+    tmp___20 = ldv__builtin_expect(cum_len >= 0, 1L);
     }
     if (tmp___20 != 0L) {
       chop = cum_len_next > mss;
@@ -13346,7 +13344,7 @@ static netdev_tx_t myri10ge_xmit(struct sk_buff *skb , struct net_device *dev )
       rdma_count = rdma_count + (chop & ~ next_is_first);
     } else {
       {
-      tmp___19 = __builtin_expect(cum_len_next >= 0, 1L);
+      tmp___19 = ldv__builtin_expect(cum_len_next >= 0, 1L);
       }
       if (tmp___19 != 0L) {
         rdma_count = -1;
@@ -13396,7 +13394,7 @@ static netdev_tx_t myri10ge_xmit(struct sk_buff *skb , struct net_device *dev )
       if (tmp___26) {
         _L: /* CIL Label */ 
         {
-        tmp___24 = __builtin_expect((int )cksum_offset > seglen, 0L);
+        tmp___24 = ldv__builtin_expect((int )cksum_offset > seglen, 0L);
         }
         if (tmp___24 != 0L) {
           cksum_offset = (int )cksum_offset - (int )((u16 )seglen);
@@ -14035,7 +14033,7 @@ static void myri10ge_select_firmware(struct myri10ge_priv *mgp )
     }
   }
   {
-  tmp = __builtin_expect(((int )__param_myri10ge_fw_name.perm & 146) == 0, 0L);
+  tmp = ldv__builtin_expect(((int )__param_myri10ge_fw_name.perm & 146) == 0, 0L);
   }
   if (tmp != 0L) {
     {
@@ -14066,7 +14064,7 @@ static void myri10ge_select_firmware(struct myri10ge_priv *mgp )
 
   }
   {
-  tmp___1 = __builtin_expect(((int )__param_myri10ge_fw_name.perm & 146) == 0, 0L);
+  tmp___1 = ldv__builtin_expect(((int )__param_myri10ge_fw_name.perm & 146) == 0, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -14417,7 +14415,7 @@ static void myri10ge_watchdog(struct work_struct *work )
       descriptor.format = "not resetting\n";
       descriptor.lineno = 3656U;
       descriptor.flags = 0U;
-      tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+      tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
       }
       if (tmp___0 != 0L) {
         {
@@ -15428,7 +15426,7 @@ void ldv_dummy_resourceless_instance_callback_3_3(int (*arg0)(struct notifier_bl
                                                   struct notifier_block *arg1 , unsigned long arg2 ,
                                                   void *arg3 ) ;
 void ldv_entry_EMGentry_17(void *arg0 ) ;
-void main(void) ;
+int main(void) ;
 void ldv_free_irq(void *arg0 , int arg1 , void *arg2 ) ;
 void ldv_free_netdev(void *arg0 , struct net_device *arg1 ) ;
 void ldv_initialize_external_data(void) ;
@@ -16204,7 +16202,7 @@ void ldv_entry_EMGentry_17(void *arg0 )
   return;
 }
 }
-void main(void) 
+int main(void) 
 { 
   int tmp ;
 
@@ -18161,7 +18159,7 @@ void *ldv_kzalloc(size_t size , gfp_t flags )
 }
 }
 extern void ldv_assert(char const   * , int  ) ;
-void __builtin_trap(void) ;
+void ldv__builtin_trap(void) ;
 void ldv_assume(int expression ) 
 { 
 
@@ -18185,7 +18183,7 @@ void ldv_stop(void)
   goto ldv_stop_label;
 }
 }
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 
@@ -18193,7 +18191,7 @@ long __builtin_expect(long exp , long c )
   return (exp);
 }
 }
-void __builtin_trap(void) 
+void ldv__builtin_trap(void) 
 { 
 
 

@@ -4513,8 +4513,7 @@ struct ldv_thread {
    int identifier ;
    void (*function)(void * ) ;
 };
-long __builtin_bswap64(long  ) ;
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 extern void ldv_initialize(void) ;
 int ldv_post_init(int init_ret_val ) ;
 void ldv_check_final_state(void) ;
@@ -5006,7 +5005,7 @@ static int mlx5_enable_msix(struct mlx5_core_dev *dev )
   descriptor.format = "%s:%s:%d:(pid %d): received %d MSI vectors out of %d requested\n";
   descriptor.lineno = 144U;
   descriptor.flags = 0U;
-  tmp___2 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___2 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___2 != 0L) {
     {
@@ -5660,7 +5659,7 @@ void ldv_allocate_external_0(void) ;
 void ldv_dispatch_deregister_file_operations_instance_5_10_4(void) ;
 void ldv_dispatch_register_file_operations_instance_5_10_5(void) ;
 void ldv_entry_EMGentry_10(void *arg0 ) ;
-void main(void) ;
+int main(void) ;
 void ldv_file_operations_file_operations_instance_0(void *arg0 ) ;
 void ldv_file_operations_file_operations_instance_1(void *arg0 ) ;
 void ldv_file_operations_file_operations_instance_2(void *arg0 ) ;
@@ -5980,7 +5979,7 @@ void ldv_entry_EMGentry_10(void *arg0 )
   return;
 }
 }
-void main(void) 
+int main(void) 
 { 
   int tmp ;
 
@@ -6242,7 +6241,6 @@ static int ldv_dev_set_drvdata_38(struct device *dev , void *data )
   return (tmp);
 }
 }
-int __builtin_bswap32(int  ) ;
 int ldv_filter_err_code(int ret_val ) ;
 long ldv_is_err(void const   *ptr ) ;
 void *ldv_err_ptr(long error ) ;
@@ -6358,7 +6356,6 @@ extern int sscanf(char const   * , char const   *  , ...) ;
 extern unsigned long __phys_addr(unsigned long  ) ;
 extern void *memcpy(void * , void const   * , size_t  ) ;
 extern int strcmp(char const   * , char const   * ) ;
-extern int ( /* missing proto */  __builtin_unreachable)() ;
 __inline static void *ERR_PTR(long error ) ;
 __inline static long PTR_ERR(void const   *ptr ) ;
 __inline static long IS_ERR(void const   *ptr ) ;
@@ -6473,7 +6470,7 @@ __inline static ktime_t ktime_set(long const   secs , unsigned long const   nsec
 
   {
   {
-  tmp = __builtin_expect((long long )secs > 9223372035LL, 0L);
+  tmp = ldv__builtin_expect((long long )secs > 9223372035LL, 0L);
   }
   if (tmp != 0L) {
     __constr_expr_0.tv64 = 9223372036854775807LL;
@@ -6550,7 +6547,7 @@ __inline static struct dma_map_ops *get_dma_ops(struct device *dev )
 
   {
   {
-  tmp = __builtin_expect((unsigned long )dev == (unsigned long )((struct device *)0),
+  tmp = ldv__builtin_expect((unsigned long )dev == (unsigned long )((struct device *)0),
                          0L);
   }
   if (tmp != 0L || (unsigned long )dev->archdata.dma_ops == (unsigned long )((struct dma_map_ops *)0)) {
@@ -6577,7 +6574,7 @@ __inline static dma_addr_t dma_map_single_attrs(struct device *dev , void *ptr ,
   ops = tmp;
   kmemcheck_mark_initialized(ptr, (unsigned int )size);
   tmp___0 = valid_dma_direction((int )dir);
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -6613,7 +6610,7 @@ __inline static void dma_unmap_single_attrs(struct device *dev , dma_addr_t addr
   tmp = get_dma_ops(dev);
   ops = tmp;
   tmp___0 = valid_dma_direction((int )dir);
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -6707,7 +6704,7 @@ __inline static unsigned long copy_from_user(void *to , void const   *from , uns
   {
   sz = -1;
   might_fault();
-  tmp = __builtin_expect(sz < 0, 1L);
+  tmp = ldv__builtin_expect(sz < 0, 1L);
   }
   if (tmp != 0L) {
     {
@@ -6715,7 +6712,7 @@ __inline static unsigned long copy_from_user(void *to , void const   *from , uns
     }
   } else {
     {
-    tmp___0 = __builtin_expect((unsigned long )sz >= n, 1L);
+    tmp___0 = ldv__builtin_expect((unsigned long )sz >= n, 1L);
     }
     if (tmp___0 != 0L) {
       {
@@ -6740,7 +6737,7 @@ __inline static unsigned long copy_to_user(void *to , void const   *from , unsig
   {
   sz = -1;
   might_fault();
-  tmp = __builtin_expect(sz < 0, 1L);
+  tmp = ldv__builtin_expect(sz < 0, 1L);
   }
   if (tmp != 0L) {
     {
@@ -6748,7 +6745,7 @@ __inline static unsigned long copy_to_user(void *to , void const   *from , unsig
     }
   } else {
     {
-    tmp___0 = __builtin_expect((unsigned long )sz >= n, 1L);
+    tmp___0 = ldv__builtin_expect((unsigned long )sz >= n, 1L);
     }
     if (tmp___0 != 0L) {
       {
@@ -7094,7 +7091,7 @@ static void dump_buf(void *buf , int size , int data_only , int offset )
   descriptor.format = "%03x: %08x %08x %08x %08x\n";
   descriptor.lineno = 265U;
   descriptor.flags = 0U;
-  tmp___3 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___3 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___3 != 0L) {
     {
@@ -7126,7 +7123,7 @@ static void dump_buf(void *buf , int size , int data_only , int offset )
     descriptor___0.format = "\n";
     descriptor___0.lineno = 270U;
     descriptor___0.flags = 0U;
-    tmp___4 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___4 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___4 != 0L) {
       {
@@ -7618,7 +7615,7 @@ static void dump_command(struct mlx5_core_dev *dev , struct mlx5_cmd_work_ent *e
       descriptor.format = "%s:%s:%d:(pid %d): dump command data %s(0x%x) %s\n";
       descriptor.lineno = 476U;
       descriptor.flags = 0U;
-      tmp___2 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+      tmp___2 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
       }
       if (tmp___2 != 0L) {
         {
@@ -7642,7 +7639,7 @@ static void dump_command(struct mlx5_core_dev *dev , struct mlx5_cmd_work_ent *e
     descriptor___0.format = "%s:%s:%d:(pid %d): dump command %s(0x%x) %s\n";
     descriptor___0.lineno = 480U;
     descriptor___0.flags = 0U;
-    tmp___5 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___5 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___5 != 0L) {
       {
@@ -7692,7 +7689,7 @@ static void dump_command(struct mlx5_core_dev *dev , struct mlx5_cmd_work_ent *e
     descriptor___1.format = "%s:%s:%d:(pid %d): command block:\n";
     descriptor___1.lineno = 501U;
     descriptor___1.flags = 0U;
-    tmp___7 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___7 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
     }
     if (tmp___7 != 0L) {
       {
@@ -7724,7 +7721,7 @@ static void dump_command(struct mlx5_core_dev *dev , struct mlx5_cmd_work_ent *e
     descriptor___2.format = "\n";
     descriptor___2.lineno = 509U;
     descriptor___2.flags = 0U;
-    tmp___8 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+    tmp___8 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
     }
     if (tmp___8 != 0L) {
       {
@@ -7833,7 +7830,7 @@ static void cmd_work_handler(struct work_struct *work )
   descriptor.format = "%s:%s:%d:(pid %d): write 0x%x to command doorbell\n";
   descriptor.lineno = 556U;
   descriptor.flags = 0U;
-  tmp___6 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___6 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___6 != 0L) {
     {
@@ -8017,7 +8014,7 @@ static int wait_func(struct mlx5_core_dev *dev , struct mlx5_cmd_work_ent *ent )
   descriptor.format = "%s:%s:%d:(pid %d): err %d, delivery status %s(%d)\n";
   descriptor.lineno = 624U;
   descriptor.flags = 0U;
-  tmp___7 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___7 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___7 != 0L) {
     {
@@ -8157,7 +8154,7 @@ static int mlx5_cmd_invoke(struct mlx5_core_dev *dev , struct mlx5_cmd_msg *in ,
       descriptor.format = "%s:%s:%d:(pid %d): fw exec time for %s is %lld nsec\n";
       descriptor.lineno = 685U;
       descriptor.flags = 0U;
-      tmp___7 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+      tmp___7 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
       }
       if (tmp___7 != 0L) {
         {
@@ -8370,7 +8367,7 @@ static struct mlx5_cmd_mailbox *alloc_cmd_box(struct mlx5_core_dev *dev , gfp_t 
     descriptor.format = "%s:%s:%d:(pid %d): failed allocation\n";
     descriptor.lineno = 806U;
     descriptor.flags = 0U;
-    tmp___2 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___2 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp___2 != 0L) {
       {
@@ -8981,7 +8978,7 @@ void mlx5_cmd_comp_handler(struct mlx5_core_dev *dev , unsigned long vector )
       descriptor.format = "%s:%s:%d:(pid %d): command completed. ret 0x%x, delivery status %s(0x%x)\n";
       descriptor.lineno = 1162U;
       descriptor.flags = 0U;
-      tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+      tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
       }
       if (tmp___1 != 0L) {
         {
@@ -9221,7 +9218,7 @@ static int cmd_exec(struct mlx5_core_dev *dev , void *in , int in_size , void *o
   descriptor.format = "%s:%s:%d:(pid %d): err %d, status %d\n";
   descriptor.lineno = 1277U;
   descriptor.flags = 0U;
-  tmp___5 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___5 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___5 != 0L) {
     {
@@ -9606,7 +9603,7 @@ int mlx5_cmd_init(struct mlx5_core_dev *dev )
   descriptor.format = "%s:%s:%d:(pid %d): descriptor at dma 0x%llx\n";
   descriptor.lineno = 1450U;
   descriptor.flags = 0U;
-  tmp___74 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___74 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___74 != 0L) {
     {
@@ -13147,7 +13144,7 @@ static int mlx5_eq_int(struct mlx5_core_dev *dev , struct mlx5_eq *eq )
   descriptor.format = "%s:%s:%d:(pid %d): eqn %d, eqe type %s\n";
   descriptor.lineno = 211U;
   descriptor.flags = 0U;
-  tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -13258,7 +13255,7 @@ static int mlx5_eq_int(struct mlx5_core_dev *dev , struct mlx5_eq *eq )
   descriptor___0.format = "%s:%s:%d:(pid %d): event %s(%d) arrived\n";
   descriptor___0.lineno = 227U;
   descriptor___0.flags = 0U;
-  tmp___5 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___5 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
   }
   if (tmp___5 != 0L) {
     {
@@ -13287,7 +13284,7 @@ static int mlx5_eq_int(struct mlx5_core_dev *dev , struct mlx5_eq *eq )
   descriptor___1.format = "%s:%s:%d:(pid %d): SRQ event %s(%d): srqn 0x%x\n";
   descriptor___1.lineno = 236U;
   descriptor___1.flags = 0U;
-  tmp___10 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+  tmp___10 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
   }
   if (tmp___10 != 0L) {
     {
@@ -13394,7 +13391,7 @@ static int mlx5_eq_int(struct mlx5_core_dev *dev , struct mlx5_eq *eq )
   descriptor___2.format = "%s:%s:%d:(pid %d): page request for func 0x%x, napges %d\n";
   descriptor___2.lineno = 273U;
   descriptor___2.flags = 0U;
-  tmp___19 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+  tmp___19 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
   }
   if (tmp___19 != 0L) {
     {
@@ -13424,7 +13421,7 @@ static int mlx5_eq_int(struct mlx5_core_dev *dev , struct mlx5_eq *eq )
   eq->cons_index = eq->cons_index + 1U;
   eqes_found = 1;
   set_ci = set_ci + 1;
-  tmp___21 = __builtin_expect(set_ci > 127, 0L);
+  tmp___21 = ldv__builtin_expect(set_ci > 127, 0L);
   }
   if (tmp___21 != 0L) {
     {
@@ -14238,7 +14235,7 @@ int mlx5_alloc_uuars(struct mlx5_core_dev *dev , struct mlx5_uuar_info *uuari )
   descriptor.format = "%s:%s:%d:(pid %d): allocated uar index 0x%x, mmaped at %p\n";
   descriptor.lineno = 171U;
   descriptor.flags = 0U;
-  tmp___4 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___4 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___4 != 0L) {
     {
@@ -14417,7 +14414,7 @@ __inline static dma_addr_t dma_map_page(struct device *dev , struct page *page ,
   tmp___0 = lowmem_page_address((struct page  const  *)page);
   kmemcheck_mark_initialized(tmp___0 + offset, (unsigned int )size);
   tmp___1 = valid_dma_direction((int )dir);
-  tmp___2 = __builtin_expect(tmp___1 == 0, 0L);
+  tmp___2 = ldv__builtin_expect(tmp___1 == 0, 0L);
   }
   if (tmp___2 != 0L) {
     {
@@ -14448,7 +14445,7 @@ __inline static void dma_unmap_page(struct device *dev , dma_addr_t addr , size_
   tmp = get_dma_ops(dev);
   ops = tmp;
   tmp___0 = valid_dma_direction((int )dir);
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -14925,7 +14922,7 @@ static int give_pages(struct mlx5_core_dev *dev , u16 func_id , int npages , int
   descriptor.format = "%s:%s:%d:(pid %d): err %d\n";
   descriptor.lineno = 327U;
   descriptor.flags = 0U;
-  tmp___7 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___7 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___7 != 0L) {
     {
@@ -15046,7 +15043,7 @@ static int reclaim_pages(struct mlx5_core_dev *dev , u32 func_id , int npages , 
   descriptor.format = "%s:%s:%d:(pid %d): npages %d, outlen %d\n";
   descriptor.lineno = 378U;
   descriptor.flags = 0U;
-  tmp___3 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___3 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___3 != 0L) {
     {
@@ -15218,7 +15215,7 @@ int mlx5_satisfy_startup_pages(struct mlx5_core_dev *dev , int boot )
   descriptor.format = "%s:%s:%d:(pid %d): requested %d %s pages for func_id 0x%x\n";
   descriptor.lineno = 452U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -16058,7 +16055,7 @@ void mlx5_cq_completion(struct mlx5_core_dev *dev , u32 cqn )
   ldv_spin_lock_53___0(& table->lock);
   tmp = radix_tree_lookup(& table->tree, (unsigned long )cqn);
   cq = (struct mlx5_core_cq *)tmp;
-  tmp___0 = __builtin_expect((unsigned long )cq != (unsigned long )((struct mlx5_core_cq *)0),
+  tmp___0 = ldv__builtin_expect((unsigned long )cq != (unsigned long )((struct mlx5_core_cq *)0),
                              1L);
   }
   if (tmp___0 != 0L) {
@@ -16209,7 +16206,7 @@ int mlx5_core_create_cq(struct mlx5_core_dev *dev , struct mlx5_core_cq *cq , st
     descriptor.format = "%s:%s:%d:(pid %d): failed adding CP 0x%x to debug file system\n";
     descriptor.lineno = 125U;
     descriptor.flags = 0U;
-    tmp___3 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___3 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp___3 != 0L) {
       {
@@ -16990,7 +16987,7 @@ __inline static unsigned long arch_local_save_flags(void)
   __edx = __edx;
   __ecx = __ecx;
   __eax = __eax;
-  tmp = __builtin_expect((unsigned long )pv_irq_ops.save_fl.func == (unsigned long )((void *)0),
+  tmp = ldv__builtin_expect((unsigned long )pv_irq_ops.save_fl.func == (unsigned long )((void *)0),
                          0L);
   }
   if (tmp != 0L) {
@@ -17133,7 +17130,7 @@ __inline static void dma_free_attrs(struct device *dev , size_t size , void *vad
   _flags = arch_local_save_flags();
   tmp___0 = arch_irqs_disabled_flags(_flags);
   __ret_warn_on = tmp___0 != 0;
-  tmp___1 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___1 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -17144,7 +17141,7 @@ __inline static void dma_free_attrs(struct device *dev , size_t size , void *vad
 
   }
   {
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
   debug_dma_free_coherent(dev, size, vaddr, bus);
   }
   if ((unsigned long )ops->free != (unsigned long )((void (*)(struct device * , size_t  ,
@@ -17443,7 +17440,7 @@ int mlx5_db_alloc(struct mlx5_core_dev *dev , struct mlx5_db *db )
   list_add(& pgdir->list, & dev->priv.pgdir_list);
   tmp___0 = mlx5_alloc_db_from_pgdir(pgdir, db);
   __ret_warn_on = tmp___0 != 0;
-  tmp___1 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___1 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -17453,7 +17450,7 @@ int mlx5_db_alloc(struct mlx5_core_dev *dev , struct mlx5_db *db )
 
   }
   {
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   out: 
   {
@@ -17697,7 +17694,7 @@ int mlx5_core_create_qp(struct mlx5_core_dev *dev , struct mlx5_core_qp *qp , st
   descriptor.format = "%s:%s:%d:(pid %d): qpn = 0x%x\n";
   descriptor.lineno = 93U;
   descriptor.flags = 0U;
-  tmp___5 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___5 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___5 != 0L) {
     {
@@ -17734,7 +17731,7 @@ int mlx5_core_create_qp(struct mlx5_core_dev *dev , struct mlx5_core_qp *qp , st
     descriptor___0.format = "%s:%s:%d:(pid %d): failed adding QP 0x%x to debug file system\n";
     descriptor___0.lineno = 106U;
     descriptor___0.flags = 0U;
-    tmp___8 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___8 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___8 != 0L) {
       {
@@ -18516,7 +18513,7 @@ int mlx5_core_create_mkey(struct mlx5_core_dev *dev , struct mlx5_core_mr *mr , 
     descriptor.format = "%s:%s:%d:(pid %d): cmd exec faile %d\n";
     descriptor.lineno = 63U;
     descriptor.flags = 0U;
-    tmp___2 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___2 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp___2 != 0L) {
       {
@@ -18539,7 +18536,7 @@ int mlx5_core_create_mkey(struct mlx5_core_dev *dev , struct mlx5_core_mr *mr , 
     descriptor___0.format = "%s:%s:%d:(pid %d): status %d\n";
     descriptor___0.lineno = 68U;
     descriptor___0.flags = 0U;
-    tmp___4 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___4 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___4 != 0L) {
       {
@@ -18567,7 +18564,7 @@ int mlx5_core_create_mkey(struct mlx5_core_dev *dev , struct mlx5_core_mr *mr , 
   descriptor___1.format = "%s:%s:%d:(pid %d): out 0x%x, key 0x%x, mkey 0x%x\n";
   descriptor___1.lineno = 74U;
   descriptor___1.flags = 0U;
-  tmp___10 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+  tmp___10 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
   }
   if (tmp___10 != 0L) {
     {
@@ -19096,7 +19093,7 @@ void *ldv_kzalloc(size_t size , gfp_t flags )
 }
 }
 extern void ldv_assert(char const   * , int  ) ;
-void __builtin_trap(void) ;
+void ldv__builtin_trap(void) ;
 void ldv_assume(int expression ) 
 { 
 
@@ -19120,7 +19117,7 @@ void ldv_stop(void)
   goto ldv_stop_label;
 }
 }
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 
@@ -19128,7 +19125,7 @@ long __builtin_expect(long exp , long c )
   return (exp);
 }
 }
-void __builtin_trap(void) 
+void ldv__builtin_trap(void) 
 { 
 
 

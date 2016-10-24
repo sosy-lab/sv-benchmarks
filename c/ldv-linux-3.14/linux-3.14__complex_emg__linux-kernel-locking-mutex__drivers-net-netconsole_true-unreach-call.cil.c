@@ -6762,7 +6762,7 @@ void ldv_dummy_resourceless_instance_callback_9_3(int (*arg0)(struct notifier_bl
                                                   struct notifier_block *arg1 , unsigned long arg2 ,
                                                   void *arg3 ) ;
 void ldv_entry_EMGentry_14(void *arg0 ) ;
-void main(void) ;
+int main(void) ;
 void ldv_initialize_external_data(void) ;
 void ldv_register_console(void *arg0 , struct console *arg1 ) ;
 int ldv_register_netdevice_notifier(int arg0 , struct notifier_block *arg1 ) ;
@@ -8310,7 +8310,7 @@ void ldv_entry_EMGentry_14(void *arg0 )
   return;
 }
 }
-void main(void) 
+int main(void) 
 { 
   int tmp ;
 
@@ -10451,9 +10451,9 @@ void *ldv_kzalloc(size_t size , gfp_t flags )
   return (res);
 }
 }
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 extern void ldv_assert(char const   * , int  ) ;
-void __builtin_trap(void) ;
+void ldv__builtin_trap(void) ;
 void ldv_assume(int expression ) 
 { 
 
@@ -10477,7 +10477,7 @@ void ldv_stop(void)
   goto ldv_stop_label;
 }
 }
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 
@@ -10485,7 +10485,7 @@ long __builtin_expect(long exp , long c )
   return (exp);
 }
 }
-void __builtin_trap(void) 
+void ldv__builtin_trap(void) 
 { 
 
 

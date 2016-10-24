@@ -6990,7 +6990,7 @@ static void ldv_iounmap_121(void volatile   *ldv_func_arg1 )
   return;
 }
 }
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 void ldv_stop(void) ;
 void ldv_linux_arch_io_check_final_state(void) ;
 void ldv_linux_block_genhd_check_final_state(void) ;
@@ -7048,7 +7048,7 @@ __inline static bool IS_ERR(void const   *ptr )
 
   {
   {
-  tmp = __builtin_expect((unsigned long )ptr > 0xfffffffffffff000UL, 0L);
+  tmp = ldv__builtin_expect((unsigned long )ptr > 0xfffffffffffff000UL, 0L);
   }
   return (tmp != 0L);
 }
@@ -8070,7 +8070,7 @@ void ldv_dummy_resourceless_instance_callback_6_9(long (*arg0)(struct device_dri
                                                   struct device_driver *arg1 , char *arg2 ,
                                                   unsigned long arg3 ) ;
 void ldv_entry_EMGentry_20(void *arg0 ) ;
-void main(void) ;
+int main(void) ;
 void ldv_file_operations_file_operations_instance_0(void *arg0 ) ;
 void ldv_file_operations_instance_callback_0_5(long (*arg0)(struct file * , unsigned int  ,
                                                             unsigned long  ) , struct file *arg1 ,
@@ -8503,7 +8503,7 @@ void ldv_entry_EMGentry_20(void *arg0 )
   return;
 }
 }
-void main(void) 
+int main(void) 
 { 
 
 
@@ -8512,7 +8512,7 @@ void main(void)
   ldv_ldv_initialize_124();
   ldv_entry_EMGentry_20((void *)0);
   }
-  return;
+return 0;
 }
 }
 void ldv_file_operations_file_operations_instance_0(void *arg0 ) 
@@ -10660,7 +10660,7 @@ __inline static unsigned long copy_from_user(void *to , void const   *from , uns
   {
   sz = -1;
   might_fault();
-  tmp = __builtin_expect(sz < 0, 1L);
+  tmp = ldv__builtin_expect(sz < 0, 1L);
   }
   if (tmp != 0L) {
     {
@@ -10668,7 +10668,7 @@ __inline static unsigned long copy_from_user(void *to , void const   *from , uns
     }
   } else {
     {
-    tmp___0 = __builtin_expect((unsigned long )sz >= n, 1L);
+    tmp___0 = ldv__builtin_expect((unsigned long )sz >= n, 1L);
     }
     if (tmp___0 != 0L) {
       {
@@ -10693,7 +10693,7 @@ __inline static unsigned long copy_to_user(void *to , void const   *from , unsig
   {
   sz = -1;
   might_fault();
-  tmp = __builtin_expect(sz < 0, 1L);
+  tmp = ldv__builtin_expect(sz < 0, 1L);
   }
   if (tmp != 0L) {
     {
@@ -10701,7 +10701,7 @@ __inline static unsigned long copy_to_user(void *to , void const   *from , unsig
     }
   } else {
     {
-    tmp___0 = __builtin_expect((unsigned long )sz >= n, 1L);
+    tmp___0 = ldv__builtin_expect((unsigned long )sz >= n, 1L);
     }
     if (tmp___0 != 0L) {
       {
@@ -13814,7 +13814,7 @@ __inline static int signal_pending(struct task_struct *p )
   {
   {
   tmp = test_tsk_thread_flag(p, 2);
-  tmp___0 = __builtin_expect(tmp != 0, 0L);
+  tmp___0 = ldv__builtin_expect(tmp != 0, 0L);
   }
   return ((int )tmp___0);
 }
@@ -14038,7 +14038,7 @@ int dgnc_tty_register(struct dgnc_board *brd )
       descriptor.format = "Can\'t register tty device (%d)\n";
       descriptor.lineno = 236U;
       descriptor.flags = 0U;
-      tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+      tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
       }
       if (tmp___1 != 0L) {
         {
@@ -14102,7 +14102,7 @@ int dgnc_tty_register(struct dgnc_board *brd )
       descriptor___0.format = "Can\'t register Transparent Print device(%d)\n";
       descriptor___0.lineno = 286U;
       descriptor___0.flags = 0U;
-      tmp___4 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+      tmp___4 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
       }
       if (tmp___4 != 0L) {
         {
@@ -15451,7 +15451,7 @@ static void dgnc_tty_close(struct tty_struct *tty , struct file *file )
     descriptor.format = "tty->count is 1, un open count is %d\n";
     descriptor.lineno = 1429U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -15475,7 +15475,7 @@ static void dgnc_tty_close(struct tty_struct *tty , struct file *file )
     descriptor___0.format = "bad serial port open count of %d\n";
     descriptor___0.lineno = 1438U;
     descriptor___0.flags = 0U;
-    tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -16201,7 +16201,7 @@ static void dgnc_tty_send_xchar(struct tty_struct *tty , char c )
   descriptor.format = "dgnc_tty_send_xchar start\n";
   descriptor.lineno = 2110U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -16220,7 +16220,7 @@ static void dgnc_tty_send_xchar(struct tty_struct *tty , char c )
   descriptor___0.format = "dgnc_tty_send_xchar finish\n";
   descriptor___0.lineno = 2116U;
   descriptor___0.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -25388,7 +25388,7 @@ void ldv_linux_usb_urb_check_final_state(void)
 }
 }
 extern void ldv_assert(char const   * , int  ) ;
-void __builtin_trap(void) ;
+void ldv__builtin_trap(void) ;
 void ldv_assume(int expression ) 
 { 
 
@@ -25412,7 +25412,7 @@ void ldv_stop(void)
   goto ldv_stop_label;
 }
 }
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 
@@ -25420,7 +25420,7 @@ long __builtin_expect(long exp , long c )
   return (exp);
 }
 }
-void __builtin_trap(void) 
+void ldv__builtin_trap(void) 
 { 
 
 

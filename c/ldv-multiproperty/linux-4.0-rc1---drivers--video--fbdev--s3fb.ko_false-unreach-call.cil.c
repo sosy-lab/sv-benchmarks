@@ -4701,7 +4701,7 @@ struct ldv_thread {
    void (*function)(void * ) ;
 };
 typedef _Bool ldv_set;
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 void ldv_assume(int expression ) ;
 void ldv_stop(void) ;
 void ldv_linux_alloc_irq_check_alloc_flags(gfp_t flags ) ;
@@ -6207,7 +6207,7 @@ static int s3fb_set_par(struct fb_info *info )
   descriptor.format = "fb%d: offset register       : %d\n";
   descriptor.lineno = 688U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -6353,7 +6353,7 @@ static int s3fb_set_par(struct fb_info *info )
   descriptor___0.format = "fb%d: text mode\n";
   descriptor___0.lineno = 771U;
   descriptor___0.flags = 0U;
-  tmp___1 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -6376,7 +6376,7 @@ static int s3fb_set_par(struct fb_info *info )
     descriptor___1.format = "fb%d: high speed text mode set\n";
     descriptor___1.lineno = 782U;
     descriptor___1.flags = 0U;
-    tmp___2 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___2 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
     }
     if (tmp___2 != 0L) {
       {
@@ -6400,7 +6400,7 @@ static int s3fb_set_par(struct fb_info *info )
   descriptor___2.format = "fb%d: 4 bit pseudocolor\n";
   descriptor___2.lineno = 787U;
   descriptor___2.flags = 0U;
-  tmp___3 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+  tmp___3 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
   }
   if (tmp___3 != 0L) {
     {
@@ -6424,7 +6424,7 @@ static int s3fb_set_par(struct fb_info *info )
   descriptor___3.format = "fb%d: 4 bit pseudocolor, planar\n";
   descriptor___3.lineno = 798U;
   descriptor___3.flags = 0U;
-  tmp___4 = __builtin_expect((long )descriptor___3.flags & 1L, 0L);
+  tmp___4 = ldv__builtin_expect((long )descriptor___3.flags & 1L, 0L);
   }
   if (tmp___4 != 0L) {
     {
@@ -6447,7 +6447,7 @@ static int s3fb_set_par(struct fb_info *info )
   descriptor___4.format = "fb%d: 8 bit pseudocolor\n";
   descriptor___4.lineno = 808U;
   descriptor___4.flags = 0U;
-  tmp___5 = __builtin_expect((long )descriptor___4.flags & 1L, 0L);
+  tmp___5 = ldv__builtin_expect((long )descriptor___4.flags & 1L, 0L);
   }
   if (tmp___5 != 0L) {
     {
@@ -6478,7 +6478,7 @@ static int s3fb_set_par(struct fb_info *info )
   descriptor___5.format = "fb%d: 5/5/5 truecolor\n";
   descriptor___5.lineno = 824U;
   descriptor___5.flags = 0U;
-  tmp___6 = __builtin_expect((long )descriptor___5.flags & 1L, 0L);
+  tmp___6 = ldv__builtin_expect((long )descriptor___5.flags & 1L, 0L);
   }
   if (tmp___6 != 0L) {
     {
@@ -6533,7 +6533,7 @@ static int s3fb_set_par(struct fb_info *info )
   descriptor___6.format = "fb%d: 5/6/5 truecolor\n";
   descriptor___6.lineno = 852U;
   descriptor___6.flags = 0U;
-  tmp___7 = __builtin_expect((long )descriptor___6.flags & 1L, 0L);
+  tmp___7 = ldv__builtin_expect((long )descriptor___6.flags & 1L, 0L);
   }
   if (tmp___7 != 0L) {
     {
@@ -6588,7 +6588,7 @@ static int s3fb_set_par(struct fb_info *info )
   descriptor___7.format = "fb%d: 8/8/8 truecolor\n";
   descriptor___7.lineno = 881U;
   descriptor___7.flags = 0U;
-  tmp___8 = __builtin_expect((long )descriptor___7.flags & 1L, 0L);
+  tmp___8 = ldv__builtin_expect((long )descriptor___7.flags & 1L, 0L);
   }
   if (tmp___8 != 0L) {
     {
@@ -6609,7 +6609,7 @@ static int s3fb_set_par(struct fb_info *info )
   descriptor___8.format = "fb%d: 8/8/8/8 truecolor\n";
   descriptor___8.lineno = 885U;
   descriptor___8.flags = 0U;
-  tmp___9 = __builtin_expect((long )descriptor___8.flags & 1L, 0L);
+  tmp___9 = ldv__builtin_expect((long )descriptor___8.flags & 1L, 0L);
   }
   if (tmp___9 != 0L) {
     {
@@ -6820,7 +6820,7 @@ static int s3fb_blank(int blank_mode , struct fb_info *info )
   descriptor.format = "fb%d: unblank\n";
   descriptor.lineno = 993U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -6842,7 +6842,7 @@ static int s3fb_blank(int blank_mode , struct fb_info *info )
   descriptor___0.format = "fb%d: blank\n";
   descriptor___0.lineno = 998U;
   descriptor___0.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -6864,7 +6864,7 @@ static int s3fb_blank(int blank_mode , struct fb_info *info )
   descriptor___1.format = "fb%d: hsync\n";
   descriptor___1.lineno = 1003U;
   descriptor___1.flags = 0U;
-  tmp___1 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -6886,7 +6886,7 @@ static int s3fb_blank(int blank_mode , struct fb_info *info )
   descriptor___2.format = "fb%d: vsync\n";
   descriptor___2.lineno = 1008U;
   descriptor___2.flags = 0U;
-  tmp___2 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+  tmp___2 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
   }
   if (tmp___2 != 0L) {
     {
@@ -6908,7 +6908,7 @@ static int s3fb_blank(int blank_mode , struct fb_info *info )
   descriptor___3.format = "fb%d: sync down\n";
   descriptor___3.lineno = 1013U;
   descriptor___3.flags = 0U;
-  tmp___3 = __builtin_expect((long )descriptor___3.flags & 1L, 0L);
+  tmp___3 = ldv__builtin_expect((long )descriptor___3.flags & 1L, 0L);
   }
   if (tmp___3 != 0L) {
     {
@@ -7718,7 +7718,7 @@ static void s3fb_cleanup(void)
   descriptor.format = "s3fb: cleaning up\n";
   descriptor.lineno = 1572U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -7747,7 +7747,7 @@ static int s3fb_init(void)
   descriptor.format = "s3fb: initializing\n";
   descriptor.lineno = 1589U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -7826,7 +7826,7 @@ void ldv_dummy_resourceless_instance_callback_1_9(int (*arg0)(struct fb_var_scre
                                                   struct fb_var_screeninfo *arg1 ,
                                                   struct fb_info *arg2 ) ;
 void ldv_entry_EMGentry_6(void *arg0 ) ;
-void main(void) ;
+int main(void) ;
 int ldv_pci_instance_probe_0_17(int (*arg0)(struct pci_dev * , struct pci_device_id * ) ,
                                 struct pci_dev *arg1 , struct pci_device_id *arg2 ) ;
 void ldv_pci_instance_release_0_2(void (*arg0)(struct pci_dev * ) , struct pci_dev *arg1 ) ;
@@ -8196,7 +8196,7 @@ void ldv_entry_EMGentry_6(void *arg0 )
   return;
 }
 }
-void main(void) 
+int main(void) 
 { 
 
 
@@ -8205,7 +8205,7 @@ void main(void)
   ldv_ldv_initialize_120();
   ldv_entry_EMGentry_6((void *)0);
   }
-  return;
+return 0;
 }
 }
 int ldv_pci_instance_probe_0_17(int (*arg0)(struct pci_dev * , struct pci_device_id * ) ,
@@ -11055,7 +11055,7 @@ void ldv_linux_usb_urb_check_final_state(void)
 }
 }
 extern void ldv_assert(char const   * , int  ) ;
-void __builtin_trap(void) ;
+void ldv__builtin_trap(void) ;
 void ldv_assume(int expression ) 
 { 
 
@@ -11079,7 +11079,7 @@ void ldv_stop(void)
   goto ldv_stop_label;
 }
 }
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 
@@ -11087,7 +11087,7 @@ long __builtin_expect(long exp , long c )
   return (exp);
 }
 }
-void __builtin_trap(void) 
+void ldv__builtin_trap(void) 
 { 
 
 

@@ -4876,7 +4876,7 @@ struct ldv_thread {
    void (*function)(void * ) ;
 };
 typedef _Bool ldv_set;
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 void ldv_assume(int expression ) ;
 void ldv_stop(void) ;
 void ldv_linux_alloc_irq_check_alloc_flags(gfp_t flags ) ;
@@ -5050,7 +5050,7 @@ __inline static bool IS_ERR(void const   *ptr )
 
   {
   {
-  tmp = __builtin_expect((unsigned long )ptr > 0xfffffffffffff000UL, 0L);
+  tmp = ldv__builtin_expect((unsigned long )ptr > 0xfffffffffffff000UL, 0L);
   }
   return (tmp != 0L);
 }
@@ -6177,7 +6177,7 @@ void ldv_dummy_resourceless_instance_callback_22_8(_Bool (*arg0)(struct dma_chan
 void ldv_dummy_resourceless_instance_callback_22_9(void (*arg0)(struct mic_device * ) ,
                                                    struct mic_device *arg1 ) ;
 void ldv_entry_EMGentry_30(void *arg0 ) ;
-void main(void) ;
+int main(void) ;
 void ldv_file_operations_file_operations_instance_0(void *arg0 ) ;
 void ldv_file_operations_file_operations_instance_1(void *arg0 ) ;
 void ldv_file_operations_file_operations_instance_2(void *arg0 ) ;
@@ -6861,7 +6861,7 @@ void ldv_entry_EMGentry_30(void *arg0 )
   return;
 }
 }
-void main(void) 
+int main(void) 
 { 
 
 
@@ -6870,7 +6870,7 @@ void main(void)
   ldv_ldv_initialize_123();
   ldv_entry_EMGentry_30((void *)0);
   }
-  return;
+return 0;
 }
 }
 void ldv_file_operations_file_operations_instance_2(void *arg0 ) 
@@ -8882,7 +8882,7 @@ static void mic_x100_write_spad(struct mic_device *mdev , unsigned int idx , u32
   descriptor.format = "Writing 0x%x to scratch pad index %d\n";
   descriptor.lineno = 47U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -8915,7 +8915,7 @@ static u32 mic_x100_read_spad(struct mic_device *mdev , unsigned int idx )
   descriptor.format = "Reading 0x%x from scratch pad index %d\n";
   descriptor.lineno = 70U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -9298,7 +9298,7 @@ static int mic_x100_get_boot_addr(struct mic_device *mdev )
   descriptor.format = "%s %d boot_addr 0x%x\n";
   descriptor.lineno = 428U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -9404,7 +9404,7 @@ static int mic_x100_load_firmware(struct mic_device *mdev , char const   *buf )
   descriptor.format = "%s %d rc %d\n";
   descriptor.lineno = 488U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -9774,7 +9774,7 @@ void mic_set_shutdown_status(struct mic_device *mdev , u8 shutdown_status )
   descriptor.format = "Shutdown Status %s -> %s\n";
   descriptor.lineno = 56U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -9802,7 +9802,7 @@ void mic_set_state(struct mic_device *mdev , u8 state )
   descriptor.format = "State %s -> %s\n";
   descriptor.lineno = 64U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -11576,7 +11576,6 @@ static void ldv_mutex_unlock_104(struct mutex *ldv_func_arg1 )
 }
 }
 extern unsigned long __phys_addr(unsigned long  ) ;
-extern int ( /* missing proto */  __builtin_unreachable)() ;
 extern void __ldv_linux_kernel_locking_spinlock_spin_lock(spinlock_t * ) ;
 static void ldv___ldv_linux_kernel_locking_spinlock_spin_lock_97(spinlock_t *ldv_func_arg1 ) ;
 static void ldv___ldv_linux_kernel_locking_spinlock_spin_lock_100(spinlock_t *ldv_func_arg1 ) ;
@@ -11637,7 +11636,7 @@ __inline static struct dma_map_ops *get_dma_ops(struct device *dev )
 
   {
   {
-  tmp = __builtin_expect((unsigned long )dev == (unsigned long )((struct device *)0),
+  tmp = ldv__builtin_expect((unsigned long )dev == (unsigned long )((struct device *)0),
                          0L);
   }
   if (tmp != 0L || (unsigned long )dev->archdata.dma_ops == (unsigned long )((struct dma_map_ops *)0)) {
@@ -11664,7 +11663,7 @@ __inline static dma_addr_t dma_map_single_attrs(struct device *dev , void *ptr ,
   ops = tmp;
   kmemcheck_mark_initialized(ptr, (unsigned int )size);
   tmp___0 = valid_dma_direction((int )dir);
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -11700,7 +11699,7 @@ __inline static void dma_unmap_single_attrs(struct device *dev , dma_addr_t addr
   tmp = get_dma_ops(dev);
   ops = tmp;
   tmp___0 = valid_dma_direction((int )dir);
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -12346,7 +12345,7 @@ void mic_smpt_uninit(struct mic_device *mdev )
   descriptor.format = "nodeid %d SMPT ref count %lld map %lld unmap %lld\n";
   descriptor.lineno = 406U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -12367,7 +12366,7 @@ void mic_smpt_uninit(struct mic_device *mdev )
   descriptor___0.format = "SMPT entry[%d] dma_addr = 0x%llx ref_count = %lld\n";
   descriptor___0.lineno = 412U;
   descriptor___0.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -12984,7 +12983,7 @@ static int mic_setup_msix(struct mic_device *mdev , struct pci_dev *pdev )
     descriptor.format = "Error enabling MSIx. rc = %d\n";
     descriptor.lineno = 219U;
     descriptor.flags = 0U;
-    tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -13016,7 +13015,7 @@ static int mic_setup_msix(struct mic_device *mdev , struct pci_dev *pdev )
   descriptor___0.format = "%d MSIx irqs setup\n";
   descriptor___0.lineno = 233U;
   descriptor___0.flags = 0U;
-  tmp___2 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___2 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
   }
   if (tmp___2 != 0L) {
     {
@@ -13165,7 +13164,7 @@ static int mic_setup_msi(struct mic_device *mdev , struct pci_dev *pdev )
     descriptor.format = "Error enabling MSI. rc = %d\n";
     descriptor.lineno = 316U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -13220,7 +13219,7 @@ static int mic_setup_msi(struct mic_device *mdev , struct pci_dev *pdev )
   descriptor___0.format = "%d MSI irqs setup\n";
   descriptor___0.lineno = 342U;
   descriptor___0.flags = 0U;
-  tmp___1 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -13283,7 +13282,7 @@ static int mic_setup_intx(struct mic_device *mdev , struct pci_dev *pdev )
   descriptor.format = "intx irq setup\n";
   descriptor.lineno = 381U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -13380,7 +13379,7 @@ struct mic_irq *mic_request_threaded_irq(struct mic_device *mdev , irqreturn_t (
       descriptor.format = "request irq failed rc = %d\n";
       descriptor.lineno = 473U;
       descriptor.flags = 0U;
-      tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+      tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
       }
       if (tmp != 0L) {
         {
@@ -13406,7 +13405,7 @@ struct mic_irq *mic_request_threaded_irq(struct mic_device *mdev , irqreturn_t (
     descriptor___0.format = "irq: %d assigned for src: %d\n";
     descriptor___0.lineno = 482U;
     descriptor___0.flags = 0U;
-    tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -13453,7 +13452,7 @@ struct mic_irq *mic_request_threaded_irq(struct mic_device *mdev , irqreturn_t (
     descriptor___1.format = "callback %d registered for src: %d\n";
     descriptor___1.lineno = 501U;
     descriptor___1.flags = 0U;
-    tmp___4 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___4 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
     }
     if (tmp___4 != 0L) {
       {
@@ -13513,7 +13512,7 @@ void mic_free_irq(struct mic_device *mdev , struct mic_irq *cookie , void *data 
     descriptor.format = "irq: %d freed\n";
     descriptor.lineno = 544U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -13555,7 +13554,7 @@ void mic_free_irq(struct mic_device *mdev , struct mic_irq *cookie , void *data 
     descriptor___0.format = "callback %d unregistered for src: %d\n";
     descriptor___0.lineno = 558U;
     descriptor___0.flags = 0U;
-    tmp___1 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___1 != 0L) {
       {
@@ -18190,7 +18189,7 @@ __inline static unsigned long copy_from_user(void *to , void const   *from , uns
   {
   sz = -1;
   might_fault();
-  tmp = __builtin_expect(sz < 0, 1L);
+  tmp = ldv__builtin_expect(sz < 0, 1L);
   }
   if (tmp != 0L) {
     {
@@ -18198,7 +18197,7 @@ __inline static unsigned long copy_from_user(void *to , void const   *from , uns
     }
   } else {
     {
-    tmp___0 = __builtin_expect((unsigned long )sz >= n, 1L);
+    tmp___0 = ldv__builtin_expect((unsigned long )sz >= n, 1L);
     }
     if (tmp___0 != 0L) {
       {
@@ -18223,7 +18222,7 @@ __inline static unsigned long copy_to_user(void *to , void const   *from , unsig
   {
   sz = -1;
   might_fault();
-  tmp = __builtin_expect(sz < 0, 1L);
+  tmp = ldv__builtin_expect(sz < 0, 1L);
   }
   if (tmp != 0L) {
     {
@@ -18231,7 +18230,7 @@ __inline static unsigned long copy_to_user(void *to , void const   *from , unsig
     }
   } else {
     {
-    tmp___0 = __builtin_expect((unsigned long )sz >= n, 1L);
+    tmp___0 = ldv__builtin_expect((unsigned long )sz >= n, 1L);
     }
     if (tmp___0 != 0L) {
       {
@@ -18430,7 +18429,7 @@ long mic_ioctl(struct file *f , unsigned int cmd , unsigned long arg )
   descriptor.format = "%s %d === iovcnt 0x%x vr_idx 0x%x update_used %d\n";
   descriptor.lineno = 92U;
   descriptor.flags = 0U;
-  tmp___2 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___2 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___2 != 0L) {
     {
@@ -18630,7 +18629,7 @@ int mic_mmap(struct file *f , struct vm_area_struct *vma )
   descriptor.format = "%s %d type %d size 0x%lx off 0x%lx pa 0x%lx vma 0x%lx\n";
   descriptor.lineno = 217U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -19380,7 +19379,7 @@ static void mic_virtio_init_post(struct mic_vdev *mvdev )
   descriptor.format = "%s: device type %d LINKUP\n";
   descriptor.lineno = 404U;
   descriptor.flags = 0U;
-  tmp___2 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___2 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___2 != 0L) {
     {
@@ -19410,7 +19409,7 @@ __inline static void mic_virtio_device_reset(struct mic_vdev *mvdev )
   descriptor.format = "%s: status %d device type %d RESET\n";
   descriptor.lineno = 412U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -19486,7 +19485,7 @@ void mic_virtio_reset_devices(struct mic_device *mdev )
   descriptor.format = "%s\n";
   descriptor.lineno = 443U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -19708,7 +19707,7 @@ int mic_virtio_config_change(struct mic_vdev *mvdev , void *argp )
   descriptor.format = "%s %d retry: %d\n";
   descriptor.lineno = 513U;
   descriptor.flags = 0U;
-  tmp___7 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___7 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___7 != 0L) {
     {
@@ -20068,7 +20067,7 @@ int mic_virtio_add_device(struct mic_vdev *mvdev , void *argp )
   descriptor.format = "%s %d index %d va %p info %p vr_size 0x%x\n";
   descriptor.lineno = 691U;
   descriptor.flags = 0U;
-  tmp___149 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___149 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___149 != 0L) {
     {
@@ -20110,7 +20109,7 @@ int mic_virtio_add_device(struct mic_vdev *mvdev , void *argp )
     descriptor___0.format = "request irq failed\n";
     descriptor___0.lineno = 707U;
     descriptor___0.flags = 0U;
-    tmp___152 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___152 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___152 != 0L) {
       {
@@ -20135,7 +20134,7 @@ int mic_virtio_add_device(struct mic_vdev *mvdev , void *argp )
   descriptor___1.format = "Added virtio device id %d\n";
   descriptor___1.lineno = 723U;
   descriptor___1.flags = 0U;
-  tmp___154 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+  tmp___154 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
   }
   if (tmp___154 != 0L) {
     {
@@ -20238,7 +20237,7 @@ void mic_virtio_del_device(struct mic_vdev *mvdev )
   descriptor.format = "Requesting hot remove id %d\n";
   descriptor.lineno = 759U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -20323,7 +20322,7 @@ void mic_virtio_del_device(struct mic_vdev *mvdev )
   descriptor___0.format = "Device id %d config_change %d guest_ack %d retry %d\n";
   descriptor___0.lineno = 771U;
   descriptor___0.flags = 0U;
-  tmp___5 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___5 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
   }
   if (tmp___5 != 0L) {
     {
@@ -20378,7 +20377,7 @@ void mic_virtio_del_device(struct mic_vdev *mvdev )
     descriptor___1.format = "Removing virtio device id %d\n";
     descriptor___1.lineno = 799U;
     descriptor___1.flags = 0U;
-    tmp___77 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___77 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
     }
     if (tmp___77 != 0L) {
       {
@@ -22559,7 +22558,7 @@ void ldv_linux_usb_urb_check_final_state(void)
 }
 }
 extern void ldv_assert(char const   * , int  ) ;
-void __builtin_trap(void) ;
+void ldv__builtin_trap(void) ;
 void ldv_assume(int expression ) 
 { 
 
@@ -22583,7 +22582,7 @@ void ldv_stop(void)
   goto ldv_stop_label;
 }
 }
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 
@@ -22591,7 +22590,7 @@ long __builtin_expect(long exp , long c )
   return (exp);
 }
 }
-void __builtin_trap(void) 
+void ldv__builtin_trap(void) 
 { 
 
 

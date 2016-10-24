@@ -7835,7 +7835,7 @@ struct ldv_thread {
    int identifier ;
    void (*function)(void * ) ;
 };
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 void ldv_assume(int expression ) ;
 void *ldv_xmalloc(size_t size ) ;
 void *ldv_malloc_unknown_size(void) ;
@@ -8853,12 +8853,12 @@ static void rtl88e_dm_false_alarm_counter_statistics(struct ieee80211_hw *hw )
   rtl_set_bbreg(hw, 2604U, 12288U, 2U);
   rtl_set_bbreg(hw, 2604U, 49152U, 0U);
   rtl_set_bbreg(hw, 2604U, 49152U, 2U);
-  tmp___1 = __builtin_expect((rtlpriv->dbg.global_debugcomponents & 8192ULL) != 0ULL,
+  tmp___1 = ldv__builtin_expect((rtlpriv->dbg.global_debugcomponents & 8192ULL) != 0ULL,
                              0L);
   }
   if (tmp___1 != 0L) {
     {
-    tmp___2 = __builtin_expect(rtlpriv->dbg.global_debuglevel > 4, 0L);
+    tmp___2 = ldv__builtin_expect(rtlpriv->dbg.global_debuglevel > 4, 0L);
     }
     if (tmp___2 != 0L) {
       {
@@ -8876,12 +8876,12 @@ static void rtl88e_dm_false_alarm_counter_statistics(struct ieee80211_hw *hw )
 
   }
   {
-  tmp___5 = __builtin_expect((rtlpriv->dbg.global_debugcomponents & 8192ULL) != 0ULL,
+  tmp___5 = ldv__builtin_expect((rtlpriv->dbg.global_debugcomponents & 8192ULL) != 0ULL,
                              0L);
   }
   if (tmp___5 != 0L) {
     {
-    tmp___6 = __builtin_expect(rtlpriv->dbg.global_debuglevel > 4, 0L);
+    tmp___6 = ldv__builtin_expect(rtlpriv->dbg.global_debuglevel > 4, 0L);
     }
     if (tmp___6 != 0L) {
       {
@@ -8945,12 +8945,12 @@ static void rtl88e_dm_cck_packet_detection_thresh(struct ieee80211_hw *hw )
   {
   dm_dig->cur_cck_cca_thres = cur_cck_cca_thresh;
   dm_dig->pre_cck_cca_thres = dm_dig->cur_cck_cca_thres;
-  tmp___1 = __builtin_expect((rtlpriv->dbg.global_debugcomponents & 8192ULL) != 0ULL,
+  tmp___1 = ldv__builtin_expect((rtlpriv->dbg.global_debugcomponents & 8192ULL) != 0ULL,
                              0L);
   }
   if (tmp___1 != 0L) {
     {
-    tmp___2 = __builtin_expect(rtlpriv->dbg.global_debuglevel > 4, 0L);
+    tmp___2 = ldv__builtin_expect(rtlpriv->dbg.global_debuglevel > 4, 0L);
     }
     if (tmp___2 != 0L) {
       {
@@ -9049,12 +9049,12 @@ static void rtl88e_dm_dig(struct ieee80211_hw *hw )
     {
     dm_dig->rx_gain_max = dm_dig_max;
     dig_min = dm_dig_min;
-    tmp___1 = __builtin_expect((rtlpriv->dbg.global_debugcomponents & 8192ULL) != 0ULL,
+    tmp___1 = ldv__builtin_expect((rtlpriv->dbg.global_debugcomponents & 8192ULL) != 0ULL,
                                0L);
     }
     if (tmp___1 != 0L) {
       {
-      tmp___2 = __builtin_expect(rtlpriv->dbg.global_debuglevel > 3, 0L);
+      tmp___2 = ldv__builtin_expect(rtlpriv->dbg.global_debuglevel > 3, 0L);
       }
       if (tmp___2 != 0L) {
         {
@@ -9224,12 +9224,12 @@ static void rtl92c_dm_dynamic_txpower(struct ieee80211_hw *hw )
   }
   if ((unsigned int )mac->link_state <= 1U && rtlpriv->dm.entry_min_undec_sm_pwdb == 0L) {
     {
-    tmp___1 = __builtin_expect((rtlpriv->dbg.global_debugcomponents & 65536ULL) != 0ULL,
+    tmp___1 = ldv__builtin_expect((rtlpriv->dbg.global_debugcomponents & 65536ULL) != 0ULL,
                                0L);
     }
     if (tmp___1 != 0L) {
       {
-      tmp___2 = __builtin_expect(rtlpriv->dbg.global_debuglevel > 4, 0L);
+      tmp___2 = ldv__builtin_expect(rtlpriv->dbg.global_debuglevel > 4, 0L);
       }
       if (tmp___2 != 0L) {
         {
@@ -9254,12 +9254,12 @@ static void rtl92c_dm_dynamic_txpower(struct ieee80211_hw *hw )
     if ((unsigned int )mac->opmode == 1U) {
       {
       undec_sm_pwdb = rtlpriv->dm.entry_min_undec_sm_pwdb;
-      tmp___5 = __builtin_expect((rtlpriv->dbg.global_debugcomponents & 65536ULL) != 0ULL,
+      tmp___5 = ldv__builtin_expect((rtlpriv->dbg.global_debugcomponents & 65536ULL) != 0ULL,
                                  0L);
       }
       if (tmp___5 != 0L) {
         {
-        tmp___6 = __builtin_expect(rtlpriv->dbg.global_debuglevel > 3, 0L);
+        tmp___6 = ldv__builtin_expect(rtlpriv->dbg.global_debuglevel > 3, 0L);
         }
         if (tmp___6 != 0L) {
           {
@@ -9278,12 +9278,12 @@ static void rtl92c_dm_dynamic_txpower(struct ieee80211_hw *hw )
     } else {
       {
       undec_sm_pwdb = rtlpriv->dm.undec_sm_pwdb;
-      tmp___9 = __builtin_expect((rtlpriv->dbg.global_debugcomponents & 65536ULL) != 0ULL,
+      tmp___9 = ldv__builtin_expect((rtlpriv->dbg.global_debugcomponents & 65536ULL) != 0ULL,
                                  0L);
       }
       if (tmp___9 != 0L) {
         {
-        tmp___10 = __builtin_expect(rtlpriv->dbg.global_debuglevel > 3, 0L);
+        tmp___10 = ldv__builtin_expect(rtlpriv->dbg.global_debuglevel > 3, 0L);
         }
         if (tmp___10 != 0L) {
           {
@@ -9303,12 +9303,12 @@ static void rtl92c_dm_dynamic_txpower(struct ieee80211_hw *hw )
   } else {
     {
     undec_sm_pwdb = rtlpriv->dm.entry_min_undec_sm_pwdb;
-    tmp___13 = __builtin_expect((rtlpriv->dbg.global_debugcomponents & 65536ULL) != 0ULL,
+    tmp___13 = ldv__builtin_expect((rtlpriv->dbg.global_debugcomponents & 65536ULL) != 0ULL,
                                 0L);
     }
     if (tmp___13 != 0L) {
       {
-      tmp___14 = __builtin_expect(rtlpriv->dbg.global_debuglevel > 3, 0L);
+      tmp___14 = ldv__builtin_expect(rtlpriv->dbg.global_debuglevel > 3, 0L);
       }
       if (tmp___14 != 0L) {
         {
@@ -9328,12 +9328,12 @@ static void rtl92c_dm_dynamic_txpower(struct ieee80211_hw *hw )
   if (undec_sm_pwdb > 73L) {
     {
     rtlpriv->dm.dynamic_txhighpower_lvl = 1U;
-    tmp___17 = __builtin_expect((rtlpriv->dbg.global_debugcomponents & 65536ULL) != 0ULL,
+    tmp___17 = ldv__builtin_expect((rtlpriv->dbg.global_debugcomponents & 65536ULL) != 0ULL,
                                 0L);
     }
     if (tmp___17 != 0L) {
       {
-      tmp___18 = __builtin_expect(rtlpriv->dbg.global_debuglevel > 3, 0L);
+      tmp___18 = ldv__builtin_expect(rtlpriv->dbg.global_debuglevel > 3, 0L);
       }
       if (tmp___18 != 0L) {
         {
@@ -9353,12 +9353,12 @@ static void rtl92c_dm_dynamic_txpower(struct ieee80211_hw *hw )
   if ((unsigned long )undec_sm_pwdb - 67UL <= 3UL) {
     {
     rtlpriv->dm.dynamic_txhighpower_lvl = 1U;
-    tmp___21 = __builtin_expect((rtlpriv->dbg.global_debugcomponents & 65536ULL) != 0ULL,
+    tmp___21 = ldv__builtin_expect((rtlpriv->dbg.global_debugcomponents & 65536ULL) != 0ULL,
                                 0L);
     }
     if (tmp___21 != 0L) {
       {
-      tmp___22 = __builtin_expect(rtlpriv->dbg.global_debuglevel > 3, 0L);
+      tmp___22 = ldv__builtin_expect(rtlpriv->dbg.global_debuglevel > 3, 0L);
       }
       if (tmp___22 != 0L) {
         {
@@ -9378,12 +9378,12 @@ static void rtl92c_dm_dynamic_txpower(struct ieee80211_hw *hw )
   if (undec_sm_pwdb <= 61L) {
     {
     rtlpriv->dm.dynamic_txhighpower_lvl = 0U;
-    tmp___25 = __builtin_expect((rtlpriv->dbg.global_debugcomponents & 65536ULL) != 0ULL,
+    tmp___25 = ldv__builtin_expect((rtlpriv->dbg.global_debugcomponents & 65536ULL) != 0ULL,
                                 0L);
     }
     if (tmp___25 != 0L) {
       {
-      tmp___26 = __builtin_expect(rtlpriv->dbg.global_debuglevel > 3, 0L);
+      tmp___26 = ldv__builtin_expect(rtlpriv->dbg.global_debuglevel > 3, 0L);
       }
       if (tmp___26 != 0L) {
         {
@@ -9403,12 +9403,12 @@ static void rtl92c_dm_dynamic_txpower(struct ieee80211_hw *hw )
   }
   if ((int )rtlpriv->dm.dynamic_txhighpower_lvl != (int )rtlpriv->dm.last_dtp_lvl) {
     {
-    tmp___29 = __builtin_expect((rtlpriv->dbg.global_debugcomponents & 65536ULL) != 0ULL,
+    tmp___29 = ldv__builtin_expect((rtlpriv->dbg.global_debugcomponents & 65536ULL) != 0ULL,
                                 0L);
     }
     if (tmp___29 != 0L) {
       {
-      tmp___30 = __builtin_expect(rtlpriv->dbg.global_debuglevel > 3, 0L);
+      tmp___30 = ldv__builtin_expect(rtlpriv->dbg.global_debuglevel > 3, 0L);
       }
       if (tmp___30 != 0L) {
         {
@@ -9447,12 +9447,12 @@ void rtl88e_dm_write_dig(struct ieee80211_hw *hw )
   {
   rtlpriv = (struct rtl_priv *)hw->priv;
   dm_dig = & rtlpriv->dm_digtable;
-  tmp___1 = __builtin_expect((rtlpriv->dbg.global_debugcomponents & 8192ULL) != 0ULL,
+  tmp___1 = ldv__builtin_expect((rtlpriv->dbg.global_debugcomponents & 8192ULL) != 0ULL,
                              0L);
   }
   if (tmp___1 != 0L) {
     {
-    tmp___2 = __builtin_expect(rtlpriv->dbg.global_debuglevel > 3, 0L);
+    tmp___2 = ldv__builtin_expect(rtlpriv->dbg.global_debuglevel > 3, 0L);
     }
     if (tmp___2 != 0L) {
       {
@@ -9555,7 +9555,7 @@ static void rtl88e_dm_pwdb_monitor(struct ieee80211_hw *hw )
   if (tmp_entry_max_pwdb != 0L) {
     {
     rtlpriv->dm.entry_max_undec_sm_pwdb = tmp_entry_max_pwdb;
-    tmp = __builtin_expect(((unsigned long )rtlpriv->dbg.dbgp_type[13] & 2UL) != 0UL,
+    tmp = ldv__builtin_expect(((unsigned long )rtlpriv->dbg.dbgp_type[13] & 2UL) != 0UL,
                            0L);
     }
     if (tmp != 0L) {
@@ -9571,7 +9571,7 @@ static void rtl88e_dm_pwdb_monitor(struct ieee80211_hw *hw )
   if (tmp_entry_min_pwdb != 255L) {
     {
     rtlpriv->dm.entry_min_undec_sm_pwdb = tmp_entry_min_pwdb;
-    tmp___0 = __builtin_expect(((unsigned long )rtlpriv->dbg.dbgp_type[13] & 2UL) != 0UL,
+    tmp___0 = ldv__builtin_expect(((unsigned long )rtlpriv->dbg.dbgp_type[13] & 2UL) != 0UL,
                                0L);
     }
     if (tmp___0 != 0L) {
@@ -9851,12 +9851,12 @@ static void rtl88e_dm_txpower_tracking_callback_thermalmeter(struct ieee80211_hw
   thermal_threshold[1][13] = 25U;
   thermal_threshold[1][14] = 25U;
   rtlpriv->dm.txpower_trackinginit = 1;
-  tmp___1 = __builtin_expect((rtlpriv->dbg.global_debugcomponents & 131072ULL) != 0ULL,
+  tmp___1 = ldv__builtin_expect((rtlpriv->dbg.global_debugcomponents & 131072ULL) != 0ULL,
                              0L);
   }
   if (tmp___1 != 0L) {
     {
-    tmp___2 = __builtin_expect(rtlpriv->dbg.global_debuglevel > 3, 0L);
+    tmp___2 = ldv__builtin_expect(rtlpriv->dbg.global_debuglevel > 3, 0L);
     }
     if (tmp___2 != 0L) {
       {
@@ -9882,12 +9882,12 @@ static void rtl88e_dm_txpower_tracking_callback_thermalmeter(struct ieee80211_hw
 
   }
   {
-  tmp___6 = __builtin_expect((rtlpriv->dbg.global_debugcomponents & 131072ULL) != 0ULL,
+  tmp___6 = ldv__builtin_expect((rtlpriv->dbg.global_debugcomponents & 131072ULL) != 0ULL,
                              0L);
   }
   if (tmp___6 != 0L) {
     {
-    tmp___7 = __builtin_expect(rtlpriv->dbg.global_debuglevel > 3, 0L);
+    tmp___7 = ldv__builtin_expect(rtlpriv->dbg.global_debuglevel > 3, 0L);
     }
     if (tmp___7 != 0L) {
       {
@@ -9915,12 +9915,12 @@ static void rtl88e_dm_txpower_tracking_callback_thermalmeter(struct ieee80211_hw
     {
     ofdm_old[0] = (char )i;
     rtldm->swing_idx_ofdm_base = (unsigned char )i;
-    tmp___11 = __builtin_expect((rtlpriv->dbg.global_debugcomponents & 131072ULL) != 0ULL,
+    tmp___11 = ldv__builtin_expect((rtlpriv->dbg.global_debugcomponents & 131072ULL) != 0ULL,
                                 0L);
     }
     if (tmp___11 != 0L) {
       {
-      tmp___12 = __builtin_expect(rtlpriv->dbg.global_debuglevel > 3, 0L);
+      tmp___12 = ldv__builtin_expect(rtlpriv->dbg.global_debuglevel > 3, 0L);
       }
       if (tmp___12 != 0L) {
         {
@@ -9960,12 +9960,12 @@ static void rtl88e_dm_txpower_tracking_callback_thermalmeter(struct ieee80211_hw
     if (ele_d == ((long )ofdmswing_table[i] & 4290772992L)) {
       {
       ofdm_old[1] = (char )i;
-      tmp___16 = __builtin_expect((rtlpriv->dbg.global_debugcomponents & 131072ULL) != 0ULL,
+      tmp___16 = ldv__builtin_expect((rtlpriv->dbg.global_debugcomponents & 131072ULL) != 0ULL,
                                   0L);
       }
       if (tmp___16 != 0L) {
         {
-        tmp___17 = __builtin_expect(rtlpriv->dbg.global_debuglevel > 3, 0L);
+        tmp___17 = ldv__builtin_expect(rtlpriv->dbg.global_debuglevel > 3, 0L);
         }
         if (tmp___17 != 0L) {
           {
@@ -10013,12 +10013,12 @@ static void rtl88e_dm_txpower_tracking_callback_thermalmeter(struct ieee80211_hw
       {
       cck_old = (char )i;
       rtldm->swing_idx_cck_base = (unsigned char )i;
-      tmp___21 = __builtin_expect((rtlpriv->dbg.global_debugcomponents & 131072ULL) != 0ULL,
+      tmp___21 = ldv__builtin_expect((rtlpriv->dbg.global_debugcomponents & 131072ULL) != 0ULL,
                                   0L);
       }
       if (tmp___21 != 0L) {
         {
-        tmp___22 = __builtin_expect(rtlpriv->dbg.global_debuglevel > 3, 0L);
+        tmp___22 = ldv__builtin_expect(rtlpriv->dbg.global_debuglevel > 3, 0L);
         }
         if (tmp___22 != 0L) {
           {
@@ -10048,12 +10048,12 @@ static void rtl88e_dm_txpower_tracking_callback_thermalmeter(struct ieee80211_hw
       {
       cck_old = (char )i;
       rtldm->swing_idx_cck_base = (unsigned char )i;
-      tmp___26 = __builtin_expect((rtlpriv->dbg.global_debugcomponents & 131072ULL) != 0ULL,
+      tmp___26 = ldv__builtin_expect((rtlpriv->dbg.global_debugcomponents & 131072ULL) != 0ULL,
                                   0L);
       }
       if (tmp___26 != 0L) {
         {
-        tmp___27 = __builtin_expect(rtlpriv->dbg.global_debuglevel > 3, 0L);
+        tmp___27 = ldv__builtin_expect(rtlpriv->dbg.global_debuglevel > 3, 0L);
         }
         if (tmp___27 != 0L) {
           {
@@ -10144,12 +10144,12 @@ static void rtl88e_dm_txpower_tracking_callback_thermalmeter(struct ieee80211_hw
   {
   delta_lck = (int )thermalvalue > (int )rtlpriv->dm.thermalvalue_lck ? (int )thermalvalue - (int )rtlpriv->dm.thermalvalue_lck : (int )rtlpriv->dm.thermalvalue_lck - (int )thermalvalue;
   delta_iqk = (int )thermalvalue > (int )rtlpriv->dm.thermalvalue_iqk ? (int )thermalvalue - (int )rtlpriv->dm.thermalvalue_iqk : (int )rtlpriv->dm.thermalvalue_iqk - (int )thermalvalue;
-  tmp___31 = __builtin_expect((rtlpriv->dbg.global_debugcomponents & 131072ULL) != 0ULL,
+  tmp___31 = ldv__builtin_expect((rtlpriv->dbg.global_debugcomponents & 131072ULL) != 0ULL,
                               0L);
   }
   if (tmp___31 != 0L) {
     {
-    tmp___32 = __builtin_expect(rtlpriv->dbg.global_debuglevel > 3, 0L);
+    tmp___32 = ldv__builtin_expect(rtlpriv->dbg.global_debuglevel > 3, 0L);
     }
     if (tmp___32 != 0L) {
       {
@@ -10335,12 +10335,12 @@ static void rtl88e_dm_txpower_tracking_callback_thermalmeter(struct ieee80211_hw
   }
   {
   rtldm->txpowercount = 0U;
-  tmp___35 = __builtin_expect((rtlpriv->dbg.global_debugcomponents & 131072ULL) != 0ULL,
+  tmp___35 = ldv__builtin_expect((rtlpriv->dbg.global_debugcomponents & 131072ULL) != 0ULL,
                               0L);
   }
   if (tmp___35 != 0L) {
     {
-    tmp___36 = __builtin_expect(rtlpriv->dbg.global_debuglevel > 3, 0L);
+    tmp___36 = ldv__builtin_expect(rtlpriv->dbg.global_debuglevel > 3, 0L);
     }
     if (tmp___36 != 0L) {
       {
@@ -10376,12 +10376,12 @@ static void rtl88e_dm_init_txpower_tracking(struct ieee80211_hw *hw )
   rtlpriv->dm.swing_idx_ofdm[0] = 12U;
   rtlpriv->dm.swing_idx_ofdm_cur = 12U;
   rtlpriv->dm.swing_flag_ofdm = 0;
-  tmp___1 = __builtin_expect((rtlpriv->dbg.global_debugcomponents & 131072ULL) != 0ULL,
+  tmp___1 = ldv__builtin_expect((rtlpriv->dbg.global_debugcomponents & 131072ULL) != 0ULL,
                              0L);
   }
   if (tmp___1 != 0L) {
     {
-    tmp___2 = __builtin_expect(rtlpriv->dbg.global_debuglevel > 3, 0L);
+    tmp___2 = ldv__builtin_expect(rtlpriv->dbg.global_debuglevel > 3, 0L);
     }
     if (tmp___2 != 0L) {
       {
@@ -10423,12 +10423,12 @@ void rtl88e_dm_check_txpower_tracking(struct ieee80211_hw *hw )
   if ((unsigned int )tm_trigger == 0U) {
     {
     rtl_set_rfreg(hw, 0, 66U, 196608U, 3U);
-    tmp___1 = __builtin_expect((rtlpriv->dbg.global_debugcomponents & 131072ULL) != 0ULL,
+    tmp___1 = ldv__builtin_expect((rtlpriv->dbg.global_debugcomponents & 131072ULL) != 0ULL,
                                0L);
     }
     if (tmp___1 != 0L) {
       {
-      tmp___2 = __builtin_expect(rtlpriv->dbg.global_debuglevel > 3, 0L);
+      tmp___2 = ldv__builtin_expect(rtlpriv->dbg.global_debuglevel > 3, 0L);
       }
       if (tmp___2 != 0L) {
         {
@@ -10447,12 +10447,12 @@ void rtl88e_dm_check_txpower_tracking(struct ieee80211_hw *hw )
     return;
   } else {
     {
-    tmp___5 = __builtin_expect((rtlpriv->dbg.global_debugcomponents & 131072ULL) != 0ULL,
+    tmp___5 = ldv__builtin_expect((rtlpriv->dbg.global_debugcomponents & 131072ULL) != 0ULL,
                                0L);
     }
     if (tmp___5 != 0L) {
       {
-      tmp___6 = __builtin_expect(rtlpriv->dbg.global_debuglevel > 3, 0L);
+      tmp___6 = ldv__builtin_expect(rtlpriv->dbg.global_debuglevel > 3, 0L);
       }
       if (tmp___6 != 0L) {
         {
@@ -10535,12 +10535,12 @@ static void rtl88e_dm_refresh_rate_adaptive_mask(struct ieee80211_hw *hw )
   }
   if ((int )tmp___3) {
     {
-    tmp___1 = __builtin_expect((rtlpriv->dbg.global_debugcomponents & 2048ULL) != 0ULL,
+    tmp___1 = ldv__builtin_expect((rtlpriv->dbg.global_debugcomponents & 2048ULL) != 0ULL,
                                0L);
     }
     if (tmp___1 != 0L) {
       {
-      tmp___2 = __builtin_expect(rtlpriv->dbg.global_debuglevel > 3, 0L);
+      tmp___2 = ldv__builtin_expect(rtlpriv->dbg.global_debuglevel > 3, 0L);
       }
       if (tmp___2 != 0L) {
         {
@@ -10561,12 +10561,12 @@ static void rtl88e_dm_refresh_rate_adaptive_mask(struct ieee80211_hw *hw )
   }
   if (! rtlpriv->dm.useramask) {
     {
-    tmp___6 = __builtin_expect((rtlpriv->dbg.global_debugcomponents & 2048ULL) != 0ULL,
+    tmp___6 = ldv__builtin_expect((rtlpriv->dbg.global_debugcomponents & 2048ULL) != 0ULL,
                                0L);
     }
     if (tmp___6 != 0L) {
       {
-      tmp___7 = __builtin_expect(rtlpriv->dbg.global_debuglevel > 3, 0L);
+      tmp___7 = ldv__builtin_expect(rtlpriv->dbg.global_debuglevel > 3, 0L);
       }
       if (tmp___7 != 0L) {
         {
@@ -10633,12 +10633,12 @@ static void rtl88e_dm_refresh_rate_adaptive_mask(struct ieee80211_hw *hw )
     }
     if ((int )p_ra->pre_ratr_state != (int )p_ra->ratr_state) {
       {
-      tmp___10 = __builtin_expect((rtlpriv->dbg.global_debugcomponents & 2048ULL) != 0ULL,
+      tmp___10 = ldv__builtin_expect((rtlpriv->dbg.global_debugcomponents & 2048ULL) != 0ULL,
                                   0L);
       }
       if (tmp___10 != 0L) {
         {
-        tmp___11 = __builtin_expect(rtlpriv->dbg.global_debuglevel > 3, 0L);
+        tmp___11 = ldv__builtin_expect(rtlpriv->dbg.global_debuglevel > 3, 0L);
         }
         if (tmp___11 != 0L) {
           {
@@ -10655,12 +10655,12 @@ static void rtl88e_dm_refresh_rate_adaptive_mask(struct ieee80211_hw *hw )
 
       }
       {
-      tmp___14 = __builtin_expect((rtlpriv->dbg.global_debugcomponents & 2048ULL) != 0ULL,
+      tmp___14 = ldv__builtin_expect((rtlpriv->dbg.global_debugcomponents & 2048ULL) != 0ULL,
                                   0L);
       }
       if (tmp___14 != 0L) {
         {
-        tmp___15 = __builtin_expect(rtlpriv->dbg.global_debuglevel > 3, 0L);
+        tmp___15 = ldv__builtin_expect(rtlpriv->dbg.global_debuglevel > 3, 0L);
         }
         if (tmp___15 != 0L) {
           {
@@ -10677,12 +10677,12 @@ static void rtl88e_dm_refresh_rate_adaptive_mask(struct ieee80211_hw *hw )
 
       }
       {
-      tmp___18 = __builtin_expect((rtlpriv->dbg.global_debugcomponents & 2048ULL) != 0ULL,
+      tmp___18 = ldv__builtin_expect((rtlpriv->dbg.global_debugcomponents & 2048ULL) != 0ULL,
                                   0L);
       }
       if (tmp___18 != 0L) {
         {
-        tmp___19 = __builtin_expect(rtlpriv->dbg.global_debuglevel > 3, 0L);
+        tmp___19 = ldv__builtin_expect(rtlpriv->dbg.global_debuglevel > 3, 0L);
         }
         if (tmp___19 != 0L) {
           {
@@ -10762,12 +10762,12 @@ static void rtl88e_dm_update_rx_idle_ant(struct ieee80211_hw *hw , u8 ant )
   fat_tbl = & rtldm->fat_table;
   if ((int )fat_tbl->rx_idle_ant != (int )ant) {
     {
-    tmp___1 = __builtin_expect((rtlpriv->dbg.global_debugcomponents & 4ULL) != 0ULL,
+    tmp___1 = ldv__builtin_expect((rtlpriv->dbg.global_debugcomponents & 4ULL) != 0ULL,
                                0L);
     }
     if (tmp___1 != 0L) {
       {
-      tmp___2 = __builtin_expect(rtlpriv->dbg.global_debuglevel > 3, 0L);
+      tmp___2 = ldv__builtin_expect(rtlpriv->dbg.global_debuglevel > 3, 0L);
       }
       if (tmp___2 != 0L) {
         {
@@ -10810,12 +10810,12 @@ static void rtl88e_dm_update_rx_idle_ant(struct ieee80211_hw *hw , u8 ant )
   }
   {
   fat_tbl->rx_idle_ant = ant;
-  tmp___5 = __builtin_expect((rtlpriv->dbg.global_debugcomponents & 4ULL) != 0ULL,
+  tmp___5 = ldv__builtin_expect((rtlpriv->dbg.global_debugcomponents & 4ULL) != 0ULL,
                              0L);
   }
   if (tmp___5 != 0L) {
     {
-    tmp___6 = __builtin_expect(rtlpriv->dbg.global_debuglevel > 3, 0L);
+    tmp___6 = ldv__builtin_expect(rtlpriv->dbg.global_debuglevel > 3, 0L);
     }
     if (tmp___6 != 0L) {
       {
@@ -10862,12 +10862,12 @@ static void rtl88e_dm_update_tx_ant(struct ieee80211_hw *hw , u8 ant , u32 mac_i
   fat_tbl->antsel_a[mac_id] = (unsigned int )target_ant & 1U;
   fat_tbl->antsel_b[mac_id] = (u8 )(((unsigned long )target_ant & 2UL) >> 1);
   fat_tbl->antsel_c[mac_id] = (u8 )(((unsigned long )target_ant & 4UL) >> 2);
-  tmp___1 = __builtin_expect((rtlpriv->dbg.global_debugcomponents & 4ULL) != 0ULL,
+  tmp___1 = ldv__builtin_expect((rtlpriv->dbg.global_debugcomponents & 4ULL) != 0ULL,
                              0L);
   }
   if (tmp___1 != 0L) {
     {
-    tmp___2 = __builtin_expect(rtlpriv->dbg.global_debuglevel > 3, 0L);
+    tmp___2 = ldv__builtin_expect(rtlpriv->dbg.global_debuglevel > 3, 0L);
     }
     if (tmp___2 != 0L) {
       {
@@ -10884,12 +10884,12 @@ static void rtl88e_dm_update_tx_ant(struct ieee80211_hw *hw , u8 ant , u32 mac_i
 
   }
   {
-  tmp___5 = __builtin_expect((rtlpriv->dbg.global_debugcomponents & 4ULL) != 0ULL,
+  tmp___5 = ldv__builtin_expect((rtlpriv->dbg.global_debugcomponents & 4ULL) != 0ULL,
                              0L);
   }
   if (tmp___5 != 0L) {
     {
-    tmp___6 = __builtin_expect(rtlpriv->dbg.global_debuglevel > 3, 0L);
+    tmp___6 = ldv__builtin_expect(rtlpriv->dbg.global_debuglevel > 3, 0L);
     }
     if (tmp___6 != 0L) {
       {
@@ -11153,12 +11153,12 @@ static void rtl88e_dm_hw_ant_div(struct ieee80211_hw *hw )
   main_rssi = fat_tbl->main_ant_cnt[i] != 0U ? fat_tbl->main_ant_sum[i] / fat_tbl->main_ant_cnt[i] : 0U;
   aux_rssi = fat_tbl->aux_ant_cnt[i] != 0U ? fat_tbl->aux_ant_sum[i] / fat_tbl->aux_ant_cnt[i] : 0U;
   target_ant = main_rssi == aux_rssi ? fat_tbl->rx_idle_ant : main_rssi < aux_rssi;
-  tmp___1 = __builtin_expect((rtlpriv->dbg.global_debugcomponents & 4ULL) != 0ULL,
+  tmp___1 = ldv__builtin_expect((rtlpriv->dbg.global_debugcomponents & 4ULL) != 0ULL,
                              0L);
   }
   if (tmp___1 != 0L) {
     {
-    tmp___2 = __builtin_expect(rtlpriv->dbg.global_debuglevel > 3, 0L);
+    tmp___2 = ldv__builtin_expect(rtlpriv->dbg.global_debuglevel > 3, 0L);
     }
     if (tmp___2 != 0L) {
       {
@@ -11175,12 +11175,12 @@ static void rtl88e_dm_hw_ant_div(struct ieee80211_hw *hw )
 
   }
   {
-  tmp___5 = __builtin_expect((rtlpriv->dbg.global_debugcomponents & 4ULL) != 0ULL,
+  tmp___5 = ldv__builtin_expect((rtlpriv->dbg.global_debugcomponents & 4ULL) != 0ULL,
                              0L);
   }
   if (tmp___5 != 0L) {
     {
-    tmp___6 = __builtin_expect(rtlpriv->dbg.global_debuglevel > 3, 0L);
+    tmp___6 = ldv__builtin_expect(rtlpriv->dbg.global_debuglevel > 3, 0L);
     }
     if (tmp___6 != 0L) {
       {
@@ -11197,12 +11197,12 @@ static void rtl88e_dm_hw_ant_div(struct ieee80211_hw *hw )
 
   }
   {
-  tmp___9 = __builtin_expect((rtlpriv->dbg.global_debugcomponents & 4ULL) != 0ULL,
+  tmp___9 = ldv__builtin_expect((rtlpriv->dbg.global_debugcomponents & 4ULL) != 0ULL,
                              0L);
   }
   if (tmp___9 != 0L) {
     {
-    tmp___10 = __builtin_expect(rtlpriv->dbg.global_debuglevel > 3, 0L);
+    tmp___10 = ldv__builtin_expect(rtlpriv->dbg.global_debuglevel > 3, 0L);
     }
     if (tmp___10 != 0L) {
       {
@@ -11565,12 +11565,12 @@ static void rtl88e_dm_antenna_diversity(struct ieee80211_hw *hw )
   fat_tbl = & rtldm->fat_table;
   if ((unsigned int )mac->link_state <= 1U) {
     {
-    tmp___1 = __builtin_expect((rtlpriv->dbg.global_debugcomponents & 8192ULL) != 0ULL,
+    tmp___1 = ldv__builtin_expect((rtlpriv->dbg.global_debugcomponents & 8192ULL) != 0ULL,
                                0L);
     }
     if (tmp___1 != 0L) {
       {
-      tmp___2 = __builtin_expect(rtlpriv->dbg.global_debuglevel > 3, 0L);
+      tmp___2 = ldv__builtin_expect(rtlpriv->dbg.global_debuglevel > 3, 0L);
       }
       if (tmp___2 != 0L) {
         {
@@ -11587,12 +11587,12 @@ static void rtl88e_dm_antenna_diversity(struct ieee80211_hw *hw )
     }
     if ((int )fat_tbl->becomelinked) {
       {
-      tmp___5 = __builtin_expect((rtlpriv->dbg.global_debugcomponents & 8192ULL) != 0ULL,
+      tmp___5 = ldv__builtin_expect((rtlpriv->dbg.global_debugcomponents & 8192ULL) != 0ULL,
                                  0L);
       }
       if (tmp___5 != 0L) {
         {
-        tmp___6 = __builtin_expect(rtlpriv->dbg.global_debuglevel > 3, 0L);
+        tmp___6 = ldv__builtin_expect(rtlpriv->dbg.global_debuglevel > 3, 0L);
         }
         if (tmp___6 != 0L) {
           {
@@ -11626,12 +11626,12 @@ static void rtl88e_dm_antenna_diversity(struct ieee80211_hw *hw )
   } else
   if (! fat_tbl->becomelinked) {
     {
-    tmp___9 = __builtin_expect((rtlpriv->dbg.global_debugcomponents & 8192ULL) != 0ULL,
+    tmp___9 = ldv__builtin_expect((rtlpriv->dbg.global_debugcomponents & 8192ULL) != 0ULL,
                                0L);
     }
     if (tmp___9 != 0L) {
       {
-      tmp___10 = __builtin_expect(rtlpriv->dbg.global_debuglevel > 3, 0L);
+      tmp___10 = ldv__builtin_expect(rtlpriv->dbg.global_debuglevel > 3, 0L);
       }
       if (tmp___10 != 0L) {
         {
@@ -12242,12 +12242,12 @@ static void _rtl88e_write_fw(struct ieee80211_hw *hw , enum version_8188e versio
   {
   rtlpriv = (struct rtl_priv *)hw->priv;
   buf_ptr = buffer;
-  tmp___1 = __builtin_expect((rtlpriv->dbg.global_debugcomponents & 2ULL) != 0ULL,
+  tmp___1 = ldv__builtin_expect((rtlpriv->dbg.global_debugcomponents & 2ULL) != 0ULL,
                              0L);
   }
   if (tmp___1 != 0L) {
     {
-    tmp___2 = __builtin_expect(rtlpriv->dbg.global_debuglevel > 3, 0L);
+    tmp___2 = ldv__builtin_expect(rtlpriv->dbg.global_debuglevel > 3, 0L);
     }
     if (tmp___2 != 0L) {
       {
@@ -12270,12 +12270,12 @@ static void _rtl88e_write_fw(struct ieee80211_hw *hw , enum version_8188e versio
   }
   if (page_no > 8U) {
     {
-    tmp___5 = __builtin_expect((long )((int )rtlpriv->dbg.global_debugcomponents) & 1L,
+    tmp___5 = ldv__builtin_expect((long )((int )rtlpriv->dbg.global_debugcomponents) & 1L,
                                0L);
     }
     if (tmp___5 != 0L) {
       {
-      tmp___6 = __builtin_expect(rtlpriv->dbg.global_debuglevel >= 0, 0L);
+      tmp___6 = ldv__builtin_expect(rtlpriv->dbg.global_debuglevel >= 0, 0L);
       }
       if (tmp___6 != 0L) {
         {
@@ -12365,12 +12365,12 @@ static int _rtl88e_fw_free_to_go(struct ieee80211_hw *hw )
 
   if (counter > 2999U) {
     {
-    tmp___2 = __builtin_expect((long )((int )rtlpriv->dbg.global_debugcomponents) & 1L,
+    tmp___2 = ldv__builtin_expect((long )((int )rtlpriv->dbg.global_debugcomponents) & 1L,
                                0L);
     }
     if (tmp___2 != 0L) {
       {
-      tmp___3 = __builtin_expect(rtlpriv->dbg.global_debuglevel >= 0, 0L);
+      tmp___3 = ldv__builtin_expect(rtlpriv->dbg.global_debuglevel >= 0, 0L);
       }
       if (tmp___3 != 0L) {
         {
@@ -12391,12 +12391,12 @@ static int _rtl88e_fw_free_to_go(struct ieee80211_hw *hw )
 
   }
   {
-  tmp___6 = __builtin_expect((rtlpriv->dbg.global_debugcomponents & 2ULL) != 0ULL,
+  tmp___6 = ldv__builtin_expect((rtlpriv->dbg.global_debugcomponents & 2ULL) != 0ULL,
                              0L);
   }
   if (tmp___6 != 0L) {
     {
-    tmp___7 = __builtin_expect(rtlpriv->dbg.global_debuglevel > 4, 0L);
+    tmp___7 = ldv__builtin_expect(rtlpriv->dbg.global_debuglevel > 4, 0L);
     }
     if (tmp___7 != 0L) {
       {
@@ -12426,12 +12426,12 @@ static int _rtl88e_fw_free_to_go(struct ieee80211_hw *hw )
   }
   if (((unsigned long )value32 & 64UL) != 0UL) {
     {
-    tmp___10 = __builtin_expect((rtlpriv->dbg.global_debugcomponents & 2ULL) != 0ULL,
+    tmp___10 = ldv__builtin_expect((rtlpriv->dbg.global_debugcomponents & 2ULL) != 0ULL,
                                 0L);
     }
     if (tmp___10 != 0L) {
       {
-      tmp___11 = __builtin_expect(rtlpriv->dbg.global_debuglevel > 4, 0L);
+      tmp___11 = ldv__builtin_expect(rtlpriv->dbg.global_debuglevel > 4, 0L);
       }
       if (tmp___11 != 0L) {
         {
@@ -12463,12 +12463,12 @@ static int _rtl88e_fw_free_to_go(struct ieee80211_hw *hw )
 
   }
   {
-  tmp___15 = __builtin_expect((long )((int )rtlpriv->dbg.global_debugcomponents) & 1L,
+  tmp___15 = ldv__builtin_expect((long )((int )rtlpriv->dbg.global_debugcomponents) & 1L,
                               0L);
   }
   if (tmp___15 != 0L) {
     {
-    tmp___16 = __builtin_expect(rtlpriv->dbg.global_debuglevel >= 0, 0L);
+    tmp___16 = ldv__builtin_expect(rtlpriv->dbg.global_debuglevel >= 0, 0L);
     }
     if (tmp___16 != 0L) {
       {
@@ -12524,12 +12524,12 @@ int rtl88e_download_fw(struct ieee80211_hw *hw , bool buse_wake_on_wlan_fw )
   pfwheader = (struct rtl92c_firmware_header *)rtlhal->pfirmware;
   pfwdata = rtlhal->pfirmware;
   fwsize = rtlhal->fwsize;
-  tmp___1 = __builtin_expect((rtlpriv->dbg.global_debugcomponents & 2ULL) != 0ULL,
+  tmp___1 = ldv__builtin_expect((rtlpriv->dbg.global_debugcomponents & 2ULL) != 0ULL,
                              0L);
   }
   if (tmp___1 != 0L) {
     {
-    tmp___2 = __builtin_expect(rtlpriv->dbg.global_debuglevel > 2, 0L);
+    tmp___2 = ldv__builtin_expect(rtlpriv->dbg.global_debuglevel > 2, 0L);
     }
     if (tmp___2 != 0L) {
       {
@@ -12547,12 +12547,12 @@ int rtl88e_download_fw(struct ieee80211_hw *hw , bool buse_wake_on_wlan_fw )
   }
   if ((unsigned int )pfwheader->signature == 35041U) {
     {
-    tmp___5 = __builtin_expect((rtlpriv->dbg.global_debugcomponents & 2ULL) != 0ULL,
+    tmp___5 = ldv__builtin_expect((rtlpriv->dbg.global_debugcomponents & 2ULL) != 0ULL,
                                0L);
     }
     if (tmp___5 != 0L) {
       {
-      tmp___6 = __builtin_expect(rtlpriv->dbg.global_debuglevel > 2, 0L);
+      tmp___6 = ldv__builtin_expect(rtlpriv->dbg.global_debuglevel > 2, 0L);
       }
       if (tmp___6 != 0L) {
         {
@@ -12589,12 +12589,12 @@ int rtl88e_download_fw(struct ieee80211_hw *hw , bool buse_wake_on_wlan_fw )
   _rtl88e_write_fw(hw, version, pfwdata, fwsize);
   _rtl88e_enable_fw_download(hw, 0);
   err = _rtl88e_fw_free_to_go(hw);
-  tmp___10 = __builtin_expect((rtlpriv->dbg.global_debugcomponents & 2ULL) != 0ULL,
+  tmp___10 = ldv__builtin_expect((rtlpriv->dbg.global_debugcomponents & 2ULL) != 0ULL,
                               0L);
   }
   if (tmp___10 != 0L) {
     {
-    tmp___11 = __builtin_expect(rtlpriv->dbg.global_debuglevel > 2, 0L);
+    tmp___11 = ldv__builtin_expect(rtlpriv->dbg.global_debuglevel > 2, 0L);
     }
     if (tmp___11 != 0L) {
       {
@@ -12711,12 +12711,12 @@ static void _rtl88e_fill_h2c_command(struct ieee80211_hw *hw , u8 element_id , u
   wait_h2c_limit = 100U;
   wait_writeh2c_limit = 100U;
   h2c_waitcounter = 0U;
-  tmp___1 = __builtin_expect((rtlpriv->dbg.global_debugcomponents & 8388608ULL) != 0ULL,
+  tmp___1 = ldv__builtin_expect((rtlpriv->dbg.global_debugcomponents & 8388608ULL) != 0ULL,
                              0L);
   }
   if (tmp___1 != 0L) {
     {
-    tmp___2 = __builtin_expect(rtlpriv->dbg.global_debuglevel > 3, 0L);
+    tmp___2 = ldv__builtin_expect(rtlpriv->dbg.global_debuglevel > 3, 0L);
     }
     if (tmp___2 != 0L) {
       {
@@ -12737,12 +12737,12 @@ static void _rtl88e_fill_h2c_command(struct ieee80211_hw *hw , u8 element_id , u
   }
   if ((int )rtlhal->h2c_setinprogress) {
     {
-    tmp___5 = __builtin_expect((rtlpriv->dbg.global_debugcomponents & 8388608ULL) != 0ULL,
+    tmp___5 = ldv__builtin_expect((rtlpriv->dbg.global_debugcomponents & 8388608ULL) != 0ULL,
                                0L);
     }
     if (tmp___5 != 0L) {
       {
-      tmp___6 = __builtin_expect(rtlpriv->dbg.global_debuglevel > 3, 0L);
+      tmp___6 = ldv__builtin_expect(rtlpriv->dbg.global_debuglevel > 3, 0L);
       }
       if (tmp___6 != 0L) {
         {
@@ -12763,12 +12763,12 @@ static void _rtl88e_fill_h2c_command(struct ieee80211_hw *hw , u8 element_id , u
     {
     ldv_spin_unlock_irqrestore_88(& rtlpriv->locks.h2c_lock, flag);
     h2c_waitcounter = h2c_waitcounter + 1U;
-    tmp___9 = __builtin_expect((rtlpriv->dbg.global_debugcomponents & 8388608ULL) != 0ULL,
+    tmp___9 = ldv__builtin_expect((rtlpriv->dbg.global_debugcomponents & 8388608ULL) != 0ULL,
                                0L);
     }
     if (tmp___9 != 0L) {
       {
-      tmp___10 = __builtin_expect(rtlpriv->dbg.global_debuglevel > 3, 0L);
+      tmp___10 = ldv__builtin_expect(rtlpriv->dbg.global_debuglevel > 3, 0L);
       }
       if (tmp___10 != 0L) {
         {
@@ -12818,12 +12818,12 @@ static void _rtl88e_fill_h2c_command(struct ieee80211_hw *hw , u8 element_id , u
   wait_writeh2c_limit = (u8 )((int )wait_writeh2c_limit - 1);
   if ((unsigned int )wait_writeh2c_limit == 0U) {
     {
-    tmp___13 = __builtin_expect((long )((int )rtlpriv->dbg.global_debugcomponents) & 1L,
+    tmp___13 = ldv__builtin_expect((long )((int )rtlpriv->dbg.global_debugcomponents) & 1L,
                                 0L);
     }
     if (tmp___13 != 0L) {
       {
-      tmp___14 = __builtin_expect(rtlpriv->dbg.global_debuglevel >= 0, 0L);
+      tmp___14 = ldv__builtin_expect(rtlpriv->dbg.global_debuglevel >= 0, 0L);
       }
       if (tmp___14 != 0L) {
         {
@@ -12883,12 +12883,12 @@ static void _rtl88e_fill_h2c_command(struct ieee80211_hw *hw , u8 element_id , u
   goto ldv_51379;
   switch_default: /* CIL Label */ 
   {
-  tmp___17 = __builtin_expect((long )((int )rtlpriv->dbg.global_debugcomponents) & 1L,
+  tmp___17 = ldv__builtin_expect((long )((int )rtlpriv->dbg.global_debugcomponents) & 1L,
                               0L);
   }
   if (tmp___17 != 0L) {
     {
-    tmp___18 = __builtin_expect(rtlpriv->dbg.global_debuglevel >= 0, 0L);
+    tmp___18 = ldv__builtin_expect(rtlpriv->dbg.global_debuglevel >= 0, 0L);
     }
     if (tmp___18 != 0L) {
       {
@@ -12915,12 +12915,12 @@ static void _rtl88e_fill_h2c_command(struct ieee80211_hw *hw , u8 element_id , u
   wait_h2c_limit = (u8 )((int )wait_h2c_limit - 1);
   if ((unsigned int )wait_h2c_limit == 0U) {
     {
-    tmp___21 = __builtin_expect((rtlpriv->dbg.global_debugcomponents & 8388608ULL) != 0ULL,
+    tmp___21 = ldv__builtin_expect((rtlpriv->dbg.global_debugcomponents & 8388608ULL) != 0ULL,
                                 0L);
     }
     if (tmp___21 != 0L) {
       {
-      tmp___22 = __builtin_expect(rtlpriv->dbg.global_debuglevel > 3, 0L);
+      tmp___22 = ldv__builtin_expect(rtlpriv->dbg.global_debuglevel > 3, 0L);
       }
       if (tmp___22 != 0L) {
         {
@@ -12944,12 +12944,12 @@ static void _rtl88e_fill_h2c_command(struct ieee80211_hw *hw , u8 element_id , u
   __const_udelay(42950UL);
   isfw_read = _rtl88e_check_fw_read_last_h2c(hw, (int )boxnum);
   u1b_tmp = rtl_read_byte(rtlpriv, 304U);
-  tmp___25 = __builtin_expect((rtlpriv->dbg.global_debugcomponents & 8388608ULL) != 0ULL,
+  tmp___25 = ldv__builtin_expect((rtlpriv->dbg.global_debugcomponents & 8388608ULL) != 0ULL,
                               0L);
   }
   if (tmp___25 != 0L) {
     {
-    tmp___26 = __builtin_expect(rtlpriv->dbg.global_debuglevel > 3, 0L);
+    tmp___26 = ldv__builtin_expect(rtlpriv->dbg.global_debuglevel > 3, 0L);
     }
     if (tmp___26 != 0L) {
       {
@@ -12974,12 +12974,12 @@ static void _rtl88e_fill_h2c_command(struct ieee80211_hw *hw , u8 element_id , u
   ldv_51384: ;
   if (! isfw_read) {
     {
-    tmp___29 = __builtin_expect((rtlpriv->dbg.global_debugcomponents & 8388608ULL) != 0ULL,
+    tmp___29 = ldv__builtin_expect((rtlpriv->dbg.global_debugcomponents & 8388608ULL) != 0ULL,
                                 0L);
     }
     if (tmp___29 != 0L) {
       {
-      tmp___30 = __builtin_expect(rtlpriv->dbg.global_debuglevel > 3, 0L);
+      tmp___30 = ldv__builtin_expect(rtlpriv->dbg.global_debuglevel > 3, 0L);
       }
       if (tmp___30 != 0L) {
         {
@@ -13003,12 +13003,12 @@ static void _rtl88e_fill_h2c_command(struct ieee80211_hw *hw , u8 element_id , u
   memset((void *)(& boxc), 0, 4UL);
   memset((void *)(& boxext), 0, 2UL);
   boxc[0] = element_id;
-  tmp___33 = __builtin_expect((rtlpriv->dbg.global_debugcomponents & 8388608ULL) != 0ULL,
+  tmp___33 = ldv__builtin_expect((rtlpriv->dbg.global_debugcomponents & 8388608ULL) != 0ULL,
                               0L);
   }
   if (tmp___33 != 0L) {
     {
-    tmp___34 = __builtin_expect(rtlpriv->dbg.global_debuglevel > 3, 0L);
+    tmp___34 = ldv__builtin_expect(rtlpriv->dbg.global_debuglevel > 3, 0L);
     }
     if (tmp___34 != 0L) {
       {
@@ -13123,12 +13123,12 @@ static void _rtl88e_fill_h2c_command(struct ieee80211_hw *hw , u8 element_id , u
   goto ldv_51393;
   switch_default___0: /* CIL Label */ 
   {
-  tmp___37 = __builtin_expect((long )((int )rtlpriv->dbg.global_debugcomponents) & 1L,
+  tmp___37 = ldv__builtin_expect((long )((int )rtlpriv->dbg.global_debugcomponents) & 1L,
                               0L);
   }
   if (tmp___37 != 0L) {
     {
-    tmp___38 = __builtin_expect(rtlpriv->dbg.global_debuglevel >= 0, 0L);
+    tmp___38 = ldv__builtin_expect(rtlpriv->dbg.global_debuglevel >= 0, 0L);
     }
     if (tmp___38 != 0L) {
       {
@@ -13155,12 +13155,12 @@ static void _rtl88e_fill_h2c_command(struct ieee80211_hw *hw , u8 element_id , u
 
   }
   {
-  tmp___41 = __builtin_expect((rtlpriv->dbg.global_debugcomponents & 8388608ULL) != 0ULL,
+  tmp___41 = ldv__builtin_expect((rtlpriv->dbg.global_debugcomponents & 8388608ULL) != 0ULL,
                               0L);
   }
   if (tmp___41 != 0L) {
     {
-    tmp___42 = __builtin_expect(rtlpriv->dbg.global_debuglevel > 3, 0L);
+    tmp___42 = ldv__builtin_expect(rtlpriv->dbg.global_debuglevel > 3, 0L);
     }
     if (tmp___42 != 0L) {
       {
@@ -13187,12 +13187,12 @@ static void _rtl88e_fill_h2c_command(struct ieee80211_hw *hw , u8 element_id , u
   ldv___ldv_spin_lock_92(& rtlpriv->locks.h2c_lock);
   rtlhal->h2c_setinprogress = 0;
   ldv_spin_unlock_irqrestore_88(& rtlpriv->locks.h2c_lock, flag);
-  tmp___45 = __builtin_expect((rtlpriv->dbg.global_debugcomponents & 8388608ULL) != 0ULL,
+  tmp___45 = ldv__builtin_expect((rtlpriv->dbg.global_debugcomponents & 8388608ULL) != 0ULL,
                               0L);
   }
   if (tmp___45 != 0L) {
     {
-    tmp___46 = __builtin_expect(rtlpriv->dbg.global_debuglevel > 3, 0L);
+    tmp___46 = ldv__builtin_expect(rtlpriv->dbg.global_debuglevel > 3, 0L);
     }
     if (tmp___46 != 0L) {
       {
@@ -13248,12 +13248,12 @@ void rtl88e_firmware_selfreset(struct ieee80211_hw *hw )
   u1b_tmp = rtl_read_byte(rtlpriv, 3U);
   rtl_write_byte(rtlpriv, 3U, (int )u1b_tmp & 251);
   rtl_write_byte(rtlpriv, 3U, (int )((unsigned int )u1b_tmp | 4U));
-  tmp___1 = __builtin_expect((rtlpriv->dbg.global_debugcomponents & 4ULL) != 0ULL,
+  tmp___1 = ldv__builtin_expect((rtlpriv->dbg.global_debugcomponents & 4ULL) != 0ULL,
                              0L);
   }
   if (tmp___1 != 0L) {
     {
-    tmp___2 = __builtin_expect(rtlpriv->dbg.global_debuglevel > 3, 0L);
+    tmp___2 = ldv__builtin_expect(rtlpriv->dbg.global_debuglevel > 3, 0L);
     }
     if (tmp___2 != 0L) {
       {
@@ -13309,12 +13309,12 @@ void rtl88e_set_fw_pwrmode_cmd(struct ieee80211_hw *hw , u8 mode )
   {
   ppsc = & ((struct rtl_priv *)hw->priv)->psc;
   power_state = 0U;
-  tmp___2 = __builtin_expect((rtlpriv->dbg.global_debugcomponents & 65536ULL) != 0ULL,
+  tmp___2 = ldv__builtin_expect((rtlpriv->dbg.global_debugcomponents & 65536ULL) != 0ULL,
                              0L);
   }
   if (tmp___2 != 0L) {
     {
-    tmp___3 = __builtin_expect(rtlpriv->dbg.global_debuglevel > 3, 0L);
+    tmp___3 = ldv__builtin_expect(rtlpriv->dbg.global_debuglevel > 3, 0L);
     }
     if (tmp___3 != 0L) {
       {
@@ -13342,12 +13342,12 @@ void rtl88e_set_fw_pwrmode_cmd(struct ieee80211_hw *hw , u8 mode )
   }
   {
   *((u8 *)(& u1_h2c_set_pwrmode) + 4UL) = power_state;
-  tmp___7 = __builtin_expect((rtlpriv->dbg.global_debugcomponents & 8388608ULL) != 0ULL,
+  tmp___7 = ldv__builtin_expect((rtlpriv->dbg.global_debugcomponents & 8388608ULL) != 0ULL,
                              0L);
   }
   if (tmp___7 != 0L) {
     {
-    tmp___8 = __builtin_expect(rtlpriv->dbg.global_debuglevel > 2, 0L);
+    tmp___8 = ldv__builtin_expect(rtlpriv->dbg.global_debuglevel > 2, 0L);
     }
     if (tmp___8 != 0L) {
       {
@@ -13361,7 +13361,7 @@ void rtl88e_set_fw_pwrmode_cmd(struct ieee80211_hw *hw , u8 mode )
       descriptor.format = "";
       descriptor.lineno = 478U;
       descriptor.flags = 0U;
-      tmp___6 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+      tmp___6 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
       }
       if (tmp___6 != 0L) {
         {
@@ -13776,12 +13776,12 @@ void rtl88e_set_fw_rsvdpagepkt(struct ieee80211_hw *hw , bool b_dl_finished )
   *(probersp + 21U) = *((u8 *)(& mac->bssid) + 5UL);
   *((u8 *)(& u1RsvdPageLoc)) = 4U;
   totalpacketlen = 768U;
-  tmp___3 = __builtin_expect((rtlpriv->dbg.global_debugcomponents & 8388608ULL) != 0ULL,
+  tmp___3 = ldv__builtin_expect((rtlpriv->dbg.global_debugcomponents & 8388608ULL) != 0ULL,
                              0L);
   }
   if (tmp___3 != 0L) {
     {
-    tmp___4 = __builtin_expect(rtlpriv->dbg.global_debuglevel > 3, 0L);
+    tmp___4 = ldv__builtin_expect(rtlpriv->dbg.global_debuglevel > 3, 0L);
     }
     if (tmp___4 != 0L) {
       {
@@ -13795,7 +13795,7 @@ void rtl88e_set_fw_rsvdpagepkt(struct ieee80211_hw *hw , bool b_dl_finished )
       descriptor.format = "";
       descriptor.lineno = 712U;
       descriptor.flags = 0U;
-      tmp___2 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+      tmp___2 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
       }
       if (tmp___2 != 0L) {
         {
@@ -13812,12 +13812,12 @@ void rtl88e_set_fw_rsvdpagepkt(struct ieee80211_hw *hw , bool b_dl_finished )
 
   }
   {
-  tmp___8 = __builtin_expect((rtlpriv->dbg.global_debugcomponents & 8388608ULL) != 0ULL,
+  tmp___8 = ldv__builtin_expect((rtlpriv->dbg.global_debugcomponents & 8388608ULL) != 0ULL,
                              0L);
   }
   if (tmp___8 != 0L) {
     {
-    tmp___9 = __builtin_expect(rtlpriv->dbg.global_debuglevel > 2, 0L);
+    tmp___9 = ldv__builtin_expect(rtlpriv->dbg.global_debuglevel > 2, 0L);
     }
     if (tmp___9 != 0L) {
       {
@@ -13831,7 +13831,7 @@ void rtl88e_set_fw_rsvdpagepkt(struct ieee80211_hw *hw , bool b_dl_finished )
       descriptor___0.format = "";
       descriptor___0.lineno = 715U;
       descriptor___0.flags = 0U;
-      tmp___7 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+      tmp___7 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
       }
       if (tmp___7 != 0L) {
         {
@@ -13863,12 +13863,12 @@ void rtl88e_set_fw_rsvdpagepkt(struct ieee80211_hw *hw , bool b_dl_finished )
   }
   if ((int )tmp___24) {
     {
-    tmp___13 = __builtin_expect((rtlpriv->dbg.global_debugcomponents & 65536ULL) != 0ULL,
+    tmp___13 = ldv__builtin_expect((rtlpriv->dbg.global_debugcomponents & 65536ULL) != 0ULL,
                                 0L);
     }
     if (tmp___13 != 0L) {
       {
-      tmp___14 = __builtin_expect(rtlpriv->dbg.global_debuglevel > 3, 0L);
+      tmp___14 = ldv__builtin_expect(rtlpriv->dbg.global_debuglevel > 3, 0L);
       }
       if (tmp___14 != 0L) {
         {
@@ -13884,12 +13884,12 @@ void rtl88e_set_fw_rsvdpagepkt(struct ieee80211_hw *hw , bool b_dl_finished )
 
     }
     {
-    tmp___18 = __builtin_expect((rtlpriv->dbg.global_debugcomponents & 8388608ULL) != 0ULL,
+    tmp___18 = ldv__builtin_expect((rtlpriv->dbg.global_debugcomponents & 8388608ULL) != 0ULL,
                                 0L);
     }
     if (tmp___18 != 0L) {
       {
-      tmp___19 = __builtin_expect(rtlpriv->dbg.global_debuglevel > 2, 0L);
+      tmp___19 = ldv__builtin_expect(rtlpriv->dbg.global_debuglevel > 2, 0L);
       }
       if (tmp___19 != 0L) {
         {
@@ -13903,7 +13903,7 @@ void rtl88e_set_fw_rsvdpagepkt(struct ieee80211_hw *hw , bool b_dl_finished )
         descriptor___1.format = "";
         descriptor___1.lineno = 728U;
         descriptor___1.flags = 0U;
-        tmp___17 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+        tmp___17 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
         }
         if (tmp___17 != 0L) {
           {
@@ -13924,12 +13924,12 @@ void rtl88e_set_fw_rsvdpagepkt(struct ieee80211_hw *hw , bool b_dl_finished )
     }
   } else {
     {
-    tmp___22 = __builtin_expect((long )((int )rtlpriv->dbg.global_debugcomponents) & 1L,
+    tmp___22 = ldv__builtin_expect((long )((int )rtlpriv->dbg.global_debugcomponents) & 1L,
                                 0L);
     }
     if (tmp___22 != 0L) {
       {
-      tmp___23 = __builtin_expect(rtlpriv->dbg.global_debuglevel > 1, 0L);
+      tmp___23 = ldv__builtin_expect(rtlpriv->dbg.global_debuglevel > 1, 0L);
       }
       if (tmp___23 != 0L) {
         {
@@ -14019,12 +14019,12 @@ void rtl88e_set_p2p_ps_offload_cmd(struct ieee80211_hw *hw , u8 p2p_ps_state )
   goto switch_default;
   case_0: /* CIL Label */ 
   {
-  tmp___1 = __builtin_expect((rtlpriv->dbg.global_debugcomponents & 2ULL) != 0ULL,
+  tmp___1 = ldv__builtin_expect((rtlpriv->dbg.global_debugcomponents & 2ULL) != 0ULL,
                              0L);
   }
   if (tmp___1 != 0L) {
     {
-    tmp___2 = __builtin_expect(rtlpriv->dbg.global_debuglevel > 3, 0L);
+    tmp___2 = ldv__builtin_expect(rtlpriv->dbg.global_debuglevel > 3, 0L);
     }
     if (tmp___2 != 0L) {
       {
@@ -14045,12 +14045,12 @@ void rtl88e_set_p2p_ps_offload_cmd(struct ieee80211_hw *hw , u8 p2p_ps_state )
   goto ldv_51491;
   case_1: /* CIL Label */ 
   {
-  tmp___5 = __builtin_expect((rtlpriv->dbg.global_debugcomponents & 2ULL) != 0ULL,
+  tmp___5 = ldv__builtin_expect((rtlpriv->dbg.global_debugcomponents & 2ULL) != 0ULL,
                              0L);
   }
   if (tmp___5 != 0L) {
     {
-    tmp___6 = __builtin_expect(rtlpriv->dbg.global_debuglevel > 3, 0L);
+    tmp___6 = ldv__builtin_expect(rtlpriv->dbg.global_debuglevel > 3, 0L);
     }
     if (tmp___6 != 0L) {
       {
@@ -14140,12 +14140,12 @@ void rtl88e_set_p2p_ps_offload_cmd(struct ieee80211_hw *hw , u8 p2p_ps_state )
   goto ldv_51491;
   case_2: /* CIL Label */ 
   {
-  tmp___9 = __builtin_expect((rtlpriv->dbg.global_debugcomponents & 2ULL) != 0ULL,
+  tmp___9 = ldv__builtin_expect((rtlpriv->dbg.global_debugcomponents & 2ULL) != 0ULL,
                              0L);
   }
   if (tmp___9 != 0L) {
     {
-    tmp___10 = __builtin_expect(rtlpriv->dbg.global_debuglevel > 3, 0L);
+    tmp___10 = ldv__builtin_expect(rtlpriv->dbg.global_debuglevel > 3, 0L);
     }
     if (tmp___10 != 0L) {
       {
@@ -14164,12 +14164,12 @@ void rtl88e_set_p2p_ps_offload_cmd(struct ieee80211_hw *hw , u8 p2p_ps_state )
   goto ldv_51491;
   case_3: /* CIL Label */ 
   {
-  tmp___13 = __builtin_expect((rtlpriv->dbg.global_debugcomponents & 2ULL) != 0ULL,
+  tmp___13 = ldv__builtin_expect((rtlpriv->dbg.global_debugcomponents & 2ULL) != 0ULL,
                               0L);
   }
   if (tmp___13 != 0L) {
     {
-    tmp___14 = __builtin_expect(rtlpriv->dbg.global_debuglevel > 3, 0L);
+    tmp___14 = ldv__builtin_expect(rtlpriv->dbg.global_debuglevel > 3, 0L);
     }
     if (tmp___14 != 0L) {
       {
@@ -14283,7 +14283,6 @@ __inline static void ldv_spin_unlock_irqrestore_95(spinlock_t *lock , unsigned l
   return;
 }
 }
-extern int ( /* missing proto */  __builtin_unreachable)() ;
 void ldv_spin_lock_fw_ps_lock_of_rtl_locks(void) ;
 void ldv_spin_unlock_fw_ps_lock_of_rtl_locks(void) ;
 void ldv_spin_lock_rf_ps_lock_of_rtl_locks(void) ;
@@ -14353,7 +14352,7 @@ __inline static struct dma_map_ops *get_dma_ops(struct device *dev )
 
   {
   {
-  tmp = __builtin_expect((unsigned long )dev == (unsigned long )((struct device *)0),
+  tmp = ldv__builtin_expect((unsigned long )dev == (unsigned long )((struct device *)0),
                          0L);
   }
   if (tmp != 0L || (unsigned long )dev->archdata.dma_ops == (unsigned long )((struct dma_map_ops *)0)) {
@@ -14377,7 +14376,7 @@ __inline static void dma_unmap_single_attrs(struct device *dev , dma_addr_t addr
   tmp = get_dma_ops(dev);
   ops = tmp;
   tmp___0 = valid_dma_direction((int )dir);
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -14725,12 +14724,12 @@ static void _rtl88ee_set_fw_clock_on(struct ieee80211_hw *hw , u8 rpwm_val , boo
         {
         rtl_write_word(rtlpriv, isr_regaddr, 256);
         rtlhal->fw_ps_state = 0U;
-        tmp___1 = __builtin_expect((rtlpriv->dbg.global_debugcomponents & 65536ULL) != 0ULL,
+        tmp___1 = ldv__builtin_expect((rtlpriv->dbg.global_debugcomponents & 65536ULL) != 0ULL,
                                    0L);
         }
         if (tmp___1 != 0L) {
           {
-          tmp___2 = __builtin_expect(rtlpriv->dbg.global_debuglevel > 3, 0L);
+          tmp___2 = ldv__builtin_expect(rtlpriv->dbg.global_debuglevel > 3, 0L);
           }
           if (tmp___2 != 0L) {
             {
@@ -15063,12 +15062,12 @@ void rtl88ee_get_hw_reg(struct ieee80211_hw *hw , u8 variable , u8 *val )
   goto ldv_51955;
   switch_default: /* CIL Label */ 
   {
-  tmp___1 = __builtin_expect((long )((int )rtlpriv->dbg.global_debugcomponents) & 1L,
+  tmp___1 = ldv__builtin_expect((long )((int )rtlpriv->dbg.global_debugcomponents) & 1L,
                              0L);
   }
   if (tmp___1 != 0L) {
     {
-    tmp___2 = __builtin_expect(rtlpriv->dbg.global_debuglevel >= 0, 0L);
+    tmp___2 = ldv__builtin_expect(rtlpriv->dbg.global_debuglevel >= 0, 0L);
     }
     if (tmp___2 != 0L) {
       {
@@ -15379,12 +15378,12 @@ void rtl88ee_set_hw_reg(struct ieee80211_hw *hw , u8 variable , u8 *val )
   goto ldv_51982;
   case_17: /* CIL Label */ 
   {
-  tmp___1 = __builtin_expect((rtlpriv->dbg.global_debugcomponents & 32ULL) != 0ULL,
+  tmp___1 = ldv__builtin_expect((rtlpriv->dbg.global_debugcomponents & 32ULL) != 0ULL,
                              0L);
   }
   if (tmp___1 != 0L) {
     {
-    tmp___2 = __builtin_expect(rtlpriv->dbg.global_debuglevel > 3, 0L);
+    tmp___2 = ldv__builtin_expect(rtlpriv->dbg.global_debuglevel > 3, 0L);
     }
     if (tmp___2 != 0L) {
       {
@@ -15452,12 +15451,12 @@ void rtl88ee_set_hw_reg(struct ieee80211_hw *hw , u8 variable , u8 *val )
     {
     mac->min_space_cfg = (u8 )(((int )((signed char )mac->min_space_cfg) & -8) | (int )((signed char )min_spacing_to_set));
     *val = min_spacing_to_set;
-    tmp___5 = __builtin_expect((rtlpriv->dbg.global_debugcomponents & 32ULL) != 0ULL,
+    tmp___5 = ldv__builtin_expect((rtlpriv->dbg.global_debugcomponents & 32ULL) != 0ULL,
                                0L);
     }
     if (tmp___5 != 0L) {
       {
-      tmp___6 = __builtin_expect(rtlpriv->dbg.global_debuglevel > 3, 0L);
+      tmp___6 = ldv__builtin_expect(rtlpriv->dbg.global_debuglevel > 3, 0L);
       }
       if (tmp___6 != 0L) {
         {
@@ -15484,12 +15483,12 @@ void rtl88ee_set_hw_reg(struct ieee80211_hw *hw , u8 variable , u8 *val )
   {
   density_to_set = *val;
   mac->min_space_cfg = (u8 )((int )((signed char )mac->min_space_cfg) | (int )((signed char )((int )density_to_set << 3)));
-  tmp___9 = __builtin_expect((rtlpriv->dbg.global_debugcomponents & 32ULL) != 0ULL,
+  tmp___9 = ldv__builtin_expect((rtlpriv->dbg.global_debugcomponents & 32ULL) != 0ULL,
                              0L);
   }
   if (tmp___9 != 0L) {
     {
-    tmp___10 = __builtin_expect(rtlpriv->dbg.global_debuglevel > 3, 0L);
+    tmp___10 = ldv__builtin_expect(rtlpriv->dbg.global_debuglevel > 3, 0L);
     }
     if (tmp___10 != 0L) {
       {
@@ -15549,12 +15548,12 @@ void rtl88ee_set_hw_reg(struct ieee80211_hw *hw , u8 variable , u8 *val )
 
     }
     {
-    tmp___13 = __builtin_expect((rtlpriv->dbg.global_debugcomponents & 32ULL) != 0ULL,
+    tmp___13 = ldv__builtin_expect((rtlpriv->dbg.global_debugcomponents & 32ULL) != 0ULL,
                                 0L);
     }
     if (tmp___13 != 0L) {
       {
-      tmp___14 = __builtin_expect(rtlpriv->dbg.global_debuglevel > 3, 0L);
+      tmp___14 = ldv__builtin_expect(rtlpriv->dbg.global_debuglevel > 3, 0L);
       }
       if (tmp___14 != 0L) {
         {
@@ -15625,12 +15624,12 @@ void rtl88ee_set_hw_reg(struct ieee80211_hw *hw , u8 variable , u8 *val )
     goto ldv_52025;
     switch_default: /* CIL Label */ 
     {
-    tmp___18 = __builtin_expect((long )((int )rtlpriv->dbg.global_debugcomponents) & 1L,
+    tmp___18 = ldv__builtin_expect((long )((int )rtlpriv->dbg.global_debugcomponents) & 1L,
                                 0L);
     }
     if (tmp___18 != 0L) {
       {
-      tmp___19 = __builtin_expect(rtlpriv->dbg.global_debuglevel > 1, 0L);
+      tmp___19 = ldv__builtin_expect(rtlpriv->dbg.global_debuglevel > 1, 0L);
       }
       if (tmp___19 != 0L) {
         {
@@ -15679,12 +15678,12 @@ void rtl88ee_set_hw_reg(struct ieee80211_hw *hw , u8 variable , u8 *val )
     goto ldv_52030;
     switch_default___0: /* CIL Label */ 
     {
-    tmp___22 = __builtin_expect((long )((int )rtlpriv->dbg.global_debugcomponents) & 1L,
+    tmp___22 = ldv__builtin_expect((long )((int )rtlpriv->dbg.global_debugcomponents) & 1L,
                                 0L);
     }
     if (tmp___22 != 0L) {
       {
-      tmp___23 = __builtin_expect(rtlpriv->dbg.global_debuglevel >= 0, 0L);
+      tmp___23 = ldv__builtin_expect(rtlpriv->dbg.global_debuglevel >= 0, 0L);
       }
       if (tmp___23 != 0L) {
         {
@@ -15705,12 +15704,12 @@ void rtl88ee_set_hw_reg(struct ieee80211_hw *hw , u8 variable , u8 *val )
     ldv_52030: ;
   }
   {
-  tmp___26 = __builtin_expect((rtlpriv->dbg.global_debugcomponents & 33554432ULL) != 0ULL,
+  tmp___26 = ldv__builtin_expect((rtlpriv->dbg.global_debugcomponents & 33554432ULL) != 0ULL,
                               0L);
   }
   if (tmp___26 != 0L) {
     {
-    tmp___27 = __builtin_expect(rtlpriv->dbg.global_debuglevel > 4, 0L);
+    tmp___27 = ldv__builtin_expect(rtlpriv->dbg.global_debuglevel > 4, 0L);
     }
     if (tmp___27 != 0L) {
       {
@@ -15912,12 +15911,12 @@ void rtl88ee_set_hw_reg(struct ieee80211_hw *hw , u8 variable , u8 *val )
   goto ldv_51982;
   switch_default___1: /* CIL Label */ 
   {
-  tmp___31 = __builtin_expect((long )((int )rtlpriv->dbg.global_debugcomponents) & 1L,
+  tmp___31 = ldv__builtin_expect((long )((int )rtlpriv->dbg.global_debugcomponents) & 1L,
                               0L);
   }
   if (tmp___31 != 0L) {
     {
-    tmp___32 = __builtin_expect(rtlpriv->dbg.global_debuglevel >= 0, 0L);
+    tmp___32 = ldv__builtin_expect(rtlpriv->dbg.global_debuglevel >= 0, 0L);
     }
     if (tmp___32 != 0L) {
       {
@@ -15970,12 +15969,12 @@ static bool _rtl88ee_llt_write(struct ieee80211_hw *hw , u32 address , u32 data 
   }
   if (count > 20L) {
     {
-    tmp___1 = __builtin_expect((long )((int )rtlpriv->dbg.global_debugcomponents) & 1L,
+    tmp___1 = ldv__builtin_expect((long )((int )rtlpriv->dbg.global_debugcomponents) & 1L,
                                0L);
     }
     if (tmp___1 != 0L) {
       {
-      tmp___2 = __builtin_expect(rtlpriv->dbg.global_debuglevel >= 0, 0L);
+      tmp___2 = ldv__builtin_expect(rtlpriv->dbg.global_debuglevel >= 0, 0L);
       }
       if (tmp___2 != 0L) {
         {
@@ -16162,12 +16161,12 @@ static bool _rtl88ee_init_mac(struct ieee80211_hw *hw )
   }
   if (tmp___6) {
     {
-    tmp___3 = __builtin_expect((rtlpriv->dbg.global_debugcomponents & 4ULL) != 0ULL,
+    tmp___3 = ldv__builtin_expect((rtlpriv->dbg.global_debugcomponents & 4ULL) != 0ULL,
                                0L);
     }
     if (tmp___3 != 0L) {
       {
-      tmp___4 = __builtin_expect(rtlpriv->dbg.global_debuglevel > 3, 0L);
+      tmp___4 = ldv__builtin_expect(rtlpriv->dbg.global_debuglevel > 3, 0L);
       }
       if (tmp___4 != 0L) {
         {
@@ -16220,12 +16219,12 @@ static bool _rtl88ee_init_mac(struct ieee80211_hw *hw )
     }
     if (tmp___13) {
       {
-      tmp___10 = __builtin_expect((rtlpriv->dbg.global_debugcomponents & 4ULL) != 0ULL,
+      tmp___10 = ldv__builtin_expect((rtlpriv->dbg.global_debugcomponents & 4ULL) != 0ULL,
                                   0L);
       }
       if (tmp___10 != 0L) {
         {
-        tmp___11 = __builtin_expect(rtlpriv->dbg.global_debuglevel > 3, 0L);
+        tmp___11 = ldv__builtin_expect(rtlpriv->dbg.global_debuglevel > 3, 0L);
         }
         if (tmp___11 != 0L) {
           {
@@ -16433,12 +16432,12 @@ void rtl88ee_enable_hw_security_config(struct ieee80211_hw *hw )
   {
   {
   rtlpriv = (struct rtl_priv *)hw->priv;
-  tmp___1 = __builtin_expect((rtlpriv->dbg.global_debugcomponents & 4ULL) != 0ULL,
+  tmp___1 = ldv__builtin_expect((rtlpriv->dbg.global_debugcomponents & 4ULL) != 0ULL,
                              0L);
   }
   if (tmp___1 != 0L) {
     {
-    tmp___2 = __builtin_expect(rtlpriv->dbg.global_debuglevel > 2, 0L);
+    tmp___2 = ldv__builtin_expect(rtlpriv->dbg.global_debuglevel > 2, 0L);
     }
     if (tmp___2 != 0L) {
       {
@@ -16457,12 +16456,12 @@ void rtl88ee_enable_hw_security_config(struct ieee80211_hw *hw )
   }
   if ((int )((rtlpriv->cfg)->mod_params)->sw_crypto || (int )rtlpriv->sec.use_sw_sec) {
     {
-    tmp___5 = __builtin_expect((rtlpriv->dbg.global_debugcomponents & 512ULL) != 0ULL,
+    tmp___5 = ldv__builtin_expect((rtlpriv->dbg.global_debugcomponents & 512ULL) != 0ULL,
                                0L);
     }
     if (tmp___5 != 0L) {
       {
-      tmp___6 = __builtin_expect(rtlpriv->dbg.global_debuglevel > 2, 0L);
+      tmp___6 = ldv__builtin_expect(rtlpriv->dbg.global_debuglevel > 2, 0L);
       }
       if (tmp___6 != 0L) {
         {
@@ -16491,12 +16490,12 @@ void rtl88ee_enable_hw_security_config(struct ieee80211_hw *hw )
   {
   sec_reg_value = (u8 )((unsigned int )sec_reg_value | 192U);
   rtl_write_byte(rtlpriv, 257U, 2);
-  tmp___9 = __builtin_expect((rtlpriv->dbg.global_debugcomponents & 512ULL) != 0ULL,
+  tmp___9 = ldv__builtin_expect((rtlpriv->dbg.global_debugcomponents & 512ULL) != 0ULL,
                              0L);
   }
   if (tmp___9 != 0L) {
     {
-    tmp___10 = __builtin_expect(rtlpriv->dbg.global_debuglevel > 2, 0L);
+    tmp___10 = ldv__builtin_expect(rtlpriv->dbg.global_debuglevel > 2, 0L);
     }
     if (tmp___10 != 0L) {
       {
@@ -16571,12 +16570,12 @@ int rtl88ee_hw_init(struct ieee80211_hw *hw )
   rtlefuse = & ((struct rtl_priv *)hw->priv)->efuse;
   rtstatus = 1;
   err = 0;
-  tmp___1 = __builtin_expect((rtlpriv->dbg.global_debugcomponents & 4ULL) != 0ULL,
+  tmp___1 = ldv__builtin_expect((rtlpriv->dbg.global_debugcomponents & 4ULL) != 0ULL,
                              0L);
   }
   if (tmp___1 != 0L) {
     {
-    tmp___2 = __builtin_expect(rtlpriv->dbg.global_debuglevel > 3, 0L);
+    tmp___2 = ldv__builtin_expect(rtlpriv->dbg.global_debuglevel > 3, 0L);
     }
     if (tmp___2 != 0L) {
       {
@@ -16608,12 +16607,12 @@ int rtl88ee_hw_init(struct ieee80211_hw *hw )
   }
   if (! rtstatus) {
     {
-    tmp___5 = __builtin_expect((long )((int )rtlpriv->dbg.global_debugcomponents) & 1L,
+    tmp___5 = ldv__builtin_expect((long )((int )rtlpriv->dbg.global_debugcomponents) & 1L,
                                0L);
     }
     if (tmp___5 != 0L) {
       {
-      tmp___6 = __builtin_expect(rtlpriv->dbg.global_debuglevel >= 0, 0L);
+      tmp___6 = ldv__builtin_expect(rtlpriv->dbg.global_debuglevel >= 0, 0L);
       }
       if (tmp___6 != 0L) {
         {
@@ -16638,12 +16637,12 @@ int rtl88ee_hw_init(struct ieee80211_hw *hw )
   }
   if (err != 0) {
     {
-    tmp___9 = __builtin_expect((long )((int )rtlpriv->dbg.global_debugcomponents) & 1L,
+    tmp___9 = ldv__builtin_expect((long )((int )rtlpriv->dbg.global_debugcomponents) & 1L,
                                0L);
     }
     if (tmp___9 != 0L) {
       {
-      tmp___10 = __builtin_expect(rtlpriv->dbg.global_debuglevel > 1, 0L);
+      tmp___10 = ldv__builtin_expect(rtlpriv->dbg.global_debuglevel > 1, 0L);
       }
       if (tmp___10 != 0L) {
         {
@@ -16702,12 +16701,12 @@ int rtl88ee_hw_init(struct ieee80211_hw *hw )
       }
     }
     {
-    tmp___13 = __builtin_expect((rtlpriv->dbg.global_debugcomponents & 4ULL) != 0ULL,
+    tmp___13 = ldv__builtin_expect((rtlpriv->dbg.global_debugcomponents & 4ULL) != 0ULL,
                                 0L);
     }
     if (tmp___13 != 0L) {
       {
-      tmp___14 = __builtin_expect(rtlpriv->dbg.global_debuglevel > 3, 0L);
+      tmp___14 = ldv__builtin_expect(rtlpriv->dbg.global_debuglevel > 3, 0L);
       }
       if (tmp___14 != 0L) {
         {
@@ -16746,12 +16745,12 @@ int rtl88ee_hw_init(struct ieee80211_hw *hw )
   if (((unsigned long )tmp_u1b & 1UL) == 0UL) {
     {
     rtl_set_rfreg(hw, 0, 21U, 15U, 5U);
-    tmp___17 = __builtin_expect((rtlpriv->dbg.global_debugcomponents & 4ULL) != 0ULL,
+    tmp___17 = ldv__builtin_expect((rtlpriv->dbg.global_debugcomponents & 4ULL) != 0ULL,
                                 0L);
     }
     if (tmp___17 != 0L) {
       {
-      tmp___18 = __builtin_expect(rtlpriv->dbg.global_debuglevel > 3, 0L);
+      tmp___18 = ldv__builtin_expect(rtlpriv->dbg.global_debuglevel > 3, 0L);
       }
       if (tmp___18 != 0L) {
         {
@@ -16776,12 +16775,12 @@ int rtl88ee_hw_init(struct ieee80211_hw *hw )
     rtl_write_byte(rtlpriv, 22U, (int )((unsigned int )tmp_u1b | 128U));
     __const_udelay(42950UL);
     rtl_write_byte(rtlpriv, 22U, (int )((unsigned int )tmp_u1b | 144U));
-    tmp___21 = __builtin_expect((rtlpriv->dbg.global_debugcomponents & 4ULL) != 0ULL,
+    tmp___21 = ldv__builtin_expect((rtlpriv->dbg.global_debugcomponents & 4ULL) != 0ULL,
                                 0L);
     }
     if (tmp___21 != 0L) {
       {
-      tmp___22 = __builtin_expect(rtlpriv->dbg.global_debuglevel > 3, 0L);
+      tmp___22 = ldv__builtin_expect(rtlpriv->dbg.global_debuglevel > 3, 0L);
       }
       if (tmp___22 != 0L) {
         {
@@ -16803,12 +16802,12 @@ int rtl88ee_hw_init(struct ieee80211_hw *hw )
   rtl_write_byte(rtlpriv, 1618U, 235);
   rtl88e_dm_init(hw);
   rtlpriv->rtlhal.being_init_adapter = 0;
-  tmp___25 = __builtin_expect((rtlpriv->dbg.global_debugcomponents & 4ULL) != 0ULL,
+  tmp___25 = ldv__builtin_expect((rtlpriv->dbg.global_debugcomponents & 4ULL) != 0ULL,
                               0L);
   }
   if (tmp___25 != 0L) {
     {
-    tmp___26 = __builtin_expect(rtlpriv->dbg.global_debuglevel > 3, 0L);
+    tmp___26 = ldv__builtin_expect(rtlpriv->dbg.global_debuglevel > 3, 0L);
     }
     if (tmp___26 != 0L) {
       {
@@ -16854,12 +16853,12 @@ static enum version_8188e _rtl88ee_read_chip_version(struct ieee80211_hw *hw )
   }
   {
   rtlphy->rf_type = 0U;
-  tmp___1 = __builtin_expect((rtlpriv->dbg.global_debugcomponents & 4ULL) != 0ULL,
+  tmp___1 = ldv__builtin_expect((rtlpriv->dbg.global_debugcomponents & 4ULL) != 0ULL,
                              0L);
   }
   if (tmp___1 != 0L) {
     {
-    tmp___2 = __builtin_expect(rtlpriv->dbg.global_debuglevel > 3, 0L);
+    tmp___2 = ldv__builtin_expect(rtlpriv->dbg.global_debuglevel > 3, 0L);
     }
     if (tmp___2 != 0L) {
       {
@@ -16934,12 +16933,12 @@ static int _rtl88ee_set_media_status(struct ieee80211_hw *hw , enum nl80211_ifty
     }
   } else {
     {
-    tmp___2 = __builtin_expect((long )((int )rtlpriv->dbg.global_debugcomponents) & 1L,
+    tmp___2 = ldv__builtin_expect((long )((int )rtlpriv->dbg.global_debugcomponents) & 1L,
                                0L);
     }
     if (tmp___2 != 0L) {
       {
-      tmp___3 = __builtin_expect(rtlpriv->dbg.global_debuglevel > 1, 0L);
+      tmp___3 = ldv__builtin_expect(rtlpriv->dbg.global_debuglevel > 1, 0L);
       }
       if (tmp___3 != 0L) {
         {
@@ -16987,12 +16986,12 @@ static int _rtl88ee_set_media_status(struct ieee80211_hw *hw , enum nl80211_ifty
   {
   bt_msr = bt_msr;
   ledaction = 2;
-  tmp___6 = __builtin_expect((rtlpriv->dbg.global_debugcomponents & 4ULL) != 0ULL,
+  tmp___6 = ldv__builtin_expect((rtlpriv->dbg.global_debugcomponents & 4ULL) != 0ULL,
                              0L);
   }
   if (tmp___6 != 0L) {
     {
-    tmp___7 = __builtin_expect(rtlpriv->dbg.global_debuglevel > 4, 0L);
+    tmp___7 = ldv__builtin_expect(rtlpriv->dbg.global_debuglevel > 4, 0L);
     }
     if (tmp___7 != 0L) {
       {
@@ -17011,12 +17010,12 @@ static int _rtl88ee_set_media_status(struct ieee80211_hw *hw , enum nl80211_ifty
   case_1: /* CIL Label */ 
   {
   bt_msr = (u8 )((unsigned int )bt_msr | 1U);
-  tmp___10 = __builtin_expect((rtlpriv->dbg.global_debugcomponents & 4ULL) != 0ULL,
+  tmp___10 = ldv__builtin_expect((rtlpriv->dbg.global_debugcomponents & 4ULL) != 0ULL,
                               0L);
   }
   if (tmp___10 != 0L) {
     {
-    tmp___11 = __builtin_expect(rtlpriv->dbg.global_debuglevel > 4, 0L);
+    tmp___11 = ldv__builtin_expect(rtlpriv->dbg.global_debuglevel > 4, 0L);
     }
     if (tmp___11 != 0L) {
       {
@@ -17036,12 +17035,12 @@ static int _rtl88ee_set_media_status(struct ieee80211_hw *hw , enum nl80211_ifty
   {
   bt_msr = (u8 )((unsigned int )bt_msr | 2U);
   ledaction = 2;
-  tmp___14 = __builtin_expect((rtlpriv->dbg.global_debugcomponents & 4ULL) != 0ULL,
+  tmp___14 = ldv__builtin_expect((rtlpriv->dbg.global_debugcomponents & 4ULL) != 0ULL,
                               0L);
   }
   if (tmp___14 != 0L) {
     {
-    tmp___15 = __builtin_expect(rtlpriv->dbg.global_debuglevel > 4, 0L);
+    tmp___15 = ldv__builtin_expect(rtlpriv->dbg.global_debuglevel > 4, 0L);
     }
     if (tmp___15 != 0L) {
       {
@@ -17060,12 +17059,12 @@ static int _rtl88ee_set_media_status(struct ieee80211_hw *hw , enum nl80211_ifty
   case_3: /* CIL Label */ 
   {
   bt_msr = (u8 )((unsigned int )bt_msr | 3U);
-  tmp___18 = __builtin_expect((rtlpriv->dbg.global_debugcomponents & 4ULL) != 0ULL,
+  tmp___18 = ldv__builtin_expect((rtlpriv->dbg.global_debugcomponents & 4ULL) != 0ULL,
                               0L);
   }
   if (tmp___18 != 0L) {
     {
-    tmp___19 = __builtin_expect(rtlpriv->dbg.global_debuglevel > 4, 0L);
+    tmp___19 = ldv__builtin_expect(rtlpriv->dbg.global_debuglevel > 4, 0L);
     }
     if (tmp___19 != 0L) {
       {
@@ -17084,12 +17083,12 @@ static int _rtl88ee_set_media_status(struct ieee80211_hw *hw , enum nl80211_ifty
   case_7: /* CIL Label */ 
   {
   bt_msr = (u8 )((unsigned int )bt_msr | 1U);
-  tmp___22 = __builtin_expect((rtlpriv->dbg.global_debugcomponents & 4ULL) != 0ULL,
+  tmp___22 = ldv__builtin_expect((rtlpriv->dbg.global_debugcomponents & 4ULL) != 0ULL,
                               0L);
   }
   if (tmp___22 != 0L) {
     {
-    tmp___23 = __builtin_expect(rtlpriv->dbg.global_debuglevel > 4, 0L);
+    tmp___23 = ldv__builtin_expect(rtlpriv->dbg.global_debuglevel > 4, 0L);
     }
     if (tmp___23 != 0L) {
       {
@@ -17107,12 +17106,12 @@ static int _rtl88ee_set_media_status(struct ieee80211_hw *hw , enum nl80211_ifty
   goto ldv_52172;
   switch_default: /* CIL Label */ 
   {
-  tmp___26 = __builtin_expect((long )((int )rtlpriv->dbg.global_debugcomponents) & 1L,
+  tmp___26 = ldv__builtin_expect((long )((int )rtlpriv->dbg.global_debugcomponents) & 1L,
                               0L);
   }
   if (tmp___26 != 0L) {
     {
-    tmp___27 = __builtin_expect(rtlpriv->dbg.global_debuglevel >= 0, 0L);
+    tmp___27 = ldv__builtin_expect(rtlpriv->dbg.global_debuglevel >= 0, 0L);
     }
     if (tmp___27 != 0L) {
       {
@@ -17319,12 +17318,12 @@ static void _rtl88ee_poweroff_adapter(struct ieee80211_hw *hw )
   count = 0U;
   rtlhal->mac_func_enable = 0;
   (*((rtlpriv->intf_ops)->enable_aspm))(hw);
-  tmp___1 = __builtin_expect((rtlpriv->dbg.global_debugcomponents & 4ULL) != 0ULL,
+  tmp___1 = ldv__builtin_expect((rtlpriv->dbg.global_debugcomponents & 4ULL) != 0ULL,
                              0L);
   }
   if (tmp___1 != 0L) {
     {
-    tmp___2 = __builtin_expect(rtlpriv->dbg.global_debuglevel > 3, 0L);
+    tmp___2 = ldv__builtin_expect(rtlpriv->dbg.global_debuglevel > 3, 0L);
     }
     if (tmp___2 != 0L) {
       {
@@ -17417,12 +17416,12 @@ void rtl88ee_card_disable(struct ieee80211_hw *hw )
   rtlpriv = (struct rtl_priv *)hw->priv;
   ppsc = & ((struct rtl_priv *)hw->priv)->psc;
   mac = & ((struct rtl_priv *)hw->priv)->mac80211;
-  tmp___1 = __builtin_expect((rtlpriv->dbg.global_debugcomponents & 4ULL) != 0ULL,
+  tmp___1 = ldv__builtin_expect((rtlpriv->dbg.global_debugcomponents & 4ULL) != 0ULL,
                              0L);
   }
   if (tmp___1 != 0L) {
     {
-    tmp___2 = __builtin_expect(rtlpriv->dbg.global_debuglevel > 3, 0L);
+    tmp___2 = ldv__builtin_expect(rtlpriv->dbg.global_debuglevel > 3, 0L);
     }
     if (tmp___2 != 0L) {
       {
@@ -17521,12 +17520,12 @@ void rtl88ee_set_beacon_interval(struct ieee80211_hw *hw )
   rtlpriv = (struct rtl_priv *)hw->priv;
   mac = & ((struct rtl_priv *)hw->priv)->mac80211;
   bcn_interval = (u16 )mac->beacon_interval;
-  tmp___1 = __builtin_expect((rtlpriv->dbg.global_debugcomponents & 1024ULL) != 0ULL,
+  tmp___1 = ldv__builtin_expect((rtlpriv->dbg.global_debugcomponents & 1024ULL) != 0ULL,
                              0L);
   }
   if (tmp___1 != 0L) {
     {
-    tmp___2 = __builtin_expect(rtlpriv->dbg.global_debuglevel > 2, 0L);
+    tmp___2 = ldv__builtin_expect(rtlpriv->dbg.global_debuglevel > 2, 0L);
     }
     if (tmp___2 != 0L) {
       {
@@ -17561,12 +17560,12 @@ void rtl88ee_update_interrupt_mask(struct ieee80211_hw *hw , u32 add_msr , u32 r
   {
   rtlpriv = (struct rtl_priv *)hw->priv;
   rtlpci = & ((struct rtl_pci_priv *)(& ((struct rtl_priv *)hw->priv)->priv))->dev;
-  tmp___1 = __builtin_expect((rtlpriv->dbg.global_debugcomponents & 128ULL) != 0ULL,
+  tmp___1 = ldv__builtin_expect((rtlpriv->dbg.global_debugcomponents & 128ULL) != 0ULL,
                              0L);
   }
   if (tmp___1 != 0L) {
     {
-    tmp___2 = __builtin_expect(rtlpriv->dbg.global_debuglevel > 3, 0L);
+    tmp___2 = ldv__builtin_expect(rtlpriv->dbg.global_debuglevel > 3, 0L);
     }
     if (tmp___2 != 0L) {
       {
@@ -17787,12 +17786,12 @@ static void _rtl8188e_read_power_value_fromprom(struct ieee80211_hw *hw , struct
   {
   rtlpriv = (struct rtl_priv *)hw->priv;
   eadr = 16U;
-  tmp___1 = __builtin_expect((rtlpriv->dbg.global_debugcomponents & 4ULL) != 0ULL,
+  tmp___1 = ldv__builtin_expect((rtlpriv->dbg.global_debugcomponents & 4ULL) != 0ULL,
                              0L);
   }
   if (tmp___1 != 0L) {
     {
-    tmp___2 = __builtin_expect(rtlpriv->dbg.global_debuglevel > 3, 0L);
+    tmp___2 = ldv__builtin_expect(rtlpriv->dbg.global_debuglevel > 3, 0L);
     }
     if (tmp___2 != 0L) {
       {
@@ -17815,12 +17814,12 @@ static void _rtl8188e_read_power_value_fromprom(struct ieee80211_hw *hw , struct
   }
   if ((int )autoload_fail) {
     {
-    tmp___5 = __builtin_expect((rtlpriv->dbg.global_debugcomponents & 4ULL) != 0ULL,
+    tmp___5 = ldv__builtin_expect((rtlpriv->dbg.global_debugcomponents & 4ULL) != 0ULL,
                                0L);
     }
     if (tmp___5 != 0L) {
       {
-      tmp___6 = __builtin_expect(rtlpriv->dbg.global_debuglevel > 3, 0L);
+      tmp___6 = ldv__builtin_expect(rtlpriv->dbg.global_debuglevel > 3, 0L);
       }
       if (tmp___6 != 0L) {
         {
@@ -18080,7 +18079,7 @@ static void _rtl88ee_read_txpower_info_from_hwpg(struct ieee80211_hw *hw , bool 
   goto ldv_52360;
   ldv_52359: 
   {
-  tmp = __builtin_expect(((unsigned long )rtlpriv->dbg.dbgp_type[17] & 2UL) != 0UL,
+  tmp = ldv__builtin_expect(((unsigned long )rtlpriv->dbg.dbgp_type[17] & 2UL) != 0UL,
                          0L);
   }
   if (tmp != 0L) {
@@ -18119,7 +18118,7 @@ static void _rtl88ee_read_txpower_info_from_hwpg(struct ieee80211_hw *hw , bool 
   }
   {
   rtlefuse->thermalmeter[0] = rtlefuse->eeprom_thermalmeter;
-  tmp___0 = __builtin_expect(((unsigned long )rtlpriv->dbg.dbgp_type[17] & 2UL) != 0UL,
+  tmp___0 = ldv__builtin_expect(((unsigned long )rtlpriv->dbg.dbgp_type[17] & 2UL) != 0UL,
                              0L);
   }
   if (tmp___0 != 0L) {
@@ -18140,7 +18139,7 @@ static void _rtl88ee_read_txpower_info_from_hwpg(struct ieee80211_hw *hw , bool 
     rtlefuse->eeprom_regulatory = 0U;
   }
   {
-  tmp___1 = __builtin_expect(((unsigned long )rtlpriv->dbg.dbgp_type[17] & 2UL) != 0UL,
+  tmp___1 = ldv__builtin_expect(((unsigned long )rtlpriv->dbg.dbgp_type[17] & 2UL) != 0UL,
                              0L);
   }
   if (tmp___1 != 0L) {
@@ -18227,12 +18226,12 @@ static void _rtl88ee_read_adapter_info(struct ieee80211_hw *hw )
   } else
   if ((int )rtlefuse->epromtype == 0) {
     {
-    tmp___1 = __builtin_expect((long )((int )rtlpriv->dbg.global_debugcomponents) & 1L,
+    tmp___1 = ldv__builtin_expect((long )((int )rtlpriv->dbg.global_debugcomponents) & 1L,
                                0L);
     }
     if (tmp___1 != 0L) {
       {
-      tmp___2 = __builtin_expect(rtlpriv->dbg.global_debuglevel >= 0, 0L);
+      tmp___2 = ldv__builtin_expect(rtlpriv->dbg.global_debuglevel >= 0, 0L);
       }
       if (tmp___2 != 0L) {
         {
@@ -18252,12 +18251,12 @@ static void _rtl88ee_read_adapter_info(struct ieee80211_hw *hw )
 
   }
   {
-  tmp___6 = __builtin_expect((rtlpriv->dbg.global_debugcomponents & 4ULL) != 0ULL,
+  tmp___6 = ldv__builtin_expect((rtlpriv->dbg.global_debugcomponents & 4ULL) != 0ULL,
                              0L);
   }
   if (tmp___6 != 0L) {
     {
-    tmp___7 = __builtin_expect(rtlpriv->dbg.global_debuglevel > 2, 0L);
+    tmp___7 = ldv__builtin_expect(rtlpriv->dbg.global_debuglevel > 2, 0L);
     }
     if (tmp___7 != 0L) {
       {
@@ -18271,7 +18270,7 @@ static void _rtl88ee_read_adapter_info(struct ieee80211_hw *hw )
       descriptor.format = "";
       descriptor.lineno = 1789U;
       descriptor.flags = 0U;
-      tmp___5 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+      tmp___5 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
       }
       if (tmp___5 != 0L) {
         {
@@ -18289,12 +18288,12 @@ static void _rtl88ee_read_adapter_info(struct ieee80211_hw *hw )
   eeprom_id = *((u16 *)(& hwinfo));
   if ((unsigned int )eeprom_id != 33065U) {
     {
-    tmp___10 = __builtin_expect((long )((int )rtlpriv->dbg.global_debugcomponents) & 1L,
+    tmp___10 = ldv__builtin_expect((long )((int )rtlpriv->dbg.global_debugcomponents) & 1L,
                                 0L);
     }
     if (tmp___10 != 0L) {
       {
-      tmp___11 = __builtin_expect(rtlpriv->dbg.global_debuglevel > 1, 0L);
+      tmp___11 = ldv__builtin_expect(rtlpriv->dbg.global_debuglevel > 1, 0L);
       }
       if (tmp___11 != 0L) {
         {
@@ -18313,12 +18312,12 @@ static void _rtl88ee_read_adapter_info(struct ieee80211_hw *hw )
     rtlefuse->autoload_failflag = 1U;
   } else {
     {
-    tmp___14 = __builtin_expect((rtlpriv->dbg.global_debugcomponents & 4ULL) != 0ULL,
+    tmp___14 = ldv__builtin_expect((rtlpriv->dbg.global_debugcomponents & 4ULL) != 0ULL,
                                 0L);
     }
     if (tmp___14 != 0L) {
       {
-      tmp___15 = __builtin_expect(rtlpriv->dbg.global_debuglevel > 3, 0L);
+      tmp___15 = ldv__builtin_expect(rtlpriv->dbg.global_debuglevel > 3, 0L);
       }
       if (tmp___15 != 0L) {
         {
@@ -18345,12 +18344,12 @@ static void _rtl88ee_read_adapter_info(struct ieee80211_hw *hw )
   rtlefuse->eeprom_did = *((u16 *)(& hwinfo) + 216U);
   rtlefuse->eeprom_svid = *((u16 *)(& hwinfo) + 218U);
   rtlefuse->eeprom_smid = *((u16 *)(& hwinfo) + 220U);
-  tmp___18 = __builtin_expect((rtlpriv->dbg.global_debugcomponents & 4ULL) != 0ULL,
+  tmp___18 = ldv__builtin_expect((rtlpriv->dbg.global_debugcomponents & 4ULL) != 0ULL,
                               0L);
   }
   if (tmp___18 != 0L) {
     {
-    tmp___19 = __builtin_expect(rtlpriv->dbg.global_debuglevel > 3, 0L);
+    tmp___19 = ldv__builtin_expect(rtlpriv->dbg.global_debuglevel > 3, 0L);
     }
     if (tmp___19 != 0L) {
       {
@@ -18367,12 +18366,12 @@ static void _rtl88ee_read_adapter_info(struct ieee80211_hw *hw )
 
   }
   {
-  tmp___22 = __builtin_expect((rtlpriv->dbg.global_debugcomponents & 4ULL) != 0ULL,
+  tmp___22 = ldv__builtin_expect((rtlpriv->dbg.global_debugcomponents & 4ULL) != 0ULL,
                               0L);
   }
   if (tmp___22 != 0L) {
     {
-    tmp___23 = __builtin_expect(rtlpriv->dbg.global_debuglevel > 3, 0L);
+    tmp___23 = ldv__builtin_expect(rtlpriv->dbg.global_debuglevel > 3, 0L);
     }
     if (tmp___23 != 0L) {
       {
@@ -18389,12 +18388,12 @@ static void _rtl88ee_read_adapter_info(struct ieee80211_hw *hw )
 
   }
   {
-  tmp___26 = __builtin_expect((rtlpriv->dbg.global_debugcomponents & 4ULL) != 0ULL,
+  tmp___26 = ldv__builtin_expect((rtlpriv->dbg.global_debugcomponents & 4ULL) != 0ULL,
                               0L);
   }
   if (tmp___26 != 0L) {
     {
-    tmp___27 = __builtin_expect(rtlpriv->dbg.global_debuglevel > 3, 0L);
+    tmp___27 = ldv__builtin_expect(rtlpriv->dbg.global_debuglevel > 3, 0L);
     }
     if (tmp___27 != 0L) {
       {
@@ -18411,12 +18410,12 @@ static void _rtl88ee_read_adapter_info(struct ieee80211_hw *hw )
 
   }
   {
-  tmp___30 = __builtin_expect((rtlpriv->dbg.global_debugcomponents & 4ULL) != 0ULL,
+  tmp___30 = ldv__builtin_expect((rtlpriv->dbg.global_debugcomponents & 4ULL) != 0ULL,
                               0L);
   }
   if (tmp___30 != 0L) {
     {
-    tmp___31 = __builtin_expect(rtlpriv->dbg.global_debuglevel > 3, 0L);
+    tmp___31 = ldv__builtin_expect(rtlpriv->dbg.global_debuglevel > 3, 0L);
     }
     if (tmp___31 != 0L) {
       {
@@ -18433,12 +18432,12 @@ static void _rtl88ee_read_adapter_info(struct ieee80211_hw *hw )
 
   }
   {
-  tmp___34 = __builtin_expect((rtlpriv->dbg.global_debugcomponents & 4ULL) != 0ULL,
+  tmp___34 = ldv__builtin_expect((rtlpriv->dbg.global_debugcomponents & 4ULL) != 0ULL,
                               0L);
   }
   if (tmp___34 != 0L) {
     {
-    tmp___35 = __builtin_expect(rtlpriv->dbg.global_debuglevel > 3, 0L);
+    tmp___35 = ldv__builtin_expect(rtlpriv->dbg.global_debuglevel > 3, 0L);
     }
     if (tmp___35 != 0L) {
       {
@@ -18461,12 +18460,12 @@ static void _rtl88ee_read_adapter_info(struct ieee80211_hw *hw )
 
   }
   {
-  tmp___38 = __builtin_expect((rtlpriv->dbg.global_debugcomponents & 4ULL) != 0ULL,
+  tmp___38 = ldv__builtin_expect((rtlpriv->dbg.global_debugcomponents & 4ULL) != 0ULL,
                               0L);
   }
   if (tmp___38 != 0L) {
     {
-    tmp___39 = __builtin_expect(rtlpriv->dbg.global_debuglevel > 3, 0L);
+    tmp___39 = ldv__builtin_expect(rtlpriv->dbg.global_debuglevel > 3, 0L);
     }
     if (tmp___39 != 0L) {
       {
@@ -18496,12 +18495,12 @@ static void _rtl88ee_read_adapter_info(struct ieee80211_hw *hw )
 
   }
   {
-  tmp___42 = __builtin_expect((rtlpriv->dbg.global_debugcomponents & 4ULL) != 0ULL,
+  tmp___42 = ldv__builtin_expect((rtlpriv->dbg.global_debugcomponents & 4ULL) != 0ULL,
                               0L);
   }
   if (tmp___42 != 0L) {
     {
-    tmp___43 = __builtin_expect(rtlpriv->dbg.global_debuglevel > 2, 0L);
+    tmp___43 = ldv__builtin_expect(rtlpriv->dbg.global_debuglevel > 2, 0L);
     }
     if (tmp___43 != 0L) {
       {
@@ -18682,12 +18681,12 @@ static void _rtl88ee_hal_customized_behavior(struct ieee80211_hw *hw )
   }
   ldv_52396: 
   {
-  tmp___1 = __builtin_expect((rtlpriv->dbg.global_debugcomponents & 4ULL) != 0ULL,
+  tmp___1 = ldv__builtin_expect((rtlpriv->dbg.global_debugcomponents & 4ULL) != 0ULL,
                              0L);
   }
   if (tmp___1 != 0L) {
     {
-    tmp___2 = __builtin_expect(rtlpriv->dbg.global_debuglevel > 2, 0L);
+    tmp___2 = ldv__builtin_expect(rtlpriv->dbg.global_debuglevel > 2, 0L);
     }
     if (tmp___2 != 0L) {
       {
@@ -18753,12 +18752,12 @@ void rtl88ee_read_eeprom_info(struct ieee80211_hw *hw )
     rtlpriv->dm.rfpath_rxenable[1] = 1;
   }
   {
-  tmp___3 = __builtin_expect((rtlpriv->dbg.global_debugcomponents & 4ULL) != 0ULL,
+  tmp___3 = ldv__builtin_expect((rtlpriv->dbg.global_debugcomponents & 4ULL) != 0ULL,
                              0L);
   }
   if (tmp___3 != 0L) {
     {
-    tmp___4 = __builtin_expect(rtlpriv->dbg.global_debuglevel > 3, 0L);
+    tmp___4 = ldv__builtin_expect(rtlpriv->dbg.global_debuglevel > 3, 0L);
     }
     if (tmp___4 != 0L) {
       {
@@ -18779,12 +18778,12 @@ void rtl88ee_read_eeprom_info(struct ieee80211_hw *hw )
   }
   if (((unsigned long )tmp_u1b & 16UL) != 0UL) {
     {
-    tmp___7 = __builtin_expect((rtlpriv->dbg.global_debugcomponents & 4ULL) != 0ULL,
+    tmp___7 = ldv__builtin_expect((rtlpriv->dbg.global_debugcomponents & 4ULL) != 0ULL,
                                0L);
     }
     if (tmp___7 != 0L) {
       {
-      tmp___8 = __builtin_expect(rtlpriv->dbg.global_debuglevel > 2, 0L);
+      tmp___8 = ldv__builtin_expect(rtlpriv->dbg.global_debuglevel > 2, 0L);
       }
       if (tmp___8 != 0L) {
         {
@@ -18802,12 +18801,12 @@ void rtl88ee_read_eeprom_info(struct ieee80211_hw *hw )
     rtlefuse->epromtype = 0;
   } else {
     {
-    tmp___11 = __builtin_expect((rtlpriv->dbg.global_debugcomponents & 4ULL) != 0ULL,
+    tmp___11 = ldv__builtin_expect((rtlpriv->dbg.global_debugcomponents & 4ULL) != 0ULL,
                                 0L);
     }
     if (tmp___11 != 0L) {
       {
-      tmp___12 = __builtin_expect(rtlpriv->dbg.global_debuglevel > 2, 0L);
+      tmp___12 = ldv__builtin_expect(rtlpriv->dbg.global_debuglevel > 2, 0L);
       }
       if (tmp___12 != 0L) {
         {
@@ -18826,12 +18825,12 @@ void rtl88ee_read_eeprom_info(struct ieee80211_hw *hw )
   }
   if (((unsigned long )tmp_u1b & 32UL) != 0UL) {
     {
-    tmp___15 = __builtin_expect((rtlpriv->dbg.global_debugcomponents & 4ULL) != 0ULL,
+    tmp___15 = ldv__builtin_expect((rtlpriv->dbg.global_debugcomponents & 4ULL) != 0ULL,
                                 0L);
     }
     if (tmp___15 != 0L) {
       {
-      tmp___16 = __builtin_expect(rtlpriv->dbg.global_debuglevel > 3, 0L);
+      tmp___16 = ldv__builtin_expect(rtlpriv->dbg.global_debuglevel > 3, 0L);
       }
       if (tmp___16 != 0L) {
         {
@@ -18852,12 +18851,12 @@ void rtl88ee_read_eeprom_info(struct ieee80211_hw *hw )
     }
   } else {
     {
-    tmp___19 = __builtin_expect((long )((int )rtlpriv->dbg.global_debugcomponents) & 1L,
+    tmp___19 = ldv__builtin_expect((long )((int )rtlpriv->dbg.global_debugcomponents) & 1L,
                                 0L);
     }
     if (tmp___19 != 0L) {
       {
-      tmp___20 = __builtin_expect(rtlpriv->dbg.global_debuglevel >= 0, 0L);
+      tmp___20 = ldv__builtin_expect(rtlpriv->dbg.global_debuglevel >= 0, 0L);
       }
       if (tmp___20 != 0L) {
         {
@@ -19027,12 +19026,12 @@ static void rtl88ee_update_hal_rate_table(struct ieee80211_hw *hw , struct ieee8
   }
   {
   rtl_write_dword(rtlpriv, (u32 )(((int )ratr_index + 273) * 4), ratr_value);
-  tmp___4 = __builtin_expect((rtlpriv->dbg.global_debugcomponents & 4194304ULL) != 0ULL,
+  tmp___4 = ldv__builtin_expect((rtlpriv->dbg.global_debugcomponents & 4194304ULL) != 0ULL,
                              0L);
   }
   if (tmp___4 != 0L) {
     {
-    tmp___5 = __builtin_expect(rtlpriv->dbg.global_debuglevel > 2, 0L);
+    tmp___5 = ldv__builtin_expect(rtlpriv->dbg.global_debuglevel > 2, 0L);
     }
     if (tmp___5 != 0L) {
       {
@@ -19242,12 +19241,12 @@ static void rtl88ee_update_hal_rate_mask(struct ieee80211_hw *hw , struct ieee80
   ldv_52467: 
   {
   sta_entry->ratr_index = ratr_index;
-  tmp___1 = __builtin_expect((rtlpriv->dbg.global_debugcomponents & 4194304ULL) != 0ULL,
+  tmp___1 = ldv__builtin_expect((rtlpriv->dbg.global_debugcomponents & 4194304ULL) != 0ULL,
                              0L);
   }
   if (tmp___1 != 0L) {
     {
-    tmp___2 = __builtin_expect(rtlpriv->dbg.global_debuglevel > 2, 0L);
+    tmp___2 = ldv__builtin_expect(rtlpriv->dbg.global_debuglevel > 2, 0L);
     }
     if (tmp___2 != 0L) {
       {
@@ -19266,12 +19265,12 @@ static void rtl88ee_update_hal_rate_mask(struct ieee80211_hw *hw , struct ieee80
   {
   *((u32 *)(& rate_mask)) = (ratr_bitmap & 268435455U) | (u32 )((int )ratr_index << 28);
   rate_mask[4] = (u8 )(((int )((signed char )macid) | ((int )shortgi ? 32 : 0)) | -128);
-  tmp___5 = __builtin_expect((rtlpriv->dbg.global_debugcomponents & 4194304ULL) != 0ULL,
+  tmp___5 = ldv__builtin_expect((rtlpriv->dbg.global_debugcomponents & 4194304ULL) != 0ULL,
                              0L);
   }
   if (tmp___5 != 0L) {
     {
-    tmp___6 = __builtin_expect(rtlpriv->dbg.global_debuglevel > 2, 0L);
+    tmp___6 = ldv__builtin_expect(rtlpriv->dbg.global_debuglevel > 2, 0L);
     }
     if (tmp___6 != 0L) {
       {
@@ -19388,12 +19387,12 @@ bool rtl88ee_gpio_radio_on_off_checking(struct ieee80211_hw *hw , u8 *valid )
   }
   if ((int )ppsc->hwradiooff && (unsigned int )state_toset == 0U) {
     {
-    tmp___1 = __builtin_expect((rtlpriv->dbg.global_debugcomponents & 1048576ULL) != 0ULL,
+    tmp___1 = ldv__builtin_expect((rtlpriv->dbg.global_debugcomponents & 1048576ULL) != 0ULL,
                                0L);
     }
     if (tmp___1 != 0L) {
       {
-      tmp___2 = __builtin_expect(rtlpriv->dbg.global_debuglevel > 2, 0L);
+      tmp___2 = ldv__builtin_expect(rtlpriv->dbg.global_debuglevel > 2, 0L);
       }
       if (tmp___2 != 0L) {
         {
@@ -19415,12 +19414,12 @@ bool rtl88ee_gpio_radio_on_off_checking(struct ieee80211_hw *hw , u8 *valid )
   } else
   if (! ppsc->hwradiooff && (unsigned int )state_toset == 2U) {
     {
-    tmp___5 = __builtin_expect((rtlpriv->dbg.global_debugcomponents & 1048576ULL) != 0ULL,
+    tmp___5 = ldv__builtin_expect((rtlpriv->dbg.global_debugcomponents & 1048576ULL) != 0ULL,
                                0L);
     }
     if (tmp___5 != 0L) {
       {
-      tmp___6 = __builtin_expect(rtlpriv->dbg.global_debuglevel > 2, 0L);
+      tmp___6 = ldv__builtin_expect(rtlpriv->dbg.global_debuglevel > 2, 0L);
       }
       if (tmp___6 != 0L) {
         {
@@ -19486,12 +19485,12 @@ static void add_one_key(struct ieee80211_hw *hw , u8 *macaddr , struct rtl_mac *
   {
   rtlpriv = (struct rtl_priv *)hw->priv;
   rtlefuse = & ((struct rtl_priv *)hw->priv)->efuse;
-  tmp___1 = __builtin_expect((rtlpriv->dbg.global_debugcomponents & 512ULL) != 0ULL,
+  tmp___1 = ldv__builtin_expect((rtlpriv->dbg.global_debugcomponents & 512ULL) != 0ULL,
                              0L);
   }
   if (tmp___1 != 0L) {
     {
-    tmp___2 = __builtin_expect(rtlpriv->dbg.global_debuglevel > 2, 0L);
+    tmp___2 = ldv__builtin_expect(rtlpriv->dbg.global_debuglevel > 2, 0L);
     }
     if (tmp___2 != 0L) {
       {
@@ -19508,12 +19507,12 @@ static void add_one_key(struct ieee80211_hw *hw , u8 *macaddr , struct rtl_mac *
   }
   if ((int )is_pairwise) {
     {
-    tmp___5 = __builtin_expect((rtlpriv->dbg.global_debugcomponents & 512ULL) != 0ULL,
+    tmp___5 = ldv__builtin_expect((rtlpriv->dbg.global_debugcomponents & 512ULL) != 0ULL,
                                0L);
     }
     if (tmp___5 != 0L) {
       {
-      tmp___6 = __builtin_expect(rtlpriv->dbg.global_debuglevel > 2, 0L);
+      tmp___6 = ldv__builtin_expect(rtlpriv->dbg.global_debuglevel > 2, 0L);
       }
       if (tmp___6 != 0L) {
         {
@@ -19533,12 +19532,12 @@ static void add_one_key(struct ieee80211_hw *hw , u8 *macaddr , struct rtl_mac *
     }
   } else {
     {
-    tmp___9 = __builtin_expect((rtlpriv->dbg.global_debugcomponents & 512ULL) != 0ULL,
+    tmp___9 = ldv__builtin_expect((rtlpriv->dbg.global_debugcomponents & 512ULL) != 0ULL,
                                0L);
     }
     if (tmp___9 != 0L) {
       {
-      tmp___10 = __builtin_expect(rtlpriv->dbg.global_debuglevel > 2, 0L);
+      tmp___10 = ldv__builtin_expect(rtlpriv->dbg.global_debuglevel > 2, 0L);
       }
       if (tmp___10 != 0L) {
         {
@@ -19640,12 +19639,12 @@ void rtl88ee_set_key(struct ieee80211_hw *hw , u32 key , u8 *mac_ad , bool is_gr
     idx = 0U;
     cam_offset = 0U;
     clear_number = 5U;
-    tmp___1 = __builtin_expect((rtlpriv->dbg.global_debugcomponents & 512ULL) != 0ULL,
+    tmp___1 = ldv__builtin_expect((rtlpriv->dbg.global_debugcomponents & 512ULL) != 0ULL,
                                0L);
     }
     if (tmp___1 != 0L) {
       {
-      tmp___2 = __builtin_expect(rtlpriv->dbg.global_debuglevel > 2, 0L);
+      tmp___2 = ldv__builtin_expect(rtlpriv->dbg.global_debuglevel > 2, 0L);
       }
       if (tmp___2 != 0L) {
         {
@@ -19720,12 +19719,12 @@ void rtl88ee_set_key(struct ieee80211_hw *hw , u32 key , u8 *mac_ad , bool is_gr
     goto ldv_52532;
     switch_default: /* CIL Label */ 
     {
-    tmp___5 = __builtin_expect((long )((int )rtlpriv->dbg.global_debugcomponents) & 1L,
+    tmp___5 = ldv__builtin_expect((long )((int )rtlpriv->dbg.global_debugcomponents) & 1L,
                                0L);
     }
     if (tmp___5 != 0L) {
       {
-      tmp___6 = __builtin_expect(rtlpriv->dbg.global_debuglevel >= 0, 0L);
+      tmp___6 = ldv__builtin_expect(rtlpriv->dbg.global_debuglevel >= 0, 0L);
       }
       if (tmp___6 != 0L) {
         {
@@ -19760,12 +19759,12 @@ void rtl88ee_set_key(struct ieee80211_hw *hw , u32 key , u8 *mac_ad , bool is_gr
         }
         if (id > 31U) {
           {
-          tmp___10 = __builtin_expect((rtlpriv->dbg.global_debugcomponents & 512ULL) != 0ULL,
+          tmp___10 = ldv__builtin_expect((rtlpriv->dbg.global_debugcomponents & 512ULL) != 0ULL,
                                       0L);
           }
           if (tmp___10 != 0L) {
             {
-            tmp___11 = __builtin_expect(rtlpriv->dbg.global_debuglevel >= 0, 0L);
+            tmp___11 = ldv__builtin_expect(rtlpriv->dbg.global_debuglevel >= 0, 0L);
             }
             if (tmp___11 != 0L) {
               {
@@ -19792,12 +19791,12 @@ void rtl88ee_set_key(struct ieee80211_hw *hw , u32 key , u8 *mac_ad , bool is_gr
     }
     if ((unsigned int )rtlpriv->sec.key_len[key] == 0U) {
       {
-      tmp___14 = __builtin_expect((rtlpriv->dbg.global_debugcomponents & 512ULL) != 0ULL,
+      tmp___14 = ldv__builtin_expect((rtlpriv->dbg.global_debugcomponents & 512ULL) != 0ULL,
                                   0L);
       }
       if (tmp___14 != 0L) {
         {
-        tmp___15 = __builtin_expect(rtlpriv->dbg.global_debuglevel > 2, 0L);
+        tmp___15 = ldv__builtin_expect(rtlpriv->dbg.global_debuglevel > 2, 0L);
         }
         if (tmp___15 != 0L) {
           {
@@ -19987,12 +19986,12 @@ void rtl88ee_allow_all_destaddr(struct ieee80211_hw *hw , bool allow_all_da , bo
 
   }
   {
-  tmp___1 = __builtin_expect((rtlpriv->dbg.global_debugcomponents & 2097156ULL) != 0ULL,
+  tmp___1 = ldv__builtin_expect((rtlpriv->dbg.global_debugcomponents & 2097156ULL) != 0ULL,
                              0L);
   }
   if (tmp___1 != 0L) {
     {
-    tmp___2 = __builtin_expect(rtlpriv->dbg.global_debuglevel > 3, 0L);
+    tmp___2 = ldv__builtin_expect(rtlpriv->dbg.global_debuglevel > 3, 0L);
     }
     if (tmp___2 != 0L) {
       {
@@ -20136,12 +20135,12 @@ void rtl88ee_sw_led_on(struct ieee80211_hw *hw , struct rtl_led *pled )
   {
   {
   rtlpriv = (struct rtl_priv *)hw->priv;
-  tmp___1 = __builtin_expect((rtlpriv->dbg.global_debugcomponents & 256ULL) != 0ULL,
+  tmp___1 = ldv__builtin_expect((rtlpriv->dbg.global_debugcomponents & 256ULL) != 0ULL,
                              0L);
   }
   if (tmp___1 != 0L) {
     {
-    tmp___2 = __builtin_expect(rtlpriv->dbg.global_debuglevel > 3, 0L);
+    tmp___2 = ldv__builtin_expect(rtlpriv->dbg.global_debuglevel > 3, 0L);
     }
     if (tmp___2 != 0L) {
       {
@@ -20190,12 +20189,12 @@ void rtl88ee_sw_led_on(struct ieee80211_hw *hw , struct rtl_led *pled )
   goto ldv_50947;
   switch_default: /* CIL Label */ 
   {
-  tmp___5 = __builtin_expect((long )((int )rtlpriv->dbg.global_debugcomponents) & 1L,
+  tmp___5 = ldv__builtin_expect((long )((int )rtlpriv->dbg.global_debugcomponents) & 1L,
                              0L);
   }
   if (tmp___5 != 0L) {
     {
-    tmp___6 = __builtin_expect(rtlpriv->dbg.global_debuglevel >= 0, 0L);
+    tmp___6 = ldv__builtin_expect(rtlpriv->dbg.global_debuglevel >= 0, 0L);
     }
     if (tmp___6 != 0L) {
       {
@@ -20237,12 +20236,12 @@ void rtl88ee_sw_led_off(struct ieee80211_hw *hw , struct rtl_led *pled )
   {
   rtlpriv = (struct rtl_priv *)hw->priv;
   pcipriv = (struct rtl_pci_priv *)(& ((struct rtl_priv *)hw->priv)->priv);
-  tmp___1 = __builtin_expect((rtlpriv->dbg.global_debugcomponents & 256ULL) != 0ULL,
+  tmp___1 = ldv__builtin_expect((rtlpriv->dbg.global_debugcomponents & 256ULL) != 0ULL,
                              0L);
   }
   if (tmp___1 != 0L) {
     {
-    tmp___2 = __builtin_expect(rtlpriv->dbg.global_debuglevel > 3, 0L);
+    tmp___2 = ldv__builtin_expect(rtlpriv->dbg.global_debuglevel > 3, 0L);
     }
     if (tmp___2 != 0L) {
       {
@@ -20305,12 +20304,12 @@ void rtl88ee_sw_led_off(struct ieee80211_hw *hw , struct rtl_led *pled )
   goto ldv_50961;
   switch_default: /* CIL Label */ 
   {
-  tmp___5 = __builtin_expect((long )((int )rtlpriv->dbg.global_debugcomponents) & 1L,
+  tmp___5 = ldv__builtin_expect((long )((int )rtlpriv->dbg.global_debugcomponents) & 1L,
                              0L);
   }
   if (tmp___5 != 0L) {
     {
-    tmp___6 = __builtin_expect(rtlpriv->dbg.global_debuglevel >= 0, 0L);
+    tmp___6 = ldv__builtin_expect(rtlpriv->dbg.global_debuglevel >= 0, 0L);
     }
     if (tmp___6 != 0L) {
       {
@@ -20414,12 +20413,12 @@ void rtl88ee_led_control(struct ieee80211_hw *hw , enum led_ctl_mode ledaction )
 
   }
   {
-  tmp___1 = __builtin_expect((rtlpriv->dbg.global_debugcomponents & 256ULL) != 0ULL,
+  tmp___1 = ldv__builtin_expect((rtlpriv->dbg.global_debugcomponents & 256ULL) != 0ULL,
                              0L);
   }
   if (tmp___1 != 0L) {
     {
-    tmp___2 = __builtin_expect(rtlpriv->dbg.global_debuglevel > 4, 0L);
+    tmp___2 = ldv__builtin_expect(rtlpriv->dbg.global_debuglevel > 4, 0L);
     }
     if (tmp___2 != 0L) {
       {
@@ -20643,12 +20642,12 @@ static u32 rf_serial_read(struct ieee80211_hw *hw , enum radio_path rfpath , u32
     }
   }
   {
-  tmp___9 = __builtin_expect((rtlpriv->dbg.global_debugcomponents & 1048576ULL) != 0ULL,
+  tmp___9 = ldv__builtin_expect((rtlpriv->dbg.global_debugcomponents & 1048576ULL) != 0ULL,
                              0L);
   }
   if (tmp___9 != 0L) {
     {
-    tmp___10 = __builtin_expect(rtlpriv->dbg.global_debuglevel > 4, 0L);
+    tmp___10 = ldv__builtin_expect(rtlpriv->dbg.global_debuglevel > 4, 0L);
     }
     if (tmp___10 != 0L) {
       {
@@ -20689,12 +20688,12 @@ static void rf_serial_write(struct ieee80211_hw *hw , enum radio_path rfpath , u
   newoffset = offset;
   data_and_addr = ((newoffset << 20) | (data & 1048575U)) & 268435455U;
   rtl_set_bbreg(hw, phreg->rf3wire_offset, 4294967295U, data_and_addr);
-  tmp___5 = __builtin_expect((rtlpriv->dbg.global_debugcomponents & 1048576ULL) != 0ULL,
+  tmp___5 = ldv__builtin_expect((rtlpriv->dbg.global_debugcomponents & 1048576ULL) != 0ULL,
                              0L);
   }
   if (tmp___5 != 0L) {
     {
-    tmp___6 = __builtin_expect(rtlpriv->dbg.global_debuglevel > 4, 0L);
+    tmp___6 = ldv__builtin_expect(rtlpriv->dbg.global_debuglevel > 4, 0L);
     }
     if (tmp___6 != 0L) {
       {
@@ -20916,12 +20915,12 @@ static bool config_bb_with_pgheader(struct ieee80211_hw *hw , u8 configtype )
 
   } else {
     {
-    tmp___6 = __builtin_expect((rtlpriv->dbg.global_debugcomponents & 16ULL) != 0ULL,
+    tmp___6 = ldv__builtin_expect((rtlpriv->dbg.global_debugcomponents & 16ULL) != 0ULL,
                                0L);
     }
     if (tmp___6 != 0L) {
       {
-      tmp___7 = __builtin_expect(rtlpriv->dbg.global_debuglevel > 4, 0L);
+      tmp___7 = ldv__builtin_expect(rtlpriv->dbg.global_debuglevel > 4, 0L);
       }
       if (tmp___7 != 0L) {
         {
@@ -20969,12 +20968,12 @@ static bool config_parafile(struct ieee80211_hw *hw )
   }
   if (! rtstatus) {
     {
-    tmp___1 = __builtin_expect((long )((int )rtlpriv->dbg.global_debugcomponents) & 1L,
+    tmp___1 = ldv__builtin_expect((long )((int )rtlpriv->dbg.global_debugcomponents) & 1L,
                                0L);
     }
     if (tmp___1 != 0L) {
       {
-      tmp___2 = __builtin_expect(rtlpriv->dbg.global_debuglevel >= 0, 0L);
+      tmp___2 = ldv__builtin_expect(rtlpriv->dbg.global_debuglevel >= 0, 0L);
       }
       if (tmp___2 != 0L) {
         {
@@ -21003,12 +21002,12 @@ static bool config_parafile(struct ieee80211_hw *hw )
   }
   if (! rtstatus) {
     {
-    tmp___5 = __builtin_expect((long )((int )rtlpriv->dbg.global_debugcomponents) & 1L,
+    tmp___5 = ldv__builtin_expect((long )((int )rtlpriv->dbg.global_debugcomponents) & 1L,
                                0L);
     }
     if (tmp___5 != 0L) {
       {
-      tmp___6 = __builtin_expect(rtlpriv->dbg.global_debuglevel >= 0, 0L);
+      tmp___6 = ldv__builtin_expect(rtlpriv->dbg.global_debuglevel >= 0, 0L);
       }
       if (tmp___6 != 0L) {
         {
@@ -21032,12 +21031,12 @@ static bool config_parafile(struct ieee80211_hw *hw )
   }
   if (! rtstatus) {
     {
-    tmp___9 = __builtin_expect((long )((int )rtlpriv->dbg.global_debugcomponents) & 1L,
+    tmp___9 = ldv__builtin_expect((long )((int )rtlpriv->dbg.global_debugcomponents) & 1L,
                                0L);
     }
     if (tmp___9 != 0L) {
       {
-      tmp___10 = __builtin_expect(rtlpriv->dbg.global_debuglevel >= 0, 0L);
+      tmp___10 = ldv__builtin_expect(rtlpriv->dbg.global_debuglevel >= 0, 0L);
       }
       if (tmp___10 != 0L) {
         {
@@ -21333,12 +21332,12 @@ static bool chnl_step_by_step(struct ieee80211_hw *hw , u8 channel , u8 *stage ,
   goto ldv_51493;
   switch_default: /* CIL Label */ 
   {
-  tmp___6 = __builtin_expect((long )((int )rtlpriv->dbg.global_debugcomponents) & 1L,
+  tmp___6 = ldv__builtin_expect((long )((int )rtlpriv->dbg.global_debugcomponents) & 1L,
                              0L);
   }
   if (tmp___6 != 0L) {
     {
-    tmp___7 = __builtin_expect(rtlpriv->dbg.global_debuglevel >= 0, 0L);
+    tmp___7 = ldv__builtin_expect(rtlpriv->dbg.global_debuglevel >= 0, 0L);
     }
     if (tmp___7 != 0L) {
       {
@@ -21430,12 +21429,12 @@ static void rtl88e_phy_set_io(struct ieee80211_hw *hw )
   rtlpriv = (struct rtl_priv *)hw->priv;
   rtlphy = & rtlpriv->phy;
   dm_digtable = & rtlpriv->dm_digtable;
-  tmp___1 = __builtin_expect((rtlpriv->dbg.global_debugcomponents & 8388608ULL) != 0ULL,
+  tmp___1 = ldv__builtin_expect((rtlpriv->dbg.global_debugcomponents & 8388608ULL) != 0ULL,
                              0L);
   }
   if (tmp___1 != 0L) {
     {
-    tmp___2 = __builtin_expect(rtlpriv->dbg.global_debuglevel > 4, 0L);
+    tmp___2 = ldv__builtin_expect(rtlpriv->dbg.global_debuglevel > 4, 0L);
     }
     if (tmp___2 != 0L) {
       {
@@ -21479,12 +21478,12 @@ static void rtl88e_phy_set_io(struct ieee80211_hw *hw )
   goto ldv_51524;
   switch_default: /* CIL Label */ 
   {
-  tmp___5 = __builtin_expect((long )((int )rtlpriv->dbg.global_debugcomponents) & 1L,
+  tmp___5 = ldv__builtin_expect((long )((int )rtlpriv->dbg.global_debugcomponents) & 1L,
                              0L);
   }
   if (tmp___5 != 0L) {
     {
-    tmp___6 = __builtin_expect(rtlpriv->dbg.global_debuglevel >= 0, 0L);
+    tmp___6 = ldv__builtin_expect(rtlpriv->dbg.global_debuglevel >= 0, 0L);
     }
     if (tmp___6 != 0L) {
       {
@@ -21505,12 +21504,12 @@ static void rtl88e_phy_set_io(struct ieee80211_hw *hw )
   ldv_51524: 
   {
   rtlphy->set_io_inprogress = 0U;
-  tmp___9 = __builtin_expect((rtlpriv->dbg.global_debugcomponents & 8388608ULL) != 0ULL,
+  tmp___9 = ldv__builtin_expect((rtlpriv->dbg.global_debugcomponents & 8388608ULL) != 0ULL,
                              0L);
   }
   if (tmp___9 != 0L) {
     {
-    tmp___10 = __builtin_expect(rtlpriv->dbg.global_debuglevel > 4, 0L);
+    tmp___10 = ldv__builtin_expect(rtlpriv->dbg.global_debuglevel > 4, 0L);
     }
     if (tmp___10 != 0L) {
       {
@@ -21546,12 +21545,12 @@ u32 rtl88e_phy_query_bb_reg(struct ieee80211_hw *hw , u32 regaddr , u32 bitmask 
   {
   {
   rtlpriv = (struct rtl_priv *)hw->priv;
-  tmp___1 = __builtin_expect((rtlpriv->dbg.global_debugcomponents & 1048576ULL) != 0ULL,
+  tmp___1 = ldv__builtin_expect((rtlpriv->dbg.global_debugcomponents & 1048576ULL) != 0ULL,
                              0L);
   }
   if (tmp___1 != 0L) {
     {
-    tmp___2 = __builtin_expect(rtlpriv->dbg.global_debuglevel > 4, 0L);
+    tmp___2 = ldv__builtin_expect(rtlpriv->dbg.global_debuglevel > 4, 0L);
     }
     if (tmp___2 != 0L) {
       {
@@ -21571,12 +21570,12 @@ u32 rtl88e_phy_query_bb_reg(struct ieee80211_hw *hw , u32 regaddr , u32 bitmask 
   originalvalue = rtl_read_dword(rtlpriv, regaddr);
   bitshift = cal_bit_shift(bitmask);
   returnvalue = (originalvalue & bitmask) >> (int )bitshift;
-  tmp___5 = __builtin_expect((rtlpriv->dbg.global_debugcomponents & 1048576ULL) != 0ULL,
+  tmp___5 = ldv__builtin_expect((rtlpriv->dbg.global_debugcomponents & 1048576ULL) != 0ULL,
                              0L);
   }
   if (tmp___5 != 0L) {
     {
-    tmp___6 = __builtin_expect(rtlpriv->dbg.global_debuglevel > 4, 0L);
+    tmp___6 = ldv__builtin_expect(rtlpriv->dbg.global_debuglevel > 4, 0L);
     }
     if (tmp___6 != 0L) {
       {
@@ -21612,12 +21611,12 @@ void rtl88e_phy_set_bb_reg(struct ieee80211_hw *hw , u32 regaddr , u32 bitmask ,
   {
   {
   rtlpriv = (struct rtl_priv *)hw->priv;
-  tmp___1 = __builtin_expect((rtlpriv->dbg.global_debugcomponents & 1048576ULL) != 0ULL,
+  tmp___1 = ldv__builtin_expect((rtlpriv->dbg.global_debugcomponents & 1048576ULL) != 0ULL,
                              0L);
   }
   if (tmp___1 != 0L) {
     {
-    tmp___2 = __builtin_expect(rtlpriv->dbg.global_debuglevel > 4, 0L);
+    tmp___2 = ldv__builtin_expect(rtlpriv->dbg.global_debuglevel > 4, 0L);
     }
     if (tmp___2 != 0L) {
       {
@@ -21644,12 +21643,12 @@ void rtl88e_phy_set_bb_reg(struct ieee80211_hw *hw , u32 regaddr , u32 bitmask ,
   }
   {
   rtl_write_dword(rtlpriv, regaddr, data);
-  tmp___5 = __builtin_expect((rtlpriv->dbg.global_debugcomponents & 1048576ULL) != 0ULL,
+  tmp___5 = ldv__builtin_expect((rtlpriv->dbg.global_debugcomponents & 1048576ULL) != 0ULL,
                              0L);
   }
   if (tmp___5 != 0L) {
     {
-    tmp___6 = __builtin_expect(rtlpriv->dbg.global_debuglevel > 4, 0L);
+    tmp___6 = ldv__builtin_expect(rtlpriv->dbg.global_debuglevel > 4, 0L);
     }
     if (tmp___6 != 0L) {
       {
@@ -21688,12 +21687,12 @@ u32 rtl88e_phy_query_rf_reg(struct ieee80211_hw *hw , enum radio_path rfpath , u
   {
   {
   rtlpriv = (struct rtl_priv *)hw->priv;
-  tmp___1 = __builtin_expect((rtlpriv->dbg.global_debugcomponents & 1048576ULL) != 0ULL,
+  tmp___1 = ldv__builtin_expect((rtlpriv->dbg.global_debugcomponents & 1048576ULL) != 0ULL,
                              0L);
   }
   if (tmp___1 != 0L) {
     {
-    tmp___2 = __builtin_expect(rtlpriv->dbg.global_debuglevel > 4, 0L);
+    tmp___2 = ldv__builtin_expect(rtlpriv->dbg.global_debuglevel > 4, 0L);
     }
     if (tmp___2 != 0L) {
       {
@@ -21715,12 +21714,12 @@ u32 rtl88e_phy_query_rf_reg(struct ieee80211_hw *hw , enum radio_path rfpath , u
   bitshift = cal_bit_shift(bitmask);
   readback_value = (original_value & bitmask) >> (int )bitshift;
   ldv_spin_unlock_irqrestore_88___0(& rtlpriv->locks.rf_lock, flags);
-  tmp___5 = __builtin_expect((rtlpriv->dbg.global_debugcomponents & 1048576ULL) != 0ULL,
+  tmp___5 = ldv__builtin_expect((rtlpriv->dbg.global_debugcomponents & 1048576ULL) != 0ULL,
                              0L);
   }
   if (tmp___5 != 0L) {
     {
-    tmp___6 = __builtin_expect(rtlpriv->dbg.global_debuglevel > 4, 0L);
+    tmp___6 = ldv__builtin_expect(rtlpriv->dbg.global_debuglevel > 4, 0L);
     }
     if (tmp___6 != 0L) {
       {
@@ -21758,12 +21757,12 @@ void rtl88e_phy_set_rf_reg(struct ieee80211_hw *hw , enum radio_path rfpath , u3
   {
   {
   rtlpriv = (struct rtl_priv *)hw->priv;
-  tmp___1 = __builtin_expect((rtlpriv->dbg.global_debugcomponents & 1048576ULL) != 0ULL,
+  tmp___1 = ldv__builtin_expect((rtlpriv->dbg.global_debugcomponents & 1048576ULL) != 0ULL,
                              0L);
   }
   if (tmp___1 != 0L) {
     {
-    tmp___2 = __builtin_expect(rtlpriv->dbg.global_debuglevel > 4, 0L);
+    tmp___2 = ldv__builtin_expect(rtlpriv->dbg.global_debuglevel > 4, 0L);
     }
     if (tmp___2 != 0L) {
       {
@@ -21794,12 +21793,12 @@ void rtl88e_phy_set_rf_reg(struct ieee80211_hw *hw , enum radio_path rfpath , u3
   {
   rf_serial_write(hw, rfpath, regaddr, data);
   ldv_spin_unlock_irqrestore_88___0(& rtlpriv->locks.rf_lock, flags);
-  tmp___5 = __builtin_expect((rtlpriv->dbg.global_debugcomponents & 1048576ULL) != 0ULL,
+  tmp___5 = ldv__builtin_expect((rtlpriv->dbg.global_debugcomponents & 1048576ULL) != 0ULL,
                              0L);
   }
   if (tmp___5 != 0L) {
     {
-    tmp___6 = __builtin_expect(rtlpriv->dbg.global_debuglevel > 4, 0L);
+    tmp___6 = ldv__builtin_expect(rtlpriv->dbg.global_debuglevel > 4, 0L);
     }
     if (tmp___6 != 0L) {
       {
@@ -21836,12 +21835,12 @@ static bool config_mac_with_header(struct ieee80211_hw *hw )
   {
   {
   rtlpriv = (struct rtl_priv *)hw->priv;
-  tmp___1 = __builtin_expect((rtlpriv->dbg.global_debugcomponents & 4ULL) != 0ULL,
+  tmp___1 = ldv__builtin_expect((rtlpriv->dbg.global_debugcomponents & 4ULL) != 0ULL,
                              0L);
   }
   if (tmp___1 != 0L) {
     {
-    tmp___2 = __builtin_expect(rtlpriv->dbg.global_debuglevel > 4, 0L);
+    tmp___2 = ldv__builtin_expect(rtlpriv->dbg.global_debuglevel > 4, 0L);
     }
     if (tmp___2 != 0L) {
       {
@@ -21859,12 +21858,12 @@ static bool config_mac_with_header(struct ieee80211_hw *hw )
   {
   arraylength = 180U;
   ptrarray = (u32 *)(& RTL8188EEMAC_1T_ARRAY);
-  tmp___5 = __builtin_expect((rtlpriv->dbg.global_debugcomponents & 4ULL) != 0ULL,
+  tmp___5 = ldv__builtin_expect((rtlpriv->dbg.global_debugcomponents & 4ULL) != 0ULL,
                              0L);
   }
   if (tmp___5 != 0L) {
     {
-    tmp___6 = __builtin_expect(rtlpriv->dbg.global_debuglevel > 3, 0L);
+    tmp___6 = ldv__builtin_expect(rtlpriv->dbg.global_debuglevel > 3, 0L);
     }
     if (tmp___6 != 0L) {
       {
@@ -22298,12 +22297,12 @@ static void set_baseband_agc_config(struct ieee80211_hw *hw )
     }
   }
   {
-  tmp___3 = __builtin_expect((rtlpriv->dbg.global_debugcomponents & 4ULL) != 0ULL,
+  tmp___3 = ldv__builtin_expect((rtlpriv->dbg.global_debugcomponents & 4ULL) != 0ULL,
                              0L);
   }
   if (tmp___3 != 0L) {
     {
-    tmp___4 = __builtin_expect(rtlpriv->dbg.global_debuglevel > 4, 0L);
+    tmp___4 = ldv__builtin_expect(rtlpriv->dbg.global_debuglevel > 4, 0L);
     }
     if (tmp___4 != 0L) {
       {
@@ -22502,12 +22501,12 @@ static void store_pwrindex_offset(struct ieee80211_hw *hw , u32 regaddr , u32 bi
   if (regaddr == 3584U) {
     {
     rtlphy->mcs_offset[(int )rtlphy->pwrgroup_cnt][0] = data;
-    tmp___1 = __builtin_expect((rtlpriv->dbg.global_debugcomponents & 4ULL) != 0ULL,
+    tmp___1 = ldv__builtin_expect((rtlpriv->dbg.global_debugcomponents & 4ULL) != 0ULL,
                                0L);
     }
     if (tmp___1 != 0L) {
       {
-      tmp___2 = __builtin_expect(rtlpriv->dbg.global_debuglevel > 4, 0L);
+      tmp___2 = ldv__builtin_expect(rtlpriv->dbg.global_debuglevel > 4, 0L);
       }
       if (tmp___2 != 0L) {
         {
@@ -22529,12 +22528,12 @@ static void store_pwrindex_offset(struct ieee80211_hw *hw , u32 regaddr , u32 bi
   if (regaddr == 3588U) {
     {
     rtlphy->mcs_offset[(int )rtlphy->pwrgroup_cnt][1] = data;
-    tmp___5 = __builtin_expect((rtlpriv->dbg.global_debugcomponents & 4ULL) != 0ULL,
+    tmp___5 = ldv__builtin_expect((rtlpriv->dbg.global_debugcomponents & 4ULL) != 0ULL,
                                0L);
     }
     if (tmp___5 != 0L) {
       {
-      tmp___6 = __builtin_expect(rtlpriv->dbg.global_debuglevel > 4, 0L);
+      tmp___6 = ldv__builtin_expect(rtlpriv->dbg.global_debuglevel > 4, 0L);
       }
       if (tmp___6 != 0L) {
         {
@@ -22556,12 +22555,12 @@ static void store_pwrindex_offset(struct ieee80211_hw *hw , u32 regaddr , u32 bi
   if (regaddr == 3592U) {
     {
     rtlphy->mcs_offset[(int )rtlphy->pwrgroup_cnt][6] = data;
-    tmp___9 = __builtin_expect((rtlpriv->dbg.global_debugcomponents & 4ULL) != 0ULL,
+    tmp___9 = ldv__builtin_expect((rtlpriv->dbg.global_debugcomponents & 4ULL) != 0ULL,
                                0L);
     }
     if (tmp___9 != 0L) {
       {
-      tmp___10 = __builtin_expect(rtlpriv->dbg.global_debuglevel > 4, 0L);
+      tmp___10 = ldv__builtin_expect(rtlpriv->dbg.global_debuglevel > 4, 0L);
       }
       if (tmp___10 != 0L) {
         {
@@ -22583,12 +22582,12 @@ static void store_pwrindex_offset(struct ieee80211_hw *hw , u32 regaddr , u32 bi
   if (regaddr == 2156U && bitmask == 4294967040U) {
     {
     rtlphy->mcs_offset[(int )rtlphy->pwrgroup_cnt][7] = data;
-    tmp___13 = __builtin_expect((rtlpriv->dbg.global_debugcomponents & 4ULL) != 0ULL,
+    tmp___13 = ldv__builtin_expect((rtlpriv->dbg.global_debugcomponents & 4ULL) != 0ULL,
                                 0L);
     }
     if (tmp___13 != 0L) {
       {
-      tmp___14 = __builtin_expect(rtlpriv->dbg.global_debuglevel > 4, 0L);
+      tmp___14 = ldv__builtin_expect(rtlpriv->dbg.global_debuglevel > 4, 0L);
       }
       if (tmp___14 != 0L) {
         {
@@ -22610,12 +22609,12 @@ static void store_pwrindex_offset(struct ieee80211_hw *hw , u32 regaddr , u32 bi
   if (regaddr == 3600U) {
     {
     rtlphy->mcs_offset[(int )rtlphy->pwrgroup_cnt][2] = data;
-    tmp___17 = __builtin_expect((rtlpriv->dbg.global_debugcomponents & 4ULL) != 0ULL,
+    tmp___17 = ldv__builtin_expect((rtlpriv->dbg.global_debugcomponents & 4ULL) != 0ULL,
                                 0L);
     }
     if (tmp___17 != 0L) {
       {
-      tmp___18 = __builtin_expect(rtlpriv->dbg.global_debuglevel > 4, 0L);
+      tmp___18 = ldv__builtin_expect(rtlpriv->dbg.global_debuglevel > 4, 0L);
       }
       if (tmp___18 != 0L) {
         {
@@ -22637,12 +22636,12 @@ static void store_pwrindex_offset(struct ieee80211_hw *hw , u32 regaddr , u32 bi
   if (regaddr == 3604U) {
     {
     rtlphy->mcs_offset[(int )rtlphy->pwrgroup_cnt][3] = data;
-    tmp___21 = __builtin_expect((rtlpriv->dbg.global_debugcomponents & 4ULL) != 0ULL,
+    tmp___21 = ldv__builtin_expect((rtlpriv->dbg.global_debugcomponents & 4ULL) != 0ULL,
                                 0L);
     }
     if (tmp___21 != 0L) {
       {
-      tmp___22 = __builtin_expect(rtlpriv->dbg.global_debuglevel > 4, 0L);
+      tmp___22 = ldv__builtin_expect(rtlpriv->dbg.global_debuglevel > 4, 0L);
       }
       if (tmp___22 != 0L) {
         {
@@ -22664,12 +22663,12 @@ static void store_pwrindex_offset(struct ieee80211_hw *hw , u32 regaddr , u32 bi
   if (regaddr == 3608U) {
     {
     rtlphy->mcs_offset[(int )rtlphy->pwrgroup_cnt][4] = data;
-    tmp___25 = __builtin_expect((rtlpriv->dbg.global_debugcomponents & 4ULL) != 0ULL,
+    tmp___25 = ldv__builtin_expect((rtlpriv->dbg.global_debugcomponents & 4ULL) != 0ULL,
                                 0L);
     }
     if (tmp___25 != 0L) {
       {
-      tmp___26 = __builtin_expect(rtlpriv->dbg.global_debuglevel > 4, 0L);
+      tmp___26 = ldv__builtin_expect(rtlpriv->dbg.global_debuglevel > 4, 0L);
       }
       if (tmp___26 != 0L) {
         {
@@ -22699,12 +22698,12 @@ static void store_pwrindex_offset(struct ieee80211_hw *hw , u32 regaddr , u32 bi
 
     }
     {
-    tmp___30 = __builtin_expect((rtlpriv->dbg.global_debugcomponents & 4ULL) != 0ULL,
+    tmp___30 = ldv__builtin_expect((rtlpriv->dbg.global_debugcomponents & 4ULL) != 0ULL,
                                 0L);
     }
     if (tmp___30 != 0L) {
       {
-      tmp___31 = __builtin_expect(rtlpriv->dbg.global_debuglevel > 4, 0L);
+      tmp___31 = ldv__builtin_expect(rtlpriv->dbg.global_debuglevel > 4, 0L);
       }
       if (tmp___31 != 0L) {
         {
@@ -22726,12 +22725,12 @@ static void store_pwrindex_offset(struct ieee80211_hw *hw , u32 regaddr , u32 bi
   if (regaddr == 2096U) {
     {
     rtlphy->mcs_offset[(int )rtlphy->pwrgroup_cnt][8] = data;
-    tmp___34 = __builtin_expect((rtlpriv->dbg.global_debugcomponents & 4ULL) != 0ULL,
+    tmp___34 = ldv__builtin_expect((rtlpriv->dbg.global_debugcomponents & 4ULL) != 0ULL,
                                 0L);
     }
     if (tmp___34 != 0L) {
       {
-      tmp___35 = __builtin_expect(rtlpriv->dbg.global_debuglevel > 4, 0L);
+      tmp___35 = ldv__builtin_expect(rtlpriv->dbg.global_debuglevel > 4, 0L);
       }
       if (tmp___35 != 0L) {
         {
@@ -22753,12 +22752,12 @@ static void store_pwrindex_offset(struct ieee80211_hw *hw , u32 regaddr , u32 bi
   if (regaddr == 2100U) {
     {
     rtlphy->mcs_offset[(int )rtlphy->pwrgroup_cnt][9] = data;
-    tmp___38 = __builtin_expect((rtlpriv->dbg.global_debugcomponents & 4ULL) != 0ULL,
+    tmp___38 = ldv__builtin_expect((rtlpriv->dbg.global_debugcomponents & 4ULL) != 0ULL,
                                 0L);
     }
     if (tmp___38 != 0L) {
       {
-      tmp___39 = __builtin_expect(rtlpriv->dbg.global_debuglevel > 4, 0L);
+      tmp___39 = ldv__builtin_expect(rtlpriv->dbg.global_debuglevel > 4, 0L);
       }
       if (tmp___39 != 0L) {
         {
@@ -22780,12 +22779,12 @@ static void store_pwrindex_offset(struct ieee80211_hw *hw , u32 regaddr , u32 bi
   if (regaddr == 2104U) {
     {
     rtlphy->mcs_offset[(int )rtlphy->pwrgroup_cnt][14] = data;
-    tmp___42 = __builtin_expect((rtlpriv->dbg.global_debugcomponents & 4ULL) != 0ULL,
+    tmp___42 = ldv__builtin_expect((rtlpriv->dbg.global_debugcomponents & 4ULL) != 0ULL,
                                 0L);
     }
     if (tmp___42 != 0L) {
       {
-      tmp___43 = __builtin_expect(rtlpriv->dbg.global_debuglevel > 4, 0L);
+      tmp___43 = ldv__builtin_expect(rtlpriv->dbg.global_debuglevel > 4, 0L);
       }
       if (tmp___43 != 0L) {
         {
@@ -22807,12 +22806,12 @@ static void store_pwrindex_offset(struct ieee80211_hw *hw , u32 regaddr , u32 bi
   if (regaddr == 2156U && bitmask == 255U) {
     {
     rtlphy->mcs_offset[(int )rtlphy->pwrgroup_cnt][15] = data;
-    tmp___46 = __builtin_expect((rtlpriv->dbg.global_debugcomponents & 4ULL) != 0ULL,
+    tmp___46 = ldv__builtin_expect((rtlpriv->dbg.global_debugcomponents & 4ULL) != 0ULL,
                                 0L);
     }
     if (tmp___46 != 0L) {
       {
-      tmp___47 = __builtin_expect(rtlpriv->dbg.global_debuglevel > 4, 0L);
+      tmp___47 = ldv__builtin_expect(rtlpriv->dbg.global_debuglevel > 4, 0L);
       }
       if (tmp___47 != 0L) {
         {
@@ -22834,12 +22833,12 @@ static void store_pwrindex_offset(struct ieee80211_hw *hw , u32 regaddr , u32 bi
   if (regaddr == 2108U) {
     {
     rtlphy->mcs_offset[(int )rtlphy->pwrgroup_cnt][10] = data;
-    tmp___50 = __builtin_expect((rtlpriv->dbg.global_debugcomponents & 4ULL) != 0ULL,
+    tmp___50 = ldv__builtin_expect((rtlpriv->dbg.global_debugcomponents & 4ULL) != 0ULL,
                                 0L);
     }
     if (tmp___50 != 0L) {
       {
-      tmp___51 = __builtin_expect(rtlpriv->dbg.global_debuglevel > 4, 0L);
+      tmp___51 = ldv__builtin_expect(rtlpriv->dbg.global_debuglevel > 4, 0L);
       }
       if (tmp___51 != 0L) {
         {
@@ -22861,12 +22860,12 @@ static void store_pwrindex_offset(struct ieee80211_hw *hw , u32 regaddr , u32 bi
   if (regaddr == 2120U) {
     {
     rtlphy->mcs_offset[(int )rtlphy->pwrgroup_cnt][11] = data;
-    tmp___54 = __builtin_expect((rtlpriv->dbg.global_debugcomponents & 4ULL) != 0ULL,
+    tmp___54 = ldv__builtin_expect((rtlpriv->dbg.global_debugcomponents & 4ULL) != 0ULL,
                                 0L);
     }
     if (tmp___54 != 0L) {
       {
-      tmp___55 = __builtin_expect(rtlpriv->dbg.global_debuglevel > 4, 0L);
+      tmp___55 = ldv__builtin_expect(rtlpriv->dbg.global_debuglevel > 4, 0L);
       }
       if (tmp___55 != 0L) {
         {
@@ -22888,12 +22887,12 @@ static void store_pwrindex_offset(struct ieee80211_hw *hw , u32 regaddr , u32 bi
   if (regaddr == 2124U) {
     {
     rtlphy->mcs_offset[(int )rtlphy->pwrgroup_cnt][12] = data;
-    tmp___58 = __builtin_expect((rtlpriv->dbg.global_debugcomponents & 4ULL) != 0ULL,
+    tmp___58 = ldv__builtin_expect((rtlpriv->dbg.global_debugcomponents & 4ULL) != 0ULL,
                                 0L);
     }
     if (tmp___58 != 0L) {
       {
-      tmp___59 = __builtin_expect(rtlpriv->dbg.global_debuglevel > 4, 0L);
+      tmp___59 = ldv__builtin_expect(rtlpriv->dbg.global_debuglevel > 4, 0L);
       }
       if (tmp___59 != 0L) {
         {
@@ -22915,12 +22914,12 @@ static void store_pwrindex_offset(struct ieee80211_hw *hw , u32 regaddr , u32 bi
   if (regaddr == 2152U) {
     {
     rtlphy->mcs_offset[(int )rtlphy->pwrgroup_cnt][13] = data;
-    tmp___62 = __builtin_expect((rtlpriv->dbg.global_debugcomponents & 4ULL) != 0ULL,
+    tmp___62 = ldv__builtin_expect((rtlpriv->dbg.global_debugcomponents & 4ULL) != 0ULL,
                                 0L);
     }
     if (tmp___62 != 0L) {
       {
-      tmp___63 = __builtin_expect(rtlpriv->dbg.global_debuglevel > 4, 0L);
+      tmp___63 = ldv__builtin_expect(rtlpriv->dbg.global_debuglevel > 4, 0L);
       }
       if (tmp___63 != 0L) {
         {
@@ -22982,12 +22981,12 @@ bool rtl88e_phy_config_rf_with_headerfile(struct ieee80211_hw *hw , enum radio_p
   v2 = 0U;
   a_len = 190U;
   a_table = (u32 *)(& RTL8188EE_RADIOA_1TARRAY);
-  tmp___1 = __builtin_expect((rtlpriv->dbg.global_debugcomponents & 4ULL) != 0ULL,
+  tmp___1 = ldv__builtin_expect((rtlpriv->dbg.global_debugcomponents & 4ULL) != 0ULL,
                              0L);
   }
   if (tmp___1 != 0L) {
     {
-    tmp___2 = __builtin_expect(rtlpriv->dbg.global_debuglevel > 3, 0L);
+    tmp___2 = ldv__builtin_expect(rtlpriv->dbg.global_debuglevel > 3, 0L);
     }
     if (tmp___2 != 0L) {
       {
@@ -23004,12 +23003,12 @@ bool rtl88e_phy_config_rf_with_headerfile(struct ieee80211_hw *hw , enum radio_p
 
   }
   {
-  tmp___5 = __builtin_expect((rtlpriv->dbg.global_debugcomponents & 4ULL) != 0ULL,
+  tmp___5 = ldv__builtin_expect((rtlpriv->dbg.global_debugcomponents & 4ULL) != 0ULL,
                              0L);
   }
   if (tmp___5 != 0L) {
     {
-    tmp___6 = __builtin_expect(rtlpriv->dbg.global_debuglevel > 3, 0L);
+    tmp___6 = ldv__builtin_expect(rtlpriv->dbg.global_debuglevel > 3, 0L);
     }
     if (tmp___6 != 0L) {
       {
@@ -23136,12 +23135,12 @@ bool rtl88e_phy_config_rf_with_headerfile(struct ieee80211_hw *hw , enum radio_p
   case_3: /* CIL Label */ ;
   switch_default: /* CIL Label */ 
   {
-  tmp___11 = __builtin_expect((long )((int )rtlpriv->dbg.global_debugcomponents) & 1L,
+  tmp___11 = ldv__builtin_expect((long )((int )rtlpriv->dbg.global_debugcomponents) & 1L,
                               0L);
   }
   if (tmp___11 != 0L) {
     {
-    tmp___12 = __builtin_expect(rtlpriv->dbg.global_debuglevel >= 0, 0L);
+    tmp___12 = ldv__builtin_expect(rtlpriv->dbg.global_debuglevel >= 0, 0L);
     }
     if (tmp___12 != 0L) {
       {
@@ -23193,12 +23192,12 @@ void rtl88e_phy_get_hw_reg_originalvalue(struct ieee80211_hw *hw )
   rtlphy->default_initialgain[2] = (u8 )tmp___1;
   tmp___2 = rtl_get_bbreg(hw, 3176U, 255U);
   rtlphy->default_initialgain[3] = (u8 )tmp___2;
-  tmp___5 = __builtin_expect((rtlpriv->dbg.global_debugcomponents & 4ULL) != 0ULL,
+  tmp___5 = ldv__builtin_expect((rtlpriv->dbg.global_debugcomponents & 4ULL) != 0ULL,
                              0L);
   }
   if (tmp___5 != 0L) {
     {
-    tmp___6 = __builtin_expect(rtlpriv->dbg.global_debuglevel > 4, 0L);
+    tmp___6 = ldv__builtin_expect(rtlpriv->dbg.global_debuglevel > 4, 0L);
     }
     if (tmp___6 != 0L) {
       {
@@ -23220,12 +23219,12 @@ void rtl88e_phy_get_hw_reg_originalvalue(struct ieee80211_hw *hw )
   tmp___7 = rtl_get_bbreg(hw, 3128U, 255U);
   rtlphy->framesync = (u8 )tmp___7;
   rtlphy->framesync_c34 = rtl_get_bbreg(hw, 3124U, 4294967295U);
-  tmp___10 = __builtin_expect((rtlpriv->dbg.global_debugcomponents & 4ULL) != 0ULL,
+  tmp___10 = ldv__builtin_expect((rtlpriv->dbg.global_debugcomponents & 4ULL) != 0ULL,
                               0L);
   }
   if (tmp___10 != 0L) {
     {
-    tmp___11 = __builtin_expect(rtlpriv->dbg.global_debuglevel > 4, 0L);
+    tmp___11 = ldv__builtin_expect(rtlpriv->dbg.global_debuglevel > 4, 0L);
     }
     if (tmp___11 != 0L) {
       {
@@ -23474,12 +23473,12 @@ void rtl88e_phy_set_bw_mode_callback(struct ieee80211_hw *hw )
   rtlhal = & ((struct rtl_priv *)hw->priv)->rtlhal;
   rtlphy = & rtlpriv->phy;
   mac = & ((struct rtl_priv *)hw->priv)->mac80211;
-  tmp___1 = __builtin_expect((rtlpriv->dbg.global_debugcomponents & 64ULL) != 0ULL,
+  tmp___1 = ldv__builtin_expect((rtlpriv->dbg.global_debugcomponents & 64ULL) != 0ULL,
                              0L);
   }
   if (tmp___1 != 0L) {
     {
-    tmp___2 = __builtin_expect(rtlpriv->dbg.global_debuglevel > 4, 0L);
+    tmp___2 = ldv__builtin_expect(rtlpriv->dbg.global_debuglevel > 4, 0L);
     }
     if (tmp___2 != 0L) {
       {
@@ -23536,12 +23535,12 @@ void rtl88e_phy_set_bw_mode_callback(struct ieee80211_hw *hw )
   goto ldv_51793;
   switch_default: /* CIL Label */ 
   {
-  tmp___6 = __builtin_expect((long )((int )rtlpriv->dbg.global_debugcomponents) & 1L,
+  tmp___6 = ldv__builtin_expect((long )((int )rtlpriv->dbg.global_debugcomponents) & 1L,
                              0L);
   }
   if (tmp___6 != 0L) {
     {
-    tmp___7 = __builtin_expect(rtlpriv->dbg.global_debuglevel >= 0, 0L);
+    tmp___7 = ldv__builtin_expect(rtlpriv->dbg.global_debuglevel >= 0, 0L);
     }
     if (tmp___7 != 0L) {
       {
@@ -23590,12 +23589,12 @@ void rtl88e_phy_set_bw_mode_callback(struct ieee80211_hw *hw )
   goto ldv_51797;
   switch_default___0: /* CIL Label */ 
   {
-  tmp___10 = __builtin_expect((long )((int )rtlpriv->dbg.global_debugcomponents) & 1L,
+  tmp___10 = ldv__builtin_expect((long )((int )rtlpriv->dbg.global_debugcomponents) & 1L,
                               0L);
   }
   if (tmp___10 != 0L) {
     {
-    tmp___11 = __builtin_expect(rtlpriv->dbg.global_debuglevel >= 0, 0L);
+    tmp___11 = ldv__builtin_expect(rtlpriv->dbg.global_debuglevel >= 0, 0L);
     }
     if (tmp___11 != 0L) {
       {
@@ -23618,12 +23617,12 @@ void rtl88e_phy_set_bw_mode_callback(struct ieee80211_hw *hw )
   {
   rtl88e_phy_rf6052_set_bandwidth(hw, (int )rtlphy->current_chan_bw);
   rtlphy->set_bwmode_inprogress = 0U;
-  tmp___14 = __builtin_expect((rtlpriv->dbg.global_debugcomponents & 64ULL) != 0ULL,
+  tmp___14 = ldv__builtin_expect((rtlpriv->dbg.global_debugcomponents & 64ULL) != 0ULL,
                               0L);
   }
   if (tmp___14 != 0L) {
     {
-    tmp___15 = __builtin_expect(rtlpriv->dbg.global_debuglevel > 3, 0L);
+    tmp___15 = ldv__builtin_expect(rtlpriv->dbg.global_debuglevel > 3, 0L);
     }
     if (tmp___15 != 0L) {
       {
@@ -23679,12 +23678,12 @@ void rtl88e_phy_set_bw_mode(struct ieee80211_hw *hw , enum nl80211_channel_type 
     }
   } else {
     {
-    tmp___1 = __builtin_expect((long )((int )rtlpriv->dbg.global_debugcomponents) & 1L,
+    tmp___1 = ldv__builtin_expect((long )((int )rtlpriv->dbg.global_debugcomponents) & 1L,
                                0L);
     }
     if (tmp___1 != 0L) {
       {
-      tmp___2 = __builtin_expect(rtlpriv->dbg.global_debuglevel > 1, 0L);
+      tmp___2 = ldv__builtin_expect(rtlpriv->dbg.global_debuglevel > 1, 0L);
       }
       if (tmp___2 != 0L) {
         {
@@ -23730,12 +23729,12 @@ void rtl88e_phy_sw_chnl_callback(struct ieee80211_hw *hw )
   rtlpriv = (struct rtl_priv *)hw->priv;
   rtlhal = & ((struct rtl_priv *)hw->priv)->rtlhal;
   rtlphy = & rtlpriv->phy;
-  tmp___1 = __builtin_expect((rtlpriv->dbg.global_debugcomponents & 64ULL) != 0ULL,
+  tmp___1 = ldv__builtin_expect((rtlpriv->dbg.global_debugcomponents & 64ULL) != 0ULL,
                              0L);
   }
   if (tmp___1 != 0L) {
     {
-    tmp___2 = __builtin_expect(rtlpriv->dbg.global_debuglevel > 4, 0L);
+    tmp___2 = ldv__builtin_expect(rtlpriv->dbg.global_debuglevel > 4, 0L);
     }
     if (tmp___2 != 0L) {
       {
@@ -23802,12 +23801,12 @@ void rtl88e_phy_sw_chnl_callback(struct ieee80211_hw *hw )
   goto ldv_51823;
   ldv_51817: 
   {
-  tmp___9 = __builtin_expect((rtlpriv->dbg.global_debugcomponents & 64ULL) != 0ULL,
+  tmp___9 = ldv__builtin_expect((rtlpriv->dbg.global_debugcomponents & 64ULL) != 0ULL,
                              0L);
   }
   if (tmp___9 != 0L) {
     {
-    tmp___10 = __builtin_expect(rtlpriv->dbg.global_debuglevel > 4, 0L);
+    tmp___10 = ldv__builtin_expect(rtlpriv->dbg.global_debuglevel > 4, 0L);
     }
     if (tmp___10 != 0L) {
       {
@@ -23876,12 +23875,12 @@ u8 rtl88e_phy_sw_chnl(struct ieee80211_hw *hw )
   if (tmp___8) {
     {
     rtl88e_phy_sw_chnl_callback(hw);
-    tmp___1 = __builtin_expect((rtlpriv->dbg.global_debugcomponents & 268435456ULL) != 0ULL,
+    tmp___1 = ldv__builtin_expect((rtlpriv->dbg.global_debugcomponents & 268435456ULL) != 0ULL,
                                0L);
     }
     if (tmp___1 != 0L) {
       {
-      tmp___2 = __builtin_expect(rtlpriv->dbg.global_debuglevel > 3, 0L);
+      tmp___2 = ldv__builtin_expect(rtlpriv->dbg.global_debuglevel > 3, 0L);
       }
       if (tmp___2 != 0L) {
         {
@@ -23900,12 +23899,12 @@ u8 rtl88e_phy_sw_chnl(struct ieee80211_hw *hw )
     rtlphy->sw_chnl_inprogress = 0U;
   } else {
     {
-    tmp___5 = __builtin_expect((rtlpriv->dbg.global_debugcomponents & 268435456ULL) != 0ULL,
+    tmp___5 = ldv__builtin_expect((rtlpriv->dbg.global_debugcomponents & 268435456ULL) != 0ULL,
                                0L);
     }
     if (tmp___5 != 0L) {
       {
-      tmp___6 = __builtin_expect(rtlpriv->dbg.global_debuglevel > 3, 0L);
+      tmp___6 = ldv__builtin_expect(rtlpriv->dbg.global_debuglevel > 3, 0L);
       }
       if (tmp___6 != 0L) {
         {
@@ -24646,12 +24645,12 @@ static void _rtl88e_phy_iq_calibrate(struct ieee80211_hw *hw , long (*result)[8U
   }
   if ((unsigned int )patha_ok == 1U) {
     {
-    tmp___2 = __builtin_expect((rtlpriv->dbg.global_debugcomponents & 4ULL) != 0ULL,
+    tmp___2 = ldv__builtin_expect((rtlpriv->dbg.global_debugcomponents & 4ULL) != 0ULL,
                                0L);
     }
     if (tmp___2 != 0L) {
       {
-      tmp___3 = __builtin_expect(rtlpriv->dbg.global_debuglevel > 3, 0L);
+      tmp___3 = ldv__builtin_expect(rtlpriv->dbg.global_debuglevel > 3, 0L);
       }
       if (tmp___3 != 0L) {
         {
@@ -24692,12 +24691,12 @@ static void _rtl88e_phy_iq_calibrate(struct ieee80211_hw *hw , long (*result)[8U
   }
   if ((unsigned int )patha_ok == 3U) {
     {
-    tmp___8 = __builtin_expect((rtlpriv->dbg.global_debugcomponents & 4ULL) != 0ULL,
+    tmp___8 = ldv__builtin_expect((rtlpriv->dbg.global_debugcomponents & 4ULL) != 0ULL,
                                0L);
     }
     if (tmp___8 != 0L) {
       {
-      tmp___9 = __builtin_expect(rtlpriv->dbg.global_debuglevel > 3, 0L);
+      tmp___9 = ldv__builtin_expect(rtlpriv->dbg.global_debuglevel > 3, 0L);
       }
       if (tmp___9 != 0L) {
         {
@@ -24721,12 +24720,12 @@ static void _rtl88e_phy_iq_calibrate(struct ieee80211_hw *hw , long (*result)[8U
     goto ldv_52006;
   } else {
     {
-    tmp___14 = __builtin_expect((rtlpriv->dbg.global_debugcomponents & 4ULL) != 0ULL,
+    tmp___14 = ldv__builtin_expect((rtlpriv->dbg.global_debugcomponents & 4ULL) != 0ULL,
                                 0L);
     }
     if (tmp___14 != 0L) {
       {
-      tmp___15 = __builtin_expect(rtlpriv->dbg.global_debuglevel > 3, 0L);
+      tmp___15 = ldv__builtin_expect(rtlpriv->dbg.global_debuglevel > 3, 0L);
       }
       if (tmp___15 != 0L) {
         {
@@ -24752,12 +24751,12 @@ static void _rtl88e_phy_iq_calibrate(struct ieee80211_hw *hw , long (*result)[8U
   ldv_52006: ;
   if ((unsigned int )patha_ok == 0U) {
     {
-    tmp___18 = __builtin_expect((rtlpriv->dbg.global_debugcomponents & 4ULL) != 0ULL,
+    tmp___18 = ldv__builtin_expect((rtlpriv->dbg.global_debugcomponents & 4ULL) != 0ULL,
                                 0L);
     }
     if (tmp___18 != 0L) {
       {
-      tmp___19 = __builtin_expect(rtlpriv->dbg.global_debuglevel > 3, 0L);
+      tmp___19 = ldv__builtin_expect(rtlpriv->dbg.global_debuglevel > 3, 0L);
       }
       if (tmp___19 != 0L) {
         {
@@ -24855,12 +24854,12 @@ static void _rtl88e_phy_iq_calibrate(struct ieee80211_hw *hw , long (*result)[8U
 
   }
   {
-  tmp___28 = __builtin_expect((rtlpriv->dbg.global_debugcomponents & 4ULL) != 0ULL,
+  tmp___28 = ldv__builtin_expect((rtlpriv->dbg.global_debugcomponents & 4ULL) != 0ULL,
                               0L);
   }
   if (tmp___28 != 0L) {
     {
-    tmp___29 = __builtin_expect(rtlpriv->dbg.global_debuglevel > 3, 0L);
+    tmp___29 = ldv__builtin_expect(rtlpriv->dbg.global_debuglevel > 3, 0L);
     }
     if (tmp___29 != 0L) {
       {
@@ -24973,12 +24972,12 @@ static void _rtl88e_phy_lc_calibrate(struct ieee80211_hw *hw , bool is2t )
     }
   }
   {
-  tmp___2 = __builtin_expect((rtlpriv->dbg.global_debugcomponents & 4ULL) != 0ULL,
+  tmp___2 = ldv__builtin_expect((rtlpriv->dbg.global_debugcomponents & 4ULL) != 0ULL,
                              0L);
   }
   if (tmp___2 != 0L) {
     {
-    tmp___3 = __builtin_expect(rtlpriv->dbg.global_debuglevel > 3, 0L);
+    tmp___3 = ldv__builtin_expect(rtlpriv->dbg.global_debuglevel > 3, 0L);
     }
     if (tmp___3 != 0L) {
       {
@@ -25013,12 +25012,12 @@ static void rfpath_switch(struct ieee80211_hw *hw , bool bmain , bool is2t )
   rtlpriv = (struct rtl_priv *)hw->priv;
   rtlhal = & ((struct rtl_priv *)hw->priv)->rtlhal;
   fuse = & ((struct rtl_priv *)hw->priv)->efuse;
-  tmp___1 = __builtin_expect((rtlpriv->dbg.global_debugcomponents & 4ULL) != 0ULL,
+  tmp___1 = ldv__builtin_expect((rtlpriv->dbg.global_debugcomponents & 4ULL) != 0ULL,
                              0L);
   }
   if (tmp___1 != 0L) {
     {
-    tmp___2 = __builtin_expect(rtlpriv->dbg.global_debuglevel > 3, 0L);
+    tmp___2 = ldv__builtin_expect(rtlpriv->dbg.global_debuglevel > 3, 0L);
     }
     if (tmp___2 != 0L) {
       {
@@ -25313,7 +25312,7 @@ void rtl88e_phy_lc_calibrate(struct ieee80211_hw *hw )
   }
   {
   rtlphy->lck_inprogress = 1U;
-  tmp = __builtin_expect(((unsigned long )rtlpriv->dbg.dbgp_type[17] & 4UL) != 0UL,
+  tmp = ldv__builtin_expect(((unsigned long )rtlpriv->dbg.dbgp_type[17] & 4UL) != 0UL,
                          0L);
   }
   if (tmp != 0L) {
@@ -25373,12 +25372,12 @@ bool rtl88e_phy_set_io_cmd(struct ieee80211_hw *hw , enum io_type iotype )
   rtlpriv = (struct rtl_priv *)hw->priv;
   rtlphy = & rtlpriv->phy;
   postprocessing = 0;
-  tmp___1 = __builtin_expect((rtlpriv->dbg.global_debugcomponents & 8388608ULL) != 0ULL,
+  tmp___1 = ldv__builtin_expect((rtlpriv->dbg.global_debugcomponents & 8388608ULL) != 0ULL,
                              0L);
   }
   if (tmp___1 != 0L) {
     {
-    tmp___2 = __builtin_expect(rtlpriv->dbg.global_debuglevel > 4, 0L);
+    tmp___2 = ldv__builtin_expect(rtlpriv->dbg.global_debuglevel > 4, 0L);
     }
     if (tmp___2 != 0L) {
       {
@@ -25408,12 +25407,12 @@ bool rtl88e_phy_set_io_cmd(struct ieee80211_hw *hw , enum io_type iotype )
   goto switch_default;
   case_1: /* CIL Label */ 
   {
-  tmp___5 = __builtin_expect((rtlpriv->dbg.global_debugcomponents & 8388608ULL) != 0ULL,
+  tmp___5 = ldv__builtin_expect((rtlpriv->dbg.global_debugcomponents & 8388608ULL) != 0ULL,
                              0L);
   }
   if (tmp___5 != 0L) {
     {
-    tmp___6 = __builtin_expect(rtlpriv->dbg.global_debuglevel > 4, 0L);
+    tmp___6 = ldv__builtin_expect(rtlpriv->dbg.global_debuglevel > 4, 0L);
     }
     if (tmp___6 != 0L) {
       {
@@ -25432,12 +25431,12 @@ bool rtl88e_phy_set_io_cmd(struct ieee80211_hw *hw , enum io_type iotype )
   goto ldv_52096;
   case_0: /* CIL Label */ 
   {
-  tmp___9 = __builtin_expect((rtlpriv->dbg.global_debugcomponents & 8388608ULL) != 0ULL,
+  tmp___9 = ldv__builtin_expect((rtlpriv->dbg.global_debugcomponents & 8388608ULL) != 0ULL,
                              0L);
   }
   if (tmp___9 != 0L) {
     {
-    tmp___10 = __builtin_expect(rtlpriv->dbg.global_debuglevel > 4, 0L);
+    tmp___10 = ldv__builtin_expect(rtlpriv->dbg.global_debuglevel > 4, 0L);
     }
     if (tmp___10 != 0L) {
       {
@@ -25456,12 +25455,12 @@ bool rtl88e_phy_set_io_cmd(struct ieee80211_hw *hw , enum io_type iotype )
   goto ldv_52096;
   switch_default: /* CIL Label */ 
   {
-  tmp___13 = __builtin_expect((long )((int )rtlpriv->dbg.global_debugcomponents) & 1L,
+  tmp___13 = ldv__builtin_expect((long )((int )rtlpriv->dbg.global_debugcomponents) & 1L,
                               0L);
   }
   if (tmp___13 != 0L) {
     {
-    tmp___14 = __builtin_expect(rtlpriv->dbg.global_debuglevel >= 0, 0L);
+    tmp___14 = ldv__builtin_expect(rtlpriv->dbg.global_debuglevel >= 0, 0L);
     }
     if (tmp___14 != 0L) {
       {
@@ -25488,12 +25487,12 @@ bool rtl88e_phy_set_io_cmd(struct ieee80211_hw *hw , enum io_type iotype )
   }
   {
   rtl88e_phy_set_io(hw);
-  tmp___17 = __builtin_expect((rtlpriv->dbg.global_debugcomponents & 8388608ULL) != 0ULL,
+  tmp___17 = ldv__builtin_expect((rtlpriv->dbg.global_debugcomponents & 8388608ULL) != 0ULL,
                               0L);
   }
   if (tmp___17 != 0L) {
     {
-    tmp___18 = __builtin_expect(rtlpriv->dbg.global_debuglevel > 4, 0L);
+    tmp___18 = ldv__builtin_expect(rtlpriv->dbg.global_debuglevel > 4, 0L);
     }
     if (tmp___18 != 0L) {
       {
@@ -25632,12 +25631,12 @@ static bool _rtl88ee_phy_set_rf_power_state(struct ieee80211_hw *hw , enum rf_pw
     ldv_52124: 
     {
     init = init + 1U;
-    tmp___1 = __builtin_expect((rtlpriv->dbg.global_debugcomponents & 1048576ULL) != 0ULL,
+    tmp___1 = ldv__builtin_expect((rtlpriv->dbg.global_debugcomponents & 1048576ULL) != 0ULL,
                                0L);
     }
     if (tmp___1 != 0L) {
       {
-      tmp___2 = __builtin_expect(rtlpriv->dbg.global_debuglevel > 2, 0L);
+      tmp___2 = ldv__builtin_expect(rtlpriv->dbg.global_debuglevel > 2, 0L);
       }
       if (tmp___2 != 0L) {
         {
@@ -25663,12 +25662,12 @@ static bool _rtl88ee_phy_set_rf_power_state(struct ieee80211_hw *hw , enum rf_pw
     ppsc->cur_ps_level = ppsc->cur_ps_level & 4294967287U;
   } else {
     {
-    tmp___6 = __builtin_expect((rtlpriv->dbg.global_debugcomponents & 1048576ULL) != 0ULL,
+    tmp___6 = ldv__builtin_expect((rtlpriv->dbg.global_debugcomponents & 1048576ULL) != 0ULL,
                                0L);
     }
     if (tmp___6 != 0L) {
       {
-      tmp___7 = __builtin_expect(rtlpriv->dbg.global_debuglevel > 2, 0L);
+      tmp___7 = ldv__builtin_expect(rtlpriv->dbg.global_debuglevel > 2, 0L);
       }
       if (tmp___7 != 0L) {
         {
@@ -25714,12 +25713,12 @@ static bool _rtl88ee_phy_set_rf_power_state(struct ieee80211_hw *hw , enum rf_pw
     goto ldv_52128;
   } else {
     {
-    tmp___11 = __builtin_expect((long )((int )rtlpriv->dbg.global_debugcomponents) & 1L,
+    tmp___11 = ldv__builtin_expect((long )((int )rtlpriv->dbg.global_debugcomponents) & 1L,
                                 0L);
     }
     if (tmp___11 != 0L) {
       {
-      tmp___12 = __builtin_expect(rtlpriv->dbg.global_debuglevel > 1, 0L);
+      tmp___12 = ldv__builtin_expect(rtlpriv->dbg.global_debuglevel > 1, 0L);
       }
       if (tmp___12 != 0L) {
         {
@@ -25744,12 +25743,12 @@ static bool _rtl88ee_phy_set_rf_power_state(struct ieee80211_hw *hw , enum rf_pw
   }
   if ((unsigned int )i > 63U) {
     {
-    tmp___17 = __builtin_expect((long )((int )rtlpriv->dbg.global_debugcomponents) & 1L,
+    tmp___17 = ldv__builtin_expect((long )((int )rtlpriv->dbg.global_debugcomponents) & 1L,
                                 0L);
     }
     if (tmp___17 != 0L) {
       {
-      tmp___18 = __builtin_expect(rtlpriv->dbg.global_debuglevel > 1, 0L);
+      tmp___18 = ldv__builtin_expect(rtlpriv->dbg.global_debuglevel > 1, 0L);
       }
       if (tmp___18 != 0L) {
         {
@@ -25780,12 +25779,12 @@ static bool _rtl88ee_phy_set_rf_power_state(struct ieee80211_hw *hw , enum rf_pw
   ldv_52129: ;
   if (((unsigned long )ppsc->reg_rfps_level & 8UL) != 0UL) {
     {
-    tmp___21 = __builtin_expect((rtlpriv->dbg.global_debugcomponents & 1048576ULL) != 0ULL,
+    tmp___21 = ldv__builtin_expect((rtlpriv->dbg.global_debugcomponents & 1048576ULL) != 0ULL,
                                 0L);
     }
     if (tmp___21 != 0L) {
       {
-      tmp___22 = __builtin_expect(rtlpriv->dbg.global_debuglevel > 2, 0L);
+      tmp___22 = ldv__builtin_expect(rtlpriv->dbg.global_debuglevel > 2, 0L);
       }
       if (tmp___22 != 0L) {
         {
@@ -25834,12 +25833,12 @@ static bool _rtl88ee_phy_set_rf_power_state(struct ieee80211_hw *hw , enum rf_pw
     goto ldv_52132;
   } else {
     {
-    tmp___26 = __builtin_expect((long )((int )rtlpriv->dbg.global_debugcomponents) & 1L,
+    tmp___26 = ldv__builtin_expect((long )((int )rtlpriv->dbg.global_debugcomponents) & 1L,
                                 0L);
     }
     if (tmp___26 != 0L) {
       {
-      tmp___27 = __builtin_expect(rtlpriv->dbg.global_debuglevel > 1, 0L);
+      tmp___27 = ldv__builtin_expect(rtlpriv->dbg.global_debuglevel > 1, 0L);
       }
       if (tmp___27 != 0L) {
         {
@@ -25864,12 +25863,12 @@ static bool _rtl88ee_phy_set_rf_power_state(struct ieee80211_hw *hw , enum rf_pw
   }
   if ((unsigned int )i > 63U) {
     {
-    tmp___32 = __builtin_expect((long )((int )rtlpriv->dbg.global_debugcomponents) & 1L,
+    tmp___32 = ldv__builtin_expect((long )((int )rtlpriv->dbg.global_debugcomponents) & 1L,
                                 0L);
     }
     if (tmp___32 != 0L) {
       {
-      tmp___33 = __builtin_expect(rtlpriv->dbg.global_debuglevel > 1, 0L);
+      tmp___33 = ldv__builtin_expect(rtlpriv->dbg.global_debuglevel > 1, 0L);
       }
       if (tmp___33 != 0L) {
         {
@@ -25899,12 +25898,12 @@ static bool _rtl88ee_phy_set_rf_power_state(struct ieee80211_hw *hw , enum rf_pw
   }
   ldv_52133: 
   {
-  tmp___37 = __builtin_expect((rtlpriv->dbg.global_debugcomponents & 1048576ULL) != 0ULL,
+  tmp___37 = ldv__builtin_expect((rtlpriv->dbg.global_debugcomponents & 1048576ULL) != 0ULL,
                               0L);
   }
   if (tmp___37 != 0L) {
     {
-    tmp___38 = __builtin_expect(rtlpriv->dbg.global_debuglevel > 2, 0L);
+    tmp___38 = ldv__builtin_expect(rtlpriv->dbg.global_debuglevel > 2, 0L);
     }
     if (tmp___38 != 0L) {
       {
@@ -25928,12 +25927,12 @@ static bool _rtl88ee_phy_set_rf_power_state(struct ieee80211_hw *hw , enum rf_pw
   goto ldv_52126;
   switch_default: /* CIL Label */ 
   {
-  tmp___41 = __builtin_expect((long )((int )rtlpriv->dbg.global_debugcomponents) & 1L,
+  tmp___41 = ldv__builtin_expect((long )((int )rtlpriv->dbg.global_debugcomponents) & 1L,
                               0L);
   }
   if (tmp___41 != 0L) {
     {
-    tmp___42 = __builtin_expect(rtlpriv->dbg.global_debuglevel >= 0, 0L);
+    tmp___42 = ldv__builtin_expect(rtlpriv->dbg.global_debuglevel >= 0, 0L);
     }
     if (tmp___42 != 0L) {
       {
@@ -26184,12 +26183,12 @@ bool rtl88_hal_pwrseqcmdparsing(struct rtl_priv *rtlpriv , u8 cut_version , u8 f
   ldv_50862: 
   {
   cmd = *(pwrcfgcmd + (unsigned long )ary_idx);
-  tmp___1 = __builtin_expect((rtlpriv->dbg.global_debugcomponents & 4ULL) != 0ULL,
+  tmp___1 = ldv__builtin_expect((rtlpriv->dbg.global_debugcomponents & 4ULL) != 0ULL,
                              0L);
   }
   if (tmp___1 != 0L) {
     {
-    tmp___2 = __builtin_expect(rtlpriv->dbg.global_debuglevel > 4, 0L);
+    tmp___2 = ldv__builtin_expect(rtlpriv->dbg.global_debuglevel > 4, 0L);
     }
     if (tmp___2 != 0L) {
       {
@@ -26236,12 +26235,12 @@ bool rtl88_hal_pwrseqcmdparsing(struct rtl_priv *rtlpriv , u8 cut_version , u8 f
     goto switch_default;
     case_0: /* CIL Label */ 
     {
-    tmp___5 = __builtin_expect((rtlpriv->dbg.global_debugcomponents & 4ULL) != 0ULL,
+    tmp___5 = ldv__builtin_expect((rtlpriv->dbg.global_debugcomponents & 4ULL) != 0ULL,
                                0L);
     }
     if (tmp___5 != 0L) {
       {
-      tmp___6 = __builtin_expect(rtlpriv->dbg.global_debuglevel > 4, 0L);
+      tmp___6 = ldv__builtin_expect(rtlpriv->dbg.global_debuglevel > 4, 0L);
       }
       if (tmp___6 != 0L) {
         {
@@ -26260,12 +26259,12 @@ bool rtl88_hal_pwrseqcmdparsing(struct rtl_priv *rtlpriv , u8 cut_version , u8 f
     goto ldv_50850;
     case_1: /* CIL Label */ 
     {
-    tmp___9 = __builtin_expect((rtlpriv->dbg.global_debugcomponents & 4ULL) != 0ULL,
+    tmp___9 = ldv__builtin_expect((rtlpriv->dbg.global_debugcomponents & 4ULL) != 0ULL,
                                0L);
     }
     if (tmp___9 != 0L) {
       {
-      tmp___10 = __builtin_expect(rtlpriv->dbg.global_debuglevel > 4, 0L);
+      tmp___10 = ldv__builtin_expect(rtlpriv->dbg.global_debuglevel > 4, 0L);
       }
       if (tmp___10 != 0L) {
         {
@@ -26291,12 +26290,12 @@ bool rtl88_hal_pwrseqcmdparsing(struct rtl_priv *rtlpriv , u8 cut_version , u8 f
     goto ldv_50850;
     case_2: /* CIL Label */ 
     {
-    tmp___13 = __builtin_expect((rtlpriv->dbg.global_debugcomponents & 4ULL) != 0ULL,
+    tmp___13 = ldv__builtin_expect((rtlpriv->dbg.global_debugcomponents & 4ULL) != 0ULL,
                                 0L);
     }
     if (tmp___13 != 0L) {
       {
-      tmp___14 = __builtin_expect(rtlpriv->dbg.global_debuglevel > 4, 0L);
+      tmp___14 = ldv__builtin_expect(rtlpriv->dbg.global_debuglevel > 4, 0L);
       }
       if (tmp___14 != 0L) {
         {
@@ -26330,12 +26329,12 @@ bool rtl88_hal_pwrseqcmdparsing(struct rtl_priv *rtlpriv , u8 cut_version , u8 f
     polling_count = polling_count + 1U;
     if (tmp___19 > max_polling_cnt) {
       {
-      tmp___17 = __builtin_expect((rtlpriv->dbg.global_debugcomponents & 4ULL) != 0ULL,
+      tmp___17 = ldv__builtin_expect((rtlpriv->dbg.global_debugcomponents & 4ULL) != 0ULL,
                                   0L);
       }
       if (tmp___17 != 0L) {
         {
-        tmp___18 = __builtin_expect(rtlpriv->dbg.global_debuglevel > 3, 0L);
+        tmp___18 = ldv__builtin_expect(rtlpriv->dbg.global_debuglevel > 3, 0L);
         }
         if (tmp___18 != 0L) {
           {
@@ -26363,12 +26362,12 @@ bool rtl88_hal_pwrseqcmdparsing(struct rtl_priv *rtlpriv , u8 cut_version , u8 f
     goto ldv_50850;
     case_3: /* CIL Label */ 
     {
-    tmp___22 = __builtin_expect((rtlpriv->dbg.global_debugcomponents & 4ULL) != 0ULL,
+    tmp___22 = ldv__builtin_expect((rtlpriv->dbg.global_debugcomponents & 4ULL) != 0ULL,
                                 0L);
     }
     if (tmp___22 != 0L) {
       {
-      tmp___23 = __builtin_expect(rtlpriv->dbg.global_debuglevel > 4, 0L);
+      tmp___23 = ldv__builtin_expect(rtlpriv->dbg.global_debuglevel > 4, 0L);
       }
       if (tmp___23 != 0L) {
         {
@@ -26408,12 +26407,12 @@ bool rtl88_hal_pwrseqcmdparsing(struct rtl_priv *rtlpriv , u8 cut_version , u8 f
     goto ldv_50850;
     case_4: /* CIL Label */ 
     {
-    tmp___27 = __builtin_expect((rtlpriv->dbg.global_debugcomponents & 4ULL) != 0ULL,
+    tmp___27 = ldv__builtin_expect((rtlpriv->dbg.global_debugcomponents & 4ULL) != 0ULL,
                                 0L);
     }
     if (tmp___27 != 0L) {
       {
-      tmp___28 = __builtin_expect(rtlpriv->dbg.global_debuglevel > 4, 0L);
+      tmp___28 = ldv__builtin_expect(rtlpriv->dbg.global_debuglevel > 4, 0L);
       }
       if (tmp___28 != 0L) {
         {
@@ -26484,12 +26483,12 @@ void rtl88e_phy_rf6052_set_bandwidth(struct ieee80211_hw *hw , u8 bandwidth )
   goto ldv_51176;
   switch_default: /* CIL Label */ 
   {
-  tmp___1 = __builtin_expect((long )((int )rtlpriv->dbg.global_debugcomponents) & 1L,
+  tmp___1 = ldv__builtin_expect((long )((int )rtlpriv->dbg.global_debugcomponents) & 1L,
                              0L);
   }
   if (tmp___1 != 0L) {
     {
-    tmp___2 = __builtin_expect(rtlpriv->dbg.global_debuglevel >= 0, 0L);
+    tmp___2 = ldv__builtin_expect(rtlpriv->dbg.global_debuglevel >= 0, 0L);
     }
     if (tmp___2 != 0L) {
       {
@@ -26628,7 +26627,7 @@ void rtl88e_phy_rf6052_set_cck_txpower(struct ieee80211_hw *hw , u8 *plevel )
   {
   tmpval = tx_agc[0] & 255U;
   rtl_set_bbreg(hw, 3592U, 65280U, tmpval);
-  tmp = __builtin_expect(((unsigned long )rtlpriv->dbg.dbgp_type[9] & 256UL) != 0UL,
+  tmp = ldv__builtin_expect(((unsigned long )rtlpriv->dbg.dbgp_type[9] & 256UL) != 0UL,
                          0L);
   }
   if (tmp != 0L) {
@@ -26641,7 +26640,7 @@ void rtl88e_phy_rf6052_set_cck_txpower(struct ieee80211_hw *hw , u8 *plevel )
   {
   tmpval = tx_agc[0] >> 8;
   rtl_set_bbreg(hw, 2156U, 4294967040U, tmpval);
-  tmp___0 = __builtin_expect(((unsigned long )rtlpriv->dbg.dbgp_type[9] & 256UL) != 0UL,
+  tmp___0 = ldv__builtin_expect(((unsigned long )rtlpriv->dbg.dbgp_type[9] & 256UL) != 0UL,
                              0L);
   }
   if (tmp___0 != 0L) {
@@ -26654,7 +26653,7 @@ void rtl88e_phy_rf6052_set_cck_txpower(struct ieee80211_hw *hw , u8 *plevel )
   {
   tmpval = tx_agc[1] >> 24;
   rtl_set_bbreg(hw, 2156U, 255U, tmpval);
-  tmp___1 = __builtin_expect(((unsigned long )rtlpriv->dbg.dbgp_type[9] & 256UL) != 0UL,
+  tmp___1 = ldv__builtin_expect(((unsigned long )rtlpriv->dbg.dbgp_type[9] & 256UL) != 0UL,
                              0L);
   }
   if (tmp___1 != 0L) {
@@ -26667,7 +26666,7 @@ void rtl88e_phy_rf6052_set_cck_txpower(struct ieee80211_hw *hw , u8 *plevel )
   {
   tmpval = tx_agc[1] & 16777215U;
   rtl_set_bbreg(hw, 2104U, 4294967040U, tmpval);
-  tmp___2 = __builtin_expect(((unsigned long )rtlpriv->dbg.dbgp_type[9] & 256UL) != 0UL,
+  tmp___2 = ldv__builtin_expect(((unsigned long )rtlpriv->dbg.dbgp_type[9] & 256UL) != 0UL,
                              0L);
   }
   if (tmp___2 != 0L) {
@@ -26703,7 +26702,7 @@ static void rtl88e_phy_get_power_base(struct ieee80211_hw *hw , u8 *pwrlvlofdm ,
   base0 = (u32 )*(pwrlvlofdm + (unsigned long )i);
   base0 = (((base0 << 24) | (base0 << 16)) | (base0 << 8)) | base0;
   *(ofdmbase + (unsigned long )i) = base0;
-  tmp = __builtin_expect(((unsigned long )rtlpriv->dbg.dbgp_type[9] & 256UL) != 0UL,
+  tmp = ldv__builtin_expect(((unsigned long )rtlpriv->dbg.dbgp_type[9] & 256UL) != 0UL,
                          0L);
   }
   if (tmp != 0L) {
@@ -26733,7 +26732,7 @@ static void rtl88e_phy_get_power_base(struct ieee80211_hw *hw , u8 *pwrlvlofdm ,
   base1 = (u32 )powerlevel[(int )i];
   base1 = (((base1 << 24) | (base1 << 16)) | (base1 << 8)) | base1;
   *(mcsbase + (unsigned long )i) = base1;
-  tmp___0 = __builtin_expect(((unsigned long )rtlpriv->dbg.dbgp_type[9] & 256UL) != 0UL,
+  tmp___0 = ldv__builtin_expect(((unsigned long )rtlpriv->dbg.dbgp_type[9] & 256UL) != 0UL,
                              0L);
   }
   if (tmp___0 != 0L) {
@@ -26819,7 +26818,7 @@ static void get_txpwr_by_reg(struct ieee80211_hw *hw , u8 chan , u8 index , u32 
   {
   chg = 0U;
   writeval = rtlphy->mcs_offset[(int )chg][(int )j] + tmp;
-  tmp___0 = __builtin_expect(((unsigned long )rtlpriv->dbg.dbgp_type[9] & 256UL) != 0UL,
+  tmp___0 = ldv__builtin_expect(((unsigned long )rtlpriv->dbg.dbgp_type[9] & 256UL) != 0UL,
                              0L);
   }
   if (tmp___0 != 0L) {
@@ -26844,7 +26843,7 @@ static void get_txpwr_by_reg(struct ieee80211_hw *hw , u8 chan , u8 index , u32 
   }
   {
   writeval = rtlphy->mcs_offset[(int )chg][(int )j] + tmp;
-  tmp___1 = __builtin_expect(((unsigned long )rtlpriv->dbg.dbgp_type[9] & 256UL) != 0UL,
+  tmp___1 = ldv__builtin_expect(((unsigned long )rtlpriv->dbg.dbgp_type[9] & 256UL) != 0UL,
                              0L);
   }
   if (tmp___1 != 0L) {
@@ -26859,7 +26858,7 @@ static void get_txpwr_by_reg(struct ieee80211_hw *hw , u8 chan , u8 index , u32 
   case_2: /* CIL Label */ 
   {
   writeval = (unsigned int )index <= 1U ? *(base0 + (unsigned long )rf) : *(base1 + (unsigned long )rf);
-  tmp___2 = __builtin_expect(((unsigned long )rtlpriv->dbg.dbgp_type[9] & 256UL) != 0UL,
+  tmp___2 = ldv__builtin_expect(((unsigned long )rtlpriv->dbg.dbgp_type[9] & 256UL) != 0UL,
                              0L);
   }
   if (tmp___2 != 0L) {
@@ -26875,7 +26874,7 @@ static void get_txpwr_by_reg(struct ieee80211_hw *hw , u8 chan , u8 index , u32 
   chg = 0U;
   if ((unsigned int )rtlphy->current_chan_bw == 1U) {
     {
-    tmp___3 = __builtin_expect(((unsigned long )rtlpriv->dbg.dbgp_type[9] & 256UL) != 0UL,
+    tmp___3 = ldv__builtin_expect(((unsigned long )rtlpriv->dbg.dbgp_type[9] & 256UL) != 0UL,
                                0L);
     }
     if (tmp___3 != 0L) {
@@ -26888,7 +26887,7 @@ static void get_txpwr_by_reg(struct ieee80211_hw *hw , u8 chan , u8 index , u32 
     }
   } else {
     {
-    tmp___4 = __builtin_expect(((unsigned long )rtlpriv->dbg.dbgp_type[9] & 256UL) != 0UL,
+    tmp___4 = ldv__builtin_expect(((unsigned long )rtlpriv->dbg.dbgp_type[9] & 256UL) != 0UL,
                                0L);
     }
     if (tmp___4 != 0L) {
@@ -26936,7 +26935,7 @@ static void get_txpwr_by_reg(struct ieee80211_hw *hw , u8 chan , u8 index , u32 
   }
   {
   cust_lim = (u32 )(((((int )pwr_lim[3] << 24) | ((int )pwr_lim[2] << 16)) | ((int )pwr_lim[1] << 8)) | (int )pwr_lim[0]);
-  tmp___5 = __builtin_expect(((unsigned long )rtlpriv->dbg.dbgp_type[9] & 256UL) != 0UL,
+  tmp___5 = ldv__builtin_expect(((unsigned long )rtlpriv->dbg.dbgp_type[9] & 256UL) != 0UL,
                              0L);
   }
   if (tmp___5 != 0L) {
@@ -26949,7 +26948,7 @@ static void get_txpwr_by_reg(struct ieee80211_hw *hw , u8 chan , u8 index , u32 
   }
   {
   writeval = cust_lim + tmp;
-  tmp___6 = __builtin_expect(((unsigned long )rtlpriv->dbg.dbgp_type[9] & 256UL) != 0UL,
+  tmp___6 = ldv__builtin_expect(((unsigned long )rtlpriv->dbg.dbgp_type[9] & 256UL) != 0UL,
                              0L);
   }
   if (tmp___6 != 0L) {
@@ -26965,7 +26964,7 @@ static void get_txpwr_by_reg(struct ieee80211_hw *hw , u8 chan , u8 index , u32 
   {
   chg = 0U;
   writeval = rtlphy->mcs_offset[(int )chg][(int )j] + tmp;
-  tmp___7 = __builtin_expect(((unsigned long )rtlpriv->dbg.dbgp_type[9] & 256UL) != 0UL,
+  tmp___7 = ldv__builtin_expect(((unsigned long )rtlpriv->dbg.dbgp_type[9] & 256UL) != 0UL,
                              0L);
   }
   if (tmp___7 != 0L) {
@@ -27054,7 +27053,7 @@ static void write_ofdm_pwr(struct ieee80211_hw *hw , u8 index , u32 *pvalue )
   }
   {
   rtl_set_bbreg(hw, (u32 )regoffset, 4294967295U, writeval);
-  tmp = __builtin_expect(((unsigned long )rtlpriv->dbg.dbgp_type[9] & 256UL) != 0UL,
+  tmp = ldv__builtin_expect(((unsigned long )rtlpriv->dbg.dbgp_type[9] & 256UL) != 0UL,
                          0L);
   }
   if (tmp != 0L) {
@@ -27273,12 +27272,12 @@ static bool rf6052_conf_para(struct ieee80211_hw *hw )
   ldv_51319: ;
   if (! rtstatus) {
     {
-    tmp___1 = __builtin_expect((rtlpriv->dbg.global_debugcomponents & 4ULL) != 0ULL,
+    tmp___1 = ldv__builtin_expect((rtlpriv->dbg.global_debugcomponents & 4ULL) != 0ULL,
                                0L);
     }
     if (tmp___1 != 0L) {
       {
-      tmp___2 = __builtin_expect(rtlpriv->dbg.global_debuglevel > 4, 0L);
+      tmp___2 = ldv__builtin_expect(rtlpriv->dbg.global_debuglevel > 4, 0L);
       }
       if (tmp___2 != 0L) {
         {
@@ -27306,12 +27305,12 @@ static bool rf6052_conf_para(struct ieee80211_hw *hw )
 
   }
   {
-  tmp___5 = __builtin_expect((rtlpriv->dbg.global_debugcomponents & 4ULL) != 0ULL,
+  tmp___5 = ldv__builtin_expect((rtlpriv->dbg.global_debugcomponents & 4ULL) != 0ULL,
                              0L);
   }
   if (tmp___5 != 0L) {
     {
-    tmp___6 = __builtin_expect(rtlpriv->dbg.global_debuglevel > 4, 0L);
+    tmp___6 = ldv__builtin_expect(rtlpriv->dbg.global_debuglevel > 4, 0L);
     }
     if (tmp___6 != 0L) {
       {
@@ -27525,12 +27524,12 @@ int rtl88e_init_sw_vars(struct ieee80211_hw *hw )
   }
   if ((unsigned long )rtlpriv->rtlhal.pfirmware == (unsigned long )((u8 *)0U)) {
     {
-    tmp___2 = __builtin_expect((long )((int )rtlpriv->dbg.global_debugcomponents) & 1L,
+    tmp___2 = ldv__builtin_expect((long )((int )rtlpriv->dbg.global_debugcomponents) & 1L,
                                0L);
     }
     if (tmp___2 != 0L) {
       {
-      tmp___3 = __builtin_expect(rtlpriv->dbg.global_debuglevel >= 0, 0L);
+      tmp___3 = ldv__builtin_expect(rtlpriv->dbg.global_debuglevel >= 0, 0L);
       }
       if (tmp___3 != 0L) {
         {
@@ -27558,12 +27557,12 @@ int rtl88e_init_sw_vars(struct ieee80211_hw *hw )
   }
   if (err != 0) {
     {
-    tmp___6 = __builtin_expect((long )((int )rtlpriv->dbg.global_debugcomponents) & 1L,
+    tmp___6 = ldv__builtin_expect((long )((int )rtlpriv->dbg.global_debugcomponents) & 1L,
                                0L);
     }
     if (tmp___6 != 0L) {
       {
-      tmp___7 = __builtin_expect(rtlpriv->dbg.global_debuglevel >= 0, 0L);
+      tmp___7 = ldv__builtin_expect(rtlpriv->dbg.global_debuglevel >= 0, 0L);
       }
       if (tmp___7 != 0L) {
         {
@@ -27721,7 +27720,7 @@ void ldv_dispatch_register_8_2(struct pci_driver *arg0 ) ;
 void ldv_dispatch_register_ieee80211_instance_3_9_6(void) ;
 void ldv_dispatch_register_platform_instance_8_9_7(void) ;
 void ldv_entry_EMGentry_9(void *arg0 ) ;
-void main(void) ;
+int main(void) ;
 void ldv_ieee80211_ieee80211_instance_0(void *arg0 ) ;
 void ldv_ieee80211_instance_callback_0_10(void (*arg0)(struct ieee80211_hw * , _Bool  ,
                                                        _Bool  ) , struct ieee80211_hw *arg1 ,
@@ -28078,7 +28077,7 @@ void ldv_entry_EMGentry_9(void *arg0 )
   return;
 }
 }
-void main(void) 
+int main(void) 
 { 
 
 
@@ -28087,7 +28086,7 @@ void main(void)
   ldv_initialize();
   ldv_entry_EMGentry_9((void *)0);
   }
-  return;
+return 0;
 }
 }
 void ldv_ieee80211_ieee80211_instance_0(void *arg0 ) 
@@ -30705,7 +30704,7 @@ __inline static dma_addr_t dma_map_single_attrs(struct device *dev , void *ptr ,
   ops = tmp;
   kmemcheck_mark_initialized(ptr, (unsigned int )size);
   tmp___0 = valid_dma_direction((int )dir);
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -31022,7 +31021,7 @@ static u8 _rtl88ee_map_hwqueue_to_fwqueue(struct sk_buff *skb , u8 hw_queue )
   tmp = rtl_get_fc(skb);
   fc = tmp;
   tmp___0 = ieee80211_is_beacon((int )fc);
-  tmp___1 = __builtin_expect(tmp___0 != 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 != 0, 0L);
   }
   if (tmp___1 != 0L) {
     return (16U);
@@ -31536,12 +31535,12 @@ bool rtl88ee_rx_query_desc(struct ieee80211_hw *hw , struct rtl_stats *status , 
   }
   if ((unsigned int )status->wake_match != 0U) {
     {
-    tmp___1 = __builtin_expect((rtlpriv->dbg.global_debugcomponents & 4096ULL) != 0ULL,
+    tmp___1 = ldv__builtin_expect((rtlpriv->dbg.global_debugcomponents & 4096ULL) != 0ULL,
                                0L);
     }
     if (tmp___1 != 0L) {
       {
-      tmp___2 = __builtin_expect(rtlpriv->dbg.global_debuglevel > 3, 0L);
+      tmp___2 = ldv__builtin_expect(rtlpriv->dbg.global_debuglevel > 3, 0L);
       }
       if (tmp___2 != 0L) {
         {
@@ -31723,12 +31722,12 @@ void rtl88ee_tx_fill_desc(struct ieee80211_hw *hw , struct ieee80211_hdr *hdr , 
   }
   if (tmp___4 != 0) {
     {
-    tmp___2 = __builtin_expect((rtlpriv->dbg.global_debugcomponents & 16ULL) != 0ULL,
+    tmp___2 = ldv__builtin_expect((rtlpriv->dbg.global_debugcomponents & 16ULL) != 0ULL,
                                0L);
     }
     if (tmp___2 != 0L) {
       {
-      tmp___3 = __builtin_expect(rtlpriv->dbg.global_debuglevel > 4, 0L);
+      tmp___3 = ldv__builtin_expect(rtlpriv->dbg.global_debuglevel > 4, 0L);
       }
       if (tmp___3 != 0L) {
         {
@@ -31771,12 +31770,12 @@ void rtl88ee_tx_fill_desc(struct ieee80211_hw *hw , struct ieee80211_hdr *hdr , 
       *((u32 *)pdesc) = (*((__le32 *)pdesc) & 4278255615U) | 2621440U;
       if ((unsigned int )ptcb_desc->empkt_num != 0U) {
         {
-        tmp___9 = __builtin_expect((rtlpriv->dbg.global_debugcomponents & 16ULL) != 0ULL,
+        tmp___9 = ldv__builtin_expect((rtlpriv->dbg.global_debugcomponents & 16ULL) != 0ULL,
                                    0L);
         }
         if (tmp___9 != 0L) {
           {
-          tmp___10 = __builtin_expect(rtlpriv->dbg.global_debuglevel > 4, 0L);
+          tmp___10 = ldv__builtin_expect(rtlpriv->dbg.global_debuglevel > 4, 0L);
           }
           if (tmp___10 != 0L) {
             {
@@ -31901,12 +31900,12 @@ void rtl88ee_tx_fill_desc(struct ieee80211_hw *hw , struct ieee80211_hdr *hdr , 
     if (tmp___15 != 0) {
       if ((int )mac->rdg_en) {
         {
-        tmp___13 = __builtin_expect((rtlpriv->dbg.global_debugcomponents & 16ULL) != 0ULL,
+        tmp___13 = ldv__builtin_expect((rtlpriv->dbg.global_debugcomponents & 16ULL) != 0ULL,
                                     0L);
         }
         if (tmp___13 != 0L) {
           {
-          tmp___14 = __builtin_expect(rtlpriv->dbg.global_debuglevel > 4, 0L);
+          tmp___14 = ldv__builtin_expect(rtlpriv->dbg.global_debuglevel > 4, 0L);
           }
           if (tmp___14 != 0L) {
             {
@@ -31979,12 +31978,12 @@ void rtl88ee_tx_fill_desc(struct ieee80211_hw *hw , struct ieee80211_hdr *hdr , 
   }
   {
   rtl88e_dm_set_tx_ant_by_tx_info(hw, pdesc, (u32 )ptcb_desc->mac_id);
-  tmp___24 = __builtin_expect((rtlpriv->dbg.global_debugcomponents & 16ULL) != 0ULL,
+  tmp___24 = ldv__builtin_expect((rtlpriv->dbg.global_debugcomponents & 16ULL) != 0ULL,
                               0L);
   }
   if (tmp___24 != 0L) {
     {
-    tmp___25 = __builtin_expect(rtlpriv->dbg.global_debuglevel > 4, 0L);
+    tmp___25 = ldv__builtin_expect(rtlpriv->dbg.global_debuglevel > 4, 0L);
     }
     if (tmp___25 != 0L) {
       {
@@ -32038,12 +32037,12 @@ void rtl88ee_tx_fill_cmddesc(struct ieee80211_hw *hw , u8 *pdesc , bool firstseg
   }
   if (tmp___4 != 0) {
     {
-    tmp___2 = __builtin_expect((rtlpriv->dbg.global_debugcomponents & 16ULL) != 0ULL,
+    tmp___2 = ldv__builtin_expect((rtlpriv->dbg.global_debugcomponents & 16ULL) != 0ULL,
                                0L);
     }
     if (tmp___2 != 0L) {
       {
-      tmp___3 = __builtin_expect(rtlpriv->dbg.global_debuglevel > 4, 0L);
+      tmp___3 = ldv__builtin_expect(rtlpriv->dbg.global_debuglevel > 4, 0L);
       }
       if (tmp___3 != 0L) {
         {
@@ -32095,12 +32094,12 @@ void rtl88ee_tx_fill_cmddesc(struct ieee80211_hw *hw , u8 *pdesc , bool firstseg
 
   }
   {
-  tmp___9 = __builtin_expect((rtlpriv->dbg.global_debugcomponents & 8388608ULL) != 0ULL,
+  tmp___9 = ldv__builtin_expect((rtlpriv->dbg.global_debugcomponents & 8388608ULL) != 0ULL,
                              0L);
   }
   if (tmp___9 != 0L) {
     {
-    tmp___10 = __builtin_expect(rtlpriv->dbg.global_debuglevel > 3, 0L);
+    tmp___10 = ldv__builtin_expect(rtlpriv->dbg.global_debuglevel > 3, 0L);
     }
     if (tmp___10 != 0L) {
       {
@@ -32114,7 +32113,7 @@ void rtl88ee_tx_fill_cmddesc(struct ieee80211_hw *hw , u8 *pdesc , bool firstseg
       descriptor.format = "";
       descriptor.lineno = 734U;
       descriptor.flags = 0U;
-      tmp___8 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+      tmp___8 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
       }
       if (tmp___8 != 0L) {
         {
@@ -32481,7 +32480,7 @@ void *ldv_kzalloc(size_t size , gfp_t flags )
 }
 }
 extern void ldv_assert(char const   * , int  ) ;
-void __builtin_trap(void) ;
+void ldv__builtin_trap(void) ;
 void ldv_assume(int expression ) 
 { 
 
@@ -32505,7 +32504,7 @@ void ldv_stop(void)
   goto ldv_stop_label;
 }
 }
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 
@@ -32513,7 +32512,7 @@ long __builtin_expect(long exp , long c )
   return (exp);
 }
 }
-void __builtin_trap(void) 
+void ldv__builtin_trap(void) 
 { 
 
 

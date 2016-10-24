@@ -6630,7 +6630,7 @@ void ldv_dummy_resourceless_instance_callback_8_7(void (*arg0)(struct drm_crtc *
 void ldv_dummy_resourceless_instance_callback_9_3(void (*arg0)(struct drm_framebuffer * ) ,
                                                   struct drm_framebuffer *arg1 ) ;
 void ldv_entry_EMGentry_15(void *arg0 ) ;
-void main(void) ;
+int main(void) ;
 void ldv_file_operations_file_operations_instance_0(void *arg0 ) ;
 void ldv_file_operations_instance_callback_0_22(int (*arg0)(struct drm_file * , struct drm_device * ,
                                                             struct drm_mode_create_dumb * ) ,
@@ -7071,7 +7071,7 @@ void ldv_entry_EMGentry_15(void *arg0 )
   return;
 }
 }
-void main(void) 
+int main(void) 
 { 
 
 
@@ -7080,7 +7080,7 @@ void main(void)
   ldv_ldv_initialize_115();
   ldv_entry_EMGentry_15((void *)0);
   }
-  return;
+return 0;
 }
 }
 void ldv_file_operations_file_operations_instance_0(void *arg0 ) 
@@ -9767,7 +9767,7 @@ static int ldv_ldv_post_probe_119(int retval )
   return (tmp);
 }
 }
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 void *ldv_err_ptr(long error ) ;
 void *ldv_kzalloc(size_t size , gfp_t flags ) ;
 int ldv_linux_usb_dev_atomic_sub_and_test(int i , atomic_t *v ) ;
@@ -9869,7 +9869,7 @@ __inline static int __atomic_add_unless(atomic_t *v , int a , int u )
   }
   ldv_6275: 
   {
-  tmp = __builtin_expect(c == u, 0L);
+  tmp = ldv__builtin_expect(c == u, 0L);
   }
   if (tmp != 0L) {
     goto ldv_6274;
@@ -9878,7 +9878,7 @@ __inline static int __atomic_add_unless(atomic_t *v , int a , int u )
   }
   {
   old = atomic_cmpxchg(v, c, c + a);
-  tmp___0 = __builtin_expect(old == c, 1L);
+  tmp___0 = ldv__builtin_expect(old == c, 1L);
   }
   if (tmp___0 != 0L) {
     goto ldv_6274;
@@ -9913,7 +9913,7 @@ __inline static int kref_sub(struct kref *kref , unsigned int count , void (*rel
   {
   {
   __ret_warn_on = (unsigned long )release == (unsigned long )((void (*)(struct kref * ))0);
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp != 0L) {
     {
@@ -9923,7 +9923,7 @@ __inline static int kref_sub(struct kref *kref , unsigned int count , void (*rel
 
   }
   {
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
   tmp___0 = atomic_sub_and_test((int )count, & kref->refcount);
   }
   if (tmp___0 != 0) {
@@ -10004,7 +10004,7 @@ __inline static void drm_gem_object_unreference_unlocked(struct drm_gem_object *
       dev = obj->dev;
       ldv_mutex_lock_110(& dev->struct_mutex);
       tmp = atomic_dec_and_test(& obj->refcount.refcount);
-      tmp___0 = __builtin_expect(tmp != 0, 1L);
+      tmp___0 = ldv__builtin_expect(tmp != 0, 1L);
       }
       if (tmp___0 != 0L) {
         {
@@ -11260,7 +11260,7 @@ __inline static int __atomic_add_unless___0(atomic_t *v , int a , int u )
   }
   ldv_6271: 
   {
-  tmp = __builtin_expect(c == u, 0L);
+  tmp = ldv__builtin_expect(c == u, 0L);
   }
   if (tmp != 0L) {
     goto ldv_6270;
@@ -11269,7 +11269,7 @@ __inline static int __atomic_add_unless___0(atomic_t *v , int a , int u )
   }
   {
   old = atomic_cmpxchg___0(v, c, c + a);
-  tmp___0 = __builtin_expect(old == c, 1L);
+  tmp___0 = ldv__builtin_expect(old == c, 1L);
   }
   if (tmp___0 != 0L) {
     goto ldv_6270;
@@ -11517,7 +11517,7 @@ __inline static int __ttm_bo_reserve(struct ttm_buffer_object *bo , bool interru
   if ((int )no_wait) {
     {
     __ret_warn_on = (unsigned long )ticket != (unsigned long )((struct ww_acquire_ctx *)0);
-    tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
     if (tmp != 0L) {
       {
@@ -11527,7 +11527,7 @@ __inline static int __ttm_bo_reserve(struct ttm_buffer_object *bo , bool interru
 
     }
     {
-    tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
     if (tmp___0 != 0L) {
       return (-16);
@@ -11572,7 +11572,7 @@ __inline static int ttm_bo_reserve(struct ttm_buffer_object *bo , bool interrupt
   {
   tmp = atomic_read((atomic_t const   *)(& bo->kref.refcount));
   __ret_warn_on = tmp == 0;
-  tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -11582,10 +11582,10 @@ __inline static int ttm_bo_reserve(struct ttm_buffer_object *bo , bool interrupt
 
   }
   {
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
   ret = __ttm_bo_reserve(bo, (int )interruptible, (int )no_wait, (int )use_ticket,
                          ticket);
-  tmp___1 = __builtin_expect(ret == 0, 1L);
+  tmp___1 = ldv__builtin_expect(ret == 0, 1L);
   }
   if (tmp___1 != 0L) {
     {
@@ -11645,7 +11645,7 @@ __inline static void drm_gem_object_unreference_unlocked___0(struct drm_gem_obje
       dev = obj->dev;
       ldv_mutex_lock_110___0(& dev->struct_mutex);
       tmp = atomic_dec_and_test(& obj->refcount.refcount);
-      tmp___0 = __builtin_expect(tmp != 0, 1L);
+      tmp___0 = ldv__builtin_expect(tmp != 0, 1L);
       }
       if (tmp___0 != 0L) {
         {
@@ -13291,7 +13291,7 @@ static int ast_cursor_init(struct drm_device *dev )
   __mptr = (struct drm_gem_object  const  *)obj;
   bo = (struct ast_bo *)__mptr + 0xfffffffffffffc58UL;
   ret = ast_bo_reserve(bo, 0);
-  tmp = __builtin_expect(ret != 0, 0L);
+  tmp = ldv__builtin_expect(ret != 0, 0L);
   }
   if (tmp != 0L) {
     goto fail;
@@ -13318,7 +13318,7 @@ static int ast_cursor_init(struct drm_device *dev )
   {
   ast->cursor_cache = obj;
   ast->cursor_cache_gpu_addr = gpu_addr;
-  tmp___0 = __builtin_expect((drm_debug & 4U) != 0U, 0L);
+  tmp___0 = ldv__builtin_expect((drm_debug & 4U) != 0U, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -14354,7 +14354,6 @@ extern void __bad_percpu_size(void) ;
 extern void __bad_size_call_parameter(void) ;
 extern void *__memcpy(void * , void const   * , size_t  ) ;
 extern char *strcpy(char * , char const   * ) ;
-extern int ( /* missing proto */  __builtin_unreachable)() ;
 __inline static unsigned long arch_local_save_flags(void) 
 { 
   unsigned long __ret ;
@@ -14372,7 +14371,7 @@ __inline static unsigned long arch_local_save_flags(void)
   __edx = __edx;
   __ecx = __ecx;
   __eax = __eax;
-  tmp = __builtin_expect((unsigned long )pv_irq_ops.save_fl.func == (unsigned long )((void *)0),
+  tmp = ldv__builtin_expect((unsigned long )pv_irq_ops.save_fl.func == (unsigned long )((void *)0),
                          0L);
   }
   if (tmp != 0L) {
@@ -14857,7 +14856,7 @@ __inline static int __ttm_bo_reserve___0(struct ttm_buffer_object *bo , bool int
   if ((int )no_wait) {
     {
     __ret_warn_on = (unsigned long )ticket != (unsigned long )((struct ww_acquire_ctx *)0);
-    tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
     if (tmp != 0L) {
       {
@@ -14867,7 +14866,7 @@ __inline static int __ttm_bo_reserve___0(struct ttm_buffer_object *bo , bool int
 
     }
     {
-    tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
     if (tmp___0 != 0L) {
       return (-16);
@@ -14912,7 +14911,7 @@ __inline static int ttm_bo_reserve___0(struct ttm_buffer_object *bo , bool inter
   {
   tmp = atomic_read((atomic_t const   *)(& bo->kref.refcount));
   __ret_warn_on = tmp == 0;
-  tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -14922,10 +14921,10 @@ __inline static int ttm_bo_reserve___0(struct ttm_buffer_object *bo , bool inter
 
   }
   {
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
   ret = __ttm_bo_reserve___0(bo, (int )interruptible, (int )no_wait, (int )use_ticket,
                              ticket);
-  tmp___1 = __builtin_expect(ret == 0, 1L);
+  tmp___1 = ldv__builtin_expect(ret == 0, 1L);
   }
   if (tmp___1 != 0L) {
     {
@@ -14974,7 +14973,7 @@ __inline static void drm_gem_object_unreference_unlocked___1(struct drm_gem_obje
       dev = obj->dev;
       ldv_mutex_lock_110___1(& dev->struct_mutex);
       tmp = atomic_dec_and_test(& obj->refcount.refcount);
-      tmp___0 = __builtin_expect(tmp != 0, 1L);
+      tmp___0 = ldv__builtin_expect(tmp != 0, 1L);
       }
       if (tmp___0 != 0L) {
         {
@@ -15343,7 +15342,7 @@ static int astfb_create(struct drm_fb_helper *helper , struct drm_fb_helper_surf
   info->screen_base = (char *)sysram;
   info->screen_size = (unsigned long )size;
   info->pixmap.flags = 2U;
-  tmp = __builtin_expect((drm_debug & 4U) != 0U, 0L);
+  tmp = ldv__builtin_expect((drm_debug & 4U) != 0U, 0L);
   }
   if (tmp != 0L) {
     {
@@ -16542,7 +16541,7 @@ int ast_mmap(struct file *filp , struct vm_area_struct *vma )
 
   {
   {
-  tmp = __builtin_expect((unsigned long long )vma->vm_pgoff <= 1048575ULL, 0L);
+  tmp = ldv__builtin_expect((unsigned long long )vma->vm_pgoff <= 1048575ULL, 0L);
   }
   if (tmp != 0L) {
     return (-22);
@@ -22328,7 +22327,7 @@ void ldv_linux_usb_urb_check_final_state(void)
 }
 }
 extern void ldv_assert(char const   * , int  ) ;
-void __builtin_trap(void) ;
+void ldv__builtin_trap(void) ;
 void ldv_assume(int expression ) 
 { 
 
@@ -22352,7 +22351,7 @@ void ldv_stop(void)
   goto ldv_stop_label;
 }
 }
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 
@@ -22360,7 +22359,7 @@ long __builtin_expect(long exp , long c )
   return (exp);
 }
 }
-void __builtin_trap(void) 
+void ldv__builtin_trap(void) 
 { 
 
 

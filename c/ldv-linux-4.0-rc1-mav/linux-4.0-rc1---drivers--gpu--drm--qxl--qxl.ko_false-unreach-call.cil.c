@@ -7018,7 +7018,7 @@ void ldv_dummy_resourceless_instance_callback_9_7(int (*arg0)(struct drm_framebu
                                                   unsigned int arg4 , struct drm_clip_rect *arg5 ,
                                                   unsigned int arg6 ) ;
 void ldv_entry_EMGentry_18(void *arg0 ) ;
-void main(void) ;
+int main(void) ;
 void ldv_file_operations_file_operations_instance_0(void *arg0 ) ;
 void ldv_file_operations_instance_callback_0_102(int (*arg0)(struct drm_device * ,
                                                              struct drm_master * ) ,
@@ -7608,7 +7608,7 @@ void ldv_entry_EMGentry_18(void *arg0 )
   return;
 }
 }
-void main(void) 
+int main(void) 
 { 
 
 
@@ -7617,7 +7617,7 @@ void main(void)
   ldv_ldv_initialize_115();
   ldv_entry_EMGentry_18((void *)0);
   }
-  return;
+return 0;
 }
 }
 void ldv_file_operations_file_operations_instance_0(void *arg0 ) 
@@ -11032,7 +11032,7 @@ static int ldv_ldv_post_probe_119(int retval )
   return (tmp);
 }
 }
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 void *ldv_kzalloc(size_t size , gfp_t flags ) ;
 void ldv_linux_lib_idr_idr_init_release_idr_of_qxl_device(void) ;
 void ldv_linux_lib_idr_idr_init_surf_id_idr_of_qxl_device(void) ;
@@ -11136,7 +11136,7 @@ static void qxl_dump_mode(struct qxl_device *qdev , void *p )
   {
   {
   m = (struct qxl_mode *)p;
-  tmp = __builtin_expect((drm_debug & 4U) != 0U, 0L);
+  tmp = ldv__builtin_expect((drm_debug & 4U) != 0U, 0L);
   }
   if (tmp != 0L) {
     {
@@ -11321,7 +11321,7 @@ static int qxl_device_init(struct qxl_device *qdev , struct drm_device *ddev , s
 
   }
   {
-  tmp = __builtin_expect((drm_debug & 4U) != 0U, 0L);
+  tmp = ldv__builtin_expect((drm_debug & 4U) != 0U, 0L);
   }
   if (tmp != 0L) {
     {
@@ -11648,7 +11648,6 @@ void ldv_linux_kernel_locking_mutex_mutex_unlock_struct_mutex_of_drm_device(stru
 extern void *__memcpy(void * , void const   * , size_t  ) ;
 extern void *__memset(void * , int  , size_t  ) ;
 extern void warn_slowpath_null(char const   * , int const    ) ;
-extern int ( /* missing proto */  __builtin_unreachable)() ;
 extern void __cmpxchg_wrong_size(void) ;
 __inline static int atomic_read(atomic_t const   *v ) 
 { 
@@ -11738,7 +11737,7 @@ __inline static int __atomic_add_unless(atomic_t *v , int a , int u )
   }
   ldv_6361: 
   {
-  tmp = __builtin_expect(c == u, 0L);
+  tmp = ldv__builtin_expect(c == u, 0L);
   }
   if (tmp != 0L) {
     goto ldv_6360;
@@ -11747,7 +11746,7 @@ __inline static int __atomic_add_unless(atomic_t *v , int a , int u )
   }
   {
   old = atomic_cmpxchg(v, c, c + a);
-  tmp___0 = __builtin_expect(old == c, 1L);
+  tmp___0 = ldv__builtin_expect(old == c, 1L);
   }
   if (tmp___0 != 0L) {
     goto ldv_6360;
@@ -11923,7 +11922,7 @@ __inline static int __ttm_bo_reserve(struct ttm_buffer_object *bo , bool interru
   if ((int )no_wait) {
     {
     __ret_warn_on = (unsigned long )ticket != (unsigned long )((struct ww_acquire_ctx *)0);
-    tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
     if (tmp != 0L) {
       {
@@ -11933,7 +11932,7 @@ __inline static int __ttm_bo_reserve(struct ttm_buffer_object *bo , bool interru
 
     }
     {
-    tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
     if (tmp___0 != 0L) {
       return (-16);
@@ -11978,7 +11977,7 @@ __inline static int ttm_bo_reserve(struct ttm_buffer_object *bo , bool interrupt
   {
   tmp = atomic_read((atomic_t const   *)(& bo->kref.refcount));
   __ret_warn_on = tmp == 0;
-  tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -11988,10 +11987,10 @@ __inline static int ttm_bo_reserve(struct ttm_buffer_object *bo , bool interrupt
 
   }
   {
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
   ret = __ttm_bo_reserve(bo, (int )interruptible, (int )no_wait, (int )use_ticket,
                          ticket);
-  tmp___1 = __builtin_expect(ret == 0, 1L);
+  tmp___1 = ldv__builtin_expect(ret == 0, 1L);
   }
   if (tmp___1 != 0L) {
     {
@@ -12052,7 +12051,7 @@ __inline static void drm_gem_object_unreference_unlocked(struct drm_gem_object *
       dev = obj->dev;
       ldv_mutex_lock_110(& dev->struct_mutex);
       tmp = atomic_dec_and_test(& obj->refcount.refcount);
-      tmp___0 = __builtin_expect(tmp != 0, 1L);
+      tmp___0 = ldv__builtin_expect(tmp != 0, 1L);
       }
       if (tmp___0 != 0L) {
         {
@@ -12126,7 +12125,7 @@ __inline static int qxl_bo_reserve(struct qxl_bo *bo , bool no_wait )
   {
   {
   r = ttm_bo_reserve(& bo->tbo, 1, (int )no_wait, 0, (struct ww_acquire_ctx *)0);
-  tmp = __builtin_expect(r != 0, 0L);
+  tmp = ldv__builtin_expect(r != 0, 0L);
   }
   if (tmp != 0L) {
     if (r != -512) {
@@ -12261,7 +12260,7 @@ static int qxl_display_copy_rom_client_monitors_config(struct qxl_device *qdev )
   }
   if (num_monitors > (int )(qdev->monitors_config)->max_allowed) {
     {
-    tmp = __builtin_expect((drm_debug & 4U) != 0U, 0L);
+    tmp = ldv__builtin_expect((drm_debug & 4U) != 0U, 0L);
     }
     if (tmp != 0L) {
       {
@@ -12292,7 +12291,7 @@ static int qxl_display_copy_rom_client_monitors_config(struct qxl_device *qdev )
   client_head->surface_id = 0U;
   client_head->id = (uint32_t )i;
   client_head->flags = 0U;
-  tmp___0 = __builtin_expect((drm_debug & 4U) != 0U, 0L);
+  tmp___0 = ldv__builtin_expect((drm_debug & 4U) != 0U, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -12977,7 +12976,7 @@ void qxl_send_monitors_config(struct qxl_device *qdev )
 
   {
   {
-  tmp = __builtin_expect((qdev->ram_header)->monitors_config == 0ULL, 0L);
+  tmp = ldv__builtin_expect((qdev->ram_header)->monitors_config == 0ULL, 0L);
   }
   if (tmp != 0L) {
     {
@@ -13030,7 +13029,7 @@ static void qxl_monitors_config_set(struct qxl_device *qdev , int index , unsign
 
   {
   {
-  tmp = __builtin_expect((drm_debug & 4U) != 0U, 0L);
+  tmp = ldv__builtin_expect((drm_debug & 4U) != 0U, 0L);
   }
   if (tmp != 0L) {
     {
@@ -13079,7 +13078,7 @@ static int qxl_crtc_mode_set(struct drm_crtc *crtc , struct drm_display_mode *mo
   recreate_primary = 0;
   if ((unsigned long )(crtc->primary)->fb == (unsigned long )((struct drm_framebuffer *)0)) {
     {
-    tmp = __builtin_expect((drm_debug & 4U) != 0U, 0L);
+    tmp = ldv__builtin_expect((drm_debug & 4U) != 0U, 0L);
     }
     if (tmp != 0L) {
       {
@@ -13105,7 +13104,7 @@ static int qxl_crtc_mode_set(struct drm_crtc *crtc , struct drm_display_mode *mo
   qfb = (struct qxl_framebuffer *)__mptr___2;
   __mptr___3 = (struct drm_gem_object  const  *)qfb->obj;
   bo = (struct qxl_bo *)__mptr___3 + 0xfffffffffffffc08UL;
-  tmp___0 = __builtin_expect((long )((int )drm_debug) & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )((int )drm_debug) & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -13163,7 +13162,7 @@ static int qxl_crtc_mode_set(struct drm_crtc *crtc , struct drm_display_mode *mo
   }
   if ((int )bo->is_primary) {
     {
-    tmp___1 = __builtin_expect((drm_debug & 4U) != 0U, 0L);
+    tmp___1 = ldv__builtin_expect((drm_debug & 4U) != 0U, 0L);
     }
     if (tmp___1 != 0L) {
       {
@@ -13201,7 +13200,7 @@ static void qxl_crtc_prepare(struct drm_crtc *crtc )
 
   {
   {
-  tmp = __builtin_expect((long )((int )drm_debug) & 1L, 0L);
+  tmp = ldv__builtin_expect((long )((int )drm_debug) & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -13220,7 +13219,7 @@ static void qxl_crtc_commit(struct drm_crtc *crtc )
 
   {
   {
-  tmp = __builtin_expect((long )((int )drm_debug) & 1L, 0L);
+  tmp = ldv__builtin_expect((long )((int )drm_debug) & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -13303,7 +13302,7 @@ static void qxl_enc_dpms(struct drm_encoder *encoder , int mode )
 
   {
   {
-  tmp = __builtin_expect((long )((int )drm_debug) & 1L, 0L);
+  tmp = ldv__builtin_expect((long )((int )drm_debug) & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -13322,7 +13321,7 @@ static bool qxl_enc_mode_fixup(struct drm_encoder *encoder , struct drm_display_
 
   {
   {
-  tmp = __builtin_expect((long )((int )drm_debug) & 1L, 0L);
+  tmp = ldv__builtin_expect((long )((int )drm_debug) & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -13340,7 +13339,7 @@ static void qxl_enc_prepare(struct drm_encoder *encoder )
 
   {
   {
-  tmp = __builtin_expect((long )((int )drm_debug) & 1L, 0L);
+  tmp = ldv__builtin_expect((long )((int )drm_debug) & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -13367,7 +13366,7 @@ static void qxl_write_monitors_config_for_encoder(struct qxl_device *qdev , stru
   {
   __mptr = (struct drm_encoder  const  *)encoder;
   output = (struct qxl_output *)__mptr + 0xfffffffffffffc60UL;
-  tmp = __builtin_expect((unsigned long )encoder == (unsigned long )((struct drm_encoder *)0),
+  tmp = ldv__builtin_expect((unsigned long )encoder == (unsigned long )((struct drm_encoder *)0),
                          0L);
   }
   if (tmp != 0L) {
@@ -13399,7 +13398,7 @@ static void qxl_write_monitors_config_for_encoder(struct qxl_device *qdev , stru
   }
   if (i != 0) {
     {
-    tmp___0 = __builtin_expect((long )((int )drm_debug) & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )((int )drm_debug) & 1L, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -13431,7 +13430,7 @@ static void qxl_write_monitors_config_for_encoder(struct qxl_device *qdev , stru
     head->y = 0U;
   }
   {
-  tmp___1 = __builtin_expect((drm_debug & 4U) != 0U, 0L);
+  tmp___1 = ldv__builtin_expect((drm_debug & 4U) != 0U, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -13457,7 +13456,7 @@ static void qxl_enc_commit(struct drm_encoder *encoder )
   {
   qdev = (struct qxl_device *)(encoder->dev)->dev_private;
   qxl_write_monitors_config_for_encoder(qdev, encoder);
-  tmp = __builtin_expect((long )((int )drm_debug) & 1L, 0L);
+  tmp = ldv__builtin_expect((long )((int )drm_debug) & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -13476,7 +13475,7 @@ static void qxl_enc_mode_set(struct drm_encoder *encoder , struct drm_display_mo
 
   {
   {
-  tmp = __builtin_expect((long )((int )drm_debug) & 1L, 0L);
+  tmp = ldv__builtin_expect((long )((int )drm_debug) & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -13503,7 +13502,7 @@ static int qxl_conn_get_modes(struct drm_connector *connector )
   qdev = (struct qxl_device *)(connector->dev)->dev_private;
   pwidth = 1024U;
   pheight = 768U;
-  tmp = __builtin_expect((drm_debug & 4U) != 0U, 0L);
+  tmp = ldv__builtin_expect((drm_debug & 4U) != 0U, 0L);
   }
   if (tmp != 0L) {
     {
@@ -13537,7 +13536,7 @@ static int qxl_conn_mode_valid(struct drm_connector *connector , struct drm_disp
 
   {
   {
-  tmp = __builtin_expect((long )((int )drm_debug) & 1L, 0L);
+  tmp = ldv__builtin_expect((long )((int )drm_debug) & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -13560,7 +13559,7 @@ static struct drm_encoder *qxl_best_encoder(struct drm_connector *connector )
   {
   __mptr = (struct drm_connector  const  *)connector;
   qxl_output = (struct qxl_output *)__mptr + 0xfffffffffffffff8UL;
-  tmp = __builtin_expect((long )((int )drm_debug) & 1L, 0L);
+  tmp = ldv__builtin_expect((long )((int )drm_debug) & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -13583,7 +13582,7 @@ static void qxl_conn_save(struct drm_connector *connector )
 
   {
   {
-  tmp = __builtin_expect((long )((int )drm_debug) & 1L, 0L);
+  tmp = ldv__builtin_expect((long )((int )drm_debug) & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -13601,7 +13600,7 @@ static void qxl_conn_restore(struct drm_connector *connector )
 
   {
   {
-  tmp = __builtin_expect((long )((int )drm_debug) & 1L, 0L);
+  tmp = ldv__builtin_expect((long )((int )drm_debug) & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -13647,7 +13646,7 @@ static enum drm_connector_status qxl_conn_detect(struct drm_connector *connector
   }
   {
   connected = tmp___0;
-  tmp___1 = __builtin_expect((long )((int )drm_debug) & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )((int )drm_debug) & 1L, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -13673,7 +13672,7 @@ static int qxl_conn_set_property(struct drm_connector *connector , struct drm_pr
 
   {
   {
-  tmp = __builtin_expect((long )((int )drm_debug) & 1L, 0L);
+  tmp = ldv__builtin_expect((long )((int )drm_debug) & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -14745,7 +14744,7 @@ int qxl_mmap(struct file *filp , struct vm_area_struct *vma )
 
   {
   {
-  tmp = __builtin_expect((unsigned long long )vma->vm_pgoff <= 1048575ULL, 0L);
+  tmp = ldv__builtin_expect((unsigned long long )vma->vm_pgoff <= 1048575ULL, 0L);
   }
   if (tmp != 0L) {
     {
@@ -14775,7 +14774,7 @@ int qxl_mmap(struct file *filp , struct vm_area_struct *vma )
   }
   {
   r = ttm_bo_mmap(filp, vma, & qdev->mman.bdev);
-  tmp___0 = __builtin_expect(r != 0, 0L);
+  tmp___0 = ldv__builtin_expect(r != 0, 0L);
   }
   if (tmp___0 != 0L) {
     return (r);
@@ -14783,7 +14782,7 @@ int qxl_mmap(struct file *filp , struct vm_area_struct *vma )
 
   }
   {
-  tmp___1 = __builtin_expect((unsigned long )ttm_vm_ops == (unsigned long )((struct vm_operations_struct  const  *)0),
+  tmp___1 = ldv__builtin_expect((unsigned long )ttm_vm_ops == (unsigned long )((struct vm_operations_struct  const  *)0),
                              0L);
   }
   if (tmp___1 != 0L) {
@@ -14983,7 +14982,7 @@ static int qxl_ttm_backend_bind(struct ttm_tt *ttm , struct ttm_mem_reg *bo_mem 
   if (ttm->num_pages == 0UL) {
     {
     __ret_warn_on = 1;
-    tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
     if (tmp != 0L) {
       {
@@ -14994,7 +14993,7 @@ static int qxl_ttm_backend_bind(struct ttm_tt *ttm , struct ttm_mem_reg *bo_mem 
 
     }
     {
-    __builtin_expect(__ret_warn_on != 0, 0L);
+    ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
   } else {
 
@@ -15099,7 +15098,7 @@ static void qxl_move_null(struct ttm_buffer_object *bo , struct ttm_mem_reg *new
   {
   {
   old_mem = & bo->mem;
-  tmp = __builtin_expect((unsigned long )old_mem->mm_node != (unsigned long )((void *)0),
+  tmp = ldv__builtin_expect((unsigned long )old_mem->mm_node != (unsigned long )((void *)0),
                          0L);
   }
   if (tmp != 0L) {
@@ -15549,7 +15548,7 @@ __inline static unsigned long arch_local_save_flags(void)
   __edx = __edx;
   __ecx = __ecx;
   __eax = __eax;
-  tmp = __builtin_expect((unsigned long )pv_irq_ops.save_fl.func == (unsigned long )((void *)0),
+  tmp = ldv__builtin_expect((unsigned long )pv_irq_ops.save_fl.func == (unsigned long )((void *)0),
                          0L);
   }
   if (tmp != 0L) {
@@ -15653,7 +15652,7 @@ __inline static int kref_sub(struct kref *kref , unsigned int count , void (*rel
   {
   {
   __ret_warn_on = (unsigned long )release == (unsigned long )((void (*)(struct kref * ))0);
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp != 0L) {
     {
@@ -15663,7 +15662,7 @@ __inline static int kref_sub(struct kref *kref , unsigned int count , void (*rel
 
   }
   {
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
   tmp___0 = atomic_sub_and_test((int )count, & kref->refcount);
   }
   if (tmp___0 != 0) {
@@ -16065,7 +16064,7 @@ __inline static int __ttm_bo_reserve___0(struct ttm_buffer_object *bo , bool int
   if ((int )no_wait) {
     {
     __ret_warn_on = (unsigned long )ticket != (unsigned long )((struct ww_acquire_ctx *)0);
-    tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
     if (tmp != 0L) {
       {
@@ -16075,7 +16074,7 @@ __inline static int __ttm_bo_reserve___0(struct ttm_buffer_object *bo , bool int
 
     }
     {
-    tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
     if (tmp___0 != 0L) {
       return (-16);
@@ -16120,7 +16119,7 @@ __inline static int ttm_bo_reserve___0(struct ttm_buffer_object *bo , bool inter
   {
   tmp = atomic_read((atomic_t const   *)(& bo->kref.refcount));
   __ret_warn_on = tmp == 0;
-  tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -16130,10 +16129,10 @@ __inline static int ttm_bo_reserve___0(struct ttm_buffer_object *bo , bool inter
 
   }
   {
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
   ret = __ttm_bo_reserve___0(bo, (int )interruptible, (int )no_wait, (int )use_ticket,
                              ticket);
-  tmp___1 = __builtin_expect(ret == 0, 1L);
+  tmp___1 = ldv__builtin_expect(ret == 0, 1L);
   }
   if (tmp___1 != 0L) {
     {
@@ -16197,7 +16196,7 @@ __inline static void drm_gem_object_unreference_unlocked___0(struct drm_gem_obje
       dev = obj->dev;
       ldv_mutex_lock_110___0(& dev->struct_mutex);
       tmp = atomic_dec_and_test(& obj->refcount.refcount);
-      tmp___0 = __builtin_expect(tmp != 0, 1L);
+      tmp___0 = ldv__builtin_expect(tmp != 0, 1L);
       }
       if (tmp___0 != 0L) {
         {
@@ -16235,7 +16234,7 @@ __inline static int qxl_bo_reserve___0(struct qxl_bo *bo , bool no_wait )
   {
   {
   r = ttm_bo_reserve___0(& bo->tbo, 1, (int )no_wait, 0, (struct ww_acquire_ctx *)0);
-  tmp = __builtin_expect(r != 0, 0L);
+  tmp = ldv__builtin_expect(r != 0, 0L);
   }
   if (tmp != 0L) {
     if (r != -512) {
@@ -16851,7 +16850,7 @@ static void qxlfb_destroy_pinned_object(struct drm_gem_object *gobj )
   __mptr = (struct drm_gem_object  const  *)gobj;
   qbo = (struct qxl_bo *)__mptr + 0xfffffffffffffc08UL;
   ret = qxl_bo_reserve___0(qbo, 0);
-  tmp = __builtin_expect(ret == 0, 1L);
+  tmp = ldv__builtin_expect(ret == 0, 1L);
   }
   if (tmp != 0L) {
     {
@@ -16878,7 +16877,7 @@ int qxl_get_handle_for_primary_fb(struct qxl_device *qdev , struct drm_file *fil
   {
   {
   gobj = (qdev->fbdev_qfb)->obj;
-  tmp = __builtin_expect((unsigned long )gobj == (unsigned long )((struct drm_gem_object *)0),
+  tmp = ldv__builtin_expect((unsigned long )gobj == (unsigned long )((struct drm_gem_object *)0),
                          0L);
   }
   if (tmp != 0L) {
@@ -16944,7 +16943,7 @@ static int qxlfb_create_pinned_object(struct qxl_fbdev *qfbdev , struct drm_mode
   qbo->surf.stride = (int32_t )mode_cmd->pitches[0];
   qbo->surf.format = 32U;
   ret = qxl_bo_reserve___0(qbo, 0);
-  tmp = __builtin_expect(ret != 0, 0L);
+  tmp = ldv__builtin_expect(ret != 0, 0L);
   }
   if (tmp != 0L) {
     goto out_unref;
@@ -17028,7 +17027,7 @@ static int qxlfb_create(struct qxl_fbdev *qfbdev , struct drm_fb_helper_surface_
   }
   {
   shadow = ldv_vmalloc_122((unsigned long )(mode_cmd.pitches[0] * mode_cmd.height));
-  tmp = __builtin_expect((unsigned long )shadow == (unsigned long )((void *)0), 0L);
+  tmp = ldv__builtin_expect((unsigned long )shadow == (unsigned long )((void *)0), 0L);
   }
   if (tmp != 0L) {
     {
@@ -17116,7 +17115,7 @@ static int qxlfb_create(struct qxl_fbdev *qfbdev , struct drm_fb_helper_surface_
   if ((unsigned long )qbo != (unsigned long )((struct qxl_bo *)0)) {
     {
     ret = qxl_bo_reserve___0(qbo, 0);
-    tmp___2 = __builtin_expect(ret == 0, 1L);
+    tmp___2 = ldv__builtin_expect(ret == 0, 1L);
     }
     if (tmp___2 != 0L) {
       {
@@ -17807,12 +17806,12 @@ __inline static void kref_get(struct kref *kref )
   {
   tmp = atomic_add_return(1, & kref->refcount);
   __ret_warn_once = tmp <= 1;
-  tmp___2 = __builtin_expect(__ret_warn_once != 0, 0L);
+  tmp___2 = ldv__builtin_expect(__ret_warn_once != 0, 0L);
   }
   if (tmp___2 != 0L) {
     {
     __ret_warn_on = ! __warned;
-    tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -17822,7 +17821,7 @@ __inline static void kref_get(struct kref *kref )
 
     }
     {
-    tmp___1 = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp___1 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
     if (tmp___1 != 0L) {
       __warned = 1;
@@ -17833,7 +17832,7 @@ __inline static void kref_get(struct kref *kref )
 
   }
   {
-  __builtin_expect(__ret_warn_once != 0, 0L);
+  ldv__builtin_expect(__ret_warn_once != 0, 0L);
   }
   return;
 }
@@ -17847,7 +17846,7 @@ __inline static int kref_sub___0(struct kref *kref , unsigned int count , void (
   {
   {
   __ret_warn_on = (unsigned long )release == (unsigned long )((void (*)(struct kref * ))0);
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp != 0L) {
     {
@@ -17857,7 +17856,7 @@ __inline static int kref_sub___0(struct kref *kref , unsigned int count , void (
 
   }
   {
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
   tmp___0 = atomic_sub_and_test((int )count, & kref->refcount);
   }
   if (tmp___0 != 0) {
@@ -18117,7 +18116,7 @@ int qxl_bo_create(struct qxl_device *qdev , unsigned long size , bool kernel , b
   __y = 4096UL;
   size = ((size + 4095UL) / 4096UL) * 4096UL;
   r = drm_gem_object_init(qdev->ddev, & bo->gem_base, size);
-  tmp___0 = __builtin_expect(r != 0, 0L);
+  tmp___0 = ldv__builtin_expect(r != 0, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -18143,7 +18142,7 @@ int qxl_bo_create(struct qxl_device *qdev , unsigned long size , bool kernel , b
   r = ttm_bo_init(& qdev->mman.bdev, & bo->tbo, size, type, & bo->placement, 0U, (int )((bool )(! ((int )kernel != 0))),
                   (struct file *)0, size, (struct sg_table *)0, (struct reservation_object *)0,
                   & qxl_ttm_bo_destroy);
-  tmp___1 = __builtin_expect(r != 0, 0L);
+  tmp___1 = ldv__builtin_expect(r != 0, 0L);
   }
   if (tmp___1 != 0L) {
     if (r != -512) {
@@ -18345,7 +18344,7 @@ int qxl_bo_pin(struct qxl_bo *bo , u32 domain , u64 *gpu_addr )
   {
   qxl_ttm_placement_from_domain(bo, domain, 1);
   r = ttm_bo_validate(& bo->tbo, & bo->placement, 0, 0);
-  tmp = __builtin_expect(r == 0, 1L);
+  tmp = ldv__builtin_expect(r == 0, 1L);
   }
   if (tmp != 0L) {
     bo->pin_count = 1U;
@@ -18360,7 +18359,7 @@ int qxl_bo_pin(struct qxl_bo *bo , u32 domain , u64 *gpu_addr )
 
   }
   {
-  tmp___0 = __builtin_expect(r != 0, 0L);
+  tmp___0 = ldv__builtin_expect(r != 0, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -18408,7 +18407,7 @@ int qxl_bo_unpin(struct qxl_bo *bo )
   }
   {
   r = ttm_bo_validate(& bo->tbo, & bo->placement, 0, 0);
-  tmp = __builtin_expect(r != 0, 0L);
+  tmp = ldv__builtin_expect(r != 0, 0L);
   }
   if (tmp != 0L) {
     {
@@ -18701,7 +18700,7 @@ __inline static int __atomic_add_unless___1(atomic_t *v , int a , int u )
   }
   ldv_6365: 
   {
-  tmp = __builtin_expect(c == u, 0L);
+  tmp = ldv__builtin_expect(c == u, 0L);
   }
   if (tmp != 0L) {
     goto ldv_6364;
@@ -18710,7 +18709,7 @@ __inline static int __atomic_add_unless___1(atomic_t *v , int a , int u )
   }
   {
   old = atomic_cmpxchg___1(v, c, c + a);
-  tmp___0 = __builtin_expect(old == c, 1L);
+  tmp___0 = ldv__builtin_expect(old == c, 1L);
   }
   if (tmp___0 != 0L) {
     goto ldv_6364;
@@ -18753,7 +18752,7 @@ __inline static void drm_gem_object_unreference_unlocked___1(struct drm_gem_obje
       dev = obj->dev;
       ldv_mutex_lock_110___1(& dev->struct_mutex);
       tmp = atomic_dec_and_test(& obj->refcount.refcount);
-      tmp___0 = __builtin_expect(tmp != 0, 1L);
+      tmp___0 = ldv__builtin_expect(tmp != 0, 1L);
       }
       if (tmp___0 != 0L) {
         {
@@ -18849,7 +18848,7 @@ int qxl_gem_object_create_with_handle(struct qxl_device *qdev , struct drm_file 
 
   {
   {
-  tmp = __builtin_expect((unsigned long )qobj == (unsigned long )((struct qxl_bo **)0),
+  tmp = ldv__builtin_expect((unsigned long )qobj == (unsigned long )((struct qxl_bo **)0),
                          0L);
   }
   if (tmp != 0L) {
@@ -18862,7 +18861,7 @@ int qxl_gem_object_create_with_handle(struct qxl_device *qdev , struct drm_file 
 
   }
   {
-  tmp___0 = __builtin_expect((unsigned long )handle == (unsigned long )((uint32_t *)0U),
+  tmp___0 = ldv__builtin_expect((unsigned long )handle == (unsigned long )((uint32_t *)0U),
                              0L);
   }
   if (tmp___0 != 0L) {
@@ -18980,8 +18979,8 @@ static void ldv_mutex_unlock_113(struct mutex *ldv_func_arg1 )
   return;
 }
 }
-void __builtin_va_end(__builtin_va_list  ) ;
-void __builtin_va_start(__builtin_va_list  ) ;
+void ldv__builtin_va_end(__builtin_va_list  ) ;
+void ldv__builtin_va_start(__builtin_va_list  ) ;
 void *ldv_undef_ptr(void) ;
 void ldv_linux_lib_idr_idr_alloc_surf_id_idr_of_qxl_device(void) ;
 void ldv_linux_lib_idr_idr_find_surf_id_idr_of_qxl_device(void) ;
@@ -19514,7 +19513,7 @@ __inline static int __ttm_bo_reserve___1(struct ttm_buffer_object *bo , bool int
   if ((int )no_wait) {
     {
     __ret_warn_on = (unsigned long )ticket != (unsigned long )((struct ww_acquire_ctx *)0);
-    tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
     if (tmp != 0L) {
       {
@@ -19524,7 +19523,7 @@ __inline static int __ttm_bo_reserve___1(struct ttm_buffer_object *bo , bool int
 
     }
     {
-    tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
     if (tmp___0 != 0L) {
       return (-16);
@@ -19569,7 +19568,7 @@ __inline static int ttm_bo_reserve___1(struct ttm_buffer_object *bo , bool inter
   {
   tmp = atomic_read((atomic_t const   *)(& bo->kref.refcount));
   __ret_warn_on = tmp == 0;
-  tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -19579,10 +19578,10 @@ __inline static int ttm_bo_reserve___1(struct ttm_buffer_object *bo , bool inter
 
   }
   {
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
   ret = __ttm_bo_reserve___1(bo, (int )interruptible, (int )no_wait, (int )use_ticket,
                              ticket);
-  tmp___1 = __builtin_expect(ret == 0, 1L);
+  tmp___1 = ldv__builtin_expect(ret == 0, 1L);
   }
   if (tmp___1 != 0L) {
     {
@@ -19637,7 +19636,7 @@ __inline static int qxl_bo_reserve___1(struct qxl_bo *bo , bool no_wait )
   {
   {
   r = ttm_bo_reserve___1(& bo->tbo, 1, (int )no_wait, 0, (struct ww_acquire_ctx *)0);
-  tmp = __builtin_expect(r != 0, 0L);
+  tmp = ldv__builtin_expect(r != 0, 0L);
   }
   if (tmp != 0L) {
     if (r != -512) {
@@ -20618,9 +20617,9 @@ void qxl_io_log(struct qxl_device *qdev , char const   *fmt  , ...)
 
   {
   {
-  __builtin_va_start((__va_list_tag *)(& args));
+  ldv__builtin_va_start((__va_list_tag *)(& args));
   vsnprintf((char *)(& (qdev->ram_header)->log_buf), 4096UL, fmt, (__va_list_tag *)(& args));
-  __builtin_va_end((__va_list_tag *)(& args));
+  ldv__builtin_va_end((__va_list_tag *)(& args));
   outb(0, qdev->io_base + 7);
   }
   return;
@@ -22640,7 +22639,7 @@ int qxl_irq_init(struct qxl_device *qdev )
   qdev->irq_received_error = 0U;
   ret = drm_irq_install(qdev->ddev, (int )((qdev->ddev)->pdev)->irq);
   (qdev->ram_header)->int_mask = 39U;
-  tmp = __builtin_expect(ret != 0, 0L);
+  tmp = ldv__builtin_expect(ret != 0, 0L);
   }
   if (tmp != 0L) {
     {
@@ -22684,7 +22683,7 @@ __inline static void drm_gem_object_unreference_unlocked___2(struct drm_gem_obje
       dev = obj->dev;
       ldv_mutex_lock_110___2(& dev->struct_mutex);
       tmp = atomic_dec_and_test(& obj->refcount.refcount);
-      tmp___0 = __builtin_expect(tmp != 0, 1L);
+      tmp___0 = ldv__builtin_expect(tmp != 0, 1L);
       }
       if (tmp___0 != 0L) {
         {
@@ -22771,7 +22770,7 @@ int qxl_mode_dumb_mmap(struct drm_file *file_priv , struct drm_device *dev , uin
 
   {
   {
-  tmp = __builtin_expect((unsigned long )offset_p == (unsigned long )((uint64_t *)0ULL),
+  tmp = ldv__builtin_expect((unsigned long )offset_p == (unsigned long )((uint64_t *)0ULL),
                          0L);
   }
   if (tmp != 0L) {
@@ -22924,7 +22923,7 @@ __inline static unsigned long copy_from_user(void *to , void const   *from , uns
   {
   sz = -1;
   might_fault();
-  tmp = __builtin_expect(sz < 0, 1L);
+  tmp = ldv__builtin_expect(sz < 0, 1L);
   }
   if (tmp != 0L) {
     {
@@ -22932,7 +22931,7 @@ __inline static unsigned long copy_from_user(void *to , void const   *from , uns
     }
   } else {
     {
-    tmp___0 = __builtin_expect((unsigned long )sz >= n, 1L);
+    tmp___0 = ldv__builtin_expect((unsigned long )sz >= n, 1L);
     }
     if (tmp___0 != 0L) {
       {
@@ -23011,7 +23010,7 @@ __inline static int __ttm_bo_reserve___2(struct ttm_buffer_object *bo , bool int
   if ((int )no_wait) {
     {
     __ret_warn_on = (unsigned long )ticket != (unsigned long )((struct ww_acquire_ctx *)0);
-    tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
     if (tmp != 0L) {
       {
@@ -23021,7 +23020,7 @@ __inline static int __ttm_bo_reserve___2(struct ttm_buffer_object *bo , bool int
 
     }
     {
-    tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
     if (tmp___0 != 0L) {
       return (-16);
@@ -23066,7 +23065,7 @@ __inline static int ttm_bo_reserve___2(struct ttm_buffer_object *bo , bool inter
   {
   tmp = atomic_read((atomic_t const   *)(& bo->kref.refcount));
   __ret_warn_on = tmp == 0;
-  tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -23076,10 +23075,10 @@ __inline static int ttm_bo_reserve___2(struct ttm_buffer_object *bo , bool inter
 
   }
   {
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
   ret = __ttm_bo_reserve___2(bo, (int )interruptible, (int )no_wait, (int )use_ticket,
                              ticket);
-  tmp___1 = __builtin_expect(ret == 0, 1L);
+  tmp___1 = ldv__builtin_expect(ret == 0, 1L);
   }
   if (tmp___1 != 0L) {
     {
@@ -23128,7 +23127,7 @@ __inline static void drm_gem_object_unreference_unlocked___3(struct drm_gem_obje
       dev = obj->dev;
       ldv_mutex_lock_110___3(& dev->struct_mutex);
       tmp = atomic_dec_and_test(& obj->refcount.refcount);
-      tmp___0 = __builtin_expect(tmp != 0, 1L);
+      tmp___0 = ldv__builtin_expect(tmp != 0, 1L);
       }
       if (tmp___0 != 0L) {
         {
@@ -23158,7 +23157,7 @@ __inline static int qxl_bo_reserve___2(struct qxl_bo *bo , bool no_wait )
   {
   {
   r = ttm_bo_reserve___2(& bo->tbo, 1, (int )no_wait, 0, (struct ww_acquire_ctx *)0);
-  tmp = __builtin_expect(r != 0, 0L);
+  tmp = ldv__builtin_expect(r != 0, 0L);
   }
   if (tmp != 0L) {
     if (r != -512) {
@@ -23353,7 +23352,7 @@ static int qxl_process_single_command(struct qxl_device *qdev , struct drm_qxl_c
   case_3: /* CIL Label */ ;
   switch_default: /* CIL Label */ 
   {
-  tmp = __builtin_expect((long )((int )drm_debug) & 1L, 0L);
+  tmp = ldv__builtin_expect((long )((int )drm_debug) & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -23382,7 +23381,7 @@ static int qxl_process_single_command(struct qxl_device *qdev , struct drm_qxl_c
     tmp___2 = 1;
   }
   {
-  tmp___3 = __builtin_expect((long )tmp___2, 1L);
+  tmp___3 = ldv__builtin_expect((long )tmp___2, 1L);
   }
   if (tmp___3 == 0L) {
     return (-14);
@@ -23440,7 +23439,7 @@ static int qxl_process_single_command(struct qxl_device *qdev , struct drm_qxl_c
   }
   if (reloc.reloc_type - 1U > 1U) {
     {
-    tmp___6 = __builtin_expect((long )((int )drm_debug) & 1L, 0L);
+    tmp___6 = ldv__builtin_expect((long )((int )drm_debug) & 1L, 0L);
     }
     if (tmp___6 != 0L) {
       {
@@ -23681,7 +23680,7 @@ static int qxl_update_area_ioctl(struct drm_device *dev , void *data , struct dr
     {
     qxl_ttm_placement_from_domain(qobj, (u32 )qobj->type, 0);
     ret = ttm_bo_validate(& qobj->tbo, & qobj->placement, 1, 0);
-    tmp = __builtin_expect(ret != 0, 0L);
+    tmp = ldv__builtin_expect(ret != 0, 0L);
     }
     if (tmp != 0L) {
       goto out;
@@ -24273,7 +24272,7 @@ __inline static int kref_sub___1(struct kref *kref , unsigned int count , void (
   {
   {
   __ret_warn_on = (unsigned long )release == (unsigned long )((void (*)(struct kref * ))0);
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp != 0L) {
     {
@@ -24283,7 +24282,7 @@ __inline static int kref_sub___1(struct kref *kref , unsigned int count , void (
 
   }
   {
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
   tmp___0 = atomic_sub_and_test((int )count, & kref->refcount);
   }
   if (tmp___0 != 0) {
@@ -24376,7 +24375,7 @@ __inline static void ww_acquire_fini(struct ww_acquire_ctx *ctx )
   }
   if (oops_in_progress == 0) {
     {
-    tmp___1 = __builtin_expect(ctx->acquired != 0U, 0L);
+    tmp___1 = ldv__builtin_expect(ctx->acquired != 0U, 0L);
     }
     if (tmp___1 != 0L) {
       {
@@ -24385,7 +24384,7 @@ __inline static void ww_acquire_fini(struct ww_acquire_ctx *ctx )
       if (tmp___0 != 0 && debug_locks_silent == 0) {
         {
         __ret_warn_on = 1;
-        tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+        tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
         }
         if (tmp != 0L) {
           {
@@ -24396,7 +24395,7 @@ __inline static void ww_acquire_fini(struct ww_acquire_ctx *ctx )
 
         }
         {
-        __builtin_expect(__ret_warn_on != 0, 0L);
+        ldv__builtin_expect(__ret_warn_on != 0, 0L);
         }
       } else {
 
@@ -24780,7 +24779,7 @@ void qxl_release_free(struct qxl_device *qdev , struct qxl_release *release )
     {
     tmp = list_empty((struct list_head  const  *)(& release->bos));
     __ret_warn_on = tmp != 0;
-    tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -24790,7 +24789,7 @@ void qxl_release_free(struct qxl_device *qdev , struct qxl_release *release )
 
     }
     {
-    __builtin_expect(__ret_warn_on != 0, 0L);
+    ldv__builtin_expect(__ret_warn_on != 0, 0L);
     qxl_release_free_list(release);
     fence_signal(& release->base);
     fence_put(& release->base);
@@ -25402,12 +25401,12 @@ int qxl_gem_prime_pin(struct drm_gem_object *obj )
   {
   {
   __ret_warn_once = 1;
-  tmp___1 = __builtin_expect(__ret_warn_once != 0, 0L);
+  tmp___1 = ldv__builtin_expect(__ret_warn_once != 0, 0L);
   }
   if (tmp___1 != 0L) {
     {
     __ret_warn_on = ! __warned;
-    tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
     if (tmp != 0L) {
       {
@@ -25417,7 +25416,7 @@ int qxl_gem_prime_pin(struct drm_gem_object *obj )
 
     }
     {
-    tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
     if (tmp___0 != 0L) {
       __warned = 1;
@@ -25428,7 +25427,7 @@ int qxl_gem_prime_pin(struct drm_gem_object *obj )
 
   }
   {
-  __builtin_expect(__ret_warn_once != 0, 0L);
+  ldv__builtin_expect(__ret_warn_once != 0, 0L);
   }
   return (-38);
 }
@@ -25445,12 +25444,12 @@ void qxl_gem_prime_unpin(struct drm_gem_object *obj )
   {
   {
   __ret_warn_once = 1;
-  tmp___1 = __builtin_expect(__ret_warn_once != 0, 0L);
+  tmp___1 = ldv__builtin_expect(__ret_warn_once != 0, 0L);
   }
   if (tmp___1 != 0L) {
     {
     __ret_warn_on = ! __warned;
-    tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
     if (tmp != 0L) {
       {
@@ -25460,7 +25459,7 @@ void qxl_gem_prime_unpin(struct drm_gem_object *obj )
 
     }
     {
-    tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
     if (tmp___0 != 0L) {
       __warned = 1;
@@ -25471,7 +25470,7 @@ void qxl_gem_prime_unpin(struct drm_gem_object *obj )
 
   }
   {
-  __builtin_expect(__ret_warn_once != 0, 0L);
+  ldv__builtin_expect(__ret_warn_once != 0, 0L);
   }
   return;
 }
@@ -25489,12 +25488,12 @@ struct sg_table *qxl_gem_prime_get_sg_table(struct drm_gem_object *obj )
   {
   {
   __ret_warn_once = 1;
-  tmp___1 = __builtin_expect(__ret_warn_once != 0, 0L);
+  tmp___1 = ldv__builtin_expect(__ret_warn_once != 0, 0L);
   }
   if (tmp___1 != 0L) {
     {
     __ret_warn_on = ! __warned;
-    tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
     if (tmp != 0L) {
       {
@@ -25504,7 +25503,7 @@ struct sg_table *qxl_gem_prime_get_sg_table(struct drm_gem_object *obj )
 
     }
     {
-    tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
     if (tmp___0 != 0L) {
       __warned = 1;
@@ -25515,7 +25514,7 @@ struct sg_table *qxl_gem_prime_get_sg_table(struct drm_gem_object *obj )
 
   }
   {
-  __builtin_expect(__ret_warn_once != 0, 0L);
+  ldv__builtin_expect(__ret_warn_once != 0, 0L);
   tmp___2 = ERR_PTR(-38L);
   }
   return ((struct sg_table *)tmp___2);
@@ -25535,12 +25534,12 @@ struct drm_gem_object *qxl_gem_prime_import_sg_table(struct drm_device *dev , st
   {
   {
   __ret_warn_once = 1;
-  tmp___1 = __builtin_expect(__ret_warn_once != 0, 0L);
+  tmp___1 = ldv__builtin_expect(__ret_warn_once != 0, 0L);
   }
   if (tmp___1 != 0L) {
     {
     __ret_warn_on = ! __warned;
-    tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
     if (tmp != 0L) {
       {
@@ -25550,7 +25549,7 @@ struct drm_gem_object *qxl_gem_prime_import_sg_table(struct drm_device *dev , st
 
     }
     {
-    tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
     if (tmp___0 != 0L) {
       __warned = 1;
@@ -25561,7 +25560,7 @@ struct drm_gem_object *qxl_gem_prime_import_sg_table(struct drm_device *dev , st
 
   }
   {
-  __builtin_expect(__ret_warn_once != 0, 0L);
+  ldv__builtin_expect(__ret_warn_once != 0, 0L);
   tmp___2 = ERR_PTR(-38L);
   }
   return ((struct drm_gem_object *)tmp___2);
@@ -25580,12 +25579,12 @@ void *qxl_gem_prime_vmap(struct drm_gem_object *obj )
   {
   {
   __ret_warn_once = 1;
-  tmp___1 = __builtin_expect(__ret_warn_once != 0, 0L);
+  tmp___1 = ldv__builtin_expect(__ret_warn_once != 0, 0L);
   }
   if (tmp___1 != 0L) {
     {
     __ret_warn_on = ! __warned;
-    tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
     if (tmp != 0L) {
       {
@@ -25595,7 +25594,7 @@ void *qxl_gem_prime_vmap(struct drm_gem_object *obj )
 
     }
     {
-    tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
     if (tmp___0 != 0L) {
       __warned = 1;
@@ -25606,7 +25605,7 @@ void *qxl_gem_prime_vmap(struct drm_gem_object *obj )
 
   }
   {
-  __builtin_expect(__ret_warn_once != 0, 0L);
+  ldv__builtin_expect(__ret_warn_once != 0, 0L);
   tmp___2 = ERR_PTR(-38L);
   }
   return (tmp___2);
@@ -25624,12 +25623,12 @@ void qxl_gem_prime_vunmap(struct drm_gem_object *obj , void *vaddr )
   {
   {
   __ret_warn_once = 1;
-  tmp___1 = __builtin_expect(__ret_warn_once != 0, 0L);
+  tmp___1 = ldv__builtin_expect(__ret_warn_once != 0, 0L);
   }
   if (tmp___1 != 0L) {
     {
     __ret_warn_on = ! __warned;
-    tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
     if (tmp != 0L) {
       {
@@ -25639,7 +25638,7 @@ void qxl_gem_prime_vunmap(struct drm_gem_object *obj , void *vaddr )
 
     }
     {
-    tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
     if (tmp___0 != 0L) {
       __warned = 1;
@@ -25650,7 +25649,7 @@ void qxl_gem_prime_vunmap(struct drm_gem_object *obj , void *vaddr )
 
   }
   {
-  __builtin_expect(__ret_warn_once != 0, 0L);
+  ldv__builtin_expect(__ret_warn_once != 0, 0L);
   }
   return;
 }
@@ -25667,12 +25666,12 @@ int qxl_gem_prime_mmap(struct drm_gem_object *obj , struct vm_area_struct *area 
   {
   {
   __ret_warn_once = 1;
-  tmp___1 = __builtin_expect(__ret_warn_once != 0, 0L);
+  tmp___1 = ldv__builtin_expect(__ret_warn_once != 0, 0L);
   }
   if (tmp___1 != 0L) {
     {
     __ret_warn_on = ! __warned;
-    tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
     if (tmp != 0L) {
       {
@@ -25682,7 +25681,7 @@ int qxl_gem_prime_mmap(struct drm_gem_object *obj , struct vm_area_struct *area 
 
     }
     {
-    tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
     if (tmp___0 != 0L) {
       __warned = 1;
@@ -25693,7 +25692,7 @@ int qxl_gem_prime_mmap(struct drm_gem_object *obj , struct vm_area_struct *area 
 
   }
   {
-  __builtin_expect(__ret_warn_once != 0, 0L);
+  ldv__builtin_expect(__ret_warn_once != 0, 0L);
   }
   return (38);
 }
@@ -27682,7 +27681,7 @@ void ldv_linux_usb_urb_check_final_state(void)
 }
 }
 extern void ldv_assert(char const   * , int  ) ;
-void __builtin_trap(void) ;
+void ldv__builtin_trap(void) ;
 void ldv_assume(int expression ) 
 { 
 
@@ -27706,7 +27705,7 @@ void ldv_stop(void)
   goto ldv_stop_label;
 }
 }
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 
@@ -27714,7 +27713,7 @@ long __builtin_expect(long exp , long c )
   return (exp);
 }
 }
-void __builtin_trap(void) 
+void ldv__builtin_trap(void) 
 { 
 
 

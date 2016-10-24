@@ -4945,7 +4945,7 @@ struct ldv_thread {
    int identifier ;
    void (*function)(void * ) ;
 };
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 void *ldv_dev_get_drvdata(struct device  const  *dev ) ;
 long ldv_is_err(void const   *ptr ) ;
 long ldv_ptr_err(void const   *ptr ) ;
@@ -5000,7 +5000,6 @@ extern size_t strlcpy(char * , char const   * , size_t  ) ;
 extern int strncmp(char const   * , char const   * , __kernel_size_t  ) ;
 extern void warn_slowpath_fmt(char const   * , int const    , char const   *  , ...) ;
 extern void warn_slowpath_null(char const   * , int const    ) ;
-extern int ( /* missing proto */  __builtin_unreachable)() ;
 __inline static long PTR_ERR(void const   *ptr ) ;
 __inline static long IS_ERR(void const   *ptr ) ;
 void ldv_spin_lock_lock_of_sh_mobile_ceu_dev(void) ;
@@ -5655,7 +5654,7 @@ static int sh_mobile_ceu_videobuf_setup(struct vb2_queue *vq , struct v4l2_forma
   descriptor.format = "count=%d, size=%u\n";
   descriptor.lineno = 267U;
   descriptor.flags = 0U;
-  tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -5821,7 +5820,7 @@ static int sh_mobile_ceu_videobuf_prepare(struct vb2_buffer *vb )
   buf = tmp;
   tmp___0 = list_empty((struct list_head  const  *)(& buf->queue));
   __ret_warn_on = tmp___0 == 0;
-  tmp___1 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___1 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -5832,7 +5831,7 @@ static int sh_mobile_ceu_videobuf_prepare(struct vb2_buffer *vb )
 
   }
   {
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   return (0);
 }
@@ -5884,7 +5883,7 @@ static void sh_mobile_ceu_videobuf_queue(struct vb2_buffer *vb )
   descriptor.format = "%s (vb=0x%p) 0x%p %lu\n";
   descriptor.lineno = 399U;
   descriptor.flags = 0U;
-  tmp___5 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___5 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___5 != 0L) {
     {
@@ -5967,7 +5966,7 @@ static void sh_mobile_ceu_videobuf_release(struct vb2_buffer *vb )
   descriptor.format = "%s() %zu bytes buffers\n";
   descriptor.lineno = 454U;
   descriptor.flags = 0U;
-  tmp___2 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___2 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___2 != 0L) {
     {
@@ -6010,7 +6009,7 @@ static int sh_mobile_ceu_videobuf_init(struct vb2_buffer *vb )
   descriptor.format = "%s() %zu bytes buffers\n";
   descriptor.lineno = 467U;
   descriptor.flags = 0U;
-  tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -6428,7 +6427,7 @@ static void sh_mobile_ceu_set_rect(struct soc_camera_device *icd )
   descriptor.format = "Crop %ux%u@%u:%u\n";
   descriptor.lineno = 685U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -6442,7 +6441,7 @@ static void sh_mobile_ceu_set_rect(struct soc_camera_device *icd )
   left_offset = cam->ceu_left;
   top_offset = cam->ceu_top;
   __ret_warn_on = ((unsigned long )*((long *)icd + 6UL) & 12884901891UL) != 0UL;
-  tmp___1 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___1 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -6453,7 +6452,7 @@ static void sh_mobile_ceu_set_rect(struct soc_camera_device *icd )
 
   }
   {
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
   width = (unsigned int )icd->user_width;
   }
   if ((unsigned int )*((unsigned char *)pcdev + 1064UL) != 0U) {
@@ -6511,7 +6510,7 @@ static void sh_mobile_ceu_set_rect(struct soc_camera_device *icd )
   descriptor___0.format = "CAMOR 0x%x, CAPWR 0x%x, CFSZR 0x%x, CDWDR 0x%x\n";
   descriptor___0.lineno = 738U;
   descriptor___0.flags = 0U;
-  tmp___3 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___3 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
   }
   if (tmp___3 != 0L) {
     {
@@ -6896,7 +6895,7 @@ static int sh_mobile_ceu_set_bus_param(struct soc_camera_device *icd )
   descriptor.format = "CFLCR 0x%x\n";
   descriptor.lineno = 915U;
   descriptor.flags = 0U;
-  tmp___9 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___9 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___9 != 0L) {
     {
@@ -7277,7 +7276,7 @@ static int sh_mobile_ceu_get_formats(struct soc_camera_device *icd , unsigned in
     descriptor.format = "camera fmt %ux%u\n";
     descriptor.lineno = 1121U;
     descriptor.flags = 0U;
-    tmp___9 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___9 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp___9 != 0L) {
       {
@@ -7356,7 +7355,7 @@ static int sh_mobile_ceu_get_formats(struct soc_camera_device *icd , unsigned in
   descriptor___0.format = "Providing format %s using code %d\n";
   descriptor___0.lineno = 1169U;
   descriptor___0.flags = 0U;
-  tmp___11 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___11 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
   }
   if (tmp___11 != 0L) {
     {
@@ -7404,7 +7403,7 @@ static int sh_mobile_ceu_get_formats(struct soc_camera_device *icd , unsigned in
     descriptor___1.format = "Providing format %s in pass-through mode\n";
     descriptor___1.lineno = 1184U;
     descriptor___1.flags = 0U;
-    tmp___14 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___14 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
     }
     if (tmp___14 != 0L) {
       {
@@ -7511,7 +7510,7 @@ static int sh_mobile_ceu_set_crop(struct soc_camera_device *icd , struct v4l2_cr
   descriptor.format = "S_CROP(%ux%u@%u:%u)\n";
   descriptor.lineno = 1225U;
   descriptor.flags = 0U;
-  tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -7529,7 +7528,7 @@ static int sh_mobile_ceu_set_crop(struct soc_camera_device *icd , struct v4l2_cr
   descriptor___0.format = "CAPSR 0x%x, CFLCR 0x%x\n";
   descriptor___0.lineno = 1229U;
   descriptor___0.flags = 0U;
-  tmp___2 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___2 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
   }
   if (tmp___2 != 0L) {
     {
@@ -7554,7 +7553,7 @@ static int sh_mobile_ceu_set_crop(struct soc_camera_device *icd , struct v4l2_cr
   descriptor___1.format = "1-2: camera cropped to %ux%u@%u:%u\n";
   descriptor___1.lineno = 1242U;
   descriptor___1.flags = 0U;
-  tmp___3 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+  tmp___3 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
   }
   if (tmp___3 != 0L) {
     {
@@ -7673,7 +7672,7 @@ static int sh_mobile_ceu_set_crop(struct soc_camera_device *icd , struct v4l2_cr
     descriptor___2.format = "New camera output %ux%u\n";
     descriptor___2.lineno = 1285U;
     descriptor___2.flags = 0U;
-    tmp___11 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+    tmp___11 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
     }
     if (tmp___11 != 0L) {
       {
@@ -7718,7 +7717,7 @@ static int sh_mobile_ceu_set_crop(struct soc_camera_device *icd , struct v4l2_cr
   descriptor___3.format = "5: CEU scales %u:%u\n";
   descriptor___3.lineno = 1311U;
   descriptor___3.flags = 0U;
-  tmp___16 = __builtin_expect((long )descriptor___3.flags & 1L, 0L);
+  tmp___16 = ldv__builtin_expect((long )descriptor___3.flags & 1L, 0L);
   }
   if (tmp___16 != 0L) {
     {
@@ -7754,7 +7753,7 @@ static int sh_mobile_ceu_set_crop(struct soc_camera_device *icd , struct v4l2_cr
   descriptor___4.format = "6: CEU cropped to %ux%u@%u:%u\n";
   descriptor___4.lineno = 1333U;
   descriptor___4.flags = 0U;
-  tmp___19 = __builtin_expect((long )descriptor___4.flags & 1L, 0L);
+  tmp___19 = ldv__builtin_expect((long )descriptor___4.flags & 1L, 0L);
   }
   if (tmp___19 != 0L) {
     {
@@ -7920,7 +7919,7 @@ static int sh_mobile_ceu_set_fmt(struct soc_camera_device *icd , struct v4l2_for
   descriptor.format = "S_FMT(pix=0x%x, fld 0x%x, code 0x%x, %ux%u)\n";
   descriptor.lineno = 1412U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -7937,7 +7936,7 @@ static int sh_mobile_ceu_set_fmt(struct soc_camera_device *icd , struct v4l2_for
   descriptor___0.format = "4: request camera output %ux%u\n";
   descriptor___0.lineno = 1414U;
   descriptor___0.flags = 0U;
-  tmp___1 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -7957,7 +7956,7 @@ static int sh_mobile_ceu_set_fmt(struct soc_camera_device *icd , struct v4l2_for
   descriptor___1.format = "5-9: client scale return %d\n";
   descriptor___1.lineno = 1421U;
   descriptor___1.flags = 0U;
-  tmp___2 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+  tmp___2 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
   }
   if (tmp___2 != 0L) {
     {
@@ -7974,7 +7973,7 @@ static int sh_mobile_ceu_set_fmt(struct soc_camera_device *icd , struct v4l2_for
   descriptor___2.format = "fmt %ux%u, requested %ux%u\n";
   descriptor___2.lineno = 1426U;
   descriptor___2.flags = 0U;
-  tmp___3 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+  tmp___3 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
   }
   if (tmp___3 != 0L) {
     {
@@ -8026,7 +8025,7 @@ static int sh_mobile_ceu_set_fmt(struct soc_camera_device *icd , struct v4l2_for
   descriptor___3.format = "10: W: %u : 0x%x = %u, H: %u : 0x%x = %u\n";
   descriptor___3.lineno = 1468U;
   descriptor___3.flags = 0U;
-  tmp___4 = __builtin_expect((long )descriptor___3.flags & 1L, 0L);
+  tmp___4 = ldv__builtin_expect((long )descriptor___3.flags & 1L, 0L);
   }
   if (tmp___4 != 0L) {
     {
@@ -8100,7 +8099,7 @@ static int sh_mobile_ceu_try_fmt(struct soc_camera_device *icd , struct v4l2_for
   descriptor.format = "TRY_FMT(pix=0x%x, %ux%u)\n";
   descriptor.lineno = 1499U;
   descriptor.flags = 0U;
-  tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -8122,7 +8121,7 @@ static int sh_mobile_ceu_try_fmt(struct soc_camera_device *icd , struct v4l2_for
     descriptor___0.format = "Format %x not found, keeping %x\n";
     descriptor___0.lineno = 1505U;
     descriptor___0.flags = 0U;
-    tmp___2 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___2 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___2 != 0L) {
       {
@@ -8328,7 +8327,7 @@ static int sh_mobile_ceu_try_fmt(struct soc_camera_device *icd , struct v4l2_for
   descriptor___1.format = "%s(): return %d, fmt 0x%x, %ux%u\n";
   descriptor___1.lineno = 1583U;
   descriptor___1.flags = 0U;
-  tmp___9 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+  tmp___9 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
   }
   if (tmp___9 != 0L) {
     {
@@ -8403,7 +8402,7 @@ static int sh_mobile_ceu_set_livecrop(struct soc_camera_device *icd , struct v4l
   descriptor.format = "Output after crop: %ux%u\n";
   descriptor.lineno = 1610U;
   descriptor.flags = 0U;
-  tmp___3 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___3 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___3 != 0L) {
     {
@@ -8781,7 +8780,7 @@ static int sh_mobile_ceu_probe(struct platform_device *pdev )
     descriptor.format = "%s(): subdev #%d, type %u\n";
     descriptor.lineno = 1839U;
     descriptor.flags = 0U;
-    tmp___9 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___9 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp___9 != 0L) {
       {
@@ -8919,7 +8918,7 @@ static int sh_mobile_ceu_probe(struct platform_device *pdev )
     descriptor___0.format = "%s(): ret(register_subdev) = %d\n";
     descriptor___0.lineno = 1933U;
     descriptor___0.flags = 0U;
-    tmp___14 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___14 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___14 != 0L) {
       {
@@ -9125,7 +9124,7 @@ void ldv_dummy_resourceless_instance_callback_7_8(int (*arg0)(struct vb2_buffer 
 void ldv_dummy_resourceless_instance_callback_7_9(void (*arg0)(struct vb2_buffer * ) ,
                                                   struct vb2_buffer *arg1 ) ;
 void ldv_entry_EMGentry_10(void *arg0 ) ;
-void main(void) ;
+int main(void) ;
 void ldv_iio_triggered_buffer_iio_triggered_buffer_instance_1(void *arg0 ) ;
 enum irqreturn ldv_iio_triggered_buffer_instance_handler_1_5(enum irqreturn (*arg0)(int  ,
                                                                                     void * ) ,
@@ -10207,7 +10206,7 @@ void ldv_entry_EMGentry_10(void *arg0 )
   return;
 }
 }
-void main(void) 
+int main(void) 
 { 
   int tmp ;
 
@@ -12791,7 +12790,7 @@ void *ldv_kzalloc(size_t size , gfp_t flags )
 }
 }
 extern void ldv_assert(char const   * , int  ) ;
-void __builtin_trap(void) ;
+void ldv__builtin_trap(void) ;
 void ldv_assume(int expression ) 
 { 
 
@@ -12815,7 +12814,7 @@ void ldv_stop(void)
   goto ldv_stop_label;
 }
 }
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 
@@ -12823,7 +12822,7 @@ long __builtin_expect(long exp , long c )
   return (exp);
 }
 }
-void __builtin_trap(void) 
+void ldv__builtin_trap(void) 
 { 
 
 

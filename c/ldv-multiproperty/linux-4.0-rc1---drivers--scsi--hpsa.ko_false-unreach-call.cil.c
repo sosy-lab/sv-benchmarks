@@ -5634,9 +5634,7 @@ struct ldv_thread {
    void (*function)(void * ) ;
 };
 typedef _Bool ldv_set;
-int __builtin_bswap32(int  ) ;
-long __builtin_bswap64(long  ) ;
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 void ldv_assume(int expression ) ;
 void ldv_stop(void) ;
 void ldv_linux_alloc_irq_check_alloc_flags(gfp_t flags ) ;
@@ -6013,12 +6011,12 @@ __inline static unsigned int cpumask_check(unsigned int cpu )
   {
   {
   __ret_warn_once = cpu >= (unsigned int )nr_cpu_ids;
-  tmp___1 = __builtin_expect(__ret_warn_once != 0, 0L);
+  tmp___1 = ldv__builtin_expect(__ret_warn_once != 0, 0L);
   }
   if (tmp___1 != 0L) {
     {
     __ret_warn_on = ! __warned;
-    tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
     if (tmp != 0L) {
       {
@@ -6028,7 +6026,7 @@ __inline static unsigned int cpumask_check(unsigned int cpu )
 
     }
     {
-    tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
     if (tmp___0 != 0L) {
       __warned = 1;
@@ -6039,7 +6037,7 @@ __inline static unsigned int cpumask_check(unsigned int cpu )
 
   }
   {
-  __builtin_expect(__ret_warn_once != 0, 0L);
+  ldv__builtin_expect(__ret_warn_once != 0, 0L);
   }
   return (cpu);
 }
@@ -6096,7 +6094,6 @@ __inline static struct cpumask  const  *get_cpu_mask(unsigned int cpu )
   return ((struct cpumask  const  *)p);
 }
 }
-extern int ( /* missing proto */  __builtin_unreachable)() ;
 __inline static unsigned long arch_local_save_flags(void) 
 { 
   unsigned long __ret ;
@@ -6114,7 +6111,7 @@ __inline static unsigned long arch_local_save_flags(void)
   __edx = __edx;
   __ecx = __ecx;
   __eax = __eax;
-  tmp = __builtin_expect((unsigned long )pv_irq_ops.save_fl.func == (unsigned long )((void *)0),
+  tmp = ldv__builtin_expect((unsigned long )pv_irq_ops.save_fl.func == (unsigned long )((void *)0),
                          0L);
   }
   if (tmp != 0L) {
@@ -6244,7 +6241,7 @@ __inline static int atomic_dec_if_positive(atomic_t *v )
   ldv_6387: 
   {
   dec = c + -1;
-  tmp = __builtin_expect(dec < 0, 0L);
+  tmp = ldv__builtin_expect(dec < 0, 0L);
   }
   if (tmp != 0L) {
     goto ldv_6386;
@@ -6253,7 +6250,7 @@ __inline static int atomic_dec_if_positive(atomic_t *v )
   }
   {
   old = atomic_cmpxchg(v, c, dec);
-  tmp___0 = __builtin_expect(old == c, 1L);
+  tmp___0 = ldv__builtin_expect(old == c, 1L);
   }
   if (tmp___0 != 0L) {
     goto ldv_6386;
@@ -6765,7 +6762,7 @@ __inline static struct dma_map_ops *get_dma_ops(struct device *dev )
 
   {
   {
-  tmp = __builtin_expect((unsigned long )dev == (unsigned long )((struct device *)0),
+  tmp = ldv__builtin_expect((unsigned long )dev == (unsigned long )((struct device *)0),
                          0L);
   }
   if (tmp != 0L || (unsigned long )dev->archdata.dma_ops == (unsigned long )((struct dma_map_ops *)0)) {
@@ -6792,7 +6789,7 @@ __inline static dma_addr_t dma_map_single_attrs(struct device *dev , void *ptr ,
   ops = tmp;
   kmemcheck_mark_initialized(ptr, (unsigned int )size);
   tmp___0 = valid_dma_direction((int )dir);
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -6828,7 +6825,7 @@ __inline static void dma_unmap_single_attrs(struct device *dev , dma_addr_t addr
   tmp = get_dma_ops(dev);
   ops = tmp;
   tmp___0 = valid_dma_direction((int )dir);
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -6979,7 +6976,7 @@ __inline static void dma_free_attrs(struct device *dev , size_t size , void *vad
   _flags = arch_local_save_flags();
   tmp___0 = arch_irqs_disabled_flags(_flags);
   __ret_warn_on = tmp___0 != 0;
-  tmp___1 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___1 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -6989,7 +6986,7 @@ __inline static void dma_free_attrs(struct device *dev , size_t size , void *vad
 
   }
   {
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
   debug_dma_free_coherent(dev, size, vaddr, bus);
   }
   if ((unsigned long )ops->free != (unsigned long )((void (*)(struct device * , size_t  ,
@@ -7132,7 +7129,7 @@ __inline static unsigned long copy_from_user(void *to , void const   *from , uns
   {
   sz = -1;
   might_fault();
-  tmp = __builtin_expect(sz < 0, 1L);
+  tmp = ldv__builtin_expect(sz < 0, 1L);
   }
   if (tmp != 0L) {
     {
@@ -7140,7 +7137,7 @@ __inline static unsigned long copy_from_user(void *to , void const   *from , uns
     }
   } else {
     {
-    tmp___0 = __builtin_expect((unsigned long )sz >= n, 1L);
+    tmp___0 = ldv__builtin_expect((unsigned long )sz >= n, 1L);
     }
     if (tmp___0 != 0L) {
       {
@@ -7165,7 +7162,7 @@ __inline static unsigned long copy_to_user(void *to , void const   *from , unsig
   {
   sz = -1;
   might_fault();
-  tmp = __builtin_expect(sz < 0, 1L);
+  tmp = ldv__builtin_expect(sz < 0, 1L);
   }
   if (tmp != 0L) {
     {
@@ -7173,7 +7170,7 @@ __inline static unsigned long copy_to_user(void *to , void const   *from , unsig
     }
   } else {
     {
-    tmp___0 = __builtin_expect((unsigned long )sz >= n, 1L);
+    tmp___0 = ldv__builtin_expect((unsigned long )sz >= n, 1L);
     }
     if (tmp___0 != 0L) {
       {
@@ -7432,7 +7429,7 @@ static unsigned long SA5_performant_completed(struct ctlr_info *h , u8 q )
   {
   rq = (struct reply_queue_buffer *)(& h->reply_queue) + (unsigned long )q;
   register_value = 4294967295UL;
-  tmp = __builtin_expect(*((unsigned long *)h + 43UL) == 0UL, 0L);
+  tmp = ldv__builtin_expect(*((unsigned long *)h + 43UL) == 0UL, 0L);
   }
   if (tmp != 0L) {
     {
@@ -7539,7 +7536,7 @@ static unsigned long SA5_ioaccel_mode1_completed(struct ctlr_info *h , u8 q )
   {
   {
   rq = (struct reply_queue_buffer *)(& h->reply_queue) + (unsigned long )q;
-  tmp = __builtin_expect((int )q >= (int )h->nreply_queues, 0L);
+  tmp = ldv__builtin_expect((int )q >= (int )h->nreply_queues, 0L);
   }
   if (tmp != 0L) {
     {
@@ -8432,7 +8429,7 @@ __inline static u32 next_command(struct ctlr_info *h , u8 q )
 
   }
   {
-  tmp___1 = __builtin_expect((h->transMethod & 4UL) == 0UL, 0L);
+  tmp___1 = ldv__builtin_expect((h->transMethod & 4UL) == 0UL, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -8473,12 +8470,12 @@ static void set_performant_mode(struct ctlr_info *h , struct CommandList *c )
 
   {
   {
-  tmp___0 = __builtin_expect((h->transMethod & 4UL) != 0UL, 1L);
+  tmp___0 = ldv__builtin_expect((h->transMethod & 4UL) != 0UL, 1L);
   }
   if (tmp___0 != 0L) {
     {
     c->busaddr = (c->busaddr | (*(h->blockFetchTable + (unsigned long )c->Header.SGList) << 1)) | 1U;
-    tmp = __builtin_expect(h->msix_vector != 0U, 1L);
+    tmp = ldv__builtin_expect(h->msix_vector != 0U, 1L);
     }
     if (tmp != 0L) {
       __vpp_verify = (void const   *)0;
@@ -9414,7 +9411,7 @@ static void hpsa_scsi_update_entry(struct ctlr_info *h , int hostno , int entry 
 
   {
   {
-  tmp = __builtin_expect((unsigned int )entry > 2080U, 0L);
+  tmp = ldv__builtin_expect((unsigned int )entry > 2080U, 0L);
   }
   if (tmp != 0L) {
     {
@@ -9455,7 +9452,7 @@ static void hpsa_scsi_replace_entry(struct ctlr_info *h , int hostno , int entry
 
   {
   {
-  tmp = __builtin_expect((unsigned int )entry > 2080U, 0L);
+  tmp = ldv__builtin_expect((unsigned int )entry > 2080U, 0L);
   }
   if (tmp != 0L) {
     {
@@ -9495,7 +9492,7 @@ static void hpsa_scsi_remove_entry(struct ctlr_info *h , int hostno , int entry 
 
   {
   {
-  tmp = __builtin_expect((unsigned int )entry > 2080U, 0L);
+  tmp = ldv__builtin_expect((unsigned int )entry > 2080U, 0L);
   }
   if (tmp != 0L) {
     {
@@ -11308,7 +11305,7 @@ static void hpsa_scsi_do_simple_cmd_core_if_no_lockup(struct ctlr_info *h , stru
   {
   {
   tmp = lockup_detected(h);
-  tmp___0 = __builtin_expect(tmp != 0U, 0L);
+  tmp___0 = ldv__builtin_expect(tmp != 0U, 0L);
   }
   if (tmp___0 != 0L) {
     (c->err_info)->CommandStatus = 6U;
@@ -13276,7 +13273,7 @@ static int hpsa_scatter_gather(struct ctlr_info *h , struct CommandList *cp , st
   {
   {
   tmp = scsi_sg_count(cmd);
-  tmp___0 = __builtin_expect(tmp > (unsigned int )h->maxsgentries, 0L);
+  tmp___0 = ldv__builtin_expect(tmp > (unsigned int )h->maxsgentries, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -13400,7 +13397,7 @@ static int fixup_ioaccel_cdb(u8 *cdb , int *cdb_len )
     block_cnt = (u32 )*(cdb + 4UL);
   } else {
     {
-    tmp = __builtin_expect(*cdb_len != 12, 0L);
+    tmp = ldv__builtin_expect(*cdb_len != 12, 0L);
     }
     if (tmp != 0L) {
       {
@@ -13473,7 +13470,7 @@ static int hpsa_scsi_ioaccel1_queue_command(struct ctlr_info *h , struct Command
 
   }
   {
-  tmp___0 = __builtin_expect((unsigned int )cmd->cmd_len > 16U, 0L);
+  tmp___0 = ldv__builtin_expect((unsigned int )cmd->cmd_len > 16U, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -13498,7 +13495,7 @@ static int hpsa_scsi_ioaccel1_queue_command(struct ctlr_info *h , struct Command
   {
   c->cmd_type = 4;
   c->busaddr = (u32 )h->ioaccel_cmd_pool_dhandle + (u32 )c->cmdindex * 512U;
-  tmp___2 = __builtin_expect((c->busaddr & 127U) != 0U, 0L);
+  tmp___2 = ldv__builtin_expect((c->busaddr & 127U) != 0U, 0L);
   }
   if (tmp___2 != 0L) {
     {
@@ -13769,7 +13766,7 @@ static int hpsa_scsi_ioaccel2_queue_command(struct ctlr_info *h , struct Command
   {
   c->cmd_type = 5;
   c->busaddr = (u32 )h->ioaccel2_cmd_pool_dhandle + (u32 )c->cmdindex * 640U;
-  tmp___1 = __builtin_expect((c->busaddr & 127U) != 0U, 0L);
+  tmp___1 = ldv__builtin_expect((c->busaddr & 127U) != 0U, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -13795,7 +13792,7 @@ static int hpsa_scsi_ioaccel2_queue_command(struct ctlr_info *h , struct Command
   }
   if (use_sg != 0) {
     {
-    tmp___2 = __builtin_expect(use_sg > 28, 0L);
+    tmp___2 = ldv__builtin_expect(use_sg > 28, 0L);
     }
     if (tmp___2 != 0L) {
       {
@@ -14150,7 +14147,7 @@ static int hpsa_scsi_ioaccel_raid_map(struct ctlr_info *h , struct CommandList *
   goto ldv_42529;
   case_2: /* CIL Label */ 
   {
-  tmp = __builtin_expect((unsigned int )map->layout_map_count != 2U, 0L);
+  tmp = ldv__builtin_expect((unsigned int )map->layout_map_count != 2U, 0L);
   }
   if (tmp != 0L) {
     {
@@ -14170,7 +14167,7 @@ static int hpsa_scsi_ioaccel_raid_map(struct ctlr_info *h , struct CommandList *
   goto ldv_42529;
   case_6: /* CIL Label */ 
   {
-  tmp___0 = __builtin_expect((unsigned int )map->layout_map_count != 3U, 0L);
+  tmp___0 = ldv__builtin_expect((unsigned int )map->layout_map_count != 3U, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -14197,7 +14194,7 @@ static int hpsa_scsi_ioaccel_raid_map(struct ctlr_info *h , struct CommandList *
   }
   {
   r5or6_blocks_per_row = (u32 )((int )map->strip_size * (int )map->data_disks_per_row);
-  tmp___1 = __builtin_expect(r5or6_blocks_per_row == 0U, 0L);
+  tmp___1 = ldv__builtin_expect(r5or6_blocks_per_row == 0U, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -14246,7 +14243,7 @@ static int hpsa_scsi_ioaccel_raid_map(struct ctlr_info *h , struct CommandList *
   }
   ldv_42529: 
   {
-  tmp___2 = __builtin_expect(map_index > 255U, 0L);
+  tmp___2 = ldv__builtin_expect(map_index > 255U, 0L);
   }
   if (tmp___2 != 0L) {
     return (1);
@@ -14264,7 +14261,7 @@ static int hpsa_scsi_ioaccel_raid_map(struct ctlr_info *h , struct CommandList *
 
   }
   {
-  tmp___3 = __builtin_expect(disk_block_cnt > 65535U, 0L);
+  tmp___3 = ldv__builtin_expect(disk_block_cnt > 65535U, 0L);
   }
   if (tmp___3 != 0L) {
     {
@@ -14329,7 +14326,7 @@ static int hpsa_ciss_submit(struct ctlr_info *h , struct CommandList *c , struct
   c->Header.tag = (unsigned long long )(c->cmdindex << 4);
   c->Request.Timeout = 0U;
   __memset((void *)(& c->Request.CDB), 0, 16UL);
-  tmp = __builtin_expect((unsigned int )cmd->cmd_len > 16U, 0L);
+  tmp = ldv__builtin_expect((unsigned int )cmd->cmd_len > 16U, 0L);
   }
   if (tmp != 0L) {
     {
@@ -14477,7 +14474,7 @@ static int hpsa_scsi_queue_command(struct Scsi_Host *sh , struct scsi_cmnd *cmd 
   {
   __memcpy((void *)(& scsi3addr), (void const   *)(& dev->scsi3addr), 8UL);
   tmp = lockup_detected(h);
-  tmp___0 = __builtin_expect(tmp != 0U, 0L);
+  tmp___0 = ldv__builtin_expect(tmp != 0U, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -14501,7 +14498,7 @@ static int hpsa_scsi_queue_command(struct Scsi_Host *sh , struct scsi_cmnd *cmd 
   }
   {
   tmp___1 = lockup_detected(h);
-  tmp___2 = __builtin_expect(tmp___1 != 0U, 0L);
+  tmp___2 = ldv__builtin_expect(tmp___1 != 0U, 0L);
   }
   if (tmp___2 != 0L) {
     {
@@ -14514,11 +14511,11 @@ static int hpsa_scsi_queue_command(struct Scsi_Host *sh , struct scsi_cmnd *cmd 
 
   }
   {
-  tmp___3 = __builtin_expect(cmd->retries == 0, 1L);
+  tmp___3 = ldv__builtin_expect(cmd->retries == 0, 1L);
   }
   if (tmp___3 != 0L) {
     {
-    tmp___4 = __builtin_expect((unsigned int )(cmd->request)->cmd_type == 1U, 1L);
+    tmp___4 = ldv__builtin_expect((unsigned int )(cmd->request)->cmd_type == 1U, 1L);
     }
     if (tmp___4 != 0L) {
       tmp___5 = 1;
@@ -14530,7 +14527,7 @@ static int hpsa_scsi_queue_command(struct Scsi_Host *sh , struct scsi_cmnd *cmd 
   }
   if (tmp___5 != 0) {
     {
-    tmp___6 = __builtin_expect(h->acciopath_status != 0, 1L);
+    tmp___6 = ldv__builtin_expect(h->acciopath_status != 0, 1L);
     }
     if (tmp___6 != 0L) {
       cmd->host_scribble = (unsigned char *)c;
@@ -14619,7 +14616,7 @@ static void hpsa_scan_start(struct Scsi_Host *sh )
   tmp = shost_to_hba(sh);
   h = tmp;
   tmp___0 = lockup_detected(h);
-  tmp___1 = __builtin_expect(tmp___0 != 0U, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 != 0U, 0L);
   }
   if (tmp___1 != 0L) {
     return;
@@ -14675,7 +14672,7 @@ static void hpsa_scan_start(struct Scsi_Host *sh )
   h->scan_finished = 0;
   ldv_spin_unlock_irqrestore_124(& h->scan_lock, flags);
   tmp___3 = lockup_detected(h);
-  tmp___4 = __builtin_expect(tmp___3 != 0U, 0L);
+  tmp___4 = ldv__builtin_expect(tmp___3 != 0U, 0L);
   }
   if (tmp___4 != 0L) {
     return;
@@ -15031,7 +15028,7 @@ static int hpsa_send_abort(struct ctlr_info *h , unsigned char *scsi3addr , stru
   descriptor.format = "%s: Tag:0x%08x:%08x: do_simple_cmd_core completed.\n";
   descriptor.lineno = 4436U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -15067,7 +15064,7 @@ static int hpsa_send_abort(struct ctlr_info *h , unsigned char *scsi3addr , stru
   descriptor___0.format = "%s: Tag:0x%08x:%08x: interpreting error.\n";
   descriptor___0.lineno = 4448U;
   descriptor___0.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -15094,7 +15091,7 @@ static int hpsa_send_abort(struct ctlr_info *h , unsigned char *scsi3addr , stru
   descriptor___1.format = "%s: Tag:0x%08x:%08x: Finished.\n";
   descriptor___1.lineno = 4455U;
   descriptor___1.flags = 0U;
-  tmp___1 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -15270,7 +15267,7 @@ static int hpsa_eh_abort_handler(struct scsi_cmnd *sc )
   ml = 0;
   h = sdev_to_hba(sc->device);
   __ret_warn_on = (unsigned long )h == (unsigned long )((struct ctlr_info *)0);
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp != 0L) {
     {
@@ -15280,7 +15277,7 @@ static int hpsa_eh_abort_handler(struct scsi_cmnd *sc )
 
   }
   {
-  tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp___0 != 0L) {
     return (8195);
@@ -15357,7 +15354,7 @@ static int hpsa_eh_abort_handler(struct scsi_cmnd *sc )
   descriptor.format = "%s\n";
   descriptor.lineno = 4618U;
   descriptor.flags = 0U;
-  tmp___5 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___5 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___5 != 0L) {
     {
@@ -15380,7 +15377,7 @@ static int hpsa_eh_abort_handler(struct scsi_cmnd *sc )
     descriptor___0.format = "%s Request FAILED.\n";
     descriptor___0.lineno = 4628U;
     descriptor___0.flags = 0U;
-    tmp___6 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___6 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___6 != 0L) {
       {
@@ -15454,7 +15451,7 @@ static struct CommandList *cmd_alloc(struct ctlr_info *h )
   tmp = ldv_find_next_zero_bit_133((unsigned long const   *)h->cmd_pool_bits, (unsigned long )h->nr_cmds,
                                    offset);
   i = (int )tmp;
-  tmp___0 = __builtin_expect(i == h->nr_cmds, 0L);
+  tmp___0 = ldv__builtin_expect(i == h->nr_cmds, 0L);
   }
   if (tmp___0 != 0L) {
     offset = 0UL;
@@ -15465,7 +15462,7 @@ static struct CommandList *cmd_alloc(struct ctlr_info *h )
   {
   c = h->cmd_pool + (unsigned long )i;
   refcount = atomic_add_return(1, & c->refcount);
-  tmp___1 = __builtin_expect(refcount > 1, 0L);
+  tmp___1 = ldv__builtin_expect(refcount > 1, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -16646,7 +16643,7 @@ static int fill_cmd(struct CommandList *c , u8 cmd , struct ctlr_info *h , void 
     descriptor.format = "Abort Tag:0x%016llx request Tag:0x%016llx";
     descriptor.lineno = 5311U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -16796,7 +16793,7 @@ __inline static int bad_tag(struct ctlr_info *h , u32 tag_index , u32 raw_tag )
 
   {
   {
-  tmp = __builtin_expect(tag_index >= (u32 )h->nr_cmds, 0L);
+  tmp = ldv__builtin_expect(tag_index >= (u32 )h->nr_cmds, 0L);
   }
   if (tmp != 0L) {
     {
@@ -16817,7 +16814,7 @@ __inline static void finish_cmd(struct CommandList *c )
   {
   {
   dial_up_lockup_detection_on_fw_flash_complete(c->h, c);
-  tmp = __builtin_expect((unsigned int )c->cmd_type - 3U <= 2U, 1L);
+  tmp = ldv__builtin_expect((unsigned int )c->cmd_type - 3U <= 2U, 1L);
   }
   if (tmp != 0L) {
     {
@@ -16863,7 +16860,7 @@ static int ignore_bogus_interrupt(struct ctlr_info *h )
 
   {
   {
-  tmp = __builtin_expect(reset_devices == 0U, 1L);
+  tmp = ldv__builtin_expect(reset_devices == 0U, 1L);
   }
   if (tmp != 0L) {
     return (0);
@@ -16871,7 +16868,7 @@ static int ignore_bogus_interrupt(struct ctlr_info *h )
 
   }
   {
-  tmp___0 = __builtin_expect(h->interrupts_enabled != 0, 1L);
+  tmp___0 = ldv__builtin_expect(h->interrupts_enabled != 0, 1L);
   }
   if (tmp___0 != 0L) {
     return (0);
@@ -17751,7 +17748,7 @@ static int hpsa_pci_find_memory_BAR(struct pci_dev *pdev , unsigned long *memory
     descriptor.format = "memory BAR = %lx\n";
     descriptor.lineno = 6020U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -19501,7 +19498,7 @@ static void hpsa_flush_cache(struct ctlr_info *h )
   {
   {
   tmp = lockup_detected(h);
-  tmp___0 = __builtin_expect(tmp != 0U, 0L);
+  tmp___0 = ldv__builtin_expect(tmp != 0U, 0L);
   }
   if (tmp___0 != 0L) {
     return;
@@ -20499,7 +20496,7 @@ void ldv_dummy_resourceless_instance_callback_9_9(long (*arg0)(struct device * ,
                                                   struct device *arg1 , struct device_attribute *arg2 ,
                                                   char *arg3 , unsigned long arg4 ) ;
 void ldv_entry_EMGentry_27(void *arg0 ) ;
-void main(void) ;
+int main(void) ;
 void ldv_free_irq(void *arg0 , int arg1 , void *arg2 ) ;
 enum irqreturn ldv_interrupt_instance_handler_0_5(enum irqreturn (*arg0)(int  , void * ) ,
                                                   int arg1 , void *arg2 ) ;
@@ -21444,7 +21441,7 @@ void ldv_entry_EMGentry_27(void *arg0 )
   return;
 }
 }
-void main(void) 
+int main(void) 
 { 
 
 
@@ -21453,7 +21450,7 @@ void main(void)
   ldv_ldv_initialize_183();
   ldv_entry_EMGentry_27((void *)0);
   }
-  return;
+return 0;
 }
 }
 void ldv_free_irq(void *arg0 , int arg1 , void *arg2 ) 
@@ -26245,7 +26242,7 @@ void ldv_linux_usb_urb_check_final_state(void)
 }
 }
 extern void ldv_assert(char const   * , int  ) ;
-void __builtin_trap(void) ;
+void ldv__builtin_trap(void) ;
 void ldv_assume(int expression ) 
 { 
 
@@ -26269,7 +26266,7 @@ void ldv_stop(void)
   goto ldv_stop_label;
 }
 }
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 
@@ -26277,7 +26274,7 @@ long __builtin_expect(long exp , long c )
   return (exp);
 }
 }
-void __builtin_trap(void) 
+void ldv__builtin_trap(void) 
 { 
 
 

@@ -5457,7 +5457,7 @@ struct ldv_thread {
    int identifier ;
    void (*function)(void * ) ;
 };
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 extern struct module __this_module ;
 extern struct pv_cpu_ops pv_cpu_ops ;
 __inline static void set_bit(long nr , unsigned long volatile   *addr ) 
@@ -5789,7 +5789,7 @@ __inline static void netif_tx_stop_queue(struct netdev_queue *dev_queue )
   {
   {
   __ret_warn_on = (unsigned long )dev_queue == (unsigned long )((struct netdev_queue *)0);
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp != 0L) {
     {
@@ -5799,7 +5799,7 @@ __inline static void netif_tx_stop_queue(struct netdev_queue *dev_queue )
 
   }
   {
-  tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -5973,7 +5973,7 @@ static int axnet_probe(struct pcmcia_device *link )
   descriptor.format = "axnet_attach()\n";
   descriptor.lineno = 148U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -6023,7 +6023,7 @@ static void axnet_detach(struct pcmcia_device *link )
   descriptor.format = "axnet_detach(0x%p)\n";
   descriptor.lineno = 174U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -6248,7 +6248,7 @@ static int axnet_config(struct pcmcia_device *link )
   descriptor.format = "axnet_config(0x%p)\n";
   descriptor.lineno = 280U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -6424,7 +6424,7 @@ static int axnet_config(struct pcmcia_device *link )
     descriptor___0.format = "  MII transceiver at index %d, status %x\n";
     descriptor___0.lineno = 363U;
     descriptor___0.flags = 0U;
-    tmp___14 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___14 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___14 != 0L) {
       {
@@ -6646,7 +6646,7 @@ static int axnet_open(struct net_device *dev )
   descriptor.format = "axnet_open(\'%s\')\n";
   descriptor.lineno = 474U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -6706,7 +6706,7 @@ static int axnet_close(struct net_device *dev )
   descriptor.format = "axnet_close(\'%s\')\n";
   descriptor.lineno = 503U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -7019,7 +7019,7 @@ static void block_input(struct net_device *dev , int count , struct sk_buff *skb
     descriptor.format = "[bi=%d]\n";
     descriptor.lineno = 659U;
     descriptor.flags = 0U;
-    tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -7066,7 +7066,7 @@ static void block_output(struct net_device *dev , int count , u_char const   *bu
   descriptor.format = "%s: [bo=%d]\n";
   descriptor.lineno = 677U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -7332,7 +7332,7 @@ static void axnet_tx_timeout(struct net_device *dev )
   descriptor.format = "Tx timed out, %s TSR=%#2x, ISR=%#2x, t=%d.\n";
   descriptor.lineno = 928U;
   descriptor.flags = 0U;
-  tmp___3 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___3 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___3 != 0L) {
     {
@@ -7402,7 +7402,7 @@ static netdev_tx_t axnet_start_xmit(struct sk_buff *skb , struct net_device *dev
       descriptor.format = "idle transmitter tx2=%d, lasttx=%d, txing=%d\n";
       descriptor.lineno = 1002U;
       descriptor.flags = 0U;
-      tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+      tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
       }
       if (tmp___0 != 0L) {
         {
@@ -7427,7 +7427,7 @@ static netdev_tx_t axnet_start_xmit(struct sk_buff *skb , struct net_device *dev
       descriptor___0.format = "idle transmitter, tx1=%d, lasttx=%d, txing=%d\n";
       descriptor___0.lineno = 1013U;
       descriptor___0.flags = 0U;
-      tmp___1 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+      tmp___1 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
       }
       if (tmp___1 != 0L) {
         {
@@ -7449,7 +7449,7 @@ static netdev_tx_t axnet_start_xmit(struct sk_buff *skb , struct net_device *dev
       descriptor___1.format = "No Tx buffers free! tx1=%d tx2=%d last=%d\n";
       descriptor___1.lineno = 1020U;
       descriptor___1.flags = 0U;
-      tmp___2 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+      tmp___2 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
       }
       if (tmp___2 != 0L) {
         {
@@ -7578,7 +7578,7 @@ static irqreturn_t ax_interrupt(int irq , void *dev_id )
     descriptor.format = "interrupt(isr=%#2.2x)\n";
     descriptor.lineno = 1126U;
     descriptor.flags = 0U;
-    tmp___3 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___3 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp___3 != 0L) {
       {
@@ -8054,7 +8054,7 @@ static void ei_rx_overrun(struct net_device *dev )
     descriptor.format = "Receiver overrun\n";
     descriptor.lineno = 1467U;
     descriptor.flags = 0U;
-    tmp___2 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___2 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp___2 != 0L) {
       {
@@ -8444,7 +8444,7 @@ void ldv_dummy_resourceless_instance_callback_1_9(int (*arg0)(struct net_device 
                                                   struct net_device *arg1 , struct ifreq *arg2 ,
                                                   int arg3 ) ;
 void ldv_entry_EMGentry_14(void *arg0 ) ;
-void main(void) ;
+int main(void) ;
 void ldv_free_irq(void *arg0 , int arg1 , void *arg2 ) ;
 void ldv_free_netdev(void *arg0 , struct net_device *arg1 ) ;
 void ldv_initialize_external_data(void) ;
@@ -8994,7 +8994,7 @@ void ldv_entry_EMGentry_14(void *arg0 )
   return;
 }
 }
-void main(void) 
+int main(void) 
 { 
   int tmp ;
 
@@ -10428,7 +10428,7 @@ void *ldv_kzalloc(size_t size , gfp_t flags )
 }
 }
 extern void ldv_assert(char const   * , int  ) ;
-void __builtin_trap(void) ;
+void ldv__builtin_trap(void) ;
 void ldv_assume(int expression ) 
 { 
 
@@ -10452,7 +10452,7 @@ void ldv_stop(void)
   goto ldv_stop_label;
 }
 }
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 
@@ -10460,7 +10460,7 @@ long __builtin_expect(long exp , long c )
   return (exp);
 }
 }
-void __builtin_trap(void) 
+void ldv__builtin_trap(void) 
 { 
 
 

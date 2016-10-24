@@ -4459,7 +4459,7 @@ struct ldv_thread {
    void (*function)(void * ) ;
 };
 typedef _Bool ldv_set;
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 void ldv_assume(int expression ) ;
 void ldv_stop(void) ;
 void ldv_linux_alloc_irq_check_alloc_flags(gfp_t flags ) ;
@@ -4619,7 +4619,6 @@ extern void *__memset(void * , int  , size_t  ) ;
 extern void *__memmove(void * , void const   * , size_t  ) ;
 extern size_t strlen(char const   * ) ;
 extern bool sysfs_streq(char const   * , char const   * ) ;
-extern int ( /* missing proto */  __builtin_unreachable)() ;
 __inline static long PTR_ERR(void const   *ptr ) ;
 __inline static bool IS_ERR(void const   *ptr ) 
 { 
@@ -4627,7 +4626,7 @@ __inline static bool IS_ERR(void const   *ptr )
 
   {
   {
-  tmp = __builtin_expect((unsigned long )ptr > 0xfffffffffffff000UL, 0L);
+  tmp = ldv__builtin_expect((unsigned long )ptr > 0xfffffffffffff000UL, 0L);
   }
   return (tmp != 0L);
 }
@@ -4864,7 +4863,7 @@ __inline static bool __virtio_test_bit(struct virtio_device  const  *vdev , unsi
 
   {
   {
-  tmp = __builtin_expect(fbit > 63U, 0L);
+  tmp = ldv__builtin_expect(fbit > 63U, 0L);
   }
   if (tmp != 0L) {
     {
@@ -4906,7 +4905,7 @@ __inline static void virtio_device_ready(struct virtio_device *dev )
   {
   tmp = (*((dev->config)->get_status))(dev);
   status = (unsigned int )tmp;
-  tmp___0 = __builtin_expect((status & 4U) != 0U, 0L);
+  tmp___0 = ldv__builtin_expect((status & 4U) != 0U, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -5326,7 +5325,7 @@ static void virtblk_done(struct virtqueue *vq )
   }
   {
   tmp___0 = virtqueue_is_broken(vq);
-  tmp___1 = __builtin_expect((long )tmp___0, 0L);
+  tmp___1 = ldv__builtin_expect((long )tmp___0, 0L);
   }
   if (tmp___1 != 0L) {
     goto ldv_36285;
@@ -5390,7 +5389,7 @@ static int virtio_queue_rq(struct blk_mq_hw_ctx *hctx , struct blk_mq_queue_data
   vbr = (struct virtblk_req *)tmp;
   qid = (int )hctx->queue_num;
   notify = 0;
-  tmp___0 = __builtin_expect((unsigned int )((int )req->nr_phys_segments + 2) > vblk->sg_elems,
+  tmp___0 = ldv__builtin_expect((unsigned int )((int )req->nr_phys_segments + 2) > vblk->sg_elems,
                              0L);
   }
   if (tmp___0 != 0L) {
@@ -6368,7 +6367,7 @@ static ssize_t virtblk_cache_type_store(struct device *dev , struct device_attri
     tmp___0 = 1;
   }
   {
-  tmp___1 = __builtin_expect((long )tmp___0, 0L);
+  tmp___1 = ldv__builtin_expect((long )tmp___0, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -6428,7 +6427,7 @@ static ssize_t virtblk_cache_type_show(struct device *dev , struct device_attrib
   vblk = (struct virtio_blk *)disk->private_data;
   tmp = virtblk_get_cache_mode(vblk->vdev);
   writeback = (u8 )tmp;
-  tmp___0 = __builtin_expect((unsigned int )writeback > 1U, 0L);
+  tmp___0 = ldv__builtin_expect((unsigned int )writeback > 1U, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -7479,7 +7478,7 @@ void ldv_dummy_resourceless_instance_callback_2_9(long (*arg0)(struct device * ,
                                                   struct device *arg1 , struct device_attribute *arg2 ,
                                                   char *arg3 , unsigned long arg4 ) ;
 void ldv_entry_EMGentry_5(void *arg0 ) ;
-void main(void) ;
+int main(void) ;
 void ldv_io_instance_callback_0_17(int (*arg0)(struct virtio_device * ) , struct virtio_device *arg1 ) ;
 void ldv_io_instance_callback_0_18(int (*arg0)(struct block_device * , struct hd_geometry * ) ,
                                    struct block_device *arg1 , struct hd_geometry *arg2 ) ;
@@ -7835,7 +7834,7 @@ void ldv_entry_EMGentry_5(void *arg0 )
   return;
 }
 }
-void main(void) 
+int main(void) 
 { 
 
 
@@ -7844,7 +7843,7 @@ void main(void)
   ldv_ldv_initialize_116();
   ldv_entry_EMGentry_5((void *)0);
   }
-  return;
+return 0;
 }
 }
 void ldv_io_instance_callback_0_17(int (*arg0)(struct virtio_device * ) , struct virtio_device *arg1 ) 
@@ -10356,7 +10355,7 @@ void ldv_linux_usb_urb_check_final_state(void)
 }
 }
 extern void ldv_assert(char const   * , int  ) ;
-void __builtin_trap(void) ;
+void ldv__builtin_trap(void) ;
 void ldv_assume(int expression ) 
 { 
 
@@ -10380,7 +10379,7 @@ void ldv_stop(void)
   goto ldv_stop_label;
 }
 }
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 
@@ -10388,7 +10387,7 @@ long __builtin_expect(long exp , long c )
   return (exp);
 }
 }
-void __builtin_trap(void) 
+void ldv__builtin_trap(void) 
 { 
 
 

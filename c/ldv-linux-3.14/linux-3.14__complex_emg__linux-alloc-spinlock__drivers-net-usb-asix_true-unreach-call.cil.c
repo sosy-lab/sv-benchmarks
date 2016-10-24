@@ -5586,7 +5586,7 @@ struct ldv_thread {
    int identifier ;
    void (*function)(void * ) ;
 };
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 extern void ldv_initialize(void) ;
 int ldv_post_init(int init_ret_val ) ;
 extern void ldv_pre_probe(void) ;
@@ -5834,7 +5834,7 @@ static void asix_status(struct usbnet *dev , struct urb *urb )
     descriptor.format = "Link Status is: %d\n";
     descriptor.lineno = 58U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -6081,7 +6081,7 @@ static int ax88172_link_reset(struct usbnet *dev )
   descriptor.format = "ax88172_link_reset() speed: %u duplex: %d setting mode to 0x%04x\n";
   descriptor.lineno = 185U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -6158,7 +6158,7 @@ static int ax88172_bind(struct usbnet *dev , struct usb_interface *intf )
     descriptor.format = "read AX_CMD_READ_NODE_ID failed: %d\n";
     descriptor.lineno = 230U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -6250,7 +6250,7 @@ static int ax88772_link_reset(struct usbnet *dev )
   descriptor.format = "ax88772_link_reset() speed: %u duplex: %d setting mode to 0x%04x\n";
   descriptor.lineno = 291U;
   descriptor.flags = 0U;
-  tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -6310,7 +6310,7 @@ static int ax88772_reset(struct usbnet *dev )
     descriptor.format = "Select PHY #1 failed: %d\n";
     descriptor.lineno = 313U;
     descriptor.flags = 0U;
-    tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -6372,7 +6372,7 @@ static int ax88772_reset(struct usbnet *dev )
   descriptor___0.format = "RX_CTL is 0x%04x after software reset\n";
   descriptor___0.lineno = 341U;
   descriptor___0.flags = 0U;
-  tmp___1 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -6398,7 +6398,7 @@ static int ax88772_reset(struct usbnet *dev )
   descriptor___1.format = "RX_CTL is 0x%04x setting to 0x0000\n";
   descriptor___1.lineno = 347U;
   descriptor___1.flags = 0U;
-  tmp___2 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+  tmp___2 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
   }
   if (tmp___2 != 0L) {
     {
@@ -6448,7 +6448,7 @@ static int ax88772_reset(struct usbnet *dev )
     descriptor___2.format = "Write IPG,IPG1,IPG2 failed: %d\n";
     descriptor___2.lineno = 374U;
     descriptor___2.flags = 0U;
-    tmp___3 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+    tmp___3 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
     }
     if (tmp___3 != 0L) {
       {
@@ -6487,7 +6487,7 @@ static int ax88772_reset(struct usbnet *dev )
   descriptor___3.format = "RX_CTL is 0x%04x after all initializations\n";
   descriptor___3.lineno = 392U;
   descriptor___3.flags = 0U;
-  tmp___4 = __builtin_expect((long )descriptor___3.flags & 1L, 0L);
+  tmp___4 = ldv__builtin_expect((long )descriptor___3.flags & 1L, 0L);
   }
   if (tmp___4 != 0L) {
     {
@@ -6505,7 +6505,7 @@ static int ax88772_reset(struct usbnet *dev )
   descriptor___4.format = "Medium Status is 0x%04x after all initializations\n";
   descriptor___4.lineno = 397U;
   descriptor___4.flags = 0U;
-  tmp___5 = __builtin_expect((long )descriptor___4.flags & 1L, 0L);
+  tmp___5 = ldv__builtin_expect((long )descriptor___4.flags & 1L, 0L);
   }
   if (tmp___5 != 0L) {
     {
@@ -6576,7 +6576,7 @@ static int ax88772_bind(struct usbnet *dev , struct usb_interface *intf )
     descriptor.format = "Failed to read MAC address: %d\n";
     descriptor.lineno = 440U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -6613,7 +6613,7 @@ static int ax88772_bind(struct usbnet *dev , struct usb_interface *intf )
     descriptor___0.format = "Select PHY #1 failed: %d\n";
     descriptor___0.lineno = 464U;
     descriptor___0.flags = 0U;
-    tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -6654,7 +6654,7 @@ static int ax88772_bind(struct usbnet *dev , struct usb_interface *intf )
   descriptor___1.format = "PHYID=0x%08x\n";
   descriptor___1.lineno = 484U;
   descriptor___1.flags = 0U;
-  tmp___1 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -6726,7 +6726,7 @@ static int marvell_phy_init(struct usbnet *dev )
   descriptor.format = "marvell_phy_init()\n";
   descriptor.lineno = 526U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -6744,7 +6744,7 @@ static int marvell_phy_init(struct usbnet *dev )
   descriptor___0.format = "MII_MARVELL_STATUS = 0x%04x\n";
   descriptor___0.lineno = 529U;
   descriptor___0.flags = 0U;
-  tmp___1 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -6767,7 +6767,7 @@ static int marvell_phy_init(struct usbnet *dev )
     descriptor___1.format = "MII_MARVELL_LED_CTRL (1) = 0x%04x\n";
     descriptor___1.lineno = 537U;
     descriptor___1.flags = 0U;
-    tmp___3 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___3 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
     }
     if (tmp___3 != 0L) {
       {
@@ -6789,7 +6789,7 @@ static int marvell_phy_init(struct usbnet *dev )
     descriptor___2.format = "MII_MARVELL_LED_CTRL (2) = 0x%04x\n";
     descriptor___2.lineno = 546U;
     descriptor___2.flags = 0U;
-    tmp___5 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+    tmp___5 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
     }
     if (tmp___5 != 0L) {
       {
@@ -6822,7 +6822,7 @@ static int rtl8211cl_phy_init(struct usbnet *dev )
   descriptor.format = "rtl8211cl_phy_init()\n";
   descriptor.lineno = 557U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -6869,7 +6869,7 @@ static int marvell_led_status(struct usbnet *dev , u16 speed )
   descriptor.format = "marvell_led_status() read 0x%04x\n";
   descriptor.lineno = 578U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -6910,7 +6910,7 @@ static int marvell_led_status(struct usbnet *dev , u16 speed )
   descriptor___0.format = "marvell_led_status() writing 0x%04x\n";
   descriptor___0.lineno = 594U;
   descriptor___0.flags = 0U;
-  tmp___1 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -6956,7 +6956,7 @@ static int ax88178_reset(struct usbnet *dev )
   descriptor.format = "GPIO Status: 0x%04x\n";
   descriptor.lineno = 610U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -6976,7 +6976,7 @@ static int ax88178_reset(struct usbnet *dev )
   descriptor___0.format = "EEPROM index 0x17 is 0x%04x\n";
   descriptor___0.lineno = 616U;
   descriptor___0.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -7002,7 +7002,7 @@ static int ax88178_reset(struct usbnet *dev )
   descriptor___1.format = "GPIO0: %d, PhyMode: %d\n";
   descriptor___1.lineno = 627U;
   descriptor___1.flags = 0U;
-  tmp___1 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -7029,7 +7029,7 @@ static int ax88178_reset(struct usbnet *dev )
     descriptor___2.format = "gpio phymode == 1 path\n";
     descriptor___2.lineno = 636U;
     descriptor___2.flags = 0U;
-    tmp___2 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+    tmp___2 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
     }
     if (tmp___2 != 0L) {
       {
@@ -7052,7 +7052,7 @@ static int ax88178_reset(struct usbnet *dev )
   descriptor___3.format = "PHYID=0x%08x\n";
   descriptor___3.lineno = 643U;
   descriptor___3.flags = 0U;
-  tmp___3 = __builtin_expect((long )descriptor___3.flags & 1L, 0L);
+  tmp___3 = ldv__builtin_expect((long )descriptor___3.flags & 1L, 0L);
   }
   if (tmp___3 != 0L) {
     {
@@ -7153,7 +7153,7 @@ static int ax88178_link_reset(struct usbnet *dev )
   descriptor.format = "ax88178_link_reset()\n";
   descriptor.lineno = 696U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -7189,7 +7189,7 @@ static int ax88178_link_reset(struct usbnet *dev )
   descriptor___0.format = "ax88178_link_reset() speed: %u duplex: %d setting mode to 0x%04x\n";
   descriptor___0.lineno = 718U;
   descriptor___0.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -7283,7 +7283,7 @@ static int ax88178_change_mtu(struct net_device *net , int new_mtu )
   descriptor.format = "ax88178_change_mtu() new_mtu=%d\n";
   descriptor.lineno = 768U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -7337,7 +7337,7 @@ static int ax88178_bind(struct usbnet *dev , struct usb_interface *intf )
     descriptor.format = "Failed to read MAC address: %d\n";
     descriptor.lineno = 808U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -7588,7 +7588,7 @@ void ldv_dummy_resourceless_instance_callback_1_35(int (*arg0)(struct net_device
                                                                struct ethtool_cmd * ) ,
                                                    struct net_device *arg1 , struct ethtool_cmd *arg2 ) ;
 void ldv_entry_EMGentry_10(void *arg0 ) ;
-void main(void) ;
+int main(void) ;
 void ldv_initialize_external_data(void) ;
 void ldv_io_instance_callback_2_4(int (*arg0)(struct usbnet * ) , struct usbnet *arg1 ) ;
 void ldv_io_instance_callback_3_17(int (*arg0)(struct usbnet * ) , struct usbnet *arg1 ) ;
@@ -8306,7 +8306,7 @@ void ldv_entry_EMGentry_10(void *arg0 )
   return;
 }
 }
-void main(void) 
+int main(void) 
 { 
   int tmp ;
 
@@ -10703,7 +10703,7 @@ int asix_read_phy_addr(struct usbnet *dev , int internal )
   descriptor.format = "asix_get_phy_addr()\n";
   descriptor.lineno = 218U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -10728,7 +10728,7 @@ int asix_read_phy_addr(struct usbnet *dev , int internal )
   descriptor___0.format = "asix_get_phy_addr() returning 0x%04x\n";
   descriptor___0.lineno = 225U;
   descriptor___0.flags = 0U;
-  tmp___1 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -10812,7 +10812,7 @@ int asix_write_rx_ctl(struct usbnet *dev , u16 mode )
   descriptor.format = "asix_write_rx_ctl() - mode = 0x%04x\n";
   descriptor.lineno = 268U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -10873,7 +10873,7 @@ int asix_write_medium_mode(struct usbnet *dev , u16 mode )
   descriptor.format = "asix_write_medium_mode() - mode = 0x%04x\n";
   descriptor.lineno = 296U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -10911,7 +10911,7 @@ int asix_write_gpio(struct usbnet *dev , u16 value , int sleep )
   descriptor.format = "asix_write_gpio() - value = 0x%04x\n";
   descriptor.lineno = 309U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -11026,7 +11026,7 @@ int asix_mdio_read(struct net_device *netdev , int phy_id , int loc )
   descriptor.format = "asix_mdio_read() phy_id=0x%02x, loc=0x%02x, returns=0x%04x\n";
   descriptor.lineno = 376U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -11058,7 +11058,7 @@ void asix_mdio_write(struct net_device *netdev , int phy_id , int loc , int val 
   descriptor.format = "asix_mdio_write() phy_id=0x%02x, loc=0x%02x, val=0x%04x\n";
   descriptor.lineno = 387U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -11242,7 +11242,7 @@ int asix_set_eeprom(struct net_device *net , struct ethtool_eeprom *eeprom , u8 
   descriptor.format = "write EEPROM len %d, offset %d, magic 0x%x\n";
   descriptor.lineno = 480U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -11331,7 +11331,7 @@ int asix_set_eeprom(struct net_device *net , struct ethtool_eeprom *eeprom , u8 
   descriptor___0.format = "write to EEPROM at offset 0x%02x, data 0x%04x\n";
   descriptor___0.lineno = 528U;
   descriptor___0.flags = 0U;
-  tmp___2 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___2 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
   }
   if (tmp___2 != 0L) {
     {
@@ -11610,7 +11610,7 @@ static void ax88172a_adjust_link(struct net_device *netdev )
     descriptor.format = "speed %u duplex %d, setting mode to 0x%04x\n";
     descriptor.lineno = 87U;
     descriptor.flags = 0U;
-    tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -11881,7 +11881,7 @@ static int ax88172a_bind(struct usbnet *dev , struct usb_interface *intf )
   descriptor.format = "AX_CMD_SW_PHY_STATUS = 0x%02x\n";
   descriptor.lineno = 263U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -11911,7 +11911,7 @@ static int ax88172a_bind(struct usbnet *dev , struct usb_interface *intf )
   descriptor___0.format = "use internal phy\n";
   descriptor___0.lineno = 266U;
   descriptor___0.flags = 0U;
-  tmp___1 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -11931,7 +11931,7 @@ static int ax88172a_bind(struct usbnet *dev , struct usb_interface *intf )
   descriptor___1.format = "use external phy\n";
   descriptor___1.lineno = 270U;
   descriptor___1.flags = 0U;
-  tmp___2 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+  tmp___2 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
   }
   if (tmp___2 != 0L) {
     {
@@ -11993,7 +11993,7 @@ static int ax88172a_stop(struct usbnet *dev )
   descriptor.format = "Stopping interface\n";
   descriptor.lineno = 305U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -12058,7 +12058,7 @@ static int ax88172a_reset(struct usbnet *dev )
   descriptor.format = "RX_CTL is 0x%04x after software reset\n";
   descriptor.lineno = 336U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -12084,7 +12084,7 @@ static int ax88172a_reset(struct usbnet *dev )
   descriptor___0.format = "RX_CTL is 0x%04x setting to 0x0000\n";
   descriptor___0.lineno = 342U;
   descriptor___0.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -12132,7 +12132,7 @@ static int ax88172a_reset(struct usbnet *dev )
   descriptor___1.format = "RX_CTL is 0x%04x after all initializations\n";
   descriptor___1.lineno = 368U;
   descriptor___1.flags = 0U;
-  tmp___1 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -12150,7 +12150,7 @@ static int ax88172a_reset(struct usbnet *dev )
   descriptor___2.format = "Medium Status is 0x%04x after all initializations\n";
   descriptor___2.lineno = 372U;
   descriptor___2.flags = 0U;
-  tmp___2 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+  tmp___2 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
   }
   if (tmp___2 != 0L) {
     {
@@ -14065,7 +14065,7 @@ void *ldv_kzalloc(size_t size , gfp_t flags )
 }
 }
 extern void ldv_assert(char const   * , int  ) ;
-void __builtin_trap(void) ;
+void ldv__builtin_trap(void) ;
 void ldv_assume(int expression ) 
 { 
 
@@ -14089,7 +14089,7 @@ void ldv_stop(void)
   goto ldv_stop_label;
 }
 }
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 
@@ -14097,7 +14097,7 @@ long __builtin_expect(long exp , long c )
   return (exp);
 }
 }
-void __builtin_trap(void) 
+void ldv__builtin_trap(void) 
 { 
 
 

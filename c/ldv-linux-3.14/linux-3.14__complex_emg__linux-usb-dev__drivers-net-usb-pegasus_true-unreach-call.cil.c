@@ -5375,7 +5375,7 @@ struct ldv_thread {
    int identifier ;
    void (*function)(void * ) ;
 };
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 void *ldv_dev_get_drvdata(struct device  const  *dev ) ;
 int ldv_dev_set_drvdata(struct device *dev , void *data ) ;
 void ldv_assume(int expression ) ;
@@ -5628,7 +5628,7 @@ __inline static void netif_tx_stop_queue(struct netdev_queue *dev_queue )
   {
   {
   __ret_warn_on = (unsigned long )dev_queue == (unsigned long )((struct netdev_queue *)0);
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp != 0L) {
     {
@@ -5638,7 +5638,7 @@ __inline static void netif_tx_stop_queue(struct netdev_queue *dev_queue )
 
   }
   {
-  tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -6206,7 +6206,7 @@ static void async_ctrl_callback(struct urb *urb )
     descriptor.format = "%s failed with %d";
     descriptor.lineno = 122U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -6248,7 +6248,7 @@ static int get_registers(pegasus_t *pegasus , __u16 indx , __u16 size , void *da
       descriptor.format = "%s returned %d\n";
       descriptor.lineno = 136U;
       descriptor.flags = 0U;
-      tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+      tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
       }
       if (tmp___0 != 0L) {
         {
@@ -6289,7 +6289,7 @@ static int set_registers(pegasus_t *pegasus , __u16 indx , __u16 size , void *da
       descriptor.format = "%s returned %d\n";
       descriptor.lineno = 149U;
       descriptor.flags = 0U;
-      tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+      tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
       }
       if (tmp___0 != 0L) {
         {
@@ -6330,7 +6330,7 @@ static int set_register(pegasus_t *pegasus , __u16 indx , __u8 data )
       descriptor.format = "%s returned %d\n";
       descriptor.lineno = 162U;
       descriptor.flags = 0U;
-      tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+      tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
       }
       if (tmp___0 != 0L) {
         {
@@ -6487,7 +6487,7 @@ static int __mii_op(pegasus_t *p , __u8 phy , __u8 indx , __u16 *regd , __u8 cmd
     descriptor.format = "%s failed\n";
     descriptor.lineno = 231U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -6883,7 +6883,7 @@ static void read_bulk_callback(struct urb *urb )
     descriptor.format = "reset MAC\n";
     descriptor.lineno = 459U;
     descriptor.flags = 0U;
-    tmp___3 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___3 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp___3 != 0L) {
       {
@@ -6917,7 +6917,7 @@ static void read_bulk_callback(struct urb *urb )
     descriptor___0.format = "rx unlink, %d\n";
     descriptor___0.lineno = 469U;
     descriptor___0.flags = 0U;
-    tmp___4 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___4 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___4 != 0L) {
       {
@@ -6940,7 +6940,7 @@ static void read_bulk_callback(struct urb *urb )
     descriptor___1.format = "RX status %d\n";
     descriptor___1.lineno = 472U;
     descriptor___1.flags = 0U;
-    tmp___5 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___5 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
     }
     if (tmp___5 != 0L) {
       {
@@ -6972,7 +6972,7 @@ static void read_bulk_callback(struct urb *urb )
       descriptor___2.format = "RX packet error %x\n";
       descriptor___2.lineno = 482U;
       descriptor___2.flags = 0U;
-      tmp___6 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+      tmp___6 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
       }
       if (tmp___6 != 0L) {
         {
@@ -7231,7 +7231,7 @@ static void write_bulk_callback(struct urb *urb )
     descriptor.format = "tx unlink, %d\n";
     descriptor.lineno = 609U;
     descriptor.flags = 0U;
-    tmp___3 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___3 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp___3 != 0L) {
       {
@@ -7321,7 +7321,7 @@ static void intr_callback(struct urb *urb )
     descriptor.format = "intr status %d\n";
     descriptor.lineno = 643U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -7695,7 +7695,7 @@ static int pegasus_open(struct net_device *net )
       descriptor.format = "failed rx_urb, %d\n";
       descriptor.lineno = 831U;
       descriptor.flags = 0U;
-      tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+      tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
       }
       if (tmp___1 != 0L) {
         {
@@ -7734,7 +7734,7 @@ static int pegasus_open(struct net_device *net )
       descriptor___0.format = "failed intr_urb, %d\n";
       descriptor___0.lineno = 842U;
       descriptor___0.flags = 0U;
-      tmp___3 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+      tmp___3 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
       }
       if (tmp___3 != 0L) {
         {
@@ -7766,7 +7766,7 @@ static int pegasus_open(struct net_device *net )
       descriptor___1.format = "can\'t enable_net_traffic() - %d\n";
       descriptor___1.lineno = 849U;
       descriptor___1.flags = 0U;
-      tmp___4 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+      tmp___4 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
       }
       if (tmp___4 != 0L) {
         {
@@ -7800,7 +7800,7 @@ static int pegasus_open(struct net_device *net )
     descriptor___2.format = "open\n";
     descriptor___2.lineno = 857U;
     descriptor___2.flags = 0U;
-    tmp___5 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+    tmp___5 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
     }
     if (tmp___5 != 0L) {
       {
@@ -8124,7 +8124,7 @@ static void pegasus_set_multicast(struct net_device *net )
       descriptor.format = "set allmulti\n";
       descriptor.lineno = 1022U;
       descriptor.flags = 0U;
-      tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+      tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
       }
       if (tmp___0 != 0L) {
         {
@@ -8476,7 +8476,7 @@ static void pegasus_disconnect(struct usb_interface *intf )
     descriptor.format = "unregistering non-bound device?\n";
     descriptor.lineno = 1218U;
     descriptor.flags = 0U;
-    tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -8766,7 +8766,7 @@ void ldv_dummy_resourceless_instance_callback_0_9(int (*arg0)(struct net_device 
                                                               struct ethtool_cmd * ) ,
                                                   struct net_device *arg1 , struct ethtool_cmd *arg2 ) ;
 void ldv_entry_EMGentry_11(void *arg0 ) ;
-void main(void) ;
+int main(void) ;
 void ldv_free_netdev(void *arg0 , struct net_device *arg1 ) ;
 void ldv_initialize_external_data(void) ;
 void ldv_net_dummy_resourceless_instance_0(void *arg0 ) ;
@@ -9405,7 +9405,7 @@ void ldv_entry_EMGentry_11(void *arg0 )
   return;
 }
 }
-void main(void) 
+int main(void) 
 { 
   int tmp ;
 
@@ -11031,7 +11031,7 @@ void ldv_check_final_state(void)
 }
 }
 extern void ldv_assert(char const   * , int  ) ;
-void __builtin_trap(void) ;
+void ldv__builtin_trap(void) ;
 void ldv_assume(int expression ) 
 { 
 
@@ -11055,7 +11055,7 @@ void ldv_stop(void)
   goto ldv_stop_label;
 }
 }
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 
@@ -11063,7 +11063,7 @@ long __builtin_expect(long exp , long c )
   return (exp);
 }
 }
-void __builtin_trap(void) 
+void ldv__builtin_trap(void) 
 { 
 
 

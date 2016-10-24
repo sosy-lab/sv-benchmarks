@@ -4019,7 +4019,7 @@ struct ldv_thread {
    void (*function)(void * ) ;
 };
 typedef _Bool ldv_set;
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 void ldv_assume(int expression ) ;
 void ldv_stop(void) ;
 void ldv_linux_alloc_irq_check_alloc_flags(gfp_t flags ) ;
@@ -4439,7 +4439,7 @@ __inline static unsigned long copy_from_user(void *to , void const   *from , uns
   {
   sz = -1;
   might_fault();
-  tmp = __builtin_expect(sz < 0, 1L);
+  tmp = ldv__builtin_expect(sz < 0, 1L);
   }
   if (tmp != 0L) {
     {
@@ -4447,7 +4447,7 @@ __inline static unsigned long copy_from_user(void *to , void const   *from , uns
     }
   } else {
     {
-    tmp___0 = __builtin_expect((unsigned long )sz >= n, 1L);
+    tmp___0 = ldv__builtin_expect((unsigned long )sz >= n, 1L);
     }
     if (tmp___0 != 0L) {
       {
@@ -4472,7 +4472,7 @@ __inline static unsigned long copy_to_user(void *to , void const   *from , unsig
   {
   sz = -1;
   might_fault();
-  tmp = __builtin_expect(sz < 0, 1L);
+  tmp = ldv__builtin_expect(sz < 0, 1L);
   }
   if (tmp != 0L) {
     {
@@ -4480,7 +4480,7 @@ __inline static unsigned long copy_to_user(void *to , void const   *from , unsig
     }
   } else {
     {
-    tmp___0 = __builtin_expect((unsigned long )sz >= n, 1L);
+    tmp___0 = ldv__builtin_expect((unsigned long )sz >= n, 1L);
     }
     if (tmp___0 != 0L) {
       {
@@ -4543,7 +4543,7 @@ __inline static int signal_pending(struct task_struct *p )
   {
   {
   tmp = test_tsk_thread_flag(p, 2);
-  tmp___0 = __builtin_expect(tmp != 0, 0L);
+  tmp___0 = ldv__builtin_expect(tmp != 0, 0L);
   }
   return ((int )tmp___0);
 }
@@ -4677,7 +4677,7 @@ __inline static void adu_debug_data(struct device *dev , char const   *function 
   descriptor.format = "%s - length = %d, data = %*ph\n";
   descriptor.lineno = 113U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -4775,7 +4775,7 @@ static void adu_interrupt_in_callback(struct urb *urb )
       descriptor.format = "%s : nonzero status received: %d\n";
       descriptor.lineno = 172U;
       descriptor.flags = 0U;
-      tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+      tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
       }
       if (tmp != 0L) {
         {
@@ -4808,7 +4808,7 @@ static void adu_interrupt_in_callback(struct urb *urb )
       descriptor___0.format = "%s reading  %d\n";
       descriptor___0.lineno = 187U;
       descriptor___0.flags = 0U;
-      tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+      tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
       }
       if (tmp___0 != 0L) {
         {
@@ -4826,7 +4826,7 @@ static void adu_interrupt_in_callback(struct urb *urb )
       descriptor___1.format = "%s : read_buffer overflow\n";
       descriptor___1.lineno = 190U;
       descriptor___1.flags = 0U;
-      tmp___1 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+      tmp___1 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
       }
       if (tmp___1 != 0L) {
         {
@@ -4872,7 +4872,7 @@ static void adu_interrupt_out_callback(struct urb *urb )
       descriptor.format = "%s :nonzero status received: %d\n";
       descriptor.lineno = 214U;
       descriptor.flags = 0U;
-      tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+      tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
       }
       if (tmp != 0L) {
         {
@@ -4962,7 +4962,7 @@ static int adu_open(struct inode *inode , struct file *file )
   descriptor.format = "%s: open count %d\n";
   descriptor.lineno = 260U;
   descriptor.flags = 0U;
-  tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -5011,7 +5011,7 @@ static void adu_release_internal(struct adu_device *dev )
   descriptor.format = "%s : open count %d\n";
   descriptor.lineno = 298U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -5065,7 +5065,7 @@ static int adu_release(struct inode *inode , struct file *file )
     descriptor.format = "%s : device not opened\n";
     descriptor.lineno = 324U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -5196,7 +5196,7 @@ static ssize_t adu_read(struct file *file , char *buffer , size_t count , loff_t
     descriptor.format = "%s : read request of 0 bytes\n";
     descriptor.lineno = 368U;
     descriptor.flags = 0U;
-    tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp___1 != 0L) {
       {
@@ -5218,7 +5218,7 @@ static ssize_t adu_read(struct file *file , char *buffer , size_t count , loff_t
   descriptor___0.format = "%s : about to start looping\n";
   descriptor___0.lineno = 373U;
   descriptor___0.flags = 0U;
-  tmp___2 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___2 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
   }
   if (tmp___2 != 0L) {
     {
@@ -5238,7 +5238,7 @@ static ssize_t adu_read(struct file *file , char *buffer , size_t count , loff_t
   descriptor___1.format = "%s : while, data_in_secondary=%d, status=%d\n";
   descriptor___1.lineno = 379U;
   descriptor___1.flags = 0U;
-  tmp___3 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+  tmp___3 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
   }
   if (tmp___3 != 0L) {
     {
@@ -5283,7 +5283,7 @@ static ssize_t adu_read(struct file *file , char *buffer , size_t count , loff_t
       descriptor___2.format = "%s : swap, read_buffer_length = %d\n";
       descriptor___2.lineno = 404U;
       descriptor___2.flags = 0U;
-      tmp___6 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+      tmp___6 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
       }
       if (tmp___6 != 0L) {
         {
@@ -5313,7 +5313,7 @@ static ssize_t adu_read(struct file *file , char *buffer , size_t count , loff_t
         descriptor___3.format = "%s : submitted already\n";
         descriptor___3.lineno = 421U;
         descriptor___3.flags = 0U;
-        tmp___7 = __builtin_expect((long )descriptor___3.flags & 1L, 0L);
+        tmp___7 = ldv__builtin_expect((long )descriptor___3.flags & 1L, 0L);
         }
         if (tmp___7 != 0L) {
           {
@@ -5331,7 +5331,7 @@ static ssize_t adu_read(struct file *file , char *buffer , size_t count , loff_t
         descriptor___4.format = "%s : initiate input\n";
         descriptor___4.lineno = 426U;
         descriptor___4.flags = 0U;
-        tmp___8 = __builtin_expect((long )descriptor___4.flags & 1L, 0L);
+        tmp___8 = ldv__builtin_expect((long )descriptor___4.flags & 1L, 0L);
         }
         if (tmp___8 != 0L) {
           {
@@ -5365,7 +5365,7 @@ static ssize_t adu_read(struct file *file , char *buffer , size_t count , loff_t
           descriptor___5.format = "%s : submit failed\n";
           descriptor___5.lineno = 446U;
           descriptor___5.flags = 0U;
-          tmp___11 = __builtin_expect((long )descriptor___5.flags & 1L, 0L);
+          tmp___11 = ldv__builtin_expect((long )descriptor___5.flags & 1L, 0L);
           }
           if (tmp___11 != 0L) {
             {
@@ -5528,7 +5528,7 @@ static ssize_t adu_read(struct file *file , char *buffer , size_t count , loff_t
         descriptor___6.format = "%s : timeout\n";
         descriptor___6.lineno = 466U;
         descriptor___6.flags = 0U;
-        tmp___23 = __builtin_expect((long )descriptor___6.flags & 1L, 0L);
+        tmp___23 = ldv__builtin_expect((long )descriptor___6.flags & 1L, 0L);
         }
         if (tmp___23 != 0L) {
           {
@@ -5555,7 +5555,7 @@ static ssize_t adu_read(struct file *file , char *buffer , size_t count , loff_t
         descriptor___7.format = "%s : signal pending\n";
         descriptor___7.lineno = 474U;
         descriptor___7.flags = 0U;
-        tmp___24 = __builtin_expect((long )descriptor___7.flags & 1L, 0L);
+        tmp___24 = ldv__builtin_expect((long )descriptor___7.flags & 1L, 0L);
         }
         if (tmp___24 != 0L) {
           {
@@ -5691,7 +5691,7 @@ static ssize_t adu_write(struct file *file , char const   *buffer , size_t count
     descriptor.format = "%s : write request of 0 bytes\n";
     descriptor.lineno = 537U;
     descriptor.flags = 0U;
-    tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -5788,7 +5788,7 @@ static ssize_t adu_write(struct file *file , char const   *buffer , size_t count
       descriptor___0.format = "%s : interrupted\n";
       descriptor___0.lineno = 551U;
       descriptor___0.flags = 0U;
-      tmp___6 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+      tmp___6 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
       }
       if (tmp___6 != 0L) {
         {
@@ -5876,7 +5876,7 @@ static ssize_t adu_write(struct file *file , char const   *buffer , size_t count
       descriptor___1.format = "%s - command timed out.\n";
       descriptor___1.lineno = 558U;
       descriptor___1.flags = 0U;
-      tmp___14 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+      tmp___14 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
       }
       if (tmp___14 != 0L) {
         {
@@ -5908,7 +5908,7 @@ static ssize_t adu_write(struct file *file , char const   *buffer , size_t count
     descriptor___2.format = "%s : in progress, count = %Zd\n";
     descriptor___2.lineno = 571U;
     descriptor___2.flags = 0U;
-    tmp___16 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+    tmp___16 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
     }
     if (tmp___16 != 0L) {
       {
@@ -5990,7 +5990,7 @@ static ssize_t adu_write(struct file *file , char const   *buffer , size_t count
     descriptor___3.format = "%s : sending, count = %Zd\n";
     descriptor___3.lineno = 577U;
     descriptor___3.flags = 0U;
-    tmp___22 = __builtin_expect((long )descriptor___3.flags & 1L, 0L);
+    tmp___22 = ldv__builtin_expect((long )descriptor___3.flags & 1L, 0L);
     }
     if (tmp___22 != 0L) {
       {
@@ -6010,7 +6010,7 @@ static ssize_t adu_write(struct file *file , char const   *buffer , size_t count
     descriptor___4.format = "%s : buffer_size = %Zd, count = %Zd, bytes_to_write = %Zd\n";
     descriptor___4.lineno = 584U;
     descriptor___4.flags = 0U;
-    tmp___24 = __builtin_expect((long )descriptor___4.flags & 1L, 0L);
+    tmp___24 = ldv__builtin_expect((long )descriptor___4.flags & 1L, 0L);
     }
     if (tmp___24 != 0L) {
       {
@@ -6296,7 +6296,7 @@ static int adu_probe(struct usb_interface *interface , struct usb_device_id  con
   descriptor.format = "serial_number=%s";
   descriptor.lineno = 767U;
   descriptor.flags = 0U;
-  tmp___8 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___8 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___8 != 0L) {
     {
@@ -6401,7 +6401,7 @@ void ldv_dispatch_instance_register_2_3(struct usb_driver *arg0 ) ;
 void ldv_dispatch_register_4_2(struct usb_driver *arg0 ) ;
 void ldv_dispatch_register_file_operations_instance_3_5_5(void) ;
 void ldv_entry_EMGentry_5(void *arg0 ) ;
-void main(void) ;
+int main(void) ;
 void ldv_file_operations_file_operations_instance_0(void *arg0 ) ;
 void ldv_file_operations_instance_callback_0_22(long (*arg0)(struct file * , char * ,
                                                              unsigned long  , long long * ) ,
@@ -6567,7 +6567,7 @@ void ldv_entry_EMGentry_5(void *arg0 )
   return;
 }
 }
-void main(void) 
+int main(void) 
 { 
 
 
@@ -6576,7 +6576,7 @@ void main(void)
   ldv_ldv_initialize_146();
   ldv_entry_EMGentry_5((void *)0);
   }
-  return;
+return 0;
 }
 }
 void ldv_file_operations_file_operations_instance_0(void *arg0 ) 
@@ -9546,7 +9546,7 @@ void ldv_linux_usb_urb_check_final_state(void)
 }
 }
 extern void ldv_assert(char const   * , int  ) ;
-void __builtin_trap(void) ;
+void ldv__builtin_trap(void) ;
 void ldv_assume(int expression ) 
 { 
 
@@ -9570,7 +9570,7 @@ void ldv_stop(void)
   goto ldv_stop_label;
 }
 }
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 
@@ -9578,7 +9578,7 @@ long __builtin_expect(long exp , long c )
   return (exp);
 }
 }
-void __builtin_trap(void) 
+void ldv__builtin_trap(void) 
 { 
 
 

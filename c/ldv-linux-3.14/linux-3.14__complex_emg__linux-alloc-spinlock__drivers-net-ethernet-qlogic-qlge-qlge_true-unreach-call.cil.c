@@ -6520,7 +6520,7 @@ struct ldv_thread {
    void (*function)(void * ) ;
 };
 void __builtin_prefetch(void const   *  , ...) ;
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 extern void ldv_initialize(void) ;
 int ldv_post_init(int init_ret_val ) ;
 extern void ldv_pre_probe(void) ;
@@ -6668,7 +6668,6 @@ __inline static unsigned int cpumask_weight(struct cpumask  const  *srcp )
   return ((unsigned int )tmp);
 }
 }
-extern int ( /* missing proto */  __builtin_unreachable)() ;
 __inline static unsigned long arch_local_save_flags(void) 
 { 
   unsigned long __ret ;
@@ -6686,7 +6685,7 @@ __inline static unsigned long arch_local_save_flags(void)
   __edx = __edx;
   __ecx = __ecx;
   __eax = __eax;
-  tmp = __builtin_expect((unsigned long )pv_irq_ops.save_fl.func == (unsigned long )((void *)0),
+  tmp = ldv__builtin_expect((unsigned long )pv_irq_ops.save_fl.func == (unsigned long )((void *)0),
                          0L);
   }
   if (tmp != 0L) {
@@ -6952,14 +6951,14 @@ __inline static struct page *compound_head(struct page *page )
   {
   {
   tmp___1 = PageTail((struct page  const  *)page);
-  tmp___2 = __builtin_expect(tmp___1 != 0, 0L);
+  tmp___2 = ldv__builtin_expect(tmp___1 != 0, 0L);
   }
   if (tmp___2 != 0L) {
     {
     head = page->__annonCompField46.first_page;
     __asm__  volatile   ("": : : "memory");
     tmp = PageTail((struct page  const  *)page);
-    tmp___0 = __builtin_expect(tmp != 0, 1L);
+    tmp___0 = ldv__builtin_expect(tmp != 0, 1L);
     }
     if (tmp___0 != 0L) {
       return (head);
@@ -6985,12 +6984,12 @@ __inline static void get_page(struct page *page )
   {
   {
   tmp___1 = PageTail((struct page  const  *)page);
-  tmp___2 = __builtin_expect(tmp___1 != 0, 0L);
+  tmp___2 = ldv__builtin_expect(tmp___1 != 0, 0L);
   }
   if (tmp___2 != 0L) {
     {
     tmp = __get_page_tail(page);
-    tmp___0 = __builtin_expect((long )tmp, 1L);
+    tmp___0 = ldv__builtin_expect((long )tmp, 1L);
     }
     if (tmp___0 != 0L) {
       return;
@@ -7002,7 +7001,7 @@ __inline static void get_page(struct page *page )
   }
   {
   tmp___3 = atomic_read((atomic_t const   *)(& page->__annonCompField43.__annonCompField42.__annonCompField41._count));
-  tmp___4 = __builtin_expect(tmp___3 <= 0, 0L);
+  tmp___4 = ldv__builtin_expect(tmp___3 <= 0, 0L);
   }
   if (tmp___4 != 0L) {
     {
@@ -7113,7 +7112,7 @@ __inline static struct dma_map_ops *get_dma_ops(struct device *dev )
 
   {
   {
-  tmp = __builtin_expect((unsigned long )dev == (unsigned long )((struct device *)0),
+  tmp = ldv__builtin_expect((unsigned long )dev == (unsigned long )((struct device *)0),
                          0L);
   }
   if (tmp != 0L || (unsigned long )dev->archdata.dma_ops == (unsigned long )((struct dma_map_ops *)0)) {
@@ -7140,7 +7139,7 @@ __inline static dma_addr_t dma_map_single_attrs(struct device *dev , void *ptr ,
   ops = tmp;
   kmemcheck_mark_initialized(ptr, (unsigned int )size);
   tmp___0 = valid_dma_direction((int )dir);
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -7176,7 +7175,7 @@ __inline static void dma_unmap_single_attrs(struct device *dev , dma_addr_t addr
   tmp = get_dma_ops(dev);
   ops = tmp;
   tmp___0 = valid_dma_direction((int )dir);
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -7220,7 +7219,7 @@ __inline static dma_addr_t dma_map_page(struct device *dev , struct page *page ,
   tmp___0 = lowmem_page_address((struct page  const  *)page);
   kmemcheck_mark_initialized(tmp___0 + offset, (unsigned int )size);
   tmp___1 = valid_dma_direction((int )dir);
-  tmp___2 = __builtin_expect(tmp___1 == 0, 0L);
+  tmp___2 = ldv__builtin_expect(tmp___1 == 0, 0L);
   }
   if (tmp___2 != 0L) {
     {
@@ -7251,7 +7250,7 @@ __inline static void dma_unmap_page(struct device *dev , dma_addr_t addr , size_
   tmp = get_dma_ops(dev);
   ops = tmp;
   tmp___0 = valid_dma_direction((int )dir);
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -7291,7 +7290,7 @@ __inline static void dma_sync_single_for_cpu(struct device *dev , dma_addr_t add
   tmp = get_dma_ops(dev);
   ops = tmp;
   tmp___0 = valid_dma_direction((int )dir);
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -7331,7 +7330,7 @@ __inline static void dma_sync_single_for_device(struct device *dev , dma_addr_t 
   tmp = get_dma_ops(dev);
   ops = tmp;
   tmp___0 = valid_dma_direction((int )dir);
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -7482,7 +7481,7 @@ __inline static void dma_free_attrs(struct device *dev , size_t size , void *vad
   _flags = arch_local_save_flags();
   tmp___0 = arch_irqs_disabled_flags(_flags);
   __ret_warn_on = tmp___0 != 0;
-  tmp___1 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___1 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -7493,7 +7492,7 @@ __inline static void dma_free_attrs(struct device *dev , size_t size , void *vad
 
   }
   {
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
   debug_dma_free_coherent(dev, size, vaddr, bus);
   }
   if ((unsigned long )ops->free != (unsigned long )((void (*)(struct device * , size_t  ,
@@ -7712,7 +7711,7 @@ __inline static int skb_padto(struct sk_buff *skb , unsigned int len )
   {
   {
   size = skb->len;
-  tmp = __builtin_expect(size >= len, 1L);
+  tmp = ldv__builtin_expect(size >= len, 1L);
   }
   if (tmp != 0L) {
     return (0);
@@ -7864,7 +7863,7 @@ __inline static void napi_enable(struct napi_struct *n )
   {
   {
   tmp = constant_test_bit(0L, (unsigned long const volatile   *)(& n->state));
-  tmp___0 = __builtin_expect(tmp == 0, 0L);
+  tmp___0 = ldv__builtin_expect(tmp == 0, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -7956,7 +7955,7 @@ __inline static void netif_tx_stop_queue(struct netdev_queue *dev_queue )
   {
   {
   __ret_warn_on = (unsigned long )dev_queue == (unsigned long )((struct netdev_queue *)0);
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp != 0L) {
     {
@@ -7966,7 +7965,7 @@ __inline static void netif_tx_stop_queue(struct netdev_queue *dev_queue )
 
   }
   {
-  tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -9451,11 +9450,11 @@ u32 ql_enable_completion_interrupt(struct ql_adapter *qdev , u32 intr )
   hw_flags = 0UL;
   ctx = (struct intr_context *)(& qdev->intr_context) + (unsigned long )intr;
   tmp = constant_test_bit(3L, (unsigned long const volatile   *)(& qdev->flags));
-  tmp___0 = __builtin_expect(tmp != 0, 1L);
+  tmp___0 = ldv__builtin_expect(tmp != 0, 1L);
   }
   if (tmp___0 != 0L) {
     {
-    tmp___1 = __builtin_expect(intr != 0U, 1L);
+    tmp___1 = ldv__builtin_expect(intr != 0U, 1L);
     }
     if (tmp___1 != 0L) {
       {
@@ -9500,11 +9499,11 @@ static u32 ql_disable_completion_interrupt(struct ql_adapter *qdev , u32 intr )
   {
   var = 0U;
   tmp = constant_test_bit(3L, (unsigned long const volatile   *)(& qdev->flags));
-  tmp___0 = __builtin_expect(tmp != 0, 1L);
+  tmp___0 = ldv__builtin_expect(tmp != 0, 1L);
   }
   if (tmp___0 != 0L) {
     {
-    tmp___1 = __builtin_expect(intr != 0U, 1L);
+    tmp___1 = ldv__builtin_expect(intr != 0U, 1L);
     }
     if (tmp___1 != 0L) {
       return (0U);
@@ -9547,7 +9546,7 @@ static void ql_enable_all_completion_interrupts(struct ql_adapter *qdev )
   ldv_52487: 
   {
   tmp = constant_test_bit(3L, (unsigned long const volatile   *)(& qdev->flags));
-  tmp___0 = __builtin_expect(tmp == 0, 0L);
+  tmp___0 = ldv__builtin_expect(tmp == 0, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -9555,7 +9554,7 @@ static void ql_enable_all_completion_interrupts(struct ql_adapter *qdev )
     }
   } else {
     {
-    tmp___1 = __builtin_expect(i == 0, 0L);
+    tmp___1 = ldv__builtin_expect(i == 0, 0L);
     }
     if (tmp___1 != 0L) {
       {
@@ -10189,7 +10188,7 @@ static void ql_update_cq(struct rx_ring *rx_ring )
   {
   rx_ring->cnsmr_idx = rx_ring->cnsmr_idx + 1U;
   rx_ring->curr_entry = rx_ring->curr_entry + 1;
-  tmp = __builtin_expect(rx_ring->cnsmr_idx == rx_ring->cq_len, 0L);
+  tmp = ldv__builtin_expect(rx_ring->cnsmr_idx == rx_ring->cq_len, 0L);
   }
   if (tmp != 0L) {
     rx_ring->cnsmr_idx = 0U;
@@ -10224,7 +10223,7 @@ static int ql_get_next_chunk(struct ql_adapter *qdev , struct rx_ring *rx_ring ,
   if ((unsigned long )rx_ring->pg_chunk.page == (unsigned long )((struct page *)0)) {
     {
     rx_ring->pg_chunk.page = alloc_pages(16672U, qdev->lbq_buf_order);
-    tmp = __builtin_expect((unsigned long )rx_ring->pg_chunk.page == (unsigned long )((struct page *)0),
+    tmp = ldv__builtin_expect((unsigned long )rx_ring->pg_chunk.page == (unsigned long )((struct page *)0),
                            0L);
     }
     if (tmp != 0L) {
@@ -11215,7 +11214,7 @@ static struct sk_buff *ql_build_rx_skb(struct ql_adapter *qdev , struct rx_ring 
 
   }
   {
-  tmp = __builtin_expect(length == 0U, 0L);
+  tmp = ldv__builtin_expect(length == 0U, 0L);
   }
   if (tmp != 0L) {
     if ((qdev->msg_enable & 2048U) != 0U) {
@@ -11409,7 +11408,7 @@ static void ql_process_mac_split_rx_intr(struct ql_adapter *qdev , struct rx_rin
   ndev = qdev->ndev;
   skb = (struct sk_buff *)0;
   skb = ql_build_rx_skb(qdev, rx_ring, ib_mac_rsp);
-  tmp = __builtin_expect((unsigned long )skb == (unsigned long )((struct sk_buff *)0),
+  tmp = ldv__builtin_expect((unsigned long )skb == (unsigned long )((struct sk_buff *)0),
                          0L);
   }
   if (tmp != 0L) {
@@ -11592,7 +11591,7 @@ static void ql_process_mac_tx_intr(struct ql_adapter *qdev , struct ob_mac_iocb_
   tx_ring->tx_packets = tx_ring->tx_packets + 1ULL;
   consume_skb(tx_ring_desc->skb);
   tx_ring_desc->skb = (struct sk_buff *)0;
-  tmp = __builtin_expect(((int )mac_rsp->flags1 & 248) != 0, 0L);
+  tmp = ldv__builtin_expect(((int )mac_rsp->flags1 & 248) != 0, 0L);
   }
   if (tmp != 0L) {
     if (((int )mac_rsp->flags1 & 8) != 0) {
@@ -12645,7 +12644,7 @@ static int ql_tso(struct sk_buff *skb , struct ob_mac_tso_iocb_req *mac_iocb_ptr
     tmp___4 = skb_end_pointer((struct sk_buff  const  *)skb);
     mac_iocb_ptr->mss = ((struct skb_shared_info *)tmp___4)->gso_size;
     mac_iocb_ptr->flags2 = (u8 )((unsigned int )mac_iocb_ptr->flags2 | 32U);
-    tmp___12 = __builtin_expect((unsigned int )skb->protocol == 8U, 1L);
+    tmp___12 = ldv__builtin_expect((unsigned int )skb->protocol == 8U, 1L);
     }
     if (tmp___12 != 0L) {
       {
@@ -12707,7 +12706,7 @@ static void ql_hw_csum_setup(struct sk_buff *skb , struct ob_mac_tso_iocb_req *m
   mac_iocb_ptr->flags1 = (u8 )((unsigned int )mac_iocb_ptr->flags1 | 64U);
   tmp___2 = __fswab16((int )iph->tot_len);
   len = (int )tmp___2 - ((int )iph->ihl << 2);
-  tmp___8 = __builtin_expect((unsigned int )iph->protocol == 6U, 1L);
+  tmp___8 = ldv__builtin_expect((unsigned int )iph->protocol == 6U, 1L);
   }
   if (tmp___8 != 0L) {
     {
@@ -12768,7 +12767,7 @@ static netdev_tx_t qlge_send(struct sk_buff *skb , struct net_device *ndev )
   }
   {
   tmp___1 = atomic_read((atomic_t const   *)(& tx_ring->tx_count));
-  tmp___2 = __builtin_expect(tmp___1 <= 1, 0L);
+  tmp___2 = ldv__builtin_expect(tmp___1 <= 1, 0L);
   }
   if (tmp___2 != 0L) {
     if ((qdev->msg_enable & 256U) != 0U) {
@@ -12821,7 +12820,7 @@ static netdev_tx_t qlge_send(struct sk_buff *skb , struct net_device *ndev )
     return (0);
   } else {
     {
-    tmp___3 = __builtin_expect(tso == 0, 0L);
+    tmp___3 = ldv__builtin_expect(tso == 0, 0L);
     }
     if (tmp___3 != 0L && (unsigned int )*((unsigned char *)skb + 124UL) == 12U) {
       {
@@ -12868,7 +12867,7 @@ static netdev_tx_t qlge_send(struct sk_buff *skb , struct net_device *ndev )
   {
   atomic_dec(& tx_ring->tx_count);
   tmp___6 = atomic_read((atomic_t const   *)(& tx_ring->tx_count));
-  tmp___7 = __builtin_expect(tmp___6 <= 1, 0L);
+  tmp___7 = ldv__builtin_expect(tmp___6 <= 1, 0L);
   }
   if (tmp___7 != 0L) {
     {
@@ -13923,7 +13922,7 @@ static void ql_set_tx_vect(struct ql_adapter *qdev )
   {
   tx_rings_per_vector = (u32 )qdev->tx_ring_count / qdev->intr_count;
   tmp = constant_test_bit(3L, (unsigned long const volatile   *)(& qdev->flags));
-  tmp___0 = __builtin_expect(tmp != 0, 1L);
+  tmp___0 = ldv__builtin_expect(tmp != 0, 1L);
   }
   if (tmp___0 != 0L) {
     vect = 0;
@@ -13977,7 +13976,7 @@ static void ql_set_irq_mask(struct ql_adapter *qdev , struct intr_context *ctx )
   vect = (int )ctx->intr;
   tx_rings_per_vector = (u32 )qdev->tx_ring_count / qdev->intr_count;
   tmp = constant_test_bit(3L, (unsigned long const volatile   *)(& qdev->flags));
-  tmp___0 = __builtin_expect(tmp != 0, 1L);
+  tmp___0 = ldv__builtin_expect(tmp != 0, 1L);
   }
   if (tmp___0 != 0L) {
     ctx->irq_mask = (u32 )(1 << (int )qdev->rx_ring[vect].cq_id);
@@ -14022,7 +14021,7 @@ static void ql_resolve_queues_to_irqs(struct ql_adapter *qdev )
   i = 0;
   intr_context = (struct intr_context *)(& qdev->intr_context);
   tmp = constant_test_bit(3L, (unsigned long const volatile   *)(& qdev->flags));
-  tmp___0 = __builtin_expect(tmp != 0, 1L);
+  tmp___0 = ldv__builtin_expect(tmp != 0, 1L);
   }
   if (tmp___0 != 0L) {
     i = 0;
@@ -16861,7 +16860,7 @@ void ldv_dummy_resourceless_instance_callback_4_3(int (*arg0)(struct ql_adapter 
 void ldv_dummy_resourceless_instance_callback_4_7(int (*arg0)(struct ql_adapter * ) ,
                                                   struct ql_adapter *arg1 ) ;
 void ldv_entry_EMGentry_16(void *arg0 ) ;
-void main(void) ;
+int main(void) ;
 void ldv_free_irq(void *arg0 , int arg1 , void *arg2 ) ;
 void ldv_free_netdev(void *arg0 , struct net_device *arg1 ) ;
 void ldv_initialize_external_data(void) ;
@@ -17602,7 +17601,7 @@ void ldv_entry_EMGentry_16(void *arg0 )
   return;
 }
 }
-void main(void) 
+int main(void) 
 { 
   int tmp ;
 
@@ -25221,7 +25220,7 @@ void *ldv_kzalloc(size_t size , gfp_t flags )
 }
 }
 extern void ldv_assert(char const   * , int  ) ;
-void __builtin_trap(void) ;
+void ldv__builtin_trap(void) ;
 void ldv_assume(int expression ) 
 { 
 
@@ -25245,7 +25244,7 @@ void ldv_stop(void)
   goto ldv_stop_label;
 }
 }
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 
@@ -25253,7 +25252,7 @@ long __builtin_expect(long exp , long c )
   return (exp);
 }
 }
-void __builtin_trap(void) 
+void ldv__builtin_trap(void) 
 { 
 
 

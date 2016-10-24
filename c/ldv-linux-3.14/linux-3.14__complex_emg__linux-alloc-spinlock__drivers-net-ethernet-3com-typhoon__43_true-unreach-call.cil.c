@@ -5407,8 +5407,7 @@ struct ldv_thread {
    int identifier ;
    void (*function)(void * ) ;
 };
-int __builtin_bswap32(int  ) ;
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 extern void ldv_initialize(void) ;
 int ldv_post_init(int init_ret_val ) ;
 extern void ldv_pre_probe(void) ;
@@ -5505,7 +5504,6 @@ extern void *memset(void * , int  , size_t  ) ;
 extern int memcmp(void const   * , void const   * , size_t  ) ;
 extern size_t strlcpy(char * , char const   * , size_t  ) ;
 extern void warn_slowpath_null(char const   * , int const    ) ;
-extern int ( /* missing proto */  __builtin_unreachable)() ;
 __inline static unsigned long arch_local_save_flags(void) 
 { 
   unsigned long __ret ;
@@ -5523,7 +5521,7 @@ __inline static unsigned long arch_local_save_flags(void)
   __edx = __edx;
   __ecx = __ecx;
   __eax = __eax;
-  tmp = __builtin_expect((unsigned long )pv_irq_ops.save_fl.func == (unsigned long )((void *)0),
+  tmp = ldv__builtin_expect((unsigned long )pv_irq_ops.save_fl.func == (unsigned long )((void *)0),
                          0L);
   }
   if (tmp != 0L) {
@@ -5697,7 +5695,7 @@ __inline static struct dma_map_ops *get_dma_ops(struct device *dev )
 
   {
   {
-  tmp = __builtin_expect((unsigned long )dev == (unsigned long )((struct device *)0),
+  tmp = ldv__builtin_expect((unsigned long )dev == (unsigned long )((struct device *)0),
                          0L);
   }
   if (tmp != 0L || (unsigned long )dev->archdata.dma_ops == (unsigned long )((struct dma_map_ops *)0)) {
@@ -5724,7 +5722,7 @@ __inline static dma_addr_t dma_map_single_attrs(struct device *dev , void *ptr ,
   ops = tmp;
   kmemcheck_mark_initialized(ptr, (unsigned int )size);
   tmp___0 = valid_dma_direction((int )dir);
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -5760,7 +5758,7 @@ __inline static void dma_unmap_single_attrs(struct device *dev , dma_addr_t addr
   tmp = get_dma_ops(dev);
   ops = tmp;
   tmp___0 = valid_dma_direction((int )dir);
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -5800,7 +5798,7 @@ __inline static void dma_sync_single_for_cpu(struct device *dev , dma_addr_t add
   tmp = get_dma_ops(dev);
   ops = tmp;
   tmp___0 = valid_dma_direction((int )dir);
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -5840,7 +5838,7 @@ __inline static void dma_sync_single_for_device(struct device *dev , dma_addr_t 
   tmp = get_dma_ops(dev);
   ops = tmp;
   tmp___0 = valid_dma_direction((int )dir);
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -5966,7 +5964,7 @@ __inline static void dma_free_attrs(struct device *dev , size_t size , void *vad
   _flags = arch_local_save_flags();
   tmp___0 = arch_irqs_disabled_flags(_flags);
   __ret_warn_on = tmp___0 != 0;
-  tmp___1 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___1 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -5977,7 +5975,7 @@ __inline static void dma_free_attrs(struct device *dev , size_t size , void *vad
 
   }
   {
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
   debug_dma_free_coherent(dev, size, vaddr, bus);
   }
   if ((unsigned long )ops->free != (unsigned long )((void (*)(struct device * , size_t  ,
@@ -6193,7 +6191,7 @@ __inline static void napi_enable(struct napi_struct *n )
   {
   {
   tmp = constant_test_bit(0L, (unsigned long const volatile   *)(& n->state));
-  tmp___0 = __builtin_expect(tmp == 0, 0L);
+  tmp___0 = ldv__builtin_expect(tmp == 0, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -6310,7 +6308,7 @@ __inline static void netif_tx_stop_queue(struct netdev_queue *dev_queue )
   {
   {
   __ret_warn_on = (unsigned long )dev_queue == (unsigned long )((struct netdev_queue *)0);
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp != 0L) {
     {
@@ -6320,7 +6318,7 @@ __inline static void netif_tx_stop_queue(struct netdev_queue *dev_queue )
 
   }
   {
-  tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -6770,7 +6768,7 @@ static int typhoon_reset(void *ioaddr , int wait_type )
   iowrite32(4294967295U, ioaddr + 12UL);
   iowrite32(4294967295U, ioaddr + 4UL);
   iowrite32(127U, ioaddr);
-  tmp = __builtin_expect(use_mmio != 0U, 1L);
+  tmp = ldv__builtin_expect(use_mmio != 0U, 1L);
   }
   if (tmp != 0L) {
     {
@@ -6945,7 +6943,7 @@ static int typhoon_process_response(struct typhoon *tp , int resp_size , struct 
     {
     wrap_len = 0;
     len = (int )((unsigned int )count * 16U);
-    tmp = __builtin_expect(cleared + (u32 )len > 512U, 0L);
+    tmp = ldv__builtin_expect(cleared + (u32 )len > 512U, 0L);
     }
     if (tmp != 0L) {
       wrap_len = (int )((cleared + (u32 )len) - 512U);
@@ -6955,7 +6953,7 @@ static int typhoon_process_response(struct typhoon *tp , int resp_size , struct 
     }
     {
     memcpy((void *)resp_save, (void const   *)resp, (size_t )len);
-    tmp___0 = __builtin_expect(wrap_len != 0, 0L);
+    tmp___0 = ldv__builtin_expect(wrap_len != 0, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -7100,7 +7098,7 @@ static int typhoon_issue_command(struct typhoon *tp , int num_cmd , struct cmd_d
   {
   wrap_len = 0;
   len = (int )((unsigned int )num_cmd * 16U);
-  tmp = __builtin_expect(ring->lastWrite + (u32 )len > 256U, 0L);
+  tmp = ldv__builtin_expect(ring->lastWrite + (u32 )len > 256U, 0L);
   }
   if (tmp != 0L) {
     wrap_len = (int )((ring->lastWrite + (u32 )len) - 256U);
@@ -7111,7 +7109,7 @@ static int typhoon_issue_command(struct typhoon *tp , int num_cmd , struct cmd_d
   {
   memcpy((void *)ring->ringBase + (unsigned long )ring->lastWrite, (void const   *)cmd,
          (size_t )len);
-  tmp___0 = __builtin_expect(wrap_len != 0, 0L);
+  tmp___0 = ldv__builtin_expect(wrap_len != 0, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -7126,7 +7124,7 @@ static int typhoon_issue_command(struct typhoon *tp , int num_cmd , struct cmd_d
   typhoon_inc_cmd_index(& ring->lastWrite, num_cmd);
   __asm__  volatile   ("sfence": : : "memory");
   iowrite32(ring->lastWrite, tp->ioaddr + 40UL);
-  tmp___1 = __builtin_expect(use_mmio != 0U, 1L);
+  tmp___1 = ldv__builtin_expect(use_mmio != 0U, 1L);
   }
   if (tmp___1 != 0L) {
     {
@@ -7266,7 +7264,7 @@ static netdev_tx_t typhoon_start_tx(struct sk_buff *skb , struct net_device *dev
   ldv_44241: 
   {
   tmp___2 = typhoon_num_free_tx(txRing);
-  tmp___3 = __builtin_expect(tmp___2 < numDesc + 2, 0L);
+  tmp___3 = ldv__builtin_expect(tmp___2 < numDesc + 2, 0L);
   }
   if (tmp___3 != 0L) {
     goto ldv_44240;
@@ -8104,7 +8102,7 @@ static int typhoon_download_firmware(struct typhoon *tp )
   iowrite32(hmac, ioaddr + 28UL);
   hmac = fHdr->hmacDigest[4];
   iowrite32(hmac, ioaddr + 24UL);
-  tmp___0 = __builtin_expect(use_mmio != 0U, 1L);
+  tmp___0 = ldv__builtin_expect(use_mmio != 0U, 1L);
   }
   if (tmp___0 != 0L) {
     {
@@ -8159,7 +8157,7 @@ static int typhoon_download_firmware(struct typhoon *tp )
   iowrite32(load_addr, ioaddr + 36UL);
   iowrite32(0U, ioaddr + 32UL);
   iowrite32((u32 )dpage_dma, ioaddr + 28UL);
-  tmp___4 = __builtin_expect(use_mmio != 0U, 1L);
+  tmp___4 = ldv__builtin_expect(use_mmio != 0U, 1L);
   }
   if (tmp___4 != 0L) {
     {
@@ -8258,7 +8256,7 @@ static int typhoon_boot_3XP(struct typhoon *tp , u32 initial_status )
   {
   iowrite32(0U, ioaddr + 40UL);
   iowrite32((u32 )tp->shared_dma, ioaddr + 44UL);
-  tmp___0 = __builtin_expect(use_mmio != 0U, 1L);
+  tmp___0 = ldv__builtin_expect(use_mmio != 0U, 1L);
   }
   if (tmp___0 != 0L) {
     {
@@ -8285,7 +8283,7 @@ static int typhoon_boot_3XP(struct typhoon *tp , u32 initial_status )
   iowrite32(0U, ioaddr + 44UL);
   iowrite32(0U, ioaddr + 40UL);
   iowrite32(0U, ioaddr + 36UL);
-  tmp___3 = __builtin_expect(use_mmio != 0U, 1L);
+  tmp___3 = ldv__builtin_expect(use_mmio != 0U, 1L);
   }
   if (tmp___3 != 0L) {
     {
@@ -8650,7 +8648,7 @@ static int typhoon_poll(struct napi_struct *napi , int budget )
     {
     napi_complete(napi);
     iowrite32(0U, tp->ioaddr + 12UL);
-    tmp___1 = __builtin_expect(use_mmio != 0U, 1L);
+    tmp___1 = ldv__builtin_expect(use_mmio != 0U, 1L);
     }
     if (tmp___1 != 0L) {
       {
@@ -8695,7 +8693,7 @@ static irqreturn_t typhoon_interrupt(int irq , void *dev_instance )
   if ((int )tmp___1) {
     {
     iowrite32(4294967295U, ioaddr + 12UL);
-    tmp___0 = __builtin_expect(use_mmio != 0U, 1L);
+    tmp___0 = ldv__builtin_expect(use_mmio != 0U, 1L);
     }
     if (tmp___0 != 0L) {
       {
@@ -9001,7 +8999,7 @@ static int typhoon_start_runtime(struct typhoon *tp )
   __asm__  volatile   ("": : : "memory");
   iowrite32(4294967279U, ioaddr + 8UL);
   iowrite32(0U, ioaddr + 12UL);
-  tmp___2 = __builtin_expect(use_mmio != 0U, 1L);
+  tmp___2 = ldv__builtin_expect(use_mmio != 0U, 1L);
   }
   if (tmp___2 != 0L) {
     {
@@ -9997,7 +9995,7 @@ void ldv_dummy_resourceless_instance_callback_1_9(int (*arg0)(struct net_device 
                                                               struct ethtool_cmd * ) ,
                                                   struct net_device *arg1 , struct ethtool_cmd *arg2 ) ;
 void ldv_entry_EMGentry_11(void *arg0 ) ;
-void main(void) ;
+int main(void) ;
 void ldv_free_irq(void *arg0 , int arg1 , void *arg2 ) ;
 void ldv_free_netdev(void *arg0 , struct net_device *arg1 ) ;
 void ldv_initialize_external_data(void) ;
@@ -10509,7 +10507,7 @@ void ldv_entry_EMGentry_11(void *arg0 )
   return;
 }
 }
-void main(void) 
+int main(void) 
 { 
   int tmp ;
 
@@ -11987,7 +11985,7 @@ void *ldv_kzalloc(size_t size , gfp_t flags )
 }
 }
 extern void ldv_assert(char const   * , int  ) ;
-void __builtin_trap(void) ;
+void ldv__builtin_trap(void) ;
 void ldv_assume(int expression ) 
 { 
 
@@ -12011,7 +12009,7 @@ void ldv_stop(void)
   goto ldv_stop_label;
 }
 }
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 
@@ -12019,7 +12017,7 @@ long __builtin_expect(long exp , long c )
   return (exp);
 }
 }
-void __builtin_trap(void) 
+void ldv__builtin_trap(void) 
 { 
 
 

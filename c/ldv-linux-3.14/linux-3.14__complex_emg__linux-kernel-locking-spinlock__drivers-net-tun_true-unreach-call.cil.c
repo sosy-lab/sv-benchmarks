@@ -5723,7 +5723,7 @@ struct ldv_thread {
    int identifier ;
    void (*function)(void * ) ;
 };
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 long ldv_is_err(void const   *ptr ) ;
 void *ldv_err_ptr(long error ) ;
 long ldv_ptr_err(void const   *ptr ) ;
@@ -5914,7 +5914,6 @@ extern void *memset(void * , int  , size_t  ) ;
 extern char *strcpy(char * , char const   * ) ;
 extern size_t strlcpy(char * , char const   * , size_t  ) ;
 extern void warn_slowpath_null(char const   * , int const    ) ;
-extern int ( /* missing proto */  __builtin_unreachable)() ;
 __inline static void *ERR_PTR(long error ) ;
 __inline static long PTR_ERR(void const   *ptr ) ;
 __inline static long IS_ERR(void const   *ptr ) ;
@@ -6567,7 +6566,7 @@ __inline static int signal_pending(struct task_struct *p )
   {
   {
   tmp = test_tsk_thread_flag(p, 2);
-  tmp___0 = __builtin_expect(tmp != 0, 0L);
+  tmp___0 = ldv__builtin_expect(tmp != 0, 0L);
   }
   return ((int )tmp___0);
 }
@@ -6608,7 +6607,7 @@ __inline static unsigned long copy_from_user(void *to , void const   *from , uns
   {
   sz = -1;
   might_fault();
-  tmp = __builtin_expect(sz < 0, 1L);
+  tmp = ldv__builtin_expect(sz < 0, 1L);
   }
   if (tmp != 0L) {
     {
@@ -6616,7 +6615,7 @@ __inline static unsigned long copy_from_user(void *to , void const   *from , uns
     }
   } else {
     {
-    tmp___0 = __builtin_expect((unsigned long )sz >= n, 1L);
+    tmp___0 = ldv__builtin_expect((unsigned long )sz >= n, 1L);
     }
     if (tmp___0 != 0L) {
       {
@@ -6641,7 +6640,7 @@ __inline static unsigned long copy_to_user(void *to , void const   *from , unsig
   {
   sz = -1;
   might_fault();
-  tmp = __builtin_expect(sz < 0, 1L);
+  tmp = ldv__builtin_expect(sz < 0, 1L);
   }
   if (tmp != 0L) {
     {
@@ -6649,7 +6648,7 @@ __inline static unsigned long copy_to_user(void *to , void const   *from , unsig
     }
   } else {
     {
-    tmp___0 = __builtin_expect((unsigned long )sz >= n, 1L);
+    tmp___0 = ldv__builtin_expect((unsigned long )sz >= n, 1L);
     }
     if (tmp___0 != 0L) {
       {
@@ -6837,7 +6836,7 @@ __inline static void skb_orphan(struct sk_buff *skb )
     }
   } else {
     {
-    tmp = __builtin_expect((unsigned long )skb->sk != (unsigned long )((struct sock *)0),
+    tmp = ldv__builtin_expect((unsigned long )skb->sk != (unsigned long )((struct sock *)0),
                            0L);
     }
     if (tmp != 0L) {
@@ -6862,7 +6861,7 @@ __inline static int skb_orphan_frags(struct sk_buff *skb , gfp_t gfp_mask )
   {
   {
   tmp = skb_end_pointer((struct sk_buff  const  *)skb);
-  tmp___0 = __builtin_expect(((int )((struct skb_shared_info *)tmp)->tx_flags & 8) == 0,
+  tmp___0 = ldv__builtin_expect(((int )((struct skb_shared_info *)tmp)->tx_flags & 8) == 0,
                              1L);
   }
   if (tmp___0 != 0L) {
@@ -7490,7 +7489,7 @@ __inline static void netif_tx_stop_queue(struct netdev_queue *dev_queue )
   {
   {
   __ret_warn_on = (unsigned long )dev_queue == (unsigned long )((struct netdev_queue *)0);
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp != 0L) {
     {
@@ -7500,7 +7499,7 @@ __inline static void netif_tx_stop_queue(struct netdev_queue *dev_queue )
 
   }
   {
-  tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -8658,7 +8657,7 @@ static void tun_flow_update(struct tun_struct *tun , u32 rxhash , struct tun_fil
   }
   {
   e = tun_flow_find(head, rxhash);
-  tmp___3 = __builtin_expect((unsigned long )e != (unsigned long )((struct tun_flow_entry *)0),
+  tmp___3 = ldv__builtin_expect((unsigned long )e != (unsigned long )((struct tun_flow_entry *)0),
                              1L);
   }
   if (tmp___3 != 0L) {
@@ -8707,7 +8706,7 @@ __inline static void tun_flow_save_rps_rxhash(struct tun_flow_entry *e , u32 has
 
   {
   {
-  tmp = __builtin_expect(e->rps_rxhash != hash, 0L);
+  tmp = ldv__builtin_expect(e->rps_rxhash != hash, 0L);
   }
   if (tmp != 0L) {
     {
@@ -8761,7 +8760,7 @@ static u16 tun_select_queue(struct net_device *dev , struct sk_buff *skb , void 
   } else {
     {
     tmp___3 = skb_rx_queue_recorded((struct sk_buff  const  *)skb);
-    tmp___4 = __builtin_expect((long )tmp___3, 1L);
+    tmp___4 = ldv__builtin_expect((long )tmp___3, 1L);
     }
     if (tmp___4 != 0L) {
       {
@@ -8773,7 +8772,7 @@ static u16 tun_select_queue(struct net_device *dev , struct sk_buff *skb , void 
       txq = txq - numqueues;
       ldv_46074: 
       {
-      tmp___2 = __builtin_expect(txq >= numqueues, 0L);
+      tmp___2 = ldv__builtin_expect(txq >= numqueues, 0L);
       }
       if (tmp___2 != 0L) {
         goto ldv_46073;
@@ -8953,7 +8952,7 @@ static void __tun_detach(struct tun_file *tfile , bool clean )
   if ((unsigned long )tun != (unsigned long )((struct tun_struct *)0) && (unsigned long )tfile->detached == (unsigned long )((struct tun_struct *)0)) {
     {
     index = tfile->__annonCompField85.queue_index;
-    tmp___1 = __builtin_expect((unsigned int )index >= tun->numqueues, 0L);
+    tmp___1 = ldv__builtin_expect((unsigned int )index >= tun->numqueues, 0L);
     }
     if (tmp___1 != 0L) {
       {
@@ -9030,7 +9029,7 @@ static void __tun_detach(struct tun_file *tfile , bool clean )
     }
     {
     tmp___4 = constant_test_bit(5L, (unsigned long const volatile   *)(& tfile->socket.flags));
-    tmp___5 = __builtin_expect(tmp___4 == 0, 0L);
+    tmp___5 = ldv__builtin_expect(tmp___4 == 0, 0L);
     }
     if (tmp___5 != 0L) {
       {
@@ -9115,7 +9114,7 @@ static void tun_detach_all(struct net_device *dev )
   }
   {
   tfile = tun->tfiles[i];
-  tmp___3 = __builtin_expect((unsigned long )tfile == (unsigned long )((struct tun_file *)0),
+  tmp___3 = ldv__builtin_expect((unsigned long )tfile == (unsigned long )((struct tun_file *)0),
                              0L);
   }
   if (tmp___3 != 0L) {
@@ -9158,7 +9157,7 @@ static void tun_detach_all(struct net_device *dev )
 
   }
   {
-  tmp___4 = __builtin_expect(tun->numqueues != 0U, 0L);
+  tmp___4 = ldv__builtin_expect(tun->numqueues != 0U, 0L);
   }
   if (tmp___4 != 0L) {
     {
@@ -9226,7 +9225,7 @@ static void tun_detach_all(struct net_device *dev )
 
   }
   {
-  tmp___7 = __builtin_expect(tun->numdisabled != 0U, 0L);
+  tmp___7 = ldv__builtin_expect(tun->numdisabled != 0U, 0L);
   }
   if (tmp___7 != 0L) {
     {
@@ -9714,7 +9713,7 @@ static netdev_tx_t tun_net_xmit(struct sk_buff *skb , struct net_device *dev )
 
   }
   {
-  tmp___3 = __builtin_expect((unsigned long )tfile == (unsigned long )((struct tun_file *)0),
+  tmp___3 = ldv__builtin_expect((unsigned long )tfile == (unsigned long )((struct tun_file *)0),
                              0L);
   }
   if (tmp___3 != 0L) {
@@ -9756,7 +9755,7 @@ static netdev_tx_t tun_net_xmit(struct sk_buff *skb , struct net_device *dev )
   }
   {
   tmp___7 = skb_orphan_frags(skb, 32U);
-  tmp___8 = __builtin_expect(tmp___7 != 0, 0L);
+  tmp___8 = ldv__builtin_expect(tmp___7 != 0, 0L);
   }
   if (tmp___8 != 0L) {
     goto drop;
@@ -10154,13 +10153,13 @@ static ssize_t tun_get_user(struct tun_struct *tun , struct tun_file *tfile , vo
   if ((tun->flags & 15U) == 2U) {
     {
     align = align;
-    tmp___1 = __builtin_expect(len <= 13UL, 0L);
+    tmp___1 = ldv__builtin_expect(len <= 13UL, 0L);
     }
     if (tmp___1 != 0L) {
       return (-22L);
     } else {
       {
-      tmp___2 = __builtin_expect((unsigned int )gso.hdr_len - 1U <= 12U, 0L);
+      tmp___2 = ldv__builtin_expect((unsigned int )gso.hdr_len - 1U <= 12U, 0L);
       }
       if (tmp___2 != 0L) {
         return (-22L);
@@ -10334,7 +10333,7 @@ static ssize_t tun_get_user(struct tun_struct *tun , struct tun_file *tfile , vo
     descriptor.format = "GSO!\n";
     descriptor.lineno = 1144U;
     descriptor.flags = 0U;
-    tmp___9 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___9 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp___9 != 0L) {
       {
@@ -10581,12 +10580,12 @@ static ssize_t tun_put_user(struct tun_struct *tun , struct tun_file *tfile , st
         print_hex_dump("\v", "tun: ", 0, 16, 1, (void const   *)skb->head, (size_t )(_min1 < _min2 ? _min1 : _min2),
                        1);
         __ret_warn_once = 1;
-        tmp___4 = __builtin_expect(__ret_warn_once != 0, 0L);
+        tmp___4 = ldv__builtin_expect(__ret_warn_once != 0, 0L);
         }
         if (tmp___4 != 0L) {
           {
           __ret_warn_on = ! __warned;
-          tmp___2 = __builtin_expect(__ret_warn_on != 0, 0L);
+          tmp___2 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
           }
           if (tmp___2 != 0L) {
             {
@@ -10596,7 +10595,7 @@ static ssize_t tun_put_user(struct tun_struct *tun , struct tun_file *tfile , st
 
           }
           {
-          tmp___3 = __builtin_expect(__ret_warn_on != 0, 0L);
+          tmp___3 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
           }
           if (tmp___3 != 0L) {
             __warned = 1;
@@ -10607,7 +10606,7 @@ static ssize_t tun_put_user(struct tun_struct *tun , struct tun_file *tfile , st
 
         }
         {
-        __builtin_expect(__ret_warn_once != 0, 0L);
+        ldv__builtin_expect(__ret_warn_once != 0, 0L);
         }
         return (-22L);
       }
@@ -10634,7 +10633,7 @@ static ssize_t tun_put_user(struct tun_struct *tun , struct tun_file *tfile , st
     }
     {
     tmp___7 = memcpy_toiovecend(iv, (unsigned char *)(& gso), (int )total, 10);
-    tmp___8 = __builtin_expect(tmp___7 != 0, 0L);
+    tmp___8 = ldv__builtin_expect(tmp___7 != 0, 0L);
     }
     if (tmp___8 != 0L) {
       return (-14L);
@@ -10722,7 +10721,7 @@ static ssize_t tun_do_read(struct tun_struct *tun , struct tun_file *tfile , str
   wait.task_list.next = (struct list_head *)0;
   wait.task_list.prev = (struct list_head *)0;
   ret = 0L;
-  tmp___0 = __builtin_expect(noblock == 0, 0L);
+  tmp___0 = ldv__builtin_expect(noblock == 0, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -10734,7 +10733,7 @@ static ssize_t tun_do_read(struct tun_struct *tun , struct tun_file *tfile , str
   goto ldv_46388;
   ldv_46389: 
   {
-  tmp___2 = __builtin_expect(noblock == 0, 0L);
+  tmp___2 = ldv__builtin_expect(noblock == 0, 0L);
   }
   if (tmp___2 != 0L) {
     {
@@ -10790,7 +10789,7 @@ static ssize_t tun_do_read(struct tun_struct *tun , struct tun_file *tfile , str
   }
   ldv_46387: 
   {
-  tmp___6 = __builtin_expect(noblock == 0, 0L);
+  tmp___6 = ldv__builtin_expect(noblock == 0, 0L);
   }
   if (tmp___6 != 0L) {
     {
@@ -10869,7 +10868,7 @@ static void tun_free_netdev(struct net_device *dev )
   tmp = netdev_priv((struct net_device  const  *)dev);
   tun = (struct tun_struct *)tmp;
   tmp___0 = list_empty((struct list_head  const  *)(& tun->disabled));
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -12734,7 +12733,7 @@ void ldv_dummy_resourceless_instance_callback_5_3(long (*arg0)(struct device * ,
                                                   struct device_attribute *arg2 ,
                                                   char *arg3 ) ;
 void ldv_entry_EMGentry_15(void *arg0 ) ;
-void main(void) ;
+int main(void) ;
 void ldv_file_operations_file_operations_instance_0(void *arg0 ) ;
 void ldv_file_operations_instance_callback_0_22(long (*arg0)(struct kiocb * , struct iovec * ,
                                                              unsigned long  , long long  ) ,
@@ -13671,7 +13670,7 @@ void ldv_entry_EMGentry_15(void *arg0 )
   return;
 }
 }
-void main(void) 
+int main(void) 
 { 
   int tmp ;
 
@@ -15747,7 +15746,7 @@ void *ldv_kzalloc(size_t size , gfp_t flags )
 }
 }
 extern void ldv_assert(char const   * , int  ) ;
-void __builtin_trap(void) ;
+void ldv__builtin_trap(void) ;
 void ldv_assume(int expression ) 
 { 
 
@@ -15771,7 +15770,7 @@ void ldv_stop(void)
   goto ldv_stop_label;
 }
 }
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 
@@ -15779,7 +15778,7 @@ long __builtin_expect(long exp , long c )
   return (exp);
 }
 }
-void __builtin_trap(void) 
+void ldv__builtin_trap(void) 
 { 
 
 

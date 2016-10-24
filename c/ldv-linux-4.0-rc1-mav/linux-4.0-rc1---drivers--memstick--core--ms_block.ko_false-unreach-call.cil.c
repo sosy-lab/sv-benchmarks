@@ -4422,8 +4422,7 @@ struct ldv_thread {
    void (*function)(void * ) ;
 };
 typedef _Bool ldv_set;
-int __builtin_bswap32(int  ) ;
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 void ldv_assume(int expression ) ;
 void ldv_stop(void) ;
 void ldv_linux_alloc_irq_check_alloc_flags(gfp_t flags ) ;
@@ -4681,7 +4680,6 @@ __inline static int bitmap_weight(unsigned long const   *src , unsigned int nbit
 }
 }
 extern void warn_slowpath_null(char const   * , int const    ) ;
-extern int ( /* missing proto */  __builtin_unreachable)() ;
 __inline static unsigned long arch_local_save_flags(void) 
 { 
   unsigned long __ret ;
@@ -4699,7 +4697,7 @@ __inline static unsigned long arch_local_save_flags(void)
   __edx = __edx;
   __ecx = __ecx;
   __eax = __eax;
-  tmp = __builtin_expect((unsigned long )pv_irq_ops.save_fl.func == (unsigned long )((void *)0),
+  tmp = ldv__builtin_expect((unsigned long )pv_irq_ops.save_fl.func == (unsigned long )((void *)0),
                          0L);
   }
   if (tmp != 0L) {
@@ -4734,7 +4732,7 @@ __inline static void arch_local_irq_restore(unsigned long f )
   __edx = __edx;
   __ecx = __ecx;
   __eax = __eax;
-  tmp = __builtin_expect((unsigned long )pv_irq_ops.restore_fl.func == (unsigned long )((void *)0),
+  tmp = ldv__builtin_expect((unsigned long )pv_irq_ops.restore_fl.func == (unsigned long )((void *)0),
                          0L);
   }
   if (tmp != 0L) {
@@ -4768,7 +4766,7 @@ __inline static void arch_local_irq_disable(void)
   __edx = __edx;
   __ecx = __ecx;
   __eax = __eax;
-  tmp = __builtin_expect((unsigned long )pv_irq_ops.irq_disable.func == (unsigned long )((void *)0),
+  tmp = ldv__builtin_expect((unsigned long )pv_irq_ops.irq_disable.func == (unsigned long )((void *)0),
                          0L);
   }
   if (tmp != 0L) {
@@ -4979,7 +4977,7 @@ __inline static void sg_assign_page(struct scatterlist *sg , struct page *page )
   {
   {
   page_link = sg->page_link & 3UL;
-  tmp = __builtin_expect(((unsigned long )page & 3UL) != 0UL, 0L);
+  tmp = ldv__builtin_expect(((unsigned long )page & 3UL) != 0UL, 0L);
   }
   if (tmp != 0L) {
     {
@@ -4991,7 +4989,7 @@ __inline static void sg_assign_page(struct scatterlist *sg , struct page *page )
 
   }
   {
-  tmp___0 = __builtin_expect(sg->sg_magic != 2271560481UL, 0L);
+  tmp___0 = ldv__builtin_expect(sg->sg_magic != 2271560481UL, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -5003,7 +5001,7 @@ __inline static void sg_assign_page(struct scatterlist *sg , struct page *page )
 
   }
   {
-  tmp___1 = __builtin_expect((long )((int )sg->page_link) & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )((int )sg->page_link) & 1L, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -5039,7 +5037,7 @@ __inline static struct page *sg_page(struct scatterlist *sg )
 
   {
   {
-  tmp = __builtin_expect(sg->sg_magic != 2271560481UL, 0L);
+  tmp = ldv__builtin_expect(sg->sg_magic != 2271560481UL, 0L);
   }
   if (tmp != 0L) {
     {
@@ -5051,7 +5049,7 @@ __inline static struct page *sg_page(struct scatterlist *sg )
 
   }
   {
-  tmp___0 = __builtin_expect((long )((int )sg->page_link) & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )((int )sg->page_link) & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -5071,7 +5069,7 @@ __inline static void sg_mark_end(struct scatterlist *sg )
 
   {
   {
-  tmp = __builtin_expect(sg->sg_magic != 2271560481UL, 0L);
+  tmp = ldv__builtin_expect(sg->sg_magic != 2271560481UL, 0L);
   }
   if (tmp != 0L) {
     {
@@ -5458,7 +5456,7 @@ static int msb_run_state_machine(struct msb_data *msb , int (*state_func)(struct
   {
   card = msb->card;
   __ret_warn_on = msb->state != -1;
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp != 0L) {
     {
@@ -5468,7 +5466,7 @@ static int msb_run_state_machine(struct msb_data *msb , int (*state_func)(struct
 
   }
   {
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
   msb->int_polling = 0;
   msb->state = 0;
   msb->exit_error = 0;
@@ -5477,7 +5475,7 @@ static int msb_run_state_machine(struct msb_data *msb , int (*state_func)(struct
   memstick_new_req(card->host);
   ldv_wait_for_completion_95(& card->mrq_complete);
   __ret_warn_on___0 = msb->state != -1;
-  tmp___0 = __builtin_expect(__ret_warn_on___0 != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on___0 != 0, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -5487,7 +5485,7 @@ static int msb_run_state_machine(struct msb_data *msb , int (*state_func)(struct
 
   }
   {
-  __builtin_expect(__ret_warn_on___0 != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on___0 != 0, 0L);
   }
   return (msb->exit_error);
 }
@@ -5500,7 +5498,7 @@ static int msb_exit_state_machine(struct msb_data *msb , int error )
   {
   {
   __ret_warn_on = msb->state == -1;
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp != 0L) {
     {
@@ -5510,7 +5508,7 @@ static int msb_exit_state_machine(struct msb_data *msb , int error )
 
   }
   {
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
   msb->state = -1;
   msb->exit_error = error;
   (msb->card)->next_request = & h_msb_default_bad;
@@ -5539,7 +5537,7 @@ static int msb_read_int_reg(struct msb_data *msb , long timeout )
   {
   mrq = & (msb->card)->current_mrq;
   __ret_warn_on = msb->state == -1;
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp != 0L) {
     {
@@ -5549,7 +5547,7 @@ static int msb_read_int_reg(struct msb_data *msb , long timeout )
 
   }
   {
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (! msb->int_polling) {
     {
@@ -6780,7 +6778,7 @@ static int msb_read_oob(struct msb_data *msb , u16 pba , u16 page , struct ms_ex
 
   {
   {
-  tmp = __builtin_expect((unsigned long )extra == (unsigned long )((struct ms_extra_data_register *)0),
+  tmp = ldv__builtin_expect((unsigned long )extra == (unsigned long )((struct ms_extra_data_register *)0),
                          0L);
   }
   if (tmp != 0L) {
@@ -6879,7 +6877,7 @@ static int msb_write_block(struct msb_data *msb , u16 pba , u32 lba , struct sca
   {
   {
   current_try = 1;
-  tmp = __builtin_expect(sg->length < (unsigned int )msb->page_size, 0L);
+  tmp = ldv__builtin_expect(sg->length < (unsigned int )msb->page_size, 0L);
   }
   if (tmp != 0L) {
     {
@@ -7393,7 +7391,7 @@ static int msb_read_bad_block_table(struct msb_data *msb , int block_nr )
   buffer = (u16 *)0U;
   offset = 0;
   error = 0;
-  tmp = __builtin_expect(block_nr > 1, 0L);
+  tmp = ldv__builtin_expect(block_nr > 1, 0L);
   }
   if (tmp != 0L) {
     {
@@ -8797,7 +8795,7 @@ static void msb_submit_req(struct request_queue *q )
     }
     {
     __ret_warn_on = ! msb->io_queue_stopped;
-    tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -8807,7 +8805,7 @@ static void msb_submit_req(struct request_queue *q )
 
     }
     {
-    __builtin_expect(__ret_warn_on != 0, 0L);
+    ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
     goto ldv_34839;
     ldv_34838: 
@@ -9346,7 +9344,7 @@ void ldv_dispatch_instance_deregister_2_1(struct timer_list *arg0 ) ;
 void ldv_dispatch_instance_register_3_2(struct timer_list *arg0 ) ;
 void ldv_dispatch_register_5_2(struct memstick_driver *arg0 ) ;
 void ldv_entry_EMGentry_6(void *arg0 ) ;
-void main(void) ;
+int main(void) ;
 void ldv_io_instance_callback_0_20(int (*arg0)(struct memstick_dev * ) , struct memstick_dev *arg1 ) ;
 void ldv_io_instance_callback_0_21(int (*arg0)(struct memstick_dev * , struct pm_message  ) ,
                                    struct memstick_dev *arg1 , struct pm_message arg2 ) ;
@@ -9646,7 +9644,7 @@ void ldv_entry_EMGentry_6(void *arg0 )
   return;
 }
 }
-void main(void) 
+int main(void) 
 { 
 
 
@@ -9655,7 +9653,7 @@ void main(void)
   ldv_ldv_initialize_146();
   ldv_entry_EMGentry_6((void *)0);
   }
-  return;
+return 0;
 }
 }
 void ldv_io_instance_callback_0_20(int (*arg0)(struct memstick_dev * ) , struct memstick_dev *arg1 ) 
@@ -12405,7 +12403,7 @@ void ldv_linux_usb_urb_check_final_state(void)
 }
 }
 extern void ldv_assert(char const   * , int  ) ;
-void __builtin_trap(void) ;
+void ldv__builtin_trap(void) ;
 void ldv_assume(int expression ) 
 { 
 
@@ -12429,7 +12427,7 @@ void ldv_stop(void)
   goto ldv_stop_label;
 }
 }
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 
@@ -12437,7 +12435,7 @@ long __builtin_expect(long exp , long c )
   return (exp);
 }
 }
-void __builtin_trap(void) 
+void ldv__builtin_trap(void) 
 { 
 
 

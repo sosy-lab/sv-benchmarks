@@ -4190,7 +4190,7 @@ struct ldv_thread {
    void (*function)(void * ) ;
 };
 typedef _Bool ldv_set;
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 void ldv_assume(int expression ) ;
 void ldv_stop(void) ;
 void ldv_linux_alloc_irq_check_alloc_flags(gfp_t flags ) ;
@@ -4529,12 +4529,12 @@ __inline static void kref_get(struct kref *kref )
   {
   tmp = atomic_add_return(1, & kref->refcount);
   __ret_warn_once = tmp <= 1;
-  tmp___2 = __builtin_expect(__ret_warn_once != 0, 0L);
+  tmp___2 = ldv__builtin_expect(__ret_warn_once != 0, 0L);
   }
   if (tmp___2 != 0L) {
     {
     __ret_warn_on = ! __warned;
-    tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -4544,7 +4544,7 @@ __inline static void kref_get(struct kref *kref )
 
     }
     {
-    tmp___1 = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp___1 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
     if (tmp___1 != 0L) {
       __warned = 1;
@@ -4555,7 +4555,7 @@ __inline static void kref_get(struct kref *kref )
 
   }
   {
-  __builtin_expect(__ret_warn_once != 0, 0L);
+  ldv__builtin_expect(__ret_warn_once != 0, 0L);
   }
   return;
 }
@@ -4569,7 +4569,7 @@ __inline static int kref_sub(struct kref *kref , unsigned int count , void (*rel
   {
   {
   __ret_warn_on = (unsigned long )release == (unsigned long )((void (*)(struct kref * ))0);
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp != 0L) {
     {
@@ -4579,7 +4579,7 @@ __inline static int kref_sub(struct kref *kref , unsigned int count , void (*rel
 
   }
   {
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
   tmp___0 = atomic_sub_and_test((int )count, & kref->refcount);
   }
   if (tmp___0 != 0) {
@@ -4641,7 +4641,7 @@ __inline static int signal_pending(struct task_struct *p )
   {
   {
   tmp = test_tsk_thread_flag(p, 2);
-  tmp___0 = __builtin_expect(tmp != 0, 0L);
+  tmp___0 = ldv__builtin_expect(tmp != 0, 0L);
   }
   return ((int )tmp___0);
 }
@@ -4768,7 +4768,7 @@ static void destroy_priv(struct kref *kref )
   descriptor.format = "destroying priv datastructure\n";
   descriptor.lineno = 88U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -4798,7 +4798,7 @@ static void destroy_async(struct kref *kref )
   __mptr = (struct kref  const  *)kref;
   rq = (struct uss720_async_request *)__mptr + 0xfffffffffffffff8UL;
   priv = rq->priv;
-  tmp = __builtin_expect((unsigned long )rq->urb != (unsigned long )((struct urb *)0),
+  tmp = ldv__builtin_expect((unsigned long )rq->urb != (unsigned long )((struct urb *)0),
                          1L);
   }
   if (tmp != 0L) {
@@ -5876,7 +5876,7 @@ static int uss720_probe(struct usb_interface *intf , struct usb_device_id  const
   descriptor.format = "probe: vendor id 0x%x, device id 0x%x\n";
   descriptor.lineno = 702U;
   descriptor.flags = 0U;
-  tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -5902,7 +5902,7 @@ static int uss720_probe(struct usb_interface *intf , struct usb_device_id  const
   descriptor___0.format = "set interface result %d\n";
   descriptor___0.lineno = 710U;
   descriptor___0.flags = 0U;
-  tmp___2 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___2 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
   }
   if (tmp___2 != 0L) {
     {
@@ -5957,7 +5957,7 @@ static int uss720_probe(struct usb_interface *intf , struct usb_device_id  const
   descriptor___1.format = "reg: %7ph\n";
   descriptor___1.lineno = 741U;
   descriptor___1.flags = 0U;
-  tmp___4 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+  tmp___4 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
   }
   if (tmp___4 != 0L) {
     {
@@ -5975,7 +5975,7 @@ static int uss720_probe(struct usb_interface *intf , struct usb_device_id  const
   descriptor___2.format = "epaddr %d interval %d\n";
   descriptor___2.lineno = 745U;
   descriptor___2.flags = 0U;
-  tmp___5 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+  tmp___5 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
   }
   if (tmp___5 != 0L) {
     {
@@ -6021,7 +6021,7 @@ static void uss720_disconnect(struct usb_interface *intf )
   descriptor.format = "disconnect\n";
   descriptor.lineno = 763U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -6045,7 +6045,7 @@ static void uss720_disconnect(struct usb_interface *intf )
     descriptor___0.format = "parport_remove_port\n";
     descriptor___0.lineno = 770U;
     descriptor___0.flags = 0U;
-    tmp___1 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___1 != 0L) {
       {
@@ -6071,7 +6071,7 @@ static void uss720_disconnect(struct usb_interface *intf )
   descriptor___1.format = "disconnect done\n";
   descriptor___1.lineno = 776U;
   descriptor___1.flags = 0U;
-  tmp___2 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+  tmp___2 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
   }
   if (tmp___2 != 0L) {
     {
@@ -6240,7 +6240,7 @@ void ldv_dummy_resourceless_instance_callback_0_9(unsigned long (*arg0)(struct p
                                                   void *arg2 , unsigned long arg3 ,
                                                   int arg4 ) ;
 void ldv_entry_EMGentry_5(void *arg0 ) ;
-void main(void) ;
+int main(void) ;
 void ldv_struct_parport_operations_dummy_resourceless_instance_0(void *arg0 ) ;
 void ldv_usb_deregister(void *arg0 , struct usb_driver *arg1 ) ;
 void ldv_usb_dummy_factory_2(void *arg0 ) ;
@@ -6713,7 +6713,7 @@ void ldv_entry_EMGentry_5(void *arg0 )
   return;
 }
 }
-void main(void) 
+int main(void) 
 { 
 
 
@@ -6722,7 +6722,7 @@ void main(void)
   ldv_ldv_initialize_114();
   ldv_entry_EMGentry_5((void *)0);
   }
-  return;
+return 0;
 }
 }
 void ldv_struct_parport_operations_dummy_resourceless_instance_0(void *arg0 ) 
@@ -9633,7 +9633,7 @@ void ldv_linux_usb_urb_check_final_state(void)
 }
 }
 extern void ldv_assert(char const   * , int  ) ;
-void __builtin_trap(void) ;
+void ldv__builtin_trap(void) ;
 void ldv_assume(int expression ) 
 { 
 
@@ -9657,7 +9657,7 @@ void ldv_stop(void)
   goto ldv_stop_label;
 }
 }
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 
@@ -9665,7 +9665,7 @@ long __builtin_expect(long exp , long c )
   return (exp);
 }
 }
-void __builtin_trap(void) 
+void ldv__builtin_trap(void) 
 { 
 
 

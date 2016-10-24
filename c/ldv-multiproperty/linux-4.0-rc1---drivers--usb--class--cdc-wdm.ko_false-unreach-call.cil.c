@@ -4027,7 +4027,7 @@ struct ldv_thread {
    void (*function)(void * ) ;
 };
 typedef _Bool ldv_set;
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 void ldv_assume(int expression ) ;
 void ldv_stop(void) ;
 void ldv_linux_alloc_irq_check_alloc_flags(gfp_t flags ) ;
@@ -4499,7 +4499,7 @@ __inline static unsigned long copy_from_user(void *to , void const   *from , uns
   {
   sz = -1;
   might_fault();
-  tmp = __builtin_expect(sz < 0, 1L);
+  tmp = ldv__builtin_expect(sz < 0, 1L);
   }
   if (tmp != 0L) {
     {
@@ -4507,7 +4507,7 @@ __inline static unsigned long copy_from_user(void *to , void const   *from , uns
     }
   } else {
     {
-    tmp___0 = __builtin_expect((unsigned long )sz >= n, 1L);
+    tmp___0 = ldv__builtin_expect((unsigned long )sz >= n, 1L);
     }
     if (tmp___0 != 0L) {
       {
@@ -4532,7 +4532,7 @@ __inline static unsigned long copy_to_user(void *to , void const   *from , unsig
   {
   sz = -1;
   might_fault();
-  tmp = __builtin_expect(sz < 0, 1L);
+  tmp = ldv__builtin_expect(sz < 0, 1L);
   }
   if (tmp != 0L) {
     {
@@ -4540,7 +4540,7 @@ __inline static unsigned long copy_to_user(void *to , void const   *from , unsig
     }
   } else {
     {
-    tmp___0 = __builtin_expect((unsigned long )sz >= n, 1L);
+    tmp___0 = ldv__builtin_expect((unsigned long )sz >= n, 1L);
     }
     if (tmp___0 != 0L) {
       {
@@ -4907,7 +4907,7 @@ static void wdm_in_callback(struct urb *urb )
     descriptor.format = "nonzero urb status received: -ENOENT";
     descriptor.lineno = 170U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -4926,7 +4926,7 @@ static void wdm_in_callback(struct urb *urb )
     descriptor___0.format = "nonzero urb status received: -ECONNRESET";
     descriptor___0.lineno = 174U;
     descriptor___0.flags = 0U;
-    tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -4945,7 +4945,7 @@ static void wdm_in_callback(struct urb *urb )
     descriptor___1.format = "nonzero urb status received: -ESHUTDOWN";
     descriptor___1.lineno = 178U;
     descriptor___1.flags = 0U;
-    tmp___1 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
     }
     if (tmp___1 != 0L) {
       {
@@ -5106,7 +5106,7 @@ static void wdm_int_callback(struct urb *urb )
   descriptor.format = "NOTIFY_RESPONSE_AVAILABLE received: index %d len %d";
   descriptor.lineno = 248U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -5126,7 +5126,7 @@ static void wdm_int_callback(struct urb *urb )
   descriptor___0.format = "NOTIFY_NETWORK_CONNECTION %s network";
   descriptor___0.lineno = 255U;
   descriptor___0.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -5145,7 +5145,7 @@ static void wdm_int_callback(struct urb *urb )
   descriptor___1.format = "SPEED_CHANGE received (len %u)";
   descriptor___1.lineno = 259U;
   descriptor___1.flags = 0U;
-  tmp___1 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -5189,7 +5189,7 @@ static void wdm_int_callback(struct urb *urb )
         descriptor___2.format = "%s: usb_submit_urb %d";
         descriptor___2.lineno = 276U;
         descriptor___2.flags = 0U;
-        tmp___2 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+        tmp___2 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
         }
         if (tmp___2 != 0L) {
           {
@@ -5504,7 +5504,7 @@ static ssize_t wdm_write(struct file *file , char const   *buffer , size_t count
     descriptor.format = "Tx URB has been submitted index=%d";
     descriptor.lineno = 425U;
     descriptor.flags = 0U;
-    tmp___10 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___10 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp___10 != 0L) {
       {
@@ -5743,7 +5743,7 @@ static ssize_t wdm_read(struct file *file , char *buffer , size_t count , loff_t
       descriptor.format = "%s: zero length - clearing WDM_READ\n";
       descriptor.lineno = 537U;
       descriptor.flags = 0U;
-      tmp___9 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+      tmp___9 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
       }
       if (tmp___9 != 0L) {
         {
@@ -6063,7 +6063,7 @@ static int wdm_release(struct inode *inode , struct file *file )
       descriptor.format = "wdm_release: cleanup";
       descriptor.lineno = 673U;
       descriptor.flags = 0U;
-      tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+      tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
       }
       if (tmp != 0L) {
         {
@@ -6088,7 +6088,7 @@ static int wdm_release(struct inode *inode , struct file *file )
       descriptor___0.format = "cdc_wdm %s: device gone - cleaning up\n";
       descriptor___0.lineno = 681U;
       descriptor___0.flags = 0U;
-      tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+      tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
       }
       if (tmp___0 != 0L) {
         {
@@ -6461,7 +6461,7 @@ static int wdm_probe(struct usb_interface *intf , struct usb_device_id  const  *
   descriptor.format = "Finding maximum buffer length: %d";
   descriptor.lineno = 895U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -6578,7 +6578,7 @@ static void wdm_disconnect(struct usb_interface *intf )
     descriptor.format = "%s: %d open files - postponing cleanup\n";
     descriptor.lineno = 987U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -6616,7 +6616,7 @@ static int wdm_suspend(struct usb_interface *intf , pm_message_t message )
   descriptor.format = "wdm%d_suspend\n";
   descriptor.lineno = 997U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -6725,7 +6725,7 @@ static int wdm_resume(struct usb_interface *intf )
   descriptor.format = "wdm%d_resume\n";
   descriptor.lineno = 1047U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -6823,7 +6823,7 @@ void ldv_dispatch_instance_register_2_3(struct usb_driver *arg0 ) ;
 void ldv_dispatch_register_4_2(struct usb_driver *arg0 ) ;
 void ldv_dispatch_register_file_operations_instance_3_5_5(void) ;
 void ldv_entry_EMGentry_5(void *arg0 ) ;
-void main(void) ;
+int main(void) ;
 void ldv_file_operations_file_operations_instance_0(void *arg0 ) ;
 void ldv_file_operations_instance_callback_0_22(int (*arg0)(struct file * , void * ) ,
                                                 struct file *arg1 , void *arg2 ) ;
@@ -7004,7 +7004,7 @@ void ldv_entry_EMGentry_5(void *arg0 )
   return;
 }
 }
-void main(void) 
+int main(void) 
 { 
 
 
@@ -7013,7 +7013,7 @@ void main(void)
   ldv_ldv_initialize_183();
   ldv_entry_EMGentry_5((void *)0);
   }
-  return;
+return 0;
 }
 }
 void ldv_file_operations_file_operations_instance_0(void *arg0 ) 
@@ -10347,7 +10347,7 @@ void ldv_linux_usb_urb_check_final_state(void)
 }
 }
 extern void ldv_assert(char const   * , int  ) ;
-void __builtin_trap(void) ;
+void ldv__builtin_trap(void) ;
 void ldv_assume(int expression ) 
 { 
 
@@ -10371,7 +10371,7 @@ void ldv_stop(void)
   goto ldv_stop_label;
 }
 }
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 
@@ -10379,7 +10379,7 @@ long __builtin_expect(long exp , long c )
   return (exp);
 }
 }
-void __builtin_trap(void) 
+void ldv__builtin_trap(void) 
 { 
 
 

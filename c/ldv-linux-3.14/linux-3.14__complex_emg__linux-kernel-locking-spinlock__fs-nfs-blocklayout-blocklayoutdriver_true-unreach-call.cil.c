@@ -7772,7 +7772,7 @@ struct ldv_thread {
    int identifier ;
    void (*function)(void * ) ;
 };
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 long ldv_is_err(void const   *ptr ) ;
 void *ldv_err_ptr(long error ) ;
 long ldv_ptr_err(void const   *ptr ) ;
@@ -7904,7 +7904,6 @@ __inline static struct task_struct *get_current(void)
 extern void *memcpy(void * , void const   * , size_t  ) ;
 extern void *memset(void * , int  , size_t  ) ;
 extern void warn_slowpath_null(char const   * , int const    ) ;
-extern int ( /* missing proto */  __builtin_unreachable)() ;
 __inline static void *ERR_PTR(long error ) ;
 __inline static long PTR_ERR(void const   *ptr ) ;
 __inline static long IS_ERR(void const   *ptr ) ;
@@ -8435,12 +8434,12 @@ __inline static void kref_get(struct kref *kref )
   {
   tmp = atomic_add_return(1, & kref->refcount);
   __ret_warn_once = tmp <= 1;
-  tmp___2 = __builtin_expect(__ret_warn_once != 0, 0L);
+  tmp___2 = ldv__builtin_expect(__ret_warn_once != 0, 0L);
   }
   if (tmp___2 != 0L) {
     {
     __ret_warn_on = ! __warned;
-    tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -8450,7 +8449,7 @@ __inline static void kref_get(struct kref *kref )
 
     }
     {
-    tmp___1 = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp___1 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
     if (tmp___1 != 0L) {
       __warned = 1;
@@ -8461,7 +8460,7 @@ __inline static void kref_get(struct kref *kref )
 
   }
   {
-  __builtin_expect(__ret_warn_once != 0, 0L);
+  ldv__builtin_expect(__ret_warn_once != 0, 0L);
   }
   return;
 }
@@ -8475,7 +8474,7 @@ __inline static int kref_sub(struct kref *kref , unsigned int count , void (*rel
   {
   {
   __ret_warn_on = (unsigned long )release == (unsigned long )((void (*)(struct kref * ))0);
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp != 0L) {
     {
@@ -8485,7 +8484,7 @@ __inline static int kref_sub(struct kref *kref , unsigned int count , void (*rel
 
   }
   {
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
   tmp___0 = atomic_sub_and_test((int )count, & kref->refcount);
   }
   if (tmp___0 != 0) {
@@ -8689,7 +8688,7 @@ __inline static void zero_user_segments(struct page *page , unsigned int start1 
   {
   tmp = kmap_atomic(page);
   kaddr = tmp;
-  tmp___0 = __builtin_expect((long )(end1 > 4096U || end2 > 4096U), 0L);
+  tmp___0 = ldv__builtin_expect((long )(end1 > 4096U || end2 > 4096U), 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -8767,7 +8766,7 @@ __inline static int trylock_page(struct page *page )
   {
   {
   tmp = test_and_set_bit_lock(0L, (unsigned long volatile   *)(& page->flags));
-  tmp___0 = __builtin_expect(tmp == 0, 1L);
+  tmp___0 = ldv__builtin_expect(tmp == 0, 1L);
   }
   return ((int )tmp___0);
 }
@@ -8948,7 +8947,7 @@ __inline static void *net_generic(struct net  const  *net , int id )
   }
   {
   ng = _________p1;
-  tmp___1 = __builtin_expect(id == 0, 0L);
+  tmp___1 = ldv__builtin_expect(id == 0, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -8958,7 +8957,7 @@ __inline static void *net_generic(struct net  const  *net , int id )
     }
   } else {
     {
-    tmp___2 = __builtin_expect((unsigned int )id > ng->len, 0L);
+    tmp___2 = ldv__builtin_expect((unsigned int )id > ng->len, 0L);
     }
     if (tmp___2 != 0L) {
       {
@@ -8973,7 +8972,7 @@ __inline static void *net_generic(struct net  const  *net , int id )
   {
   ptr = ng->ptr[id + -1];
   rcu_read_unlock();
-  tmp___3 = __builtin_expect((unsigned long )ptr == (unsigned long )((void *)0), 0L);
+  tmp___3 = ldv__builtin_expect((unsigned long )ptr == (unsigned long )((void *)0), 0L);
   }
   if (tmp___3 != 0L) {
     {
@@ -9072,7 +9071,7 @@ static void print_page(struct page *page )
 
   {
   {
-  tmp = __builtin_expect((nfs_debug & 8192U) != 0U, 0L);
+  tmp = ldv__builtin_expect((nfs_debug & 8192U) != 0U, 0L);
   }
   if (tmp != 0L) {
     {
@@ -9082,7 +9081,7 @@ static void print_page(struct page *page )
 
   }
   {
-  tmp___1 = __builtin_expect((nfs_debug & 8192U) != 0U, 0L);
+  tmp___1 = ldv__builtin_expect((nfs_debug & 8192U) != 0U, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -9093,7 +9092,7 @@ static void print_page(struct page *page )
 
   }
   {
-  tmp___3 = __builtin_expect((nfs_debug & 8192U) != 0U, 0L);
+  tmp___3 = ldv__builtin_expect((nfs_debug & 8192U) != 0U, 0L);
   }
   if (tmp___3 != 0L) {
     {
@@ -9104,7 +9103,7 @@ static void print_page(struct page *page )
 
   }
   {
-  tmp___5 = __builtin_expect((nfs_debug & 8192U) != 0U, 0L);
+  tmp___5 = ldv__builtin_expect((nfs_debug & 8192U) != 0U, 0L);
   }
   if (tmp___5 != 0L) {
     {
@@ -9115,7 +9114,7 @@ static void print_page(struct page *page )
 
   }
   {
-  tmp___7 = __builtin_expect((nfs_debug & 8192U) != 0U, 0L);
+  tmp___7 = ldv__builtin_expect((nfs_debug & 8192U) != 0U, 0L);
   }
   if (tmp___7 != 0L) {
     {
@@ -9126,7 +9125,7 @@ static void print_page(struct page *page )
 
   }
   {
-  tmp___9 = __builtin_expect((nfs_debug & 8192U) != 0U, 0L);
+  tmp___9 = ldv__builtin_expect((nfs_debug & 8192U) != 0U, 0L);
   }
   if (tmp___9 != 0L) {
     {
@@ -9137,7 +9136,7 @@ static void print_page(struct page *page )
 
   }
   {
-  tmp___11 = __builtin_expect((nfs_debug & 8192U) != 0U, 0L);
+  tmp___11 = ldv__builtin_expect((nfs_debug & 8192U) != 0U, 0L);
   }
   if (tmp___11 != 0L) {
     {
@@ -9148,7 +9147,7 @@ static void print_page(struct page *page )
 
   }
   {
-  tmp___13 = __builtin_expect((nfs_debug & 8192U) != 0U, 0L);
+  tmp___13 = ldv__builtin_expect((nfs_debug & 8192U) != 0U, 0L);
   }
   if (tmp___13 != 0L) {
     {
@@ -9159,7 +9158,7 @@ static void print_page(struct page *page )
 
   }
   {
-  tmp___15 = __builtin_expect((nfs_debug & 8192U) != 0U, 0L);
+  tmp___15 = ldv__builtin_expect((nfs_debug & 8192U) != 0U, 0L);
   }
   if (tmp___15 != 0L) {
     {
@@ -9170,7 +9169,7 @@ static void print_page(struct page *page )
 
   }
   {
-  tmp___16 = __builtin_expect((nfs_debug & 8192U) != 0U, 0L);
+  tmp___16 = ldv__builtin_expect((nfs_debug & 8192U) != 0U, 0L);
   }
   if (tmp___16 != 0L) {
     {
@@ -9251,7 +9250,7 @@ static void destroy_parallel(struct kref *kref )
   {
   __mptr = (struct kref  const  *)kref;
   p = (struct parallel_io *)__mptr;
-  tmp = __builtin_expect((nfs_debug & 8192U) != 0U, 0L);
+  tmp = ldv__builtin_expect((nfs_debug & 8192U) != 0U, 0L);
   }
   if (tmp != 0L) {
     {
@@ -9286,7 +9285,7 @@ static struct bio *bl_submit_bio(int rw , struct bio *bio )
   if ((unsigned long )bio != (unsigned long )((struct bio *)0)) {
     {
     get_parallel((struct parallel_io *)bio->bi_private);
-    tmp = __builtin_expect((nfs_debug & 8192U) != 0U, 0L);
+    tmp = ldv__builtin_expect((nfs_debug & 8192U) != 0U, 0L);
     }
     if (tmp != 0L) {
       {
@@ -9371,7 +9370,7 @@ static struct bio *do_add_page_to_bio(struct bio *bio , int npg , int rw , secto
   {
   {
   isect = isect + (sector_t )(offset >> 9);
-  tmp = __builtin_expect((nfs_debug & 8192U) != 0U, 0L);
+  tmp = ldv__builtin_expect((nfs_debug & 8192U) != 0U, 0L);
   }
   if (tmp != 0L) {
     {
@@ -9485,7 +9484,7 @@ static void bl_read_cleanup(struct work_struct *work )
 
   {
   {
-  tmp = __builtin_expect((nfs_debug & 8192U) != 0U, 0L);
+  tmp = ldv__builtin_expect((nfs_debug & 8192U) != 0U, 0L);
   }
   if (tmp != 0L) {
     {
@@ -9567,7 +9566,7 @@ static enum pnfs_try_status bl_read_pagelist(struct nfs_read_data *rdata )
   pages = rdata->args.pages;
   pg_index = (int )(rdata->args.pgbase >> 12);
   is_dio = (unsigned long )header->dreq != (unsigned long )((struct nfs_direct_req *)0);
-  tmp = __builtin_expect((nfs_debug & 8192U) != 0U, 0L);
+  tmp = ldv__builtin_expect((nfs_debug & 8192U) != 0U, 0L);
   }
   if (tmp != 0L) {
     {
@@ -9636,7 +9635,7 @@ static enum pnfs_try_status bl_read_pagelist(struct nfs_read_data *rdata )
   if (hole != 0 && (unsigned long )cow_read == (unsigned long )((struct pnfs_block_extent *)0)) {
     {
     bio = bl_submit_bio(0, bio);
-    tmp___1 = __builtin_expect((nfs_debug & 8192U) != 0U, 0L);
+    tmp___1 = ldv__builtin_expect((nfs_debug & 8192U) != 0U, 0L);
     }
     if (tmp___1 != 0L) {
       {
@@ -9695,7 +9694,7 @@ static enum pnfs_try_status bl_read_pagelist(struct nfs_read_data *rdata )
   return (0);
   use_mds: 
   {
-  tmp___4 = __builtin_expect((nfs_debug & 8192U) != 0U, 0L);
+  tmp___4 = ldv__builtin_expect((nfs_debug & 8192U) != 0U, 0L);
   }
   if (tmp___4 != 0L) {
     {
@@ -9722,7 +9721,7 @@ static void mark_extents_written(struct pnfs_block_layout *bl , __u64 offset , _
 
   {
   {
-  tmp = __builtin_expect((nfs_debug & 8192U) != 0U, 0L);
+  tmp = ldv__builtin_expect((nfs_debug & 8192U) != 0U, 0L);
   }
   if (tmp != 0L) {
     {
@@ -9743,7 +9742,7 @@ static void mark_extents_written(struct pnfs_block_layout *bl , __u64 offset , _
   ldv_56367: 
   {
   be = bl_find_get_extent(bl, isect, (struct pnfs_block_extent **)0);
-  tmp___0 = __builtin_expect((unsigned long )be == (unsigned long )((struct pnfs_block_extent *)0),
+  tmp___0 = ldv__builtin_expect((unsigned long )be == (unsigned long )((struct pnfs_block_extent *)0),
                              0L);
   }
   if (tmp___0 != 0L) {
@@ -9761,7 +9760,7 @@ static void mark_extents_written(struct pnfs_block_layout *bl , __u64 offset , _
   if ((unsigned int )be->be_state == 2U) {
     {
     se = bl_pop_one_short_extent(be->be_inval);
-    tmp___1 = __builtin_expect((unsigned long )se == (unsigned long )((struct pnfs_block_short_extent *)0),
+    tmp___1 = ldv__builtin_expect((unsigned long )se == (unsigned long )((struct pnfs_block_short_extent *)0),
                                0L);
     }
     if (tmp___1 != 0L) {
@@ -9821,7 +9820,7 @@ static void bl_end_io_write_zero(struct bio *bio , int err )
 
   }
   {
-  tmp = __builtin_expect(err != 0, 0L);
+  tmp = ldv__builtin_expect(err != 0, 0L);
   }
   if (tmp != 0L) {
     data = (struct nfs_write_data *)par->data;
@@ -9891,7 +9890,7 @@ static void bl_write_cleanup(struct work_struct *work )
 
   {
   {
-  tmp = __builtin_expect((nfs_debug & 8192U) != 0U, 0L);
+  tmp = ldv__builtin_expect((nfs_debug & 8192U) != 0U, 0L);
   }
   if (tmp != 0L) {
     {
@@ -9905,7 +9904,7 @@ static void bl_write_cleanup(struct work_struct *work )
   task = (struct rpc_task *)__mptr + 0xffffffffffffff78UL;
   __mptr___0 = (struct rpc_task  const  *)task;
   wdata = (struct nfs_write_data *)__mptr___0 + 0xffffffffffffffe8UL;
-  tmp___1 = __builtin_expect((wdata->header)->pnfs_error == 0, 1L);
+  tmp___1 = ldv__builtin_expect((wdata->header)->pnfs_error == 0, 1L);
   }
   if (tmp___1 != 0L) {
     {
@@ -9932,7 +9931,7 @@ static void bl_end_par_io_write(void *data , int num_se )
   {
   {
   wdata = (struct nfs_write_data *)data;
-  tmp___0 = __builtin_expect((wdata->header)->pnfs_error != 0, 0L);
+  tmp___0 = ldv__builtin_expect((wdata->header)->pnfs_error != 0, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -9972,7 +9971,7 @@ static void map_block(struct buffer_head *bh , sector_t isect , struct pnfs_bloc
 
   {
   {
-  tmp = __builtin_expect((nfs_debug & 8192U) != 0U, 0L);
+  tmp = ldv__builtin_expect((nfs_debug & 8192U) != 0U, 0L);
   }
   if (tmp != 0L) {
     {
@@ -9985,7 +9984,7 @@ static void map_block(struct buffer_head *bh , sector_t isect , struct pnfs_bloc
   set_buffer_mapped(bh);
   bh->b_bdev = be->be_mdev;
   bh->b_blocknr = ((isect - be->be_f_offset) + be->be_v_offset) >> (int )(((be->be_mdev)->bd_inode)->i_blkbits - 9U);
-  tmp___0 = __builtin_expect((nfs_debug & 8192U) != 0U, 0L);
+  tmp___0 = ldv__builtin_expect((nfs_debug & 8192U) != 0U, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -10035,7 +10034,7 @@ static int bl_do_readpage_sync(struct page *page , struct pnfs_block_extent *be 
   {
   {
   ret = 0;
-  tmp = __builtin_expect((nfs_debug & 8192U) != 0U, 0L);
+  tmp = ldv__builtin_expect((nfs_debug & 8192U) != 0U, 0L);
   }
   if (tmp != 0L) {
     {
@@ -10081,7 +10080,7 @@ static int bl_do_readpage_sync(struct page *page , struct pnfs_block_extent *be 
   submit_bio(0, bio);
   wait_on_page_locked(shadow_page);
   tmp___3 = constant_test_bit(0L, (unsigned long const volatile   *)(& bio->bi_flags));
-  tmp___4 = __builtin_expect(tmp___3 == 0, 0L);
+  tmp___4 = ldv__builtin_expect(tmp___3 == 0, 0L);
   }
   if (tmp___4 != 0L) {
     ret = -5;
@@ -10144,7 +10143,7 @@ static int bl_read_partial_page_sync(struct page *page , struct pnfs_block_exten
     end = (((dirty_offset + dirty_len) - 1U) | 511U) + 1U;
   }
   {
-  tmp = __builtin_expect((nfs_debug & 8192U) != 0U, 0L);
+  tmp = ldv__builtin_expect((nfs_debug & 8192U) != 0U, 0L);
   }
   if (tmp != 0L) {
     {
@@ -10208,7 +10207,7 @@ static int init_page_for_write(struct page *page , struct pnfs_block_extent *cow
   {
   bh = (struct buffer_head *)0;
   ret = 0;
-  tmp = __builtin_expect((nfs_debug & 8192U) != 0U, 0L);
+  tmp = ldv__builtin_expect((nfs_debug & 8192U) != 0U, 0L);
   }
   if (tmp != 0L) {
     {
@@ -10219,7 +10218,7 @@ static int init_page_for_write(struct page *page , struct pnfs_block_extent *cow
   }
   {
   tmp___0 = PageUptodate(page);
-  tmp___1 = __builtin_expect(tmp___0 != 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 != 0, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -10310,12 +10309,12 @@ static struct page *bl_find_get_zeroing_page(struct inode *inode , unsigned long
   }
   {
   page = find_or_create_page(inode->i_mapping, index, 80U);
-  tmp___1 = __builtin_expect((unsigned long )page == (unsigned long )((struct page *)0),
+  tmp___1 = ldv__builtin_expect((unsigned long )page == (unsigned long )((struct page *)0),
                              0L);
   }
   if (tmp___1 != 0L) {
     {
-    tmp = __builtin_expect((nfs_debug & 8192U) != 0U, 0L);
+    tmp = ldv__builtin_expect((nfs_debug & 8192U) != 0U, 0L);
     }
     if (tmp != 0L) {
       {
@@ -10469,7 +10468,7 @@ static enum pnfs_try_status bl_write_pagelist(struct nfs_write_data *wdata , int
   pages = wdata->args.pages;
   tmp = NFS_SERVER((struct inode  const  *)header->inode);
   npg_per_block = (int )(tmp->pnfs_blksize >> 12);
-  tmp___0 = __builtin_expect((nfs_debug & 8192U) != 0U, 0L);
+  tmp___0 = ldv__builtin_expect((nfs_debug & 8192U) != 0U, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -10491,7 +10490,7 @@ static enum pnfs_try_status bl_write_pagelist(struct nfs_write_data *wdata , int
       if ((count & ((unsigned long )tmp___3->pnfs_blksize - 1UL)) != 0UL) {
         _L: /* CIL Label */ 
         {
-        tmp___1 = __builtin_expect((nfs_debug & 8192U) != 0U, 0L);
+        tmp___1 = ldv__builtin_expect((nfs_debug & 8192U) != 0U, 0L);
         }
         if (tmp___1 != 0L) {
           {
@@ -10531,7 +10530,7 @@ static enum pnfs_try_status bl_write_pagelist(struct nfs_write_data *wdata , int
     if (tmp___6 == 0) {
       _L___0: /* CIL Label */ 
       {
-      tmp___5 = __builtin_expect((nfs_debug & 8192U) != 0U, 0L);
+      tmp___5 = ldv__builtin_expect((nfs_debug & 8192U) != 0U, 0L);
       }
       if (tmp___5 != 0L) {
         {
@@ -10548,7 +10547,7 @@ static enum pnfs_try_status bl_write_pagelist(struct nfs_write_data *wdata , int
   if ((unsigned int )be->be_state == 2U) {
     {
     tmp___7 = bl_push_one_short_extent(be->be_inval);
-    tmp___8 = __builtin_expect(tmp___7 == 0, 1L);
+    tmp___8 = ldv__builtin_expect(tmp___7 == 0, 1L);
     }
     if (tmp___8 != 0L) {
       par->bse_count = par->bse_count + 1;
@@ -10564,7 +10563,7 @@ static enum pnfs_try_status bl_write_pagelist(struct nfs_write_data *wdata , int
     extent_length = be->be_length + (be->be_f_offset - isect);
     fill_invalid_ext: 
     {
-    tmp___9 = __builtin_expect((nfs_debug & 8192U) != 0U, 0L);
+    tmp___9 = ldv__builtin_expect((nfs_debug & 8192U) != 0U, 0L);
     }
     if (tmp___9 != 0L) {
       {
@@ -10580,7 +10579,7 @@ static enum pnfs_try_status bl_write_pagelist(struct nfs_write_data *wdata , int
     }
     if (tmp___11 != 0) {
       {
-      tmp___10 = __builtin_expect((nfs_debug & 8192U) != 0U, 0L);
+      tmp___10 = ldv__builtin_expect((nfs_debug & 8192U) != 0U, 0L);
       }
       if (tmp___10 != 0L) {
         {
@@ -10595,7 +10594,7 @@ static enum pnfs_try_status bl_write_pagelist(struct nfs_write_data *wdata , int
     }
     {
     index = isect >> 3;
-    tmp___12 = __builtin_expect((nfs_debug & 8192U) != 0U, 0L);
+    tmp___12 = ldv__builtin_expect((nfs_debug & 8192U) != 0U, 0L);
     }
     if (tmp___12 != 0L) {
       {
@@ -10608,7 +10607,7 @@ static enum pnfs_try_status bl_write_pagelist(struct nfs_write_data *wdata , int
     {
     page = bl_find_get_zeroing_page(header->inode, index, cow_read);
     tmp___14 = IS_ERR((void const   *)page);
-    tmp___15 = __builtin_expect(tmp___14 != 0L, 0L);
+    tmp___15 = ldv__builtin_expect(tmp___14 != 0L, 0L);
     }
     if (tmp___15 != 0L) {
       {
@@ -10624,11 +10623,11 @@ static enum pnfs_try_status bl_write_pagelist(struct nfs_write_data *wdata , int
     }
     {
     ret = bl_mark_sectors_init(be->be_inval, isect, 8UL);
-    tmp___17 = __builtin_expect(ret != 0, 0L);
+    tmp___17 = ldv__builtin_expect(ret != 0, 0L);
     }
     if (tmp___17 != 0L) {
       {
-      tmp___16 = __builtin_expect((nfs_debug & 8192U) != 0U, 0L);
+      tmp___16 = ldv__builtin_expect((nfs_debug & 8192U) != 0U, 0L);
       }
       if (tmp___16 != 0L) {
         {
@@ -10648,7 +10647,7 @@ static enum pnfs_try_status bl_write_pagelist(struct nfs_write_data *wdata , int
     }
     {
     tmp___18 = bl_push_one_short_extent(be->be_inval);
-    tmp___19 = __builtin_expect(tmp___18 == 0, 1L);
+    tmp___19 = ldv__builtin_expect(tmp___18 == 0, 1L);
     }
     if (tmp___19 != 0L) {
       par->bse_count = par->bse_count + 1;
@@ -10729,7 +10728,7 @@ static enum pnfs_try_status bl_write_pagelist(struct nfs_write_data *wdata , int
     if ((unsigned int )be->be_state == 2U) {
       {
       tmp___25 = bl_push_one_short_extent(be->be_inval);
-      tmp___26 = __builtin_expect(tmp___25 == 0, 1L);
+      tmp___26 = ldv__builtin_expect(tmp___25 == 0, 1L);
       }
       if (tmp___26 != 0L) {
         par->bse_count = par->bse_count + 1;
@@ -10745,7 +10744,7 @@ static enum pnfs_try_status bl_write_pagelist(struct nfs_write_data *wdata , int
 
   }
   {
-  tmp___27 = __builtin_expect((nfs_debug & 8192U) != 0U, 0L);
+  tmp___27 = ldv__builtin_expect((nfs_debug & 8192U) != 0U, 0L);
   }
   if (tmp___27 != 0L) {
     {
@@ -10772,7 +10771,7 @@ static enum pnfs_try_status bl_write_pagelist(struct nfs_write_data *wdata , int
       }
       if (ret != 0) {
         {
-        tmp___28 = __builtin_expect((nfs_debug & 8192U) != 0U, 0L);
+        tmp___28 = ldv__builtin_expect((nfs_debug & 8192U) != 0U, 0L);
         }
         if (tmp___28 != 0L) {
           {
@@ -10789,11 +10788,11 @@ static enum pnfs_try_status bl_write_pagelist(struct nfs_write_data *wdata , int
       }
       {
       ret = bl_mark_sectors_init(be->be_inval, isect, 8UL);
-      tmp___30 = __builtin_expect(ret != 0, 0L);
+      tmp___30 = ldv__builtin_expect(ret != 0, 0L);
       }
       if (tmp___30 != 0L) {
         {
-        tmp___29 = __builtin_expect((nfs_debug & 8192U) != 0U, 0L);
+        tmp___29 = ldv__builtin_expect((nfs_debug & 8192U) != 0U, 0L);
         }
         if (tmp___29 != 0L) {
           {
@@ -11001,7 +11000,7 @@ static void bl_free_layout_hdr(struct pnfs_layout_hdr *lo )
   {
   tmp = BLK_LO2EXT(lo);
   bl = tmp;
-  tmp___0 = __builtin_expect((nfs_debug & 8192U) != 0U, 0L);
+  tmp___0 = ldv__builtin_expect((nfs_debug & 8192U) != 0U, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -11028,7 +11027,7 @@ static struct pnfs_layout_hdr *bl_alloc_layout_hdr(struct inode *inode , gfp_t g
 
   {
   {
-  tmp = __builtin_expect((nfs_debug & 8192U) != 0U, 0L);
+  tmp = ldv__builtin_expect((nfs_debug & 8192U) != 0U, 0L);
   }
   if (tmp != 0L) {
     {
@@ -11068,7 +11067,7 @@ static void bl_free_lseg(struct pnfs_layout_segment *lseg )
 
   {
   {
-  tmp = __builtin_expect((nfs_debug & 8192U) != 0U, 0L);
+  tmp = ldv__builtin_expect((nfs_debug & 8192U) != 0U, 0L);
   }
   if (tmp != 0L) {
     {
@@ -11095,7 +11094,7 @@ static struct pnfs_layout_segment *bl_alloc_lseg(struct pnfs_layout_hdr *lo , st
 
   {
   {
-  tmp = __builtin_expect((nfs_debug & 8192U) != 0U, 0L);
+  tmp = ldv__builtin_expect((nfs_debug & 8192U) != 0U, 0L);
   }
   if (tmp != 0L) {
     {
@@ -11139,7 +11138,7 @@ static void bl_encode_layoutcommit(struct pnfs_layout_hdr *lo , struct xdr_strea
 
   {
   {
-  tmp = __builtin_expect((nfs_debug & 8192U) != 0U, 0L);
+  tmp = ldv__builtin_expect((nfs_debug & 8192U) != 0U, 0L);
   }
   if (tmp != 0L) {
     {
@@ -11166,7 +11165,7 @@ static void bl_cleanup_layoutcommit(struct nfs4_layoutcommit_data *lcdata )
   {
   tmp = NFS_I((struct inode  const  *)lcdata->args.inode);
   lo = tmp->layout;
-  tmp___0 = __builtin_expect((nfs_debug & 8192U) != 0U, 0L);
+  tmp___0 = ldv__builtin_expect((nfs_debug & 8192U) != 0U, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -11250,7 +11249,7 @@ static struct pnfs_block_dev *nfs4_blk_get_deviceinfo(struct nfs_server *server 
   max_resp_sz = ((server->nfs_client)->cl_session)->fc_attrs.max_resp_sz;
   tmp = nfs_page_array_len(0U, (size_t )max_resp_sz);
   max_pages = (int )tmp;
-  tmp___0 = __builtin_expect((nfs_debug & 8192U) != 0U, 0L);
+  tmp___0 = ldv__builtin_expect((nfs_debug & 8192U) != 0U, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -11266,7 +11265,7 @@ static struct pnfs_block_dev *nfs4_blk_get_deviceinfo(struct nfs_server *server 
   }
   if ((unsigned long )dev == (unsigned long )((struct pnfs_device *)0)) {
     {
-    tmp___2 = __builtin_expect((nfs_debug & 8192U) != 0U, 0L);
+    tmp___2 = ldv__builtin_expect((nfs_debug & 8192U) != 0U, 0L);
     }
     if (tmp___2 != 0L) {
       {
@@ -11325,7 +11324,7 @@ static struct pnfs_block_dev *nfs4_blk_get_deviceinfo(struct nfs_server *server 
   dev->pglen = (unsigned int )((unsigned long )max_pages) * 4096U;
   dev->mincount = 0U;
   dev->maxcount = max_resp_sz - (u32 )nfs41_maxgetdevinfo_overhead;
-  tmp___7 = __builtin_expect((nfs_debug & 8192U) != 0U, 0L);
+  tmp___7 = ldv__builtin_expect((nfs_debug & 8192U) != 0U, 0L);
   }
   if (tmp___7 != 0L) {
     {
@@ -11336,7 +11335,7 @@ static struct pnfs_block_dev *nfs4_blk_get_deviceinfo(struct nfs_server *server 
   }
   {
   rc = nfs4_proc_getdeviceinfo(server, dev, (struct rpc_cred *)0);
-  tmp___8 = __builtin_expect((nfs_debug & 8192U) != 0U, 0L);
+  tmp___8 = ldv__builtin_expect((nfs_debug & 8192U) != 0U, 0L);
   }
   if (tmp___8 != 0L) {
     {
@@ -11402,7 +11401,7 @@ static int bl_set_layoutdriver(struct nfs_server *server , struct nfs_fh  const 
   dlist = (struct pnfs_devicelist *)0;
   block_disklist.next = & block_disklist;
   block_disklist.prev = & block_disklist;
-  tmp = __builtin_expect((nfs_debug & 8192U) != 0U, 0L);
+  tmp = ldv__builtin_expect((nfs_debug & 8192U) != 0U, 0L);
   }
   if (tmp != 0L) {
     {
@@ -11413,7 +11412,7 @@ static int bl_set_layoutdriver(struct nfs_server *server , struct nfs_fh  const 
   }
   if (server->pnfs_blksize == 0U) {
     {
-    tmp___0 = __builtin_expect((nfs_debug & 8192U) != 0U, 0L);
+    tmp___0 = ldv__builtin_expect((nfs_debug & 8192U) != 0U, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -11462,7 +11461,7 @@ static int bl_set_layoutdriver(struct nfs_server *server , struct nfs_fh  const 
 
   }
   {
-  tmp___3 = __builtin_expect((nfs_debug & 8192U) != 0U, 0L);
+  tmp___3 = ldv__builtin_expect((nfs_debug & 8192U) != 0U, 0L);
   }
   if (tmp___3 != 0L) {
     {
@@ -11508,7 +11507,7 @@ static int bl_set_layoutdriver(struct nfs_server *server , struct nfs_fh  const 
 
   }
   {
-  tmp___6 = __builtin_expect((nfs_debug & 8192U) != 0U, 0L);
+  tmp___6 = ldv__builtin_expect((nfs_debug & 8192U) != 0U, 0L);
   }
   if (tmp___6 != 0L) {
     {
@@ -11539,7 +11538,7 @@ static int bl_clear_layoutdriver(struct nfs_server *server )
   {
   {
   b_mt_id = (struct block_mount_id *)server->pnfs_ld_data;
-  tmp = __builtin_expect((nfs_debug & 8192U) != 0U, 0L);
+  tmp = ldv__builtin_expect((nfs_debug & 8192U) != 0U, 0L);
   }
   if (tmp != 0L) {
     {
@@ -11550,7 +11549,7 @@ static int bl_clear_layoutdriver(struct nfs_server *server )
   }
   {
   free_blk_mountid(b_mt_id);
-  tmp___0 = __builtin_expect((nfs_debug & 8192U) != 0U, 0L);
+  tmp___0 = ldv__builtin_expect((nfs_debug & 8192U) != 0U, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -11987,7 +11986,7 @@ static int nfs4blocklayout_init(void)
 
   {
   {
-  tmp = __builtin_expect((nfs_debug & 8192U) != 0U, 0L);
+  tmp = ldv__builtin_expect((nfs_debug & 8192U) != 0U, 0L);
   }
   if (tmp != 0L) {
     {
@@ -12039,7 +12038,7 @@ static void nfs4blocklayout_exit(void)
 
   {
   {
-  tmp = __builtin_expect((nfs_debug & 8192U) != 0U, 0L);
+  tmp = ldv__builtin_expect((nfs_debug & 8192U) != 0U, 0L);
   }
   if (tmp != 0L) {
     {
@@ -12164,7 +12163,7 @@ void ldv_dummy_resourceless_instance_callback_4_7(long (*arg0)(struct file * , c
                                                   struct file *arg1 , char *arg2 ,
                                                   unsigned long arg3 ) ;
 void ldv_entry_EMGentry_7(void *arg0 ) ;
-void main(void) ;
+int main(void) ;
 void ldv_initialize_external_data(void) ;
 int ldv_rpc_pipefs_notifier_register(int arg0 , struct notifier_block *arg1 ) ;
 void ldv_rpc_pipefs_notifier_unregister(void *arg0 , struct notifier_block *arg1 ) ;
@@ -13124,7 +13123,7 @@ void ldv_entry_EMGentry_7(void *arg0 )
   return;
 }
 }
-void main(void) 
+int main(void) 
 { 
   int tmp ;
 
@@ -14377,8 +14376,6 @@ static void ldv_rpc_pipefs_notifier_unregister_85(struct notifier_block *ldv_fun
   return;
 }
 }
-int __builtin_bswap32(int  ) ;
-long __builtin_bswap64(long  ) ;
 __inline static void list_add_tail(struct list_head *new , struct list_head *head ) 
 { 
 
@@ -14609,7 +14606,7 @@ static int32_t _find_entry(struct my_tree *tree , u64 s )
 
   {
   {
-  tmp = __builtin_expect((nfs_debug & 8192U) != 0U, 0L);
+  tmp = ldv__builtin_expect((nfs_debug & 8192U) != 0U, 0L);
   }
   if (tmp != 0L) {
     {
@@ -14651,7 +14648,7 @@ __inline static int _has_tag(struct my_tree *tree , u64 s , int32_t tag )
 
   {
   {
-  tmp = __builtin_expect((nfs_debug & 8192U) != 0U, 0L);
+  tmp = ldv__builtin_expect((nfs_debug & 8192U) != 0U, 0L);
   }
   if (tmp != 0L) {
     {
@@ -14684,7 +14681,7 @@ static int _add_entry(struct my_tree *tree , u64 s , int32_t tag , struct pnfs_i
   {
   {
   found = 0;
-  tmp = __builtin_expect((nfs_debug & 8192U) != 0U, 0L);
+  tmp = ldv__builtin_expect((nfs_debug & 8192U) != 0U, 0L);
   }
   if (tmp != 0L) {
     {
@@ -14739,7 +14736,7 @@ static int _set_range(struct my_tree *tree , int32_t tag , u64 s , u64 length )
 
   {
   {
-  tmp = __builtin_expect((nfs_debug & 8192U) != 0U, 0L);
+  tmp = ldv__builtin_expect((nfs_debug & 8192U) != 0U, 0L);
   }
   if (tmp != 0L) {
     {
@@ -14796,7 +14793,7 @@ static int _preload_range(struct pnfs_inval_markings *marks , u64 offset , u64 l
   used = 0;
   status = -12;
   tree = & marks->im_tree;
-  tmp = __builtin_expect((nfs_debug & 8192U) != 0U, 0L);
+  tmp = ldv__builtin_expect((nfs_debug & 8192U) != 0U, 0L);
   }
   if (tmp != 0L) {
     {
@@ -14909,7 +14906,7 @@ static int _range_has_tag(struct my_tree *tree , u64 start , u64 end , int32_t t
   {
   {
   expect = 0ULL;
-  tmp = __builtin_expect((nfs_debug & 8192U) != 0U, 0L);
+  tmp = ldv__builtin_expect((nfs_debug & 8192U) != 0U, 0L);
   }
   if (tmp != 0L) {
     {
@@ -14989,7 +14986,7 @@ int bl_mark_sectors_init(struct pnfs_inval_markings *marks , sector_t offset , s
 
   {
   {
-  tmp = __builtin_expect((nfs_debug & 8192U) != 0U, 0L);
+  tmp = ldv__builtin_expect((nfs_debug & 8192U) != 0U, 0L);
   }
   if (tmp != 0L) {
     {
@@ -15038,7 +15035,7 @@ static int mark_written_sectors(struct pnfs_inval_markings *marks , sector_t off
 
   {
   {
-  tmp = __builtin_expect((nfs_debug & 8192U) != 0U, 0L);
+  tmp = ldv__builtin_expect((nfs_debug & 8192U) != 0U, 0L);
   }
   if (tmp != 0L) {
     {
@@ -15064,7 +15061,7 @@ static void print_short_extent(struct pnfs_block_short_extent *be )
 
   {
   {
-  tmp = __builtin_expect((nfs_debug & 8192U) != 0U, 0L);
+  tmp = ldv__builtin_expect((nfs_debug & 8192U) != 0U, 0L);
   }
   if (tmp != 0L) {
     {
@@ -15075,7 +15072,7 @@ static void print_short_extent(struct pnfs_block_short_extent *be )
   }
   if ((unsigned long )be != (unsigned long )((struct pnfs_block_short_extent *)0)) {
     {
-    tmp___0 = __builtin_expect((nfs_debug & 8192U) != 0U, 0L);
+    tmp___0 = ldv__builtin_expect((nfs_debug & 8192U) != 0U, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -15085,7 +15082,7 @@ static void print_short_extent(struct pnfs_block_short_extent *be )
 
     }
     {
-    tmp___1 = __builtin_expect((nfs_debug & 8192U) != 0U, 0L);
+    tmp___1 = ldv__builtin_expect((nfs_debug & 8192U) != 0U, 0L);
     }
     if (tmp___1 != 0L) {
       {
@@ -15111,7 +15108,7 @@ static void print_clist(struct list_head *list , unsigned int count )
   {
   {
   i = 0U;
-  tmp = __builtin_expect((nfs_debug & 8192U) != 0U, 0L);
+  tmp = ldv__builtin_expect((nfs_debug & 8192U) != 0U, 0L);
   }
   if (tmp != 0L) {
     {
@@ -15172,7 +15169,7 @@ static void add_to_commitlist(struct pnfs_block_layout *bl , struct pnfs_block_s
   {
   clist = & bl->bl_commit;
   end = new->bse_f_offset + new->bse_length;
-  tmp = __builtin_expect((nfs_debug & 8192U) != 0U, 0L);
+  tmp = ldv__builtin_expect((nfs_debug & 8192U) != 0U, 0L);
   }
   if (tmp != 0L) {
     {
@@ -15277,7 +15274,7 @@ static void add_to_commitlist(struct pnfs_block_layout *bl , struct pnfs_block_s
   }
   ldv_54295: 
   {
-  tmp___1 = __builtin_expect((nfs_debug & 8192U) != 0U, 0L);
+  tmp___1 = ldv__builtin_expect((nfs_debug & 8192U) != 0U, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -15367,7 +15364,7 @@ static void print_bl_extent(struct pnfs_block_extent *be )
 
   {
   {
-  tmp = __builtin_expect((nfs_debug & 8192U) != 0U, 0L);
+  tmp = ldv__builtin_expect((nfs_debug & 8192U) != 0U, 0L);
   }
   if (tmp != 0L) {
     {
@@ -15378,7 +15375,7 @@ static void print_bl_extent(struct pnfs_block_extent *be )
   }
   if ((unsigned long )be != (unsigned long )((struct pnfs_block_extent *)0)) {
     {
-    tmp___0 = __builtin_expect((nfs_debug & 8192U) != 0U, 0L);
+    tmp___0 = ldv__builtin_expect((nfs_debug & 8192U) != 0U, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -15388,7 +15385,7 @@ static void print_bl_extent(struct pnfs_block_extent *be )
 
     }
     {
-    tmp___1 = __builtin_expect((nfs_debug & 8192U) != 0U, 0L);
+    tmp___1 = ldv__builtin_expect((nfs_debug & 8192U) != 0U, 0L);
     }
     if (tmp___1 != 0L) {
       {
@@ -15398,7 +15395,7 @@ static void print_bl_extent(struct pnfs_block_extent *be )
 
     }
     {
-    tmp___2 = __builtin_expect((nfs_debug & 8192U) != 0U, 0L);
+    tmp___2 = ldv__builtin_expect((nfs_debug & 8192U) != 0U, 0L);
     }
     if (tmp___2 != 0L) {
       {
@@ -15408,7 +15405,7 @@ static void print_bl_extent(struct pnfs_block_extent *be )
 
     }
     {
-    tmp___3 = __builtin_expect((nfs_debug & 8192U) != 0U, 0L);
+    tmp___3 = ldv__builtin_expect((nfs_debug & 8192U) != 0U, 0L);
     }
     if (tmp___3 != 0L) {
       {
@@ -15433,7 +15430,7 @@ static void destroy_extent(struct kref *kref )
   {
   __mptr = (struct kref  const  *)kref;
   be = (struct pnfs_block_extent *)__mptr;
-  tmp = __builtin_expect((nfs_debug & 8192U) != 0U, 0L);
+  tmp = ldv__builtin_expect((nfs_debug & 8192U) != 0U, 0L);
   }
   if (tmp != 0L) {
     {
@@ -15456,7 +15453,7 @@ void bl_put_extent(struct pnfs_block_extent *be )
   {
   if ((unsigned long )be != (unsigned long )((struct pnfs_block_extent *)0)) {
     {
-    tmp___0 = __builtin_expect((nfs_debug & 8192U) != 0U, 0L);
+    tmp___0 = ldv__builtin_expect((nfs_debug & 8192U) != 0U, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -15509,7 +15506,7 @@ static void print_elist(struct list_head *list )
 
   {
   {
-  tmp = __builtin_expect((nfs_debug & 8192U) != 0U, 0L);
+  tmp = ldv__builtin_expect((nfs_debug & 8192U) != 0U, 0L);
   }
   if (tmp != 0L) {
     {
@@ -15519,7 +15516,7 @@ static void print_elist(struct list_head *list )
 
   }
   {
-  tmp___0 = __builtin_expect((nfs_debug & 8192U) != 0U, 0L);
+  tmp___0 = ldv__builtin_expect((nfs_debug & 8192U) != 0U, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -15544,7 +15541,7 @@ static void print_elist(struct list_head *list )
 
   }
   {
-  tmp___1 = __builtin_expect((nfs_debug & 8192U) != 0U, 0L);
+  tmp___1 = ldv__builtin_expect((nfs_debug & 8192U) != 0U, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -15588,7 +15585,7 @@ int bl_add_merge_extent(struct pnfs_block_layout *bl , struct pnfs_block_extent 
   {
   {
   end = new->be_f_offset + new->be_length;
-  tmp___0 = __builtin_expect((nfs_debug & 8192U) != 0U, 0L);
+  tmp___0 = ldv__builtin_expect((nfs_debug & 8192U) != 0U, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -15621,7 +15618,7 @@ int bl_add_merge_extent(struct pnfs_block_layout *bl , struct pnfs_block_extent 
       }
       if (tmp___3 != 0) {
         {
-        tmp___2 = __builtin_expect((nfs_debug & 8192U) != 0U, 0L);
+        tmp___2 = ldv__builtin_expect((nfs_debug & 8192U) != 0U, 0L);
         }
         if (tmp___2 != 0L) {
           {
@@ -15646,7 +15643,7 @@ int bl_add_merge_extent(struct pnfs_block_layout *bl , struct pnfs_block_extent 
         new->be_length = new->be_length + (new->be_f_offset - be->be_f_offset);
         new->be_f_offset = be->be_f_offset;
         new->be_v_offset = be->be_v_offset;
-        tmp___4 = __builtin_expect((nfs_debug & 8192U) != 0U, 0L);
+        tmp___4 = ldv__builtin_expect((nfs_debug & 8192U) != 0U, 0L);
         }
         if (tmp___4 != 0L) {
           {
@@ -15670,7 +15667,7 @@ int bl_add_merge_extent(struct pnfs_block_layout *bl , struct pnfs_block_extent 
     }
     if (tmp___7 != 0) {
       {
-      tmp___6 = __builtin_expect((nfs_debug & 8192U) != 0U, 0L);
+      tmp___6 = ldv__builtin_expect((nfs_debug & 8192U) != 0U, 0L);
       }
       if (tmp___6 != 0L) {
         {
@@ -15694,7 +15691,7 @@ int bl_add_merge_extent(struct pnfs_block_layout *bl , struct pnfs_block_extent 
     if (tmp___9 != 0) {
       {
       new->be_length = new->be_length + (((be->be_f_offset + be->be_length) - new->be_f_offset) - new->be_length);
-      tmp___8 = __builtin_expect((nfs_debug & 8192U) != 0U, 0L);
+      tmp___8 = ldv__builtin_expect((nfs_debug & 8192U) != 0U, 0L);
       }
       if (tmp___8 != 0L) {
         {
@@ -15725,7 +15722,7 @@ int bl_add_merge_extent(struct pnfs_block_layout *bl , struct pnfs_block_extent 
   ldv_54357: 
   {
   list_add(& new->be_node, & be->be_node);
-  tmp___10 = __builtin_expect((nfs_debug & 8192U) != 0U, 0L);
+  tmp___10 = ldv__builtin_expect((nfs_debug & 8192U) != 0U, 0L);
   }
   if (tmp___10 != 0L) {
     {
@@ -15760,7 +15757,7 @@ struct pnfs_block_extent *bl_find_get_extent(struct pnfs_block_layout *bl , sect
 
   {
   {
-  tmp = __builtin_expect((nfs_debug & 8192U) != 0U, 0L);
+  tmp = ldv__builtin_expect((nfs_debug & 8192U) != 0U, 0L);
   }
   if (tmp != 0L) {
     {
@@ -15788,7 +15785,7 @@ struct pnfs_block_extent *bl_find_get_extent(struct pnfs_block_layout *bl , sect
   }
   if (isect >= be->be_f_offset) {
     {
-    tmp___1 = __builtin_expect((nfs_debug & 8192U) != 0U, 0L);
+    tmp___1 = ldv__builtin_expect((nfs_debug & 8192U) != 0U, 0L);
     }
     if (tmp___1 != 0L) {
       {
@@ -15866,7 +15863,7 @@ static struct pnfs_block_extent *bl_find_get_extent_locked(struct pnfs_block_lay
   {
   {
   ret = (struct pnfs_block_extent *)0;
-  tmp = __builtin_expect((nfs_debug & 8192U) != 0U, 0L);
+  tmp = ldv__builtin_expect((nfs_debug & 8192U) != 0U, 0L);
   }
   if (tmp != 0L) {
     {
@@ -15894,7 +15891,7 @@ static struct pnfs_block_extent *bl_find_get_extent_locked(struct pnfs_block_lay
   }
   if (isect >= be->be_f_offset) {
     {
-    tmp___1 = __builtin_expect((nfs_debug & 8192U) != 0U, 0L);
+    tmp___1 = ldv__builtin_expect((nfs_debug & 8192U) != 0U, 0L);
     }
     if (tmp___1 != 0L) {
       {
@@ -15955,7 +15952,7 @@ int encode_pnfs_block_layoutupdate(struct pnfs_block_layout *bl , struct xdr_str
   {
   {
   count = 0U;
-  tmp = __builtin_expect((nfs_debug & 8192U) != 0U, 0L);
+  tmp = ldv__builtin_expect((nfs_debug & 8192U) != 0U, 0L);
   }
   if (tmp != 0L) {
     {
@@ -16018,7 +16015,7 @@ int encode_pnfs_block_layoutupdate(struct pnfs_block_layout *bl , struct xdr_str
   out: 
   {
   ldv_spin_unlock_80(& bl->bl_ext_lock);
-  tmp___3 = __builtin_expect((nfs_debug & 8192U) != 0U, 0L);
+  tmp___3 = ldv__builtin_expect((nfs_debug & 8192U) != 0U, 0L);
   }
   if (tmp___3 != 0L) {
     {
@@ -16130,7 +16127,7 @@ static u64 set_to_rw(struct pnfs_block_layout *bl , u64 offset , u64 length )
   merge1 = (struct pnfs_block_extent *)0;
   merge2 = (struct pnfs_block_extent *)0;
   i = 0;
-  tmp = __builtin_expect((nfs_debug & 8192U) != 0U, 0L);
+  tmp = ldv__builtin_expect((nfs_debug & 8192U) != 0U, 0L);
   }
   if (tmp != 0L) {
     {
@@ -16238,7 +16235,7 @@ static u64 set_to_rw(struct pnfs_block_layout *bl , u64 offset , u64 length )
   {
   ldv_spin_unlock_80(& bl->bl_ext_lock);
   bl_put_extent(be);
-  tmp___6 = __builtin_expect((nfs_debug & 8192U) != 0U, 0L);
+  tmp___6 = ldv__builtin_expect((nfs_debug & 8192U) != 0U, 0L);
   }
   if (tmp___6 != 0L) {
     {
@@ -16253,7 +16250,7 @@ static u64 set_to_rw(struct pnfs_block_layout *bl , u64 offset , u64 length )
   kfree((void const   *)e1);
   kfree((void const   *)e2);
   kfree((void const   *)e3);
-  tmp___7 = __builtin_expect((nfs_debug & 8192U) != 0U, 0L);
+  tmp___7 = ldv__builtin_expect((nfs_debug & 8192U) != 0U, 0L);
   }
   if (tmp___7 != 0L) {
     {
@@ -16280,7 +16277,7 @@ void clean_pnfs_block_layoutupdate(struct pnfs_block_layout *bl , struct nfs4_la
 
   {
   {
-  tmp = __builtin_expect((nfs_debug & 8192U) != 0U, 0L);
+  tmp = ldv__builtin_expect((nfs_debug & 8192U) != 0U, 0L);
   }
   if (tmp != 0L) {
     {
@@ -16296,7 +16293,7 @@ void clean_pnfs_block_layoutupdate(struct pnfs_block_layout *bl , struct nfs4_la
   goto ldv_54482;
   ldv_54481: 
   {
-  tmp___0 = __builtin_expect(status == 0, 1L);
+  tmp___0 = ldv__builtin_expect(status == 0, 1L);
   }
   if (tmp___0 != 0L) {
     offset = (u64 )lce->bse_f_offset;
@@ -16345,7 +16342,7 @@ int bl_push_one_short_extent(struct pnfs_inval_markings *marks )
   {
   tmp = kmalloc(56UL, 80U);
   new = (struct pnfs_block_short_extent *)tmp;
-  tmp___0 = __builtin_expect((unsigned long )new == (unsigned long )((struct pnfs_block_short_extent *)0),
+  tmp___0 = ldv__builtin_expect((unsigned long )new == (unsigned long )((struct pnfs_block_short_extent *)0),
                              0L);
   }
   if (tmp___0 != 0L) {
@@ -16435,7 +16432,7 @@ void bl_free_short_extents(struct pnfs_inval_markings *marks , int num_to_free )
   ldv_54506: 
   {
   ldv_spin_unlock_106(& marks->im_lock);
-  tmp___0 = __builtin_expect(num_to_free > 0, 0L);
+  tmp___0 = ldv__builtin_expect(num_to_free > 0, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -16578,7 +16575,7 @@ __inline static unsigned long copy_from_user(void *to , void const   *from , uns
   {
   sz = -1;
   might_fault();
-  tmp = __builtin_expect(sz < 0, 1L);
+  tmp = ldv__builtin_expect(sz < 0, 1L);
   }
   if (tmp != 0L) {
     {
@@ -16586,7 +16583,7 @@ __inline static unsigned long copy_from_user(void *to , void const   *from , uns
     }
   } else {
     {
-    tmp___0 = __builtin_expect((unsigned long )sz >= n, 1L);
+    tmp___0 = ldv__builtin_expect((unsigned long )sz >= n, 1L);
     }
     if (tmp___0 != 0L) {
       {
@@ -16657,7 +16654,7 @@ void nfs4_blkdev_put(struct block_device *bdev )
 
   {
   {
-  tmp = __builtin_expect((nfs_debug & 8192U) != 0U, 0L);
+  tmp = ldv__builtin_expect((nfs_debug & 8192U) != 0U, 0L);
   }
   if (tmp != 0L) {
     {
@@ -16778,7 +16775,7 @@ struct pnfs_block_dev *nfs4_blk_decode_device(struct nfs_server *server , struct
   tmp___0 = net_generic((struct net  const  *)net, nfs_net_id);
   nn = (struct nfs_net *)tmp___0;
   reply = & nn->bl_mount_reply;
-  tmp___1 = __builtin_expect((nfs_debug & 8192U) != 0U, 0L);
+  tmp___1 = ldv__builtin_expect((nfs_debug & 8192U) != 0U, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -16788,7 +16785,7 @@ struct pnfs_block_dev *nfs4_blk_decode_device(struct nfs_server *server , struct
 
   }
   {
-  tmp___2 = __builtin_expect((nfs_debug & 8192U) != 0U, 0L);
+  tmp___2 = ldv__builtin_expect((nfs_debug & 8192U) != 0U, 0L);
   }
   if (tmp___2 != 0L) {
     {
@@ -16836,7 +16833,7 @@ struct pnfs_block_dev *nfs4_blk_decode_device(struct nfs_server *server , struct
   }
   {
   msg->len = (unsigned long )dev->mincount + 4UL;
-  tmp___5 = __builtin_expect((nfs_debug & 8192U) != 0U, 0L);
+  tmp___5 = ldv__builtin_expect((nfs_debug & 8192U) != 0U, 0L);
   }
   if (tmp___5 != 0L) {
     {
@@ -16925,7 +16922,7 @@ struct pnfs_block_dev *nfs4_blk_decode_device(struct nfs_server *server , struct
   }
   if (reply->status != 1) {
     {
-    tmp___12 = __builtin_expect((nfs_debug & 8192U) != 0U, 0L);
+    tmp___12 = ldv__builtin_expect((nfs_debug & 8192U) != 0U, 0L);
     }
     if (tmp___12 != 0L) {
       {
@@ -16948,7 +16945,7 @@ struct pnfs_block_dev *nfs4_blk_decode_device(struct nfs_server *server , struct
   }
   if (tmp___17 != 0L) {
     {
-    tmp___15 = __builtin_expect((nfs_debug & 8192U) != 0U, 0L);
+    tmp___15 = ldv__builtin_expect((nfs_debug & 8192U) != 0U, 0L);
     }
     if (tmp___15 != 0L) {
       {
@@ -16983,7 +16980,7 @@ struct pnfs_block_dev *nfs4_blk_decode_device(struct nfs_server *server , struct
   rv->bm_mdev = bd;
   memcpy((void *)(& rv->bm_mdevid), (void const   *)(& dev->dev_id), 16UL);
   rv->net = net;
-  tmp___20 = __builtin_expect((nfs_debug & 8192U) != 0U, 0L);
+  tmp___20 = ldv__builtin_expect((nfs_debug & 8192U) != 0U, 0L);
   }
   if (tmp___20 != 0L) {
     {
@@ -17015,7 +17012,7 @@ static struct block_device *translate_devid(struct pnfs_layout_hdr *lo , struct 
   {
   {
   rv = (struct block_device *)0;
-  tmp = __builtin_expect((nfs_debug & 8192U) != 0U, 0L);
+  tmp = ldv__builtin_expect((nfs_debug & 8192U) != 0U, 0L);
   }
   if (tmp != 0L) {
     {
@@ -17055,7 +17052,7 @@ static struct block_device *translate_devid(struct pnfs_layout_hdr *lo , struct 
   out: 
   {
   ldv_spin_unlock_82(& mid->bm_lock);
-  tmp___2 = __builtin_expect((nfs_debug & 8192U) != 0U, 0L);
+  tmp___2 = ldv__builtin_expect((nfs_debug & 8192U) != 0U, 0L);
   }
   if (tmp___2 != 0L) {
     {
@@ -17186,7 +17183,7 @@ int nfs4_blk_process_layoutget(struct pnfs_layout_hdr *lo , struct nfs4_layoutge
   lv.cowread = lgr->range.offset >> 9;
   extents.next = & extents;
   extents.prev = & extents;
-  tmp___0 = __builtin_expect((nfs_debug & 8192U) != 0U, 0L);
+  tmp___0 = ldv__builtin_expect((nfs_debug & 8192U) != 0U, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -17208,7 +17205,7 @@ int nfs4_blk_process_layoutget(struct pnfs_layout_hdr *lo , struct nfs4_layoutge
   tmp___1 = lowmem_page_address((struct page  const  *)scratch);
   xdr_set_scratch_buffer(& stream, tmp___1, 4096UL);
   p = xdr_inline_decode(& stream, 4UL);
-  tmp___2 = __builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0U),
+  tmp___2 = ldv__builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0U),
                              0L);
   }
   if (tmp___2 != 0L) {
@@ -17220,7 +17217,7 @@ int nfs4_blk_process_layoutget(struct pnfs_layout_hdr *lo , struct nfs4_layoutge
   tmp___3 = p;
   p = p + 1;
   count = __be32_to_cpup((__be32 const   *)tmp___3);
-  tmp___4 = __builtin_expect((nfs_debug & 8192U) != 0U, 0L);
+  tmp___4 = ldv__builtin_expect((nfs_debug & 8192U) != 0U, 0L);
   }
   if (tmp___4 != 0L) {
     {
@@ -17232,7 +17229,7 @@ int nfs4_blk_process_layoutget(struct pnfs_layout_hdr *lo , struct nfs4_layoutge
   }
   {
   p = xdr_inline_decode(& stream, (size_t )(count * 44U));
-  tmp___5 = __builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0U),
+  tmp___5 = ldv__builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0U),
                              0L);
   }
   if (tmp___5 != 0L) {
@@ -17302,7 +17299,7 @@ int nfs4_blk_process_layoutget(struct pnfs_layout_hdr *lo , struct nfs4_layoutge
   }
   if (tmp___12 != 0) {
     {
-    tmp___11 = __builtin_expect((nfs_debug & 8192U) != 0U, 0L);
+    tmp___11 = ldv__builtin_expect((nfs_debug & 8192U) != 0U, 0L);
     }
     if (tmp___11 != 0L) {
       {
@@ -17328,7 +17325,7 @@ int nfs4_blk_process_layoutget(struct pnfs_layout_hdr *lo , struct nfs4_layoutge
 
   if (lgr->range.offset + lgr->range.length != lv.start << 9) {
     {
-    tmp___13 = __builtin_expect((nfs_debug & 8192U) != 0U, 0L);
+    tmp___13 = ldv__builtin_expect((nfs_debug & 8192U) != 0U, 0L);
     }
     if (tmp___13 != 0L) {
       {
@@ -17344,7 +17341,7 @@ int nfs4_blk_process_layoutget(struct pnfs_layout_hdr *lo , struct nfs4_layoutge
   }
   if (lv.start < lv.cowread) {
     {
-    tmp___14 = __builtin_expect((nfs_debug & 8192U) != 0U, 0L);
+    tmp___14 = ldv__builtin_expect((nfs_debug & 8192U) != 0U, 0L);
     }
     if (tmp___14 != 0L) {
       {
@@ -17396,7 +17393,7 @@ int nfs4_blk_process_layoutget(struct pnfs_layout_hdr *lo , struct nfs4_layoutge
   out: 
   {
   __free_pages(scratch, 0U);
-  tmp___15 = __builtin_expect((nfs_debug & 8192U) != 0U, 0L);
+  tmp___15 = ldv__builtin_expect((nfs_debug & 8192U) != 0U, 0L);
   }
   if (tmp___15 != 0L) {
     {
@@ -17721,7 +17718,7 @@ __inline static void *net_generic___1(struct net  const  *net , int id )
   }
   {
   ng = _________p1;
-  tmp___1 = __builtin_expect(id == 0, 0L);
+  tmp___1 = ldv__builtin_expect(id == 0, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -17731,7 +17728,7 @@ __inline static void *net_generic___1(struct net  const  *net , int id )
     }
   } else {
     {
-    tmp___2 = __builtin_expect((unsigned int )id > ng->len, 0L);
+    tmp___2 = ldv__builtin_expect((unsigned int )id > ng->len, 0L);
     }
     if (tmp___2 != 0L) {
       {
@@ -17746,7 +17743,7 @@ __inline static void *net_generic___1(struct net  const  *net , int id )
   {
   ptr = ng->ptr[id + -1];
   rcu_read_unlock___1();
-  tmp___3 = __builtin_expect((unsigned long )ptr == (unsigned long )((void *)0), 0L);
+  tmp___3 = ldv__builtin_expect((unsigned long )ptr == (unsigned long )((void *)0), 0L);
   }
   if (tmp___3 != 0L) {
     {
@@ -17793,7 +17790,7 @@ static void dev_remove(struct net *net , dev_t dev )
   wq.task_list.prev = (struct list_head *)0;
   tmp___0 = net_generic___1((struct net  const  *)net, nfs_net_id);
   nn = (struct nfs_net *)tmp___0;
-  tmp___1 = __builtin_expect((nfs_debug & 8192U) != 0U, 0L);
+  tmp___1 = ldv__builtin_expect((nfs_debug & 8192U) != 0U, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -17908,7 +17905,7 @@ static void nfs4_blk_metadev_release(struct pnfs_block_dev *bdev )
 
   {
   {
-  tmp = __builtin_expect((nfs_debug & 8192U) != 0U, 0L);
+  tmp = ldv__builtin_expect((nfs_debug & 8192U) != 0U, 0L);
   }
   if (tmp != 0L) {
     {
@@ -17932,7 +17929,7 @@ void bl_free_block_dev(struct pnfs_block_dev *bdev )
   if ((unsigned long )bdev != (unsigned long )((struct pnfs_block_dev *)0)) {
     if ((unsigned long )bdev->bm_mdev != (unsigned long )((struct block_device *)0)) {
       {
-      tmp = __builtin_expect((nfs_debug & 8192U) != 0U, 0L);
+      tmp = ldv__builtin_expect((nfs_debug & 8192U) != 0U, 0L);
       }
       if (tmp != 0L) {
         {
@@ -18113,7 +18110,7 @@ void *ldv_kzalloc(size_t size , gfp_t flags )
 }
 }
 extern void ldv_assert(char const   * , int  ) ;
-void __builtin_trap(void) ;
+void ldv__builtin_trap(void) ;
 void ldv_assume(int expression ) 
 { 
 
@@ -18137,7 +18134,7 @@ void ldv_stop(void)
   goto ldv_stop_label;
 }
 }
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 
@@ -18145,7 +18142,7 @@ long __builtin_expect(long exp , long c )
   return (exp);
 }
 }
-void __builtin_trap(void) 
+void ldv__builtin_trap(void) 
 { 
 
 

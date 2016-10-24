@@ -5175,7 +5175,7 @@ struct ldv_thread {
    int identifier ;
    void (*function)(void * ) ;
 };
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 void *ldv_dev_get_drvdata(struct device  const  *dev ) ;
 int ldv_dev_set_drvdata(struct device *dev , void *data ) ;
 long ldv_is_err(void const   *ptr ) ;
@@ -5255,7 +5255,6 @@ extern int snprintf(char * , size_t  , char const   *  , ...) ;
 extern void *memcpy(void * , void const   * , size_t  ) ;
 extern size_t strlcpy(char * , char const   * , size_t  ) ;
 extern void warn_slowpath_null(char const   * , int const    ) ;
-extern int ( /* missing proto */  __builtin_unreachable)() ;
 __inline static long PTR_ERR(void const   *ptr ) ;
 __inline static long IS_ERR(void const   *ptr ) ;
 __inline static void rep_nop(void) 
@@ -5565,7 +5564,7 @@ __inline static void napi_enable(struct napi_struct *n )
   {
   {
   tmp = constant_test_bit(0L, (unsigned long const volatile   *)(& n->state));
-  tmp___0 = __builtin_expect(tmp == 0, 0L);
+  tmp___0 = ldv__builtin_expect(tmp == 0, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -5682,7 +5681,7 @@ __inline static void netif_tx_stop_queue(struct netdev_queue *dev_queue )
   {
   {
   __ret_warn_on = (unsigned long )dev_queue == (unsigned long )((struct netdev_queue *)0);
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp != 0L) {
     {
@@ -5692,7 +5691,7 @@ __inline static void netif_tx_stop_queue(struct netdev_queue *dev_queue )
 
   }
   {
-  tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -6043,7 +6042,7 @@ static int dnet_mdio_read(struct mii_bus *bus , int mii_id , int regnum )
   descriptor.format = "mdio_read %02x:%02x <- %04x\n";
   descriptor.lineno = 129U;
   descriptor.flags = 0U;
-  tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -6074,7 +6073,7 @@ static int dnet_mdio_write(struct mii_bus *bus , int mii_id , int regnum , u16 v
   descriptor.format = "mdio_write %02x:%02x <- %04x\n";
   descriptor.lineno = 140U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -6438,7 +6437,7 @@ static void dnet_update_stats(struct dnet *bp )
   p = & bp->hw_stats.rx_pkt_ignr;
   end = & bp->hw_stats.rx_byte + 1UL;
   __ret_warn_on = (unsigned long )((long )end - (long )p) - 64UL > 3UL;
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp != 0L) {
     {
@@ -6448,7 +6447,7 @@ static void dnet_update_stats(struct dnet *bp )
 
   }
   {
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   goto ldv_42298;
   ldv_42297: 
@@ -6469,7 +6468,7 @@ static void dnet_update_stats(struct dnet *bp )
   p = & bp->hw_stats.tx_unicast;
   end = & bp->hw_stats.tx_byte + 1UL;
   __ret_warn_on___0 = (unsigned long )((long )end - (long )p) - 32UL > 3UL;
-  tmp___1 = __builtin_expect(__ret_warn_on___0 != 0, 0L);
+  tmp___1 = ldv__builtin_expect(__ret_warn_on___0 != 0, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -6479,7 +6478,7 @@ static void dnet_update_stats(struct dnet *bp )
 
   }
   {
-  __builtin_expect(__ret_warn_on___0 != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on___0 != 0, 0L);
   }
   goto ldv_42303;
   ldv_42302: 
@@ -6691,7 +6690,7 @@ static irqreturn_t dnet_interrupt(int irq , void *dev_id )
     descriptor.format = "%s: irq %x remains\n";
     descriptor.lineno = 523U;
     descriptor.flags = 0U;
-    tmp___3 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___3 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp___3 != 0L) {
       {
@@ -6738,7 +6737,7 @@ static netdev_tx_t dnet_start_xmit(struct sk_buff *skb , struct net_device *dev 
   descriptor.format = "start_xmit: len %u head %p data %p\n";
   descriptor.lineno = 555U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -6966,7 +6965,7 @@ __inline static void dnet_print_pretty_hwstats(struct dnet_stats *hwstat )
   descriptor.format = "%s\n";
   descriptor.lineno = 697U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -6982,7 +6981,7 @@ __inline static void dnet_print_pretty_hwstats(struct dnet_stats *hwstat )
   descriptor___0.format = "----------------------------- RX statistics -------------------------------\n";
   descriptor___0.lineno = 699U;
   descriptor___0.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -6998,7 +6997,7 @@ __inline static void dnet_print_pretty_hwstats(struct dnet_stats *hwstat )
   descriptor___1.format = "RX_PKT_IGNR_CNT %-8x\n";
   descriptor___1.lineno = 700U;
   descriptor___1.flags = 0U;
-  tmp___1 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -7014,7 +7013,7 @@ __inline static void dnet_print_pretty_hwstats(struct dnet_stats *hwstat )
   descriptor___2.format = "RX_LEN_CHK_ERR_CNT %-8x\n";
   descriptor___2.lineno = 701U;
   descriptor___2.flags = 0U;
-  tmp___2 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+  tmp___2 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
   }
   if (tmp___2 != 0L) {
     {
@@ -7030,7 +7029,7 @@ __inline static void dnet_print_pretty_hwstats(struct dnet_stats *hwstat )
   descriptor___3.format = "RX_LNG_FRM_CNT %-8x\n";
   descriptor___3.lineno = 702U;
   descriptor___3.flags = 0U;
-  tmp___3 = __builtin_expect((long )descriptor___3.flags & 1L, 0L);
+  tmp___3 = ldv__builtin_expect((long )descriptor___3.flags & 1L, 0L);
   }
   if (tmp___3 != 0L) {
     {
@@ -7046,7 +7045,7 @@ __inline static void dnet_print_pretty_hwstats(struct dnet_stats *hwstat )
   descriptor___4.format = "RX_SHRT_FRM_CNT %-8x\n";
   descriptor___4.lineno = 703U;
   descriptor___4.flags = 0U;
-  tmp___4 = __builtin_expect((long )descriptor___4.flags & 1L, 0L);
+  tmp___4 = ldv__builtin_expect((long )descriptor___4.flags & 1L, 0L);
   }
   if (tmp___4 != 0L) {
     {
@@ -7062,7 +7061,7 @@ __inline static void dnet_print_pretty_hwstats(struct dnet_stats *hwstat )
   descriptor___5.format = "RX_IPG_VIOL_CNT %-8x\n";
   descriptor___5.lineno = 704U;
   descriptor___5.flags = 0U;
-  tmp___5 = __builtin_expect((long )descriptor___5.flags & 1L, 0L);
+  tmp___5 = ldv__builtin_expect((long )descriptor___5.flags & 1L, 0L);
   }
   if (tmp___5 != 0L) {
     {
@@ -7078,7 +7077,7 @@ __inline static void dnet_print_pretty_hwstats(struct dnet_stats *hwstat )
   descriptor___6.format = "RX_CRC_ERR_CNT %-8x\n";
   descriptor___6.lineno = 705U;
   descriptor___6.flags = 0U;
-  tmp___6 = __builtin_expect((long )descriptor___6.flags & 1L, 0L);
+  tmp___6 = ldv__builtin_expect((long )descriptor___6.flags & 1L, 0L);
   }
   if (tmp___6 != 0L) {
     {
@@ -7094,7 +7093,7 @@ __inline static void dnet_print_pretty_hwstats(struct dnet_stats *hwstat )
   descriptor___7.format = "RX_OK_PKT_CNT %-8x\n";
   descriptor___7.lineno = 706U;
   descriptor___7.flags = 0U;
-  tmp___7 = __builtin_expect((long )descriptor___7.flags & 1L, 0L);
+  tmp___7 = ldv__builtin_expect((long )descriptor___7.flags & 1L, 0L);
   }
   if (tmp___7 != 0L) {
     {
@@ -7110,7 +7109,7 @@ __inline static void dnet_print_pretty_hwstats(struct dnet_stats *hwstat )
   descriptor___8.format = "RX_CTL_FRM_CNT %-8x\n";
   descriptor___8.lineno = 707U;
   descriptor___8.flags = 0U;
-  tmp___8 = __builtin_expect((long )descriptor___8.flags & 1L, 0L);
+  tmp___8 = ldv__builtin_expect((long )descriptor___8.flags & 1L, 0L);
   }
   if (tmp___8 != 0L) {
     {
@@ -7126,7 +7125,7 @@ __inline static void dnet_print_pretty_hwstats(struct dnet_stats *hwstat )
   descriptor___9.format = "RX_PAUSE_FRM_CNT %-8x\n";
   descriptor___9.lineno = 708U;
   descriptor___9.flags = 0U;
-  tmp___9 = __builtin_expect((long )descriptor___9.flags & 1L, 0L);
+  tmp___9 = ldv__builtin_expect((long )descriptor___9.flags & 1L, 0L);
   }
   if (tmp___9 != 0L) {
     {
@@ -7142,7 +7141,7 @@ __inline static void dnet_print_pretty_hwstats(struct dnet_stats *hwstat )
   descriptor___10.format = "RX_MULTICAST_CNT %-8x\n";
   descriptor___10.lineno = 709U;
   descriptor___10.flags = 0U;
-  tmp___10 = __builtin_expect((long )descriptor___10.flags & 1L, 0L);
+  tmp___10 = ldv__builtin_expect((long )descriptor___10.flags & 1L, 0L);
   }
   if (tmp___10 != 0L) {
     {
@@ -7158,7 +7157,7 @@ __inline static void dnet_print_pretty_hwstats(struct dnet_stats *hwstat )
   descriptor___11.format = "RX_BROADCAST_CNT %-8x\n";
   descriptor___11.lineno = 710U;
   descriptor___11.flags = 0U;
-  tmp___11 = __builtin_expect((long )descriptor___11.flags & 1L, 0L);
+  tmp___11 = ldv__builtin_expect((long )descriptor___11.flags & 1L, 0L);
   }
   if (tmp___11 != 0L) {
     {
@@ -7174,7 +7173,7 @@ __inline static void dnet_print_pretty_hwstats(struct dnet_stats *hwstat )
   descriptor___12.format = "RX_VLAN_TAG_CNT %-8x\n";
   descriptor___12.lineno = 711U;
   descriptor___12.flags = 0U;
-  tmp___12 = __builtin_expect((long )descriptor___12.flags & 1L, 0L);
+  tmp___12 = ldv__builtin_expect((long )descriptor___12.flags & 1L, 0L);
   }
   if (tmp___12 != 0L) {
     {
@@ -7190,7 +7189,7 @@ __inline static void dnet_print_pretty_hwstats(struct dnet_stats *hwstat )
   descriptor___13.format = "RX_PRE_SHRINK_CNT %-8x\n";
   descriptor___13.lineno = 712U;
   descriptor___13.flags = 0U;
-  tmp___13 = __builtin_expect((long )descriptor___13.flags & 1L, 0L);
+  tmp___13 = ldv__builtin_expect((long )descriptor___13.flags & 1L, 0L);
   }
   if (tmp___13 != 0L) {
     {
@@ -7206,7 +7205,7 @@ __inline static void dnet_print_pretty_hwstats(struct dnet_stats *hwstat )
   descriptor___14.format = "RX_DRIB_NIB_CNT %-8x\n";
   descriptor___14.lineno = 713U;
   descriptor___14.flags = 0U;
-  tmp___14 = __builtin_expect((long )descriptor___14.flags & 1L, 0L);
+  tmp___14 = ldv__builtin_expect((long )descriptor___14.flags & 1L, 0L);
   }
   if (tmp___14 != 0L) {
     {
@@ -7222,7 +7221,7 @@ __inline static void dnet_print_pretty_hwstats(struct dnet_stats *hwstat )
   descriptor___15.format = "RX_UNSUP_OPCD_CNT %-8x\n";
   descriptor___15.lineno = 714U;
   descriptor___15.flags = 0U;
-  tmp___15 = __builtin_expect((long )descriptor___15.flags & 1L, 0L);
+  tmp___15 = ldv__builtin_expect((long )descriptor___15.flags & 1L, 0L);
   }
   if (tmp___15 != 0L) {
     {
@@ -7238,7 +7237,7 @@ __inline static void dnet_print_pretty_hwstats(struct dnet_stats *hwstat )
   descriptor___16.format = "RX_BYTE_CNT %-8x\n";
   descriptor___16.lineno = 715U;
   descriptor___16.flags = 0U;
-  tmp___16 = __builtin_expect((long )descriptor___16.flags & 1L, 0L);
+  tmp___16 = ldv__builtin_expect((long )descriptor___16.flags & 1L, 0L);
   }
   if (tmp___16 != 0L) {
     {
@@ -7254,7 +7253,7 @@ __inline static void dnet_print_pretty_hwstats(struct dnet_stats *hwstat )
   descriptor___17.format = "----------------------------- TX statistics -------------------------------\n";
   descriptor___17.lineno = 717U;
   descriptor___17.flags = 0U;
-  tmp___17 = __builtin_expect((long )descriptor___17.flags & 1L, 0L);
+  tmp___17 = ldv__builtin_expect((long )descriptor___17.flags & 1L, 0L);
   }
   if (tmp___17 != 0L) {
     {
@@ -7270,7 +7269,7 @@ __inline static void dnet_print_pretty_hwstats(struct dnet_stats *hwstat )
   descriptor___18.format = "TX_UNICAST_CNT %-8x\n";
   descriptor___18.lineno = 718U;
   descriptor___18.flags = 0U;
-  tmp___18 = __builtin_expect((long )descriptor___18.flags & 1L, 0L);
+  tmp___18 = ldv__builtin_expect((long )descriptor___18.flags & 1L, 0L);
   }
   if (tmp___18 != 0L) {
     {
@@ -7286,7 +7285,7 @@ __inline static void dnet_print_pretty_hwstats(struct dnet_stats *hwstat )
   descriptor___19.format = "TX_PAUSE_FRM_CNT %-8x\n";
   descriptor___19.lineno = 719U;
   descriptor___19.flags = 0U;
-  tmp___19 = __builtin_expect((long )descriptor___19.flags & 1L, 0L);
+  tmp___19 = ldv__builtin_expect((long )descriptor___19.flags & 1L, 0L);
   }
   if (tmp___19 != 0L) {
     {
@@ -7302,7 +7301,7 @@ __inline static void dnet_print_pretty_hwstats(struct dnet_stats *hwstat )
   descriptor___20.format = "TX_MULTICAST_CNT %-8x\n";
   descriptor___20.lineno = 720U;
   descriptor___20.flags = 0U;
-  tmp___20 = __builtin_expect((long )descriptor___20.flags & 1L, 0L);
+  tmp___20 = ldv__builtin_expect((long )descriptor___20.flags & 1L, 0L);
   }
   if (tmp___20 != 0L) {
     {
@@ -7318,7 +7317,7 @@ __inline static void dnet_print_pretty_hwstats(struct dnet_stats *hwstat )
   descriptor___21.format = "TX_BRDCAST_CNT %-8x\n";
   descriptor___21.lineno = 721U;
   descriptor___21.flags = 0U;
-  tmp___21 = __builtin_expect((long )descriptor___21.flags & 1L, 0L);
+  tmp___21 = ldv__builtin_expect((long )descriptor___21.flags & 1L, 0L);
   }
   if (tmp___21 != 0L) {
     {
@@ -7334,7 +7333,7 @@ __inline static void dnet_print_pretty_hwstats(struct dnet_stats *hwstat )
   descriptor___22.format = "TX_VLAN_TAG_CNT %-8x\n";
   descriptor___22.lineno = 722U;
   descriptor___22.flags = 0U;
-  tmp___22 = __builtin_expect((long )descriptor___22.flags & 1L, 0L);
+  tmp___22 = ldv__builtin_expect((long )descriptor___22.flags & 1L, 0L);
   }
   if (tmp___22 != 0L) {
     {
@@ -7350,7 +7349,7 @@ __inline static void dnet_print_pretty_hwstats(struct dnet_stats *hwstat )
   descriptor___23.format = "TX_BAD_FCS_CNT %-8x\n";
   descriptor___23.lineno = 723U;
   descriptor___23.flags = 0U;
-  tmp___23 = __builtin_expect((long )descriptor___23.flags & 1L, 0L);
+  tmp___23 = ldv__builtin_expect((long )descriptor___23.flags & 1L, 0L);
   }
   if (tmp___23 != 0L) {
     {
@@ -7366,7 +7365,7 @@ __inline static void dnet_print_pretty_hwstats(struct dnet_stats *hwstat )
   descriptor___24.format = "TX_JUMBO_CNT %-8x\n";
   descriptor___24.lineno = 724U;
   descriptor___24.flags = 0U;
-  tmp___24 = __builtin_expect((long )descriptor___24.flags & 1L, 0L);
+  tmp___24 = ldv__builtin_expect((long )descriptor___24.flags & 1L, 0L);
   }
   if (tmp___24 != 0L) {
     {
@@ -7382,7 +7381,7 @@ __inline static void dnet_print_pretty_hwstats(struct dnet_stats *hwstat )
   descriptor___25.format = "TX_BYTE_CNT %-8x\n";
   descriptor___25.lineno = 725U;
   descriptor___25.flags = 0U;
-  tmp___25 = __builtin_expect((long )descriptor___25.flags & 1L, 0L);
+  tmp___25 = ldv__builtin_expect((long )descriptor___25.flags & 1L, 0L);
   }
   if (tmp___25 != 0L) {
     {
@@ -7827,7 +7826,7 @@ void ldv_dummy_resourceless_instance_callback_1_9(int (*arg0)(struct net_device 
                                                               struct ethtool_ts_info * ) ,
                                                   struct net_device *arg1 , struct ethtool_ts_info *arg2 ) ;
 void ldv_entry_EMGentry_12(void *arg0 ) ;
-void main(void) ;
+int main(void) ;
 void ldv_free_irq(void *arg0 , int arg1 , void *arg2 ) ;
 void ldv_free_netdev(void *arg0 , struct net_device *arg1 ) ;
 void ldv_initialize_external_data(void) ;
@@ -8360,7 +8359,7 @@ void ldv_entry_EMGentry_12(void *arg0 )
   return;
 }
 }
-void main(void) 
+int main(void) 
 { 
   int tmp ;
 
@@ -10492,7 +10491,7 @@ void *ldv_kzalloc(size_t size , gfp_t flags )
 }
 }
 extern void ldv_assert(char const   * , int  ) ;
-void __builtin_trap(void) ;
+void ldv__builtin_trap(void) ;
 void ldv_assume(int expression ) 
 { 
 
@@ -10516,7 +10515,7 @@ void ldv_stop(void)
   goto ldv_stop_label;
 }
 }
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 
@@ -10524,7 +10523,7 @@ long __builtin_expect(long exp , long c )
   return (exp);
 }
 }
-void __builtin_trap(void) 
+void ldv__builtin_trap(void) 
 { 
 
 

@@ -4392,7 +4392,7 @@ struct ldv_thread {
    void (*function)(void * ) ;
 };
 typedef _Bool ldv_set;
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 void ldv_assume(int expression ) ;
 void ldv_stop(void) ;
 void ldv_linux_alloc_irq_check_alloc_flags(gfp_t flags ) ;
@@ -4571,7 +4571,7 @@ __inline static bool IS_ERR(void const   *ptr )
 
   {
   {
-  tmp = __builtin_expect((unsigned long )ptr > 0xfffffffffffff000UL, 0L);
+  tmp = ldv__builtin_expect((unsigned long )ptr > 0xfffffffffffff000UL, 0L);
   }
   return (tmp != 0L);
 }
@@ -4664,7 +4664,7 @@ __inline static int __atomic_add_unless(atomic_t *v , int a , int u )
   }
   ldv_6285: 
   {
-  tmp = __builtin_expect(c == u, 0L);
+  tmp = ldv__builtin_expect(c == u, 0L);
   }
   if (tmp != 0L) {
     goto ldv_6284;
@@ -4673,7 +4673,7 @@ __inline static int __atomic_add_unless(atomic_t *v , int a , int u )
   }
   {
   old = atomic_cmpxchg(v, c, c + a);
-  tmp___0 = __builtin_expect(old == c, 1L);
+  tmp___0 = ldv__builtin_expect(old == c, 1L);
   }
   if (tmp___0 != 0L) {
     goto ldv_6284;
@@ -5237,7 +5237,7 @@ static int kxcjk1013_chip_init(struct kxcjk1013_data *data )
   descriptor.format = "KXCJK1013 Chip Id %x\n";
   descriptor.lineno = 301U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -6583,7 +6583,7 @@ static int kxcjk1013_gpio_probe(struct i2c_client *client , struct kxcjk1013_dat
   descriptor.format = "GPIO resource, no:%d irq:%d\n";
   descriptor.lineno = 1184U;
   descriptor.flags = 0U;
-  tmp___2 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___2 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___2 != 0L) {
     {
@@ -7073,7 +7073,7 @@ void ldv_dummy_resourceless_instance_callback_6_7(int (*arg0)(struct iio_dev * ,
                                                   enum iio_event_info arg5 , int *arg6 ,
                                                   int *arg7 ) ;
 void ldv_entry_EMGentry_13(void *arg0 ) ;
-void main(void) ;
+int main(void) ;
 void ldv_i2c_io_instance_0(void *arg0 ) ;
 int ldv_i2c_register_driver(int arg0 , struct module *arg1 , struct i2c_driver *arg2 ) ;
 int ldv_iio_trigger_register(int arg0 , struct iio_trigger *arg1 ) ;
@@ -7566,7 +7566,7 @@ void ldv_entry_EMGentry_13(void *arg0 )
   return;
 }
 }
-void main(void) 
+int main(void) 
 { 
 
 
@@ -7575,7 +7575,7 @@ void main(void)
   ldv_ldv_initialize_144();
   ldv_entry_EMGentry_13((void *)0);
   }
-  return;
+return 0;
 }
 }
 void ldv_i2c_io_instance_0(void *arg0 ) 
@@ -11471,7 +11471,7 @@ void ldv_linux_usb_urb_check_final_state(void)
 }
 }
 extern void ldv_assert(char const   * , int  ) ;
-void __builtin_trap(void) ;
+void ldv__builtin_trap(void) ;
 void ldv_assume(int expression ) 
 { 
 
@@ -11495,7 +11495,7 @@ void ldv_stop(void)
   goto ldv_stop_label;
 }
 }
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 
@@ -11503,7 +11503,7 @@ long __builtin_expect(long exp , long c )
   return (exp);
 }
 }
-void __builtin_trap(void) 
+void ldv__builtin_trap(void) 
 { 
 
 

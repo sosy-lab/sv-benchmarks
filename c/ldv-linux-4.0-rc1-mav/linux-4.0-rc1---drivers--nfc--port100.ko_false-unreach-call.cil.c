@@ -4356,8 +4356,7 @@ struct ldv_thread {
    void (*function)(void * ) ;
 };
 typedef _Bool ldv_set;
-long __builtin_bswap64(long  ) ;
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 void ldv_assume(int expression ) ;
 void ldv_stop(void) ;
 void ldv_linux_alloc_irq_check_alloc_flags(gfp_t flags ) ;
@@ -4540,7 +4539,7 @@ __inline static bool IS_ERR(void const   *ptr )
 
   {
   {
-  tmp = __builtin_expect((unsigned long )ptr > 0xfffffffffffff000UL, 0L);
+  tmp = ldv__builtin_expect((unsigned long )ptr > 0xfffffffffffff000UL, 0L);
   }
   return (tmp != 0L);
 }
@@ -5268,7 +5267,7 @@ static void port100_recv_response(struct urb *urb )
   descriptor.format = "PORT100 RX: ";
   descriptor.lineno = 625U;
   descriptor.flags = 0U;
-  tmp___2 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___2 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___2 != 0L) {
     {
@@ -5452,7 +5451,7 @@ static int port100_send_frame_async(struct port100 *dev , struct sk_buff *out , 
   descriptor.format = "PORT100 TX: ";
   descriptor.lineno = 721U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -6856,7 +6855,7 @@ void ldv_dummy_resourceless_instance_callback_0_7(int (*arg0)(struct nfc_digital
                                                               int  , int  ) , struct nfc_digital_dev *arg1 ,
                                                   int arg2 , int arg3 ) ;
 void ldv_entry_EMGentry_7(void *arg0 ) ;
-void main(void) ;
+int main(void) ;
 int ldv_nfc_digital_register_device(int arg0 , struct nfc_digital_dev *arg1 ) ;
 void ldv_nfc_digital_unregister_device(void *arg0 , struct nfc_digital_dev *arg1 ) ;
 void ldv_struct_nfc_digital_ops_dummy_resourceless_instance_0(void *arg0 ) ;
@@ -7129,7 +7128,7 @@ void ldv_entry_EMGentry_7(void *arg0 )
   return;
 }
 }
-void main(void) 
+int main(void) 
 { 
 
 
@@ -7138,7 +7137,7 @@ void main(void)
   ldv_ldv_initialize_130();
   ldv_entry_EMGentry_7((void *)0);
   }
-  return;
+return 0;
 }
 }
 int ldv_nfc_digital_register_device(int arg0 , struct nfc_digital_dev *arg1 ) 
@@ -9984,7 +9983,7 @@ void ldv_linux_usb_urb_check_final_state(void)
 }
 }
 extern void ldv_assert(char const   * , int  ) ;
-void __builtin_trap(void) ;
+void ldv__builtin_trap(void) ;
 void ldv_assume(int expression ) 
 { 
 
@@ -10008,7 +10007,7 @@ void ldv_stop(void)
   goto ldv_stop_label;
 }
 }
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 
@@ -10016,7 +10015,7 @@ long __builtin_expect(long exp , long c )
   return (exp);
 }
 }
-void __builtin_trap(void) 
+void ldv__builtin_trap(void) 
 { 
 
 

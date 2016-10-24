@@ -8008,7 +8008,7 @@ int ldv_EMGentry_init_init_nfs_v2_12_9(int (*arg0)(void) ) ;
 void ldv_dispatch_deregister_file_operations_instance_1_12_4(void) ;
 void ldv_dispatch_register_file_operations_instance_1_12_5(void) ;
 void ldv_entry_EMGentry_12(void *arg0 ) ;
-void main(void) ;
+int main(void) ;
 void ldv_file_operations_file_operations_instance_0(void *arg0 ) ;
 void ldv_file_operations_file_operations_instance_1(void *arg0 ) ;
 void ldv_file_operations_file_operations_instance_10(void *arg0 ) ;
@@ -10117,7 +10117,7 @@ void ldv_entry_EMGentry_12(void *arg0 )
   return;
 }
 }
-void main(void) 
+int main(void) 
 { 
 
 
@@ -10126,7 +10126,7 @@ void main(void)
   ldv_ldv_initialize_133();
   ldv_entry_EMGentry_12((void *)0);
   }
-  return;
+return 0;
 }
 }
 void ldv_file_operations_file_operations_instance_0(void *arg0 ) 
@@ -21473,10 +21473,9 @@ static void ldv_ldv_initialize_133(void)
   return;
 }
 }
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 extern void ldv_after_alloc(void * ) ;
 extern int printk(char const   *  , ...) ;
-extern int ( /* missing proto */  __builtin_unreachable)() ;
 void ldv_linux_kernel_locking_spinlock_spin_lock_i_lock_of_inode(void) ;
 void ldv_linux_kernel_locking_spinlock_spin_unlock_i_lock_of_inode(void) ;
 extern void _raw_spin_lock(raw_spinlock_t * ) ;
@@ -21712,7 +21711,7 @@ static int nfs_proc_get_root(struct nfs_server *server , struct nfs_fh *fhandle 
   msg.rpc_argp = (void *)fhandle;
   msg.rpc_resp = (void *)fattr;
   msg.rpc_cred = 0;
-  tmp = __builtin_expect((nfs_debug & 16U) != 0U, 0L);
+  tmp = ldv__builtin_expect((nfs_debug & 16U) != 0U, 0L);
   }
   if (tmp != 0L) {
     {
@@ -21734,7 +21733,7 @@ static int nfs_proc_get_root(struct nfs_server *server , struct nfs_fh *fhandle 
 
   }
   {
-  tmp___0 = __builtin_expect((nfs_debug & 16U) != 0U, 0L);
+  tmp___0 = ldv__builtin_expect((nfs_debug & 16U) != 0U, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -21749,7 +21748,7 @@ static int nfs_proc_get_root(struct nfs_server *server , struct nfs_fh *fhandle 
 
   }
   {
-  tmp___1 = __builtin_expect((nfs_debug & 16U) != 0U, 0L);
+  tmp___1 = ldv__builtin_expect((nfs_debug & 16U) != 0U, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -21772,7 +21771,7 @@ static int nfs_proc_get_root(struct nfs_server *server , struct nfs_fh *fhandle 
 
   }
   {
-  tmp___2 = __builtin_expect((nfs_debug & 16U) != 0U, 0L);
+  tmp___2 = ldv__builtin_expect((nfs_debug & 16U) != 0U, 0L);
   }
   if (tmp___2 != 0L) {
     {
@@ -21812,7 +21811,7 @@ static int nfs_proc_getattr(struct nfs_server *server , struct nfs_fh *fhandle ,
   msg.rpc_argp = (void *)fhandle;
   msg.rpc_resp = (void *)fattr;
   msg.rpc_cred = 0;
-  tmp = __builtin_expect((nfs_debug & 16U) != 0U, 0L);
+  tmp = ldv__builtin_expect((nfs_debug & 16U) != 0U, 0L);
   }
   if (tmp != 0L) {
     {
@@ -21824,7 +21823,7 @@ static int nfs_proc_getattr(struct nfs_server *server , struct nfs_fh *fhandle ,
   {
   nfs_fattr_init(fattr);
   status = rpc_call_sync(server->client, (struct rpc_message  const  *)(& msg), 0);
-  tmp___0 = __builtin_expect((nfs_debug & 16U) != 0U, 0L);
+  tmp___0 = ldv__builtin_expect((nfs_debug & 16U) != 0U, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -21858,7 +21857,7 @@ static int nfs_proc_setattr(struct dentry *dentry , struct nfs_fattr *fattr , st
   msg.rpc_resp = (void *)fattr;
   msg.rpc_cred = 0;
   sattr->ia_mode = (unsigned int )sattr->ia_mode & 4095U;
-  tmp___0 = __builtin_expect((nfs_debug & 16U) != 0U, 0L);
+  tmp___0 = ldv__builtin_expect((nfs_debug & 16U) != 0U, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -21887,7 +21886,7 @@ static int nfs_proc_setattr(struct dentry *dentry , struct nfs_fattr *fattr , st
 
   }
   {
-  tmp___2 = __builtin_expect((nfs_debug & 16U) != 0U, 0L);
+  tmp___2 = ldv__builtin_expect((nfs_debug & 16U) != 0U, 0L);
   }
   if (tmp___2 != 0L) {
     {
@@ -21923,7 +21922,7 @@ static int nfs_proc_lookup(struct inode *dir , struct qstr *name , struct nfs_fh
   msg.rpc_argp = (void *)(& arg);
   msg.rpc_resp = (void *)(& res);
   msg.rpc_cred = 0;
-  tmp___0 = __builtin_expect((nfs_debug & 16U) != 0U, 0L);
+  tmp___0 = ldv__builtin_expect((nfs_debug & 16U) != 0U, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -21936,7 +21935,7 @@ static int nfs_proc_lookup(struct inode *dir , struct qstr *name , struct nfs_fh
   nfs_fattr_init(fattr);
   tmp___1 = NFS_CLIENT((struct inode  const  *)dir);
   status = rpc_call_sync(tmp___1, (struct rpc_message  const  *)(& msg), 0);
-  tmp___2 = __builtin_expect((nfs_debug & 16U) != 0U, 0L);
+  tmp___2 = ldv__builtin_expect((nfs_debug & 16U) != 0U, 0L);
   }
   if (tmp___2 != 0L) {
     {
@@ -21970,7 +21969,7 @@ static int nfs_proc_readlink(struct inode *inode , struct page *page , unsigned 
   msg.rpc_argp = (void *)(& args);
   msg.rpc_resp = 0;
   msg.rpc_cred = 0;
-  tmp___0 = __builtin_expect((nfs_debug & 16U) != 0U, 0L);
+  tmp___0 = ldv__builtin_expect((nfs_debug & 16U) != 0U, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -21982,7 +21981,7 @@ static int nfs_proc_readlink(struct inode *inode , struct page *page , unsigned 
   {
   tmp___1 = NFS_CLIENT((struct inode  const  *)inode);
   status = rpc_call_sync(tmp___1, (struct rpc_message  const  *)(& msg), 0);
-  tmp___2 = __builtin_expect((nfs_debug & 16U) != 0U, 0L);
+  tmp___2 = ldv__builtin_expect((nfs_debug & 16U) != 0U, 0L);
   }
   if (tmp___2 != 0L) {
     {
@@ -22050,7 +22049,7 @@ static int nfs_proc_create(struct inode *dir , struct dentry *dentry , struct ia
   msg.rpc_resp = 0;
   msg.rpc_cred = 0;
   status = -12;
-  tmp = __builtin_expect((nfs_debug & 16U) != 0U, 0L);
+  tmp = ldv__builtin_expect((nfs_debug & 16U) != 0U, 0L);
   }
   if (tmp != 0L) {
     {
@@ -22086,7 +22085,7 @@ static int nfs_proc_create(struct inode *dir , struct dentry *dentry , struct ia
   }
   out: 
   {
-  tmp___1 = __builtin_expect((nfs_debug & 16U) != 0U, 0L);
+  tmp___1 = ldv__builtin_expect((nfs_debug & 16U) != 0U, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -22118,7 +22117,7 @@ static int nfs_proc_mknod(struct inode *dir , struct dentry *dentry , struct iat
   msg.rpc_resp = 0;
   msg.rpc_cred = 0;
   status = -12;
-  tmp = __builtin_expect((nfs_debug & 16U) != 0U, 0L);
+  tmp = ldv__builtin_expect((nfs_debug & 16U) != 0U, 0L);
   }
   if (tmp != 0L) {
     {
@@ -22178,7 +22177,7 @@ static int nfs_proc_mknod(struct inode *dir , struct dentry *dentry , struct iat
   }
   out: 
   {
-  tmp___3 = __builtin_expect((nfs_debug & 16U) != 0U, 0L);
+  tmp___3 = ldv__builtin_expect((nfs_debug & 16U) != 0U, 0L);
   }
   if (tmp___3 != 0L) {
     {
@@ -22212,7 +22211,7 @@ static int nfs_proc_remove(struct inode *dir , struct qstr *name )
   msg.rpc_argp = (void *)(& arg);
   msg.rpc_resp = 0;
   msg.rpc_cred = 0;
-  tmp___0 = __builtin_expect((nfs_debug & 16U) != 0U, 0L);
+  tmp___0 = ldv__builtin_expect((nfs_debug & 16U) != 0U, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -22225,7 +22224,7 @@ static int nfs_proc_remove(struct inode *dir , struct qstr *name )
   tmp___1 = NFS_CLIENT((struct inode  const  *)dir);
   status = rpc_call_sync(tmp___1, (struct rpc_message  const  *)(& msg), 0);
   nfs_mark_for_revalidate(dir);
-  tmp___2 = __builtin_expect((nfs_debug & 16U) != 0U, 0L);
+  tmp___2 = ldv__builtin_expect((nfs_debug & 16U) != 0U, 0L);
   }
   if (tmp___2 != 0L) {
     {
@@ -22323,7 +22322,7 @@ static int nfs_proc_link(struct inode *inode , struct inode *dir , struct qstr *
   msg.rpc_argp = (void *)(& arg);
   msg.rpc_resp = 0;
   msg.rpc_cred = 0;
-  tmp___1 = __builtin_expect((nfs_debug & 16U) != 0U, 0L);
+  tmp___1 = ldv__builtin_expect((nfs_debug & 16U) != 0U, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -22337,7 +22336,7 @@ static int nfs_proc_link(struct inode *inode , struct inode *dir , struct qstr *
   status = rpc_call_sync(tmp___2, (struct rpc_message  const  *)(& msg), 0);
   nfs_mark_for_revalidate(inode);
   nfs_mark_for_revalidate(dir);
-  tmp___3 = __builtin_expect((nfs_debug & 16U) != 0U, 0L);
+  tmp___3 = ldv__builtin_expect((nfs_debug & 16U) != 0U, 0L);
   }
   if (tmp___3 != 0L) {
     {
@@ -22376,7 +22375,7 @@ static int nfs_proc_symlink(struct inode *dir , struct dentry *dentry , struct p
   msg.rpc_resp = 0;
   msg.rpc_cred = 0;
   status = -36;
-  tmp___0 = __builtin_expect((nfs_debug & 16U) != 0U, 0L);
+  tmp___0 = ldv__builtin_expect((nfs_debug & 16U) != 0U, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -22419,7 +22418,7 @@ static int nfs_proc_symlink(struct inode *dir , struct dentry *dentry , struct p
   }
   out: 
   {
-  tmp___2 = __builtin_expect((nfs_debug & 16U) != 0U, 0L);
+  tmp___2 = ldv__builtin_expect((nfs_debug & 16U) != 0U, 0L);
   }
   if (tmp___2 != 0L) {
     {
@@ -22447,7 +22446,7 @@ static int nfs_proc_mkdir(struct inode *dir , struct dentry *dentry , struct iat
   msg.rpc_resp = 0;
   msg.rpc_cred = 0;
   status = -12;
-  tmp = __builtin_expect((nfs_debug & 16U) != 0U, 0L);
+  tmp = ldv__builtin_expect((nfs_debug & 16U) != 0U, 0L);
   }
   if (tmp != 0L) {
     {
@@ -22483,7 +22482,7 @@ static int nfs_proc_mkdir(struct inode *dir , struct dentry *dentry , struct iat
   }
   out: 
   {
-  tmp___1 = __builtin_expect((nfs_debug & 16U) != 0U, 0L);
+  tmp___1 = ldv__builtin_expect((nfs_debug & 16U) != 0U, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -22515,7 +22514,7 @@ static int nfs_proc_rmdir(struct inode *dir , struct qstr *name )
   msg.rpc_argp = (void *)(& arg);
   msg.rpc_resp = 0;
   msg.rpc_cred = 0;
-  tmp___0 = __builtin_expect((nfs_debug & 16U) != 0U, 0L);
+  tmp___0 = ldv__builtin_expect((nfs_debug & 16U) != 0U, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -22528,7 +22527,7 @@ static int nfs_proc_rmdir(struct inode *dir , struct qstr *name )
   tmp___1 = NFS_CLIENT((struct inode  const  *)dir);
   status = rpc_call_sync(tmp___1, (struct rpc_message  const  *)(& msg), 0);
   nfs_mark_for_revalidate(dir);
-  tmp___2 = __builtin_expect((nfs_debug & 16U) != 0U, 0L);
+  tmp___2 = ldv__builtin_expect((nfs_debug & 16U) != 0U, 0L);
   }
   if (tmp___2 != 0L) {
     {
@@ -22564,7 +22563,7 @@ static int nfs_proc_readdir(struct dentry *dentry , struct rpc_cred *cred , u64 
   msg.rpc_argp = (void *)(& arg);
   msg.rpc_resp = 0;
   msg.rpc_cred = cred;
-  tmp___0 = __builtin_expect((nfs_debug & 16U) != 0U, 0L);
+  tmp___0 = ldv__builtin_expect((nfs_debug & 16U) != 0U, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -22577,7 +22576,7 @@ static int nfs_proc_readdir(struct dentry *dentry , struct rpc_cred *cred , u64 
   tmp___1 = NFS_CLIENT((struct inode  const  *)dir);
   status = rpc_call_sync(tmp___1, (struct rpc_message  const  *)(& msg), 0);
   nfs_invalidate_atime(dir);
-  tmp___2 = __builtin_expect((nfs_debug & 16U) != 0U, 0L);
+  tmp___2 = ldv__builtin_expect((nfs_debug & 16U) != 0U, 0L);
   }
   if (tmp___2 != 0L) {
     {
@@ -22603,7 +22602,7 @@ static int nfs_proc_statfs(struct nfs_server *server , struct nfs_fh *fhandle , 
   msg.rpc_argp = (void *)fhandle;
   msg.rpc_resp = (void *)(& fsinfo);
   msg.rpc_cred = 0;
-  tmp = __builtin_expect((nfs_debug & 16U) != 0U, 0L);
+  tmp = ldv__builtin_expect((nfs_debug & 16U) != 0U, 0L);
   }
   if (tmp != 0L) {
     {
@@ -22615,7 +22614,7 @@ static int nfs_proc_statfs(struct nfs_server *server , struct nfs_fh *fhandle , 
   {
   nfs_fattr_init(stat->fattr);
   status = rpc_call_sync(server->client, (struct rpc_message  const  *)(& msg), 0);
-  tmp___0 = __builtin_expect((nfs_debug & 16U) != 0U, 0L);
+  tmp___0 = ldv__builtin_expect((nfs_debug & 16U) != 0U, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -22653,7 +22652,7 @@ static int nfs_proc_fsinfo(struct nfs_server *server , struct nfs_fh *fhandle , 
   msg.rpc_argp = (void *)fhandle;
   msg.rpc_resp = (void *)(& fsinfo);
   msg.rpc_cred = 0;
-  tmp = __builtin_expect((nfs_debug & 16U) != 0U, 0L);
+  tmp = ldv__builtin_expect((nfs_debug & 16U) != 0U, 0L);
   }
   if (tmp != 0L) {
     {
@@ -22665,7 +22664,7 @@ static int nfs_proc_fsinfo(struct nfs_server *server , struct nfs_fh *fhandle , 
   {
   nfs_fattr_init(info->fattr);
   status = rpc_call_sync(server->client, (struct rpc_message  const  *)(& msg), 0);
-  tmp___0 = __builtin_expect((nfs_debug & 16U) != 0U, 0L);
+  tmp___0 = ldv__builtin_expect((nfs_debug & 16U) != 0U, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -30120,7 +30119,6 @@ __inline static void ldv_spin_unlock_127(spinlock_t *lock )
   return;
 }
 }
-int __builtin_bswap32(int  ) ;
 __inline static __u32 __fswab32(__u32 val ) 
 { 
   int tmp ;
@@ -30291,7 +30289,7 @@ static void print_overflow_msg(char const   *func , struct xdr_stream  const  *x
 
   {
   {
-  tmp = __builtin_expect((nfs_debug & 32U) != 0U, 0L);
+  tmp = ldv__builtin_expect((nfs_debug & 32U) != 0U, 0L);
   }
   if (tmp != 0L) {
     {
@@ -30316,7 +30314,7 @@ static int decode_nfsdata(struct xdr_stream *xdr , struct nfs_pgio_res *result )
   {
   {
   p = xdr_inline_decode(xdr, 4UL);
-  tmp = __builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0U), 0L);
+  tmp = ldv__builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0U), 0L);
   }
   if (tmp != 0L) {
     goto out_overflow;
@@ -30326,7 +30324,7 @@ static int decode_nfsdata(struct xdr_stream *xdr , struct nfs_pgio_res *result )
   {
   count = __be32_to_cpup((__be32 const   *)p);
   recvd = xdr_read_pages(xdr, count);
-  tmp___0 = __builtin_expect(count > recvd, 0L);
+  tmp___0 = ldv__builtin_expect(count > recvd, 0L);
   }
   if (tmp___0 != 0L) {
     goto out_cheating;
@@ -30339,7 +30337,7 @@ static int decode_nfsdata(struct xdr_stream *xdr , struct nfs_pgio_res *result )
   return ((int )count);
   out_cheating: 
   {
-  tmp___1 = __builtin_expect((nfs_debug & 32U) != 0U, 0L);
+  tmp___1 = ldv__builtin_expect((nfs_debug & 32U) != 0U, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -30367,7 +30365,7 @@ static int decode_stat(struct xdr_stream *xdr , enum nfs_stat *status )
   {
   {
   p = xdr_inline_decode(xdr, 4UL);
-  tmp = __builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0U), 0L);
+  tmp = ldv__builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0U), 0L);
   }
   if (tmp != 0L) {
     goto out_overflow;
@@ -30396,7 +30394,7 @@ static __be32 *xdr_decode_ftype(__be32 *p , u32 *type )
   tmp = p;
   p = p + 1;
   *type = __be32_to_cpup((__be32 const   *)tmp);
-  tmp___0 = __builtin_expect(*type > 8U, 0L);
+  tmp___0 = ldv__builtin_expect(*type > 8U, 0L);
   }
   if (tmp___0 != 0L) {
     *type = 7U;
@@ -30426,7 +30424,7 @@ static int decode_fhandle(struct xdr_stream *xdr , struct nfs_fh *fh )
   {
   {
   p = xdr_inline_decode(xdr, 32UL);
-  tmp = __builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0U), 0L);
+  tmp = ldv__builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0U), 0L);
   }
   if (tmp != 0L) {
     goto out_overflow;
@@ -30547,7 +30545,7 @@ static int decode_fattr(struct xdr_stream *xdr , struct nfs_fattr *fattr )
   {
   {
   p = xdr_inline_decode(xdr, 68UL);
-  tmp = __builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0U), 0L);
+  tmp = ldv__builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0U), 0L);
   }
   if (tmp != 0L) {
     goto out_overflow;
@@ -30637,7 +30635,7 @@ static int decode_fattr(struct xdr_stream *xdr , struct nfs_fattr *fattr )
   return (0);
   out_uid: 
   {
-  tmp___20 = __builtin_expect((nfs_debug & 32U) != 0U, 0L);
+  tmp___20 = ldv__builtin_expect((nfs_debug & 32U) != 0U, 0L);
   }
   if (tmp___20 != 0L) {
     {
@@ -30649,7 +30647,7 @@ static int decode_fattr(struct xdr_stream *xdr , struct nfs_fattr *fattr )
   return (-22);
   out_gid: 
   {
-  tmp___21 = __builtin_expect((nfs_debug & 32U) != 0U, 0L);
+  tmp___21 = ldv__builtin_expect((nfs_debug & 32U) != 0U, 0L);
   }
   if (tmp___21 != 0L) {
     {
@@ -30797,12 +30795,12 @@ static void encode_filename(struct xdr_stream *xdr , char const   *name , u32 le
   {
   {
   __ret_warn_once = length > 255U;
-  tmp___1 = __builtin_expect(__ret_warn_once != 0, 0L);
+  tmp___1 = ldv__builtin_expect(__ret_warn_once != 0, 0L);
   }
   if (tmp___1 != 0L) {
     {
     __ret_warn_on = ! __warned;
-    tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
     if (tmp != 0L) {
       {
@@ -30812,7 +30810,7 @@ static void encode_filename(struct xdr_stream *xdr , char const   *name , u32 le
 
     }
     {
-    tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
     if (tmp___0 != 0L) {
       __warned = 1;
@@ -30823,7 +30821,7 @@ static void encode_filename(struct xdr_stream *xdr , char const   *name , u32 le
 
   }
   {
-  __builtin_expect(__ret_warn_once != 0, 0L);
+  ldv__builtin_expect(__ret_warn_once != 0, 0L);
   p = xdr_reserve_space(xdr, (size_t )(length + 4U));
   xdr_encode_opaque(p, (void const   *)name, length);
   }
@@ -30841,7 +30839,7 @@ static int decode_filename_inline(struct xdr_stream *xdr , char const   **name ,
   {
   {
   p = xdr_inline_decode(xdr, 4UL);
-  tmp = __builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0U), 0L);
+  tmp = ldv__builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0U), 0L);
   }
   if (tmp != 0L) {
     goto out_overflow;
@@ -30858,7 +30856,7 @@ static int decode_filename_inline(struct xdr_stream *xdr , char const   **name ,
   }
   {
   p = xdr_inline_decode(xdr, (size_t )count);
-  tmp___0 = __builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0U),
+  tmp___0 = ldv__builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0U),
                              0L);
   }
   if (tmp___0 != 0L) {
@@ -30871,7 +30869,7 @@ static int decode_filename_inline(struct xdr_stream *xdr , char const   **name ,
   return (0);
   out_nametoolong: 
   {
-  tmp___1 = __builtin_expect((nfs_debug & 32U) != 0U, 0L);
+  tmp___1 = ldv__builtin_expect((nfs_debug & 32U) != 0U, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -30917,7 +30915,7 @@ static int decode_path(struct xdr_stream *xdr )
   {
   {
   p = xdr_inline_decode(xdr, 4UL);
-  tmp = __builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0U), 0L);
+  tmp = ldv__builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0U), 0L);
   }
   if (tmp != 0L) {
     goto out_overflow;
@@ -30926,7 +30924,7 @@ static int decode_path(struct xdr_stream *xdr )
   }
   {
   length = __be32_to_cpup((__be32 const   *)p);
-  tmp___0 = __builtin_expect((long )(length >= (xdr->buf)->page_len || length > 1024U),
+  tmp___0 = ldv__builtin_expect((long )(length >= (xdr->buf)->page_len || length > 1024U),
                              0L);
   }
   if (tmp___0 != 0L) {
@@ -30936,7 +30934,7 @@ static int decode_path(struct xdr_stream *xdr )
   }
   {
   recvd = xdr_read_pages(xdr, length);
-  tmp___1 = __builtin_expect(length > recvd, 0L);
+  tmp___1 = ldv__builtin_expect(length > recvd, 0L);
   }
   if (tmp___1 != 0L) {
     goto out_cheating;
@@ -30949,7 +30947,7 @@ static int decode_path(struct xdr_stream *xdr )
   return (0);
   out_size: 
   {
-  tmp___2 = __builtin_expect((nfs_debug & 32U) != 0U, 0L);
+  tmp___2 = ldv__builtin_expect((nfs_debug & 32U) != 0U, 0L);
   }
   if (tmp___2 != 0L) {
     {
@@ -30961,7 +30959,7 @@ static int decode_path(struct xdr_stream *xdr )
   return (-36);
   out_cheating: 
   {
-  tmp___3 = __builtin_expect((nfs_debug & 32U) != 0U, 0L);
+  tmp___3 = ldv__builtin_expect((nfs_debug & 32U) != 0U, 0L);
   }
   if (tmp___3 != 0L) {
     {
@@ -30989,7 +30987,7 @@ static int decode_attrstat(struct xdr_stream *xdr , struct nfs_fattr *result , _
   {
   {
   error = decode_stat(xdr, & status);
-  tmp = __builtin_expect(error != 0, 0L);
+  tmp = ldv__builtin_expect(error != 0, 0L);
   }
   if (tmp != 0L) {
     goto out;
@@ -31039,7 +31037,7 @@ static int decode_diropok(struct xdr_stream *xdr , struct nfs_diropok *result )
   {
   {
   error = decode_fhandle(xdr, result->fh);
-  tmp = __builtin_expect(error != 0, 0L);
+  tmp = ldv__builtin_expect(error != 0, 0L);
   }
   if (tmp != 0L) {
     goto out;
@@ -31063,7 +31061,7 @@ static int decode_diropres(struct xdr_stream *xdr , struct nfs_diropok *result )
   {
   {
   error = decode_stat(xdr, & status);
-  tmp = __builtin_expect(error != 0, 0L);
+  tmp = ldv__builtin_expect(error != 0, 0L);
   }
   if (tmp != 0L) {
     goto out;
@@ -31344,7 +31342,7 @@ static int nfs2_xdr_dec_stat(struct rpc_rqst *req , struct xdr_stream *xdr , voi
   {
   {
   error = decode_stat(xdr, & status);
-  tmp = __builtin_expect(error != 0, 0L);
+  tmp = ldv__builtin_expect(error != 0, 0L);
   }
   if (tmp != 0L) {
     goto out;
@@ -31398,7 +31396,7 @@ static int nfs2_xdr_dec_readlinkres(struct rpc_rqst *req , struct xdr_stream *xd
   {
   {
   error = decode_stat(xdr, & status);
-  tmp = __builtin_expect(error != 0, 0L);
+  tmp = ldv__builtin_expect(error != 0, 0L);
   }
   if (tmp != 0L) {
     goto out;
@@ -31433,7 +31431,7 @@ static int nfs2_xdr_dec_readres(struct rpc_rqst *req , struct xdr_stream *xdr , 
   {
   {
   error = decode_stat(xdr, & status);
-  tmp = __builtin_expect(error != 0, 0L);
+  tmp = ldv__builtin_expect(error != 0, 0L);
   }
   if (tmp != 0L) {
     goto out;
@@ -31448,7 +31446,7 @@ static int nfs2_xdr_dec_readres(struct rpc_rqst *req , struct xdr_stream *xdr , 
   }
   {
   error = decode_fattr(xdr, result->fattr);
-  tmp___0 = __builtin_expect(error != 0, 0L);
+  tmp___0 = ldv__builtin_expect(error != 0, 0L);
   }
   if (tmp___0 != 0L) {
     goto out;
@@ -31496,7 +31494,7 @@ int nfs2_decode_dirent(struct xdr_stream *xdr , struct nfs_entry *entry , int pl
   {
   {
   p = xdr_inline_decode(xdr, 4UL);
-  tmp = __builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0U), 0L);
+  tmp = ldv__builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0U), 0L);
   }
   if (tmp != 0L) {
     goto out_overflow;
@@ -31508,7 +31506,7 @@ int nfs2_decode_dirent(struct xdr_stream *xdr , struct nfs_entry *entry , int pl
   if (*tmp___2 == 0U) {
     {
     p = xdr_inline_decode(xdr, 4UL);
-    tmp___0 = __builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0U),
+    tmp___0 = ldv__builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0U),
                                0L);
     }
     if (tmp___0 != 0L) {
@@ -31530,7 +31528,7 @@ int nfs2_decode_dirent(struct xdr_stream *xdr , struct nfs_entry *entry , int pl
   }
   {
   p = xdr_inline_decode(xdr, 4UL);
-  tmp___3 = __builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0U),
+  tmp___3 = ldv__builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0U),
                              0L);
   }
   if (tmp___3 != 0L) {
@@ -31542,7 +31540,7 @@ int nfs2_decode_dirent(struct xdr_stream *xdr , struct nfs_entry *entry , int pl
   tmp___4 = __be32_to_cpup((__be32 const   *)p);
   entry->ino = (__u64 )tmp___4;
   error = decode_filename_inline(xdr, & entry->name, & entry->len);
-  tmp___5 = __builtin_expect(error != 0, 0L);
+  tmp___5 = ldv__builtin_expect(error != 0, 0L);
   }
   if (tmp___5 != 0L) {
     return (error);
@@ -31552,7 +31550,7 @@ int nfs2_decode_dirent(struct xdr_stream *xdr , struct nfs_entry *entry , int pl
   {
   entry->prev_cookie = entry->cookie;
   p = xdr_inline_decode(xdr, 4UL);
-  tmp___6 = __builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0U),
+  tmp___6 = ldv__builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0U),
                              0L);
   }
   if (tmp___6 != 0L) {
@@ -31595,7 +31593,7 @@ static int nfs2_xdr_dec_readdirres(struct rpc_rqst *req , struct xdr_stream *xdr
   {
   {
   error = decode_stat(xdr, & status);
-  tmp = __builtin_expect(error != 0, 0L);
+  tmp = ldv__builtin_expect(error != 0, 0L);
   }
   if (tmp != 0L) {
     goto out;
@@ -31631,7 +31629,7 @@ static int decode_info(struct xdr_stream *xdr , struct nfs2_fsstat *result )
   {
   {
   p = xdr_inline_decode(xdr, 20UL);
-  tmp = __builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0U), 0L);
+  tmp = ldv__builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0U), 0L);
   }
   if (tmp != 0L) {
     goto out_overflow;
@@ -31672,7 +31670,7 @@ static int nfs2_xdr_dec_statfsres(struct rpc_rqst *req , struct xdr_stream *xdr 
   {
   {
   error = decode_stat(xdr, & status);
-  tmp = __builtin_expect(error != 0, 0L);
+  tmp = ldv__builtin_expect(error != 0, 0L);
   }
   if (tmp != 0L) {
     goto out;
@@ -31749,7 +31747,7 @@ static int nfs_stat_to_errno(enum nfs_stat status )
 
   }
   {
-  tmp = __builtin_expect((nfs_debug & 32U) != 0U, 0L);
+  tmp = ldv__builtin_expect((nfs_debug & 32U) != 0U, 0L);
   }
   if (tmp != 0L) {
     {
@@ -34098,7 +34096,7 @@ void ldv_linux_usb_urb_check_final_state(void)
 }
 }
 extern void ldv_assert(char const   * , int  ) ;
-void __builtin_trap(void) ;
+void ldv__builtin_trap(void) ;
 void ldv_assume(int expression ) 
 { 
 
@@ -34122,7 +34120,7 @@ void ldv_stop(void)
   goto ldv_stop_label;
 }
 }
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 
@@ -34130,7 +34128,7 @@ long __builtin_expect(long exp , long c )
   return (exp);
 }
 }
-void __builtin_trap(void) 
+void ldv__builtin_trap(void) 
 { 
 
 

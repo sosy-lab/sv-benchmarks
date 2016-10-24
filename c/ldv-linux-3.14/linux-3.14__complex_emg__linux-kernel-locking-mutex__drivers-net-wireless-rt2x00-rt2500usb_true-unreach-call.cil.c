@@ -6822,7 +6822,7 @@ struct ldv_thread {
    void (*function)(void * ) ;
 };
 typedef _Bool ldv_set;
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 static void ldv_mutex_lock_17(struct mutex *ldv_func_arg1 ) ;
 static void ldv_mutex_lock_19(struct mutex *ldv_func_arg1 ) ;
 static void ldv_mutex_lock_21(struct mutex *ldv_func_arg1 ) ;
@@ -6874,7 +6874,6 @@ extern int __dynamic_dev_dbg(struct _ddebug * , struct device  const  * , char c
                              , ...) ;
 extern void __const_udelay(unsigned long  ) ;
 extern void msleep(unsigned int  ) ;
-extern int ( /* missing proto */  __builtin_unreachable)() ;
 static void ldv_mutex_unlock_18(struct mutex *ldv_func_arg1 ) ;
 static void ldv_mutex_unlock_20(struct mutex *ldv_func_arg1 ) ;
 static void ldv_mutex_unlock_22(struct mutex *ldv_func_arg1 ) ;
@@ -7132,7 +7131,7 @@ __inline static void rt2x00_rf_read(struct rt2x00_dev *rt2x00dev , unsigned int 
 
   {
   {
-  tmp = __builtin_expect((unsigned int )word == 0U, 0L);
+  tmp = ldv__builtin_expect((unsigned int )word == 0U, 0L);
   }
   if (tmp != 0L) {
     {
@@ -7142,7 +7141,7 @@ __inline static void rt2x00_rf_read(struct rt2x00_dev *rt2x00dev , unsigned int 
     }
   } else {
     {
-    tmp___0 = __builtin_expect((unsigned int )word > (unsigned int )(rt2x00dev->ops)->rf_size / 4U,
+    tmp___0 = ldv__builtin_expect((unsigned int )word > (unsigned int )(rt2x00dev->ops)->rf_size / 4U,
                                0L);
     }
     if (tmp___0 != 0L) {
@@ -7167,7 +7166,7 @@ __inline static void rt2x00_rf_write(struct rt2x00_dev *rt2x00dev , unsigned int
 
   {
   {
-  tmp = __builtin_expect((unsigned int )word == 0U, 0L);
+  tmp = ldv__builtin_expect((unsigned int )word == 0U, 0L);
   }
   if (tmp != 0L) {
     {
@@ -7177,7 +7176,7 @@ __inline static void rt2x00_rf_write(struct rt2x00_dev *rt2x00dev , unsigned int
     }
   } else {
     {
-    tmp___0 = __builtin_expect((unsigned int )word > (unsigned int )(rt2x00dev->ops)->rf_size / 4U,
+    tmp___0 = ldv__builtin_expect((unsigned int )word > (unsigned int )(rt2x00dev->ops)->rf_size / 4U,
                                0L);
     }
     if (tmp___0 != 0L) {
@@ -9349,7 +9348,7 @@ static void rt2500usb_config_ant(struct rt2x00_dev *rt2x00dev , struct antenna_s
 
   {
   {
-  tmp = __builtin_expect((unsigned int )ant->rx == 0U, 0L);
+  tmp = ldv__builtin_expect((unsigned int )ant->rx == 0U, 0L);
   }
   if (tmp != 0L) {
     {
@@ -9359,7 +9358,7 @@ static void rt2500usb_config_ant(struct rt2x00_dev *rt2x00dev , struct antenna_s
     }
   } else {
     {
-    tmp___0 = __builtin_expect((unsigned int )ant->tx == 0U, 0L);
+    tmp___0 = ldv__builtin_expect((unsigned int )ant->tx == 0U, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -12759,7 +12758,7 @@ static int rt2500usb_init_bbp(struct rt2x00_dev *rt2x00dev )
   {
   {
   tmp = rt2500usb_wait_bbp_ready(rt2x00dev);
-  tmp___0 = __builtin_expect(tmp != 0, 0L);
+  tmp___0 = ldv__builtin_expect(tmp != 0, 0L);
   }
   if (tmp___0 != 0L) {
     return (-13);
@@ -12875,14 +12874,14 @@ static int rt2500usb_enable_radio(struct rt2x00_dev *rt2x00dev )
   {
   {
   tmp = rt2500usb_init_registers(rt2x00dev);
-  tmp___0 = __builtin_expect(tmp != 0, 0L);
+  tmp___0 = ldv__builtin_expect(tmp != 0, 0L);
   }
   if (tmp___0 != 0L) {
     return (-5);
   } else {
     {
     tmp___1 = rt2500usb_init_bbp(rt2x00dev);
-    tmp___2 = __builtin_expect(tmp___1 != 0, 0L);
+    tmp___2 = ldv__builtin_expect(tmp___1 != 0, 0L);
     }
     if (tmp___2 != 0L) {
       return (-5);
@@ -13236,7 +13235,7 @@ static int rt2500usb_set_device_state(struct rt2x00_dev *rt2x00dev , enum dev_st
   }
   ldv_53018: 
   {
-  tmp = __builtin_expect(retval != 0, 0L);
+  tmp = ldv__builtin_expect(retval != 0, 0L);
   }
   if (tmp != 0L) {
     {
@@ -14772,7 +14771,7 @@ static int rt2500usb_validate_eeprom(struct rt2x00_dev *rt2x00dev )
     descriptor.format = "%s: EEPROM recovery - MAC: %pM\n";
     descriptor.lineno = 1353U;
     descriptor.flags = 0U;
-    tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -15022,7 +15021,7 @@ static int rt2500usb_validate_eeprom(struct rt2x00_dev *rt2x00dev )
     descriptor___0.format = "%s: EEPROM recovery - Antenna: 0x%04x\n";
     descriptor___0.lineno = 1369U;
     descriptor___0.flags = 0U;
-    tmp___3 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___3 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___3 != 0L) {
       {
@@ -15144,7 +15143,7 @@ static int rt2500usb_validate_eeprom(struct rt2x00_dev *rt2x00dev )
     descriptor___1.format = "%s: EEPROM recovery - NIC: 0x%04x\n";
     descriptor___1.lineno = 1378U;
     descriptor___1.flags = 0U;
-    tmp___4 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___4 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
     }
     if (tmp___4 != 0L) {
       {
@@ -15202,7 +15201,7 @@ static int rt2500usb_validate_eeprom(struct rt2x00_dev *rt2x00dev )
     descriptor___2.format = "%s: EEPROM recovery - Calibrate offset: 0x%04x\n";
     descriptor___2.lineno = 1387U;
     descriptor___2.flags = 0U;
-    tmp___5 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+    tmp___5 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
     }
     if (tmp___5 != 0L) {
       {
@@ -15260,7 +15259,7 @@ static int rt2500usb_validate_eeprom(struct rt2x00_dev *rt2x00dev )
     descriptor___3.format = "%s: EEPROM recovery - BBPtune: 0x%04x\n";
     descriptor___3.lineno = 1394U;
     descriptor___3.flags = 0U;
-    tmp___6 = __builtin_expect((long )descriptor___3.flags & 1L, 0L);
+    tmp___6 = ldv__builtin_expect((long )descriptor___3.flags & 1L, 0L);
     }
     if (tmp___6 != 0L) {
       {
@@ -15352,7 +15351,7 @@ static int rt2500usb_validate_eeprom(struct rt2x00_dev *rt2x00dev )
     descriptor___4.format = "%s: EEPROM recovery - BBPtune vgc: 0x%04x\n";
     descriptor___4.lineno = 1409U;
     descriptor___4.flags = 0U;
-    tmp___7 = __builtin_expect((long )descriptor___4.flags & 1L, 0L);
+    tmp___7 = ldv__builtin_expect((long )descriptor___4.flags & 1L, 0L);
     }
     if (tmp___7 != 0L) {
       {
@@ -15476,7 +15475,7 @@ static int rt2500usb_validate_eeprom(struct rt2x00_dev *rt2x00dev )
     descriptor___5.format = "%s: EEPROM recovery - BBPtune r17: 0x%04x\n";
     descriptor___5.lineno = 1420U;
     descriptor___5.flags = 0U;
-    tmp___8 = __builtin_expect((long )descriptor___5.flags & 1L, 0L);
+    tmp___8 = ldv__builtin_expect((long )descriptor___5.flags & 1L, 0L);
     }
     if (tmp___8 != 0L) {
       {
@@ -15566,7 +15565,7 @@ static int rt2500usb_validate_eeprom(struct rt2x00_dev *rt2x00dev )
     descriptor___6.format = "%s: EEPROM recovery - BBPtune r24: 0x%04x\n";
     descriptor___6.lineno = 1428U;
     descriptor___6.flags = 0U;
-    tmp___9 = __builtin_expect((long )descriptor___6.flags & 1L, 0L);
+    tmp___9 = ldv__builtin_expect((long )descriptor___6.flags & 1L, 0L);
     }
     if (tmp___9 != 0L) {
       {
@@ -15656,7 +15655,7 @@ static int rt2500usb_validate_eeprom(struct rt2x00_dev *rt2x00dev )
     descriptor___7.format = "%s: EEPROM recovery - BBPtune r25: 0x%04x\n";
     descriptor___7.lineno = 1436U;
     descriptor___7.flags = 0U;
-    tmp___10 = __builtin_expect((long )descriptor___7.flags & 1L, 0L);
+    tmp___10 = ldv__builtin_expect((long )descriptor___7.flags & 1L, 0L);
     }
     if (tmp___10 != 0L) {
       {
@@ -15746,7 +15745,7 @@ static int rt2500usb_validate_eeprom(struct rt2x00_dev *rt2x00dev )
     descriptor___8.format = "%s: EEPROM recovery - BBPtune r61: 0x%04x\n";
     descriptor___8.lineno = 1444U;
     descriptor___8.flags = 0U;
-    tmp___11 = __builtin_expect((long )descriptor___8.flags & 1L, 0L);
+    tmp___11 = ldv__builtin_expect((long )descriptor___8.flags & 1L, 0L);
     }
     if (tmp___11 != 0L) {
       {
@@ -16641,7 +16640,7 @@ void ldv_dispatch_instance_register_3_3(struct usb_driver *arg0 ) ;
 void ldv_dispatch_register_5_2(struct usb_driver *arg0 ) ;
 void ldv_dispatch_register_ieee80211_instance_3_6_5(void) ;
 void ldv_entry_EMGentry_6(void *arg0 ) ;
-void main(void) ;
+int main(void) ;
 void ldv_ieee80211_ieee80211_instance_0(void *arg0 ) ;
 void ldv_ieee80211_ieee80211_instance_1(void *arg0 ) ;
 void ldv_ieee80211_instance_callback_0_10(int (*arg0)(struct ieee80211_hw * , struct ieee80211_vif * ) ,
@@ -17620,7 +17619,7 @@ void ldv_entry_EMGentry_6(void *arg0 )
   return;
 }
 }
-void main(void) 
+int main(void) 
 { 
   int tmp ;
 
@@ -21308,7 +21307,7 @@ void *ldv_kzalloc(size_t size , gfp_t flags )
 }
 }
 extern void ldv_assert(char const   * , int  ) ;
-void __builtin_trap(void) ;
+void ldv__builtin_trap(void) ;
 void ldv_assume(int expression ) 
 { 
 
@@ -21332,7 +21331,7 @@ void ldv_stop(void)
   goto ldv_stop_label;
 }
 }
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 
@@ -21340,7 +21339,7 @@ long __builtin_expect(long exp , long c )
   return (exp);
 }
 }
-void __builtin_trap(void) 
+void ldv__builtin_trap(void) 
 { 
 
 

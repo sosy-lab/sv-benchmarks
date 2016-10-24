@@ -6816,7 +6816,7 @@ struct ldv_thread {
    void (*function)(void * ) ;
 };
 typedef _Bool ldv_set;
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 void ldv_assume(int expression ) ;
 void ldv_linux_alloc_irq_check_alloc_flags(gfp_t flags ) ;
 void ldv_linux_alloc_irq_check_alloc_nonatomic(void) ;
@@ -6921,7 +6921,6 @@ void ldv_linux_kernel_rcu_update_lock_bh_rcu_read_lock_bh(void) ;
 void ldv_linux_kernel_rcu_update_lock_bh_rcu_read_unlock_bh(void) ;
 extern unsigned long this_cpu_off ;
 extern void warn_slowpath_null(char const   * , int const    ) ;
-extern int ( /* missing proto */  __builtin_unreachable)() ;
 extern void lockdep_rcu_suspicious(char const   * , int const    , char const   * ) ;
 extern int debug_lockdep_rcu_enabled(void) ;
 extern int rcu_read_lock_held(void) ;
@@ -7094,7 +7093,7 @@ static bool nft_payload_fast_eval(struct nft_expr  const  *expr , struct nft_dat
   {
   ptr = ptr + (unsigned long )priv->offset;
   tmp___1 = skb_tail_pointer(skb);
-  tmp___2 = __builtin_expect((unsigned long )(ptr + (unsigned long )priv->len) >= (unsigned long )tmp___1,
+  tmp___2 = ldv__builtin_expect((unsigned long )(ptr + (unsigned long )priv->len) >= (unsigned long )tmp___1,
                              0L);
   }
   if (tmp___2 != 0L) {
@@ -7221,7 +7220,7 @@ unsigned int nft_do_chain(struct nft_pktinfo *pkt , struct nf_hook_ops  const  *
   goto ldv_47080;
   ldv_47079: 
   {
-  tmp___0 = __builtin_expect((long )((int )rule->genmask >> (int )gencursor) & 1L,
+  tmp___0 = ldv__builtin_expect((long )((int )rule->genmask >> (int )gencursor) & 1L,
                              0L);
   }
   if (tmp___0 != 0L) {
@@ -7297,7 +7296,7 @@ unsigned int nft_do_chain(struct nft_pktinfo *pkt , struct nf_hook_ops  const  *
   goto ldv_47072;
   case_4294967295: /* CIL Label */ 
   {
-  tmp___6 = __builtin_expect((long )*((unsigned char *)pkt->skb + 145UL) & 1L, 0L);
+  tmp___6 = ldv__builtin_expect((long )*((unsigned char *)pkt->skb + 145UL) & 1L, 0L);
   }
   if (tmp___6 != 0L) {
     {
@@ -7355,7 +7354,7 @@ unsigned int nft_do_chain(struct nft_pktinfo *pkt , struct nf_hook_ops  const  *
   case_0: /* CIL Label */ ;
   case_3: /* CIL Label */ 
   {
-  tmp___8 = __builtin_expect((long )*((unsigned char *)pkt->skb + 145UL) & 1L, 0L);
+  tmp___8 = ldv__builtin_expect((long )*((unsigned char *)pkt->skb + 145UL) & 1L, 0L);
   }
   if (tmp___8 != 0L) {
     {
@@ -7391,7 +7390,7 @@ unsigned int nft_do_chain(struct nft_pktinfo *pkt , struct nf_hook_ops  const  *
   goto switch_default;
   case_4294967293: /* CIL Label */ 
   {
-  tmp___9 = __builtin_expect((long )*((unsigned char *)pkt->skb + 145UL) & 1L, 0L);
+  tmp___9 = ldv__builtin_expect((long )*((unsigned char *)pkt->skb + 145UL) & 1L, 0L);
   }
   if (tmp___9 != 0L) {
     {
@@ -7401,7 +7400,7 @@ unsigned int nft_do_chain(struct nft_pktinfo *pkt , struct nf_hook_ops  const  *
 
   }
   {
-  tmp___10 = __builtin_expect(stackptr > 15U, 0L);
+  tmp___10 = ldv__builtin_expect(stackptr > 15U, 0L);
   }
   if (tmp___10 != 0L) {
     {
@@ -7420,7 +7419,7 @@ unsigned int nft_do_chain(struct nft_pktinfo *pkt , struct nf_hook_ops  const  *
   goto do_chain;
   case_4294967292: /* CIL Label */ 
   {
-  tmp___11 = __builtin_expect((long )*((unsigned char *)pkt->skb + 145UL) & 1L, 0L);
+  tmp___11 = ldv__builtin_expect((long )*((unsigned char *)pkt->skb + 145UL) & 1L, 0L);
   }
   if (tmp___11 != 0L) {
     {
@@ -7433,7 +7432,7 @@ unsigned int nft_do_chain(struct nft_pktinfo *pkt , struct nf_hook_ops  const  *
   goto do_chain;
   case_4294967291: /* CIL Label */ 
   {
-  tmp___12 = __builtin_expect((long )*((unsigned char *)pkt->skb + 145UL) & 1L, 0L);
+  tmp___12 = ldv__builtin_expect((long )*((unsigned char *)pkt->skb + 145UL) & 1L, 0L);
   }
   if (tmp___12 != 0L) {
     {
@@ -7445,11 +7444,11 @@ unsigned int nft_do_chain(struct nft_pktinfo *pkt , struct nf_hook_ops  const  *
   goto ldv_47087;
   case_4294967295___0: /* CIL Label */ 
   {
-  tmp___13 = __builtin_expect((long )*((unsigned char *)pkt->skb + 145UL) & 1L, 0L);
+  tmp___13 = ldv__builtin_expect((long )*((unsigned char *)pkt->skb + 145UL) & 1L, 0L);
   }
   if (tmp___13 != 0L) {
     {
-    tmp___14 = __builtin_expect(((int )chain->flags & 1) == 0, 0L);
+    tmp___14 = ldv__builtin_expect(((int )chain->flags & 1) == 0, 0L);
     }
     if (tmp___14 != 0L) {
       {
@@ -7466,7 +7465,7 @@ unsigned int nft_do_chain(struct nft_pktinfo *pkt , struct nf_hook_ops  const  *
   switch_default: /* CIL Label */ 
   {
   __ret_warn_on = 1;
-  tmp___15 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___15 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp___15 != 0L) {
     {
@@ -7476,7 +7475,7 @@ unsigned int nft_do_chain(struct nft_pktinfo *pkt , struct nf_hook_ops  const  *
 
   }
   {
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   switch_break___1: /* CIL Label */ ;
   }
@@ -7491,7 +7490,7 @@ unsigned int nft_do_chain(struct nft_pktinfo *pkt , struct nf_hook_ops  const  *
 
   }
   {
-  tmp___16 = __builtin_expect((long )*((unsigned char *)pkt->skb + 145UL) & 1L, 0L);
+  tmp___16 = ldv__builtin_expect((long )*((unsigned char *)pkt->skb + 145UL) & 1L, 0L);
   }
   if (tmp___16 != 0L) {
     {
@@ -7660,8 +7659,6 @@ __inline static void rcu_read_unlock_bh(void)
   return;
 }
 }
-int __builtin_bswap32(int  ) ;
-long __builtin_bswap64(long  ) ;
 void ldv_stop(void) ;
 void ldv_linux_arch_io_check_final_state(void) ;
 void ldv_linux_block_genhd_check_final_state(void) ;
@@ -7803,12 +7800,12 @@ __inline static unsigned int cpumask_check(unsigned int cpu )
   {
   {
   __ret_warn_once = cpu >= (unsigned int )nr_cpu_ids;
-  tmp___1 = __builtin_expect(__ret_warn_once != 0, 0L);
+  tmp___1 = ldv__builtin_expect(__ret_warn_once != 0, 0L);
   }
   if (tmp___1 != 0L) {
     {
     __ret_warn_on = ! __warned;
-    tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
     if (tmp != 0L) {
       {
@@ -7818,7 +7815,7 @@ __inline static unsigned int cpumask_check(unsigned int cpu )
 
     }
     {
-    tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
     if (tmp___0 != 0L) {
       __warned = 1;
@@ -7829,7 +7826,7 @@ __inline static unsigned int cpumask_check(unsigned int cpu )
 
   }
   {
-  __builtin_expect(__ret_warn_once != 0, 0L);
+  ldv__builtin_expect(__ret_warn_once != 0, 0L);
   }
   return (cpu);
 }
@@ -7861,7 +7858,7 @@ __inline static bool IS_ERR(void const   *ptr )
 
   {
   {
-  tmp = __builtin_expect((unsigned long )ptr > 0xfffffffffffff000UL, 0L);
+  tmp = ldv__builtin_expect((unsigned long )ptr > 0xfffffffffffff000UL, 0L);
   }
   return (tmp != 0L);
 }
@@ -8248,7 +8245,7 @@ __inline static struct nlmsghdr *nlmsg_put(struct sk_buff *skb , u32 portid , u3
   {
   tmp = skb_tailroom((struct sk_buff  const  *)skb);
   tmp___0 = nlmsg_total_size(payload);
-  tmp___1 = __builtin_expect(tmp < tmp___0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp < tmp___0, 0L);
   }
   if (tmp___1 != 0L) {
     return ((struct nlmsghdr *)0);
@@ -8295,7 +8292,7 @@ __inline static void nlmsg_trim(struct sk_buff *skb , void const   *mark )
   if ((unsigned long )mark != (unsigned long )((void const   *)0)) {
     {
     __ret_warn_on = (unsigned long )((unsigned char *)mark) < (unsigned long )skb->data;
-    tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
     if (tmp != 0L) {
       {
@@ -8305,7 +8302,7 @@ __inline static void nlmsg_trim(struct sk_buff *skb , void const   *mark )
 
     }
     {
-    __builtin_expect(__ret_warn_on != 0, 0L);
+    ldv__builtin_expect(__ret_warn_on != 0, 0L);
     skb_trim(skb, (unsigned int )((long )mark) - (unsigned int )((long )skb->data));
     }
   } else {
@@ -10181,7 +10178,7 @@ static void nf_tables_table_destroy(struct nft_ctx *ctx )
 
   {
   {
-  tmp = __builtin_expect((ctx->table)->use != 0U, 0L);
+  tmp = ldv__builtin_expect((ctx->table)->use != 0U, 0L);
   }
   if (tmp != 0L) {
     {
@@ -11148,7 +11145,7 @@ static void nf_tables_chain_destroy(struct nft_chain *chain )
 
   {
   {
-  tmp = __builtin_expect(chain->use != 0U, 0L);
+  tmp = ldv__builtin_expect(chain->use != 0U, 0L);
   }
   if (tmp != 0L) {
     {
@@ -17352,7 +17349,7 @@ void nft_data_uninit(struct nft_data  const  *data , enum nft_data_types type )
   switch_default: /* CIL Label */ 
   {
   __ret_warn_on = 1;
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp != 0L) {
     {
@@ -17362,7 +17359,7 @@ void nft_data_uninit(struct nft_data  const  *data , enum nft_data_types type )
 
   }
   {
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   switch_break: /* CIL Label */ ;
   }
@@ -17419,7 +17416,7 @@ int nft_data_dump(struct sk_buff *skb , int attr , struct nft_data  const  *data
   {
   err = -22;
   __ret_warn_on = 1;
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp != 0L) {
     {
@@ -17429,7 +17426,7 @@ int nft_data_dump(struct sk_buff *skb , int attr , struct nft_data  const  *data
 
   }
   {
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   switch_break: /* CIL Label */ ;
   }
@@ -18332,7 +18329,7 @@ void ldv_dummy_resourceless_instance_callback_9_8(int (*arg0)(struct sock * , st
 void ldv_dummy_resourceless_instance_callback_9_9(int (*arg0)(struct sk_buff * ) ,
                                                   struct sk_buff *arg1 ) ;
 void ldv_entry_EMGentry_22(void *arg0 ) ;
-void main(void) ;
+int main(void) ;
 void ldv_struct_nfnl_callback_dummy_resourceless_instance_0(void *arg0 ) ;
 void ldv_struct_nfnl_callback_dummy_resourceless_instance_1(void *arg0 ) ;
 void ldv_struct_nfnl_callback_dummy_resourceless_instance_10(void *arg0 ) ;
@@ -19735,7 +19732,7 @@ void ldv_entry_EMGentry_22(void *arg0 )
   return;
 }
 }
-void main(void) 
+int main(void) 
 { 
 
 
@@ -19744,7 +19741,7 @@ void main(void)
   ldv_ldv_initialize_147();
   ldv_entry_EMGentry_22((void *)0);
   }
-  return;
+return 0;
 }
 }
 void ldv_struct_nfnl_callback_dummy_resourceless_instance_0(void *arg0 ) 
@@ -25410,7 +25407,7 @@ static int nft_cmp_init(struct nft_ctx  const  *ctx , struct nft_expr  const  *e
   tmp___3 = __fswab32(tmp___2);
   priv->op = (unsigned char )tmp___3;
   err = nft_data_init((struct nft_ctx  const  *)0, & priv->data, & desc, *(tb + 3UL));
-  tmp___4 = __builtin_expect(err < 0, 0L);
+  tmp___4 = ldv__builtin_expect(err < 0, 0L);
   }
   if (tmp___4 != 0L) {
     {
@@ -25494,7 +25491,7 @@ static int nft_cmp_fast_init(struct nft_ctx  const  *ctx , struct nft_expr  cons
   tmp___1 = __fswab32(tmp___0);
   priv->sreg = (unsigned char )tmp___1;
   err = nft_data_init((struct nft_ctx  const  *)0, & data, & desc, *(tb + 3UL));
-  tmp___2 = __builtin_expect(err < 0, 0L);
+  tmp___2 = ldv__builtin_expect(err < 0, 0L);
   }
   if (tmp___2 != 0L) {
     {
@@ -30142,7 +30139,7 @@ void ldv_linux_usb_urb_check_final_state(void)
 }
 }
 extern void ldv_assert(char const   * , int  ) ;
-void __builtin_trap(void) ;
+void ldv__builtin_trap(void) ;
 void ldv_assume(int expression ) 
 { 
 
@@ -30166,7 +30163,7 @@ void ldv_stop(void)
   goto ldv_stop_label;
 }
 }
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 
@@ -30174,7 +30171,7 @@ long __builtin_expect(long exp , long c )
   return (exp);
 }
 }
-void __builtin_trap(void) 
+void ldv__builtin_trap(void) 
 { 
 
 

@@ -4413,7 +4413,7 @@ struct ldv_thread {
    void (*function)(void * ) ;
 };
 typedef _Bool ldv_set;
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 void ldv_assume(int expression ) ;
 void ldv_stop(void) ;
 void ldv_linux_alloc_irq_check_alloc_flags(gfp_t flags ) ;
@@ -4589,7 +4589,6 @@ extern char *kasprintf(gfp_t  , char const   *  , ...) ;
 extern void __bad_percpu_size(void) ;
 extern void *__memcpy(void * , void const   * , size_t  ) ;
 extern void *__memset(void * , int  , size_t  ) ;
-extern int ( /* missing proto */  __builtin_unreachable)() ;
 __inline static unsigned long arch_local_save_flags(void) 
 { 
   unsigned long __ret ;
@@ -4607,7 +4606,7 @@ __inline static unsigned long arch_local_save_flags(void)
   __edx = __edx;
   __ecx = __ecx;
   __eax = __eax;
-  tmp = __builtin_expect((unsigned long )pv_irq_ops.save_fl.func == (unsigned long )((void *)0),
+  tmp = ldv__builtin_expect((unsigned long )pv_irq_ops.save_fl.func == (unsigned long )((void *)0),
                          0L);
   }
   if (tmp != 0L) {
@@ -4634,7 +4633,7 @@ __inline static bool IS_ERR(void const   *ptr )
 
   {
   {
-  tmp = __builtin_expect((unsigned long )ptr > 0xfffffffffffff000UL, 0L);
+  tmp = ldv__builtin_expect((unsigned long )ptr > 0xfffffffffffff000UL, 0L);
   }
   return (tmp != 0L);
 }
@@ -5578,7 +5577,7 @@ static int doc_reset_seq(struct docg3 *docg3 )
   descriptor.format = "doc_reset_seq() -> isReady=%s\n";
   descriptor.lineno = 210U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -5611,7 +5610,7 @@ static void doc_read_data_area(struct docg3 *docg3 , void *buf , int len , int f
   descriptor.format = "doc_read_data_area(buf=%p, len=%d)\n";
   descriptor.lineno = 230U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -5701,7 +5700,7 @@ static void doc_write_data_area(struct docg3 *docg3 , void const   *buf , int le
   descriptor.format = "doc_write_data_area(buf=%p, len=%d)\n";
   descriptor.lineno = 274U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -5769,7 +5768,7 @@ static void doc_set_reliable_mode(struct docg3 *docg3 )
   descriptor.format = "doc_set_reliable_mode(%s)\n";
   descriptor.lineno = 313U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -5853,7 +5852,7 @@ static void doc_set_asic_mode(struct docg3 *docg3 , u8 mode )
   descriptor.format = "doc_set_asic_mode(%02x)\n";
   descriptor.lineno = 351U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -5886,7 +5885,7 @@ static void doc_set_device_id(struct docg3 *docg3 , int id )
   descriptor.format = "doc_set_device_id(%d)\n";
   descriptor.lineno = 369U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -5921,7 +5920,7 @@ static int doc_set_extra_page_mode(struct docg3 *docg3 )
   descriptor.format = "doc_set_extra_page_mode()\n";
   descriptor.lineno = 393U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -5992,7 +5991,7 @@ static int doc_read_seek(struct docg3 *docg3 , int block0 , int block1 , int pag
   descriptor.format = "doc_seek(blocks=(%d,%d), page=%d, ofs=%d, wear=%d)\n";
   descriptor.lineno = 454U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -6061,7 +6060,7 @@ static int doc_write_seek(struct docg3 *docg3 , int block0 , int block1 , int pa
   descriptor.format = "doc_write_seek(blocks=(%d,%d), page=%d, ofs=%d)\n";
   descriptor.lineno = 503U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -6198,7 +6197,7 @@ static int doc_ecc_bch_fix_data(struct docg3 *docg3 , void *buf , u8 *hwecc )
   {
   numerrs = decode_bch((docg3->cascade)->bch, (uint8_t const   *)0U, 520U, (uint8_t const   *)0U,
                        (uint8_t const   *)(& ecc), (unsigned int const   *)0U, (unsigned int *)(& errorpos));
-  tmp___0 = __builtin_expect(numerrs == -22, 0L);
+  tmp___0 = ldv__builtin_expect(numerrs == -22, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -6251,7 +6250,7 @@ static int doc_ecc_bch_fix_data(struct docg3 *docg3 , void *buf , u8 *hwecc )
   descriptor.format = "doc_ecc_bch_fix_data: flipped %d bits\n";
   descriptor.lineno = 656U;
   descriptor.flags = 0U;
-  tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -6282,7 +6281,7 @@ static int doc_read_page_prepare(struct docg3 *docg3 , int block0 , int block1 ,
   descriptor.format = "doc_read_page_prepare(blocks=(%d,%d), page=%d, ofsInPage=%d)\n";
   descriptor.lineno = 693U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -6529,7 +6528,7 @@ static int doc_read_oob(struct mtd_info *mtd , loff_t from , struct mtd_oob_ops 
   descriptor.format = "doc_read_oob(from=%lld, mode=%d, data=(%p:%zu), oob=(%p:%zu))\n";
   descriptor.lineno = 881U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -6622,7 +6621,7 @@ static int doc_read_oob(struct mtd_info *mtd , loff_t from , struct mtd_oob_ops 
     descriptor___0.format = "OOB - INFO: %*phC\n";
     descriptor___0.lineno = 923U;
     descriptor___0.flags = 0U;
-    tmp___1 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___1 != 0L) {
       {
@@ -6639,7 +6638,7 @@ static int doc_read_oob(struct mtd_info *mtd , loff_t from , struct mtd_oob_ops 
     descriptor___1.format = "OOB - HAMMING: %02x\n";
     descriptor___1.lineno = 924U;
     descriptor___1.flags = 0U;
-    tmp___2 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___2 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
     }
     if (tmp___2 != 0L) {
       {
@@ -6656,7 +6655,7 @@ static int doc_read_oob(struct mtd_info *mtd , loff_t from , struct mtd_oob_ops 
     descriptor___2.format = "OOB - BCH_ECC: %*phC\n";
     descriptor___2.lineno = 925U;
     descriptor___2.flags = 0U;
-    tmp___3 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+    tmp___3 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
     }
     if (tmp___3 != 0L) {
       {
@@ -6673,7 +6672,7 @@ static int doc_read_oob(struct mtd_info *mtd , loff_t from , struct mtd_oob_ops 
     descriptor___3.format = "OOB - UNUSED: %02x\n";
     descriptor___3.lineno = 926U;
     descriptor___3.flags = 0U;
-    tmp___4 = __builtin_expect((long )descriptor___3.flags & 1L, 0L);
+    tmp___4 = ldv__builtin_expect((long )descriptor___3.flags & 1L, 0L);
     }
     if (tmp___4 != 0L) {
       {
@@ -6693,7 +6692,7 @@ static int doc_read_oob(struct mtd_info *mtd , loff_t from , struct mtd_oob_ops 
   descriptor___4.format = "ECC checks: ECCConf1=%x\n";
   descriptor___4.lineno = 928U;
   descriptor___4.flags = 0U;
-  tmp___5 = __builtin_expect((long )descriptor___4.flags & 1L, 0L);
+  tmp___5 = ldv__builtin_expect((long )descriptor___4.flags & 1L, 0L);
   }
   if (tmp___5 != 0L) {
     {
@@ -6710,7 +6709,7 @@ static int doc_read_oob(struct mtd_info *mtd , loff_t from , struct mtd_oob_ops 
   descriptor___5.format = "ECC HW_ECC: %*phC\n";
   descriptor___5.lineno = 929U;
   descriptor___5.flags = 0U;
-  tmp___6 = __builtin_expect((long )descriptor___5.flags & 1L, 0L);
+  tmp___6 = ldv__builtin_expect((long )descriptor___5.flags & 1L, 0L);
   }
   if (tmp___6 != 0L) {
     {
@@ -6870,7 +6869,7 @@ static int doc_block_isbad(struct mtd_info *mtd , loff_t from )
   descriptor.format = "doc_block_isbad(from=%lld) => block=(%d,%d), page=%d, ofs=%d\n";
   descriptor.lineno = 1038U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -6950,7 +6949,7 @@ static int doc_write_erase_wait_status(struct docg3 *docg3 )
     descriptor.format = "Timeout reached and the chip is still not ready\n";
     descriptor.lineno = 1131U;
     descriptor.flags = 0U;
-    tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -6975,7 +6974,7 @@ static int doc_write_erase_wait_status(struct docg3 *docg3 )
     descriptor___0.format = "Erase/Write failed on (a) plane(s), status = %x\n";
     descriptor___0.lineno = 1139U;
     descriptor___0.flags = 0U;
-    tmp___2 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___2 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___2 != 0L) {
       {
@@ -7013,7 +7012,7 @@ static int doc_erase_block(struct docg3 *docg3 , int block0 , int block1 )
   descriptor.format = "doc_erase_block(blocks=(%d,%d))\n";
   descriptor.lineno = 1163U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -7082,7 +7081,7 @@ static int doc_erase(struct mtd_info *mtd , struct erase_info *info )
   descriptor.format = "doc_erase(from=%lld, len=%lld\n";
   descriptor.lineno = 1207U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -7164,7 +7163,7 @@ static int doc_write_page(struct docg3 *docg3 , loff_t to , u_char const   *buf 
   descriptor.format = "doc_write_page(to=%lld)\n";
   descriptor.lineno = 1266U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -7364,7 +7363,7 @@ static int doc_write_oob(struct mtd_info *mtd , loff_t ofs , struct mtd_oob_ops 
   descriptor.format = "doc_write_oob(from=%lld, mode=%d, data=(%p:%zu), oob=(%p:%zu))\n";
   descriptor.lineno = 1434U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -7513,7 +7512,7 @@ static int doc_write(struct mtd_info *mtd , loff_t to , size_t len , size_t *ret
   descriptor.format = "doc_write(to=%lld, len=%zu)\n";
   descriptor.lineno = 1514U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -8388,7 +8387,7 @@ static int docg3_resume(struct platform_device *pdev )
   descriptor.format = "docg3_resume()\n";
   descriptor.lineno = 1963U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -8482,7 +8481,7 @@ static int docg3_suspend(struct platform_device *pdev , pm_message_t state )
     descriptor.format = "docg3_suspend(): floor %d powerdown ok\n";
     descriptor.lineno = 2007U;
     descriptor.flags = 0U;
-    tmp___2 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___2 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp___2 != 0L) {
       {
@@ -8767,7 +8766,7 @@ void ldv_dummy_resourceless_instance_callback_9_9(enum print_line_t (*arg0)(stru
                                                   struct trace_iterator *arg1 , int arg2 ,
                                                   struct trace_event *arg3 ) ;
 void ldv_entry_EMGentry_11(void *arg0 ) ;
-void main(void) ;
+int main(void) ;
 void ldv_file_operations_file_operations_instance_0(void *arg0 ) ;
 void ldv_file_operations_file_operations_instance_1(void *arg0 ) ;
 void ldv_file_operations_file_operations_instance_2(void *arg0 ) ;
@@ -9223,7 +9222,7 @@ void ldv_entry_EMGentry_11(void *arg0 )
   return;
 }
 }
-void main(void) 
+int main(void) 
 { 
 
 
@@ -9232,7 +9231,7 @@ void main(void)
   ldv_ldv_initialize_122();
   ldv_entry_EMGentry_11((void *)0);
   }
-  return;
+return 0;
 }
 }
 void ldv_file_operations_file_operations_instance_0(void *arg0 ) 
@@ -13578,7 +13577,7 @@ void ldv_linux_usb_urb_check_final_state(void)
 }
 }
 extern void ldv_assert(char const   * , int  ) ;
-void __builtin_trap(void) ;
+void ldv__builtin_trap(void) ;
 void ldv_assume(int expression ) 
 { 
 
@@ -13602,7 +13601,7 @@ void ldv_stop(void)
   goto ldv_stop_label;
 }
 }
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 
@@ -13610,7 +13609,7 @@ long __builtin_expect(long exp , long c )
   return (exp);
 }
 }
-void __builtin_trap(void) 
+void ldv__builtin_trap(void) 
 { 
 
 

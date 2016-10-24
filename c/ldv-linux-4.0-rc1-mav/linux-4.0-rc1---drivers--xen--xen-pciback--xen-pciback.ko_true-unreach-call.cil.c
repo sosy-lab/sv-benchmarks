@@ -4377,7 +4377,7 @@ struct ldv_thread {
    void (*function)(void * ) ;
 };
 typedef _Bool ldv_set;
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 void ldv_assume(int expression ) ;
 void ldv_stop(void) ;
 void ldv_linux_alloc_irq_check_alloc_flags(gfp_t flags ) ;
@@ -4601,7 +4601,6 @@ __inline static int list_empty(struct list_head  const  *head )
 }
 extern size_t strlen(char const   * ) ;
 extern void warn_slowpath_null(char const   * , int const    ) ;
-extern int ( /* missing proto */  __builtin_unreachable)() ;
 __inline static void atomic_set(atomic_t *v , int i ) 
 { 
 
@@ -4711,12 +4710,12 @@ __inline static void kref_get(struct kref *kref )
   {
   tmp = atomic_add_return(1, & kref->refcount);
   __ret_warn_once = tmp <= 1;
-  tmp___2 = __builtin_expect(__ret_warn_once != 0, 0L);
+  tmp___2 = ldv__builtin_expect(__ret_warn_once != 0, 0L);
   }
   if (tmp___2 != 0L) {
     {
     __ret_warn_on = ! __warned;
-    tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -4726,7 +4725,7 @@ __inline static void kref_get(struct kref *kref )
 
     }
     {
-    tmp___1 = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp___1 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
     if (tmp___1 != 0L) {
       __warned = 1;
@@ -4737,7 +4736,7 @@ __inline static void kref_get(struct kref *kref )
 
   }
   {
-  __builtin_expect(__ret_warn_once != 0, 0L);
+  ldv__builtin_expect(__ret_warn_once != 0, 0L);
   }
   return;
 }
@@ -4751,7 +4750,7 @@ __inline static int kref_sub(struct kref *kref , unsigned int count , void (*rel
   {
   {
   __ret_warn_on = (unsigned long )release == (unsigned long )((void (*)(struct kref * ))0);
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp != 0L) {
     {
@@ -4761,7 +4760,7 @@ __inline static int kref_sub(struct kref *kref , unsigned int count , void (*rel
 
   }
   {
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
   tmp___0 = atomic_sub_and_test((int )count, & kref->refcount);
   }
   if (tmp___0 != 0) {
@@ -4859,7 +4858,7 @@ __inline static void device_lock_assert(struct device *dev )
   }
   {
   __ret_warn_on = tmp___0;
-  tmp___1 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___1 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -4869,7 +4868,7 @@ __inline static void device_lock_assert(struct device *dev )
 
   }
   {
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   return;
 }
@@ -4994,7 +4993,7 @@ __inline static int HYPERVISOR_physdev_op(int cmd , void *arg )
   __asm__  volatile   ("call hypercall_page+%c3": "=r" (__res), "+r" (__arg1), "+r" (__arg2): [offset] "i" (1056UL): "memory",
                        "r8", "r10", "rdx");
   rc = (int )__res;
-  tmp = __builtin_expect(rc == -38, 0L);
+  tmp = ldv__builtin_expect(rc == -38, 0L);
   }
   if (tmp != 0L) {
     {
@@ -5100,7 +5099,7 @@ static struct pcistub_device *pcistub_device_alloc(struct pci_dev *dev )
   descriptor.format = "pcistub_device_alloc\n";
   descriptor.lineno = 70U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -5166,7 +5165,7 @@ static void pcistub_device_release(struct kref *kref )
   descriptor.format = "pcistub_device_release\n";
   descriptor.lineno = 99U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -5478,7 +5477,7 @@ void pcistub_put_pci_dev(struct pci_dev *dev )
   {
   ldv_spin_unlock_irqrestore_86(& pcistub_devices_lock, flags);
   __ret_warn_on = (unsigned long )found_psdev == (unsigned long )((struct pcistub_device *)0);
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp != 0L) {
     {
@@ -5488,7 +5487,7 @@ void pcistub_put_pci_dev(struct pci_dev *dev )
 
   }
   {
-  tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp___0 != 0L) {
     return;
@@ -5633,7 +5632,7 @@ static int pcistub_init_device(struct pci_dev *dev )
   descriptor.format = "initializing...\n";
   descriptor.lineno = 357U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -5665,7 +5664,7 @@ static int pcistub_init_device(struct pci_dev *dev )
   descriptor___0.format = "initializing config\n";
   descriptor___0.lineno = 378U;
   descriptor___0.flags = 0U;
-  tmp___5 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___5 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
   }
   if (tmp___5 != 0L) {
     {
@@ -5690,7 +5689,7 @@ static int pcistub_init_device(struct pci_dev *dev )
   descriptor___1.format = "enabling device\n";
   descriptor___1.lineno = 392U;
   descriptor___1.flags = 0U;
-  tmp___6 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+  tmp___6 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
   }
   if (tmp___6 != 0L) {
     {
@@ -5733,7 +5732,7 @@ static int pcistub_init_device(struct pci_dev *dev )
   descriptor___2.format = "save state of device\n";
   descriptor___2.lineno = 411U;
   descriptor___2.flags = 0U;
-  tmp___8 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+  tmp___8 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
   }
   if (tmp___8 != 0L) {
     {
@@ -5758,7 +5757,7 @@ static int pcistub_init_device(struct pci_dev *dev )
     descriptor___3.format = "resetting (FLR, D3, etc) the device\n";
     descriptor___3.lineno = 417U;
     descriptor___3.flags = 0U;
-    tmp___9 = __builtin_expect((long )descriptor___3.flags & 1L, 0L);
+    tmp___9 = ldv__builtin_expect((long )descriptor___3.flags & 1L, 0L);
     }
     if (tmp___9 != 0L) {
       {
@@ -5779,7 +5778,7 @@ static int pcistub_init_device(struct pci_dev *dev )
   descriptor___4.format = "reset device\n";
   descriptor___4.lineno = 424U;
   descriptor___4.flags = 0U;
-  tmp___10 = __builtin_expect((long )descriptor___4.flags & 1L, 0L);
+  tmp___10 = ldv__builtin_expect((long )descriptor___4.flags & 1L, 0L);
   }
   if (tmp___10 != 0L) {
     {
@@ -5905,7 +5904,7 @@ static int pcistub_seize(struct pci_dev *dev )
     descriptor.format = "deferring initialization\n";
     descriptor.lineno = 504U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -5947,7 +5946,7 @@ static int pcistub_probe(struct pci_dev *dev , struct pci_device_id  const  *id 
   descriptor.format = "probing...\n";
   descriptor.lineno = 522U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -6004,7 +6003,7 @@ static void pcistub_remove(struct pci_dev *dev )
   descriptor.format = "removing\n";
   descriptor.lineno = 552U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -6047,7 +6046,7 @@ static void pcistub_remove(struct pci_dev *dev )
     descriptor___0.format = "found device to remove %s\n";
     descriptor___0.lineno = 569U;
     descriptor___0.flags = 0U;
-    tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -6095,7 +6094,7 @@ static void kill_domain_by_device(struct pcistub_device *psdev )
 
   {
   {
-  tmp = __builtin_expect((unsigned long )psdev == (unsigned long )((struct pcistub_device *)0),
+  tmp = ldv__builtin_expect((unsigned long )psdev == (unsigned long )((struct pcistub_device *)0),
                          0L);
   }
   if (tmp != 0L) {
@@ -6195,7 +6194,7 @@ static pci_ers_result_t common_process(struct pcistub_device *psdev , pci_channe
   descriptor.format = "xen-pciback: aer_op %x dom %x bus %x devfn %x\n";
   descriptor.lineno = 667U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -6286,7 +6285,7 @@ static pci_ers_result_t common_process(struct pcistub_device *psdev , pci_channe
     descriptor___0.format = "schedule pci_conf service in xen-pciback\n";
     descriptor___0.lineno = 703U;
     descriptor___0.flags = 0U;
-    tmp___4 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___4 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___4 != 0L) {
       {
@@ -6326,7 +6325,7 @@ static pci_ers_result_t xen_pcibk_slot_reset(struct pci_dev *dev )
   descriptor.format = "xen_pcibk_slot_reset(bus:%x,devfn:%x)\n";
   descriptor.lineno = 725U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -6381,7 +6380,7 @@ static pci_ers_result_t xen_pcibk_slot_reset(struct pci_dev *dev )
     descriptor___0.format = "No AER slot_reset service or disconnected!\n";
     descriptor___0.lineno = 757U;
     descriptor___0.flags = 0U;
-    tmp___2 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___2 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___2 != 0L) {
       {
@@ -6430,7 +6429,7 @@ static pci_ers_result_t xen_pcibk_mmio_enabled(struct pci_dev *dev )
   descriptor.format = "xen_pcibk_mmio_enabled(bus:%x,devfn:%x)\n";
   descriptor.lineno = 783U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -6485,7 +6484,7 @@ static pci_ers_result_t xen_pcibk_mmio_enabled(struct pci_dev *dev )
     descriptor___0.format = "No AER mmio_enabled service or disconnected!\n";
     descriptor___0.lineno = 815U;
     descriptor___0.flags = 0U;
-    tmp___2 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___2 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___2 != 0L) {
       {
@@ -6536,7 +6535,7 @@ static pci_ers_result_t xen_pcibk_error_detected(struct pci_dev *dev , pci_chann
   descriptor.format = "xen_pcibk_error_detected(bus:%x,devfn:%x)\n";
   descriptor.lineno = 841U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -6580,7 +6579,7 @@ static pci_ers_result_t xen_pcibk_error_detected(struct pci_dev *dev , pci_chann
     descriptor___0.format = "guest may have no aer driver, kill it\n";
     descriptor___0.lineno = 865U;
     descriptor___0.flags = 0U;
-    tmp___1 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___1 != 0L) {
       {
@@ -6607,7 +6606,7 @@ static pci_ers_result_t xen_pcibk_error_detected(struct pci_dev *dev , pci_chann
     descriptor___1.format = "No AER error_detected service or disconnected!\n";
     descriptor___1.lineno = 874U;
     descriptor___1.flags = 0U;
-    tmp___3 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___3 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
     }
     if (tmp___3 != 0L) {
       {
@@ -6652,7 +6651,7 @@ static void xen_pcibk_error_resume(struct pci_dev *dev )
   descriptor.format = "xen_pcibk_error_resume(bus:%x,devfn:%x)\n";
   descriptor.lineno = 895U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -6914,7 +6913,7 @@ static int pcistub_device_id_add(int domain , int bus , int slot , int func )
   descriptor.format = "wants to seize %04x:%02x:%02x.%d\n";
   descriptor.lineno = 1050U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -6966,7 +6965,7 @@ static int pcistub_device_id_remove(int domain , int bus , int slot , int func )
     descriptor.format = "removed %04x:%02x:%02x.%d from seize list\n";
     descriptor.lineno = 1080U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -7285,7 +7284,7 @@ static ssize_t pcistub_irq_handler_switch(struct device_driver *drv , char const
   descriptor.format = "%s fake irq handler: %d->%d\n";
   descriptor.lineno = 1247U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -8100,7 +8099,7 @@ void ldv_dummy_resourceless_instance_callback_9_9(long (*arg0)(struct device_dri
                                                   struct device_driver *arg1 , char *arg2 ,
                                                   unsigned long arg3 ) ;
 void ldv_entry_EMGentry_34(void *arg0 ) ;
-void main(void) ;
+int main(void) ;
 void ldv_pci_instance_callback_3_10(unsigned int (*arg0)(struct pci_dev * , enum pci_channel_state  ) ,
                                     struct pci_dev *arg1 , enum pci_channel_state arg2 ) ;
 void ldv_pci_instance_callback_3_23(void (*arg0)(struct pci_dev * ) , struct pci_dev *arg1 ) ;
@@ -8718,7 +8717,7 @@ void ldv_entry_EMGentry_34(void *arg0 )
   return;
 }
 }
-void main(void) 
+int main(void) 
 { 
 
 
@@ -8727,7 +8726,7 @@ void main(void)
   ldv_ldv_initialize_132();
   ldv_entry_EMGentry_34((void *)0);
   }
-  return;
+return 0;
 }
 }
 void ldv_pci_instance_callback_3_10(unsigned int (*arg0)(struct pci_dev * , enum pci_channel_state  ) ,
@@ -10871,7 +10870,7 @@ static void xen_pcibk_control_isr(struct pci_dev *dev , int reset )
   descriptor.format = "%s: #%d %s %s%s %s-> %s\n";
   descriptor.lineno = 70U;
   descriptor.flags = 0U;
-  tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -10916,7 +10915,7 @@ static void xen_pcibk_control_isr(struct pci_dev *dev , int reset )
   descriptor___0.format = "%s: #%d %s %s%s %s\n";
   descriptor___0.lineno = 96U;
   descriptor___0.flags = 0U;
-  tmp___3 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___3 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
   }
   if (tmp___3 != 0L) {
     {
@@ -11005,7 +11004,7 @@ static int xen_pcibk_enable_msi(struct xen_pcibk_device *pdev , struct pci_dev *
 
   {
   {
-  tmp___0 = __builtin_expect(verbose_request != 0, 0L);
+  tmp___0 = ldv__builtin_expect(verbose_request != 0, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -11060,7 +11059,7 @@ static int xen_pcibk_enable_msi(struct xen_pcibk_device *pdev , struct pci_dev *
     op->value = 0U;
   }
   {
-  tmp___5 = __builtin_expect(verbose_request != 0, 0L);
+  tmp___5 = ldv__builtin_expect(verbose_request != 0, 0L);
   }
   if (tmp___5 != 0L) {
     {
@@ -11095,7 +11094,7 @@ static int xen_pcibk_disable_msi(struct xen_pcibk_device *pdev , struct pci_dev 
 
   {
   {
-  tmp___0 = __builtin_expect(verbose_request != 0, 0L);
+  tmp___0 = ldv__builtin_expect(verbose_request != 0, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -11117,7 +11116,7 @@ static int xen_pcibk_disable_msi(struct xen_pcibk_device *pdev , struct pci_dev 
     op->value = 0U;
   }
   {
-  tmp___3 = __builtin_expect(verbose_request != 0, 0L);
+  tmp___3 = ldv__builtin_expect(verbose_request != 0, 0L);
   }
   if (tmp___3 != 0L) {
     {
@@ -11159,7 +11158,7 @@ static int xen_pcibk_enable_msix(struct xen_pcibk_device *pdev , struct pci_dev 
 
   {
   {
-  tmp___0 = __builtin_expect(verbose_request != 0, 0L);
+  tmp___0 = ldv__builtin_expect(verbose_request != 0, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -11207,7 +11206,7 @@ static int xen_pcibk_enable_msix(struct xen_pcibk_device *pdev , struct pci_dev 
       {
       tmp___2 = xen_pirq_from_irq((entries + (unsigned long )i)->vector);
       op->msix_entries[i].vector = (uint16_t )tmp___2;
-      tmp___4 = __builtin_expect(verbose_request != 0, 0L);
+      tmp___4 = ldv__builtin_expect(verbose_request != 0, 0L);
       }
       if (tmp___4 != 0L) {
         {
@@ -11284,7 +11283,7 @@ static int xen_pcibk_disable_msix(struct xen_pcibk_device *pdev , struct pci_dev
 
   {
   {
-  tmp___0 = __builtin_expect(verbose_request != 0, 0L);
+  tmp___0 = ldv__builtin_expect(verbose_request != 0, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -11306,7 +11305,7 @@ static int xen_pcibk_disable_msix(struct xen_pcibk_device *pdev , struct pci_dev
     op->value = 0U;
   }
   {
-  tmp___3 = __builtin_expect(verbose_request != 0, 0L);
+  tmp___3 = ldv__builtin_expect(verbose_request != 0, 0L);
   }
   if (tmp___3 != 0L) {
     {
@@ -11896,7 +11895,7 @@ static struct xen_pcibk_device *alloc_pdev(struct xenbus_device *xdev )
   descriptor.format = "allocated pdev @ 0x%p\n";
   descriptor.lineno = 44U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -12007,7 +12006,7 @@ static int xen_pcibk_do_attach(struct xen_pcibk_device *pdev , int gnt_ref , int
   descriptor.format = "Attaching to frontend resources - gnt_ref=%d evtchn=%d\n";
   descriptor.lineno = 114U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -12052,7 +12051,7 @@ static int xen_pcibk_do_attach(struct xen_pcibk_device *pdev , int gnt_ref , int
   descriptor___0.format = "Attached!\n";
   descriptor___0.lineno = 136U;
   descriptor___0.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -12110,7 +12109,7 @@ static int xen_pcibk_attach(struct xen_pcibk_device *pdev )
   descriptor.format = "Reading frontend config\n";
   descriptor.lineno = 159U;
   descriptor.flags = 0U;
-  tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -12171,7 +12170,7 @@ static int xen_pcibk_attach(struct xen_pcibk_device *pdev )
   descriptor___0.format = "Connecting...\n";
   descriptor___0.lineno = 185U;
   descriptor___0.flags = 0U;
-  tmp___3 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___3 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
   }
   if (tmp___3 != 0L) {
     {
@@ -12198,7 +12197,7 @@ static int xen_pcibk_attach(struct xen_pcibk_device *pdev )
   descriptor___1.format = "Connected? %d\n";
   descriptor___1.lineno = 192U;
   descriptor___1.flags = 0U;
-  tmp___4 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+  tmp___4 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
   }
   if (tmp___4 != 0L) {
     {
@@ -12228,7 +12227,7 @@ static int xen_pcibk_publish_pci_dev(struct xen_pcibk_device *pdev , unsigned in
   {
   {
   len = snprintf((char *)(& str), 64UL, "vdev-%d", devid);
-  tmp = __builtin_expect((unsigned int )len > 62U, 0L);
+  tmp = ldv__builtin_expect((unsigned int )len > 62U, 0L);
   }
   if (tmp != 0L) {
     err = -12;
@@ -12264,7 +12263,7 @@ static int xen_pcibk_export_device(struct xen_pcibk_device *pdev , int domain , 
   descriptor.format = "exporting dom %x bus %x slot %x func %x\n";
   descriptor.lineno = 232U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -12336,7 +12335,7 @@ static int xen_pcibk_remove_device(struct xen_pcibk_device *pdev , int domain , 
   descriptor.format = "removing dom %x bus %x slot %x func %x\n";
   descriptor.lineno = 278U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -12359,7 +12358,7 @@ static int xen_pcibk_remove_device(struct xen_pcibk_device *pdev , int domain , 
     descriptor___0.format = "Couldn\'t locate PCI device (%04x:%02x:%02x.%d)! not owned by this domain\n";
     descriptor___0.lineno = 285U;
     descriptor___0.flags = 0U;
-    tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -12381,7 +12380,7 @@ static int xen_pcibk_remove_device(struct xen_pcibk_device *pdev , int domain , 
   descriptor___1.format = "unregistering for %d\n";
   descriptor___1.lineno = 289U;
   descriptor___1.flags = 0U;
-  tmp___1 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -12428,7 +12427,7 @@ static int xen_pcibk_publish_pci_root(struct xen_pcibk_device *pdev , unsigned i
   descriptor.format = "Publishing pci roots\n";
   descriptor.lineno = 307U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -12455,7 +12454,7 @@ static int xen_pcibk_publish_pci_root(struct xen_pcibk_device *pdev , unsigned i
   ldv_33859: 
   {
   len = snprintf((char *)(& str), 64UL, "root-%d", i);
-  tmp___0 = __builtin_expect((unsigned int )len > 62U, 0L);
+  tmp___0 = ldv__builtin_expect((unsigned int )len > 62U, 0L);
   }
   if (tmp___0 != 0L) {
     err = -12;
@@ -12494,7 +12493,7 @@ static int xen_pcibk_publish_pci_root(struct xen_pcibk_device *pdev , unsigned i
   }
   {
   len = snprintf((char *)(& str), 64UL, "root-%d", root_num);
-  tmp___1 = __builtin_expect((unsigned int )len > 62U, 0L);
+  tmp___1 = ldv__builtin_expect((unsigned int )len > 62U, 0L);
   }
   if (tmp___1 != 0L) {
     err = -12;
@@ -12509,7 +12508,7 @@ static int xen_pcibk_publish_pci_root(struct xen_pcibk_device *pdev , unsigned i
   descriptor___0.format = "writing root %d at %04x:%02x\n";
   descriptor___0.lineno = 346U;
   descriptor___0.flags = 0U;
-  tmp___2 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___2 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
   }
   if (tmp___2 != 0L) {
     {
@@ -12575,7 +12574,7 @@ static int xen_pcibk_reconfigure(struct xen_pcibk_device *pdev )
   descriptor.format = "Reconfiguring device ...\n";
   descriptor.lineno = 371U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -12616,7 +12615,7 @@ static int xen_pcibk_reconfigure(struct xen_pcibk_device *pdev )
   ldv_33893: 
   {
   len = snprintf((char *)(& state_str), 64UL, "state-%d", i);
-  tmp___1 = __builtin_expect((unsigned int )len > 62U, 0L);
+  tmp___1 = ldv__builtin_expect((unsigned int )len > 62U, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -12657,7 +12656,7 @@ static int xen_pcibk_reconfigure(struct xen_pcibk_device *pdev )
   descriptor___0.format = "Attaching dev-%d ...\n";
   descriptor___0.lineno = 405U;
   descriptor___0.flags = 0U;
-  tmp___2 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___2 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
   }
   if (tmp___2 != 0L) {
     {
@@ -12669,7 +12668,7 @@ static int xen_pcibk_reconfigure(struct xen_pcibk_device *pdev )
   }
   {
   len = snprintf((char *)(& dev_str), 64UL, "dev-%d", i);
-  tmp___3 = __builtin_expect((unsigned int )len > 62U, 0L);
+  tmp___3 = ldv__builtin_expect((unsigned int )len > 62U, 0L);
   }
   if (tmp___3 != 0L) {
     {
@@ -12743,7 +12742,7 @@ static int xen_pcibk_reconfigure(struct xen_pcibk_device *pdev )
   descriptor___1.format = "Detaching dev-%d ...\n";
   descriptor___1.lineno = 459U;
   descriptor___1.flags = 0U;
-  tmp___4 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+  tmp___4 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
   }
   if (tmp___4 != 0L) {
     {
@@ -12755,7 +12754,7 @@ static int xen_pcibk_reconfigure(struct xen_pcibk_device *pdev )
   }
   {
   len = snprintf((char *)(& dev_str), 64UL, "vdev-%d", i);
-  tmp___5 = __builtin_expect((unsigned int )len > 62U, 0L);
+  tmp___5 = ldv__builtin_expect((unsigned int )len > 62U, 0L);
   }
   if (tmp___5 != 0L) {
     {
@@ -12847,7 +12846,7 @@ static void xen_pcibk_frontend_changed(struct xenbus_device *xdev , enum xenbus_
   descriptor.format = "fe state changed %d\n";
   descriptor.lineno = 520U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -12929,7 +12928,7 @@ static void xen_pcibk_frontend_changed(struct xenbus_device *xdev , enum xenbus_
   descriptor___0.format = "frontend is gone! unregister device\n";
   descriptor___0.lineno = 550U;
   descriptor___0.flags = 0U;
-  tmp___2 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___2 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
   }
   if (tmp___2 != 0L) {
     {
@@ -12990,7 +12989,7 @@ static int xen_pcibk_setup_backend(struct xen_pcibk_device *pdev )
   descriptor.format = "getting be setup\n";
   descriptor.lineno = 576U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -13023,7 +13022,7 @@ static int xen_pcibk_setup_backend(struct xen_pcibk_device *pdev )
   {
   tmp___1 = snprintf((char *)(& dev_str), 64UL, "dev-%d", i);
   l = tmp___1;
-  tmp___2 = __builtin_expect((unsigned int )l > 62U, 0L);
+  tmp___2 = ldv__builtin_expect((unsigned int )l > 62U, 0L);
   }
   if (tmp___2 != 0L) {
     {
@@ -13066,7 +13065,7 @@ static int xen_pcibk_setup_backend(struct xen_pcibk_device *pdev )
   }
   {
   l = snprintf((char *)(& state_str), 64UL, "state-%d", i);
-  tmp___3 = __builtin_expect((unsigned int )l > 62U, 0L);
+  tmp___3 = ldv__builtin_expect((unsigned int )l > 62U, 0L);
   }
   if (tmp___3 != 0L) {
     {
@@ -13794,7 +13793,7 @@ __inline static bool IS_ERR(void const   *ptr )
 
   {
   {
-  tmp = __builtin_expect((unsigned long )ptr > 0xfffffffffffff000UL, 0L);
+  tmp = ldv__builtin_expect((unsigned long )ptr > 0xfffffffffffff000UL, 0L);
   }
   return (tmp != 0L);
 }
@@ -14181,7 +14180,7 @@ int xen_pcibk_config_read(struct pci_dev *dev , int offset , int size , u32 *ret
   tmp = pci_get_drvdata(dev);
   dev_data = (struct xen_pcibk_dev_data *)tmp;
   value = 0U;
-  tmp___1 = __builtin_expect(verbose_request != 0, 0L);
+  tmp___1 = ldv__builtin_expect(verbose_request != 0, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -14271,7 +14270,7 @@ int xen_pcibk_config_read(struct pci_dev *dev , int offset , int size , u32 *ret
 
   out: 
   {
-  tmp___5 = __builtin_expect(verbose_request != 0, 0L);
+  tmp___5 = ldv__builtin_expect(verbose_request != 0, 0L);
   }
   if (tmp___5 != 0L) {
     {
@@ -14316,7 +14315,7 @@ int xen_pcibk_config_write(struct pci_dev *dev , int offset , int size , u32 val
   handled = 0;
   tmp = pci_get_drvdata(dev);
   dev_data = (struct xen_pcibk_dev_data *)tmp;
-  tmp___1 = __builtin_expect(verbose_request != 0, 0L);
+  tmp___1 = ldv__builtin_expect(verbose_request != 0, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -14451,7 +14450,7 @@ void xen_pcibk_config_free_dyn_fields(struct pci_dev *dev )
   descriptor.format = "free-ing dynamically allocated virtual configuration space fields\n";
   descriptor.lineno = 303U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -14516,7 +14515,7 @@ void xen_pcibk_config_reset_dev(struct pci_dev *dev )
   descriptor.format = "resetting virtual configuration space\n";
   descriptor.lineno = 328U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -14579,7 +14578,7 @@ void xen_pcibk_config_free_dev(struct pci_dev *dev )
   descriptor.format = "free-ing virtual configuration space fields\n";
   descriptor.lineno = 346U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -14693,7 +14692,7 @@ int xen_pcibk_config_add_field_offset(struct pci_dev *dev , struct config_field 
   descriptor.format = "added config field at offset 0x%02x\n";
   descriptor.lineno = 398U;
   descriptor.flags = 0U;
-  tmp___4 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___4 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___4 != 0L) {
     {
@@ -14736,7 +14735,7 @@ int xen_pcibk_config_init_dev(struct pci_dev *dev )
   descriptor.format = "initializing virtual configuration space\n";
   descriptor.lineno = 417U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -14910,7 +14909,7 @@ static int command_write(struct pci_dev *dev , int offset , u16 value , void *da
   }
   if (tmp___5 == 0 && ((int )value & 3) != 0) {
     {
-    tmp___1 = __builtin_expect(verbose_request != 0, 0L);
+    tmp___1 = ldv__builtin_expect(verbose_request != 0, 0L);
     }
     if (tmp___1 != 0L) {
       {
@@ -14939,7 +14938,7 @@ static int command_write(struct pci_dev *dev , int offset , u16 value , void *da
     }
     if (tmp___4 != 0 && ((int )value & 3) == 0) {
       {
-      tmp___3 = __builtin_expect(verbose_request != 0, 0L);
+      tmp___3 = ldv__builtin_expect(verbose_request != 0, 0L);
       }
       if (tmp___3 != 0L) {
         {
@@ -14963,7 +14962,7 @@ static int command_write(struct pci_dev *dev , int offset , u16 value , void *da
   }
   if ((unsigned int )*((unsigned char *)dev + 2521UL) == 0U && ((int )value & 4) != 0) {
     {
-    tmp___7 = __builtin_expect(verbose_request != 0, 0L);
+    tmp___7 = ldv__builtin_expect(verbose_request != 0, 0L);
     }
     if (tmp___7 != 0L) {
       {
@@ -14981,7 +14980,7 @@ static int command_write(struct pci_dev *dev , int offset , u16 value , void *da
   }
   if (((int )value & 16) != 0) {
     {
-    tmp___9 = __builtin_expect(verbose_request != 0, 0L);
+    tmp___9 = ldv__builtin_expect(verbose_request != 0, 0L);
     }
     if (tmp___9 != 0L) {
       {
@@ -15023,7 +15022,7 @@ static int rom_write(struct pci_dev *dev , int offset , u32 value , void *data )
   {
   {
   bar = (struct pci_bar_info *)data;
-  tmp___0 = __builtin_expect((unsigned long )bar == (unsigned long )((struct pci_bar_info *)0),
+  tmp___0 = ldv__builtin_expect((unsigned long )bar == (unsigned long )((struct pci_bar_info *)0),
                              0L);
   }
   if (tmp___0 != 0L) {
@@ -15063,7 +15062,7 @@ static int bar_write(struct pci_dev *dev , int offset , u32 value , void *data )
   {
   {
   bar = (struct pci_bar_info *)data;
-  tmp___0 = __builtin_expect((unsigned long )bar == (unsigned long )((struct pci_bar_info *)0),
+  tmp___0 = ldv__builtin_expect((unsigned long )bar == (unsigned long )((struct pci_bar_info *)0),
                              0L);
   }
   if (tmp___0 != 0L) {
@@ -15102,7 +15101,7 @@ static int bar_read(struct pci_dev *dev , int offset , u32 *value , void *data )
   {
   {
   bar = (struct pci_bar_info *)data;
-  tmp___0 = __builtin_expect((unsigned long )bar == (unsigned long )((struct pci_bar_info *)0),
+  tmp___0 = ldv__builtin_expect((unsigned long )bar == (unsigned long )((struct pci_bar_info *)0),
                              0L);
   }
   if (tmp___0 != 0L) {
@@ -15698,7 +15697,7 @@ int xen_pcibk_config_capability_add_fields(struct pci_dev *dev )
     descriptor.format = "Found capability 0x%x at 0x%x\n";
     descriptor.lineno = 48U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -15820,7 +15819,7 @@ static int pm_ctrl_write(struct pci_dev *dev , int offset , u16 new_value , void
   descriptor.format = "set power state to %x\n";
   descriptor.lineno = 136U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -19611,7 +19610,7 @@ void ldv_linux_usb_urb_check_final_state(void)
 }
 }
 extern void ldv_assert(char const   * , int  ) ;
-void __builtin_trap(void) ;
+void ldv__builtin_trap(void) ;
 void ldv_assume(int expression ) 
 { 
 
@@ -19635,7 +19634,7 @@ void ldv_stop(void)
   goto ldv_stop_label;
 }
 }
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 
@@ -19643,7 +19642,7 @@ long __builtin_expect(long exp , long c )
   return (exp);
 }
 }
-void __builtin_trap(void) 
+void ldv__builtin_trap(void) 
 { 
 
 

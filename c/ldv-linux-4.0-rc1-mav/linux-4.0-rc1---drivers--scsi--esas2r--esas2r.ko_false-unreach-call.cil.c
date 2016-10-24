@@ -6518,8 +6518,8 @@ struct ldv_thread {
    void (*function)(void * ) ;
 };
 typedef _Bool ldv_set;
-void __builtin_va_end(__builtin_va_list  ) ;
-void __builtin_va_start(__builtin_va_list  ) ;
+void ldv__builtin_va_end(__builtin_va_list  ) ;
+void ldv__builtin_va_start(__builtin_va_list  ) ;
 void ldv_assume(int expression ) ;
 void ldv_linux_alloc_irq_check_alloc_flags(gfp_t flags ) ;
 void ldv_linux_alloc_irq_check_alloc_nonatomic(void) ;
@@ -6808,9 +6808,9 @@ int esas2r_log(long const   level , char const   *format  , ...)
   {
   {
   retval = 0;
-  __builtin_va_start((__va_list_tag *)(& args));
+  ldv__builtin_va_start((__va_list_tag *)(& args));
   retval = esas2r_log_master(level, (struct device  const  *)0, format, (__va_list_tag *)(& args));
-  __builtin_va_end((__va_list_tag *)(& args));
+  ldv__builtin_va_end((__va_list_tag *)(& args));
   }
   return (retval);
 }
@@ -6824,9 +6824,9 @@ int esas2r_log_dev(long const   level , struct device  const  *dev , char const 
   {
   {
   retval = 0;
-  __builtin_va_start((__va_list_tag *)(& args));
+  ldv__builtin_va_start((__va_list_tag *)(& args));
   retval = esas2r_log_master(level, dev, format, (__va_list_tag *)(& args));
-  __builtin_va_end((__va_list_tag *)(& args));
+  ldv__builtin_va_end((__va_list_tag *)(& args));
   }
   return (retval);
 }
@@ -6871,7 +6871,7 @@ __inline static void ldv_spin_unlock_irqrestore_103(spinlock_t *lock , unsigned 
   return;
 }
 }
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 __inline static void set_bit(long nr , unsigned long volatile   *addr ) 
 { 
 
@@ -7130,7 +7130,7 @@ __inline static bool esas2r_build_sg_list(struct esas2r_adapter *a , struct esas
 
   {
   {
-  tmp = __builtin_expect((rq->vrq)->scsi.length == 0U, 0L);
+  tmp = ldv__builtin_expect((rq->vrq)->scsi.length == 0U, 0L);
   }
   if (tmp != 0L) {
     return (1);
@@ -10541,7 +10541,6 @@ static void ldv___ldv_linux_kernel_locking_spinlock_spin_lock_98___0(spinlock_t 
   return;
 }
 }
-int __builtin_bswap32(int  ) ;
 void *ldv_kzalloc(size_t size , gfp_t flags ) ;
 void ldv_linux_usb_dev_atomic_inc(atomic_t *v ) ;
 void ldv_linux_usb_dev_atomic_dec(atomic_t *v ) ;
@@ -10574,7 +10573,6 @@ __inline static void list_add(struct list_head *new , struct list_head *head )
 }
 extern void list_del(struct list_head * ) ;
 extern void warn_slowpath_null(char const   * , int const    ) ;
-extern int ( /* missing proto */  __builtin_unreachable)() ;
 __inline static unsigned long arch_local_save_flags(void) 
 { 
   unsigned long __ret ;
@@ -10592,7 +10590,7 @@ __inline static unsigned long arch_local_save_flags(void)
   __edx = __edx;
   __ecx = __ecx;
   __eax = __eax;
-  tmp = __builtin_expect((unsigned long )pv_irq_ops.save_fl.func == (unsigned long )((void *)0),
+  tmp = ldv__builtin_expect((unsigned long )pv_irq_ops.save_fl.func == (unsigned long )((void *)0),
                          0L);
   }
   if (tmp != 0L) {
@@ -10771,7 +10769,7 @@ __inline static struct dma_map_ops *get_dma_ops(struct device *dev )
 
   {
   {
-  tmp = __builtin_expect((unsigned long )dev == (unsigned long )((struct device *)0),
+  tmp = ldv__builtin_expect((unsigned long )dev == (unsigned long )((struct device *)0),
                          0L);
   }
   if (tmp != 0L || (unsigned long )dev->archdata.dma_ops == (unsigned long )((struct dma_map_ops *)0)) {
@@ -10881,7 +10879,7 @@ __inline static void dma_free_attrs(struct device *dev , size_t size , void *vad
   _flags = arch_local_save_flags();
   tmp___0 = arch_irqs_disabled_flags(_flags);
   __ret_warn_on = tmp___0 != 0;
-  tmp___1 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___1 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -10891,7 +10889,7 @@ __inline static void dma_free_attrs(struct device *dev , size_t size , void *vad
 
   }
   {
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
   debug_dma_free_coherent(dev, size, vaddr, bus);
   }
   if ((unsigned long )ops->free != (unsigned long )((void (*)(struct device * , size_t  ,
@@ -14137,7 +14135,7 @@ void esas2r_adapter_interrupt(struct esas2r_adapter *a )
 
   {
   {
-  tmp = __builtin_expect((a->int_stat & 16U) != 0U, 1L);
+  tmp = ldv__builtin_expect((a->int_stat & 16U) != 0U, 1L);
   }
   if (tmp != 0L) {
     {
@@ -14149,7 +14147,7 @@ void esas2r_adapter_interrupt(struct esas2r_adapter *a )
 
   }
   {
-  tmp___0 = __builtin_expect((a->int_stat & 4096U) != 0U, 0L);
+  tmp___0 = ldv__builtin_expect((a->int_stat & 4096U) != 0U, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -14169,7 +14167,7 @@ void esas2r_adapter_interrupt(struct esas2r_adapter *a )
   a->int_mask = 4112U;
   esas2r_enable_chip_interrupts___1(a);
   tmp___1 = atomic_read((atomic_t const   *)(& a->disable_cnt));
-  tmp___2 = __builtin_expect(tmp___1 == 0, 1L);
+  tmp___2 = ldv__builtin_expect(tmp___1 == 0, 1L);
   }
   if (tmp___2 != 0L) {
     {
@@ -14195,7 +14193,7 @@ irqreturn_t esas2r_msi_interrupt(int irq , void *dev_id )
   {
   a = (struct esas2r_adapter *)dev_id;
   intstat = readl((void const volatile   *)a->regs + 66048U);
-  tmp = __builtin_expect((intstat & 16U) != 0U, 1L);
+  tmp = ldv__builtin_expect((intstat & 16U) != 0U, 1L);
   }
   if (tmp != 0L) {
     {
@@ -14207,7 +14205,7 @@ irqreturn_t esas2r_msi_interrupt(int irq , void *dev_id )
 
   }
   {
-  tmp___0 = __builtin_expect((intstat & 4096U) != 0U, 0L);
+  tmp___0 = ldv__builtin_expect((intstat & 4096U) != 0U, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -14227,7 +14225,7 @@ irqreturn_t esas2r_msi_interrupt(int irq , void *dev_id )
   esas2r_disable_chip_interrupts___1(a);
   esas2r_enable_chip_interrupts___1(a);
   tmp___1 = atomic_read((atomic_t const   *)(& a->disable_cnt));
-  tmp___2 = __builtin_expect(tmp___1 == 0, 1L);
+  tmp___2 = ldv__builtin_expect(tmp___1 == 0, 1L);
   }
   if (tmp___2 != 0L) {
     {
@@ -14250,7 +14248,7 @@ static void esas2r_handle_outbound_rsp_err(struct esas2r_adapter *a , struct esa
 
   {
   {
-  tmp = __builtin_expect((unsigned int )rq->req_stat != 0U, 0L);
+  tmp = ldv__builtin_expect((unsigned int )rq->req_stat != 0U, 0L);
   }
   if (tmp != 0L) {
     {
@@ -14304,7 +14302,7 @@ static void esas2r_get_outbound_responses(struct esas2r_adapter *a )
   ldv___ldv_linux_kernel_locking_spinlock_spin_lock_102___1(& a->queue_lock);
   rspput_ptr = (unsigned int )*(a->outbound_copy) & 16383U;
   rspget_ptr = a->last_read;
-  tmp = __builtin_expect(rspget_ptr == rspput_ptr, 0L);
+  tmp = ldv__builtin_expect(rspget_ptr == rspput_ptr, 0L);
   }
   if (tmp != 0L) {
     {
@@ -14315,7 +14313,7 @@ static void esas2r_get_outbound_responses(struct esas2r_adapter *a )
 
   }
   {
-  tmp___0 = __builtin_expect(rspput_ptr >= a->list_size, 0L);
+  tmp___0 = ldv__builtin_expect(rspput_ptr >= a->list_size, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -14336,13 +14334,13 @@ static void esas2r_get_outbound_responses(struct esas2r_adapter *a )
   {
   rsp = (struct atto_vda_ob_rsp *)a->outbound_list_md.virt_addr + (unsigned long )rspget_ptr;
   handle = rsp->handle;
-  tmp___1 = __builtin_expect((unsigned int )((unsigned short )handle) == 0U, 0L);
+  tmp___1 = ldv__builtin_expect((unsigned int )((unsigned short )handle) == 0U, 0L);
   }
   if (tmp___1 != 0L) {
     goto ldv_39954;
   } else {
     {
-    tmp___2 = __builtin_expect((int )((unsigned short )handle) > (num_requests + num_ae_requests) + 1,
+    tmp___2 = ldv__builtin_expect((int )((unsigned short )handle) > (num_requests + num_ae_requests) + 1,
                                0L);
     }
     if (tmp___2 != 0L) {
@@ -14353,14 +14351,14 @@ static void esas2r_get_outbound_responses(struct esas2r_adapter *a )
   }
   {
   rq = *(a->req_table + (unsigned long )((unsigned short )handle));
-  tmp___3 = __builtin_expect((unsigned long )rq == (unsigned long )((struct esas2r_request *)0),
+  tmp___3 = ldv__builtin_expect((unsigned long )rq == (unsigned long )((struct esas2r_request *)0),
                              0L);
   }
   if (tmp___3 != 0L) {
     goto ldv_39954;
   } else {
     {
-    tmp___4 = __builtin_expect((rq->vrq)->scsi.handle != handle, 0L);
+    tmp___4 = ldv__builtin_expect((rq->vrq)->scsi.handle != handle, 0L);
     }
     if (tmp___4 != 0L) {
       goto ldv_39954;
@@ -14371,7 +14369,7 @@ static void esas2r_get_outbound_responses(struct esas2r_adapter *a )
   {
   list_del(& rq->req_list);
   rq->req_stat = rsp->req_stat;
-  tmp___5 = __builtin_expect((unsigned int )(rq->vrq)->scsi.function == 0U, 1L);
+  tmp___5 = ldv__builtin_expect((unsigned int )(rq->vrq)->scsi.function == 0U, 1L);
   }
   if (tmp___5 != 0L) {
     {
@@ -15263,11 +15261,11 @@ void esas2r_complete_request(struct esas2r_adapter *a , struct esas2r_request *r
 
   }
   {
-  tmp = __builtin_expect((unsigned int )(rq->vrq)->scsi.function == 0U, 1L);
+  tmp = ldv__builtin_expect((unsigned int )(rq->vrq)->scsi.function == 0U, 1L);
   }
   if (tmp != 0L) {
     {
-    tmp___0 = __builtin_expect((unsigned int )rq->req_stat != 0U, 0L);
+    tmp___0 = ldv__builtin_expect((unsigned int )rq->req_stat != 0U, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -15381,7 +15379,7 @@ __inline static struct esas2r_mem_desc *esas2r_alloc_sgl(struct esas2r_adapter *
   result = (struct esas2r_mem_desc *)0;
   ldv___ldv_linux_kernel_locking_spinlock_spin_lock_96(& a->sg_list_lock);
   tmp = list_empty((struct list_head  const  *)(& a->free_sg_list_head));
-  tmp___0 = __builtin_expect(tmp == 0, 1L);
+  tmp___0 = ldv__builtin_expect(tmp == 0, 1L);
   }
   if (tmp___0 != 0L) {
     {
@@ -15461,14 +15459,14 @@ void esas2r_start_request(struct esas2r_adapter *a , struct esas2r_request *rq )
   t = (struct esas2r_target *)0;
   startrq = rq;
   tmp___5 = constant_test_bit(13L, (unsigned long const volatile   *)(& a->flags));
-  tmp___6 = __builtin_expect(tmp___5 != 0, 0L);
+  tmp___6 = ldv__builtin_expect(tmp___5 != 0, 0L);
   }
   if (tmp___6 != 0L) {
     goto _L;
   } else {
     {
     tmp___7 = constant_test_bit(21L, (unsigned long const volatile   *)(& a->flags));
-    tmp___8 = __builtin_expect(tmp___7 != 0, 0L);
+    tmp___8 = ldv__builtin_expect(tmp___7 != 0, 0L);
     }
     if (tmp___8 != 0L) {
       _L: /* CIL Label */ 
@@ -15479,31 +15477,31 @@ void esas2r_start_request(struct esas2r_adapter *a , struct esas2r_request *rq )
       }
     } else {
       {
-      tmp___4 = __builtin_expect((unsigned int )(rq->vrq)->scsi.function == 0U, 1L);
+      tmp___4 = ldv__builtin_expect((unsigned int )(rq->vrq)->scsi.function == 0U, 1L);
       }
       if (tmp___4 != 0L) {
         {
         t = (struct esas2r_target *)(& a->targetdb) + (unsigned long )rq->target_id;
-        tmp___2 = __builtin_expect((unsigned long )t >= (unsigned long )a->targetdb_end,
+        tmp___2 = ldv__builtin_expect((unsigned long )t >= (unsigned long )a->targetdb_end,
                                    0L);
         }
         if (tmp___2 != 0L) {
           rq->req_stat = 3U;
         } else {
           {
-          tmp___3 = __builtin_expect(((int )t->flags & 2) == 0, 0L);
+          tmp___3 = ldv__builtin_expect(((int )t->flags & 2) == 0, 0L);
           }
           if (tmp___3 != 0L) {
             rq->req_stat = 3U;
           } else {
             {
             (rq->vrq)->scsi.__annonCompField88.__annonCompField87.target_id = t->virt_targ_id;
-            tmp = __builtin_expect((unsigned int )t->target_state != 5U, 0L);
+            tmp = ldv__builtin_expect((unsigned int )t->target_state != 5U, 0L);
             }
             if (tmp != 0L) {
               {
               tmp___0 = constant_test_bit(14L, (unsigned long const volatile   *)(& a->flags));
-              tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+              tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
               }
               if (tmp___1 != 0L) {
                 rq->req_stat = 3U;
@@ -15521,7 +15519,7 @@ void esas2r_start_request(struct esas2r_adapter *a , struct esas2r_request *rq )
     }
   }
   {
-  tmp___9 = __builtin_expect((unsigned int )rq->req_stat != 254U, 0L);
+  tmp___9 = ldv__builtin_expect((unsigned int )rq->req_stat != 254U, 0L);
   }
   if (tmp___9 != 0L) {
     {
@@ -15534,12 +15532,12 @@ void esas2r_start_request(struct esas2r_adapter *a , struct esas2r_request *rq )
   {
   ldv___ldv_linux_kernel_locking_spinlock_spin_lock_102___2(& a->queue_lock);
   tmp___10 = list_empty((struct list_head  const  *)(& a->defer_list));
-  tmp___11 = __builtin_expect(tmp___10 != 0, 1L);
+  tmp___11 = ldv__builtin_expect(tmp___10 != 0, 1L);
   }
   if (tmp___11 != 0L) {
     {
     tmp___12 = constant_test_bit(2L, (unsigned long const volatile   *)(& a->flags));
-    tmp___13 = __builtin_expect(tmp___12 == 0, 1L);
+    tmp___13 = ldv__builtin_expect(tmp___12 == 0, 1L);
     }
     if (tmp___13 != 0L) {
       tmp___14 = 1;
@@ -15552,7 +15550,7 @@ void esas2r_start_request(struct esas2r_adapter *a , struct esas2r_request *rq )
   if (tmp___14 != 0) {
     {
     tmp___15 = constant_test_bit(10L, (unsigned long const volatile   *)(& a->flags));
-    tmp___16 = __builtin_expect(tmp___15 == 0, 1L);
+    tmp___16 = ldv__builtin_expect(tmp___15 == 0, 1L);
     }
     if (tmp___16 != 0L) {
       tmp___17 = 1;
@@ -15565,7 +15563,7 @@ void esas2r_start_request(struct esas2r_adapter *a , struct esas2r_request *rq )
   if (tmp___17 != 0) {
     {
     tmp___18 = constant_test_bit(14L, (unsigned long const volatile   *)(& a->flags));
-    tmp___19 = __builtin_expect(tmp___18 == 0, 1L);
+    tmp___19 = ldv__builtin_expect(tmp___18 == 0, 1L);
     }
     if (tmp___19 != 0L) {
       {
@@ -15594,11 +15592,11 @@ void esas2r_local_start_request(struct esas2r_adapter *a , struct esas2r_request
 
   {
   {
-  tmp = __builtin_expect((unsigned int )(rq->vrq)->scsi.function == 1U, 0L);
+  tmp = ldv__builtin_expect((unsigned int )(rq->vrq)->scsi.function == 1U, 0L);
   }
   if (tmp != 0L) {
     {
-    tmp___0 = __builtin_expect((unsigned int )(rq->vrq)->flash.sub_func == 3U, 0L);
+    tmp___0 = ldv__builtin_expect((unsigned int )(rq->vrq)->flash.sub_func == 3U, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -15690,7 +15688,7 @@ bool esas2r_build_sg_list_sge(struct esas2r_adapter *a , struct esas2r_sg_contex
   {
   rem = 0U;
   len = (*(sgc->get_phys_addr))(sgc, & addr);
-  tmp = __builtin_expect(len == 0U, 0L);
+  tmp = ldv__builtin_expect(len == 0U, 0L);
   }
   if (tmp != 0L) {
     return (0);
@@ -15698,7 +15696,7 @@ bool esas2r_build_sg_list_sge(struct esas2r_adapter *a , struct esas2r_sg_contex
 
   }
   {
-  tmp___0 = __builtin_expect(len > sgc->length, 0L);
+  tmp___0 = ldv__builtin_expect(len > sgc->length, 0L);
   }
   if (tmp___0 != 0L) {
     len = sgc->length;
@@ -15713,13 +15711,13 @@ bool esas2r_build_sg_list_sge(struct esas2r_adapter *a , struct esas2r_sg_contex
 
   }
   {
-  tmp___2 = __builtin_expect((unsigned long )sgc->sge.a64.curr > (unsigned long )sgc->sge.a64.limit,
+  tmp___2 = ldv__builtin_expect((unsigned long )sgc->sge.a64.curr > (unsigned long )sgc->sge.a64.limit,
                              0L);
   }
   if (tmp___2 != 0L) {
     {
     sgl = esas2r_alloc_sgl(a);
-    tmp___1 = __builtin_expect((unsigned long )sgl == (unsigned long )((struct esas2r_mem_desc *)0),
+    tmp___1 = ldv__builtin_expect((unsigned long )sgl == (unsigned long )((struct esas2r_mem_desc *)0),
                                0L);
     }
     if (tmp___1 != 0L) {
@@ -15803,7 +15801,7 @@ static bool esas2r_build_prd_iblk(struct esas2r_adapter *a , struct esas2r_sg_co
   ldv_39903: 
   {
   len = (*(sgc->get_phys_addr))(sgc, & addr);
-  tmp = __builtin_expect(len == 0U, 0L);
+  tmp = ldv__builtin_expect(len == 0U, 0L);
   }
   if (tmp != 0L) {
     return (0);
@@ -15811,7 +15809,7 @@ static bool esas2r_build_prd_iblk(struct esas2r_adapter *a , struct esas2r_sg_co
 
   }
   {
-  tmp___0 = __builtin_expect(len > sgc->length, 0L);
+  tmp___0 = ldv__builtin_expect(len > sgc->length, 0L);
   }
   if (tmp___0 != 0L) {
     len = sgc->length;
@@ -15843,7 +15841,7 @@ static bool esas2r_build_prd_iblk(struct esas2r_adapter *a , struct esas2r_sg_co
     }
     {
     sgl = esas2r_alloc_sgl(a);
-    tmp___1 = __builtin_expect((unsigned long )sgl == (unsigned long )((struct esas2r_mem_desc *)0),
+    tmp___1 = ldv__builtin_expect((unsigned long )sgl == (unsigned long )((struct esas2r_mem_desc *)0),
                                0L);
     }
     if (tmp___1 != 0L) {
@@ -16022,7 +16020,7 @@ bool esas2r_build_sg_list_prd(struct esas2r_adapter *a , struct esas2r_sg_contex
     tmp___0 = 1;
   }
   {
-  tmp___1 = __builtin_expect((long )tmp___0, 0L);
+  tmp___1 = ldv__builtin_expect((long )tmp___0, 0L);
   }
   if (tmp___1 != 0L) {
     return (0);
@@ -16614,7 +16612,7 @@ __inline static int __copy_from_user_nocheck(void *dst , void const   *src , uns
   __asm__  volatile   ("661:\n\t.byte 0x66,0x66,0x90\n\n662:\n.pushsection .altinstructions,\"a\"\n .long 661b - .\n .long 6631f - .\n .word ( 9*32+20)\n .byte 662b-661b\n .byte 6641f-6631f\n.popsection\n.pushsection .discard,\"aw\",@progbits\n .byte 0xff + (6641f-6631f) - (662b-661b)\n.popsection\n.pushsection .altinstr_replacement, \"ax\"\n6631:\n\t.byte 0x0f,0x01,0xcb\n6641:\n\t.popsection\n1:\tmovq %2,%1\n2: 661:\n\t.byte 0x66,0x66,0x90\n\n662:\n.pushsection .altinstructions,\"a\"\n .long 661b - .\n .long 6631f - .\n .word ( 9*32+20)\n .byte 662b-661b\n .byte 6641f-6631f\n.popsection\n.pushsection .discard,\"aw\",@progbits\n .byte 0xff + (6641f-6631f) - (662b-661b)\n.popsection\n.pushsection .altinstr_replacement, \"ax\"\n6631:\n\t.byte 0x0f,0x01,0xca\n6641:\n\t.popsection\n.section .fixup,\"ax\"\n3:\tmov %3,%0\n\txorq %1,%1\n\tjmp 2b\n.previous\n .pushsection \"__ex_table\",\"a\"\n .balign 8\n .long (1b) - .\n .long (3b) - .\n .popsection\n": "=r" (ret),
                        "=r" (*((u64 *)dst)): "m" (*((struct __large_struct *)src)),
                        "i" (10), "0" (ret));
-  tmp___0 = __builtin_expect(ret != 0, 0L);
+  tmp___0 = ldv__builtin_expect(ret != 0, 0L);
   }
   if (tmp___0 != 0L) {
     return (ret);
@@ -16630,7 +16628,7 @@ __inline static int __copy_from_user_nocheck(void *dst , void const   *src , uns
   __asm__  volatile   ("661:\n\t.byte 0x66,0x66,0x90\n\n662:\n.pushsection .altinstructions,\"a\"\n .long 661b - .\n .long 6631f - .\n .word ( 9*32+20)\n .byte 662b-661b\n .byte 6641f-6631f\n.popsection\n.pushsection .discard,\"aw\",@progbits\n .byte 0xff + (6641f-6631f) - (662b-661b)\n.popsection\n.pushsection .altinstr_replacement, \"ax\"\n6631:\n\t.byte 0x0f,0x01,0xcb\n6641:\n\t.popsection\n1:\tmovq %2,%1\n2: 661:\n\t.byte 0x66,0x66,0x90\n\n662:\n.pushsection .altinstructions,\"a\"\n .long 661b - .\n .long 6631f - .\n .word ( 9*32+20)\n .byte 662b-661b\n .byte 6641f-6631f\n.popsection\n.pushsection .discard,\"aw\",@progbits\n .byte 0xff + (6641f-6631f) - (662b-661b)\n.popsection\n.pushsection .altinstr_replacement, \"ax\"\n6631:\n\t.byte 0x0f,0x01,0xca\n6641:\n\t.popsection\n.section .fixup,\"ax\"\n3:\tmov %3,%0\n\txorq %1,%1\n\tjmp 2b\n.previous\n .pushsection \"__ex_table\",\"a\"\n .balign 8\n .long (1b) - .\n .long (3b) - .\n .popsection\n": "=r" (ret),
                        "=r" (*((u64 *)dst)): "m" (*((struct __large_struct *)src)),
                        "i" (16), "0" (ret));
-  tmp___1 = __builtin_expect(ret != 0, 0L);
+  tmp___1 = ldv__builtin_expect(ret != 0, 0L);
   }
   if (tmp___1 != 0L) {
     return (ret);
@@ -16728,7 +16726,7 @@ __inline static int __copy_to_user_nocheck(void *dst , void const   *src , unsig
   {
   __asm__  volatile   ("661:\n\t.byte 0x66,0x66,0x90\n\n662:\n.pushsection .altinstructions,\"a\"\n .long 661b - .\n .long 6631f - .\n .word ( 9*32+20)\n .byte 662b-661b\n .byte 6641f-6631f\n.popsection\n.pushsection .discard,\"aw\",@progbits\n .byte 0xff + (6641f-6631f) - (662b-661b)\n.popsection\n.pushsection .altinstr_replacement, \"ax\"\n6631:\n\t.byte 0x0f,0x01,0xcb\n6641:\n\t.popsection\n1:\tmovq %1,%2\n2: 661:\n\t.byte 0x66,0x66,0x90\n\n662:\n.pushsection .altinstructions,\"a\"\n .long 661b - .\n .long 6631f - .\n .word ( 9*32+20)\n .byte 662b-661b\n .byte 6641f-6631f\n.popsection\n.pushsection .discard,\"aw\",@progbits\n .byte 0xff + (6641f-6631f) - (662b-661b)\n.popsection\n.pushsection .altinstr_replacement, \"ax\"\n6631:\n\t.byte 0x0f,0x01,0xca\n6641:\n\t.popsection\n.section .fixup,\"ax\"\n3:\tmov %3,%0\n\tjmp 2b\n.previous\n .pushsection \"__ex_table\",\"a\"\n .balign 8\n .long (1b) - .\n .long (3b) - .\n .popsection\n": "=r" (ret): "er" (*((u64 *)src)),
                        "m" (*((struct __large_struct *)dst)), "i" (10), "0" (ret));
-  tmp___0 = __builtin_expect(ret != 0, 0L);
+  tmp___0 = ldv__builtin_expect(ret != 0, 0L);
   }
   if (tmp___0 != 0L) {
     return (ret);
@@ -16743,7 +16741,7 @@ __inline static int __copy_to_user_nocheck(void *dst , void const   *src , unsig
   {
   __asm__  volatile   ("661:\n\t.byte 0x66,0x66,0x90\n\n662:\n.pushsection .altinstructions,\"a\"\n .long 661b - .\n .long 6631f - .\n .word ( 9*32+20)\n .byte 662b-661b\n .byte 6641f-6631f\n.popsection\n.pushsection .discard,\"aw\",@progbits\n .byte 0xff + (6641f-6631f) - (662b-661b)\n.popsection\n.pushsection .altinstr_replacement, \"ax\"\n6631:\n\t.byte 0x0f,0x01,0xcb\n6641:\n\t.popsection\n1:\tmovq %1,%2\n2: 661:\n\t.byte 0x66,0x66,0x90\n\n662:\n.pushsection .altinstructions,\"a\"\n .long 661b - .\n .long 6631f - .\n .word ( 9*32+20)\n .byte 662b-661b\n .byte 6641f-6631f\n.popsection\n.pushsection .discard,\"aw\",@progbits\n .byte 0xff + (6641f-6631f) - (662b-661b)\n.popsection\n.pushsection .altinstr_replacement, \"ax\"\n6631:\n\t.byte 0x0f,0x01,0xca\n6641:\n\t.popsection\n.section .fixup,\"ax\"\n3:\tmov %3,%0\n\tjmp 2b\n.previous\n .pushsection \"__ex_table\",\"a\"\n .balign 8\n .long (1b) - .\n .long (3b) - .\n .popsection\n": "=r" (ret): "er" (*((u64 *)src)),
                        "m" (*((struct __large_struct *)dst)), "i" (16), "0" (ret));
-  tmp___1 = __builtin_expect(ret != 0, 0L);
+  tmp___1 = ldv__builtin_expect(ret != 0, 0L);
   }
   if (tmp___1 != 0L) {
     return (ret);
@@ -18563,7 +18561,7 @@ int esas2r_ioctl_handler(void *hostdata , int cmd , void *arg )
     tmp___1 = 1;
   }
   {
-  tmp___2 = __builtin_expect((long )tmp___1, 1L);
+  tmp___2 = ldv__builtin_expect((long )tmp___1, 1L);
   }
   if (tmp___2 == 0L) {
     {
@@ -21503,7 +21501,7 @@ static u32 get_physaddr_from_sgc(struct esas2r_sg_context *sgc , u64 *addr )
 
   {
   {
-  tmp = __builtin_expect((unsigned long )sgc->cur_offset == (unsigned long )sgc->exp_offset,
+  tmp = ldv__builtin_expect((unsigned long )sgc->cur_offset == (unsigned long )sgc->exp_offset,
                          1L);
   }
   if (tmp != 0L) {
@@ -21556,7 +21554,7 @@ int esas2r_queuecommand(struct Scsi_Host *host , struct scsi_cmnd *cmd )
   a = (struct esas2r_adapter *)(& ((cmd->device)->host)->hostdata);
   cmd->result = 0;
   tmp = constant_test_bit(13L, (unsigned long const volatile   *)(& a->flags));
-  tmp___0 = __builtin_expect(tmp != 0, 0L);
+  tmp___0 = ldv__builtin_expect(tmp != 0, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -21569,7 +21567,7 @@ int esas2r_queuecommand(struct Scsi_Host *host , struct scsi_cmnd *cmd )
   }
   {
   rq = esas2r_alloc_request(a);
-  tmp___1 = __builtin_expect((unsigned long )rq == (unsigned long )((struct esas2r_request *)0),
+  tmp___1 = ldv__builtin_expect((unsigned long )rq == (unsigned long )((struct esas2r_request *)0),
                              0L);
   }
   if (tmp___1 != 0L) {
@@ -21580,7 +21578,7 @@ int esas2r_queuecommand(struct Scsi_Host *host , struct scsi_cmnd *cmd )
   {
   rq->__annonCompField103.cmd = cmd;
   bufflen = scsi_bufflen(cmd);
-  tmp___2 = __builtin_expect(bufflen != 0U, 1L);
+  tmp___2 = ldv__builtin_expect(bufflen != 0U, 1L);
   }
   if (tmp___2 != 0L) {
     if ((unsigned int )cmd->sc_data_direction == 1U) {
@@ -21608,7 +21606,7 @@ int esas2r_queuecommand(struct Scsi_Host *host , struct scsi_cmnd *cmd )
   sgc.exp_offset = (u8 *)0U;
   sgc.num_sgel = scsi_dma_map(cmd);
   sgc.sgel_count = 0;
-  tmp___3 = __builtin_expect(sgc.num_sgel < 0, 0L);
+  tmp___3 = ldv__builtin_expect(sgc.num_sgel < 0, 0L);
   }
   if (tmp___3 != 0L) {
     {
@@ -21628,7 +21626,7 @@ int esas2r_queuecommand(struct Scsi_Host *host , struct scsi_cmnd *cmd )
     tmp___5 = 1;
   }
   {
-  tmp___6 = __builtin_expect((long )tmp___5, 0L);
+  tmp___6 = ldv__builtin_expect((long )tmp___5, 0L);
   }
   if (tmp___6 != 0L) {
     {
@@ -22571,7 +22569,7 @@ struct esas2r_request *esas2r_alloc_request(struct esas2r_adapter *a )
   {
   ldv___ldv_linux_kernel_locking_spinlock_spin_lock_116___0(& a->request_lock);
   tmp = list_empty((struct list_head  const  *)(& a->avail_request));
-  tmp___0 = __builtin_expect(tmp != 0, 0L);
+  tmp___0 = ldv__builtin_expect(tmp != 0, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -22599,7 +22597,7 @@ void esas2r_complete_request_cb(struct esas2r_adapter *a , struct esas2r_request
   {
   {
   scsi_dma_unmap(rq->__annonCompField103.cmd);
-  tmp___0 = __builtin_expect((unsigned int )rq->req_stat != 0U, 0L);
+  tmp___0 = ldv__builtin_expect((unsigned int )rq->req_stat != 0U, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -22641,7 +22639,7 @@ void esas2r_adapter_tasklet(unsigned long context )
   {
   a = (struct esas2r_adapter *)context;
   tmp = constant_test_bit(10L, (unsigned long const volatile   *)(& a->flags2));
-  tmp___0 = __builtin_expect(tmp != 0, 0L);
+  tmp___0 = ldv__builtin_expect(tmp != 0, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -22653,7 +22651,7 @@ void esas2r_adapter_tasklet(unsigned long context )
   }
   {
   tmp___1 = constant_test_bit(9L, (unsigned long const volatile   *)(& a->flags2));
-  tmp___2 = __builtin_expect(tmp___1 != 0, 1L);
+  tmp___2 = ldv__builtin_expect(tmp___1 != 0, 1L);
   }
   if (tmp___2 != 0L) {
     {
@@ -23532,7 +23530,7 @@ void ldv_dummy_resourceless_instance_callback_9_9(long (*arg0)(struct file * , s
                                                   struct bin_attribute *arg3 , char *arg4 ,
                                                   long long arg5 , unsigned long arg6 ) ;
 void ldv_entry_EMGentry_23(void *arg0 ) ;
-void main(void) ;
+int main(void) ;
 void ldv_file_operations_file_operations_instance_0(void *arg0 ) ;
 void ldv_file_operations_instance_callback_0_22(long (*arg0)(struct file * , unsigned int  ,
                                                              unsigned long  ) , struct file *arg1 ,
@@ -24062,7 +24060,7 @@ void ldv_entry_EMGentry_23(void *arg0 )
   return;
 }
 }
-void main(void) 
+int main(void) 
 { 
 
 
@@ -24071,7 +24069,7 @@ void main(void)
   ldv_ldv_initialize_130();
   ldv_entry_EMGentry_23((void *)0);
   }
-  return;
+return 0;
 }
 }
 void ldv_file_operations_file_operations_instance_0(void *arg0 ) 
@@ -27880,7 +27878,7 @@ void ldv_linux_usb_urb_check_final_state(void)
 }
 }
 extern void ldv_assert(char const   * , int  ) ;
-void __builtin_trap(void) ;
+void ldv__builtin_trap(void) ;
 void ldv_assume(int expression ) 
 { 
 
@@ -27904,7 +27902,7 @@ void ldv_stop(void)
   goto ldv_stop_label;
 }
 }
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 
@@ -27912,7 +27910,7 @@ long __builtin_expect(long exp , long c )
   return (exp);
 }
 }
-void __builtin_trap(void) 
+void ldv__builtin_trap(void) 
 { 
 
 

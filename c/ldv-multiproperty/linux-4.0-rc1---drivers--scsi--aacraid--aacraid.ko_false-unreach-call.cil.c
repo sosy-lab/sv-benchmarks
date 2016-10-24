@@ -6291,7 +6291,7 @@ struct ldv_thread {
    void (*function)(void * ) ;
 };
 typedef _Bool ldv_set;
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 void ldv_assume(int expression ) ;
 void ldv_stop(void) ;
 void ldv_linux_alloc_irq_check_alloc_flags(gfp_t flags ) ;
@@ -6481,7 +6481,6 @@ __inline static int list_empty(struct list_head  const  *head )
 }
 extern int memcmp(void const   * , void const   * , size_t  ) ;
 extern void warn_slowpath_null(char const   * , int const    ) ;
-extern int ( /* missing proto */  __builtin_unreachable)() ;
 __inline static unsigned long arch_local_save_flags(void) 
 { 
   unsigned long __ret ;
@@ -6499,7 +6498,7 @@ __inline static unsigned long arch_local_save_flags(void)
   __edx = __edx;
   __ecx = __ecx;
   __eax = __eax;
-  tmp = __builtin_expect((unsigned long )pv_irq_ops.save_fl.func == (unsigned long )((void *)0),
+  tmp = ldv__builtin_expect((unsigned long )pv_irq_ops.save_fl.func == (unsigned long )((void *)0),
                          0L);
   }
   if (tmp != 0L) {
@@ -6525,7 +6524,7 @@ __inline static bool IS_ERR(void const   *ptr )
 
   {
   {
-  tmp = __builtin_expect((unsigned long )ptr > 0xfffffffffffff000UL, 0L);
+  tmp = ldv__builtin_expect((unsigned long )ptr > 0xfffffffffffff000UL, 0L);
   }
   return (tmp != 0L);
 }
@@ -6612,7 +6611,7 @@ __inline static struct dma_map_ops *get_dma_ops(struct device *dev )
 
   {
   {
-  tmp = __builtin_expect((unsigned long )dev == (unsigned long )((struct device *)0),
+  tmp = ldv__builtin_expect((unsigned long )dev == (unsigned long )((struct device *)0),
                          0L);
   }
   if (tmp != 0L || (unsigned long )dev->archdata.dma_ops == (unsigned long )((struct dma_map_ops *)0)) {
@@ -6641,7 +6640,7 @@ __inline static void dma_free_attrs(struct device *dev , size_t size , void *vad
   _flags = arch_local_save_flags();
   tmp___0 = arch_irqs_disabled_flags(_flags);
   __ret_warn_on = tmp___0 != 0;
-  tmp___1 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___1 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -6651,7 +6650,7 @@ __inline static void dma_free_attrs(struct device *dev , size_t size , void *vad
 
   }
   {
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
   debug_dma_free_coherent(dev, size, vaddr, bus);
   }
   if ((unsigned long )ops->free != (unsigned long )((void (*)(struct device * , size_t  ,
@@ -9031,7 +9030,7 @@ void ldv_dummy_resourceless_instance_callback_8_3(int (*arg0)(struct aac_dev * )
 void ldv_dummy_resourceless_instance_callback_9_3(int (*arg0)(struct aac_dev * ) ,
                                                   struct aac_dev *arg1 ) ;
 void ldv_entry_EMGentry_30(void *arg0 ) ;
-void main(void) ;
+int main(void) ;
 void ldv_file_operations_file_operations_instance_0(void *arg0 ) ;
 int ldv_file_operations_instance_probe_0_12(int (*arg0)(struct inode * , struct file * ) ,
                                             struct inode *arg1 , struct file *arg2 ) ;
@@ -9826,7 +9825,7 @@ void ldv_entry_EMGentry_30(void *arg0 )
   return;
 }
 }
-void main(void) 
+int main(void) 
 { 
 
 
@@ -9835,7 +9834,7 @@ void main(void)
   ldv_ldv_initialize_119();
   ldv_entry_EMGentry_30((void *)0);
   }
-  return;
+return 0;
 }
 }
 void ldv_file_operations_file_operations_instance_0(void *arg0 ) 
@@ -12177,7 +12176,7 @@ __inline static unsigned long copy_from_user(void *to , void const   *from , uns
   {
   sz = -1;
   might_fault();
-  tmp = __builtin_expect(sz < 0, 1L);
+  tmp = ldv__builtin_expect(sz < 0, 1L);
   }
   if (tmp != 0L) {
     {
@@ -12185,7 +12184,7 @@ __inline static unsigned long copy_from_user(void *to , void const   *from , uns
     }
   } else {
     {
-    tmp___0 = __builtin_expect((unsigned long )sz >= n, 1L);
+    tmp___0 = ldv__builtin_expect((unsigned long )sz >= n, 1L);
     }
     if (tmp___0 != 0L) {
       {
@@ -12210,7 +12209,7 @@ __inline static unsigned long copy_to_user(void *to , void const   *from , unsig
   {
   sz = -1;
   might_fault();
-  tmp = __builtin_expect(sz < 0, 1L);
+  tmp = ldv__builtin_expect(sz < 0, 1L);
   }
   if (tmp != 0L) {
     {
@@ -12218,7 +12217,7 @@ __inline static unsigned long copy_to_user(void *to , void const   *from , unsig
     }
   } else {
     {
-    tmp___0 = __builtin_expect((unsigned long )sz >= n, 1L);
+    tmp___0 = ldv__builtin_expect((unsigned long )sz >= n, 1L);
     }
     if (tmp___0 != 0L) {
       {
@@ -12357,7 +12356,7 @@ __inline static int aac_valid_context(struct scsi_cmnd *scsicmd , struct fib *fi
 
   {
   {
-  tmp = __builtin_expect((unsigned long )scsicmd == (unsigned long )((struct scsi_cmnd *)0),
+  tmp = ldv__builtin_expect((unsigned long )scsicmd == (unsigned long )((struct scsi_cmnd *)0),
                          0L);
   }
   if (tmp != 0L) {
@@ -12368,7 +12367,7 @@ __inline static int aac_valid_context(struct scsi_cmnd *scsicmd , struct fib *fi
     return (0);
   } else {
     {
-    tmp___0 = __builtin_expect((unsigned long )scsicmd->scsi_done == (unsigned long )((void (*)(struct scsi_cmnd * ))0),
+    tmp___0 = ldv__builtin_expect((unsigned long )scsicmd->scsi_done == (unsigned long )((void (*)(struct scsi_cmnd * ))0),
                                0L);
     }
     if (tmp___0 != 0L) {
@@ -12384,7 +12383,7 @@ __inline static int aac_valid_context(struct scsi_cmnd *scsicmd , struct fib *fi
   {
   scsicmd->SCp.phase = 257;
   device = scsicmd->device;
-  tmp___1 = __builtin_expect((unsigned long )device == (unsigned long )((struct scsi_device *)0),
+  tmp___1 = ldv__builtin_expect((unsigned long )device == (unsigned long )((struct scsi_device *)0),
                              0L);
   }
   if (tmp___1 != 0L) {
@@ -12396,7 +12395,7 @@ __inline static int aac_valid_context(struct scsi_cmnd *scsicmd , struct fib *fi
   } else {
     {
     tmp___2 = scsi_device_online(device);
-    tmp___3 = __builtin_expect(tmp___2 == 0, 0L);
+    tmp___3 = ldv__builtin_expect(tmp___2 == 0, 0L);
     }
     if (tmp___3 != 0L) {
       {
@@ -12635,7 +12634,7 @@ static void get_container_name_callback(void *context , struct fib *fibptr )
 
   }
   {
-  tmp___0 = __builtin_expect((unsigned long )fibptr == (unsigned long )((struct fib *)0),
+  tmp___0 = ldv__builtin_expect((unsigned long )fibptr == (unsigned long )((struct fib *)0),
                              0L);
   }
   if (tmp___0 != 0L) {
@@ -13199,7 +13198,7 @@ static void get_container_serial_callback(void *context , struct fib *fibptr )
 
   {
   {
-  tmp = __builtin_expect((unsigned long )fibptr == (unsigned long )((struct fib *)0),
+  tmp = ldv__builtin_expect((unsigned long )fibptr == (unsigned long )((struct fib *)0),
                          0L);
   }
   if (tmp != 0L) {
@@ -13416,7 +13415,7 @@ static int aac_read_raw_io(struct fib *fib , struct scsi_cmnd *cmd , u64 lba , u
     fibsize = (unsigned int )((u16 )(readcmd->sg.count - 1U)) * 24U + 48U;
   }
   {
-  tmp___1 = __builtin_expect((unsigned long )fibsize > (unsigned long )(fib->dev)->max_fib_size - 32UL,
+  tmp___1 = ldv__builtin_expect((unsigned long )fibsize > (unsigned long )(fib->dev)->max_fib_size - 32UL,
                              0L);
   }
   if (tmp___1 != 0L) {
@@ -13464,7 +13463,7 @@ static int aac_read_block64(struct fib *fib , struct scsi_cmnd *cmd , u64 lba , 
   }
   {
   fibsize = (unsigned int )((u16 )(readcmd->sg.count - 1U)) * 12U + 32U;
-  tmp___0 = __builtin_expect((unsigned long )fibsize > (unsigned long )(fib->dev)->max_fib_size - 32UL,
+  tmp___0 = ldv__builtin_expect((unsigned long )fibsize > (unsigned long )(fib->dev)->max_fib_size - 32UL,
                              0L);
   }
   if (tmp___0 != 0L) {
@@ -13508,7 +13507,7 @@ static int aac_read_block(struct fib *fib , struct scsi_cmnd *cmd , u64 lba , u3
   }
   {
   fibsize = (unsigned int )((u16 )(readcmd->sg.count - 1U)) * 8U + 28U;
-  tmp = __builtin_expect((unsigned long )fibsize > (unsigned long )(fib->dev)->max_fib_size - 32UL,
+  tmp = ldv__builtin_expect((unsigned long )fibsize > (unsigned long )(fib->dev)->max_fib_size - 32UL,
                          0L);
   }
   if (tmp != 0L) {
@@ -13587,7 +13586,7 @@ static int aac_write_raw_io(struct fib *fib , struct scsi_cmnd *cmd , u64 lba , 
     fibsize = (unsigned int )((u16 )(writecmd->sg.count - 1U)) * 24U + 48U;
   }
   {
-  tmp___1 = __builtin_expect((unsigned long )fibsize > (unsigned long )(fib->dev)->max_fib_size - 32UL,
+  tmp___1 = ldv__builtin_expect((unsigned long )fibsize > (unsigned long )(fib->dev)->max_fib_size - 32UL,
                              0L);
   }
   if (tmp___1 != 0L) {
@@ -13636,7 +13635,7 @@ static int aac_write_block64(struct fib *fib , struct scsi_cmnd *cmd , u64 lba ,
   }
   {
   fibsize = (unsigned int )((u16 )(writecmd->sg.count - 1U)) * 12U + 32U;
-  tmp___0 = __builtin_expect((unsigned long )fibsize > (unsigned long )(fib->dev)->max_fib_size - 32UL,
+  tmp___0 = ldv__builtin_expect((unsigned long )fibsize > (unsigned long )(fib->dev)->max_fib_size - 32UL,
                              0L);
   }
   if (tmp___0 != 0L) {
@@ -13682,7 +13681,7 @@ static int aac_write_block(struct fib *fib , struct scsi_cmnd *cmd , u64 lba , u
   }
   {
   fibsize = (unsigned int )((u16 )((unsigned long )(writecmd->sg.count - 1U) + 4UL)) * 8U;
-  tmp = __builtin_expect((unsigned long )fibsize > (unsigned long )(fib->dev)->max_fib_size - 32UL,
+  tmp = ldv__builtin_expect((unsigned long )fibsize > (unsigned long )(fib->dev)->max_fib_size - 32UL,
                          0L);
   }
   if (tmp != 0L) {
@@ -13807,7 +13806,7 @@ static int aac_scsi_64(struct fib *fib , struct scsi_cmnd *cmd )
   __memset((void *)(& srbcmd->cdb), 0, 16UL);
   __memcpy((void *)(& srbcmd->cdb), (void const   *)cmd->cmnd, (size_t )cmd->cmd_len);
   fibsize = ((unsigned int )((u16 )srbcmd->sg.count) & 255U) * 12U + 56U;
-  tmp___0 = __builtin_expect((unsigned long )fibsize > (unsigned long )(fib->dev)->max_fib_size - 32UL,
+  tmp___0 = ldv__builtin_expect((unsigned long )fibsize > (unsigned long )(fib->dev)->max_fib_size - 32UL,
                              0L);
   }
   if (tmp___0 != 0L) {
@@ -13851,7 +13850,7 @@ static int aac_scsi_32(struct fib *fib , struct scsi_cmnd *cmd )
   __memset((void *)(& srbcmd->cdb), 0, 16UL);
   __memcpy((void *)(& srbcmd->cdb), (void const   *)cmd->cmnd, (size_t )cmd->cmd_len);
   fibsize = (unsigned int )((u16 )((unsigned long )((srbcmd->sg.count & 255U) - 1U) + 8UL)) * 8U;
-  tmp___0 = __builtin_expect((unsigned long )fibsize > (unsigned long )(fib->dev)->max_fib_size - 32UL,
+  tmp___0 = ldv__builtin_expect((unsigned long )fibsize > (unsigned long )(fib->dev)->max_fib_size - 32UL,
                              0L);
   }
   if (tmp___0 != 0L) {
@@ -14488,7 +14487,7 @@ static void io_callback(void *context , struct fib *fibptr )
 
   }
   {
-  tmp___0 = __builtin_expect((unsigned long )fibptr == (unsigned long )((struct fib *)0),
+  tmp___0 = ldv__builtin_expect((unsigned long )fibptr == (unsigned long )((struct fib *)0),
                              0L);
   }
   if (tmp___0 != 0L) {
@@ -14789,7 +14788,7 @@ static void synchronize_callback(void *context , struct fib *fibptr )
 
   }
   {
-  tmp___0 = __builtin_expect((unsigned long )fibptr == (unsigned long )((struct fib *)0),
+  tmp___0 = ldv__builtin_expect((unsigned long )fibptr == (unsigned long )((struct fib *)0),
                              0L);
   }
   if (tmp___0 != 0L) {
@@ -14963,7 +14962,7 @@ static void aac_start_stop_callback(void *context , struct fib *fibptr )
 
   }
   {
-  tmp___0 = __builtin_expect((unsigned long )fibptr == (unsigned long )((struct fib *)0),
+  tmp___0 = ldv__builtin_expect((unsigned long )fibptr == (unsigned long )((struct fib *)0),
                              0L);
   }
   if (tmp___0 != 0L) {
@@ -15856,7 +15855,7 @@ static void aac_srb_callback(void *context , struct fib *fibptr )
 
   }
   {
-  tmp___0 = __builtin_expect((unsigned long )fibptr == (unsigned long )((struct fib *)0),
+  tmp___0 = ldv__builtin_expect((unsigned long )fibptr == (unsigned long )((struct fib *)0),
                              0L);
   }
   if (tmp___0 != 0L) {
@@ -16549,7 +16548,7 @@ static long aac_build_sgraw2(struct scsi_cmnd *scsicmd , struct aac_raw_io2 *rio
     {
     count = (int )sg->dma_length;
     addr = sg->dma_address;
-    tmp = __builtin_expect(i >= sg_max, 0L);
+    tmp = ldv__builtin_expect(i >= sg_max, 0L);
     }
     if (tmp != 0L) {
       {
@@ -16836,7 +16835,7 @@ __inline static dma_addr_t dma_map_single_attrs(struct device *dev , void *ptr ,
   ops = tmp;
   kmemcheck_mark_initialized(ptr, (unsigned int )size);
   tmp___0 = valid_dma_direction((int )dir);
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -18966,7 +18965,7 @@ void aac_fib_free(struct fib *fibptr )
   {
   ldv_spin_unlock_irqrestore_100___1(& fibptr->event_lock, flagsv);
   ldv___ldv_linux_kernel_locking_spinlock_spin_lock_102(& (fibptr->dev)->fib_lock);
-  tmp = __builtin_expect((long )((int )fibptr->flags) & 1L, 0L);
+  tmp = ldv__builtin_expect((long )((int )fibptr->flags) & 1L, 0L);
   }
   if (tmp != 0L) {
     aac_config.fib_timeouts = aac_config.fib_timeouts + 1U;
@@ -19353,7 +19352,7 @@ int aac_fib_send(u16 command , struct fib *fibptr , unsigned long size , int pri
     }
     {
     ldv_spin_unlock_irqrestore_100___1(& fibptr->event_lock, flags);
-    tmp___3 = __builtin_expect(fibptr->done == 0U, 0L);
+    tmp___3 = ldv__builtin_expect(fibptr->done == 0U, 0L);
     }
     if (tmp___3 != 0L) {
       {
@@ -19365,7 +19364,7 @@ int aac_fib_send(u16 command , struct fib *fibptr , unsigned long size , int pri
 
     }
     {
-    tmp___4 = __builtin_expect((long )((int )fibptr->flags) & 1L, 0L);
+    tmp___4 = ldv__builtin_expect((long )((int )fibptr->flags) & 1L, 0L);
     }
     if (tmp___4 != 0L) {
       return (-110);
@@ -21794,7 +21793,7 @@ unsigned int aac_response_normal(struct aac_queue *q )
   hwfib = fib->hw_fib_va;
   aac_consumer_free(dev, q, 4U);
   (dev->queues)->queue[2].numpending = (dev->queues)->queue[2].numpending - 1U;
-  tmp = __builtin_expect((long )((int )fib->flags) & 1L, 0L);
+  tmp = ldv__builtin_expect((long )((int )fib->flags) & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -21977,7 +21976,7 @@ static void aac_aif_callback(void *context , struct fib *fibptr )
   {
   {
   fibctx = (struct fib *)context;
-  tmp = __builtin_expect((unsigned long )fibptr == (unsigned long )((struct fib *)0),
+  tmp = ldv__builtin_expect((unsigned long )fibptr == (unsigned long )((struct fib *)0),
                          0L);
   }
   if (tmp != 0L) {
@@ -22101,7 +22100,7 @@ unsigned int aac_intr_normal(struct aac_dev *dev , u32 index , int isAif , int i
     fib___0 = dev->fibs + (unsigned long )index;
     hwfib = fib___0->hw_fib_va;
     (dev->queues)->queue[2].numpending = (dev->queues)->queue[2].numpending - 1U;
-    tmp___2 = __builtin_expect((long )((int )fib___0->flags) & 1L, 0L);
+    tmp___2 = ldv__builtin_expect((long )((int )fib___0->flags) & 1L, 0L);
     }
     if (tmp___2 != 0L) {
       {
@@ -22424,13 +22423,13 @@ static irqreturn_t aac_rx_intr_producer(int irq , void *dev_id )
   dev = (struct aac_dev *)dev_id;
   tmp = readb((void const volatile   *)(& (dev->regs.rx)->MUnit.OISR));
   intstat = tmp;
-  tmp___7 = __builtin_expect(((u32 )intstat & ~ dev->OIMR) != 0U, 1L);
+  tmp___7 = ldv__builtin_expect(((u32 )intstat & ~ dev->OIMR) != 0U, 1L);
   }
   if (tmp___7 != 0L) {
     {
     tmp___0 = readl((void const volatile   *)(& (dev->regs.rx)->MUnit.ODR));
     bellbits = (unsigned long )tmp___0;
-    tmp___6 = __builtin_expect((bellbits & 32UL) != 0UL, 0L);
+    tmp___6 = ldv__builtin_expect((bellbits & 32UL) != 0UL, 0L);
     }
     if (tmp___6 != 0L) {
       {
@@ -22441,7 +22440,7 @@ static irqreturn_t aac_rx_intr_producer(int irq , void *dev_id )
       }
     } else {
       {
-      tmp___5 = __builtin_expect((bellbits & 2UL) != 0UL, 0L);
+      tmp___5 = ldv__builtin_expect((bellbits & 2UL) != 0UL, 0L);
       }
       if (tmp___5 != 0L) {
         {
@@ -22450,7 +22449,7 @@ static irqreturn_t aac_rx_intr_producer(int irq , void *dev_id )
         }
       } else {
         {
-        tmp___4 = __builtin_expect((bellbits & 4UL) != 0UL, 1L);
+        tmp___4 = ldv__builtin_expect((bellbits & 4UL) != 0UL, 1L);
         }
         if (tmp___4 != 0L) {
           {
@@ -22459,7 +22458,7 @@ static irqreturn_t aac_rx_intr_producer(int irq , void *dev_id )
           }
         } else {
           {
-          tmp___3 = __builtin_expect((bellbits & 8UL) != 0UL, 0L);
+          tmp___3 = ldv__builtin_expect((bellbits & 8UL) != 0UL, 0L);
           }
           if (tmp___3 != 0L) {
             {
@@ -22467,7 +22466,7 @@ static irqreturn_t aac_rx_intr_producer(int irq , void *dev_id )
             }
           } else {
             {
-            tmp___2 = __builtin_expect((bellbits & 16UL) != 0UL, 0L);
+            tmp___2 = ldv__builtin_expect((bellbits & 16UL) != 0UL, 0L);
             }
             if (tmp___2 != 0L) {
               {
@@ -22506,7 +22505,7 @@ static irqreturn_t aac_rx_intr_message(int irq , void *dev_id )
   dev = (struct aac_dev *)dev_id;
   tmp = readl((void const volatile   *)(& (dev->regs.rx)->MUnit.OutboundQueue));
   Index = tmp;
-  tmp___0 = __builtin_expect(Index == 4294967295U, 0L);
+  tmp___0 = ldv__builtin_expect(Index == 4294967295U, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -22516,7 +22515,7 @@ static irqreturn_t aac_rx_intr_message(int irq , void *dev_id )
 
   }
   {
-  tmp___3 = __builtin_expect(Index != 4294967295U, 1L);
+  tmp___3 = ldv__builtin_expect(Index != 4294967295U, 1L);
   }
   if (tmp___3 != 0L) {
     ldv_37386: 
@@ -22542,7 +22541,7 @@ static irqreturn_t aac_rx_intr_message(int irq , void *dev_id )
     if (isSpecial == 0) {
       {
       tmp___1 = aac_intr_normal(dev, Index, isAif, isFastResponse, (struct hw_fib *)0);
-      tmp___2 = __builtin_expect(tmp___1 != 0U, 0L);
+      tmp___2 = ldv__builtin_expect(tmp___1 != 0U, 0L);
       }
       if (tmp___2 != 0L) {
         {
@@ -22657,7 +22656,7 @@ static int rx_sync_cmd(struct aac_dev *dev , u32 command , u32 p1 , u32 p2 , u32
   }
   ldv_37420: 
   {
-  tmp___0 = __builtin_expect(ok != 1, 0L);
+  tmp___0 = ldv__builtin_expect(ok != 1, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -22849,7 +22848,7 @@ static int aac_rx_check_health(struct aac_dev *dev )
   {
   tmp = readl((void const volatile   *)(& (dev->regs.rx)->MUnit.OMRx));
   status = tmp;
-  tmp___0 = __builtin_expect((status & 4U) != 0U, 0L);
+  tmp___0 = ldv__builtin_expect((status & 4U) != 0U, 0L);
   }
   if (tmp___0 != 0L) {
     return (-1);
@@ -22857,11 +22856,11 @@ static int aac_rx_check_health(struct aac_dev *dev )
 
   }
   {
-  tmp___10 = __builtin_expect((status & 256U) != 0U, 0L);
+  tmp___10 = ldv__builtin_expect((status & 256U) != 0U, 0L);
   }
   if (tmp___10 != 0L) {
     {
-    tmp___1 = __builtin_expect(((long )status & 4278190080L) == 3154116608L, 1L);
+    tmp___1 = ldv__builtin_expect(((long )status & 4278190080L) == 3154116608L, 1L);
     }
     if (tmp___1 != 0L) {
       return ((int )(status >> 16) & 255);
@@ -22872,7 +22871,7 @@ static int aac_rx_check_health(struct aac_dev *dev )
     tmp___2 = pci_alloc_consistent(dev->pdev, 512UL, & baddr);
     buffer = (char *)tmp___2;
     ret = -2;
-    tmp___3 = __builtin_expect((unsigned long )buffer == (unsigned long )((char *)0),
+    tmp___3 = ldv__builtin_expect((unsigned long )buffer == (unsigned long )((char *)0),
                                0L);
     }
     if (tmp___3 != 0L) {
@@ -22883,7 +22882,7 @@ static int aac_rx_check_health(struct aac_dev *dev )
     {
     tmp___4 = pci_alloc_consistent(dev->pdev, 8UL, & paddr);
     post = (struct POSTSTATUS *)tmp___4;
-    tmp___5 = __builtin_expect((unsigned long )post == (unsigned long )((struct POSTSTATUS *)0),
+    tmp___5 = ldv__builtin_expect((unsigned long )post == (unsigned long )((struct POSTSTATUS *)0),
                                0L);
     }
     if (tmp___5 != 0L) {
@@ -22902,11 +22901,11 @@ static int aac_rx_check_health(struct aac_dev *dev )
     rx_sync_cmd(dev, 20U, (u32 )baddr, 0U, 0U, 0U, 0U, 0U, (u32 *)0U, (u32 *)0U, (u32 *)0U,
                 (u32 *)0U, (u32 *)0U);
     pci_free_consistent(dev->pdev, 8UL, (void *)post, paddr);
-    tmp___8 = __builtin_expect((int )((signed char )*buffer) == 48, 1L);
+    tmp___8 = ldv__builtin_expect((int )((signed char )*buffer) == 48, 1L);
     }
     if (tmp___8 != 0L) {
       {
-      tmp___9 = __builtin_expect((long )((int )*(buffer + 1UL) == 120 || (int )*(buffer + 1UL) == 88),
+      tmp___9 = ldv__builtin_expect((long )((int )*(buffer + 1UL) == 120 || (int )*(buffer + 1UL) == 88),
                                  1L);
       }
       if (tmp___9 != 0L) {
@@ -22929,7 +22928,7 @@ static int aac_rx_check_health(struct aac_dev *dev )
 
   }
   {
-  tmp___11 = __builtin_expect((status & 128U) == 0U, 0L);
+  tmp___11 = ldv__builtin_expect((status & 128U) == 0U, 0L);
   }
   if (tmp___11 != 0L) {
     return (-3);
@@ -22992,7 +22991,7 @@ static int aac_rx_deliver_message(struct fib *fib )
   ldv_37474: 
   {
   Index = readl((void const volatile   *)(& (dev->regs.rx)->MUnit.InboundQueue));
-  tmp = __builtin_expect(Index == 4294967295U, 0L);
+  tmp = ldv__builtin_expect(Index == 4294967295U, 0L);
   }
   if (tmp != 0L) {
     {
@@ -23002,7 +23001,7 @@ static int aac_rx_deliver_message(struct fib *fib )
 
   }
   {
-  tmp___0 = __builtin_expect(Index != 4294967295U, 1L);
+  tmp___0 = ldv__builtin_expect(Index != 4294967295U, 1L);
   }
   if (tmp___0 != 0L) {
     goto ldv_37473;
@@ -23302,7 +23301,7 @@ int _aac_rx_init(struct aac_dev *dev )
     {
     tmp___7 = aac_rx_check_health(dev);
     tmp___8 = aac_rx_restart_adapter(dev, tmp___7);
-    tmp___9 = __builtin_expect(tmp___8 == 0, 1L);
+    tmp___9 = ldv__builtin_expect(tmp___8 == 0, 1L);
     }
     if (tmp___9 != 0L) {
       start = jiffies;
@@ -24415,7 +24414,7 @@ static int src_sync_cmd(struct aac_dev *dev , u32 command , u32 p1 , u32 p2 , u3
     }
     ldv_37452: 
     {
-    tmp___1 = __builtin_expect(ok != 1, 0L);
+    tmp___1 = ldv__builtin_expect(ok != 1, 0L);
     }
     if (tmp___1 != 0L) {
       {
@@ -24592,7 +24591,7 @@ static int aac_src_check_health(struct aac_dev *dev )
   {
   tmp = readl((void const volatile   *)(& (dev->regs.src.bar0)->MUnit.OMR));
   status = tmp;
-  tmp___0 = __builtin_expect((status & 4U) != 0U, 0L);
+  tmp___0 = ldv__builtin_expect((status & 4U) != 0U, 0L);
   }
   if (tmp___0 != 0L) {
     return (-1);
@@ -24600,7 +24599,7 @@ static int aac_src_check_health(struct aac_dev *dev )
 
   }
   {
-  tmp___1 = __builtin_expect((status & 256U) != 0U, 0L);
+  tmp___1 = ldv__builtin_expect((status & 256U) != 0U, 0L);
   }
   if (tmp___1 != 0L) {
     return ((int )(status >> 16) & 255);
@@ -24608,7 +24607,7 @@ static int aac_src_check_health(struct aac_dev *dev )
 
   }
   {
-  tmp___2 = __builtin_expect((status & 128U) == 0U, 0L);
+  tmp___2 = ldv__builtin_expect((status & 128U) == 0U, 0L);
   }
   if (tmp___2 != 0L) {
     return (-3);
@@ -24650,7 +24649,7 @@ static int aac_src_deliver_message(struct fib *fib )
     (fib->hw_fib_va)->header.StructType = 4U;
     (fib->hw_fib_va)->header.SenderFibAddress = (unsigned int )address;
     (fib->hw_fib_va)->header.u.TimeStamp = 0U;
-    tmp = __builtin_expect((unsigned int )(address >> 32ULL) != 0U, 0L);
+    tmp = ldv__builtin_expect((unsigned int )(address >> 32ULL) != 0U, 0L);
     }
     if (tmp != 0L) {
       {
@@ -24951,7 +24950,7 @@ int aac_src_init(struct aac_dev *dev )
     {
     tmp___5 = aac_src_check_health(dev);
     tmp___6 = aac_src_restart_adapter(dev, tmp___5);
-    tmp___7 = __builtin_expect(tmp___6 == 0, 1L);
+    tmp___7 = ldv__builtin_expect(tmp___6 == 0, 1L);
     }
     if (tmp___7 != 0L) {
       start = jiffies;
@@ -25194,7 +25193,7 @@ int aac_srcv_init(struct aac_dev *dev )
     {
     tmp___7 = aac_src_check_health(dev);
     tmp___8 = aac_src_restart_adapter(dev, tmp___7);
-    tmp___9 = __builtin_expect(tmp___8 == 0, 1L);
+    tmp___9 = ldv__builtin_expect(tmp___8 == 0, 1L);
     }
     if (tmp___9 != 0L) {
       start = jiffies;
@@ -27368,7 +27367,7 @@ void ldv_linux_usb_urb_check_final_state(void)
 }
 }
 extern void ldv_assert(char const   * , int  ) ;
-void __builtin_trap(void) ;
+void ldv__builtin_trap(void) ;
 void ldv_assume(int expression ) 
 { 
 
@@ -27392,7 +27391,7 @@ void ldv_stop(void)
   goto ldv_stop_label;
 }
 }
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 
@@ -27400,7 +27399,7 @@ long __builtin_expect(long exp , long c )
   return (exp);
 }
 }
-void __builtin_trap(void) 
+void ldv__builtin_trap(void) 
 { 
 
 

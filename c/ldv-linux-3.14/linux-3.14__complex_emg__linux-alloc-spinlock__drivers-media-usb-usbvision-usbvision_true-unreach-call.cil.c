@@ -9429,7 +9429,7 @@ static int ldv_usb_submit_urb_74(struct urb *ldv_func_arg1 , gfp_t flags )
   return ((int )((long )tmp));
 }
 }
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 extern void ldv_initialize(void) ;
 int ldv_post_init(int init_ret_val ) ;
 extern void ldv_pre_probe(void) ;
@@ -9500,7 +9500,7 @@ __inline static unsigned long copy_to_user(void *to , void const   *from , unsig
   {
   sz = -1;
   might_fault();
-  tmp = __builtin_expect(sz < 0, 1L);
+  tmp = ldv__builtin_expect(sz < 0, 1L);
   }
   if (tmp != 0L) {
     {
@@ -9508,7 +9508,7 @@ __inline static unsigned long copy_to_user(void *to , void const   *from , unsig
     }
   } else {
     {
-    tmp___0 = __builtin_expect((unsigned long )sz >= n, 1L);
+    tmp___0 = ldv__builtin_expect((unsigned long )sz >= n, 1L);
     }
     if (tmp___0 != 0L) {
       {
@@ -12660,7 +12660,7 @@ void ldv_dummy_resourceless_instance_callback_8_3(long (*arg0)(struct device * ,
                                                   struct device_attribute *arg2 ,
                                                   char *arg3 ) ;
 void ldv_entry_EMGentry_19(void *arg0 ) ;
-void main(void) ;
+int main(void) ;
 void ldv_initialize_external_data(void) ;
 void ldv_io_instance_callback_13_17(int (*arg0)(struct file * , struct vm_area_struct * ) ,
                                     struct file *arg1 , struct vm_area_struct *arg2 ) ;
@@ -13757,7 +13757,7 @@ void ldv_entry_EMGentry_19(void *arg0 )
   return;
 }
 }
-void main(void) 
+int main(void) 
 { 
   int tmp ;
 
@@ -19371,7 +19371,7 @@ void *ldv_kzalloc(size_t size , gfp_t flags )
 }
 }
 extern void ldv_assert(char const   * , int  ) ;
-void __builtin_trap(void) ;
+void ldv__builtin_trap(void) ;
 void ldv_assume(int expression ) 
 { 
 
@@ -19395,7 +19395,7 @@ void ldv_stop(void)
   goto ldv_stop_label;
 }
 }
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 
@@ -19403,7 +19403,7 @@ long __builtin_expect(long exp , long c )
   return (exp);
 }
 }
-void __builtin_trap(void) 
+void ldv__builtin_trap(void) 
 { 
 
 

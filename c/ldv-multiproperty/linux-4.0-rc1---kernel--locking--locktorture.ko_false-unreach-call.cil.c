@@ -3420,7 +3420,7 @@ struct ldv_thread {
    void (*function)(void * ) ;
 };
 typedef _Bool ldv_set;
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 void ldv_assume(int expression ) ;
 void ldv_stop(void) ;
 void ldv_linux_alloc_irq_check_alloc_flags(gfp_t flags ) ;
@@ -4358,12 +4358,12 @@ static int lock_torture_writer(void *arg )
   {
   (*((cxt.cur_ops)->writelock))();
   __ret_warn_once = (int )lock_is_write_held;
-  tmp___3 = __builtin_expect(__ret_warn_once != 0, 0L);
+  tmp___3 = ldv__builtin_expect(__ret_warn_once != 0, 0L);
   }
   if (tmp___3 != 0L) {
     {
     __ret_warn_on = ! __warned;
-    tmp___1 = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp___1 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
     if (tmp___1 != 0L) {
       {
@@ -4373,7 +4373,7 @@ static int lock_torture_writer(void *arg )
 
     }
     {
-    tmp___2 = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp___2 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
     if (tmp___2 != 0L) {
       __warned = 1;
@@ -4384,7 +4384,7 @@ static int lock_torture_writer(void *arg )
 
   }
   {
-  tmp___4 = __builtin_expect(__ret_warn_once != 0, 0L);
+  tmp___4 = ldv__builtin_expect(__ret_warn_once != 0, 0L);
   }
   if (tmp___4 != 0L) {
     lwsp->n_lock_fail = lwsp->n_lock_fail + 1L;
@@ -4394,12 +4394,12 @@ static int lock_torture_writer(void *arg )
   {
   lock_is_write_held = 1;
   __ret_warn_once___0 = (int )lock_is_read_held;
-  tmp___7 = __builtin_expect(__ret_warn_once___0 != 0, 0L);
+  tmp___7 = ldv__builtin_expect(__ret_warn_once___0 != 0, 0L);
   }
   if (tmp___7 != 0L) {
     {
     __ret_warn_on___0 = ! __warned___0;
-    tmp___5 = __builtin_expect(__ret_warn_on___0 != 0, 0L);
+    tmp___5 = ldv__builtin_expect(__ret_warn_on___0 != 0, 0L);
     }
     if (tmp___5 != 0L) {
       {
@@ -4409,7 +4409,7 @@ static int lock_torture_writer(void *arg )
 
     }
     {
-    tmp___6 = __builtin_expect(__ret_warn_on___0 != 0, 0L);
+    tmp___6 = ldv__builtin_expect(__ret_warn_on___0 != 0, 0L);
     }
     if (tmp___6 != 0L) {
       __warned___0 = 1;
@@ -4420,7 +4420,7 @@ static int lock_torture_writer(void *arg )
 
   }
   {
-  tmp___8 = __builtin_expect(__ret_warn_once___0 != 0, 0L);
+  tmp___8 = ldv__builtin_expect(__ret_warn_once___0 != 0, 0L);
   }
   if (tmp___8 != 0L) {
     lwsp->n_lock_fail = lwsp->n_lock_fail + 1L;
@@ -4497,12 +4497,12 @@ static int lock_torture_reader(void *arg )
   (*((cxt.cur_ops)->readlock))();
   lock_is_read_held = 1;
   __ret_warn_once = (int )lock_is_write_held;
-  tmp___3 = __builtin_expect(__ret_warn_once != 0, 0L);
+  tmp___3 = ldv__builtin_expect(__ret_warn_once != 0, 0L);
   }
   if (tmp___3 != 0L) {
     {
     __ret_warn_on = ! __warned;
-    tmp___1 = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp___1 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
     if (tmp___1 != 0L) {
       {
@@ -4512,7 +4512,7 @@ static int lock_torture_reader(void *arg )
 
     }
     {
-    tmp___2 = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp___2 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
     if (tmp___2 != 0L) {
       __warned = 1;
@@ -4523,7 +4523,7 @@ static int lock_torture_reader(void *arg )
 
   }
   {
-  tmp___4 = __builtin_expect(__ret_warn_once != 0, 0L);
+  tmp___4 = ldv__builtin_expect(__ret_warn_once != 0, 0L);
   }
   if (tmp___4 != 0L) {
     lrsp->n_lock_fail = lrsp->n_lock_fail + 1L;
@@ -5228,7 +5228,7 @@ void ldv_dummy_resourceless_instance_callback_5_8(void (*arg0)(void) ) ;
 void ldv_dummy_resourceless_instance_callback_5_9(void (*arg0)(struct torture_random_state * ) ,
                                                   struct torture_random_state *arg1 ) ;
 void ldv_entry_EMGentry_6(void *arg0 ) ;
-void main(void) ;
+int main(void) ;
 void ldv_struct_noname_2_dummy_resourceless_instance_0(void *arg0 ) ;
 void ldv_struct_noname_2_dummy_resourceless_instance_1(void *arg0 ) ;
 void ldv_struct_noname_2_dummy_resourceless_instance_2(void *arg0 ) ;
@@ -5763,7 +5763,7 @@ void ldv_entry_EMGentry_6(void *arg0 )
   return;
 }
 }
-void main(void) 
+int main(void) 
 { 
 
 
@@ -5772,7 +5772,7 @@ void main(void)
   ldv_ldv_initialize_88();
   ldv_entry_EMGentry_6((void *)0);
   }
-  return;
+return 0;
 }
 }
 void ldv_struct_noname_2_dummy_resourceless_instance_0(void *arg0 ) 
@@ -8605,7 +8605,7 @@ void ldv_linux_usb_urb_check_final_state(void)
 }
 }
 extern void ldv_assert(char const   * , int  ) ;
-void __builtin_trap(void) ;
+void ldv__builtin_trap(void) ;
 void ldv_assume(int expression ) 
 { 
 
@@ -8629,7 +8629,7 @@ void ldv_stop(void)
   goto ldv_stop_label;
 }
 }
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 
@@ -8637,7 +8637,7 @@ long __builtin_expect(long exp , long c )
   return (exp);
 }
 }
-void __builtin_trap(void) 
+void ldv__builtin_trap(void) 
 { 
 
 

@@ -7358,7 +7358,7 @@ struct ldv_thread {
    void (*function)(void * ) ;
 };
 typedef _Bool ldv_set;
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 void ldv_assume(int expression ) ;
 void ldv_stop(void) ;
 void ldv_linux_alloc_irq_check_alloc_flags(gfp_t flags ) ;
@@ -7525,7 +7525,6 @@ extern void *__memset(void * , int  , size_t  ) ;
 extern int memcmp(void const   * , void const   * , size_t  ) ;
 extern char *strcpy(char * , char const   * ) ;
 extern void warn_slowpath_null(char const   * , int const    ) ;
-extern int ( /* missing proto */  __builtin_unreachable)() ;
 __inline static unsigned long arch_local_save_flags(void) 
 { 
   unsigned long __ret ;
@@ -7543,7 +7542,7 @@ __inline static unsigned long arch_local_save_flags(void)
   __edx = __edx;
   __ecx = __ecx;
   __eax = __eax;
-  tmp = __builtin_expect((unsigned long )pv_irq_ops.save_fl.func == (unsigned long )((void *)0),
+  tmp = ldv__builtin_expect((unsigned long )pv_irq_ops.save_fl.func == (unsigned long )((void *)0),
                          0L);
   }
   if (tmp != 0L) {
@@ -7608,7 +7607,7 @@ __inline static struct dma_map_ops *get_dma_ops(struct device *dev )
 
   {
   {
-  tmp = __builtin_expect((unsigned long )dev == (unsigned long )((struct device *)0),
+  tmp = ldv__builtin_expect((unsigned long )dev == (unsigned long )((struct device *)0),
                          0L);
   }
   if (tmp != 0L || (unsigned long )dev->archdata.dma_ops == (unsigned long )((struct dma_map_ops *)0)) {
@@ -7635,7 +7634,7 @@ __inline static void dma_free_attrs(struct device *dev , size_t size , void *vad
   _flags = arch_local_save_flags();
   tmp___0 = arch_irqs_disabled_flags(_flags);
   __ret_warn_on = tmp___0 != 0;
-  tmp___1 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___1 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -7645,7 +7644,7 @@ __inline static void dma_free_attrs(struct device *dev , size_t size , void *vad
 
   }
   {
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
   debug_dma_free_coherent(dev, size, vaddr, bus);
   }
   if ((unsigned long )ops->free != (unsigned long )((void (*)(struct device * , size_t  ,
@@ -8650,7 +8649,7 @@ static void ttusb_process_frame(struct ttusb *ttusb , u8 *data , int len )
   __memcpy((void *)(& ttusb->muxpack) + (unsigned long )ttusb->muxpack_ptr, (void const   *)data,
            (size_t )avail);
   ttusb->muxpack_ptr = ttusb->muxpack_ptr + avail;
-  tmp___2 = __builtin_expect(ttusb->muxpack_ptr > 264, 0L);
+  tmp___2 = ldv__builtin_expect(ttusb->muxpack_ptr > 264, 0L);
   }
   if (tmp___2 != 0L) {
     {
@@ -10490,7 +10489,7 @@ void ldv_dummy_resourceless_instance_callback_2_3(int (*arg0)(struct dvb_fronten
 int ldv_dvb_register_frontend(int arg0 , struct dvb_adapter *arg1 , struct dvb_frontend *arg2 ) ;
 int ldv_dvb_unregister_frontend(int arg0 , struct dvb_frontend *arg1 ) ;
 void ldv_entry_EMGentry_9(void *arg0 ) ;
-void main(void) ;
+int main(void) ;
 void ldv_struct_i2c_algorithm_dummy_resourceless_instance_0(void *arg0 ) ;
 void ldv_struct_stv0299_config_dummy_resourceless_instance_1(void *arg0 ) ;
 void ldv_struct_tda1004x_config_dummy_resourceless_instance_2(void *arg0 ) ;
@@ -10784,7 +10783,7 @@ void ldv_entry_EMGentry_9(void *arg0 )
   return;
 }
 }
-void main(void) 
+int main(void) 
 { 
 
 
@@ -10793,7 +10792,7 @@ void main(void)
   ldv_ldv_initialize_143();
   ldv_entry_EMGentry_9((void *)0);
   }
-  return;
+return 0;
 }
 }
 void ldv_struct_i2c_algorithm_dummy_resourceless_instance_0(void *arg0 ) 
@@ -13508,7 +13507,7 @@ void ldv_linux_usb_urb_check_final_state(void)
 }
 }
 extern void ldv_assert(char const   * , int  ) ;
-void __builtin_trap(void) ;
+void ldv__builtin_trap(void) ;
 void ldv_assume(int expression ) 
 { 
 
@@ -13532,7 +13531,7 @@ void ldv_stop(void)
   goto ldv_stop_label;
 }
 }
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 
@@ -13540,7 +13539,7 @@ long __builtin_expect(long exp , long c )
   return (exp);
 }
 }
-void __builtin_trap(void) 
+void ldv__builtin_trap(void) 
 { 
 
 

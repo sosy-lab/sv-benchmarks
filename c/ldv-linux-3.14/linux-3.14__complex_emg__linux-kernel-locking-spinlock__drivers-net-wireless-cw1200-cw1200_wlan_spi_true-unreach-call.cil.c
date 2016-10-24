@@ -6165,7 +6165,7 @@ struct ldv_thread {
    int identifier ;
    void (*function)(void * ) ;
 };
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 void *ldv_dev_get_drvdata(struct device  const  *dev ) ;
 int ldv_dev_set_drvdata(struct device *dev , void *data ) ;
 void *ldv_kzalloc(size_t size , gfp_t flags ) ;
@@ -6875,7 +6875,7 @@ static int cw1200_spi_irq_subscribe(struct hwbus_priv *self )
   descriptor.format = "SW IRQ subscribe\n";
   descriptor.lineno = 253U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -6890,7 +6890,7 @@ static int cw1200_spi_irq_subscribe(struct hwbus_priv *self )
                                     & cw1200_spi_irq_handler, 8196UL, "cw1200_wlan_irq",
                                     (void *)self);
   __ret_warn_on = ret < 0;
-  tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -6900,7 +6900,7 @@ static int cw1200_spi_irq_subscribe(struct hwbus_priv *self )
 
   }
   {
-  tmp___1 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___1 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp___1 != 0L) {
     goto exit;
@@ -6910,7 +6910,7 @@ static int cw1200_spi_irq_subscribe(struct hwbus_priv *self )
   {
   ret = enable_irq_wake((unsigned int )(self->func)->irq);
   __ret_warn_on___0 = ret != 0;
-  tmp___2 = __builtin_expect(__ret_warn_on___0 != 0, 0L);
+  tmp___2 = ldv__builtin_expect(__ret_warn_on___0 != 0, 0L);
   }
   if (tmp___2 != 0L) {
     {
@@ -6920,7 +6920,7 @@ static int cw1200_spi_irq_subscribe(struct hwbus_priv *self )
 
   }
   {
-  tmp___3 = __builtin_expect(__ret_warn_on___0 != 0, 0L);
+  tmp___3 = ldv__builtin_expect(__ret_warn_on___0 != 0, 0L);
   }
   if (tmp___3 != 0L) {
     goto free_irq;
@@ -6951,7 +6951,7 @@ static int cw1200_spi_irq_unsubscribe(struct hwbus_priv *self )
   descriptor.format = "SW IRQ unsubscribe\n";
   descriptor.lineno = 278U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -7333,7 +7333,7 @@ void ldv_dummy_resourceless_instance_callback_4_9(int (*arg0)(struct hwbus_priv 
                                                   unsigned int arg2 , void *arg3 ,
                                                   int arg4 ) ;
 void ldv_entry_EMGentry_9(void *arg0 ) ;
-void main(void) ;
+int main(void) ;
 void ldv_free_irq(void *arg0 , int arg1 , void *arg2 ) ;
 void ldv_initialize_external_data(void) ;
 enum irqreturn ldv_interrupt_instance_handler_1_5(enum irqreturn (*arg0)(int  , void * ) ,
@@ -8013,7 +8013,7 @@ void ldv_entry_EMGentry_9(void *arg0 )
   return;
 }
 }
-void main(void) 
+int main(void) 
 { 
   int tmp ;
 
@@ -10027,7 +10027,7 @@ void *ldv_kzalloc(size_t size , gfp_t flags )
 }
 }
 extern void ldv_assert(char const   * , int  ) ;
-void __builtin_trap(void) ;
+void ldv__builtin_trap(void) ;
 void ldv_assume(int expression ) 
 { 
 
@@ -10051,7 +10051,7 @@ void ldv_stop(void)
   goto ldv_stop_label;
 }
 }
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 
@@ -10059,7 +10059,7 @@ long __builtin_expect(long exp , long c )
   return (exp);
 }
 }
-void __builtin_trap(void) 
+void ldv__builtin_trap(void) 
 { 
 
 

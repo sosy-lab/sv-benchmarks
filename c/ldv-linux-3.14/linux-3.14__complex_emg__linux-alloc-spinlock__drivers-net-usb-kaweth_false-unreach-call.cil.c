@@ -5409,7 +5409,7 @@ struct ldv_thread {
    int identifier ;
    void (*function)(void * ) ;
 };
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 extern void ldv_initialize(void) ;
 int ldv_post_init(int init_ret_val ) ;
 extern void ldv_pre_probe(void) ;
@@ -5884,7 +5884,7 @@ __inline static void netif_tx_stop_queue(struct netdev_queue *dev_queue )
   {
   {
   __ret_warn_on = (unsigned long )dev_queue == (unsigned long )((struct netdev_queue *)0);
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp != 0L) {
     {
@@ -5894,7 +5894,7 @@ __inline static void netif_tx_stop_queue(struct netdev_queue *dev_queue )
 
   }
   {
-  tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -6223,7 +6223,7 @@ static int kaweth_control(struct kaweth_device *kaweth , unsigned int pipe , __u
   descriptor.format = "kaweth_control()\n";
   descriptor.lineno = 268U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -6243,7 +6243,7 @@ static int kaweth_control(struct kaweth_device *kaweth , unsigned int pipe , __u
     descriptor___0.format = "in_interrupt()\n";
     descriptor___0.lineno = 271U;
     descriptor___0.flags = 0U;
-    tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -6293,7 +6293,7 @@ static int kaweth_read_configuration(struct kaweth_device *kaweth )
   descriptor.format = "Reading kaweth configuration\n";
   descriptor.lineno = 303U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -6325,7 +6325,7 @@ static int kaweth_set_urb_size(struct kaweth_device *kaweth , __u16 urb_size )
   descriptor.format = "Setting URB size to %d\n";
   descriptor.lineno = 325U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -6358,7 +6358,7 @@ static int kaweth_set_sofs_wait(struct kaweth_device *kaweth , __u16 sofs_wait )
   descriptor.format = "Set SOFS wait to %d\n";
   descriptor.lineno = 347U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -6391,7 +6391,7 @@ static int kaweth_set_receive_filter(struct kaweth_device *kaweth , __u16 receiv
   descriptor.format = "Set receive filter to %d\n";
   descriptor.lineno = 371U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -6460,7 +6460,7 @@ static int kaweth_download_firmware(struct kaweth_device *kaweth , char const   
   descriptor.format = "High: %i, Low:%i\n";
   descriptor.lineno = 421U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -6477,7 +6477,7 @@ static int kaweth_download_firmware(struct kaweth_device *kaweth , char const   
   descriptor___0.format = "Downloading firmware at %p to kaweth device at %p\n";
   descriptor___0.lineno = 425U;
   descriptor___0.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -6495,7 +6495,7 @@ static int kaweth_download_firmware(struct kaweth_device *kaweth , char const   
   descriptor___1.format = "Firmware length: %d\n";
   descriptor___1.lineno = 426U;
   descriptor___1.flags = 0U;
-  tmp___1 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -6536,7 +6536,7 @@ static int kaweth_trigger_firmware(struct kaweth_device *kaweth , __u8 interrupt
   descriptor.format = "Triggering firmware\n";
   descriptor.lineno = 454U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -6571,7 +6571,7 @@ static int kaweth_reset(struct kaweth_device *kaweth )
   descriptor.format = "kaweth_reset(%p)\n";
   descriptor.lineno = 474U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -6605,7 +6605,7 @@ static int kaweth_reset(struct kaweth_device *kaweth )
   descriptor___0.format = "kaweth_reset() returns %d.\n";
   descriptor___0.lineno = 478U;
   descriptor___0.flags = 0U;
-  tmp___1 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -6628,7 +6628,7 @@ static void kaweth_resubmit_int_urb(struct kaweth_device *kaweth , gfp_t mf )
   {
   {
   status = ldv_usb_submit_urb_83(kaweth->irq_urb, mf);
-  tmp = __builtin_expect(status == -12, 0L);
+  tmp = ldv__builtin_expect(status == -12, 0L);
   }
   if (tmp != 0L) {
     {
@@ -6812,7 +6812,7 @@ static void kaweth_usb_receive(struct urb *urb )
   count2 = (int )urb->transfer_buffer_length;
   tmp = __le16_to_cpup((__le16 const   *)kaweth->rx_buf);
   pkt_len = tmp;
-  tmp___1 = __builtin_expect(status == -32, 0L);
+  tmp___1 = ldv__builtin_expect(status == -32, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -6825,7 +6825,7 @@ static void kaweth_usb_receive(struct urb *urb )
     descriptor.format = "Status was -EPIPE.\n";
     descriptor.lineno = 611U;
     descriptor.flags = 0U;
-    tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -6839,7 +6839,7 @@ static void kaweth_usb_receive(struct urb *urb )
 
   }
   {
-  tmp___3 = __builtin_expect((long )(status == -104 || status == -108), 0L);
+  tmp___3 = ldv__builtin_expect((long )(status == -104 || status == -108), 0L);
   }
   if (tmp___3 != 0L) {
     {
@@ -6851,7 +6851,7 @@ static void kaweth_usb_receive(struct urb *urb )
     descriptor___0.format = "Status was -ECONNRESET or -ESHUTDOWN.\n";
     descriptor___0.lineno = 618U;
     descriptor___0.flags = 0U;
-    tmp___2 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___2 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___2 != 0L) {
       {
@@ -6865,13 +6865,13 @@ static void kaweth_usb_receive(struct urb *urb )
 
   }
   {
-  tmp___5 = __builtin_expect((long )(status == -71 || status == -62), 0L);
+  tmp___5 = ldv__builtin_expect((long )(status == -71 || status == -62), 0L);
   }
   if (tmp___5 != 0L) {
     goto _L;
   } else {
     {
-    tmp___6 = __builtin_expect(status == -84, 0L);
+    tmp___6 = ldv__builtin_expect(status == -84, 0L);
     }
     if (tmp___6 != 0L) {
       _L: /* CIL Label */ 
@@ -6883,7 +6883,7 @@ static void kaweth_usb_receive(struct urb *urb )
       descriptor___1.format = "Status was -EPROTO, -ETIME, or -EILSEQ.\n";
       descriptor___1.lineno = 624U;
       descriptor___1.flags = 0U;
-      tmp___4 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+      tmp___4 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
       }
       if (tmp___4 != 0L) {
         {
@@ -6898,7 +6898,7 @@ static void kaweth_usb_receive(struct urb *urb )
     }
   }
   {
-  tmp___8 = __builtin_expect(status == -75, 0L);
+  tmp___8 = ldv__builtin_expect(status == -75, 0L);
   }
   if (tmp___8 != 0L) {
     {
@@ -6909,7 +6909,7 @@ static void kaweth_usb_receive(struct urb *urb )
     descriptor___2.format = "Status was -EOVERFLOW.\n";
     descriptor___2.lineno = 629U;
     descriptor___2.flags = 0U;
-    tmp___7 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+    tmp___7 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
     }
     if (tmp___7 != 0L) {
       {
@@ -7007,7 +7007,7 @@ static int kaweth_open(struct net_device *net )
   descriptor.format = "Opening network device.\n";
   descriptor.lineno = 688U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -7129,7 +7129,7 @@ static void kaweth_usb_transmit_complete(struct urb *urb )
   kaweth = (struct kaweth_device *)urb->context;
   skb = kaweth->tx_skb;
   status = urb->status;
-  tmp___0 = __builtin_expect(status != 0, 0L);
+  tmp___0 = ldv__builtin_expect(status != 0, 0L);
   }
   if (tmp___0 != 0L) {
     if (status != -2) {
@@ -7140,7 +7140,7 @@ static void kaweth_usb_transmit_complete(struct urb *urb )
       descriptor.format = "%s: TX status %d.\n";
       descriptor.lineno = 789U;
       descriptor.flags = 0U;
-      tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+      tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
       }
       if (tmp != 0L) {
         {
@@ -7269,7 +7269,7 @@ static void kaweth_set_rx_mode(struct net_device *net )
   descriptor.format = "Setting Rx mode to %d\n";
   descriptor.lineno = 873U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -7340,7 +7340,7 @@ static void kaweth_async_set_rx_mode(struct kaweth_device *kaweth )
     descriptor.format = "Set Rx mode to %d\n";
     descriptor.lineno = 919U;
     descriptor.flags = 0U;
-    tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp___1 != 0L) {
       {
@@ -7403,7 +7403,7 @@ static int kaweth_suspend(struct usb_interface *intf , pm_message_t message )
   descriptor.format = "Suspending device\n";
   descriptor.lineno = 954U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -7439,7 +7439,7 @@ static int kaweth_resume(struct usb_interface *intf )
   descriptor.format = "Resuming device\n";
   descriptor.lineno = 971U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -7525,7 +7525,7 @@ static int kaweth_probe(struct usb_interface *intf , struct usb_device_id  const
   descriptor.format = "Kawasaki Device Probe (Device number:%d): 0x%4.4x:0x%4.4x:0x%4.4x\n";
   descriptor.lineno = 1017U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -7543,7 +7543,7 @@ static int kaweth_probe(struct usb_interface *intf , struct usb_device_id  const
   descriptor___0.format = "Device at %p\n";
   descriptor___0.lineno = 1019U;
   descriptor___0.flags = 0U;
-  tmp___1 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -7560,7 +7560,7 @@ static int kaweth_probe(struct usb_interface *intf , struct usb_device_id  const
   descriptor___1.format = "Descriptor length: %x type: %x\n";
   descriptor___1.lineno = 1023U;
   descriptor___1.flags = 0U;
-  tmp___2 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+  tmp___2 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
   }
   if (tmp___2 != 0L) {
     {
@@ -7593,7 +7593,7 @@ static int kaweth_probe(struct usb_interface *intf , struct usb_device_id  const
   descriptor___2.format = "Resetting.\n";
   descriptor___2.lineno = 1036U;
   descriptor___2.flags = 0U;
-  tmp___4 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+  tmp___4 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
   }
   if (tmp___4 != 0L) {
     {
@@ -7721,7 +7721,7 @@ static int kaweth_probe(struct usb_interface *intf , struct usb_device_id  const
     descriptor___3.format = "Error setting URB size\n";
     descriptor___3.lineno = 1121U;
     descriptor___3.flags = 0U;
-    tmp___7 = __builtin_expect((long )descriptor___3.flags & 1L, 0L);
+    tmp___7 = ldv__builtin_expect((long )descriptor___3.flags & 1L, 0L);
     }
     if (tmp___7 != 0L) {
       {
@@ -7763,7 +7763,7 @@ static int kaweth_probe(struct usb_interface *intf , struct usb_device_id  const
   descriptor___4.format = "Initializing net device.\n";
   descriptor___4.lineno = 1140U;
   descriptor___4.flags = 0U;
-  tmp___10 = __builtin_expect((long )descriptor___4.flags & 1L, 0L);
+  tmp___10 = ldv__builtin_expect((long )descriptor___4.flags & 1L, 0L);
   }
   if (tmp___10 != 0L) {
     {
@@ -7854,7 +7854,7 @@ static int kaweth_probe(struct usb_interface *intf , struct usb_device_id  const
   descriptor___5.format = "Kaweth probe returning.\n";
   descriptor___5.lineno = 1195U;
   descriptor___5.flags = 0U;
-  tmp___14 = __builtin_expect((long )descriptor___5.flags & 1L, 0L);
+  tmp___14 = ldv__builtin_expect((long )descriptor___5.flags & 1L, 0L);
   }
   if (tmp___14 != 0L) {
     {
@@ -7923,7 +7923,7 @@ static void kaweth_disconnect(struct usb_interface *intf )
   descriptor.format = "Unregistering net device\n";
   descriptor.lineno = 1233U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -8133,7 +8133,7 @@ void ldv_dummy_resourceless_instance_callback_0_7(int (*arg0)(struct net_device 
                                                               int  ) , struct net_device *arg1 ,
                                                   int arg2 ) ;
 void ldv_entry_EMGentry_11(void *arg0 ) ;
-void main(void) ;
+int main(void) ;
 void ldv_free_netdev(void *arg0 , struct net_device *arg1 ) ;
 void ldv_initialize_external_data(void) ;
 void ldv_net_dummy_resourceless_instance_0(void *arg0 ) ;
@@ -8620,7 +8620,7 @@ void ldv_entry_EMGentry_11(void *arg0 )
   return;
 }
 }
-void main(void) 
+int main(void) 
 { 
   int tmp ;
 
@@ -10196,7 +10196,7 @@ void *ldv_kzalloc(size_t size , gfp_t flags )
 }
 }
 extern void ldv_assert(char const   * , int  ) ;
-void __builtin_trap(void) ;
+void ldv__builtin_trap(void) ;
 void ldv_assume(int expression ) 
 { 
 
@@ -10220,7 +10220,7 @@ void ldv_stop(void)
   goto ldv_stop_label;
 }
 }
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 
@@ -10228,7 +10228,7 @@ long __builtin_expect(long exp , long c )
   return (exp);
 }
 }
-void __builtin_trap(void) 
+void ldv__builtin_trap(void) 
 { 
 
 

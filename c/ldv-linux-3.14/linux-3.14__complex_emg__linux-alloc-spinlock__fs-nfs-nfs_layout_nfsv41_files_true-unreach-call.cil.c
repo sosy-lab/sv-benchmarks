@@ -7150,9 +7150,7 @@ struct ldv_thread {
    int identifier ;
    void (*function)(void * ) ;
 };
-int __builtin_bswap32(int  ) ;
-long __builtin_bswap64(long  ) ;
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 extern void ldv_initialize(void) ;
 int ldv_post_init(int init_ret_val ) ;
 void ldv_check_final_state(void) ;
@@ -7354,7 +7352,6 @@ extern void __might_sleep(char const   * , int  , int  ) ;
 extern void __bad_percpu_size(void) ;
 extern void *memcpy(void * , void const   * , size_t  ) ;
 extern void warn_slowpath_null(char const   * , int const    ) ;
-extern int ( /* missing proto */  __builtin_unreachable)() ;
 __inline static unsigned long arch_local_save_flags(void) 
 { 
   unsigned long __ret ;
@@ -7372,7 +7369,7 @@ __inline static unsigned long arch_local_save_flags(void)
   __edx = __edx;
   __ecx = __ecx;
   __eax = __eax;
-  tmp = __builtin_expect((unsigned long )pv_irq_ops.save_fl.func == (unsigned long )((void *)0),
+  tmp = ldv__builtin_expect((unsigned long )pv_irq_ops.save_fl.func == (unsigned long )((void *)0),
                          0L);
   }
   if (tmp != 0L) {
@@ -7931,12 +7928,12 @@ __inline static void kref_get(struct kref *kref )
   {
   tmp = atomic_add_return(1, & kref->refcount);
   __ret_warn_once = tmp <= 1;
-  tmp___2 = __builtin_expect(__ret_warn_once != 0, 0L);
+  tmp___2 = ldv__builtin_expect(__ret_warn_once != 0, 0L);
   }
   if (tmp___2 != 0L) {
     {
     __ret_warn_on = ! __warned;
-    tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -7946,7 +7943,7 @@ __inline static void kref_get(struct kref *kref )
 
     }
     {
-    tmp___1 = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp___1 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
     if (tmp___1 != 0L) {
       __warned = 1;
@@ -7957,7 +7954,7 @@ __inline static void kref_get(struct kref *kref )
 
   }
   {
-  __builtin_expect(__ret_warn_once != 0, 0L);
+  ldv__builtin_expect(__ret_warn_once != 0, 0L);
   }
   return;
 }
@@ -8483,7 +8480,7 @@ static void filelayout_reset_write(struct nfs_write_data *data )
   }
   if (tmp___1 == 0) {
     {
-    tmp___0 = __builtin_expect((nfs_debug & 8192U) != 0U, 0L);
+    tmp___0 = ldv__builtin_expect((nfs_debug & 8192U) != 0U, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -8521,7 +8518,7 @@ static void filelayout_reset_read(struct nfs_read_data *data )
   }
   if (tmp___1 == 0) {
     {
-    tmp___0 = __builtin_expect((nfs_debug & 8192U) != 0U, 0L);
+    tmp___0 = ldv__builtin_expect((nfs_debug & 8192U) != 0U, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -8793,7 +8790,7 @@ static int filelayout_async_handle_error(struct rpc_task *task , struct nfs4_sta
   case_neg_10076: /* CIL Label */ ;
   case_neg_10063: /* CIL Label */ 
   {
-  tmp___3 = __builtin_expect((nfs_debug & 8192U) != 0U, 0L);
+  tmp___3 = ldv__builtin_expect((nfs_debug & 8192U) != 0U, 0L);
   }
   if (tmp___3 != 0L) {
     {
@@ -8822,7 +8819,7 @@ static int filelayout_async_handle_error(struct rpc_task *task , struct nfs4_sta
   case_neg_10014: /* CIL Label */ ;
   case_neg_10083: /* CIL Label */ 
   {
-  tmp___4 = __builtin_expect((nfs_debug & 8192U) != 0U, 0L);
+  tmp___4 = ldv__builtin_expect((nfs_debug & 8192U) != 0U, 0L);
   }
   if (tmp___4 != 0L) {
     {
@@ -8845,7 +8842,7 @@ static int filelayout_async_handle_error(struct rpc_task *task , struct nfs4_sta
   case_neg_110: /* CIL Label */ ;
   case_neg_32: /* CIL Label */ 
   {
-  tmp___6 = __builtin_expect((nfs_debug & 8192U) != 0U, 0L);
+  tmp___6 = ldv__builtin_expect((nfs_debug & 8192U) != 0U, 0L);
   }
   if (tmp___6 != 0L) {
     {
@@ -8862,7 +8859,7 @@ static int filelayout_async_handle_error(struct rpc_task *task , struct nfs4_sta
   switch_default: /* CIL Label */ ;
   reset: 
   {
-  tmp___7 = __builtin_expect((nfs_debug & 8192U) != 0U, 0L);
+  tmp___7 = ldv__builtin_expect((nfs_debug & 8192U) != 0U, 0L);
   }
   if (tmp___7 != 0L) {
     {
@@ -8955,7 +8952,7 @@ static void filelayout_set_layoutcommit(struct nfs_write_data *wdata )
   }
   {
   pnfs_set_layoutcommit(wdata);
-  tmp___1 = __builtin_expect((nfs_debug & 8192U) != 0U, 0L);
+  tmp___1 = ldv__builtin_expect((nfs_debug & 8192U) != 0U, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -9023,7 +9020,7 @@ static void filelayout_read_prepare(struct rpc_task *task , void *data )
   {
   rdata = (struct nfs_read_data *)data;
   tmp = constant_test_bit(2L, (unsigned long const volatile   *)(& (rdata->args.context)->flags));
-  tmp___0 = __builtin_expect(tmp != 0, 0L);
+  tmp___0 = ldv__builtin_expect(tmp != 0, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -9038,7 +9035,7 @@ static void filelayout_read_prepare(struct rpc_task *task , void *data )
   }
   if ((int )tmp___2) {
     {
-    tmp___1 = __builtin_expect((nfs_debug & 8192U) != 0U, 0L);
+    tmp___1 = ldv__builtin_expect((nfs_debug & 8192U) != 0U, 0L);
     }
     if (tmp___1 != 0L) {
       {
@@ -9089,7 +9086,7 @@ static void filelayout_read_call_done(struct rpc_task *task , void *data )
   {
   {
   rdata = (struct nfs_read_data *)data;
-  tmp = __builtin_expect((nfs_debug & 8192U) != 0U, 0L);
+  tmp = ldv__builtin_expect((nfs_debug & 8192U) != 0U, 0L);
   }
   if (tmp != 0L) {
     {
@@ -9254,7 +9251,7 @@ static void filelayout_write_prepare(struct rpc_task *task , void *data )
   {
   wdata = (struct nfs_write_data *)data;
   tmp = constant_test_bit(2L, (unsigned long const volatile   *)(& (wdata->args.context)->flags));
-  tmp___0 = __builtin_expect(tmp != 0, 0L);
+  tmp___0 = ldv__builtin_expect(tmp != 0, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -9269,7 +9266,7 @@ static void filelayout_write_prepare(struct rpc_task *task , void *data )
   }
   if ((int )tmp___2) {
     {
-    tmp___1 = __builtin_expect((nfs_debug & 8192U) != 0U, 0L);
+    tmp___1 = ldv__builtin_expect((nfs_debug & 8192U) != 0U, 0L);
     }
     if (tmp___1 != 0L) {
       {
@@ -9445,7 +9442,7 @@ static enum pnfs_try_status filelayout_read_pagelist(struct nfs_read_data *data 
   hdr = data->header;
   lseg = hdr->lseg;
   offset = (loff_t )data->args.offset;
-  tmp = __builtin_expect((nfs_debug & 8192U) != 0U, 0L);
+  tmp = ldv__builtin_expect((nfs_debug & 8192U) != 0U, 0L);
   }
   if (tmp != 0L) {
     {
@@ -9476,7 +9473,7 @@ static enum pnfs_try_status filelayout_read_pagelist(struct nfs_read_data *data 
 
   }
   {
-  tmp___2 = __builtin_expect((nfs_debug & 8192U) != 0U, 0L);
+  tmp___2 = ldv__builtin_expect((nfs_debug & 8192U) != 0U, 0L);
   }
   if (tmp___2 != 0L) {
     {
@@ -9546,7 +9543,7 @@ static enum pnfs_try_status filelayout_write_pagelist(struct nfs_write_data *dat
 
   }
   {
-  tmp___1 = __builtin_expect((nfs_debug & 8192U) != 0U, 0L);
+  tmp___1 = ldv__builtin_expect((nfs_debug & 8192U) != 0U, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -9604,7 +9601,7 @@ static int filelayout_check_layout(struct pnfs_layout_hdr *lo , struct nfs4_file
   status = -22;
   tmp = NFS_SERVER((struct inode  const  *)lo->plh_inode);
   nfss = tmp;
-  tmp___0 = __builtin_expect((nfs_debug & 8192U) != 0U, 0L);
+  tmp___0 = ldv__builtin_expect((nfs_debug & 8192U) != 0U, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -9615,7 +9612,7 @@ static int filelayout_check_layout(struct pnfs_layout_hdr *lo , struct nfs4_file
   }
   if (lgr->range.offset != 0ULL || lgr->range.length != 0xffffffffffffffffULL) {
     {
-    tmp___1 = __builtin_expect((nfs_debug & 8192U) != 0U, 0L);
+    tmp___1 = ldv__builtin_expect((nfs_debug & 8192U) != 0U, 0L);
     }
     if (tmp___1 != 0L) {
       {
@@ -9630,7 +9627,7 @@ static int filelayout_check_layout(struct pnfs_layout_hdr *lo , struct nfs4_file
   }
   if (fl->pattern_offset > lgr->range.offset) {
     {
-    tmp___2 = __builtin_expect((nfs_debug & 8192U) != 0U, 0L);
+    tmp___2 = ldv__builtin_expect((nfs_debug & 8192U) != 0U, 0L);
     }
     if (tmp___2 != 0L) {
       {
@@ -9646,7 +9643,7 @@ static int filelayout_check_layout(struct pnfs_layout_hdr *lo , struct nfs4_file
   }
   if (fl->stripe_unit == 0U || (fl->stripe_unit & 4095U) != 0U) {
     {
-    tmp___3 = __builtin_expect((nfs_debug & 8192U) != 0U, 0L);
+    tmp___3 = ldv__builtin_expect((nfs_debug & 8192U) != 0U, 0L);
     }
     if (tmp___3 != 0L) {
       {
@@ -9689,7 +9686,7 @@ static int filelayout_check_layout(struct pnfs_layout_hdr *lo , struct nfs4_file
   fl->dsaddr = dsaddr;
   if (fl->first_stripe_index >= dsaddr->stripe_count) {
     {
-    tmp___7 = __builtin_expect((nfs_debug & 8192U) != 0U, 0L);
+    tmp___7 = ldv__builtin_expect((nfs_debug & 8192U) != 0U, 0L);
     }
     if (tmp___7 != 0L) {
       {
@@ -9704,7 +9701,7 @@ static int filelayout_check_layout(struct pnfs_layout_hdr *lo , struct nfs4_file
   }
   if (((fl->stripe_type == 1U && fl->num_fh > 1U) && fl->num_fh != dsaddr->ds_num) || (fl->stripe_type == 2U && fl->num_fh != dsaddr->stripe_count)) {
     {
-    tmp___8 = __builtin_expect((nfs_debug & 8192U) != 0U, 0L);
+    tmp___8 = ldv__builtin_expect((nfs_debug & 8192U) != 0U, 0L);
     }
     if (tmp___8 != 0L) {
       {
@@ -9720,7 +9717,7 @@ static int filelayout_check_layout(struct pnfs_layout_hdr *lo , struct nfs4_file
   }
   if (fl->stripe_unit % nfss->rsize != 0U || fl->stripe_unit % nfss->wsize != 0U) {
     {
-    tmp___9 = __builtin_expect((nfs_debug & 8192U) != 0U, 0L);
+    tmp___9 = ldv__builtin_expect((nfs_debug & 8192U) != 0U, 0L);
     }
     if (tmp___9 != 0L) {
       {
@@ -9736,7 +9733,7 @@ static int filelayout_check_layout(struct pnfs_layout_hdr *lo , struct nfs4_file
   status = 0;
   out: 
   {
-  tmp___10 = __builtin_expect((nfs_debug & 8192U) != 0U, 0L);
+  tmp___10 = ldv__builtin_expect((nfs_debug & 8192U) != 0U, 0L);
   }
   if (tmp___10 != 0L) {
     {
@@ -9825,7 +9822,7 @@ static int filelayout_decode_layout(struct pnfs_layout_hdr *flo , struct nfs4_fi
 
   {
   {
-  tmp = __builtin_expect((nfs_debug & 8192U) != 0U, 0L);
+  tmp = ldv__builtin_expect((nfs_debug & 8192U) != 0U, 0L);
   }
   if (tmp != 0L) {
     {
@@ -9847,7 +9844,7 @@ static int filelayout_decode_layout(struct pnfs_layout_hdr *flo , struct nfs4_fi
   tmp___0 = lowmem_page_address((struct page  const  *)scratch);
   xdr_set_scratch_buffer(& stream, tmp___0, 4096UL);
   p = xdr_inline_decode(& stream, 36UL);
-  tmp___1 = __builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0U),
+  tmp___1 = ldv__builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0U),
                              0L);
   }
   if (tmp___1 != 0L) {
@@ -9882,7 +9879,7 @@ static int filelayout_decode_layout(struct pnfs_layout_hdr *flo , struct nfs4_fi
   tmp___4 = p;
   p = p + 1;
   fl->num_fh = __be32_to_cpup((__be32 const   *)tmp___4);
-  tmp___5 = __builtin_expect((nfs_debug & 8192U) != 0U, 0L);
+  tmp___5 = ldv__builtin_expect((nfs_debug & 8192U) != 0U, 0L);
   }
   if (tmp___5 != 0L) {
     {
@@ -9926,7 +9923,7 @@ static int filelayout_decode_layout(struct pnfs_layout_hdr *flo , struct nfs4_fi
   }
   {
   p = xdr_inline_decode(& stream, 4UL);
-  tmp___8 = __builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0U),
+  tmp___8 = ldv__builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0U),
                              0L);
   }
   if (tmp___8 != 0L) {
@@ -9950,7 +9947,7 @@ static int filelayout_decode_layout(struct pnfs_layout_hdr *flo , struct nfs4_fi
   }
   {
   p = xdr_inline_decode(& stream, (size_t )(*(fl->fh_array + (unsigned long )i))->size);
-  tmp___11 = __builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0U),
+  tmp___11 = ldv__builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0U),
                               0L);
   }
   if (tmp___11 != 0L) {
@@ -9961,7 +9958,7 @@ static int filelayout_decode_layout(struct pnfs_layout_hdr *flo , struct nfs4_fi
   {
   memcpy((void *)(& (*(fl->fh_array + (unsigned long )i))->data), (void const   *)p,
          (size_t )(*(fl->fh_array + (unsigned long )i))->size);
-  tmp___12 = __builtin_expect((nfs_debug & 8192U) != 0U, 0L);
+  tmp___12 = ldv__builtin_expect((nfs_debug & 8192U) != 0U, 0L);
   }
   if (tmp___12 != 0L) {
     {
@@ -10003,7 +10000,7 @@ static void filelayout_free_lseg(struct pnfs_layout_segment *lseg )
   {
   tmp = FILELAYOUT_LSEG(lseg);
   fl = tmp;
-  tmp___0 = __builtin_expect((nfs_debug & 8192U) != 0U, 0L);
+  tmp___0 = ldv__builtin_expect((nfs_debug & 8192U) != 0U, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -10110,7 +10107,7 @@ static struct pnfs_layout_segment *filelayout_alloc_lseg(struct pnfs_layout_hdr 
 
   {
   {
-  tmp = __builtin_expect((nfs_debug & 8192U) != 0U, 0L);
+  tmp = ldv__builtin_expect((nfs_debug & 8192U) != 0U, 0L);
   }
   if (tmp != 0L) {
     {
@@ -10225,12 +10222,12 @@ static void filelayout_pg_init_read(struct nfs_pageio_descriptor *pgio , struct 
   {
   {
   __ret_warn_once = (unsigned long )pgio->pg_lseg != (unsigned long )((struct pnfs_layout_segment *)0);
-  tmp___1 = __builtin_expect(__ret_warn_once != 0, 0L);
+  tmp___1 = ldv__builtin_expect(__ret_warn_once != 0, 0L);
   }
   if (tmp___1 != 0L) {
     {
     __ret_warn_on = ! __warned;
-    tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
     if (tmp != 0L) {
       {
@@ -10240,7 +10237,7 @@ static void filelayout_pg_init_read(struct nfs_pageio_descriptor *pgio , struct 
 
     }
     {
-    tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
     if (tmp___0 != 0L) {
       __warned = 1;
@@ -10251,7 +10248,7 @@ static void filelayout_pg_init_read(struct nfs_pageio_descriptor *pgio , struct 
 
   }
   {
-  __builtin_expect(__ret_warn_once != 0, 0L);
+  ldv__builtin_expect(__ret_warn_once != 0, 0L);
   }
   if (req->wb_offset != req->wb_pgbase) {
     {
@@ -10289,12 +10286,12 @@ static void filelayout_pg_init_write(struct nfs_pageio_descriptor *pgio , struct
   {
   {
   __ret_warn_once = (unsigned long )pgio->pg_lseg != (unsigned long )((struct pnfs_layout_segment *)0);
-  tmp___1 = __builtin_expect(__ret_warn_once != 0, 0L);
+  tmp___1 = ldv__builtin_expect(__ret_warn_once != 0, 0L);
   }
   if (tmp___1 != 0L) {
     {
     __ret_warn_on = ! __warned;
-    tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
     if (tmp != 0L) {
       {
@@ -10304,7 +10301,7 @@ static void filelayout_pg_init_write(struct nfs_pageio_descriptor *pgio , struct
 
     }
     {
-    tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
     if (tmp___0 != 0L) {
       __warned = 1;
@@ -10315,7 +10312,7 @@ static void filelayout_pg_init_write(struct nfs_pageio_descriptor *pgio , struct
 
   }
   {
-  __builtin_expect(__ret_warn_once != 0, 0L);
+  ldv__builtin_expect(__ret_warn_once != 0, 0L);
   }
   if (req->wb_offset != req->wb_pgbase) {
     goto out_mds;
@@ -10546,7 +10543,7 @@ static int filelayout_initiate_commit(struct nfs_commit_data *data , int how )
 
   }
   {
-  tmp___1 = __builtin_expect((nfs_debug & 8192U) != 0U, 0L);
+  tmp___1 = ldv__builtin_expect((nfs_debug & 8192U) != 0U, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -11152,7 +11149,7 @@ void ldv_dummy_resourceless_instance_callback_4_9(struct pnfs_layout_segment *(*
                                                   struct pnfs_layout_hdr *arg1 , struct nfs4_layoutget_res *arg2 ,
                                                   unsigned int arg3 ) ;
 void ldv_entry_EMGentry_5(void *arg0 ) ;
-void main(void) ;
+int main(void) ;
 void ldv_initialize_external_data(void) ;
 void ldv_lib80211_crypto_ops_dummy_resourceless_instance_0(void *arg0 ) ;
 void ldv_lib80211_crypto_ops_dummy_resourceless_instance_1(void *arg0 ) ;
@@ -12204,7 +12201,7 @@ void ldv_entry_EMGentry_5(void *arg0 )
   return;
 }
 }
-void main(void) 
+int main(void) 
 { 
   int tmp ;
 
@@ -13256,7 +13253,7 @@ static bool same_sockaddr(struct sockaddr *addr1 , struct sockaddr *addr2 )
   goto ldv_53303;
   switch_default: /* CIL Label */ 
   {
-  tmp___1 = __builtin_expect((nfs_debug & 8192U) != 0U, 0L);
+  tmp___1 = ldv__builtin_expect((nfs_debug & 8192U) != 0U, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -13375,7 +13372,7 @@ static int nfs4_ds_connect(struct nfs_server *mds_srv , struct nfs4_pnfs_ds *ds 
   tmp = ERR_PTR(-5L);
   clp = (struct nfs_client *)tmp;
   status = 0;
-  tmp___0 = __builtin_expect((nfs_debug & 8192U) != 0U, 0L);
+  tmp___0 = ldv__builtin_expect((nfs_debug & 8192U) != 0U, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -13390,7 +13387,7 @@ static int nfs4_ds_connect(struct nfs_server *mds_srv , struct nfs4_pnfs_ds *ds 
   goto ldv_53349;
   ldv_53348: 
   {
-  tmp___1 = __builtin_expect((nfs_debug & 8192U) != 0U, 0L);
+  tmp___1 = ldv__builtin_expect((nfs_debug & 8192U) != 0U, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -13442,7 +13439,7 @@ static int nfs4_ds_connect(struct nfs_server *mds_srv , struct nfs4_pnfs_ds *ds 
   {
   __asm__  volatile   ("": : : "memory");
   ds->ds_clp = clp;
-  tmp___5 = __builtin_expect((nfs_debug & 8192U) != 0U, 0L);
+  tmp___5 = ldv__builtin_expect((nfs_debug & 8192U) != 0U, 0L);
   }
   if (tmp___5 != 0L) {
     {
@@ -13470,7 +13467,7 @@ static void destroy_ds(struct nfs4_pnfs_ds *ds )
 
   {
   {
-  tmp = __builtin_expect((nfs_debug & 8192U) != 0U, 0L);
+  tmp = ldv__builtin_expect((nfs_debug & 8192U) != 0U, 0L);
   }
   if (tmp != 0L) {
     {
@@ -13480,7 +13477,7 @@ static void destroy_ds(struct nfs4_pnfs_ds *ds )
 
   }
   {
-  tmp___0 = __builtin_expect((nfs_debug & 8192U) != 0U, 0L);
+  tmp___0 = ldv__builtin_expect((nfs_debug & 8192U) != 0U, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -13687,7 +13684,7 @@ static struct nfs4_pnfs_ds *nfs4_pnfs_ds_add(struct list_head *dsaddrs , gfp_t g
   }
   if (tmp___0 != 0) {
     {
-    tmp = __builtin_expect((nfs_debug & 8192U) != 0U, 0L);
+    tmp = ldv__builtin_expect((nfs_debug & 8192U) != 0U, 0L);
     }
     if (tmp != 0L) {
       {
@@ -13723,7 +13720,7 @@ static struct nfs4_pnfs_ds *nfs4_pnfs_ds_add(struct list_head *dsaddrs , gfp_t g
     INIT_LIST_HEAD(& ds->ds_node);
     ds->ds_clp = (struct nfs_client *)0;
     list_add(& ds->ds_node, & nfs4_data_server_cache);
-    tmp___2 = __builtin_expect((nfs_debug & 8192U) != 0U, 0L);
+    tmp___2 = ldv__builtin_expect((nfs_debug & 8192U) != 0U, 0L);
     }
     if (tmp___2 != 0L) {
       {
@@ -13737,7 +13734,7 @@ static struct nfs4_pnfs_ds *nfs4_pnfs_ds_add(struct list_head *dsaddrs , gfp_t g
     kfree((void const   *)remotestr);
     kfree((void const   *)ds);
     atomic_inc(& tmp_ds->ds_count);
-    tmp___4 = __builtin_expect((nfs_debug & 8192U) != 0U, 0L);
+    tmp___4 = ldv__builtin_expect((nfs_debug & 8192U) != 0U, 0L);
     }
     if (tmp___4 != 0L) {
       {
@@ -13810,7 +13807,7 @@ static struct nfs4_pnfs_ds_addr *decode_ds_addr(struct net *net , struct xdr_str
   startsep = (char *)"";
   endsep = (char *)"";
   p = xdr_inline_decode(streamp, 4UL);
-  tmp___0 = __builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0U),
+  tmp___0 = ldv__builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0U),
                              0L);
   }
   if (tmp___0 != 0L) {
@@ -13824,7 +13821,7 @@ static struct nfs4_pnfs_ds_addr *decode_ds_addr(struct net *net , struct xdr_str
   tmp___2 = __be32_to_cpup((__be32 const   *)tmp___1);
   nlen = (int )tmp___2;
   p = xdr_inline_decode(streamp, (size_t )nlen);
-  tmp___3 = __builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0U),
+  tmp___3 = ldv__builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0U),
                              0L);
   }
   if (tmp___3 != 0L) {
@@ -13835,7 +13832,7 @@ static struct nfs4_pnfs_ds_addr *decode_ds_addr(struct net *net , struct xdr_str
   {
   tmp___4 = kmalloc((size_t )(nlen + 1), gfp_flags);
   netid = (char *)tmp___4;
-  tmp___5 = __builtin_expect((unsigned long )netid == (unsigned long )((char *)0),
+  tmp___5 = ldv__builtin_expect((unsigned long )netid == (unsigned long )((char *)0),
                              0L);
   }
   if (tmp___5 != 0L) {
@@ -13847,7 +13844,7 @@ static struct nfs4_pnfs_ds_addr *decode_ds_addr(struct net *net , struct xdr_str
   *(netid + (unsigned long )nlen) = 0;
   memcpy((void *)netid, (void const   *)p, (size_t )nlen);
   p = xdr_inline_decode(streamp, 4UL);
-  tmp___6 = __builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0U),
+  tmp___6 = ldv__builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0U),
                              0L);
   }
   if (tmp___6 != 0L) {
@@ -13859,7 +13856,7 @@ static struct nfs4_pnfs_ds_addr *decode_ds_addr(struct net *net , struct xdr_str
   tmp___7 = __be32_to_cpup((__be32 const   *)p);
   rlen = (int )tmp___7;
   p = xdr_inline_decode(streamp, (size_t )rlen);
-  tmp___8 = __builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0U),
+  tmp___8 = ldv__builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0U),
                              0L);
   }
   if (tmp___8 != 0L) {
@@ -13869,7 +13866,7 @@ static struct nfs4_pnfs_ds_addr *decode_ds_addr(struct net *net , struct xdr_str
   }
   if ((unsigned int )rlen > 68U) {
     {
-    tmp___9 = __builtin_expect((nfs_debug & 8192U) != 0U, 0L);
+    tmp___9 = ldv__builtin_expect((nfs_debug & 8192U) != 0U, 0L);
     }
     if (tmp___9 != 0L) {
       {
@@ -13888,7 +13885,7 @@ static struct nfs4_pnfs_ds_addr *decode_ds_addr(struct net *net , struct xdr_str
   }
   if ((unsigned long )buf == (unsigned long )((char *)0)) {
     {
-    tmp___11 = __builtin_expect((nfs_debug & 8192U) != 0U, 0L);
+    tmp___11 = ldv__builtin_expect((nfs_debug & 8192U) != 0U, 0L);
     }
     if (tmp___11 != 0L) {
       {
@@ -13908,7 +13905,7 @@ static struct nfs4_pnfs_ds_addr *decode_ds_addr(struct net *net , struct xdr_str
   }
   if ((unsigned long )portstr == (unsigned long )((char *)0)) {
     {
-    tmp___12 = __builtin_expect((nfs_debug & 8192U) != 0U, 0L);
+    tmp___12 = ldv__builtin_expect((nfs_debug & 8192U) != 0U, 0L);
     }
     if (tmp___12 != 0L) {
       {
@@ -13927,7 +13924,7 @@ static struct nfs4_pnfs_ds_addr *decode_ds_addr(struct net *net , struct xdr_str
   }
   if ((unsigned long )portstr == (unsigned long )((char *)0)) {
     {
-    tmp___13 = __builtin_expect((nfs_debug & 8192U) != 0U, 0L);
+    tmp___13 = ldv__builtin_expect((nfs_debug & 8192U) != 0U, 0L);
     }
     if (tmp___13 != 0L) {
       {
@@ -13944,7 +13941,7 @@ static struct nfs4_pnfs_ds_addr *decode_ds_addr(struct net *net , struct xdr_str
   *portstr = 0;
   tmp___14 = kzalloc(160UL, gfp_flags);
   da = (struct nfs4_pnfs_ds_addr *)tmp___14;
-  tmp___15 = __builtin_expect((unsigned long )da == (unsigned long )((struct nfs4_pnfs_ds_addr *)0),
+  tmp___15 = ldv__builtin_expect((unsigned long )da == (unsigned long )((struct nfs4_pnfs_ds_addr *)0),
                               0L);
   }
   if (tmp___15 != 0L) {
@@ -13959,7 +13956,7 @@ static struct nfs4_pnfs_ds_addr *decode_ds_addr(struct net *net , struct xdr_str
   }
   if (tmp___17 == 0UL) {
     {
-    tmp___16 = __builtin_expect((nfs_debug & 8192U) != 0U, 0L);
+    tmp___16 = ldv__builtin_expect((nfs_debug & 8192U) != 0U, 0L);
     }
     if (tmp___16 != 0L) {
       {
@@ -14006,7 +14003,7 @@ static struct nfs4_pnfs_ds_addr *decode_ds_addr(struct net *net , struct xdr_str
   goto ldv_53428;
   switch_default: /* CIL Label */ 
   {
-  tmp___19 = __builtin_expect((nfs_debug & 8192U) != 0U, 0L);
+  tmp___19 = ldv__builtin_expect((nfs_debug & 8192U) != 0U, 0L);
   }
   if (tmp___19 != 0L) {
     {
@@ -14028,7 +14025,7 @@ static struct nfs4_pnfs_ds_addr *decode_ds_addr(struct net *net , struct xdr_str
     if (tmp___21 != 0) {
       _L: /* CIL Label */ 
       {
-      tmp___20 = __builtin_expect((nfs_debug & 8192U) != 0U, 0L);
+      tmp___20 = ldv__builtin_expect((nfs_debug & 8192U) != 0U, 0L);
       }
       if (tmp___20 != 0L) {
         {
@@ -14060,7 +14057,7 @@ static struct nfs4_pnfs_ds_addr *decode_ds_addr(struct net *net , struct xdr_str
 
   }
   {
-  tmp___27 = __builtin_expect((nfs_debug & 8192U) != 0U, 0L);
+  tmp___27 = ldv__builtin_expect((nfs_debug & 8192U) != 0U, 0L);
   }
   if (tmp___27 != 0L) {
     {
@@ -14080,7 +14077,7 @@ static struct nfs4_pnfs_ds_addr *decode_ds_addr(struct net *net , struct xdr_str
   }
   out_free_buf: 
   {
-  tmp___28 = __builtin_expect((nfs_debug & 8192U) != 0U, 0L);
+  tmp___28 = ldv__builtin_expect((nfs_debug & 8192U) != 0U, 0L);
   }
   if (tmp___28 != 0L) {
     {
@@ -14157,7 +14154,7 @@ static struct nfs4_file_layout_dsaddr *decode_device(struct inode *ino , struct 
   tmp = lowmem_page_address((struct page  const  *)scratch);
   xdr_set_scratch_buffer(& stream, tmp, 4096UL);
   p = xdr_inline_decode(& stream, 4UL);
-  tmp___0 = __builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0U),
+  tmp___0 = ldv__builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0U),
                              0L);
   }
   if (tmp___0 != 0L) {
@@ -14167,7 +14164,7 @@ static struct nfs4_file_layout_dsaddr *decode_device(struct inode *ino , struct 
   }
   {
   cnt = __be32_to_cpup((__be32 const   *)p);
-  tmp___1 = __builtin_expect((nfs_debug & 8192U) != 0U, 0L);
+  tmp___1 = ldv__builtin_expect((nfs_debug & 8192U) != 0U, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -14196,7 +14193,7 @@ static struct nfs4_file_layout_dsaddr *decode_device(struct inode *ino , struct 
   }
   {
   p = xdr_inline_decode(& stream, (size_t )(cnt << 2));
-  tmp___3 = __builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0U),
+  tmp___3 = ldv__builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0U),
                              0L);
   }
   if (tmp___3 != 0L) {
@@ -14228,7 +14225,7 @@ static struct nfs4_file_layout_dsaddr *decode_device(struct inode *ino , struct 
   }
   {
   p = xdr_inline_decode(& stream, 4UL);
-  tmp___6 = __builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0U),
+  tmp___6 = ldv__builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0U),
                              0L);
   }
   if (tmp___6 != 0L) {
@@ -14238,7 +14235,7 @@ static struct nfs4_file_layout_dsaddr *decode_device(struct inode *ino , struct 
   }
   {
   num = __be32_to_cpup((__be32 const   *)p);
-  tmp___7 = __builtin_expect((nfs_debug & 8192U) != 0U, 0L);
+  tmp___7 = ldv__builtin_expect((nfs_debug & 8192U) != 0U, 0L);
   }
   if (tmp___7 != 0L) {
     {
@@ -14290,7 +14287,7 @@ static struct nfs4_file_layout_dsaddr *decode_device(struct inode *ino , struct 
   ldv_53471: 
   {
   p = xdr_inline_decode(& stream, 4UL);
-  tmp___11 = __builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0U),
+  tmp___11 = ldv__builtin_expect((unsigned long )p == (unsigned long )((__be32 *)0U),
                               0L);
   }
   if (tmp___11 != 0L) {
@@ -14327,7 +14324,7 @@ static struct nfs4_file_layout_dsaddr *decode_device(struct inode *ino , struct 
   }
   if (tmp___14 != 0) {
     {
-    tmp___13 = __builtin_expect((nfs_debug & 8192U) != 0U, 0L);
+    tmp___13 = ldv__builtin_expect((nfs_debug & 8192U) != 0U, 0L);
     }
     if (tmp___13 != 0L) {
       {
@@ -14412,7 +14409,7 @@ static struct nfs4_file_layout_dsaddr *decode_device(struct inode *ino , struct 
   }
   out_err: 
   {
-  tmp___17 = __builtin_expect((nfs_debug & 8192U) != 0U, 0L);
+  tmp___17 = ldv__builtin_expect((nfs_debug & 8192U) != 0U, 0L);
   }
   if (tmp___17 != 0L) {
     {
@@ -14491,7 +14488,7 @@ struct nfs4_file_layout_dsaddr *filelayout_get_device_info(struct inode *inode ,
   max_resp_sz = ((server->nfs_client)->cl_session)->fc_attrs.max_resp_sz;
   tmp___0 = nfs_page_array_len(0U, (size_t )max_resp_sz);
   max_pages = (int )tmp___0;
-  tmp___1 = __builtin_expect((nfs_debug & 8192U) != 0U, 0L);
+  tmp___1 = ldv__builtin_expect((nfs_debug & 8192U) != 0U, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -14549,7 +14546,7 @@ struct nfs4_file_layout_dsaddr *filelayout_get_device_info(struct inode *inode ,
   pdev->mincount = 0U;
   pdev->maxcount = max_resp_sz - (u32 )nfs41_maxgetdevinfo_overhead;
   rc = nfs4_proc_getdeviceinfo(server, pdev, cred);
-  tmp___4 = __builtin_expect((nfs_debug & 8192U) != 0U, 0L);
+  tmp___4 = ldv__builtin_expect((nfs_debug & 8192U) != 0U, 0L);
   }
   if (tmp___4 != 0L) {
     {
@@ -14583,7 +14580,7 @@ struct nfs4_file_layout_dsaddr *filelayout_get_device_info(struct inode *inode ,
   {
   kfree((void const   *)pages);
   kfree((void const   *)pdev);
-  tmp___5 = __builtin_expect((nfs_debug & 8192U) != 0U, 0L);
+  tmp___5 = ldv__builtin_expect((nfs_debug & 8192U) != 0U, 0L);
   }
   if (tmp___5 != 0L) {
     {
@@ -15596,7 +15593,7 @@ void *ldv_kzalloc(size_t size , gfp_t flags )
 }
 }
 extern void ldv_assert(char const   * , int  ) ;
-void __builtin_trap(void) ;
+void ldv__builtin_trap(void) ;
 void ldv_assume(int expression ) 
 { 
 
@@ -15620,7 +15617,7 @@ void ldv_stop(void)
   goto ldv_stop_label;
 }
 }
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 
@@ -15628,7 +15625,7 @@ long __builtin_expect(long exp , long c )
   return (exp);
 }
 }
-void __builtin_trap(void) 
+void ldv__builtin_trap(void) 
 { 
 
 

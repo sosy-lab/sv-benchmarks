@@ -4898,9 +4898,7 @@ struct ldv_thread {
    void (*function)(void * ) ;
 };
 typedef _Bool ldv_set;
-int __builtin_bswap32(int  ) ;
-long __builtin_bswap64(long  ) ;
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 void ldv_assume(int expression ) ;
 void ldv_linux_alloc_irq_check_alloc_flags(gfp_t flags ) ;
 void ldv_linux_alloc_irq_check_alloc_nonatomic(void) ;
@@ -5106,7 +5104,6 @@ extern void *__memset(void * , int  , size_t  ) ;
 extern int memcmp(void const   * , void const   * , size_t  ) ;
 extern int strncmp(char const   * , char const   * , __kernel_size_t  ) ;
 extern __kernel_size_t strnlen(char const   * , __kernel_size_t  ) ;
-extern int ( /* missing proto */  __builtin_unreachable)() ;
 __inline static void *ERR_PTR(long error ) ;
 __inline static long PTR_ERR(void const   *ptr ) ;
 __inline static bool IS_ERR(void const   *ptr ) 
@@ -5115,7 +5112,7 @@ __inline static bool IS_ERR(void const   *ptr )
 
   {
   {
-  tmp = __builtin_expect((unsigned long )ptr > 0xfffffffffffff000UL, 0L);
+  tmp = ldv__builtin_expect((unsigned long )ptr > 0xfffffffffffff000UL, 0L);
   }
   return (tmp != 0L);
 }
@@ -5207,7 +5204,7 @@ __inline static int ubi_io_read_data(struct ubi_device  const  *ubi , void *buf 
 
   {
   {
-  tmp___0 = __builtin_expect(offset < 0, 0L);
+  tmp___0 = ldv__builtin_expect(offset < 0, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -5234,7 +5231,7 @@ __inline static int ubi_io_write_data(struct ubi_device *ubi , void const   *buf
 
   {
   {
-  tmp___0 = __builtin_expect(offset < 0, 0L);
+  tmp___0 = ldv__builtin_expect(offset < 0, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -5280,7 +5277,7 @@ int ubi_change_vtbl_record(struct ubi_device *ubi , int idx , struct ubi_vtbl_re
 
   {
   {
-  tmp___0 = __builtin_expect(idx < 0, 0L);
+  tmp___0 = ldv__builtin_expect(idx < 0, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -5291,7 +5288,7 @@ int ubi_change_vtbl_record(struct ubi_device *ubi , int idx , struct ubi_vtbl_re
     }
   } else {
     {
-    tmp___1 = __builtin_expect(idx >= ubi->vtbl_slots, 0L);
+    tmp___1 = ldv__builtin_expect(idx >= ubi->vtbl_slots, 0L);
     }
     if (tmp___1 != 0L) {
       {
@@ -5655,7 +5652,7 @@ static int create_vtbl(struct ubi_device *ubi , struct ubi_attach_info *ai , int
   descriptor.format = "UBI DBG gen (pid %d): create volume table (copy #%d)\n";
   descriptor.lineno = 302U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -5777,7 +5774,7 @@ static struct ubi_vtbl_record *process_lvol(struct ubi_device *ubi , struct ubi_
   descriptor.format = "UBI DBG gen (pid %d): check layout volume\n";
   descriptor.lineno = 403U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -6071,7 +6068,7 @@ static int init_volumes(struct ubi_device *ubi , struct ubi_attach_info  const  
 
   }
   {
-  tmp___6 = __builtin_expect((unsigned long )ubi->volumes[i] != (unsigned long )((struct ubi_volume *)0),
+  tmp___6 = ldv__builtin_expect((unsigned long )ubi->volumes[i] != (unsigned long )((struct ubi_volume *)0),
                              0L);
   }
   if (tmp___6 != 0L) {
@@ -6146,7 +6143,7 @@ static int init_volumes(struct ubi_device *ubi , struct ubi_attach_info  const  
   vol->used_bytes = (long long )vol->used_ebs * (long long )(ubi->leb_size - vol->data_pad);
   vol->vol_id = 2147479551;
   vol->ref_count = 1;
-  tmp___9 = __builtin_expect((unsigned long )ubi->volumes[i] != (unsigned long )((struct ubi_volume *)0),
+  tmp___9 = ldv__builtin_expect((unsigned long )ubi->volumes[i] != (unsigned long )((struct ubi_volume *)0),
                              0L);
   }
   if (tmp___9 != 0L) {
@@ -6283,7 +6280,7 @@ static int check_attaching_info(struct ubi_device  const  *ubi , struct ubi_atta
   }
   if (vol->reserved_pebs == 0) {
     {
-    tmp___0 = __builtin_expect(i >= (int )ubi->vtbl_slots, 0L);
+    tmp___0 = ldv__builtin_expect(i >= (int )ubi->vtbl_slots, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -6764,7 +6761,7 @@ static ssize_t vol_attribute_show(struct device *dev , struct device_attribute *
   {
   ldv_spin_lock_95(& ubi->volumes_lock);
   vol->ref_count = vol->ref_count + -1;
-  tmp___0 = __builtin_expect(vol->ref_count < 0, 0L);
+  tmp___0 = ldv__builtin_expect(vol->ref_count < 0, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -6937,7 +6934,7 @@ int ubi_create_volume(struct ubi_device *ubi , struct ubi_mkvol_req *req )
     descriptor.format = "UBI DBG gen (pid %d): search for vacant volume ID\n";
     descriptor.lineno = 218U;
     descriptor.flags = 0U;
-    tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp___1 != 0L) {
       {
@@ -6985,7 +6982,7 @@ int ubi_create_volume(struct ubi_device *ubi , struct ubi_mkvol_req *req )
   descriptor___0.format = "UBI DBG gen (pid %d): create device %d, volume %d, %llu bytes, type %d, name %s\n";
   descriptor___0.lineno = 235U;
   descriptor___0.flags = 0U;
-  tmp___3 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___3 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
   }
   if (tmp___3 != 0L) {
     {
@@ -7255,7 +7252,7 @@ int ubi_remove_volume(struct ubi_volume_desc *desc , int no_vtbl )
   descriptor.format = "UBI DBG gen (pid %d): remove device %d, volume %d\n";
   descriptor.lineno = 411U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -7267,7 +7264,7 @@ int ubi_remove_volume(struct ubi_volume_desc *desc , int no_vtbl )
 
   }
   {
-  tmp___2 = __builtin_expect(desc->mode != 3, 0L);
+  tmp___2 = ldv__builtin_expect(desc->mode != 3, 0L);
   }
   if (tmp___2 != 0L) {
     {
@@ -7280,7 +7277,7 @@ int ubi_remove_volume(struct ubi_volume_desc *desc , int no_vtbl )
 
   }
   {
-  tmp___4 = __builtin_expect((unsigned long )vol != (unsigned long )ubi->volumes[vol_id],
+  tmp___4 = ldv__builtin_expect((unsigned long )vol != (unsigned long )ubi->volumes[vol_id],
                              0L);
   }
   if (tmp___4 != 0L) {
@@ -7406,7 +7403,7 @@ int ubi_resize_volume(struct ubi_volume_desc *desc , int reserved_pebs )
   descriptor.format = "UBI DBG gen (pid %d): re-size device %d, volume %d to from %d to %d PEBs\n";
   descriptor.lineno = 488U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -7676,7 +7673,7 @@ int ubi_add_volume(struct ubi_device *ubi , struct ubi_volume *vol )
   descriptor.format = "UBI DBG gen (pid %d): add volume %d\n";
   descriptor.lineno = 640U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -7752,7 +7749,7 @@ void ubi_free_volume(struct ubi_device *ubi , struct ubi_volume *vol )
   descriptor.format = "UBI DBG gen (pid %d): free volume %d\n";
   descriptor.lineno = 687U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -8311,7 +8308,7 @@ __inline static unsigned long copy_from_user(void *to , void const   *from , uns
   {
   sz = -1;
   might_fault();
-  tmp = __builtin_expect(sz < 0, 1L);
+  tmp = ldv__builtin_expect(sz < 0, 1L);
   }
   if (tmp != 0L) {
     {
@@ -8319,7 +8316,7 @@ __inline static unsigned long copy_from_user(void *to , void const   *from , uns
     }
   } else {
     {
-    tmp___0 = __builtin_expect((unsigned long )sz >= n, 1L);
+    tmp___0 = ldv__builtin_expect((unsigned long )sz >= n, 1L);
     }
     if (tmp___0 != 0L) {
       {
@@ -8366,7 +8363,7 @@ static int set_update_marker(struct ubi_device *ubi , struct ubi_volume *vol )
   descriptor.format = "UBI DBG gen (pid %d): set update marker for volume %d\n";
   descriptor.lineno = 59U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -8379,7 +8376,7 @@ static int set_update_marker(struct ubi_device *ubi , struct ubi_volume *vol )
   }
   if ((unsigned int )*((unsigned char *)vol + 1992UL) != 0U) {
     {
-    tmp___2 = __builtin_expect((unsigned int )(ubi->vtbl + (unsigned long )vol->vol_id)->upd_marker == 0U,
+    tmp___2 = ldv__builtin_expect((unsigned int )(ubi->vtbl + (unsigned long )vol->vol_id)->upd_marker == 0U,
                                0L);
     }
     if (tmp___2 != 0L) {
@@ -8399,7 +8396,7 @@ static int set_update_marker(struct ubi_device *ubi , struct ubi_volume *vol )
     descriptor___0.format = "UBI DBG gen (pid %d): already set\n";
     descriptor___0.lineno = 63U;
     descriptor___0.flags = 0U;
-    tmp___4 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___4 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___4 != 0L) {
       {
@@ -8445,7 +8442,7 @@ static int clear_update_marker(struct ubi_device *ubi , struct ubi_volume *vol ,
   descriptor.format = "UBI DBG gen (pid %d): clear update marker for volume %d\n";
   descriptor.lineno = 93U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -8458,7 +8455,7 @@ static int clear_update_marker(struct ubi_device *ubi , struct ubi_volume *vol ,
   }
   {
   vtbl_rec = *(ubi->vtbl + (unsigned long )vol->vol_id);
-  tmp___2 = __builtin_expect((unsigned int )*((unsigned char *)vol + 1992UL) == 0U,
+  tmp___2 = ldv__builtin_expect((unsigned int )*((unsigned char *)vol + 1992UL) == 0U,
                              0L);
   }
   if (tmp___2 != 0L) {
@@ -8470,7 +8467,7 @@ static int clear_update_marker(struct ubi_device *ubi , struct ubi_volume *vol ,
     }
   } else {
     {
-    tmp___3 = __builtin_expect((unsigned int )vtbl_rec.upd_marker == 0U, 0L);
+    tmp___3 = ldv__builtin_expect((unsigned int )vtbl_rec.upd_marker == 0U, 0L);
     }
     if (tmp___3 != 0L) {
       {
@@ -8527,7 +8524,7 @@ int ubi_start_update(struct ubi_device *ubi , struct ubi_volume *vol , long long
   descriptor.format = "UBI DBG gen (pid %d): start update of volume %d, %llu bytes\n";
   descriptor.lineno = 132U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -8539,7 +8536,7 @@ int ubi_start_update(struct ubi_device *ubi , struct ubi_volume *vol , long long
 
   }
   {
-  tmp___2 = __builtin_expect((unsigned int )*((unsigned char *)vol + 1992UL) != 0U,
+  tmp___2 = ldv__builtin_expect((unsigned int )*((unsigned char *)vol + 1992UL) != 0U,
                              0L);
   }
   if (tmp___2 != 0L) {
@@ -8633,7 +8630,7 @@ int ubi_start_leb_change(struct ubi_device *ubi , struct ubi_volume *vol , struc
 
   {
   {
-  tmp___0 = __builtin_expect((unsigned int )*((unsigned char *)vol + 1992UL) != 0U,
+  tmp___0 = ldv__builtin_expect((unsigned int )*((unsigned char *)vol + 1992UL) != 0U,
                              0L);
   }
   if (tmp___0 != 0L) {
@@ -8653,7 +8650,7 @@ int ubi_start_leb_change(struct ubi_device *ubi , struct ubi_volume *vol , struc
   descriptor.format = "UBI DBG gen (pid %d): start changing LEB %d:%d, %u bytes\n";
   descriptor.lineno = 187U;
   descriptor.flags = 0U;
-  tmp___2 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___2 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___2 != 0L) {
     {
@@ -8712,7 +8709,7 @@ static int write_leb(struct ubi_device *ubi , struct ubi_volume *vol , int lnum 
       descriptor.format = "UBI DBG gen (pid %d): all %d bytes contain 0xFF - skip\n";
       descriptor.lineno = 243U;
       descriptor.flags = 0U;
-      tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+      tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
       }
       if (tmp___0 != 0L) {
         {
@@ -8769,7 +8766,7 @@ int ubi_more_update_data(struct ubi_device *ubi , struct ubi_volume *vol , void 
   descriptor.format = "UBI DBG gen (pid %d): write %d of %lld bytes, %lld already passed\n";
   descriptor.lineno = 284U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -8814,7 +8811,7 @@ int ubi_more_update_data(struct ubi_device *ubi , struct ubi_volume *vol , void 
     if (offs + len == vol->usable_leb_size || vol->upd_received + (long long )len == vol->upd_bytes) {
       {
       flush_len = offs + len;
-      tmp___4 = __builtin_expect(flush_len > vol->usable_leb_size, 0L);
+      tmp___4 = ldv__builtin_expect(flush_len > vol->usable_leb_size, 0L);
       }
       if (tmp___4 != 0L) {
         {
@@ -8884,7 +8881,7 @@ int ubi_more_update_data(struct ubi_device *ubi , struct ubi_volume *vol , void 
   }
   ldv_31447: 
   {
-  tmp___7 = __builtin_expect(vol->upd_received > vol->upd_bytes, 0L);
+  tmp___7 = ldv__builtin_expect(vol->upd_received > vol->upd_bytes, 0L);
   }
   if (tmp___7 != 0L) {
     {
@@ -8944,7 +8941,7 @@ int ubi_more_leb_change_data(struct ubi_device *ubi , struct ubi_volume *vol , v
   descriptor.format = "UBI DBG gen (pid %d): write %d of %lld bytes, %lld already passed\n";
   descriptor.lineno = 399U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -8994,7 +8991,7 @@ int ubi_more_leb_change_data(struct ubi_device *ubi , struct ubi_volume *vol , v
 
   }
   {
-  tmp___3 = __builtin_expect(vol->upd_received > vol->upd_bytes, 0L);
+  tmp___3 = ldv__builtin_expect(vol->upd_received > vol->upd_bytes, 0L);
   }
   if (tmp___3 != 0L) {
     {
@@ -9584,7 +9581,7 @@ struct ubi_device *ubi_get_device(int ubi_num )
   }
   if ((unsigned long )ubi != (unsigned long )((struct ubi_device *)0)) {
     {
-    tmp___0 = __builtin_expect(ubi->ref_count < 0, 0L);
+    tmp___0 = ldv__builtin_expect(ubi->ref_count < 0, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -9640,7 +9637,7 @@ struct ubi_device *ubi_get_by_major(int major )
   ubi = ubi_devices[i];
   if ((unsigned long )ubi != (unsigned long )((struct ubi_device *)0) && ubi->cdev.dev >> 20 == (dev_t )major) {
     {
-    tmp___0 = __builtin_expect(ubi->ref_count < 0, 0L);
+    tmp___0 = ldv__builtin_expect(ubi->ref_count < 0, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -10006,7 +10003,7 @@ static int uif_init(struct ubi_device *ubi , int *ref )
 
   }
   {
-  tmp___0 = __builtin_expect((dev & 1048575U) != 0U, 0L);
+  tmp___0 = ldv__builtin_expect((dev & 1048575U) != 0U, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -10025,7 +10022,7 @@ static int uif_init(struct ubi_device *ubi , int *ref )
   descriptor.format = "UBI DBG gen (pid %d): %s major is %u\n";
   descriptor.lineno = 526U;
   descriptor.flags = 0U;
-  tmp___2 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___2 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___2 != 0L) {
     {
@@ -10243,7 +10240,7 @@ static int io_init(struct ubi_device *ubi , int max_beb_per1024 )
   descriptor.format = "UBI DBG gen (pid %d): sizeof(struct ubi_ainf_peb) %zu\n";
   descriptor.lineno = 641U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -10261,7 +10258,7 @@ static int io_init(struct ubi_device *ubi , int max_beb_per1024 )
   descriptor___0.format = "UBI DBG gen (pid %d): sizeof(struct ubi_wl_entry) %zu\n";
   descriptor___0.lineno = 642U;
   descriptor___0.flags = 0U;
-  tmp___2 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___2 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
   }
   if (tmp___2 != 0L) {
     {
@@ -10303,7 +10300,7 @@ static int io_init(struct ubi_device *ubi , int max_beb_per1024 )
   }
   if ((unsigned int )(ubi->mtd)->type == 3U) {
     {
-    tmp___6 = __builtin_expect((ubi->mtd)->writesize != 1U, 0L);
+    tmp___6 = ldv__builtin_expect((ubi->mtd)->writesize != 1U, 0L);
     }
     if (tmp___6 != 0L) {
       {
@@ -10338,7 +10335,7 @@ static int io_init(struct ubi_device *ubi , int max_beb_per1024 )
 
   }
   {
-  tmp___10 = __builtin_expect(ubi->hdrs_min_io_size <= 0, 0L);
+  tmp___10 = ldv__builtin_expect(ubi->hdrs_min_io_size <= 0, 0L);
   }
   if (tmp___10 != 0L) {
     {
@@ -10350,7 +10347,7 @@ static int io_init(struct ubi_device *ubi , int max_beb_per1024 )
 
   }
   {
-  tmp___12 = __builtin_expect(ubi->hdrs_min_io_size > ubi->min_io_size, 0L);
+  tmp___12 = ldv__builtin_expect(ubi->hdrs_min_io_size > ubi->min_io_size, 0L);
   }
   if (tmp___12 != 0L) {
     {
@@ -10362,7 +10359,7 @@ static int io_init(struct ubi_device *ubi , int max_beb_per1024 )
 
   }
   {
-  tmp___14 = __builtin_expect(ubi->min_io_size % ubi->hdrs_min_io_size != 0, 0L);
+  tmp___14 = ldv__builtin_expect(ubi->min_io_size % ubi->hdrs_min_io_size != 0, 0L);
   }
   if (tmp___14 != 0L) {
     {
@@ -10408,7 +10405,7 @@ static int io_init(struct ubi_device *ubi , int max_beb_per1024 )
   descriptor___1.format = "UBI DBG gen (pid %d): min_io_size      %d\n";
   descriptor___1.lineno = 715U;
   descriptor___1.flags = 0U;
-  tmp___18 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+  tmp___18 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
   }
   if (tmp___18 != 0L) {
     {
@@ -10426,7 +10423,7 @@ static int io_init(struct ubi_device *ubi , int max_beb_per1024 )
   descriptor___2.format = "UBI DBG gen (pid %d): max_write_size   %d\n";
   descriptor___2.lineno = 716U;
   descriptor___2.flags = 0U;
-  tmp___20 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+  tmp___20 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
   }
   if (tmp___20 != 0L) {
     {
@@ -10444,7 +10441,7 @@ static int io_init(struct ubi_device *ubi , int max_beb_per1024 )
   descriptor___3.format = "UBI DBG gen (pid %d): hdrs_min_io_size %d\n";
   descriptor___3.lineno = 717U;
   descriptor___3.flags = 0U;
-  tmp___22 = __builtin_expect((long )descriptor___3.flags & 1L, 0L);
+  tmp___22 = ldv__builtin_expect((long )descriptor___3.flags & 1L, 0L);
   }
   if (tmp___22 != 0L) {
     {
@@ -10462,7 +10459,7 @@ static int io_init(struct ubi_device *ubi , int max_beb_per1024 )
   descriptor___4.format = "UBI DBG gen (pid %d): ec_hdr_alsize    %d\n";
   descriptor___4.lineno = 718U;
   descriptor___4.flags = 0U;
-  tmp___24 = __builtin_expect((long )descriptor___4.flags & 1L, 0L);
+  tmp___24 = ldv__builtin_expect((long )descriptor___4.flags & 1L, 0L);
   }
   if (tmp___24 != 0L) {
     {
@@ -10480,7 +10477,7 @@ static int io_init(struct ubi_device *ubi , int max_beb_per1024 )
   descriptor___5.format = "UBI DBG gen (pid %d): vid_hdr_alsize   %d\n";
   descriptor___5.lineno = 719U;
   descriptor___5.flags = 0U;
-  tmp___26 = __builtin_expect((long )descriptor___5.flags & 1L, 0L);
+  tmp___26 = ldv__builtin_expect((long )descriptor___5.flags & 1L, 0L);
   }
   if (tmp___26 != 0L) {
     {
@@ -10508,7 +10505,7 @@ static int io_init(struct ubi_device *ubi , int max_beb_per1024 )
   descriptor___6.format = "UBI DBG gen (pid %d): vid_hdr_offset   %d\n";
   descriptor___6.lineno = 736U;
   descriptor___6.flags = 0U;
-  tmp___29 = __builtin_expect((long )descriptor___6.flags & 1L, 0L);
+  tmp___29 = ldv__builtin_expect((long )descriptor___6.flags & 1L, 0L);
   }
   if (tmp___29 != 0L) {
     {
@@ -10526,7 +10523,7 @@ static int io_init(struct ubi_device *ubi , int max_beb_per1024 )
   descriptor___7.format = "UBI DBG gen (pid %d): vid_hdr_aloffset %d\n";
   descriptor___7.lineno = 737U;
   descriptor___7.flags = 0U;
-  tmp___31 = __builtin_expect((long )descriptor___7.flags & 1L, 0L);
+  tmp___31 = ldv__builtin_expect((long )descriptor___7.flags & 1L, 0L);
   }
   if (tmp___31 != 0L) {
     {
@@ -10544,7 +10541,7 @@ static int io_init(struct ubi_device *ubi , int max_beb_per1024 )
   descriptor___8.format = "UBI DBG gen (pid %d): vid_hdr_shift    %d\n";
   descriptor___8.lineno = 738U;
   descriptor___8.flags = 0U;
-  tmp___33 = __builtin_expect((long )descriptor___8.flags & 1L, 0L);
+  tmp___33 = ldv__builtin_expect((long )descriptor___8.flags & 1L, 0L);
   }
   if (tmp___33 != 0L) {
     {
@@ -10562,7 +10559,7 @@ static int io_init(struct ubi_device *ubi , int max_beb_per1024 )
   descriptor___9.format = "UBI DBG gen (pid %d): leb_start        %d\n";
   descriptor___9.lineno = 739U;
   descriptor___9.flags = 0U;
-  tmp___35 = __builtin_expect((long )descriptor___9.flags & 1L, 0L);
+  tmp___35 = ldv__builtin_expect((long )descriptor___9.flags & 1L, 0L);
   }
   if (tmp___35 != 0L) {
     {
@@ -10604,7 +10601,7 @@ static int io_init(struct ubi_device *ubi , int max_beb_per1024 )
   descriptor___10.format = "UBI DBG gen (pid %d): max_erroneous    %d\n";
   descriptor___10.lineno = 765U;
   descriptor___10.flags = 0U;
-  tmp___37 = __builtin_expect((long )descriptor___10.flags & 1L, 0L);
+  tmp___37 = ldv__builtin_expect((long )descriptor___10.flags & 1L, 0L);
   }
   if (tmp___37 != 0L) {
     {
@@ -10976,7 +10973,7 @@ int ubi_attach_mtd_dev(struct mtd_info *mtd , int ubi_num , int vid_hdr_offset ,
   out_uif: 
   {
   get_device(& ubi->dev);
-  tmp___7 = __builtin_expect(ref == 0, 0L);
+  tmp___7 = ldv__builtin_expect(ref == 0, 0L);
   }
   if (tmp___7 != 0L) {
     {
@@ -11058,7 +11055,7 @@ int ubi_detach_mtd_dev(int ubi_num , int anyway )
   {
   ubi_devices[ubi_num] = (struct ubi_device *)0;
   ldv_spin_unlock_98(& ubi_devices_lock);
-  tmp___0 = __builtin_expect(ubi_num != ubi->ubi_num, 0L);
+  tmp___0 = ldv__builtin_expect(ubi_num != ubi->ubi_num, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -11644,7 +11641,7 @@ void ldv_dummy_resourceless_instance_callback_6_3(int (*arg0)(char * , struct ke
 void ldv_dummy_resourceless_instance_callback_7_3(int (*arg0)(char * , struct kernel_param * ) ,
                                                   char *arg1 , struct kernel_param *arg2 ) ;
 void ldv_entry_EMGentry_15(void *arg0 ) ;
-void main(void) ;
+int main(void) ;
 void ldv_file_operations_file_operations_instance_0(void *arg0 ) ;
 void ldv_file_operations_file_operations_instance_1(void *arg0 ) ;
 void ldv_file_operations_file_operations_instance_2(void *arg0 ) ;
@@ -12009,7 +12006,7 @@ void ldv_entry_EMGentry_15(void *arg0 )
   return;
 }
 }
-void main(void) 
+int main(void) 
 { 
 
 
@@ -12018,7 +12015,7 @@ void main(void)
   ldv_ldv_initialize_133();
   ldv_entry_EMGentry_15((void *)0);
   }
-  return;
+return 0;
 }
 }
 void ldv_file_operations_instance_callback_0_22(int (*arg0)(struct file * , long long  ,
@@ -12813,7 +12810,7 @@ __inline static unsigned long copy_to_user(void *to , void const   *from , unsig
   {
   sz = -1;
   might_fault();
-  tmp = __builtin_expect(sz < 0, 1L);
+  tmp = ldv__builtin_expect(sz < 0, 1L);
   }
   if (tmp != 0L) {
     {
@@ -12821,7 +12818,7 @@ __inline static unsigned long copy_to_user(void *to , void const   *from , unsig
     }
   } else {
     {
-    tmp___0 = __builtin_expect((unsigned long )sz >= n, 1L);
+    tmp___0 = ldv__builtin_expect((unsigned long )sz >= n, 1L);
     }
     if (tmp___0 != 0L) {
       {
@@ -12875,7 +12872,7 @@ static int get_exclusive(struct ubi_volume_desc *desc )
   vol = desc->vol;
   ldv_spin_lock_95(& (vol->ubi)->volumes_lock);
   users = ((vol->readers + vol->writers) + vol->exclusive) + vol->metaonly;
-  tmp___0 = __builtin_expect(users <= 0, 0L);
+  tmp___0 = ldv__builtin_expect(users <= 0, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -12922,7 +12919,7 @@ static void revoke_exclusive(struct ubi_volume_desc *desc , int mode )
   {
   vol = desc->vol;
   ldv_spin_lock_95(& (vol->ubi)->volumes_lock);
-  tmp___0 = __builtin_expect(((unsigned long )*((long *)vol + 220UL) & 0xffffffffffffffffUL) != 0UL,
+  tmp___0 = ldv__builtin_expect(((unsigned long )*((long *)vol + 220UL) & 0xffffffffffffffffUL) != 0UL,
                              0L);
   }
   if (tmp___0 != 0L) {
@@ -12933,7 +12930,7 @@ static void revoke_exclusive(struct ubi_volume_desc *desc , int mode )
     }
   } else {
     {
-    tmp___1 = __builtin_expect(vol->metaonly != 0, 0L);
+    tmp___1 = ldv__builtin_expect(vol->metaonly != 0, 0L);
     }
     if (tmp___1 != 0L) {
       {
@@ -12947,7 +12944,7 @@ static void revoke_exclusive(struct ubi_volume_desc *desc , int mode )
     }
   }
   {
-  tmp___3 = __builtin_expect(vol->exclusive != 1, 0L);
+  tmp___3 = ldv__builtin_expect(vol->exclusive != 1, 0L);
   }
   if (tmp___3 != 0L) {
     {
@@ -12957,7 +12954,7 @@ static void revoke_exclusive(struct ubi_volume_desc *desc , int mode )
     }
   } else {
     {
-    tmp___4 = __builtin_expect(desc->mode != 3, 0L);
+    tmp___4 = ldv__builtin_expect(desc->mode != 3, 0L);
     }
     if (tmp___4 != 0L) {
       {
@@ -13027,7 +13024,7 @@ static int vol_cdev_open(struct inode *inode , struct file *file )
   descriptor.format = "UBI DBG gen (pid %d): open device %d, volume %d, mode %d\n";
   descriptor.lineno = 120U;
   descriptor.flags = 0U;
-  tmp___2 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___2 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___2 != 0L) {
     {
@@ -13077,7 +13074,7 @@ static int vol_cdev_release(struct inode *inode , struct file *file )
   descriptor.format = "UBI DBG gen (pid %d): release device %d, volume %d, mode %d\n";
   descriptor.lineno = 136U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -13092,7 +13089,7 @@ static int vol_cdev_release(struct inode *inode , struct file *file )
     {
     printk("\fubi%d warning: %s: update of volume %d not finished, volume is damaged\n",
            (vol->ubi)->ubi_num, "vol_cdev_release", vol->vol_id);
-    tmp___2 = __builtin_expect((unsigned int )*((unsigned char *)vol + 1992UL) != 0U,
+    tmp___2 = ldv__builtin_expect((unsigned int )*((unsigned char *)vol + 1992UL) != 0U,
                                0L);
     }
     if (tmp___2 != 0L) {
@@ -13118,7 +13115,7 @@ static int vol_cdev_release(struct inode *inode , struct file *file )
     descriptor___0.format = "UBI DBG gen (pid %d): only %lld of %lld bytes received for atomic LEB change for volume %d:%d, cancel\n";
     descriptor___0.lineno = 147U;
     descriptor___0.flags = 0U;
-    tmp___4 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___4 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___4 != 0L) {
       {
@@ -13220,7 +13217,7 @@ static ssize_t vol_cdev_read(struct file *file , char *buf , size_t count , loff
   descriptor.format = "UBI DBG gen (pid %d): read %zd bytes from offset %lld of volume %d\n";
   descriptor.lineno = 195U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -13261,7 +13258,7 @@ static ssize_t vol_cdev_read(struct file *file , char *buf , size_t count , loff
     descriptor___0.format = "UBI DBG gen (pid %d): read from corrupted volume %d\n";
     descriptor___0.lineno = 209U;
     descriptor___0.flags = 0U;
-    tmp___2 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___2 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___2 != 0L) {
       {
@@ -13389,7 +13386,7 @@ static ssize_t vol_cdev_direct_write(struct file *file , char const   *buf , siz
   descriptor.format = "UBI DBG gen (pid %d): requested: write %zd bytes to offset %lld of volume %u\n";
   descriptor.lineno = 275U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -13797,7 +13794,7 @@ static long vol_cdev_ioctl(struct file *file , unsigned int cmd , unsigned long 
   descriptor.format = "UBI DBG gen (pid %d): erase LEB %d:%d\n";
   descriptor.lineno = 493U;
   descriptor.flags = 0U;
-  tmp___4 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___4 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___4 != 0L) {
     {
@@ -14202,7 +14199,7 @@ static int rename_volumes(struct ubi_device *ubi , struct ubi_rnvol_req *req )
   descriptor.format = "UBI DBG gen (pid %d): will rename volume %d from \"%s\" to \"%s\"\n";
   descriptor.lineno = 759U;
   descriptor.flags = 0U;
-  tmp___6 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___6 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___6 != 0L) {
     {
@@ -14312,7 +14309,7 @@ static int rename_volumes(struct ubi_device *ubi , struct ubi_rnvol_req *req )
   descriptor___0.format = "UBI DBG gen (pid %d): will remove volume %d, name \"%s\"\n";
   descriptor___0.lineno = 817U;
   descriptor___0.flags = 0U;
-  tmp___13 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___13 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
   }
   if (tmp___13 != 0L) {
     {
@@ -14457,7 +14454,7 @@ static long ubi_cdev_ioctl(struct file *file , unsigned int cmd , unsigned long 
   descriptor.format = "UBI DBG gen (pid %d): create volume\n";
   descriptor.lineno = 854U;
   descriptor.flags = 0U;
-  tmp___3 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___3 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___3 != 0L) {
     {
@@ -14554,7 +14551,7 @@ static long ubi_cdev_ioctl(struct file *file , unsigned int cmd , unsigned long 
   descriptor___0.format = "UBI DBG gen (pid %d): remove volume\n";
   descriptor___0.lineno = 883U;
   descriptor___0.flags = 0U;
-  tmp___6 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___6 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
   }
   if (tmp___6 != 0L) {
     {
@@ -14606,7 +14603,7 @@ static long ubi_cdev_ioctl(struct file *file , unsigned int cmd , unsigned long 
   descriptor___1.format = "UBI DBG gen (pid %d): re-size volume\n";
   descriptor___1.lineno = 915U;
   descriptor___1.flags = 0U;
-  tmp___10 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+  tmp___10 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
   }
   if (tmp___10 != 0L) {
     {
@@ -14666,7 +14663,7 @@ static long ubi_cdev_ioctl(struct file *file , unsigned int cmd , unsigned long 
   descriptor___2.format = "UBI DBG gen (pid %d): re-name volumes\n";
   descriptor___2.lineno = 947U;
   descriptor___2.flags = 0U;
-  tmp___16 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+  tmp___16 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
   }
   if (tmp___16 != 0L) {
     {
@@ -14776,7 +14773,7 @@ static long ctrl_cdev_ioctl(struct file *file , unsigned int cmd , unsigned long
   descriptor.format = "UBI DBG gen (pid %d): attach MTD device\n";
   descriptor.lineno = 991U;
   descriptor.flags = 0U;
-  tmp___2 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___2 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___2 != 0L) {
     {
@@ -14881,7 +14878,7 @@ static long ctrl_cdev_ioctl(struct file *file , unsigned int cmd , unsigned long
   descriptor___0.format = "UBI DBG gen (pid %d): detach MTD device\n";
   descriptor___0.lineno = 1032U;
   descriptor___0.flags = 0U;
-  tmp___7 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___7 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
   }
   if (tmp___7 != 0L) {
     {
@@ -16361,7 +16358,7 @@ struct ubi_volume_desc *ubi_open_volume(int ubi_num , int vol_id , int mode )
   descriptor.format = "UBI DBG gen (pid %d): open device %d, volume %d, mode %d\n";
   descriptor.lineno = 134U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -16589,7 +16586,7 @@ struct ubi_volume_desc *ubi_open_volume_nm(int ubi_num , char const   *name , in
   descriptor.format = "UBI DBG gen (pid %d): open device %d, volume %s, mode %d\n";
   descriptor.lineno = 252U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -16721,7 +16718,7 @@ struct ubi_volume_desc *ubi_open_volume_path(char const   *pathname , int mode )
   descriptor.format = "UBI DBG gen (pid %d): open volume %s, mode %d\n";
   descriptor.lineno = 308U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -16809,7 +16806,7 @@ void ubi_close_volume(struct ubi_volume_desc *desc )
   descriptor.format = "UBI DBG gen (pid %d): close device %d, volume %d, mode %d\n";
   descriptor.lineno = 341U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -16940,7 +16937,7 @@ int ubi_leb_read(struct ubi_volume_desc *desc , int lnum , char *buf , int offse
   descriptor.format = "UBI DBG gen (pid %d): read %d bytes from LEB %d:%d:%d\n";
   descriptor.lineno = 439U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -17020,7 +17017,7 @@ int ubi_leb_read_sg(struct ubi_volume_desc *desc , int lnum , struct ubi_sgl *sg
   descriptor.format = "UBI DBG gen (pid %d): read %d bytes from LEB %d:%d:%d\n";
   descriptor.lineno = 479U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -17099,7 +17096,7 @@ int ubi_leb_write(struct ubi_volume_desc *desc , int lnum , void const   *buf , 
   descriptor.format = "UBI DBG gen (pid %d): write %d bytes to LEB %d:%d:%d\n";
   descriptor.lineno = 530U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -17169,7 +17166,7 @@ int ubi_leb_change(struct ubi_volume_desc *desc , int lnum , void const   *buf ,
   descriptor.format = "UBI DBG gen (pid %d): atomically write %d bytes to LEB %d:%d\n";
   descriptor.lineno = 575U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -17238,7 +17235,7 @@ int ubi_leb_erase(struct ubi_volume_desc *desc , int lnum )
   descriptor.format = "UBI DBG gen (pid %d): erase LEB %d:%d\n";
   descriptor.lineno = 615U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -17304,7 +17301,7 @@ int ubi_leb_unmap(struct ubi_volume_desc *desc , int lnum )
   descriptor.format = "UBI DBG gen (pid %d): unmap LEB %d:%d\n";
   descriptor.lineno = 675U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -17362,7 +17359,7 @@ int ubi_leb_map(struct ubi_volume_desc *desc , int lnum )
   descriptor.format = "UBI DBG gen (pid %d): unmap LEB %d:%d\n";
   descriptor.lineno = 711U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -17421,7 +17418,7 @@ int ubi_is_mapped(struct ubi_volume_desc *desc , int lnum )
   descriptor.format = "UBI DBG gen (pid %d): test LEB %d:%d\n";
   descriptor.lineno = 749U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -17818,7 +17815,7 @@ __inline static struct page *sg_page(struct scatterlist *sg )
 
   {
   {
-  tmp = __builtin_expect(sg->sg_magic != 2271560481UL, 0L);
+  tmp = ldv__builtin_expect(sg->sg_magic != 2271560481UL, 0L);
   }
   if (tmp != 0L) {
     {
@@ -17830,7 +17827,7 @@ __inline static struct page *sg_page(struct scatterlist *sg )
 
   }
   {
-  tmp___0 = __builtin_expect((long )((int )sg->page_link) & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )((int )sg->page_link) & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -17906,7 +17903,7 @@ __inline static int ubi_io_read_data___0(struct ubi_device  const  *ubi , void *
 
   {
   {
-  tmp___0 = __builtin_expect(offset < 0, 0L);
+  tmp___0 = ldv__builtin_expect(offset < 0, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -17933,7 +17930,7 @@ __inline static int ubi_io_write_data___0(struct ubi_device *ubi , void const   
 
   {
   {
-  tmp___0 = __builtin_expect(offset < 0, 0L);
+  tmp___0 = ldv__builtin_expect(offset < 0, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -18084,7 +18081,7 @@ static struct ubi_ltree_entry *ltree_add_entry(struct ubi_device *ubi , int vol_
       p = & (*p)->rb_right;
     } else {
       {
-      tmp___2 = __builtin_expect(lnum == le1->lnum, 0L);
+      tmp___2 = ldv__builtin_expect(lnum == le1->lnum, 0L);
       }
       if (tmp___2 != 0L) {
         {
@@ -18157,7 +18154,7 @@ static void leb_read_unlock(struct ubi_device *ubi , int vol_id , int lnum )
   ldv_spin_lock_95___1(& ubi->ltree_lock);
   le = ltree_lookup(ubi, vol_id, lnum);
   le->users = le->users + -1;
-  tmp___0 = __builtin_expect(le->users < 0, 0L);
+  tmp___0 = ldv__builtin_expect(le->users < 0, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -18243,7 +18240,7 @@ static int leb_write_trylock(struct ubi_device *ubi , int vol_id , int lnum )
   {
   ldv_spin_lock_95___1(& ubi->ltree_lock);
   le->users = le->users + -1;
-  tmp___3 = __builtin_expect(le->users < 0, 0L);
+  tmp___3 = ldv__builtin_expect(le->users < 0, 0L);
   }
   if (tmp___3 != 0L) {
     {
@@ -18280,7 +18277,7 @@ static void leb_write_unlock(struct ubi_device *ubi , int vol_id , int lnum )
   ldv_spin_lock_95___1(& ubi->ltree_lock);
   le = ltree_lookup(ubi, vol_id, lnum);
   le->users = le->users + -1;
-  tmp___0 = __builtin_expect(le->users < 0, 0L);
+  tmp___0 = ldv__builtin_expect(le->users < 0, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -18346,7 +18343,7 @@ int ubi_eba_unmap_leb(struct ubi_device *ubi , struct ubi_volume *vol , int lnum
   descriptor.format = "UBI DBG eba (pid %d): erase LEB %d:%d, PEB %d\n";
   descriptor.lineno = 341U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -18419,7 +18416,7 @@ int ubi_eba_read_leb(struct ubi_device *ubi , struct ubi_volume *vol , int lnum 
     descriptor.format = "UBI DBG eba (pid %d): read %d bytes from offset %d of LEB %d:%d (unmapped)\n";
     descriptor.lineno = 391U;
     descriptor.flags = 0U;
-    tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -18432,7 +18429,7 @@ int ubi_eba_read_leb(struct ubi_device *ubi , struct ubi_volume *vol , int lnum 
     }
     {
     leb_read_unlock(ubi, vol_id, lnum);
-    tmp___2 = __builtin_expect(vol->vol_type == 4, 0L);
+    tmp___2 = ldv__builtin_expect(vol->vol_type == 4, 0L);
     }
     if (tmp___2 != 0L) {
       {
@@ -18458,7 +18455,7 @@ int ubi_eba_read_leb(struct ubi_device *ubi , struct ubi_volume *vol , int lnum 
   descriptor___0.format = "UBI DBG eba (pid %d): read %d bytes from offset %d of LEB %d:%d, PEB %d\n";
   descriptor___0.lineno = 399U;
   descriptor___0.flags = 0U;
-  tmp___4 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___4 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
   }
   if (tmp___4 != 0L) {
     {
@@ -18514,7 +18511,7 @@ int ubi_eba_read_leb(struct ubi_device *ubi , struct ubi_volume *vol , int lnum 
     }
     {
     tmp___6 = __fswab32(vid_hdr->used_ebs);
-    tmp___7 = __builtin_expect((unsigned int )lnum >= tmp___6, 0L);
+    tmp___7 = ldv__builtin_expect((unsigned int )lnum >= tmp___6, 0L);
     }
     if (tmp___7 != 0L) {
       {
@@ -18528,7 +18525,7 @@ int ubi_eba_read_leb(struct ubi_device *ubi , struct ubi_volume *vol , int lnum 
     }
     {
     tmp___9 = __fswab32(vid_hdr->data_size);
-    tmp___10 = __builtin_expect((unsigned int )len != tmp___9, 0L);
+    tmp___10 = ldv__builtin_expect((unsigned int )len != tmp___9, 0L);
     }
     if (tmp___10 != 0L) {
       {
@@ -18635,7 +18632,7 @@ int ubi_eba_read_leb_sg(struct ubi_device *ubi , struct ubi_volume *vol , struct
   {
   ldv_31607: 
   {
-  tmp___0 = __builtin_expect(sgl->list_pos > 63, 0L);
+  tmp___0 = ldv__builtin_expect(sgl->list_pos > 63, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -18867,7 +18864,7 @@ int ubi_eba_write_leb(struct ubi_device *ubi , struct ubi_volume *vol , int lnum
     descriptor.format = "UBI DBG eba (pid %d): write %d bytes at offset %d of LEB %d:%d, PEB %d\n";
     descriptor.lineno = 669U;
     descriptor.flags = 0U;
-    tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -18955,7 +18952,7 @@ int ubi_eba_write_leb(struct ubi_device *ubi , struct ubi_volume *vol , int lnum
   descriptor___0.format = "UBI DBG eba (pid %d): write VID hdr and %d bytes at offset %d of LEB %d:%d, PEB %d\n";
   descriptor___0.lineno = 710U;
   descriptor___0.flags = 0U;
-  tmp___8 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___8 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
   }
   if (tmp___8 != 0L) {
     {
@@ -19087,7 +19084,7 @@ int ubi_eba_write_leb_st(struct ubi_device *ubi , struct ubi_volume *vol , int l
     len = (data_size + (ubi->min_io_size + -1)) & - ubi->min_io_size;
   } else {
     {
-    tmp___0 = __builtin_expect((len & (ubi->min_io_size + -1)) != 0, 0L);
+    tmp___0 = ldv__builtin_expect((len & (ubi->min_io_size + -1)) != 0, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -19160,7 +19157,7 @@ int ubi_eba_write_leb_st(struct ubi_device *ubi , struct ubi_volume *vol , int l
   descriptor.format = "UBI DBG eba (pid %d): write VID hdr and %d bytes at LEB %d:%d, PEB %d, used_ebs %d\n";
   descriptor.lineno = 831U;
   descriptor.flags = 0U;
-  tmp___11 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___11 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___11 != 0L) {
     {
@@ -19196,7 +19193,7 @@ int ubi_eba_write_leb_st(struct ubi_device *ubi , struct ubi_volume *vol , int l
 
   }
   {
-  tmp___13 = __builtin_expect(*(vol->eba_tbl + (unsigned long )lnum) >= 0, 0L);
+  tmp___13 = ldv__builtin_expect(*(vol->eba_tbl + (unsigned long )lnum) >= 0, 0L);
   }
   if (tmp___13 != 0L) {
     {
@@ -19361,7 +19358,7 @@ int ubi_eba_atomic_leb_change(struct ubi_device *ubi , struct ubi_volume *vol , 
   descriptor.format = "UBI DBG eba (pid %d): change LEB %d:%d, PEB %d, write VID hdr to PEB %d\n";
   descriptor.lineno = 949U;
   descriptor.flags = 0U;
-  tmp___9 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___9 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___9 != 0L) {
     {
@@ -19526,7 +19523,7 @@ int ubi_eba_copy_leb(struct ubi_device *ubi , int from , int to , struct ubi_vid
   descriptor.format = "UBI DBG wl (pid %d): copy LEB %d:%d, PEB %d to PEB %d\n";
   descriptor.lineno = 1055U;
   descriptor.flags = 0U;
-  tmp___2 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___2 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___2 != 0L) {
     {
@@ -19564,7 +19561,7 @@ int ubi_eba_copy_leb(struct ubi_device *ubi , int from , int to , struct ubi_vid
     descriptor___0.format = "UBI DBG wl (pid %d): volume %d is being removed, cancel\n";
     descriptor___0.lineno = 1076U;
     descriptor___0.flags = 0U;
-    tmp___6 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___6 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___6 != 0L) {
       {
@@ -19590,7 +19587,7 @@ int ubi_eba_copy_leb(struct ubi_device *ubi , int from , int to , struct ubi_vid
     descriptor___1.format = "UBI DBG wl (pid %d): contention on LEB %d:%d, cancel\n";
     descriptor___1.lineno = 1097U;
     descriptor___1.flags = 0U;
-    tmp___8 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___8 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
     }
     if (tmp___8 != 0L) {
       {
@@ -19613,7 +19610,7 @@ int ubi_eba_copy_leb(struct ubi_device *ubi , int from , int to , struct ubi_vid
     descriptor___2.format = "UBI DBG wl (pid %d): LEB %d:%d is no longer mapped to PEB %d, mapped to PEB %d, cancel\n";
     descriptor___2.lineno = 1108U;
     descriptor___2.flags = 0U;
-    tmp___10 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+    tmp___10 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
     }
     if (tmp___10 != 0L) {
       {
@@ -19637,7 +19634,7 @@ int ubi_eba_copy_leb(struct ubi_device *ubi , int from , int to , struct ubi_vid
   descriptor___3.format = "UBI DBG wl (pid %d): read %d bytes of data\n";
   descriptor___3.lineno = 1120U;
   descriptor___3.flags = 0U;
-  tmp___12 = __builtin_expect((long )descriptor___3.flags & 1L, 0L);
+  tmp___12 = ldv__builtin_expect((long )descriptor___3.flags & 1L, 0L);
   }
   if (tmp___12 != 0L) {
     {
@@ -19788,7 +19785,7 @@ int ubi_eba_copy_leb(struct ubi_device *ubi , int from , int to , struct ubi_vid
 
   }
   {
-  tmp___21 = __builtin_expect(*(vol->eba_tbl + (unsigned long )lnum) != from, 0L);
+  tmp___21 = ldv__builtin_expect(*(vol->eba_tbl + (unsigned long )lnum) != from, 0L);
   }
   if (tmp___21 != 0L) {
     {
@@ -20112,7 +20109,7 @@ int ubi_eba_init(struct ubi_device *ubi , struct ubi_attach_info *ai )
   descriptor.format = "UBI DBG eba (pid %d): initialize EBA sub-system\n";
   descriptor.lineno = 1384U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -20262,7 +20259,7 @@ int ubi_eba_init(struct ubi_device *ubi , struct ubi_attach_info *ai )
   descriptor___0.format = "UBI DBG eba (pid %d): EBA sub-system is initialized\n";
   descriptor___0.lineno = 1451U;
   descriptor___0.flags = 0U;
-  tmp___4 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___4 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
   }
   if (tmp___4 != 0L) {
     {
@@ -20620,7 +20617,7 @@ int ubi_io_read(struct ubi_device  const  *ubi , void *buf , int pnum , int offs
   descriptor.format = "UBI DBG io (pid %d): read %d bytes from PEB %d:%d\n";
   descriptor.lineno = 133U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -20632,7 +20629,7 @@ int ubi_io_read(struct ubi_device  const  *ubi , void *buf , int pnum , int offs
 
   }
   {
-  tmp___2 = __builtin_expect(pnum < 0, 0L);
+  tmp___2 = ldv__builtin_expect(pnum < 0, 0L);
   }
   if (tmp___2 != 0L) {
     {
@@ -20642,7 +20639,7 @@ int ubi_io_read(struct ubi_device  const  *ubi , void *buf , int pnum , int offs
     }
   } else {
     {
-    tmp___3 = __builtin_expect(pnum >= (int )ubi->peb_count, 0L);
+    tmp___3 = ldv__builtin_expect(pnum >= (int )ubi->peb_count, 0L);
     }
     if (tmp___3 != 0L) {
       {
@@ -20655,7 +20652,7 @@ int ubi_io_read(struct ubi_device  const  *ubi , void *buf , int pnum , int offs
     }
   }
   {
-  tmp___5 = __builtin_expect(offset < 0, 0L);
+  tmp___5 = ldv__builtin_expect(offset < 0, 0L);
   }
   if (tmp___5 != 0L) {
     {
@@ -20665,7 +20662,7 @@ int ubi_io_read(struct ubi_device  const  *ubi , void *buf , int pnum , int offs
     }
   } else {
     {
-    tmp___6 = __builtin_expect(offset + len > (int )ubi->peb_size, 0L);
+    tmp___6 = ldv__builtin_expect(offset + len > (int )ubi->peb_size, 0L);
     }
     if (tmp___6 != 0L) {
       {
@@ -20678,7 +20675,7 @@ int ubi_io_read(struct ubi_device  const  *ubi , void *buf , int pnum , int offs
     }
   }
   {
-  tmp___8 = __builtin_expect(len <= 0, 0L);
+  tmp___8 = ldv__builtin_expect(len <= 0, 0L);
   }
   if (tmp___8 != 0L) {
     {
@@ -20712,7 +20709,7 @@ int ubi_io_read(struct ubi_device  const  *ubi , void *buf , int pnum , int offs
     if (tmp___12 != 0) {
       {
       printk("\rubi%d: fixable bit-flip detected at PEB %d\n", ubi->ubi_num, pnum);
-      tmp___11 = __builtin_expect((size_t )len != read, 0L);
+      tmp___11 = ldv__builtin_expect((size_t )len != read, 0L);
       }
       if (tmp___11 != 0L) {
         {
@@ -20763,7 +20760,7 @@ int ubi_io_read(struct ubi_device  const  *ubi , void *buf , int pnum , int offs
     }
   } else {
     {
-    tmp___17 = __builtin_expect((size_t )len != read, 0L);
+    tmp___17 = ldv__builtin_expect((size_t )len != read, 0L);
     }
     if (tmp___17 != 0L) {
       {
@@ -20785,7 +20782,7 @@ int ubi_io_read(struct ubi_device  const  *ubi , void *buf , int pnum , int offs
       descriptor___0.format = "UBI DBG gen (pid %d): bit-flip (emulated)\n";
       descriptor___0.lineno = 210U;
       descriptor___0.flags = 0U;
-      tmp___19 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+      tmp___19 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
       }
       if (tmp___19 != 0L) {
         {
@@ -20836,7 +20833,7 @@ int ubi_io_write(struct ubi_device *ubi , void const   *buf , int pnum , int off
   descriptor.format = "UBI DBG io (pid %d): write %d bytes to PEB %d:%d\n";
   descriptor.lineno = 242U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -20848,7 +20845,7 @@ int ubi_io_write(struct ubi_device *ubi , void const   *buf , int pnum , int off
 
   }
   {
-  tmp___2 = __builtin_expect(pnum < 0, 0L);
+  tmp___2 = ldv__builtin_expect(pnum < 0, 0L);
   }
   if (tmp___2 != 0L) {
     {
@@ -20858,7 +20855,7 @@ int ubi_io_write(struct ubi_device *ubi , void const   *buf , int pnum , int off
     }
   } else {
     {
-    tmp___3 = __builtin_expect(pnum >= ubi->peb_count, 0L);
+    tmp___3 = ldv__builtin_expect(pnum >= ubi->peb_count, 0L);
     }
     if (tmp___3 != 0L) {
       {
@@ -20871,7 +20868,7 @@ int ubi_io_write(struct ubi_device *ubi , void const   *buf , int pnum , int off
     }
   }
   {
-  tmp___5 = __builtin_expect(offset < 0, 0L);
+  tmp___5 = ldv__builtin_expect(offset < 0, 0L);
   }
   if (tmp___5 != 0L) {
     {
@@ -20881,7 +20878,7 @@ int ubi_io_write(struct ubi_device *ubi , void const   *buf , int pnum , int off
     }
   } else {
     {
-    tmp___6 = __builtin_expect(offset + len > ubi->peb_size, 0L);
+    tmp___6 = ldv__builtin_expect(offset + len > ubi->peb_size, 0L);
     }
     if (tmp___6 != 0L) {
       {
@@ -20894,7 +20891,7 @@ int ubi_io_write(struct ubi_device *ubi , void const   *buf , int pnum , int off
     }
   }
   {
-  tmp___8 = __builtin_expect(offset % ubi->hdrs_min_io_size != 0, 0L);
+  tmp___8 = ldv__builtin_expect(offset % ubi->hdrs_min_io_size != 0, 0L);
   }
   if (tmp___8 != 0L) {
     {
@@ -20906,7 +20903,7 @@ int ubi_io_write(struct ubi_device *ubi , void const   *buf , int pnum , int off
 
   }
   {
-  tmp___10 = __builtin_expect(len <= 0, 0L);
+  tmp___10 = ldv__builtin_expect(len <= 0, 0L);
   }
   if (tmp___10 != 0L) {
     {
@@ -20916,7 +20913,7 @@ int ubi_io_write(struct ubi_device *ubi , void const   *buf , int pnum , int off
     }
   } else {
     {
-    tmp___11 = __builtin_expect(len % ubi->hdrs_min_io_size != 0, 0L);
+    tmp___11 = ldv__builtin_expect(len % ubi->hdrs_min_io_size != 0, 0L);
     }
     if (tmp___11 != 0L) {
       {
@@ -20998,7 +20995,7 @@ int ubi_io_write(struct ubi_device *ubi , void const   *buf , int pnum , int off
     }
   } else {
     {
-    tmp___14 = __builtin_expect(written != (size_t )len, 0L);
+    tmp___14 = ldv__builtin_expect(written != (size_t )len, 0L);
     }
     if (tmp___14 != 0L) {
       {
@@ -21076,7 +21073,7 @@ static int do_sync_erase(struct ubi_device *ubi , int pnum )
   descriptor.format = "UBI DBG io (pid %d): erase PEB %d\n";
   descriptor.lineno = 338U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -21088,7 +21085,7 @@ static int do_sync_erase(struct ubi_device *ubi , int pnum )
 
   }
   {
-  tmp___2 = __builtin_expect(pnum < 0, 0L);
+  tmp___2 = ldv__builtin_expect(pnum < 0, 0L);
   }
   if (tmp___2 != 0L) {
     {
@@ -21098,7 +21095,7 @@ static int do_sync_erase(struct ubi_device *ubi , int pnum )
     }
   } else {
     {
-    tmp___3 = __builtin_expect(pnum >= ubi->peb_count, 0L);
+    tmp___3 = ldv__builtin_expect(pnum >= ubi->peb_count, 0L);
     }
     if (tmp___3 != 0L) {
       {
@@ -21258,7 +21255,7 @@ static int torture_peb(struct ubi_device *ubi , int pnum )
   {
   printk("\rubi%d: run torture test for PEB %d\n", ubi->ubi_num, pnum);
   patt_count = 3;
-  tmp___0 = __builtin_expect(patt_count <= 0, 0L);
+  tmp___0 = ldv__builtin_expect(patt_count <= 0, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -21438,7 +21435,7 @@ int ubi_io_sync_erase(struct ubi_device *ubi , int pnum , int torture )
   {
   {
   ret = 0;
-  tmp___0 = __builtin_expect(pnum < 0, 0L);
+  tmp___0 = ldv__builtin_expect(pnum < 0, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -21449,7 +21446,7 @@ int ubi_io_sync_erase(struct ubi_device *ubi , int pnum , int torture )
     }
   } else {
     {
-    tmp___1 = __builtin_expect(pnum >= ubi->peb_count, 0L);
+    tmp___1 = ldv__builtin_expect(pnum >= ubi->peb_count, 0L);
     }
     if (tmp___1 != 0L) {
       {
@@ -21527,7 +21524,7 @@ int ubi_io_is_bad(struct ubi_device  const  *ubi , int pnum )
   {
   {
   mtd = ubi->mtd;
-  tmp___0 = __builtin_expect(pnum < 0, 0L);
+  tmp___0 = ldv__builtin_expect(pnum < 0, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -21537,7 +21534,7 @@ int ubi_io_is_bad(struct ubi_device  const  *ubi , int pnum )
     }
   } else {
     {
-    tmp___1 = __builtin_expect(pnum >= (int )ubi->peb_count, 0L);
+    tmp___1 = ldv__builtin_expect(pnum >= (int )ubi->peb_count, 0L);
     }
     if (tmp___1 != 0L) {
       {
@@ -21567,7 +21564,7 @@ int ubi_io_is_bad(struct ubi_device  const  *ubi , int pnum )
       descriptor.format = "UBI DBG io (pid %d): PEB %d is bad\n";
       descriptor.lineno = 624U;
       descriptor.flags = 0U;
-      tmp___3 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+      tmp___3 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
       }
       if (tmp___3 != 0L) {
         {
@@ -21599,7 +21596,7 @@ int ubi_io_mark_bad(struct ubi_device  const  *ubi , int pnum )
   {
   {
   mtd = ubi->mtd;
-  tmp___0 = __builtin_expect(pnum < 0, 0L);
+  tmp___0 = ldv__builtin_expect(pnum < 0, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -21609,7 +21606,7 @@ int ubi_io_mark_bad(struct ubi_device  const  *ubi , int pnum )
     }
   } else {
     {
-    tmp___1 = __builtin_expect(pnum >= (int )ubi->peb_count, 0L);
+    tmp___1 = ldv__builtin_expect(pnum >= (int )ubi->peb_count, 0L);
     }
     if (tmp___1 != 0L) {
       {
@@ -21750,7 +21747,7 @@ int ubi_io_read_ec_hdr(struct ubi_device *ubi , int pnum , struct ubi_ec_hdr *ec
   descriptor.format = "UBI DBG io (pid %d): read EC header from PEB %d\n";
   descriptor.lineno = 738U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -21762,7 +21759,7 @@ int ubi_io_read_ec_hdr(struct ubi_device *ubi , int pnum , struct ubi_ec_hdr *ec
 
   }
   {
-  tmp___2 = __builtin_expect(pnum < 0, 0L);
+  tmp___2 = ldv__builtin_expect(pnum < 0, 0L);
   }
   if (tmp___2 != 0L) {
     {
@@ -21773,7 +21770,7 @@ int ubi_io_read_ec_hdr(struct ubi_device *ubi , int pnum , struct ubi_ec_hdr *ec
     }
   } else {
     {
-    tmp___3 = __builtin_expect(pnum >= ubi->peb_count, 0L);
+    tmp___3 = ldv__builtin_expect(pnum >= ubi->peb_count, 0L);
     }
     if (tmp___3 != 0L) {
       {
@@ -21838,7 +21835,7 @@ int ubi_io_read_ec_hdr(struct ubi_device *ubi , int pnum , struct ubi_ec_hdr *ec
       descriptor___0.format = "UBI DBG bld (pid %d): no EC header found at PEB %d, only 0xFF bytes\n";
       descriptor___0.lineno = 773U;
       descriptor___0.flags = 0U;
-      tmp___8 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+      tmp___8 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
       }
       if (tmp___8 != 0L) {
         {
@@ -21873,7 +21870,7 @@ int ubi_io_read_ec_hdr(struct ubi_device *ubi , int pnum , struct ubi_ec_hdr *ec
     descriptor___1.format = "UBI DBG bld (pid %d): bad magic number at PEB %d: %08x instead of %08x\n";
     descriptor___1.lineno = 790U;
     descriptor___1.flags = 0U;
-    tmp___11 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___11 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
     }
     if (tmp___11 != 0L) {
       {
@@ -21910,7 +21907,7 @@ int ubi_io_read_ec_hdr(struct ubi_device *ubi , int pnum , struct ubi_ec_hdr *ec
     descriptor___2.format = "UBI DBG bld (pid %d): bad EC header CRC at PEB %d, calculated %#08x, read %#08x\n";
     descriptor___2.lineno = 804U;
     descriptor___2.flags = 0U;
-    tmp___14 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+    tmp___14 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
     }
     if (tmp___14 != 0L) {
       {
@@ -21967,7 +21964,7 @@ int ubi_io_write_ec_hdr(struct ubi_device *ubi , int pnum , struct ubi_ec_hdr *e
   descriptor.format = "UBI DBG io (pid %d): write EC header to PEB %d\n";
   descriptor.lineno = 847U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -21979,7 +21976,7 @@ int ubi_io_write_ec_hdr(struct ubi_device *ubi , int pnum , struct ubi_ec_hdr *e
 
   }
   {
-  tmp___2 = __builtin_expect(pnum < 0, 0L);
+  tmp___2 = ldv__builtin_expect(pnum < 0, 0L);
   }
   if (tmp___2 != 0L) {
     {
@@ -21990,7 +21987,7 @@ int ubi_io_write_ec_hdr(struct ubi_device *ubi , int pnum , struct ubi_ec_hdr *e
     }
   } else {
     {
-    tmp___3 = __builtin_expect(pnum >= ubi->peb_count, 0L);
+    tmp___3 = ldv__builtin_expect(pnum >= ubi->peb_count, 0L);
     }
     if (tmp___3 != 0L) {
       {
@@ -22248,7 +22245,7 @@ int ubi_io_read_vid_hdr(struct ubi_device *ubi , int pnum , struct ubi_vid_hdr *
   descriptor.format = "UBI DBG io (pid %d): read VID header from PEB %d\n";
   descriptor.lineno = 1009U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -22260,7 +22257,7 @@ int ubi_io_read_vid_hdr(struct ubi_device *ubi , int pnum , struct ubi_vid_hdr *
 
   }
   {
-  tmp___2 = __builtin_expect(pnum < 0, 0L);
+  tmp___2 = ldv__builtin_expect(pnum < 0, 0L);
   }
   if (tmp___2 != 0L) {
     {
@@ -22271,7 +22268,7 @@ int ubi_io_read_vid_hdr(struct ubi_device *ubi , int pnum , struct ubi_vid_hdr *
     }
   } else {
     {
-    tmp___3 = __builtin_expect(pnum >= ubi->peb_count, 0L);
+    tmp___3 = ldv__builtin_expect(pnum >= ubi->peb_count, 0L);
     }
     if (tmp___3 != 0L) {
       {
@@ -22333,7 +22330,7 @@ int ubi_io_read_vid_hdr(struct ubi_device *ubi , int pnum , struct ubi_vid_hdr *
       descriptor___0.format = "UBI DBG bld (pid %d): no VID header found at PEB %d, only 0xFF bytes\n";
       descriptor___0.lineno = 1028U;
       descriptor___0.flags = 0U;
-      tmp___8 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+      tmp___8 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
       }
       if (tmp___8 != 0L) {
         {
@@ -22368,7 +22365,7 @@ int ubi_io_read_vid_hdr(struct ubi_device *ubi , int pnum , struct ubi_vid_hdr *
     descriptor___1.format = "UBI DBG bld (pid %d): bad magic number at PEB %d: %08x instead of %08x\n";
     descriptor___1.lineno = 1041U;
     descriptor___1.flags = 0U;
-    tmp___11 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___11 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
     }
     if (tmp___11 != 0L) {
       {
@@ -22405,7 +22402,7 @@ int ubi_io_read_vid_hdr(struct ubi_device *ubi , int pnum , struct ubi_vid_hdr *
     descriptor___2.format = "UBI DBG bld (pid %d): bad CRC at PEB %d, calculated %#08x, read %#08x\n";
     descriptor___2.lineno = 1055U;
     descriptor___2.flags = 0U;
-    tmp___14 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+    tmp___14 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
     }
     if (tmp___14 != 0L) {
       {
@@ -22460,7 +22457,7 @@ int ubi_io_write_vid_hdr(struct ubi_device *ubi , int pnum , struct ubi_vid_hdr 
   descriptor.format = "UBI DBG io (pid %d): write VID header to PEB %d\n";
   descriptor.lineno = 1093U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -22472,7 +22469,7 @@ int ubi_io_write_vid_hdr(struct ubi_device *ubi , int pnum , struct ubi_vid_hdr 
 
   }
   {
-  tmp___2 = __builtin_expect(pnum < 0, 0L);
+  tmp___2 = ldv__builtin_expect(pnum < 0, 0L);
   }
   if (tmp___2 != 0L) {
     {
@@ -22483,7 +22480,7 @@ int ubi_io_write_vid_hdr(struct ubi_device *ubi , int pnum , struct ubi_vid_hdr 
     }
   } else {
     {
-    tmp___3 = __builtin_expect(pnum >= ubi->peb_count, 0L);
+    tmp___3 = ldv__builtin_expect(pnum >= ubi->peb_count, 0L);
     }
     if (tmp___3 != 0L) {
       {
@@ -23147,7 +23144,7 @@ __inline static bool freezing(struct task_struct *p )
   {
   {
   tmp = atomic_read((atomic_t const   *)(& system_freezing_cnt));
-  tmp___0 = __builtin_expect(tmp == 0, 1L);
+  tmp___0 = ldv__builtin_expect(tmp == 0, 1L);
   }
   if (tmp___0 != 0L) {
     return (0);
@@ -23181,7 +23178,7 @@ __inline static bool try_to_freeze_unsafe(void)
     tmp___1 = 1;
   }
   {
-  tmp___2 = __builtin_expect((long )tmp___1, 1L);
+  tmp___2 = ldv__builtin_expect((long )tmp___1, 1L);
   }
   if (tmp___2 != 0L) {
     return (0);
@@ -23321,7 +23318,7 @@ static void wl_tree_add(struct ubi_wl_entry *e , struct rb_root *root )
     p = & (*p)->rb_right;
   } else {
     {
-    tmp___0 = __builtin_expect(e->pnum == e1->pnum, 0L);
+    tmp___0 = ldv__builtin_expect(e->pnum == e1->pnum, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -23382,7 +23379,7 @@ static int do_work(struct ubi_device *ubi )
   wrk = (struct ubi_work *)__mptr;
   list_del(& wrk->list);
   ubi->works_count = ubi->works_count + -1;
-  tmp___1 = __builtin_expect(ubi->works_count < 0, 0L);
+  tmp___1 = ldv__builtin_expect(ubi->works_count < 0, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -23429,7 +23426,7 @@ static int produce_free_peb(struct ubi_device *ubi )
   descriptor.format = "UBI DBG wl (pid %d): do one work synchronously\n";
   descriptor.lineno = 278U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -23477,7 +23474,7 @@ static int in_wl_tree(struct ubi_wl_entry *e , struct rb_root *root )
   e1 = (struct ubi_wl_entry *)__mptr;
   if (e->pnum == e1->pnum) {
     {
-    tmp___0 = __builtin_expect((unsigned long )e != (unsigned long )e1, 0L);
+    tmp___0 = ldv__builtin_expect((unsigned long )e != (unsigned long )e1, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -23499,7 +23496,7 @@ static int in_wl_tree(struct ubi_wl_entry *e , struct rb_root *root )
     p = p->rb_right;
   } else {
     {
-    tmp___2 = __builtin_expect(e->pnum == e1->pnum, 0L);
+    tmp___2 = ldv__builtin_expect(e->pnum == e1->pnum, 0L);
     }
     if (tmp___2 != 0L) {
       {
@@ -23543,7 +23540,7 @@ static void prot_queue_add(struct ubi_device *ubi , struct ubi_wl_entry *e )
 
   }
   {
-  tmp___0 = __builtin_expect((unsigned int )pq_tail > 9U, 0L);
+  tmp___0 = ldv__builtin_expect((unsigned int )pq_tail > 9U, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -23562,7 +23559,7 @@ static void prot_queue_add(struct ubi_device *ubi , struct ubi_wl_entry *e )
   descriptor.format = "UBI DBG wl (pid %d): added PEB %d EC %d to the protection queue\n";
   descriptor.lineno = 346U;
   descriptor.flags = 0U;
-  tmp___2 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___2 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___2 != 0L) {
     {
@@ -23808,7 +23805,7 @@ static int __wl_get_peb(struct ubi_device *ubi )
       {
       printk("\vubi%d error: %s: no free eraseblocks\n", ubi->ubi_num, "__wl_get_peb");
       tmp___0 = list_empty((struct list_head  const  *)(& ubi->works));
-      tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+      tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
       }
       if (tmp___1 != 0L) {
         {
@@ -23857,7 +23854,7 @@ static int __wl_get_peb(struct ubi_device *ubi )
   descriptor.format = "UBI DBG wl (pid %d): PEB %d EC %d\n";
   descriptor.lineno = 535U;
   descriptor.flags = 0U;
-  tmp___3 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___3 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___3 != 0L) {
     {
@@ -24063,7 +24060,7 @@ static int prot_queue_del(struct ubi_device *ubi , int pnum )
   descriptor.format = "UBI DBG wl (pid %d): deleted PEB %d from the protection queue\n";
   descriptor.lineno = 724U;
   descriptor.flags = 0U;
-  tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -24100,7 +24097,7 @@ static int sync_erase(struct ubi_device *ubi , struct ubi_wl_entry *e , int tort
   descriptor.format = "UBI DBG wl (pid %d): erase PEB %d, old EC %llu\n";
   descriptor.lineno = 744U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -24154,7 +24151,7 @@ static int sync_erase(struct ubi_device *ubi , struct ubi_wl_entry *e , int tort
   descriptor___0.format = "UBI DBG wl (pid %d): erased PEB %d, new EC %llu\n";
   descriptor___0.lineno = 770U;
   descriptor___0.flags = 0U;
-  tmp___3 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___3 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
   }
   if (tmp___3 != 0L) {
     {
@@ -24228,7 +24225,7 @@ static void serve_prot_queue(struct ubi_device *ubi )
   descriptor.format = "UBI DBG wl (pid %d): PEB %d EC %d protection over, move to used tree\n";
   descriptor.lineno = 811U;
   descriptor.flags = 0U;
-  tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -24271,7 +24268,7 @@ static void serve_prot_queue(struct ubi_device *ubi )
 
   }
   {
-  tmp___4 = __builtin_expect((unsigned int )ubi->pq_head > 9U, 0L);
+  tmp___4 = ldv__builtin_expect((unsigned int )ubi->pq_head > 9U, 0L);
   }
   if (tmp___4 != 0L) {
     {
@@ -24299,7 +24296,7 @@ static void __schedule_ubi_work(struct ubi_device *ubi , struct ubi_work *wrk )
   {
   ldv_spin_lock_114(& ubi->wl_lock);
   list_add_tail(& wrk->list, & ubi->works);
-  tmp___0 = __builtin_expect(ubi->works_count < 0, 0L);
+  tmp___0 = ldv__builtin_expect(ubi->works_count < 0, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -24370,7 +24367,7 @@ static int schedule_erase(struct ubi_device *ubi , struct ubi_wl_entry *e , int 
 
   {
   {
-  tmp___0 = __builtin_expect((unsigned long )e == (unsigned long )((struct ubi_wl_entry *)0),
+  tmp___0 = ldv__builtin_expect((unsigned long )e == (unsigned long )((struct ubi_wl_entry *)0),
                              0L);
   }
   if (tmp___0 != 0L) {
@@ -24384,7 +24381,7 @@ static int schedule_erase(struct ubi_device *ubi , struct ubi_wl_entry *e , int 
   }
   {
   tmp___2 = ubi_is_fm_block(ubi, e->pnum);
-  tmp___3 = __builtin_expect(tmp___2 != 0, 0L);
+  tmp___3 = ldv__builtin_expect(tmp___2 != 0, 0L);
   }
   if (tmp___3 != 0L) {
     {
@@ -24402,7 +24399,7 @@ static int schedule_erase(struct ubi_device *ubi , struct ubi_wl_entry *e , int 
   descriptor.format = "UBI DBG wl (pid %d): schedule erasure of PEB %d, EC %d, torture %d\n";
   descriptor.lineno = 901U;
   descriptor.flags = 0U;
-  tmp___5 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___5 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___5 != 0L) {
     {
@@ -24451,7 +24448,7 @@ static int do_sync_erase___0(struct ubi_device *ubi , struct ubi_wl_entry *e , i
   descriptor.format = "UBI DBG wl (pid %d): sync erase of PEB %i\n";
   descriptor.lineno = 931U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -24507,7 +24504,7 @@ int ubi_wl_put_fm_peb(struct ubi_device *ubi , struct ubi_wl_entry *fm_e , int l
   descriptor.format = "UBI DBG wl (pid %d): PEB %d\n";
   descriptor.lineno = 962U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -24518,7 +24515,7 @@ int ubi_wl_put_fm_peb(struct ubi_device *ubi , struct ubi_wl_entry *fm_e , int l
 
   }
   {
-  tmp___2 = __builtin_expect(pnum < 0, 0L);
+  tmp___2 = ldv__builtin_expect(pnum < 0, 0L);
   }
   if (tmp___2 != 0L) {
     {
@@ -24531,7 +24528,7 @@ int ubi_wl_put_fm_peb(struct ubi_device *ubi , struct ubi_wl_entry *fm_e , int l
 
   }
   {
-  tmp___4 = __builtin_expect(pnum >= ubi->peb_count, 0L);
+  tmp___4 = ldv__builtin_expect(pnum >= ubi->peb_count, 0L);
   }
   if (tmp___4 != 0L) {
     {
@@ -24550,7 +24547,7 @@ int ubi_wl_put_fm_peb(struct ubi_device *ubi , struct ubi_wl_entry *fm_e , int l
   if ((unsigned long )e == (unsigned long )((struct ubi_wl_entry *)0)) {
     {
     e = fm_e;
-    tmp___6 = __builtin_expect(e->ec < 0, 0L);
+    tmp___6 = ldv__builtin_expect(e->ec < 0, 0L);
     }
     if (tmp___6 != 0L) {
       {
@@ -24673,7 +24670,7 @@ static int wear_leveling_worker(struct ubi_device *ubi , struct ubi_work *wrk , 
   {
   ldv_mutex_lock_113___1(& ubi->move_mutex);
   ldv_spin_lock_114(& ubi->wl_lock);
-  tmp___0 = __builtin_expect((unsigned long )ubi->move_from != (unsigned long )((struct ubi_wl_entry *)0),
+  tmp___0 = ldv__builtin_expect((unsigned long )ubi->move_from != (unsigned long )((struct ubi_wl_entry *)0),
                              0L);
   }
   if (tmp___0 != 0L) {
@@ -24685,7 +24682,7 @@ static int wear_leveling_worker(struct ubi_device *ubi , struct ubi_work *wrk , 
     }
   } else {
     {
-    tmp___1 = __builtin_expect((unsigned long )ubi->move_to != (unsigned long )((struct ubi_wl_entry *)0),
+    tmp___1 = ldv__builtin_expect((unsigned long )ubi->move_to != (unsigned long )((struct ubi_wl_entry *)0),
                                0L);
     }
     if (tmp___1 != 0L) {
@@ -24700,7 +24697,7 @@ static int wear_leveling_worker(struct ubi_device *ubi , struct ubi_work *wrk , 
     }
   }
   {
-  tmp___3 = __builtin_expect(ubi->move_to_put != 0, 0L);
+  tmp___3 = ldv__builtin_expect(ubi->move_to_put != 0, 0L);
   }
   if (tmp___3 != 0L) {
     {
@@ -24720,7 +24717,7 @@ static int wear_leveling_worker(struct ubi_device *ubi , struct ubi_work *wrk , 
     descriptor.format = "UBI DBG wl (pid %d): cancel WL, a list is empty: free %d, used %d\n";
     descriptor.lineno = 1038U;
     descriptor.flags = 0U;
-    tmp___5 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___5 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp___5 != 0L) {
       {
@@ -24770,7 +24767,7 @@ static int wear_leveling_worker(struct ubi_device *ubi , struct ubi_work *wrk , 
     descriptor___0.format = "UBI DBG wl (pid %d): anchor-move PEB %d to PEB %d\n";
     descriptor___0.lineno = 1057U;
     descriptor___0.flags = 0U;
-    tmp___8 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___8 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___8 != 0L) {
       {
@@ -24802,7 +24799,7 @@ static int wear_leveling_worker(struct ubi_device *ubi , struct ubi_work *wrk , 
       descriptor___1.format = "UBI DBG wl (pid %d): no WL needed: min used EC %d, max free EC %d\n";
       descriptor___1.lineno = 1074U;
       descriptor___1.flags = 0U;
-      tmp___11 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+      tmp___11 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
       }
       if (tmp___11 != 0L) {
         {
@@ -24830,7 +24827,7 @@ static int wear_leveling_worker(struct ubi_device *ubi , struct ubi_work *wrk , 
     descriptor___2.format = "UBI DBG wl (pid %d): move PEB %d EC %d to PEB %d EC %d\n";
     descriptor___2.lineno = 1084U;
     descriptor___2.flags = 0U;
-    tmp___13 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+    tmp___13 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
     }
     if (tmp___13 != 0L) {
       {
@@ -24863,7 +24860,7 @@ static int wear_leveling_worker(struct ubi_device *ubi , struct ubi_work *wrk , 
     descriptor___3.format = "UBI DBG wl (pid %d): scrub PEB %d to PEB %d\n";
     descriptor___3.lineno = 1095U;
     descriptor___3.flags = 0U;
-    tmp___16 = __builtin_expect((long )descriptor___3.flags & 1L, 0L);
+    tmp___16 = ldv__builtin_expect((long )descriptor___3.flags & 1L, 0L);
     }
     if (tmp___16 != 0L) {
       {
@@ -24890,7 +24887,7 @@ static int wear_leveling_worker(struct ubi_device *ubi , struct ubi_work *wrk , 
       descriptor___4.format = "UBI DBG wl (pid %d): PEB %d has no VID header\n";
       descriptor___4.lineno = 1126U;
       descriptor___4.flags = 0U;
-      tmp___18 = __builtin_expect((long )descriptor___4.flags & 1L, 0L);
+      tmp___18 = ldv__builtin_expect((long )descriptor___4.flags & 1L, 0L);
       }
       if (tmp___18 != 0L) {
         {
@@ -24912,7 +24909,7 @@ static int wear_leveling_worker(struct ubi_device *ubi , struct ubi_work *wrk , 
       descriptor___5.format = "UBI DBG wl (pid %d): PEB %d has no VID header but has bit-flips\n";
       descriptor___5.lineno = 1136U;
       descriptor___5.flags = 0U;
-      tmp___20 = __builtin_expect((long )descriptor___5.flags & 1L, 0L);
+      tmp___20 = ldv__builtin_expect((long )descriptor___5.flags & 1L, 0L);
       }
       if (tmp___20 != 0L) {
         {
@@ -25041,7 +25038,7 @@ static int wear_leveling_worker(struct ubi_device *ubi , struct ubi_work *wrk , 
     descriptor___6.format = "UBI DBG wl (pid %d): PEB %d (LEB %d:%d) was put meanwhile, erase\n";
     descriptor___6.lineno = 1227U;
     descriptor___6.flags = 0U;
-    tmp___27 = __builtin_expect((long )descriptor___6.flags & 1L, 0L);
+    tmp___27 = ldv__builtin_expect((long )descriptor___6.flags & 1L, 0L);
     }
     if (tmp___27 != 0L) {
       {
@@ -25070,7 +25067,7 @@ static int wear_leveling_worker(struct ubi_device *ubi , struct ubi_work *wrk , 
   descriptor___7.format = "UBI DBG wl (pid %d): done\n";
   descriptor___7.lineno = 1233U;
   descriptor___7.flags = 0U;
-  tmp___29 = __builtin_expect((long )descriptor___7.flags & 1L, 0L);
+  tmp___29 = ldv__builtin_expect((long )descriptor___7.flags & 1L, 0L);
   }
   if (tmp___29 != 0L) {
     {
@@ -25093,7 +25090,7 @@ static int wear_leveling_worker(struct ubi_device *ubi , struct ubi_work *wrk , 
     descriptor___8.format = "UBI DBG wl (pid %d): cancel moving PEB %d (LEB %d:%d) to PEB %d (%d)\n";
     descriptor___8.lineno = 1245U;
     descriptor___8.flags = 0U;
-    tmp___31 = __builtin_expect((long )descriptor___8.flags & 1L, 0L);
+    tmp___31 = ldv__builtin_expect((long )descriptor___8.flags & 1L, 0L);
     }
     if (tmp___31 != 0L) {
       {
@@ -25112,7 +25109,7 @@ static int wear_leveling_worker(struct ubi_device *ubi , struct ubi_work *wrk , 
     descriptor___9.format = "UBI DBG wl (pid %d): cancel moving PEB %d to PEB %d (%d)\n";
     descriptor___9.lineno = 1248U;
     descriptor___9.flags = 0U;
-    tmp___33 = __builtin_expect((long )descriptor___9.flags & 1L, 0L);
+    tmp___33 = ldv__builtin_expect((long )descriptor___9.flags & 1L, 0L);
     }
     if (tmp___33 != 0L) {
       {
@@ -25148,7 +25145,7 @@ static int wear_leveling_worker(struct ubi_device *ubi , struct ubi_work *wrk , 
     }
   }
   {
-  tmp___35 = __builtin_expect(ubi->move_to_put != 0, 0L);
+  tmp___35 = ldv__builtin_expect(ubi->move_to_put != 0, 0L);
   }
   if (tmp___35 != 0L) {
     {
@@ -25207,7 +25204,7 @@ static int wear_leveling_worker(struct ubi_device *ubi , struct ubi_work *wrk , 
   {
   ubi_ro_mode(ubi);
   ldv_mutex_unlock_124(& ubi->move_mutex);
-  tmp___40 = __builtin_expect(err == 0, 0L);
+  tmp___40 = ldv__builtin_expect(err == 0, 0L);
   }
   if (tmp___40 != 0L) {
     {
@@ -25280,7 +25277,7 @@ static int ensure_wear_leveling(struct ubi_device *ubi , int nested )
     descriptor.format = "UBI DBG wl (pid %d): schedule wear-leveling\n";
     descriptor.lineno = 1343U;
     descriptor.flags = 0U;
-    tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp___1 != 0L) {
       {
@@ -25299,7 +25296,7 @@ static int ensure_wear_leveling(struct ubi_device *ubi , int nested )
     descriptor___0.format = "UBI DBG wl (pid %d): schedule scrubbing\n";
     descriptor___0.lineno = 1345U;
     descriptor___0.flags = 0U;
-    tmp___3 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___3 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___3 != 0L) {
       {
@@ -25421,7 +25418,7 @@ static int erase_worker(struct ubi_device *ubi , struct ubi_work *wl_wrk , int s
     descriptor.format = "UBI DBG wl (pid %d): cancel erasure of PEB %d EC %d\n";
     descriptor.lineno = 1426U;
     descriptor.flags = 0U;
-    tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -25447,7 +25444,7 @@ static int erase_worker(struct ubi_device *ubi , struct ubi_work *wl_wrk , int s
   descriptor___0.format = "UBI DBG wl (pid %d): erase PEB %d EC %d LEB %d:%d\n";
   descriptor___0.lineno = 1433U;
   descriptor___0.flags = 0U;
-  tmp___2 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___2 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
   }
   if (tmp___2 != 0L) {
     {
@@ -25460,7 +25457,7 @@ static int erase_worker(struct ubi_device *ubi , struct ubi_work *wl_wrk , int s
   }
   {
   tmp___4 = ubi_is_fm_block(ubi, e->pnum);
-  tmp___5 = __builtin_expect(tmp___4 != 0, 0L);
+  tmp___5 = ldv__builtin_expect(tmp___4 != 0, 0L);
   }
   if (tmp___5 != 0L) {
     {
@@ -25641,7 +25638,7 @@ int ubi_wl_put_peb(struct ubi_device *ubi , int vol_id , int lnum , int pnum , i
   descriptor.format = "UBI DBG wl (pid %d): PEB %d\n";
   descriptor.lineno = 1562U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -25652,7 +25649,7 @@ int ubi_wl_put_peb(struct ubi_device *ubi , int vol_id , int lnum , int pnum , i
 
   }
   {
-  tmp___2 = __builtin_expect(pnum < 0, 0L);
+  tmp___2 = ldv__builtin_expect(pnum < 0, 0L);
   }
   if (tmp___2 != 0L) {
     {
@@ -25664,7 +25661,7 @@ int ubi_wl_put_peb(struct ubi_device *ubi , int vol_id , int lnum , int pnum , i
 
   }
   {
-  tmp___4 = __builtin_expect(pnum >= ubi->peb_count, 0L);
+  tmp___4 = ldv__builtin_expect(pnum >= ubi->peb_count, 0L);
   }
   if (tmp___4 != 0L) {
     {
@@ -25688,7 +25685,7 @@ int ubi_wl_put_peb(struct ubi_device *ubi , int vol_id , int lnum , int pnum , i
     descriptor___0.format = "UBI DBG wl (pid %d): PEB %d is being moved, wait\n";
     descriptor___0.lineno = 1575U;
     descriptor___0.flags = 0U;
-    tmp___6 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___6 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___6 != 0L) {
       {
@@ -25714,7 +25711,7 @@ int ubi_wl_put_peb(struct ubi_device *ubi , int vol_id , int lnum , int pnum , i
     descriptor___1.format = "UBI DBG wl (pid %d): PEB %d is the target of data moving\n";
     descriptor___1.lineno = 1592U;
     descriptor___1.flags = 0U;
-    tmp___8 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___8 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
     }
     if (tmp___8 != 0L) {
       {
@@ -25726,7 +25723,7 @@ int ubi_wl_put_peb(struct ubi_device *ubi , int vol_id , int lnum , int pnum , i
 
     }
     {
-    tmp___10 = __builtin_expect(ubi->move_to_put != 0, 0L);
+    tmp___10 = ldv__builtin_expect(ubi->move_to_put != 0, 0L);
     }
     if (tmp___10 != 0L) {
       {
@@ -25770,7 +25767,7 @@ int ubi_wl_put_peb(struct ubi_device *ubi , int vol_id , int lnum , int pnum , i
           self_check_in_wl_tree((struct ubi_device  const  *)ubi, e, & ubi->erroneous);
           rb_erase(& e->u.rb, & ubi->erroneous);
           ubi->erroneous_peb_count = ubi->erroneous_peb_count + -1;
-          tmp___12 = __builtin_expect(ubi->erroneous_peb_count < 0, 0L);
+          tmp___12 = ldv__builtin_expect(ubi->erroneous_peb_count < 0, 0L);
           }
           if (tmp___12 != 0L) {
             {
@@ -25876,7 +25873,7 @@ int ubi_wl_scrub_peb(struct ubi_device *ubi , int pnum )
     descriptor.format = "UBI DBG wl (pid %d): the PEB %d is not in proper tree, retry\n";
     descriptor.lineno = 1666U;
     descriptor.flags = 0U;
-    tmp___2 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___2 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp___2 != 0L) {
       {
@@ -25951,7 +25948,7 @@ int ubi_wl_flush(struct ubi_device *ubi , int vol_id , int lnum )
   descriptor.format = "UBI DBG wl (pid %d): flush pending work for LEB %d:%d (%d pending works)\n";
   descriptor.lineno = 1718U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -25979,7 +25976,7 @@ int ubi_wl_flush(struct ubi_device *ubi , int vol_id , int lnum )
     {
     list_del(& wrk->list);
     ubi->works_count = ubi->works_count + -1;
-    tmp___3 = __builtin_expect(ubi->works_count < 0, 0L);
+    tmp___3 = ldv__builtin_expect(ubi->works_count < 0, 0L);
     }
     if (tmp___3 != 0L) {
       {
@@ -26250,7 +26247,7 @@ int ubi_thread(void *u )
   descriptor.format = "UBI DBG wl (pid %d): background thread \"%s\" is killed\n";
   descriptor.lineno = 1843U;
   descriptor.flags = 0U;
-  tmp___12 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___12 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___12 != 0L) {
     {
@@ -26281,7 +26278,7 @@ static void shutdown_work(struct ubi_device *ubi )
   list_del(& wrk->list);
   (*(wrk->func))(ubi, wrk, 1);
   ubi->works_count = ubi->works_count + -1;
-  tmp___0 = __builtin_expect(ubi->works_count < 0, 0L);
+  tmp___0 = ldv__builtin_expect(ubi->works_count < 0, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -26431,7 +26428,7 @@ int ubi_wl_init(struct ubi_device *ubi , struct ubi_attach_info *ai )
   e->pnum = aeb->pnum;
   e->ec = aeb->ec;
   tmp___6 = ubi_is_fm_block(ubi, e->pnum);
-  tmp___7 = __builtin_expect(tmp___6 != 0, 0L);
+  tmp___7 = ldv__builtin_expect(tmp___6 != 0, 0L);
   }
   if (tmp___7 != 0L) {
     {
@@ -26483,7 +26480,7 @@ int ubi_wl_init(struct ubi_device *ubi , struct ubi_attach_info *ai )
   {
   e->pnum = aeb->pnum;
   e->ec = aeb->ec;
-  tmp___11 = __builtin_expect(e->ec < 0, 0L);
+  tmp___11 = ldv__builtin_expect(e->ec < 0, 0L);
   }
   if (tmp___11 != 0L) {
     {
@@ -26496,7 +26493,7 @@ int ubi_wl_init(struct ubi_device *ubi , struct ubi_attach_info *ai )
   }
   {
   tmp___13 = ubi_is_fm_block(ubi, e->pnum);
-  tmp___14 = __builtin_expect(tmp___13 != 0, 0L);
+  tmp___14 = ldv__builtin_expect(tmp___13 != 0, 0L);
   }
   if (tmp___14 != 0L) {
     {
@@ -26565,7 +26562,7 @@ int ubi_wl_init(struct ubi_device *ubi , struct ubi_attach_info *ai )
     descriptor.format = "UBI DBG wl (pid %d): add PEB %d EC %d to the used tree\n";
     descriptor.lineno = 1955U;
     descriptor.flags = 0U;
-    tmp___17 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___17 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp___17 != 0L) {
       {
@@ -26587,7 +26584,7 @@ int ubi_wl_init(struct ubi_device *ubi , struct ubi_attach_info *ai )
     descriptor___0.format = "UBI DBG wl (pid %d): add PEB %d EC %d to the scrub tree\n";
     descriptor___0.lineno = 1959U;
     descriptor___0.flags = 0U;
-    tmp___19 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___19 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___19 != 0L) {
       {
@@ -26640,7 +26637,7 @@ int ubi_wl_init(struct ubi_device *ubi , struct ubi_attach_info *ai )
   descriptor___1.format = "UBI DBG wl (pid %d): found %i PEBs\n";
   descriptor___1.lineno = 1967U;
   descriptor___1.flags = 0U;
-  tmp___21 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+  tmp___21 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
   }
   if (tmp___21 != 0L) {
     {
@@ -26653,7 +26650,7 @@ int ubi_wl_init(struct ubi_device *ubi , struct ubi_attach_info *ai )
   }
   if ((unsigned long )ubi->fm != (unsigned long )((struct ubi_fastmap_layout *)0)) {
     {
-    tmp___23 = __builtin_expect(ubi->good_peb_count != found_pebs + (ubi->fm)->used_blocks,
+    tmp___23 = ldv__builtin_expect(ubi->good_peb_count != found_pebs + (ubi->fm)->used_blocks,
                                 0L);
     }
     if (tmp___23 != 0L) {
@@ -26667,7 +26664,7 @@ int ubi_wl_init(struct ubi_device *ubi , struct ubi_attach_info *ai )
     }
   } else {
     {
-    tmp___25 = __builtin_expect(ubi->good_peb_count != found_pebs, 0L);
+    tmp___25 = ldv__builtin_expect(ubi->good_peb_count != found_pebs, 0L);
     }
     if (tmp___25 != 0L) {
       {
@@ -26777,7 +26774,7 @@ void ubi_wl_close(struct ubi_device *ubi )
   descriptor.format = "UBI DBG wl (pid %d): close the WL sub-system\n";
   descriptor.lineno = 2031U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -27098,7 +27095,7 @@ __inline static int ubi_io_read_data___1(struct ubi_device  const  *ubi , void *
 
   {
   {
-  tmp___0 = __builtin_expect(offset < 0, 0L);
+  tmp___0 = ldv__builtin_expect(offset < 0, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -27143,7 +27140,7 @@ static int add_to_list(struct ubi_attach_info *ai , int pnum , int vol_id , int 
     descriptor.format = "UBI DBG bld (pid %d): add to free: PEB %d, EC %d\n";
     descriptor.lineno = 125U;
     descriptor.flags = 0U;
-    tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -27163,7 +27160,7 @@ static int add_to_list(struct ubi_attach_info *ai , int pnum , int vol_id , int 
     descriptor___0.format = "UBI DBG bld (pid %d): add to erase: PEB %d, EC %d\n";
     descriptor___0.lineno = 127U;
     descriptor___0.flags = 0U;
-    tmp___2 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___2 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___2 != 0L) {
       {
@@ -27183,7 +27180,7 @@ static int add_to_list(struct ubi_attach_info *ai , int pnum , int vol_id , int 
     descriptor___1.format = "UBI DBG bld (pid %d): add to alien: PEB %d, EC %d\n";
     descriptor___1.lineno = 129U;
     descriptor___1.flags = 0U;
-    tmp___4 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___4 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
     }
     if (tmp___4 != 0L) {
       {
@@ -27243,7 +27240,7 @@ static int add_corrupted(struct ubi_attach_info *ai , int pnum , int ec )
   descriptor.format = "UBI DBG bld (pid %d): add to corrupted: PEB %d, EC %d\n";
   descriptor.lineno = 164U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -27371,7 +27368,7 @@ static struct ubi_ainf_volume *add_volume(struct ubi_attach_info *ai , int vol_i
   p = & ai->volumes.rb_node;
   parent = (struct rb_node *)0;
   tmp___0 = __fswab32(vid_hdr->vol_id);
-  tmp___1 = __builtin_expect((unsigned int )vol_id != tmp___0, 0L);
+  tmp___1 = ldv__builtin_expect((unsigned int )vol_id != tmp___0, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -27444,7 +27441,7 @@ static struct ubi_ainf_volume *add_volume(struct ubi_attach_info *ai , int vol_i
   descriptor.format = "UBI DBG bld (pid %d): added volume %d\n";
   descriptor.lineno = 300U;
   descriptor.flags = 0U;
-  tmp___8 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___8 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___8 != 0L) {
     {
@@ -27519,7 +27516,7 @@ int ubi_compare_lebs(struct ubi_device *ubi , struct ubi_ainf_peb  const  *aeb ,
       descriptor.format = "UBI DBG bld (pid %d): second PEB %d is newer, copy_flag is unset\n";
       descriptor.lineno = 361U;
       descriptor.flags = 0U;
-      tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+      tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
       }
       if (tmp___1 != 0L) {
         {
@@ -27543,7 +27540,7 @@ int ubi_compare_lebs(struct ubi_device *ubi , struct ubi_ainf_peb  const  *aeb ,
       descriptor___0.format = "UBI DBG bld (pid %d): first PEB %d is newer, copy_flag is unset\n";
       descriptor___0.lineno = 368U;
       descriptor___0.flags = 0U;
-      tmp___3 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+      tmp___3 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
       }
       if (tmp___3 != 0L) {
         {
@@ -27622,7 +27619,7 @@ int ubi_compare_lebs(struct ubi_device *ubi , struct ubi_ainf_peb  const  *aeb ,
     descriptor___1.format = "UBI DBG bld (pid %d): PEB %d CRC error: calculated %#08x, must be %#08x\n";
     descriptor___1.lineno = 407U;
     descriptor___1.flags = 0U;
-    tmp___8 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___8 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
     }
     if (tmp___8 != 0L) {
       {
@@ -27644,7 +27641,7 @@ int ubi_compare_lebs(struct ubi_device *ubi , struct ubi_ainf_peb  const  *aeb ,
     descriptor___2.format = "UBI DBG bld (pid %d): PEB %d CRC is OK\n";
     descriptor___2.lineno = 412U;
     descriptor___2.flags = 0U;
-    tmp___10 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+    tmp___10 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
     }
     if (tmp___10 != 0L) {
       {
@@ -27669,7 +27666,7 @@ int ubi_compare_lebs(struct ubi_device *ubi , struct ubi_ainf_peb  const  *aeb ,
     descriptor___3.format = "UBI DBG bld (pid %d): second PEB %d is newer, copy_flag is set\n";
     descriptor___3.lineno = 420U;
     descriptor___3.flags = 0U;
-    tmp___12 = __builtin_expect((long )descriptor___3.flags & 1L, 0L);
+    tmp___12 = ldv__builtin_expect((long )descriptor___3.flags & 1L, 0L);
     }
     if (tmp___12 != 0L) {
       {
@@ -27688,7 +27685,7 @@ int ubi_compare_lebs(struct ubi_device *ubi , struct ubi_ainf_peb  const  *aeb ,
     descriptor___4.format = "UBI DBG bld (pid %d): first PEB %d is newer, copy_flag is set\n";
     descriptor___4.lineno = 422U;
     descriptor___4.flags = 0U;
-    tmp___14 = __builtin_expect((long )descriptor___4.flags & 1L, 0L);
+    tmp___14 = ldv__builtin_expect((long )descriptor___4.flags & 1L, 0L);
     }
     if (tmp___14 != 0L) {
       {
@@ -27756,7 +27753,7 @@ int ubi_add_to_av(struct ubi_device *ubi , struct ubi_attach_info *ai , int pnum
   descriptor.format = "UBI DBG bld (pid %d): PEB %d, LEB %d:%d, EC %d, sqnum %llu, bitflips %d\n";
   descriptor.lineno = 463U;
   descriptor.flags = 0U;
-  tmp___3 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___3 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___3 != 0L) {
     {
@@ -27807,7 +27804,7 @@ int ubi_add_to_av(struct ubi_device *ubi , struct ubi_attach_info *ai , int pnum
   descriptor___0.format = "UBI DBG bld (pid %d): this LEB already exists: PEB %d, sqnum %llu, EC %d\n";
   descriptor___0.lineno = 496U;
   descriptor___0.flags = 0U;
-  tmp___7 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___7 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
   }
   if (tmp___7 != 0L) {
     {
@@ -27975,7 +27972,7 @@ void ubi_remove_av(struct ubi_attach_info *ai , struct ubi_ainf_volume *av )
   descriptor.format = "UBI DBG bld (pid %d): remove attaching information about volume %d\n";
   descriptor.lineno = 636U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -28092,7 +28089,7 @@ struct ubi_ainf_peb *ubi_early_get_peb(struct ubi_device *ubi , struct ubi_attac
     descriptor.format = "UBI DBG bld (pid %d): return free PEB %d, EC %d\n";
     descriptor.lineno = 718U;
     descriptor.flags = 0U;
-    tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -28135,7 +28132,7 @@ struct ubi_ainf_peb *ubi_early_get_peb(struct ubi_device *ubi , struct ubi_attac
   descriptor___0.format = "UBI DBG bld (pid %d): return PEB %d, EC %d\n";
   descriptor___0.lineno = 738U;
   descriptor___0.flags = 0U;
-  tmp___3 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___3 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
   }
   if (tmp___3 != 0L) {
     {
@@ -28256,7 +28253,7 @@ static int scan_peb(struct ubi_device *ubi , struct ubi_attach_info *ai , int pn
   descriptor.format = "UBI DBG bld (pid %d): scan PEB %d\n";
   descriptor.lineno = 825U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -28947,7 +28944,7 @@ static int scan_all(struct ubi_device *ubi , struct ubi_attach_info *ai , int st
   descriptor.format = "UBI DBG gen (pid %d): process PEB %d\n";
   descriptor.lineno = 1249U;
   descriptor.flags = 0U;
-  tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -29173,7 +29170,7 @@ static int scan_fast(struct ubi_device *ubi , struct ubi_attach_info *ai )
   descriptor.format = "UBI DBG gen (pid %d): process PEB %d\n";
   descriptor.lineno = 1336U;
   descriptor.flags = 0U;
-  tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -29343,7 +29340,7 @@ int ubi_attach(struct ubi_device *ubi , int force_scan )
   descriptor.format = "UBI DBG gen (pid %d): max. sequence number:       %llu\n";
   descriptor.lineno = 1441U;
   descriptor.flags = 0U;
-  tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -30175,7 +30172,7 @@ int ubi_calc_data_len(struct ubi_device  const  *ubi , void const   *buf , int l
 
   {
   {
-  tmp___0 = __builtin_expect((length & ((int )ubi->min_io_size + -1)) != 0, 0L);
+  tmp___0 = ldv__builtin_expect((length & ((int )ubi->min_io_size + -1)) != 0, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -30366,7 +30363,7 @@ __inline static bool IS_ERR_OR_NULL(void const   *ptr )
     tmp___0 = 1;
   } else {
     {
-    tmp = __builtin_expect((unsigned long )ptr > 0xfffffffffffff000UL, 0L);
+    tmp = ldv__builtin_expect((unsigned long )ptr > 0xfffffffffffff000UL, 0L);
     }
     if (tmp != 0L) {
       tmp___0 = 1;
@@ -31534,7 +31531,7 @@ static struct ubi_ainf_volume *add_vol(struct ubi_attach_info *ai , int vol_id ,
   descriptor.format = "UBI DBG bld (pid %d): found volume (ID %i)\n";
   descriptor.lineno = 148U;
   descriptor.flags = 0U;
-  tmp___2 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___2 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___2 != 0L) {
     {
@@ -31649,7 +31646,7 @@ static int update_vol(struct ubi_device *ubi , struct ubi_attach_info *ai , stru
   }
   if (aeb->pnum == new_aeb->pnum) {
     {
-    tmp___2 = __builtin_expect(aeb->lnum != new_aeb->lnum, 0L);
+    tmp___2 = ldv__builtin_expect(aeb->lnum != new_aeb->lnum, 0L);
     }
     if (tmp___2 != 0L) {
       {
@@ -31707,7 +31704,7 @@ static int update_vol(struct ubi_device *ubi , struct ubi_attach_info *ai , stru
     descriptor.format = "UBI DBG bld (pid %d): vol %i: AEB %i\'s PEB %i is the newer\n";
     descriptor.lineno = 256U;
     descriptor.flags = 0U;
-    tmp___7 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___7 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp___7 != 0L) {
       {
@@ -31733,7 +31730,7 @@ static int update_vol(struct ubi_device *ubi , struct ubi_attach_info *ai , stru
     descriptor___0.format = "UBI DBG bld (pid %d): vol %i: AEB %i\'s PEB %i is old, dropping it\n";
     descriptor___0.lineno = 267U;
     descriptor___0.flags = 0U;
-    tmp___9 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___9 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___9 != 0L) {
       {
@@ -31868,7 +31865,7 @@ static int process_pool_aeb(struct ubi_device *ubi , struct ubi_attach_info *ai 
   }
   {
   tmp___4 = __fswab32(new_vh->vol_id);
-  tmp___5 = __builtin_expect(tmp___4 != (unsigned int )av->vol_id, 0L);
+  tmp___5 = ldv__builtin_expect(tmp___4 != (unsigned int )av->vol_id, 0L);
   }
   if (tmp___5 != 0L) {
     {
@@ -32008,7 +32005,7 @@ static int scan_pool(struct ubi_device *ubi , struct ubi_attach_info *ai , int *
   descriptor.format = "UBI DBG bld (pid %d): scanning fastmap pool: size = %i\n";
   descriptor.lineno = 404U;
   descriptor.flags = 0U;
-  tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -32082,7 +32079,7 @@ static int scan_pool(struct ubi_device *ubi , struct ubi_attach_info *ai , int *
     descriptor___0.format = "UBI DBG bld (pid %d): Adding PEB to free: %i\n";
     descriptor___0.lineno = 448U;
     descriptor___0.flags = 0U;
-    tmp___8 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___8 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___8 != 0L) {
       {
@@ -32112,7 +32109,7 @@ static int scan_pool(struct ubi_device *ubi , struct ubi_attach_info *ai , int *
     descriptor___1.format = "UBI DBG bld (pid %d): Found non empty PEB:%i in pool\n";
     descriptor___1.lineno = 455U;
     descriptor___1.flags = 0U;
-    tmp___10 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___10 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
     }
     if (tmp___10 != 0L) {
       {
@@ -32815,7 +32812,7 @@ static int ubi_attach_fastmap(struct ubi_device *ubi , struct ubi_attach_info *a
   descriptor.format = "UBI DBG bld (pid %d): inserting PEB:%i (LEB %i) to vol %i\n";
   descriptor.lineno = 776U;
   descriptor.flags = 0U;
-  tmp___40 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___40 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___40 != 0L) {
     {
@@ -32954,7 +32951,7 @@ static int ubi_attach_fastmap(struct ubi_device *ubi , struct ubi_attach_info *a
   }
   {
   tmp___47 = list_empty((struct list_head  const  *)(& used));
-  tmp___48 = __builtin_expect(tmp___47 == 0, 0L);
+  tmp___48 = ldv__builtin_expect(tmp___47 == 0, 0L);
   }
   if (tmp___48 != 0L) {
     {
@@ -32968,7 +32965,7 @@ static int ubi_attach_fastmap(struct ubi_device *ubi , struct ubi_attach_info *a
   }
   {
   tmp___50 = list_empty((struct list_head  const  *)(& eba_orphans));
-  tmp___51 = __builtin_expect(tmp___50 == 0, 0L);
+  tmp___51 = ldv__builtin_expect(tmp___50 == 0, 0L);
   }
   if (tmp___51 != 0L) {
     {
@@ -32982,7 +32979,7 @@ static int ubi_attach_fastmap(struct ubi_device *ubi , struct ubi_attach_info *a
   }
   {
   tmp___53 = list_empty((struct list_head  const  *)(& free___0));
-  tmp___54 = __builtin_expect(tmp___53 == 0, 0L);
+  tmp___54 = ldv__builtin_expect(tmp___53 == 0, 0L);
   }
   if (tmp___54 != 0L) {
     {
@@ -32997,7 +32994,7 @@ static int ubi_attach_fastmap(struct ubi_device *ubi , struct ubi_attach_info *a
   {
   tmp___55 = count_fastmap_pebs(ai);
   __ret_warn_on = tmp___55 != (ubi->peb_count - ai->bad_peb_count) - fm->used_blocks;
-  tmp___56 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___56 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp___56 != 0L) {
     {
@@ -33007,7 +33004,7 @@ static int ubi_attach_fastmap(struct ubi_device *ubi , struct ubi_attach_info *a
 
   }
   {
-  tmp___57 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___57 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp___57 != 0L) {
     goto fail_bad;
@@ -33599,7 +33596,7 @@ static int ubi_write_fastmap(struct ubi_device *ubi , struct ubi_fastmap_layout 
   ldv_spin_lock_114(& ubi->wl_lock);
   fmsb = (struct ubi_fm_sb *)fm_raw;
   fm_pos = fm_pos + 312UL;
-  tmp___0 = __builtin_expect(fm_pos > ubi->fm_size, 0L);
+  tmp___0 = ldv__builtin_expect(fm_pos > ubi->fm_size, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -33614,7 +33611,7 @@ static int ubi_write_fastmap(struct ubi_device *ubi , struct ubi_fastmap_layout 
   {
   fmh = (struct ubi_fm_hdr *)(fm_raw + fm_pos);
   fm_pos = fm_pos + 32UL;
-  tmp___2 = __builtin_expect(fm_pos > ubi->fm_size, 0L);
+  tmp___2 = ldv__builtin_expect(fm_pos > ubi->fm_size, 0L);
   }
   if (tmp___2 != 0L) {
     {
@@ -33698,7 +33695,7 @@ static int ubi_write_fastmap(struct ubi_device *ubi , struct ubi_fastmap_layout 
   fec->ec = tmp___11;
   free_peb_count = free_peb_count + 1;
   fm_pos = fm_pos + 8UL;
-  tmp___13 = __builtin_expect(fm_pos > ubi->fm_size, 0L);
+  tmp___13 = ldv__builtin_expect(fm_pos > ubi->fm_size, 0L);
   }
   if (tmp___13 != 0L) {
     {
@@ -33736,7 +33733,7 @@ static int ubi_write_fastmap(struct ubi_device *ubi , struct ubi_fastmap_layout 
   fec->ec = tmp___16;
   used_peb_count = used_peb_count + 1;
   fm_pos = fm_pos + 8UL;
-  tmp___18 = __builtin_expect(fm_pos > ubi->fm_size, 0L);
+  tmp___18 = ldv__builtin_expect(fm_pos > ubi->fm_size, 0L);
   }
   if (tmp___18 != 0L) {
     {
@@ -33772,7 +33769,7 @@ static int ubi_write_fastmap(struct ubi_device *ubi , struct ubi_fastmap_layout 
   fec->ec = tmp___20;
   used_peb_count = used_peb_count + 1;
   fm_pos = fm_pos + 8UL;
-  tmp___22 = __builtin_expect(fm_pos > ubi->fm_size, 0L);
+  tmp___22 = ldv__builtin_expect(fm_pos > ubi->fm_size, 0L);
   }
   if (tmp___22 != 0L) {
     {
@@ -33816,7 +33813,7 @@ static int ubi_write_fastmap(struct ubi_device *ubi , struct ubi_fastmap_layout 
   fec->ec = tmp___25;
   scrub_peb_count = scrub_peb_count + 1;
   fm_pos = fm_pos + 8UL;
-  tmp___27 = __builtin_expect(fm_pos > ubi->fm_size, 0L);
+  tmp___27 = ldv__builtin_expect(fm_pos > ubi->fm_size, 0L);
   }
   if (tmp___27 != 0L) {
     {
@@ -33851,7 +33848,7 @@ static int ubi_write_fastmap(struct ubi_device *ubi , struct ubi_fastmap_layout 
   if (tmp___35 != 0) {
     {
     wl_e = ubi_wrk->e;
-    tmp___30 = __builtin_expect((unsigned long )wl_e == (unsigned long )((struct ubi_wl_entry *)0),
+    tmp___30 = ldv__builtin_expect((unsigned long )wl_e == (unsigned long )((struct ubi_wl_entry *)0),
                                 0L);
     }
     if (tmp___30 != 0L) {
@@ -33872,7 +33869,7 @@ static int ubi_write_fastmap(struct ubi_device *ubi , struct ubi_fastmap_layout 
     fec->ec = tmp___32;
     erase_peb_count = erase_peb_count + 1;
     fm_pos = fm_pos + 8UL;
-    tmp___34 = __builtin_expect(fm_pos > ubi->fm_size, 0L);
+    tmp___34 = ldv__builtin_expect(fm_pos > ubi->fm_size, 0L);
     }
     if (tmp___34 != 0L) {
       {
@@ -33912,7 +33909,7 @@ static int ubi_write_fastmap(struct ubi_device *ubi , struct ubi_fastmap_layout 
   vol_count = vol_count + 1;
   fvh = (struct ubi_fm_volhdr *)(fm_raw + fm_pos);
   fm_pos = fm_pos + 32UL;
-  tmp___38 = __builtin_expect(fm_pos > ubi->fm_size, 0L);
+  tmp___38 = ldv__builtin_expect(fm_pos > ubi->fm_size, 0L);
   }
   if (tmp___38 != 0L) {
     {
@@ -33935,7 +33932,7 @@ static int ubi_write_fastmap(struct ubi_device *ubi , struct ubi_fastmap_layout 
   fvh->data_pad = tmp___41;
   tmp___42 = __fswab32((__u32 )vol->last_eb_bytes);
   fvh->last_eb_bytes = tmp___42;
-  tmp___44 = __builtin_expect((unsigned int )vol->vol_type - 3U > 1U, 0L);
+  tmp___44 = ldv__builtin_expect((unsigned int )vol->vol_type - 3U > 1U, 0L);
   }
   if (tmp___44 != 0L) {
     {
@@ -33950,7 +33947,7 @@ static int ubi_write_fastmap(struct ubi_device *ubi , struct ubi_fastmap_layout 
   {
   feba = (struct ubi_fm_eba *)(fm_raw + fm_pos);
   fm_pos = fm_pos + ((unsigned long )vol->reserved_pebs + 2UL) * 4UL;
-  tmp___46 = __builtin_expect(fm_pos > ubi->fm_size, 0L);
+  tmp___46 = ldv__builtin_expect(fm_pos > ubi->fm_size, 0L);
   }
   if (tmp___46 != 0L) {
     {
@@ -34006,7 +34003,7 @@ static int ubi_write_fastmap(struct ubi_device *ubi , struct ubi_fastmap_layout 
   descriptor.format = "UBI DBG bld (pid %d): writing fastmap SB to PEB %i\n";
   descriptor.lineno = 1286U;
   descriptor.flags = 0U;
-  tmp___54 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___54 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___54 != 0L) {
     {
@@ -34066,7 +34063,7 @@ static int ubi_write_fastmap(struct ubi_device *ubi , struct ubi_fastmap_layout 
   descriptor___0.format = "UBI DBG bld (pid %d): writing fastmap data to PEB %i sqnum %llu\n";
   descriptor___0.lineno = 1306U;
   descriptor___0.flags = 0U;
-  tmp___69 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___69 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
   }
   if (tmp___69 != 0L) {
     {
@@ -34121,7 +34118,7 @@ static int ubi_write_fastmap(struct ubi_device *ubi , struct ubi_fastmap_layout 
 
   }
   {
-  tmp___71 = __builtin_expect((unsigned long )new_fm == (unsigned long )((struct ubi_fastmap_layout *)0),
+  tmp___71 = ldv__builtin_expect((unsigned long )new_fm == (unsigned long )((struct ubi_fastmap_layout *)0),
                               0L);
   }
   if (tmp___71 != 0L) {
@@ -34142,7 +34139,7 @@ static int ubi_write_fastmap(struct ubi_device *ubi , struct ubi_fastmap_layout 
   descriptor___1.format = "UBI DBG bld (pid %d): fastmap written!\n";
   descriptor___1.lineno = 1328U;
   descriptor___1.flags = 0U;
-  tmp___73 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+  tmp___73 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
   }
   if (tmp___73 != 0L) {
     {
@@ -35595,7 +35592,7 @@ static void ubiblock_remove_all(void)
   ldv_35761: 
   {
   __ret_warn_on = (unsigned long )dev->desc != (unsigned long )((struct ubi_volume_desc *)0);
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp != 0L) {
     {
@@ -35605,7 +35602,7 @@ static void ubiblock_remove_all(void)
 
   }
   {
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
   list_del(& dev->list);
   ubiblock_cleanup(dev);
   kfree((void const   *)dev);
@@ -38160,7 +38157,7 @@ void ldv_linux_usb_urb_check_final_state(void)
 }
 }
 extern void ldv_assert(char const   * , int  ) ;
-void __builtin_trap(void) ;
+void ldv__builtin_trap(void) ;
 void ldv_assume(int expression ) 
 { 
 
@@ -38184,7 +38181,7 @@ void ldv_stop(void)
   goto ldv_stop_label;
 }
 }
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 
@@ -38192,7 +38189,7 @@ long __builtin_expect(long exp , long c )
   return (exp);
 }
 }
-void __builtin_trap(void) 
+void ldv__builtin_trap(void) 
 { 
 
 

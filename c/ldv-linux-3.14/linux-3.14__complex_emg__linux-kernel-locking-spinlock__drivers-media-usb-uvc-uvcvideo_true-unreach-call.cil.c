@@ -9427,7 +9427,7 @@ void ldv_dummy_resourceless_instance_callback_4_9(int (*arg0)(struct vb2_queue *
                                                   unsigned int *arg3 , unsigned int *arg4 ,
                                                   unsigned int *arg5 , void **arg6 ) ;
 void ldv_entry_EMGentry_10(void *arg0 ) ;
-void main(void) ;
+int main(void) ;
 void ldv_file_operations_file_operations_instance_0(void *arg0 ) ;
 void ldv_file_operations_instance_write_0_4(long (*arg0)(struct file * , char * ,
                                                          unsigned long  , long long * ) ,
@@ -10115,7 +10115,7 @@ void ldv_entry_EMGentry_10(void *arg0 )
   return;
 }
 }
-void main(void) 
+int main(void) 
 { 
   int tmp ;
 
@@ -11536,7 +11536,7 @@ static void ldv_usb_deregister_49(struct usb_driver *ldv_func_arg1 )
   return;
 }
 }
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 extern void list_del(struct list_head * ) ;
 extern void __ldv_spin_lock(spinlock_t * ) ;
 static void ldv___ldv_spin_lock_48(spinlock_t *ldv_func_arg1 ) ;
@@ -11719,7 +11719,7 @@ static int uvc_buffer_prepare(struct vb2_buffer *vb )
 
   }
   {
-  tmp___2 = __builtin_expect((long )((int )queue->flags) & 1L, 0L);
+  tmp___2 = ldv__builtin_expect((long )((int )queue->flags) & 1L, 0L);
   }
   if (tmp___2 != 0L) {
     return (-19);
@@ -11760,7 +11760,7 @@ static void uvc_buffer_queue(struct vb2_buffer *vb )
   __mptr = (struct vb2_buffer  const  *)vb;
   buf = (struct uvc_buffer *)__mptr;
   ldv___ldv_spin_lock_48(& queue->irqlock);
-  tmp___0 = __builtin_expect((queue->flags & 1U) == 0U, 1L);
+  tmp___0 = ldv__builtin_expect((queue->flags & 1U) == 0U, 1L);
   }
   if (tmp___0 != 0L) {
     {
@@ -12462,7 +12462,7 @@ __inline static int __copy_from_user_nocheck(void *dst , void const   *src , uns
   __asm__  volatile   ("661:\n\t.byte 0x66,0x66,0x90\n\n662:\n.pushsection .altinstructions,\"a\"\n .long 661b - .\n .long 6631f - .\n .word (9*32+20)\n .byte 662b-661b\n .byte 6641f-6631f\n.popsection\n.pushsection .discard,\"aw\",@progbits\n .byte 0xff + (6641f-6631f) - (662b-661b)\n.popsection\n.pushsection .altinstr_replacement, \"ax\"\n6631:\n\t.byte 0x0f,0x01,0xcb\n6641:\n\t.popsection\n1:\tmovq %2,%1\n2: 661:\n\t.byte 0x66,0x66,0x90\n\n662:\n.pushsection .altinstructions,\"a\"\n .long 661b - .\n .long 6631f - .\n .word (9*32+20)\n .byte 662b-661b\n .byte 6641f-6631f\n.popsection\n.pushsection .discard,\"aw\",@progbits\n .byte 0xff + (6641f-6631f) - (662b-661b)\n.popsection\n.pushsection .altinstr_replacement, \"ax\"\n6631:\n\t.byte 0x0f,0x01,0xca\n6641:\n\t.popsection\n.section .fixup,\"ax\"\n3:\tmov %3,%0\n\txorq %1,%1\n\tjmp 2b\n.previous\n .pushsection \"__ex_table\",\"a\"\n .balign 8\n .long (1b) - .\n .long (3b) - .\n .popsection\n": "=r" (ret),
                        "=r" (*((u64 *)dst)): "m" (*((struct __large_struct *)src)),
                        "i" (10), "0" (ret));
-  tmp___0 = __builtin_expect(ret != 0, 0L);
+  tmp___0 = ldv__builtin_expect(ret != 0, 0L);
   }
   if (tmp___0 != 0L) {
     return (ret);
@@ -12478,7 +12478,7 @@ __inline static int __copy_from_user_nocheck(void *dst , void const   *src , uns
   __asm__  volatile   ("661:\n\t.byte 0x66,0x66,0x90\n\n662:\n.pushsection .altinstructions,\"a\"\n .long 661b - .\n .long 6631f - .\n .word (9*32+20)\n .byte 662b-661b\n .byte 6641f-6631f\n.popsection\n.pushsection .discard,\"aw\",@progbits\n .byte 0xff + (6641f-6631f) - (662b-661b)\n.popsection\n.pushsection .altinstr_replacement, \"ax\"\n6631:\n\t.byte 0x0f,0x01,0xcb\n6641:\n\t.popsection\n1:\tmovq %2,%1\n2: 661:\n\t.byte 0x66,0x66,0x90\n\n662:\n.pushsection .altinstructions,\"a\"\n .long 661b - .\n .long 6631f - .\n .word (9*32+20)\n .byte 662b-661b\n .byte 6641f-6631f\n.popsection\n.pushsection .discard,\"aw\",@progbits\n .byte 0xff + (6641f-6631f) - (662b-661b)\n.popsection\n.pushsection .altinstr_replacement, \"ax\"\n6631:\n\t.byte 0x0f,0x01,0xca\n6641:\n\t.popsection\n.section .fixup,\"ax\"\n3:\tmov %3,%0\n\txorq %1,%1\n\tjmp 2b\n.previous\n .pushsection \"__ex_table\",\"a\"\n .balign 8\n .long (1b) - .\n .long (3b) - .\n .popsection\n": "=r" (ret),
                        "=r" (*((u64 *)dst)): "m" (*((struct __large_struct *)src)),
                        "i" (16), "0" (ret));
-  tmp___1 = __builtin_expect(ret != 0, 0L);
+  tmp___1 = ldv__builtin_expect(ret != 0, 0L);
   }
   if (tmp___1 != 0L) {
     return (ret);
@@ -12576,7 +12576,7 @@ __inline static int __copy_to_user_nocheck(void *dst , void const   *src , unsig
   {
   __asm__  volatile   ("661:\n\t.byte 0x66,0x66,0x90\n\n662:\n.pushsection .altinstructions,\"a\"\n .long 661b - .\n .long 6631f - .\n .word (9*32+20)\n .byte 662b-661b\n .byte 6641f-6631f\n.popsection\n.pushsection .discard,\"aw\",@progbits\n .byte 0xff + (6641f-6631f) - (662b-661b)\n.popsection\n.pushsection .altinstr_replacement, \"ax\"\n6631:\n\t.byte 0x0f,0x01,0xcb\n6641:\n\t.popsection\n1:\tmovq %1,%2\n2: 661:\n\t.byte 0x66,0x66,0x90\n\n662:\n.pushsection .altinstructions,\"a\"\n .long 661b - .\n .long 6631f - .\n .word (9*32+20)\n .byte 662b-661b\n .byte 6641f-6631f\n.popsection\n.pushsection .discard,\"aw\",@progbits\n .byte 0xff + (6641f-6631f) - (662b-661b)\n.popsection\n.pushsection .altinstr_replacement, \"ax\"\n6631:\n\t.byte 0x0f,0x01,0xca\n6641:\n\t.popsection\n.section .fixup,\"ax\"\n3:\tmov %3,%0\n\tjmp 2b\n.previous\n .pushsection \"__ex_table\",\"a\"\n .balign 8\n .long (1b) - .\n .long (3b) - .\n .popsection\n": "=r" (ret): "er" (*((u64 *)src)),
                        "m" (*((struct __large_struct *)dst)), "i" (10), "0" (ret));
-  tmp___0 = __builtin_expect(ret != 0, 0L);
+  tmp___0 = ldv__builtin_expect(ret != 0, 0L);
   }
   if (tmp___0 != 0L) {
     return (ret);
@@ -12591,7 +12591,7 @@ __inline static int __copy_to_user_nocheck(void *dst , void const   *src , unsig
   {
   __asm__  volatile   ("661:\n\t.byte 0x66,0x66,0x90\n\n662:\n.pushsection .altinstructions,\"a\"\n .long 661b - .\n .long 6631f - .\n .word (9*32+20)\n .byte 662b-661b\n .byte 6641f-6631f\n.popsection\n.pushsection .discard,\"aw\",@progbits\n .byte 0xff + (6641f-6631f) - (662b-661b)\n.popsection\n.pushsection .altinstr_replacement, \"ax\"\n6631:\n\t.byte 0x0f,0x01,0xcb\n6641:\n\t.popsection\n1:\tmovq %1,%2\n2: 661:\n\t.byte 0x66,0x66,0x90\n\n662:\n.pushsection .altinstructions,\"a\"\n .long 661b - .\n .long 6631f - .\n .word (9*32+20)\n .byte 662b-661b\n .byte 6641f-6631f\n.popsection\n.pushsection .discard,\"aw\",@progbits\n .byte 0xff + (6641f-6631f) - (662b-661b)\n.popsection\n.pushsection .altinstr_replacement, \"ax\"\n6631:\n\t.byte 0x0f,0x01,0xca\n6641:\n\t.popsection\n.section .fixup,\"ax\"\n3:\tmov %3,%0\n\tjmp 2b\n.previous\n .pushsection \"__ex_table\",\"a\"\n .balign 8\n .long (1b) - .\n .long (3b) - .\n .popsection\n": "=r" (ret): "er" (*((u64 *)src)),
                        "m" (*((struct __large_struct *)dst)), "i" (16), "0" (ret));
-  tmp___1 = __builtin_expect(ret != 0, 0L);
+  tmp___1 = ldv__builtin_expect(ret != 0, 0L);
   }
   if (tmp___1 != 0L) {
     return (ret);
@@ -12635,7 +12635,7 @@ __inline static unsigned long copy_from_user(void *to , void const   *from , uns
   {
   sz = -1;
   might_fault();
-  tmp = __builtin_expect(sz < 0, 1L);
+  tmp = ldv__builtin_expect(sz < 0, 1L);
   }
   if (tmp != 0L) {
     {
@@ -12643,7 +12643,7 @@ __inline static unsigned long copy_from_user(void *to , void const   *from , uns
     }
   } else {
     {
-    tmp___0 = __builtin_expect((unsigned long )sz >= n, 1L);
+    tmp___0 = ldv__builtin_expect((unsigned long )sz >= n, 1L);
     }
     if (tmp___0 != 0L) {
       {
@@ -14632,7 +14632,7 @@ static int uvc_v4l2_get_xu_mapping(struct uvc_xu_control_mapping *kp , struct uv
     tmp___1 = 1;
   }
   {
-  tmp___2 = __builtin_expect((long )tmp___1, 1L);
+  tmp___2 = ldv__builtin_expect((long )tmp___1, 1L);
   }
   if (tmp___2 == 0L) {
     return (-14);
@@ -14781,7 +14781,7 @@ static int uvc_v4l2_get_xu_mapping(struct uvc_xu_control_mapping *kp , struct uv
     tmp___9 = 1;
   }
   {
-  tmp___10 = __builtin_expect((long )tmp___9, 1L);
+  tmp___10 = ldv__builtin_expect((long )tmp___9, 1L);
   }
   if (tmp___10 == 0L) {
     return (-14);
@@ -14838,7 +14838,7 @@ static int uvc_v4l2_put_xu_mapping(struct uvc_xu_control_mapping  const  *kp , s
     tmp___1 = 1;
   }
   {
-  tmp___2 = __builtin_expect((long )tmp___1, 1L);
+  tmp___2 = ldv__builtin_expect((long )tmp___1, 1L);
   }
   if (tmp___2 == 0L) {
     return (-14);
@@ -14975,7 +14975,7 @@ static int uvc_v4l2_get_xu_query(struct uvc_xu_control_query *kp , struct uvc_xu
     tmp___1 = 1;
   }
   {
-  tmp___2 = __builtin_expect((long )tmp___1, 1L);
+  tmp___2 = ldv__builtin_expect((long )tmp___1, 1L);
   }
   if (tmp___2 == 0L) {
     return (-14);
@@ -15064,7 +15064,7 @@ static int uvc_v4l2_get_xu_query(struct uvc_xu_control_query *kp , struct uvc_xu
     tmp___8 = 1;
   }
   {
-  tmp___9 = __builtin_expect((long )tmp___8, 1L);
+  tmp___9 = ldv__builtin_expect((long )tmp___8, 1L);
   }
   if (tmp___9 == 0L) {
     return (-14);
@@ -15123,7 +15123,7 @@ static int uvc_v4l2_put_xu_query(struct uvc_xu_control_query  const  *kp , struc
     tmp___1 = 1;
   }
   {
-  tmp___2 = __builtin_expect((long )tmp___1, 1L);
+  tmp___2 = ldv__builtin_expect((long )tmp___1, 1L);
   }
   if (tmp___2 == 0L) {
     return (-14);
@@ -15165,7 +15165,7 @@ static int uvc_v4l2_put_xu_query(struct uvc_xu_control_query  const  *kp , struc
     tmp___7 = 1;
   }
   {
-  tmp___8 = __builtin_expect((long )tmp___7, 1L);
+  tmp___8 = ldv__builtin_expect((long )tmp___7, 1L);
   }
   if (tmp___8 == 0L) {
     return (-14);
@@ -18228,7 +18228,7 @@ __inline static unsigned long copy_to_user(void *to , void const   *from , unsig
   {
   sz = -1;
   might_fault();
-  tmp = __builtin_expect(sz < 0, 1L);
+  tmp = ldv__builtin_expect(sz < 0, 1L);
   }
   if (tmp != 0L) {
     {
@@ -18236,7 +18236,7 @@ __inline static unsigned long copy_to_user(void *to , void const   *from , unsig
     }
   } else {
     {
-    tmp___0 = __builtin_expect((unsigned long )sz >= n, 1L);
+    tmp___0 = ldv__builtin_expect((unsigned long )sz >= n, 1L);
     }
     if (tmp___0 != 0L) {
       {
@@ -22510,7 +22510,7 @@ void *ldv_kzalloc(size_t size , gfp_t flags )
 }
 }
 extern void ldv_assert(char const   * , int  ) ;
-void __builtin_trap(void) ;
+void ldv__builtin_trap(void) ;
 void ldv_assume(int expression ) 
 { 
 
@@ -22534,7 +22534,7 @@ void ldv_stop(void)
   goto ldv_stop_label;
 }
 }
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 
@@ -22542,7 +22542,7 @@ long __builtin_expect(long exp , long c )
   return (exp);
 }
 }
-void __builtin_trap(void) 
+void ldv__builtin_trap(void) 
 { 
 
 

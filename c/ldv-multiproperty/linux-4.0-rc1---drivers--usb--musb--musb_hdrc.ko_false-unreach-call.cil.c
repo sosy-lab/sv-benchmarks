@@ -4975,7 +4975,7 @@ struct ldv_thread {
 };
 typedef _Bool ldv_set;
 void __builtin_prefetch(void const   *  , ...) ;
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 void ldv_assume(int expression ) ;
 void ldv_stop(void) ;
 void ldv_linux_alloc_irq_check_alloc_flags(gfp_t flags ) ;
@@ -5145,7 +5145,6 @@ __inline static void INIT_LIST_HEAD(struct list_head *list )
 extern char *strcpy(char * , char const   * ) ;
 extern char *strcat(char * , char const   * ) ;
 extern bool sysfs_streq(char const   * , char const   * ) ;
-extern int ( /* missing proto */  __builtin_unreachable)() ;
 __inline static long PTR_ERR(void const   *ptr ) ;
 __inline static bool IS_ERR(void const   *ptr ) 
 { 
@@ -5153,7 +5152,7 @@ __inline static bool IS_ERR(void const   *ptr )
 
   {
   {
-  tmp = __builtin_expect((unsigned long )ptr > 0xfffffffffffff000UL, 0L);
+  tmp = ldv__builtin_expect((unsigned long )ptr > 0xfffffffffffff000UL, 0L);
   }
   return (tmp != 0L);
 }
@@ -6305,7 +6304,7 @@ static void musb_default_write_fifo(struct musb_hw_ep *hw_ep , u16 len , u8 cons
   {
   musb = hw_ep->musb;
   fifo = hw_ep->fifo;
-  tmp = __builtin_expect((unsigned int )len == 0U, 0L);
+  tmp = ldv__builtin_expect((unsigned int )len == 0U, 0L);
   }
   if (tmp != 0L) {
     return;
@@ -6320,7 +6319,7 @@ static void musb_default_write_fifo(struct musb_hw_ep *hw_ep , u16 len , u8 cons
   descriptor.format = "%cX ep%d fifo %p count %d buf %p\n";
   descriptor.lineno = 298U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -6331,7 +6330,7 @@ static void musb_default_write_fifo(struct musb_hw_ep *hw_ep , u16 len , u8 cons
 
   }
   {
-  tmp___1 = __builtin_expect(((unsigned long )src & 1UL) == 0UL, 1L);
+  tmp___1 = ldv__builtin_expect(((unsigned long )src & 1UL) == 0UL, 1L);
   }
   if (tmp___1 != 0L) {
     index = 0U;
@@ -6390,7 +6389,7 @@ static void musb_default_read_fifo(struct musb_hw_ep *hw_ep , u16 len , u8 *dst 
   {
   musb = hw_ep->musb;
   fifo = hw_ep->fifo;
-  tmp = __builtin_expect((unsigned int )len == 0U, 0L);
+  tmp = ldv__builtin_expect((unsigned int )len == 0U, 0L);
   }
   if (tmp != 0L) {
     return;
@@ -6404,7 +6403,7 @@ static void musb_default_read_fifo(struct musb_hw_ep *hw_ep , u16 len , u8 *dst 
   descriptor.format = "%cX ep%d fifo %p count %d buf %p\n";
   descriptor.lineno = 340U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -6415,7 +6414,7 @@ static void musb_default_read_fifo(struct musb_hw_ep *hw_ep , u16 len , u8 *dst 
 
   }
   {
-  tmp___1 = __builtin_expect(((unsigned long )dst & 1UL) == 0UL, 1L);
+  tmp___1 = ldv__builtin_expect(((unsigned long )dst & 1UL) == 0UL, 1L);
   }
   if (tmp___1 != 0L) {
     index = 0U;
@@ -6585,7 +6584,7 @@ static void musb_otg_timer_func(unsigned long data )
   descriptor.format = "HNP: b_wait_acon timeout; back to b_peripheral\n";
   descriptor.lineno = 449U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -6609,7 +6608,7 @@ static void musb_otg_timer_func(unsigned long data )
   descriptor___0.format = "HNP: %s timeout\n";
   descriptor___0.lineno = 457U;
   descriptor___0.flags = 0U;
-  tmp___1 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -6633,7 +6632,7 @@ static void musb_otg_timer_func(unsigned long data )
   descriptor___1.format = "HNP: Unhandled mode %s\n";
   descriptor___1.lineno = 463U;
   descriptor___1.flags = 0U;
-  tmp___3 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+  tmp___3 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
   }
   if (tmp___3 != 0L) {
     {
@@ -6680,7 +6679,7 @@ void musb_hnp_stop(struct musb *musb )
   descriptor.format = "HNP: stop from %s\n";
   descriptor.lineno = 478U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -6712,7 +6711,7 @@ void musb_hnp_stop(struct musb *musb )
   descriptor___0.format = "HNP: back to %s\n";
   descriptor___0.lineno = 484U;
   descriptor___0.flags = 0U;
-  tmp___2 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___2 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
   }
   if (tmp___2 != 0L) {
     {
@@ -6732,7 +6731,7 @@ void musb_hnp_stop(struct musb *musb )
   descriptor___1.format = "HNP: Disabling HR\n";
   descriptor___1.lineno = 487U;
   descriptor___1.flags = 0U;
-  tmp___3 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+  tmp___3 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
   }
   if (tmp___3 != 0L) {
     {
@@ -6763,7 +6762,7 @@ void musb_hnp_stop(struct musb *musb )
   descriptor___2.format = "HNP: Stopping in unknown state %s\n";
   descriptor___2.lineno = 499U;
   descriptor___2.flags = 0U;
-  tmp___5 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+  tmp___5 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
   }
   if (tmp___5 != 0L) {
     {
@@ -6862,7 +6861,7 @@ static irqreturn_t musb_stage0_irq(struct musb *musb , u8 int_usb , u8 devctl )
   descriptor.format = "<== DevCtl=%02x, int_usb=0x%x\n";
   descriptor.lineno = 529U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -6881,7 +6880,7 @@ static irqreturn_t musb_stage0_irq(struct musb *musb , u8 int_usb , u8 devctl )
     descriptor___0.format = "RESUME (%s)\n";
     descriptor___0.lineno = 537U;
     descriptor___0.flags = 0U;
-    tmp___1 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___1 != 0L) {
       {
@@ -6919,7 +6918,7 @@ static irqreturn_t musb_stage0_irq(struct musb *musb , u8 int_usb , u8 devctl )
         descriptor___1.format = "Spurious SUSPENDM\n";
         descriptor___1.lineno = 553U;
         descriptor___1.flags = 0U;
-        tmp___2 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+        tmp___2 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
         }
         if (tmp___2 != 0L) {
           {
@@ -7027,7 +7026,7 @@ static irqreturn_t musb_stage0_irq(struct musb *musb , u8 int_usb , u8 devctl )
       descriptor___2.format = "SessReq while on B state\n";
       descriptor___2.lineno = 620U;
       descriptor___2.flags = 0U;
-      tmp___6 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+      tmp___6 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
       }
       if (tmp___6 != 0L) {
         {
@@ -7048,7 +7047,7 @@ static irqreturn_t musb_stage0_irq(struct musb *musb , u8 int_usb , u8 devctl )
     descriptor___3.format = "SESSION_REQUEST (%s)\n";
     descriptor___3.lineno = 625U;
     descriptor___3.flags = 0U;
-    tmp___8 = __builtin_expect((long )descriptor___3.flags & 1L, 0L);
+    tmp___8 = ldv__builtin_expect((long )descriptor___3.flags & 1L, 0L);
     }
     if (tmp___8 != 0L) {
       {
@@ -7166,7 +7165,7 @@ static irqreturn_t musb_stage0_irq(struct musb *musb , u8 int_usb , u8 devctl )
     descriptor___4.format = "SUSPEND (%s) devctl %02x\n";
     descriptor___4.lineno = 716U;
     descriptor___4.flags = 0U;
-    tmp___11 = __builtin_expect((long )descriptor___4.flags & 1L, 0L);
+    tmp___11 = ldv__builtin_expect((long )descriptor___4.flags & 1L, 0L);
     }
     if (tmp___11 != 0L) {
       {
@@ -7239,7 +7238,7 @@ static irqreturn_t musb_stage0_irq(struct musb *musb , u8 int_usb , u8 devctl )
       descriptor___5.format = "HNP: Setting timer for b_ase0_brst\n";
       descriptor___5.lineno = 744U;
       descriptor___5.flags = 0U;
-      tmp___13 = __builtin_expect((long )descriptor___5.flags & 1L, 0L);
+      tmp___13 = ldv__builtin_expect((long )descriptor___5.flags & 1L, 0L);
       }
       if (tmp___13 != 0L) {
         {
@@ -7279,7 +7278,7 @@ static irqreturn_t musb_stage0_irq(struct musb *musb , u8 int_usb , u8 devctl )
     descriptor___6.format = "REVISIT: SUSPEND as B_HOST\n";
     descriptor___6.lineno = 761U;
     descriptor___6.flags = 0U;
-    tmp___16 = __builtin_expect((long )descriptor___6.flags & 1L, 0L);
+    tmp___16 = ldv__builtin_expect((long )descriptor___6.flags & 1L, 0L);
     }
     if (tmp___16 != 0L) {
       {
@@ -7339,7 +7338,7 @@ static irqreturn_t musb_stage0_irq(struct musb *musb , u8 int_usb , u8 devctl )
       descriptor___7.format = "HNP: SUSPEND+CONNECT, now b_host\n";
       descriptor___7.lineno = 802U;
       descriptor___7.flags = 0U;
-      tmp___17 = __builtin_expect((long )descriptor___7.flags & 1L, 0L);
+      tmp___17 = ldv__builtin_expect((long )descriptor___7.flags & 1L, 0L);
       }
       if (tmp___17 != 0L) {
         {
@@ -7359,7 +7358,7 @@ static irqreturn_t musb_stage0_irq(struct musb *musb , u8 int_usb , u8 devctl )
       descriptor___8.format = "CONNECT as b_peripheral???\n";
       descriptor___8.lineno = 806U;
       descriptor___8.flags = 0U;
-      tmp___18 = __builtin_expect((long )descriptor___8.flags & 1L, 0L);
+      tmp___18 = ldv__builtin_expect((long )descriptor___8.flags & 1L, 0L);
       }
       if (tmp___18 != 0L) {
         {
@@ -7379,7 +7378,7 @@ static irqreturn_t musb_stage0_irq(struct musb *musb , u8 int_usb , u8 devctl )
     descriptor___9.format = "HNP: CONNECT, now b_host\n";
     descriptor___9.lineno = 809U;
     descriptor___9.flags = 0U;
-    tmp___19 = __builtin_expect((long )descriptor___9.flags & 1L, 0L);
+    tmp___19 = ldv__builtin_expect((long )descriptor___9.flags & 1L, 0L);
     }
     if (tmp___19 != 0L) {
       {
@@ -7423,7 +7422,7 @@ static irqreturn_t musb_stage0_irq(struct musb *musb , u8 int_usb , u8 devctl )
     descriptor___10.format = "CONNECT (%s) devctl %02x\n";
     descriptor___10.lineno = 829U;
     descriptor___10.flags = 0U;
-    tmp___21 = __builtin_expect((long )descriptor___10.flags & 1L, 0L);
+    tmp___21 = ldv__builtin_expect((long )descriptor___10.flags & 1L, 0L);
     }
     if (tmp___21 != 0L) {
       {
@@ -7445,7 +7444,7 @@ static irqreturn_t musb_stage0_irq(struct musb *musb , u8 int_usb , u8 devctl )
     descriptor___11.format = "DISCONNECT (%s) as %s, devctl %02x\n";
     descriptor___11.lineno = 835U;
     descriptor___11.flags = 0U;
-    tmp___23 = __builtin_expect((long )descriptor___11.flags & 1L, 0L);
+    tmp___23 = ldv__builtin_expect((long )descriptor___11.flags & 1L, 0L);
     }
     if (tmp___23 != 0L) {
       {
@@ -7561,7 +7560,7 @@ static irqreturn_t musb_stage0_irq(struct musb *musb , u8 int_usb , u8 devctl )
         descriptor___12.format = "BABBLE devctl: %02x\n";
         descriptor___12.lineno = 891U;
         descriptor___12.flags = 0U;
-        tmp___26 = __builtin_expect((long )descriptor___12.flags & 1L, 0L);
+        tmp___26 = ldv__builtin_expect((long )descriptor___12.flags & 1L, 0L);
         }
         if (tmp___26 != 0L) {
           {
@@ -7585,7 +7584,7 @@ static irqreturn_t musb_stage0_irq(struct musb *musb , u8 int_usb , u8 devctl )
       descriptor___13.format = "BUS RESET as %s\n";
       descriptor___13.lineno = 898U;
       descriptor___13.flags = 0U;
-      tmp___28 = __builtin_expect((long )descriptor___13.flags & 1L, 0L);
+      tmp___28 = ldv__builtin_expect((long )descriptor___13.flags & 1L, 0L);
       }
       if (tmp___28 != 0L) {
         {
@@ -7640,7 +7639,7 @@ static irqreturn_t musb_stage0_irq(struct musb *musb , u8 int_usb , u8 devctl )
       descriptor___14.format = "HNP: in %s, %d msec timeout\n";
       descriptor___14.lineno = 907U;
       descriptor___14.flags = 0U;
-      tmp___30 = __builtin_expect((long )descriptor___14.flags & 1L, 0L);
+      tmp___30 = ldv__builtin_expect((long )descriptor___14.flags & 1L, 0L);
       }
       if (tmp___30 != 0L) {
         {
@@ -7674,7 +7673,7 @@ static irqreturn_t musb_stage0_irq(struct musb *musb , u8 int_usb , u8 devctl )
       descriptor___15.format = "HNP: RESET (%s), to b_peripheral\n";
       descriptor___15.lineno = 917U;
       descriptor___15.flags = 0U;
-      tmp___33 = __builtin_expect((long )descriptor___15.flags & 1L, 0L);
+      tmp___33 = ldv__builtin_expect((long )descriptor___15.flags & 1L, 0L);
       }
       if (tmp___33 != 0L) {
         {
@@ -7705,7 +7704,7 @@ static irqreturn_t musb_stage0_irq(struct musb *musb , u8 int_usb , u8 devctl )
       descriptor___16.format = "Unhandled BUS RESET as %s\n";
       descriptor___16.lineno = 929U;
       descriptor___16.flags = 0U;
-      tmp___35 = __builtin_expect((long )descriptor___16.flags & 1L, 0L);
+      tmp___35 = ldv__builtin_expect((long )descriptor___16.flags & 1L, 0L);
       }
       if (tmp___35 != 0L) {
         {
@@ -7780,7 +7779,7 @@ void musb_start(struct musb *musb )
   descriptor.format = "<== devctl %02x\n";
   descriptor.lineno = 1023U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -7829,7 +7828,7 @@ void musb_stop(struct musb *musb )
   descriptor.format = "HDRC disabled\n";
   descriptor.lineno = 1073U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -8154,7 +8153,7 @@ static int ep_config_from_table(struct musb *musb )
     descriptor.format = "%s: invalid ep %d\n";
     descriptor.lineno = 1372U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -8181,7 +8180,7 @@ static int ep_config_from_table(struct musb *musb )
     descriptor___0.format = "%s: mem overrun, ep %d\n";
     descriptor___0.lineno = 1378U;
     descriptor___0.flags = 0U;
-    tmp___1 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___1 != 0L) {
       {
@@ -8218,7 +8217,7 @@ static int ep_config_from_table(struct musb *musb )
     descriptor___1.format = "%s: missing bulk\n";
     descriptor___1.lineno = 1391U;
     descriptor___1.flags = 0U;
-    tmp___2 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___2 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
     }
     if (tmp___2 != 0L) {
       {
@@ -8256,7 +8255,7 @@ static int ep_config_from_hw(struct musb *musb )
   descriptor.format = "<== static silicon ep config\n";
   descriptor.lineno = 1410U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -8306,7 +8305,7 @@ static int ep_config_from_hw(struct musb *musb )
     descriptor___0.format = "%s: missing bulk\n";
     descriptor___0.lineno = 1438U;
     descriptor___0.flags = 0U;
-    tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -8475,7 +8474,7 @@ static int musb_core_init(u16 musb_type , struct musb *musb )
     descriptor.format = "%s: hw_ep %d%s, %smax %d\n";
     descriptor.lineno = 1560U;
     descriptor.flags = 0U;
-    tmp___4 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___4 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp___4 != 0L) {
       {
@@ -8498,7 +8497,7 @@ static int musb_core_init(u16 musb_type , struct musb *musb )
     descriptor___0.format = "%s: hw_ep %d%s, %smax %d\n";
     descriptor___0.lineno = 1569U;
     descriptor___0.flags = 0U;
-    tmp___5 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___5 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___5 != 0L) {
       {
@@ -8521,7 +8520,7 @@ static int musb_core_init(u16 musb_type , struct musb *musb )
     descriptor___1.format = "hw_ep %d not configured\n";
     descriptor___1.lineno = 1572U;
     descriptor___1.flags = 0U;
-    tmp___6 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___6 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
     }
     if (tmp___6 != 0L) {
       {
@@ -8567,7 +8566,7 @@ irqreturn_t musb_interrupt(struct musb *musb )
   descriptor.format = "** IRQ %s usb%04x tx%04x rx%04x\n";
   descriptor.lineno = 1598U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -8993,7 +8992,7 @@ static struct musb *allocate_instance(struct device *dev , struct musb_hdrc_conf
   musb->ctrl_base = mbase;
   musb->nIrq = -19;
   musb->config = config;
-  tmp___0 = __builtin_expect((unsigned int )(musb->config)->num_eps > 16U, 0L);
+  tmp___0 = ldv__builtin_expect((unsigned int )(musb->config)->num_eps > 16U, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -9130,7 +9129,7 @@ static int musb_init_controller(struct device *dev , int nIrq , void *ctrl )
     descriptor.format = "no platform_data?\n";
     descriptor.lineno = 1960U;
     descriptor.flags = 0U;
-    tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -9981,7 +9980,7 @@ void ldv_dummy_resourceless_instance_callback_7_9(long (*arg0)(struct device * ,
                                                   struct device *arg1 , struct device_attribute *arg2 ,
                                                   char *arg3 , unsigned long arg4 ) ;
 void ldv_entry_EMGentry_20(void *arg0 ) ;
-void main(void) ;
+int main(void) ;
 void ldv_file_operations_file_operations_instance_0(void *arg0 ) ;
 void ldv_file_operations_file_operations_instance_1(void *arg0 ) ;
 void ldv_file_operations_instance_write_0_4(long (*arg0)(struct file * , char * ,
@@ -10522,7 +10521,7 @@ void ldv_entry_EMGentry_20(void *arg0 )
   return;
 }
 }
-void main(void) 
+int main(void) 
 { 
 
 
@@ -10531,7 +10530,7 @@ void main(void)
   ldv_ldv_initialize_125();
   ldv_entry_EMGentry_20((void *)0);
   }
-  return;
+return 0;
 }
 }
 void ldv_file_operations_instance_write_0_4(long (*arg0)(struct file * , char * ,
@@ -12227,7 +12226,7 @@ void musb_host_finish_resume(struct work_struct *work )
   descriptor.format = "root port resume stopped, power %02x\n";
   descriptor.lineno = 59U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -12311,7 +12310,7 @@ void musb_port_suspend(struct musb *musb , bool do_suspend )
     descriptor.format = "Root port suspended, power %02x\n";
     descriptor.lineno = 107U;
     descriptor.flags = 0U;
-    tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -12364,7 +12363,7 @@ void musb_port_suspend(struct musb *musb , bool do_suspend )
     descriptor___0.format = "bogus rh suspend? %s\n";
     descriptor___0.lineno = 127U;
     descriptor___0.flags = 0U;
-    tmp___3 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___3 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___3 != 0L) {
       {
@@ -12390,7 +12389,7 @@ void musb_port_suspend(struct musb *musb , bool do_suspend )
     descriptor___1.format = "Root port resuming, power %02x\n";
     descriptor___1.lineno = 134U;
     descriptor___1.flags = 0U;
-    tmp___4 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___4 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
     }
     if (tmp___4 != 0L) {
       {
@@ -12435,7 +12434,7 @@ void musb_port_reset(struct musb *musb , bool do_reset )
     descriptor.format = "HNP: Returning from HNP; no hub reset from b_idle\n";
     descriptor.lineno = 149U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -12493,7 +12492,7 @@ void musb_port_reset(struct musb *musb , bool do_reset )
     descriptor___0.format = "root port reset stopped\n";
     descriptor___0.lineno = 197U;
     descriptor___0.flags = 0U;
-    tmp___2 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___2 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___2 != 0L) {
       {
@@ -12515,7 +12514,7 @@ void musb_port_reset(struct musb *musb , bool do_reset )
       descriptor___1.format = "high-speed device connected\n";
       descriptor___1.lineno = 203U;
       descriptor___1.flags = 0U;
-      tmp___3 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+      tmp___3 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
       }
       if (tmp___3 != 0L) {
         {
@@ -12593,7 +12592,7 @@ void musb_root_disconnect(struct musb *musb )
   descriptor.format = "host disconnect (%s)\n";
   descriptor.lineno = 244U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -12682,7 +12681,7 @@ int musb_hub_control(struct usb_hcd *hcd , u16 typeReq , u16 wValue , u16 wIndex
   musb = tmp;
   retval = 0;
   ldv___ldv_linux_kernel_locking_spinlock_spin_lock_98(& musb->lock);
-  tmp___0 = __builtin_expect((hcd->flags & 1UL) == 0UL, 0L);
+  tmp___0 = ldv__builtin_expect((hcd->flags & 1UL) == 0UL, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -12834,7 +12833,7 @@ int musb_hub_control(struct usb_hcd *hcd , u16 typeReq , u16 wValue , u16 wIndex
   descriptor.format = "clear feature %d\n";
   descriptor.lineno = 340U;
   descriptor.flags = 0U;
-  tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -12923,7 +12922,7 @@ int musb_hub_control(struct usb_hcd *hcd , u16 typeReq , u16 wValue , u16 wIndex
   descriptor___0.format = "port status %08x\n";
   descriptor___0.lineno = 376U;
   descriptor___0.flags = 0U;
-  tmp___2 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___2 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
   }
   if (tmp___2 != 0L) {
     {
@@ -12990,7 +12989,7 @@ int musb_hub_control(struct usb_hcd *hcd , u16 typeReq , u16 wValue , u16 wIndex
   goto ldv_34902;
   case_21: /* CIL Label */ 
   {
-  tmp___4 = __builtin_expect((long )musb->is_host, 0L);
+  tmp___4 = ldv__builtin_expect((long )musb->is_host, 0L);
   }
   if (tmp___4 != 0L) {
     goto error;
@@ -13038,7 +13037,7 @@ int musb_hub_control(struct usb_hcd *hcd , u16 typeReq , u16 wValue , u16 wIndex
   descriptor___1.format = "TEST_J\n";
   descriptor___1.lineno = 410U;
   descriptor___1.flags = 0U;
-  tmp___5 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+  tmp___5 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
   }
   if (tmp___5 != 0L) {
     {
@@ -13057,7 +13056,7 @@ int musb_hub_control(struct usb_hcd *hcd , u16 typeReq , u16 wValue , u16 wIndex
   descriptor___2.format = "TEST_K\n";
   descriptor___2.lineno = 414U;
   descriptor___2.flags = 0U;
-  tmp___6 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+  tmp___6 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
   }
   if (tmp___6 != 0L) {
     {
@@ -13076,7 +13075,7 @@ int musb_hub_control(struct usb_hcd *hcd , u16 typeReq , u16 wValue , u16 wIndex
   descriptor___3.format = "TEST_SE0_NAK\n";
   descriptor___3.lineno = 418U;
   descriptor___3.flags = 0U;
-  tmp___7 = __builtin_expect((long )descriptor___3.flags & 1L, 0L);
+  tmp___7 = ldv__builtin_expect((long )descriptor___3.flags & 1L, 0L);
   }
   if (tmp___7 != 0L) {
     {
@@ -13095,7 +13094,7 @@ int musb_hub_control(struct usb_hcd *hcd , u16 typeReq , u16 wValue , u16 wIndex
   descriptor___4.format = "TEST_PACKET\n";
   descriptor___4.lineno = 422U;
   descriptor___4.flags = 0U;
-  tmp___8 = __builtin_expect((long )descriptor___4.flags & 1L, 0L);
+  tmp___8 = ldv__builtin_expect((long )descriptor___4.flags & 1L, 0L);
   }
   if (tmp___8 != 0L) {
     {
@@ -13117,7 +13116,7 @@ int musb_hub_control(struct usb_hcd *hcd , u16 typeReq , u16 wValue , u16 wIndex
   descriptor___5.format = "TEST_FORCE_ENABLE\n";
   descriptor___5.lineno = 427U;
   descriptor___5.flags = 0U;
-  tmp___9 = __builtin_expect((long )descriptor___5.flags & 1L, 0L);
+  tmp___9 = ldv__builtin_expect((long )descriptor___5.flags & 1L, 0L);
   }
   if (tmp___9 != 0L) {
     {
@@ -13139,7 +13138,7 @@ int musb_hub_control(struct usb_hcd *hcd , u16 typeReq , u16 wValue , u16 wIndex
   descriptor___6.format = "TEST_FIFO_ACCESS\n";
   descriptor___6.lineno = 435U;
   descriptor___6.flags = 0U;
-  tmp___10 = __builtin_expect((long )descriptor___6.flags & 1L, 0L);
+  tmp___10 = ldv__builtin_expect((long )descriptor___6.flags & 1L, 0L);
   }
   if (tmp___10 != 0L) {
     {
@@ -13171,7 +13170,7 @@ int musb_hub_control(struct usb_hcd *hcd , u16 typeReq , u16 wValue , u16 wIndex
   descriptor___7.format = "set feature %d\n";
   descriptor___7.lineno = 446U;
   descriptor___7.flags = 0U;
-  tmp___11 = __builtin_expect((long )descriptor___7.flags & 1L, 0L);
+  tmp___11 = ldv__builtin_expect((long )descriptor___7.flags & 1L, 0L);
   }
   if (tmp___11 != 0L) {
     {
@@ -13488,7 +13487,7 @@ static void musb_h_tx_flush_fifo(struct musb_hw_ep *ep )
     descriptor.format = "Host TX FIFONOTEMPTY csr: %02x\n";
     descriptor.lineno = 121U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -13509,7 +13508,7 @@ static void musb_h_tx_flush_fifo(struct musb_hw_ep *ep )
   tmp___0 = retries;
   retries = retries - 1;
   __ret_warn_on = tmp___0 <= 0;
-  tmp___1 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___1 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -13520,7 +13519,7 @@ static void musb_h_tx_flush_fifo(struct musb_hw_ep *ep )
 
   }
   {
-  tmp___2 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___2 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp___2 != 0L) {
     return;
@@ -13592,7 +13591,7 @@ static void musb_h_ep0_flush_fifo(struct musb_hw_ep *ep )
   ldv_35625: 
   {
   __ret_warn_on = retries == 0;
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp != 0L) {
     {
@@ -13603,7 +13602,7 @@ static void musb_h_ep0_flush_fifo(struct musb_hw_ep *ep )
 
   }
   {
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
   (*musb_writew)(epio, 2U, 0);
   }
   return;
@@ -13727,7 +13726,7 @@ static void musb_start_urb(struct musb *musb , int is_in , struct musb_qh *qh )
   descriptor.format = "qh %p urb %p dev%d ep%d%s%s, hw_ep %d, %p/%d\n";
   descriptor.lineno = 256U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -13800,7 +13799,7 @@ static void musb_start_urb(struct musb *musb , int is_in , struct musb_qh *qh )
   descriptor___0.format = "check whether there\'s still time for periodic Tx\n";
   descriptor___0.lineno = 270U;
   descriptor___0.flags = 0U;
-  tmp___1 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -13825,7 +13824,7 @@ static void musb_start_urb(struct musb *musb , int is_in , struct musb_qh *qh )
   descriptor___2.format = "Start TX%d %s\n";
   descriptor___2.lineno = 293U;
   descriptor___2.flags = 0U;
-  tmp___3 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+  tmp___3 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
   }
   if (tmp___3 != 0L) {
     {
@@ -13861,7 +13860,7 @@ static void musb_giveback(struct musb *musb , struct urb *urb , int status )
   descriptor.format = "complete %p %pF (%d), dev%d ep%d%s, %d/%d\n";
   descriptor.lineno = 314U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -14051,7 +14050,7 @@ static void musb_advance_schedule(struct musb *musb , struct urb *urb , struct m
     descriptor.format = "... next ep%d %cX urb %p\n";
     descriptor.lineno = 429U;
     descriptor.flags = 0U;
-    tmp___2 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___2 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp___2 != 0L) {
       {
@@ -14125,7 +14124,7 @@ static bool musb_host_packet_rx(struct musb *musb , struct urb *urb , u8 epnum ,
   descriptor.format = "RX%d count %d, buffer %p len %d/%d\n";
   descriptor.lineno = 475U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -14161,7 +14160,7 @@ static bool musb_host_packet_rx(struct musb *musb , struct urb *urb , u8 epnum ,
       descriptor___0.format = "** OVERFLOW %d into %d\n";
       descriptor___0.lineno = 495U;
       descriptor___0.flags = 0U;
-      tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+      tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
       }
       if (tmp___0 != 0L) {
         {
@@ -14196,7 +14195,7 @@ static bool musb_host_packet_rx(struct musb *musb , struct urb *urb , u8 epnum ,
       descriptor___1.format = "** OVERFLOW %d into %d\n";
       descriptor___1.lineno = 513U;
       descriptor___1.flags = 0U;
-      tmp___1 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+      tmp___1 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
       }
       if (tmp___1 != 0L) {
         {
@@ -14223,7 +14222,7 @@ static bool musb_host_packet_rx(struct musb *musb , struct urb *urb , u8 epnum ,
   musb_read_fifo(hw_ep, (int )((u16 )length), buf);
   csr = (*musb_readw)((void const   *)epio, 6U);
   csr = (u16 )((unsigned int )csr | 77U);
-  tmp___2 = __builtin_expect(do_flush != 0, 0L);
+  tmp___2 = ldv__builtin_expect(do_flush != 0, 0L);
   }
   if (tmp___2 != 0L) {
     {
@@ -14422,7 +14421,7 @@ static void musb_ep_program(struct musb *musb , u8 epnum , struct urb *urb , int
   descriptor.format = "%s hw%d urb %p spd%d dev%d ep%d%s h_addr%02x h_port%02x bytes %d\n";
   descriptor.lineno = 717U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -14648,7 +14647,7 @@ static void musb_ep_program(struct musb *musb , u8 epnum , struct urb *urb , int
     descriptor___0.format = "RXCSR%d := %04x\n";
     descriptor___0.lineno = 930U;
     descriptor___0.flags = 0U;
-    tmp___5 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___5 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___5 != 0L) {
       {
@@ -14820,7 +14819,7 @@ static bool musb_h_ep0_continue(struct musb *musb , u16 len , struct urb *urb )
     descriptor.format = "start no-DATA\n";
     descriptor.lineno = 1040U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -14839,7 +14838,7 @@ static bool musb_h_ep0_continue(struct musb *musb , u16 len , struct urb *urb )
     descriptor___0.format = "start IN-DATA\n";
     descriptor___0.lineno = 1043U;
     descriptor___0.flags = 0U;
-    tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -14860,7 +14859,7 @@ static bool musb_h_ep0_continue(struct musb *musb , u16 len , struct urb *urb )
     descriptor___1.format = "start OUT-DATA\n";
     descriptor___1.lineno = 1048U;
     descriptor___1.flags = 0U;
-    tmp___1 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
     }
     if (tmp___1 != 0L) {
       {
@@ -14886,7 +14885,7 @@ static bool musb_h_ep0_continue(struct musb *musb , u16 len , struct urb *urb )
     descriptor___2.format = "Sending %d byte%s to ep0 fifo %p\n";
     descriptor___2.lineno = 1063U;
     descriptor___2.flags = 0U;
-    tmp___2 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+    tmp___2 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
     }
     if (tmp___2 != 0L) {
       {
@@ -14973,7 +14972,7 @@ irqreturn_t musb_h_ep0_irq(struct musb *musb )
   descriptor.format = "<== csr0 %04x, qh %p, count %d, urb %p, stage %d\n";
   descriptor.lineno = 1106U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -14997,7 +14996,7 @@ irqreturn_t musb_h_ep0_irq(struct musb *musb )
     descriptor___0.format = "STALLING ENDPOINT\n";
     descriptor___0.lineno = 1116U;
     descriptor___0.flags = 0U;
-    tmp___1 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___1 != 0L) {
       {
@@ -15017,7 +15016,7 @@ irqreturn_t musb_h_ep0_irq(struct musb *musb )
     descriptor___1.format = "no response, csr0 %04x\n";
     descriptor___1.lineno = 1120U;
     descriptor___1.flags = 0U;
-    tmp___2 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___2 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
     }
     if (tmp___2 != 0L) {
       {
@@ -15037,7 +15036,7 @@ irqreturn_t musb_h_ep0_irq(struct musb *musb )
     descriptor___2.format = "control NAK timeout\n";
     descriptor___2.lineno = 1124U;
     descriptor___2.flags = 0U;
-    tmp___3 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+    tmp___3 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
     }
     if (tmp___3 != 0L) {
       {
@@ -15062,7 +15061,7 @@ irqreturn_t musb_h_ep0_irq(struct musb *musb )
     descriptor___3.format = "aborting\n";
     descriptor___3.lineno = 1139U;
     descriptor___3.flags = 0U;
-    tmp___4 = __builtin_expect((long )descriptor___3.flags & 1L, 0L);
+    tmp___4 = ldv__builtin_expect((long )descriptor___3.flags & 1L, 0L);
     }
     if (tmp___4 != 0L) {
       {
@@ -15099,7 +15098,7 @@ irqreturn_t musb_h_ep0_irq(struct musb *musb )
 
   }
   {
-  tmp___5 = __builtin_expect((unsigned long )urb == (unsigned long )((struct urb *)0),
+  tmp___5 = ldv__builtin_expect((unsigned long )urb == (unsigned long )((struct urb *)0),
                              0L);
   }
   if (tmp___5 != 0L) {
@@ -15132,7 +15131,7 @@ irqreturn_t musb_h_ep0_irq(struct musb *musb )
       descriptor___4.format = "ep0 STATUS, csr %04x\n";
       descriptor___4.lineno = 1192U;
       descriptor___4.flags = 0U;
-      tmp___6 = __builtin_expect((long )descriptor___4.flags & 1L, 0L);
+      tmp___6 = ldv__builtin_expect((long )descriptor___4.flags & 1L, 0L);
       }
       if (tmp___6 != 0L) {
         {
@@ -15230,7 +15229,7 @@ void musb_host_tx(struct musb *musb , u8 epnum )
     descriptor.format = "extra TX%d ready, csr %04x\n";
     descriptor.lineno = 1246U;
     descriptor.flags = 0U;
-    tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -15253,7 +15252,7 @@ void musb_host_tx(struct musb *musb , u8 epnum )
   descriptor___0.format = "OUT/TX%d end, csr %04x%s\n";
   descriptor___0.lineno = 1253U;
   descriptor___0.flags = 0U;
-  tmp___1 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -15271,7 +15270,7 @@ void musb_host_tx(struct musb *musb , u8 epnum )
     descriptor___1.format = "TX end %d stall\n";
     descriptor___1.lineno = 1258U;
     descriptor___1.flags = 0U;
-    tmp___2 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___2 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
     }
     if (tmp___2 != 0L) {
       {
@@ -15291,7 +15290,7 @@ void musb_host_tx(struct musb *musb , u8 epnum )
     descriptor___2.format = "TX 3strikes on ep=%d\n";
     descriptor___2.lineno = 1265U;
     descriptor___2.flags = 0U;
-    tmp___3 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+    tmp___3 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
     }
     if (tmp___3 != 0L) {
       {
@@ -15316,7 +15315,7 @@ void musb_host_tx(struct musb *musb , u8 epnum )
         descriptor___3.format = "NAK timeout on TX%d ep\n";
         descriptor___3.lineno = 1273U;
         descriptor___3.flags = 0U;
-        tmp___4 = __builtin_expect((long )descriptor___3.flags & 1L, 0L);
+        tmp___4 = ldv__builtin_expect((long )descriptor___3.flags & 1L, 0L);
         }
         if (tmp___4 != 0L) {
           {
@@ -15341,7 +15340,7 @@ void musb_host_tx(struct musb *musb , u8 epnum )
       descriptor___4.format = "TX end=%d device not responding\n";
       descriptor___4.lineno = 1277U;
       descriptor___4.flags = 0U;
-      tmp___5 = __builtin_expect((long )descriptor___4.flags & 1L, 0L);
+      tmp___5 = ldv__builtin_expect((long )descriptor___4.flags & 1L, 0L);
       }
       if (tmp___5 != 0L) {
         {
@@ -15396,7 +15395,7 @@ void musb_host_tx(struct musb *musb , u8 epnum )
     descriptor___5.format = "extra TX%d ready, csr %04x\n";
     descriptor___5.lineno = 1323U;
     descriptor___5.flags = 0U;
-    tmp___8 = __builtin_expect((long )descriptor___5.flags & 1L, 0L);
+    tmp___8 = ldv__builtin_expect((long )descriptor___5.flags & 1L, 0L);
     }
     if (tmp___8 != 0L) {
       {
@@ -15440,7 +15439,7 @@ void musb_host_tx(struct musb *musb , u8 epnum )
       descriptor___6.format = "DMA complete but packet still in FIFO, CSR %04x\n";
       descriptor___6.lineno = 1383U;
       descriptor___6.flags = 0U;
-      tmp___11 = __builtin_expect((long )descriptor___6.flags & 1L, 0L);
+      tmp___11 = ldv__builtin_expect((long )descriptor___6.flags & 1L, 0L);
       }
       if (tmp___11 != 0L) {
         {
@@ -15536,7 +15535,7 @@ void musb_host_tx(struct musb *musb , u8 epnum )
     descriptor___7.format = "not complete, but DMA enabled?\n";
     descriptor___7.lineno = 1449U;
     descriptor___7.flags = 0U;
-    tmp___13 = __builtin_expect((long )descriptor___7.flags & 1L, 0L);
+    tmp___13 = ldv__builtin_expect((long )descriptor___7.flags & 1L, 0L);
     }
     if (tmp___13 != 0L) {
       {
@@ -15688,7 +15687,7 @@ void musb_host_rx(struct musb *musb , u8 epnum )
   xfer_len = 0UL;
   rx_csr = (*musb_readw)((void const   *)epio, 6U);
   val = rx_csr;
-  tmp___1 = __builtin_expect((unsigned long )urb == (unsigned long )((struct urb *)0),
+  tmp___1 = ldv__builtin_expect((unsigned long )urb == (unsigned long )((struct urb *)0),
                              0L);
   }
   if (tmp___1 != 0L) {
@@ -15699,7 +15698,7 @@ void musb_host_rx(struct musb *musb , u8 epnum )
     descriptor.format = "BOGUS RX%d ready, csr %04x, count %d\n";
     descriptor.lineno = 1577U;
     descriptor.flags = 0U;
-    tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -15725,7 +15724,7 @@ void musb_host_rx(struct musb *musb , u8 epnum )
   descriptor___0.format = "<== hw %d rxcsr %04x, urb actual %d (+dma %zu)\n";
   descriptor___0.lineno = 1586U;
   descriptor___0.flags = 0U;
-  tmp___2 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___2 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
   }
   if (tmp___2 != 0L) {
     {
@@ -15744,7 +15743,7 @@ void musb_host_rx(struct musb *musb , u8 epnum )
     descriptor___1.format = "RX end %d STALL\n";
     descriptor___1.lineno = 1591U;
     descriptor___1.flags = 0U;
-    tmp___3 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___3 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
     }
     if (tmp___3 != 0L) {
       {
@@ -15764,7 +15763,7 @@ void musb_host_rx(struct musb *musb , u8 epnum )
     descriptor___2.format = "end %d RX proto error\n";
     descriptor___2.lineno = 1597U;
     descriptor___2.flags = 0U;
-    tmp___4 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+    tmp___4 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
     }
     if (tmp___4 != 0L) {
       {
@@ -15788,7 +15787,7 @@ void musb_host_rx(struct musb *musb , u8 epnum )
       descriptor___3.format = "RX end %d NAK timeout\n";
       descriptor___3.lineno = 1605U;
       descriptor___3.flags = 0U;
-      tmp___5 = __builtin_expect((long )descriptor___3.flags & 1L, 0L);
+      tmp___5 = ldv__builtin_expect((long )descriptor___3.flags & 1L, 0L);
       }
       if (tmp___5 != 0L) {
         {
@@ -15828,7 +15827,7 @@ void musb_host_rx(struct musb *musb , u8 epnum )
       descriptor___4.format = "RX end %d ISO data error\n";
       descriptor___4.lineno = 1628U;
       descriptor___4.flags = 0U;
-      tmp___7 = __builtin_expect((long )descriptor___4.flags & 1L, 0L);
+      tmp___7 = ldv__builtin_expect((long )descriptor___4.flags & 1L, 0L);
       }
       if (tmp___7 != 0L) {
         {
@@ -15849,7 +15848,7 @@ void musb_host_rx(struct musb *musb , u8 epnum )
     descriptor___5.format = "end %d high bandwidth incomplete ISO packet RX\n";
     descriptor___5.lineno = 1634U;
     descriptor___5.flags = 0U;
-    tmp___8 = __builtin_expect((long )descriptor___5.flags & 1L, 0L);
+    tmp___8 = ldv__builtin_expect((long )descriptor___5.flags & 1L, 0L);
     }
     if (tmp___8 != 0L) {
       {
@@ -15887,7 +15886,7 @@ void musb_host_rx(struct musb *musb , u8 epnum )
   }
   {
   tmp___10 = dma_channel_status(dma);
-  tmp___11 = __builtin_expect((unsigned int )tmp___10 == 2U, 0L);
+  tmp___11 = ldv__builtin_expect((unsigned int )tmp___10 == 2U, 0L);
   }
   if (tmp___11 != 0L) {
     {
@@ -15936,7 +15935,7 @@ void musb_host_rx(struct musb *musb , u8 epnum )
     descriptor___6.format = "ep %d dma %s, rxcsr %04x, rxcount %d\n";
     descriptor___6.lineno = 1754U;
     descriptor___6.flags = 0U;
-    tmp___14 = __builtin_expect((long )descriptor___6.flags & 1L, 0L);
+    tmp___14 = ldv__builtin_expect((long )descriptor___6.flags & 1L, 0L);
     }
     if (tmp___14 != 0L) {
       {
@@ -15952,7 +15951,7 @@ void musb_host_rx(struct musb *musb , u8 epnum )
   } else
   if (urb->status == -115) {
     {
-    tmp___15 = __builtin_expect(((int )rx_csr & 1) == 0, 0L);
+    tmp___15 = ldv__builtin_expect(((int )rx_csr & 1) == 0, 0L);
     }
     if (tmp___15 != 0L) {
       {
@@ -15976,7 +15975,7 @@ void musb_host_rx(struct musb *musb , u8 epnum )
       descriptor___7.format = "RX%d count %d, buffer 0x%llx len %d/%d\n";
       descriptor___7.lineno = 1790U;
       descriptor___7.flags = 0U;
-      tmp___16 = __builtin_expect((long )descriptor___7.flags & 1L, 0L);
+      tmp___16 = ldv__builtin_expect((long )descriptor___7.flags & 1L, 0L);
       }
       if (tmp___16 != 0L) {
         {
@@ -16012,7 +16011,7 @@ void musb_host_rx(struct musb *musb , u8 epnum )
           descriptor___8.format = "** OVERFLOW %d into %d\n";
           descriptor___8.lineno = 1810U;
           descriptor___8.flags = 0U;
-          tmp___17 = __builtin_expect((long )descriptor___8.flags & 1L, 0L);
+          tmp___17 = ldv__builtin_expect((long )descriptor___8.flags & 1L, 0L);
           }
           if (tmp___17 != 0L) {
             {
@@ -16121,7 +16120,7 @@ void musb_host_rx(struct musb *musb , u8 epnum )
       descriptor___9.format = "read %spacket\n";
       descriptor___9.lineno = 1934U;
       descriptor___9.flags = 0U;
-      tmp___20 = __builtin_expect((long )descriptor___9.flags & 1L, 0L);
+      tmp___20 = ldv__builtin_expect((long )descriptor___9.flags & 1L, 0L);
       }
       if (tmp___20 != 0L) {
         {
@@ -16274,7 +16273,7 @@ static int musb_schedule(struct musb *musb , struct musb_qh *qh , int is_in )
   descriptor.format = "qh %p periodic slot %d\n";
   descriptor.lineno = 2058U;
   descriptor.flags = 0U;
-  tmp___2 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___2 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___2 != 0L) {
     {
@@ -16570,7 +16569,7 @@ static int musb_cleanup_urb(struct urb *urb , struct musb_qh *qh )
     descriptor.format = "abort %cX%d DMA for urb %p --> %d\n";
     descriptor.lineno = 2283U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -16638,7 +16637,7 @@ static int musb_urb_dequeue(struct usb_hcd *hcd , struct urb *urb , int status )
   descriptor.format = "urb=%p, dev%d ep%d%s\n";
   descriptor.lineno = 2330U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -18042,7 +18041,7 @@ __inline static void musb_try_b_hnp_enable(struct musb *musb )
   descriptor.format = "HNP: Setting HR\n";
   descriptor.lineno = 209U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -18206,7 +18205,7 @@ static int service_zero_data_request(struct musb *musb , struct usb_ctrlrequest 
       descriptor.format = "restarting the request\n";
       descriptor.lineno = 306U;
       descriptor.flags = 0U;
-      tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+      tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
       }
       if (tmp != 0L) {
         {
@@ -18349,7 +18348,7 @@ static int service_zero_data_request(struct musb *musb , struct usb_ctrlrequest 
     descriptor___0.format = "TEST_J\n";
     descriptor___0.lineno = 336U;
     descriptor___0.flags = 0U;
-    tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -18368,7 +18367,7 @@ static int service_zero_data_request(struct musb *musb , struct usb_ctrlrequest 
     descriptor___1.format = "TEST_K\n";
     descriptor___1.lineno = 343U;
     descriptor___1.flags = 0U;
-    tmp___1 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
     }
     if (tmp___1 != 0L) {
       {
@@ -18387,7 +18386,7 @@ static int service_zero_data_request(struct musb *musb , struct usb_ctrlrequest 
     descriptor___2.format = "TEST_SE0_NAK\n";
     descriptor___2.lineno = 349U;
     descriptor___2.flags = 0U;
-    tmp___2 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+    tmp___2 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
     }
     if (tmp___2 != 0L) {
       {
@@ -18406,7 +18405,7 @@ static int service_zero_data_request(struct musb *musb , struct usb_ctrlrequest 
     descriptor___3.format = "TEST_PACKET\n";
     descriptor___3.lineno = 355U;
     descriptor___3.flags = 0U;
-    tmp___3 = __builtin_expect((long )descriptor___3.flags & 1L, 0L);
+    tmp___3 = ldv__builtin_expect((long )descriptor___3.flags & 1L, 0L);
     }
     if (tmp___3 != 0L) {
       {
@@ -18425,7 +18424,7 @@ static int service_zero_data_request(struct musb *musb , struct usb_ctrlrequest 
     descriptor___4.format = "TEST_FORCE_HS\n";
     descriptor___4.lineno = 362U;
     descriptor___4.flags = 0U;
-    tmp___4 = __builtin_expect((long )descriptor___4.flags & 1L, 0L);
+    tmp___4 = ldv__builtin_expect((long )descriptor___4.flags & 1L, 0L);
     }
     if (tmp___4 != 0L) {
       {
@@ -18444,7 +18443,7 @@ static int service_zero_data_request(struct musb *musb , struct usb_ctrlrequest 
     descriptor___5.format = "TEST_FORCE_FS\n";
     descriptor___5.lineno = 368U;
     descriptor___5.flags = 0U;
-    tmp___5 = __builtin_expect((long )descriptor___5.flags & 1L, 0L);
+    tmp___5 = ldv__builtin_expect((long )descriptor___5.flags & 1L, 0L);
     }
     if (tmp___5 != 0L) {
       {
@@ -18463,7 +18462,7 @@ static int service_zero_data_request(struct musb *musb , struct usb_ctrlrequest 
     descriptor___6.format = "TEST_FIFO_ACCESS\n";
     descriptor___6.lineno = 374U;
     descriptor___6.flags = 0U;
-    tmp___6 = __builtin_expect((long )descriptor___6.flags & 1L, 0L);
+    tmp___6 = ldv__builtin_expect((long )descriptor___6.flags & 1L, 0L);
     }
     if (tmp___6 != 0L) {
       {
@@ -18482,7 +18481,7 @@ static int service_zero_data_request(struct musb *musb , struct usb_ctrlrequest 
     descriptor___7.format = "TEST_FORCE_HOST\n";
     descriptor___7.lineno = 380U;
     descriptor___7.flags = 0U;
-    tmp___7 = __builtin_expect((long )descriptor___7.flags & 1L, 0L);
+    tmp___7 = ldv__builtin_expect((long )descriptor___7.flags & 1L, 0L);
     }
     if (tmp___7 != 0L) {
       {
@@ -18709,7 +18708,7 @@ static void ep0_txstate(struct musb *musb )
     descriptor.format = "odd; csr0 %04x\n";
     descriptor.lineno = 553U;
     descriptor.flags = 0U;
-    tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp___1 != 0L) {
       {
@@ -18778,7 +18777,7 @@ static void musb_read_setup(struct musb *musb , struct usb_ctrlrequest *req )
   descriptor.format = "SETUP req%02x.%02x v%04x i%04x l%d\n";
   descriptor.lineno = 615U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -18895,7 +18894,7 @@ irqreturn_t musb_g_ep0_irq(struct musb *musb )
   descriptor.format = "csr %04x, count %d, ep0stage %s\n";
   descriptor.lineno = 679U;
   descriptor.flags = 0U;
-  tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -19031,7 +19030,7 @@ irqreturn_t musb_g_ep0_irq(struct musb *musb )
     descriptor___0.format = "entering TESTMODE\n";
     descriptor___0.lineno = 755U;
     descriptor___0.flags = 0U;
-    tmp___3 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___3 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___3 != 0L) {
       {
@@ -19091,7 +19090,7 @@ irqreturn_t musb_g_ep0_irq(struct musb *musb )
     {
     musb_read_setup(musb, & setup);
     retval = 1;
-    tmp___4 = __builtin_expect((unsigned int )musb->g.speed == 0U, 0L);
+    tmp___4 = ldv__builtin_expect((unsigned int )musb->g.speed == 0U, 0L);
     }
     if (tmp___4 != 0L) {
       {
@@ -19148,7 +19147,7 @@ irqreturn_t musb_g_ep0_irq(struct musb *musb )
     descriptor___1.format = "handled %d, csr %04x, ep0stage %s\n";
     descriptor___1.lineno = 869U;
     descriptor___1.flags = 0U;
-    tmp___6 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___6 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
     }
     if (tmp___6 != 0L) {
       {
@@ -19183,7 +19182,7 @@ irqreturn_t musb_g_ep0_irq(struct musb *musb )
       descriptor___2.format = "stall (%d)\n";
       descriptor___2.lineno = 884U;
       descriptor___2.flags = 0U;
-      tmp___7 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+      tmp___7 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
       }
       if (tmp___7 != 0L) {
         {
@@ -19213,7 +19212,7 @@ irqreturn_t musb_g_ep0_irq(struct musb *musb )
   switch_default___1: /* CIL Label */ 
   {
   __ret_warn_on = 1;
-  tmp___8 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___8 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp___8 != 0L) {
     {
@@ -19223,7 +19222,7 @@ irqreturn_t musb_g_ep0_irq(struct musb *musb )
 
   }
   {
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
   (*musb_writew)(regs, 2U, 32);
   musb->ep0_state = 0;
   }
@@ -19318,7 +19317,7 @@ static int musb_g_ep0_queue(struct usb_ep *e , struct usb_request *r , gfp_t gfp
   descriptor.format = "ep0 request queued in state %d\n";
   descriptor.lineno = 965U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -19341,7 +19340,7 @@ static int musb_g_ep0_queue(struct usb_ep *e , struct usb_request *r , gfp_t gfp
   descriptor___0.format = "queue to %s (%s), length=%d\n";
   descriptor___0.lineno = 975U;
   descriptor___0.flags = 0U;
-  tmp___1 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -19483,7 +19482,7 @@ static int musb_g_ep0_halt(struct usb_ep *e , int value )
   descriptor.format = "ep0 can\'t halt in state %d\n";
   descriptor.lineno = 1066U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -19921,7 +19920,7 @@ __inline static struct dma_map_ops *get_dma_ops(struct device *dev )
 
   {
   {
-  tmp = __builtin_expect((unsigned long )dev == (unsigned long )((struct device *)0),
+  tmp = ldv__builtin_expect((unsigned long )dev == (unsigned long )((struct device *)0),
                          0L);
   }
   if (tmp != 0L || (unsigned long )dev->archdata.dma_ops == (unsigned long )((struct dma_map_ops *)0)) {
@@ -19948,7 +19947,7 @@ __inline static dma_addr_t dma_map_single_attrs(struct device *dev , void *ptr ,
   ops = tmp;
   kmemcheck_mark_initialized(ptr, (unsigned int )size);
   tmp___0 = valid_dma_direction((int )dir);
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -19984,7 +19983,7 @@ __inline static void dma_unmap_single_attrs(struct device *dev , dma_addr_t addr
   tmp = get_dma_ops(dev);
   ops = tmp;
   tmp___0 = valid_dma_direction((int )dir);
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -20024,7 +20023,7 @@ __inline static void dma_sync_single_for_cpu(struct device *dev , dma_addr_t add
   tmp = get_dma_ops(dev);
   ops = tmp;
   tmp___0 = valid_dma_direction((int )dir);
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -20064,7 +20063,7 @@ __inline static void dma_sync_single_for_device(struct device *dev , dma_addr_t 
   tmp = get_dma_ops(dev);
   ops = tmp;
   tmp___0 = valid_dma_direction((int )dir);
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -20338,7 +20337,7 @@ void musb_g_giveback(struct musb_ep *ep , struct usb_request *request , int stat
     descriptor.format = "%s done request %p,  %d/%d\n";
     descriptor.lineno = 173U;
     descriptor.flags = 0U;
-    tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -20356,7 +20355,7 @@ void musb_g_giveback(struct musb_ep *ep , struct usb_request *request , int stat
     descriptor___0.format = "%s request %p, %d/%d fault %d\n";
     descriptor___0.lineno = 178U;
     descriptor___0.flags = 0U;
-    tmp___1 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___1 != 0L) {
       {
@@ -20414,7 +20413,7 @@ static void nuke(struct musb_ep *ep , int const   status )
     descriptor.format = "%s: abort DMA --> %d\n";
     descriptor.lineno = 221U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -20511,7 +20510,7 @@ static void txstate(struct musb *musb , struct musb_request *req )
     descriptor.format = "ep:%s disabled - ignore request\n";
     descriptor.lineno = 270U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -20536,7 +20535,7 @@ static void txstate(struct musb *musb , struct musb_request *req )
     descriptor___0.format = "dma pending...\n";
     descriptor___0.lineno = 276U;
     descriptor___0.flags = 0U;
-    tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -20566,7 +20565,7 @@ static void txstate(struct musb *musb , struct musb_request *req )
     descriptor___1.format = "%s old packet still ready , txcsr %03x\n";
     descriptor___1.lineno = 289U;
     descriptor___1.flags = 0U;
-    tmp___3 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___3 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
     }
     if (tmp___3 != 0L) {
       {
@@ -20589,7 +20588,7 @@ static void txstate(struct musb *musb , struct musb_request *req )
     descriptor___2.format = "%s stalling, txcsr %03x\n";
     descriptor___2.lineno = 295U;
     descriptor___2.flags = 0U;
-    tmp___4 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+    tmp___4 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
     }
     if (tmp___4 != 0L) {
       {
@@ -20610,7 +20609,7 @@ static void txstate(struct musb *musb , struct musb_request *req )
   descriptor___3.format = "hw_ep%d, maxpacket %d, fifo count %d, txcsr %03x\n";
   descriptor___3.lineno = 301U;
   descriptor___3.flags = 0U;
-  tmp___5 = __builtin_expect((long )descriptor___3.flags & 1L, 0L);
+  tmp___5 = ldv__builtin_expect((long )descriptor___3.flags & 1L, 0L);
   }
   if (tmp___5 != 0L) {
     {
@@ -20692,7 +20691,7 @@ static void txstate(struct musb *musb , struct musb_request *req )
   descriptor___4.format = "%s TX/IN %s len %d/%d, txcsr %04x, fifo %d/%d\n";
   descriptor___4.lineno = 435U;
   descriptor___4.flags = 0U;
-  tmp___14 = __builtin_expect((long )descriptor___4.flags & 1L, 0L);
+  tmp___14 = ldv__builtin_expect((long )descriptor___4.flags & 1L, 0L);
   }
   if (tmp___14 != 0L) {
     {
@@ -20747,7 +20746,7 @@ void musb_g_tx(struct musb *musb , u8 epnum )
   descriptor.format = "<== %s, txcsr %04x\n";
   descriptor.lineno = 457U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -20788,7 +20787,7 @@ void musb_g_tx(struct musb *musb , u8 epnum )
     descriptor___0.format = "%s dma still busy?\n";
     descriptor___0.lineno = 486U;
     descriptor___0.flags = 0U;
-    tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -20818,7 +20817,7 @@ void musb_g_tx(struct musb *musb , u8 epnum )
       descriptor___1.format = "TXCSR%d %04x, DMA off, len %zu, req %p\n";
       descriptor___1.lineno = 503U;
       descriptor___1.flags = 0U;
-      tmp___2 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+      tmp___2 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
       }
       if (tmp___2 != 0L) {
         {
@@ -20845,7 +20844,7 @@ void musb_g_tx(struct musb *musb , u8 epnum )
       descriptor___2.format = "sending zero pkt\n";
       descriptor___2.lineno = 526U;
       descriptor___2.flags = 0U;
-      tmp___3 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+      tmp___3 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
       }
       if (tmp___3 != 0L) {
         {
@@ -20883,7 +20882,7 @@ void musb_g_tx(struct musb *musb , u8 epnum )
         descriptor___3.format = "%s idle now\n";
         descriptor___3.lineno = 546U;
         descriptor___3.flags = 0U;
-        tmp___5 = __builtin_expect((long )descriptor___3.flags & 1L, 0L);
+        tmp___5 = ldv__builtin_expect((long )descriptor___3.flags & 1L, 0L);
         }
         if (tmp___5 != 0L) {
           {
@@ -20965,7 +20964,7 @@ static void rxstate(struct musb *musb , struct musb_request *req )
     descriptor.format = "ep:%s disabled - ignore request\n";
     descriptor.lineno = 582U;
     descriptor.flags = 0U;
-    tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -20990,7 +20989,7 @@ static void rxstate(struct musb *musb , struct musb_request *req )
     descriptor___0.format = "DMA pending...\n";
     descriptor___0.lineno = 588U;
     descriptor___0.flags = 0U;
-    tmp___1 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___1 != 0L) {
       {
@@ -21012,7 +21011,7 @@ static void rxstate(struct musb *musb , struct musb_request *req )
     descriptor___1.format = "%s stalling, RXCSR %04x\n";
     descriptor___1.lineno = 594U;
     descriptor___1.flags = 0U;
-    tmp___3 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___3 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
     }
     if (tmp___3 != 0L) {
       {
@@ -21087,7 +21086,7 @@ static void rxstate(struct musb *musb , struct musb_request *req )
       descriptor___2.format = "%s OUT/RX pio fifo %d/%d, maxpacket %d\n";
       descriptor___2.lineno = 770U;
       descriptor___2.flags = 0U;
-      tmp___6 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+      tmp___6 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
       }
       if (tmp___6 != 0L) {
         {
@@ -21184,7 +21183,7 @@ void musb_g_rx(struct musb *musb , u8 epnum )
   descriptor.format = "<== %s, rxcsr %04x%s %p\n";
   descriptor.lineno = 858U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -21215,7 +21214,7 @@ void musb_g_rx(struct musb *musb , u8 epnum )
     descriptor___0.format = "%s iso overrun on %p\n";
     descriptor___0.lineno = 872U;
     descriptor___0.flags = 0U;
-    tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -21241,7 +21240,7 @@ void musb_g_rx(struct musb *musb , u8 epnum )
     descriptor___1.format = "%s, incomprx\n";
     descriptor___1.lineno = 878U;
     descriptor___1.flags = 0U;
-    tmp___1 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
     }
     if (tmp___1 != 0L) {
       {
@@ -21265,7 +21264,7 @@ void musb_g_rx(struct musb *musb , u8 epnum )
     descriptor___2.format = "%s busy, csr %04x\n";
     descriptor___2.lineno = 884U;
     descriptor___2.flags = 0U;
-    tmp___2 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+    tmp___2 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
     }
     if (tmp___2 != 0L) {
       {
@@ -21290,7 +21289,7 @@ void musb_g_rx(struct musb *musb , u8 epnum )
     descriptor___3.format = "RXCSR%d %04x, dma off, %04x, len %zu, req %p\n";
     descriptor___3.lineno = 900U;
     descriptor___3.flags = 0U;
-    tmp___5 = __builtin_expect((long )descriptor___3.flags & 1L, 0L);
+    tmp___5 = ldv__builtin_expect((long )descriptor___3.flags & 1L, 0L);
     }
     if (tmp___5 != 0L) {
       {
@@ -21426,7 +21425,7 @@ static int musb_gadget_enable(struct usb_ep *ep , struct usb_endpoint_descriptor
       descriptor.format = "no support for high bandwidth ISO\n";
       descriptor.lineno = 999U;
       descriptor.flags = 0U;
-      tmp___4 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+      tmp___4 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
       }
       if (tmp___4 != 0L) {
         {
@@ -21469,7 +21468,7 @@ static int musb_gadget_enable(struct usb_ep *ep , struct usb_endpoint_descriptor
       descriptor___0.format = "packet size beyond hardware FIFO size\n";
       descriptor___0.lineno = 1022U;
       descriptor___0.flags = 0U;
-      tmp___5 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+      tmp___5 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
       }
       if (tmp___5 != 0L) {
         {
@@ -21538,7 +21537,7 @@ static int musb_gadget_enable(struct usb_ep *ep , struct usb_endpoint_descriptor
       descriptor___1.format = "packet size beyond hardware FIFO size\n";
       descriptor___1.lineno = 1065U;
       descriptor___1.flags = 0U;
-      tmp___7 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+      tmp___7 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
       }
       if (tmp___7 != 0L) {
         {
@@ -21607,7 +21606,7 @@ static int musb_gadget_enable(struct usb_ep *ep , struct usb_endpoint_descriptor
   descriptor___2.format = "%s periph: enabled %s for %s %s, %smaxpacket %d\n";
   descriptor___2.lineno = 1127U;
   descriptor___2.flags = 0U;
-  tmp___9 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+  tmp___9 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
   }
   if (tmp___9 != 0L) {
     {
@@ -21700,7 +21699,7 @@ static int musb_gadget_disable(struct usb_ep *ep )
   descriptor.format = "%s\n";
   descriptor.lineno = 1177U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -21740,7 +21739,7 @@ struct usb_request *musb_alloc_request(struct usb_ep *ep , gfp_t gfp_flags )
     descriptor.format = "not enough memory\n";
     descriptor.lineno = 1194U;
     descriptor.flags = 0U;
-    tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp___1 != 0L) {
       {
@@ -21784,7 +21783,7 @@ void musb_ep_restart(struct musb *musb , struct musb_request *req )
   descriptor.format = "<== %s request %p len %u on hw_ep%d\n";
   descriptor.lineno = 1230U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -21852,7 +21851,7 @@ static int musb_gadget_queue(struct usb_ep *ep , struct usb_request *req , gfp_t
   descriptor.format = "<== to %s request=%p\n";
   descriptor.lineno = 1262U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -21878,7 +21877,7 @@ static int musb_gadget_queue(struct usb_ep *ep , struct usb_request *req , gfp_t
     descriptor___0.format = "req %p queued to %s while ep %s\n";
     descriptor___0.lineno = 1277U;
     descriptor___0.flags = 0U;
-    tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -21980,7 +21979,7 @@ static int musb_gadget_dequeue(struct usb_ep *ep , struct usb_request *request )
     descriptor.format = "request %p not queued to %s\n";
     descriptor.lineno = 1314U;
     descriptor.flags = 0U;
-    tmp___2 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___2 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp___2 != 0L) {
       {
@@ -22089,7 +22088,7 @@ static int musb_gadget_set_halt(struct usb_ep *ep , int value )
       descriptor.format = "request in progress, cannot halt %s\n";
       descriptor.lineno = 1381U;
       descriptor.flags = 0U;
-      tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+      tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
       }
       if (tmp___0 != 0L) {
         {
@@ -22116,7 +22115,7 @@ static int musb_gadget_set_halt(struct usb_ep *ep , int value )
         descriptor___0.format = "FIFO busy, cannot halt %s\n";
         descriptor___0.lineno = 1389U;
         descriptor___0.flags = 0U;
-        tmp___1 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+        tmp___1 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
         }
         if (tmp___1 != 0L) {
           {
@@ -22144,7 +22143,7 @@ static int musb_gadget_set_halt(struct usb_ep *ep , int value )
   descriptor___1.format = "%s: %s stall\n";
   descriptor___1.lineno = 1398U;
   descriptor___1.flags = 0U;
-  tmp___2 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+  tmp___2 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
   }
   if (tmp___2 != 0L) {
     {
@@ -22190,7 +22189,7 @@ static int musb_gadget_set_halt(struct usb_ep *ep , int value )
     descriptor___2.format = "restarting the request\n";
     descriptor___2.lineno = 1425U;
     descriptor___2.flags = 0U;
-    tmp___3 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+    tmp___3 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
     }
     if (tmp___3 != 0L) {
       {
@@ -22402,7 +22401,7 @@ static int musb_gadget_wakeup(struct usb_gadget *gadget )
   descriptor.format = "Sending SRP: devctl: %02x\n";
   descriptor.lineno = 1561U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -22474,7 +22473,7 @@ static int musb_gadget_wakeup(struct usb_gadget *gadget )
   descriptor___0.format = "Unhandled wake: %s\n";
   descriptor___0.lineno = 1590U;
   descriptor___0.flags = 0U;
-  tmp___5 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___5 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
   }
   if (tmp___5 != 0L) {
     {
@@ -22500,7 +22499,7 @@ static int musb_gadget_wakeup(struct usb_gadget *gadget )
   descriptor___1.format = "issue wakeup\n";
   descriptor___1.lineno = 1599U;
   descriptor___1.flags = 0U;
-  tmp___6 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+  tmp___6 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
   }
   if (tmp___6 != 0L) {
     {
@@ -22574,7 +22573,7 @@ static void musb_pullup(struct musb *musb , int is_on )
   descriptor.format = "gadget D+ pullup %s\n";
   descriptor.lineno = 1632U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -23003,7 +23002,7 @@ void musb_g_suspend(struct musb *musb )
   descriptor.format = "devctl %02x\n";
   descriptor.lineno = 1993U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -23088,7 +23087,7 @@ void musb_g_disconnect(struct musb *musb )
   descriptor.format = "devctl %02x\n";
   descriptor.lineno = 2029U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -23152,7 +23151,7 @@ void musb_g_disconnect(struct musb *musb )
   descriptor___0.format = "Unhandled disconnect %s, setting a_idle\n";
   descriptor___0.lineno = 2047U;
   descriptor___0.flags = 0U;
-  tmp___2 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___2 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
   }
   if (tmp___2 != 0L) {
     {
@@ -23205,7 +23204,7 @@ void musb_g_reset(struct musb *musb )
   descriptor.format = "<== %s driver \'%s\'\n";
   descriptor.lineno = 2082U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -23814,7 +23813,7 @@ __inline static unsigned long copy_from_user(void *to , void const   *from , uns
   {
   sz = -1;
   might_fault();
-  tmp = __builtin_expect(sz < 0, 1L);
+  tmp = ldv__builtin_expect(sz < 0, 1L);
   }
   if (tmp != 0L) {
     {
@@ -23822,7 +23821,7 @@ __inline static unsigned long copy_from_user(void *to , void const   *from , uns
     }
   } else {
     {
-    tmp___0 = __builtin_expect((unsigned long )sz >= n, 1L);
+    tmp___0 = ldv__builtin_expect((unsigned long )sz >= n, 1L);
     }
     if (tmp___0 != 0L) {
       {
@@ -24707,7 +24706,7 @@ __inline static void sg_assign_page(struct scatterlist *sg , struct page *page )
   {
   {
   page_link = sg->page_link & 3UL;
-  tmp = __builtin_expect(((unsigned long )page & 3UL) != 0UL, 0L);
+  tmp = ldv__builtin_expect(((unsigned long )page & 3UL) != 0UL, 0L);
   }
   if (tmp != 0L) {
     {
@@ -24719,7 +24718,7 @@ __inline static void sg_assign_page(struct scatterlist *sg , struct page *page )
 
   }
   {
-  tmp___0 = __builtin_expect(sg->sg_magic != 2271560481UL, 0L);
+  tmp___0 = ldv__builtin_expect(sg->sg_magic != 2271560481UL, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -24731,7 +24730,7 @@ __inline static void sg_assign_page(struct scatterlist *sg , struct page *page )
 
   }
   {
-  tmp___1 = __builtin_expect((long )((int )sg->page_link) & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )((int )sg->page_link) & 1L, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -24876,7 +24875,7 @@ static void ux500_dma_callback(void *private_data )
   descriptor.format = "DMA rx transfer done on hw_ep=%d\n";
   descriptor.lineno = 72U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -24927,7 +24926,7 @@ static bool ux500_configure_channel(struct dma_channel *channel , u16 packet_sz 
   descriptor.format = "packet_sz=%d, mode=%d, dma_addr=0x%llx, len=%d is_tx=%d\n";
   descriptor.lineno = 101U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -25012,7 +25011,7 @@ static struct dma_channel *ux500_dma_channel_allocate(struct dma_controller *c ,
   descriptor.format = "hw_ep=%d, is_tx=0x%x, channel=%d\n";
   descriptor.lineno = 170U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -25042,7 +25041,7 @@ static void ux500_dma_channel_release(struct dma_channel *channel )
   descriptor.format = "channel=%d\n";
   descriptor.lineno = 180U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -25085,7 +25084,7 @@ static int ux500_dma_channel_program(struct dma_channel *channel , u16 packet_sz
 
   {
   {
-  tmp = __builtin_expect((long )((unsigned int )channel->status == 0U || (unsigned int )channel->status == 2U),
+  tmp = ldv__builtin_expect((long )((unsigned int )channel->status == 0U || (unsigned int )channel->status == 2U),
                          0L);
   }
   if (tmp != 0L) {
@@ -25142,7 +25141,7 @@ static int ux500_dma_channel_abort(struct dma_channel *channel )
   descriptor.format = "channel=%d, is_tx=%d\n";
   descriptor.lineno = 231U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -27388,7 +27387,7 @@ void ldv_linux_usb_urb_check_final_state(void)
 }
 }
 extern void ldv_assert(char const   * , int  ) ;
-void __builtin_trap(void) ;
+void ldv__builtin_trap(void) ;
 void ldv_assume(int expression ) 
 { 
 
@@ -27412,7 +27411,7 @@ void ldv_stop(void)
   goto ldv_stop_label;
 }
 }
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 
@@ -27420,7 +27419,7 @@ long __builtin_expect(long exp , long c )
   return (exp);
 }
 }
-void __builtin_trap(void) 
+void ldv__builtin_trap(void) 
 { 
 
 

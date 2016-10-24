@@ -5035,7 +5035,7 @@ struct ldv_thread {
    int identifier ;
    void (*function)(void * ) ;
 };
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 void *ldv_dev_get_drvdata(struct device  const  *dev ) ;
 void *ldv_kzalloc(size_t size , gfp_t flags ) ;
 void ldv_assume(int expression ) ;
@@ -5058,7 +5058,6 @@ extern struct module __this_module ;
 extern int printk(char const   *  , ...) ;
 extern int sprintf(char * , char const   *  , ...) ;
 extern void __bad_percpu_size(void) ;
-extern int ( /* missing proto */  __builtin_unreachable)() ;
 extern void __mutex_init(struct mutex * , char const   * , struct lock_class_key * ) ;
 extern int __preempt_count ;
 __inline static int preempt_count(void) 
@@ -5542,7 +5541,7 @@ int cx25821_sram_channel_setup(struct cx25821_dev *dev , struct sram_channel  co
 
   }
   {
-  tmp = __builtin_expect(lines <= 1U, 0L);
+  tmp = ldv__builtin_expect(lines <= 1U, 0L);
   }
   if (tmp != 0L) {
     {
@@ -5663,7 +5662,7 @@ int cx25821_sram_channel_setup_audio(struct cx25821_dev *dev , struct sram_chann
 
   }
   {
-  tmp = __builtin_expect(lines <= 1U, 0L);
+  tmp = ldv__builtin_expect(lines <= 1U, 0L);
   }
   if (tmp != 0L) {
     {
@@ -6598,7 +6597,7 @@ int cx25821_risc_buffer(struct pci_dev *pci , struct btcx_riscmem *risc , struct
   }
   {
   risc->jmp = rp;
-  tmp = __builtin_expect((unsigned long )((((long )risc->jmp - (long )risc->cpu) / 4L + 2L) * 4L) > (unsigned long )risc->size,
+  tmp = ldv__builtin_expect((unsigned long )((((long )risc->jmp - (long )risc->cpu) / 4L + 2L) * 4L) > (unsigned long )risc->size,
                          0L);
   }
   if (tmp != 0L) {
@@ -6755,7 +6754,7 @@ int cx25821_risc_databuffer_audio(struct pci_dev *pci , struct btcx_riscmem *ris
   rp = risc->cpu;
   rp = cx25821_risc_field_audio(rp, sglist, 0U, 4294967295U, bpl, 0U, lines, lpi);
   risc->jmp = rp;
-  tmp = __builtin_expect((unsigned long )((((long )risc->jmp - (long )risc->cpu) / 4L + 2L) * 4L) > (unsigned long )risc->size,
+  tmp = ldv__builtin_expect((unsigned long )((((long )risc->jmp - (long )risc->cpu) / 4L + 2L) * 4L) > (unsigned long )risc->size,
                          0L);
   }
   if (tmp != 0L) {
@@ -6841,7 +6840,7 @@ void cx25821_free_buffer(struct videobuf_queue *q , struct cx25821_buffer *buf )
   tmp = videobuf_to_dma(& buf->vb);
   dma = tmp;
   tmp___0 = preempt_count();
-  tmp___1 = __builtin_expect(((unsigned long )tmp___0 & 2096896UL) != 0UL, 0L);
+  tmp___1 = ldv__builtin_expect(((unsigned long )tmp___0 & 2096896UL) != 0UL, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -7211,7 +7210,7 @@ void ldv_dummy_resourceless_instance_callback_5_9(int (*arg0)(struct videobuf_qu
                                                   struct videobuf_queue *arg1 , unsigned int *arg2 ,
                                                   unsigned int *arg3 ) ;
 void ldv_entry_EMGentry_16(void *arg0 ) ;
-void main(void) ;
+int main(void) ;
 void ldv_file_operations_file_operations_instance_0(void *arg0 ) ;
 int ldv_file_operations_instance_probe_0_12(int (*arg0)(struct inode * , struct file * ) ,
                                             struct inode *arg1 , struct file *arg2 ) ;
@@ -7981,7 +7980,7 @@ void ldv_entry_EMGentry_16(void *arg0 )
   return;
 }
 }
-void main(void) 
+int main(void) 
 { 
   int tmp ;
 
@@ -13833,7 +13832,7 @@ static int cx25821_buffer_prepare(struct videobuf_queue *q , struct videobuf_buf
   tmp = videobuf_to_dma(& buf->vb);
   dma = tmp;
   bpl_local = 1440;
-  tmp___0 = __builtin_expect((unsigned long )chan->fmt == (unsigned long )((struct cx25821_fmt  const  *)0),
+  tmp___0 = ldv__builtin_expect((unsigned long )chan->fmt == (unsigned long )((struct cx25821_fmt  const  *)0),
                              0L);
   }
   if (tmp___0 != 0L) {
@@ -14204,7 +14203,7 @@ static int cx25821_vidioc_enum_fmt_vid_cap(struct file *file , void *priv , stru
 
   {
   {
-  tmp = __builtin_expect(f->index > 1U, 0L);
+  tmp = ldv__builtin_expect(f->index > 1U, 0L);
   }
   if (tmp != 0L) {
     return (-22);
@@ -16414,7 +16413,7 @@ __inline static unsigned long arch_local_save_flags(void)
   __edx = __edx;
   __ecx = __ecx;
   __eax = __eax;
-  tmp = __builtin_expect((unsigned long )pv_irq_ops.save_fl.func == (unsigned long )((void *)0),
+  tmp = ldv__builtin_expect((unsigned long )pv_irq_ops.save_fl.func == (unsigned long )((void *)0),
                          0L);
   }
   if (tmp != 0L) {
@@ -16462,7 +16461,7 @@ __inline static struct dma_map_ops *get_dma_ops(struct device *dev )
 
   {
   {
-  tmp = __builtin_expect((unsigned long )dev == (unsigned long )((struct device *)0),
+  tmp = ldv__builtin_expect((unsigned long )dev == (unsigned long )((struct device *)0),
                          0L);
   }
   if (tmp != 0L || (unsigned long )dev->archdata.dma_ops == (unsigned long )((struct dma_map_ops *)0)) {
@@ -16570,7 +16569,7 @@ __inline static void dma_free_attrs(struct device *dev , size_t size , void *vad
   _flags = arch_local_save_flags();
   tmp___0 = arch_irqs_disabled_flags(_flags);
   __ret_warn_on = tmp___0 != 0;
-  tmp___1 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___1 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -16581,7 +16580,7 @@ __inline static void dma_free_attrs(struct device *dev , size_t size , void *vad
 
   }
   {
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
   debug_dma_free_coherent(dev, size, vaddr, bus);
   }
   if ((unsigned long )ops->free != (unsigned long )((void (*)(struct device * , size_t  ,
@@ -16659,7 +16658,7 @@ int cx25821_sram_channel_setup_upstream(struct cx25821_dev *dev , struct sram_ch
 
   }
   {
-  tmp = __builtin_expect(lines <= 1U, 0L);
+  tmp = ldv__builtin_expect(lines <= 1U, 0L);
   }
   if (tmp != 0L) {
     {
@@ -18006,7 +18005,7 @@ void ldv_check_final_state(void)
 }
 }
 extern void ldv_assert(char const   * , int  ) ;
-void __builtin_trap(void) ;
+void ldv__builtin_trap(void) ;
 void ldv_assume(int expression ) 
 { 
 
@@ -18030,7 +18029,7 @@ void ldv_stop(void)
   goto ldv_stop_label;
 }
 }
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 
@@ -18038,7 +18037,7 @@ long __builtin_expect(long exp , long c )
   return (exp);
 }
 }
-void __builtin_trap(void) 
+void ldv__builtin_trap(void) 
 { 
 
 

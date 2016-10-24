@@ -4405,10 +4405,9 @@ struct ldv_thread {
    void (*function)(void * ) ;
 };
 typedef _Bool ldv_set;
-void __builtin_va_end(__builtin_va_list  ) ;
-int __builtin_bswap32(int  ) ;
-long __builtin_expect(long exp , long c ) ;
-void __builtin_va_start(__builtin_va_list  ) ;
+void ldv__builtin_va_end(__builtin_va_list  ) ;
+long ldv__builtin_expect(long exp , long c ) ;
+void ldv__builtin_va_start(__builtin_va_list  ) ;
 void ldv_assume(int expression ) ;
 void ldv_linux_alloc_irq_check_alloc_flags(gfp_t flags ) ;
 void ldv_linux_alloc_irq_check_alloc_nonatomic(void) ;
@@ -4681,12 +4680,12 @@ __inline static void kref_get(struct kref *kref )
   {
   tmp = atomic_add_return(1, & kref->refcount);
   __ret_warn_once = tmp <= 1;
-  tmp___2 = __builtin_expect(__ret_warn_once != 0, 0L);
+  tmp___2 = ldv__builtin_expect(__ret_warn_once != 0, 0L);
   }
   if (tmp___2 != 0L) {
     {
     __ret_warn_on = ! __warned;
-    tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -4696,7 +4695,7 @@ __inline static void kref_get(struct kref *kref )
 
     }
     {
-    tmp___1 = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp___1 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
     if (tmp___1 != 0L) {
       __warned = 1;
@@ -4707,7 +4706,7 @@ __inline static void kref_get(struct kref *kref )
 
   }
   {
-  __builtin_expect(__ret_warn_once != 0, 0L);
+  ldv__builtin_expect(__ret_warn_once != 0, 0L);
   }
   return;
 }
@@ -4721,7 +4720,7 @@ __inline static int kref_sub(struct kref *kref , unsigned int count , void (*rel
   {
   {
   __ret_warn_on = (unsigned long )release == (unsigned long )((void (*)(struct kref * ))0);
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp != 0L) {
     {
@@ -4731,7 +4730,7 @@ __inline static int kref_sub(struct kref *kref , unsigned int count , void (*rel
 
   }
   {
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
   tmp___0 = atomic_sub_and_test((int )count, & kref->refcount);
   }
   if (tmp___0 != 0) {
@@ -4911,12 +4910,12 @@ void fw_err(struct fw_card  const  *card , char const   *fmt  , ...)
 
   {
   {
-  __builtin_va_start((__va_list_tag *)(& args));
+  ldv__builtin_va_start((__va_list_tag *)(& args));
   vaf.fmt = fmt;
   vaf.va = & args;
   tmp = dev_name((struct device  const  *)card->device);
   printk("\vfirewire_core %s: %pV", tmp, & vaf);
-  __builtin_va_end((__va_list_tag *)(& args));
+  ldv__builtin_va_end((__va_list_tag *)(& args));
   }
   return;
 }
@@ -4929,12 +4928,12 @@ void fw_notice(struct fw_card  const  *card , char const   *fmt  , ...)
 
   {
   {
-  __builtin_va_start((__va_list_tag *)(& args));
+  ldv__builtin_va_start((__va_list_tag *)(& args));
   vaf.fmt = fmt;
   vaf.va = & args;
   tmp = dev_name((struct device  const  *)card->device);
   printk("\rfirewire_core %s: %pV", tmp, & vaf);
-  __builtin_va_end((__va_list_tag *)(& args));
+  ldv__builtin_va_end((__va_list_tag *)(& args));
   }
   return;
 }
@@ -5079,7 +5078,7 @@ static void generate_config_rom(struct fw_card *card , __be32 *config_rom )
   }
   {
   __ret_warn_on = (size_t )j != config_rom_length;
-  tmp___8 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___8 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp___8 != 0L) {
     {
@@ -5089,7 +5088,7 @@ static void generate_config_rom(struct fw_card *card , __be32 *config_rom )
 
   }
   {
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   return;
 }
@@ -5879,7 +5878,7 @@ void fw_core_remove_card(struct fw_card *card )
   ldv_wait_for_completion_114(& card->done);
   tmp = list_empty((struct list_head  const  *)(& card->transaction_list));
   __ret_warn_on = tmp == 0;
-  tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -5889,7 +5888,7 @@ void fw_core_remove_card(struct fw_card *card )
 
   }
   {
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   return;
 }
@@ -6393,7 +6392,6 @@ __inline static struct task_struct *get_current(void)
 extern void *__memcpy(void * , void const   * , size_t  ) ;
 extern void *__memset(void * , int  , size_t  ) ;
 extern void *kmemdup(void const   * , size_t  , gfp_t  ) ;
-extern int ( /* missing proto */  __builtin_unreachable)() ;
 __inline static void arch_local_irq_disable(void) 
 { 
   unsigned long __edi ;
@@ -6410,7 +6408,7 @@ __inline static void arch_local_irq_disable(void)
   __edx = __edx;
   __ecx = __ecx;
   __eax = __eax;
-  tmp = __builtin_expect((unsigned long )pv_irq_ops.irq_disable.func == (unsigned long )((void *)0),
+  tmp = ldv__builtin_expect((unsigned long )pv_irq_ops.irq_disable.func == (unsigned long )((void *)0),
                          0L);
   }
   if (tmp != 0L) {
@@ -6444,7 +6442,7 @@ __inline static void arch_local_irq_enable(void)
   __edx = __edx;
   __ecx = __ecx;
   __eax = __eax;
-  tmp = __builtin_expect((unsigned long )pv_irq_ops.irq_enable.func == (unsigned long )((void *)0),
+  tmp = ldv__builtin_expect((unsigned long )pv_irq_ops.irq_enable.func == (unsigned long )((void *)0),
                          0L);
   }
   if (tmp != 0L) {
@@ -6469,7 +6467,7 @@ __inline static bool IS_ERR(void const   *ptr )
 
   {
   {
-  tmp = __builtin_expect((unsigned long )ptr > 0xfffffffffffff000UL, 0L);
+  tmp = ldv__builtin_expect((unsigned long )ptr > 0xfffffffffffff000UL, 0L);
   }
   return (tmp != 0L);
 }
@@ -6720,12 +6718,12 @@ __inline static void kref_get___0(struct kref *kref )
   {
   tmp = atomic_add_return(1, & kref->refcount);
   __ret_warn_once = tmp <= 1;
-  tmp___2 = __builtin_expect(__ret_warn_once != 0, 0L);
+  tmp___2 = ldv__builtin_expect(__ret_warn_once != 0, 0L);
   }
   if (tmp___2 != 0L) {
     {
     __ret_warn_on = ! __warned;
-    tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -6735,7 +6733,7 @@ __inline static void kref_get___0(struct kref *kref )
 
     }
     {
-    tmp___1 = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp___1 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
     if (tmp___1 != 0L) {
       __warned = 1;
@@ -6746,7 +6744,7 @@ __inline static void kref_get___0(struct kref *kref )
 
   }
   {
-  __builtin_expect(__ret_warn_once != 0, 0L);
+  ldv__builtin_expect(__ret_warn_once != 0, 0L);
   }
   return;
 }
@@ -6760,7 +6758,7 @@ __inline static int kref_sub___0(struct kref *kref , unsigned int count , void (
   {
   {
   __ret_warn_on = (unsigned long )release == (unsigned long )((void (*)(struct kref * ))0);
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp != 0L) {
     {
@@ -6770,7 +6768,7 @@ __inline static int kref_sub___0(struct kref *kref , unsigned int count , void (
 
   }
   {
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
   tmp___0 = atomic_sub_and_test((int )count, & kref->refcount);
   }
   if (tmp___0 != 0) {
@@ -6937,7 +6935,7 @@ __inline static int __copy_from_user_nocheck(void *dst , void const   *src , uns
   __asm__  volatile   ("661:\n\t.byte 0x66,0x66,0x90\n\n662:\n.pushsection .altinstructions,\"a\"\n .long 661b - .\n .long 6631f - .\n .word ( 9*32+20)\n .byte 662b-661b\n .byte 6641f-6631f\n.popsection\n.pushsection .discard,\"aw\",@progbits\n .byte 0xff + (6641f-6631f) - (662b-661b)\n.popsection\n.pushsection .altinstr_replacement, \"ax\"\n6631:\n\t.byte 0x0f,0x01,0xcb\n6641:\n\t.popsection\n1:\tmovq %2,%1\n2: 661:\n\t.byte 0x66,0x66,0x90\n\n662:\n.pushsection .altinstructions,\"a\"\n .long 661b - .\n .long 6631f - .\n .word ( 9*32+20)\n .byte 662b-661b\n .byte 6641f-6631f\n.popsection\n.pushsection .discard,\"aw\",@progbits\n .byte 0xff + (6641f-6631f) - (662b-661b)\n.popsection\n.pushsection .altinstr_replacement, \"ax\"\n6631:\n\t.byte 0x0f,0x01,0xca\n6641:\n\t.popsection\n.section .fixup,\"ax\"\n3:\tmov %3,%0\n\txorq %1,%1\n\tjmp 2b\n.previous\n .pushsection \"__ex_table\",\"a\"\n .balign 8\n .long (1b) - .\n .long (3b) - .\n .popsection\n": "=r" (ret),
                        "=r" (*((u64 *)dst)): "m" (*((struct __large_struct *)src)),
                        "i" (10), "0" (ret));
-  tmp___0 = __builtin_expect(ret != 0, 0L);
+  tmp___0 = ldv__builtin_expect(ret != 0, 0L);
   }
   if (tmp___0 != 0L) {
     return (ret);
@@ -6953,7 +6951,7 @@ __inline static int __copy_from_user_nocheck(void *dst , void const   *src , uns
   __asm__  volatile   ("661:\n\t.byte 0x66,0x66,0x90\n\n662:\n.pushsection .altinstructions,\"a\"\n .long 661b - .\n .long 6631f - .\n .word ( 9*32+20)\n .byte 662b-661b\n .byte 6641f-6631f\n.popsection\n.pushsection .discard,\"aw\",@progbits\n .byte 0xff + (6641f-6631f) - (662b-661b)\n.popsection\n.pushsection .altinstr_replacement, \"ax\"\n6631:\n\t.byte 0x0f,0x01,0xcb\n6641:\n\t.popsection\n1:\tmovq %2,%1\n2: 661:\n\t.byte 0x66,0x66,0x90\n\n662:\n.pushsection .altinstructions,\"a\"\n .long 661b - .\n .long 6631f - .\n .word ( 9*32+20)\n .byte 662b-661b\n .byte 6641f-6631f\n.popsection\n.pushsection .discard,\"aw\",@progbits\n .byte 0xff + (6641f-6631f) - (662b-661b)\n.popsection\n.pushsection .altinstr_replacement, \"ax\"\n6631:\n\t.byte 0x0f,0x01,0xca\n6641:\n\t.popsection\n.section .fixup,\"ax\"\n3:\tmov %3,%0\n\txorq %1,%1\n\tjmp 2b\n.previous\n .pushsection \"__ex_table\",\"a\"\n .balign 8\n .long (1b) - .\n .long (3b) - .\n .popsection\n": "=r" (ret),
                        "=r" (*((u64 *)dst)): "m" (*((struct __large_struct *)src)),
                        "i" (16), "0" (ret));
-  tmp___1 = __builtin_expect(ret != 0, 0L);
+  tmp___1 = ldv__builtin_expect(ret != 0, 0L);
   }
   if (tmp___1 != 0L) {
     return (ret);
@@ -6999,7 +6997,7 @@ __inline static unsigned long copy_from_user(void *to , void const   *from , uns
   {
   sz = -1;
   might_fault();
-  tmp = __builtin_expect(sz < 0, 1L);
+  tmp = ldv__builtin_expect(sz < 0, 1L);
   }
   if (tmp != 0L) {
     {
@@ -7007,7 +7005,7 @@ __inline static unsigned long copy_from_user(void *to , void const   *from , uns
     }
   } else {
     {
-    tmp___0 = __builtin_expect((unsigned long )sz >= n, 1L);
+    tmp___0 = ldv__builtin_expect((unsigned long )sz >= n, 1L);
     }
     if (tmp___0 != 0L) {
       {
@@ -7032,7 +7030,7 @@ __inline static unsigned long copy_to_user(void *to , void const   *from , unsig
   {
   sz = -1;
   might_fault();
-  tmp = __builtin_expect(sz < 0, 1L);
+  tmp = ldv__builtin_expect(sz < 0, 1L);
   }
   if (tmp != 0L) {
     {
@@ -7040,7 +7038,7 @@ __inline static unsigned long copy_to_user(void *to , void const   *from , unsig
     }
   } else {
     {
-    tmp___0 = __builtin_expect((unsigned long )sz >= n, 1L);
+    tmp___0 = ldv__builtin_expect((unsigned long )sz >= n, 1L);
     }
     if (tmp___0 != 0L) {
       {
@@ -8793,7 +8791,7 @@ static int ioctl_queue_iso(struct client *client , union ioctl_arg *arg )
     tmp___2 = 1;
   }
   {
-  tmp___3 = __builtin_expect((long )tmp___2, 1L);
+  tmp___3 = ldv__builtin_expect((long )tmp___2, 1L);
   }
   if (tmp___3 == 0L) {
     return (-14);
@@ -10875,12 +10873,12 @@ __inline static void kref_get___1(struct kref *kref )
   {
   tmp = atomic_add_return(1, & kref->refcount);
   __ret_warn_once = tmp <= 1;
-  tmp___2 = __builtin_expect(__ret_warn_once != 0, 0L);
+  tmp___2 = ldv__builtin_expect(__ret_warn_once != 0, 0L);
   }
   if (tmp___2 != 0L) {
     {
     __ret_warn_on = ! __warned;
-    tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -10890,7 +10888,7 @@ __inline static void kref_get___1(struct kref *kref )
 
     }
     {
-    tmp___1 = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp___1 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
     if (tmp___1 != 0L) {
       __warned = 1;
@@ -10901,7 +10899,7 @@ __inline static void kref_get___1(struct kref *kref )
 
   }
   {
-  __builtin_expect(__ret_warn_once != 0, 0L);
+  ldv__builtin_expect(__ret_warn_once != 0, 0L);
   }
   return;
 }
@@ -10915,7 +10913,7 @@ __inline static int kref_sub___1(struct kref *kref , unsigned int count , void (
   {
   {
   __ret_warn_on = (unsigned long )release == (unsigned long )((void (*)(struct kref * ))0);
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp != 0L) {
     {
@@ -10925,7 +10923,7 @@ __inline static int kref_sub___1(struct kref *kref , unsigned int count , void (
 
   }
   {
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
   tmp___0 = atomic_sub_and_test((int )count, & kref->refcount);
   }
   if (tmp___0 != 0) {
@@ -12115,7 +12113,7 @@ static int read_config_rom(struct fw_device *device , int generation )
   key = *(stack + (unsigned long )sp);
   i = (int )key & 16777215;
   __ret_warn_on = i > 255;
-  tmp___2 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___2 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp___2 != 0L) {
     {
@@ -12125,7 +12123,7 @@ static int read_config_rom(struct fw_device *device , int generation )
 
   }
   {
-  tmp___3 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___3 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp___3 != 0L) {
     ret = -6;
@@ -13476,7 +13474,7 @@ __inline static struct dma_map_ops *get_dma_ops(struct device *dev )
 
   {
   {
-  tmp = __builtin_expect((unsigned long )dev == (unsigned long )((struct device *)0),
+  tmp = ldv__builtin_expect((unsigned long )dev == (unsigned long )((struct device *)0),
                          0L);
   }
   if (tmp != 0L || (unsigned long )dev->archdata.dma_ops == (unsigned long )((struct dma_map_ops *)0)) {
@@ -13503,7 +13501,7 @@ __inline static dma_addr_t dma_map_page(struct device *dev , struct page *page ,
   tmp___0 = lowmem_page_address((struct page  const  *)page);
   kmemcheck_mark_initialized(tmp___0 + offset, (unsigned int )size);
   tmp___1 = valid_dma_direction((int )dir);
-  tmp___2 = __builtin_expect(tmp___1 == 0, 0L);
+  tmp___2 = ldv__builtin_expect(tmp___1 == 0, 0L);
   }
   if (tmp___2 != 0L) {
     {
@@ -13534,7 +13532,7 @@ __inline static void dma_unmap_page(struct device *dev , dma_addr_t addr , size_
   tmp = get_dma_ops(dev);
   ops = tmp;
   tmp___0 = valid_dma_direction((int )dir);
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -14867,7 +14865,7 @@ static void update_tree(struct fw_card *card , struct fw_node *root )
   ldv_33082: 
   {
   __ret_warn_on = (int )node0->port_count != (int )node1->port_count;
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp != 0L) {
     {
@@ -14877,7 +14875,7 @@ static void update_tree(struct fw_card *card , struct fw_node *root )
 
   }
   {
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if ((unsigned int )*((unsigned char *)node0 + 4UL) != 0U && (unsigned int )*((unsigned char *)node1 + 4UL) == 0U) {
     event = 4;
@@ -15455,7 +15453,7 @@ static void start_split_transaction_timeout(struct fw_transaction *t , struct fw
   } else {
     {
     __ret_warn_on = (int )t->is_split_transaction;
-    tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -15465,7 +15463,7 @@ static void start_split_transaction_timeout(struct fw_transaction *t , struct fw
 
     }
     {
-    tmp___1 = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp___1 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
     if (tmp___1 != 0L) {
       {
@@ -15646,7 +15644,7 @@ static void fw_fill_request(struct fw_packet *packet , int tcode , int tlabel , 
   switch_default: /* CIL Label */ 
   {
   __ret_warn_on = 1;
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp != 0L) {
     {
@@ -15657,7 +15655,7 @@ static void fw_fill_request(struct fw_packet *packet , int tcode , int tlabel , 
 
   }
   {
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   switch_break: /* CIL Label */ ;
   }
@@ -16211,7 +16209,7 @@ int fw_get_response_length(struct fw_request *r )
   switch_default___0: /* CIL Label */ 
   {
   __ret_warn_on = 1;
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp != 0L) {
     {
@@ -16222,7 +16220,7 @@ int fw_get_response_length(struct fw_request *r )
 
   }
   {
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   return (0);
   switch_break: /* CIL Label */ ;
@@ -16303,7 +16301,7 @@ void fw_fill_response(struct fw_packet *response , u32 *request_header , int rco
   switch_default: /* CIL Label */ 
   {
   __ret_warn_on = 1;
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp != 0L) {
     {
@@ -16314,7 +16312,7 @@ void fw_fill_response(struct fw_packet *response , u32 *request_header , int rco
 
   }
   {
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   switch_break: /* CIL Label */ ;
   }
@@ -16453,12 +16451,12 @@ void fw_send_response(struct fw_card *card , struct fw_request *request , int rc
   {
   {
   __ret_warn_once = (unsigned long )request == (unsigned long )((struct fw_request *)0);
-  tmp___1 = __builtin_expect(__ret_warn_once != 0, 0L);
+  tmp___1 = ldv__builtin_expect(__ret_warn_once != 0, 0L);
   }
   if (tmp___1 != 0L) {
     {
     __ret_warn_on = ! __warned;
-    tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
     if (tmp != 0L) {
       {
@@ -16468,7 +16466,7 @@ void fw_send_response(struct fw_card *card , struct fw_request *request , int rc
 
     }
     {
-    tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
     if (tmp___0 != 0L) {
       __warned = 1;
@@ -16479,7 +16477,7 @@ void fw_send_response(struct fw_card *card , struct fw_request *request , int rc
 
   }
   {
-  tmp___2 = __builtin_expect(__ret_warn_once != 0, 0L);
+  tmp___2 = ldv__builtin_expect(__ret_warn_once != 0, 0L);
   }
   if (tmp___2 != 0L) {
     return;
@@ -17365,7 +17363,7 @@ void ldv_dummy_resourceless_instance_callback_9_9(long (*arg0)(struct device * ,
                                                   struct device *arg1 , struct device_attribute *arg2 ,
                                                   char *arg3 , unsigned long arg4 ) ;
 void ldv_entry_EMGentry_22(void *arg0 ) ;
-void main(void) ;
+int main(void) ;
 int ldv_mod_timer(int arg0 , struct timer_list *arg1 , unsigned long arg2 ) ;
 int ldv_platform_instance_probe_2_14(int (*arg0)(struct platform_device * ) , struct platform_device *arg1 ) ;
 void ldv_platform_instance_release_2_3(int (*arg0)(struct platform_device * ) , struct platform_device *arg1 ) ;
@@ -17928,7 +17926,7 @@ void ldv_entry_EMGentry_22(void *arg0 )
   return;
 }
 }
-void main(void) 
+int main(void) 
 { 
 
 
@@ -17937,7 +17935,7 @@ void main(void)
   ldv_ldv_initialize_132();
   ldv_entry_EMGentry_22((void *)0);
   }
-  return;
+return 0;
 }
 }
 void ldv_file_operations_instance_write_0_4(long (*arg0)(struct file * , char * ,
@@ -22109,7 +22107,7 @@ void ldv_linux_usb_urb_check_final_state(void)
 }
 }
 extern void ldv_assert(char const   * , int  ) ;
-void __builtin_trap(void) ;
+void ldv__builtin_trap(void) ;
 void ldv_assume(int expression ) 
 { 
 
@@ -22133,7 +22131,7 @@ void ldv_stop(void)
   goto ldv_stop_label;
 }
 }
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 
@@ -22141,7 +22139,7 @@ long __builtin_expect(long exp , long c )
   return (exp);
 }
 }
-void __builtin_trap(void) 
+void ldv__builtin_trap(void) 
 { 
 
 

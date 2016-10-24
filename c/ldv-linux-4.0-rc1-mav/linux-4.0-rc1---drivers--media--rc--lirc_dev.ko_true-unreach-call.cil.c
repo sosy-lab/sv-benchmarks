@@ -3977,7 +3977,7 @@ struct ldv_thread {
    void (*function)(void * ) ;
 };
 typedef _Bool ldv_set;
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 void ldv_assume(int expression ) ;
 void ldv_stop(void) ;
 void ldv_linux_alloc_irq_check_alloc_flags(gfp_t flags ) ;
@@ -4211,7 +4211,7 @@ __inline static bool IS_ERR(void const   *ptr )
 
   {
   {
-  tmp = __builtin_expect((unsigned long )ptr > 0xfffffffffffff000UL, 0L);
+  tmp = ldv__builtin_expect((unsigned long )ptr > 0xfffffffffffff000UL, 0L);
   }
   return (tmp != 0L);
 }
@@ -4318,7 +4318,7 @@ __inline static unsigned long copy_to_user(void *to , void const   *from , unsig
   {
   sz = -1;
   might_fault();
-  tmp = __builtin_expect(sz < 0, 1L);
+  tmp = ldv__builtin_expect(sz < 0, 1L);
   }
   if (tmp != 0L) {
     {
@@ -4326,7 +4326,7 @@ __inline static unsigned long copy_to_user(void *to , void const   *from , unsig
     }
   } else {
     {
-    tmp___0 = __builtin_expect((unsigned long )sz >= n, 1L);
+    tmp___0 = ldv__builtin_expect((unsigned long )sz >= n, 1L);
     }
     if (tmp___0 != 0L) {
       {
@@ -4367,7 +4367,7 @@ __inline static int signal_pending(struct task_struct *p )
   {
   {
   tmp = test_tsk_thread_flag(p, 2);
-  tmp___0 = __builtin_expect(tmp != 0, 0L);
+  tmp___0 = ldv__builtin_expect(tmp != 0, 0L);
   }
   return ((int )tmp___0);
 }
@@ -4446,7 +4446,7 @@ __inline static void lirc_buffer_clear(struct lirc_buffer *buf )
   } else {
     {
     __ret_warn_on = 1;
-    tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -4457,7 +4457,7 @@ __inline static void lirc_buffer_clear(struct lirc_buffer *buf )
 
     }
     {
-    __builtin_expect(__ret_warn_on != 0, 0L);
+    ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
   }
   return;
@@ -4506,7 +4506,7 @@ __inline static void lirc_buffer_free(struct lirc_buffer *buf )
   } else {
     {
     __ret_warn_on = 1;
-    tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
     if (tmp != 0L) {
       {
@@ -4517,7 +4517,7 @@ __inline static void lirc_buffer_free(struct lirc_buffer *buf )
 
     }
     {
-    __builtin_expect(__ret_warn_on != 0, 0L);
+    ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
   }
   return;
@@ -4629,7 +4629,7 @@ static void lirc_irctl_cleanup(struct irctl *ir )
   descriptor.format = "lirc_dev (%s[%d]): cleaning up\n";
   descriptor.lineno = 83U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -4720,7 +4720,7 @@ static int lirc_thread(void *irctl )
   descriptor.format = "lirc_dev (%s[%d]): poll thread started\n";
   descriptor.lineno = 131U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -4907,7 +4907,7 @@ static int lirc_thread(void *irctl )
   descriptor___0.format = "lirc_dev (%s[%d]): poll thread ended\n";
   descriptor___0.lineno = 150U;
   descriptor___0.flags = 0U;
-  tmp___14 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___14 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
   }
   if (tmp___14 != 0L) {
     {
@@ -5047,7 +5047,7 @@ int lirc_register_driver(struct lirc_driver *d )
   descriptor.format = "lirc_dev: lirc_register_driver: sample_rate: %d\n";
   descriptor.lineno = 246U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -5336,7 +5336,7 @@ int lirc_unregister_driver(int minor )
   descriptor.format = "lirc_dev: driver %s unregistered from minor = %d\n";
   descriptor.lineno = 413U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -5355,7 +5355,7 @@ int lirc_unregister_driver(int minor )
     descriptor___0.format = "lirc_dev (%s[%d]): releasing opened driver\n";
     descriptor___0.lineno = 418U;
     descriptor___0.flags = 0U;
-    tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -5450,7 +5450,7 @@ int lirc_dev_fop_open(struct inode *inode , struct file *file )
   descriptor.format = "lirc_dev (%s[%d]): open called\n";
   descriptor.lineno = 459U;
   descriptor.flags = 0U;
-  tmp___3 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___3 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___3 != 0L) {
     {
@@ -5522,7 +5522,7 @@ int lirc_dev_fop_open(struct inode *inode , struct file *file )
     descriptor___0.format = "lirc_dev (%s[%d]): open result = %d\n";
     descriptor___0.lineno = 495U;
     descriptor___0.flags = 0U;
-    tmp___5 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___5 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___5 != 0L) {
       {
@@ -5582,7 +5582,7 @@ int lirc_dev_fop_close(struct inode *inode , struct file *file )
   descriptor.format = "lirc_dev (%s[%d]): close called\n";
   descriptor.lineno = 517U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -5595,7 +5595,7 @@ int lirc_dev_fop_close(struct inode *inode , struct file *file )
   {
   tmp___1 = ldv_mutex_lock_killable_120(& lirc_dev_lock);
   __ret_warn_on = tmp___1 != 0;
-  tmp___2 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___2 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp___2 != 0L) {
     {
@@ -5605,7 +5605,7 @@ int lirc_dev_fop_close(struct inode *inode , struct file *file )
 
   }
   {
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
   rc_close(ir->d.rdev);
   ir->open = ir->open - 1;
   }
@@ -5670,7 +5670,7 @@ unsigned int lirc_dev_fop_poll(struct file *file , poll_table *wait )
   descriptor.format = "lirc_dev (%s[%d]): poll called\n";
   descriptor.lineno = 551U;
   descriptor.flags = 0U;
-  tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -5705,7 +5705,7 @@ unsigned int lirc_dev_fop_poll(struct file *file , poll_table *wait )
   descriptor___0.format = "lirc_dev (%s[%d]): poll result = %d\n";
   descriptor___0.lineno = 567U;
   descriptor___0.flags = 0U;
-  tmp___3 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___3 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
   }
   if (tmp___3 != 0L) {
     {
@@ -5774,7 +5774,7 @@ long lirc_dev_fop_ioctl(struct file *file , unsigned int cmd , unsigned long arg
   descriptor.format = "lirc_dev (%s[%d]): ioctl called (0x%x)\n";
   descriptor.lineno = 585U;
   descriptor.flags = 0U;
-  tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -5792,7 +5792,7 @@ long lirc_dev_fop_ioctl(struct file *file , unsigned int cmd , unsigned long arg
     descriptor___0.format = "lirc_dev (%s[%d]): ioctl result = -ENODEV\n";
     descriptor___0.lineno = 589U;
     descriptor___0.flags = 0U;
-    tmp___2 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___2 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___2 != 0L) {
       {
@@ -6146,7 +6146,7 @@ long lirc_dev_fop_ioctl(struct file *file , unsigned int cmd , unsigned long arg
   descriptor___1.format = "lirc_dev (%s[%d]): ioctl result = %d\n";
   descriptor___1.lineno = 649U;
   descriptor___1.flags = 0U;
-  tmp___3 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+  tmp___3 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
   }
   if (tmp___3 != 0L) {
     {
@@ -6245,7 +6245,7 @@ ssize_t lirc_dev_fop_read(struct file *file , char *buffer , size_t length , lof
   descriptor.format = "lirc_dev (%s[%d]): read called\n";
   descriptor.lineno = 672U;
   descriptor.flags = 0U;
-  tmp___2 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___2 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___2 != 0L) {
     {
@@ -6613,7 +6613,7 @@ ssize_t lirc_dev_fop_read(struct file *file , char *buffer , size_t length , lof
   descriptor___0.format = "lirc_dev (%s[%d]): read result = %s (%d)\n";
   descriptor___0.lineno = 756U;
   descriptor___0.flags = 0U;
-  tmp___30 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___30 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
   }
   if (tmp___30 != 0L) {
     {
@@ -6685,7 +6685,7 @@ ssize_t lirc_dev_fop_write(struct file *file , char const   *buffer , size_t len
   descriptor.format = "lirc_dev (%s[%d]): write called\n";
   descriptor.lineno = 779U;
   descriptor.flags = 0U;
-  tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -6773,7 +6773,7 @@ void ldv_cdev_init(void *arg0 , struct cdev *arg1 , struct file_operations *arg2
 void ldv_dispatch_deregister_1_1(struct file_operations *arg0 ) ;
 void ldv_dispatch_register_2_1(struct file_operations *arg0 ) ;
 void ldv_entry_EMGentry_3(void *arg0 ) ;
-void main(void) ;
+int main(void) ;
 void ldv_file_operations_file_operations_instance_0(void *arg0 ) ;
 void ldv_file_operations_instance_callback_0_22(long long (*arg0)(struct file * ,
                                                                   long long  , int  ) ,
@@ -6910,7 +6910,7 @@ void ldv_entry_EMGentry_3(void *arg0 )
   return;
 }
 }
-void main(void) 
+int main(void) 
 { 
 
 
@@ -6919,7 +6919,7 @@ void main(void)
   ldv_ldv_initialize_137();
   ldv_entry_EMGentry_3((void *)0);
   }
-  return;
+return 0;
 }
 }
 void ldv_file_operations_file_operations_instance_0(void *arg0 ) 
@@ -9744,7 +9744,7 @@ void ldv_linux_usb_urb_check_final_state(void)
 }
 }
 extern void ldv_assert(char const   * , int  ) ;
-void __builtin_trap(void) ;
+void ldv__builtin_trap(void) ;
 void ldv_assume(int expression ) 
 { 
 
@@ -9768,7 +9768,7 @@ void ldv_stop(void)
   goto ldv_stop_label;
 }
 }
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 
@@ -9776,7 +9776,7 @@ long __builtin_expect(long exp , long c )
   return (exp);
 }
 }
-void __builtin_trap(void) 
+void ldv__builtin_trap(void) 
 { 
 
 

@@ -7143,7 +7143,7 @@ struct ldv_thread {
    int identifier ;
    void (*function)(void * ) ;
 };
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 void *ldv_dev_get_drvdata(struct device  const  *dev ) ;
 int ldv_dev_set_drvdata(struct device *dev , void *data ) ;
 extern struct module __this_module ;
@@ -7255,7 +7255,6 @@ extern size_t strlcpy(char * , char const   * , size_t  ) ;
 extern __kernel_size_t strnlen(char const   * , __kernel_size_t  ) ;
 extern void *kmemdup(void const   * , size_t  , gfp_t  ) ;
 extern void warn_slowpath_null(char const   * , int const    ) ;
-extern int ( /* missing proto */  __builtin_unreachable)() ;
 __inline static unsigned long arch_local_save_flags(void) 
 { 
   unsigned long __ret ;
@@ -7273,7 +7272,7 @@ __inline static unsigned long arch_local_save_flags(void)
   __edx = __edx;
   __ecx = __ecx;
   __eax = __eax;
-  tmp = __builtin_expect((unsigned long )pv_irq_ops.save_fl.func == (unsigned long )((void *)0),
+  tmp = ldv__builtin_expect((unsigned long )pv_irq_ops.save_fl.func == (unsigned long )((void *)0),
                          0L);
   }
   if (tmp != 0L) {
@@ -7651,7 +7650,7 @@ __inline static struct dma_map_ops *get_dma_ops(struct device *dev )
 
   {
   {
-  tmp = __builtin_expect((unsigned long )dev == (unsigned long )((struct device *)0),
+  tmp = ldv__builtin_expect((unsigned long )dev == (unsigned long )((struct device *)0),
                          0L);
   }
   if (tmp != 0L || (unsigned long )dev->archdata.dma_ops == (unsigned long )((struct dma_map_ops *)0)) {
@@ -7678,7 +7677,7 @@ __inline static dma_addr_t dma_map_single_attrs(struct device *dev , void *ptr ,
   ops = tmp;
   kmemcheck_mark_initialized(ptr, (unsigned int )size);
   tmp___0 = valid_dma_direction((int )dir);
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -7714,7 +7713,7 @@ __inline static void dma_unmap_single_attrs(struct device *dev , dma_addr_t addr
   tmp = get_dma_ops(dev);
   ops = tmp;
   tmp___0 = valid_dma_direction((int )dir);
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -7754,7 +7753,7 @@ __inline static void dma_sync_single_for_cpu(struct device *dev , dma_addr_t add
   tmp = get_dma_ops(dev);
   ops = tmp;
   tmp___0 = valid_dma_direction((int )dir);
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -7794,7 +7793,7 @@ __inline static void dma_sync_single_for_device(struct device *dev , dma_addr_t 
   tmp = get_dma_ops(dev);
   ops = tmp;
   tmp___0 = valid_dma_direction((int )dir);
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -7920,7 +7919,7 @@ __inline static void dma_free_attrs(struct device *dev , size_t size , void *vad
   _flags = arch_local_save_flags();
   tmp___0 = arch_irqs_disabled_flags(_flags);
   __ret_warn_on = tmp___0 != 0;
-  tmp___1 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___1 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -7931,7 +7930,7 @@ __inline static void dma_free_attrs(struct device *dev , size_t size , void *vad
 
   }
   {
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
   debug_dma_free_coherent(dev, size, vaddr, bus);
   }
   if ((unsigned long )ops->free != (unsigned long )((void (*)(struct device * , size_t  ,
@@ -8095,7 +8094,7 @@ __inline static void netif_tx_stop_queue(struct netdev_queue *dev_queue )
   {
   {
   __ret_warn_on = (unsigned long )dev_queue == (unsigned long )((struct netdev_queue *)0);
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp != 0L) {
     {
@@ -8105,7 +8104,7 @@ __inline static void netif_tx_stop_queue(struct netdev_queue *dev_queue )
 
   }
   {
-  tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -12811,7 +12810,7 @@ static void isr_rx(struct ipw2100_priv *priv , int i , struct libipw_rx_stats *s
   }
   {
   tmp___2 = skb_tailroom((struct sk_buff  const  *)packet->skb);
-  tmp___3 = __builtin_expect(status->frame_size > (u32 )tmp___2, 0L);
+  tmp___3 = ldv__builtin_expect(status->frame_size > (u32 )tmp___2, 0L);
   }
   if (tmp___3 != 0L) {
     if ((ipw2100_debug_level & 4U) != 0U) {
@@ -12840,7 +12839,7 @@ static void isr_rx(struct ipw2100_priv *priv , int i , struct libipw_rx_stats *s
     tmp___6 = 1;
   }
   {
-  tmp___7 = __builtin_expect((long )tmp___6, 0L);
+  tmp___7 = ldv__builtin_expect((long )tmp___6, 0L);
   }
   if (tmp___7 != 0L) {
     dev->stats.rx_errors = dev->stats.rx_errors + 1UL;
@@ -12860,11 +12859,11 @@ static void isr_rx(struct ipw2100_priv *priv , int i , struct libipw_rx_stats *s
 
   }
   {
-  tmp___9 = __builtin_expect((priv->ieee)->iw_mode != 6, 0L);
+  tmp___9 = ldv__builtin_expect((priv->ieee)->iw_mode != 6, 0L);
   }
   if (tmp___9 != 0L) {
     {
-    tmp___10 = __builtin_expect((priv->status & 1024UL) == 0UL, 0L);
+    tmp___10 = ldv__builtin_expect((priv->status & 1024UL) == 0UL, 0L);
     }
     if (tmp___10 != 0L) {
       if ((ipw2100_debug_level & 8192U) != 0U) {
@@ -12916,7 +12915,7 @@ static void isr_rx(struct ipw2100_priv *priv , int i , struct libipw_rx_stats *s
   }
   {
   tmp___14 = ipw2100_alloc_skb(priv, packet);
-  tmp___15 = __builtin_expect(tmp___14 != 0, 0L);
+  tmp___15 = ldv__builtin_expect(tmp___14 != 0, 0L);
   }
   if (tmp___15 != 0L) {
     {
@@ -12979,7 +12978,7 @@ static void isr_rx_monitor(struct ipw2100_priv *priv , int i , struct libipw_rx_
   }
   {
   tmp___2 = skb_tailroom((struct sk_buff  const  *)packet->skb);
-  tmp___3 = __builtin_expect((unsigned long )status->frame_size > (unsigned long )tmp___2 - 9UL,
+  tmp___3 = ldv__builtin_expect((unsigned long )status->frame_size > (unsigned long )tmp___2 - 9UL,
                              0L);
   }
   if (tmp___3 != 0L) {
@@ -13009,7 +13008,7 @@ static void isr_rx_monitor(struct ipw2100_priv *priv , int i , struct libipw_rx_
     tmp___6 = 1;
   }
   {
-  tmp___7 = __builtin_expect((long )tmp___6, 0L);
+  tmp___7 = ldv__builtin_expect((long )tmp___6, 0L);
   }
   if (tmp___7 != 0L) {
     dev->stats.rx_errors = dev->stats.rx_errors + 1UL;
@@ -13029,11 +13028,11 @@ static void isr_rx_monitor(struct ipw2100_priv *priv , int i , struct libipw_rx_
 
   }
   {
-  tmp___9 = __builtin_expect((priv->config & 2048UL) != 0UL, 0L);
+  tmp___9 = ldv__builtin_expect((priv->config & 2048UL) != 0UL, 0L);
   }
   if (tmp___9 != 0L) {
     {
-    tmp___10 = __builtin_expect(((int )status->flags & 4) != 0, 0L);
+    tmp___10 = ldv__builtin_expect(((int )status->flags & 4) != 0, 0L);
     }
     if (tmp___10 != 0L) {
       if ((ipw2100_debug_level & 16777216U) != 0U) {
@@ -13077,7 +13076,7 @@ static void isr_rx_monitor(struct ipw2100_priv *priv , int i , struct libipw_rx_
   }
   {
   tmp___13 = ipw2100_alloc_skb(priv, packet);
-  tmp___14 = __builtin_expect(tmp___13 != 0, 0L);
+  tmp___14 = ldv__builtin_expect(tmp___13 != 0, 0L);
   }
   if (tmp___14 != 0L) {
     {
@@ -13211,7 +13210,7 @@ static void __ipw2100_rx_process(struct ipw2100_priv *priv )
   packet = priv->rx_buffers + (unsigned long )i;
   pci_dma_sync_single_for_cpu(priv->pci_dev, packet->dma_addr, 2340UL, 2);
   tmp___0 = ipw2100_corruption_check(priv, (int )i);
-  tmp___1 = __builtin_expect(tmp___0 != 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 != 0, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -13771,7 +13770,7 @@ static void ipw2100_tx_send_data(struct ipw2100_priv *priv )
   element = priv->tx_pend_list.next;
   __mptr = (struct list_head  const  *)element;
   packet = (struct ipw2100_tx_packet *)__mptr + 0xffffffffffffffd8UL;
-  tmp___0 = __builtin_expect((int )(packet->info.d_struct.txb)->nr_frags + 1 > 6,
+  tmp___0 = ldv__builtin_expect((int )(packet->info.d_struct.txb)->nr_frags + 1 > 6,
                              0L);
   }
   if (tmp___0 != 0L) {
@@ -16396,7 +16395,7 @@ static int ipw2100_rx_allocate(struct ipw2100_priv *priv )
   {
   packet = priv->rx_buffers + (unsigned long )i;
   err = ipw2100_alloc_skb(priv, packet);
-  tmp___4 = __builtin_expect(err != 0, 0L);
+  tmp___4 = ldv__builtin_expect(err != 0, 0L);
   }
   if (tmp___4 != 0L) {
     err = -12;
@@ -24420,7 +24419,7 @@ void ldv_dummy_resourceless_instance_callback_8_3(void (*arg0)(struct ipw2100_pr
 void ldv_dummy_resourceless_instance_callback_9_3(struct iw_statistics *(*arg0)(struct net_device * ) ,
                                                   struct net_device *arg1 ) ;
 void ldv_entry_EMGentry_18(void *arg0 ) ;
-void main(void) ;
+int main(void) ;
 void ldv_free_irq(void *arg0 , int arg1 , void *arg2 ) ;
 void ldv_initialize_external_data(void) ;
 enum irqreturn ldv_interrupt_instance_handler_0_5(enum irqreturn (*arg0)(int  , void * ) ,
@@ -25245,7 +25244,7 @@ void ldv_entry_EMGentry_18(void *arg0 )
   return;
 }
 }
-void main(void) 
+int main(void) 
 { 
   int tmp ;
 
@@ -27709,7 +27708,7 @@ void *ldv_kzalloc(size_t size , gfp_t flags )
 }
 }
 extern void ldv_assert(char const   * , int  ) ;
-void __builtin_trap(void) ;
+void ldv__builtin_trap(void) ;
 void ldv_assume(int expression ) 
 { 
 
@@ -27733,7 +27732,7 @@ void ldv_stop(void)
   goto ldv_stop_label;
 }
 }
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 
@@ -27741,7 +27740,7 @@ long __builtin_expect(long exp , long c )
   return (exp);
 }
 }
-void __builtin_trap(void) 
+void ldv__builtin_trap(void) 
 { 
 
 

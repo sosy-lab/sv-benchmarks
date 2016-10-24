@@ -8476,7 +8476,7 @@ void ldv_dummy_resourceless_instance_callback_2_9(int (*arg0)(struct videobuf_qu
                                                   struct videobuf_queue *arg1 , unsigned int *arg2 ,
                                                   unsigned int *arg3 ) ;
 void ldv_entry_EMGentry_9(void *arg0 ) ;
-void main(void) ;
+int main(void) ;
 void ldv_initialize_external_data(void) ;
 void ldv_struct_au0828_input_base_instance_0(void *arg0 ) ;
 void ldv_struct_videobuf_queue_ops_dummy_resourceless_instance_1(void *arg0 ) ;
@@ -8946,7 +8946,7 @@ void ldv_entry_EMGentry_9(void *arg0 )
   return;
 }
 }
-void main(void) 
+int main(void) 
 { 
   int tmp ;
 
@@ -13577,7 +13577,7 @@ int au0828_dvb_register(struct au0828_dev *dev )
   return (0);
 }
 }
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 extern void __list_add(struct list_head * , struct list_head * , struct list_head * ) ;
 __inline static void list_add_tail(struct list_head *new , struct list_head *head ) 
 { 
@@ -13620,7 +13620,6 @@ __inline static int constant_test_bit(long nr , unsigned long const volatile   *
 extern int snprintf(char * , size_t  , char const   *  , ...) ;
 extern void __bad_percpu_size(void) ;
 extern char *strcpy(char * , char const   * ) ;
-extern int ( /* missing proto */  __builtin_unreachable)() ;
 __inline static unsigned long arch_local_save_flags(void) 
 { 
   unsigned long __ret ;
@@ -13638,7 +13637,7 @@ __inline static unsigned long arch_local_save_flags(void)
   __edx = __edx;
   __ecx = __ecx;
   __eax = __eax;
-  tmp = __builtin_expect((unsigned long )pv_irq_ops.save_fl.func == (unsigned long )((void *)0),
+  tmp = ldv__builtin_expect((unsigned long )pv_irq_ops.save_fl.func == (unsigned long )((void *)0),
                          0L);
   }
   if (tmp != 0L) {
@@ -15334,7 +15333,7 @@ static void res_free(struct au0828_fh *fh , unsigned int bits )
   {
   {
   dev = fh->dev;
-  tmp = __builtin_expect((fh->resources & bits) != bits, 0L);
+  tmp = ldv__builtin_expect((fh->resources & bits) != bits, 0L);
   }
   if (tmp != 0L) {
     {
@@ -16762,7 +16761,7 @@ static int vidioc_streamon(struct file *file , void *priv , enum v4l2_buf_type t
 
   }
   {
-  tmp = __builtin_expect((unsigned int )type != (unsigned int )fh->type, 0L);
+  tmp = ldv__builtin_expect((unsigned int )type != (unsigned int )fh->type, 0L);
   }
   if (tmp != 0L) {
     return (-22);
@@ -16780,7 +16779,7 @@ static int vidioc_streamon(struct file *file , void *priv , enum v4l2_buf_type t
   {
   tmp___0 = get_ressource(fh);
   tmp___1 = res_get(fh, (unsigned int )tmp___0);
-  tmp___2 = __builtin_expect(tmp___1 == 0, 0L);
+  tmp___2 = ldv__builtin_expect(tmp___1 == 0, 0L);
   }
   if (tmp___2 != 0L) {
     return (-16);
@@ -18750,7 +18749,7 @@ void *ldv_kzalloc(size_t size , gfp_t flags )
 }
 }
 extern void ldv_assert(char const   * , int  ) ;
-void __builtin_trap(void) ;
+void ldv__builtin_trap(void) ;
 void ldv_assume(int expression ) 
 { 
 
@@ -18774,7 +18773,7 @@ void ldv_stop(void)
   goto ldv_stop_label;
 }
 }
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 
@@ -18782,7 +18781,7 @@ long __builtin_expect(long exp , long c )
   return (exp);
 }
 }
-void __builtin_trap(void) 
+void ldv__builtin_trap(void) 
 { 
 
 

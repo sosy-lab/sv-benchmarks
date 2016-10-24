@@ -4179,7 +4179,7 @@ struct ldv_thread {
 };
 typedef _Bool ldv_set;
 void __builtin_prefetch(void const   *  , ...) ;
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 void ldv_assume(int expression ) ;
 void ldv_stop(void) ;
 void ldv_linux_alloc_irq_check_alloc_flags(gfp_t flags ) ;
@@ -4376,7 +4376,6 @@ __inline static int list_empty(struct list_head  const  *head )
 }
 }
 extern void warn_slowpath_null(char const   * , int const    ) ;
-extern int ( /* missing proto */  __builtin_unreachable)() ;
 __inline static void *ERR_PTR(long error ) ;
 __inline static long PTR_ERR(void const   *ptr ) ;
 __inline static bool IS_ERR(void const   *ptr ) 
@@ -4385,7 +4384,7 @@ __inline static bool IS_ERR(void const   *ptr )
 
   {
   {
-  tmp = __builtin_expect((unsigned long )ptr > 0xfffffffffffff000UL, 0L);
+  tmp = ldv__builtin_expect((unsigned long )ptr > 0xfffffffffffff000UL, 0L);
   }
   return (tmp != 0L);
 }
@@ -4915,7 +4914,7 @@ static void assert_out_naking(struct net2272_ep *ep , char const   *where )
     descriptor.format = "%s %s %02x !NAK\n";
     descriptor.lineno = 131U;
     descriptor.flags = 0U;
-    tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -5166,7 +5165,7 @@ static int net2272_enable(struct usb_ep *_ep , struct usb_endpoint_descriptor  c
   descriptor.format = "enabled %s (ep%d%s-%s) max %04x cfg %02x\n";
   descriptor.lineno = 256U;
   descriptor.flags = 0U;
-  tmp___10 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___10 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___10 != 0L) {
     {
@@ -5289,7 +5288,7 @@ static void net2272_free_request(struct usb_ep *_ep , struct usb_request *_req )
   req = (struct net2272_request *)__mptr___0;
   tmp = list_empty((struct list_head  const  *)(& req->queue));
   __ret_warn_on = tmp == 0;
-  tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -5299,7 +5298,7 @@ static void net2272_free_request(struct usb_ep *_ep , struct usb_request *_req )
 
   }
   {
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
   kfree((void const   *)req);
   }
   return;
@@ -5389,7 +5388,7 @@ static int net2272_write_packet(struct net2272_ep *ep , u8 *buf , struct net2272
   }
   ldv_36461: 
   {
-  tmp___4 = __builtin_expect(count > 1U, 1L);
+  tmp___4 = ldv__builtin_expect(count > 1U, 1L);
   }
   if (tmp___4 != 0L) {
     goto ldv_36460;
@@ -5398,7 +5397,7 @@ static int net2272_write_packet(struct net2272_ep *ep , u8 *buf , struct net2272
   }
   {
   buf = (u8 *)bufp;
-  tmp___5 = __builtin_expect(count != 0U, 0L);
+  tmp___5 = ldv__builtin_expect(count != 0U, 0L);
   }
   if (tmp___5 != 0L) {
     {
@@ -5541,7 +5540,7 @@ static int net2272_read_packet(struct net2272_ep *ep , u8 *buf , struct net2272_
   ep_data = (u16 *)tmp;
   req->req.actual = req->req.actual + avail;
   is_short = avail < (unsigned int )ep->ep.maxpacket;
-  tmp___2 = __builtin_expect(avail == 0U, 0L);
+  tmp___2 = ldv__builtin_expect(avail == 0U, 0L);
   }
   if (tmp___2 != 0L) {
     {
@@ -5552,7 +5551,7 @@ static int net2272_read_packet(struct net2272_ep *ep , u8 *buf , struct net2272_
 
   }
   {
-  tmp___3 = __builtin_expect((long )((int )avail) & 1L, 0L);
+  tmp___3 = ldv__builtin_expect((long )((int )avail) & 1L, 0L);
   }
   if (tmp___3 != 0L) {
     avail = avail + 1U;
@@ -5637,17 +5636,17 @@ static int net2272_read_fifo(struct net2272_ep *ep , struct net2272_request *req
   {
   tmp___2 = net2272_read_packet(ep, buf, req, (unsigned int )count);
   is_short = (unsigned int )tmp___2;
-  tmp___6 = __builtin_expect((long )(cleanup != 0 || is_short != 0U), 0L);
+  tmp___6 = ldv__builtin_expect((long )(cleanup != 0 || is_short != 0U), 0L);
   }
   if (tmp___6 != 0L) {
     goto _L;
   } else {
     {
-    tmp___7 = __builtin_expect(req->req.actual == req->req.length, 0L);
+    tmp___7 = ldv__builtin_expect(req->req.actual == req->req.length, 0L);
     }
     if (tmp___7 != 0L) {
       {
-      tmp___8 = __builtin_expect((unsigned int )*((unsigned char *)req + 42UL) == 0U,
+      tmp___8 = ldv__builtin_expect((unsigned int )*((unsigned char *)req + 42UL) == 0U,
                                  0L);
       }
       if (tmp___8 != 0L) {
@@ -5671,7 +5670,7 @@ static int net2272_read_fifo(struct net2272_ep *ep , struct net2272_request *req
         }
       }
       {
-      tmp___3 = __builtin_expect((unsigned int )ep->num == 0U, 0L);
+      tmp___3 = ldv__builtin_expect((unsigned int )ep->num == 0U, 0L);
       }
       if (tmp___3 != 0L) {
         {
@@ -5733,7 +5732,7 @@ static void net2272_pio_advance(struct net2272_ep *ep )
   {
   {
   tmp = list_empty((struct list_head  const  *)(& ep->queue));
-  tmp___0 = __builtin_expect(tmp != 0, 0L);
+  tmp___0 = ldv__builtin_expect(tmp != 0, 0L);
   }
   if (tmp___0 != 0L) {
     return;
@@ -6024,7 +6023,7 @@ static int net2272_queue(struct usb_ep *_ep , struct usb_request *_req , gfp_t g
           descriptor.format = "WARNING: returning ZLP short packet termination!\n";
           descriptor.lineno = 878U;
           descriptor.flags = 0U;
-          tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+          tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
           }
           if (tmp___0 != 0L) {
             {
@@ -6069,7 +6068,7 @@ static int net2272_queue(struct usb_ep *_ep , struct usb_request *_req , gfp_t g
         }
       }
       {
-      tmp___2 = __builtin_expect(status != 0, 0L);
+      tmp___2 = ldv__builtin_expect(status != 0, 0L);
       }
       if (tmp___2 != 0L) {
         if (status > 0) {
@@ -6088,7 +6087,7 @@ static int net2272_queue(struct usb_ep *_ep , struct usb_request *_req , gfp_t g
 
   }
   {
-  tmp___4 = __builtin_expect((unsigned long )req != (unsigned long )((struct net2272_request *)0),
+  tmp___4 = ldv__builtin_expect((unsigned long )req != (unsigned long )((struct net2272_request *)0),
                              1L);
   }
   if (tmp___4 != 0L) {
@@ -6100,7 +6099,7 @@ static int net2272_queue(struct usb_ep *_ep , struct usb_request *_req , gfp_t g
   }
   {
   tmp___5 = list_empty((struct list_head  const  *)(& ep->queue));
-  tmp___6 = __builtin_expect(tmp___5 == 0, 1L);
+  tmp___6 = ldv__builtin_expect(tmp___5 == 0, 1L);
   }
   if (tmp___6 != 0L) {
     {
@@ -6203,7 +6202,7 @@ static int net2272_dequeue(struct usb_ep *_ep , struct usb_request *_req )
     descriptor.format = "unlink (%s) pio\n";
     descriptor.lineno = 971U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -7207,7 +7206,7 @@ static void net2272_handle_stat0_irqs(struct net2272 *dev , u8 stat )
 
   {
   {
-  tmp___10 = __builtin_expect(((int )stat & 32) != 0, 0L);
+  tmp___10 = ldv__builtin_expect(((int )stat & 32) != 0, 0L);
   }
   if (tmp___10 != 0L) {
     tmp = 0;
@@ -7227,7 +7226,7 @@ static void net2272_handle_stat0_irqs(struct net2272 *dev , u8 stat )
       descriptor.format = "%s\n";
       descriptor.lineno = 1736U;
       descriptor.flags = 0U;
-      tmp___2 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+      tmp___2 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
       }
       if (tmp___2 != 0L) {
         {
@@ -7536,7 +7535,7 @@ static void net2272_handle_stat0_irqs(struct net2272 *dev , u8 stat )
     descriptor___0.format = "unhandled irqstat0 %02x\n";
     descriptor___0.lineno = 1969U;
     descriptor___0.flags = 0U;
-    tmp___11 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___11 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___11 != 0L) {
       {
@@ -7592,7 +7591,7 @@ static void net2272_handle_stat1_irqs(struct net2272 *dev , u8 stat )
           descriptor.format = "disconnect %s\n";
           descriptor.lineno = 1996U;
           descriptor.flags = 0U;
-          tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+          tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
           }
           if (tmp___0 != 0L) {
             {
@@ -7620,7 +7619,7 @@ static void net2272_handle_stat1_irqs(struct net2272 *dev , u8 stat )
           descriptor___0.format = "reset %s\n";
           descriptor___0.lineno = 2002U;
           descriptor___0.flags = 0U;
-          tmp___1 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+          tmp___1 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
           }
           if (tmp___1 != 0L) {
             {
@@ -7692,7 +7691,7 @@ static void net2272_handle_stat1_irqs(struct net2272 *dev , u8 stat )
         descriptor___1.format = "Suspend disabled, ignoring\n";
         descriptor___1.lineno = 2033U;
         descriptor___1.flags = 0U;
-        tmp___4 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+        tmp___4 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
         }
         if (tmp___4 != 0L) {
           {
@@ -7734,7 +7733,7 @@ static void net2272_handle_stat1_irqs(struct net2272 *dev , u8 stat )
     descriptor___2.format = "unhandled irqstat1 %02x\n";
     descriptor___2.lineno = 2053U;
     descriptor___2.flags = 0U;
-    tmp___5 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+    tmp___5 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
     }
     if (tmp___5 != 0L) {
       {
@@ -7802,7 +7801,7 @@ static int net2272_present(struct net2272 *dev )
     descriptor.format = "%s: write/read SCRATCH register test failed: wrote:0x%2.2x, read:0x%2.2x\n";
     descriptor.lineno = 2131U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -7842,7 +7841,7 @@ static int net2272_present(struct net2272 *dev )
     descriptor___0.format = "%s: write/read CHIPREV register test failed: wrote 0x%2.2x, read:0x%2.2x expected:0x%2.2x\n";
     descriptor___0.lineno = 2147U;
     descriptor___0.flags = 0U;
-    tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -7874,7 +7873,7 @@ static int net2272_present(struct net2272 *dev )
     descriptor___1.format = "%s: WARNING: UNEXPECTED NET2272 LEGACY REGISTER VALUE:\n - CHIPREV_LEGACY: expected 0x%2.2x, got:0x%2.2x. (Not NET2272?)\n";
     descriptor___1.lineno = 2168U;
     descriptor___1.flags = 0U;
-    tmp___1 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
     }
     if (tmp___1 != 0L) {
       {
@@ -7911,7 +7910,7 @@ static int net2272_present(struct net2272 *dev )
   descriptor___2.format = "%s: Rev 1 detected: newer silicon recommended for DMA support\n";
   descriptor___2.lineno = 2186U;
   descriptor___2.flags = 0U;
-  tmp___2 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+  tmp___2 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
   }
   if (tmp___2 != 0L) {
     {
@@ -7932,7 +7931,7 @@ static int net2272_present(struct net2272 *dev )
   descriptor___3.format = "%s: unexpected silicon revision register value:  CHIPREV_2272: 0x%2.2x\n";
   descriptor___3.lineno = 2195U;
   descriptor___3.flags = 0U;
-  tmp___3 = __builtin_expect((long )descriptor___3.flags & 1L, 0L);
+  tmp___3 = ldv__builtin_expect((long )descriptor___3.flags & 1L, 0L);
   }
   if (tmp___3 != 0L) {
     {
@@ -7996,7 +7995,7 @@ static struct net2272 *net2272_probe_init(struct device *dev , unsigned int irq 
     descriptor.format = "No IRQ!\n";
     descriptor.lineno = 2232U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -8147,7 +8146,7 @@ static int net2272_rdk1_probe(struct pci_dev *pdev , struct net2272 *dev )
     descriptor.format = "controller already in use\n";
     descriptor.lineno = 2332U;
     descriptor.flags = 0U;
-    tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -8173,7 +8172,7 @@ static int net2272_rdk1_probe(struct pci_dev *pdev , struct net2272 *dev )
     descriptor___0.format = "can\'t map memory\n";
     descriptor___0.lineno = 2340U;
     descriptor___0.flags = 0U;
-    tmp___2 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___2 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___2 != 0L) {
       {
@@ -8262,7 +8261,7 @@ static int net2272_rdk2_probe(struct pci_dev *pdev , struct net2272 *dev )
     descriptor.format = "controller already in use\n";
     descriptor.lineno = 2410U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -8288,7 +8287,7 @@ static int net2272_rdk2_probe(struct pci_dev *pdev , struct net2272 *dev )
     descriptor___0.format = "can\'t map memory\n";
     descriptor___0.lineno = 2418U;
     descriptor___0.flags = 0U;
-    tmp___1 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___1 != 0L) {
       {
@@ -8660,7 +8659,7 @@ static int net2272_plat_probe(struct platform_device *pdev )
     descriptor.format = "get request memory region!\n";
     descriptor.lineno = 2635U;
     descriptor.flags = 0U;
-    tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp___1 != 0L) {
       {
@@ -8686,7 +8685,7 @@ static int net2272_plat_probe(struct platform_device *pdev )
     descriptor___0.format = "can\'t map memory\n";
     descriptor___0.lineno = 2641U;
     descriptor___0.flags = 0U;
-    tmp___4 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___4 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___4 != 0L) {
       {
@@ -8833,7 +8832,7 @@ void ldv_dummy_resourceless_instance_callback_7_7(int (*arg0)(struct usb_gadget 
                                                               int  ) , struct usb_gadget *arg1 ,
                                                   int arg2 ) ;
 void ldv_entry_EMGentry_14(void *arg0 ) ;
-void main(void) ;
+int main(void) ;
 void ldv_free_irq(void *arg0 , int arg1 , void *arg2 ) ;
 enum irqreturn ldv_interrupt_instance_handler_0_5(enum irqreturn (*arg0)(int  , void * ) ,
                                                   int arg1 , void *arg2 ) ;
@@ -9309,7 +9308,7 @@ void ldv_entry_EMGentry_14(void *arg0 )
   return;
 }
 }
-void main(void) 
+int main(void) 
 { 
 
 
@@ -9318,7 +9317,7 @@ void main(void)
   ldv_ldv_initialize_148();
   ldv_entry_EMGentry_14((void *)0);
   }
-  return;
+return 0;
 }
 }
 void ldv_free_irq(void *arg0 , int arg1 , void *arg2 ) 
@@ -13419,7 +13418,7 @@ void ldv_linux_usb_urb_check_final_state(void)
 }
 }
 extern void ldv_assert(char const   * , int  ) ;
-void __builtin_trap(void) ;
+void ldv__builtin_trap(void) ;
 void ldv_assume(int expression ) 
 { 
 
@@ -13443,7 +13442,7 @@ void ldv_stop(void)
   goto ldv_stop_label;
 }
 }
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 
@@ -13451,7 +13450,7 @@ long __builtin_expect(long exp , long c )
   return (exp);
 }
 }
-void __builtin_trap(void) 
+void ldv__builtin_trap(void) 
 { 
 
 

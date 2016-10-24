@@ -6534,7 +6534,7 @@ void ldv_dummy_resourceless_instance_callback_1_7(int (*arg0)(struct vb2_queue *
                                                   unsigned int *arg3 , unsigned int *arg4 ,
                                                   unsigned int *arg5 , void **arg6 ) ;
 void ldv_entry_EMGentry_7(void *arg0 ) ;
-void main(void) ;
+int main(void) ;
 void ldv_initialize_external_data(void) ;
 void ldv_struct_snd_ac97_bus_ops_dummy_resourceless_instance_0(void *arg0 ) ;
 void ldv_struct_vb2_ops_dummy_resourceless_instance_1(void *arg0 ) ;
@@ -7020,7 +7020,7 @@ void ldv_entry_EMGentry_7(void *arg0 )
   return;
 }
 }
-void main(void) 
+int main(void) 
 { 
   int tmp ;
 
@@ -10012,7 +10012,7 @@ static void ldv_mutex_unlock_33(struct mutex *ldv_func_arg1 )
   return;
 }
 }
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 extern void *memcpy(void * , void const   * , size_t  ) ;
 extern void *memset(void * , int  , size_t  ) ;
 extern void warn_slowpath_null(char const   * , int const    ) ;
@@ -10188,7 +10188,7 @@ __inline static struct stk1160_buffer *stk1160_next_buffer(struct stk1160 *dev )
   buf = (struct stk1160_buffer *)0;
   flags = 0UL;
   __ret_warn_on = (unsigned long )dev->isoc_ctl.buf != (unsigned long )((struct stk1160_buffer *)0);
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp != 0L) {
     {
@@ -10198,7 +10198,7 @@ __inline static struct stk1160_buffer *stk1160_next_buffer(struct stk1160 *dev )
 
   }
   {
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
   tmp___0 = spinlock_check(& dev->buf_lock);
   flags = _raw_spin_lock_irqsave(tmp___0);
   tmp___1 = list_empty((struct list_head  const  *)(& dev->avail_bufs));
@@ -12527,7 +12527,7 @@ void *ldv_kzalloc(size_t size , gfp_t flags )
 }
 }
 extern void ldv_assert(char const   * , int  ) ;
-void __builtin_trap(void) ;
+void ldv__builtin_trap(void) ;
 void ldv_assume(int expression ) 
 { 
 
@@ -12551,7 +12551,7 @@ void ldv_stop(void)
   goto ldv_stop_label;
 }
 }
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 
@@ -12559,7 +12559,7 @@ long __builtin_expect(long exp , long c )
   return (exp);
 }
 }
-void __builtin_trap(void) 
+void ldv__builtin_trap(void) 
 { 
 
 

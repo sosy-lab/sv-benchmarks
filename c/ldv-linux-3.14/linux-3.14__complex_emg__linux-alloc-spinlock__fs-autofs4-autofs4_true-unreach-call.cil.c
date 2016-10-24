@@ -4061,7 +4061,7 @@ void ldv_dummy_resourceless_instance_callback_5_7(int (*arg0)(struct seq_file * 
 void ldv_dummy_resourceless_instance_callback_5_8(int (*arg0)(struct dentry * , struct kstatfs * ) ,
                                                   struct dentry *arg1 , struct kstatfs *arg2 ) ;
 void ldv_entry_EMGentry_8(void *arg0 ) ;
-void main(void) ;
+int main(void) ;
 void ldv_file_operations_file_operations_instance_0(void *arg0 ) ;
 void ldv_file_operations_file_operations_instance_1(void *arg0 ) ;
 void ldv_file_operations_file_operations_instance_2(void *arg0 ) ;
@@ -4699,7 +4699,7 @@ void ldv_entry_EMGentry_8(void *arg0 )
   return;
 }
 }
-void main(void) 
+int main(void) 
 { 
   int tmp ;
 
@@ -6288,7 +6288,7 @@ void ldv_switch_automaton_state_5_5(void)
   return;
 }
 }
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 void *ldv_kzalloc(size_t size , gfp_t flags ) ;
 __inline static void INIT_LIST_HEAD(struct list_head *list ) 
 { 
@@ -6675,7 +6675,7 @@ void autofs4_kill_sb(struct super_block *sb )
   descriptor.format = "pid %d: %s: shutting down\n";
   descriptor.lineno = 65U;
   descriptor.flags = 0U;
-  tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -7101,7 +7101,7 @@ int autofs4_fill_super(struct super_block *s , void *data , int silent )
   descriptor.format = "pid %d: %s: starting up, sbi = %p\n";
   descriptor.lineno = 220U;
   descriptor.flags = 0U;
-  tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -7226,7 +7226,7 @@ int autofs4_fill_super(struct super_block *s , void *data , int silent )
   descriptor___0.format = "pid %d: %s: pipe fd = %d, pgrp = %u\n";
   descriptor___0.lineno = 307U;
   descriptor___0.flags = 0U;
-  tmp___7 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___7 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
   }
   if (tmp___7 != 0L) {
     {
@@ -7425,7 +7425,6 @@ extern void might_fault(void) ;
 extern int memcmp(void const   * , void const   * , size_t  ) ;
 extern size_t strlen(char const   * ) ;
 extern char *strcpy(char * , char const   * ) ;
-extern int ( /* missing proto */  __builtin_unreachable)() ;
 __inline static void *ERR_PTR(long error ) ;
 __inline static void atomic_inc(atomic_t *v ) 
 { 
@@ -7949,7 +7948,7 @@ static int autofs4_dir_open(struct inode *inode , struct file *file )
   descriptor.format = "pid %d: %s: file=%p dentry=%p %.*s\n";
   descriptor.lineno = 112U;
   descriptor.flags = 0U;
-  tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -8027,7 +8026,7 @@ static void autofs4_dentry_release(struct dentry *de )
   descriptor.format = "pid %d: %s: releasing %p\n";
   descriptor.lineno = 142U;
   descriptor.flags = 0U;
-  tmp___2 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___2 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___2 != 0L) {
     {
@@ -8305,7 +8304,7 @@ static int autofs4_mount_wait(struct dentry *dentry )
     descriptor.format = "pid %d: %s: waiting for mount name=%.*s\n";
     descriptor.lineno = 271U;
     descriptor.flags = 0U;
-    tmp___2 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___2 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp___2 != 0L) {
       {
@@ -8325,7 +8324,7 @@ static int autofs4_mount_wait(struct dentry *dentry )
     descriptor___0.format = "pid %d: %s: mount wait done status=%d\n";
     descriptor___0.lineno = 273U;
     descriptor___0.flags = 0U;
-    tmp___4 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___4 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___4 != 0L) {
       {
@@ -8449,7 +8448,7 @@ static struct vfsmount *autofs4_d_automount(struct path *path )
   descriptor.format = "pid %d: %s: dentry=%p %.*s\n";
   descriptor.lineno = 330U;
   descriptor.flags = 0U;
-  tmp___2 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___2 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___2 != 0L) {
     {
@@ -8605,7 +8604,7 @@ static int autofs4_d_manage(struct dentry *dentry , bool rcu_walk )
   descriptor.format = "pid %d: %s: dentry=%p %.*s\n";
   descriptor.lineno = 418U;
   descriptor.flags = 0U;
-  tmp___2 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___2 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___2 != 0L) {
     {
@@ -8723,7 +8722,7 @@ static struct dentry *autofs4_lookup(struct inode *dir , struct dentry *dentry ,
   descriptor.format = "pid %d: %s: name = %.*s\n";
   descriptor.lineno = 475U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -8750,7 +8749,7 @@ static struct dentry *autofs4_lookup(struct inode *dir , struct dentry *dentry ,
   descriptor___0.format = "pid %d: %s: pid = %u, pgrp = %u, catatonic = %d, oz_mode = %d\n";
   descriptor___0.lineno = 485U;
   descriptor___0.flags = 0U;
-  tmp___7 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___7 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
   }
   if (tmp___7 != 0L) {
     {
@@ -8846,7 +8845,7 @@ static int autofs4_dir_symlink(struct inode *dir , struct dentry *dentry , char 
   descriptor.format = "pid %d: %s: %s <- %.*s\n";
   descriptor.lineno = 530U;
   descriptor.flags = 0U;
-  tmp___3 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___3 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___3 != 0L) {
     {
@@ -8867,7 +8866,7 @@ static int autofs4_dir_symlink(struct inode *dir , struct dentry *dentry , char 
 
   }
   {
-  tmp___5 = __builtin_expect((unsigned long )ino == (unsigned long )((struct autofs_info *)0),
+  tmp___5 = ldv__builtin_expect((unsigned long )ino == (unsigned long )((struct autofs_info *)0),
                              0L);
   }
   if (tmp___5 != 0L) {
@@ -9079,7 +9078,7 @@ static int autofs4_dir_rmdir(struct inode *dir , struct dentry *dentry )
   descriptor.format = "pid %d: %s: dentry %p, removing %.*s\n";
   descriptor.lineno = 673U;
   descriptor.flags = 0U;
-  tmp___2 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___2 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___2 != 0L) {
     {
@@ -9189,7 +9188,7 @@ static int autofs4_dir_mkdir(struct inode *dir , struct dentry *dentry , umode_t
   descriptor.format = "pid %d: %s: dentry %p, creating %.*s\n";
   descriptor.lineno = 716U;
   descriptor.flags = 0U;
-  tmp___3 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___3 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___3 != 0L) {
     {
@@ -9202,7 +9201,7 @@ static int autofs4_dir_mkdir(struct inode *dir , struct dentry *dentry , umode_t
 
   }
   {
-  tmp___4 = __builtin_expect((unsigned long )ino == (unsigned long )((struct autofs_info *)0),
+  tmp___4 = ldv__builtin_expect((unsigned long )ino == (unsigned long )((struct autofs_info *)0),
                              0L);
   }
   if (tmp___4 != 0L) {
@@ -9544,7 +9543,7 @@ __inline static int autofs4_ask_umount(struct vfsmount *mnt , int *p )
   descriptor.format = "pid %d: %s: returning %d\n";
   descriptor.lineno = 804U;
   descriptor.flags = 0U;
-  tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -9646,7 +9645,7 @@ static int autofs4_root_ioctl_unlocked(struct inode *inode , struct file *filp ,
   descriptor.format = "pid %d: %s: cmd = 0x%08x, arg = 0x%08lx, sbi = %p, pgrp = %u\n";
   descriptor.lineno = 833U;
   descriptor.flags = 0U;
-  tmp___3 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___3 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___3 != 0L) {
     {
@@ -10300,7 +10299,7 @@ __inline static unsigned long arch_local_save_flags(void)
   __edx = __edx;
   __ecx = __ecx;
   __eax = __eax;
-  tmp = __builtin_expect((unsigned long )pv_irq_ops.save_fl.func == (unsigned long )((void *)0),
+  tmp = ldv__builtin_expect((unsigned long )pv_irq_ops.save_fl.func == (unsigned long )((void *)0),
                          0L);
   }
   if (tmp != 0L) {
@@ -10335,7 +10334,7 @@ __inline static void arch_local_irq_restore(unsigned long f )
   __edx = __edx;
   __ecx = __ecx;
   __eax = __eax;
-  tmp = __builtin_expect((unsigned long )pv_irq_ops.restore_fl.func == (unsigned long )((void *)0),
+  tmp = ldv__builtin_expect((unsigned long )pv_irq_ops.restore_fl.func == (unsigned long )((void *)0),
                          0L);
   }
   if (tmp != 0L) {
@@ -10369,7 +10368,7 @@ __inline static void arch_local_irq_disable(void)
   __edx = __edx;
   __ecx = __ecx;
   __eax = __eax;
-  tmp = __builtin_expect((unsigned long )pv_irq_ops.irq_disable.func == (unsigned long )((void *)0),
+  tmp = ldv__builtin_expect((unsigned long )pv_irq_ops.irq_disable.func == (unsigned long )((void *)0),
                          0L);
   }
   if (tmp != 0L) {
@@ -10734,7 +10733,7 @@ __inline static unsigned int __read_seqcount_begin(seqcount_t const   *s )
   repeat: 
   {
   ret = *((unsigned int const volatile   *)(& s->sequence));
-  tmp = __builtin_expect((long )((int )ret) & 1L, 0L);
+  tmp = ldv__builtin_expect((long )((int )ret) & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -10779,7 +10778,7 @@ __inline static int __read_seqcount_retry(seqcount_t const   *s , unsigned int s
 
   {
   {
-  tmp = __builtin_expect((unsigned int )s->sequence != start, 0L);
+  tmp = ldv__builtin_expect((unsigned int )s->sequence != start, 0L);
   }
   return ((int )tmp);
 }
@@ -11096,7 +11095,7 @@ void autofs4_catatonic_mode(struct autofs_sb_info *sbi )
   descriptor.format = "pid %d: %s: entering catatonic mode\n";
   descriptor.lineno = 37U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -11231,7 +11230,7 @@ static void autofs4_notify_daemon(struct autofs_sb_info *sbi , struct autofs_wai
   descriptor.format = "pid %d: %s: wait id = 0x%08lx, name = %.*s, type=%d\n";
   descriptor.lineno = 106U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -11811,7 +11810,7 @@ int autofs4_wait(struct autofs_sb_info *sbi , struct dentry *dentry , enum autof
     descriptor.format = "pid %d: %s: new wait id = 0x%08lx, name = %.*s, nfy=%d\n\n";
     descriptor.lineno = 455U;
     descriptor.flags = 0U;
-    tmp___17 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___17 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp___17 != 0L) {
       {
@@ -11836,7 +11835,7 @@ int autofs4_wait(struct autofs_sb_info *sbi , struct dentry *dentry , enum autof
     descriptor___0.format = "pid %d: %s: existing wait id = 0x%08lx, name = %.*s, nfy=%d\n";
     descriptor___0.lineno = 463U;
     descriptor___0.flags = 0U;
-    tmp___19 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___19 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___19 != 0L) {
       {
@@ -11918,7 +11917,7 @@ int autofs4_wait(struct autofs_sb_info *sbi , struct dentry *dentry , enum autof
     descriptor___1.format = "pid %d: %s: skipped sleeping\n";
     descriptor___1.lineno = 490U;
     descriptor___1.flags = 0U;
-    tmp___29 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___29 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
     }
     if (tmp___29 != 0L) {
       {
@@ -12208,7 +12207,7 @@ __inline static unsigned long copy_to_user(void *to , void const   *from , unsig
   {
   sz = -1;
   might_fault();
-  tmp = __builtin_expect(sz < 0, 1L);
+  tmp = ldv__builtin_expect(sz < 0, 1L);
   }
   if (tmp != 0L) {
     {
@@ -12216,7 +12215,7 @@ __inline static unsigned long copy_to_user(void *to , void const   *from , unsig
     }
   } else {
     {
-    tmp___0 = __builtin_expect((unsigned long )sz >= n, 1L);
+    tmp___0 = ldv__builtin_expect((unsigned long )sz >= n, 1L);
     }
     if (tmp___0 != 0L) {
       {
@@ -12321,7 +12320,7 @@ static int autofs4_mount_busy(struct vfsmount *mnt , struct dentry *dentry )
   descriptor.format = "pid %d: %s: dentry %p %.*s\n";
   descriptor.lineno = 51U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -12381,7 +12380,7 @@ static int autofs4_mount_busy(struct vfsmount *mnt , struct dentry *dentry )
   descriptor___0.format = "pid %d: %s: returning = %d\n";
   descriptor___0.lineno = 75U;
   descriptor___0.flags = 0U;
-  tmp___8 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___8 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
   }
   if (tmp___8 != 0L) {
     {
@@ -12594,7 +12593,7 @@ static int autofs4_direct_busy(struct vfsmount *mnt , struct dentry *top , unsig
   descriptor.format = "pid %d: %s: top %p %.*s\n";
   descriptor.lineno = 202U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -12666,7 +12665,7 @@ static int autofs4_tree_busy(struct vfsmount *mnt , struct dentry *top , unsigne
   descriptor.format = "pid %d: %s: top %p %.*s\n";
   descriptor.lineno = 231U;
   descriptor.flags = 0U;
-  tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -12696,7 +12695,7 @@ static int autofs4_tree_busy(struct vfsmount *mnt , struct dentry *top , unsigne
   descriptor___0.format = "pid %d: %s: dentry %p %.*s\n";
   descriptor___0.lineno = 240U;
   descriptor___0.flags = 0U;
-  tmp___4 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___4 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
   }
   if (tmp___4 != 0L) {
     {
@@ -12792,7 +12791,7 @@ static struct dentry *autofs4_check_leaves(struct vfsmount *mnt , struct dentry 
   descriptor.format = "pid %d: %s: parent %p %.*s\n";
   descriptor.lineno = 293U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -12814,7 +12813,7 @@ static struct dentry *autofs4_check_leaves(struct vfsmount *mnt , struct dentry 
   descriptor___0.format = "pid %d: %s: dentry %p %.*s\n";
   descriptor___0.lineno = 298U;
   descriptor___0.flags = 0U;
-  tmp___2 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___2 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
   }
   if (tmp___2 != 0L) {
     {
@@ -12985,7 +12984,7 @@ struct dentry *autofs4_expire_indirect(struct super_block *sb , struct vfsmount 
     descriptor.format = "pid %d: %s: checking mountpoint %p %.*s\n";
     descriptor.lineno = 391U;
     descriptor.flags = 0U;
-    tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -13026,7 +13025,7 @@ struct dentry *autofs4_expire_indirect(struct super_block *sb , struct vfsmount 
     descriptor___0.format = "pid %d: %s: checking symlink %p %.*s\n";
     descriptor___0.lineno = 407U;
     descriptor___0.flags = 0U;
-    tmp___5 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___5 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___5 != 0L) {
       {
@@ -13125,7 +13124,7 @@ struct dentry *autofs4_expire_indirect(struct super_block *sb , struct vfsmount 
   descriptor___1.format = "pid %d: %s: returning %p %.*s\n";
   descriptor___1.lineno = 456U;
   descriptor___1.flags = 0U;
-  tmp___14 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+  tmp___14 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
   }
   if (tmp___14 != 0L) {
     {
@@ -13185,7 +13184,7 @@ int autofs4_expire_wait(struct dentry *dentry )
     descriptor.format = "pid %d: %s: waiting for expire %p name=%.*s\n";
     descriptor.lineno = 483U;
     descriptor.flags = 0U;
-    tmp___2 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___2 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp___2 != 0L) {
       {
@@ -13206,7 +13205,7 @@ int autofs4_expire_wait(struct dentry *dentry )
     descriptor___0.format = "pid %d: %s: expire done status=%d\n";
     descriptor___0.lineno = 488U;
     descriptor___0.flags = 0U;
-    tmp___4 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___4 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___4 != 0L) {
       {
@@ -13437,7 +13436,7 @@ __inline static unsigned long copy_from_user(void *to , void const   *from , uns
   {
   sz = -1;
   might_fault();
-  tmp = __builtin_expect(sz < 0, 1L);
+  tmp = ldv__builtin_expect(sz < 0, 1L);
   }
   if (tmp != 0L) {
     {
@@ -13445,7 +13444,7 @@ __inline static unsigned long copy_from_user(void *to , void const   *from , uns
     }
   } else {
     {
-    tmp___0 = __builtin_expect((unsigned long )sz >= n, 1L);
+    tmp___0 = ldv__builtin_expect((unsigned long )sz >= n, 1L);
     }
     if (tmp___0 != 0L) {
       {
@@ -13769,7 +13768,7 @@ static int autofs_dev_ioctl_open_mountpoint(char const   *name , dev_t devid )
   {
   {
   fd = get_unused_fd_flags(524288U);
-  tmp___3 = __builtin_expect(fd >= 0, 1L);
+  tmp___3 = ldv__builtin_expect(fd >= 0, 1L);
   }
   if (tmp___3 != 0L) {
     {
@@ -13831,7 +13830,7 @@ static int autofs_dev_ioctl_openmount(struct file *fp , struct autofs_sb_info *s
   devid = new_decode_dev(param->__annonCompField82.openmount.devid);
   err = 0;
   fd = autofs_dev_ioctl_open_mountpoint(path, devid);
-  tmp = __builtin_expect(fd < 0, 0L);
+  tmp = ldv__builtin_expect(fd < 0, 0L);
   }
   if (tmp != 0L) {
     err = fd;
@@ -15217,7 +15216,7 @@ void *ldv_kzalloc(size_t size , gfp_t flags )
 }
 }
 extern void ldv_assert(char const   * , int  ) ;
-void __builtin_trap(void) ;
+void ldv__builtin_trap(void) ;
 void ldv_assume(int expression ) 
 { 
 
@@ -15241,7 +15240,7 @@ void ldv_stop(void)
   goto ldv_stop_label;
 }
 }
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 
@@ -15249,7 +15248,7 @@ long __builtin_expect(long exp , long c )
   return (exp);
 }
 }
-void __builtin_trap(void) 
+void ldv__builtin_trap(void) 
 { 
 
 

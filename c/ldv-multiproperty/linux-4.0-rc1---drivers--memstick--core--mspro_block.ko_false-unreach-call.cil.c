@@ -4368,8 +4368,7 @@ struct ldv_thread {
    void (*function)(void * ) ;
 };
 typedef _Bool ldv_set;
-int __builtin_bswap32(int  ) ;
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 void ldv_assume(int expression ) ;
 void ldv_stop(void) ;
 void ldv_linux_alloc_irq_check_alloc_flags(gfp_t flags ) ;
@@ -4575,7 +4574,6 @@ extern int snprintf(char * , size_t  , char const   *  , ...) ;
 extern int scnprintf(char * , size_t  , char const   *  , ...) ;
 extern void *__memcpy(void * , void const   * , size_t  ) ;
 extern int memcmp(void const   * , void const   * , size_t  ) ;
-extern int ( /* missing proto */  __builtin_unreachable)() ;
 extern void __ldv_linux_kernel_locking_spinlock_spin_lock(spinlock_t * ) ;
 static void ldv___ldv_linux_kernel_locking_spinlock_spin_lock_101(spinlock_t *ldv_func_arg1 ) ;
 static void ldv___ldv_linux_kernel_locking_spinlock_spin_lock_103(spinlock_t *ldv_func_arg1 ) ;
@@ -4809,7 +4807,7 @@ __inline static void sg_assign_page(struct scatterlist *sg , struct page *page )
   {
   {
   page_link = sg->page_link & 3UL;
-  tmp = __builtin_expect(((unsigned long )page & 3UL) != 0UL, 0L);
+  tmp = ldv__builtin_expect(((unsigned long )page & 3UL) != 0UL, 0L);
   }
   if (tmp != 0L) {
     {
@@ -4821,7 +4819,7 @@ __inline static void sg_assign_page(struct scatterlist *sg , struct page *page )
 
   }
   {
-  tmp___0 = __builtin_expect(sg->sg_magic != 2271560481UL, 0L);
+  tmp___0 = ldv__builtin_expect(sg->sg_magic != 2271560481UL, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -4833,7 +4831,7 @@ __inline static void sg_assign_page(struct scatterlist *sg , struct page *page )
 
   }
   {
-  tmp___1 = __builtin_expect((long )((int )sg->page_link) & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )((int )sg->page_link) & 1L, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -4869,7 +4867,7 @@ __inline static struct page *sg_page(struct scatterlist *sg )
 
   {
   {
-  tmp = __builtin_expect(sg->sg_magic != 2271560481UL, 0L);
+  tmp = ldv__builtin_expect(sg->sg_magic != 2271560481UL, 0L);
   }
   if (tmp != 0L) {
     {
@@ -4881,7 +4879,7 @@ __inline static struct page *sg_page(struct scatterlist *sg )
 
   }
   {
-  tmp___0 = __builtin_expect((long )((int )sg->page_link) & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )((int )sg->page_link) & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -5617,7 +5615,7 @@ static int h_mspro_block_wait_for_ced(struct memstick_dev *card , struct memstic
   descriptor.format = "wait for ced: value %x\n";
   descriptor.lineno = 566U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -5891,7 +5889,7 @@ static int mspro_block_issue_req(struct memstick_dev *card , int chunk )
   descriptor.format = "blk_fetch\n";
   descriptor.lineno = 731U;
   descriptor.flags = 0U;
-  tmp___3 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___3 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___3 != 0L) {
     {
@@ -5911,7 +5909,7 @@ static int mspro_block_issue_req(struct memstick_dev *card , int chunk )
     descriptor___0.format = "issue end\n";
     descriptor___0.lineno = 734U;
     descriptor___0.flags = 0U;
-    tmp___4 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___4 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___4 != 0L) {
       {
@@ -5932,7 +5930,7 @@ static int mspro_block_issue_req(struct memstick_dev *card , int chunk )
   descriptor___1.format = "trying again\n";
   descriptor___1.lineno = 738U;
   descriptor___1.flags = 0U;
-  tmp___5 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+  tmp___5 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
   }
   if (tmp___5 != 0L) {
     {
@@ -5972,7 +5970,7 @@ static int mspro_block_complete_req(struct memstick_dev *card , int error )
   descriptor.format = "complete %d, %d\n";
   descriptor.lineno = 752U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -6023,7 +6021,7 @@ static int mspro_block_complete_req(struct memstick_dev *card , int error )
     descriptor___0.format = "transferred %x (%d)\n";
     descriptor___0.lineno = 773U;
     descriptor___0.flags = 0U;
-    tmp___1 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___1 != 0L) {
       {
@@ -6489,7 +6487,7 @@ static int mspro_block_read_attributes(struct memstick_dev *card )
   descriptor.format = "adding attribute %d: id %x, address %x, size %zx\n";
   descriptor.lineno = 1054U;
   descriptor.flags = 0U;
-  tmp___10 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___10 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___10 != 0L) {
     {
@@ -6572,7 +6570,7 @@ static int mspro_block_read_attributes(struct memstick_dev *card )
   descriptor___0.format = "reading attribute range %x, %x\n";
   descriptor___0.lineno = 1106U;
   descriptor___0.flags = 0U;
-  tmp___14 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___14 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
   }
   if (tmp___14 != 0L) {
     {
@@ -6675,7 +6673,7 @@ static int mspro_block_init_card(struct memstick_dev *card )
   descriptor.format = "card activated\n";
   descriptor.lineno = 1156U;
   descriptor.flags = 0U;
-  tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -6708,7 +6706,7 @@ static int mspro_block_init_card(struct memstick_dev *card )
   descriptor___0.format = "card r/w status %d\n";
   descriptor___0.lineno = 1169U;
   descriptor___0.flags = 0U;
-  tmp___2 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___2 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
   }
   if (tmp___2 != 0L) {
     {
@@ -6734,7 +6732,7 @@ static int mspro_block_init_card(struct memstick_dev *card )
   descriptor___1.format = "attributes loaded\n";
   descriptor___1.lineno = 1176U;
   descriptor___1.flags = 0U;
-  tmp___3 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+  tmp___3 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
   }
   if (tmp___3 != 0L) {
     {
@@ -6873,7 +6871,7 @@ static int mspro_block_init_disk(struct memstick_dev *card )
   descriptor.format = "capacity set %ld\n";
   descriptor.lineno = 1256U;
   descriptor.flags = 0U;
-  tmp___6 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___6 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___6 != 0L) {
     {
@@ -7031,7 +7029,7 @@ static void mspro_block_remove(struct memstick_dev *card )
   descriptor.format = "mspro block remove\n";
   descriptor.lineno = 1344U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -7217,7 +7215,7 @@ void ldv_device_driver_io_instance_0(void *arg0 ) ;
 void ldv_dispatch_deregister_1_1(struct memstick_driver *arg0 ) ;
 void ldv_dispatch_register_2_2(struct memstick_driver *arg0 ) ;
 void ldv_entry_EMGentry_3(void *arg0 ) ;
-void main(void) ;
+int main(void) ;
 void ldv_io_instance_callback_0_20(int (*arg0)(struct memstick_dev * ) , struct memstick_dev *arg1 ) ;
 void ldv_io_instance_callback_0_21(int (*arg0)(struct memstick_dev * , struct pm_message  ) ,
                                    struct memstick_dev *arg1 , struct pm_message arg2 ) ;
@@ -7477,7 +7475,7 @@ void ldv_entry_EMGentry_3(void *arg0 )
   return;
 }
 }
-void main(void) 
+int main(void) 
 { 
 
 
@@ -7486,7 +7484,7 @@ void main(void)
   ldv_ldv_initialize_145();
   ldv_entry_EMGentry_3((void *)0);
   }
-  return;
+return 0;
 }
 }
 void ldv_io_instance_callback_0_20(int (*arg0)(struct memstick_dev * ) , struct memstick_dev *arg1 ) 
@@ -10204,7 +10202,7 @@ void ldv_linux_usb_urb_check_final_state(void)
 }
 }
 extern void ldv_assert(char const   * , int  ) ;
-void __builtin_trap(void) ;
+void ldv__builtin_trap(void) ;
 void ldv_assume(int expression ) 
 { 
 
@@ -10228,7 +10226,7 @@ void ldv_stop(void)
   goto ldv_stop_label;
 }
 }
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 
@@ -10236,7 +10234,7 @@ long __builtin_expect(long exp , long c )
   return (exp);
 }
 }
-void __builtin_trap(void) 
+void ldv__builtin_trap(void) 
 { 
 
 

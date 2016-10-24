@@ -6098,7 +6098,7 @@ struct ldv_thread {
    void (*function)(void * ) ;
 };
 typedef _Bool ldv_set;
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 void *ldv_kzalloc(size_t size , gfp_t flags ) ;
 static void ldv_mutex_lock_29(struct mutex *ldv_func_arg1 ) ;
 static void ldv_mutex_lock_32(struct mutex *ldv_func_arg1 ) ;
@@ -6129,7 +6129,6 @@ __inline static void list_add_tail(struct list_head *new , struct list_head *hea
 }
 extern void list_del(struct list_head * ) ;
 extern void __bad_percpu_size(void) ;
-extern int ( /* missing proto */  __builtin_unreachable)() ;
 __inline static unsigned long arch_local_save_flags(void) 
 { 
   unsigned long __ret ;
@@ -6147,7 +6146,7 @@ __inline static unsigned long arch_local_save_flags(void)
   __edx = __edx;
   __ecx = __ecx;
   __eax = __eax;
-  tmp = __builtin_expect((unsigned long )pv_irq_ops.save_fl.func == (unsigned long )((void *)0),
+  tmp = ldv__builtin_expect((unsigned long )pv_irq_ops.save_fl.func == (unsigned long )((void *)0),
                          0L);
   }
   if (tmp != 0L) {
@@ -8335,7 +8334,7 @@ static int em2800_i2c_send_bytes(struct em28xx *dev , u8 addr , u8 *buf , u16 le
 
   }
   {
-  tmp___0 = __builtin_expect((unsigned int )len - 1U > 3U, 0L);
+  tmp___0 = ldv__builtin_expect((unsigned int )len - 1U > 3U, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -9443,7 +9442,7 @@ static u32 functionality(struct i2c_adapter *i2c_adap )
   }
   {
   __ret_warn_on = 1;
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp != 0L) {
     {
@@ -9453,7 +9452,7 @@ static u32 functionality(struct i2c_adapter *i2c_adap )
 
   }
   {
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   return (0U);
 }
@@ -9737,7 +9736,7 @@ int em28xx_i2c_register(struct em28xx *dev , unsigned int bus , enum em28xx_i2c_
 
   {
   {
-  tmp = __builtin_expect((unsigned long )dev->em28xx_write_regs == (unsigned long )((int (*)(struct em28xx * ,
+  tmp = ldv__builtin_expect((unsigned long )dev->em28xx_write_regs == (unsigned long )((int (*)(struct em28xx * ,
                                                                                              u16  ,
                                                                                              char * ,
                                                                                              int  ))0),
@@ -9751,7 +9750,7 @@ int em28xx_i2c_register(struct em28xx *dev , unsigned int bus , enum em28xx_i2c_
     }
   } else {
     {
-    tmp___0 = __builtin_expect((unsigned long )dev->em28xx_read_reg == (unsigned long )((int (*)(struct em28xx * ,
+    tmp___0 = ldv__builtin_expect((unsigned long )dev->em28xx_read_reg == (unsigned long )((int (*)(struct em28xx * ,
                                                                                                  u16  ))0),
                                0L);
     }
@@ -9766,7 +9765,7 @@ int em28xx_i2c_register(struct em28xx *dev , unsigned int bus , enum em28xx_i2c_
     }
   }
   {
-  tmp___1 = __builtin_expect((unsigned long )dev->em28xx_write_regs_req == (unsigned long )((int (*)(struct em28xx * ,
+  tmp___1 = ldv__builtin_expect((unsigned long )dev->em28xx_write_regs_req == (unsigned long )((int (*)(struct em28xx * ,
                                                                                                      u8  ,
                                                                                                      u16  ,
                                                                                                      char * ,
@@ -9781,7 +9780,7 @@ int em28xx_i2c_register(struct em28xx *dev , unsigned int bus , enum em28xx_i2c_
     }
   } else {
     {
-    tmp___2 = __builtin_expect((unsigned long )dev->em28xx_read_reg_req == (unsigned long )((int (*)(struct em28xx * ,
+    tmp___2 = ldv__builtin_expect((unsigned long )dev->em28xx_read_reg_req == (unsigned long )((int (*)(struct em28xx * ,
                                                                                                      u8  ,
                                                                                                      u16  ))0),
                                0L);
@@ -12983,7 +12982,7 @@ void ldv_dispatch_instance_register_2_3(struct usb_driver *arg0 ) ;
 void ldv_dispatch_register_4_2(struct usb_driver *arg0 ) ;
 void ldv_dispatch_register_dummy_resourceless_instance_3_5_5(void) ;
 void ldv_entry_EMGentry_5(void *arg0 ) ;
-void main(void) ;
+int main(void) ;
 void ldv_initialize_external_data(void) ;
 int ldv_switch_1(void) ;
 void ldv_switch_automaton_state_1_1(void) ;
@@ -13245,7 +13244,7 @@ void ldv_entry_EMGentry_5(void *arg0 )
   return;
 }
 }
-void main(void) 
+int main(void) 
 { 
   int tmp ;
 
@@ -14808,7 +14807,7 @@ void *ldv_kzalloc(size_t size , gfp_t flags )
 }
 }
 extern void ldv_assert(char const   * , int  ) ;
-void __builtin_trap(void) ;
+void ldv__builtin_trap(void) ;
 void ldv_assume(int expression ) 
 { 
 
@@ -14832,7 +14831,7 @@ void ldv_stop(void)
   goto ldv_stop_label;
 }
 }
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 
@@ -14840,7 +14839,7 @@ long __builtin_expect(long exp , long c )
   return (exp);
 }
 }
-void __builtin_trap(void) 
+void ldv__builtin_trap(void) 
 { 
 
 

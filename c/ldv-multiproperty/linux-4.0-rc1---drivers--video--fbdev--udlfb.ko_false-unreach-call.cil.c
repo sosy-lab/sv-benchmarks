@@ -4643,7 +4643,7 @@ struct ldv_thread {
 };
 typedef _Bool ldv_set;
 void __builtin_prefetch(void const   *  , ...) ;
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 void ldv_assume(int expression ) ;
 void ldv_stop(void) ;
 void ldv_linux_alloc_irq_check_alloc_flags(gfp_t flags ) ;
@@ -4877,7 +4877,6 @@ extern void *__memcpy(void * , void const   * , size_t  ) ;
 extern void *__memset(void * , int  , size_t  ) ;
 extern int memcmp(void const   * , void const   * , size_t  ) ;
 extern void warn_slowpath_null(char const   * , int const    ) ;
-extern int ( /* missing proto */  __builtin_unreachable)() ;
 __inline static u64 paravirt_read_tsc(void) 
 { 
   u64 __ret ;
@@ -4895,7 +4894,7 @@ __inline static u64 paravirt_read_tsc(void)
   __edx = __edx;
   __ecx = __ecx;
   __eax = __eax;
-  tmp = __builtin_expect((unsigned long )pv_cpu_ops.read_tsc == (unsigned long )((u64 (*)(void))0),
+  tmp = ldv__builtin_expect((unsigned long )pv_cpu_ops.read_tsc == (unsigned long )((u64 (*)(void))0),
                          0L);
   }
   if (tmp != 0L) {
@@ -5007,12 +5006,12 @@ __inline static void kref_get(struct kref *kref )
   {
   tmp = atomic_add_return(1, & kref->refcount);
   __ret_warn_once = tmp <= 1;
-  tmp___2 = __builtin_expect(__ret_warn_once != 0, 0L);
+  tmp___2 = ldv__builtin_expect(__ret_warn_once != 0, 0L);
   }
   if (tmp___2 != 0L) {
     {
     __ret_warn_on = ! __warned;
-    tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -5022,7 +5021,7 @@ __inline static void kref_get(struct kref *kref )
 
     }
     {
-    tmp___1 = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp___1 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
     if (tmp___1 != 0L) {
       __warned = 1;
@@ -5033,7 +5032,7 @@ __inline static void kref_get(struct kref *kref )
 
   }
   {
-  __builtin_expect(__ret_warn_once != 0, 0L);
+  ldv__builtin_expect(__ret_warn_once != 0, 0L);
   }
   return;
 }
@@ -5047,7 +5046,7 @@ __inline static int kref_sub(struct kref *kref , unsigned int count , void (*rel
   {
   {
   __ret_warn_on = (unsigned long )release == (unsigned long )((void (*)(struct kref * ))0);
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp != 0L) {
     {
@@ -5057,7 +5056,7 @@ __inline static int kref_sub(struct kref *kref , unsigned int count , void (*rel
 
   }
   {
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
   tmp___0 = atomic_sub_and_test((int )count, & kref->refcount);
   }
   if (tmp___0 != 0) {
@@ -5163,7 +5162,7 @@ __inline static unsigned long copy_from_user(void *to , void const   *from , uns
   {
   sz = -1;
   might_fault();
-  tmp = __builtin_expect(sz < 0, 1L);
+  tmp = ldv__builtin_expect(sz < 0, 1L);
   }
   if (tmp != 0L) {
     {
@@ -5171,7 +5170,7 @@ __inline static unsigned long copy_from_user(void *to , void const   *from , uns
     }
   } else {
     {
-    tmp___0 = __builtin_expect((unsigned long )sz >= n, 1L);
+    tmp___0 = ldv__builtin_expect((unsigned long )sz >= n, 1L);
     }
     if (tmp___0 != 0L) {
       {
@@ -5196,7 +5195,7 @@ __inline static unsigned long copy_to_user(void *to , void const   *from , unsig
   {
   sz = -1;
   might_fault();
-  tmp = __builtin_expect(sz < 0, 1L);
+  tmp = ldv__builtin_expect(sz < 0, 1L);
   }
   if (tmp != 0L) {
     {
@@ -5204,7 +5203,7 @@ __inline static unsigned long copy_to_user(void *to , void const   *from , unsig
     }
   } else {
     {
-    tmp___0 = __builtin_expect((unsigned long )sz >= n, 1L);
+    tmp___0 = ldv__builtin_expect((unsigned long )sz >= n, 1L);
     }
     if (tmp___0 != 0L) {
       {
@@ -5849,12 +5848,12 @@ static void dlfb_compress_hline(uint16_t const   **pixel_start_ptr , uint16_t co
   *((uint16_t *)cmd) = __cpu_to_be16p(pixel);
   cmd = cmd + 2UL;
   pixel = pixel + 1;
-  tmp___8 = __builtin_expect((unsigned long )pixel < (unsigned long )cmd_pixel_end,
+  tmp___8 = ldv__builtin_expect((unsigned long )pixel < (unsigned long )cmd_pixel_end,
                              0L);
   }
   if (tmp___8 != 0L) {
     {
-    tmp___9 = __builtin_expect((int )((unsigned short )*pixel) == (int )((unsigned short )*repeating_pixel),
+    tmp___9 = ldv__builtin_expect((int )((unsigned short )*pixel) == (int )((unsigned short )*repeating_pixel),
                                0L);
     }
     if (tmp___9 != 0L) {
@@ -7927,7 +7926,7 @@ static struct urb *dlfb_get_urb(struct dlfb_data *dev )
   {
   ldv___ldv_linux_kernel_locking_spinlock_spin_lock_115(& dev->urbs.lock);
   tmp = list_empty((struct list_head  const  *)(& dev->urbs.list));
-  tmp___0 = __builtin_expect(tmp != 0, 0L);
+  tmp___0 = ldv__builtin_expect(tmp != 0, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -7958,7 +7957,7 @@ static int dlfb_submit_urb(struct dlfb_data *dev , struct urb *urb , size_t len 
 
   {
   {
-  tmp = __builtin_expect(len > dev->urbs.size, 0L);
+  tmp = ldv__builtin_expect(len > dev->urbs.size, 0L);
   }
   if (tmp != 0L) {
     {
@@ -8138,7 +8137,7 @@ void ldv_dummy_resourceless_instance_callback_5_9(int (*arg0)(struct fb_var_scre
                                                   struct fb_var_screeninfo *arg1 ,
                                                   struct fb_info *arg2 ) ;
 void ldv_entry_EMGentry_14(void *arg0 ) ;
-void main(void) ;
+int main(void) ;
 void ldv_iio_triggered_buffer_iio_triggered_buffer_instance_0(void *arg0 ) ;
 enum irqreturn ldv_iio_triggered_buffer_instance_handler_0_5(enum irqreturn (*arg0)(int  ,
                                                                                     void * ) ,
@@ -8824,7 +8823,7 @@ void ldv_entry_EMGentry_14(void *arg0 )
   return;
 }
 }
-void main(void) 
+int main(void) 
 { 
 
 
@@ -8833,7 +8832,7 @@ void main(void)
   ldv_ldv_initialize_121();
   ldv_entry_EMGentry_14((void *)0);
   }
-  return;
+return 0;
 }
 }
 void ldv_iio_triggered_buffer_iio_triggered_buffer_instance_0(void *arg0 ) 
@@ -12353,7 +12352,7 @@ void ldv_linux_usb_urb_check_final_state(void)
 }
 }
 extern void ldv_assert(char const   * , int  ) ;
-void __builtin_trap(void) ;
+void ldv__builtin_trap(void) ;
 void ldv_assume(int expression ) 
 { 
 
@@ -12377,7 +12376,7 @@ void ldv_stop(void)
   goto ldv_stop_label;
 }
 }
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 
@@ -12385,7 +12384,7 @@ long __builtin_expect(long exp , long c )
   return (exp);
 }
 }
-void __builtin_trap(void) 
+void ldv__builtin_trap(void) 
 { 
 
 

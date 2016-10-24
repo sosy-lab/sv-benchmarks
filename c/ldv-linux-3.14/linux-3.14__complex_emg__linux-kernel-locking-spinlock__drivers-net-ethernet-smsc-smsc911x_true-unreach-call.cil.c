@@ -5222,8 +5222,7 @@ struct ldv_thread {
    int identifier ;
    void (*function)(void * ) ;
 };
-int __builtin_bswap32(int  ) ;
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 void *ldv_dev_get_drvdata(struct device  const  *dev ) ;
 int ldv_dev_set_drvdata(struct device *dev , void *data ) ;
 long ldv_is_err(void const   *ptr ) ;
@@ -5292,7 +5291,6 @@ extern void *memcpy(void * , void const   * , size_t  ) ;
 extern void *memset(void * , int  , size_t  ) ;
 extern size_t strlcpy(char * , char const   * , size_t  ) ;
 extern void warn_slowpath_null(char const   * , int const    ) ;
-extern int ( /* missing proto */  __builtin_unreachable)() ;
 __inline static long PTR_ERR(void const   *ptr ) ;
 __inline static long IS_ERR(void const   *ptr ) ;
 extern void __ldv_spin_lock(spinlock_t * ) ;
@@ -5707,7 +5705,7 @@ __inline static void napi_enable(struct napi_struct *n )
   {
   {
   tmp = constant_test_bit(0L, (unsigned long const volatile   *)(& n->state));
-  tmp___0 = __builtin_expect(tmp == 0, 0L);
+  tmp___0 = ldv__builtin_expect(tmp == 0, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -5824,7 +5822,7 @@ __inline static void netif_tx_stop_queue(struct netdev_queue *dev_queue )
   {
   {
   __ret_warn_on = (unsigned long )dev_queue == (unsigned long )((struct netdev_queue *)0);
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp != 0L) {
     {
@@ -5834,7 +5832,7 @@ __inline static void netif_tx_stop_queue(struct netdev_queue *dev_queue )
 
   }
   {
-  tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -6784,7 +6782,7 @@ static int smsc911x_mac_complete(struct smsc911x_data *pdata )
   {
   tmp = ldv_spin_is_locked_72(& pdata->mac_lock);
   __ret_warn_on = tmp == 0;
-  tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -6794,7 +6792,7 @@ static int smsc911x_mac_complete(struct smsc911x_data *pdata )
 
   }
   {
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
   i = 0;
   }
   goto ldv_43707;
@@ -6835,7 +6833,7 @@ static u32 smsc911x_mac_read(struct smsc911x_data *pdata , unsigned int offset )
   {
   tmp = ldv_spin_is_locked_73(& pdata->mac_lock);
   __ret_warn_on = tmp == 0;
-  tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -6845,9 +6843,9 @@ static u32 smsc911x_mac_read(struct smsc911x_data *pdata , unsigned int offset )
 
   }
   {
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
   temp = smsc911x_reg_read(pdata, 164U);
-  tmp___1 = __builtin_expect((int )temp < 0, 0L);
+  tmp___1 = ldv__builtin_expect((int )temp < 0, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -6861,7 +6859,7 @@ static u32 smsc911x_mac_read(struct smsc911x_data *pdata , unsigned int offset )
   smsc911x_reg_write(pdata, 164U, (offset & 255U) | 3221225472U);
   temp = smsc911x_reg_read(pdata, 100U);
   tmp___3 = smsc911x_mac_complete(pdata);
-  tmp___4 = __builtin_expect(tmp___3 == 0, 1L);
+  tmp___4 = ldv__builtin_expect(tmp___3 == 0, 1L);
   }
   if (tmp___4 != 0L) {
     {
@@ -6892,7 +6890,7 @@ static void smsc911x_mac_write(struct smsc911x_data *pdata , unsigned int offset
   {
   tmp = ldv_spin_is_locked_74(& pdata->mac_lock);
   __ret_warn_on = tmp == 0;
-  tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -6902,9 +6900,9 @@ static void smsc911x_mac_write(struct smsc911x_data *pdata , unsigned int offset
 
   }
   {
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
   temp = smsc911x_reg_read(pdata, 164U);
-  tmp___1 = __builtin_expect((int )temp < 0, 0L);
+  tmp___1 = ldv__builtin_expect((int )temp < 0, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -6919,7 +6917,7 @@ static void smsc911x_mac_write(struct smsc911x_data *pdata , unsigned int offset
   smsc911x_reg_write(pdata, 164U, (offset & 255U) | 2147483648U);
   temp = smsc911x_reg_read(pdata, 100U);
   tmp___2 = smsc911x_mac_complete(pdata);
-  tmp___3 = __builtin_expect(tmp___2 == 0, 1L);
+  tmp___3 = ldv__builtin_expect(tmp___2 == 0, 1L);
   }
   if (tmp___3 != 0L) {
     return;
@@ -6949,7 +6947,7 @@ static int smsc911x_mii_read(struct mii_bus *bus , int phyaddr , int regidx )
   pdata = (struct smsc911x_data *)bus->priv;
   ldv___ldv_spin_lock_75(& pdata->mac_lock);
   tmp = smsc911x_mac_read(pdata, 6U);
-  tmp___0 = __builtin_expect((long )((int )tmp) & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )((int )tmp) & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -7013,7 +7011,7 @@ static int smsc911x_mii_write(struct mii_bus *bus , int phyaddr , int regidx , u
   pdata = (struct smsc911x_data *)bus->priv;
   ldv___ldv_spin_lock_77(& pdata->mac_lock);
   tmp = smsc911x_mac_read(pdata, 6U);
-  tmp___0 = __builtin_expect((long )((int )tmp) & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )((int )tmp) & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -7325,7 +7323,7 @@ static int smsc911x_phy_reset(struct smsc911x_data *pdata )
   {
   phy_dev = pdata->phy_dev;
   i = 100000U;
-  tmp = __builtin_expect((unsigned long )phy_dev == (unsigned long )((struct phy_device *)0),
+  tmp = ldv__builtin_expect((unsigned long )phy_dev == (unsigned long )((struct phy_device *)0),
                          0L);
   }
   if (tmp != 0L) {
@@ -7338,7 +7336,7 @@ static int smsc911x_phy_reset(struct smsc911x_data *pdata )
 
   }
   {
-  tmp___0 = __builtin_expect((unsigned long )phy_dev->bus == (unsigned long )((struct mii_bus *)0),
+  tmp___0 = ldv__builtin_expect((unsigned long )phy_dev->bus == (unsigned long )((struct mii_bus *)0),
                              0L);
   }
   if (tmp___0 != 0L) {
@@ -7832,7 +7830,7 @@ static void smsc911x_tx_update_txcounters(struct net_device *dev )
   goto ldv_43872;
   ldv_43871: 
   {
-  tmp___4 = __builtin_expect((int )tx_stat < 0, 0L);
+  tmp___4 = ldv__builtin_expect((int )tx_stat < 0, 0L);
   }
   if (tmp___4 != 0L) {
     {
@@ -7840,7 +7838,7 @@ static void smsc911x_tx_update_txcounters(struct net_device *dev )
     }
   } else {
     {
-    tmp___0 = __builtin_expect((tx_stat & 32768U) != 0U, 0L);
+    tmp___0 = ldv__builtin_expect((tx_stat & 32768U) != 0U, 0L);
     }
     if (tmp___0 != 0L) {
       dev->stats.tx_errors = dev->stats.tx_errors + 1UL;
@@ -7849,7 +7847,7 @@ static void smsc911x_tx_update_txcounters(struct net_device *dev )
       dev->stats.tx_bytes = dev->stats.tx_bytes + (unsigned long )(tx_stat >> 16);
     }
     {
-    tmp___1 = __builtin_expect((tx_stat & 256U) != 0U, 0L);
+    tmp___1 = ldv__builtin_expect((tx_stat & 256U) != 0U, 0L);
     }
     if (tmp___1 != 0L) {
       dev->stats.collisions = dev->stats.collisions + 16UL;
@@ -7858,7 +7856,7 @@ static void smsc911x_tx_update_txcounters(struct net_device *dev )
       dev->stats.collisions = dev->stats.collisions + ((unsigned long )(tx_stat >> 3) & 15UL);
     }
     {
-    tmp___2 = __builtin_expect((tx_stat & 2048U) != 0U, 0L);
+    tmp___2 = ldv__builtin_expect((tx_stat & 2048U) != 0U, 0L);
     }
     if (tmp___2 != 0L) {
       dev->stats.tx_carrier_errors = dev->stats.tx_carrier_errors + 1UL;
@@ -7866,7 +7864,7 @@ static void smsc911x_tx_update_txcounters(struct net_device *dev )
 
     }
     {
-    tmp___3 = __builtin_expect((tx_stat & 512U) != 0U, 0L);
+    tmp___3 = ldv__builtin_expect((tx_stat & 512U) != 0U, 0L);
     }
     if (tmp___3 != 0L) {
       dev->stats.collisions = dev->stats.collisions + 1UL;
@@ -7899,12 +7897,12 @@ static void smsc911x_rx_counterrors(struct net_device *dev , unsigned int rxstat
   {
   {
   crc_err = 0;
-  tmp___0 = __builtin_expect((rxstat & 32768U) != 0U, 0L);
+  tmp___0 = ldv__builtin_expect((rxstat & 32768U) != 0U, 0L);
   }
   if (tmp___0 != 0L) {
     {
     dev->stats.rx_errors = dev->stats.rx_errors + 1UL;
-    tmp = __builtin_expect((rxstat & 2U) != 0U, 0L);
+    tmp = ldv__builtin_expect((rxstat & 2U) != 0U, 0L);
     }
     if (tmp != 0L) {
       dev->stats.rx_crc_errors = dev->stats.rx_crc_errors + 1UL;
@@ -7916,11 +7914,11 @@ static void smsc911x_rx_counterrors(struct net_device *dev , unsigned int rxstat
 
   }
   {
-  tmp___2 = __builtin_expect(crc_err == 0, 1L);
+  tmp___2 = ldv__builtin_expect(crc_err == 0, 1L);
   }
   if (tmp___2 != 0L) {
     {
-    tmp___1 = __builtin_expect((rxstat & 4128U) == 4128U, 0L);
+    tmp___1 = ldv__builtin_expect((rxstat & 4128U) == 4128U, 0L);
     }
     if (tmp___1 != 0L) {
       dev->stats.rx_length_errors = dev->stats.rx_length_errors + 1UL;
@@ -7949,7 +7947,7 @@ static void smsc911x_rx_fastforward(struct smsc911x_data *pdata , unsigned int p
 
   {
   {
-  tmp___1 = __builtin_expect(pktwords > 3U, 1L);
+  tmp___1 = ldv__builtin_expect(pktwords > 3U, 1L);
   }
   if (tmp___1 != 0L) {
     {
@@ -7973,7 +7971,7 @@ static void smsc911x_rx_fastforward(struct smsc911x_data *pdata , unsigned int p
     }
     ldv_43886: 
     {
-    tmp = __builtin_expect(timeout == 0U, 0L);
+    tmp = ldv__builtin_expect(timeout == 0U, 0L);
     }
     if (tmp != 0L) {
       {
@@ -8044,7 +8042,7 @@ static int smsc911x_poll(struct napi_struct *napi , int budget )
   pktlength = (rxstat & 1073676288U) >> 16;
   pktwords = (pktlength + 3U) >> 2;
   smsc911x_rx_counterrors(dev, rxstat);
-  tmp___0 = __builtin_expect((rxstat & 32768U) != 0U, 0L);
+  tmp___0 = ldv__builtin_expect((rxstat & 32768U) != 0U, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -8058,7 +8056,7 @@ static int smsc911x_poll(struct napi_struct *napi , int budget )
   }
   {
   skb = netdev_alloc_skb(dev, pktwords << 2);
-  tmp___1 = __builtin_expect((unsigned long )skb == (unsigned long )((struct sk_buff *)0),
+  tmp___1 = ldv__builtin_expect((unsigned long )skb == (unsigned long )((struct sk_buff *)0),
                              0L);
   }
   if (tmp___1 != 0L) {
@@ -8115,7 +8113,7 @@ static void smsc911x_rx_multicast_update(struct smsc911x_data *pdata )
   {
   tmp = ldv_spin_is_locked_89(& pdata->mac_lock);
   __ret_warn_on = tmp == 0;
-  tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -8125,7 +8123,7 @@ static void smsc911x_rx_multicast_update(struct smsc911x_data *pdata )
 
   }
   {
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
   mac_cr = smsc911x_mac_read(pdata, 1U);
   mac_cr = mac_cr | pdata->set_bits_mask;
   mac_cr = mac_cr & ~ pdata->clear_bits_mask;
@@ -8346,7 +8344,7 @@ static int smsc911x_soft_reset(struct smsc911x_data *pdata )
 
   }
   {
-  tmp = __builtin_expect((long )((int )temp) & 1L, 0L);
+  tmp = ldv__builtin_expect((long )((int )temp) & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -8388,7 +8386,7 @@ static void smsc911x_set_hw_mac_address(struct smsc911x_data *pdata , u8 *dev_ad
   mac_low32 = (u32 )(((((int )*(dev_addr + 3UL) << 24) | ((int )*(dev_addr + 2UL) << 16)) | ((int )*(dev_addr + 1UL) << 8)) | (int )*dev_addr);
   tmp = ldv_spin_is_locked_92(& pdata->mac_lock);
   __ret_warn_on = tmp == 0;
-  tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -8398,7 +8396,7 @@ static void smsc911x_set_hw_mac_address(struct smsc911x_data *pdata , u8 *dev_ad
 
   }
   {
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
   smsc911x_mac_write(pdata, 2U, mac_high16);
   smsc911x_mac_write(pdata, 3U, mac_low32);
   }
@@ -8485,7 +8483,7 @@ static int smsc911x_open(struct net_device *dev )
   }
   ldv_43970: 
   {
-  tmp___2 = __builtin_expect(timeout == 0U, 0L);
+  tmp___2 = ldv__builtin_expect(timeout == 0U, 0L);
   }
   if (tmp___2 != 0L) {
     {
@@ -8645,7 +8643,7 @@ static int smsc911x_hard_start_xmit(struct sk_buff *skb , struct net_device *dev
   pdata = (struct smsc911x_data *)tmp;
   tmp___0 = smsc911x_reg_read(pdata, 128U);
   freespace = tmp___0 & 65535U;
-  tmp___1 = __builtin_expect(freespace <= 1599U, 0L);
+  tmp___1 = ldv__builtin_expect(freespace <= 1599U, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -8671,7 +8669,7 @@ static int smsc911x_hard_start_xmit(struct sk_buff *skb , struct net_device *dev
   skb_tx_timestamp(skb);
   consume_skb(skb);
   tmp___2 = smsc911x_tx_get_txstatcount(pdata);
-  tmp___3 = __builtin_expect(tmp___2 > 29U, 0L);
+  tmp___3 = ldv__builtin_expect(tmp___2 > 29U, 0L);
   }
   if (tmp___3 != 0L) {
     {
@@ -8832,7 +8830,7 @@ static irqreturn_t smsc911x_irqhandler(int irq , void *dev_id )
   tmp___1 = smsc911x_reg_read(pdata, 92U);
   inten = tmp___1;
   serviced = 0;
-  tmp___2 = __builtin_expect((int )(intsts & inten) < 0, 0L);
+  tmp___2 = ldv__builtin_expect((int )(intsts & inten) < 0, 0L);
   }
   if (tmp___2 != 0L) {
     {
@@ -8848,7 +8846,7 @@ static irqreturn_t smsc911x_irqhandler(int irq , void *dev_id )
 
   }
   {
-  tmp___3 = __builtin_expect(((intsts & inten) & 16777216U) != 0U, 0L);
+  tmp___3 = ldv__builtin_expect(((intsts & inten) & 16777216U) != 0U, 0L);
   }
   if (tmp___3 != 0L) {
     {
@@ -8879,7 +8877,7 @@ static irqreturn_t smsc911x_irqhandler(int irq , void *dev_id )
 
   }
   {
-  tmp___4 = __builtin_expect(((intsts & inten) & 16384U) != 0U, 0L);
+  tmp___4 = ldv__builtin_expect(((intsts & inten) & 16384U) != 0U, 0L);
   }
   if (tmp___4 != 0L) {
     {
@@ -8891,12 +8889,12 @@ static irqreturn_t smsc911x_irqhandler(int irq , void *dev_id )
 
   }
   {
-  tmp___7 = __builtin_expect(((intsts & inten) & 8U) != 0U, 1L);
+  tmp___7 = ldv__builtin_expect(((intsts & inten) & 8U) != 0U, 1L);
   }
   if (tmp___7 != 0L) {
     {
     tmp___5 = napi_schedule_prep(& pdata->napi);
-    tmp___6 = __builtin_expect((long )tmp___5, 1L);
+    tmp___6 = ldv__builtin_expect((long )tmp___5, 1L);
     }
     if (tmp___6 != 0L) {
       {
@@ -9672,7 +9670,7 @@ static int smsc911x_drv_remove(struct platform_device *pdev )
   {
   tmp = platform_get_drvdata((struct platform_device  const  *)pdev);
   dev = (struct net_device *)tmp;
-  tmp___0 = __builtin_expect((unsigned long )dev == (unsigned long )((struct net_device *)0),
+  tmp___0 = ldv__builtin_expect((unsigned long )dev == (unsigned long )((struct net_device *)0),
                              0L);
   }
   if (tmp___0 != 0L) {
@@ -9687,7 +9685,7 @@ static int smsc911x_drv_remove(struct platform_device *pdev )
   {
   tmp___1 = netdev_priv((struct net_device  const  *)dev);
   pdata = (struct smsc911x_data *)tmp___1;
-  tmp___2 = __builtin_expect((unsigned long )pdata == (unsigned long )((struct smsc911x_data *)0),
+  tmp___2 = ldv__builtin_expect((unsigned long )pdata == (unsigned long )((struct smsc911x_data *)0),
                              0L);
   }
   if (tmp___2 != 0L) {
@@ -9700,7 +9698,7 @@ static int smsc911x_drv_remove(struct platform_device *pdev )
 
   }
   {
-  tmp___3 = __builtin_expect((unsigned long )pdata->ioaddr == (unsigned long )((void *)0),
+  tmp___3 = ldv__builtin_expect((unsigned long )pdata->ioaddr == (unsigned long )((void *)0),
                              0L);
   }
   if (tmp___3 != 0L) {
@@ -9713,7 +9711,7 @@ static int smsc911x_drv_remove(struct platform_device *pdev )
 
   }
   {
-  tmp___4 = __builtin_expect((unsigned long )pdata->phy_dev == (unsigned long )((struct phy_device *)0),
+  tmp___4 = ldv__builtin_expect((unsigned long )pdata->phy_dev == (unsigned long )((struct phy_device *)0),
                              0L);
   }
   if (tmp___4 != 0L) {
@@ -10229,7 +10227,7 @@ void ldv_dummy_resourceless_instance_callback_5_9(void (*arg0)(struct smsc911x_d
                                                   struct smsc911x_data *arg1 , unsigned int arg2 ,
                                                   unsigned int arg3 ) ;
 void ldv_entry_EMGentry_14(void *arg0 ) ;
-void main(void) ;
+int main(void) ;
 void ldv_free_irq(void *arg0 , int arg1 , void *arg2 ) ;
 void ldv_free_netdev(void *arg0 , struct net_device *arg1 ) ;
 void ldv_initialize_external_data(void) ;
@@ -11173,7 +11171,7 @@ void ldv_entry_EMGentry_14(void *arg0 )
   return;
 }
 }
-void main(void) 
+int main(void) 
 { 
   int tmp ;
 
@@ -14151,7 +14149,7 @@ void *ldv_kzalloc(size_t size , gfp_t flags )
 }
 }
 extern void ldv_assert(char const   * , int  ) ;
-void __builtin_trap(void) ;
+void ldv__builtin_trap(void) ;
 void ldv_assume(int expression ) 
 { 
 
@@ -14175,7 +14173,7 @@ void ldv_stop(void)
   goto ldv_stop_label;
 }
 }
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 
@@ -14183,7 +14181,7 @@ long __builtin_expect(long exp , long c )
   return (exp);
 }
 }
-void __builtin_trap(void) 
+void ldv__builtin_trap(void) 
 { 
 
 

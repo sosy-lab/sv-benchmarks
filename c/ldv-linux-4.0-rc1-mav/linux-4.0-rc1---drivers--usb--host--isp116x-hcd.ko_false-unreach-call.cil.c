@@ -4160,7 +4160,7 @@ struct ldv_thread {
    void (*function)(void * ) ;
 };
 typedef _Bool ldv_set;
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 void ldv_assume(int expression ) ;
 void ldv_stop(void) ;
 void ldv_linux_alloc_irq_check_alloc_flags(gfp_t flags ) ;
@@ -4375,7 +4375,6 @@ __inline static int list_empty(struct list_head  const  *head )
 }
 }
 extern void warn_slowpath_null(char const   * , int const    ) ;
-extern int ( /* missing proto */  __builtin_unreachable)() ;
 __inline static int atomic_read(atomic_t const   *v ) 
 { 
   int __var ;
@@ -4672,7 +4671,7 @@ __inline static __u16 usb_maxpacket(struct usb_device *udev , int pipe , int is_
   if (is_out != 0) {
     {
     __ret_warn_on = (pipe & 128) != 0;
-    tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
     if (tmp != 0L) {
       {
@@ -4682,13 +4681,13 @@ __inline static __u16 usb_maxpacket(struct usb_device *udev , int pipe , int is_
 
     }
     {
-    __builtin_expect(__ret_warn_on != 0, 0L);
+    ldv__builtin_expect(__ret_warn_on != 0, 0L);
     ep = udev->ep_out[epnum];
     }
   } else {
     {
     __ret_warn_on___0 = (pipe & 128) == 0;
-    tmp___0 = __builtin_expect(__ret_warn_on___0 != 0, 0L);
+    tmp___0 = ldv__builtin_expect(__ret_warn_on___0 != 0, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -4698,7 +4697,7 @@ __inline static __u16 usb_maxpacket(struct usb_device *udev , int pipe , int is_
 
     }
     {
-    __builtin_expect(__ret_warn_on___0 != 0, 0L);
+    ldv__builtin_expect(__ret_warn_on___0 != 0, 0L);
     ep = udev->ep_in[epnum];
     }
   }
@@ -5082,7 +5081,7 @@ __inline static void isp116x_show_regs_log(struct isp116x *isp116x )
   descriptor.format = "116x: %-12s[%02x]: %08x\n";
   descriptor.lineno = 503U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -5100,7 +5099,7 @@ __inline static void isp116x_show_regs_log(struct isp116x *isp116x )
   descriptor___1.format = "116x: %-12s[%02x]: %08x\n";
   descriptor___1.lineno = 503U;
   descriptor___1.flags = 0U;
-  tmp___4 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+  tmp___4 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
   }
   if (tmp___4 != 0L) {
     {
@@ -5118,7 +5117,7 @@ __inline static void isp116x_show_regs_log(struct isp116x *isp116x )
   descriptor___3.format = "116x: %-12s[%02x]: %08x\n";
   descriptor___3.lineno = 503U;
   descriptor___3.flags = 0U;
-  tmp___8 = __builtin_expect((long )descriptor___3.flags & 1L, 0L);
+  tmp___8 = ldv__builtin_expect((long )descriptor___3.flags & 1L, 0L);
   }
   if (tmp___8 != 0L) {
     {
@@ -5136,7 +5135,7 @@ __inline static void isp116x_show_regs_log(struct isp116x *isp116x )
   descriptor___5.format = "116x: %-12s[%02x]: %08x\n";
   descriptor___5.lineno = 503U;
   descriptor___5.flags = 0U;
-  tmp___12 = __builtin_expect((long )descriptor___5.flags & 1L, 0L);
+  tmp___12 = ldv__builtin_expect((long )descriptor___5.flags & 1L, 0L);
   }
   if (tmp___12 != 0L) {
     {
@@ -5154,7 +5153,7 @@ __inline static void isp116x_show_regs_log(struct isp116x *isp116x )
   descriptor___7.format = "116x: %-12s[%02x]: %08x\n";
   descriptor___7.lineno = 503U;
   descriptor___7.flags = 0U;
-  tmp___16 = __builtin_expect((long )descriptor___7.flags & 1L, 0L);
+  tmp___16 = ldv__builtin_expect((long )descriptor___7.flags & 1L, 0L);
   }
   if (tmp___16 != 0L) {
     {
@@ -5172,7 +5171,7 @@ __inline static void isp116x_show_regs_log(struct isp116x *isp116x )
   descriptor___9.format = "116x: %-12s[%02x]: %08x\n";
   descriptor___9.lineno = 503U;
   descriptor___9.flags = 0U;
-  tmp___20 = __builtin_expect((long )descriptor___9.flags & 1L, 0L);
+  tmp___20 = ldv__builtin_expect((long )descriptor___9.flags & 1L, 0L);
   }
   if (tmp___20 != 0L) {
     {
@@ -5190,7 +5189,7 @@ __inline static void isp116x_show_regs_log(struct isp116x *isp116x )
   descriptor___11.format = "116x: %-12s[%02x]: %08x\n";
   descriptor___11.lineno = 503U;
   descriptor___11.flags = 0U;
-  tmp___24 = __builtin_expect((long )descriptor___11.flags & 1L, 0L);
+  tmp___24 = ldv__builtin_expect((long )descriptor___11.flags & 1L, 0L);
   }
   if (tmp___24 != 0L) {
     {
@@ -5208,7 +5207,7 @@ __inline static void isp116x_show_regs_log(struct isp116x *isp116x )
   descriptor___13.format = "116x: %-12s[%02x]: %08x\n";
   descriptor___13.lineno = 503U;
   descriptor___13.flags = 0U;
-  tmp___28 = __builtin_expect((long )descriptor___13.flags & 1L, 0L);
+  tmp___28 = ldv__builtin_expect((long )descriptor___13.flags & 1L, 0L);
   }
   if (tmp___28 != 0L) {
     {
@@ -5226,7 +5225,7 @@ __inline static void isp116x_show_regs_log(struct isp116x *isp116x )
   descriptor___15.format = "116x: %-12s[%02x]: %08x\n";
   descriptor___15.lineno = 503U;
   descriptor___15.flags = 0U;
-  tmp___32 = __builtin_expect((long )descriptor___15.flags & 1L, 0L);
+  tmp___32 = ldv__builtin_expect((long )descriptor___15.flags & 1L, 0L);
   }
   if (tmp___32 != 0L) {
     {
@@ -5244,7 +5243,7 @@ __inline static void isp116x_show_regs_log(struct isp116x *isp116x )
   descriptor___17.format = "116x: %-12s[%02x]: %08x\n";
   descriptor___17.lineno = 503U;
   descriptor___17.flags = 0U;
-  tmp___36 = __builtin_expect((long )descriptor___17.flags & 1L, 0L);
+  tmp___36 = ldv__builtin_expect((long )descriptor___17.flags & 1L, 0L);
   }
   if (tmp___36 != 0L) {
     {
@@ -5262,7 +5261,7 @@ __inline static void isp116x_show_regs_log(struct isp116x *isp116x )
   descriptor___19.format = "116x: %-12s[%02x]: %08x\n";
   descriptor___19.lineno = 503U;
   descriptor___19.flags = 0U;
-  tmp___40 = __builtin_expect((long )descriptor___19.flags & 1L, 0L);
+  tmp___40 = ldv__builtin_expect((long )descriptor___19.flags & 1L, 0L);
   }
   if (tmp___40 != 0L) {
     {
@@ -5280,7 +5279,7 @@ __inline static void isp116x_show_regs_log(struct isp116x *isp116x )
   descriptor___21.format = "116x: %-12s[%02x]: %08x\n";
   descriptor___21.lineno = 503U;
   descriptor___21.flags = 0U;
-  tmp___44 = __builtin_expect((long )descriptor___21.flags & 1L, 0L);
+  tmp___44 = ldv__builtin_expect((long )descriptor___21.flags & 1L, 0L);
   }
   if (tmp___44 != 0L) {
     {
@@ -5298,7 +5297,7 @@ __inline static void isp116x_show_regs_log(struct isp116x *isp116x )
   descriptor___23.format = "116x: %-12s[%02x]: %08x\n";
   descriptor___23.lineno = 503U;
   descriptor___23.flags = 0U;
-  tmp___48 = __builtin_expect((long )descriptor___23.flags & 1L, 0L);
+  tmp___48 = ldv__builtin_expect((long )descriptor___23.flags & 1L, 0L);
   }
   if (tmp___48 != 0L) {
     {
@@ -5316,7 +5315,7 @@ __inline static void isp116x_show_regs_log(struct isp116x *isp116x )
   descriptor___25.format = "116x: %-12s[%02x]: %08x\n";
   descriptor___25.lineno = 503U;
   descriptor___25.flags = 0U;
-  tmp___52 = __builtin_expect((long )descriptor___25.flags & 1L, 0L);
+  tmp___52 = ldv__builtin_expect((long )descriptor___25.flags & 1L, 0L);
   }
   if (tmp___52 != 0L) {
     {
@@ -5334,7 +5333,7 @@ __inline static void isp116x_show_regs_log(struct isp116x *isp116x )
   descriptor___28.format = "116x: %-12s[%02x]:     %04x\n";
   descriptor___28.lineno = 503U;
   descriptor___28.flags = 0U;
-  tmp___58 = __builtin_expect((long )descriptor___28.flags & 1L, 0L);
+  tmp___58 = ldv__builtin_expect((long )descriptor___28.flags & 1L, 0L);
   }
   if (tmp___58 != 0L) {
     {
@@ -5352,7 +5351,7 @@ __inline static void isp116x_show_regs_log(struct isp116x *isp116x )
   descriptor___30.format = "116x: %-12s[%02x]:     %04x\n";
   descriptor___30.lineno = 503U;
   descriptor___30.flags = 0U;
-  tmp___62 = __builtin_expect((long )descriptor___30.flags & 1L, 0L);
+  tmp___62 = ldv__builtin_expect((long )descriptor___30.flags & 1L, 0L);
   }
   if (tmp___62 != 0L) {
     {
@@ -5370,7 +5369,7 @@ __inline static void isp116x_show_regs_log(struct isp116x *isp116x )
   descriptor___32.format = "116x: %-12s[%02x]:     %04x\n";
   descriptor___32.lineno = 503U;
   descriptor___32.flags = 0U;
-  tmp___66 = __builtin_expect((long )descriptor___32.flags & 1L, 0L);
+  tmp___66 = ldv__builtin_expect((long )descriptor___32.flags & 1L, 0L);
   }
   if (tmp___66 != 0L) {
     {
@@ -5388,7 +5387,7 @@ __inline static void isp116x_show_regs_log(struct isp116x *isp116x )
   descriptor___34.format = "116x: %-12s[%02x]:     %04x\n";
   descriptor___34.lineno = 503U;
   descriptor___34.flags = 0U;
-  tmp___70 = __builtin_expect((long )descriptor___34.flags & 1L, 0L);
+  tmp___70 = ldv__builtin_expect((long )descriptor___34.flags & 1L, 0L);
   }
   if (tmp___70 != 0L) {
     {
@@ -5406,7 +5405,7 @@ __inline static void isp116x_show_regs_log(struct isp116x *isp116x )
   descriptor___36.format = "116x: %-12s[%02x]:     %04x\n";
   descriptor___36.lineno = 503U;
   descriptor___36.flags = 0U;
-  tmp___74 = __builtin_expect((long )descriptor___36.flags & 1L, 0L);
+  tmp___74 = ldv__builtin_expect((long )descriptor___36.flags & 1L, 0L);
   }
   if (tmp___74 != 0L) {
     {
@@ -5424,7 +5423,7 @@ __inline static void isp116x_show_regs_log(struct isp116x *isp116x )
   descriptor___38.format = "116x: %-12s[%02x]:     %04x\n";
   descriptor___38.lineno = 503U;
   descriptor___38.flags = 0U;
-  tmp___78 = __builtin_expect((long )descriptor___38.flags & 1L, 0L);
+  tmp___78 = ldv__builtin_expect((long )descriptor___38.flags & 1L, 0L);
   }
   if (tmp___78 != 0L) {
     {
@@ -5442,7 +5441,7 @@ __inline static void isp116x_show_regs_log(struct isp116x *isp116x )
   descriptor___40.format = "116x: %-12s[%02x]:     %04x\n";
   descriptor___40.lineno = 503U;
   descriptor___40.flags = 0U;
-  tmp___82 = __builtin_expect((long )descriptor___40.flags & 1L, 0L);
+  tmp___82 = ldv__builtin_expect((long )descriptor___40.flags & 1L, 0L);
   }
   if (tmp___82 != 0L) {
     {
@@ -5460,7 +5459,7 @@ __inline static void isp116x_show_regs_log(struct isp116x *isp116x )
   descriptor___42.format = "116x: %-12s[%02x]:     %04x\n";
   descriptor___42.lineno = 503U;
   descriptor___42.flags = 0U;
-  tmp___86 = __builtin_expect((long )descriptor___42.flags & 1L, 0L);
+  tmp___86 = ldv__builtin_expect((long )descriptor___42.flags & 1L, 0L);
   }
   if (tmp___86 != 0L) {
     {
@@ -5478,7 +5477,7 @@ __inline static void isp116x_show_regs_log(struct isp116x *isp116x )
   descriptor___44.format = "116x: %-12s[%02x]:     %04x\n";
   descriptor___44.lineno = 503U;
   descriptor___44.flags = 0U;
-  tmp___90 = __builtin_expect((long )descriptor___44.flags & 1L, 0L);
+  tmp___90 = ldv__builtin_expect((long )descriptor___44.flags & 1L, 0L);
   }
   if (tmp___90 != 0L) {
     {
@@ -5496,7 +5495,7 @@ __inline static void isp116x_show_regs_log(struct isp116x *isp116x )
   descriptor___46.format = "116x: %-12s[%02x]:     %04x\n";
   descriptor___46.lineno = 503U;
   descriptor___46.flags = 0U;
-  tmp___94 = __builtin_expect((long )descriptor___46.flags & 1L, 0L);
+  tmp___94 = ldv__builtin_expect((long )descriptor___46.flags & 1L, 0L);
   }
   if (tmp___94 != 0L) {
     {
@@ -5514,7 +5513,7 @@ __inline static void isp116x_show_regs_log(struct isp116x *isp116x )
   descriptor___48.format = "116x: %-12s[%02x]:     %04x\n";
   descriptor___48.lineno = 503U;
   descriptor___48.flags = 0U;
-  tmp___98 = __builtin_expect((long )descriptor___48.flags & 1L, 0L);
+  tmp___98 = ldv__builtin_expect((long )descriptor___48.flags & 1L, 0L);
   }
   if (tmp___98 != 0L) {
     {
@@ -5532,7 +5531,7 @@ __inline static void isp116x_show_regs_log(struct isp116x *isp116x )
   descriptor___50.format = "116x: %-12s[%02x]:     %04x\n";
   descriptor___50.lineno = 503U;
   descriptor___50.flags = 0U;
-  tmp___102 = __builtin_expect((long )descriptor___50.flags & 1L, 0L);
+  tmp___102 = ldv__builtin_expect((long )descriptor___50.flags & 1L, 0L);
   }
   if (tmp___102 != 0L) {
     {
@@ -5745,7 +5744,7 @@ static void pack_fifo(struct isp116x *isp116x )
 
   }
   {
-  tmp = __builtin_expect(buflen != 0, 0L);
+  tmp = ldv__builtin_expect(buflen != 0, 0L);
   }
   if (tmp != 0L) {
     {
@@ -5800,7 +5799,7 @@ static void unpack_fifo(struct isp116x *isp116x )
 
   }
   {
-  tmp = __builtin_expect(buflen != 0, 0L);
+  tmp = ldv__builtin_expect(buflen != 0, 0L);
   }
   if (tmp != 0L) {
     {
@@ -5834,7 +5833,7 @@ static void preproc_atl_queue(struct isp116x *isp116x )
   toggle = 0U;
   dir = 0U;
   tmp = list_empty((struct list_head  const  *)(& (ep->hep)->urb_list));
-  tmp___0 = __builtin_expect(tmp != 0, 0L);
+  tmp___0 = ldv__builtin_expect(tmp != 0, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -5975,7 +5974,7 @@ static void finish_request(struct isp116x *isp116x , struct isp116x_ep *ep , str
   descriptor.format = "116x: deschedule qh%d/%p branch %d\n";
   descriptor.lineno = 322U;
   descriptor.flags = 0U;
-  tmp___3 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___3 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___3 != 0L) {
     {
@@ -6055,7 +6054,7 @@ static void postproc_atl_queue(struct isp116x *isp116x )
   ldv_33302: 
   {
   tmp = list_empty((struct list_head  const  *)(& (ep->hep)->urb_list));
-  tmp___0 = __builtin_expect(tmp != 0, 0L);
+  tmp___0 = ldv__builtin_expect(tmp != 0, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -6082,7 +6081,7 @@ static void postproc_atl_queue(struct isp116x *isp116x )
       descriptor.format = "116x: Allowed or control data underrun\n";
       descriptor.lineno = 375U;
       descriptor.flags = 0U;
-      tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+      tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
       }
       if (tmp___1 != 0L) {
         {
@@ -6183,7 +6182,7 @@ static void postproc_atl_queue(struct isp116x *isp116x )
     descriptor___0.format = "116x: Zero packet requested\n";
     descriptor___0.lineno = 434U;
     descriptor___0.flags = 0U;
-    tmp___2 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___2 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___2 != 0L) {
       {
@@ -6363,7 +6362,7 @@ static void start_atl_transfers(struct isp116x *isp116x )
       len = (int )(urb->transfer_buffer_length - urb->actual_length);
     }
     {
-    tmp___4 = __builtin_expect(len < 0, 0L);
+    tmp___4 = ldv__builtin_expect(len < 0, 0L);
     }
     if (tmp___4 != 0L) {
       {
@@ -6507,7 +6506,7 @@ static irqreturn_t isp116x_irq(struct usb_hcd *hcd )
       descriptor.format = "116x: ---- remote wakeup\n";
       descriptor.lineno = 624U;
       descriptor.flags = 0U;
-      tmp___2 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+      tmp___2 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
       }
       if (tmp___2 != 0L) {
         {
@@ -6778,7 +6777,7 @@ static int isp116x_urb_enqueue(struct usb_hcd *hcd , struct urb *urb , gfp_t mem
   descriptor.format = "116x: schedule qh%d/%p branch %d\n";
   descriptor.lineno = 793U;
   descriptor.flags = 0U;
-  tmp___5 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___5 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___5 != 0L) {
     {
@@ -6885,7 +6884,7 @@ static int isp116x_urb_dequeue(struct usb_hcd *hcd , struct urb *urb , int statu
   hep = (struct usb_host_endpoint *)urb->hcpriv;
   ep = (struct isp116x_ep *)hep->hcpriv;
   __ret_warn_on = (unsigned long )hep != (unsigned long )ep->hep;
-  tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -6895,7 +6894,7 @@ static int isp116x_urb_dequeue(struct usb_hcd *hcd , struct urb *urb , int statu
 
   }
   {
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if ((unsigned long )(ep->hep)->urb_list.next == (unsigned long )(& urb->urb_list)) {
     ep_act = isp116x->atl_active;
@@ -7250,7 +7249,7 @@ static int isp116x_hub_control(struct usb_hcd *hcd , u16 typeReq , u16 wValue , 
   descriptor.format = "116x: ClearHubFeature: ";
   descriptor.lineno = 1013U;
   descriptor.flags = 0U;
-  tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -7279,7 +7278,7 @@ static int isp116x_hub_control(struct usb_hcd *hcd , u16 typeReq , u16 wValue , 
   descriptor___0.format = "116x: C_HUB_OVER_CURRENT\n";
   descriptor___0.lineno = 1016U;
   descriptor___0.flags = 0U;
-  tmp___2 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___2 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
   }
   if (tmp___2 != 0L) {
     {
@@ -7301,7 +7300,7 @@ static int isp116x_hub_control(struct usb_hcd *hcd , u16 typeReq , u16 wValue , 
   descriptor___1.format = "116x: C_HUB_LOCAL_POWER\n";
   descriptor___1.lineno = 1021U;
   descriptor___1.flags = 0U;
-  tmp___3 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+  tmp___3 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
   }
   if (tmp___3 != 0L) {
     {
@@ -7325,7 +7324,7 @@ static int isp116x_hub_control(struct usb_hcd *hcd , u16 typeReq , u16 wValue , 
   descriptor___2.format = "116x: SetHubFeature: ";
   descriptor___2.lineno = 1028U;
   descriptor___2.flags = 0U;
-  tmp___4 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+  tmp___4 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
   }
   if (tmp___4 != 0L) {
     {
@@ -7355,7 +7354,7 @@ static int isp116x_hub_control(struct usb_hcd *hcd , u16 typeReq , u16 wValue , 
   descriptor___3.format = "116x: C_HUB_OVER_CURRENT or C_HUB_LOCAL_POWER\n";
   descriptor___3.lineno = 1032U;
   descriptor___3.flags = 0U;
-  tmp___5 = __builtin_expect((long )descriptor___3.flags & 1L, 0L);
+  tmp___5 = ldv__builtin_expect((long )descriptor___3.flags & 1L, 0L);
   }
   if (tmp___5 != 0L) {
     {
@@ -7379,7 +7378,7 @@ static int isp116x_hub_control(struct usb_hcd *hcd , u16 typeReq , u16 wValue , 
   descriptor___4.format = "116x: GetHubDescriptor\n";
   descriptor___4.lineno = 1039U;
   descriptor___4.flags = 0U;
-  tmp___6 = __builtin_expect((long )descriptor___4.flags & 1L, 0L);
+  tmp___6 = ldv__builtin_expect((long )descriptor___4.flags & 1L, 0L);
   }
   if (tmp___6 != 0L) {
     {
@@ -7400,7 +7399,7 @@ static int isp116x_hub_control(struct usb_hcd *hcd , u16 typeReq , u16 wValue , 
   descriptor___5.format = "116x: GetHubStatus\n";
   descriptor___5.lineno = 1044U;
   descriptor___5.flags = 0U;
-  tmp___7 = __builtin_expect((long )descriptor___5.flags & 1L, 0L);
+  tmp___7 = ldv__builtin_expect((long )descriptor___5.flags & 1L, 0L);
   }
   if (tmp___7 != 0L) {
     {
@@ -7419,7 +7418,7 @@ static int isp116x_hub_control(struct usb_hcd *hcd , u16 typeReq , u16 wValue , 
   descriptor___6.format = "116x: GetPortStatus\n";
   descriptor___6.lineno = 1048U;
   descriptor___6.flags = 0U;
-  tmp___8 = __builtin_expect((long )descriptor___6.flags & 1L, 0L);
+  tmp___8 = ldv__builtin_expect((long )descriptor___6.flags & 1L, 0L);
   }
   if (tmp___8 != 0L) {
     {
@@ -7445,7 +7444,7 @@ static int isp116x_hub_control(struct usb_hcd *hcd , u16 typeReq , u16 wValue , 
   descriptor___7.format = "116x: GetPortStatus: port[%d]  %08x\n";
   descriptor___7.lineno = 1055U;
   descriptor___7.flags = 0U;
-  tmp___9 = __builtin_expect((long )descriptor___7.flags & 1L, 0L);
+  tmp___9 = ldv__builtin_expect((long )descriptor___7.flags & 1L, 0L);
   }
   if (tmp___9 != 0L) {
     {
@@ -7464,7 +7463,7 @@ static int isp116x_hub_control(struct usb_hcd *hcd , u16 typeReq , u16 wValue , 
   descriptor___8.format = "116x: ClearPortFeature: ";
   descriptor___8.lineno = 1058U;
   descriptor___8.flags = 0U;
-  tmp___10 = __builtin_expect((long )descriptor___8.flags & 1L, 0L);
+  tmp___10 = ldv__builtin_expect((long )descriptor___8.flags & 1L, 0L);
   }
   if (tmp___10 != 0L) {
     {
@@ -7529,7 +7528,7 @@ static int isp116x_hub_control(struct usb_hcd *hcd , u16 typeReq , u16 wValue , 
   descriptor___9.format = "116x: USB_PORT_FEAT_ENABLE\n";
   descriptor___9.lineno = 1065U;
   descriptor___9.flags = 0U;
-  tmp___11 = __builtin_expect((long )descriptor___9.flags & 1L, 0L);
+  tmp___11 = ldv__builtin_expect((long )descriptor___9.flags & 1L, 0L);
   }
   if (tmp___11 != 0L) {
     {
@@ -7548,7 +7547,7 @@ static int isp116x_hub_control(struct usb_hcd *hcd , u16 typeReq , u16 wValue , 
   descriptor___10.format = "116x: USB_PORT_FEAT_C_ENABLE\n";
   descriptor___10.lineno = 1069U;
   descriptor___10.flags = 0U;
-  tmp___12 = __builtin_expect((long )descriptor___10.flags & 1L, 0L);
+  tmp___12 = ldv__builtin_expect((long )descriptor___10.flags & 1L, 0L);
   }
   if (tmp___12 != 0L) {
     {
@@ -7567,7 +7566,7 @@ static int isp116x_hub_control(struct usb_hcd *hcd , u16 typeReq , u16 wValue , 
   descriptor___11.format = "116x: USB_PORT_FEAT_SUSPEND\n";
   descriptor___11.lineno = 1073U;
   descriptor___11.flags = 0U;
-  tmp___13 = __builtin_expect((long )descriptor___11.flags & 1L, 0L);
+  tmp___13 = ldv__builtin_expect((long )descriptor___11.flags & 1L, 0L);
   }
   if (tmp___13 != 0L) {
     {
@@ -7586,7 +7585,7 @@ static int isp116x_hub_control(struct usb_hcd *hcd , u16 typeReq , u16 wValue , 
   descriptor___12.format = "116x: USB_PORT_FEAT_C_SUSPEND\n";
   descriptor___12.lineno = 1077U;
   descriptor___12.flags = 0U;
-  tmp___14 = __builtin_expect((long )descriptor___12.flags & 1L, 0L);
+  tmp___14 = ldv__builtin_expect((long )descriptor___12.flags & 1L, 0L);
   }
   if (tmp___14 != 0L) {
     {
@@ -7605,7 +7604,7 @@ static int isp116x_hub_control(struct usb_hcd *hcd , u16 typeReq , u16 wValue , 
   descriptor___13.format = "116x: USB_PORT_FEAT_POWER\n";
   descriptor___13.lineno = 1081U;
   descriptor___13.flags = 0U;
-  tmp___15 = __builtin_expect((long )descriptor___13.flags & 1L, 0L);
+  tmp___15 = ldv__builtin_expect((long )descriptor___13.flags & 1L, 0L);
   }
   if (tmp___15 != 0L) {
     {
@@ -7624,7 +7623,7 @@ static int isp116x_hub_control(struct usb_hcd *hcd , u16 typeReq , u16 wValue , 
   descriptor___14.format = "116x: USB_PORT_FEAT_C_CONNECTION\n";
   descriptor___14.lineno = 1085U;
   descriptor___14.flags = 0U;
-  tmp___16 = __builtin_expect((long )descriptor___14.flags & 1L, 0L);
+  tmp___16 = ldv__builtin_expect((long )descriptor___14.flags & 1L, 0L);
   }
   if (tmp___16 != 0L) {
     {
@@ -7643,7 +7642,7 @@ static int isp116x_hub_control(struct usb_hcd *hcd , u16 typeReq , u16 wValue , 
   descriptor___15.format = "116x: USB_PORT_FEAT_C_OVER_CURRENT\n";
   descriptor___15.lineno = 1089U;
   descriptor___15.flags = 0U;
-  tmp___17 = __builtin_expect((long )descriptor___15.flags & 1L, 0L);
+  tmp___17 = ldv__builtin_expect((long )descriptor___15.flags & 1L, 0L);
   }
   if (tmp___17 != 0L) {
     {
@@ -7662,7 +7661,7 @@ static int isp116x_hub_control(struct usb_hcd *hcd , u16 typeReq , u16 wValue , 
   descriptor___16.format = "116x: USB_PORT_FEAT_C_RESET\n";
   descriptor___16.lineno = 1093U;
   descriptor___16.flags = 0U;
-  tmp___18 = __builtin_expect((long )descriptor___16.flags & 1L, 0L);
+  tmp___18 = ldv__builtin_expect((long )descriptor___16.flags & 1L, 0L);
   }
   if (tmp___18 != 0L) {
     {
@@ -7692,7 +7691,7 @@ static int isp116x_hub_control(struct usb_hcd *hcd , u16 typeReq , u16 wValue , 
   descriptor___17.format = "116x: SetPortFeature: ";
   descriptor___17.lineno = 1105U;
   descriptor___17.flags = 0U;
-  tmp___19 = __builtin_expect((long )descriptor___17.flags & 1L, 0L);
+  tmp___19 = ldv__builtin_expect((long )descriptor___17.flags & 1L, 0L);
   }
   if (tmp___19 != 0L) {
     {
@@ -7732,7 +7731,7 @@ static int isp116x_hub_control(struct usb_hcd *hcd , u16 typeReq , u16 wValue , 
   descriptor___18.format = "116x: USB_PORT_FEAT_SUSPEND\n";
   descriptor___18.lineno = 1111U;
   descriptor___18.flags = 0U;
-  tmp___20 = __builtin_expect((long )descriptor___18.flags & 1L, 0L);
+  tmp___20 = ldv__builtin_expect((long )descriptor___18.flags & 1L, 0L);
   }
   if (tmp___20 != 0L) {
     {
@@ -7755,7 +7754,7 @@ static int isp116x_hub_control(struct usb_hcd *hcd , u16 typeReq , u16 wValue , 
   descriptor___19.format = "116x: USB_PORT_FEAT_POWER\n";
   descriptor___19.lineno = 1118U;
   descriptor___19.flags = 0U;
-  tmp___21 = __builtin_expect((long )descriptor___19.flags & 1L, 0L);
+  tmp___21 = ldv__builtin_expect((long )descriptor___19.flags & 1L, 0L);
   }
   if (tmp___21 != 0L) {
     {
@@ -7778,7 +7777,7 @@ static int isp116x_hub_control(struct usb_hcd *hcd , u16 typeReq , u16 wValue , 
   descriptor___20.format = "116x: USB_PORT_FEAT_RESET\n";
   descriptor___20.lineno = 1125U;
   descriptor___20.flags = 0U;
-  tmp___22 = __builtin_expect((long )descriptor___20.flags & 1L, 0L);
+  tmp___22 = ldv__builtin_expect((long )descriptor___20.flags & 1L, 0L);
   }
   if (tmp___22 != 0L) {
     {
@@ -7806,7 +7805,7 @@ static int isp116x_hub_control(struct usb_hcd *hcd , u16 typeReq , u16 wValue , 
   descriptor___21.format = "116x: PROTOCOL STALL\n";
   descriptor___21.lineno = 1136U;
   descriptor___21.flags = 0U;
-  tmp___23 = __builtin_expect((long )descriptor___21.flags & 1L, 0L);
+  tmp___23 = ldv__builtin_expect((long )descriptor___21.flags & 1L, 0L);
   }
   if (tmp___23 != 0L) {
     {
@@ -8357,7 +8356,7 @@ static int isp116x_bus_resume(struct usb_hcd *hcd )
   descriptor.format = "116x: Chip has been reset while suspended. Reinit from scratch.\n";
   descriptor.lineno = 1468U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -8401,7 +8400,7 @@ static int isp116x_bus_resume(struct usb_hcd *hcd )
   descriptor___0.format = "116x: %s: Resuming port %d\n";
   descriptor___0.lineno = 1486U;
   descriptor___0.flags = 0U;
-  tmp___2 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___2 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
   }
   if (tmp___2 != 0L) {
     {
@@ -8533,7 +8532,7 @@ static int isp116x_probe(struct platform_device *pdev )
     descriptor.format = "116x: DMA not supported\n";
     descriptor.lineno = 1594U;
     descriptor.flags = 0U;
-    tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -8753,7 +8752,7 @@ void ldv_dispatch_register_dummy_factory_9_9_7(void) ;
 void ldv_dispatch_register_file_operations_instance_4_9_8(void) ;
 void ldv_dispatch_register_io_instance_7_9_9(void) ;
 void ldv_entry_EMGentry_9(void *arg0 ) ;
-void main(void) ;
+int main(void) ;
 void ldv_file_operations_file_operations_instance_0(void *arg0 ) ;
 void ldv_file_operations_instance_callback_0_22(long (*arg0)(struct file * , char * ,
                                                              unsigned long  , long long * ) ,
@@ -9062,7 +9061,7 @@ void ldv_entry_EMGentry_9(void *arg0 )
   return;
 }
 }
-void main(void) 
+int main(void) 
 { 
 
 
@@ -9071,7 +9070,7 @@ void main(void)
   ldv_ldv_initialize_152();
   ldv_entry_EMGentry_9((void *)0);
   }
-  return;
+return 0;
 }
 }
 void ldv_file_operations_file_operations_instance_0(void *arg0 ) 
@@ -12946,7 +12945,7 @@ void ldv_linux_usb_urb_check_final_state(void)
 }
 }
 extern void ldv_assert(char const   * , int  ) ;
-void __builtin_trap(void) ;
+void ldv__builtin_trap(void) ;
 void ldv_assume(int expression ) 
 { 
 
@@ -12970,7 +12969,7 @@ void ldv_stop(void)
   goto ldv_stop_label;
 }
 }
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 
@@ -12978,7 +12977,7 @@ long __builtin_expect(long exp , long c )
   return (exp);
 }
 }
-void __builtin_trap(void) 
+void ldv__builtin_trap(void) 
 { 
 
 

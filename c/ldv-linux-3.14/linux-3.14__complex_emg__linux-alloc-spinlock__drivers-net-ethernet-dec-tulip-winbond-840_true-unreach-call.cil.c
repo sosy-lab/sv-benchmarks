@@ -5241,7 +5241,7 @@ struct ldv_thread {
    int identifier ;
    void (*function)(void * ) ;
 };
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 extern void ldv_initialize(void) ;
 int ldv_post_init(int init_ret_val ) ;
 extern void ldv_pre_probe(void) ;
@@ -5319,7 +5319,6 @@ extern void *memcpy(void * , void const   * , size_t  ) ;
 extern void *memset(void * , int  , size_t  ) ;
 extern size_t strlcpy(char * , char const   * , size_t  ) ;
 extern void warn_slowpath_null(char const   * , int const    ) ;
-extern int ( /* missing proto */  __builtin_unreachable)() ;
 __inline static unsigned long arch_local_save_flags(void) 
 { 
   unsigned long __ret ;
@@ -5337,7 +5336,7 @@ __inline static unsigned long arch_local_save_flags(void)
   __edx = __edx;
   __ecx = __ecx;
   __eax = __eax;
-  tmp = __builtin_expect((unsigned long )pv_irq_ops.save_fl.func == (unsigned long )((void *)0),
+  tmp = ldv__builtin_expect((unsigned long )pv_irq_ops.save_fl.func == (unsigned long )((void *)0),
                          0L);
   }
   if (tmp != 0L) {
@@ -5573,7 +5572,7 @@ __inline static struct dma_map_ops *get_dma_ops(struct device *dev )
 
   {
   {
-  tmp = __builtin_expect((unsigned long )dev == (unsigned long )((struct device *)0),
+  tmp = ldv__builtin_expect((unsigned long )dev == (unsigned long )((struct device *)0),
                          0L);
   }
   if (tmp != 0L || (unsigned long )dev->archdata.dma_ops == (unsigned long )((struct dma_map_ops *)0)) {
@@ -5600,7 +5599,7 @@ __inline static dma_addr_t dma_map_single_attrs(struct device *dev , void *ptr ,
   ops = tmp;
   kmemcheck_mark_initialized(ptr, (unsigned int )size);
   tmp___0 = valid_dma_direction((int )dir);
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -5636,7 +5635,7 @@ __inline static void dma_unmap_single_attrs(struct device *dev , dma_addr_t addr
   tmp = get_dma_ops(dev);
   ops = tmp;
   tmp___0 = valid_dma_direction((int )dir);
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -5676,7 +5675,7 @@ __inline static void dma_sync_single_for_cpu(struct device *dev , dma_addr_t add
   tmp = get_dma_ops(dev);
   ops = tmp;
   tmp___0 = valid_dma_direction((int )dir);
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -5716,7 +5715,7 @@ __inline static void dma_sync_single_for_device(struct device *dev , dma_addr_t 
   tmp = get_dma_ops(dev);
   ops = tmp;
   tmp___0 = valid_dma_direction((int )dir);
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -5842,7 +5841,7 @@ __inline static void dma_free_attrs(struct device *dev , size_t size , void *vad
   _flags = arch_local_save_flags();
   tmp___0 = arch_irqs_disabled_flags(_flags);
   __ret_warn_on = tmp___0 != 0;
-  tmp___1 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___1 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -5853,7 +5852,7 @@ __inline static void dma_free_attrs(struct device *dev , size_t size , void *vad
 
   }
   {
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
   debug_dma_free_coherent(dev, size, vaddr, bus);
   }
   if ((unsigned long )ops->free != (unsigned long )((void (*)(struct device * , size_t  ,
@@ -6002,7 +6001,7 @@ __inline static void netif_tx_stop_queue(struct netdev_queue *dev_queue )
   {
   {
   __ret_warn_on = (unsigned long )dev_queue == (unsigned long )((struct netdev_queue *)0);
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp != 0L) {
     {
@@ -6012,7 +6011,7 @@ __inline static void netif_tx_stop_queue(struct netdev_queue *dev_queue )
 
   }
   {
-  tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -7081,7 +7080,7 @@ static int netdev_open(struct net_device *dev )
     descriptor.format = "w89c840_open() irq %d\n";
     descriptor.lineno = 644U;
     descriptor.flags = 1U;
-    tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -7117,7 +7116,7 @@ static int netdev_open(struct net_device *dev )
     descriptor___0.format = "Done netdev_open()\n";
     descriptor___0.lineno = 656U;
     descriptor___0.flags = 1U;
-    tmp___1 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___1 != 0L) {
       {
@@ -7363,7 +7362,7 @@ static void netdev_timer(unsigned long data )
     descriptor.format = "Media selection timer tick, status %08x config %08x\n";
     descriptor.lineno = 787U;
     descriptor.flags = 1U;
-    tmp___2 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___2 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp___2 != 0L) {
       {
@@ -7738,7 +7737,7 @@ static netdev_tx_t start_tx(struct sk_buff *skb , struct net_device *dev )
     descriptor.format = "Transmit frame #%d queued in slot %d\n";
     descriptor.lineno = 1056U;
     descriptor.flags = 1U;
-    tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -7788,7 +7787,7 @@ static void netdev_tx_done(struct net_device *dev )
       descriptor.format = "Transmit error, Tx status %08x\n";
       descriptor.lineno = 1074U;
       descriptor.flags = 1U;
-      tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+      tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
       }
       if (tmp___0 != 0L) {
         {
@@ -7836,7 +7835,7 @@ static void netdev_tx_done(struct net_device *dev )
       descriptor___0.format = "Transmit slot %d ok, Tx status %08x\n";
       descriptor___0.lineno = 1087U;
       descriptor___0.flags = 1U;
-      tmp___1 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+      tmp___1 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
       }
       if (tmp___1 != 0L) {
         {
@@ -7933,7 +7932,7 @@ static irqreturn_t intr_handler(int irq , void *dev_instance )
     descriptor.format = "Interrupt, status %04x\n";
     descriptor.lineno = 1130U;
     descriptor.flags = 1U;
-    tmp___3 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___3 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp___3 != 0L) {
       {
@@ -8015,7 +8014,7 @@ static irqreturn_t intr_handler(int irq , void *dev_instance )
     descriptor___0.format = "exiting interrupt, status=%#4.4x\n";
     descriptor___0.lineno = 1172U;
     descriptor___0.flags = 1U;
-    tmp___6 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___6 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___6 != 0L) {
       {
@@ -8069,7 +8068,7 @@ static int netdev_rx(struct net_device *dev )
     descriptor.format = " In netdev_rx(), entry %d status %04x\n";
     descriptor.lineno = 1186U;
     descriptor.flags = 1U;
-    tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -8094,7 +8093,7 @@ static int netdev_rx(struct net_device *dev )
     descriptor___0.format = "  netdev_rx() status was %08x\n";
     descriptor___0.lineno = 1196U;
     descriptor___0.flags = 1U;
-    tmp___1 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___1 != 0L) {
       {
@@ -8133,7 +8132,7 @@ static int netdev_rx(struct net_device *dev )
         descriptor___1.format = "Receive error, Rx status %08x\n";
         descriptor___1.lineno = 1212U;
         descriptor___1.flags = 1U;
-        tmp___2 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+        tmp___2 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
         }
         if (tmp___2 != 0L) {
           {
@@ -8175,7 +8174,7 @@ static int netdev_rx(struct net_device *dev )
       descriptor___2.format = "  netdev_rx() normal Rx pkt length %d status %x\n";
       descriptor___2.lineno = 1226U;
       descriptor___2.flags = 1U;
-      tmp___3 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+      tmp___3 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
       }
       if (tmp___3 != 0L) {
         {
@@ -8229,7 +8228,7 @@ static int netdev_rx(struct net_device *dev )
       descriptor___3.format = "  Rx data %pM %pM %02x%02x %pI4\n";
       descriptor___3.lineno = 1254U;
       descriptor___3.flags = 1U;
-      tmp___4 = __builtin_expect((long )descriptor___3.flags & 1L, 0L);
+      tmp___4 = ldv__builtin_expect((long )descriptor___3.flags & 1L, 0L);
       }
       if (tmp___4 != 0L) {
         {
@@ -8322,7 +8321,7 @@ static void netdev_error(struct net_device *dev , int intr_status )
     descriptor.format = "Abnormal event, %08x\n";
     descriptor.lineno = 1292U;
     descriptor.flags = 1U;
-    tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -8358,7 +8357,7 @@ static void netdev_error(struct net_device *dev , int intr_status )
     descriptor___0.format = "Tx underflow, new csr6 %08x\n";
     descriptor___0.lineno = 1312U;
     descriptor___0.flags = 1U;
-    tmp___1 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___1 != 0L) {
       {
@@ -8715,7 +8714,7 @@ static int netdev_close(struct net_device *dev )
     descriptor.format = "Shutting down ethercard, status was %08x Config %08x\n";
     descriptor.lineno = 1487U;
     descriptor.flags = 1U;
-    tmp___2 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___2 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp___2 != 0L) {
       {
@@ -8734,7 +8733,7 @@ static int netdev_close(struct net_device *dev )
     descriptor___0.format = "Queue pointers were Tx %d / %d,  Rx %d / %d\n";
     descriptor___0.lineno = 1490U;
     descriptor___0.flags = 1U;
-    tmp___3 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___3 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___3 != 0L) {
       {
@@ -8836,7 +8835,7 @@ static int w840_suspend(struct pci_dev *pdev , pm_message_t state )
     netif_tx_disable(dev);
     tmp___1 = ioread32(ioaddr + 32UL);
     np->stats.rx_missed_errors = np->stats.rx_missed_errors + ((unsigned long )tmp___1 & 65535UL);
-    tmp___2 = __builtin_expect(np->csr6 != 0, 0L);
+    tmp___2 = ldv__builtin_expect(np->csr6 != 0, 0L);
     }
     if (tmp___2 != 0L) {
       {
@@ -8847,7 +8846,7 @@ static int w840_suspend(struct pci_dev *pdev , pm_message_t state )
     } else {
       {
       tmp___3 = ioread32(ioaddr + 28UL);
-      tmp___4 = __builtin_expect(tmp___3 != 0U, 0L);
+      tmp___4 = ldv__builtin_expect(tmp___3 != 0U, 0L);
       }
       if (tmp___4 != 0L) {
         {
@@ -9023,7 +9022,7 @@ void ldv_dummy_resourceless_instance_callback_1_9(int (*arg0)(struct net_device 
                                                               struct ethtool_cmd * ) ,
                                                   struct net_device *arg1 , struct ethtool_cmd *arg2 ) ;
 void ldv_entry_EMGentry_14(void *arg0 ) ;
-void main(void) ;
+int main(void) ;
 void ldv_free_irq(void *arg0 , int arg1 , void *arg2 ) ;
 void ldv_free_netdev(void *arg0 , struct net_device *arg1 ) ;
 void ldv_initialize_external_data(void) ;
@@ -9595,7 +9594,7 @@ void ldv_entry_EMGentry_14(void *arg0 )
   return;
 }
 }
-void main(void) 
+int main(void) 
 { 
   int tmp ;
 
@@ -11269,7 +11268,7 @@ void *ldv_kzalloc(size_t size , gfp_t flags )
 }
 }
 extern void ldv_assert(char const   * , int  ) ;
-void __builtin_trap(void) ;
+void ldv__builtin_trap(void) ;
 void ldv_assume(int expression ) 
 { 
 
@@ -11293,7 +11292,7 @@ void ldv_stop(void)
   goto ldv_stop_label;
 }
 }
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 
@@ -11301,7 +11300,7 @@ long __builtin_expect(long exp , long c )
   return (exp);
 }
 }
-void __builtin_trap(void) 
+void ldv__builtin_trap(void) 
 { 
 
 

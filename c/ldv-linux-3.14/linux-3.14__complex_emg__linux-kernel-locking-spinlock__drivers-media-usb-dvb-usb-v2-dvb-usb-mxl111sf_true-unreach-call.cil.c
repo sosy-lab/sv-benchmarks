@@ -6743,7 +6743,7 @@ struct ldv_thread {
    int identifier ;
    void (*function)(void * ) ;
 };
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 extern struct module __this_module ;
 extern int printk(char const   *  , ...) ;
 extern int __dynamic_pr_debug(struct _ddebug * , char const   *  , ...) ;
@@ -6842,7 +6842,7 @@ int mxl111sf_ctrl_msg(struct dvb_usb_device *d , u8 cmd , u8 *wbuf , int wlen , 
   descriptor.format = "%s(wlen = %d, rlen = %d)\n";
   descriptor.lineno = 70U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -6928,7 +6928,7 @@ int mxl111sf_read_reg(struct mxl111sf_state *state , u8 addr , u8 *data )
   descriptor.format = "R: (0x%02x, 0x%02x)\n";
   descriptor.lineno = 108U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -6959,7 +6959,7 @@ int mxl111sf_write_reg(struct mxl111sf_state *state , u8 addr , u8 data )
   descriptor.format = "W: (0x%02x, 0x%02x)\n";
   descriptor.lineno = 118U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -7260,7 +7260,7 @@ static int mxl111sf_adap_fe_init(struct dvb_frontend *fe )
   descriptor.format = "%s()\n";
   descriptor.lineno = 275U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -7427,7 +7427,7 @@ static int mxl111sf_adap_fe_sleep(struct dvb_frontend *fe )
   descriptor.format = "%s()\n";
   descriptor.lineno = 331U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -7475,7 +7475,7 @@ static int mxl111sf_ep6_streaming_ctrl(struct dvb_frontend *fe , int onoff )
   descriptor.format = "%s(%d)\n";
   descriptor.lineno = 349U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -7538,7 +7538,7 @@ static int mxl111sf_ep5_streaming_ctrl(struct dvb_frontend *fe , int onoff )
   descriptor.format = "%s(%d)\n";
   descriptor.lineno = 373U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -7632,7 +7632,7 @@ static int mxl111sf_ep4_streaming_ctrl(struct dvb_frontend *fe , int onoff )
   descriptor.format = "%s(%d)\n";
   descriptor.lineno = 399U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -7698,7 +7698,7 @@ static int mxl111sf_lgdt3305_frontend_attach(struct dvb_usb_adapter *adap , u8 f
   descriptor.format = "%s()\n";
   descriptor.lineno = 429U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -7936,7 +7936,7 @@ static int mxl111sf_lg2160_frontend_attach(struct dvb_usb_adapter *adap , u8 fe_
   descriptor.format = "%s()\n";
   descriptor.lineno = 500U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -8237,7 +8237,7 @@ static int mxl111sf_lg2161_frontend_attach(struct dvb_usb_adapter *adap , u8 fe_
   descriptor.format = "%s()\n";
   descriptor.lineno = 585U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -8538,7 +8538,7 @@ static int mxl111sf_lg2161_ep6_frontend_attach(struct dvb_usb_adapter *adap , u8
   descriptor.format = "%s()\n";
   descriptor.lineno = 672U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -8832,7 +8832,7 @@ static int mxl111sf_attach_demod(struct dvb_usb_adapter *adap , u8 fe_id )
   descriptor.format = "%s()\n";
   descriptor.lineno = 747U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -9075,7 +9075,7 @@ static int mxl111sf_attach_tuner(struct dvb_usb_adapter *adap )
   descriptor.format = "%s()\n";
   descriptor.lineno = 873U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -9308,7 +9308,7 @@ static int mxl111sf_frontend_attach_atsc_mh(struct dvb_usb_adapter *adap )
   descriptor.format = "%s\n";
   descriptor.lineno = 955U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -9358,7 +9358,7 @@ static int mxl111sf_frontend_attach_mercury(struct dvb_usb_adapter *adap )
   descriptor.format = "%s\n";
   descriptor.lineno = 975U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -9408,7 +9408,7 @@ static int mxl111sf_frontend_attach_mercury_mh(struct dvb_usb_adapter *adap )
   descriptor.format = "%s\n";
   descriptor.lineno = 995U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -9451,7 +9451,7 @@ static void mxl111sf_stream_config_bulk(struct usb_data_stream_properties *strea
   descriptor.format = "%s: endpoint=%d size=8192\n";
   descriptor.lineno = 1011U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -9482,7 +9482,7 @@ static void mxl111sf_stream_config_isoc(struct usb_data_stream_properties *strea
   descriptor.format = "%s: endpoint=%d size=%d\n";
   descriptor.lineno = 1022U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -9515,7 +9515,7 @@ static int mxl111sf_get_stream_config_dvbt(struct dvb_frontend *fe , u8 *ts_type
   descriptor.format = "%s: fe=%d\n";
   descriptor.lineno = 1040U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -9561,7 +9561,7 @@ static int mxl111sf_get_stream_config_atsc(struct dvb_frontend *fe , u8 *ts_type
   descriptor.format = "%s: fe=%d\n";
   descriptor.lineno = 1081U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -9606,7 +9606,7 @@ static int mxl111sf_get_stream_config_mh(struct dvb_frontend *fe , u8 *ts_type ,
   descriptor.format = "%s: fe=%d\n";
   descriptor.lineno = 1122U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -9652,7 +9652,7 @@ static int mxl111sf_get_stream_config_atsc_mh(struct dvb_frontend *fe , u8 *ts_t
   descriptor.format = "%s: fe=%d\n";
   descriptor.lineno = 1163U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -9719,7 +9719,7 @@ static int mxl111sf_streaming_ctrl_atsc_mh(struct dvb_frontend *fe , int onoff )
   descriptor.format = "%s: fe=%d onoff=%d\n";
   descriptor.lineno = 1189U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -9775,7 +9775,7 @@ static int mxl111sf_get_stream_config_mercury(struct dvb_frontend *fe , u8 *ts_t
   descriptor.format = "%s: fe=%d\n";
   descriptor.lineno = 1233U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -9855,7 +9855,7 @@ static int mxl111sf_streaming_ctrl_mercury(struct dvb_frontend *fe , int onoff )
   descriptor.format = "%s: fe=%d onoff=%d\n";
   descriptor.lineno = 1265U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -9917,7 +9917,7 @@ static int mxl111sf_get_stream_config_mercury_mh(struct dvb_frontend *fe , u8 *t
   descriptor.format = "%s: fe=%d\n";
   descriptor.lineno = 1311U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -9984,7 +9984,7 @@ static int mxl111sf_streaming_ctrl_mercury_mh(struct dvb_frontend *fe , int onof
   descriptor.format = "%s: fe=%d onoff=%d\n";
   descriptor.lineno = 1337U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -10335,7 +10335,7 @@ void ldv_dummy_resourceless_instance_callback_6_8(int (*arg0)(struct mxl111sf_st
                                                   struct mxl111sf_state *arg1 , unsigned char arg2 ,
                                                   unsigned char *arg3 ) ;
 void ldv_entry_EMGentry_11(void *arg0 ) ;
-void main(void) ;
+int main(void) ;
 void ldv_initialize_external_data(void) ;
 void ldv_struct_dvb_usb_adapter_properties_dummy_resourceless_instance_0(void *arg0 ) ;
 void ldv_struct_dvb_usb_adapter_properties_dummy_resourceless_instance_1(void *arg0 ) ;
@@ -11590,7 +11590,7 @@ void ldv_entry_EMGentry_11(void *arg0 )
   return;
 }
 }
-void main(void) 
+int main(void) 
 { 
   int tmp ;
 
@@ -17074,7 +17074,7 @@ void *ldv_kzalloc(size_t size , gfp_t flags )
 }
 }
 extern void ldv_assert(char const   * , int  ) ;
-void __builtin_trap(void) ;
+void ldv__builtin_trap(void) ;
 void ldv_assume(int expression ) 
 { 
 
@@ -17098,7 +17098,7 @@ void ldv_stop(void)
   goto ldv_stop_label;
 }
 }
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 
@@ -17106,7 +17106,7 @@ long __builtin_expect(long exp , long c )
   return (exp);
 }
 }
-void __builtin_trap(void) 
+void ldv__builtin_trap(void) 
 { 
 
 

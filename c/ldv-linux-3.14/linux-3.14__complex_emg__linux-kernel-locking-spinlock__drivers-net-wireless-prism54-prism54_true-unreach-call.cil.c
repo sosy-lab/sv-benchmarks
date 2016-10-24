@@ -5732,9 +5732,7 @@ struct ldv_thread {
    int identifier ;
    void (*function)(void * ) ;
 };
-int __builtin_bswap32(int  ) ;
-long __builtin_bswap64(long  ) ;
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 __inline static void set_bit(long nr , unsigned long volatile   *addr ) 
 { 
 
@@ -5800,7 +5798,6 @@ extern unsigned long __phys_addr(unsigned long  ) ;
 extern void *memcpy(void * , void const   * , size_t  ) ;
 extern void *memmove(void * , void const   * , size_t  ) ;
 extern void warn_slowpath_null(char const   * , int const    ) ;
-extern int ( /* missing proto */  __builtin_unreachable)() ;
 __inline static int atomic_read(atomic_t const   *v ) 
 { 
 
@@ -5898,7 +5895,7 @@ __inline static struct dma_map_ops *get_dma_ops(struct device *dev )
 
   {
   {
-  tmp = __builtin_expect((unsigned long )dev == (unsigned long )((struct device *)0),
+  tmp = ldv__builtin_expect((unsigned long )dev == (unsigned long )((struct device *)0),
                          0L);
   }
   if (tmp != 0L || (unsigned long )dev->archdata.dma_ops == (unsigned long )((struct dma_map_ops *)0)) {
@@ -5925,7 +5922,7 @@ __inline static dma_addr_t dma_map_single_attrs(struct device *dev , void *ptr ,
   ops = tmp;
   kmemcheck_mark_initialized(ptr, (unsigned int )size);
   tmp___0 = valid_dma_direction((int )dir);
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -5961,7 +5958,7 @@ __inline static void dma_unmap_single_attrs(struct device *dev , dma_addr_t addr
   tmp = get_dma_ops(dev);
   ops = tmp;
   tmp___0 = valid_dma_direction((int )dir);
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -6186,7 +6183,7 @@ __inline static void netif_tx_stop_queue(struct netdev_queue *dev_queue )
   {
   {
   __ret_warn_on = (unsigned long )dev_queue == (unsigned long )((struct netdev_queue *)0);
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp != 0L) {
     {
@@ -6196,7 +6193,7 @@ __inline static void netif_tx_stop_queue(struct netdev_queue *dev_queue )
 
   }
   {
-  tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -6366,7 +6363,7 @@ netdev_tx_t islpci_eth_transmit(struct sk_buff *skb , struct net_device *ndev )
   cb = priv->control_block;
   ldv___ldv_spin_lock_60(& priv->slock);
   curr_frag = cb->driver_curr_frag[1];
-  tmp___0 = __builtin_expect(curr_frag - priv->free_data_tx > 31U, 0L);
+  tmp___0 = ldv__builtin_expect(curr_frag - priv->free_data_tx > 31U, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -6380,7 +6377,7 @@ netdev_tx_t islpci_eth_transmit(struct sk_buff *skb , struct net_device *ndev )
 
   }
   {
-  tmp___4 = __builtin_expect(((long )skb->data & 3L) != 0L, 1L);
+  tmp___4 = ldv__builtin_expect(((long )skb->data & 3L) != 0L, 1L);
   }
   if (tmp___4 != 0L) {
     {
@@ -6405,7 +6402,7 @@ netdev_tx_t islpci_eth_transmit(struct sk_buff *skb , struct net_device *ndev )
       _L: /* CIL Label */ 
       {
       newskb = dev_alloc_skb(skb->len);
-      tmp___1 = __builtin_expect((unsigned long )newskb == (unsigned long )((struct sk_buff *)0),
+      tmp___1 = ldv__builtin_expect((unsigned long )newskb == (unsigned long )((struct sk_buff *)0),
                                  0L);
       }
       if (tmp___1 != 0L) {
@@ -6439,7 +6436,7 @@ netdev_tx_t islpci_eth_transmit(struct sk_buff *skb , struct net_device *ndev )
   {
   pci_map_address = pci_map_single(priv->pdev, (void *)skb->data, (size_t )skb->len,
                                    1);
-  tmp___5 = __builtin_expect(pci_map_address == 0ULL, 0L);
+  tmp___5 = ldv__builtin_expect(pci_map_address == 0ULL, 0L);
   }
   if (tmp___5 != 0L) {
     {
@@ -6612,7 +6609,7 @@ int islpci_eth_receive(islpci_private *priv )
 
   }
   {
-  tmp___0 = __builtin_expect(priv->iw_mode == 6U, 0L);
+  tmp___0 = ldv__builtin_expect(priv->iw_mode == 6U, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -6621,7 +6618,7 @@ int islpci_eth_receive(islpci_private *priv )
     }
   } else {
     {
-    tmp = __builtin_expect((unsigned int )*(skb->data + 12UL) == 0U, 0L);
+    tmp = ldv__builtin_expect((unsigned int )*(skb->data + 12UL) == 0U, 0L);
     }
     if (tmp != 0L) {
       {
@@ -6646,7 +6643,7 @@ int islpci_eth_receive(islpci_private *priv )
   skb->ip_summed = 0U;
   ndev->stats.rx_packets = ndev->stats.rx_packets + 1UL;
   ndev->stats.rx_bytes = ndev->stats.rx_bytes + (unsigned long )size;
-  tmp___1 = __builtin_expect(discard != 0, 0L);
+  tmp___1 = ldv__builtin_expect(discard != 0, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -6663,7 +6660,7 @@ int islpci_eth_receive(islpci_private *priv )
   ldv_43603: 
   {
   skb = dev_alloc_skb(1602U);
-  tmp___2 = __builtin_expect((unsigned long )skb == (unsigned long )((struct sk_buff *)0),
+  tmp___2 = ldv__builtin_expect((unsigned long )skb == (unsigned long )((struct sk_buff *)0),
                              0L);
   }
   if (tmp___2 != 0L) {
@@ -6684,7 +6681,7 @@ int islpci_eth_receive(islpci_private *priv )
   priv->data_low_rx[index] = skb;
   priv->pci_map_rx_address[index] = pci_map_single(priv->pdev, (void *)skb->data,
                                                    1602UL, 2);
-  tmp___3 = __builtin_expect(priv->pci_map_rx_address[index] == 0ULL, 0L);
+  tmp___3 = ldv__builtin_expect(priv->pci_map_rx_address[index] == 0ULL, 0L);
   }
   if (tmp___3 != 0L) {
     if (pc_debug & 1) {
@@ -6915,7 +6912,7 @@ __inline static void dma_sync_single_for_cpu(struct device *dev , dma_addr_t add
   tmp = get_dma_ops(dev);
   ops = tmp;
   tmp___0 = valid_dma_direction((int )dir);
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -7723,7 +7720,7 @@ int isl38xx_in_queue(isl38xx_control_block *cb , int queue )
   {
   {
   delta = (s32 const   )(cb->driver_curr_frag[queue] - cb->device_curr_frag[queue]);
-  tmp = __builtin_expect(delta < 0, 0L);
+  tmp = ldv__builtin_expect(delta < 0, 0L);
   }
   if (tmp != 0L) {
     {
@@ -7768,7 +7765,7 @@ int isl38xx_in_queue(isl38xx_control_block *cb , int queue )
   goto switch_break;
   case_5: /* CIL Label */ 
   {
-  tmp___0 = __builtin_expect(delta > 4, 0L);
+  tmp___0 = ldv__builtin_expect(delta > 4, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -7782,7 +7779,7 @@ int isl38xx_in_queue(isl38xx_control_block *cb , int queue )
   case_1: /* CIL Label */ ;
   case_3: /* CIL Label */ 
   {
-  tmp___1 = __builtin_expect(delta > 32, 0L);
+  tmp___1 = ldv__builtin_expect(delta > 32, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -7796,7 +7793,7 @@ int isl38xx_in_queue(isl38xx_control_block *cb , int queue )
   return (delta);
   case_4: /* CIL Label */ 
   {
-  tmp___2 = __builtin_expect(delta > 4, 0L);
+  tmp___2 = ldv__builtin_expect(delta > 4, 0L);
   }
   if (tmp___2 != 0L) {
     {
@@ -7811,7 +7808,7 @@ int isl38xx_in_queue(isl38xx_control_block *cb , int queue )
   case_0: /* CIL Label */ ;
   case_2: /* CIL Label */ 
   {
-  tmp___3 = __builtin_expect(delta > 8, 0L);
+  tmp___3 = ldv__builtin_expect(delta > 8, 0L);
   }
   if (tmp___3 != 0L) {
     {
@@ -7968,7 +7965,7 @@ __inline static char *iwe_stream_add_event(struct iw_request_info *info , char *
   tmp = iwe_stream_lcp_len(info);
   lcp_len = tmp;
   event_len = iwe_stream_event_len_adjust(info, event_len);
-  tmp___0 = __builtin_expect((unsigned long )(stream + (unsigned long )event_len) < (unsigned long )ends,
+  tmp___0 = ldv__builtin_expect((unsigned long )(stream + (unsigned long )event_len) < (unsigned long )ends,
                              1L);
   }
   if (tmp___0 != 0L) {
@@ -8003,7 +8000,7 @@ __inline static char *iwe_stream_add_point(struct iw_request_info *info , char *
   point_len = tmp___0;
   tmp___1 = iwe_stream_lcp_len(info);
   lcp_len = tmp___1;
-  tmp___2 = __builtin_expect((unsigned long )(stream + (unsigned long )event_len) < (unsigned long )ends,
+  tmp___2 = ldv__builtin_expect((unsigned long )(stream + (unsigned long )event_len) < (unsigned long )ends,
                              1L);
   }
   if (tmp___2 != 0L) {
@@ -8034,7 +8031,7 @@ __inline static char *iwe_stream_add_value(struct iw_request_info *info , char *
   tmp = iwe_stream_lcp_len(info);
   lcp_len = tmp;
   event_len = (int )((unsigned int )event_len - 8U);
-  tmp___0 = __builtin_expect((unsigned long )(value + (unsigned long )event_len) < (unsigned long )ends,
+  tmp___0 = ldv__builtin_expect((unsigned long )(value + (unsigned long )event_len) < (unsigned long )ends,
                              1L);
   }
   if (tmp___0 != 0L) {
@@ -8491,7 +8488,7 @@ static int prism54_get_mode(struct net_device *ndev , struct iw_request_info *in
   {
   tmp = netdev_priv((struct net_device  const  *)ndev);
   priv = (islpci_private *)tmp;
-  tmp___0 = __builtin_expect(priv->iw_mode > 6U, 0L);
+  tmp___0 = ldv__builtin_expect(priv->iw_mode > 6U, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -10913,7 +10910,7 @@ static void format_event(islpci_private *priv , char *dest , char const   *str ,
                  (u8 const   *)(& mlme->address), error != 0 ? ((unsigned int )((unsigned short )mlme->code) != 0U ? (char *)" : REJECTED " : (char *)" : ACCEPTED ") : (char *)"",
                  (int )mlme->code);
   n = tmp;
-  tmp___0 = __builtin_expect(n > 256, 0L);
+  tmp___0 = ldv__builtin_expect(n > 256, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -10977,7 +10974,7 @@ static void send_simple_event(islpci_private *priv , char const   *str )
 
   }
   {
-  tmp___1 = __builtin_expect(n > 255, 0L);
+  tmp___1 = ldv__builtin_expect(n > 255, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -12289,7 +12286,7 @@ __inline static unsigned long arch_local_save_flags(void)
   __edx = __edx;
   __ecx = __ecx;
   __eax = __eax;
-  tmp = __builtin_expect((unsigned long )pv_irq_ops.save_fl.func == (unsigned long )((void *)0),
+  tmp = ldv__builtin_expect((unsigned long )pv_irq_ops.save_fl.func == (unsigned long )((void *)0),
                          0L);
   }
   if (tmp != 0L) {
@@ -12491,7 +12488,7 @@ __inline static void dma_free_attrs(struct device *dev , size_t size , void *vad
   _flags = arch_local_save_flags();
   tmp___0 = arch_irqs_disabled_flags(_flags);
   __ret_warn_on = tmp___0 != 0;
-  tmp___1 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___1 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -12502,7 +12499,7 @@ __inline static void dma_free_attrs(struct device *dev , size_t size , void *vad
 
   }
   {
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
   debug_dma_free_coherent(dev, size, vaddr, bus);
   }
   if ((unsigned long )ops->free != (unsigned long )((void (*)(struct device * , size_t  ,
@@ -12687,7 +12684,7 @@ static int isl_upload_firmware(islpci_private *priv )
   {
   readl((void const volatile   *)device_base + 24U);
   __asm__  volatile   ("sfence": : : "memory");
-  tmp___1 = __builtin_expect(_fw_len != 0L, 0L);
+  tmp___1 = ldv__builtin_expect(_fw_len != 0L, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -12705,7 +12702,7 @@ static int isl_upload_firmware(islpci_private *priv )
 
   }
   {
-  tmp___2 = __builtin_expect(fw_len != 0L, 0L);
+  tmp___2 = ldv__builtin_expect(fw_len != 0L, 0L);
   }
   if (tmp___2 != 0L) {
     {
@@ -13579,7 +13576,7 @@ islpci_state_t islpci_set_state(islpci_private *priv , islpci_state_t new_state 
   }
   ldv_43731: 
   {
-  tmp = __builtin_expect(priv->state_off < 0, 0L);
+  tmp = ldv__builtin_expect(priv->state_off < 0, 0L);
   }
   if (tmp != 0L) {
     {
@@ -13591,11 +13588,11 @@ islpci_state_t islpci_set_state(islpci_private *priv , islpci_state_t new_state 
 
   }
   {
-  tmp___0 = __builtin_expect(priv->state_off != 0, 0L);
+  tmp___0 = ldv__builtin_expect(priv->state_off != 0, 0L);
   }
   if (tmp___0 != 0L) {
     {
-    tmp___1 = __builtin_expect((unsigned int )priv->state != 0U, 0L);
+    tmp___1 = ldv__builtin_expect((unsigned int )priv->state != 0U, 0L);
     }
     if (tmp___1 != 0L) {
       {
@@ -13610,7 +13607,7 @@ islpci_state_t islpci_set_state(islpci_private *priv , islpci_state_t new_state 
 
   }
   {
-  tmp___2 = __builtin_expect(*((unsigned long *)priv + 278UL) == 0UL, 0L);
+  tmp___2 = ldv__builtin_expect(*((unsigned long *)priv + 278UL) == 0UL, 0L);
   }
   if (tmp___2 != 0L) {
     {
@@ -14329,7 +14326,7 @@ static void prism54_remove(struct pci_dev *pdev )
   }
   {
   priv = tmp___1;
-  tmp___2 = __builtin_expect((unsigned long )priv == (unsigned long )((islpci_private *)0),
+  tmp___2 = ldv__builtin_expect((unsigned long )priv == (unsigned long )((islpci_private *)0),
                              0L);
   }
   if (tmp___2 != 0L) {
@@ -14398,7 +14395,7 @@ static int prism54_suspend(struct pci_dev *pdev , pm_message_t state )
   }
   {
   priv = tmp___1;
-  tmp___2 = __builtin_expect((unsigned long )priv == (unsigned long )((islpci_private *)0),
+  tmp___2 = ldv__builtin_expect((unsigned long )priv == (unsigned long )((islpci_private *)0),
                              0L);
   }
   if (tmp___2 != 0L) {
@@ -14445,7 +14442,7 @@ static int prism54_resume(struct pci_dev *pdev )
   }
   {
   priv = tmp___1;
-  tmp___2 = __builtin_expect((unsigned long )priv == (unsigned long )((islpci_private *)0),
+  tmp___2 = ldv__builtin_expect((unsigned long )priv == (unsigned long )((islpci_private *)0),
                              0L);
   }
   if (tmp___2 != 0L) {
@@ -14521,7 +14518,7 @@ void ldv_dispatch_register_dummy_resourceless_instance_12_12_5(void) ;
 void ldv_dummy_resourceless_instance_callback_1_14(void (*arg0)(struct net_device * ) ,
                                                    struct net_device *arg1 ) ;
 void ldv_entry_EMGentry_12(void *arg0 ) ;
-void main(void) ;
+int main(void) ;
 void ldv_free_irq(void *arg0 , int arg1 , void *arg2 ) ;
 void ldv_initialize_external_data(void) ;
 enum irqreturn ldv_interrupt_instance_handler_0_5(enum irqreturn (*arg0)(int  , void * ) ,
@@ -14874,7 +14871,7 @@ void ldv_entry_EMGentry_12(void *arg0 )
   return;
 }
 }
-void main(void) 
+int main(void) 
 { 
   int tmp ;
 
@@ -16589,7 +16586,7 @@ int mgt_set_request(islpci_private *priv , enum oid_num_t n , int extra , void *
   response = (struct islpci_mgmtframe *)0;
   response_op = 3;
   _data___0 = data;
-  tmp = __builtin_expect((unsigned int )n > 139U, 0L);
+  tmp = ldv__builtin_expect((unsigned int )n > 139U, 0L);
   }
   if (tmp != 0L) {
     {
@@ -16601,7 +16598,7 @@ int mgt_set_request(islpci_private *priv , enum oid_num_t n , int extra , void *
 
   }
   {
-  tmp___0 = __builtin_expect(extra > (int )isl_oid[(unsigned int )n].range, 0L);
+  tmp___0 = ldv__builtin_expect(extra > (int )isl_oid[(unsigned int )n].range, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -16700,7 +16697,7 @@ int mgt_set_varlen(islpci_private *priv , enum oid_num_t n , void *data , int ex
   {
   ret = 0;
   response_op = 3;
-  tmp = __builtin_expect((unsigned int )n > 139U, 0L);
+  tmp = ldv__builtin_expect((unsigned int )n > 139U, 0L);
   }
   if (tmp != 0L) {
     {
@@ -16769,7 +16766,7 @@ int mgt_get_request(islpci_private *priv , enum oid_num_t n , int extra , void *
   reslen = 0;
   response = (struct islpci_mgmtframe *)0;
   _res = (void *)0;
-  tmp = __builtin_expect((unsigned int )n > 139U, 0L);
+  tmp = ldv__builtin_expect((unsigned int )n > 139U, 0L);
   }
   if (tmp != 0L) {
     {
@@ -16781,7 +16778,7 @@ int mgt_get_request(islpci_private *priv , enum oid_num_t n , int extra , void *
 
   }
   {
-  tmp___0 = __builtin_expect(extra > (int )isl_oid[(unsigned int )n].range, 0L);
+  tmp___0 = ldv__builtin_expect(extra > (int )isl_oid[(unsigned int )n].range, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -16847,7 +16844,7 @@ int mgt_get_request(islpci_private *priv , enum oid_num_t n , int extra , void *
   } else {
     {
     res->ptr = kmalloc((size_t )reslen, 208U);
-    tmp___2 = __builtin_expect((unsigned long )res->ptr == (unsigned long )((void *)0),
+    tmp___2 = ldv__builtin_expect((unsigned long )res->ptr == (unsigned long )((void *)0),
                                0L);
     }
     if (tmp___2 != 0L) {
@@ -16918,7 +16915,7 @@ int mgt_commit_list(islpci_private *priv , enum oid_num_t *l , int n )
   data = *(priv->mib + (unsigned long )*(l + (unsigned long )i));
   j = 0;
   oid = t->oid;
-  tmp = __builtin_expect((unsigned long )data == (unsigned long )((void *)0), 0L);
+  tmp = ldv__builtin_expect((unsigned long )data == (unsigned long )((void *)0), 0L);
   }
   if (tmp != 0L) {
     {
@@ -16980,7 +16977,7 @@ void mgt_set(islpci_private *priv , enum oid_num_t n , void *data )
 
   {
   {
-  tmp = __builtin_expect((unsigned int )n > 139U, 0L);
+  tmp = ldv__builtin_expect((unsigned int )n > 139U, 0L);
   }
   if (tmp != 0L) {
     {
@@ -16992,7 +16989,7 @@ void mgt_set(islpci_private *priv , enum oid_num_t n , void *data )
 
   }
   {
-  tmp___0 = __builtin_expect((unsigned long )*(priv->mib + (unsigned long )n) == (unsigned long )((void *)0),
+  tmp___0 = ldv__builtin_expect((unsigned long )*(priv->mib + (unsigned long )n) == (unsigned long )((void *)0),
                              0L);
   }
   if (tmp___0 != 0L) {
@@ -17019,7 +17016,7 @@ void mgt_get(islpci_private *priv , enum oid_num_t n , void *res )
 
   {
   {
-  tmp = __builtin_expect((unsigned int )n > 139U, 0L);
+  tmp = ldv__builtin_expect((unsigned int )n > 139U, 0L);
   }
   if (tmp != 0L) {
     {
@@ -17031,7 +17028,7 @@ void mgt_get(islpci_private *priv , enum oid_num_t n , void *res )
 
   }
   {
-  tmp___0 = __builtin_expect((unsigned long )*(priv->mib + (unsigned long )n) == (unsigned long )((void *)0),
+  tmp___0 = ldv__builtin_expect((unsigned long )*(priv->mib + (unsigned long )n) == (unsigned long )((void *)0),
                              0L);
   }
   if (tmp___0 != 0L) {
@@ -17044,7 +17041,7 @@ void mgt_get(islpci_private *priv , enum oid_num_t n , void *res )
 
   }
   {
-  tmp___1 = __builtin_expect((unsigned long )res == (unsigned long )((void *)0), 0L);
+  tmp___1 = ldv__builtin_expect((unsigned long )res == (unsigned long )((void *)0), 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -17594,7 +17591,7 @@ void *ldv_kzalloc(size_t size , gfp_t flags )
 }
 }
 extern void ldv_assert(char const   * , int  ) ;
-void __builtin_trap(void) ;
+void ldv__builtin_trap(void) ;
 void ldv_assume(int expression ) 
 { 
 
@@ -17618,7 +17615,7 @@ void ldv_stop(void)
   goto ldv_stop_label;
 }
 }
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 
@@ -17626,7 +17623,7 @@ long __builtin_expect(long exp , long c )
   return (exp);
 }
 }
-void __builtin_trap(void) 
+void ldv__builtin_trap(void) 
 { 
 
 

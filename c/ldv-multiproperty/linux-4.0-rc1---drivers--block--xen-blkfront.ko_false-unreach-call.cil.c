@@ -4622,7 +4622,7 @@ struct ldv_thread {
    void (*function)(void * ) ;
 };
 typedef _Bool ldv_set;
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 void ldv_assume(int expression ) ;
 void ldv_stop(void) ;
 void ldv_linux_alloc_irq_check_alloc_flags(gfp_t flags ) ;
@@ -4875,14 +4875,13 @@ extern void bitmap_set(unsigned long * , unsigned int  , int  ) ;
 extern void bitmap_clear(unsigned long * , unsigned int  , int  ) ;
 extern void warn_slowpath_fmt(char const   * , int const    , char const   *  , ...) ;
 extern void warn_slowpath_null(char const   * , int const    ) ;
-extern int ( /* missing proto */  __builtin_unreachable)() ;
 __inline static bool IS_ERR(void const   *ptr ) 
 { 
   long tmp ;
 
   {
   {
-  tmp = __builtin_expect((unsigned long )ptr > 0xfffffffffffff000UL, 0L);
+  tmp = ldv__builtin_expect((unsigned long )ptr > 0xfffffffffffff000UL, 0L);
   }
   return (tmp != 0L);
 }
@@ -5370,12 +5369,12 @@ __inline static void bvec_iter_advance(struct bio_vec *bv , struct bvec_iter *it
   {
   {
   __ret_warn_once = bytes > iter->bi_size;
-  tmp___1 = __builtin_expect(__ret_warn_once != 0, 0L);
+  tmp___1 = ldv__builtin_expect(__ret_warn_once != 0, 0L);
   }
   if (tmp___1 != 0L) {
     {
     __ret_warn_on = ! __warned;
-    tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
     if (tmp != 0L) {
       {
@@ -5385,7 +5384,7 @@ __inline static void bvec_iter_advance(struct bio_vec *bv , struct bvec_iter *it
 
     }
     {
-    tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
     if (tmp___0 != 0L) {
       __warned = 1;
@@ -5396,7 +5395,7 @@ __inline static void bvec_iter_advance(struct bio_vec *bv , struct bvec_iter *it
 
   }
   {
-  __builtin_expect(__ret_warn_once != 0, 0L);
+  ldv__builtin_expect(__ret_warn_once != 0, 0L);
   }
   goto ldv_32299;
   ldv_32298: 
@@ -5573,7 +5572,7 @@ __inline static void queue_lockdep_assert_held(struct request_queue *q )
     }
     {
     __ret_warn_on = tmp___0;
-    tmp___1 = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp___1 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
     if (tmp___1 != 0L) {
       {
@@ -5583,7 +5582,7 @@ __inline static void queue_lockdep_assert_held(struct request_queue *q )
 
     }
     {
-    __builtin_expect(__ret_warn_on != 0, 0L);
+    ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
   } else {
 
@@ -5700,7 +5699,7 @@ __inline static struct page *sg_page(struct scatterlist *sg )
 
   {
   {
-  tmp = __builtin_expect(sg->sg_magic != 2271560481UL, 0L);
+  tmp = ldv__builtin_expect(sg->sg_magic != 2271560481UL, 0L);
   }
   if (tmp != 0L) {
     {
@@ -5712,7 +5711,7 @@ __inline static struct page *sg_page(struct scatterlist *sg )
 
   }
   {
-  tmp___0 = __builtin_expect((long )((int )sg->page_link) & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )((int )sg->page_link) & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -5779,7 +5778,7 @@ __inline static unsigned long __pfn_to_mfn(unsigned long pfn )
     mfn = *(xen_p2m_addr + pfn);
   } else {
     {
-    tmp___0 = __builtin_expect(pfn < xen_max_p2m_pfn, 0L);
+    tmp___0 = ldv__builtin_expect(pfn < xen_max_p2m_pfn, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -5791,7 +5790,7 @@ __inline static unsigned long __pfn_to_mfn(unsigned long pfn )
     }
   }
   {
-  tmp___2 = __builtin_expect(mfn == 0xffffffffffffffffUL, 0L);
+  tmp___2 = ldv__builtin_expect(mfn == 0xffffffffffffffffUL, 0L);
   }
   if (tmp___2 != 0L) {
     {
@@ -5849,7 +5848,7 @@ static int get_id_from_freelist(struct blkfront_info *info )
   {
   {
   free___0 = info->shadow_free;
-  tmp = __builtin_expect(free___0 > 31UL, 0L);
+  tmp = ldv__builtin_expect(free___0 > 31UL, 0L);
   }
   if (tmp != 0L) {
     {
@@ -5971,7 +5970,7 @@ static int fill_grant_buffer(struct blkfront_info *info , int num )
 
   }
   {
-  tmp___0 = __builtin_expect(i != 0, 0L);
+  tmp___0 = ldv__builtin_expect(i != 0, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -5999,7 +5998,7 @@ static struct grant *get_grant(grant_ref_t *gref_head , unsigned long pfn , stru
   {
   {
   tmp = list_empty((struct list_head  const  *)(& info->grants));
-  tmp___0 = __builtin_expect(tmp != 0, 0L);
+  tmp___0 = ldv__builtin_expect(tmp != 0, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -6024,7 +6023,7 @@ static struct grant *get_grant(grant_ref_t *gref_head , unsigned long pfn , stru
   {
   tmp___1 = gnttab_claim_grant_reference(gref_head);
   gnt_list_entry->gref = (grant_ref_t )tmp___1;
-  tmp___2 = __builtin_expect(gnt_list_entry->gref == 4294967268U, 0L);
+  tmp___2 = ldv__builtin_expect(gnt_list_entry->gref == 4294967268U, 0L);
   }
   if (tmp___2 != 0L) {
     {
@@ -6037,7 +6036,7 @@ static struct grant *get_grant(grant_ref_t *gref_head , unsigned long pfn , stru
   }
   if ((unsigned int )*((unsigned char *)info + 5088UL) == 0U) {
     {
-    tmp___3 = __builtin_expect(pfn == 0UL, 0L);
+    tmp___3 = ldv__builtin_expect(pfn == 0UL, 0L);
     }
     if (tmp___3 != 0L) {
       {
@@ -6152,7 +6151,7 @@ static void xlbd_release_minors(unsigned int minor , unsigned int nr )
   {
   {
   end = minor + nr;
-  tmp = __builtin_expect(end > nr_minors, 0L);
+  tmp = ldv__builtin_expect(end > nr_minors, 0L);
   }
   if (tmp != 0L) {
     {
@@ -6231,7 +6230,7 @@ static int blkif_ioctl(struct block_device *bdev , fmode_t mode , unsigned int c
   descriptor.format = "command: 0x%x, argument: 0x%lx\n";
   descriptor.lineno = 356U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -6261,7 +6260,7 @@ static int blkif_ioctl(struct block_device *bdev , fmode_t mode , unsigned int c
   descriptor___0.format = "FIXME: support multisession CDs later\n";
   descriptor___0.lineno = 360U;
   descriptor___0.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -6405,7 +6404,7 @@ static int blkif_queue_request(struct request *req )
   info = (struct blkfront_info *)(req->rq_disk)->private_data;
   segments = (struct blkif_request_segment *)0;
   gnt_list_entry = (struct grant *)0;
-  tmp = __builtin_expect((unsigned int )info->connected != 1U, 0L);
+  tmp = ldv__builtin_expect((unsigned int )info->connected != 1U, 0L);
   }
   if (tmp != 0L) {
     return (1);
@@ -6441,7 +6440,7 @@ static int blkif_queue_request(struct request *req )
   tmp___1 = get_id_from_freelist(info);
   id = (unsigned long )tmp___1;
   info->shadow[id].request = req;
-  tmp___18 = __builtin_expect((req->cmd_flags & 384ULL) != 0ULL, 0L);
+  tmp___18 = ldv__builtin_expect((req->cmd_flags & 384ULL) != 0ULL, 0L);
   }
   if (tmp___18 != 0L) {
     {
@@ -6459,11 +6458,11 @@ static int blkif_queue_request(struct request *req )
     }
   } else {
     {
-    tmp___4 = __builtin_expect(info->max_indirect_segments == 0U, 0L);
+    tmp___4 = ldv__builtin_expect(info->max_indirect_segments == 0U, 0L);
     }
     if (tmp___4 != 0L) {
       {
-      tmp___5 = __builtin_expect((unsigned int )req->nr_phys_segments > 11U, 0L);
+      tmp___5 = ldv__builtin_expect((unsigned int )req->nr_phys_segments > 11U, 0L);
       }
       if (tmp___5 != 0L) {
         {
@@ -6478,11 +6477,11 @@ static int blkif_queue_request(struct request *req )
 
     }
     {
-    tmp___6 = __builtin_expect(info->max_indirect_segments != 0U, 0L);
+    tmp___6 = ldv__builtin_expect(info->max_indirect_segments != 0U, 0L);
     }
     if (tmp___6 != 0L) {
       {
-      tmp___7 = __builtin_expect((unsigned int )req->nr_phys_segments > info->max_indirect_segments,
+      tmp___7 = ldv__builtin_expect((unsigned int )req->nr_phys_segments > info->max_indirect_segments,
                                  0L);
       }
       if (tmp___7 != 0L) {
@@ -6503,7 +6502,7 @@ static int blkif_queue_request(struct request *req )
     }
     if (nseg > 11) {
       {
-      tmp___8 = __builtin_expect((req->cmd_flags & 12288ULL) != 0ULL, 0L);
+      tmp___8 = ldv__builtin_expect((req->cmd_flags & 12288ULL) != 0ULL, 0L);
       }
       if (tmp___8 != 0L) {
         {
@@ -6585,7 +6584,7 @@ static int blkif_queue_request(struct request *req )
       if ((unsigned int )*((unsigned char *)info + 5088UL) == 0U) {
         {
         tmp___11 = list_empty((struct list_head  const  *)(& info->indirect_pages));
-        tmp___12 = __builtin_expect(tmp___11 != 0, 0L);
+        tmp___12 = ldv__builtin_expect(tmp___11 != 0, 0L);
         }
         if (tmp___12 != 0L) {
           {
@@ -6624,7 +6623,7 @@ static int blkif_queue_request(struct request *req )
     }
     if ((int )req->cmd_flags & 1 && (unsigned int )*((unsigned char *)info + 5088UL) != 0U) {
       {
-      tmp___15 = __builtin_expect(sg->offset + sg->length > 4096U, 0L);
+      tmp___15 = ldv__builtin_expect(sg->offset + sg->length > 4096U, 0L);
       }
       if (tmp___15 != 0L) {
         {
@@ -6774,7 +6773,7 @@ static void do_blkif_request(struct request_queue *rq )
   descriptor.format = "Entered do_blkif_request\n";
   descriptor.lineno = 616U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -6811,7 +6810,7 @@ static void do_blkif_request(struct request_queue *rq )
   descriptor___0.format = "do_blk_req %p: cmd %p, sec %lx, (%u/%u) [%s]\n";
   descriptor___0.lineno = 637U;
   descriptor___0.flags = 0U;
-  tmp___4 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___4 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
   }
   if (tmp___4 != 0L) {
     {
@@ -7139,7 +7138,7 @@ static int xlvbd_alloc_gendisk(blkif_sector_t capacity , struct blkfront_info *i
   {
   {
   nr_minors___0 = 1;
-  tmp = __builtin_expect((unsigned long )info->gd != (unsigned long )((struct gendisk *)0),
+  tmp = ldv__builtin_expect((unsigned long )info->gd != (unsigned long )((struct gendisk *)0),
                          0L);
   }
   if (tmp != 0L) {
@@ -7152,7 +7151,7 @@ static int xlvbd_alloc_gendisk(blkif_sector_t capacity , struct blkfront_info *i
 
   }
   {
-  tmp___0 = __builtin_expect((unsigned long )info->rq != (unsigned long )((struct request_queue *)0),
+  tmp___0 = ldv__builtin_expect((unsigned long )info->rq != (unsigned long )((struct request_queue *)0),
                              0L);
   }
   if (tmp___0 != 0L) {
@@ -7229,7 +7228,7 @@ static int xlvbd_alloc_gendisk(blkif_sector_t capacity , struct blkfront_info *i
   {
   strcpy((char *)(& gd->disk_name), "xvd");
   ptr = encode_disk_name((char *)(& gd->disk_name) + 3U, offset);
-  tmp___1 = __builtin_expect((unsigned long )ptr >= (unsigned long )((char *)(& gd->disk_name) + 32UL),
+  tmp___1 = ldv__builtin_expect((unsigned long )ptr >= (unsigned long )((char *)(& gd->disk_name) + 32UL),
                              0L);
   }
   if (tmp___1 != 0L) {
@@ -7445,7 +7444,7 @@ static void blkif_free(struct blkfront_info *info , int suspend )
 
   }
   {
-  tmp___0 = __builtin_expect(info->persistent_gnts_c != 0U, 0L);
+  tmp___0 = ldv__builtin_expect(info->persistent_gnts_c != 0U, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -7461,7 +7460,7 @@ static void blkif_free(struct blkfront_info *info , int suspend )
   }
   if (tmp___2 == 0) {
     {
-    tmp___1 = __builtin_expect((long )*((unsigned char *)info + 5088UL) & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )*((unsigned char *)info + 5088UL) & 1L, 0L);
     }
     if (tmp___1 != 0L) {
       {
@@ -7625,7 +7624,7 @@ static void blkif_completion(struct blk_shadow *s , struct blkfront_info *info ,
     goto ldv_40006;
     ldv_40005: 
     {
-    tmp = __builtin_expect(sg->offset + sg->length > 4096U, 0L);
+    tmp = ldv__builtin_expect(sg->offset + sg->length > 4096U, 0L);
     }
     if (tmp != 0L) {
       {
@@ -7834,7 +7833,7 @@ static irqreturn_t blkif_interrupt(int irq , void *dev_id )
   {
   info = (struct blkfront_info *)dev_id;
   ldv___ldv_linux_kernel_locking_spinlock_spin_lock_115(& info->io_lock);
-  tmp = __builtin_expect((unsigned int )info->connected != 1U, 0L);
+  tmp = ldv__builtin_expect((unsigned int )info->connected != 1U, 0L);
   }
   if (tmp != 0L) {
     {
@@ -7855,7 +7854,7 @@ static irqreturn_t blkif_interrupt(int irq , void *dev_id )
   if (id > 31UL) {
     {
     __ret_warn_on = 1;
-    tmp___1 = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp___1 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
     if (tmp___1 != 0L) {
       {
@@ -7867,7 +7866,7 @@ static irqreturn_t blkif_interrupt(int irq , void *dev_id )
 
     }
     {
-    __builtin_expect(__ret_warn_on != 0, 0L);
+    ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
     goto ldv_40035;
   } else {
@@ -7887,7 +7886,7 @@ static irqreturn_t blkif_interrupt(int irq , void *dev_id )
   if (tmp___4 != 0) {
     {
     __ret_warn_on___0 = 1;
-    tmp___3 = __builtin_expect(__ret_warn_on___0 != 0, 0L);
+    tmp___3 = ldv__builtin_expect(__ret_warn_on___0 != 0, 0L);
     }
     if (tmp___3 != 0L) {
       {
@@ -7899,7 +7898,7 @@ static irqreturn_t blkif_interrupt(int irq , void *dev_id )
 
     }
     {
-    __builtin_expect(__ret_warn_on___0 != 0, 0L);
+    ldv__builtin_expect(__ret_warn_on___0 != 0, 0L);
     }
     goto ldv_40035;
   } else {
@@ -7935,7 +7934,7 @@ static irqreturn_t blkif_interrupt(int irq , void *dev_id )
   goto switch_default;
   case_5: /* CIL Label */ 
   {
-  tmp___6 = __builtin_expect((int )bret->status == -2, 0L);
+  tmp___6 = ldv__builtin_expect((int )bret->status == -2, 0L);
   }
   if (tmp___6 != 0L) {
     {
@@ -7958,7 +7957,7 @@ static irqreturn_t blkif_interrupt(int irq , void *dev_id )
   case_3: /* CIL Label */ ;
   case_2: /* CIL Label */ 
   {
-  tmp___8 = __builtin_expect((int )bret->status == -2, 0L);
+  tmp___8 = ldv__builtin_expect((int )bret->status == -2, 0L);
   }
   if (tmp___8 != 0L) {
     {
@@ -7970,11 +7969,11 @@ static irqreturn_t blkif_interrupt(int irq , void *dev_id )
 
   }
   {
-  tmp___10 = __builtin_expect((int )bret->status == -1, 0L);
+  tmp___10 = ldv__builtin_expect((int )bret->status == -1, 0L);
   }
   if (tmp___10 != 0L) {
     {
-    tmp___11 = __builtin_expect((unsigned int )info->shadow[id].req.u.rw.nr_segments == 0U,
+    tmp___11 = ldv__builtin_expect((unsigned int )info->shadow[id].req.u.rw.nr_segments == 0U,
                                 0L);
     }
     if (tmp___11 != 0L) {
@@ -7991,7 +7990,7 @@ static irqreturn_t blkif_interrupt(int irq , void *dev_id )
 
   }
   {
-  tmp___12 = __builtin_expect(error != 0, 0L);
+  tmp___12 = ldv__builtin_expect(error != 0, 0L);
   }
   if (tmp___12 != 0L) {
     if (error == -95) {
@@ -8009,7 +8008,7 @@ static irqreturn_t blkif_interrupt(int irq , void *dev_id )
   case_0: /* CIL Label */ ;
   case_1: /* CIL Label */ 
   {
-  tmp___14 = __builtin_expect((int )bret->status != 0, 0L);
+  tmp___14 = ldv__builtin_expect((int )bret->status != 0, 0L);
   }
   if (tmp___14 != 0L) {
     {
@@ -8019,7 +8018,7 @@ static irqreturn_t blkif_interrupt(int irq , void *dev_id )
     descriptor.format = "Bad return from blkdev data request: %x\n";
     descriptor.lineno = 1217U;
     descriptor.flags = 0U;
-    tmp___13 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___13 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp___13 != 0L) {
       {
@@ -8607,7 +8606,7 @@ static int blkif_recover(struct blkfront_info *info )
   ldv_40132: 
   {
   list_del_init(& req->queuelist);
-  tmp___0 = __builtin_expect((unsigned int )req->nr_phys_segments > segs, 0L);
+  tmp___0 = ldv__builtin_expect((unsigned int )req->nr_phys_segments > segs, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -8644,7 +8643,7 @@ static int blkif_recover(struct blkfront_info *info )
     pending = (int )(((tmp___1 + segs) - 1U) / segs);
     tmp___2 = kzalloc(16UL, 16U);
     split_bio = (struct split_bio *)tmp___2;
-    tmp___3 = __builtin_expect((unsigned long )split_bio == (unsigned long )((struct split_bio *)0),
+    tmp___3 = ldv__builtin_expect((unsigned long )split_bio == (unsigned long )((struct split_bio *)0),
                                0L);
     }
     if (tmp___3 != 0L) {
@@ -8669,7 +8668,7 @@ static int blkif_recover(struct blkfront_info *info )
     _min2 = (bio->bi_iter.bi_size >> 9) - offset;
     size = (int )(_min1 < _min2 ? _min1 : _min2);
     cloned_bio = bio_clone(bio, 16U);
-    tmp___4 = __builtin_expect((unsigned long )cloned_bio == (unsigned long )((struct bio *)0),
+    tmp___4 = ldv__builtin_expect((unsigned long )cloned_bio == (unsigned long )((struct bio *)0),
                                0L);
     }
     if (tmp___4 != 0L) {
@@ -8733,7 +8732,7 @@ static int blkfront_resume(struct xenbus_device *dev )
   descriptor.format = "blkfront_resume: %s\n";
   descriptor.lineno = 1606U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -8895,7 +8894,7 @@ static int blkfront_setup_indirect(struct blkfront_info *info )
     {
     num = (int )((unsigned int )(((unsigned long )segs + 511UL) / 512UL) * 32U);
     tmp = list_empty((struct list_head  const  *)(& info->indirect_pages));
-    tmp___0 = __builtin_expect(tmp == 0, 0L);
+    tmp___0 = ldv__builtin_expect(tmp == 0, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -9082,7 +9081,7 @@ static void blkfront_connect(struct blkfront_info *info )
   descriptor.format = "%s:%s.\n";
   descriptor.lineno = 1804U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -9211,7 +9210,7 @@ static void blkback_changed(struct xenbus_device *dev , enum xenbus_state backen
   descriptor.format = "blkfront:blkback_changed to state %d.\n";
   descriptor.lineno = 1905U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -9317,7 +9316,7 @@ static int blkfront_remove(struct xenbus_device *xbdev )
   descriptor.format = "%s removed";
   descriptor.lineno = 1936U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -9440,7 +9439,7 @@ static void blkif_release(struct gendisk *disk , fmode_t mode )
   if ((unsigned long )bdev == (unsigned long )((struct block_device *)0)) {
     {
     __ret_warn_on = 1;
-    tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
     if (tmp != 0L) {
       {
@@ -9451,7 +9450,7 @@ static void blkif_release(struct gendisk *disk , fmode_t mode )
 
     }
     {
-    __builtin_expect(__ret_warn_on != 0, 0L);
+    ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
     goto out_mutex;
   } else {
@@ -9581,7 +9580,7 @@ void ldv_dispatch_deregister_io_instance_3_6_4(void) ;
 void ldv_dispatch_register_5_2(struct xenbus_driver *arg0 ) ;
 void ldv_dispatch_register_io_instance_3_6_5(void) ;
 void ldv_entry_EMGentry_6(void *arg0 ) ;
-void main(void) ;
+int main(void) ;
 void ldv_iio_triggered_buffer_iio_triggered_buffer_instance_0(void *arg0 ) ;
 enum irqreturn ldv_iio_triggered_buffer_instance_handler_0_5(enum irqreturn (*arg0)(int  ,
                                                                                     void * ) ,
@@ -9755,7 +9754,7 @@ void ldv_entry_EMGentry_6(void *arg0 )
   return;
 }
 }
-void main(void) 
+int main(void) 
 { 
 
 
@@ -9764,7 +9763,7 @@ void main(void)
   ldv_ldv_initialize_148();
   ldv_entry_EMGentry_6((void *)0);
   }
-  return;
+return 0;
 }
 }
 void ldv_iio_triggered_buffer_iio_triggered_buffer_instance_0(void *arg0 ) 
@@ -12765,7 +12764,7 @@ void ldv_linux_usb_urb_check_final_state(void)
 }
 }
 extern void ldv_assert(char const   * , int  ) ;
-void __builtin_trap(void) ;
+void ldv__builtin_trap(void) ;
 void ldv_assume(int expression ) 
 { 
 
@@ -12789,7 +12788,7 @@ void ldv_stop(void)
   goto ldv_stop_label;
 }
 }
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 
@@ -12797,7 +12796,7 @@ long __builtin_expect(long exp , long c )
   return (exp);
 }
 }
-void __builtin_trap(void) 
+void ldv__builtin_trap(void) 
 { 
 
 

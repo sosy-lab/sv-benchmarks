@@ -6386,8 +6386,7 @@ struct ldv_thread {
    void (*function)(void * ) ;
 };
 typedef _Bool ldv_set;
-long __builtin_bswap64(long  ) ;
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 void ldv_assume(int expression ) ;
 void ldv_stop(void) ;
 void ldv_linux_alloc_irq_check_alloc_flags(gfp_t flags ) ;
@@ -6575,7 +6574,6 @@ extern void *__memcpy(void * , void const   * , size_t  ) ;
 extern void *__memset(void * , int  , size_t  ) ;
 extern size_t strlen(char const   * ) ;
 extern void warn_slowpath_null(char const   * , int const    ) ;
-extern int ( /* missing proto */  __builtin_unreachable)() ;
 __inline static unsigned long arch_local_save_flags(void) 
 { 
   unsigned long __ret ;
@@ -6593,7 +6591,7 @@ __inline static unsigned long arch_local_save_flags(void)
   __edx = __edx;
   __ecx = __ecx;
   __eax = __eax;
-  tmp = __builtin_expect((unsigned long )pv_irq_ops.save_fl.func == (unsigned long )((void *)0),
+  tmp = ldv__builtin_expect((unsigned long )pv_irq_ops.save_fl.func == (unsigned long )((void *)0),
                          0L);
   }
   if (tmp != 0L) {
@@ -6692,7 +6690,7 @@ __inline static struct dma_map_ops *get_dma_ops(struct device *dev )
 
   {
   {
-  tmp = __builtin_expect((unsigned long )dev == (unsigned long )((struct device *)0),
+  tmp = ldv__builtin_expect((unsigned long )dev == (unsigned long )((struct device *)0),
                          0L);
   }
   if (tmp != 0L || (unsigned long )dev->archdata.dma_ops == (unsigned long )((struct dma_map_ops *)0)) {
@@ -6802,7 +6800,7 @@ __inline static void dma_free_attrs(struct device *dev , size_t size , void *vad
   _flags = arch_local_save_flags();
   tmp___0 = arch_irqs_disabled_flags(_flags);
   __ret_warn_on = tmp___0 != 0;
-  tmp___1 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___1 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -6812,7 +6810,7 @@ __inline static void dma_free_attrs(struct device *dev , size_t size , void *vad
 
   }
   {
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
   debug_dma_free_coherent(dev, size, vaddr, bus);
   }
   if ((unsigned long )ops->free != (unsigned long )((void (*)(struct device * , size_t  ,
@@ -7161,7 +7159,7 @@ static void mvs_tasklet(unsigned long opaque )
   sha = (struct sas_ha_struct *)opaque;
   core_nr = (u16 )((struct mvs_prv_info *)sha->lldd_ha)->n_host;
   mvi = ((struct mvs_prv_info *)sha->lldd_ha)->mvi[0];
-  tmp = __builtin_expect((unsigned long )mvi == (unsigned long )((struct mvs_info *)0),
+  tmp = ldv__builtin_expect((unsigned long )mvi == (unsigned long )((struct mvs_info *)0),
                          0L);
   }
   if (tmp != 0L) {
@@ -7216,7 +7214,7 @@ static irqreturn_t mvs_interrupt(int irq , void *opaque )
   sha = (struct sas_ha_struct *)opaque;
   core_nr = (u32 )((struct mvs_prv_info *)sha->lldd_ha)->n_host;
   mvi = ((struct mvs_prv_info *)sha->lldd_ha)->mvi[0];
-  tmp = __builtin_expect((unsigned long )mvi == (unsigned long )((struct mvs_info *)0),
+  tmp = ldv__builtin_expect((unsigned long )mvi == (unsigned long )((struct mvs_info *)0),
                          0L);
   }
   if (tmp != 0L) {
@@ -8065,7 +8063,7 @@ static ssize_t mvs_store_interrupt_coalescing(struct device *cdev , struct devic
   interrupt_coalescing = val;
   core_nr = ((struct mvs_prv_info *)sha->lldd_ha)->n_host;
   mvi = ((struct mvs_prv_info *)sha->lldd_ha)->mvi[0];
-  tmp___1 = __builtin_expect((unsigned long )mvi == (unsigned long )((struct mvs_info *)0),
+  tmp___1 = ldv__builtin_expect((unsigned long )mvi == (unsigned long )((struct mvs_info *)0),
                              0L);
   }
   if (tmp___1 != 0L) {
@@ -8534,7 +8532,7 @@ void ldv_dummy_resourceless_instance_callback_7_8(int (*arg0)(struct domain_devi
                                                               unsigned char * ) ,
                                                   struct domain_device *arg1 , unsigned char *arg2 ) ;
 void ldv_entry_EMGentry_18(void *arg0 ) ;
-void main(void) ;
+int main(void) ;
 void ldv_free_irq(void *arg0 , int arg1 , void *arg2 ) ;
 enum irqreturn ldv_interrupt_instance_handler_0_5(enum irqreturn (*arg0)(int  , void * ) ,
                                                   int arg1 , void *arg2 ) ;
@@ -9115,7 +9113,7 @@ void ldv_entry_EMGentry_18(void *arg0 )
   return;
 }
 }
-void main(void) 
+int main(void) 
 { 
 
 
@@ -9124,7 +9122,7 @@ void main(void)
   ldv_ldv_initialize_113();
   ldv_entry_EMGentry_18((void *)0);
   }
-  return;
+return 0;
 }
 }
 void ldv_free_irq(void *arg0 , int arg1 , void *arg2 ) 
@@ -12531,7 +12529,7 @@ __inline static struct page *sg_page(struct scatterlist *sg )
 
   {
   {
-  tmp = __builtin_expect(sg->sg_magic != 2271560481UL, 0L);
+  tmp = ldv__builtin_expect(sg->sg_magic != 2271560481UL, 0L);
   }
   if (tmp != 0L) {
     {
@@ -12543,7 +12541,7 @@ __inline static struct page *sg_page(struct scatterlist *sg )
 
   }
   {
-  tmp___0 = __builtin_expect((long )((int )sg->page_link) & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )((int )sg->page_link) & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -12625,7 +12623,7 @@ __inline static int dma_map_sg_attrs(struct device *dev , struct scatterlist *sg
   }
   {
   tmp___1 = valid_dma_direction((int )dir);
-  tmp___2 = __builtin_expect(tmp___1 == 0, 0L);
+  tmp___2 = ldv__builtin_expect(tmp___1 == 0, 0L);
   }
   if (tmp___2 != 0L) {
     {
@@ -12657,7 +12655,7 @@ __inline static void dma_unmap_sg_attrs(struct device *dev , struct scatterlist 
   tmp = get_dma_ops(dev);
   ops = tmp;
   tmp___0 = valid_dma_direction((int )dir);
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -13637,7 +13635,7 @@ static int mvs_task_prep_ata(struct mvs_info *mvi , struct mvs_task_exec_info *t
   _min2 = 1024U;
   resp_len = _min1 <= 1023U ? (unsigned int const   )_min1 : _min2;
   hdr->lens = (resp_len / 4U << 16) | req_len / 4U;
-  tmp___4 = __builtin_expect((unsigned int )*((unsigned char *)task + 125UL) == 0U,
+  tmp___4 = ldv__builtin_expect((unsigned int )*((unsigned char *)task + 125UL) == 0U,
                              1L);
   }
   if (tmp___4 != 0L) {
@@ -14107,7 +14105,7 @@ static int mvs_task_exec(struct sas_task *task , gfp_t gfp_flags , struct comple
 
   }
   {
-  tmp___0 = __builtin_expect(pass != 0U, 1L);
+  tmp___0 = ldv__builtin_expect(pass != 0U, 1L);
   }
   if (tmp___0 != 0L) {
     {
@@ -14958,7 +14956,7 @@ static int mvs_exec_internal_tmf_task(struct domain_device *dev , void *paramete
   ldv_46537: ;
   ex_err: 
   {
-  tmp___0 = __builtin_expect((long )(retry == 3 && (unsigned long )task != (unsigned long )((struct sas_task *)0)),
+  tmp___0 = ldv__builtin_expect((long )(retry == 3 && (unsigned long )task != (unsigned long )((struct sas_task *)0)),
                              0L);
   }
   if (tmp___0 != 0L) {
@@ -15315,11 +15313,11 @@ static int mvs_sata_done(struct mvs_info *mvi , struct sas_task *task , u32 slot
   __memcpy((void *)(& resp->ending_fis), (void const   *)mvi->rx_fis + (((unsigned long )(mvi->chip)->fis_offs + (unsigned long )((int )mvi_dev->taskfileset * 256)) + 64UL),
            20UL);
   tstat->buf_valid_size = 26;
-  tmp___0 = __builtin_expect(err != 0, 0L);
+  tmp___0 = ldv__builtin_expect(err != 0, 0L);
   }
   if (tmp___0 != 0L) {
     {
-    tmp = __builtin_expect(err < 0, 0L);
+    tmp = ldv__builtin_expect(err < 0, 0L);
     }
     if (tmp != 0L) {
       stat = 135;
@@ -15547,14 +15545,14 @@ int mvs_slot_complete(struct mvs_info *mvi , u32 rx_desc , u32 flags )
   slot = (struct mvs_slot_info *)(& mvi->slot_info) + (unsigned long )slot_idx;
   task = slot->__annonCompField96.task;
   mvi_dev = (struct mvs_device *)0;
-  tmp = __builtin_expect((unsigned long )task == (unsigned long )((struct sas_task *)0),
+  tmp = ldv__builtin_expect((unsigned long )task == (unsigned long )((struct sas_task *)0),
                          0L);
   }
   if (tmp != 0L) {
     tmp___1 = 1;
   } else {
     {
-    tmp___0 = __builtin_expect((unsigned long )task->lldd_task == (unsigned long )((void *)0),
+    tmp___0 = ldv__builtin_expect((unsigned long )task->lldd_task == (unsigned long )((void *)0),
                                0L);
     }
     if (tmp___0 != 0L) {
@@ -15567,7 +15565,7 @@ int mvs_slot_complete(struct mvs_info *mvi , u32 rx_desc , u32 flags )
     return (-1);
   } else {
     {
-    tmp___2 = __builtin_expect((unsigned long )task->dev == (unsigned long )((struct domain_device *)0),
+    tmp___2 = ldv__builtin_expect((unsigned long )task->dev == (unsigned long )((struct domain_device *)0),
                                0L);
     }
     if (tmp___2 != 0L) {
@@ -15587,7 +15585,7 @@ int mvs_slot_complete(struct mvs_info *mvi , u32 rx_desc , u32 flags )
   ldv_spin_unlock_101(& task->task_state_lock);
   __memset((void *)tstat, 0, 116UL);
   tstat->resp = 0;
-  tmp___4 = __builtin_expect(aborted != 0U, 0L);
+  tmp___4 = ldv__builtin_expect(aborted != 0U, 0L);
   }
   if (tmp___4 != 0L) {
     tstat->stat = 141;
@@ -15614,7 +15612,7 @@ int mvs_slot_complete(struct mvs_info *mvi , u32 rx_desc , u32 flags )
 
   }
   {
-  tmp___5 = __builtin_expect((long )((unsigned long )mvi_dev == (unsigned long )((struct mvs_device *)0) || flags != 0U),
+  tmp___5 = ldv__builtin_expect((long )((unsigned long )mvi_dev == (unsigned long )((struct mvs_device *)0) || flags != 0U),
                              0L);
   }
   if (tmp___5 != 0L) {
@@ -15632,17 +15630,17 @@ int mvs_slot_complete(struct mvs_info *mvi , u32 rx_desc , u32 flags )
 
   }
   {
-  tmp___8 = __builtin_expect((rx_desc & 131072U) != 0U, 0L);
+  tmp___8 = ldv__builtin_expect((rx_desc & 131072U) != 0U, 0L);
   }
   if (tmp___8 != 0L) {
     {
-    tmp___9 = __builtin_expect(*((u32 *)slot->response) != 0U, 0L);
+    tmp___9 = ldv__builtin_expect(*((u32 *)slot->response) != 0U, 0L);
     }
     if (tmp___9 != 0L) {
       tmp___11 = 1;
     } else {
       {
-      tmp___10 = __builtin_expect(*((u32 *)slot->response + 1UL) != 0U, 0L);
+      tmp___10 = ldv__builtin_expect(*((u32 *)slot->response + 1UL) != 0U, 0L);
       }
       if (tmp___10 != 0L) {
         tmp___11 = 1;
@@ -16231,7 +16229,7 @@ int mvs_int_rx(struct mvs_info *mvi , bool self_clear )
 
   }
   {
-  tmp___0 = __builtin_expect(mvi->rx_cons == rx_prod_idx, 0L);
+  tmp___0 = ldv__builtin_expect(mvi->rx_cons == rx_prod_idx, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -16251,7 +16249,7 @@ int mvs_int_rx(struct mvs_info *mvi , bool self_clear )
   {
   rx_prod_idx = (rx_prod_idx + 1U) & 1023U;
   rx_desc = *(mvi->rx + (unsigned long )(rx_prod_idx + 1U));
-  tmp___1 = __builtin_expect((rx_desc & 65536U) != 0U, 1L);
+  tmp___1 = ldv__builtin_expect((rx_desc & 65536U) != 0U, 1L);
   }
   if (tmp___1 != 0L) {
     {
@@ -23376,7 +23374,7 @@ void ldv_linux_usb_urb_check_final_state(void)
 }
 }
 extern void ldv_assert(char const   * , int  ) ;
-void __builtin_trap(void) ;
+void ldv__builtin_trap(void) ;
 void ldv_assume(int expression ) 
 { 
 
@@ -23400,7 +23398,7 @@ void ldv_stop(void)
   goto ldv_stop_label;
 }
 }
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 
@@ -23408,7 +23406,7 @@ long __builtin_expect(long exp , long c )
   return (exp);
 }
 }
-void __builtin_trap(void) 
+void ldv__builtin_trap(void) 
 { 
 
 

@@ -5556,7 +5556,7 @@ struct ldv_thread {
    int identifier ;
    void (*function)(void * ) ;
 };
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 void *ldv_dev_get_drvdata(struct device  const  *dev ) ;
 int ldv_dev_set_drvdata(struct device *dev , void *data ) ;
 void *ldv_kzalloc(size_t size , gfp_t flags ) ;
@@ -5607,7 +5607,6 @@ extern void *memcpy(void * , void const   * , size_t  ) ;
 extern void *memset(void * , int  , size_t  ) ;
 extern char *strcpy(char * , char const   * ) ;
 extern size_t strlcpy(char * , char const   * , size_t  ) ;
-extern int ( /* missing proto */  __builtin_unreachable)() ;
 extern void __ldv_spin_lock(spinlock_t * ) ;
 static void ldv___ldv_spin_lock_54(spinlock_t *ldv_func_arg1 ) ;
 static void ldv___ldv_spin_lock_56(spinlock_t *ldv_func_arg1 ) ;
@@ -8607,7 +8606,7 @@ static int vidioc_enum_fmt_vid_cap(struct file *file , void *priv , struct v4l2_
 
   {
   {
-  tmp = __builtin_expect(f->index > 5U, 0L);
+  tmp = ldv__builtin_expect(f->index > 5U, 0L);
   }
   if (tmp != 0L) {
     return (-22);
@@ -8736,7 +8735,7 @@ static int radio_g_tuner(struct file *file , void *priv , struct v4l2_tuner *t )
   {
   {
   dev = ((struct em28xx_fh *)priv)->dev;
-  tmp = __builtin_expect(t->index != 0U, 0L);
+  tmp = ldv__builtin_expect(t->index != 0U, 0L);
   }
   if (tmp != 0L) {
     return (-22);
@@ -10258,7 +10257,7 @@ void ldv_dummy_resourceless_instance_callback_3_8(int (*arg0)(struct vb2_queue *
                                                   unsigned int *arg3 , unsigned int *arg4 ,
                                                   unsigned int *arg5 , void **arg6 ) ;
 void ldv_entry_EMGentry_5(void *arg0 ) ;
-void main(void) ;
+int main(void) ;
 void ldv_initialize_external_data(void) ;
 void ldv_io_instance_callback_4_17(int (*arg0)(struct file * , struct vm_area_struct * ) ,
                                    struct file *arg1 , struct vm_area_struct *arg2 ) ;
@@ -11126,7 +11125,7 @@ void ldv_entry_EMGentry_5(void *arg0 )
   return;
 }
 }
-void main(void) 
+int main(void) 
 { 
   int tmp ;
 
@@ -13843,7 +13842,7 @@ void *ldv_kzalloc(size_t size , gfp_t flags )
 }
 }
 extern void ldv_assert(char const   * , int  ) ;
-void __builtin_trap(void) ;
+void ldv__builtin_trap(void) ;
 void ldv_assume(int expression ) 
 { 
 
@@ -13867,7 +13866,7 @@ void ldv_stop(void)
   goto ldv_stop_label;
 }
 }
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 
@@ -13875,7 +13874,7 @@ long __builtin_expect(long exp , long c )
   return (exp);
 }
 }
-void __builtin_trap(void) 
+void ldv__builtin_trap(void) 
 { 
 
 

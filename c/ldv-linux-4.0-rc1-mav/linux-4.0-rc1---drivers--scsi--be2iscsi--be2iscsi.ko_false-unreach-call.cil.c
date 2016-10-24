@@ -8784,7 +8784,7 @@ struct ldv_thread {
    void (*function)(void * ) ;
 };
 typedef _Bool ldv_set;
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 void ldv_assume(int expression ) ;
 void ldv_linux_alloc_irq_check_alloc_flags(gfp_t flags ) ;
 void ldv_linux_alloc_irq_check_alloc_nonatomic(void) ;
@@ -8903,7 +8903,6 @@ extern void *__memcpy(void * , void const   * , size_t  ) ;
 extern void *__memset(void * , int  , size_t  ) ;
 extern char *strcpy(char * , char const   * ) ;
 extern void warn_slowpath_null(char const   * , int const    ) ;
-extern int ( /* missing proto */  __builtin_unreachable)() ;
 __inline static unsigned long arch_local_save_flags(void) 
 { 
   unsigned long __ret ;
@@ -8921,7 +8920,7 @@ __inline static unsigned long arch_local_save_flags(void)
   __edx = __edx;
   __ecx = __ecx;
   __eax = __eax;
-  tmp = __builtin_expect((unsigned long )pv_irq_ops.save_fl.func == (unsigned long )((void *)0),
+  tmp = ldv__builtin_expect((unsigned long )pv_irq_ops.save_fl.func == (unsigned long )((void *)0),
                          0L);
   }
   if (tmp != 0L) {
@@ -8973,7 +8972,7 @@ __inline static struct dma_map_ops *get_dma_ops(struct device *dev )
 
   {
   {
-  tmp = __builtin_expect((unsigned long )dev == (unsigned long )((struct device *)0),
+  tmp = ldv__builtin_expect((unsigned long )dev == (unsigned long )((struct device *)0),
                          0L);
   }
   if (tmp != 0L || (unsigned long )dev->archdata.dma_ops == (unsigned long )((struct dma_map_ops *)0)) {
@@ -9081,7 +9080,7 @@ __inline static void dma_free_attrs(struct device *dev , size_t size , void *vad
   _flags = arch_local_save_flags();
   tmp___0 = arch_irqs_disabled_flags(_flags);
   __ret_warn_on = tmp___0 != 0;
-  tmp___1 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___1 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -9091,7 +9090,7 @@ __inline static void dma_free_attrs(struct device *dev , size_t size , void *vad
 
   }
   {
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
   debug_dma_free_coherent(dev, size, vaddr, bus);
   }
   if ((unsigned long )ops->free != (unsigned long )((void (*)(struct device * , size_t  ,
@@ -10293,7 +10292,7 @@ static int be2iscsi_get_if_param(struct beiscsi_hba *phba , struct iscsi_iface *
   switch_default: /* CIL Label */ 
   {
   __ret_warn_on = 1;
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp != 0L) {
     {
@@ -10303,7 +10302,7 @@ static int be2iscsi_get_if_param(struct beiscsi_hba *phba , struct iscsi_iface *
 
   }
   {
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   switch_break: /* CIL Label */ ;
   }
@@ -11970,7 +11969,6 @@ __inline static void *ERR_PTR(long error )
   return (tmp);
 }
 }
-int __builtin_bswap32(int  ) ;
 void ldv_stop(void) ;
 void ldv_linux_arch_io_check_final_state(void) ;
 void ldv_linux_block_genhd_check_final_state(void) ;
@@ -12453,7 +12451,7 @@ __inline static dma_addr_t dma_map_single_attrs(struct device *dev , void *ptr ,
   ops = tmp;
   kmemcheck_mark_initialized(ptr, (unsigned int )size);
   tmp___0 = valid_dma_direction((int )dir);
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -12489,7 +12487,7 @@ __inline static void dma_unmap_single_attrs(struct device *dev , dma_addr_t addr
   tmp = get_dma_ops(dev);
   ops = tmp;
   tmp___0 = valid_dma_direction((int )dir);
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -12812,7 +12810,7 @@ __inline static u32 MODULO(u16 val , u16 limit )
   {
   {
   __ret_warn_on = ((int )limit & ((int )limit + -1)) != 0;
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp != 0L) {
     {
@@ -12822,7 +12820,7 @@ __inline static u32 MODULO(u16 val , u16 limit )
 
   }
   {
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   return ((u32 )((int )val & ((int )limit + -1)));
 }
@@ -14525,7 +14523,7 @@ static unsigned int beiscsi_process_async_pdu(struct beiscsi_conn *beiscsi_conn 
   case_63: /* CIL Label */ 
   {
   __ret_warn_on = (unsigned long )pbuffer == (unsigned long )((void *)0);
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp != 0L) {
     {
@@ -14535,9 +14533,9 @@ static unsigned int beiscsi_process_async_pdu(struct beiscsi_conn *beiscsi_conn 
 
   }
   {
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
   __ret_warn_on___0 = buf_len != 48UL;
-  tmp___0 = __builtin_expect(__ret_warn_on___0 != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on___0 != 0, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -14547,7 +14545,7 @@ static unsigned int beiscsi_process_async_pdu(struct beiscsi_conn *beiscsi_conn 
 
   }
   {
-  __builtin_expect(__ret_warn_on___0 != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on___0 != 0, 0L);
   log_value = phba->attr_log_enable;
   }
   if ((log_value & 48U) != 0U || (int )((signed char )*("\v" + 1)) <= 51) {
@@ -15380,7 +15378,7 @@ static struct async_pdu_handle *hwi_get_async_handle(struct beiscsi_hba *phba , 
   {
   tmp___3 = list_empty((struct list_head  const  *)pbusy_list);
   __ret_warn_on = tmp___3 != 0;
-  tmp___4 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___4 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp___4 != 0L) {
     {
@@ -15390,7 +15388,7 @@ static struct async_pdu_handle *hwi_get_async_handle(struct beiscsi_hba *phba , 
 
   }
   {
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
   __mptr = (struct list_head  const  *)pbusy_list->next;
   pasync_handle = (struct async_pdu_handle *)__mptr;
   }
@@ -15412,7 +15410,7 @@ static struct async_pdu_handle *hwi_get_async_handle(struct beiscsi_hba *phba , 
   ldv_57314: 
   {
   __ret_warn_on___0 = (unsigned long )pasync_handle == (unsigned long )((struct async_pdu_handle *)0);
-  tmp___5 = __builtin_expect(__ret_warn_on___0 != 0, 0L);
+  tmp___5 = ldv__builtin_expect(__ret_warn_on___0 != 0, 0L);
   }
   if (tmp___5 != 0L) {
     {
@@ -15422,7 +15420,7 @@ static struct async_pdu_handle *hwi_get_async_handle(struct beiscsi_hba *phba , 
 
   }
   {
-  __builtin_expect(__ret_warn_on___0 != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on___0 != 0, 0L);
   pasync_handle->cri = pasync_ctx->cid_to_async_cri_map[beiscsi_conn->beiscsi_conn_cid];
   pasync_handle->is_header = is_header;
   pasync_handle->buffer_len = (unsigned long )dpl;
@@ -15472,7 +15470,7 @@ static unsigned int hwi_update_async_writables(struct beiscsi_hba *phba , struct
     {
     tmp = list_empty((struct list_head  const  *)pbusy_list);
     __ret_warn_on = tmp != 0;
-    tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -15482,7 +15480,7 @@ static unsigned int hwi_update_async_writables(struct beiscsi_hba *phba , struct
 
     }
     {
-    __builtin_expect(__ret_warn_on != 0, 0L);
+    ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
   } else {
 
@@ -15495,7 +15493,7 @@ static unsigned int hwi_update_async_writables(struct beiscsi_hba *phba , struct
     __mptr = (struct list_head  const  *)pbusy_list->next;
     pasync_handle = (struct async_pdu_handle *)__mptr;
     __ret_warn_on___0 = (unsigned long )pasync_handle == (unsigned long )((struct async_pdu_handle *)0);
-    tmp___1 = __builtin_expect(__ret_warn_on___0 != 0, 0L);
+    tmp___1 = ldv__builtin_expect(__ret_warn_on___0 != 0, 0L);
     }
     if (tmp___1 != 0L) {
       {
@@ -15505,7 +15503,7 @@ static unsigned int hwi_update_async_writables(struct beiscsi_hba *phba , struct
 
     }
     {
-    __builtin_expect(__ret_warn_on___0 != 0, 0L);
+    ldv__builtin_expect(__ret_warn_on___0 != 0, 0L);
     pasync_handle->consumed = 1U;
     }
   } else {
@@ -15531,7 +15529,7 @@ static unsigned int hwi_update_async_writables(struct beiscsi_hba *phba , struct
     }
     {
     __ret_warn_on___1 = 1;
-    tmp___3 = __builtin_expect(__ret_warn_on___1 != 0, 0L);
+    tmp___3 = ldv__builtin_expect(__ret_warn_on___1 != 0, 0L);
     }
     if (tmp___3 != 0L) {
       {
@@ -15541,7 +15539,7 @@ static unsigned int hwi_update_async_writables(struct beiscsi_hba *phba , struct
 
     }
     {
-    __builtin_expect(__ret_warn_on___1 != 0, 0L);
+    ldv__builtin_expect(__ret_warn_on___1 != 0, 0L);
     }
   } else {
 
@@ -15671,7 +15669,7 @@ static void hwi_post_async_buffers(struct beiscsi_hba *phba , unsigned int is_he
     __mptr = (struct list_head  const  *)pfree_link;
     pasync_handle = (struct async_pdu_handle *)__mptr;
     __ret_warn_on = (unsigned long )pasync_handle == (unsigned long )((struct async_pdu_handle *)0);
-    tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
     if (tmp != 0L) {
       {
@@ -15681,7 +15679,7 @@ static void hwi_post_async_buffers(struct beiscsi_hba *phba , unsigned int is_he
 
     }
     {
-    __builtin_expect(__ret_warn_on != 0, 0L);
+    ldv__builtin_expect(__ret_warn_on != 0, 0L);
     pasync_handle->consumed = 0U;
     pfree_link = pfree_link->next;
     pasync_sge = hwi_get_ring_address(pasync_ctx, is_header, host_write_num);
@@ -15742,7 +15740,7 @@ static void hwi_flush_default_pdu_buffer(struct beiscsi_hba *phba , struct beisc
   pasync_ctx = (phwi_ctrlr->phwi_ctxt)->pasync_ctx[(int )(phwi_ctrlr->wrb_context + (unsigned long )cri_index)->ulp_num];
   pasync_handle = hwi_get_async_handle(phba, beiscsi_conn, pasync_ctx, pdpdu_cqe,
                                        & cq_index);
-  tmp = __builtin_expect((unsigned int )pasync_handle->is_header != 0U, 0L);
+  tmp = ldv__builtin_expect((unsigned int )pasync_handle->is_header != 0U, 0L);
   }
   if (tmp != 0L) {
     {
@@ -17748,7 +17746,7 @@ static int be_sgl_create_contiguous(void *virtual_address , u64 physical_address
   {
   {
   __ret_warn_on = (unsigned long )virtual_address == (unsigned long )((void *)0);
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp != 0L) {
     {
@@ -17758,9 +17756,9 @@ static int be_sgl_create_contiguous(void *virtual_address , u64 physical_address
 
   }
   {
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
   __ret_warn_on___0 = physical_address == 0ULL;
-  tmp___0 = __builtin_expect(__ret_warn_on___0 != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on___0 != 0, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -17770,9 +17768,9 @@ static int be_sgl_create_contiguous(void *virtual_address , u64 physical_address
 
   }
   {
-  __builtin_expect(__ret_warn_on___0 != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on___0 != 0, 0L);
   __ret_warn_on___1 = length == 0U;
-  tmp___1 = __builtin_expect(__ret_warn_on___1 != 0, 0L);
+  tmp___1 = ldv__builtin_expect(__ret_warn_on___1 != 0, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -17782,9 +17780,9 @@ static int be_sgl_create_contiguous(void *virtual_address , u64 physical_address
 
   }
   {
-  __builtin_expect(__ret_warn_on___1 != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on___1 != 0, 0L);
   __ret_warn_on___2 = (unsigned long )sgl == (unsigned long )((struct be_dma_mem *)0);
-  tmp___2 = __builtin_expect(__ret_warn_on___2 != 0, 0L);
+  tmp___2 = ldv__builtin_expect(__ret_warn_on___2 != 0, 0L);
   }
   if (tmp___2 != 0L) {
     {
@@ -17794,7 +17792,7 @@ static int be_sgl_create_contiguous(void *virtual_address , u64 physical_address
 
   }
   {
-  __builtin_expect(__ret_warn_on___2 != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on___2 != 0, 0L);
   sgl->va = virtual_address;
   sgl->dma = physical_address;
   sgl->size = length;
@@ -22498,7 +22496,7 @@ void ldv_dummy_resourceless_instance_callback_9_9(long (*arg0)(struct device * ,
                                                   struct device *arg1 , struct device_attribute *arg2 ,
                                                   char *arg3 , unsigned long arg4 ) ;
 void ldv_entry_EMGentry_20(void *arg0 ) ;
-void main(void) ;
+int main(void) ;
 void ldv_free_irq(void *arg0 , int arg1 , void *arg2 ) ;
 enum irqreturn ldv_interrupt_instance_handler_0_5(enum irqreturn (*arg0)(int  , void * ) ,
                                                   int arg1 , void *arg2 ) ;
@@ -23374,7 +23372,7 @@ void ldv_entry_EMGentry_20(void *arg0 )
   return;
 }
 }
-void main(void) 
+int main(void) 
 { 
 
 
@@ -23383,7 +23381,7 @@ void main(void)
   ldv_ldv_initialize_180();
   ldv_entry_EMGentry_20((void *)0);
   }
-  return;
+return 0;
 }
 }
 void ldv_free_irq(void *arg0 , int arg1 , void *arg2 ) 
@@ -29080,7 +29078,7 @@ __inline static bool be_mcc_compl_is_new(struct be_mcc_compl *compl )
     {
     compl->flags = compl->flags;
     __ret_warn_on = (int )compl->flags >= 0;
-    tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
     if (tmp != 0L) {
       {
@@ -29090,7 +29088,7 @@ __inline static bool be_mcc_compl_is_new(struct be_mcc_compl *compl )
 
     }
     {
-    __builtin_expect(__ret_warn_on != 0, 0L);
+    ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
     return (1);
   } else {
@@ -29959,7 +29957,7 @@ struct be_mcc_wrb *wrb_from_mccq(struct beiscsi_hba *phba )
   mccq = & phba->ctrl.mcc_obj.q;
   tmp = atomic_read((atomic_t const   *)(& mccq->used));
   __ret_warn_on = tmp >= (int )mccq->len;
-  tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -29969,7 +29967,7 @@ struct be_mcc_wrb *wrb_from_mccq(struct beiscsi_hba *phba )
 
   }
   {
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
   tmp___1 = queue_head_node(mccq);
   wrb = (struct be_mcc_wrb *)tmp___1;
   __memset((void *)wrb, 0, 256UL);
@@ -32898,7 +32896,7 @@ void ldv_linux_usb_urb_check_final_state(void)
 }
 }
 extern void ldv_assert(char const   * , int  ) ;
-void __builtin_trap(void) ;
+void ldv__builtin_trap(void) ;
 void ldv_assume(int expression ) 
 { 
 
@@ -32922,7 +32920,7 @@ void ldv_stop(void)
   goto ldv_stop_label;
 }
 }
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 
@@ -32930,7 +32928,7 @@ long __builtin_expect(long exp , long c )
   return (exp);
 }
 }
-void __builtin_trap(void) 
+void ldv__builtin_trap(void) 
 { 
 
 

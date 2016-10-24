@@ -6204,7 +6204,7 @@ struct ldv_thread {
    int identifier ;
    void (*function)(void * ) ;
 };
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 extern void ldv_initialize(void) ;
 int ldv_post_init(int init_ret_val ) ;
 extern void ldv_pre_probe(void) ;
@@ -6364,7 +6364,6 @@ extern void __bad_percpu_size(void) ;
 extern void *memcpy(void * , void const   * , size_t  ) ;
 extern void *memset(void * , int  , size_t  ) ;
 extern void warn_slowpath_null(char const   * , int const    ) ;
-extern int ( /* missing proto */  __builtin_unreachable)() ;
 __inline static void atomic_set(atomic_t *v , int i ) 
 { 
 
@@ -6673,7 +6672,7 @@ __inline static void netif_tx_stop_queue(struct netdev_queue *dev_queue )
   {
   {
   __ret_warn_on = (unsigned long )dev_queue == (unsigned long )((struct netdev_queue *)0);
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp != 0L) {
     {
@@ -6683,7 +6682,7 @@ __inline static void netif_tx_stop_queue(struct netdev_queue *dev_queue )
 
   }
   {
-  tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -6837,7 +6836,7 @@ __inline static void *wiphy_priv(struct wiphy *wiphy )
 
   {
   {
-  tmp = __builtin_expect((unsigned long )wiphy == (unsigned long )((struct wiphy *)0),
+  tmp = ldv__builtin_expect((unsigned long )wiphy == (unsigned long )((struct wiphy *)0),
                          0L);
   }
   if (tmp != 0L) {
@@ -6859,7 +6858,7 @@ __inline static void *wdev_priv(struct wireless_dev *wdev )
 
   {
   {
-  tmp = __builtin_expect((unsigned long )wdev == (unsigned long )((struct wireless_dev *)0),
+  tmp = ldv__builtin_expect((unsigned long )wdev == (unsigned long )((struct wireless_dev *)0),
                          0L);
   }
   if (tmp != 0L) {
@@ -7039,7 +7038,7 @@ static void ezusb_request_context_put(struct request_context *ctx )
   }
   {
   __ret_warn_on = ctx->done.done == 0U;
-  tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -7049,8 +7048,8 @@ static void ezusb_request_context_put(struct request_context *ctx )
 
   }
   {
-  __builtin_expect(__ret_warn_on != 0, 0L);
-  tmp___1 = __builtin_expect((ctx->outurb)->status == -115, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___1 = ldv__builtin_expect((ctx->outurb)->status == -115, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -7063,7 +7062,7 @@ static void ezusb_request_context_put(struct request_context *ctx )
   }
   {
   tmp___2 = timer_pending((struct timer_list  const  *)(& ctx->timer));
-  tmp___3 = __builtin_expect(tmp___2 != 0, 0L);
+  tmp___3 = ldv__builtin_expect(tmp___2 != 0, 0L);
   }
   if (tmp___3 != 0L) {
     {
@@ -7769,7 +7768,7 @@ static int ezusb_fill_req(struct ezusb_packet *req , u16 length , u16 rid , void
   {
   {
   total_size = (int )((unsigned int )length + 14U);
-  tmp = __builtin_expect(total_size > 2048, 0L);
+  tmp = ldv__builtin_expect(total_size > 2048, 0L);
   }
   if (tmp != 0L) {
     {
@@ -7986,7 +7985,7 @@ static int ezusb_access_ltv(struct ezusb_priv *upriv , struct request_context *c
   {
   retval = 0;
   tmp = preempt_count();
-  tmp___0 = __builtin_expect(((unsigned long )tmp & 983040UL) != 0UL, 0L);
+  tmp___0 = ldv__builtin_expect(((unsigned long )tmp & 983040UL) != 0UL, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -8489,7 +8488,7 @@ static int ezusb_program(struct hermes *hw , char const   *buf , u32 addr , u32 
   descriptor.format = "Programming subblock of length %d to address 0x%08x. Data @ %p\n";
   descriptor.lineno = 1184U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -8761,7 +8760,7 @@ static int ezusb_init(struct hermes *hw )
   {
   upriv = (struct ezusb_priv *)hw->priv;
   tmp = preempt_count();
-  tmp___0 = __builtin_expect(((unsigned long )tmp & 2096896UL) != 0UL, 0L);
+  tmp___0 = ldv__builtin_expect(((unsigned long )tmp & 2096896UL) != 0UL, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -8773,7 +8772,7 @@ static int ezusb_init(struct hermes *hw )
 
   }
   {
-  tmp___1 = __builtin_expect((unsigned long )upriv == (unsigned long )((struct ezusb_priv *)0),
+  tmp___1 = ldv__builtin_expect((unsigned long )upriv == (unsigned long )((struct ezusb_priv *)0),
                              0L);
   }
   if (tmp___1 != 0L) {
@@ -8958,7 +8957,7 @@ __inline static void ezusb_delete(struct ezusb_priv *upriv )
   {
   {
   tmp = preempt_count();
-  tmp___0 = __builtin_expect(((unsigned long )tmp & 2096896UL) != 0UL, 0L);
+  tmp___0 = ldv__builtin_expect(((unsigned long )tmp & 2096896UL) != 0UL, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -8970,7 +8969,7 @@ __inline static void ezusb_delete(struct ezusb_priv *upriv )
 
   }
   {
-  tmp___1 = __builtin_expect((unsigned long )upriv == (unsigned long )((struct ezusb_priv *)0),
+  tmp___1 = ldv__builtin_expect((unsigned long )upriv == (unsigned long )((struct ezusb_priv *)0),
                              0L);
   }
   if (tmp___1 != 0L) {
@@ -9550,7 +9549,7 @@ void ldv_dummy_resourceless_instance_callback_1_9(int (*arg0)(struct hermes * , 
                                                   void *arg3 , int arg4 , unsigned short arg5 ,
                                                   unsigned short arg6 ) ;
 void ldv_entry_EMGentry_10(void *arg0 ) ;
-void main(void) ;
+int main(void) ;
 void ldv_initialize_external_data(void) ;
 int ldv_mod_timer(int arg0 , struct timer_list *arg1 , unsigned long arg2 ) ;
 void ldv_net_dummy_resourceless_instance_0(void *arg0 ) ;
@@ -10366,7 +10365,7 @@ void ldv_entry_EMGentry_10(void *arg0 )
   return;
 }
 }
-void main(void) 
+int main(void) 
 { 
   int tmp ;
 
@@ -12223,7 +12222,7 @@ void *ldv_kzalloc(size_t size , gfp_t flags )
 }
 }
 extern void ldv_assert(char const   * , int  ) ;
-void __builtin_trap(void) ;
+void ldv__builtin_trap(void) ;
 void ldv_assume(int expression ) 
 { 
 
@@ -12247,7 +12246,7 @@ void ldv_stop(void)
   goto ldv_stop_label;
 }
 }
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 
@@ -12255,7 +12254,7 @@ long __builtin_expect(long exp , long c )
   return (exp);
 }
 }
-void __builtin_trap(void) 
+void ldv__builtin_trap(void) 
 { 
 
 

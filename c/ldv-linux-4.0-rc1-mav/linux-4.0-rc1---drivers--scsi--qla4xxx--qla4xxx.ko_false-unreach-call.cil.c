@@ -10189,7 +10189,7 @@ struct ldv_thread {
    void (*function)(void * ) ;
 };
 typedef _Bool ldv_set;
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 void ldv_assume(int expression ) ;
 void ldv_stop(void) ;
 void ldv_linux_alloc_irq_check_alloc_flags(gfp_t flags ) ;
@@ -10559,7 +10559,6 @@ extern int strncasecmp(char const   * , char const   * , size_t  ) ;
 extern void *kmemdup(void const   * , size_t  , gfp_t  ) ;
 extern void warn_slowpath_fmt(char const   * , int const    , char const   *  , ...) ;
 extern void warn_slowpath_null(char const   * , int const    ) ;
-extern int ( /* missing proto */  __builtin_unreachable)() ;
 __inline static unsigned long arch_local_save_flags(void) 
 { 
   unsigned long __ret ;
@@ -10577,7 +10576,7 @@ __inline static unsigned long arch_local_save_flags(void)
   __edx = __edx;
   __ecx = __ecx;
   __eax = __eax;
-  tmp = __builtin_expect((unsigned long )pv_irq_ops.save_fl.func == (unsigned long )((void *)0),
+  tmp = ldv__builtin_expect((unsigned long )pv_irq_ops.save_fl.func == (unsigned long )((void *)0),
                          0L);
   }
   if (tmp != 0L) {
@@ -10737,12 +10736,12 @@ __inline static void kref_get(struct kref *kref )
   {
   tmp = atomic_add_return(1, & kref->refcount);
   __ret_warn_once = tmp <= 1;
-  tmp___2 = __builtin_expect(__ret_warn_once != 0, 0L);
+  tmp___2 = ldv__builtin_expect(__ret_warn_once != 0, 0L);
   }
   if (tmp___2 != 0L) {
     {
     __ret_warn_on = ! __warned;
-    tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -10752,7 +10751,7 @@ __inline static void kref_get(struct kref *kref )
 
     }
     {
-    tmp___1 = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp___1 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
     if (tmp___1 != 0L) {
       __warned = 1;
@@ -10763,7 +10762,7 @@ __inline static void kref_get(struct kref *kref )
 
   }
   {
-  __builtin_expect(__ret_warn_once != 0, 0L);
+  ldv__builtin_expect(__ret_warn_once != 0, 0L);
   }
   return;
 }
@@ -10777,7 +10776,7 @@ __inline static int kref_sub(struct kref *kref , unsigned int count , void (*rel
   {
   {
   __ret_warn_on = (unsigned long )release == (unsigned long )((void (*)(struct kref * ))0);
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp != 0L) {
     {
@@ -10787,7 +10786,7 @@ __inline static int kref_sub(struct kref *kref , unsigned int count , void (*rel
 
   }
   {
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
   tmp___0 = atomic_sub_and_test((int )count, & kref->refcount);
   }
   if (tmp___0 != 0) {
@@ -11043,7 +11042,7 @@ __inline static struct dma_map_ops *get_dma_ops(struct device *dev )
 
   {
   {
-  tmp = __builtin_expect((unsigned long )dev == (unsigned long )((struct device *)0),
+  tmp = ldv__builtin_expect((unsigned long )dev == (unsigned long )((struct device *)0),
                          0L);
   }
   if (tmp != 0L || (unsigned long )dev->archdata.dma_ops == (unsigned long )((struct dma_map_ops *)0)) {
@@ -11070,7 +11069,7 @@ __inline static dma_addr_t dma_map_single_attrs(struct device *dev , void *ptr ,
   ops = tmp;
   kmemcheck_mark_initialized(ptr, (unsigned int )size);
   tmp___0 = valid_dma_direction((int )dir);
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -11106,7 +11105,7 @@ __inline static void dma_unmap_single_attrs(struct device *dev , dma_addr_t addr
   tmp = get_dma_ops(dev);
   ops = tmp;
   tmp___0 = valid_dma_direction((int )dir);
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -11233,7 +11232,7 @@ __inline static void dma_free_attrs(struct device *dev , size_t size , void *vad
   _flags = arch_local_save_flags();
   tmp___0 = arch_irqs_disabled_flags(_flags);
   __ret_warn_on = tmp___0 != 0;
-  tmp___1 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___1 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -11243,7 +11242,7 @@ __inline static void dma_free_attrs(struct device *dev , size_t size , void *vad
 
   }
   {
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
   debug_dma_free_coherent(dev, size, vaddr, bus);
   }
   if ((unsigned long )ops->free != (unsigned long )((void (*)(struct device * , size_t  ,
@@ -11345,14 +11344,14 @@ __inline static struct request *blk_map_queue_find_tag(struct blk_queue_tag *bqt
 
   {
   {
-  tmp = __builtin_expect((unsigned long )bqt == (unsigned long )((struct blk_queue_tag *)0),
+  tmp = ldv__builtin_expect((unsigned long )bqt == (unsigned long )((struct blk_queue_tag *)0),
                          0L);
   }
   if (tmp != 0L) {
     return ((struct request *)0);
   } else {
     {
-    tmp___0 = __builtin_expect(tag >= bqt->real_max_depth, 0L);
+    tmp___0 = ldv__builtin_expect(tag >= bqt->real_max_depth, 0L);
     }
     if (tmp___0 != 0L) {
       return ((struct request *)0);
@@ -19912,12 +19911,12 @@ void qla4_8xxx_watchdog(struct scsi_qla_host *ha )
     if (tmp___3 == 0) {
       {
       __ret_warn_once = 1;
-      tmp___1 = __builtin_expect(__ret_warn_once != 0, 0L);
+      tmp___1 = ldv__builtin_expect(__ret_warn_once != 0, 0L);
       }
       if (tmp___1 != 0L) {
         {
         __ret_warn_on = ! __warned;
-        tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+        tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
         }
         if (tmp != 0L) {
           {
@@ -19928,7 +19927,7 @@ void qla4_8xxx_watchdog(struct scsi_qla_host *ha )
 
         }
         {
-        tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+        tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
         }
         if (tmp___0 != 0L) {
           __warned = 1;
@@ -19939,7 +19938,7 @@ void qla4_8xxx_watchdog(struct scsi_qla_host *ha )
 
       }
       {
-      __builtin_expect(__ret_warn_once != 0, 0L);
+      ldv__builtin_expect(__ret_warn_once != 0, 0L);
       }
     } else {
 
@@ -28146,7 +28145,7 @@ static void qla4xxx_config_dma_addressing(struct scsi_qla_host *ha )
       descriptor.format = "Failed to set 64 bit PCI consistent mask; using 32 bit.\n";
       descriptor.lineno = 9038U;
       descriptor.flags = 0U;
-      tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+      tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
       }
       if (tmp != 0L) {
         {
@@ -28248,7 +28247,7 @@ static int qla4xxx_eh_wait_on_command(struct scsi_qla_host *ha , struct scsi_cmn
   max_wait_time = 120U;
   ret = 8194;
   tmp = pci_channel_offline(ha->pdev);
-  tmp___0 = __builtin_expect(tmp != 0, 0L);
+  tmp___0 = ldv__builtin_expect(tmp != 0, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -29708,7 +29707,7 @@ void ldv_dummy_resourceless_instance_callback_9_8(void (*arg0)(struct scsi_qla_h
 void ldv_dummy_resourceless_instance_callback_9_9(int (*arg0)(struct scsi_qla_host * ) ,
                                                   struct scsi_qla_host *arg1 ) ;
 void ldv_entry_EMGentry_36(void *arg0 ) ;
-void main(void) ;
+int main(void) ;
 void ldv_interrupt_instance_thread_0_3(enum irqreturn (*arg0)(int  , void * ) , int arg1 ,
                                        void *arg2 ) ;
 int ldv_mod_timer(int arg0 , struct timer_list *arg1 , unsigned long arg2 ) ;
@@ -32403,7 +32402,7 @@ void ldv_entry_EMGentry_36(void *arg0 )
   return;
 }
 }
-void main(void) 
+int main(void) 
 { 
 
 
@@ -32412,7 +32411,7 @@ void main(void)
   ldv_ldv_initialize_213();
   ldv_entry_EMGentry_36((void *)0);
   }
-  return;
+return 0;
 }
 }
 void ldv_interrupt_instance_thread_0_3(enum irqreturn (*arg0)(int  , void * ) , int arg1 ,
@@ -52265,7 +52264,7 @@ __inline static int kref_sub___0(struct kref *kref , unsigned int count , void (
   {
   {
   __ret_warn_on = (unsigned long )release == (unsigned long )((void (*)(struct kref * ))0);
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp != 0L) {
     {
@@ -52275,7 +52274,7 @@ __inline static int kref_sub___0(struct kref *kref , unsigned int count , void (
 
   }
   {
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
   tmp___0 = atomic_sub_and_test((int )count, & kref->refcount);
   }
   if (tmp___0 != 0) {
@@ -54350,7 +54349,7 @@ irqreturn_t qla4_82xx_intr_handler(int irq , void *dev_id )
   flags = 0UL;
   reqs_count = 0U;
   tmp = pci_channel_offline(ha->pdev);
-  tmp___0 = __builtin_expect(tmp != 0, 0L);
+  tmp___0 = ldv__builtin_expect(tmp != 0, 0L);
   }
   if (tmp___0 != 0L) {
     return (1);
@@ -55854,7 +55853,7 @@ void qla4_82xx_wr_32(struct scsi_qla_host *ha , ulong off , u32 data )
   {
   flags = 0UL;
   rv = qla4_82xx_pci_get_crb_addr_2M(ha, & off);
-  tmp = __builtin_expect(rv == -1, 0L);
+  tmp = ldv__builtin_expect(rv == -1, 0L);
   }
   if (tmp != 0L) {
     {
@@ -55899,7 +55898,7 @@ uint32_t qla4_82xx_rd_32(struct scsi_qla_host *ha , ulong off )
   {
   flags = 0UL;
   rv = qla4_82xx_pci_get_crb_addr_2M(ha, & off);
-  tmp = __builtin_expect(rv == -1, 0L);
+  tmp = ldv__builtin_expect(rv == -1, 0L);
   }
   if (tmp != 0L) {
     {
@@ -66604,7 +66603,7 @@ static int qla4xxx_read_flash(struct bsg_job *bsg_job )
   rval = -22;
   bsg_reply->reply_payload_rcv_len = 0U;
   tmp___1 = pci_channel_offline(ha->pdev);
-  tmp___2 = __builtin_expect(tmp___1 != 0, 0L);
+  tmp___2 = ldv__builtin_expect(tmp___1 != 0, 0L);
   }
   if (tmp___2 != 0L) {
     goto leave;
@@ -66713,7 +66712,7 @@ static int qla4xxx_update_flash(struct bsg_job *bsg_job )
   rval = -22;
   bsg_reply->reply_payload_rcv_len = 0U;
   tmp___1 = pci_channel_offline(ha->pdev);
-  tmp___2 = __builtin_expect(tmp___1 != 0, 0L);
+  tmp___2 = ldv__builtin_expect(tmp___1 != 0, 0L);
   }
   if (tmp___2 != 0L) {
     goto leave;
@@ -66815,7 +66814,7 @@ static int qla4xxx_get_acb_state(struct bsg_job *bsg_job )
   rval = -22;
   bsg_reply->reply_payload_rcv_len = 0U;
   tmp___1 = pci_channel_offline(ha->pdev);
-  tmp___2 = __builtin_expect(tmp___1 != 0, 0L);
+  tmp___2 = ldv__builtin_expect(tmp___1 != 0, 0L);
   }
   if (tmp___2 != 0L) {
     goto leave;
@@ -66921,7 +66920,7 @@ static int qla4xxx_read_nvram(struct bsg_job *bsg_job )
   rval = -22;
   bsg_reply->reply_payload_rcv_len = 0U;
   tmp___1 = pci_channel_offline(ha->pdev);
-  tmp___2 = __builtin_expect(tmp___1 != 0, 0L);
+  tmp___2 = ldv__builtin_expect(tmp___1 != 0, 0L);
   }
   if (tmp___2 != 0L) {
     goto leave;
@@ -67081,7 +67080,7 @@ static int qla4xxx_update_nvram(struct bsg_job *bsg_job )
   rval = -22;
   bsg_reply->reply_payload_rcv_len = 0U;
   tmp___1 = pci_channel_offline(ha->pdev);
-  tmp___2 = __builtin_expect(tmp___1 != 0, 0L);
+  tmp___2 = ldv__builtin_expect(tmp___1 != 0, 0L);
   }
   if (tmp___2 != 0L) {
     goto leave;
@@ -67229,7 +67228,7 @@ static int qla4xxx_restore_defaults(struct bsg_job *bsg_job )
   rval = -22;
   bsg_reply->reply_payload_rcv_len = 0U;
   tmp___1 = pci_channel_offline(ha->pdev);
-  tmp___2 = __builtin_expect(tmp___1 != 0, 0L);
+  tmp___2 = ldv__builtin_expect(tmp___1 != 0, 0L);
   }
   if (tmp___2 != 0L) {
     goto leave;
@@ -67314,7 +67313,7 @@ static int qla4xxx_bsg_get_acb(struct bsg_job *bsg_job )
   rval = -22;
   bsg_reply->reply_payload_rcv_len = 0U;
   tmp___1 = pci_channel_offline(ha->pdev);
-  tmp___2 = __builtin_expect(tmp___1 != 0, 0L);
+  tmp___2 = ldv__builtin_expect(tmp___1 != 0, 0L);
   }
   if (tmp___2 != 0L) {
     goto leave;
@@ -72671,7 +72670,7 @@ void ldv_linux_usb_urb_check_final_state(void)
 }
 }
 extern void ldv_assert(char const   * , int  ) ;
-void __builtin_trap(void) ;
+void ldv__builtin_trap(void) ;
 void ldv_assume(int expression ) 
 { 
 
@@ -72695,7 +72694,7 @@ void ldv_stop(void)
   goto ldv_stop_label;
 }
 }
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 
@@ -72703,7 +72702,7 @@ long __builtin_expect(long exp , long c )
   return (exp);
 }
 }
-void __builtin_trap(void) 
+void ldv__builtin_trap(void) 
 { 
 
 

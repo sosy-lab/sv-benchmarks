@@ -6628,7 +6628,7 @@ struct ldv_thread {
    void (*function)(void * ) ;
 };
 void __builtin_prefetch(void const   *  , ...) ;
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 long ldv_is_err(void const   *ptr ) ;
 void *ldv_err_ptr(long error ) ;
 long ldv_ptr_err(void const   *ptr ) ;
@@ -6708,7 +6708,6 @@ extern unsigned long __phys_addr(unsigned long  ) ;
 extern void *memset(void * , int  , size_t  ) ;
 extern void *memmove(void * , void const   * , size_t  ) ;
 extern void warn_slowpath_null(char const   * , int const    ) ;
-extern int ( /* missing proto */  __builtin_unreachable)() ;
 __inline static unsigned long arch_local_save_flags(void) 
 { 
   unsigned long __ret ;
@@ -6726,7 +6725,7 @@ __inline static unsigned long arch_local_save_flags(void)
   __edx = __edx;
   __ecx = __ecx;
   __eax = __eax;
-  tmp = __builtin_expect((unsigned long )pv_irq_ops.save_fl.func == (unsigned long )((void *)0),
+  tmp = ldv__builtin_expect((unsigned long )pv_irq_ops.save_fl.func == (unsigned long )((void *)0),
                          0L);
   }
   if (tmp != 0L) {
@@ -6947,7 +6946,7 @@ __inline static unsigned long copy_from_user(void *to , void const   *from , uns
   {
   sz = -1;
   might_fault();
-  tmp = __builtin_expect(sz < 0, 1L);
+  tmp = ldv__builtin_expect(sz < 0, 1L);
   }
   if (tmp != 0L) {
     {
@@ -6955,7 +6954,7 @@ __inline static unsigned long copy_from_user(void *to , void const   *from , uns
     }
   } else {
     {
-    tmp___0 = __builtin_expect((unsigned long )sz >= n, 1L);
+    tmp___0 = ldv__builtin_expect((unsigned long )sz >= n, 1L);
     }
     if (tmp___0 != 0L) {
       {
@@ -6980,7 +6979,7 @@ __inline static unsigned long copy_to_user(void *to , void const   *from , unsig
   {
   sz = -1;
   might_fault();
-  tmp = __builtin_expect(sz < 0, 1L);
+  tmp = ldv__builtin_expect(sz < 0, 1L);
   }
   if (tmp != 0L) {
     {
@@ -6988,7 +6987,7 @@ __inline static unsigned long copy_to_user(void *to , void const   *from , unsig
     }
   } else {
     {
-    tmp___0 = __builtin_expect((unsigned long )sz >= n, 1L);
+    tmp___0 = ldv__builtin_expect((unsigned long )sz >= n, 1L);
     }
     if (tmp___0 != 0L) {
       {
@@ -7034,7 +7033,7 @@ __inline static struct dma_map_ops *get_dma_ops(struct device *dev )
 
   {
   {
-  tmp = __builtin_expect((unsigned long )dev == (unsigned long )((struct device *)0),
+  tmp = ldv__builtin_expect((unsigned long )dev == (unsigned long )((struct device *)0),
                          0L);
   }
   if (tmp != 0L || (unsigned long )dev->archdata.dma_ops == (unsigned long )((struct dma_map_ops *)0)) {
@@ -7061,7 +7060,7 @@ __inline static dma_addr_t dma_map_single_attrs(struct device *dev , void *ptr ,
   ops = tmp;
   kmemcheck_mark_initialized(ptr, (unsigned int )size);
   tmp___0 = valid_dma_direction((int )dir);
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -7097,7 +7096,7 @@ __inline static void dma_unmap_single_attrs(struct device *dev , dma_addr_t addr
   tmp = get_dma_ops(dev);
   ops = tmp;
   tmp___0 = valid_dma_direction((int )dir);
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -7141,7 +7140,7 @@ __inline static dma_addr_t dma_map_page(struct device *dev , struct page *page ,
   tmp___0 = lowmem_page_address((struct page  const  *)page);
   kmemcheck_mark_initialized(tmp___0 + offset, (unsigned int )size);
   tmp___1 = valid_dma_direction((int )dir);
-  tmp___2 = __builtin_expect(tmp___1 == 0, 0L);
+  tmp___2 = ldv__builtin_expect(tmp___1 == 0, 0L);
   }
   if (tmp___2 != 0L) {
     {
@@ -7281,7 +7280,7 @@ __inline static void dma_free_attrs(struct device *dev , size_t size , void *vad
   _flags = arch_local_save_flags();
   tmp___0 = arch_irqs_disabled_flags(_flags);
   __ret_warn_on = tmp___0 != 0;
-  tmp___1 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___1 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -7292,7 +7291,7 @@ __inline static void dma_free_attrs(struct device *dev , size_t size , void *vad
 
   }
   {
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
   debug_dma_free_coherent(dev, size, vaddr, bus);
   }
   if ((unsigned long )ops->free != (unsigned long )((void (*)(struct device * , size_t  ,
@@ -7534,7 +7533,7 @@ __inline static void napi_enable(struct napi_struct *n )
   {
   {
   tmp = constant_test_bit(0L, (unsigned long const volatile   *)(& n->state));
-  tmp___0 = __builtin_expect(tmp == 0, 0L);
+  tmp___0 = ldv__builtin_expect(tmp == 0, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -7667,7 +7666,7 @@ __inline static void netif_tx_stop_queue(struct netdev_queue *dev_queue )
   {
   {
   __ret_warn_on = (unsigned long )dev_queue == (unsigned long )((struct netdev_queue *)0);
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp != 0L) {
     {
@@ -7677,7 +7676,7 @@ __inline static void netif_tx_stop_queue(struct netdev_queue *dev_queue )
 
   }
   {
-  tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -8403,7 +8402,7 @@ static void stmmac_verify_args(void)
 
   {
   {
-  tmp = __builtin_expect(watchdog < 0, 0L);
+  tmp = ldv__builtin_expect(watchdog < 0, 0L);
   }
   if (tmp != 0L) {
     watchdog = 5000;
@@ -8411,7 +8410,7 @@ static void stmmac_verify_args(void)
 
   }
   {
-  tmp___0 = __builtin_expect(dma_rxsize < 0, 0L);
+  tmp___0 = ldv__builtin_expect(dma_rxsize < 0, 0L);
   }
   if (tmp___0 != 0L) {
     dma_rxsize = 256;
@@ -8419,7 +8418,7 @@ static void stmmac_verify_args(void)
 
   }
   {
-  tmp___1 = __builtin_expect(dma_txsize < 0, 0L);
+  tmp___1 = ldv__builtin_expect(dma_txsize < 0, 0L);
   }
   if (tmp___1 != 0L) {
     dma_txsize = 256;
@@ -8427,7 +8426,7 @@ static void stmmac_verify_args(void)
 
   }
   {
-  tmp___2 = __builtin_expect((unsigned int )buf_sz - 1536U > 14848U, 0L);
+  tmp___2 = ldv__builtin_expect((unsigned int )buf_sz - 1536U > 14848U, 0L);
   }
   if (tmp___2 != 0L) {
     buf_sz = 1536;
@@ -8435,13 +8434,13 @@ static void stmmac_verify_args(void)
 
   }
   {
-  tmp___4 = __builtin_expect(flow_ctrl > 1, 0L);
+  tmp___4 = ldv__builtin_expect(flow_ctrl > 1, 0L);
   }
   if (tmp___4 != 0L) {
     flow_ctrl = 3;
   } else {
     {
-    tmp___3 = __builtin_expect(flow_ctrl < 0, 1L);
+    tmp___3 = ldv__builtin_expect(flow_ctrl < 0, 1L);
     }
     if (tmp___3 != 0L) {
       flow_ctrl = 0;
@@ -8450,7 +8449,7 @@ static void stmmac_verify_args(void)
     }
   }
   {
-  tmp___5 = __builtin_expect((unsigned int )pause > 65535U, 0L);
+  tmp___5 = ldv__builtin_expect((unsigned int )pause > 65535U, 0L);
   }
   if (tmp___5 != 0L) {
     pause = 512;
@@ -8522,7 +8521,7 @@ static void print_pkt(unsigned char *buf , int len )
   descriptor.format = "len = %d byte, buf addr: 0x%p";
   descriptor.lineno = 195U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -8542,7 +8541,7 @@ static void print_pkt(unsigned char *buf , int len )
     descriptor___0.format = "\n %03x:";
     descriptor___0.lineno = 198U;
     descriptor___0.flags = 0U;
-    tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -8561,7 +8560,7 @@ static void print_pkt(unsigned char *buf , int len )
   descriptor___1.format = " %02x";
   descriptor___1.lineno = 199U;
   descriptor___1.flags = 0U;
-  tmp___1 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -8584,7 +8583,7 @@ static void print_pkt(unsigned char *buf , int len )
   descriptor___2.format = "\n";
   descriptor___2.lineno = 201U;
   descriptor___2.flags = 0U;
-  tmp___2 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+  tmp___2 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
   }
   if (tmp___2 != 0L) {
     {
@@ -8612,7 +8611,7 @@ __inline static void stmmac_hw_fix_mac_speed(struct stmmac_priv *priv )
   {
   {
   phydev = priv->phydev;
-  tmp = __builtin_expect((unsigned long )(priv->plat)->fix_mac_speed != (unsigned long )((void (*)(void * ,
+  tmp = ldv__builtin_expect((unsigned long )(priv->plat)->fix_mac_speed != (unsigned long )((void (*)(void * ,
                                                                                                    unsigned int  ))0),
                          1L);
   }
@@ -8702,7 +8701,7 @@ bool stmmac_eee_init(struct stmmac_priv *priv )
         descriptor.format = "stmmac: disable EEE\n";
         descriptor.lineno = 299U;
         descriptor.flags = 0U;
-        tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+        tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
         }
         if (tmp != 0L) {
           {
@@ -8746,7 +8745,7 @@ bool stmmac_eee_init(struct stmmac_priv *priv )
     descriptor___0.format = "stmmac: Energy-Efficient Ethernet initialized\n";
     descriptor___0.lineno = 324U;
     descriptor___0.flags = 0U;
-    tmp___2 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___2 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___2 != 0L) {
       {
@@ -8782,7 +8781,7 @@ static void stmmac_get_tx_hwtstamp(struct stmmac_priv *priv , unsigned int entry
 
   }
   {
-  tmp = __builtin_expect((unsigned long )skb == (unsigned long )((struct sk_buff *)0),
+  tmp = ldv__builtin_expect((unsigned long )skb == (unsigned long )((struct sk_buff *)0),
                          1L);
   }
   if (tmp != 0L) {
@@ -8790,7 +8789,7 @@ static void stmmac_get_tx_hwtstamp(struct stmmac_priv *priv , unsigned int entry
   } else {
     {
     tmp___0 = skb_end_pointer((struct sk_buff  const  *)skb);
-    tmp___1 = __builtin_expect(((int )((struct skb_shared_info *)tmp___0)->tx_flags & 4) == 0,
+    tmp___1 = ldv__builtin_expect(((int )((struct skb_shared_info *)tmp___0)->tx_flags & 4) == 0,
                                1L);
     }
     if (tmp___1 != 0L) {
@@ -8922,7 +8921,7 @@ static int stmmac_hwtstamp_ioctl(struct net_device *dev , struct ifreq *ifr )
   descriptor.format = "%s config flags:0x%x, tx_type:0x%x, rx_filter:0x%x\n";
   descriptor.lineno = 448U;
   descriptor.flags = 0U;
-  tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -9149,7 +9148,7 @@ static int stmmac_init_ptp(struct stmmac_priv *priv )
     descriptor.format = "IEEE 1588-2002 Time Stamp supported\n";
     descriptor.lineno = 646U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -9169,7 +9168,7 @@ static int stmmac_init_ptp(struct stmmac_priv *priv )
     descriptor___0.format = "IEEE 1588-2008 Advanced Time Stamp supported\n";
     descriptor___0.lineno = 649U;
     descriptor___0.flags = 0U;
-    tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -9279,7 +9278,7 @@ static void stmmac_adjust_link(struct net_device *dev )
       goto switch_default;
       case_1000: /* CIL Label */ 
       {
-      tmp___2 = __builtin_expect((priv->plat)->has_gmac != 0, 1L);
+      tmp___2 = ldv__builtin_expect((priv->plat)->has_gmac != 0, 1L);
       }
       if (tmp___2 != 0L) {
         ctrl = ctrl & (u32 )(~ (priv->hw)->link.port);
@@ -9374,7 +9373,7 @@ static void stmmac_check_pcs_mode(struct stmmac_priv *priv )
       descriptor.format = "STMMAC: PCS RGMII support enable\n";
       descriptor.lineno = 771U;
       descriptor.flags = 0U;
-      tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+      tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
       }
       if (tmp != 0L) {
         {
@@ -9393,7 +9392,7 @@ static void stmmac_check_pcs_mode(struct stmmac_priv *priv )
       descriptor___0.format = "STMMAC: PCS SGMII support enable\n";
       descriptor___0.lineno = 774U;
       descriptor___0.flags = 0U;
-      tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+      tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
       }
       if (tmp___0 != 0L) {
         {
@@ -9455,7 +9454,7 @@ static int stmmac_init_phy(struct net_device *dev )
   descriptor.format = "stmmac_init_phy:  trying to attach to %s\n";
   descriptor.lineno = 809U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -9499,7 +9498,7 @@ static int stmmac_init_phy(struct net_device *dev )
   descriptor___0.format = "stmmac_init_phy:  %s: attached to PHY (UID 0x%x) Link = %d\n";
   descriptor___0.lineno = 837U;
   descriptor___0.flags = 0U;
-  tmp___3 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___3 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
   }
   if (tmp___3 != 0L) {
     {
@@ -9781,7 +9780,7 @@ static int init_dma_desc_rings(struct net_device *dev )
     descriptor.format = "%s: txsize %d, rxsize %d, bfsize %d\n";
     descriptor.lineno = 1012U;
     descriptor.flags = 0U;
-    tmp___2 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___2 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp___2 != 0L) {
       {
@@ -9802,7 +9801,7 @@ static int init_dma_desc_rings(struct net_device *dev )
     descriptor___0.format = "(%s) dma_rx_phy=0x%08x dma_tx_phy=0x%08x\n";
     descriptor___0.lineno = 1016U;
     descriptor___0.flags = 0U;
-    tmp___3 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___3 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___3 != 0L) {
       {
@@ -9819,7 +9818,7 @@ static int init_dma_desc_rings(struct net_device *dev )
     descriptor___1.format = "\tSKB addresses:\nskb\t\tskb data\tdma data\n";
     descriptor___1.lineno = 1019U;
     descriptor___1.flags = 0U;
-    tmp___4 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___4 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
     }
     if (tmp___4 != 0L) {
       {
@@ -9855,7 +9854,7 @@ static int init_dma_desc_rings(struct net_device *dev )
     descriptor___2.format = "[%p]\t[%p]\t[%x]\n";
     descriptor___2.lineno = 1035U;
     descriptor___2.flags = 0U;
-    tmp___5 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+    tmp___5 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
     }
     if (tmp___5 != 0L) {
       {
@@ -10244,14 +10243,14 @@ static void stmmac_tx_clean(struct stmmac_priv *priv )
   }
   {
   last = (*(((priv->hw)->desc)->get_tx_ls))(p);
-  tmp___2 = __builtin_expect(last != 0, 1L);
+  tmp___2 = ldv__builtin_expect(last != 0, 1L);
   }
   if (tmp___2 != 0L) {
     {
     tmp___0 = (*(((priv->hw)->desc)->tx_status))((void *)(& (priv->dev)->stats), & priv->xstats,
                                                  p, priv->ioaddr);
     tx_error = tmp___0;
-    tmp___1 = __builtin_expect(tx_error == 0, 1L);
+    tmp___1 = ldv__builtin_expect(tx_error == 0, 1L);
     }
     if (tmp___1 != 0L) {
       (priv->dev)->stats.tx_packets = (priv->dev)->stats.tx_packets + 1UL;
@@ -10273,7 +10272,7 @@ static void stmmac_tx_clean(struct stmmac_priv *priv )
     descriptor.format = "%s: curr %d, dirty %d\n";
     descriptor.lineno = 1294U;
     descriptor.flags = 0U;
-    tmp___3 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___3 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp___3 != 0L) {
       {
@@ -10287,7 +10286,7 @@ static void stmmac_tx_clean(struct stmmac_priv *priv )
 
   }
   {
-  tmp___5 = __builtin_expect(*(priv->tx_skbuff_dma + (unsigned long )entry) != 0ULL,
+  tmp___5 = ldv__builtin_expect(*(priv->tx_skbuff_dma + (unsigned long )entry) != 0ULL,
                              1L);
   }
   if (tmp___5 != 0L) {
@@ -10302,7 +10301,7 @@ static void stmmac_tx_clean(struct stmmac_priv *priv )
   }
   {
   (*(((priv->hw)->mode)->clean_desc3))((void *)priv, p);
-  tmp___6 = __builtin_expect((unsigned long )skb != (unsigned long )((struct sk_buff *)0),
+  tmp___6 = ldv__builtin_expect((unsigned long )skb != (unsigned long )((struct sk_buff *)0),
                              1L);
   }
   if (tmp___6 != 0L) {
@@ -10326,12 +10325,12 @@ static void stmmac_tx_clean(struct stmmac_priv *priv )
   ldv_50398: 
   {
   tmp___10 = netif_queue_stopped((struct net_device  const  *)priv->dev);
-  tmp___11 = __builtin_expect((long )tmp___10, 0L);
+  tmp___11 = ldv__builtin_expect((long )tmp___10, 0L);
   }
   if (tmp___11 != 0L) {
     {
     tmp___12 = stmmac_tx_avail(priv);
-    tmp___13 = __builtin_expect(tmp___12 > priv->dma_tx_size / 4U, 0L);
+    tmp___13 = ldv__builtin_expect(tmp___12 > priv->dma_tx_size / 4U, 0L);
     }
     if (tmp___13 != 0L) {
       {
@@ -10351,7 +10350,7 @@ static void stmmac_tx_clean(struct stmmac_priv *priv )
             descriptor___0.format = "%s: restart transmit\n";
             descriptor___0.lineno = 1320U;
             descriptor___0.flags = 0U;
-            tmp___7 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+            tmp___7 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
             }
             if (tmp___7 != 0L) {
               {
@@ -10474,12 +10473,12 @@ static void stmmac_dma_interrupt(struct stmmac_priv *priv )
   {
   {
   status = (*(((priv->hw)->dma)->dma_interrupt))(priv->ioaddr, & priv->xstats);
-  tmp___1 = __builtin_expect((status & 4) != 0, 1L);
+  tmp___1 = ldv__builtin_expect((status & 4) != 0, 1L);
   }
   if (tmp___1 != 0L || (status & 8) != 0) {
     {
     tmp = napi_schedule_prep(& priv->napi);
-    tmp___0 = __builtin_expect((long )tmp, 1L);
+    tmp___0 = ldv__builtin_expect((long )tmp, 1L);
     }
     if (tmp___0 != 0L) {
       {
@@ -10493,11 +10492,11 @@ static void stmmac_dma_interrupt(struct stmmac_priv *priv )
 
   }
   {
-  tmp___4 = __builtin_expect((status & 2) != 0, 0L);
+  tmp___4 = ldv__builtin_expect((status & 2) != 0, 0L);
   }
   if (tmp___4 != 0L) {
     {
-    tmp___2 = __builtin_expect(tc != 1, 0L);
+    tmp___2 = ldv__builtin_expect(tc != 1, 0L);
     }
     if (tmp___2 != 0L && tc <= 256) {
       {
@@ -10510,7 +10509,7 @@ static void stmmac_dma_interrupt(struct stmmac_priv *priv )
     }
   } else {
     {
-    tmp___3 = __builtin_expect(status == 1, 0L);
+    tmp___3 = ldv__builtin_expect(status == 1, 0L);
     }
     if (tmp___3 != 0L) {
       {
@@ -10555,7 +10554,7 @@ static u32 stmmac_get_synopsys_id(struct stmmac_priv *priv )
   {
   {
   hwid = (priv->hw)->synopsys_uid;
-  tmp = __builtin_expect(hwid != 0U, 1L);
+  tmp = ldv__builtin_expect(hwid != 0U, 1L);
   }
   if (tmp != 0L) {
     {
@@ -10821,7 +10820,7 @@ static int stmmac_hw_setup(struct net_device *dev )
   descriptor.format = "%s: DMA RX/TX processes started...\n";
   descriptor.lineno = 1659U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -10935,7 +10934,7 @@ static int stmmac_open(struct net_device *dev )
   {
   ret = ldv_request_irq_24((unsigned int )dev->irq, & stmmac_interrupt, 128UL, (char const   *)(& dev->name),
                            (void *)dev);
-  tmp___0 = __builtin_expect(ret < 0, 0L);
+  tmp___0 = ldv__builtin_expect(ret < 0, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -10950,7 +10949,7 @@ static int stmmac_open(struct net_device *dev )
     {
     ret = ldv_request_irq_25((unsigned int )priv->wol_irq, & stmmac_interrupt, 128UL,
                              (char const   *)(& dev->name), (void *)dev);
-    tmp___1 = __builtin_expect(ret < 0, 0L);
+    tmp___1 = ldv__builtin_expect(ret < 0, 0L);
     }
     if (tmp___1 != 0L) {
       {
@@ -10968,7 +10967,7 @@ static int stmmac_open(struct net_device *dev )
     {
     ret = ldv_request_irq_26((unsigned int )priv->lpi_irq, & stmmac_interrupt, 128UL,
                              (char const   *)(& dev->name), (void *)dev);
-    tmp___2 = __builtin_expect(ret < 0, 0L);
+    tmp___2 = ldv__builtin_expect(ret < 0, 0L);
     }
     if (tmp___2 != 0L) {
       {
@@ -11132,7 +11131,7 @@ static netdev_tx_t stmmac_xmit(struct sk_buff *skb , struct net_device *dev )
   nopaged_len = tmp___1;
   enh_desc = (unsigned int )(priv->plat)->enh_desc;
   tmp___4 = stmmac_tx_avail(priv);
-  tmp___5 = __builtin_expect(tmp___4 < (u32 )(nfrags + 1), 0L);
+  tmp___5 = ldv__builtin_expect(tmp___4 < (u32 )(nfrags + 1), 0L);
   }
   if (tmp___5 != 0L) {
     {
@@ -11182,7 +11181,7 @@ static netdev_tx_t stmmac_xmit(struct sk_buff *skb , struct net_device *dev )
 
   }
   {
-  tmp___8 = __builtin_expect(is_jumbo == 0, 1L);
+  tmp___8 = ldv__builtin_expect(is_jumbo == 0, 1L);
   }
   if (tmp___8 != 0L) {
     {
@@ -11261,7 +11260,7 @@ static netdev_tx_t stmmac_xmit(struct sk_buff *skb , struct net_device *dev )
     descriptor.format = "%s: curr %d dirty=%d entry=%d, first=%p, nfrags=%d";
     descriptor.lineno = 1950U;
     descriptor.flags = 0U;
-    tmp___13 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___13 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp___13 != 0L) {
       {
@@ -11288,7 +11287,7 @@ static netdev_tx_t stmmac_xmit(struct sk_buff *skb , struct net_device *dev )
     descriptor___0.format = ">>> frame to be transmitted: ";
     descriptor___0.lineno = 1957U;
     descriptor___0.flags = 0U;
-    tmp___14 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___14 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___14 != 0L) {
       {
@@ -11305,7 +11304,7 @@ static netdev_tx_t stmmac_xmit(struct sk_buff *skb , struct net_device *dev )
   }
   {
   tmp___16 = stmmac_tx_avail(priv);
-  tmp___17 = __builtin_expect(tmp___16 <= 18U, 0L);
+  tmp___17 = ldv__builtin_expect(tmp___16 <= 18U, 0L);
   }
   if (tmp___17 != 0L) {
     if ((priv->msg_enable & 8192U) != 0U) {
@@ -11316,7 +11315,7 @@ static netdev_tx_t stmmac_xmit(struct sk_buff *skb , struct net_device *dev )
       descriptor___1.format = "%s: stop transmitted packets\n";
       descriptor___1.lineno = 1962U;
       descriptor___1.flags = 0U;
-      tmp___15 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+      tmp___15 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
       }
       if (tmp___15 != 0L) {
         {
@@ -11337,12 +11336,12 @@ static netdev_tx_t stmmac_xmit(struct sk_buff *skb , struct net_device *dev )
   {
   dev->stats.tx_bytes = dev->stats.tx_bytes + (unsigned long )skb->len;
   tmp___20 = skb_end_pointer((struct sk_buff  const  *)skb);
-  tmp___21 = __builtin_expect((long )((struct skb_shared_info *)tmp___20)->tx_flags & 1L,
+  tmp___21 = ldv__builtin_expect((long )((struct skb_shared_info *)tmp___20)->tx_flags & 1L,
                               0L);
   }
   if (tmp___21 != 0L) {
     {
-    tmp___22 = __builtin_expect(priv->hwts_tx_en != 0, 0L);
+    tmp___22 = ldv__builtin_expect(priv->hwts_tx_en != 0, 0L);
     }
     if (tmp___22 != 0L) {
       {
@@ -11422,13 +11421,13 @@ __inline static void stmmac_rx_refill(struct stmmac_priv *priv )
     p = priv->dma_rx + (unsigned long )entry;
   }
   {
-  tmp___1 = __builtin_expect((unsigned long )*(priv->rx_skbuff + (unsigned long )entry) == (unsigned long )((struct sk_buff *)0),
+  tmp___1 = ldv__builtin_expect((unsigned long )*(priv->rx_skbuff + (unsigned long )entry) == (unsigned long )((struct sk_buff *)0),
                              1L);
   }
   if (tmp___1 != 0L) {
     {
     skb = netdev_alloc_skb_ip_align(priv->dev, (unsigned int )bfsize);
-    tmp = __builtin_expect((unsigned long )skb == (unsigned long )((struct sk_buff *)0),
+    tmp = ldv__builtin_expect((unsigned long )skb == (unsigned long )((struct sk_buff *)0),
                            0L);
     }
     if (tmp != 0L) {
@@ -11453,7 +11452,7 @@ __inline static void stmmac_rx_refill(struct stmmac_priv *priv )
       descriptor.format = "\trefill entry #%d\n";
       descriptor.lineno = 2040U;
       descriptor.flags = 0U;
-      tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+      tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
       }
       if (tmp___0 != 0L) {
         {
@@ -11522,7 +11521,7 @@ static int stmmac_rx(struct stmmac_priv *priv , int limit )
     descriptor.format = "%s: descriptor ring:\n";
     descriptor.lineno = 2064U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -11585,7 +11584,7 @@ static int stmmac_rx(struct stmmac_priv *priv , int limit )
 
   }
   {
-  tmp___7 = __builtin_expect(status == 1, 0L);
+  tmp___7 = ldv__builtin_expect(status == 1, 0L);
   }
   if (tmp___7 != 0L) {
     (priv->dev)->stats.rx_errors = (priv->dev)->stats.rx_errors + 1UL;
@@ -11601,7 +11600,7 @@ static int stmmac_rx(struct stmmac_priv *priv , int limit )
   } else {
     {
     frame_len = (*(((priv->hw)->desc)->get_rx_frame_len))(p, coe);
-    tmp___1 = __builtin_expect(status != 4, 0L);
+    tmp___1 = ldv__builtin_expect(status != 4, 0L);
     }
     if (tmp___1 != 0L) {
       frame_len = frame_len + -4;
@@ -11616,7 +11615,7 @@ static int stmmac_rx(struct stmmac_priv *priv , int limit )
       descriptor___0.format = "\tdesc: %p [entry %d] buff=0x%x\n";
       descriptor___0.lineno = 2126U;
       descriptor___0.flags = 0U;
-      tmp___2 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+      tmp___2 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
       }
       if (tmp___2 != 0L) {
         {
@@ -11634,7 +11633,7 @@ static int stmmac_rx(struct stmmac_priv *priv , int limit )
         descriptor___1.format = "\tframe size %d, COE: %d\n";
         descriptor___1.lineno = 2129U;
         descriptor___1.flags = 0U;
-        tmp___3 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+        tmp___3 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
         }
         if (tmp___3 != 0L) {
           {
@@ -11652,7 +11651,7 @@ static int stmmac_rx(struct stmmac_priv *priv , int limit )
     }
     {
     skb = *(priv->rx_skbuff + (unsigned long )entry);
-    tmp___4 = __builtin_expect((unsigned long )skb == (unsigned long )((struct sk_buff *)0),
+    tmp___4 = ldv__builtin_expect((unsigned long )skb == (unsigned long )((struct sk_buff *)0),
                                0L);
     }
     if (tmp___4 != 0L) {
@@ -11680,7 +11679,7 @@ static int stmmac_rx(struct stmmac_priv *priv , int limit )
       descriptor___2.format = "frame received (%dbytes)";
       descriptor___2.lineno = 2149U;
       descriptor___2.flags = 0U;
-      tmp___5 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+      tmp___5 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
       }
       if (tmp___5 != 0L) {
         {
@@ -11698,7 +11697,7 @@ static int stmmac_rx(struct stmmac_priv *priv , int limit )
     {
     stmmac_rx_vlan(priv->dev, skb);
     skb->protocol = eth_type_trans(skb, priv->dev);
-    tmp___6 = __builtin_expect(coe == 0, 0L);
+    tmp___6 = ldv__builtin_expect(coe == 0, 0L);
     }
     if (tmp___6 != 0L) {
       {
@@ -11918,7 +11917,7 @@ static irqreturn_t stmmac_interrupt(int irq , void *dev_id )
 
   }
   {
-  tmp___0 = __builtin_expect((unsigned long )dev == (unsigned long )((struct net_device *)0),
+  tmp___0 = ldv__builtin_expect((unsigned long )dev == (unsigned long )((struct net_device *)0),
                              0L);
   }
   if (tmp___0 != 0L) {
@@ -11933,7 +11932,7 @@ static irqreturn_t stmmac_interrupt(int irq , void *dev_id )
     {
     tmp___1 = (*(((priv->hw)->mac)->host_irq_status))((void *)dev->base_addr, & priv->xstats);
     status = tmp___1;
-    tmp___2 = __builtin_expect(status != 0, 0L);
+    tmp___2 = ldv__builtin_expect(status != 0, 0L);
     }
     if (tmp___2 != 0L) {
       if ((status & 2) != 0) {
@@ -12565,7 +12564,7 @@ struct stmmac_priv *stmmac_dvr_probe(struct device *device , struct plat_stmmace
       descriptor.format = "%s: MDIO bus (id: %d) registration failed";
       descriptor.lineno = 2821U;
       descriptor.flags = 0U;
-      tmp___5 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+      tmp___5 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
       }
       if (tmp___5 != 0L) {
         {
@@ -13336,7 +13335,7 @@ void ldv_dummy_resourceless_instance_callback_6_9(int (*arg0)(struct net_device 
                                                               struct ethtool_eee * ) ,
                                                   struct net_device *arg1 , struct ethtool_eee *arg2 ) ;
 void ldv_entry_EMGentry_21(void *arg0 ) ;
-void main(void) ;
+int main(void) ;
 void ldv_file_operations_file_operations_instance_0(void *arg0 ) ;
 void ldv_file_operations_file_operations_instance_1(void *arg0 ) ;
 void ldv_file_operations_instance_callback_0_22(int (*arg0)(struct ptp_clock_info * ,
@@ -14808,7 +14807,7 @@ void ldv_entry_EMGentry_21(void *arg0 )
   return;
 }
 }
-void main(void) 
+int main(void) 
 { 
   int tmp ;
 
@@ -21793,7 +21792,7 @@ static void stmmac_get_strings(struct net_device *dev , u32 stringset , u8 *data
   switch_default: /* CIL Label */ 
   {
   __ret_warn_on = 1;
-  tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -21803,7 +21802,7 @@ static void stmmac_get_strings(struct net_device *dev , u32 stringset , u8 *data
 
   }
   {
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   goto ldv_45874;
   switch_break: /* CIL Label */ ;
@@ -22602,7 +22601,7 @@ int stmmac_mdio_reset(struct mii_bus *bus )
     descriptor.format = "stmmac_mdio_reset: calling phy_reset\n";
     descriptor.lineno = 174U;
     descriptor.flags = 0U;
-    tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -22907,7 +22906,7 @@ static void stmmac_clean_desc3(void *priv_ptr , struct dma_desc *p )
 
   {
   {
-  tmp = __builtin_expect(p->des3 != 0U, 0L);
+  tmp = ldv__builtin_expect(p->des3 != 0U, 0L);
   }
   if (tmp != 0L) {
     p->des3 = 0U;
@@ -22925,7 +22924,7 @@ static int stmmac_set_16kib_bfsize(int mtu )
   {
   {
   ret = 0;
-  tmp = __builtin_expect(mtu > 8191, 0L);
+  tmp = ldv__builtin_expect(mtu > 8191, 0L);
   }
   if (tmp != 0L) {
     ret = 16384;
@@ -23336,11 +23335,11 @@ int dwmac_dma_interrupt(void *ioaddr , struct stmmac_extra_stats *x )
   ret = 0;
   tmp = readl((void const volatile   *)ioaddr + 4116U);
   intr_status = tmp;
-  tmp___9 = __builtin_expect((intr_status & 32768U) != 0U, 0L);
+  tmp___9 = ldv__builtin_expect((intr_status & 32768U) != 0U, 0L);
   }
   if (tmp___9 != 0L) {
     {
-    tmp___0 = __builtin_expect((intr_status & 32U) != 0U, 0L);
+    tmp___0 = ldv__builtin_expect((intr_status & 32U) != 0U, 0L);
     }
     if (tmp___0 != 0L) {
       ret = 2;
@@ -23349,7 +23348,7 @@ int dwmac_dma_interrupt(void *ioaddr , struct stmmac_extra_stats *x )
 
     }
     {
-    tmp___1 = __builtin_expect((intr_status & 8U) != 0U, 0L);
+    tmp___1 = ldv__builtin_expect((intr_status & 8U) != 0U, 0L);
     }
     if (tmp___1 != 0L) {
       x->tx_jabber_irq = x->tx_jabber_irq + 1UL;
@@ -23357,7 +23356,7 @@ int dwmac_dma_interrupt(void *ioaddr , struct stmmac_extra_stats *x )
 
     }
     {
-    tmp___2 = __builtin_expect((intr_status & 16U) != 0U, 0L);
+    tmp___2 = ldv__builtin_expect((intr_status & 16U) != 0U, 0L);
     }
     if (tmp___2 != 0L) {
       x->rx_overflow_irq = x->rx_overflow_irq + 1UL;
@@ -23365,7 +23364,7 @@ int dwmac_dma_interrupt(void *ioaddr , struct stmmac_extra_stats *x )
 
     }
     {
-    tmp___3 = __builtin_expect((intr_status & 128U) != 0U, 0L);
+    tmp___3 = ldv__builtin_expect((intr_status & 128U) != 0U, 0L);
     }
     if (tmp___3 != 0L) {
       x->rx_buf_unav_irq = x->rx_buf_unav_irq + 1UL;
@@ -23373,7 +23372,7 @@ int dwmac_dma_interrupt(void *ioaddr , struct stmmac_extra_stats *x )
 
     }
     {
-    tmp___4 = __builtin_expect((intr_status & 256U) != 0U, 0L);
+    tmp___4 = ldv__builtin_expect((intr_status & 256U) != 0U, 0L);
     }
     if (tmp___4 != 0L) {
       x->rx_process_stopped_irq = x->rx_process_stopped_irq + 1UL;
@@ -23381,7 +23380,7 @@ int dwmac_dma_interrupt(void *ioaddr , struct stmmac_extra_stats *x )
 
     }
     {
-    tmp___5 = __builtin_expect((intr_status & 512U) != 0U, 0L);
+    tmp___5 = ldv__builtin_expect((intr_status & 512U) != 0U, 0L);
     }
     if (tmp___5 != 0L) {
       x->rx_watchdog_irq = x->rx_watchdog_irq + 1UL;
@@ -23389,7 +23388,7 @@ int dwmac_dma_interrupt(void *ioaddr , struct stmmac_extra_stats *x )
 
     }
     {
-    tmp___6 = __builtin_expect((intr_status & 1024U) != 0U, 0L);
+    tmp___6 = ldv__builtin_expect((intr_status & 1024U) != 0U, 0L);
     }
     if (tmp___6 != 0L) {
       x->tx_early_irq = x->tx_early_irq + 1UL;
@@ -23397,7 +23396,7 @@ int dwmac_dma_interrupt(void *ioaddr , struct stmmac_extra_stats *x )
 
     }
     {
-    tmp___7 = __builtin_expect((intr_status & 2U) != 0U, 0L);
+    tmp___7 = ldv__builtin_expect((intr_status & 2U) != 0U, 0L);
     }
     if (tmp___7 != 0L) {
       x->tx_process_stopped_irq = x->tx_process_stopped_irq + 1UL;
@@ -23406,7 +23405,7 @@ int dwmac_dma_interrupt(void *ioaddr , struct stmmac_extra_stats *x )
 
     }
     {
-    tmp___8 = __builtin_expect((intr_status & 8192U) != 0U, 0L);
+    tmp___8 = ldv__builtin_expect((intr_status & 8192U) != 0U, 0L);
     }
     if (tmp___8 != 0L) {
       x->fatal_bus_error_irq = x->fatal_bus_error_irq + 1UL;
@@ -23418,18 +23417,18 @@ int dwmac_dma_interrupt(void *ioaddr , struct stmmac_extra_stats *x )
 
   }
   {
-  tmp___15 = __builtin_expect((intr_status & 65536U) != 0U, 1L);
+  tmp___15 = ldv__builtin_expect((intr_status & 65536U) != 0U, 1L);
   }
   if (tmp___15 != 0L) {
     {
     x->normal_irq_n = x->normal_irq_n + 1UL;
-    tmp___12 = __builtin_expect((intr_status & 64U) != 0U, 1L);
+    tmp___12 = ldv__builtin_expect((intr_status & 64U) != 0U, 1L);
     }
     if (tmp___12 != 0L) {
       {
       tmp___10 = readl((void const volatile   *)ioaddr + 4124U);
       value = tmp___10;
-      tmp___11 = __builtin_expect((value & 64U) != 0U, 1L);
+      tmp___11 = ldv__builtin_expect((value & 64U) != 0U, 1L);
       }
       if (tmp___11 != 0L) {
         x->rx_normal_irq_n = x->rx_normal_irq_n + 1UL;
@@ -23441,7 +23440,7 @@ int dwmac_dma_interrupt(void *ioaddr , struct stmmac_extra_stats *x )
 
     }
     {
-    tmp___13 = __builtin_expect((long )((int )intr_status) & 1L, 1L);
+    tmp___13 = ldv__builtin_expect((long )((int )intr_status) & 1L, 1L);
     }
     if (tmp___13 != 0L) {
       x->tx_normal_irq_n = x->tx_normal_irq_n + 1UL;
@@ -23450,7 +23449,7 @@ int dwmac_dma_interrupt(void *ioaddr , struct stmmac_extra_stats *x )
 
     }
     {
-    tmp___14 = __builtin_expect((intr_status & 16384U) != 0U, 0L);
+    tmp___14 = ldv__builtin_expect((intr_status & 16384U) != 0U, 0L);
     }
     if (tmp___14 != 0L) {
       x->rx_early_irq = x->rx_early_irq + 1UL;
@@ -23461,7 +23460,7 @@ int dwmac_dma_interrupt(void *ioaddr , struct stmmac_extra_stats *x )
 
   }
   {
-  tmp___16 = __builtin_expect((intr_status & 469762048U) != 0U, 0L);
+  tmp___16 = ldv__builtin_expect((intr_status & 469762048U) != 0U, 0L);
   }
   if (tmp___16 != 0L) {
     {
@@ -23691,7 +23690,7 @@ static void dwmac1000_set_filter(struct net_device *dev , int id )
   descriptor.format = "%s: # mcasts %d, # unicast %d\n";
   descriptor.lineno = 100U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -23776,7 +23775,7 @@ static void dwmac1000_set_filter(struct net_device *dev , int id )
   descriptor___0.format = "\tFilter: 0x%08x\n\tHash: HI 0x%08x, LO 0x%08x\n";
   descriptor___0.lineno = 162U;
   descriptor___0.flags = 0U;
-  tmp___5 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___5 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
   }
   if (tmp___5 != 0L) {
     {
@@ -23814,7 +23813,7 @@ static void dwmac1000_flow_ctrl(void *ioaddr , unsigned int duplex , unsigned in
   descriptor.format = "GMAC Flow-Control:\n";
   descriptor.lineno = 170U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -23831,7 +23830,7 @@ static void dwmac1000_flow_ctrl(void *ioaddr , unsigned int duplex , unsigned in
     descriptor___0.format = "\tReceive Flow-Control ON\n";
     descriptor___0.lineno = 172U;
     descriptor___0.flags = 0U;
-    tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -23852,7 +23851,7 @@ static void dwmac1000_flow_ctrl(void *ioaddr , unsigned int duplex , unsigned in
     descriptor___1.format = "\tTransmit Flow-Control ON\n";
     descriptor___1.lineno = 176U;
     descriptor___1.flags = 0U;
-    tmp___1 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
     }
     if (tmp___1 != 0L) {
       {
@@ -23873,7 +23872,7 @@ static void dwmac1000_flow_ctrl(void *ioaddr , unsigned int duplex , unsigned in
     descriptor___2.format = "\tduplex mode: PAUSE %d\n";
     descriptor___2.lineno = 181U;
     descriptor___2.flags = 0U;
-    tmp___2 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+    tmp___2 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
     }
     if (tmp___2 != 0L) {
       {
@@ -23910,7 +23909,7 @@ static void dwmac1000_pmt(void *ioaddr , unsigned long mode )
     descriptor.format = "GMAC: WOL Magic frame\n";
     descriptor.lineno = 193U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -23931,7 +23930,7 @@ static void dwmac1000_pmt(void *ioaddr , unsigned long mode )
     descriptor___0.format = "GMAC: WOL on global unicast\n";
     descriptor___0.lineno = 197U;
     descriptor___0.flags = 0U;
-    tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -23979,7 +23978,7 @@ static int dwmac1000_irq_status(void *ioaddr , struct stmmac_extra_stats *x )
 
   }
   {
-  tmp___0 = __builtin_expect((intr_status & 32U) != 0U, 0L);
+  tmp___0 = ldv__builtin_expect((intr_status & 32U) != 0U, 0L);
   }
   if (tmp___0 != 0L) {
     x->mmc_rx_irq_n = x->mmc_rx_irq_n + 1UL;
@@ -23987,7 +23986,7 @@ static int dwmac1000_irq_status(void *ioaddr , struct stmmac_extra_stats *x )
 
   }
   {
-  tmp___1 = __builtin_expect((intr_status & 128U) != 0U, 0L);
+  tmp___1 = ldv__builtin_expect((intr_status & 128U) != 0U, 0L);
   }
   if (tmp___1 != 0L) {
     x->mmc_rx_csum_offload_irq_n = x->mmc_rx_csum_offload_irq_n + 1UL;
@@ -23995,7 +23994,7 @@ static int dwmac1000_irq_status(void *ioaddr , struct stmmac_extra_stats *x )
 
   }
   {
-  tmp___2 = __builtin_expect((intr_status & 8U) != 0U, 0L);
+  tmp___2 = ldv__builtin_expect((intr_status & 8U) != 0U, 0L);
   }
   if (tmp___2 != 0L) {
     {
@@ -24066,7 +24065,7 @@ static int dwmac1000_irq_status(void *ioaddr , struct stmmac_extra_stats *x )
       descriptor.format = "%s: Link is Up - %d/%s\n";
       descriptor.lineno = 261U;
       descriptor.flags = 0U;
-      tmp___5 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+      tmp___5 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
       }
       if (tmp___5 != 0L) {
         {
@@ -24085,7 +24084,7 @@ static int dwmac1000_irq_status(void *ioaddr , struct stmmac_extra_stats *x )
       descriptor___0.format = "%s: Link is Down\n";
       descriptor___0.lineno = 264U;
       descriptor___0.flags = 0U;
-      tmp___6 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+      tmp___6 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
       }
       if (tmp___6 != 0L) {
         {
@@ -24724,7 +24723,7 @@ static void dwmac1000_dma_operation_mode(void *ioaddr , int txmode , int rxmode 
     descriptor.format = "GMAC: enable TX store and forward mode\n";
     descriptor.lineno = 119U;
     descriptor.flags = 0U;
-    tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -24743,7 +24742,7 @@ static void dwmac1000_dma_operation_mode(void *ioaddr , int txmode , int rxmode 
     descriptor___0.format = "GMAC: disabling TX SF (threshold %d)\n";
     descriptor___0.lineno = 127U;
     descriptor___0.flags = 0U;
-    tmp___1 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___1 != 0L) {
       {
@@ -24778,7 +24777,7 @@ static void dwmac1000_dma_operation_mode(void *ioaddr , int txmode , int rxmode 
     descriptor___1.format = "GMAC: enable RX store and forward mode\n";
     descriptor___1.lineno = 144U;
     descriptor___1.flags = 0U;
-    tmp___2 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___2 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
     }
     if (tmp___2 != 0L) {
       {
@@ -24796,7 +24795,7 @@ static void dwmac1000_dma_operation_mode(void *ioaddr , int txmode , int rxmode 
     descriptor___2.format = "GMAC: disable RX SF mode (threshold %d)\n";
     descriptor___2.lineno = 147U;
     descriptor___2.flags = 0U;
-    tmp___3 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+    tmp___3 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
     }
     if (tmp___3 != 0L) {
       {
@@ -25525,7 +25524,7 @@ static void dwmac100_dump_dma_regs(void *ioaddr )
   descriptor.format = "DWMAC 100 DMA CSR\n";
   descriptor.lineno = 93U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -25544,7 +25543,7 @@ static void dwmac100_dump_dma_regs(void *ioaddr )
   descriptor___0.format = "\t CSR%d (offset 0x%x): 0x%08x\n";
   descriptor___0.lineno = 97U;
   descriptor___0.flags = 0U;
-  tmp___1 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -25569,7 +25568,7 @@ static void dwmac100_dump_dma_regs(void *ioaddr )
   descriptor___1.format = "\tCSR20 (0x%x): 0x%08x, CSR21 (0x%x): 0x%08x\n";
   descriptor___1.lineno = 101U;
   descriptor___1.flags = 0U;
-  tmp___4 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+  tmp___4 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
   }
   if (tmp___4 != 0L) {
     {
@@ -25599,7 +25598,7 @@ static void dwmac100_dma_diagnostic_fr(void *data , struct stmmac_extra_stats *x
   stats = (struct net_device_stats *)data;
   tmp = readl((void const volatile   *)ioaddr + 4128U);
   csr8 = tmp;
-  tmp___0 = __builtin_expect(csr8 != 0U, 0L);
+  tmp___0 = ldv__builtin_expect(csr8 != 0U, 0L);
   }
   if (tmp___0 != 0L) {
     if ((csr8 & 268435456U) != 0U) {
@@ -26112,7 +26111,7 @@ __inline static void enh_set_tx_desc_len_on_ring(struct dma_desc *p , int len )
 
   {
   {
-  tmp = __builtin_expect(len > 4096, 0L);
+  tmp = ldv__builtin_expect(len > 4096, 0L);
   }
   if (tmp != 0L) {
     p->des01.etx.buffer1_size = 4096U;
@@ -26172,12 +26171,12 @@ static int enh_desc_get_tx_status(void *data , struct stmmac_extra_stats *x , st
   {
   ret = 0;
   stats = (struct net_device_stats *)data;
-  tmp___9 = __builtin_expect((int )((signed char )*((unsigned char *)p + 1UL)) < 0,
+  tmp___9 = ldv__builtin_expect((int )((signed char )*((unsigned char *)p + 1UL)) < 0,
                              0L);
   }
   if (tmp___9 != 0L) {
     {
-    tmp = __builtin_expect((unsigned int )*((unsigned char *)p + 1UL) != 0U, 0L);
+    tmp = ldv__builtin_expect((unsigned int )*((unsigned char *)p + 1UL) != 0U, 0L);
     }
     if (tmp != 0L) {
       x->tx_jabber = x->tx_jabber + 1UL;
@@ -26185,7 +26184,7 @@ static int enh_desc_get_tx_status(void *data , struct stmmac_extra_stats *x , st
 
     }
     {
-    tmp___0 = __builtin_expect((unsigned int )*((unsigned char *)p + 1UL) != 0U, 0L);
+    tmp___0 = ldv__builtin_expect((unsigned int )*((unsigned char *)p + 1UL) != 0U, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -26196,7 +26195,7 @@ static int enh_desc_get_tx_status(void *data , struct stmmac_extra_stats *x , st
 
     }
     {
-    tmp___1 = __builtin_expect((unsigned int )*((unsigned char *)p + 1UL) != 0U, 0L);
+    tmp___1 = ldv__builtin_expect((unsigned int )*((unsigned char *)p + 1UL) != 0U, 0L);
     }
     if (tmp___1 != 0L) {
       x->tx_losscarrier = x->tx_losscarrier + 1UL;
@@ -26205,7 +26204,7 @@ static int enh_desc_get_tx_status(void *data , struct stmmac_extra_stats *x , st
 
     }
     {
-    tmp___2 = __builtin_expect((unsigned int )*((unsigned char *)p + 1UL) != 0U, 0L);
+    tmp___2 = ldv__builtin_expect((unsigned int )*((unsigned char *)p + 1UL) != 0U, 0L);
     }
     if (tmp___2 != 0L) {
       x->tx_carrier = x->tx_carrier + 1UL;
@@ -26214,7 +26213,7 @@ static int enh_desc_get_tx_status(void *data , struct stmmac_extra_stats *x , st
 
     }
     {
-    tmp___3 = __builtin_expect((unsigned int )*((unsigned char *)p + 1UL) != 0U, 0L);
+    tmp___3 = ldv__builtin_expect((unsigned int )*((unsigned char *)p + 1UL) != 0U, 0L);
     }
     if (tmp___3 != 0L) {
       stats->collisions = stats->collisions + (unsigned long )p->des01.etx.collision_count;
@@ -26222,7 +26221,7 @@ static int enh_desc_get_tx_status(void *data , struct stmmac_extra_stats *x , st
 
     }
     {
-    tmp___4 = __builtin_expect((long )*((unsigned char *)p + 1UL) & 1L, 0L);
+    tmp___4 = ldv__builtin_expect((long )*((unsigned char *)p + 1UL) & 1L, 0L);
     }
     if (tmp___4 != 0L) {
       stats->collisions = stats->collisions + (unsigned long )p->des01.etx.collision_count;
@@ -26230,7 +26229,7 @@ static int enh_desc_get_tx_status(void *data , struct stmmac_extra_stats *x , st
 
     }
     {
-    tmp___5 = __builtin_expect((unsigned int )*((unsigned char *)p + 0UL) != 0U, 0L);
+    tmp___5 = ldv__builtin_expect((unsigned int )*((unsigned char *)p + 0UL) != 0U, 0L);
     }
     if (tmp___5 != 0L) {
       x->tx_deferred = x->tx_deferred + 1UL;
@@ -26238,7 +26237,7 @@ static int enh_desc_get_tx_status(void *data , struct stmmac_extra_stats *x , st
 
     }
     {
-    tmp___6 = __builtin_expect((unsigned int )*((unsigned char *)p + 0UL) != 0U, 0L);
+    tmp___6 = ldv__builtin_expect((unsigned int )*((unsigned char *)p + 0UL) != 0U, 0L);
     }
     if (tmp___6 != 0L) {
       {
@@ -26249,7 +26248,7 @@ static int enh_desc_get_tx_status(void *data , struct stmmac_extra_stats *x , st
 
     }
     {
-    tmp___7 = __builtin_expect((long )*((unsigned char *)p + 2UL) & 1L, 0L);
+    tmp___7 = ldv__builtin_expect((long )*((unsigned char *)p + 2UL) & 1L, 0L);
     }
     if (tmp___7 != 0L) {
       x->tx_ip_header_error = x->tx_ip_header_error + 1UL;
@@ -26257,7 +26256,7 @@ static int enh_desc_get_tx_status(void *data , struct stmmac_extra_stats *x , st
 
     }
     {
-    tmp___8 = __builtin_expect((unsigned int )*((unsigned char *)p + 1UL) != 0U, 0L);
+    tmp___8 = ldv__builtin_expect((unsigned int )*((unsigned char *)p + 1UL) != 0U, 0L);
     }
     if (tmp___8 != 0L) {
       {
@@ -26272,7 +26271,7 @@ static int enh_desc_get_tx_status(void *data , struct stmmac_extra_stats *x , st
 
   }
   {
-  tmp___10 = __builtin_expect((long )*((unsigned char *)p + 0UL) & 1L, 0L);
+  tmp___10 = ldv__builtin_expect((long )*((unsigned char *)p + 0UL) & 1L, 0L);
   }
   if (tmp___10 != 0L) {
     x->tx_deferred = x->tx_deferred + 1UL;
@@ -26335,7 +26334,7 @@ static void enh_desc_get_ext_status(void *data , struct stmmac_extra_stats *x , 
 
   {
   {
-  tmp = __builtin_expect((long )*((unsigned char *)p + 0UL) & 1L, 0L);
+  tmp = ldv__builtin_expect((long )*((unsigned char *)p + 0UL) & 1L, 0L);
   }
   if (tmp != 0L) {
     if ((unsigned int )*((unsigned char *)p + 16UL) != 0U) {
@@ -26458,12 +26457,12 @@ static int enh_desc_get_rx_status(void *data , struct stmmac_extra_stats *x , st
   {
   ret = 0;
   stats = (struct net_device_stats *)data;
-  tmp___6 = __builtin_expect((int )((signed char )*((unsigned char *)p + 1UL)) < 0,
+  tmp___6 = ldv__builtin_expect((int )((signed char )*((unsigned char *)p + 1UL)) < 0,
                              0L);
   }
   if (tmp___6 != 0L) {
     {
-    tmp = __builtin_expect((unsigned int )*((unsigned char *)p + 1UL) != 0U, 0L);
+    tmp = ldv__builtin_expect((unsigned int )*((unsigned char *)p + 1UL) != 0U, 0L);
     }
     if (tmp != 0L) {
       x->rx_desc = x->rx_desc + 1UL;
@@ -26472,7 +26471,7 @@ static int enh_desc_get_rx_status(void *data , struct stmmac_extra_stats *x , st
 
     }
     {
-    tmp___0 = __builtin_expect((unsigned int )*((unsigned char *)p + 1UL) != 0U, 0L);
+    tmp___0 = ldv__builtin_expect((unsigned int )*((unsigned char *)p + 1UL) != 0U, 0L);
     }
     if (tmp___0 != 0L) {
       x->rx_gmac_overflow = x->rx_gmac_overflow + 1UL;
@@ -26480,7 +26479,7 @@ static int enh_desc_get_rx_status(void *data , struct stmmac_extra_stats *x , st
 
     }
     {
-    tmp___1 = __builtin_expect((int )((signed char )*((unsigned char *)p + 0UL)) < 0,
+    tmp___1 = ldv__builtin_expect((int )((signed char )*((unsigned char *)p + 0UL)) < 0,
                                0L);
     }
     if (tmp___1 != 0L) {
@@ -26491,7 +26490,7 @@ static int enh_desc_get_rx_status(void *data , struct stmmac_extra_stats *x , st
 
     }
     {
-    tmp___2 = __builtin_expect((unsigned int )*((unsigned char *)p + 0UL) != 0U, 0L);
+    tmp___2 = ldv__builtin_expect((unsigned int )*((unsigned char *)p + 0UL) != 0U, 0L);
     }
     if (tmp___2 != 0L) {
       stats->collisions = stats->collisions + 1UL;
@@ -26499,7 +26498,7 @@ static int enh_desc_get_rx_status(void *data , struct stmmac_extra_stats *x , st
 
     }
     {
-    tmp___3 = __builtin_expect((unsigned int )*((unsigned char *)p + 0UL) != 0U, 0L);
+    tmp___3 = ldv__builtin_expect((unsigned int )*((unsigned char *)p + 0UL) != 0U, 0L);
     }
     if (tmp___3 != 0L) {
       x->rx_watchdog = x->rx_watchdog + 1UL;
@@ -26507,7 +26506,7 @@ static int enh_desc_get_rx_status(void *data , struct stmmac_extra_stats *x , st
 
     }
     {
-    tmp___4 = __builtin_expect((unsigned int )*((unsigned char *)p + 0UL) != 0U, 0L);
+    tmp___4 = ldv__builtin_expect((unsigned int )*((unsigned char *)p + 0UL) != 0U, 0L);
     }
     if (tmp___4 != 0L) {
       x->rx_mii = x->rx_mii + 1UL;
@@ -26515,7 +26514,7 @@ static int enh_desc_get_rx_status(void *data , struct stmmac_extra_stats *x , st
 
     }
     {
-    tmp___5 = __builtin_expect((unsigned int )*((unsigned char *)p + 0UL) != 0U, 0L);
+    tmp___5 = ldv__builtin_expect((unsigned int )*((unsigned char *)p + 0UL) != 0U, 0L);
     }
     if (tmp___5 != 0L) {
       x->rx_crc = x->rx_crc + 1UL;
@@ -26530,7 +26529,7 @@ static int enh_desc_get_rx_status(void *data , struct stmmac_extra_stats *x , st
   {
   ret = enh_desc_coe_rdes0((int )p->des01.erx.ipc_csum_error, (int )p->des01.erx.frame_type,
                            (int )p->des01.erx.rx_mac_addr);
-  tmp___7 = __builtin_expect((unsigned int )*((unsigned char *)p + 0UL) != 0U, 0L);
+  tmp___7 = ldv__builtin_expect((unsigned int )*((unsigned char *)p + 0UL) != 0U, 0L);
   }
   if (tmp___7 != 0L) {
     x->dribbling_bit = x->dribbling_bit + 1UL;
@@ -26538,7 +26537,7 @@ static int enh_desc_get_rx_status(void *data , struct stmmac_extra_stats *x , st
 
   }
   {
-  tmp___8 = __builtin_expect((unsigned int )*((unsigned char *)p + 1UL) != 0U, 0L);
+  tmp___8 = ldv__builtin_expect((unsigned int )*((unsigned char *)p + 1UL) != 0U, 0L);
   }
   if (tmp___8 != 0L) {
     x->sa_rx_filter_fail = x->sa_rx_filter_fail + 1UL;
@@ -26547,7 +26546,7 @@ static int enh_desc_get_rx_status(void *data , struct stmmac_extra_stats *x , st
 
   }
   {
-  tmp___9 = __builtin_expect((unsigned int )*((unsigned char *)p + 3UL) != 0U, 0L);
+  tmp___9 = ldv__builtin_expect((unsigned int )*((unsigned char *)p + 3UL) != 0U, 0L);
   }
   if (tmp___9 != 0L) {
     x->da_rx_filter_fail = x->da_rx_filter_fail + 1UL;
@@ -26556,7 +26555,7 @@ static int enh_desc_get_rx_status(void *data , struct stmmac_extra_stats *x , st
 
   }
   {
-  tmp___10 = __builtin_expect((unsigned int )*((unsigned char *)p + 1UL) != 0U, 0L);
+  tmp___10 = ldv__builtin_expect((unsigned int )*((unsigned char *)p + 1UL) != 0U, 0L);
   }
   if (tmp___10 != 0L) {
     x->rx_length = x->rx_length + 1UL;
@@ -26695,7 +26694,7 @@ static void enh_desc_prepare_tx_desc(struct dma_desc *p , int is_fs , int len , 
     }
   }
   {
-  tmp = __builtin_expect(csum_flag != 0, 1L);
+  tmp = ldv__builtin_expect(csum_flag != 0, 1L);
   }
   if (tmp != 0L) {
     p->des01.etx.checksum_insertion = 3U;
@@ -27173,7 +27172,7 @@ __inline static void norm_set_tx_desc_len_on_ring(struct dma_desc *p , int len )
 
   {
   {
-  tmp = __builtin_expect(len > 2048, 0L);
+  tmp = ldv__builtin_expect(len > 2048, 0L);
   }
   if (tmp != 0L) {
     p->des01.etx.buffer1_size = 2047U;
@@ -27227,12 +27226,12 @@ static int ndesc_get_tx_status(void *data , struct stmmac_extra_stats *x , struc
   {
   ret = 0;
   stats = (struct net_device_stats *)data;
-  tmp___3 = __builtin_expect((int )((signed char )*((unsigned char *)p + 1UL)) < 0,
+  tmp___3 = ldv__builtin_expect((int )((signed char )*((unsigned char *)p + 1UL)) < 0,
                              0L);
   }
   if (tmp___3 != 0L) {
     {
-    tmp = __builtin_expect((unsigned int )*((unsigned char *)p + 0UL) != 0U, 0L);
+    tmp = ldv__builtin_expect((unsigned int )*((unsigned char *)p + 0UL) != 0U, 0L);
     }
     if (tmp != 0L) {
       x->tx_underflow = x->tx_underflow + 1UL;
@@ -27241,7 +27240,7 @@ static int ndesc_get_tx_status(void *data , struct stmmac_extra_stats *x , struc
 
     }
     {
-    tmp___0 = __builtin_expect((unsigned int )*((unsigned char *)p + 1UL) != 0U, 0L);
+    tmp___0 = ldv__builtin_expect((unsigned int )*((unsigned char *)p + 1UL) != 0U, 0L);
     }
     if (tmp___0 != 0L) {
       x->tx_carrier = x->tx_carrier + 1UL;
@@ -27250,7 +27249,7 @@ static int ndesc_get_tx_status(void *data , struct stmmac_extra_stats *x , struc
 
     }
     {
-    tmp___1 = __builtin_expect((unsigned int )*((unsigned char *)p + 1UL) != 0U, 0L);
+    tmp___1 = ldv__builtin_expect((unsigned int )*((unsigned char *)p + 1UL) != 0U, 0L);
     }
     if (tmp___1 != 0L) {
       x->tx_losscarrier = x->tx_losscarrier + 1UL;
@@ -27259,7 +27258,7 @@ static int ndesc_get_tx_status(void *data , struct stmmac_extra_stats *x , struc
 
     }
     {
-    tmp___2 = __builtin_expect((unsigned int )*((unsigned short *)p + 0UL) != 0U,
+    tmp___2 = ldv__builtin_expect((unsigned int )*((unsigned short *)p + 0UL) != 0U,
                                0L);
     }
     if (tmp___2 != 0L) {
@@ -27277,7 +27276,7 @@ static int ndesc_get_tx_status(void *data , struct stmmac_extra_stats *x , struc
 
   }
   {
-  tmp___4 = __builtin_expect((long )*((unsigned char *)p + 0UL) & 1L, 0L);
+  tmp___4 = ldv__builtin_expect((long )*((unsigned char *)p + 0UL) & 1L, 0L);
   }
   if (tmp___4 != 0L) {
     x->tx_deferred = x->tx_deferred + 1UL;
@@ -27315,7 +27314,7 @@ static int ndesc_get_rx_status(void *data , struct stmmac_extra_stats *x , struc
   {
   ret = 0;
   stats = (struct net_device_stats *)data;
-  tmp = __builtin_expect((unsigned int )*((unsigned char *)p + 1UL) == 0U, 0L);
+  tmp = ldv__builtin_expect((unsigned int )*((unsigned char *)p + 1UL) == 0U, 0L);
   }
   if (tmp != 0L) {
     {
@@ -27327,12 +27326,12 @@ static int ndesc_get_rx_status(void *data , struct stmmac_extra_stats *x , struc
 
   }
   {
-  tmp___6 = __builtin_expect((int )((signed char )*((unsigned char *)p + 1UL)) < 0,
+  tmp___6 = ldv__builtin_expect((int )((signed char )*((unsigned char *)p + 1UL)) < 0,
                              0L);
   }
   if (tmp___6 != 0L) {
     {
-    tmp___0 = __builtin_expect((unsigned int )*((unsigned char *)p + 1UL) != 0U, 0L);
+    tmp___0 = ldv__builtin_expect((unsigned int )*((unsigned char *)p + 1UL) != 0U, 0L);
     }
     if (tmp___0 != 0L) {
       x->rx_desc = x->rx_desc + 1UL;
@@ -27340,7 +27339,7 @@ static int ndesc_get_rx_status(void *data , struct stmmac_extra_stats *x , struc
 
     }
     {
-    tmp___1 = __builtin_expect((unsigned int )*((unsigned char *)p + 1UL) != 0U, 0L);
+    tmp___1 = ldv__builtin_expect((unsigned int )*((unsigned char *)p + 1UL) != 0U, 0L);
     }
     if (tmp___1 != 0L) {
       x->sa_filter_fail = x->sa_filter_fail + 1UL;
@@ -27348,7 +27347,7 @@ static int ndesc_get_rx_status(void *data , struct stmmac_extra_stats *x , struc
 
     }
     {
-    tmp___2 = __builtin_expect((unsigned int )*((unsigned char *)p + 1UL) != 0U, 0L);
+    tmp___2 = ldv__builtin_expect((unsigned int )*((unsigned char *)p + 1UL) != 0U, 0L);
     }
     if (tmp___2 != 0L) {
       x->overflow_error = x->overflow_error + 1UL;
@@ -27356,7 +27355,7 @@ static int ndesc_get_rx_status(void *data , struct stmmac_extra_stats *x , struc
 
     }
     {
-    tmp___3 = __builtin_expect((int )((signed char )*((unsigned char *)p + 0UL)) < 0,
+    tmp___3 = ldv__builtin_expect((int )((signed char )*((unsigned char *)p + 0UL)) < 0,
                                0L);
     }
     if (tmp___3 != 0L) {
@@ -27365,7 +27364,7 @@ static int ndesc_get_rx_status(void *data , struct stmmac_extra_stats *x , struc
 
     }
     {
-    tmp___4 = __builtin_expect((unsigned int )*((unsigned char *)p + 0UL) != 0U, 0L);
+    tmp___4 = ldv__builtin_expect((unsigned int )*((unsigned char *)p + 0UL) != 0U, 0L);
     }
     if (tmp___4 != 0L) {
       x->rx_collision = x->rx_collision + 1UL;
@@ -27374,7 +27373,7 @@ static int ndesc_get_rx_status(void *data , struct stmmac_extra_stats *x , struc
 
     }
     {
-    tmp___5 = __builtin_expect((unsigned int )*((unsigned char *)p + 0UL) != 0U, 0L);
+    tmp___5 = ldv__builtin_expect((unsigned int )*((unsigned char *)p + 0UL) != 0U, 0L);
     }
     if (tmp___5 != 0L) {
       x->rx_crc = x->rx_crc + 1UL;
@@ -27387,7 +27386,7 @@ static int ndesc_get_rx_status(void *data , struct stmmac_extra_stats *x , struc
 
   }
   {
-  tmp___7 = __builtin_expect((unsigned int )*((unsigned char *)p + 0UL) != 0U, 0L);
+  tmp___7 = ldv__builtin_expect((unsigned int )*((unsigned char *)p + 0UL) != 0U, 0L);
   }
   if (tmp___7 != 0L) {
     x->dribbling_bit = x->dribbling_bit + 1UL;
@@ -27395,7 +27394,7 @@ static int ndesc_get_rx_status(void *data , struct stmmac_extra_stats *x , struc
 
   }
   {
-  tmp___8 = __builtin_expect((unsigned int )*((unsigned char *)p + 1UL) != 0U, 0L);
+  tmp___8 = ldv__builtin_expect((unsigned int )*((unsigned char *)p + 1UL) != 0U, 0L);
   }
   if (tmp___8 != 0L) {
     x->rx_length = x->rx_length + 1UL;
@@ -27404,7 +27403,7 @@ static int ndesc_get_rx_status(void *data , struct stmmac_extra_stats *x , struc
 
   }
   {
-  tmp___9 = __builtin_expect((unsigned int )*((unsigned char *)p + 0UL) != 0U, 0L);
+  tmp___9 = ldv__builtin_expect((unsigned int )*((unsigned char *)p + 0UL) != 0U, 0L);
   }
   if (tmp___9 != 0L) {
     x->rx_mii = x->rx_mii + 1UL;
@@ -27543,7 +27542,7 @@ static void ndesc_prepare_tx_desc(struct dma_desc *p , int is_fs , int len , int
     }
   }
   {
-  tmp = __builtin_expect(csum_flag != 0, 1L);
+  tmp = ldv__builtin_expect(csum_flag != 0, 1L);
   }
   if (tmp != 0L) {
     p->des01.tx.checksum_insertion = 3U;
@@ -28149,7 +28148,7 @@ void dwmac_mmc_ctrl(void *ioaddr , unsigned int mode )
   descriptor.format = "stmmac: MMC ctrl register (offset 0x%x): 0x%08x\n";
   descriptor.lineno = 144U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -29054,7 +29053,7 @@ int stmmac_ptp_register(struct stmmac_priv *priv )
     descriptor.format = "Added PTP HW clock successfully on %s\n";
     descriptor.lineno = 193U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -29083,7 +29082,7 @@ void stmmac_ptp_unregister(struct stmmac_priv *priv )
     descriptor.format = "Removed PTP HW clock successfully on %s\n";
     descriptor.lineno = 209U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -29406,7 +29405,7 @@ static int stmmac_pltfr_probe(struct platform_device *pdev )
                                                                       void * ))0)) {
     {
     ret = (*(plat_dat___0->init))(pdev, plat_dat___0->bsp_priv);
-    tmp___5 = __builtin_expect(ret != 0, 0L);
+    tmp___5 = ldv__builtin_expect(ret != 0, 0L);
     }
     if (tmp___5 != 0L) {
       return (ret);
@@ -29464,7 +29463,7 @@ static int stmmac_pltfr_probe(struct platform_device *pdev )
   descriptor.format = "STMMAC platform driver registration completed";
   descriptor.lineno = 259U;
   descriptor.flags = 0U;
-  tmp___8 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___8 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___8 != 0L) {
     {
@@ -30636,7 +30635,7 @@ static int stmmac_pci_probe(struct pci_dev *pdev , struct pci_device_id  const  
   descriptor.format = "STMMAC platform driver registration completed";
   descriptor.lineno = 113U;
   descriptor.flags = 0U;
-  tmp___3 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___3 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___3 != 0L) {
     {
@@ -31406,7 +31405,7 @@ void ldv_check_final_state(void)
 }
 }
 extern void ldv_assert(char const   * , int  ) ;
-void __builtin_trap(void) ;
+void ldv__builtin_trap(void) ;
 void ldv_assume(int expression ) 
 { 
 
@@ -31430,7 +31429,7 @@ void ldv_stop(void)
   goto ldv_stop_label;
 }
 }
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 
@@ -31438,7 +31437,7 @@ long __builtin_expect(long exp , long c )
   return (exp);
 }
 }
-void __builtin_trap(void) 
+void ldv__builtin_trap(void) 
 { 
 
 

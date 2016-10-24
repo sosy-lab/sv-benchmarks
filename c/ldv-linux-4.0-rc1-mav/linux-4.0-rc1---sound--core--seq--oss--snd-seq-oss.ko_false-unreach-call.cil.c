@@ -4121,7 +4121,7 @@ struct ldv_thread {
    void (*function)(void * ) ;
 };
 typedef _Bool ldv_set;
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 void ldv_assume(int expression ) ;
 void ldv_stop(void) ;
 void ldv_linux_alloc_irq_check_alloc_flags(gfp_t flags ) ;
@@ -4462,7 +4462,7 @@ static ssize_t odev_read(struct file *file , char *buf , size_t count , loff_t *
   {
   dp = (struct seq_oss_devinfo *)file->private_data;
   __ret_warn_on = (unsigned long )dp == (unsigned long )((struct seq_oss_devinfo *)0);
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp != 0L) {
     {
@@ -4472,7 +4472,7 @@ static ssize_t odev_read(struct file *file , char *buf , size_t count , loff_t *
 
   }
   {
-  tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp___0 != 0L) {
     return (-6L);
@@ -4497,7 +4497,7 @@ static ssize_t odev_write(struct file *file , char const   *buf , size_t count ,
   {
   dp = (struct seq_oss_devinfo *)file->private_data;
   __ret_warn_on = (unsigned long )dp == (unsigned long )((struct seq_oss_devinfo *)0);
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp != 0L) {
     {
@@ -4507,7 +4507,7 @@ static ssize_t odev_write(struct file *file , char const   *buf , size_t count ,
 
   }
   {
-  tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp___0 != 0L) {
     return (-6L);
@@ -4532,7 +4532,7 @@ static long odev_ioctl(struct file *file , unsigned int cmd , unsigned long arg 
   {
   dp = (struct seq_oss_devinfo *)file->private_data;
   __ret_warn_on = (unsigned long )dp == (unsigned long )((struct seq_oss_devinfo *)0);
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp != 0L) {
     {
@@ -4542,7 +4542,7 @@ static long odev_ioctl(struct file *file , unsigned int cmd , unsigned long arg 
 
   }
   {
-  tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp___0 != 0L) {
     return (-6L);
@@ -4567,7 +4567,7 @@ static unsigned int odev_poll(struct file *file , poll_table *wait )
   {
   dp = (struct seq_oss_devinfo *)file->private_data;
   __ret_warn_on = (unsigned long )dp == (unsigned long )((struct seq_oss_devinfo *)0);
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp != 0L) {
     {
@@ -4577,7 +4577,7 @@ static unsigned int odev_poll(struct file *file , poll_table *wait )
 
   }
   {
-  tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp___0 != 0L) {
     return (4294967290U);
@@ -4734,7 +4734,7 @@ void ldv_dispatch_deregister_file_operations_instance_1_3_5(void) ;
 void ldv_dispatch_register_2_2(struct file_operations *arg0 ) ;
 void ldv_dispatch_register_dummy_resourceless_instance_3_3_6(void) ;
 void ldv_entry_EMGentry_3(void *arg0 ) ;
-void main(void) ;
+int main(void) ;
 void ldv_file_operations_file_operations_instance_0(void *arg0 ) ;
 void ldv_file_operations_instance_callback_0_22(long long (*arg0)(struct file * ,
                                                                   long long  , int  ) ,
@@ -4878,7 +4878,7 @@ void ldv_entry_EMGentry_3(void *arg0 )
   return;
 }
 }
-void main(void) 
+int main(void) 
 { 
 
 
@@ -4887,7 +4887,7 @@ void main(void)
   ldv_ldv_initialize_114();
   ldv_entry_EMGentry_3((void *)0);
   }
-  return;
+return 0;
 }
 }
 void ldv_file_operations_file_operations_instance_0(void *arg0 ) 
@@ -6787,7 +6787,7 @@ __inline static unsigned long copy_from_user(void *to , void const   *from , uns
   {
   sz = -1;
   might_fault();
-  tmp = __builtin_expect(sz < 0, 1L);
+  tmp = ldv__builtin_expect(sz < 0, 1L);
   }
   if (tmp != 0L) {
     {
@@ -6795,7 +6795,7 @@ __inline static unsigned long copy_from_user(void *to , void const   *from , uns
     }
   } else {
     {
-    tmp___0 = __builtin_expect((unsigned long )sz >= n, 1L);
+    tmp___0 = ldv__builtin_expect((unsigned long )sz >= n, 1L);
     }
     if (tmp___0 != 0L) {
       {
@@ -6820,7 +6820,7 @@ __inline static unsigned long copy_to_user(void *to , void const   *from , unsig
   {
   sz = -1;
   might_fault();
-  tmp = __builtin_expect(sz < 0, 1L);
+  tmp = ldv__builtin_expect(sz < 0, 1L);
   }
   if (tmp != 0L) {
     {
@@ -6828,7 +6828,7 @@ __inline static unsigned long copy_to_user(void *to , void const   *from , unsig
     }
   } else {
     {
-    tmp___0 = __builtin_expect((unsigned long )sz >= n, 1L);
+    tmp___0 = ldv__builtin_expect((unsigned long )sz >= n, 1L);
     }
     if (tmp___0 != 0L) {
       {
@@ -6862,7 +6862,7 @@ __inline static int signal_pending(struct task_struct *p )
   {
   {
   tmp = test_tsk_thread_flag(p, 2);
-  tmp___0 = __builtin_expect(tmp != 0, 0L);
+  tmp___0 = ldv__builtin_expect(tmp != 0, 0L);
   }
   return ((int )tmp___0);
 }
@@ -9364,7 +9364,7 @@ void snd_seq_oss_synth_cleanup(struct seq_oss_devinfo *dp )
   {
   {
   __ret_warn_on = dp->max_synthdev > 15;
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp != 0L) {
     {
@@ -9374,7 +9374,7 @@ void snd_seq_oss_synth_cleanup(struct seq_oss_devinfo *dp )
 
   }
   {
-  tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp___0 != 0L) {
     return;
@@ -9536,7 +9536,7 @@ void snd_seq_oss_synth_reset(struct seq_oss_devinfo *dp , int dev )
   {
   {
   __ret_warn_on = dev < 0 || dev >= dp->max_synthdev;
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp != 0L) {
     {
@@ -9546,7 +9546,7 @@ void snd_seq_oss_synth_reset(struct seq_oss_devinfo *dp , int dev )
 
   }
   {
-  tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp___0 != 0L) {
     return;
@@ -13862,7 +13862,7 @@ void ldv_linux_usb_urb_check_final_state(void)
 }
 }
 extern void ldv_assert(char const   * , int  ) ;
-void __builtin_trap(void) ;
+void ldv__builtin_trap(void) ;
 void ldv_assume(int expression ) 
 { 
 
@@ -13886,7 +13886,7 @@ void ldv_stop(void)
   goto ldv_stop_label;
 }
 }
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 
@@ -13894,7 +13894,7 @@ long __builtin_expect(long exp , long c )
   return (exp);
 }
 }
-void __builtin_trap(void) 
+void ldv__builtin_trap(void) 
 { 
 
 

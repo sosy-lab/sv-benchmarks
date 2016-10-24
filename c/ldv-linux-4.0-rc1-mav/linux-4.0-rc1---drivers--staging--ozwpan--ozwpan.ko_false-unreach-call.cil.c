@@ -6907,7 +6907,7 @@ void ldv_dispatch_deregister_io_instance_9_9_5(void) ;
 void ldv_dispatch_register_io_instance_8_9_6(void) ;
 void ldv_dispatch_register_io_instance_9_9_7(void) ;
 void ldv_entry_EMGentry_9(void *arg0 ) ;
-void main(void) ;
+int main(void) ;
 void ldv_io_instance_callback_4_21(int (*arg0)(struct oz_pd * ) , struct oz_pd *arg1 ) ;
 void ldv_io_instance_callback_4_22(int (*arg0)(void) ) ;
 void ldv_io_instance_callback_4_23(void (*arg0)(struct oz_pd * , struct oz_elt * ) ,
@@ -7061,7 +7061,7 @@ void ldv_entry_EMGentry_9(void *arg0 )
   return;
 }
 }
-void main(void) 
+int main(void) 
 { 
 
 
@@ -7070,7 +7070,7 @@ void main(void)
   ldv_ldv_initialize_124();
   ldv_entry_EMGentry_9((void *)0);
   }
-  return;
+return 0;
 }
 }
 void ldv_platform_pm_ops_instance_2(void *arg0 ) 
@@ -7841,7 +7841,7 @@ static void ldv_ldv_initialize_124(void)
   return;
 }
 }
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 void *ldv_kzalloc(size_t size , gfp_t flags ) ;
 void ldv_linux_usb_dev_atomic_inc(atomic_t *v ) ;
 void ldv_linux_usb_dev_atomic_dec(atomic_t *v ) ;
@@ -9061,7 +9061,7 @@ static void oz_tx_isoc_free(struct oz_pd *pd , struct oz_tx_frame *f )
     descriptor.format = "Releasing ISOC Frame isoc_nb= %d\n";
     descriptor.lineno = 340U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -9398,7 +9398,7 @@ static int oz_send_next_queued_frame(struct oz_pd *pd , int more_data )
           descriptor.format = "Dropping ISOC Frame\n";
           descriptor.lineno = 492U;
           descriptor.flags = 0U;
-          tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+          tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
           }
           if (tmp != 0L) {
             {
@@ -9425,7 +9425,7 @@ static int oz_send_next_queued_frame(struct oz_pd *pd , int more_data )
         descriptor___0.format = "Sending ISOC Frame, nb_isoc= %d\n";
         descriptor___0.lineno = 497U;
         descriptor___0.flags = 0U;
-        tmp___1 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+        tmp___1 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
         }
         if (tmp___1 != 0L) {
           {
@@ -9453,7 +9453,7 @@ static int oz_send_next_queued_frame(struct oz_pd *pd , int more_data )
       descriptor___1.format = "Dropping ISOC Frame>\n";
       descriptor___1.lineno = 501U;
       descriptor___1.flags = 0U;
-      tmp___3 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+      tmp___3 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
       }
       if (tmp___3 != 0L) {
         {
@@ -9494,7 +9494,7 @@ static int oz_send_next_queued_frame(struct oz_pd *pd , int more_data )
     descriptor___2.format = "TX frame PN=0x%x\n";
     descriptor___2.lineno = 512U;
     descriptor___2.flags = 0U;
-    tmp___4 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+    tmp___4 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
     }
     if (tmp___4 != 0L) {
       {
@@ -9738,7 +9738,7 @@ void oz_retire_tx_frames(struct oz_pd *pd , u8 lpn )
     descriptor.format = "Releasing pkt_num= %u, nb= %d\n";
     descriptor.lineno = 622U;
     descriptor.flags = 0U;
-    tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -10037,7 +10037,7 @@ int oz_send_isoc_unit(struct oz_pd *pd , u8 ep_num , u8 const   *data , int len 
           descriptor.format = "Dropping ISOC Unit nb= %d\n";
           descriptor.lineno = 785U;
           descriptor.flags = 0U;
-          tmp___2 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+          tmp___2 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
           }
           if (tmp___2 != 0L) {
             {
@@ -10103,7 +10103,7 @@ int oz_send_isoc_unit(struct oz_pd *pd , u8 ep_num , u8 const   *data , int len 
         descriptor___0.format = "Added ISOC Frame to Tx Queue isoc_nb= %d, nb= %d\n";
         descriptor___0.lineno = 806U;
         descriptor___0.flags = 0U;
-        tmp___3 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+        tmp___3 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
         }
         if (tmp___3 != 0L) {
           {
@@ -14236,7 +14236,7 @@ static void oz_process_ep0_urb(struct oz_hcd *ozhcd , struct urb *urb , gfp_t me
     descriptor.format = "[%s]:(%p)\n";
     descriptor.lineno = 1393U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -14277,7 +14277,7 @@ static void oz_process_ep0_urb(struct oz_hcd *ozhcd , struct urb *urb , gfp_t me
     descriptor___1.format = "bRequestType = %x\n";
     descriptor___1.lineno = 1414U;
     descriptor___1.flags = 0U;
-    tmp___1 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
     }
     if (tmp___1 != 0L) {
       {
@@ -14297,7 +14297,7 @@ static void oz_process_ep0_urb(struct oz_hcd *ozhcd , struct urb *urb , gfp_t me
     descriptor___2.format = "bRequest = %x\n";
     descriptor___2.lineno = 1415U;
     descriptor___2.flags = 0U;
-    tmp___2 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+    tmp___2 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
     }
     if (tmp___2 != 0L) {
       {
@@ -14317,7 +14317,7 @@ static void oz_process_ep0_urb(struct oz_hcd *ozhcd , struct urb *urb , gfp_t me
     descriptor___3.format = "wValue = %x\n";
     descriptor___3.lineno = 1416U;
     descriptor___3.flags = 0U;
-    tmp___3 = __builtin_expect((long )descriptor___3.flags & 1L, 0L);
+    tmp___3 = ldv__builtin_expect((long )descriptor___3.flags & 1L, 0L);
     }
     if (tmp___3 != 0L) {
       {
@@ -14337,7 +14337,7 @@ static void oz_process_ep0_urb(struct oz_hcd *ozhcd , struct urb *urb , gfp_t me
     descriptor___4.format = "wIndex = %x\n";
     descriptor___4.lineno = 1417U;
     descriptor___4.flags = 0U;
-    tmp___4 = __builtin_expect((long )descriptor___4.flags & 1L, 0L);
+    tmp___4 = ldv__builtin_expect((long )descriptor___4.flags & 1L, 0L);
     }
     if (tmp___4 != 0L) {
       {
@@ -14357,7 +14357,7 @@ static void oz_process_ep0_urb(struct oz_hcd *ozhcd , struct urb *urb , gfp_t me
     descriptor___5.format = "wLength = %x\n";
     descriptor___5.lineno = 1418U;
     descriptor___5.flags = 0U;
-    tmp___5 = __builtin_expect((long )descriptor___5.flags & 1L, 0L);
+    tmp___5 = ldv__builtin_expect((long )descriptor___5.flags & 1L, 0L);
     }
     if (tmp___5 != 0L) {
       {
@@ -14869,7 +14869,7 @@ static int oz_hcd_urb_enqueue(struct usb_hcd *hcd , struct urb *urb , gfp_t mem_
     descriptor.format = "%s: (%p)\n";
     descriptor.lineno = 1741U;
     descriptor.flags = 0U;
-    tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -14882,7 +14882,7 @@ static int oz_hcd_urb_enqueue(struct usb_hcd *hcd , struct urb *urb , gfp_t mem_
 
   }
   {
-  tmp___2 = __builtin_expect((unsigned long )ozhcd == (unsigned long )((struct oz_hcd *)0),
+  tmp___2 = ldv__builtin_expect((unsigned long )ozhcd == (unsigned long )((struct oz_hcd *)0),
                              0L);
   }
   if (tmp___2 != 0L) {
@@ -14894,7 +14894,7 @@ static int oz_hcd_urb_enqueue(struct usb_hcd *hcd , struct urb *urb , gfp_t mem_
       descriptor___0.format = "Refused urb(%p) not ozhcd\n";
       descriptor___0.lineno = 1743U;
       descriptor___0.flags = 0U;
-      tmp___1 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+      tmp___1 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
       }
       if (tmp___1 != 0L) {
         {
@@ -14911,7 +14911,7 @@ static int oz_hcd_urb_enqueue(struct usb_hcd *hcd , struct urb *urb , gfp_t mem_
 
   }
   {
-  tmp___4 = __builtin_expect(hcd->state != 1, 0L);
+  tmp___4 = ldv__builtin_expect(hcd->state != 1, 0L);
   }
   if (tmp___4 != 0L) {
     if ((oz_dbg_mask & 2U) != 0U) {
@@ -14922,7 +14922,7 @@ static int oz_hcd_urb_enqueue(struct usb_hcd *hcd , struct urb *urb , gfp_t mem_
       descriptor___1.format = "Refused urb(%p) not running\n";
       descriptor___1.lineno = 1747U;
       descriptor___1.flags = 0U;
-      tmp___3 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+      tmp___3 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
       }
       if (tmp___3 != 0L) {
         {
@@ -14960,7 +14960,7 @@ static int oz_hcd_urb_enqueue(struct usb_hcd *hcd , struct urb *urb , gfp_t mem_
   {
   urb->hcpriv = (void *)port;
   urbl = oz_alloc_urb_link();
-  tmp___6 = __builtin_expect((unsigned long )urbl == (unsigned long )((struct oz_urb_link *)0),
+  tmp___6 = ldv__builtin_expect((unsigned long )urbl == (unsigned long )((struct oz_urb_link *)0),
                              0L);
   }
   if (tmp___6 != 0L) {
@@ -14972,7 +14972,7 @@ static int oz_hcd_urb_enqueue(struct usb_hcd *hcd , struct urb *urb , gfp_t mem_
   urbl->urb = urb;
   ldv___ldv_linux_kernel_locking_spinlock_spin_lock_187(& g_tasklet_lock);
   rc = usb_hcd_link_urb_to_ep(hcd, urb);
-  tmp___7 = __builtin_expect(rc != 0, 0L);
+  tmp___7 = ldv__builtin_expect(rc != 0, 0L);
   }
   if (tmp___7 != 0L) {
     {
@@ -15001,7 +15001,7 @@ static struct oz_urb_link *oz_remove_urb(struct oz_endpoint *ep , struct urb *ur
 
   {
   {
-  tmp = __builtin_expect((unsigned long )ep == (unsigned long )((struct oz_endpoint *)0),
+  tmp = ldv__builtin_expect((unsigned long )ep == (unsigned long )((struct oz_endpoint *)0),
                          0L);
   }
   if (tmp != 0L) {
@@ -15067,7 +15067,7 @@ static int oz_hcd_urb_dequeue(struct usb_hcd *hcd , struct urb *urb , int status
     descriptor.format = "%s: (%p)\n";
     descriptor.lineno = 1819U;
     descriptor.flags = 0U;
-    tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -15081,7 +15081,7 @@ static int oz_hcd_urb_dequeue(struct usb_hcd *hcd , struct urb *urb , int status
   }
   {
   urbl = oz_alloc_urb_link();
-  tmp___1 = __builtin_expect((unsigned long )urbl == (unsigned long )((struct oz_urb_link *)0),
+  tmp___1 = ldv__builtin_expect((unsigned long )urbl == (unsigned long )((struct oz_urb_link *)0),
                              0L);
   }
   if (tmp___1 != 0L) {
@@ -15171,7 +15171,7 @@ static int oz_hcd_hub_status_data(struct usb_hcd *hcd , char *buf )
       descriptor.format = "Port %d changed\n";
       descriptor.lineno = 1891U;
       descriptor.flags = 0U;
-      tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+      tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
       }
       if (tmp___0 != 0L) {
         {
@@ -15361,7 +15361,7 @@ static int oz_set_port_feature(struct usb_hcd *hcd , u16 wvalue , u16 windex )
     descriptor.format = "USB_PORT_FEAT_CONNECTION\n";
     descriptor.lineno = 1934U;
     descriptor.flags = 0U;
-    tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -15383,7 +15383,7 @@ static int oz_set_port_feature(struct usb_hcd *hcd , u16 wvalue , u16 windex )
     descriptor___0.format = "USB_PORT_FEAT_ENABLE\n";
     descriptor___0.lineno = 1937U;
     descriptor___0.flags = 0U;
-    tmp___1 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___1 != 0L) {
       {
@@ -15405,7 +15405,7 @@ static int oz_set_port_feature(struct usb_hcd *hcd , u16 wvalue , u16 windex )
     descriptor___1.format = "USB_PORT_FEAT_SUSPEND\n";
     descriptor___1.lineno = 1940U;
     descriptor___1.flags = 0U;
-    tmp___2 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___2 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
     }
     if (tmp___2 != 0L) {
       {
@@ -15427,7 +15427,7 @@ static int oz_set_port_feature(struct usb_hcd *hcd , u16 wvalue , u16 windex )
     descriptor___2.format = "USB_PORT_FEAT_OVER_CURRENT\n";
     descriptor___2.lineno = 1943U;
     descriptor___2.flags = 0U;
-    tmp___3 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+    tmp___3 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
     }
     if (tmp___3 != 0L) {
       {
@@ -15449,7 +15449,7 @@ static int oz_set_port_feature(struct usb_hcd *hcd , u16 wvalue , u16 windex )
     descriptor___3.format = "USB_PORT_FEAT_RESET\n";
     descriptor___3.lineno = 1946U;
     descriptor___3.flags = 0U;
-    tmp___4 = __builtin_expect((long )descriptor___3.flags & 1L, 0L);
+    tmp___4 = ldv__builtin_expect((long )descriptor___3.flags & 1L, 0L);
     }
     if (tmp___4 != 0L) {
       {
@@ -15474,7 +15474,7 @@ static int oz_set_port_feature(struct usb_hcd *hcd , u16 wvalue , u16 windex )
     descriptor___4.format = "USB_PORT_FEAT_POWER\n";
     descriptor___4.lineno = 1952U;
     descriptor___4.flags = 0U;
-    tmp___5 = __builtin_expect((long )descriptor___4.flags & 1L, 0L);
+    tmp___5 = ldv__builtin_expect((long )descriptor___4.flags & 1L, 0L);
     }
     if (tmp___5 != 0L) {
       {
@@ -15497,7 +15497,7 @@ static int oz_set_port_feature(struct usb_hcd *hcd , u16 wvalue , u16 windex )
     descriptor___5.format = "USB_PORT_FEAT_LOWSPEED\n";
     descriptor___5.lineno = 1956U;
     descriptor___5.flags = 0U;
-    tmp___6 = __builtin_expect((long )descriptor___5.flags & 1L, 0L);
+    tmp___6 = ldv__builtin_expect((long )descriptor___5.flags & 1L, 0L);
     }
     if (tmp___6 != 0L) {
       {
@@ -15519,7 +15519,7 @@ static int oz_set_port_feature(struct usb_hcd *hcd , u16 wvalue , u16 windex )
     descriptor___6.format = "USB_PORT_FEAT_C_CONNECTION\n";
     descriptor___6.lineno = 1959U;
     descriptor___6.flags = 0U;
-    tmp___7 = __builtin_expect((long )descriptor___6.flags & 1L, 0L);
+    tmp___7 = ldv__builtin_expect((long )descriptor___6.flags & 1L, 0L);
     }
     if (tmp___7 != 0L) {
       {
@@ -15541,7 +15541,7 @@ static int oz_set_port_feature(struct usb_hcd *hcd , u16 wvalue , u16 windex )
     descriptor___7.format = "USB_PORT_FEAT_C_ENABLE\n";
     descriptor___7.lineno = 1962U;
     descriptor___7.flags = 0U;
-    tmp___8 = __builtin_expect((long )descriptor___7.flags & 1L, 0L);
+    tmp___8 = ldv__builtin_expect((long )descriptor___7.flags & 1L, 0L);
     }
     if (tmp___8 != 0L) {
       {
@@ -15563,7 +15563,7 @@ static int oz_set_port_feature(struct usb_hcd *hcd , u16 wvalue , u16 windex )
     descriptor___8.format = "USB_PORT_FEAT_C_SUSPEND\n";
     descriptor___8.lineno = 1965U;
     descriptor___8.flags = 0U;
-    tmp___9 = __builtin_expect((long )descriptor___8.flags & 1L, 0L);
+    tmp___9 = ldv__builtin_expect((long )descriptor___8.flags & 1L, 0L);
     }
     if (tmp___9 != 0L) {
       {
@@ -15585,7 +15585,7 @@ static int oz_set_port_feature(struct usb_hcd *hcd , u16 wvalue , u16 windex )
     descriptor___9.format = "USB_PORT_FEAT_C_OVER_CURRENT\n";
     descriptor___9.lineno = 1968U;
     descriptor___9.flags = 0U;
-    tmp___10 = __builtin_expect((long )descriptor___9.flags & 1L, 0L);
+    tmp___10 = ldv__builtin_expect((long )descriptor___9.flags & 1L, 0L);
     }
     if (tmp___10 != 0L) {
       {
@@ -15607,7 +15607,7 @@ static int oz_set_port_feature(struct usb_hcd *hcd , u16 wvalue , u16 windex )
     descriptor___10.format = "USB_PORT_FEAT_C_RESET\n";
     descriptor___10.lineno = 1971U;
     descriptor___10.flags = 0U;
-    tmp___11 = __builtin_expect((long )descriptor___10.flags & 1L, 0L);
+    tmp___11 = ldv__builtin_expect((long )descriptor___10.flags & 1L, 0L);
     }
     if (tmp___11 != 0L) {
       {
@@ -15629,7 +15629,7 @@ static int oz_set_port_feature(struct usb_hcd *hcd , u16 wvalue , u16 windex )
     descriptor___11.format = "USB_PORT_FEAT_TEST\n";
     descriptor___11.lineno = 1974U;
     descriptor___11.flags = 0U;
-    tmp___12 = __builtin_expect((long )descriptor___11.flags & 1L, 0L);
+    tmp___12 = ldv__builtin_expect((long )descriptor___11.flags & 1L, 0L);
     }
     if (tmp___12 != 0L) {
       {
@@ -15651,7 +15651,7 @@ static int oz_set_port_feature(struct usb_hcd *hcd , u16 wvalue , u16 windex )
     descriptor___12.format = "USB_PORT_FEAT_INDICATOR\n";
     descriptor___12.lineno = 1977U;
     descriptor___12.flags = 0U;
-    tmp___13 = __builtin_expect((long )descriptor___12.flags & 1L, 0L);
+    tmp___13 = ldv__builtin_expect((long )descriptor___12.flags & 1L, 0L);
     }
     if (tmp___13 != 0L) {
       {
@@ -15673,7 +15673,7 @@ static int oz_set_port_feature(struct usb_hcd *hcd , u16 wvalue , u16 windex )
     descriptor___13.format = "Other %d\n";
     descriptor___13.lineno = 1980U;
     descriptor___13.flags = 0U;
-    tmp___14 = __builtin_expect((long )descriptor___13.flags & 1L, 0L);
+    tmp___14 = ldv__builtin_expect((long )descriptor___13.flags & 1L, 0L);
     }
     if (tmp___14 != 0L) {
       {
@@ -15707,7 +15707,7 @@ static int oz_set_port_feature(struct usb_hcd *hcd , u16 wvalue , u16 windex )
     descriptor___14.format = "Port[%d] status = 0x%x\n";
     descriptor___14.lineno = 1989U;
     descriptor___14.flags = 0U;
-    tmp___15 = __builtin_expect((long )descriptor___14.flags & 1L, 0L);
+    tmp___15 = ldv__builtin_expect((long )descriptor___14.flags & 1L, 0L);
     }
     if (tmp___15 != 0L) {
       {
@@ -15857,7 +15857,7 @@ static int oz_clear_port_feature(struct usb_hcd *hcd , u16 wvalue , u16 windex )
     descriptor.format = "USB_PORT_FEAT_CONNECTION\n";
     descriptor.lineno = 2008U;
     descriptor.flags = 0U;
-    tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -15879,7 +15879,7 @@ static int oz_clear_port_feature(struct usb_hcd *hcd , u16 wvalue , u16 windex )
     descriptor___0.format = "USB_PORT_FEAT_ENABLE\n";
     descriptor___0.lineno = 2011U;
     descriptor___0.flags = 0U;
-    tmp___1 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___1 != 0L) {
       {
@@ -15902,7 +15902,7 @@ static int oz_clear_port_feature(struct usb_hcd *hcd , u16 wvalue , u16 windex )
     descriptor___1.format = "USB_PORT_FEAT_SUSPEND\n";
     descriptor___1.lineno = 2015U;
     descriptor___1.flags = 0U;
-    tmp___2 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___2 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
     }
     if (tmp___2 != 0L) {
       {
@@ -15924,7 +15924,7 @@ static int oz_clear_port_feature(struct usb_hcd *hcd , u16 wvalue , u16 windex )
     descriptor___2.format = "USB_PORT_FEAT_OVER_CURRENT\n";
     descriptor___2.lineno = 2018U;
     descriptor___2.flags = 0U;
-    tmp___3 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+    tmp___3 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
     }
     if (tmp___3 != 0L) {
       {
@@ -15946,7 +15946,7 @@ static int oz_clear_port_feature(struct usb_hcd *hcd , u16 wvalue , u16 windex )
     descriptor___3.format = "USB_PORT_FEAT_RESET\n";
     descriptor___3.lineno = 2021U;
     descriptor___3.flags = 0U;
-    tmp___4 = __builtin_expect((long )descriptor___3.flags & 1L, 0L);
+    tmp___4 = ldv__builtin_expect((long )descriptor___3.flags & 1L, 0L);
     }
     if (tmp___4 != 0L) {
       {
@@ -15968,7 +15968,7 @@ static int oz_clear_port_feature(struct usb_hcd *hcd , u16 wvalue , u16 windex )
     descriptor___4.format = "USB_PORT_FEAT_POWER\n";
     descriptor___4.lineno = 2024U;
     descriptor___4.flags = 0U;
-    tmp___5 = __builtin_expect((long )descriptor___4.flags & 1L, 0L);
+    tmp___5 = ldv__builtin_expect((long )descriptor___4.flags & 1L, 0L);
     }
     if (tmp___5 != 0L) {
       {
@@ -15991,7 +15991,7 @@ static int oz_clear_port_feature(struct usb_hcd *hcd , u16 wvalue , u16 windex )
     descriptor___5.format = "USB_PORT_FEAT_LOWSPEED\n";
     descriptor___5.lineno = 2028U;
     descriptor___5.flags = 0U;
-    tmp___6 = __builtin_expect((long )descriptor___5.flags & 1L, 0L);
+    tmp___6 = ldv__builtin_expect((long )descriptor___5.flags & 1L, 0L);
     }
     if (tmp___6 != 0L) {
       {
@@ -16013,7 +16013,7 @@ static int oz_clear_port_feature(struct usb_hcd *hcd , u16 wvalue , u16 windex )
     descriptor___6.format = "USB_PORT_FEAT_C_CONNECTION\n";
     descriptor___6.lineno = 2031U;
     descriptor___6.flags = 0U;
-    tmp___7 = __builtin_expect((long )descriptor___6.flags & 1L, 0L);
+    tmp___7 = ldv__builtin_expect((long )descriptor___6.flags & 1L, 0L);
     }
     if (tmp___7 != 0L) {
       {
@@ -16036,7 +16036,7 @@ static int oz_clear_port_feature(struct usb_hcd *hcd , u16 wvalue , u16 windex )
     descriptor___7.format = "USB_PORT_FEAT_C_ENABLE\n";
     descriptor___7.lineno = 2035U;
     descriptor___7.flags = 0U;
-    tmp___8 = __builtin_expect((long )descriptor___7.flags & 1L, 0L);
+    tmp___8 = ldv__builtin_expect((long )descriptor___7.flags & 1L, 0L);
     }
     if (tmp___8 != 0L) {
       {
@@ -16059,7 +16059,7 @@ static int oz_clear_port_feature(struct usb_hcd *hcd , u16 wvalue , u16 windex )
     descriptor___8.format = "USB_PORT_FEAT_C_SUSPEND\n";
     descriptor___8.lineno = 2039U;
     descriptor___8.flags = 0U;
-    tmp___9 = __builtin_expect((long )descriptor___8.flags & 1L, 0L);
+    tmp___9 = ldv__builtin_expect((long )descriptor___8.flags & 1L, 0L);
     }
     if (tmp___9 != 0L) {
       {
@@ -16081,7 +16081,7 @@ static int oz_clear_port_feature(struct usb_hcd *hcd , u16 wvalue , u16 windex )
     descriptor___9.format = "USB_PORT_FEAT_C_OVER_CURRENT\n";
     descriptor___9.lineno = 2042U;
     descriptor___9.flags = 0U;
-    tmp___10 = __builtin_expect((long )descriptor___9.flags & 1L, 0L);
+    tmp___10 = ldv__builtin_expect((long )descriptor___9.flags & 1L, 0L);
     }
     if (tmp___10 != 0L) {
       {
@@ -16103,7 +16103,7 @@ static int oz_clear_port_feature(struct usb_hcd *hcd , u16 wvalue , u16 windex )
     descriptor___10.format = "USB_PORT_FEAT_C_RESET\n";
     descriptor___10.lineno = 2045U;
     descriptor___10.flags = 0U;
-    tmp___11 = __builtin_expect((long )descriptor___10.flags & 1L, 0L);
+    tmp___11 = ldv__builtin_expect((long )descriptor___10.flags & 1L, 0L);
     }
     if (tmp___11 != 0L) {
       {
@@ -16126,7 +16126,7 @@ static int oz_clear_port_feature(struct usb_hcd *hcd , u16 wvalue , u16 windex )
     descriptor___11.format = "USB_PORT_FEAT_TEST\n";
     descriptor___11.lineno = 2049U;
     descriptor___11.flags = 0U;
-    tmp___12 = __builtin_expect((long )descriptor___11.flags & 1L, 0L);
+    tmp___12 = ldv__builtin_expect((long )descriptor___11.flags & 1L, 0L);
     }
     if (tmp___12 != 0L) {
       {
@@ -16148,7 +16148,7 @@ static int oz_clear_port_feature(struct usb_hcd *hcd , u16 wvalue , u16 windex )
     descriptor___12.format = "USB_PORT_FEAT_INDICATOR\n";
     descriptor___12.lineno = 2052U;
     descriptor___12.flags = 0U;
-    tmp___13 = __builtin_expect((long )descriptor___12.flags & 1L, 0L);
+    tmp___13 = ldv__builtin_expect((long )descriptor___12.flags & 1L, 0L);
     }
     if (tmp___13 != 0L) {
       {
@@ -16170,7 +16170,7 @@ static int oz_clear_port_feature(struct usb_hcd *hcd , u16 wvalue , u16 windex )
     descriptor___13.format = "Other %d\n";
     descriptor___13.lineno = 2055U;
     descriptor___13.flags = 0U;
-    tmp___14 = __builtin_expect((long )descriptor___13.flags & 1L, 0L);
+    tmp___14 = ldv__builtin_expect((long )descriptor___13.flags & 1L, 0L);
     }
     if (tmp___14 != 0L) {
       {
@@ -16203,7 +16203,7 @@ static int oz_clear_port_feature(struct usb_hcd *hcd , u16 wvalue , u16 windex )
     descriptor___14.format = "Port[%d] status = 0x%x\n";
     descriptor___14.lineno = 2064U;
     descriptor___14.flags = 0U;
-    tmp___15 = __builtin_expect((long )descriptor___14.flags & 1L, 0L);
+    tmp___15 = ldv__builtin_expect((long )descriptor___14.flags & 1L, 0L);
     }
     if (tmp___15 != 0L) {
       {
@@ -16246,7 +16246,7 @@ static int oz_get_port_status(struct usb_hcd *hcd , u16 windex , char *buf )
     descriptor.format = "GetPortStatus windex = %d\n";
     descriptor.lineno = 2079U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -16316,7 +16316,7 @@ static int oz_get_port_status(struct usb_hcd *hcd , u16 windex , char *buf )
     descriptor___0.format = "Port[%d] status = %x\n";
     descriptor___0.lineno = 2082U;
     descriptor___0.flags = 0U;
-    tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -16394,7 +16394,7 @@ static int oz_hcd_hub_control(struct usb_hcd *hcd , u16 req_type , u16 wvalue , 
     descriptor.format = "ClearHubFeature: %d\n";
     descriptor.lineno = 2096U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -16426,7 +16426,7 @@ static int oz_hcd_hub_control(struct usb_hcd *hcd , u16 req_type , u16 wvalue , 
     descriptor___0.format = "GetHubStatus: req_type = 0x%x\n";
     descriptor___0.lineno = 2105U;
     descriptor___0.flags = 0U;
-    tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -16502,7 +16502,7 @@ static int oz_hcd_hub_control(struct usb_hcd *hcd , u16 req_type , u16 wvalue , 
     descriptor___1.format = "SetHubFeature: %d\n";
     descriptor___1.lineno = 2112U;
     descriptor___1.flags = 0U;
-    tmp___1 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
     }
     if (tmp___1 != 0L) {
       {
@@ -16529,7 +16529,7 @@ static int oz_hcd_hub_control(struct usb_hcd *hcd , u16 req_type , u16 wvalue , 
     descriptor___2.format = "Other: %d\n";
     descriptor___2.lineno = 2118U;
     descriptor___2.flags = 0U;
-    tmp___2 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+    tmp___2 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
     }
     if (tmp___2 != 0L) {
       {
@@ -18113,7 +18113,7 @@ int oz_elt_stream_delete(struct oz_elt_buf *buf , u8 id )
     descriptor___0.format = "Stream down: %d %d %d\n";
     descriptor___0.lineno = 121U;
     descriptor___0.flags = 0U;
-    tmp___1 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___1 != 0L) {
       {
@@ -18240,7 +18240,7 @@ int oz_queue_elt_info(struct oz_elt_buf *buf , u8 isoc , u8 id , struct oz_elt_i
       descriptor.format = "Stream up: %d %d\n";
       descriptor.lineno = 187U;
       descriptor.flags = 0U;
-      tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+      tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
       }
       if (tmp != 0L) {
         {
@@ -18342,7 +18342,7 @@ int oz_select_elts_for_tx(struct oz_elt_buf *buf , u8 isoc , unsigned int *len ,
         descriptor.format = "Stream down: %d %d\n";
         descriptor.lineno = 234U;
         descriptor.flags = 0U;
-        tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+        tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
         }
         if (tmp___0 != 0L) {
           {
@@ -18477,7 +18477,7 @@ __inline static ktime_t ktime_set(s64 const   secs , unsigned long const   nsecs
 
   {
   {
-  tmp = __builtin_expect((long long )secs > 9223372035LL, 0L);
+  tmp = ldv__builtin_expect((long long )secs > 9223372035LL, 0L);
   }
   if (tmp != 0L) {
     __constr_expr_0.tv64 = 9223372036854775807LL;
@@ -19765,7 +19765,7 @@ static void oz_rx_frame(struct sk_buff *skb )
     descriptor.format = "RX frame PN=0x%x LPN=0x%x control=0x%x\n";
     descriptor.lineno = 345U;
     descriptor.flags = 0U;
-    tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -19829,7 +19829,7 @@ static void oz_rx_frame(struct sk_buff *skb )
       descriptor___2.format = "Received TRIGGER Frame\n";
       descriptor___2.lineno = 378U;
       descriptor___2.flags = 0U;
-      tmp___4 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+      tmp___4 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
       }
       if (tmp___4 != 0L) {
         {
@@ -20762,7 +20762,7 @@ __inline static bool IS_ERR(void const   *ptr )
 
   {
   {
-  tmp = __builtin_expect((unsigned long )ptr > 0xfffffffffffff000UL, 0L);
+  tmp = ldv__builtin_expect((unsigned long )ptr > 0xfffffffffffff000UL, 0L);
   }
   return (tmp != 0L);
 }
@@ -20900,7 +20900,7 @@ __inline static unsigned long copy_from_user(void *to , void const   *from , uns
   {
   sz = -1;
   might_fault();
-  tmp = __builtin_expect(sz < 0, 1L);
+  tmp = ldv__builtin_expect(sz < 0, 1L);
   }
   if (tmp != 0L) {
     {
@@ -20908,7 +20908,7 @@ __inline static unsigned long copy_from_user(void *to , void const   *from , uns
     }
   } else {
     {
-    tmp___0 = __builtin_expect((unsigned long )sz >= n, 1L);
+    tmp___0 = ldv__builtin_expect((unsigned long )sz >= n, 1L);
     }
     if (tmp___0 != 0L) {
       {
@@ -20933,7 +20933,7 @@ __inline static unsigned long copy_to_user(void *to , void const   *from , unsig
   {
   sz = -1;
   might_fault();
-  tmp = __builtin_expect(sz < 0, 1L);
+  tmp = ldv__builtin_expect(sz < 0, 1L);
   }
   if (tmp != 0L) {
     {
@@ -20941,7 +20941,7 @@ __inline static unsigned long copy_to_user(void *to , void const   *from , unsig
     }
   } else {
     {
-    tmp___0 = __builtin_expect((unsigned long )sz >= n, 1L);
+    tmp___0 = ldv__builtin_expect((unsigned long )sz >= n, 1L);
     }
     if (tmp___0 != 0L) {
       {
@@ -21355,7 +21355,7 @@ static long oz_cdev_ioctl(struct file *filp , unsigned int cmd , unsigned long a
       tmp___1 = 1;
     }
     {
-    tmp___2 = __builtin_expect((long )tmp___1, 1L);
+    tmp___2 = ldv__builtin_expect((long )tmp___1, 1L);
     rc = tmp___2 == 0L;
     }
   } else
@@ -21370,7 +21370,7 @@ static long oz_cdev_ioctl(struct file *filp , unsigned int cmd , unsigned long a
       tmp___5 = 1;
     }
     {
-    tmp___6 = __builtin_expect((long )tmp___5, 1L);
+    tmp___6 = ldv__builtin_expect((long )tmp___5, 1L);
     rc = tmp___6 == 0L;
     }
   } else {
@@ -24316,7 +24316,7 @@ void ldv_linux_usb_urb_check_final_state(void)
 }
 }
 extern void ldv_assert(char const   * , int  ) ;
-void __builtin_trap(void) ;
+void ldv__builtin_trap(void) ;
 void ldv_assume(int expression ) 
 { 
 
@@ -24340,7 +24340,7 @@ void ldv_stop(void)
   goto ldv_stop_label;
 }
 }
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 
@@ -24348,7 +24348,7 @@ long __builtin_expect(long exp , long c )
   return (exp);
 }
 }
-void __builtin_trap(void) 
+void ldv__builtin_trap(void) 
 { 
 
 

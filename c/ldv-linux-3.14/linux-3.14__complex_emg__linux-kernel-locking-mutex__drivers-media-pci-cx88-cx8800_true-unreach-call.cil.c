@@ -7788,7 +7788,7 @@ struct ldv_thread {
    void (*function)(void * ) ;
 };
 typedef _Bool ldv_set;
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 void *ldv_dev_get_drvdata(struct device  const  *dev ) ;
 int ldv_dev_set_drvdata(struct device *dev , void *data ) ;
 long ldv_is_err(void const   *ptr ) ;
@@ -7880,7 +7880,6 @@ extern int printk(char const   *  , ...) ;
 extern int sprintf(char * , char const   *  , ...) ;
 __inline static long PTR_ERR(void const   *ptr ) ;
 __inline static long IS_ERR(void const   *ptr ) ;
-extern int ( /* missing proto */  __builtin_unreachable)() ;
 static void ldv_mutex_unlock_33(struct mutex *ldv_func_arg1 ) ;
 static void ldv_mutex_unlock_34(struct mutex *ldv_func_arg1 ) ;
 static void ldv_mutex_unlock_36(struct mutex *ldv_func_arg1 ) ;
@@ -8408,7 +8407,7 @@ static void res_free(struct cx8800_dev *dev , struct cx8800_fh *fh , unsigned in
   {
   {
   core = dev->core;
-  tmp = __builtin_expect((fh->resources & bits) != bits, 0L);
+  tmp = ldv__builtin_expect((fh->resources & bits) != bits, 0L);
   }
   if (tmp != 0L) {
     {
@@ -8800,7 +8799,7 @@ static int buffer_prepare(struct videobuf_queue *q , struct videobuf_buffer *vb 
   tmp = videobuf_to_dma(& buf->vb);
   dma = tmp;
   init_buffer = 0;
-  tmp___0 = __builtin_expect((unsigned long )dev->fmt == (unsigned long )((struct cx8800_fmt  const  *)0),
+  tmp___0 = ldv__builtin_expect((unsigned long )dev->fmt == (unsigned long )((struct cx8800_fmt  const  *)0),
                              0L);
   }
   if (tmp___0 != 0L) {
@@ -9216,7 +9215,7 @@ static int video_open(struct file *file )
   {
   tmp___2 = kzalloc(1424UL, 208U);
   fh = (struct cx8800_fh *)tmp___2;
-  tmp___3 = __builtin_expect((unsigned long )fh == (unsigned long )((struct cx8800_fh *)0),
+  tmp___3 = ldv__builtin_expect((unsigned long )fh == (unsigned long )((struct cx8800_fh *)0),
                              0L);
   }
   if (tmp___3 != 0L) {
@@ -10086,7 +10085,7 @@ static int vidioc_enum_fmt_vid_cap(struct file *file , void *priv , struct v4l2_
 
   {
   {
-  tmp = __builtin_expect(f->index > 9U, 0L);
+  tmp = ldv__builtin_expect(f->index > 9U, 0L);
   }
   if (tmp != 0L) {
     return (-22);
@@ -10179,7 +10178,7 @@ static int vidioc_streamon(struct file *file , void *priv , enum v4l2_buf_type i
   {
   tmp___0 = get_resource(file);
   tmp___1 = res_get(dev, fh, (unsigned int )tmp___0);
-  tmp___2 = __builtin_expect(tmp___1 == 0, 0L);
+  tmp___2 = ldv__builtin_expect(tmp___1 == 0, 0L);
   }
   if (tmp___2 != 0L) {
     return (-16);
@@ -10362,7 +10361,7 @@ static int vidioc_g_tuner(struct file *file , void *priv , struct v4l2_tuner *t 
   {
   {
   core = (((struct cx8800_fh *)priv)->dev)->core;
-  tmp = __builtin_expect(core->board.tuner_type == 4294967295U, 0L);
+  tmp = ldv__builtin_expect(core->board.tuner_type == 4294967295U, 0L);
   }
   if (tmp != 0L) {
     return (-22);
@@ -10463,7 +10462,7 @@ static int vidioc_g_frequency(struct file *file , void *priv , struct v4l2_frequ
   {
   fh = (struct cx8800_fh *)priv;
   core = (fh->dev)->core;
-  tmp = __builtin_expect(core->board.tuner_type == 4294967295U, 0L);
+  tmp = ldv__builtin_expect(core->board.tuner_type == 4294967295U, 0L);
   }
   if (tmp != 0L) {
     return (-22);
@@ -10535,7 +10534,7 @@ int cx88_set_freq(struct cx88_core *core , struct v4l2_frequency  const  *f )
   {
   {
   new_freq = *f;
-  tmp = __builtin_expect(core->board.tuner_type == 4294967295U, 0L);
+  tmp = ldv__builtin_expect(core->board.tuner_type == 4294967295U, 0L);
   }
   if (tmp != 0L) {
     return (-22);
@@ -10543,7 +10542,7 @@ int cx88_set_freq(struct cx88_core *core , struct v4l2_frequency  const  *f )
 
   }
   {
-  tmp___0 = __builtin_expect((unsigned int )f->tuner != 0U, 0L);
+  tmp___0 = ldv__builtin_expect((unsigned int )f->tuner != 0U, 0L);
   }
   if (tmp___0 != 0L) {
     return (-22);
@@ -10705,7 +10704,7 @@ static int radio_g_tuner(struct file *file , void *priv , struct v4l2_tuner *t )
   {
   {
   core = (((struct cx8800_fh *)priv)->dev)->core;
-  tmp = __builtin_expect(t->index != 0U, 0L);
+  tmp = ldv__builtin_expect(t->index != 0U, 0L);
   }
   if (tmp != 0L) {
     return (-22);
@@ -12553,7 +12552,7 @@ void ldv_dummy_resourceless_instance_callback_5_9(int (*arg0)(struct videobuf_qu
                                                   struct videobuf_queue *arg1 , unsigned int *arg2 ,
                                                   unsigned int *arg3 ) ;
 void ldv_entry_EMGentry_15(void *arg0 ) ;
-void main(void) ;
+int main(void) ;
 void ldv_free_irq(void *arg0 , int arg1 , void *arg2 ) ;
 void ldv_initialize_external_data(void) ;
 enum irqreturn ldv_interrupt_instance_handler_0_5(enum irqreturn (*arg0)(int  , void * ) ,
@@ -13554,7 +13553,7 @@ void ldv_entry_EMGentry_15(void *arg0 )
   return;
 }
 }
-void main(void) 
+int main(void) 
 { 
   int tmp ;
 
@@ -18196,7 +18195,7 @@ void *ldv_kzalloc(size_t size , gfp_t flags )
 }
 }
 extern void ldv_assert(char const   * , int  ) ;
-void __builtin_trap(void) ;
+void ldv__builtin_trap(void) ;
 void ldv_assume(int expression ) 
 { 
 
@@ -18220,7 +18219,7 @@ void ldv_stop(void)
   goto ldv_stop_label;
 }
 }
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 
@@ -18228,7 +18227,7 @@ long __builtin_expect(long exp , long c )
   return (exp);
 }
 }
-void __builtin_trap(void) 
+void ldv__builtin_trap(void) 
 { 
 
 

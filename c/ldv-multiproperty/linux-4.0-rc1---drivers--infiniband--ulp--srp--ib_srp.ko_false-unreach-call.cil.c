@@ -6260,9 +6260,7 @@ struct ldv_thread {
    void (*function)(void * ) ;
 };
 typedef _Bool ldv_set;
-int __builtin_bswap32(int  ) ;
-long __builtin_bswap64(long  ) ;
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 void ldv_assume(int expression ) ;
 void ldv_stop(void) ;
 void ldv_linux_alloc_irq_check_alloc_flags(gfp_t flags ) ;
@@ -6625,12 +6623,12 @@ __inline static unsigned int cpumask_check(unsigned int cpu )
   {
   {
   __ret_warn_once = cpu >= (unsigned int )nr_cpu_ids;
-  tmp___1 = __builtin_expect(__ret_warn_once != 0, 0L);
+  tmp___1 = ldv__builtin_expect(__ret_warn_once != 0, 0L);
   }
   if (tmp___1 != 0L) {
     {
     __ret_warn_on = ! __warned;
-    tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
     if (tmp != 0L) {
       {
@@ -6640,7 +6638,7 @@ __inline static unsigned int cpumask_check(unsigned int cpu )
 
     }
     {
-    tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
     if (tmp___0 != 0L) {
       __warned = 1;
@@ -6651,7 +6649,7 @@ __inline static unsigned int cpumask_check(unsigned int cpu )
 
   }
   {
-  __builtin_expect(__ret_warn_once != 0, 0L);
+  ldv__builtin_expect(__ret_warn_once != 0, 0L);
   }
   return (cpu);
 }
@@ -6686,7 +6684,6 @@ __inline static unsigned int cpumask_weight(struct cpumask  const  *srcp )
   return ((unsigned int )tmp);
 }
 }
-extern int ( /* missing proto */  __builtin_unreachable)() ;
 __inline static void *ERR_PTR(long error ) ;
 __inline static long PTR_ERR(void const   *ptr ) ;
 __inline static bool IS_ERR(void const   *ptr ) 
@@ -6695,7 +6692,7 @@ __inline static bool IS_ERR(void const   *ptr )
 
   {
   {
-  tmp = __builtin_expect((unsigned long )ptr > 0xfffffffffffff000UL, 0L);
+  tmp = ldv__builtin_expect((unsigned long )ptr > 0xfffffffffffff000UL, 0L);
   }
   return (tmp != 0L);
 }
@@ -7018,14 +7015,14 @@ __inline static struct request *blk_map_queue_find_tag(struct blk_queue_tag *bqt
 
   {
   {
-  tmp = __builtin_expect((unsigned long )bqt == (unsigned long )((struct blk_queue_tag *)0),
+  tmp = ldv__builtin_expect((unsigned long )bqt == (unsigned long )((struct blk_queue_tag *)0),
                          0L);
   }
   if (tmp != 0L) {
     return ((struct request *)0);
   } else {
     {
-    tmp___0 = __builtin_expect(tag >= bqt->real_max_depth, 0L);
+    tmp___0 = ldv__builtin_expect(tag >= bqt->real_max_depth, 0L);
     }
     if (tmp___0 != 0L) {
       return ((struct request *)0);
@@ -7061,7 +7058,7 @@ __inline static struct page *sg_page(struct scatterlist *sg )
 
   {
   {
-  tmp = __builtin_expect(sg->sg_magic != 2271560481UL, 0L);
+  tmp = ldv__builtin_expect(sg->sg_magic != 2271560481UL, 0L);
   }
   if (tmp != 0L) {
     {
@@ -7073,7 +7070,7 @@ __inline static struct page *sg_page(struct scatterlist *sg )
 
   }
   {
-  tmp___0 = __builtin_expect((long )((int )sg->page_link) & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )((int )sg->page_link) & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -7174,7 +7171,7 @@ __inline static struct dma_map_ops *get_dma_ops(struct device *dev )
 
   {
   {
-  tmp = __builtin_expect((unsigned long )dev == (unsigned long )((struct device *)0),
+  tmp = ldv__builtin_expect((unsigned long )dev == (unsigned long )((struct device *)0),
                          0L);
   }
   if (tmp != 0L || (unsigned long )dev->archdata.dma_ops == (unsigned long )((struct dma_map_ops *)0)) {
@@ -7201,7 +7198,7 @@ __inline static dma_addr_t dma_map_single_attrs(struct device *dev , void *ptr ,
   ops = tmp;
   kmemcheck_mark_initialized(ptr, (unsigned int )size);
   tmp___0 = valid_dma_direction((int )dir);
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -7237,7 +7234,7 @@ __inline static void dma_unmap_single_attrs(struct device *dev , dma_addr_t addr
   tmp = get_dma_ops(dev);
   ops = tmp;
   tmp___0 = valid_dma_direction((int )dir);
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -7299,7 +7296,7 @@ __inline static int dma_map_sg_attrs(struct device *dev , struct scatterlist *sg
   }
   {
   tmp___1 = valid_dma_direction((int )dir);
-  tmp___2 = __builtin_expect(tmp___1 == 0, 0L);
+  tmp___2 = ldv__builtin_expect(tmp___1 == 0, 0L);
   }
   if (tmp___2 != 0L) {
     {
@@ -7331,7 +7328,7 @@ __inline static void dma_unmap_sg_attrs(struct device *dev , struct scatterlist 
   tmp = get_dma_ops(dev);
   ops = tmp;
   tmp___0 = valid_dma_direction((int )dir);
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -7371,7 +7368,7 @@ __inline static void dma_sync_single_for_cpu(struct device *dev , dma_addr_t add
   tmp = get_dma_ops(dev);
   ops = tmp;
   tmp___0 = valid_dma_direction((int )dir);
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -7411,7 +7408,7 @@ __inline static void dma_sync_single_for_device(struct device *dev , dma_addr_t 
   tmp = get_dma_ops(dev);
   ops = tmp;
   tmp___0 = valid_dma_direction((int )dir);
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -8098,7 +8095,7 @@ static void srp_qp_event(struct ib_event *event , void *context )
   descriptor.format = "QP event %d\n";
   descriptor.lineno = 255U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -8564,12 +8561,12 @@ static void srp_destroy_qp(struct srp_rdma_ch *ch )
   wr.sg_list = 0;
   wr.num_sge = 0;
   __ret_warn_once = (int )target->connected;
-  tmp___1 = __builtin_expect(__ret_warn_once != 0, 0L);
+  tmp___1 = ldv__builtin_expect(__ret_warn_once != 0, 0L);
   }
   if (tmp___1 != 0L) {
     {
     __ret_warn_on = ! __warned;
-    tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
     if (tmp != 0L) {
       {
@@ -8579,7 +8576,7 @@ static void srp_destroy_qp(struct srp_rdma_ch *ch )
 
     }
     {
-    tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
     if (tmp___0 != 0L) {
       __warned = 1;
@@ -8590,15 +8587,15 @@ static void srp_destroy_qp(struct srp_rdma_ch *ch )
 
   }
   {
-  __builtin_expect(__ret_warn_once != 0, 0L);
+  ldv__builtin_expect(__ret_warn_once != 0, 0L);
   ret = ib_modify_qp(ch->qp, & attr, 1);
   __ret_warn_once___0 = ret != 0;
-  tmp___4 = __builtin_expect(__ret_warn_once___0 != 0, 0L);
+  tmp___4 = ldv__builtin_expect(__ret_warn_once___0 != 0, 0L);
   }
   if (tmp___4 != 0L) {
     {
     __ret_warn_on___0 = ! __warned___0;
-    tmp___2 = __builtin_expect(__ret_warn_on___0 != 0, 0L);
+    tmp___2 = ldv__builtin_expect(__ret_warn_on___0 != 0, 0L);
     }
     if (tmp___2 != 0L) {
       {
@@ -8609,7 +8606,7 @@ static void srp_destroy_qp(struct srp_rdma_ch *ch )
 
     }
     {
-    tmp___3 = __builtin_expect(__ret_warn_on___0 != 0, 0L);
+    tmp___3 = ldv__builtin_expect(__ret_warn_on___0 != 0, 0L);
     }
     if (tmp___3 != 0L) {
       __warned___0 = 1;
@@ -8620,7 +8617,7 @@ static void srp_destroy_qp(struct srp_rdma_ch *ch )
 
   }
   {
-  __builtin_expect(__ret_warn_once___0 != 0, 0L);
+  ldv__builtin_expect(__ret_warn_once___0 != 0, 0L);
   }
   if (ret != 0) {
     goto out;
@@ -8631,12 +8628,12 @@ static void srp_destroy_qp(struct srp_rdma_ch *ch )
   ldv_init_completion_100(& ch->done);
   ret = ib_post_recv(ch->qp, & wr, & bad_wr);
   __ret_warn_once___1 = ret != 0;
-  tmp___7 = __builtin_expect(__ret_warn_once___1 != 0, 0L);
+  tmp___7 = ldv__builtin_expect(__ret_warn_once___1 != 0, 0L);
   }
   if (tmp___7 != 0L) {
     {
     __ret_warn_on___1 = ! __warned___1;
-    tmp___5 = __builtin_expect(__ret_warn_on___1 != 0, 0L);
+    tmp___5 = ldv__builtin_expect(__ret_warn_on___1 != 0, 0L);
     }
     if (tmp___5 != 0L) {
       {
@@ -8647,7 +8644,7 @@ static void srp_destroy_qp(struct srp_rdma_ch *ch )
 
     }
     {
-    tmp___6 = __builtin_expect(__ret_warn_on___1 != 0, 0L);
+    tmp___6 = ldv__builtin_expect(__ret_warn_on___1 != 0, 0L);
     }
     if (tmp___6 != 0L) {
       __warned___1 = 1;
@@ -8658,7 +8655,7 @@ static void srp_destroy_qp(struct srp_rdma_ch *ch )
 
   }
   {
-  __builtin_expect(__ret_warn_once___1 != 0, 0L);
+  ldv__builtin_expect(__ret_warn_once___1 != 0, 0L);
   }
   if (ret == 0) {
     {
@@ -9398,12 +9395,12 @@ static void srp_remove_target(struct srp_target_port *target )
   {
   {
   __ret_warn_once = (unsigned int )target->state != 2U;
-  tmp___1 = __builtin_expect(__ret_warn_once != 0, 0L);
+  tmp___1 = ldv__builtin_expect(__ret_warn_once != 0, 0L);
   }
   if (tmp___1 != 0L) {
     {
     __ret_warn_on = ! __warned;
-    tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
     if (tmp != 0L) {
       {
@@ -9413,7 +9410,7 @@ static void srp_remove_target(struct srp_target_port *target )
 
     }
     {
-    tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
     if (tmp___0 != 0L) {
       __warned = 1;
@@ -9424,7 +9421,7 @@ static void srp_remove_target(struct srp_target_port *target )
 
   }
   {
-  __builtin_expect(__ret_warn_once != 0, 0L);
+  ldv__builtin_expect(__ret_warn_once != 0, 0L);
   srp_del_scsi_host_attr(target->scsi_host);
   srp_rport_get(target->rport);
   srp_remove_host(target->scsi_host);
@@ -9491,12 +9488,12 @@ static void srp_remove_work(struct work_struct *work )
   __mptr = (struct work_struct  const  *)work;
   target = (struct srp_target_port *)__mptr + 0xfffffffffffffe98UL;
   __ret_warn_once = (unsigned int )target->state != 2U;
-  tmp___1 = __builtin_expect(__ret_warn_once != 0, 0L);
+  tmp___1 = ldv__builtin_expect(__ret_warn_once != 0, 0L);
   }
   if (tmp___1 != 0L) {
     {
     __ret_warn_on = ! __warned;
-    tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
     if (tmp != 0L) {
       {
@@ -9506,7 +9503,7 @@ static void srp_remove_work(struct work_struct *work )
 
     }
     {
-    tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
     if (tmp___0 != 0L) {
       __warned = 1;
@@ -9517,7 +9514,7 @@ static void srp_remove_work(struct work_struct *work )
 
   }
   {
-  __builtin_expect(__ret_warn_once != 0, 0L);
+  ldv__builtin_expect(__ret_warn_once != 0, 0L);
   srp_remove_target(target);
   }
   return;
@@ -9550,12 +9547,12 @@ static int srp_connect_ch(struct srp_rdma_ch *ch , bool multich )
   {
   target = ch->target;
   __ret_warn_once = ! multich && (int )target->connected;
-  tmp___1 = __builtin_expect(__ret_warn_once != 0, 0L);
+  tmp___1 = ldv__builtin_expect(__ret_warn_once != 0, 0L);
   }
   if (tmp___1 != 0L) {
     {
     __ret_warn_on = ! __warned;
-    tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
     if (tmp != 0L) {
       {
@@ -9565,7 +9562,7 @@ static int srp_connect_ch(struct srp_rdma_ch *ch , bool multich )
 
     }
     {
-    tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
     if (tmp___0 != 0L) {
       __warned = 1;
@@ -9576,7 +9573,7 @@ static int srp_connect_ch(struct srp_rdma_ch *ch , bool multich )
 
   }
   {
-  __builtin_expect(__ret_warn_once != 0, 0L);
+  ldv__builtin_expect(__ret_warn_once != 0, 0L);
   target->qp_in_error = 0;
   ret = srp_lookup_path(ch);
   }
@@ -9855,12 +9852,12 @@ static void srp_terminate_io(struct srp_rport *rport )
   ldv_40133: 
   {
   __ret_warn_once = (sdev->request_queue)->request_fn_active != 0U;
-  tmp___1 = __builtin_expect(__ret_warn_once != 0, 0L);
+  tmp___1 = ldv__builtin_expect(__ret_warn_once != 0, 0L);
   }
   if (tmp___1 != 0L) {
     {
     __ret_warn_on = ! __warned;
-    tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
     if (tmp != 0L) {
       {
@@ -9870,7 +9867,7 @@ static void srp_terminate_io(struct srp_rport *rport )
 
     }
     {
-    tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
     if (tmp___0 != 0L) {
       __warned = 1;
@@ -9881,7 +9878,7 @@ static void srp_terminate_io(struct srp_rport *rport )
 
   }
   {
-  __builtin_expect(__ret_warn_once != 0, 0L);
+  ldv__builtin_expect(__ret_warn_once != 0, 0L);
   sdev = __scsi_iterate_devices(shost, sdev);
   }
   ldv_40134: ;
@@ -10480,7 +10477,7 @@ static int srp_map_data(struct scsi_cmnd *scmnd , struct srp_rdma_ch *ch , struc
   dev = (target->srp_host)->srp_dev;
   ibdev = dev->dev;
   count = ib_dma_map_sg(ibdev, scat, nents, scmnd->sc_data_direction);
-  tmp___1 = __builtin_expect(count == 0, 0L);
+  tmp___1 = ldv__builtin_expect(count == 0, 0L);
   }
   if (tmp___1 != 0L) {
     return (-5);
@@ -10521,11 +10518,11 @@ static int srp_map_data(struct scsi_cmnd *scmnd , struct srp_rdma_ch *ch , struc
 
   }
   {
-  tmp___7 = __builtin_expect(target->cmd_sg_cnt < state.ndesc, 0L);
+  tmp___7 = ldv__builtin_expect(target->cmd_sg_cnt < state.ndesc, 0L);
   }
   if (tmp___7 != 0L) {
     {
-    tmp___8 = __builtin_expect((long )(! target->allow_ext_sg), 0L);
+    tmp___8 = ldv__builtin_expect((long )(! target->allow_ext_sg), 0L);
     }
     if (tmp___8 != 0L) {
       {
@@ -10710,7 +10707,7 @@ static void srp_process_rsp(struct srp_rdma_ch *ch , struct srp_rsp *rsp )
   {
   {
   target = ch->target;
-  tmp___13 = __builtin_expect((rsp->tag & 2147483648ULL) != 0ULL, 0L);
+  tmp___13 = ldv__builtin_expect((rsp->tag & 2147483648ULL) != 0ULL, 0L);
   }
   if (tmp___13 != 0L) {
     {
@@ -10769,7 +10766,7 @@ static void srp_process_rsp(struct srp_rdma_ch *ch , struct srp_rsp *rsp )
 
     }
     {
-    tmp___11 = __builtin_expect(((int )rsp->flags & 32) != 0, 0L);
+    tmp___11 = ldv__builtin_expect(((int )rsp->flags & 32) != 0, 0L);
     }
     if (tmp___11 != 0L) {
       {
@@ -10778,7 +10775,7 @@ static void srp_process_rsp(struct srp_rdma_ch *ch , struct srp_rsp *rsp )
       }
     } else {
       {
-      tmp___10 = __builtin_expect(((int )rsp->flags & 16) != 0, 0L);
+      tmp___10 = ldv__builtin_expect(((int )rsp->flags & 16) != 0, 0L);
       }
       if (tmp___10 != 0L) {
         {
@@ -10787,7 +10784,7 @@ static void srp_process_rsp(struct srp_rdma_ch *ch , struct srp_rsp *rsp )
         }
       } else {
         {
-        tmp___9 = __builtin_expect(((int )rsp->flags & 8) != 0, 0L);
+        tmp___9 = ldv__builtin_expect(((int )rsp->flags & 8) != 0, 0L);
         }
         if (tmp___9 != 0L) {
           {
@@ -10796,7 +10793,7 @@ static void srp_process_rsp(struct srp_rdma_ch *ch , struct srp_rsp *rsp )
           }
         } else {
           {
-          tmp___8 = __builtin_expect(((int )rsp->flags & 4) != 0, 0L);
+          tmp___8 = ldv__builtin_expect(((int )rsp->flags & 4) != 0, 0L);
           }
           if (tmp___8 != 0L) {
             {
@@ -11096,7 +11093,7 @@ static void srp_recv_completion(struct ib_cq *cq , void *ch_ptr )
   goto ldv_40371;
   ldv_40370: 
   {
-  tmp = __builtin_expect((unsigned int )wc.status == 0U, 1L);
+  tmp = ldv__builtin_expect((unsigned int )wc.status == 0U, 1L);
   }
   if (tmp != 0L) {
     {
@@ -11133,7 +11130,7 @@ static void srp_send_completion(struct ib_cq *cq , void *ch_ptr )
   goto ldv_40381;
   ldv_40380: 
   {
-  tmp = __builtin_expect((unsigned int )wc.status == 0U, 1L);
+  tmp = ldv__builtin_expect((unsigned int )wc.status == 0U, 1L);
   }
   if (tmp != 0L) {
     {
@@ -11224,7 +11221,7 @@ static int srp_queuecommand(struct Scsi_Host *shost , struct scsi_cmnd *scmnd )
   }
   {
   scmnd->result = srp_chkready(target->rport);
-  tmp___3 = __builtin_expect(scmnd->result != 0, 0L);
+  tmp___3 = ldv__builtin_expect(scmnd->result != 0, 0L);
   }
   if (tmp___3 != 0L) {
     goto err;
@@ -11233,12 +11230,12 @@ static int srp_queuecommand(struct Scsi_Host *shost , struct scsi_cmnd *scmnd )
   }
   {
   __ret_warn_once = (scmnd->request)->tag < 0;
-  tmp___6 = __builtin_expect(__ret_warn_once != 0, 0L);
+  tmp___6 = ldv__builtin_expect(__ret_warn_once != 0, 0L);
   }
   if (tmp___6 != 0L) {
     {
     __ret_warn_on = ! __warned;
-    tmp___4 = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp___4 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
     if (tmp___4 != 0L) {
       {
@@ -11248,7 +11245,7 @@ static int srp_queuecommand(struct Scsi_Host *shost , struct scsi_cmnd *scmnd )
 
     }
     {
-    tmp___5 = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp___5 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
     if (tmp___5 != 0L) {
       __warned = 1;
@@ -11259,18 +11256,18 @@ static int srp_queuecommand(struct Scsi_Host *shost , struct scsi_cmnd *scmnd )
 
   }
   {
-  __builtin_expect(__ret_warn_once != 0, 0L);
+  ldv__builtin_expect(__ret_warn_once != 0, 0L);
   tag = blk_mq_unique_tag(scmnd->request);
   tmp___7 = blk_mq_unique_tag_to_hwq(tag);
   ch = target->ch + (unsigned long )tmp___7;
   idx = blk_mq_unique_tag_to_tag(tag);
   __ret_warn_once___0 = (int )idx >= target->req_ring_size;
-  tmp___11 = __builtin_expect(__ret_warn_once___0 != 0, 0L);
+  tmp___11 = ldv__builtin_expect(__ret_warn_once___0 != 0, 0L);
   }
   if (tmp___11 != 0L) {
     {
     __ret_warn_on___0 = ! __warned___0;
-    tmp___9 = __builtin_expect(__ret_warn_on___0 != 0, 0L);
+    tmp___9 = ldv__builtin_expect(__ret_warn_on___0 != 0, 0L);
     }
     if (tmp___9 != 0L) {
       {
@@ -11282,7 +11279,7 @@ static int srp_queuecommand(struct Scsi_Host *shost , struct scsi_cmnd *scmnd )
 
     }
     {
-    tmp___10 = __builtin_expect(__ret_warn_on___0 != 0, 0L);
+    tmp___10 = ldv__builtin_expect(__ret_warn_on___0 != 0, 0L);
     }
     if (tmp___10 != 0L) {
       __warned___0 = 1;
@@ -11293,7 +11290,7 @@ static int srp_queuecommand(struct Scsi_Host *shost , struct scsi_cmnd *scmnd )
 
   }
   {
-  __builtin_expect(__ret_warn_once___0 != 0, 0L);
+  ldv__builtin_expect(__ret_warn_once___0 != 0, 0L);
   ldv___ldv_linux_kernel_locking_spinlock_spin_lock_126(& ch->lock);
   iu = __srp_get_tx_iu(ch, 0);
   ldv_spin_unlock_irqrestore_114(& ch->lock, flags);
@@ -11487,12 +11484,12 @@ static uint32_t srp_compute_rq_tmo(struct ib_qp_attr *qp_attr , int attr_mask )
   {
   {
   __ret_warn_once = (attr_mask & 1536) != 1536;
-  tmp___1 = __builtin_expect(__ret_warn_once != 0, 0L);
+  tmp___1 = ldv__builtin_expect(__ret_warn_once != 0, 0L);
   }
   if (tmp___1 != 0L) {
     {
     __ret_warn_on = ! __warned;
-    tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
     if (tmp != 0L) {
       {
@@ -11502,7 +11499,7 @@ static uint32_t srp_compute_rq_tmo(struct ib_qp_attr *qp_attr , int attr_mask )
 
     }
     {
-    tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
     if (tmp___0 != 0L) {
       __warned = 1;
@@ -11513,7 +11510,7 @@ static uint32_t srp_compute_rq_tmo(struct ib_qp_attr *qp_attr , int attr_mask )
 
   }
   {
-  __builtin_expect(__ret_warn_once != 0, 0L);
+  ldv__builtin_expect(__ret_warn_once != 0, 0L);
   T_tr_ns = 4096ULL << (int )qp_attr->timeout;
   max_compl_time_ms = (uint64_t )((int )qp_attr->retry_cnt * 4) * T_tr_ns;
   __base = 1000000U;
@@ -12031,12 +12028,12 @@ static int srp_abort(struct scsi_cmnd *scmnd )
   tag = blk_mq_unique_tag(scmnd->request);
   ch_idx = blk_mq_unique_tag_to_hwq(tag);
   __ret_warn_once = (u32 )ch_idx >= target->ch_count;
-  tmp___2 = __builtin_expect(__ret_warn_once != 0, 0L);
+  tmp___2 = ldv__builtin_expect(__ret_warn_once != 0, 0L);
   }
   if (tmp___2 != 0L) {
     {
     __ret_warn_on = ! __warned;
-    tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -12046,7 +12043,7 @@ static int srp_abort(struct scsi_cmnd *scmnd )
 
     }
     {
-    tmp___1 = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp___1 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
     if (tmp___1 != 0L) {
       __warned = 1;
@@ -12057,7 +12054,7 @@ static int srp_abort(struct scsi_cmnd *scmnd )
 
   }
   {
-  tmp___3 = __builtin_expect(__ret_warn_once != 0, 0L);
+  tmp___3 = ldv__builtin_expect(__ret_warn_once != 0, 0L);
   }
   if (tmp___3 != 0L) {
     return (8194);
@@ -12680,7 +12677,7 @@ static int srp_add_target(struct srp_host *host , struct srp_target_port *target
   descriptor.format = "ib_srp: %s: SCSI scan succeeded - detected %d LUNs\n";
   descriptor.lineno = 2808U;
   descriptor.flags = 0U;
-  tmp___5 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___5 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___5 != 0L) {
     {
@@ -13824,7 +13821,7 @@ static void srp_add_one(struct ib_device *device )
   descriptor.format = "%s: mr_page_shift = %d, dev_attr->max_mr_size = %#llx, dev_attr->max_fast_reg_page_list_len = %u, max_pages_per_mr = %d, mr_max_size = %#x\n";
   descriptor.lineno = 3437U;
   descriptor.flags = 0U;
-  tmp___3 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___3 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___3 != 0L) {
     {
@@ -14315,7 +14312,7 @@ void ldv_dummy_resourceless_instance_callback_9_9(long (*arg0)(struct device * ,
                                                   struct device *arg1 , struct device_attribute *arg2 ,
                                                   char *arg3 , unsigned long arg4 ) ;
 void ldv_entry_EMGentry_28(void *arg0 ) ;
-void main(void) ;
+int main(void) ;
 int ldv_platform_instance_probe_1_14(int (*arg0)(struct platform_device * ) , struct platform_device *arg1 ) ;
 void ldv_platform_instance_release_1_3(int (*arg0)(struct platform_device * ) , struct platform_device *arg1 ) ;
 void ldv_pm_ops_instance_complete_0_3(void (*arg0)(struct device * ) , struct device *arg1 ) ;
@@ -15375,7 +15372,7 @@ void ldv_entry_EMGentry_28(void *arg0 )
   return;
 }
 }
-void main(void) 
+int main(void) 
 { 
 
 
@@ -15384,7 +15381,7 @@ void main(void)
   ldv_ldv_initialize_157();
   ldv_entry_EMGentry_28((void *)0);
   }
-  return;
+return 0;
 }
 }
 int ldv_platform_instance_probe_1_14(int (*arg0)(struct platform_device * ) , struct platform_device *arg1 ) 
@@ -20492,7 +20489,7 @@ void ldv_linux_usb_urb_check_final_state(void)
 }
 }
 extern void ldv_assert(char const   * , int  ) ;
-void __builtin_trap(void) ;
+void ldv__builtin_trap(void) ;
 void ldv_assume(int expression ) 
 { 
 
@@ -20516,7 +20513,7 @@ void ldv_stop(void)
   goto ldv_stop_label;
 }
 }
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 
@@ -20524,7 +20521,7 @@ long __builtin_expect(long exp , long c )
   return (exp);
 }
 }
-void __builtin_trap(void) 
+void ldv__builtin_trap(void) 
 { 
 
 

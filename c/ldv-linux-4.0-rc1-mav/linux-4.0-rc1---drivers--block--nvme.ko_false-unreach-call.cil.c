@@ -5175,8 +5175,7 @@ struct ldv_thread {
    void (*function)(void * ) ;
 };
 typedef _Bool ldv_set;
-int __builtin_bswap32(int  ) ;
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 void ldv_assume(int expression ) ;
 void ldv_stop(void) ;
 void ldv_linux_alloc_irq_check_alloc_flags(gfp_t flags ) ;
@@ -5546,7 +5545,6 @@ __inline static unsigned int cpumask_weight(struct cpumask  const  *srcp )
   return ((unsigned int )tmp);
 }
 }
-extern int ( /* missing proto */  __builtin_unreachable)() ;
 __inline static unsigned long arch_local_save_flags(void) 
 { 
   unsigned long __ret ;
@@ -5564,7 +5562,7 @@ __inline static unsigned long arch_local_save_flags(void)
   __edx = __edx;
   __ecx = __ecx;
   __eax = __eax;
-  tmp = __builtin_expect((unsigned long )pv_irq_ops.save_fl.func == (unsigned long )((void *)0),
+  tmp = ldv__builtin_expect((unsigned long )pv_irq_ops.save_fl.func == (unsigned long )((void *)0),
                          0L);
   }
   if (tmp != 0L) {
@@ -5591,7 +5589,7 @@ __inline static bool IS_ERR(void const   *ptr )
 
   {
   {
-  tmp = __builtin_expect((unsigned long )ptr > 0xfffffffffffff000UL, 0L);
+  tmp = ldv__builtin_expect((unsigned long )ptr > 0xfffffffffffff000UL, 0L);
   }
   return (tmp != 0L);
 }
@@ -5606,7 +5604,7 @@ __inline static bool IS_ERR_OR_NULL(void const   *ptr )
     tmp___0 = 1;
   } else {
     {
-    tmp = __builtin_expect((unsigned long )ptr > 0xfffffffffffff000UL, 0L);
+    tmp = ldv__builtin_expect((unsigned long )ptr > 0xfffffffffffff000UL, 0L);
     }
     if (tmp != 0L) {
       tmp___0 = 1;
@@ -5727,7 +5725,7 @@ __inline static int __atomic_add_unless(atomic_t *v , int a , int u )
   }
   ldv_6223: 
   {
-  tmp = __builtin_expect(c == u, 0L);
+  tmp = ldv__builtin_expect(c == u, 0L);
   }
   if (tmp != 0L) {
     goto ldv_6222;
@@ -5736,7 +5734,7 @@ __inline static int __atomic_add_unless(atomic_t *v , int a , int u )
   }
   {
   old = atomic_cmpxchg(v, c, c + a);
-  tmp___0 = __builtin_expect(old == c, 1L);
+  tmp___0 = ldv__builtin_expect(old == c, 1L);
   }
   if (tmp___0 != 0L) {
     goto ldv_6222;
@@ -6098,12 +6096,12 @@ __inline static void kref_get(struct kref *kref )
   {
   tmp = atomic_add_return(1, & kref->refcount);
   __ret_warn_once = tmp <= 1;
-  tmp___2 = __builtin_expect(__ret_warn_once != 0, 0L);
+  tmp___2 = ldv__builtin_expect(__ret_warn_once != 0, 0L);
   }
   if (tmp___2 != 0L) {
     {
     __ret_warn_on = ! __warned;
-    tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -6113,7 +6111,7 @@ __inline static void kref_get(struct kref *kref )
 
     }
     {
-    tmp___1 = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp___1 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
     if (tmp___1 != 0L) {
       __warned = 1;
@@ -6124,7 +6122,7 @@ __inline static void kref_get(struct kref *kref )
 
   }
   {
-  __builtin_expect(__ret_warn_once != 0, 0L);
+  ldv__builtin_expect(__ret_warn_once != 0, 0L);
   }
   return;
 }
@@ -6138,7 +6136,7 @@ __inline static int kref_sub(struct kref *kref , unsigned int count , void (*rel
   {
   {
   __ret_warn_on = (unsigned long )release == (unsigned long )((void (*)(struct kref * ))0);
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp != 0L) {
     {
@@ -6148,7 +6146,7 @@ __inline static int kref_sub(struct kref *kref , unsigned int count , void (*rel
 
   }
   {
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
   tmp___0 = atomic_sub_and_test((int )count, & kref->refcount);
   }
   if (tmp___0 != 0) {
@@ -6334,7 +6332,7 @@ __inline static int signal_pending(struct task_struct *p )
   {
   {
   tmp = test_tsk_thread_flag(p, 2);
-  tmp___0 = __builtin_expect(tmp != 0, 0L);
+  tmp___0 = ldv__builtin_expect(tmp != 0, 0L);
   }
   return ((int )tmp___0);
 }
@@ -6347,7 +6345,7 @@ __inline static int __fatal_signal_pending(struct task_struct *p )
   {
   {
   tmp = sigismember(& p->pending.signal, 9);
-  tmp___0 = __builtin_expect(tmp != 0, 0L);
+  tmp___0 = ldv__builtin_expect(tmp != 0, 0L);
   }
   return ((int )tmp___0);
 }
@@ -6442,7 +6440,7 @@ __inline static void sg_assign_page(struct scatterlist *sg , struct page *page )
   {
   {
   page_link = sg->page_link & 3UL;
-  tmp = __builtin_expect(((unsigned long )page & 3UL) != 0UL, 0L);
+  tmp = ldv__builtin_expect(((unsigned long )page & 3UL) != 0UL, 0L);
   }
   if (tmp != 0L) {
     {
@@ -6454,7 +6452,7 @@ __inline static void sg_assign_page(struct scatterlist *sg , struct page *page )
 
   }
   {
-  tmp___0 = __builtin_expect(sg->sg_magic != 2271560481UL, 0L);
+  tmp___0 = ldv__builtin_expect(sg->sg_magic != 2271560481UL, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -6466,7 +6464,7 @@ __inline static void sg_assign_page(struct scatterlist *sg , struct page *page )
 
   }
   {
-  tmp___1 = __builtin_expect((long )((int )sg->page_link) & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )((int )sg->page_link) & 1L, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -6502,7 +6500,7 @@ __inline static struct page *sg_page(struct scatterlist *sg )
 
   {
   {
-  tmp = __builtin_expect(sg->sg_magic != 2271560481UL, 0L);
+  tmp = ldv__builtin_expect(sg->sg_magic != 2271560481UL, 0L);
   }
   if (tmp != 0L) {
     {
@@ -6514,7 +6512,7 @@ __inline static struct page *sg_page(struct scatterlist *sg )
 
   }
   {
-  tmp___0 = __builtin_expect((long )((int )sg->page_link) & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )((int )sg->page_link) & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -6534,7 +6532,7 @@ __inline static void sg_mark_end(struct scatterlist *sg )
 
   {
   {
-  tmp = __builtin_expect(sg->sg_magic != 2271560481UL, 0L);
+  tmp = ldv__builtin_expect(sg->sg_magic != 2271560481UL, 0L);
   }
   if (tmp != 0L) {
     {
@@ -6602,7 +6600,7 @@ __inline static struct dma_map_ops *get_dma_ops(struct device *dev )
 
   {
   {
-  tmp = __builtin_expect((unsigned long )dev == (unsigned long )((struct device *)0),
+  tmp = ldv__builtin_expect((unsigned long )dev == (unsigned long )((struct device *)0),
                          0L);
   }
   if (tmp != 0L || (unsigned long )dev->archdata.dma_ops == (unsigned long )((struct dma_map_ops *)0)) {
@@ -6647,7 +6645,7 @@ __inline static int dma_map_sg_attrs(struct device *dev , struct scatterlist *sg
   }
   {
   tmp___1 = valid_dma_direction((int )dir);
-  tmp___2 = __builtin_expect(tmp___1 == 0, 0L);
+  tmp___2 = ldv__builtin_expect(tmp___1 == 0, 0L);
   }
   if (tmp___2 != 0L) {
     {
@@ -6679,7 +6677,7 @@ __inline static void dma_unmap_sg_attrs(struct device *dev , struct scatterlist 
   tmp = get_dma_ops(dev);
   ops = tmp;
   tmp___0 = valid_dma_direction((int )dir);
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -6806,7 +6804,7 @@ __inline static void dma_free_attrs(struct device *dev , size_t size , void *vad
   _flags = arch_local_save_flags();
   tmp___0 = arch_irqs_disabled_flags(_flags);
   __ret_warn_on = tmp___0 != 0;
-  tmp___1 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___1 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -6816,7 +6814,7 @@ __inline static void dma_free_attrs(struct device *dev , size_t size , void *vad
 
   }
   {
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
   debug_dma_free_coherent(dev, size, vaddr, bus);
   }
   if ((unsigned long )ops->free != (unsigned long )((void (*)(struct device * , size_t  ,
@@ -6923,7 +6921,7 @@ __inline static unsigned long copy_from_user(void *to , void const   *from , uns
   {
   sz = -1;
   might_fault();
-  tmp = __builtin_expect(sz < 0, 1L);
+  tmp = ldv__builtin_expect(sz < 0, 1L);
   }
   if (tmp != 0L) {
     {
@@ -6931,7 +6929,7 @@ __inline static unsigned long copy_from_user(void *to , void const   *from , uns
     }
   } else {
     {
-    tmp___0 = __builtin_expect((unsigned long )sz >= n, 1L);
+    tmp___0 = ldv__builtin_expect((unsigned long )sz >= n, 1L);
     }
     if (tmp___0 != 0L) {
       {
@@ -6956,7 +6954,7 @@ __inline static unsigned long copy_to_user(void *to , void const   *from , unsig
   {
   sz = -1;
   might_fault();
-  tmp = __builtin_expect(sz < 0, 1L);
+  tmp = ldv__builtin_expect(sz < 0, 1L);
   }
   if (tmp != 0L) {
     {
@@ -6964,7 +6962,7 @@ __inline static unsigned long copy_to_user(void *to , void const   *from , unsig
     }
   } else {
     {
-    tmp___0 = __builtin_expect((unsigned long )sz >= n, 1L);
+    tmp___0 = ldv__builtin_expect((unsigned long )sz >= n, 1L);
     }
     if (tmp___0 != 0L) {
       {
@@ -7095,7 +7093,7 @@ __inline static void queue_lockdep_assert_held(struct request_queue *q )
     }
     {
     __ret_warn_on = tmp___0;
-    tmp___1 = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp___1 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
     if (tmp___1 != 0L) {
       {
@@ -7105,7 +7103,7 @@ __inline static void queue_lockdep_assert_held(struct request_queue *q )
 
     }
     {
-    __builtin_expect(__ret_warn_on != 0, 0L);
+    ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
   } else {
 
@@ -7494,7 +7492,7 @@ static int nvme_admin_init_hctx(struct blk_mq_hw_ctx *hctx , void *data , unsign
   dev = (struct nvme_dev *)data;
   nvmeq = *(dev->queues);
   __ret_warn_on = (unsigned long )nvmeq->hctx != (unsigned long )((struct blk_mq_hw_ctx *)0);
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp != 0L) {
     {
@@ -7504,7 +7502,7 @@ static int nvme_admin_init_hctx(struct blk_mq_hw_ctx *hctx , void *data , unsign
 
   }
   {
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
   nvmeq->hctx = hctx;
   hctx->driver_data = (void *)nvmeq;
   }
@@ -7526,7 +7524,7 @@ static int nvme_admin_init_request(void *data , struct request *req , unsigned i
   tmp = blk_mq_rq_to_pdu(req);
   cmd = (struct nvme_cmd_info *)tmp;
   nvmeq = *(dev->queues);
-  tmp___0 = __builtin_expect((unsigned long )nvmeq == (unsigned long )((struct nvme_queue *)0),
+  tmp___0 = ldv__builtin_expect((unsigned long )nvmeq == (unsigned long )((struct nvme_queue *)0),
                              0L);
   }
   if (tmp___0 != 0L) {
@@ -7569,7 +7567,7 @@ static int nvme_init_hctx(struct blk_mq_hw_ctx *hctx , void *data , unsigned int
   }
   {
   __ret_warn_on = (unsigned long )(nvmeq->hctx)->tags != (unsigned long )hctx->tags;
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp != 0L) {
     {
@@ -7579,7 +7577,7 @@ static int nvme_init_hctx(struct blk_mq_hw_ctx *hctx , void *data , unsigned int
 
   }
   {
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
   hctx->driver_data = (void *)nvmeq;
   }
   return (0);
@@ -7600,7 +7598,7 @@ static int nvme_init_request(void *data , struct request *req , unsigned int hct
   tmp = blk_mq_rq_to_pdu(req);
   cmd = (struct nvme_cmd_info *)tmp;
   nvmeq = *(dev->queues + (unsigned long )(hctx_idx + 1U));
-  tmp___0 = __builtin_expect((unsigned long )nvmeq == (unsigned long )((struct nvme_queue *)0),
+  tmp___0 = ldv__builtin_expect((unsigned long )nvmeq == (unsigned long )((struct nvme_queue *)0),
                              0L);
   }
   if (tmp___0 != 0L) {
@@ -8185,7 +8183,7 @@ static void req_completion(struct nvme_queue *nvmeq , void *ctx , struct nvme_co
   cmd_rq = (struct nvme_cmd_info *)tmp___0;
   tmp___1 = __le16_to_cpup((__le16 const   *)(& cqe->status));
   status = (u16 )((int )tmp___1 >> 1);
-  tmp___3 = __builtin_expect((unsigned int )status != 0U, 0L);
+  tmp___3 = ldv__builtin_expect((unsigned int )status != 0U, 0L);
   }
   if (tmp___3 != 0L) {
     if ((((int )status & 16384) == 0 && (req->cmd_flags & 14ULL) == 0ULL) && (unsigned long )jiffies - req->start_time < (unsigned long )req->timeout) {
@@ -8369,7 +8367,7 @@ int nvme_setup_prps(struct nvme_dev *dev , struct nvme_iod *iod , int total_len 
 
   }
   {
-  tmp___4 = __builtin_expect(dma_len < 0, 0L);
+  tmp___4 = ldv__builtin_expect(dma_len < 0, 0L);
   }
   if (tmp___4 != 0L) {
     {
@@ -8805,12 +8803,12 @@ static int nvme_admin_queue_rq(struct blk_mq_hw_ctx *hctx , struct blk_mq_queue_
   {
   {
   __ret_warn_once = 1;
-  tmp___1 = __builtin_expect(__ret_warn_once != 0, 0L);
+  tmp___1 = ldv__builtin_expect(__ret_warn_once != 0, 0L);
   }
   if (tmp___1 != 0L) {
     {
     __ret_warn_on = ! __warned;
-    tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
     if (tmp != 0L) {
       {
@@ -8820,7 +8818,7 @@ static int nvme_admin_queue_rq(struct blk_mq_hw_ctx *hctx , struct blk_mq_queue_
 
     }
     {
-    tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
     if (tmp___0 != 0L) {
       __warned = 1;
@@ -8831,7 +8829,7 @@ static int nvme_admin_queue_rq(struct blk_mq_hw_ctx *hctx , struct blk_mq_queue_
 
   }
   {
-  __builtin_expect(__ret_warn_once != 0, 0L);
+  ldv__builtin_expect(__ret_warn_once != 0, 0L);
   }
   return (2);
 }
@@ -13481,7 +13479,7 @@ static void nvme_exit(void)
   destroy_workqueue(nvme_workq);
   ldv_class_destroy_163(nvme_class);
   __unregister_chrdev((unsigned int )nvme_char_major, 0U, 1048576U, "nvme");
-  tmp = __builtin_expect((unsigned long )nvme_thread != (unsigned long )((struct task_struct *)0),
+  tmp = ldv__builtin_expect((unsigned long )nvme_thread != (unsigned long )((struct task_struct *)0),
                          0L);
   }
   if (tmp != 0L) {
@@ -13494,7 +13492,7 @@ static void nvme_exit(void)
       tmp___1 = 1;
     }
     {
-    tmp___2 = __builtin_expect((long )tmp___1, 0L);
+    tmp___2 = ldv__builtin_expect((long )tmp___1, 0L);
     }
     if (tmp___2 != 0L) {
       {
@@ -13534,7 +13532,7 @@ void ldv_dispatch_register_11_2(struct file_operations *arg0 ) ;
 void ldv_dispatch_register_13_2(struct pci_driver *arg0 ) ;
 void ldv_dispatch_register_platform_instance_11_14_6(void) ;
 void ldv_entry_EMGentry_14(void *arg0 ) ;
-void main(void) ;
+int main(void) ;
 void ldv_file_operations_file_operations_instance_0(void *arg0 ) ;
 void ldv_file_operations_instance_callback_0_22(int (*arg0)(struct block_device * ,
                                                             struct hd_geometry * ) ,
@@ -13918,7 +13916,7 @@ void ldv_entry_EMGentry_14(void *arg0 )
   return;
 }
 }
-void main(void) 
+int main(void) 
 { 
 
 
@@ -13927,7 +13925,7 @@ void main(void)
   ldv_ldv_initialize_167();
   ldv_entry_EMGentry_14((void *)0);
   }
-  return;
+return 0;
 }
 }
 void ldv_file_operations_file_operations_instance_0(void *arg0 ) 
@@ -16126,7 +16124,6 @@ static int ldv_ldv_post_probe_171(int retval )
   return (tmp);
 }
 }
-long __builtin_bswap64(long  ) ;
 __inline static __u16 __fswab16(__u16 val ) 
 { 
 
@@ -22149,7 +22146,7 @@ void ldv_linux_usb_urb_check_final_state(void)
 }
 }
 extern void ldv_assert(char const   * , int  ) ;
-void __builtin_trap(void) ;
+void ldv__builtin_trap(void) ;
 void ldv_assume(int expression ) 
 { 
 
@@ -22173,7 +22170,7 @@ void ldv_stop(void)
   goto ldv_stop_label;
 }
 }
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 
@@ -22181,7 +22178,7 @@ long __builtin_expect(long exp , long c )
   return (exp);
 }
 }
-void __builtin_trap(void) 
+void ldv__builtin_trap(void) 
 { 
 
 

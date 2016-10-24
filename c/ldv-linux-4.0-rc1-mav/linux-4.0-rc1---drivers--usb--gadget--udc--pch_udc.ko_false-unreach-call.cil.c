@@ -4197,7 +4197,7 @@ struct ldv_thread {
    void (*function)(void * ) ;
 };
 typedef _Bool ldv_set;
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 void ldv_assume(int expression ) ;
 void ldv_stop(void) ;
 void ldv_linux_alloc_irq_check_alloc_flags(gfp_t flags ) ;
@@ -4394,7 +4394,6 @@ __inline static int list_empty(struct list_head  const  *head )
 extern unsigned long __phys_addr(unsigned long  ) ;
 extern void *__memcpy(void * , void const   * , size_t  ) ;
 extern void *__memset(void * , int  , size_t  ) ;
-extern int ( /* missing proto */  __builtin_unreachable)() ;
 __inline static void rep_nop(void) 
 { 
 
@@ -4628,7 +4627,7 @@ __inline static struct dma_map_ops *get_dma_ops(struct device *dev )
 
   {
   {
-  tmp = __builtin_expect((unsigned long )dev == (unsigned long )((struct device *)0),
+  tmp = ldv__builtin_expect((unsigned long )dev == (unsigned long )((struct device *)0),
                          0L);
   }
   if (tmp != 0L || (unsigned long )dev->archdata.dma_ops == (unsigned long )((struct dma_map_ops *)0)) {
@@ -4655,7 +4654,7 @@ __inline static dma_addr_t dma_map_single_attrs(struct device *dev , void *ptr ,
   ops = tmp;
   kmemcheck_mark_initialized(ptr, (unsigned int )size);
   tmp___0 = valid_dma_direction((int )dir);
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -4691,7 +4690,7 @@ __inline static void dma_unmap_single_attrs(struct device *dev , dma_addr_t addr
   tmp = get_dma_ops(dev);
   ops = tmp;
   tmp___0 = valid_dma_direction((int )dir);
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -6047,7 +6046,7 @@ static void pch_vbus_gpio_work_fall(struct work_struct *irq_work )
     descriptor.format = "VBUS fell";
     descriptor.lineno = 1302U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -6150,7 +6149,7 @@ static void pch_vbus_gpio_work_rise(struct work_struct *irq_work )
     descriptor.format = "VBUS rose";
     descriptor.lineno = 1340U;
     descriptor.flags = 0U;
-    tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -7993,7 +7992,7 @@ static void pch_udc_dev_isr(struct pch_udc_dev *dev , u32 dev_intr )
     descriptor.format = "USB_RESET\n";
     descriptor.lineno = 2733U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -8015,7 +8014,7 @@ static void pch_udc_dev_isr(struct pch_udc_dev *dev , u32 dev_intr )
     descriptor___0.format = "USB_ENUM\n";
     descriptor___0.lineno = 2738U;
     descriptor___0.flags = 0U;
-    tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -8083,7 +8082,7 @@ static void pch_udc_dev_isr(struct pch_udc_dev *dev , u32 dev_intr )
     descriptor___1.format = "USB_SUSPEND\n";
     descriptor___1.lineno = 2769U;
     descriptor___1.flags = 0U;
-    tmp___1 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
     }
     if (tmp___1 != 0L) {
       {
@@ -8104,7 +8103,7 @@ static void pch_udc_dev_isr(struct pch_udc_dev *dev , u32 dev_intr )
     descriptor___2.format = "SOF\n";
     descriptor___2.lineno = 2773U;
     descriptor___2.flags = 0U;
-    tmp___2 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+    tmp___2 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
     }
     if (tmp___2 != 0L) {
       {
@@ -8125,7 +8124,7 @@ static void pch_udc_dev_isr(struct pch_udc_dev *dev , u32 dev_intr )
     descriptor___3.format = "ES\n";
     descriptor___3.lineno = 2776U;
     descriptor___3.flags = 0U;
-    tmp___3 = __builtin_expect((long )descriptor___3.flags & 1L, 0L);
+    tmp___3 = ldv__builtin_expect((long )descriptor___3.flags & 1L, 0L);
     }
     if (tmp___3 != 0L) {
       {
@@ -8146,7 +8145,7 @@ static void pch_udc_dev_isr(struct pch_udc_dev *dev , u32 dev_intr )
     descriptor___4.format = "RWKP\n";
     descriptor___4.lineno = 2779U;
     descriptor___4.flags = 0U;
-    tmp___4 = __builtin_expect((long )descriptor___4.flags & 1L, 0L);
+    tmp___4 = ldv__builtin_expect((long )descriptor___4.flags & 1L, 0L);
     }
     if (tmp___4 != 0L) {
       {
@@ -8190,7 +8189,7 @@ static irqreturn_t pch_udc_isr(int irq , void *pdev )
       descriptor.format = "UDC: Hung up\n";
       descriptor.lineno = 2799U;
       descriptor.flags = 0U;
-      tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+      tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
       }
       if (tmp != 0L) {
         {
@@ -8937,7 +8936,7 @@ void ldv_dummy_resourceless_instance_callback_7_7(int (*arg0)(struct usb_gadget 
                                                               int  ) , struct usb_gadget *arg1 ,
                                                   int arg2 ) ;
 void ldv_entry_EMGentry_13(void *arg0 ) ;
-void main(void) ;
+int main(void) ;
 void ldv_free_irq(void *arg0 , int arg1 , void *arg2 ) ;
 enum irqreturn ldv_interrupt_instance_handler_0_5(enum irqreturn (*arg0)(int  , void * ) ,
                                                   int arg1 , void *arg2 ) ;
@@ -9437,7 +9436,7 @@ void ldv_entry_EMGentry_13(void *arg0 )
   return;
 }
 }
-void main(void) 
+int main(void) 
 { 
 
 
@@ -9446,7 +9445,7 @@ void main(void)
   ldv_ldv_initialize_145();
   ldv_entry_EMGentry_13((void *)0);
   }
-  return;
+return 0;
 }
 }
 void ldv_free_irq(void *arg0 , int arg1 , void *arg2 ) 
@@ -13492,7 +13491,7 @@ void ldv_linux_usb_urb_check_final_state(void)
 }
 }
 extern void ldv_assert(char const   * , int  ) ;
-void __builtin_trap(void) ;
+void ldv__builtin_trap(void) ;
 void ldv_assume(int expression ) 
 { 
 
@@ -13516,7 +13515,7 @@ void ldv_stop(void)
   goto ldv_stop_label;
 }
 }
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 
@@ -13524,7 +13523,7 @@ long __builtin_expect(long exp , long c )
   return (exp);
 }
 }
-void __builtin_trap(void) 
+void ldv__builtin_trap(void) 
 { 
 
 

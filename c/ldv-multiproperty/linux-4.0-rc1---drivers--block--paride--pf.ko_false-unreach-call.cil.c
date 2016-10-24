@@ -4227,7 +4227,7 @@ struct ldv_thread {
    void (*function)(void * ) ;
 };
 typedef _Bool ldv_set;
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 void ldv_assume(int expression ) ;
 void ldv_stop(void) ;
 void ldv_linux_alloc_irq_check_alloc_flags(gfp_t flags ) ;
@@ -4944,7 +4944,7 @@ static void pf_release(struct gendisk *disk , fmode_t mode )
     {
     ldv_mutex_unlock_107(& pf_mutex);
     __ret_warn_on = 1;
-    tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
     if (tmp != 0L) {
       {
@@ -4954,7 +4954,7 @@ static void pf_release(struct gendisk *disk , fmode_t mode )
 
     }
     {
-    __builtin_expect(__ret_warn_on != 0, 0L);
+    ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
     return;
   } else {
@@ -6463,7 +6463,7 @@ void ldv_dummy_resourceless_instance_callback_1_3(void (*arg0)(struct work_struc
 void ldv_dummy_resourceless_instance_callback_1_7(void (*arg0)(unsigned long  ) ,
                                                   unsigned long arg1 ) ;
 void ldv_entry_EMGentry_2(void *arg0 ) ;
-void main(void) ;
+int main(void) ;
 void ldv_io_instance_callback_0_21(int (*arg0)(struct block_device * , struct hd_geometry * ) ,
                                    struct block_device *arg1 , struct hd_geometry *arg2 ) ;
 void ldv_io_instance_callback_0_22(int (*arg0)(struct block_device * , unsigned int  ,
@@ -6617,7 +6617,7 @@ void ldv_entry_EMGentry_2(void *arg0 )
   return;
 }
 }
-void main(void) 
+int main(void) 
 { 
 
 
@@ -6626,7 +6626,7 @@ void main(void)
   ldv_ldv_initialize_124();
   ldv_entry_EMGentry_2((void *)0);
   }
-  return;
+return 0;
 }
 }
 void ldv_io_instance_callback_0_21(int (*arg0)(struct block_device * , struct hd_geometry * ) ,
@@ -9202,7 +9202,7 @@ void ldv_linux_usb_urb_check_final_state(void)
 }
 }
 extern void ldv_assert(char const   * , int  ) ;
-void __builtin_trap(void) ;
+void ldv__builtin_trap(void) ;
 void ldv_assume(int expression ) 
 { 
 
@@ -9226,7 +9226,7 @@ void ldv_stop(void)
   goto ldv_stop_label;
 }
 }
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 
@@ -9234,7 +9234,7 @@ long __builtin_expect(long exp , long c )
   return (exp);
 }
 }
-void __builtin_trap(void) 
+void ldv__builtin_trap(void) 
 { 
 
 

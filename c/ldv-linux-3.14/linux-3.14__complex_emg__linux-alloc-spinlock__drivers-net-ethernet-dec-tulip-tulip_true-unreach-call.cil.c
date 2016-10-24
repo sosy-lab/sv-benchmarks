@@ -5851,7 +5851,7 @@ __inline static void *kmalloc(size_t size , gfp_t flags )
   return (res);
 }
 }
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 __inline static void clear_bit(long nr , unsigned long volatile   *addr ) 
 { 
 
@@ -5883,7 +5883,6 @@ __inline static int constant_test_bit(long nr , unsigned long const volatile   *
 extern int __dynamic_netdev_dbg(struct _ddebug * , struct net_device  const  * , char const   * 
                                 , ...) ;
 extern unsigned long __phys_addr(unsigned long  ) ;
-extern int ( /* missing proto */  __builtin_unreachable)() ;
 void ldv_spin_lock_lock_of_tulip_private(void) ;
 void ldv_spin_unlock_lock_of_tulip_private(void) ;
 extern void _raw_spin_lock(raw_spinlock_t * ) ;
@@ -5951,7 +5950,7 @@ __inline static struct dma_map_ops *get_dma_ops(struct device *dev )
 
   {
   {
-  tmp = __builtin_expect((unsigned long )dev == (unsigned long )((struct device *)0),
+  tmp = ldv__builtin_expect((unsigned long )dev == (unsigned long )((struct device *)0),
                          0L);
   }
   if (tmp != 0L || (unsigned long )dev->archdata.dma_ops == (unsigned long )((struct dma_map_ops *)0)) {
@@ -5978,7 +5977,7 @@ __inline static dma_addr_t dma_map_single_attrs(struct device *dev , void *ptr ,
   ops___0 = tmp;
   kmemcheck_mark_initialized(ptr, (unsigned int )size);
   tmp___0 = valid_dma_direction((int )dir);
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -6014,7 +6013,7 @@ __inline static void dma_unmap_single_attrs(struct device *dev , dma_addr_t addr
   tmp = get_dma_ops(dev);
   ops___0 = tmp;
   tmp___0 = valid_dma_direction((int )dir);
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -6055,7 +6054,7 @@ __inline static void dma_sync_single_for_cpu(struct device *dev , dma_addr_t add
   tmp = get_dma_ops(dev);
   ops___0 = tmp;
   tmp___0 = valid_dma_direction((int )dir);
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -6095,7 +6094,7 @@ __inline static void dma_sync_single_for_device(struct device *dev , dma_addr_t 
   tmp = get_dma_ops(dev);
   ops___0 = tmp;
   tmp___0 = valid_dma_direction((int )dir);
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -6447,7 +6446,7 @@ __inline static void tulip_stop_rxtx(struct tulip_private *tp )
       descriptor.format = "tulip_stop_rxtx() failed (CSR5 0x%x CSR6 0x%x)\n";
       descriptor.lineno = 549U;
       descriptor.flags = 1U;
-      tmp___3 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+      tmp___3 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
       }
       if (tmp___3 != 0L) {
         {
@@ -6624,7 +6623,7 @@ int tulip_poll(struct napi_struct *napi , int budget )
     descriptor.format = " In tulip_rx(), entry %d %08x\n";
     descriptor.lineno = 132U;
     descriptor.flags = 1U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -6649,7 +6648,7 @@ int tulip_poll(struct napi_struct *napi , int budget )
     descriptor___0.format = " In tulip_poll(), hardware disappeared\n";
     descriptor___0.lineno = 136U;
     descriptor___0.flags = 1U;
-    tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -6681,7 +6680,7 @@ int tulip_poll(struct napi_struct *napi , int budget )
     descriptor___1.format = "In tulip_rx(), entry %d %08x\n";
     descriptor___1.lineno = 153U;
     descriptor___1.flags = 1U;
-    tmp___2 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___2 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
     }
     if (tmp___2 != 0L) {
       {
@@ -6725,7 +6724,7 @@ int tulip_poll(struct napi_struct *napi , int budget )
         descriptor___2.format = "Receive error, Rx status %08x\n";
         descriptor___2.lineno = 192U;
         descriptor___2.flags = 1U;
-        tmp___3 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+        tmp___3 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
         }
         if (tmp___3 != 0L) {
           {
@@ -6991,7 +6990,7 @@ irqreturn_t tulip_interrupt(int irq , void *dev_instance )
     descriptor.format = "interrupt  csr5=%#8.8x new csr5=%#8.8x\n";
     descriptor.lineno = 580U;
     descriptor.flags = 1U;
-    tmp___2 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___2 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp___2 != 0L) {
       {
@@ -7040,7 +7039,7 @@ irqreturn_t tulip_interrupt(int irq , void *dev_instance )
         descriptor___0.format = "Transmit error, Tx status %08x\n";
         descriptor___0.lineno = 612U;
         descriptor___0.flags = 1U;
-        tmp___3 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+        tmp___3 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
         }
         if (tmp___3 != 0L) {
           {
@@ -7301,7 +7300,7 @@ irqreturn_t tulip_interrupt(int irq , void *dev_instance )
     descriptor___1.format = "exiting interrupt, csr5=%#04x\n";
     descriptor___1.lineno = 811U;
     descriptor___1.flags = 1U;
-    tmp___9 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___9 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
     }
     if (tmp___9 != 0L) {
       {
@@ -7513,7 +7512,7 @@ __inline static void tulip_stop_rxtx___0(struct tulip_private *tp )
       descriptor.format = "tulip_stop_rxtx() failed (CSR5 0x%x CSR6 0x%x)\n";
       descriptor.lineno = 549U;
       descriptor.flags = 1U;
-      tmp___3 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+      tmp___3 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
       }
       if (tmp___3 != 0L) {
         {
@@ -7940,7 +7939,7 @@ void tulip_select_media(struct net_device *dev , int startup )
       descriptor.format = "Using a 21140 non-MII transceiver with control setting %02x\n";
       descriptor.lineno = 182U;
       descriptor.flags = 1U;
-      tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+      tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
       }
       if (tmp___0 != 0L) {
         {
@@ -7998,7 +7997,7 @@ void tulip_select_media(struct net_device *dev , int startup )
         descriptor___0.format = "Resetting the transceiver\n";
         descriptor___0.lineno = 203U;
         descriptor___0.flags = 1U;
-        tmp___1 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+        tmp___1 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
         }
         if (tmp___1 != 0L) {
           {
@@ -8037,7 +8036,7 @@ void tulip_select_media(struct net_device *dev , int startup )
       descriptor___1.format = "21143 non-MII %s transceiver control %04x/%04x\n";
       descriptor___1.lineno = 210U;
       descriptor___1.flags = 1U;
-      tmp___3 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+      tmp___3 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
       }
       if (tmp___3 != 0L) {
         {
@@ -8100,7 +8099,7 @@ void tulip_select_media(struct net_device *dev , int startup )
       descriptor___2.format = "Setting CSR15 to %08x/%08x\n";
       descriptor___2.lineno = 238U;
       descriptor___2.flags = 1U;
-      tmp___4 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+      tmp___4 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
       }
       if (tmp___4 != 0L) {
         {
@@ -8281,7 +8280,7 @@ void tulip_select_media(struct net_device *dev , int startup )
         descriptor___3.format = " Advertising %04x on MII %d\n";
         descriptor___3.lineno = 316U;
         descriptor___3.flags = 1U;
-        tmp___11 = __builtin_expect((long )descriptor___3.flags & 1L, 0L);
+        tmp___11 = ldv__builtin_expect((long )descriptor___3.flags & 1L, 0L);
         }
         if (tmp___11 != 0L) {
           {
@@ -8330,7 +8329,7 @@ void tulip_select_media(struct net_device *dev , int startup )
         descriptor___4.format = "Resetting the transceiver\n";
         descriptor___4.lineno = 333U;
         descriptor___4.flags = 1U;
-        tmp___12 = __builtin_expect((long )descriptor___4.flags & 1L, 0L);
+        tmp___12 = ldv__builtin_expect((long )descriptor___4.flags & 1L, 0L);
         }
         if (tmp___12 != 0L) {
           {
@@ -8370,7 +8369,7 @@ void tulip_select_media(struct net_device *dev , int startup )
     descriptor___5.format = " Invalid media table selection %d\n";
     descriptor___5.lineno = 342U;
     descriptor___5.flags = 1U;
-    tmp___14 = __builtin_expect((long )descriptor___5.flags & 1L, 0L);
+    tmp___14 = ldv__builtin_expect((long )descriptor___5.flags & 1L, 0L);
     }
     if (tmp___14 != 0L) {
       {
@@ -8392,7 +8391,7 @@ void tulip_select_media(struct net_device *dev , int startup )
       descriptor___6.format = "Using media type %s, CSR12 is %02x\n";
       descriptor___6.lineno = 348U;
       descriptor___6.flags = 1U;
-      tmp___16 = __builtin_expect((long )descriptor___6.flags & 1L, 0L);
+      tmp___16 = ldv__builtin_expect((long )descriptor___6.flags & 1L, 0L);
       }
       if (tmp___16 != 0L) {
         {
@@ -8421,7 +8420,7 @@ void tulip_select_media(struct net_device *dev , int startup )
       descriptor___7.format = "PNIC PHY status is %3.3x, media %s\n";
       descriptor___7.lineno = 355U;
       descriptor___7.flags = 1U;
-      tmp___18 = __builtin_expect((long )descriptor___7.flags & 1L, 0L);
+      tmp___18 = ldv__builtin_expect((long )descriptor___7.flags & 1L, 0L);
       }
       if (tmp___18 != 0L) {
         {
@@ -8485,7 +8484,7 @@ void tulip_select_media(struct net_device *dev , int startup )
       descriptor___8.format = "No media description table, assuming %s transceiver, CSR12 %02x\n";
       descriptor___8.lineno = 388U;
       descriptor___8.flags = 1U;
-      tmp___20 = __builtin_expect((long )descriptor___8.flags & 1L, 0L);
+      tmp___20 = ldv__builtin_expect((long )descriptor___8.flags & 1L, 0L);
       }
       if (tmp___20 != 0L) {
         {
@@ -8700,7 +8699,7 @@ void tulip_find_mii(struct net_device *dev , int board_idx )
     descriptor.format = "tulip%d:  Advertising %04x on PHY %d, previously advertising %04x\n";
     descriptor.lineno = 503U;
     descriptor.flags = 1U;
-    tmp___4 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___4 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp___4 != 0L) {
       {
@@ -8876,7 +8875,7 @@ __inline static void tulip_stop_rxtx___1(struct tulip_private *tp )
       descriptor.format = "tulip_stop_rxtx() failed (CSR5 0x%x CSR6 0x%x)\n";
       descriptor.lineno = 549U;
       descriptor.flags = 1U;
-      tmp___3 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+      tmp___3 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
       }
       if (tmp___3 != 0L) {
         {
@@ -8975,7 +8974,7 @@ void tulip_media_task(struct work_struct *work )
     descriptor.format = "Media selection tick, %s, status %08x mode %08x SIA %08x %08x %08x %08x\n";
     descriptor.lineno = 32U;
     descriptor.flags = 1U;
-    tmp___5 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___5 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp___5 != 0L) {
       {
@@ -9037,7 +9036,7 @@ void tulip_media_task(struct work_struct *work )
       descriptor___0.format = "network media monitor CSR6 %08x CSR12 0x%02x\n";
       descriptor___0.lineno = 50U;
       descriptor___0.flags = 1U;
-      tmp___7 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+      tmp___7 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
       }
       if (tmp___7 != 0L) {
         {
@@ -9097,7 +9096,7 @@ void tulip_media_task(struct work_struct *work )
       descriptor___1.format = "Transceiver monitor tick CSR12=%#02x, no media sense\n";
       descriptor___1.lineno = 63U;
       descriptor___1.flags = 1U;
-      tmp___8 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+      tmp___8 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
       }
       if (tmp___8 != 0L) {
         {
@@ -9131,7 +9130,7 @@ void tulip_media_task(struct work_struct *work )
     descriptor___2.format = "Transceiver monitor tick: CSR12=%#02x bit %d is %d, expecting %d\n";
     descriptor___2.lineno = 74U;
     descriptor___2.flags = 1U;
-    tmp___9 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+    tmp___9 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
     }
     if (tmp___9 != 0L) {
       {
@@ -9154,7 +9153,7 @@ void tulip_media_task(struct work_struct *work )
       descriptor___3.format = "Link beat detected for %s\n";
       descriptor___3.lineno = 80U;
       descriptor___3.flags = 1U;
-      tmp___10 = __builtin_expect((long )descriptor___3.flags & 1L, 0L);
+      tmp___10 = ldv__builtin_expect((long )descriptor___3.flags & 1L, 0L);
       }
       if (tmp___10 != 0L) {
         {
@@ -9208,7 +9207,7 @@ void tulip_media_task(struct work_struct *work )
     descriptor___4.format = "No link beat on media %s, trying transceiver type %s\n";
     descriptor___4.lineno = 100U;
     descriptor___4.flags = 1U;
-    tmp___11 = __builtin_expect((long )descriptor___4.flags & 1L, 0L);
+    tmp___11 = ldv__builtin_expect((long )descriptor___4.flags & 1L, 0L);
     }
     if (tmp___11 != 0L) {
       {
@@ -9336,7 +9335,7 @@ void comet_timer(unsigned long data )
     descriptor.format = "Comet link status %04x partner capability %04x\n";
     descriptor.lineno = 166U;
     descriptor.flags = 1U;
-    tmp___2 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___2 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp___2 != 0L) {
       {
@@ -9528,7 +9527,7 @@ __inline static unsigned long arch_local_save_flags(void)
   __edx = __edx;
   __ecx = __ecx;
   __eax = __eax;
-  tmp = __builtin_expect((unsigned long )pv_irq_ops.save_fl.func == (unsigned long )((void *)0),
+  tmp = ldv__builtin_expect((unsigned long )pv_irq_ops.save_fl.func == (unsigned long )((void *)0),
                          0L);
   }
   if (tmp != 0L) {
@@ -9751,7 +9750,7 @@ __inline static void dma_free_attrs(struct device *dev , size_t size , void *vad
   _flags = arch_local_save_flags();
   tmp___0 = arch_irqs_disabled_flags(_flags);
   __ret_warn_on = tmp___0 != 0;
-  tmp___1 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___1 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -9762,7 +9761,7 @@ __inline static void dma_free_attrs(struct device *dev , size_t size , void *vad
 
   }
   {
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
   debug_dma_free_coherent(dev, size, vaddr, bus);
   }
   if ((unsigned long )ops___0->free != (unsigned long )((void (*)(struct device * ,
@@ -9828,7 +9827,7 @@ __inline static void napi_enable(struct napi_struct *n )
   {
   {
   tmp = constant_test_bit(0L, (unsigned long const volatile   *)(& n->state));
-  tmp___0 = __builtin_expect(tmp == 0, 0L);
+  tmp___0 = ldv__builtin_expect(tmp == 0, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -9873,7 +9872,7 @@ __inline static void netif_tx_stop_queue(struct netdev_queue *dev_queue )
   {
   {
   __ret_warn_on = (unsigned long )dev_queue == (unsigned long )((struct netdev_queue *)0);
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp != 0L) {
     {
@@ -9883,7 +9882,7 @@ __inline static void netif_tx_stop_queue(struct netdev_queue *dev_queue )
 
   }
   {
-  tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -10157,7 +10156,7 @@ __inline static void tulip_stop_rxtx___2(struct tulip_private *tp )
       descriptor.format = "tulip_stop_rxtx() failed (CSR5 0x%x CSR6 0x%x)\n";
       descriptor.lineno = 549U;
       descriptor.flags = 1U;
-      tmp___3 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+      tmp___3 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
       }
       if (tmp___3 != 0L) {
         {
@@ -10487,7 +10486,7 @@ static void tulip_up(struct net_device *dev )
     descriptor.format = "tulip_up(), irq==%d\n";
     descriptor.lineno = 331U;
     descriptor.flags = 1U;
-    tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -10772,7 +10771,7 @@ static void tulip_up(struct net_device *dev )
     descriptor___0.format = "Done tulip_up(), CSR0 %08x, CSR5 %08x CSR6 %08x\n";
     descriptor___0.lineno = 501U;
     descriptor___0.flags = 1U;
-    tmp___22 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___22 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___22 != 0L) {
       {
@@ -11220,7 +11219,7 @@ static int tulip_close(struct net_device *dev )
     descriptor.format = "Shutting down ethercard, status was %02x\n";
     descriptor.lineno = 844U;
     descriptor.flags = 1U;
-    tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp___1 != 0L) {
       {
@@ -11908,7 +11907,7 @@ static void tulip_mwi_config(struct pci_dev *pdev , struct net_device *dev )
     descriptor.format = "tulip_mwi_config()\n";
     descriptor.lineno = 1202U;
     descriptor.flags = 1U;
-    tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -11999,7 +11998,7 @@ static void tulip_mwi_config(struct pci_dev *pdev , struct net_device *dev )
     descriptor___0.format = "MWI config cacheline=%d, csr0=%08x\n";
     descriptor___0.lineno = 1265U;
     descriptor___0.flags = 1U;
-    tmp___1 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___1 != 0L) {
       {
@@ -13072,7 +13071,7 @@ void ldv_dummy_resourceless_instance_callback_7_3(void (*arg0)(struct work_struc
 void ldv_dummy_resourceless_instance_callback_7_7(void (*arg0)(unsigned long  ) ,
                                                   unsigned long arg1 ) ;
 void ldv_entry_EMGentry_19(void *arg0 ) ;
-void main(void) ;
+int main(void) ;
 void ldv_free_irq(void *arg0 , int arg1 , void *arg2 ) ;
 void ldv_free_netdev(void *arg0 , struct net_device *arg1 ) ;
 void ldv_initialize_external_data(void) ;
@@ -13831,7 +13830,7 @@ void ldv_entry_EMGentry_19(void *arg0 )
   return;
 }
 }
-void main(void) 
+int main(void) 
 { 
   int tmp ;
 
@@ -15847,7 +15846,7 @@ __inline static void tulip_stop_rxtx___3(struct tulip_private *tp )
       descriptor.format = "tulip_stop_rxtx() failed (CSR5 0x%x CSR6 0x%x)\n";
       descriptor.lineno = 549U;
       descriptor.flags = 1U;
-      tmp___3 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+      tmp___3 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
       }
       if (tmp___3 != 0L) {
         {
@@ -16061,7 +16060,7 @@ void t21142_start_nway(struct net_device *dev )
     descriptor.format = "Restarting 21143 autonegotiation, csr14=%08x\n";
     descriptor.lineno = 123U;
     descriptor.flags = 1U;
-    tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp___1 != 0L) {
       {
@@ -16232,7 +16231,7 @@ void t21142_lnk_change(struct net_device *dev , int csr5 )
       descriptor.format = " Setting CSR6 %08x/%x CSR12 %08x\n";
       descriptor.lineno = 213U;
       descriptor.flags = 1U;
-      tmp___4 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+      tmp___4 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
       }
       if (tmp___4 != 0L) {
         {
@@ -16524,7 +16523,7 @@ __inline static void tulip_stop_rxtx___4(struct tulip_private *tp )
       descriptor.format = "tulip_stop_rxtx() failed (CSR5 0x%x CSR6 0x%x)\n";
       descriptor.lineno = 549U;
       descriptor.flags = 1U;
-      tmp___3 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+      tmp___3 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
       }
       if (tmp___3 != 0L) {
         {
@@ -16619,7 +16618,7 @@ void pnic_do_nway(struct net_device *dev )
       descriptor.format = "PNIC autonegotiated status %08x, %s\n";
       descriptor.lineno = 42U;
       descriptor.flags = 1U;
-      tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+      tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
       }
       if (tmp___1 != 0L) {
         {
@@ -16678,7 +16677,7 @@ void pnic_lnk_change(struct net_device *dev , int csr5 )
     descriptor.format = "PNIC link changed state %08x, CSR5 %08x\n";
     descriptor.lineno = 60U;
     descriptor.flags = 1U;
-    tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp___1 != 0L) {
       {
@@ -16824,7 +16823,7 @@ void pnic_timer(unsigned long data )
       descriptor.format = "PNIC timer PHY status %08x, %s CSR5 %08x\n";
       descriptor.lineno = 116U;
       descriptor.flags = 1U;
-      tmp___5 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+      tmp___5 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
       }
       if (tmp___5 != 0L) {
         {
@@ -16859,7 +16858,7 @@ void pnic_timer(unsigned long data )
         descriptor___0.format = "%s link beat failed, CSR12 %04x, CSR5 %08x, PHY %03x\n";
         descriptor___0.lineno = 130U;
         descriptor___0.flags = 1U;
-        tmp___8 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+        tmp___8 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
         }
         if (tmp___8 != 0L) {
           {
@@ -17040,7 +17039,7 @@ __inline static void tulip_stop_rxtx___5(struct tulip_private *tp )
       descriptor.format = "tulip_stop_rxtx() failed (CSR5 0x%x CSR6 0x%x)\n";
       descriptor.lineno = 549U;
       descriptor.flags = 1U;
-      tmp___3 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+      tmp___3 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
       }
       if (tmp___3 != 0L) {
         {
@@ -17157,7 +17156,7 @@ void pnic2_start_nway(struct net_device *dev )
     descriptor.format = "Restarting PNIC2 autonegotiation, csr14=%08x\n";
     descriptor.lineno = 126U;
     descriptor.flags = 1U;
-    tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp___1 != 0L) {
       {
@@ -17187,7 +17186,7 @@ void pnic2_start_nway(struct net_device *dev )
     descriptor___0.format = "On Entry to Nway, csr6=%08x\n";
     descriptor___0.lineno = 137U;
     descriptor___0.flags = 1U;
-    tmp___3 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___3 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___3 != 0L) {
       {
@@ -17338,7 +17337,7 @@ void pnic2_lnk_change(struct net_device *dev , int csr5 )
         descriptor.format = "Setting CSR6 %08x/%x CSR12 %08x\n";
         descriptor.lineno = 273U;
         descriptor.flags = 1U;
-        tmp___6 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+        tmp___6 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
         }
         if (tmp___6 != 0L) {
           {
@@ -17386,7 +17385,7 @@ void pnic2_lnk_change(struct net_device *dev , int csr5 )
       descriptor___0.format = "Ugh! Link blew?\n";
       descriptor___0.lineno = 324U;
       descriptor___0.flags = 1U;
-      tmp___9 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+      tmp___9 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
       }
       if (tmp___9 != 0L) {
         {
@@ -17725,7 +17724,7 @@ void *ldv_kzalloc(size_t size , gfp_t flags )
 }
 }
 extern void ldv_assert(char const   * , int  ) ;
-void __builtin_trap(void) ;
+void ldv__builtin_trap(void) ;
 void ldv_assume(int expression ) 
 { 
 
@@ -17749,7 +17748,7 @@ void ldv_stop(void)
   goto ldv_stop_label;
 }
 }
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 
@@ -17757,7 +17756,7 @@ long __builtin_expect(long exp , long c )
   return (exp);
 }
 }
-void __builtin_trap(void) 
+void ldv__builtin_trap(void) 
 { 
 
 

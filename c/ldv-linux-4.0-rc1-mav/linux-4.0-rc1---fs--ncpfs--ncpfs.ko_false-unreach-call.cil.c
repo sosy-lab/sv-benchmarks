@@ -6902,7 +6902,7 @@ struct ldv_thread {
    void (*function)(void * ) ;
 };
 typedef _Bool ldv_set;
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 void ldv_assume(int expression ) ;
 void ldv_stop(void) ;
 void ldv_linux_alloc_irq_check_alloc_flags(gfp_t flags ) ;
@@ -7040,7 +7040,7 @@ __inline static bool IS_ERR(void const   *ptr )
 
   {
   {
-  tmp = __builtin_expect((unsigned long )ptr > 0xfffffffffffff000UL, 0L);
+  tmp = ldv__builtin_expect((unsigned long )ptr > 0xfffffffffffff000UL, 0L);
   }
   return (tmp != 0L);
 }
@@ -8238,7 +8238,7 @@ static int ncp_readdir(struct file *file , struct dir_context *ctx )
   {
   dent = (ctl.cache)->dentry[ctl.idx];
   tmp___10 = lockref_get_not_dead(& dent->d_lockref);
-  tmp___11 = __builtin_expect(tmp___10 == 0, 0L);
+  tmp___11 = ldv__builtin_expect(tmp___10 == 0, 0L);
   }
   if (tmp___11 != 0L) {
     {
@@ -8447,7 +8447,7 @@ static int ncp_fill_cache(struct file *file , struct dir_context *ctx , struct n
   qname.name = (unsigned char const   *)(& __name);
   newdent = d_hash_and_lookup(dentry, & qname);
   tmp___2 = IS_ERR((void const   *)newdent);
-  tmp___3 = __builtin_expect((long )tmp___2, 0L);
+  tmp___3 = ldv__builtin_expect((long )tmp___2, 0L);
   }
   if (tmp___3 != 0L) {
     goto end_advance;
@@ -10267,7 +10267,7 @@ __inline static unsigned long copy_from_user(void *to , void const   *from , uns
   {
   sz = -1;
   might_fault();
-  tmp = __builtin_expect(sz < 0, 1L);
+  tmp = ldv__builtin_expect(sz < 0, 1L);
   }
   if (tmp != 0L) {
     {
@@ -10275,7 +10275,7 @@ __inline static unsigned long copy_from_user(void *to , void const   *from , uns
     }
   } else {
     {
-    tmp___0 = __builtin_expect((unsigned long )sz >= n, 1L);
+    tmp___0 = ldv__builtin_expect((unsigned long )sz >= n, 1L);
     }
     if (tmp___0 != 0L) {
       {
@@ -13395,7 +13395,7 @@ void ldv_dummy_resourceless_instance_callback_6_3(int (*arg0)(struct vm_area_str
                                                               struct vm_fault * ) ,
                                                   struct vm_area_struct *arg1 , struct vm_fault *arg2 ) ;
 void ldv_entry_EMGentry_13(void *arg0 ) ;
-void main(void) ;
+int main(void) ;
 int ldv_register_filesystem(int arg0 , struct file_system_type *arg1 ) ;
 void ldv_struct_address_space_operations_dummy_resourceless_instance_2(void *arg0 ) ;
 void ldv_struct_dentry_operations_dummy_resourceless_instance_3(void *arg0 ) ;
@@ -13811,7 +13811,7 @@ void ldv_entry_EMGentry_13(void *arg0 )
   return;
 }
 }
-void main(void) 
+int main(void) 
 { 
 
 
@@ -13820,7 +13820,7 @@ void main(void)
   ldv_ldv_initialize_140();
   ldv_entry_EMGentry_13((void *)0);
   }
-  return;
+return 0;
 }
 }
 void ldv_file_operations_instance_callback_0_22(int (*arg0)(struct file * , long long  ,
@@ -14945,7 +14945,7 @@ __inline static unsigned long copy_to_user(void *to , void const   *from , unsig
   {
   sz = -1;
   might_fault();
-  tmp = __builtin_expect(sz < 0, 1L);
+  tmp = ldv__builtin_expect(sz < 0, 1L);
   }
   if (tmp != 0L) {
     {
@@ -14953,7 +14953,7 @@ __inline static unsigned long copy_to_user(void *to , void const   *from , unsig
     }
   } else {
     {
-    tmp___0 = __builtin_expect((unsigned long )sz >= n, 1L);
+    tmp___0 = ldv__builtin_expect((unsigned long )sz >= n, 1L);
     }
     if (tmp___0 != 0L) {
       {
@@ -17498,7 +17498,6 @@ __inline static struct page *alloc_pages(gfp_t flags , unsigned int order )
   return ((struct page *)tmp);
 }
 }
-int __builtin_bswap32(int  ) ;
 extern void ldv_after_alloc(void * ) ;
 static void ldv_mutex_lock_92___2(struct mutex *ldv_func_arg1 ) ;
 __inline static __u16 __fswab16(__u16 val ) 
@@ -24232,7 +24231,7 @@ void ldv_linux_usb_urb_check_final_state(void)
 }
 }
 extern void ldv_assert(char const   * , int  ) ;
-void __builtin_trap(void) ;
+void ldv__builtin_trap(void) ;
 void ldv_assume(int expression ) 
 { 
 
@@ -24256,7 +24255,7 @@ void ldv_stop(void)
   goto ldv_stop_label;
 }
 }
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 
@@ -24264,7 +24263,7 @@ long __builtin_expect(long exp , long c )
   return (exp);
 }
 }
-void __builtin_trap(void) 
+void ldv__builtin_trap(void) 
 { 
 
 

@@ -4623,7 +4623,7 @@ struct ldv_thread {
    void (*function)(void * ) ;
 };
 typedef _Bool ldv_set;
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 void *ldv_dev_get_drvdata(struct device  const  *dev ) ;
 int ldv_dev_set_drvdata(struct device *dev , void *data ) ;
 static void ldv_mutex_lock_28(struct mutex *ldv_func_arg1 ) ;
@@ -4781,7 +4781,7 @@ __inline static unsigned long copy_from_user(void *to , void const   *from , uns
   {
   sz = -1;
   might_fault();
-  tmp = __builtin_expect(sz < 0, 1L);
+  tmp = ldv__builtin_expect(sz < 0, 1L);
   }
   if (tmp != 0L) {
     {
@@ -4789,7 +4789,7 @@ __inline static unsigned long copy_from_user(void *to , void const   *from , uns
     }
   } else {
     {
-    tmp___0 = __builtin_expect((unsigned long )sz >= n, 1L);
+    tmp___0 = ldv__builtin_expect((unsigned long )sz >= n, 1L);
     }
     if (tmp___0 != 0L) {
       {
@@ -4814,7 +4814,7 @@ __inline static unsigned long copy_to_user(void *to , void const   *from , unsig
   {
   sz = -1;
   might_fault();
-  tmp = __builtin_expect(sz < 0, 1L);
+  tmp = ldv__builtin_expect(sz < 0, 1L);
   }
   if (tmp != 0L) {
     {
@@ -4822,7 +4822,7 @@ __inline static unsigned long copy_to_user(void *to , void const   *from , unsig
     }
   } else {
     {
-    tmp___0 = __builtin_expect((unsigned long )sz >= n, 1L);
+    tmp___0 = ldv__builtin_expect((unsigned long )sz >= n, 1L);
     }
     if (tmp___0 != 0L) {
       {
@@ -4951,7 +4951,7 @@ static int wl1273_fm_write_fw(struct wl1273_core *core , __u8 *fw , int len )
   descriptor.format = "%s:len[%d]: %d\n";
   descriptor.lineno = 122U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -4984,7 +4984,7 @@ static int wl1273_fm_write_fw(struct wl1273_core *core , __u8 *fw , int len )
   descriptor___0.format = "%s: i: %d\n";
   descriptor___0.lineno = 129U;
   descriptor___0.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -5001,7 +5001,7 @@ static int wl1273_fm_write_fw(struct wl1273_core *core , __u8 *fw , int len )
   descriptor___1.format = "%s: len + 1: %d\n";
   descriptor___1.lineno = 130U;
   descriptor___1.flags = 0U;
-  tmp___1 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -5113,7 +5113,7 @@ static int wl1273_fm_rds(struct wl1273_device *radio )
     descriptor.format = "RDS OVERFLOW";
     descriptor.lineno = 215U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -5207,7 +5207,7 @@ static irqreturn_t wl1273_fm_irq_thread_handler(int irq , void *dev_id )
     descriptor.format = "IRQ: BL\n";
     descriptor.lineno = 243U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -5235,7 +5235,7 @@ static irqreturn_t wl1273_fm_irq_thread_handler(int irq , void *dev_id )
     descriptor___0.format = "IRQ: BBLK\n";
     descriptor___0.lineno = 253U;
     descriptor___0.flags = 0U;
-    tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -5255,7 +5255,7 @@ static irqreturn_t wl1273_fm_irq_thread_handler(int irq , void *dev_id )
     descriptor___1.format = "IRQ: LSYNC\n";
     descriptor___1.lineno = 256U;
     descriptor___1.flags = 0U;
-    tmp___1 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
     }
     if (tmp___1 != 0L) {
       {
@@ -5284,7 +5284,7 @@ static irqreturn_t wl1273_fm_irq_thread_handler(int irq , void *dev_id )
       descriptor___2.format = "IRQ: LEV: 0x%x04\n";
       descriptor___2.lineno = 266U;
       descriptor___2.flags = 0U;
-      tmp___2 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+      tmp___2 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
       }
       if (tmp___2 != 0L) {
         {
@@ -5308,7 +5308,7 @@ static irqreturn_t wl1273_fm_irq_thread_handler(int irq , void *dev_id )
     descriptor___3.format = "IRQ: IFFR\n";
     descriptor___3.lineno = 270U;
     descriptor___3.flags = 0U;
-    tmp___3 = __builtin_expect((long )descriptor___3.flags & 1L, 0L);
+    tmp___3 = ldv__builtin_expect((long )descriptor___3.flags & 1L, 0L);
     }
     if (tmp___3 != 0L) {
       {
@@ -5328,7 +5328,7 @@ static irqreturn_t wl1273_fm_irq_thread_handler(int irq , void *dev_id )
     descriptor___4.format = "IRQ: PI\n";
     descriptor___4.lineno = 273U;
     descriptor___4.flags = 0U;
-    tmp___4 = __builtin_expect((long )descriptor___4.flags & 1L, 0L);
+    tmp___4 = ldv__builtin_expect((long )descriptor___4.flags & 1L, 0L);
     }
     if (tmp___4 != 0L) {
       {
@@ -5348,7 +5348,7 @@ static irqreturn_t wl1273_fm_irq_thread_handler(int irq , void *dev_id )
     descriptor___5.format = "IRQ: PD\n";
     descriptor___5.lineno = 276U;
     descriptor___5.flags = 0U;
-    tmp___5 = __builtin_expect((long )descriptor___5.flags & 1L, 0L);
+    tmp___5 = ldv__builtin_expect((long )descriptor___5.flags & 1L, 0L);
     }
     if (tmp___5 != 0L) {
       {
@@ -5368,7 +5368,7 @@ static irqreturn_t wl1273_fm_irq_thread_handler(int irq , void *dev_id )
     descriptor___6.format = "IRQ: STIC\n";
     descriptor___6.lineno = 279U;
     descriptor___6.flags = 0U;
-    tmp___6 = __builtin_expect((long )descriptor___6.flags & 1L, 0L);
+    tmp___6 = ldv__builtin_expect((long )descriptor___6.flags & 1L, 0L);
     }
     if (tmp___6 != 0L) {
       {
@@ -5388,7 +5388,7 @@ static irqreturn_t wl1273_fm_irq_thread_handler(int irq , void *dev_id )
     descriptor___7.format = "IRQ: MAL\n";
     descriptor___7.lineno = 282U;
     descriptor___7.flags = 0U;
-    tmp___7 = __builtin_expect((long )descriptor___7.flags & 1L, 0L);
+    tmp___7 = ldv__builtin_expect((long )descriptor___7.flags & 1L, 0L);
     }
     if (tmp___7 != 0L) {
       {
@@ -5409,7 +5409,7 @@ static irqreturn_t wl1273_fm_irq_thread_handler(int irq , void *dev_id )
     descriptor___8.format = "NOT BUSY\n";
     descriptor___8.lineno = 286U;
     descriptor___8.flags = 0U;
-    tmp___8 = __builtin_expect((long )descriptor___8.flags & 1L, 0L);
+    tmp___8 = ldv__builtin_expect((long )descriptor___8.flags & 1L, 0L);
     }
     if (tmp___8 != 0L) {
       {
@@ -5425,7 +5425,7 @@ static irqreturn_t wl1273_fm_irq_thread_handler(int irq , void *dev_id )
     descriptor___9.format = "IRQ: POW_ENB\n";
     descriptor___9.lineno = 287U;
     descriptor___9.flags = 0U;
-    tmp___9 = __builtin_expect((long )descriptor___9.flags & 1L, 0L);
+    tmp___9 = ldv__builtin_expect((long )descriptor___9.flags & 1L, 0L);
     }
     if (tmp___9 != 0L) {
       {
@@ -5445,7 +5445,7 @@ static irqreturn_t wl1273_fm_irq_thread_handler(int irq , void *dev_id )
     descriptor___10.format = "IRQ: SCAN_OVER\n";
     descriptor___10.lineno = 291U;
     descriptor___10.flags = 0U;
-    tmp___10 = __builtin_expect((long )descriptor___10.flags & 1L, 0L);
+    tmp___10 = ldv__builtin_expect((long )descriptor___10.flags & 1L, 0L);
     }
     if (tmp___10 != 0L) {
       {
@@ -5465,7 +5465,7 @@ static irqreturn_t wl1273_fm_irq_thread_handler(int irq , void *dev_id )
     descriptor___11.format = "IRQ: ERROR\n";
     descriptor___11.lineno = 294U;
     descriptor___11.flags = 0U;
-    tmp___11 = __builtin_expect((long )descriptor___11.flags & 1L, 0L);
+    tmp___11 = ldv__builtin_expect((long )descriptor___11.flags & 1L, 0L);
     }
     if (tmp___11 != 0L) {
       {
@@ -5485,7 +5485,7 @@ static irqreturn_t wl1273_fm_irq_thread_handler(int irq , void *dev_id )
     descriptor___12.format = "IRQ: FR:\n";
     descriptor___12.lineno = 299U;
     descriptor___12.flags = 0U;
-    tmp___12 = __builtin_expect((long )descriptor___12.flags & 1L, 0L);
+    tmp___12 = ldv__builtin_expect((long )descriptor___12.flags & 1L, 0L);
     }
     if (tmp___12 != 0L) {
       {
@@ -5528,7 +5528,7 @@ static irqreturn_t wl1273_fm_irq_thread_handler(int irq , void *dev_id )
       descriptor___13.format = "%dkHz\n";
       descriptor___13.lineno = 327U;
       descriptor___13.flags = 0U;
-      tmp___13 = __builtin_expect((long )descriptor___13.flags & 1L, 0L);
+      tmp___13 = ldv__builtin_expect((long )descriptor___13.flags & 1L, 0L);
       }
       if (tmp___13 != 0L) {
         {
@@ -5554,7 +5554,7 @@ static irqreturn_t wl1273_fm_irq_thread_handler(int irq , void *dev_id )
       descriptor___14.format = "%dkHz\n";
       descriptor___14.lineno = 334U;
       descriptor___14.flags = 0U;
-      tmp___14 = __builtin_expect((long )descriptor___14.flags & 1L, 0L);
+      tmp___14 = ldv__builtin_expect((long )descriptor___14.flags & 1L, 0L);
       }
       if (tmp___14 != 0L) {
         {
@@ -5572,7 +5572,7 @@ static irqreturn_t wl1273_fm_irq_thread_handler(int irq , void *dev_id )
     descriptor___15.format = "%s: NOT BUSY\n";
     descriptor___15.lineno = 336U;
     descriptor___15.flags = 0U;
-    tmp___15 = __builtin_expect((long )descriptor___15.flags & 1L, 0L);
+    tmp___15 = ldv__builtin_expect((long )descriptor___15.flags & 1L, 0L);
     }
     if (tmp___15 != 0L) {
       {
@@ -5637,7 +5637,7 @@ static int wl1273_fm_set_tx_freq(struct wl1273_device *radio , unsigned int freq
   descriptor.format = "%s: freq: %d kHz\n";
   descriptor.lineno = 371U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -5673,7 +5673,7 @@ static int wl1273_fm_set_tx_freq(struct wl1273_device *radio , unsigned int freq
   descriptor___0.format = "WL1273_CHANL_SET: %d\n";
   descriptor___0.lineno = 385U;
   descriptor___0.flags = 0U;
-  tmp___2 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___2 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
   }
   if (tmp___2 != 0L) {
     {
@@ -5710,7 +5710,7 @@ static int wl1273_fm_set_tx_freq(struct wl1273_device *radio , unsigned int freq
   descriptor___1.format = "WL1273_POWER_ENB_SET: %d\n";
   descriptor___1.lineno = 400U;
   descriptor___1.flags = 0U;
-  tmp___5 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+  tmp___5 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
   }
   if (tmp___5 != 0L) {
     {
@@ -5762,7 +5762,7 @@ static int wl1273_fm_set_rx_freq(struct wl1273_device *radio , unsigned int freq
   descriptor.format = "%s: %dkHz\n";
   descriptor.lineno = 426U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -5851,7 +5851,7 @@ static int wl1273_fm_get_freq(struct wl1273_device *radio )
     descriptor.format = "Freq get: 0x%04x\n";
     descriptor.lineno = 475U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -5908,7 +5908,7 @@ static int wl1273_fm_upload_firmware_patch(struct wl1273_device *radio )
   descriptor.format = "%s:\n";
   descriptor.lineno = 509U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -5938,7 +5938,7 @@ static int wl1273_fm_upload_firmware_patch(struct wl1273_device *radio )
   descriptor___0.format = "%s: packets: %d\n";
   descriptor___0.lineno = 523U;
   descriptor___0.flags = 0U;
-  tmp___1 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -5967,7 +5967,7 @@ static int wl1273_fm_upload_firmware_patch(struct wl1273_device *radio )
   descriptor___1.format = "%s - download OK, r: %d\n";
   descriptor___1.lineno = 534U;
   descriptor___1.flags = 0U;
-  tmp___2 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+  tmp___2 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
   }
   if (tmp___2 != 0L) {
     {
@@ -6035,7 +6035,7 @@ static int wl1273_fm_stop(struct wl1273_device *radio )
     descriptor.format = "Back to reset\n";
     descriptor.lineno = 560U;
     descriptor.flags = 0U;
-    tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp___1 != 0L) {
       {
@@ -6076,7 +6076,7 @@ static int wl1273_fm_start(struct wl1273_device *radio , int new_mode )
     descriptor.format = "Out of reset\n";
     descriptor.lineno = 574U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -6219,7 +6219,7 @@ static int wl1273_fm_start(struct wl1273_device *radio , int new_mode )
   descriptor___0.format = "%s: return: %d\n";
   descriptor___0.lineno = 658U;
   descriptor___0.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -6290,7 +6290,7 @@ static int wl1273_fm_set_mode(struct wl1273_device *radio , int mode )
   descriptor.format = "%s\n";
   descriptor.lineno = 693U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -6306,7 +6306,7 @@ static int wl1273_fm_set_mode(struct wl1273_device *radio , int mode )
   descriptor___0.format = "Forbidden modes: 0x%02x\n";
   descriptor___0.lineno = 694U;
   descriptor___0.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -6401,7 +6401,7 @@ static int wl1273_fm_set_mode(struct wl1273_device *radio , int mode )
     descriptor___1.format = "%s: Set vol: %d.\n";
     descriptor___1.lineno = 734U;
     descriptor___1.flags = 0U;
-    tmp___1 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
     }
     if (tmp___1 != 0L) {
       {
@@ -6431,7 +6431,7 @@ static int wl1273_fm_set_mode(struct wl1273_device *radio , int mode )
   descriptor___2.format = "%s: Set audio mode.\n";
   descriptor___2.lineno = 743U;
   descriptor___2.flags = 0U;
-  tmp___2 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+  tmp___2 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
   }
   if (tmp___2 != 0L) {
     {
@@ -6531,7 +6531,7 @@ static int wl1273_fm_set_seek(struct wl1273_device *radio , unsigned int wrap_ar
   descriptor.format = "rx_frequency: %d\n";
   descriptor.lineno = 791U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -6581,7 +6581,7 @@ static int wl1273_fm_set_seek(struct wl1273_device *radio , unsigned int wrap_ar
   descriptor___0.format = "%s: BUSY\n";
   descriptor___0.lineno = 809U;
   descriptor___0.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -6606,7 +6606,7 @@ static int wl1273_fm_set_seek(struct wl1273_device *radio , unsigned int wrap_ar
   descriptor___1.format = "%s\n";
   descriptor___1.lineno = 815U;
   descriptor___1.flags = 0U;
-  tmp___1 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -6662,7 +6662,7 @@ static int wl1273_fm_set_seek(struct wl1273_device *radio , unsigned int wrap_ar
   descriptor___2.format = "Wrap around in HW seek.\n";
   descriptor___2.lineno = 839U;
   descriptor___2.flags = 0U;
-  tmp___3 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+  tmp___3 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
   }
   if (tmp___3 != 0L) {
     {
@@ -6692,7 +6692,7 @@ static int wl1273_fm_set_seek(struct wl1273_device *radio , unsigned int wrap_ar
   descriptor___3.format = "%s: BUSY\n";
   descriptor___3.lineno = 851U;
   descriptor___3.flags = 0U;
-  tmp___4 = __builtin_expect((long )descriptor___3.flags & 1L, 0L);
+  tmp___4 = ldv__builtin_expect((long )descriptor___3.flags & 1L, 0L);
   }
   if (tmp___4 != 0L) {
     {
@@ -6722,7 +6722,7 @@ static int wl1273_fm_set_seek(struct wl1273_device *radio , unsigned int wrap_ar
   descriptor___4.format = "%s: Err: %d\n";
   descriptor___4.lineno = 859U;
   descriptor___4.flags = 0U;
-  tmp___6 = __builtin_expect((long )descriptor___4.flags & 1L, 0L);
+  tmp___6 = ldv__builtin_expect((long )descriptor___4.flags & 1L, 0L);
   }
   if (tmp___6 != 0L) {
     {
@@ -6846,7 +6846,7 @@ static int wl1273_fm_rds_on(struct wl1273_device *radio )
   descriptor.format = "%s\n";
   descriptor.lineno = 940U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -6915,7 +6915,7 @@ static int wl1273_fm_rds_off(struct wl1273_device *radio )
   descriptor.format = "%s\n";
   descriptor.lineno = 973U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -6950,7 +6950,7 @@ static int wl1273_fm_rds_off(struct wl1273_device *radio )
   descriptor___0.format = "%s: exiting...\n";
   descriptor___0.lineno = 983U;
   descriptor___0.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -7048,7 +7048,7 @@ static ssize_t wl1273_fm_fops_write(struct file *file , char const   *buf , size
   descriptor.format = "%s\n";
   descriptor.lineno = 1030U;
   descriptor.flags = 0U;
-  tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -7107,7 +7107,7 @@ static ssize_t wl1273_fm_fops_write(struct file *file , char const   *buf , size
   descriptor___0.format = "Count: %d\n";
   descriptor___0.lineno = 1065U;
   descriptor___0.flags = 0U;
-  tmp___4 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___4 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
   }
   if (tmp___4 != 0L) {
     {
@@ -7124,7 +7124,7 @@ static ssize_t wl1273_fm_fops_write(struct file *file , char const   *buf , size
   descriptor___1.format = "From user: \"%s\"\n";
   descriptor___1.lineno = 1066U;
   descriptor___1.flags = 0U;
-  tmp___5 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+  tmp___5 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
   }
   if (tmp___5 != 0L) {
     {
@@ -7210,7 +7210,7 @@ static int wl1273_fm_fops_open(struct file *file )
   descriptor.format = "%s\n";
   descriptor.lineno = 1108U;
   descriptor.flags = 0U;
-  tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -7227,7 +7227,7 @@ static int wl1273_fm_fops_open(struct file *file )
     descriptor___0.format = "%s: Mode: %d\n";
     descriptor___0.lineno = 1112U;
     descriptor___0.flags = 0U;
-    tmp___2 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___2 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___2 != 0L) {
       {
@@ -7292,7 +7292,7 @@ static int wl1273_fm_fops_release(struct file *file )
   descriptor.format = "%s\n";
   descriptor.lineno = 1140U;
   descriptor.flags = 0U;
-  tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -7384,7 +7384,7 @@ static ssize_t wl1273_fm_fops_read(struct file *file , char *buf , size_t count 
   descriptor.format = "%s\n";
   descriptor.lineno = 1178U;
   descriptor.flags = 0U;
-  tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -7454,7 +7454,7 @@ static ssize_t wl1273_fm_fops_read(struct file *file , char *buf , size_t count 
   descriptor___0.format = "%s: Wait for RDS data.\n";
   descriptor___0.lineno = 1218U;
   descriptor___0.flags = 0U;
-  tmp___3 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___3 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
   }
   if (tmp___3 != 0L) {
     {
@@ -7552,7 +7552,7 @@ static ssize_t wl1273_fm_fops_read(struct file *file , char *buf , size_t count 
   descriptor___1.format = "%s: exit\n";
   descriptor___1.lineno = 1252U;
   descriptor___1.flags = 0U;
-  tmp___6 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+  tmp___6 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
   }
   if (tmp___6 != 0L) {
     {
@@ -7590,7 +7590,7 @@ static int wl1273_fm_vidioc_querycap(struct file *file , void *priv , struct v4l
   descriptor.format = "%s\n";
   descriptor.lineno = 1273U;
   descriptor.flags = 0U;
-  tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -7627,7 +7627,7 @@ static int wl1273_fm_vidioc_g_input(struct file *file , void *priv , unsigned in
   descriptor.format = "%s\n";
   descriptor.lineno = 1295U;
   descriptor.flags = 0U;
-  tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -7659,7 +7659,7 @@ static int wl1273_fm_vidioc_s_input(struct file *file , void *priv , unsigned in
   descriptor.format = "%s\n";
   descriptor.lineno = 1307U;
   descriptor.flags = 0U;
-  tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -7757,7 +7757,7 @@ static int wl1273_fm_g_volatile_ctrl(struct v4l2_ctrl *ctrl )
   descriptor.format = "%s\n";
   descriptor.lineno = 1379U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -7835,7 +7835,7 @@ static int wl1273_fm_vidioc_s_ctrl(struct v4l2_ctrl *ctrl )
   descriptor.format = "%s\n";
   descriptor.lineno = 1417U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -7938,7 +7938,7 @@ static int wl1273_fm_vidioc_s_ctrl(struct v4l2_ctrl *ctrl )
   descriptor___0.format = "%s\n";
   descriptor___0.lineno = 1461U;
   descriptor___0.flags = 0U;
-  tmp___2 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___2 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
   }
   if (tmp___2 != 0L) {
     {
@@ -7970,7 +7970,7 @@ static int wl1273_fm_vidioc_g_audio(struct file *file , void *priv , struct v4l2
   descriptor.format = "%s\n";
   descriptor.lineno = 1470U;
   descriptor.flags = 0U;
-  tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -8010,7 +8010,7 @@ static int wl1273_fm_vidioc_s_audio(struct file *file , void *priv , struct v4l2
   descriptor.format = "%s\n";
   descriptor.lineno = 1486U;
   descriptor.flags = 0U;
-  tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -8053,7 +8053,7 @@ static int wl1273_fm_vidioc_g_tuner(struct file *file , void *priv , struct v4l2
   descriptor.format = "%s\n";
   descriptor.lineno = 1505U;
   descriptor.flags = 0U;
-  tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -8121,7 +8121,7 @@ static int wl1273_fm_vidioc_g_tuner(struct file *file , void *priv , struct v4l2
   descriptor___0.format = "Signal: %d\n";
   descriptor___0.lineno = 1545U;
   descriptor___0.flags = 0U;
-  tmp___3 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___3 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
   }
   if (tmp___3 != 0L) {
     {
@@ -8188,7 +8188,7 @@ static int wl1273_fm_vidioc_s_tuner(struct file *file , void *priv , struct v4l2
   descriptor.format = "%s\n";
   descriptor.lineno = 1568U;
   descriptor.flags = 0U;
-  tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -8204,7 +8204,7 @@ static int wl1273_fm_vidioc_s_tuner(struct file *file , void *priv , struct v4l2
   descriptor___0.format = "tuner->index: %d\n";
   descriptor___0.lineno = 1569U;
   descriptor___0.flags = 0U;
-  tmp___2 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___2 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
   }
   if (tmp___2 != 0L) {
     {
@@ -8221,7 +8221,7 @@ static int wl1273_fm_vidioc_s_tuner(struct file *file , void *priv , struct v4l2
   descriptor___1.format = "tuner->name: %s\n";
   descriptor___1.lineno = 1570U;
   descriptor___1.flags = 0U;
-  tmp___3 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+  tmp___3 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
   }
   if (tmp___3 != 0L) {
     {
@@ -8238,7 +8238,7 @@ static int wl1273_fm_vidioc_s_tuner(struct file *file , void *priv , struct v4l2
   descriptor___2.format = "tuner->capability: 0x%04x\n";
   descriptor___2.lineno = 1571U;
   descriptor___2.flags = 0U;
-  tmp___4 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+  tmp___4 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
   }
   if (tmp___4 != 0L) {
     {
@@ -8255,7 +8255,7 @@ static int wl1273_fm_vidioc_s_tuner(struct file *file , void *priv , struct v4l2
   descriptor___3.format = "tuner->rxsubchans: 0x%04x\n";
   descriptor___3.lineno = 1572U;
   descriptor___3.flags = 0U;
-  tmp___5 = __builtin_expect((long )descriptor___3.flags & 1L, 0L);
+  tmp___5 = ldv__builtin_expect((long )descriptor___3.flags & 1L, 0L);
   }
   if (tmp___5 != 0L) {
     {
@@ -8272,7 +8272,7 @@ static int wl1273_fm_vidioc_s_tuner(struct file *file , void *priv , struct v4l2
   descriptor___4.format = "tuner->rangelow: %d\n";
   descriptor___4.lineno = 1573U;
   descriptor___4.flags = 0U;
-  tmp___6 = __builtin_expect((long )descriptor___4.flags & 1L, 0L);
+  tmp___6 = ldv__builtin_expect((long )descriptor___4.flags & 1L, 0L);
   }
   if (tmp___6 != 0L) {
     {
@@ -8289,7 +8289,7 @@ static int wl1273_fm_vidioc_s_tuner(struct file *file , void *priv , struct v4l2
   descriptor___5.format = "tuner->rangehigh: %d\n";
   descriptor___5.lineno = 1574U;
   descriptor___5.flags = 0U;
-  tmp___7 = __builtin_expect((long )descriptor___5.flags & 1L, 0L);
+  tmp___7 = ldv__builtin_expect((long )descriptor___5.flags & 1L, 0L);
   }
   if (tmp___7 != 0L) {
     {
@@ -8404,7 +8404,7 @@ static int wl1273_fm_vidioc_g_frequency(struct file *file , void *priv , struct 
   descriptor.format = "%s\n";
   descriptor.lineno = 1629U;
   descriptor.flags = 0U;
-  tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -8459,7 +8459,7 @@ static int wl1273_fm_vidioc_s_frequency(struct file *file , void *priv , struct 
   descriptor.format = "%s: %d\n";
   descriptor.lineno = 1649U;
   descriptor.flags = 0U;
-  tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -8477,7 +8477,7 @@ static int wl1273_fm_vidioc_s_frequency(struct file *file , void *priv , struct 
     descriptor___0.format = "freq->type != V4L2_TUNER_RADIO: %d\n";
     descriptor___0.lineno = 1653U;
     descriptor___0.flags = 0U;
-    tmp___2 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___2 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___2 != 0L) {
       {
@@ -8507,7 +8507,7 @@ static int wl1273_fm_vidioc_s_frequency(struct file *file , void *priv , struct 
     descriptor___1.format = "freq: %d\n";
     descriptor___1.lineno = 1661U;
     descriptor___1.flags = 0U;
-    tmp___4 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___4 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
     }
     if (tmp___4 != 0L) {
       {
@@ -8549,7 +8549,7 @@ static int wl1273_fm_vidioc_s_frequency(struct file *file , void *priv , struct 
   descriptor___2.format = "wl1273_vidioc_s_frequency: DONE\n";
   descriptor___2.lineno = 1678U;
   descriptor___2.flags = 0U;
-  tmp___5 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+  tmp___5 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
   }
   if (tmp___5 != 0L) {
     {
@@ -8584,7 +8584,7 @@ static int wl1273_fm_vidioc_s_hw_freq_seek(struct file *file , void *priv , stru
   descriptor.format = "%s\n";
   descriptor.lineno = 1691U;
   descriptor.flags = 0U;
-  tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -8670,7 +8670,7 @@ static int wl1273_fm_vidioc_s_modulator(struct file *file , void *priv , struct 
   descriptor.format = "%s\n";
   descriptor.lineno = 1727U;
   descriptor.flags = 0U;
-  tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -8757,7 +8757,7 @@ static int wl1273_fm_vidioc_g_modulator(struct file *file , void *priv , struct 
   descriptor.format = "%s\n";
   descriptor.lineno = 1766U;
   descriptor.flags = 0U;
-  tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -9210,7 +9210,7 @@ static int wl1273_fm_radio_probe(struct platform_device *pdev )
   descriptor.format = "%s\n";
   descriptor.lineno = 2001U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -9288,7 +9288,7 @@ static int wl1273_fm_radio_probe(struct platform_device *pdev )
     descriptor___0.format = "irq: %d\n";
     descriptor___0.lineno = 2050U;
     descriptor___0.flags = 0U;
-    tmp___2 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___2 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___2 != 0L) {
       {
@@ -9456,7 +9456,7 @@ void ldv_dummy_resourceless_instance_callback_4_3(int (*arg0)(struct v4l2_ctrl *
 void ldv_dummy_resourceless_instance_callback_4_7(int (*arg0)(struct v4l2_ctrl * ) ,
                                                   struct v4l2_ctrl *arg1 ) ;
 void ldv_entry_EMGentry_10(void *arg0 ) ;
-void main(void) ;
+int main(void) ;
 void ldv_file_operations_file_operations_instance_0(void *arg0 ) ;
 int ldv_file_operations_instance_probe_0_12(int (*arg0)(struct inode * , struct file * ) ,
                                             struct inode *arg1 , struct file *arg2 ) ;
@@ -10113,7 +10113,7 @@ void ldv_entry_EMGentry_10(void *arg0 )
   return;
 }
 }
-void main(void) 
+int main(void) 
 { 
   int tmp ;
 
@@ -13301,7 +13301,7 @@ void *ldv_kzalloc(size_t size , gfp_t flags )
 }
 }
 extern void ldv_assert(char const   * , int  ) ;
-void __builtin_trap(void) ;
+void ldv__builtin_trap(void) ;
 void ldv_assume(int expression ) 
 { 
 
@@ -13325,7 +13325,7 @@ void ldv_stop(void)
   goto ldv_stop_label;
 }
 }
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 
@@ -13333,7 +13333,7 @@ long __builtin_expect(long exp , long c )
   return (exp);
 }
 }
-void __builtin_trap(void) 
+void ldv__builtin_trap(void) 
 { 
 
 

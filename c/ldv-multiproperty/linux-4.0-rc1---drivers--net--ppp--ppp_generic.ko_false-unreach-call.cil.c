@@ -6665,7 +6665,7 @@ struct ldv_thread {
    void (*function)(void * ) ;
 };
 typedef _Bool ldv_set;
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 void ldv_assume(int expression ) ;
 void ldv_stop(void) ;
 void ldv_linux_alloc_irq_check_alloc_flags(gfp_t flags ) ;
@@ -7003,7 +7003,6 @@ extern void *__memcpy(void * , void const   * , size_t  ) ;
 extern void *__memset(void * , int  , size_t  ) ;
 extern size_t strlen(char const   * ) ;
 extern void warn_slowpath_null(char const   * , int const    ) ;
-extern int ( /* missing proto */  __builtin_unreachable)() ;
 __inline static long PTR_ERR(void const   *ptr ) ;
 __inline static bool IS_ERR(void const   *ptr ) 
 { 
@@ -7011,7 +7010,7 @@ __inline static bool IS_ERR(void const   *ptr )
 
   {
   {
-  tmp = __builtin_expect((unsigned long )ptr > 0xfffffffffffff000UL, 0L);
+  tmp = ldv__builtin_expect((unsigned long )ptr > 0xfffffffffffff000UL, 0L);
   }
   return (tmp != 0L);
 }
@@ -7304,7 +7303,7 @@ __inline static int signal_pending(struct task_struct *p )
   {
   {
   tmp = test_tsk_thread_flag(p, 2);
-  tmp___0 = __builtin_expect(tmp != 0, 0L);
+  tmp___0 = ldv__builtin_expect(tmp != 0, 0L);
   }
   return ((int )tmp___0);
 }
@@ -7327,7 +7326,7 @@ __inline static unsigned long copy_from_user(void *to , void const   *from , uns
   {
   sz = -1;
   might_fault();
-  tmp = __builtin_expect(sz < 0, 1L);
+  tmp = ldv__builtin_expect(sz < 0, 1L);
   }
   if (tmp != 0L) {
     {
@@ -7335,7 +7334,7 @@ __inline static unsigned long copy_from_user(void *to , void const   *from , uns
     }
   } else {
     {
-    tmp___0 = __builtin_expect((unsigned long )sz >= n, 1L);
+    tmp___0 = ldv__builtin_expect((unsigned long )sz >= n, 1L);
     }
     if (tmp___0 != 0L) {
       {
@@ -7360,7 +7359,7 @@ __inline static unsigned long copy_to_user(void *to , void const   *from , unsig
   {
   sz = -1;
   might_fault();
-  tmp = __builtin_expect(sz < 0, 1L);
+  tmp = ldv__builtin_expect(sz < 0, 1L);
   }
   if (tmp != 0L) {
     {
@@ -7368,7 +7367,7 @@ __inline static unsigned long copy_to_user(void *to , void const   *from , unsig
     }
   } else {
     {
-    tmp___0 = __builtin_expect((unsigned long )sz >= n, 1L);
+    tmp___0 = ldv__builtin_expect((unsigned long )sz >= n, 1L);
     }
     if (tmp___0 != 0L) {
       {
@@ -7423,7 +7422,7 @@ __inline static struct sk_buff *skb_queue_next(struct sk_buff_head  const  *list
   {
   {
   tmp = skb_queue_is_last(list, skb);
-  tmp___0 = __builtin_expect((long )tmp, 0L);
+  tmp___0 = ldv__builtin_expect((long )tmp, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -7629,7 +7628,7 @@ __inline static unsigned char *__skb_pull(struct sk_buff *skb , unsigned int len
   {
   {
   skb->len = skb->len - len;
-  tmp = __builtin_expect(skb->len < skb->data_len, 0L);
+  tmp = ldv__builtin_expect(skb->len < skb->data_len, 0L);
   }
   if (tmp != 0L) {
     {
@@ -7657,7 +7656,7 @@ __inline static int pskb_may_pull(struct sk_buff *skb , unsigned int len )
   {
   {
   tmp = skb_headlen((struct sk_buff  const  *)skb);
-  tmp___0 = __builtin_expect(len <= tmp, 1L);
+  tmp___0 = ldv__builtin_expect(len <= tmp, 1L);
   }
   if (tmp___0 != 0L) {
     return (1);
@@ -7665,7 +7664,7 @@ __inline static int pskb_may_pull(struct sk_buff *skb , unsigned int len )
 
   }
   {
-  tmp___1 = __builtin_expect(len > skb->len, 0L);
+  tmp___1 = ldv__builtin_expect(len > skb->len, 0L);
   }
   if (tmp___1 != 0L) {
     return (0);
@@ -7872,7 +7871,7 @@ __inline static void netif_tx_stop_queue(struct netdev_queue *dev_queue )
   {
   {
   __ret_warn_on = (unsigned long )dev_queue == (unsigned long )((struct netdev_queue *)0);
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp != 0L) {
     {
@@ -7882,7 +7881,7 @@ __inline static void netif_tx_stop_queue(struct netdev_queue *dev_queue )
 
   }
   {
-  tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -8041,7 +8040,7 @@ __inline static void *net_generic(struct net  const  *net , int id )
   }
   {
   ng = ________p1;
-  tmp___1 = __builtin_expect(id == 0, 0L);
+  tmp___1 = ldv__builtin_expect(id == 0, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -8051,7 +8050,7 @@ __inline static void *net_generic(struct net  const  *net , int id )
     }
   } else {
     {
-    tmp___2 = __builtin_expect((unsigned int )id > ng->len, 0L);
+    tmp___2 = ldv__builtin_expect((unsigned int )id > ng->len, 0L);
     }
     if (tmp___2 != 0L) {
       {
@@ -8066,7 +8065,7 @@ __inline static void *net_generic(struct net  const  *net , int id )
   {
   ptr = ng->ptr[id + -1];
   rcu_read_unlock();
-  tmp___3 = __builtin_expect((unsigned long )ptr == (unsigned long )((void *)0), 0L);
+  tmp___3 = ldv__builtin_expect((unsigned long )ptr == (unsigned long )((void *)0), 0L);
   }
   if (tmp___3 != 0L) {
     {
@@ -8127,7 +8126,7 @@ __inline static struct ppp_net *ppp_pernet(struct net *net )
 
   {
   {
-  tmp = __builtin_expect((unsigned long )net == (unsigned long )((struct net *)0),
+  tmp = ldv__builtin_expect((unsigned long )net == (unsigned long )((struct net *)0),
                          0L);
   }
   if (tmp != 0L) {
@@ -12960,7 +12959,7 @@ void ldv_dummy_resourceless_instance_callback_1_9(struct rtnl_link_stats64 *(*ar
 void ldv_dummy_resourceless_instance_callback_2_3(void (*arg0)(struct net * ) , struct net *arg1 ) ;
 void ldv_dummy_resourceless_instance_callback_2_7(int (*arg0)(struct net * ) , struct net *arg1 ) ;
 void ldv_entry_EMGentry_9(void *arg0 ) ;
-void main(void) ;
+int main(void) ;
 void ldv_file_operations_file_operations_instance_0(void *arg0 ) ;
 void ldv_file_operations_instance_callback_0_22(unsigned int (*arg0)(struct file * ,
                                                                      struct poll_table_struct * ) ,
@@ -13244,7 +13243,7 @@ void ldv_entry_EMGentry_9(void *arg0 )
   return;
 }
 }
-void main(void) 
+int main(void) 
 { 
 
 
@@ -13253,7 +13252,7 @@ void main(void)
   ldv_ldv_initialize_239();
   ldv_entry_EMGentry_9((void *)0);
   }
-  return;
+return 0;
 }
 }
 void ldv_file_operations_file_operations_instance_0(void *arg0 ) 
@@ -16644,7 +16643,7 @@ void ldv_linux_usb_urb_check_final_state(void)
 }
 }
 extern void ldv_assert(char const   * , int  ) ;
-void __builtin_trap(void) ;
+void ldv__builtin_trap(void) ;
 void ldv_assume(int expression ) 
 { 
 
@@ -16668,7 +16667,7 @@ void ldv_stop(void)
   goto ldv_stop_label;
 }
 }
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 
@@ -16676,7 +16675,7 @@ long __builtin_expect(long exp , long c )
   return (exp);
 }
 }
-void __builtin_trap(void) 
+void ldv__builtin_trap(void) 
 { 
 
 

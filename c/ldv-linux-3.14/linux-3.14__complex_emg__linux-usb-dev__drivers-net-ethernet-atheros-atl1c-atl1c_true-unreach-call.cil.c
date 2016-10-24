@@ -6224,7 +6224,7 @@ struct ldv_thread {
    int identifier ;
    void (*function)(void * ) ;
 };
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 void ldv_atomic_inc(atomic_t *v ) ;
 int ldv_atomic_dec_and_test(atomic_t *v ) ;
 void *ldv_dev_get_drvdata(struct device  const  *dev ) ;
@@ -6346,7 +6346,6 @@ extern unsigned long __phys_addr(unsigned long  ) ;
 extern void *memcpy(void * , void const   * , size_t  ) ;
 extern void *memset(void * , int  , size_t  ) ;
 extern void warn_slowpath_null(char const   * , int const    ) ;
-extern int ( /* missing proto */  __builtin_unreachable)() ;
 __inline static unsigned long arch_local_save_flags(void) 
 { 
   unsigned long __ret ;
@@ -6364,7 +6363,7 @@ __inline static unsigned long arch_local_save_flags(void)
   __edx = __edx;
   __ecx = __ecx;
   __eax = __eax;
-  tmp = __builtin_expect((unsigned long )pv_irq_ops.save_fl.func == (unsigned long )((void *)0),
+  tmp = ldv__builtin_expect((unsigned long )pv_irq_ops.save_fl.func == (unsigned long )((void *)0),
                          0L);
   }
   if (tmp != 0L) {
@@ -6399,7 +6398,7 @@ __inline static void arch_local_irq_restore(unsigned long f )
   __edx = __edx;
   __ecx = __ecx;
   __eax = __eax;
-  tmp = __builtin_expect((unsigned long )pv_irq_ops.restore_fl.func == (unsigned long )((void *)0),
+  tmp = ldv__builtin_expect((unsigned long )pv_irq_ops.restore_fl.func == (unsigned long )((void *)0),
                          0L);
   }
   if (tmp != 0L) {
@@ -6433,7 +6432,7 @@ __inline static void arch_local_irq_disable(void)
   __edx = __edx;
   __ecx = __ecx;
   __eax = __eax;
-  tmp = __builtin_expect((unsigned long )pv_irq_ops.irq_disable.func == (unsigned long )((void *)0),
+  tmp = ldv__builtin_expect((unsigned long )pv_irq_ops.irq_disable.func == (unsigned long )((void *)0),
                          0L);
   }
   if (tmp != 0L) {
@@ -6714,12 +6713,12 @@ __inline static void get_page(struct page *page )
   {
   {
   tmp___1 = PageTail((struct page  const  *)page);
-  tmp___2 = __builtin_expect(tmp___1 != 0, 0L);
+  tmp___2 = ldv__builtin_expect(tmp___1 != 0, 0L);
   }
   if (tmp___2 != 0L) {
     {
     tmp = __get_page_tail(page);
-    tmp___0 = __builtin_expect((long )tmp, 1L);
+    tmp___0 = ldv__builtin_expect((long )tmp, 1L);
     }
     if (tmp___0 != 0L) {
       return;
@@ -6731,7 +6730,7 @@ __inline static void get_page(struct page *page )
   }
   {
   tmp___3 = atomic_read((atomic_t const   *)(& page->__annonCompField43.__annonCompField42.__annonCompField41._count));
-  tmp___4 = __builtin_expect(tmp___3 <= 0, 0L);
+  tmp___4 = ldv__builtin_expect(tmp___3 <= 0, 0L);
   }
   if (tmp___4 != 0L) {
     {
@@ -6835,7 +6834,7 @@ __inline static struct dma_map_ops *get_dma_ops(struct device *dev )
 
   {
   {
-  tmp = __builtin_expect((unsigned long )dev == (unsigned long )((struct device *)0),
+  tmp = ldv__builtin_expect((unsigned long )dev == (unsigned long )((struct device *)0),
                          0L);
   }
   if (tmp != 0L || (unsigned long )dev->archdata.dma_ops == (unsigned long )((struct dma_map_ops *)0)) {
@@ -6862,7 +6861,7 @@ __inline static dma_addr_t dma_map_single_attrs(struct device *dev , void *ptr ,
   ops = tmp;
   kmemcheck_mark_initialized(ptr, (unsigned int )size);
   tmp___0 = valid_dma_direction((int )dir);
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -6898,7 +6897,7 @@ __inline static void dma_unmap_single_attrs(struct device *dev , dma_addr_t addr
   tmp = get_dma_ops(dev);
   ops = tmp;
   tmp___0 = valid_dma_direction((int )dir);
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -6942,7 +6941,7 @@ __inline static dma_addr_t dma_map_page(struct device *dev , struct page *page ,
   tmp___0 = lowmem_page_address((struct page  const  *)page);
   kmemcheck_mark_initialized(tmp___0 + offset, (unsigned int )size);
   tmp___1 = valid_dma_direction((int )dir);
-  tmp___2 = __builtin_expect(tmp___1 == 0, 0L);
+  tmp___2 = ldv__builtin_expect(tmp___1 == 0, 0L);
   }
   if (tmp___2 != 0L) {
     {
@@ -6973,7 +6972,7 @@ __inline static void dma_unmap_page(struct device *dev , dma_addr_t addr , size_
   tmp = get_dma_ops(dev);
   ops = tmp;
   tmp___0 = valid_dma_direction((int )dir);
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -7124,7 +7123,7 @@ __inline static void dma_free_attrs(struct device *dev , size_t size , void *vad
   _flags = arch_local_save_flags();
   tmp___0 = arch_irqs_disabled_flags(_flags);
   __ret_warn_on = tmp___0 != 0;
-  tmp___1 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___1 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -7135,7 +7134,7 @@ __inline static void dma_free_attrs(struct device *dev , size_t size , void *vad
 
   }
   {
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
   debug_dma_free_coherent(dev, size, vaddr, bus);
   }
   if ((unsigned long )ops->free != (unsigned long )((void (*)(struct device * , size_t  ,
@@ -7311,12 +7310,12 @@ __inline static void __skb_trim(struct sk_buff *skb , unsigned int len )
   {
   {
   tmp___0 = skb_is_nonlinear((struct sk_buff  const  *)skb);
-  tmp___1 = __builtin_expect((long )tmp___0, 0L);
+  tmp___1 = ldv__builtin_expect((long )tmp___0, 0L);
   }
   if (tmp___1 != 0L) {
     {
     __ret_warn_on = 1;
-    tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
     if (tmp != 0L) {
       {
@@ -7326,7 +7325,7 @@ __inline static void __skb_trim(struct sk_buff *skb , unsigned int len )
 
     }
     {
-    __builtin_expect(__ret_warn_on != 0, 0L);
+    ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
     return;
   } else {
@@ -7510,7 +7509,7 @@ __inline static void napi_enable(struct napi_struct *n )
   {
   {
   tmp = constant_test_bit(0L, (unsigned long const volatile   *)(& n->state));
-  tmp___0 = __builtin_expect(tmp == 0, 0L);
+  tmp___0 = ldv__builtin_expect(tmp == 0, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -7627,7 +7626,7 @@ __inline static void netif_tx_stop_queue(struct netdev_queue *dev_queue )
   {
   {
   __ret_warn_on = (unsigned long )dev_queue == (unsigned long )((struct netdev_queue *)0);
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp != 0L) {
     {
@@ -7637,7 +7636,7 @@ __inline static void netif_tx_stop_queue(struct netdev_queue *dev_queue )
 
   }
   {
-  tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -8144,7 +8143,7 @@ static void atl1c_pcie_patch(struct atl1c_hw *hw )
 
   {
   {
-  tmp = __builtin_expect((long )hw->hibernate, 0L);
+  tmp = ldv__builtin_expect((long )hw->hibernate, 0L);
   }
   if (tmp != 0L) {
     {
@@ -8162,7 +8161,7 @@ static void atl1c_pcie_patch(struct atl1c_hw *hw )
   }
   if ((unsigned int )hw->nic_type <= 1U) {
     {
-    tmp___0 = __builtin_expect((long )hw->hibernate, 0L);
+    tmp___0 = ldv__builtin_expect((long )hw->hibernate, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -8188,7 +8187,7 @@ static void atl1c_pcie_patch(struct atl1c_hw *hw )
   }
   if ((unsigned int )hw->nic_type == 2U && (unsigned int )hw->revision_id == 192U) {
     {
-    tmp___1 = __builtin_expect((long )hw->hibernate, 0L);
+    tmp___1 = ldv__builtin_expect((long )hw->hibernate, 0L);
     }
     if (tmp___1 != 0L) {
       {
@@ -8204,7 +8203,7 @@ static void atl1c_pcie_patch(struct atl1c_hw *hw )
     data = data | 196608U;
     data = data | 786432U;
     writel(data, (void volatile   *)hw->hw_addr + 4100U);
-    tmp___2 = __builtin_expect((long )hw->hibernate, 0L);
+    tmp___2 = ldv__builtin_expect((long )hw->hibernate, 0L);
     }
     if (tmp___2 != 0L) {
       {
@@ -8225,7 +8224,7 @@ static void atl1c_pcie_patch(struct atl1c_hw *hw )
   }
   if ((unsigned int )hw->nic_type == 2U || (unsigned int )hw->nic_type == 4U) {
     {
-    tmp___3 = __builtin_expect((long )hw->hibernate, 0L);
+    tmp___3 = ldv__builtin_expect((long )hw->hibernate, 0L);
     }
     if (tmp___3 != 0L) {
       {
@@ -8240,7 +8239,7 @@ static void atl1c_pcie_patch(struct atl1c_hw *hw )
     {
     data = data | 268435456U;
     writel(data, (void volatile   *)hw->hw_addr + 4856U);
-    tmp___4 = __builtin_expect((long )hw->hibernate, 0L);
+    tmp___4 = ldv__builtin_expect((long )hw->hibernate, 0L);
     }
     if (tmp___4 != 0L) {
       {
@@ -8274,7 +8273,7 @@ static void atl1c_reset_pcie(struct atl1c_hw *hw , u32 flag )
   {
   {
   pdev = (hw->adapter)->pdev;
-  tmp = __builtin_expect((long )hw->hibernate, 0L);
+  tmp = ldv__builtin_expect((long )hw->hibernate, 0L);
   }
   if (tmp != 0L) {
     {
@@ -8292,7 +8291,7 @@ static void atl1c_reset_pcie(struct atl1c_hw *hw , u32 flag )
   writel(pci_cmd, (void volatile   *)hw->hw_addr + 4U);
   pci_enable_wake(pdev, 3, 0);
   pci_enable_wake(pdev, 4, 0);
-  tmp___0 = __builtin_expect((long )hw->hibernate, 0L);
+  tmp___0 = ldv__builtin_expect((long )hw->hibernate, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -8319,7 +8318,7 @@ static void atl1c_reset_pcie(struct atl1c_hw *hw , u32 flag )
   }
   {
   pcie_capability_write_word(pdev, 10, 15);
-  tmp___1 = __builtin_expect((long )hw->hibernate, 0L);
+  tmp___1 = ldv__builtin_expect((long )hw->hibernate, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -8357,7 +8356,7 @@ __inline static void atl1c_irq_enable(struct atl1c_adapter *adapter )
   {
   {
   tmp = atomic_dec_and_test(& adapter->irq_sem);
-  tmp___0 = __builtin_expect(tmp != 0, 1L);
+  tmp___0 = ldv__builtin_expect(tmp != 0, 1L);
   }
   if (tmp___0 != 0L) {
     {
@@ -8397,7 +8396,7 @@ static u32 atl1c_wait_until_idle(struct atl1c_hw *hw , u32 modu_ctrl )
   goto ldv_50411;
   ldv_50410: 
   {
-  tmp = __builtin_expect((long )hw->hibernate, 0L);
+  tmp = ldv__builtin_expect((long )hw->hibernate, 0L);
   }
   if (tmp != 0L) {
     {
@@ -8457,7 +8456,7 @@ void atl1c_reinit_locked(struct atl1c_adapter *adapter )
   {
   tmp = preempt_count();
   __ret_warn_on = ((unsigned long )tmp & 2096896UL) != 0UL;
-  tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -8467,7 +8466,7 @@ void atl1c_reinit_locked(struct atl1c_adapter *adapter )
 
   }
   {
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
   atl1c_down(adapter);
   atl1c_up(adapter);
   clear_bit(2L, (unsigned long volatile   *)(& adapter->flags));
@@ -8533,7 +8532,7 @@ static void atl1c_check_link_status(struct atl1c_adapter *adapter )
     flags = _raw_spin_lock_irqsave(tmp___1);
     err = atl1c_get_speed_and_duplex(hw, & speed, & duplex);
     spin_unlock_irqrestore(& adapter->mdio_lock, flags);
-    tmp___2 = __builtin_expect(err != 0, 0L);
+    tmp___2 = ldv__builtin_expect(err != 0, 0L);
     }
     if (tmp___2 != 0L) {
       return;
@@ -8719,7 +8718,7 @@ static void atl1c_set_multi(struct net_device *netdev )
   tmp = netdev_priv((struct net_device  const  *)netdev);
   adapter = (struct atl1c_adapter *)tmp;
   hw = & adapter->hw;
-  tmp___0 = __builtin_expect((long )hw->hibernate, 0L);
+  tmp___0 = ldv__builtin_expect((long )hw->hibernate, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -8803,7 +8802,7 @@ static void atl1c_vlan_mode(struct net_device *netdev , netdev_features_t featur
     descriptor.format = "atl1c_vlan_mode\n";
     descriptor.lineno = 439U;
     descriptor.flags = 0U;
-    tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -8817,7 +8816,7 @@ static void atl1c_vlan_mode(struct net_device *netdev , netdev_features_t featur
   }
   {
   atl1c_irq_disable(adapter);
-  tmp___1 = __builtin_expect((long )adapter->hw.hibernate, 0L);
+  tmp___1 = ldv__builtin_expect((long )adapter->hw.hibernate, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -8853,7 +8852,7 @@ static void atl1c_restore_vlan(struct atl1c_adapter *adapter )
     descriptor.format = "atl1c_restore_vlan\n";
     descriptor.lineno = 453U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -9157,7 +9156,7 @@ static int atl1c_mii_ioctl(struct net_device *netdev , struct ifreq *ifr , int c
   descriptor.format = "<atl1c_mii_ioctl> write %x %x";
   descriptor.lineno = 618U;
   descriptor.flags = 0U;
-  tmp___5 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___5 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___5 != 0L) {
     {
@@ -9304,7 +9303,7 @@ static int atl1c_setup_mac_funcs(struct atl1c_hw *hw )
   {
   {
   atl1c_set_mac_type(hw);
-  tmp = __builtin_expect((long )hw->hibernate, 0L);
+  tmp = ldv__builtin_expect((long )hw->hibernate, 0L);
   }
   if (tmp != 0L) {
     {
@@ -9728,7 +9727,7 @@ static int atl1c_setup_ring_resources(struct atl1c_adapter *adapter )
   size = (int )((unsigned int )((int )tpd_ring->count * 2 + (int )rfd_ring->count) * 24U);
   tmp = kzalloc((size_t )size, 208U);
   tpd_ring->buffer_info = (struct atl1c_buffer *)tmp;
-  tmp___0 = __builtin_expect((unsigned long )tpd_ring->buffer_info == (unsigned long )((struct atl1c_buffer *)0),
+  tmp___0 = ldv__builtin_expect((unsigned long )tpd_ring->buffer_info == (unsigned long )((struct atl1c_buffer *)0),
                              0L);
   }
   if (tmp___0 != 0L) {
@@ -9755,7 +9754,7 @@ static int atl1c_setup_ring_resources(struct atl1c_adapter *adapter )
   size = (int )((unsigned int )((((unsigned long )tpd_ring->count * 2UL + (unsigned long )rx_desc_count) * 2UL + (unsigned long )rx_desc_count) + 4UL) * 8U);
   ring_header->size = (unsigned int )size;
   ring_header->desc = pci_alloc_consistent(pdev, (size_t )ring_header->size, & ring_header->dma);
-  tmp___1 = __builtin_expect((unsigned long )ring_header->desc == (unsigned long )((void *)0),
+  tmp___1 = ldv__builtin_expect((unsigned long )ring_header->desc == (unsigned long )((void *)0),
                              0L);
   }
   if (tmp___1 != 0L) {
@@ -9933,7 +9932,7 @@ static int atl1c_stop_mac(struct atl1c_hw *hw )
 
   {
   {
-  tmp = __builtin_expect((long )hw->hibernate, 0L);
+  tmp = ldv__builtin_expect((long )hw->hibernate, 0L);
   }
   if (tmp != 0L) {
     {
@@ -9948,7 +9947,7 @@ static int atl1c_stop_mac(struct atl1c_hw *hw )
   {
   data = data & 2147483647U;
   writel(data, (void volatile   *)hw->hw_addr + 5536U);
-  tmp___0 = __builtin_expect((long )hw->hibernate, 0L);
+  tmp___0 = ldv__builtin_expect((long )hw->hibernate, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -9964,7 +9963,7 @@ static int atl1c_stop_mac(struct atl1c_hw *hw )
   data = data & 4294967263U;
   writel(data, (void volatile   *)hw->hw_addr + 5520U);
   atl1c_wait_until_idle(hw, 12U);
-  tmp___1 = __builtin_expect((long )hw->hibernate, 0L);
+  tmp___1 = ldv__builtin_expect((long )hw->hibernate, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -9999,7 +9998,7 @@ static void atl1c_start_mac(struct atl1c_adapter *adapter )
   hw = & adapter->hw;
   hw->mac_duplex = (unsigned int )adapter->link_duplex == 2U;
   hw->mac_speed = (unsigned int )adapter->link_speed == 1000U ? 2 : 1;
-  tmp = __builtin_expect((long )hw->hibernate, 0L);
+  tmp = ldv__builtin_expect((long )hw->hibernate, 0L);
   }
   if (tmp != 0L) {
     {
@@ -10012,7 +10011,7 @@ static void atl1c_start_mac(struct atl1c_adapter *adapter )
     }
   }
   {
-  tmp___0 = __builtin_expect((long )hw->hibernate, 0L);
+  tmp___0 = ldv__builtin_expect((long )hw->hibernate, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -10025,7 +10024,7 @@ static void atl1c_start_mac(struct atl1c_adapter *adapter )
     }
   }
   {
-  tmp___1 = __builtin_expect((long )hw->hibernate, 0L);
+  tmp___1 = ldv__builtin_expect((long )hw->hibernate, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -10071,7 +10070,7 @@ static int atl1c_reset_mac(struct atl1c_hw *hw )
   pdev = adapter->pdev;
   ctrl_data = 0U;
   atl1c_stop_mac(hw);
-  tmp = __builtin_expect((long )hw->hibernate, 0L);
+  tmp = ldv__builtin_expect((long )hw->hibernate, 0L);
   }
   if (tmp != 0L) {
     {
@@ -10100,7 +10099,7 @@ static int atl1c_reset_mac(struct atl1c_hw *hw )
   }
   {
   writel(ctrl_data, (void volatile   *)hw->hw_addr + 5120U);
-  tmp___1 = __builtin_expect((long )hw->hibernate, 0L);
+  tmp___1 = ldv__builtin_expect((long )hw->hibernate, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -10114,7 +10113,7 @@ static int atl1c_reset_mac(struct atl1c_hw *hw )
   }
   {
   writel(ctrl_data | 1073741824U, (void volatile   *)hw->hw_addr + 5248U);
-  tmp___2 = __builtin_expect((long )hw->hibernate, 0L);
+  tmp___2 = ldv__builtin_expect((long )hw->hibernate, 0L);
   }
   if (tmp___2 != 0L) {
     {
@@ -10186,7 +10185,7 @@ static void atl1c_set_aspm(struct atl1c_hw *hw , u16 link_speed )
 
   {
   {
-  tmp = __builtin_expect((long )hw->hibernate, 0L);
+  tmp = ldv__builtin_expect((long )hw->hibernate, 0L);
   }
   if (tmp != 0L) {
     {
@@ -10259,7 +10258,7 @@ static int atl1c_configure_mac(struct atl1c_adapter *adapter )
   {
   hw = & adapter->hw;
   master_ctrl_data = 0U;
-  tmp = __builtin_expect((long )hw->hibernate, 0L);
+  tmp = ldv__builtin_expect((long )hw->hibernate, 0L);
   }
   if (tmp != 0L) {
     {
@@ -10332,7 +10331,7 @@ static int atl1c_configure(struct atl1c_adapter *adapter )
   atl1c_set_multi(netdev);
   atl1c_restore_vlan(adapter);
   num = atl1c_alloc_rx_buffer(adapter);
-  tmp = __builtin_expect(num == 0, 0L);
+  tmp = ldv__builtin_expect(num == 0, 0L);
   }
   if (tmp != 0L) {
     return (-12);
@@ -10366,7 +10365,7 @@ static void atl1c_update_hw_stats(struct atl1c_adapter *adapter )
   goto ldv_50782;
   ldv_50781: 
   {
-  tmp = __builtin_expect((long )adapter->hw.hibernate, 0L);
+  tmp = ldv__builtin_expect((long )adapter->hw.hibernate, 0L);
   }
   if (tmp != 0L) {
     {
@@ -10392,7 +10391,7 @@ static void atl1c_update_hw_stats(struct atl1c_adapter *adapter )
   goto ldv_50785;
   ldv_50784: 
   {
-  tmp___0 = __builtin_expect((long )adapter->hw.hibernate, 0L);
+  tmp___0 = ldv__builtin_expect((long )adapter->hw.hibernate, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -10484,7 +10483,7 @@ static bool atl1c_clean_tx_irq(struct atl1c_adapter *adapter , enum atl1c_trans_
   tmp = atomic_read((atomic_t const   *)(& tpd_ring->next_to_clean));
   next_to_clean = (u16 )tmp;
   reg = (unsigned int )type == 1U ? 5620U : 5622U;
-  tmp___0 = __builtin_expect((long )adapter->hw.hibernate, 0L);
+  tmp___0 = ldv__builtin_expect((long )adapter->hw.hibernate, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -10564,7 +10563,7 @@ static irqreturn_t atl1c_intr(int irq , void *data )
   }
   ldv_50823: 
   {
-  tmp___0 = __builtin_expect((long )hw->hibernate, 0L);
+  tmp___0 = ldv__builtin_expect((long )hw->hibernate, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -10600,7 +10599,7 @@ static irqreturn_t atl1c_intr(int irq , void *data )
   if ((status & 983040U) != 0U) {
     {
     tmp___1 = napi_schedule_prep(& adapter->napi);
-    tmp___2 = __builtin_expect((long )tmp___1, 1L);
+    tmp___2 = ldv__builtin_expect((long )tmp___1, 1L);
     }
     if (tmp___2 != 0L) {
       {
@@ -10708,7 +10707,7 @@ static struct sk_buff *atl1c_alloc_skb(struct atl1c_adapter *adapter )
     {
     page = alloc_pages(32U, 0U);
     adapter->rx_page = page;
-    tmp___0 = __builtin_expect((unsigned long )page == (unsigned long )((struct page *)0),
+    tmp___0 = ldv__builtin_expect((unsigned long )page == (unsigned long )((struct page *)0),
                                0L);
     }
     if (tmp___0 != 0L) {
@@ -10723,7 +10722,7 @@ static struct sk_buff *atl1c_alloc_skb(struct atl1c_adapter *adapter )
   {
   tmp___1 = lowmem_page_address((struct page  const  *)page);
   skb = build_skb(tmp___1 + (unsigned long )adapter->rx_page_offset, adapter->rx_frag_size);
-  tmp___2 = __builtin_expect((unsigned long )skb != (unsigned long )((struct sk_buff *)0),
+  tmp___2 = ldv__builtin_expect((unsigned long )skb != (unsigned long )((struct sk_buff *)0),
                              1L);
   }
   if (tmp___2 != 0L) {
@@ -10778,7 +10777,7 @@ static int atl1c_alloc_rx_buffer(struct atl1c_adapter *adapter )
   {
   rfd_desc = (struct atl1c_rx_free_desc *)rfd_ring->desc + (unsigned long )rfd_next_to_use;
   skb = atl1c_alloc_skb(adapter);
-  tmp = __builtin_expect((unsigned long )skb == (unsigned long )((struct sk_buff *)0),
+  tmp = ldv__builtin_expect((unsigned long )skb == (unsigned long )((struct sk_buff *)0),
                          0L);
   }
   if (tmp != 0L) {
@@ -10801,7 +10800,7 @@ static int atl1c_alloc_rx_buffer(struct atl1c_adapter *adapter )
   buffer_info->length = adapter->rx_buffer_len;
   mapping = pci_map_single(pdev, vir_addr, (size_t )buffer_info->length, 2);
   tmp___0 = pci_dma_mapping_error(pdev, mapping);
-  tmp___1 = __builtin_expect(tmp___0 != 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 != 0, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -10950,12 +10949,12 @@ static void atl1c_clean_rx_irq(struct atl1c_adapter *adapter , int *work_done , 
   }
   {
   rrs = (struct atl1c_recv_ret_status *)rrd_ring->desc + (unsigned long )rrd_ring->next_to_clean;
-  tmp___0 = __builtin_expect(rrs->word3 >> 31 == 1U, 1L);
+  tmp___0 = ldv__builtin_expect(rrs->word3 >> 31 == 1U, 1L);
   }
   if (tmp___0 != 0L) {
     {
     rfd_num = (unsigned int )((u16 )(rrs->word0 >> 16)) & 15U;
-    tmp = __builtin_expect((unsigned int )rfd_num != 1U, 0L);
+    tmp = ldv__builtin_expect((unsigned int )rfd_num != 1U, 0L);
     }
     if (tmp != 0L) {
       if ((adapter->msg_enable & 64U) != 0U) {
@@ -10994,7 +10993,7 @@ static void atl1c_clean_rx_irq(struct atl1c_adapter *adapter , int *work_done , 
   }
   {
   length = (unsigned int )((unsigned short )rrs->word3) & 16383U;
-  tmp___1 = __builtin_expect((unsigned int )rfd_num == 1U, 1L);
+  tmp___1 = ldv__builtin_expect((unsigned int )rfd_num == 1U, 1L);
   }
   if (tmp___1 != 0L) {
     {
@@ -11250,7 +11249,7 @@ static int atl1c_tso_csum(struct atl1c_adapter *adapter , struct sk_buff *skb , 
     if (tmp___0 != 0) {
       {
       err = pskb_expand_head(skb, 0, 0, 32U);
-      tmp = __builtin_expect(err != 0, 0L);
+      tmp = ldv__builtin_expect(err != 0, 0L);
       }
       if (tmp != 0L) {
         return (-1);
@@ -11282,7 +11281,7 @@ static int atl1c_tso_csum(struct atl1c_adapter *adapter , struct sk_buff *skb , 
       tmp___5 = skb_transport_offset((struct sk_buff  const  *)skb);
       tmp___6 = tcp_hdrlen((struct sk_buff  const  *)skb);
       hdr_len = (int )((u8 )tmp___5) + (int )((u8 )tmp___6);
-      tmp___12 = __builtin_expect(skb->len == (unsigned int )hdr_len, 0L);
+      tmp___12 = ldv__builtin_expect(skb->len == (unsigned int )hdr_len, 0L);
       }
       if (tmp___12 != 0L) {
         if ((adapter->msg_enable & 256U) != 0U) {
@@ -11318,7 +11317,7 @@ static int atl1c_tso_csum(struct atl1c_adapter *adapter , struct sk_buff *skb , 
       tmp___14 = skb_transport_offset((struct sk_buff  const  *)skb);
       tmp___15 = tcp_hdrlen((struct sk_buff  const  *)skb);
       hdr_len = (int )((u8 )tmp___14) + (int )((u8 )tmp___15);
-      tmp___20 = __builtin_expect(skb->len == (unsigned int )hdr_len, 0L);
+      tmp___20 = ldv__builtin_expect(skb->len == (unsigned int )hdr_len, 0L);
       }
       if (tmp___20 != 0L) {
         if ((adapter->msg_enable & 256U) != 0U) {
@@ -11360,14 +11359,14 @@ static int atl1c_tso_csum(struct atl1c_adapter *adapter , struct sk_buff *skb , 
   }
   check_sum: 
   {
-  tmp___26 = __builtin_expect((unsigned int )*((unsigned char *)skb + 124UL) == 12U,
+  tmp___26 = ldv__builtin_expect((unsigned int )*((unsigned char *)skb + 124UL) == 12U,
                               1L);
   }
   if (tmp___26 != 0L) {
     {
     tmp___24 = skb_checksum_start_offset((struct sk_buff  const  *)skb);
     cso = (u8 )tmp___24;
-    tmp___25 = __builtin_expect((long )cso & 1L, 0L);
+    tmp___25 = ldv__builtin_expect((long )cso & 1L, 0L);
     }
     if (tmp___25 != 0L) {
       if ((adapter->msg_enable & 128U) != 0U) {
@@ -11477,7 +11476,7 @@ static int atl1c_tx_map(struct atl1c_adapter *adapter , struct sk_buff *skb , st
     buffer_info->dma = pci_map_single(adapter->pdev, (void *)skb->data, (size_t )hdr_len,
                                       1);
     tmp___3 = pci_dma_mapping_error(adapter->pdev, buffer_info->dma);
-    tmp___4 = __builtin_expect(tmp___3 != 0, 0L);
+    tmp___4 = ldv__builtin_expect(tmp___3 != 0, 0L);
     }
     if (tmp___4 != 0L) {
       goto err_dma;
@@ -11511,7 +11510,7 @@ static int atl1c_tx_map(struct atl1c_adapter *adapter , struct sk_buff *skb , st
     buffer_info->dma = pci_map_single(adapter->pdev, (void *)skb->data + (unsigned long )mapped_len,
                                       (size_t )buffer_info->length, 1);
     tmp___5 = pci_dma_mapping_error(adapter->pdev, buffer_info->dma);
-    tmp___6 = __builtin_expect(tmp___5 != 0, 0L);
+    tmp___6 = ldv__builtin_expect(tmp___5 != 0, 0L);
     }
     if (tmp___6 != 0L) {
       goto err_dma;
@@ -11689,7 +11688,7 @@ static netdev_tx_t atl1c_xmit_frame(struct sk_buff *skb , struct net_device *net
 
   }
   {
-  tmp___9 = __builtin_expect(((int )skb->vlan_tci & 4096) != 0, 0L);
+  tmp___9 = ldv__builtin_expect(((int )skb->vlan_tci & 4096) != 0, 0L);
   }
   if (tmp___9 != 0L) {
     vlan = (unsigned int )skb->vlan_tci & 61439U;
@@ -11820,7 +11819,7 @@ static int atl1c_request_irq(struct atl1c_adapter *adapter )
     descriptor.format = "atl1c_request_irq OK\n";
     descriptor.lineno = 2311U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -11860,7 +11859,7 @@ static int atl1c_up(struct atl1c_adapter *adapter )
   netdev = adapter->netdev;
   netif_carrier_off(netdev);
   err = atl1c_configure(adapter);
-  tmp = __builtin_expect(err != 0, 0L);
+  tmp = ldv__builtin_expect(err != 0, 0L);
   }
   if (tmp != 0L) {
     goto err_up;
@@ -11869,7 +11868,7 @@ static int atl1c_up(struct atl1c_adapter *adapter )
   }
   {
   err = atl1c_request_irq(adapter);
-  tmp___0 = __builtin_expect(err != 0, 0L);
+  tmp___0 = ldv__builtin_expect(err != 0, 0L);
   }
   if (tmp___0 != 0L) {
     goto err_up;
@@ -11937,7 +11936,7 @@ static int atl1c_open(struct net_device *netdev )
   }
   {
   err = atl1c_setup_ring_resources(adapter);
-  tmp___1 = __builtin_expect(err != 0, 0L);
+  tmp___1 = ldv__builtin_expect(err != 0, 0L);
   }
   if (tmp___1 != 0L) {
     return (err);
@@ -11946,7 +11945,7 @@ static int atl1c_open(struct net_device *netdev )
   }
   {
   err = atl1c_up(adapter);
-  tmp___2 = __builtin_expect(err != 0, 0L);
+  tmp___2 = ldv__builtin_expect(err != 0, 0L);
   }
   if (tmp___2 != 0L) {
     goto err_up;
@@ -11977,7 +11976,7 @@ static int atl1c_close(struct net_device *netdev )
   adapter = (struct atl1c_adapter *)tmp;
   tmp___0 = constant_test_bit(2L, (unsigned long const volatile   *)(& adapter->flags));
   __ret_warn_on = tmp___0 != 0;
-  tmp___1 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___1 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -11987,7 +11986,7 @@ static int atl1c_close(struct net_device *netdev )
 
   }
   {
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
   set_bit(3L, (unsigned long volatile   *)(& adapter->flags));
   cancel_work_sync(& adapter->common_task);
   atl1c_down(adapter);
@@ -12031,7 +12030,7 @@ static int atl1c_suspend(struct device *dev )
     {
     tmp___1 = constant_test_bit(2L, (unsigned long const volatile   *)(& adapter->flags));
     __ret_warn_on = tmp___1 != 0;
-    tmp___2 = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp___2 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
     if (tmp___2 != 0L) {
       {
@@ -12041,7 +12040,7 @@ static int atl1c_suspend(struct device *dev )
 
     }
     {
-    __builtin_expect(__ret_warn_on != 0, 0L);
+    ldv__builtin_expect(__ret_warn_on != 0, 0L);
     atl1c_down(adapter);
     }
   } else {
@@ -12062,7 +12061,7 @@ static int atl1c_suspend(struct device *dev )
       descriptor.format = "phy power saving failed";
       descriptor.lineno = 2454U;
       descriptor.flags = 0U;
-      tmp___4 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+      tmp___4 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
       }
       if (tmp___4 != 0L) {
         {
@@ -12325,7 +12324,7 @@ static int atl1c_probe(struct pci_dev *pdev , struct pci_device_id  const  *ent 
     descriptor.format = "mac address : %pM\n";
     descriptor.lineno = 2651U;
     descriptor.flags = 0U;
-    tmp___4 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___4 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp___4 != 0L) {
       {
@@ -12659,7 +12658,7 @@ void ldv_dummy_resourceless_instance_callback_1_7(int (*arg0)(struct net_device 
                                                   struct net_device *arg1 , struct ethtool_eeprom *arg2 ,
                                                   unsigned char *arg3 ) ;
 void ldv_entry_EMGentry_16(void *arg0 ) ;
-void main(void) ;
+int main(void) ;
 void ldv_free_irq(void *arg0 , int arg1 , void *arg2 ) ;
 void ldv_free_netdev(void *arg0 , struct net_device *arg1 ) ;
 void ldv_initialize_external_data(void) ;
@@ -13421,7 +13420,7 @@ void ldv_entry_EMGentry_16(void *arg0 )
   return;
 }
 }
-void main(void) 
+int main(void) 
 { 
   int tmp ;
 
@@ -16221,7 +16220,6 @@ static int ldv_ldv_post_probe_31(int ldv_func_arg1 )
   return (tmp);
 }
 }
-int __builtin_bswap32(int  ) ;
 __inline static __u32 __fswab32(__u32 val ) 
 { 
   int tmp ;
@@ -16268,7 +16266,7 @@ int atl1c_check_eeprom_exist(struct atl1c_hw *hw )
 
   {
   {
-  tmp = __builtin_expect((long )hw->hibernate, 0L);
+  tmp = ldv__builtin_expect((long )hw->hibernate, 0L);
   }
   if (tmp != 0L) {
     {
@@ -16286,7 +16284,7 @@ int atl1c_check_eeprom_exist(struct atl1c_hw *hw )
 
   }
   {
-  tmp___0 = __builtin_expect((long )hw->hibernate, 0L);
+  tmp___0 = ldv__builtin_expect((long )hw->hibernate, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -16331,7 +16329,7 @@ static bool atl1c_read_current_addr(struct atl1c_hw *hw , u8 *eth_addr )
 
   {
   {
-  tmp = __builtin_expect((long )hw->hibernate, 0L);
+  tmp = ldv__builtin_expect((long )hw->hibernate, 0L);
   }
   if (tmp != 0L) {
     {
@@ -16344,7 +16342,7 @@ static bool atl1c_read_current_addr(struct atl1c_hw *hw , u8 *eth_addr )
     }
   }
   {
-  tmp___0 = __builtin_expect((long )hw->hibernate, 0L);
+  tmp___0 = ldv__builtin_expect((long )hw->hibernate, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -16391,7 +16389,7 @@ static int atl1c_get_permanent_address(struct atl1c_hw *hw )
 
   }
   {
-  tmp___0 = __builtin_expect((long )hw->hibernate, 0L);
+  tmp___0 = ldv__builtin_expect((long )hw->hibernate, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -16436,7 +16434,7 @@ static int atl1c_get_permanent_address(struct atl1c_hw *hw )
 
     }
     {
-    tmp___1 = __builtin_expect((long )hw->hibernate, 0L);
+    tmp___1 = ldv__builtin_expect((long )hw->hibernate, 0L);
     }
     if (tmp___1 != 0L) {
       {
@@ -16457,7 +16455,7 @@ static int atl1c_get_permanent_address(struct atl1c_hw *hw )
     ldv_50322: 
     {
     msleep(10U);
-    tmp___2 = __builtin_expect((long )hw->hibernate, 0L);
+    tmp___2 = ldv__builtin_expect((long )hw->hibernate, 0L);
     }
     if (tmp___2 != 0L) {
       {
@@ -16544,7 +16542,7 @@ bool atl1c_read_eeprom(struct atl1c_hw *hw , u32 offset , u32 *p_value )
 
   }
   {
-  tmp = __builtin_expect((long )hw->hibernate, 0L);
+  tmp = ldv__builtin_expect((long )hw->hibernate, 0L);
   }
   if (tmp != 0L) {
     {
@@ -16573,7 +16571,7 @@ bool atl1c_read_eeprom(struct atl1c_hw *hw , u32 offset , u32 *p_value )
   ldv_50335: 
   {
   __const_udelay(429500UL);
-  tmp___0 = __builtin_expect((long )hw->hibernate, 0L);
+  tmp___0 = ldv__builtin_expect((long )hw->hibernate, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -16600,7 +16598,7 @@ bool atl1c_read_eeprom(struct atl1c_hw *hw , u32 offset , u32 *p_value )
   ldv_50334: ;
   if ((int )control < 0) {
     {
-    tmp___1 = __builtin_expect((long )hw->hibernate, 0L);
+    tmp___1 = ldv__builtin_expect((long )hw->hibernate, 0L);
     }
     if (tmp___1 != 0L) {
       {
@@ -16613,7 +16611,7 @@ bool atl1c_read_eeprom(struct atl1c_hw *hw , u32 offset , u32 *p_value )
       }
     }
     {
-    tmp___2 = __builtin_expect((long )hw->hibernate, 0L);
+    tmp___2 = ldv__builtin_expect((long )hw->hibernate, 0L);
     }
     if (tmp___2 != 0L) {
       {
@@ -16720,7 +16718,7 @@ bool atl1c_wait_mdio_idle(struct atl1c_hw *hw )
   goto ldv_50365;
   ldv_50364: 
   {
-  tmp = __builtin_expect((long )hw->hibernate, 0L);
+  tmp = ldv__builtin_expect((long )hw->hibernate, 0L);
   }
   if (tmp != 0L) {
     {
@@ -16833,7 +16831,7 @@ int atl1c_read_phy_core(struct atl1c_hw *hw , bool ext , u8 dev , u16 reg , u16 
 
   }
   {
-  tmp___1 = __builtin_expect((long )hw->hibernate, 0L);
+  tmp___1 = ldv__builtin_expect((long )hw->hibernate, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -16950,7 +16948,7 @@ int atl1c_read_phy_dbg(struct atl1c_hw *hw , u16 reg_addr , u16 *phy_data )
   {
   {
   err = atl1c_write_phy_reg(hw, 29U, (int )reg_addr);
-  tmp = __builtin_expect(err != 0, 0L);
+  tmp = ldv__builtin_expect(err != 0, 0L);
   }
   if (tmp != 0L) {
     return (err);
@@ -16970,7 +16968,7 @@ int atl1c_write_phy_dbg(struct atl1c_hw *hw , u16 reg_addr , u16 phy_data )
   {
   {
   err = atl1c_write_phy_reg(hw, 29U, (int )reg_addr);
-  tmp = __builtin_expect(err != 0, 0L);
+  tmp = ldv__builtin_expect(err != 0, 0L);
   }
   if (tmp != 0L) {
     return (err);
@@ -17080,7 +17078,7 @@ int atl1c_phy_reset(struct atl1c_hw *hw )
   {
   adapter = hw->adapter;
   pdev = adapter->pdev;
-  tmp = __builtin_expect((long )hw->hibernate, 0L);
+  tmp = ldv__builtin_expect((long )hw->hibernate, 0L);
   }
   if (tmp != 0L) {
     {
@@ -17149,7 +17147,7 @@ int atl1c_phy_reset(struct atl1c_hw *hw )
   }
   if ((unsigned int )hw->nic_type - 3U <= 2U) {
     {
-    tmp___0 = __builtin_expect((long )hw->hibernate, 0L);
+    tmp___0 = ldv__builtin_expect((long )hw->hibernate, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -17428,7 +17426,7 @@ int atl1c_phy_to_ps_link(struct atl1c_hw *hw )
       descriptor.format = "phy autoneg failed\n";
       descriptor.lineno = 727U;
       descriptor.flags = 0U;
-      tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+      tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
       }
       if (tmp != 0L) {
         {
@@ -17476,7 +17474,7 @@ int atl1c_phy_to_ps_link(struct atl1c_hw *hw )
           descriptor___0.format = "get speed and duplex failed\n";
           descriptor___0.lineno = 741U;
           descriptor___0.flags = 0U;
-          tmp___2 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+          tmp___2 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
           }
           if (tmp___2 != 0L) {
             {
@@ -17562,7 +17560,7 @@ int atl1c_power_saving(struct atl1c_hw *hw , u32 wufc )
   pdev = adapter->pdev;
   wol_ctrl = 0U;
   speed = (unsigned int )adapter->link_speed == 1000U ? 2U : 1U;
-  tmp = __builtin_expect((long )hw->hibernate, 0L);
+  tmp = ldv__builtin_expect((long )hw->hibernate, 0L);
   }
   if (tmp != 0L) {
     {
@@ -17575,7 +17573,7 @@ int atl1c_power_saving(struct atl1c_hw *hw , u32 wufc )
     }
   }
   {
-  tmp___0 = __builtin_expect((long )hw->hibernate, 0L);
+  tmp___0 = ldv__builtin_expect((long )hw->hibernate, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -17588,7 +17586,7 @@ int atl1c_power_saving(struct atl1c_hw *hw , u32 wufc )
     }
   }
   {
-  tmp___1 = __builtin_expect((long )hw->hibernate, 0L);
+  tmp___1 = ldv__builtin_expect((long )hw->hibernate, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -17649,7 +17647,7 @@ int atl1c_power_saving(struct atl1c_hw *hw , u32 wufc )
       descriptor.format = "%s: write phy MII_IER failed.\n";
       descriptor.lineno = 814U;
       descriptor.flags = 0U;
-      tmp___2 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+      tmp___2 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
       }
       if (tmp___2 != 0L) {
         {
@@ -17673,7 +17671,7 @@ int atl1c_power_saving(struct atl1c_hw *hw , u32 wufc )
   descriptor___0.format = "%s: suspend MAC=%x,MASTER=%x,PHY=0x%x,WOL=%x\n";
   descriptor___0.lineno = 821U;
   descriptor___0.flags = 0U;
-  tmp___4 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___4 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
   }
   if (tmp___4 != 0L) {
     {
@@ -18062,7 +18060,7 @@ static void atl1c_get_regs(struct net_device *netdev , struct ethtool_regs *regs
   regs_buff = (u32 *)p;
   memset(p, 0, 296UL);
   regs->version = 1U;
-  tmp___2 = __builtin_expect((long )hw->hibernate, 0L);
+  tmp___2 = ldv__builtin_expect((long )hw->hibernate, 0L);
   }
   if (tmp___2 != 0L) {
     {
@@ -18079,7 +18077,7 @@ static void atl1c_get_regs(struct net_device *netdev , struct ethtool_regs *regs
     }
   }
   {
-  tmp___5 = __builtin_expect((long )hw->hibernate, 0L);
+  tmp___5 = ldv__builtin_expect((long )hw->hibernate, 0L);
   }
   if (tmp___5 != 0L) {
     {
@@ -18096,7 +18094,7 @@ static void atl1c_get_regs(struct net_device *netdev , struct ethtool_regs *regs
     }
   }
   {
-  tmp___8 = __builtin_expect((long )hw->hibernate, 0L);
+  tmp___8 = ldv__builtin_expect((long )hw->hibernate, 0L);
   }
   if (tmp___8 != 0L) {
     {
@@ -18113,7 +18111,7 @@ static void atl1c_get_regs(struct net_device *netdev , struct ethtool_regs *regs
     }
   }
   {
-  tmp___11 = __builtin_expect((long )hw->hibernate, 0L);
+  tmp___11 = ldv__builtin_expect((long )hw->hibernate, 0L);
   }
   if (tmp___11 != 0L) {
     {
@@ -18130,7 +18128,7 @@ static void atl1c_get_regs(struct net_device *netdev , struct ethtool_regs *regs
     }
   }
   {
-  tmp___14 = __builtin_expect((long )hw->hibernate, 0L);
+  tmp___14 = ldv__builtin_expect((long )hw->hibernate, 0L);
   }
   if (tmp___14 != 0L) {
     {
@@ -18147,7 +18145,7 @@ static void atl1c_get_regs(struct net_device *netdev , struct ethtool_regs *regs
     }
   }
   {
-  tmp___17 = __builtin_expect((long )hw->hibernate, 0L);
+  tmp___17 = ldv__builtin_expect((long )hw->hibernate, 0L);
   }
   if (tmp___17 != 0L) {
     {
@@ -18164,7 +18162,7 @@ static void atl1c_get_regs(struct net_device *netdev , struct ethtool_regs *regs
     }
   }
   {
-  tmp___20 = __builtin_expect((long )hw->hibernate, 0L);
+  tmp___20 = ldv__builtin_expect((long )hw->hibernate, 0L);
   }
   if (tmp___20 != 0L) {
     {
@@ -18181,7 +18179,7 @@ static void atl1c_get_regs(struct net_device *netdev , struct ethtool_regs *regs
     }
   }
   {
-  tmp___23 = __builtin_expect((long )hw->hibernate, 0L);
+  tmp___23 = ldv__builtin_expect((long )hw->hibernate, 0L);
   }
   if (tmp___23 != 0L) {
     {
@@ -18198,7 +18196,7 @@ static void atl1c_get_regs(struct net_device *netdev , struct ethtool_regs *regs
     }
   }
   {
-  tmp___26 = __builtin_expect((long )hw->hibernate, 0L);
+  tmp___26 = ldv__builtin_expect((long )hw->hibernate, 0L);
   }
   if (tmp___26 != 0L) {
     {
@@ -18215,7 +18213,7 @@ static void atl1c_get_regs(struct net_device *netdev , struct ethtool_regs *regs
     }
   }
   {
-  tmp___29 = __builtin_expect((long )hw->hibernate, 0L);
+  tmp___29 = ldv__builtin_expect((long )hw->hibernate, 0L);
   }
   if (tmp___29 != 0L) {
     {
@@ -18232,7 +18230,7 @@ static void atl1c_get_regs(struct net_device *netdev , struct ethtool_regs *regs
     }
   }
   {
-  tmp___32 = __builtin_expect((long )hw->hibernate, 0L);
+  tmp___32 = ldv__builtin_expect((long )hw->hibernate, 0L);
   }
   if (tmp___32 != 0L) {
     {
@@ -18249,7 +18247,7 @@ static void atl1c_get_regs(struct net_device *netdev , struct ethtool_regs *regs
     }
   }
   {
-  tmp___35 = __builtin_expect((long )hw->hibernate, 0L);
+  tmp___35 = ldv__builtin_expect((long )hw->hibernate, 0L);
   }
   if (tmp___35 != 0L) {
     {
@@ -18266,7 +18264,7 @@ static void atl1c_get_regs(struct net_device *netdev , struct ethtool_regs *regs
     }
   }
   {
-  tmp___38 = __builtin_expect((long )hw->hibernate, 0L);
+  tmp___38 = ldv__builtin_expect((long )hw->hibernate, 0L);
   }
   if (tmp___38 != 0L) {
     {
@@ -18283,7 +18281,7 @@ static void atl1c_get_regs(struct net_device *netdev , struct ethtool_regs *regs
     }
   }
   {
-  tmp___41 = __builtin_expect((long )hw->hibernate, 0L);
+  tmp___41 = ldv__builtin_expect((long )hw->hibernate, 0L);
   }
   if (tmp___41 != 0L) {
     {
@@ -18300,7 +18298,7 @@ static void atl1c_get_regs(struct net_device *netdev , struct ethtool_regs *regs
     }
   }
   {
-  tmp___44 = __builtin_expect((long )hw->hibernate, 0L);
+  tmp___44 = ldv__builtin_expect((long )hw->hibernate, 0L);
   }
   if (tmp___44 != 0L) {
     {
@@ -18317,7 +18315,7 @@ static void atl1c_get_regs(struct net_device *netdev , struct ethtool_regs *regs
     }
   }
   {
-  tmp___47 = __builtin_expect((long )hw->hibernate, 0L);
+  tmp___47 = ldv__builtin_expect((long )hw->hibernate, 0L);
   }
   if (tmp___47 != 0L) {
     {
@@ -18334,7 +18332,7 @@ static void atl1c_get_regs(struct net_device *netdev , struct ethtool_regs *regs
     }
   }
   {
-  tmp___50 = __builtin_expect((long )hw->hibernate, 0L);
+  tmp___50 = ldv__builtin_expect((long )hw->hibernate, 0L);
   }
   if (tmp___50 != 0L) {
     {
@@ -18351,7 +18349,7 @@ static void atl1c_get_regs(struct net_device *netdev , struct ethtool_regs *regs
     }
   }
   {
-  tmp___53 = __builtin_expect((long )hw->hibernate, 0L);
+  tmp___53 = ldv__builtin_expect((long )hw->hibernate, 0L);
   }
   if (tmp___53 != 0L) {
     {
@@ -18368,7 +18366,7 @@ static void atl1c_get_regs(struct net_device *netdev , struct ethtool_regs *regs
     }
   }
   {
-  tmp___56 = __builtin_expect((long )hw->hibernate, 0L);
+  tmp___56 = ldv__builtin_expect((long )hw->hibernate, 0L);
   }
   if (tmp___56 != 0L) {
     {
@@ -18385,7 +18383,7 @@ static void atl1c_get_regs(struct net_device *netdev , struct ethtool_regs *regs
     }
   }
   {
-  tmp___59 = __builtin_expect((long )hw->hibernate, 0L);
+  tmp___59 = ldv__builtin_expect((long )hw->hibernate, 0L);
   }
   if (tmp___59 != 0L) {
     {
@@ -18402,7 +18400,7 @@ static void atl1c_get_regs(struct net_device *netdev , struct ethtool_regs *regs
     }
   }
   {
-  tmp___62 = __builtin_expect((long )hw->hibernate, 0L);
+  tmp___62 = ldv__builtin_expect((long )hw->hibernate, 0L);
   }
   if (tmp___62 != 0L) {
     {
@@ -18419,7 +18417,7 @@ static void atl1c_get_regs(struct net_device *netdev , struct ethtool_regs *regs
     }
   }
   {
-  tmp___65 = __builtin_expect((long )hw->hibernate, 0L);
+  tmp___65 = ldv__builtin_expect((long )hw->hibernate, 0L);
   }
   if (tmp___65 != 0L) {
     {
@@ -19195,7 +19193,7 @@ void ldv_check_final_state(void)
 }
 }
 extern void ldv_assert(char const   * , int  ) ;
-void __builtin_trap(void) ;
+void ldv__builtin_trap(void) ;
 void ldv_assume(int expression ) 
 { 
 
@@ -19219,7 +19217,7 @@ void ldv_stop(void)
   goto ldv_stop_label;
 }
 }
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 
@@ -19227,7 +19225,7 @@ long __builtin_expect(long exp , long c )
   return (exp);
 }
 }
-void __builtin_trap(void) 
+void ldv__builtin_trap(void) 
 { 
 
 

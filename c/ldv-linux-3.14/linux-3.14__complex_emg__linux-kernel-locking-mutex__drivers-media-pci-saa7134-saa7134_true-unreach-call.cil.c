@@ -13431,7 +13431,7 @@ void ldv_dispatch_instance_deregister_7_1(struct timer_list *arg0 )
   return;
 }
 }
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 void *ldv_dev_get_drvdata(struct device  const  *dev ) ;
 int ldv_dev_set_drvdata(struct device *dev , void *data ) ;
 void *ldv_kzalloc(size_t size , gfp_t flags ) ;
@@ -13512,7 +13512,6 @@ extern int sprintf(char * , char const   *  , ...) ;
 extern int snprintf(char * , size_t  , char const   *  , ...) ;
 extern void __bad_percpu_size(void) ;
 extern void warn_slowpath_null(char const   * , int const    ) ;
-extern int ( /* missing proto */  __builtin_unreachable)() ;
 __inline static unsigned long arch_local_save_flags(void) 
 { 
   unsigned long __ret ;
@@ -13530,7 +13529,7 @@ __inline static unsigned long arch_local_save_flags(void)
   __edx = __edx;
   __ecx = __ecx;
   __eax = __eax;
-  tmp = __builtin_expect((unsigned long )pv_irq_ops.save_fl.func == (unsigned long )((void *)0),
+  tmp = ldv__builtin_expect((unsigned long )pv_irq_ops.save_fl.func == (unsigned long )((void *)0),
                          0L);
   }
   if (tmp != 0L) {
@@ -13774,7 +13773,7 @@ __inline static struct dma_map_ops *get_dma_ops(struct device *dev )
 
   {
   {
-  tmp = __builtin_expect((unsigned long )dev == (unsigned long )((struct device *)0),
+  tmp = ldv__builtin_expect((unsigned long )dev == (unsigned long )((struct device *)0),
                          0L);
   }
   if (tmp != 0L || (unsigned long )dev->archdata.dma_ops == (unsigned long )((struct dma_map_ops *)0)) {
@@ -13883,7 +13882,7 @@ __inline static void dma_free_attrs(struct device *dev , size_t size , void *vad
   _flags = arch_local_save_flags();
   tmp___0 = arch_irqs_disabled_flags(_flags);
   __ret_warn_on = tmp___0 != 0;
-  tmp___1 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___1 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -13894,7 +13893,7 @@ __inline static void dma_free_attrs(struct device *dev , size_t size , void *vad
 
   }
   {
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
   debug_dma_free_coherent(dev, size, vaddr, bus);
   }
   if ((unsigned long )ops->free != (unsigned long )((void (*)(struct device * , size_t  ,
@@ -14442,7 +14441,7 @@ int saa7134_pgtable_build(struct pci_dev *pci , struct saa7134_pgtable *pt , str
 
   {
   {
-  tmp = __builtin_expect((unsigned long )pt == (unsigned long )((struct saa7134_pgtable *)0),
+  tmp = ldv__builtin_expect((unsigned long )pt == (unsigned long )((struct saa7134_pgtable *)0),
                          0L);
   }
   if (tmp != 0L) {
@@ -14453,7 +14452,7 @@ int saa7134_pgtable_build(struct pci_dev *pci , struct saa7134_pgtable *pt , str
     }
   } else {
     {
-    tmp___0 = __builtin_expect((unsigned long )pt->cpu == (unsigned long )((__le32 *)0U),
+    tmp___0 = ldv__builtin_expect((unsigned long )pt->cpu == (unsigned long )((__le32 *)0U),
                                0L);
     }
     if (tmp___0 != 0L) {
@@ -14523,7 +14522,7 @@ void saa7134_dma_free(struct videobuf_queue *q , struct saa7134_buf *buf )
   tmp = videobuf_to_dma(& buf->vb);
   dma = tmp;
   tmp___0 = preempt_count();
-  tmp___1 = __builtin_expect(((unsigned long )tmp___0 & 2096896UL) != 0UL, 0L);
+  tmp___1 = ldv__builtin_expect(((unsigned long )tmp___0 & 2096896UL) != 0UL, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -14555,7 +14554,7 @@ int saa7134_buffer_queue(struct saa7134_dev *dev , struct saa7134_dmaqueue *q , 
   {
   next = (struct saa7134_buf *)0;
   tmp = arch_spin_is_locked(& dev->slock.__annonCompField19.rlock.raw_lock);
-  tmp___0 = __builtin_expect(tmp == 0, 0L);
+  tmp___0 = ldv__builtin_expect(tmp == 0, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -14615,7 +14614,7 @@ void saa7134_buffer_finish(struct saa7134_dev *dev , struct saa7134_dmaqueue *q 
   {
   {
   tmp = arch_spin_is_locked(& dev->slock.__annonCompField19.rlock.raw_lock);
-  tmp___0 = __builtin_expect(tmp == 0, 0L);
+  tmp___0 = ldv__builtin_expect(tmp == 0, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -14658,7 +14657,7 @@ void saa7134_buffer_next(struct saa7134_dev *dev , struct saa7134_dmaqueue *q )
   {
   next = (struct saa7134_buf *)0;
   tmp = arch_spin_is_locked(& dev->slock.__annonCompField19.rlock.raw_lock);
-  tmp___0 = __builtin_expect(tmp == 0, 0L);
+  tmp___0 = ldv__builtin_expect(tmp == 0, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -14670,7 +14669,7 @@ void saa7134_buffer_next(struct saa7134_dev *dev , struct saa7134_dmaqueue *q )
 
   }
   {
-  tmp___1 = __builtin_expect((unsigned long )q->curr != (unsigned long )((struct saa7134_buf *)0),
+  tmp___1 = ldv__builtin_expect((unsigned long )q->curr != (unsigned long )((struct saa7134_buf *)0),
                              0L);
   }
   if (tmp___1 != 0L) {
@@ -14803,7 +14802,7 @@ int saa7134_set_dmabits(struct saa7134_dev *dev )
   cap = 0;
   ov = 0;
   tmp = arch_spin_is_locked(& dev->slock.__annonCompField19.rlock.raw_lock);
-  tmp___0 = __builtin_expect(tmp == 0, 0L);
+  tmp___0 = ldv__builtin_expect(tmp == 0, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -16014,7 +16013,7 @@ static int saa7134_buffer_requeue(struct saa7134_dev *dev , struct saa7134_dmaqu
   {
   {
   tmp = arch_spin_is_locked(& dev->slock.__annonCompField19.rlock.raw_lock);
-  tmp___0 = __builtin_expect(tmp == 0, 0L);
+  tmp___0 = ldv__builtin_expect(tmp == 0, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -16386,7 +16385,7 @@ void ldv_dummy_resourceless_instance_callback_3_9(int (*arg0)(struct videobuf_qu
                                                   struct videobuf_queue *arg1 , unsigned int *arg2 ,
                                                   unsigned int *arg3 ) ;
 void ldv_entry_EMGentry_14(void *arg0 ) ;
-void main(void) ;
+int main(void) ;
 void ldv_free_irq(void *arg0 , int arg1 , void *arg2 ) ;
 void ldv_initialize_external_data(void) ;
 enum irqreturn ldv_interrupt_instance_handler_0_5(enum irqreturn (*arg0)(int  , void * ) ,
@@ -17032,7 +17031,7 @@ void ldv_entry_EMGentry_14(void *arg0 )
   return;
 }
 }
-void main(void) 
+int main(void) 
 { 
   int tmp ;
 
@@ -21912,7 +21911,7 @@ int saa7134_ts_stop(struct saa7134_dev *dev )
 
   }
   {
-  tmp = __builtin_expect(dev->ts_started == 0, 0L);
+  tmp = ldv__builtin_expect(dev->ts_started == 0, 0L);
   }
   if (tmp != 0L) {
     {
@@ -21966,7 +21965,7 @@ int saa7134_ts_start(struct saa7134_dev *dev )
 
   }
   {
-  tmp = __builtin_expect(dev->ts_started != 0, 0L);
+  tmp = ldv__builtin_expect(dev->ts_started != 0, 0L);
   }
   if (tmp != 0L) {
     {
@@ -22239,7 +22238,7 @@ __inline static bool need_resched(void)
   {
   tmp = current_thread_info();
   tmp___0 = test_ti_thread_flag(tmp, 3);
-  tmp___1 = __builtin_expect(tmp___0 != 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 != 0, 0L);
   }
   return (tmp___1 != 0L);
 }
@@ -22259,7 +22258,7 @@ __inline static bool freezing(struct task_struct *p )
   {
   {
   tmp = atomic_read((atomic_t const   *)(& system_freezing_cnt));
-  tmp___0 = __builtin_expect(tmp == 0, 1L);
+  tmp___0 = ldv__builtin_expect(tmp == 0, 1L);
   }
   if (tmp___0 != 0L) {
     return (0);
@@ -22293,7 +22292,7 @@ __inline static bool try_to_freeze_unsafe(void)
     tmp___1 = 1;
   }
   {
-  tmp___2 = __builtin_expect((long )tmp___1, 1L);
+  tmp___2 = ldv__builtin_expect((long )tmp___1, 1L);
   }
   if (tmp___2 != 0L) {
     return (0);
@@ -23410,7 +23409,7 @@ __inline static int saa_dsp_reset_error_bit(struct saa7134_dev *dev )
   {
   tmp = readb((void const volatile   *)dev->bmmio + 1408U);
   state = (int )tmp;
-  tmp___0 = __builtin_expect((state & 8) != 0, 0L);
+  tmp___0 = ldv__builtin_expect((state & 8) != 0, 0L);
   }
   if (tmp___0 != 0L) {
     if (audio_debug > 1U) {
@@ -23443,7 +23442,7 @@ __inline static int saa_dsp_wait_bit(struct saa7134_dev *dev , int bit )
   count = 32;
   tmp = readb((void const volatile   *)dev->bmmio + 1408U);
   state = (int )tmp;
-  tmp___0 = __builtin_expect((state & 8) != 0, 0L);
+  tmp___0 = ldv__builtin_expect((state & 8) != 0, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -23457,7 +23456,7 @@ __inline static int saa_dsp_wait_bit(struct saa7134_dev *dev , int bit )
   goto ldv_51263;
   ldv_51262: 
   {
-  tmp___1 = __builtin_expect(count == 0, 0L);
+  tmp___1 = ldv__builtin_expect(count == 0, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -24589,7 +24588,7 @@ __inline static unsigned long copy_from_user(void *to , void const   *from , uns
   {
   sz = -1;
   might_fault();
-  tmp = __builtin_expect(sz < 0, 1L);
+  tmp = ldv__builtin_expect(sz < 0, 1L);
   }
   if (tmp != 0L) {
     {
@@ -24597,7 +24596,7 @@ __inline static unsigned long copy_from_user(void *to , void const   *from , uns
     }
   } else {
     {
-    tmp___0 = __builtin_expect((unsigned long )sz >= n, 1L);
+    tmp___0 = ldv__builtin_expect((unsigned long )sz >= n, 1L);
     }
     if (tmp___0 != 0L) {
       {
@@ -24622,7 +24621,7 @@ __inline static unsigned long copy_to_user(void *to , void const   *from , unsig
   {
   sz = -1;
   might_fault();
-  tmp = __builtin_expect(sz < 0, 1L);
+  tmp = ldv__builtin_expect(sz < 0, 1L);
   }
   if (tmp != 0L) {
     {
@@ -24630,7 +24629,7 @@ __inline static unsigned long copy_to_user(void *to , void const   *from , unsig
     }
   } else {
     {
-    tmp___0 = __builtin_expect((unsigned long )sz >= n, 1L);
+    tmp___0 = ldv__builtin_expect((unsigned long )sz >= n, 1L);
     }
     if (tmp___0 != 0L) {
       {
@@ -24896,7 +24895,7 @@ static void res_free(struct saa7134_dev *dev , struct saa7134_fh *fh , unsigned 
 
   {
   {
-  tmp = __builtin_expect((fh->resources & bits) != bits, 0L);
+  tmp = ldv__builtin_expect((fh->resources & bits) != bits, 0L);
   }
   if (tmp != 0L) {
     {
@@ -32986,7 +32985,7 @@ void *ldv_kzalloc(size_t size , gfp_t flags )
 }
 }
 extern void ldv_assert(char const   * , int  ) ;
-void __builtin_trap(void) ;
+void ldv__builtin_trap(void) ;
 void ldv_assume(int expression ) 
 { 
 
@@ -33010,7 +33009,7 @@ void ldv_stop(void)
   goto ldv_stop_label;
 }
 }
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 
@@ -33018,7 +33017,7 @@ long __builtin_expect(long exp , long c )
   return (exp);
 }
 }
-void __builtin_trap(void) 
+void ldv__builtin_trap(void) 
 { 
 
 

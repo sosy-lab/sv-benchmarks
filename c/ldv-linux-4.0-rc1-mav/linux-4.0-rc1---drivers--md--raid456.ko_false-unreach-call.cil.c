@@ -4970,7 +4970,7 @@ struct ldv_thread {
 };
 typedef _Bool ldv_set;
 void *__builtin_return_address(unsigned int  ) ;
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 void ldv_assume(int expression ) ;
 void ldv_stop(void) ;
 void ldv_linux_alloc_irq_check_alloc_flags(gfp_t flags ) ;
@@ -5493,12 +5493,12 @@ __inline static unsigned int cpumask_check(unsigned int cpu )
   {
   {
   __ret_warn_once = cpu >= (unsigned int )nr_cpu_ids;
-  tmp___1 = __builtin_expect(__ret_warn_once != 0, 0L);
+  tmp___1 = ldv__builtin_expect(__ret_warn_once != 0, 0L);
   }
   if (tmp___1 != 0L) {
     {
     __ret_warn_on = ! __warned;
-    tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
     if (tmp != 0L) {
       {
@@ -5508,7 +5508,7 @@ __inline static unsigned int cpumask_check(unsigned int cpu )
 
     }
     {
-    tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
     if (tmp___0 != 0L) {
       __warned = 1;
@@ -5519,7 +5519,7 @@ __inline static unsigned int cpumask_check(unsigned int cpu )
 
   }
   {
-  __builtin_expect(__ret_warn_once != 0, 0L);
+  ldv__builtin_expect(__ret_warn_once != 0, 0L);
   }
   return (cpu);
 }
@@ -5554,7 +5554,6 @@ __inline static unsigned int cpumask_next(int n , struct cpumask  const  *srcp )
   return ((unsigned int )tmp);
 }
 }
-extern int ( /* missing proto */  __builtin_unreachable)() ;
 __inline static unsigned long arch_local_save_flags(void) 
 { 
   unsigned long __ret ;
@@ -5572,7 +5571,7 @@ __inline static unsigned long arch_local_save_flags(void)
   __edx = __edx;
   __ecx = __ecx;
   __eax = __eax;
-  tmp = __builtin_expect((unsigned long )pv_irq_ops.save_fl.func == (unsigned long )((void *)0),
+  tmp = ldv__builtin_expect((unsigned long )pv_irq_ops.save_fl.func == (unsigned long )((void *)0),
                          0L);
   }
   if (tmp != 0L) {
@@ -5607,7 +5606,7 @@ __inline static void arch_local_irq_restore(unsigned long f )
   __edx = __edx;
   __ecx = __ecx;
   __eax = __eax;
-  tmp = __builtin_expect((unsigned long )pv_irq_ops.restore_fl.func == (unsigned long )((void *)0),
+  tmp = ldv__builtin_expect((unsigned long )pv_irq_ops.restore_fl.func == (unsigned long )((void *)0),
                          0L);
   }
   if (tmp != 0L) {
@@ -5641,7 +5640,7 @@ __inline static void arch_local_irq_disable(void)
   __edx = __edx;
   __ecx = __ecx;
   __eax = __eax;
-  tmp = __builtin_expect((unsigned long )pv_irq_ops.irq_disable.func == (unsigned long )((void *)0),
+  tmp = ldv__builtin_expect((unsigned long )pv_irq_ops.irq_disable.func == (unsigned long )((void *)0),
                          0L);
   }
   if (tmp != 0L) {
@@ -5675,7 +5674,7 @@ __inline static void arch_local_irq_enable(void)
   __edx = __edx;
   __ecx = __ecx;
   __eax = __eax;
-  tmp = __builtin_expect((unsigned long )pv_irq_ops.irq_enable.func == (unsigned long )((void *)0),
+  tmp = ldv__builtin_expect((unsigned long )pv_irq_ops.irq_enable.func == (unsigned long )((void *)0),
                          0L);
   }
   if (tmp != 0L) {
@@ -5713,7 +5712,7 @@ __inline static bool IS_ERR(void const   *ptr )
 
   {
   {
-  tmp = __builtin_expect((unsigned long )ptr > 0xfffffffffffff000UL, 0L);
+  tmp = ldv__builtin_expect((unsigned long )ptr > 0xfffffffffffff000UL, 0L);
   }
   return (tmp != 0L);
 }
@@ -5862,7 +5861,7 @@ __inline static int __atomic_add_unless(atomic_t *v , int a , int u )
   }
   ldv_6231: 
   {
-  tmp = __builtin_expect(c == u, 0L);
+  tmp = ldv__builtin_expect(c == u, 0L);
   }
   if (tmp != 0L) {
     goto ldv_6230;
@@ -5871,7 +5870,7 @@ __inline static int __atomic_add_unless(atomic_t *v , int a , int u )
   }
   {
   old = atomic_cmpxchg(v, c, c + a);
-  tmp___0 = __builtin_expect(old == c, 1L);
+  tmp___0 = ldv__builtin_expect(old == c, 1L);
   }
   if (tmp___0 != 0L) {
     goto ldv_6230;
@@ -6376,7 +6375,7 @@ __inline static unsigned int __read_seqcount_begin(seqcount_t const   *s )
   {
   __var = 0U;
   ret = *((unsigned int const volatile   *)(& s->sequence));
-  tmp = __builtin_expect((long )((int )ret) & 1L, 0L);
+  tmp = ldv__builtin_expect((long )((int )ret) & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -6421,7 +6420,7 @@ __inline static int __read_seqcount_retry(seqcount_t const   *s , unsigned int s
 
   {
   {
-  tmp = __builtin_expect((unsigned int )s->sequence != start, 0L);
+  tmp = ldv__builtin_expect((unsigned int )s->sequence != start, 0L);
   }
   return ((int )tmp);
 }
@@ -6841,12 +6840,12 @@ __inline static void bvec_iter_advance(struct bio_vec *bv , struct bvec_iter *it
   {
   {
   __ret_warn_once = bytes > iter->bi_size;
-  tmp___1 = __builtin_expect(__ret_warn_once != 0, 0L);
+  tmp___1 = ldv__builtin_expect(__ret_warn_once != 0, 0L);
   }
   if (tmp___1 != 0L) {
     {
     __ret_warn_on = ! __warned;
-    tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
     if (tmp != 0L) {
       {
@@ -6856,7 +6855,7 @@ __inline static void bvec_iter_advance(struct bio_vec *bv , struct bvec_iter *it
 
     }
     {
-    tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
     if (tmp___0 != 0L) {
       __warned = 1;
@@ -6867,7 +6866,7 @@ __inline static void bvec_iter_advance(struct bio_vec *bv , struct bvec_iter *it
 
   }
   {
-  __builtin_expect(__ret_warn_once != 0, 0L);
+  ldv__builtin_expect(__ret_warn_once != 0, 0L);
   }
   goto ldv_31159;
   ldv_31158: 
@@ -7342,7 +7341,7 @@ __inline static int is_badblock(struct md_rdev *rdev , sector_t s , int sectors 
 
   {
   {
-  tmp___0 = __builtin_expect(rdev->badblocks.count != 0, 0L);
+  tmp___0 = ldv__builtin_expect(rdev->badblocks.count != 0, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -7932,7 +7931,7 @@ static void do_release_stripe(struct r5conf *conf , struct stripe_head *sh , str
   {
   {
   tmp = list_empty((struct list_head  const  *)(& sh->lru));
-  tmp___0 = __builtin_expect(tmp == 0, 0L);
+  tmp___0 = ldv__builtin_expect(tmp == 0, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -7945,7 +7944,7 @@ static void do_release_stripe(struct r5conf *conf , struct stripe_head *sh , str
   }
   {
   tmp___1 = atomic_read((atomic_t const   *)(& conf->active_stripes));
-  tmp___2 = __builtin_expect(tmp___1 == 0, 0L);
+  tmp___2 = ldv__builtin_expect(tmp___1 == 0, 0L);
   }
   if (tmp___2 != 0L) {
     {
@@ -8006,7 +8005,7 @@ static void do_release_stripe(struct r5conf *conf , struct stripe_head *sh , str
   } else {
     {
     tmp___6 = stripe_operations_active(sh);
-    tmp___7 = __builtin_expect(tmp___6 != 0, 0L);
+    tmp___7 = ldv__builtin_expect(tmp___6 != 0, 0L);
     }
     if (tmp___7 != 0L) {
       {
@@ -8206,7 +8205,7 @@ static void release_stripe(struct stripe_head *sh )
 
   }
   {
-  tmp___0 = __builtin_expect((unsigned long )(conf->mddev)->thread == (unsigned long )((struct md_thread *)0),
+  tmp___0 = ldv__builtin_expect((unsigned long )(conf->mddev)->thread == (unsigned long )((struct md_thread *)0),
                              0L);
   }
   if (tmp___0 != 0L) {
@@ -8279,7 +8278,7 @@ __inline static void remove_hash(struct stripe_head *sh )
   descriptor.format = "remove_hash(), stripe %llu\n";
   descriptor.lineno = 448U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -8311,7 +8310,7 @@ __inline static void insert_hash(struct r5conf *conf , struct stripe_head *sh )
   descriptor.format = "insert_hash(), stripe %llu\n";
   descriptor.lineno = 458U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -8352,7 +8351,7 @@ static struct stripe_head *get_free_stripe(struct r5conf *conf , int hash )
   list_del_init(first);
   remove_hash(sh);
   atomic_inc(& conf->active_stripes);
-  tmp___0 = __builtin_expect(hash != (int )sh->hash_lock_index, 0L);
+  tmp___0 = ldv__builtin_expect(hash != (int )sh->hash_lock_index, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -8392,7 +8391,7 @@ static void shrink_buffers(struct stripe_head *sh )
   ldv_39782: 
   {
   __ret_warn_on = (unsigned long )sh->dev[i].page != (unsigned long )sh->dev[i].orig_page;
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp != 0L) {
     {
@@ -8402,7 +8401,7 @@ static void shrink_buffers(struct stripe_head *sh )
 
   }
   {
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
   p = sh->dev[i].page;
   }
   if ((unsigned long )p == (unsigned long )((struct page *)0)) {
@@ -8493,7 +8492,7 @@ static void init_stripe(struct stripe_head *sh , sector_t sector , int previous 
   {
   conf = sh->raid_conf;
   tmp = atomic_read((atomic_t const   *)(& sh->count));
-  tmp___0 = __builtin_expect(tmp != 0, 0L);
+  tmp___0 = ldv__builtin_expect(tmp != 0, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -8506,7 +8505,7 @@ static void init_stripe(struct stripe_head *sh , sector_t sector , int previous 
   }
   {
   tmp___1 = constant_test_bit(1L, (unsigned long const volatile   *)(& sh->state));
-  tmp___2 = __builtin_expect(tmp___1 != 0, 0L);
+  tmp___2 = ldv__builtin_expect(tmp___1 != 0, 0L);
   }
   if (tmp___2 != 0L) {
     {
@@ -8519,7 +8518,7 @@ static void init_stripe(struct stripe_head *sh , sector_t sector , int previous 
   }
   {
   tmp___3 = stripe_operations_active(sh);
-  tmp___4 = __builtin_expect(tmp___3 != 0, 0L);
+  tmp___4 = ldv__builtin_expect(tmp___3 != 0, 0L);
   }
   if (tmp___4 != 0L) {
     {
@@ -8537,7 +8536,7 @@ static void init_stripe(struct stripe_head *sh , sector_t sector , int previous 
   descriptor.format = "init_stripe called, stripe %llu\n";
   descriptor.lineno = 530U;
   descriptor.flags = 0U;
-  tmp___5 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___5 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___5 != 0L) {
     {
@@ -8573,7 +8572,7 @@ static void init_stripe(struct stripe_head *sh , sector_t sector , int previous 
       printk("\vsector=%llx i=%d %p %p %p %p %d\n", (unsigned long long )sh->sector,
              i, dev->toread, dev->read, dev->towrite, dev->written, tmp___7);
       __ret_warn_on = 1;
-      tmp___8 = __builtin_expect(__ret_warn_on != 0, 0L);
+      tmp___8 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
       }
       if (tmp___8 != 0L) {
         {
@@ -8583,7 +8582,7 @@ static void init_stripe(struct stripe_head *sh , sector_t sector , int previous 
 
       }
       {
-      __builtin_expect(__ret_warn_on != 0, 0L);
+      ldv__builtin_expect(__ret_warn_on != 0, 0L);
       }
     } else {
 
@@ -8846,7 +8845,7 @@ static struct stripe_head *__find_stripe(struct r5conf *conf , sector_t sector ,
   descriptor.format = "__find_stripe, sector %llu\n";
   descriptor.lineno = 564U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -8894,7 +8893,7 @@ static struct stripe_head *__find_stripe(struct r5conf *conf , sector_t sector ,
   descriptor___0.format = "__stripe %llu not in cache\n";
   descriptor___0.lineno = 568U;
   descriptor___0.flags = 0U;
-  tmp___3 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___3 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
   }
   if (tmp___3 != 0L) {
     {
@@ -9205,7 +9204,7 @@ static struct stripe_head *get_active_stripe(struct r5conf *conf , sector_t sect
   descriptor.format = "get_stripe, sector %llu\n";
   descriptor.lineno = 661U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -9347,12 +9346,12 @@ static struct stripe_head *get_active_stripe(struct r5conf *conf , sector_t sect
         }
         {
         tmp___8 = list_empty((struct list_head  const  *)(& sh->lru));
-        tmp___9 = __builtin_expect(tmp___8 != 0, 0L);
+        tmp___9 = ldv__builtin_expect(tmp___8 != 0, 0L);
         }
         if (tmp___9 != 0L) {
           {
           tmp___10 = constant_test_bit(10L, (unsigned long const volatile   *)(& sh->state));
-          tmp___11 = __builtin_expect(tmp___10 == 0, 0L);
+          tmp___11 = ldv__builtin_expect(tmp___10 == 0, 0L);
           }
           if (tmp___11 != 0L) {
             {
@@ -9722,7 +9721,7 @@ static void ops_run_io(struct stripe_head *sh , struct stripe_head_state *s )
     descriptor.format = "%s: for %llu schedule op %ld on disc %d\n";
     descriptor.lineno = 854U;
     descriptor.flags = 0U;
-    tmp___14 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___14 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp___14 != 0L) {
       {
@@ -9757,7 +9756,7 @@ static void ops_run_io(struct stripe_head *sh , struct stripe_head_state *s )
       {
       tmp___17 = constant_test_bit(0L, (unsigned long const volatile   *)(& sh->dev[i].flags));
       __ret_warn_on = tmp___17 != 0;
-      tmp___18 = __builtin_expect(__ret_warn_on != 0, 0L);
+      tmp___18 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
       }
       if (tmp___18 != 0L) {
         {
@@ -9767,7 +9766,7 @@ static void ops_run_io(struct stripe_head *sh , struct stripe_head_state *s )
 
       }
       {
-      __builtin_expect(__ret_warn_on != 0, 0L);
+      ldv__builtin_expect(__ret_warn_on != 0, 0L);
       }
     } else {
 
@@ -9817,7 +9816,7 @@ static void ops_run_io(struct stripe_head *sh , struct stripe_head_state *s )
     bio_reset(rbi);
     rbi->bi_bdev = rrdev->bdev;
     rbi->bi_rw = (unsigned long )rw;
-    tmp___22 = __builtin_expect(((unsigned long long )rw & 1ULL) == 0ULL, 0L);
+    tmp___22 = ldv__builtin_expect(((unsigned long long )rw & 1ULL) == 0ULL, 0L);
     }
     if (tmp___22 != 0L) {
       {
@@ -9837,7 +9836,7 @@ static void ops_run_io(struct stripe_head *sh , struct stripe_head_state *s )
     descriptor___0.format = "%s: for %llu schedule op %ld on replacement disc %d\n";
     descriptor___0.lineno = 904U;
     descriptor___0.flags = 0U;
-    tmp___23 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___23 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___23 != 0L) {
       {
@@ -9864,7 +9863,7 @@ static void ops_run_io(struct stripe_head *sh , struct stripe_head_state *s )
       {
       tmp___25 = constant_test_bit(0L, (unsigned long const volatile   *)(& sh->dev[i].flags));
       __ret_warn_on___0 = tmp___25 != 0;
-      tmp___26 = __builtin_expect(__ret_warn_on___0 != 0, 0L);
+      tmp___26 = ldv__builtin_expect(__ret_warn_on___0 != 0, 0L);
       }
       if (tmp___26 != 0L) {
         {
@@ -9874,7 +9873,7 @@ static void ops_run_io(struct stripe_head *sh , struct stripe_head_state *s )
 
       }
       {
-      __builtin_expect(__ret_warn_on___0 != 0, 0L);
+      ldv__builtin_expect(__ret_warn_on___0 != 0, 0L);
       }
     } else {
 
@@ -9919,7 +9918,7 @@ static void ops_run_io(struct stripe_head *sh , struct stripe_head_state *s )
     descriptor___1.format = "skip op %ld on disc %d for sector %llu\n";
     descriptor___1.lineno = 935U;
     descriptor___1.flags = 0U;
-    tmp___30 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___30 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
     }
     if (tmp___30 != 0L) {
       {
@@ -10070,7 +10069,7 @@ static void ops_complete_biofill(void *stripe_head_ref )
   descriptor.format = "%s: stripe %llu\n";
   descriptor.lineno = 1012U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -10089,7 +10088,7 @@ static void ops_complete_biofill(void *stripe_head_ref )
   }
   if (tmp___2 != 0) {
     {
-    tmp___0 = __builtin_expect((unsigned long )dev->read == (unsigned long )((struct bio *)0),
+    tmp___0 = ldv__builtin_expect((unsigned long )dev->read == (unsigned long )((struct bio *)0),
                                0L);
     }
     if (tmp___0 != 0L) {
@@ -10164,7 +10163,7 @@ static void ops_run_biofill(struct stripe_head *sh )
   descriptor.format = "%s: stripe %llu\n";
   descriptor.lineno = 1055U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -10236,7 +10235,7 @@ static void mark_target_uptodate(struct stripe_head *sh , int target )
   tgt = (struct r5dev *)(& sh->dev) + (unsigned long )target;
   set_bit(0L, (unsigned long volatile   *)(& tgt->flags));
   tmp = constant_test_bit(12L, (unsigned long const volatile   *)(& tgt->flags));
-  tmp___0 = __builtin_expect(tmp == 0, 0L);
+  tmp___0 = ldv__builtin_expect(tmp == 0, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -10268,7 +10267,7 @@ static void ops_complete_compute(void *stripe_head_ref )
   descriptor.format = "%s: stripe %llu\n";
   descriptor.lineno = 1097U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -10337,7 +10336,7 @@ static struct dma_async_tx_descriptor *ops_run_compute5(struct stripe_head *sh ,
   descriptor.format = "%s: stripe %llu block: %d\n";
   descriptor.lineno = 1131U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -10349,7 +10348,7 @@ static struct dma_async_tx_descriptor *ops_run_compute5(struct stripe_head *sh ,
   }
   {
   tmp___0 = constant_test_bit(12L, (unsigned long const volatile   *)(& tgt->flags));
-  tmp___1 = __builtin_expect(tmp___0 == 0, 0L);
+  tmp___1 = ldv__builtin_expect(tmp___0 == 0, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -10383,7 +10382,7 @@ static struct dma_async_tx_descriptor *ops_run_compute5(struct stripe_head *sh ,
   tmp___4 = to_addr_conv(sh, percpu);
   init_async_submit(& submit, 9, (struct dma_async_tx_descriptor *)0, & ops_complete_compute,
                     (void *)sh, tmp___4);
-  tmp___5 = __builtin_expect(count == 1, 0L);
+  tmp___5 = ldv__builtin_expect(count == 1, 0L);
   }
   if (tmp___5 != 0L) {
     {
@@ -10485,7 +10484,7 @@ static struct dma_async_tx_descriptor *ops_run_compute6_1(struct stripe_head *sh
     }
   }
   {
-  tmp = __builtin_expect(target < 0, 0L);
+  tmp = ldv__builtin_expect(target < 0, 0L);
   }
   if (tmp != 0L) {
     {
@@ -10503,7 +10502,7 @@ static struct dma_async_tx_descriptor *ops_run_compute6_1(struct stripe_head *sh
   descriptor.format = "%s: stripe %llu block: %d\n";
   descriptor.lineno = 1205U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -10516,7 +10515,7 @@ static struct dma_async_tx_descriptor *ops_run_compute6_1(struct stripe_head *sh
   {
   tgt = (struct r5dev *)(& sh->dev) + (unsigned long )target;
   tmp___1 = constant_test_bit(12L, (unsigned long const volatile   *)(& tgt->flags));
-  tmp___2 = __builtin_expect(tmp___1 == 0, 0L);
+  tmp___2 = ldv__builtin_expect(tmp___1 == 0, 0L);
   }
   if (tmp___2 != 0L) {
     {
@@ -10535,7 +10534,7 @@ static struct dma_async_tx_descriptor *ops_run_compute6_1(struct stripe_head *sh
     {
     count = set_syndrome_sources(blocks, sh);
     *(blocks + (unsigned long )count) = (struct page *)0;
-    tmp___3 = __builtin_expect((unsigned long )*(blocks + ((unsigned long )count + 1UL)) != (unsigned long )dest,
+    tmp___3 = ldv__builtin_expect((unsigned long )*(blocks + ((unsigned long )count + 1UL)) != (unsigned long )dest,
                                0L);
     }
     if (tmp___3 != 0L) {
@@ -10648,7 +10647,7 @@ static struct dma_async_tx_descriptor *ops_run_compute6_2(struct stripe_head *sh
   descriptor.format = "%s: stripe %llu block1: %d block2: %d\n";
   descriptor.lineno = 1255U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -10659,7 +10658,7 @@ static struct dma_async_tx_descriptor *ops_run_compute6_2(struct stripe_head *sh
 
   }
   {
-  tmp___1 = __builtin_expect((long )(target < 0 || target2 < 0), 0L);
+  tmp___1 = ldv__builtin_expect((long )(target < 0 || target2 < 0), 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -10672,7 +10671,7 @@ static struct dma_async_tx_descriptor *ops_run_compute6_2(struct stripe_head *sh
   }
   {
   tmp___2 = constant_test_bit(12L, (unsigned long const volatile   *)(& tgt->flags));
-  tmp___3 = __builtin_expect(tmp___2 == 0, 0L);
+  tmp___3 = ldv__builtin_expect(tmp___2 == 0, 0L);
   }
   if (tmp___3 != 0L) {
     {
@@ -10685,7 +10684,7 @@ static struct dma_async_tx_descriptor *ops_run_compute6_2(struct stripe_head *sh
   }
   {
   tmp___4 = constant_test_bit(12L, (unsigned long const volatile   *)(& tgt2->flags));
-  tmp___5 = __builtin_expect(tmp___4 == 0, 0L);
+  tmp___5 = ldv__builtin_expect(tmp___4 == 0, 0L);
   }
   if (tmp___5 != 0L) {
     {
@@ -10734,7 +10733,7 @@ static struct dma_async_tx_descriptor *ops_run_compute6_2(struct stripe_head *sh
 
   }
   {
-  tmp___7 = __builtin_expect(faila == failb, 0L);
+  tmp___7 = ldv__builtin_expect(faila == failb, 0L);
   }
   if (tmp___7 != 0L) {
     {
@@ -10759,7 +10758,7 @@ static struct dma_async_tx_descriptor *ops_run_compute6_2(struct stripe_head *sh
   descriptor___0.format = "%s: stripe: %llu faila: %d failb: %d\n";
   descriptor___0.lineno = 1283U;
   descriptor___0.flags = 0U;
-  tmp___8 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___8 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
   }
   if (tmp___8 != 0L) {
     {
@@ -10859,7 +10858,7 @@ static void ops_complete_prexor(void *stripe_head_ref )
   descriptor.format = "%s: stripe %llu\n";
   descriptor.lineno = 1351U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -10908,7 +10907,7 @@ static struct dma_async_tx_descriptor *ops_run_prexor(struct stripe_head *sh , s
   descriptor.format = "%s: stripe %llu\n";
   descriptor.lineno = 1367U;
   descriptor.flags = 0U;
-  tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -10972,7 +10971,7 @@ static struct dma_async_tx_descriptor *ops_run_biodrain(struct stripe_head *sh ,
   descriptor.format = "%s: stripe %llu\n";
   descriptor.lineno = 1390U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -10993,7 +10992,7 @@ static struct dma_async_tx_descriptor *ops_run_biodrain(struct stripe_head *sh ,
     ldv_spin_lock_irq_121(& sh->stripe_lock);
     chosen = dev->towrite;
     dev->towrite = (struct bio *)0;
-    tmp___0 = __builtin_expect((unsigned long )dev->written != (unsigned long )((struct bio *)0),
+    tmp___0 = ldv__builtin_expect((unsigned long )dev->written != (unsigned long )((struct bio *)0),
                                0L);
     }
     if (tmp___0 != 0L) {
@@ -11011,7 +11010,7 @@ static struct dma_async_tx_descriptor *ops_run_biodrain(struct stripe_head *sh ,
     wbi = tmp___1;
     ldv_spin_unlock_irq_122(& sh->stripe_lock);
     __ret_warn_on = (unsigned long )dev->page != (unsigned long )dev->orig_page;
-    tmp___2 = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp___2 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
     if (tmp___2 != 0L) {
       {
@@ -11021,7 +11020,7 @@ static struct dma_async_tx_descriptor *ops_run_biodrain(struct stripe_head *sh ,
 
     }
     {
-    __builtin_expect(__ret_warn_on != 0, 0L);
+    ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
     goto ldv_40207;
     ldv_40206: ;
@@ -11118,7 +11117,7 @@ static void ops_complete_reconstruct(void *stripe_head_ref )
   descriptor.format = "%s: stripe %llu\n";
   descriptor.lineno = 1442U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -11199,7 +11198,7 @@ static void ops_complete_reconstruct(void *stripe_head_ref )
     sh->reconstruct_state = 4;
   } else {
     {
-    tmp___6 = __builtin_expect((unsigned int )sh->reconstruct_state != 3U, 0L);
+    tmp___6 = ldv__builtin_expect((unsigned int )sh->reconstruct_state != 3U, 0L);
     }
     if (tmp___6 != 0L) {
       {
@@ -11258,7 +11257,7 @@ static void ops_run_reconstruct5(struct stripe_head *sh , struct raid5_percpu *p
   descriptor.format = "%s: stripe %llu\n";
   descriptor.lineno = 1489U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -11359,7 +11358,7 @@ static void ops_run_reconstruct5(struct stripe_head *sh , struct raid5_percpu *p
   tmp___7 = to_addr_conv(sh, percpu);
   init_async_submit(& submit, (enum async_tx_flags )flags, tx, & ops_complete_reconstruct,
                     (void *)sh, tmp___7);
-  tmp___8 = __builtin_expect(count == 1, 0L);
+  tmp___8 = ldv__builtin_expect(count == 1, 0L);
   }
   if (tmp___8 != 0L) {
     {
@@ -11394,7 +11393,7 @@ static void ops_run_reconstruct6(struct stripe_head *sh , struct raid5_percpu *p
   descriptor.format = "%s: stripe %llu\n";
   descriptor.lineno = 1549U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -11465,7 +11464,7 @@ static void ops_complete_check(void *stripe_head_ref )
   descriptor.format = "%s: stripe %llu\n";
   descriptor.lineno = 1579U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -11512,7 +11511,7 @@ static void ops_run_check_p(struct stripe_head *sh , struct raid5_percpu *percpu
   descriptor.format = "%s: stripe %llu\n";
   descriptor.lineno = 1599U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -11577,7 +11576,7 @@ static void ops_run_check_pq(struct stripe_head *sh , struct raid5_percpu *percp
   descriptor.format = "%s: stripe %llu checkp: %d\n";
   descriptor.lineno = 1627U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -12448,7 +12447,7 @@ static int drop_one_stripe(struct r5conf *conf , int hash )
   }
   {
   tmp = atomic_read((atomic_t const   *)(& sh->count));
-  tmp___0 = __builtin_expect(tmp != 0, 0L);
+  tmp___0 = ldv__builtin_expect(tmp != 0, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -12584,7 +12583,7 @@ static void raid5_end_read_request(struct bio *bi , int error___0 )
   descriptor.format = "end_read_request %llu/%d, count: %d, uptodate %d.\n";
   descriptor.lineno = 1984U;
   descriptor.flags = 0U;
-  tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -12943,7 +12942,7 @@ static void raid5_end_write_request(struct bio *bi , int error___0 )
   descriptor.format = "end_write_request %llu/%d, count %d, uptodate: %d.\n";
   descriptor.lineno = 2122U;
   descriptor.flags = 0U;
-  tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -13076,7 +13075,7 @@ static void error(struct mddev *mddev , struct md_rdev *rdev )
   descriptor.format = "raid456: error called\n";
   descriptor.lineno = 2188U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -13870,7 +13869,7 @@ static void schedule_reconstruction(struct stripe_head *sh , struct stripe_head_
     }
   } else {
     {
-    tmp___1 = __builtin_expect(level == 6, 0L);
+    tmp___1 = ldv__builtin_expect(level == 6, 0L);
     }
     if (tmp___1 != 0L) {
       {
@@ -13883,12 +13882,12 @@ static void schedule_reconstruction(struct stripe_head *sh , struct stripe_head_
     }
     {
     tmp___2 = constant_test_bit(0L, (unsigned long const volatile   *)(& sh->dev[pd_idx].flags));
-    tmp___3 = __builtin_expect(tmp___2 == 0, 0L);
+    tmp___3 = ldv__builtin_expect(tmp___2 == 0, 0L);
     }
     if (tmp___3 != 0L) {
       {
       tmp___4 = constant_test_bit(12L, (unsigned long const volatile   *)(& sh->dev[pd_idx].flags));
-      tmp___5 = __builtin_expect(tmp___4 == 0, 0L);
+      tmp___5 = ldv__builtin_expect(tmp___4 == 0, 0L);
       }
       if (tmp___5 != 0L) {
         {
@@ -13984,7 +13983,7 @@ static void schedule_reconstruction(struct stripe_head *sh , struct stripe_head_
   descriptor.format = "%s: stripe %llu locked: %d ops_request: %lx\n";
   descriptor.lineno = 2619U;
   descriptor.flags = 0U;
-  tmp___9 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___9 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___9 != 0L) {
     {
@@ -14023,7 +14022,7 @@ static int add_stripe_bio(struct stripe_head *sh , struct bio *bi , int dd_idx ,
   descriptor.format = "adding bi b#%llu to stripe s#%llu\n";
   descriptor.lineno = 2635U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -14067,12 +14066,12 @@ static int add_stripe_bio(struct stripe_head *sh , struct bio *bi , int dd_idx ,
 
   }
   {
-  tmp___0 = __builtin_expect((unsigned long )*bip != (unsigned long )((struct bio *)0),
+  tmp___0 = ldv__builtin_expect((unsigned long )*bip != (unsigned long )((struct bio *)0),
                              0L);
   }
   if (tmp___0 != 0L) {
     {
-    tmp___1 = __builtin_expect((unsigned long )bi->bi_next != (unsigned long )((struct bio *)0),
+    tmp___1 = ldv__builtin_expect((unsigned long )bi->bi_next != (unsigned long )((struct bio *)0),
                                0L);
     }
     if (tmp___1 != 0L) {
@@ -14085,7 +14084,7 @@ static int add_stripe_bio(struct stripe_head *sh , struct bio *bi , int dd_idx ,
   }
   if (tmp___2 != 0) {
     {
-    tmp___3 = __builtin_expect((unsigned long )*bip != (unsigned long )bi->bi_next,
+    tmp___3 = ldv__builtin_expect((unsigned long )*bip != (unsigned long )bi->bi_next,
                                0L);
     }
     if (tmp___3 != 0L) {
@@ -14146,7 +14145,7 @@ static int add_stripe_bio(struct stripe_head *sh , struct bio *bi , int dd_idx ,
   descriptor___0.format = "added bi b#%llu to stripe s#%llu, disk %d.\n";
   descriptor___0.lineno = 2682U;
   descriptor___0.flags = 0U;
-  tmp___4 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___4 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
   }
   if (tmp___4 != 0L) {
     {
@@ -14371,7 +14370,7 @@ static void handle_failed_stripe(struct r5conf *conf , struct stripe_head *sh , 
     {
     tmp___7 = constant_test_bit(0L, (unsigned long const volatile   *)(& sh->dev[i].flags));
     __ret_warn_on = tmp___7 != 0;
-    tmp___8 = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp___8 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
     if (tmp___8 != 0L) {
       {
@@ -14381,7 +14380,7 @@ static void handle_failed_stripe(struct r5conf *conf , struct stripe_head *sh , 
 
     }
     {
-    __builtin_expect(__ret_warn_on != 0, 0L);
+    ldv__builtin_expect(__ret_warn_on != 0, 0L);
     sh->dev[i].page = sh->dev[i].orig_page;
     }
   } else {
@@ -14844,7 +14843,7 @@ static int fetch_block(struct stripe_head *sh , struct stripe_head_state *s , in
   if (tmp___10 != 0) {
     {
     tmp = constant_test_bit(12L, (unsigned long const volatile   *)(& dev->flags));
-    tmp___0 = __builtin_expect(tmp != 0, 0L);
+    tmp___0 = ldv__builtin_expect(tmp != 0, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -14857,7 +14856,7 @@ static int fetch_block(struct stripe_head *sh , struct stripe_head_state *s , in
     }
     {
     tmp___1 = constant_test_bit(5L, (unsigned long const volatile   *)(& dev->flags));
-    tmp___2 = __builtin_expect(tmp___1 != 0, 0L);
+    tmp___2 = ldv__builtin_expect(tmp___1 != 0, 0L);
     }
     if (tmp___2 != 0L) {
       {
@@ -14876,7 +14875,7 @@ static int fetch_block(struct stripe_head *sh , struct stripe_head_state *s , in
       descriptor.format = "Computing stripe %llu block %d\n";
       descriptor.lineno = 3006U;
       descriptor.flags = 0U;
-      tmp___3 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+      tmp___3 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
       }
       if (tmp___3 != 0L) {
         {
@@ -14924,7 +14923,7 @@ static int fetch_block(struct stripe_head *sh , struct stripe_head_state *s , in
       }
       ldv_40804: 
       {
-      tmp___6 = __builtin_expect(other < 0, 0L);
+      tmp___6 = ldv__builtin_expect(other < 0, 0L);
       }
       if (tmp___6 != 0L) {
         {
@@ -14942,7 +14941,7 @@ static int fetch_block(struct stripe_head *sh , struct stripe_head_state *s , in
       descriptor___0.format = "Computing stripe %llu blocks %d,%d\n";
       descriptor___0.lineno = 3036U;
       descriptor___0.flags = 0U;
-      tmp___7 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+      tmp___7 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
       }
       if (tmp___7 != 0L) {
         {
@@ -14978,7 +14977,7 @@ static int fetch_block(struct stripe_head *sh , struct stripe_head_state *s , in
         descriptor___1.format = "Reading block %d (sync=%d)\n";
         descriptor___1.lineno = 3051U;
         descriptor___1.flags = 0U;
-        tmp___8 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+        tmp___8 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
         }
         if (tmp___8 != 0L) {
           {
@@ -15108,7 +15107,7 @@ static void handle_stripe_clean_event(struct r5conf *conf , struct stripe_head *
             descriptor.format = "Return write for disc %d\n";
             descriptor.lineno = 3100U;
             descriptor.flags = 0U;
-            tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+            tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
             }
             if (tmp != 0L) {
               {
@@ -15134,7 +15133,7 @@ static void handle_stripe_clean_event(struct r5conf *conf , struct stripe_head *
               {
               tmp___1 = constant_test_bit(0L, (unsigned long const volatile   *)(& dev->flags));
               __ret_warn_on = tmp___1 != 0;
-              tmp___2 = __builtin_expect(__ret_warn_on != 0, 0L);
+              tmp___2 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
               }
               if (tmp___2 != 0L) {
                 {
@@ -15144,7 +15143,7 @@ static void handle_stripe_clean_event(struct r5conf *conf , struct stripe_head *
 
               }
               {
-              __builtin_expect(__ret_warn_on != 0, 0L);
+              ldv__builtin_expect(__ret_warn_on != 0, 0L);
               dev->page = dev->orig_page;
               }
             } else {
@@ -15198,7 +15197,7 @@ static void handle_stripe_clean_event(struct r5conf *conf , struct stripe_head *
     {
     tmp___11 = constant_test_bit(24L, (unsigned long const volatile   *)(& dev->flags));
     __ret_warn_on___0 = tmp___11 != 0;
-    tmp___12 = __builtin_expect(__ret_warn_on___0 != 0, 0L);
+    tmp___12 = ldv__builtin_expect(__ret_warn_on___0 != 0, 0L);
     }
     if (tmp___12 != 0L) {
       {
@@ -15208,9 +15207,9 @@ static void handle_stripe_clean_event(struct r5conf *conf , struct stripe_head *
 
     }
     {
-    __builtin_expect(__ret_warn_on___0 != 0, 0L);
+    ldv__builtin_expect(__ret_warn_on___0 != 0, 0L);
     __ret_warn_on___1 = (unsigned long )dev->page != (unsigned long )dev->orig_page;
-    tmp___13 = __builtin_expect(__ret_warn_on___1 != 0, 0L);
+    tmp___13 = ldv__builtin_expect(__ret_warn_on___1 != 0, 0L);
     }
     if (tmp___13 != 0L) {
       {
@@ -15220,7 +15219,7 @@ static void handle_stripe_clean_event(struct r5conf *conf , struct stripe_head *
 
     }
     {
-    __builtin_expect(__ret_warn_on___1 != 0, 0L);
+    ldv__builtin_expect(__ret_warn_on___1 != 0, 0L);
     }
   } else {
 
@@ -15356,7 +15355,7 @@ static void handle_stripe_dirtying(struct r5conf *conf , struct stripe_head *sh 
     descriptor.format = "force RCW max_degraded=%u, recovery_cp=%llu sh->sector=%llu\n";
     descriptor.lineno = 3181U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -15457,7 +15456,7 @@ static void handle_stripe_dirtying(struct r5conf *conf , struct stripe_head *sh 
   descriptor___0.format = "for sector %llu, rmw=%d rcw=%d\n";
   descriptor___0.lineno = 3206U;
   descriptor___0.flags = 0U;
-  tmp___10 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___10 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
   }
   if (tmp___10 != 0L) {
     {
@@ -15474,7 +15473,7 @@ static void handle_stripe_dirtying(struct r5conf *conf , struct stripe_head *sh 
     if ((unsigned long )(conf->mddev)->queue != (unsigned long )((struct request_queue *)0)) {
       {
       bt = ((conf->mddev)->queue)->blk_trace;
-      tmp___11 = __builtin_expect((unsigned long )bt != (unsigned long )((struct blk_trace *)0),
+      tmp___11 = ldv__builtin_expect((unsigned long )bt != (unsigned long )((struct blk_trace *)0),
                                   0L);
       }
       if (tmp___11 != 0L) {
@@ -15520,7 +15519,7 @@ static void handle_stripe_dirtying(struct r5conf *conf , struct stripe_head *sh 
                 descriptor___1.format = "Read_old block %d for r-m-w\n";
                 descriptor___1.lineno = 3224U;
                 descriptor___1.flags = 0U;
-                tmp___12 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+                tmp___12 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
                 }
                 if (tmp___12 != 0L) {
                   {
@@ -15607,7 +15606,7 @@ static void handle_stripe_dirtying(struct r5conf *conf , struct stripe_head *sh 
                 descriptor___2.format = "Read_old block %d for Reconstruct\n";
                 descriptor___2.lineno = 3251U;
                 descriptor___2.flags = 0U;
-                tmp___19 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+                tmp___19 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
                 }
                 if (tmp___19 != 0L) {
                   {
@@ -15659,7 +15658,7 @@ static void handle_stripe_dirtying(struct r5conf *conf , struct stripe_head *sh 
     if (rcw != 0 && (unsigned long )(conf->mddev)->queue != (unsigned long )((struct request_queue *)0)) {
       {
       bt___0 = ((conf->mddev)->queue)->blk_trace;
-      tmp___28 = __builtin_expect((unsigned long )bt___0 != (unsigned long )((struct blk_trace *)0),
+      tmp___28 = ldv__builtin_expect((unsigned long )bt___0 != (unsigned long )((struct blk_trace *)0),
                                   0L);
       }
       if (tmp___28 != 0L) {
@@ -15766,7 +15765,7 @@ static void handle_parity_checks5(struct r5conf *conf , struct stripe_head *sh ,
   case_0: /* CIL Label */ ;
   if (s->failed == 0) {
     {
-    tmp = __builtin_expect(s->uptodate != disks, 0L);
+    tmp = ldv__builtin_expect(s->uptodate != disks, 0L);
     }
     if (tmp != 0L) {
       {
@@ -15805,7 +15804,7 @@ static void handle_parity_checks5(struct r5conf *conf , struct stripe_head *sh ,
   }
   {
   tmp___1 = constant_test_bit(0L, (unsigned long const volatile   *)(& dev->flags));
-  tmp___2 = __builtin_expect(tmp___1 == 0, 0L);
+  tmp___2 = ldv__builtin_expect(tmp___1 == 0, 0L);
   }
   if (tmp___2 != 0L) {
     {
@@ -15817,7 +15816,7 @@ static void handle_parity_checks5(struct r5conf *conf , struct stripe_head *sh ,
 
   }
   {
-  tmp___3 = __builtin_expect(s->uptodate != disks, 0L);
+  tmp___3 = ldv__builtin_expect(s->uptodate != disks, 0L);
   }
   if (tmp___3 != 0L) {
     {
@@ -15905,7 +15904,7 @@ static void handle_parity_checks6(struct r5conf *conf , struct stripe_head *sh ,
   pd_idx = (int )sh->pd_idx;
   qd_idx = (int )sh->qd_idx;
   set_bit(1L, (unsigned long volatile   *)(& sh->state));
-  tmp = __builtin_expect(s->failed > 2, 0L);
+  tmp = ldv__builtin_expect(s->failed > 2, 0L);
   }
   if (tmp != 0L) {
     {
@@ -15986,7 +15985,7 @@ static void handle_parity_checks6(struct r5conf *conf , struct stripe_head *sh ,
 
   }
   {
-  tmp___0 = __builtin_expect(s->failed != 2, 0L);
+  tmp___0 = ldv__builtin_expect(s->failed != 2, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -16008,7 +16007,7 @@ static void handle_parity_checks6(struct r5conf *conf , struct stripe_head *sh ,
 
   }
   {
-  tmp___2 = __builtin_expect(s->uptodate < disks + -1, 0L);
+  tmp___2 = ldv__builtin_expect(s->uptodate < disks + -1, 0L);
   }
   if (tmp___2 != 0L) {
     {
@@ -16350,7 +16349,7 @@ static void analyse_stripe(struct stripe_head *sh , struct stripe_head_state *s 
   descriptor.format = "check %d: state 0x%lx read %p write %p written %p\n";
   descriptor.lineno = 3635U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -16399,7 +16398,7 @@ static void analyse_stripe(struct stripe_head *sh , struct stripe_head_state *s 
   if (tmp___5 != 0) {
     {
     s->compute = s->compute + 1;
-    tmp___4 = __builtin_expect(s->compute > 2, 0L);
+    tmp___4 = ldv__builtin_expect(s->compute > 2, 0L);
     }
     if (tmp___4 != 0L) {
       {
@@ -16981,7 +16980,7 @@ static void handle_stripe(struct stripe_head *sh )
   descriptor.format = "handling stripe %llu, state=%#lx cnt=%d, pd_idx=%d, qd_idx=%d\n, check:%d, reconstruct:%d\n";
   descriptor.lineno = 3823U;
   descriptor.flags = 0U;
-  tmp___4 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___4 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___4 != 0L) {
     {
@@ -17005,7 +17004,7 @@ static void handle_stripe(struct stripe_head *sh )
 
   }
   {
-  tmp___5 = __builtin_expect((unsigned long )s.blocked_rdev != (unsigned long )((struct md_rdev *)0),
+  tmp___5 = ldv__builtin_expect((unsigned long )s.blocked_rdev != (unsigned long )((struct md_rdev *)0),
                              0L);
   }
   if (tmp___5 != 0L) {
@@ -17046,7 +17045,7 @@ static void handle_stripe(struct stripe_head *sh )
   descriptor___0.format = "locked=%d uptodate=%d to_read=%d to_write=%d failed=%d failed_num=%d,%d\n";
   descriptor___0.lineno = 3851U;
   descriptor___0.flags = 0U;
-  tmp___7 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___7 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
   }
   if (tmp___7 != 0L) {
     {
@@ -17087,12 +17086,12 @@ static void handle_stripe(struct stripe_head *sh )
     {
     sh->reconstruct_state = 0;
     tmp___8 = constant_test_bit(0L, (unsigned long const volatile   *)(& sh->dev[(int )sh->pd_idx].flags));
-    tmp___9 = __builtin_expect(tmp___8 == 0, 0L);
+    tmp___9 = ldv__builtin_expect(tmp___8 == 0, 0L);
     }
     if (tmp___9 != 0L) {
       {
       tmp___10 = constant_test_bit(23L, (unsigned long const volatile   *)(& sh->dev[(int )sh->pd_idx].flags));
-      tmp___11 = __builtin_expect(tmp___10 == 0, 0L);
+      tmp___11 = ldv__builtin_expect(tmp___10 == 0, 0L);
       }
       if (tmp___11 != 0L) {
         {
@@ -17107,12 +17106,12 @@ static void handle_stripe(struct stripe_head *sh )
 
     }
     {
-    tmp___12 = __builtin_expect((int )sh->qd_idx >= 0, 0L);
+    tmp___12 = ldv__builtin_expect((int )sh->qd_idx >= 0, 0L);
     }
     if (tmp___12 != 0L) {
       {
       tmp___13 = constant_test_bit(0L, (unsigned long const volatile   *)(& sh->dev[(int )sh->qd_idx].flags));
-      tmp___14 = __builtin_expect(tmp___13 == 0, 0L);
+      tmp___14 = ldv__builtin_expect(tmp___13 == 0, 0L);
       }
       if (tmp___14 != 0L) {
         tmp___15 = 1;
@@ -17125,7 +17124,7 @@ static void handle_stripe(struct stripe_head *sh )
     if (tmp___15 != 0) {
       {
       tmp___16 = constant_test_bit(23L, (unsigned long const volatile   *)(& sh->dev[(int )sh->qd_idx].flags));
-      tmp___17 = __builtin_expect(tmp___16 == 0, 0L);
+      tmp___17 = ldv__builtin_expect(tmp___16 == 0, 0L);
       }
       if (tmp___17 != 0L) {
         {
@@ -17154,7 +17153,7 @@ static void handle_stripe(struct stripe_head *sh )
       descriptor___1.format = "Writing block %d\n";
       descriptor___1.lineno = 3887U;
       descriptor___1.flags = 0U;
-      tmp___18 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+      tmp___18 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
       }
       if (tmp___18 != 0L) {
         {
@@ -17352,7 +17351,7 @@ static void handle_stripe(struct stripe_head *sh )
           {
           tmp___33 = constant_test_bit(0L, (unsigned long const volatile   *)(& sh->dev[i].flags));
           __ret_warn_on = tmp___33 == 0;
-          tmp___34 = __builtin_expect(__ret_warn_on != 0, 0L);
+          tmp___34 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
           }
           if (tmp___34 != 0L) {
             {
@@ -17362,7 +17361,7 @@ static void handle_stripe(struct stripe_head *sh )
 
           }
           {
-          __builtin_expect(__ret_warn_on != 0, 0L);
+          ldv__builtin_expect(__ret_warn_on != 0, 0L);
           set_bit(22L, (unsigned long volatile   *)(& sh->dev[i].flags));
           set_bit(1L, (unsigned long volatile   *)(& sh->dev[i].flags));
           s.locked = s.locked + 1;
@@ -17589,7 +17588,7 @@ static void handle_stripe(struct stripe_head *sh )
   }
   finish: 
   {
-  tmp___51 = __builtin_expect((unsigned long )s.blocked_rdev != (unsigned long )((struct md_rdev *)0),
+  tmp___51 = ldv__builtin_expect((unsigned long )s.blocked_rdev != (unsigned long )((struct md_rdev *)0),
                               0L);
   }
   if (tmp___51 != 0L) {
@@ -17970,7 +17969,7 @@ static void raid5_align_endio(struct bio *bi , int error___0 )
   descriptor.format = "raid5_align_endio : io error...handing IO for a retry\n";
   descriptor.lineno = 4280U;
   descriptor.flags = 0U;
-  tmp___2 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___2 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___2 != 0L) {
     {
@@ -18069,7 +18068,7 @@ static int chunk_aligned_read(struct mddev *mddev , struct bio *raid_bio )
     descriptor.format = "chunk_aligned_read : non aligned\n";
     descriptor.lineno = 4313U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -18333,7 +18332,7 @@ static struct stripe_head *__get_priority_stripe(struct r5conf *conf , int group
   descriptor.format = "%s: handle: %s hold: %s full_writes: %d bypass_count: %d\n";
   descriptor.lineno = 4425U;
   descriptor.flags = 0U;
-  tmp___4 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___4 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___4 != 0L) {
     {
@@ -18460,7 +18459,7 @@ static struct stripe_head *__get_priority_stripe(struct r5conf *conf , int group
   {
   list_del_init(& sh->lru);
   tmp___13 = atomic_add_return(1, & sh->count);
-  tmp___14 = __builtin_expect(tmp___13 != 1, 0L);
+  tmp___14 = ldv__builtin_expect(tmp___13 != 1, 0L);
   }
   if (tmp___14 != 0L) {
     {
@@ -18823,7 +18822,7 @@ static void make_request(struct mddev *mddev , struct bio *bi )
   w.func = & autoremove_wake_function;
   w.task_list.next = & w.task_list;
   w.task_list.prev = & w.task_list;
-  tmp___0 = __builtin_expect(((unsigned long long )bi->bi_rw & 8192ULL) != 0ULL, 0L);
+  tmp___0 = ldv__builtin_expect(((unsigned long long )bi->bi_rw & 8192ULL) != 0ULL, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -18849,7 +18848,7 @@ static void make_request(struct mddev *mddev , struct bio *bi )
 
   }
   {
-  tmp___2 = __builtin_expect(((unsigned long long )bi->bi_rw & 128ULL) != 0ULL, 0L);
+  tmp___2 = ldv__builtin_expect(((unsigned long long )bi->bi_rw & 128ULL) != 0ULL, 0L);
   }
   if (tmp___2 != 0L) {
     {
@@ -18883,7 +18882,7 @@ static void make_request(struct mddev *mddev , struct bio *bi )
 
   }
   {
-  tmp___4 = __builtin_expect(conf->reshape_progress != 0xffffffffffffffffUL, 0L);
+  tmp___4 = ldv__builtin_expect(conf->reshape_progress != 0xffffffffffffffffUL, 0L);
   }
   if (tmp___4 != 0L) {
     {
@@ -18916,7 +18915,7 @@ static void make_request(struct mddev *mddev , struct bio *bi )
   descriptor.format = "raid456: make_request, sector %llu logical %llu\n";
   descriptor.lineno = 4718U;
   descriptor.flags = 0U;
-  tmp___5 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___5 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___5 != 0L) {
     {
@@ -18931,7 +18930,7 @@ static void make_request(struct mddev *mddev , struct bio *bi )
   }
   if ((unsigned long )sh != (unsigned long )((struct stripe_head *)0)) {
     {
-    tmp___6 = __builtin_expect(previous != 0, 0L);
+    tmp___6 = ldv__builtin_expect(previous != 0, 0L);
     }
     if (tmp___6 != 0L) {
       {
@@ -19221,7 +19220,7 @@ static sector_t reshape_request(struct mddev *mddev , sector_t sector_nr , int *
   }
   if (mddev->reshape_backwards != 0) {
     {
-    tmp___1 = __builtin_expect(conf->reshape_progress == 0UL, 0L);
+    tmp___1 = ldv__builtin_expect(conf->reshape_progress == 0UL, 0L);
     }
     if (tmp___1 != 0L) {
       {
@@ -19234,7 +19233,7 @@ static sector_t reshape_request(struct mddev *mddev , sector_t sector_nr , int *
     }
     {
     stripe_addr = writepos;
-    tmp___2 = __builtin_expect(((mddev->dev_sectors & - ((unsigned long )reshape_sectors)) - (unsigned long )reshape_sectors) - stripe_addr != sector_nr,
+    tmp___2 = ldv__builtin_expect(((mddev->dev_sectors & - ((unsigned long )reshape_sectors)) - (unsigned long )reshape_sectors) - stripe_addr != sector_nr,
                                0L);
     }
     if (tmp___2 != 0L) {
@@ -19248,7 +19247,7 @@ static sector_t reshape_request(struct mddev *mddev , sector_t sector_nr , int *
     }
   } else {
     {
-    tmp___3 = __builtin_expect(writepos != sector_nr + (sector_t )reshape_sectors,
+    tmp___3 = ldv__builtin_expect(writepos != sector_nr + (sector_t )reshape_sectors,
                                0L);
     }
     if (tmp___3 != 0L) {
@@ -20059,7 +20058,7 @@ static void raid5_do_work(struct work_struct *work )
   descriptor.format = "+++ raid5worker active\n";
   descriptor.lineno = 5259U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -20094,7 +20093,7 @@ static void raid5_do_work(struct work_struct *work )
   descriptor___0.format = "%d stripes handled\n";
   descriptor___0.lineno = 5276U;
   descriptor___0.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -20112,7 +20111,7 @@ static void raid5_do_work(struct work_struct *work )
   descriptor___1.format = "--- raid5worker inactive\n";
   descriptor___1.lineno = 5281U;
   descriptor___1.flags = 0U;
-  tmp___1 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -20152,7 +20151,7 @@ static void raid5d(struct md_thread *thread )
   descriptor.format = "+++ raid5d active\n";
   descriptor.lineno = 5298U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -20237,7 +20236,7 @@ static void raid5d(struct md_thread *thread )
   descriptor___0.format = "%d stripes handled\n";
   descriptor___0.lineno = 5345U;
   descriptor___0.flags = 0U;
-  tmp___1 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -20256,7 +20255,7 @@ static void raid5d(struct md_thread *thread )
   descriptor___1.format = "--- raid5d inactive\n";
   descriptor___1.lineno = 5352U;
   descriptor___1.flags = 0U;
-  tmp___2 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+  tmp___2 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
   }
   if (tmp___2 != 0L) {
     {
@@ -21362,7 +21361,7 @@ static struct r5conf *setup_conf(struct mddev *mddev )
   descriptor.format = "raid456: run(%s) called.\n";
   descriptor.lineno = 5908U;
   descriptor.flags = 0U;
-  tmp___18 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___18 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___18 != 0L) {
     {
@@ -21747,7 +21746,7 @@ static int run(struct mddev *mddev )
     }
   } else {
     {
-    tmp___6 = __builtin_expect(mddev->level != mddev->new_level, 0L);
+    tmp___6 = ldv__builtin_expect(mddev->level != mddev->new_level, 0L);
     }
     if (tmp___6 != 0L) {
       {
@@ -21759,7 +21758,7 @@ static int run(struct mddev *mddev )
 
     }
     {
-    tmp___7 = __builtin_expect(mddev->layout != mddev->new_layout, 0L);
+    tmp___7 = ldv__builtin_expect(mddev->layout != mddev->new_layout, 0L);
     }
     if (tmp___7 != 0L) {
       {
@@ -21771,7 +21770,7 @@ static int run(struct mddev *mddev )
 
     }
     {
-    tmp___8 = __builtin_expect(mddev->chunk_sectors != mddev->new_chunk_sectors, 0L);
+    tmp___8 = ldv__builtin_expect(mddev->chunk_sectors != mddev->new_chunk_sectors, 0L);
     }
     if (tmp___8 != 0L) {
       {
@@ -21783,7 +21782,7 @@ static int run(struct mddev *mddev )
 
     }
     {
-    tmp___9 = __builtin_expect(mddev->delta_disks != 0, 0L);
+    tmp___9 = ldv__builtin_expect(mddev->delta_disks != 0, 0L);
     }
     if (tmp___9 != 0L) {
       {
@@ -23669,7 +23668,7 @@ void ldv_dummy_resourceless_instance_callback_7_9(long (*arg0)(struct mddev * , 
                                                   struct mddev *arg1 , char *arg2 ,
                                                   unsigned long arg3 ) ;
 void ldv_entry_EMGentry_11(void *arg0 ) ;
-void main(void) ;
+int main(void) ;
 void ldv_io_instance_callback_0_17(int (*arg0)(struct mddev * , int  ) , struct mddev *arg1 ,
                                    int arg2 ) ;
 void ldv_io_instance_callback_0_20(void (*arg0)(struct mddev * , struct md_rdev * ) ,
@@ -24194,7 +24193,7 @@ void ldv_entry_EMGentry_11(void *arg0 )
   return;
 }
 }
-void main(void) 
+int main(void) 
 { 
 
 
@@ -24203,7 +24202,7 @@ void main(void)
   ldv_ldv_initialize_210();
   ldv_entry_EMGentry_11((void *)0);
   }
-  return;
+return 0;
 }
 }
 void ldv_io_instance_callback_0_17(int (*arg0)(struct mddev * , int  ) , struct mddev *arg1 ,
@@ -29177,7 +29176,7 @@ void ldv_linux_usb_urb_check_final_state(void)
 }
 }
 extern void ldv_assert(char const   * , int  ) ;
-void __builtin_trap(void) ;
+void ldv__builtin_trap(void) ;
 void ldv_assume(int expression ) 
 { 
 
@@ -29201,7 +29200,7 @@ void ldv_stop(void)
   goto ldv_stop_label;
 }
 }
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 
@@ -29209,7 +29208,7 @@ long __builtin_expect(long exp , long c )
   return (exp);
 }
 }
-void __builtin_trap(void) 
+void ldv__builtin_trap(void) 
 { 
 
 

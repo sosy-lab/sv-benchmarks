@@ -5171,7 +5171,7 @@ struct ldv_thread {
    void (*function)(void * ) ;
 };
 typedef _Bool ldv_set;
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 void *ldv_dev_get_drvdata(struct device  const  *dev ) ;
 int ldv_dev_set_drvdata(struct device *dev , void *data ) ;
 long ldv_is_err(void const   *ptr ) ;
@@ -5542,7 +5542,7 @@ __inline static void netif_tx_stop_queue(struct netdev_queue *dev_queue )
   {
   {
   __ret_warn_on = (unsigned long )dev_queue == (unsigned long )((struct netdev_queue *)0);
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp != 0L) {
     {
@@ -5552,7 +5552,7 @@ __inline static void netif_tx_stop_queue(struct netdev_queue *dev_queue )
 
   }
   {
-  tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -5964,7 +5964,7 @@ static unsigned int ks8851_rdreg32(struct ks8851_net *ks , unsigned int reg )
   {
   rx = 0U;
   __ret_warn_on = (reg & 3U) != 0U;
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp != 0L) {
     {
@@ -5974,7 +5974,7 @@ static unsigned int ks8851_rdreg32(struct ks8851_net *ks , unsigned int reg )
 
   }
   {
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
   ks8851_rdreg(ks, ((reg << 10) | (reg >> 6)) | 60U, (u8 *)(& rx), 4U);
   }
   return (rx);
@@ -6054,7 +6054,7 @@ static void ks8851_set_powermode(struct ks8851_net *ks , unsigned int pwrmode )
     descriptor.format = "setting power mode %d\n";
     descriptor.lineno = 361U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -6209,7 +6209,7 @@ static void ks8851_rdfifo(struct ks8851_net *ks , u8 *buff , unsigned int len )
     descriptor.format = "%s: %d@%p\n";
     descriptor.lineno = 464U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -6257,7 +6257,7 @@ static void ks8851_dbg_dumpkkt(struct ks8851_net *ks , u8 *rxpkt )
   descriptor.format = "pkt %02x%02x%02x%02x %02x%02x%02x%02x %02x%02x%02x%02x\n";
   descriptor.lineno = 496U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -6300,7 +6300,7 @@ static void ks8851_rx_pkts(struct ks8851_net *ks )
     descriptor.format = "%s: %d packets\n";
     descriptor.lineno = 519U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -6328,7 +6328,7 @@ static void ks8851_rx_pkts(struct ks8851_net *ks )
     descriptor___0.format = "rx: stat 0x%04x, len 0x%04x\n";
     descriptor___0.lineno = 537U;
     descriptor___0.flags = 0U;
-    tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -6419,7 +6419,7 @@ static irqreturn_t ks8851_irq(int irq , void *_ks )
     descriptor.format = "%s: status 0x%04x\n";
     descriptor.lineno = 604U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -6467,7 +6467,7 @@ static irqreturn_t ks8851_irq(int irq , void *_ks )
       descriptor___0.format = "%s: txspace %d\n";
       descriptor___0.lineno = 630U;
       descriptor___0.flags = 0U;
-      tmp___2 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+      tmp___2 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
       }
       if (tmp___2 != 0L) {
         {
@@ -6570,7 +6570,7 @@ static void ks8851_wrpkt(struct ks8851_net *ks , struct sk_buff *txp , bool irq 
     descriptor.format = "%s: skb %p, %d@%p, irq %d\n";
     descriptor.lineno = 710U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -6701,7 +6701,7 @@ static int ks8851_net_open(struct net_device *dev )
     descriptor.format = "opening\n";
     descriptor.lineno = 799U;
     descriptor.flags = 0U;
-    tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -6739,7 +6739,7 @@ static int ks8851_net_open(struct net_device *dev )
     descriptor___0.format = "network device up\n";
     descriptor___0.lineno = 855U;
     descriptor___0.flags = 0U;
-    tmp___1 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___1 != 0L) {
       {
@@ -6808,7 +6808,7 @@ static int ks8851_net_stop(struct net_device *dev )
     descriptor.format = "%s: freeing txb %p\n";
     descriptor.lineno = 903U;
     descriptor.flags = 0U;
-    tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp___1 != 0L) {
       {
@@ -6863,7 +6863,7 @@ static netdev_tx_t ks8851_start_xmit(struct sk_buff *skb , struct net_device *de
     descriptor.format = "%s: skb %p, %d@%p\n";
     descriptor.lineno = 932U;
     descriptor.flags = 0U;
-    tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp___1 != 0L) {
       {
@@ -7868,7 +7868,7 @@ void ldv_dummy_resourceless_instance_callback_2_7(int (*arg0)(struct net_device 
                                                   struct net_device *arg1 , struct ethtool_eeprom *arg2 ,
                                                   unsigned char *arg3 ) ;
 void ldv_entry_EMGentry_14(void *arg0 ) ;
-void main(void) ;
+int main(void) ;
 void ldv_free_irq(void *arg0 , int arg1 , void *arg2 ) ;
 void ldv_free_netdev(void *arg0 , struct net_device *arg1 ) ;
 void ldv_initialize_external_data(void) ;
@@ -8781,7 +8781,7 @@ void ldv_entry_EMGentry_14(void *arg0 )
   return;
 }
 }
-void main(void) 
+int main(void) 
 { 
   int tmp ;
 
@@ -11479,7 +11479,7 @@ void *ldv_kzalloc(size_t size , gfp_t flags )
 }
 }
 extern void ldv_assert(char const   * , int  ) ;
-void __builtin_trap(void) ;
+void ldv__builtin_trap(void) ;
 void ldv_assume(int expression ) 
 { 
 
@@ -11503,7 +11503,7 @@ void ldv_stop(void)
   goto ldv_stop_label;
 }
 }
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 
@@ -11511,7 +11511,7 @@ long __builtin_expect(long exp , long c )
   return (exp);
 }
 }
-void __builtin_trap(void) 
+void ldv__builtin_trap(void) 
 { 
 
 

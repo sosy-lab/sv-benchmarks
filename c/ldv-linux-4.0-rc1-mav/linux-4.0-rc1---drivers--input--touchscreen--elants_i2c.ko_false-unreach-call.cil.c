@@ -4264,8 +4264,7 @@ struct ldv_thread {
    void (*function)(void * ) ;
 };
 typedef _Bool ldv_set;
-int __builtin_bswap32(int  ) ;
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 void ldv_assume(int expression ) ;
 void ldv_stop(void) ;
 void ldv_linux_alloc_irq_check_alloc_flags(gfp_t flags ) ;
@@ -4982,7 +4981,7 @@ static int elants_i2c_query_fw_id(struct elants_data *ts )
   descriptor.format = "read fw id error=%d, buf=%*phC\n";
   descriptor.lineno = 309U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -5047,7 +5046,7 @@ static int elants_i2c_query_fw_version(struct elants_data *ts )
   descriptor.format = "read fw version error=%d, buf=%*phC\n";
   descriptor.lineno = 336U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -5111,7 +5110,7 @@ static int elants_i2c_query_test_version(struct elants_data *ts )
   descriptor.format = "read test version error rc=%d, buf=%*phC\n";
   descriptor.lineno = 366U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -5274,7 +5273,7 @@ static int elants_i2c_query_ts_info(struct elants_data *ts )
   descriptor.format = "phy_x=%d, phy_y=%d\n";
   descriptor.lineno = 467U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -5332,7 +5331,7 @@ static int elants_i2c_fastboot(struct i2c_client *client )
   descriptor.format = "boot success -- 0x%x\n";
   descriptor.lineno = 495U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -5563,7 +5562,7 @@ static int elants_i2c_do_update_firmware(struct i2c_client *client , struct firm
     descriptor.format = "Recovery mode procedure\n";
     descriptor.lineno = 616U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -5583,7 +5582,7 @@ static int elants_i2c_do_update_firmware(struct i2c_client *client , struct firm
     descriptor___0.format = "Normal IAP procedure\n";
     descriptor___0.lineno = 620U;
     descriptor___0.flags = 0U;
-    tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -5678,7 +5677,7 @@ static int elants_i2c_do_update_firmware(struct i2c_client *client , struct firm
   descriptor___1.format = "IAP Pages = %d\n";
   descriptor___1.lineno = 676U;
   descriptor___1.flags = 0U;
-  tmp___2 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+  tmp___2 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
   }
   if (tmp___2 != 0L) {
     {
@@ -5822,7 +5821,7 @@ static void elants_i2c_mt_event(struct elants_data *ts , u8 *buf )
   descriptor.format = "n_fingers: %u, state: %04x\n";
   descriptor.lineno = 765U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -5848,7 +5847,7 @@ static void elants_i2c_mt_event(struct elants_data *ts , u8 *buf )
     descriptor___0.format = "i=%d x=%d y=%d p=%d w=%d\n";
     descriptor___0.lineno = 779U;
     descriptor___0.flags = 0U;
-    tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -5918,7 +5917,7 @@ static void elants_i2c_event(struct elants_data *ts , u8 *buf )
   {
   tmp = elants_i2c_calculate_checksum(buf);
   checksum = tmp;
-  tmp___1 = __builtin_expect((int )*(buf + 34UL) != (int )checksum, 0L);
+  tmp___1 = ldv__builtin_expect((int )*(buf + 34UL) != (int )checksum, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -5927,7 +5926,7 @@ static void elants_i2c_event(struct elants_data *ts , u8 *buf )
     }
   } else {
     {
-    tmp___0 = __builtin_expect((unsigned int )*buf != 98U, 0L);
+    tmp___0 = ldv__builtin_expect((unsigned int )*buf != 98U, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -5984,7 +5983,7 @@ static irqreturn_t elants_i2c_irq(int irq , void *_dev )
   descriptor.format = "%s: packet %*ph\n";
   descriptor.lineno = 843U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -6201,7 +6200,7 @@ static ssize_t write_update_fw(struct device *dev , struct device_attribute *att
   descriptor.format = "firmware update result: %d\n";
   descriptor.lineno = 954U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -6698,7 +6697,7 @@ void ldv_dummy_resourceless_instance_callback_6_9(long (*arg0)(struct device * ,
                                                   struct device *arg1 , struct device_attribute *arg2 ,
                                                   char *arg3 , unsigned long arg4 ) ;
 void ldv_entry_EMGentry_9(void *arg0 ) ;
-void main(void) ;
+int main(void) ;
 void ldv_i2c_io_instance_0(void *arg0 ) ;
 int ldv_i2c_register_driver(int arg0 , struct module *arg1 , struct i2c_driver *arg2 ) ;
 enum irqreturn ldv_interrupt_instance_handler_1_5(enum irqreturn (*arg0)(int  , void * ) ,
@@ -7053,7 +7052,7 @@ void ldv_entry_EMGentry_9(void *arg0 )
   return;
 }
 }
-void main(void) 
+int main(void) 
 { 
 
 
@@ -7062,7 +7061,7 @@ void main(void)
   ldv_ldv_initialize_111();
   ldv_entry_EMGentry_9((void *)0);
   }
-  return;
+return 0;
 }
 }
 void ldv_i2c_io_instance_0(void *arg0 ) 
@@ -10292,7 +10291,7 @@ void ldv_linux_usb_urb_check_final_state(void)
 }
 }
 extern void ldv_assert(char const   * , int  ) ;
-void __builtin_trap(void) ;
+void ldv__builtin_trap(void) ;
 void ldv_assume(int expression ) 
 { 
 
@@ -10316,7 +10315,7 @@ void ldv_stop(void)
   goto ldv_stop_label;
 }
 }
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 
@@ -10324,7 +10323,7 @@ long __builtin_expect(long exp , long c )
   return (exp);
 }
 }
-void __builtin_trap(void) 
+void ldv__builtin_trap(void) 
 { 
 
 

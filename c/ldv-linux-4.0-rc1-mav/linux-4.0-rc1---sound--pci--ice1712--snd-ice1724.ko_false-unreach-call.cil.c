@@ -5182,7 +5182,7 @@ struct ldv_thread {
    void (*function)(void * ) ;
 };
 typedef _Bool ldv_set;
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 void ldv_assume(int expression ) ;
 void ldv_stop(void) ;
 void ldv_linux_alloc_irq_check_alloc_flags(gfp_t flags ) ;
@@ -5916,7 +5916,7 @@ static unsigned char snd_vt1724_ac97_ready(struct snd_ice1712 *ice )
   descriptor.format = "snd_vt1724_ac97_ready: timeout\n";
   descriptor.lineno = 149U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -5961,7 +5961,7 @@ static int snd_vt1724_ac97_wait_bit(struct snd_ice1712 *ice , unsigned char bit 
   descriptor.format = "snd_vt1724_ac97_wait_bit: timeout\n";
   descriptor.lineno = 159U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -7131,7 +7131,7 @@ static snd_pcm_uframes_t snd_vt1724_playback_pro_pointer(struct snd_pcm_substrea
     descriptor.format = "invalid ptr %d (size=%d)\n";
     descriptor.lineno = 844U;
     descriptor.flags = 0U;
-    tmp___2 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___2 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp___2 != 0L) {
       {
@@ -7210,7 +7210,7 @@ static snd_pcm_uframes_t snd_vt1724_pcm_pointer(struct snd_pcm_substream *substr
     descriptor.format = "invalid ptr %d (size=%d)\n";
     descriptor.lineno = 888U;
     descriptor.flags = 0U;
-    tmp___2 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___2 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp___2 != 0L) {
       {
@@ -8715,7 +8715,7 @@ int snd_ice1724_get_route_val(struct snd_ice1712 *ice , int shift )
   if ((unsigned int )eitem == 255U) {
     {
     __ret_warn_on = 1;
-    tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -8725,7 +8725,7 @@ int snd_ice1724_get_route_val(struct snd_ice1712 *ice , int shift )
 
     }
     {
-    __builtin_expect(__ret_warn_on != 0, 0L);
+    ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
     return (0);
   } else {
@@ -9094,7 +9094,7 @@ static int snd_vt1724_read_eeprom(struct snd_ice1712 *ice , char const   *modeln
   descriptor.format = "using the defined eeprom..\n";
   descriptor.lineno = 2353U;
   descriptor.flags = 0U;
-  tmp___7 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___7 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___7 != 0L) {
     {
@@ -9231,7 +9231,7 @@ static int snd_vt1724_spdif_build_controls(struct snd_ice1712 *ice )
   {
   {
   __ret_warn_on = (unsigned long )ice->pcm == (unsigned long )((struct snd_pcm *)0);
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp != 0L) {
     {
@@ -9241,7 +9241,7 @@ static int snd_vt1724_spdif_build_controls(struct snd_ice1712 *ice )
 
   }
   {
-  tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp___0 != 0L) {
     return (-5);
@@ -10244,7 +10244,7 @@ void ldv_dummy_resourceless_instance_callback_9_3(void (*arg0)(struct snd_akm4xx
                                                                int  ) , struct snd_akm4xxx *arg1 ,
                                                   int arg2 ) ;
 void ldv_entry_EMGentry_44(void *arg0 ) ;
-void main(void) ;
+int main(void) ;
 void ldv_free_irq(void *arg0 , int arg1 , void *arg2 ) ;
 enum irqreturn ldv_interrupt_instance_handler_0_5(enum irqreturn (*arg0)(int  , void * ) ,
                                                   int arg1 , void *arg2 ) ;
@@ -11108,7 +11108,7 @@ void ldv_entry_EMGentry_44(void *arg0 )
   return;
 }
 }
-void main(void) 
+int main(void) 
 { 
 
 
@@ -11117,7 +11117,7 @@ void main(void)
   ldv_ldv_initialize_170();
   ldv_entry_EMGentry_44((void *)0);
   }
-  return;
+return 0;
 }
 }
 void ldv_free_irq(void *arg0 , int arg1 , void *arg2 ) 
@@ -16611,7 +16611,7 @@ static int revo_init(struct snd_ice1712 *ice )
   switch_default: /* CIL Label */ 
   {
   __ret_warn_on = 1;
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp != 0L) {
     {
@@ -16621,7 +16621,7 @@ static int revo_init(struct snd_ice1712 *ice )
 
   }
   {
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   return (-22);
   switch_break: /* CIL Label */ ;
@@ -22579,7 +22579,7 @@ static int prodigy192_init(struct snd_ice1712 *ice )
     descriptor.format = "AK4114 initialized with status %d\n";
     descriptor.lineno = 758U;
     descriptor.flags = 0U;
-    tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -22597,7 +22597,7 @@ static int prodigy192_init(struct snd_ice1712 *ice )
     descriptor___0.format = "AK4114 not found\n";
     descriptor___0.lineno = 760U;
     descriptor___0.flags = 0U;
-    tmp___1 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___1 != 0L) {
       {
@@ -24637,7 +24637,7 @@ static void juli_akm_write(struct snd_akm4xxx *ak , int chip , unsigned char add
   {
   ice = (struct snd_ice1712 *)ak->private_data[0];
   __ret_warn_on = chip != 0;
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp != 0L) {
     {
@@ -24647,7 +24647,7 @@ static void juli_akm_write(struct snd_akm4xxx *ak , int chip , unsigned char add
 
   }
   {
-  tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp___0 != 0L) {
     return;
@@ -25502,7 +25502,7 @@ static int phase22_init(struct snd_ice1712 *ice )
   switch_default: /* CIL Label */ 
   {
   __ret_warn_on = 1;
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp != 0L) {
     {
@@ -25512,7 +25512,7 @@ static int phase22_init(struct snd_ice1712 *ice )
 
   }
   {
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   return (-22);
   switch_break: /* CIL Label */ ;
@@ -28054,7 +28054,7 @@ static int se200pci_add_controls(struct snd_ice1712 *ice )
   switch_default: /* CIL Label */ 
   {
   __ret_warn_on = 1;
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp != 0L) {
     {
@@ -28064,7 +28064,7 @@ static int se200pci_add_controls(struct snd_ice1712 *ice )
 
   }
   {
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   return (-22);
   switch_break: /* CIL Label */ ;
@@ -28850,7 +28850,7 @@ static void set_rate(struct snd_ice1712 *ice , unsigned int rate )
   switch_default: /* CIL Label */ 
   {
   __ret_warn_on = 1;
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp != 0L) {
     {
@@ -28860,7 +28860,7 @@ static void set_rate(struct snd_ice1712 *ice , unsigned int rate )
 
   }
   {
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   return;
   switch_break: /* CIL Label */ ;
@@ -29213,7 +29213,7 @@ static void qtet_akm_write(struct snd_akm4xxx *ak , int chip , unsigned char add
   {
   ice = (struct snd_ice1712 *)ak->private_data[0];
   __ret_warn_on = (unsigned int )chip > 3U;
-  tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -29223,7 +29223,7 @@ static void qtet_akm_write(struct snd_akm4xxx *ak , int chip , unsigned char add
 
   }
   {
-  tmp___1 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___1 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp___1 != 0L) {
     return;
@@ -29634,7 +29634,7 @@ static int qtet_ain12_sw_get(struct snd_kcontrol *kcontrol , struct snd_ctl_elem
   switch_default: /* CIL Label */ 
   {
   __ret_warn_on = 1;
-  tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -29644,7 +29644,7 @@ static int qtet_ain12_sw_get(struct snd_kcontrol *kcontrol , struct snd_ctl_elem
 
   }
   {
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
   result = 0U;
   }
   switch_break: /* CIL Label */ ;
@@ -29723,7 +29723,7 @@ static int qtet_ain12_sw_put(struct snd_kcontrol *kcontrol , struct snd_ctl_elem
     switch_default: /* CIL Label */ 
     {
     __ret_warn_on = 1;
-    tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -29733,7 +29733,7 @@ static int qtet_ain12_sw_put(struct snd_kcontrol *kcontrol , struct snd_ctl_elem
 
     }
     {
-    __builtin_expect(__ret_warn_on != 0, 0L);
+    ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
     switch_break: /* CIL Label */ ;
     }
@@ -30132,7 +30132,7 @@ static int qtet_set_spdif_clock(struct snd_ice1712 *ice , int type )
   switch_default: /* CIL Label */ 
   {
   __ret_warn_on = 1;
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp != 0L) {
     {
@@ -30142,7 +30142,7 @@ static int qtet_set_spdif_clock(struct snd_ice1712 *ice , int type )
 
   }
   {
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   switch_break: /* CIL Label */ ;
   }
@@ -30202,7 +30202,7 @@ static int qtet_get_spdif_master_type(struct snd_ice1712 *ice )
     switch_default: /* CIL Label */ 
     {
     __ret_warn_on = 1;
-    tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
     if (tmp != 0L) {
       {
@@ -30212,7 +30212,7 @@ static int qtet_get_spdif_master_type(struct snd_ice1712 *ice )
 
     }
     {
-    __builtin_expect(__ret_warn_on != 0, 0L);
+    ldv__builtin_expect(__ret_warn_on != 0, 0L);
     result = 0;
     }
     switch_break: /* CIL Label */ ;
@@ -34542,7 +34542,7 @@ void ldv_linux_usb_urb_check_final_state(void)
 }
 }
 extern void ldv_assert(char const   * , int  ) ;
-void __builtin_trap(void) ;
+void ldv__builtin_trap(void) ;
 void ldv_assume(int expression ) 
 { 
 
@@ -34566,7 +34566,7 @@ void ldv_stop(void)
   goto ldv_stop_label;
 }
 }
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 
@@ -34574,7 +34574,7 @@ long __builtin_expect(long exp , long c )
   return (exp);
 }
 }
-void __builtin_trap(void) 
+void ldv__builtin_trap(void) 
 { 
 
 

@@ -7769,7 +7769,7 @@ void ldv_dummy_resourceless_instance_callback_1_8(int (*arg0)(struct vb2_buffer 
 void ldv_dummy_resourceless_instance_callback_1_9(int (*arg0)(struct vb2_buffer * ) ,
                                                   struct vb2_buffer *arg1 ) ;
 void ldv_entry_EMGentry_7(void *arg0 ) ;
-void main(void) ;
+int main(void) ;
 void ldv_initialize_external_data(void) ;
 void ldv_io_instance_callback_4_17(int (*arg0)(struct file * , struct vm_area_struct * ) ,
                                    struct file *arg1 , struct vm_area_struct *arg2 ) ;
@@ -8475,7 +8475,7 @@ void ldv_entry_EMGentry_7(void *arg0 )
   return;
 }
 }
-void main(void) 
+int main(void) 
 { 
   int tmp ;
 
@@ -16968,9 +16968,9 @@ void *ldv_kzalloc(size_t size , gfp_t flags )
   return (res);
 }
 }
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 extern void ldv_assert(char const   * , int  ) ;
-void __builtin_trap(void) ;
+void ldv__builtin_trap(void) ;
 void ldv_assume(int expression ) 
 { 
 
@@ -16994,7 +16994,7 @@ void ldv_stop(void)
   goto ldv_stop_label;
 }
 }
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 
@@ -17002,7 +17002,7 @@ long __builtin_expect(long exp , long c )
   return (exp);
 }
 }
-void __builtin_trap(void) 
+void ldv__builtin_trap(void) 
 { 
 
 

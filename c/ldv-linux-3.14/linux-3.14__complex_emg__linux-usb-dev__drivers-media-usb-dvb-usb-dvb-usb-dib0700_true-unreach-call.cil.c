@@ -9496,7 +9496,7 @@ void ldv_dummy_resourceless_instance_callback_9_9(int (*arg0)(struct usb_device 
                                                               struct firmware * ) ,
                                                   struct usb_device *arg1 , struct firmware *arg2 ) ;
 void ldv_entry_EMGentry_33(void *arg0 ) ;
-void main(void) ;
+int main(void) ;
 void ldv_initialize_external_data(void) ;
 void ldv_struct_dib0090_config_dummy_resourceless_instance_0(void *arg0 ) ;
 void ldv_struct_dib0090_config_dummy_resourceless_instance_1(void *arg0 ) ;
@@ -12243,7 +12243,7 @@ void ldv_entry_EMGentry_33(void *arg0 )
   return;
 }
 }
-void main(void) 
+int main(void) 
 { 
   int tmp ;
 
@@ -29709,9 +29709,9 @@ void ldv_check_final_state(void)
   return;
 }
 }
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 extern void ldv_assert(char const   * , int  ) ;
-void __builtin_trap(void) ;
+void ldv__builtin_trap(void) ;
 void ldv_assume(int expression ) 
 { 
 
@@ -29735,7 +29735,7 @@ void ldv_stop(void)
   goto ldv_stop_label;
 }
 }
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 
@@ -29743,7 +29743,7 @@ long __builtin_expect(long exp , long c )
   return (exp);
 }
 }
-void __builtin_trap(void) 
+void ldv__builtin_trap(void) 
 { 
 
 

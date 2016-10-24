@@ -4935,7 +4935,7 @@ struct ldv_thread {
    void (*function)(void * ) ;
 };
 typedef _Bool ldv_set;
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 void ldv_assume(int expression ) ;
 void ldv_stop(void) ;
 void ldv_linux_alloc_irq_check_alloc_flags(gfp_t flags ) ;
@@ -5163,7 +5163,7 @@ __inline static bool IS_ERR(void const   *ptr )
 
   {
   {
-  tmp = __builtin_expect((unsigned long )ptr > 0xfffffffffffff000UL, 0L);
+  tmp = ldv__builtin_expect((unsigned long )ptr > 0xfffffffffffff000UL, 0L);
   }
   return (tmp != 0L);
 }
@@ -5575,7 +5575,7 @@ __inline static __u16 usb_maxpacket(struct usb_device *udev , int pipe , int is_
   if (is_out != 0) {
     {
     __ret_warn_on = (pipe & 128) != 0;
-    tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
     if (tmp != 0L) {
       {
@@ -5585,13 +5585,13 @@ __inline static __u16 usb_maxpacket(struct usb_device *udev , int pipe , int is_
 
     }
     {
-    __builtin_expect(__ret_warn_on != 0, 0L);
+    ldv__builtin_expect(__ret_warn_on != 0, 0L);
     ep = udev->ep_out[epnum];
     }
   } else {
     {
     __ret_warn_on___0 = (pipe & 128) == 0;
-    tmp___0 = __builtin_expect(__ret_warn_on___0 != 0, 0L);
+    tmp___0 = ldv__builtin_expect(__ret_warn_on___0 != 0, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -5601,7 +5601,7 @@ __inline static __u16 usb_maxpacket(struct usb_device *udev , int pipe , int is_
 
     }
     {
-    __builtin_expect(__ret_warn_on___0 != 0, 0L);
+    ldv__builtin_expect(__ret_warn_on___0 != 0, 0L);
     ep = udev->ep_in[epnum];
     }
   }
@@ -5747,7 +5747,7 @@ static void hid_retry_timeout(unsigned long _hid )
   descriptor.format = "retrying intr urb\n";
   descriptor.lineno = 108U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -5801,7 +5801,7 @@ static void hid_reset(struct work_struct *work )
     descriptor.format = "clear halt\n";
     descriptor.lineno = 122U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -5828,7 +5828,7 @@ static void hid_reset(struct work_struct *work )
       descriptor___0.format = "clear-halt failed: %d\n";
       descriptor___0.lineno = 129U;
       descriptor___0.flags = 0U;
-      tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+      tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
       }
       if (tmp___0 != 0L) {
         {
@@ -5856,7 +5856,7 @@ static void hid_reset(struct work_struct *work )
     descriptor___1.format = "resetting device\n";
     descriptor___1.lineno = 135U;
     descriptor___1.flags = 0U;
-    tmp___2 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___2 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
     }
     if (tmp___2 != 0L) {
       {
@@ -6006,7 +6006,7 @@ static int usbhid_restart_out_queue(struct usbhid_device *usbhid )
     descriptor.format = "Kicking head %d tail %d";
     descriptor.lineno = 199U;
     descriptor.flags = 0U;
-    tmp___2 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___2 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp___2 != 0L) {
       {
@@ -6076,7 +6076,7 @@ static int usbhid_restart_ctrl_queue(struct usbhid_device *usbhid )
   tmp = usb_get_intfdata(usbhid->intf);
   hid = (struct hid_device *)tmp;
   __ret_warn_on = (unsigned long )hid == (unsigned long )((struct hid_device *)0);
-  tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -6086,7 +6086,7 @@ static int usbhid_restart_ctrl_queue(struct usbhid_device *usbhid )
 
   }
   {
-  __builtin_expect(__ret_warn_on != 0, 0L);
+  ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if ((unsigned long )hid == (unsigned long )((struct hid_device *)0)) {
     return (0);
@@ -6116,7 +6116,7 @@ static int usbhid_restart_ctrl_queue(struct usbhid_device *usbhid )
     descriptor.format = "Kicking head %d tail %d";
     descriptor.lineno = 238U;
     descriptor.flags = 0U;
-    tmp___3 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___3 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp___3 != 0L) {
       {
@@ -7878,7 +7878,7 @@ static void usbhid_stop(struct hid_device *hid )
   {
   usbhid = (struct usbhid_device *)hid->driver_data;
   __ret_warn_on = (unsigned long )usbhid == (unsigned long )((struct usbhid_device *)0);
-  tmp = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp != 0L) {
     {
@@ -7888,7 +7888,7 @@ static void usbhid_stop(struct hid_device *hid )
 
   }
   {
-  tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp___0 != 0L) {
     return;
@@ -8279,7 +8279,7 @@ static void usbhid_disconnect(struct usb_interface *intf )
   tmp = usb_get_intfdata(intf);
   hid = (struct hid_device *)tmp;
   __ret_warn_on = (unsigned long )hid == (unsigned long )((struct hid_device *)0);
-  tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -8289,7 +8289,7 @@ static void usbhid_disconnect(struct usb_interface *intf )
 
   }
   {
-  tmp___1 = __builtin_expect(__ret_warn_on != 0, 0L);
+  tmp___1 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
   }
   if (tmp___1 != 0L) {
     return;
@@ -8677,7 +8677,7 @@ static int hid_suspend(struct usb_interface *intf , pm_message_t message )
   descriptor.format = "suspend\n";
   descriptor.lineno = 1561U;
   descriptor.flags = 0U;
-  tmp___7 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___7 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___7 != 0L) {
     {
@@ -8724,7 +8724,7 @@ static int hid_resume(struct usb_interface *intf )
   descriptor.format = "resume status %d\n";
   descriptor.lineno = 1579U;
   descriptor.flags = 0U;
-  tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -8852,7 +8852,7 @@ void ldv_dispatch_register_9_2(struct usb_driver *arg0 ) ;
 void ldv_dispatch_register_file_operations_instance_5_10_6(void) ;
 void ldv_dispatch_register_io_instance_7_10_7(void) ;
 void ldv_entry_EMGentry_10(void *arg0 ) ;
-void main(void) ;
+int main(void) ;
 void ldv_file_operations_file_operations_instance_0(void *arg0 ) ;
 void ldv_iio_triggered_buffer_iio_triggered_buffer_instance_1(void *arg0 ) ;
 enum irqreturn ldv_iio_triggered_buffer_instance_handler_1_5(enum irqreturn (*arg0)(int  ,
@@ -9100,7 +9100,7 @@ void ldv_entry_EMGentry_10(void *arg0 )
   return;
 }
 }
-void main(void) 
+int main(void) 
 { 
 
 
@@ -9109,7 +9109,7 @@ void main(void)
   ldv_ldv_initialize_160();
   ldv_entry_EMGentry_10((void *)0);
   }
-  return;
+return 0;
 }
 }
 void ldv_iio_triggered_buffer_iio_triggered_buffer_instance_1(void *arg0 ) 
@@ -11117,7 +11117,7 @@ __inline static unsigned long copy_from_user(void *to , void const   *from , uns
   {
   sz = -1;
   might_fault();
-  tmp = __builtin_expect(sz < 0, 1L);
+  tmp = ldv__builtin_expect(sz < 0, 1L);
   }
   if (tmp != 0L) {
     {
@@ -11125,7 +11125,7 @@ __inline static unsigned long copy_from_user(void *to , void const   *from , uns
     }
   } else {
     {
-    tmp___0 = __builtin_expect((unsigned long )sz >= n, 1L);
+    tmp___0 = ldv__builtin_expect((unsigned long )sz >= n, 1L);
     }
     if (tmp___0 != 0L) {
       {
@@ -11150,7 +11150,7 @@ __inline static unsigned long copy_to_user(void *to , void const   *from , unsig
   {
   sz = -1;
   might_fault();
-  tmp = __builtin_expect(sz < 0, 1L);
+  tmp = ldv__builtin_expect(sz < 0, 1L);
   }
   if (tmp != 0L) {
     {
@@ -11158,7 +11158,7 @@ __inline static unsigned long copy_to_user(void *to , void const   *from , unsig
     }
   } else {
     {
-    tmp___0 = __builtin_expect((unsigned long )sz >= n, 1L);
+    tmp___0 = ldv__builtin_expect((unsigned long )sz >= n, 1L);
     }
     if (tmp___0 != 0L) {
       {
@@ -11204,7 +11204,7 @@ __inline static int signal_pending(struct task_struct *p )
   {
   {
   tmp = test_tsk_thread_flag(p, 2);
-  tmp___0 = __builtin_expect(tmp != 0, 0L);
+  tmp___0 = ldv__builtin_expect(tmp != 0, 0L);
   }
   return ((int )tmp___0);
 }
@@ -13676,7 +13676,7 @@ static void pidff_set(struct pidff_usage *usage , u16 value )
   descriptor.format = "calculated from %d to %d\n";
   descriptor.lineno = 223U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -13716,7 +13716,7 @@ static void pidff_set_signed(struct pidff_usage *usage , s16 value )
   descriptor.format = "calculated from %d to %d\n";
   descriptor.lineno = 238U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -13749,7 +13749,7 @@ static void pidff_set_envelope_report(struct pidff_device *pidff , struct ff_env
   descriptor.format = "attack %u => %d\n";
   descriptor.lineno = 264U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -13947,7 +13947,7 @@ static int pidff_request_effect_upload(struct pidff_device *pidff , int efnum )
   descriptor.format = "create_new_effect sent, type: %d\n";
   descriptor.lineno = 470U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -13972,7 +13972,7 @@ static int pidff_request_effect_upload(struct pidff_device *pidff , int efnum )
   descriptor___0.format = "pid_block_load requested\n";
   descriptor___0.lineno = 477U;
   descriptor___0.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -13994,7 +13994,7 @@ static int pidff_request_effect_upload(struct pidff_device *pidff , int efnum )
     descriptor___1.format = "device reported free memory: %d bytes\n";
     descriptor___1.lineno = 485U;
     descriptor___1.flags = 0U;
-    tmp___1 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
     }
     if (tmp___1 != 0L) {
       {
@@ -14016,7 +14016,7 @@ static int pidff_request_effect_upload(struct pidff_device *pidff , int efnum )
     descriptor___2.format = "not enough memory free: %d bytes\n";
     descriptor___2.lineno = 492U;
     descriptor___2.flags = 0U;
-    tmp___2 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+    tmp___2 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
     }
     if (tmp___2 != 0L) {
       {
@@ -14102,7 +14102,7 @@ static int pidff_erase_effect(struct input_dev *dev , int effect_id )
   descriptor.format = "starting to erase %d/%d\n";
   descriptor.lineno = 551U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -14625,7 +14625,7 @@ static int pidff_upload_effect(struct input_dev *dev , struct ff_effect *effect 
   descriptor.format = "uploaded\n";
   descriptor.lineno = 708U;
   descriptor.flags = 0U;
-  tmp___16 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___16 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___16 != 0L) {
     {
@@ -14722,7 +14722,7 @@ static int pidff_find_fields(struct pidff_usage *usage , u8 const   *table , str
     descriptor.format = "maxusage and report_count do not match, skipping\n";
     descriptor.lineno = 774U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -14746,7 +14746,7 @@ static int pidff_find_fields(struct pidff_usage *usage , u8 const   *table , str
     descriptor___0.format = "found %d at %d->%d\n";
     descriptor___0.lineno = 781U;
     descriptor___0.flags = 0U;
-    tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -14792,7 +14792,7 @@ static int pidff_find_fields(struct pidff_usage *usage , u8 const   *table , str
     descriptor___1.format = "failed to locate %d\n";
     descriptor___1.lineno = 793U;
     descriptor___1.flags = 0U;
-    tmp___1 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
     }
     if (tmp___1 != 0L) {
       {
@@ -14873,7 +14873,7 @@ static void pidff_find_reports(struct hid_device *hid , int report_type , struct
     descriptor.format = "found usage 0x%02x from field->logical\n";
     descriptor.lineno = 831U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -14905,7 +14905,7 @@ static void pidff_find_reports(struct hid_device *hid , int report_type , struct
     descriptor___0.format = "found usage 0x%02x from collection array\n";
     descriptor___0.lineno = 851U;
     descriptor___0.flags = 0U;
-    tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -14950,7 +14950,7 @@ static int pidff_reports_ok(struct pidff_device *pidff )
     descriptor.format = "%d missing\n";
     descriptor.lineno = 866U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -15066,7 +15066,7 @@ static int pidff_find_special_fields(struct pidff_device *pidff )
   descriptor.format = "finding special fields\n";
   descriptor.lineno = 928U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -15091,7 +15091,7 @@ static int pidff_find_special_fields(struct pidff_device *pidff )
   descriptor___0.format = "search done\n";
   descriptor___0.lineno = 949U;
   descriptor___0.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -15592,7 +15592,7 @@ static void pidff_reset(struct pidff_device *pidff )
     descriptor.format = "pid_pool requested again\n";
     descriptor.lineno = 1183U;
     descriptor.flags = 0U;
-    tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -15688,7 +15688,7 @@ int hid_pidff_init(struct hid_device *hid )
   descriptor.format = "starting pid init\n";
   descriptor.lineno = 1242U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -15708,7 +15708,7 @@ int hid_pidff_init(struct hid_device *hid )
     descriptor___0.format = "not a PID device, no output report\n";
     descriptor___0.lineno = 1245U;
     descriptor___0.flags = 0U;
-    tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -15745,7 +15745,7 @@ int hid_pidff_init(struct hid_device *hid )
     descriptor___1.format = "reports not ok, aborting\n";
     descriptor___1.lineno = 1261U;
     descriptor___1.flags = 0U;
-    tmp___3 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___3 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
     }
     if (tmp___3 != 0L) {
       {
@@ -15795,7 +15795,7 @@ int hid_pidff_init(struct hid_device *hid )
   descriptor___2.format = "max effects is %d\n";
   descriptor___2.lineno = 1286U;
   descriptor___2.flags = 0U;
-  tmp___6 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+  tmp___6 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
   }
   if (tmp___6 != 0L) {
     {
@@ -15818,7 +15818,7 @@ int hid_pidff_init(struct hid_device *hid )
     descriptor___3.format = "max simultaneous effects is %d\n";
     descriptor___3.lineno = 1293U;
     descriptor___3.flags = 0U;
-    tmp___7 = __builtin_expect((long )descriptor___3.flags & 1L, 0L);
+    tmp___7 = ldv__builtin_expect((long )descriptor___3.flags & 1L, 0L);
     }
     if (tmp___7 != 0L) {
       {
@@ -15839,7 +15839,7 @@ int hid_pidff_init(struct hid_device *hid )
     descriptor___4.format = "device memory size is %d bytes\n";
     descriptor___4.lineno = 1297U;
     descriptor___4.flags = 0U;
-    tmp___8 = __builtin_expect((long )descriptor___4.flags & 1L, 0L);
+    tmp___8 = ldv__builtin_expect((long )descriptor___4.flags & 1L, 0L);
     }
     if (tmp___8 != 0L) {
       {
@@ -17858,7 +17858,7 @@ void ldv_linux_usb_urb_check_final_state(void)
 }
 }
 extern void ldv_assert(char const   * , int  ) ;
-void __builtin_trap(void) ;
+void ldv__builtin_trap(void) ;
 void ldv_assume(int expression ) 
 { 
 
@@ -17882,7 +17882,7 @@ void ldv_stop(void)
   goto ldv_stop_label;
 }
 }
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 
@@ -17890,7 +17890,7 @@ long __builtin_expect(long exp , long c )
   return (exp);
 }
 }
-void __builtin_trap(void) 
+void ldv__builtin_trap(void) 
 { 
 
 

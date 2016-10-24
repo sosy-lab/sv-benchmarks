@@ -4182,7 +4182,7 @@ struct ldv_thread {
    void (*function)(void * ) ;
 };
 typedef _Bool ldv_set;
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 void ldv_assume(int expression ) ;
 void ldv_stop(void) ;
 void ldv_linux_alloc_irq_check_alloc_flags(gfp_t flags ) ;
@@ -4759,7 +4759,7 @@ static int e2i_init(struct usbtouch_usb *usbtouch )
   descriptor.format = "%s - usb_control_msg - E2I_RESET - bytes|err: %d\n";
   descriptor.lineno = 272U;
   descriptor.flags = 0U;
-  tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -4997,7 +4997,7 @@ static int mtouch_init(struct usbtouch_usb *usbtouch )
   descriptor.format = "%s - usb_control_msg - MTOUCHUSB_RESET - bytes|err: %d\n";
   descriptor.lineno = 468U;
   descriptor.flags = 0U;
-  tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -5028,7 +5028,7 @@ static int mtouch_init(struct usbtouch_usb *usbtouch )
   descriptor___0.format = "%s - usb_control_msg - MTOUCHUSB_ASYNC_REPORT - bytes|err: %d\n";
   descriptor___0.lineno = 480U;
   descriptor___0.flags = 0U;
-  tmp___3 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___3 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
   }
   if (tmp___3 != 0L) {
     {
@@ -5376,7 +5376,7 @@ static int zytronic_read_data(struct usbtouch_usb *dev , unsigned char *pkt )
   descriptor.format = "%s: Command response %d\n";
   descriptor.lineno = 784U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -5398,7 +5398,7 @@ static int zytronic_read_data(struct usbtouch_usb *dev , unsigned char *pkt )
   descriptor___0.format = "%s: down %d,%d\n";
   descriptor___0.lineno = 791U;
   descriptor___0.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -5420,7 +5420,7 @@ static int zytronic_read_data(struct usbtouch_usb *dev , unsigned char *pkt )
   descriptor___1.format = "%s: up %d,%d\n";
   descriptor___1.lineno = 798U;
   descriptor___1.flags = 0U;
-  tmp___1 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -5439,7 +5439,7 @@ static int zytronic_read_data(struct usbtouch_usb *dev , unsigned char *pkt )
   descriptor___2.format = "%s: Unknown return %d\n";
   descriptor___2.lineno = 802U;
   descriptor___2.flags = 0U;
-  tmp___2 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+  tmp___2 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
   }
   if (tmp___2 != 0L) {
     {
@@ -5505,7 +5505,7 @@ static int nexio_alloc(struct usbtouch_usb *usbtouch )
     descriptor.format = "%s - usb_alloc_urb failed: usbtouch->ack\n";
     descriptor.lineno = 858U;
     descriptor.flags = 0U;
-    tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -5956,12 +5956,12 @@ static void usbtouch_process_multi(struct usbtouch_usb *usbtouch , unsigned char
 
   {
   {
-  tmp___3 = __builtin_expect(usbtouch->buf_len != 0, 0L);
+  tmp___3 = ldv__builtin_expect(usbtouch->buf_len != 0, 0L);
   }
   if (tmp___3 != 0L) {
     {
     pkt_len = (*((usbtouch->type)->get_pkt_len))(usbtouch->buffer, usbtouch->buf_len);
-    tmp___0 = __builtin_expect(pkt_len == 0, 0L);
+    tmp___0 = ldv__builtin_expect(pkt_len == 0, 0L);
     }
     if (tmp___0 != 0L) {
       goto out_flush_buf;
@@ -5969,12 +5969,12 @@ static void usbtouch_process_multi(struct usbtouch_usb *usbtouch , unsigned char
 
     }
     {
-    tmp___2 = __builtin_expect(pkt_len < 0, 0L);
+    tmp___2 = ldv__builtin_expect(pkt_len < 0, 0L);
     }
     if (tmp___2 != 0L) {
       {
       append = - pkt_len;
-      tmp___1 = __builtin_expect(append > len, 0L);
+      tmp___1 = ldv__builtin_expect(append > len, 0L);
       }
       if (tmp___1 != 0L) {
         append = len;
@@ -6022,7 +6022,7 @@ static void usbtouch_process_multi(struct usbtouch_usb *usbtouch , unsigned char
   ldv_30223: 
   {
   pkt_len = (*((usbtouch->type)->get_pkt_len))(buffer + (unsigned long )pos, buf_len - pos);
-  tmp___4 = __builtin_expect(pkt_len == 0, 0L);
+  tmp___4 = ldv__builtin_expect(pkt_len == 0, 0L);
   }
   if (tmp___4 != 0L) {
     pos = pos + 1;
@@ -6031,11 +6031,11 @@ static void usbtouch_process_multi(struct usbtouch_usb *usbtouch , unsigned char
 
   }
   {
-  tmp___5 = __builtin_expect(pkt_len > 0, 1L);
+  tmp___5 = ldv__builtin_expect(pkt_len > 0, 1L);
   }
   if (tmp___5 != 0L) {
     {
-    tmp___6 = __builtin_expect(pkt_len <= buf_len - pos, 1L);
+    tmp___6 = ldv__builtin_expect(pkt_len <= buf_len - pos, 1L);
     }
     if (tmp___6 != 0L) {
       {
@@ -6128,7 +6128,7 @@ static void usbtouch_irq(struct urb *urb )
   descriptor.format = "%s - urb timed out - was the device unplugged?\n";
   descriptor.lineno = 1407U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -6150,7 +6150,7 @@ static void usbtouch_irq(struct urb *urb )
   descriptor___0.format = "%s - urb shutting down with status: %d\n";
   descriptor___0.lineno = 1415U;
   descriptor___0.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -6169,7 +6169,7 @@ static void usbtouch_irq(struct urb *urb )
   descriptor___1.format = "%s - nonzero urb status received: %d\n";
   descriptor___1.lineno = 1419U;
   descriptor___1.flags = 0U;
-  tmp___1 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -6348,7 +6348,7 @@ static int usbtouch_reset_resume(struct usb_interface *intf )
       descriptor.format = "%s - type->init() failed, err: %d\n";
       descriptor.lineno = 1507U;
       descriptor.flags = 0U;
-      tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+      tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
       }
       if (tmp___0 != 0L) {
         {
@@ -6534,7 +6534,7 @@ static int usbtouch_probe(struct usb_interface *intf , struct usb_device_id  con
     descriptor.format = "%s - usb_alloc_urb failed: usbtouch->irq\n";
     descriptor.lineno = 1596U;
     descriptor.flags = 0U;
-    tmp___4 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___4 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp___4 != 0L) {
       {
@@ -6635,7 +6635,7 @@ static int usbtouch_probe(struct usb_interface *intf , struct usb_device_id  con
       descriptor___0.format = "%s - type->alloc() failed, err: %d\n";
       descriptor___0.lineno = 1660U;
       descriptor___0.flags = 0U;
-      tmp___9 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+      tmp___9 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
       }
       if (tmp___9 != 0L) {
         {
@@ -6665,7 +6665,7 @@ static int usbtouch_probe(struct usb_interface *intf , struct usb_device_id  con
       descriptor___1.format = "%s - type->init() failed, err: %d\n";
       descriptor___1.lineno = 1671U;
       descriptor___1.flags = 0U;
-      tmp___10 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+      tmp___10 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
       }
       if (tmp___10 != 0L) {
         {
@@ -6694,7 +6694,7 @@ static int usbtouch_probe(struct usb_interface *intf , struct usb_device_id  con
     descriptor___2.format = "%s - input_register_device failed, err: %d\n";
     descriptor___2.lineno = 1680U;
     descriptor___2.flags = 0U;
-    tmp___11 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+    tmp___11 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
     }
     if (tmp___11 != 0L) {
       {
@@ -6785,7 +6785,7 @@ static void usbtouch_disconnect(struct usb_interface *intf )
   descriptor.format = "%s - usbtouch is initialized, cleaning up\n";
   descriptor.lineno = 1725U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -7109,7 +7109,7 @@ void ldv_dummy_resourceless_instance_callback_9_7(void (*arg0)(struct usbtouch_u
 void ldv_dummy_resourceless_instance_callback_9_8(int (*arg0)(unsigned char * , int  ) ,
                                                   unsigned char *arg1 , int arg2 ) ;
 void ldv_entry_EMGentry_21(void *arg0 ) ;
-void main(void) ;
+int main(void) ;
 void ldv_struct_usbtouch_device_info_dummy_resourceless_instance_0(void *arg0 ) ;
 void ldv_struct_usbtouch_device_info_dummy_resourceless_instance_1(void *arg0 ) ;
 void ldv_struct_usbtouch_device_info_dummy_resourceless_instance_10(void *arg0 ) ;
@@ -8650,7 +8650,7 @@ void ldv_entry_EMGentry_21(void *arg0 )
   return;
 }
 }
-void main(void) 
+int main(void) 
 { 
 
 
@@ -8659,7 +8659,7 @@ void main(void)
   ldv_ldv_initialize_116();
   ldv_entry_EMGentry_21((void *)0);
   }
-  return;
+return 0;
 }
 }
 void ldv_struct_usbtouch_device_info_dummy_resourceless_instance_0(void *arg0 ) 
@@ -13512,7 +13512,7 @@ void ldv_linux_usb_urb_check_final_state(void)
 }
 }
 extern void ldv_assert(char const   * , int  ) ;
-void __builtin_trap(void) ;
+void ldv__builtin_trap(void) ;
 void ldv_assume(int expression ) 
 { 
 
@@ -13536,7 +13536,7 @@ void ldv_stop(void)
   goto ldv_stop_label;
 }
 }
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 
@@ -13544,7 +13544,7 @@ long __builtin_expect(long exp , long c )
   return (exp);
 }
 }
-void __builtin_trap(void) 
+void ldv__builtin_trap(void) 
 { 
 
 

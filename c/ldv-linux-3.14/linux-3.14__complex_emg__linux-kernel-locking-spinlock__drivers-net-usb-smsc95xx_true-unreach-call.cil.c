@@ -5448,7 +5448,7 @@ struct ldv_thread {
    int identifier ;
    void (*function)(void * ) ;
 };
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 void *ldv_dev_get_drvdata(struct device  const  *dev ) ;
 void *ldv_kzalloc(size_t size , gfp_t flags ) ;
 extern struct module __this_module ;
@@ -5465,7 +5465,6 @@ extern int __dynamic_netdev_dbg(struct _ddebug * , struct net_device  const  * ,
                                 , ...) ;
 extern void *memcpy(void * , void const   * , size_t  ) ;
 extern void *memset(void * , int  , size_t  ) ;
-extern int ( /* missing proto */  __builtin_unreachable)() ;
 extern void __ldv_spin_lock(spinlock_t * ) ;
 static void ldv___ldv_spin_lock_60(spinlock_t *ldv_func_arg1 ) ;
 static void ldv___ldv_spin_lock_62(spinlock_t *ldv_func_arg1 ) ;
@@ -5810,7 +5809,7 @@ static int __smsc95xx_read_reg(struct usbnet *dev , u32 index , u32 *data , int 
 
   {
   {
-  tmp = __builtin_expect((unsigned long )dev == (unsigned long )((struct usbnet *)0),
+  tmp = ldv__builtin_expect((unsigned long )dev == (unsigned long )((struct usbnet *)0),
                          0L);
   }
   if (tmp != 0L) {
@@ -5829,7 +5828,7 @@ static int __smsc95xx_read_reg(struct usbnet *dev , u32 index , u32 *data , int 
   }
   {
   ret = (*fn)(dev, 161, 192, 0, (int )((u16 )index), (void *)(& buf), 4);
-  tmp___0 = __builtin_expect(ret < 0, 0L);
+  tmp___0 = ldv__builtin_expect(ret < 0, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -5853,7 +5852,7 @@ static int __smsc95xx_write_reg(struct usbnet *dev , u32 index , u32 data , int 
 
   {
   {
-  tmp = __builtin_expect((unsigned long )dev == (unsigned long )((struct usbnet *)0),
+  tmp = ldv__builtin_expect((unsigned long )dev == (unsigned long )((struct usbnet *)0),
                          0L);
   }
   if (tmp != 0L) {
@@ -5873,7 +5872,7 @@ static int __smsc95xx_write_reg(struct usbnet *dev , u32 index , u32 data , int 
   {
   buf = data;
   ret = (*fn)(dev, 160, 64, 0, (int )((u16 )index), (void const   *)(& buf), 4);
-  tmp___0 = __builtin_expect(ret < 0, 0L);
+  tmp___0 = ldv__builtin_expect(ret < 0, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -6242,7 +6241,7 @@ static int smsc95xx_read_eeprom(struct usbnet *dev , u32 offset , u32 length , u
 
   {
   {
-  tmp = __builtin_expect((unsigned long )dev == (unsigned long )((struct usbnet *)0),
+  tmp = ldv__builtin_expect((unsigned long )dev == (unsigned long )((struct usbnet *)0),
                          0L);
   }
   if (tmp != 0L) {
@@ -6255,7 +6254,7 @@ static int smsc95xx_read_eeprom(struct usbnet *dev , u32 offset , u32 length , u
 
   }
   {
-  tmp___0 = __builtin_expect((unsigned long )data == (unsigned long )((u8 *)0U), 0L);
+  tmp___0 = ldv__builtin_expect((unsigned long )data == (unsigned long )((u8 *)0U), 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -6331,7 +6330,7 @@ static int smsc95xx_write_eeprom(struct usbnet *dev , u32 offset , u32 length , 
 
   {
   {
-  tmp = __builtin_expect((unsigned long )dev == (unsigned long )((struct usbnet *)0),
+  tmp = ldv__builtin_expect((unsigned long )dev == (unsigned long )((struct usbnet *)0),
                          0L);
   }
   if (tmp != 0L) {
@@ -6344,7 +6343,7 @@ static int smsc95xx_write_eeprom(struct usbnet *dev , u32 offset , u32 length , 
 
   }
   {
-  tmp___0 = __builtin_expect((unsigned long )data == (unsigned long )((u8 *)0U), 0L);
+  tmp___0 = ldv__builtin_expect((unsigned long )data == (unsigned long )((u8 *)0U), 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -6507,7 +6506,7 @@ static void smsc95xx_set_multicast(struct net_device *netdev )
       descriptor.format = "promiscuous mode enabled\n";
       descriptor.lineno = 470U;
       descriptor.flags = 0U;
-      tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+      tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
       }
       if (tmp___0 != 0L) {
         {
@@ -6532,7 +6531,7 @@ static void smsc95xx_set_multicast(struct net_device *netdev )
       descriptor___0.format = "receive all multicast enabled\n";
       descriptor___0.lineno = 474U;
       descriptor___0.flags = 0U;
-      tmp___1 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+      tmp___1 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
       }
       if (tmp___1 != 0L) {
         {
@@ -6582,7 +6581,7 @@ static void smsc95xx_set_multicast(struct net_device *netdev )
       descriptor___1.format = "HASHH=0x%08X, HASHL=0x%08X\n";
       descriptor___1.lineno = 493U;
       descriptor___1.flags = 0U;
-      tmp___3 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+      tmp___3 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
       }
       if (tmp___3 != 0L) {
         {
@@ -6604,7 +6603,7 @@ static void smsc95xx_set_multicast(struct net_device *netdev )
       descriptor___2.format = "receive own packets only\n";
       descriptor___2.lineno = 495U;
       descriptor___2.flags = 0U;
-      tmp___4 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+      tmp___4 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
       }
       if (tmp___4 != 0L) {
         {
@@ -6702,7 +6701,7 @@ static int smsc95xx_phy_update_flowcontrol(struct usbnet *dev , u8 duplex , u16 
       descriptor.format = "rx pause %s, tx pause %s\n";
       descriptor.lineno = 540U;
       descriptor.flags = 0U;
-      tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+      tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
       }
       if (tmp___1 != 0L) {
         {
@@ -6725,7 +6724,7 @@ static int smsc95xx_phy_update_flowcontrol(struct usbnet *dev , u8 duplex , u16 
       descriptor___0.format = "half duplex\n";
       descriptor___0.lineno = 542U;
       descriptor___0.flags = 0U;
-      tmp___2 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+      tmp___2 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
       }
       if (tmp___2 != 0L) {
         {
@@ -6823,7 +6822,7 @@ static int smsc95xx_link_reset(struct usbnet *dev )
     descriptor.format = "speed: %u duplex: %d lcladv: %04x rmtadv: %04x\n";
     descriptor.lineno = 579U;
     descriptor.flags = 0U;
-    tmp___2 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___2 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp___2 != 0L) {
       {
@@ -6896,7 +6895,7 @@ static void smsc95xx_status(struct usbnet *dev , struct urb *urb )
     descriptor.format = "intdata: 0x%08X\n";
     descriptor.lineno = 615U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -6968,7 +6967,7 @@ static int smsc95xx_set_features(struct net_device *netdev , netdev_features_t f
     descriptor.format = "COE_CR = 0x%08x\n";
     descriptor.lineno = 650U;
     descriptor.flags = 0U;
-    tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -7205,7 +7204,7 @@ static void smsc95xx_init_mac_address(struct usbnet *dev )
         descriptor.format = "MAC address read from EEPROM\n";
         descriptor.lineno = 773U;
         descriptor.flags = 0U;
-        tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+        tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
         }
         if (tmp != 0L) {
           {
@@ -7236,7 +7235,7 @@ static void smsc95xx_init_mac_address(struct usbnet *dev )
     descriptor___0.format = "MAC address set to eth_random_addr\n";
     descriptor___0.lineno = 780U;
     descriptor___0.flags = 0U;
-    tmp___2 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___2 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___2 != 0L) {
       {
@@ -7382,7 +7381,7 @@ static int smsc95xx_phy_initialize(struct usbnet *dev )
     descriptor.format = "phy initialised successfully\n";
     descriptor.lineno = 871U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -7439,7 +7438,7 @@ static int smsc95xx_reset(struct usbnet *dev )
     descriptor.format = "entering smsc95xx_reset\n";
     descriptor.lineno = 881U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -7535,7 +7534,7 @@ static int smsc95xx_reset(struct usbnet *dev )
     descriptor___0.format = "MAC Address: %pM\n";
     descriptor___0.lineno = 924U;
     descriptor___0.flags = 0U;
-    tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -7564,7 +7563,7 @@ static int smsc95xx_reset(struct usbnet *dev )
     descriptor___1.format = "Read Value from HW_CFG : 0x%08x\n";
     descriptor___1.lineno = 931U;
     descriptor___1.flags = 0U;
-    tmp___1 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
     }
     if (tmp___1 != 0L) {
       {
@@ -7602,7 +7601,7 @@ static int smsc95xx_reset(struct usbnet *dev )
     descriptor___2.format = "Read Value from HW_CFG after writing HW_CFG_BIR_: 0x%08x\n";
     descriptor___2.lineno = 945U;
     descriptor___2.flags = 0U;
-    tmp___2 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+    tmp___2 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
     }
     if (tmp___2 != 0L) {
       {
@@ -7635,7 +7634,7 @@ static int smsc95xx_reset(struct usbnet *dev )
     descriptor___3.format = "rx_urb_size=%ld\n";
     descriptor___3.lineno = 959U;
     descriptor___3.flags = 0U;
-    tmp___3 = __builtin_expect((long )descriptor___3.flags & 1L, 0L);
+    tmp___3 = ldv__builtin_expect((long )descriptor___3.flags & 1L, 0L);
     }
     if (tmp___3 != 0L) {
       {
@@ -7672,7 +7671,7 @@ static int smsc95xx_reset(struct usbnet *dev )
     descriptor___4.format = "Read Value from BURST_CAP after writing: 0x%08x\n";
     descriptor___4.lineno = 971U;
     descriptor___4.flags = 0U;
-    tmp___4 = __builtin_expect((long )descriptor___4.flags & 1L, 0L);
+    tmp___4 = ldv__builtin_expect((long )descriptor___4.flags & 1L, 0L);
     }
     if (tmp___4 != 0L) {
       {
@@ -7709,7 +7708,7 @@ static int smsc95xx_reset(struct usbnet *dev )
     descriptor___5.format = "Read Value from BULK_IN_DLY after writing: 0x%08x\n";
     descriptor___5.lineno = 983U;
     descriptor___5.flags = 0U;
-    tmp___5 = __builtin_expect((long )descriptor___5.flags & 1L, 0L);
+    tmp___5 = ldv__builtin_expect((long )descriptor___5.flags & 1L, 0L);
     }
     if (tmp___5 != 0L) {
       {
@@ -7739,7 +7738,7 @@ static int smsc95xx_reset(struct usbnet *dev )
     descriptor___6.format = "Read Value from HW_CFG: 0x%08x\n";
     descriptor___6.lineno = 990U;
     descriptor___6.flags = 0U;
-    tmp___6 = __builtin_expect((long )descriptor___6.flags & 1L, 0L);
+    tmp___6 = ldv__builtin_expect((long )descriptor___6.flags & 1L, 0L);
     }
     if (tmp___6 != 0L) {
       {
@@ -7783,7 +7782,7 @@ static int smsc95xx_reset(struct usbnet *dev )
     descriptor___7.format = "Read Value from HW_CFG after writing: 0x%08x\n";
     descriptor___7.lineno = 1009U;
     descriptor___7.flags = 0U;
-    tmp___7 = __builtin_expect((long )descriptor___7.flags & 1L, 0L);
+    tmp___7 = ldv__builtin_expect((long )descriptor___7.flags & 1L, 0L);
     }
     if (tmp___7 != 0L) {
       {
@@ -7820,7 +7819,7 @@ static int smsc95xx_reset(struct usbnet *dev )
     descriptor___8.format = "ID_REV = 0x%08x\n";
     descriptor___8.lineno = 1018U;
     descriptor___8.flags = 0U;
-    tmp___8 = __builtin_expect((long )descriptor___8.flags & 1L, 0L);
+    tmp___8 = ldv__builtin_expect((long )descriptor___8.flags & 1L, 0L);
     }
     if (tmp___8 != 0L) {
       {
@@ -7944,7 +7943,7 @@ static int smsc95xx_reset(struct usbnet *dev )
     descriptor___9.format = "smsc95xx_reset, return 0\n";
     descriptor___9.lineno = 1085U;
     descriptor___9.flags = 0U;
-    tmp___9 = __builtin_expect((long )descriptor___9.flags & 1L, 0L);
+    tmp___9 = ldv__builtin_expect((long )descriptor___9.flags & 1L, 0L);
     }
     if (tmp___9 != 0L) {
       {
@@ -8049,7 +8048,7 @@ static void smsc95xx_unbind(struct usbnet *dev , struct usb_interface *intf )
       descriptor.format = "free pdata\n";
       descriptor.lineno = 1163U;
       descriptor.flags = 0U;
-      tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+      tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
       }
       if (tmp != 0L) {
         {
@@ -8104,7 +8103,7 @@ static int smsc95xx_enable_phy_wakeup_interrupts(struct usbnet *dev , u16 mask )
   descriptor.format = "enabling PHY wakeup interrupts\n";
   descriptor.lineno = 1181U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -8394,7 +8393,7 @@ static int smsc95xx_autosuspend(struct usbnet *dev , u32 link_up )
     descriptor.format = "autosuspend entering SUSPEND2\n";
     descriptor.lineno = 1372U;
     descriptor.flags = 0U;
-    tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp != 0L) {
       {
@@ -8426,7 +8425,7 @@ static int smsc95xx_autosuspend(struct usbnet *dev , u32 link_up )
     descriptor___0.format = "autosuspend entering SUSPEND1\n";
     descriptor___0.lineno = 1386U;
     descriptor___0.flags = 0U;
-    tmp___3 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___3 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___3 != 0L) {
       {
@@ -8473,7 +8472,7 @@ static int smsc95xx_autosuspend(struct usbnet *dev , u32 link_up )
   descriptor___1.format = "autosuspend entering SUSPEND3\n";
   descriptor___1.lineno = 1408U;
   descriptor___1.flags = 0U;
-  tmp___5 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+  tmp___5 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
   }
   if (tmp___5 != 0L) {
     {
@@ -8925,7 +8924,7 @@ static int smsc95xx_resume(struct usb_interface *intf )
   dev = (struct usbnet *)tmp;
   pdata = (struct smsc95xx_priv *)dev->data[0];
   suspend_flags = pdata->suspend_flags;
-  tmp___0 = __builtin_expect((unsigned long )dev == (unsigned long )((struct usbnet *)0),
+  tmp___0 = ldv__builtin_expect((unsigned long )dev == (unsigned long )((struct usbnet *)0),
                              0L);
   }
   if (tmp___0 != 0L) {
@@ -8944,7 +8943,7 @@ static int smsc95xx_resume(struct usb_interface *intf )
   descriptor.format = "resume suspend_flags=0x%02x\n";
   descriptor.lineno = 1680U;
   descriptor.flags = 0U;
-  tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -9050,7 +9049,7 @@ static int smsc95xx_rx_fixup(struct usbnet *dev , struct sk_buff *skb )
   packet = skb->data;
   size = (unsigned short )((header & 1073676288U) >> 16);
   align_count = (u32 )((4 - ((int )size & 3)) % 4);
-  tmp___3 = __builtin_expect((header & 32768U) != 0U, 0L);
+  tmp___3 = ldv__builtin_expect((header & 32768U) != 0U, 0L);
   }
   if (tmp___3 != 0L) {
     if ((dev->msg_enable & 64) != 0) {
@@ -9061,7 +9060,7 @@ static int smsc95xx_rx_fixup(struct usbnet *dev , struct sk_buff *skb )
       descriptor.format = "Error header=0x%08x\n";
       descriptor.lineno = 1747U;
       descriptor.flags = 0U;
-      tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+      tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
       }
       if (tmp != 0L) {
         {
@@ -9092,7 +9091,7 @@ static int smsc95xx_rx_fixup(struct usbnet *dev , struct sk_buff *skb )
     }
   } else {
     {
-    tmp___1 = __builtin_expect((unsigned int )size > 1526U, 0L);
+    tmp___1 = ldv__builtin_expect((unsigned int )size > 1526U, 0L);
     }
     if (tmp___1 != 0L) {
       if ((dev->msg_enable & 64) != 0) {
@@ -9103,7 +9102,7 @@ static int smsc95xx_rx_fixup(struct usbnet *dev , struct sk_buff *skb )
         descriptor___0.format = "size err header=0x%08x\n";
         descriptor___0.lineno = 1765U;
         descriptor___0.flags = 0U;
-        tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+        tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
         }
         if (tmp___0 != 0L) {
           {
@@ -9138,7 +9137,7 @@ static int smsc95xx_rx_fixup(struct usbnet *dev , struct sk_buff *skb )
     }
     {
     ax_skb = skb_clone(skb, 32U);
-    tmp___2 = __builtin_expect((unsigned long )ax_skb == (unsigned long )((struct sk_buff *)0),
+    tmp___2 = ldv__builtin_expect((unsigned long )ax_skb == (unsigned long )((struct sk_buff *)0),
                                0L);
     }
     if (tmp___2 != 0L) {
@@ -9226,7 +9225,7 @@ static struct sk_buff *smsc95xx_tx_fixup(struct usbnet *dev , struct sk_buff *sk
   csum = (unsigned int )*((unsigned char *)skb + 124UL) == 12U;
   overhead = (int )csum ? 12 : 8;
   tmp = skb_end_pointer((struct sk_buff  const  *)skb);
-  tmp___0 = __builtin_expect((unsigned int )((struct skb_shared_info *)tmp)->nr_frags != 0U,
+  tmp___0 = ldv__builtin_expect((unsigned int )((struct skb_shared_info *)tmp)->nr_frags != 0U,
                              0L);
   }
   if (tmp___0 != 0L) {
@@ -9520,7 +9519,7 @@ void ldv_dummy_resourceless_instance_callback_1_7(int (*arg0)(struct usbnet * ) 
 void ldv_dummy_resourceless_instance_callback_1_8(int (*arg0)(struct usbnet * , int  ) ,
                                                   struct usbnet *arg1 , int arg2 ) ;
 void ldv_entry_EMGentry_6(void *arg0 ) ;
-void main(void) ;
+int main(void) ;
 void ldv_initialize_external_data(void) ;
 void ldv_net_dummy_resourceless_instance_0(void *arg0 ) ;
 void ldv_struct_driver_info_dummy_resourceless_instance_1(void *arg0 ) ;
@@ -10377,7 +10376,7 @@ void ldv_entry_EMGentry_6(void *arg0 )
   return;
 }
 }
-void main(void) 
+int main(void) 
 { 
   int tmp ;
 
@@ -11959,7 +11958,7 @@ void *ldv_kzalloc(size_t size , gfp_t flags )
 }
 }
 extern void ldv_assert(char const   * , int  ) ;
-void __builtin_trap(void) ;
+void ldv__builtin_trap(void) ;
 void ldv_assume(int expression ) 
 { 
 
@@ -11983,7 +11982,7 @@ void ldv_stop(void)
   goto ldv_stop_label;
 }
 }
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 
@@ -11991,7 +11990,7 @@ long __builtin_expect(long exp , long c )
   return (exp);
 }
 }
-void __builtin_trap(void) 
+void ldv__builtin_trap(void) 
 { 
 
 

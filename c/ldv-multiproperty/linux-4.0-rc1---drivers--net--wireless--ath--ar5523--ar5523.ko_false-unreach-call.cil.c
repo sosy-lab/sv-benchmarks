@@ -7469,8 +7469,7 @@ struct ldv_thread {
    void (*function)(void * ) ;
 };
 typedef _Bool ldv_set;
-int __builtin_bswap32(int  ) ;
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 void ldv_assume(int expression ) ;
 void ldv_stop(void) ;
 void ldv_linux_alloc_irq_check_alloc_flags(gfp_t flags ) ;
@@ -7743,7 +7742,6 @@ extern void *__memcpy(void * , void const   * , size_t  ) ;
 extern void *__memset(void * , int  , size_t  ) ;
 extern void *__memmove(void * , void const   * , size_t  ) ;
 extern void warn_slowpath_null(char const   * , int const    ) ;
-extern int ( /* missing proto */  __builtin_unreachable)() ;
 __inline static int atomic_read(atomic_t const   *v ) 
 { 
   int __var ;
@@ -8121,7 +8119,7 @@ static void ar5523_read_reply(struct ar5523 *ar , struct ar5523_cmd_hdr *hdr , s
   if (dlen < 0) {
     {
     __ret_warn_on = 1;
-    tmp___0 = __builtin_expect(__ret_warn_on != 0, 0L);
+    tmp___0 = ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -8131,7 +8129,7 @@ static void ar5523_read_reply(struct ar5523 *ar , struct ar5523_cmd_hdr *hdr , s
 
     }
     {
-    __builtin_expect(__ret_warn_on != 0, 0L);
+    ldv__builtin_expect(__ret_warn_on != 0, 0L);
     }
     goto out;
   } else {
@@ -8144,7 +8142,7 @@ static void ar5523_read_reply(struct ar5523 *ar , struct ar5523_cmd_hdr *hdr , s
   descriptor.format = "Code = %d len = %d\n";
   descriptor.lineno = 62U;
   descriptor.flags = 0U;
-  tmp___2 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___2 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___2 != 0L) {
     {
@@ -8276,7 +8274,7 @@ static void ar5523_cmd_rx_cb(struct urb *urb )
   descriptor.format = "%s code %02x priv %d\n";
   descriptor.lineno = 112U;
   descriptor.flags = 0U;
-  tmp___2 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___2 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___2 != 0L) {
     {
@@ -8344,7 +8342,7 @@ static void ar5523_cmd_rx_cb(struct urb *urb )
   descriptor___0.format = "WDCMSG_DEVICE_AVAIL\n";
   descriptor___0.lineno = 129U;
   descriptor___0.flags = 0U;
-  tmp___6 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___6 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
   }
   if (tmp___6 != 0L) {
     {
@@ -8368,7 +8366,7 @@ static void ar5523_cmd_rx_cb(struct urb *urb )
   descriptor___1.format = "WDCMSG_SEND_COMPLETE: %d pending\n";
   descriptor___1.lineno = 137U;
   descriptor___1.flags = 0U;
-  tmp___8 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+  tmp___8 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
   }
   if (tmp___8 != 0L) {
     {
@@ -8390,7 +8388,7 @@ static void ar5523_cmd_rx_cb(struct urb *urb )
     descriptor___2.format = "Unexpected WDCMSG_SEND_COMPLETE\n";
     descriptor___2.lineno = 139U;
     descriptor___2.flags = 0U;
-    tmp___9 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+    tmp___9 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
     }
     if (tmp___9 != 0L) {
       {
@@ -8439,7 +8437,7 @@ static void ar5523_cmd_rx_cb(struct urb *urb )
   descriptor___3.format = "WDCMSG_STATS_UPDATE\n";
   descriptor___3.lineno = 163U;
   descriptor___3.flags = 0U;
-  tmp___12 = __builtin_expect((long )descriptor___3.flags & 1L, 0L);
+  tmp___12 = ldv__builtin_expect((long )descriptor___3.flags & 1L, 0L);
   }
   if (tmp___12 != 0L) {
     {
@@ -8631,7 +8629,7 @@ static int ar5523_cmd(struct ar5523 *ar , u32 code , void const   *idata , int i
   descriptor.format = "do cmd %02x\n";
   descriptor.lineno = 264U;
   descriptor.flags = 0U;
-  tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -9187,7 +9185,7 @@ static int ar5523_set_ledsteady(struct ar5523 *ar , int lednum , int ledmode )
   descriptor.format = "set %s led %s (steady)\n";
   descriptor.lineno = 424U;
   descriptor.flags = 0U;
-  tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -9224,7 +9222,7 @@ static int ar5523_set_rxfilter(struct ar5523 *ar , u32 bits , u32 op )
   descriptor.format = "setting Rx filter=0x%x flags=0x%x\n";
   descriptor.lineno = 436U;
   descriptor.flags = 0U;
-  tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -9256,7 +9254,7 @@ static int ar5523_reset_tx_queues(struct ar5523 *ar )
   descriptor.format = "resetting Tx queue\n";
   descriptor.lineno = 445U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -9298,7 +9296,7 @@ static int ar5523_set_chan(struct ar5523 *ar )
   descriptor.format = "set chan flags 0x%x freq %d\n";
   descriptor.lineno = 466U;
   descriptor.flags = 0U;
-  tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -9330,7 +9328,7 @@ static int ar5523_queue_init(struct ar5523 *ar )
   descriptor.format = "setting up Tx queue\n";
   descriptor.lineno = 474U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -9485,7 +9483,7 @@ static void ar5523_data_rx_cb(struct urb *urb )
   descriptor.format = "%s\n";
   descriptor.lineno = 535U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -9540,7 +9538,7 @@ static void ar5523_data_rx_cb(struct urb *urb )
     descriptor___0.format = "RX: No final flag. s: %d f: %02x l: %d\n";
     descriptor___0.lineno = 555U;
     descriptor___0.flags = 0U;
-    tmp___3 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___3 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___3 != 0L) {
       {
@@ -9569,7 +9567,7 @@ static void ar5523_data_rx_cb(struct urb *urb )
     descriptor___1.format = "RX: Bad descriptor (len=%d)\n";
     descriptor___1.lineno = 566U;
     descriptor___1.flags = 0U;
-    tmp___6 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___6 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
     }
     if (tmp___6 != 0L) {
       {
@@ -9592,7 +9590,7 @@ static void ar5523_data_rx_cb(struct urb *urb )
     descriptor___2.format = "RX: rxlen is 0\n";
     descriptor___2.lineno = 571U;
     descriptor___2.flags = 0U;
-    tmp___7 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+    tmp___7 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
     }
     if (tmp___7 != 0L) {
       {
@@ -9617,7 +9615,7 @@ static void ar5523_data_rx_cb(struct urb *urb )
     descriptor___3.format = "Bad RX status (0x%x len = %d). Skip\n";
     descriptor___3.lineno = 577U;
     descriptor___3.flags = 0U;
-    tmp___10 = __builtin_expect((long )descriptor___3.flags & 1L, 0L);
+    tmp___10 = ldv__builtin_expect((long )descriptor___3.flags & 1L, 0L);
     }
     if (tmp___10 != 0L) {
       {
@@ -9647,7 +9645,7 @@ static void ar5523_data_rx_cb(struct urb *urb )
     descriptor___4.format = "eek, alignment workaround activated\n";
     descriptor___4.lineno = 586U;
     descriptor___4.flags = 0U;
-    tmp___13 = __builtin_expect((long )descriptor___4.flags & 1L, 0L);
+    tmp___13 = ldv__builtin_expect((long )descriptor___4.flags & 1L, 0L);
     }
     if (tmp___13 != 0L) {
       {
@@ -9732,7 +9730,7 @@ static void ar5523_rx_refill_work(struct work_struct *work )
   descriptor.format = "%s\n";
   descriptor.lineno = 622U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -9969,7 +9967,7 @@ static void ar5523_data_tx_pkt_put(struct ar5523 *ar )
     descriptor.format = "restart tx queue\n";
     descriptor.lineno = 732U;
     descriptor.flags = 0U;
-    tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -10014,7 +10012,7 @@ static void ar5523_data_tx_cb(struct urb *urb )
   descriptor.format = "data tx urb completed: %d\n";
   descriptor.lineno = 746U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -10037,7 +10035,7 @@ static void ar5523_data_tx_cb(struct urb *urb )
     descriptor___0.format = "%s: urb status: %d\n";
     descriptor___0.lineno = 753U;
     descriptor___0.flags = 0U;
-    tmp___1 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___1 != 0L) {
       {
@@ -10093,7 +10091,7 @@ static void ar5523_tx(struct ieee80211_hw *hw , struct ieee80211_tx_control *con
   descriptor.format = "tx called\n";
   descriptor.lineno = 773U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -10113,7 +10111,7 @@ static void ar5523_tx(struct ieee80211_hw *hw , struct ieee80211_tx_control *con
     descriptor___0.format = "tx queue full\n";
     descriptor___0.lineno = 775U;
     descriptor___0.flags = 0U;
-    tmp___1 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___1 != 0L) {
       {
@@ -10130,7 +10128,7 @@ static void ar5523_tx(struct ieee80211_hw *hw , struct ieee80211_tx_control *con
     descriptor___1.format = "stop queues (tot %d pend %d)\n";
     descriptor___1.lineno = 778U;
     descriptor___1.flags = 0U;
-    tmp___4 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+    tmp___4 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
     }
     if (tmp___4 != 0L) {
       {
@@ -10206,7 +10204,7 @@ static void ar5523_tx_work_locked(struct ar5523 *ar )
   descriptor.format = "%s\n";
   descriptor.lineno = 806U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -10310,7 +10308,7 @@ static void ar5523_tx_work_locked(struct ar5523 *ar )
   descriptor___0.format = "TX Frame (%d pending)\n";
   descriptor___0.lineno = 868U;
   descriptor___0.flags = 0U;
-  tmp___11 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___11 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
   }
   if (tmp___11 != 0L) {
     {
@@ -10371,7 +10369,7 @@ static void ar5523_tx_work(struct work_struct *work )
   descriptor.format = "%s\n";
   descriptor.lineno = 888U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -10404,7 +10402,7 @@ static void ar5523_tx_wd_timer(unsigned long arg )
   descriptor.format = "TX watchdog timer triggered\n";
   descriptor.lineno = 898U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -10627,7 +10625,7 @@ static void ar5523_stat_work(struct work_struct *work )
   descriptor.format = "%s\n";
   descriptor.lineno = 974U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -10687,7 +10685,7 @@ static int ar5523_start(struct ieee80211_hw *hw )
   descriptor.format = "start called\n";
   descriptor.lineno = 997U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -10724,7 +10722,7 @@ static int ar5523_start(struct ieee80211_hw *hw )
     descriptor___0.format = "could not start target, error %d\n";
     descriptor___0.lineno = 1026U;
     descriptor___0.flags = 0U;
-    tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -10745,7 +10743,7 @@ static int ar5523_start(struct ieee80211_hw *hw )
   descriptor___1.format = "WDCMSG_TARGET_START returns handle: 0x%x\n";
   descriptor___1.lineno = 1030U;
   descriptor___1.flags = 0U;
-  tmp___2 = __builtin_expect((long )descriptor___1.flags & 1L, 0L);
+  tmp___2 = ldv__builtin_expect((long )descriptor___1.flags & 1L, 0L);
   }
   if (tmp___2 != 0L) {
     {
@@ -10772,7 +10770,7 @@ static int ar5523_start(struct ieee80211_hw *hw )
   descriptor___2.format = "start OK\n";
   descriptor___2.lineno = 1050U;
   descriptor___2.flags = 0U;
-  tmp___3 = __builtin_expect((long )descriptor___2.flags & 1L, 0L);
+  tmp___3 = ldv__builtin_expect((long )descriptor___2.flags & 1L, 0L);
   }
   if (tmp___3 != 0L) {
     {
@@ -10804,7 +10802,7 @@ static void ar5523_stop(struct ieee80211_hw *hw )
   descriptor.format = "stop called\n";
   descriptor.lineno = 1061U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -10845,7 +10843,7 @@ static int ar5523_set_rts_threshold(struct ieee80211_hw *hw , u32 value )
   descriptor.format = "set_rts_threshold called\n";
   descriptor.lineno = 1084U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -10878,7 +10876,7 @@ static void ar5523_flush(struct ieee80211_hw *hw , struct ieee80211_vif *vif , u
   descriptor.format = "flush called\n";
   descriptor.lineno = 1098U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -10910,7 +10908,7 @@ static int ar5523_add_interface(struct ieee80211_hw *hw , struct ieee80211_vif *
   descriptor.format = "add interface called\n";
   descriptor.lineno = 1107U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -10927,7 +10925,7 @@ static int ar5523_add_interface(struct ieee80211_hw *hw , struct ieee80211_vif *
     descriptor___0.format = "invalid add_interface\n";
     descriptor___0.lineno = 1110U;
     descriptor___0.flags = 0U;
-    tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -10974,7 +10972,7 @@ static void ar5523_remove_interface(struct ieee80211_hw *hw , struct ieee80211_v
   descriptor.format = "remove interface called\n";
   descriptor.lineno = 1129U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -11004,7 +11002,7 @@ static int ar5523_hwconfig(struct ieee80211_hw *hw , u32 changed )
   descriptor.format = "config called\n";
   descriptor.lineno = 1137U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -11024,7 +11022,7 @@ static int ar5523_hwconfig(struct ieee80211_hw *hw , u32 changed )
     descriptor___0.format = "Do channel switch\n";
     descriptor___0.lineno = 1140U;
     descriptor___0.flags = 0U;
-    tmp___0 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+    tmp___0 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
     }
     if (tmp___0 != 0L) {
       {
@@ -11178,7 +11176,7 @@ static void ar5523_create_rateset(struct ar5523 *ar , struct ieee80211_bss_conf 
   descriptor.format = "sta rate_set = %08x\n";
   descriptor.lineno = 1202U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -11193,7 +11191,7 @@ static void ar5523_create_rateset(struct ar5523 *ar , struct ieee80211_bss_conf 
   goto ldv_53297;
   ldv_53296: 
   {
-  tmp___0 = __builtin_expect(i > 31, 0L);
+  tmp___0 = ldv__builtin_expect(i > 31, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -11211,7 +11209,7 @@ static void ar5523_create_rateset(struct ar5523 *ar , struct ieee80211_bss_conf 
   descriptor___0.format = "Considering rate %d : %d\n";
   descriptor___0.lineno = 1208U;
   descriptor___0.flags = 0U;
-  tmp___1 = __builtin_expect((long )descriptor___0.flags & 1L, 0L);
+  tmp___1 = ldv__builtin_expect((long )descriptor___0.flags & 1L, 0L);
   }
   if (tmp___1 != 0L) {
     {
@@ -11324,7 +11322,7 @@ static void ar5523_bss_info_changed(struct ieee80211_hw *hw , struct ieee80211_v
   descriptor.format = "bss_info_changed called\n";
   descriptor.lineno = 1280U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -11433,7 +11431,7 @@ static void ar5523_configure_filter(struct ieee80211_hw *hw , unsigned int chang
   descriptor.format = "configure_filter called\n";
   descriptor.lineno = 1334U;
   descriptor.flags = 0U;
-  tmp = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp != 0L) {
     {
@@ -11581,7 +11579,7 @@ static int ar5523_get_max_rxsz(struct ar5523 *ar )
   descriptor.format = "Max RX buf size: %d\n";
   descriptor.lineno = 1426U;
   descriptor.flags = 0U;
-  tmp___2 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___2 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___2 != 0L) {
     {
@@ -12166,7 +12164,7 @@ static void ar5523_disconnect(struct usb_interface *intf )
   descriptor.format = "detaching\n";
   descriptor.lineno = 1729U;
   descriptor.flags = 0U;
-  tmp___0 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+  tmp___0 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
   }
   if (tmp___0 != 0L) {
     {
@@ -12400,7 +12398,7 @@ void ldv_dispatch_instance_register_8_2(struct timer_list *arg0 ) ;
 void ldv_dispatch_register_10_2(struct usb_driver *arg0 ) ;
 void ldv_dispatch_register_6_3(struct ieee80211_bss_conf *arg0 ) ;
 void ldv_entry_EMGentry_11(void *arg0 ) ;
-void main(void) ;
+int main(void) ;
 struct ieee80211_hw *ldv_ieee80211_alloc_hw(struct ieee80211_hw *arg0 , unsigned long arg1 ,
                                             struct ieee80211_ops *arg2 ) ;
 void ldv_ieee80211_free_hw(void *arg0 , struct ieee80211_hw **arg1 ) ;
@@ -12620,7 +12618,7 @@ void ldv_entry_EMGentry_11(void *arg0 )
   return;
 }
 }
-void main(void) 
+int main(void) 
 { 
 
 
@@ -12629,7 +12627,7 @@ void main(void)
   ldv_ldv_initialize_191();
   ldv_entry_EMGentry_11((void *)0);
   }
-  return;
+return 0;
 }
 }
 struct ieee80211_hw *ldv_ieee80211_alloc_hw(struct ieee80211_hw *arg0 , unsigned long arg1 ,
@@ -16322,7 +16320,7 @@ void ldv_linux_usb_urb_check_final_state(void)
 }
 }
 extern void ldv_assert(char const   * , int  ) ;
-void __builtin_trap(void) ;
+void ldv__builtin_trap(void) ;
 void ldv_assume(int expression ) 
 { 
 
@@ -16346,7 +16344,7 @@ void ldv_stop(void)
   goto ldv_stop_label;
 }
 }
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 
@@ -16354,7 +16352,7 @@ long __builtin_expect(long exp , long c )
   return (exp);
 }
 }
-void __builtin_trap(void) 
+void ldv__builtin_trap(void) 
 { 
 
 

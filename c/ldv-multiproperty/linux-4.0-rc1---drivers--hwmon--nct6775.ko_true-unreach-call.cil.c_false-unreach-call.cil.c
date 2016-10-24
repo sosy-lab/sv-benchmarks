@@ -4087,7 +4087,7 @@ struct ldv_thread {
    void (*function)(void * ) ;
 };
 typedef _Bool ldv_set;
-long __builtin_expect(long exp , long c ) ;
+long ldv__builtin_expect(long exp , long c ) ;
 void ldv_assume(int expression ) ;
 void ldv_stop(void) ;
 void ldv_linux_alloc_irq_check_alloc_flags(gfp_t flags ) ;
@@ -4326,7 +4326,7 @@ __inline static bool IS_ERR(void const   *ptr )
 
   {
   {
-  tmp = __builtin_expect((unsigned long )ptr > 0xfffffffffffff000UL, 0L);
+  tmp = ldv__builtin_expect((unsigned long )ptr > 0xfffffffffffff000UL, 0L);
   }
   return (tmp != 0L);
 }
@@ -5631,7 +5631,7 @@ static void nct6775_select_fan_div(struct device *dev , struct nct6775_data *dat
     descriptor.format = "Modifying fan%d clock divider from %u to %u\n";
     descriptor.lineno = 1254U;
     descriptor.flags = 1U;
-    tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp___1 != 0L) {
       {
@@ -6699,7 +6699,7 @@ static ssize_t store_fan_min(struct device *dev , struct device_attribute *attr 
     descriptor.format = "fan%u clock divider changed from %u to %u\n";
     descriptor.lineno = 1847U;
     descriptor.flags = 1U;
-    tmp___4 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___4 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp___4 != 0L) {
       {
@@ -10394,7 +10394,7 @@ static int nct6775_find(int sioaddr , struct nct6775_sio_data *sio_data )
     descriptor.format = "unsupported chip ID: 0x%04x\n";
     descriptor.lineno = 4135U;
     descriptor.flags = 1U;
-    tmp___1 = __builtin_expect((long )descriptor.flags & 1L, 0L);
+    tmp___1 = ldv__builtin_expect((long )descriptor.flags & 1L, 0L);
     }
     if (tmp___1 != 0L) {
       {
@@ -10907,7 +10907,7 @@ void ldv_dummy_resourceless_instance_callback_9_9(long (*arg0)(struct device * ,
                                                   struct device *arg1 , struct device_attribute *arg2 ,
                                                   char *arg3 , unsigned long arg4 ) ;
 void ldv_entry_EMGentry_36(void *arg0 ) ;
-void main(void) ;
+int main(void) ;
 void ldv_platform_driver_unregister(void *arg0 , struct platform_driver *arg1 ) ;
 int ldv_platform_instance_probe_0_14(int (*arg0)(struct platform_device * ) , struct platform_device *arg1 ) ;
 void ldv_platform_instance_release_0_3(int (*arg0)(struct platform_device * ) , struct platform_device *arg1 ) ;
@@ -12204,7 +12204,7 @@ void ldv_entry_EMGentry_36(void *arg0 )
   return;
 }
 }
-void main(void) 
+int main(void) 
 { 
 
 
@@ -12213,7 +12213,7 @@ void main(void)
   ldv_ldv_initialize_152();
   ldv_entry_EMGentry_36((void *)0);
   }
-  return;
+return 0;
 }
 }
 void ldv_platform_driver_unregister(void *arg0 , struct platform_driver *arg1 ) 
@@ -17191,7 +17191,7 @@ void ldv_linux_usb_urb_check_final_state(void)
 }
 }
 extern void ldv_assert(char const   * , int  ) ;
-void __builtin_trap(void) ;
+void ldv__builtin_trap(void) ;
 void ldv_assume(int expression ) 
 { 
 
@@ -17215,7 +17215,7 @@ void ldv_stop(void)
   goto ldv_stop_label;
 }
 }
-long __builtin_expect(long exp , long c ) 
+long ldv__builtin_expect(long exp , long c ) 
 { 
 
 
@@ -17223,7 +17223,7 @@ long __builtin_expect(long exp , long c )
   return (exp);
 }
 }
-void __builtin_trap(void) 
+void ldv__builtin_trap(void) 
 { 
 
 
